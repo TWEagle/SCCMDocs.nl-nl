@@ -1,19 +1,45 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 3
 
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [sccm\mdm\TOC.md](https://github.com/Microsoft/SCCMDocs-pr/blob/2328dd3c40763867e485c1a4d4d7e7aa24ae49b5/sccm/mdm/TOC.md) | HandedOffSuccess | [Details](#9007f9905711f1bea5d978ad2d100bc279a5f15f444)
+ [sccm\core\get-started\technical-preview.md](https://github.com/Microsoft/SCCMDocs-pr/blob/211f700e7ee8817ded3885bfe21b6e9e68261477/sccm/core/get-started/technical-preview.md) | HandedOffSuccess | [Details](#5861c939ef97a28617410d41378ce091b9dff662197)
+ [sccm\core\servers\manage\install-in-console-updates.md](https://github.com/Microsoft/SCCMDocs-pr/blob/211f700e7ee8817ded3885bfe21b6e9e68261477/sccm/core/servers/manage/install-in-console-updates.md) | HandedOffSuccess | [Details](#2aa4464bb5e2a457f3adef8889ce1b6a804299cc354)
+ [sccm\core\understand\install-the-ltsb.md](https://github.com/Microsoft/SCCMDocs-pr/blob/211f700e7ee8817ded3885bfe21b6e9e68261477/sccm/core/understand/install-the-ltsb.md) | HandedOffSuccess | [Details](#cb99a8194767fa485e22024435b68688ed4aa0c4394)
 
 ## Item Details
-##### <a name='9007f9905711f1bea5d978ad2d100bc279a5f15f444'></a> Source: [sccm\mdm\TOC.md](https://github.com/Microsoft/SCCMDocs-pr/blob/2328dd3c40763867e485c1a4d4d7e7aa24ae49b5/sccm/mdm/TOC.md)
+##### <a name='5861c939ef97a28617410d41378ce091b9dff662197'></a> Source: [sccm\core\get-started\technical-preview.md](https://github.com/Microsoft/SCCMDocs-pr/blob/211f700e7ee8817ded3885bfe21b6e9e68261477/sccm/core/get-started/technical-preview.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [TOC.118d3cecc9cdbadabc1a7a188c77128f8658667a.nl-nl.xlf](https://github.com/Microsoft/SCCMDocs-pr.handoff/blob/5f36eeece45f9d14efc0d8b9461339070132af2d/ol-handoff/Microsoft/SCCMDocs-pr.nl-nl/live/TOC.118d3cecc9cdbadabc1a7a188c77128f8658667a.nl-nl.xlf)
-* Handoff Datetime: 2016-10-13 23:15:41
+* Handoff File: [technical-preview.08907a4af33bb86e48ddf4c2708436f7dcaa4d9f.nl-nl.xlf](https://github.com/Microsoft/SCCMDocs-pr.handoff/blob/76fe1b2e484bb07c22685ff1c15dfc29e68b7a6e/ol-handoff/Microsoft/SCCMDocs-pr.nl-nl/live/technical-preview.08907a4af33bb86e48ddf4c2708436f7dcaa4d9f.nl-nl.xlf)
+* Handoff Datetime: 2016-10-14 20:15:59
+* Handoff Reason: Include
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* [Back to Top](#report-top)
+
+##### <a name='2aa4464bb5e2a457f3adef8889ce1b6a804299cc354'></a> Source: [sccm\core\servers\manage\install-in-console-updates.md](https://github.com/Microsoft/SCCMDocs-pr/blob/211f700e7ee8817ded3885bfe21b6e9e68261477/sccm/core/servers/manage/install-in-console-updates.md)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [install-in-console-updates.ec6470a74a646ecca82059482d066aa15f3b06f2.nl-nl.xlf](https://github.com/Microsoft/SCCMDocs-pr.handoff/blob/76fe1b2e484bb07c22685ff1c15dfc29e68b7a6e/ol-handoff/Microsoft/SCCMDocs-pr.nl-nl/live/install-in-console-updates.ec6470a74a646ecca82059482d066aa15f3b06f2.nl-nl.xlf)
+* Handoff Datetime: 2016-10-14 20:15:59
+* Handoff Reason: Include
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* [Back to Top](#report-top)
+
+##### <a name='cb99a8194767fa485e22024435b68688ed4aa0c4394'></a> Source: [sccm\core\understand\install-the-ltsb.md](https://github.com/Microsoft/SCCMDocs-pr/blob/211f700e7ee8817ded3885bfe21b6e9e68261477/sccm/core/understand/install-the-ltsb.md)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [install-the-ltsb.97fc30023e365b95243856b26a4c70c2f5923798.nl-nl.xlf](https://github.com/Microsoft/SCCMDocs-pr.handoff/blob/76fe1b2e484bb07c22685ff1c15dfc29e68b7a6e/ol-handoff/Microsoft/SCCMDocs-pr.nl-nl/live/install-the-ltsb.97fc30023e365b95243856b26a4c70c2f5923798.nl-nl.xlf)
+* Handoff Datetime: 2016-10-14 20:15:59
 * Handoff Reason: Include
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
