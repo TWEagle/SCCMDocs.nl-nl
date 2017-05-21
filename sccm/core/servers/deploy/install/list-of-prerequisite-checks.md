@@ -1,0 +1,129 @@
+---
+title: Vereiste controles | Microsoft-documenten
+description: Bekijk de beschikbare controles van vereisten voor System Center Configuration Manager. Bevat controles voor beveiligingsrechten.
+ms.custom: na
+ms.date: 4/17/2017
+ms.prod: configuration-manager
+ms.reviewer: na
+ms.suite: na
+ms.technology:
+- configmgr-other
+ms.tgt_pltfrm: na
+ms.topic: article
+ms.assetid: 6a279624-ffc9-41aa-8132-df1809708dd5
+caps.latest.revision: 12
+author: Brenduns
+ms.author: brenduns
+manager: angrobe
+ms.translationtype: Machine Translation
+ms.sourcegitcommit: dda2f4c01078fbbd174cbcb30357554c24f6abeb
+ms.openlocfilehash: 14834f62ffaa8fcba5ddb7536a0b76e18b557e53
+ms.contentlocale: nl-nl
+ms.lasthandoff: 05/17/2017
+
+---
+# <a name="list-of-prerequisite-checks-for-system-center-configuration-manager"></a>Lijst met de controles van vereisten voor System Center Configuration Manager
+
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+
+De volgende secties bevatten informatie over de beschikbare vereistencontroles.
+
+Zie voor meer informatie over het gebruik van de Prerequisite Checker [vereistencontrole](prerequisite-checker.md).  
+
+##  <a name="BKMK_Security"></a>Controles op vereisten voor beveiligingsrechten  
+De volgende tabel geeft een lijst van de controles die Prerequisite Checker voor beveiligingsrechten uitvoert.
+
+|Controle uitgevoerd|Uitleg bij|Ernst|Site-toepassing|
+|---|---|---|---|
+|**Administrator-rechten op de centrale beheersite**|Controleert of de gebruikersaccount die de installatie van Configuration Manager uitvoert beschikt **Administrator** -rechten op de computer van de centrale beheersite. |Fout|Primaire site|
+|**Beheerrechten op uit te breiden primaire site**|Controleert of de gebruikersaccount die het installatieprogramma uitvoert beschikt **Administrator** rechten op de zelfstandige primaire site die zal worden uitgebreid.|Fout|Centrale beheersite|
+|**Beheerrechten op sitesysteem**|Controleert of de gebruikersaccount die de installatie van Configuration Manager uitvoert beschikt **Administrator** -rechten op de siteservercomputer. |Fout|Centrale beheersite <br>Primaire site <br>Secundaire site|
+|**Beheerrechten van CAS-computer op de primaire site uitbreiden**|Controleert of het computeraccount van de centrale beheersite **Administrator** rechten op de zelfstandige primaire site die zal worden uitgebreid.|Fout|Centrale beheersite|
+|**Verbinding met SQL Server op de centrale beheersite**|Controleert of het gebruikersaccount dat Configuration Manager-installatie wordt uitgevoerd op de primaire site om een bestaande hiërarchie te nemen de **sysadmin** rol op de SQL Server-exemplaar voor de centrale beheersite.|Fout|Primaire site|
+|**Site server beheerrechten van computeraccount**|Controleert of het computeraccount van de siteserver **Administrator** -rechten op de SQL-server en computers verwijzen.|Fout|Primaire site <br>SQL Server|
+|**SQL Server-communicatie tussen sitesysteem**| Controleert of een geldige Service Principal Name (SPN) is geregistreerd in Active Directory Domain Services voor het account dat is geconfigureerd voor het uitvoeren van de SQL Server-service voor het SQL Server-exemplaar dat als host fungeert voor de Configuration Manager-sitedatabase. Er moet een geldige SPN zijn geregistreerd in Active Directory Domain Services om Kerberos-verificatie te kunnen ondersteunen.|Waarschuwing|Secundaire site <br>Beheerpunt|
+|**Beveiligingsmodus SQL Server**|Verifieert of SQL Server is geconfigureerd voor Windows-verificatiebeveiliging.|Waarschuwing|SQL Server|
+|**SQL Server sysadmin-rechten**|Controleert of de gebruikersaccount die de installatie van Configuration Manager uitvoert beschikt de **sysadmin** rol op de SQL Server-instantie die geselecteerd voor installatie van de sitedatabase. Deze controle mislukt ook wanneer het installatieprogramma geen toegang kan krijgen tot de instantie zodat de SQL Server machtigingen kan verifiëren.|Fout|SQL Server|
+|**SQL Server sysadmin-rechten voor referentiesite**|Controleert of de gebruikersaccount die de installatie van Configuration Manager uitvoert beschikt de **sysadmin** rol op de instantie van SQL Server geselecteerd als de referentiesite-database. SQL Server **sysadmin** rolmachtigingen nodig zijn voor het wijzigen van de sitedatabase.|Fout|SQL Server|
+
+##  <a name="BKMK_Dependencies"></a>Controles van vereisten voor Configuration Manager-afhankelijkheden
+De volgende tabel geeft een lijst van de controles die Prerequisite Checker voor Configuration Manager-afhankelijkheden uitvoert.
+
+|Controle uitgevoerd|Uitleg bij|Ernst|Site-toepassing|
+|---|---|---|---|
+|**Actieve migratietoewijzingen op de primaire doelsite**|Controleert of er geen actieve migratietoewijzingen naar primaire sites zijn.|Fout|Centrale beheersite|
+|**Actief Replica-Beheerpunt**|Controleert op een actieve beheerpuntreplica.|Fout|Primaire site|
+|**Beheerrechten op distributiepunt**|Controleert of het gebruikersaccount dat u Setup uitvoert **Administrator** rechten heeft op het distributiepunt.|Waarschuwing|Distributiepunt|
+|**Beheerrechten op beheerpunt**|Controleert of het computeraccount van de siteserver **Administrator** rechten heeft op het beheerpunt en distributiepunt.|Waarschuwing|Beheerpunt|
+|**Beheershare (sitesysteem)**|Controleert of de vereiste beheershares aanwezig zijn op de sitesysteemcomputer.|Waarschuwing|Beheerpunt|
+|**Toepassingscompatibiliteit**|Verifieert dat huidige toepassingen compatibel zijn met het toepassingsschema.|Waarschuwing|Centrale beheersite <br>Primaire site|
+|**BITS ingeschakeld**|Controleert of Background Intelligent Transfer Service (BITS) is geïnstalleerd op de site system de beheerpuntcomputer. Wanneer deze controle mislukt, BITS niet geïnstalleerd, de Internet Information Services (IIS) 6.0 Windows Management Instrumentation (WMI)-compatibiliteitscomponent voor IIS 7.0 is niet geïnstalleerd op de computer of op de externe IIS-host of Setup kon geen externe IIS-instellingen verifiëren omdat er geen IIS common componenten op de siteservercomputer waren geïnstalleerd.|Fout|Beheerpunt|
+|**BITS geïnstalleerd**|Verifieert of BITS is geïnstalleerd in IIS.|Waarschuwing|Beheerpunt|
+|**Hoofdlettergevoelige collatie op SQL Server**|Controleert of de installatie van SQL Server gebruikmaakt van hoofdlettergevoelige collatie, zoals SQL_Latin1_General_CP1_CI_AS.|Fout|SQL Server|
+|**Controle bestaande zelfstandige primaire site op versie en sitecode**|Stelt vast dat de primaire site die u wilt uitbreiden een zelfstandige primaire site, en dat deze dezelfde versie van Configuration Manager, maar een andere sitecode heeft dan de centrale beheersite worden geïnstalleerd.|Fout|Centrale beheersite <br>Primaire site|
+|**Controleren op niet-compatibele verzameling verwijzingen**|Tijdens een upgrade, wordt deze controle gecontroleerd dat verzamelingen alleen andere verzamelingen van hetzelfde type verwijzing.|Fout|Centrale beheersite|  
+|**Clientversie op beheerpuntcomputer**|Controleert of u het beheerpunt installeert op een computer waarop geen andere versie van de Configuration Manager-client is geïnstalleerd.|Fout|Beheerpunt|
+|**Configuratie voor geheugengebruik door SQL Server**|Controleert of SQL Server is geconfigureerd voor onbeperkt geheugengebruik. Configureer een maximumlimiet voor SQL Server-geheugen.|Waarschuwing|SQL Server|
+|**Vaste SQL Server-instantie**|Controleert of een toegewezen exemplaar van SQL server is geconfigureerd om de Configuration Manager-sitedatabase te hosten. Als de instantie door een andere site wordt gebruikt, moet u een andere instantie voor de nieuwe site selecteren. U kunt ook de andere site te verwijderen of de database verplaatsen naar een ander exemplaar voor de SQL server.|Fout|Centrale beheersite <br>Primaire site <br>Secundaire site|
+|**Bestaande Configuration Manager-servercomponenten op server**|Verifieert of een siteserver of sitesysteemrol niet reeds geïnstalleerd is op de computer die geselecteerd is voor site-installatie.|Fout|Centrale beheersite <br>Primaire site <br>Secundaire site|
+|**Firewall-uitzondering voor SQL Server**|Controleert of de Windows Firewall is uitgeschakeld of of een relevante Windows Firewall-uitzondering voor SQL Server bestaat. U moet Sqlservr.exe of de vereiste TCP-poorten extern toegankelijk toestaan. Standaard luistert SQL Server op TCP-poort 1433 en SQL Server Service Broker (SSB) maakt gebruik van TCP-poort 4022.|Fout|Centrale beheersite <br>Primaire site <br>Secundaire site <br>Beheerpunt|
+|**Firewall-uitzondering voor SQL Server (zelfstandige primaire site)**|Controleert of de Windows Firewall is uitgeschakeld of of een relevante Windows Firewall-uitzondering voor SQL Server bestaat. U moet Sqlservr.exe of de vereiste TCP-poorten extern toegankelijk toestaan. Standaard luistert SQL Server op TCP-poort 1433 en de SSB maakt gebruik van TCP-poort 4022.|Waarschuwing|Primaire site (alleen zelfstandig)|
+|**Firewall-uitzondering voor SQL Server voor beheerpunt**|Controleert of de Windows Firewall is uitgeschakeld of of een relevante Windows Firewall-uitzondering voor SQL Server bestaat.|Waarschuwing|Beheerpunt|
+|**IIS HTTPS-configuratie**|Controleert of de IIS-websitebindingen voor het HTTPS-communicatieprotocol. Wanneer u rollen waarvoor HTTPS installeert, moet u IIS sitebindingen configureren op de gespecificeerde server met een geldige openbare-sleutelinfrastructuur (PKI)-certificaat.|Waarschuwing|Het beheerpunt <br>Distributiepunt|
+|**IIS-service wordt uitgevoerd**|Controleert of dat IIS is geïnstalleerd en worden uitgevoerd op de computer voor het installeren van het beheerpunt of distributiepunt.|Fout|Het beheerpunt <br> Distributiepunt|
+|**Sortering vergelijken van uit te breiden primaire site**|Verifieert dat de sitedatabase voor de zelfstandige primaire site die u uitbreiden wilt, dezelfde collatie heeft als de sitedatabase op de centrale beheersite.|Fout|Centrale beheersite|
+|**Microsoft Remote Differential Compression (RDC)-bibliotheek geregistreerd**|Controleert of er op de siteserver van Configuration Manager de RDC-bibliotheek is geregistreerd.|Fout|Centrale beheersite <br>Primaire site <br>Secundaire site|
+|**Microsoft Windows Installer**|Controleert of de Windows Installer-versie. Wanneer deze controle mislukt, kon het installatieprogramma niet de versie te controleren of de geïnstalleerde versie niet voldoet aan de minimale vereisten van Windows Installer 4.5.|Fout|Centrale beheersite <br>Primaire site <br>Secundaire site|
+|**Microsoft XML Core Services 6.0 (MSXML60)**|Verifieert of MSXML 6.0 of hoger is geïnstalleerd op de computer.|Waarschuwing|Centrale beheersite <br>Primaire site <br>Secundaire site <br>Configuration Manager-console <br>Het beheerpunt <br>Distributiepunt|
+|**Minimum .NET Framework-versie voor Configuration Manager-console**|Controleert of Microsoft .NET Framework 4.0 is geïnstalleerd op de consolecomputer Configuration Manager. U kunt .NET Framework 4.0 vanaf downloaden [Microsoft Download Center](http://go.microsoft.com/fwlink/p/?LinkId=189149).|Fout|Configuration Manager-console|
+|**Minimum .NET Framework-versie voor Configuration Manager-siteserver**|Controleert of .NET Framework 3.5 is geïnstalleerd op de siteserver van Configuration Manager. U kunt Microsoft .NET Framework 3.5 van downloaden voor Windows Server 2008 [Microsoft Download Center](http://go.microsoft.com/fwlink/p/?LinkId=185604). Voor Windows Server 2008 R2 kunt u .NET Framework 3.5 inschakelen als een functie binnen Server Manager.|Fout|Centrale beheersite <br>Primaire site <br>Secundaire site|
+|**Minimum .NET Framework-versie voor SQL Server Express edition-installatie voor secundaire Configuration Manager-site**|Verifieert of .NET Framework 4.0 is geïnstalleerd op Configuration Manager secundaire sitecomputers voor het installeren van SQL Server Express.|Fout|Secundaire site|
+|**Collatie bovenliggende/onderliggende database**|Verifieert dat de sortering van de sitedatabase overeenkomt met de sortering van de bovenliggende site-database. Alle sites binnen een hiërarchie moeten dezelfde databasecollatie gebruiken.|Fout|Primaire site <br>Secundaire site|
+|**PowerShell 2.0 op siteserver**|Controleert of Windows PowerShell 2.0 of hoger is geïnstalleerd op de siteserver voor Configuration Manager Exchange Connector. Voor meer informatie over PowerShell 2.0, zie [Artikel 968930](http://go.microsoft.com/fwlink/p/?LinkId=226450) in de Microsoft Knowledge Base.|Waarschuwing|Primaire site|
+|**Primaire FQDN**|Met behulp van een volledig gekwalificeerde domeinnaam (FQDN), wordt gecontroleerd of de NetBIOS-naam van de computer overeenkomt met de lokale hostnaam (eerste label van de FQDN) van de computer.|Fout|Centrale beheersite <br>Primaire site <br>Secundaire site <br>SQL Server|
+|**Externe verbinding naar WMI op secundaire Site**|Controleert of het installatieprogramma kan tot stand brengen van een externe verbinding naar WMI op de secundaire siteserver.|Waarschuwing|Secundaire site|
+|**Vereiste SQL Server-sortering**|Verifieert dat het exemplaar van SQL Server en de Configuration Manager-sitedatabase, indien geïnstalleerd, is geconfigureerd voor het gebruik van de collatie SQL_Latin1_General_CP1_CI_AS, tenzij u een Chinees besturingssysteem gebruikt en behoefte hebt aan GB18030-ondersteuning.<br><br>Zie voor meer informatie over het wijzigen van uw SQL Server-instantie en databasecollaties [instellen en wijzigen van sorteringen](http://go.microsoft.com/fwlink/p/?LinkID=234541) in de SQL Server 2008 R2 Books Online.  Zie [Internationale ondersteuning in System Center Configuration Manager](../../../../core/plan-design/hierarchy/international-support.md) voor meer informatie over het inschakelen van GB18030-ondersteuning.|Fout|Centrale beheersite <br>Primaire site <br>Secundaire site|
+|**Bronmap voor installatieprogramma**|Controleert of het computeraccount voor de secundaire site **lezen** NTFS-bestandssysteemmachtigingen en **lezen** sharemachtigingen voor de Setup-bronmap en -share.<br><br>**OPMERKING**: De computeraccount van de secundaire site moet een **Administrator** gebruiker op de computer als u beheershares gebruikt (bijvoorbeeld C$ en D$).|Fout|Secundaire site|
+|**Bronversie installatieprogramma**|Verifieert dat de Configuration Manager-versie in de bronmap die u hebt opgegeven voor de secundaire site-installatie, overeenkomt met de Configuration Manager-versie van de primaire site.|Fout|Secundaire site|
+|**Sitecode in gebruik**|Controleert of de sitecode die u opgaf niet reeds in gebruik is in de Configuration Manager-hiërarchie. U moet een unieke sitecode voor deze website opgeven.|Fout|Primaire site|
+|**Computer van de SMS-Provider heeft hetzelfde domein als de siteserver**|Controleert of een computer met een exemplaar van de SMS-Provider hetzelfde domein als de siteserver heeft.|Fout|SMS-provider|
+|**SQL Server-editie**|Controleert of de editie van SQL Server op de site niet SQL Server Express.|Fout|SQL Server|
+|**SQL Server Express op secundaire Site**|Controleert of SQL Server Express met succes kan geïnstalleerd op de siteservercomputer voor een secundaire site.|Fout|Secundaire site|
+|**SQL Server op de secundaire Sitecomputer**|Controleert of SQL Server is geïnstalleerd op de secundaire sitecomputer. U kunt SQL Server niet installeren op een extern sitesysteem.<br><br>**WAARSCHUWING**: Deze controle is enkel van toepassing wanneer u selecteert dat Setup een bestaande instantie van SQL Server gebruikt.|Fout|Secundaire site|
+|**Geheugentoewijzing SQL Server-proces**|Verifieert dat SQL Server minimaal 8 GB geheugen voor de centrale beheersite en primaire site en een minimum van 4 GB geheugen voor de secundaire site. Zie voor meer informatie over het instellen van een vaste hoeveelheid geheugen met behulp van SQL Server Management Studio [het instellen van een vaste hoeveelheid geheugen (SQL Server Management Studio)](http://go.microsoft.com/fwlink/p/?LinkId=233759).<br><br>**OPMERKING**: Deze controle is niet van toepassing op de SQL Server Express op een secundaire site, wat beperkt is tot 1 GB gereserveerd geheugen.|Waarschuwing|SQL Server|
+|**Account voor uitvoering van SQL Server-service**|Controleert of het aanmeldingsaccount voor de SQL Server-service is niet een lokale gebruikersaccount is of LOCAL SERVICE. U moet de SQL Server-service configureren om een geldig domeinaccount, NETWORK SERVICE of LOCAL SYSTEM te gebruiken.|Fout|Centrale beheersite <br>Primaire site <br>Secundaire site|
+|**SQL Server-TCP-poort**|Controleert of TCP ingeschakeld is voor de SQL Server-exemplaar en is ingesteld om een statische poort te gebruiken.|Fout|SQL Server|
+|**SQL Server-versie**|Verifieert of een ondersteunde versie van SQL Server is geïnstalleerd op de gespecificeerde Sitedatabaseserver. Zie voor meer informatie [ondersteuning voor versies van SQL Server voor System Center Configuration Manager](../../../../core/plan-design/configs/support-for-sql-server-versions.md).|Fout|SQL Server|
+|**Niet-ondersteunde site system besturingssysteemversie voor upgrade**|Tijdens een upgrade met deze regel controleert of de sitesysteemrollen, met uitzondering van distributiepunten zijn geïnstalleerd op computers met Windows Server 2008 of eerdere versies.<br><br>**OPMERKING**: Omdat deze controle kan niet de status van de sitesysteemrollen die zijn geïnstalleerd in Azure of voor de cloudopslag die door Microsoft Intune wordt gebruikt wanneer u Intune met Configuration Manager integreert oplossen, kunt u waarschuwingen voor deze rollen als valse positieven negeren.|Waarschuwing|Primaire site <br>Secundaire site|
+|**Niet-ondersteunde sitesysteemrol 'Asset Intelligence-synchronisatiepunt' op de uitgebreide primaire site**|Controleert de Asset Intelligence-synchronisatie sitesysteemrol is niet geïnstalleerd op de zelfstandige primaire site die u uitbreidt.|Fout|Centrale beheersite|
+|**Niet-ondersteunde sitesysteemrol 'Endpoint Protection-punt' op de uitgebreide primaire site**|Controleert of de Endpoint Protection-puntsitesysteemrol niet is geïnstalleerd op de zelfstandige primaire site die u uitbreidt.|Fout|Centrale beheersite|
+|**Niet-ondersteunde sitesysteemrol 'Microsoft Intune-Connector' op de uitgebreide primaire site**|Controleert of de Microsoft Intune-Connector-sitesysteemrol niet is geïnstalleerd op de zelfstandige primaire site die u uitbreidt.|Fout|Centrale beheersite|
+|**User State Migration Tool (USMT) is geïnstalleerd**|Controleert of het onderdeel User State Migration Tool (USMT) van Windows Assessment and Deployment Kit (ADK) voor Windows 8.1 is geïnstalleerd.|Fout|Centrale beheersite <br>Primaire site (alleen zelfstandig)|  
+|**FQDN-naam van SQL Server-Computer valideren**|Controleert of de FQDN-naam die u hebt opgegeven voor de SQL Server-computer geldig is.|Fout|SQL Server|
+|**Controleer of de versie van de centrale beheersite**|Controleert of de centrale beheersite dezelfde versie van Configuration Manager.|Fout|Primaire site|
+|**Controleer siteservermachtigingen voor publiceren in Active Directory**|Controleert of het computeraccount voor de siteserver **volledig beheer** machtigingen voor de **Systeembeheer** container in Active Directory-domein. Zie voor meer informatie over uw opties voor het configureren van de vereiste machtigingen, [Active Directory voorbereiden voor sitepublicatie](../../../../core/plan-design/network/extend-the-active-directory-schema.md).<br><br>**OPMERKING**: U kunt deze waarschuwing negeren indien u handmatig de machtigingen hebt geverifieerd.|Waarschuwing|Centrale beheersite <br>Primaire site <br>Secundaire site|
+|**Windows-hulpprogramma's geïnstalleerd**|Controleert of het onderdeel Windows-hulpprogramma's van Windows ADK voor Windows 10 is geïnstalleerd.|Fout|SMS-provider|
+|**Windows-failovercluster**|Controleert of computers waarop een beheerpunt of distributiepunt niet deel uitmaken van een Windows-Cluster.|Fout|Beheerpunt<br>Distributiepunt|
+|**Windows voorinstallatieomgeving geïnstalleerd**|Controleert of het onderdeel Windows Preinstallation Environment van de Windows ADK voor Windows 10 is geïnstalleerd.|Fout|SMS-provider|
+|**Windows Remote Management (WinRM) v1.1**|Verifieert of WinRM 1.1 is geïnstalleerd op de primaire siteserver of de consolecomputer Configuration Manager om uit te voeren van de out-of-band-beheerconsole. Zie [Artikel 936059](https://support.microsoft.com/en-us/kb/936059) in de Microsoft Knowledge Base voor meer informatie over het downloaden van WinRM 1.1.|Waarschuwing|Primaire site <br>Configuration Manager-console|
+|**WSUS op siteserver**|Verifieert of Windows Server Update Services (WSUS) 3.0 servicepack 2 (SP2) is geïnstalleerd op de siteserver. Wanneer u een softwareupdate-punt op een computer die niet de siteserver gebruikt, moet u de WSUS-beheerconsole installeren op de siteserver. Zie voor meer informatie over WSUS [Windows Server Update Services](http://go.microsoft.com/fwlink/p/?LinkID=79477).|Waarschuwing|Centrale beheersite <br>Primaire site|  
+
+##  <a name="BKMK_Requirements"></a>Controles op vereisten voor de systeemvereisten  
+De volgende tabel geeft een lijst van de controles die Prerequisite Checker voor systeemvereisten uitvoert.  
+
+|Controle uitgevoerd|Uitleg bij|Ernst|Site-toepassing|
+|---|---|---|---|
+|**Active Directory-domein controle op functioneel niveau**|Controleert of het functionele niveau van Active Directory-domein een minimum van Windows Server 2008 R2.|Waarschuwing|Centrale beheersite <br>Primaire site|
+|**Controleren of de dat Server-Service wordt uitgevoerd**|Verifieert of de serverservice is gestart.|Fout|Centrale beheersite <br>Primaire site <br>Secundaire site|  
+|**Lidmaatschap van domein**|Verifieert of de Configuration Manager-computer lid is van een Windows-domein.|Fout|Centrale beheersite <br>Primaire site <br>Secundaire site <br>SMS-Provider <br>SQL Server|
+|**Lidmaatschap van domein**|Verifieert of de Configuration Manager-computer lid is van een Windows-domein.|Waarschuwing|Het beheerpunt <br>Distributiepunt|
+|**FAT-station op siteserver**|Controleert of het schijfstation ingedeeld is met het FAT-bestandssysteem. Uit beveiligingsoverwegingen site server-onderdelen te installeren op schijfstations die zijn geformatteerd met het NTFS-bestandssysteem.|Waarschuwing|Primaire site|
+|**Vrije schijfruimte op siteserver**|De siteservercomputer moet ten minste 15 GB vrije schijfruimte hebben voor het installeren van de siteserver. U moet een bijkomende 1 GB vrije ruimte hebben indien u de sitesysteemrol van de SMS-provider installeert op dezelfde computer.|Fout|Centrale beheersite <br>Primaire site <br>Secundaire site|
+|**Opnieuw opstarten van systeem in behandeling**|Controleert of een ander programma vereist dat de server opnieuw worden opgestart voordat u Setup uitvoert.|Fout|Centrale beheersite <br>Primaire site <br>Secundaire site <br>Configuration Manager-console <br>SMS-Provider <br>SQL Server. <br>Het beheerpunt <br>Distributiepunt|
+|**Alleen-lezen domeincontroller**|Sitedatabaseservers en secundaire siteservers worden niet ondersteund op een alleen-lezen domeincontroller (RODC). Zie voor meer informatie [problemen bij de installatie van SQL Server op een domeincontroller](http://go.microsoft.com/fwlink/p/?LinkId=264856) in de Microsoft Knowledge Base.|Fout|Centrale beheersite <br>Primaire site <br>Secundaire site|
+|**Schema-uitbreidingen**|Bepaalt of de Active Directory Domain Services-schema is uitgebreid, en zo ja, de versie van de schema-uitbreidingen die werden gebruikt. Configuration Manager Active Directory-schema-uitbreidingen zijn niet vereist voor siteserverinstallatie, maar het is raadzaam ze voor alle Configuration Manager-functies volledig worden gebruikt. Zie voor meer informatie over de voordelen van het schema uitbreiden [Active Directory voorbereiden voor sitepublicatie](../../../../core/plan-design/network/extend-the-active-directory-schema.md).|Waarschuwing|Centrale beheersite <br>Primaire site|
+|**FQDN-lengte van siteserver**|Controleert de lengte van de FQDN van de site server-computer.|Fout|Centrale beheersite <br>Primaire site <br>Secundaire site|
+|**Niet-ondersteund besturingssysteem voor Configuration Manager-console**|Verifieert dat de Configuration Manager-console kan worden geïnstalleerd op computers waarop een ondersteund besturingssysteemversie wordt uitgevoerd. Zie voor meer informatie de [ondersteunde besturingssystemen voor de System Center Configuration Manager-console](/sccm/core/plan-design/configs/supported-operating-systems-consoles).|Fout|Configuration Manager-console|
+|**Versie van besturingssysteem niet-ondersteunde siteserver voor installatie**|Verifieert of een ondersteund besturingssysteem wordt uitgevoerd op de server. Zie voor meer informatie [ondersteunde besturingssystemen voor System Center Configuration Manager-sitesysteemservers](/sccm/core/plan-design/configs/supported-operating-systems-for-site-system-servers.md).|Fout|Centrale beheersite <br>Primaire site <br>Secundaire site <br>Configuration Manager-console <br>Het beheerpunt <br>Distributiepunt|
+|**Controleer of de consistentie van de database**|Vanaf versie 1602, verifieert dit selectievakje consistentie van de database.|Fout|Centrale beheersite <br>Primaire site|  
+
