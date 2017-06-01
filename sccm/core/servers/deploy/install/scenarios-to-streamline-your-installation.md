@@ -27,7 +27,7 @@ ms.lasthandoff: 05/17/2017
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Er zijn nieuwe scenario's voor de installatie van een nieuwe hiërarchie een update-versie (zoals update 1610) te stroomlijnen en upgrade van Microsoft System Center 2012 Configuration Manager met de release van Updateversies voor de huidige vertakking System Center Configuration Manager. 
+Er zijn nieuwe scenario's voor de installatie van een nieuwe hiërarchie een update-versie (zoals update 1610) te stroomlijnen en upgrade van Microsoft System Center 2012 Configuration Manager met de release van Updateversies voor de huidige vertakking System Center Configuration Manager.
 
 Ondersteunde scenario's zijn onder meer:  
 
@@ -113,9 +113,7 @@ Ga als volgt de volgorde:
     -   Met een onderliggende primaire site worden automatisch dezelfde updates geïnstalleerd die u op een centrale beheersite installeert.  
     -   Secundaire sties installeren automatisch nieuwe versies. U moet deze handmatig uit in de console upgraden.  
 
-   
-
-    Als u na deze stap updates op de centrale beheersite installeert, wordt deze update alleen op onderliggende primaire sites geïnstalleerd als het onderhoudsvenster voor een site dat toestaat.  
+  Als u na deze stap updates op de centrale beheersite installeert, wordt deze update alleen op onderliggende primaire sites geïnstalleerd als het onderhoudsvenster voor een site dat toestaat.  
 
 4.  **Installeer de updateversie op uw site op het hoogste niveau.** Hiermee wordt de site op het hoogste niveau. Nadat u een centrale beheersite installeert de updateversie, elke onderliggende primaire site wordt de update geïnstalleerd tenzij u de installatie wordt geblokkeerd door een onderhoudsvenster.  
 

@@ -179,7 +179,7 @@
 #### [Grensgroepen](servers/deploy/configure/boundary-groups.md)
 #### [Grensgroepen voor versies vóór 1610](servers/deploy/configure/boundary-groups-for-1511-1602-and-1606.md)
 ###  [Gebruik van SQL Server Always On voorbereiden](servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md)
-###  [Configureer SQL-Server altijd op](servers/deploy/configure/configure-aoag.md)
+###  [Configureer SQL-Server altijd op](servers/deploy/configure/configure-aoag.md) 
 ###  [Een SQL Server-cluster gebruiken](servers/deploy/configure/use-a-sql-server-cluster-for-the-site-database.md)
 ###  [Aangepaste bestandslocaties voor databasebestanden](servers/deploy/configure/custom-locations-for-site-database-files.md)
 ###  [Beheer op basis van rollen configureren](servers/deploy/configure/configure-role-based-administration.md)
