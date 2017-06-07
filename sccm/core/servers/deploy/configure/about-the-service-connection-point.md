@@ -108,7 +108,7 @@ Schakel bewerking door de computer die als host fungeert voor de service connect
 
 -   *manage.microsoft.com  
 -   https://bspmts.MP.Microsoft.com/V
--   https://login.microsoftonline.com/ {TenantID}
+-   https://login.microsoftonline.com/{TenantID}
 
 
 **Onderhoud van Windows 10**  
