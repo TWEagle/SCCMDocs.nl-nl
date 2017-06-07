@@ -1,6 +1,8 @@
 # Begrijpen en verkennen
 ## [Overzicht](understand\protect-data-and-site-infrastructure.md)
-## [Back-up en herstel](understand/backup-and-recovery.md)
+## [Back-up van sites](understand/backup-and-recovery.md)
+## [Herstellen van sites](understand/recover-sites.md)
+## [Herstel van sites zonder toezicht](understand/unattended-recovery.md)
 ## [Opties voor hoge beschikbaarheid](understand/high-availability-options.md)
 ## [Implementaties met een hoog risico beheren](understand/settings-to-manage-high-risk-deployments.md)
 
