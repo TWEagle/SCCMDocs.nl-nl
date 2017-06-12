@@ -85,7 +85,7 @@ De volgende versies van Configuration Manager zijn beschikbaar als basislijn, al
 | 1511 <br /><br /> 5.00.8325.1000|8-12-2015| 12/8/2016|Ja|Nee|  
 
 
-*(Zie Opmerking 1)*  Deze basislijn 1606 media is verkrijgbaar als onderdeel van Microsoft System Center 2016 of release voor System Center Configuration Manager (huidige vertakking en langetermijnbeveiliging onderhoud vertakking 1606).
+*(Zie Opmerking 1) * Deze basislijn 1606 media is verkrijgbaar als onderdeel van Microsoft System Center 2016 of release voor System Center Configuration Manager (huidige vertakking en langetermijnbeveiliging onderhoud vertakking 1606).
 
 Ga in de linkerbovenhoek van de console naar **Info over System Center Configuration Manager** waar de nieuwe site en consoleversie worden weergegeven als u de versie van uw Configuration Manager-site wilt controleren.  
 
