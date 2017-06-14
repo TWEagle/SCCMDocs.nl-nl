@@ -65,7 +65,7 @@ Voorbeeldrapportmodellen zijn opgenomen in System Center Configuration Manager, 
     > [!NOTE]  
     >  Als u het deelvenster **Solution Explorer** niet kunt zien, klikt u op **Weergeven**en vervolgens op **Solution Explorer**.  
 
-###  <a name="BKMK_DefineReportModelDataSource"></a> To define the data source for the report model  
+###  <a name="BKMK_DefineReportModelDataSource"></a>De gegevensbron voor het rapportmodel definiëren  
 
 1.  Klik in het deelvenster **Solution Explorer** van **SQL Server Business Intelligence Development Studio**met de rechtermuisknop op **Gegevensbronnen** om **Nieuwe gegevensbron toevoegen**te selecteren.  
 
@@ -94,7 +94,7 @@ Voorbeeldrapportmodellen zijn opgenomen in System Center Configuration Manager, 
     > [!NOTE]  
     >  Als u de eigenschappen van een bestaande gegevensbron wilt bewerken, dubbelklikt u op de gegevensbron in de map **Gegevensbronnen** van het deelvenster **Solution Explorer** om de gegevensbroneigenschappen weer te geven in Gegevensbronontwerper.  
 
-###  <a name="BKMK_DefineReportModelDataSourceView"></a> To define the data source view for the report model  
+###  <a name="BKMK_DefineReportModelDataSourceView"></a>De gegevensbronweergave voor het rapportmodel definiëren  
 
 1.  Klik in **Solution Explorer**met de rechtermuisknop op **Gegevensbronweergaven** om **Nieuwe gegevensbronweergave toevoegen**te selecteren.  
 
@@ -133,7 +133,7 @@ Voorbeeldrapportmodellen zijn opgenomen in System Center Configuration Manager, 
 
 8.  Klik op **Voltooien**om de wizard te sluiten. Het rapportmodel wordt weergegeven in het venster Ontwerpen.  
 
-###  <a name="BKMK_PublishReportModel"></a> To publish the report model for use in SQL Server Reporting Services  
+###  <a name="BKMK_PublishReportModel"></a>Publiceren van het rapportmodel voor gebruik in SQL Server Reporting Services  
 
 1.  Klik in **Solution Explorer**met de rechtermuisknop op het rapportmodel om **Implementeren**te selecteren. Voor dit voorbeeld is het rapportmodel **Simple_Model.smdl**.  
 
@@ -182,7 +182,7 @@ Voorbeeldrapportmodellen zijn opgenomen in System Center Configuration Manager, 
     > [!IMPORTANT]  
     >  Na het kopiëren van het rapportmodelbestand naar de siteserver van Configuration Manager, moet u sluiten en opnieuw starten van de Configuration Manager-console voordat u kunt het rapportmodel in de **Wizard rapport maken**.  
 
-##  <a name="AdvancedReportModel"></a> Steps for Creating an Advanced Report Model in SQL Server Reporting Services  
+##  <a name="AdvancedReportModel"></a>Stappen voor het maken van een geavanceerd rapportmodel in SQL Server Reporting Services  
  U kunt de volgende procedures voor het maken van een geavanceerd rapportmodel die gebruikers in uw site gebruiken kunnen om op basis van modellen rapporten op basis van gegevens in meerdere weergaven van de Configuration Manager-database. U maakt een rapportmodel met daarin informatie over de clientcomputers en het besturingssysteem dat is geïnstalleerd op deze computers voor de auteur van het rapport. Deze informatie is genomen van de volgende weergaven in de Configuration Manager-database:  
 
 -   **V_R_System**: Bevat informatie over ontdekte computers en de Configuration Manager-client.  
@@ -210,7 +210,7 @@ Voorbeeldrapportmodellen zijn opgenomen in System Center Configuration Manager, 
     > [!NOTE]  
     >  Als u het deelvenster **Solution Explorer** niet kunt zien, klikt u op **Weergeven**en vervolgens op **Solution Explorer**.  
 
-#### <a name="to-define-the-data-source-for-the-report-model"></a>To define the data source for the report model  
+#### <a name="to-define-the-data-source-for-the-report-model"></a>De gegevensbron voor het rapportmodel definiëren  
 
 1.  Klik in het deelvenster **Solution Explorer** van **SQL Server Business Intelligence Development Studio**met de rechtermuisknop op **Gegevensbronnen** om **Nieuwe gegevensbron toevoegen**te selecteren.  
 
@@ -239,7 +239,7 @@ Voorbeeldrapportmodellen zijn opgenomen in System Center Configuration Manager, 
     > [!NOTE]  
     >  Als u de eigenschappen van een bestaande gegevensbron wilt bewerken, dubbelklikt u op de gegevensbron in de map **Gegevensbronnen** van het deelvenster **Solution Explorer** om de gegevensbroneigenschappen weer te geven in Gegevensbronontwerper.  
 
-#### <a name="to-define-the-data-source-view-for-the-report-model"></a>To define the data source view for the report model  
+#### <a name="to-define-the-data-source-view-for-the-report-model"></a>De gegevensbronweergave voor het rapportmodel definiëren  
 
 1.  Klik in **Solution Explorer**met de rechtermuisknop op **Gegevensbronweergaven** om **Nieuwe gegevensbronweergave toevoegen**te selecteren.  
 
@@ -376,7 +376,7 @@ Voorbeeldrapportmodellen zijn opgenomen in System Center Configuration Manager, 
 
 4.  Wanneer u klaar bent met het wijzigen van objectnamen klikt u op **Bestand**en vervolgens op **Alle opslaan**.  
 
-#### <a name="to-publish-the-report-model-for-use-in-sql-server-reporting-services"></a>To publish the report model for use in SQL Server Reporting Services  
+#### <a name="to-publish-the-report-model-for-use-in-sql-server-reporting-services"></a>Publiceren van het rapportmodel voor gebruik in SQL Server Reporting Services  
 
 1.  Klik in **Solution Explorer**met de rechtermuisknop op **Advanced_Model.smdl** om **Implementeren**te selecteren.  
 
