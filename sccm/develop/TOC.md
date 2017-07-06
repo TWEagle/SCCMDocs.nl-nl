@@ -74,7 +74,7 @@
 ### [Het sitebesturingsbestand lezen en ernaar schrijven met beheerde code](core/understand/how-to-read-and-write-to-the-site-control-file-by-using-managed-code.md)
 ### [Het sitebesturingsbestand lezen en ernaar schrijven met WMI](core/understand/how-to-read-and-write-to-the-site-control-file-by-using-wmi.md)
 ### [Een ingesloten eigenschappenlijst van een sitebesturingsbestand lezen](core/understand/how-to-read-a-configuration-manager-site-control-file-embedded-property-list.md)
-### [Het implementeren van een Sitesysteemrol (voorbeeld:  Terugvalstatuspunt)](core/understand/how-to-deploy-a-site-system-role--example---fallback-status-point-.md)
+### [Een sitesysteemrol implementeren (bijvoorbeeld: terugvalstatuspunt)](core/understand/how-to-deploy-a-site-system-role--example---fallback-status-point-.md)
 ## [Configuration Manager-klasseschema](core/understand/configuration-manager-class-schema.md)
 ### [Datum- en tijdnotaties](core/understand/date-and-time-formats.md)
 ### [Bitveldeigenschappen interpreteren](core/understand/interpreting-bitfield-properties.md)
