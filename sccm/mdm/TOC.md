@@ -55,7 +55,7 @@
 
 ## [Een Microsoft Intune-abonnement beheren](deploy-use/manage-intune-subscriptions.md)
 
-## [Wijzigen van uw MDM-instantie](deploy-use/change-mdm-authority.md)
+## [Uw MDM-instantie wijzigen](deploy-use/change-mdm-authority.md)
 
 ## Toegang tot de bedrijfsresources
 ### [Wi-Fi-profielen maken](deploy-use/create-wifi-profiles.md)
