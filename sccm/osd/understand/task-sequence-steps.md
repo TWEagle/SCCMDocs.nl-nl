@@ -1,5 +1,5 @@
 ---
-title: Takenreeksstappen - Configuration Manager | Microsoft-documenten
+title: Takenreeksstappen - Configuration Manager | Microsoft Docs
 description: Meer informatie over de takenreeksstappen die u aan een takenreeks van Configuration Manager toevoegen kunt.
 ms.custom: na
 ms.date: 03/26/2017
@@ -17,10 +17,10 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: 071d758f1015d16217a54fe26df5f8f948c818a3
+ms.sourcegitcommit: 6f9e6e93fce95666503907010a5c253158c5de7c
+ms.openlocfilehash: f648d7626af50d95fbaa5a7a2abd821a9c47f5d1
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/07/2017
 
 
 ---
@@ -31,10 +31,10 @@ ms.lasthandoff: 05/17/2017
 De volgende takenreeksstappen kunnen worden toegevoegd aan een takenreeks van Configuration Manager. Zie [Edit a task sequence](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence) (Een takenreeks bewerken) voor meer informatie over het bewerken van een takenreeks.  
 
 
-##  <a name="BKMK_ApplyDataImage"></a>Gegevens installatiekopie Takenreeksstap toepassen  
+##  <a name="BKMK_ApplyDataImage"></a>Takenreeksstap van gegevens gegevensinstallatiekopie toepassen  
  Gebruik de takenreeksstap **Gegevensinstallatiekopie toepassen** om de gegevensinstallatiekopie te kopiëren naar de opgegeven doelpartitie.  
 
- Deze stap kan alleen in Windows PE worden uitgevoerd. De taak kan niet worden uitgevoerd in een standaardbesturingssysteem. Zie voor meer informatie over de takenreeksvariabelen voor deze actie [actie Takenreeksvariabelen](task-sequence-action-variables.md).  
+ Deze stap kan alleen in Windows PE worden uitgevoerd. De taak kan niet worden uitgevoerd in een standaardbesturingssysteem. Zie voor meer informatie over de takenreeksvariabelen voor deze actie [Takenreeksacties](task-sequence-action-variables.md).  
 
 ### <a name="details"></a>Details  
  Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
@@ -64,7 +64,7 @@ De volgende takenreeksstappen kunnen worden toegevoegd aan een takenreeks van Co
 
 -   **Volgende beschikbare partitie** -de volgende sequentiële partitie gebruiken die niet eerder is geselecteerd door de actie besturingssysteem toepassen of gegevensinstallatiekopie toepassen in deze takenreeks.  
 
--   **Schijf en partitie** : Selecteer de **schijf** nummer (te beginnen met 0) en de **partitie** nummer (te beginnen met 1).  
+-   **Schijf en partitie opgeven** : Selecteer de **schijf** nummer (te beginnen met 0) en de **partitie** nummer (te beginnen met 1).  
 
 -   **Logische stationsletter opgeven** -Geef de **stationsletter** die door Windows PE is toegewezen aan de partitie. Houd er rekening mee dat deze stationsletter kan afwijken van de stationsletter die door het zojuist geïmplementeerde besturingssysteem wordt toegewezen.  
 
@@ -141,11 +141,11 @@ De volgende takenreeksstappen kunnen worden toegevoegd aan een takenreeks van Co
  **Lid worden van een werkgroep**  
  Selecteer deze optie om de doelcomputer toe te voegen aan de opgegeven werkgroep. Voer de naam van de werkgroep in op de regel **Werkgroep**. Deze waarde kan worden genegeerd door de waarde die is opgenomen door de takenreeksstap **Netwerkinstellingen vastleggen**.  
 
- **Toevoegen aan een domein**  
+ **Lid worden van een domein**  
  Selecteer deze optie om de doelcomputer toe te voegen aan het opgegeven domein. Geef het domein op of blader hiernaartoe, zoals *fabricam.com*. Geef een LDAP-pad (Lightweight Directory Access Protocol) op of blader hiernaartoe voor een organisatie-eenheid (dat wil zeggen LDAP//OU=computers, DC=Fabricam.com, C=com).  
 
  **Account**  
- Klik op **Instellen** om een account op te geven met de vereiste machtigingen om de computer lid te laten worden van het domein. In de **Windows-gebruikersaccount** in het dialoogvenster kunt u de naam van de gebruiker met de volgende notatie: **Domein-/ gebruikersnamen** .  
+ Klik op **Instellen** om een account op te geven met de vereiste machtigingen om de computer lid te laten worden van het domein. In de **Windows-gebruikersaccount** in het dialoogvenster kunt u de gebruikersnaam met de volgende notatie invoeren: **Domein\gebruiker** .  
 
  **Adapterinstellingen**  
  Netwerkconfiguraties opgeven voor elke netwerkadapter in de computer. Klik op **Nieuw** om het dialoogvenster **Netwerkinstellingen** te openen en geef vervolgens de netwerkinstellingen op. Als netwerkinstellingen zijn vastgelegd in een eerder exemplaar van de takenreeksstap **Netwerkinstellingen vastleggen**, worden de eerdere instellingen toegepast op de netwerkadapter en worden de opgegeven instellingen in deze stap niet toegepast. Als netwerkinstellingen niet eerder zijn vastgelegd, worden de opgegeven instellingen in de stap **Netwerkinstellingen toepassen** toegepast op netwerkadapters in volgorde van Windows-apparaatinventarisatie.  
@@ -175,7 +175,7 @@ De volgende takenreeksstappen kunnen worden toegevoegd aan een takenreeks van Co
 
 2.  Hiermee wordt het antwoordbestand voorbereid:  
 
-    1.  Maakt een nieuw antwoordbestand met standaardwaarden die zijn gemaakt door Configuration Manager.  
+    1.  Maakt een nieuw antwoordbestand met standaardwaarden gemaakt door Configuration Manager.  
 
     2.  Hiermee worden alle waarden van het door de gebruiker opgegeven antwoordbestand samengevoegd.  
 
@@ -227,7 +227,7 @@ De volgende takenreeksstappen kunnen worden toegevoegd aan een takenreeks van Co
 
 -   **Volgende beschikbare partitie** -de volgende sequentiële partitie gebruiken die niet eerder is geselecteerd door de actie besturingssysteem toepassen of gegevensinstallatiekopie toepassen in deze takenreeks.  
 
--   **Schijf en partitie** : Selecteer de **schijf** nummer (te beginnen met 0) en de **partitie** nummer (te beginnen met 1).  
+-   **Schijf en partitie opgeven** : Selecteer de **schijf** nummer (te beginnen met 0) en de **partitie** nummer (te beginnen met 1).  
 
 -   **Logische stationsletter opgeven** -Geef de **stationsletter** die door Windows PE is toegewezen aan de partitie. Houd er rekening mee dat deze stationsletter kan afwijken van de stationsletter die door het zojuist geïmplementeerde besturingssysteem wordt toegewezen.  
 
@@ -258,7 +258,7 @@ De volgende takenreeksstappen kunnen worden toegevoegd aan een takenreeks van Co
  **Gebruikersnaam**  
  Geef de naam op van de geregistreerde gebruikersnaam die is gekoppeld aan de doelcomputer. Deze waarde kan worden genegeerd door de waarde die is opgenomen door de takenreeksactie **Windows-instellingen vastleggen**.  
 
- **Organisatienaam**  
+ **De naam van organisatie**  
  Geef de naam op van de geregistreerde organisatienaam die is gekoppeld aan de doelcomputer. Deze waarde kan worden genegeerd door de waarde die is opgenomen door de takenreeksactie **Windows-instellingen vastleggen**.  
 
  **Productcode**  
@@ -329,7 +329,7 @@ Deze takenreeksstap kan alleen in Windows PE worden uitgevoerd. De taak kan niet
  **Stuurprogramma's uit alle categorieën overwegen**  
  Hiermee geeft u aan dat met de takenreeksactie in alle beschikbare stuurprogrammacategorieën wordt gezocht naar de juiste apparaatstuurprogramma's.  
 
- **Stuurprogramma die overeenkomt met alleen rekening te houden met stuurprogramma's in de geselecteerde categorieën beperken**  
+ **Zoeken naar passende stuurprogramma's tot bepaalde categorieën beperken**  
  Hiermee geeft u aan dat met de takenreeksactie in opgegeven stuurprogrammacategorieën naar de juiste apparaatstuurprogramma's wordt gezocht.  
 
  **Installatie zonder toezicht van niet-ondertekende stuurprogramma's op versies van Windows wanneer dit is toegestaan**  
@@ -366,12 +366,12 @@ Deze takenreeksstap kan alleen in Windows PE worden uitgevoerd. De taak kan niet
  **Netwerkadapterconfiguratie migreren**  
  Hiermee wordt de netwerkadapterconfiguratie van de doelcomputer vastgelegd. De vastgelegde informatie bevat de globale netwerkinstellingen, het aantal netwerkadapters en de netwerkinstellingen van elke adapter. Deze instellingen hebben betrekking op DNS, WINS, IP en poortfilters.  
 
-##  <a name="BKMK_CaptureOperatingSystemImage"></a>Vastleggen van een installatiekopie  
- Gebruik de takenreeksstap **Besturingssysteeminstallatiekopie vastleggen** om een of meer installatiekopieën van een referentiecomputer vast te leggen en op te slaan in een .wim-bestand op de opgegeven netwerkshare. Het besturingssysteem Wizard installatiekopie toevoegen kan vervolgens worden gebruikt voor het importeren van dit. WIM-bestand in Configuration Manager zodat deze kan worden gebruikt voor implementaties van installatiekopieën van besturingssystemen.  
+##  <a name="BKMK_CaptureOperatingSystemImage"></a>Besturingssysteeminstallatiekopie vastleggen  
+ Gebruik de takenreeksstap **Besturingssysteeminstallatiekopie vastleggen** om een of meer installatiekopieën van een referentiecomputer vast te leggen en op te slaan in een .wim-bestand op de opgegeven netwerkshare. Het besturingssysteem Wizard installatiekopie toevoegen kan vervolgens worden gebruikt te importeren. WIM-bestand naar Configuration Manager zodat deze kan worden gebruikt voor implementaties van besturingssystemen op basis van installatiekopieën.  
 
  Elk volume (station) op de referentiecomputer wordt vastgelegd als een afzonderlijke installatiekopie binnen het .wim-bestand. Als de computer waarnaar wordt verwezen meerdere volumes heeft, bevat het resulterende .wim-bestand een afzonderlijke installatiekopie voor elk volume. Alleen volumes die zijn geformatteerd als NTFS of FAT32 worden vastgelegd. Volumes met andere formatteringen en USB-volumes worden overgeslagen.  
 
- Het geïnstalleerde besturingssysteem op de referentiecomputer moet een versie van Windows die wordt ondersteund door Configuration Manager en moet met het hulpprogramma SysPrep zijn voorbereid. Het geïnstalleerde besturingssysteemvolume en het opstartvolume moeten hetzelfde volume zijn.  
+ Het geïnstalleerde besturingssysteem op de referentiecomputer moet een versie van Windows die wordt ondersteund door Configuration Manager en moet met behulp van het hulpprogramma SysPrep zijn voorbereid. Het geïnstalleerde besturingssysteemvolume en het opstartvolume moeten hetzelfde volume zijn.  
 
  Bovendien moet u een Windows-account met schrijfmachtigingen invoeren voor de netwerkshare die u hebt geselecteerd.  
 
@@ -406,15 +406,15 @@ Deze takenreeksstap kan alleen in Windows PE worden uitgevoerd. De taak kan niet
  **Gemaakt door**  
  De optionele naam van de gebruiker die de installatiekopie van het besturingssysteem heeft gemaakt, die is opgeslagen in het .wim-bestand.  
 
- **Account van een besturingssysteeminstallatiekopie vastleggen**  
+ **Account besturingssysteeminstallatiekopie vastleggen**  
  U moet het Windows-account invoeren dat machtigingen heeft voor de netwerkshare die u hebt opgegeven. Klik op **Instellen** om de naam van het Windows-account op te geven.  
 
 ##  <a name="BKMK_CaptureUserState"></a>Gebruikersstatus vastleggen  
  Gebruik de takenreeksstap **Gebruikerstoestand vastleggen** om met het Hulpprogramma voor migratie van gebruikersstatus de gebruikersstatus en instellingen vast te leggen van de computer waarop de takenreeks wordt uitgevoerd. Deze takenreeksstap wordt gebruikt in combinatie met de takenreeksstap **Gebruikersstatus herstellen**. In USMT 3.0.1 en hoger wordt met deze optie altijd de USMT-Statusopslag versleuteld met een versleutelingssleutel die wordt gegenereerd en beheerd door Configuration Manager.  
 
- Zie voor meer informatie over het beheren van de gebruikersstatus bij het implementeren van besturingssystemen [Gebruikersstatus beheren](../get-started/manage-user-state.md).  
+ Zie voor meer informatie over het beheren van de gebruikersstatus bij het implementeren van besturingssystemen, [Gebruikersstatus beheren](../get-started/manage-user-state.md).  
 
- U kunt ook de **gebruikersstatus vastleggen** takenreeksstap met de **Statusopslag opvragen** en **Statusopslag vrijgeven** takenreeksstappen als u wilt de statusinstellingen van de instellingen opslaan of herstellen uit een statusmigratiepunt punt in de Configuration Manager-site.  
+ U kunt ook de **gebruikersstatus vastleggen** takenreeksstap met de **Statusopslag opvragen** en **Statusopslag vrijgeven** takenreeksstappen als u wilt de statusinstellingen opslaan in of herstellen uit een statusmigratiepunt punt in de Configuration Manager-site.  
 
  De takenreeksstap **Gebruikerstoestand vastleggen** biedt controle over een beperkte subset van de meest gebruikte USMT-opties. Aanvullende opdrachtregelopties kunnen worden opgegeven met de takenreeksvariabele OSDMigrateAdditionalCaptureOptions.  
 
@@ -443,7 +443,7 @@ Deze takenreeksstap kan alleen in Windows PE worden uitgevoerd. De taak kan niet
  **Alle gebruikersprofielen vastleggen met standaardopties**  
  Selecteer deze optie alle gebruikersprofielinformatie te migreren. Deze optie is standaard geselecteerd.  
 
- Als u deze optie selecteert, maar niet de optie gebruikersprofielen lokale computer in de takenreeksstap gebruikersstatus herstellen selecteert, mislukt de takenreeksstap omdat Configuration Manager de nieuwe accounts niet kan migreren zonder wachtwoorden toewijzen. Als u daarnaast de wizard **Nieuwe takenreeks maken** gebruikt en een takenreeks maakt van het type **Bestaand installatiekopiepakket installeren**, wordt de resulterende takenreeks standaard gebruikt als Alle gebruikersprofielen vastleggen met standaardopties, maar wordt de optie Gebruikersprofielen lokale computer herstellen (d.w.z. niet-domeinaccounts) niet geselecteerd.  
+ Als u deze optie selecteert, maar niet de optie gebruikersprofielen lokale computer in de takenreeksstap gebruikersstatus herstellen selecteert, wordt de takenreeks mislukt omdat Configuration Manager de nieuwe accounts niet kan migreren zonder wachtwoorden toewijzen. Als u daarnaast de wizard **Nieuwe takenreeks maken** gebruikt en een takenreeks maakt van het type **Bestaand installatiekopiepakket installeren**, wordt de resulterende takenreeks standaard gebruikt als Alle gebruikersprofielen vastleggen met standaardopties, maar wordt de optie Gebruikersprofielen lokale computer herstellen (d.w.z. niet-domeinaccounts) niet geselecteerd.  
 
  Selecteer **Gebruikersprofielen lokale computer herstellen** en geef een wachtwoord op voor het account dat wordt gemigreerd. In een handmatig gemaakte takenreeks is deze instelling te vinden onder de stap Gebruikersstatus herstellen. In een takenreeks die is gemaakt door de wizard **Nieuwe takenreeks maken** is deze instelling te vinden op de wizardpagina voor de stap **Gebruikersbestanden en -instellingen herstellen**.  
 
@@ -458,13 +458,13 @@ Deze takenreeksstap kan alleen in Windows PE worden uitgevoerd. De taak kan niet
  **Uitgebreide logboekregistratie inschakelen**  
  Schakel deze optie in om meer gedetailleerde informatie in het logboekbestand te genereren. Bij het vastleggen van status wordt het logboek Scanstate.log gegenereerd en standaard opgeslagen in de logboekmap voor de takenreeks in de map \windows\system32\ccm\logs.  
 
- **Overslaan bestanden met encrypted file system**  
+ **SKIP-bestanden met encrypted file system**  
  Schakel deze optie in als u het vastleggen wilt overslaan van bestanden die zijn versleuteld met Encrypted File System (EFS), met inbegrip van profielbestanden. Afhankelijk van het besturingssysteem en de USMT-versie zijn versleutelde bestanden mogelijk niet leesbaar na herstel. Zie de USMT-documentatie voor meer informatie.  
 
  **Kopiëren door toegang tot bestandssysteem**  
  Schakel deze optie in om een van de volgende instellingen op te geven:  
 
--   **Doorgaan als sommige bestanden niet kunnen worden vastgelegd**: Schakel deze instelling om door te gaan van het migratieproces, zelfs als sommige bestanden niet kunnen worden vastgelegd. De takenreeksstap mislukt als een bestand niet kan worden vastgelegd terwijl deze optie is uitgeschakeld. Deze optie is standaard ingeschakeld.  
+-   **Doorgaan als sommige bestanden niet kunnen worden vastgelegd**: Schakel deze instelling om door te gaan van het migratieproces, zelfs als sommige bestanden kunnen niet worden vastgelegd. De takenreeksstap mislukt als een bestand niet kan worden vastgelegd terwijl deze optie is uitgeschakeld. Deze optie is standaard ingeschakeld.  
 
 -   **Lokaal vastleggen met koppelingen in plaats van door bestanden te kopiëren**: Schakel deze instelling om vaste NTFS-koppelingen te leggen van bestanden.  
 
@@ -535,7 +535,7 @@ Deze takenreeksstap kan alleen in Windows PE worden uitgevoerd. De taak kan niet
  **Zorg ervoor dat de minimale vrije schijfruimte (MB)**  
  Selecteer deze instelling om te controleren of de hoeveelheid vrije schijfruimte (in megabytes) op de doelcomputer voldoet aan of groter is dan de opgegeven waarde.  
 
- **Zorg ervoor dat de huidige te vernieuwen besturingssysteem is**  
+ **Zorg ervoor dat de huidige OET worden vernieuwd**  
  Selecteer deze instelling om te controleren of het geïnstalleerde besturingssysteem op de doelcomputer voldoet aan de vereisten die u opgeeft. Deze instelling is standaard geselecteerd met de waarde **CLIENT**.  
 
 ##  <a name="BKMK_ConnectToNetworkFolder"></a>Verbinding maken met netwerkmap  
@@ -554,7 +554,7 @@ Deze takenreeksstap kan alleen in Windows PE worden uitgevoerd. De taak kan niet
 
 -   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
 
-##  <a name="BKMK_ConvertDisktoDynamic"></a>Schijf naar dynamische schijven converteren  
+##  <a name="BKMK_ConvertDisktoDynamic"></a>Schijf naar dynamische schijf converteren  
  Gebruik de takenreeksstap **Schijven naar dynamische schijven converteren** om een fysieke schijf van een basisschijftype naar een dynamisch schijftype te converteren.  
 
  Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Zie [Convert Disk to Dynamic Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_ConvertDisk) (Variabelen voor takenreeksacties voor schijf naar dynamische schijf converteren) voor meer informatie over de takenreeksvariabelen voor deze actie.  
@@ -612,7 +612,7 @@ Deze takenreeksstap kan alleen in Windows PE worden uitgevoerd. De taak kan niet
  **Specifiek station**  
  Hiermee wordt BitLocker uitgeschakeld op een specifiek station. Gebruik de vervolgkeuzelijst om het station op te geven waarop BitLocker wordt uitgeschakeld.  
 
-##  <a name="BKMK_DownloadPackageContent"></a>Inhoud van het pakket downloaden  
+##  <a name="BKMK_DownloadPackageContent"></a>Pakketinhoud downloaden  
  Gebruik de takenreeksstap **Pakketinhoud downloaden** om een van de volgende pakkettypen te downloaden:  
 
 -   Installatiekopieën van besturingssysteem  
@@ -623,13 +623,16 @@ Deze takenreeksstap kan alleen in Windows PE worden uitgevoerd. De taak kan niet
 
 -   Pakketten  
 
- Deze stap werkt goed in een takenreeks om een besturingssysteem in de volgende scenario's bij te werken:  
+ Deze stap werkt goed in een takenreeks om een besturingssysteem in de volgende scenario's te werken:  
 
 -   Een enkele takenreeks gebruiken voor een upgrade die voor zowel x86- als x64-platforms werkt. Als u dit wilt doen, voegt u twee **Pakketinhoud downloaden**-stappen toe aan de groep **Upgrade voorbereiden** met de voorwaarden om de clientarchitectuur te detecteren en alleen het geschikte upgradepakket voor het besturingssystemen te downloaden. Configureer elke **Pakketinhoud downloaden**-stap zodanig dat dezelfde variabele wordt gebruikt, en gebruik de variabele voor het mediumpad in de stap **Besturingssysteem bijwerken**.  
 
 -   Als u een geschikt stuurprogrammapakket wilt downloaden, gebruikt u twee **Pakketinhoud downloaden**-stappen op voorwaarde dat het juiste hardwaretype wordt gedetecteerd voor elk stuurprogrammapakket. Configureer elke **Pakketinhoud downloaden**-stap zodanig dat dezelfde variabele wordt gebruikt, en gebruik de variabele voor de waarde **Tijdelijke inhoud** in de sectie met stuurprogramma's in de stap **Besturingssysteem bijwerken**.  
 
-Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. De optie voor het pakket opslaan in de clientcache voor Configuration Manager wordt echter niet ondersteund in WinPE.
+> [!NOTE]    
+> Wanneer u een takenreeks die de pakketinhoud downloaden stap bevat implementeert, schakel niet **alle inhoud lokaal downloaden voordat de takenreeks wordt gestart** voor **implementatieopties** op de **distributiepunten** pagina van de Wizard Software implementeren.  
+
+Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. De optie voor het pakket opslaan in de Configuration Manager-clientcache wordt echter niet ondersteund in WinPE.
 
 ### <a name="details"></a>Details  
  Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
@@ -651,19 +654,19 @@ Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoe
  Pictogram **Pakket selecteren**  
  Klik op het pictogram om het pakket te selecteren dat u wilt downloaden. Nadat u een pakket hebt geselecteerd, kunt u nog een keer op het pictogram klikken om een ander pakket te kiezen.  
 
- **In de volgende locatie plaatsen**  
+ **De volgende locatie plaatsen**  
  U kunt het pakket op een van de volgende locaties opslaan:  
 
--   **Werkmap taak**  
+ -   **Werkmap voor takenreeksen**  
 
--   **Configuration Manager-clientcache**: U gebruikt deze optie voor het opslaan van de inhoud in de cache van clients. Hierdoor kan de client als bron van een peer-cache voor andere peer-cacheclients fungeren. Zie voor meer informatie [voorbereiden Windows PE-peercache om WAN-verkeer te beperken](../get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md).  
+ -   **Configuration Manager-clientcache**: Deze optie kunt u de inhoud in de cache opslaan. Hierdoor kan de client als bron van een peer-cache voor andere peer-cacheclients fungeren. Zie voor meer informatie [voorbereiden Windows PE-peer-cache om WAN-verkeer te beperken](../get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md).  
 
--   **Aangepast pad**  
+ -   **Aangepast pad**  
 
  **Pad opslaan als een variabele**  
- U kunt het pad opslaan als een variabele die u in een andere takenreeksstap kunt gebruiken. Configuration Manager wordt een numeriek achtervoegsel toegevoegd aan de naam van de variabele. Bijvoorbeeld, als u een variabele van % opgeeft*mycontent*% als een aangepaste variabele, wordt het hoofddomein voor waarbij alle inhoud waarnaar wordt verwezen is opgeslagen (die meerdere pakketten). Wanneer u naar de variabele verwijst, voegt u een numeriek achtervoegsel toe aan de variabele. Bijvoorbeeld, voor het eerste pakket u zal verwijzen naar %*mycontent01*% variabele. Wanneer u naar de variabele in een subsequence stappen nodig, zoals Upgrade-besturingssysteem verwijst, gebruikt u %*mycontent02*of %*mycontent03*% waarbij het nummer overeenkomt met de volgorde waarin het pakket wordt weergegeven in de stap.  
+ U kunt het pad opslaan als een variabele die u in een andere takenreeksstap kunt gebruiken. Configuration Manager voegt een numeriek achtervoegsel aan de variabelenaam toe. Bijvoorbeeld, als u een variabele van % opgeven*mycontent*% als aangepaste variabele, is de hoofdmap waarin alle inhoud waarnaar wordt verwezen is opgeslagen (dit kan meerdere pakketten zijn). Wanneer u naar de variabele verwijst, wordt u een numeriek achtervoegsel toevoegen aan de variabele. Bijvoorbeeld: voor het eerste pakket u wordt verwijzen naar %*mycontent01*% variabele. Wanneer u naar de variabele in een Vervolgstappen, zoals besturingssysteem bijwerken verwijst, gebruikt u %*mycontent02*% of %*mycontent03*%, waarbij het nummer overeenkomt met de volgorde waarin het pakket wordt vermeld in de stap.  
 
- **Als het downloaden van een pakket mislukt, doorgaan met andere pakketten in de lijst downloaden**  
+ **Als het downloaden van een pakket mislukt, doorgaan met downloaden van andere pakketten in de lijst**  
  Hiermee wordt aangegeven dat wanneer het downloaden van het pakket mislukt, er wordt doorgegaan naar het volgende pakket in de lijst en wordt dat gedownload.  
 
 ##  <a name="BKMK_EnableBitLocker"></a>BitLocker inschakelen  
@@ -724,18 +727,18 @@ Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoe
 
 -   **Alleen TPM**: Selecteer deze optie om alleen Trusted Platform Module (TPM) gebruiken.  
 
--   **Opstartsleutel op USB alleen**: Selecteer deze optie om een opstartsleutel die op een USB-flashstation is opgeslagen gebruiken. Wanneer u deze optie selecteert, wordt de normale opstartprocedure door BitLocker vergrendeld totdat een USB-apparaat met een BitLocker-opstartsleutel wordt aangesloten op de computer.  
+-   **Opstartsleutel op USB alleen**: Selecteer deze optie om een opstartsleutel die is opgeslagen op een USB-flashstation te gebruiken. Wanneer u deze optie selecteert, wordt de normale opstartprocedure door BitLocker vergrendeld totdat een USB-apparaat met een BitLocker-opstartsleutel wordt aangesloten op de computer.  
 
--   **TPM en opstartsleutel op USB**: Selecteer deze optie om TPM te gebruiken een opstartsleutel die op een USB-flashstation is opgeslagen. Wanneer u deze optie selecteert, wordt de normale opstartprocedure door BitLocker vergrendeld totdat een USB-apparaat met een BitLocker-opstartsleutel wordt aangesloten op de computer.  
+-   **TPM en opstartsleutel op USB**: Selecteer deze optie om TPM en een opstartsleutel die is opgeslagen op een USB-flashstation te gebruiken. Wanneer u deze optie selecteert, wordt de normale opstartprocedure door BitLocker vergrendeld totdat een USB-apparaat met een BitLocker-opstartsleutel wordt aangesloten op de computer.  
 
--   **TPM en PINCODE**:  Selecteer deze optie om TPM te gebruiken een persoonlijk identificatienummer (PIN). Wanneer u deze optie selecteert, wordt de normale opstartprocedure door BitLocker vergrendeld totdat de pincode is ingevoerd.  
+-   **TPM en PINCODE**:  Selecteer deze optie om TPM en pincode (PIN) te gebruiken. Wanneer u deze optie selecteert, wordt de normale opstartprocedure door BitLocker vergrendeld totdat de pincode is ingevoerd.  
 
  Selecteer **Specifiek station** om een specifiek gegevensstation (niet het besturingssysteemstation) te versleutelen en selecteer vervolgens het station in de lijst.  
 
  **Kies waar de herstelsleutel moet worden gemaakt**  
  U kunt opgeven waar het herstelwachtwoord wordt gemaakt door **In Active Directory** te selecteren zodat het wachtwoord in Active Directory wordt bewaard. Als u deze optie selecteert, moet u Active Directory voor de site uitbreiden zodat de bijbehorende BitLocker-herstelgegevens worden opgeslagen. U kunt ervoor kiezen geen wachtwoord te maken door **Geen herstelsleutel maken** te selecteren. Het wordt echter aanbevolen een wachtwoord te maken.  
 
- **Wacht totdat BitLocker het stationscoderingsproces op alle stations voordat het proces wordt voortgezet uitvoering van takenreeks voltooid**  
+ **Wacht totdat BitLocker het stationscoderingsproces op alle stations voordat de bewerking wordt voortgezet uitvoering van takenreeks voltooid**  
  Selecteer deze optie om de BitLocker-stationsversleuteling te voltooien voordat de volgende stap in de takenreeks wordt uitgevoerd. Als deze optie is geselecteerd, wordt het hele schijfvolume versleuteld voordat de gebruiker zich kan aanmelden op de computer.  
 
  De versleuteling kan uren duren wanneer een grote harde schijf wordt versleuteld. Als u deze optie niet selecteert, kan de takenreeks onmiddellijk worden voortgezet.  
@@ -787,7 +790,7 @@ Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoe
 
  Klik op **Nieuw** om het dialoogvenster **Partitie-eigenschappen** te openen voor het maken van een nieuwe partitie. U kunt het partitietype en de grootte opgeven, en u kunt aangeven of de partitie een opstartpartitie is. Als u een bestaande partitie wilt wijzigen, klikt u op de te wijzigen partitie en klikt u vervolgens op de eigenschappenknop. Zie voor meer informatie over het configureren van hardeschijfpartities een van de volgende onderwerpen:  
 
--   [UEFI/GPT-hardeschijfpartities configureren](http://go.microsoft.com/fwlink/?LinkID=272104)  
+-   [UEFI/GPT gebaseerde vaste schijfpartities configureren](http://go.microsoft.com/fwlink/?LinkID=272104)  
 
 -   [BIOS/MBR-hardeschijfpartities configureren](http://go.microsoft.com/fwlink/?LinkId=272105)  
 
@@ -812,7 +815,7 @@ Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoe
 >  Voor het installeren van een toepassing die een andere toepassing vervangt, moeten de inhoudsbestanden voor de vervangen toepassing beschikbaar zijn, omdat de takenreeksstap anders mislukt. Bijvoorbeeld: Microsoft Visio 2010 is geïnstalleerd in een client of in een vastgelegde installatiekopie. Wanneer de takenreeksstap Toepassing installeren wordt uitgevoerd voor het installeren van Microsoft Visio 2013, moeten de inhoudsbestanden voor Microsoft Visio 2010 (de vervangen toepassing) beschikbaar zijn op een distributiepunt, omdat de takenreeks anders mislukt. Met een client of vastgelegde installatiekopie zonder geïnstalleerde versie van Microsoft Visio wordt de installatie van Microsoft Visio 2013 voltooid zonder te controleren of de Microsoft Visio 2010-inhoudsbestanden zijn gecontroleerd.  
 
 > [!NOTE]
-> U kunt de SMSTSMPListRequestTimeoutEnabled en SMSTSMPListRequestTimeout ingebouwde variabelen inschakelen en Specificeer hoeveel milliseconden lang een takenreeks wacht voordat het opnieuw probeert te installeren van een toepassing of software-updatebestanden nadat deze is mislukt voor het opvragen van de beheerpuntlijst van locatieservices. Zie voor meer informatie [Task sequence ingebouwde varliables](task-sequence-built-in-variables.md).
+> U kunt de SMSTSMPListRequestTimeoutEnabled en ingebouwde variabelen voor de SMSTSMPListRequestTimeout inschakelen en Specificeer hoeveel milliseconden lang een takenreeks wacht voordat het opnieuw probeert te installeren van een toepassing of software-updatebestanden nadat deze is mislukt voor het opvragen van de beheerpuntlijst van locatieservices. Zie voor meer informatie [Task sequence ingebouwde varliables](task-sequence-built-in-variables.md).
 
  Deze takenreeksstap kan alleen in een standaardbesturingssysteem worden uitgevoerd. De stap kan niet worden uitgevoerd in Windows PE.  
 
@@ -847,7 +850,7 @@ Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoe
  **Toepassingen installeren volgens dynamische variabelenlijst**  
  Deze instelling geeft de basisnaam aan voor een set takenreeksvariabelen die zijn gedefinieerd voor een verzameling of voor een computer. Met deze variabelen worden de toepassingen opgegeven die voor die verzameling of computer worden geïnstalleerd. De naam van elke variabele bestaat uit de gemeenschappelijke basisnaam plus een numeriek achtervoegsel dat begint bij 01. De waarde voor elke variabele moet de naam van de toepassing en niets anders bevatten.  
 
- Voor toepassingen worden geïnstalleerd met behulp van een dynamische variabelenlijst moet de volgende instelling zijn ingeschakeld op de **algemeen** tabblad van de toepassing **eigenschappen** in het dialoogvenster: **Toestaan dat deze toepassing wordt geïnstalleerd door de takenreeksactie toepassing installeren in plaats van handmatig implementeren**  
+ Voor toepassingen die worden geïnstalleerd met behulp van een dynamische variabelenlijst, moet de volgende instelling zijn ingeschakeld op de **algemene** tabblad van de toepassing **eigenschappen** in het dialoogvenster: **Toestaan dat deze toepassing wordt geïnstalleerd door de toepassing installeren voor de takenreeksactie in plaats van handmatig implementeren**  
 
 > [!NOTE]  
 >  U kunt toepassingen niet installeren met behulp van een dynamische variabelenlijst voor zelfstandige media-implementaties.  
@@ -869,13 +872,13 @@ Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoe
 
 -   Als de waarde van een variabele andere informatie bevat dan de naam van de toepassing, wordt de toepassing niet geïnstalleerd en wordt de takenreeks voortgezet.  
 
--   Als er geen variabele met de opgegeven basisnaam en het achtervoegsel '01' is gevonden, worden er geen toepassingen geïnstalleerd. Wanneer u selecteert **Doorgaan bij fout** op het tabblad Opties van de takenreeksstap de takenreeks voortgezet als een toepassing niet kan installeren. Als u de instelling niet selecteert, mislukt de takenreeks en worden resterende toepassingen niet geïnstalleerd.  
+-   Als er geen variabele met de opgegeven basisnaam en het achtervoegsel '01' is gevonden, worden er geen toepassingen geïnstalleerd. Wanneer u selecteert **Doorgaan bij fout** op het tabblad Opties van de takenreeksstap de takenreeks verder wordt uitgevoerd wanneer een toepassing niet kan worden geïnstalleerd. Als u de instelling niet selecteert, mislukt de takenreeks en worden resterende toepassingen niet geïnstalleerd.  
 
  **Als een toepassing mislukt, doorgaan met installatie van andere toepassingen in de lijst**  
  Deze instelling geeft aan dat de stap wordt voorgezet als de installatie van een afzonderlijke toepassing mislukt. Als u deze instelling opgeeft, wordt de takenreeks voortgezet ongeacht eventuele installatiefouten die worden geretourneerd. Als u de instelling niet opgeeft, wordt de takenreeksstap onmiddellijk beëindigd wanneer een installatie mislukt.  
 
 ##  <a name="BKMK_InstallDeploymentTools"></a>Implementatiehulpprogramma's installeren  
- Gebruik de **Implementatiegereedschappen installeren** takenreeksstap voor het installeren van de Configuration Manager-pakket dat de Sysprep-implementatiehulpprogramma's bevat.  
+ Gebruik de **Implementatiegereedschappen installeren** takenreeksstap voor het installeren van de Configuration Manager-pakket dat de Sysprep-Ontwikkelingstools bevat.  
 
 ### <a name="details"></a>Details  
  Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
@@ -895,7 +898,7 @@ Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoe
  Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
 
  **Sysprep-pakket**  
- Deze instelling bepaalt u de Configuration Manager-pakket met de Sysprep-implementatieprogramma's voor de volgende besturingssystemen:  
+ Deze instelling geeft u de Configuration Manager-pakket met de Sysprep-implementatieprogramma's voor de volgende besturingssystemen:  
 
 -   Windows XP SP3  
 
@@ -924,9 +927,9 @@ Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoe
 >   
 >  Bij zelfstandige media met de stap Pakket installeren moet u de zelfstandige media maken op een primaire site waarop de agent voor softwaredistributie is ingeschakeld, of moet u een stap **Opdrachtregel uitvoeren** toevoegen na de stap **Windows en ConfigMgr installeren** en voor de eerste stap **Pakket installeren**. Met de stap **Opdrachtregel uitvoeren** wordt een WMIC-opdracht uitgevoerd waarmee de agent voor softwaredistributie wordt ingeschakeld voordat de eerste stap Pakket installeren wordt uitgevoerd. U kunt de volgende opdracht gebruiken in de takenreeksstap **Opdrachtregel uitvoeren** :  
 >   
->  **Opdrachtregel**: **WMIC/namespace:\\\root\ccm\policy\machine\requestedconfig pad ccm_SoftwareDistributionClientConfig NaamOnderdeel maken = "SWDist inschakelen" Enabled = "true", LockSettings = "TRUE", PolicySource = 'local', PolicyVersion = "1.0", SiteSettingsKey = "1" / NOINTERACTIVE**  
+>  **Opdrachtregel**: **WMIC/namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName = "Enable SWDist", Enabled = "true", LockSettings = "TRUE", PolicySource = "local", PolicyVersion = "1.0", SiteSettingsKey = "1" / NOINTERACTIVE**  
 >   
->  Zie voor meer informatie over het maken van zelfstandige media [maken van zelfstandige media](../deploy-use/create-stand-alone-media.md).  
+>  Zie voor meer informatie over het maken van zelfstandige media [zelfstandige media maken](../deploy-use/create-stand-alone-media.md).  
 
  Deze takenreeksstap kan alleen in een standaardbesturingssysteem worden uitgevoerd. De stap kan niet worden uitgevoerd in Windows PE.  
 
@@ -953,7 +956,7 @@ Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoe
  **Softwarepakketten installeren volgens dynamische variabelenlijst**  
  Deze instelling geeft de basisnaam aan voor een set takenreeksvariabelen die zijn gedefinieerd voor een verzameling of voor een computer. Met deze variabelen worden de pakketten opgegeven die voor die verzameling of computer worden geïnstalleerd. De naam van elke variabele bestaat uit de gemeenschappelijke basisnaam plus een numeriek achtervoegsel dat begint bij 001. De waarde voor elke variabele moet een pakket-id en de naam van de software bevatten en deze moeten zijn gescheiden door een dubbele punt.  
 
- Voor software worden geïnstalleerd met behulp van een dynamische variabelenlijst moet de volgende instelling zijn ingeschakeld op de **Geavanceerd** tabblad van het pakket **eigenschappen** in het dialoogvenster: **Toestaan dat dit programma wordt geïnstalleerd door de takenreeks pakket installeren zonder te worden geïmplementeerd**  
+ Voor software die moet worden geïnstalleerd met behulp van een dynamische variabelenlijst, moet de volgende instelling zijn ingeschakeld op de **Geavanceerd** tabblad van het pakket **eigenschappen** in het dialoogvenster: **Toestaan dat dit programma wordt geïnstalleerd door de takenreeks pakket installeren zonder te worden geïmplementeerd**  
 
 > [!NOTE]  
 >  U kunt softwarepakketten niet installeren met behulp van een dynamische variabelenlijst voor zelfstandige media-implementaties.  
@@ -984,19 +987,19 @@ Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoe
  Deze instelling geeft aan dat de stap wordt voorgezet als de installatie van een afzonderlijk softwarepakket mislukt. Als u deze instelling opgeeft, wordt de takenreeks voortgezet ongeacht eventuele installatiefouten die worden geretourneerd. Als u de instelling niet opgeeft, wordt de takenreeksstap onmiddellijk beëindigd wanneer een installatie mislukt.  
 
 ##  <a name="BKMK_InstallSoftwareUpdates"></a>Software-Updates installeren  
- Gebruik de takenreeksstap **Software-updates installeren** om software-updates te installeren op de doelcomputer. De doelcomputer wordt pas geëvalueerd voor toepasselijke software-updates als deze takenreeksstap wordt uitgevoerd. Op dat moment wordt de doelcomputer geëvalueerd voor software-updates zoals elke andere Configuration Manager-beheerde client. Bij deze stap worden met name de software-updates geïnstalleerd die zijn gericht op verzamelingen waarvan de computer momenteel lid is.  
+ Gebruik de takenreeksstap **Software-updates installeren** om software-updates te installeren op de doelcomputer. De doelcomputer wordt pas geëvalueerd voor toepasselijke software-updates als deze takenreeksstap wordt uitgevoerd. Op dat moment wordt de doelcomputer geëvalueerd voor software-updates zoals elke andere beheerd door Configuration Manager-client. Bij deze stap worden met name de software-updates geïnstalleerd die zijn gericht op verzamelingen waarvan de computer momenteel lid is.  
 >  [!IMPORTANT]
->Wij raden u installeert de nieuwste versie van Windows Update Agent voor veel betere prestaties bij gebruik van de Software-Updates installeren voor de takenreeksstap.
+>Het is raadzaam dat u de nieuwste versie van Windows Update Agent veel betere prestaties installeert wanneer u de takenreeksstap voor het Software-Updates installeren.
 >* Zie [Knowledge base-artikel 3161647](https://support.microsoft.com/kb/3161647) voor Windows 7.
 >* Zie [Knowledge base-artikel 3163023](https://support.microsoft.com/kb/3163023) voor Windows 8.
 
  Deze takenreeksstap kan alleen in een standaardbesturingssysteem worden uitgevoerd. De stap kan niet worden uitgevoerd in Windows PE. Zie [Install Software Updates Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_InstallSoftwareUpdates) (Variabelen voor de takenreeksactie voor het installeren van software-updates) voor informatie over takenreeksvariabelen voor deze takenreeksactie.
 
  > [!NOTE]
- > U kunt de SMSTSMPListRequestTimeoutEnabled en SMSTSMPListRequestTimeout ingebouwde variabelen inschakelen en Specificeer hoeveel milliseconden lang een takenreeks wacht voordat het opnieuw probeert te installeren van een toepassing of software-updatebestanden nadat deze is mislukt voor het opvragen van de beheerpuntlijst van locatieservices. Zie voor meer informatie [Takenreeksvariabelen ingebouwde](task-sequence-built-in-variables.md).
+ > U kunt de SMSTSMPListRequestTimeoutEnabled en ingebouwde variabelen voor de SMSTSMPListRequestTimeout inschakelen en Specificeer hoeveel milliseconden lang een takenreeks wacht voordat het opnieuw probeert te installeren van een toepassing of software-updatebestanden nadat deze is mislukt voor het opvragen van de beheerpuntlijst van locatieservices. Zie voor meer informatie [Takenreeksvariabelen ingebouwde](task-sequence-built-in-variables.md).
 
 > [!NOTE]
->U kunt deze takenreeks configureren op het tabblad Opties, zodat de stap opnieuw wordt uitgevoerd als de computer onverwacht opnieuw wordt opgestart. Bijvoorbeeld bij de installatie van een software-update waarbij de computer automatisch opnieuw wordt opgestart. Beginnend in Configuration Manager 1602, kunt u de variabele SMSTSWaitForSecondReboot om op te geven hoe lang (in seconden) de takenreeks moet worden onderbroken nadat de computer opnieuw is opgestart bij de installatie van software-updates. Zie voor meer informatie [Takenreeksvariabelen ingebouwde](task-sequence-built-in-variables.md).
+>U kunt deze takenreeks configureren op het tabblad Opties, zodat de stap opnieuw wordt uitgevoerd als de computer onverwacht opnieuw wordt opgestart. Bijvoorbeeld bij de installatie van een software-update waarbij de computer automatisch opnieuw wordt opgestart. U kunt de variabele SMSTSWaitForSecondReboot om op te geven hoe lang (in seconden) de takenreeks moet worden onderbroken nadat de computer opnieuw is opgestart bij het installeren van software-updates vanaf Configuration Manager 1602 kan configureren. Zie voor meer informatie [Takenreeksvariabelen ingebouwde](task-sequence-built-in-variables.md).
 
 ### <a name="details"></a>Details  
  Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
@@ -1017,14 +1020,14 @@ Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoe
  **Beschrijving**  
  Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
 
- **Vereist voor de installatie - verplichte software-updates**  
- Selecteer deze optie voor het installeren van alle software-updates in Configuration Manager die zijn gemarkeerd als verplicht voor de doelcomputers die de takenreeks ontvangen. Voor vereiste software-updates gelden installatiedeadlines die door de beheerder zijn opgelegd.  
+ **Vereist voor de installatie - alleen verplichte software-updates**  
+ Selecteer deze optie voor het installeren van alle software-updates in Configuration Manager gemarkeerd als verplicht voor de doelcomputers die de takenreeks ontvangen. Voor vereiste software-updates gelden installatiedeadlines die door de beheerder zijn opgelegd.  
 
  **Beschikbaar voor installatie - alle software-updates**  
  Selecteer deze optie voor het installeren van alle beschikbare software-updates die gericht is op de Configuration Manager-verzameling die de takenreeks ontvangt. Alle beschikbare software-updates worden geïnstalleerd op de doelcomputers.  
 
- **Software-updates van cache scanresultaten evalueren**  
-Vanaf Configuration Manager versie 1606 hebt u de optie een volledige scan voor software-updates uit te voeren, in plaats van de scanresultaten in het cachegeheugen te gebruiken. De takenreeks maakt standaard gebruik van resultaten in het cachegeheugen. U kunt het selectievakje uitschakelen zodat de client verbinding maakt met het software-updatepunt voor het verwerken en downloaden van de nieuwste software-updatecatalogus. Deze optie kunt u kiezen wanneer u een takenreeks gebruikt voor het [vastleggen en opbouwen van een installatiekopie van een besturingssysteem](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md), waarbij u al van tevoren weet dat er een groot aantal software-updates moet plaatsvinden, met name veel updates die afhankelijkheden hebben (u moet X installeren voordat Y wordt weergegeven als beschikbaar). Wanneer u deze instelling wist en de takenreeks naar een groot aantal clients implementeren, wordt er al verbinding met de software-updatepunt op hetzelfde moment. Dit kan tot prestatieproblemen leiden bij het verwerken en downloaden van de catalogus. In de meeste gevallen kunt u het beste de standaardinstelling gebruiken.
+ **Software-updates uit scanresultaten in het cachegeheugen evalueren**  
+Vanaf Configuration Manager versie 1606 hebt u de optie een volledige scan voor software-updates uit te voeren, in plaats van de scanresultaten in het cachegeheugen te gebruiken. De takenreeks maakt standaard gebruik van resultaten in het cachegeheugen. U kunt het selectievakje uitschakelen zodat de client verbinding maakt met het software-updatepunt voor het verwerken en downloaden van de nieuwste software-updatecatalogus. Deze optie kunt u kiezen wanneer u een takenreeks gebruikt voor het [vastleggen en opbouwen van een installatiekopie van een besturingssysteem](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md), waarbij u al van tevoren weet dat er een groot aantal software-updates moet plaatsvinden, met name veel updates die afhankelijkheden hebben (u moet X installeren voordat Y wordt weergegeven als beschikbaar). Wanneer u deze instelling wist en de takenreeks op een groot aantal clients implementeren, verbindt ze alle met de software-updatepunt op hetzelfde moment. Dit kan tot prestatieproblemen leiden bij het verwerken en downloaden van de catalogus. In de meeste gevallen kunt u het beste de standaardinstelling gebruiken.
 
 Er is een nieuwe takenreeksvariabele, SMSTSSoftwareUpdateScanTimeout, toegevoegd aan Configuration Manager versie 1606, waarmee u de time-out kunt instellen voor het scannen op software-updates gedurende de takenreeksstap voor het installeren van software-updates. De standaardwaarde is 30 minuten. Zie voor meer informatie [Takenreeksvariabelen ingebouwde](task-sequence-built-in-variables.md).
 
@@ -1054,7 +1057,7 @@ Er is een nieuwe takenreeksvariabele, SMSTSSoftwareUpdateScanTimeout, toegevoegd
  **Lid worden van een werkgroep**  
  Selecteer deze optie om de doelcomputer toe te voegen aan de opgegeven werkgroep. Als de computer momenteel lid van een domein is terwijl deze optie is geselecteerd, wordt de computer opnieuw opgestart.  
 
- **Toevoegen aan een domein**  
+ **Lid worden van een domein**  
  Selecteer deze optie om de doelcomputer toe te voegen aan het opgegeven domein.  
 
  Typ optioneel een organisatie-eenheid (OE) of blader ernaartoe in het opgegeven domein waarvan u de computer lid wilt maken. Als de computer momenteel lid is van een ander domein of een werkgroep, wordt hierdoor de computer opnieuw opgestart. Als de computer al lid is van een andere organisatie-eenheid, mag u in Active Directory Domain Services de organisatie-eenheid niet wijzigen en wordt deze instelling genegeerd.  
@@ -1065,21 +1068,21 @@ Er is een nieuwe takenreeksvariabele, SMSTSSoftwareUpdateScanTimeout, toegevoegd
  *Domein\account*  
 
 ## <a name="BKMK_PrepareConfigMgrClientforCapture"></a>ConfigMgr-Client voorbereiden voor vastleggen  
-Gebruik de **Configuration Manager-Client voorbereiden voor vastleggen** stap voor het verwijderen van de Configuration Manager-client of configureren van de client op de referentiecomputer voorbereiden op het vastleggen als onderdeel van het replicatieproces.
+Gebruik de **ConfigMgr-Client voorbereiden voor vastleggen** stap voor het verwijderen van Configuration Manager-client of de client op de referentiecomputer deze voorbereiden voor vastleggen als onderdeel van de installatiekopieprocedure configureren.
 
-Vanaf versie 1610 van Configuration Manager, verwijdert de stap ConfigMgr-Client voorbereiden volledig Configuration Manager-client, in plaats van alleen verwijderen sleutelinformatie. Wanneer de takenreeks de vastgelegde installatiekopie implementeert wordt wordt telkens wanneer een nieuwe Configuration Manager-client geïnstalleerd.  
+Vanaf Configuration Manager versie 1610, haalt de stap ConfigMgr-Client voorbereiden de Configuration Manager-client, in plaats van alleen het verwijderen van belangrijke gegevens. Wanneer de takenreeks wordt geïmplementeerd voor de vastgelegde besturingssysteeminstallatiekopie wordt deze elke keer dat een nieuwe Configuration Manager-client installeren.  
 
-Voorafgaand aan de Configuration Manager versie 1610 wordt in deze stap de volgende taken:  
+Voorafgaand aan de Configuration Manager versie 1610 voert deze stap uit de volgende taken:  
 
 -   Verwijdert de sectie met eigenschappen van de clientconfiguratie in het bestand smscfg.ini in de Windows-map. Deze eigenschappen zijn clientspecifieke informatie zoals de Configuration Manager-GUID en andere client-id.  
 
 -   Verwijdert alle SMS of Configuration Manager-computercertificaten.  
 
--   Hiermee verwijdert u de clientcache voor Configuration Manager.  
+-   Hiermee verwijdert u de Configuration Manager-clientcache.  
 
 -   Wist de toegewezen sitevariabele voor de Configuration Manager-client.  
 
--   Hiermee verwijdert u alle lokale beleid van Configuration Manager.  
+-   Hiermee verwijdert u alle lokale Configuration Manager-beleid.  
 
 -   Hiermee verwijdert u de vertrouwde basissleutel voor de Configuration Manager-client.  
 
@@ -1162,7 +1165,7 @@ Voorafgaand aan de Configuration Manager versie 1610 wordt in deze stap de volge
 ##  <a name="BKMK_ReleaseStateStore"></a>Statusopslag vrijgeven  
  Gebruik de takenreeksstap **Statusopslag vrijgeven** om aan het statusmigratiepunt te communiceren dat het vastleggen of vrijgeven is voltooid. Deze stap wordt gebruikt in combinatie met de takenreeksstappen **Statusopslag opvragen**, **Gebruikerstoestand vastleggen** en **Gebruikersstatus herstellen** om statusgegevens van gebruikers te migreren met behulp van een statusmigratiepunt en het Hulpprogramma voor migratie van gebruikersstatus.  
 
- Zie voor meer informatie over het beheren van de gebruikersstatus bij het implementeren van besturingssystemen [Gebruikersstatus beheren](../get-started/manage-user-state.md).  
+ Zie voor meer informatie over het beheren van de gebruikersstatus bij het implementeren van besturingssystemen, [Gebruikersstatus beheren](../get-started/manage-user-state.md).  
 
  Als u toegang tot een statusmigratiepunt hebt aangevraagd om de gebruikersstatus vast te leggen in de takenreeksstap **Statusopslag opvragen**, wordt met deze stap aan het statusmigratiepunt gecommuniceerd dat het vastleggen is voltooid en dat de statusgegevens van de gebruiker kunnen worden hersteld. Het statusmigratiepunt stelt de toegangsbeheermachtigingen voor de vastgelegde status in zodat deze alleen toegankelijk is (als alleen-lezen) door de herstellende computer.  
 
@@ -1193,7 +1196,7 @@ Voorafgaand aan de Configuration Manager versie 1610 wordt in deze stap de volge
 ##  <a name="BKMK_RequestStateStore"></a>Statusopslag opvragen  
  Gebruik de takenreeksstap **Statusopslag opvragen** om toegang aan te vragen tot een statusmigratiepunt bij het vastleggen van de status van een computer of het herstellen van de status naar een computer.  
 
- Zie voor meer informatie over het beheren van de gebruikersstatus bij het implementeren van besturingssystemen [Gebruikersstatus beheren](../get-started/manage-user-state.md).  
+ Zie voor meer informatie over het beheren van de gebruikersstatus bij het implementeren van besturingssystemen, [Gebruikersstatus beheren](../get-started/manage-user-state.md).  
 
  U kunt de takenreeksstap **Statusopslag opvragen** gebruiken in combinatie met de takenreeksstappen **Statusopslag vrijgeven**, **Gebruikerstoestand vastleggen** en **Gebruikersstatus herstellen** om computerstatus te migreren met behulp van een statusmigratiepunt en het Hulpprogramma voor migratie van gebruikersstatus.  
 
@@ -1219,10 +1222,10 @@ Voorafgaand aan de Configuration Manager versie 1610 wordt in deze stap de volge
  **Beschrijving**  
  Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
 
- **De status van de computer vastleggen**  
+ **Status vastleggen vanaf de computer**  
  Hiermee zoekt u een statusmigratiepunt dat voldoet aan de minimumvereisten zoals geconfigureerd in de instellingen van het statusmigratiepunt (maximumaantal clients en minimale hoeveelheid vrije schijfruimte), maar er wordt niet gegarandeerd dat er voldoende ruimte beschikbaar is op het moment van de statusmigratie. Als u deze optie selecteert, wordt om toegang tot het statusmigratiepunt gevraagd om de gebruikersstatus en instellingen van een computer vast te leggen.  
 
- Als de Configuration Manager-site meerdere statusmigratiepunten ingeschakeld heeft, zoekt deze takenreeksstap een statusmigratiepunt met beschikbare schijfruimte beheerpunt voor de site voor een lijst met statusmigratiepunten op te zoeken en vervolgens elk statusmigratiepunt te evalueren totdat er een wordt gevonden dat voldoet aan de minimumvereisten.  
+ Als de Configuration Manager-site meerdere statusmigratiepunten zijn ingeschakeld heeft, zoekt deze takenreeksstap een statusmigratiepunt met beschikbare schijfruimte beheerpunt van de site voor een lijst met statusmigratiepunten op te zoeken en vervolgens elk statusmigratiepunt te evalueren totdat er een wordt gevonden dat voldoet aan de minimumvereisten.  
 
  **Status herstellen vanaf een andere computer**  
  Selecteer deze optie om toegang tot een statusmigratiepunt aan te vragen om eerder vastgelegde gebruikersstatus en instellingen op een doelcomputer te herstellen.  
@@ -1235,13 +1238,13 @@ Voorafgaand aan de Configuration Manager versie 1610 wordt in deze stap de volge
  **Wachttijd nieuwe poging (seconden)**  
  De hoeveelheid tijd in seconden dat de takenreeksstap moet wachten tussen nieuwe pogingen.  
 
- **Als het computeraccount geen verbinding maken met Statusopslag, het netwerktoegangsaccount gebruiken.**  
- Hiermee geeft u op dat de Configuration Manager toegang account netwerkreferenties verbinding maken met het statusmigratiepunt als de Configuration Manager-client geen toegang tot de Statusopslag SMP via het computeraccount wordt gebruikt. Deze optie is minder veilig, omdat het netwerktoegangsaccount op andere computers kan worden gebruikt om uw opgeslagen status op te vragen. De optie is mogelijk wel vereist als de doelcomputer niet lid is van een domein.  
+ **Als het computeraccount geen verbinding maken met Statusopslag, gebruikt u het netwerktoegangsaccount.**  
+ Hiermee geeft u op dat de accountreferenties voor toegang van Configuration Manager netwerk verbinding maken met het statusmigratiepunt als de Configuration Manager-client geen toegang tot de Statusopslag van SMP via het computeraccount wordt gebruikt. Deze optie is minder veilig, omdat het netwerktoegangsaccount op andere computers kan worden gebruikt om uw opgeslagen status op te vragen. De optie is mogelijk wel vereist als de doelcomputer niet lid is van een domein.  
 
 ##  <a name="BKMK_RestartComputer"></a>Computer opnieuw opstarten  
  Gebruik de takenreeksstap **Computer opnieuw opstarten** om de computer waarop de takenreeks wordt uitgevoerd opnieuw op te starten. Na het opnieuw opstarten gaat de computer automatisch door met de volgende stap in de takenreeks.  
 
- Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Zie voor meer informatie over de takenreeksvariabelen voor deze takenreeksactie [variabelen van takenreeksbewerking voor computer opnieuw opstarten](task-sequence-action-variables.md#BKMK_RestartComputer).  
+ Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Zie voor meer informatie over de takenreeksvariabelen voor deze takenreeksactie [opnieuw opstarten van computer takenreeksacties](task-sequence-action-variables.md#BKMK_RestartComputer).  
 
 ### <a name="details"></a>Details  
  Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
@@ -1266,7 +1269,7 @@ Voorafgaand aan de Configuration Manager versie 1610 wordt in deze stap de volge
  **Het momenteel geïnstalleerde standaardbesturingssysteem**  
  Selecteer deze optie voor de doelcomputer om deze opnieuw op te starten naar het geïnstalleerde besturingssysteem.  
 
- **De gebruiker waarschuwen voordat opnieuw wordt gestart**  
+ **De gebruiker waarschuwen voordat opnieuw wordt opgestart**  
  Selecteer deze optie om een melding te tonen aan de gebruiker dat de doelcomputer opnieuw wordt opgestart. Deze optie is standaard geselecteerd.  
 
  **Tekst van melding**  
@@ -1278,9 +1281,9 @@ Voorafgaand aan de Configuration Manager versie 1610 wordt in deze stap de volge
 ##  <a name="BKMK_RestoreUserState"></a>Gebruikersstatus herstellen  
  Gebruik de takenreeksstap **Gebruikersstatus herstellen** om het Hulpprogramma voor migratie van gebruikersstatus te initiëren voor het herstellen van gebruikersstatus en instellingen op de doelcomputer. Deze takenreeksstap wordt gebruikt in combinatie met de takenreeksstap **Gebruikerstoestand vastleggen**.  
 
- Zie voor meer informatie over het beheren van de gebruikersstatus bij het implementeren van besturingssystemen [Gebruikersstatus beheren](../get-started/manage-user-state.md).  
+ Zie voor meer informatie over het beheren van de gebruikersstatus bij het implementeren van besturingssystemen, [Gebruikersstatus beheren](../get-started/manage-user-state.md).  
 
- U kunt ook de **gebruikersstatus herstellen** takenreeksstap met de **Statusopslag opvragen** en **Statusopslag vrijgeven** takenreeksstappen als u wilt de statusinstellingen van de instellingen opslaan of herstellen uit een statusmigratiepunt punt in de Configuration Manager-site. In USMT 3.0 en hoger wordt met deze versleuteld optie altijd de USMT-Statusopslag met een versleutelingssleutel die wordt gegenereerd en beheerd door Configuration Manager.  
+ U kunt ook de **gebruikersstatus herstellen** takenreeksstap met de **Statusopslag opvragen** en **Statusopslag vrijgeven** takenreeksstappen als u wilt de statusinstellingen opslaan in of herstellen uit een statusmigratiepunt punt in de Configuration Manager-site. In USMT 3.0 en hoger wordt met deze ontsleuteld optie altijd de USMT-Statusopslag met behulp van een versleutelingssleutel die wordt gegenereerd en beheerd door Configuration Manager.  
 
  De takenreeksstap **Gebruikersstatus herstellen** biedt controle over een beperkte subset van de meest gebruikte USMT-opties. Aanvullende opdrachtregelopties kunnen worden opgegeven met de takenreeksvariabele OSDMigrateAdditionalRestoreOptions.  
 
@@ -1346,7 +1349,7 @@ Voorafgaand aan de Configuration Manager versie 1610 wordt in deze stap de volge
  **Beschrijving**  
  Hiermee geeft u meer gedetailleerde informatie op over de uitgevoerde opdrachtregel.  
 
- **Opdrachtregel**  
+ **Vanaf de opdrachtregel**  
  Hiermee geeft u de uitgevoerde opdrachtregel op. Dit veld is vereist. Inclusief bestandsnaamextensies wordt aanbevolen, bijvoorbeeld .vbs en .exe. Neem alle vereiste instellingenbestanden, opdrachtregelopties of schakelopties op.  
 
  Als de bestandsnaam geen een bestandsnaamextensie is opgegeven, Configuration Manager probeert .com, .exe en. bat. Als de bestandsnaam een extensie is niet een uitvoerbaar bestand heeft, Configuration Manager wordt geprobeerd een lokale koppeling toe te passen. Als de opdrachtregel readme.gif is, begint Configuration Manager de toepassing die is opgegeven op de doelcomputer voor het openen van .gif-bestanden.  
@@ -1355,15 +1358,15 @@ Voorafgaand aan de Configuration Manager versie 1610 wordt in deze stap de volge
 
  **Setup.exe /a**  
 
- **cmd.exe /c copy Jan98.dat c:\sales\Jan98.dat**  
+ **cmd.exe /c kopiëren Jan98.dat c:\sales\Jan98.dat**  
 
 > [!NOTE]  
->  Opdrachtregelacties, zoals uitvoeromleiding, pipes of copy, zoals in het vorige voorbeeld moeten worden voorafgegaan door de **cmd.exe /c** opdracht uit om te worden uitgevoerd.  
+>  Opdrachtregelacties, zoals uitvoeromleiding, pipes of copy, zoals in het voorgaande voorbeeld moeten worden voorafgegaan door de **cmd.exe /c** opdracht uit om te worden uitgevoerd.  
 
  **64-bits bestandssysteemomleiding uitschakelen**  
  In een 64-bits besturingssysteem wordt het uitvoerbare bestand op de opdrachtregel standaard gezocht en uitgevoerd met behulp van de WOW64-bestandssysteemredirector, zodat 32-bits versies van uitvoerbare en .dll-bestanden van het besturingssysteem worden gevonden.  Als u deze optie selecteert, wordt het gebruik van de WOW64-bestandssysteemredirector uitgeschakeld, zodat de systeemeigen 64-bits versies van uitvoerbare en .dll-bestanden van het besturingssysteem kunnen worden gevonden.  Het selecteren van deze optie heeft geen effect wanneer u gebruikmaakt van een 32-bits besturingssysteem.  
 
- **Beginnen**  
+ **Beginnen in**  
  Hiermee geeft u de uitvoerbare map op voor het programma, in maximaal 127 tekens. Deze map kan een absoluut pad op de doelcomputer betreffen of een relatief pad ten opzichte van de distributiepuntmap die het pakket bevat. Dit veld is optioneel.  
 
  Voorbeelden:  
@@ -1441,12 +1444,12 @@ Voorafgaand aan de Configuration Manager versie 1610 wordt in deze stap de volge
 >   
 >  Het volgende voorbeeld bevat ongeldige parameters. De vette items zijn Windows PowerShell-opdrachtregelparameters (-nologo en -executionpolicy unrestricted) en worden niet gebruikt door het script.  
 >   
->  **-nologo executionpolicy unrestricted-File Mijnscript.ps1-Mijnparameter1 Mijnwaarde1-Mijnparameter2 Mijnwaarde2**  
+>  **-nologo-executionpolicy unrestricted-File Mijnscript.ps1-Mijnparameter1 Mijnwaarde1-Mijnparameter2 Mijnwaarde2**  
 
  **PowerShell-uitvoeringsbeleid**  
  Met selectie van het PowerShell-uitvoeringsbeleid kunt u bepalen welke Windows PowerShell-scripts (indien van toepassing) kunnen worden uitgevoerd op de computer. Kies een van de volgende uitvoeringsbeleidsregels:  
 
--   **AllSigned**: Alleen scripts die zijn ondertekend door een vertrouwde uitgever kunnen worden uitgevoerd.  
+-   **Alles ondertekend**: Alleen scripts die zijn ondertekend door een vertrouwde uitgever kunnen worden uitgevoerd.  
 
 -   **Niet-gedefinieerde**: Er is geen uitvoeringsbeleid gedefinieerd. .  
 
@@ -1478,7 +1481,7 @@ Voorafgaand aan de Configuration Manager versie 1610 wordt in deze stap de volge
 
  -   &#95; SMSTSUUID  
 
- Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Zie voor meer informatie over takenreeksvariabelen [actie Takenreeksvariabelen](task-sequence-action-variables.md).  
+ Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Zie voor meer informatie over takenreeksvariabelen [Takenreeksacties](task-sequence-action-variables.md).  
 
 ### <a name="details"></a>Details  
  Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
@@ -1500,21 +1503,21 @@ Voorafgaand aan de Configuration Manager versie 1610 wordt in deze stap de volge
 **Dynamische regels en variabelen**  
  Voor het instellen van een dynamische variabele voor gebruik in de takenreeks kunt u een regel toevoegen en vervolgens een waarde opgeven voor elke variabele die u voor de regel opgeeft, of kunt u een of meer in te stellen variabelen toevoegen zonder een regel toe te voegen. Wanneer u een regel toevoegt, kunt u kiezen uit de volgende regelcategorieën:  
 
- -   **Computer**: Gebruik deze regelcategorie om waarden voor inventaristag, UUID, serienummer of mac-adres te evalueren. U kunt meerdere waarden instellen en als een willekeurige waarde waar is, resulteert de regel in waar. Bijvoorbeeld: de volgende regel resulteert in waar als het serienummer 5892087 is, ongeacht of het MAC-adres gelijk is aan 26-78-13-5A-A4-22.  
+ -   **Computer**: Gebruik deze regelcategorie om waarden voor inventaristag, UUID, serienummer of mac-adres te beoordelen. U kunt meerdere waarden instellen en als een willekeurige waarde waar is, resulteert de regel in waar. Bijvoorbeeld: de volgende regel resulteert in waar als het serienummer 5892087 is, ongeacht of het MAC-adres gelijk is aan 26-78-13-5A-A4-22.  
 
      `IF Serial Number = 5892087 OR MAC address = 26-78-13-5A-A4-22 THEN`  
 
--   **Locatie**: Gebruik deze regelcategorie om waarden voor de standaardgateway te evalueren.  
+-   **Locatie**: Gebruik deze regelcategorie om waarden voor de standaardgateway te beoordelen.  
 
--   **Merk en Model**: Gebruik deze regelcategorie om waarden voor het merk en model van een computer te evalueren. Zowel het merk als het model moet resulteren in waar om de regel te laten resulteren in waar.   
+-   **Merk en Model**: Gebruik deze regelcategorie om waarden voor het merk en model van een computer te beoordelen. Zowel het merk als het model moet resulteren in waar om de regel te laten resulteren in waar.   
 
-    U start in Configuration Manager versie 1610, kunt u een sterretje (*) en vraagtekens (**?**) als jokertekens, waarbij *** komt overeen met meerdere tekens en **?** komt overeen met één teken. Bijvoorbeeld, de tekenreeks "DELL * 900?" komt overeen met ABC-DELL-9001 en DELL9009.
+    U start in Configuration Manager versie 1610, kunt u een sterretje (*) en vraagtekens (**?**) als jokertekens, waarbij *** komt overeen met meerdere tekens en **?** komt overeen met een enkel teken. Bijvoorbeeld: de tekenreeks ' DELL * 900? ' komt overeen met ABC-DELL-9001 als DELL9009.
 
 -   **Takenreeksvariabele**: Gebruik deze regelcategorie om toe te voegen een takenreeksvariabele, voorwaarde en waarde om te evalueren. Deze regel resulteert in waar wanneer de ingestelde waarde voor de variabele voldoet aan de opgegeven voorwaarde.  
 
 U kunt een of meer variabelen opgeven die worden ingesteld voor een regel die resulteert in waar, of u kunt variabelen instellen zonder een regel te gebruiken. U kunt kiezen uit bestaande variabelen of u kunt een aangepaste variabele maken.  
 
- -   **Bestaande takenreeksvariabelen**: Gebruik deze instelling om een of meer variabelen te selecteren in een lijst met bestaande takenreeksvariabelen. Matrixvariabelen kunnen niet worden geselecteerd.  
+ -   **Bestaande takenreeksvariabelen**: Gebruik deze instelling om te selecteren van een of meer variabelen in een lijst met bestaande takenreeksvariabelen. Matrixvariabelen kunnen niet worden geselecteerd.  
 
  -   **Aangepaste takenreeksvariabelen**: Gebruik deze instelling kunt u een aangepaste takenreeksvariabele te definiëren. U kunt ook een bestaande takenreeksvariabele opgeven. Dit is handig om een bestaande variabelenmatrix op te geven, zoals OSDAdapter, omdat variabelenmatrices niet voorkomen in de lijst met bestaande takenreeksvariabelen.  
 
@@ -1526,7 +1529,7 @@ Nadat u de variabelen voor een regel hebt geselecteerd, moet u een waarde opgeve
 ##  <a name="BKMK_SetTaskSequenceVariable"></a>Takenreeksvariabele instellen  
  Gebruik de takenreeksstap **Takenreeksvariabele instellen** om de waarde in te stellen van een variabele die in de takenreeks wordt gebruikt.  
 
- Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Takenreeksvariabelen worden gelezen door takenreeksacties en bepalen het gedrag van deze acties. Zie voor meer informatie over specifieke takenreeksvariabelen [actie Takenreeksvariabelen](task-sequence-action-variables.md).  
+ Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Takenreeksvariabelen worden gelezen door takenreeksacties en bepalen het gedrag van deze acties. Zie voor meer informatie over specifieke takenreeksvariabelen [Takenreeksacties](task-sequence-action-variables.md).  
 
 ### <a name="details"></a>Details  
  Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
@@ -1552,11 +1555,11 @@ Nadat u de variabelen voor een regel hebt geselecteerd, moet u een waarde opgeve
  De waarde die is gekoppeld aan de takenreeksvariabele. De waarde kan een andere takenreeksvariabele zijn met de syntaxis %<varname\>%.  
 
 ##  <a name="BKMK_SetupWindowsandConfigMgr"></a>Windows en ConfigMgr installeren  
- Gebruik de takenreeksstap **Windows en ConfigMgr installeren** om de overgang van Windows PE naar het nieuwe besturingssysteem uit te voeren. Deze takenreeksstap is een vereist onderdeel van iedere besturingssysteemimplementatie. Het Configuration Manager-client installeert met het nieuwe besturingssysteem en bereidt de takenreeks op uitvoering in het nieuwe besturingssysteem.  
+ Gebruik de takenreeksstap **Windows en ConfigMgr installeren** om de overgang van Windows PE naar het nieuwe besturingssysteem uit te voeren. Deze takenreeksstap is een vereist onderdeel van iedere besturingssysteemimplementatie. Deze Configuration Manager-client installeert in het nieuwe besturingssysteem en bereidt de takenreeks op uitvoering in het nieuwe besturingssysteem.  
 
- Deze stap kan alleen in Windows PE worden uitgevoerd. De taak kan niet worden uitgevoerd in een standaardbesturingssysteem. Zie voor meer informatie over takenreeksvariabelen voor deze takenreeksactie [Windows en ConfigMgr installeren takenreeksvariabelen actie](task-sequence-action-variables.md#BKMK_SetupWindows).  
+ Deze stap kan alleen in Windows PE worden uitgevoerd. De taak kan niet worden uitgevoerd in een standaardbesturingssysteem. Zie voor meer informatie over takenreeksvariabelen voor deze takenreeksactie [Windows en ConfigMgr installeren takenreeksacties](task-sequence-action-variables.md#BKMK_SetupWindows).  
 
- De **Windows en ConfigMgr installeren** takenreeksactie sysprep.inf of unattend.xml mapvariabelen, zoals % WINDIR % en % ProgramFiles %, vervangt door de Windows PE-installatiemap X:\Windows. Opgegeven takenreeksvariabelen met behulp van deze omgevingsvariabelen worden genegeerd.  
+ De **Windows en ConfigMgr installeren** takenreeksactie sysprep.inf of unattend.xml directory variabelen, zoals % WINDIR % en % ProgramFiles %, vervangt door de Windows PE-installatiemap X:\Windows. Opgegeven takenreeksvariabelen met behulp van deze omgevingsvariabelen worden genegeerd.  
 
  Gebruik deze takenreeksstap om de volgende handelingen uit te voeren:  
 
@@ -1570,13 +1573,13 @@ Nadat u de variabelen voor een regel hebt geselecteerd, moet u een waarde opgeve
 
     1.  Installatie op basis van een installatiekopie.  
 
-        1.  De Configuration Manager-client in de installatiekopie (dat wil zeggen, schakelt Autostart voor de Configuration Manager-client-service) wordt uitgeschakeld.  
+        1.  Hiermee schakelt u de Configuration Manager-client in de installatiekopie (dat wil zeggen, wordt uitgeschakeld Autostart voor de Configuration Manager-client-service).  
 
         2.  Werkt het register in de geïmplementeerde installatiekopie bij zodat het geïmplementeerde besturingssysteem wordt gestart met dezelfde stationsletter als op de referentiecomputer.  
 
         3.  Start opnieuw op naar het geïmplementeerde besturingssysteem.  
 
-        4.  Windows Mini-setup wordt uitgevoerd met behulp van het eerder opgegeven bestand sysprep.inf of unattend.xml, waarbij alle interactie door de eindgebruiker wordt onderdrukt. Opmerking: Als **netwerkinstellingen toepassen** opgegeven toevoegen aan een domein, bevindt de informatie zich in het bestand sysprep.inf of unattend.xml, en maakt Windows Mini-Setup lid van het domein.  
+        4.  Windows Mini-setup wordt uitgevoerd met behulp van het eerder opgegeven bestand sysprep.inf of unattend.xml, waarbij alle interactie door de eindgebruiker wordt onderdrukt. Opmerking: Als **netwerkinstellingen toepassen** opgegeven toevoegen aan een domein, bevindt die informatie zich in het bestand sysprep.inf of unattend.xml, en Windows Mini-Setup het domein.  
 
     2.  Installatie op basis van setup.exe.  Voert Setup.exe uit, die de standaard Windows-installatieprocedure volgt:  
 
@@ -1584,7 +1587,7 @@ Nadat u de variabelen voor een regel hebt geselecteerd, moet u een waarde opgeve
 
         2.  Start opnieuw op naar het nieuw geïmplementeerde besturingssysteem.  
 
-        3.  Windows Mini-setup wordt uitgevoerd met behulp van het eerder opgegeven bestand sysprep.inf of unattend.xml, waarbij alle gebruikersinterface-instellingen worden onderdrukt. Opmerking: Als **netwerkinstellingen toepassen** opgegeven toevoegen aan een domein, bevindt de informatie zich in het bestand sysprep.inf of unattend.xml, en maakt Windows Mini-Setup lid van het domein.  
+        3.  Windows Mini-setup wordt uitgevoerd met behulp van het eerder opgegeven bestand sysprep.inf of unattend.xml, waarbij alle gebruikersinterface-instellingen worden onderdrukt. Opmerking: Als **netwerkinstellingen toepassen** opgegeven toevoegen aan een domein, bevindt die informatie zich in het bestand sysprep.inf of unattend.xml, en Windows Mini-Setup het domein.  
 
 3.  Instellen van de Configuration Manager-client  
 
@@ -1592,7 +1595,7 @@ Nadat u de variabelen voor een regel hebt geselecteerd, moet u een waarde opgeve
 
     2.  Schakelt het lokale beheerdersaccount in of uit op basis van de geselecteerde optie in de stap **Windows-instellingen toepassen**.  
 
-    3.  De Configuration Manager-client installeert met behulp van het eerder gedownloade pakket (1.b) en installatie-eigenschappen die zijn opgegeven in de Takenreekseditor. De client is geïnstalleerd in 'inrichtingsmodus' om te voorkomen dat nieuwe beleidsaanvragen worden verwerkt totdat de takenreeks is voltooid.  
+    3.  Configuration Manager-client installeert met behulp van het eerder gedownloade pakket (1.b) en installatie-eigenschappen die zijn opgegeven in de Takenreekseditor. De client is geïnstalleerd in 'inrichtingsmodus' om te voorkomen dat nieuwe beleidsaanvragen worden verwerkt totdat de takenreeks is voltooid.  
 
     4.  Wacht tot de client volledig operationeel is.  
 
@@ -1621,15 +1624,15 @@ Nadat u de variabelen voor een regel hebt geselecteerd, moet u een waarde opgeve
  Hiermee geeft u aanvullende informatie op over de uitgevoerde actie in deze stap.  
 
  **Clientpakket**  
- Hiermee geeft u de Configuration Manager-clientinstallatiepakket dat wordt gebruikt door deze takenreeksstap. Klik op **Bladeren** en selecteer het clientinstallatiepakket dat u wilt gebruiken om de Configuration Manager-client te installeren.  
+ Hiermee geeft u de Configuration Manager-clientinstallatiepakket dat door deze takenreeksstap wordt gebruikt. Klik op **Bladeren** en selecteer het clientinstallatiepakket dat u wilt gebruiken om de Configuration Manager-client te installeren.  
 
- **Gebruik pre-productieclient pakket indien beschikbaar**  
- Hiermee wordt aangegeven dat als er een pre-productieclientpakket beschikbaar is, de takenreeksstap dit pakket gebruikt in plaats van het productieclientpakket. De pre-productieclient is meestal een nieuwere versie die wordt getest in de productieomgeving. Klik op **Bladeren** en selecteer de pre-productieclient-installatiepakket dat u wilt gebruiken om de Configuration Manager-client te installeren.  
+ **Gebruik pre-productieclientpakket indien beschikbaar**  
+ Hiermee wordt aangegeven dat als er een pre-productieclientpakket beschikbaar is, de takenreeksstap dit pakket gebruikt in plaats van het productieclientpakket. De pre-productieclient is meestal een nieuwere versie die wordt getest in de productieomgeving. Klik op **Bladeren** en selecteer het pre-productieclient-installatiepakket dat u wilt gebruiken om de Configuration Manager-client te installeren.  
 
  **Installatie-eigenschappen**  
  Sitetoewijzing en de standaardconfiguratie worden automatisch opgegeven door de takenreeksactie. U kunt dit veld gebruiken om eventuele aanvullende installatie-eigenschappen op te geven die worden gebruikt bij installatie van de client. Als u meerdere installatie-eigenschappen wilt invoeren, scheidt u deze met een spatie.  
 
- U kunt opdrachtregelopties opgeven voor gebruik tijdens de clientinstallatie. U kunt bijvoorbeeld **/skipprereq: silverlight.exe** invoeren om aan CCMSetup.exe te communiceren dat de Microsoft Silverlight-vereiste niet moet worden geïnstalleerd. Zie voor meer informatie over de beschikbare opdrachtregelopties voor CCMSetup.exe [over clientinstallatie-eigenschappen](../../core/clients/deploy/about-client-installation-properties.md).  
+ U kunt opdrachtregelopties opgeven voor gebruik tijdens de clientinstallatie. U kunt bijvoorbeeld **/skipprereq: silverlight.exe** invoeren om aan CCMSetup.exe te communiceren dat de Microsoft Silverlight-vereiste niet moet worden geïnstalleerd. Zie voor meer informatie over beschikbare opdrachtregelopties voor CCMSetup.exe [over clientinstallatie-eigenschappen](../../core/clients/deploy/about-client-installation-properties.md).  
 
 ##  <a name="BKMK_UpgradeOS"></a>Besturingssysteem bijwerken  
  Gebruik de takenreekstap **Besturingssysteem bijwerken** om een bestaand Windows 7-, Windows 8-, Windows 8.1- of Windows 10-besturingssysteem bij te werken naar Windows-10.  
@@ -1659,7 +1662,7 @@ Nadat u de variabelen voor een regel hebt geselecteerd, moet u een waarde opgeve
  **Bronpad**  
  Hiermee geeft u een lokaal pad of netwerkpad op naar het Windows-10-medium dat moet worden gebruikt (komt overeen met de opdrachtregeloptie /InstallFrom). U kunt ook een variabele opgeven, zoals %mycontentpath% of %DPC01%. Wanneer u een variabele voor het bronpad gebruikt, moet u deze eerder in de takenreeks opgeven. Als u bijvoorbeeld de stap [Pakketinhoud downloaden](#BKMK_DownloadPackageContent) in de takenreeks gebruikt, kunt u een variabele voor de locatie van het upgradepakket voor het besturingssysteem opgeven. Vervolgens gebruikt u deze variabele voor het bronpad voor deze stap.  
 
- **Edition**  
+ **Editie**  
  Geef de editie in het besturingssysteemmedium op dat moet worden gebruikt voor de upgrade.  
 
  **Productcode**  
@@ -1668,14 +1671,14 @@ Nadat u de variabelen voor een regel hebt geselecteerd, moet u een waarde opgeve
  **Geef de volgende stuurprogramma-inhoud aan Windows Setup tijdens de upgrade**  
  Selecteer deze instelling om stuurprogramma's aan de doelcomputer toe te voegen tijdens het upgradeproces (komt overeen met de opdrachtregeloptie /InstallDriver). De stuurprogramma's moeten compatibel zijn met Windows 10. Geef een van de volgende mogelijkheden op:  
 
--   **Stuurprogrammapakket**: Klik op **Bladeren** en selecteer een bestaand stuurprogrammapakket uit de lijst.  
+-   **Stuurprogrammapakket**: Klik op **Bladeren** en selecteer een bestaand stuurprogrammapakket in de lijst.  
 
--   **Gefaseerde inhoud**:  Selecteer deze optie om op te geven van de locatie voor het stuurprogrammapakket. U kunt een lokale map, netwerkpad of een takenreeksvariabele opgeven. Wanneer u een variabele voor het bronpad gebruikt, moet u deze eerder in de takenreeks opgeven. Bijvoorbeeld door de stap [Pakketinhoud downloaden](task-sequence-steps.md#BKMK_DownloadPackageContent) te gebruiken.  
+-   **Tijdelijke inhoud**:  Selecteer deze optie om de locatie voor het stuurprogrammapakket te geven. U kunt een lokale map, netwerkpad of een takenreeksvariabele opgeven. Wanneer u een variabele voor het bronpad gebruikt, moet u deze eerder in de takenreeks opgeven. Bijvoorbeeld door de stap [Pakketinhoud downloaden](task-sequence-steps.md#BKMK_DownloadPackageContent) te gebruiken.  
 
  **Time-out (minuten)**  
- Hiermee geeft u het aantal minuten die Setup uit te voeren voordat Configuration Manager de takenreeksstap mislukt heeft.  
+ Hiermee geeft u het aantal minuten op dat Setup uit te voeren voordat Configuration Manager de takenreeksstap mislukt heeft.  
 
- **Windows Setup-scan voor compatibiliteit uitvoeren zonder dat u de upgrade uitvoert**  
+ **Windows-installatiecompatibiliteitsscan uitvoeren zonder de upgrade wordt gestart**  
  Hiermee geeft u aan dat de Windows-scan voor compatibiliteit moet worden uitgevoerd zonder het upgradeproces te starten (komt overeen met de opdrachtregeloptie /SCompat ScanOnly). Als u deze optie gebruikt, moet u nog steeds de gehele installatiebron implementeren. Setup retourneert een afsluitcode als resultaat van de scan. In de volgende tabel staan enkele veelvoorkomende afsluitcodes.  
 
 |Afsluitcode|Details|  
@@ -1688,11 +1691,11 @@ Nadat u de variabelen voor een regel hebt geselecteerd, moet u een waarde opgeve
 
  Zie [Opdrachtregelopties voor Windows Setup](https://msdn.microsoft.com/library/windows/hardware/dn938368\(v=vs.85\).aspx) voor meer informatie over deze parameter  
 
- **Negeer eventuele berichten worden weggeklikt compatibiliteit**  
+ **Verwijder compatibiliteitsberichten die kunnen worden genegeerd**  
  Geeft aan dat de installatie is voltooid en negeert alle compatibiliteitsberichten die kunnen worden genegeerd (komt overeen met de opdrachtregeloptie /Compat IgnoreWarning).  
 
  **Installatie van Windows dynamisch bijwerken met Windows Update**  
- Geeft aan of Setup dynamische updatebewerkingen uitvoert, zoals zoeken, downloaden en installeren van updates (komt overeen met de opdrachtregeloptie /DynamicUpdate). Deze instelling is niet compatibel met Configuration Manager-software-updates, maar kan worden ingeschakeld wanneer u updates verwerkt met behulp van WSUS (zelfstandig) of Windows Update.  
+ Geeft aan of Setup dynamische updatebewerkingen uitvoert, zoals zoeken, downloaden en installeren van updates (komt overeen met de opdrachtregeloptie /DynamicUpdate). Deze instelling is niet compatibel is met Configuration Manager software-updates, maar kan worden ingeschakeld wanneer u updates verwerkt met behulp van WSUS (zelfstandig) of Windows Update.  
 
- **Beleid negeren en standaard Microsoft Update gebruiken**: Selecteer deze instelling tijdelijk op het lokale beleid in realtime dynamische Update-bewerkingen uitvoeren en de computer updates ontvangen van Windows Update.  
+ **Beleid negeren en standaard Microsoft Update gebruiken**: Selecteer deze instelling om het lokale beleid tijdelijk in negeren realtime dynamische updatebewerkingen uitvoert en de computer updates downloaden van Windows Update.  
 

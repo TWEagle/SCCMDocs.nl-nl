@@ -1,8 +1,8 @@
 ---
-title: Serviceverbindingspunt | Microsoft-documenten
-description: Meer informatie over deze sitesysteemrol van de Configuration Manager en begrijpen en plannen voor de reeks wordt gebruikt.
+title: Serviceaansluitpunt | Microsoft Docs
+description: Meer informatie over deze sitesysteemrol van de Configuration Manager en begrijpen en plannen voor de verschillende mogelijkheden.
 ms.custom: na
-ms.date: 3/30/2017
+ms.date: 6/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,10 +17,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: 6accec2d356861b273b25ba2b6338d9684a46ff6
-ms.openlocfilehash: ad6df047beff670411d203220576b87f7d56d50c
+ms.sourcegitcommit: 0ec241d07f51b80b84d65676ef1207b31a9a9983
+ms.openlocfilehash: e3d41dc1bb732e887d722f39ee86deaf0aae3240
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -28,69 +28,71 @@ ms.lasthandoff: 05/17/2017
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-De System Center Configuration Manager service connection point is een sitesysteemrol die een aantal belangrijke functies voor de hiërarchie fungeert. Voordat u de service connection point instelt, te begrijpen en plannen voor de reeks wordt gebruikt, die mogelijk van invloed op hoe u deze sitesysteemrol instellen:  
+Het serviceverbindingspunt van System Center Configuration Manager is een sitesysteemrol die enkele belangrijke functies voor de hiërarchie fungeert. Voordat u het service connection point instelt, begrijpen en plannen voor de verschillende mogelijkheden die invloed kunnen zijn op hoe u deze sitesysteemrol instellen:  
 
--   **Mobiele apparaten beheren met Microsoft Intune** -deze rol wordt vervangen door de Windows Intune-connector met eerdere versies van Configuration Manager gebruikt en kunnen worden geconfigureerd met de details van uw Intune-abonnement. Zie [hybride mobiel Apparaatbeheer (MDM) met System Center Configuration Manager en Microsoft Intune](../../../../mdm/understand/hybrid-mobile-device-management.md).  
+-   **Mobiele apparaten beheren met Microsoft Intune** -deze functie vervangt de Windows Intune-connector met eerdere versies van Configuration Manager gebruikt en kunnen worden geconfigureerd met de details van uw Intune-abonnement. Zie [hybride mobile device management (MDM) met System Center Configuration Manager en Microsoft Intune](../../../../mdm/understand/hybrid-mobile-device-management.md).  
 
--   **Mobiele apparaten beheren met lokale MDM** -deze rol biedt ondersteuning voor lokale apparaten die u beheert en die geen verbinding maken met Internet. Zie [mobiele apparaten beheren met on-premises infrastructuur in System Center Configuration Manager](../../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
+-   **Beheer van mobiele apparaten met on-premises MDM** -deze rol biedt ondersteuning voor on-premises apparaten die u beheert en die niet zijn verbonden met Internet. Zie [mobiele apparaten beheren met on-premises infrastructuur in System Center Configuration Manager](../../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
 
--   **Gebruiksgegevens van Configuration Manager-infrastructuur uploaden** -u kunt bepalen het niveau of de hoeveelheid details die u uploadt. Geüploade gegevens helpen ons bij het volgende:  
+-   **Uploaden van gebruiksgegevens van uw Configuration Manager-infrastructuur** -u kunt bepalen het niveau of de hoeveelheid details die u uploadt. Geüploade gegevens helpen ons bij het volgende:  
 
     -   Proactief problemen vaststellen en deze oplossen  
 
     -   Onze producten en de service verbeteren  
 
-    -   Identificeren van updates voor Configuratiebeheer die betrekking hebben op de versie van Configuration Manager die u gebruikt  
+    -   Identificeren van updates voor Configuration Manager die van toepassing op de versie van Configuration Manager die u gebruikt  
 
-  Zie voor informatie over gegevens die elk niveau worden verzameld en hoe u het niveau verzameling wijzigen nadat de rol is geïnstalleerd, [diagnostische en gebruiksgegevens](/sccm/core/plan-design/diagnostics/diagnostics-and-usage-data), en volgt u de koppeling voor de versie van Configuration Manager die u gebruikt.  
+  Zie voor informatie over gegevens die elk niveau worden verzameld en hoe u het niveau verzameling wijzigen nadat de rol is geïnstalleerd, [diagnostische gegevens en gebruiksgegevens](/sccm/core/plan-design/diagnostics/diagnostics-and-usage-data), en volg de koppeling voor de versie van Configuration Manager die u gebruikt.  
 
-  Zie voor meer informatie [gebruik hebben en instellingen](../../../../core/servers/deploy/install/setup-reference.md#bkmk_usage).  
+  Zie voor meer informatie, [gebruiksgegevensniveaus en instellingen](../../../../core/servers/deploy/install/setup-reference.md#bkmk_usage).  
 
--   **Downloaden van updates voor uw Configuration Manager-infrastructuur** - alleen relevante updates voor uw infrastructuur beschikbaar worden gemaakt op basis van gebruiksgegevens die u uploadt.  
+-   **Updates downloaden die van toepassing zijn op uw Configuration Manager-infrastructuur** : alleen relevante updates voor uw infrastructuur worden beschikbaar gesteld op basis van gebruiksgegevens die u uploadt.  
 
 - **Elke hiërarchie ondersteunt slechts één exemplaar van deze rol:**  
 
- -   De sitesysteemrol kan alleen worden geïnstalleerd op de bovenste site van uw hiërarchie, dit een centrale beheersite of zelfstandige primaire site is.  
+ -   De sitesysteemrol kan alleen worden geïnstalleerd op de bovenste site van uw hiërarchie een centrale beheersite of zelfstandige primaire site.  
 
-  -   Als u een zelfstandige primaire site naar een grotere hiërarchie uitbreiden, kunt u deze rol van de primaire site moet verwijderen en kan vervolgens installeren op de centrale beheersite.  
+  -   Als u een zelfstandige primaire site naar een grotere hiërarchie uitbreiden, kunt u deze rol in de primaire site moet verwijderen en kunt u deze vervolgens installeren op de centrale beheersite.  
 
 
-##  <a name="bkmk_modes"></a>Modi  
+##  <a name="bkmk_modes"></a>Bewerkingsmodi  
  Het serviceverbindingspunt ondersteunt twee bewerkingsmodi:  
 
--   In **onlinemodus**, de service connection point automatisch elke 24 uur op updates controleert en downloadt hij nieuwe updates die beschikbaar voor uw huidige infrastructuur en het product versie zijn zodat ze beschikbaar zijn in de Configuration Manager-console.  
+-   In **onlinemodus**, het serviceverbindingspunt automatisch elke 24 uur op updates controleert en downloadt vervolgens de nieuwe updates die beschikbaar voor uw huidige infrastructuur en productversie versie zijn zodat ze beschikbaar zijn in de Configuration Manager-console.  
 
--   In **offlinemodus**, de service connection point geen verbinding maken met de cloudservice van Microsoft en moet u [gebruik het hulpprogramma voor Service-verbinding voor System Center Configuration Manager](../../../../core/servers/manage/use-the-service-connection-tool.md) beschikbare updates importeren.  
+-   In **offlinemodus**maakt het serviceverbindingspunt geen verbinding met de cloudservice van Microsoft en moet u handmatig [het hulpprogramma voor serviceverbindingen gebruiken voor System Center Configuration Manager](../../../../core/servers/manage/use-the-service-connection-tool.md) om beschikbare updates te importeren.  
 
-Wanneer u tussen de online of offline modus nadat u de service connection point wijzigt, moet u de thread SMS_DMP_DOWNLOADER van de Configuration Manager SMS_Executive-service vervolgens opnieuw voordat deze wijziging wordt van kracht. Gebruik hiervoor de Service van Configuration Manager alleen de SMS_DMP_DOWNLOADER thread van de SMS Executive-service opnieuw starten. U kunt ook de SMS Executive-service voor Configuration Manager, die de meeste Siteonderdelen opnieuw is opgestart, opnieuw of u kunt wachten op een geplande taak als een site back-up wordt gestopt en start de SMS Executive-service voor u vervolgens later opnieuw.  
+Wanneer u tussen online of offline modi na de installatie van het service connection point wijzigt, moet u de thread SMS_DMP_DOWNLOADER van de Configuration Manager SMS_Executive-service vervolgens opnieuw voordat deze wijziging van kracht wordt. U doet dit door de Configuration Manager-servicebeheer te gebruiken alleen de thread SMS_DMP_DOWNLOADER van de SMS_Executive-service opnieuw starten. U kunt ook opnieuw starten de SMS_Executive-service voor Configuration Manager, waarmee de meeste Siteonderdelen opnieuw is opgestart, of u kunt wachten op een geplande taak, zoals een siteback-up, die stopt en start de SMS_Executive-service voor u vervolgens het later opnieuw.  
 
 Voor het gebruik van de Configuration Manager-servicebeheer, in de console gaat u naar **bewaking** > **systeemstatus** > **Onderdeelstatus**, kies **Start**, en kies vervolgens **Configuration Manager-servicebeheer**. In de servicebeheerfunctie:  
 
--   Vouw de site in het navigatievenster uit, vouw **onderdelen**, en kies vervolgens het onderdeel dat u opnieuw wilt opstarten.  
+-   Vouw in het navigatiedeelvenster de site **onderdelen**, en kies vervolgens het onderdeel dat u wilt starten.  
 
 -   In het detailvenster met de rechtermuisknop op het onderdeel en kies vervolgens **Query**.  
 
--   Nadat de status van het onderdeel is bevestigd, opnieuw met de rechtermuisknop op het onderdeel en kiest u **stoppen**.  
+-   Nadat de status van het onderdeel hebt bevestigd, opnieuw met de rechtermuisknop op het onderdeel en kies vervolgens **stoppen**.  
 
--   **Query** het onderdeel opnieuw om te bevestigen dat deze is gestopt, met de rechtermuisknop op het onderdeel nog een keer, en kies vervolgens **Start**.  
+-   **Query** het onderdeel opnieuw om te bevestigen dat deze is gestopt, met de rechtermuisknop op het onderdeel een keer en kies vervolgens **Start**.  
 
 > [!IMPORTANT]  
->  Het proces dat Microsoft Intune-abonnement automatisch toegevoegd aan de service connection point Hiermee stelt u de sitesysteemrol online zijn. De service connection point biedt geen ondersteuning voor offline modus wanneer deze ingesteld met een Intune-abonnement.  
+>  Het proces dat wordt Microsoft Intune-abonnement toegevoegd aan het service connection point Hiermee stelt u de sitesysteemrol online te zijn. Het serviceverbindingspunt biedt geen ondersteuning voor offlinemodus wanneer deze ingesteld met een Intune-abonnement.  
 
-**Wanneer de rol wordt geïnstalleerd op een computer die extern is van de siteserver:**  
+**Wanneer de functie wordt geïnstalleerd op een computer die extern zijn van de siteserver:**  
 
--   Het computeraccount van de siteserver moet een lokale beheerder op de computer die als host fungeert voor een externe verbinding.
+-   Het computeraccount van de siteserver moet een lokale beheerder op de computer die als host fungeert voor een externe service-verbinding.
 
--   U moet de systeemserver van de site die als host fungeert voor de rol met een Installatieaccount instellen.  
+-   U moet de sitesysteemserver die als host fungeert voor de rol met een Installatieaccount instellen.  
 
--   Het Distributiebeheer op de siteserver gebruikt de sitesysteem-Installatieaccount om over te dragen van updates van de service connection point.
+-   Het Distributiebeheer op de siteserver gebruikt de sitesysteem-Installatieaccount om over te dragen van updates van het service connection point.
 
 ##  <a name="bkmk_urls"></a>Vereisten voor internettoegang  
-Schakel bewerking door de computer die als host fungeert voor de service connection point en eventuele firewalls tussen de computer en het Internet moet uitwisselt via **poort TCP 443** en **poort TCP 443** voor de volgende locaties met Internet. Het serviceverbindingspunt ook ondersteunt het gebruik van een webproxy (met of zonder verificatie) om deze locaties te gebruiken.  Als u moet een web proxy account Zie configureren: [Ondersteuning voor proxy-server in System Center Configuration Manager](/sccm/core/plan-design/network/proxy-server-support).
+Schakel bewerking door de computer die als host fungeert voor het service connection point en eventuele firewalls tussen de computer en het Internet moet uitwisselt via **poort TCP 443** en **poort TCP 443** naar de volgende Internet-locaties. Het serviceverbindingspunt ook ondersteunt het gebruik van een webproxy (met of zonder verificatie) om deze locaties te gebruiken.  Als u nodig hebt voor het configureren van een web proxy account Zie: [Ondersteuning voor proxyserver in System Center Configuration Manager](/sccm/core/plan-design/network/proxy-server-support).
 
 **Updates en onderhoud**  
 
 -   *.akamaiedge.net  
+
+-   *. akamaitechnologies.com 
 
 -   *.manage.microsoft.com
 
@@ -117,15 +119,15 @@ Schakel bewerking door de computer die als host fungeert voor de service connect
 
 -   https://go.microsoft.com/fwlink/?LinkID=619849  
 
-## <a name="install-the-service-connection-point"></a>De service connection point installeren
-Bij het uitvoeren van **Setup** voor het installeren van de site op hoogste niveau van een hiërarchie, hebt u de optie voor het installeren van de service connection point.
+## <a name="install-the-service-connection-point"></a>Het serviceverbindingspunt installeren
+Bij het uitvoeren van **Setup** voor de bovenste site van een hiërarchie installeert, hebt u de optie voor het installeren van het serviceverbindingspunt wordt gehost.
 
-Nadat setup is uitgevoerd of als u de sitesysteemrol opnieuw installeert, gebruikt u de **sitesysteemrollen toevoegen** wizard of het **Sitesysteemserver maken** wizard voor het installeren van het sitesysteem op een server op de bovenste site van uw hiërarchie, dat wil, de centrale beheersite of een zelfstandige primaire site. Beide wizards zijn op de **Start** tabblad in de console op **beheer** > **siteconfiguratie** > **Servers en sitesysteemrollen**.
+Nadat setup is uitgevoerd of als u de sitesysteemrol opnieuw installeert, gebruikt u de **sitesysteemrollen toevoegen** wizard of de **Sitesysteemserver maken** wizard voor het installeren van het sitesysteem dat op een server op de bovenste site van uw hiërarchie, de centrale beheersite of een zelfstandige primaire site. Beide wizards zijn op de **Start** tabblad in de console op **beheer** > **siteconfiguratie** > **Servers en sitesysteemrollen**.
 
-## <a name="log-files-used-by-the-service-connection-point"></a>Logboekbestanden die worden gebruikt door de service connection point
-Informatie over het uploaden naar Microsoft, vindt u de **Dmpuploader.log** op de computer met de service connection point.  Voor de Downloadvoortgang van updates, inclusief-downloads bekijken **Dmpdownloader.log**. Zie voor de volledige lijst met betrekking tot de service connection point logboeken [serviceverbindingspunt](/sccm/core/plan-design/hierarchy/log-files#BKMK_WITLog) in het onderwerp van Configuration Manager logboek bestanden.
+## <a name="log-files-used-by-the-service-connection-point"></a>Gebruikt door het service connection point-logboekbestanden
+Informatie over het uploaden naar Microsoft, vindt u de **Dmpuploader.log** op de computer waarop het serviceverbindingspunt wordt gehost.  Voor het downloaden van de Downloadvoortgang van de van updates, inclusief weergeven **Dmpdownloader.log**. Zie voor de volledige lijst van logboekbestanden gerelateerd aan het service connection point [Serviceaansluitpunt](/sccm/core/plan-design/hierarchy/log-files#BKMK_WITLog) in het onderwerp van Configuration Manager logboek bestanden.
 
-U kunt ook de volgende stroomdiagrammen gebruiken om de processtroom en belangrijke logboekvermeldingen voor update downloaden en replicatie van updates op andere sites te begrijpen:
- - [Stroomdiagram - updates downloaden](/sccm/core/servers/manage/download-updates-flowchart)
- - [Stroomdiagram - Update-replicatie](/sccm/core/servers/manage/update-replication-flowchart)
+U kunt ook de volgende stroomdiagrammen gebruiken om de processtroom en sleutel logboekvermeldingen voor update downloaden en de replicatie van updates voor andere sites te begrijpen:
+ - [Stroomdiagram: updates downloaden](/sccm/core/servers/manage/download-updates-flowchart)
+ - [Stroomdiagram: updatereplicatie](/sccm/core/servers/manage/update-replication-flowchart)
 

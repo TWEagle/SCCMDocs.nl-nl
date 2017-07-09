@@ -1,8 +1,8 @@
 ---
-title: Ondersteunde sitesysteemservers | Microsoft-documenten
-description: Informatie over welke versies van Windows kunt u een System Center Configuration Manager-site of sitesysteemrol hosten.
+title: Ondersteunde sitesysteemservers | Microsoft Docs
+description: Meer informatie over welke Windows-versies kunt u een System Center Configuration Manager-site of sitesysteemrol hosten.
 ms.custom: na
-ms.date: 3/9/2017
+ms.date: 06/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,10 +16,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: 86109f7186422c2b29ee933e827a7d14123e5792
+ms.sourcegitcommit: 0ec241d07f51b80b84d65676ef1207b31a9a9983
+ms.openlocfilehash: be635e4df79b57b6f650287fa3774d2c10613cee
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -28,18 +28,18 @@ ms.lasthandoff: 05/17/2017
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
-Dit artikel wordt de Windows-versies die u gebruiken kunt voor het hosten van een System Center Configuration Manager-site of sitesysteemrol.
+In dit artikel beschrijft de versies van Windows die u gebruiken kunt voor het hosten van een System Center Configuration Manager-site of sitesysteemrol.
 
 
 Gebruik de informatie in dit onderwerp samen met de informatie in de volgende artikelen:
 -   [Aanbevolen hardware voor Configuration Manager](../../../core/plan-design/configs/recommended-hardware.md)
--   [Site- en systeemvereisten site voor Configuration Manager](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)
--   [Grootte en schaal cijfers voor Configuration Manager](../../../core/plan-design/configs/size-and-scale-numbers.md)
+-   [Site- en site-systeemvereisten voor Configuration Manager](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)
+-   [Grootte en schaalgetallen voor Configuration Manager](../../../core/plan-design/configs/size-and-scale-numbers.md)
 
 
 
 ## <a name="windows-server-2016-standard-and-datacenter"></a>WindowsServer 2016: Standaard en Datacenter
-Vanaf versie 1606 met de hotfix rollup van KB3186654 (of de basislijn-versie van 1606, dat is gepubliceerd in oktober van 2016) wordt dit besturingssysteem ondersteund voor het volgende:
+Vanaf versie 1606 met de rollup hotfix van KB3186654 (of de basislijnversie van 1606, die werd gepubliceerd in oktober 2016) wordt dit besturingssysteem ondersteund voor het volgende:
 
 **Siteservers:**  
 
@@ -61,7 +61,7 @@ Vanaf versie 1606 met de hotfix rollup van KB3186654 (of de basislijn-versie van
 
 -   Distributiepunt  
 
-     Distributiepunten bieden ondersteuning voor configuraties die elk verschillende vereisten hebben. In sommige gevallen kan ondersteuning voor deze configuraties installatie niet alleen op servers, maar op de client-besturingssystemen. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en -infrastructuur voor System Center Configuration Manager beheert](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+     Distributiepunten bieden ondersteuning voor diverse configuraties die elk verschillende vereisten hebben. Deze configuraties ondersteunen installatie in sommige gevallen niet alleen op servers, maar op clientbesturingssystemen worden geïnstalleerd. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 -   Endpoint Protection-punt  
 
@@ -108,7 +108,7 @@ Vanaf versie 1606 met de hotfix rollup van KB3186654 (of de basislijn-versie van
 
 -   Distributiepunt  
 
-     Distributiepunten bieden ondersteuning voor configuraties die elk verschillende vereisten hebben. In sommige gevallen kan ondersteuning voor deze configuraties installatie niet alleen op servers, maar op de client-besturingssystemen. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en -infrastructuur voor System Center Configuration Manager beheert](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+     Distributiepunten bieden ondersteuning voor diverse configuraties die elk verschillende vereisten hebben. Deze configuraties ondersteunen installatie in sommige gevallen niet alleen op servers, maar op clientbesturingssystemen worden geïnstalleerd. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 -   Endpoint Protection-punt  
 
@@ -155,7 +155,7 @@ Vanaf versie 1606 met de hotfix rollup van KB3186654 (of de basislijn-versie van
 
 -   Distributiepunt  
 
-     Distributiepunten bieden ondersteuning voor configuraties die elk verschillende vereisten hebben. In sommige gevallen kan ondersteuning voor deze configuraties installatie niet alleen op servers, maar op de client-besturingssystemen. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en -infrastructuur voor System Center Configuration Manager beheert](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+     Distributiepunten bieden ondersteuning voor diverse configuraties die elk verschillende vereisten hebben. Deze configuraties ondersteunen installatie in sommige gevallen niet alleen op servers, maar op clientbesturingssystemen worden geïnstalleerd. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 -   Endpoint Protection-punt  
 
@@ -182,11 +182,11 @@ Vanaf versie 1606 met de hotfix rollup van KB3186654 (of de basislijn-versie van
 -   Statusmigratiepunt  
 
 ## <a name="windows-server-2008-r2-with-sp1-x64-standard-enterprise-and-datacenter"></a>Windows Server 2008 R2 met SP1 (x 64): Standard, Enterprise en Datacenter  
- Windows Server 2008 R2 is nu in de uitgebreide ondersteuning en niet langer in algemene ondersteuning, zoals beschreven in [Microsoft Support Lifecycle](https://support.microsoft.com/lifecycle). Zie voor meer informatie over toekomstige ondersteuning voor deze besturingssystemen als sitesysteemservers met Configuration Manager [verwijderd en afgeschaft onderdelen voor System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+ Windows Server 2008 R2 is nu uitgebreide ondersteuning en niet langer in het algemeen worden ondersteund, zoals beschreven in [Microsoft Support Lifecycle](https://support.microsoft.com/lifecycle). Zie voor meer informatie over toekomstige ondersteuning voor deze besturingssystemen als sitesysteemservers met Configuration Manager [verwijderd en afgeschafte functies voor System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
 
- Beginnend met Configuration Manager versie 1702, dit besturingssysteem wordt niet ondersteund voor siteservers of de meeste sitesysteemrollen, maar ondersteunde is zichtbaar voor het statusmigratiepunt en distribueren sitesysteemrol (inclusief pull-distributiepunten, en voor PXE en multicast).
- 
- Versies vóór 1702 blijven ondersteuning voor het gebruik ervan voor de volgende.
+ Met ingang van Configuration Manager versie 1702 kan dit besturingssysteem wordt niet ondersteund voor siteservers of de meeste sitesysteemrollen, maar is zichtbaar voor de sitesysteemrol distributiepunt ondersteunde (inclusief pull-distributiepunten en voor PXE en multicast).
+
+ Versies vóór 1702 nog steeds ondersteuning voor het gebruik ervan voor de volgende.
 
 
 **Siteservers:**  
@@ -209,7 +209,7 @@ Vanaf versie 1606 met de hotfix rollup van KB3186654 (of de basislijn-versie van
 
 -   Distributiepunt  
 
-     Distributiepunten bieden ondersteuning voor configuraties die elk verschillende vereisten hebben. In sommige gevallen kan ondersteuning voor deze configuraties installatie niet alleen op servers, maar op de client-besturingssystemen. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en -infrastructuur voor System Center Configuration Manager beheert](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+     Distributiepunten bieden ondersteuning voor diverse configuraties die elk verschillende vereisten hebben. Deze configuraties ondersteunen installatie in sommige gevallen niet alleen op servers, maar op clientbesturingssystemen worden geïnstalleerd. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 -   Endpoint Protection-punt  
 
@@ -235,10 +235,10 @@ Vanaf versie 1606 met de hotfix rollup van KB3186654 (of de basislijn-versie van
 
 -   Statusmigratiepunt  
 
-## <a name="windows-server-2008-with-sp2-x86-x64-standard-enterprise-and-datacenter"></a>WindowsServer 2008 SP2 (x 86, x 64): Standard, Enterprise en Datacenter  
- Windows Server 2008 is nu in de uitgebreide ondersteuning en niet langer in algemene ondersteuning, zoals beschreven in [Microsoft Support Lifecycle](https://support.microsoft.com/lifecycle). Zie voor meer informatie over toekomstige ondersteuning voor deze besturingssystemen als sitesysteemservers met Configuration Manager [verwijderd en afgeschaft onderdelen voor System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+## <a name="windows-server-2008-with-sp2-x86-x64-standard-enterprise-and-datacenter"></a>WindowsServer 2008 met SP2 (x 86, x 64): Standard, Enterprise en Datacenter  
+ Windows Server 2008 is nu uitgebreide ondersteuning en niet langer in het algemeen worden ondersteund, zoals beschreven in [Microsoft Support Lifecycle](https://support.microsoft.com/lifecycle). Zie voor meer informatie over toekomstige ondersteuning voor deze besturingssystemen als sitesysteemservers met Configuration Manager [verwijderd en afgeschafte functies voor System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
 
-Dit besturingssysteem wordt niet ondersteund voor siteservers of sitesysteemrollen met uitzondering van het distributiepunt en het pull-distributiepunt. U kunt blijven gebruiken dit besturingssysteem als een distributiepunt tot buitengebruikstelling van deze ondersteuning is aangekondigd of dit besturingssysteem uitgebreide ondersteuning zijn verstreken. Zie voor meer informatie [installatie van System Center Configuration Manager CB en LTSB mislukt op Windows Server 2008](https://support.microsoft.com/help/4015095).
+Dit besturingssysteem wordt niet ondersteund voor siteservers of sitesysteemrollen met uitzondering van het distributiepunt en pull-distributiepunt. U kunt blijven gebruiken van dit besturingssysteem als een distributiepunt totdat afschaffing van deze ondersteuning wordt aangekondigd of de periode voor uitgebreide ondersteuning van dit besturingssysteem is verstreken. Zie voor meer informatie [installatie van System Center Configuration Manager CB en LTSB mislukt op Windows Server 2008](https://support.microsoft.com/help/4015095).
 
 **Sitesysteemservers:**  
 -   Distributiepunt  
@@ -247,7 +247,7 @@ Dit besturingssysteem wordt niet ondersteund voor siteservers of sitesysteemroll
 
     -   Distributiepunten in dit besturingssysteem worden ondersteund voor PXE, maar bieden geen ondersteuning voor het opstarten van het netwerk van clientcomputers in EFI-modus. Clientcomputers met BIOS- of EFI-opstarten in de legacy-modus worden ondersteund.  
 
-    -   Distributiepunten bieden ondersteuning voor configuraties die elk verschillende vereisten hebben. In sommige gevallen kan ondersteuning voor deze configuraties installatie niet alleen op servers, maar op de client-besturingssystemen. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en -infrastructuur voor System Center Configuration Manager beheert](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+    -   Distributiepunten bieden ondersteuning voor diverse configuraties die elk verschillende vereisten hebben. Deze configuraties ondersteunen installatie in sommige gevallen niet alleen op servers, maar op clientbesturingssystemen worden geïnstalleerd. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 
 
@@ -260,7 +260,7 @@ Dit besturingssysteem wordt niet ondersteund voor siteservers of sitesysteemroll
 
     -   Distributiepunten voor deze besturingssysteemversie bieden geen ondersteuning voor Multicast.  
 
-    -   Distributiepunten bieden ondersteuning voor configuraties die elk verschillende vereisten hebben. In sommige gevallen kan ondersteuning voor deze configuraties installatie niet alleen op servers, maar op de client-besturingssystemen. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en -infrastructuur voor System Center Configuration Manager beheert](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+    -   Distributiepunten bieden ondersteuning voor diverse configuraties die elk verschillende vereisten hebben. Deze configuraties ondersteunen installatie in sommige gevallen niet alleen op servers, maar op clientbesturingssystemen worden geïnstalleerd. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 ## <a name="windows-81-x86-x64-professional-and-enterprise"></a>Windows 8.1 (x86, x64): Professional en Enterprise  
 **Sitesysteemservers:**  
@@ -271,7 +271,7 @@ Dit besturingssysteem wordt niet ondersteund voor siteservers of sitesysteemroll
 
     -   Distributiepunten voor deze besturingssysteemversie bieden geen ondersteuning voor Multicast.  
 
-    -   Distributiepunten bieden ondersteuning voor configuraties die elk verschillende vereisten hebben. In sommige gevallen kan deze configuratie ondersteuning installatie niet alleen op servers, maar op de client-besturingssystemen. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en -infrastructuur voor System Center Configuration Manager beheert](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+    -   Distributiepunten bieden ondersteuning voor diverse configuraties die elk verschillende vereisten hebben. In sommige gevallen kan deze configuratie ondersteuning installatie niet alleen op servers, maar op clientbesturingssystemen worden geïnstalleerd. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 ## <a name="windows-8-x86-x64-professional-and-enterprise"></a>Windows 8 (x86, x64): Professional en Enterprise
 **Sitesysteemservers:**  
@@ -282,7 +282,7 @@ Dit besturingssysteem wordt niet ondersteund voor siteservers of sitesysteemroll
 
     -   Distributiepunten voor deze besturingssysteemversie bieden geen ondersteuning voor Multicast.  
 
-    -   Distributiepunten bieden ondersteuning voor configuraties die elk verschillende vereisten hebben. In sommige gevallen kan ondersteuning voor deze configuraties installatie niet alleen op servers, maar op de client-besturingssystemen. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en -infrastructuur voor System Center Configuration Manager beheert](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+    -   Distributiepunten bieden ondersteuning voor diverse configuraties die elk verschillende vereisten hebben. Deze configuraties ondersteunen installatie in sommige gevallen niet alleen op servers, maar op clientbesturingssystemen worden geïnstalleerd. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 ## <a name="windows-7-with-sp1-x86-x64-professional-enterprise-and-ultimate"></a>Windows 7 met SP1 (x 86, x 64): Professional, Enterprise en Ultimate  
 **Sitesysteemservers:**  
@@ -293,17 +293,17 @@ Dit besturingssysteem wordt niet ondersteund voor siteservers of sitesysteemroll
 
     -   Distributiepunten voor deze besturingssysteemversie bieden geen ondersteuning voor Multicast.  
 
-    -   Distributiepunten bieden ondersteuning voor configuraties die elk verschillende vereisten hebben. In sommige gevallen kan ondersteuning voor deze configuraties installatie niet alleen op servers, maar op de client-besturingssystemen. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en -infrastructuur voor System Center Configuration Manager beheert](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+    -   Distributiepunten bieden ondersteuning voor diverse configuraties die elk verschillende vereisten hebben. Deze configuraties ondersteunen installatie in sommige gevallen niet alleen op servers, maar op clientbesturingssystemen worden geïnstalleerd. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 
 ## <a name="the-server-core-installation-of-windows-server-2016"></a>De server core-installatie van Windows Server 2016
-Vanaf versie 1606 met de hotfix rollup van KB3186654 (of de basislijn-versie van 1606, dat is gepubliceerd in oktober van 2016) dit besturingssysteem wordt ondersteund voor gebruik als een distributiepunt punt met de volgende beperkingen:  
+Vanaf versie 1606 met de rollup hotfix van KB3186654 (of de basislijnversie van 1606, die werd gepubliceerd in oktober 2016) dit besturingssysteem wordt ondersteund voor gebruik als een distributiepunt punt met de volgende beperkingen:  
   -   Alleen de x64-bits versie wordt ondersteund.
   -   Distributiepunten op dit besturingssysteem bieden geen ondersteuning voor PXE of Multicast.  
 
 
 ## <a name="the-server-core-installation-of-windows-server-2012-r2"></a>De Server Core-installatie van Windows Server 2012 R2  
- Naast de eerdere besturingssystemen die worden vermeld, wordt de server core-installatie van Windows Server 2012 R2 ondersteund voor gebruik als een distributiepunten met de volgende beperkingen:  
+ Naast de eerdere besturingssystemen die worden vermeld, wordt de server core-installatie van Windows Server 2012 R2 ondersteund voor gebruik als distributiepunt met de volgende beperkingen:  
 
 -   Alleen de x64-bits versie wordt ondersteund.
 

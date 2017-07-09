@@ -1,8 +1,8 @@
 ---
-title: Gebruik Software Center om Windows te implementeren via het netwerk | Microsoft-documenten
-description: U kunt een besturingssysteem implementeren op Software Center vernieuwen van een bestaande computer met een nieuwe versie van Windows of upgrade van Windows voor de nieuwste versie.
+title: Gebruik Software Center om Windows te implementeren via het netwerk | Microsoft Docs
+description: U kunt een besturingssysteem implementeren naar Software Center naar een bestaande computer vernieuwen met een nieuwe versie van Windows of Windows upgraden naar de nieuwste versie.
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 6/16/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 919e3636-53fe-4119-ad14-2d03702b391b
 caps.latest.revision: 5
-author: Dougeby
-ms.author: dougeby
+author: mattbriggs
+ms.author: mabrigg
 manager: angrobe
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
-ms.openlocfilehash: 4c3ec20396da37d36f908af527f445a7a736e0ac
+ms.sourcegitcommit: f4c46bfab9b40b29654f4e883817a5508ab25b74
+ms.openlocfilehash: 8988409c68b7f69439ed03872c316b2139d25616
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/28/2017
 
 
 ---
@@ -27,21 +27,21 @@ ms.lasthandoff: 05/17/2017
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-De takenreeks een besturingssysteem installeren in System Center Configuration Manager kan beschikbaar worden gesteld in Software Center. U kunt een besturingssysteem implementeren naar Software Center in de volgende implementatiescenario's voor besturingssystemen:  
+U kunt de takenreeks die u een besturingssysteem in System Center Configuration Manager beschikbaar in Software Center installeert. U kunt een besturingssysteem implementeren naar Software Center met de volgende implementatiescenario's voor besturingssystemen:
 
--   [Vernieuwen van een bestaande computer met een nieuwe versie van Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)  
+-   [Een bestaande computer vernieuwen met een nieuwe versie van Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)
 
--   [Upgrade van Windows voor de nieuwste versie](upgrade-windows-to-the-latest-version.md)  
+-   [Windows bijwerken naar de laatste versie](upgrade-windows-to-the-latest-version.md)
 
- Voer de stappen in een van de implementatiescenario's voor besturingssystemen uit en gebruik vervolgens de volgende secties om voor te bereiden voor implementaties die beschikbaar worden gesteld in Software Center.  
+Voltooi de stappen in een van de implementatiescenario's voor besturingssystemen. Gebruik de volgende secties om voor te bereiden voor implementaties die beschikbaar in Software Center zijn.
 
 ## <a name="configure-deployment-settings"></a>Implementatie-instellingen configureren  
- Wanneer u de implementatie van besturingssystemen moet beschikbaar in Software Center, moet u de implementatie van het besturingssysteem om beschikbaar te maken voor Configuration Manager-clients configureren. U kunt dit configureren op de pagina **Implementatie-instellingen** van de wizard Software implementeren of op het tabblad **Implementatie-instellingen** in de eigenschappen voor de implementatie.  Voor de instelling **Toegankelijk maken voor de volgende** configureert u **Alleen Configuration Manager-clients** of **Configuration Manager-clients, media en PXE**. Nadat het besturingssysteem is geïmplementeerd, wordt het in Software Center weergegeven voor leden van de doelverzameling.  
+Als u de implementatie van besturingssystemen in Software Center, de implementatie te configureren. U kunt de implementatie configureren op de **implementatie-instellingen** pagina van de Wizard Software implementeren of de **implementatie-instellingen** tabblad in de eigenschappen voor de implementatie. Voor de instelling **Toegankelijk maken voor de volgende** configureert u **Alleen Configuration Manager-clients** of **Configuration Manager-clients, media en PXE**. Nadat het systeem het besturingssysteem implementeert, wordt het besturingssysteem weergegeven in Software Center voor leden van de doelverzameling.
 
 ##  <a name="BKMK_Deploy"></a> De takenreeks implementeren naar computers  
- Het besturingssysteem implementeren naar een doelverzameling. Zie [Een takenreeks implementeren](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS) voor meer informatie. Wanneer u besturingssystemen voor Software Center implementeert, configureert u of de implementatie vereist of beschikbaar is.  
+Het besturingssysteem implementeren naar een doelverzameling. Zie [Een takenreeks implementeren](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS) voor meer informatie. Wanneer u besturingssystemen voor Software Center implementeert, kunt u configureren of de implementatie vereist of beschikbaar.
 
--   **Vereiste implementatie**: Vereiste implementaties wordt beschikbaar maken voor het besturingssysteem in Software Center, maar deze wordt automatisch gestart op de geconfigureerde toegewezen planning.  
+-   **Vereiste implementatie**: Vereiste implementaties wordt het besturingssysteem beschikbaar gesteld in Software Center, maar wordt automatisch gestart volgens de geconfigureerde toewijzingsplanning.
 
--   **Beschikbare implementatie**: Het besturingssysteem zijn beschikbaar in Software Center en kan de gebruiker deze op aanvraag installeren.  
+-   **Beschikbare implementatie**: Het besturingssysteem wordt beschikbaar gesteld in Software Center en de gebruiker deze op verzoek kan installeren.
 
