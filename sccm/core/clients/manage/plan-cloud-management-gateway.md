@@ -1,7 +1,7 @@
 ---
-title: Plannen voor de cloud management gateway | Microsoft-documenten
+title: Plannen voor de cloud management gateway | Microsoft Docs
 description: 
-ms.date: 05/16/2017
+ms.date: 06/07/2017
 ms.prod: configuration-manager
 ms.technology:
 - configmgr-client
@@ -10,28 +10,31 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: ae60eb25383f4bd07faaa1265185a471ee79b1e9
-ms.openlocfilehash: b1295891a5567e64b901c79100c2971e526dc874
+ms.sourcegitcommit: c6ee0ed635ab81b5e454e3cd85637ff3e20dbb34
+ms.openlocfilehash: a7380ae781447880ffcba0778694ea62e10c4889
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/08/2017
 
 ---
 
-# <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Plan voor de gateway cloud management in Configuration Manager
+# <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Plan voor de cloudgateway management in Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Vanaf versie 1610 wordt biedt cloud management gateway een eenvoudige manier voor het beheren van Configuration Manager-clients op het Internet. De cloud management gateway-service wordt geïmplementeerd op Microsoft Azure en vereist een Azure-abonnement. De clientcomputer verbindt met uw on-premises Configuration Manager-infrastructuur met behulp van een nieuwe rol met de naam van het cloud-gateway-connector wordt gemaakt. Zodra de geïmplementeerd en geconfigureerd, is clients zich op de lokale Configuration Manager sitesysteemrollen ongeacht of ze op de interne persoonlijke netwerk zijn of op het Internet toegang hebben tot.
+Vanaf versie 1610, biedt cloudgateway management een eenvoudige manier voor het beheren van Configuration Manager-clients op Internet. De cloud management gateway-service wordt geïmplementeerd voor Microsoft Azure en een Azure-abonnement vereist. Deze verbinding maakt met uw on-premises Configuration Manager-infrastructuur met behulp van een nieuwe rol met de naam van het cloud-gateway connector beheerpunt. Eenmaal geïmplementeerd en geconfigureerd, worden clients toegang kunnen krijgen tot de lokale Configuration Manager sitesysteemrollen ongeacht of ze zich op de interne particuliere netwerk of op het Internet.
 
-Gebruik de Configuration Manager-console naar de service implementeren in Azure, de cloud gateway connector beheerpuntrol toevoegen en configureren van sitesysteemrollen voor cloud management gateway-verkeer. Cloud management gateway ondersteunt momenteel alleen de management point- and -software-update-punt rollen.
+> [!TIP]  
+> De cloud management gateway is geïntroduceerd in versie 1610, is een voorlopige versie-functie. Als u wilt inschakelen, Zie [functies van evaluatieversies van updates gebruiken](/sccm/core/servers/manage/pre-release-features).
 
-Clientcertificaten en Secure Socket Layer (SSL)-certificaten zijn vereist voor de verificatie van computers en het versleutelen van communicatie tussen de verschillende lagen van de service. Clientcomputers ontvangen doorgaans een clientcertificaat via beleidsafdwinging groep. Voor het versleutelen van het verkeer tussen clients en de sitesysteemserver die als host fungeert voor de functies, moet u een aangepaste SSL-certificaat maken vanuit de Certificeringsinstantie. U moet ook instellen van een beheercertificaat voor Azure waarmee Configuration Manager voor het implementeren van de cloud management gateway-service kan.
+Gebruik de Configuration Manager-console de service implementeren in Azure, het toevoegen van de cloud gateway connector beheerpuntrol en het configureren van sitesysteemrollen voor cloud management gateway-verkeer. Cloud management gateway ondersteunt momenteel alleen de punt en software-update-punt beheerrollen.
 
-## <a name="requirements-for-cloud-management-gateway"></a>Vereisten voor cloud management gateway
+Clientcertificaten en Secure Socket Layer (SSL)-certificaten zijn vereist voor het verifiëren van computers en het versleutelen van communicatie tussen de verschillende lagen van de service. Clientcomputers ontvangen meestal een certificaat via Groepsbeleid worden afgedwongen. Voor het versleutelen van het verkeer tussen clients en de sitesysteemserver die als host fungeert voor de functies die u wilt maken van een aangepaste SSL-certificaat van de CA. U moet ook instellen van een beheercertificaat in Azure waarmee Configuration Manager voor het implementeren van de cloud management gateway-service.
 
--   Clientcomputers en de sitesysteemserver die het cloud-gateway-connector beheerpunt uitgevoerd.
+## <a name="requirements-for-cloud-management-gateway"></a>Vereisten voor cloud-management-gateway
 
--   Aangepaste SSL-certificaten van de interne Certificeringsinstantie - gebruikt voor het versleutelen van communicatie van clientcomputers en verifiëren van de identiteit van de cloud management gateway-service.
+-   Clientcomputers en de sitesysteemserver die het cloud-gateway connector beheerpunt uitgevoerd.
+
+-   Aangepaste SSL-certificaten van de interne CA - gebruikt voor het versleutelen van communicatie van de clientcomputers en de identiteit van de cloud management gateway-service verifiëren.
 
 -   Azure-abonnement voor cloudservices.
 
@@ -39,9 +42,9 @@ Clientcertificaten en Secure Socket Layer (SSL)-certificaten zijn vereist voor d
 
 ## <a name="specifications-for-cloud-management-gateway"></a>Specificaties voor cloud management gateway
 
-- Elk exemplaar van cloud management gateway ondersteunt 4000 clients.
-- Wij raden ten minste twee exemplaren van de cloud management gateway naar de beschikbaarheid te verbeteren.
-- Cloud management gateway ondersteunt alleen de management point- and -software-update-punt rollen.
+- Elk exemplaar van cloud management gateway ondersteunt 4.000 clients.
+- U wordt aangeraden dat u ten minste twee exemplaren van de cloud management gateway naar Verbeter de beschikbaarheid van maken.
+- Cloud management gateway ondersteunt alleen de punt en software-update-punt beheerrollen.
 -   De volgende functies in Configuration Manager worden momenteel niet ondersteund voor cloud management gateway:
 
     -   Clientimplementatie
@@ -51,148 +54,148 @@ Clientcertificaten en Secure Socket Layer (SSL)-certificaten zijn vereist voor d
     -   Implementatie van het volledige besturingssysteem (OSD)
     -   Configuration Manager-console
     -   Externe hulpprogramma 's
-    -   Rapportage website
+    -   Website voor rapportage
     -   Wake on LAN
     -   Mac, Linux en UNIX-clients
     -   Azure Resource Manager
-    -   Peercache
+    -   Peer-cache
     -   On-premises Mobile Device Management
 
 ## <a name="cost-of-cloud-management-gateway"></a>Kosten van cloud management gateway
 
 >[!IMPORTANT]
->Hieronder vindt u kosteninformatie is bedoeld voor uitsluitend te schatten. Uw omgeving mogelijk andere variabelen die invloed hebben op de totale kosten van het gebruik van cloud management gateway.
+>Hieronder vindt u kosteninformatie is voor het schatten van alleen bedoeld. Uw omgeving misschien andere variabelen die invloed hebben op de totale kosten van het gebruik van cloud management gateway.
 
-Cloud management gateway maakt gebruik van de volgende Microsoft Azure-functionaliteit die vinden er kosten aan het account Azure-abonnement:
+Beheergateway cloud maakt gebruik van de volgende Microsoft Azure-functionaliteit die leidt ertoe dat de kosten voor het account Azure-abonnement:
 
 -   Virtuele machine
 
-    -   Een standaard die momenteel zijn vereist voor cloud management gateway\_A2 virtuele machine. Bij het maken van de service, kunt u bepalen hoeveel virtuele machines voor de ondersteuning van de service (een is de standaardinstelling).
+    -   Cloud-management-gateway vereist momenteel een standaard\_A2 virtuele machine. Wanneer u de service maakt, kunt u hoeveel virtuele machines voor de ondersteuning van de service (een is de standaardinstelling).
 
-    -   Bij het schatten van uitsluitend, verwacht een enkele Azure Standard\_A2 virtuele machine kunt ongeveer 2.000 gelijktijdige Internet-gebaseerde clients ondersteunt.
+    -   Voor het schatten van uitsluitend verwacht een enkele Azure Standard\_A2 virtuele machine kan ongeveer 2.000 gelijktijdige clients op Internet ondersteunen.
 
-    -   Zie de [Azure prijscategorie Rekenmachine](https://azure.microsoft.com/en-us/pricing/calculator/) bij het bepalen van de mogelijke kosten.
+    -   Zie de [Azure prijscategorie Rekenmachine](https://azure.microsoft.com/en-us/pricing/calculator/) om te bepalen, potentiële kosten.
 
       >[!NOTE]
       >Virtuele machinekosten verschillen per regio.
 
 -   Uitgaande gegevensoverdracht
 
-    -   Kosten in rekening worden gebracht voor gegevens die buiten de service... Zie de [Azure bandbreedte pricing details](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) bij het bepalen van de mogelijke kosten.
+    -   Kosten verbonden zijn voor gegevens die buiten de service... Zie de [Azure bandbreedte prijsinformatie](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) om te bepalen, potentiële kosten.
 
-    -   Bij het schatten van uitsluitend, verwacht ongeveer 100 MB per client per maand voor clients op Internet is tijdens het vernieuwen van beleid elk uur doorzoeken.
+    -   Voor het schatten van dient alleen te verwachten dat ongeveer 100 MB per client per maand voor Internet-clients voeren vernieuwen van beleid om het uur.
 
     >[!NOTE]
-    > Andere bewerkingen ondersteund via de cloud management gateway (bijvoorbeeld, het implementeren van software-updates of toepassingen) uitvoert, wordt de hoeveelheid uitgaande gegevensoverdracht vanuit Azure verhoogd.
+    > Uitvoeren van andere acties ondersteund via de cloud management gateway (bijvoorbeeld, het implementeren van software-updates of toepassingen) wordt verhoogd, de hoeveelheid uitgaande gegevensoverdracht van Azure.
 
 -   Inhoudsopslag
 
-    -   Gratis ontvangen clients via Internet worden beheerd met cloud management gateway inhoud van software-updates via Windows Update.
+    -   Clients op Internet die worden beheerd door de cloudgateway management krijgt de inhoud van de software-update via Windows Update zonder kosten.
 
-    -   Alle andere vereiste inhoud (bijvoorbeeld toepassingen) moet worden gedistribueerd naar een cloud-gebaseerde distributiepunt. De cloud management gateway ondersteunt op dit moment kunnen alleen Clouddistributiepunt voor inhoud te verzenden naar clients.
+    -   Alle andere vereiste inhoud (bijvoorbeeld toepassingen) moet worden gedistribueerd naar een cloud-gebaseerd distributiepunt. De cloud management gateway ondersteunt momenteel alleen Cloud-distributiepunt voor het verzenden van inhoud aan clients.
 
     - Zie de kosten van het gebruik van een [clouddistributiepunt](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point#cost-of-using-cloud-based-distribution) voor meer informatie.
 
-## <a name="next-steps"></a>Volgende stappen
-
-[Beheergateway cloud instellen](setup-cloud-management-gateway.md)
-
-
 ## <a name="frequently-asked-questions-about-the-cloud-management-gateway-cmg"></a>Veelgestelde vragen over de Cloud Management Gateway (CMG)
 
-### <a name="why-use-the-cloud-management-gateway"></a>Waarom gebruikt de cloud management gateway?
+### <a name="why-use-the-cloud-management-gateway"></a>Waarom de cloud-management-gateway gebruiken?
 
-Gebruik deze rol voor het vereenvoudigen van Internet-gebaseerd clientbeheer in drie stappen van de Configuration Manager-console.
+Deze functie gebruiken voor het vereenvoudigen van Internet-gebaseerd clientbeheer in drie stappen uit de Configuration Manager-console.
 
-1. De CMG implementeren op Azure worden verkregen met de [maken Cloud Management Gateway](/sccm/core/clients/manage/setup-cloud-management-gateway) wizard.
-2. Configureer de [cloud-gateway verbinding beheerpunt](/sccm/core/servers/deploy/configure/install-site-system-roles) sitesysteemrol.
-3. [Rollen configureert voor cloud-gateway beheerverkeer](/sccm/core/clients/manage/setup-cloud-management-gateway#step-7-configure-roles-for-cloud-management-gateway-traffic), zoals beheer- en software-updatepunt.
+1. De CMG implementeren voor het gebruik van Azure de [Cloud Management-Gateway maken](/sccm/core/clients/manage/setup-cloud-management-gateway) wizard.
+2. Configureer de [cloudverbindingspunt management gateway](/sccm/core/servers/deploy/configure/install-site-system-roles) sitesysteemrol.
+3. [Rollen configureert voor verkeer van de cloud management gateway](/sccm/core/clients/manage/setup-cloud-management-gateway#step-7-configure-roles-for-cloud-management-gateway-traffic), zoals het beheerpunt en de software-updatepunt.
 
 ### <a name="how-does-the-cloud-management-gateway-work"></a>Hoe werkt de cloud management gateway?
 
-- Cloud-gateway verbinding beheerpunt maakt een verbinding consistent en hoge prestaties van het Internet naar de cloud management gateway.
-- Configuration Manager publiceert instellingen in de CMG met inbegrip van gegevens en beveiliging verbindingsinstellingen.
-- De CMG worden geverifieerd en verzendt de Configuration Manager-clientaanvragen naar de cloud-gateway verbinding beheerpunt. Deze aanvragen worden doorgestuurd naar de rollen in het bedrijfsnetwerk volgens URL-toewijzingen.
+- De cloudverbindingspunt management gateway kunt een verbinding consistent en hoge prestaties van Internet naar de cloud management gateway.
+- Instellingen voor publiceert Configuration Manager naar de CMG met inbegrip van gegevens en beveiliging verbindingsinstellingen.
+- De CMG worden geverifieerd en verzendt de Configuration Manager-clientaanvragen met het verbindingspunt cloud management gateway. Deze aanvragen worden doorgestuurd naar de rollen in het bedrijfsnetwerk volgens URL-toewijzingen.
 
-### <a name="how-is-the-cloud-management-gateway-deployed"></a>Hoe wordt de cloud management gateway geïmplementeerd?
+### <a name="how-is-the-cloud-management-gateway-deployed"></a>Hoe wordt de cloudgateway management geïmplementeerd?
 
-Het onderdeel cloud service manager op de service connection point verwerkt alle CMG implementatietaken. Daarnaast bewaakt en informatie over service-status en logboekregistratie doorgegeven vanuit Azure AD.
+Het onderdeel cloud service manager op het service connection point verwerkt alle CMG implementatietaken. Bovendien wordt bewaakt en rapporten service-status en logboekregistratie van Azure AD.
 
 #### <a name="certificate-requirements"></a>Certificaatvereisten
 
 U moet de volgende certificaten voor het beveiligen van de CMG:
 
-- **Beheercertificaat** -dit is geen certificaat met inbegrip van zelfondertekende certificaten. U kunt een openbaar certificaat geüpload naar Azure AD of een [PFX met persoonlijke sleutel](/sccm/mdm/deploy-use/create-pfx-certificate-profiles) geïmporteerd in Configuration Manager om te verifiëren met Azure AD. 
-- **Certificaat voor Web-service** -raden wij aan dat u een openbare CA-certificaat te krijgen van systeemeigen vertrouwensrelatie door clients. De CName moet worden gemaakt in de openbare DNS-registar. Jokertekens certificaten worden niet ondersteund.
-- **Hoofdmap/SubCA certificaten uploaden naar CMG** -de CMG moet volledige validatie van certificaatketen op client-PKI-certificaten. Als u een ondernemings-CA voor PKI-clientcertificaten en hun basis- of onderliggende CA niet beschikbaar is op het internet is, moet u uploaden naar de CMG.
+- **Beheercertificaat** -dit is geen certificaat met inbegrip van zelfondertekende certificaten. U kunt een openbaar certificaat dat is geüpload naar Azure AD of een [PFX met persoonlijke sleutel](/sccm/mdm/deploy-use/create-pfx-certificate-profiles) geïmporteerd in Configuration Manager om te verifiëren met Azure AD.
+- **Certificaat voor Web service** -het is raadzaam dat u een openbare CA-certificaat te krijgen van systeemeigen vertrouwensrelatie door clients. De CName moet worden gemaakt in de openbare DNS-registar. Met wild card certificaten worden niet ondersteund.
+- **Hoofdmap/SubCA certificaten uploaden naar CMG** -de CMG moet volledige validatie van certificaatketen op PKI-clientcertificaten. Als u een ondernemings-CA gebruikt voor het uitgeven van PKI-clientcertificaten en hun basis- of onderliggende CA niet beschikbaar op het internet is, moet klikt u deze uploaden naar de CMG.
 
 #### <a name="deployment-process"></a>Implementatieproces
 
-Er zijn twee fasen aan de implementatie:
+Er zijn twee fasen voor de implementatie:
 
 - De cloudservice implementeren
     - Upload uw [Azure Service definitie Schema](https://msdn.microsoft.com/library/azure/ee758711.aspx) (csdef)-bestand
     - Upload uw [Azure Service configuratieschema](https://msdn.microsoft.com/library/azure/ee758710.aspx) (cscfg)-bestand.
-- Het onderdeel CMG op uw Azure AD-server instellen en configureren van eindpunten, HTTP-handlers en services in Internet Information Services (IIS)
+- Het onderdeel CMG op de server van uw Azure AD instellen en configureren van eindpunten, HTTP-handlers en -services in Internet Information Services (IIS)
 
 Als u de configuratie van de CMG wijzigt, wordt de implementatie van een configuratie voor de CMG gestart.
 
-### <a name="how-does-the-cloud-management-gateway-help-ensure-security"></a>Hoe de cloud management gateway te helpen zorgen beveiliging?
+### <a name="how-does-the-cloud-management-gateway-help-ensure-security"></a>Hoe de cloudgateway management helpen beveiligen
 
-De CMG helpt zorgen voor beveiliging op de volgende manieren:
+De CMG gezorgd beveiliging op de volgende manieren:
 
-- Accepteert en verbindingen van CMG verbindingspunten inclusief wederzijdse SSL-verificatie met behulp van interne certificaten en verbinding id's beheert.
-- Heeft geaccepteerd en verzendt aanvragen van client
-    - Vooraf verifieert verbindingen met behulp van wederzijdse SSL op de client PKI-certificaat.
-    - Lijst met vertrouwde certificaten controleert de hoofdmap van de PKI-clientcertificaat. U kunt deze instelling in de client communicatie-instellingen in de site-eigenschappen opgeven. Ook voert dezelfde validatie uit als het beheerpunt voor de client.
+- Accepteert en beheert verbindingen van CMG verbindingspunten inclusief wederzijdse SSL-verificatie met behulp van interne certificaten en verbinding id's.
+- Accepteert en stuurt de aanvragen van clients
+    - Vooraf authenticatie uitvoert voor verbindingen met wederzijdse SSL op de PKI-clientcertificaat.
+    - Lijst met vertrouwde certificaten controleert de hoofdmap van de PKI-clientcertificaat. U kunt deze instelling in de client-instellingen in de eigenschappen van de site communiceren. Ook voert dezelfde validatie uit als het beheerpunt voor de client.
     - Ontvangen URL's worden gevalideerd
     - Filters URL's om te controleren als een verbindingspunt CMG verbinding services aan de URL-aanvraag ontvangen.  
-    - Controleert de lengte van de inhoud uit voor elk eindpunt publiceren.
-    - Maakt gebruik van round-robin verdelen tussen CMG verbindingspunten van dezelfde site.
+    - Controleert de lengte van de inhoud controleren op elk eindpunt publishing.
+    - Maakt gebruik van round-robin om taken te verdelen tussen CMG verbindingspunten van dezelfde site.
 
 - Het verbindingspunt CMG beveiligt
-    - Consistente HTTP/TCP-verbindingen met alle virtuele instanties van de verbindende CMG bouwt. Controleert en onderhoudt verbindingen per minuut.
+    - Consistente HTTP/TCP-verbindingen met alle virtuele instanties van de verbindende CMG is gebaseerd. Controleert en onderhoudt verbindingen elke minuut.
     - Wederzijds autheticates SSL-verificatie met CMG interne certificaten gebruiken.
-    - Stuurt HTTP-aanvragen op basis van URL-toewijzingen.
-    - Verbindingsstatus rapporten om admin-service de status weer te geven.
-    - Rapporten endpoint verkeer rapport per eindpunt om de 5 minuten.
+    - Doorsturen HTTP-aanvragen op basis van de URL-toewijzingen.
+    - Verbindingsstatus van rapporten om weer te geven gezondheidsstatus admin-service.
+    - Rapporten eindpunt verkeer rapport per eindpunt om de 5 minuten.
 
-- Beveilig publishing endpoint Configuration Manager-client rollen zoals de beheer- en software-update-punt host-eindpunten in IIS met serviceclientaanvragen gericht. Elke gepubliceerd naar de CMG eindpunt heeft een URL-toewijzing.
+- Beveilig publishing eindpunt Configuration Manager-client geconfronteerd met functies zoals het beheerpunt en de software-update-punt host eindpunten in IIS met serviceclientaanvragen. Elk eindpunt dat is gepubliceerd naar de CMG heeft een URL-toewijzing.
 De externe URL is de client gebruikt om te communiceren met de CMG.
-De interne URL is het verbindingspunt CMG gebruikt voor het doorsturen van aanvragen naar de interne server. 
+De interne URL wordt gebruikt voor het doorsturen van aanvragen naar de interne server CMG verbindingspunt.
 
 #### <a name="example"></a>Voorbeeld:
-Wanneer u CMG verkeer op een beheerpunt inschakelt, wordt een reeks URL-toewijzingen voor elke beheerserver punt, zoals ccm_system, ccm_incoming en sms_mp intern gemaakt door Configuration Manager.
-De externe URL voor het eindpunt van de punt ccm_system beheer als volgt uitzien **https://<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>/CCM_System**. De URL is uniek voor elk beheerpunt. De Configuration Manager-client en plaatst de CMG ingeschakeld naam Management Pack zoals vervolgens  **<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>**  in de beheerpuntlijst van internet. Alle gepubliceerde externe URL's worden geüpload naar de CMG automatisch is CMG kunnen doen URL filteren. Alle URL-toewijzing wordt gerepliceerd naar CMG verbindingspunt zodat kunnen worden doorgestuurd naar interne servers volgens client externe URL aanvragen.
+Wanneer u verkeer op een beheerpunt CMG inschakelt, wordt een reeks URL-toewijzingen intern voor elke beheerserver punt, zoals ccm_system, ccm_incoming en sms_mp gemaakt door Configuration Manager.
+De externe URL voor het eindpunt van de punt ccm_system management als volgt uitzien **https://<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>/CCM_System**.
+De URL is uniek voor elk beheerpunt. De Configuration Manager-client vervolgens de CMG ingeschakeld MP naam zoals puts  **<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>**  in de internet MP-lijst.
+Alle gepubliceerde externe URL's worden geüpload naar de CMG automatisch CMG kunnen doen URL-filtering is. Alle URL-toewijzing wordt gerepliceerd naar CMG verbindingspunt zodat kunnen worden doorgestuurd naar interne servers volgens client aanvragen van de externe URL.
 
-### <a name="what-ports-are-used-by-the-cloud-management-gateway"></a>Welke poorten worden gebruikt door de cloud management gateway? 
+### <a name="what-ports-are-used-by-the-cloud-management-gateway"></a>Welke poorten worden gebruikt door de cloud management gateway?
 
-- Er is geen inkomende poorten die nodig zijn op het lokale netwerk. Implementatie van CMG wordt automatisch een bunch op CMG maken. 
-- Behalve 443, zijn sommige uitgaande poorten die door het verbindingspunt CMG vereist.
+- Er zijn geen poorten voor inkomend verkeer vereist op het lokale netwerk. Implementatie van CMG wordt automatisch een bunch op CMG maken.
+- Naast 443, zijn een aantal uitgaande poorten het verbindingspunt CMG vereist.
 
 |||||
 |-|-|-|-|
 |Gegevensstroom|Server|Server-poorten|Client|
-|CMG-implementatie|Azure|443|Verbindingspunt van Configuration Manager-service|
-|CMG channel maken|CMG|VM-exemplaar: 1-poort: 443<br>VM-exemplaar: N (N > = 2 en N < = 16) poorten: 10124 ~ N 10140 ~ N|Verbindingspunt CMG|
-|Client naar CMG|CMG|443|Client|
-|CMG-connector voor siterol (momenteel beheerpunten en software-updatepunten)|Siterol|Protocol/poorten die zijn geconfigureerd op de siterol|Verbindingspunt CMG|
+|CMG-implementatie|Azure|443|Serviceverbindingspunt Configuration Manager|
+|CMG kanaal maken|CMG|VM-instantie: 1-poort: 443<br>VM-instantie: N (N > = 2 en N < = 16) poorten: 10124 ~ N 10140 ~ N|CMG verbindingspunt|
+|Client CMG|CMG|443|Client|
+|CMG connector siterol (momenteel beheerpunten en software-updatepunten)|Siterol|Protocol/poorten zijn geconfigureerd op de siterol|Verbindingspunt CMG|
 
 ### <a name="how-can-you-improve-performance-of-the-cloud-management-gateway"></a>Hoe kunt u de prestaties van de cloud management gateway verbeteren?
 
-- Configureer, indien mogelijk, de CMG CMG verbindingspunt en de Configuration Manager-siteserver in dezelfde regio te verminderen latentie netwerk.
-- De verbinding tussen de Configuration Manager-client en de CMG is momenteel niet regio-ondersteuning.
-- Om toegang te krijgen van hoge beschikbaarheid, wordt aangeraden ten minste 2 virtuele instanties van de CMG en twee verbindingspunten CMG per site 
-- U kunt de CMG meer om clients te ondersteunen door toe te voegen meer exemplaren van de VM schalen. Taakverdeling door de Azure AD load balancer zijn.
-- Maak meer CMG verbindingspunten voor het distribueren van de belasting ertussen. De CMG wordt round-robin het verkeer naar de verbindende CMG verbindingspunten.
-- Client ondersteuningsnummer per CMG VM-exemplaar is 6k in de release 1702. Wanneer het kanaal CMG zwaar belast is, wordt de aanvraag wordt nog steeds verwerkt maar langer duren dan normaal.
+- Configureer indien mogelijk de CMG CMG verbindingspunt en de Configuration Manager-siteserver in dezelfde regio waarin u wilt de latentie te verminderen van het netwerk.
+- De verbinding tussen de Configuration Manager-client en de CMG is momenteel niet bekend is met regio.
+- Voor het verkrijgen van hoge beschikbaarheid, wordt aangeraden ten minste 2 virtuele instanties van de CMG en twee verbindingspunten CMG per site
+- U kunt de CMG meer om clients te ondersteunen door toe te voegen meer VM-instanties schalen. Taakverdeling door de load balancer van Azure AD zijn.
+- Maak meer CMG verbindingspunten verdelen over de lagen. De CMG wordt round-robin het verkeer naar de verbindingspunten CMG verbinding.
+- Client ondersteuningsnummer per CMG VM-instantie is 6 kB in de release 1702. Wanneer het kanaal CMG onder hoge belasting, wordt de aanvraag wordt nog steeds verwerkt maar duurt mogelijk langer dan normaal.
 
-### <a name="how-can-you-monitor-the-cloud-management-gateway"></a>Hoe kunt u de cloud management gateway controleren?
+### <a name="how-can-you-monitor-the-cloud-management-gateway"></a>Hoe kunt u de cloud management gateway bewaken?
 
-Gebruiken voor het oplossen van implementatie **CloudMgr.log** en **CMGSetup.log**.
-Gebruiken voor het oplossen van servicestatus **CMGService.log** en **SMS_CLOUD_PROXYCONNECTOR.log**.
+Gebruik voor problemen met implementatie, **CloudMgr.log** en **CMGSetup.log**.
+Gebruik om problemen op servicestatus **CMGService.log** en **SMS_CLOUD_PROXYCONNECTOR.log**.
 Gebruik voor het oplossen van problemen clientverkeer **CMGHttpHandler.log**, **CMGService.Log**, en **SMS_CLOUD_PROXYCONNECTOR.log**.
 
-Zie voor een lijst van alle CMG productspecifieke logboekbestanden, [in Configuration Manager-logboekbestanden](https://docs.microsoft.com/sccm/core/plan-design/hierarchy/log-files#cloud-management-gateway)
+Zie voor een lijst van alle CMG-gerelateerde logboekbestanden [logboekbestanden in Configuration Manager](https://docs.microsoft.com/sccm/core/plan-design/hierarchy/log-files#cloud-management-gateway)
 
+## <a name="next-steps"></a>Volgende stappen
+
+[Een cloudbeheergateway instellen](setup-cloud-management-gateway.md)
 

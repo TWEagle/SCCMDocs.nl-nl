@@ -1,12 +1,12 @@
 ---
 
-title: Installeren en configureren van een software-updatepunt | Microsoft-documenten
-description: Primaire sites vereisen een software-updatepunt op de centrale beheersite voor beoordeling van naleving van software-updates en software-updates implementeren op clients.
+title: Installeren en configureren van software-updatepunt | Microsoft Docs
+description: Primaire sites vereisen een software-updatepunt op de centrale beheersite voor beoordeling van compatibiliteit van software-updates en software-updates implementeren op clients.
 keywords: 
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.date: 10/06/2016
+ms.date: 05/30/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
@@ -14,35 +14,38 @@ ms.technology:
 - configmgr-sum
 ms.assetid: b099a645-6434-498f-a408-1d438e394396
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: e6cf8c799b5be2f7dbb6fadadddf702ec974ae45
-ms.openlocfilehash: 1d9911274fd76942131054231cdcc2bcebbd3fcb
+ms.sourcegitcommit: dc221ddf547c43ab1f25ff83c3c9bb603297ece6
+ms.openlocfilehash: 7d369384d133c90a15e01df50ac53992d61f3873
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/01/2017
 
 
 
 ---
 
 
-# <a name="install-and-configure-a-software-update-point"></a>Installeren en configureren van een software-updatepunt  
+# <a name="install-and-configure-a-software-update-point"></a>Installeren en configureren van software-updatepunt  
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
 > [!IMPORTANT]  
->  Voordat u de sitesysteemrol van het software-updatepunt installeert, moet u verifiëren dat de server voldoet aan de vereiste afhankelijkheden en de software-updatepuntinfrastructuur op de site bepaalt. Zie voor meer informatie over het plannen van software-updates en om te bepalen van uw software-updatepuntinfrastructuur [plannen voor software-updates](../plan-design/plan-for-software-updates.md).  
+>  Voordat u de sitesysteemrol van het software-updatepunt installeert, moet u verifiëren dat de server voldoet aan de vereiste afhankelijkheden en de software-updatepuntinfrastructuur op de site bepaalt. Zie voor meer informatie over het plannen van softwareupdates en het bepalen van uw software-updatepuntinfrastructuur [plannen voor software-updates](../plan-design/plan-for-software-updates.md).  
 
- Het software-updatepunt is vereist op de centrale beheersite en op de primaire sites om het inschakelen van de compatibiliteitsbeoordeling van software-updates en het implementeren van software-updates op clients mogelijk te maken. Het software-updatepunt is optioneel op secundaire sites. De sitesysteemrol van het software-updatepunt moet op een server worden gemaakt waar WSUS op is geïnstalleerd. Het software-updatepunt communiceert met de WSUS-services om de software-update-instellingen te configureren en om de synchronisatie van de metagegevens van software-updates aan te vragen. Wanneer u een Configuration Manager-hiërarchie hebt, installeren en configureren van de software-updatepunt op de centrale beheersite eerst, klikt u op onderliggende primaire sites, en vervolgens optioneel op secundaire sites. Als u een zelfstandige primaire site hebt, en geen centrale beheersite, dient u eerst het software-updatepunt op de primaire site, en vervolgens optioneel op secundaire sites, te installeren en configureren. Sommige instellingen zijn alleen beschikbaar wanneer u het software-updatepunt op een site op het hoogste niveau configureert. Er zijn verschillende opties die u moet overwegen, afhankelijk van waar u het software-updatepunt hebt geïnstalleerd.  
+ Het software-updatepunt is vereist op de centrale beheersite en op de primaire sites om het inschakelen van de compatibiliteitsbeoordeling van software-updates en het implementeren van software-updates op clients mogelijk te maken. Het software-updatepunt is optioneel op secundaire sites. De sitesysteemrol van het software-updatepunt moet op een server worden gemaakt waar WSUS op is geïnstalleerd. Het software-updatepunt communiceert met de WSUS-services om de software-update-instellingen te configureren en om de synchronisatie van de metagegevens van software-updates aan te vragen. Wanneer u een Configuration Manager-hiërarchie hebt, installeren en configureren van het software-updatepunt op de centrale beheersite eerst, klikt u vervolgens op onderliggende primaire sites, en vervolgens optioneel op secundaire sites. Als u een zelfstandige primaire site hebt, en geen centrale beheersite, dient u eerst het software-updatepunt op de primaire site, en vervolgens optioneel op secundaire sites, te installeren en configureren. Sommige instellingen zijn alleen beschikbaar wanneer u het software-updatepunt op een site op het hoogste niveau configureert. Er zijn verschillende opties die u moet overwegen, afhankelijk van waar u het software-updatepunt hebt geïnstalleerd.  
 
 > [!IMPORTANT]  
 >  U kunt meerdere software-updatepunten op een site installeren. Het eerste software-updatepunt dat u installeert, wordt geconfigureerd als de synchronisatiebron: dit software-updatepunt synchroniseert de updates van Microsoft Update of van de upstream-synchronisatiebron. De andere software-updatepunten op de site zijn geconfigureerd als replica's van het eerste software-updatepunt. Daarom zijn sommige instellingen niet beschikbaar na het installeren en configureren van het oorspronkelijke software-updatepunt.  
+
+> [!IMPORTANT]  
+>  Wordt niet ondersteund voor het installeren van de sitesysteemrol van software-update-punt op een server die is geconfigureerd en gebruikt als een zelfstandige WSUS-server of met een software-updatepunt voor het rechtstreeks beheren van WSUS-clients. Bestaande WSUS-servers worden alleen ondersteund als de synchronisatiebron stroomopwaarts bronnen voor het actieve software-updatepunt. Zie [synchroniseren vanaf een gegevensbronlocatie stroomopwaarts](#BKMK_wsussync)
 
  U kunt de sitesysteemrol van het software-updatepunt toevoegen aan een bestaande sitesysteemserver of u kunt een nieuwe sitesysteemrol maken. Selecteer **Software-updatepunt** op de pagina **Systeemrolselectie** van de **wizard Sitesysteemserver** maken of de wizard **Sitesysteemrollen toevoegen**, afhankelijk van of u de sitesysteemrol toevoegt aan een nieuwe of bestaande siteserver. Vervolgens configureert u de instellingen voor het software-updatepunt in de wizard. De instellingen zijn verschillend afhankelijk van de versie van Configuration Manager die u gebruikt. Zie voor meer informatie over het installeren van sitesysteemrollen [sitesysteemrollen installeren](../../core/servers/deploy/configure/install-site-system-roles.md).  
 
  Gebruik de volgende secties voor informatie over de software-updatepuntinstellingen op een site.  
 
 ## <a name="proxy-server-settings"></a>Proxyserverinstellingen  
- U kunt de proxyserverinstellingen configureren op verschillende pagina's van de **maken Sitessysteemserver** of **toevoegen Wizard sitesysteemrollen** afhankelijk van de versie van Configuration Manager die u gebruikt.  
+ U kunt de proxyserverinstellingen configureren op verschillende pagina's van de **maken Wizard Sitesysteemserver** of **toevoegen Wizard sitesysteemrollen** afhankelijk van de versie van Configuration Manager die u gebruikt.  
 
 -   U moet de proxyserver configureren en vervolgens opgeven wanneer de proxyserver moet worden gebruikt voor software-updates. Configureer de volgende instellingen:  
 
@@ -54,11 +57,11 @@ ms.lasthandoff: 05/17/2017
         >  De instelling **Een proxyserver gebruiken wanneer inhoud wordt gedownload via automatische implementatieregels** is beschikbaar, maar wordt niet gebruikt voor een software-updatepunt op een secundaire site. Alleen het software-updatepunt op de centrale beheersite en de primaire site downloadt inhoud van de Microsoft Update-pagina.  
 
 > [!IMPORTANT]  
->  Standaard wordt het account **Lokaal systeem** voor de server waarop een automatische implementatieregel is gemaakt, gebruikt om verbinding te maken met het internet en software-updates te downloaden wanneer de automatische implementatieregels worden uitgevoerd. Als dit account geen toegang tot het Internet, software-updates niet worden gedownload en de volgende vermelding is geregistreerd in het logboekbestand ruleengine.log opgeslagen: **De update downloaden van internet is mislukt. Fout = 12007**. Configureer de referenties om verbinding te maken met de proxyserver wanneer het lokale systeemaccount geen internettoegang heeft.  
+>  Standaard wordt het account **Lokaal systeem** voor de server waarop een automatische implementatieregel is gemaakt, gebruikt om verbinding te maken met het internet en software-updates te downloaden wanneer de automatische implementatieregels worden uitgevoerd. Wanneer dit account geen toegang tot Internet heeft, mislukt de software-updates te downloaden en de volgende vermelding wordt vastgelegd in het logboekbestand ruleengine.log opgeslagen: **De update downloaden van internet is mislukt. Fout = 12007**. Configureer de referenties om verbinding te maken met de proxyserver wanneer het lokale systeemaccount geen internettoegang heeft.  
 
 
 ## <a name="wsus-settings"></a>WSUS-instellingen  
- U moet de WSUS-instellingen configureren op verschillende pagina's van de **maken Sitessysteemserver** of **toevoegen Wizard sitesysteemrollen** afhankelijk van de versie van Configuration Manager die u gebruikt, en in sommige gevallen, alleen in de eigenschappen voor de software-updatepunt, ook wel bekend als onderdeeleigenschappen van Software. Gebruik de informatie in de volgende secties om de WSUS-instellingen te configureren.  
+ U moet de WSUS-instellingen configureren op verschillende pagina's van de **maken Wizard Sitesysteemserver** of **toevoegen Wizard sitesysteemrollen** afhankelijk van de versie van Configuration Manager die u gebruikt, en in sommige gevallen, alleen in de eigenschappen voor de software-updatepunt, ook wel bekend als onderdeeleigenschappen van Software. Gebruik de informatie in de volgende secties om de WSUS-instellingen te configureren.  
 
 ### <a name="BKMK_wsusport"></a>WSUS-poortinstellingen  
  U moet de WSUS-poortinstellingen configureren op de pagina Software-updatepunt van de wizard of in de eigenschappen van het software-updatepunt. Gebruik de volgende procedure om te bepalen welke poortinstellingen worden gebruikt voor WSUS.  
@@ -76,9 +79,9 @@ ms.lasthandoff: 05/17/2017
  Voor meer informatie over het gebruik van SSL, zie [Beslissen om WSUS te configureren voor gebruik van SSL](../plan-design/plan-for-software-updates.md#BKMK_WSUSandSSL).  
 
 ### <a name="wsus-server-connection-account"></a>WSUS-serververbindingsaccount  
- U kunt een account configureren voor gebruik door de siteserver wanneer het verbinding maakt met WSUS dat op het software-updatepunt wordt uitgevoerd. Als u dit account niet configureert, gebruikt de Configuration Manager het computeraccount voor de siteserver verbinding maken met WSUS. Configureer het WSUS-serververbindingsaccount op de pagina **Proxy- en accountinstellingen** van de wizard of op het tabblad **Proxy- en accountinstellingen** in de eigenschappen van het software-updatepunt.  U kunt het account configureren op verschillende plaatsen in de wizard afhankelijk van de versie van Configuration Manager die u gebruikt.  
+ U kunt een account configureren voor gebruik door de siteserver wanneer het verbinding maakt met WSUS dat op het software-updatepunt wordt uitgevoerd. Als u dit account niet configureert, wordt in de Configuration Manager het computeraccount voor de siteserver gebruikt om verbinding met WSUS. Configureer het WSUS-serververbindingsaccount op de pagina **Proxy- en accountinstellingen** van de wizard of op het tabblad **Proxy- en accountinstellingen** in de eigenschappen van het software-updatepunt.  U kunt het account configureren op verschillende plaatsen in de wizard afhankelijk van de versie van Configuration Manager die u gebruikt.  
 
- Zie voor meer informatie over Configuration Manager-accounts [Accounts die worden gebruikt in System Center Configuration Manager](../../core/plan-design/hierarchy/accounts.md).  
+ Zie voor meer informatie over Configuration Manager-accounts, [Accounts die worden gebruikt in System Center Configuration Manager](../../core/plan-design/hierarchy/accounts.md).  
 
 ## <a name="synchronization-source"></a>Synchronisatiebron  
  U kunt de synchronisatiebron stroomopwaarts voor de synchronisatie van software-updates configureren op de pagina **Synchronisatiebron** van de wizard, of op het tabblad **Synchronisatie-instellingen** in de eigenschappen van software-updatepuntcomponenten. Uw opties voor de synchronisatiebron variëren in functie van de site.  
@@ -92,24 +95,24 @@ ms.lasthandoff: 05/17/2017
 
  De volgende lijst geeft meer informatie over elke optie die u kunt gebruiken als de synchronisatiebron:  
 
--   **Synchroniseren vanaf Microsoft Update**: Gebruik deze instelling om te synchroniseren metagegevens van software-updates vanaf Microsoft Update. De centrale beheersite moet toegang tot het internet hebben; anders zal de synchronisatie mislukken. De instelling is alleen beschikbaar wanneer u het software-updatepunt op een site op het hoogste niveau configureert.  
+-   **Synchroniseren vanuit Microsoft Update**: Gebruik deze instelling om te synchroniseren metagegevens van software-updates vanaf Microsoft Update. De centrale beheersite moet toegang tot het internet hebben; anders zal de synchronisatie mislukken. De instelling is alleen beschikbaar wanneer u het software-updatepunt op een site op het hoogste niveau configureert.  
 
     > [!NOTE]  
     >  Wanneer zich een firewall tussen het software-updatepunt en internet bevindt, moet de firewall mogelijk worden geconfigureerd om de HTTP- en HTTPS-poorten te accepteren die worden gebruikt voor de WSUS-website. U kunt ook kiezen om de toegang op de firewall te beperken tot beperkte domeinen. Zie [Firewalls configureren](../plan-design/plan-for-software-updates.md#BKMK_ConfigureFirewalls) voor meer informatie over het plannen van een firewall die software-updates ondersteunt.  
 
--   **Synchroniseren vanaf een gegevensbronlocatie stroomopwaarts**: Gebruik deze instelling om te synchroniseren metagegevens van software-updates vanaf de synchronisatiebron stroomopwaarts. De onderliggende primaire sites en secundaire sites worden automatisch geconfigureerd om de URL van de bovenliggende site voor deze instelling te gebruiken. U kunt de software-updates synchroniseren vanaf een bestaande WSUS-server. Geef een URL, zoals https://WSUSServer:8531, waarbij 8531 de poort is die wordt gebruikt om een verbinding te maken met de WSUS-server.  
+-   **<a name="BKMK_wsussync"></a>Synchroniseren vanaf een gegevensbronlocatie stroomopwaarts**: Deze instelling gebruiken om metagegevens van software-updates vanaf de synchronisatiebron stroomopwaarts te synchroniseren. De onderliggende primaire sites en secundaire sites worden automatisch geconfigureerd om de URL van de bovenliggende site voor deze instelling te gebruiken. U kunt de software-updates synchroniseren vanaf een bestaande WSUS-server. Geef een URL, zoals https://WSUSServer:8531, waarbij 8531 de poort is die wordt gebruikt om een verbinding te maken met de WSUS-server.  
 
--   **Niet synchroniseren vanuit Microsoft Update of gegevensbron stroomopwaarts**: Gebruik deze instelling om software-updates handmatig synchroniseren wanneer het software-updatepunt op het hoogste niveau niet is verbonden met het Internet. Zie de sectie [Software-updates synchroniseren vanaf een niet-verbonden software-updatepunt](synchronize-software-updates-disconnected.md) voor meer informatie.  
+-   **Niet synchroniseren vanuit Microsoft Update of gegevensbron stroomopwaarts**: Deze instelling gebruiken om software-updates handmatig synchroniseren wanneer het software-updatepunt op het hoogste niveau niet is verbonden met Internet. Zie de sectie [Software-updates synchroniseren vanaf een niet-verbonden software-updatepunt](synchronize-software-updates-disconnected.md) voor meer informatie.  
 
 > [!NOTE]  
 >  Wanneer zich een firewall tussen het software-updatepunt en internet bevindt, moet de firewall mogelijk worden geconfigureerd om de HTTP- en HTTPS-poorten te accepteren die worden gebruikt voor de WSUS-website. U kunt ook kiezen om de toegang op de firewall te beperken tot beperkte domeinen. Zie [Firewalls configureren](../plan-design/plan-for-software-updates.md#BKMK_ConfigureFirewalls) voor meer informatie over het plannen van een firewall die software-updates ondersteunt.  
 
- U kunt ook configureren of u WSUS-rapportagegebeurtenissen op de pagina **Synchronisatiebron** van de wizard of op het tabblad **Synchronisatie-instellingen** in de eigenschappen van software-updatepuntcomponenten. Configuration Manager gebruikt deze gebeurtenissen; niet Daarom zult u gewoonlijk de standaardinstelling kiezen **geen WSUS-rapportagegebeurtenissen maken**.  
+ U kunt ook configureren of u WSUS-rapportagegebeurtenissen op de pagina **Synchronisatiebron** van de wizard of op het tabblad **Synchronisatie-instellingen** in de eigenschappen van software-updatepuntcomponenten. Configuration Manager gebruikt deze gebeurtenissen; niet Daarom kiest u doorgaans de standaardinstelling **geen WSUS-rapportagegebeurtenissen maken**.  
 
 ## <a name="synchronization-schedule"></a>Synchronisatieplanning  
  Configureer de synchronisatieplanning op het tabblad **Synchronisatieplanning** van de wizard of in de eigenschappen van software-updatepuntcomponenten. Deze instelling wordt alleen geconfigureerd op het software-updatepunt op de site op het hoogste niveau.  
 
- Als u de planning inschakelt, kunt u een terugkerende eenvoudige of aangepaste synchronisatieplanning configureren. Wanneer u een eenvoudige planning configureert, moet de begintijd is gebaseerd op de lokale tijd voor de computer waarop de Configuration Manager-console op het moment dat u de planning maakt. Wanneer u de begintijd voor een aangepaste planning configureert, is het gebaseerd op de lokale tijd voor de computer waarop de Configuration Manager-console.  
+ Als u de planning inschakelt, kunt u een terugkerende eenvoudige of aangepaste synchronisatieplanning configureren. Wanneer u een eenvoudige planning configureert, worden de begintijd is gebaseerd op de lokale tijd voor de computer die de Configuration Manager-console uitvoert op het moment dat u de planning maakt. Wanneer u de begintijd voor een aangepaste planning configureert, is het gebaseerd op de lokale tijd voor de computer waarop de Configuration Manager-console.  
 
 > [!TIP]  
 >  Maak een zodanige planning dat de synchronisatie van de software-updates wordt uitgevoerd met een tijdskader dat geschikt is voor uw omgeving. Een typisch scenario is het instellen van de planning voor de synchronisatie van software-updates om uit te voeren kort na de regelmatige vrijgave van de beveiligingsupdate van Microsoft op de tweede dinsdag van elke maand, die gewoonlijk Patch Dinsdag wordt genoemd. Een ander typisch scenario is het instellen van de planning voor de synchronisatie van software-updates om dagelijks uitgevoerd te worden wanneer u software-updates gebruikt om de Endpoint Protection-definitie en engine-updates te leveren.  
@@ -150,7 +153,7 @@ ms.lasthandoff: 05/17/2017
 >  De pagina **Talen** van de wizard is alleen beschikbaar wanneer u het software-updatepunt op de centrale beheersite installeert. U kunt de talen van het Software-updatebestand op onderliggende sites configureren op het tabblad **Talen** in de eigenschappen van software-updatecomponenten.  
 
 ## <a name="next-steps"></a>Volgende stappen
-U hebt de software-updatepunt beginnen bij de bovenste site in uw hiërarchie Configuration Manager geïnstalleerd. Herhaal de procedures in dit onderwerp voor het installeren van de software-updatepunt op onderliggende sites.
+U de software-updatepunt beginnen bij de bovenste site in uw Configuration Manager-hiërarchie hebt geïnstalleerd. Herhaal de procedures in dit onderwerp voor het installeren van de software-updatepunt op onderliggende sites.
 
 Zodra u de software-updatepunten geïnstalleerd, gaat u naar [software-updates synchroniseren](synchronize-software-updates.md).
 

@@ -1,7 +1,7 @@
 ---
 
-title: Software-updates handmatig implementeren | Microsoft-documenten
-description: Voor de implementatie updates handmatig updates van de Configuration Manager-console selecteren en handmatig implementeren, of updates toevoegen aan een updategroep en implementeren van de groep.
+title: Software-updates handmatig implementeren | Microsoft Docs
+description: Voor de implementatie updates handmatig updates selecteren in de Configuration Manager-console en handmatig implementeren, of -updates toevoegen aan een updategroep en de groep implementeren.
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -14,10 +14,10 @@ ms.technology:
 - configmgr-sum
 ms.assetid: 57184274-5fea-4d79-a2b4-22e08ed26daf
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: 78524abd4c45f0b7402d6f1e85afc60bb72ab0ee
-ms.openlocfilehash: d736715f1f2c92b4c91f156ecb8abe3513811a34
+ms.sourcegitcommit: c6ee0ed635ab81b5e454e3cd85637ff3e20dbb34
+ms.openlocfilehash: 2a0d5f12b99689749833c109d4fa399f99451d8a
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/08/2017
 
 
 ---
@@ -26,12 +26,12 @@ ms.lasthandoff: 05/17/2017
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
- Een handmatige software update-implementatie is het proces van het software-updates vanaf de Configuration Manager-console selecteren en het implementatieproces handmatig te starten. Of u kunt geselecteerde software-updates toevoegen aan een updategroep en de updategroep vervolgens handmatig implementeren. Gewoonlijk gebruikt u handmatige implementatie om uw clientapparaten up-to-date te krijgen met vereiste software-updates voordat u ADR's maakt die lopende maandelijkse software-update-implementaties zullen beheren. U zult ook een handmatige methode gebruiken om buiten-bandsoftware-updates te implementeren. Als u hulp nodig hebt om te bepalen welke implementatie methode is geschikt voor u, Zie [software-updates implementeren](deploy-software-updates.md).
+ Een handmatige software-update-implementatie is het proces van het selecteren van software-updates in de Configuration Manager-console en het handmatig starten van het implementatieproces. Of u kunt geselecteerde software-updates toevoegen aan een updategroep en de updategroep vervolgens handmatig implementeren. Gewoonlijk gebruikt u handmatige implementatie om uw clientapparaten up-to-date te krijgen met vereiste software-updates voordat u ADR's maakt die lopende maandelijkse software-update-implementaties zullen beheren. U zult ook een handmatige methode gebruiken om buiten-bandsoftware-updates te implementeren. Als u hulp nodig hebt om te bepalen welke implementatie methode is geschikt is voor u, raadpleegt u [software-updates implementeren](deploy-software-updates.md).
 
- De volgende secties vindt u de stappen voor het software-updates handmatig implementeren.  
+ De volgende secties behandelen de stappen voor het software-updates handmatig implementeren.  
 
 ##  <a name="BKMK_1SearchCriteria"></a>Stap 1: Geef zoekcriteria voor software-updates  
- Er worden mogelijk duizenden software-updates getoond in de Configuration Manager-console. De eerste stap in de werkstroom voor het handmatig implementeren van software-updates is het identificeren van de software-updates die u wilt implementeren. U zou bijvoorbeeld criteria kunnen opgeven die alle software-updates ophalen die vereist zijn op meer dan 50 clientapparaten en die een software-updateclassificatie **Beveiliging** of **Kritiek** hebben.  
+ Er worden mogelijk duizenden software-updates weergegeven in de Configuration Manager-console. De eerste stap in de werkstroom voor het handmatig implementeren van software-updates is het identificeren van de software-updates die u wilt implementeren. U zou bijvoorbeeld criteria kunnen opgeven die alle software-updates ophalen die vereist zijn op meer dan 50 clientapparaten en die een software-updateclassificatie **Beveiliging** of **Kritiek** hebben.  
 
 > [!IMPORTANT]  
 >  Het maximum aantal software-updates dat in een enkele software-update-implementatie kan worden opgenomen, bedraagt 1000.  
@@ -43,7 +43,7 @@ ms.lasthandoff: 05/17/2017
 2.  Vouw in de werkruimte Softwarebibliotheek het knooppunt **Software-updates**uit en klik op **Alle software-updates**. De gesynchroniseerde software-updates worden weergegeven.  
 
     > [!NOTE]  
-    >  Op de **alle Software-Updates** Configuration Manager-knooppunt geeft alleen software-updates met een **kritieke** en **beveiliging** classificatie en in de afgelopen 30 dagen zijn uitgebracht.  
+    >  Op de **alle Software-Updates** Configuration Manager-knooppunt geeft alleen software-updates met een **Kritiek** en **beveiliging** classificatie en in de afgelopen 30 dagen zijn uitgebracht.  
 
 3.  Filter in het zoekvenster om de software-updates te identificeren die u nodig hebt met behulp van een of beide van de volgende stappen:  
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 05/17/2017
     > [!TIP]  
     >  U hebt de optie de filtercriteria op te slaan op het tabblad **Zoeken** en in de groep **Opslaan** .  
 
-##  <a name="BKMK_2UpdateGroup"></a>Stap 2: Maak een software-updategroep die de softwareupdates bevat  
+##  <a name="BKMK_2UpdateGroup"></a>Stap 2: Maken van een software-updategroep die de software-updates bevat  
  Software-updategroepen bieden u een doeltreffende methode om software-updates te organiseren die worden voorbereid voor implementatie. U kunt handmatig een software-updates aan een software-updategroep of Configuration Manager kunnen softwareupdates automatisch toevoegen aan een nieuwe of bestaande software-updategroep met behulp van een ADR toevoegen. Gebruik de volgende procedures om software-updates handmatig toe te voegen aan een nieuwe software-updategroep.  
 
 #### <a name="to-manually-add-software-updates-to-a-new-software-update-group"></a>Software-updates handmatig toevoegen aan een nieuwe software-updategroep  
@@ -154,7 +154,7 @@ ms.lasthandoff: 05/17/2017
 11. On the Completion page, verify that the software updates were successfully downloaded, and then click **Close**. --->
 
 #### <a name="to-monitor-content-status"></a>De status van inhoud controleren
-1. Voor het controleren van de status van inhoud voor de software-updates, klikt u op **bewaking** in de Configuration Manager-console.  
+1. Voor het bewaken van de status van inhoud voor de software-updates, klikt u op **bewaking** in de Configuration Manager-console.  
 
 2. Vouw in de werkruimte Controle het knooppunt **Distributiestatus**uit en klik vervolgens op **Inhoudsstatus**.  
 
@@ -177,9 +177,9 @@ ms.lasthandoff: 05/17/2017
 
 5.  Configureer de volgende instellingen op de pagina Algemeen:  
 
-    -   **Naam**: Geef de naam voor de implementatie. De implementatie moet een unieke naam zijn die het doel van de implementatie beschrijft en deze onderscheidt van andere implementaties op de Configuration Manager-site hebben. Configuration Manager biedt standaard automatisch een naam voor de implementatie in de volgende indeling: **Microsoft-Software-Updates -** <*datum*><*tijd*>  
+    -   **Naam**: Geef de naam voor de implementatie. De implementatie moet een unieke naam zijn die het doel van de implementatie beschrijft en deze onderscheidt van andere implementaties in de Configuration Manager-site hebben. Configuration Manager biedt standaard automatisch een naam voor de implementatie in de volgende indeling: **Microsoft-Software-Updates -** <*datum*><*tijd*>  
 
-    -   **Beschrijving**: Geef een beschrijving voor de implementatie. De beschrijving biedt een overzicht van de implementatie en eventuele andere relevante informatie die u helpt te identificeren en te onderscheiden van de implementatie van andere implementaties in Configuration Manager-site. Het beschrijvingsveld is optioneel en kent een limiet van 256 tekens. Het veld is standaard leeg.  
+    -   **Beschrijving**: Geef een beschrijving voor de implementatie. De beschrijving biedt een overzicht van de implementatie en eventuele andere relevante informatie die helpt om te identificeren en te onderscheiden van de implementatie van andere implementaties in Configuration Manager-site. Het beschrijvingsveld is optioneel en kent een limiet van 256 tekens. Het veld is standaard leeg.  
 
     -   **Software Update/Software-Updategroep**: Controleer of de weergegeven software-updategroep of software-update juist is.  
 
@@ -189,7 +189,7 @@ ms.lasthandoff: 05/17/2017
 
 6.  Configureer de volgende instellingen op de pagina Implementatie-instellingen:  
 
-    -   **Type implementatie**: Geef het implementatietype voor de implementatie van software-update. Selecteer **Vereist** om een verplichte software-update-implementatie te maken waarin de software-updates voor een configureerde installatiedeadline automatisch op de clients worden geïnstalleerd. Selecteer **Beschikbaar** om een optionele software-update-implementatie te maken die voor gebruikers beschikbaar is in Software Center.  
+    -   **Type implementatie**: Geef het implementatietype voor de implementatie van de software-update. Selecteer **Vereist** om een verplichte software-update-implementatie te maken waarin de software-updates voor een configureerde installatiedeadline automatisch op de clients worden geïnstalleerd. Selecteer **Beschikbaar** om een optionele software-update-implementatie te maken die voor gebruikers beschikbaar is in Software Center.  
 
         > [!IMPORTANT]  
         >  Nadat u de software update-implementatie hebt gemaakt, kan het type implementatie niet meer worden gewijzigd.  
@@ -198,25 +198,25 @@ ms.lasthandoff: 05/17/2017
         >  Een software-updategroep die wordt geïmplementeerd als **Vereist** , wordt gedownload op de achtergrond waarbij BITS-instellingen worden gehandhaafd, indien geconfigureerd.  
         > Software-updategroepen die worden geïmplementeerd als **Beschikbaar** , worden echter gedownload op de voorgrond waarbij BITS-instellingen worden genegeerd.  
 
-    -   **Wake-on-LAN gebruiken voor ontwaken van clients voor vereiste implementaties**: Geef op of Wake On LAN tegen de deadline voor het verzenden van ontwaakpakketten naar computers waarvoor een of meer software-updates in de implementatie. Computers die zich op het tijdstip van de installatiedeadline in de slaapstandmodus bevinden, worden uit deze stand gehaald, zodat de installatie van de software-update kan worden gestart. Clients die zich in de slaapstandmodus bevinden en geen software-updates nodig hebben, worden niet gestart. Deze instelling is standaard uitgeschakeld en is alleen beschikbaar wanneer **Type implementatie** is ingesteld op **Vereist**.  
+    -   **Wake-on-LAN gebruiken om clients voor vereiste implementaties te laten ontwaken**: Geef op of Wake On LAN tegen de deadline voor het verzenden van ontwaakpakketten naar computers waarvoor een of meer software-updates in de implementatie. Computers die zich op het tijdstip van de installatiedeadline in de slaapstandmodus bevinden, worden uit deze stand gehaald, zodat de installatie van de software-update kan worden gestart. Clients die zich in de slaapstandmodus bevinden en geen software-updates nodig hebben, worden niet gestart. Deze instelling is standaard uitgeschakeld en is alleen beschikbaar wanneer **Type implementatie** is ingesteld op **Vereist**.  
 
         > [!WARNING]  
         >  Voordat u deze optie kunt gebruiken, moeten computers en netwerken zijn geconfigureerd voor Wake On LAN.  
 
-    -   **Detailniveau**: Geef het detailniveau voor de statusberichten die zijn gerapporteerd door de clientcomputers.  
+    -   **Detailniveau**: Geef het detailniveau voor de statusberichten die zijn gerapporteerd door clientcomputers.  
 
 7.  Configureer de volgende instellingen op de pagina Planning:  
 
-    -   **Evaluatie van planning**: Geef op of de beschikbare tijd en de duur voor de installatiedeadline worden geëvalueerd op basis van de UTC of de lokale tijd van de computer waarop de Configuration Manager-console.  
+    -   **Evaluatie van planning**: Geef op of de beschikbare tijd en de tijdstippen voor de installatiedeadline worden geëvalueerd op basis van UTC of de lokale tijd van de computer waarop de Configuration Manager-console wordt uitgevoerd.  
 
         > [!NOTE]  
-        >  Wanneer u selecteert lokale tijd en selecteer vervolgens **zo snel mogelijk** voor de **tijd Software beschikbaar** of **installatiedeadline**, de huidige tijd op de computer die de Configuration Manager-console wordt gebruikt om te evalueren wanneer er updates beschikbaar zijn, of wanneer ze worden geïnstalleerd op een client wordt uitgevoerd. Als de client zich in een andere tijdzone bevindt, worden deze acties uitgevoerd wanneer de tijd van de client de evaluatietijd heeft bereikt.  
+        >  Als u lokale tijd selecteert en selecteer vervolgens **zo snel mogelijk** voor de **tijd Software beschikbaar** of **installatiedeadline**, de huidige tijd op de computer die de Configuration Manager-console wordt gebruikt om te evalueren wanneer updates beschikbaar zijn of wanneer ze worden geïnstalleerd op een client wordt uitgevoerd. Als de client zich in een andere tijdzone bevindt, worden deze acties uitgevoerd wanneer de tijd van de client de evaluatietijd heeft bereikt.  
 
     -   **Tijd software beschikbaar**: Selecteer een van de volgende instellingen om op te geven wanneer de software-updates beschikbaar zijn voor clients:  
 
-        -   **Zo spoedig mogelijk**: Selecteer deze instelling om de software-updates in de implementatie beschikbaar te maken clients zo snel mogelijk. Wanneer de implementatie wordt gemaakt, wordt het clientbeleid bijgewerkt en worden de clients via hun volgende pollingcyclus voor het clientbeleid in kennis gesteld van de implementatie, waarna de software-updates beschikbaar zijn voor installatie.  
+        -   **Zo spoedig mogelijk**: Selecteer deze instelling om de software-updates in de implementatie beschikbaar voor clients zo snel mogelijk. Wanneer de implementatie wordt gemaakt, wordt het clientbeleid bijgewerkt en worden de clients via hun volgende pollingcyclus voor het clientbeleid in kennis gesteld van de implementatie, waarna de software-updates beschikbaar zijn voor installatie.  
 
-        -   **Specifiek tijdstip**: Selecteer deze instelling om de software-updates in de implementatie beschikbaar maken voor clients op een specifieke datum en tijd. Wanneer de implementatie wordt gemaakt, wordt het clientbeleid bijgewerkt en worden de clients via hun volgende pollingcyclus voor het clientbeleid in kennis gesteld van de implementatie. De software-updates in de implementatie zijn echter pas na de opgegeven datum en het opgegeven tijdstip beschikbaar voor installatie.  
+        -   **Specifiek tijdstip**: Selecteer deze instelling om de software-updates in de implementatie beschikbaar voor clients op een specifieke datum en tijd. Wanneer de implementatie wordt gemaakt, wordt het clientbeleid bijgewerkt en worden de clients via hun volgende pollingcyclus voor het clientbeleid in kennis gesteld van de implementatie. De software-updates in de implementatie zijn echter pas na de opgegeven datum en het opgegeven tijdstip beschikbaar voor installatie.  
 
     -   **Installatiedeadline**: Selecteer een van de volgende instellingen om op te geven van de installatiedeadline voor de software-updates in de implementatie.  
 
@@ -234,45 +234,45 @@ ms.lasthandoff: 05/17/2017
 
 8.  Configureer de volgende instellingen op de pagina Gebruikerservaring:  
 
-    -   **Meldingen voor gebruikers**: Geef op of de melding van de software-updates weergeven in Software Center op de clientcomputer op de geconfigureerde **tijd Software beschikbaar** en of meldingen voor gebruikers weergegeven op de clientcomputers. Wanneer **Type implementatie** op de pagina Implementatie-instellingen is ingesteld op **Beschikbaar** , kunt u **Verbergen in Software Center en alle meldingen verbergen**niet selecteren.  
+    -   **Meldingen voor gebruikers**: Geef op of meldingen van de software-updates weergeven in Software Center op de clientcomputer op de geconfigureerde **tijd Software beschikbaar** en of meldingen voor gebruikers weergegeven op de clientcomputers. Wanneer **Type implementatie** op de pagina Implementatie-instellingen is ingesteld op **Beschikbaar** , kunt u **Verbergen in Software Center en alle meldingen verbergen**niet selecteren.  
 
     -   **Deadlinegedrag**: * alleen beschikbaar wanneer **Type implementatie** * is ingesteld op **vereist** *op de pagina implementatie-instellingen.*   
-    Geef het gedrag op dat moet optreden wanneer de deadline voor de implementatie van software-update wordt bereikt. Geef op of de software-updates in de implementatie moeten worden geïnstalleerd. Geef ook op of het systeem na het installeren van software-updates opnieuw moet worden opgestart, ongeacht het geconfigureerde onderhoudsvenster. Zie voor meer informatie over onderhoudsvensters [het gebruik van onderhoudsvensters](../../core/clients/manage/collections/use-maintenance-windows.md).  
+    Geef het gedrag op dat moet worden vertoond als de deadline voor de implementatie van de software-update wordt bereikt. Geef op of de software-updates in de implementatie moeten worden geïnstalleerd. Geef ook op of het systeem na het installeren van software-updates opnieuw moet worden opgestart, ongeacht het geconfigureerde onderhoudsvenster. Zie voor meer informatie over onderhoudsvensters [het gebruik van onderhoudsvensters](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
     -   **Gedrag voor opnieuw opstarten apparaat**: * alleen beschikbaar wanneer **Type implementatie** * is ingesteld op **vereist** *op de pagina implementatie-instellingen.*    
-    Geef op of een opnieuw opstarten van servers en werkstations onderdrukt nadat software-updates zijn geïnstalleerd en opnieuw opstarten is vereist om de installatie te voltooien.  
+    Geef op of het onderdrukken van opnieuw opstarten van servers en werkstations nadat software-updates zijn geïnstalleerd en opnieuw opstarten is vereist om de installatie te voltooien.  
 
         > [!IMPORTANT]  
         >  Het onderdrukken van het opnieuw opstarten van het systeem kan nuttig zijn in serveromgevingen of in gevallen waarin u wilt dat de computers die de software-updates installeren, niet standaard opnieuw worden opgestart. Dit kan er echter toe leiden dat computers zich in een onbeveiligde toestand bevinden. Het toestaan van afgedwongen opnieuw opstarten garandeert onmiddellijke voltooiing van de installatie van software-updates.
 
-    -   **Schrijffilters voor Windows Embedded-apparaten**: Wanneer u software-updates voor Windows Embedded-apparaten waarvoor schrijffilters ingeschakeld implementeert zijn, kunt u opgeven dat de software-update later installeren op een tijdelijke overlay en de wijzigingen doorvoeren, of de wijzigingen doorvoeren bij deadline van de installatie of tijdens onderhoud. Wanneer u wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster, moet er opnieuw worden opgestart, zodat de wijzigingen behouden blijven op het apparaat.  
+    -   **Schrijffilters voor Windows Embedded-apparaten**: Wanneer u software-updates op Windows Embedded-apparaten waarvoor schrijffilters ingeschakeld implementeren zijn, kunt u opgeven om de software-update op een tijdelijke overlay en de wijzigingen later installeren of de wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster. Wanneer u wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster, moet er opnieuw worden opgestart, zodat de wijzigingen behouden blijven op het apparaat.  
 
         > [!NOTE]  
         >  Wanneer u een software-update implementeert op een Windows Embedded-apparaat, moet u ervoor zorgen dat het apparaat lid is van een verzameling met een geconfigureerd onderhoudsvenster.  
 
-    - **Implementatiegedrag voor nieuwe evaluatie bij het opnieuw opstarten van software-updates**: Beginnend in Configuration Manager versie 1606, selecteer deze instelling voor het configureren van implementaties van software-updates als u wilt dat clients een scan voor naleving van software-updates uitgevoerd onmiddellijk nadat een client software installeert-updates en opnieuw wordt opgestart. Hierdoor kan de client controleren op aanvullende beschikbare software-updates nadat de client opnieuw is opgestart, en deze installeren (en zorgen voor naleving) tijdens datzelfde onderhoudsvenster.
+    - **Implementatiegedrag voor nieuwe evaluatie bij het opnieuw opstarten van software-updates**: Vanaf Configuration Manager versie 1606, selecteer deze instelling om software-updates implementaties configureren zodat clients op een nalevingsscan voor software-updates onmiddellijk nadat een client software installeert-updates en opnieuw gestart. Hierdoor kan de client controleren op aanvullende beschikbare software-updates nadat de client opnieuw is opgestart, en deze installeren (en zorgen voor naleving) tijdens datzelfde onderhoudsvenster.
 
-9. Configureer op de pagina waarschuwingen hoe Configuration Manager en System Center Operations Manager waarschuwingen voor deze implementatie genereren zullen. U kunt de waarschuwingen alleen configureren wanneer **Type implementatie** op de pagina Implementatie-instellingen is ingesteld op **Vereist** .  
+9. Configureer op de pagina waarschuwingen hoe Configuration Manager en System Center Operations Manager waarschuwingen voor deze implementatie genereren moeten. U kunt de waarschuwingen alleen configureren wanneer **Type implementatie** op de pagina Implementatie-instellingen is ingesteld op **Vereist** .  
 
     > [!NOTE]  
     >  U kunt recente waarschuwingen met betrekking tot software-updates weergegeven in het knooppunt **Software-updates** in de werkruimte **Softwarebibliotheek** .  
 
 10. Configureer de volgende instellingen op de pagina Downloadinstellingen:  
 
-    -   Geef op of de client de software-updates moet downloaden en installeren wanneer een client is verbonden met een langzaam netwerk of wanneer deze gebruikmaakt van een locatie terugvalinhoudlocatie.  
+    - Geef op of de client de software-updates moet downloaden en installeren wanneer een client is verbonden met een langzaam netwerk of wanneer deze gebruikmaakt van een locatie terugvalinhoudlocatie.  
 
-    -   Geef op of de client de software-updates moet downloaden en installeren vanaf een terugvaldistributiepunt wanneer de inhoud voor de software-updates niet beschikbaar is op een voorkeursdistributiepunt.  
+    - Geef op of de client de software-updates moet downloaden en installeren vanaf een terugvaldistributiepunt wanneer de inhoud voor de software-updates niet beschikbaar is op een voorkeursdistributiepunt.  
 
-    -   **Clients toestaan om inhoud te delen met andere clients in hetzelfde subnet**: Geef op of het gebruik van BranchCache voor inhouddownloads inschakelen. Zie voor meer informatie over BranchCache [fundamentele concepten voor inhoudsbeheer](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
+    - **Toestaan dat clients inhoud te delen met andere clients in hetzelfde subnet**: Geef op of het gebruik van BranchCache voor inhouddownloads inschakelen. Zie voor meer informatie over BranchCache [basisconcepten voor inhoudsbeheer](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
 
-    -   Geef op of de clients die verbinding hebben gemaakt met het intranet, software-updates downloaden vanaf Microsoft Update als software-updates niet beschikbaar zijn op distributiepunten.  
+    - **Als software-updates niet beschikbaar is op het distributiepunt in de huidige, neighbor of site groepen, inhoud downloaden van Microsoft Updates**: Selecteer deze instelling clients die zijn verbonden met het intranet software-updates voor downloaden vanaf Microsoft Update als software-updates niet beschikbaar zijn op distributiepunten hebben. Clients op Internet gaat altijd u naar Microsoft Update voor de inhoud van software-updates.
 
-    -   Geef op of clients mogen downloaden na een installatiedeadline wanneer deze internetverbindingen met een datalimiet gebruiken. Internetproviders brengen soms de hoeveelheid gegevens die u verzendt en ontvangt in rekening wanneer u gebruikmaakt van een internetverbinding naar gebruik.  
+    - Geef op of clients mogen downloaden na een installatiedeadline wanneer deze internetverbindingen met een datalimiet gebruiken. Internetproviders brengen soms de hoeveelheid gegevens die u verzendt en ontvangt in rekening wanneer u gebruikmaakt van een internetverbinding naar gebruik.  
 
     > [!NOTE]  
     >  Clients vragen de inhoudlocatie aan bij het beheerpunt voor de software-updates in een implementatie. Het downloadgedrag is afhankelijk van hoe u het distributiepunt, het implementatiepakket en de instellingen op deze pagina hebt geconfigureerd. Zie [Scenario's voor de locatie van inhoudsbronnen](../../core/plan-design/hierarchy/content-source-location-scenarios.md) voor meer informatie.  
 
-11. Als u [stap 3: De inhoud voor de groep van de software-updates downloaden](#BKMK_3DownloadContent), worden de pagina's implementatiepakket, distributiepunten en taal selecteren niet weergegeven en kunt u doorgaan met stap 15 van de wizard.  
+11. Als u hebt uitgevoerd [stap 3: De inhoud voor de software-updategroep downloaden](#BKMK_3DownloadContent), worden de pagina's implementatiepakket, distributiepunten en taal selecteren niet weergegeven en kunt u doorgaan met stap 15 van de wizard.  
 
     > [!IMPORTANT]  
     >  Software-updates die eerder naar de inhoudsbibliotheek op de siteserver zijn gedownload, worden niet opnieuw gedownload. Dit geldt ook wanneer u een nieuw implementatiepakket voor de software-updates maakt. Als alle software-updates al eerder zijn gedownload, slaat de wizard de pagina **Taal selecteren** (stap 15) over.  
@@ -281,7 +281,7 @@ ms.lasthandoff: 05/17/2017
 
     1.  **Naam**: Geef de naam van het implementatiepakket. Dit moet een unieke naam zijn die de pakketinhoud beschrijft. Er kunnen maximaal 50 tekens worden ingevoerd.  
 
-    2.  **Beschrijving**: Geef een beschrijving met informatie over het implementatiepakket. De beschrijving mag niet langer zijn dan 127 tekens.  
+    2.  **Beschrijving**: Geef een beschrijving die informatie over het implementatiepakket biedt. De beschrijving mag niet langer zijn dan 127 tekens.  
 
     3.  **Pakketbron**: Geef de locatie van de bronbestanden van de software-update.  Typ een netwerkpad voor de bronlocatie, zoals **\\\\server\sharenaam\pad**, of klik op **Bladeren** en ga naar de netwerklocatie. U moet een gedeelde map maken voor de bronbestanden van het installatiepakket voordat u doorgaat naar de volgende pagina.  
 
@@ -292,17 +292,17 @@ ms.lasthandoff: 05/17/2017
         >  Het computeraccount van de SMS-provider en de gebruiker die de wizard uitvoert voor het downloaden van de software-updates, moeten over NTFS-machtigingen voor **schrijven** op de downloadlocatie beschikken. U moet de toegang tot de downloadlocatie zorgvuldig beperken om het risico op kwaadwillenden die met bronbestanden van de software-update knoeien, te reduceren.  
 
         > [!IMPORTANT]  
-        >  U kunt de pakketbronlocatie in de pakketeigenschappen implementatie wijzigen nadat Configuration Manager het implementatiepakket maakt. Als u dit doet, moet u echter eerst de inhoud van de oorspronkelijke pakketbron kopiëren naar de nieuwe pakketbronlocatie.  
+        >  U kunt de pakketbronlocatie in de eigenschappen van het installatiepakket wijzigen nadat Configuration Manager het implementatiepakket maakt. Als u dit doet, moet u echter eerst de inhoud van de oorspronkelijke pakketbron kopiëren naar de nieuwe pakketbronlocatie.  
 
-    4.  **Prioriteit voor verzenden**: Geef de prioriteit voor verzenden van het implementatiepakket. Configuration Manager gebruikt de prioriteit voor verzenden voor het implementatiepakket wanneer het pakket naar distributiepunten wordt verzonden. Installatiepakketten worden in volgorde van prioriteit verzonden: Hoog, Gemiddeld of laag. Pakketten met een identieke prioriteit worden verzonden in de volgorde waarin deze zijn gemaakt. Als er geen achterstand is, wordt het pakket onmiddellijk verwerkt, ongeacht de prioriteit van het pakket.  
+    4.  **Prioriteit voor verzenden**: Geef de prioriteit voor verzenden voor het implementatiepakket. Configuration Manager gebruikt de prioriteit voor verzenden voor het implementatiepakket wanneer het pakket naar distributiepunten wordt verzonden. Installatiepakketten worden in volgorde van prioriteit verzonden: Hoog, Gemiddeld of laag. Pakketten met een identieke prioriteit worden verzonden in de volgorde waarin deze zijn gemaakt. Als er geen achterstand is, wordt het pakket onmiddellijk verwerkt, ongeacht de prioriteit van het pakket.  
 
 13. Geef op de pagina Distributiepunten de distributiepunten of distributiepuntgroepen op die als host zullen fungeren voor de software-updatebestanden. Zie [Configuraties van het distributiepunt](../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs) voor meer informatie over distributiepunten.  
 
 14. Geef op de pagina Downloadlocatie op of de software-updatebestanden moeten worden gedownload vanaf internet of vanaf uw lokale netwerk. Configureer de volgende instellingen:  
 
-    -   **Software-updates downloaden vanaf Internet**: Selecteer deze instelling om de software-updates downloaden van een opgegeven locatie op het Internet. Deze instelling is standaard ingeschakeld.  
+    -   **Software-updates downloaden vanaf Internet**: Selecteer deze instelling om de software-updates downloaden vanaf een opgegeven locatie op Internet. Deze instelling is standaard ingeschakeld.  
 
-    -   **Software-updates downloaden vanaf een locatie op het lokale netwerk**: Selecteer deze instelling om de software-updates downloaden van een lokale map of een gedeelde netwerkmap. Deze instelling is nuttig wanneer de computer waarop de wizard wordt uitgevoerd, geen toegang tot internet heeft. De software-updates kunnen voorlopig worden gedownload vanaf een computer met internettoegang en worden opgeslagen op een locatie op het lokale netwerk voor daaropvolgende toegang voor installatiedoeleinden.  
+    -   **Software-updates downloaden vanaf een locatie op het lokale netwerk**: Selecteer deze instelling om de softwareupdates downloaden vanaf een lokale map of een gedeelde netwerkmap. Deze instelling is nuttig wanneer de computer waarop de wizard wordt uitgevoerd, geen toegang tot internet heeft. De software-updates kunnen voorlopig worden gedownload vanaf een computer met internettoegang en worden opgeslagen op een locatie op het lokale netwerk voor daaropvolgende toegang voor installatiedoeleinden.  
 
 15. Selecteer de talen waarvoor de geselecteerde software-updates worden gedownload op de pagina Taal selecteren. De software-updates worden alleen gedownload als deze beschikbaar zijn in de geselecteerde talen. Software-updates die niet aan een specifieke taal zijn gebonden, worden altijd gedownload. De wizard selecteert standaard de talen die u hebt geconfigureerd in de eigenschappen van het software-updatepunt. Er moet ten minste één taal worden geselecteerd voordat u doorgaat naar de volgende pagina. Wanneer u alleen talen selecteert die niet door een software-update worden ondersteund, mislukt het downloaden van de software-update.  
 
@@ -313,7 +313,7 @@ ms.lasthandoff: 05/17/2017
 
 17. Klik op **Volgende** om de software-update te implementeren.  
 
- Nadat u de wizard hebt voltooid, bijwerken Configuration Manager downloaden van de software-updates aan de Inhoudsbibliotheek op de siteserver, de softwareupdates gedistribueerd naar de geconfigureerde distributiepunten en implementeert vervolgens de software-groep op clients in de doelverzameling. Zie [Implementatieproces voor software-updates](../understand/software-updates-introduction.md#BKMK_DeploymentProcess) voor meer informatie over het implementatieproces.
+ Nadat u de wizard hebt voltooid, heeft Configuration Manager downloadt de software-updates aan de Inhoudsbibliotheek op de siteserver, distribueert de software-updates naar de geconfigureerde distributiepunten en implementeert vervolgens de software updategroep voor clients in de doelverzameling. Zie [Implementatieproces voor software-updates](../understand/software-updates-introduction.md#BKMK_DeploymentProcess) voor meer informatie over het implementatieproces.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Software-updates controleren](monitor-software-updates.md)

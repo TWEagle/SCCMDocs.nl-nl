@@ -1,6 +1,6 @@
 ---
-title: Windows Defender geavanceerde dreigingen | Microsoft-documenten
-description: Informatie over het beheren en controleren van de geavanceerde bedreiging bescherming van Windows Defender, een nieuwe service waarmee ondernemingen reageren op geavanceerde aanvallen.
+title: Windows Defender Advanced Threat Protection | Microsoft Docs
+description: Informatie over het beheren en controleren van Windows Defender geavanceerde Threat Protection, een nieuwe service waarmee ondernemingen reageren op geavanceerde aanvallen.
 ms.custom: na
 ms.date: 03/07/2017
 ms.prod: configuration-manager
@@ -16,48 +16,48 @@ author: NathBarn
 ms.author: nathbarn
 manager: angrobe
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: 8f4ec982a54cf3cefef310268a54850e70e2e63a
-ms.openlocfilehash: 237dc9cbccb973720a633490f096aed4bc16d183
+ms.sourcegitcommit: 0ebda27c0f3848615346c2ecf1ab8b9bb9ab6f0d
+ms.openlocfilehash: 6c3b67278fa587c137a29e174e277fb0f15872c8
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 05/26/2017
 
 ---
-# <a name="windows-defender-advanced-threat-protection"></a>Windows Defender geavanceerde bedreiging beveiliging
+# <a name="windows-defender-advanced-threat-protection"></a>Windows Defender Advanced Threat Protection
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Vanaf versie 1606 van Configuration Manager (huidige vertakking), kunt Endpoint Protection beheren en controleren van Windows Defender geavanceerde bedreiging Protection (vrije. Windows Defender vrije is een nieuwe service waarmee ondernemingen om te detecteren, te onderzoeken en reageren op geavanceerde aanvallen op hun netwerken.  Meer informatie over [Windows Defender vrije](http://aka.ms/technet-wdatp). Configuration Manager-beleid kunnen u helpen voorbereiden en monitor beheerde Windows-10, versie 1607 (build 14328) of hoger.
+Vanaf versie 1606 van Configuration Manager (huidige vertakking), kunt Endpoint Protection beheren en controleren van Windows Defender Advanced Threat Protection (ATP. Windows Defender ATP is een nieuwe service waarmee ondernemingen te detecteren, onderzoeken en reageren op geavanceerde aanvallen in hun netwerken.  Meer informatie over [Windows Defender ATP](http://aka.ms/technet-wdatp). Configuration Manager-beleid kunnen u helpen vrijgeven en monitor beheerd Windows 10 versie 1607 (build 14328) of hoger.
 
-Windows Defender vrije is een service in de [Windows Beveiligingscentrum](https://securitycenter.windows.com). Toe te voegen en implementeren van een client-voorbereiding-configuratiebestand, kunt Configuration Manager bewaken Implementatiestatus en de status van Windows Defender vrije-agent. Windows Defender vrije wordt alleen ondersteund op computers waarop de Configuration Manager-client wordt uitgevoerd. Beheer van mobiele apparaten op locatie en Intune hybride MDM-beheerde computers worden niet ondersteund.
+Windows Defender ATP is een service in de [Windows Beveiligingscentrum](https://securitycenter.windows.com). Configuration Manager kan door toe te voegen en een configuratiebestand voor de voorbereiding van client implementeren, bewaken Implementatiestatus en de status van Windows Defender ATP-agent. Windows Defender ATP wordt alleen ondersteund op computers met de Configuration Manager-client. Beheer van lokale mobiele apparaten en Intune hybride MDM-beheerde computers worden niet ondersteund.
 
  **Vereisten**  
 
--   Abonnement op de onlineservice Windows Defender geavanceerde bedreiging Protection  
-
--   Clients met Windows 10 1607 en hoger  
+-   Abonnement op de Windows Defender Advanced Threat Protection-onlineservice  
+-   Clientcomputers met Windows 10 versie 1607 en hoger  
+-   Clientcomputers waarop de Configuration Manager 1610 versie of hoger clientagent
 
 ## <a name="how-to-create-an-onboarding-configuration-file"></a>Het maken van een configuratiebestand voorbereiden  
 
- 1.  Meld u aan bij de [onlineservice Windows Defender vrije](https://securitycenter.windows.com/)   
+ 1.  Meld u aan bij de [Windows Defender ATP-onlineservice](https://securitycenter.windows.com/)   
 
  2.  Klik op de **eindpunt Management** menu-item.  
 
- 3.  Selecteer **System Center Configuration Manager (huidige vertakking) versie 1606** en klikt u op **downloadpakket**.  
+ 3.  Selecteer **System Center Configuration Manager (huidige vertakking) versie 1606** en klik op **downloadpakket**.  
 
- 4.  Download het bestand gecomprimeerd archief (.zip) en de inhoud te extraheren.
+ 4.  Download het bestand gecomprimeerd archief (.zip) en pak de inhoud.
 
 > [!IMPORTANT]
-> Het configuratiebestand voor Windows Defender vrije bevat vertrouwelijke informatie die moet worden beveiligd.
+> De Windows Defender ATP-configuratiebestand bevat gevoelige informatie die moet worden beveiligd.
 
-## <a name="onboard-devices-for-windows-defender-atp"></a>Onboarding van apparaten voor Windows Defender vrije  
+## <a name="onboard-devices-for-windows-defender-atp"></a>Onboarding van apparaten voor Windows Defender ATP  
 
-1.  Navigeer in de Configuration Manager-console **activa en naleving** > **overzicht** > **Endpoint Protection** > **beleidsregels voor Windows Defender vrije** en klikt u op **Windows Defender vrije beleid maken**. De Wizard beleid voor Windows Defender vrije wordt geopend.  
+1.  Navigeer in de Configuration Manager-console **activa en naleving** > **overzicht** > **Endpoint Protection** > **Windows Defender ATP-beleid** en klik op **Windows Defender ATP-beleid maken**. De Wizard Windows Defender ATP-beleid wordt geopend.  
 
-2.  Type de **naam** en **beschrijving** voor het beleid voor Windows Defender vrije en selecteer **Onboarding**. Klik op **Volgende**.  
+2.  Typ de **naam** en **beschrijving** voor de Windows Defender ATP-beleid en selecteer **Onboarding**. Klik op **Volgende**.  
 
-3.  **Bladeren** voor het configuratiebestand geleverd door uw organisatie Windows Defender vrije cloud service-tenant. Klik op **Volgende**.  
+3.  **Blader** naar het configuratiebestand geleverd door Windows Defender ATP cloud service-tenant van uw organisatie. Klik op **Volgende**.  
 
-4.  Geef de voorbeeldbestanden die worden verzameld en gedeeld worden door beheerde apparaten voor analyse.  
+4.  Geef de bestandsvoorbeelden die worden verzameld en gedeeld vanaf beheerde apparaten voor analyse.  
 
     -   **Geen**   
 
@@ -67,51 +67,51 @@ Windows Defender vrije is een service in de [Windows Beveiligingscentrum](https:
 
 5.  Bekijk het overzicht en voltooi de wizard.  
 
-6.  U kunt nu het beleid voor Windows Defender vrije implementeren voor beheerde clientcomputers door te klikken op **implementeren**.  
+6.  U kunt nu door te klikken op het Windows Defender ATP-beleid voor beheerde clientcomputers implementeren **implementeren**.  
 
-## <a name="monitor-windows-defender-atp"></a>Monitor voor Windows Defender vrije  
+## <a name="monitor-windows-defender-atp"></a>Monitor voor Windows Defender ATP  
 
-1.  Navigeer in de Configuration Manager-console **bewaking** > **overzicht** > **beveiliging** en klik vervolgens op **Windows Defender vrije**.  
+1.  Navigeer in de Configuration Manager-console **bewaking** > **overzicht** > **beveiliging** en klik vervolgens op **Windows Defender ATP**.  
 
-2.  Controleer het Windows Defender geavanceerde bedreiging Protection-dashboard.  
+2.  Controleer het Windows Defender Advanced Threat Protection-dashboard.  
 
-    -   **Windows Defender Agent Implementatiestatus** : het aantal en de hoeveelheid in aanmerking komende beheerde client-computers met actieve Windows Defender vrije beleid vrijgegeven  
+    -   **Implementatiestatus van Windows Defender Agent** : het aantal en het percentage van de in aanmerking komende beheerde clientcomputers met actieve vrijgegeven voor Windows Defender ATP-beleid  
 
-    -   **Status van Windows Defender vrije Agent** – Percentage computerclients rapportage over de status voor hun Windows Defender vrije-agent  
+    -   **Status van Windows Defender ATP-Agent** – Percentage computerclients rapportage over de status voor hun Windows Defender ATP-agent  
 
-        -   **Goede** -goed werkt  
+        -   **In orde** -goed werkt  
 
-        -   **Inactieve** -er zijn geen gegevens naar service worden verzonden tijdens periode  
+        -   **Inactieve** -er zijn geen gegevens verzonden naar service periode  
 
-        -   **De status van agent** -de service voor de agent in Windows wordt niet uitgevoerd  
+        -   **De status van agent** -de systeemservice voor de agent in Windows is niet actief  
 
-        -   **Niet vrijgegeven** - beleid is toegepast, maar de agent niet vrijgeven beleid gemeld  
+        -   **Niet vrijgegeven** - beleid is toegepast, maar de agent geen beleid vrijgeven heeft gerapporteerd  
 
 
 ## <a name="how-to-create-and-deploy-an-offboarding-configuration-file"></a>Het maken en implementeren van een configuratiebestand offboarding  
 
-1.  Meld u aan bij de [onlineservice Windows Defender vrije](https://securitycenter.windows.com/)   
+1.  Meld u aan bij de [Windows Defender ATP-onlineservice](https://securitycenter.windows.com/)   
 
 2.  Klik op de **eindpunt Management** menu-item.  
 
-3.  Selecteer **System Center Configuration Manager (huidige vertakking) versie 1606** en klikt u op **eindpunt offboarding**.  
+3.  Selecteer **System Center Configuration Manager (huidige vertakking) versie 1606** en klik op **eindpunt offboarding**.  
 
-4.  Download het bestand gecomprimeerd archief (.zip) en de inhoud te extraheren. Offboarding bestanden zijn voor 30 dagen geldig.
+4.  Download het bestand gecomprimeerd archief (.zip) en pak de inhoud. Offboarding-bestanden zijn voor 30 dagen geldig.
 
-5.  Navigeer in de Configuration Manager-console **activa en naleving** > **overzicht** > **Endpoint Protection** > **beleidsregels voor Windows Defender vrije** en klikt u op **Windows Defender vrije beleid maken**. De Wizard beleid voor Windows Defender vrije wordt geopend.  
+5.  Navigeer in de Configuration Manager-console **activa en naleving** > **overzicht** > **Endpoint Protection** > **Windows Defender ATP-beleid** en klik op **Windows Defender ATP-beleid maken**. De Wizard Windows Defender ATP-beleid wordt geopend.  
 
-6.  Type de **naam** en **beschrijving** voor het beleid voor Windows Defender vrije en selecteer **Offboarding**. Klik op **Volgende**.  
+6.  Typ de **naam** en **beschrijving** voor de Windows Defender ATP-beleid en selecteer **Offboarding**. Klik op **Volgende**.  
 
-7.  **Bladeren** voor het configuratiebestand geleverd door uw organisatie Windows Defender vrije cloud service-tenant. Klik op **Volgende**.  
+7.  **Blader** naar het configuratiebestand geleverd door Windows Defender ATP cloud service-tenant van uw organisatie. Klik op **Volgende**.  
 
 8.  Bekijk het overzicht en voltooi de wizard.  
 
-9.  U kunt nu het beleid voor Windows Defender vrije implementeren voor beheerde clientcomputers door te klikken op **implementeren**.  
+9.  U kunt nu door te klikken op het Windows Defender ATP-beleid voor beheerde clientcomputers implementeren **implementeren**.  
 
 > [!IMPORTANT]
-> De configuratiebestanden voor Windows Defender vrije bevat vertrouwelijke informatie die moet worden beveiligd.
+> De Windows Defender ATP-configuratiebestanden bevat vertrouwelijke informatie die moet worden beveiligd.
 
-[Windows Defender geavanceerde bedreiging beveiliging](https://technet.microsoft.com/itpro/windows/keep-secure/windows-defender-advanced-threat-protection)
+[Windows Defender Advanced Threat Protection](https://technet.microsoft.com/itpro/windows/keep-secure/windows-defender-advanced-threat-protection)
 
-[Problemen met beveiliging van Windows Defender geavanceerde bedreiging voorbereiden](https://technet.microsoft.com/itpro/windows/keep-secure/troubleshoot-onboarding-windows-defender-advanced-threat-protection)
+[Problemen met Windows Defender Advanced Threat Protection voorbereiden](https://technet.microsoft.com/itpro/windows/keep-secure/troubleshoot-onboarding-windows-defender-advanced-threat-protection)
 

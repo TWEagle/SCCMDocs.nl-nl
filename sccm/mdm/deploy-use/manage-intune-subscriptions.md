@@ -1,8 +1,8 @@
 ---
-title: Een Intune-abonnement dat is gekoppeld met System Center Configuration Manager beheren | Microsoft-documenten
+title: Een Intune-abonnement dat is gekoppeld met System Center Configuration Manager beheren | Microsoft Docs
 description: Een Intune-abonnement dat is gekoppeld met System Center Configuration Manager beheren.
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 06/02/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -17,34 +17,34 @@ author: mtillman
 ms.author: mtillman
 manager: angrobe
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: 2e0b3cd1070d0f8adb1219acd33c3126d2758a49
+ms.sourcegitcommit: 662901e850566756759fcfc61c58f3c0e56bc5aa
+ms.openlocfilehash: 2cb4d724c8b78657458a30c0bb020f67c6b62795
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="manage-an-intune-subscription-associated-with-system-center-configuration-manager"></a>Een Intune-abonnement dat is gekoppeld met System Center Configuration Manager beheren
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Als u een Microsoft Intune (een proefabonnement of een betaald abonnement) aan Configuration Manager toevoegen en moet overschakelen naar een ander Intune-abonnement, moet u zowel de **Microsoft Intune-abonnement** en de **serviceverbindingspunt** vanuit de Configuration Manager-console voordat u een nieuw abonnement kunt toevoegen.
+Als u Microsoft Intune (een proefabonnement of een betaald abonnement) aan Configuration Manager toevoegt en moet overschakelen naar een ander Intune-abonnement, moet u zowel de **Microsoft Intune-abonnement** en de **Serviceaansluitpunt** vanuit de Configuration Manager-console voordat u een nieuw abonnement kunt toevoegen.
 
 > [!NOTE]
-> U kunt slechts één Intune-abonnement configureren op een tijdstip in beheer van hybride mobiele apparaten.
+> U kunt slechts één Intune-abonnement configureren op een tijd in hybride mobile device management.
 
 ## <a name="how-to-delete-an-intune-subscription-from-configuration-manager"></a>Een Intune-abonnement verwijderen uit Configuration Manager
 
 > [!IMPORTANT]
->  Alle inhoud, met inbegrip van de gebruiker inschrijvingen, beleid en app-implementaties die zijn geconfigureerd voor apparaten die worden beheerd door de Intune-abonnement worden verwijderd wanneer u het abonnement verwijderen.
+>  Alle inhoud, met inbegrip van de gebruikersinschrijvingen, beleid en app-implementaties die zijn geconfigureerd voor apparaten die worden beheerd door de Intune-abonnement worden verwijderd wanneer u het abonnement verwijderd.
 
 1.  Ga in de Configuration Manager-console naar **beheer** > **overzicht** > **Cloudservices** > **Microsoft Intune-abonnementen**.
 
 2.  Met de rechtermuisknop op de vermelde **Microsoft Intune-abonnement**, en klik vervolgens op **verwijderen**.
 
-3.   Klik in de wizard op **Microsoft Intune-abonnement van Configuration Manager verwijderen**, klikt u op **volgende**, en klik vervolgens op **volgende** nogmaals in het abonnement niet verwijderen.
+3.   Klik in de wizard op **Microsoft Intune-abonnement van Configuration Manager verwijderen**, klikt u op **volgende**, en klik vervolgens op **volgende** opnieuw aan het abonnement niet verwijderen.
 
 
-## <a name="how-to-remove-the-service-connection-point-role"></a>Het verwijderen van de verbindingsrol
+## <a name="how-to-remove-the-service-connection-point-role"></a>Het verwijderen van de rol serviceaansluitpunt
 
 1.  Ga naar **beheer** > **overzicht** > **Site-configuratie** > **Servers en sitesysteemrollen**.
 
@@ -54,7 +54,6 @@ Als u een Microsoft Intune (een proefabonnement of een betaald abonnement) aan C
 
 U kunt nu een nieuw serviceaansluitpunt maken, een nieuw Intune-abonnement toevoegen aan Configuration Manager en Configuration Manager instellen als MDM-instantie.
 
-## <a name="how-to-change-mdm-authority-to-intune"></a>Het wijzigen van MDM-instantie bij Intune
-
-Vanaf versie 1610, kunt u als u wilt overschakelen van de MDM-instantie van de Configuration Manager met Intune. Informatie over deze functie is binnenkort beschikbaar.
+## <a name="how-to-change-mdm-authority-to-intune"></a>Het wijzigen van de MDM-instantie aan Intune
+Vanaf versie 1610 van Configuration Manager en Microsoft Intune version 1705, kunt u uw MDM-instantie zonder contact opnemen met Microsoft Support en zonder de registratie ongedaan maken en registreren van uw bestaande beheerde apparaten. Zie voor meer informatie [wijzigen van uw MDM-instantie](/sccm/mdm/deploy-use/change-mdm-authority).
 

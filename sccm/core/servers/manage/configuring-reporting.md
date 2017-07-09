@@ -1,6 +1,6 @@
 ---
-title: Configuratie van rapportage | Microsoft-documenten
-description: "Meer informatie over het instellen van rapportage in Configuration Manager-hiërarchie, waaronder informatie over SQL Server Reporting Services."
+title: Rapportage configureren | Microsoft Docs
+description: "Meer informatie over het instellen van rapportage in Configuration Manager-hiërarchie, inclusief informatie over SQL Server Reporting Services."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,10 +16,10 @@ author: Dougeby
 ms.author: dougeby
 manager: angrobe
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
-ms.openlocfilehash: aed95333b6509b0aa7061f23969381f1ce8aff7f
+ms.sourcegitcommit: f62d969dd49fb00b688602128df74b28ff551135
+ms.openlocfilehash: 7ae6bac23e585d6f61aff0f3155d050f1b537620
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/07/2017
 
 
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 05/17/2017
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Voordat u kunt maken, wijzigen en uitvoeren van rapporten in de System Center Configuration Manager-console, moet u een aantal configuratietaken uitvoeren. Gebruik de volgende secties in dit onderwerp als u de configuratie van rapportage in Configuration Manager-hiërarchie:  
+Voordat u kunt maken, wijzigen en uitvoeren van rapporten in de System Center Configuration Manager-console, moet u een aantal configuratietaken uitvoeren. Gebruik de volgende secties in dit onderwerp voor hulp bij het configureren van rapportage in Configuration Manager-hiërarchie:  
 
  Voordat u doorgaat met de installatie en configuratie van Reporting Services in uw hiërarchie, controleert u de volgende Configuration Manager onderwerpen over rapportage:  
 
@@ -36,9 +36,9 @@ Voordat u kunt maken, wijzigen en uitvoeren van rapporten in de System Center Co
 -   [Rapportage in System Center Configuration Manager plannen](../../../core/servers/manage/planning-for-reporting.md)  
 
 ##  <a name="BKMK_SQLReportingServices"></a> SQL Server Reporting Services  
- SQL Server Reporting Services is een serverrapportageplatform dat uitgebreide rapportagefunctionaliteit biedt voor een waaier aan gegevensbronnen. De reporting services-punt in Configuration Manager communiceert met SQL Server Reporting Services Configuration Manager-rapporten kopiëren naar een opgegeven rapportmap Reporting Services-instellingen te configureren en beveiligingsinstellingen voor Reporting Services te configureren. Reporting Services maakt verbinding met de Configuration Manager-sitedatabase voor het ophalen van gegevens die worden geretourneerd wanneer u rapporten uitvoert.  
+ SQL Server Reporting Services is een serverrapportageplatform dat uitgebreide rapportagefunctionaliteit biedt voor een waaier aan gegevensbronnen. Reporting services-punt in Configuration Manager communiceert met SQL Server Reporting Services Configuration Manager-rapporten kopiëren naar een opgegeven rapportmap Reporting Services-instellingen te configureren en beveiligingsinstellingen voor Reporting Services te configureren. Reporting Services maakt verbinding met de database van de Configuration Manager-site voor het ophalen van gegevens die worden geretourneerd wanneer u rapporten uitvoert.  
 
- Voordat u het reporting servicepunt in een Configuration Manager-site installeren kunt, moet u installeren en configureren van SQL Server Reporting Services op het sitesysteem die als host fungeert voor de reporting services-punt-sitesysteemrol. Zie voor informatie over het installeren van Reporting Services de [SQL Server TechNet-bibliotheek](http://go.microsoft.com/fwlink/p/?LinkId=266389).  
+ Voordat u het reporting servicepunt in een Configuration Manager-site installeren kunt, moet u het installeren en configureren van SQL Server Reporting Services op het sitesysteem dat als host fungeert voor de reporting services-punt-sitesysteemrol. Zie voor informatie over het installeren van Reporting Services de [SQL Server TechNet-bibliotheek](http://go.microsoft.com/fwlink/p/?LinkId=266389).  
 
  Gebruik de volgende procedure om te controleren of SQL Server Reporting Services is geïnstalleerd en normaal wordt uitgevoerd.  
 
@@ -59,13 +59,13 @@ Voordat u kunt maken, wijzigen en uitvoeren van rapporten in de System Center Co
     > [!NOTE]  
     >  Reporting Services Report Manager is niet vereist voor rapportage in Configuration Manager, maar is wel vereist als u wilt uitvoeren van rapporten op een internetbrowser of rapporten met Report Manager wilt beheren.  
 
-7.  Klik op **afsluiten** te sluiten van Reporting Services Configuration Manager.  
+7.  Klik op **afsluiten** Reporting Services Configuration Manager te sluiten.  
 
 ##  <a name="BKMK_ReportBuilder3"></a> Rapportage instellen op het gebruik van Report Builder 3.0  
 
 #### <a name="to-change-the-report-builder-manifest-name-to-report-builder-30"></a>Wijzigen van de manifestnaam Report Builder in Report Builder 3.0  
 
-1.  Open de Register-Editor van Windows op de computer waarop de Configuration Manager-console.  
+1.  Open de Register-Editor van Windows op de computer waarop de Configuration Manager-console wordt uitgevoerd.  
 
 2.  Blader naar **HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Microsoft/ConfigMgr10/AdminUI/Reporting**.  
 
@@ -81,8 +81,11 @@ Voordat u kunt maken, wijzigen en uitvoeren van rapporten in de System Center Co
 > [!IMPORTANT]  
 >  Wanneer u een site selecteert voor de installatie van het Reporting Services-punt, houd er dan rekening mee dat gebruikers die de rapporten openen zich in hetzelfde beveiligingsbereik bevinden als de site waarop het Reporting Services-punt is geïnstalleerd.  
 
-> [!IMPORTANT]  
->  Wijzig nadat u een Reporting Services-punt op een sitesysteem hebt geïnstalleerd niet de URL voor de rapportserver. Als u het reporting services-punt maakt en vervolgens in Reporting Services Configuration Manager dat u de URL voor de rapportserver wijzigt, blijft de Configuration Manager-console de oude URL gebruiken en kunt u niet uitvoeren, bewerken of maken van rapporten vanuit de console. Als u de URL voor de rapportserver moet wijzigen, verwijdert u het Reporting Services-punt, wijzigt u de URL en installeert u het Reporting Services-punt vervolgens opnieuw.  
+> [!NOTE]  
+>  Wijzig nadat u een Reporting Services-punt op een sitesysteem hebt geïnstalleerd niet de URL voor de rapportserver. Als u reporting services-punt, maken en vervolgens in Reporting Services Configuration Manager als u de URL voor de rapportserver wijzigt, blijft de Configuration Manager-console de oude URL gebruiken en kunt u zich kan niet worden uitgevoerd, bewerken of maken van rapporten uit de console. Als u de URL voor de rapportserver moet wijzigen, verwijdert u het Reporting Services-punt, wijzigt u de URL en installeert u het Reporting Services-punt vervolgens opnieuw.  
+
+> [!IMPORTANT]    
+> Wanneer u een reporting services-punt installeert, moet u een Account Reporting Services-punt. Later, wanneer gebruikers uit een ander domein proberen een rapport uitvoeren, wordt het rapport niet uitgevoerd tenzij er een wederzijdse vertrouwensrelatie tot stand gebracht tussen de domeinen.
 
  Gebruik de volgende procedure voor het installeren van het Reporting Services-punt.  
 
@@ -98,7 +101,7 @@ Voordat u kunt maken, wijzigen en uitvoeren van rapporten in de System Center Co
 3.  Voeg de sitesysteemrol van het Reporting Services-punt toe aan een nieuwe of bestaande sitesysteemserver door gebruik te maken van de gekoppelde stap:  
 
     > [!NOTE]  
-    >  Zie voor meer informatie over het configureren van sitesystemen [sitesysteemrollen toevoegen voor System Center Configuration Manager](../deploy/configure/add-site-system-roles.md).  
+    >  Zie voor meer informatie over het configureren van sitesystemen [sitesysteemrollen voor System Center Configuration Manager toevoegen](../deploy/configure/add-site-system-roles.md).  
 
     -   **Nieuw sitesysteem**: Klik in het tabblad **Start** op **Sitesysteemserver maken** in de groep **Maken**. De **wizard Sitesysteemserver maken** wordt geopend.  
 
@@ -112,23 +115,23 @@ Voordat u kunt maken, wijzigen en uitvoeren van rapporten in de System Center Co
 
 6.  Configureer op het tabblad **Reporting Services-punt** de volgende instellingen:  
 
-    -   **Naam van Sitedatabaseserver**: Geef de naam van de server die als host fungeert voor de sitedatabase van Configuration Manager. De wizard haalt meestal automatisch de FQDN (fully qualified domain name) voor de server op. Als u een database-instantie, gebruikt u de indeling &lt; *servernaam*>\&lt; *Exemplaarnaam*>.  
+    -   **Naam van Sitedatabaseserver**: Geef de naam van de server die als host fungeert voor de Configuration Manager-sitedatabase. De wizard haalt meestal automatisch de FQDN (fully qualified domain name) voor de server op. Als u wilt een database-exemplaar opgeven, gebruikt u de notatie &lt; *servernaam*>\&lt; *Naam serverinstantie*>.  
 
-    -   **Databasenaam**: Geef de naam van de Configuration Manager-database en klik vervolgens op **controleren** om te bevestigen dat de wizard toegang tot de sitedatabase heeft.  
+    -   **Databasenaam**: Geef de naam van de Configuration Manager-site-database en klik vervolgens op **controleren** om te bevestigen dat de wizard toegang tot de sitedatabase heeft.  
 
         > [!IMPORTANT]  
         >  Het gebruikersaccount dat het Reporting Services-punt maakt moet **Lezen** -toegang hebben tot de sitedatabase. Als de verbindingstest niet slaagt, wordt een rood waarschuwingspictogram weergegeven. Beweeg de cursor over dit pictogram om de reden te lezen van de fout. Corrigeer de fout en klik nogmaals op **Testen** .  
 
     -   **Mapnaam**: Geef de naam van de map die is gemaakt en gebruikt voor het hosten van de Configuration Manager-rapporten in Reporting Services.  
 
-    -   **Reporting Services-serverinstantie**: Selecteer in de lijst de instantie van SQL Server voor Reporting Services. Als er slechts één instantie is, is deze opgenomen en geselecteerd. Als er geen instanties zijn, controleer dan of SQL Server Reporting Services is geïnstalleerd en geconfigureerd en dat de SQL Server Reporting Services-service is gestart op het sitesysteem.  
+    -   **Reporting Services-serverexemplaar**: Selecteer in de lijst het exemplaar van SQL Server voor Reporting Services. Als er slechts één instantie is, is deze opgenomen en geselecteerd. Als er geen instanties zijn, controleer dan of SQL Server Reporting Services is geïnstalleerd en geconfigureerd en dat de SQL Server Reporting Services-service is gestart op het sitesysteem.  
 
         > [!IMPORTANT]  
         >  Configuration Manager maakt een verbinding in de context van de huidige gebruiker naar Windows Management Instrumentation (WMI) op het geselecteerde sitesysteem om op te halen van het exemplaar van SQL Server voor Reporting Services. De huidige gebruiker moet **Lezen** -toegang hebben tot WMI op het sitesysteem. Is dit niet het geval, dan kunnen er geen Reporting Services-instanties worden opgehaald.  
 
-    -   **Reporting Services-Account voor het**: Klik op **stellen**, en selecteer vervolgens een account voor SQL Server Reporting Services op het reporting services-punt verbinding maakt met de sitedatabase van Configuration Manager de gegevens die worden weergegeven in een rapport op te halen. Selecteer **bestaand account** naar een Windows-gebruikersaccount dat eerder is geconfigureerd als een Configuration Manager-account opgeven of de optie **nieuwe account** om op te geven van een Windows-gebruikersaccount dat momenteel niet is geconfigureerd als een Configuration Manager-serviceaccount. Configuration Manager automatisch de opgegeven gebruikerstoegang verleent tot de sitedatabase. De gebruiker wordt weergegeven in de submap **Accounts** van het knooppunt **Beveiliging** in de werkruimte **Beheer** met de accountnaam van **ConfigMgr Reporting Services-punt** .  
+    -   **Reporting Services-punt Account**: Klik op **ingesteld**, en selecteer vervolgens een account moet worden gebruikt wanneer SQL Server Reporting Services op het reporting services-punt verbinding maakt met de Configuration Manager-sitedatabase om op te halen van de gegevens die worden weergegeven in een rapport. Selecteer **bestaand account** opgeven van een Windows-gebruikersaccount dat eerder is geconfigureerd als een Configuration Manager-account in of selecteer **nieuwe account** om op te geven van een Windows-gebruikersaccount dat is momenteel niet geconfigureerd als een Configuration Manager-account. Configuration Manager verleent automatisch de opgegeven gebruikerstoegang tot de sitedatabase. De gebruiker wordt weergegeven in de submap **Accounts** van het knooppunt **Beveiliging** in de werkruimte **Beheer** met de accountnaam van **ConfigMgr Reporting Services-punt** .  
 
-         Het account dat de Reporting Services uitvoert moet behoren tot de lokale beveiligingsgroep van het domein, **Groep voor toegang tot Windows-machtigingen**, en de **Lezen tokenGroupsGlobalAndUniversal** -machtiging hebben om **Toestaan**in te stellen.  
+         Het account dat de Reporting Services uitvoert moet behoren tot de lokale beveiligingsgroep van het domein, **Groep voor toegang tot Windows-machtigingen**, en de **Lezen tokenGroupsGlobalAndUniversal** -machtiging hebben om **Toestaan**in te stellen. Er moet een wederzijdse vertrouwensrelatie tot stand gebracht voor gebruikers van een ander domein dan die van het Account Servicies punt Reporting is het uitvoeren van rapporten.
 
          Het opgegeven Windows-gebruikersaccount en wachtwoord zijn versleuteld en opgeslagen in de Reporting Services-database. Reporting Services haalt de gegevens op voor rapporten van de sitedatabase met dit account en wachtwoord.  
 
@@ -142,10 +145,10 @@ Voordat u kunt maken, wijzigen en uitvoeren van rapporten in de System Center Co
      Nadat de wizard is voltooid, worden de mappen gemaakt en de Configuration Manager-rapporten worden gekopieerd naar de opgegeven rapportmappen.  
 
     > [!NOTE]  
-    >  Wanneer de rapportmappen zijn gemaakt en de rapporten gekopieerd naar de rapportserver, bepaalt de Configuration Manager de juiste taal voor de objecten. Als het gekoppelde taalpakket is geïnstalleerd op de site, maakt Configuration Manager de objecten in dezelfde taal als het besturingssysteem wordt uitgevoerd op de rapportserver op de site. Als de taal niet beschikbaar is, worden de rapporten in het Engels opgesteld en weergegeven. Als u een Reporting Services-punt installeert op een site zonder taalpakketten, worden de rapporten in het Engels geïnstalleerd. Als u een taalpakket installeert nadat u het Reporting Services-punt hebt geïnstalleerd, moet u het Reporting Services-punt verwijderen en opnieuw installeren zodat de rapporten worden weergegeven in de juiste taal van het taalpakket. Zie voor meer informatie over taalpakketten [taalpakketten in System Center Configuration Manager](../deploy/install/language-packs.md).  
+    >  Wanneer de rapportmappen zijn gemaakt en de rapporten gekopieerd naar de rapportserver, bepaalt Configuration Manager de juiste taal voor de objecten. Als het gekoppelde taalpakket is geïnstalleerd op de site, maakt Configuration Manager de objecten in dezelfde taal als het besturingssysteem op de rapportserver op de site. Als de taal niet beschikbaar is, worden de rapporten in het Engels opgesteld en weergegeven. Als u een Reporting Services-punt installeert op een site zonder taalpakketten, worden de rapporten in het Engels geïnstalleerd. Als u een taalpakket installeert nadat u het Reporting Services-punt hebt geïnstalleerd, moet u het Reporting Services-punt verwijderen en opnieuw installeren zodat de rapporten worden weergegeven in de juiste taal van het taalpakket. Zie voor meer informatie over taalpakketten [taalpakketten in System Center Configuration Manager](../deploy/install/language-packs.md).  
 
 ###  <a name="BKMK_FileInstallationAndSecurity"></a> Bestandsinstallatie en de beveiligingsrechten van rapportmappen  
- Configuration Manager voert de volgende bewerkingen voor het installeren van reporting services-punt en Reporting Services te configureren:  
+ Configuration Manager voert de volgende bewerkingen voor het reporting services-punt installeren en Reporting Services te configureren:  
 
 > [!IMPORTANT]  
 >  De bewerkingen in de volgende lijst worden uitgevoerd door de verificatiegegevens te gebruiken van het account dat is geconfigureerd voor de SMS_Executive-service, dat doorgaans het lokale systeemaccount is van de siteserver.  
@@ -164,22 +167,22 @@ Voordat u kunt maken, wijzigen en uitvoeren van rapporten in de System Center Co
 
 -   Voegt de **ConfigMgr rapportbeheerders** rol in Reporting Services aan de hoofdmappen voor alle gebruikersaccounts in Configuration Manager met **Site wijzigen** rechten.  
 
--   Haalt de toewijzing tussen rapportmappen en de Configuration Manager beveiligde objecttypen (onderhouden in de sitedatabase van Configuration Manager).  
+-   Haalt de toewijzing tussen rapportmappen en de Configuration Manager beveiligde objecttypen (onderhouden in de Configuration Manager-sitedatabase).  
 
--   Hiermee worden de volgende rechten voor gebruikers met beheerdersrechten in Configuration Manager geconfigureerd voor specifieke rapportmappen in Reporting Services:  
+-   Configureert de volgende rechten voor gebruikers met beheerdersrechten in Configuration Manager voor specifieke rapportmappen in Reporting Services:  
 
-    -   Voegt gebruikers toe en wijst de **ConfigMgr rapportgebruikers** toe aan de gekoppelde rapportmap voor gebruikers met beheerdersrechten die beschikken over **rapport uitvoeren** machtigingen voor de Configuration Manager-object.  
+    -   Voegt gebruikers toe en wijst de **ConfigMgr rapportgebruikers** rol aan de gekoppelde rapportmap voor gebruikers met beheerdersrechten die beschikken over **rapport uitvoeren** machtigingen voor de Configuration Manager-object.  
 
-    -   Voegt gebruikers toe en wijst de **ConfigMgr rapportbeheerders** toe aan de gekoppelde rapportmap voor gebruikers met beheerdersrechten die beschikken over **rapport wijzigen** machtigingen voor de Configuration Manager-object.  
+    -   Voegt gebruikers toe en wijst de **ConfigMgr rapportbeheerders** rol aan de gekoppelde rapportmap voor gebruikers met beheerdersrechten die beschikken over **rapport wijzigen** machtigingen voor de Configuration Manager-object.  
 
-     Configuration Manager maakt verbinding met Reporting Services en stelt de machtigingen voor gebruikers op de Configuration Manager en Reporting Services hoofdmappen en specifieke rapportmappen. Na de eerste installatie van reporting services-punt Configuration Manager maakt verbinding met Reporting Services in een interval van 10 minuten om te verifiëren dat de gebruikersrechten die op de rapportmappen geconfigureerd zijn met de gekoppelde rechten die zijn ingesteld voor gebruikers van de Configuration Manager. Wanneer gebruikers worden toegevoegd of gebruikersrechten worden gewijzigd op de rapportmap via Reporting Services Report Manager, overschreven Configuration Manager deze wijzigingen met behulp van de rolgebaseerde toewijzingen die in de sitedatabase zijn opgeslagen. Configuration Manager verwijdert tevens gebruikers die geen rapportagerechten in Configuration Manager.  
+     Configuration Manager verbinding met Reporting Services en stelt de machtigingen voor gebruikers op de Configuration Manager en Reporting Services hoofdmappen en specifieke rapportmappen. Na de initiële installatie van reporting services-punt, Configuration Manager maakt verbinding met Reporting Services in een interval van 10 minuten om te controleren dat de gebruikersrechten die op de rapportmappen geconfigureerd zijn met de gekoppelde rechten die zijn ingesteld voor gebruikers met Configuration Manager. Wanneer gebruikers worden toegevoegd of gebruikersrechten worden gewijzigd op de rapportmap met behulp van Reporting Services Report Manager, worden die wijzigingen overschreven met behulp van de rolgebaseerde toewijzingen die wordt opgeslagen in de sitedatabase van Configuration Manager. Configuration Manager verwijdert tevens gebruikers die geen rapportagerechten in Configuration Manager.  
 
 ##  <a name="BKMK_SecurityRoles"></a> Reporting Services-beveiligingsrollen voor Configuration Manager  
- Wanneer de reporting services-punt Configuration Manager installeert, wordt u de volgende beveiligingsrollen toegevoegd in Reporting Services:  
+ Wanneer Configuration Manager de reporting services-punt installeert, wordt u de volgende beveiligingsrollen toegevoegd in Reporting Services:  
 
--   **ConfigMgr rapportgebruikers**: Gebruikers die zijn toegewezen aan deze beveiligingsrol kunnen Configuration Manager-rapporten alleen uitvoeren.  
+-   **ConfigMgr-rapportgebruikers**: Gebruikers die zijn toegewezen aan deze beveiligingsrol kunnen Configuration Manager-rapporten alleen worden uitgevoerd.  
 
--   **ConfigMgr rapportbeheerders**: Gebruikers die zijn toegewezen aan deze beveiligingsrol kunnen alle taken met betrekking tot rapportage in Configuration Manager uitvoeren.  
+-   **ConfigMgr-rapportbeheerders**: Gebruikers die zijn toegewezen aan deze beveiligingsrol kunnen alle taken met betrekking tot rapportage in Configuration Manager uitvoeren.  
 
 ##  <a name="BKMK_VerifyReportingServicesPointInstallation"></a> De installatie van het Reporting Services-punt controleren  
  Nadat u de siterol van het Reporting Services-punt hebt toegevoegd, kunt u de installatie controleren door te kijken naar specifieke statusberichten en logboekvermeldingen. Gebruik de volgende procedure om te controleren of de installatie van het Reporting Services-punt geslaagd is.  
@@ -199,14 +202,14 @@ Voordat u kunt maken, wijzigen en uitvoeren van rapporten in de System Center Co
 
 5.  Specificeer een datum en tijdstip voor een periode vóórdat u het Reporting Services-punt installeerde, en klik daarna op **OK**.  
 
-6.  Controleer of statusbericht ID 1015 er bij staat, dit geeft aan dat het Reporting Services-punt succesvol geïnstalleerd is. U kunt ook het bestand Srsrp.log, te vinden openen &lt; *installatiepad voor Configuration Manager*> \Logs en zoeken naar **installatie is geslaagd**.  
+6.  Controleer of statusbericht ID 1015 er bij staat, dit geeft aan dat het Reporting Services-punt succesvol geïnstalleerd is. U kunt ook het bestand Srsrp.log in openen &lt; *ConfigMgr-installatiepad*> \Logs bevindt en zoeken naar **installatie is geslaagd**.  
 
-     Navigeer in Windows Verkenner naar &lt; *installatiepad voor Configuration Manager*> \Logs.  
+     Navigeer in Windows Verkenner naar &lt; *ConfigMgr-installatiepad*> \Logs.  
 
 7.  Open Srsrp.log en loop stap voor stap door het logbestand, beginnend vanaf het tijdstip waarop het Reporting Services-punt succesvol geïnstalleerd werd. Controleer of de rapportmappen gemaakt zijn, of de rapporten geïmplementeerd zijn en of het beveiligingsbeleid op elke map bevestigd is. Zoek naar **Met succes gecontroleerd of de SRS webservice een gezonde status heeft op server** na de laatste regel van beveiligingsbeleid-bevestigingen.  
 
 ##  <a name="BKMK_Certificate"></a> Een zelfondertekend certificaat voor Configuration Manager-consolecomputers configureren  
- Er zijn veel manieren voor het maken van SQL Server Reporting Services-rapporten. Wanneer u maakt of rapporten in de Configuration Manager-console bewerkt, Configuration Manager Report Builder om te gebruiken als ontwerpomgeving wordt geopend. Hoe u uw Configuration Manager-rapporten ontwerpt, is een zelfondertekend certificaat vereist voor serververificatie naar de Sitedatabaseserver. Configuration Manager installeert automatisch het certificaat op de siteserver en de computers waarop de SMS-Provider geïnstalleerd. U kunt daarom maken of bewerken van rapporten van de Configuration Manager-console wanneer deze op een van deze computers draait. Echter, wanneer u rapporten maakt of aanpast van een Configuration Manager-console die op een andere computer is geïnstalleerd, moet u het certificaat exporteert van de siteserver en vervolgens toe te voegen aan de **vertrouwde personen** certificaatarchief op de computer waarop de Configuration Manager-console.  
+ Er zijn veel manieren voor het maken van SQL Server Reporting Services-rapporten. Wanneer u maakt of rapporten in de Configuration Manager-console bewerkt, geeft Configuration Manager Report Builder om te gebruiken als ontwerpomgeving wordt geopend. Ongeacht hoe u uw Configuration Manager-rapporten schrijven, is een zelfondertekend certificaat vereist voor serververificatie naar de Sitedatabaseserver. Configuration Manager installeert automatisch het certificaat op de siteserver en de computers waarop de SMS-Provider geïnstalleerd. U kunt daarom maken of bewerken van rapporten uit de Configuration Manager-console wanneer deze wordt uitgevoerd op een van deze computers. Echter, wanneer u rapporten maakt of aanpast vanuit een Configuration Manager-console die is geïnstalleerd op een andere computer, moet u het certificaat exporteren van de siteserver en vervolgens toe te voegen aan de **vertrouwde personen** certificaatarchief op de computer waarop de Configuration Manager-console.  
 
 > [!NOTE]  
 >  Voor meer informatie over andere rapportontwerpomgevingen voor SQL Server Reporting Services, zie [Comparing Report Authoring Environments (Vergelijken van rapportontwerpomgevingen)](http://go.microsoft.com/fwlink/p/?LinkId=242805) in de SQL Server 2008 Books Online.  
@@ -229,13 +232,13 @@ Voordat u kunt maken, wijzigen en uitvoeren van rapporten in de System Center Co
 
     6.  Vouw **Certificaten (lokale computer)**uit in de console, vouw **Vertrouwde personen**uit en selecteer **Certificaten**.  
 
-    7.  Met de rechtermuisknop op het certificaat met de beschrijvende naam van &lt; *FQDN-naam van de siteserver*>, klikt u op **alle taken**, en selecteer vervolgens **exporteren**.  
+    7.  Met de rechtermuisknop op het certificaat met de beschrijvende naam van &lt; *FQDN-naam van de siteserver*>, klik op **alle taken**, en selecteer vervolgens **exporteren**.  
 
     8.  Doorloop de wizard **Certificaat exporteren** door de standaardopties te gebruiken en sla het certificaat op met de extensie **.cer** .  
 
 2.  Voer de volgende stappen uit op de computer waarop de Configuration Manager-console om het zelfondertekend certificaat toevoegen aan het certificaatarchief Vertrouwde personen:  
 
-    1.  Herhaal de stappen 1.a tot en met 1.e configureren van de **certificaat** -module MMC op de beheerpuntcomputer.  
+    1.  Herhaal de stappen 1.a tot en met 1.e voor het configureren van de **certificaat** module in MMC op de beheerpuntcomputer.  
 
     2.  Vouw **Certificaten (lokale computer)**uit in de console, vouw **Vertrouwde personen**uit, klik met de rechtermuisknop op **Certificaten**, selecteer **Alle taken**, en selecteer vervolgens **Importeren** om de wizard **Certificaat importeren**te starten.  
 
@@ -263,14 +266,14 @@ Voordat u kunt maken, wijzigen en uitvoeren van rapporten in de System Center Co
 
 5.  In het dialoogvenster **Eigenschappen Reporting Services-punt** kunt de volgende instellingen wijzigen:  
 
-    -   **Naam van Sitedatabaseserver**: Geef de naam van de server die als host fungeert voor de sitedatabase van Configuration Manager. De wizard haalt meestal automatisch de FQDN (fully qualified domain name) voor de server op. Als u een database-instantie, gebruikt u de indeling &lt; *servernaam*>\&lt; *Exemplaarnaam*>.  
+    -   **Naam van Sitedatabaseserver**: Geef de naam van de server die als host fungeert voor de Configuration Manager-sitedatabase. De wizard haalt meestal automatisch de FQDN (fully qualified domain name) voor de server op. Als u wilt een database-exemplaar opgeven, gebruikt u de notatie &lt; *servernaam*>\&lt; *Naam serverinstantie*>.  
 
-    -   **Databasenaam**: Geef de naam van de System Center 2012 Configuration Manager-database en klik vervolgens op **controleren** om te bevestigen dat de wizard toegang tot de sitedatabase heeft.  
+    -   **Databasenaam**: Geef de naam van de System Center 2012 Configuration Manager-site-database en klik vervolgens op **controleren** om te bevestigen dat de wizard toegang tot de sitedatabase heeft.  
 
         > [!IMPORTANT]  
         >  Het gebruikersaccount dat het Reporting Services-punt maakt, moet beschikken over de machtiging Lezen voor de sitedatabase. Als de verbindingstest niet slaagt, wordt een rood waarschuwingspictogram weergegeven. Beweeg de cursor over dit pictogram om de reden te lezen van de fout. Corrigeer de fout en klik nogmaals op **Testen** .  
 
-    -   **Gebruikersaccount**: Klik op **stellen**, en selecteer vervolgens een account dat wordt gebruikt wanneer SQL Server Reporting Services op het reporting services-punt verbinding maakt met de sitedatabase van Configuration Manager de gegevens die worden weergegeven in een rapport op te halen. Selecteer **bestaand account** opgeven van een Windows-gebruikersaccount dat bestaande Configuration Manager heeft of selecteer **nieuwe account** om op te geven van een Windows-gebruikersaccount die momenteel geen rechten heeft in Configuration Manager. Configuration Manager automatisch de opgegeven gebruiker accounttoegang verleent tot de sitedatabase. Het account wordt weergegeven als het **ConfigMgr SRS reporting point** -account in de submap **Accounts** van het knooppunt **Beveiliging** in de werkruimte **Beheer** .  
+    -   **Gebruikersaccount**: Klik op **ingesteld**, en selecteer vervolgens een account dat gebruikt wordt wanneer SQL Server Reporting Services op het reporting services-punt verbinding maakt met de Configuration Manager-sitedatabase om op te halen van de gegevens die worden weergegeven in een rapport. Selecteer **bestaand account** opgeven van een Windows-gebruikersaccount dat bestaande Configuration Manager-rechten heeft of selecteer **nieuwe account** om op te geven van een Windows-gebruikersaccount dat momenteel beschikt niet over rechten in Configuration Manager. Configuration Manager verleent automatisch de opgegeven gebruikerstoegang tot de sitedatabase. Het account wordt weergegeven als het **ConfigMgr SRS reporting point** -account in de submap **Accounts** van het knooppunt **Beveiliging** in de werkruimte **Beheer** .  
 
          Het opgegeven Windows-gebruikersaccount en wachtwoord zijn versleuteld en opgeslagen in de Reporting Services-database. Reporting Services haalt de gegevens op voor rapporten van de sitedatabase met dit account en wachtwoord.  
 
@@ -280,7 +283,7 @@ Voordat u kunt maken, wijzigen en uitvoeren van rapporten in de System Center Co
 6.  Klik op **OK** om de wijzigingen op te slaan en het dialoogvenster af te sluiten.  
 
 ## <a name="upgrading-sql-server"></a>SQL Server upgraden  
- Na de upgrade van SQL Server en SQL Server Reporting Services die wordt gebruikt als de gegevensbron voor reporting services-punt, kunt u fouten tegenkomen wanneer u rapporten uitvoert of vanuit de Configuration Manager-console bewerkt. Voor het melden van goed te laten werken vanuit de Configuration Manager-console, moet u de reporting services puntsitesysteemrol voor de site verwijderen en opnieuw installeren. Na de upgrade kunt u echter succesvol rapporten blijven uitvoeren en bewerken vanuit een internetbrowser.  
+ Na de upgrade van SQL Server en SQL Server Reporting Services die wordt gebruikt als gegevensbron voor reporting services-punt, kunt u fouten tegenkomen wanneer u rapporten uitvoert of vanuit de Configuration Manager-console bewerkt. Voor rapportage goed te laten werken vanuit de Configuration Manager-console, moet u de siterol reporting services-punt system voor de site verwijderen en opnieuw te installeren. Na de upgrade kunt u echter succesvol rapporten blijven uitvoeren en bewerken vanuit een internetbrowser.  
 
 ##  <a name="BKMK_ConfigureReportOptions"></a> Rapportopties configureren  
  Gebruik de rapportopties voor een Configuration Manager-site om het standaard reporting services-punt dat wordt gebruikt voor het beheren van uw rapporten te selecteren. Hoewel u meerdere Reporting Services-punten kunt hebben op een site, wordt alleen de standaard-rapportserver die bij rapportopties geselecteerd is, gebruikt om rapporten te beheren. Gebruik de volgende procedure om rapportopties voor uw site te configureren.  

@@ -1,7 +1,8 @@
 ---
-title: SQL Server AlwaysOn | Microsoft-documenten
+title: SQL Server AlwaysOn | Microsoft Docs
+description: Plan het gebruik van een SQL Server altijd op beschikbaarheidsgroep met SCCM.
 ms.custom: na
-ms.date: 1/4/2017
+ms.date: 5/26/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,262 +16,242 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: Machine Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: aaaab003ddd22f18160d4be63cfeab3a7e7f6b03
+ms.sourcegitcommit: dc221ddf547c43ab1f25ff83c3c9bb603297ece6
+ms.openlocfilehash: 188ae877368a6cb2ec9998bff74259b4e5b5e7ce
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 06/01/2017
 
 
 ---
-# <a name="sql-server-alwayson-for-a-highly-available-site-database-for-system-center-configuration-manager"></a>SQL Server AlwaysOn voor een maximaal beschikbare sitedatabase voor System Center Configuration Manager
+# <a name="prepare-to-use-sql-server-always-on-availability-groups-with-configuration-manager"></a>Voorbereiden op het gebruik van SQL Server Always On availability groups met Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
+Bereid voor System Center Configuration Manager SQL Server AlwaysOn-beschikbaarheidsgroepen gebruiken als een hoge beschikbaarheid en noodherstel hersteloplossing voor de sitedatabase.  
+Configuration Manager ondersteunt het gebruik van beschikbaarheidsgroepen:
+-     Op primaire sites en de centrale beheersite.
+-     On-premises of in Microsoft Azure.
 
- Beginnen met System Center Configuration Manager versie 1602, kunt u SQL Server [AlwaysOn Availability Groups](https://msdn.microsoft.com/library/hh510230\(v=sql.120\).aspx) voor het hosten van de sitedatabase op primaire sites en de centrale beheersite als een oplossing voor hoge beschikbaarheid en herstel na noodgevallen. De beschikbaarheidsgroep kan lokaal of in Microsoft Azure worden gehost.  
+Wanneer u beschikbaarheidsgroepen in Microsoft Azure gebruikt, kunt u de beschikbaarheid van uw sitedatabase verder verhogen met behulp van *Beschikbaarheidssets van Azure*. Zie voor meer informatie over beschikbaarheidssets van Azure [Manage the availability of virtual machines](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-manage-availability/)(De beschikbaarheid van virtuele machines beheren).
 
- Als u de beschikbaarheidsgroep host met behulp van Microsoft Azure, kunt u de beschikbaarheid van uw sitedatabase verder verhogen met behulp van SQL Server AlwaysOn-beschikbaarheidsgroepen met beschikbaarheidssets van Azure. Zie voor meer informatie over beschikbaarheidssets van Azure [Manage the availability of virtual machines](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-manage-availability/)(De beschikbaarheid van virtuele machines beheren).  
+>  [!Important]   
+>  Voordat u doorgaat, worden bekendheid met het configureren van SQL Server en SQL Server-beschikbaarheidsgroepen. De informatie die volgt verwijst naar de Documentatiebibliotheek van SQL Server en -procedures.
 
- Configuration Manager ondersteunt die als host fungeert voor de sitedatabase op een SQL-beschikbaarheidsgroep die zich achter een interne of externe Load Balancer. Naast het configureren van firewalluitzonderingen voor elke replica, moet u load balancing-regels voor de volgende poorten toevoegen:
-  - SQL via TCP: TCP 1433
-  - SQL Server Service Broker: TCP 4022
-  - Server Message Block (SMB): TCP 445
-  - RPC-eindpunttoewijzer: TCP 135
+## <a name="supported-scenarios"></a>Ondersteunde scenario's
+Hier volgen de ondersteunde scenario's voor gebruik wanneer groepen met Configuration Manager. Meer informatie en procedures voor elk vindt u in [beschikbaarheidsgroepen configureren voor Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag).
 
 
-De volgende scenario's worden ondersteund door beschikbaarheidsgroepen:  
+-      [Maken van een beschikbaarheidsgroep voor gebruik met Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag#create-and-configure-an-availability-group).
+-     [Configureren van een site voor het gebruik van een beschikbaarheidsgroep](/sccm/core/servers/deploy/configure/configure-aoag#configure-a-site-to-use-the-database-in-the-availability-group).
+-     [Toevoegen of verwijderen van replicatieleden van een beschikbaarheidsgroep die als host fungeert voor een sitedatabase](/sccm/core/servers/deploy/configure/configure-aoag#add-and-remove-replica-members).
+-     [Een sitedatabase buiten een beschikbaarheidsgroep verplaatsen naar een standaard of benoemd exemplaar van een zelfstandige SQL Server](/sccm/core/servers/deploy/configure/configure-aoag#stop-using-an-availability-group).
 
--   U kunt de sitedatabase verplaatsen naar het standaardexemplaar van een beschikbaarheidsgroep  
 
--   U kunt replicatieleden toevoegen aan of verwijderen uit een beschikbaarheidsgroep die als host fungeert voor een site-database  
+## <a name="prerequisites"></a>Vereisten
+De volgende vereisten gelden voor alle scenario's. Aanvullende vereisten van toepassing op een specifiek scenario, wordt de gedetailleerde met dit scenario.   
 
--   U kunt de sitedatabase verplaatsen van een beschikbaarheidsgroep naar een standaard of benoemd exemplaar van een zelfstandige SQL Server  
+### <a name="configuration-manager-accounts-and-permissions"></a>Configuration Manager-accounts en machtigingen
+**De siteserver naar de Ledentoegang replica:**   
+Het computeraccount van de siteserver moet lid zijn van de groep **Lokale beheerders** op elke computer die lid is van de beschikbaarheidsgroep.
 
-> [!Important]  
-> Wanneer u Microsoft Intune met Configuration Manager gebruiken in een hybride-configuratie, de verplaatsing van de sitedatabase van een groep beschikbaarheid triggers en een hersynchronisatie aan gegevens met de cloud. Dit kan niet worden vermeden. 
+### <a name="sql-server"></a>SQL Server
+**Versie:**  
+Elke replica in de beschikbaarheidsgroep moet een versie van SQL Server die wordt ondersteund door uw versie van Configuration Manager uitvoeren. Wanneer dit wordt ondersteund door SQL Server, kunnen verschillende knooppunten van een beschikbaarheidsgroep verschillende versies van SQL Server kunnen uitvoeren.
 
+**Editie:**  
+Moet u een *Enterprise* editie van SQL Server.
 
+**Account:**  
+Elk exemplaar van SQL Server kunt uitvoeren onder een domeinaccount van de gebruiker (**-serviceaccount**) of **lokaal systeem**. Elke replica in een groep kan een andere configuratie hebben. Per [aanbevolen procedures voor SQL Server](/sql/sql-server/install/security-considerations-for-a-sql-server-installation#before-installing-includessnoversionincludesssnoversion-mdmd), gebruik een account met de laagst mogelijke machtigingen.
 
-> [!NOTE]  
->  Voor een juiste configuratie en een juist gebruik van beschikbaarheidsgroepen is het noodzakelijk dat u vertrouwd bent met het configureren van SQL Server en met beschikbaarheidsgroepen van SQL Server. De procedures voor System Center Configuration Manager in dit onderwerp zijn afhankelijk van aanvullende documentatie en procedures in de Documentatiebibliotheek voor SQL Server.  
+Zie bijvoorbeeld voor het configureren van de Service-Accounts en machtigingen voor SQL Server 2016 [Windows-Accounts configureren en machtigingen](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) op MSDN.
 
- **Bekende problemen bij het gebruik van AlwaysOn-beschikbaarheidsgroepen met Configuration Manager:**  
+  Als u **lokaal systeem** voor het uitvoeren van een replica, moet u eindpunt verificatie configureren. Dit omvat de overdracht van rechten voor het inschakelen van een verbinding met het eindpunt van replica-server.
+  -     SQL Server-rechten delegeren door het computeraccount van elke SQL Server als een aanmelding op de andere SQL-Servers in het knooppunt toe te voegen en het verlenen van dat account SA-rechten heeft.  
+  -     Gemachtigde eindpunt rechten voor elke externe server op het lokale eindpunt door het volgende script uitgevoerd op elke replica:    
 
--   **Alle replicaservers vereisen een identiek bestandspad op het moment dat u Configuration Manager instelt om de beschikbaarheidsgroep te gebruiken:**  
+              GRANT CONNECT ON endpoint::[endpoint_name]  
+              TO [domain\servername$]
 
-    -   Op het moment dat u het installatieprogramma van Configuration Manager voor de omleiding van de site voor het gebruik van de database in een beschikbaarheidsgroep uitvoert, moet elke secundaire replica-server in de groep hebben een bestandspad die identiek is aan het pad dat wordt gebruikt voor het hosten van bestanden van de sitedatabase op de huidige primaire replica. Als secundaire replica's geen identiek pad bevatten, kan Setup de instantie van de beschikbaarheidsgroepen niet toevoegen als de nieuwe locatie voor de sitedatabase.  
+Zie voor meer informatie [maken van een Database Mirroring-eindpunt voor altijd op beschikbaarheidsgroepen](/sql/database-engine/availability-groups/windows/database-mirroring-always-on-availability-groups-powershell).
 
-         Bovendien moet de lokale SQL Server-serviceaccount op elke secundaire replicaserver de machtiging **Volledig beheer** voor deze map hebben.  
+### <a name="availability-group-configurations"></a>Configuraties van beschikbaarheid
+**Replicatieleden:**  
+De beschikbaarheidsgroep moet één primaire replica en maximaal twee synchrone secundaire replica's kan hebben.  Elk replicalid van de moet:
+-   Het **standaardexemplaar**gebruiken.  
+    *Vanaf versie 1702, kunt u een* ***benoemd exemplaar***.
 
-         Op de secundaire replicaservers is dit bestandspad alleen vereist op het moment dat u Setup gebruikt om het database-exemplaar in de beschikbaarheidsgroep op te geven.  Nadat Setup de wijziging om de sitedatabase in de beschikbaarheidsgroep te gebruiken heeft voltooid, kunt u het ongebruikte pad verwijderen van secundaire replicaservers.  
+-      Hebben **verbindingen in de primaire rol** ingesteld op **Ja**
+-      Hebben **leesbare secundaire** ingesteld op **Ja**  
+-      Worden ingesteld op **handmatige failover**.       
 
-         Denk bijvoorbeeld eens aan het volgende scenario:  
+    >  [!TIP]
+    >  Configuration Manager ondersteunt het gebruik van de beschikbaarheidsgroepreplica's als de waarde **automatische Failover**. Echter, **handmatige Failover** moet worden ingesteld als:
+    >  -  U uitvoeren Setup voor het gebruik van de sitedatabase opgeeft in de beschikbaarheidsgroep.
+    >  -  Wanneer u een update installeert voor Configuration Manager (niet alleen updates die van toepassing op de sitedatabase).  
 
-        -   U maakt een beschikbaarheidsgroep die gebruikmaakt van drie SQL-Servers.  
+**Locatie van de replica-lid:**  
+Alle replica's in een beschikbaarheidsgroep moeten gehoste lokaal of gehost op Microsoft Azure. Een groep die een lid van de lokale en lid in Azure bevat wordt niet ondersteund.     
 
-        -   Uw primaire replicaserver is een nieuwe installatie van SQL Server 2014.  Standaard worden de databasebestanden .MDF en .LDF opgeslagen in C:\Program Files\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\DATA  
+Wanneer u een beschikbaarheidsgroep in Azure instellen en de groep zich achter een interne of externe load balancer, zijn de volgende standaardpoorten, moet u ook openen voor Setup toegang tot elke replica:   
 
-        -   Beide van de secundaire replica-servers zijn bijgewerkt naar SQL Server 2014 uit eerdere versies en het oorspronkelijke pad voor het opslaan van databasebestanden van de te behouden: C:\Program Files\Microsoft SQL Server\MSSQL10. MSSQLSERVER\MSSQL\DATA  
+-      RCP eindpunttoewijzer - **TCP-poort 135**   
+-      Server Message Block – **TCP 445**  
+    *Nadat de verplaatsing van de database is voltooid, kunt u deze poort verwijderen. Vanaf versie 1702, het deze poort is niet langer vereist.*
+-      SQL Server Service Broker - **TCP 4022**
+-      SQL via TCP – **TCP 1433**   
 
-        -   Voordat u probeert de sitedatabase verplaatsen naar deze beschikbaarheidsgroep, op elke secundaire replica-server moet u het volgende pad zelfs als de secundaire replica's niet voor deze locatie gebruikt worden:  C:\Program Files\Microsoft SQL Server\MSSQL12. MSSQLSERVER\MSSQL\DATA (dit is een duplicaat is van het pad dat wordt gebruikt op de primaire replica)  
+Nadat Setup is voltooid, moeten de volgende poorten toegankelijk blijven:
+-      SQL Server Service Broker - **TCP 4022**
+-      SQL via TCP – **TCP 1433**
 
-        -   Vervolgens moet u de SQL Server-serviceaccount op elke secundaire replica volledige toegang verlenen tot de nieuwe locatie op die server  
+Vanaf versie 1702, kunt u aangepaste poorten voor deze configuraties. Dezelfde poorten moeten worden gebruikt door het eindpunt en op alle replica's in de beschikbaarheidsgroep.
 
-        -   U kunt nu Configuration Manager Setup geeft u de site op het gebruik van de sitedatabase in de beschikbaarheidsgroep uitgevoerd  
 
--   **Wanneer Setup wordt uitgevoerd om de sitedatabase om te leiden zodat deze de beschikbaarheidsgroep gebruikt, kunnen er fouten als de volgende worden vastgelegd in het logboekbestand ConfigMgrSetup.log:**  
+**Listener:**   
+De beschikbaarheidsgroep moet ten minste één **beschikbaarheidsgroeplistener**hebben. De virtuele naam van deze listener wordt gebruikt bij het configureren van Configuration Manager voor het gebruik van de sitedatabase in de beschikbaarheidsgroep. Hoewel een beschikbaarheidsgroep meerdere listeners bevatten kan, kunt alleen Configuration Manager maken gebruik van een. Zie [maken of configureren van een beschikbaarheidsgroep-Listener (SQL Server)](/sql/database-engine/availability-groups/windows/create-or-configure-an-availability-group-listener-sql-server) voor meer informatie.
 
-    -   FOUT: SQL Server-fout: [25000] [3906] [Microsoft] [SQL Server Native Client 11.0] [SQL-Server] is mislukt voor het bijwerken van database 'CM_AAA' omdat de database alleen-lezen.   Configuration Manager Setup 1/21/2016 4:54:59 PM  7344 (0x1CB0)  
+**Bestandspaden:**   
+Wanneer u Configuration Manager Setup uitvoeren om te configureren van een site voor het gebruik van de database in een beschikbaarheidsgroep, elke secundaire replica-server moet een SQL Server-bestandspad die identiek is aan het pad voor de sitedatabasebestanden als gevonden op de huidige primaire replica.
+-   Als een identiek pad niet bestaat, wordt het exemplaar voor de beschikbaarheidsgroep toevoegen als de nieuwe locatie van de sitedatabase installatie mislukken.
+-   Het lokale SQL Server-serviceaccount moet bovendien hebben **volledig beheer** machtiging voor deze map.
 
-     Deze fouten worden vastgelegd als Setup probeert databaserollen te verwerken op secundaire replica's van de beschikbaarheidsgroep. Deze fouten kunnen worden genegeerd.
-- **SQL-servers die als host extra beschikbaarheidsgroepen fungeren:**
+Op de secundaire replicaservers is dit bestandspad alleen vereist op het moment dat u Setup gebruikt om het database-exemplaar in de beschikbaarheidsgroep op te geven. Nadat Setup is voltooid de configuratie van de sitedatabase in de beschikbaarheidsgroep, kunt u het ongebruikte pad verwijderen van secundaire replicaservers.
 
-  Voor de installatie van versie 1610, wanneer u een beschikbaarheidsgroep en vervolgens Configuration Manager setup uitvoert of een update voor Configuration Manager installeert, moet elke replica in elke extra beschikbaarheidsgroep op de SQL Server die als host fungeert voor de beschikbaarheidsgroep Configuration Manager de volgende configuraties hebben:
-    - **handmatige failover**
-    - **elke alleen-lezen verbinding toe te staan**
+Denk bijvoorbeeld eens aan het volgende scenario:
+-    U maakt een beschikbaarheidsgroep die drie SQL-Servers gebruikt.
 
+-    Uw primaire replicaserver is een nieuwe installatie van SQL Server 2014. Standaard wordt de database. MDF en. LDF-bestanden worden opgeslagen in C:\Program Files\Microsoft SQL Server\MSSQL12. MSSQLSERVER\MSSQL\DATA.
 
-##  <a name="bkmk_BnR"></a> Wijzigingen voor back-up en herstel als u een SQL Server AlwaysOn-beschikbaarheidsgroep gebruikt  
- **Back-up:**  
+-    Beide van de secundaire replica-servers zijn bijgewerkt naar SQL Server 2014 van vorige versies en het oorspronkelijke bestandspad voor het opslaan van bestanden van de database behouden: C:\Program Files\Microsoft SQL Server\MSSQL10. MSSQLSERVER\MSSQL\DATA.
 
- Wanneer een site-database wordt uitgevoerd in een beschikbaarheidsgroep, moet u doorgaan met het ingebouwde **back-upsite** server onderhoudstaak voor back-up maken van algemene Configuration Manager-instellingen en bestanden, maar wilt niet gebruiken de. MDF of. LDF-bestanden die door deze back-up gemaakt. Neem in plaats daarvan in de planning op dat directe back-ups van de sitedatabase worden gemaakt met behulp van SQL Server.  
+-    Voordat u de sitedatabase verplaatsen naar deze beschikbaarheidsgroep, op elke secundaire replica-server moet u het volgende pad zelfs als de secundaire replica's maakt geen gebruik van deze locatie: C:\Program Files\Microsoft SQL Server\MSSQL12. MSSQLSERVER\MSSQL\DATA (dit is een duplicaat van het pad dat wordt gebruikt op de primaire replica).
 
- Omdat het herstelmodel van de database is ingesteld op volledig, moet u daarnaast in de planning opnemen dat de grootte van het logboek voor databasetransacties wordt bewaakt en onderhouden.  In het volledige herstelmodel worden de transacties niet gehard totdat een volledige back-up van de database of het transactielogboek wordt gemaakt. Een herstelmodel van volledige is een vereiste van het gebruik van de database van de site in een beschikbaarheidsgroep en bij het configureren van de groep voor gebruik met Configuration Manager. Zie [Back-up en herstel van SQL Server-databases](https://msdn.microsoft.com/library/ms187048\(v=sql.120\).aspx) in de documentatie van SQL Server voor meer informatie over back-up en herstel in SQL Server.  
+-    U verleent vervolgens het SQL Server-serviceaccount op elke secundaire replica volledige beheertoegang krijgen tot de locatie van het zojuist gemaakte bestand op die server.
 
- **Herstel:**  
+-    U kunt nu de installatie van Configuration Manager voor het configureren van de site voor het gebruik van de sitedatabase in de beschikbaarheidsgroep is uitvoeren.
 
- Zolang tijdens een herstelbewerking van de site één knooppunt van de beschikbaarheidsgroep blijft werken, kunt u de optie voor siteherstel **Databaseherstel overslaan (deze optie gebruiken als de sitedatabase onbeschadigd is)**gebruiken.  
+**Configureer de database op een nieuwe replica:**   
+ De database van elke replica moet worden ingesteld met de volgende opties:
+-     **CLR-integratie** moet *ingeschakeld*
+-      **Max text repl grootte** moet *2147483647*
+-      De database-eigenaar moet de *SA-account*
+-      **TRUSTWORTY** moet **ON**
+-      **Service Broker** moet *ingeschakeld*
 
- Echter, als alle knooppunten van een beschikbaarheidsgroep verloren gegaan, zijn voordat u de site kunt herstellen, moet u opnieuw maken de beschikbaarheidsgroep (System Center Configuration Manager kan niet opnieuw maken of terugzetten van het knooppunt beschikbaarheid).  Nadat de groep opnieuw is gemaakt of vanaf een back-up is hersteld en opnieuw is geconfigureerd, kunt u vervolgens de optie voor siteherstel **Databaseherstel overslaan (deze optie gebruiken als de sitedatabase onbeschadigd is)** gebruiken.  
+U kunt deze configuraties op alleen primaire replica. Voor het configureren van een secundaire replica, moet u de eerste failover van de primaire naar de secundaire om te maken van de secundaire waardoor de secundaire de nieuwe primaire replica.   
 
- Zie [Back-up en herstel voor System Center Configuration Manager](../../../../protect/understand/backup-and-recovery.md) voor meer informatie over back-up en herstel.  
+Gebruik SQL Server-documentatie om u te helpen u de instellingen configureren. Zie bijvoorbeeld [TRUSTWORTHY](/sql/relational-databases/security/trustworthy-database-property) of [CLR-integratie](/sql/relational-databases/clr-integration/clr-integration-enabling) in de documentatie van SQL Server.
 
-##  <a name="bkmk_create"></a> Een beschikbaarheidsgroep configureren voor gebruik met Configuration Manager  
- Voordat u de volgende procedure, bekend zijn met de SQL Server-procedures die nodig zijn om deze configuratie te voltooien en de volgende details die van toepassing op beschikbaarheidsgroepen configureren voor gebruik met Configuration Manager.  
+### <a name="verification-script"></a>Verificatie-script
+U kunt het volgende script om te controleren of de databaseconfiguraties voor primaire en secundaire replica's kunt uitvoeren. Voordat u een probleem op een secundaire replica oplossen kunt, moet u die secundaire replica als de primaire replica.
 
- **Vereisten voor AlwaysOn-beschikbaarheidsgroepen die u gebruikt met System Center Configuration Manager:**  
+    SET NOCOUNT ON
 
--  *Versie*: Elk knooppunt (of replica) in de beschikbaarheidsgroep moet een versie van SQL Server wordt ondersteund door System Center Configuration Manager uitvoeren. Als dit wordt ondersteund door SQL Server, kunnen verschillende knooppunten van de beschikbaarheidsgroep verschillende versies van SQL Server uitgevoerd.   
+    DECLARE @dbname NVARCHAR(128)
 
-- *Edition*: U moet een Enterprise-editie van SQL Server gebruiken.  SQL Server 2016 Standard edition introduceert Basic beschikbaarheidsgroepen, die door Configuration Manager worden niet ondersteund.
+    SELECT @dbname = sd.name FROM sys.sysdatabases sd WHERE sd.dbid = DB_ID()
 
+    IF (@dbname = N'master' OR @dbname = N'model' OR @dbname = N'msdb' OR @dbname = N'tempdb' OR @dbname = N'distribution' ) BEGIN
+    RAISERROR(N'ERROR: Script is targetting a system database.  It should be targeting the DB you created instead.', 0, 1)
+    GOTO Branch_Exit;
+    END ELSE
+    PRINT N'INFO: Targetted database is ' + @dbname + N'.'
 
--   De beschikbaarheidsgroep kan één primaire replica moet hebben en er maximaal twee synchrone secundaire replica's.  
+    PRINT N'INFO: Running verifications....'
 
--  Nadat u een database aan een beschikbaarheidsgroep toevoegt, moet u een failover voor de primaire replica naar een secundaire replica maken (waardoor dit de nieuwe primaire replica wordt), en configureert u vervolgens de database met de volgende opties:
-    - Trustworthy inschakelen: gelijk aan waar
-    - De Service Broker inschakelen: gelijk aan waar
-    - De dbowner instellen: gelijk aan SA
+    IF NOT EXISTS (SELECT * FROM sys.configurations c WHERE c.name = 'clr enabled' AND c.value_in_use = 1)
+    PRINT N'ERROR: CLR is not enabled!'
+    ELSE
+    PRINT N'PASS: CLR is enabled.'
 
-    U kunt het volgende script uitvoeren om deze instellingen te configureren, waarbij cm_ABC de naam is van uw sitedatabase:  
+    DECLARE @repltable TABLE (
+    name nvarchar(max),
+    minimum int,
+    maximum int,
+    config_value int,
+    run_value int )
 
-    >     Model gebruiken  
-    >     ALTER DATABASE cm_ABC SET NEW_BROKER   
-    >     ALTER DATABASE cm_ABC SET ENABLE_BROKER  
-    >     ALTER DATABASE cm_ABC stellen betrouwbare ON;  
-    >     Gebruik cm_ABC  
-    >     EXEC sp_changedbowner 'sa'  
-    >     Exec sp_configure 'max text repl size (B)', 2147483647 opnieuw configureren
+    INSERT INTO @repltable
+    EXEC sp_configure 'max text repl size (B)'
 
+    IF NOT EXISTS(SELECT * from @repltable where config_value = 2147483647 and run_value = 2147483647 )
+    PRINT N'ERROR: Max text repl size is not correct!'
+    ELSE
+    PRINT N'PASS: Max text repl size is correct.'
 
+    IF NOT EXISTS (SELECT db.owner_sid FROM sys.databases db WHERE db.database_id = DB_ID() AND db.owner_sid = 0x01)
+    PRINT N'ERROR: Database owner is not sa account!'
+    ELSE
+    PRINT N'PASS: Database owner is sa account.'
 
--   De beschikbaarheidsgroep moet ten minste één **beschikbaarheidsgroeplistener**hebben.  De virtuele naam van deze listener wordt gebruikt bij het configureren van Configuration Manager naar de sitedatabase gebruikt in de beschikbaarheidsgroep. Hoewel een beschikbaarheidsgroep meerdere listeners bevatten kan, kunt alleen Configuration Manager maken gebruik van een  
+    IF NOT EXISTS( SELECT * FROM sys.databases db WHERE db.database_id = DB_ID() AND db.is_trustworthy_on = 1 )
+    PRINT N'ERROR: Trustworthy bit is not on!'
+    ELSE
+    PRINT N'PASS: Trustworthy bit is on.'
 
--   Elke primaire en secundaire replica moet:  
-    - Worden ingesteld om **elke alleen-lezen verbinding toe te staan**.
-    - Het **standaardexemplaar**gebruiken.
-    - Worden ingesteld op **handmatige failover**.  
+    IF NOT EXISTS( SELECT * FROM sys.databases db WHERE db.database_id = DB_ID() AND db.is_broker_enabled = 1 )
+    PRINT N'ERROR: Service broker is not enabled!'
+    ELSE
+    PRINT N'PASS: Service broker is enabled.'
 
-        > [!TIP]  
-        >  System Center Configuration Manager ondersteunt het gebruik van de beschikbaarheidsgroepreplica's als ingesteld op automatische Failover. Handmatige Failover moet echter worden ingesteld wanneer u Setup uitvoeren om te gebruiken van de sitedatabase opgeven in de beschikbaarheidsgroep en op het moment u updates installeert voor Configuration Manager (niet alleen updates die betrekking hebben op de sitedatabase).  
+    IF NOT EXISTS( SELECT * FROM sys.databases db WHERE db.database_id = DB_ID() AND db.is_honor_broker_priority_on = 1 )
+    PRINT N'ERROR: Service broker priority is not set!'
+    ELSE
+    PRINT N'PASS: Service broker priority is set.'
 
-  **Beperkingen voor beschikbaarheidsgroepen**
-   - Basic-beschikbaarheidsgroepen (die werden geïntroduceerd in SQL Server 2016 Standard edition) worden niet ondersteund. Dit komt doordat eenvoudige beschikbaarheidsgroepen bieden geen ondersteuning voor leestoegang tot secundaire replica's van een vereiste voor gebruik met Configuration Manager. Zie voor meer [Basic Availability Groups (altijd op beschikbaarheidsgroepen)](https://msdn.microsoft.com/en-us/library/mt614935.aspx).
+    PRINT N'Done!'
 
-   - Beschikbaarheidsgroepen worden alleen ondersteund voor de sitedatabase en niet voor de software update-database of rapportagedatabase.   
-   - Wanneer u een beschikbaarheidsgroep gebruikt, moet u uw rapportagepunt handmatig configureren om gebruik te maken van de huidige primaire replica en niet van de beschikbaarheidsgroeplistener. Als er een failover van de primaire replica optreedt naar een andere replica, moet u het rapportagepunt opnieuw configureren zodat deze de nieuwe primaire replica gebruikt.  
-   - Voordat u updates installeert, zoals versie 1606, moet u controleren of de beschikbaarheidsgroep is ingesteld op handmatige failover. Nadat de site is bijgewerkt, kunt u failover terugzetten op automatisch.
+    Branch_Exit:
 
+## <a name="limitations-and-known-issues"></a>Bekende problemen en beperkingen
+De volgende beperkingen zijn van toepassing op alle scenario's.   
 
+**Basic-beschikbaarheidsgroepen worden niet ondersteund:**  
+Geïntroduceerd in SQL Server 2016 Standard edition [basic beschikbaarheidsgroepen](https://msdn.microsoft.com/library/mt614935.aspx) bieden geen ondersteuning voor leestoegang tot secundaire replica's is een vereiste voor gebruik met Configuration Manager.
 
- **Vereiste machtigingen om beschikbaarheidsgroepen te configureren en gebruiken:**  
+**SQL-servers die als host aanvullende beschikbaarheidsgroepen fungeren:**   
+Voorafgaand aan de Configuration Manager versie 1610, wanneer een beschikbaarheidsgroep op een SQL Server-hosts een of meer beschikbaarheidsgroepen naast de groep die u voor Configuration Manager, elke replica in elk van deze groepen extra beschikbaarheid gebruikt moeten hebben de volgende configuraties die zijn ingesteld op het moment dat u Configuration Manager Setup uitvoert of een update installeert voor Configuration Manager:
+-   **handmatige failover**
+-     **elke alleen-lezen verbinding toe te staan**
 
--   Het computeraccount van de siteserver moet lid zijn van de groep **Lokale beheerders** op elke computer die lid is van de beschikbaarheidsgroep.  
+**Gebruik van de database niet ondersteund:**
+-   **Configuration Manager ondersteunt alleen de database van de site in een beschikbaarheidsgroep:** Het volgende worden niet ondersteund:
+    -   Rapportagedatabase
+    -   WSUS-database
+-   **Bestaande database:** U kunt nieuwe database gemaakt op de replica niet gebruiken. In plaats daarvan moet u een kopie van een bestaande Configuration Manager-database herstellen naar de primaire replica bij het configureren van een beschikbaarheidsgroep.
 
-#### <a name="to-configure-an-availability-group-to-host-a-site-database"></a>Een beschikbaarheidsgroep configureren om als host te dienen voor een sitedatabase  
+**Installatiefouten in ConfigMgrSetup.log:**  
+Wanneer u Setup een sitedatabase verplaatsen naar een beschikbaarheidsgroep uitvoert, kan Setup probeert databaserollen op de secundaire replica's van de beschikbaarheidsgroep te verwerken en registreert fouten als volgt:
+-   FOUT: SQL Server-fout: [25000] [3906] [Microsoft] [SQL Server Native Client 11.0] [SQL Server] is mislukt voor het bijwerken van database 'CM_AAA', omdat de database alleen-lezen is. Configuration Manager Setup 21/1/2016 4:54:59 PM 7344 (0x1CB0)  
 
-1.  De volgende opdracht gebruiken om te stoppen van de Configuration Manager-site:  
-     **Preinst.exe /stopsite**  
+Deze fouten kunnen veilig worden genegeerd.
 
-     Zie [Hierarchy Maintenance Tool (Preinst.exe) voor System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md) voor meer informatie over het gebruik van Preinst.exe.  
+## <a name="changes-for-site-backup"></a>Wijzigingen voor back-up van site
+**Back-updatabase bestanden:**  
+Wanneer een sitedatabase wordt uitgevoerd in een beschikbaarheidsgroep, moet u de ingebouwde **back-up siteserver** onderhoudstaak back-up maken van algemene Configuration Manager-instellingen en bestanden. Echter niet gebruiken de. MDF of. LDF-bestanden die door deze back-up gemaakt. Zorg in plaats daarvan direct back-ups van deze databasebestanden met behulp van SQL Server.
 
-2.  Wijzig het back-upmodel voor de sitedatabase van **EENVOUDIG** in **VOLLEDIG**.  
+**Transactielogboek:**  
+Het herstelmodel van de sitedatabase moet worden ingesteld op **volledige** (een vereiste voor gebruik in een beschikbaarheidsgroep). Met deze configuratie van plan bent te bewaken en onderhouden van de grootte van het transactielogboek van sitedatabase. In het volledige herstelmodel worden de transacties niet gehard totdat een volledige back-up van de database of het transactielogboek wordt gemaakt. Zie [Back-Up en herstellen van SQL Server-Databases](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) in de SQL Server-documentatie voor meer informatie.
 
-     Zie [Het herstelmodel van een database weergeven of wijzigen](https://msdn.microsoft.com/library/ms189272\(v=sql.120\).aspx) in de documentatie van SQL Server. (Beschikbaarheidsgroepen ondersteunen alleen VOLLEDIG).  
+## <a name="changes-for-site-recovery"></a>Wijzigingen voor site recovery
+U kunt de optie voor siteherstel **databaseherstel overslaan (deze optie als de sitedatabase onbeschadigd gebruiken)** als ten minste één knooppunt van de beschikbaarheidsgroep werken blijft.
 
-3.  Voer op de server die als host voor de primaire replica van de groep dient, de **wizard Nieuwe beschikbaarheidsgroep** uit om de beschikbaarheidsgroep te maken. In de wizard:  
+ Voordat u de site herstellen kunt als alle knooppunten van een beschikbaarheidsgroep verloren gegaan zijn, moet u de beschikbaarheidsgroep opnieuw maken. Configuration Manager kan niet opnieuw samenstellen of herstellen van het beschikbaarheidsknooppunt. Nadat de groep wordt opnieuw gemaakt, en een back-up hersteld en opnieuw geconfigureerd, kunt u vervolgens de optie voor siteherstel gebruiken **databaseherstel overslaan (deze optie als de sitedatabase onbeschadigd gebruiken)**.
 
-    -   Op de **Database selecteren** pagina, selecteert u de database voor u Configuration Manager-site  
+Zie voor meer informatie [back-up en herstel voor System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).
 
-    -   Configureer op de pagina **Replica's opgeven** het volgende:  
+## <a name="changes-for-reporting"></a>Wijzigingen voor rapportage
+**Het reporting servicepunt installeren:**  
+Reporting services-punt biedt geen ondersteuning met behulp van de virtuele naam van de listener van de beschikbaarheidsgroep of het hosten van de reporting services-database in een SQL Server Always On-beschikbaarheidsgroep:
+-   Standaard het reporting services-punt installatie stelt de **naam Sitedatabaseserver** in de virtuele naam die is opgegeven als de listener. Dit om op te geven van een computernaam en het exemplaar van een replica in de beschikbaarheidsgroep wijzigen.
+-   Voor de offload van de reporting belasting en beschikbaarheid verbeteren wanneer een replica-knooppunt offline is, Overweeg de installatie van aanvullende reporting services-punten op elk knooppunt van de replica- en configuratie van elke reporting services Point-to-Point aan zijn eigen computernaam.
 
-        -   **Replica's**: Geef de servers die als secundaire replica's host  
+Wanneer u een reporting servicepunt op elke replica van de beschikbaarheidsgroep installeert, reporting kunt altijd verbinding maken met een actieve reporting point-server.
 
-        -   **Listener**: Geef de **Listener DNS-naam** als een volledige DNS-naam, zoals  **&lt;Listener_Server >. fabrikam.com**. Dit wordt gebruikt bij het configureren van Configuration Manager database worden gebruikt in de beschikbaarheidsgroep.
+**De reporting services-punt gebruikt door de console switch:**  
+Als u wilt uitvoeren van rapporten in de console gaat u naar **bewaking** > **overzicht** > **reporting** > **rapporten**, en kies vervolgens **Rapportopties**. Selecteer de gewenste reporting services-punt in het dialoogvenster Opties.
 
-    -   Selecteer op de pagina **Eerste gegevenssynchronisatie selecteren** de optie **Volledig**. Nadat de wizard de beschikbaarheidsgroep heeft gemaakt, voert de wizard een back-up uit van de primaire database en het transactielogboek en worden deze hersteld op elke server die als host dient voor een secundaire replica. Als u deze stap niet uitvoert, moet u een kopie van de sitedatabase herstellen op elke server die als host dient voor een secundaire replica en die database handmatig toevoegen aan de groep.  
-
-    Zie [De wizard Beschikbaarheidsgroep gebruiken](https://msdn.microsoft.com/library/hh403415\(v=sql.120\).aspx) in de documentatie van SQL Server voor meer informatie.  
-
-4.  Nadat de beschikbaarheidsgroep is geconfigureerd, configureert u de sitedatabase op de primaire replica met de eigenschap **TRUSTWORTHY** (betrouwbaar) en **schakelt u vervolgens CLR-integratie in**. Zie [Database-eigenschap TRUSTWORTHY](https://msdn.microsoft.com/library/ms187861\(v=sql.120\).aspx) en  [CLR-integratie inschakelen](https://msdn.microsoft.com/library/ms131048\(v=sql.120\).aspx) in de documentatie van SQL Server voor meer informatie over het configureren van deze instellingen.  
-
-5.  Voer de volgende acties uit om elke secundaire replica in de beschikbaarheidsgroep te configureren:  
-
-    1.  Voer een handmatige failover uit van de huidige primaire replica naar een secundaire replica. Zie [Een geplande handmatige failover van een beschikbaarheidsgroep uitvoeren](https://msdn.microsoft.com/library/hh231018\(v=sql.120\).aspx) in de documentatie van SQL Server.  
-
-    2.  Configureer de sitedatabase op de nieuwe primaire replica met de eigenschap **TRUSTWORTHY** en **schakel vervolgens CLR-integratie in**.  
-
-6.  Nadat alle replica's worden gepromoveerd tot de primaire replica's en de databases die zijn geconfigureerd, is de beschikbaarheidsgroep is gereed voor gebruik met Configuration Manager.  
-
-
-
-
-
-##  <a name="bkmk_direct"></a> Een sitedatabase aan een beschikbaarheidsgroep toevoegen  
- U kunt een sitedatabase voor een eerder geïnstalleerde site verplaatsen naar een beschikbaarheidsgroep. U moet eerst de beschikbaarheidsgroep maken en vervolgens de database configureren om te werken in de beschikbaarheidsgroep.  
-
- Voor deze procedure moet het gebruikersaccount dat Configuration Manager Setup wordt uitgevoerd lid is van de **lokale beheerders** groep op elke computer die lid is van de beschikbaarheidsgroep.  
-
-#### <a name="to-move-a-site-database-to-an-availability-group"></a>Een sitedatabase naar een beschikbaarheidsgroep verplaatsen  
-
-1.  Voer **installatie van Configuration Manager** van  **&lt;installatiemap Configuration Manager-site\>\BIN\X64\setup.exe**.  
-
-2.  Selecteer op de pagina **Aan de slag** de optie **Siteonderhoud uitvoeren of deze site resetten**en klik op **Volgende**.  
-
-3.  Selecteer de optie **SQL Server-configuratie wijzigen** en klik vervolgens op **Volgende**.  
-
-4.  Configureer de volgende instellingen opnieuw voor de sitedatabase:  
-
-    -   **Naam van SQL Server:** Geef de virtuele naam voor de beschikbaarheidsgroep-listener die u hebt geconfigureerd bij het maken van de beschikbaarheidsgroep. De virtuele naam moet een volledige DNS-naam, zoals  **&lt;endpointServer\>. fabrikam.com**  
-
-    -   **Exemplaar:** Deze waarde moet het standaardexemplaar opgeven voor de beschikbaarheidsgroep-listener van de beschikbaarheidsgroep leeg zijn.  Als de huidige sitedatabase is geïnstalleerd op een benoemd exemplaar, wordt het benoemde exemplaar vermeld en moet het worden gewist  
-
-    -   **Database:** Laat u de naam zoals deze wordt weergegeven. Dit is de naam van de huidige sitedatabase.  
-
-5.  Nadat u de informatie voor de nieuwe locatie van de database hebt opgegeven, voltooit u de installatie volgens uw normale proces en configuraties.  
-
-##  <a name="bkmk_change"></a> Leden toevoegen aan of verwijderen uit een actieve beschikbaarheidsgroep  
- U kunt replicatielid van een verwijderen of een extra replica-lid (niet langer zijn dan één primaire en twee secundaire knooppunten) toevoegen nadat Configuration Manager maakt gebruik van een sitedatabase die in een beschikbaarheidsgroep worden gehost.  
-
-#### <a name="to-add-a-new-replica-member"></a>Een nieuw replicalid toevoegen  
-
-1.  Voeg de nieuwe server als een secundaire replica toe aan de beschikbaarheidsgroep. Zie  [Een secundaire replica toevoegen aan een beschikbaarheidsgroep (SQL Server)](https://msdn.microsoft.com/library/hh213247\(v=sql.120\).aspx)in de documentatiebibliotheek van SQL Server.  
-
-2.  De Configuration Manager-site stoppen door het uitvoeren van **Preinst.exe/stopsite** Zie [Hiërarchieonderhoud-hulpprogramma (Preinst.exe) voor System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md).  
-
-3.  Configureer de secundaire replica of replica’s. Voer de volgende acties uit voor elke secundaire replica in de beschikbaarheidsgroep:  
-
-    1.  Voer een handmatige failover uit van de huidige primaire replica naar de nieuwe secundaire replica. Zie [Een geplande handmatige failover van een beschikbaarheidsgroep uitvoeren](https://msdn.microsoft.com/library/hh231018\(v=sql.120\).aspx) in de documentatie van SQL Server.  
-
-    2.  Configureer de database op de nieuwe server als betrouwbaar (Trustworthy) en schakel CLR-integratie in. Zie [Database-eigenschap TRUSTWORTHY](https://msdn.microsoft.com/library/ms187861\(v=sql.120\).aspx) en  [CLR-integratie inschakelen](https://msdn.microsoft.com/library/ms131048\(v=sql.120\).aspx)in de documentatie van SQL Server.  
-
-4.  Start Beheer van siteonderdelen (**sitecomp**) en de **SMS_Executive** -services om de site opnieuw te starten.  
-
-#### <a name="to-remove-a-replica-member-from-the-availability-group"></a>Een replicalid verwijderen uit de beschikbaarheidsgroep  
-
--   Ga te werk volgens de informatie in [Een secundaire replica uit een beschikbaarheidsgroep verwijderen](https://msdn.microsoft.com/library/hh213149\(v=sql.120\).aspx) uit de SQL Server-documentatie.  
-
-##  <a name="bkmk_remove"></a> De sitedatabase vanuit een beschikbaarheidsgroep terug verplaatsen naar een SQL Server met één exemplaar  
- Voer de volgende procedure uit als u de sitedatabase niet meer wilt hosten in een beschikbaarheidsgroep.  
-
-#### <a name="to-move-the-site-database-from-an-availability-group-back-to-a-single-instance-sql-server"></a>De sitedatabase vanuit een beschikbaarheidsgroep terug verplaatsen naar een SQL Server met één exemplaar  
-
-1.  De Configuration Manager-site stoppen met de volgende opdracht:  
-     **Preinst.exe /stopsite**.  Zie [Hierarchy Maintenance Tool (Preinst.exe) voor System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md) voor meer informatie.  
-
-2.  Maak met behulp van SQL Server een volledige back-up van uw sitedatabase vanaf de primaire replica: Zie [Een volledige databaseback-up maken](https://msdn.microsoft.com/library/ms187510\(v=sql.120\).aspx) in de documentatie van SQL Server voor informatie over het uitvoeren van deze stap.  
-
-3.  Als de server die als host dient voor de primaire replica voor de beschikbaarheidsgroep vanaf nu als host dient voor het enkele exemplaar van de sitedatabase, slaat u de volgende stap over:  
-
-    -   Herstel met SQL Server de back-up van de sitedatabase naar de server die als host voor de sitedatabase moet dienen.  Zie [Een databaseback-up herstellen (SQL Server Management Studio)](https://msdn.microsoft.com/library/ms177429\(v=sql.120\).aspx) in de documentatie van SQL Server.  
-
-4.  Wijzig op de herstelde sitedatabase het back-upmodel voor de sitedatabase van **VOLLEDIG** in **EENVOUDIG**.  Zie [Het herstelmodel van een database weergeven of wijzigen](https://msdn.microsoft.com/library/ms189272\(v=sql.120\).aspx) in de documentatie van SQL Server.  
-
-5.  Voer **installatie van Configuration Manager** van  **&lt;installatiemap Configuration Manager-site\>\BIN\X64\setup.exe**.  
-
-6.  Selecteer op de pagina **Aan de slag** de optie **Siteonderhoud uitvoeren of deze site resetten**en klik op **Volgende**.  
-
-7.  Selecteer de optie **SQL Server-configuratie wijzigen** en klik vervolgens op **Volgende**.  
-
-8.  Configureer de volgende instellingen opnieuw voor de sitedatabase:  
-
-    -   **Naam van SQL Server:** Voer de naam van de server die nu als host fungeert voor de sitedatabase.  
-
-    -   **Exemplaar:** Geef het benoemde exemplaar dat als host fungeert voor de sitedatabase of laat dit leeg als de database zich op het standaardexemplaar.  
-
-    -   **Database:** Laat u de naam zoals deze wordt weergegeven. Dit is de naam van de huidige sitedatabase.  
-
-9. Nadat u de informatie voor de nieuwe locatie van de database hebt opgegeven, voltooit u de installatie volgens uw normale proces en configuraties. Als Setup is voltooid, wordt de site opnieuw opgestart en wordt de nieuwe locatie van de database in gebruik genomen.  
-
-10. Volg de instructies in [Een beschikbaarheidsgroep verwijderen](https://msdn.microsoft.com/library/ff878113\(v=sql.120\).aspx) in de documentatie van SQL Server om de servers op te schonen die lid waren van de beschikbaarheidsgroep.
+## <a name="next-steps"></a>Volgende stappen
+Nadat u weet de vereisten wat, beperkingen en wijzigingen aan algemene taken die vereist zijn voor het gebruik van beschikbaarheidsgroepen, Zie [beschikbaarheidsgroepen configureren voor Configuration Manager](/sccm/core/servers/deploy/configure/configure-aoag), voor procedures voor het instellen en configureren van uw site voor het gebruik van beschikbaarheidsgroepen.
 
