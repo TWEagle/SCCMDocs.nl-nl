@@ -15,22 +15,24 @@ caps.latest.revision: 40
 author: Mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 6f9e6e93fce95666503907010a5c253158c5de7c
-ms.openlocfilehash: b9777e8cfa63eda77512e4837de17b99c792a036
+ms.translationtype: MT
+ms.sourcegitcommit: 1035dbbf944a3a467d637a4a948a75b0946eb711
+ms.openlocfilehash: a9e03d4c5b290886bda87fae41e4df362eca1b71
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/07/2017
+ms.lasthandoff: 07/11/2017
 
 ---
-# <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Wat is er nieuw in hybride mobile device management met System Center Configuration Manager en Microsoft Intune
+# Wat is er nieuw in hybride mobile device management met System Center Configuration Manager en Microsoft Intune
+<a id="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune" class="xliff"></a>
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 Dit artikel bevat informatie op de nieuwe mobiele apparaat management (MDM)-functies die beschikbaar zijn voor hybride implementaties met System Center Configuration Manager en Microsoft Intune.  
 
-##  <a name="compatibility-with-configuration-manager-versions"></a>Compatibiliteit met versies van Configuration Manager  
+##  Compatibiliteit met versies van Configuration Manager
+<a id="compatibility-with-configuration-manager-versions" class="xliff"></a>  
 
- Elke sectie van dit artikel vindt u hybridefuncties onder 3 verschillende categorieën. Gebruik de volgende richtlijnen om te bepalen of de functies in elke categorie compatibel is met verschillende versies van Configuration Manager:  
+ Elke sectie van dit artikel vindt u hybridefuncties onder drie verschillende categorieën. Gebruik de volgende richtlijnen om te bepalen of de functies in elke categorie compatibel is met verschillende versies van Configuration Manager:  
 
 |Functie categorieën|Beschrijving|
 |-|-|
@@ -38,11 +40,23 @@ Dit artikel bevat informatie op de nieuwe mobiele apparaat management (MDM)-func
 |**Nieuw in Configuration Manager Technical Preview**| Alle functies die worden vermeld in deze categorie werken alleen met de opgegeven Technical Preview-versie. Als u wilt deze functies uit te proberen, moet u de Technical Preview-versie die is opgegeven in de beschrijving van de functie installeren. Zie voor meer informatie [Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md).|
 |**Nieuw in Configuration Manager (huidige vertakking)**| Alle functies die worden vermeld in deze categorie werken alleen met de opgegeven versie van Configuration Manager (huidige vertakking), zoals versie 1511 of 1602. Als u een oudere versie van Configuration Manager voor uw hybride implementatie gebruikt, moet u upgraden naar de Configuration Manager (huidige vertakking) versie opgegeven in de beschrijving van de functie. Zie voor meer informatie [upgraden naar System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|
 
-## <a name="june-2017"></a>Juni 2017
+## Juli 2017
+<a id="july-2017" class="xliff"></a>
 
-### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune
+### Nieuw in Microsoft Intune
+<a id="new-in-microsoft-intune" class="xliff"></a>
 
-- **Wijzigen van uw MDM-instantie**
+- **Kennisgeving voor ondersteunde versies van Android toegevoegd**
+
+    Een nieuwe melding is toegevoegd voor ondersteunde versies van Android. Zie voor meer informatie [einde van ondersteuning voor Android 4.3 en lagere](#notices).
+
+## Juni 2017
+<a id="june-2017" class="xliff"></a>
+
+### Nieuw in Microsoft Intune
+<a id="new-in-microsoft-intune" class="xliff"></a>
+
+- **Uw MDM-instantie wijzigen**
 
   Vanaf versie 1610 van Configuration Manager en Microsoft Intune version 1705, kunt u uw MDM-instantie zonder contact opnemen met Microsoft Support en zonder de registratie ongedaan maken en registreren van uw bestaande beheerde apparaten. Zie voor meer informatie [wijzigen van uw MDM-instantie]( /sccm/mdm/deploy-use/change-mdm-authority).
 
@@ -50,17 +64,17 @@ Dit artikel bevat informatie op de nieuwe mobiele apparaat management (MDM)-func
 
   De Intune Managed Browser kunnen nu geïntegreerd met de service Azure AD-toepassingsproxy gebruikers toegang biedt tot interne websites, zelfs wanneer ze extern werken. URL van de site invoeren gebruikers van de browser gewoon als ze normaal en de Managed Browser de aanvraag via de toepassingsgateway proxy in het web stuurt. Zie voor meer informatie [toegang tot het Internet beheren met beheerde-browserbeleid](/intune/app-configuration-managed-browser).
 
-- **Bedrijfsportal-app voor Android is nu een nieuwe ervaring voor eindgebruikers voor App-beveiligingsbeleid**
+- **Bedrijfsportal-app voor Android is nu een nieuwe ervaring voor de eindgebruiker voor App-beveiligingsbeleid**
 
   Op basis van feedback van klanten, hebben we de bedrijfsportal-app voor Android om weer te geven gewijzigd een **toegang bedrijf inhoud** knop. De bedoeling is om te voorkomen dat eindgebruikers onnodig gaan via het registratieproces wanneer ze alleen toegang tot apps die ondersteuning bieden voor App-beleid voor beveiliging, een functie van Intune-beheer van mobiele toepassingen nodig. U kunt deze wijzigingen kan zien op de [wat is er nieuw in app UI](/intune/whats-new-app-ui) pagina.
 
 - **Nieuwe menu Actie eenvoudig bedrijfsportal verwijderen**
 
-  Op basis van feedback van gebruikers, is de bedrijfsportal-app voor Android een nieuwe menu Actie voor het initiëren van het verwijderen van de bedrijfsportal van uw apparaat toegevoegd. Deze actie verwijdert het apparaat uit Intune-beheer, zodat de app kan worden verwijderd van het apparaat door de gebruiker. U kunt deze wijzigingen kan zien op de [wat is er nieuw in app UI](/intune/whats-new-app-ui) pagina en in de [Android eindgebruikersdocumentatie](/intune-user-help/unenroll-your-device-from-intune-android).
+  Op basis van feedback van gebruikers, is de bedrijfsportal-app voor Android een nieuwe menu Actie voor het initiëren van het verwijderen van de bedrijfsportal van uw apparaat toegevoegd. Deze actie verwijdert het apparaat uit Intune-beheer, zodat de app kan worden verwijderd van het apparaat door de gebruiker. U kunt deze wijzigingen kan zien op de [wat is er nieuw in gebruikersinterface-app](/intune/whats-new-app-ui) pagina en in de [documentatie voor Android-eindgebruikers](/intune-user-help/unenroll-your-device-from-intune-android).
 
 - **Verbeteringen in de app worden gesynchroniseerd met Windows 10 auteurs Update**
 
-  De bedrijfsportal-app voor Windows 10 worden nu automatisch synchronisatie voor aanvragen van de app installeren voor apparaten met Windows 10 auteurs Update (versie 1703). Zo beperkt u het probleem van app-installaties afslaan tijdens de status 'Sync in behandeling'. Bovendien kunnen gebruikers zich kunnen handmatig een synchronisatie uit vanuit de app te starten. U kunt deze wijzigingen kan zien op de [wat is er nieuw in app UI](/intune/whats-new-app-ui) pagina.
+  De bedrijfsportal-app voor Windows 10 nu start automatisch een synchronisatie voor aanvragen van de app installeren voor apparaten met Windows 10 auteurs Update (versie 1703). Dit vermindert het probleem van app-installaties afslaan tijdens de status 'Sync in behandeling'. Bovendien kunnen gebruikers zich aan om een synchronisatie uit vanuit de app handmatig te starten. U kunt deze wijzigingen kan zien op de [wat is er nieuw in app UI](/intune/whats-new-app-ui) pagina.
 
 - **Nieuwe begeleide ervaring voor Windows 10-bedrijfsportal**
 
@@ -76,7 +90,8 @@ Dit artikel bevat informatie op de nieuwe mobiele apparaat management (MDM)-func
 
   Gebruikers van iOS-apparaten zien mogelijk onze nieuwe account kiezen wanneer ze zich in de bedrijfsportal als ze hun werk- of gebruikt schoolaccount voor aanmelding bij andere Microsoft-apps. Zie voor meer informatie [wat is er nieuw in app UI](/intune/whats-new-app-ui).
 
-### <a name="new-in-configuration-manager-technical-preview-1706"></a>Nieuw in Configuration Manager Technical Preview 1706
+### Nieuw in Configuration Manager Technical Preview 1706
+<a id="new-in-configuration-manager-technical-preview-1706" class="xliff"></a>
 
 - **Nieuwe beleidsinstellingen voor mobile application management**    
 
@@ -113,13 +128,15 @@ Dit artikel bevat informatie op de nieuwe mobiele apparaat management (MDM)-func
   U kunt een Mac OS VPN-profiel maken met Cisco (IPsec) als het verbindingstype. Zie voor meer informatie [VPN-profielen maken](/sccm/mdm/deploy-use/create-vpn-profiles#create-vpn-profiles).
 
 
-## <a name="april-2017"></a>April 2017
+## April 2017
+<a id="april-2017" class="xliff"></a>
 
-### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune
+### Nieuw in Microsoft Intune
+<a id="new-in-microsoft-intune" class="xliff"></a>
 
 - **MyApps beschikbaar voor Managed Browser**
 
-  Microsoft MyApps hebben nu een betere ondersteuning binnen de Managed Browser. Beheerde Browsergebruikers die niet zijn bedoeld voor het beheer wordt geopend rechtstreeks aan de service MyApps, waar ze toegang krijgen tot hun admin ingericht SaaS-apps. Gebruikers die zijn bedoeld voor het beheer van Intune blijft MyApps op de ingebouwde Managed Browser bladwijzer toegankelijk.
+  Microsoft MyApps hebben nu een betere ondersteuning binnen de Managed Browser. Beheerde Browsergebruikers die niet zijn bedoeld voor het beheer wordt geopend rechtstreeks aan de service MyApps, waar ze toegang krijgen tot hun admin ingericht SaaS-apps. Gebruikers die zijn bedoeld voor het beheer van Intune blijven MyApps van de ingebouwde Managed Browser bladwijzer toegang moeten hebben.
 
 - **Nieuwe pictogrammen voor de Managed Browser en de bedrijfsportal**
 
@@ -127,23 +144,26 @@ Dit artikel bevat informatie op de nieuwe mobiele apparaat management (MDM)-func
 
   Bijgewerkte pictogrammen voor de Android, iOS en Windows-versies van de app voor het verbeteren van de consistentie met andere apps in EM + S is ook ontvangen van de bedrijfsportal. Deze pictogrammen worden verschillende platforms van April eind mei geleidelijk uitgebracht.
 
-- **Aanmelden voortgangsindicator in Android-bedrijfsportal**
+- **Meld u aan voortgangsindicator in Android-bedrijfsportal**
 
-  Een update voor de Android-bedrijfsportal-app toont een voortgangsindicator aanmelden wanneer de gebruiker wordt gestart of de app hervat. De indicator doorloopt nieuwe statussen, beginnen met 'Verbinden...' vervolgens 'Ondertekening in...' en 'Controleren voor de beveiligingsvereisten...' voorafgaand aan zodat de gebruiker toegang tot de app. U kunt de nieuwe schermen voor de bedrijfsportal-app voor Android zien op de [wat is er nieuw in Intune op de pagina app UI](/intune/whats-new/whats-new-in-intune-app-ui.md).
+  Een update voor de Android-bedrijfsportal-app bevat een teken in voortgangsindicator, wanneer de gebruiker wordt gestart of de app hervat. De indicator doorloopt nieuwe statussen, beginnen met 'Verbinden...' vervolgens 'Ondertekening in...' en 'Controleren voor de beveiligingsvereisten...' voorafgaand aan zodat de gebruiker toegang tot de app. U kunt de nieuwe schermen voor de bedrijfsportal-app voor Android zien op de [wat is er nieuw in Intune op de pagina app UI](/intune/whats-new/whats-new-in-intune-app-ui.md).
 
 - **Toegang tot SharePoint Online blokkeren apps**
 
   U kunt een beleid voor voorwaardelijke toegang op basis van een app voor het blokkeren van apps, waarvoor geen app protection-beleid toegepast naar hen nu toegang tot maken [SharePoint Online](/InTune/deploy-use/mam-ca-for-sharepoint-online). In het scenario voor voorwaardelijke toegang op basis van apps, kunt u de apps die u wilt toegang hebben tot SharePoint Online met Azure portal.
 
-### <a name="new-in-configuration-manager-technical-preview-1704"></a>Nieuw in Configuration Manager Technical Preview 1704
+### Nieuw in Configuration Manager Technical Preview 1704
+<a id="new-in-configuration-manager-technical-preview-1704" class="xliff"></a>
 
 - **Android-apps met app-configuratiebeleid configureren**
 
   U kunt app-configuratiebeleid in System Center Configuration Manager (Configuration Manager) vooraf geconfigureerde instellingen distribueren wanneer een gebruiker een app uitvoert op Android gebruiken voor werk apparaten. Configuratiebeleid voor android-app zijn alleen beschikbaar voor apparaten met Android for Work en gelden voor goedgekeurde apps uit de Play voor werk store. Zie voor meer informatie over het uitproberen van deze functie [configureren Android-apps met configuratiebeleid voor apps](/sccm/core/get-started/capabilities-in-technical-preview-1704#configure-android-apps-with-app-configuration-policies).
 
-## <a name="march-2017"></a>Maart 2017
+## Maart 2017
+<a id="march-2017" class="xliff"></a>
 
-### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune
+### Nieuw in Microsoft Intune
+<a id="new-in-microsoft-intune" class="xliff"></a>
 
 - **Nieuwe gebruikerservaring op voor de bedrijfsportal-app voor Android**
 
@@ -163,7 +183,7 @@ Dit artikel bevat informatie op de nieuwe mobiele apparaat management (MDM)-func
 
 - **Verbeterde ondersteuning voor Android-gebruikers op basis van China**
 
-  Wegens het ontbreken van de Google Play Store in China, moeten Android-apparaten ophalen met apps Chinees marktplaatsen. De bedrijfsportal wordt ondersteuning voor deze werkstroom door Android gebruikers in China om de bedrijfsportal-App en Outlook-apps downloaden van lokale app stores te leiden. Dit verbetert de gebruikerservaring wanneer beleid voor voorwaardelijke toegang ingeschakeld zijn, zowel voor beheer van mobiele apparaten en voor Mobile Application Management. De bedrijfsportal-App en Outlook-apps voor Android zijn beschikbaar op de volgende Chinees app worden opgeslagen:
+  Wegens het ontbreken van de Google Play Store in China, moeten Android-apparaten ophalen met apps Chinees marktplaatsen. De bedrijfsportal ondersteunt deze werkstroom door het omleiden van Android-gebruikers in China om de bedrijfsportal-App en Outlook-apps downloaden van lokale app stores. Dit verbetert de ervaring van de gebruiker wanneer het beleid voor voorwaardelijke toegang ingeschakeld, zowel voor beheer van mobiele apparaten en voor Mobile Application Management. De bedrijfsportal-App en Outlook-apps voor Android zijn beschikbaar op de volgende Chinees app worden opgeslagen:
 
   - [Baidu](https://go.microsoft.com/fwlink/?linkid=836946)
   - [Xiaomi](https://go.microsoft.com/fwlink/?linkid=836947)
@@ -184,17 +204,19 @@ Dit artikel bevat informatie op de nieuwe mobiele apparaat management (MDM)-func
 
   De Microsoft-Teams apps voor iOS en Android zijn nu beschikbaar met de mogelijkheden van Intune mobile Application management (MAM), zodat u dat uw teams vrijelijk werken op apparaten zorgen kunt, terwijl u ervoor zorgt dat conversaties en zakelijke gegevens op elke beurt beveiligd. Zie voor meer informatie [de aankondiging van de Microsoft-Teams](https://blogs.technet.microsoft.com/enterprisemobility/2017/03/14/microsoft-teams-is-now-generally-available-and-mam-enabled-on-ios-and-android/) op de Enterprise Mobility and Security-blog.
 
-### <a name="new-in-configuration-manager-technical-preview-1703"></a>Nieuw in Configuration Manager Technical Preview 1703
+### Nieuw in Configuration Manager Technical Preview 1703
+<a id="new-in-configuration-manager-technical-preview-1703" class="xliff"></a>
 
 - **Extra ondersteuning voor Apple Volume Purchase Program-scenario 's**
 
    Vanaf Technical Preview 1703, hebt u nu ondersteuning voor het volgende Volume Purchase Program (VPP)-scenario's:
 
-   - Apparaat licenties - Apps die ondersteuning voor de apparaat-licentieverlening en zijn geïmplementeerd op apparaatverzamelingen slechts één licentie per apparaat vereist.  Voorheen moest u een licentie voor elke gebruiker op een apparaat gebruiken. Zie voor meer informatie [iOS volume-aankoopprogramma gekochte apps implementeren op apparaatverzamelingen](/sccm/core/get-started/capabilities-in-technical-preview-1703#deploy-volume-purchased-ios-apps-to-device-collections).
+   - Apparaat licenties - Apps die ondersteuning voor de apparaat-licentieverlening en geïmplementeerd in apparaatverzamelingen nu slechts één licentie per apparaat nodig.  Voorheen moest u een licentie voor elke gebruiker op een apparaat gebruiken. Zie voor meer informatie [iOS volume-aankoopprogramma gekochte apps implementeren op apparaatverzamelingen](/sccm/core/get-started/capabilities-in-technical-preview-1703#deploy-volume-purchased-ios-apps-to-device-collections).
    - Gebruik van meerdere VPP-tokens in een enkel hybride-tenant met beide tokens voor het beheer van VPP-apps.
    - Gebruik van VPP-tokens education met de mogelijkheid om onderscheid maken tussen bedrijven en education tokens.
 
-### <a name="new-in-configuration-manager-current-branch"></a>Nieuw in Configuration Manager (huidige vertakking)
+### Nieuw in Configuration Manager (huidige vertakking)
+<a id="new-in-configuration-manager-current-branch" class="xliff"></a>
 
 De volgende functies die eerder beschikbaar in Configuration Manager Technical Preview-versies waren zijn nu beschikbaar in hybride implementaties met Intune en Configuration Manager (huidige vertakking) versie 1702.
 
@@ -207,7 +229,7 @@ De volgende aanvullende hybridefuncties zijn ook opgenomen in versie 1702 van Co
 
 - **Verbeterde ondersteuning voor Apple Volume Purchase Program (VPP)**
 
-  - U kunt nu gelicentieerde apps implementeren op apparaten, evenals gebruikers. Afhankelijk van de apps mogelijkheid om apparaat-licentieverlening te ondersteunen, wordt een juiste licentie wordt geclaimd bij het implementeren, als volgt:
+  - U kunt nu gelicentieerde apps implementeren op apparaten, evenals gebruikers. Afhankelijk van de mogelijkheid apps ter ondersteuning van apparaat-licentieverlening, wordt een juiste licentie aangevraagd bij het implementeren, als volgt:
 
     | Versie van Configuration Manager | App ondersteunt apparaat licentieverlening? | Implementatietype van de verzameling | De geclaimde licentie |
     |-|-|-|-|
@@ -226,19 +248,21 @@ De volgende aanvullende hybridefuncties zijn ook opgenomen in versie 1702 van Co
 
   Zie voor meer informatie over volume-purchased iOS-apps, [volume-purchased iOS-apps beheren](/sccm/mdm/deploy-use/manage-volume-purchased-ios-apps).
 
-- **Ondersteuning voor LOB-apps in Windows Store voor bedrijven**
+- **Ondersteuning voor line-of-business-apps in Windows Store voor bedrijven**
 
   U kunt aangepaste LOB-apps vanuit de Windows Store voor bedrijven nu synchroniseren.
 
 - **Nieuwe mobiele Threat verdediging controlehulpprogramma 's**
 
-    U hebt nu de nieuwe manieren voor het bewaken van de compatibiliteitsstatus met uw serviceprovider Mobile Threat verdediging.
+    U hebt nu een nieuwe manieren om de compatibiliteitsstatus met uw serviceprovider Mobile Threat verdediging te controleren.
 
     Zie voor meer informatie [Mobile Threat verdediging naleving controleren](/sccm/mdm/deploy-use/monitor-mobile-threat-defense-compliance).
 
-## <a name="february-2017"></a>Februari 2017
+## Februari 2017
+<a id="february-2017" class="xliff"></a>
 
-### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune
+### Nieuw in Microsoft Intune
+<a id="new-in-microsoft-intune" class="xliff"></a>
 
 - **De bedrijfsportalwebsite modernisering**
 
@@ -248,7 +272,8 @@ De volgende aanvullende hybridefuncties zijn ook opgenomen in versie 1702 van Co
 
   Het adres van de MDM-server voor het inschrijven van Windows en Windows Phone-apparaten is gewijzigd van manage.microsoft.com in enrollment.manage.microsoft.com. Uw gebruiker enrollment.manage.microsoft.com gebruiken als het adres van de MDM-server als gevraagd om deze tijdens het inschrijven van een Windows waarschuwen of en Windows Phone-apparaat. Deze update moet ook een CNAME in DNS die enterpriseenrollment.contoso.com omleidt naar manage.microsoft.com worden vervangen door een CNAME in DNS die enterpriseenrollment.contoso.com omleidt naar EnterpriseEnrollment-s.manage.microsoft.com. Ga naar http://aka.ms/intuneenrollsvrchange voor meer informatie over deze wijziging.
 
-### <a name="new-in-configuration-manager-technical-preview-1702"></a>Nieuw in Configuration Manager Technical Preview 1702
+### Nieuw in Configuration Manager Technical Preview 1702
+<a id="new-in-configuration-manager-technical-preview-1702" class="xliff"></a>
 
 - **Android voor Work-ondersteuning**
 
@@ -256,7 +281,7 @@ De volgende aanvullende hybridefuncties zijn ook opgenomen in versie 1702 van Co
 
 - **Instellingen voor naleving van niet-compatibele Apps**
 
-  U kunt nu regels van de niet-compatibele apps voor Android en iOS-apps in een nalevingsbeleid maken. Als apparaten de opgegeven toepassingen geïnstalleerd zijn, wordt deze 'niet-compatibele' worden gemarkeerd en geen toegang meer tot bedrijfsbronnen op basis van beleid voor voorwaardelijke toegang in plaats. Voor meer informatie [voorwaardelijke toegang apparaat naleving beleid verbeteringen](/sccm/core/get-started/capabilities-in-technical-preview-1702#conditional-access-device-compliance-policy-improvements).
+  U kunt nu regels van de niet-compatibele apps voor Android en iOS-apps in een nalevingsbeleid maken. Als apparaten de opgegeven toepassingen geïnstalleerd zijn, wordt deze 'niet-compatibele' zijn gemarkeerd en geen toegang meer tot bedrijfsbronnen op basis van beleid voor voorwaardelijke toegang in plaats. Voor meer informatie [voorwaardelijke toegang apparaat naleving beleid verbeteringen](/sccm/core/get-started/capabilities-in-technical-preview-1702#conditional-access-device-compliance-policy-improvements).
 
 - **PFX-certificaat maken en distributie en het S/MIME-ondersteuning**
 
@@ -266,9 +291,11 @@ De volgende aanvullende hybridefuncties zijn ook opgenomen in versie 1702 van Co
    
     U hebt nu 42 aanvullende iOS-instellingen die u als onderdeel van een configuratie-item configureren kunt. De meeste instellingen (35 in alle) zijn voor onder supervisie iOS-apparaten toegevoegd. Zie voor meer informatie [nieuwe instellingen voor naleving voor iOS-apparaten](/sccm/core/get-started/capabilities-in-technical-preview-1702#new-compliance-settings-for-ios-devices).
 
-## <a name="january-2017"></a>Januari 2017
+## Januari 2017
+<a id="january-2017" class="xliff"></a>
 
-### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune
+### Nieuw in Microsoft Intune
+<a id="new-in-microsoft-intune" class="xliff"></a>
 
 - **Ondersteuning voor android 7.1.1**
 
@@ -278,17 +305,27 @@ De volgende aanvullende hybridefuncties zijn ook opgenomen in versie 1702 van Co
 
   Wanneer apparaten van gebruikers contact met Intune kwijtraken, kunt u ze nieuwe mogelijke problemen en oplossingen om u te helpen weer toegang tot bedrijfsbronnen op te geven. Zie [apparaten zijn niet actief of de beheerconsole kan niet communiceren met hen](/intune/troubleshoot/troubleshoot-device-enrollment-in-intune#devices-are-inactive-or-the-admin-console-cannot-communicate-with-them).
 
-### <a name="new-in-configuration-manager-technical-preview-1701"></a>Nieuw in Configuration Manager Technical Preview 1701
+### Nieuw in Configuration Manager Technical Preview 1701
+<a id="new-in-configuration-manager-technical-preview-1701" class="xliff"></a>
 
 - **Android en iOS-versies worden niet meer targetable in wizards voor hybride MDM maken**
 
   Vanaf Technical Preview 1701 voor hybride mobile device management (MDM) is hoeft niet langer te gericht op specifieke versies van Android en iOS bij het maken van nieuwe beleidsregels en profielen voor Intune-beheerde apparaten. Met deze wijziging kunnen hybride implementaties ondersteuning bieden sneller op nieuwe versies van Android en iOS zonder een nieuwe release van Configuration Manager of een uitbreiding. Zie voor meer informatie, [Android en iOS-versies worden niet meer in wizards voor het maken van targetable](/sccm/core/get-started/capabilities-in-technical-preview-1701#android-and-ios-versions-are-no-longer-targetable-in-creation-wizards-for-hybrid-mdm).
 
 
-## <a name="notices"></a>Aankondigingen
+## Aankondigingen
+<a id="notices" class="xliff"></a>
 
-### <a name="system-center-2012-configuration-sp1-and-system-center-2012-r2-configuration-manager-rtm-support-for-hybrid-mobile-device-management-ending-on-april-10-2017"></a>System Center 2012 Configuration SP1 en System Center 2012 R2 Configuration Manager (RTM): Ondersteuning voor hybride mobile device management eindigt op 10 April 2017
+### Einde van ondersteuning voor Android 4.3 en lager
+<a id="end-of-support-for-android-43-and-lower" class="xliff"></a>
+<!---1171127--->
+*Juli, 6, 2017*
 
+Beheerde apps en de bedrijfsportal-app voor Android moeten Android 4.4 en hoger voor toegang tot bedrijfsresources. Apparaten die niet worden bijgewerkt voordat het begin van oktober niet langer toegang tot de bedrijfsportal of deze apps. Door December moeten alle ingeschreven apparaten verplicht worden gesteld in December, wat leidt tot verlies van toegang tot bedrijfsbronnen. Als u van beveiligingsbeleid app zonder MDM gebruikmaakt, apps ontvangt geen updates en de kwaliteit van hun ervaring zal afnemen.
+
+
+### System Center 2012 Configuration SP1 en System Center 2012 R2 Configuration Manager (RTM): Ondersteuning voor hybride mobile device management eindigt op 10 April 2017
+<a id="system-center-2012-configuration-sp1-and-system-center-2012-r2-configuration-manager-rtm-support-for-hybrid-mobile-device-management-ending-on-april-10-2017" class="xliff"></a>
 *11 januari 2017*
 
 Ondersteuning voor System Center 2012 Configuration Manager SP1 en System Center 2012 R2 Configuration Manager RTM beëindigd op 12 juli 2016. Vervolgens kunt u ondersteuning voor deze verbinding maken met de Microsoft Intune-service voor hybride MDM op 10 April 2017 eindigt releases. Na deze datum functioneert hybride MDM deze uitgaven. Beheerde apparaten wordt in wezen worden beheerd, zoals de Intune-Connector niet meer verbinding met de Intune-service maken wordt. Configuration Manager-gegevens (zoals beleidsregels en toepassingen) niet stromen naar Intune en beheerd apparaat wordt niet gegevensstroom naar beneden op Configuration Manager totdat u een upgrade wordt uitgevoerd.
@@ -300,13 +337,15 @@ Aanvullende bronnen:
 -   [Upgrade naar System Center 2012 R2 Configuration Manager SP1](https://technet.microsoft.com/library/jj822981.aspx#BKMK_PlanningR2SP1Upgrade)
 -   [Upgrade naar System Center 2012 Configuration Manager SP2](https://technet.microsoft.com/library/jj822981.aspx#BKMK_PlanningSP2Upgrade)
 
-### <a name="windows-phone-8-company-portal-upload-deprecated"></a>Windows Phone 8-bedrijfsportal uploaden afgeschaft
+### Windows Phone 8-bedrijfsportal uploaden afgeschaft
+<a id="windows-phone-8-company-portal-upload-deprecated" class="xliff"></a>
 *25 oktober 2016*
 
 De mogelijkheid voor het uploaden van een ondertekende bedrijfsportal-app is verwijderd uit de Configuration Manager-console, zoals ondersteuning voor Intune wordt afgeschaft voor Windows 8, Windows Phone 8 en Windows RT en ondersteuning voor de Windows Phone 8-bedrijfsportal wordt beëindigd in November.  Windows 8, Windows Phone 8 en Windows RT-apparaten die al zijn ingeschreven wordt nog steeds ondersteund, maar de registratie van extra apparaten via deze platforms worden niet ondersteund.
 
 
-### <a name="see-also"></a>Zie ook
+### Zie ook
+<a id="see-also" class="xliff"></a>
 
 - [Hybride MDM-functies uit het verleden](whats-new-hybrid-archive.md)
 - [Wat is er nieuw voor MDM in System Center 2012 Configuration Manager](https://technet.microsoft.com/library/mt445560.aspx)
