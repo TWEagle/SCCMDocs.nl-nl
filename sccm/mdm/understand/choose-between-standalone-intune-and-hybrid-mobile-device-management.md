@@ -1,8 +1,8 @@
 ---
-title: Kies Intune standalone of hybride MDM | Microsoft-documenten
-description: Kies of u beheer van hybride mobiele apparaten met Intune en Configuration Manager implementeren of zelfstandige Intune-versie worden uitgevoerd.
+title: Kies Intune standalone of hybride MDM | Microsoft Docs
+description: Kies of u voor het implementeren van hybride mobile device management met Intune en Configuration Manager of Intune zelfstandig worden uitgevoerd.
 ms.custom: na
-ms.date: 03/05/2017
+ms.date: 07/18/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,45 +12,47 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 73ff9bb9-e605-4b68-92a1-487684fed42d
 caps.latest.revision: 10
-author: Mtillman
-ms.author: mtillman
+author: dougeby
+ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
-ms.openlocfilehash: cbdcf686b9565c56c7a6fca6086d94d9e45f641a
+ms.translationtype: MT
+ms.sourcegitcommit: 648bc6b96aa5ccc834442a962e6d5b5125f88bb5
+ms.openlocfilehash: ddb6d47e5dba4fddd6fa811d83b1bf0c91ad26f9
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/19/2017
 
 ---
-# <a name="choose-between-microsoft-intune-standalone-and-hybrid-mobile-device-management-with-system-center-configuration-manager"></a>Kies tussen Microsoft Intune zelfstandige en hybride beheer van mobiele apparaten met System Center Configuration Manager
+# <a name="choose-between-microsoft-intune-standalone-and-hybrid-mobile-device-management-with-system-center-configuration-manager"></a>Kiezen tussen Microsoft Intune standalone en hybride beheer van mobiele apparaten met System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Een van de meeste antwoorden op veelgestelde vragen over het beheer van mobiele apparaten (MDM) met Microsoft Intune is "Moet ik Intune geïntegreerd met Configuration Manager (hybride MDM) of zelfstandige Intune-versie worden uitgevoerd in de alleen-cloudconfiguratie?" Als u wilt beantwoorden die moet u zorgvuldig vergelijken van de twee opties en overweeg updates binnenkort in vroege 2017 zelfstandige versie van Intune.
+Een van de meest Veelgestelde vragen met betrekking tot beheer van mobiele apparaten (MDM) met Microsoft Intune is "Moet ik Intune integreert met Configuration Manager (hybride MDM) of Intune zelfstandig worden uitgevoerd in de alleen-cloudconfiguratie?" Als u wilt deze vraag te beantwoorden, moet u zorgvuldig de twee opties vergelijken.
 
-## <a name="what-is-intune-standalone"></a>Wat is een zelfstandige versie van Intune?
+## <a name="intune-standalone"></a>Zelfstandige versie van Intune
+Zelfstandige Intune-versie is het aanbevolen implementatietopologie van Microsoft. Zelfstandige versie van Intune is een alleen-MDM-oplossing en wordt beheerd met behulp van een webconsole die toegankelijk is vanaf een willekeurige plaats in de hele wereld. Intune datacenters worden gehost in Noord-Amerika, Europa en Azië. Omdat Intune een cloudservice is, kunt u Intune-beheer implementeren op uw apparaten in een relatief korte periode.
 
-Zelfstandige Intune is een alleen-MDM-oplossing die omvat geen lokale bronnen en wordt beheerd met een webconsole die toegankelijk zijn vanuit overal ter wereld. Intune datacenters worden gehost in Noord-Amerika, Europa en Azië. Omdat Intune een cloudservice is, kunt u beheer van Intune kunt implementeren op uw apparaten in een relatief korte periode. U kunt desgewenst ook Intune standalone als uw organisatie is verplaatst naar de cloud.
+Klanten zoeken in het algemeen sneller en eenvoudiger voor het implementeren van de topologie van de zelfstandige omdat er geen afhankelijkheid voor on-premises onderdelen. Intune standalone is nu op de Microsoft Azure cloud-platform en biedt veel geavanceerde functies, zoals:
+- Geïntegreerde enterprise mobility management platform - een geïntegreerde cloud-platform en Administrator ervaren in Azure-portal voor Intune, Azure AD Premium en Azure Information Protection.
+- Beheer van mobiele apparaten - mogelijkheden voor uitgebreide mobile device management en informatie-beveiliging.
+- Schalen: implementeren en beheren van mobiele apparaten zonder dat u over schalen.
+- Toegangsbeheer op basis van rollen: toegang beperken tot beheerfuncties op basis van rollen en bereiken.
+- Toegang op programmeerniveau (API) - ondersteuning voor Microsoft Graph API en beheeropties SDK en PowerShell.
+- Webconsole - gebaseerd op webstandaarden met ondersteuning voor de meeste moderne webbrowsers op basis van een HTML-5-console.
+- Geavanceerde rapportage - de mogelijkheid om aangepaste rapporten te maken.
+- Flexibiliteit - eenvoudige instellingen en snelle levering van nieuwe mogelijkheden.
 
-## <a name="what-is-hybrid-mdm-with-configuration-manager"></a>Wat is de hybride MDM met Configuration Manager?
 
-Hybride MDM is een oplossing die Intune gebruikt als het kanaal voor de levering van beleidsregels, profielen en toepassingen op apparaten, maar maakt gebruik van Configuration Manager on-premises infrastructuur voor het opslaan en beheren van inhoud en de apparaten beheren. U kunt hybride MDM als u al geïnvesteerd in Configuration Manager hebben en die u wilt uitbreiden om mobiele apparaten te beheren. Een hybride implementatie hebt u "één venster" controle, wat betekent dat u kunt de dezelfde on-premises infrastructuur en de beheerconsole dat voor het beheren van mobiele apparaten met Intune, evenals pc's en servers met de traditionele Configuration Manager-client.
+## <a name="hybrid-mdm-with-configuration-manager"></a>Hybride MDM met Configuration Manager
+Hybride MDM is een oplossing die mogelijkheden voor mobile device management van Intune in Configuration Manager integreert. Het maakt gebruik van Intune-beleid, profielen en toepassingen op apparaten als het kanaal levering maar maakt gebruik van Configuration Manager on-premises infrastructuur voor het beheren van inhoud en de apparaten worden beheerd. Een hybride implementatie kunt u 'één venster' bepalen.  Dit betekent dat u de dezelfde on-premises infrastructuur en de beheerconsole voor het beheren van mobiele apparaten met zowel Intune als pc's en servers met de traditionele client van Configuration Manager kunt gebruiken. U kunt een hybride MDM kiezen om de volgende redenen:  
+- U wilt beheren, zowel mobiele apparaten die zijn ingeschreven bij Intune en apparaten beheerd met Configuration Manager-client vanuit dezelfde console beheerdersrechten
+- Uw infrastructuur is vereist dat er meerdere NDES-servers voor de levering van het certificaat voor mobiele apparaten
+- Uw infrastructuur is vereist dat er meerdere Exchange-connectors
+- U vereist ondersteuning voor S/MIME-codering
 
-## <a name="whats-coming-to-intune-standalone-in-early-2017"></a>What's coming zelfstandige versie van Intune in eerdere 2017
 
-Als u tussen zelfstandige en hybride kiest, moet u in overweging functies die zelfstandige versie van Intune in vroege 2017 binnenkort nemen. Hybride MDM heeft vandaag diverse geavanceerde functies die in het verleden werden waarom sommige klanten hun apparaten beheren met hybride MDM in plaats van Intune standalone kiezen:
+## <a name="changing-the-mdm-authority-setting"></a>De MDM-instantie-instelling te wijzigen
+Als u wijzigen van de instelling van de MDM-instantie wilt, kunt u deze zelf zonder contact opnemen met Microsoft Support en zonder de registratie ongedaan maken en registreren van uw bestaande beheerde apparaten. Zie voor meer informatie [wijzigen van uw MDM-instantie](/sccm/mdm/deploy-use/change-mdm-authority.md).
 
--   Programmatisch toegang (API) – beheeropties SDK en PowerShell.
-
--   Aangepaste reporting – aangepaste rapporten maken.
-
--   Op rollen gebaseerd toegangsbeheer – Beperk de toegang tot de beheerfuncties op basis van rollen.
-
--   Schalen: implementeren en beheren van meer dan 100.000 mobiele apparaten.
-
--   Door één venster – traditionele PC-clients en Intune-beheerde apparaten met behulp van dezelfde console beheren.
-
-Als u weet vanaf vandaag uw Intune-implementatie plant en hebben een verschillende maand venster voor piloting acceptatie testen en implementeren, kunt u overwegen kiezen Intune standalone nu met dien verstande dat afkomstig is van de cloudservice updates meer functionaliteit zal bevatten. Tijdens de eerste helft van het jaar 2017 ontvangt Intune standalone updates die veel van de geavanceerde functionaliteit van een hybride implementatie met Configuration Manager bevatten. Zelfstandige Intune-versie wordt binnenkort voor het Microsoft Azure cloudplatform worden verplaatst, en met het zal hebben een verbeterde schaalbaarheid, op rollen gebaseerde toegang via de Azure Portal, aangepaste rapporten en programmatisch toegang via de API van de grafiek Azure.
-
-U kunt overschakelen van hybride Intune zelfstandige versie of van zelfstandige hybride, maar het Help-informatie van Microsoft ondersteuning en bewerkingen vereist. Het is ook vereist inschrijvingen en alle apparaten opnieuw te registreren wanneer de management-instantie is gewijzigd.  Microsoft werkt op de switch configuraties in een toekomstige service-update-ervaring te verbeteren.
+> [!NOTE]    
+> U moet Configuration Manager versie 1610 of hoger te wijzigen van uw MDM-instantie in de zelfstandige versie van Intune hebben. Wanneer u een eerdere versie van Configuration Manager hebt, kunt u de MDM-instantie, maar het Help-informatie van Microsoft-ondersteuning en bewerkingen vereist. Ook moet u de registratie ongedaan maakt en al uw apparaten registreren nadat de MDM-instantie wordt gewijzigd.  
 
