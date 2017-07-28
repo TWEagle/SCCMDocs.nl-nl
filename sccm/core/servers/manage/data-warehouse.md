@@ -15,12 +15,11 @@ caps.latest.revision:
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: dc221ddf547c43ab1f25ff83c3c9bb603297ece6
-ms.openlocfilehash: f11a53bbc85b40077b3909568db5ae5552b0456c
+ms.translationtype: MT
+ms.sourcegitcommit: ef42d1483053e9a6c502f4ebcae5a231aa6ba727
+ms.openlocfilehash: c421c3495f56503d5cbda7b1a5ab5350a168912d
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 #  <a name="the-data-warehouse-service-point-for-system-center-configuration-manager"></a>Het datawarehouse-servicepunt voor System Center Configuration Manager
@@ -52,7 +51,7 @@ Wanneer de sitesysteemrol wordt geïnstalleerd, installeert en configureert u de
   - **Beheerder** op de computer die als voor de datawarehouse-database host fungeert.
   - **DB_owner** machtiging op de datawarehouse-database.
   - **DB_reader** en **uitvoeren** sitedatabase machtigingen voor de sites van het hoogste niveau.
--    De datawarehouse-database wordt ondersteund op een standaard of benoemd exemplaar van SQL Server 2012 of later. De editie moet Enterprise of Datacenter.
+-   De datawarehouse-database wordt ondersteund op een standaard of benoemd exemplaar van SQL Server 2012 of later. De editie moet Enterprise of Datacenter.
   - SQL Server AlwaysOn-beschikbaarheidsgroep: Deze configuratie wordt niet ondersteund.
   - SQL Server-Cluster: SQL Server-failoverclusters worden niet ondersteund. Dit komt doordat de datawarehouse-database niet diep is getest op SQL Server-failoverclusters.
   - Als de datawarehouse-database extern van de site server-database is, moet u een aparte licentie hebben voor de SQL Server die als host fungeert voor de database.
@@ -78,7 +77,7 @@ Wanneer u de rol installeert, maakt Configuration Manager de datawarehouse-datab
 **Selectie van Systeemrol** pagina:  
 
 **Algemene** pagina:
--     **Configuration Manager-datawarehouse verbindingsinstellingen voor database**:
+-   **Configuration Manager-datawarehouse verbindingsinstellingen voor database**:
  - **SQL Server FQDN-naam**:  
  Geef de FQDN-naam (Fully qualified domain name) van de server die als host fungeert voor de Data Warehouse-database voor service-punt.
  - **SQL Server-instantienaam, indien van toepassing**:   
@@ -86,7 +85,7 @@ Wanneer u de rol installeert, maakt Configuration Manager de datawarehouse-datab
  - **Databasenaam**:   
  Geef een naam voor de datawarehouse-database.  Configuration Manager maakt de datawarehouse-database met deze naam. Als u de naam van een database die al bestaat op het exemplaar van SQL server opgeeft, wordt Configuration Manager dat de database gebruikt.
  - **SQL Server-poort gebruikt voor verbinding**:   
- Geef het TCP/IP-poortnummer dat is geconfigureerd voor de SQL Server die als host fungeert voor de datawarehouse datbase. Deze poort wordt gebruikt door de datawarehouse-synchronisatieservice verbinding maken met de datawarehouse-database.  
+ Geef de TCP/IP-poortnummer dat is geconfigureerd voor de SQL Server die als host fungeert voor de datawarehouse-database. Deze poort wordt gebruikt door de datawarehouse-synchronisatieservice verbinding maken met de datawarehouse-database.  
 
 **Synchronisatieplanning** pagina:   
 - **Synchronisatieplanning**:
@@ -103,15 +102,15 @@ De sitesysteemrol van het datawarehouse bevat de volgende rapporten, waarvoor ee
  - **Toepassingsimplementatie - historische**:   
  Details weergeven voor de implementatie van de toepassing voor een bepaalde toepassing en de machine.
  - **Endpoint Protection en Software-Update naleving - historische**: Computers weergeven die software-updates ontbreekt.  
- - **Algemene Hardware-inventarisatie - historische**:      
+ - **Algemene Hardware-inventarisatie - historische**:   
  Alle hardware-inventaris voor een specifieke computer weer.
- - **Algemene Software-inventarisatie - historische**:      
+ - **Algemene Software-inventarisatie - historische**:   
  Alle software-inventaris voor een specifieke machine weergeven.
- - **Overzicht van de Health netwerkinfrastructuur - historische**:     
+ - **Overzicht van de Health netwerkinfrastructuur - historische**:  
  Geeft een overzicht van de status van uw Configuration Manager-infrastructuur
- - **Lijst met Malware gedetecteerd - historische**:     
+ - **Lijst met Malware gedetecteerd - historische**:    
  Weergave kwaadaardige software die is aangetroffen in de organisatie.
- - **Software distribueren samenvatting - historische**:     
+ - **Software distribueren samenvatting - historische**:   
  Een samenvatting van softwaredistributie voor een specifieke advertentie en de machine.
 
 
@@ -126,13 +125,13 @@ In tegenstelling tot een verplaatsing van de datawarehouse-database, wordt deze 
 ## <a name="move-the-data-warehouse-database"></a>De Data Warehouse-database verplaatsen
 Gebruik de volgende stappen uit de datawarehouse-database verplaatsen naar een nieuwe SQL-Server:
 
-1.    Gebruik SQL Server Management Studio back-up van de gegevens te datawarehouse-database en herstel vervolgens die database op een SQL-Server op de nieuwe computer die als host voor het datawarehouse fungeert.   
+1.  Gebruik SQL Server Management Studio back-up van de gegevens te datawarehouse-database en herstel vervolgens die database op een SQL-Server op de nieuwe computer die als host voor het datawarehouse fungeert.   
 > [!NOTE]     
 > Nadat u de database naar de nieuwe server teruggezet, zorg ervoor dat de toegangsmachtigingen voor de database op de nieuwe datawarehouse-database dezelfde zijn als ze op de oorspronkelijke datawarehouse-database waren.  
 
-2.    Gebruik de Configuration Manager-console te verwijderen van de datawarehouse-service de sitesysteemrol van de huidige server.
-3.    Installeer de Data Warehouse-servicepunt en geef de naam van de nieuwe SQL-Server en het exemplaar dat als host fungeert voor de Data Warehouse-database die u teruggezet.
-4.    Nadat de sitesysteemrol is geïnstalleerd, wordt de verplaatsing is voltooid.
+2.  Gebruik de Configuration Manager-console te verwijderen van de datawarehouse-service de sitesysteemrol van de huidige server.
+3.  Installeer de Data Warehouse-servicepunt en geef de naam van de nieuwe SQL-Server en het exemplaar dat als host fungeert voor de Data Warehouse-database die u teruggezet.
+4.  Nadat de sitesysteemrol is geïnstalleerd, wordt de verplaatsing is voltooid.
 
 ## <a name="troubleshooting-data-warehouse-issues"></a>Het oplossen van problemen met de datawarehouse
 **Logboekbestanden**:  
@@ -167,7 +166,7 @@ Wanneer u een rapport met inventarisatiegegevens datawarehouse opent, wordt de v
     1. Open IIS, klik op **servercertificaten**, met de rechtermuisknop op **zelfondertekend certificaat maken**, en geef vervolgens de 'beschrijvende naam"van de naam van het certificaat als **Data Warehouse SQL Server Identification Certificate**. Selecteer het certificaatarchief als **persoonlijke**.
     2. Open **SQL Server Configuration Manager**onder **SQL Server-netwerkconfiguratie**, klik met de rechtermuisknop om te selecteren **eigenschappen** onder **protocollen voor MSSQLSERVER**. Klik op de **certificaat** tabblad **Data Warehouse SQL Server Identification Certificate** als het certificaat en sla de wijzigingen.  
     3. Open **SQL Server Configuration Manager**onder **SQL Server-Services**, opnieuw opstarten **SQL Server-service** en **Reporting Service**.
-    4.    Open de Microsoft Management Console (MMC) en voeg de module voor **certificaten**optie voor het beheren van het certificaat voor **computeraccount** van de lokale computer. Vouw vervolgens in de MMC de **persoonlijke** map > **certificaten**, en exporteer de **Data Warehouse SQL Server Identification Certificate** als een **DER encoded binary X.509 (. CER)** bestand.    
+    4.  Open de Microsoft Management Console (MMC) en voeg de module voor **certificaten**optie voor het beheren van het certificaat voor **computeraccount** van de lokale computer. Vouw vervolgens in de MMC de **persoonlijke** map > **certificaten**, en exporteer de **Data Warehouse SQL Server Identification Certificate** als een **DER encoded binary X.509 (. CER)** bestand.    
   2.    Open de MMC-module op de computer die als host fungeert voor SQL Server Reporting Services, en voeg de module voor **certificaten**, en selecteer vervolgens het certificaat voor beheren **computeraccount**. Onder de **vertrouwde basiscertificeringsinstanties** map importeren de **Data Warehouse SQL Server Identification Certificate**.
 
 
@@ -178,7 +177,7 @@ Wanneer u een rapport met inventarisatiegegevens datawarehouse opent, wordt de v
 
 | Stap   | Details  |
 |:------:|-----------|  
-| **1**  |     De siteserver worden overgebracht en -gegevens opslaat in de sitedatabase.  |  
+| **1**  |  De siteserver worden overgebracht en -gegevens opslaat in de sitedatabase.  |  
 | **2**  |      De datawarehouse-servicepunt haalt op basis van de planning en de configuratie, gegevens uit de sitedatabase.  |  
 | **3**  |  De datawarehouse-servicepunt brengt en een kopie van de gesynchroniseerde gegevens worden opgeslagen in de Data Warehouse-database. |  
 **Rapporten**

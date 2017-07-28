@@ -14,11 +14,11 @@ ms.assetid: 00684289-d21a-45f8-b1e3-c5c787d73096
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: f4c46bfab9b40b29654f4e883817a5508ab25b74
-ms.openlocfilehash: 1a38d25fbc26bd1f45c6fa2a0e931536af2d8b2f
+ms.translationtype: MT
+ms.sourcegitcommit: ef42d1483053e9a6c502f4ebcae5a231aa6ba727
+ms.openlocfilehash: b977a79baec73999caa21648adcb6fcfec4a4935
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="capabilities-in-technical-preview-1705-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1705 voor System Center Configuration Manager
@@ -93,9 +93,9 @@ Nadat het hulpprogramma wordt uitgevoerd:
 | **-Ik &lt;SQL Server-instantienaam >**             | *Optioneel* <br> Gebruik deze om de instantie van SQL Server die als host fungeert voor de sitedatabase te identificeren. |
 | **-FDELETE**                              | *Optioneel* <br> Gebruik deze geforceerd wordt verwijderd van een updatepakket zijn gedownload. |  
  **Voorbeelden:**  
- In een typisch scenario dat u wilt opnieuw instellen van een update die downloaden problemen heeft. De FQDN van uw SQL-Servers is *server1.Fabrikam.com zijn*, wordt de site datbase *CM_XYZ*, en het pakket-GUID is *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  U hebt uitgevoerd: ***CMUpdateReset.exe -S server1.Fabrikam.com zijn -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
+ In een typisch scenario dat u wilt opnieuw instellen van een update die downloaden problemen heeft. De FQDN van uw SQL-Servers is *server1.Fabrikam.com zijn*, de sitedatabase is *CM_XYZ*, en het pakket-GUID is *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  U hebt uitgevoerd: ***CMUpdateReset.exe -S server1.Fabrikam.com zijn -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
 
- In een scenario met meer extreme die u wilt verwijderen van problematisch updatepakket forceren. De FQDN van uw SQL-Servers is *server1.Fabrikam.com zijn*, wordt de site datbase *CM_XYZ*, en het pakket-GUID is *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  U hebt uitgevoerd: ***CMUpdateReset.exe - FDELETE -S server1.Fabrikam.com zijn -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
+ In een scenario met meer extreme die u wilt verwijderen van problematisch updatepakket forceren. De FQDN van uw SQL-Servers is *server1.Fabrikam.com zijn*, de sitedatabase is *CM_XYZ*, en het pakket-GUID is *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  U hebt uitgevoerd: ***CMUpdateReset.exe - FDELETE -S server1.Fabrikam.com zijn -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
 
 ### <a name="test-the-tool-with-the-technical-preview"></a>Testen van het hulpprogramma met de Technical Preview  
 U kunt dit hulpprogramma gebruiken met Technical Preview-versie 1606 of hoger. Dit achterwaartse ondersteuning wordt geboden zodat het hulpprogramma kan worden gebruikt met een groot aantal scenario's de update van technical preview zonder te wachten totdat de volgende technische preview-versie beschikbaar is.

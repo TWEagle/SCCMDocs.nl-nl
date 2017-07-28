@@ -16,12 +16,11 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 0ec241d07f51b80b84d65676ef1207b31a9a9983
-ms.openlocfilehash: e23acf743d8f73afd213c44c3728d1b66d7e558f
+ms.translationtype: MT
+ms.sourcegitcommit: ef42d1483053e9a6c502f4ebcae5a231aa6ba727
+ms.openlocfilehash: 98fa323cb94013d875e2cea41b80fff8cc75b6b2
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="removed-and-deprecated-features-for-system-center-configuration-manager"></a>Verwijderde en afgeschafte functies voor System Center Configuration Manager
@@ -91,7 +90,7 @@ Zie voor meer informatie:
 
 Als u moet de versie van SQL Server wilt bijwerken, raden wij de volgende methoden van eenvoudig complexere.
 1. [SQL Server in-place upgrade](/sccm/core/servers/manage/upgrade-on-premises-infrastructure#a-namebkmksupconfigupgradedbsrva-upgrade-sql-server-on-the-site-database-server) (aanbevolen).
-2. Een nieuwe versie van SQL Server op een nieuwe computer installeren en vervolgens [gebruik de move-optie datbase](/sccm/core/servers/manage/modify-your-infrastructure#a-namebkmkdbconfiga-modify-the-site-database-configuration) installatieprogramma van Configuration Manager uw siteserver verwijzen naar de nieuwe SQL-Server.
+2. Een nieuwe versie van SQL Server op een nieuwe computer installeren en vervolgens [gebruikt u de optie-database verplaatsen](/sccm/core/servers/manage/modify-your-infrastructure#a-namebkmkdbconfiga-modify-the-site-database-configuration) installatieprogramma van Configuration Manager uw siteserver verwijzen naar de nieuwe SQL-Server.
 3. Gebruik [back-up en herstel](/sccm/protect/understand/backup-and-recovery).
 
 

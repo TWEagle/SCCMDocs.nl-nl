@@ -15,12 +15,11 @@ caps.latest.revision: 157
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 6f9e6e93fce95666503907010a5c253158c5de7c
-ms.openlocfilehash: 736e5a04d3d5f2a3825ed4e801308fd5699ea86e
+ms.translationtype: MT
+ms.sourcegitcommit: 1f57c63ceeb13c7f7d760d7ecfb48df749da6770
+ms.openlocfilehash: 4644928acbb1ae3d7d72f877565589fae435a96b
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/07/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview voor System Center Configuration Manager
@@ -116,6 +115,17 @@ U kunt een basislijnversie gedurende maximaal 1 jaar na de release installeren. 
 
  |Mogelijkheid |Technische Preview-versie |Huidige versie van het filiaal|  
  |----------------|---------------------|--------------------|
+ |Client-Peer-Cache-ondersteuning voor bestanden voor snelle installatie voor Windows 10 en Office 365|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#client-peer-cache-support-for-express-installation-files-for-windows-10-and-office-365)|![Niet toegevoegd](media/Red_X.gif)|
+ |Surface apparaat dashboard|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#surface-device-dashboard)|![Niet toegevoegd](media/Red_X.gif)|
+ |Windows Defender toepassing Guard beleid configureren en implementeren|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#configure-and-deploy-windows-defender-application-guard-policies)|![Niet toegevoegd](media/Red_X.gif)|
+ |Parameters toevoegen bij het implementeren van PowerShell-scripts uit Configuration Manager|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#add-parameters-when-you-deploy-powershell-scripts-from-configuration-manager)|![Niet toegevoegd](media/Red_X.gif)|
+
+
+## <a name="capabilities-delivered-in-previous-technical-previews"></a>Mogelijkheden die in vorige technical Previews worden geboden
+ Wanneer alle functies van een technisch proefversie beschikbaar in de minimaal ondersteunde versie van de huidige vertakking zijn, worden de details voor deze preview-versie verwijderd uit de volgende tabel.  
+
+ |Mogelijkheid |Technische Preview-versie |Huidige versie van het filiaal|  
+ |----------------|---------------------|--------------------|
  |Nieuwe beleidsinstellingen voor mobile application management|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#new-mobile-application-management-policy-settings)|![Niet toegevoegd](media/Red_X.gif)|
  |Verbeterde grensgroepen voor software-updatepunten|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#improved-boundary-groups-for-software-update-points)|![Niet toegevoegd](media/Red_X.gif)|
  |Beschikbaarheid van de site server-rol|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#site-server-role-high-availability) |![Niet toegevoegd](media/Red_X.gif)|
@@ -136,13 +146,7 @@ U kunt een basislijnversie gedurende maximaal 1 jaar na de release installeren. 
  |Apparaat Health Attestation beoordeling van van nalevingsbeleid voor voorwaardelijke toegang|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#device-health-attestation-assessment-for-compliance-policies-for-conditional-access)|![Niet toegevoegd](media/Red_X.gif)|
  |Ondersteuning voor Entrust certificeringsinstanties|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#support-for-entrust-certification-authorities)|![Niet toegevoegd](media/Red_X.gif)|
  |Cisco (IPSec) ondersteuning voor Mac OS VPN-profielen|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#cisco-ipsec-support-for-macos-vpn-profiles)|![Niet toegevoegd](media/Red_X.gif)|
-
-## <a name="capabilities-delivered-in-previous-technical-previews"></a>Mogelijkheden die in vorige technical Previews worden geboden
- Wanneer alle functies van een technisch proefversie beschikbaar in de minimaal ondersteunde versie van de huidige vertakking zijn, worden de details voor deze preview-versie verwijderd uit de volgende tabel.  
-
- |Mogelijkheid |Technische Preview-versie |Huidige versie van het filiaal|  
- |----------------|---------------------|--------------------|
-  |Nieuwe mogelijkheden voor Azure AD en in de cloud management|[Technische Preview 1705](capabilities-in-technical-preview-1705.md#new-capabilities-for-azure-ad-and-cloud-management)|![Niet toegevoegd](media/Red_X.gif)|
+ |Nieuwe mogelijkheden voor Azure AD en in de cloud management|[Technische Preview 1705](capabilities-in-technical-preview-1705.md#new-capabilities-for-azure-ad-and-cloud-management)|![Niet toegevoegd](media/Red_X.gif)|
  |Windows Defender toepassing Guard beleid configureren en implementeren|[Technische Preview 1705](capabilities-in-technical-preview-1705.md#configure-and-deploy-windows-defender-application-guard-policies)|![Niet toegevoegd](media/Red_X.gif)|
  |Hulpprogramma voor het bijwerken opnieuw instellen  |[Technische Preview 1705](capabilities-in-technical-preview-1705.md#update-reset-tool)|![Niet toegevoegd](media/Red_X.gif)|
  |Hoge DPI-ondersteuning  |[Technische Preview 1705](capabilities-in-technical-preview-1705.md#high-dpi-console-support)|![Niet toegevoegd](media/Red_X.gif)|
