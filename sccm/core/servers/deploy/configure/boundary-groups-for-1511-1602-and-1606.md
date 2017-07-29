@@ -21,11 +21,11 @@ ms.openlocfilehash: 640cdc67f301a81a45bf27f95eb03cbc8754a9aa
 ms.contentlocale: nl-nl
 ms.lasthandoff: 05/17/2017
 
-
 ---
 # <a name="boundary-groups-for-system-center-configuration-manager-version-1511-1602-and-1606"></a>Grensgroepen voor System Center Configuration Manager versie 1511 1602 en 1606
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+<!-- This topic drops from TOC with the release of version 1706 -->
 
 De informatie in dit onderwerp is specifiek voor het gebruik van grensgroepen met versies 1511 1602 en 1606 van System Center Configuration Manager.
 Als u 1610 of hoger gebruikt, Zie [grensgroepen configureren](/sccm/core/servers/deploy/configure/boundary-groups) voor informatie over het gebruik van de opnieuw ontworpen grensgroepen.  
