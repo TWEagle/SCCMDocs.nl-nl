@@ -26,10 +26,11 @@
 ###  [Functies en mogelijkheden](plan-design/changes/features-and-capabilities.md)
 ###  [Wat is er veranderd in vergelijking met Configuration Manager 2012](plan-design/changes/what-has-changed-from-configuration-manager-2012.md)
 ###  [Wat is er nieuw in incrementele versies](plan-design/changes/whats-new-incremental-versions.md)
+###  [Wat is er nieuw in versie 1706](plan-design/changes/whats-new-in-version-1706.md)
 ###  [Wat is er nieuw in versie 1702](plan-design/changes/whats-new-in-version-1702.md)
 ###  [Wat is er nieuw in versie 1610](plan-design/changes/whats-new-in-version-1610.md)
-###  [Wat is er nieuw in versie 1606](plan-design/changes/whats-new-in-version-1606.md)
 <!--
+###  [What's new in version 1606](plan-design/changes/whats-new-in-version-1606.md)
 ###  [What's new in version 1602](plan-design/changes/whats-new-in-version-1602.md)
 -->
 ###  [Verwijderde en afgeschafte functies](plan-design/changes/removed-and-deprecated-features.md)
@@ -75,12 +76,15 @@
 
 ##   [Diagnostische gegevens en gebruiksgegevens](plan-design/diagnostics/diagnostics-and-usage-data.md)
 ###  [Hoe diagnostische gegevens en gebruiksgegevens worden gebruikt](plan-design/diagnostics/how-diagnostics-and-usage-data-is-used.md)
+###  [Diagnostische gegevens voor 1706](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1706.md)
 ###  [Diagnostische gegevens voor 1702](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1702.md)
 ###  [Diagnostische gegevens voor 1610](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1610.md)
-###  [Diagnostische gegevens voor 1606](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1606.md)
+
 <!--
-###  [Diagnostic data for 1511](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1511.md)
+###  [Diagnostic data for 1606](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1606.md)
 ###  [Diagnostic data for 1602](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1602.md)
+###  [Diagnostic data for 1511](plan-design/diagnostics/levels-of-diagnostic-usage-data-collection-1511.md)
+
 -->
 ###  [Hoe diagnostische gegevens en gebruiksgegevens worden verzameld](plan-design/diagnostics/how-diagnostics-and-usage-data-is-collected.md)
 ###  [Diagnostische gegevens en gebruiksgegevens weergeven](plan-design/diagnostics/view-diagnostics-and-usage-data.md)
@@ -181,12 +185,12 @@
 ###  [Sitegrenzen en grensgroepen](servers/deploy/configure/define-site-boundaries-and-boundary-groups.md)
 #### [Grenzen](servers/deploy/configure/boundaries.md)
 #### [Grensgroepen](servers/deploy/configure/boundary-groups.md)
-#### [Grensgroepen voor versies vóór 1610](servers/deploy/configure/boundary-groups-for-1511-1602-and-1606.md)
 ###  [Gebruik van SQL Server Always On voorbereiden](servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md)
 ###  [SQL Server Always On configureren](servers/deploy/configure/configure-aoag.md)
 ###  [Een SQL Server-cluster gebruiken](servers/deploy/configure/use-a-sql-server-cluster-for-the-site-database.md)
 ###  [Aangepaste bestandslocaties voor databasebestanden](servers/deploy/configure/custom-locations-for-site-database-files.md)
 ###  [Beheer op basis van rollen configureren](servers/deploy/configure/configure-role-based-administration.md)
+###  [Azure-services configureren](servers/deploy/configure/azure-services-wizard.md)
 ##   Technische naslaginformatie
 ###  [Accounts](plan-design/hierarchy/accounts.md)
 ###  [De communicatie tussen de eindpunten](plan-design/hierarchy/communications-between-endpoints.md)
@@ -199,7 +203,9 @@
 ###  [Proxyserverondersteuning](plan-design/network/proxy-server-support.md)
 ###  [Opmerkingen bij de release](servers/deploy/install/release-notes.md)
 ###  [Unicode- en ASCII-ondersteuning](plan-design/hierarchy/unicode-and-ascii-support.md)
-
+<!-- Deprecated from Content - still published but out of TOC:
+#### [Boundary groups for versions prior to 1610](servers/deploy/configure/boundary-groups-for-1511-1602-and-1606.md)
+-->
 
 #    Infrastructuurservers beheren
 ##   [Onderhoudstaken](servers/manage/maintenance-tasks.md)
@@ -209,6 +215,7 @@
 ##   [On-premises infrastructuur upgraden](servers/manage/upgrade-on-premises-infrastructure.md)
 ##   [Updates voor Configuration Manager](servers/manage/updates.md)
 ###  [Updates binnen de console installeren](servers/manage/install-in-console-updates.md)
+#### [Hulpprogramma voor het opnieuw instellen van updates](servers/manage/update-reset-tool.md)
 #### [Testdatabase-upgrade](servers/manage/test-database-upgrade.md)
 #### [Stroomdiagram: updates downloaden](servers/manage/download-updates-flowchart.md)
 #### [Stroomdiagram: updatereplicatie](servers/manage/update-replication-flowchart.md)
@@ -217,10 +224,11 @@
 ###  [Het hulpprogramma voor serviceverbindingen gebruiken](servers/manage/use-the-service-connection-tool.md)
 ###  [Het hulpprogramma Registratie bijwerken gebruiken](servers/manage/use-the-update-registration-tool-to-import-hotfixes.md)
 ###  [Het installatieprogramma voor hotfixes gebruiken](servers/manage/use-the-hotfix-installer-to-install-updates.md)
+###  [Controlelijst voor het installeren van update 1706](servers/manage/checklist-for-installing-update-1706.md)
 ###  [Controlelijst voor het installeren van update 1702](servers/manage/checklist-for-installing-update-1702.md)
 ###  [Controlelijst voor het installeren van update 1610](servers/manage/checklist-for-installing-update-1610.md)
-###  [Controlelijst voor het installeren van update 1606](servers/manage/checklist-for-installing-update-1606.md)
 <!-- Deprecated from Content - still published but out of TOC:
+###  [Checklist for installing update 1606](servers/manage/checklist-for-installing-update-1606.md)
 ###  [Checklist for installing update 1602](servers/manage/checklist-for-installing-update-1602.md)
 -->
 ###  [Ondersteuning voor Current Branch-versies](servers/manage/current-branch-versions-supported.md)  
@@ -278,6 +286,7 @@
 #### [Linux- en UNIX-clientopdrachten](clients/deploy/linux-and-unix-clients-technical-reference.md)
 ###  [Implementatie van clients op Macs voorbereiden](clients/deploy/prepare-to-deploy-mac-clients.md)
 ###  [Clients op Macs implementeren](clients/deploy/deploy-clients-to-macs.md)
+###  [Clients installeren vanaf het Internet met behulp van Azure AD](clients/deploy/deploy-clients-cmg-azure.md)
 ###  [Clients toewijzen aan een site](clients/deploy/assign-clients-to-a-site.md)
 ###  [De clientstatus configureren](clients/deploy/configure-client-status.md)
 ###  [De clientimplementatiestatus controleren](clients/deploy/monitor-client-deployment-status.md)
@@ -286,6 +295,7 @@
 
 ##   [Clients controleren en beheren](clients/manage/monitor-clients.md)
 ###  [Clients controleren](clients/manage/monitor-clients.md)
+###  [Windows Analytics gebruiken](clients/manage/monitor-windows-analytics.md)
 ###  [Clients voor Linux- en UNIX-servers controleren](clients/manage/monitor-clients-for-linux-and-unix-servers.md)
 ###  [Clients beheren](clients/manage/manage-clients.md)
 ###  [Clients voor Linux- en UNIX-servers beheren](clients/manage/manage-clients-for-linux-and-unix-servers.md)

@@ -20,6 +20,7 @@
 
 ## Toepassingen implementeren
 ### [Toepassingen implementeren](deploy-use/deploy-applications.md)
+### [Een toepassing delen](deploy-use/share-applications.md)
 ### [De implementatie van een toepassing simuleren](deploy-use/simulate-application-deployments.md)
 ### [Virtuele toepassingen van App-V implementeren](get-started/deploying-app-v-virtual-applications.md)
 
@@ -37,3 +38,5 @@
 ### [Toepassingen bijwerken en buiten gebruik stellen](deploy-use/update-and-retire-applications.md)
 ### [Toepassingen herzien en vervangen](deploy-use/revise-and-supersede-applications.md)
 ### [Toepassingen verwijderen](deploy-use/uninstall-applications.md)
+
+## [Scripts uitvoeren en beheren](deploy-use/create-deploy-scripts.md)
