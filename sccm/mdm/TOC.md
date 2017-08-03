@@ -60,6 +60,7 @@
 ## Toegang tot de bedrijfsresources
 ### [Wi-Fi-profielen maken](deploy-use/create-wifi-profiles.md)
 ### [PFX-certificaatprofielen maken](deploy-use/create-pfx-certificate-profiles.md)
+### [PFX-certificaatprofielen importeren](deploy-use/import-pfx-certificate-profiles.md)
 ### [VPN-profielen](deploy-use/create-vpn-profiles.md)
 ### [E-mailprofielen maken](deploy-use/create-exchange-activesync-profiles.md)
 ### [Instellingen voor Windows Hello voor Bedrijven ](deploy-use/windows-hello-for-business-settings.md)
