@@ -2,7 +2,7 @@
 title: Technische Preview 1707 | Microsoft Docs
 description: Meer informatie over functies die beschikbaar zijn in de Technical Preview-versie 1707 voor System Center Configuration Manager.
 ms.custom: na
-ms.date: 06/30/2017
+ms.date: 07/28/2017
 ms.prod: configuration-manager
 ms.technology:
 - configmgr-other
@@ -15,8 +15,8 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: MT
-ms.sourcegitcommit: 1f57c63ceeb13c7f7d760d7ecfb48df749da6770
-ms.openlocfilehash: 118f20768ffc99364eb9e8cf2074d7a23f4dc572
+ms.sourcegitcommit: 6e890862fd02786b675e2b7abaca7ede7c0e977a
+ms.openlocfilehash: 91fd850f055a7e892a54487307109a291e336696
 ms.contentlocale: nl-nl
 ms.lasthandoff: 07/28/2017
 
@@ -62,7 +62,7 @@ Klik op een gedeelte van de **oppervlak modellen** diagram voor een volledige li
 ## <a name="configure-and-deploy-windows-defender-application-guard-policies"></a>Windows Defender toepassing Guard beleid configureren en implementeren
 <!-- 1351960 -->
 
-[Windows Defender toepassing Guard](https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#XLxEbcpkuKcFebrw.97) is een nieuwe Windows-functie die voorkomen dat uw gebruikers via niet-vertrouwde websites in een beveiligde geïsoleerde container die is niet toegankelijk voor andere onderdelen van het besturingssysteem. In deze technical preview ondersteuning voor het configureren van deze functie met Configuration Manager-instellingen voor naleving die u configureert en vervolgens implementeert op een verzameling toegevoegd. Deze functie worden uitgebracht Preview-versie voor de 64-bits versie van de Windows 10-Creator Update (codename: RS2). Als u wilt testen van dit onderdeel nu moet u een preview-versie van deze update.
+[Windows Defender toepassing Guard](https://blogs.windows.com/msedgedev/2016/09/27/application-guard-microsoft-edge/#XLxEbcpkuKcFebrw.97) is een nieuwe Windows-functie die voorkomen dat uw gebruikers via niet-vertrouwde websites in een beveiligde geïsoleerde container die is niet toegankelijk voor andere onderdelen van het besturingssysteem. In deze technical preview ondersteuning voor het configureren van deze functie met Configuration Manager-instellingen voor naleving die u configureert en vervolgens implementeert op een verzameling toegevoegd. Deze functie worden uitgebracht Preview-versie voor de 64-bits versie van de Windows 10 vallen Creator Update (codename: RS3). Als u wilt testen van dit onderdeel nu moet u een preview-versie van deze update.
 
 ### <a name="before-you-start"></a>Voordat u begint
 
@@ -87,12 +87,12 @@ Voor meer informatie over Windows Defender toepassing Guard, Zie [dit blogberich
 
 <!-- 1236459 --->
 
-In de laatste Technical Preview we een nieuwe functie waarmee u geïntroduceerd [maken en uitvoeren van PowerShell-scripts uit de Configuration Manager-console]( /core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console).
+In de laatste Technical Preview we een nieuwe functie waarmee u geïntroduceerd [maken en uitvoeren van PowerShell-scripts uit de Configuration Manager-console](/sccm/core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console).
 In deze Technical Preview hebben we uitgebreid op deze mogelijkheid. Configuration Manager nu het PowerShell-script worden gelezen en parameters weergegeven in de Wizard Script maken. U kunt opgeven dat een waarde voor de parameter in de wizard die wordt gebruikt wanneer het script wordt uitgevoerd. U kunt ook kunt u de parameter leeg laten. Als u dit doet, moet u een waarde voor de parameter opgeven wanneer u het script uitvoeren.
 
 ### <a name="try-it-out"></a>Probeer het nu!
 
-1. Volg de instructies voor [maken en uitvoeren van PowerShell-scripts uit de Configuration Manager-console]( /core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console).
+1. Volg de instructies voor [maken en uitvoeren van PowerShell-scripts uit de Configuration Manager-console](/sccm/core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console). 
 2. Op de nieuwe **scriptparameters** pagina van de **Wizard Script maken**, kiest u een parameter en klik vervolgens op **bewerken**.
 3. Geef een parameterwaarde voor de geselecteerde parameter en klik vervolgens op **OK**.
 4. Voltooi de wizard.

@@ -2,7 +2,7 @@
 title: Client-Peer-Cache | System Center Configuration Manager
 description: Gebruik voor de inhoudsbron clientlocaties Peer-Cache bij het implementeren van inhoud met System Center Configuration Manager.
 ms.custom: na
-ms.date: 7/3/2017
+ms.date: 7/31/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -15,11 +15,11 @@ caps.latest.revision: 3
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: ed6b65a1a5aabc0970cd0333cb033405cf6d2aea
-ms.openlocfilehash: 94802680747a3d371716c1b345b2cba098150716
+ms.translationtype: MT
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: 89fcd16887ae77299f9d18472ee6a1ba56794eca
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/03/2017
+ms.lasthandoff: 07/29/2017
 
 ---
 
@@ -94,7 +94,9 @@ Gebruik dit rapport om te begrijpen afwijzing details voor een opgegeven groep o
 
 -   Clients kunnen alleen inhoud overdragen van Peer-Cache-clients die zich in hun huidige grensgroep bevinden.
 
--   Elke site waar clients gebruiken voor Peer-Cache moet worden geconfigureerd met een [netwerktoegangsaccount](/sccm/core/plan-design/hierarchy/manage-accounts-to-access-content#a-namebkmknaaa-network-access-account). Het account wordt gebruikt door de broncomputer Peer-Cache voor aanvragen voor het downloaden van peers verificatie en alleen domeingebruikersmachtigingen nodig voor dit doel vereist.
+-   Voorafgaand aan versie 1706, elke site waar clients gebruiken voor Peer-Cache moet worden geconfigureerd met een [netwerktoegangsaccount](/sccm/core/plan-design/hierarchy/manage-accounts-to-access-content#a-namebkmknaaa-network-access-account). Vanaf versie 1706, account is niet langer vereist met één uitzondering.  De uitzondering is wanneer een client-peer-cache wordt gebruikt om te halen en een takenreeks uitvoert vanuit het Software Center en de takenreeks, wordt de client opnieuw in WinPE opgestart.  In dit scenario wordt de client nog steeds vereist het netwerktoegangsaccount wanneer het zich in WinPE, zodat deze toegang heeft tot de peer-cachebron inhoud op te halen.
+
+    Wanneer dit is verplicht, het netwerktoegangsaccount wordt gebruikt door de broncomputer Peer-Cache voor verificatie van aanvragen voor het downloaden van peers en alleen domeingebruikersmachtigingen nodig voor dit doel vereist.
 
 -   Omdat de huidige grens van een Peer-Cache-inhoudsbron wordt bepaald door de verzending van die client laatste hardware-inventaris, een client die naar een netwerklocatie roamt en bevindt zich in een andere grensgroep mogelijk nog steeds worden beschouwd als een lid van de voormalige grensgroep voor de doeleinden van Peer-Cache. Dit kan resulteren in een client een Peer-Cache-inhoudsbron die zich niet in de onmiddellijke netwerklocatie wordt aangeboden. U wordt aangeraden met uitzondering van clients die gevoelig zijn voor deze configuratie deel te nemen als Peer-Cache-bron.
 

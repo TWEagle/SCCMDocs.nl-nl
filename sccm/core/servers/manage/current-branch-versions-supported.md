@@ -1,8 +1,8 @@
 ---
-title: Huidige versies van de vertakking | Microsoft-documenten
-description: Bekijk de geschiedenis van System Center Configuration Manager en meer informatie over de fasen geboden.
+title: Huidige vertakking versies | Microsoft Docs
+description: Bekijk de versiegeschiedenis van de van System Center Configuration Manager en meer informatie over de fasen geboden.
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,41 +16,42 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 robots: noindex,nofollow
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
-ms.openlocfilehash: 0286416807656fcf623260c7e95a703e39f6a275
+ms.translationtype: MT
+ms.sourcegitcommit: 5d696e3da187d47e0d41c02864d9b5267827e701
+ms.openlocfilehash: 1c02d2c51964fed960ffab42175762c1b04e6445
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 07/31/2017
 
 ---
-# <a name="support-for-system-center-configuration-manager-current-branch-versions"></a>Ondersteuning voor het huidige vertakking versies System Center Configuration Manager
+# <a name="support-for-system-center-configuration-manager-current-branch-versions"></a>Ondersteuning voor de huidige vertakking-versies van System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Microsoft van plan om updates voor System Center Configuration Manager huidige vertakking enkele keren per jaar bij elke updateversie voor twaalf (12) maanden na de algemene beschikbaarheid (GA) Releasedatum ondersteund. Technische ondersteuning worden voor de hele twaalf (12) maanden gegeven. Onze support-structuur is nu echter dynamische ontwikkeling in twee verschillende servicing fasen die afhankelijk van de beschikbaarheid van de nieuwste versie voor huidige vertakking zijn.  
+Microsoft plannen voor het vrijgeven van updates voor de huidige vertakking van System Center Configuration Manager een paar keer per jaar. Elke versie van de update blijft in de ondersteuning voor 12 maanden na de releasedatum algemene beschikbaarheid (GA). Technische ondersteuning is beschikbaar voor de hele twaalf maanden. Onze support-structuur is nu echter dynamisch is, twee afzonderlijke onderhoud fasen die afhankelijk van de beschikbaarheid van de nieuwste versie met huidige vertakking zijn in ontwikkeling.  
 
--   Beveiligingsupdates en essentiële Updates onderhoud fase - bij het uitvoeren van de meest recente huidige vertakking versie van Configuration Manager, ontvangt u beveiligingsupdates en essentiële updates.  
+-   Beveiligingsupdates en essentiële Updates onderhoud fase - bij het uitvoeren van de meest recente huidige vertakking versie van Configuration Manager, wordt zowel beveiligingsupdates en essentiële updates.  
 
--   Beveiligingsupdates (alleen) onderhoud fase - nadat een nieuwe huidige vertakking versie is uitgebracht, ondersteuning voor oudere vertakkingen op beveiligingsupdates beperkt alleen voor de rest van de maand twaalf (12) lifecycle ondersteunen (weergegeven in afbeelding 1).  
+-   Beveiligingsupdates (alleen) onderhoud fase - nadat een nieuwe versie met huidige vertakking loslaat, ondersteuning voor oudere vertakkingen op beveiligingsupdates alleen voor het restant van de ondersteuningslevenscyclus van de voor 12 maanden verminderen (weergegeven in afbeelding 1).  
 
- ![CM &#95; Onderhoud & #95 ondersteuning &#95; tijdlijn](../../../core/servers/manage/media/CM_Servicing_support_timeline.png "CM_Servicing_support_timeline")  
-Afbeelding 1. Voorbeeld van de huidige vertakking ondersteuning voor onderhoud.
+ ![CM &#95; Onderhoud &#95; ondersteuning &#95; tijdlijn](../../../core/servers/manage/media/CM_Servicing_support_timeline.png "CM_Servicing_support_timeline")  
+Afbeelding 1. Voorbeeld van de overlapping van de cyclus release voor de huidige vertakking ondersteuning onderhoud.
 
 > [!NOTE]  
->  De nieuwste versie voor huidige vertakking is altijd in de beveiligingsupdates en essentiële Updates fase onderhoud. Dit betekent dat in het geval dat er een defecte code die een essentiële garandeert optreden, moet u de meest recente vertakking geïnstalleerde versie ontvangen van een oplossing hebben. Alle andere ondersteunde huidige vertakking versies worden pas in aanmerking voor beveiligingsupdates. Alle ondersteuning is beëindigd nadat de levenscyclus van twaalf (12) maanden voor een actuele versie van de vertakking is verlopen. Op dat moment kunnen moeten klanten bijwerken naar een ondersteunde versie voor huidige vertakking.  
+>  De nieuwste versie met huidige vertakking is altijd in de beveiliging en belangrijke Updates onderhoud fase. Dit betekent dat in het geval dat er een defecte code die een essentiële garandeert optreden, moet u de meest recente huidige vertakking versie geïnstalleerd om te kunnen ontvangen van een oplossing hebben. Alle andere ondersteunde huidige vertakking versies komen in aanmerking voor het ontvangen van alleen beveiligingsupdates. Alle ondersteuning eindigt nadat de levenscyclus van de 12 maanden voor een actuele versie van de vertakking is verlopen. Op dat moment moeten klanten bijwerken naar een ondersteunde versie voor huidige vertakking.  
 
  **Versiegeschiedenis**  
 
-|Versie|Datum van beschikbaarheid|Einddatum voor ondersteuning|  
+|Versie|Beschikbaarheidsdatum|Einddatum voor ondersteuning|  
 |-------------|-----------------------|----------------------|  
-|1702|3/27/2017|3/27/2018|
-|1610|11/18/2016|11/18/2017|
-|1606|7/22/2016|7/22/2017|
-|1602|11-3-2016|3/11/2017|
-|1511|8-12-2015|12/8/2016|  
+|1706|31 juli 2017|31 juli 2018|
+|1702|27 maart 2017|27 maart 2018|
+|1610|18 november 2016|18 november 2017|
+|1606|22 juli 2016| 22 juli 2017|
+|1602|11 maart 2016|11 maart 2017|
+|1511|8 december 2015|8 december 2016|  
 
 
 
 
-Zie voor meer informatie over versienummers en beschikbaarheid als een update in de console of als een basislijn [basislijn en update versies](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions).
+Zie voor meer informatie over versienummers en beschikbaarheid als een update in de console of als een basislijn [basislijn- en updateversies](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions).
 

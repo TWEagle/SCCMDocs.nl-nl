@@ -2,7 +2,7 @@
 title: Apps beheren via de Windows Store voor bedrijven | Microsoft Docs
 description: Beheren en implementeren van apps uit de Windows Store voor bedrijven met behulp van System Center Configuration Manager.
 ms.custom: na
-ms.date: 7/25/2017
+ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,10 +16,10 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 ms.translationtype: MT
-ms.sourcegitcommit: ef42d1483053e9a6c502f4ebcae5a231aa6ba727
-ms.openlocfilehash: 93e767c9a115b30d68871baece670977165f55f4
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: 369b6a82a20a90ca534f9484c0be71096dd35a30
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 07/29/2017
 
 ---
 
@@ -85,6 +85,8 @@ Op computers met een versie van Windows 10 ouder is dan de beveiligingsbeheerder
 
 ## <a name="set-up-windows-store-for-business-synchronization"></a>Windows Store voor bedrijven-synchronisatie instellen
 
+### <a name="for-configuration-manager-versions-prior-to-1706"></a>Voor eerdere versies 1706 Configuration Manager
+
 **Registreren bij Azure Active Directory, Configuration Manager als beheerprogramma 'Webtoepassing en/of Web-API'. Deze actie geeft u een client-ID die u later nodig.**
 1. In het Active Directory-knooppunt van [https://manage.windowsazure.com](https://manage.windowsazure.com), selecteer uw Azure Active Directory en klik vervolgens op **toepassingen** > **toevoegen**.
 2.  Klik op **mijn organisatie ontwikkelt toepassing toevoegen**.
@@ -110,6 +112,24 @@ Op computers met een versie van Windows 10 ouder is dan de beveiligingsbeheerder
 2.  Op de **Start** tabblad, in de **Windows Store voor bedrijven** groep, klikt u op **toevoegen Windows Store voor bedrijven-Account**. 
 3.  Uw tenant-ID, client-id en clientsleutel uit Azure Active Directory toevoegen en voltooi de wizard.
 4. Wanneer u klaar bent, ziet u het account dat u hebt geconfigureerd in de **Windows Store voor bedrijven** in de Configuration Manager-console.
+
+### <a name="for-configuration-manager-version-1706-and-later"></a>Voor Configuration Manager versie 1706 en hoger
+
+1. Ga in de console naar **beheer** > **overzicht** > **Cloud Services Management** > **Azure** > **Azure Services**, en kies vervolgens **Azure-Services configureren** starten de **Wizard Azure-Services**.
+2. Op de **Azure Services** pagina, selecteert u de service die u wilt configureren en klik vervolgens op **volgende**.
+3. Op de **algemene** pagina, Geef een beschrijvende naam voor de naam van de Azure-service en een optionele beschrijving en klik vervolgens op **volgende**.
+4. Op de **App** pagina, Geef uw Azure-omgeving en klik vervolgens op **Bladeren** openen de **App Server** venster.
+5. In de **App Server** venster, selecteer de server-app die u wilt gebruiken en klik vervolgens op **OK**. Server-apps zijn de Azure-web-apps die de configuraties voor uw Azure-account, inclusief uw Tenant-ID, Client-ID en een geheime sleutel voor clients bevatten. Als u een beschikbare server-app niet hebt, gebruikt u een van de volgende:
+    - **Maken:** Klik op om een nieuwe server app **maken**. Geef een beschrijvende naam voor de app en de tenant. Vervolgens, nadat u aanmelden bij Azure, Configuration Manager maakt de web-app in Azure voor u, met inbegrip van de Client-ID en een geheime sleutel voor gebruik met de web-app. U kunt later uit de Azure-portal bekijken.
+    - **Importeren:** Met een web-app die al in uw Azure-abonnement bestaat, klikt u op **importeren**. Geef een beschrijvende naam voor de app en het tenantnetwerk en geef vervolgens de Tenant-ID, Client-ID en de geheime sleutel voor de Azure-web-app die u wilt dat Configuration Manager te gebruiken. Nadat u **controleren** de gegevens, klikt u op **OK** om door te gaan. 
+6. Controleer de **informatie** pagina en eventuele extra stappen en configuraties voltooid zoals beschreven. Deze configuraties zijn nodig om de service gebruiken met Configuration Manager. Als u bijvoorbeeld de Windows Store voor bedrijven configureren:
+    - In Azure moet u Configuration Manager registreert als een webtoepassing of Web-API en vastleggen van de client-ID. U kunt ook een clientsleutel voor gebruik opgeven door het management-hulpprogramma (dit is de Configuration Manager).
+    - In de Windows Store voor bedrijven-console moet u Configuration Manager configureren als het winkelbeheerprogramma, ondersteuning voor offline gelicentieerde apps inschakelen en vervolgens ten minste één app kopen. 
+7. Klik op **volgende** wanneer u bent klaar om door te gaan.
+8. Op de **App configuraties** pagina en klik vervolgens op de app-catalogus en taal configuraties voor deze service **volgende**.
+9. Nadat de wizard is voltooid, ziet u de Configuration Manager-console dat u hebt geconfigureerd **Windows Store voor bedrijven** als een **Cloud Service Type**.
+
+
 
 
 ## <a name="create-and-deploy-a-configuration-manager-application-from-a-windows-store-for-business-app"></a>Maken en implementeren van een Configuration Manager-toepassing in een Windows Store voor bedrijven-app.

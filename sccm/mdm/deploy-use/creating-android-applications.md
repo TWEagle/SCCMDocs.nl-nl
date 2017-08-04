@@ -2,7 +2,7 @@
 title: Android-toepassingen maken | Microsoft Docs
 description: Zie welke overwegingen u moet rekening account wanneer u maken en implementeren van toepassingen voor Android-apparaten.
 ms.custom: na
-ms.date: 03/27/2017
+ms.date: 07/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,18 +16,17 @@ author: robstackmsft
 ms.author: robstack
 manager: angrobe
 ms.translationtype: MT
-ms.sourcegitcommit: 344b55aecd72479b759b40e8252e64a06c5eaba0
-ms.openlocfilehash: 3bfb7364c3de5264a5fa8a684965d9aebeb84719
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: 3a89abc81cd70f4e499bf4e3087fd53915377c44
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/29/2017
 
 ---
-# Android-toepassingen maken met System Center Configuration Manager
-<a id="create-android-applications-with-system-center-configuration-manager" class="xliff"></a>
+# <a name="create-android-applications-with-system-center-configuration-manager"></a>Android-toepassingen maken met System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Een System Center Configuration Manager-toepassing heeft een of meer implementatietypen waaruit de installatiebestanden en informatie die nodig zijn voor het implementeren van software op een apparaat. Een implementatietype heeft ook regels die specificeren hoe en wanneer de software wordt geïmplementeerd.  
+Een System Center Configuration Manager-toepassing heeft een of meer implementatietypen. Implementatietypen die bestaat uit de installatiebestanden en informatie die vereist is om software te implementeren op een apparaat. Een implementatietype heeft ook regels die specificeren hoe en wanneer de software wordt geïmplementeerd.  
 
  U kunt toepassingen maken met behulp van de volgende methoden:  
 
@@ -37,8 +36,7 @@ Een System Center Configuration Manager-toepassing heeft een of meer implementat
 
 Zie [Start de wizard toepassing maken](../../apps/deploy-use/create-applications.md#start-the-create-application-wizard) voor de stappen die nodig zijn voor de Configuration Manager-toepassingen maken en implementatietypen. Houd er ook de volgende aandachtspunten in rekening wanneer u maken en implementeren van toepassingen voor Android-apparaten.  
 
-## Algemene overwegingen voor Android-apps
-<a id="general-considerations-for-android-apps" class="xliff"></a>
+## <a name="general-considerations-for-android-apps"></a>Algemene overwegingen voor Android-apps
 
 Configuration Manager ondersteunt de implementatie van de volgende typen Apps voor Android:
 
@@ -53,11 +51,10 @@ De volgende implementatieacties worden ondersteund:
 |Android|**Beschikbare**, **vereist** de gebruiker moet toestemming geven om te installeren en verwijderen van zowel.|
 |Android for Work | **Vereist** |
 
-## Goedkeuren en implementeren van Android voor bedrijfs-apps
-<a id="approve-and-deploy-android-for-work-apps" class="xliff"></a>
-Als een Configuration Manager-beheerder, kunt u ook goedkeuren en implementeren van apps in de [afspelen voor werk website](https://play.google.com/work), en deze apps implementeren op beheerde Android voor Work-apparaten.
+## <a name="approve-and-deploy-android-for-work-apps"></a>Goedkeuren en implementeren van Android voor bedrijfs-apps
+Als een Configuration Manager-beheerder, kunt u ook apps in goedkeuren de [afspelen voor werk website](https://play.google.com/work), en deze apps implementeren op beheerde Android voor Work-apparaten.
 
-Volg deze stappen apps in de Play voor werk store goedkeuren en implementeren voor beheerde Android voor werk apparaten ze naar de Configuration Manager-console synchroniseren. Voor apps op het werk gebruikersprofielen implementeert, moet u voor het goedkeuren van de apps in de Play voor werk en vervolgens de apps met de Configuration Manager-console te synchroniseren.
+Volg deze stappen apps in de Play voor werk store goedkeuren en implementeren voor beheerde Android voor werk apparaten ze naar de Configuration Manager-console synchroniseren. Om apps te werk gebruikersprofielen implementeert, moet u de apps in de Play for Work goedkeuren en vervolgens de apps met de Configuration Manager-console te synchroniseren.
 
 1. Open een browser en Ga naar: https://play.google.com/work.
 2. Meld u met behulp van de Google-beheerdersaccount dat u afhankelijk van uw Intune-tenant.

@@ -15,12 +15,11 @@ caps.latest.revision: 36
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 3619a73d3a39659de927e1711a7ec81de9918064
-ms.openlocfilehash: 34ddb646137aaf1160d850ba7c1e0109f467225d
+ms.translationtype: MT
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: 2bbc8935bee306ed0bc312cc43b8f5374a8df7ff
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 07/29/2017
 
 ---
 # <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Updates binnen de console installeren voor System Center Configuration Manager
@@ -289,6 +288,9 @@ De taken na de installatie zijn onder andere:
 
 ##  <a name="bkmk_retry"></a> De installatie van een mislukte update opnieuw uitvoeren  
 Wanneer een update niet kan worden geïnstalleerd, bekijkt u de feedback in de console om oplossingen voor waarschuwingen en fouten te identificeren. U kunt ook het bestand ConfigMgrPrereq.log op de siteserver bekijken voor meer informatie. Voordat u de installatie van een update opnieuw uitvoert, moet u moet fouten oplossen en los waarschuwingen.  
+
+> [!TIP]  
+> Als een update heeft problemen bij het downloaden of repliceren, kunt u de [update opnieuw instellen van hulpprogramma](/sccm/core/servers/manage/update-reset-tool). Dit hulpprogramma is beschikbaar via de sites waarop versie 1706 uitgevoerd of hoger. 
 
 Wanneer u klaar bent voor de installatie van een update opnieuw uitvoeren, selecteert u de mislukte update en kies vervolgens een optie die van toepassing. De werking van de update-installatie opnieuw proberen, is afhankelijk van het knooppunt waar u het opnieuw starten en de nieuwe pogingen-optie die u gebruikt.  
 

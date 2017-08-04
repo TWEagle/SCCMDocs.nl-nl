@@ -2,7 +2,7 @@
 title: Technical Preview voor Configuration Manager | Microsoft Docs
 description: Meer informatie over de Technical Preview-versie dat we u test-drive nieuwe functionaliteit en mogelijkheden in System Center Configuration Manager.
 ms.custom: na
-ms.date: 06/23/2017
+ms.date: 07/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,10 +16,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: MT
-ms.sourcegitcommit: 1f57c63ceeb13c7f7d760d7ecfb48df749da6770
-ms.openlocfilehash: 4644928acbb1ae3d7d72f877565589fae435a96b
+ms.sourcegitcommit: c0d94b8e6ca6ffd82e879b43097a9787e283eb6d
+ms.openlocfilehash: 9f814fc2902cef116f6b1e476af5d4cbdfc4e217
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview voor System Center Configuration Manager
@@ -127,47 +127,47 @@ U kunt een basislijnversie gedurende maximaal 1 jaar na de release installeren. 
  |Mogelijkheid |Technische Preview-versie |Huidige versie van het filiaal|  
  |----------------|---------------------|--------------------|
  |Nieuwe beleidsinstellingen voor mobile application management|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#new-mobile-application-management-policy-settings)|![Niet toegevoegd](media/Red_X.gif)|
- |Verbeterde grensgroepen voor software-updatepunten|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#improved-boundary-groups-for-software-update-points)|![Niet toegevoegd](media/Red_X.gif)|
+ |Verbeterde grensgroepen voor software-updatepunten|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#improved-boundary-groups-for-software-update-points)|[Versie 1706](/sccm/core/servers/deploy/configure/boundary-groups#software-update-points)|
  |Beschikbaarheid van de site server-rol|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#site-server-role-high-availability) |![Niet toegevoegd](media/Red_X.gif)|
  |Vertrouwen voor specifieke bestanden en mappen in een beleid Device Guard opnemen|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#include-trust-for-specific-files-and-folders-in-a-device-guard-policy)|![Niet toegevoegd](media/Red_X.gif)|
  |Voortgang van de takenreeks verbergen|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#hide-task-sequence-progress)|![Niet toegevoegd](media/Red_X.gif)|
  |Geef een andere locatie van inhoud voor installatie-inhoud en inhoud verwijderen|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#specify-a-different-content-location-for-install-content-and-uninstall-content)|![Niet toegevoegd](media/Red_X.gif)|
- |Verbeterde toegankelijkheid |[Technische Preview 1706](capabilities-in-technical-preview-1706.md#accessibility-improvements)|![Niet toegevoegd](media/Red_X.gif)|
+ |Verbeterde toegankelijkheid |[Technische Preview 1706](capabilities-in-technical-preview-1706.md#accessibility-improvements)|[Versie 1706](/sccm/core/understand/accessibility-features)|
  |Ondersteuning van Azure Services Wizard gereedheid voor Upgrade |[Technische Preview 1706](capabilities-in-technical-preview-1706.md#changes-to-the-azure-services-wizard-to-support-upgrade-readiness)|![Niet toegevoegd](media/Red_X.gif)|
- |Nieuwe clientinstellingen voor cloud-services|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#new-client-settings-for-cloud-services)|![Niet toegevoegd](media/Red_X.gif)|
- |Maken en PowerShell-scripts uitvoeren vanaf de Configuration Manager-console|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#create-and-run-powershell-scripts-from-the-configuration-manager-console)|![Niet toegevoegd](media/Red_X.gif)|
+ |Nieuwe clientinstellingen voor cloud-services|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#new-client-settings-for-cloud-services)|[Versie 1706](/sccm/core/clients/deploy/deploy-clients-cmg-azure)|
+ |Maken en PowerShell-scripts uitvoeren vanaf de Configuration Manager-console|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#create-and-run-powershell-scripts-from-the-configuration-manager-console)|[Versie 1706](/sccm/apps/deploy-use/create-deploy-scripts)|
  |Ondersteuning voor PXE-netwerk opstarten voor IPv6 |[Technische Preview 1706](capabilities-in-technical-preview-1706.md#pxe-network-boot-support-for-ipv6)|![Niet toegevoegd](media/Red_X.gif)|
- |Updates voor Microsoft Surface stuurprogramma's beheren |[Technische Preview 1706](capabilities-in-technical-preview-1706.md#manage-microsoft-surface-driver-updates)|![Niet toegevoegd](media/Red_X.gif)|
- |Windows Update voor bedrijven uitgestelde beleid configureren |[Technische Preview 1706](capabilities-in-technical-preview-1706.md#configure-windows-update-for-business-deferral-policies)|![Niet toegevoegd](media/Red_X.gif)|
+ |Updates voor Microsoft Surface stuurprogramma's beheren |[Technische Preview 1706](capabilities-in-technical-preview-1706.md#manage-microsoft-surface-driver-updates)|[Versie 1706](/sccm/core/plan-design/changes/whats-new-in-version-1706#manage-microsoft-surface-driver-updates)|
+ |Windows Update voor bedrijven uitgestelde beleid configureren |[Technische Preview 1706](capabilities-in-technical-preview-1706.md#configure-windows-update-for-business-deferral-policies)|[Versie 1706](/sccm/sum/deploy-use/integrate-windows-update-for-business-windows-10#configure-windows-update-for-business-deferral-policies)|
  |Beperkingen voor android en iOS-inschrijving|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#android-and-ios-enrollment-restrictions)|![Niet toegevoegd](media/Red_X.gif)|
- |Android for Work application management-beleid voor kopiëren en plakken|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#android-for-work-application-management-policy-for-copy-paste)|![Niet toegevoegd](media/Red_X.gif)|
- |Nieuwe configuratie-item-instellingen van Windows|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#new-windows-configuration-item-settings)|![Niet toegevoegd](media/Red_X.gif)|
+ |Android for Work application management-beleid voor kopiëren en plakken|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#android-for-work-application-management-policy-for-copy-paste)|[Versie 1706](/sccm/mdm/deploy-use/create-configuration-items-for-android-for-work-devices-managed-without-the-client#android-for-work-configuration-item-settings-reference)|
+ |Nieuwe configuratie-item-instellingen van Windows|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#new-windows-configuration-item-settings)|[Versie 1706](/sccm/mdm/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client)|
  |Nieuwe beleidsregels voor naleving van apparaat|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#new-device-compliance-policy-rules)|![Niet toegevoegd](media/Red_X.gif)|
  |Apparaat Health Attestation beoordeling van van nalevingsbeleid voor voorwaardelijke toegang|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#device-health-attestation-assessment-for-compliance-policies-for-conditional-access)|![Niet toegevoegd](media/Red_X.gif)|
- |Ondersteuning voor Entrust certificeringsinstanties|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#support-for-entrust-certification-authorities)|![Niet toegevoegd](media/Red_X.gif)|
- |Cisco (IPSec) ondersteuning voor Mac OS VPN-profielen|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#cisco-ipsec-support-for-macos-vpn-profiles)|![Niet toegevoegd](media/Red_X.gif)|
- |Nieuwe mogelijkheden voor Azure AD en in de cloud management|[Technische Preview 1705](capabilities-in-technical-preview-1705.md#new-capabilities-for-azure-ad-and-cloud-management)|![Niet toegevoegd](media/Red_X.gif)|
+ |Ondersteuning voor Entrust certificeringsinstanties|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#support-for-entrust-certification-authorities)|[Versie 1706](/sccm/mdm/deploy-use/create-pfx-certificate-profiles)|
+ |Cisco (IPSec) ondersteuning voor Mac OS VPN-profielen|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#cisco-ipsec-support-for-macos-vpn-profiles)|[Versie 1706](/sccm/protect/deploy-use/vpn-profiles)|
+ |Nieuwe mogelijkheden voor Azure AD en in de cloud management|[Technische Preview 1705](capabilities-in-technical-preview-1705.md#new-capabilities-for-azure-ad-and-cloud-management)|[Versie 1706](/sccm/core/plan-design/changes/whats-new-in-version-1706#azure-ad-integration-with-configuration-manager)|
  |Windows Defender toepassing Guard beleid configureren en implementeren|[Technische Preview 1705](capabilities-in-technical-preview-1705.md#configure-and-deploy-windows-defender-application-guard-policies)|![Niet toegevoegd](media/Red_X.gif)|
- |Hulpprogramma voor het bijwerken opnieuw instellen  |[Technische Preview 1705](capabilities-in-technical-preview-1705.md#update-reset-tool)|![Niet toegevoegd](media/Red_X.gif)|
- |Hoge DPI-ondersteuning  |[Technische Preview 1705](capabilities-in-technical-preview-1705.md#high-dpi-console-support)|![Niet toegevoegd](media/Red_X.gif)|
- |Verbeteringen voor peer-Cache  |[Technische Preview 1705](capabilities-in-technical-preview-1705.md#peer-cache-improvements) |![Niet toegevoegd](media/Red_X.gif)|
- |Verbeteringen voor SQL Server altijd op beschikbaarheidsgroepen |[Technische Preview 1705](capabilities-in-technical-preview-1705.md#improvements-for-sql-server-always-on-availability-groups) |![Niet toegevoegd](media/Red_X.gif)|
- |Verbeterde berichten van de gebruiker voor Office 365-updates|[Technische Preview 1705](capabilities-in-technical-preview-1705.md#improved-user-notifications-for-office-365-updates) |![Niet toegevoegd](media/Red_X.gif)|
+ |Hulpprogramma voor het bijwerken opnieuw instellen  |[Technische Preview 1705](capabilities-in-technical-preview-1705.md#update-reset-tool)|[Versie 1706](/sccm/core/servers/manage/update-reset-tool)|
+ |Hoge DPI-ondersteuning  |[Technische Preview 1705](capabilities-in-technical-preview-1705.md#high-dpi-console-support)|[Versie 1706](/sccm/core/plan-design/changes/whats-new-in-version-1706#high-dpi-console-support)|
+ |Verbeteringen voor peer-Cache  |[Technische Preview 1705](capabilities-in-technical-preview-1705.md#peer-cache-improvements) |[Versie 1706](/sccm/core/plan-design/hierarchy/client-peer-cache#requirements-and-considerations-for-peer-cache)|
+ |Verbeteringen voor SQL Server altijd op beschikbaarheidsgroepen |[Technische Preview 1705](capabilities-in-technical-preview-1705.md#improvements-for-sql-server-always-on-availability-groups) |[Versie 1706](/sccm/core/plan-design/changes/whats-new-in-version-1706#improvements-for-sql-server-always-on-availability-groups)|
+ |Verbeterde berichten van de gebruiker voor Office 365-updates|[Technische Preview 1705](capabilities-in-technical-preview-1705.md#improved-user-notifications-for-office-365-updates) |[Versie 1706](/sccm/sum/deploy-use/manage-office-365-proplus-updates#restart-behavior-and-client-notifications-for-office-365-updates)|
  |Wizard Azure-Services gebruiken een verbinding met OMS configureren|[Technische Preview 1705](capabilities-in-technical-preview-1705.md#use-azure-services-wizard-to-configure-a-connection-to-oms) |![Niet toegevoegd](media/Red_X.gif)|
  |Android-apps met app-configuratiebeleid configureren  |[Technische Preview 1704](capabilities-in-technical-preview-1704.md#configure-android-apps-with-app-configuration-policies)|![Niet toegevoegd](media/Red_X.gif)|
- |Hardware-inventaris verzamelt gegevens van beveiligd opstarten |[Technische Preview 1704](capabilities-in-technical-preview-1704.md#hardware-inventory-collects-secure-boot-information)|![Niet toegevoegd](media/Red_X.gif)|
+ |Hardware-inventaris verzamelt gegevens van beveiligd opstarten |[Technische Preview 1704](capabilities-in-technical-preview-1704.md#hardware-inventory-collects-secure-boot-information)|[Versie 1706](/sccm/core/plan-design/changes/whats-new-in-version-1706#hardware-inventory-collects-secure-boot-information)|
  |Takenreeksen onderliggende toevoegen aan een takenreeks|[Technische Preview 1704](capabilities-in-technical-preview-1704.md#add-child-task-sequences-to-a-task-sequence)|![Niet toegevoegd](media/Red_X.gif)|
- |Laden van installatiekopieën voor opstarten met huidige Windows PE-versie |[Technische Preview 1704](capabilities-in-technical-preview-1704.md#reload-boot-images-with-current-windows-pe-version)|![Niet toegevoegd](media/Red_X.gif)|
+ |Laden van installatiekopieën voor opstarten met huidige Windows PE-versie |[Technische Preview 1704](capabilities-in-technical-preview-1704.md#reload-boot-images-with-current-windows-pe-version)|[Versie 1706](/sccm/osd/get-started/manage-boot-images#update-distribution-points-with-the-boot-image)|
  |Verbeteringen in de implementatie van besturingssysteem|[Technische Preview 1704](capabilities-in-technical-preview-1704.md#improvements-to-operating-system-deployment)|![Niet toegevoegd](media/Red_X.gif)|
  |Volume-purchased iOS-apps implementeren op apparaatverzamelingen|[Technische Preview 1703](capabilities-in-technical-preview-1703.md#deploy-volume-purchased-ios-apps-to-device-collections)|[Versie 1702](/sccm/mdm/deploy-use/manage-volume-purchased-ios-apps)|
  |Directe koppelingen naar toepassingen in Software Center|[Technische Preview 1703](capabilities-in-technical-preview-1703.md#direct-links-to-applications-in-software-center)|![Niet toegevoegd](media/Red_X.gif)
- |PFX-certificaten voor Configuration Manager Windows-clientcomputers|[Technische Preview 1703](capabilities-in-technical-preview-1703.md#pfx-certificates-for-configuration-manager-windows-client-computers)|![Niet toegevoegd](media/Red_X.gif)|
- |Wizard Azure-Services configureren|[Technische Preview 1703](capabilities-in-technical-preview-1703.md#configure-azure-services-wizard)|![Niet toegevoegd](media/Red_X.gif)|
+ |PFX-certificaten voor Configuration Manager Windows-clientcomputers|[Technische Preview 1703](capabilities-in-technical-preview-1703.md#pfx-certificates-for-configuration-manager-windows-client-computers)|[Versie 1706](/sccm/protect/deploy-use/create-certificate-profiles)|
+ |Wizard Azure-Services configureren|[Technische Preview 1703](capabilities-in-technical-preview-1703.md#configure-azure-services-wizard)|[Versie 1706](/sccm/core/servers/deploy/configure/azure-services-wizard)|
  |Converteren van BIOS naar UEFI in een takenreeks voor besturingssysteem upgraden| [Technische Preview 1703](capabilities-in-technical-preview-1703.md#convert-from-bios-to-uefi-during-an-in-place-upgrade) |[Versie 1702](/sccm/osd/deploy-use/task-sequence-steps-to-manage-bios-to-uefi-conversion#convert-from-bios-to-uefi-during-an-in-place-upgrade)|
- |Samenvouwbare takenreeksgroepen| [Technische Preview 1703](capabilities-in-technical-preview-1703.md#collapsible-task-sequence-groups) |![Niet toegevoegd](media/Red_X.gif)|
+ |Samenvouwbare takenreeksgroepen| [Technische Preview 1703](capabilities-in-technical-preview-1703.md#collapsible-task-sequence-groups) |[Versie 1706](/sccm/core/plan-design/changes/whats-new-in-version-1706#collapsible-task-sequence-groups)|
  |Clientinstellingen voor het configureren van Windows Analytics gereedheid voor Upgrade | [Technische Preview 1703](capabilities-in-technical-preview-1703.md#client-settings-to-configure-windows-analytics-for-upgrade-readiness) |![Niet toegevoegd](media/Red_X.gif)|
  |Nieuwe instellingen voor naleving voor iOS-apparaten|[Technische Preview 1702](capabilities-in-technical-preview-1702.md#new-compliance-settings-for-ios-devices)|[Versie 1702](/sccm/mdm/deploy-use/create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client)|
- |PFX-certificaten te maken met S/MIME-ondersteuning|[Technische Preview 1702](capabilities-in-technical-preview-1702.md#create-pfx-certificates-with-s-mime-support)|[Versie 1702](/sccm/mdm/deploy-use/create-pfx-certificate-profiles)|
+ |PFX-certificaten te maken met S/MIME-ondersteuning|[Technische Preview 1702](capabilities-in-technical-preview-1702.md#create-pfx-certificates-with-s-mime-support)|[Versie 1706](/sccm/mdm/deploy-use/create-pfx-certificate-profiles)|
  |Controleer voor het uitvoeren van uitvoerbare bestanden voordat u een toepassing installeert|[Technische Preview 1702](capabilities-in-technical-preview-1702.md#check-for-running-executable-files-before-installing-an-application)|[Versie 1702](/sccm/apps/deploy-use/deploy-applications)|
  |Feedback verzenden vanuit de Configuration Manager-console | [Technische Preview 1702](capabilities-in-technical-preview-1702.md#send-feedback-from-the-configuration-manager-console)    |[Versie 1702](/sccm/core/plan-design/changes/whats-new-in-version-1702#send-feedback-from-the-configuration-managercconsole)  |
  |Wijzigingen voor Updates en onderhoud  | [Technische Preview 1702](capabilities-in-technical-preview-1702.md#changes-for-updates-and-servicing)  |[Versie 1702](/sccm/core/plan-design/changes/whats-new-in-version-1702#changes-for-updates-and-servicing) |
@@ -194,7 +194,7 @@ U kunt een basislijnversie gedurende maximaal 1 jaar na de release installeren. 
  |Windows Store voor bedrijven-ondersteuning in Configuration Manager|[Technische Preview 1612](capabilities-in-technical-preview-1612.md#windows-store-for-business-support-in-configuration-manager)|![Niet toegevoegd](media/Red_X.gif)|
  |Terug naar vorige pagina wanneer een takenreeks mislukt|[Technische Preview 1612](capabilities-in-technical-preview-1612.md#return-to-previous-page-when-a-task-sequence-fails)|[Versie 1702](/sccm/core/plan-design/changes/whats-new-in-version-1702#operating-system-deployment)|
  |Snelle installatie bestanden ondersteuning voor Windows 10-updates|[Technische Preview 1612](capabilities-in-technical-preview-1612.md#express-installation-files-support-for-windows-10-updates)|[Versie 1702](/sccm/sum/deploy-use/manage-express-installation-files-for-windows-10-updates)|
- |De voorbereiding op Azure Active Directory|[Technische Preview 1612](capabilities-in-technical-preview-1612.md#azure-active-directory-onboarding)|![Niet toegevoegd](media/Red_X.gif)|
+ |De voorbereiding op Azure Active Directory|[Technische Preview 1612](capabilities-in-technical-preview-1612.md#azure-active-directory-onboarding)|[Versie 1706](/sccm/core/servers/deploy/configure/azure-services-wizard)|
  |Wijzig bij het configureren van multi-factor authentication voor apparaatinschrijving|[Technische Preview 1612](capabilities-in-technical-preview-1612.md#change-to-configuring-multi-factor-authentication-for-device-enrollment)|![Niet toegevoegd](media/Red_X.gif)|
  |Vooraf cache-inhoud voor implementaties en takenreeksen |[Technische Preview 1611](capabilities-in-technical-preview-1611.md#pre-cache-content-for-available-deployments-and-task-sequences)|[Versie 1702](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system#configure-pre-cache-content)|
  |Configuratie-instellingen voor Windows Defender|[Technische Preview 1610](capabilities-in-technical-preview-1610.md#windows-defender-configuration-settings)|[Versie 1610](/sccm/compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client)|

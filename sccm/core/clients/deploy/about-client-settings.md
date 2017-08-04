@@ -2,7 +2,7 @@
 title: Clientinstellingen | Microsoft Docs
 description: Kies de instellingen voor client met behulp van de beheerconsole in System Center Configuration Manager.
 ms.custom: na
-ms.date: 03/24/2017
+ms.date: 08/01/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,11 +16,11 @@ caps.handback.revision: 0
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: c8717925dba42451b1e241a7c2f59e43896d7d99
-ms.openlocfilehash: 4a169098f30e4a9d708e41ee25c6a400d5ff0e85
+ms.translationtype: MT
+ms.sourcegitcommit: c0d94b8e6ca6ffd82e879b43097a9787e283eb6d
+ms.openlocfilehash: a8233c361e1a78b14a02f328da445814624e38d8
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/19/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="about-client-settings-in-system-center-configuration-manager"></a>Clientinstellingen in System Center Configuration Manager
@@ -63,9 +63,25 @@ Veel van de clientinstellingen behoeven geen uitleg. Anderen worden hier beschre
 
   Vanaf versie 1606 is deze instelling gebruiken voor het instellen van de clientcomputer voor [BranchCache](/sccm/core/plan-design/configs/support-for-windows-features-and-networks#branchcache). Stel wilt toestaan BranchCache opslaan in cache op de client **BranchCache inschakelen** naar **Ja**.
 
+- **BranchCache inschakelen**
+
+Hiermee schakelt BranchCache op clientcomputers.
+
+- **Cachegrootte maximale BranchCache (percentage van de schijf)**.
+
 - **Clientcachegrootte configureren**
 
-  De clientcache op Windows-computers opslaat tijdelijke bestanden gebruikt voor het installeren van toepassingen en programma's. Kies **Ja** om op te geven **maximale cachegrootte** (megabytes of als percentage van schijf). De grootte van de client-cache kan worden uitgebreid tot de maximale grootte in MB of het percentage van de schijf **is afhankelijk van wat minder**. Als deze optie is **Nee**, de standaardgrootte is 5.120 MB.
+  De clientcache op Windows-computers opslaat tijdelijke bestanden gebruikt voor het installeren van toepassingen en programma's. Kies **Ja** geeft:
+    - **Maximale cachegrootte** (MB). 
+    - **Maximale cachegrootte** (percentage van de schijf).
+De grootte van de client-cache kan worden uitgebreid tot de maximale grootte in MB of het percentage van de schijf **is afhankelijk van wat minder**. Als deze optie is **Nee**, de standaardgrootte is 5.120 MB.
+
+- **Inschakelen van Configuration Manager-client in volledige OS in staat om inhoud te delen**
+
+Hiermee peer-cache voor Configuration Manager-clients. Geef vervolgens de poortinformatie waarmee de client communiceert met de peercomputer. Configuration Manager configureert automatisch Windows Firewall-regels zodat dit verkeer. Als u een andere firewall gebruikt, moet u regels voor dit verkeer handmatig configureren.
+
+
+
 
 ## <a name="client-policy"></a>Beleid voor client  
 
@@ -107,7 +123,7 @@ Veel van de clientinstellingen behoeven geen uitleg. Anderen worden hier beschre
 
   -   Het beheerpunt op internet verifieert de gebruiker met behulp van Windows-verificatie (Kerberos of NTLM).  
 
-   Een computer die verbonden is met het internet ontvangt alleen het computerbeleid als u deze optie ingesteld laat op **False** of **Nee**, of als aan een van beide voorwaarden niet wordt voldaan. In dit scenario kunnen gebruikers nog steeds toepassingen zien, aanvragen en installeren uit een Application Catalog op internet. Als deze instelling is **False** of **Nee** maar **de polling voor gebruikersbeleid op clients inschakelen** is **True** of **gebruikersbeleid op clients inschakelen** is **Ja**, ontvangen gebruikers geen gebruikersbeleid totdat de computer is verbonden met het intranet.  
+   Als u deze optie ingesteld laat **False** of **Nee**, of een van de voorwaarden mislukt, een computer op het Internet wordt alleen het computerbeleid ontvangt. In dit scenario kunnen gebruikers nog steeds toepassingen zien, aanvragen en installeren uit een Application Catalog op internet. Als deze instelling is **False** of **Nee** maar **de polling voor gebruikersbeleid op clients inschakelen** is **True** of **gebruikersbeleid op clients inschakelen** is **Ja**, ontvangen gebruikers geen gebruikersbeleid totdat de computer is verbonden met het intranet.  
 
    Zie voor meer informatie over het beheren van clients op het Internet [overwegingen voor clientcommunicatie via Internet of een niet-vertrouwd forest](../../../core/plan-design/hierarchy/communications-between-endpoints.md#BKMK_clientspan) in [communicatie tussen de eindpunten in System Center Configuration Manager](../../../core/plan-design/hierarchy/communications-between-endpoints.md).  
 
@@ -140,7 +156,7 @@ Veel van de clientinstellingen behoeven geen uitleg. Anderen worden hier beschre
 
      -   U wilt de dichtstbijzijnde server voor clients handmatig configureren of ervoor zorgen dat ze niet met server verbinden via een trage netwerkverbinding.  
 
-     -   U wilt controleren welke clients met welke server verbinding maken. U kunt dit doen voor testdoeleinden, prestaties of zakelijke redenen.  
+     -   U wilt controleren welke clients met welke server verbinding maken. Deze configuratie kan zijn voor testdoeleinden, prestaties of zakelijke redenen.  
 
      -   U wilt niet tot maximaal 25 uur wachten of wachten op een netwerkwijziging voordat clients worden geconfigureerd met een verschillend Application Catalog-websitepunt.  
 

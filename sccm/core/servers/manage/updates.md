@@ -2,7 +2,7 @@
 title: Updates | Microsoft Docs
 description: Meer informatie over een in de console-servicemethode aangeroepen ** Updates en onderhoud ** waarmee u gemakkelijk om te zoeken en installeren aanbevolen updates.
 ms.custom: na
-ms.date: 05/02/2017
+ms.date: 07/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,22 +16,21 @@ caps.handback.revision: 0
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: f4c46bfab9b40b29654f4e883817a5508ab25b74
-ms.openlocfilehash: 4bc076bba4672d0be0032ec785da20e60b11a6c4
+ms.translationtype: MT
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: d46aca88111d4ee0e96b75ca5a3ec57aa4274d6d
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/29/2017
 
 ---
 # <a name="updates-for-system-center-configuration-manager"></a>Updates voor System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-System Center Configuration Manager maakt gebruik van een in de console-servicemethode aangeroepen **Updates en onderhoud** waarmee u gemakkelijk om te zoeken en installeren die zijn aanbevolen updates voor uw Configuration Manager-infrastructuur. Deze onderhoudsmethode in de console wordt aangevuld met out-of-band-updates, zoals hotfixes die zijn bedoeld voor klanten die willen oplossen van problemen die mogelijk specifiek zijn voor hun omgeving.  
+System Center Configuration Manager maakt gebruik van een in de console-servicemethode aangeroepen **Updates en onderhoud**. Deze methode in de console kunt u eenvoudig zoeken en installeren die zijn aanbevolen updates voor uw Configuration Manager-infrastructuur. Onderhoud in de console wordt aangevuld met out-of-band-updates, zoals hotfixes die zijn bedoeld voor klanten die willen oplossen van problemen die mogelijk specifiek zijn voor hun omgeving.  
 
 > [!TIP]  
-> Bij het beheren van System Center Configuration Manager-site en hiërarchie-infrastructuur, de voorwaarden *upgrade*, *bijwerken*, en *installeren* worden gebruikt voor het beschrijven van drie afzonderlijke concepten... Zie voor meer informatie over hoe elke term wordt gebruikt, [over upgrade-, update- en installatie](/sccm/core/understand/upgrade-update-install).
+> Bij het beheren van System Center Configuration Manager-site en hiërarchie-infrastructuur, de voorwaarden *upgrade*, *bijwerken*, en *installeren* worden gebruikt voor het beschrijven van drie afzonderlijke concepten. Zie voor meer informatie over hoe elke term wordt gebruikt, [over upgrade-, update- en installatie](/sccm/core/understand/upgrade-update-install).
 
 
  **De volgende onderwerpen vindt u begrijpen hoe u om te zoeken en installeren van de verschillende updatetypen voor System Center Configuration Manager:**  
@@ -53,21 +52,21 @@ Als u de vertakking Technical Preview gebruikt, Zie [Technical Preview voor Syst
 
 -   Gebruik de meest recente versie van de basislijn wanneer u een nieuwe site in een nieuwe hiërarchie installeert.  
 
--   Voor een upgrade van System Center 2012 Configuration Manager moet u een basislijnversie gebruiken.  
+-   U kunt een basislijnversie gebruiken voor upgrade van System Center 2012 Configuration Manager. Na de upgrade naar System Center Configuration Manager moet u niet meer kunt basislijnversies Blijf en gebruiken in plaats daarvan alleen [updates in de console](/sccm/core/servers/manage/install-in-console-updates) bij te werken naar de nieuwste versie.  
 
--   Periodiek worden aanvullende basislijnversies gepubliceerd. Wanneer u de meest recente basislijnversie gebruikt om een nieuwe hiërarchie, hoeft u niet een verouderde versie van Configuration Manager te installeren, gevolgd door een upgrade van uw infrastructuur te brengen up-to-date te houden.  
+-   Periodiek worden aanvullende basislijnversies gepubliceerd. Wanneer u de meest recente basislijnversie gebruikt om een nieuwe hiërarchie te installeren, moet u voorkomen dat een verouderde versie van Configuration Manager gevolgd door een extra upgrade van uw infrastructuur deze up-to-date te installeren.  
 
 Nadat u een basislijnversie hebt geïnstalleerd, zijn aanvullende versies van Configuration Manager als updates beschikbaar in de console. Met de updates in de console wordt uw infrastructuur bijgewerkt naar de nieuwste versie van Configuration Manager.  
 
 -   U installeert de updates in de console om de versie van uw site op het hoogste niveau bij te werken.  
 
--   Updates die u op de centrale beheersite installeert, worden automatisch geïnstalleerd op onderliggende primaire sites, tenzij deze worden geblokkeerd door een onderhoudsvenster dat u hebt geconfigureerd op de primaire site.  
+-   Updates die u op de centrale beheersite automatisch installeert installeren op onderliggende primaire sites, tenzij geblokkeerd door een onderhoudsvenster dat u hebt geconfigureerd op de primaire site.  
 
--   Secundaire sites moet u vanuit de console handmatig bijwerken naar een nieuwe updateversie.  
+-   U bijwerken secundaire sites handmatig naar een nieuwe updateversie uit binnen de console.  
 
-Wanneer u een update installeert, worden de installatiebestanden voor die versie op de siteserver opgeslagen in een map met de naam CD.Latest. Zie [de CD. Meest recente map voor System Center Configuration Manager](../../../core/servers/manage/the-cd.latest-folder.md) voor meer informatie over deze bestanden.  
+Wanneer u een update installeert, worden de installatiebestanden voor die versie op de siteserver opgeslagen in een map met de naam CD.Latest. Zie voor meer informatie over deze bestanden [de CD. Meest recente map voor System Center Configuration Manager](../../../core/servers/manage/the-cd.latest-folder.md).  
 
--   U gebruikt de bestanden in de map CD.Latest tijdens het siteherstel en voor het installeren van extra sites in een hiërarchie waarmee geen basislijnversie meer wordt uitgevoerd.  
+-   U de bestanden in de CD. Meest recente map tijdens de Site Recovery en voor het installeren van aanvullende sites in een hiërarchie die een basislijnversie wordt niet meer uitgevoerd.  
 
 -   U kunt installatiebestanden uit CD.Latest niet gebruiken om de eerste site van een nieuwe hiërarchie te installeren of om een upgrade van een site uit te voeren vanaf System Center 2012 Configuration Manager.  
 
@@ -77,12 +76,13 @@ De volgende versies van Configuration Manager zijn beschikbaar als basislijn, al
 
 |Versie |Beschikbaarheidsdatum|[Einddatum voor ondersteuning](/sccm/core/servers/manage/current-branch-versions-supported) |Basislijn|Update in de console|  
 |-------------|-----------|------------|--------------|------------------------|  
-|[1702](/sccm/core/plan-design/changes/whats-new-in-version-1702)<br /><br /> 5.00.8498.1000|3/27/2017| 3/27/2018|Ja|Ja|
-|[1610](/sccm/core/plan-design/changes/whats-new-in-version-1610)<br /><br /> 5.00.8458.1000|11/18/2016| 11/18/2017|Nee|Ja|
-|[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606)<br /><br /> 5.00.8412.1000|7/22/2016| 7/22/2017|Nee|Ja|
-|[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606) met het updatepakket voor 1606 hotfix (KB3186654) </br></br>5.00.8412.1307 *(Opmerking 1)* |10/12/2016| 7/22/2017|Ja|Nee|
-| 1602<br /><br /> 5.00.8355.1000|11-3-2016| 3/11/2017|Nee|Ja|
-| 1511 <br /><br /> 5.00.8325.1000|8-12-2015| 12/8/2016|Ja|Nee|  
+|[1706](/sccm/core/plan-design/changes/whats-new-in-version-1706)<br /><br /> 5.00.8540.1000|31 juli 2017|31 juli 2018|Nee|Ja|
+|[1702](/sccm/core/plan-design/changes/whats-new-in-version-1702)<br /><br /> 5.00.8498.1000|27 maart 2017| 27 maart 2018|Ja|Ja|
+|[1610](/sccm/core/plan-design/changes/whats-new-in-version-1610)<br /><br /> 5.00.8458.1000|18 november 2016| 18 november 2017|Nee|Ja|
+|[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606)<br /><br /> 5.00.8412.1000|22 juli 2016| 22 juli 2017|Nee|Ja|
+|[1606](/sccm/core/plan-design/changes/whats-new-in-version-1606) met het updatepakket voor 1606 hotfix (KB3186654) </br></br>5.00.8412.1307 *(Opmerking 1)* |12 oktober 2016| 12 oktober 2017|Ja|Nee|
+| 1602<br /><br /> 5.00.8355.1000|11 maart 2016| 11 maart 2017|Nee|Ja| 
+| 1511 <br /><br /> 5.00.8325.1000|8 december 2015| 8 december 2016|Ja|Nee|  
 
 
 *(Opmerking 1)*  De basislijnmedia 1606 en 1702 beschikbaar zijn als onderdeel van de Microsoft System Center 2016 of System Center Configuration Manager (huidige vertakking en Long-Term Servicing Branch) is uitgebracht op de [Volume licentie Service Center](https://www.microsoft.com/Licensing/servicecenter/Downloads/DownloadsAndKeys.aspx) (VLSC). Bijvoorbeeld, op het VLSC u kunt zoeken naar *System Center Config Mgr (huidige vertakking en LTSB)*, basislijnmedia 1606 en 1702 versie zijn geretourneerde en gedownload.
@@ -93,11 +93,11 @@ Ga in de linkerbovenhoek van de console naar **Info over System Center Configura
  Wanneer u een productie-gereed-installatie van System Center Configuration Manager, ook wel aangeduid als de huidige vertakking, zijn de meeste updates die u installeert beschikbaar via de Updates en onderhoud van kanaal. Met deze methode worden de updates die van toepassing zijn op de huidige versie en configuratie van uw infrastructuur geïdentificeerd, gedownload en beschikbaar gesteld en worden er alleen updates opgenomen die worden aanbevolen voor alle klanten.   
  Deze omvatten:  
 
--   Nieuwe versies, zoals versie 1610  
+-   Nieuwe versies, zoals versie 1610, 1702 of 1706.  
 
--   Updates, waaronder nieuwe functies voor uw huidige versie  
+-   Updates, waaronder nieuwe functies voor uw huidige versie.
 
--   Hotfixes voor uw versie van Configuration Manager, die alle klanten moeten installeren  
+-   Hotfixes voor uw versie van Configuration Manager en dat alle klanten moeten installeren.
 
 De updates in de console bieden een verbeterde stabiliteit en oplossingen voor algemene problemen. Deze vervangen de typen updates die werden gebruikt voor eerdere productversies voor servicepacks, cumulatieve updates, hotfixes die van toepassing zijn op alle klanten en de uitbreiding voor Microsoft Intune. Deze updates kunnen van toepassing zijn op een of meer van de volgende items:  
 
@@ -137,7 +137,7 @@ Wanneer u een update in de console installeert, geldt het volgende:
 >  De productierelease van System Center Configuration Manager (huidige vertakking), de vertakking Long-Term onderhoud en de Technical Preview voor System Center Configuration Manager zijn verschillende releases. Updates die van toepassing zijn voor een vertakking zijn daarom niet beschikbaar als console-updates voor de andere filialen. Zie voor meer informatie over beschikbare vertakkingen [welke vertakking van Configuration Manager moet ik gebruiken?](/sccm/core/understand/which-branch-should-i-use)
 
 ##  <a name="bkmk_outofband"></a> Out-of-band-hotfixes  
-Bepaalde hotfixes worden uitgebracht met beperkte beschikbaarheid om specifieke problemen te verhelpen of zijn van toepassing op alle klanten, maar kunnen niet worden geïnstalleerd via de console. Deze oplossingen worden out-of-band geleverd en worden niet gedetecteerd via de Microsoft-cloudservice.  
+Bepaalde hotfixes uitgebracht met beperkte beschikbaarheid om specifieke problemen te verhelpen of zijn van toepassing op alle klanten, maar kan niet installeren met behulp van de methode in de console. Deze oplossingen worden out-of-band geleverd en worden niet gedetecteerd via de Microsoft-cloudservice.  
 
 Normaal gesproken u meer informatie over out-of-band-hotfixes van Microsoft-klantondersteuning, Knowledge Base-artikel of van de [System Center Configuration Manager-teamblog](https://blogs.technet.microsoft.com/configmgrteam) wanneer u zoekt is een probleem met uw implementatie van Configuration Manager wilt oplossen.  
 

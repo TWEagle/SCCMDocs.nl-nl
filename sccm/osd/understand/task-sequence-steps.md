@@ -16,12 +16,11 @@ caps.handback.revision: 0
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 6f9e6e93fce95666503907010a5c253158c5de7c
-ms.openlocfilehash: f648d7626af50d95fbaa5a7a2abd821a9c47f5d1
+ms.translationtype: MT
+ms.sourcegitcommit: b7461f89f483314bd07248bbc9d5dde85ca6b6c2
+ms.openlocfilehash: e0726febc4c36a26c5e067914734838bf2681e6c
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/07/2017
-
+ms.lasthandoff: 08/03/2017
 
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Stappen voor takenreeksen in System Center Configuration Manager
@@ -1527,9 +1526,9 @@ Nadat u de variabelen voor een regel hebt geselecteerd, moet u een waarde opgeve
 >  Wanneer u een takenreeks importeert met de stap Dynamische variabelen instellen terwijl **Geheime waarde** is geselecteerd voor de waarde van de variabele, wordt de waarde verwijderd wanneer u de takenreeks importeert. Daardoor moet u de waarde voor de dynamische variabele opnieuw invoeren nadat u de takenreeks hebt geïmporteerd.  
 
 ##  <a name="BKMK_SetTaskSequenceVariable"></a>Takenreeksvariabele instellen  
- Gebruik de takenreeksstap **Takenreeksvariabele instellen** om de waarde in te stellen van een variabele die in de takenreeks wordt gebruikt.  
+Gebruik de takenreeksstap **Takenreeksvariabele instellen** om de waarde in te stellen van een variabele die in de takenreeks wordt gebruikt.  
 
- Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Takenreeksvariabelen worden gelezen door takenreeksacties en bepalen het gedrag van deze acties. Zie voor meer informatie over specifieke takenreeksvariabelen [Takenreeksacties](task-sequence-action-variables.md).  
+Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Takenreeksvariabelen worden gelezen door takenreeksacties en bepalen het gedrag van deze acties. Zie voor meer informatie over specifieke takenreeksvariabelen [Takenreeksacties](task-sequence-action-variables.md).  
 
 ### <a name="details"></a>Details  
  Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
@@ -1553,6 +1552,16 @@ Nadat u de variabelen voor een regel hebt geselecteerd, moet u een waarde opgeve
 
  **Waarde**  
  De waarde die is gekoppeld aan de takenreeksvariabele. De waarde kan een andere takenreeksvariabele zijn met de syntaxis %<varname\>%.  
+
+## <a name="hide-task-sequence-progress"></a>Voortgang van de takenreeks verbergen
+<!-- 1354291 -->
+U kunt bepalen wanneer voortgang van de takenreeks wordt weergegeven aan eindgebruikers met behulp van een nieuwe variabele met de release 1706. Gebruik in uw takenreeks de **Takenreeksvariabele instellen** stap voor het instellen van de waarde voor de **TSDisableProgressUI** variabele voortgang van de takenreeks weergeven of verbergen. U kunt de stap Takenreeksvariabele instellen meerdere keren in een takenreeks om de waarde voor de variabele te wijzigen. Hiermee kunt u de voortgang van de takenreeks in verschillende secties van de takenreeks weergeven of verbergen.
+
+ - **Voortgang van de takenreeks verbergen**  
+In de editor voor takenreeksen, gebruikt u de [Takenreeksvariabele instellen](#BKMK_SetTaskSequenceVariable) stap voor het instellen van de waarde van de **TSDisableProgressUI** variabele **True** voor het verbergen van de voortgang van de takenreeks.
+
+ - **Voortgang van de takenreeks weergeven**  
+In de editor voor takenreeksen, gebruikt u de [Takenreeksvariabele instellen](#BKMK_SetTaskSequenceVariable) stap voor het instellen van de waarde van de **TSDisableProgressUI** variabele **False** om weer te geven van de voortgang van de takenreeks.
 
 ##  <a name="BKMK_SetupWindowsandConfigMgr"></a>Windows en ConfigMgr installeren  
  Gebruik de takenreeksstap **Windows en ConfigMgr installeren** om de overgang van Windows PE naar het nieuwe besturingssysteem uit te voeren. Deze takenreeksstap is een vereist onderdeel van iedere besturingssysteemimplementatie. Deze Configuration Manager-client installeert in het nieuwe besturingssysteem en bereidt de takenreeks op uitvoering in het nieuwe besturingssysteem.  

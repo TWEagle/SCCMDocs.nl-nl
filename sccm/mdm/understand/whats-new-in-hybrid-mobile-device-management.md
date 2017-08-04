@@ -16,10 +16,10 @@ author: Mtillman
 ms.author: mtillman
 manager: angrobe
 ms.translationtype: MT
-ms.sourcegitcommit: 94dc0335dab74bec7989753343418fae49b3ebe9
-ms.openlocfilehash: ab011cb06b43b06fc6e2a89e2f413d35a541a111
+ms.sourcegitcommit: c0d94b8e6ca6ffd82e879b43097a9787e283eb6d
+ms.openlocfilehash: 8e660c667daec9b1f7630e15599df5e3cfe55b5e
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Wat is er nieuw in hybride mobile device management met System Center Configuration Manager en Microsoft Intune
@@ -45,6 +45,19 @@ Dit artikel bevat informatie op de nieuwe mobiele apparaat management (MDM)-func
 - **Einde van aankondigingen van ondersteuning toegevoegd voor Android en Windows Phone**
 
     Nieuwe meldingen zijn toegevoegd voor einde van ondersteuning voor Android en Windows Phone-versies. Zie voor meer informatie [meldingen](#notices).
+
+
+
+### <a name="new-in-configuration-manager-current-branch"></a>Nieuw in Configuration Manager (huidige vertakking)
+
+De volgende functies die eerder beschikbaar in Configuration Manager Technical Preview-versies waren zijn nu beschikbaar in hybride implementaties met Intune en Configuration Manager (huidige vertakking) versie 1706.
+
+- [Ondersteuning voor certificeringsinstanties Entrust belasten](/sccm/core/get-started/capabilities-in-technical-preview-1706#support-for-entrust-certification-authorities)
+- [Nieuwe beleidsinstellingen voor mobile application management](/sccm/core/plan-design/changes/whats-new-in-version-1706#new-mobile-application-management-policy-settings)
+- [Updates voor Android for Work-configuratie voor delen](/sccm/core/plan-design/changes/whats-new-in-version-1706#updates-to-android-for-work-sharing-configuration)
+- [Nieuwe beleidsregels voor naleving van apparaat](/sccm/core/plan-design/changes/whats-new-in-version-1706#new-device-compliance-policy-rules)
+- [Nieuwe configuratie-instellingen voor Windows 10-apparaten die niet worden beheerd met Configuration Manager-client](/sccm/core/plan-design/changes/whats-new-in-version-1706#new-configuration-settings-for-windows-10-devices-that-are-not-managed-with-the-configuration-manager-client)
+- [Cisco (IPsec) ondersteuning voor Mac OS VPN-profielen](/sccm/core/get-started/capabilities-in-technical-preview-1706#cisco-ipsec-support-for-macos-vpn-profiles)
 
 ## <a name="june-2017"></a>Juni 2017
 

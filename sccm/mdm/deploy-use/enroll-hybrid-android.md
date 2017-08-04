@@ -2,7 +2,7 @@
 title: Beheer van hybride Android-apparaten met System Center Configuration Manager en Microsoft Intune instellen | Microsoft Docs
 description: Voorbereiden voor het beheren van mobiele Android-apparaten met Configuration Manager en Intune.
 ms.custom: na
-ms.date: 03/27/2017
+ms.date: 07/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,12 +16,11 @@ caps.handback.revision: 0
 author: nathbarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 86620254897aa9a775dc433de7010b5814c1ec3e
-ms.openlocfilehash: af6fa2dfae5549e89c46d05d0cef1e24342558f9
+ms.translationtype: MT
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: b47ecd1754a623b1b57dc5c5ecb42a6b0b64404e
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/29/2017
 
 ---
 # <a name="set-up-android-hybrid-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Hybride apparaatbeheer instellen voor Android met System Center Configuration Manager en Microsoft Intune
@@ -39,6 +38,9 @@ De volgende stappen kunt Configuration Manager beheren van Android-apparaten zon
 2. In de Configuration Manager-console in de **beheer** werkruimte, kiest u **overzicht** > **Cloudservices** > **Microsoft Intune-abonnement** en kies uw Intune-abonnement.  
 3. Op de **Start** tabblad de **abonnement** groep, kiest u **Platforms configureren** > **Android**.  
 4. In de **eigenschappen van Microsoft Intune-abonnement** dialoogvenster Kies de **Android** tabblad en controleer de **Android-inschrijving inschakelen** vak.  
+
+> [!NOTE]
+>  De **blok persoonlijk eigendom zijn van apparaten** mogelijkheid op dit moment niet beschikbaar is. 
 
  Nadat u alles hebt ingesteld, moet u uw gebruikers laten weten hoe ze kunnen hun apparaten inschrijven. Zie [Wat u uw eindgebruikers vertelt over het gebruik van Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/what-to-tell-your-end-users-about-using-microsoft-intune). Deze informatie is van toepassing op mobiele apparaten die worden beheerd door Configuration Manager en Microsoft Intune.
 

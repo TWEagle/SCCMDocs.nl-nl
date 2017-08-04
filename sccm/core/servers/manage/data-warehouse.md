@@ -2,7 +2,7 @@
 title: Datawarehouse | Microsoft Docs
 description: Datawarehouse-servicepunt en de database voor System Center Configuration Manager
 ms.custom: na
-ms.date: 5/31/2017
+ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,10 +16,10 @@ author: Brenduns
 ms.author: brenduns
 manager: angrobe
 ms.translationtype: MT
-ms.sourcegitcommit: ef42d1483053e9a6c502f4ebcae5a231aa6ba727
-ms.openlocfilehash: c421c3495f56503d5cbda7b1a5ab5350a168912d
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: eedbf12d3bf628666efc90c85a8dfab37e4dc9ab
 ms.contentlocale: nl-nl
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 07/29/2017
 
 ---
 #  <a name="the-data-warehouse-service-point-for-system-center-configuration-manager"></a>Het datawarehouse-servicepunt voor System Center Configuration Manager
@@ -27,11 +27,12 @@ ms.lasthandoff: 07/26/2017
 
 Vanaf versie 1702 dat kunt u de datawarehouse-servicepunt op te slaan en te rapporteren over langetermijnopslag van historische gegevens voor uw Configuration Manager-implementatie.
 
-> [!TIP]  
-> De datawarehouse-servicepunt is geïntroduceerd in versie 1702, is een voorlopige versie-functie. Als u wilt inschakelen, Zie [gebruikt functies van evaluatieversies](/sccm/core/servers/manage/pre-release-features).
+> [!TIP]
+> De datawarehouse-servicepunt is een voorlopige versie-functie die is geïntroduceerd in versie 1702. Als u wilt inschakelen, Zie [gebruikt functies van evaluatieversies](/sccm/core/servers/manage/pre-release-features).
 
-Het datawarehouse ondersteunt maximaal 2 TB aan gegevens, met een tijdstempel voor het bijhouden. Opslag van gegevens wordt gedaan door geautomatiseerde synchronisaties uit de sitedatabase van Configuration Manager met de datawarehouse-database. Deze gegevens zijn toegankelijk is vanaf uw Reporting Services-punt.
+> Vanaf versie 1706, deze functie is niet langer een voorlopige versie.
 
+Het datawarehouse ondersteunt maximaal 2 TB aan gegevens, met een tijdstempel voor het bijhouden. Opslag van gegevens wordt gedaan door geautomatiseerde synchronisaties uit de sitedatabase van Configuration Manager met de datawarehouse-database. Deze gegevens zijn toegankelijk is vanaf uw Reporting Services-punt. Gegevens die zijn gesynchroniseerd met de datawarehouse-database wordt drie jaar bewaard. Een ingebouwde taak verwijdert periodiek gegevens die ouder is dan drie jaar.
 
 Gegevens worden gesynchroniseerd omvat het volgende uit de globale gegevens en sitegegevens groepen:
 - Status van de groepsbeleidstructuur
@@ -46,15 +47,22 @@ Wanneer de sitesysteemrol wordt geïnstalleerd, installeert en configureert u de
 
 
 ## <a name="prerequisites-for-the-data-warehouse-service-point"></a>Vereisten voor het datawarehouse-servicepunt
+- De sitesysteemrol van de datawarehouse wordt alleen ondersteund op de bovenste site van uw hiërarchie. (Een centrale beheersite of zelfstandige primaire site).
 - De computer waarop u de sitesysteemrol installeert, vereist .NET Framework 4.5.2 of hoger.
 - Het computeraccount van de computer waarop u de sitesysteemrol installeert, wordt gebruikt om gegevens te synchroniseren met de datawarehouse-database. Deze account vereist de volgende machtigingen:  
   - **Beheerder** op de computer die als voor de datawarehouse-database host fungeert.
   - **DB_owner** machtiging op de datawarehouse-database.
   - **DB_reader** en **uitvoeren** sitedatabase machtigingen voor de sites van het hoogste niveau.
--   De datawarehouse-database wordt ondersteund op een standaard of benoemd exemplaar van SQL Server 2012 of later. De editie moet Enterprise of Datacenter.
-  - SQL Server AlwaysOn-beschikbaarheidsgroep: Deze configuratie wordt niet ondersteund.
-  - SQL Server-Cluster: SQL Server-failoverclusters worden niet ondersteund. Dit komt doordat de datawarehouse-database niet diep is getest op SQL Server-failoverclusters.
-  - Als de datawarehouse-database extern van de site server-database is, moet u een aparte licentie hebben voor de SQL Server die als host fungeert voor de database.
+- De datawarehouse-database vereist het gebruik van SQL Server 2012 of later. De editie kan zijn Standard, Enterprise of Datacenter.
+- De volgende SQL Server-configuraties worden ondersteund voor het hosten van de datawarehouse-database:  
+  - Een standaardexemplaar
+  - Benoemd exemplaar
+  - SQL Server Always On beschikbaarheidsgroep
+  - SQL Server-failovercluster
+-   Als de datawarehouse-database extern van de site server-database is, moet u een aparte licentie hebben voor elke SQL-Server die als host fungeert voor de database.
+- Als u [gedistribueerde weergaven](/sccm/core/servers/manage/data-transfers-between-sites#bkmk_distviews), de datawarehouse service sitesysteemrol moet installeren op dezelfde server die als host fungeert voor de database van centrale beheersite sites.
+
+
 
 > [!IMPORTANT]  
 > Het datawarehouse wordt niet ondersteund wanneer de computer waarop de datawarehouse-servicepunt of die als host fungeert de datawarehouse-database wordt uitgevoerd een van de volgende talen:
@@ -65,9 +73,7 @@ Wanneer de sitesysteemrol wordt geïnstalleerd, installeert en configureert u de
 
 
 ## <a name="install-the-data-warehouse"></a>Het datawarehouse installeren
-U kunt de datawarehouse sitesysteemrol alleen op de bovenste site van uw hiërarchie (een centrale beheersite of zelfstandige primaire site) installeren.
-
-Elke hiërarchie ondersteunt slechts één exemplaar van deze rol, en deze kan worden geplaatst op elk sitesysteem van die site bovenste laag. De SQL Server die als host fungeert voor de database voor het datawarehouse kan zijn voor de sitesysteemrol lokale of externe. Hoewel het datawarehouse met de Reporting Services-punt is geïnstalleerd op dezelfde site werkt, hoeft de twee sitesysteemrollen niet te worden geïnstalleerd op dezelfde server.   
+Elke hiërarchie ondersteunt slechts één exemplaar van deze rol op elk sitesysteem van de bovenste site. De SQL Server die als host fungeert voor de database voor het datawarehouse kan zijn voor de sitesysteemrol lokale of externe. Hoewel het datawarehouse met de Reporting Services-punt is geïnstalleerd op dezelfde site werkt, hoeft de twee sitesysteemrollen niet te worden geïnstalleerd op dezelfde server.   
 
 U kunt de functie installeren met de **toevoegen Wizard sitesysteemrollen** of de **maken Wizard Sitesysteemserver**. Zie [sitesysteemrollen installeren](/sccm/core/servers/deploy/configure/install-site-system-roles) voor meer informatie.  
 
@@ -83,7 +89,8 @@ Wanneer u de rol installeert, maakt Configuration Manager de datawarehouse-datab
  - **SQL Server-instantienaam, indien van toepassing**:   
  Als u niet een standaardexemplaar van SQL Server gebruikt, moet u het exemplaar opgeven.
  - **Databasenaam**:   
- Geef een naam voor de datawarehouse-database.  Configuration Manager maakt de datawarehouse-database met deze naam. Als u de naam van een database die al bestaat op het exemplaar van SQL server opgeeft, wordt Configuration Manager dat de database gebruikt.
+ Geef een naam voor de datawarehouse-database. Naam van de database kan niet groter zijn dan 10 tekens. (De lengte van de ondersteunde worden verhoogd in een toekomstige release).
+ Configuration Manager maakt de datawarehouse-database met deze naam. Als u de naam van een database die al bestaat op het exemplaar van SQL server opgeeft, wordt in Configuration Manager dat de database gebruikt.
  - **SQL Server-poort gebruikt voor verbinding**:   
  Geef de TCP/IP-poortnummer dat is geconfigureerd voor de SQL Server die als host fungeert voor de datawarehouse-database. Deze poort wordt gebruikt door de datawarehouse-synchronisatieservice verbinding maken met de datawarehouse-database.  
 
@@ -125,7 +132,7 @@ In tegenstelling tot een verplaatsing van de datawarehouse-database, wordt deze 
 ## <a name="move-the-data-warehouse-database"></a>De Data Warehouse-database verplaatsen
 Gebruik de volgende stappen uit de datawarehouse-database verplaatsen naar een nieuwe SQL-Server:
 
-1.  Gebruik SQL Server Management Studio back-up van de gegevens te datawarehouse-database en herstel vervolgens die database op een SQL-Server op de nieuwe computer die als host voor het datawarehouse fungeert.   
+1.  SQL Server Management Studio back-up van de datawarehouse-database te gebruiken. Vervolgens die database herstellen naar een SQL-Server op de nieuwe computer die als host fungeert voor het datawarehouse.   
 > [!NOTE]     
 > Nadat u de database naar de nieuwe server teruggezet, zorg ervoor dat de toegangsmachtigingen voor de database op de nieuwe datawarehouse-database dezelfde zijn als ze op de oorspronkelijke datawarehouse-database waren.  
 
@@ -140,13 +147,13 @@ Gebruik de volgende logboeken voor het onderzoeken van problemen met de installa
  - *Microsoft.ConfigMgrDataWarehouse.log* : dit logboek gebruikt voor het onderzoeken van gegevenssynchronisatie tussen de sitedatabase naar de datawarehouse-database.
 
 **Fout bij instellen**  
- Installatie van de datawarehouse-servicepunt mislukt op een externe sitesysteemserver als het datawarehouse de eerste sitesysteemrol op die computer geïnstalleerd is.  
+ Installatie van de datawarehouse-servicepunt mislukt op een externe sitesysteemserver als het datawarehouse is de eerste sitesysteemrol die op die computer installeert.  
   - **Oplossing**:   
     Zorg ervoor dat de computer die u de datawarehouse-servicepunt op al installeert ten minste één andere sitesysteemrol host.  
 
 
 **Bekende synchronisatieproblemen**:   
-Synchronisatie mislukt met de volgende items in de *Microsoft.ConfigMgrDataWarehouse.log*: **'is mislukt voor het vullen van de schema-objecten'**  
+Synchronisatie mislukt met het volgende bericht in *Microsoft.ConfigMgrDataWarehouse.log*: **'is mislukt voor het vullen van de schema-objecten'**  
  - **Oplossing**:  
     Zorg ervoor dat het computeraccount van de computer die als host fungeert voor de sitesysteemrol is een **db_owner** op de datawarehouse-database.
 
@@ -167,7 +174,7 @@ Wanneer u een rapport met inventarisatiegegevens datawarehouse opent, wordt de v
     2. Open **SQL Server Configuration Manager**onder **SQL Server-netwerkconfiguratie**, klik met de rechtermuisknop om te selecteren **eigenschappen** onder **protocollen voor MSSQLSERVER**. Klik op de **certificaat** tabblad **Data Warehouse SQL Server Identification Certificate** als het certificaat en sla de wijzigingen.  
     3. Open **SQL Server Configuration Manager**onder **SQL Server-Services**, opnieuw opstarten **SQL Server-service** en **Reporting Service**.
     4.  Open de Microsoft Management Console (MMC) en voeg de module voor **certificaten**optie voor het beheren van het certificaat voor **computeraccount** van de lokale computer. Vouw vervolgens in de MMC de **persoonlijke** map > **certificaten**, en exporteer de **Data Warehouse SQL Server Identification Certificate** als een **DER encoded binary X.509 (. CER)** bestand.    
-  2.    Open de MMC-module op de computer die als host fungeert voor SQL Server Reporting Services, en voeg de module voor **certificaten**, en selecteer vervolgens het certificaat voor beheren **computeraccount**. Onder de **vertrouwde basiscertificeringsinstanties** map importeren de **Data Warehouse SQL Server Identification Certificate**.
+  2.    Open de MMC-module op de computer die als host fungeert voor SQL Server Reporting Services, en voeg de module voor **certificaten**. Selecteer voor het beheren van certificaten voor **computeraccount**. Onder de **vertrouwde basiscertificeringsinstanties** map importeren de **Data Warehouse SQL Server Identification Certificate**.
 
 
 ## <a name="data-warehouse-dataflow"></a>Datawarehouse gegevensstroom   
@@ -186,5 +193,5 @@ Wanneer u een rapport met inventarisatiegegevens datawarehouse opent, wordt de v
 |:------:|-----------|  
 | **A**  |  Door ingebouwde rapporten, opvraagt een gebruiker gegevens. Deze aanvraag wordt doorgegeven aan de Reporting Services verwijzen met behulp van SQL Server Reporting Services. |  
 | **B**  |      De meeste rapporten zijn voor actuele informatie en deze aanvragen worden uitgevoerd op de sitedatabase. |  
-| **C**  | Wanneer een rapport historische gegevens aanvraagt via een van de rapporten met een *categorie* van **Data Warehouse**, de aanvraag is uitgevoerd voor de Data Warehouse-database.   |  
+| **C**  | Wanneer een rapport historische gegevens aanvraagt via een van de rapporten met een *categorie* van **Data Warehouse**, de aanvraag wordt uitgevoerd op de datawarehouse-database.   |  
 

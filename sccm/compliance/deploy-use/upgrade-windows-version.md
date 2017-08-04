@@ -1,8 +1,8 @@
 ---
-title: Windows-apparaten een upgrade uitvoert naar een andere versie met Configuration Manager | Microsoft-documenten
-description: Apparaten met Windows 10 Mobile, Windows 10 Mobile of Windows 10 Holographic naar een andere editie met Configuration Manager automatisch bijwerken.
+title: Windows-apparaten upgraden naar een andere versie met Configuration Manager | Microsoft Docs
+description: Apparaten met Windows 10 Desktop en Windows 10 Mobile en Windows 10 Holographic naar een andere editie met Configuration Manager automatisch bijgewerkt.
 ms.custom: na
-ms.date: 04/18/2017
+ms.date: 07/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -16,47 +16,46 @@ caps.handback.revision: 0
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 4eee9731a4a27328c47c0d15931cab28cf520a18
-ms.openlocfilehash: cfde0a43947013bbd3a1093688cee19fe309fd03
+ms.translationtype: MT
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: cd8c644d07dab0010dc211df8ce4f2dc6e1fa7ae
 ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 07/29/2017
 
 ---
 
-# <a name="upgrade-windows-devices-with-the-edition-upgrade-policy-in-system-center-configuration-manager"></a>Upgrade van Windows-apparaten met het beleid voor editie upgrade in System Center Configuration Manager
+# <a name="upgrade-windows-devices-with-the-edition-upgrade-policy-in-system-center-configuration-manager"></a>Windows-apparaten met het editie-Upgradebeleid in System Center Configuration Manager upgraden
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
-De System Center Configuration Manager **Edition Upgrade beleid** kunt u automatisch upgrade apparaten met een van de volgende versies van Windows 10 naar een andere editie:
+De System Center Configuration Manager **editie-Upgradebeleid** kunt u automatisch upgraden van apparaten met een van de volgende versies van Windows 10 naar een andere editie:
 
 - Windows 10 Desktop
 - Windows 10 Mobile
-- Windows 10 Holographic
+<!-- - Windows 10 Holographic -->
 
 De volgende upgradepaden worden ondersteund:
 
-- Van Windows 10 Pro voor Windows 10 Enterprise
-- Windows 10 thuis Windows 10 onderwijs
+- Van Windows 10 Pro naar Windows 10 Enterprise
+- Van Windows 10 thuis naar Windows 10 Education
 - Van Windows 10 Mobile voor Windows 10 Mobile Enterprise
-- Van Windows 10 Holographic Pro voor Windows 10 Holographic Enterprise
+<!-- - From Windows 10 Holographic Pro to Windows 10 Holographic Enterprise -->
 
-De apparaten die zijn ingeschreven bij Microsoft Intune of de Configuration Manager-clientsoftware. Dit beleid is momenteel niet compatibel met pc's die worden beheerd door MDM op locatie
+De apparaten moeten worden geregistreerd bij Microsoft Intune of de Configuration Manager-clientsoftware wordt uitgevoerd. Dit beleid is momenteel niet compatibel met pc's die worden beheerd door lokale MDM.
 
 ## <a name="before-you-start"></a>Voordat u begint  
  Voordat u begint met het upgraden van apparaten naar de nieuwste versie, hebt u een van de volgende items nodig:  
 
 -   Een productcode die geldig is voor het installeren van de nieuwe versie van Windows op alle apparaten waarop het beleid is gericht (voor desktopbesturingssystemen)  
 
--   Een licentiebestand van Microsoft met de licentiegegevens voor het installeren van de nieuwe versie van Windows op alle apparaten waarop het beleid is gericht (voor Windows 10 Mobile en Windows 10 Holographic).
+-   Een licentiebestand van Microsoft die de licentiegegevens voor het installeren van de nieuwe versie van Windows op alle apparaten bevat die u met het beleid gericht (voor Windows 10 Mobile<!-- and Windows 10 Holographic-->).
 
-- Als u wilt maken en implementeren van dit beleidstype, u moet zijn toegewezen met de Configuration Manager **volledige beheerder** beveiligingsrol is toegekend.
+- Als u wilt maken en implementeren van dit beleidstype, u moet zijn toegewezen met de Configuration Manager **volledige beheerder** beveiligingsrol.
 
 ## <a name="configure-the-edition-upgrade-policy"></a>Het editie-upgradebeleid configureren  
 
-1.  Klik in de Configuration Manager-console op **activa en naleving** > **compatibiliteitsinstellingen** > **Windows 10 Edition Upgrade**.  
+1.  Klik in de Configuration Manager-console op **activa en naleving** > **instellingen voor naleving** > **Upgrade van Windows 10 Edition**.  
 
 3.  Klik op **Editie-upgradebeleid maken** op het tabblad **Start** in de groep **Maken**.  
 
@@ -68,7 +67,7 @@ De apparaten die zijn ingeschreven bij Microsoft Intune of de Configuration Mana
 
     -   **Beschrijving** (optioneel): geef eventueel een beschrijving op voor het beleid waarmee u het kunt herkennen in de Intune-console.  
 
-    -   **SKU om het apparaat bij te werken naar** : selecteer in de vervolgkeuzelijst de versie van Windows 10 Desktop, Windows 10 Holographic of Windows 10 Mobile waarnaar u de apparaten uit de doelgroep wilt bijwerken.  
+    -   **SKU-apparaat om te upgraden** - Selecteer in de vervolgkeuzelijst, selecteer de versie van Windows 10 Desktop <!-- Windows 10 Holographic,--> of Windows 10 Mobile die u wilt upgraden van de beoogde apparaten.  
 
     -   **Licentiegegevens** : selecteer een van de volgende opties:  
 
@@ -77,7 +76,7 @@ De apparaten die zijn ingeschreven bij Microsoft Intune of de Configuration Mana
             > [!NOTE]  
             >  Nadat u een beleid met een productcode hebt gemaakt, kunt u de productcode later niet meer bewerken. Dit komt doordat de code uit veiligheidsoverwegingen wordt verborgen. Als u de productcode wilt wijzigen, moet u de volledige code opnieuw invoeren.  
 
-        -   **Licentiebestand** : klik op **Bladeren** om een geldig licentiebestand in XML-indeling te selecteren dat wordt gebruikt om de apparaten uit de doelgroep te upgraden waarop Windows 10 Holographic- en Windows 10 Mobile-besturingssystemen worden uitgevoerd.  
+        -   **Licentiebestand** -Klik op **Bladeren** geldig licentiebestand in XML-indeling die wordt gebruikt voor het upgraden van apparaten selecteren die worden uitgevoerd is gericht <!--Windows 10 Holographic and -->Windows 10 Mobile-besturingssystemen.  
 
 6.  Voltooi de wizard.  
 
@@ -85,13 +84,21 @@ Het nieuwe beleid wordt weergegeven in het knooppunt **Upgrade van Windows 10 Ed
 
 ## <a name="deploy-the-edition-upgrade-policy"></a>Het editie-upgradebeleid implementeren  
 
-1.  Klik in de Configuration Manager-console op **activa en naleving** > **compatibiliteitsinstellingen** > **Windows 10 Edition Upgrade**.  
+1.  Klik in de Configuration Manager-console op **activa en naleving** > **instellingen voor naleving** > **Upgrade van Windows 10 Edition**.  
 
 3.  Selecteer het editie-upgradebeleid voor Windows 10 dat u wilt implementeren en klik op het tabblad **Start** in de groep **Implementatie** op **Implementeren**.  
 
-4.  In de **implementeren Windows 10 Edition Upgrade** dialoogvenster kiest u de verzameling waarnaar u wilt implementeren van het beleid en het schema waarmee het beleid wordt geëvalueerd en klik vervolgens op **OK**. Voor pc's die worden beheerd met de Configuration Manager-client, moet u het beleid implementeren voor een apparatenverzameling. Voor pc's die zijn ingeschreven met Intune, kunt u het beleid implementeren op een gebruikers- of apparaatverzameling. 
+4.  In de **implementeren Windows 10-editie-Upgrade** dialoogvenster vak, kiest u de verzameling waarnaar u implementeren van het beleid en de planning waarmee het beleid wordt geëvalueerd wilt, en klik vervolgens op **OK**. Voor pc's die worden beheerd met Configuration Manager-client, moet u het beleid implementeren voor een apparatenverzameling. Voor pc's die zijn ingeschreven met Intune, kunt u het beleid implementeren voor een gebruiker of een apparatenverzameling. 
 
-U kunt de implementatie die u zojuist hebt gemaakt, controleren vanaf het knooppunt **Implementaties** van de werkruimte **Bewaking** .  
 
- Als het beleid voor een bepaalde Windows-computer bereikt en wordt geëvalueerd, wordt deze opnieuw gestart binnen twee uur om toe te passen van de upgrade. Zorg ervoor dat u informeren over alle gebruikers waarvoor u het beleid implementeert, of het beleid om uit te voeren buiten de gebruikers plannen werkuren.
+
+## <a name="next-steps"></a>Volgende stappen
+
+Wanneer u bij het bewaken van de implementatie die u zojuist hebt gemaakt in de **implementaties** knooppunt van de **bewaking** werkruimte, ziet u mogelijk fouten die wijzen op de implementatie is niet gelukt zoals:
+- **Niet van toepassing voor dit apparaat**
+- **Kan geen conversie van gegevenstype**
+
+Deze fouten betekenen niet dat de implementatie is mislukt. Controleer of op de doel-PC de upgrade is uitgevoerd.
+
+Als het beleid voor een bepaalde Windows-computer bereikt en wordt geëvalueerd, wordt deze opnieuw gestart binnen twee uur de upgrade toe te passen. Zorg ervoor dat u informeren over alle gebruikers waarop u het beleid implementeert, of het beleid wordt uitgevoerd buiten de gebruikers plannen werkuren.
 

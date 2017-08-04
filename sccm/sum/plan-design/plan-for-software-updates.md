@@ -1,5 +1,4 @@
 ---
-
 title: Softwareupdates plannen | Microsoft Docs
 description: Een plan voor de software-updatepuntinfrastructuur is essentieel voordat u software-updates in een productieomgeving System Center Configuration Manager gebruiken.
 keywords: 
@@ -13,12 +12,11 @@ ms.service:
 ms.technology:
 - configmgr-sum
 ms.assetid: d071b0ec-e070-40a9-b7d4-564b92a5465f
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: f4c46bfab9b40b29654f4e883817a5508ab25b74
-ms.openlocfilehash: b5a2fd9f15992c9e5ef8aede64af5446b6852b1a
+ms.translationtype: MT
+ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
+ms.openlocfilehash: bc7e702a4277ac1dc358aa9a2795cddbf42e475f
 ms.contentlocale: nl-nl
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/29/2017
 
 ---
 
@@ -109,11 +107,15 @@ Als u de betekenis van een foutcode opzoeken, moet u de decimale foutcode conver
 
 
 ###  <a name="BKMK_ManuallySwitchSUPs"></a>Clients handmatig overschakelen naar een nieuwe software-updatepunt
-Configuration Manager versie 1606 was de eerste versie waarin u de optie kon inschakelen dat Configuration Manager-clients kunnen overstappen op een nieuw software-updatepunt als er problemen zijn met het actieve software-updatepunt. Met deze optie worden alleen wijzigingen doorgevoerd als een client meerdere software-updatepunten ontvangt van een beheerpunt.  
+Configuration Manager versie 1606 was de eerste versie waarin u de optie kon inschakelen dat Configuration Manager-clients kunnen overstappen op een nieuw software-updatepunt als er problemen zijn met het actieve software-updatepunt. Met deze optie worden alleen wijzigingen doorgevoerd als een client meerdere software-updatepunten ontvangt van een beheerpunt.
 
-Schakel deze optie in op een verzameling apparaten of op een reeks geselecteerde apparaten. Nadat deze optie is ingeschakeld, zoeken de clients naar een ander software-updatepunt bij de volgende scan. Afhankelijk van uw WSUS-instellingen (updateclassificaties, producten, of de software-updatepunten een WSUS-database, etc. delen of niet), leidt het overschakelen naar een nieuw software-updatepunt tot extra netwerkverkeer. Gebruik deze optie daarom alleen wanneer dat nodig is.  
+> [!IMPORTANT]    
+> Wanneer u een nieuwe server-apparaten, met de apparaten terugval zoeken naar die nieuwe server. Daarom Controleer uw configuratie van grensgroepen en zorg ervoor dat uw software-updatepunten in de juiste grensgroepen voordat u deze wijziging. Zie voor meer informatie [Software-updatepunten](/sccm/core/servers/deploy/configure/boundary-groups#software-update-points).
+>
+> Het overschakelen naar een nieuw software-updatepunt, wordt er aanvullend netwerkverkeer gegenereerd. De hoeveelheid verkeer, is afhankelijk van uw WSUS-configuratie-instellingen (updateclassificaties, producten, of de software-updatepunten een WSUS-database, enz delen.). Als u overschakelen van meerdere apparaten wilt, kunt u in dat geval tijdens onderhoudsvensters naar reduceert de gevolgen voor uw netwerk tijdens de synchronisatie met de nieuwe software-updatepuntserver.
 
 #### <a name="to-enable-the-option-to-switch-software-update-points"></a>De optie inschakelen om van software-updatepunt te wisselen  
+Schakel deze optie in op een verzameling apparaten of op een reeks geselecteerde apparaten. Nadat deze optie is ingeschakeld, zoeken de clients naar een ander software-updatepunt bij de volgende scan.
 
 1.  Klik in de Configuration Manager-console op **Activa en naleving > Overzicht > Apparaatverzamelingen**.  
 
@@ -296,7 +298,7 @@ Software-updates vereisen dat een ondersteunde versie van WSUS is geïnstalleerd
 
     > [!NOTE]  
     >  Wanneer een vervangen software-update in Configuration Manager wordt ingesteld op **verlopen**, de update wordt niet ingesteld op **verlopen** in WSUS. Echter, wanneer de WSUS-opschoontaak wordt uitgevoerd, de updates ingesteld op **verlopen** in Configuration Manager zijn ingesteld op de status van **geweigerd** op de WSUS-server en de Windows Update Agent op computers scant niet meer voor deze updates. Dit betekent dat clients blijven scannen naar een verlopen update totdat de taak opschonen wordt uitgevoerd. Zie voor meer informatie over de WSUS-opschoontaak [onderhoud voor Software-updates](/sccm/sum/deploy-use/software-updates-maintenance).
-    
+
 ###  <a name="BKMK_UpdateLanguages"></a> Talen  
  De taalinstellingen voor het software-updatepunt stellen u in staat de talen te configureren waarvoor de overzichtsgegevens (metagegevens van software-updates) gesynchroniseerd zijn voor software-updates, alsook de software-updatebestandstalen die voor software-updates worden gedownload.  
 
