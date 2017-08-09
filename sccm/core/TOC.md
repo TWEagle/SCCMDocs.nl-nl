@@ -15,6 +15,7 @@
 ### [De Long-Term Service Branch beheren](understand/manage-the-ltsb.md)
 ### [De Long-Term Servicing Branch upgraden naar de Current Branch](understand/convert-to-current-branch.md)
 ##  [Welke vertakking van Configuration Manager moet ik gebruiken](understand/which-branch-should-i-use.md)
+##  [Uitgebreide interoperabiliteit client](understand/interoperability-client.md)
 ##  [Licenties voor System Center Configuration Manager](understand/learn-more-editions.md)
 ##  [Cloudservices gebruiken](understand/use-cloud-services.md)
 ### [Configuration Manager op Azure](understand/configuration-manager-on-azure.md)
