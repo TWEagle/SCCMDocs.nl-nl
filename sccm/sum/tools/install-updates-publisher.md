@@ -123,3 +123,4 @@ Nadat de installatie is voltooid, voert u **UpdatesPublisher.exe** van de *Updat
 
  Als u wilt de standaardinstellingen te gebruiken en niet van plan bent om updates te implementeren op een server of op beheerde apparaten, kunt u echter het recht om te gaan [software-update-catalogussen beheren](updates-publisher-catalogs.md), of [software-updates maken](create-updates-with-updates-publisher.md) en update catalogi van uw eigen maakt.
 
+
