@@ -6,22 +6,20 @@ ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-app
+ms.technology: configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
-caps.latest.revision: 14
-caps.handback.revision: 0
+caps.latest.revision: "14"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: b7461f89f483314bd07248bbc9d5dde85ca6b6c2
 ms.openlocfilehash: 4d048d4f9ab01b28e6c21a38cca4d82c85030618
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="create-applications-with-system-center-configuration-manager"></a>Toepassingen maken met System Center Configuration Manager
 
@@ -477,4 +475,3 @@ De volgende tabel bevat voorbeeldscripts (VB Microsoft Visual Basic) waarmee u k
 |**Mac OS X**|Hiermee wordt een implementatietype gemaakt voor Mac-computers vanuit een CMMAC-bestand dat u met behulp van het CMAppUtil-hulpprogramma hebt gemaakt.<br /><br /> Geldt alleen voor Mac-computers met de Configuration Manager-client.|  
 |**Webtoepassing**|Hiermee wordt een implementatietype gemaakt dat een koppeling opgeeft naar een webtoepassing. Het implementatietype installeert een snelkoppeling naar de webtoepassing op het apparaat van de gebruiker.<br /><br /> Als u de Intune managed browser hebt geïnstalleerd op iOS- of Android-apparaten die u beheert, kunt u ervoor zorgen dat gebruikers alleen de beheerde browser gebruiken kunnen om de app te openen. Hiervoor gebruikt u een van de volgende indelingen wanneer u een koppeling naar de app door te vervangen opgeeft **http:** met **http-intunemam:** of **https:** met **https-intunemam:**<br /><br /> - **HTTP-intunemam: / / < pad naar de web-app\>**<br /><br /> - **HTTPS-intunemam: / / < pad naar de web-app\>**<br /><br /> U kunt de Configuration Manager-toepassingsvereisten gebruiken om ervoor te zorgen dat apps die u wilt koppelen aan de beheerde browser alleen worden geïnstalleerd op iOS en Android-apparaten.<br /><br /> Zie voor meer informatie over de Intune managed browser [internettoegang beheren met beheerde-browserbeleid](../../apps/deploy-use/manage-internet-access-using-managed-browser-policies.md).|  
 |**Windows Installer via MDM (\*.msi)**|Dit installatieprogrammatype kunt u maken en implementeren van Windows Installer gebaseerde apps op pc's waarop Windows 10 wordt uitgevoerd.<br /><br /> De volgende punten zijn van toepassing wanneer u dit type installatieprogramma gebruikt:<br><br>-U kunt slechts één bestand met de extensie .msi uploaden.<br /><br /> -De productcode het bestand en de versie van het product worden gebruikt voor detectie van de app.<br /><br /> -Het standaardgedrag voor opnieuw opstarten van de app wordt gebruikt. Configuration Manager heeft hierop geen invloed.<br /><br /> -Per gebruiker MSI-pakketten worden geïnstalleerd voor één gebruiker.<br /><br /> -Per machine MSI-pakketten worden geïnstalleerd voor alle gebruikers op het apparaat.<br /><br /> -Dual-mode MSI-pakketten voeren momenteel alleen installaties voor alle gebruikers op het apparaat.<br /><br /> -App-updates worden ondersteund wanneer de MSI-productcode van elke versie dezelfde is.|  
-

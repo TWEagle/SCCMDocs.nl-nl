@@ -9,17 +9,14 @@ ms.date: 7/31/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.assetid: 68407ab8-c205-44ed-9deb-ff5714451624
-ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
 ms.openlocfilehash: b1f4cd4a6f19a02d2b2dc3f9a841aeeb2a1403dd
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/29/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="integrate-upgrade-readiness-with-system-center-configuration-manager"></a>Gereedheid voor Upgrade integreren met System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
@@ -143,4 +140,3 @@ Voordat de 1706 vereist vertakking van Configuration Manager is een verbinding m
 
     > [!NOTE]
     > U moet gereedheid voor Upgrade verbinden met de hoogste site in uw hiërarchie. Als u verbinding maken met gereedheid voor Upgrade van een zelfstandige primaire site en vervolgens een centrale beheersite toe te aan uw omgeving voegen, moet u deze verwijderen en opnieuw maken van de OMS-verbinding in de nieuwe hiërarchie.
-

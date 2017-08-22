@@ -6,21 +6,19 @@ ms.date: 07/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e025c48c-1514-4ab7-836c-e0635aaa993a
-caps.latest.revision: 6
+caps.latest.revision: "6"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
 ms.openlocfilehash: 3a89abc81cd70f4e499bf4e3087fd53915377c44
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/29/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="create-android-applications-with-system-center-configuration-manager"></a>Android-toepassingen maken met System Center Configuration Manager
 
@@ -66,4 +64,3 @@ Volg deze stappen apps in de Play voor werk store goedkeuren en implementeren vo
 8. Ga naar **softwarebibliotheek** > **overzicht** > **Toepassingsbeheer** > **toepassingen**, kiest u een Android voor Work-app en gewoon implementeren.
 
 Als u wilt synchroniseren Play voor zakelijke apps met Configuration Manager, moet u eerst ten minste één app in de Play voor werk website goedkeuren.
-

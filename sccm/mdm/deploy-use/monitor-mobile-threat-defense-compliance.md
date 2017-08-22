@@ -1,13 +1,12 @@
 ---
-title: Mobiele bedreiging verdediging naleving controleren | System Center Configuration Manager
-description: Monitor voor de mobiele bedreiging verdediging partner compatibiliteitsstatus van de manager van Configuration Manager-console
+title: Mobile Threat verdediging naleving bewaken | System Center Configuration Manager
+description: De status van naleving partner Mobile Threat verdediging vanuit de console van Configuration manager controleren
 ms.custom: na
 ms.date: 03/21/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 408190da-bea6-4122-9dd6-f90155040e88
@@ -15,65 +14,61 @@ caps.latest.revision:
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 212628639300e9c361f7cee61b3df6b1cb6874ce
 ms.openlocfilehash: 8edf83a0f761dfc16274ce49c3aa2b878c7fe6cd
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
-# <a name="monitor-mobile-threat-defense-compliance"></a>**Mobiele bedreiging verdediging naleving controleren**
+# <a name="monitor-mobile-threat-defense-compliance"></a>**Mobile Threat Defense-naleving bewaken**
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-## <a name="to-monitor-the-overall-compliance-status"></a>Voor het bewaken van de algehele status van naleving
+## <a name="to-monitor-the-overall-compliance-status"></a>De algehele status van naleving bewaken
 
-De mobiele bedreiging verdediging om status te controleren:
+De status van de verdediging mobiele threat bewaken:
 
 1.  Klik in de Configuration Manager-console op **bewaking** werkruimte.
 
 2.  In de **bewaking** werkruimte, klik op de **beveiliging** knooppunt.
 
-U kunt een samenvatting van de compatibiliteitsstatus met andere bedreiging niveaus, dat wordt weergegeven in een visual diagram kunt zien. U kunt klikken op de afzonderlijke onderdelen van de grafieken voor meer informatie, zoals: 
+U kunt een samenvatting van de compatibiliteitsstatus met verschillende threat niveaus, die wordt weergegeven in een visual diagram kunt zien. U kunt klikken op de afzonderlijke secties van de grafieken voor meer informatie, zoals: 
 
 - Het aantal apparaten die rapporteren als niet-compatibel per platform
-- Eventuele fouten met betrekking tot de compatibiliteitsstatus van apparaat
+- Eventuele fouten met betrekking tot de compatibiliteitsstatus van het apparaat
 
 ![](http://i.imgur.com/bmPsiWk.png)
 
-## <a name="to-monitor-the-individual-compliance-status"></a>De status van afzonderlijke naleving controleren
+## <a name="to-monitor-the-individual-compliance-status"></a>De status van afzonderlijke naleving bewaken
 
-U kunt ook de status van afzonderlijke apparaten zien:
+U ziet ook de status van afzonderlijke apparaten:
 
 1.  Klik in de Configuration Manager-console op **activa en naleving** werkruimte.
 
 2.  Klik op **apparaten**.
 
 > [!TIP] 
-> U kunt toevoegen de **bedreiging apparaatcompatibiliteit** en de **apparaat risiconiveau** kolommen voor de status. Deze kolommen worden niet standaard weergegeven.
+> U kunt toevoegen de **threat apparaatcompatibiliteit** en de **apparaat risiconiveau** kolommen om de status te bekijken. Deze kolommen worden niet standaard weergegeven.
 
-## <a name="device-threat-protection-tab"></a>Apparaat dreigingen tabblad
+## <a name="device-threat-protection-tab"></a>Device Threat Protection-tabblad
 
-Daarnaast op het **apparaten** scherm, u kunt specifieke apparaten selecteren en vervolgens klikt u op de **apparaat bedreiging beveiliging** tabblad vindt u meer details over de compatibiliteitsstatus van het apparaat. Vinden onder de kolombeschrijvingen van de en hun waarden verwacht bij het analyseren van de compatibiliteitsstatus van het apparaat.
+Bovendien op de **apparaten** scherm, u kunt specifieke apparaten selecteren en vervolgens klikt u op de **Device Threat Protection** tabblad dat meer informatie over de compatibiliteitsstatus van het apparaat biedt. Vinden onder de kolombeschrijvingen en hun waarden verwacht bij het analyseren van de compatibiliteitsstatus van het apparaat.
 
 > [!IMPORTANT] 
-> Het tabblad Beveiliging van apparaat bedreiging alleen weergegeven als een mobiel apparaat is het geselecteerde apparaat.
+> Het tabblad Device Threat Protection alleen weergegeven als een mobiel apparaat is het geselecteerde apparaat.
 
 |Kolomnaam|Standaard zichtbaar|Beschrijving| 
 |-|-|-|
-|**Beschrijving**| Ja | Gegevens over de bedreiging geleverd door de mobiele bedreiging verdediging partner. |
-|**Tijd van laatste update**| Ja | De laatste keer dat de partner mobiele bedreiging verdediging bijgewerkte informatie over de bedreiging voor Intune verzonden. |
-|**Bedreiging ernst**| Ja | Ernst bedreiging is de definitie voor een afzonderlijke dreiging op basis van de configuratie van de beheerder in de console mobiele bedreiging verdediging partner. Er is een van de drie waarden: **Low**, **Medium** or **High** |
-|**Bedreiging status**| Ja | De huidige status van de dreiging op het apparaat. Mogelijke statussen: **Actieve**, **opgelost** of **genegeerd:** Geeft aan dat de gebruiker genegeerd de dreiging op hun apparaat, maar de bedreiging nog steeds aanwezig is. |
-|**Type bedreiging**| Ja | Mobiele bedreiging verdediging Partnertype bedreiging. Mogelijke waarden: **App**, **File** or **OS** |
+|**Beschrijving**| Ja | Gegevens over de bedreiging geleverd door de mobiele Threat Defense-partner. |
+|**Laatst bijgewerkt**| Ja | De partner Mobile Threat verdediging verzonden voor het laatst bijgewerkt details over de bedreiging voor Intune. |
+|**Threat ernst**| Ja | Ernst van de Threat is de definitie voor een afzonderlijke dreiging op basis van de configuratie van de beheerder in de console van de partner Mobile Threat verdediging. Er is een van de drie waarden: **Lage**, **gemiddeld** of **hoog** |
+|**Status van de Threat**| Ja | De huidige status van de dreiging op het apparaat. Mogelijke statussen: **Actieve**, **opgelost** of **genegeerd:** Hiermee wordt aangegeven dat de gebruiker de dreiging op hun apparaat genegeerd, maar het gevaar nog steeds aanwezig is. |
+|**Threat type**| Ja | Mobile Threat verdediging partner type threat. Mogelijke waarden: **App**, **bestand** of **OS** |
 |**AAD-Account-ID**| Nee | De unieke id van de Azure Active Directory. |
-|**Classificatie**| Ja | Mobiele bedreiging verdediging partner classificatie van dreiging opgegeven. Mogelijke waarden: **Hoofdmap factor, Riskware, Adware, Chargeware, DataLeak, Trojaanse paarden, Worm, Virus, misbruiken, achterdeur bot's, AppDropper, ClickFraud, Spam, Spyware, SurveillanceWare, beveiligingsprobleem, onbekend, Jailbrake, connectiviteit, TollFraud, SideloadedApp hoofdmap** |
-|**Apparaat-ID**| Nee | De Azure Active Directory-object-ID voor de werkplek apparaat lid is van dreiging informatie. |
-|**Bedreiging-ID**| Nee | Mobiele bedreiging verdediging partner unieke id voor de bedreiging gegenereerd. De ID bedreiging wordt gebruikt voor het bijhouden van de oplossing. |
-|**Bedreiging URL**| Nee | Wanneer aanwezig is, opnieuw de bedreiging URL-koppelingen naar de mobiele bedreiging verdediging-partner management consoleweergave van deze specifieke bedreiging. |
+|**Classificatie**| Ja | Mobile Threat verdediging partner classificatie van bedreiging wordt opgegeven. Mogelijke waarden: **Basis-factor, Riskware, Adware, Chargeware, DataLeak, Trojaanse paarden, Worm, Virus, misbruik, achterdeur Bot, AppDropper, ClickFraud, Spam, Spyware, SurveillanceWare, beveiligingsprobleem, onbekend, Jailbrake, connectiviteit, TollFraud, SideloadedApp hoofdmap** |
+|**Apparaat-ID**| Nee | De Azure Active Directory-object-ID voor de werkplek toegevoegd apparaat met informatie. |
+|**Bedreigings-ID**| Nee | Mobile Threat verdediging partner unieke id voor de bedreiging gegenereerd. De Bedreigings-ID wordt gebruikt voor het bijhouden van resolutie. |
+|**URL van de Threat**| Nee | Wanneer aanwezig is, wordt de URL van de Threat koppelingen naar de mobiele Threat Defense-partner management console-weergave van deze specifieke bedreiging opnieuw. |
 
 > [!TIP] 
-> Zorg dat u het inschakelen van de kolommen die geen **standaard zichtbaar** voor meer informatie over de mobiele bedreiging verdediging compatibiliteitsstatus voor uw apparaten.
-
+> Zorg ervoor dat u het inschakelen van de kolommen die geen **standaard zichtbaar** voor meer informatie over de status van de naleving Mobile Threat verdediging voor uw apparaten.

@@ -2,28 +2,25 @@
 title: Maken en scripts uitvoeren met Configuration Manager | Microsoft Docs
 description: Maken en uitvoeren van scripts op clientapparaten met Configuration Manager.
 ms.custom: na
-ms.date: 08/01/2017
+ms.date: 08/09/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-app
+ms.technology: configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
-caps.latest.revision: 14
-caps.handback.revision: 0
+caps.latest.revision: "14"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
+ms.openlocfilehash: ed84f7900eee5c04728d0e4d1b46027c36327bec
+ms.sourcegitcommit: b41d3e5c7f0c87f9af29e02de3e6cc9301eeafc4
 ms.translationtype: MT
-ms.sourcegitcommit: c0d94b8e6ca6ffd82e879b43097a9787e283eb6d
-ms.openlocfilehash: 4dcda88d4e91347f6da97e8da04c38f9e65e07bc
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/11/2017
 ---
-
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Maken en PowerShell-scripts uitvoeren vanaf de Configuration Manager-console
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
@@ -61,7 +58,6 @@ Standaard goedkeuren gebruikers niet van een script dat ze hebben gemaakt. Omdat
 2. Vouw **Siteconfiguratie** uit in de werkruimte **Beheer**en klik vervolgens op **Sites**.
 3. Kies in de lijst met websites, uw site en klik op de **Start** tabblad, in de **Sites** groep, klikt u op **hiërarchie-instellingen**.
 4. Op de **algemene** tabblad van de **eigenschappen van hiërarchie-instellingen** dialoogvenster vak, schakel het selectievakje uit **staan geen script auteurs goed te keuren van hun eigen scripts**.
-Sites
 
 ## <a name="import-and-edit-a-script"></a>Importeren en bewerken van een script
 
@@ -120,4 +116,3 @@ Nadat u hebt een script uitgevoerd op clientapparaten, moet u deze procedure geb
 1. Klik in de Configuration Manager-console op **bewaking**.
 2. In de **bewaking** werkruimte, klikt u op **Script Status**.
 3. In de **Script Status** wanneer u de resultaten voor elk script dat u hebt uitgevoerd op clientapparaten lijst bekijken. De afsluitcode van een script van **0** geeft meestal aan dat het script is uitgevoerd.
-

@@ -1,28 +1,25 @@
 ---
-title: Prestart-opdrachten voor takenreeksmedia | Microsoft-documenten
-description: Maak een script dat wordt gebruikt voor de prestart-opdracht, de inhoud gekoppeld aan de prestart-opdracht te distribueren en de prestart-opdracht configureren voor media.
+title: Prestart-opdrachten voor takenreeksmedia | Microsoft Docs
+description: Een script te gebruiken voor de prestart-opdracht, distribueert de inhoud die is gekoppeld aan de prestart-opdracht maken en configureren van de prestart-opdracht in media.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ccc9f652-2953-4c38-8a90-c799484105ca
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
 ms.openlocfilehash: 1c396534425179c6828d48acc578295167c566be
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="prestart-commands-for-task-sequence-media-in-system-center-configuration-manager"></a>Prestart-opdrachten voor takenreeksmedia in System Center Configuration Manager
 
@@ -80,4 +77,3 @@ env("MyCustomVariable") = "varname"
     -   Klik op **Bladeren** om het distributiepunt te selecteren dat de inhoud voor de prestart-opdracht host.  
 
 7.  Voltooi de wizard.  
-

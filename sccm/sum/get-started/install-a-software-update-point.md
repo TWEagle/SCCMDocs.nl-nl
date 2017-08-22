@@ -1,5 +1,4 @@
 ---
-
 title: Installeren en configureren van software-updatepunt | Microsoft Docs
 description: Primaire sites vereisen een software-updatepunt op de centrale beheersite voor beoordeling van compatibiliteit van software-updates en software-updates implementeren op clients.
 keywords: 
@@ -10,20 +9,14 @@ ms.date: 05/30/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-sum
+ms.technology: configmgr-sum
 ms.assetid: b099a645-6434-498f-a408-1d438e394396
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: dc221ddf547c43ab1f25ff83c3c9bb603297ece6
 ms.openlocfilehash: 7d369384d133c90a15e01df50ac53992d61f3873
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/01/2017
-
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
-
 # <a name="install-and-configure-a-software-update-point"></a>Installeren en configureren van software-updatepunt  
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
@@ -156,4 +149,3 @@ ms.lasthandoff: 06/01/2017
 U de software-updatepunt beginnen bij de bovenste site in uw Configuration Manager-hiërarchie hebt geïnstalleerd. Herhaal de procedures in dit onderwerp voor het installeren van de software-updatepunt op onderliggende sites.
 
 Zodra u de software-updatepunten geïnstalleerd, gaat u naar [software-updates synchroniseren](synchronize-software-updates.md).
-

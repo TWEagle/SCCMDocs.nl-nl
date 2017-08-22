@@ -1,38 +1,34 @@
 ---
-title: Inhoud infrastructuur | Microsoft-documenten
+title: Inhoudsinfrastructuur | Microsoft Docs
 description: Informatie over het implementeren en vervolgens uw infrastructuur voor inhoudsbeheer beheren voor System Center Configuration Manager.
 ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: ceff72f5-f19d-43a0-a8c0-72f1c09b9bf5
-caps.latest.revision: 17
-caps.handback.revision: 0
+caps.latest.revision: "17"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: e30538ed925af66e8b7459eb4add9dd992c1ae19
 ms.openlocfilehash: b0f297fddca4252f106dee9d3d5d8911a347825b
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="manage-content-and-content-infrastructure-for-system-center-configuration-manager"></a>Inhoud en infrastructuur voor inhoud beheren voor System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Wanneer u klaar bent voor instellen en vervolgens uw infrastructuur voor inhoudsbeheer beheren voor System Center Configuration Manager, gebruik de informatie in de volgende onderwerpen:  
+Wanneer u klaar bent voor instellen en vervolgens uw infrastructuur voor inhoudsbeheer beheren voor System Center Configuration Manager, gebruikt u de informatie in de volgende onderwerpen:  
 
--   [Installeren en configureren van distributiepunten voor System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md). Voordat u inhoud implementeren kunt, moet u installeren en stelt u de distributiepunten. U kunt vervolgens de distributiepuntgroepen instellen om te vereenvoudigen van beheer van inhoud over uw infrastructuur. De informatie in dit onderwerp ondersteunt u bij deze taken en bevat een gedetailleerde omschrijving van de diepgaande en gevarieerde instellingen die door de afzonderlijke distributiepunten worden ondersteund.  
+-   [Installeren en configureren van distributiepunten voor System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md). Voordat u inhoud implementeren kunt, moet u het installeren en instellen van distributiepunten. U kunt vervolgens de distributiepuntgroepen instellen voor het beheer van inhoud in uw infrastructuur te vereenvoudigen. De informatie in dit onderwerp ondersteunt u bij deze taken en bevat een gedetailleerde omschrijving van de diepgaande en gevarieerde instellingen die door de afzonderlijke distributiepunten worden ondersteund.  
 
--   [Implementeren en beheren van inhoud voor System Center Configuration Manager](../../../../core/servers/deploy/configure/deploy-and-manage-content.md). Implementatie van inhoud overdraagt bestanden en software naar distribution point-servers in uw netwerk. Naast eenvoudige overdracht, kunt u inhoud voorbereiden, wat is een methode die u kunt u voorkomen dat overmatig gebruik van netwerkbandbreedte. De informatie in dit onderwerp kunt u met de basistaken van die inhoud verzenden of voorbereide inhoud effectief te gebruiken.  
+-   [Implementeren en beheren van inhoud voor System Center Configuration Manager](../../../../core/servers/deploy/configure/deploy-and-manage-content.md). Implementatie van inhoud worden bestanden en software overgebracht naar distributiepuntservers in uw netwerk. Naast eenvoudige overdracht, kunt u de inhoud die is een methode waarmee u overmatig gebruik van netwerkbandbreedte voorkomen kunt voorbereiden. De informatie in dit onderwerp kan u helpen bij de basistaken van het verzenden van deze inhoud of met behulp van de vooraf geplaatste inhoud effectief.  
 
--   [Inhoud die u hebt gedistribueerd met System Center Configuration Manager controleren](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md). Als u inhoud implementeren, kunt u de status ervan controleren in uw infrastructuur. U kunt ook inhoud die niet kunnen bereiken distributiepunten opnieuw distribueren of distributies annuleren die wordt uitgevoerd. De informatie in dit onderwerp vindt u informatie over het controleren van de inhoud, inclusief het oplossen van problemen bij de overdracht van inhoud mislukt.  
-
+-   [Inhoud die u hebt gedistribueerd met System Center Configuration Manager controleren](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md). Als u inhoud implementeert, kunt u de status ervan controleren in uw infrastructuur. U kunt ook inhoud opnieuw distribueren die niet kunnen distributiepunten bereiken of distributies annuleren die niet wordt uitgevoerd. De informatie in dit onderwerp helpt u begrijpen hoe u voor het bewaken van de inhoud, inclusief het oplossen van problemen wanneer de overdracht van inhoud mislukt.  

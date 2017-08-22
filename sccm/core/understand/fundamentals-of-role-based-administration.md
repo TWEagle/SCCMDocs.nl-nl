@@ -1,55 +1,52 @@
 ---
-title: Grondbeginselen van op rollen gebaseerd beheer | Microsoft-documenten
-description: Op rollen gebaseerd beheer gebruikt voor het beheren van administratieve toegang tot de Configuration Manager en de objecten die u beheert.
+title: Basisprincipes van beheer op basis van functie | Microsoft Docs
+description: Gebruik Rolgebaseerd beheer om beheerderstoegang tot Configuration Manager en de objecten die u beheert.
 ms.custom: na
 ms.date: 1/3/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0a2d6c3f-a4e4-4c19-b087-3caada480de9
-caps.latest.revision: 10
+caps.latest.revision: "10"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 1b9e49da1a5bbfca93fe683b82d2c0056a22cc1f
 ms.openlocfilehash: ddf2ad1cae51c1e36df5a6d86822e2b9abe604e2
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="fundamentals-of-role-based-administration-for-system-center-configuration-manager"></a>De grondbeginselen van op rollen gebaseerd beheer voor System Center Configuration Manager
+# <a name="fundamentals-of-role-based-administration-for-system-center-configuration-manager"></a>Basisprincipes van beheer op basis van rollen voor System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Met System Center Configuration Manager kunt u op rollen gebaseerd beheer de toegang dat nodig is voor het beheren van Configuration Manager beveiligen. Bovendien voor beveiliging van toegang tot de objecten die u, zoals verzamelingen, implementatie en sites beheert. Nadat u de basisbegrippen geïntroduceerd in dit onderwerp, kunt u [op rollen gebaseerd beheer voor System Center Configuration Manager configureert](../../core/servers/deploy/configure/configure-role-based-administration.md).  
+Met System Center Configuration Manager u Rolgebaseerd beheer gebruiken om de toegang die nodig is voor het beheren van Configuration Manager te beveiligen. U ook beveiligen toegang tot de objecten die u, zoals verzamelingen, implementaties en sites beheert. Nadat u de concepten die in dit onderwerp begrijpt, kunt u [beheer op basis van rollen voor System Center Configuration Manager configureren](../../core/servers/deploy/configure/configure-role-based-administration.md).  
 
- De op rollen gebaseerd beheermodel definieert centraal en hiërarchie-brede beveiligingtoegangsinstellingen voor alle sites en site-instellingen beheert door het volgende:  
+ Het model op rollen gebaseerd beheer centraal gedefinieerd en hiërarchie-brede beveiligingtoegangsinstellingen voor alle sites en site-instellingen beheert door het volgende:  
 
--   *Beveiligingsrollen* zijn toegewezen aan gebruikers met beheerdersrechten om op te geven die gebruikers (of groepen van gebruikers) tot verschillende objecten van Configuration Manager. Bijvoorbeeld: machtiging voor het maken of wijzigen van de clientinstellingen.  
+-   *Beveiligingsrollen* zijn toegewezen aan gebruikers met beheerdersrechten voor die gebruikers (of groepen gebruikers) machtiging voor andere Configuration Manager-objecten. Bijvoorbeeld: machtiging voor maken of wijzigen van clientinstellingen.  
 
--   *Beveiligingsbereiken* worden gebruikt om te groeperen specifieke exemplaren van objecten waarover een gebruiker met beheerdersrechten te beheren, zoals een toepassing waarmee Microsoft Office 2010 wordt geïnstalleerd.  
+-   *Beveiligingsbereiken* worden gebruikt om specifieke exemplaren van objecten die een gebruiker met beheerdersrechten moeten worden beheerd, zoals een toepassing die Microsoft Office 2010 installeert.  
 
--   *Verzamelingen* worden gebruikt om op te geven van groepen van gebruikers- en resources waarmee de gebruiker met beheerdersrechten kan worden beheerd.  
+-   *Verzamelingen* worden gebruikt om op te geven van groepen van gebruikers- en resources die de gebruiker met beheerdersrechten kunt beheren.  
 
- Met de combinatie van beveiligingsrollen, beveiligingsbereiken en verzamelingen, moet u de administratieve toewijzingen die voldoen aan de behoeften van uw organisatie scheiden. Samen gebruikt bepalen ze het beheerbereik van een gebruiker, is wat die gebruiker kan weergeven en beheren in uw Configuration Manager-implementatie.  
+ Met de combinatie van beveiligingsrollen, beveiligingsbereiken en verzamelingen afzonderlijke u de beheertoewijzingen die voldoen aan de vereisten van uw organisatie. Samen worden gebruikt, definiëren ze het beheerbereik van een gebruiker, namelijk wat die gebruiker kunt weergeven en beheren in uw Configuration Manager-implementatie.  
 
 ## <a name="benefits-of-role-based-administration"></a>Voordelen van op rollen gebaseerd beheer  
 
--   Sites worden niet gebruikt als administratieve grenzen.  
+-   Sites worden niet gebruikt als beheergrenzen.  
 
--   U creëert gebruikers met beheerdersrechten voor een hiërarchie en alleen moet kent één keer beveiliging toe.  
+-   U maakt gebruikers met beheerdersrechten voor een hiërarchie en hoeft alleen beveiliging toewijzen aan deze één keer.  
 
--   Alle beveiligingstoewijzingen zijn gerepliceerd en beschikbaar in de hiërarchie.  
+-   Alle beveiligingstoewijzingen worden gerepliceerd en zijn beschikbaar in de gehele hiërarchie.  
 
 -   Er zijn ingebouwde beveiligingsrollen die worden gebruikt voor het toewijzen van de typische beheertaken. Maak uw eigen aangepaste beveiligingsrollen ter ondersteuning van uw specifieke bedrijfsvereisten.  
 
--   Gebruikers met beheerdersrechten zien enkel de objecten waarvoor ze machtigingen voor het beheren van hebben.  
+-   Gebruikers met beheerdersrechten zien alleen de objecten die ze gemachtigd zijn om te beheren.  
 
 -   U kunt acties administratieve beveiliging controleren.  
 
@@ -74,7 +71,7 @@ Bij het ontwerpen en implementeren van administratieve beveiliging voor Configur
 
 -   *Volledige beheerder* verleent alle machtigingen in Configuration Manager.  
 
--   *Asset Intelligence-beheerder* verleent machtigingen voor het beheren van de Asset Intelligence-synchronisatiepunt, Asset Intelligence-rapportageklassen, software-inventaris, hardware-inventaris en meetregels.  
+-   *Asset Intelligence-beheerder* verleent machtigingen voor het beheren van Asset Intelligence-synchronisatiepunt, Asset Intelligence-rapportageklassen, software-inventaris, hardware-inventaris en meetregels.  
 
 -   *Software-updatebeheer* verleent machtigingen voor het definiëren en implementeren van software-updates. Gebruikers met beheerdersrechten die gekoppeld aan deze rol zijn kunnen verzamelingen, software-updategroepen, implementaties en sjablonen maken.  
 
@@ -83,7 +80,7 @@ Bij het ontwerpen en implementeren van administratieve beveiliging voor Configur
 
  Elke beveiligingsrol heeft specifieke machtigingen voor verschillende objecttypen. Bijvoorbeeld, de *Toepassingsauteur* beveiligingsrol heeft de volgende machtigingen voor toepassingen: Goedkeuren, maken, verwijderen, wijzigen, map wijzigen verplaatsen Object, lezen, rapport en beveiligingsbereik instellen.
 
- U kunt de machtigingen voor de ingebouwde beveiligingsrollen niet wijzigen, maar u kunt de rol wel kopiëren, wijzigingen aanbrengen en vervolgens deze wijzigingen opslaan als een nieuwe aangepaste beveiligingsrol. U kunt ook beveiligingsrollen importeren die u hebt geëxporteerd uit een andere hiërarchie bijvoorbeeld uit een testnetwerk. Bekijk de beveiligingsrollen en de bijbehorende machtigingen om te bepalen of u de ingebouwde beveiligingsrollen gaat gebruiken of of u moet uw eigen aangepaste beveiligingsrollen maken.  
+ U kunt de machtigingen voor de ingebouwde beveiligingsrollen niet wijzigen, maar u kunt de rol wel kopiëren, wijzigingen aanbrengen en vervolgens deze wijzigingen opslaan als een nieuwe aangepaste beveiligingsrol. U kunt ook beveiligingsrollen die u hebt geëxporteerd uit een andere hiërarchie, bijvoorbeeld uit een testnetwerk importeren. Bekijk de beveiligingsrollen en de bijbehorende machtigingen om te bepalen of u de ingebouwde beveiligingsrollen gaat gebruiken of of u hebt uw eigen aangepaste beveiligingsrollen maken.  
 
  ### <a name="to-help-you-plan-for-security-roles"></a>Om te plannen voor beveiligingsrollen  
 
@@ -95,12 +92,12 @@ Bij het ontwerpen en implementeren van administratieve beveiliging voor Configur
 
 4.  Als de taken die u hebt geïdentificeerd niet zijn toegewezen aan de ingebouwde beveiligingsrollen, maak dan nieuwe beveiligingsrollen en test ze.  
 
-Zie voor meer informatie over het maken en configureren van beveiligingsrollen voor op rollen gebaseerd beheer [aangepaste beveiligingsrollen maken](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_CreateSecRole) en [configureren van beveiligingsrollen](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecRole) in de [op rollen gebaseerd beheer voor System Center Configuration Manager configureert](../../core/servers/deploy/configure/configure-role-based-administration.md) onderwerp.  
+Zie voor meer informatie over het maken en configureren van beveiligingsrollen voor Rolgebaseerd beheer [aangepaste beveiligingsrollen maken](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_CreateSecRole) en [beveiligingsrollen configureren](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecRole) in de [beheer op basis van rollen voor System Center Configuration Manager configureren](../../core/servers/deploy/configure/configure-role-based-administration.md) onderwerp.  
 
 ##  <a name="bkmk_planCol"></a> Verzamelingen  
  Verzamelingen specificeren de gebruiker en computerbronnen die een gebruiker met beheerdersrechten kan bekijken of beheren. Bijvoorbeeld, als een gebruiker met beheerdersrechten toepassingen wil kunnen implementeren of een computer extern wil kunnen bedienen, moet er een beveiligingsrol aan hem zijn toegewezen die hem toegang verleent tot een verzameling die deze bronnen bevat. U kunt verzamelingen van gebruikers of apparaten selecteren.  
 
- Zie voor meer informatie over verzamelingen, [Inleiding tot verzamelingen in System Center Configuration Manager](../../core/clients/manage/collections/introduction-to-collections.md).  
+ Zie voor meer informatie over verzamelingen [inleiding op verzamelingen in System Center Configuration Manager](../../core/clients/manage/collections/introduction-to-collections.md).  
 
  Controleer, voordat u rolgebaseerd beheer gaat configureren, of u nieuwe verzamelingen moet maken om een van de volgende redenen:  
 
@@ -112,7 +109,7 @@ Zie voor meer informatie over het maken en configureren van beveiligingsrollen v
 
 -   Uitlijning per organisatie. Bijvoorbeeld, afzonderlijke verzamelingen voor elk bedrijfsonderdeel.  
 
-Zie voor meer informatie over het configureren van verzamelingen voor Rolgebaseerd beheer [verzamelingen voor het beheren van beveiliging configureren](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigColl) in de [op rollen gebaseerd beheer voor System Center Configuration Manager configureert](../../core/servers/deploy/configure/configure-role-based-administration.md) onderwerp.  
+Zie voor meer informatie over het configureren van verzamelingen voor Rolgebaseerd beheer [verzamelingen voor het beheren van beveiliging configureren](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigColl) in de [beheer op basis van rollen voor System Center Configuration Manager configureren](../../core/servers/deploy/configure/configure-role-based-administration.md) onderwerp.  
 
 ##  <a name="bkmk_PlanScope"></a> Beveiligingsbereiken  
  Gebruik beveiligingsrollen om gebruikers met beheerdersrechten toegang te geven tot beveiligbare objecten. Een beveiligingsbereik is een benoemde set van beveiligbare objecten die zijn toegewezen aan gebruikers met beheerdersrechten als groep. Alle beveiligbare objecten moeten aan één of meer beveiligingsbereiken zijn toegewezen. Configuration Manager heeft twee ingebouwde beveiligingsbereiken:  
@@ -163,7 +160,7 @@ Als u de objecten die gebruikers met beheerdersrechten kunnen zien en beheren wi
 
 -   Windows CE apparaatinstellingsitems en pakketten  
 
-Er zijn ook een aantal objecten die u niet in een beveiligingsbereik kunt opnemen omdat ze alleen door beveiligingsrollen beveiligd zijn. Beheerderstoegang tot deze objecten kan niet beperkt tot een deelverzameling van de beschikbare objecten zijn. Bijvoorbeeld, u heeft een gebruiker met beheerdersrechten die grensgroepen maakt welke gebruikt worden voor een specifieke site. Aangezien het grensobject geen beveiligingsbereiken ondersteunt, kunt u geen beveiligingsbereik aan deze gebruiker toewijzen dat toegang geeft tot alleen de grenzen die gekoppeld kunnen zijn aan die site. Aangezien een grensobject niet gekoppeld kan zijn aan een beveiligingsbereik, heeft die gebruiker, wanneer u een beveiligingsrol die toegang geeft tot grensobjecten toewijst aan een gebruiker, toegang tot elke grens in de hiërarchie.  
+Er zijn ook een aantal objecten die u niet in een beveiligingsbereik kunt opnemen omdat ze alleen door beveiligingsrollen beveiligd zijn. Beheerderstoegang tot deze objecten kan niet worden beperkt tot een subset van de beschikbare objecten. Bijvoorbeeld, u heeft een gebruiker met beheerdersrechten die grensgroepen maakt welke gebruikt worden voor een specifieke site. Aangezien het grensobject geen beveiligingsbereiken ondersteunt, kunt u geen beveiligingsbereik aan deze gebruiker toewijzen dat toegang geeft tot alleen de grenzen die gekoppeld kunnen zijn aan die site. Aangezien een grensobject niet gekoppeld kan zijn aan een beveiligingsbereik, heeft die gebruiker, wanneer u een beveiligingsrol die toegang geeft tot grensobjecten toewijst aan een gebruiker, toegang tot elke grens in de hiërarchie.  
 
 Objecten die niet beperkt zijn door beveiligingsbereiken zijn de volgende:  
 
@@ -173,7 +170,7 @@ Objecten die niet beperkt zijn door beveiligingsbereiken zijn de volgende:
 
 -   Waarschuwingen  
 
--   Antimalware-beleidsregels  
+-   Beleidsregels voor Antimalware  
 
 -   Grenzen  
 
@@ -211,7 +208,6 @@ Maak beveiligingsbereiken wanneer u toegang tot afzonderlijke instanties van obj
 
 -   U hebt een groep van gebruikers met beheerdersrechten die productietoepassingen moeten kunnen zien en geen testtoepassingen. Maak één beveiligingsbereik voor productietoepassingen en nog één voor de testtoepassingen.  
 
--   Gebruikers met verschillende beheerdersrechten hebben verschillende toegangsrechten nodig voor bepaalde instanties van een objecttype. Bijvoorbeeld, een groep gebruikers met beheerdersrechten vereist de machtiging Lezen aan specifieke software-updategroepen en een andere groep gebruikers met beheerdersrechten wijzigen en verwijderen-machtigingen nodig voor andere software-updategroepen. Maak verschillende beveiligingsbereiken voor deze software-updategroepen.  
+-   Gebruikers met verschillende beheerdersrechten hebben verschillende toegangsrechten nodig voor bepaalde instanties van een objecttype. Bijvoorbeeld, een groep gebruikers met beheerdersrechten vereist leesmachtiging voor specifieke software-updategroepen en een andere groep gebruikers met beheerdersrechten wijzigen en verwijderen-machtigingen nodig voor andere software-updategroepen. Maak verschillende beveiligingsbereiken voor deze software-updategroepen.  
 
-Zie voor meer informatie over het configureren van beveiligingsbereiken voor Rolgebaseerd beheer de [configureren van beveiligingsbereiken voor een object](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecScope) in de [op rollen gebaseerd beheer voor System Center Configuration Manager configureert](../../core/servers/deploy/configure/configure-role-based-administration.md) onderwerp.  
-
+Zie voor meer informatie over het configureren van beveiligingsbereiken voor Rolgebaseerd beheer de [configureren van beveiligingsbereiken voor een object](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecScope) in de [beheer op basis van rollen voor System Center Configuration Manager configureren](../../core/servers/deploy/configure/configure-role-based-administration.md) onderwerp.  

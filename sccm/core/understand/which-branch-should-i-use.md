@@ -6,22 +6,19 @@ ms.date: 05/02/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a3be4f8f-3d44-4e3c-9fa1-e85f30a36e72
-caps.latest.revision: 0
+caps.latest.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 662901e850566756759fcfc61c58f3c0e56bc5aa
 ms.openlocfilehash: 26356a80bd8c78d4517253bae73e53d8d8f3a73a
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/03/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="which-branch-of-configuration-manager-should-i-use"></a>Welke vertakking van Configuration Manager moet ik gebruiken?
 
@@ -86,7 +83,7 @@ U kunt de LTSB installeren als een nieuwe site of als een upgrade van een onders
 > U kunt ook een evaluatieversie van System Center 2016 van krijgen de [TechNet Evaluation Center](https://www.microsoft.com/evalcenter/evaluate-system-center-technical-preview).
 
 **Functies van de LTSB**
--    In de console-updates die kritieke beveiligingsproblemen leveren ontvangt
+-   In de console-updates die kritieke beveiligingsproblemen leveren ontvangt
 - Biedt een installatieoptie wanneer uw SA overeenkomst of een vergelijkbare rechten aan Configuration Manager zijn verlopen
 - Ondersteuning voor een upgrade (conversie) naar de huidige vertakking als er een huidige SA agreement of equivalente rechten aan Configuration Manager
 
@@ -96,14 +93,14 @@ De LTSB is gebaseerd op de huidige vertakking versie 1606 en heeft de volgende b
 - Ondersteunt een beperkte set-lijst van de server en client-besturingssystemen en verwante technologieën, zoals SQL Server-versies. Zie voor meer informatie over wat wordt ondersteund met de vertakking [ondersteunde configuraties voor de vertakking Long-Term onderhoud](supported-configurations-for-ltsb.md).
 - Ontvangt geen updates voor de nieuwe functies.
 - Biedt geen ondersteuning voor het toevoegen van een Microsoft Intune-abonnement, waardoor het gebruik van:
-  -    Intune in een hybride MDM-configuratie
+  - Intune in een hybride MDM-configuratie
  - On-premises MDM
--    Biedt geen ondersteuning voor gebruik van de Windows 10-Onderhoudsdashboard, onderhoud plannen, Windows 10 Current Branch (CB) of Current Branch for Business (CBB).
+-   Biedt geen ondersteuning voor gebruik van de Windows 10-Onderhoudsdashboard, onderhoud plannen, Windows 10 Current Branch (CB) of Current Branch for Business (CBB).
 - Biedt geen ondersteuning voor toekomstige versies van Windows 10 LTSB en Windows Server.
--    Er is geen ondersteuning voor Asset Intelligence.
--    Er is geen ondersteuning voor cloud-gebaseerde distributiepunten.
--    Er is geen ondersteuning voor de ondersteuning voor Exchange Online als een Exchange-Connector.
--    Ondersteunt niet alle functies van evaluatieversies.
+-   Er is geen ondersteuning voor Asset Intelligence.
+-   Er is geen ondersteuning voor cloud-gebaseerde distributiepunten.
+-   Er is geen ondersteuning voor de ondersteuning voor Exchange Online als een Exchange-Connector.
+-   Ondersteunt niet alle functies van evaluatieversies.
 
 
 
@@ -115,7 +112,7 @@ De LTSB is gebaseerd op de huidige vertakking versie 1606 en heeft de volgende b
   - [Licenties en vertakkingen voor System Center Configuration Manager](learn-more-editions.md)
   - [Basislijn- en updateversies](/sccm/core/servers/manage/updates#baseline-and-update-versions) in [Updates voor Configuration Manager](/sccm/core/servers/manage/updates)
 - Er is geen optie de LTSB converteren naar een Technical Preview. Technical Previews zijn afzonderlijke installaties die geen licentie vereist.
--    U kunt een evaluatieversie van de huidige vertakking niet bijwerken naar een LTSB-installatie.
+-   U kunt een evaluatieversie van de huidige vertakking niet bijwerken naar een LTSB-installatie.
 
 
 ## <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview voor System Center Configuration Manager
@@ -141,8 +138,8 @@ Functies die zijn geïntroduceerd in een Technical Preview zijn vaak toegevoegd 
 Zie voor meer informatie [Technical Preview voor System Center Configuration Manager](/sccm/core/get-started/technical-preview).
 
 **Opties voor het bijwerken**
--    U kunt een update in de console voor een nieuwe versie van de Technical Preview installeren.
--    Er is geen optie een Technical Preview converteren naar de huidige vertakking of LTSB.
+-   U kunt een update in de console voor een nieuwe versie van de Technical Preview installeren.
+-   Er is geen optie een Technical Preview converteren naar de huidige vertakking of LTSB.
 
 
 ## <a name="identify-your-branch-and-version"></a>Identificeer uw vertakking en versie
@@ -154,4 +151,3 @@ Controleer de versie van uw site in de console Ga naar de **over System Center C
 **Filialen**  
 Om te bevestigen dat de vertakking van uw site (als de LTSB of Current Branch) in de console gaat u naar **beheer** > **siteconfiguratie** > **Sites**, en open **hiërarchie-instellingen**. Als er een optie om te converteren naar de huidige vertakking en actief is, voert de site de LTSB-versie. Wanneer de site wordt uitgevoerd de huidige vertakking, wordt deze optie grijs weergegeven.
 Zie voor informatie over de verschillende versies van Configuration Manager 'basislijn- en updateversies' [Updates voor Configuration Manager](/sccm/core/servers/manage/updates).
-

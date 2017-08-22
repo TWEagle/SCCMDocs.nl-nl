@@ -1,37 +1,34 @@
 ---
-title: Beveiliging en privacy voor implementatie van besturingssysteem | Microsoft-documenten
-description: Meer informatie over beveiliging en privacy aanbevolen procedures voor implementatie van besturingssystemen in System Center Configuration Manager.
+title: Beveiliging en privacy voor implementatie van besturingssysteem | Microsoft Docs
+description: Meer informatie over beveiliging en privacy best practices voor besturingssysteemimplementatie in System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5ee5928f-3d72-4b00-8156-1e0d1030a96c
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
 ms.openlocfilehash: 5632a753fc565312a80b2ed69ce438335b3fad50
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="security-and-privacy-for-operating-system-deployment-in-system-center-configuration-manager"></a>Beveiliging en privacy in System Center Configuration Manager voor besturingssysteemimplementatie
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Dit onderwerp bevat beveiligings- en privacy-informatie voor implementatie van besturingssystemen in System Center Configuration Manager.  
+Dit onderwerp bevat beveiligings- en privacy-informatie voor besturingssysteemimplementatie in System Center Configuration Manager.  
 
 ##  <a name="BKMK_Security_HardwareInventory"></a>Aanbevolen beveiligingsprocedures voor besturingssysteemimplementatie  
- Gebruik de volgende aanbevolen beveiligingsprocedures wanneer u implementeert besturingssystemen met Configuration Manager:  
+ Gebruik de volgende aanbevolen beveiligingsprocedures wanneer u besturingssystemen met Configuration Manager implementeert:  
 
 -   **Toegangsbeheer implementeren om opstartbare media te beveiligen**  
 
@@ -45,17 +42,17 @@ Dit onderwerp bevat beveiligings- en privacy-informatie voor implementatie van b
 
      Onbevoegde gebruikers die toegang hebben tot de locatie, kunnen knoeien met de bestanden die u maakt en ze kunnen ook alle beschikbare schijfruimte innemen. Hierdoor mislukt het maken van de media.  
 
--   **Beveilig certificaatbestanden (.pfx) met een sterk wachtwoord en slaat u ze op het netwerk, het netwerkkanaal wanneer u ze in Configuration Manager importeert**  
+-   **Beveilig certificaatbestanden (PFX) met een sterk wachtwoord en als u ze op het netwerk opslaat, het netwerkkanaal wanneer u ze. in Configuration Manager importeert**  
 
      Wanneer u een wachtwoord vereist om het certificaat voor clientverificatie te importeren dat u gebruikt voor opstartbare media, helpt u hiermee het certificaat te beschermen tegen kwaadwillende personen.  
 
      Gebruik SMB-ondertekening of IPsec tussen de netwerklocatie en de siteserver om te voorkomen dat kwaadwillende personen knoeien met het certificaatbestand.  
 
--   **Als het clientcertificaat is geknoeid, Blokkeer het certificaat van de Configuration Manager en trekken als het een PKI-certificaat**  
+-   **Als het clientcertificaat is geknoeid, Blokkeer het certificaat uit Configuration Manager en trekken als het een PKI-certificaat**  
 
      U moet beschikken over een clientverificatiecertificaat met een persoonlijke sleutel om een besturingssysteem te implementeren door gebruik te maken van opstartmedia en een PXE-opstartbewerking. Blokkeer het certificaat als ermee is geknoeid, in het knooppunt **Beveiliging** van de werkruimte **Beheer** in het knooppunt **Certificaten**.  
 
--   **Wanneer de SMS-Provider zich op een computer of andere computers dan de siteserver, Beveilig het communicatiekanaal omwille van opstartinstallatiekopieën**  
+-   **Wanneer de SMS-Provider zich op een computer of andere computers dan de siteserver, Beveilig het communicatiekanaal ter bescherming van opstartinstallatiekopieën**  
 
      De opstartinstallatiekopieën zijn kwetsbaar voor een aanval als er opstartkopieën worden gewijzigd en de SMS-provider wordt uitgevoerd op een andere server dan de siteserver. Beveilig het netwerkkanaal tussen deze computer door gebruik te maken van SMB-ondertekening of IPsec.  
 
@@ -80,17 +77,17 @@ Dit onderwerp bevat beveiligings- en privacy-informatie voor implementatie van b
 
 -   **Wachtwoord vereisen voor PXE-opstartbewerking**  
 
-     Wanneer u een wachtwoord voor PXE-opstartbewerking vereist, voegt deze configuratie een extra beveiligingsniveau toe aan het PXE-opstartproces te helpen beschermen tegen rogue clients die lid worden van de Configuration Manager-hiërarchie.  
+     Wanneer u een wachtwoord voor PXE-opstartbewerking vereisen, voegt deze configuratie een extra beveiligingsniveau toe aan de PXE-opstartproces te helpen beschermen tegen rogue clients die lid te worden van de Configuration Manager-hiërarchie.  
 
 -   **Neem geen line-of-business-toepassingen of software met gevoelige gegevens in een installatiekopie die wordt gebruikt voor PXE-opstartbewerkingen of multicast**  
 
      Er zijn inherente beveiligingsrisico's verbonden aan PXE-opstartbewerkingen en multicast; verminder daarom de kans dat rogue computers de installatiekopie van het besturingssysteem downloaden.  
 
--   **Neem geen line-of-business-toepassingen of software met gevoelige gegevens in softwarepakketten die zijn geïnstalleerd met behulp van takenreeksvariabelen**  
+-   **Neem geen line-of-business-toepassingen of software met gevoelige gegevens op in softwarepakketten die via takenreeksvariabelen zijn geïnstalleerd**  
 
      Wanneer u softwarepakketten implementeert via takenreeksvariabelen, is het mogelijk dat er software wordt geïnstalleerd op computers en voor gebruikers die geen machtigingen hebben om die software te ontvangen.  
 
--   **Als u de gebruikersstatus migreert, Beveilig het netwerkkanaal tussen de client en het statusmigratiepunt via het SMB-ondertekening of IPsec**  
+-   **Wanneer u de gebruikersstatus migreert, het netwerkkanaal tussen de client en het statusmigratiepunt beveiligen met behulp van SMB-ondertekening of IPsec**  
 
      Na de initiële verbinding via HTTP worden de statusmigratiegegevens overgedragen via SMB.  Een aanvaller kan deze gegevens mogelijk lezen en wijzigen als u het netwerkkanaal niet beveiligt.  
 
@@ -98,9 +95,9 @@ Dit onderwerp bevat beveiligings- en privacy-informatie voor implementatie van b
 
      De meest recente versie van USMT biedt beveiligingsverbeteringen en grotere controle voor wanneer u de gebruikersstatusgegevens migreert.  
 
--   **Verwijder mappen handmatig op statusmigratiepunt wanneer ze buiten werking worden gesteld**  
+-   **Verwijder handmatig de mappen op het statusmigratiepunt wanneer ze buiten werking worden gesteld**  
 
-     Wanneer u een map van een statusmigratiepunt in de eigenschappen status van de Configuration Manager-console verwijdert, wordt de fysieke map niet verwijderd. U moet de netwerkshare handmatig verwijderen en de map wissen om de migratiegegevens over de gebruikersstatus te beschermen tegen openbaarmaking.  
+     Wanneer u een map van een statusmigratiepunt in de Configuration Manager-console op de status eigenschappen verwijdert, worden de fysieke map wordt niet verwijderd. U moet de netwerkshare handmatig verwijderen en de map wissen om de migratiegegevens over de gebruikersstatus te beschermen tegen openbaarmaking.  
 
 -   **Configureer het verwijderingsbeleid Gebruikersstatus om onmiddellijk te verwijderen**  
 
@@ -108,7 +105,7 @@ Dit onderwerp bevat beveiligings- en privacy-informatie voor implementatie van b
 
 -   **Verwijder computerkoppelingen handmatig wanneer gegevens van de gebruikersstatusmigratie voltooid en geverifieerd is**  
 
-     Configuration Manager verwijdert computerkoppelingen niet automatisch. Help bij het beschermen van de identiteit van de gebruikersstatusgegevens door de computerkoppelingen die niet langer zijn vereist, handmatig te verwijderen.  
+     Configuration Manager computerkoppelingen niet automatisch worden verwijderd. Help bij het beschermen van de identiteit van de gebruikersstatusgegevens door de computerkoppelingen die niet langer zijn vereist, handmatig te verwijderen.  
 
 -   **Handmatige back-up migratiegegevens van de gebruiker op het statusmigratiepunt**  
 
@@ -116,7 +113,7 @@ Dit onderwerp bevat beveiligings- en privacy-informatie voor implementatie van b
 
 -   **Houd er rekening mee BitLocker in te schakelen nadat het besturingssysteem is geïnstalleerd**  
 
-     Als een computer BitLocker ondersteunt u het besturingssysteem zonder toezicht wilt installeren, moet u dit programma uitschakelen met een takenreeksstap. Configuration Manager schakelt BitLocker niet nadat het besturingssysteem is geïnstalleerd, zodat u BitLocker moet handmatig opnieuw inschakelen.  
+     Als een computer BitLocker ondersteunt u het besturingssysteem zonder toezicht wilt installeren, moet u dit programma uitschakelen met een takenreeksstap. Configuration Manager schakelt BitLocker niet nadat het besturingssysteem is geïnstalleerd, u moet BitLocker dus handmatig opnieuw inschakelen.  
 
 -   **Implementeer toegangsbeheer om de voorbereide media te beveiligen**  
 
@@ -150,9 +147,9 @@ Dit onderwerp bevat beveiligings- en privacy-informatie voor implementatie van b
 
 -   **Beveilig het communicatiekanaal wanneer u een virtuele harde schijf naar Virtual Machine Manager uploadt.**  
 
-     Gebruiken om te voorkomen dat knoeien met gegevens wanneer deze via het netwerk wordt overgedragen, Internet protocolbeveiliging (IPsec) of server message block (SMB) tussen de computer waarop de Configuration Manager-console en de computer die de Virtual Machine Manager.  
+     Gebruiken om te voorkomen dat knoeien met gegevens wanneer deze via het netwerk wordt overgedragen, Internet Protocol security (IPsec) of server message block (SMB) tussen de computer waarop de Configuration Manager-console en de computer waarop Virtual Machine Manager wordt uitgevoerd.  
 
--   **Neem extra beveiligingsmaatregelen als u de Takenreeks Run As-Account gebruiken moet,**  
+-   **Als u de Takenreeks Run As-Account, moet u bijkomende beveiligingsmaatregelen te nemen**  
 
      Neem de volgende voorzorgsmaatregelen als u de takenreeks Run As-account gebruikt:  
 
@@ -170,7 +167,7 @@ Dit onderwerp bevat beveiligings- en privacy-informatie voor implementatie van b
 
 -   **Beperk en bewaak de gebruikers met beheerdersrechten die de beveiligingsrol beheerder Besturingssysteemimplementatie krijgen**  
 
-     Gebruikers met beheerdersrechten die de beveiligingsrol beheerder Besturingssysteemimplementatie krijgen kunnen zelfondertekende certificaten die vervolgens kunnen worden gebruikt om een client te imiteren en om clientbeleid van Configuration Manager maken.  
+     Gebruikers met beheerdersrechten die de beveiligingsrol beheerder Besturingssysteemimplementatie krijgen, kunnen zelfondertekende certificaten die vervolgens kunnen worden gebruikt voor een client imiteren en ophalen van clientbeleid uit Configuration Manager maken.  
 
 ### <a name="security-issues-for-operating-system-deployment"></a>Beveiligingsproblemen voor besturingssysteemimplementatie  
  Hoewel besturingssysteemimplementatie een handige manier kan zijn om de meest beveiligde besturingssystemen en configuraties voor computers in uw netwerk te implementeren, zijn er toch volgende beveiligingsrisico's aan verbonden:  
@@ -183,19 +180,19 @@ Dit onderwerp bevat beveiligings- en privacy-informatie voor implementatie van b
 
      Takenreeksen kunnen een computer toevoegen aan een domein, wat een rogue computer mogelijk geverifieerde netwerktoegang kan geven. Een andere belangrijke veiligheidsoverweging voor de implementatie van besturingssystemen is het beschermen van het clientverificatiecertificaat dat wordt gebruikt voor opstartbare takenreeksmedia en voor implementatie van PXE-opstartbewerkingen. Door het vastleggen van een clientverificatiecertificaat geeft u een aanvaller een kans om de persoonlijke sleutel in het certificaat te verkrijgen. Hiermee kan deze een geldige client op het netwerk imiteren.   
 
-     Als een aanvaller het clientcertificaat dat voor opstartbare takenreeksmedia en voor implementatie van PXE-opstartbewerking wordt gebruikt krijgt, kan dit certificaat worden gebruikt om te imiteren een geldige client voor Configuration Manager. In dit scenario kan de malafide computer beleid downloaden dat gevoelige gegevens kan bevatten.  
+     Als een aanvaller het clientcertificaat dat wordt gebruikt voor opstartbare takenreeksmedia en voor implementatie van PXE-opstart krijgt, kan dit certificaat moet een geldige naar Configuration Manager-client te imiteren worden gebruikt. In dit scenario kan de malafide computer beleid downloaden dat gevoelige gegevens kan bevatten.  
 
      Als clients gebruik maken van het netwerktoegangsaccount om toegang te krijgen tot op het statusmigratiepunt opgeslagen gegevens, delen deze clients feitelijk dezelfde identiteit en hebben toegang tot statusmigratiegegevens van een andere client die het netwerktoegangsaccount gebruikt. De gegevens zijn versleuteld, zodat alleen de oorspronkelijke client deze kan lezen, maar met deze gegevens kan worden geknoeid en deze kunnen worden verwijderd.  
 
--   Clientverificatie naar het statusmigratiepunt wordt bereikt door middel van een Configuration Manager-token dat is uitgegeven door het beheerpunt.  
+-   Clientverificatie voor het statusmigratiepunt wordt bereikt door middel van een Configuration Manager-token dat is uitgegeven door het beheerpunt.  
 
-     Bovendien Configuration Manager niet beperken of beheren van de hoeveelheid gegevens die zijn opgeslagen op het statusmigratiepunt en een kwaadwillende persoon kan de beschikbare schijfruimte vol en een DOS kunnen veroorzaken.  
+     Bovendien kunnen niet worden beperkt of beheren van de hoeveelheid gegevens die zijn opgeslagen op het statusmigratiepunt door Configuration Manager en een aanvaller kan bijna vol zijn de beschikbare schijfruimte en leiden tot een denial of service.  
 
 -   Als u verzamelingsvariabelen gebruikt, kunnen lokale beheerders potentieel gevoelige informatie lezen.  
 
      Hoewel verzamelingsvariabelen een flexibele methode bieden om besturingssystemen te implementeren, kan dit openbaarmaking van informatie tot gevolg hebben.  
 
-##  <a name="BKMK_Privacy_HardwareInventory"></a>Privacy-informatie voor implementatie van besturingssysteem  
+##  <a name="BKMK_Privacy_HardwareInventory"></a>Privacy-informatie voor besturingssysteemimplementatie  
  Naast het implementeren van besturingssystemen op computers zonder besturingssysteem, kan Configuration Manager worden gebruikt voor het migreren van bestanden en instellingen van gebruikers van de ene computer naar een andere. De beheerder configureert welke informatie moet worden overgedragen, waaronder bestanden met persoonsgegevens, configuratie-instellingen en cookies van de browser.  
 
  De informatie wordt op een statusmigratiepunt opgeslagen en wordt tijdens de overdracht en opslag versleuteld. De informatie mag worden verkregen door de nieuwe computer die aan de statusinformatie is gekoppeld. Als de nieuwe computer de sleutel verliest voor het verkrijgen van de informatie, heeft een Configuration Manager-beheerder met het recht Herstelgegevens weergeven voor exemplaarobjecten voor computerkoppelingen toegang tot de informatie en kan deze aan een nieuwe computer koppelen. Wanneer de statusinformatie wordt hersteld op de nieuwe computer, worden de gegevens standaard na één dag verwijderd. U kunt configureren wanneer het statusmigratiepunt de voor verwijdering aangemerkte gegevens verwijdert. De statusmigratiegegevens worden niet in de sitedatabase opgeslagen en evenmin naar Microsoft verzonden.  
@@ -206,7 +203,6 @@ Dit onderwerp bevat beveiligings- en privacy-informatie voor implementatie van b
 
  Als u een virtuele harde schijf naar Virtual Machine Manager uploadt zonder met behulp van Sysprep de installatiekopie op te schonen, kan de geüploade virtuele harde schijf persoonsgegevens bevatten van de originele installatiekopie.  
 
- Configuration Manager wordt de implementatie van besturingssysteem niet geïmplementeerd standaard en vereist verschillende configuratiestappen voordat u gebruikersstatusgegevens verzamelt of maken van takenreeksen of opstartinstallatiekopieën.  
+ Configuration Manager wordt implementatie van besturingssysteem niet standaard geïmplementeerd en vereist verschillende configuratiestappen voordat u gebruikersstatusgegevens verzamelt of maken van takenreeksen of opstartinstallatiekopieën.  
 
  Bedenk wat uw privacyvereisten zijn voordat u de implementatie van besturingssystemen configureert.  
-

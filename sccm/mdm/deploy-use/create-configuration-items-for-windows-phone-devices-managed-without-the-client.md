@@ -1,30 +1,27 @@
 ---
-title: Het maken van configuratie-items voor Windows Phone-apparaten die worden beheerd door Intune | Microsoft-documenten
+title: Het maken van configuratie-items voor Windows Phone-apparaten worden beheerd met Intune | Microsoft Docs
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: df10dc4d-c9ff-4574-bb33-8d30eb14cfe3
-caps.latest.revision: 13
-caps.handback.revision: 0
+caps.latest.revision: "13"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
 ms.openlocfilehash: bcb2d14ef097afc2915932fe09f6d83c968aecf9
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="how-to-create-configuration-items-for-windows-phone-devices-managed-without-the-system-center-configuration-manager-client"></a>Configuratie-items maken voor Windows Phone-apparaten die worden beheerd zonder de System Center Configuration Manager-client
-Gebruik de System Center Configuration Manager**Windows Phone** configuratie-item voor het beheren van instellingen voor Windows Phone-apparaten die zijn ingeschreven bij Microsoft Intune of beheerde on-premises door Configuration Manager.  
+De System Center Configuration Manager gebruiken**Windows Phone** configuratie-item voor het beheren van instellingen voor Windows Phone-apparaten die zijn geregistreerd bij Microsoft Intune of on-premises worden beheerd door Configuration Manager.  
   
 ### <a name="to-create-a-windows-phone-configuration-item"></a>Een Windows Phone-configuratie-item maken  
   
@@ -38,9 +35,9 @@ Gebruik de System Center Configuration Manager**Windows Phone** configuratie-ite
   
 5.  Onder **Geef het type configuratie-item dat u wilt maken**, selecteer **Windows Phone**.  
   
-6.  Klik op **categorieën** als u maken en toewijzen van categorieën om te zoeken en filteren van configuratie-items in de Configuration Manager-console.  
+6.  Klik op **categorieën** als u categorieën maakt en toewijst om te zoeken en filteren van configuratie-items in de Configuration Manager-console.  
   
-7.  Op de **ondersteunde Platforms** pagina van de wizard de specifieke Windows Phone-platforms selecteren die het configuratie-item wordt geëvalueerd.  
+7.  Op de **ondersteunde Platforms** pagina van de wizard de specifieke Windows Phone-platforms selecteren die het configuratie-item evalueren.  
   
 8.  Op de pagina **Apparaatinstellingen** van de wizard selecteert u de instellingengroep die u wilt configureren. Zie [Naslaginformatie voor configuratie-iteminstellingen voor Windows Phone](#BKMK_Setref) in dit onderwerp voor details en klik vervolgens op **Volgende**.  
   
@@ -51,7 +48,7 @@ Gebruik de System Center Configuration Manager**Windows Phone** configuratie-ite
   
 10. U kunt voor elke instellingengroep ook de ernst configureren die wordt gerapporteerd als wordt geconstateerd dat een configuratie-item niet compliant is:  
   
-    -   **Geen** -apparaten die niet voldoen aan deze compliantieregel doen geen fouternst voor Configuration Manager-rapporten.  
+    -   **Geen** -apparaten die niet voldoen aan deze compliantieregel niet rapporteren ernst voor Configuration Manager-rapporten.  
   
     -   **Informatie** -apparaten die niet voldoen aan deze compliantieregel fouternst van **informatie** voor Configuration Manager-rapporten.  
   
@@ -89,7 +86,7 @@ Gebruik de System Center Configuration Manager**Windows Phone** configuratie-ite
   
 |Instelling|Details|  
 |-------------|-------------|  
-|**Schermopname**|Kan de gebruiker een schermopname van het apparaatscherm.<br /><br /> (Alleen Windows Phone 8.1)|  
+|**Schermopname**|De gebruiker te maken van een Beeldschermopname voor het apparaat toestaan.<br /><br /> (Alleen Windows Phone 8.1)|  
 |**Verzending van diagnostische gegevens**|Staat het verzenden van app- logboekbestanden toe.|  
 |**Geolocatie**|Staat toe dat het apparaat gegevens van locatieservices gebruikt.<br /><br /> (Alleen Windows Phone 8.1)|  
 |**Kopiëren en plakken**|Kopiëren en plakken gebruiken om gegevens te verplaatsen tussen apps.<br /><br /> (Alleen Windows Phone 8.1)|  
@@ -108,10 +105,10 @@ Gebruik de System Center Configuration Manager**Windows Phone** configuratie-ite
 |**Maximale grootte van bijlage (automatisch gedownload)**|Hiermee regelt u de maximale grootte voor e-mail wanneer deze automatisch wordt gedownload.|  
 |**Agendasynchronisatie**||  
 |**Aangepast e-mailaccount**|Staat het gebruik van een niet-Microsoft-account op het apparaat toe.|  
-|**Het Microsoft-account optioneel maken in de Windows Mail-app**|Geen nodig voor gebruik van een Microsoft-account zich aanmeldt bij Windows Mail.|  
+|**Het Microsoft-account optioneel maken in de Windows Mail-app**|Gebruik van een Microsoft-account voor aanmelding bij Windows Mail hebben geen nodig.|  
   
 ### <a name="store"></a>Opslaan  
- Deze instellingen gelden voor alleen voor Windows Phone 8.1-apparaten.  
+ Deze instellingen gelden voor alleen Windows Phone 8.1-apparaten.  
   
 |Instelling|Details|  
 |-------------|-------------|  
@@ -122,7 +119,7 @@ Gebruik de System Center Configuration Manager**Windows Phone** configuratie-ite
   
 |Instelling|Details|  
 |-------------|-------------|  
-|**Webbrowser toestaan**|In- of uitschakelen van de standaardinternetbrowser.|  
+|**Webbrowser toestaan**|In- of uitschakelen van de standaard webbrowser.|  
 |**Automatisch doorvoeren**|Gebruiker kan de instellingen voor automatisch aanvullen in de browser wijzigen.|  
 |**Active Scripting**|Browser kan scripts, zoals Active X-scripts, uitvoeren.|  
 |**Invoegtoepassingen**|Gebruiker kan invoegtoepassingen toevoegen aan Internet Explorer.|  
@@ -165,23 +162,23 @@ Gebruik de System Center Configuration Manager**Windows Phone** configuratie-ite
 |**Verwisselbare opslag**|Het gebruik van verwisselbare opslag, zoals een SD-kaart, op het apparaat toestaan.|  
 |**Camera**|Gebruik van de camera op het apparaat toestaan.|  
 |**Near Field Communication (NFC)**|Communicatie via NFC op het apparaat toestaan.<br /><br /> (Alleen Windows Phone 8.1)|  
-|**USB-verbinding toestaan**|Verbinding maken met dit apparaat via USB-randapparatuur, toestaan.|
+|**USB-verbinding toestaan**|Toestaan dat randapparatuur verbinding maken met dit apparaat via USB.|
   
 ### <a name="peak-synchronization"></a>Pieksynchronisatie  
  Deze instellingen gelden voor zowel Windows Phone 8 en Windows Phone 8.1.  
   
 |Instelling|Details|  
 |-------------|-------------|  
-|**Piektijd opgeven**|Geef een venster dat wordt gebruikt door de volgende twee instellingen.|  
-|**Synchronisatiefrequentie in piektijden**|Kies hoe vaak het apparaat wordt gesynchroniseerd tijdens de maximum tijd die u hebt opgegeven.|  
-|**Synchronisatiefrequentie buiten piektijden**|Kies hoe vaak het apparaat wordt gesynchroniseerd buiten de piektijd die u hebt opgegeven.|  
+|**Piektijd opgeven**|Geef een venster van de tijd die wordt gebruikt door de volgende twee instellingen.|  
+|**Synchronisatiefrequentie in piektijden**|Kies hoe vaak het apparaat wordt gesynchroniseerd tijdens de piektijden die u hebt opgegeven.|  
+|**Synchronisatiefrequentie buiten piektijden**|Kies hoe vaak het apparaat wordt gesynchroniseerd buiten de piektijden die u hebt opgegeven.|  
   
 ### <a name="roaming"></a>Roaming  
  Deze instellingen gelden voor zowel Windows Phone 8 en Windows Phone 8.1.  
   
 |Instelling|Details|  
 |-------------|-------------|  
-|**Beheer van apparaten tijdens roaming**|Kan het apparaat kan worden beheerd door Configuration Manager bij roaming.|  
+|**Beheer van apparaten tijdens roaming**|Staat toe dat het apparaat worden beheerd door Configuration Manager bij roaming.|  
 |**Software downloaden tijdens roaming**|Staat toe dat apps en software tijdens het roamen worden gedownload.|  
 |**E-mail downloaden tijdens roaming**|Staat toe dat e-mail tijdens het roamen wordt gedownload.|  
 |**Gegevensroaming**|Roaming tussen netwerken toestaan tijdens het ophalen van gegevens.|  
@@ -218,7 +215,7 @@ Gebruik de System Center Configuration Manager**Windows Phone** configuratie-ite
 |-------------|----------------------|  
 |**Netwerknaam (SSID)**||  
 |**Netwerkverbinding**|Kies uit **Internet** of **Werk**.|  
-|**Verificatie**|Selecteer de verificatiemethode voor de draadloze verbinding:<br><br> - **Open**<br> - **Gedeeld**<br> - **WPA**<br> - **WPA-VOORAF GEDEELDE SLEUTEL**<br> - **WPA2**<br> - **WPA2-VOORAF GEDEELDE SLEUTEL**|  
+|**Verificatie**|Selecteer de verificatiemethode voor de draadloze verbinding:<br><br> - **Open**<br> - **Gedeeld**<br> - **WPA**<br> - **WPA-PSK**<br> - **WPA2**<br> - **WPA2-PSK**|  
 |**Gegevensversleuteling**|Kies de versleutelingsmethode die wordt gebruikt voor deze verbinding. De waarden die u selecteert, kunnen verschillen naargelang de **Verificatie**methode die u hebt geselecteerd:<br><br> - **Uitgeschakeld**<br> - **WEP**<br> - **TKIP**<br> - **AES**|  
 |**Sleutelindex**|Selecteer een sleutelindex van **1** tot **4** die wordt gebruikt met een instelling voor **Gegevensversleuteling** van **WEP**.|  
 |**Dit netwerk maakt verbinding met internet**|Selecteer deze optie als u proxyinstellingen wilt gebruiken zodat mobiele apparaten met een draadloze verbinding in staat worden gesteld om verbinding te maken met internet.|  
@@ -232,7 +229,7 @@ Gebruik de System Center Configuration Manager**Windows Phone** configuratie-ite
   
  Klik op **Importeren** en geef vervolgens de volgende waarden op:  
   
--   **Certificaatbestand** – Klik op **Bladeren** en selecteer vervolgens het certificaatbestand met de extensie **.cer** die u wilt importeren.  
+-   **Certificaatbestand** : klik op **Bladeren** en selecteer vervolgens het certificaatbestand met de extensie **.cer** die u wilt importeren.  
   
 -   **Doelarchief**: kies uit de volgende opties een of meer doelarchieven waaraan het geïmporteerde certificaat wordt toegevoegd op het mobiele apparaat:  
   
@@ -242,7 +239,7 @@ Gebruik de System Center Configuration Manager**Windows Phone** configuratie-ite
   
     -   **Normaal**  
   
-    -   **Beschermde**  
+    -   **Bevoegdheden**  
   
     -   **SPC**  
   
@@ -254,13 +251,13 @@ Gebruik de System Center Configuration Manager**Windows Phone** configuratie-ite
   
     -   **Manager**  
   
-    -   **Gebruiker geverifieerd**  
+    -   **Door gebruiker geverifieerd**  
   
     -   **IT-beheerder**  
   
     -   **Niet-geverifieerde gebruiker**  
   
-    -   **Vertrouwde Provisioning-Server**  
+    -   **Vertrouwde inrichtingsserver**  
   
 ### <a name="system-security"></a>Systeembeveiliging  
  Deze instellingen gelden voor zowel Windows Phone 8 en Windows Phone 8.1.  
@@ -274,7 +271,7 @@ Gebruik de System Center Configuration Manager**Windows Phone** configuratie-ite
 |**SmartScreen**|Windows Smart Screen in- of uitschakelen.|  
 |**Virusbeveiliging**|Zorg ervoor dat het apparaat wordt beveiligd door antivirussoftware.|  
 |**Handtekeningen voor virusbeveiliging zijn bijgewerkt**|Selecteer deze optie om aan te geven dat de definities voor antivirussoftware zijn bijgewerkt.|
-|**Handmatige unenrollment toestaan**|Laten we de gebruiker het apparaat uit MDM verwijderen|  
+|**Handmatige uitschrijving toestaan**|De gebruiker verwijderen we hun apparaat uit MDM.|  
   
 ### <a name="windows-server-work-folders"></a>Windows Server-werkmappen  
  Deze instellingen gelden voor zowel Windows Phone 8 en Windows Phone 8.1.  
@@ -286,10 +283,10 @@ Gebruik de System Center Configuration Manager**Windows Phone** configuratie-ite
 ### <a name="allowed-and-blocked-apps-list-windows-phone-81-only"></a>Lijst met toegestane en geblokkeerde apps (alleen Windows Phone 8.1)  
  Hiermee kunt u een lijst opgeven met Windows Phone-apps in uw bedrijf die compatibel of niet compatibel zijn. Apps die u als geblokkeerd opgeeft, kunnen niet door gebruikers worden geïnstalleerd. Als u een lijst met toegestane apps opgeeft, kunnen gebruikers alleen apps uit die lijst installeren.  
   
- U kunt beide toegestane en geblokkeerde apps in dezelfde configuratie-item niet opgeven.  
+ U opgeven niet zowel toegestane en geblokkeerde apps in hetzelfde configuratie-item.  
   
 > [!IMPORTANT]  
->  Als u een lijst met toegestane apps opgeeft, moet u ervoor zorgen dat de bedrijfsportal-app en alle apps die u hebt geïmplementeerd op Windows Phone 8.1-apparaten zich in de **toegestaan** lijst met apps.  
+>  Als u een lijst met toegestane apps opgeeft, moet u ervoor zorgen dat de bedrijfsportal-app en alle apps die u hebt geïmplementeerd op Windows Phone 8.1-apparaten voorkomen de **toegestane** lijst met apps.  
   
 ##### <a name="to-specify-an-allowed-or-blocked-apps-list"></a>Een lijst met toegestane of geblokkeerde apps opgeven  
   
@@ -300,10 +297,10 @@ Gebruik de System Center Configuration Manager**Windows Phone** configuratie-ite
 |Instelling|Meer informatie|  
 |**Lijst met geblokkeerde apps**|Selecteer deze optie als u een lijst wilt opgeven met apps die gebruikers niet mogen installeren.|  
 |**Lijst met toegestane apps**|Selecteer deze optie als u een lijst wilt opgeven met apps die gebruikers mogen installeren.|  
-|**Toevoegen**|Hiermee voegt u een app toe aan de geselecteerde lijst. Geef een naam van uw keuze op, eventueel de uitgever van de app, en de URL van de app in de App Store.<br /><br /> Zoek op de Windows Phone Store-pagina de app die u wilt gebruiken om de URL op te geven.<br /><br /> **Voorbeeld:** Zoek in de store naar de **Skype** app. De URL die u gebruikt worden http://www.windowsphone.com/en-us/store/app/skype/c3f8e570-68b3-4d6a-bdbb-c0a3f4360a51.<br /><br /> Voor de bedrijfsportal-app of line-of-business-apps hoeft u niet een volledige URL in de app GUID opgeven.|  
+|**Toevoegen**|Hiermee voegt u een app toe aan de geselecteerde lijst. Geef een naam van uw keuze op, eventueel de uitgever van de app, en de URL van de app in de App Store.<br /><br /> Zoek op de Windows Phone Store-pagina de app die u wilt gebruiken om de URL op te geven.<br /><br /> **Voorbeeld:** Zoek in de store naar de **Skype** app. De URL die u gebruikt, is http://www.windowsphone.com/en-us/store/app/skype/c3f8e570-68b3-4d6a-bdbb-c0a3f4360a51.<br /><br /> U hebt voor de bedrijfsportal-app of line-of-business-apps, niet een volledige URL, maar alleen de GUID van de app op te geven.|  
 |**Bewerken**|Hiermee kunt u de naam, de uitgever en de URL van de geselecteerde app bewerken.|  
 |**Verwijderen**|Hiermee verwijdert u de geselecteerde app uit de lijst.|  
 |**Importereneren**|Hiermee importeert u een lijst met apps die u hebt opgegeven in een bestand met door komma's gescheiden waarden. Gebruik de notatie, toepassingsnaam, uitgever en app-URL in het bestand.|  
   
 ## <a name="see-also"></a>Zie ook  
- [Configuratie-items voor apparaten die worden beheerd zonder dat de System Center Configuration Manager-client](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)
+ [Configuratie-items voor apparaten die worden beheerd zonder de System Center Configuration Manager-client](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)

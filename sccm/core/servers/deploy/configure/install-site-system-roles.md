@@ -1,26 +1,24 @@
 ---
-title: Sitesysteemrollen installeren | Microsoft-documenten
-description: Wizards kunnen u sitesysteemrollen toevoegen aan een bestaande of nieuwe sitesysteemserver in de site.
+title: Sitesysteemrollen installeren | Microsoft Docs
+description: Wizards helpen u sitesysteemrollen toevoegen aan een bestaande of nieuwe sitesysteemserver in de site.
 ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 61f5c774-7667-44ae-b8e4-a4951318b183
-caps.latest.revision: 4
+caps.latest.revision: "4"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 8370e3b102afed518e8154d4944ab420188faccf
 ms.openlocfilehash: 76b070f8e203cc0c751f35e5a4b4904504786c04
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="install-site-system-roles-for-system-center-configuration-manager"></a>Sitesysteemrollen voor System Center Configuration Manager installeren
 
@@ -30,15 +28,15 @@ De System Center Configuration Manager-console heeft twee wizards die kunt u sit
 
 -   **Wizard sitesysteemrollen toevoegen**: Gebruik deze wizard sitesysteemrollen toevoegen aan een bestaande sitesysteemserver in de site.  
 
--   **Wizard Sitesysteemserver maken**: Met deze wizard kunt u een nieuwe server specificeren als een sitesysteemserver en installeer vervolgens een of meer sitesysteemrollen op de server. Deze wizard is hetzelfde als de **toevoegen Wizard sitesysteemrollen**, behalve dat op de eerste pagina, moet u de naam van de server moet worden gebruikt en de site waarin u wilt installeren.  
+-   **Wizard Sitesysteemserver maken**: Met deze wizard kunt u een nieuwe server specificeren als een sitesysteemserver en installeer vervolgens een of meer sitesysteemrollen op de server. Deze wizard is hetzelfde als de **toevoegen Wizard sitesysteemrollen**, behalve dat op de eerste pagina, moet u de naam van de server moet gebruiken en de site waarin u wilt installeren.  
 
-Wanneer u een sitesysteemrol installeert op een externe computer (inclusief een instantie van de SMS-Provider), wordt het computeraccount van de externe computer toegevoegd aan een lokale groep op de siteserver. Wanneer de site is geïnstalleerd op een domeincontroller, is de groep op de siteserver een domeingroep in plaats van een lokale groep. In dit geval de externe sitesysteemrol, is niet operationeel totdat de site rol computer opnieuw opstarten of het Kerberos-ticket voor de account van de externe computer vernieuwd is. Zie [Accounts die worden gebruikt System Center Configuration Manager](../../../../core/plan-design/hierarchy/accounts.md) voor meer informatie.  
+Wanneer u een sitesysteemrol installeert op een externe computer (met inbegrip van een exemplaar van de SMS-Provider), wordt het computeraccount van de externe computer toegevoegd aan een lokale groep op de siteserver. Wanneer de site is geïnstalleerd op een domeincontroller, is de groep op de siteserver een domeingroep in plaats van een lokale groep. De externe sitesysteemrol is in dit geval niet operationeel totdat de site system rol computer opnieuw wordt opgestart of het Kerberos-ticket voor de account van de externe computer is vernieuwd. Zie [Accounts die worden gebruikt System Center Configuration Manager](../../../../core/plan-design/hierarchy/accounts.md) voor meer informatie.  
 
-Configuration Manager controleert net voordat de installatie van de sitesysteemrol de doelcomputer, zodat het voldoet aan de vereisten voor de sitesysteemrollen die u hebt geselecteerd. Het volgende over het installeren van sitesysteemrollen op de hoogte:  
+Voorafgaand aan de sitesysteemrol installeert, controleert Configuration Manager de doelcomputer om te controleren of deze voldoet aan de vereisten voor de sitesysteemrollen die u hebt geselecteerd. Inzicht in het volgende over het installeren van sitesysteemrollen:  
 
--   Standaard, wanneer de Configuration Manager een sitesysteemrol installeert de installatiebestanden geïnstalleerd op de eerst beschikbare NTFS-geformatteerde schijfstation dat de meeste beschikbare vrije schijfruimte heeft. Om te voorkomen dat Configuration Manager installeert op specifieke stations, maakt u een leeg bestand met de naam **no_sms_on_drive.sms**. Kopieer het naar de hoofdmap van het station vóór u de sitesysteemserver installeert.  
+-   Standaard wanneer Configuration Manager een sitesysteemrol installeert de installatiebestanden geïnstalleerd op de eerst beschikbare NTFS-geformatteerde schijfstation dat de meeste vrije schijfruimte beschikbaar is. Om te voorkomen dat Configuration Manager op specifieke stations installeert, maakt u een leeg bestand met de naam **no_sms_on_drive.sms**. Kopieer deze naar de hoofdmap van het station voordat u de sitesysteemserver installeert.  
 
--   Configuration Manager gebruikt de **Installatieaccount** voor het installeren van sitesysteemrollen. U geeft dit account als u de toepasselijke wizard een nieuwe sitesysteemserver maken of sitesysteemrollen toevoegen aan een bestaande sitesysteemserver uitvoert. Dit account is het lokale systeemaccount van de site server-computer, maar kunt u een domeingebruikersaccount voor gebruik als het Installatieaccount van het systeem. Zie [Accounts die worden gebruikt System Center Configuration Manager](../../../../core/plan-design/hierarchy/accounts.md) voor meer informatie.  
+-   Configuration Manager gebruikt de **Installatieaccount** voor het installeren van sitesysteemrollen. U geeft dit account wanneer u de betreffende wizard een nieuwe sitesysteemserver maken of sitesysteemrollen toevoegen aan een bestaande sitesysteemserver uitvoert. Standaard is dit account is het lokale systeemaccount van de site server-computer, maar kunt u een domeingebruikersaccount voor gebruik als de Account voor de installatie van de Site. Zie [Accounts die worden gebruikt System Center Configuration Manager](../../../../core/plan-design/hierarchy/accounts.md) voor meer informatie.  
 
 ##  <a name="bkmk_Install"></a>Sitesysteemrollen installeren op een bestaande sitesysteemserver  
 
@@ -48,19 +46,19 @@ Configuration Manager controleert net voordat de installatie van de sitesysteemr
 
 3.  Klik op **Sitesysteemrollen toevoegen** in het tabblad **Start** , in de groep **Server**.  
 
-4.  Op de **algemeen** pagina, Controleer de instellingen en klik vervolgens op **volgende**.  
+4.  Op de **algemene** pagina, controleert u de instellingen en klik vervolgens op **volgende**.  
 
     > [!TIP]  
     >  Voor toegang tot de sitesysteemrol van het Internet, zorg ervoor dat u opgeeft dat een volledig gekwalificeerde domeinnaam (FQDN) van Internet.  
 
-5.  Op de **Proxy** pagina, instellingen opgeven voor een proxyserver indien sitesysteemrollen die worden uitgevoerd op deze sitesysteemserver een proxyserver verbinding maken met locaties op het Internet nodig hebben. Klik op **Volgende**.  
+5.  Op de **Proxy** pagina, instellingen opgeven voor een proxyserver indien sitesysteemrollen die worden uitgevoerd op deze sitesysteemserver een proxyserver verbinding maken met locaties op het Internet nodig. Klik op **Volgende**.  
 
-6.  Op de **Systeemrolselectie** pagina, selecteert u de sitesysteemrollen die u wilt toevoegen en klik op **volgende**.  
+6.  Op de **Systeemrolselectie** pagina, selecteert u de sitesysteemrollen die u wilt toevoegen en klik vervolgens op **volgende**.  
 
 7.  Voltooi de wizard.  
 
 > [!TIP]  
->  De Windows PowerShell-cmdlet New-CMSiteSystemServer, voert dezelfde functie uit als deze procedure. Zie voor meer informatie [New-CMSiteSystemServer](http://go.microsoft.com/fwlink/p/?LinkID=271414) in de documentatie van System Center 2012 Configuration Manager SP1 Cmdlet-verwijzing.  
+>  De Windows PowerShell-cmdlet New-CMSiteSystemServer, voert dezelfde functie uit als deze procedure. Zie voor meer informatie [New-CMSiteSystemServer](http://go.microsoft.com/fwlink/p/?LinkID=271414) in de System Center 2012 Configuration Manager SP1 Cmdlet-Reference-documentatie.  
 
 ## <a name="to-install-site-system-roles-on-a-new-site-system-server"></a>Sitesysteemrollen installeren op een nieuwe sitesysteemserver  
 
@@ -73,14 +71,13 @@ Configuration Manager controleert net voordat de installatie van de sitesysteemr
 4.  Configureer de algemene instellingen voor het sitesysteem op de pagina **Algemeen** en klik vervolgens op **Volgende**.  
 
     > [!TIP]  
-    >  Voor toegang tot de nieuwe sitesysteemrol vanaf het Internet, zorg ervoor dat u een Internet-FQDN opgeven.  
+    >  Zorg ervoor dat u een Internet-FQDN opgeven voor toegang tot de nieuwe sitesysteemrol vanaf het Internet.  
 
-5.  Op de **Proxy** pagina, instellingen opgeven voor een proxyserver indien sitesysteemrollen die worden uitgevoerd op deze sitesysteemserver een proxyserver verbinding maken met locaties op het Internet nodig hebben. Klik op **Volgende**.  
+5.  Op de **Proxy** pagina, instellingen opgeven voor een proxyserver indien sitesysteemrollen die worden uitgevoerd op deze sitesysteemserver een proxyserver verbinding maken met locaties op het Internet nodig. Klik op **Volgende**.  
 
-6.  Op de **Systeemrolselectie** pagina, selecteert u de sitesysteemrollen die u wilt toevoegen en klik op **volgende**.  
+6.  Op de **Systeemrolselectie** pagina, selecteert u de sitesysteemrollen die u wilt toevoegen en klik vervolgens op **volgende**.  
 
 7.  Voltooi de wizard.  
 
 > [!TIP]  
->  De Windows PowerShell-cmdlet New-CMSiteSystemServer, voert dezelfde functie uit als deze procedure. Zie voor meer informatie [New-CMSiteSystemServer](http://go.microsoft.com/fwlink/p/?LinkID=271414) in de documentatie van System Center 2012 Configuration Manager SP1 Cmdlet-verwijzing.  
-
+>  De Windows PowerShell-cmdlet New-CMSiteSystemServer, voert dezelfde functie uit als deze procedure. Zie voor meer informatie [New-CMSiteSystemServer](http://go.microsoft.com/fwlink/p/?LinkID=271414) in de System Center 2012 Configuration Manager SP1 Cmdlet-Reference-documentatie.  

@@ -1,38 +1,35 @@
 ---
-title: Installatiemethoden voor clients | Microsoft-documenten
-description: Informatie over installatiemethoden voor clients voor System Center Configuration Manager.
+title: Installatiemethoden voor clients | Microsoft Docs
+description: Meer informatie over installatiemethoden voor clients voor System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/25/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 51b5964b-374d-4abc-8619-414a9fffad2d
-caps.latest.revision: 9
-caps.handback.revision: 0
+caps.latest.revision: "9"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: d94acac84f052a01de9d9c9f65f237c0006c45b8
 ms.openlocfilehash: edca31249cc2bb3e0c67265962815c82e3f4711e
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="client-installation-methods-in-system-center-configuration-manager"></a>Clientinstallatiemethoden in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-U kunt verschillende methoden gebruiken om de Configuration Manager-clientsoftware te installeren. U kunt één methode of een combinatie van methoden gebruiken. In dit onderwerp kunt u meer informatie over elke methode, voor meer informatie over welke methode best zal werken in uw organisatie.  
+U kunt verschillende methoden gebruiken om de Configuration Manager-clientsoftware te installeren. U kunt één methode of een combinatie van methoden gebruiken. In dit onderwerp kunt u lezen over elke methode, voor meer informatie over die beste werkt in uw organisatie.  
 
 ## <a name="client-push-installation"></a>Clientpushinstallatie  
 
- **Ondersteunde client-platform:** Windows  
+ **Ondersteund clientplatform:** Windows  
 
  **Voordelen**  
 
@@ -46,7 +43,7 @@ U kunt verschillende methoden gebruiken om de Configuration Manager-clientsoftwa
 
 -   Kan hoog netwerkverkeer veroorzaken wanneer te grote verzamelingen worden gepusht.  
 
--   Kan alleen worden gebruikt op computers die zijn gedetecteerd door Configuration Manager.  
+-   Kan alleen worden gebruikt op computers die door Configuration Manager zijn gedetecteerd.  
 
 -   Kan niet worden gebruikt voor het installeren van clients in een werkgroep.  
 
@@ -54,12 +51,12 @@ U kunt verschillende methoden gebruiken om de Configuration Manager-clientsoftwa
 
 -   Windows Firewall moet geconfigureerd zijn op clientcomputers met uitzonderingen zodat clientpushinstallatie vervolledigd kan worden.  
 
--   U kunt clientpushinstallatie niet annuleren. Wanneer u deze clientinstallatiemethode voor een site gebruikt, wordt Configuration Manager probeert de client te installeren op alle gedetecteerde bronnen en alle mislukte pogingen gedurende 7 dagen.  
+-   U kunt clientpushinstallatie niet annuleren. Wanneer u deze clientinstallatiemethode voor een site gebruikt, wordt Configuration Manager probeert de client te installeren op alle gedetecteerde bronnen en alle mislukte pogingen maximaal 7 dagen.  
 
  Zie [Clients implementeren op Windows-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md) voor meer informatie over deze installatiemethode.  
 
 ## <a name="software-update-point-based-installation"></a>Installatie op basis van software-updatepunten  
- **Ondersteunde client-platform:** Windows  
+ **Ondersteund clientplatform:** Windows  
 
  **Voordelen:**  
 
@@ -83,12 +80,12 @@ U kunt verschillende methoden gebruiken om de Configuration Manager-clientsoftwa
 
 -   Als u nieuwe clients wilt installeren, moet u een groepsbeleidobject (GPO) configureren in Active Directory Domain Services met het actieve software-updatepunt en de actieve updatepoort van de client.  
 
--   Indien het Active Directory-schema voor Configuration Manager niet is uitgebreid, moet u groepsbeleidinstellingen gebruiken om van computers met clientinstallatie-eigenschappen.  
+-   Indien het Active Directory-schema voor Configuration Manager niet is uitgebreid, moet u de instellingen voor Groepsbeleid gebruiken voor het inrichten van computers met clientinstallatie-eigenschappen.  
 
  Zie [Clients implementeren op Windows-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md) voor meer informatie over deze installatiemethode.  
 
 ## <a name="group-policy-installation"></a>Installatie van Groepsbeleid  
- **Ondersteunde client-platform:** Windows  
+ **Ondersteund clientplatform:** Windows  
 
  **Voordelen:**  
 
@@ -104,12 +101,12 @@ U kunt verschillende methoden gebruiken om de Configuration Manager-clientsoftwa
 
 -   Kan veel netwerkverkeer veroorzaken indien een groot aantal clients worden geïnstalleerd.  
 
--   Indien het Active Directory-schema voor Configuration Manager niet is uitgebreid, moet u groepsbeleidinstellingen gebruiken om toe te voegen clientinstallatie-eigenschappen op computers in uw site.  
+-   Indien het Active Directory-schema voor Configuration Manager niet is uitgebreid, moet u instellingen voor Groepsbeleid clientinstallatie-eigenschappen toevoegen aan computers in uw site.  
 
  Zie [Clients implementeren op Windows-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md) voor meer informatie over deze installatiemethode.  
 
 ## <a name="logon-script-installation"></a>Aanmeldingscriptinstallatie  
- **Ondersteunde client-platform:** Windows  
+ **Ondersteund clientplatform:** Windows  
 
  **Voordelen:**  
 
@@ -126,7 +123,7 @@ U kunt verschillende methoden gebruiken om de Configuration Manager-clientsoftwa
  Zie [Clients implementeren op Windows-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md) voor meer informatie over deze installatiemethode.  
 
 ## <a name="manual-installation"></a>Handmatige installatie  
- **Ondersteunde client-platform:** Windows-, UNIX/Linux, Mac OS X  
+ **Ondersteund clientplatform:** Windows, UNIX/Linux, Mac OS X  
 
  **Voordelen:**  
 
@@ -142,9 +139,8 @@ U kunt verschillende methoden gebruiken om de Configuration Manager-clientsoftwa
 
  Zie de volgende onderwerpen voor meer informatie over het handmatig installeren van de client op de verschillende platforms:  
 
--   [Het implementeren van clients op Windows-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md)  
+-   [Clients implementeren op Windows-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md)  
 
--   [Clients implementeren voor UNIX en Linux-servers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md)  
+-   [Clients implementeren op UNIX en Linux-servers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md)  
 
--   [Clients implementeren in Macs in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-macs.md)  
-
+-   [Clients implementeren op Mac-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-macs.md)  

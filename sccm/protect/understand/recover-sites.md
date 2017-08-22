@@ -6,8 +6,7 @@ ms.date: 6/5/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 19539f4d-1667-4b4c-99a1-9995f12cf5f7
@@ -15,14 +14,12 @@ caps.latest.revision:
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: f7cd9c71287d62c9f5d36e2f032bc2a6065572ae
 ms.openlocfilehash: 49eea15ea2888f8f93c33eb771c09147ba21529e
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/06/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
 #  <a name="recover-a-configuration-manager-site"></a>Een Configuration Manager-site herstellen
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
@@ -244,4 +241,3 @@ Configuration Manager wordt tijdens het herstelproces wordt gecontroleerd of de 
 Wanneer u een distributiepunt hebt dat zich niet op de secundaire site bevindt, hoeft u het distributiepunt tijdens het herstellen van de secundaire site niet opnieuw te installeren. Wanneer de secundaire site is hersteld, wordt de site automatisch gesynchroniseerd met het distributiepunt.
 
 U kunt de status van het herstel van secundaire site controleren via de **installatiestatus tonen** actie van de **Sites** knooppunt in de Configuration Manager-console.
-

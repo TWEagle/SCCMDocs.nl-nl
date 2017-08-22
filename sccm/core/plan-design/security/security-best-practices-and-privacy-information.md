@@ -1,33 +1,30 @@
 ---
-title: Aanbevolen procedures voor beveiliging en privacy-informatie voor System Center Configuration Manager | Microsoft-documenten
-description: Zoeken naar bronnen met de aanbevolen procedures voor beveiliging en privacy-informatie voor System Center Configuration Manager.
+title: Aanbevolen beveiligingsprocedures en privacy-informatie voor System Center Configuration Manager | Microsoft Docs
+description: Resources zoeken die best practices voor beveiliging en privacy-informatie voor System Center Configuration Manager bieden.
 ms.custom: na
 ms.date: 1/3/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b7bff8a0-fe76-4d3b-aac6-065290888bea
-caps.latest.revision: 10
+caps.latest.revision: "10"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 9e88ed671ce56f19a545b2749b46710d56dac2ae
 ms.openlocfilehash: 135a30085a1a02f75e9a88ed5f9ded06e9c33367
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-best-practices-and-privacy-information-for-system-center-configuration-manager"></a>Aanbevolen procedures voor beveiliging en privacy-informatie voor System Center Configuration Manager
+# <a name="security-best-practices-and-privacy-information-for-system-center-configuration-manager"></a>Aanbevolen beveiligingsprocedures en privacy-informatie voor System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Gebruik de volgende informatie op over het beveiligingsbulletin vinden aanbevolen procedures en privacy-informatie voor System Center Configuration Manager.  
+Gebruik de volgende informatie voor aanbevolen beveiligingsprocedures en privacy-informatie voor System Center Configuration Manager.  
 
 ## <a name="security-and-privacy-content"></a>Beveiliging en privacy-inhoud:  
 
@@ -45,7 +42,7 @@ Gebruik de volgende informatie op over het beveiligingsbulletin vinden aanbevole
 
 -   [Beveiliging en privacy voor software-updates in System Center Configuration Manager](../../../sum/plan-design/security-and-privacy-for-software-updates.md)  
 
--   [Beveiliging en privacy voor implementatie van besturingssystemen in System Center Configuration Manager](../../../osd/plan-design/security-and-privacy-for-operating-system-deployment.md)  
+-   [Beveiliging en privacy voor besturingssysteemimplementatie in System Center Configuration Manager](../../../osd/plan-design/security-and-privacy-for-operating-system-deployment.md)  
 
 -   [Beveiliging en privacy voor verzamelingen in System Center Configuration Manager](../../../core/clients/manage/collections/security-and-privacy-for-collections.md)  
 
@@ -63,11 +60,10 @@ Gebruik de volgende informatie op over het beveiligingsbulletin vinden aanbevole
 
 -   [Beveiliging en privacy voor software-inventaris in System Center Configuration Manager](../../../core/clients/manage/inventory/security-and-privacy-for-software-inventory.md)  
 
--   [Beveiliging en privacy voor instellingen voor naleving in System Center Configuration Manager](../../../compliance/plan-design/security-and-privacy-for-compliance-settings.md)  
+-   [Beveiliging en privacy voor compatibiliteitsinstellingen in System Center Configuration Manager](../../../compliance/plan-design/security-and-privacy-for-compliance-settings.md)  
 
 -   Zie de *overwegingen voor beveiliging en privacy voor profielen voor externe verbindingen* in sectie [profielen voor externe verbindingen in System Center Configuration Manager](/sccm/compliance/deploy-use/create-remote-connection-profiles)  
 
 -   [Beveiliging en privacy voor certificaatprofielen in System Center Configuration Manager](../../../protect/plan-design/security-and-privacy-for-certificate-profiles.md)  
 
 -   [Wi-Fi en VPN-profiel beveiliging en privacy in System Center Configuration Manager](../../../protect/plan-design/security-and-privacy-for-wifi-vpn-profiles.md)  
-

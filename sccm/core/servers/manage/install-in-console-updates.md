@@ -6,21 +6,19 @@ ms.date: 06/13/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c14a3607-253b-41fb-8381-ae2d534a9022
-caps.latest.revision: 36
+caps.latest.revision: "36"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
 ms.openlocfilehash: 2bbc8935bee306ed0bc312cc43b8f5374a8df7ff
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/29/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Updates binnen de console installeren voor System Center Configuration Manager
 
@@ -386,4 +384,3 @@ Wanneer beide updates beschikbaar in de console zijn, wordt u aangeraden dat u d
 -   Als u eerder de oudere update hebt geïnstalleerd, hoeft u niet de update te installeren met de nieuwere datum. Echter als u de nieuwere update na het installeren van de eerste update installeert, wordt de betreffende binaire bestanden bijgewerkt. Er zijn geen extra wijziging optreedt, en zijn geen verdere actie te ondernemen nodig.
 
 -   Als u de nieuwste update eerder is geïnstalleerd en installeer vervolgens de update op de oudere datum, is geen verdere actie nodig. Dit komt doordat de nieuwere binaire bestanden die u al hebt geïnstalleerd niet worden overschreven door de dezelfde binaire bestanden van de oorspronkelijke update.
-

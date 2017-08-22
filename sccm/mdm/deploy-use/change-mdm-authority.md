@@ -7,15 +7,13 @@ manager: angrobe
 ms.date: 06/02/2017
 ms.topic: article
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.assetid: cc397ab5-125f-4f17-905b-fab980194f49
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 662901e850566756759fcfc61c58f3c0e56bc5aa
-ms.openlocfilehash: b80fec937b50dca3ab995be281c44c3145300f9f
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 74b9dbb1ed0172d99956e726fca3aec2b658ce77
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="change-your-mdm-authority"></a>Wijzigen van uw MDM-instantie
 Vanaf versie 1610 van Configuration Manager en Microsoft Intune version 1705, kunt u uw MDM-instantie zonder contact opnemen met Microsoft Support en zonder de registratie ongedaan maken en registreren van uw bestaande beheerde apparaten.
@@ -255,4 +253,3 @@ Nadat de wijziging in de MDM-instantie voltooid is, controleert u de volgende st
     - Zorg ervoor dat het nieuw ingeschreven apparaat wordt weergegeven in de Configuration Manager-console.
     - Een actie uitgevoerd, zoals vergrendelen op afstand van de beheerconsole voor het apparaat. Als dat lukt, wordt het apparaat wordt beheerd door de nieuwe MDM-instantie.
 - Als u problemen met specifieke apparaten hebt, kunt u registratie ongedaan maken en registreren van de apparaten om op te halen ze verbonden met de nieuwe instantie van en worden beheerd zo snel mogelijk.
-

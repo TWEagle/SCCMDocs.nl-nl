@@ -1,27 +1,24 @@
 ---
-title: Toegang tot e-mail beheren | Microsoft-documenten
-description: Informatie over het gebruik van System Center Configuration Manager voorwaardelijke toegang om toegang tot Exchange te beheren.
+title: Toegang tot e-mail beheren | Microsoft Docs
+description: Informatie over het gebruik van voorwaardelijke toegang voor System Center Configuration Manager voor het beheren van toegang tot Exchange.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: fa648e73-5fb8-4818-ab57-7466ffaf888e
-caps.latest.revision: 24
+caps.latest.revision: "24"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 6424fb07802b62820b4dc78a58ab30d3b956abef
 ms.openlocfilehash: a5c2a8912cd2ef95a778b81d0b7f1f98315b8413
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="manage-email-access-in-system-center-configuration-manager"></a>Toegang tot e-mail beheren in System Center Configuration Manager
 
@@ -39,7 +36,7 @@ U kunt de toegang beheren tot:
 
 U kunt toegang tot Exchange Online en Exchange On-premises beheren vanuit de ingebouwde e-mailclient op de volgende platforms:  
 
--   Android 4.0 en hoger, Samsung KNOX Standard 4.0 of hoger  
+-   Android 4.0 en hoger, Samsung KNOX Standard 4.0 en hoger  
 
 -   iOS 7.1 en hoger  
 
@@ -47,32 +44,32 @@ U kunt toegang tot Exchange Online en Exchange On-premises beheren vanuit de ing
 
 -   E-mailtoepassing op Windows 8.1 en hoger
 
-Office-desktoptoepassingen hebben toegang tot Exchange Online op pc's die worden uitgevoerd:  
+Office-bureaubladtoepassingen hebben toegang tot Exchange Online op pc's met:  
 
 -   Office Desktop 2013 en hoger waarvoor [moderne verificatie](https://support.office.com/en-US/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a) is ingeschakeld.  
 
 -   Windows 7.0 of Windows 8.1  
 
 > [!NOTE]  
->  Pc's moet domein lid of moeten zijn compatibel met het beleid dat is ingesteld in Intune.  
+>  Pc's moeten lid zijn van domein of voldoen aan de beleidsregels in Intune.  
 
 
 ## <a name="device-requirements"></a>Vereisten voor apparaten
  Als u voorwaardelijke toegang configureert voordat gebruikers verbinding kunnen maken met hun e-mail, moet het apparaat dat ze gebruiken:  
 
--   Met Intune worden ingeschreven of PC lid is van een domein.  
+-   Zijn ingeschreven bij Intune of PC die lid van een domein.  
 
--   Registreer het apparaat bij Azure Active Directory (dit gebeurt automatisch wanneer het apparaat wordt ingeschreven met Intune (alleen voor Exchange Online). Bovendien moet de client-id van Exchange ActiveSync worden geregistreerd bij Azure Active Directory (niet van toepassing op Windows- en Windows Phone-apparaten die verbinding maken met Exchange On-Premises).  
+-   Registreer het apparaat bij Azure Active Directory (dit gebeurt automatisch wanneer het apparaat is ingeschreven bij Intune (alleen voor Exchange Online). Bovendien moet de client-id van Exchange ActiveSync worden geregistreerd bij Azure Active Directory (niet van toepassing op Windows- en Windows Phone-apparaten die verbinding maken met Exchange On-Premises).  
 
      Een pc die lid is van een domein moet zo zijn ingesteld dat deze automatisch wordt geregistreerd bij Azure Active Directory.  In de sectie **Voorwaardelijke toegang voor pc's** van het onderwerp [Toegang tot services beheren in System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md) wordt de volledige lijst met vereisten gegeven voor het inschakelen van voorwaardelijke toegang voor pc's.  
 
--   Compatibel zijn met een nalevingsbeleid Configuration Manager is geïmplementeerd op het apparaat  
+-   Compatibel zijn met een Configuration Manager-nalevingsbeleid op dat apparaat is geïmplementeerd  
 
  Als niet aan een voorwaarde voor voorwaardelijke toegang wordt voldaan, krijgt de gebruiker een van de volgende berichten te zien wanneer de gebruiker zich aanmeldt.  
 
--   Als het apparaat niet is ingeschreven met Intune of is niet geregistreerd in Azure Active Directory, wordt een bericht weergegeven met instructies over het installeren van de bedrijfsportal-app, het registreren van het apparaat en (voor Android en iOS-apparaten), e-mailadres waarmee de Exchange ActiveSync-ID van het apparaat wordt gekoppeld aan de apparaatrecord in Azure Active Directory te activeren.  
+-   Als het apparaat niet is ingeschreven bij Intune of niet is geregistreerd in Azure Active Directory, wordt een bericht weergegeven met instructies over het installeren van de bedrijfsportal-app, het registreren van het apparaat en (voor Android en iOS-apparaten) en het activeren van e-mailadres waarmee de Exchange ActiveSync-ID van het apparaat worden gekoppeld aan de apparaatrecord in Azure Active Directory.  
 
--   Als het apparaat niet compatibel is, wordt een bericht weergegeven waarin stelt de gebruiker naar de Intune-webportal waar ze informatie over het probleem en het herstellen van deze kunnen vinden.  
+-   Als het apparaat niet compatibel is, wordt een bericht weergegeven waarin wordt verwezen door de gebruiker de Intune-webportal waar ze informatie over het probleem en herstel kunnen vinden.  
 
 **Voor mobiele apparaten:**
 
@@ -87,13 +84,13 @@ Niet-ondersteunde browsers worden geblokkeerd. De OWA-apps voor iOS en Android w
 
  **Voor pc's:**  
 
--   Als de vereiste van het beleid voor voorwaardelijke toegang is om **domein toegevoegd** of **compatibel**toe te staan, wordt een bericht met instructies voor het registreren van het apparaat weergegeven. Als de PC niet aan een van de vereisten voldoet, wordt de gebruiker gevraagd het apparaat met Intune inschrijven.  
+-   Als de vereiste van het beleid voor voorwaardelijke toegang is om **domein toegevoegd** of **compatibel**toe te staan, wordt een bericht met instructies voor het registreren van het apparaat weergegeven. Als de PC niet aan een van de vereisten voldoet voldoet, wordt de gebruiker gevraagd het apparaat inschrijven bij Intune.  
 
 -   Als de vereiste van het beleid voor voorwaardelijke toegang is ingesteld om alleen Windows-apparaten toe te staan die aan een domein zijn toegevoegd, wordt het apparaat geblokkeerd en wordt er een bericht weergegeven dat de gebruiker contact moet opnemen met de IT-beheerder.  
 
  U kunt op de volgende platformen toegang tot Exchange blokkeren via de op het apparaat ingebouwde Exchange ActiveSync-e-mailclient:  
 
--   Android 4.0 en hoger, Samsung KNOX Standard 4.0 of hoger  
+-   Android 4.0 en hoger, Samsung KNOX Standard 4.0 en hoger  
 
 -   iOS 7.1 en hoger  
 
@@ -103,19 +100,19 @@ Niet-ondersteunde browsers worden geblokkeerd. De OWA-apps voor iOS en Android w
 
  De Outlook-app voor iOS en Android en Outlook-bureaublad 2013 en hoger worden alleen ondersteund voor Exchange Online.  
 
- De **op lokale Exchange-connector** tussen Configuration Manager en Exchange is vereist voor voorwaardelijke toegang om te werken.  
+ De **op lokale Exchange-connector** tussen Configuration Manager en Exchange is vereist voor voorwaardelijke toegang werkt.  
 
- Hier kunt u een beleid voor voorwaardelijke toegang voor Exchange On-premises vanuit de Configuration Manager-console. Wanneer u een beleid voor voorwaardelijke toegang voor Exchange Online configureert, kunt u het proces in de Configuration Manager-console, die de Intune-console waar u het proces voltooit wordt gestart.  
+ U kunt beleid voor voorwaardelijke toegang voor Exchange On-premises uit de Configuration Manager-console configureren. Wanneer u een beleid voor voorwaardelijke toegang voor Exchange Online configureert, kunt u beginnen met het proces in de Configuration Manager-console, die wordt gestart van de Intune-console waar u het proces kunt voltooien.  
 
 ## <a name="configure-conditional-access"></a>Voorwaardelijke toegang configureren
 ### <a name="step-1-evaluate-the-effect-of-the-conditional-access-policy"></a>Stap 1: Het effect van het beleid voor voorwaardelijke toegang evalueren  
- Nadat u hebt geconfigureerd de **op lokale Exchange-connector**, kunt u de Configuration Manager**lijst van apparaten op voorwaardelijke toegangsstatus** rapport om te identificeren van apparaten die toegang tot Exchange nadat u het beleid voor voorwaardelijke toegang hebt geconfigureerd, worden geblokkeerd. Voor dit rapport is tevens het volgende vereist:  
+ Nadat u hebt geconfigureerd de **op lokale Exchange-connector**, kunt u de Configuration Manager**lijst met apparaten op voorwaardelijke toegangsstatus** om apparaten die toegang tot Exchange na het configureren van beleid voor voorwaardelijke toegang wordt geblokkeerd. Voor dit rapport is tevens het volgende vereist:  
 
 -   Een abonnement op Intune  
 
 -   Het serviceaansluitpunt moet worden geconfigureerd en geïmplementeerd  
 
- Selecteer in de rapportparameters de Intune-groep die u wilt evalueren en, indien nodig, de apparaatplatforms waarop het beleid toepast.  
+ Selecteer in de rapportparameters de Intune-groep die u wilt evalueren en, indien nodig, de apparaatplatforms waarop het beleid van toepassing.  
 
  Zie [Rapportage in System Center Configuration Manager](../../core/servers/manage/reporting.md) voor meer informatie over het uitvoeren van rapporten.  
 
@@ -125,9 +122,9 @@ Niet-ondersteunde browsers worden geblokkeerd. De OWA-apps voor iOS en Android w
 
 -   **Geregistreerd bij AAD** -geeft aan of het apparaat is geregistreerd bij Azure Active Directory (Workplace Join genoemd).  
 
--   **Compatibel** -geeft aan of het apparaat voldoet aan alle nalevingsbeleidsregels die u hebt geïmplementeerd.  
+-   **Compatibele** -geeft aan of het apparaat voldoet aan alle nalevingsbeleidsregels die u hebt geïmplementeerd.  
 
--   **EAS geactiveerd** -iOS en Android-apparaten moet de Exchange ActiveSync-ID die is gekoppeld aan de apparaatregistratierecord in Azure Active Directory zijn vereist. Dit gebeurt wanneer de gebruiker op de koppeling **E-mail activeren** klikt in de quarantaine-e-mail.  
+-   **EAS geactiveerd** -iOS en Android-apparaten hoeven te hebben van de Exchange ActiveSync-ID die is gekoppeld aan de apparaatregistratierecord in Azure Active Directory. Dit gebeurt wanneer de gebruiker op de koppeling **E-mail activeren** klikt in de quarantaine-e-mail.  
 
     > [!NOTE]  
     >  Op Windows Phone-apparaten wordt altijd een waarde weergegeven in deze kolom.  
@@ -141,18 +138,18 @@ Niet-ondersteunde browsers worden geblokkeerd. De OWA-apps voor iOS en Android w
 
  U kunt de inhoud van het rapport exporteren en de kolom **E-mailadres** gebruiken om gebruikers ervan op de hoogte te stellen dat toegang voor hen wordt geblokkeerd.  
 
-### <a name="step-2-configure-user-groups-or-collections-for-the-conditional-access-policy"></a>Stap 2: Gebruikers- of verzamelingen voor het beleid voor voorwaardelijke toegang configureren  
+### <a name="step-2-configure-user-groups-or-collections-for-the-conditional-access-policy"></a>Stap 2: Gebruikersgroepen of -verzamelingen voor het beleid voor voorwaardelijke toegang configureren  
  U richt de beleidsregels voor voorwaardelijke toegang op verschillende gebruikersgroepen of -verzamelingen, afhankelijk van de soorten beleid. Deze groepen bevatten de gebruikers die deel uitmaken van de doelgroep, of op wie het beleid juist niet van toepassing is. Wanneer een gebruiker deel uitmaakt van de doelgroep voor het beleid, moet elk apparaat dat wordt gebruikt, compatibel zijn om toegang te kunnen krijgen tot e-mail.  
 
 -   **Voor het Exchange Online-beleid** - gericht op Azure Active Directory-beveiligingsgebruikersgroepen. U kunt deze groepen configureren in het **Office 365-beheercentrum**of in de **Intune-accountportal**.  
 
--   **Voor Exchange On-premises-beleid** - verzamelingen van Configuration Manager-gebruikers. U kunt deze configureren in de werkruimte **Activa en naleving** .  
+-   **Voor het beleid voor Exchange On-premises** - verzamelingen van Configuration Manager-gebruikers. U kunt deze configureren in de werkruimte **Activa en naleving** .  
 
  U kunt twee soorten groepen opgeven in elk beleid:  
 
--   **Doelgroepen** -gebruikersgroepen of verzamelingen waarop het beleid wordt toegepast  
+-   **Doelgroepen** -gebruikersgroepen of -verzamelingen waarop het beleid wordt toegepast  
 
--   **Uitgesloten groepen** -gebruikers- of verzamelingen die uitgesloten van het beleid (optioneel zijn)  
+-   **Uitgesloten groepen** -gebruikersgroepen of -verzamelingen die uitgesloten van het beleid (optioneel zijn)  
 
  Als een gebruiker zich in beide groepen bevindt, wordt het beleid niet op de gebruiker toegepast.  
 
@@ -173,7 +170,7 @@ Niet-ondersteunde browsers worden geblokkeerd. De OWA-apps voor iOS en Android w
 #### <a name="for-exchange-online-and-tenants-in-the-new-exchange-online-dedicated-environment"></a>Voor Exchange Online (en tenants in de nieuwe Exchange Online-specifieke omgeving)
 
 >[!NOTE]
->U kunt ook een beleid voor voorwaardelijke toegang maken in de Azure AD-beheerconsole. Azure AD-beheerconsole kunt u beleidsregels voor voorwaardelijke toegang (aangeduid als het beleid voor voorwaardelijke toegang op basis van het apparaat in Azure AD) naast andere beleidsregels voor voorwaardelijke toegang zoals meervoudige verificatie van het apparaat Intune maken. U kunt ook de beleidsregels voor voorwaardelijke toegang voor zakelijke apps van derden zoals Salesforce instellen en vak die Azure AD ondersteunt. Zie voor meer informatie [het instellen van Azure Active Directory op basis van een apparaat voorwaardelijk toegangsbeleid voor toegangsbeheer op Azure Active Directory verbonden toepassingen](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-policy-connected-applications/).
+>U kunt ook een beleid voor voorwaardelijke toegang maken in de Azure AD-beheerconsole. Azure AD-beheerconsole kunt u het apparaat Intune beleidsregels voor voorwaardelijke toegang (aangeduid als het beleid voor voorwaardelijke toegang op basis van apparaten in Azure AD) naast andere beleidsregels voor voorwaardelijke toegang zoals multi-factor authentication-server maken. U kunt ook beleidsregels voor voorwaardelijke toegang voor Enterprise-apps van derden zoals Salesforce instellen en het selectievakje dat Azure AD ondersteunt. Zie voor meer informatie [het instellen van Azure Active Directory op basis van apparaten voorwaardelijke toegangsbeleid voor toegangsbeheer voor Azure Active Directory verbonden toepassingen](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-policy-connected-applications/).
 
  De volgende stroom wordt gebruikt door het beleid voor voorwaardelijke toegang van Exchange Online om te beoordelen of apparaten toegang moeten krijgen of moeten worden geblokkeerd.  
 
@@ -181,15 +178,15 @@ Niet-ondersteunde browsers worden geblokkeerd. De OWA-apps voor iOS en Android w
 
  Voor toegang tot e-mail moet het apparaat:  
 
--   Met Intune inschrijven  
+-   Registreren bij Intune  
 
--   Pc's moeten domein lid of moeten worden geregistreerd en voldoen aan het beleid instellen in Intune.  
+-   Pc's moeten lid zijn van domein of worden ingeschreven en voldoen aan het beleid in Intune instellen.  
 
--   Registreer het apparaat bij Azure Active Directory (dit gebeurt automatisch wanneer het apparaat wordt ingeschreven met Intune.  
+-   Registreer het apparaat bij Azure Active Directory (dit gebeurt automatisch wanneer het apparaat is ingeschreven bij Intune.  
 
      U moet pc's die lid zijn van een domein zo instellen dat deze [het apparaat automatisch registreren](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/) bij Azure Active Directory.  
 
--   Beschikken over een geregistreerd e-mailadres waarmee de Exchange ActiveSync-ID van het apparaat wordt gekoppeld aan de apparaatrecord in Azure Active Directory (voor iOS- en alleen Android-apparaten).  
+-   E-mailadres waarmee de Exchange ActiveSync-ID van het apparaat worden gekoppeld aan de apparaatrecord in Azure Active Directory (van toepassing op iOS- en alleen Android-apparaten) activeren.  
 
 -   Voldoen aan een geïmplementeerd nalevingsbeleid  
 
@@ -199,7 +196,7 @@ Niet-ondersteunde browsers worden geblokkeerd. De OWA-apps voor iOS en Android w
 
 -   Als het apparaat niet is ingeschreven, of is geregistreerd bij Azure Active Directory, wordt een bericht weergegeven met instructies over het installeren van de bedrijfsportal-app en het inschrijven  
 
--   Als het apparaat niet compatibel is, wordt een bericht weergegeven waarin de gebruiker de app bedrijfsportal of de Intune-bedrijfsportal-website waar informatie is te vinden over het probleem en hoe stelt worden opgelost.  
+-   Als het apparaat niet compatibel is, wordt een bericht weergegeven waarin de gebruiker naar de Intune-bedrijfsportal-website of de bedrijfsportal-app wordt verwezen waar informatie is te vinden over het probleem en hoe u worden opgelost.  
 
 -   Voor een pc:  
 
@@ -221,7 +218,7 @@ Niet-ondersteunde browsers worden geblokkeerd. De OWA-apps voor iOS en Android w
 
 2.  Vouw **Compatibiliteitsinstellingen uit**, vouw **Voorwaardelijke toegang**uit en klik vervolgens op **Exchange Online**.  
 
-3.  Ga naar het tabblad **Start** en klik in de groep **Koppelingen** op **Voorwaardelijk toegangsbeleid configureren in de Intune-console**. Mogelijk moet u de gebruikersnaam en wachtwoord van het account dat wordt gebruikt om Configuration Manager verbinding met een globale beheerder voor de Intune-service te leveren.  
+3.  Ga naar het tabblad **Start** en klik in de groep **Koppelingen** op **Voorwaardelijk toegangsbeleid configureren in de Intune-console**. Mogelijk moet u de gebruikersnaam en wachtwoord van het account dat wordt gebruikt om Configuration Manager verbinding met een globale beheerder voor de Intune-service te bieden.  
 
      De Intune-beheerconsole wordt geopend.  
 
@@ -234,7 +231,7 @@ Niet-ondersteunde browsers worden geblokkeerd. De OWA-apps voor iOS en Android w
     > [!NOTE]  
     >  Als u geen nalevingsbeleid hebt geïmplementeerd en daarna het Exchange Online-beleid inschakelt, worden alle apparaten gerapporteerd als zijnde compatibel.  
     >   
-    >  Ongeacht de nalevingsstatus moet alle gebruikers die zich in de doelgroep voor het beleid van hun apparaten met Intune kunnen inschrijven.  
+    >  Ongeacht de nalevingsstatus moeten alle gebruikers die zijn gericht door het beleid moet op hun apparaten inschrijven bij Intune.  
 
 6.  Onder **Toegang voor toepassingen**kunt u voor Outlook en andere apps die moderne authenticatie gebruiken, ervoor kiezen de toegang te beperken tot apparaten die voldoen aan het beleid voor elk platform.  Windows-apparaten moeten lid zijn van een domein of moeten zijn ingeschreven bij en voldoen aan het beleid van Intune.  
 
@@ -248,17 +245,17 @@ Niet-ondersteunde browsers worden geblokkeerd. De OWA-apps voor iOS en Android w
 
      Als u Exchange Online met Configuration Manager en Intune gebruikt, kunt u niet alleen mobiele apparaten met voorwaardelijke toegang beheren, maar ook desktopcomputers. Pc's moeten lid zijn van een domein of moeten zijn geregistreerd en voldoen aan het beleid. U kunt de volgende vereisten instellen:  
 
-    -   **Apparaten moeten lid zijn van een domein of voldoen aan het beleid.** Pc's moeten lid zijn van een domein of voldoen aan het beleid dat is ingesteld. Als een PC niet aan een van deze vereisten voldoet, wordt de gebruiker gevraagd het apparaat met Intune inschrijven.  
+    -   **Apparaten moeten lid zijn van een domein of voldoen aan het beleid.** Pc's moeten lid zijn van een domein of voldoen aan het beleid dat is ingesteld. Als een PC niet voldoet niet aan een van deze vereisten voldoet, wordt de gebruiker gevraagd het apparaat inschrijven bij Intune.  
 
     -   **Apparaten moeten lid zijn van een domein.** Pc's moeten lid zijn van een domein om toegang te krijgen tot Exchange Online. Als een pc geen lid is van een domein, wordt de toegang tot e-mail geblokkeerd en wordt de gebruiker gevraagd contact op te nemen met de IT-beheerder.  
 
-    -   **Apparaten moeten voldoen aan het beleid.** Pc's moeten zijn ingeschreven in Intune en voldoet. Als een pc niet is ingeschreven, wordt een bericht met instructies voor de inschrijving weergegeven.  
+    -   **Apparaten moeten voldoen aan het beleid.** Pc's moeten zijn ingeschreven in Intune en voldoen. Als een pc niet is ingeschreven, wordt een bericht met instructies voor de inschrijving weergegeven.  
 
-7.  Onder **Outlook web access (OWA)**, kunt u toegang tot Exchange Online alleen via de ondersteunde browsers toestaan: Safari (iOS), en Chrome (Android). Toegang via andere browsers wordt geblokkeerd. Dezelfde platformbeperkingen die u hebt geselecteerd voor Toegang tot toepassingen voor Outlook zijn ook hier van toepassing.
+7.  Onder **Outlook web access (OWA)**, u kunt kiezen om toegang tot Exchange Online alleen via de ondersteunde browsers: Safari (iOS) en Chrome (Android). Toegang via andere browsers wordt geblokkeerd. Dezelfde platformbeperkingen die u hebt geselecteerd voor Toegang tot toepassingen voor Outlook zijn ook hier van toepassing.
 
-    Op **Android** -apparaten moeten gebruikers de browsertoegang inschakelen.  Om dit te doen de eindgebruiker moeten de "Browser toegang inschakelen" optie inschakelen op het geregistreerde apparaat als volgt:
+    Op **Android** -apparaten moeten gebruikers de browsertoegang inschakelen.  Om dit te doen de eindgebruiker moeten de 'Browsertoegang inschakelen' optie inschakelen op het ingeschreven apparaat als volgt:
      1. Open de app **Bedrijfsportal**.
-     2. Ga naar de **instellingen** pagina van de drie punten (...) of de knop voor hardware.
+     2. Ga naar de **instellingen** pagina van de drie puntjes (...) of de menuknop hardware.
       3.    Druk op de knop **Browsertoegang inschakelen** .
       4.    In de browser Chrome meldt u zich af bij Office 365 en vervolgens start u Chrome opnieuw op.
 
@@ -292,7 +289,7 @@ Niet-ondersteunde browsers worden geblokkeerd. De OWA-apps voor iOS en Android w
 
 -   Wanneer een gebruiker een e-mailaccount maakt, wordt het apparaat onmiddellijk geblokkeerd.  
 
--   Als een geblokkeerde gebruiker het apparaat bij Intune inschrijft (of de compatibiliteit herstelt), is toegang tot e-mail is opgeheven binnen twee minuten.  
+-   Als een geblokkeerde gebruiker het apparaat bij Intune inschrijft (of de compatibiliteit herstelt), is binnen twee minuten toegang tot e-mail niet geblokkeerd.  
 
 -   Als de gebruiker het apparaat uitschrijft, wordt de toegang tot e-mail na circa 6 uur geblokkeerd.  
 
@@ -320,13 +317,13 @@ Niet-ondersteunde browsers worden geblokkeerd. De OWA-apps voor iOS en Android w
 
      Klik op **Volgende**.  
 
-5.  Op de pagina **Doelverzamelingen** voegt u één of meerdere gebruikersverzamelingen toe. Voor toegang tot Exchange wordt moeten gebruikers in deze verzamelingen hun apparaten inschrijven met Intune en ook voldoet aan alle nalevingsbeleidsregels die u hebt geïmplementeerd.  
+5.  Op de pagina **Doelverzamelingen** voegt u één of meerdere gebruikersverzamelingen toe. Als u Exchange opent, moeten gebruikers in deze verzamelingen hun apparaten inschrijven bij Intune en ook moeten voldoen aan alle nalevingsbeleidsregels die u hebt geïmplementeerd.  
 
      ![HybridCondAccessWiz2](media/HybridCondAccessWiz2.PNG)  
 
      Klik op **Volgende**.  
 
-6.  Op de pagina **Vrijgestelde verzamelingen** voegt u de gebruikersverzamelingen toe die u wilt vrijstellen van het voorwaardelijke toegangsbeleid. Gebruikers van deze groepen nodig op hun apparaten inschrijven met Intune en niet hoeft niet aan het beleid voldoen aan het geïmplementeerde nalevingsbeleid om toegang tot Exchange.  
+6.  Op de pagina **Vrijgestelde verzamelingen** voegt u de gebruikersverzamelingen toe die u wilt vrijstellen van het voorwaardelijke toegangsbeleid. Gebruikers in deze groepen moeten hun apparaten inschrijven bij Intune en niet hoeft niet te voldoen aan het geïmplementeerde nalevingsbeleid om toegang tot Exchange.  
 
      ![HybridCondAccessWiz3](media/HybridCondAccessWiz3.png)  
 
@@ -334,14 +331,14 @@ Niet-ondersteunde browsers worden geblokkeerd. De OWA-apps voor iOS en Android w
 
      Klik op **Volgende**.  
 
-7.  Op de **gebruikersmelding bewerken** pagina, configureert u het e-mailadres waarmee Intune voor gebruikers met instructies over hoe de blokkering van hun apparaat (naast het e-mailbericht dat Exchange verzendt) moet worden verzonden.  
+7.  Op de **gebruikersmelding bewerken** pagina, de e-mail die door Intune worden verzonden naar gebruikers met instructies over het om de blokkering van hun apparaat (in aanvulling op de e-mailbericht dat Exchange wordt verzonden) te configureren.  
 
      U kunt het standaardbericht bewerken en HTML-codes gebruiken om de opmaak van de tekst te wijzigen. U kunt ook van tevoren een e-mailbericht naar uw werknemers verzenden met een melding van de komende wijzigingen en met instructies voor het inschrijven van hun apparaten.  
 
      ![HybridCondAccessWiz4](media/HybridCondAccessWiz4.PNG)  
 
     > [!NOTE]  
-    >  Omdat de Intune meldingse-mail die herstelinstructies bevat, wordt bezorgd in Exchange-postvak van de gebruiker in het geval dat een apparaat van de gebruiker worden geblokkeerd voordat deze het e-mailbericht heeft ontvangen, kunnen ze een niet-geblokkeerd apparaat of een andere methode gebruiken voor toegang tot Exchange en het bericht weer te geven.  
+    >  Omdat de Intune-meldingse-mail met herstelinstructies wordt bezorgd in de Exchange-postvak van de gebruiker in het geval dat een apparaat van de gebruiker worden geblokkeerd voordat ze het e-mailbericht ontvangen, kunnen ze een niet-geblokkeerd apparaat of een andere methode gebruiken voor toegang tot Exchange en weergeven van het bericht.  
 
     > [!NOTE]  
     >  Als u ervoor wilt zorgen dat Exchange de e-mailmelding kan verzenden, moet u het account dat wordt gebruikt om de e-mailmelding te verzenden, configureren. U doet dit wanneer u de eigenschappen van de Exchange Server-connector configureert.  
@@ -354,12 +351,11 @@ Niet-ondersteunde browsers worden geblokkeerd. De OWA-apps voor iOS en Android w
 
 -   U hoeft het beleid voor voorwaardelijke toegang niet te implementeren; het wordt direct van kracht.  
 
--   Wanneer een gebruiker een Exchange ActiveSync-profiel heeft ingesteld, kan het 1-3 uur voor het apparaat is geblokkeerd (als deze niet wordt beheerd door Intune) duren.  
+-   Wanneer een gebruiker een Exchange ActiveSync-profiel heeft ingesteld, kan het apparaat is geblokkeerd (als deze niet wordt beheerd door Intune) 1-3 uur duren.  
 
--   Als een geblokkeerde gebruiker vervolgens het apparaat bij Intune inschrijft (of de compatibiliteit herstelt), toegang tot e-mail worden opgeheven binnen twee minuten.  
+-   Als een geblokkeerde gebruiker vervolgens het apparaat bij Intune inschrijft (of de compatibiliteit herstelt), wordt toegang tot e-mail binnen twee minuten te worden gedeblokkeerd.  
 
--   Als de gebruiker uitschrijven-inschrijft in Intune het apparaat is geblokkeerd 1-3 uur kan duren.  
+-   Als de gebruiker un-inschrijft bij Intune het apparaat is geblokkeerd 1-3 uur kan duren.  
 
 ### <a name="see-also"></a>Zie tevens  
  [Toegang tot services in System Center Configuration Manager beheren](../../protect/deploy-use/manage-access-to-services.md)
-

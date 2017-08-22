@@ -6,8 +6,7 @@ ms.date: 6/5/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 828c31d1-3d70-4412-b1a8-c92e7e504d39
@@ -15,18 +14,15 @@ caps.latest.revision:
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: f7cd9c71287d62c9f5d36e2f032bc2a6065572ae
 ms.openlocfilehash: b5a1a1d165a6888bc26e809666d2331ff3c24d68
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/06/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="unattended-site-recovery-for-configuration-manager"></a>Herstel van sites zonder toezicht voor Configuration Manager   
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)* 
- om uit te voeren een [herstel zonder toezicht](/sccm/protect/understand/recover-sites#site-recovery-procedures) van een Configuration Manager-centrale beheersite of primaire site, kunt u een installatiescript zonder toezicht maken en vervolgens Setup gebruiken met de **/script** opdrachtoptie. Het script geeft hetzelfde type informatie die de Installatiewizard vraagt, behalve dat er geen standaardinstellingen zijn. Alle waarden moeten worden gespecificeerd voor de installatiesleutels die van toepassing zijn op het type herstel dat u gebruikt.
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)* om uit te voeren een [herstel zonder toezicht](/sccm/protect/understand/recover-sites#site-recovery-procedures) van een Configuration Manager-centrale beheersite of primaire site, kunt u een installatiescript zonder toezicht maken en vervolgens Setup gebruiken met de **/script** opdrachtoptie. Het script geeft hetzelfde type informatie die de Installatiewizard vraagt, behalve dat er geen standaardinstellingen zijn. Alle waarden moeten worden gespecificeerd voor de installatiesleutels die van toepassing zijn op het type herstel dat u gebruikt.
 
  Om de installatieopdrachtregeloptie /script te gebruiken, moet u een initialisatiebestand maken en de naam van het initialisatiebestand specificeren na de installatieopdrachtregeloptie /script. De naam van het bestand is niet belangrijk zolang deze heeft de **.ini** bestandsnaamextensie. Wanneer u verwijst naar het installatie-initialisatiebestand van de opdrachtregel, moet u het volledige pad naar het bestand geven. Als de naam van uw installatie-initialisatiebestand bijvoorbeeld *setup.ini*, en deze is opgeslagen de *map C:\setup*, zou uw opdrachtregel:
 
@@ -386,4 +382,3 @@ ms.lasthandoff: 06/06/2017
     -   **Vereist:** Nee
     -   **Waarden:** &lt;*Time-out*>
     -   **Details:** Hiermee geeft u de maximum time-outwaarde (in minuten) voor een primaire site verbinding maken met de centrale beheersite. Als een primaire site bijvoorbeeld geen verbinding kan maken met een centrale beheersite, probeert de primaire site opnieuw de verbinding met de centrale beheersite te maken op basis van het CASRetryInterval tot de WaitForCASTTimeout-periode is bereikt. U kunt een waarde opgeven van 0 tot 100.
-

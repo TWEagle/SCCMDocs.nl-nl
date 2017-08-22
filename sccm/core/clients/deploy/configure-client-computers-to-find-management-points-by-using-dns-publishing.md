@@ -1,42 +1,39 @@
 ---
-title: Clients zoeken management points DNS-publicatie configureert | Microsoft-documenten
-description: Clientcomputers om beheerpunten te vinden met behulp van DNS-publishing in System Center Configuration Manager ingesteld.
+title: Clients zoeken management punten DNS-publishing configureren | Microsoft Docs
+description: Ingesteld op clientcomputers om beheerpunten te vinden met DNS-publishing in System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 03cec407-0f9f-454f-a360-b005af738d29
-caps.latest.revision: 6
+caps.latest.revision: "6"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 690d03d9c8c49a815bd318df549d7401a855bc5d
 ms.openlocfilehash: d016ec3fe106b2d90b3c14b4f9296aed4d198644
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-client-computers-to-find-management-points-by-using-dns-publishing-in-system-center-configuration-manager"></a>Het configureren van clientcomputers beheerpunten vinden via DNS-publishing in System Center Configuration Manager
+# <a name="how-to-configure-client-computers-to-find-management-points-by-using-dns-publishing-in-system-center-configuration-manager"></a>Het configureren van clientcomputers om beheerpunten te vinden met DNS-publishing in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-In System Center Configuration Manager clients moeten een beheerpunt vinden om te vervolledigen sitetoewijzing en als een continu proces om beheerd te blijven. Active Directory Domain Services is de veiligste methode om clients op het intranet beheerpunten te laten vinden. Als clients deze servicelocatiemethode echter niet kunnen gebruiken (bijvoorbeeld als u het Active Directory-schema niet hebt uitgebreid of clients deel uitmaken van een werkgroep), gebruikt u DNS-publicatie als voorkeursalternatief voor de servicelocatiemethode.  
+Clients in System Center Configuration Manager moeten een beheerpunt vinden om te site-toewijzing vervolledigen en als een continu proces om beheerd te blijven. Active Directory Domain Services is de veiligste methode om clients op het intranet beheerpunten te laten vinden. Als clients deze servicelocatiemethode echter niet kunnen gebruiken (bijvoorbeeld als u het Active Directory-schema niet hebt uitgebreid of clients deel uitmaken van een werkgroep), gebruikt u DNS-publicatie als voorkeursalternatief voor de servicelocatiemethode.  
 
 > [!NOTE]  
->  Wanneer u de client voor Linux en UNIX installeert, moet u een beheerpunt opgeven dat moet worden gebruikt als eerste contactpunt. Zie voor meer informatie over het installeren van de client voor Linux en UNIX [clients implementeren voor UNIX en Linux-servers in System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md).  
+>  Wanneer u de client voor Linux en UNIX installeert, moet u een beheerpunt opgeven dat moet worden gebruikt als eerste contactpunt. Zie voor meer informatie over het installeren van de client voor Linux en UNIX [clients implementeren op UNIX en Linux-servers in System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md).  
 
  Voordat u DNS-publicatie gebruikt voor beheerpunten, moet u ervoor zorgen dat DNS-servers op intranet servicelocatiebronrecords (SRV RR) en bijbehorende hostbronrecords (A of AAA) hebben voor de beheerpunten van de site. De servicelocatiebronrecords kunnen automatisch worden gemaakt door Configuration Manager of handmatig, door de DNS-beheerder die de records in DNS maakt.  
 
- Zie voor meer informatie over DNS-publicatie als servicelocatiebepalingsmethode voor Configuration Manager-clients, [begrijpen hoe clients vinden sitebronnen en services voor System Center Configuration Manager](../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
+ Zie voor meer informatie over DNS-publicatie als servicelocatiebepalingsmethode voor Configuration Manager-clients, [begrijpen hoe clients siteresources en -services voor System Center Configuration Manager vinden](../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 
- Clients zoeken standaard in DNS naar beheerpunten in hun DNS-domein. Echter, als er geen beheerpunten zijn gepubliceerd in het domein van clients, moet u handmatig configureren clients met een punt DNS-achtervoegsel. U kunt dit DNS-achtervoegsel op clients configureren tijdens of na de clientinstallatie:  
+ Clients zoeken standaard in DNS naar beheerpunten in hun DNS-domein. Echter, als er geen beheerpunten zijn gepubliceerd in het domein van clients, moet u handmatig configureren clients met een achtervoegsel van een DNS-punt. U kunt dit DNS-achtervoegsel op clients configureren tijdens of na de clientinstallatie:  
 
 -   Als u clients tijdens de clientinstallatie wilt configureren voor het achtervoegsel van een beheerpunt, configureert u de Client.msi-eigenschappen van CCMSetup.  
 
@@ -59,4 +56,3 @@ In System Center Configuration Manager clients moeten een beheerpunt vinden om t
 2.  Geef op het tabblad **Site** het DNS-achtervoegsel van een beheerpunt op en klik vervolgens op **OK**.  
 
      Als de site meer dan één beheerpunt heeft en deze zich in meer dan één domein bevinden, geeft u slechts één domein op. Wanneer clients verbinding maken met een beheerpunt in dit domein, downloaden ze een lijst met beschikbare beheerpunten, inclusief de beheerpunten van de andere domeinen.
-

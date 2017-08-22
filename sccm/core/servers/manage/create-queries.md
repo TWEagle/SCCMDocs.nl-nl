@@ -1,28 +1,25 @@
 ---
-title: Query&quot;s maken | Microsoft Docs
-description: Ontdek hoe u kunt maken en importeren van query&quot;s in System Center Configuration Manager. Bevat voorbeelden van query&quot;s en tips.
+title: Query's maken | Microsoft Docs
+description: Ontdek hoe u kunt maken en importeren van query's in System Center Configuration Manager. Bevat voorbeelden van query's en tips.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 868049d3-3209-47ec-b34a-9cc26941893a
-caps.latest.revision: 5
-caps.handback.revision: 0
+caps.latest.revision: "5"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 2087badc9dd1d216352dce232b145a786783ac89
 ms.openlocfilehash: 9f38d86ff6227bb6ea88c358a3d61242372d449e
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/18/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="how-to-create-queries-in-system-center-configuration-manager"></a>Query's maken in System Center Configuration Manager
 
@@ -189,4 +186,3 @@ Select SMS_R_System.ClientEdition from SMS_R_System where SMS_R_System.ClientEdi
 
 ## <a name="see-also"></a>Zie tevens  
  [Bewerkingen en onderhoud voor query's in System Center Configuration Manager](../../../core/servers/manage/operations-and-maintenance-for-queries.md)
-

@@ -5,4 +5,4 @@ Raadpleeg de [veelgestelde vragen over de gedragscode](https://opensource.micros
 
 # <a name="docsmicrosoftcom-github-repository"></a>Docs.Microsoft.com Github-opslagplaats
 
-U hebt een van de GitHub-opslagplaatsen die de bron voor inhoud die is gepubliceerd naar gevonden [https://docs.microsoft.com](https://docs.microsoft.com/.), home van alle technische inhoud voor de Cloud en Enterprise-deling van Microsoft.
+U hebt een van de GitHub-opslagplaatsen met de bron voor inhoud die is gepubliceerd naar gevonden [https://docs.microsoft.com](https://docs.microsoft.com/.), home van alle technische inhoud voor de Cloud en Enterprise-divisie van Microsoft.

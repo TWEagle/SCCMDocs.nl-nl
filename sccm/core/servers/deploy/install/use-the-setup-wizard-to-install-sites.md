@@ -5,21 +5,19 @@ ms.date: 7/24/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1f703376-5f2c-4fd2-8209-7028c931ddc7
-caps.latest.revision: 3
+caps.latest.revision: "3"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 5945abb49fe06c59355805aa94b04d0d445ecbc3
 ms.openlocfilehash: 678f1b35fe6f7649dacb766f7c671f4ec8ea1435
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="use-the-setup-wizard-to-install-system-center-configuration-manager-sites"></a>Gebruik de installatiewizard voor het installeren van System Center Configuration Manager-sites
 
@@ -391,4 +389,3 @@ Als u een zelfstandige primaire site uitbreiden, ziet u eerst de [vereisten voor
 
     > [!TIP]  
     > Wanneer u meer dan één secundaire site tegelijk installeert, wordt de Prerequisite Checker wordt uitgevoerd op één site op een tijdstip en een site moet zijn voltooid voordat deze wordt gestart om te controleren van de volgende site.  
-

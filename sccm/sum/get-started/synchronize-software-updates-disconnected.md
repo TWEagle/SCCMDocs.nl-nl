@@ -1,7 +1,6 @@
 ---
-
-title: Updates synchroniseren met geen verbinding met Internet - Configuration Manager | Microsoft-documenten
-description: Synchronisatie van software-updates worden uitgevoerd op de site op het hoogste software-updatepunt dat niet is verbonden met het Internet.
+title: Updates synchroniseren met geen verbinding met Internet - Configuration Manager | Microsoft Docs
+description: Synchronisatie van software-updates uitgevoerd op het hoogste niveau software-updatepunt dat niet is verbonden met Internet.
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -10,19 +9,14 @@ ms.date: 01/23/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-sum
+ms.technology: configmgr-sum
 ms.assetid: 1a997c30-8e71-4be5-89ee-41efb2c8d199
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
 ms.openlocfilehash: fd9c1e9418ff1956c6ef98753e23a293440179be
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="synchronize-software-updates-from-a-disconnected-software-update-point"></a>Software-updates vanaf een niet-verbonden software-updatepunt synchroniseren  
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
@@ -76,7 +70,7 @@ ms.lasthandoff: 05/17/2017
 
      **wsusutil.exe export export.cab export.log**  
 
-     De indeling kunt als volgt samengevat: WSUSutil.exe wordt gevolgd door de exportoptie, de naam van het .cab-exportbestand dat is gemaakt tijdens de exportbewerking, en de naam van een logboekbestand. WSUSutil.exe exporteert de metagegevens van de exportserver en maakt een logbestand van de bewerking.  
+     De notatie kan als volgt worden samengevat: WSUSutil.exe wordt gevolgd door de exportoptie, de naam van het cab-exportbestand dat is gemaakt tijdens de exportbewerking en de naam van een logbestand. WSUSutil.exe exporteert de metagegevens van de exportserver en maakt een logbestand van de bewerking.  
 
     > [!NOTE]  
     >  Het pakket (.cab-bestand) en de naam van het logbestand moeten uniek zijn in de huidige map.  
@@ -104,10 +98,9 @@ ms.lasthandoff: 05/17/2017
 
      **wsusutil.exe import export.cab import.log**  
 
-     De indeling kunt als volgt samengevat: WSUSutil.exe wordt gevolgd door de importopdracht, de naam van het pakketbestand (.cab) dat is gemaakt tijdens de exportbewerking, het pad naar het pakketbestand als het zich in een andere map en de naam van een logboekbestand. WSUSutil.exe importeert de metagegevens vanuit de exportserver en maakt een logbestand van de bewerking.  
+     De notatie kan als volgt worden samengevat: WSUSutil.exe wordt gevolgd door de importopdracht, de naam van het pakketbestand (.cab) dat is gemaakt tijdens de exportbewerking, het pad naar het pakketbestand als het zich in een andere map en de naam van een logbestand. WSUSutil.exe importeert de metagegevens vanuit de exportserver en maakt een logbestand van de bewerking.  
 
 ## <a name="next-steps"></a>Volgende stappen
-Nadat u software-updates voor het eerst synchroniseert, of nadat er nieuwe classificaties of producten beschikbaar zijn, u moet [configureren van de nieuwe classificaties en producten](configure-classifications-and-products.md) softwareupdates te synchroniseren met de nieuwe criteria.
+Nadat u software-updates voor het eerst synchroniseert, of nadat er nieuwe classificaties of producten beschikbaar zijn, u moet [de nieuwe classificaties en producten configureren](configure-classifications-and-products.md) softwareupdates te synchroniseren met de nieuwe criteria.
 
 Nadat u de software-updates synchroniseren met de criteria die u nodig hebt, [instellingen beheren voor software-updates](manage-settings-for-software-updates.md).  
-

@@ -3,20 +3,17 @@ title: Plannen voor de cloud management gateway | Microsoft Docs
 description: 
 ms.date: 06/07/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.assetid: 2dc8c9f1-4176-4e35-9794-f44b15f4e55f
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: c6ee0ed635ab81b5e454e3cd85637ff3e20dbb34
 ms.openlocfilehash: a7380ae781447880ffcba0778694ea62e10c4889
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/08/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Plan voor de cloudgateway management in Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
@@ -198,4 +195,3 @@ Zie voor een lijst van alle CMG-gerelateerde logboekbestanden [logboekbestanden 
 ## <a name="next-steps"></a>Volgende stappen
 
 [Een cloudbeheergateway instellen](setup-cloud-management-gateway.md)
-

@@ -4,8 +4,7 @@ description: Meer informatie over functies die beschikbaar zijn in de Technical 
 ms.custom: na
 ms.date: 06/30/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -14,12 +13,11 @@ ms.assetid: ca3b4714-2a16-495e-8a17-1d87991d5556
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 6f9e6e93fce95666503907010a5c253158c5de7c
 ms.openlocfilehash: d45f504dfe0a4c7852b0e2c8ff60d54005346c02
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/07/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="capabilities-in-technical-preview-1706-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1706 voor System Center Configuration Manager
 
@@ -582,4 +580,3 @@ Vanaf deze release u kunt gebruiken Health Attestation van apparaten status als 
 
 ### <a name="try-it-out"></a>Try it out in
 Selecteer een regel Health Attestation van apparaten als onderdeel van een beoordeling van compatibiliteit beleid.
-

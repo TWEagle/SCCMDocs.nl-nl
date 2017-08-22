@@ -1,31 +1,28 @@
 ---
-title: Configuratie-items voor iOS en Mac OS X-apparaten die worden beheerd door Intune maken | Microsoft-documenten
+title: Configuratie-items maken voor iOS- en Mac OS X-apparaten worden beheerd met Intune | Microsoft Docs
 description: Gebruik de System Center Configuration Manager iOS en Mac OS X-configuratie-item voor het beheren van instellingen voor iOS en Mac OS X-apparaten.
 ms.custom: na
 ms.date: 03/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 613a48ac-c55d-4c4a-94ea-d3747a1b10cb
-caps.latest.revision: 15
-caps.handback.revision: 0
+caps.latest.revision: "15"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
 ms.openlocfilehash: 6e2cb628217598480973d4f728a9e0a7cd5873e7
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-configuration-items-for-ios-and-mac-os-x-devices-managed-with-intune"></a>Het maken van configuratie-items voor iOS en Mac OS X-apparaten die worden beheerd door Intune
-Gebruik de System Center Configuration Manager **iOS en Mac OS X** configuratie-item voor het beheren van instellingen voor iOS en Mac OS X-apparaten die zijn ingeschreven bij Microsoft Intune of beheerde on-premises door Configuration Manager.  
+# <a name="how-to-create-configuration-items-for-ios-and-mac-os-x-devices-managed-with-intune"></a>Het maken van configuratie-items voor iOS en Mac OS X-apparaten worden beheerd door Intune
+De System Center Configuration Manager gebruiken **iOS en Mac OS X** configuratie-item voor het beheren van instellingen voor iOS en Mac OS X-apparaten die zijn ingeschreven bij Microsoft Intune of on-premises worden beheerd door Configuration Manager.  
   
 ### <a name="to-create-an-ios-and-mac-os-x-configuration-item"></a>Een configuratie-item voor iOS en Mac OS X maken  
   
@@ -39,7 +36,7 @@ Gebruik de System Center Configuration Manager **iOS en Mac OS X** configuratie-
   
 5.  Selecteer onder **Geef het type configuratie-item op dat u wilt maken** de optie **iOS en Mac OS X**.  
   
-6.  Klik op **categorieën** als u maken en toewijzen van categorieën om te zoeken en filteren van configuratie-items in de Configuration Manager-console.  
+6.  Klik op **categorieën** als u categorieën maakt en toewijst om te zoeken en filteren van configuratie-items in de Configuration Manager-console.  
   
 7.  Selecteer op de pagina **Ondersteunde platforms** van de wizard de specifieke iOS- of Mac OS X-platforms die het configuratie-item evalueren.  
   
@@ -52,7 +49,7 @@ Gebruik de System Center Configuration Manager **iOS en Mac OS X** configuratie-
   
 10. U kunt voor elke instellingengroep ook de ernst configureren die wordt gerapporteerd als wordt geconstateerd dat een configuratie-item niet compliant is:  
   
-    -   **Geen** -apparaten die niet voldoen aan deze compliantieregel doen geen fouternst voor Configuration Manager-rapporten.  
+    -   **Geen** -apparaten die niet voldoen aan deze compliantieregel niet rapporteren ernst voor Configuration Manager-rapporten.  
   
     -   **Informatie** -apparaten die niet voldoen aan deze compliantieregel fouternst van **informatie** voor Configuration Manager-rapporten.  
   
@@ -83,9 +80,9 @@ Gebruik de System Center Configuration Manager **iOS en Mac OS X** configuratie-
 |**Aantal onthouden wachtwoorden**|Voorkomt dat eerder gebruikte wachtwoorden opnieuw worden gebruikt.|  
 |**Aantal mislukte aanmeldingspogingen voordat het apparaat wordt gewist**|Wist de gegevens op het apparaat als dit aantal aanmeldingspogingen mislukt.<br /><br /> (alleen iOS)|  
 |**Wachtwoordcomplexiteit**|Hiermee kunt u opgeven of u een pincode, zoals '1234', wilt gebruiken of dat er een sterk wachtwoord moet worden opgegeven.| 
-|**Eenvoudige wachtwoorden toestaan**|Eenvoudige wachtwoorden wilt toestaan **0000** en **1234**.|
-|**Vingerafdruk voor ontgrendelen**|De mogelijkheid om een vingerafdruk om het apparaat te ontgrendelen.|
-|**Wachtwoordcode wijziging** (onder supervisie alleen)|Toestaan dat het wachtwoord van het apparaat moet worden toegevoegd, gewijzigd of verwijderd.|
+|**Eenvoudige wachtwoorden toestaan**|Toestaan dat eenvoudige wachtwoorden, zoals **0000** en **1234**.|
+|**Vingerafdruk voor ontgrendelen**|Staat het gebruik van een vingerafdruk voor het ontgrendelen van het apparaat.|
+|**Wijziging van de wachtwoordcode** (onder supervisie alleen)|Toestaan dat het wachtwoord van het apparaat worden toegevoegd, gewijzigd of verwijderd.|
   
 ###  <a name="device"></a>Apparaat  
  Deze instellingen gelden voor zowel iOS- als Mac OS X-apparaten.  
@@ -97,33 +94,33 @@ Gebruik de System Center Configuration Manager **iOS en Mac OS X** configuratie-
 |**Spraakassistent**|Staat het gebruik toe van een app voor spraakondersteuning, zoals Siri.|  
 |**Spraakassistent bij vergrendeling**|Staat het gebruik toe van een app voor spraakondersteuning, zoals Siri, wanneer het apparaat is vergrendeld.|  
 |**Schermopname**|Staat het maken van een beeldschermopname voor het apparaat toe.|  
-|**Video-chat-client**|Staat het gebruik van videochat-apps, zoals Facetime, toe.|  
+|**Videochatclient**|Staat het gebruik van videochat-apps, zoals Facetime, toe.|  
 |**Games voor meerdere spelers**|Staat het spelen van games met andere spelers op internet toe.|  
 |**Persoonlijke portemonneesoftware tijdens vergrendeling**|Staat het gebruik van Personal Wallet-software, zoals Passbook, toe.|  
 |**Verzending van diagnostische gegevens**|Staat het verzenden van app- logboekbestanden toe.|  
-|**Meldingen van Onderhoudscentrum**|Kan de gebruiker toegang tot de weergave van meldingen zonder het apparaat te ontgrendelen.|
+|**Meldingen van Onderhoudscentrum**|De gebruiker toegang heeft tot de weergave van meldingen zonder het ontgrendelen van het apparaat toestaan.|
 |**Apple muziek** (onder supervisie alleen)|Gebruik van de app Apple muziek toestaan.|
 |**Podcasts** (onder supervisie alleen)|Gebruik van de app Podcasts toestaan.|
-|**Berichten app** (onder supervisie alleen)|Gebruik van de app berichten voor het verzenden van SMS-berichten toestaan.|
-|**Wijziging achtergrond** (onder supervisie alleen)|Kan de gebruiker de apparaat-achtergrond wijzigen.|
-|**Word opzoeken** (onder supervisie alleen)|Toestaan dat de iOS-functie waarmee u een woord markeren en van definitie opzoeken.|
-|**Detectie van pols gekoppeld Apple kijkt naar**|Wanneer dit is ingeschakeld, weergegeven niet de Apple Watch meldingen wanneer deze niet wordt gedragen.|
-|**Siri taalgebruik filter** (onder supervisie alleen)|Voorkomt dat Siri van dicteren of grove taal spreken.|
-|**Naam bewerken van het apparaat** (onder supervisie alleen)|Kan de gebruiker de naam van het apparaat te wijzigen.|
-|**Diagnostische gegevens verzenden instellingen wijziging** (onder supervisie alleen)|Toestaan of blokkeren van het apparaat van diagnostische gegevens naar Apple verzenden.|
+|**App berichten** (onder supervisie alleen)|Hiermee staat u gebruik van de app berichten om berichten te verzenden.|
+|**Achtergrond wijziging** (onder supervisie alleen)|De gebruiker te wijzigen van de achtergrond van het apparaat toestaan.|
+|**Word opzoeken** (onder supervisie alleen)|Toestaan dat de iOS-functie waarmee u een woord markeren en de definitie opzoeken.|
+|**Pols detectie voor de gekoppelde Apple kijkt naar**|Wanneer dit is ingeschakeld, kan de Apple Watch meldingen niet weergegeven wanneer deze niet wordt gedragen.|
+|**Siri taalgebruik filter** (onder supervisie alleen)|Voorkomt dat met Siri op dicteren of schennende taal spreken.|
+|**Apparaat naam wijziging** (onder supervisie alleen)|De gebruiker te wijzigen van de naam van het apparaat toestaan.|
+|**Verzending van diagnostische gegevens wijziging** (onder supervisie alleen)|Toestaan of blokkeren van het apparaat verzending van diagnostische gegevens naar Apple.|
 |**Game center** (onder supervisie alleen)|Gebruik van de app Game Center toestaan.|
-|**iTunes Radio** (onder supervisie alleen)|Gebruik van de Radio iTunes app toestaan.|
-|**Apple-nieuws** (onder supervisie alleen)|Gebruik van de Apple-nieuws-app toestaan.|
-|**Koppelen van Apple Watch** (onder supervisie alleen)|Toestaan dat het apparaat aan een Apple Watch kunt koppelen.|
-|**Automatische correcties** (onder supervisie alleen)|Hiermee kunt het apparaat verkeerd gespelde woorden automatisch worden gecorrigeerd.|
-|**Bluetooth wijziging** (onder supervisie alleen)|Kan de gebruiker Bluetooth-instellingen op het apparaat te wijzigen.|
-|**Wijzigingen in app-instellingen voor het gebruik van mobiel gegevens** (onder supervisie alleen)|Kan de gebruiker om te bepalen welke apps mogen gebruiken mobiele gegevens.|
+|**iTunes Radio** (onder supervisie alleen)|Gebruik van de keuzerondjes iTunes app toestaan.|
+|**Apple nieuws** (onder supervisie alleen)|Gebruik van de Apple-nieuws app toestaan.|
+|**Koppelen van Apple Watch** (onder supervisie alleen)|Toestaan dat het apparaat koppelen aan een Apple Watch.|
+|**Automatische correcties** (onder supervisie alleen)|Hiermee kunt het apparaat automatisch corrigeren verkeerd gespelde woorden.|
+|**Wijziging van de Bluetooth-** (onder supervisie alleen)|Kan de gebruiker te wijzigen van de Bluetooth-instellingen op het apparaat.|
+|**Wijzigingen in de app-instellingen voor het gebruik van mobiel dataverkeer** (onder supervisie alleen)|Kan de gebruiker om te bepalen welke apps mobiel dataverkeer gebruiken zijn toegestaan.|
 |**Sneltoetsen** (onder supervisie alleen)|Staat het gebruik van sneltoetsen.|
-|**Voorspellende toetsenborden** (onder supervisie alleen)|Het gebruik van voorspellende toetsenborden die suggesties woorden die de gebruiker mogelijk wilt toestaan.|
-|**Toetsenbord spelling controleren** (onder supervisie alleen)|Hiermee kunt u het apparaat spellen checker.|
-|**Melding instellingen wijziging** (onder supervisie alleen)|Kan de gebruiker de melding apparaatinstellingen te wijzigen.|
-|**Resultaat van het Internet in Spotlight zoekopdracht** (onder supervisie alleen)|Laat Spotlight zoeken verbinding maken met het Internet bieden verdere resultaten.|
-|**Gebruik van Siri aan de gebruiker gegenereerde query-inhoud van het Internet** (onder supervisie alleen)|Siri voor toegang tot websites om te antwoorden op vragen toestaan.|
+|**Voorspeld toetsenborden** (onder supervisie alleen)|Het gebruik van voorspellende toetsenborden aangeraden woorden die de gebruiker mogelijk wilt toestaan.|
+|**Toetsenbord spellingcontrole** (onder supervisie alleen)|Kan de spellingcontrole apparaat.|
+|**Melding wijziging** (onder supervisie alleen)|Kan de gebruiker de melding apparaatinstellingen te wijzigen.|
+|**Retourneren van resultaten op Internet in zoekopdrachten met Spotlight** (onder supervisie alleen)|Verbinding maken met het Internet voor aanvullende resultaten zoekopdrachten met Spotlight laten.|
+|**Gebruik van Siri op door gebruikers gegenereerde query-inhoud op Internet** (onder supervisie alleen)|Siri voor toegang tot websites om vragen te beantwoorden toestaan.|
 
   
 ###  <a name="store"></a>Opslaan  
@@ -134,9 +131,9 @@ Gebruik de System Center Configuration Manager **iOS en Mac OS X** configuratie-
 |**App Store**|Staat toegang tot de App Store op het apparaat toe.|  
 |**Een wachtwoord invoeren voor toegang tot de App Store**|Gebruikers moeten een wachtwoord invoeren voor toegang tot de App Store.|  
 |**Aankopen vanuit app**|Staat gebruikers toe om aankopen te doen vanuit apps.|
-|**Installeren van apps met Apple Configurator en iTunes alleen** (onder supervisie alleen)|Hiermee schakelt de App Store vanaf de startpagina van het apparaat of. Gebruikers kunnen nog steeds iTunes of het hulpprogramma Apple Configurator gebruiken om te installeren en bijwerken van apps.|
-|**Toegang tot de store iBooks** (onder supervisie alleen)|Kan de gebruiker bekijken en boeken van het archief iBooks kopen.|
-|**Automatische app downloads** (onder supervisie alleen)|Toestaan dat apps dat is aangeschaft op andere apparaten automatisch downloaden naar dit apparaat. Deze instelling heeft geen invloed op de app-updates.|
+|**Installeren van apps met Apple Configurator en alleen iTunes** (onder supervisie alleen)|Hiermee schakelt de App Store van het startscherm van een apparaat of. Gebruikers kunnen nog steeds iTunes of het hulpprogramma Apple Configurator gebruiken om te installeren en bijwerken van apps.|
+|**Toegang tot de iBooks store** (onder supervisie alleen)|De gebruiker om te bladeren en kopen boeken uit de iBooks store toestaan.|
+|**Automatische app downloads** (onder supervisie alleen)|Toestaan dat apps die zijn aangeschaft op andere apparaten automatisch downloaden naar dit apparaat. Deze instelling heeft geen invloed op app-updates.|
 
   
 ###  <a name="browser"></a>Browser  
@@ -158,10 +155,10 @@ Gebruik de System Center Configuration Manager **iOS en Mac OS X** configuratie-
 |------------------|-------------|  
 |**Expliciete inhoud in mediastore**|Hiermee kunt u opgeven of u wilt toestaan dat inhoud voor volwassenen toegankelijk is vanuit de App Store.|  
 |**Classificatieregio**|Hiermee geeft u het land op waarvoor u de classificatiebeperkingen wilt toepassen.|  
-|**Filmclassificatie**|Hiermee geeft u de maximale classificatie van filminhoud aan die u wilt toestaan.|  
-|**Tv-programma waardering**|Hiermee geeft u de maximale classificatie van tv-programma's aan die u wilt toestaan.|  
-|**App-classificatie**|Hiermee geeft u de maximale classificatie van apps aan die u wilt toestaan.| 
-|**Inhoud uit de store iBook is gemarkeerd als 'Erotica'** (onder supervisie alleen)|Kan de gebruiker voor het downloaden van rapporten met de categorie "Erotica".| 
+|**Classificatie van films**|Hiermee geeft u de maximale classificatie van filminhoud aan die u wilt toestaan.|  
+|**Classificatie van tv**|Hiermee geeft u de maximale classificatie van tv-programma's aan die u wilt toestaan.|  
+|**Classificatie van apps**|Hiermee geeft u de maximale classificatie van apps aan die u wilt toestaan.| 
+|**Inhoud uit de Ibooks store als Erotisch gemarkeerd,'** (onder supervisie alleen)|Toestaan dat de gebruiker downloaden boeken uit de categorie 'Erotisch'.| 
   
 > [!NOTE]  
 >  De classificaties die u kunt selecteren, verschillen afhankelijk van de **Classificatieregio** die u hebt gekozen.  
@@ -171,14 +168,14 @@ Gebruik de System Center Configuration Manager **iOS en Mac OS X** configuratie-
   
 |Naam van de instelling|Details|  
 |------------------|-------------|  
-|**Cloudback-up**|Het maken van back-ups met cloudservices, zoals iCloud, toestaan.|  
+|**Back-up van de cloud**|Het maken van back-ups met cloudservices, zoals iCloud, toestaan.|  
 |**Versleutelde back-ups**|Het versleutelen van back-ups die worden gemaakt met een cloudservice toestaan.|  
 |**Synchronisatie van documenten**|Synchronisatie van documenten door een cloudservice toestaan.|  
-|**Fotosynchronisatie**|Synchronisatie van foto’s door een cloudservice toestaan.| 
+|**Synchronisatie van foto 's**|Synchronisatie van foto’s door een cloudservice toestaan.| 
 |**iCloud afbeeldingsbibliotheek**|Indien ingesteld op **Nee**, wordt het gebruik van iCloud afbeeldingsbibliotheek waarmee gebruikers foto's en video's opslaan in de cloud. Foto's niet volledig zijn gedownload van iCloud afbeeldingsbibliotheek op het apparaat wordt verwijderd van het apparaat als deze is ingesteld op **Nee**.|
 |**iCloud foto's delen**|Ingesteld op **Nee** iCloud foto's delen op het apparaat uitschakelen.|
-|**Leveren activiteiten voort te zetten op een ander apparaat**|Kan de gebruiker om door te gaan die deze zijn gestart op een iOS-apparaat op een andere iOS- of Mac OS X-apparaat.|
-|**Synchronisatie van gegevens van beheerde apps naar iCloud**|Toestaan dat apps die u met Intune gegevens te synchroniseren aan de gebruikersaccount iCloud beheert.|
+|**Voortzetten van activiteiten op een ander apparaat via Handoff**|Toestaan dat gebruikers kunnen doorgaan met werk waaraan ze zijn begonnen op een iOS-apparaat op een ander iOS of Mac OS X-apparaat.|
+|**Gegevens synchroniseren vanuit beheerde apps met iCloud**|Toestaan dat apps die u met Intune gegevens synchroniseren naar iCloud-account van de gebruiker beheert.|
 
   
 ###  <a name="security"></a>Beveiliging  
@@ -187,7 +184,7 @@ Gebruik de System Center Configuration Manager **iOS en Mac OS X** configuratie-
 |Naam van de instelling|Details|  
 |------------------|-------------|  
 |**Camera**|Gebruik van de camera op het apparaat toestaan.| 
-|**Nieuwe enterprise app auteurs vertrouwen**|Kan de gebruiker selecteert vertrouwen apps die niet zijn gedownload uit de appstore.| 
+|**Nieuwe enterprise app auteurs vertrouwen**|Kan de gebruiker selecteren om te vertrouwen apps die niet zijn gedownload uit de appstore.| 
   
 ###  <a name="roaming"></a>Roaming  
  Deze instellingen gelden alleen voor iOS-apparaten.  
@@ -204,17 +201,17 @@ Gebruik de System Center Configuration Manager **iOS en Mac OS X** configuratie-
 |Naam van de instelling|Details|  
 |------------------|-------------|  
 |**Gebruiker accepteert niet-vertrouwde TLS-certificaten**|Als **Toegestaan** is geselecteerd, wordt de gebruiker toegestaan om deze certificaten te accepteren. Als **Niet toegestaan** is geselecteerd, worden niet-vertrouwde certificaten automatisch geweigerd.|
-|**Activeringsvergrendeling (modus supervisie alleen) toestaan**|Gebruik deze instelling om iOS-activeringsvergrendeling in te schakelen op iOS-apparaten **onder supervisie** die u beheert. Zie voor meer informatie over activeringsvergrendeling [iOS-activeringsvergrendeling beheren met System Center Configuration Manager](../../mdm/deploy-use/manage-ios-activation-lock.md).
+|**Activeringsvergrendeling (alleen in supervisiemodus) toestaan**|Gebruik deze instelling om iOS-activeringsvergrendeling in te schakelen op iOS-apparaten **onder supervisie** die u beheert. Zie voor meer informatie over activeringsvergrendeling [iOS-activeringsvergrendeling beheren met System Center Configuration Manager](../../mdm/deploy-use/manage-ios-activation-lock.md).
 |**Vergrendelingsscherm voor beheercentrum**|Bepaalt of toegang tot de Control Center-app mogelijk is wanneer het apparaat is vergrendeld.|  
 |**Weergave van meldingen in vergrendelingsscherm**|Bepaalt of meldingen kunnen worden bekeken wanneer het apparaat is vergrendeld.|  
-|**Vergrendelingsscherm voor weergave Vandaag**|Bepaalt of de weergave van vandaag kan worden bekeken wanneer het apparaat is vergrendeld.|  
-|**Wijzig de accountinstellingen** (onder supervisie alleen)|Kan de gebruiker Accountinstellingen zoals e-configuraties te wijzigen.|
-|**Wijzigingen aanbrengen in de instellingen van de app Zoek mijn vrienden** (onder supervisie alleen)|Kan de gebruiker voor de app Zoek mijn vrienden-instellingen te wijzigen.|
-|**Gebruik zijnde host koppelen voor het beheren van de apparaten een iOS-apparaat met combineren kunt** (onder supervisie alleen)|Toestaan dat host koppelen zodat de beheerder bepalen welke apparaten aan een iOS-apparaat kunt koppelen.|
-|**Alle inhoud en instellingen wissen** (onder supervisie alleen)|Kan de gebruiker de optie van alle inhoud en instellingen op het apparaat wissen.|
-|**Hiermee configureert u beperkingen op apparaat** (onder supervisie alleen)|Kan de gebruiker apparaat beperkingen (Ouderlijk) configureren op het apparaat.|
-|**Installeren van certificaten en kunt u configuratieprofielen** (onder supervisie alleen)|De gebruiker voor het installeren van certificaten en kunt u configuratieprofielen toegestaan.|
-|**Wachtwoord voor AirPlay uitgaande aanvragen**|Een koppelingsmodus wachtwoord verplicht stellen wanneer de gebruiker AirPlay om te streamen met andere apparaten van Apple gebruikt.|
+|**Weergave van vandaag in vergrendelingsscherm**|Bepaalt of de weergave van vandaag kan worden bekeken wanneer het apparaat is vergrendeld.|  
+|**Wijzigen van accountinstellingen** (onder supervisie alleen)|Toestaan dat de gebruiker accountinstellingen, zoals e-configuraties wijzigen.|
+|**Wijzigingen aanbrengen in de instellingen van de app Zoek vrienden** (onder supervisie alleen)|De gebruiker te wijzigen van instellingen voor de app Zoek vrienden toestaan.|
+|**Gebruik een host om te bepalen met welke apparaten een iOS-apparaat kunt koppelen aan** (onder supervisie alleen)|Een host toe, waarmee de beheerder kan bepalen welke apparaten een iOS-apparaat kunt koppelen aan toestaan.|
+|**Wissen van alle inhoud en instellingen** (onder supervisie alleen)|De gebruiker de optie te gebruiken van het wissen van alle inhoud en instellingen op het apparaat toestaan.|
+|**Configureert u beperkingen op apparaat** (onder supervisie alleen)|De gebruiker voor het configureren van beperkingen voor apparaat (Ouderlijk toezicht) op het apparaat toestaan.|
+|**Installeren van configuratieprofielen en -certificaten** (onder supervisie alleen)|De gebruiker voor het installeren van configuratieprofielen en -certificaten toestaan.|
+|**Wachtwoord voor aanvragen voor uitgaande AirPlay**|Vereist een wachtwoord voor koppelen wanneer AirPlay door de gebruiker wordt gebruikt om inhoud te streamen naar andere Apple-apparaten.|
   
 ###  <a name="data-protection"></a>Gegevensbescherming  
  Deze instellingen gelden alleen voor iOS-apparaten.  
@@ -223,8 +220,8 @@ Gebruik de System Center Configuration Manager **iOS en Mac OS X** configuratie-
 |------------------|-------------|  
 |**Documenten in beheerde apps openen in andere onbeheerde apps**|Voor gebruik met apps die worden beheerd door Configuration Manager application management-beleid.|  
 |**Documenten in onbeheerde apps openen in andere beheerde apps**|Voor gebruik met apps die worden beheerd door Configuration Manager application management-beleid.| 
-|**AirDrop behandelen als een onbeheerde doel** (onder supervisie alleen)|Stopt beheerde apps niet kan worden gegevens via kan verzenden. Airdrop.|
-|**AirDrop** (onder supervisie alleen)|Gebruik van de functie AirDrop voor het uitwisselen van inhoud in de buurt apparaten toestaan.|
+|**AirDrop behandelen als een niet-beheerde doel** (onder supervisie alleen)|Stopt van beheerde apps kan worden verzonden gegevens via. Airdrop.|
+|**AirDrop** (onder supervisie alleen)|Gebruik van de functie AirDrop voor het uitwisselen van inhoud met apparaten in de buurt toestaan.|
   
 ###  <a name="compliant-and-noncompliant-apps-ios"></a>Compatibele en niet-compatibele apps (iOS)  
  Hiermee kunt u een lijst opgeven van iOS-apps die in uw bedrijf compatibel of niet compatibel zijn. Vervolgens kunt u rapporten gebruiken om apparaten weer te geven waarop niet-compatibele apps zijn geïnstalleerd en wie de gebruikers van de apparaten zijn.  
@@ -314,7 +311,7 @@ Gebruik de System Center Configuration Manager **iOS en Mac OS X** configuratie-
   
 1.  Op de pagina **Instellingen van aangepast iOS- en Mac OS X-profiel configureren** van de **wizard Configuratie-item maken** geeft u de volgende informatie op:  
   
-    -   **Aangepaste configuratieprofielnaam (weergegeven voor gebruikers)** -Geef een naam voor het beleid, zoals die wordt weergegeven op het apparaat en in Configuration Manager-rapporten.  
+    -   **Aangepaste configuratieprofielnaam (weergegeven aan gebruikers)** -Geef een naam voor het beleid, zoals die wordt weergegeven op het apparaat en in Configuration Manager-rapporten.  
   
     -   **Importeren**: kies een bestand dat u met het hulpprogramma Apple Configurator hebt geëxporteerd.  
   
@@ -327,9 +324,9 @@ Gebruik de System Center Configuration Manager **iOS en Mac OS X** configuratie-
     -   **Ernst van niet-naleving voor rapporten**: geef de ernst aan die wordt gerapporteerd als wordt vastgesteld dat het nalevingsbeleid niet compatibel is. De beschikbare ernstniveaus zijn als volgt:  
   
         > [!NOTE]  
-        >  Als op een Mac OS X-apparaat de slaapstandmodus is ingeschakeld, kunnen beleidsregels en profielen niet worden afgeleverd of geïnventariseerd. Als gevolg hiervan de Configuration Manager-console mogelijk tijdelijk weergegeven de beleidsinstellingen van de status fout tot de volgende keer dat het apparaat wordt uit de slaapstand worden gehaald.  
+        >  Als op een Mac OS X-apparaat de slaapstandmodus is ingeschakeld, kunnen beleidsregels en profielen niet worden afgeleverd of geïnventariseerd. Als gevolg hiervan de Configuration Manager-console mogelijk tijdelijk de beleidsinstellingen van de status fout tot de volgende keer dat het apparaat uit de slaapstand wordt gehaald.  
   
-        -   **Geen** apparaten die niet voldoen aan deze compliantieregel doen geen fouternst voor Configuration Manager-rapporten.  
+        -   **Geen** apparaten die niet voldoen aan deze compliantieregel niet rapporteren ernst voor Configuration Manager-rapporten.  
   
         -   **Informatie** apparaten die niet voldoen aan deze compliantieregel fouternst van **informatie** voor Configuration Manager-rapporten.  
   
@@ -403,7 +400,7 @@ Gebruik de System Center Configuration Manager **iOS en Mac OS X** configuratie-
   
     -   **Ernst van niet-naleving voor rapporten**: geef de ernst aan die wordt gerapporteerd als wordt vastgesteld dat het nalevingsbeleid niet compatibel is. U kunt kiezen uit de volgende ernstniveaus:  
   
-        -   **Geen** apparaten die niet voldoen aan deze compliantieregel doen geen fouternst voor Configuration Manager-rapporten.  
+        -   **Geen** apparaten die niet voldoen aan deze compliantieregel niet rapporteren ernst voor Configuration Manager-rapporten.  
   
         -   **Informatie** apparaten die niet voldoen aan deze compliantieregel fouternst van **informatie** voor Configuration Manager-rapporten.  
   
@@ -414,5 +411,4 @@ Gebruik de System Center Configuration Manager **iOS en Mac OS X** configuratie-
         -   **Kritiek met gebeurtenis** apparaten die niet voldoen aan deze compliantieregel fouternst van **kritieke** voor Configuration Manager-rapporten. Dit ernstniveau wordt ook vastgelegd als een Windows-gebeurtenis in het logboek voor toepassingsgebeurtenissen.  
   
 ## <a name="see-also"></a>Zie ook  
- [Configuratie-items voor apparaten die worden beheerd zonder dat de System Center Configuration Manager-client](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)
-
+ [Configuratie-items voor apparaten die worden beheerd zonder de System Center Configuration Manager-client](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)

@@ -1,28 +1,25 @@
 ---
-title: Gebruik van beheer op afstand audit | Microsoft-documenten
+title: Gebruik van beheer op afstand controleren | Microsoft Docs
 description: Gebruik van beheer op afstand in System Center Configuration Manager controleren.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5c975e69-0cc0-4afd-b7fb-b7182162a933
-caps.latest.revision: 5
-caps.handback.revision: 0
+caps.latest.revision: "5"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 690d03d9c8c49a815bd318df549d7401a855bc5d
 ms.openlocfilehash: 4259ecfca48ccdffa83247e9ab5a65b3f006c5d9
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="how-to-audit-remote-control-usage-in-system-center-configuration-manager"></a>Het gebruik van beheer op afstand in System Center Configuration Manager controleren
 
@@ -34,7 +31,7 @@ U kunt System Center Configuration Manager-rapporten gebruiken om controle-infor
 
  De volgende twee rapporten zijn beschikbaar voor de categorie **Statusberichten - Audit**:  
 
--   **Extern beheer - alle computers die extern worden beheerd door een specifieke gebruiker** -geeft een samenvatting van beheer op afstand-activiteit die een specifieke gebruiker gestart.  
+-   **Extern beheer - alle computers die extern worden beheerd door een specifieke gebruiker** -geeft een samenvatting van beheer op afstand-activiteit die een specifieke gebruiker heeft gestart.  
 
 -   **Extern beheer - alle informatie over extern beheer** -geeft een samenvatting van statusberichten over extern beheer van clientcomputers.  
 
@@ -63,4 +60,3 @@ U kunt System Center Configuration Manager-rapporten gebruiken om controle-infor
 4.  Selecteer het rapport **Extern beheer - Alle informatie over extern beheer**, en klik op het tabblad **Start** in de **rapportgroep**en klik op **Uitvoeren** om het venster **Extern beheer - Alle informatie over extern beheer** te openen.  
 
 5.  Sluit het rapportvenster als u klaar bent met het bekijken van de gegevens in het rapport.  
-

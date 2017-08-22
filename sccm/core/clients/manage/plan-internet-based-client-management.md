@@ -1,34 +1,31 @@
 ---
-title: Clientbeheer via Internet | Microsoft-documenten
+title: Internet-gebaseerd clientbeheer | Microsoft Docs
 description: Maak een plan voor het beheren van clients op Internet in System Center Configuration Manager.
 ms.custom: na
 ms.date: 05/16/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 83a7c934-3b11-435d-ba22-cbc274951e83
-caps.latest.revision: 7
-caps.handback.revision: 0
+caps.latest.revision: "7"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: ae60eb25383f4bd07faaa1265185a471ee79b1e9
 ms.openlocfilehash: 90c30bfb22735f73422f1547301552bf42022bb9
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="plan-for-internet-based-client-management-in-system-center-configuration-manager"></a>Plan voor Internet-gebaseerd clientbeheer in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Clientbeheer via Internet management (soms verwezen als IBCM) kunt die u System Center Configuration Manager-clients wanneer ze niet zijn verbonden met uw bedrijf maar u beschikt over een standaardinternetverbinding beheren. Deze regeling heeft verschillende voordelen, met inbegrip van verlaagde kosten want virtuele particuliere netwerken (VPN's) moeten niet worden uitgevoerd en software-updates kunnen tijdig worden geïmplementeerd.  
+Clientbeheer via Internet management (ook wel aangeduid als IBCM) kunt die u beheren met System Center Configuration Manager-clients wanneer ze niet zijn verbonden met uw bedrijf maar u beschikt over een standaardinternetverbinding. Deze regeling heeft verschillende voordelen, met inbegrip van verlaagde kosten want virtuele particuliere netwerken (VPN's) moeten niet worden uitgevoerd en software-updates kunnen tijdig worden geïmplementeerd.  
 
  Wegens de hogere beveiligingsvereisten voor het beheren van clientcomputers op een openbaar netwerk, is voor clientbeheer via internet het gebruik van PKI-certificaten vereist voor clients en sitesysteemservers waarmee de clients zijn verbonden. Dit zorgt dat de verbindingen worden geverifieerd door een onafhankelijke instantie en dat de gegevens naar en van deze sitesystemen zijn versleuteld met Secure Sockets Layer (SSL).  
 
@@ -73,7 +70,7 @@ Clientbeheer via Internet management (soms verwezen als IBCM) kunt die u System 
 -   Software-updatepunt  
 
  **Over internetgerichte sitesystemen:**   
-Hoewel er geen vereiste om een vertrouwensrelatie tussen de forest van de client en van de sitesysteemserver als het forest dat een Internet facing sitesysteem bevat de forests vertrouwt die de gebruikersaccounts bevat, ondersteunt deze configuratie gebruikersbeleid voor apparaten op Internet wanneer u de **clientbeleid** clientinstelling **Gebruikersbeleidsaanvragen van internetclients toestaan**.  
+Hoewel er geen vereiste is om een vertrouwensrelatie tussen de forest van de client en die van de sitesysteemserver als het forest met een Internetgericht sitesysteem het forest waarin de gebruikersaccounts vertrouwt, ondersteunt deze configuratie gebruikersbeleid voor apparaten op Internet wanneer u inschakelt de **clientbeleid** clientinstelling **Gebruikersbeleidsaanvragen van internetclients toestaan**.  
 
  De volgende configuraties illustreren bijvoorbeeld wanneer clientbeheer via internet het gebruikersbeleid voor apparaten op internet ondersteunt:  
 
@@ -105,23 +102,23 @@ Hoewel er geen vereiste om een vertrouwensrelatie tussen de forest van de client
 > [!TIP]  
 >  U hoeft de configuratie van clientbeheer alleen via het internet niet beperken tot het internet en u kunt deze ook op het intranet gebruiken.  
 
- Clients die worden geconfigureerd voor clientbeheer alleen op internet communiceren alleen met de sitesystemen die zijn geconfigureerd voor clientverbindingen van het internet. Deze configuratie is geschikt voor computers waarvan u weet dat ze nooit verbinding maken met het bedrijfsintranet, zoals point of sale-computers in externe locaties. Het kan ook geschikt zijn wanneer u clientcommunicatie beperken tot HTTPS alleen (bijvoorbeeld, om ondersteuning firewall en beperkt beveiligingsbeleid), en wanneer u Internet-sitesystemen installeren in een perimeternetwerk en u wilt deze servers beheren met behulp van de Configuration Manager-client.  
+ Clients die worden geconfigureerd voor clientbeheer alleen op internet communiceren alleen met de sitesystemen die zijn geconfigureerd voor clientverbindingen van het internet. Deze configuratie is geschikt voor computers waarvan u weet dat ze nooit verbinding maken met het bedrijfsintranet, zoals point of sale-computers in externe locaties. Het ook mogelijk geschikt wanneer u wilt beperken tot clientcommunicatie HTTPS alleen (bijvoorbeeld ondersteuning firewall en beperkt beveiligingsbeleid), en wanneer u sitesystemen op Internet installeert in een perimeternetwerk en u wilt dat deze servers beheren met Configuration Manager-client.  
 
  Als u werkgroepclients op het internet wilt beheren, moet u deze installeren als alleen met internetverbinding.  
 
 > [!NOTE]  
 >  Clients van mobiele apparaten worden automatisch geconfigureerd als alleen met internetverbinding wanneer ze zijn geconfigureerd om een beheerpunt op internet te gebruiken.  
 
- Andere clientcomputers kunnen worden geconfigureerd voor clientbeheer op internet en intranet. Ze kunnen automatisch schakelen tussen clientbeheer op internet en clientbeheer op intranet wanneer ze een netwerkwijziging detecteren. Als deze clients kunnen zoeken en verbinding maken met een beheerpunt dat is geconfigureerd voor clientverbindingen op het intranet, worden deze clients beheerd als intranetclients met volledige functionaliteit voor Configuration Manager. Als de clients geen beheerpunt kunnen vinden of er geen verbinding mee maken als het beheerpunt voor clientverbindingen op het intranet is geconfigureerd, proberen ze te verbinden met een beheerpunt op internet. Als dit lukt, worden deze clients vervolgens beheerd door de sitesystemen op internet in hun toegewezen site.  
+ Andere clientcomputers kunnen worden geconfigureerd voor clientbeheer op internet en intranet. Ze kunnen automatisch schakelen tussen clientbeheer op internet en clientbeheer op intranet wanneer ze een netwerkwijziging detecteren. Als deze clients kunnen vinden en verbinden om een beheerpunt dat is geconfigureerd voor clientverbindingen op het intranet, worden deze clients beheerd als intranetclients met volledige beheerfunctionaliteit van Configuration Manager. Als de clients geen beheerpunt kunnen vinden of er geen verbinding mee maken als het beheerpunt voor clientverbindingen op het intranet is geconfigureerd, proberen ze te verbinden met een beheerpunt op internet. Als dit lukt, worden deze clients vervolgens beheerd door de sitesystemen op internet in hun toegewezen site.  
 
- Het voordeel van automatisch overschakelen tussen clientbeheer via Internet en clientbeheer op intranet is dat clientcomputers automatisch alle Configuration Manager-functies gebruiken kunnen wanneer ze zijn verbonden met het intranet en blijven beheerd voor essentiële beheerfuncties wanneer ze met het Internet zijn verbonden. Bovendien kan een download die begon op het internet probleemloos verder worden gedownload op het intranet, en vice versa.  
+ Het voordeel van automatisch overschakelen tussen clientbeheer op Internet en clientbeheer op intranet, is dat clientcomputers automatisch alle Configuration Manager-functies gebruiken kunnen wanneer ze zijn verbonden met het intranet en beheerd betreft essentiële beheerfuncties blijven wanneer ze op het Internet. Bovendien kan een download die begon op het internet probleemloos verder worden gedownload op het intranet, en vice versa.  
 
 ##  <a name="prerequisites-for-internet-based-client-management"></a>Vereisten voor clientbeheer op internet  
  Internet-gebaseerd clientbeheer in Configuration Manager heeft de volgende externe afhankelijkheden:  
 
 -   Clients die zullen worden beheerd op het internet, moeten een internetverbinding hebben.  
 
-     Configuration Manager gebruikt bestaande Internetproviderverbindingen (ISP) verbindingen met het Internet; dit kunnen zowel permanente als tijdelijke verbindingen. Mobiele apparaten van clients moeten een rechtstreekse internetverbinding hebben, maar clientcomputers kunnen een rechtstreekse internetverbinding hebben of verbinden via een proxywebserver.  
+     Configuration Manager gebruikt bestaande Internetproviderverbindingen (ISP)-verbindingen met het Internet; dit kunnen zowel permanente als tijdelijke verbindingen. Mobiele apparaten van clients moeten een rechtstreekse internetverbinding hebben, maar clientcomputers kunnen een rechtstreekse internetverbinding hebben of verbinden via een proxywebserver.  
 
 -   Sitesystemen die clientbeheer op internet ondersteunen moeten verbonden zijn met het internet en moeten zich in een Active Directory-domein bevinden.  
 
@@ -197,5 +194,4 @@ Hoewel er geen vereiste om een vertrouwensrelatie tussen de forest van de client
 
      Raadpleeg de documentatie van uw firewall of proxyserver voor configuratie-informatie om deze vereisten te ondersteunen.  
 
-     Zie de documentatie voor Windows Server Update Services (WSUS) voor vergelijkbare communicatievereisten wanneer u het software-updatepunt voor clientverbindingen van het internet gebruikt. Zie bijvoorbeeld voor WSUS op Windows Server 2003 [Appendix D: Beveiligingsinstellingen](http://go.microsoft.com/fwlink/p/?LinkId=143368), de implementatie-bijlage voor beveiligingsinstellingen.
-
+     Zie de documentatie voor Windows Server Update Services (WSUS) voor vergelijkbare communicatievereisten wanneer u het software-updatepunt voor clientverbindingen van het internet gebruikt. Bijvoorbeeld: voor WSUS op Windows Server 2003, Zie [Appendix D: Beveiligingsinstellingen](http://go.microsoft.com/fwlink/p/?LinkId=143368), de implementatie-bijlage voor beveiligingsinstellingen.

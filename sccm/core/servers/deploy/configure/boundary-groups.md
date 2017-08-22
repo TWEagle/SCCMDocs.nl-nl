@@ -6,21 +6,19 @@ ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 5db2926f-f03e-49c7-b44b-e89b1a5a6779
-caps.latest.revision: 10
+caps.latest.revision: "10"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
 ms.openlocfilehash: 5debc6559f4b1c213e8ca513d685941c9e669063
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/29/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="configure-boundary-groups-for-system-center-configuration-manager"></a>Grensgroepen configureren voor System Center Configuration Manager
 
@@ -360,4 +358,3 @@ De volgende procedures gelden voor 1610 of hoger. Als u een eerdere versie dan 1
  2.  Selecteer op het tabblad **Algemeen** van de hiërarchie-instellingen de optie **Clients gebruiken liever beheerpunten die zijn opgegeven in grensgroepen**.  
 
  3.  Klik op **OK** om het dialoogvenster te sluiten en de configuratie op te slaan.  
-

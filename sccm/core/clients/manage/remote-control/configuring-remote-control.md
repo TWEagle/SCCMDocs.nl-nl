@@ -1,34 +1,31 @@
 ---
-title: Configureer beheer op afstand | Microsoft-documenten
-description: Beheer op afstand in System Center Configuration Manager instellen.
+title: Extern beheer configureren | Microsoft Docs
+description: Instellen van beheer op afstand in System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: dudeso
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 45affc27-aa11-4249-9493-082ac23a3a3d
-caps.latest.revision: 4
-caps.handback.revision: 0
+caps.latest.revision: "4"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 690d03d9c8c49a815bd318df549d7401a855bc5d
 ms.openlocfilehash: 3a386c23c81f413d7d161780bdc0ab3a5b9eccae
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="configuring-remote-control-in-system-center-configuration-manager"></a>Extern beheer configureren in System Center Configuration Manager
+# <a name="configuring-remote-control-in-system-center-configuration-manager"></a>Beheer op afstand configureren in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
- Deze procedure wordt beschreven voor het configureren van de standaardclientinstellingen voor beheer op afstand. Deze instellingen gelden voor alle computers in uw hiërarchie. Als u deze instellingen wilt toepassen op alleen op bepaalde computers, toegewezen door een aangepaste apparaatclientinstelling aan een verzameling die de computers bevat. Voor meer informatie een Zie [clientinstellingen configureren in System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md). 
+ Deze procedure beschrijft de standaardclientinstellingen voor beheer op afstand te configureren. Deze instellingen gelden voor alle computers in uw hiërarchie. Als u deze instellingen wilt toepassen op alleen op enkele computers, wijst u een aangepaste apparaatclientinstelling aan een verzameling waartoe deze computers. Voor meer informatie een Zie [het configureren van clientinstellingen in System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md). 
 
 Voor het gebruik van Hulp op afstand en extern bureaublad moet worden geïnstalleerd en geconfigureerd op de computer waarop de Configuration Manager-console. Zie de Windows-documentatie voor meer informatie over het installeren en configureren van Hulp op afstand en Extern bureaublad.  
 
@@ -40,24 +37,24 @@ Voor het gebruik van Hulp op afstand en extern bureaublad moet worden geïnstall
 
 5.  In de **standaard** dialoogvenster Kies **externe hulpprogramma's**.  
 
-6.  Configureer beheer op afstand, hulp op afstand en extern bureaublad clientinstellingen. Zie voor een lijst van client-instellingen voor externe hulpprogramma's die u kunt configureren, [externe hulpprogramma's](../../../../core/clients/deploy/about-client-settings.md#remote-tools).  
+6.  Beheer op afstand, hulp op afstand en extern bureaublad-clientinstellingen configureren. Zie voor een lijst met clientinstellingen voor externe hulpprogramma's die u kunt configureren, [externe hulpprogramma's](../../../../core/clients/deploy/about-client-settings.md#remote-tools).  
 
     U kunt de bedrijfsnaam die wordt weergegeven in het dialoogvenster **Beheer op afstand van ConfigMgr** wijzigen door een waarde te configureren voor **Organisatienaam weergegeven in Software Center** in de clientinstellingen voor **Computeragent** .  
 
  De volgende keer dat clientcomputers clientbeleid downloaden, worden deze geconfigureerd met deze instellingen. Raadpleeg [Clients beheren in System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md) voor informatie over het initiëren van het ophalen van beleid voor één client.  
 
-#### <a name="enable-keyboard-translation"></a>Toetsenbord vertaling inschakelen
+#### <a name="enable-keyboard-translation"></a>Toetsenbord-omzetting inschakelen
 
-Standaard verzendt de Configuration Manager de belangrijkste positie van de locatie van de viewer naar de gedeelde locatie. Dit kan leiden tot een probleem met toetsenbord-configuraties die van de viewer naar gedeelde verschillen. Bijvoorbeeld, een viewer met een Engels toetsenbord typt een "A", maar de gedeelde Frans toetsenbord "Q" wilt opgeven. U hebt nu de mogelijkheid om externe controle configureren zodat het teken zelf van de viewer toetsenbord wordt verzonden naar de gedeelde resource en de viewer plan is naar het type op de gedeelde resource aankomt.
+Standaard verzendt de Configuration Manager de belangrijkste positie van de viewer locatie naar de gedeelde locatie. Dit kan een probleem voor toetsenbord-configuraties die van de viewer naar gedeelde afwijken leiden. Bijvoorbeeld, een viewer met een Engels toetsenbord typt een "A", maar de gedeelde Franse toetsenbord 'Q' wilt opgeven. U hebt nu de mogelijkheid om beheer op afstand configureren zodat het teken zelf wordt overgebracht van de viewer toetsenbord naar de gedeelde en wat de viewer wil typt u bij de gedeelde resource aankomt.
 
-Om in te schakelen in toetsenbord vertaling **afstandbediening voor Configuration Manager**, kiezen **actie**, en kies **toetsenbord vertaling inschakelen** voor het verzenden van belangrijke positie.
+In toetsenbord-omzetting inschakelen **afstandbediening voor Configuration Manager**, kies **actie**, en kies **toetsenbord-omzetting inschakelen** voor het verzenden van de belangrijkste positie.
 
 > [!NOTE]
 >
-> Speciale drukken, zoals ~! #@ $%, niet correct worden vertaald.
+> Speciale drukken, zoals ~! # $@ %, niet correct worden vertaald.
 
 
-## <a name="keyboard-shortcuts-for-the-remote-control-viewer"></a>Sneltoetsen voor beheer op afstand viewer
+## <a name="keyboard-shortcuts-for-the-remote-control-viewer"></a>Sneltoetsen voor de viewer voor beheer op afstand
 
 |Sneltoets|Beschrijving|  
 |-----------------------|-----------------|  
@@ -69,4 +66,3 @@ Om in te schakelen in toetsenbord vertaling **afstandbediening voor Configuratio
 |Alt + Delete|Hiermee opent u het Windows-menu.|  
 |Ctrl + Alt + minteken (op het numerieke toetsenblok)|Hiermee kopieert u het actieve venster van de lokale computer naar het Klembord van de externe computer.|  
 |Ctrl + Alt + plusteken (op het numerieke toetsenblok)|Hiermee kopieert u het hele venstergebied van de lokale computer naar het Klembord van de externe computer.|  
-

@@ -2,26 +2,24 @@
 title: Afgeschafte functies | Microsoft Docs
 description: Meer informatie over de functies, producten en besturingssystemen die niet langer ondersteuning biedt voor System Center Configuration Manager.
 ms.custom: na
-ms.date: 06/27/2017
+ms.date: 08/16/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: d8c8b44c-1e8a-42b6-bab4-23c72a0a6169
-caps.latest.revision: 15
-caps.handback.revision: 0
+caps.latest.revision: "15"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
+ms.openlocfilehash: 8ac7009014a4652a36acf69ebfe9ccab3ba8ecbd
+ms.sourcegitcommit: 3ce56c7350411d8cc3d3cb9b4054f9ada9b0ed54
 ms.translationtype: MT
-ms.sourcegitcommit: ef42d1483053e9a6c502f4ebcae5a231aa6ba727
-ms.openlocfilehash: 98fa323cb94013d875e2cea41b80fff8cc75b6b2
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/17/2017
 ---
 # <a name="removed-and-deprecated-features-for-system-center-configuration-manager"></a>Verwijderde en afgeschafte functies voor System Center Configuration Manager
 
@@ -71,7 +69,7 @@ Zie voor meer informatie:
 |**Besturingssystemen**|**Afschaffing eerst aangekondigd**|**Ondersteuning verwijderd**|  
 |-|-|-|  
 |Windows XP|10 juli 2015|Versie 1511|  
-|Windows XP Embedded|10 juli 2015|Versie 1702|  
+|Windows XP Embedded <br><br> Dit omvat alle [XP gebaseerde ingesloten besturingssystemen](/sccm/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#windows-embedded-computers).|10 juli 2015|Versie 1702|  
 |Windows Server 2003|10 juli 2015|Versie 1511|  
 |Windows Server 2003 R2|10 juli 2015|Versie 1511|  
 |Windows Vista|10 juli 2015|Versie 1511|  
@@ -102,9 +100,10 @@ Als u moet de versie van SQL Server wilt bijwerken, raden wij de volgende method
 |Buiten-Bandbeheer – zoals gevonden in System Center 2012 Configuration Manager|16 oktober 2015|Versie 1511|
 |Takenreeksen: <br /> -OSDPreserveDriveLetter  <br /><br /> Tijdens de implementatie van een besturingssysteem bepaalt standaard Windows Setup nu de beste stationsletter te gebruiken (meestal C:). Als u opgeven van een ander station moet worden gebruikt wilt, kunt u de locatie van de takenreeksstap besturingssysteem toepassen. Ga naar de **selecteert u de locatie waar u wilt toepassen van dit besturingssysteem** optie **logische stationsletter opgeven**, en kies het station dat u wilt gebruiken. |20 juni 2016 |Versie 1606 |
 |Takenreeksen: <br /> -Schijf naar dynamische schijf converteren <br /> -Implementatiehulpprogramma's installeren |18 november 2016|Ondersteuning voor deze taak takenreeksen eindigt met de eerste update die na 1 juni 2017 uitgebracht.|
-|Het Software Center heeft een nieuwe, moderne vormgeving. Apps die nu alleen in de Silverlight-afhankelijke Application Catalog (voor gebruikers beschikbare apps eerst) worden weergegeven in Software Center op de **toepassingen** tabblad. De Application Catalog nog steeds toegankelijk via de koppeling op de **installatiestatus** tabblad van het Software Center.<br><br>In de komende maanden wordt de vorige versie van het Software Center niet langer beschikbaar.<br><br>U kunt clients zo instellen dat er gebruik van het nieuwe Software Center doordat de client-instelling, **Computeragent** > **nieuwe Software Center gebruiken**.<br><br>Zie voor meer informatie over Software Center [plannen en configureren van Toepassingsbeheer in System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/plan-design/plan-for-and-configure-application-management).|December 13 mei 2016|Ondersteuning voor de vorige versie van Software Center eindigt met de eerste update die na 1 januari 2018 uitgebracht.|
+|Software Center heeft een nieuwe, moderne vormgeving. In de komende maanden wordt de vorige versie van het Software Center niet langer beschikbaar.<br><br>U kunt clients zo instellen dat er gebruik van het nieuwe Software Center doordat de client-instelling, **Computeragent** > **nieuwe Software Center gebruiken**.<br><br>Zie voor meer informatie over Software Center [plannen en configureren van Toepassingsbeheer in System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/plan-design/plan-for-and-configure-application-management).|December 13 mei 2016|Ondersteuning voor de vorige versie van Software Center eindigt met de eerste update die na 1 januari 2018 uitgebracht.|
+|Met de komst van de nieuwe ervaring met Software Center in versie 1511 weergegeven apps die nu alleen in de Toepassingscatalogus (voor gebruikers beschikbare apps eerst) in Software Center. </br></br>Met deze primaire functionaliteit van de Application Catalog nu opgenomen in Software Center kan wordt de Application Catalog webgebaseerde ervaring niet langer beschikbaar in de komende maanden.|11 augustus 2017| Ondersteuning voor de Application Catalog website gebruikerservaring op de eerste update die na 1 juni 2018 wordt uitgebracht eindigt|
 |Beheer van virtuele harde schijven (VHD's) met Configuration Manager. </br></br>Dit omvat het verwijderen van de opties voor een nieuwe VHD maken of beheren van een VHD met behulp van een takenreeks en het verwijderen van het knooppunt van de virtuele harde schijven uit de Configuration Manager-console. </br></br>Wanneer deze ondersteuning wordt verwijderd, worden bestaande VHD's worden niet verwijderd, maar niet langer toegankelijk vanuit de Configuration Manager-console.  |6 januari 2017 |Ondersteuning voor virtuele harde schijven eindigt met de eerste update die na 1 juni 2017 uitgebracht.|
-|System Center Configuration Manager Upgrade Assessment Tool. </br></br>Het hulpprogramma Upgradebeoordeling hangt af van System Center Configuration Manager en Application Compatibility Toolkit (ACT) 6.x. De definitieve versie van ACT is geleverd in de v1511 Windows 10 ADK. Omdat er wordt geen verdere updates met de functioneren, ondersteuning voor het hulpprogramma Upgradebeoordeling stopgezet. </br></br>Het hulpprogramma Upgradebeoordeling wordt vervangen door de [gereedheid voor Upgrade](/sccm/core/clients/manage/upgrade/upgrade-analytics) functie. Afschaffing bericht is toegevoegd aan de [downloadpagina voor UAT](https://www.microsoft.com/download/details.aspx?id=37145) op 9-12-2016. |9/12/2016  | 11 juli 2017 |  
+|System Center Configuration Manager Upgrade Assessment Tool. </br></br>Het hulpprogramma Upgradebeoordeling hangt af van System Center Configuration Manager en Application Compatibility Toolkit (ACT) 6.x. De definitieve versie van ACT is geleverd in de v1511 Windows 10 ADK. Omdat er wordt geen verdere updates met de functioneren, ondersteuning voor het hulpprogramma Upgradebeoordeling stopgezet. </br></br>Het hulpprogramma Upgradebeoordeling wordt vervangen door de [gereedheid voor Upgrade](/sccm/core/clients/manage/upgrade/upgrade-analytics) functie. Afschaffing bericht is toegevoegd aan de [downloadpagina voor UAT](https://www.microsoft.com/download/details.aspx?id=37145) op 9-12-2016. |9/12/2016  | 11 juli 2017 |
 
 
 <br></br>
@@ -121,4 +120,3 @@ Aanvullende details voor onderdelen met versie 1511 van System Center Configurat
  System Center Configuration Manager heeft ondersteuning voor Network Access Protection verwijderd. De functie is afgeschaft in Windows Server 2012 R2 en wordt uit Windows 10 verwijderd.  
 
  Bekijk het gedeelte *Afgeschafte functionaliteit* van [Overzicht van Services voor netwerkbeleid en -toegang](https://technet.microsoft.com/library/hh831683.aspx) voor informatie over alternatieven voor netwerktoegangsbeveiliging.
-

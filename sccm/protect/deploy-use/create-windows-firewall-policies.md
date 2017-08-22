@@ -1,33 +1,30 @@
 ---
-title: Windows Firewall-beleid voor Endpoint Protection | Microsoft-documenten
-description: Informatie over het maken en firewall-beleid implementeren voor Endpoint Protection in System Center 2012 Configuration Manager.
+title: Windows Firewall-beleid voor Endpoint Protection | Microsoft Docs
+description: Informatie over het maken en implementeren van de firewall-beleid voor Endpoint Protection in System Center 2012 Configuration Manager.
 ms.custom: na
 ms.date: 03/07/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 6ecdfad1-6305-45a8-ae75-3f33b967cb8f
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 8f4ec982a54cf3cefef310268a54850e70e2e63a
 ms.openlocfilehash: acd75a8b22d050970b8c1176f725ddb4445633aa
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="create-and-deploy-windows-firewall-policies-for-endpoint-protection-in-system-center-configuration-manager"></a>Maken en implementeren van Windows Firewall-beleid voor Endpoint Protection in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Firewall-beleid voor Endpoint Protection in System Center 2012 Configuration Manager kunnen u eenvoudige Windows Firewall-configuratie- en onderhoudstaken uitvoeren op clientcomputers in uw hiërarchie. U kunt met de Windows Firewall-beleidsregels de volgende taken uitvoeren:  
+Firewallbeleid voor Endpoint Protection in System Center 2012 Configuration Manager kunt u eenvoudige Windows Firewall-configuratie en onderhoudstaken uitvoeren op clientcomputers in uw hiërarchie. U kunt met de Windows Firewall-beleidsregels de volgende taken uitvoeren:  
 
 -   Bepalen of Windows Firewall is in- of uitgeschakeld.  
 
@@ -80,4 +77,3 @@ Firewall-beleid voor Endpoint Protection in System Center 2012 Configuration Man
 
     > [!IMPORTANT]  
     >  Wanneer u een Windows Firewall-beleid voor een verzameling implementeert, wordt dit beleid gedurende een periode van twee uur in willekeurige volgorde toegepast op computers om te voorkomen dat het netwerk wordt overspoeld.
-

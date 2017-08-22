@@ -6,23 +6,20 @@ ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-app
+ms.technology: configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8cdb22a6-72d7-41f5-9bed-c098b1bcf675
-caps.latest.revision: 11
+caps.latest.revision: "11"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
 ms.openlocfilehash: 369b6a82a20a90ca534f9484c0be71096dd35a30
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/29/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="manage-apps-from-the-windows-store-for-business-with-system-center-configuration-manager"></a>Apps beheren via de Windows Store voor Bedrijven met System Center Configuration Manager
 De [Windows Store voor bedrijven](https://www.microsoft.com/business-store) kunt u vinden en Windows-apps voor uw organisatie, kopen, afzonderlijk of in volume. De store koppelt aan Configuration Manager, kunt u de lijst met apps die u hebt aangeschaft synchroniseren met Configuration Manager. U kunt deze apps bekijken in de Configuration Manager-console, en deze implementeren zoals u zou ook een andere app implementeren.
 
@@ -145,4 +142,3 @@ Een Configuration Manager-toepassing wordt gemaakt met van de Windows Store voor
 In de **softwarebibliotheek** werkruimte Vouw **Toepassingsbeheer**, klikt u vervolgens op **licentiegegevens voor Store-Apps**.
 
 Voor elke store-app u beheert, kunt u informatie weergeven over de app met inbegrip van de naam, platform en het aantal licenties voor de app die u bezit en het aantal licenties er beschikbaar zijn.
-

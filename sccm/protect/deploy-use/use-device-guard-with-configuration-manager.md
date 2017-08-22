@@ -6,25 +6,21 @@ ms.date: 07/31/2017
 ms.prod: configuration-manager
 ms.reviewer: dudeso
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 5e5d854c-9cc1-4dd8-b33f-0fcac675b395
-caps.latest.revision: 13
-caps.handback.revision: 0
+caps.latest.revision: "13"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
+ms.openlocfilehash: 3921748d3c99c2a35b670f3ca121dc7ab92d43bc
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
-ms.openlocfilehash: 4bb1f4a068563a5fe6f384708e10269dcd3229da
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/29/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
-
 # <a name="device-guard-management-with-configuration-manager"></a>Guard Apparaatbeheer met Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
@@ -97,6 +93,9 @@ Wanneer u een vertrouwensrelatie voor specifieke bestanden of mappen in een bele
     - Apps die zijn opgenomen in de installatiekopie van een besturingssysteem-implementatie, vertrouwen. 
 7.  Klik op **volgende**, voltooi de wizard.
 
+>[!IMPORTANT]
+>Het opnemen van vertrouwde bestanden of mappen wordt alleen ondersteund op client-pc's met versie 1706 of hoger van de Configuration Manager-client. Als een insluitingsregels zijn opgenomen in een beleid Device Guard en het beleid wordt geïmplementeerd op een client-PC met een ouder besturingssysteem op de Configuration Manager-client, mislukt het beleid moet worden toegepast. Een upgrade van deze oudere clients, wordt dit probleem oplossen. Beleidsregels die geen eventuele insluitingsregels bevatten mogelijk nog steeds worden toegepast op oudere versies van Configuration Manager-client.
+
 ## <a name="how-to-deploy-a-device-guard-policy"></a>Het implementeren van een beleid Device Guard
 1.  Klik op **Activa en naleving**op de Configuration Manager-console.
 2.  In de **activa en naleving** werkruimte Vouw **Endpoint Protection**, en klik vervolgens op **Guard apparaatbeleid**.
@@ -130,7 +129,6 @@ In dit geval kan de software kan doorgaan met het mag worden uitgevoerd, zelfs a
 - Wanneer u Configuration Manager gebruikt om in te schakelen configureerbare code-integriteit op client-pc's met Device Guard beleid, komt het beleid niet voorkomen dat gebruikers met lokale beheerdersrechten het beleid Device Guard omzeilen of niet-vertrouwde software anders wordt uitgevoerd. 
 - De enige manier om te voorkomen dat gebruikers met lokale beheerdersrechten uitschakelen configureerbare code-integriteit is een ondertekende binaire beleid implementeren. Deze implementatie is mogelijk via Groepsbeleid, maar niet op dit moment ondersteund in Configuration Manager.
 - AppLocker-beleid maakt gebruik van Configuration Manager in te stellen als een beheerd installatieprogramma op client-pc's. AppLocker wordt alleen gebruikt om te worden beheerd installatieprogramma's identificeren en afdwingen van alle gebeurt met configureerbare code-integriteit. 
-
 
 
 

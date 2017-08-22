@@ -2,23 +2,21 @@
 title: Nieuwe versie 1706 | Microsoft Docs
 description: "Meer informatie over deze wijzigingen en nieuwe mogelijkheden die zijn geïntroduceerd in versie 1706 van System Center Configuration Manager."
 ms.custom: na
-ms.date: 07/31/2017
+ms.date: 08/11/2017
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ac034143-003e-4629-aac2-99eaffef4db1
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
+ms.openlocfilehash: 30bd5f1244534511e5cde8ee0e1a8c74819b1634
+ms.sourcegitcommit: 9a6f8e028fb5eb2e752da70f42a5b548339bd8f4
 ms.translationtype: MT
-ms.sourcegitcommit: c0d94b8e6ca6ffd82e879b43097a9787e283eb6d
-ms.openlocfilehash: 42e5223da204a568e6dca9e6690f08609cd43aa6
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/14/2017
 ---
 # <a name="what39s-new-in-version-1706-of-system-center-configuration-manager"></a>Wat &#39; s is nieuw in versie 1706 van System Center Configuration Manager
 
@@ -207,7 +205,7 @@ Hardware-inventaris verzamelt nu informatie over of beveiligd opstarten is inges
 Deze versie bevat de mogelijkheid om takenreeksgroepen samenvouwen uit te vouwen. U kunt uitvouwen of samenvouwen afzonderlijke groepen of groepen uitvouwen of samenvouwen alle tegelijk.
 
 ### <a name="reload-boot-images-with-current-windows-pe-version"></a>Laden van installatiekopieën voor opstarten met huidige Windows PE-versie
-Bij het uitvoeren van **distributiepunten bijwerken** op een geselecteerde opstartinstallatiekopie, kunt u nu kiezen om opnieuw te laden van de nieuwste versie van Windows PE (van de installatiemap van Windows ADK) in de opstartinstallatiekopie. Zie voor meer informatie [distributiepunten bijwerken met de installatiekopie](/sccm/osd/get-started/manage-boot-images.md#update-distribution-points-with-the-boot-image).
+Bij het uitvoeren van **distributiepunten bijwerken** op een geselecteerde opstartinstallatiekopie, kunt u nu kiezen om opnieuw te laden van de nieuwste versie van Windows PE (van de installatiemap van Windows ADK) in de opstartinstallatiekopie. Zie voor meer informatie [distributiepunten bijwerken met de installatiekopie](/sccm/osd/get-started/manage-boot-images#update-distribution-points-with-the-boot-image).
 
 ## <a name="software-updates"></a>Software-updates
 
@@ -216,15 +214,17 @@ In deze release, hebben we de downloadtijd aanzienlijk verbeterd voor Express-Up
 
 ### <a name="manage-microsoft-surface-driver-updates"></a>Updates voor Microsoft Surface stuurprogramma's beheren
 <!-- 1098490 -->
-U kunt nu de Configuration Manager gebruiken voor het beheren van updates voor Microsoft Surface stuurprogramma's.
+U kunt nu de Configuration Manager gebruiken voor het beheren van updates voor Microsoft Surface stuurprogramma's.    
+
 
 #### <a name="prerequisites"></a>Vereisten
-Alle software-updatepunten moeten Windows Server 2016 worden uitgevoerd.
+- Alle software-updatepunten moeten Windows Server 2016 worden uitgevoerd.    
+- Dit is een voorlopige versie-functie die u moet inschakelen voor deze beschikbaar zijn. Zie [Use pre-release features from updates](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease) (Functies van evaluatieversies gebruiken) voor meer informatie.
 
 #### <a name="to-manage-surface-driver-updates"></a>Voor het beheren van updates voor Surface stuurprogramma 's
 
 1. Synchronisatie voor Microsoft Surface stuurprogramma's inschakelen. Gebruik de procedure in [classificaties en producten configureren](/sccm/sum/get-started/configure-classifications-and-products) en selecteer de **opnemen Microsoft Surface stuurprogramma's en firmware-updates** selectievakje op het **classificaties** tabblad Surface stuurprogramma's inschakelen.
-2. [De Microsoft Surface stuurprogramma's synchroniseren](/sccm/sum/get-started/synchronize-software-updates.md).
+2. [De Microsoft Surface stuurprogramma's synchroniseren](/sccm/sum/get-started/synchronize-software-updates).
 3. [Gesynchroniseerde Microsoft Surface stuurprogramma's implementeren](/sccm/sum/deploy-use/deploy-software-updates)
 
 ### <a name="configure-windows-update-for-business-deferral-policies"></a>Windows Update voor bedrijven uitgestelde beleid configureren
@@ -255,6 +255,12 @@ Met deze versie, de waarden voor de **toestaan gegevens delen tussen werk en per
 
 Zie voor meer informatie [configuratie-items voor Android voor werk apparaten](/sccm/mdm/deploy-use/create-configuration-items-for-android-for-work-devices-managed-without-the-client).
 
+### <a name="android-and-ios-enrollment-restrictions"></a>Beperkingen voor android en iOS-inschrijving
+<!-- 1290826 -->
+Met deze release kunt u nu opgeven dat gebruikers persoonlijke Android- of iOS-apparaten kunnen niet registreren. Instellingen voor nieuwe apparaten beperking kunnen u Android-apparaat van de inschrijving predeclared apparaten beperken. Voor iOS-apparaten kunt u de registratie van alle apparaten met uitzondering van de ingeschreven met Apple Device Enrollment Program, Apple Configurator of het account apparaatinschrijvingsmanager Intune blokkeren.
+- Zie voor meer informatie over Android-inschrijving beperkingen [Android device management instellen](/sccm/mdm/deploy-use/enroll-hybrid-android).
+- Zie voor meer informatie over de beperkingen van de iOS-inschrijving [beperkingen voor iOS-inschrijving configureren](/sccm/mdm/deploy-use/enroll-hybrid-ios-mac#configure-enrollment-restrictions).
+
 ## <a name="protect-devices"></a>Apparaten beveiligen
 
 ### <a name="include-trust-for-specific-files-and-folders-in-a-device-guard-policy"></a>Vertrouwen voor specifieke bestanden en mappen in een beleid Device Guard opnemen
@@ -268,4 +274,3 @@ U kunt vertrouwen voor specifieke bestanden of mappen nu desgewenst toevoegen in
 - Vertrouwen van apps die zijn opgenomen in de installatiekopie van een besturingssysteem-implementatie
 
 Zie voor meer informatie [Device Guard management met Configuration Manager](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager).
-

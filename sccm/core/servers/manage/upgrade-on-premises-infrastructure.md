@@ -6,23 +6,20 @@ ms.date: 06/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8ca970dd-e71c-404f-9435-d36e773a0db2
-caps.latest.revision: 7
-caps.handback.revision: 0
+caps.latest.revision: "7"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 0564cb678200d17d97c0f1d111c0b4b41d8ba40e
 ms.openlocfilehash: 188b7f2537dd0e569a5c00995620124512cf311b
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/30/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="upgrade-on-premises-infrastructure-that-supports-system-center-configuration-manager"></a>Lokale infrastructuur bijwerken die ondersteuning biedt voor System Center Configuration Manager
 
@@ -212,4 +209,3 @@ Zie de documentatie van SQL Server op TechNet voor meer informatie over SQL Serv
 
 > [!NOTE]  
 >  Wanneer u de SQL Server-editie die wordt gebruikt op de centrale beheersite wijzigt van een Standard-editie in een Datacenter- of Enterprise-editie, wordt de databasepartitie met beperkingen voor het aantal clients dat door de hiërarchie wordt ondersteund niet aangepast.
-

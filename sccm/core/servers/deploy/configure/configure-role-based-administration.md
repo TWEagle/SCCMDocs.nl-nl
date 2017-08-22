@@ -1,36 +1,32 @@
 ---
-title: Op rollen gebaseerd beheer configureert | Microsoft-documenten
+title: Beheer op basis van rollen configureren | Microsoft Docs
 ms.custom: na
 ms.date: 2/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 57413dd3-b2f8-4a5f-b27f-8464d357caff
-caps.latest.revision: 7
-caps.handback.revision: 0
+caps.latest.revision: "7"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 1defe96163f1bb70f586619ad89098c6f0e6c665
 ms.openlocfilehash: 3eea3a6e5f23808570ded4be3bd7412954518b96
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
-# <a name="configure-role-based-administration-for-system-center-configuration-manager"></a>Op rollen gebaseerd beheer voor System Center Configuration Manager configureren   
+# <a name="configure-role-based-administration-for-system-center-configuration-manager"></a>Beheer op basis van rollen voor System Center Configuration Manager configureren   
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-In System Center Configuration Manager beheer op basis van rollen combineert beveiligingsrollen, beveiligingsbereiken en toegewezen verzamelingen om het beheerbereik voor elke gebruiker met beheerdersrechten te definiëren. Een beheerbereik bevat de objecten die een gebruiker met beheerdersrechten in de Configuration Manager-console en de taken gerelateerd aan deze objecten bekijken kan die de gebruiker met beheerdersrechten is gemachtigd om uit te voeren. Configuraties voor beheer op basis van rollen worden toegepast op elke site in een hiërarchie.  
+In System Center Configuration Manager beheer op basis van rollen combineert beveiligingsrollen, beveiligingsbereiken en toegewezen verzamelingen om het beheerbereik voor elke gebruiker met beheerdersrechten te definiëren. Een beheerbereik bevat de objecten die een gebruiker met beheerdersrechten in de Configuration Manager-console en de taken gerelateerd aan die objecten bekijken kan dat de gebruiker met beheerdersrechten is gemachtigd om uit te voeren. Configuraties voor beheer op basis van rollen worden toegepast op elke site in een hiërarchie.  
 
- Als u niet nog vertrouwd met concepten voor op rollen gebaseerd beheer bent, Zie [grondbeginselen van op rollen gebaseerd beheer voor System Center Configuration Manager](../../../../core/understand/fundamentals-of-role-based-administration.md).  
+ Als u niet nog bekend met concepten voor beheer op basis van rollen bent, Zie [basisprincipes van beheer op basis van rollen voor System Center Configuration Manager](../../../../core/understand/fundamentals-of-role-based-administration.md).  
 
  De informatie in de volgende procedures kunt u maken en configureren van beheer op basis van rollen en overeenkomstige beveiligingsinstellingen:  
 
@@ -47,7 +43,7 @@ In System Center Configuration Manager beheer op basis van rollen combineert bev
 -   [Het beheerbereik van een gebruiker met beheerdersrechten wijzigen](#BKMK_ModAdminUser)  
 
 ##  <a name="BKMK_CreateSecRole"></a> Aangepaste beveiligingsrollen maken  
- Configuration Manager biedt diverse ingebouwde beveiligingsrollen. Indien u bijkomende beveiligingsrollen nodig hebt, kunt u een aangepaste beveiligingsrol maken door een kopie te maken van een bestaande beveiligingsrol en dan de kopie te wijzigen. U mogelijk een aangepaste beveiligingsrol maken om te verlenen aan gebruikers met beheerdersrechten de bijkomende beveiligingsmachtigingen die ze nodig hebben die niet zijn opgenomen in een huidige, toegewezen beveiligingsrol. Door een aangepaste beveiligingsrol te gebruiken, verleent u hen enkel de machtigingen die ze nodig hebben, en vermijdt u een beveiligingsrol toe te wijzen die meer machtigingen verleent dan ze nodig hebben.  
+ Configuration Manager biedt diverse ingebouwde beveiligingsrollen. Indien u bijkomende beveiligingsrollen nodig hebt, kunt u een aangepaste beveiligingsrol maken door een kopie te maken van een bestaande beveiligingsrol en dan de kopie te wijzigen. U kunt een aangepaste beveiligingsrol voor het verlenen van gebruikers met beheerdersrechten de bijkomende beveiligingsmachtigingen die ze nodig hebben die niet zijn opgenomen in een huidige, toegewezen beveiligingsrol maken. Door een aangepaste beveiligingsrol te gebruiken, verleent u hen enkel de machtigingen die ze nodig hebben, en vermijdt u een beveiligingsrol toe te wijzen die meer machtigingen verleent dan ze nodig hebben.  
 
  Gebruik de volgende procedure om een nieuwe beveiligingsrol te maken door gebruik te maken van een bestaande beveiligingsrol als sjabloon.  
 
@@ -72,15 +68,15 @@ In System Center Configuration Manager beheer op basis van rollen combineert bev
         5.  U wijzigt de instelling voor een beveiligingsbewerking, kies de pijl omlaag in de **waarde** kolom en kiest u **Ja** of **Nee**.  
 
             > [!CAUTION]  
-            >  Wanneer u een aangepaste beveiligingsrol configureert, zorg ervoor dat u geen machtigingen verlenen die niet zijn vereist voor gebruikers met beheerdersrechten die gekoppeld aan de nieuwe beveiligingsrol zijn. Bijvoorbeeld, de **wijzigen** waarde voor de **beveiligingsrollen** beveiligingsbewerking gebruikers met beheerdersrechten verleent machtiging voor het bewerken van een beschikbare beveiligingsrol – zelfs als ze niet gekoppeld aan deze beveiligingsrol zijn.  
+            >  Wanneer u een aangepaste beveiligingsrol configureert, moet u ervoor zorgen dat u geen machtigingen die niet zijn vereist voor gebruikers met beheerdersrechten die gekoppeld aan de nieuwe beveiligingsrol zijn. Bijvoorbeeld, de **wijzigen** waarde voor de **beveiligingsrollen** beveiligingsbewerking gebruikers met beheerdersrechten verleent machtigingen om te bewerken van een beschikbare beveiligingsrol – zelfs als ze niet gekoppeld aan deze beveiligingsrol zijn.  
 
         6.  Nadat u de machtigingen configureren, kiest u **OK** om op te slaan van de nieuwe beveiligingsrol.  
 
-    -   Als u wilt importeren een beveiligingsrol die was geëxporteerd van een andere Configuration Manager-hiërarchie, moet u de volgende acties uitvoeren:  
+    -   Als u wilt importeren in een beveiligingsrol die is geëxporteerd uit een andere Configuration Manager-hiërarchie, kunt u de volgende acties uitvoeren:  
 
         1.  Op de **Start** tabblad, in de **maken** groep, kiest u **beveiligingsrol importeren**.  
 
-        2.  Geef het .xml-bestand met de configuratie van de beveiligingsrol die u wilt importeren. Kies **Open** naar de procedure te voltooien en de beveiligingsrol op te slaan.  
+        2.  Geef het .xml-bestand met de configuratie van de beveiligingsrol die u wilt importeren. Kies **Open** voert u de procedure en opslaan van de beveiligingsrol.  
 
             > [!NOTE]  
             >  Nadat u een beveiligingsrol importeert, kunt u de eigenschappen van de beveiligingsrol bewerken om de objectmachtigingen te wijzigen die zijn gekoppeld aan de beveiligingsrol.  
@@ -104,21 +100,21 @@ In System Center Configuration Manager beheer op basis van rollen combineert bev
 
 6.  Vouw in **Toewijzingen beveiligingsbewerking**het knooppunt **Beveiligingsbewerkingen** uit om de beschikbare acties weer te geven.  
 
-7.  U wijzigt de instelling voor een beveiligingsbewerking, kies de pijl omlaag in de **waarde** kolom, en selecteer vervolgens een **Ja** of **Nee**.  
+7.  U wijzigt de instelling voor een beveiligingsbewerking, kies de pijl omlaag in de **waarde** kolom, en kies vervolgens een **Ja** of **Nee**.  
 
     > [!CAUTION]  
-    >  Wanneer u een aangepaste beveiligingsrol configureert, zorg ervoor dat u geen machtigingen verlenen die niet zijn vereist voor gebruikers met beheerdersrechten die gekoppeld aan de nieuwe beveiligingsrol zijn. Bijvoorbeeld, de **wijzigen** waarde voor de **beveiligingsrollen** beveiligingsbewerking gebruikers met beheerdersrechten verleent machtiging voor het bewerken van een beschikbare beveiligingsrol – zelfs als ze niet gekoppeld aan deze beveiligingsrol zijn.  
+    >  Wanneer u een aangepaste beveiligingsrol configureert, moet u ervoor zorgen dat u geen machtigingen die niet zijn vereist voor gebruikers met beheerdersrechten die gekoppeld aan de nieuwe beveiligingsrol zijn. Bijvoorbeeld, de **wijzigen** waarde voor de **beveiligingsrollen** beveiligingsbewerking gebruikers met beheerdersrechten verleent machtigingen om te bewerken van een beschikbare beveiligingsrol – zelfs als ze niet gekoppeld aan deze beveiligingsrol zijn.  
 
-8.  Als u klaar bent met het configureren van beveiligingsbewerkingstoewijzingen, kiest u **OK** om op te slaan van de nieuwe beveiligingsrol.  
+8.  Wanneer u klaar bent met het configureren van beveiligingsbewerkingstoewijzingen, kiezen **OK** om op te slaan van de nieuwe beveiligingsrol.  
 
 ##  <a name="BKMK_ConfigSecScope"></a> Beveiligingsbereiken voor een object configureren  
- U kunt de koppeling van een beveiligingsbereik voor een object van het object – niet vanaf het beveiligingsbereik beheren. De enige directe configuraties die beveiligingsbereiken ondersteunen zijn wijzigingen aan zijn naam en beschrijving. Om de naam en beschrijving van een beveiligingsbereik te wijzigen wanneer u de eigenschappen van het beveiligingsbereik ziet, moet u de **Wijzig** -machtiging hebben voor het met **Beveiligingsbereiken** te beveiligen object.  
+ Bij het beheren van de koppeling van een beveiligingsbereik voor een object van het object: niet van het beveiligingsbereik. De enige directe configuraties die beveiligingsbereiken ondersteunen zijn wijzigingen aan zijn naam en beschrijving. Om de naam en beschrijving van een beveiligingsbereik te wijzigen wanneer u de eigenschappen van het beveiligingsbereik ziet, moet u de **Wijzig** -machtiging hebben voor het met **Beveiligingsbereiken** te beveiligen object.  
 
- Wanneer u een nieuw object in Configuration Manager maakt, het nieuwe object is gekoppeld aan elke beveiligingsrol die is gekoppeld aan de beveiligingsrollen van de account die wordt gebruikt voor het maken van het object – wanneer deze beveiligingsrollen bieden de **maken** machtiging of **beveiligingsbereik instellen** machtiging. Alleen kunt u de beveiligingsbereiken die het object is gekoppeld aan nadat deze gemaakt.  
+ Wanneer u een nieuw object in Configuration Manager maakt, het nieuwe object is gekoppeld aan elke beveiligingsrol die is gekoppeld aan de beveiligingsrollen van de account die wordt gebruikt voor het maken van het object – wanneer deze beveiligingsrollen bieden de **maken** machtiging of **beveiligingsbereik instellen** machtiging. De beveiligingsbereiken die het object is gekoppeld aan nadat deze gemaakt, kunt u alleen wijzigen.  
 
- Als u bijvoorbeeld krijgt u een beveiligingsrol die u machtiging verleent voor het maken van een nieuwe grensgroep. Wanneer u een nieuwe grensgroep maakt, hebt u geen optie die u aan specifieke beveiligingsbereiken toewijzen kunt. In plaats daarvan worden de beveiligingsbereiken die beschikbaar zijn vanaf de beveiligingsrollen waarmee die u bent gekoppeld zijn, automatisch toegewezen aan de nieuwe grensgroep. Nadat u de nieuwe grensgroep opslaat, kunt u de beveiligingsbereiken die gekoppeld aan de nieuwe grensgroep zijn bewerken.  
+ Als u bijvoorbeeld krijgt u een beveiligingsrol die u machtiging verleent voor het maken van een nieuwe grensgroep. Wanneer u een nieuwe grensgroep maakt, hebt u geen optie die u kunt specifieke beveiligingsbereiken toewijzen. In plaats daarvan worden de beveiligingsbereiken die beschikbaar zijn vanuit de beveiligingsrollen die zijn gekoppeld, automatisch toegewezen aan de nieuwe grensgroep. Nadat u de nieuwe grensgroep opslaat, kunt u de beveiligingsbereiken die gekoppeld aan de nieuwe grensgroep zijn bewerken.  
 
- Gebruik de volgende procedure om de beveiligingsbereiken die zijn toegewezen aan een object te configureren.  
+ Gebruik de volgende procedure voor het configureren van de beveiligingsbereiken die zijn toegewezen aan een object.  
 
 #### <a name="to-configure-security-scopes-for-an-object"></a>Beveiligingsbereiken voor een object configureren  
 
@@ -134,14 +130,14 @@ In System Center Configuration Manager beheer op basis van rollen combineert bev
     >  Wanneer u een nieuw object maakt, moet u het object toewijzen aan verschillende beveiligingsbereiken. Voor het wijzigen van het aantal beveiligingsbereiken die gekoppeld aan het object zijn, moet u deze toewijzing wijzigen nadat het object is gemaakt.  
 
 ##  <a name="BKMK_ConfigColl"></a> Verzamelingen voor het beheren van beveiliging configureren  
- Er zijn geen procedures voor het configureren van verzamelingen voor rolgebaseerd beheer. Verzamelingen beschikt niet over de configuratie van een op rollen gebaseerd beheer. In plaats daarvan kunt toewijzen u verzamelingen aan een gebruiker met beheerdersrechten wanneer u de gebruiker met beheerdersrechten configureert. De beveiligingsbewerkingen van de verzameling die ingeschakeld zijn in de gebruiker toegewezen beveiligingsrollen bepalen de machtigingen die een gebruiker met beheerdersrechten voor verzamelingen en verzamelingbronnen (verzamelingsleden heeft).  
+ Er zijn geen procedures voor het configureren van verzamelingen voor rolgebaseerd beheer. Verzamelingen beschikt niet over de configuratie van een op rollen gebaseerd beheer. In plaats daarvan, wijst u verzamelingen aan een gebruiker met beheerdersrechten bij het configureren van de gebruiker met beheerdersrechten. De verzameling beveiligingsbewerkingen die zijn ingeschakeld op de gebruiker toegewezen beveiligingsrollen bepalen de machtigingen die een gebruiker met beheerdersrechten voor verzamelingen en verzamelingbronnen (verzamelingsleden heeft).  
 
- Wanneer een gebruiker met beheerdersrechten machtigingen heeft voor een verzameling, heeft hij ook machtigingen voor verzamelingen die beperkt zijn tot deze verzameling. Als u bijvoorbeeld uw organisatie gebruikmaakt van een verzameling met de naam alle bureaubladen en er is een verzameling met de naam alle bureaubladen van Noord-Amerika die beperkt is tot de verzameling alle bureaubladen. Indien een gebruiker met beheerdersrechten machtigingen heeft tot Alle bureaubladen, hebben ze ook dezelfde machtigingen tot de verzameling Alle bureaubladen van Noord-Amerika.
+ Wanneer een gebruiker met beheerdersrechten machtigingen heeft voor een verzameling, heeft hij ook machtigingen voor verzamelingen die beperkt zijn tot deze verzameling. Als u bijvoorbeeld uw organisatie gebruikmaakt van een verzameling met de naam alle bureaubladen en er is een verzameling met de naam alle bureaubladen van Noord-Amerika die is beperkt tot de verzameling alle bureaubladen. Indien een gebruiker met beheerdersrechten machtigingen heeft tot Alle bureaubladen, hebben ze ook dezelfde machtigingen tot de verzameling Alle bureaubladen van Noord-Amerika.
 
- Bovendien een gebruiker met beheerdersrechten niet gebruiken de **verwijderen** of **wijzigen** machtiging op een verzameling die rechtstreeks aan hen zijn toegewezen. Maar ze kunnen deze machtigingen gebruiken op de verzamelingen die beperkt tot deze verzameling zijn. In het vorige voorbeeld wordt de gebruiker met beheerdersrechten kunt verwijderen of wijzigen van de verzameling alle bureaubladen van Noord-Amerika, maar ze niet verwijderen of wijzigen van de verzameling alle bureaubladen.  
+ Bovendien een gebruiker met beheerdersrechten kan niet via de **verwijderen** of **wijzigen** toegang tot een verzameling die rechtstreeks aan hen is toegewezen. Maar ze kunnen deze machtigingen gebruiken op de verzamelingen die beperkt tot deze verzameling zijn. In het vorige voorbeeld wordt de gebruiker met beheerdersrechten kunt verwijderen of wijzigen van de verzameling alle bureaubladen van Noord-Amerika, maar ze niet verwijderen of wijzigen van de verzameling alle bureaubladen.  
 
 ##  <a name="BKMK_Create_AdminUser"></a> Een nieuwe gebruiker met beheerdersrechten maken  
- Maken van een gebruiker met beheerdersrechten in Configuration Manager om toegang te verlenen aan individuen of leden van een groep beveiligingstoegang voor het beheren van Configuration Manager, en geeft u het Windows-account van de gebruiker of gebruikersgroep. Elke gebruiker met beheerdersrechten in Configuration Manager moet ten minste één beveiligingsrol en één beveiligingsbereik worden toegewezen. U kunt tevens verzamelingen toewijzen om het beheerbereik van de gebruiker met beheerdersrechten te beperken.  
+ Maken van een gebruiker met beheerdersrechten in Configuration Manager wilt verlenen aan individuen of leden van een groep beveiligingstoegang voor het beheren van Configuration Manager, en geef de Windows-account van de gebruiker of gebruikersgroep. Elke gebruiker met beheerdersrechten in Configuration Manager moet ten minste één beveiligingsrol en één beveiligingsbereik worden toegewezen. U kunt tevens verzamelingen toewijzen om het beheerbereik van de gebruiker met beheerdersrechten te beperken.  
 
  Gebruik de volgende procedures om nieuwe gebruikers met beheerdersrechten te maken.  
 
@@ -153,12 +149,12 @@ In System Center Configuration Manager beheer op basis van rollen combineert bev
 
 3.  Op de **Start** tabblad, in de **maken** groep, kiest u **gebruiker of groep toevoegen**.  
 
-4.  Kies **Bladeren**, en selecteer vervolgens het gebruikersaccount of groep moet worden gebruikt voor deze nieuwe gebruiker met beheerdersrechten.  
+4.  Kies **Bladeren**, en selecteer vervolgens het gebruikersaccount of de groep voor deze nieuwe gebruiker met beheerdersrechten.  
 
     > [!NOTE]  
     >  Bij beheer via de console kunnen alleen domeingebruikers of beveiligingsgroepen worden gespecificeerd als een gebruiker met beheerdersrechten.  
 
-5.  Voor **beveiligingsrollen gekoppeld**, kies **toevoegen** voor een lijst van de beschikbare beveiligingsrollen, schakel het selectievakje voor een of meer beveiligingsrollen en kies vervolgens **OK**.  
+5.  Voor **beveiligingsrollen die zijn gekoppeld**, kies **toevoegen** voor een lijst van de beschikbare beveiligingsrollen, schakel het selectievakje voor een of meer beveiligingsrollen en kies vervolgens **OK**.  
 
 6.  Kies een van de volgende twee opties voor het definiëren van het gedrag van het beveiligbare object voor de nieuwe gebruiker:  
 
@@ -173,16 +169,16 @@ In System Center Configuration Manager beheer op basis van rollen combineert bev
 
     -   Als u hebt geselecteerd **alle beveiligbare objecten die relevant voor hun gekoppelde beveiligingsrollen zijn**, kies **OK** om deze procedure te voltooien.  
 
-    -   Als u hebt geselecteerd **alleen beveiligbare objecten in gespecificeerde beveiligingsbereiken of verzamelingen**, kunt u **toevoegen** aanvullende verzamelingen en beveiligingsrollen te selecteren. Of Selecteer een of meer objecten in de lijst en kies **verwijderen** om ze te verwijderen. Kies **OK** om deze procedure te voltooien.  
+    -   Als u hebt geselecteerd **alleen beveiligbare objecten in gespecificeerde beveiligingsbereiken of verzamelingen**, kunt u **toevoegen** aanvullende verzamelingen en beveiligingsrollen te selecteren. Of Selecteer een of meer objecten in de lijst en kies vervolgens **verwijderen** om ze te verwijderen. Kies **OK** om deze procedure te voltooien.  
 
 ##  <a name="BKMK_ModAdminUser"></a> Het beheerbereik van een gebruiker met beheerdersrechten wijzigen  
- U kunt het beheerbereik van een gebruiker met beheerdersrechten wijzigen door beveiligingsrollen, beveiligingsbereiken, en verzamelingen die aan de gebruiker gekoppeld zijn, toe te voegen of te verwijderen. Aan elke gebruiker met beheerdersrechten moet minimaal één beveiligingsrol en één beveiligingsbereik zijn gekoppeld. Mogelijk moet u één of meer verzamelingen aan het beheerbereik van de gebruiker toewijzen. De meeste beveiligingsrollen communiceren met verzamelingen en niet-functie goed zonder een toegewezen verzameling.  
+ U kunt het beheerbereik van een gebruiker met beheerdersrechten wijzigen door beveiligingsrollen, beveiligingsbereiken, en verzamelingen die aan de gebruiker gekoppeld zijn, toe te voegen of te verwijderen. Aan elke gebruiker met beheerdersrechten moet minimaal één beveiligingsrol en één beveiligingsbereik zijn gekoppeld. Mogelijk moet u één of meer verzamelingen aan het beheerbereik van de gebruiker toewijzen. De meeste beveiligingsrollen communiceren met verzamelingen en werken goed zonder een toegewezen verzameling niet.  
 
  Wanneer u een gebruiker met beheerdersrechten wijzigt, kunt u het gedrag wijzigen voor hoe beveiligbare objecten zijn gekoppeld aan de toegewezen beveiligingsrollen. Dit zijn de drie soorten gedrag die u kunt selecteren:  
 
--   **Alle beveiligbare objecten die relevant voor hun gekoppelde beveiligingsrollen zijn**: Deze optie koppelt de gebruiker met beheerdersrechten de **alle** bereik en de op basisniveau ingebouwde verzamelingen voor het serviceniveau **alle systemen** en **alle gebruikers en gebruikersgroepen**. De aan de gebruiker toegewezen beveiligingsrollen definiëren de toegang tot objecten.  
+-   **Alle beveiligbare objecten die relevant voor hun gekoppelde beveiligingsrollen zijn**: Deze optie koppelt de gebruiker met beheerdersrechten de **alle** bereik en de op basisniveau ingebouwde verzamelingen voor niveau **alle systemen** en **alle gebruikers en gebruikersgroepen**. De aan de gebruiker toegewezen beveiligingsrollen definiëren de toegang tot objecten.  
 
--   **Alleen beveiligbare objecten in gespecificeerde beveiligingsbereiken of verzamelingen**: Deze optie koppelt de gebruiker met beheerdersrechten aan dezelfde beveiligingsbereiken en verzamelingen die gekoppeld zijn aan het account waarmee u de gebruiker met beheerdersrechten configureert. Deze optie ondersteunt het toevoegen of verwijderen van beveiligingsrollen en verzamelingen om het beheerbereik van de gebruiker met beheerdersrechten aan te passen.  
+-   **Alleen beveiligbare objecten in gespecificeerde beveiligingsbereiken of verzamelingen**: Deze optie koppelt de gebruiker met beheerdersrechten aan dezelfde beveiligingsbereiken en verzamelingen die gekoppeld aan het account dat u gebruikt zijn voor het configureren van de gebruiker met beheerdersrechten. Deze optie ondersteunt het toevoegen of verwijderen van beveiligingsrollen en verzamelingen om het beheerbereik van de gebruiker met beheerdersrechten aan te passen.  
 
 -   **Alleen beveiligbare objecten zoals bepaald door de beveiligingsrollen van de gebruiker met beheerdersrechten**: Deze optie kunt u specifieke koppelingen tussen individuele beveiligingsrollen en specifieke beveiligingsbereiken en verzamelingen voor de gebruiker.  
 
@@ -205,11 +201,11 @@ Gebruik de volgende procedure om te bekijken en beheren van de configuratie voor
 
 5.  Kies de **Beveiligingsbereiken** tabblad om de huidige configuratie voor beveiligbare objecten voor deze gebruiker met beheerdersrechten.  
 
-6.  Om het gedrag van een beveiligbaar object te wijzigen, selecteert u een nieuwe optie voor het gedrag van een beveiligbaar object. Wanneer u deze configuratie hebt gewijzigd, Zie de betreffende procedure voor verdere richtlijnen voor het configureren van beveiligingsbereiken en verzamelingen en beveiligingsrollen voor deze gebruiker met beheerdersrechten.  
+6.  Om het gedrag van een beveiligbaar object te wijzigen, selecteert u een nieuwe optie voor het gedrag van een beveiligbaar object. Nadat u deze configuratie wijzigen, raadpleegt u de juiste procedure voor verdere richtlijnen voor het configureren van beveiligingsbereiken en verzamelingen en beveiligingsrollen voor deze gebruiker met beheerdersrechten.  
 
 7.  Kies **OK** om de procedure te voltooien.  
 
-De volgende procedure gebruiken om te wijzigen van een gebruiker met beheerdersrechten die het gedrag van het beveiligbare object ingesteld op **alle beveiligbare objecten die relevant voor hun gekoppelde beveiligingsrollen zijn**.  
+De volgende procedure gebruiken om te wijzigen van een gebruiker met beheerdersrechten die het gedrag van het beveiligbare object ingesteld op heeft **alle beveiligbare objecten die relevant voor hun gekoppelde beveiligingsrollen zijn**.  
 
 #### <a name="for-option-all-securable-objects-that-are-relevant-to-their-associated-security-roles"></a>Voor de optie: Alle beveiligbare objecten die relevant voor hun gekoppelde beveiligingsrollen zijn  
 
@@ -225,11 +221,11 @@ De volgende procedure gebruiken om te wijzigen van een gebruiker met beheerdersr
 
 6.  Voor het wijzigen van de toegewezen beveiligingsrollen, kies de **beveiligingsrollen** tabblad.  
 
-    -   Om aanvullende beveiligingsrollen toe te kennen aan deze gebruiker met beheerdersrechten, kies **toevoegen**, schakel het selectievakje van elke aanvullende beveiligingsrol die u wilt toewijzen en kies vervolgens **OK**.  
+    -   Om aanvullende beveiligingsrollen aan deze gebruiker met beheerdersrechten toewijzen, kies **toevoegen**, schakel het selectievakje voor elke aanvullende beveiligingsrol die u wilt toewijzen, en kies vervolgens **OK**.  
 
     -   Om beveiligingsrollen te verwijderen, selecteert u een of meer beveiligingsrollen uit de lijst en kies vervolgens **verwijderen**.  
 
-7.  Voor het gedrag van het beveiligbare object wijzigen, kiest u de **Beveiligingsbereiken** tabblad en kiest u een nieuwe optie voor het gedrag van het beveiligbare object. Wanneer u deze configuratie hebt gewijzigd, Zie de betreffende procedure voor verdere richtlijnen voor het configureren van beveiligingsbereiken en verzamelingen en beveiligingsrollen voor deze gebruiker met beheerdersrechten.  
+7.  Voor het wijzigen van het gedrag van het beveiligbare object, kies de **Beveiligingsbereiken** tabblad en kiest u een nieuwe optie voor het gedrag van het beveiligbare object. Nadat u deze configuratie wijzigen, raadpleegt u de juiste procedure voor verdere richtlijnen voor het configureren van beveiligingsbereiken en verzamelingen en beveiligingsrollen voor deze gebruiker met beheerdersrechten.  
 
     > [!NOTE]  
     >  Wanneer het gedrag van het beveiligbare object is ingesteld op **alle beveiligbare objecten die relevant voor hun gekoppelde beveiligingsrollen zijn**, kunt u toevoegen of verwijderen van specifieke beveiligingsbereiken en verzamelingen.  
@@ -248,19 +244,19 @@ Gebruik de volgende procedure om een gebruiker met beheerdersrechten te wijzigen
 
 4.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
 
-5.  Kies de **Beveiligingsbereiken** tab om te bevestigen dat de gebruiker is geconfigureerd voor **alleen beveiligbare objecten in gespecificeerde beveiligingsbereiken of verzamelingen**.  
+5.  Kies de **Beveiligingsbereiken** tabblad om te bevestigen dat de gebruiker is geconfigureerd voor **alleen beveiligbare objecten in gespecificeerde beveiligingsbereiken of verzamelingen**.  
 
 6.  Voor het wijzigen van de toegewezen beveiligingsrollen, kies de **beveiligingsrollen** tabblad.  
 
-    -   Om aanvullende beveiligingsrollen aan deze gebruiker toewijzen, kies **toevoegen**, schakel het selectievakje van elke aanvullende beveiligingsrol die u wilt toewijzen en kies vervolgens **OK**.  
+    -   Om aanvullende beveiligingsrollen aan deze gebruiker toewijst, kies **toevoegen**, schakel het selectievakje voor elke aanvullende beveiligingsrol die u wilt toewijzen, en kies vervolgens **OK**.  
 
     -   Om beveiligingsrollen te verwijderen, selecteert u een of meer beveiligingsrollen uit de lijst en kies vervolgens **verwijderen**.  
 
 7.  Voor het wijzigen van de beveiligingsbereiken en verzamelingen die gekoppeld aan beveiligingsrollen zijn, kies de **Beveiligingsbereiken** tabblad.  
 
-    -   Om nieuwe beveiligingsbereiken of verzamelingen koppelen aan alle beveiligingsrollen die aan deze gebruiker met beheerdersrechten zijn toegewezen, kies **toevoegen** en selecteer een van de vier opties. Als u selecteert **beveiligingsbereik** of **verzameling**, schakel het selectievakje voor een of meer objecten die selectie te voltooien en kies vervolgens **OK**.  
+    -   Om nieuwe beveiligingsbereiken of verzamelingen koppelen aan alle beveiligingsrollen die zijn toegewezen aan deze gebruiker met beheerdersrechten, kies **toevoegen** en selecteer een van de vier opties. Als u selecteert **beveiligingsbereik** of **verzameling**, schakel het selectievakje voor een of meer objecten die selectie te voltooien en klik vervolgens op **OK**.  
 
-    -   Als u wilt verwijderen van een beveiligingsbereik of verzameling, kiest u het object en kies vervolgens **verwijderen**.  
+    -   Als u wilt een beveiligingsbereik of verzameling verwijderen, kiest u het object en kies vervolgens **verwijderen**.  
 
 8.  Kies **OK** om deze procedure te voltooien.  
 
@@ -280,7 +276,7 @@ Gebruik de volgende procedure om een gebruiker met beheerdersrechten te wijzigen
 
 6.  Voor het wijzigen van de toegewezen beveiligingsrollen, kies de **beveiligingsrollen** tabblad.  
 
-    -   Om aanvullende beveiligingsrollen toe te kennen aan deze gebruiker met beheerdersrechten, kies **toevoegen**. Op de **beveiligingsrol toevoegen** in het dialoogvenster Selecteer een of meer beschikbare beveiligingsrollen, kies **toevoegen**, en selecteer een objecttype dat aan de geselecteerde beveiligingsrollen wilt koppelen. Als u selecteert **beveiligingsbereik** of **verzameling**, schakel het selectievakje voor een of meer objecten die selectie te voltooien en kies vervolgens **OK**.  
+    -   Om aanvullende beveiligingsrollen aan deze gebruiker met beheerdersrechten toewijzen, kies **toevoegen**. Op de **beveiligingsrol toevoegen** in het dialoogvenster, selecteer een of meer beschikbare beveiligingsrollen, kies **toevoegen**, en selecteer een object dat aan de geselecteerde beveiligingsrollen wilt koppelen. Als u selecteert **beveiligingsbereik** of **verzameling**, schakel het selectievakje voor een of meer objecten die selectie te voltooien en klik vervolgens op **OK**.  
 
         > [!NOTE]  
         >  U moet minimaal één beveiligingsbereik configureren voordat de geselecteerde beveiligingsrollen aan de gebruiker met beheerdersrechten kunnen worden toegewezen. Wanneer u meerdere beveiligingsrollen selecteert, wordt elk beveiligingsbereik en elke verzameling die u configureert gekoppeld aan elk van deze geselecteerde beveiligingsrollen.  
@@ -289,17 +285,16 @@ Gebruik de volgende procedure om een gebruiker met beheerdersrechten te wijzigen
 
 7.  Voor het wijzigen van de beveiligingsbereiken en verzamelingen die gekoppeld aan een specifieke beveiligingsrol zijn, kies de **Beveiligingsbereiken** tabblad, selecteert u de beveiligingsrol en kies vervolgens **bewerken**.  
 
-    -   Kies nieuwe om objecten te koppelen aan deze beveiligingsrol, **toevoegen**, en selecteer een objecttype dat aan de geselecteerde beveiligingsrollen wilt koppelen. Als u selecteert **beveiligingsbereik** of **verzameling**, schakel het selectievakje voor een of meer objecten die selectie te voltooien en kies vervolgens **OK**.  
+    -   Kies nieuwe om objecten te koppelen aan deze beveiligingsrol, **toevoegen**, en selecteer een object dat aan de geselecteerde beveiligingsrollen wilt koppelen. Als u selecteert **beveiligingsbereik** of **verzameling**, schakel het selectievakje voor een of meer objecten die selectie te voltooien en klik vervolgens op **OK**.  
 
         > [!NOTE]  
         >  U moet ten minste één beveiligingsbereik configureren.  
 
-    -   Als u wilt verwijderen van een beveiligingsbereik of verzameling die is gekoppeld aan deze beveiligingsrol is toegekend, selecteert u het object en kies vervolgens **verwijderen**.  
+    -   Als u wilt verwijderen een beveiligingsbereik of verzameling die is gekoppeld aan deze beveiligingsrol is toegekend, selecteert u het object en kies vervolgens **verwijderen**.  
 
-    -   Als u klaar bent met het wijzigen van de gekoppelde objecten, kiest u **OK**.  
+    -   Wanneer u klaar bent met het wijzigen van de gekoppelde objecten, kiezen **OK**.  
 
 8.  Kies **OK** om deze procedure te voltooien.  
 
     > [!CAUTION]  
     >  Wanneer een beveiligingsrol gebruikers met beheerdersrechten de machtiging voor het implementeren van verzamelingen verleent, kunnen die gebruikers met beheerdersrechten objecten distribueren uit elk beveiligingsbereik waarvoor ze een **leesmachtiging** hebben, ook als dat beveiligingsbereik gekoppeld is aan een andere beveiligingsrol.  
-

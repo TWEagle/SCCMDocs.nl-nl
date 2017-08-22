@@ -2,10 +2,9 @@
 title: Technische Preview 1707 | Microsoft Docs
 description: Meer informatie over functies die beschikbaar zijn in de Technical Preview-versie 1707 voor System Center Configuration Manager.
 ms.custom: na
-ms.date: 07/28/2017
+ms.date: 08/14/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -14,12 +13,11 @@ ms.assetid: cb405ba0-8792-4ab7-988b-2f835f3a9550
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
+ms.openlocfilehash: 7ee2fd78c6c502394016ba077d42714041ad01c6
+ms.sourcegitcommit: 10f17229c5a359f040cb7f8f5e7bd868a34ac086
 ms.translationtype: MT
-ms.sourcegitcommit: 6e890862fd02786b675e2b7abaca7ede7c0e977a
-ms.openlocfilehash: 91fd850f055a7e892a54487307109a291e336696
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/15/2017
 ---
 # <a name="capabilities-in-technical-preview-1707-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1707 voor System Center Configuration Manager
 
@@ -33,6 +31,17 @@ Dit artikel bevat de functies die beschikbaar in de Technical Preview voor Syste
 -   **Issue Name**. Details
     Workaround details.
 -->
+
+**Bekende problemen in deze Technical Preview:**
+-   **Update voor de preview-versie 1707 mislukt wanneer u een siteserver in de passieve modus hebt**. Als u de preview-versie 1706 uitvoeren en hebben een [primaire siteserver in de passieve modus](/sccm/core/get-started/capabilities-in-technical-preview-1706#site-server-role-high-availability), moet u de passieve modus siteserver verwijderen voordat u de preview-site met succes naar versie 1707 bijwerken kunt. Nadat u uw site versie 1707 wordt uitgevoerd, kunt u de passieve modus siteserver opnieuw installeren.
+
+  Verwijder de passieve modus sites:
+  1. Ga in de console naar **beheer** > **overzicht** > **siteconfiguratie** > **Servers en sitesysteemrollen**, en selecteer vervolgens de passieve modus-siteserver.
+  2. In de **sitesysteemrollen** deelvenster, rechts Klik op de **siteserver** rol, en kies vervolgens **rol verwijderen**.
+  3. Met de rechtermuisknop op de siteserver van de passieve modus, en kies vervolgens **verwijderen**.
+  4. Nadat de siteserver verwijdert, op de primaire siteserver van de actieve service opnieuw starten de **CONFIGURATION_MANAGER_UPDATE**.
+
+
 
 **Hier volgen nieuwe functies die u met deze versie kunt uitproberen.**  
 
@@ -89,13 +98,13 @@ Voor meer informatie over Windows Defender toepassing Guard, Zie [dit blogberich
 
 In de laatste Technical Preview we een nieuwe functie waarmee u geïntroduceerd [maken en uitvoeren van PowerShell-scripts uit de Configuration Manager-console](/sccm/core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console).
 In deze Technical Preview hebben we uitgebreid op deze mogelijkheid. Configuration Manager nu het PowerShell-script worden gelezen en parameters weergegeven in de Wizard Script maken. U kunt opgeven dat een waarde voor de parameter in de wizard die wordt gebruikt wanneer het script wordt uitgevoerd. U kunt ook kunt u de parameter leeg laten. Als u dit doet, moet u een waarde voor de parameter opgeven wanneer u het script uitvoeren.
+In deze technical preview, moet u de parameters die vereist dat een script opgeven. We zullen levert scriptparameters optioneel maken in een toekomstige release.
 
 ### <a name="try-it-out"></a>Probeer het nu!
 
-1. Volg de instructies voor [maken en uitvoeren van PowerShell-scripts uit de Configuration Manager-console](/sccm/core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console). 
+1. Volg de instructies voor [maken en uitvoeren van PowerShell-scripts uit de Configuration Manager-console](/sccm/core/get-started/capabilities-in-technical-preview-1706#create-and-run-powershell-scripts-from-the-configuration-manager-console).
 2. Op de nieuwe **scriptparameters** pagina van de **Wizard Script maken**, kiest u een parameter en klik vervolgens op **bewerken**.
 3. Geef een parameterwaarde voor de geselecteerde parameter en klik vervolgens op **OK**.
 4. Voltooi de wizard.
 
 Wanneer het script wordt uitgevoerd, wordt u ingestelde parameterwaarden gebruikt.
-

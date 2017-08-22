@@ -1,13 +1,12 @@
 ---
-title: Beperk de toegang op basis van risico | Microsoft-documenten
-description: Beperk de toegang tot bedrijfsbronnen op basis van het apparaat, netwerk en toepassing risico.
+title: Beperken van toegang op basis van risico | Microsoft Docs
+description: Toegang tot bedrijfsbronnen op basis van apparaat-, netwerk- en toepassing risico beperken.
 ms.custom: na
 ms.date: 04/25/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9083c571-f4fc-4a78-adc5-8aec84dabcbd
@@ -15,44 +14,41 @@ caps.latest.revision:
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: c6a6137fa978e1ea28aefea2aea4e29ba661efd6
 ms.openlocfilehash: 250671660c1c6da0ca9b593b06b8f344dfe17ad6
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
-# <a name="manage-access-to-company-resource-based-on-device-network-and-application-risk"></a>Toegang tot bedrijfsresources op basis van het apparaat, netwerk- en toepassing risico beheren
+# <a name="manage-access-to-company-resource-based-on-device-network-and-application-risk"></a>Toegang tot bedrijfsbronnen op basis van apparaat-, netwerk- en toepassing risico's beheren
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Mobiele bedreiging verdediging connectors kunnen u gebruikmaken van de leverancier van uw gekozen mobiele bedreiging verdediging als een bron van informatie voor uw nalevingsbeleid en regels voor voorwaardelijke toegang. Dit kunnen IT-beheerders een beveiligingslaag toevoegen aan hun bedrijfsbronnen zoals Exchange en Sharepoint, speciaal van meer mobiele apparaten.
+Mobile Threat verdediging connectors kunnen u gebruikmaken van de leverancier van uw gekozen Mobile Threat verdediging als een bron van informatie voor uw nalevingsbeleid en de regels voor voorwaardelijke toegang. Dit kunnen IT-beheerders een beschermingslaag toevoegen aan hun bedrijfsbronnen zoals Exchange en Sharepoint, speciaal van verdacht mobiele apparaten.
 
-## <a name="what-problem-does-this-solve"></a>Wat is het probleem opgelost.
+## <a name="what-problem-does-this-solve"></a>Welk probleem opgelost.
 
-Gevoelige gegevens beschermen tegen mogelijke bedreigingen zoals fysieke, op basis van een app, en op het netwerk, en het besturingssysteem beveiligingslekken moeten bedrijven.
-Bedrijven zijn, in het verleden proactieve wanneer pc's beveiligen tegen een aanval, terwijl mobiele apparaten niet bewaakt, en niet-beveiligde gaat. Mobiele platforms hebt geïntegreerde beveiliging zoals app isolatie en gerenommeerde consument app stores, maar deze systemen blijven kwetsbaar voor geavanceerde aanvallen. Vandaag meer werknemers apparaten gebruiken voor het werk en toegang tot gevoelige informatie nodig. Apparaten moeten worden beschermd tegen steeds meer geavanceerde aanvallen.
+Er moeten bedrijven gevoelige gegevens beveiligen tegen opkomende bedreigingen, met inbegrip van fysieke, op basis van een app en netwerk gebaseerde bedreigingen, evenals besturingssysteem beveiligingsproblemen.
+Bedrijven zijn in het verleden hebben proactieve wanneer pc's beveiligen tegen een aanval, terwijl het mobiele apparaten gaan niet bewaakte en niet-beveiligde. Mobiele platforms hebt geïntegreerde beveiliging zoals app isolatie en gerenommeerde consumer app stores, maar deze platforms blijven kwetsbaar voor geavanceerde aanvallen. Vandaag de dag meer werknemers apparaten gebruiken voor het werk en toegang tot gevoelige informatie nodig. Apparaten moeten worden beschermd tegen steeds meer geavanceerde aanvallen.
 
-De [hybride MDM-implementatie (SCCM met Intune)](https://docs.microsoft.com/sccm/mdm/understand/choose-between-standalone-intune-and-hybrid-mobile-device-management) biedt u de mogelijkheid de toegang tot bedrijfsbronnen en gegevens op basis van risicoanalyse die apparaat bedreiging oplossingen zoals mobiele bedreiging verdediging partners bieden.
+De [hybride MDM-implementatie (SCCM met Intune)](https://docs.microsoft.com/sccm/mdm/understand/choose-between-standalone-intune-and-hybrid-mobile-device-management) biedt u de mogelijkheid de toegang tot bedrijfsbronnen en gegevens op basis van de risico-evaluatie apparaat threat protection oplossingen zoals Mobile Threat verdediging partners bieden.
 
-## <a name="how-the-intune-mobile-threat-defense-connectors-work"></a>Hoe de Intune Mobile bedreiging verdediging connectors werken?
+## <a name="how-the-intune-mobile-threat-defense-connectors-work"></a>Hoe de Intune Mobile Threat Defense-connectors werken?
 
-De connector beschermt bedrijfsbronnen te maken van een kanaal van communicatie tussen Intune en de leverancier van uw gekozen mobiele bedreiging verdediging. Intune Mobile bedreiging verdediging partners bieden intuïtieve, eenvoudig te implementeren van toepassingen voor mobiele apparaten die actief scannen en analyseren van informatie over de bedreiging voor het delen met Intune, voor een rapport of afdwinging doeleinden. Bijvoorbeeld, als een verbonden mobiele bedreiging verdediging app aan de leverancier mobiele bedreiging verdediging een telefoon op uw netwerk is momenteel is verbonden met een netwerk dat vatbaar voor Man in de Middle-aanvallen rapporteert is, deze informatie wordt gedeeld met en gecategoriseerd voor een juiste risiconiveau (laag/gemiddeld/hoog –) die vervolgens kan worden vergeleken met de geconfigureerde risico niveau rechten in Intune om te bepalen als toegang tot bepaalde bronnen van uw keuze worden ingetrokken terwijl de apparaat is aangetast.
+De connector beschermt bedrijfsbronnen te maken van een kanaal van communicatie tussen Intune en de leverancier van uw gekozen Mobile Threat verdediging. Intune Mobile Threat verdediging partners bieden intuïtieve, eenvoudig te implementeren van toepassingen voor mobiele apparaten die actief scannen en analyseren van informatie over de bedreiging te delen met Intune, voor een rapport of afdwinging doeleinden. Bijvoorbeeld, als een verbonden app voor Mobile Threat verdediging aan de leverancier Mobile Threat verdediging rapporteert dat een telefoon op uw netwerk momenteel is verbonden met een netwerk dat kwetsbaar voor Man in the-Middle-aanvallen is, deze informatie wordt gedeeld met en gecategoriseerd voor een juiste risiconiveau (laag/gemiddeld/hoog –) die vervolgens kan worden vergeleken met de geconfigureerde risico niveau rechten in Intune om te bepalen als toegang tot bepaalde bronnen van uw keuze worden ingetrokken wanneer het apparaat is geknoeid.
 
 ## <a name="sample-scenarios"></a>Voorbeeldscenario 's
 
-Wanneer een apparaat wordt beschouwd als geïnfecteerd door de mobiele bedreiging verdediging oplossing:
+Wanneer een apparaat wordt beschouwd als geïnfecteerd door de mobiele Threat Defense-oplossing:
 
-![Mobiele bedreiging verdediging geïnfecteerd apparaat](../media/mtp/MTD-image-1.png)
+![Mobile Threat verdediging geïnfecteerde apparaten](../media/mtp/MTD-image-1.png)
 
-Toegang te krijgen wanneer het apparaat is hersteld:
+Wanneer het apparaat is hersteld, wordt toegang verleend:
 
-![Mobiele bedreiging verdediging toegang verleend](../media/mtp/MTD-image-2.png)
+![Mobile Threat verdediging toegang verleend](../media/mtp/MTD-image-2.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het beveiligen van toegang tot bedrijfsresources op basis van het apparaat, netwerk- en toepassing risico met:
+Meer informatie over het beveiligen van toegang tot bedrijfsbronnen op basis van apparaat-, netwerk- en toepassing risico's met:
 
-- [Zoek](https://docs.microsoft.com/intune/deploy-use/lookout-mobile-threat-defense-connector)
+- [Lookout](https://docs.microsoft.com/intune/deploy-use/lookout-mobile-threat-defense-connector)

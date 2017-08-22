@@ -1,6 +1,5 @@
 ---
-
-title: Beveiliging en privacy voor software-updates | Microsoft-documenten
+title: Beveiliging en privacy voor software-updates | Microsoft Docs
 description: Volg deze best practices voor beveiliging voor software-updates en meer informatie over hoe Configuration Manager privacy-informatie verwerkt.
 keywords: 
 author: dougeby
@@ -10,17 +9,13 @@ ms.date: 10/06/2016
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-sum
+ms.technology: configmgr-sum
 ms.assetid: 41d6d5d8-ba84-4efb-b105-4d1eed239824
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: e6cf8c799b5be2f7dbb6fadadddf702ec974ae45
 ms.openlocfilehash: 4b4f045138abc14b6e93b3b990c5f3a8b4f2f952
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="security-and-privacy-for-software-updates-in-system-center-configuration-manager"></a>Beveiliging en privacy voor software-updates in System Center Configuration Manager
 
@@ -47,7 +42,7 @@ Dit onderwerp bevat beveiligings- en privacy-informatie voor software-updates in
 
 -   Schakel SSL op Windows Server Update Services (WSUS) in en volg de aanbevolen procedures om WSUS te beveiligen.  
 
-     Achterhaal en volg de aanbevolen beveiligingsprocedures voor de versie van WSUS die u met Configuration Manager gebruikt.  
+     Bepaal en volg de aanbevolen beveiligingsprocedures voor de versie van WSUS die u met Configuration Manager gebruiken.  
 
     > [!IMPORTANT]  
     >  Als u het software-updatepunt zodanig configureert dat SSL-communicatie voor de WSUS-server wordt ingeschakeld, moet u virtuele roots voor SSL configureren op de WSUS-server.  
@@ -60,18 +55,17 @@ Dit onderwerp bevat beveiligings- en privacy-informatie voor software-updates in
 
 -   Configureer WSUS voor het gebruik van een aangepaste website.  
 
-     Wanneer u WSUS installeert op het software-updatepunt, kunt u kiezen of u de bestaande standaardwebsite van IIS wilt gebruiken of een aangepaste WSUS-website wilt maken. Maak een aangepaste website voor WSUS, zodat de WSUS-services op een speciale virtuele website in plaats van dezelfde website die wordt gebruikt door de andere Configuration Manager-sitesystemen of andere toepassingen delen door IIS worden gehost.  
+     Wanneer u WSUS installeert op het software-updatepunt, kunt u kiezen of u de bestaande standaardwebsite van IIS wilt gebruiken of een aangepaste WSUS-website wilt maken. Maak een aangepaste website voor WSUS, zodat de WSUS-services in een speciale virtuele website in plaats van dezelfde website die wordt gebruikt door de andere Configuration Manager-sitesystemen of andere toepassingen delen door IIS worden gehost.  
 
-     Zie voor meer informatie [WSUS configureren voor het gebruik van een aangepaste website](plan-for-software-updates.md#BKMK_CustomWebSite).  
+     Zie voor meer informatie [WSUS configureren voor gebruik van een aangepaste website](plan-for-software-updates.md#BKMK_CustomWebSite).  
 
 ##  <a name="BKMK_Privacy_HardwareInventory"></a>Privacy-informatie voor software-updates  
- Bij software-updates worden uw clientcomputers gescand om te bepalen welke updates u nodig hebt. Vervolgens wordt die informatie teruggestuurd naar de sitedatabase. Tijdens het proces voor software-updates, kan Configuration Manager informatie verzenden tussen clients en servers die de computer en het aanmeldingsaccount identificeren.  
+ Bij software-updates worden uw clientcomputers gescand om te bepalen welke updates u nodig hebt. Vervolgens wordt die informatie teruggestuurd naar de sitedatabase. Tijdens het software-updates wordt kan Configuration Manager informatie verzenden tussen clients en servers die de computer en het aanmeldingsaccount identificeren.  
 
- Configuration Manager wordt statusinformatie over de software-implementatieproces bijgehouden. Statusinformatie wordt niet versleuteld tijdens de overdracht of opslag. Statusinformatie wordt opgeslagen in de Configuration Manager-database en wordt deze verwijderd door de onderhoudstaken van de database. Er wordt geen statusinformatie verzonden naar Microsoft.  
+ Configuration Manager houdt de statusinformatie over de software-implementatieproces. Statusinformatie wordt niet versleuteld tijdens de overdracht of opslag. Statusinformatie wordt opgeslagen in de Configuration Manager-database en wordt deze verwijderd door de onderhoudstaken van de database. Er wordt geen statusinformatie verzonden naar Microsoft.  
 
- Het gebruik van Configuration Manager-software-updates voor het installeren van software-updates op clientcomputers is mogelijk onderhevig aan softwarelicentievoorwaarden voor die updates, dat is gescheiden van de gebruiksrechtovereenkomst voor System Center Configuration Manager. Controleer altijd of u akkoord gaat met de licentievoorwaarden voordat u de software-updates installeert met behulp van Configuration Manager.  
+ Het gebruik van Configuration Manager software-updates voor het installeren van software-updates op clientcomputers mogelijk onderworpen aan softwarelicentievoorwaarden voor die updates dat is gescheiden van de gebruiksrechtovereenkomst voor System Center Configuration Manager. Controleer altijd of u akkoord gaat met de licentievoorwaarden voor Software voordat u de software-updates installeert met behulp van Configuration Manager.  
 
- Configuration Manager implementeert software-updates niet standaard en vereist verschillende configuratiestappen voordat gegevens worden verzameld.  
+ Configuration Manager software-updates niet standaard geïmplementeerd en vereist verschillende configuratiestappen voordat gegevens worden verzameld.  
 
  Voordat u software-updates configureert, moet u nadenken over uw privacyvereisten.  
-

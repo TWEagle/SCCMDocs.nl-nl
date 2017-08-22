@@ -1,33 +1,30 @@
 ---
-title: Hardware-inventaris configureren | Microsoft documenten | mobiele apparaten
-description: Configureer de hardware-inventaris voor mobiele apparaten die zijn geregistreerd door Microsoft Intune en System Center Configuration Manager.
+title: Hardware-inventaris configureren | Microsoft Docs | mobiele apparaten
+description: Hardware-inventaris voor mobiele apparaten die zijn geregistreerd door Microsoft Intune en System Center Configuration Manager configureren.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 78a0aecc-f775-451e-aa05-56377ec91b1f
-caps.latest.revision: 7
+caps.latest.revision: "7"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 199096db7a23fb14db98b95e75246ed254848ab7
 ms.openlocfilehash: 7ab9042a525e07b8e3107479cedeec6b99f7bc86
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="how-to-configure-hardware-inventory-for-mobile-devices-enrolled-by-microsoft-intune-and-system-center-configuration-manager"></a>Het configureren van hardware-inventaris voor mobiele apparaten die zijn geregistreerd door Microsoft Intune en System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-In Configuration Manager, kunt u de hardware-inventaris verzamelen voor iOS, Android en Windows apparaten met behulp van de Microsoft Intune-connector. Zie voor meer informatie over het configureren van hardware-inventaris [het uitbreiden van hardware-inventaris in System Center Configuration Manager](../../core/clients/manage/inventory/extend-hardware-inventory.md).  
+In Configuration Manager kunt u de hardware-inventaris verzamelen op iOS, Android en Windows apparaten via de Microsoft Intune-connector. Zie voor meer informatie over het configureren van hardware-inventaris [hardware-inventarisatie in System Center Configuration Manager uitbreiden](../../core/clients/manage/inventory/extend-hardware-inventory.md).  
 
  Zie voor meer informatie over het inschrijven van apparaten in Microsoft Intune [mobiele apparaten beheren met Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).  
 
@@ -62,7 +59,7 @@ In Configuration Manager, kunt u de hardware-inventaris verzamelen voor iOS, And
  **Android**  
 
 > [!NOTE]  
->  **OPMERKING:** Android-inventarisklassen zijn beschikbaar wanneer u de Android-bedrijfsportal-app.  
+>  **OPMERKING:** Android-inventarisklassen zijn beschikbaar wanneer de Android-bedrijfsportal-app.  
 
 |Hardware-inventarisklasse|Android|  
 |------------------------------|-------------|  
@@ -140,4 +137,3 @@ In Configuration Manager, kunt u de hardware-inventaris verzamelen voor iOS, And
  <sup>1</sup> Het telefoonnummer wordt gemaskeerd met * met uitzondering van de laatste 4 cijfers.  
 
  Het telefoonnummer kan alleen door de inventaris worden verzameld als er een SIM-kaart in het apparaat is geplaatst en er door de provider een telefoonnummer aan die SIM-kaart is gekoppeld.  
-

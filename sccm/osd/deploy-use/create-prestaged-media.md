@@ -1,40 +1,37 @@
 ---
-title: Voorbereide media maken met System Center Configuration Manager | Microsoft-documenten
-description: Maken van voorbereide media in System Center Configuration Manager-implementatie van Windows in verschillende scenario&quot;s vereenvoudigen.
+title: Voorbereide media maken met System Center Configuration Manager | Microsoft Docs
+description: Voorbereide media maken in System Center Configuration Manager voor het vereenvoudigen van implementatie van Windows in verschillende scenario's.
 ms.custom: na
 ms.date: 04/11/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ff6e7267-302a-4563-815e-cdc0d1a4b60f
-caps.latest.revision: 12
+caps.latest.revision: "12"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: ae9488a34c6b1e04397c4875de4b3bc607f7116c
 ms.openlocfilehash: 33abf3853d912d423e427db4d35fb4a16167164e
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="create-prestaged-media-with-system-center-configuration-manager"></a>Voorbereide media maken met System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Voorbereide media in System Center Configuration Manager is een Windows Imaging Format (WIM)-bestand dat kan worden geïnstalleerd op een bare-metal computer door de fabrikant of in een enterprise-voorbereidingscentrum dat niet is verbonden met de Configuration Manager-omgeving.  
+Voorbereide media in System Center Configuration Manager is een Windows Imaging Format (WIM)-bestand dat kan worden geïnstalleerd op een bare-metal computer door de fabrikant of in een zakelijk voorbereidingscentrum dat niet is verbonden met de Configuration Manager-omgeving.  
 Voorbereide media bevatten de opstartinstallatiekopie die wordt gebruikt voor het starten van de doelcomputer en de installatiekopie van het besturingssysteem die op de doelcomputer wordt toegepast. U kunt ook toepassingen, pakketten en stuurprogrammapakketten opgeven die moeten worden opgenomen als onderdeel van de voorgefaseerde media. De takenreeks waarmee het besturingssysteem wordt geïmplementeerd, staat niet op de media. Voorbereide media worden toegepast op de harde schijf van een nieuwe computer voordat de computer wordt verzonden naar de eindgebruiker. Gebruik voorgefaseerde media voor de volgende implementatiescenario'voor besturingssystemen:  
 
--   [Een installatiekopie maken voor een OEM in de fabriek of een lokale depot](../../osd/deploy-use/create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
+-   [Een installatiekopie voor een OEM in de fabriek of een lokaal depot maken](../../osd/deploy-use/create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
 
--   [Een nieuwe versie van Windows installeren op een nieuwe computer (bare metal)](install-new-windows-version-new-computer-bare-metal.md)  
+-   [Een nieuwe versie van Windows op een nieuwe computer (bare-metal) installeren](install-new-windows-version-new-computer-bare-metal.md)  
 
--   [Implementeer Windows to Go](deploy-windows-to-go.md)  
+-   [Windows to Go implementeren](deploy-windows-to-go.md)  
 
  Wanneer de computer voor het eerst wordt opgestart nadat de voorgefaseerde media zijn toegepast, wordt Windows PE gestart op de computer en wordt er verbinding gemaakt met een beheerpunt om de takenreeks te vinden waarmee het implementatieproces van het besturingssysteem wordt voltooid. U kunt ook toepassingen, pakketten en stuurprogrammapakketten opgeven die moeten worden opgenomen als onderdeel van de voorgefaseerde media. Wanneer u een takenreeks implementeert waarvoor voorbereide media worden gebruikt, controleert de wizard eerst de lokale takenreekscache op geldige inhoud. Als de inhoud niet wordt gevonden of is gewijzigd, wordt deze door de wizard gedownload vanaf het distributiepunt.  
 
@@ -43,13 +40,13 @@ Voorbereide media bevatten de opstartinstallatiekopie die wordt gebruikt voor he
 
 |Taak|Beschrijving|  
 |----------|-----------------|  
-|Opstartinstallatiekopie|Overweeg het volgende met betrekking tot de opstartinstallatiekopie die u in de takenreeks gebruikt om het besturingssysteem te implementeren:<br /><br /> -De architectuur van de opstartinstallatiekopie moet toepasselijk zijn voor de architectuur van de doelcomputer. Op een x64-doelcomputer kan een x86- of x64-opstartinstallatiekopie worden opgestart en uitgevoerd. Op een x86-doelcomputer kan echter alleen een x86-opstartinstallatiekopie worden opgestart en uitgevoerd.<br />-Zorg ervoor dat de opstartinstallatiekopie het netwerk en bulkopslagstations opslag die nodig zijn bevat voor de doelcomputer in te richten.|  
-|Een takenreeks maken om een besturingssysteem te implementeren|Als onderdeel van de voorgefaseerde media, moet u de takenreeks voor de implemtenatie van het besturingssysteem opgeven.<br /><br /> -Voor de stappen voor het maken van een nieuwe takenreeks, Zie [maken van een takenreeks om een besturingssysteem te installeren](../../osd/deploy-use/create-a-task-sequence-to-install-an-operating-system.md).<br />-Voor meer informatie over takenreeksen, Zie [beheren van takenreeksen om taken te automatiseren](../../osd/deploy-use/manage-task-sequences-to-automate-tasks.md).|  
-|Alle aan de takenreeks gekoppeld inhoud distribueren|U moet alle inhoud die door de takenreeks is vereist naar ten minste één distributiepunt distribueren. Dit omvat de opstartinstallatiekopie, de installatiekopie van het besturingssysteem en andere gekoppelde bestanden. De wizard haalt de informatie op van het distributiepunt wanneer het de zelfstandige media creëert. U moet over het toegangsrecht **Lezen** beschikken voor de inhoudsbibliotheek op het distributiepunt.  Zie voor meer informatie, [over de Inhoudsbibliotheek](../../core/plan-design/hierarchy/the-content-library.md).|  
+|Opstartinstallatiekopie|Overweeg het volgende met betrekking tot de opstartinstallatiekopie die u in de takenreeks gebruikt om het besturingssysteem te implementeren:<br /><br /> -De architectuur van de opstartinstallatiekopie moet geschikt is voor de architectuur van de doelcomputer. Op een x64-doelcomputer kan een x86- of x64-opstartinstallatiekopie worden opgestart en uitgevoerd. Op een x86-doelcomputer kan echter alleen een x86-opstartinstallatiekopie worden opgestart en uitgevoerd.<br />-Zorg ervoor dat de installatiekopie de netwerk- en mass storage stuurprogramma's die zijn vereist bevat voor het inrichten van de doelcomputer.|  
+|Een takenreeks maken om een besturingssysteem te implementeren|Als onderdeel van de voorgefaseerde media, moet u de takenreeks voor de implemtenatie van het besturingssysteem opgeven.<br /><br /> -Zie voor de stappen voor het maken van een nieuwe takenreeks [een takenreeks maken om een besturingssysteem te installeren](../../osd/deploy-use/create-a-task-sequence-to-install-an-operating-system.md).<br />-Voor meer informatie over takenreeksen, Zie [beheren van takenreeksen om taken te automatiseren](../../osd/deploy-use/manage-task-sequences-to-automate-tasks.md).|  
+|Alle aan de takenreeks gekoppeld inhoud distribueren|U moet alle inhoud die door de takenreeks is vereist naar ten minste één distributiepunt distribueren. Dit omvat de opstartinstallatiekopie, de installatiekopie van het besturingssysteem en andere gekoppelde bestanden. De wizard haalt de informatie op van het distributiepunt wanneer het de zelfstandige media creëert. U moet over het toegangsrecht **Lezen** beschikken voor de inhoudsbibliotheek op het distributiepunt.  Zie voor meer informatie [over de Inhoudsbibliotheek](../../core/plan-design/hierarchy/the-content-library.md).|  
 |Harde schijf op de doelcomputer|De harde schijf van de doelcomputer moet zijn geformatteerd voordat de voorgefaseerde media op de harde schijf van de computer wordt geplaatst. Indien de harde schijf niet ingedeeld is wanneer de media toegepast wordt, zal de takenreeks die het besturingssysteem implementeert falen wanneer hij de doelcomputer probeert op te starten.|  
 
 > [!NOTE]  
->  De taak Wizard Takenreeks Media maken stelt u de volgende variabele voorwaarde van takenreeksvariabele aan de media: **_SMSTSMediaType OEMMedia =**. U kunt deze voorwaarde in uw takenreeks gebruiken.  
+>  De Wizard Takenreeks maken Media de volgende takenreeksvariabelevoorwaarde ingesteld op de media: **_SMSTSMediaType OEMMedia =**. U kunt deze voorwaarde in uw takenreeks gebruiken.  
 
  Gebruik de volgende procedure om voorbereide media te maken.  
 
@@ -75,7 +72,7 @@ Voorbereide media bevatten de opstartinstallatiekopie die wordt gebruikt voor he
 
 6.  Geef op de pagina **Media-eigenschappen**  de volgende informatie op en klik vervolgens op **Volgende**.  
 
-    -   **Gemaakt door**: Geef op wie de media maakte.  
+    -   **Gemaakt door**: Geef op wie het medium is gemaakt.  
 
     -   **Versie**: Geef het versienummer van de media.  
 
@@ -85,7 +82,7 @@ Voorbereide media bevatten de opstartinstallatiekopie die wordt gebruikt voor he
 
 7.  Geef op de pagina **Beveiliging** de volgende informatie op en klik vervolgens op **Volgende**.  
 
-    -   Selecteer de **Schakel onbekende computerondersteuning** selectievakje in zodat de media een besturingssysteem implementeren op een computer die niet wordt beheerd door Configuration Manager. Er is geen record van deze computers in de Configuration Manager-database.  Zie voor meer informatie [voorbereiden voor implementaties op onbekende computers](../get-started/prepare-for-unknown-computer-deployments.md).  
+    -   Selecteer de **Schakel onbekende computerondersteuning** selectievakje in zodat de media een besturingssysteem implementeren op een computer die niet wordt beheerd door Configuration Manager. Er is geen record van deze computers in de Configuration Manager-database.  Zie voor meer informatie [voorbereiden voor onbekende computerimplementaties](../get-started/prepare-for-unknown-computer-deployments.md).  
 
     -   Selecteer het selectievakje **Bescherm de media met een wachtwoord** en voer een sterk wachtwoord in om de media te helpen te beschermen tegen onbevoegde toegang. Wanneer u een wachtwoord opgeeft, moet de gebruiker dat wachtwoord leveren om de voorbereide media te gebruiken.  
 
@@ -98,7 +95,7 @@ Voorbereide media bevatten de opstartinstallatiekopie die wordt gebruikt voor he
 
          Zie voor meer informatie over dit clientcertificaat dat wordt gebruikt voor opstartinstallatiekopieën [PKI-certificaatvereisten](../../core/plan-design/network/pki-certificate-requirements.md).  
 
-    -   **Affiniteit tussen gebruikers en apparaten**: Geef op hoe u wilt dat media gebruikers koppelen aan de doelcomputer ter ondersteuning van de gebruiker gericht beheer in Configuration Manager. Zie voor meer informatie over hoe gebruikersapparaataffiniteit ondersteuning biedt voor implementatie van besturingssystemen, [gebruikers koppelen aan een doelcomputer](../get-started/associate-users-with-a-destination-computer.md).  
+    -   **Affiniteit van gebruikersapparaat**: Ter ondersteuning van de gebruiker gericht beheer in Configuration Manager, moet u opgeven hoe u wilt dat de media gebruikers koppelen aan de doelcomputer. Zie voor meer informatie over hoe gebruikersapparaataffiniteit ondersteuning biedt voor implementatie van besturingssystemen, [gebruikers koppelen aan een doelcomputer](../get-started/associate-users-with-a-destination-computer.md).  
 
         -   Stel **Affiniteit tussen gebruikers en apparaten toestaan met automatische goedkeuring** in als u wilt dat de media gebruikers automatisch koppelen aan de doelcomputer. Deze functionaliteit is gebaseerd op de acties van de takenreeks waardoor het besturingssysteem wordt geïmplementeerd. In dit scenario brengt de takenreeks een relatie tot stand tussen de opgegeven gebruikers en de doelcomputer wanneer deze het besturingssysteem op de doelcomputer implementeert.  
 
@@ -136,13 +133,12 @@ Voorbereide media bevatten de opstartinstallatiekopie die wordt gebruikt voor he
 
     -   Geef de variabelen op die de takenreeks gebruikt voor het implementeren van het besturingssyteem.  
 
-    -   Geef eventuele prestart-opdrachten op die u wilt uitvoeren voordat de takenreeks wordt uitgevoerd. Prestart-opdrachten bestaan uit een script of een uitvoerbaar bestand dat kan communiceren met de gebruiker in Windows PE voordat de takenreeks wordt uitgevoerd om het besturingssysteem te installeren. Zie voor meer informatie over prestart-opdrachten voor media, de [Prestart-opdrachten voor takenreeksmedia](../understand/prestart-commands-for-task-sequence-media.md).  
+    -   Geef eventuele prestart-opdrachten op die u wilt uitvoeren voordat de takenreeks wordt uitgevoerd. Prestart-opdrachten bestaan uit een script of een uitvoerbaar bestand dat kan communiceren met de gebruiker in Windows PE voordat de takenreeks wordt uitgevoerd om het besturingssysteem te installeren. Zie voor meer informatie over prestart-opdrachten voor media de [Prestart-opdrachten voor takenreeksmedia](../understand/prestart-commands-for-task-sequence-media.md).  
 
         > [!TIP]  
-        >  Tijdens het maken van de media taak schrijft de takenreeks de pakket-ID en prestart-opdrachtregel, inclusief de waarde voor eventuele takenreeksvariabelen, naar het logboekbestand CreateTSMedia.log op de computer waarop de Configuration Manager-console. U kunt dit logboekbestand controleren om de waarde voor de takenreeksvariabelen te verifiëren.  
+        >  Tijdens het maken van taak de media schrijft de takenreeks de pakket-ID en prestart-opdrachtregel, inclusief de waarde voor eventuele takenreeksvariabelen, naar het logboekbestand CreateTSMedia.log op de computer waarop de Configuration Manager-console. U kunt dit logboekbestand controleren om de waarde voor de takenreeksvariabelen te verifiëren.  
 
 12. Voltooi de wizard.  
 
 ## <a name="next-steps"></a>Volgende stappen
 [Scenario's voor het implementeren van enterprise-besturingssystemen](scenarios-to-deploy-enterprise-operating-systems.md)
-

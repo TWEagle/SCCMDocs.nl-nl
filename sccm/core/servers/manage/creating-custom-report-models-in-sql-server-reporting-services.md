@@ -1,34 +1,31 @@
 ---
-title: Aangepaste rapporten maken | Microsoft-documenten
+title: Aangepaste rapporten maken | Microsoft Docs
 description: Rapportmodellen instellen om te voldoen aan uw bedrijfsvereisten en vervolgens de rapportmodellen implementeren naar Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f2df88b4-c348-4dcf-854a-54fd6eedf485
-caps.latest.revision: 5
-caps.handback.revision: 0
+caps.latest.revision: "5"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
 ms.openlocfilehash: 9951dd9333ebef00c7acd5d72b20a02382e3206c
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="creating-custom-report-models-for-system-center-configuration-manager-in-sql-server-reporting-services"></a>Aangepaste rapportmodellen maken voor System Center Configuration Manager in SQL Server Reporting Services
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Voorbeeldrapportmodellen zijn opgenomen in System Center Configuration Manager, maar u kunt ook rapportmodellen instellen om te voldoen aan uw eigen zakelijke behoeften en het rapportmodel vervolgens implementeren voor Configuration Manager moet worden gebruikt wanneer u nieuwe rapporten op basis van model maken. De volgende tabel geeft de stappen voor het maken en implementeren van een basisrapportmodel.  
+Voorbeeldrapportmodellen zijn opgenomen in System Center Configuration Manager, maar u kunt ook rapportmodellen om te voldoen aan uw eigen zakelijke behoeften definiëren en vervolgens het rapportmodel implementeren naar Configuration Manager moet worden gebruikt wanneer u nieuwe rapporten op basis van model maken. De volgende tabel geeft de stappen voor het maken en implementeren van een basisrapportmodel.  
 
 > [!NOTE]  
 >  Zie de rubriek [Steps for Creating an Advanced Report Model in SQL Server Reporting Services](#AdvancedReportModel) in dit onderwerp voor de stappen om een geavanceerder rapportmodel te maken.  
@@ -41,10 +38,10 @@ Voorbeeldrapportmodellen zijn opgenomen in System Center Configuration Manager, 
 |Een gegevensbronweergave definiëren voor een rapportmodel|Na de definitie van de gegevensbronnen die u gebruikt in uw rapportmodelproject, bestaat de volgende stap uit het definiëren van een gegevensbronweergave voor het project. Een gegevensbronweergave is een logisch datamodel dat is gebaseerd op een of meerdere gegevensbronnen. Gegevensbronweergaven bevatten toegang tot de fysieke objecten, zoals tabellen en weergaven, die zich in onderliggende gegevensbronnen bevinden. SQL Server Reporting Services genereert het rapportmodel vanaf de gegevensbronweergave.<br /><br /> Gegevensbronweergaven helpen u bij het ontwerpproces voor modellen door middel van een nuttige weergave van de gegevens die u hebt opgegeven. U kunt zonder de onderliggende gegevensbron te wijzigen tabellen en velden opnieuw benoemen en samengestelde velden en afgeleide tabellen toevoegen in een gegevensbronweergave. Voor een efficiënt model voegt u alleen die tabellen toe aan de gegevensbronweergave die u gaat gebruiken.|Zie de sectie [De gegevensbronweergave voor het rapportmodel definiëren](#BKMK_DefineReportModelDataSourceView) in dit onderwerp voor meer informatie.|  
 |Een rapportmodel maken|Een rapportmodel is een laag bovenop een database die bedrijven, velden en rollen kan identificeren. Bij publicatie kunnen Report Builder-gebruikers met behulp van deze modellen rapporten ontwikkelen zonder verdere kennis te hebben van databasestructuren of het samenstellen van query's. Modellen bestaan uit sets gerelateerde rapportitems die zijn gegroepeerd onder een beschrijvende naam, met vooraf gedefinieerde relaties tussen deze zakelijke items en met vooraf gedefinieerde berekeningen. Modellen worden gedefinieerd met behulp van een XML-taal, die SMDL (Semantic Model Definition Language) wordt genoemd. De bestandsnaamextensie voor rapportmodelbestanden is .smdl.|Zie de sectie [To create the report model](#BKMK_CreateReportModel) in dit onderwerp voor meer informatie.|  
 |Een rapportmodel publiceren|Om een rapport samen te stellen met behulp van het model dat u zojuist hebt gemaakt, moet u het naar een rapportserver publiceren. De gegevensbron en gegevensbronweergave zijn in het model opgenomen wanneer het wordt gepubliceerd.|Zie de sectie [To publish the report model for use in SQL Server Reporting Services](#BKMK_PublishReportModel) in dit onderwerp voor meer informatie.|  
-|Het rapportmodel implementeren naar Configuration Manager|Voordat u kunt een aangepast rapportmodel in de **Wizard rapport maken** om een rapport op basis van model maakt, moet u het rapportmodel voor Configuration Manager implementeert.|Zie de sectie [To deploy the custom report model to Configuration Manager](#BKMK_DeployReportModel) in dit onderwerp voor meer informatie.|  
+|Het rapportmodel implementeren naar Configuration Manager|Voordat u kunt een aangepast rapportmodel in de **Wizard rapport maken** om een rapport op basis van model maakt, moet u het rapportmodel naar Configuration Manager implementeren.|Zie de sectie [To deploy the custom report model to Configuration Manager](#BKMK_DeployReportModel) in dit onderwerp voor meer informatie.|  
 
 ## <a name="steps-for-creating-a-basic-report-model-in-sql-server-reporting-services"></a>Stappen voor het maken van een basisrapportmodel in SQL Server Reporting Services  
- U kunt de volgende procedures voor het maken van een basisrapportmodel die gebruikers in uw site gebruiken kunnen om op basis van modellen rapporten op basis van gegevens in één weergave van de Configuration Manager-database. U maakt een rapportmodel met daarin informatie over de clientcomputers op uw site voor de auteur van het rapport. Deze informatie is genomen van de **v_R_System** weergave in de Configuration Manager-database.  
+ U kunt de volgende procedures voor het maken van een basisrapportmodel die gebruikers in uw site gebruiken kunnen om op basis van modellen rapporten op basis van gegevens in één enkele weergave van de Configuration Manager-database. U maakt een rapportmodel met daarin informatie over de clientcomputers op uw site voor de auteur van het rapport. Deze informatie is genomen van de **v_R_System** weergave in de Configuration Manager-database.  
 
  Controleer op de computer waar u deze procedures uitvoert of u SQL Server Business Intelligence Development Studio hebt geïnstalleerd en dat de computer netwerkverbinding heeft met de Reporting Services-puntserver. Zie voor meer informatie over SQL Server Business Intelligence Development Studio de documentatie bij SQL Server 2008.  
 
@@ -75,11 +72,11 @@ Voorbeeldrapportmodellen zijn opgenomen in System Center Configuration Manager, 
 
 4.  Specificeer in het dialoogvenster **Verbindingsbeheer** de volgende verbindingseigenschappen voor de gegevensbron:  
 
-    -   **Servernaam**: Typ de naam van de Configuration Manager-Sitedatabaseserver of Selecteer in de lijst. Als u met een benoemd exemplaar in plaats van het standaardexemplaar werkt, typt u &lt; *databaseserver*>\\&lt;*exemplaarnaam*>.  
+    -   **Servernaam**: Typ de naam van de databaseserver van uw Configuration Manager-site of in de lijst te selecteren. Als u met een benoemd exemplaar in plaats van het standaardexemplaar werkt, typt u &lt; *databaseserver*>\\&lt;*exemplaarnaam*>.  
 
     -   Selecteer **Windows-verificatie gebruiken**.  
 
-    -   In **Selecteer of voer een databasenaam in** , selecteert u de naam van de Configuration Manager-sitedatabase.  
+    -   In **Selecteer of voer een databasenaam** , selecteert u de naam van uw Configuration Manager-sitedatabase.  
 
 5.  Klik op **Verbinding testen**om de verbinding met de database te controleren.  
 
@@ -143,7 +140,7 @@ Voorbeeldrapportmodellen zijn opgenomen in System Center Configuration Manager, 
 
 ###  <a name="BKMK_DeployReportModel"></a> To deploy the custom report model to Configuration Manager  
 
-1.  Vind de map waarin u het rapportmodelproject hebt gemaakt. Bijvoorbeeld: %*USERPROFILE*%\Documents\Visual Studio 2008\Projects\\*&lt;projectnaam\>.*  
+1.  Vind de map waarin u het rapportmodelproject hebt gemaakt. Bijvoorbeeld %*USERPROFILE*%\Documents\Visual Studio 2008\Projects\\*&lt;projectnaam\>.*  
 
 2.  Kopieer de volgende bestanden van de map rapportmodelproject naar een tijdelijke map op uw computer:  
 
@@ -159,13 +156,13 @@ Voorbeeldrapportmodellen zijn opgenomen in System Center Configuration Manager, 
 
      Bewerk deze regel als volgt:  
 
-     **&lt;DataSourceView xmlns = "http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi = "RelationalDataSourceView"\>**  
+     **&lt;DataSourceView xmlns = 'http://schemas.microsoft.com/analysisservices/2003/engine' xmlns:xsi = "RelationalDataSourceView"\>**  
 
 5.  Kopieer de gehele inhoud van het bestand naar het Windows-klembord.  
 
 6.  Sluit het bestand  *&lt;modelnaam\>***.dsv**.  
 
-7.  In het bestand  *&lt;modelnaam\>***.smdl**, Ga naar de laatste drie regels van het bestand, die er als volgt uitzien:  
+7.  In het bestand  *&lt;modelnaam\>***.smdl**, zoek de laatste drie regels van het bestand, die worden weergegeven als volgt:  
 
      `</Entity>`  
 
@@ -175,7 +172,7 @@ Voorbeeldrapportmodellen zijn opgenomen in System Center Configuration Manager, 
 
 8.  Plak de inhoud van het bestand  *&lt;modelnaam\>***.dsv** direct vóór de laatste regel van het bestand (**&lt;SemanticModel\>**).  
 
-9. Het bestand opslaan en afsluiten  *&lt;modelnaam\>***.smdl**.  
+9. Opslaan en sluiten van het bestand  *&lt;modelnaam\>***.smdl**.  
 
 10. Kopieer het bestand  *&lt;modelnaam\>***.smdl** naar de map *% programfiles %*\Microsoft Configuration Manager \AdminConsole\XmlStorage\Other op de siteserver van Configuration Manager.  
 
@@ -185,9 +182,9 @@ Voorbeeldrapportmodellen zijn opgenomen in System Center Configuration Manager, 
 ##  <a name="AdvancedReportModel"></a>Stappen voor het maken van een geavanceerd rapportmodel in SQL Server Reporting Services  
  U kunt de volgende procedures voor het maken van een geavanceerd rapportmodel die gebruikers in uw site gebruiken kunnen om op basis van modellen rapporten op basis van gegevens in meerdere weergaven van de Configuration Manager-database. U maakt een rapportmodel met daarin informatie over de clientcomputers en het besturingssysteem dat is geïnstalleerd op deze computers voor de auteur van het rapport. Deze informatie is genomen van de volgende weergaven in de Configuration Manager-database:  
 
--   **V_R_System**: Bevat informatie over ontdekte computers en de Configuration Manager-client.  
+-   **V_R_System**: Bevat informatie over de gedetecteerde computers en de Configuration Manager-client.  
 
--   **V_GS_OPERATING_SYSTEM**: Bevat informatie over het besturingssysteem is geïnstalleerd op de clientcomputer.  
+-   **V_GS_OPERATING_SYSTEM**: Bevat informatie over het besturingssysteem geïnstalleerd op de clientcomputer.  
 
  Geselecteerde items van de voorgaande weergaven worden in één lijst samengevoegd, voorzien van beschrijvende namen en vervolgens gepresenteerd aan de auteur van een rapport in Report Builder om in bepaalde rapporten te gebruiken.  
 
@@ -220,11 +217,11 @@ Voorbeeldrapportmodellen zijn opgenomen in System Center Configuration Manager, 
 
 4.  Specificeer in het dialoogvenster **Verbindingsbeheer** de volgende verbindingseigenschappen voor de gegevensbron:  
 
-    -   **Servernaam**: Typ de naam van de Configuration Manager-Sitedatabaseserver of Selecteer in de lijst. Als u met een benoemd exemplaar in plaats van het standaardexemplaar werkt, typt u &lt; *databaseserver*>\\&lt;*exemplaarnaam*>.  
+    -   **Servernaam**: Typ de naam van de databaseserver van uw Configuration Manager-site of in de lijst te selecteren. Als u met een benoemd exemplaar in plaats van het standaardexemplaar werkt, typt u &lt; *databaseserver*>\\&lt;*exemplaarnaam*>.  
 
     -   Selecteer **Windows-verificatie gebruiken**.  
 
-    -   In de **Selecteer of voer een databasenaam in** , selecteert u de naam van de Configuration Manager-sitedatabase.  
+    -   In de **Selecteer of voer een databasenaam** , selecteert u de naam van uw Configuration Manager-sitedatabase.  
 
 5.  Klik op **Verbinding testen**om de verbinding met de database te controleren.  
 
@@ -386,7 +383,7 @@ Voorbeeldrapportmodellen zijn opgenomen in System Center Configuration Manager, 
 
 #### <a name="to-deploy-the-custom-report-model-to-configuration-manager"></a>To deploy the custom report model to Configuration Manager  
 
-1.  Vind de map waarin u het rapportmodelproject hebt gemaakt. Bijvoorbeeld: %*USERPROFILE*%\Documents\Visual Studio 2008\Projects\\*&lt;projectnaam\>.*  
+1.  Vind de map waarin u het rapportmodelproject hebt gemaakt. Bijvoorbeeld %*USERPROFILE*%\Documents\Visual Studio 2008\Projects\\*&lt;projectnaam\>.*  
 
 2.  Kopieer de volgende bestanden van de map rapportmodelproject naar een tijdelijke map op uw computer:  
 
@@ -402,13 +399,13 @@ Voorbeeldrapportmodellen zijn opgenomen in System Center Configuration Manager, 
 
      Bewerk deze regel als volgt:  
 
-     **&lt;DataSourceView xmlns = "http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi = "RelationalDataSourceView"\>**  
+     **&lt;DataSourceView xmlns = 'http://schemas.microsoft.com/analysisservices/2003/engine' xmlns:xsi = "RelationalDataSourceView"\>**  
 
 5.  Kopieer de gehele inhoud van het bestand naar het Windows-klembord.  
 
 6.  Sluit het bestand  *&lt;modelnaam\>***.dsv**.  
 
-7.  In het bestand  *&lt;modelnaam\>***.smdl**, Ga naar de laatste drie regels van het bestand, die er als volgt uitzien:  
+7.  In het bestand  *&lt;modelnaam\>***.smdl**, zoek de laatste drie regels van het bestand, die worden weergegeven als volgt:  
 
      `</Entity>`  
 
@@ -418,10 +415,9 @@ Voorbeeldrapportmodellen zijn opgenomen in System Center Configuration Manager, 
 
 8.  Plak de inhoud van het bestand  *&lt;modelnaam\>***.dsv** direct vóór de laatste regel van het bestand (**&lt;SemanticModel\>**).  
 
-9. Het bestand opslaan en afsluiten  *&lt;modelnaam\>***.smdl**.  
+9. Opslaan en sluiten van het bestand  *&lt;modelnaam\>***.smdl**.  
 
 10. Kopieer het bestand  *&lt;modelnaam\>***.smdl** naar de map *% programfiles %*\Microsoft Configuration Manager\AdminConsole\XmlStorage\Other op de siteserver van Configuration Manager.  
 
     > [!IMPORTANT]  
     >  Na het kopiëren van het rapportmodelbestand naar de siteserver van Configuration Manager, moet u sluiten en opnieuw starten van de Configuration Manager-console voordat u kunt het rapportmodel in de **Wizard rapport maken**.  
-

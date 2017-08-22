@@ -6,23 +6,20 @@ ms.date: 7/03/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c1ff371e-b0ad-4048-aeda-02a9ff08889e
-caps.latest.revision: 9
-caps.handback.revision: 0
+caps.latest.revision: "9"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 5e1bc0063ab3d34410f7dbc773a5eacdd5eb6d2f
 ms.openlocfilehash: 28597cf1cb269fff0872c7f79ef961496aea32ab
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/05/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="log-files-in-system-center-configuration-manager"></a>Logbestanden in System Center Configuration Manager
 
@@ -189,11 +186,11 @@ De volgende tabel bevat de logboekbestanden die zich op de Configuration Manager
 |PolicySdk.log|Registreert activiteiten voor beleidsysteem SDK interfaces.|  
 |Pwrmgmt.log|Registreert informatie over in- en schakelen en configureren van de wake-up proxy clientinstellingen.|  
 |PwrProvider.log|Registreert de activiteiten van de energiebeheeraanbieder (PWRInvProvider) gehost in de WMI-service. Op alle ondersteunde versies van Windows somt de provider de huidige instellingen op de computers tijdens hardware-inventaris op en past de energiebeheerinstellingen toe.|  
-|SCClient_&lt;*domain*\>@&lt;*username*\>_1.log|Registreert de activiteit in Software Center voor de opgegeven gebruiker op de clientcomputer.|  
-|SCClient_&lt;*domain*\>@&lt;*username*\>_2.log|Registreert de historische activiteit in Software Center voor de gespecificeerde gebruiker op de clientcomputer.|  
+|SCClient_&lt;*domein*\>@&lt;*gebruikersnaam*\>_1.log|Registreert de activiteit in Software Center voor de opgegeven gebruiker op de clientcomputer.|  
+|SCClient_&lt;*domein*\>@&lt;*gebruikersnaam*\>_2.log|Registreert de historische activiteit in Software Center voor de gespecificeerde gebruiker op de clientcomputer.|  
 |Scheduler.log|Registreert activiteiten van geplande taken voor alle clientbewerkingen.|  
-|SCNotify_&lt;*domain*\>@&lt;*username*\>_1.log|Registreert de activiteit voor het verwittigen van gebruikers met betrekking tot software voor de opgegeven gebruiker.|  
-|SCNotify_&lt;*domain*\>@&lt;*username*\>_1-&lt;*date_time*>.log|Registreert de historische activiteit voor het verwittigen van gebruikers met betrekking tot software voor de opgegeven gebruiker.|  
+|SCNotify_&lt;*domein*\>@&lt;*gebruikersnaam*\>_1.log|Registreert de activiteit voor het verwittigen van gebruikers met betrekking tot software voor de opgegeven gebruiker.|  
+|SCNotify_&lt;*domein*\>@&lt;*gebruikersnaam*\>_1 -&lt;*datum_tijd*> .log|Registreert de historische activiteit voor het verwittigen van gebruikers met betrekking tot software voor de opgegeven gebruiker.|  
 |setuppolicyevaluator.log|Registreert configuratie- en inventarisbeleid maken in WMI.|  
 |SleepAgent_&lt;*domein*\>@SYSTEM_0.log|Belangrijkste logboekbestand voor wake-up proxy.|  
 |smscliui.log|Registreert gebruik van Configuration Manager-client in het Configuratiescherm.|  
@@ -820,4 +817,3 @@ De volgende tabel bevat de logboekbestanden die informatie bevatten met betrekki
 |--------------|-----------------|----------------------------|  
 |Change.log|Registreert gegevens over de WSUS-server database-informatie die is gewijzigd.|WSUS-server|  
 |SoftwareDistribution.log|Registreert gegevens over de software-updates vanuit de geconfigureerde updatebron worden gesynchroniseerd met de WSUS-server-database.|WSUS-server|  
-

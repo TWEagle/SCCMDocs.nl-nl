@@ -6,24 +6,21 @@ ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7591e386-a9ab-4640-8643-332dce5aa006
-caps.latest.revision: 12
+caps.latest.revision: "12"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 1035dbbf944a3a467d637a4a948a75b0946eb711
 ms.openlocfilehash: 4a3c69edc85a4ea7501510b6b3f12c72ad3a24ff
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/11/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# Maak een takenreeks om een besturingssysteem in System Center Configuration Manager te upgraden
-<a id="create-a-task-sequence-to-upgrade-an-operating-system-in-system-center-configuration-manager" class="xliff"></a>
+# <a name="create-a-task-sequence-to-upgrade-an-operating-system-in-system-center-configuration-manager"></a>Maak een takenreeks om een besturingssysteem in System Center Configuration Manager te upgraden
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
@@ -43,8 +40,7 @@ Gebruik takenreeksen in System Center Configuration Manager automatisch bijwerke
 
     -   [Toepassingen](../../apps/deploy-use/create-applications.md) moet worden toegevoegd aan de Configuration Manager-console.  
 
-#### Maken van een takenreeks die een besturingssysteem wordt bijgewerkt
-<a id="to-create-a-task-sequence-that-upgrades-an-operating-system" class="xliff"></a>  
+#### <a name="to-create-a-task-sequence-that-upgrades-an-operating-system"></a>Maken van een takenreeks die een besturingssysteem wordt bijgewerkt  
 
 1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
@@ -78,8 +74,7 @@ Gebruik takenreeksen in System Center Configuration Manager automatisch bijwerke
 
 
 
-## Inhoud van de pre-cache configureren
-<a id="configure-pre-cache-content" class="xliff"></a>
+## <a name="configure-pre-cache-content"></a>Inhoud van de pre-cache configureren
 Vanaf versie 1702, voor beschikbare implementaties van takenreeksen, kunt u de functie vooraf cache gebruiken om clients alleen relevante inhoud downloaden voordat een gebruiker de inhoud installeert hebben.
 > [!TIP]  
 > De vooraf cache is geïntroduceerd in versie 1702, is een functie van de voorlopige versie. Als u wilt inschakelen, Zie [functies van evaluatieversies van updates gebruiken](/sccm/core/servers/manage/pre-release-features).
@@ -88,8 +83,7 @@ Stel dat u wilt implementeren van een takenreeks Windows 10 in-place upgrade sle
 
 Vooraf cache-inhoud biedt u de optie voor het toestaan van de client alleen de inhoud te downloaden van toepassing als de implementatie wordt ontvangen. Daarom wanneer de gebruiker klikt op **installeren** in Software Center, de inhoud gereed is en de installatie begint snel omdat de inhoud op de lokale vaste schijf.
 
-### De cachefunctie vooraf configureren
-<a id="to-configure-the-pre-cache-feature" class="xliff"></a>
+### <a name="to-configure-the-pre-cache-feature"></a>De cachefunctie vooraf configureren
 
 1. Upgradepakketten voor specifieke architecturen en talen voor besturingssysteem maken. Geef de architectuur en taal op de **gegevensbron** tabblad van het pakket. Gebruik de decimale conversie voor de taal (bijvoorbeeld 1033 is het decimaalteken voor Engels en 0x0409 is hetzelfde als hexadecimaal). Zie voor meer informatie [een takenreeks maken om een besturingssysteem te upgraden](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system).
 
@@ -107,16 +101,14 @@ Vooraf cache-inhoud biedt u de optie voor het toestaan van de client alleen de i
     - Op de **distributiepunten** tabblad, configureert de **implementatieopties** instellingen. Als de inhoud niet vooraf in cache op een client opgeslagen is voordat een gebruiker de installatie wordt gestart, worden deze instellingen gebruikt.
 
 
-### Gebruikerservaring
-<a id="user-experience" class="xliff"></a>
+### <a name="user-experience"></a>Gebruikerservaring
 - Wanneer de client het implementatiebeleid ontvangt, wordt gestart om de inhoud vooraf in cache. Dit omvat alle inhoud waarnaar wordt verwezen (een andere typen) en alleen het upgradepakket voor besturingssysteem die overeenkomt met de client op basis van de voorwaarden die u in de takenreeks instelt.
 - Wanneer de implementatie wordt beschikbaar gesteld aan gebruikers (instellen op de **planning** tabblad van de implementatie), een melding weergegeven om gebruikers te informeren over de nieuwe implementatie en de implementatie zichtbaar in Software Center. De gebruiker kan gaat u naar Software Center en klikt u op **installeren** om de installatie te starten.
 - Als de inhoud niet volledig vooraf in cache opgeslagen is, wordt dit de instellingen gebruikt van de **Implementatieoptie** tabblad van de implementatie. U wordt aangeraden dat er voldoende tijd tussen wanneer de implementatie wordt gemaakt en het tijdstip waarop de implementatie beschikbaar voor gebruikers wordt wilt toestaan dat clients voldoende tijd is voor de inhoud vooraf in cache is.
 
 
 
-## Takenreeksstap pakketinhoud downloaden
-<a id="download-package-content-task-sequence-step" class="xliff"></a>  
+## <a name="download-package-content-task-sequence-step"></a>Takenreeksstap pakketinhoud downloaden  
  De [pakketinhoud downloaden](../understand/task-sequence-steps.md#BKMK_DownloadPackageContent) stap kan worden gebruikt voordat de **besturingssysteem bijwerken** stap in de volgende scenario's:  
 
 -   U een takenreeks voor het één upgrade die x86- en x64-platforms werkt. Als u dit wilt doen, voegt u twee **Pakketinhoud downloaden**-stappen toe aan de groep **Upgrade voorbereiden** met de voorwaarden om de clientarchitectuur te detecteren en alleen het geschikte upgradepakket voor het besturingssystemen te downloaden. Configureer elke **Pakketinhoud downloaden**-stap zodanig dat dezelfde variabele wordt gebruikt, en gebruik de variabele voor het mediumpad in de stap **Besturingssysteem bijwerken**.  
@@ -126,18 +118,14 @@ Vooraf cache-inhoud biedt u de optie voor het toestaan van de client alleen de i
    > [!NOTE]
    > Wanneer er meer dan één pakket, wordt een numeriek achtervoegsel aan de variabelenaam in Configuration Manager toegevoegd. Bijvoorbeeld, als u een variabele van % mycontent % als aangepaste variabele opgeeft, is dit de hoofdmap waarin alle inhoud waarnaar wordt verwezen is opgeslagen (dit kan meerdere pakketten zijn). Wanneer u in een vervolgstap naar de variabele verwijst, zoals Besturingssysteem bijwerken, wordt deze met een numeriek achtervoegsel gebruikt. In dit voorbeeld % mycontent01% of % mycontent02%, waarbij het nummer overeenkomt met de volgorde waarin het pakket in deze stap wordt vermeld.
 
-## Optionele na verwerking takenreeksstappen
-<a id="optional-post-processing-task-sequence-steps" class="xliff"></a>  
+## <a name="optional-post-processing-task-sequence-steps"></a>Optionele na verwerking takenreeksstappen  
  Nadat u de takenreeks hebt gemaakt, kunt u aanvullende stappen toevoegen voor het verwijderen van toepassingen met bekende compatibiliteitsproblemen, of u kunt toevoegen na verwerking acties uit te voeren nadat de computer opnieuw is opgestart en de upgrade naar Windows 10 geslaagd is. Deze aanvullende stappen toevoegen in de groep na verwerking van de takenreeks.  
 
 > [!NOTE]  
 >  Omdat deze takenreeks niet lineair is, er bepaalde voorwaarden voor stappen die invloed kunnen hebben op de resultaten van de takenreeks, afhankelijk van of deze de clientcomputer met succes wordt bijgewerkt of dat er terugdraaien van de clientcomputer naar de oorspronkelijke besturingssysteemversie.  
 
-## Terugdraaien van de optionele takenreeksstappen
-<a id="optional-rollback-task-sequence-steps" class="xliff"></a>  
+## <a name="optional-rollback-task-sequence-steps"></a>Terugdraaien van de optionele takenreeksstappen  
  Wanneer er iets mis met het upgradeproces gaat nadat de computer opnieuw is opgestart, Setup wordt de upgrade terugdraaien naar het vorige besturingssysteem en de takenreeks wordt verder met de stappen in de groep terugdraaien. Nadat u de takenreeks hebt gemaakt, kunt u optionele stappen toevoegen aan de groep terugdraaien.  
 
-## Map en bestanden verwijderd nadat de computer opnieuw opstarten
-<a id="folder-and-files-removed-after-computer-restart" class="xliff"></a>  
+## <a name="folder-and-files-removed-after-computer-restart"></a>Map en bestanden verwijderd nadat de computer opnieuw opstarten  
  Wanneer de takenreeks een besturingssysteem upgraden naar Windows 10 en alle overige stappen in de takenreeks zijn voltooid, worden de scripts na verwerking en terugdraaien niet verwijderd totdat de computer opnieuw is opgestart.  Deze scriptbestanden bevatten geen gevoelige informatie.  
-

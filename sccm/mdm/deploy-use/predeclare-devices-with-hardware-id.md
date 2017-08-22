@@ -2,25 +2,23 @@
 title: Apparaten met IMEI-nummer of iOS-serienummers labelen | Microsoft Docs
 description: Apparaten in Bedrijfseigendom met hun IMEI-nummer of iOS-serienummer labelen.
 ms.custom: na
-ms.date: 03/24/2017
+ms.date: 08/15/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ddb4c68e-e7f7-475a-89e2-7379a86e44c4
-caps.latest.revision: 3
+caps.latest.revision: "3"
 author: nathbarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 5eed004bd38a567dfdd4e392300be656a7abe3f7
-ms.openlocfilehash: c692fad43807e54cecbd7ab60284ea740d60617d
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: 7d139a2c74c0f29604f2f3d9b8e2739364633f17
+ms.sourcegitcommit: db7b7ec347638efd05cdba474e8a8f8535516116
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/16/2017
 ---
 # <a name="predeclare-devices-with-imei-or-ios-serial-numbers"></a>Apparaten met IMEI-nummer of iOS-serienummers labelen
 
@@ -30,19 +28,22 @@ U kunt apparaten in Bedrijfseigendom identificeren met hun nummers van internati
 
 Tijdens het uploaden van serienummers van bedrijfseigen iOS-apparaten, moeten ze worden gekoppeld aan een inschrijvingsprofiel voor bedrijfsapparaten. Apparaten moeten vervolgens beide Apples apparaatinschrijvingsprogramma (DEP) of Apple Configurator gebruiken om u te laten verschijnen als eigendom van het bedrijf zijn ingeschreven.
 
+>[!NOTE]
+>Android-apparaten, met uitzondering van Samsung Knox Standard-apparaten, moeten een SIM-kaart te labelen registreren als een apparaat in Bedrijfseigendom met IMEI-nummer hebben.
+
 ## <a name="how-to-predeclare-corporate-owned-devices"></a>Het labelen van apparaten in Bedrijfseigendom
 
-1.    Ga in de Configuration Manager-console naar **activa en naleving** > **overzicht** > **alle apparaten in Bedrijfseigendom** > **Predeclared apparaten**.
+1.  Ga in de Configuration Manager-console naar **activa en naleving** > **overzicht** > **alle apparaten in Bedrijfseigendom** > **Predeclared apparaten**.
 
 2.  Klik op **Predeclared apparaten maken**. De wizard Predeclared apparaten maken wordt geopend.
 
-3.    Kies hoe u gegevens van een apparaat wilt:
+3.  Kies hoe u gegevens van een apparaat wilt:
 
-     -    **Een CSV-bestand met IMEI- of serienummers en details uploaden**
+     -  **Een CSV-bestand met IMEI- of serienummers en details uploaden**
 
         Voor deze optie, klikt u op **Bladeren** om op te geven van het CSV-bestand met de gegevens voor het labelen van apparaten in Bedrijfseigendom. Het CSV-bestand moet de juiste notatie. Zie voor meer informatie [indeling voor het uploaden van CSV-bestanden](#format-for-uploading-csv-files).
 
-     -    **IMEI- of serienummers en gegevens handmatig toevoegen**
+     -  **IMEI- of serienummers en gegevens handmatig toevoegen**
 
         Als u wilt gegevens handmatig invoeren, typt u de IMEI-nummer of iOS-serienummer en de details voor de apparaten. Corrigeer eventuele fout of waarschuwingen voordat u doorgaat.
 
@@ -67,10 +68,10 @@ Het CSV-bestand dat u gebruikt om apparaten te identificeren op IMEI-nummer of i
 | IMEI-NUMMER #  | iOS seriële #  | BESTURINGSSYSTEEM | Details |
 |------------ |---------------|-----|-----|
 | 123456789012345    |   | WINDOWS | Windows-apparaat eigendom van het bedrijf|
-|   | A1B2C3D4E5C6 | IOS |     Bedrijfseigen iOS-apparaat|
-| 223456789012345 | E6D5C4B3A210 |   IOS |     Een ander iOS-apparaat|
-| 323456789012345 |        |   IOS |     Een derde iOS-apparaat|
-| 123456789012346 |         |   ANDROID |     Android-apparaat eigendom van het bedrijf|
+|   | A1B2C3D4E5C6 | IOS |  Bedrijfseigen iOS-apparaat|
+| 223456789012345 | E6D5C4B3A210 |   IOS |  Een ander iOS-apparaat|
+| 323456789012345 |        |   IOS |    Een derde iOS-apparaat|
+| 123456789012346 |         |   ANDROID |   Android-apparaat eigendom van het bedrijf|
 
 Een veldnamenrij niet opnemen in uw CSV-bestand. Het volgende voorbeeld ziet de dezelfde voorbeeldgegevens in CSV-indeling:
 
@@ -87,4 +88,3 @@ De kolommen in het CSV-bestand accepteren de volgende waarden:
 | Kolom 1 | Kolom 2 | Kolom 3 | Kolom 4 |
 |---|---|---|---|
 |IMEI-nummer zonder spaties | iOS-serienummer | IOS-, WINDOWS- of ANDROID | Details van de optionele apparaat (maximaal 1024 tekens) |
-

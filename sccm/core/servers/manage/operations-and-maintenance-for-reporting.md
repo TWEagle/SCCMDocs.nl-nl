@@ -6,22 +6,19 @@ ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b89bcfbf-f5b6-4fb1-bb5e-a5cc18ec0c78
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: f62d969dd49fb00b688602128df74b28ff551135
 ms.openlocfilehash: df572cd0c64c82e25164430a53e1b893b3ba3cf5
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/07/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="operations-and-maintenance-for-reporting-in-system-center-configuration-manager"></a>Bewerkingen en onderhoud voor rapportage in System Center Configuration Manager
 
@@ -313,20 +310,20 @@ Nadat de infrastructuur aanwezig is voor rapportage in System Center Configurati
 
     -   **Rapport geleverd door**: Selecteer **E\-mail** leveren van het rapport als bijlage bij een e-mailbericht.  
 
-    -   **To**: Geef een geldig e-mailadres voor het verzenden van dit rapport.  
+    -   **Naar**: Geef een geldig e-mailadres voor het verzenden van dit rapport.  
 
         > [!NOTE]  
         >  U kunt meerdere e-mailontvangers invoeren door elk e-mailadres met een puntkomma te scheiden.  
 
-    -   **Cc**: Geef eventueel een e-mailadres kopie van dit rapport.  
+    -   **CC**: Geef eventueel een e-mailadres kopie van dit rapport.  
 
-    -   **Bcc**: Geef eventueel een e-mailadres een controlekopie van dit rapport.  
+    -   **BCC**: Geef eventueel een e-mailadres een controlekopie van dit rapport.  
 
     -   **Beantwoorden**: Geef het antwoordadres op dat moet worden gebruikt als de ontvanger het e-mailbericht beantwoordt.  
 
     -   **Onderwerp**: Geef een onderwerpregel op voor het abonnement e-mailbericht.  
 
-    -   **Prioriteit**: Selecteer de gewenste prioriteitsmarkering voor dit e-mailbericht. Select **Low**, **Normal**, or **High**. De prioriteitsinstelling wordt door Microsoft Exchange gebruikt om in te stellen van een vlag die aangeeft het belang van het e-mailbericht.  
+    -   **Prioriteit**: Selecteer de gewenste prioriteitsmarkering voor dit e-mailbericht. Selecteer **laag**, **normaal**, of **hoge**. De prioriteitsinstelling wordt door Microsoft Exchange gebruikt om in te stellen van een vlag die aangeeft het belang van het e-mailbericht.  
 
     -   **Opmerking**: Geef tekst op die moet worden toegevoegd aan de hoofdtekst van het abonnement e-mailbericht.  
 
@@ -363,4 +360,3 @@ Nadat de infrastructuur aanwezig is voor rapportage in System Center Configurati
 -   Op de **samenvatting** controleert u de instellingen van het rapport. Klik op **vorige** de instellingen wijzigen of klik op **volgende** om het rapportabonnement te maken.  
 
 -   Klik op de pagina **Voltooiing** op **Sluiten** om de wizard af te sluiten. Controleer of het rapportabonnement is gemaakt. U kunt bekijken en wijzigen met rapportabonnementen in de **abonnementen** knooppunt onder **rapportage** in de **bewaking** werkruimte.  
-

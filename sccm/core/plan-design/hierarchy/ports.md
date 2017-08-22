@@ -1,44 +1,41 @@
 ---
-title: Poorten die worden gebruikt door Configuration Manager | Microsoft-documenten
-description: Meer informatie over de vereiste en aanpasbare poorten die System Center Configuration Manager worden gebruikt voor verbindingen.
+title: Poorten die worden gebruikt door Configuration Manager | Microsoft Docs
+description: Meer informatie over de vereiste en aanpasbare poorten die System Center Configuration Manager voor verbindingen gebruikt.
 ms.custom: na
 ms.date: 3/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c6777fb0-0754-4abf-8a1b-7639d23e9391
-caps.latest.revision: 8
-caps.handback.revision: 0
+caps.latest.revision: "8"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 690d03d9c8c49a815bd318df549d7401a855bc5d
 ms.openlocfilehash: 78caa69e10f5d386daab1e61e484d4d134469708
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="ports-used-in-system-center-configuration-manager"></a>Poorten die worden gebruikt in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-System Center Configuration Manager is een gedistribueerd client/server-systeem. De gedistribueerde aard van Configuration Manager betekent dat verbindingen worden tussen siteservers, sitesystemen en clients gemaakt kunnen. Sommige verbindingen gebruiken poorten die niet kunnen geconfigureerd worden en sommige ondersteunen aangepaste poorten die u opgeeft. U moet controleren of de vereiste poorten beschikbaar zijn als u een poortfiltertechnologie zoals firewalls, routers, proxy-servers of IPsec.  
+System Center Configuration Manager is een gedistribueerd client/server-systeem. De gedistribueerde aard van Configuration Manager betekent dat verbindingen worden tussen siteservers, sitesystemen en clients gemaakt kunnen. Sommige verbindingen gebruiken poorten die zijn niet configureerbaar en sommige ondersteunen aangepaste poorten die u opgeeft. U moet controleren of de vereiste poorten beschikbaar zijn als u een poortfiltertechnologie gebruikt zoals firewalls, routers, proxy-servers of IPsec.  
 
 > [!NOTE]  
->  Als u ondersteuning voor clients via Internet met behulp van SSL-bridging, naast Poortvereisten, kunt u wellicht ook sommige HTTP-woorden en -koppen om door de firewall te staan.   
+>  Als u ondersteuning voor clients op Internet met behulp van SSL-bridging, naast Poortvereisten, kunt u wellicht ook toestaan dat sommige HTTP-woorden en -koppen bladeren door uw firewall.   
 
  De lijsten van poorten die volgen, worden gebruikt door Configuration Manager en bevatten geen informatie voor standaard Windows-services, zoals groepsbeleidinstellingen voor Active Directory Domain Services of Kerberos-verificatie. Voor informatie over Windows Server services en poorten, zie [Service overview and network port requirements for Windows (Service overzicht en netwerkpoortvereisten voor het Windows Server-systeem)](http://go.microsoft.com/fwlink/p/?LinkID=123652).  
 
 ##  <a name="BKMK_ConfigurablePorts"></a> Poorten die u kunt configureren  
- Configuration Manager kunt u de poorten configureren voor de volgende communicatietypen:  
+ Configuration Manager kunt u de poorten voor de volgende communicatietypen configureren:  
 
--   Application Catalog-website-punt naar Application Catalog-webservicepunt  
+-   Application Catalog-websitepunt naar Application Catalog-webservicepunt  
 
 -   Registratie-proxypunt naar registratiepunt  
 
@@ -55,14 +52,14 @@ System Center Configuration Manager is een gedistribueerd client/server-systeem.
 -   Reporting Services-punten  
 
     > [!NOTE]  
-    >  De poorten die gebruikt voor het reporting services puntsitesysteemrol worden worden geconfigureerd in SQL Server Reporting Services. Deze poorten worden vervolgens door Configuration Manager gebruikt tijdens de communicatie met het reporting servicepunt. Zorg ervoor dat deze poorten die door het IP-filterinformatie voor IPsec beleidslijnen of definieert om firewalls te configureren bekijken.  
+    >  De poorten die gebruikt voor de reporting services-punt-sitesysteemrol worden worden geconfigureerd in SQL Server Reporting Services. Deze poorten worden vervolgens door Configuration Manager gebruikt tijdens communicaties met reporting services-punt. Zorg ervoor dat deze poorten waarmee het IP-filter informatie voor IPsec beleidslijnen of om firewalls te configureren controleren.  
 
-Standaard de HTTP-poort die wordt gebruikt voor communicatie tussen client-naar-sitesysteem poort 80 is en de standaard HTTPS-poort is 443. Poorten voor client-naar-sitesystemcommunicatie via HTTP of HTTPS kunnen worden gewijzigd tijdens de installatie of in de eigenschappen voor uw Configuration Manager-site.  
+Standaard wordt poort 80 van de HTTP-poort die wordt gebruikt voor client-naar-site systeemcommunicatie en de standaard HTTPS-poort is 443. Poorten voor client-naar-site systeemcommunicatie via HTTP of HTTPS kunnen worden gewijzigd tijdens setup of in de site-eigenschappen voor uw Configuration Manager-site.  
 
-De poorten die gebruikt voor het reporting services puntsitesysteemrol worden worden geconfigureerd in SQL Server Reporting Services. Deze poorten worden vervolgens door Configuration Manager gebruikt tijdens de communicatie met het reporting servicepunt. Zorg ervoor dat deze poorten controleren als u bij het definiëren van de IP-filterinformatie voor IPsec beleidslijnen of om firewalls te configureren.  
+De poorten die gebruikt voor de reporting services-punt-sitesysteemrol worden worden geconfigureerd in SQL Server Reporting Services. Deze poorten worden vervolgens door Configuration Manager gebruikt tijdens communicaties met reporting services-punt. Zorg ervoor dat deze poorten controleren wanneer u bij het definiëren van de IP-filter informatie voor IPsec beleidslijnen of om firewalls te configureren.  
 
 ##  <a name="BKMK_NonConfigurablePorts"></a> Niet-configureerbare poorten  
-Configuration Manager niet toe dat u bij het configureren van poorten voor de volgende communicatietypen:  
+Configuration Manager niet toe dat u voor het configureren van poorten voor de volgende communicatietypen:  
 
 -   Site-naar-site  
 
@@ -70,9 +67,9 @@ Configuration Manager niet toe dat u bij het configureren van poorten voor de vo
 
 -   Configuration Manager-console naar SMS-Provider  
 
--   Configuration Manager-console naar het Internet  
+-   Configuration Manager-console naar Internet  
 
--   Verbindingen met cloudservices, zoals Microsoft Intune en cloud-gebaseerde distributiepunten.  
+-   Verbindingen met cloudservices, zoals Microsoft Intune en cloud-gebaseerde distributiepunten  
 
 ##  <a name="BKMK_CommunicationPorts"></a> Poorten die door Configuration Manager-clients en sitesystemen worden gebruikt  
 De volgende secties detailleren de poorten die worden gebruikt voor communicatie in Configuration Manager. De pijlen in de sectietitel vertegenwoordigen de richting van de communicatie:  
@@ -114,7 +111,7 @@ De volgende secties detailleren de poorten die worden gebruikt voor communicatie
 |Secure Hypertext Transfer Protocol (HTTPS)|--|443 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
 
 ###  <a name="BKMK_PortsClient-ClientWakeUp"></a> Client -- &gt; Client  
- Behalve de poorten die worden vermeld in de volgende tabel, gebruikt wake-up proxy ook Internet Control Message Protocol (ICMP) echoaanvraagberichten van één client tot een andere client wanneer ze zijn geconfigureerd voor wake-up proxy.
+ Naast de poorten die worden vermeld in de volgende tabel, gebruikt wake-up proxy ook Internet Control Message Protocol (ICMP) echoaanvraagberichten van één client met een andere client wanneer ze zijn geconfigureerd voor wake-up proxy.
 
 Deze communicatie wordt gebruikt om te bevestigen of de andere clientcomputer actief is op het netwerk. Naar ICMP wordt soms verwezen als TCP/IP-pingopdrachten. ICMP heeft geen UDP- of TCP-protocolnummer en komt dus niet voor op de lijst in de volgende tabel. Evenwel moet elke host-gebaseerde firewall op deze clientcomputers of tussenliggende netwerkapparaten binnen het subnet ICMP-verkeer toelating geven ​​voor wake-up proxy communicatie om te slagen.  
 
@@ -143,14 +140,14 @@ Deze communicatie wordt gebruikt om te bevestigen of de andere clientcomputer ac
 |Hypertext Transfer Protocol (HTTP)|--|80 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
 |Secure Hypertext Transfer Protocol (HTTPS)|--|443 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
 
-###  <a name="BKMK_PortsClient-DP2"></a>Client--> Distributiepunt dat geconfigureerd voor multicast  
+###  <a name="BKMK_PortsClient-DP2"></a>Client--> Distributiepunt is geconfigureerd voor multicast  
 
 |Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
 |Server Message Block (SMB)|--|445|  
 |Multicast-protocol|63000-64000|--|  
 
-###  <a name="BKMK_PortsClient-DP3"></a>Client--> Distributiepunt dat geconfigureerd voor PXE  
+###  <a name="BKMK_PortsClient-DP3"></a>Client--> Distributiepunt is geconfigureerd voor PXE  
 
 |Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -158,7 +155,7 @@ Deze communicatie wordt gebruikt om te bevestigen of de andere clientcomputer ac
 |Trivial File Transfer Protocol (TFTP)|69 (Zie opmerking 4, **Trivial FTP (TFTP) Daemon**)|--|  
 |Boot Information Negotiation Layer (BINL)|4011|--|  
 
-###  <a name="BKMK_PortsClient-FSP"></a>Client--> Terugvalstatuspunt.  
+###  <a name="BKMK_PortsClient-FSP"></a>Client--> Terugvalstatuspunt  
 
 |Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -229,7 +226,7 @@ Deze communicatie wordt gebruikt om te bevestigen of de andere clientcomputer ac
 |RPC-eindpunttoewijzer|135|135|  
 |RPC|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
 
-###  <a name="BKMK_PortsCertificateRegistationPoint_PolicyModule"></a>Configuration Manager beleidsmodule (registratieservice netwerkapparaat)--> Certificaatregistratiepunt  
+###  <a name="BKMK_PortsCertificateRegistationPoint_PolicyModule"></a>Configuration Manager-beleidsmodule (registratieservice netwerkapparaat)--> Certificaatregistratiepunt  
 
 |Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -244,7 +241,7 @@ Deze communicatie wordt gebruikt om te bevestigen of de andere clientcomputer ac
 
 -   Inhoudsvalidatie rapporteren  
 
--   De status van het pakket downloaden (pull-distributiepunt) rapporteren
+-   Voor het rapporteren van de status van pakket downloads (pull-distributiepunt)
 
 |Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -342,7 +339,7 @@ Deze communicatie wordt gebruikt om te bevestigen of de andere clientcomputer ac
 |Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
 |Secure Hypertext Transfer Protocol (HTTPS)|--|443|
-Zie voor meer informatie [vereisten voor internettoegang](/sccm/core/servers/deploy/configure/about-the-service-connection-point#bkmk_urls) voor de service connection point.
+Zie voor meer informatie [vereisten voor internettoegang](/sccm/core/servers/deploy/configure/about-the-service-connection-point#bkmk_urls) voor het serviceverbindingspunt wordt gehost.
 
 ###  <a name="BKMK_PortsAppCatalogWebServicePoint_SiteServer"></a>Siteserver &lt; --> Application Catalog-webservicepunt  
 
@@ -400,7 +397,7 @@ Zie voor meer informatie [vereisten voor internettoegang](/sccm/core/servers/dep
 |RPC-eindpunttoewijzer|135|135|  
 |RPC|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
 
-###  <a name="BKMK_PortsCertificateRegistrationPoint_SiteServer"></a>Siteserver &lt; --> registratiepunt van het certificaat  
+###  <a name="BKMK_PortsCertificateRegistrationPoint_SiteServer"></a>Siteserver &lt; --> Certificaatregistratiepunt  
 
 |Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -448,7 +445,7 @@ Zie voor meer informatie [vereisten voor internettoegang](/sccm/core/servers/dep
 |Hypertext Transfer Protocol (HTTP)|--|80 (Zie Opmerking 1, **proxyserverpoort**)|  
 
 ###  <a name="BKMK_PortsIssuingCA_SiteServer"></a>Siteserver &lt; --> verlenende certificeringsinstantie (CA)  
- Deze communicatie wordt gebruikt wanneer u certificaatprofielen implementeert door gebruik te maken van het certificaatregistratiepunt. De communicatie wordt niet gebruikt voor elke siteserver in de hiërarchie. In plaats daarvan wordt het enkel gebruikt voor de siteserver bovenaan de hiërarchie.  
+ Deze communicatie wordt gebruikt wanneer u certificaatprofielen implementeert door gebruik te maken van het certificaatregistratiepunt. De communicatie wordt niet gebruikt voor elke siteserver in de hiërarchie. In plaats daarvan wordt alleen voor de siteserver bovenaan de hiërarchie.  
 
 |Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -476,7 +473,7 @@ Zie voor meer informatie [vereisten voor internettoegang](/sccm/core/servers/dep
 |-----------------|---------|---------|  
 |SQL via TCP|--|1433 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
 
- Tijdens de installatie van een site die een externe SQL Server gebruikt om de sitedatabase te hosten, moet u de volgende poorten tussen de siteserver en de SQL-Server openen:  
+ Tijdens de installatie van een site die gebruikmaakt van een externe SQL Server om de sitedatabase te hosten, moet u de volgende poorten tussen de siteserver en de SQL Server openen:  
 
 |Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -529,7 +526,7 @@ Zie voor meer informatie [vereisten voor internettoegang](/sccm/core/servers/dep
 |Secure Hypertext Transfer Protocol (HTTPS)|--|443 of 8531 (zie opmerking 3, **Windows Server-updateservices**)|  
 
 ###  <a name="BKMK_PortsSQL-SQL"></a> SQL Server --&gt; SQL Server  
- Internet-databasereplicatie vereist de SQL Server op één site om te communiceren rechtstreeks met de SQL Server op de bovenliggende of onderliggende site.  
+ Databasereplicatie tussen sites moet de SQL Server op één site om te communiceren rechtstreeks met de SQL Server op de bovenliggende of onderliggende site.  
 
 |Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -537,7 +534,7 @@ Zie voor meer informatie [vereisten voor internettoegang](/sccm/core/servers/dep
 |SQL Server Service Broker|--|4022 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
 
 > [!TIP]  
->  Configuration Manager is niet vereist voor de SQL Server-Browser poort UDP 1434 gebruikt.  
+>  Configuration Manager is niet vereist voor de SQL Server Browser, die poort UDP 1434 gebruikt.  
 
 ###  <a name="BKMK_PortsStateMigrationPoint-to-SQL"></a>Statusmigratiepunt--> SQL Server  
 
@@ -549,39 +546,39 @@ Zie voor meer informatie [vereisten voor internettoegang](/sccm/core/servers/dep
 
 ###  <a name="BKMY_PortNotes"></a> Opmerkingen voor poorten die door Configuration Manager-clients en sitesystemen worden gebruikt  
 
-1.  **Proxyserverpoort**: Deze poort kan niet worden geconfigureerd, maar kan gerout worden via een geconfigureerde proxyserver.  
+1.  **Proxy-serverpoort**: Deze poort kan niet worden geconfigureerd, maar kan worden gerouteerd via een geconfigureerde proxyserver.  
 
-2.  **Alternatieve poort beschikbaar**: Een alternatieve poort kan gedefinieerd worden binnen de Configuration Manager voor deze waarde. Indien een aangepaste poort is gedefinieerd, vervang dan deze aangepaste poort wanneer u de IP-filter informatie definieert voor IPsec-beleidslijnen of om firewalls te configureren.  
+2.  **Alternatieve poort beschikbaar**: In Configuration Manager kan een alternatieve poort gedefinieerd voor deze waarde. Indien een aangepaste poort is gedefinieerd, vervang dan deze aangepaste poort wanneer u de IP-filter informatie definieert voor IPsec-beleidslijnen of om firewalls te configureren.  
 
-3.  **Windows Server updateservices (WSUS)**: WSUS kan worden geïnstalleerd voor het gebruik van de poorten 80/443 of poorten 8530/8531 voor clientcommunicatie. Wanneer u WSUS in Windows Server 2012 of Windows Server 2016 uitvoert, wordt WSUS met poort 8530 voor HTTP en poort 8531 voor HTTPS standaard geconfigureerd.  
+3.  **Windows Server updateservices (WSUS)**: WSUS kan worden geïnstalleerd om de poorten 80/443 of poorten 8530/8531 gebruikt voor clientcommunicatie. Wanneer u WSUS in Windows Server 2012 of Windows Server 2016 uitvoert, is WSUS standaard geconfigureerd voor gebruik van poort 8530 voor HTTP en poort 8531 voor HTTPS.  
 
      Na de installatie, kan de poort worden gewijzigd. U moet niet hetzelfde poortnummer gebruiken over de hele sitehiërarchie.  
 
     -   Als de HTTP-poort 80 is, moet de HTTPS-poort 443 zijn.  
 
-    -   Als de HTTP-poort iets anders, moet de HTTPS-poort 1 of hoger, bijvoorbeeld 8530 en 8531.   
+    -   Als de HTTP-poort iets anders is, moet de HTTPS-poort 1 of hoger, bijvoorbeeld 8530 en 8531.   
 
     > [!NOTE]  
     >  Wanneer u het software-updatepunt voor gebruik van HTTPS configureert, moet de HTTP-poort ook zijn geopend. Niet-versleutelde gegevens, zoals de gebruiksrechtovereenkomst voor specifieke updates, gebruiken de HTTP-poort.  
 
-4.  **Trivial FTP (TFTP) Daemon**: De Trivial FTP (TFTP) Daemon-systeemservice vereist geen gebruikersnaam of wachtwoord en vormt een integraal onderdeel van Windows Deployment Services (WDS). De Trivial FTP Daemon service implementeert ondersteuning voor de TFTP-protocol dat wordt gedefinieerd door de volgende RFC's:  
+4.  **Trivial FTP (TFTP) Daemon**: De Trivial FTP (TFTP) Daemon-systeemservice vereist geen gebruikersnaam of wachtwoord en is een integraal onderdeel van Windows Deployment Services (WDS). De Trivial FTP Daemon service implementeert ondersteuning voor de TFTP-protocol dat wordt gedefinieerd door de volgende RFC's:  
 
     -   RFC 350: TFTP  
 
-    -   RFC 2347: Optie extensie  
+    -   RFC 2347: Uitbreiding van de optie  
 
     -   RFC 2348: Optie voor blokgrootte  
 
-    -   RFC 2349: Opties voor time-out voor interval en overdracht  
+    -   RFC 2349: Time-opties voor interval en overdracht  
 
-     Trivial File Transfer Protocol is ontworpen om opstartomgevingen zonder schijf te ondersteunen. TFTP Daemons luisteren op UDP-poort 69 maar antwoorden vanaf een dynamisch toegewezen hoge poort. Daarom deze poort inschakelen de TFTP-service voor het ontvangen van inkomende TFTP-aanvragen kan maar niet de geselecteerde server toelaten te antwoorden op deze aanvragen. U kunt de geselecteerde server om te reageren op binnenkomende TFTP-aanvragen, tenzij de TFTP-server is geconfigureerd om te antwoorden vanaf poort 69 niet inschakelen.  
+     Trivial File Transfer Protocol is ontworpen om opstartomgevingen zonder schijf te ondersteunen. TFTP Daemons luisteren op UDP-poort 69 maar antwoorden vanaf een dynamisch toegewezen hoge poort. Daarom deze poort inschakelen de TFTP-service voor het ontvangen van inkomende TFTP-aanvragen kan maar de geselecteerde server te reageren op aanvragen die afkomstig zijn niet toegestaan. U kunt de geselecteerde server te reageren op binnenkomende TFTP-aanvragen, tenzij de TFTP-server is geconfigureerd om te antwoorden vanaf poort 69 niet inschakelen.  
 
-5.  **Communicatie tussen de siteserver en sitesystemen**: Standaard is de communicatie tussen de siteserver en sitesystemen bidirectioneel. De siteserver initieert communicatie om het sitesysteem te configureren, en dan maken de meeste sitesystemen terug verbinding naar de siteserver om statusinformatie te sturen. Reporting Service-punten en distributiepunten zenden geen statusinformatie. Als u selecteert **de siteserver verbindingen tot dit sitesysteem initieert** op de sitesysteem-eigenschappen nadat het sitesysteem hebt geïnstalleerd, het sitesysteem won't starten communicatie met de siteserver. In plaats daarvan de siteserver initieert de communicatie en gebruikt de installatieaccount sitesysteem voor verificatie naar de sitesysteemserver.  
+5.  **Communicatie tussen de siteserver en sitesystemen**: Standaard is de communicatie tussen de siteserver en sitesystemen bidirectioneel. De siteserver initieert communicatie om het sitesysteem te configureren, en dan maken de meeste sitesystemen terug verbinding naar de siteserver om statusinformatie te sturen. Reporting Service-punten en distributiepunten zenden geen statusinformatie. Als u selecteert **de siteserver moet verbinding met dit sitesysteem initiëren** op de sitesysteem-eigenschappen nadat het sitesysteem is geïnstalleerd, het sitesysteem won't starten communicatie met de siteserver. In plaats daarvan de siteserver de communicatie start en de account voor de installatie van de site gebruikt voor verificatie met de sitesysteemserver.  
 
-6.  **Dynamische poorten**: Dynamische poorten (ook gekend als kortstondige poorten) gebruiken een bereik van poortnummers die gedefinieerd door de versie van het besturingssysteem. Voor meer informatie over de standaardpoortbereiken, zie [Service overview and network port requirements for Windows (Service overzicht en netwerk poortvereisten voor Windows)](http://go.microsoft.com/fwlink/p/?LinkId=317965).  
+6.  **Dynamische poorten**: Dynamische poorten (ook wel kortstondige poorten) gebruiken een bereik van poortnummers die gedefinieerd door de besturingssysteemversie. Voor meer informatie over de standaardpoortbereiken, zie [Service overview and network port requirements for Windows (Service overzicht en netwerk poortvereisten voor Windows)](http://go.microsoft.com/fwlink/p/?LinkId=317965).  
 
 ##  <a name="BKMK_AdditionalPorts"></a> Aanvullende lijsten met poorten  
- De volgende secties bieden bijkomende informatie over de poorten die worden gebruikt door Configuration Manager.  
+ De volgende secties bevatten aanvullende informatie over de poorten die worden gebruikt door Configuration Manager.  
 
 ###  <a name="BKMK_ClientShares"></a> Client naar servershares  
  Clients gebruiken Server Message Block (SMB) wanneer ze verbinden met UNC shares. Bijvoorbeeld:  
@@ -605,9 +602,9 @@ Zie voor meer informatie [vereisten voor internettoegang](/sccm/core/servers/dep
 
 -   Intrasite-communicatie tussen de SQL Server database engine en verschillende sitesysteemrollen van Configuration Manager standaard poort TCP 1433.  
 
-- Configuration Manager maakt gebruik van dezelfde poorten en protocollen om te communiceren met elke SQL-beschikbaarheidsgroep replica die als host fungeert voor de sitedatabase als de replica een zelfstandige SQL Server-exemplaar is.
+- Configuration Manager gebruikt de dezelfde poorten en protocollen om te communiceren met elke SQL-beschikbaarheidsgroep replica die de sitedatabase host als de replica een zelfstandige SQL Server-exemplaar is.
 
-Als u Azure gebruikt en de sitedatabase zich achter een interne of externe Load Balancer, de volgende firewalluitzonderingen configureren voor elke replica en taakverdeling regels voor de volgende poorten toevoegen:
+Wanneer u Azure gebruiken en de sitedatabase zich achter een interne of externe Load Balancer, het configureren van de volgende firewalluitzonderingen op elke replica en toevoegen van load-balancingregels voor de volgende poorten:
  - SQL via TCP: TCP 1433
  - SQL Server Service Broker: TCP 4022
  - Server Message Block (SMB): TCP 445
@@ -636,9 +633,9 @@ Als u Azure gebruikt en de sitedatabase zich achter een interne of externe Load 
 
 Wanneer een SQL Server een database host voor meer dan één site, moet elke database een afzonderlijke instantie van SQL Server gebruiken, en elke instantie moet geconfigureerd zijn met een unieke set van poorten.  
 
-Als er een firewall ingeschakeld op de computer met SQL Server, zorg ervoor dat deze is geconfigureerd dat de poorten in gebruik door uw implementatie. Configureer ook firewalls die op aanvullende locaties op het netwerk tussen computers die met de SQL-Server communiceren zodat deze dezelfde poorten zijn.  
+Als er een firewall ingeschakeld op de computer met SQL Server, zorg ervoor dat deze is geconfigureerd om toe te staan de poorten in gebruik door uw implementatie. Configureer ook firewalls die op extra locaties op het netwerk tussen computers die met de SQL-Server communiceren zodat deze dezelfde poorten zijn.  
 
-Zie voor een voorbeeld van het SQL Server configureren voor gebruik van een specifieke poort [How to: Een Server configureert om te luisteren op een specifieke TCP-poort (SQL Server Configuration Manager)](http://go.microsoft.com/fwlink/p/?LinkID=226349) in de SQL Server TechNet-bibliotheek.  
+Zie voor een voorbeeld van hoe u SQL Server configureren voor het gebruik van een specifieke poort [hoe: Configureren van een Server om te luisteren naar een specifieke TCP-poort (SQL Server Configuration Manager)](http://go.microsoft.com/fwlink/p/?LinkID=226349) in de SQL Server TechNet-bibliotheek.  
 
 
 ### <a name="bkmk_discovery"></a> Detectie en publiceren
@@ -648,7 +645,7 @@ De volgende poorten worden gebruikt voor de detectie en het publiceren van site-
 
 
  - Globale catalogus LDAP 3268
- - Globale catalogus LDAP SSL 3269
+ - Globale catalogus LDAP SSL: 3269
 
 
  - RPC-eindpunttoewijzer: 135
@@ -689,7 +686,7 @@ De volgende poorten worden gebruikt voor de detectie en het publiceren van site-
 
 -   Siteserver--> sitesysteem: RPC dynamische TCP-poorten  
 
--   Siteserver &lt; --> sitesysteem: Server message blocks (SMB) met TCP-poort 445
+-   Siteserver &lt; --> sitesysteem: Server message blocks (SMB) via TCP-poort 445
 
 Installaties van toepassingen en pakketten op distributiepunten vereisen de volgende RPC-poorten:  
 
@@ -700,18 +697,18 @@ Installaties van toepassingen en pakketten op distributiepunten vereisen de volg
 Gebruik IPsec voor verkeer tussen de siteserver en sitesystemen. Als u de dynamische poorten moet beperken die worden gebruikt met RPC, kunt u het Microsoft RPC-configuratieprogramma (rpccfg.exe) gebruiken om een beperkt aantal poorten te configureren voor deze RPC-pakketten. Zie voor meer informatie over het RPC-configuratieprogramma [RPC configureren voor het gebruik van bepaalde poorten en deze poorten helpen beveiligen met behulp van IPsec](http://go.microsoft.com/fwlink/p/?LinkId=124096).  
 
 > [!IMPORTANT]  
->  Voordat u deze sitesystemen installeert, moet u controleren of de remote registry-service wordt uitgevoerd op de sitesysteemserver en dat u een installatieaccount hebt opgegeven als het sitesysteem zich in een ander Active Directory-forest zonder een vertrouwensrelatie.  
+>  Voordat u deze sitesystemen installeert, zorg ervoor dat de remote registry-service wordt uitgevoerd op de sitesysteemserver en dat u een installatieaccount hebt opgegeven als het sitesysteem zich in een ander Active Directory-forest zonder een vertrouwensrelatie.  
 
 ###  <a name="BKMK_PortsClientInstall"></a> Poorten die worden gebruikt door de Configuration Manager-clientinstallatie  
-Welke poorten worden gebruikt tijdens de clientinstallatie is afhankelijk van de implementatiemethode van de client. Zie voor een lijst met poorten voor iedere client-implementatiemethode **poorten die worden gebruikt tijdens de implementatie van Configuration Manager-client** in de [Windows Firewall- en poortinstellingen voor clients in System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md) onderwerp. Zie voor meer informatie over het configureren van Windows Firewall op de client voor clientinstallatie en communicatie na de installatie [Windows Firewall- en poortinstellingen voor clients in System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md).  
+Welke poorten worden gebruikt tijdens de clientinstallatie is afhankelijk van de implementatiemethode van de client. Zie voor een lijst met poorten voor iedere client-implementatiemethode **poorten die worden gebruikt tijdens de clientimplementatie van de Configuration Manager-** in de [Windows Firewall- en poortinstellingen voor clients in System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md) onderwerp. Zie voor meer informatie over het configureren van Windows Firewall op de client voor clientinstallatie en communicatie na de installatie [Windows Firewall- en poortinstellingen voor clients in System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md).  
 
 ###  <a name="BKMK_MigrationPorts"></a> Poorten die door de migratie worden gebruikt  
-De siteserver waarop migratie wordt uitgevoerd maakt gebruik van verschillende poorten verbinding maken met toepasselijke sites in de bronhiërarchie voor het verzamelen van gegevens uit de bronsites SQL Server-databases en om distributiepunten te delen.  
+De siteserver waarop migratie gebruikt diverse poorten om verbinding met toepasselijke sites in de bronhiërarchie voor het verzamelen van gegevens van de bronsites SQL Server-databases en om distributiepunten te delen.  
 
- Zie voor meer informatie over deze poorten de [configuraties vereist voor de migratie](../../../core/migration/prerequisites-for-migration.md#BKMK_Required_Configurations) sectie het [vereisten voor migratie in System Center Configuration Manager](../../../core/migration/prerequisites-for-migration.md) onderwerp.  
+ Zie voor meer informatie over deze poorten de [vereiste configuraties voor migratie](../../../core/migration/prerequisites-for-migration.md#BKMK_Required_Configurations) sectie het [vereisten voor migratie in System Center Configuration Manager](../../../core/migration/prerequisites-for-migration.md) onderwerp.  
 
 ###  <a name="BKMK_ServerPorts"></a> Poorten die door Windows Server worden gebruikt  
- De volgende tabel worden een aantal belangrijke poorten gebruikt door Windows Server samen met hun functies. Zie [Service overview and network port requirements for Windows (Service-overzicht en netwerkpoortvereisten voor het Windows Server-systeem)](http://go.microsoft.com/fwlink/p/?LinkID=123652)voor een volledig overzicht van Windows Server-services en netwerkpoortvereisten.  
+ De volgende tabel bevat enkele belangrijke poorten gebruikt door Windows Server samen met hun functies. Zie [Service overview and network port requirements for Windows (Service-overzicht en netwerkpoortvereisten voor het Windows Server-systeem)](http://go.microsoft.com/fwlink/p/?LinkID=123652)voor een volledig overzicht van Windows Server-services en netwerkpoortvereisten.  
 
 |Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
@@ -720,4 +717,3 @@ De siteserver waarop migratie wordt uitgevoerd maakt gebruik van verschillende p
 |NetBIOS-naamomzetting|137|--|  
 |NetBIOS Datagram-service|138|--|  
 |NetBIOS-sessieservice|--|139|  
-

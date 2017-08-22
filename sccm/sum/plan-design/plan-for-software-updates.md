@@ -9,17 +9,14 @@ ms.date: 06/27/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-sum
+ms.technology: configmgr-sum
 ms.assetid: d071b0ec-e070-40a9-b7d4-564b92a5465f
+ms.openlocfilehash: 8b739a01a6bb5cacf0f7109e2e6fa3b31dd666d3
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
-ms.openlocfilehash: bc7e702a4277ac1dc358aa9a2795cddbf42e475f
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/29/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="plan-for-software-updates-in-system-center-configuration-manager"></a>Software-updates plannen in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
@@ -297,7 +294,7 @@ Software-updates vereisen dat een ondersteunde versie van WSUS is geïnstalleerd
 -   Als een vervangende software-update niet is goedgekeurd voor implementatie in uw productieomgeving.  
 
     > [!NOTE]  
-    >  Wanneer een vervangen software-update in Configuration Manager wordt ingesteld op **verlopen**, de update wordt niet ingesteld op **verlopen** in WSUS. Echter, wanneer de WSUS-opschoontaak wordt uitgevoerd, de updates ingesteld op **verlopen** in Configuration Manager zijn ingesteld op de status van **geweigerd** op de WSUS-server en de Windows Update Agent op computers scant niet meer voor deze updates. Dit betekent dat clients blijven scannen naar een verlopen update totdat de taak opschonen wordt uitgevoerd. Zie voor meer informatie over de WSUS-opschoontaak [onderhoud voor Software-updates](/sccm/sum/deploy-use/software-updates-maintenance).
+    > Wanneer een vervangen software-update in Configuration Manager wordt ingesteld op **verlopen**, de update wordt niet ingesteld op **geweigerd** in WSUS. Echter, wanneer de WSUS-opschoontaak wordt uitgevoerd, de updates ingesteld op **verlopen** in Configuration Manager zijn ingesteld op de status van **geweigerd** op de WSUS-server en de Windows Update Agent op computers scant niet meer voor deze updates. Dit betekent dat clients blijven scannen naar een verlopen update totdat de taak opschonen wordt uitgevoerd. Zie voor meer informatie over de WSUS-opschoontaak [onderhoud voor Software-updates](/sccm/sum/deploy-use/software-updates-maintenance).
 
 ###  <a name="BKMK_UpdateLanguages"></a> Talen  
  De taalinstellingen voor het software-updatepunt stellen u in staat de talen te configureren waarvoor de overzichtsgegevens (metagegevens van software-updates) gesynchroniseerd zijn voor software-updates, alsook de software-updatebestandstalen die voor software-updates worden gedownload.  
@@ -327,4 +324,3 @@ In eerdere versies van Configuration Manager, als opnieuw opstarten in behandeli
 
 ## <a name="next-steps"></a>Volgende stappen
 Nadat u voor software-updates plant, gaat u naar [voorbereiden voor software-updates management](../get-started/prepare-for-software-updates-management.md).
-

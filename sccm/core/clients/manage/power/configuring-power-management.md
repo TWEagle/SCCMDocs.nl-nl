@@ -1,37 +1,34 @@
 ---
-title: Energiebeheer configureren | Microsoft-documenten
+title: Energiebeheer configureren | Microsoft Docs
 description: Energiebeheer in System Center Configuration Manager instellen.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 435c923c-ea30-4dce-8afd-48962ed85502
-caps.latest.revision: 5
-caps.handback.revision: 0
+caps.latest.revision: "5"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
 ms.openlocfilehash: e111ac2545dd9e0b96a50c10246bb75d286a737a
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="configuring-power-management-in-system-center-configuration-manager"></a>Energiebeheer configureren in System Center Configuration Manager
+# <a name="configuring-power-management-in-system-center-configuration-manager"></a>Energiebeheer in System Center Configuration Manager configureren
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 Voordat u Energiebeheer in System Center Configuration Manager gebruiken kunt, moet u de volgende configuratiestappen uitvoeren.  
 
 ## <a name="enable-and-configure-power-management-client-settings"></a>Energiebeheerinstellingen voor clients inschakelen en configureren  
- Met deze procedure configureert u de standaardinstellingen voor energiebeheer voor clients die voor alle computers in uw hiërarchie geldt. Als u wilt dat deze instellingen alleen van toepassing zijn op enkele computers, maakt u een aangepaste apparaatclientinstelling en wijst u deze toe aan een verzameling waartoe de computers behoren die u voor energiebeheer wilt gebruiken. Zie voor meer informatie over het maken van aangepaste apparaatinstellingen [clientinstellingen configureren in System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
+ Met deze procedure configureert u de standaardinstellingen voor energiebeheer voor clients die voor alle computers in uw hiërarchie geldt. Als u wilt dat deze instellingen alleen van toepassing zijn op enkele computers, maakt u een aangepaste apparaatclientinstelling en wijst u deze toe aan een verzameling waartoe de computers behoren die u voor energiebeheer wilt gebruiken. Zie voor meer informatie over het maken van aangepaste apparaatinstellingen [het configureren van clientinstellingen in System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
 
 #### <a name="to-enable-power-management-and-configure-client-settings"></a>Energiebeheer inschakelen en clientinstellingen configureren  
 
@@ -49,7 +46,7 @@ Voordat u Energiebeheer in System Center Configuration Manager gebruiken kunt, m
 
     -   **Energiebeheer van apparaten toestaan** : selecteer **Waar** in de vervolgkeuzelijst om energiebeheer in te schakelen.  
 
-7.  Configureer de clientinstellingen die u nodig hebt. Zie voor een lijst van de client energiebeheerinstellingen die u kunt configureren, de [energiebeheer](../../../../core/clients/deploy/about-client-settings.md#power-management) sectie het [over clientinstellingen in System Center Configuration Manager](../../../../core/clients/deploy/about-client-settings.md) onderwerp.  
+7.  Configureer de clientinstellingen die u nodig hebt. Zie voor een lijst met energiebeheerinstellingen voor clients die u kunt configureren, de [energiebeheer](../../../../core/clients/deploy/about-client-settings.md#power-management) sectie het [over clientinstellingen in System Center Configuration Manager](../../../../core/clients/deploy/about-client-settings.md) onderwerp.  
 
 8.  Klik op **OK** om het dialoogvenster **Standaardclientinstellingen** te sluiten.  
 
@@ -71,7 +68,7 @@ Voordat u Energiebeheer in System Center Configuration Manager gebruiken kunt, m
 > [!NOTE]  
 >  Als de optie **Gebruikers toestaan hun apparaat uit te sluiten van energiebeheer** is geconfigureerd in de clientinstellingen, kunnen gebruikers hun eigen computers uitsluiten van energiebeheer via Software Center.  
 
- Als u wilt weten welke computers zijn uitgesloten van energiebeheer, voer dan het rapport **Uitgesloten Computers**uit. Zie voor meer informatie over dit rapport [uitgesloten Computers](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md#BKMK_Excluded) in [monitor en plannen voor energiebeheer in System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md).  
+ Als u wilt weten welke computers zijn uitgesloten van energiebeheer, voer dan het rapport **Uitgesloten Computers**uit. Zie voor meer informatie over dit rapport [uitgesloten Computers](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md#BKMK_Excluded) in [bewaken en plannen voor energiebeheer in System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md).  
 
 > [!IMPORTANT]  
 >  Energie-instellingen die worden toegepast op computers met Windows XP of Windows Server 2003 worden niet hersteld naar de oorspronkelijke waarden, zelfs niet als u de computer van energiebeheer uitsluit. In latere versies van Windows worden bij het uitsluiten van een computer voor energiebeheer alle energie-instellingen teruggezet naar de oorspronkelijke waarden. Het is niet mogelijk oorspronkelijke waarden van afzonderlijke energie-instellingen te herstellen.  
@@ -84,7 +81,6 @@ Voordat u Energiebeheer in System Center Configuration Manager gebruiken kunt, m
 
 3.  In de lijst **Apparaatverzamelingen** selecteert u de verzameling die u wilt uitsluiten van energiebeheer. Klik vervolgens op het tabblad **Start** in de groep **Eigenschappen** op **Eigenschappen**.  
 
-4.  In de **energiebeheer** tabblad van het *< Collectienaam\>***eigenschappen** in het dialoogvenster Selecteer **energiebeheerinstellingen nooit toepassen op computers in deze verzameling**.  
+4.  In de **energiebeheer** tabblad van de *< verzamelingsnaam\>***eigenschappen** dialoogvenster, **energiebeheerinstellingen nooit toepassen op computers in deze verzameling**.  
 
-5.  Klik op **OK** sluit de *< Collectienaam\>***eigenschappen** in het dialoogvenster en uw instellingen op te slaan.  
-
+5.  Klik op **OK** sluiten de *< verzamelingsnaam\>***eigenschappen** in het dialoogvenster en uw instellingen op te slaan.  

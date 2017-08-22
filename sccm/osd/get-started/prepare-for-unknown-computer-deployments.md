@@ -1,46 +1,43 @@
 ---
-title: Voorbereiden voor implementaties op onbekende computers | Microsoft-documenten
+title: Voorbereiden voor onbekende computerimplementaties | Microsoft Docs
 description: Informatie over het implementeren van besturingssystemen op computers die niet door Configuration Manager worden beheerd in uw omgeving voor System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9e447e34-0943-49ed-b6ba-3efebf3566c1
-caps.latest.revision: 10
-caps.handback.revision: 0
+caps.latest.revision: "10"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
 ms.openlocfilehash: 445e76950f0605da917f3d0e7e71557d969e3c2d
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="prepare-for-unknown-computer-deployments-in-system-center-configuration-manager"></a>Voorbereiden voor onbekende computerimplementaties in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Gebruik de informatie in dit onderwerp om besturingssystemen te implementeren op onbekende computers in uw omgeving voor System Center Configuration Manager. Een onbekende computer is een computer die niet wordt beheerd door Configuration Manager. Dit betekent dat er geen record van deze computers in de Configuration Manager-database. Onbekende computers omvatten het volgende:  
+Gebruik de informatie in dit onderwerp om besturingssystemen te implementeren op onbekende computers in uw omgeving voor System Center Configuration Manager. Een onbekende computer is een computer die niet wordt beheerd door Configuration Manager. Dit betekent dat er geen record van deze computers in de Configuration Manager-database is. Onbekende computers omvatten het volgende:  
 
--   Een computer waarop de Configuration Manager-client is geïnstalleerd  
+-   Een computer waarop de Configuration Manager-client niet is geïnstalleerd  
 
--   Een computer die niet is geïmporteerd in Configuration Manager  
+-   Een computer die is niet geïmporteerd in Configuration Manager  
 
 -   Een computer die niet is gedetecteerd door Configuration Manager  
 
  U kunt de volgende implementatiemethoden gebruiken om besturingssystemen op onbekende computers te implementeren:  
 
--   [PXE gebruiken om Windows te implementeren via het netwerk](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md)  
+-   [PXE gebruiken om Windows via het netwerk te implementeren](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md)  
 
--   [Opstartbare media gebruikt om een besturingssysteem te implementeren](../deploy-use/create-bootable-media.md)  
+-   [Opstartbare media gebruiken om een besturingssysteem te implementeren](../deploy-use/create-bootable-media.md)  
 
 -   [Voorbereide media gebruiken om een besturingssysteem te implementeren](../deploy-use/create-prestaged-media.md)  
 
@@ -57,17 +54,17 @@ Gebruik de informatie in dit onderwerp om besturingssystemen te implementeren op
 -   Implementeer de takenreeks om het besturingssysteem te installeren.  
 
 ## <a name="unknown-computer-installation-process"></a>Installatieproces van onbekende computer  
- Wanneer een computer eerst wordt gestart vanuit PXE of vanaf media, Configuration Manager gecontroleerd of er voor die computer een record in de Configuration Manager-database bestaat. Als er een record, controleert Configuration Manager om te zien of er takenreeksen voor de record zijn geïmplementeerd. Als er geen record bestaat, wordt de Configuration Manager controleert om te zien of er takenreeksen voor een onbekend computerobject zijn geïmplementeerd. In beide gevallen voert Configuration Manager vervolgens een van de volgende handelingen uit:  
+ Wanneer een computer eerst wordt gestart vanuit PXE of vanaf media, controleert Configuration Manager of er voor die computer een record in de Configuration Manager-database bestaat. Als er een record, controleert Configuration Manager of er takenreeksen voor de record zijn geïmplementeerd zijn. Als er geen record bestaat, wordt Configuration Manager controleert om te zien of er takenreeksen voor een onbekend computerobject zijn geïmplementeerd. In beide gevallen voert Configuration Manager vervolgens een van de volgende acties uit:  
 
--   Als er een beschikbare takenreeks, wordt Configuration Manager de gebruiker de takenreeks wordt uitgevoerd.  
+-   Als er een beschikbare takenreeks is, wordt Configuration Manager de gebruiker de takenreeks uitvoert.  
 
--   Als er een vereiste takenreeks, Configuration Manager automatisch de takenreeks wordt uitgevoerd.  
+-   Als er een vereiste takenreeks is, wordt de takenreeks automatisch door Configuration Manager uitgevoerd.  
 
--   Als u een takenreeks voor de record is niet geïmplementeerd, Configuration Manager een fout gegenereerd dat er geen geïmplementeerde takenreeks voor de doelcomputer.  
+-   Als u een takenreeks wordt niet geïmplementeerd voor de record, Configuration Manager een fout gegenereerd dat er geen geïmplementeerde takenreeks voor de doelcomputer.  
 
- Wanneer een onbekende computer wordt gestart, Configuration Manager wordt herkend door de computer een niet-ingerichte computer in plaats van een onbekende computer. Dit betekent dat de computer nu de takenreeksen kan ontvangen die zijn geïmplementeerd voor het onbekende computerobject. De geïmplementeerde takenreeks installeert vervolgens een installatiekopie van een besturingssysteem dat de Configuration Manager-client moet bevatten.  
+ Wanneer een onbekende computer wordt gestart, herkent Configuration Manager de computer als een niet-ingerichte computer in plaats van een onbekende computer. Dit betekent dat de computer nu de takenreeksen kan ontvangen die zijn geïmplementeerd voor het onbekende computerobject. De geïmplementeerde takenreeks installeert vervolgens de installatiekopie van een besturingssysteem dat de Configuration Manager-client moet bevatten.  
 
- Nadat de Configuration Manager-client is geïnstalleerd, wordt een record voor de computer wordt gemaakt en wordt de computer wordt weergegeven in de juiste Configuration Manager-verzameling. Als de computer mislukt om de installatiekopie van het besturingssysteem of de Configuration Manager-client te installeren, een record "Onbekend" voor de computer wordt gemaakt en verschijnt de computer in de **alle systemen** verzameling.  
+ Nadat de Configuration Manager-client is geïnstalleerd, wordt een record voor de computer wordt gemaakt en wordt de computer vermeld in de juiste Configuration Manager-verzameling. Als de computer, mislukt de installatiekopie van het besturingssysteem of de Configuration Manager-client te installeren, een record "Onbekend" voor de computer wordt gemaakt en verschijnt de computer in de **alle systemen** verzameling.  
 
 > [!NOTE]  
 >  Tijdens de installatie van de installatiekopie van het besturingssysteem kan de takenreeks verzamelingsvariabelen, maar geen computervariabelen van deze computer ophalen.  
@@ -86,4 +83,3 @@ Gebruik de informatie in dit onderwerp om besturingssystemen te implementeren op
 -   **Voorbereide media**  
 
      Schakel het selectievakje **Ondersteuning van onbekende computers inschakelen** in op de pagina **Beveiliging** van de wizard Takenreeksmedia maken. Zie [Voorbereide media maken met System Center Configuration Manager](../deploy-use/create-prestaged-media.md) voor meer informatie.  
-

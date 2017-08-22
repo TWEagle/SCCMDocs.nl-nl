@@ -6,21 +6,19 @@ ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 92b339ef-2723-4322-bec6-077b3e8846b0
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 5945abb49fe06c59355805aa94b04d0d445ecbc3
 ms.openlocfilehash: d46a8b66ace45d25da9d86f2e91b19ae1d6875ab
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="prerequisites-for-installing-system-center-configuration-manager-sites"></a>Vereisten voor het installeren van System Center Configuration Manager-sites
 
@@ -129,4 +127,3 @@ Hier volgen de vereisten voor het installeren van secundaire sites:
         >  Wanneer Setup is voltooid, moeten beide accounts sysadmin-rechten voor SQL Server behouden. Verwijder de sysadmin-rechten niet van deze accounts.  
 
 -   De secundaire siteservercomputer moet voldoen aan alle vereiste configuraties, waaronder SQL Server en de standaardsitesysteemrollen van het beheerpunt en distributiepunt.  
-

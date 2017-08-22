@@ -1,34 +1,31 @@
 ---
-title: Certificaten instellen | Microsoft-documenten
-description: Certificaten voor vertrouwde communicatie voor On-premises mobiele apparaten beheren in System Center Configuration Manager instellen.
+title: Certificaten instellen | Microsoft Docs
+description: Certificaten voor vertrouwde communicatie voor On-premises Mobile Device Management in System Center Configuration Manager instellen.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 2a7d7170-1933-40e9-96d6-74a6eb7278e2
-caps.latest.revision: 27
-caps.handback.revision: 0
+caps.latest.revision: "27"
+caps.handback.revision: "0"
 author: Mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 6424fb07802b62820b4dc78a58ab30d3b956abef
 ms.openlocfilehash: 3d695a2a40fd86ad991a26db3dcecbbb9ca186cc
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="set-up-certificates-for-trusted-communications-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Certificaten voor vertrouwde communicatie instellen voor On-premises Mobile Device Management in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-System Center Configuration Manager op\-lokale beheer van mobiele apparaten vereist het inschrijvingspunt proxypunt voor inschrijving, distributiepunt en beheer van apparaten te worden ingesteld voor sitesysteemrollen vertrouwde communicatie met beheerde apparaten. Elke sitesysteemserver die als host fungeert voor een of meer van deze rollen moet een uniek PKI-certificaat hebben dat is gebonden aan de webserver op dat systeem. Een certificaat met dezelfde basis als het certificaat op de servers moet ook worden opgeslagen op beheerde apparaten om onderlinge vertrouwde communicatie mogelijk te maken.  
+System Center Configuration Manager op\-premises Mobile Device Management vereist het inschrijvingspunt, proxypunt voor inschrijving, distributiepunt en Apparaatbeheer sitesysteemrollen worden ingesteld voor vertrouwde communicatie met beheerde apparaten. Elke sitesysteemserver die als host fungeert voor een of meer van deze rollen moet een uniek PKI-certificaat hebben dat is gebonden aan de webserver op dat systeem. Een certificaat met dezelfde basis als het certificaat op de servers moet ook worden opgeslagen op beheerde apparaten om onderlinge vertrouwde communicatie mogelijk te maken.  
 
  Voor apparaten die lid zijn van het domein installeert Active Directory Certificate Services het benodigde certificaat met de vertrouwde basis automatisch op alle apparaten. Voor apparaten die niet lid zijn van het domein moet u op een andere manier een geldig certificaat met een vertrouwde basis verkrijgen. Als u de certificeringsinstantie van de site als de vertrouwde basis gebruikt (dezelfde die Active Directory gebruikt voor apparaten die lid zijn van het domein), moet er een certificaat dat is uitgegeven door die certificeringsinstantie gebonden zijn aan de sitesysteemservers voor het inschrijvingspunt en het proxypunt voor inschrijving.  
 
@@ -37,22 +34,22 @@ System Center Configuration Manager op\-lokale beheer van mobiele apparaten vere
  Als alternatief voor apparaten die niet lid zijn van het domein, kunt u de basis van een bekende openbare certificeringsinstantie (zoals Verisign of GoDaddy) gebruiken om het servercertificaat uit te geven. Zo voorkomt u dat u een certificaat handmatig op het apparaat moet installeren, omdat de meeste apparaten verbindingen met servers die gebruikmaken van dezelfde basis als de openbare certificeringsinstantie, vertrouwen. Dit is een handig alternatief voor door de gebruiker ingeschreven apparaten waarin het niet haalbaar is om op elk apparaat de certificaten te installeren die via de certificeringsinstantie van de site worden vertrouwd.  
 
 > [!IMPORTANT]  
->  Er zijn veel manieren voor het instellen van de certificaten voor vertrouwde communicatie tussen apparaten en de sitesysteemservers voor op\-premises beheer van mobiele apparaten. De informatie in dit artikel wordt weergegeven als een voorbeeld van een van de mogelijke manieren. Voor deze methode moet u een server op uw site uitvoeren met Active Directory Certificate Services-rol en moeten de rolservices voor de certificeringsinstantie en internetregistratie van de certificeringsinstantie zijn geïnstalleerd. Zie [Active Directory Certificate Services](http://go.microsoft.com/fwlink/p/?LinkId=115018) voor meer informatie over en richtlijnen voor deze Windows Server-rol.  
+>  Er zijn veel manieren voor het instellen van de certificaten voor vertrouwde communicatie tussen apparaten en de sitesysteemservers voor op\-premises Mobile Device Management. De informatie in dit artikel wordt weergegeven als een voorbeeld van een van de mogelijke manieren. Voor deze methode moet u een server op uw site uitvoeren met Active Directory Certificate Services-rol en moeten de rolservices voor de certificeringsinstantie en internetregistratie van de certificeringsinstantie zijn geïnstalleerd. Zie [Active Directory Certificate Services](http://go.microsoft.com/fwlink/p/?LinkId=115018) voor meer informatie over en richtlijnen voor deze Windows Server-rol.  
 
- Voor het instellen van de Configuration Manager-site voor de SSL-communicaties vereist voor op\-lokale beheer van mobiele apparaten, volg deze stappen op hoog niveau:  
+ Voor het instellen van de Configuration Manager-site voor de SSL-communicatie vereist voor op\-premises Mobile Device Management, volg deze stappen op hoog niveau:  
 
--   [De certificeringsinstantie (CA) configureren voor CRL-publicatie](#bkmk_configCa)  
+-   [De certificeringsinstantie (CA) configureren voor het uitgeven van CRL 's](#bkmk_configCa)  
 
--   [Maken van het webservercertificaatsjabloon op de CA](#bkmk_certTempl)  
+-   [De sjabloon voor het webservercertificaat maken op de CA](#bkmk_certTempl)  
 
 -   [Het Webservercertificaat voor elke sitesysteemrol aanvragen](#bkmk_requestCert)  
 
 -   [Het certificaat binden aan de webserver](#bkmk_bindCert)  
 
--   [Exporteer het certificaat met dezelfde hoofd als het webservercertificaat](#bkmk_exportCert)  
+-   [Exporteer het certificaat met dezelfde basis als het webservercertificaat](#bkmk_exportCert)  
 
-##  <a name="bkmk_configCa"></a>De certificeringsinstantie (CA) configureren voor CRL-publicatie  
- De certificeringsinstantie (CA) gebruikt standaard LDAP-gebaseerde certificaatintrekkingslijsten (CRL's) waarmee verbinding kan worden gemaakt met apparaten die lid zijn van het domein. U moet HTTP-gebaseerde CRL's toevoegen aan de certificeringsinstantie, zodat apparaten die niet lid zijn van het domein worden vertrouwd met uitgegeven certificaten van de certificeringsinstantie. Deze certificaten zijn vereist voor SSL-communicatie tussen de servers die als host fungeert voor de sitesysteemrollen van Configuration Manager en de apparaten die zijn geregistreerd voor op\-premises beheer van mobiele apparaten.  
+##  <a name="bkmk_configCa"></a>De certificeringsinstantie (CA) configureren voor het uitgeven van CRL 's  
+ De certificeringsinstantie (CA) gebruikt standaard LDAP-gebaseerde certificaatintrekkingslijsten (CRL's) waarmee verbinding kan worden gemaakt met apparaten die lid zijn van het domein. U moet HTTP-gebaseerde CRL's toevoegen aan de certificeringsinstantie, zodat apparaten die niet lid zijn van het domein worden vertrouwd met uitgegeven certificaten van de certificeringsinstantie. Deze certificaten zijn vereist voor SSL-communicatie tussen de servers die als host fungeert voor de sitesysteemrollen van Configuration Manager en de apparaten die zijn geregistreerd voor op\-premises Mobile Device Management.  
 
  Voer de volgende stappen uit voor de configuratie van de certificeringsinstantie voor het automatisch publiceren van CRL-informatie voor het uitgeven van certificaten die vertrouwde verbindingen toestaan voor apparaten die wel lid zijn van het domein en apparaten die niet lid zijn van het domein:  
 
@@ -64,13 +61,13 @@ System Center Configuration Manager op\-lokale beheer van mobiele apparaten vere
 
 4.  Selecteer **http://<ServerDNSName\>/CertEnroll/<CAName\><CRLNameSuffix\><DeltaCRLAllowed\>.crl**. En de volgende drie opties:  
 
-    -   **In de CRL's opnemen. Clients gebruiken deze Delta-CRL locaties vinden.**  
+    -   **In CRL's opnemen. Clients gebruiken deze om locaties met Delta-CRL te vinden.**  
 
-    -   **Neem in CDP-extensie van uitgegeven certificaten.**  
+    -   **Opnemen in de CDP-uitbreiding van uitgegeven certificaten.**  
 
-    -   **De extensie IDP van uitgegeven CRL 's**  
+    -   **Opnemen in de IDP-uitbreiding van uitgegeven CRL 's**  
 
-5.  Klik op de **uitgiftemodule** tabblad **eigenschappen...** , en selecteer vervolgens **toestaan dat certificaten worden gepubliceerd naar het bestandssysteem**.  
+5.  Klik op de **uitgiftemodule** tabblad **eigenschappen...** , selecteer daarna **toestaan dat certificaten worden uitgegeven aan het bestandssysteem**.  
 
 6.  Klik op **OK** wanneer wordt weergegeven dat Active Directory Certificate Services opnieuw moet worden gestart.  
 
@@ -78,7 +75,7 @@ System Center Configuration Manager op\-lokale beheer van mobiele apparaten vere
 
 8.  Selecteer in het dialoogvenster CRL publiceren de optie **Alleen een lijst met wijzigingen ten aanzien van ingetrokken certificaten** en klik vervolgens op **OK**.  
 
-##  <a name="bkmk_certTempl"></a>Maken van het webservercertificaatsjabloon op de CA  
+##  <a name="bkmk_certTempl"></a>De sjabloon voor het webservercertificaat maken op de CA  
  Na het publiceren van de nieuwe CRL op de certificeringsinstantie is de volgende stap het maken van een sjabloon voor het webservercertificaat. Deze sjabloon is vereist voor het uitgeven van certificaten voor de servers waarop het inschrijvingspunt, het proxypunt voor inschrijving, het distributiepunt en de sitesysteemrollen van het apparaatbeheerpunt worden gehost. Deze servers worden SSL-eindpunten voor vertrouwde communicatie tussen sitesysteemrollen en ingeschreven apparaten.    Voer de volgende stappen uit om de certificaatsjabloon te maken:  
 
 1.  Maak een beveiligingsgroep met de naam **ConfigMgr MDM-servers** die de servers bevat waarop de sitesystemen worden uitgevoerd waarvoor vertrouwde communicatie met ingeschreven apparaten vereist is.  
@@ -116,7 +113,7 @@ System Center Configuration Manager op\-lokale beheer van mobiele apparaten vere
 12. Selecteer in het dialoogvenster **Certificaatsjablonen inschakelen** de nieuwe sjabloon die u net hebt gemaakt, **ConfigMgr MDM-webserver**, en klik op **OK**.  
 
 ##  <a name="bkmk_requestCert"></a>Het Webservercertificaat voor elke sitesysteemrol aanvragen  
- Apparaten die zijn ingeschreven voor op\-lokale beheer van mobiele apparaten SSL-eindpunten die als host fungeert voor de registratiepunt proxypunt voor inschrijving, distributiepunt en apparaatbeheerpunt moeten vertrouwen.  In de volgende stappen leest u hoe u het webservercertificaat voor IIS aanvraagt. U moet hiervoor voor elke server (SSL-eindpunt) een van de vereiste sitesysteemrollen voor het hosten op\-premises beheer van mobiele apparaten.  
+ Apparaten die zijn geregistreerd voor op\-premises Mobile Device Management SSL-eindpunten die als host fungeert voor het inschrijvingspunt, proxypunt voor inschrijving, distributiepunt en apparaatbeheerpunt moeten vertrouwen.  In de volgende stappen leest u hoe u het webservercertificaat voor IIS aanvraagt. U moet dit doen voor elke server (SSL-eindpunt) een van de vereiste sitesysteemrollen voor het hosten op\-premises Mobile Device Management.  
 
 1.  Open op de primaire siteserver de opdrachtprompt met beheerdersrechten, typ **MMC** en druk op **Enter**.  
 
@@ -132,29 +129,29 @@ System Center Configuration Manager op\-lokale beheer van mobiele apparaten vere
 
 7.  Zodra het certificaat is ingeschreven, klikt u op **Voltooien**.  
 
- Omdat elke server een unieke Webservercertificaat moet, moet u dit proces herhalen voor elke server die een van de vereiste sitesysteemrollen voor het hosten op\-premises beheer van mobiele apparaten.  Als één server als host fungeert voor alle sitesysteemrollen, hoeft u maar één webservercertificaat aan te vragen.  
+ Omdat elke server een uniek Webservercertificaat moet, moet u dit proces herhalen voor elke server een van de vereiste sitesysteemrollen voor het hosten op\-premises Mobile Device Management.  Als één server als host fungeert voor alle sitesysteemrollen, hoeft u maar één webservercertificaat aan te vragen.  
 
 ##  <a name="bkmk_bindCert"></a>Het certificaat binden aan de webserver  
- Het nieuwe certificaat moet nu worden verbonden met de webserver van elke sitesysteemserver die als host fungeert voor de vereiste sitesysteemrollen op\-premises beheer van mobiele apparaten. Voer de onderstaande stappen uit voor elke server die als host fungeert voor de sitesysteemrollen voor het inschrijvingspunt en het proxypunt voor inschrijving. Als één server als host fungeert voor alle sitesysteemrollen, hoeft u deze stappen maar één keer uit te voeren. U hoeft deze taak niet uit te voeren voor de sitesysteemrollen voor het distributiepunt en het apparaatbeheerpunt, aangezien deze het vereiste certificaat automatisch ontvangen tijdens de inschrijving.  
+ Het nieuwe certificaat moet nu worden gekoppeld aan de webserver van elke sitesysteemserver die als host fungeert voor de vereiste sitesysteemrollen op\-premises Mobile Device Management. Voer de onderstaande stappen uit voor elke server die als host fungeert voor de sitesysteemrollen voor het inschrijvingspunt en het proxypunt voor inschrijving. Als één server als host fungeert voor alle sitesysteemrollen, hoeft u deze stappen maar één keer uit te voeren. U hoeft deze taak niet uit te voeren voor de sitesysteemrollen voor het distributiepunt en het apparaatbeheerpunt, aangezien deze het vereiste certificaat automatisch ontvangen tijdens de inschrijving.  
 
 1.  Klik op de server met het inschrijvingspunt, het proxypunt voor inschrijving, het distributiepunt of het apparaatbeheerpunt en klik op **Start** > **Systeembeheer** > **IIS-beheer**.  
 
-2.  Navigeer naar onder verbindingen en met de rechtermuisknop op **Default Web Site**, en klik vervolgens op **bindingen bewerken...**  
+2.  Navigeer naar onder verbindingen en met de rechtermuisknop op **standaardwebsite**, en klik vervolgens op **bindingen bewerken...**  
 
-3.  Klik in het dialoogvenster sitebindingen **https**, en klik vervolgens op **bewerken...**  
+3.  Klik in het dialoogvenster sitebindingen op **https**, en klik vervolgens op **bewerken...**  
 
 4.  Selecteer in het dialoogvenster Sitebinding bewerken het certificaat dat u zojuist hebt ingeschreven voor het **SSL-certificaat**, klik op **OK** en klik vervolgens op **Sluiten**.  
 
 5.  In IIS-beheerconsole selecteert u onder Verbindingen de webserver. Klik vervolgens in het deelvenster Acties aan de rechterkant op **Opnieuw opstarten**.  
 
-##  <a name="bkmk_exportCert"></a>Exporteer het certificaat met dezelfde hoofd als het webservercertificaat  
+##  <a name="bkmk_exportCert"></a>Exporteer het certificaat met dezelfde basis als het webservercertificaat  
  Active Directory Certificate Services installeert het vereiste certificaat van de certificeringsinstantie doorgaans op alle apparaten die lid zijn van een domein. Apparaten die niet lid zijn van het domein kunnen echter niet communiceren met de sitesysteemrollen zonder certificaat van de basiscertificeringsinstantie. Als u het vereiste certificaat voor apparaten om te communiceren met de sitesysteemrollen wilt ophalen, kunt u het exporteren van het certificaat dat is gebonden aan de webserver.  
 
  Voer deze stappen uit voor het exporteren van het basiscertificaat van het webservercertificaat.  
 
-1.  Klik in de IIS-beheer **Default Web Site**, en klik vervolgens in het rechter deelvenster actie op **bindingen...**  
+1.  Klik in de IIS-beheer **standaardwebsite**, en klik vervolgens in het rechter deelvenster actie op **bindingen...**  
 
-2.  Klik in het dialoogvenster sitebindingen **https**, en klik vervolgens op **bewerken...**  
+2.  Klik in het dialoogvenster sitebindingen op **https**, en klik vervolgens op **bewerken...**  
 
 3.  Zorg ervoor dat het webservercertificaat is geselecteerd en klik op **weergeven...**  
 
@@ -166,11 +163,10 @@ System Center Configuration Manager op\-lokale beheer van mobiele apparaten vere
 
 7.  Zorg ervoor dat **DER Encoded Binary X.509 (.CER)** is geselecteerd als indeling en klik op **Volgende**.  
 
-8.  Klik op voor de bestandsnaam **bladeren...** , kies een locatie om de bestandsnaam op te slaan van het certificaatbestand en klik op **opslaan**.  
+8.  De bestandsnaam, klikt u op **bladeren...** , kies een locatie om het bestand een naam op te slaan van het certificaatbestand en klik op **opslaan**.  
 
      Apparaten die u wilt inschrijven, hebben toegang tot dit bestand nodig om het basiscertificaat te importeren. Kies daarom een algemene locatie waartoe de meeste computers en apparaten toegang hebben. U kunt het bestand nu ook opslaan op een handige locatie (bijvoorbeeld de C-schijf) en het later naar een algemene locatie verplaatsen.  
 
      Klik op **Volgende**.  
 
 9. Controleer de instellingen en klik op **Voltooien**.  
-

@@ -1,28 +1,25 @@
 ---
-title: Globale voorwaarden maken | Microsoft-documenten
-description: "Globale voorwaarden om op te geven hoe een toepassing beschikbaar wordt gesteld en geïmplementeerd voor clientapparaten maken."
+title: Globale voorwaarden maken | Microsoft Docs
+description: "Algemene voorwaarden om op te geven hoe een toepassing beschikbaar wordt gesteld en geïmplementeerd voor clientapparaten maken."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-app
+ms.technology: configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2d5f871a-19dc-4bd3-a3ad-4230c7a69f1b
-caps.latest.revision: 7
-caps.handback.revision: 0
+caps.latest.revision: "7"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 85e254f1074e02a52fea6a3cda21a37c332f249e
 ms.openlocfilehash: 8a59a1769eec4cd6d78d7686a1d8008e832dd924
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="how-to-create-global-conditions-in-system-center-configuration-manager"></a>Globale voorwaarden maken in System Center Configuration Manager
 
@@ -31,12 +28,12 @@ ms.lasthandoff: 05/17/2017
 In System Center Configuration Manager globale voorwaarden zijn regels die staan voor zakelijke of technische voorwaarden die u gebruiken kunt om op te geven hoe een toepassing beschikbaar wordt gesteld en geïmplementeerd voor clientapparaten. Globale voorwaarden worden geopend via de pagina **Vereisten** van de wizard Implementatietype maken.  
 
 > [!NOTE]  
->  U kunt globale voorwaarden alleen via de site waar ze zijn gemaakt bewerken.  
+>  Globale voorwaarden alleen vanaf de site waar ze zijn gemaakt, kunt u bewerken.  
 
  Gebruik de volgende procedures Configuration Manager globale voorwaarden maken.  
 
 ## <a name="provide-basic-information-about-the-global-condition"></a>Algemene gegevens over de globale voorwaarde opgeven  
- Verschillende soorten globale voorwaarden zijn beschikbaar. Verschillende opties zijn gekoppeld aan de verschillende typen globale voorwaarden. Wanneer u een specifiek globale voorwaardetype kiest, geeft Configuration Manager de opties die van toepassing zijn op uw selectie.  
+ Verschillende soorten globale voorwaarden zijn beschikbaar. Verschillende opties zijn gekoppeld aan de verschillende typen globale voorwaarden. Wanneer u een specifiek globale voorwaardetype kiest selecteert, ziet u Configuration Manager de opties die van toepassing zijn op uw selectie.  
 
 1.  Kies in de Configuration Manager-console **softwarebibliotheek** > **Toepassingsbeheer** > **globale voorwaarden**.  
 
@@ -48,24 +45,24 @@ In System Center Configuration Manager globale voorwaarden zijn regels die staan
 
 6.  Kies in het vervolgkeuzemenu **Voorwaardetype** een van de volgende opties:  
 
-    -   **Instelling** – Met deze optie kunt u controleren of er sprake is van een of meerdere items op clientapparaten. U kunt bijvoorbeeld controleren of een bestand, map of registersleutelwaarde op een clientapparaat bestaat.  
+    -   **Instelling** – Met deze optie kunt u controleren of er sprake is van een of meerdere items op clientapparaten. U kunt bijvoorbeeld controleren of een sleutelwaarde bestand, map of registersleutelwaarde op een clientapparaat bestaat.  
 
     -   **Expressie** – deze optie kunt u complexere regels instellen om te controleren of de voorwaarde is voldaan op clientapparaten. U kunt bijvoorbeeld controleren als het fysieke geheugen op een computer tussen 2 en 4 GB groot is of als een mobiel apparaat via een aanraakscherm verloopt invoer.  
 
-## <a name="set-up-rules-for-the-global-condition"></a>Regels voor de globale voorwaarde instellen  
- De procedure voor het definiëren van de regels voor globale voorwaarden is anders bij het configureren van een instelling of een expressie. Gebruik de procedure hier van toepassing voor het instellen van een instelling of een expressie voor de globale voorwaarde.  
+## <a name="set-up-rules-for-the-global-condition"></a>Instellen van regels voor de globale voorwaarde  
+ De procedure voor het definiëren van de globale voorwaarde regels is verschillend, afhankelijk van het configureren van een instelling of een expressie. Gebruik hier de toepasselijke procedure voor het instellen van een instelling of een expressie voor de globale voorwaarde.  
 
 ### <a name="to-set-up-a-setting-for-the-global-condition"></a>Voor het instellen van een instelling voor de globale voorwaarde  
 
 1.  Kies in het vervolgkeuzemenu **Voorwaardetype** **Instelling**.  
 
-2.  Kies in het vervolgkeuzemenu **Instellingstype** het item dat u wilt gebruiken als de voorwaarde waarvoor u vereisten wilt controleren. De volgende Instellingstypen en configuraties die zijn beschikbaar.  
+2.  Kies in het vervolgkeuzemenu **Instellingstype** het item dat u wilt gebruiken als de voorwaarde waarvoor u vereisten wilt controleren. De volgende Instellingstypen en configuraties zijn beschikbaar.  
 
     -   **Active Directory-query**  
 
         -   **LDAP-voorvoegsel** - Geef een geldig LDAP-voorvoegsel op in de Active Directory Domain Services-query om de compatibiliteit vast te stellen op clientcomputers. U kunt **LDAP://** of **GC://**gebruiken.  
 
-        -   **DN-naam (Distinguished Name)** -Geef de DN-naam van het Active Directory Domain Services-object dat wordt vastgesteld voor compatibiliteit op clientcomputers.  
+        -   **DN-naam (Distinguished Name)** -Geef de DN-naam van het Active Directory Domain Services-object dat wordt beoordeeld op naleving op clientcomputers.  
 
         -   **Zoekfilter** - Geef een optionele LDAP-filter op om de resultaten van de Active Directory Domain Services-query te verfijnen om de compatibiliteit vast te stellen op clientcomputers.  
 
@@ -79,11 +76,11 @@ In System Center Configuration Manager globale voorwaarden zijn regels die staan
 
         -   **Eigenschap** - Hier specificeert u de eigenschap van een Active Directory Domain Services-object dat wordt gebruikt om de compatibiliteit vast te stellen op clientcomputers.  
 
-        -   **Query** -geeft de LDAP-query die is samengesteld uit de invoer in **LDAP-voorvoegsel**, **DN-naam (Distinguished Name)**, **zoekfilter** indien opgegeven, en **eigenschap**. Deze query wordt gebruikt om de compatibiliteit vast te stellen op clientcomputers.  
+        -   **Query** -ziet u de LDAP-query die wordt samengesteld uit de invoer in **LDAP-voorvoegsel**, **DN-naam (Distinguished Name)**, **zoekfilter** indien opgegeven, en **eigenschap**. Deze query wordt gebruikt om de compatibiliteit vast te stellen op clientcomputers.  
 
     -   **Assembly**  
 
-        -   **Naam van assembly** - Hier geeft u de naam op van het assembly-object waarnaar u wilt zoeken. De naam mag niet gelijk zijn aan een ander assembly-object van hetzelfde type en de naam moet worden geregistreerd in de Global Assembly Cache. De assembly-naam mag maximaal 256 tekens bestaan.  
+        -   **Naam van assembly** - Hier geeft u de naam op van het assembly-object waarnaar u wilt zoeken. De naam mag niet hetzelfde zijn als elk ander assembly-object van hetzelfde type en de naam moet worden geregistreerd in de Global Assembly Cache. De assembly-naam mag maximaal 256 tekens bestaan.  
 
         > [!NOTE]  
         >  Een assembly is een stuk code dat tussen toepassingen kan worden gedeeld. Assembly's kunnen de bestandsnaamextensie .dll of .exe hebben. De Global Assembly-cache is een map met de naam *%systemroot%\assembly* op clientcomputers waarin alle gedeelde assembly's zijn opgeslagen.  
@@ -100,11 +97,11 @@ In System Center Configuration Manager globale voorwaarden zijn regels die staan
         -   **Bestands- of mapnaam** - Geef de naam op van het bestand of het mapobject waarnaar moet worden gezocht. U kunt in de bestands- of map naam systeemomgevingsvariabelen specificeren en de *%USERPROFILE%* -omgevingsvariabele. U kunt ook de * en? jokertekens in de bestandsnaam.  
 
             > [!NOTE]  
-            >  Als u een bestands- of mapnaam opgeeft en hierbij jokertekens gebruikt, kunt u een groot aantal resultaten krijgen. Dit kan leiden tot een hoog bronnengebruik op de clientcomputer en veel netwerkverkeer wanneer resultaten rapporteren voor Configuration Manager.  
+            >  Als u een bestands- of mapnaam opgeeft en hierbij jokertekens gebruikt, kunt u een groot aantal resultaten krijgen. Dit kan leiden tot hoog bronnengebruik op de clientcomputer en veel netwerkverkeer wanneer resultaten rapporteren aan Configuration Manager.  
 
         -   **Inclusief submappen** – Schakel deze optie in als u in submappen wilt zoeken onder het opgegeven pad.  
 
-        -   **Dit bestand of map is gekoppeld aan een 64-bits toepassing** -kiezen of de 64-bits systeembestandslocatie (*% windir %*\system32) moet worden doorzocht naast de 32-bits systeembestandslocatie (*% windir %*\syswow64) op Configuration Manager-clients die worden uitgevoerd op een 64-bits versie van Windows.  
+        -   **Dit bestand of deze map is gekoppeld aan een 64-bits toepassing** -kiezen of de 64-bits systeembestandslocatie (*% windir %*\system32) moet worden doorzocht naast de 32-bits systeembestandslocatie (*% windir %*\syswow64) op de Configuration Manager-clients die een 64-bits versie van Windows uitvoeren.  
 
             > [!NOTE]  
             >  Als hetzelfde bestand of dezelfde map bestaat in zowel de 64-bits als de 32-bits systeembestandslocatie op dezelfde 64-bits computer, worden door de globale voorwaarde meerdere bestanden gevonden.  
@@ -119,7 +116,7 @@ In System Center Configuration Manager globale voorwaarden zijn regels die staan
 
     -   **Registersleutel**  
 
-        -   **Component** – Selecteer in de vervolgkeuzelijst de registercomponent waarin u zoeken wilt kiezen.  
+        -   **Hive** – Selecteer in de vervolgkeuzelijst de registercomponent waarin u zoeken wilt kiezen.  
 
         -   **Sleutel** - Specificeer de naam van de registersleutel waarnaar u wilt zoeken. De gebruikte indeling moet *sleutel\subsleutel*zijn.  
 
@@ -143,14 +140,14 @@ In System Center Configuration Manager globale voorwaarden zijn regels die staan
 
     -   **Script**  
 
-        -   **Detectiescript** – Kies **toevoegen** gaat gebruiken, of blader naar het script moet worden gebruikt. U kunt Windows PowerShell, VBScript of JScript-scripts gebruiken.  
+        -   **Detectiescript** – Kies **toevoegen** invoeren of blader naar het script te gebruiken. U kunt Windows PowerShell, VBScript of JScript-scripts gebruiken.  
 
-        -   **Scripts uitvoeren met behulp van de aangemelde gebruiker referenties** – als u deze optie inschakelt, wordt het script uitgevoerd op clientcomputers met de referenties van de gebruiker die is aangemeld.  
+        -   **Scripts uitvoeren met behulp van de aangemelde gebruikersreferenties** – als u deze optie inschakelt, wordt het script uitgevoerd op clientcomputers met de referenties van de gebruiker die is aangemeld.  
 
             > [!NOTE]  
-            >  De waarde die het script heeft geretourneerd wordt gebruikt om de compatibiliteit vast te stellen van de globale voorwaarde. Bijvoorbeeld, wanneer u VBScript gebruikt, kunt u de **WScript.Echo Result** opdracht aan de variabele waarde resultaat te retourneren naar de globale voorwaarde.  
+            >  De waarde die het script heeft geretourneerd wordt gebruikt om de compatibiliteit vast te stellen van de globale voorwaarde. Bijvoorbeeld, wanneer u VBScript gebruikt, kunt u de **WScript.Echo Result** opdracht naar de variabele waarde resultaat te retourneren naar de globale voorwaarde.  
             >   
-            >  Als uw script meerdere waarden retourneert, worden deze waarden moeten zich op één regel en van elkaar gescheiden door puntkomma's. Als iedere waarde op een afzonderlijke regel staat, mislukt de evaluatie.  
+            >  Als uw script meerdere waarden retourneert, wordt deze waarden moeten zich op één regel en van elkaar gescheiden door puntkomma's. Als iedere waarde op een afzonderlijke regel staat, mislukt de evaluatie.  
 
     -   **SQL-query**  
 
@@ -163,7 +160,7 @@ In System Center Configuration Manager globale voorwaarden zijn regels die staan
 
         -   **Kolom** - Geef de naam van de kolom op die door de Transact-SQL-instructie is geretourneerd om de compatibiliteit vast te stellen van de globale voorwaarde.  
 
-        -   **Transact-SQL-instructie** – Geef de volledige SQL-query op die u wilt gebruiken voor de globale voorwaarde. U kunt ook kiezen **openen** openen van een bestaande SQL-query.  
+        -   **Transact-SQL-instructie** – Geef de volledige SQL-query op die u wilt gebruiken voor de globale voorwaarde. U kunt ook **openen** openen van een bestaande SQL-query.  
 
     -   **WQL-query**  
 
@@ -177,13 +174,13 @@ In System Center Configuration Manager globale voorwaarden zijn regels die staan
 
     -   **XPath-query**  
 
-        -   **Pad** - Geef het pad op naar het XML-bestand op clientcomputers die worden gebruikt om compatibiliteit te beoordelen. Configuration Manager ondersteunt het gebruik van alle systeemomgevingsvariabelen van Windows en de *% USERPROFILE %* gebruikersvariabele in de padnaam.  
+        -   **Pad** - Geef het pad op naar het XML-bestand op clientcomputers die worden gebruikt om compatibiliteit te beoordelen. Configuration Manager ondersteunt het gebruik van alle Windows-systeemomgevingsvariabelen en de *% USERPROFILE %* gebruikersvariabele in de padnaam.  
 
-        -   **XML-bestandsnaam** -Geef de bestandsnaam op met de XML-query om de compatibiliteit op clientcomputers vast te stellen.  
+        -   **XML-bestandsnaam** -Geef de bestandsnaam met de XML-query moet worden gebruikt om naleving op clientcomputers te beoordelen.  
 
         -   **Inclusief submappen** - Schakel deze optie in als u in submappen wilt zoeken onder het opgegeven pad.  
 
-        -   **Dit bestand is gekoppeld aan een 64-bits toepassing** -kiezen of de 64-bits systeembestandslocatie (*% windir %*\system32) moet worden doorzocht naast de 32-bits systeembestandslocatie (*% windir %*\syswow64) op Configuration Manager-clients die worden uitgevoerd op een 64-bits versie van Windows.  
+        -   **Dit bestand is gekoppeld aan een 64-bits toepassing** -kiezen of de 64-bits systeembestandslocatie (*% windir %*\system32) moet worden doorzocht naast de 32-bits systeembestandslocatie (*% windir %*\syswow64) op de Configuration Manager-clients die een 64-bits versie van Windows uitvoeren.  
 
         -   **XPath-query** - Geef een geldig volledige XML Path-taal (XPath)-query om de compatibiliteit op clientcomputers vast te stellen.  
 
@@ -194,15 +191,15 @@ In System Center Configuration Manager globale voorwaarden zijn regels die staan
     > [!NOTE]  
     >  De **gegevenstype** vervolgkeuzelijst wordt niet voor alle instellingstypes weergegeven.  
 
-4.  Instellen van meer informatie over deze instelling onder de **Instellingstype** vervolgkeuzelijst. De items die u kunt instellen varieert, afhankelijk van het Instellingstype dat u hebt geselecteerd.  
+4.  Instellen van meer informatie over deze instelling onder de **Instellingstype** vervolgkeuzelijst. De items die u kunt instellen, varieert, afhankelijk van het Instellingstype dat u hebt geselecteerd.  
 
-5.  Kies **OK** om op te slaan van de regel en sluit de **globale voorwaarde maken** in het dialoogvenster.  
+5.  Kies **OK** de regel op te slaan en sluit de **globale voorwaarde maken** in het dialoogvenster.  
 
 ### <a name="set-up-an-expression-for-the-global-condition"></a>Instellen van een expressie voor de globale voorwaarde  
 
 1.  Kies in de vervolgkeuzelijst **Voorwaardetype** **Instelling**.  
 
-2.  Kies **component toevoegen** openen van de **component toevoegen** in het dialoogvenster.  
+2.  Kies **component toevoegen** openen de **component toevoegen** in het dialoogvenster.  
 
 3.  Selecteer in de vervolgkeuzelijst **Categorie selecteren** of deze expressie voor een apparaat of voor een gebruiker is bedoeld. U kunt ook **Aangepast** selecteren om een vooraf geconfigureerde globale voorwaarde te gebruiken.  
 
@@ -212,7 +209,6 @@ In System Center Configuration Manager globale voorwaarden zijn regels die staan
 
 6.  Voer in het veld **Waarde** de waarden in die worden gebruikt met de geselecteerde voorwaarde en operator om vast te stellen of de gebruiker of het apparaat voldoet aan de regelvereisten. De beschikbare waarden variëren op basis van de geselecteerde voorwaarde en de geselecteerde operator.  
 
-7.  Kies **OK** om op te slaan van de expressie en sluit de **component toevoegen** in het dialoogvenster.  
+7.  Kies **OK** de expressie opslaan en sluiten de **component toevoegen** in het dialoogvenster.  
 
-8.  Als u klaar bent met het componenten toe te voegen aan de globale voorwaarde kiezen **OK** sluit de **globale voorwaarde maken** in het dialoogvenster en de globale voorwaarde op te slaan.  
-
+8.  Wanneer u klaar bent met het componenten toe te voegen aan de globale voorwaarde kiest **OK** sluiten de **globale voorwaarde maken** in het dialoogvenster en de globale voorwaarde op te slaan.  

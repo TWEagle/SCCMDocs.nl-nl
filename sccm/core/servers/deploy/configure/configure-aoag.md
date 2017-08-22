@@ -6,21 +6,19 @@ ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 7e4ec207-bb49-401f-af1b-dd705ecb465d
-caps.latest.revision: 0
+caps.latest.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
+ms.openlocfilehash: e0b887169f0c8ae6901d1c6fd6a498df9596c2b4
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
-ms.openlocfilehash: 0d6527abba24b685151ae63feaae29b30d1e2cc9
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/29/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="configure-sql-server-always-on-availability-groups-for-configuration-manager"></a>SQL Server AlwaysOn-beschikbaarheidsgroepen configureren voor Configuration Manager
 
@@ -106,7 +104,7 @@ Voor deze procedure, moet het account waarmee u Setup van Configuration Manager 
 
 
 
-## <a name="add-and-remove-synchronous-replica-members"></a>Synchrone replicatieleden toevoegen en verwijderen  
+## <a name="add-or-remove-synchronous-replica-members"></a>Synchrone replicatieleden toevoegen of verwijderen  
 Wanneer uw sitedatabase wordt gehost in een beschikbaarheidsgroep, gebruik de volgende procedures voor synchrone replicatieleden toevoegen of verwijderen. Zie voor informatie over het type en aantal replica's die worden ondersteund, **configuraties van beschikbaarheid** onder [vereisten](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database#prerequisites) in het voorbereiden voor het gebruik van het onderwerp van de beschikbaarheid.
 
 Als u wilt de volgende procedures hebt voltooid, moet het account dat u gebruikt:
@@ -114,25 +112,13 @@ Als u wilt de volgende procedures hebt voltooid, moet het account dat u gebruikt
 -   Een **sysadmin** op elke SQL-Server die fungeert als host of de sitedatabase zal hosten.
 
 
-### <a name="to-add-a-new-synchronous-replica-member"></a>Een nieuwe synchrone replicalid toevoegen
-1.  Voeg de nieuwe server als een secundaire replica toe aan de beschikbaarheidsgroep. Zie [een secundaire Replica toevoegen aan een beschikbaarheidsgroep (SQL Server)](/sql/database-engine/availability-groups/windows/add-a-secondary-replica-to-an-availability-group-sql-server) in de Documentatiebibliotheek van SQL Server.
-
-2.  De Configuration Manager-site stoppen door het uitvoeren van **Preinst.exe stopsite**. Zie [Tool hiërarchie-onderhoud](/sccm/core/servers/manage/hierarchy-maintenance-tool-preinst.exe).
-
-3.  Maak met SQL Server een back-up van de sitedatabase van de primaire replica en herstel deze back-up naar de nieuwe secundaire replicaserver. Zie [maken van een volledige databaseback-up](/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server) en [herstellen van een databaseback-up met behulp van SSMS](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms) in de documentatie van SQL Server.
-
-4.  Configureer de secundaire replica of replica’s. Voer de volgende acties uit voor elke secundaire replica in de beschikbaarheidsgroep:
-
-    1.  Zorg ervoor dat de computeraccount van de siteserver is lid van de **lokale beheerders** groeperen op elke computer die lid is van de beschikbaarheidsgroep.
-
-    2.  Voer de [verificatie script](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database#prerequisites) uit de vereisten om te bevestigen dat de sitedatabase op elke replica correct is geconfigureerd.
-
-    3.  Als het nodig zijn voor het configureren van de nieuwe replica, handmatige failover uit van de primaire replica naar de nieuwe secundaire replica en breng vervolgens de vereiste instellingen. Zie [Een geplande handmatige failover van een beschikbaarheidsgroep uitvoeren](/sql/database-engine/availability-groups/windows/perform-a-planned-manual-failover-of-an-availability-group-sql-server) in de documentatie van SQL Server.
-
-5.  Start Beheer van siteonderdelen (**sitecomp**) en de **SMS_Executive** -services om de site opnieuw te starten.
+### <a name="to-add-a-new-synchronous-replica-member"></a>Een nieuwe synchrone replicalid toevoegen  
+Het proces voor het toevoegen van de secundaire replica aan een beschikbaarheidsgroep die u met Configuration Manager gebruikt kan lastig, dynamisch is, en vereisen stappen en procedures die veranderen op basis van afzonderlijke omgevingen. We werken aan verbeteringen voor Configuration Manager voor het vereenvoudigen van dit proces. In de tussentijd als u toevoegen, secundaire replica's wilt, raadpleegt u de volgende blog op TechNet voor hulp
+-   [Configuration Manager 1702: Een nieuw knooppunt (secundaire Replica) toevoegen aan een bestaande SQL AO AG](https://blogs.technet.microsoft.com/umairkhan/2017/07/17/configmgr-1702-adding-a-new-node-secondary-replica-to-an-existing-sql-ao-ag/)
 
 ### <a name="to-remove-a-replica-member"></a>Een replicalid verwijderen
-Gebruik de informatie in deze procedure [een secundaire Replica verwijderen uit een beschikbaarheidsgroep](/sql/database-engine/availability-groups/windows/remove-a-secondary-replica-from-an-availability-group-sql-server) uit de SQL Server-documentatie.
+Gebruik de informatie in deze procedure [een secundaire Replica verwijderen uit een beschikbaarheidsgroep](/sql/database-engine/availability-groups/windows/remove-a-secondary-replica-from-an-availability-group-sql-server) uit de SQL Server-documentatie.  
+
 
 ## <a name="configure-an-asynchronous-commit-replica"></a>Een replica met asynchrone doorvoer configureren
 U kunt vanaf Configuration Manager versie 1706 is een asynchrone replica toevoegen aan een beschikbaarheidsgroep die u met Configuration Manager gebruikt. Om dit te doen, hoeft u niet de configuratiescripts vereist voor het configureren van een synchrone replica worden uitgevoerd. (Dit is omdat er is geen ondersteuning die asynchrone replica gebruiken als de sitedatabase). Zie de [SQL Server-documentatie](https://msdn.microsoft.com/library/hh213247(v=sql.120).aspx(d=robot)) voor meer informatie over de secundaire replica's toevoegen aan beschikbaarheidsgroepen.
@@ -186,4 +172,3 @@ Voor deze procedure, moet het account dat u gebruikt:
 9.  Nadat u de informatie voor de nieuwe locatie van de database hebt opgegeven, voltooit u de installatie volgens uw normale proces en configuraties. Als Setup is voltooid, wordt de site opnieuw opgestart en wordt de nieuwe locatie van de database in gebruik genomen.    
 
 10. Volg de instructies in [Een beschikbaarheidsgroep verwijderen](/sql/database-engine/availability-groups/windows/remove-an-availability-group-sql-server) in de documentatie van SQL Server om de servers op te schonen die lid waren van de beschikbaarheidsgroep.
-

@@ -6,22 +6,20 @@ ms.date: 03/26/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7c888a6f-8e37-4be5-8edb-832b218f266d
-caps.latest.revision: 26
-caps.handback.revision: 0
+caps.latest.revision: "26"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: b7461f89f483314bd07248bbc9d5dde85ca6b6c2
 ms.openlocfilehash: e0726febc4c36a26c5e067914734838bf2681e6c
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Stappen voor takenreeksen in System Center Configuration Manager
 
@@ -1707,4 +1705,3 @@ In de editor voor takenreeksen, gebruikt u de [Takenreeksvariabele instellen](#B
  Geeft aan of Setup dynamische updatebewerkingen uitvoert, zoals zoeken, downloaden en installeren van updates (komt overeen met de opdrachtregeloptie /DynamicUpdate). Deze instelling is niet compatibel is met Configuration Manager software-updates, maar kan worden ingeschakeld wanneer u updates verwerkt met behulp van WSUS (zelfstandig) of Windows Update.  
 
  **Beleid negeren en standaard Microsoft Update gebruiken**: Selecteer deze instelling om het lokale beleid tijdelijk in negeren realtime dynamische updatebewerkingen uitvoert en de computer updates downloaden van Windows Update.  
-

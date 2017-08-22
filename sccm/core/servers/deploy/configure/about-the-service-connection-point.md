@@ -6,23 +6,20 @@ ms.date: 6/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: bc2282d5-0571-465b-9528-a555855eaacd
-caps.latest.revision: 18
-caps.handback.revision: 0
+caps.latest.revision: "18"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 0ec241d07f51b80b84d65676ef1207b31a9a9983
 ms.openlocfilehash: e3d41dc1bb732e887d722f39ee86deaf0aae3240
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="about-the-service-connection-point-in-system-center-configuration-manager"></a>Informatie over het serviceaansluitpunt in System Center Configuration Manager
 
@@ -130,4 +127,3 @@ Informatie over het uploaden naar Microsoft, vindt u de **Dmpuploader.log** op d
 U kunt ook de volgende stroomdiagrammen gebruiken om de processtroom en sleutel logboekvermeldingen voor update downloaden en de replicatie van updates voor andere sites te begrijpen:
  - [Stroomdiagram: updates downloaden](/sccm/core/servers/manage/download-updates-flowchart)
  - [Stroomdiagram: updatereplicatie](/sccm/core/servers/manage/update-replication-flowchart)
-

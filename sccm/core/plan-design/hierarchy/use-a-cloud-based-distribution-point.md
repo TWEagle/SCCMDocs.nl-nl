@@ -6,22 +6,19 @@ ms.date: 3/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3cd9c725-6b42-427d-9191-86e67f84e48c
-caps.latest.revision: 9
+caps.latest.revision: "9"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: c6ee0ed635ab81b5e454e3cd85637ff3e20dbb34
 ms.openlocfilehash: 8caf3319d93b98680ed4a719a8db714c7e4e96ce
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/08/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="use-a-cloud-based-distribution-point-with-system-center-configuration-manager"></a>Een clouddistributiepunt voor System Center Configuration Manager gebruiken
 
@@ -214,4 +211,3 @@ Clients die gebruikmaken van cloud-gebaseerde distributiepunten gebruiken de vol
 -   **Verwijderen van een cloud-gebaseerde distributiepunt** : Wilt u een cloud-gebaseerde distributiepunt verwijderen, selecteert u het distributiepunt in de Configuration Manager-console en selecteer vervolgens **verwijderen**.  
 
     Wanneer u een clouddistributiepunt uit een hiërarchie verwijdert, verwijdert Configuration Manager de inhoud van de cloudservice in Azure.  
-

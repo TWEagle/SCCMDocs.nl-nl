@@ -1,60 +1,66 @@
 ---
-title: Gebruik van de client van het uitgebreide interoperabiliteit met de huidige vertakking | Microsoft-documenten
-description: Meer informatie over het gebruik van de client van de langetermijndoelen onderhoud vertakking van Configuration Manager met een vertakking van huidige site.
+title: Gebruik de Configuration Manager-client voor uitgebreide interoperabiliteit met de huidige vertakking | Microsoft Docs
+description: Meer informatie over het gebruik van de client van de Long-Term Servicing Branch van Configuration Manager met een Current Branch-site.
 ms.custom: na
-ms.date: 01/04/2017
+ms.date: 08/09/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 600086d5-bd9e-4ac1-8ace-c7a62de80dc2
-caps.latest.revision: 0
+caps.latest.revision: "0"
 author: robstackmsft
 ms.author: robstack
-Robots: NOINDEX,NOFOLLOW
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 4eee9731a4a27328c47c0d15931cab28cf520a18
-ms.openlocfilehash: 4cc339e28110a3097c318b61224ae7692c47a31a
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: 6487a7c0eb958c74ca4c6a7233747966110eceb9
+ms.sourcegitcommit: b41d3e5c7f0c87f9af29e02de3e6cc9301eeafc4
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/11/2017
 ---
-# <a name="use-the-client-software-from-the-version-1606-baseline-media-for-extended-interoperability-with-future-versions-of-a-current-branch-site"></a>De clientsoftware van de versie 1606 basislijn media gebruiken voor uitgebreide interoperabiliteit met toekomstige versies van een site huidige vertakking
+# <a name="use-the-configuration-manager-client-software-for-extended-interoperability-with-future-versions-of-a-current-branch-site"></a>Gebruik de Configuration Manager-clientsoftware voor uitgebreide interoperabiliteit met toekomstige versies van een Current Branch-site
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking) (op lange termijn onderhoud vertakking)*  
+*Van toepassing op: System Center Configuration Manager (huidige vertakking), (op lange termijn onderhoud vertakking)*  
 
-U kunt de Configuration Manager clientsoftware voor Windows-computers (client.msi) van de versie 1606 basislijn media DVD die u ontvangt met System Center 2016 of vanuit een of een versie van System Center Configuration Manager (huidige vertakking en langetermijnbeveiliging onderhoud vertakking 1606) voor het beheren van apparaten die deel uitmaken van een site huidige vertakking. Deze client wordt de client uitgebreide interoperabiliteit genoemd.
+In sommige gevallen kan het bedrijfsbeleid mogelijk niet kunt u Configuration Manager-client op sommige computers regelmatig bij te werken. Bijvoorbeeld, mogelijk moet u voldoen aan de beleidsregels of het apparaat mogelijk bedrijfskritieke.
 
-## <a name="how-this-scenario-works"></a>Hoe werkt dit scenario:
-Normaal gesproken wanneer u een nieuwe console update voor de huidige vertakking installeert, clients automatisch hun clientsoftware bijwerken zodat ze deze nieuwe functies kunnen gebruiken.
+Terwijl u automatische Clientupgrade gebruikt indien mogelijk voor de meeste van uw clients, begint met Configuration Manager-update 1610 blijven moet, kunt u gebruikmaken van deze behoeften door een nieuwe client installeert voor langdurig gebruik, de uitgebreide interoperabiliteit-client (EIC) genoemd.
 
-Met dit scenario gebruikt u de huidige vertakking en de nieuwe functies en updates ontvangen. De meeste clients uitvoeren van de clientsoftware vanaf de huidige vertakking en die clientsoftware kunnen bijwerken met elke versie bijwerken die u installeert. Echter, in een subset van kritieke systemen die u niet wilt dat deze clientsoftware-updates ontvangen, u de uitgebreide interoperabiliteit client installeert. Deze clients wordt de nieuwe clientsoftware niet geïnstalleerd totdat u een nieuwe versie van de clientsoftware voor ze expliciet implementeren.
+De EIC is compatibel met Configuration Manager-sites waarop versie 1610 of hoger. De EIC mag alleen worden gebruikt voor specifieke pc's die niet kunnen regelmatig, zoals een kiosk of verkooppuntapparaten bijgewerkt worden. De meest recente Configuration Manager-client gebruiken voor alle andere pc's.
 
-Meer informatie over het voorkomen dat huidige vertakking clients automatisch bijwerken wanneer u een nieuwe versie van Configuration Manager installeert, worden met huidige vertakking versie 1610.
+## <a name="how-this-scenario-works"></a>De werking van dit scenario
 
-Versie moet worden uitgevoerd in het huidige filiaal 1606 of hoger.
+Normaal gesproken wanneer u een nieuwe in de console-update voor de huidige vertakking installeert, clients automatisch hun clientsoftware bijwerken zodat ze deze nieuwe functies kunnen gebruiken.
+
+Met dit scenario gebruikt u de huidige vertakking en ontvangen van de nieuwe functies en -updates. De meeste clients uitvoeren van de clientsoftware vanaf de huidige vertakking en die clientsoftware kunnen bijwerken met elke versie update die u installeert. Echter, in een subset van kritieke systemen die u niet wilt ontvangen van clientsoftware-updates u de uitgebreide interoperabiliteit client installeren. Deze clients Installeer geen nieuwe clientsoftware totdat u een nieuwe versie van de clientsoftware voor ze expliciet implementeren.
+
+>[!IMPORTANT]
+>De huidige vertakking site moet versie 1610 of hoger uitvoeren.
+
+## <a name="how-to-use-the-eic"></a>Het gebruik van de EIC
+
+1. De EIC (clientversie 5.00.8412) verkrijgen uit de map \SMSSETUP\Client van de installatiemedia van Configuration Manager 1606 update. Zorg ervoor dat u de volledige inhoud van de map kopieert.
+2. De EIC handmatig installeren op deze apparaten. [Lees meer informatie over het handmatig installeren van de client](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#BKMK_Manual).
+3. Deze verzameling uitsluiten van clientupgrades.
+
+>[!TIP]
+>Als u in het Volume Licensing Service Center (VLSC) voor System Center Configuration Manager versie 1606 zoekt, gaat u naar de **downloadt en -sleutels** tabblad van de [VLSC](https://www.microsoft.com/Licensing/servicecenter/Downloads/DownloadsAndKeys.aspx), zoek naar "system center-config" en selecteer vervolgens **System Center Config Mgr (huidige vertakking en LTSB)**.
 
 ## <a name="the-extended-interoperability-client-software"></a>De clientsoftware uitgebreide interoperabiliteit
-Als u de client uitgebreide interoperabiliteit van de System Center 2016 of release voor System Center Configuration Manager (huidige vertakking en langetermijnbeveiliging onderhoud vertakking 1606) met een vertakking van huidige site, wordt de client wordt ondersteund voor twee jaar na de algemene beschikbaarheid van de release van oktober 12de 2016.
 
-Plan het bijwerken van de uitgebreide interoperabiliteit-client op apparaten die u met de huidige vertakking voordat ondersteuning beheert voor de client is verlopen. Om te doen zodat u een nieuwe versie van de client van Microsoft downloaden en dat bijgewerkte clientsoftware vervolgens implementeren op uw apparaten die gebruikmaken van de huidige uitgebreid interoperabiliteit client.
+De huidige EIC blijven worden ondersteund met de bijgewerkte versies van Configuration Manager Current Branch tot ten minste 18 November 2018. Controleer op deze pagina voor meer informatie over een nieuwe EIC of een uitbreiding van ondersteuning voor de bestaande EIC na deze tijd.
 
-**De beperkingen van de client uitgebreide interoperabiliteit:**
--     Updates voor de clientsoftware uitgebreide interoperabiliteit zijn met behulp van de console updates niet beschikbaar. Aanvullende informatie voor het implementeren van een bijgewerkte clientsoftware wordt aangeboden wanneer een bijgewerkte client zijn vrijgegeven.
+>[!TIP]
+>De EIC wordt ondersteund voor ten minste twee jaar na de datum van release (Zie [ondersteuning voor versies van System Center Configuration Manager huidige vertakking](/sccm/core/servers/manage/current-branch-versions-supported)). Bijvoorbeeld: ondersteuning voor de huidige EIC twee jaar na de release van 1610, namelijk 18 November 2018.
 
-## <a name="identify-the-client-version-you-use"></a>De clientversie u identificeren
-Hieronder staan de belangrijke clientversies beschikbaar voor het huidige vertakking en LTSB:
+Plan het bijwerken van de uitgebreide interoperabiliteit-client op apparaten die u met de huidige vertakking voordat ondersteuning beheert voor de client is verlopen. Een nieuwe versie van de client downloaden van Microsoft en vervolgens bijgewerkte clientsoftware implementeren op uw apparaten die gebruikmaken van de huidige uitgebreide interoperabiliteit client om dit te doen.
 
-|Clientversie|Vertakking en versie |  
-|----------------|---------------------|
-|5.00.8325.xxxx |    -Huidige vertakking 1511|
-|5.00.8355.xxxx    |-Huidige vertakking 1602|
-|5.00.8412.1307    |-Huidige vertakking 1606 </br> -Huidige vertakking 1606 met het updatepakket 1606 hotfix (KB3186654)</br>-Uitgebreide interoperabiliteit client vanaf het medium versie 1606 basislijn|  
+## <a name="limitations-of-the-extended-interoperability-client"></a>Beperkingen van de uitgebreide interoperabiliteit-client
 
-U kunt op de client de versie van de client weergeven op de **algemeen** tabblad van de Configuration Manager in het Configuratiescherm.
+- Updates voor de uitgebreide interoperabiliteit clientsoftware zijn niet beschikbaar met behulp van updates in de console. Aanvullende informatie voor het implementeren van een bijgewerkte clientsoftware worden opgegeven wanneer er een bijgewerkte client wordt uitgebracht.
+- De EIC ondersteunt alleen software-updates, inventaris, en pakketten en programma's.
 
-Op de **onderdelen** tabblad van het onderdeel sommige onderdelen verschillende waarden weergegeven. Voor een clientversie 8412.1307 kunnen bijvoorbeeld enkele onderdelen worden weergegeven als 5.00.8412. **1000** of 5.00.8412. **1006**.  Deze verschillen in de laatste vier cijfers voor sommige onderdelen is normaal en geeft niet aan een storing in het onderdeel bij te werken naar de huidige clientversie.
+## <a name="next-steps"></a>Volgende stappen
 
+Gebruik de informatie in [clients controleren](/sccm/core/clients/manage/monitor-clients) om ervoor te zorgen dat clients correct zijn geïnstalleerd op de gewenste apparaten.

@@ -1,108 +1,104 @@
 ---
-title: Cloudservices gebruikt met Configuration Manager | Microsoft-documenten
-description: Inrichten cloud-bronnen voor System Center Configuration Manager om te voorzien in uw on-premises infrastructuur.
+title: Cloudservices met Configuration Manager gebruiken | Microsoft Docs
+description: Cloudresources inrichten voor System Center Configuration Manager om te voorzien in uw on-premises infrastructuur.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 24fca61e-9cdb-447a-ad7a-f4d2e4fd6704
-caps.latest.revision: 10
-caps.handback.revision: 0
+caps.latest.revision: "10"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 0d7ddd48cc4e75b12f893e686b847d66058441e1
 ms.openlocfilehash: 52f7c63d155d5c34f0f12e13020767dec1867dab
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="use-cloud-services-with-system-center-configuration-manager"></a>Cloudservices met System Center Configuration Manager gebruiken
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-System Center Configuration Manager ondersteunt verschillende opties voor cloud-gebaseerde. Deze aanvullen uw on-premises infrastructuur en u kunnen helpen bij het oplossen van zakelijke problemen zoals:  
+System Center Configuration Manager ondersteunt verschillende cloudopties. Deze kunnen vormen een aanvulling op uw on-premises infrastructuur en kunnen op te lossen zakelijke problemen zoals:  
 
--   Hoe BYOD (met behulp van Intune voor het beheer van mobiele apparaten).  
+-   Het beheren van BYOD (met behulp van Intune mobile device Management).  
 
--   Het doorgeven van hulpbronnen voor inhoud geïsoleerd clients of resources op het intranet buiten de firewall van uw bedrijf (met behulp van cloud-gebaseerde distributiepunten).  
+-   Klik hier voor meer informatie over het inhoudsbronnen voorzien geïsoleerde clients of bronnen op intranet buiten uw bedrijfsfirewall (met behulp van cloud-gebaseerde distributiepunten).  
 
--   Klik hier voor meer informatie over het uitbreiden van infrastructuur als fysieke hardware niet beschikbaar of logisch ter ondersteuning van uw behoeften (met behulp van Microsoft Azure virtual machines) niet is geplaatst.  
+-   Klik hier voor meer informatie over het infrastructuur uitbreiden wanneer fysieke hardware is niet beschikbaar of logisch ter ondersteuning van uw behoeften (door Microsoft Azure virtuele machines) niet is geplaatst.  
 
-Hoewel inrichting cloud-bronnen niet iets dat die u doen moet voordat u Configuration Manager implementeert, kan het nuttig om te begrijpen van deze opties voordat vast te ver in een hiërarchie-ontwerp-indeling zijn. Het gebruik van cloud-bronnen kan u tijd en geld besparen, bij het oplossen van bedrijfsproblemen die on-premises infrastructuur kan niet.  
+Hoewel cloudresources inrichting niet iets die u doen moet voordat u Configuration Manager implementeert, kan het nuttig om te begrijpen van deze opties voordat het verloopt te ver in het ontwerpplan voor een hiërarchie zijn. Het gebruik van cloudbronnen bespaart u mogelijk tijd en geld, bij het oplossen van bedrijfsproblemen die on-premises infrastructuur kan niet.  
 
-## <a name="cloud-based-resources-you-can-use-with-configuration-manager"></a>Cloud-gebaseerde resources die kunt u met Configuration Manager  
+## <a name="cloud-based-resources-you-can-use-with-configuration-manager"></a>Cloudresources kunt u met Configuration Manager  
  Omdat er voor elke optie verschillende vereisten gelden, is het zinvol om u hierin te verdiepen zodat u bekend raakt met de unieke vereisten, beperkingen en mogelijkheden voor extra kosten op basis van het gebruik.  
 
 -   Zie voor meer informatie over cloud-gebaseerde distributiepunten [cloud-gebaseerde distributiepunten installeren](/sccm/core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure).
 
 -   Zie voor meer informatie over Azure [Azure](http://go.microsoft.com/fwlink/p/?LinkId=262965) in de MSDN-bibliotheek.  
 
-### <a name="azure-virtual-machines-for-cloud-based-infrastructure"></a>Azure virtuele machines (voor cloud-gebaseerde infrastructuur)  
- Configuration Manager ondersteunt het gebruik van computers waarop de virtuele machines in Azure, net zoals lokale binnen uw fysieke bedrijfsnetwerk wanneer kan worden uitgevoerd. U kunt in de volgende scenario's kunt virtuele Azure-machines gebruiken:  
+### <a name="azure-virtual-machines-for-cloud-based-infrastructure"></a>Azure virtuele machines (voor een cloudinfrastructuur)  
+ Configuration Manager ondersteunt het gebruik van computers die worden uitgevoerd op virtuele machines in Azure, net zoals het on-premises in uw fysieke bedrijfsnetwerk worden uitgevoerd. U kunt in de volgende scenario's kunt virtuele Azure-machines gebruiken:  
 
--   **Scenario 1:** U kunt Configuration Manager uitvoeren op een virtuele machine en deze gebruiken voor het beheren van clients die zijn geïnstalleerd in andere virtuele machines.  
+-   **Scenario 1:** U kunt de Configuration Manager uitvoeren op een virtuele machine en gebruiken voor het beheren van clients die zijn geïnstalleerd op andere virtuele machines.  
 
--   **Scenario 2:** U kunt Configuration Manager uitvoeren op een virtuele machine en deze gebruiken voor het beheren van clients die niet worden uitgevoerd in Azure.  
+-   **Scenario 2:** U kunt de Configuration Manager uitvoeren op een virtuele machine en gebruiken voor het beheren van clients die niet worden uitgevoerd in Azure.  
 
--   **Scenario 3:** U kunt verschillende sitesysteemfuncties van Configuration Manager uitvoeren op virtuele machines tijdens het uitvoeren van andere functies in uw fysieke bedrijfsnetwerk (met de juiste netwerkverbinding voor communicatie).  
+-   **Scenario 3:** U kunt verschillende sitesysteemrollen van Configuration Manager uitvoeren op virtuele machines tegelijkertijd andere rollen uitvoeren in uw fysieke bedrijfsnetwerk (met de juiste netwerkverbinding voor communicatie).  
 
-Dezelfde vereisten voor netwerken, besturingssystemen en hardwarevereisten die betrekking hebben op de Configuration Manager installeren op het fysieke netwerk zijn ook van toepassing op de installatie van Configuration Manager in Azure.  
+Dezelfde vereisten voor netwerken, besturingssystemen en hardwarevereisten die betrekking hebben op de Configuration Manager installeren op uw fysieke bedrijfsnetwerk zijn ook van toepassing op de installatie van Configuration Manager in Azure.  
 
-Een Azure-abonnement is vereist voor het gebruik van virtuele machines in Azure. U kosten op basis van het aantal virtuele machines die u gebruikt, hun configuratie en gebruik van cloud-gebaseerde resources in rekening gebracht.  
+Een Azure-abonnement is vereist voor het gebruik van virtuele machines in Azure. U kosten op basis van het aantal virtuele machines dat u gebruikt, hun configuratie en gebruik van cloudresources.  
 
-Configuration Manager-sites en clients die worden uitgevoerd in de virtuele machines in Azure zijn daarnaast onderworpen aan dezelfde licentievereisten als lokale installaties.  
+Configuration Manager-sites en clients die worden uitgevoerd in Azure virtuele machines zijn daarnaast onderworpen aan dezelfde licentievereisten als on-premises installaties.  
 
 ### <a name="azure-services-for-cloud-based-distribution-points"></a>Azure-services (voor cloud-gebaseerde distributiepunten)  
- U kunt een Azure-service gebruiken voor het hosten van een Configuration Manager-distributiepunt een genoemd cloud-gebaseerd distributiepunt wordt genoemd. U kunt [cloud-gebaseerde distributiepunt gebruiken met System Center Configuration Manager](../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md) naast de on-premises distributiepunten en distributiepunten die zijn geïmplementeerd in virtuele machines in Azure.  
+ U kunt een Azure-service gebruiken voor het hosten van een Configuration Manager-distributiepunt een opgeroepen cloud-gebaseerd distributiepunt wordt aangeroepen. U kunt [een cloud-gebaseerd distributiepunt gebruiken met System Center Configuration Manager](../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md) naast on-premises distributiepunten en distributiepunten die zijn geïmplementeerd in virtuele machines in Azure.  
 
  Dit verschilt van het gebruik van een virtuele Azure-machine, waarop u een sitesysteemrol implementeert. Cloud-gebaseerde distributiepunten:  
 
--   Als een service in Azure, niet op een virtuele machine uitgevoerd.  
+-   Als een service in Azure, niet op een virtuele machine wordt uitgevoerd.  
 
--   Automatisch schalen om te voldoen aan de toegenomen inhoud aanvragen van clients.  
+-   Automatisch schalen om te voldoen aan de toegenomen inhoudsaanvragen van clients.  
 
 -   Ondersteuning voor clients op het Internet en intranet.  
 
-Een Azure-abonnement is vereist voor het gebruik van Azure naar de distributiepunten host. U gevolgen voor de kosten op basis van de hoeveelheid gegevens die worden verstuurd naar en van de service.  
+Een Azure-abonnement is vereist voor het gebruik van Azure naar de distributiepunten host. U kosten op basis van de hoeveelheid gegevens die worden verstuurd naar en van de service.  
 
-### <a name="microsoft-intune-for-mobile-device-management"></a>Microsoft Intune (beheer van mobiele apparaten)  
- U kunt uw Microsoft Intune-abonnement integreren met Configuration Manager voor het beheer van apparaten met behulp van de Intune-service. Deze integratie:  
+### <a name="microsoft-intune-for-mobile-device-management"></a>Microsoft Intune (voor beheer van mobiele apparaten)  
+ U kunt uw Microsoft Intune-abonnement integreren met Configuration Manager voor beheer van apparaten met behulp van de Intune-service. Deze integratie:  
 
--   Een hybride-configuratie wordt genoemd en Configuration Manager (of Intune, afhankelijk van uw perspectief) ter ondersteuning van een groot aantal apparaten wordt uitgebreid.  
+-   Wordt een hybride configuratie genoemd en deze breidt Configuration Manager (of Intune, afhankelijk van uw perspectief) ter ondersteuning van een groot aantal apparaten.  
 
 -   Vereist de Microsoft Intune-Connector-sitesysteemrol.  
 
--   Moet u beschikken over een afzonderlijke Intune-abonnement met voldoende licenties voor de apparaten die u met Intune beheren wilt.  
+-   Moet u een afzonderlijke Intune-abonnement met voldoende licenties voor de apparaten die u met Intune beheren wilt hebben.  
 
-Hoewel Intune Azure gebruikt, deze vereist niet dat u Azure afzonderlijk te configureren, noch gelden aanvullende kosten tot voorbij dat het Intune-abonnement.  
+Hoewel Intune Azure gebruikt, dit vereist niet dat u Azure apart te configureren en worden extra kosten in rekening naast het Intune-abonnement.  
 
 ### <a name="additional-configuration-manager-capabilities"></a>Aanvullende Configuration Manager-functies  
- Sommige mogelijkheden van Configuration Manager verbinding kunnen maken met cloud-gebaseerde services, zoals:  
+ Bepaalde functies van Configuration Manager verbinding kunnen maken met cloudservices, zoals:  
 
 -   Windows Server updateservices (WSUS).  
 
--   De Configuration Manager service cloud, voor het downloaden van updates voor Configuration Manager.  
+-   De Configuration Manager servicecloud om updates te downloaden voor Configuration Manager.  
 
-Deze extra functies niet vereisen dat u hebt een Azure-abonnement. U hebt geen specifieke verbindingen, certificaten of services instellen in de cloud. In plaats daarvan worden ze automatisch beheerd door Configuration Manager voor u. Alles wat u moet doen is Zorg ervoor dat de betreffende site-systemen en apparaten krijgen toegang tot de URL op basis van het Internet.  
+Deze aanvullende mogelijkheden hebben niet nodig dat u hebt een Azure-abonnement. Er geen specifieke verbindingen, certificaten of services instellen in de cloud. In plaats daarvan worden ze automatisch door Configuration Manager beheerd voor u. U moet doen maar zorgen dat de betreffende sitesystemen en apparaten hebben toegang tot de URL op basis van het Internet.  
 
-##  <a name="BKMK_CloudSec"></a>Beveiliging voor cloud-gebaseerde services  
- Configuration Manager maakt gebruik van certificaten in te richten en heeft toegang tot de inhoud in Azure en voor het beheren van de services die u gebruikt. Configuration Manager codeert de gegevens die u in Azure opslaat, maar wordt geen aanvullende beveiliging of gegevensbeheer toegevoegd naast Azure zelf.  
+##  <a name="BKMK_CloudSec"></a>Beveiliging voor cloudservices  
+ Configuration Manager gebruikt certificaten in te richten en toegang tot uw inhoud in Azure en het beheren van de services die u gebruikt. Configuration Manager versleutelt de gegevens die u in Azure opslaat, maar er wordt geen aanvullende beveiliging of gegevensbeheer toegevoegd naast die door Azure worden geboden.  
 
- Zie de details voor de andere resource cloud-gebaseerde scenario's voor meer informatie. U kunt ook de volgende onderwerpen voor Azure-beveiliging weergeven:  
+ Zie de details voor de verschillende cloudresourcescenario's voor meer informatie. U kunt ook de volgende onderwerpen voor Azure-beveiliging bekijken:  
 
--   [Azure: Security Account Management in Azure begrijpen](http://go.microsoft.com/fwlink/p/?LinkId=262968)  
+-   [Azure: Wat is Security Account Management in Azure?](http://go.microsoft.com/fwlink/p/?LinkId=262968)  
 
--   [Overzicht van Azure-beveiliging](http://go.microsoft.com/fwlink/p/?LinkId=262970)  
+-   [Overzicht Azure-beveiliging](http://go.microsoft.com/fwlink/p/?LinkId=262970)  
 
--   [Beveiligingsdilemma's tijdens de Cloudmigratie overwinnen](http://go.microsoft.com/fwlink/p/?LinkId=262971)  
+-   [Hoe krijg ik Beveiligingsdilemma's tijdens de Cloudmigratie overwinnen](http://go.microsoft.com/fwlink/p/?LinkId=262971)  
 
 -   [Gegevensbeveiliging in Azure, deel 1 van 2](http://go.microsoft.com/fwlink/p/?LinkId=262974)  
-

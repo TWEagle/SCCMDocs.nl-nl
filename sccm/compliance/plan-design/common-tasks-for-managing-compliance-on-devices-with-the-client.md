@@ -1,42 +1,39 @@
 ---
-title: 'Algemene compatibiliteit beheertaken voor Configuration Manager-client-beheerde apparaten: | Microsoft-documenten'
-description: Meer informatie over System Center Configuration Manager-instellingen voor naleving door te werken via een aantal algemene scenario&quot;s.
+title: 'Algemene naleving beheertaken voor Configuration Manager-client-beheerde apparaten: | Microsoft Docs'
+description: Meer informatie over System Center Configuration Manager-instellingen voor naleving door het uitvoeren van enkele algemene scenario's.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4e345791-74db-41ad-b472-024ce6521daf
-caps.latest.revision: 8
+caps.latest.revision: "8"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 991eff171dce95590a7f050e0d3b07f98c0224b3
 ms.openlocfilehash: 2012ab5e55da8d707fd668e0163b42fe7d56c72f
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="common-tasks-for-managing-compliance-on-devices-with-the-system-center-configuration-manager-client"></a>Algemene taken voor het beheren van compatibiliteit op apparaten met de System Center Configuration Manager-client
+# <a name="common-tasks-for-managing-compliance-on-devices-with-the-system-center-configuration-manager-client"></a>Algemene taken voor het beheren van naleving op apparaten met System Center Configuration Manager-client
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-De scenario's in dit onderwerp geven u een inleiding tot het gebruik van compatibiliteitsinstellingen voor System Center Configuration Manager door te werken via een aantal algemene scenario's die kunnen optreden.  
+De scenario's in dit onderwerp krijgt u een inleiding tot het gebruik van System Center Configuration Manager-instellingen voor naleving door het uitvoeren van enkele algemene scenario's die u kunt tegenkomen.  
 
  Als u al bekend met instellingen voor naleving bent, gedetailleerde documentatie over functies die u gebruikt kan worden gevonden in de [configuratie-items voor apparaten die worden beheerd door de System Center Configuration Manager-client](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md) sectie.  
 
- Lees voordat u begint [aan de slag met instellingen voor naleving](../../compliance/get-started/get-started-with-compliance-settings.md) sommige basisbegrippen over compatibiliteitsinstellingen en ook lezen [plannen en configureren van instellingen voor naleving](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md) voor het implementeren van alle vereiste onderdelen.  
+ Lees voordat u begint, [aan de slag met instellingen voor naleving](../../compliance/get-started/get-started-with-compliance-settings.md) basisinformatie over de instellingen voor naleving en ook lezen [plannen en configureren van instellingen voor naleving](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md) voor het implementeren van alle benodigde voorwaarden.  
 
 ## <a name="general-information-for-each-scenario"></a>Algemene informatie voor elk scenario  
  In elk scenario maakt u een configuratie-item waarmee een specifieke taak wordt uitgevoerd. Open de wizard Configuratie-item maken en voer de volgende stappen uit:  
 
-1.  Klik in de Configuration Manager-console op **activa en naleving** > **compatibiliteitsinstellingen** > **configuratie-Items**.  
+1.  Klik in de Configuration Manager-console op **activa en naleving** > **instellingen voor naleving** > **configuratie-Items**.  
 
 3.  Klik op het tabblad **Start** in de groep **Maken** op **Configuratie-item maken**.  
 
@@ -64,15 +61,15 @@ De scenario's in dit onderwerp geven u een inleiding tot het gebruik van compati
  U kunt nu de informatie in de [algemene taken voor het maken en implementeren van configuratiebasislijnen met System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) onderwerp waarmee u de configuratie die u hebt gemaakt op apparaten implementeren.  
 
 ## <a name="scenarios-for-windows-desktop-and-server-computers-managed-with-the-configuration-manager-client"></a>Scenario's voor Windows desktop- en servercomputers die worden beheerd met de Configuration Manager-client  
- Op Mac-computers waarop de Configuration Manager-client wordt uitgevoerd, hebt u twee opties voor het beoordelen van naleving:  
+ Op Mac-computers waarop de Configuration Manager-client wordt uitgevoerd, hebt u twee opties voor de beoordeling van naleving:  
 
 -   Een bestand met Mac OS X-voorkeuren (PLIST-bestand) evalueren.  
 
 -   Een aangepast script gebruiken en de geretourneerde resultaten evalueren.  
 
- Zie voor meer informatie [het maken van configuratie-items voor Mac OS X-apparaten die worden beheerd door de System Center Configuration Manager-client](../../compliance/deploy-use/create-configuration-items-for-mac-os-x-devices-managed-with-the-client.md).  
+ Zie voor meer informatie [het maken van configuratie-items voor Mac OS X-apparaten worden beheerd met de System Center Configuration Manager-client](../../compliance/deploy-use/create-configuration-items-for-mac-os-x-devices-managed-with-the-client.md).  
 
-### <a name="scenario-remediate-an-incorrect-registry-value-on-windows-desktop-computers"></a>Scenario: Herstellen van een onjuiste registerwaarde op Windows-pc 's  
+### <a name="scenario-remediate-an-incorrect-registry-value-on-windows-desktop-computers"></a>Scenario: Een onjuiste registersleutel op Windows-desktopcomputers herstellen  
  In dit scenario ontdekt u dat een belangrijke Line-Of-Business-app niet goed wordt uitgevoerd op bepaalde computers die u beheert en waarop Windows 8.1 wordt uitgevoerd. Na onderzoek ontdekt u dat dit is omdat een registersleutel met de naam **HKEY_LOCAL_MACHINE\SOFTWARE\Woodgrove\LOB App\Configuration\Configuration1** op sommige computers is ingesteld op de waarde **0** . Voor een goede uitvoer van de Line-Of-Business-app moet deze waarde zijn ingesteld op **1**.  
 
  In deze procedure maakt u een configuratie-item dat controleert op onjuiste registersleutelwaarden en deze automatisch herstelt.  
@@ -107,9 +104,8 @@ De scenario's in dit onderwerp geven u een inleiding tot het gebruik van compati
 
     -   **De instelling moet voldoen aan de volgende regel** : controleer of de naam van de instelling correct is en configureer de optie zodanig dat de waarde van de instelling gelijk is aan **1**.  
 
-    -   **Herstellen van niet-compatibele regels, waar ondersteund** – Schakel dit selectievakje in om ervoor te zorgen dat Configuration Manager de registersleutelwaarde wordt ingesteld op de juiste waarde als de service is onjuist.  
+    -   **Herstellen, waar ondersteund** : Schakel dit selectievakje in om ervoor te zorgen dat Configuration Manager wordt opnieuw ingesteld registersleutelwaarde terugzet op de juiste waarde als dit onjuist is.  
 
 6.  Voltooi de wizard om het configuratie-item te maken.  
 
  U kunt nu de informatie in de [algemene taken voor het maken en implementeren van configuratiebasislijnen](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) onderwerp waarmee u de configuratie die u hebt gemaakt op apparaten implementeren.  
-

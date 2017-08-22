@@ -1,48 +1,45 @@
 ---
-title: Monitor en plannen voor energiebeheer | Microsoft-documenten
-description: Meer informatie over het controleren en te plannen voor energiebeheer in System Center Configuration Manager.
+title: Bewaken en plannen voor energiebeheer | Microsoft Docs
+description: Informatie over het bewaken en plannen voor energiebeheer in System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 507bf676-2679-4e4d-8831-3ffc9cf8557e
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
 ms.openlocfilehash: b308329635400438cebc4935efe79b46e607fd58
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-monitor-and-plan-for-power-management-in-system-center-configuration-manager"></a>Monitor en plannen voor energiebeheer in System Center Configuration Manager
+# <a name="how-to-monitor-and-plan-for-power-management-in-system-center-configuration-manager"></a>Bewaken en plannen voor energiebeheer in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Gebruik de volgende informatie om u te helpen controleren en te plannen voor energiebeheer in System Center Configuration Manager.  
+Gebruik de volgende informatie om u te helpen bewaken en plannen voor energiebeheer in System Center Configuration Manager.  
 
 ##  <a name="BKMK_How_to_use_reports"></a> Rapporten voor energiebeheer gebruiken  
- Energiebeheer in Configuration Manager bevat verschillende rapporten waarmee u analyseren power verbruik en computer energie-instellingen in uw organisatie. De rapporten kunnen ook worden gebruikt bij het oplossen van problemen.  
+ Energiebeheer in Configuration Manager bevat diverse rapporten waarmee u kunt analyseren power gebruiks- en energie-instellingen in uw organisatie. De rapporten kunnen ook worden gebruikt bij het oplossen van problemen.  
 
  Voordat u de energiebeheerrapporten kunt gebruiken, moet u de rapportage voor uw hiërarchie configureren. Zie voor meer informatie over rapportage in Configuration Manager [rapportage in System Center Configuration Manager](../../../../core/servers/manage/reporting.md).  
 
 > [!NOTE]  
->  Power management-informatie die wordt gebruikt door dagelijkse rapporten wordt bewaard in de Configuration Manager-sitedatabase 31 dagen.  
->           Power management-informatie die wordt gebruikt door maandelijkse rapporten wordt bewaard in de Configuration Manager-sitedatabase 13 maanden.  
+>  Informatie over energiebeheer die wordt gebruikt door dagelijkse rapporten wordt bewaard in de Configuration Manager-sitedatabase 31 dagen.  
+>           Informatie over energiebeheer die wordt gebruikt door maandelijkse rapporten wordt 13 maanden bewaard in de Configuration Manager-sitedatabase.  
 >   
->  Wanneer u rapporten tijdens de bewaking en plannen en compatibiliteit fasen van energiebeheer uitvoeren, opslaan of exporteren van de resultaten van alle rapporten die u wilt bewaren verwijderd de gegevens voor latere vergelijking als ze later door Configuration Manager.  
+>  Wanneer u rapporten tijdens de bewaking planning- en nalevingsfase van energiebeheer uitvoeren, opslaan of exporteren van de resultaten uit rapporten die u wilt behouden de gegevens voor later te vergelijken als ze later zijn verwijderd door Configuration Manager.  
 
 ## <a name="list-of-power-management-reports"></a>Lijst met energiebeheerrapporten  
- De volgende lijsten details over de power management-rapporten die beschikbaar is in Configuration Manager.  
+ De volgende lijsten details over de energiebeheerrapporten die beschikbaar zijn in Configuration Manager.  
 
 > [!NOTE]  
 >  Energiebeheerrapporten geven het aantal fysieke computers en het aantal virtuele computers in een geselecteerde verzameling weer. Er wordt echter alleen energiebeheer-informatie van fysieke computers weergegeven in energiebeheerrapporten.  
@@ -70,7 +67,7 @@ Gebruik de volgende informatie om u te helpen controleren en te plannen voor ene
 |**Begindatum**|Selecteer de begindatum voor dit rapport in de vervolgkeuzelijst.|  
 |**Einddatum (optioneel)**|Selecteer een optionele einddatum voor dit rapport in de vervolgkeuzelijst.|  
 |**Naam van verzameling**|Selecteer een verzameling die moet worden gebruikt voor dit rapport in de vervolgkeuzelijst.|  
-|**Apparaattype**|Selecteer het type computer waarvoor u een rapport wilt maken in de vervolgkeuzelijst. Geldige waarden zijn **alle** (desktopcomputers en draagbare computers), **Desktop** (desktopcomputers alleen), en **Laptop** (alleen voor draagbare computers).|  
+|**Apparaattype**|Selecteer het type computer waarvoor u een rapport wilt maken in de vervolgkeuzelijst. Geldige waarden zijn **alle** (desktopcomputers en draagbare computers), **bureaublad** (alleen desktopcomputers), en **Laptop** (alleen draagbare computers).|  
 
 #### <a name="hidden-report-parameters"></a>Verborgen rapportparameters  
  Dit rapport heeft geen verborgen parameters die u kunt instellen.  
@@ -129,11 +126,11 @@ Gebruik de volgende informatie om u te helpen controleren en te plannen voor ene
 |**Naam van verzameling**|Selecteer een verzameling die moet worden gebruikt voor dit rapport in de vervolgkeuzelijst.|  
 |**Rapportdatum**|Selecteer een datum voor dit rapport in de vervolgkeuzelijst.|  
 |**Rapportage-uur**|Selecteer een uur in de vervolgkeuzelijst voor de opgegeven datum waarop dit rapport wordt uitgevoerd. Geldige waarden liggen tussen **00:00 uur** en **23:00 uur**.|  
-|**Computerstatus**|Selecteer de computerstatus in de vervolgkeuzelijst waarvoor dit rapport wordt uitgevoerd. Geldige waarden zijn **alle** (computers die zijn ingeschakeld of uitgeschakeld) **op** (computers die zijn ingeschakeld) en **uit** (computers die zijn ingeschakeld, uitgeschakeld in de slaapstand, of in de slaapstand). Deze waarden worden alleen geretourneerd voor de door u gekozen rapportageperiode.|  
-|**Apparaattype**|Selecteer het type computer waarvoor u een rapport wilt maken in de vervolgkeuzelijst. Geldige waarden zijn **alle** (desktopcomputers en draagbare computers), **Desktop** (desktopcomputers alleen), en **Laptop** (alleen voor draagbare computers). Deze waarden worden alleen geretourneerd voor de door u gekozen rapportageperiode.|  
-|**Slaapstand mogelijk**|Selecteer in de vervolgkeuzelijst of u computers die naar de slaapstand kunnen overschakelen, in het rapport weergegeven wilt hebben. Geldige waarden zijn **alle** (beide computers compatibele en niet kan overgaan op slaapstand), **Nee** (computers die niet kan overgaan op slaapstand) en **Ja** (computers die zich kan overgaan op slaapstand).|  
-|**Ontwaken uit slaapstand mogelijk**|Selecteer in de vervolgkeuzelijst of u computers in het rapport wilt weergeven die uit de slaapstand kunnen ontwaken. Geldige waarden zijn **alle** (beide computers geschikt en niet kan wake uit de slaapstand), **Nee** (computers die zich niet in staat wake uit de slaapstand) en **Ja** (computers die geschikt is voor wake uit de slaapstand).|  
-|**Energiebeheerschema**|Selecteer de typen energiebeheerplannen in de vervolgkeuzelijst die u wilt weergeven in het rapport. Geldige waarden zijn **alle** (computers die u geen hebt power management plannen toegepast; computers waarop een management energiebeheerschema; computers die zijn uitgesloten van energiebeheer), **niet opgegeven** (computers waarop geen een management energiebeheerschema) **gedefinieerde** (computers waarop een management energiebeheerschema) en **uitgesloten** (computers die zijn uitgesloten van energiebeheer).|  
+|**Computerstatus**|Selecteer de computerstatus in de vervolgkeuzelijst waarvoor dit rapport wordt uitgevoerd. Geldige waarden zijn **alle** (dat wil zeggen: computers die zijn ingeschakeld of uitgeschakeld), **op** (computers die zijn ingeschakeld) en **uit** (computers die zijn ingeschakeld, uitgeschakeld in de slaapstand, of in de slaapstand). Deze waarden worden alleen voor de gekozen rapportageperiode geretourneerd.|  
+|**Apparaattype**|Selecteer het type computer waarvoor u een rapport wilt maken in de vervolgkeuzelijst. Geldige waarden zijn **alle** (desktopcomputers en draagbare computers), **bureaublad** (alleen desktopcomputers), en **Laptop** (alleen draagbare computers). Deze waarden worden alleen voor de gekozen rapportageperiode geretourneerd.|  
+|**Slaapstand mogelijk**|Selecteer in de vervolgkeuzelijst of u computers die naar de slaapstand kunnen overschakelen, in het rapport weergegeven wilt hebben. Geldige waarden zijn **alle** (beide computers compatibele en niet kan overgaan op slaapstand), **Nee** (dat wil zeggen: computers die niet kan overgaan op slaapstand), en **Ja** (computers die kunnen overschakelen naar de slaapstand).|  
+|**Ontwaken uit slaapstand mogelijk**|Selecteer in de vervolgkeuzelijst of u computers in het rapport wilt weergeven die uit de slaapstand kunnen ontwaken. Geldige waarden zijn **alle** (beide computers compatibele en niet kan ontwaken uit slaapstand), **Nee** (dat wil zeggen: computers die niet kan ontwaken uit slaapstand), en **Ja** (computers die uit slaapstand kunnen ontwaken).|  
+|**Energiebeheerschema**|Selecteer de typen energiebeheerplannen in de vervolgkeuzelijst die u wilt weergeven in het rapport. Geldige waarden zijn **alle** (computers die u geen hebt inschakelen plannen voor het beheer toegepast, computers waarvoor een energiebeheerschema toegepast; computers die zijn uitgesloten van energiebeheer), **niet opgegeven** (computers waarop geen een energiebeheerschema wordt toegepast) **gedefinieerde** (computers waarop een energiebeheerschema wordt toegepast), en **uitgesloten** (computers die zijn uitgesloten van energiebeheer).|  
 |**Besturingssysteem**|Selecteer in de vervolgkeuzelijst de besturingssystemen die u in het rapport wilt weergeven of selecteer **Alles** om alle besturingssystemen weer te geven.|  
 
 #### <a name="hidden-report-parameters"></a>Verborgen rapportparameters  
@@ -144,7 +141,7 @@ Gebruik de volgende informatie om u te helpen controleren en te plannen voor ene
 
 |Rapportnaam|Details|  
 |-----------------|-------------|  
-|**Computeractiviteit per computer**|Klik op de naam van een computer om te zien van bepaalde activiteit voor die computer via een door u gekozen rapportageperiode. Deze activiteiten omvatten **Computer op** (de computer is ingeschakeld?), **controleren op** (de monitor is ingeschakeld?), en **gebruiker Active** (activiteit is gedetecteerd van de muis, het toetsenbord of een verbinding met extern bureaublad).<br /><br /> Zie [Computer Activity by Computer Report](#BKMK_Comp_Activity_by_computer) in dit onderwerp voor meer informatie.|  
+|**Computeractiviteit per computer**|Klik op de computernaam van een om te zien van specifieke activiteit voor die computer via een door u gekozen rapportageperiode. Deze activiteiten omvatten **Computer op** (de computer is ingeschakeld?), **controleren op** (de monitor is ingeschakeld?), en **gebruiker Active** (activiteit gedetecteerd van de computer muis, toetsenbord of een verbinding met extern bureaublad).<br /><br /> Zie [Computer Activity by Computer Report](#BKMK_Comp_Activity_by_computer) in dit onderwerp voor meer informatie.|  
 
 ###  <a name="BKMK_Computer_Details"></a> Rapport Computerdetails  
  Het rapport **Computerdetails** geeft gedetailleerde informatie weer over de energiemogelijkheden, energie-instellingen en energiebeheerschema's die worden toegepast op een opgegeven computer. Dit rapport wordt aangeroepen door het rapport **Computeractiviteit per Computer** , het rapport **Computers met meerdere energiebeheerschema's** , het rapport **Energiemogelijkheden** en het rapport **Details van energie-instellingen** . Het is niet ontworpen om rechtstreeks door de beheerder van de site te worden uitgevoerd.  
@@ -179,7 +176,7 @@ Gebruik de volgende informatie om u te helpen controleren en te plannen voor ene
 |**Naam van verzameling**|Selecteer een verzameling die moet worden gebruikt voor dit rapport in de vervolgkeuzelijst.|  
 |**Rapportdatum**|Selecteer een datum voor dit rapport in de vervolgkeuzelijst.|  
 |**Rapportage-uur**|Selecteer een uur in de vervolgkeuzelijst voor de opgegeven datum waarop dit rapport wordt uitgevoerd. Geldige waarden liggen tussen **00:00 uur** en **23:00 uur**.|  
-|**Apparaattype**|Selecteer het type computer waarvoor u een rapport wilt maken in de vervolgkeuzelijst. Geldige waarden zijn **alle** (desktopcomputers en draagbare computers), **Desktop** (desktopcomputers alleen), en **Laptop** (alleen voor draagbare computers). Deze waarden worden alleen geretourneerd voor de door u gekozen rapportageperiode.|  
+|**Apparaattype**|Selecteer het type computer waarvoor u een rapport wilt maken in de vervolgkeuzelijst. Geldige waarden zijn **alle** (desktopcomputers en draagbare computers), **bureaublad** (alleen desktopcomputers), en **Laptop** (alleen draagbare computers). Deze waarden worden alleen voor de gekozen rapportageperiode geretourneerd.|  
 
 #### <a name="hidden-report-parameters"></a>Verborgen rapportparameters  
  Dit rapport heeft geen verborgen parameters die u kunt instellen.  
@@ -188,7 +185,7 @@ Gebruik de volgende informatie om u te helpen controleren en te plannen voor ene
  Dit rapport is niet gekoppeld aan andere energiebeheerrapporten.  
 
 ###  <a name="BKMK_Excluded"></a> Computers die zijn uitgesloten  
- De **uitgesloten Computers** rapport geeft een lijst van computers in een opgegeven verzameling die zijn uitgesloten van Configuration Manager-energiebeheer.  
+ De **uitgesloten Computers** rapport geeft een lijst met computers weer in een opgegeven verzameling die zijn uitgesloten van energiebeheer van Configuration Manager.  
 
  Gebruik de volgende parameters voor het configureren van dit rapport.  
 
@@ -198,7 +195,7 @@ Gebruik de volgende informatie om u te helpen controleren en te plannen voor ene
 |Parameternaam|Beschrijving|  
 |--------------------|-----------------|  
 |**Verzameling**|Selecteer een verzameling voor dit rapport in de vervolgkeuzelijst.|  
-|**Reden**|Selecteer in de vervolgkeuzelijst de reden waarom de computers zijn uitgesloten van energiebeheer. U kunt weergeven **alle** (alle uitgesloten computers), **uitgesloten door beheerder** (alleen voor computers die door een gebruiker met beheerdersrechten zijn uitgesloten), en **uitgesloten door gebruiker** (alleen voor computers die zijn uitgesloten door een gebruiker van het Software Center).|  
+|**Reden**|Selecteer in de vervolgkeuzelijst de reden waarom de computers zijn uitgesloten van energiebeheer. U kunt weergeven **alle** (alle uitgesloten computers), **uitgesloten door beheerder** (alleen computers die door een gebruiker met beheerdersrechten zijn uitgesloten), en **uitgesloten door gebruiker** (alleen voor computers die door een gebruiker van het Software Center zijn uitgesloten).|  
 
 #### <a name="hidden-report-parameters"></a>Verborgen rapportparameters  
  Dit rapport heeft geen verborgen parameters die u kunt instellen.  
@@ -214,9 +211,9 @@ Gebruik de volgende informatie om u te helpen controleren en te plannen voor ene
  Het rapport **Computers met meerdere energiebeheerschema's** geeft een lijst weer met computers die lid zijn van meerdere verzamelingen, die elk verschillende energiebeheerschema's toepassen. Voor elke computer met mogelijk conflicterende energie-instellingen geeft het rapport de computernaam en energiebeheerschema's weer die voor elke verzameling worden toegepast waarvan de computer lid is.  
 
 > [!IMPORTANT]  
->  Als een computer lid is van meerdere verzamelingen, waar elke verzameling verschillende energiebeheerschema's heeft, wordt het minst beperkende energiebeheerschema worden toegepast.  
+>  Als een computer lid is van meerdere verzamelingen, waar elke verzameling verschillende energiebeheerschema's heeft, klikt u vervolgens het minst beperkende energiebeheerschema toegepast.  
 >   
->  Als een computer lid is van meerdere verzamelingen, waar elke verzameling tijden van de verschillende Wake-up heeft, wordt de tijd die het dichtst bij middernacht worden gebruikt.  
+>  Als een computer lid is van meerdere verzamelingen, waar elke verzameling verschillende activeringstijden heeft, wordt de tijd die het dichtst bij middernacht worden gebruikt.  
 
  Gebruik de volgende parameters voor het configureren van dit rapport.  
 
@@ -261,7 +258,7 @@ Gebruik de volgende informatie om u te helpen controleren en te plannen voor ene
 |**Begindatum**|Selecteer een begindatum voor dit rapport in de vervolgkeuzelijst.|  
 |**Einddatum**|Selecteer een einddatum voor dit rapport in de vervolgkeuzelijst.|  
 |**Naam van verzameling**|Selecteer een verzameling voor dit rapport in de vervolgkeuzelijst.|  
-|**Apparaattype**|Selecteer het type computer waarvoor u een rapport wilt maken in de vervolgkeuzelijst. Geldige waarden zijn **alle** (desktopcomputers en draagbare computers), **Desktop** (desktopcomputers alleen), en **Laptop** (alleen voor draagbare computers). Deze waarden worden alleen geretourneerd voor de door u gekozen rapportageperiode.|  
+|**Apparaattype**|Selecteer het type computer waarvoor u een rapport wilt maken in de vervolgkeuzelijst. Geldige waarden zijn **alle** (desktopcomputers en draagbare computers), **bureaublad** (alleen desktopcomputers), en **Laptop** (alleen draagbare computers). Deze waarden worden alleen voor de gekozen rapportageperiode geretourneerd.|  
 
 #### <a name="hidden-report-parameters"></a>Verborgen rapportparameters  
  De volgende verborgen parameters kunnen eventueel worden opgegeven om het gedrag van dit rapport te wijzigen.  
@@ -302,7 +299,7 @@ Gebruik de volgende informatie om u te helpen controleren en te plannen voor ene
 |Parameternaam|Beschrijving|  
 |--------------------|-----------------|  
 |**Verzameling**|Selecteer een verzameling voor dit rapport in de vervolgkeuzelijst.|  
-|**Device Type**|Selecteer het type computer waarvoor u een rapport wilt maken in de vervolgkeuzelijst. Geldige waarden zijn **alle** (desktopcomputers en draagbare computers), **Desktop** (desktopcomputers alleen), en **Laptop** (alleen voor draagbare computers). Deze waarden worden alleen geretourneerd voor de door u gekozen rapportageperiode.|  
+|**Device Type**|Selecteer het type computer waarvoor u een rapport wilt maken in de vervolgkeuzelijst. Geldige waarden zijn **alle** (desktopcomputers en draagbare computers), **bureaublad** (alleen desktopcomputers), en **Laptop** (alleen draagbare computers). Deze waarden worden alleen voor de gekozen rapportageperiode geretourneerd.|  
 
 #### <a name="hidden-report-parameters"></a>Verborgen rapportparameters  
  De volgende verborgen parameters kunnen eventueel worden opgegeven om het gedrag van dit rapport te wijzigen.  
@@ -343,7 +340,7 @@ Gebruik de volgende informatie om u te helpen controleren en te plannen voor ene
 |**Einddatum**|Selecteer een einddatum voor dit rapport in de vervolgkeuzelijst.|  
 |**Kosten van kWh**|Geef de kosten per kWh elektriciteit op. De standaardwaarde is **0,09**.<br /><br /> U kunt de valuta-eenheid die in dit rapport wordt gebruikt aanpassen in de sectie met verborgen parameters.|  
 |**Naam van verzameling**|Selecteer een verzameling die moet worden gebruikt voor dit rapport in de vervolgkeuzelijst.|  
-|**Apparaattype**|Selecteer het type computer waarvoor u een rapport wilt maken in de vervolgkeuzelijst. Geldige waarden zijn **alle** (desktopcomputers en draagbare computers), **Desktop** (desktopcomputers alleen), en **Laptop** (alleen voor draagbare computers). Deze waarden worden alleen geretourneerd voor de door u gekozen rapportageperiode.|  
+|**Apparaattype**|Selecteer het type computer waarvoor u een rapport wilt maken in de vervolgkeuzelijst. Geldige waarden zijn **alle** (desktopcomputers en draagbare computers), **bureaublad** (alleen desktopcomputers), en **Laptop** (alleen draagbare computers). Deze waarden worden alleen voor de gekozen rapportageperiode geretourneerd.|  
 
 #### <a name="hidden-report-parameters"></a>Verborgen rapportparameters  
  De volgende verborgen parameters kunnen eventueel worden opgegeven om het gedrag van dit rapport te wijzigen.  
@@ -382,7 +379,7 @@ Gebruik de volgende informatie om u te helpen controleren en te plannen voor ene
 |Parameternaam|Beschrijving|  
 |--------------------|-----------------|  
 |**Naam van verzameling**|Selecteer een verzameling die moet worden gebruikt voor dit rapport in de vervolgkeuzelijst.|  
-|**Apparaattype**|Selecteer het type computer waarvoor u een rapport wilt maken in de vervolgkeuzelijst. Geldige waarden zijn **alle** (desktopcomputers en draagbare computers), **Desktop** (desktopcomputers alleen), en **Laptop** (alleen voor draagbare computers). Deze waarden worden alleen geretourneerd voor de door u gekozen rapportageperiode.|  
+|**Apparaattype**|Selecteer het type computer waarvoor u een rapport wilt maken in de vervolgkeuzelijst. Geldige waarden zijn **alle** (desktopcomputers en draagbare computers), **bureaublad** (alleen desktopcomputers), en **Laptop** (alleen draagbare computers). Deze waarden worden alleen voor de gekozen rapportageperiode geretourneerd.|  
 |**Kosten van kWh**|Geef de kosten per kWh elektriciteit op. De standaardwaarde is **0,09**.<br /><br /> U kunt de valuta-eenheid die in dit rapport wordt gebruikt aanpassen in de sectie met verborgen parameters.|  
 
 #### <a name="hidden-report-parameters"></a>Verborgen rapportparameters  
@@ -406,13 +403,13 @@ Gebruik de volgende informatie om u te helpen controleren en te plannen voor ene
 ###  <a name="BKMK_Environmental_Impact"></a> Het rapport Uitwerking op het milieu  
  Het rapport **Uitwerking op het milieu** geeft de volgende informatie weer:  
 
--   Een grafiek weergegeven van de totale maandelijkse CO2 gegenereerd (in ton) voor computers in de opgegeven verzameling voor de opgegeven periode installeren.  
+-   Een grafiek met de totale maandelijkse CO2 gegenereerd (in ton) voor computers in de opgegeven verzameling voor de opgegeven periode.  
 
--   Een grafiek met de gemiddelde maandelijkse CO2 gegenereerd (in ton) voor elke computer in de opgegeven verzameling voor de opgegeven periode installeren.  
+-   Een grafiek met de gemiddelde maandelijkse CO2 gegenereerd (in ton) voor elke computer in de opgegeven verzameling voor de opgegeven periode.  
 
--   Een tabel met de totale maandelijkse CO2 gegenereerd en de gemiddelde maandelijkse CO2 gegenereerd voor computers in de opgegeven verzameling voor een opgegeven periode installeren.  
+-   Een tabel met de totale maandelijkse CO2 gegenereerd en de gemiddelde maandelijkse CO2 gegenereerd voor computers in de opgegeven verzameling voor een opgegeven periode.  
 
- De **uitwerking op milieu** rapport wordt de hoeveelheid CO2 gegenereerd (in ton) berekend met behulp van de tijd die een computer of de monitor is ingeschakeld in een periode van 24 uur.  
+ De **uitwerking op milieu** rapport berekent de hoeveelheid CO2 gegenereerd (in ton) met behulp van de tijd die een computer of beeldscherm ingeschakeld op een periode van 24 uur.  
 
  Gebruik de volgende parameters voor het configureren van dit rapport.  
 
@@ -424,7 +421,7 @@ Gebruik de volgende informatie om u te helpen controleren en te plannen voor ene
 |**Begindatum van rapport**|Selecteer een begindatum voor dit rapport in de vervolgkeuzelijst.|  
 |**Einddatum van rapport**|Selecteer een einddatum voor dit rapport in de vervolgkeuzelijst.|  
 |**Naam van verzameling**|Selecteer een verzameling voor dit rapport in de vervolgkeuzelijst.|  
-|**Apparaattype**|Selecteer het type computer waarvoor u een rapport wilt maken in de vervolgkeuzelijst. Geldige waarden zijn **alle** (desktopcomputers en draagbare computers), **Desktop** (desktopcomputers alleen), en **Laptop** (alleen voor draagbare computers). Deze waarden worden alleen geretourneerd voor de door u gekozen rapportageperiode.|  
+|**Apparaattype**|Selecteer het type computer waarvoor u een rapport wilt maken in de vervolgkeuzelijst. Geldige waarden zijn **alle** (desktopcomputers en draagbare computers), **bureaublad** (alleen desktopcomputers), en **Laptop** (alleen draagbare computers). Deze waarden worden alleen voor de gekozen rapportageperiode geretourneerd.|  
 
 #### <a name="hidden-report-parameters"></a>Verborgen rapportparameters  
  De volgende verborgen parameters kunnen eventueel worden opgegeven om het gedrag van dit rapport te wijzigen.  
@@ -447,13 +444,13 @@ Gebruik de volgende informatie om u te helpen controleren en te plannen voor ene
 ###  <a name="BKMK_Environmental_Impact_by_Day"></a> Het rapport Uitwerking op het milieu op dag  
  Het rapport **Uitwerking op het milieu op dag** geeft de volgende informatie weer:  
 
--   Een grafiek weergegeven van de totale dagelijkse CO2 gegenereerd (in ton) voor computers in de opgegeven verzameling voor de afgelopen 31 dagen.  
+-   Een grafiek met de totale dagelijkse CO2 gegenereerd (in ton) voor computers in de opgegeven verzameling voor de afgelopen 31 dagen.  
 
 -   Een grafiek met de gemiddelde dagelijkse CO2 gegenereerd (in ton) voor elke computer in de opgegeven verzameling voor de afgelopen 31 dagen.  
 
--   Een tabel waarin de totale dagelijkse CO2 gegenereerd en de gemiddelde dagelijkse CO2 generatedfor-computers in de opgegeven verzameling voor de afgelopen 31 dagen.  
+-   Een tabel met de totale dagelijkse CO2 gegenereerd en gemiddelde dagelijkse CO2 die is gegenereerd computers in de opgegeven verzameling voor de afgelopen 31 dagen.  
 
- De **uitwerking op milieu op dag** rapport wordt de hoeveelheid CO2 gegenereerd (in ton) berekend met behulp van de tijd die een computer of de monitor is ingeschakeld in een periode van 24 uur.  
+ De **uitwerking op milieu op dag** rapport berekent de hoeveelheid CO2 gegenereerd (in ton) met behulp van de tijd die een computer of beeldscherm ingeschakeld op een periode van 24 uur.  
 
 #### <a name="required-report-parameters"></a>Vereiste rapportparameters  
  De volgende parameters moeten worden opgegeven om dit rapport uit te voeren.  
@@ -461,7 +458,7 @@ Gebruik de volgende informatie om u te helpen controleren en te plannen voor ene
 |Parameternaam|Beschrijving|  
 |--------------------|-----------------|  
 |**Naam van verzameling**|Selecteer een verzameling voor dit rapport in de vervolgkeuzelijst.|  
-|**Apparaattype**|Selecteer het type computer waarvoor u een rapport wilt maken in de vervolgkeuzelijst. Geldige waarden zijn **alle** (desktopcomputers en draagbare computers), **Desktop** (desktopcomputers alleen), en **Laptop** (alleen voor draagbare computers). Deze waarden worden alleen geretourneerd voor de door u gekozen rapportageperiode.|  
+|**Apparaattype**|Selecteer het type computer waarvoor u een rapport wilt maken in de vervolgkeuzelijst. Geldige waarden zijn **alle** (desktopcomputers en draagbare computers), **bureaublad** (alleen desktopcomputers), en **Laptop** (alleen draagbare computers). Deze waarden worden alleen voor de gekozen rapportageperiode geretourneerd.|  
 
 #### <a name="hidden-report-parameters"></a>Verborgen rapportparameters  
  De volgende verborgen parameters kunnen eventueel worden opgegeven om het gedrag van dit rapport te wijzigen.  
@@ -559,7 +556,7 @@ Gebruik de volgende informatie om u te helpen controleren en te plannen voor ene
 |Parameternaam|Beschrijving|  
 |--------------------|-----------------|  
 |**Verzameling**|Selecteer een verzameling voor dit rapport in de vervolgkeuzelijst.|  
-|**Filter weergeven**|Selecteer in de vervolgkeuzelijst **niet ondersteund** zodat alleen computers in de opgegeven verzameling die niet kan overgaan op slaapstand sluimerstand hoeft te halen uit de slaapstand gehaald of wake uit slaapstand. Selecteer **Alles weergeven** om weer te geven van alle computers in de opgegeven verzameling.|  
+|**Filter weergeven**|Selecteer in de vervolgkeuzelijst **niet ondersteund** om weer te geven alleen computers in de opgegeven verzameling die niet kan overschakelen naar de slaapstand, sluimerstand, uit de slaapstand of wake uit de sluimerstand. Selecteer **Alles weergeven** om alle computers in de opgegeven verzameling weer te geven.|  
 
 #### <a name="hidden-report-parameters"></a>Verborgen rapportparameters  
  Dit rapport heeft geen verborgen parameters die u kunt instellen.  
@@ -609,7 +606,7 @@ Gebruik de volgende informatie om u te helpen controleren en te plannen voor ene
 |Parameternaam|Beschrijving|  
 |--------------------|-----------------|  
 |**Verzameling**|Selecteer een verzameling die moet worden gebruikt voor dit rapport in de vervolgkeuzelijst.|  
-|**GUID van energie-instelling**|Selecteer in de vervolgkeuzelijst de GUID van de energie-instelling waarover u een rapport wilt ontvangen. Zie voor een lijst van alle energie-instellingen en hoe deze worden gebruikt, [beschikbaar management energiebeheerinstellingen toe](../../../../core/clients/manage/power/create-and-apply-power-plans.md#BKMK_Plans) in het onderwerp [maken en toepassen van energiebeheerschema's in System Center Configuration Manager](../../../../core/clients/manage/power/create-and-apply-power-plans.md).|  
+|**GUID van energie-instelling**|Selecteer in de vervolgkeuzelijst de GUID van de energie-instelling waarover u een rapport wilt ontvangen. Zie voor een lijst met alle energie-instellingen en hoe deze worden gebruikt, [instellingen voor beschikbare energiebeheerschema's](../../../../core/clients/manage/power/create-and-apply-power-plans.md#BKMK_Plans) in het onderwerp [maken en toepassen van energiebeheerschema's in System Center Configuration Manager](../../../../core/clients/manage/power/create-and-apply-power-plans.md).|  
 |**Power Mode**|Selecteer in de vervolgkeuzelijst het type energie-instellingen dat u wilt weergeven in de rapportresultaten. Selecteer **Netstroom** om de energie-instellingen weer te geven die zijn geconfigureerd voor wanneer de computer is aangesloten op netstroom, en **Op accu** om de energie-instellingen weer te geven die zijn geconfigureerd voor wanneer de computer op de accu werkt.|  
 |**Instellingenindex**|Selecteer in de vervolgkeuzelijst de waarde voor de naam van de geselecteerde energie-instelling waarover u een rapport wilt ontvangen. Bijvoorbeeld, als u alle computers wilt weergeven waarvoor de instelling **Vaste schijf uitschakelen na** is ingesteld op **10** minuten, selecteert u **Vaste schijf uitschakelen na** voor **Naam energie-instelling** en **10** voor **Instellingenindex**.|  
 
@@ -626,4 +623,3 @@ Gebruik de volgende informatie om u te helpen controleren en te plannen voor ene
 |Rapportnaam|Details|  
 |-----------------|-------------|  
 |**Computerdetails**|Klik op de naam van een computer om de energiemogelijkheden, energie-instellingen en toegepaste energiebeheerschema's voor de geselecteerde computer te zien.<br /><br /> Zie [Computer Details Report](#BKMK_Computer_Details) in dit onderwerp voor meer informatie.|  
-

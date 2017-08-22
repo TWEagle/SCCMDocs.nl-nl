@@ -6,21 +6,19 @@ ms.date: 7/31/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b57acf0b-05b7-46af-ad4c-f3e707bd3861
-caps.latest.revision: 4
+caps.latest.revision: "4"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: c0d94b8e6ca6ffd82e879b43097a9787e283eb6d
 ms.openlocfilehash: 043c9521f4a94ea2df5cebb4ca1c0b1127f0edbc
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="whats-new-in-system-center-configuration-manager-incremental-versions"></a>Wat is er nieuw in incrementele versies van System Center Configuration Manager
 
@@ -44,4 +42,3 @@ ms.lasthandoff: 08/02/2017
 
 
  Elke versie van de update wordt ondersteund voor een jaar na de release. Er is een goed idee om up-to-date met de meest recente versie van de update zo veel mogelijk te blijven. Zie voor meer informatie [ondersteuning voor versies van System Center Configuration Manager huidige vertakking](../../../core/servers/manage/current-branch-versions-supported.md).  
-

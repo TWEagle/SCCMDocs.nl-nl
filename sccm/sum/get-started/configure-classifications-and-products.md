@@ -9,15 +9,13 @@ ms.date: 10/06/2016
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-sum
+ms.technology: configmgr-sum
 ms.assetid: 5ddde4e6-d553-4182-b752-6bc8b4a26745
+ms.openlocfilehash: 2da61e6e06850b36543b9fd41bd9a7d2368006fb
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
 ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
-ms.openlocfilehash: bdf0cbe82113a3aec2677a3628ccc253363eb24e
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/29/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 #  <a name="configure-classifications-and-products-to-synchronize"></a>Configureer classificaties en producten voor synchronisatie  
 
@@ -51,8 +49,12 @@ ms.lasthandoff: 07/29/2017
     > - **Updatepakketten**: Hiermee geeft u een volledige reeks van hotfixes die samen zijn verpakt voor een gemakkelijke implementatie. Deze hotfixes omvatten beveiligingsupdates, essentiële updates, enzovoort. Een updatepakket gaat in het algemeen over een specifiek gebied, zoals beveiliging of een productcomponent.  
     > - **Updates**: Hiermee geeft u een update aan voor een toepassing of bestand dat momenteel is geïnstalleerd.  
     > - **Upgrade**: Hiermee geeft u een upgrade voor Windows 10-functies en functionaliteit. De software-updatepunten en de sites moeten uitvoeren een minimum van WSUS 4.0 met de [hotfix 3095113](https://support.microsoft.com/kb/3095113) ophalen van de **Upgrade** classificatie.    
-    >     
-    > Vanaf Configuration Manager versie 1706, u kunt ook selecteren de **opnemen Microsoft Surface stuurprogramma's en firmware-updates** selectievakje in om te synchroniseren van de Microsoft Surface stuurprogramma's. Alle software-updatepunten moeten Windows Server 2016 om te synchroniseren met succes Surface stuurprogramma's worden uitgevoerd.
+    >       
+
+    > [!NOTE]    
+    > Vanaf Configuration Manager versie 1706, u kunt ook selecteren de **opnemen Microsoft Surface stuurprogramma's en firmware-updates** selectievakje in om te synchroniseren van de Microsoft Surface stuurprogramma's. Alle software-updatepunten moeten Windows Server 2016 om te synchroniseren met succes Surface stuurprogramma's worden uitgevoerd.     
+    >    
+    > Dit is een functie van de voorlopige versie. Functies van evaluatieversies zijn opgenomen in het product voor vroege testdoeleinden in een productieomgeving, maar mogen niet worden beschouwd als gereed voor productie. U moet deze functie voor beschikbaar wilt inschakelen. Zie [Use pre-release features from updates](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease) (Functies van evaluatieversies gebruiken) voor meer informatie.
 
 5.  Geef op het tabblad **Producten** de producten op waarvoor u software-updates wilt synchroniseren, en klik vervolgens op **Sluiten**.  
 
@@ -66,4 +68,3 @@ ms.lasthandoff: 07/29/2017
 
 ## <a name="next-steps"></a>Volgende stappen
 Start de synchronisatie van software-updates voor het ophalen van software-updates op basis van de nieuwe criteria. Zie voor meer informatie [software-updates synchroniseren](synchronize-software-updates.md).
-

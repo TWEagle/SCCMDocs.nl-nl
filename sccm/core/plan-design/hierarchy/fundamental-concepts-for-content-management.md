@@ -1,97 +1,94 @@
 ---
-title: Beheer de grondbeginselen van inhoud | Microsoft-documenten
-description: Gebruik hulpprogramma&quot;s en in System Center Configuration Manager-opties voor het beheren van de inhoud die u implementeert.
+title: Basisprincipes van beheer van inhoud | Microsoft Docs
+description: Gebruik hulpprogramma's en opties in System Center Configuration Manager voor het beheren van de inhoud die u implementeert.
 ms.custom: na
 ms.date: 05/04/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c201be2a-692c-4d67-ac95-0a3afa5320fe
-caps.latest.revision: 28
-caps.handback.revision: 0
+caps.latest.revision: "28"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 212628639300e9c361f7cee61b3df6b1cb6874ce
 ms.openlocfilehash: f73dde64e0e8a0fc49f45b3afb3b8f00c926a820
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="fundamental-concepts-for-content-management-in-system-center-configuration-manager"></a>Basisconcepten voor inhoudsbeheer in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-System Center Configuration Manager biedt ondersteuning voor een systeem krachtige hulpprogramma's en opties voor het beheren van de inhoud die u zoals toepassingen, pakketten, software-updates en implementaties van besturingssystemen implementeert.  
+System Center Configuration Manager ondersteunt een robuust systeem van hulpprogramma's en opties voor het beheren van de inhoud die u als toepassingen, pakketten, software-updates en implementaties van besturingssystemen implementeert.  
 
-De inhoud die u implementeert, wordt opgeslagen op beide siteservers en op distribution point-sitesysteemservers. Deze inhoud kan een grote hoeveelheid bandbreedte vereisen wanneer het wordt overgebracht tussen locaties. Effectief plannen en infrastructuur voor inhoudsbeheer gebruiken, wordt aangeraden dat u begrijpt de beschikbare opties en configuraties en vervolgens overwegen hoe gebruikt ze om aan te passen aan uw netwerkomgeving en implementatie van inhoud moet.  
+De inhoud die u implementeert, wordt opgeslagen op siteservers en op sitesysteemservers distributie. Deze inhoud kan een grote hoeveelheid bandbreedte vereisen wanneer deze wordt overgedragen tussen locaties. Voor effectief plannen en gebruik van infrastructuur voor inhoudsbeheer, het is raadzaam dat u de beschikbare opties en configuraties te begrijpen en vervolgens nadenken over hoe u met deze aan te passen aan uw netwerkomgeving en implementatie van inhoud.  
 
 > [!TIP]    
-> U kunt meer informatie over het proces voor het distribueren van inhoud en het vinden van help bij het opsporen en oplossen van problemen met algemene distributie van inhoud. Zie [te begrijpen en oplossen van problemen in Configuration Manager-distributiepunt inhoud](https://support.microsoft.com/help/4000401/content-distribution-in-mcm) op support.microsoft.com.
+> U kunt meer informatie over het proces voor de distributie van inhoud en het vinden van help bij het opsporen en oplossen van algemene distributie van inhoud. Zie [basisbegrippen en probleemoplossing voor inhoudsdistributie in Configuration Manager](https://support.microsoft.com/help/4000401/content-distribution-in-mcm) op support.microsoft.com.
 
 Hieronder vindt u belangrijke concepten voor inhoudsbeheer. Wanneer een concept aanvullende of complexe informatie vereist, worden er koppelingen naar de informatie weergegeven.
 
 ## <a name="accounts-used-for-content-management"></a>Accounts die worden gebruikt voor inhoudsbeheer  
  De volgende accounts kunnen worden gebruikt met inhoudsbeheer:  
 
--   **Account voor toegang tot het netwerk**: Gebruikt door clients verbinding maken met een distributiepunt en toegang tot inhoud. Standaard wordt het computeraccount eerst geprobeerd.  
+-   **Netwerktoegangsaccount**: Verbinding maken met een distributiepunt en toegang tot inhoud door clients gebruikt. Standaard wordt het computeraccount eerst geprobeerd.  
 
-     Dit account wordt ook gebruikt door pull-distributiepunten inhoud ophalen van een brondistributiepunt in een extern forest.  
+     Dit account wordt ook gebruikt door pull-distributiepunten om inhoud te verkrijgen van een brondistributiepunt in een extern forest.  
 
--   **Account voor toegang tot het pakket**: Configuration Manager hebben standaard toegang tot inhoud op de algemene toegangsaccounts gebruikers en beheerders een distributiepunt. U kunt echter aanvullende machtigingen configureren om de toegang te beperken.   
+-   **Pakkettoegangsaccount**: Configuration Manager verleent standaard toegang tot inhoud op een distributiepunt aan de algemene toegangsaccounts gebruikers en beheerders. U kunt echter aanvullende machtigingen configureren om de toegang te beperken.   
 
 -   **Multicastverbindingsaccount**: Gebruikt voor implementaties van besturingssystemen.  
 
-Zie voor meer informatie over deze accounts [beheer van accounts voor toegang tot inhoud](../../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).
+Zie voor meer informatie over deze accounts [accounts voor toegang tot inhoud beheren](../../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).
 
 ## <a name="bandwidth-throttling-and-scheduling"></a>Bandbreedtebeperking en planning  
  Bandbreedtebeperking en planning zijn opties waarmee u kunt bepalen wanneer inhoud van een siteserver naar distributiepunten wordt gedistribueerd. Dit is vergelijkbaar met, maar niet direct gerelateerd aan, de bandbreedteregeling voor een bestandsreplicatie van site naar site.  
 
- Zie voor meer informatie [beheer van netwerkbandbreedte](/sccm/core/plan-design/hierarchy/manage-network-bandwidth).
+ Zie voor meer informatie [netwerkbandbreedte beheren](/sccm/core/plan-design/hierarchy/manage-network-bandwidth).
 
 ## <a name="binary-differential-replication"></a>Binaire differentiële replicatie  
- Een vereiste voor distributiepunten, binaire differentiële replicatie (BDR) die wordt ook wel replicatie van verschillen genoemd, wordt automatisch gebruikt voor het gebruik van netwerkbandbreedte beperken wanneer u bij het distribueren van updates voor inhoud die u eerder hebt geïmplementeerd naar andere sites of naar externe distributiepunten.  
+ Een vereiste voor distributiepunten, binaire differentiële replicatie (BDR), wordt ook wel aangeduid als de replicatie van verschillen, wordt automatisch gebruikt voor het gebruik van netwerkbandbreedte te verlagen wanneer u bij het distribueren van updates voor inhoud die u eerder hebt geïmplementeerd naar andere sites of naar externe distributiepunten.  
 
  BDR minimaliseert de netwerkbandbreedte die wordt gebruikt om updates te verzenden voor gedistribueerde inhoud door alleen de nieuwe of gewijzigde inhoud opnieuw te verzenden in plaats van de volledige set van inhoudsbestanden wanneer er een wijziging aan die bestanden wordt doorgevoerd.  
 
  Bij gebruik van binaire differentiële replicatie identificeert Configuration Manager de wijzigingen die zich voordoen aan bronbestanden voor elke set van inhoud die eerder is gedistribueerd.  
 
--   Wanneer bestanden in de broninhoud wijzigen, wordt Configuration Manager maakt een nieuwe incrementele versie van de inhoudsset en worden alleen de gewijzigde bestanden gerepliceerd naar doelsites en distributiepunten. Een bestand wordt beschouwd als gewijzigd als deze zijn gewijzigd of verplaatst, of als de inhoud van het bestand is gewijzigd. Als u bijvoorbeeld één stuurprogrammabestand vervangt voor een implementatiepakket van een besturingssysteem dat u eerder distribueerde naar verschillende sites, dan wordt alleen het gewijzigde stuurprogrammabestand gerepliceerd naar die doelsites.  
+-   Wanneer bestanden in de broninhoud wijzigen, wordt Configuration Manager maakt een nieuwe incrementele versie van de inhoudsset en worden alleen de gewijzigde bestanden gerepliceerd naar de doelsites en distributiepunten. Een bestand wordt beschouwd als gewijzigd als is hernoemd of verplaatst, of als de inhoud van het bestand is gewijzigd. Als u bijvoorbeeld één stuurprogrammabestand vervangt voor een implementatiepakket van een besturingssysteem dat u eerder distribueerde naar verschillende sites, dan wordt alleen het gewijzigde stuurprogrammabestand gerepliceerd naar die doelsites.  
 
--   Configuration Manager ondersteunt tot vijf incrementele versies van een inhoudsset voordat het de volledige inhoudsset opnieuw verzendt. Na de vijfde update zorgt de volgende wijziging aan de inhoudsset ervoor zorgt dat Configuration Manager voor het maken van een nieuwe versie van de inhoudsset. Configuration Manager distribueert vervolgens de nieuwe versie van de inhoud die is ingesteld op de vorige set en alle incrementele versies ervan te vervangen. Nadat de nieuwe inhoudsset is gedistribueerd worden volgende incrementele wijzigingen aan de bronbestanden opnieuw gerepliceerd door binaire differentiële replicatie.  
+-   Configuration Manager ondersteunt tot vijf incrementele versies van een inhoudsset voordat het de volledige inhoudsset opnieuw verzendt. De volgende wijziging in de inhoudsset na de vijfde update zorgt ervoor dat Configuration Manager voor het maken van een nieuwe versie van de inhoudsset. Configuration Manager verdeelt vervolgens de nieuwe versie van de inhoud die is ingesteld op de voorgaande set en eventuele aanvullende versies vervangt. Nadat de nieuwe inhoudsset is gedistribueerd worden volgende incrementele wijzigingen aan de bronbestanden opnieuw gerepliceerd door binaire differentiële replicatie.  
 
 
-BDR wordt ondersteund tussen elke bovenliggende en onderliggende site in een hiërarchie. Binnen een site BDR ondersteund tussen de siteserver en de normale distributiepunten. Echter, pull-distributiepunten en cloud-gebaseerde distributiepunten ondersteunen geen binaire differentiële replicatie om over te dragen van inhoud. Pull-distributiepunten ondersteunen bestandsniveau delta's, het overbrengen van nieuwe bestanden, maar niet blokken binnen een bestand.
+BDR wordt ondersteund tussen elke bovenliggende en onderliggende site in een hiërarchie. Binnen een site wordt BDR ondersteund tussen de siteserver en de normale distributiepunten. Echter, pull-distributiepunten en cloud-gebaseerde distributiepunten ondersteunen geen binaire differentiële replicatie om over te dragen van inhoud. Pull-distributiepunten ondersteunen bestandsniveau delta's, het overbrengen van nieuwe bestanden, maar niet blokken binnen een bestand.
 
 Toepassingen gebruiken altijd binaire differentiële replicatie. Binaire differentiële replicatie is optioneel voor pakketten. Standaard is deze optie niet ingeschakeld. U moet deze functie inschakelen voor elk pakket om binaire differentiële replicatie voor pakketten te gebruiken. U kunt dit doen door de optie **Binaire differentiële replicatie inschakelen** te selecteren wanneer u een nieuw pakket maakt of wanneer u het tabblad **Gegevensbron** van de pakketeigenschappen bewerkt.  
 
 ## <a name="branchcache"></a>BranchCache  
- Een Windows-technologie waarmee clients bieden ondersteuning voor BranchCache en hebt gedownload van een implementatie die is geconfigureerd voor de vertakking uit de Cache fungeert als een inhoudsbron met andere clients BranchCache is ingeschakeld.  
+ Een Windows-technologie waarmee clients die BranchCache ondersteunen en een implementatie die is geconfigureerd voor BranchCache in staat te fungeren als inhoudsbron voor andere clients BranchCache-functionaliteit hebben gedownload.  
 
  Als bijvoorbeeld de eerste clientcomputer met BranchCache inhoud aanvraagt bij een distributiepunt waarop Windows Server 2012 wordt uitgevoerd en is geconfigureerd als een BrancheCache-server, wordt de inhoud door de clientcomputer gedownload en opgeslagen in het cachegeheugen.  
 
--   Clientcomputer kunt vervolgens de inhoud beschikbaar maken voor extra BranchCache-clients in hetzelfde subnet die de inhoud wordt eveneens cache.  
+-   Die clientcomputer kan de inhoud vervolgens maken beschikbaar voor aanvullende BranchCache-clients in hetzelfde subnet die ook de inhoud in cache.  
 
 -   Zo moeten volgende clients op hetzelfde subnet de inhoud niet van het distributiepunt downloaden en wordt de inhoud over meerdere clients voor toekomstige overdrachten gedistribueerd.  
 
-## <a name="peer-cache"></a>Peercache
-Client-Peercache kunt vanaf versie 1610, u de implementatie van inhoud naar clients op externe locaties beheren. Peercache is een ingebouwde Configuration Manager-oplossing waarmee clients inhoud te delen met andere clients rechtstreeks vanuit de lokale cache.
+## <a name="peer-cache"></a>Peer-Cache
+Vanaf versie 1610, kunt client-Peer-Cache u beheren implementatie van inhoud voor clients op externe locaties. Peer-Cache is een ingebouwde Configuration Manager-oplossing waarmee clients inhoud te delen met andere clients rechtstreeks vanuit het lokale cachegeheugen.
 
-Nadat u clientinstellingen die Peer-Cache op een verzameling inschakelen hebt geïmplementeerd, kunnen leden van deze verzameling fungeren als een peer-inhoudsbron voor andere clients in dezelfde grensgroep.
+Nadat u clientinstellingen waarmee Peer-Cache op een verzameling implementeert, fungeren leden van deze verzameling als een peer-inhoudsbron voor andere clients in dezelfde grensgroep.
 
-Zie voor meer informatie [Peercache voor Configuration Manager-clients](/sccm/core/plan-design/hierarchy/client-peer-cache).
+Zie voor meer informatie [Peer-Cache voor Configuration Manager-clients](/sccm/core/plan-design/hierarchy/client-peer-cache).
 
 
 ## <a name="windows-pe-peer-cache"></a>Windows PE-peer-cache
-Wanneer u een nieuw besturingssysteem in System Center Configuration Manager implementeert, kunt computers waarop de takenreeks wordt uitgevoerd Windows PE-Peercache inhoud ophalen van een lokale peer (een peer-cachebron) in plaats van inhoud wordt gedownload van een distributiepunt. Dit helpt het Wide Area Network-verkeer (WAN) te beperken indien er sprake is van meerdere filialen terwijl er geen lokaal distributiepunt bestaat.
+Wanneer u een nieuw besturingssysteem in System Center Configuration Manager implementeert, kunnen computers waarop de takenreeks wordt uitgevoerd Windows PE-Peer-Cache gebruiken om inhoud te verkrijgen van een lokale peer (een peer-cachebron) in plaats van de inhoud van een distributiepunt wordt gedownload. Dit helpt het Wide Area Network-verkeer (WAN) te beperken indien er sprake is van meerdere filialen terwijl er geen lokaal distributiepunt bestaat.
 
-Zie voor meer informatie [Windows PE-peercache](../../../osd/get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md).
+Zie voor meer informatie [Windows PE-peer-cache](../../../osd/get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md).
 
 
 ## <a name="client-locations"></a>Clientlocaties  
@@ -101,159 +98,158 @@ Zie voor meer informatie [Windows PE-peercache](../../../osd/get-started/prepare
 
     -   Distributiepunten kunnen HTTP of HTTPs gebruiken.  
 
-    -   Alleen een cloud-gebaseerde distributiepunt gebruiken terugvaloptie als on-premises distributiepunten niet beschikbaar zijn.  
+    -   Gebruik alleen een clouddistributiepunt voor terugval wanneer on-premises distributiepunten niet beschikbaar zijn.  
 
 -   **Internet**:  
 
-    -   Vereist distributiepunten HTTPS accepteren.  
+    -   Vereist dat distributiepunten HTTPS accepteren.  
 
-    -   Kan een cloud-gebaseerde distributiepunt gebruiken als terugvaloptie.  
+    -   Kan een cloud-gebaseerde distributiepunt gebruiken als terugval.  
 
 -   **Werkgroep**:  
 
-    -   Vereist distributiepunten HTTPS accepteren.  
+    -   Vereist dat distributiepunten HTTPS accepteren.  
 
-    -   Kan een cloud-gebaseerde distributiepunt gebruiken als terugvaloptie.  
+    -   Kan een cloud-gebaseerde distributiepunt gebruiken als terugval.  
 
 
 
 ## <a name="content-library"></a>Inhoudsbibliotheek  
- De Inhoudsbibliotheek is de single instance store van inhoud die Configuration Manager gebruikt om te beperken van de totale grootte van de gecombineerde hoofdtekst van de inhoud die u distribueert.  
+ De Inhoudsbibliotheek is de single instance store van inhoud die Configuration Manager gebruikt om te beperken van de totale grootte van alle inhoud die u distribueert.  
 
 - Meer informatie over de [Inhoudsbibliotheek](../../../core/plan-design/hierarchy/the-content-library.md).
-- Gebruik de [Inhoudsbibliotheek hulpprogramma](/sccm/core/plan-design/hierarchy/content-library-cleanup-tool) inhoud die is niet meer gekoppeld aan een toepassing te verwijderen.  
+- Gebruik de [Inhoudsbibliotheek opschoonprogramma](/sccm/core/plan-design/hierarchy/content-library-cleanup-tool) inhoud die niet meer gekoppeld aan een toepassing te verwijderen.  
 
 
 ## <a name="distribution-points"></a>Distributiepunten  
- Configuration Manager gebruikt distributiepunten voor het opslaan van bestanden die vereist zijn voor software uit te voeren op clientcomputers. Clients moeten toegang hebben tot minstens één distributiepunt waarvan ze de bestanden voor inhoud die u implementeert kunnen downloaden.  
+ Configuration Manager gebruikt distributiepunten voor het opslaan van bestanden die vereist zijn voor software uit te voeren op clientcomputers. Clients moeten toegang hebben tot ten minste één distributiepunt waarvan ze de bestanden voor inhoud die u implementeert kunnen downloaden.  
 
- Het algemene (a-specifieke) distributiepunt is vaak een standaarddistributiepunt genoemd. Er zijn twee varianten van het standaarddistributiepunt die speciale aandacht krijgen:  
+ Het algemene (niet-specifieke) distributiepunt wordt doorgaans een standaarddistributiepunt genoemd. Er zijn twee varianten van het standaarddistributiepunt die speciale aandacht krijgen:  
 
--   **Pull-distributiepunt**: Een variant van een distributiepunt waar het distributiepunt inhoud van een ander distributiepunt (een brondistributiepunt verkrijgt). Dit proces is vergelijkbaar met hoe clients inhoud vanaf distributiepunten downloaden. Pull-distributiepunten kunt u voorkomen dat netwerkbandbreedte knelpunten die optreden wanneer de siteserver rechtstreeks inhoud naar elk distributiepunt distribueren moet.  [Een pull-distributiepunt gebruiken met System Center Configuration Manager](/sccm/core/plan-design/hierarchy/use-a-pull-distribution-point).
+-   **Pull-distributiepunt**: Een variant van een distributiepunt waar het distributiepunt die inhoud bij een ander distributiepunt (een brondistributiepunt ophaalt). Dit proces is vergelijkbaar met de wijze waarop clients inhoud vanaf distributiepunten downloaden. Pull-distributiepunten kunt u problemen met de netwerkbandbreedte die zich voordoen wanneer de siteserver rechtstreeks inhoud naar elk distributiepunt distribueren moet voorkomen.  [Een pull-distributiepunt gebruiken met System Center Configuration Manager](/sccm/core/plan-design/hierarchy/use-a-pull-distribution-point).
 
 -   **Cloud-gebaseerde distributiepunt**: Een variant van een distributiepunt dat geïnstalleerd op Microsoft Azure. [Informatie over het gebruik van een cloud-gebaseerde distributiepunt met System Center Configuration Manager](../../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md).  
 
 
-Standaard distributiepunten bieden ondersteuning voor een bereik van configuraties en functies, zoals bandbreedtebeperking en planning, PXE en Multicast, of voorbereide inhoud.  
+Standaarddistributiepunten bieden ondersteuning voor een bereik van configuraties en functies, zoals bandbreedtebeperking en planning, PXE en Multicast of voorbereide inhoud.  
 
 -   U kunt besturingselementen zoals **planningen** of **bandbreedtebeperking** om u te helpen bij het beheren van deze overdracht.  
 
--   U kunt ook andere opties, waaronder **voorbereide inhoud**, en **pull-distributiepunten**. Bovendien kunt u gebruikmaken van **BranchCache** om de netwerkbandbreedte die wordt gebruikt wanneer u inhoud implementeert te beperken.  
+-   U kunt ook andere opties, waaronder **vooraf geplaatste inhoud**, en **pull-distributiepunten**. Bovendien kunt u gebruikmaken van **BranchCache** om de netwerkbandbreedte die wordt gebruikt wanneer u inhoud implementeert te beperken.  
 
--   Distributiepunten ondersteunen verschillende configuraties, zoals  **[PXE](../../../osd/get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_PXEDistributionPoint)**  en  **[Multicast](../../../osd/get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_DPMulticast)**  voor implementaties van besturingssystemen en configuraties voor de ondersteuning van **mobiele apparaten**.  
+-   Distributiepunten bieden ondersteuning voor verschillende configuraties, zoals  **[PXE](../../../osd/get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_PXEDistributionPoint)**  en  **[Multicast](../../../osd/get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_DPMulticast)**  voor implementaties van besturingssystemen of configuraties ter ondersteuning van **mobiele apparaten**.  
 
- Cloud-gebaseerde en pull-distributiepunten ondersteunen veel van deze configuraties dezelfde, maar hebben beperkingen die specifiek voor elke variatie distribution point zijn.  
+ Cloud-gebaseerde en pull-distributiepunten ondersteunen veel van dezelfde configuraties, maar hebben beperkingen die specifiek voor elke distributiepuntvariant zijn.  
 
 ## <a name="distribution-point-groups"></a>Distributiepuntgroepen  
- Distributiepuntengroepen zijn logische groeperingen van distributiepunten die distributie van inhoud kunnen vereenvoudigen.  
+ Distributiepuntengroepen zijn logische groeperingen van distributiepunten die de inhoudsdistributie kunnen vereenvoudigen.  
 
  Zie voor meer informatie [distributiepuntgroepen beheren](../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_manage).
 
 ## <a name="distribution-point-priority"></a>Prioriteit van het distributiepunt  
  De prioriteitswaarde voor het distributiepunt is gebaseerd op het tijdsbestek dat de overdracht van eerdere implementaties naar dat distributiepunt in beslag nam.  
 
--   Dit is een zelf zelfregulerende waarde die toegewezen aan een distributiepunt waarmee Configuration Manager overdracht inhoud bij meer distributiepunten in een kortere periode.  
+-   Dit is een zelfregulerende waarde die toegewezen aan een distributiepunt die inhoud van Configuration Manager-overdracht kunt u meer distributiepunten in een kortere periode.  
 
--   Wanneer u inhoud distribueert naar meerdere distributiepunten tegelijkertijd of naar een distributiepunt punt groep, Configuration Manager de inhoud verzendt naar het distributiepunt met de hoogste prioriteit voordat het dezelfde inhoud verzendt naar een distributiepunt met een lagere prioriteit.  
+-   Wanneer u inhoud distribueert naar meerdere distributiepunten tegelijkertijd of naar een distributiepunt groep, wordt Configuration Manager verzendt de inhoud naar het distributiepunt met de hoogste prioriteit voordat het dezelfde inhoud verzendt naar een distributiepunt met een lagere prioriteit.  
 
--   Dit vervangt de distributieprioriteit voor pakketten die de beslissende factor in de volgorde blijft van wanneer verschillende distributies worden overgedragen.  
+-   De distributieprioriteit voor pakketten die blijft de beslissende factor in de volgorde waarin verschillende distributies worden overgedragen vervangen niet.  
 
 
-Bijvoorbeeld, als u inhoud met een hoge distributieprioriteit naar een distributiepunt met een lage distributiepuntprioriteit distribueert, draagt dit pakket met hoge prioriteit altijd vóór een pakket met een lagere distributieprioriteit overgedragen. De distributieprioriteit is ook van toepassing als pakketten met een lagere distributieprioriteit naar distributiepunten met hogere distributiepuntprioriteiten worden gedistribueerd.
+Bijvoorbeeld, als u inhoud met een hoge distributieprioriteit naar een distributiepunt met een lage distributiepuntprioriteit distribueert, dit pakket met hoge distributieprioriteit altijd worden verplaatst vóór een pakket met een lagere distributieprioriteit overgedragen. De distributieprioriteit is ook van toepassing als pakketten met een lagere distributieprioriteit naar distributiepunten met hogere distributiepuntprioriteiten worden gedistribueerd.
 
 De hoge distributieprioriteit van het pakket zorgt ervoor dat de Configuration Manager die inhoud naar de overeenkomstige distributiepunten distribueert voordat er pakketten met een lagere distributieprioriteit worden verzonden.  
 
 > [!NOTE]  
 >  Pull-distributiepunten maken ook gebruik van een prioriteitsconcept om de volgorde van de eigen brondistributiepunten vast te leggen.  
 >   
->  -   De distributiepuntprioriteit voor inhoudsoverdrachten naar het distributiepunt is niet hetzelfde als de prioriteit die pull-distributiepunten gebruiken wanneer ze zoeken naar inhoud vanaf een brondistributiepunt.  
+>  -   De distributiepuntprioriteit voor inhoudsoverdrachten naar het distributiepunt is verschillend van de prioriteit die pull-distributiepunten gebruiken wanneer ze zoeken naar inhoud vanaf een brondistributiepunt.  
 >  -   Zie voor meer informatie [een pull-distributiepunt gebruiken met System Center Configuration Manager](/sccm/core/plan-design/hierarchy/use-a-pull-distribution-point).  
 
 
 ## <a name="fallback"></a>Terugval  
- Vanaf versie 1610 worden zijn op verschillende manieren gewijzigd in de manier waarop dat clients een distributiepunt dat inhoud, inclusief terugval vinden. Gebruik de volgende gegevens met betrekking tot de versie die u gebruikt:
+ Vanaf versie 1610, zijn verschillende dingen gewijzigd in de manier waarop dat clients een distributiepunt die inhoud, inclusief terugval is gevonden. Gebruik de volgende gegevens met betrekking tot de versie die u gebruikt:
 
 **Versie 1610 en hoger**   
-Clients die inhoud van een distributiepunt dat is gekoppeld aan hun huidige grensgroep niet vinden kunnen voor het gebruik van de inhoudsbron locaties die gekoppeld aan grensgroepen neighbor zijn terugvallen. Om te worden gebruikt voor terugval, moet een grensgroep neighbor een gedefinieerde relatie hebben met de huidige grensgroep van de client. Deze relatie bevat een geconfigureerde periode die moet verstrijken voordat een client die inhoud in lokale inhoudsbronnen van de grensgroep neighbor kunt opnemen als onderdeel van de zoekopdracht kan niet worden gevonden.
+Clients die niet kunnen vinden van inhoud vanaf een distributiepunt dat is gekoppeld aan hun huidige grensgroep kunnen terugvallen voor het gebruik van de inhoudsbron locaties die gekoppeld aan de grensgroepen neighbor zijn. Om te worden gebruikt voor terugval, moet een neighbor grensgroep een gedefinieerde relatie hebben met de huidige grensgroep van de client. Deze relatie bevat een geconfigureerde periode die moet verstrijken voordat een client die inhoud in lokale inhoudsbronnen van de grensgroep neighbor kunt opnemen als onderdeel van de zoekopdracht kan niet worden gevonden.
 
-De concepten van voorkeursdistributiepunten punten worden niet meer gebruikt en de instellingen voor **alternatieve bronlocaties voor inhoud toestaan** niet meer beschikbaar zijn of afgedwongen.
+De concepten van voorkeursdistributiepunten punten worden niet meer gebruikt en de instellingen voor **alternatieve bronlocaties voor inhoud toestaan** zijn niet langer beschikbaar of afgedwongen.
 
 Zie voor meer informatie [grensgroepen](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
 
 
-**Versie 1511 1602 en 1606**   
-Terugvalinstellingen betrekking hebben op het gebruik van **distributiepunten bij voorkeur** en inhoud bronlocaties die worden gebruikt door clients.
+**Versie 1511, 1602 en 1606**   
+Terugvalinstellingen zijn gerelateerd aan het gebruik van **voorkeursdistributiepunten** en voor inhoudsbron locaties die worden gebruikt door clients.
 
--   Standaard wordt alleen bij clients inhoud downloaden vanaf een voorkeursdistributiepunt (één dat is gekoppeld aan de client grensgroepen).  
+-   Standaard downloaden clients alleen inhoud van een voorkeursdistributiepunt (een die is gekoppeld aan de grensgroepen van de client).  
 
 -   Als een distributiepunt echter is geconfigureerd met **Clients toestaan om dit sitesysteem als een terugvalbronlocatie voor inhoud te gebruiken**, kan dat distributiepunt als een geldige inhoudsbron worden aangeboden aan elke client die geen implementatie kan ophalen bij een van de eigen voorkeursdistributiepunten.  
 
 
-Zie voor meer informatie over de locatie van andere inhoud en terugvalscenario's [bron scenario's voor locatie van inhoud](../../../core/plan-design/hierarchy/content-source-location-scenarios.md). Zie voor meer informatie over grensgroepen [grensgroepen voor versies 1511,1602 en 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606).
+Zie voor meer informatie over de locatie van andere inhoud en terugvalscenario's [locatie van inhoudsbronnen](../../../core/plan-design/hierarchy/content-source-location-scenarios.md). Zie voor meer informatie over grensgroepen [grensgroepen voor versies 1511,1602 en 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606).
 
 ## <a name="network-bandwidth"></a>Netwerkbandbreedte  
- Om te helpen beheren van de hoeveelheid netwerkbandbreedte die wordt gebruikt wanneer u inhoud distribueert, kunt u de volgende opties:  
+ Om te beheren, de hoeveelheid netwerkbandbreedte die wordt gebruikt wanneer u inhoud distribueert, kunt u de volgende opties:  
 
--   **Voorbereide inhoud**:  Een proces van het overdragen van inhoud naar een distributiepunt zonder op Configuration Manager de inhoud distribueren via het netwerk.  
+-   **Vooraf geplaatste inhoud**:  Een proces waarbij inhoud naar een distributiepunt wordt overgedragen zonder afhankelijk te zijn in Configuration Manager de inhoud te distribueren via het netwerk.  
 
--   **Planning en beperking**: Configuraties die u helpen bepalen wanneer en hoe inhoud wordt gedistribueerd naar distributiepunten.  
+-   **Planning en bandbreedtebeperking**: Configuraties die u helpen bepalen wanneer en hoe inhoud wordt gedistribueerd naar distributiepunten.  
 
-Zie voor meer informatie [beheer van netwerkbandbreedte](/sccm/core/plan-design/hierarchy/manage-network-bandwidth).
+Zie voor meer informatie [netwerkbandbreedte beheren](/sccm/core/plan-design/hierarchy/manage-network-bandwidth).
 
 ## <a name="network-connection-speed-to-content-source"></a>Netwerkverbindingssnelheid naar de inhoudsbron  
-Vanaf versie 1610 worden zijn op verschillende manieren gewijzigd in de manier waarop dat clients een distributiepunt met inhoud, inclusief de netwerkverbindingssnelheid voor een inhoudsbron vinden. Gebruik de volgende gegevens met betrekking tot de versie die u gebruikt:
+Vanaf versie 1610, zijn verschillende dingen gewijzigd in de manier waarop dat clients een distributiepunt die inhoud, inclusief de netwerkverbindingssnelheid voor een inhoudsbron is gevonden. Gebruik de volgende gegevens met betrekking tot de versie die u gebruikt:
 
 **Versie 1610 en hoger**   
-Verbindingssnelheden netwerk die een distributiepunt definieert verwijzen als **snel** of **langzaam** worden niet meer gebruikt. In plaats daarvan elk sitesysteem dat is gekoppeld aan een grensgroep wordt behandeld hetzelfde.
+Verbindingssnelheden netwerk die een distributiepunt definieert verwijst als **snel** of **langzaam** niet meer worden gebruikt. In plaats daarvan elk sitesysteem dat is gekoppeld aan een grensgroep wordt behandeld hetzelfde.
 
 Zie voor meer informatie [grensgroepen](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
 
 
-**Versie 1511 1602 en 1606**   
+**Versie 1511, 1602 en 1606**   
  U kunt de netwerkverbindingssnelheid van elk distributiepunt in een grensgroep configureren:  
 
--   Clients gebruiken deze waarde wanneer ze met het distributiepunt verbinden.
+-   Clients gebruiken deze waarde wanneer ze verbinding met het distributiepunt maken.
 
 -   De netwerkverbindingssnelheid wordt standaard geconfigureerd als **snel**, maar kan ook worden ingesteld als **langzaam**.  
 
--   De **verbindingssnelheid van het netwerk**, samen met de configuratie van een implementatie bepalen als een client inhoud van een distributiepunt downloaden kan wanneer de client zich in een gekoppelde grensgroep  
+-   De **netwerkverbindingssnelheid**, samen met de configuratie van een implementatie bepalen als een client inhoud vanaf een distributiepunt downloaden kan wanneer de client zich in een gekoppelde grensgroep.  
 
-Zie voor meer informatie over de locatie van andere inhoud en terugvalscenario's [bron scenario's voor locatie van inhoud](../../../core/plan-design/hierarchy/content-source-location-scenarios.md). Zie voor meer informatie over grensgroepen [grensgroepen voor versies 1511,1602 en 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606).
+Zie voor meer informatie over de locatie van andere inhoud en terugvalscenario's [locatie van inhoudsbronnen](../../../core/plan-design/hierarchy/content-source-location-scenarios.md). Zie voor meer informatie over grensgroepen [grensgroepen voor versies 1511,1602 en 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606).
 
 ## <a name="on-demand-content-distribution"></a>Inhoudsdistributie op aanvraag  
- Inhoudsdistributie op aanvraag is een optie die u voor afzonderlijke instellen kunt toepassingen en pakketten (implementaties) om in te schakelen op aanvraag inhoud distribueren naar voorkeursdistributiepunten.  
+ Inhoudsdistributie op aanvraag is een optie die u voor afzonderlijke instellen kunt toepassingen en pakketten (implementaties) om in te schakelen op aanvraag inhoudsdistributie naar voorkeursdistributiepunten.  
 
--   U kunt deze inschakelen voor een implementatie, inschakelen **Distribueer de inhoud van dit pakket naar voorkeursdistributiepunten**.  
+-   Schakel voor een implementatie als wilt toestaan **Distribueer de inhoud voor dit pakket naar voorkeursdistributiepunten**.  
 
--   Wanneer deze optie is ingeschakeld voor een implementatie en een client probeert die inhoud op te vragen, maar de inhoud niet beschikbaar is op een van de voorkeursdistributiepunten van de client is, wordt Configuration Manager automatisch gedistribueerd die inhoud naar de voorkeursdistributiepunten van de client.  
+-   Wanneer deze optie is ingeschakeld voor een implementatie en een client probeert die inhoud op te vragen, maar de inhoud niet beschikbaar is op een van de voorkeursdistributiepunten van de client is, distribueert Configuration Manager automatisch die inhoud naar de voorkeursdistributiepunten van de client.  
 
--   Hoewel dit Configuration Manager automatisch de om inhoud te distribueren naar voorkeursdistributiepunten van de client veroorzaakt, kan de client die inhoud van andere distributiepunten verkrijgen voordat de implementatie van de voorkeursdistributiepunten voor de client ontvangen. Wanneer dit het geval is, wordt de inhoud vervolgens aanwezig zijn op dat distributiepunt voor gebruik door de volgende client waarmee wordt geprobeerd deze implementatie.  
+-   Hoewel dit Configuration Manager automatisch de om inhoud te distribueren naar voorkeursdistributiepunten van die client activeert, kan de client die inhoud van andere distributiepunten verkrijgen voordat de voorkeursdistributiepunten voor de client de implementatie ontvangen. Wanneer dit gebeurt, kan de inhoud vervolgens meer aanwezig zijn op dat distributiepunt voor gebruik door de volgende client die deze implementatie zoekt.  
 
-Als u 1610 of hoger gebruikt, Zie [grensgroepen](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
-Als u versie 1511, 1602 of 1606, Zie [bron scenario's voor locatie van inhoud](../../../core/plan-design/hierarchy/content-source-location-scenarios.md) voor informatie over de locatie van andere inhoud en terugvalscenario's.  
+Als u versie 1610 of hoger gebruikt, Zie [grensgroepen](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
+Als u versie 1511 of 1602 1606 gebruikt, Zie [locatie van inhoudsbronnen](../../../core/plan-design/hierarchy/content-source-location-scenarios.md) voor meer informatie over de verschillende Inhoudslocatie en terugval scenario's.  
 
 
 
 ## <a name="package-transfer-manager"></a>Package Transfer Manager  
- Package Transfer Manager is de site server-onderdeel dat inhoud naar distributiepunten op andere computers overdraagt.  
+ Package Transfer Manager is het siteserveronderdeel dat inhoud naar distributiepunten op andere computers overdraagt.  
 
  Meer informatie over de [Package Transfer Manager](../../../core/plan-design/hierarchy/package-transfer-manager.md).  
 
 ## <a name="preferred-distribution-point"></a>Voorkeursdistributiepunt  
- Een voorkeursdistributiepunt bevat distributiepunten die gekoppeld aan de huidige grensgroepen van de client zijn.  
+ Een voorkeursdistributiepunt bevat alle distributiepunten die gekoppeld aan de huidige grensgroepen van een client zijn.  
 
  U kunt elk distributiepunt koppelen aan een of meer grensgroepen:  
 
--   Deze koppeling helpt de client identificeren distributiepunten waarvan deze inhoud kan downloaden.  
--   Standaard kunnen clients alleen inhoud downloaden vanaf een voorkeursdistributiepunt.  
+-   Deze koppeling wordt de client van welke distributiepunten het downloaden van inhoud.  
+-   Standaard kunnen clients alleen inhoud downloaden uit een voorkeursdistributiepunt.  
 
 
 Voor meer informatie:
- - Als u 1610 of hoger gebruikt, Zie [grensgroepen](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
- - Als u versie 1511, 1602 of 1606, Zie [bron scenario's voor locatie van inhoud](../../../core/plan-design/hierarchy/content-source-location-scenarios.md).
+ - Als u versie 1610 of hoger gebruikt, Zie [grensgroepen](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
+ - Als u versie 1511 of 1602 1606 gebruikt, Zie [locatie van inhoudsbronnen](../../../core/plan-design/hierarchy/content-source-location-scenarios.md).
 
 ## <a name="prestage-content"></a>Inhoud vooraf plaatsen  
- Inhoud voor te bereiden is een proces van het overdragen van inhoud naar een distributiepunt zonder op Configuration Manager de inhoud distribueren via het netwerk.  
+ Voorbereiden van inhoud is een proces waarbij inhoud naar een distributiepunt wordt overgedragen zonder afhankelijk te zijn in Configuration Manager de inhoud te distribueren via het netwerk.  
 
- Zie voor meer informatie [beheer van netwerkbandbreedte](/sccm/core/plan-design/hierarchy/manage-network-bandwidth).
-
+ Zie voor meer informatie [netwerkbandbreedte beheren](/sccm/core/plan-design/hierarchy/manage-network-bandwidth).

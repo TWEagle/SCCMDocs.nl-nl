@@ -1,28 +1,25 @@
 ---
-title: Asset Intelligence beveiliging privacy | Microsoft-documenten
-description: Beveiliging en privacy-informatie voor Asset Intelligence in System Center Configuration Manager ophalen.
+title: Asset Intelligence beveiliging privacy | Microsoft Docs
+description: Beveiliging en privacy-informatie ophalen voor Asset Intelligence in System Center Configuration Manager.
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d0c6f7a0-dcae-4e6d-aa28-35d464d97ff7
-caps.latest.revision: 5
-caps.handback.revision: 0
+caps.latest.revision: "5"
+caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 9c5d1e48b76392beaf54b5377c69b648537e86f8
 ms.openlocfilehash: b12054cce52e2b83715a083d78a62e06b5127a2f
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="security-and-privacy-for-asset-intelligence-in-system-center-configuration-manager"></a>Beveiliging en privacy voor Asset Intelligence in System Center Configuration Manager
 
@@ -39,7 +36,7 @@ Dit onderwerp bevat beveiligings- en privacy-informatie voor Asset Intelligence 
 |Gebruik het principe van minimale machtigingen om de licentiebestanden te importeren.|Gebruik rolgebaseerd beheer om de machtiging Asset Intelligence beheren te verlenen aan de gebruiker met beheerdersrechten die licentiebestanden importeert. De ingebouwde rol van Asset Intelligence omvat deze machtiging.|  
 
 ##  <a name="BKMK_Privacy_HardwareInventory"></a> Privacy-informatie voor Asset Intelligence  
- Asset Intelligence breidt de voorzieningen van de inventaris van Configuration Manager naar een hoger niveau asset zichtbaarheid in de onderneming. De verzameling van Asset Intelligence-informatie is niet automatisch ingeschakeld. U kunt het type informatie dat door de hardware-inventaris wordt verzameld, wijzigen door rapportageklassen voor hardware-inventarisatie in te schakelen. Zie voor meer informatie [Asset Intelligence configureren in System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
+ Asset Intelligence breidt de inventarisatiefuncties van Configuration Manager naar een hoger niveau van asset-zichtbaarheid in de onderneming. De verzameling van Asset Intelligence-informatie is niet automatisch ingeschakeld. U kunt het type informatie dat door de hardware-inventaris wordt verzameld, wijzigen door rapportageklassen voor hardware-inventarisatie in te schakelen. Zie voor meer informatie [Asset Intelligence configureren in System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
 
  Asset Intelligence-informatie wordt opgeslagen in de Configuration Manager-database op dezelfde manier als inventarisatie-informatie. Wanneer clients verbinding met beheerpunten maken met behulp van HTTPS, worden de gegevens altijd versleuteld tijdens de overdracht naar het beheerpunt. Wanneer clients verbinding maken met behulp van HTTP, kunt u configureren dat de gegevensoverdracht van inventarisatie wordt ondertekend en versleuteld. Inventarisatiegegevens worden niet in een versleutelde indeling in de database opgeslagen. Informatie wordt bewaard in de database en wordt na negentig dagen verwijderd door de siteonderhoudstaak **Verouderde inventarisgeschiedenis verwijderen** . U kunt het verwijderingsinterval configureren.  
 
@@ -51,7 +48,7 @@ Dit onderwerp bevat beveiligings- en privacy-informatie voor Asset Intelligence 
 
 -   In een dialoogvenster ziet u precies welke gegevens worden geüpload voordat het uploadproces wordt gestart.  
 
--   Er worden geen licentiegegevens naar Microsoft verzonden. De licentie-informatie wordt opgeslagen in een afzonderlijke zone van de Configuration Manager-database en kan niet naar Microsoft worden verzonden.  
+-   Er worden geen licentiegegevens naar Microsoft verzonden. De licentie-informatie wordt opgeslagen in een apart gebied van de Configuration Manager-database en kan niet worden verzonden naar Microsoft.  
 
 -   Een geüploade softwaretitel wordt openbaar, in de zin dat de kennis van deze bepaalde toepassing en haar categorisatie deel worden van de System Center Online Asset Intelligence-catalogus, en kan vervolgens worden gedownload naar andere gebruikers van de catalogus.  
 
@@ -60,4 +57,3 @@ Dit onderwerp bevat beveiligings- en privacy-informatie voor Asset Intelligence 
 -   Geüploade gegevens kunnen niet worden ingetrokken.  
 
  Neem kennis van de privacyverklaring van uw organisatie vóór u Asset Intelligence-gegevensverzameling configureert en beslist of informatie dient te worden verzonden naar System Center Online.  
-

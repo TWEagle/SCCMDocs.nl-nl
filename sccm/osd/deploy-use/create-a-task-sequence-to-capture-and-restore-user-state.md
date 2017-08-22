@@ -1,28 +1,25 @@
 ---
 title: Maak een takenreeks voor het vastleggen en herstellen van gebruikersstatus | Microsoft Docs
-description: Gebruik System Center Configuration Manager vastleggen en herstellen van gebruikersstatusgegevens in scenario&quot;s voor besturingssysteemimplementaties takenreeksen.
+description: Gebruik System Center Configuration Manager vastleggen en herstellen van gebruikersstatusgegevens in scenario's voor besturingssysteemimplementaties takenreeksen.
 ms.custom: na
 ms.date: 06/07/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d566d85c-bf7a-40e7-8239-57640a1db5f4
-caps.latest.revision: 7
-caps.handback.revision: 0
+caps.latest.revision: "7"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: c6ee0ed635ab81b5e454e3cd85637ff3e20dbb34
 ms.openlocfilehash: 4b3668094d576b1b8710f08b384aa2f7c5eb0cca
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/08/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="create-a-task-sequence-to-capture-and-restore-user-state-in-system-center-configuration-manager"></a>Maak een takenreeks voor het vastleggen en herstellen van gebruikersstatus in System Center Configuration Manager
 
@@ -171,4 +168,3 @@ U kunt System Center Configuration Manager-takenreeksen gebruiken vastleggen en 
 
 ## <a name="next-steps"></a>Volgende stappen
 [Monitor voor de takenreeksimplementatie](monitor-operating-system-deployments.md#BKMK_TSDeployStatus)
-

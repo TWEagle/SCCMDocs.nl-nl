@@ -2,26 +2,24 @@
 title: IOS en Mac hybride Apparaatbeheer met System Center Configuration Manager en Microsoft Intune instellen | Microsoft Docs
 description: Beheer van iOS-apparaten met System Center Configuration Manager en Microsoft Intune instellen.
 ms.custom: na
-ms.date: 07/31/2017
+ms.date: 08/11/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 5eae4400-58ca-4c71-804c-6a585cd3df5d
-caps.latest.revision: 10
-caps.handback.revision: 0
+caps.latest.revision: "10"
+caps.handback.revision: "0"
 author: nathbarn
 ms.author: nathbarn
 manager: angrobe
+ms.openlocfilehash: d84d6f3dba65f1d8114ef2eef9f19a2bb5389027
+ms.sourcegitcommit: 9a6f8e028fb5eb2e752da70f42a5b548339bd8f4
 ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
-ms.openlocfilehash: 1a93a542f55d02df20865fa4ae8d7590dd9be753
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/29/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/14/2017
 ---
 # <a name="set-up-ios-hybrid-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Beheer van hybride iOS-apparaten met System Center Configuration Manager en Microsoft Intune instellen
 
@@ -67,9 +65,20 @@ Upload het APNs-certificaat zodat iOS-inschrijving.
 3.  Selecteer in het dialoogvenster **Eigenschappen van Microsoft Intune-abonnement** het tabblad **iOS** en klik om het selectievakje **iOS-inschrijving inschakelen** in te schakelen.  
 4.  Klik op **Bladeren**en ga naar het APNs-certificaatbestand (.cer) dat u bij Apple hebt gedownload. Configuration Manager geeft de APNs-certificaatinformatie weer. Klik op **OK** om het APNs-certificaat op te slaan in Intune.  
 
-> [!NOTE]
-> De **inschrijving beperkingen** mogelijkheid is op dit moment niet beschikbaar. 
+Nadat u alles hebt ingesteld, moet u uw gebruikers laten weten hoe ze kunnen hun apparaten inschrijven. Zie [Wat u uw eindgebruikers vertelt over het gebruik van Microsoft Intune](https://docs.microsoft.com/intune/end-user-educate). Deze informatie is van toepassing op mobiele apparaten die worden beheerd door Configuration Manager en Microsoft Intune.
+
+## <a name="configure-enrollment-restrictions"></a>Beperkingen voor inschrijving configureren
+
+Apparaten die door het blokkeren van persoonlijk eigendom zijn van apparaten kunnen inschrijven, kunt u beperken. Dit voorkomt dat gebruikers hun apparaten via de bedrijfsportal registreren. Persoonlijke apparaten te blokkeren, worden alleen de volgende apparaten kunnen inschrijven:
+- [Predeclared apparaten](predeclare-devices-with-hardware-id.md)
+- [Apple Configurator beheerde apparaten](ios-hybrid-enrollment-using-apple-configurator.md)
+- [Device Enrollment Program (DEP) beheerde apparaten](ios-device-enrollment-program-for-hybrid.md)
+- Apparaten die zijn geregistreerd met een [apparaatinschrijvingsbeheerder-account](enroll-devices-with-device-enrollment-manager.md)
+
+### <a name="to-enable-enrollment-restrictions"></a>Inschakelen van beperkingen voor inschrijving
+1.  Ga in de Configuration Management-console in de werkruimte **Beheer** naar **Cloudservices** > **Microsoft Intune-abonnement**.
+2.  Op het tabblad **Start** in de groep **Abonnement** klikt u op **Platforms configureren** > **iOS**.
+3.  Kies **blok persoonlijk eigendom zijn van apparaten** limiet inschrijving naar apparaten in Bedrijfseigendom.
 
 > [!div class="button"]
 [< Vorige stap](create-service-connection-point.md)[volgende stap >  ](set-up-additional-management.md)
-

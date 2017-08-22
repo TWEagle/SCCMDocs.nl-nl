@@ -1,47 +1,44 @@
 ---
-title: Windows Hello voor instellingen voor Business | Microsoft-documenten
+title: Windows Hello voor bedrijven-instellingen | Microsoft Docs
 description: Informatie over het integreren van Windows Hello voor bedrijven met System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c0593c07-5dd7-4d23-a0d8-d30165f49ef7
-caps.latest.revision: 17
+caps.latest.revision: "17"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 8c7bf901caa49c8585a9ed3913d4a5a2aac57013
-ms.openlocfilehash: 7ac2baeb3c10ce90eb643fa28a953186b571d037
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.openlocfilehash: a97b3d97eb302e4133b0a79a8c7e27004872c8b1
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="windows-hello-for-business-settings-in-system-center-configuration-manager-hybrid"></a>Windows Hello voor Business-instellingen in System Center Configuration Manager (hybride)
+# <a name="windows-hello-for-business-settings-in-system-center-configuration-manager-hybrid"></a>Windows Hello voor bedrijven-instellingen in System Center Configuration Manager (hybride)
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-System Center Configuration Manager kunt u integratie met Windows Hello voor bedrijven (voorheen Microsoft Passport voor Windows), een alternatieve-toegestane aanmeldingsmethode voor Windows 10-apparaten. Hello voor Bedrijven maakt gebruik van Active Directory of een Azure Active Directory-account om een wachtwoord, smartcard of virtuele smartcard te vervangen.  
+System Center Configuration Manager kunt u de integratie met Windows Hello voor bedrijven (voorheen Microsoft Passport for Windows), een alternatieve aanmeldingsmethode voor Windows 10-apparaten is. Hello voor Bedrijven maakt gebruik van Active Directory of een Azure Active Directory-account om een wachtwoord, smartcard of virtuele smartcard te vervangen.  
 
 Met Hello voor Bedrijven kan voor aanmelding een **gebaar van de gebruiker** in plaats van een wachtwoord worden gebruikt. Het gebaar van een gebruiker kan een eenvoudige pincode zijn, biometrische verificatie of een extern apparaat zoals een vingerafdruklezer.  
 
- Configuration Manager wordt geïntegreerd met Windows Hello voor bedrijven op twee manieren:  
+ Configuration Manager geïntegreerd met Windows Hello voor bedrijven op twee manieren:  
 
--   U kunt de Configuration Manager gebruiken om te bepalen welke gebaren gebruikers kunnen en kunnen niet gebruiken om aan te melden.  
+-   U kunt de Configuration Manager gebruiken om te bepalen welke gebaren gebruikers wel en niet gebruiken om aan te melden.  
 
 -   U kunt verificatiecertificaten opslaan in de sleutelarchiefprovider (KSP) van Windows Hello voor Bedrijven. Zie voor meer informatie [Certificaatprofielen](create-pfx-certificate-profiles.md).  
 
-- U kunt implementeren Windows Hello voor Business-beleid voor het domein Windows 10-apparaten waarop de Configuration Manager-client wordt uitgevoerd. Deze configuratie wordt beschreven in [configureert Windows Hello voor bedrijven op apparaten met Windows 10 domein](../../protect/deploy-use/windows-hello-for-business-settings.md#configure-windows-hello-for-business-on-domain-joined-windows-10-devices). Wanneer u gebruikmaakt van Configuration Manager met Intune (hybride), kunt u deze instellingen configureren op Windows 10 en Windows 10 Mobile-apparaten, maar niet op domein apparaten waarop de Configuration Manager-client wordt uitgevoerd.   
+- U kunt Windows Hello voor bedrijven-beleid voor het domein Windows 10-apparaten waarop de Configuration Manager-client wordt uitgevoerd. Deze configuratie is omschreven [configureren Windows Hello voor bedrijven op Windows 10-apparaten domein](../../protect/deploy-use/windows-hello-for-business-settings.md#configure-windows-hello-for-business-on-domain-joined-windows-10-devices). Wanneer u gebruikmaakt van Configuration Manager met Intune (hybride), kunt u deze instellingen configureren op Windows 10 en Windows 10 Mobile-apparaten, maar niet op apparaten die lid zijn van een domein met de Configuration Manager-client.   
 
-Raadpleeg voor algemene informatie over het configureren van Windows Hello voor instellingen voor Business [Windows Hello voor Business-instellingen in System Center Configuration Manager](../../protect/deploy-use/windows-hello-for-business-settings.md).
+Raadpleeg voor algemene informatie over het configureren van Windows Hello voor bedrijven-instellingen [Windows Hello voor bedrijven-instellingen in System Center Configuration Manager](../../protect/deploy-use/windows-hello-for-business-settings.md).
 
-## <a name="configure-windows-hello-for-business-settings-hybrid"></a>Configureer Windows Hello voor bedrijven instellingen (hybride)  
+## <a name="configure-windows-hello-for-business-settings-hybrid"></a>Windows Hello voor bedrijven configureren instellingen (hybride)  
 
 1.  Klik in de Configuration Manager-console op **beheer** > **Cloudservices** > **Microsoft Intune-abonnementen**.  
 
@@ -106,5 +103,4 @@ Raadpleeg voor algemene informatie over het configureren van Windows Hello voor 
 ### <a name="see-also"></a>Zie tevens  
  [Beveiligen van gegevens en site-infrastructuur met System Center Configuration Manager](../../protect/understand/protect-data-and-site-infrastructure.md)
 
- [Verificatie van de identiteit met behulp van Windows Hello voor bedrijven beheren](https://technet.microsoft.com/itpro/windows/keep-secure/manage-identity-verification-using-microsoft-passport).  
-
+ [ID-verificatie met behulp van Windows Hello voor bedrijven beheren](https://technet.microsoft.com/itpro/windows/keep-secure/manage-identity-verification-using-microsoft-passport).  

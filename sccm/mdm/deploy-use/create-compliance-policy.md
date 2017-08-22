@@ -6,8 +6,7 @@ ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 0fd76043-d7ee-423d-8c5f-aa7e9ed58ce0
@@ -16,14 +15,12 @@ author: andredm7
 ms.author: andredm
 manager: angrobe
 robots: noindex
-ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
 ms.openlocfilehash: 6630d0170df22f46f14df241ffd8d48266c69263
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/29/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="create-and-deploy-a-device-compliance-policy"></a>Maken en implementeren van een nalevingsbeleid voor apparaten
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
@@ -320,5 +317,4 @@ Een app-ID is een id die een unieke identificatie van de app in de Apple en Goog
     4. Zoek de tekst **bundel-id**.
 
     Een voorbeeld-app-ID is: "*bundel-id*": "*com.companyname.appname*' 
-
 

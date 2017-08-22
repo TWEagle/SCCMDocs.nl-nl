@@ -1,5 +1,4 @@
 ---
-
 title: Software-updates handmatig implementeren | Microsoft Docs
 description: Voor de implementatie updates handmatig updates selecteren in de Configuration Manager-console en handmatig implementeren, of -updates toevoegen aan een updategroep en de groep implementeren.
 keywords: 
@@ -10,18 +9,14 @@ ms.date: 12/07/2016
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-sum
+ms.technology: configmgr-sum
 ms.assetid: 57184274-5fea-4d79-a2b4-22e08ed26daf
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: c6ee0ed635ab81b5e454e3cd85637ff3e20dbb34
 ms.openlocfilehash: 2a0d5f12b99689749833c109d4fa399f99451d8a
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/08/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
 #  <a name="BKMK_ManualDeploy"></a> Software-updates handmatig implementeren  
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
@@ -317,4 +312,3 @@ ms.lasthandoff: 06/08/2017
 
 ## <a name="next-steps"></a>Volgende stappen
 [Software-updates controleren](monitor-software-updates.md)
-

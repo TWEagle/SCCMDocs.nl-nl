@@ -4,8 +4,7 @@ description: Meer informatie over functies die beschikbaar zijn in de Technical 
 ms.custom: na
 ms.date: 06/02/2017
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.reviewer: na
 ms.suite: na
 ms.tgt_pltfrm: na
@@ -14,12 +13,11 @@ ms.assetid: 00684289-d21a-45f8-b1e3-c5c787d73096
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: ef42d1483053e9a6c502f4ebcae5a231aa6ba727
 ms.openlocfilehash: b977a79baec73999caa21648adcb6fcfec4a4935
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="capabilities-in-technical-preview-1705-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1705 voor System Center Configuration Manager
 
@@ -301,4 +299,3 @@ Vereisten voor het configureren van een verbinding met OMS is ongewijzigd ten op
 7.  Controleer de verbindingsinstellingen op de **samenvatting** scherm en selecteer vervolgens **volgende**. De **voortgang** scherm toont de verbindingsstatus en vervolgens moet **Complete**.
 
 8.  Nadat de wizard is voltooid, ziet u de Configuration Manager-console dat u hebt geconfigureerd **bewerking Management Suite** als een **Cloud Service Type**.
-

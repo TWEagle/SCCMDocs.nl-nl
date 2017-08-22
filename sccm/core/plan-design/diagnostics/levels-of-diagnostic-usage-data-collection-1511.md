@@ -1,17 +1,16 @@
 ---
-title: Diagnostische gegevens voor 1511 | Microsoft-documenten
-description: Meer informatie over de niveaus van diagnoses en gebruiksgegevens die door System Center Configuration Manager versie 1511 worden verzameld.
+title: Diagnostische gegevens voor 1511 | Microsoft Docs
+description: Meer informatie over de niveaus van diagnostische gegevens en gebruiksgegevens die door System Center Configuration Manager versie 1511 worden verzameld.
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9e614ae1-47d2-4a93-ba0a-89dc50d1e266
-caps.latest.revision: 4
+caps.latest.revision: "4"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
@@ -34,81 +33,80 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
 ms.openlocfilehash: 215ca2a10c50da08d2265ec0926c0310883588ba
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="levels-of-diagnostic-usage-data-collection-for-version-1511-of-system-center-configuration-manager"></a>Niveaus van diagnostische gegevensverzameling gebruiksgegevens voor 1511-versie van System Center Configuration Manager
+# <a name="levels-of-diagnostic-usage-data-collection-for-version-1511-of-system-center-configuration-manager"></a>Niveaus van diagnostische gebruiksgegevens verzamelen van gegevens voor versie 1511 van System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-System Center Configuration Manager versie 1511 worden drie niveaus van diagnostische en gebruiksgegevens worden verzameld: **Basic**, **verbeterde**, en **volledige**. Deze functie is standaard ingesteld op het niveau Uitgebreid. De volgende secties bevatten meer informatie over gegevens die elk niveau worden verzameld.  
+System Center Configuration Manager versie 1511 verzamelt drie niveaus van diagnostische gegevens en gebruiksgegevens: **Basic**, **verbeterde**, en **volledige**. Deze functie is standaard ingesteld op het niveau Uitgebreid. De volgende secties bieden aanvullende details over de gegevens die elk niveau worden verzameld.  
 
 > [!IMPORTANT]  
->  Configuration Manager worden niet verzameld sitecodes, sites, namen, IP-adressen, gebruikersnamen, computernamen, fysieke adressen of e-mailadressen op de basis of uitgebreid niveaus. Een verzameling van deze informatie op het niveau van de volledige is niet purposeful, dat wil zeggen, mogelijk zijn opgenomen in de geavanceerde diagnostische gegevens zoals logboekbestanden of geheugen momentopnamen. Microsoft gebruikt deze gegevens niet geïdentificeerd, contact met u of advertenties ontwikkelen.  
+>  Configuration Manager verzamelt geen sitecodes, namen van sites, IP-adressen, gebruikersnamen, computernamen, fysieke adressen of e-mailadressen op het niveau basis of uitgebreid. Een verzameling van deze informatie op het niveau volledig is niet doelgericht, dat wil zeggen, mogelijk opgenomen in de geavanceerde diagnostische gegevens, zoals logboekbestanden of momentopnamen van het geheugen. Microsoft gebruikt deze gegevens niet voor u te identificeren, contact met u of reclame ontwikkelen.  
 
 ##  <a name="bkmk_change"></a> Niveau wijzigen  
- Beheerders die een op rollen gebaseerd administratief bereik met **wijzigen** machtigingen voor de **Site** objectklasse het niveau van de verzamelde gegevens in de instellingen diagnostische en gebruiksgegevens in de Configuration Manager-console kunt wijzigen.
+ Beheerders met een op rollen gebaseerd administratief bereik dat omvat **wijzigen** machtigingen voor de **Site** objectklasse het niveau van de verzamelde gegevens in de instellingen voor diagnostische gegevens en gebruiksgegevens in de Configuration Manager-console kunt wijzigen.
 
- Om dit te doen, in de console, Ga naar de backstage tabblad (de bovenste links met de pijl), selecteer **gebruiksgegevens**, en selecteer vervolgens het niveau van de gegevens die u wilt gebruiken.  
+ Hiertoe klikt u in de console, Ga naar het backstage-tabblad (de tab linksboven met de vervolgkeuzepijl), selecteer **gebruiksgegevens**, en selecteer vervolgens het niveau van de gegevens die u wilt gebruiken.  
 
 
 ##  <a name="bkmk_level1"></a> Niveau 1 - Basis  
- De op basisniveau bevat gegevens over uw hiërarchie, de gegevens die vereist zijn om te helpen verbeteren van de installatie of upgrade van de gebruikerservaring en gegevens die u helpen te bepalen van de Configuration Manager-updates die van toepassing zijn op uw hiërarchie.  
+ Het niveau basis omvat gegevens over uw hiërarchie, de gegevens die vereist zijn om u te helpen verbeteren van de installatie of upgrade-ervaring en gegevens die u helpt te bepalen van de Configuration Manager-updates die van toepassing zijn op uw hiërarchie.  
 
- Beginnen met System Center Configuration Manager versie 1511, omvat dit niveau het volgende:  
+ U begint met System Center Configuration Manager versie 1511, omvat dit niveau het volgende:  
 
 
 -   Installatie-informatie
-    - Bouw, type, taalpakketten en functies die u hebt ingeschakeld installeren
+    - Bouwen, installeert u type, taalpakketten en functies die u hebt ingeschakeld
 
-    - Implementatiestatus van updates pack en fouten  
+    - Update pack Implementatiestatus en fouten  
 
--   Database maatstaven voor prestaties (replicatie verwerken van gegevens, de beste procedures voor SQL Server opgeslagen door de processor en het schijfgebruik)  
+-   Databaseprestatiegegevens (replicatie verwerken van gegevens, bovenste procedures voor het SQL Server opgeslagen door de processor en het schijfgebruik)  
 
--   Basic databaseconfiguratie (processors clusterconfiguratie en configuratie van gedistribueerde weergaven)  
+-   Elementaire databaseconfiguratie (processors, clusterconfiguratie en configuratie van gedistribueerde weergaven)  
 
--   Schema voor Configuration Manager-database (hash van alle objectdefinities)  
+-   Configuration Manager-databaseschema (hash van alle objectdefinities)  
 
--   Telling van Configuration Manager-clientversies en versies van besturingssystemen  
+-   Telling van Configuration Manager-clientversies en besturingssysteemversies  
 
 -   Telling van besturingssystemen voor beheerde apparaten en beleidsregels die zijn ingesteld door de Exchange-Connector  
 
--   Telling van de clienttalen en landinstellingen
+-   Aantal clienttalen en landinstellingen
 
 -   Aantal Windows 10-apparaten per branch en build  
 
--   Configuration Manager site hiërarchie basisgegevens (lijst met de site, type, versie, status, aantal clients en tijdzone)  
+-   Configuration Manager site hiërarchie basisgegevens (sitelijst, type, versie, status, aantal clients en tijdzone)  
 
--   Basic server sitesysteeminformatie (sitesysteemrollen gebruikt, via Internet en SSL-status, besturingssysteem, processors, en fysieke of virtuele machine)  
+-   Basic serverinformatie sitesysteem (gebruikte sitesysteemrollen, Internet- en SSL-status, besturingssysteem, processors, en fysieke of virtuele machine)  
 
--   Basic detectie gebruikersstatistieken (gebruiker detectie aantal of minimum/maximum/gemiddelde groep grootten)  
+-   Elementaire statistieken over gebruikersdetectie (gebruiker detectie telling en het minimale/maximale/gemiddelde groepsgrootten)  
 
--   Basisinformatie van Endpoint Protection (antimalware-clientversies)  
+-   Basisinformatie van Endpoint Protection (antimalwareclients)  
 
--   Eenvoudige implementatie van toepassingen en -type wordt in mindering gebracht (totaal aantal apps, totale apps met meerdere implementatietypen totale apps met afhankelijkheden totale vervangen apps en telling van implementatietechnologieën in gebruik)  
+-   Het type standaard toepassing en implementatietype telt (totaalaantal apps, totaalaantal apps met meerdere implementatietypen, totaalaantal apps met afhankelijkheden, totaalaantal vervangen apps en het aantal implementatietechnologieën dat in gebruik)  
 
--   Basic besturingssysteemimplementatie (OSD) wordt in mindering gebracht (afbeeldingen)  
+-   Basic-besturingssysteem-implementatie (OSD) telt (installatiekopieën)  
 
--   Distributiepunt en beheerpunten typen en basisconfiguratie informatie (beveiligde, voorbereid, PXE, multicast SSL-status pull/peer distributiepunten MDM-functionaliteit, SSL is ingeschakeld, enz.)  
+-   Distributiepunt- en beheerpunttypen en basisinformatie over de configuratie (beveiligd, voorbereid, PXE, multicast, SSL-status, pull/peer-distributiepunten, MDM-functionaliteit, SSL is ingeschakeld, enz.)  
 
--   Statistieken voor telemetrie (wanneer uitgevoerd, runtime en fouten)  
+-   Telemetriestatistieken (wanneer uitgevoerd, runtime en fouten)  
 
 ##  <a name="bkmk_level2"></a> Niveau 2 - Uitgebreid  
-Het niveau van de verbeterde is de standaard nadat setup is voltooid. Dit niveau bevat gegevens die worden verzameld in het basisniveau, onderdeelspecifieke gegevens (frequentie en duur van gebruik), instellingen voor Configuration Manager-clients (onderdeelnaam, status en bepaalde instellingen zoals pollingintervallen) en algemene informatie over software-updates).  
+Het niveau uitgebreid is de standaardinstelling nadat setup is voltooid. Dit niveau bevat gegevens die worden verzameld in het niveau basis, onderdeelspecifieke gegevens (frequentie en duur van gebruik), Configuration Manager-clientinstellingen (onderdeelnaam, status en bepaalde instellingen zoals polling-intervallen) en basisgegevens over software-updates).  
 
-Dit niveau wordt aanbevolen, omdat hiermee het minimumaantal gegevens die vereist zijn nuttig verbeteringen te maken in toekomstige versies van producten en diensten van Microsoft. Dit niveau niet verzamelen objectnamen (sites, gebruikers, computers of objecten), gegevens over objecten productspecifieke beveiliging of problemen zoals tellingen van systemen die software-updates vereisen.  
+Dit niveau wordt aanbevolen omdat u Microsoft de minimumhoeveelheid gegevens die vereist zijn biedt om nuttige verbeteringen in toekomstige versies van producten en services. Dit niveau niet verzamelen objectnamen (sites, gebruikers, computers of objecten), details over beveiliging gerelateerde objecten of over beveiligingsproblemen zoals het aantal systemen waarvoor software-updates.  
 
-Beginnen met System Center Configuration Manager versie 1511, omvat dit niveau het volgende:  
+U begint met System Center Configuration Manager versie 1511, omvat dit niveau het volgende:  
 
 -   **Toepassingsbeheer:**  
 
-    -   Basic gebruik per die gericht is op informatie voor implementatietypen die worden gebruikt binnen de organisatie (de gebruiker ten opzichte van apparaat is gericht en vereist versus beschikbaar)  
+    -   Over Basic gebruik/targeting voor implementatietypen die worden gebruikt binnen de organisatie (gebruiker versus apparaat gericht en vereist versus beschikbaar)  
 
-    -   Informatie over de implementatie van toepassingen (Installeer/Verwijder, vereist goedkeuring en gebruikersinteractie ingeschakeld/uitgeschakeld)  
+    -   Informatie over de implementatie van de toepassing (installeren/verwijderen, vereist goedkeuring en gebruikersinteractie ingeschakeld/uitgeschakeld)  
 
     -   Statistieken over beschikbare toepassingsaanvragen  
 
@@ -140,7 +138,7 @@ Beginnen met System Center Configuration Manager versie 1511, omvat dit niveau h
 
     -   Basislijninformatie over basisconfiguratie (aantal, aantal implementaties en aantal verwijzingen)  
 
-    -   Aantal implementaties die verwijzen naar de standaardinstellingen (waarde van de instelling niet is vastgelegd)  
+    -   Aantal implementaties die verwijzen naar ingebouwde instellingen (waarde van de instelling wordt niet vastgelegd)  
 
     -   Aantal regels en implementaties die zijn gemaakt voor de aangepaste instellingen  
 
@@ -152,49 +150,49 @@ Beginnen met System Center Configuration Manager versie 1511, omvat dit niveau h
 
     -   Informatie over de grensgroep (aantal grenzen en sitesystemen die zijn toegewezen aan elke grensgroep)  
 
-    -   Distribution point groepsinformatie (aantal pakketten en distributiepunten die zijn toegewezen aan elk distributiepuntgroep)  
+    -   Informatie over punt distributie (aantal pakketten en distributiepunten die zijn toegewezen aan elke distributiepuntengroep)  
 
-    -   Distribution point configuratiegegevens (gebruik van de vertakking uit cache en distribution point bewaking)  
+    -   Distribution point configuratiegegevens (gebruik van vertakkingscache en bewaking van distribution point)  
 
-    -   Distribution Manager configuratiegegevens (threads, tussen elke poging, aantal nieuwe pogingen, en instellingen voor pull-distributiepunten)  
+    -   Distribution Manager configuratie-informatie (threads, vertraging, aantal nieuwe pogingen, en pull-distributiepuntinstellingen)  
 
 -   **Endpoint Protection:**  
 
-    -   Endpoint Protection schadelijke software en het gebruik van Windows Firewall-beleid (het aantal unieke beleidsregels die zijn toegewezen aan de groep)<br /><br />Dit bevat geen informatie over de instellingen die zijn opgenomen in het beleid.  
+    -   Endpoint Protection tegen schadelijke software en het gebruik van Windows Firewall-beleid (aantal unieke beleidsregels die zijn toegewezen aan de groep)<br /><br />Dit omvat geen informatie over de instellingen die zijn opgenomen in het beleid.  
 
-    -   Endpoint Protection-implementatiefouten (aantal foutcodes voor Endpoint Protection-beleid implementeren)  
+    -   Endpoint Protection-implementatiefouten (aantal foutcodes voor Endpoint Protection-beleid)  
 
-    -   Aantal verzamelingen die zijn geselecteerd om te worden weergegeven in het dashboard Endpoint Protection  
+    -   Aantal verzamelingen die zijn geselecteerd worden weergegeven in het dashboard Endpoint Protection  
 
-    -   Het aantal waarschuwingen die zijn geconfigureerd voor de Endpoint Protection-functie  
+    -   Aantal waarschuwingen die zijn geconfigureerd voor de functie Endpoint Protection  
 
 -   **Mobile Application Management (MAM):**  
 
-    -   Telling van MAM ingeschakeld Office-toepassingen, line-of-business-toepassingen en beleid door het besturingssysteem  
+    -   Aantal MAM geschikte Office-toepassingen, line-of-business-toepassingen en -beleid door het besturingssysteem  
 
     -   Aantal MAM-toepassings/beleidsimplementaties  
 
-    -   Aantal regels die zijn gemaakt per MAM-instelling  
+    -   Aantal regels dat per MAM-instelling worden gemaakt  
 
 -   **Mobile Device Management (MDM):**  
 
     -   Aantal uitgegeven acties voor mobiele apparaten: vergrendelen, pincode plaatst, wissen en buiten gebruik stellen opdrachten
 
-    -   Telling van mobiele apparaten die worden beheerd door Configuration Manager en Microsoft Intune en hoe ze zijn ingeschreven (bulk of op basis van gebruikers)  
+    -   Telling van mobiele apparaten die worden beheerd door Configuration Manager en Microsoft Intune en hoe ze zijn geregistreerd (massaal of op basis van gebruikers)  
 
-    -   Mobiele apparaten polling-planning en statistieken voor mobiele apparaten controleren in duur  
+    -   Mobiele apparaten polling-planning en statistieken voor mobiele apparaten duur van inchecken  
 
     -   Aantal beleidsregels voor mobiele apparaten  
 
     -   Telling van gebruikers met meerdere ingeschreven mobiele apparaten  
 
--   **Microsoft Intune problemen oplossen:**  
+-   **Microsoft Intune voor probleemoplossing:**  
 
-    -   Aantal en de grootte van status, status, inventaris, RDR, DDR, UDX, Tenant statusberichten, POL, logboek Cert, CRP, Resync, CFD, RDO, BEX, console en naleving die worden gedownload van Microsoft Intune  
+    -   Aantal en grootte van status, status, inventaris, RDR, DDR, UDX, Tenant staat, POL, LOG, Cert, CRP, Resync, CFD, RDO, BEX, ISM en naleving berichten die worden gedownload van Microsoft Intune  
 
-    -   Aantal en de grootte van de acties voor apparaat (wissen, buiten gebruik stellen, vergrendelen) Telemetrie en berichten van gegevens die worden gerepliceerd naar Microsoft Intune  
+    -   Aantal en grootte van apparaatacties (wissen, buiten gebruik stellen, vergrendelen), Telemetrie en gegevensberichten die zijn gerepliceerd naar Microsoft Intune  
 
-    -   Volledige en delta-synchronisatie gebruikersstatistieken voor Microsoft Intune  
+    -   Volledige statistieken en deltastatistieken over Gebruikerssynchronisatie voor Microsoft Intune  
 
 -   **Lokaal Mobile Device Management (MDM)**  
 
@@ -208,13 +206,13 @@ Beginnen met System Center Configuration Manager versie 1511, omvat dit niveau h
 
 -   **Software-updates:**  
 
-    -   Totaal aantal/gemiddelde aantal verzamelingen die beschikken over software-update-implementaties en de maximale/gemiddelde aantal geïmplementeerde updates  
+    -   Totaalaantal/gemiddeld aantal verzamelingen met software-update-implementaties en het maximale/gemiddelde aantal geïmplementeerde updates  
 
-    -   Aantal regels voor automatische implementatie die zijn gerelateerd aan synchronisatie  
+    -   Aantal regels voor automatische implementatie die zijn gekoppeld aan synchronisatie  
 
     -   Aantal regels voor automatische implementatie waarmee nieuwe updates worden gemaakt of waarmee updates worden toegevoegd aan een bestaande groep  
 
-    -   Beschikbaar en deadline delta's die worden gebruikt in de regels voor automatische implementatie  
+    -   Beschikbaar- en deadlinedelta's die worden gebruikt in regels voor automatische implementatie  
 
     -   Gemiddeld en maximumaantal toewijzingen per update  
 
@@ -222,11 +220,11 @@ Beginnen met System Center Configuration Manager versie 1511, omvat dit niveau h
 
     -   Aantal updategroepen en toewijzingen  
 
-    -   Aantal pakketten van en het minimum/maximum/gemiddelde aantal distributiepunten die zijn gericht aan pakketten  
+    -   Aantal updatepakketten en de minimale/maximale/gemiddelde aantal distributiepunten die zijn gericht aan pakketten  
 
     -   Aantal updategroepen en minimaal/maximaal/gemiddeld aantal updates per groep  
 
-    -   Aantal updates en het percentage van de updates die zijn geïmplementeerd, is verlopen, vervangen gedownload en gebruiksrechtovereenkomsten bevatten  
+    -   Aantal updates en het percentage van de updates die zijn geïmplementeerd, verlopen, vervangen, gedownload en bevatten of een gebruiksrechtovereenkomst  
 
     -   Foutcodes voor updatescans en het aantal computers  
 
@@ -240,7 +238,7 @@ Beginnen met System Center Configuration Manager versie 1511, omvat dit niveau h
 
     -   Versies van Windows 10-dashboardinhoud  
 
-    -   Telling van Windows 10-clients die Windows Update voor bedrijven gebruiken  
+    -   Aantal Windows 10-clients die gebruikmaken van Windows Update voor bedrijven  
 
     -   Statistieken over clusterpatching  
 
@@ -255,9 +253,9 @@ Beginnen met System Center Configuration Manager versie 1511, omvat dit niveau h
     -   Aantal verzamelingen per type  
 
 ##  <a name="bkmk_level3"></a> Niveau 3 - Volledig  
-Het niveau van de volledige bevat alle gegevens in de Basic en verbeterde niveaus. Het omvat ook aanvullende informatie over Endpoint Protection, percentages van updatenaleving en informatie over software-updates. Dit niveau kan ook geavanceerde diagnostische gegevens zoals systeembestanden en geheugen momentopnamen, waaronder persoonlijke gegevens die beschikbaar in geheugen of logboekbestanden ten tijde van het vastleggen waren.  
+Het niveau volledig omvat alle gegevens in de niveaus basis en uitgebreid. Het omvat ook aanvullende informatie over Endpoint Protection, percentages van updatenaleving en informatie over software-updates. Dit niveau kan ook geavanceerde diagnostische gegevens, zoals systeembestanden en momentopnamen van het geheugen, die mogelijk persoonlijke gegevens bevatten die in het geheugen of logboekbestanden op het moment van vastleggen voorkomen bevatten.  
 
-Beginnen met System Center Configuration Manager versie 1511, omvat dit niveau het volgende:  
+U begint met System Center Configuration Manager versie 1511, omvat dit niveau het volgende:  
 
 -   Evaluatie van verzamelingen en vernieuwingsstatistieken  
 
@@ -265,13 +263,13 @@ Beginnen met System Center Configuration Manager versie 1511, omvat dit niveau h
 
 -   Endpoint Protection-beleidsconfiguratie  
 
--   Implementatiegegevens van software-update (percentage van de implementaties die zijn gericht aan client ten opzichte van de UTC-tijd vereist optionele ten opzichte van de achtergrond en opnieuw opstarten onderdrukken)  
+-   Informatie over de implementatie van de software-update (percentage van implementaties die zijn gericht met client versus UTC-tijd, vereist optioneel versus stil en opnieuw opstarten onderdrukken)  
 
 -   Algemene naleving van software-update-implementaties  
 
 -   Informatie over de evaluatieplanning voor regels voor automatische implementatie  
 
--   Het aantal clients die network access protection beleid  
+-   Aantal clients dat beveiliging netwerktoegangsbeleid hebben  
 
 -   Aantal fouten en foutcodes voor software-update-implementaties  
 
@@ -284,4 +282,3 @@ Beginnen met System Center Configuration Manager versie 1511, omvat dit niveau h
 -   Percentage van geslaagde software-updatescans  
 
 -   Minimaal/maximaal/gemiddeld aantal uren sinds de vorige software-updatescan  
-

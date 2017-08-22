@@ -1,48 +1,44 @@
 ---
-title: Pull-distributiepunt | Microsoft-documenten
+title: Pull-distributiepunt | Microsoft Docs
 description: Meer informatie over configuraties en beperkingen voor het gebruik van een pull-distributiepunt met System Center Configuration Manager.
 ms.custom: na
 ms.date: 2/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7d8f530b-1a39-4a9d-a2f0-675b516da7e4
-caps.latest.revision: 9
+caps.latest.revision: "9"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 9b366262ae59a8cb57c0f1760b961194d17bcf52
 ms.openlocfilehash: db5039ff6cb93e3099b096196d49a1f06c315a6b
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="use-a-pull-distribution-point-with-system-center-configuration-manager"></a>Een pull-distributiepunt voor System Center Configuration Manager gebruiken
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
-Een pull-distributiepunt voor System Center Configuration Manager is een standaard distributiepunt die gedistribueerde inhoud verkrijgt downloaden van de bronlocatie, zoals een client, in plaats van de inhoud van de siteserver naar het gepusht.  
+Een pull-distributiepunt voor System Center Configuration Manager is een standaarddistributiepunt dat gedistribueerde inhoud ophaalt downloaden via een bronlocatie zoals een client, in plaats van de inhoud wordt gepusht vanaf de siteserver.  
 
- Wanneer u inhoud naar een groot aantal distributiepunten op een site implementeert, worden de pull-distributiepunten kunnen u de verwerkingsbelasting op de siteserver verminderen en versnellen van de overdracht van de inhoud naar ieder distributiepunt. Deze efficiëntie wordt bereikt door het offloaden van het proces van het overdragen van de inhoud aan de afzonderlijke distributiepunten via het distributiebeheerproces op de siteserver.  
+ Wanneer u inhoud naar een groot aantal distributiepunten op een site implementeert, worden de pull-distributiepunten kunnen u de verwerkingsbelasting op de siteserver verminderen en versnellen van de overdracht van de inhoud naar elk distributiepunt. Deze efficiëntie wordt bereikt door het offloaden van het proces van het overdragen van de inhoud aan de afzonderlijke distributiepunten via het distributiebeheerproces op de siteserver.  
 
--   U individuele distributiepunten configureren als pull-distributiepunten.  
+-   U kunt afzonderlijke distributiepunten als pull-distributiepunten configureren.  
 
--   Voor elk pull-distributiepunt, moet u een of meer brondistributiepunten waaruit implementaties (een pull-distributiepunt kan alleen inhoud verkrijgen via een distributiepunt dat is opgegeven als een brondistributiepunt) kan worden opgehaald.  
+-   Voor elk pull-distributiepunt, moet u een of meer brondistributiepunten waaruit implementaties (een pull-distributiepunt kan alleen inhoud ophalen van een distributiepunt dat is opgegeven als een brondistributiepunt) kunnen worden opgehaald.  
 
--   Wanneer u inhoud naar een pull-distributiepunt distribueert, verwittigt de siteserver de pull-distributiepunt, start vervolgens de download (transfer) van de inhoud vanaf een brondistributiepunt. Een pull-distributiepunt beheert de overdracht van inhoud afzonderlijk door inhoud te downloaden van een distributiepunt dat al over een kopie van de inhoud beschikt.  
+-   Wanneer u inhoud naar een pull-distributiepunt distribueert, verwittigt de server het pull-distributiepunt, vervolgens begint met het downloaden (transfer) van de inhoud vanaf een brondistributiepunt. Een pull-distributiepunt beheert de overdracht van inhoud afzonderlijk door inhoud te downloaden van een distributiepunt dat al over een kopie van de inhoud beschikt.  
 
 Pull-distributiepunten ondersteunen dezelfde configuraties en functionaliteit als standaard Configuration Manager-distributiepunten. Een distributiepunt dat is geconfigureerd als een pull-distributiepunt ondersteunt bijvoorbeeld het gebruik van multicast- en PXE-configuraties, inhoudsvalidatie en distributie van inhoud op aanvraag. Een pull-distributiepunt ondersteunt HTTP- of HTTPS-communicatie van clients, ondersteunt dezelfde certificaatopties als andere distributiepunten en kan afzonderlijk of als een lid van een distributiepuntgroep worden beheerd.  
 
 > [!IMPORTANT]
-> Hoewel wanneer u Configuration Manager, een pull-distributiepunt communicaties over HTTP en HTTPS ondersteunt, kunt u alleen de brondistributiepunten die zijn geconfigureerd voor HTTP opgeven. U kunt de Configuration Manager-SDK gebruiken om een brondistributiepunt dat is geconfigureerd voor HTTPS.  
+> Hoewel een pull-distributiepunt communicatie via HTTP en HTTPS, ondersteunt wanneer u Configuration Manager gebruikt, kunt u alleen brondistributiepunten die zijn geconfigureerd voor HTTP opgeven. U kunt de Configuration Manager-SDK gebruiken om op te geven van een brondistributiepunt dat is geconfigureerd voor HTTPS.  
 
  **De volgende reeks gebeurtenissen treedt op wanneer u inhoud distribueert naar een pull-distributiepunt:**  
 
@@ -54,7 +50,7 @@ Pull-distributiepunten ondersteunen dezelfde configuraties en functionaliteit al
 
 **U kunt een pull-distributiepunt configureren** wanneer u het distributiepunt installeert of nadat dit is geïnstalleerd door de eigenschappen van de sitesysteemrol van het distributiepunt te bewerken.  
 
-**U kunt de configuratie voor een pull-distributiepunt verwijderen** door de eigenschappen van het distributiepunt te bewerken. Wanneer u de configuratie van pull-distributiepunt, verwijdert het distributiepunt retourneert en normale bewerkingen, en de siteserver toekomstige inhoud beheert wordt verplaatst naar het distributiepunt.  
+**U kunt de configuratie voor een pull-distributiepunt verwijderen** door de eigenschappen van het distributiepunt te bewerken. Wanneer u de pull-distributiepuntconfiguratie, verwijdert het distributiepunt weer normaal functioneert en beheert de siteserver toekomstige inhoud worden overgebracht naar het distributiepunt.  
 
 ## <a name="limitations-for-pull-distribution-points"></a>Beperkingen voor pull-distributiepunten  
 
@@ -62,18 +58,18 @@ Pull-distributiepunten ondersteunen dezelfde configuraties en functionaliteit al
 
 -   Een distributiepunt op siteserver kan niet worden geconfigureerd als een pull-distributiepunt.  
 
--   **De configuratie voor het pull-distributiepunt wordt door de configuratie voor voorbereide inhoud overschreven**. Een pull-distributiepunt dat is geconfigureerd voor voorbereide inhoud wacht op de inhoud. Deze haalt niet via pull inhoud van het distributiepunt van de bron en, zoals een standaarddistributiepunt met de voorbereide inhoud configuratie biedt ontvangt geen inhoud van de siteserver.  
+-   **De configuratie voor het pull-distributiepunt wordt door de configuratie voor voorbereide inhoud overschreven**. Een pull-distributiepunt dat is geconfigureerd voor voorbereide inhoud wacht op de inhoud. Dit komt niet haalt inhoud binnen vanuit het brondistributiepunt en, zoals een standaarddistributiepunt punt met de configuratie van het voorbereide inhoud, ontvangt geen inhoud van de siteserver.  
 
--   **Een pull-distributiepunt gebruikt geen configuraties voor frequentielimieten** wanneer inhoud wordt overgedragen. Als u een eerder geïnstalleerd distributiepunt configureert als een pull-distributiepunt, worden configuraties voor frequentielimieten opgeslagen, maar niet gebruikt. Als u later de configuratie van pull-distributiepunt verwijdert, worden de frequentielimieten geïmplementeerd, zoals deze eerder zijn geconfigureerd.  
+-   **Een pull-distributiepunt gebruikt geen configuraties voor frequentielimieten** wanneer inhoud wordt overgedragen. Als u een eerder geïnstalleerd distributiepunt configureert als een pull-distributiepunt, worden configuraties voor frequentielimieten opgeslagen, maar niet gebruikt. Als u later de pull-distributiepuntconfiguratie verwijdert, worden de frequentielimieten geïmplementeerd zoals eerder is geconfigureerd.  
 
     > [!NOTE]  
     >  Wanneer een distributiepunt is geconfigureerd als een pull-distributiepunt, wordt het tabblad **Frequentielimieten** niet weergegeven in de eigenschappen van het distributiepunt.  
 
--   Een distributiepunt maakt geen gebruik van de optie **Instellingen voor opnieuw proberen** voor de distributie van inhoud. **Instellingen voor opnieuw proberen** kan worden geconfigureerd als onderdeel van **Eigenschappen van softwaredistributieonderdelen** van elke site. Weergeven of configureren van deze eigenschappen in de **beheer** werkruimte van de Configuration Manager-console, vouw **siteconfiguratie**, en selecteer vervolgens **Sites**. Selecteer vervolgens een site in het deelvenster met resultaten en klikt u op de **Start** tabblad **Siteonderdelen configureren**. Ten slotte selecteren **softwaredistributie**.  
+-   Een distributiepunt maakt geen gebruik van de optie **Instellingen voor opnieuw proberen** voor de distributie van inhoud. **Instellingen voor opnieuw proberen** kan worden geconfigureerd als onderdeel van **Eigenschappen van softwaredistributieonderdelen** van elke site. Weergeven of configureren van deze eigenschappen in de **beheer** werkruimte van de Configuration Manager-console, vouw **siteconfiguratie**, en selecteer vervolgens **Sites**. Selecteer vervolgens een site in het resultatenvenster en klik vervolgens op de **Start** tabblad **Siteonderdelen configureren**. Tot slot selecteert **softwaredistributie**.  
 
--   Voor het overbrengen van inhoud vanaf een bron distributiepunt in een extern forest, de computer die als host fungeert de pull-distributiepunt moet een Configuration Manager-client is geïnstalleerd. Een netwerktoegangsaccount die toegang het brondistributiepunt tot moet worden geconfigureerd voor gebruik.  
+-   Om over te dragen van inhoud van een bron distributiepunt in een extern forest, de computer die als host fungeert de pull-distributiepunt moet een Configuration Manager-client geïnstalleerd hebben. Een netwerktoegangsaccount die toegang heeft tot het brondistributiepunt moet worden geconfigureerd voor gebruik.  
 
--   Op een computer die is geconfigureerd als een pull-distributiepunt en die een Configuration Manager-client uitvoert, wordt de versie van de client moet dezelfde versie als de Configuration Manager-site die het pull-distributiepunt installeert. Dit is een vereiste voor het pull-distributiepunt voor het gebruik van CCMFramework die geldt voor het pull-distributiepunt en de Configuration Manager-client.  
+-   Op een computer die is geconfigureerd als een pull-distributiepunt en die een Configuration Manager-client wordt uitgevoerd, wordt de versie van de client moet dezelfde versie als de Configuration Manager-site die het pull-distributiepunt installeert. Dit is een vereiste voor het pull-distributiepunt voor het gebruik van CCMFramework die geldt voor zowel het pull-distributiepunt en de Configuration Manager-client.  
 
 ## <a name="about-source-distribution-points"></a>Brondistributiepunten  
  Wanneer u een pull-distributiepunt configureert, moet u een of meer brondistributiepunten opgeven:  
@@ -82,9 +78,9 @@ Pull-distributiepunten ondersteunen dezelfde configuraties en functionaliteit al
 
 -   Een pull-distributiepunt kan worden opgegeven als een brondistributiepunt voor een ander pull-distributiepunt.  
 
--   Alleen distributiepunten die ondersteuning bieden voor HTTP kunnen worden opgegeven als brondistributiepunten wanneer u Configuration Manager.  
+-   Alleen distributiepunten die ondersteuning bieden voor HTTP kunnen worden opgegeven als brondistributiepunten wanneer u Configuration Manager gebruiken.  
 
--   U kunt de Configuration Manager-SDK gebruiken om een brondistributiepunt dat is geconfigureerd voor HTTPS. Voor het gebruik van een brondistributiepunt dat is geconfigureerd voor HTTPS, moet het pull-distributiepunt worden geplaatst op een computer waarop de Configuration Manager-client uitvoert.  
+-   U kunt de Configuration Manager-SDK gebruiken om op te geven van een brondistributiepunt dat is geconfigureerd voor HTTPS. Voor het gebruik van een brondistributiepunt dat is geconfigureerd voor HTTPS, moet het pull-distributiepunt worden geplaatst op een computer waarop de Configuration Manager-client wordt uitgevoerd.  
 
 Er kan aan elk distributiepunt in de lijst met brondistributiepunten van een pull-distributiepunt een prioriteit worden toegewezen:  
 
@@ -100,17 +96,16 @@ Er kan aan elk distributiepunt in de lijst met brondistributiepunten van een pul
 
 Wanneer een pull-distributiepunt inhoud downloadt vanaf een brondistributiepunt, wordt dat pull-distributiepunt in de kolom **Gebruikte (unieke) clients** van het rapport **Overzicht van gebruik van distributiepunten** geteld als een client.  
 
- Een pull-distributiepunt gebruikt standaard het eigen **computeraccount** om inhoud vanaf een brondistributiepunt over te dragen. Echter wanneer het pull-distributiepunt overbrengt inhoud vanaf een brondistributiepunt dat zich in een extern forest bevindt, gebruik het pull-distributiepunt altijd van het netwerktoegangsaccount. Dit proces vereist dat de computer de Configuration Manager-client is geïnstalleerd en dat een netwerktoegangsaccount is geconfigureerd voor gebruik en toegang tot het brondistributiepunt heeft.  
+ Een pull-distributiepunt gebruikt standaard het eigen **computeraccount** om inhoud vanaf een brondistributiepunt over te dragen. Echter, wanneer het pull-distributiepunt overbrengt inhoud vanaf een brondistributiepunt dat zich in een extern forest, het pull-distributiepunt gebruikt altijd de account voor netwerktoegang. Dit proces vereist dat de computer de Configuration Manager-client is geïnstalleerd heeft en dat een netwerktoegangsaccount is geconfigureerd voor gebruik en toegang tot het brondistributiepunt heeft.  
 
 ## <a name="about-content-transfers"></a>Inhoudsoverdracht  
- Voor het beheren van de overdracht van inhoud, pull-distributiepunten gebruiken de **CCMFramework** onderdeel van de Configuration Manager-clientsoftware.  
+ Als u wilt beheren de overdracht van inhoud, pull-distributiepunten gebruiken de **CCMFramework** onderdeel van de Configuration Manager-clientsoftware.  
 
--   Cmmframework wordt geïnstalleerd door de **Pulldp.msi** wanneer u het distributiepunt een pull-distributiepunt configureert. Het framework nodig Configuration Manager-client niet.  
+-   Dit framework wordt geïnstalleerd door de **Pulldp.msi** wanneer u het distributiepunt naar een pull-distributiepunt configureert. Het framework vereist geen Configuration Manager-client.  
 
 -   Nadat het pull-distributiepunt is geïnstalleerd, moet de service CCMExecio op de distributiepuntcomputer worden ingeschakeld omdat het pull-distributiepunt anders niet werkt.  
 
 -   Wanneer het pull-distributiepunt inhoud overdraagt, wordt dit gedaan via **Background Intelligent Transfer Service** (BITS). De bewerkingen worden geregistreerd in het bestand **datatransferservice.log** en in het bestand **pulldp.log** op de distributiepuntcomputer.  
 
 ## <a name="see-also"></a>Zie tevens  
- [Basisconcepten voor content management in System Center Configuration Manager](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management)   
-
+ [Basisconcepten voor inhoudsbeheer in System Center Configuration Manager](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management)   

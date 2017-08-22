@@ -1,17 +1,16 @@
 ---
 title: Diagnostische gegevens voor 1610 | System Center Configuration Manager
-description: Meer informatie over de niveaus van diagnoses en gebruiksgegevens die door System Center Configuration Manager versie 1610 worden verzameld.
+description: Meer informatie over de niveaus van diagnostische gegevens en gebruiksgegevens die door System Center Configuration Manager versie 1610 worden verzameld.
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: eb20eb90-bcc0-41de-bfea-638ea470c0dd
-caps.latest.revision: 4
+caps.latest.revision: "4"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
@@ -33,101 +32,100 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
 ms.openlocfilehash: ba1e53fdc895690bb958c12d59f82a26067ecad3
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="levels-of-diagnostic-usage-data-collection-for-version-1610-of-system-center-configuration-manager"></a>Niveaus van diagnostische gegevensverzameling gebruiksgegevens voor 1610-versie van System Center Configuration Manager
+# <a name="levels-of-diagnostic-usage-data-collection-for-version-1610-of-system-center-configuration-manager"></a>Niveaus van diagnostische gebruiksgegevens verzamelen van gegevens voor 1610-versie van System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-System Center Configuration Manager versie 1610 worden drie niveaus van diagnostische en gebruiksgegevens worden verzameld: **Basic**, **verbeterde**, en **volledige**. Deze functie is standaard ingesteld op het niveau Uitgebreid. De volgende secties bevatten meer informatie over gegevens die elk niveau worden verzameld.
+System Center Configuration Manager versie 1610 verzamelt drie niveaus van diagnostische gegevens en gebruiksgegevens: **Basic**, **verbeterde**, en **volledige**. Deze functie is standaard ingesteld op het niveau Uitgebreid. De volgende secties bieden aanvullende details over de gegevens die elk niveau worden verzameld.
 
-Wijzigingen van eerdere versies worden aangegeven met ***[Nieuw]***, ***[bijgewerkt]***, ***[verwijderd]***, of ***[verplaatst]***.
+Wijzigingen van vorige versies worden vermeld met ***[Nieuw]***, ***[bijgewerkt]***, ***[verwijderd]***, of ***[verplaatst]***.
 
 
 > [!IMPORTANT]
->  Configuration Manager worden niet verzameld sitecodes, sites, namen, IP-adressen, gebruikersnamen, computernamen, fysieke adressen of e-mailadressen op de basis of uitgebreid niveaus. Een verzameling van deze informatie op het niveau van de volledige is niet purposeful, dat wil zeggen, mogelijk zijn opgenomen in de geavanceerde diagnostische gegevens zoals logboekbestanden of geheugen momentopnamen. Microsoft gebruikt deze gegevens niet geïdentificeerd, contact met u of advertenties ontwikkelen.
+>  Configuration Manager verzamelt geen sitecodes, namen van sites, IP-adressen, gebruikersnamen, computernamen, fysieke adressen of e-mailadressen op het niveau basis of uitgebreid. Een verzameling van deze informatie op het niveau volledig is niet doelgericht, dat wil zeggen, mogelijk opgenomen in de geavanceerde diagnostische gegevens, zoals logboekbestanden of momentopnamen van het geheugen. Microsoft gebruikt deze gegevens niet voor u te identificeren, contact met u of reclame ontwikkelen.
 
 ##  <a name="bkmk_change"></a> Niveau wijzigen
- Beheerders die een op rollen gebaseerd administratief bereik met **wijzigen** machtigingen voor de **Site** objectklasse het niveau van de verzamelde gegevens in de instellingen diagnostische en gebruiksgegevens in de Configuration Manager-console kunt wijzigen.
+ Beheerders met een op rollen gebaseerd administratief bereik dat omvat **wijzigen** machtigingen voor de **Site** objectklasse het niveau van de verzamelde gegevens in de instellingen voor diagnostische gegevens en gebruiksgegevens in de Configuration Manager-console kunt wijzigen.
 
-Vanaf versie 1610, u het niveau van de gegevens van de console wijzigen door te navigeren naar **beheer** > **overzicht** > **siteconfiguratie** > **Sites**. Open **hiërarchie-instellingen**, en selecteer vervolgens het gewenste niveau.  
+Vanaf versie 1610 kunt u het niveau verzameling uit binnen de console wijzigt door te navigeren naar **beheer** > **overzicht** > **siteconfiguratie** > **Sites**. Open **hiërarchie-instellingen**, en selecteer vervolgens de niveau van de gegevens die u wilt gebruiken.  
 
 ##  <a name="bkmk_level1"></a> Niveau 1 - Basis
- De op basisniveau bevat gegevens over uw hiërarchie, de gegevens die vereist zijn om te helpen verbeteren van de installatie of upgrade van de gebruikerservaring en gegevens die u helpen te bepalen van de Configuration Manager-updates die van toepassing zijn op uw hiërarchie.
+ Het niveau basis omvat gegevens over uw hiërarchie, de gegevens die vereist zijn om u te helpen verbeteren van de installatie of upgrade-ervaring en gegevens die u helpt te bepalen van de Configuration Manager-updates die van toepassing zijn op uw hiërarchie.
 
  Voor System Center Configuration Manager versie 1610, dit niveau omvat het volgende:
 
 
 -   Installatie-informatie:
-       - Maken, installeert u type, taalpakketten, functies die u hebt ingeschakeld  
+      - Bouwen, installeert u type, taalpakketten, functies die u hebt ingeschakeld  
 
-       - Implementatiestatus pack en fouten bijwerken, uitgevoerd en de vereiste fouten downloaden     
+      - Update pack Implementatiestatus en fouten, downloaden de voortgang en fouten in de vereisten    
 
-       - Versie van na de upgrade-script
+      - Versie van na de upgrade-script
 
-       - Gebruik van snelle ring update
+      - Gebruik van de update snelle-ring
 
-    - ***[Nieuw] *** Voorlopige gebruik, installatietype media, vertakking type
+    - ***[Nieuw] *** Pre-release gebruik, installatietype media, vertakking type
 
     - ***[Nieuw] *** Software Assurance-vervaldatum
 
 - Meetgegevens over databaseprestaties (informatie over replicatieverwerking, beste in SQL Server opgeslagen procedures op processor- en schijfgebruik)
 
-- Basic databaseconfiguratie (processors clusterconfiguratie en configuratie van gedistribueerde weergaven)
+- Elementaire databaseconfiguratie (processors, clusterconfiguratie en configuratie van gedistribueerde weergaven)
 
-- Schema voor Configuration Manager-database (hash van alle objectdefinities)
+- Configuration Manager-databaseschema (hash van alle objectdefinities)
 
-- Telling van Configuration Manager-clientversies en versies van besturingssystemen
+- Telling van Configuration Manager-clientversies en besturingssysteemversies
 
 - Telling van besturingssystemen voor beheerde apparaten en beleidsregels die zijn ingesteld door de Exchange-Connector
 
-- Telling van de clienttalen en landinstellingen
+- Aantal clienttalen en landinstellingen
 
 - Aantal Windows 10-apparaten per branch en build
 
-- Configuration Manager site hiërarchie basisgegevens (lijst met de site, type, versie, status, aantal clients en tijdzone)
+- Configuration Manager site hiërarchie basisgegevens (sitelijst, type, versie, status, aantal clients en tijdzone)
 
-- Basic server sitesysteeminformatie (sitesysteemrollen gebruikt, via Internet en SSL-status, besturingssysteem, processors, en fysieke of virtuele machine)
+- Basic serverinformatie sitesysteem (gebruikte sitesysteemrollen, Internet- en SSL-status, besturingssysteem, processors, en fysieke of virtuele machine)
 
-- Basic detectie gebruikersstatistieken (gebruiker detectie aantal of minimum/maximum/gemiddelde groep grootten)
+- Elementaire statistieken over gebruikersdetectie (gebruiker detectie telling en het minimale/maximale/gemiddelde groepsgrootten)
 
-- Basisinformatie van Endpoint Protection (antimalware-clientversies)
+- Basisinformatie van Endpoint Protection (antimalwareclients)
 
-- Eenvoudige implementatie van toepassingen en -type wordt in mindering gebracht (totaal aantal apps, totale apps met meerdere implementatietypen totale apps met afhankelijkheden totale vervangen apps en telling van implementatietechnologieën in gebruik)
+- Het type standaard toepassing en implementatietype telt (totaalaantal apps, totaalaantal apps met meerdere implementatietypen, totaalaantal apps met afhankelijkheden, totaalaantal vervangen apps en het aantal implementatietechnologieën dat in gebruik)
 
-- Basic besturingssysteemimplementatie (OSD) wordt in mindering gebracht (afbeeldingen)
+- Basic-besturingssysteem-implementatie (OSD) telt (installatiekopieën)
 
-- Distributiepunt en beheerpunten typen en basisconfiguratie informatie (beveiligde, voorbereid, PXE, multicast SSL-status pull/peer distributiepunten MDM-functionaliteit, SSL is ingeschakeld, enz.)
+- Distributiepunt- en beheerpunttypen en basisinformatie over de configuratie (beveiligd, voorbereid, PXE, multicast, SSL-status, pull/peer-distributiepunten, MDM-functionaliteit, SSL is ingeschakeld, enz.)
 
 - Telemetriestatistieken (wanneer uitgevoerd, runtimefouten)
 
-- Geconfigureerde telemetrie niveau, modus (online of offline) en snel update-configuratie
+- Geconfigureerde telemetrie niveau, modus (online of offline) en snelle update-configuratie
 
 - Gebruik van netwerkdetectie (ingeschakeld of uitgeschakeld)
 - Beheerconsole:
 
-     - Statistieken over consoleverbindingen (versie van besturingssysteem, taal, SKU en architectuur, systeemgeheugen, het aantal logische processors, site-ID, geïnstalleerde versies van .NET en taalpakketten console verbinden)    
+     - Statistieken over consoleverbindingen (besturingssysteemversie, taal, SKU en architectuur, het systeemgeheugen aantal logische processors, site-ID, de geïnstalleerde versies van .NET en taalpakketten console verbinden)    
 
-- SQL-versie, servicepack-niveau edition, sorterings-ID en tekenset
+- SQL-versie, servicepackniveau edition, sorterings-ID en tekenset
 
 
 ##  <a name="bkmk_level2"></a> Niveau 2 - Uitgebreid
-Het niveau van de verbeterde is de standaard nadat setup is voltooid. Dit niveau bevat gegevens die worden verzameld in de op basisniveau en onderdeelspecifieke gegevens (frequentie en duur van gebruik), instellingen voor Configuration Manager-clients (onderdeelnaam, status en bepaalde instellingen zoals pollingintervallen) en algemene informatie over software-updates.
+Het niveau uitgebreid is de standaardinstelling nadat setup is voltooid. Dit niveau bevat gegevens die worden verzameld in het niveau basis en functiespecifieke gegevens (frequentie en duur van gebruik), Configuration Manager-clientinstellingen (onderdeelnaam, status en bepaalde instellingen zoals polling-intervallen) en basisgegevens over software-updates.
 
-Dit niveau wordt aanbevolen, omdat hiermee het minimumaantal gegevens die vereist zijn nuttig verbeteringen te maken in toekomstige versies van producten en diensten van Microsoft. Dit niveau niet verzamelen objectnamen (sites, gebruikers, computer of objecten), de details van de beveiligingsgerelateerde objecten of beveiligingsproblemen zoals tellingen van systemen die software-updates vereisen.
+Dit niveau wordt aanbevolen omdat u Microsoft de minimumhoeveelheid gegevens die vereist zijn biedt om nuttige verbeteringen in toekomstige versies van producten en services. Dit niveau niet verzamelen objectnamen (sites, gebruikers, computer of objecten), details van beveiliging gerelateerde objecten of over beveiligingsproblemen zoals het aantal systemen waarvoor software-updates.
 
 Voor System Center Configuration Manager versie 1610, dit niveau omvat het volgende:
 
 -   **Toepassingsbeheer:**  
 
-    -    Informatie voor implementatietypen die worden gebruikt binnen de organisatie Basic gebruik/doelen (gebruiker ten opzichte van de apparaten die zijn gericht, versus beschikbaar en universele apps vereist)  
+    -    Over Basic gebruik/targeting voor implementatietypen die worden gebruikt binnen de organisatie (gebruiker versus apparaat, vereist versus beschikbaar en universele apps)  
 
-    -   Informatie over de implementatie van toepassingen (Installeer/Verwijder, goedkeuring, gebruikersinteractie ingeschakeld/uitgeschakeld, afhankelijkheden en vervanging vereist)  
+    -   Informatie over de implementatie van de toepassing (installeren/verwijderen, vereist goedkeuring, gebruikersinteractie ingeschakeld/uitgeschakeld, afhankelijkheid en vervangingsimplementatie)  
 
     -   Statistieken over beschikbare toepassingsaanvragen  
 
@@ -141,25 +139,25 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
     -   Aantal toepassingen met een Windows 10-licentie  
 
-    -   Minimum/maximum/gemiddelde aantal toepassingsimplementaties per gebruiker/apparaat gedurende een periode
+    -   Minimaal/maximaal/gemiddeld aantal toepassingsimplementaties per gebruiker/apparaat gedurende een periode
 
     -   Type onderhoudsvenster en duur  
 
-    -  Beleid en de complexiteit statistieken
+    -  Beleid omvang en complexiteit statistieken
 
-    - ***[Bijgewerkt] *** Aantal van de Windows Store voor Business-apps en sync statistieken (inclusief samengevatte typen apps, in licentie gegeven app-status en aantal online en offline gelicentieerde apps)  
+    - ***[Bijgewerkt] *** Telling van Windows Store voor bedrijven-apps en sync statistieken (inclusief samengevatte typen apps gelicentieerde app-status en aantal offline en online gelicentieerde apps)  
 
-    - Statistieken van grens (hoeveel snel, hoeveel vertragen en tellen per groep)
+    - Grens beheergroep statistieken (hoeveel snel, hoeveel vertragen en count per groep)
 
-    - MSI-configuratieopties en -apparaten
+    - MSI-configuratieopties en aantallen
 
     - Appvereisten (aantal van ingebouwde voorwaarden wordt verwezen door implementatietechnologie)
 
-    - App vervanging van de maximale diepte van keten
+    - App vervanging van de maximale diepte van een keten van
 
-    - Universele Access (UDA) gebruik hoe gemaakt
+    - Universele Access (UDA) gebruik, hoe gemaakt
 
-    - ***[Nieuw] *** Toepassing goedkeuring statistieken en gebruik frequentie
+    - ***[Nieuw] *** Toepassing goedkeuring statistische gegevens en gebruiksgegevens frequentie
 
 
 
@@ -171,25 +169,25 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
     -   Aantal mislukte clientinstallaties  
 
-    -  ***[Bijgewerkt] *** Automatische Clientupgrade: implementatieconfiguratie inclusief piloting en uitsluiting gebruik door clients (uitgebreide interoperabiliteit client)
+    -  ***[Bijgewerkt] *** Automatische Clientupgrade: implementatieconfiguratie, met inbegrip van de client testen en de uitsluiting gebruik (uitgebreide interoperabiliteit client)
 
-    -  Client health statistieken en de belangrijkste probleem samenvatting
+    -  Client health statistieken en samenvatting van het bovenste probleem
 
-    - BIOS-ouderdom in jaar
+    - BIOS-leeftijd in jaren
 
-    - Besturingssysteem-ouderdom in maanden
+    - Besturingssysteem leeftijd in maanden
 
-    - Telling van Software Center acties
+    - Telling van Software Center-acties
 
     - Versie van de client Active Management Technology (AMT)
 
-    - Client implementatie downloaden fouten
+    - Client-implementatiefouten downloaden
 
-    - Melding opnieuw in te grijpen clientstatus (het aantal keren wordt uitgevoerd, Max. aantal gerichte clients en de gemiddelde Verwerkingsfrequentie)
+    - Melding bewerking actie clientstatus (het aantal keren is uitgevoerd, Max. aantal gerichte clients en de gemiddelde Verwerkingsfrequentie)
 
-    - Implementatiemethoden gebruikt voor de client en het aantal clients per implementatiemethode
+    - Implementatiemethoden voor client en de telling van clients per implementatiemethode gebruikt
 
-    - Grootte van de clientconfiguratie cache
+    - Grootte van de clientconfiguratie-cache
 
     - ***[Nieuw] *** Aantal hardware-inventarisklassen, software-inventaris regels en regels voor het verzamelen
 
@@ -198,9 +196,9 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
 - **Cloudservices:**
 
-  - Aantal verzamelingen die zijn gesynchroniseerd met de Operations Management-pakket
+  - Aantal verzamelingen die zijn gesynchroniseerd met Operations Management Suite
 
-  -  Of de Operations Management Suite cloud-connector is ingeschakeld
+  -  Hiermee wordt aangegeven of de cloud-connector van Operations Management Suite is ingeschakeld
 
   - ***[Nieuw] *** Statistieken voor configuratie en gebruik van Cloud Management Gateway
 
@@ -211,11 +209,11 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
 - **Verzamelingen:**
 
-    -  Verzameling evaluatie statistieken (Querytijd toegewezen versus aantal niet-toegewezen, aantallen per type, de overschakeling van de ID en het gebruik van de regel)
+    -  Verzameling evaluatie-statistieken (Querytijd toegewezen en niet-toegewezen aantallen aantallen per type, de overschakeling van de ID en het gebruik van de regel)
 
     - Verzamelingen zonder een implementatie
 
-    - Gebruik van verzameling-ID (niet wordt uitgevoerd buiten-id's)
+    - Verzameling-ID-syntaxis (wordt niet uitgevoerd buiten de id's)
 
 
 
@@ -225,14 +223,14 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
     -   Basislijninformatie over basisconfiguratie (aantal, aantal implementaties en aantal verwijzingen)  
 
-    -   Aantal implementaties die ingebouwde referentie-instellingen (nu vastleggen instelling herstellen)  
+    -   Aantal implementaties die verwijzing naar ingebouwde instellingen (nu vastleggen instelling herstellen)  
 
-    -   Aantal regels en implementaties die zijn gemaakt voor de aangepaste instellingen (nu vastleggen instelling herstellen)  
-    -   Aantal geïmplementeerde sjablonen voor Simple Certificate Enrollment Protocol (SCEP)-, VPN-, Wi-Fi-, certificaat (.pfx) en nalevingsbeleid
+    -   Aantal regels en implementaties die zijn gemaakt voor aangepaste instellingen (nu vastleggen instelling herstellen)  
+    -   Aantal geïmplementeerde sjablonen voor Simple Certificate Enrollment Protocol (SCEP), VPN, Wi-Fi-, certificaat (.pfx) en nalevingsbeleid
 
-    -  Telling van SCEP-certificaat, VPN-, Wi-Fi-, certificaat (.pfx) en nalevingsbeleid implementaties per platform
+    -  Telling van SCEP-certificaat, VPN, Wi-Fi, certificaat (.pfx) en nalevingsbeleid implementaties per platform
 
-    - Voor Passport for Work beleid (gemaakt, geïmplementeerd)
+    - Passport for Work-beleid (gemaakt, geïmplementeerd)
 
 
 
@@ -242,30 +240,30 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
     -   Informatie over de grensgroep (aantal grenzen en sitesystemen die zijn toegewezen aan elke grensgroep)  
 
-    - ***[Nieuw] *** Grens groepsrelaties en alternatieve configuratie
+    - ***[Nieuw] *** Groepsrelaties grens en alternatieve configuratie
 
-    -   Distribution point groepsinformatie (aantal pakketten en distributiepunten die zijn toegewezen aan elk distributiepuntgroep)  
+    -   Informatie over punt distributie (aantal pakketten en distributiepunten die zijn toegewezen aan elke distributiepuntengroep)  
 
-    -   Distribution point configuratiegegevens (gebruik van de vertakking uit cache en distribution point bewaking)  
+    -   Distribution point configuratiegegevens (gebruik van vertakkingscache en bewaking van distribution point)  
 
-    -   Distribution Manager configuratiegegevens (threads, tussen elke poging, aantal nieuwe pogingen, en instellingen voor pull-distributiepunten)  
+    -   Distribution Manager configuratie-informatie (threads, vertraging, aantal nieuwe pogingen, en pull-distributiepuntinstellingen)  
 
-    - ***[Nieuw] *** Telling van clients voor peer-cache en statistieken voor Poortgebruik
+    - ***[Nieuw] *** Telling van peer-cacheclients en statistieken voor Poortgebruik
 
     - ***[Nieuw] *** Client downloaden van inhoud statistieken
 
 
 -   **Endpoint Protection:**  
 
-    -   Endpoint Protection schadelijke software en het gebruik van Windows Firewall-beleid (het aantal unieke beleidsregels die zijn toegewezen aan de groep)<br /><br /> Dit bevat geen informatie over de instellingen die zijn opgenomen in het beleid.  
+    -   Endpoint Protection tegen schadelijke software en het gebruik van Windows Firewall-beleid (aantal unieke beleidsregels die zijn toegewezen aan de groep)<br /><br /> Dit omvat geen informatie over de instellingen die zijn opgenomen in het beleid.  
 
-    -   Endpoint Protection-implementatiefouten (aantal foutcodes voor Endpoint Protection-beleid implementeren)  
+    -   Endpoint Protection-implementatiefouten (aantal foutcodes voor Endpoint Protection-beleid)  
 
-    -   Aantal verzamelingen die zijn geselecteerd om te worden weergegeven in het dashboard Endpoint Protection  
+    -   Aantal verzamelingen die zijn geselecteerd worden weergegeven in de Endpoint Protection-dashboard  
 
-    -   Het aantal waarschuwingen die zijn geconfigureerd voor de functie Endpoint Protection  
+    -   Aantal waarschuwingen die zijn geconfigureerd voor Endpoint Protection-functie  
 
-    -     Beleidsregels voor geavanceerde bedreiging beveiliging (vrije) (aantal beleidsregels en of beleidsregels worden geïmplementeerd)
+    -   Geavanceerde Threat Protection (ATP)-beleid (aantal beleidsregels en of het beleid wordt geïmplementeerd)
 
 
 - **Migratie:**
@@ -276,23 +274,23 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
 -   **Mobile Device Management (MDM):**  
 
-    -   ***[Bijgewerkt] *** Tellen van mobiele apparaten acties uitgegeven: vergrendelen, rest vastmaken wissen, buiten gebruik stellen en opdrachten nu synchroniseren  
+    -   ***[Bijgewerkt] *** Aantal uitgegeven acties voor mobiele apparaten: vergrendelen, pincode rest, wissen, buiten gebruik stellen en nu opdrachten synchroniseren  
 
-    -   Telling van mobiele apparaten die worden beheerd door Configuration Manager en Microsoft Intune en hoe ze zijn ingeschreven (bulk, op basis van gebruikers)  
+    -   Telling van mobiele apparaten die worden beheerd door Configuration Manager en Microsoft Intune en hoe ze zijn geregistreerd (massaal, op basis van gebruikers)  
 
-    -   Planning en statistieken polling voor mobiel apparaat in duur van mobiele apparaten  
+    -   Mobiele apparaten polling-planning en statistieken voor de duur van inchecken mobiele apparaten  
 
     -   Aantal beleidsregels voor mobiele apparaten  
 
     -   Telling van gebruikers met meerdere ingeschreven mobiele apparaten  
 
--   **Microsoft Intune problemen oplossen:**
+-   **Microsoft Intune voor probleemoplossing:**
 
-    -   Aantal en de grootte van status, status, inventaris, RDR, DDR, UDX, Tenant statusberichten, POL, logboek Cert, CRP, Resync, CFD, RDO, BEX, console en naleving die worden gedownload van Microsoft Intune
+    -   Aantal en grootte van status, status, inventaris, RDR, DDR, UDX, Tenant staat, POL, LOG, Cert, CRP, Resync, CFD, RDO, BEX, ISM en naleving berichten die worden gedownload van Microsoft Intune
 
-    -   Aantal en de grootte van de acties voor apparaat (wissen, buiten gebruik stellen, vergrendelen) Telemetrie en berichten van gegevens die worden gerepliceerd naar Microsoft Intune
+    -   Aantal en grootte van apparaatacties (wissen, buiten gebruik stellen, vergrendelen), Telemetrie en gegevensberichten die zijn gerepliceerd naar Microsoft Intune
 
-    -   Volledige en delta-synchronisatie gebruikersstatistieken voor Microsoft Intune
+    -   Volledige statistieken en deltastatistieken over Gebruikerssynchronisatie voor Microsoft Intune
 
 
 -   **Lokaal Mobile Device Management (MDM)**  
@@ -307,40 +305,40 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
     -   Aantal opstartinstallatiekopieën, stuurprogramma's, stuurprogrammapakketten, distributiepunten met ingeschakelde multicast, distributiepunten voor PXE-functionaliteit en takenreeksen  
 
-    -   Telt het aantal taak volgorde stap verbruik
+    -   Telt het aantal van de taak sequence stap gebruik
 
-    - ***[Nieuw] *** Aantal edition upgrade beleid
+    - ***[Nieuw] *** Telling van de editie-Upgradebeleid
 
 
 
--   **Site-updates:**
+-   **Site is bijgewerkt:**
 
-    - Versies van geïnstalleerde Configuration Manager-hotfixes
+    - Versies van geïnstalleerde hotfixes voor Configuration Manager
 
 
 
 
 -   **Software-updates:**  
 
-    -   Totaal aantal/gemiddelde aantal verzamelingen die beschikken over software-update-implementaties en de maximale/gemiddelde aantal geïmplementeerde updates  
+    -   Totaalaantal/gemiddeld aantal verzamelingen met software-update-implementaties en het maximale/gemiddelde aantal geïmplementeerde updates  
 
-    -   Aantal regels voor automatische implementatie die zijn gerelateerd aan synchronisatie  
+    -   Aantal regels voor automatische implementatie die zijn gekoppeld aan synchronisatie  
 
     -   Aantal regels voor automatische implementatie waarmee nieuwe updates worden gemaakt of waarmee updates worden toegevoegd aan een bestaande groep  
 
-    -   Beschikbaar en deadline delta's die worden gebruikt in de regels voor automatische implementatie  
+    -   Beschikbaar- en deadlinedelta's die worden gebruikt in regels voor automatische implementatie  
 
     -   Gemiddeld en maximumaantal toewijzingen per update  
 
-    -   Telling van updates die zijn gemaakt en geïmplementeerd met System Center updates Publisher  
+    -   Telling van updates die zijn gemaakt en geïmplementeerd met System Center Update Publisher  
 
     -   Aantal updategroepen en toewijzingen  
 
-    -   Aantal pakketten van en het minimum/maximum/gemiddelde aantal distributiepunten die zijn gericht aan pakketten  
+    -   Aantal updatepakketten en de minimale/maximale/gemiddelde aantal distributiepunten die zijn gericht aan pakketten  
 
     -   Aantal updategroepen en minimaal/maximaal/gemiddeld aantal updates per groep  
 
-    -   Aantal updates en het percentage van de updates die zijn geïmplementeerd, is verlopen, vervangen gedownload en gebruiksrechtovereenkomsten bevatten  
+    -   Aantal updates en het percentage van de updates die zijn geïmplementeerd, verlopen, vervangen, gedownload en bevatten of een gebruiksrechtovereenkomst  
 
     -   Foutcodes voor updatescans en het aantal computers  
 
@@ -354,15 +352,15 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
     -   Versies van Windows 10-dashboardinhoud  
 
-    -   Telling van Windows 10-clients die Windows Update voor bedrijven gebruiken  
+    -   Aantal Windows 10-clients die gebruikmaken van Windows Update voor bedrijven  
 
     -   Statistieken over clusterpatching  
 
     -   Aantal geïmplementeerde Office 365-updates  
 
-    -   Classificaties die worden gesynchroniseerd door Software-updatepunt
+    -   Classificaties die worden gesynchroniseerd met de Software-updatepunt
 
-    -   Software-update-punt load balancing-statistieken
+    -   Software-update-punt voor de load balancer statistieken
 
     -  ***[Nieuw] *** Configuratie van Windows 10 express updates
 
@@ -373,28 +371,28 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
     -   Aantal van de grootste databasetabellen  
 
-    -   ***[Bijgewerkt] *** SQL AlwaysOn-informatie, gebruik en status van de replicastatus
+    -   ***[Bijgewerkt] *** SQL AlwaysOn-replica informatie, informatie over het gebruik en health-status
 
-    -  Bewaarperiode voor het SQL bijhouden
+    -  Bewaarperiode voor bijhouden van SQL
 
-    - Detectie-typen ingeschakeld en planning (volledig, incrementele)
+    - Detectie-typen, ingeschakeld en planning (volledig, incrementele)
 
-    - Detectie operationele statistieken (aantal objecten gevonden)
+    - Operationele statistieken over gebruikersdetectie (aantal objecten gevonden)
 
-    - SQL bijhouden prestatieproblemen, bewaarperiode of status automatisch opschonen
+    - SQL bijhouden prestatieproblemen bewaarperiode en status automatisch opschonen
 
 
 
 - **Diverse**
 
-    - Telling van sites met Wake op Lan (WOL)
+    - Aantal sites met Wake op Lan (WOL)
 
-    - ***[Nieuw] *** Rapportages gebruik en de prestaties  
+    - ***[Nieuw] *** Reporting statistieken over gebruik en prestaties  
 
 
 
 ##  <a name="bkmk_level3"></a> Niveau 3 - Volledig
-Het niveau van de volledige bevat alle gegevens in de Basic en verbeterde niveaus. Het omvat ook aanvullende informatie over Endpoint Protection, percentages van updatenaleving en informatie over software-updates.  Dit niveau kan ook geavanceerde diagnostische gegevens zoals systeembestanden en geheugen momentopnamen, waaronder persoonlijke gegevens die beschikbaar in geheugen of logboekbestanden ten tijde van het vastleggen waren.
+Het niveau volledig omvat alle gegevens in de niveaus basis en uitgebreid. Het omvat ook aanvullende informatie over Endpoint Protection, percentages van updatenaleving en informatie over software-updates.  Dit niveau kan ook geavanceerde diagnostische gegevens, zoals systeembestanden en momentopnamen van het geheugen die mogelijk persoonlijke gegevens bevatten die in het geheugen of logboekbestanden op het moment van vastleggen voorkomen bevatten.
 
 Voor System Center Configuration Manager versie 1610, dit niveau omvat het volgende:
 
@@ -404,7 +402,7 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
 -   Endpoint Protection-beleidsconfiguratie
 
--   Implementatiegegevens van software-update (percentage van de implementaties die zijn gericht aan client ten opzichte van de UTC-tijd vereist optionele ten opzichte van de achtergrond en opnieuw opstarten onderdrukken)
+-   Informatie over de implementatie van de software-update (percentage van implementaties die zijn gericht met client versus UTC-tijd, vereist optioneel versus stil en opnieuw opstarten onderdrukken)
 
 -   Algemene naleving van software-update-implementaties
 
@@ -422,20 +420,19 @@ Voor System Center Configuration Manager versie 1610, dit niveau omvat het volge
 
 -   Minimaal/maximaal/gemiddeld aantal uren sinds de vorige software-updatescan
 
--    Software-update producten gesynchroniseerd door Software-updatepunt
--    Instellingen voor naleving: SCEP-, VPN-, Wi-Fi- en nalevingsbeleid configuratiedetails van sjabloon
+-    Software-update-producten gesynchroniseerd door Software-updatepunt
+-    Instellingen voor naleving: SCEP-, VPN-, Wi-Fi- en nalevingsbeleid configuratiedetails voor sjabloon
 
 -    Type EAS beleidsregels voor voorwaardelijke toegang (blokkeren of in quarantaine) voor apparaten die Intune beheert
 
 -   Top 50 CPU's in de omgeving
 
--   DCM-configuratie pack voor System Center Configuration Manager-gebruik
+-   DCM-config pack voor het gebruik van System Center Configuration Manager
 
--   MSI-productcode (algemene apps die klanten implementeren)
+-   MSI-productcode (veelgebruikte apps die klanten implementeren)
 
--   Samenvatting van de vrije status
+-   Samenvatting van status ATP
 
 -   Gedetailleerde client implementatie installatiefouten
 
-- ***[Nieuw] *** Windows Store voor meer informatie Business-toepassing (niet-samengestelde lijst gesynchroniseerde toepassingen, waaronder AppID, online status of offlinestatus en totaal aantal aangeschafte licenties tellingen)
-
+- ***[Nieuw] *** Windows Store voor bedrijven toepassingsgegevens (niet-samengestelde lijst met gesynchroniseerde toepassingen, waaronder AppID, online is of offlinestatus en totaal aantal aangeschafte licentieaantallen)

@@ -1,34 +1,31 @@
 ---
-title: Configuratie-items maken voor beheerde client Windows 10 - Configuration Manager | Microsoft-documenten
-description: Gebruik de System Center Configuration Manager Windows 10 configuratie-item voor het beheren van instellingen voor Windows 10-computers die worden beheerd door de Configuration Manager-client.
+title: Configuratie-items maken voor beheerde client Windows 10 - Configuration Manager | Microsoft Docs
+description: Gebruik het configuratie-item voor System Center Configuration Manager Windows 10 om instellingen voor Windows 10-computers die worden beheerd door Configuration Manager-client te beheren.
 ms.custom: na
 ms.date: 03/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 14226fbe-dd07-4432-910b-130790624a4e
-caps.latest.revision: 17
-caps.handback.revision: 0
+caps.latest.revision: "17"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
 ms.openlocfilehash: e0a42a1d4706ab29617f3b6f8960ece27672908b
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-configuration-items-for-windows-10-devices-managed-with-the-system-center-configuration-manager-client"></a>Het maken van configuratie-items voor Windows 10-apparaten die worden beheerd door de System Center Configuration Manager-Client
-Gebruik de System Center Configuration Manager **Windows 10** configuratie-item voor het beheren van instellingen voor Windows 10-computers die worden beheerd door de Configuration Manager-client.  
+# <a name="how-to-create-configuration-items-for-windows-10-devices-managed-with-the-system-center-configuration-manager-client"></a>Het maken van configuratie-items voor Windows 10-apparaten die worden beheerd door System Center Configuration Manager-Client
+De System Center Configuration Manager gebruiken **Windows 10** configuratie-item voor het beheren van instellingen voor Windows 10-computers die worden beheerd door Configuration Manager-client.  
   
 > [!IMPORTANT]  
->  In deze release, als u hebt gemaakt een **wachtwoord** stellen als onderdeel van een configuratie-item van het type **Windows 10** (voor een apparaat worden beheerd met de Configuration Manager-client) Klik, als de instelling niet al bestaat of niet is geconfigureerd op het apparaat met Windows 10, het onjuist evalueert als compatibel.  
+>  In deze release, als u hebt gemaakt een **wachtwoord** instellen als onderdeel van een configuratie-item van het type **Windows 10** (voor een apparaat beheerd met de Configuration Manager-client), klikt u vervolgens als de instelling niet bestaat nog of is niet geconfigureerd op het Windows 10-apparaat, het wordt ten onrechte geëvalueerd als compliant.  
 >   
 >  Wanneer u een instelling voor deze apparaten maakt, kunt u er als tijdelijke oplossing voor zorgen dat **Niet-compliante instellingen herstellen** is geselecteerd op de pagina's met instellingen van de wizard Configuratie-item maken. Wanneer u een configuratiebasislijn met een Windows 10-configuratie-item met wachtwoordinstellingen implementeert, selecteert u **Regels die niet compliant zijn herstellen, waar ondersteund** in het dialoogvenster Configuratiebasislijnen implementeren. Met deze tijdelijke oplossing wordt de instelling bewaakt en zo nodig hersteld. Na het herstellen wordt de instelling correct gerapporteerd als **Compatibel** (tenzij er een probleem is opgetreden; in dat geval wordt de instelling gerapporteerd als **Fout**).  
   
@@ -44,7 +41,7 @@ Gebruik de System Center Configuration Manager **Windows 10** configuratie-item 
   
 5.  Selecteer onder **Geef het type configuratie-item op dat u wilt maken**de optie **Windows 10**.  
   
-6.  Klik op **categorieën** als u maken en toewijzen van categorieën om te zoeken en filteren van configuratie-items in de Configuration Manager-console.  
+6.  Klik op **categorieën** als u categorieën maakt en toewijst om te zoeken en filteren van configuratie-items in de Configuration Manager-console.  
   
 7.  Selecteer op de pagina **Ondersteunde platforms** van de wizard de specifieke Windows 10-platforms die het configuratie-item evalueren.  
   
@@ -57,7 +54,7 @@ Gebruik de System Center Configuration Manager **Windows 10** configuratie-item 
   
 10. U kunt voor elke instellingengroep ook de ernst configureren die wordt gerapporteerd als wordt geconstateerd dat een configuratie-item niet compliant is:  
   
-    -   **Geen** -apparaten die niet voldoen aan deze compliantieregel doen geen fouternst voor Configuration Manager-rapporten.  
+    -   **Geen** -apparaten die niet voldoen aan deze compliantieregel niet rapporteren ernst voor Configuration Manager-rapporten.  
   
     -   **Informatie** -apparaten die niet voldoen aan deze compliantieregel fouternst van **informatie** voor Configuration Manager-rapporten.  
   
@@ -76,7 +73,7 @@ Gebruik de System Center Configuration Manager **Windows 10** configuratie-item 
   
  U kunt het nieuwe configuratie-item weergeven in het knooppunt **Configuratie-items** van de werkruimte **Activa en naleving** .  
   
-##  <a name="windows-10-configuration-item-settings-reference"></a>Windows 10-verwijzing voor instellingen van configuratie-item  
+##  <a name="windows-10-configuration-item-settings-reference"></a>Naslaginformatie voor Windows 10-configuratie-item  
   
 ### <a name="password"></a>Wachtwoord  
   
@@ -87,9 +84,9 @@ Gebruik de System Center Configuration Manager **Windows 10** configuratie-item 
 |**Wachtwoordverlooptijd in dagen**|Het aantal dagen voordat het wachtwoord moet worden gewijzigd.|  
 |**Aantal onthouden wachtwoorden**|Hiermee voorkomt u dat eerder gebruikte wachtwoorden opnieuw worden gebruikt.|  
 |**Aantal mislukte aanmeldingspogingen voordat het apparaat wordt gewist**|Hiermee worden de gegevens op het apparaat gewist als het aanmelden dit aantal keren mislukt.|  
-|**Niet-actieve tijd voordat het apparaat wordt vergrendeld**|Hier geeft u op hoeveel minuten het apparaat inactief moet zijn voordat het automatisch wordt vergrendeld.|  
+|**Niet-actieve periode waarna apparaat wordt vergrendeld**|Hier geeft u op hoeveel minuten het apparaat inactief moet zijn voordat het automatisch wordt vergrendeld.|  
 |**Wachtwoordcomplexiteit**|Hiermee kunt u opgeven of u een pincode, zoals '1234', wilt gebruiken of dat er een sterk wachtwoord moet worden opgegeven.|
-|**Aantal complexe tekens vereist in wachtwoord ingesteld**|Als u hebt geselecteerd een **sterk** wachtwoord, gebruik deze instelling voor het configureren van het aantal complexe tekens vereist. Voor een sterk wachtwoord dit moet worden ingesteld op ten minste **3** wat betekent dat letters en cijfers zijn vereist. Selecteer **4** als u wilt afdwingen van een wachtwoord waarvoor bovendien speciale tekens zoals **(% $**.<br>(Alleen Windows 10)  |
+|**Aantal complexe tekens vereist in wachtwoord ingesteld**|Als u hebt geselecteerd een **sterke** wachtwoorden en gebruik deze instelling voor het configureren van het aantal complexe tekens vereist. Voor een sterk wachtwoord; dit moet worden ingesteld op ten minste **3** wat betekent dat zowel letters en cijfers zijn vereist. Selecteer **4** als u wilt afdwingen van een wachtwoord dat ook speciale tekens bevatten zoals vereist **(% $**.<br>(Alleen Windows 10)  |
   
 ###  <a name="device"></a>Apparaat  
   
@@ -125,19 +122,18 @@ Gebruik de System Center Configuration Manager **Windows 10** configuratie-item 
 |**Netwerkfirewall**|Schakelt de Windows-firewall in of uit.|  
 |**SmartScreen**|Schakel Windows SmartScreen in of uit.|  
 |**Virusbeveiliging**|Hiermee vereist u dat antivirussoftware wordt geïnstalleerd en geconfigureerd.|  
-|**Handtekeningen voor virusbeveiliging zijn bijgewerkt**|Vereist dat de handtekeningbestanden voor de antivirussoftware van de op het apparaat bijgewerkt worden moeten.|  
+|**Handtekeningen voor virusbeveiliging zijn bijgewerkt**|Vereist dat de handtekeningbestanden voor de antivirussoftware op het apparaat moeten up-to-date te houden.|  
   
-### <a name="windows-information-protection-wip"></a>Windows Information Protection (OHW)
+### <a name="windows-information-protection-wip"></a>Windows-gegevensbeveiliging (OHW)
 
 Met de toename van apparaten in de onderneming die het eigendom zijn van werknemers, is ook het risico toegenomen op het onbedoeld lekken van gegevens via apps en services, zoals e-mail, sociale media en de openbare cloud, die zich buiten de invloedssfeer van de onderneming bevinden. Bijvoorbeeld in het geval dat een werknemer de laatste nieuwe afbeeldingen van een technologieproject via zijn of haar persoonlijk e-mailaccount verstuurt, productinformatie in een tweet kopieert en plakt, of een voorlopig verkooprapport in de openbare cloudopslag opslaat.
 
-Windows Information Protection (voorheen ondernemingsgegevensbescherming) helpt te beschermen tegen deze mogelijke gegevens lekken zonder dat de ervaring van de werknemer anders worden verstoord. OHW helpt ook zakelijke apps en gegevens tegen het lekken van gegevens per ongeluk op apparaten die eigendom zijn van enterprise- en persoonlijke apparaten die werknemers werken zonder wijzigingen aan uw omgeving of andere apps te beschermen.
+Windows Information Protection (voorheen ondernemingsgegevensbescherming) helpt te beschermen tegen deze potentiële gegevenslekken zonder dat de gebruikerservaring van werknemers Hierdoor wordt beïnvloed. OHW helpt ook bij het beveiligen van zakelijke apps en gegevens tegen onbedoelde gegevenslekken op apparaten die eigendom zijn van enterprise- en persoonlijke apparaten die werknemers meenemen naar het werk zonder wijzigingen aan uw omgeving of andere apps.
 
- Configuration Manager Windows Information Protection configuratie-items beheren de lijst met apps die zijn beveiligd door OHW-, enterprise-netwerklocaties beveiligingsniveau en versleutelingsinstellingen.
+ Configuration Manager Windows Information Protection-configuratie-items beheren de lijst met apps die zijn beveiligd door OHW, bedrijfsnetwerklocaties, beveiligingsniveau en de versleutelingsinstellingen.
   
 
-Zie voor meer informatie over het configureren van de informatie over Windows-beveiliging met Configuration Manager [uw Ondernemingsgegevens beveiligen via Windows-beveiliging (OHW)](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip).
+Zie voor meer informatie over het configureren van Windows Information protection met Configuration Manager [uw Ondernemingsgegevens beveiligen met Windows-beveiliging (OHW)](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip).
   
 ## <a name="see-also"></a>Zie ook  
  [Configuratie-items voor apparaten die worden beheerd met de System Center Configuration Manager-client](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md)
-

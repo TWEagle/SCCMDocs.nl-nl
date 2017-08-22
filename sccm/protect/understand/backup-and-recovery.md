@@ -6,23 +6,20 @@ ms.date: 6/5/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f7832d83-9ae2-4530-8a77-790e0845e12f
-caps.latest.revision: 22
+caps.latest.revision: "22"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: f7cd9c71287d62c9f5d36e2f032bc2a6065572ae
 ms.openlocfilehash: 7deb00d4b67eabf3238907b337a9d0367c3d99cc
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/06/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="back-up-a-configuration-manager-site"></a>Back-up van een Configuration Manager-site
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
@@ -208,4 +205,3 @@ De VSS is een set van COM API's die een kader implementeert voor het maken van v
 
 ## <a name="next-steps"></a>Volgende stappen
 Nadat u een back-up hebt gemaakt, in de praktijk [site recovery](/sccm/protect/understand/recover-sites) met back-up. Hiermee kunt u meer vertrouwd raken met het herstelproces voordat u moet erop vertrouwen en kan helpen bij het bevestigen van de back-up is voltooid voor het beoogde doel.  
-

@@ -1,42 +1,35 @@
 ---
-title: Beheer op afstand | Microsoft-documenten
-description: Kennismaking met beheer op afstand in System Center Configuration Manager.
+title: Beheer op afstand | Microsoft Docs
+description: Maak kennis met beheer op afstand in System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 29350919-6a25-446b-a0da-05e8914fbb26
-caps.latest.revision: 4
-caps.handback.revision: 0
+caps.latest.revision: "4"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 690d03d9c8c49a815bd318df549d7401a855bc5d
-ms.openlocfilehash: a3bb16bca8de34566be8da44dcc3cc1f6f78594f
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.openlocfilehash: fe517e110036e09907fb070afe973b246ce4147c
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-remote-control-in-system-center-configuration-manager"></a>Inleiding tot beheer op afstand in System Center Configuration Manager
+# <a name="introduction-to-remote-control-in-system-center-configuration-manager"></a>Inleiding op beheer op afstand in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Gebruik extern beheer op afstand beheren, assistentie bieden, of een clientcomputer in de hiërarchie weergeven. Kunt u beheer op afstand configuratieproblemen hardware en software op clientcomputers oplossen en ondersteuning te bieden. Configuration Manager biedt ondersteuning voor het externe beheer van computers in werkgroepen en domeincomputers.  
+Gebruik extern beheer op afstand beheren, hulp bieden of elke clientcomputer in de hiërarchie weergeven. U kunt beheer op afstand configuratieproblemen hardware en software op clientcomputers oplossen en ondersteuning te bieden. Configuration Manager ondersteunt het externe beheer van alle computers in werkgroepen en domein computers met ondersteunde besturingssystemen voor de Configuration Manager-client. Zie voor meer informatie [ondersteunde besturingssystemen voor clients en apparaten voor System Center Configuration Manager](../../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md)
 
-Configuration Manager kunt u clientinstellingen voor uitvoering van externe Windows-bureaublad en hulp op afstand vanaf de Configuration Manager-console configureren.  
+Configuration Manager kunt u bij het configureren van clientinstellingen voor externe Windows-bureaublad en hulp op afstand uitvoeren vanaf de Configuration Manager-console.  
 
 > [!NOTE]  
->  U verbinding geen hulp op afstand van de Configuration Manager-console op een clientcomputer in de volgende scenario's:  
->   
->  -   De clientcomputer bevindt zich in een werkgroep.  
-> -   De computer waarop de Configuration Manager-console Windows XP Service Pack 3 wordt uitgevoerd, maar de computer wordt niet uitgevoerd voor Windows XP Service Pack 3. Raadpleeg de documentatie voor Windows Hulp op afstand voor meer informatie.  
+>  U kunt een sessie van Hulp op afstand vanuit de Configuration Manager-console op een clientcomputer die zich in een werkgroep kan niet maken. 
 
- U kunt een sessie voor beheer op afstand starten uit een verzameling apparaten in de Configuration Manager-console, in het venster Windows-opdrachtprompt of via het Windows **Start** menu.  
-
+ U kunt een sessie voor beheer op afstand starten in de Configuration Manager-console van **activa en naleving** > **apparaten**, vanuit een apparaatverzameling, vanuit het venster Windows-opdrachtprompt of via het Windows **Start** menu.  

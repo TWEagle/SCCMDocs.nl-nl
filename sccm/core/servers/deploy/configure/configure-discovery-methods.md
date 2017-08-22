@@ -6,21 +6,19 @@ ms.date: 7/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 49505eb1-d44d-4121-8712-e0f3d8b15bf5
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 0663ba84762c44a5c303562548499f195bae9e1c
 ms.openlocfilehash: 34a539ceaea6b070f81a28d2c0a9ce388e26cfeb
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="configure-discovery-methods-for-system-center-configuration-manager"></a>Detectiemethoden configureren voor System Center Configuration Manager
 
@@ -466,4 +464,3 @@ Omdat netwerkdetectie geen berichten om u te waarschuwen wanneer detectie is vol
     -   Beschrijving: **Dit onderdeel is gestart**  
 
     Deze informatie wordt gecontroleerd of netwerkdetectie wordt gestart. Als deze informatie niet aanwezig is, plan dan netwerkdetectie.  
-

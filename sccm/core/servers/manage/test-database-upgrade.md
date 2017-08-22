@@ -6,22 +6,19 @@ ms.date: 06/13/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: abb696f3-a816-4f12-a9f1-0503a81e1976
-caps.latest.revision: 0
+caps.latest.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 3619a73d3a39659de927e1711a7ec81de9918064
 ms.openlocfilehash: 6b76c97cd205bb02683a7bfa1eb378471a75551d
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/13/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="test-the-database-upgrade-when-installing-an-update"></a>De database-upgrade testen wanneer u een update installeert
 
@@ -71,4 +68,3 @@ Als een update mislukt installeert, hoeft u niet de site te herstellen. In plaat
 
 ## <a name="next-steps"></a>Volgende stappen
 Nadat de update van de database testen voltooid is, verwijdert u de bijgewerkte database. Deze kan niet worden gebruikt door een Configuration Manager-site. Vervolgens kunt u terugkeren naar uw site actief en [begint met de installatie van update](/sccm/core/servers/manage/install-in-console-updates).
-

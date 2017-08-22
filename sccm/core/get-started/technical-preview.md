@@ -2,25 +2,23 @@
 title: Technical Preview voor Configuration Manager | Microsoft Docs
 description: Meer informatie over de Technical Preview-versie dat we u test-drive nieuwe functionaliteit en mogelijkheden in System Center Configuration Manager.
 ms.custom: na
-ms.date: 07/31/2017
+ms.date: 08/11/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 9ce0a8cb-f96c-4e41-834c-59ceb54ce44a
-caps.latest.revision: 157
+caps.latest.revision: "157"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
+ms.openlocfilehash: 6d7bac392cf5a4ba01b25758fd91f1003b153589
+ms.sourcegitcommit: 398e30ec703218c4b3680bbb055d686807ca7f1d
 ms.translationtype: MT
-ms.sourcegitcommit: c0d94b8e6ca6ffd82e879b43097a9787e283eb6d
-ms.openlocfilehash: 9f814fc2902cef116f6b1e476af5d4cbdfc4e217
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview voor System Center Configuration Manager
 
@@ -139,7 +137,8 @@ U kunt een basislijnversie gedurende maximaal 1 jaar na de release installeren. 
  |Ondersteuning voor PXE-netwerk opstarten voor IPv6 |[Technische Preview 1706](capabilities-in-technical-preview-1706.md#pxe-network-boot-support-for-ipv6)|![Niet toegevoegd](media/Red_X.gif)|
  |Updates voor Microsoft Surface stuurprogramma's beheren |[Technische Preview 1706](capabilities-in-technical-preview-1706.md#manage-microsoft-surface-driver-updates)|[Versie 1706](/sccm/core/plan-design/changes/whats-new-in-version-1706#manage-microsoft-surface-driver-updates)|
  |Windows Update voor bedrijven uitgestelde beleid configureren |[Technische Preview 1706](capabilities-in-technical-preview-1706.md#configure-windows-update-for-business-deferral-policies)|[Versie 1706](/sccm/sum/deploy-use/integrate-windows-update-for-business-windows-10#configure-windows-update-for-business-deferral-policies)|
- |Beperkingen voor android en iOS-inschrijving|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#android-and-ios-enrollment-restrictions)|![Niet toegevoegd](media/Red_X.gif)|
+ |iOS-inschrijving beperkingen|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#android-and-ios-enrollment-restrictions)|[Versie 1706](/sccm/mdm/deploy-use/enroll-hybrid-ios-mac#configure-enrollment-restrictions)|
+ |Beperkingen voor android-inschrijving|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#android-and-ios-enrollment-restrictions)|[Versie 1706](/sccm/mdm/deploy-use/enroll-hybrid-android#enable-android-enrollment)|
  |Android for Work application management-beleid voor kopiëren en plakken|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#android-for-work-application-management-policy-for-copy-paste)|[Versie 1706](/sccm/mdm/deploy-use/create-configuration-items-for-android-for-work-devices-managed-without-the-client#android-for-work-configuration-item-settings-reference)|
  |Nieuwe configuratie-item-instellingen van Windows|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#new-windows-configuration-item-settings)|[Versie 1706](/sccm/mdm/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client)|
  |Nieuwe beleidsregels voor naleving van apparaat|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#new-device-compliance-policy-rules)|![Niet toegevoegd](media/Red_X.gif)|
@@ -181,7 +180,7 @@ U kunt een basislijnversie gedurende maximaal 1 jaar na de release installeren. 
  |Grens groepen verbeteringen voor software-updatepunten | [Technische Preview 1701](capabilities-in-technical-preview-1701.md#boundary-groups-improvements-for-software-update-points)    |[Versie 1702](/sccm/core/servers/deploy/configure/boundary-groups#software-update-points)  |
  |Hardware-inventaris verzamelt UEFI-informatie | [Technische Preview 1701](capabilities-in-technical-preview-1701.md#hardware-inventory-collects-uefi-information)|[Versie 1702](/sccm/osd/deploy-use/task-sequence-steps-to-manage-bios-to-uefi-conversion#hardware-inventory-collects-uefi-information) |
  |Verbeteringen in de implementatie van besturingssysteem| [Technische Preview 1701](capabilities-in-technical-preview-1701.md#improvements-to-operating-system-deployment)|[Versie 1702](/sccm/core/plan-design/changes/whats-new-in-version-1702#operating-system-deployment) |
- |Host software-updates op cloud-gebaseerde distributiepunten| [Technische Preview 1701](capabilities-in-technical-preview-1701.md#host-software-updates-on-cloud-based-distribution-points)|![Niet toegevoegd](media/Red_X.gif) |
+ |Host software-updates op cloud-gebaseerde distributiepunten| [Technische Preview 1701](capabilities-in-technical-preview-1701.md#host-software-updates-on-cloud-based-distribution-points)|[Versie 1702](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point#plan-to-use-a-cloud-based-distribution-point) |
  |Apparaat health attestation-gegevens via beheerpunten valideren| [Technische Preview 1701](capabilities-in-technical-preview-1701.md#validate-device-health-attestation-data-via-management-points)| [Versie 1702](/sccm/core/servers/manage/health-attestation) |
  |OMS-connector voor Microsoft Azure Government cloud |[Technische Preview 1701](capabilities-in-technical-preview-1701.md#use-the-oms-connector-for-microsoft-azure-government-cloud) |[Versie 1702](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite#fairfaxconfig) |
  |Android en iOS-versies worden niet meer targetable in wizards maken |[Technische Preview 1701](capabilities-in-technical-preview-1701.md#android-and-ios-versions-are-no-longer-targetable-in-creation-wizards-for-hybrid-mdm) |![Niet toegevoegd](media/Red_X.gif) |
@@ -265,4 +264,3 @@ U kunt een basislijnversie gedurende maximaal 1 jaar na de release installeren. 
 ## <a name="see-also"></a>Zie ook  
 [Wat is er nieuw in System Center Configuration Manager](/sccm/core/plan-design/changes/whats-new-incremental-versions)  
  [Inleiding op System Center Configuration Manager](../../core/understand/introduction.md)
-

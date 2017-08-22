@@ -1,39 +1,35 @@
 ---
-
-title: Bulksgewijs registreren apparaten | Microsoft documenten | On-premises MDM
-description: Bulk-apparaten inschrijven in een automatische manier met On-premises mobiele apparaten beheren in System Center Configuration Manager.
+title: Apparaten bulksgewijs inschrijven | Microsoft Docs | On-premises MDM
+description: Apparaten bulksgewijs inschrijven in een automatische manier met On-premises Mobile Device Management in System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: b36f5e4a-2b57-4d18-83f6-197081ac2a0a
-caps.latest.revision: 13
-caps.handback.revision: 0
+caps.latest.revision: "13"
+caps.handback.revision: "0"
 author: Mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 3b1451edaed69a972551bd060293839aa11ec8b2
 ms.openlocfilehash: be9596537e9c80a6d78aa0685d33382bfd242afe
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-bulk-enroll-devices-with-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Hoe bulk-apparaten inschrijven met On-premises mobiele apparaten beheren in System Center Configuration Manager
+# <a name="how-to-bulk-enroll-devices-with-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Het bulksgewijs inschrijven van apparaten met On-premises Mobile Device Management in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
-Bulkinschrijving in System Center Configuration Manager On-premises Mobile Device Management is een meer automatische manier voor het inschrijven van apparaten, en gebruikersregistratie waarvoor gebruikers hun referenties voor het inschrijven van het apparaat in te voeren.  Voor bulkinschrijving wordt gebruikgemaakt van een inschrijvingspakket om het apparaat tijdens de inschrijving te verifiëren. Het pakket (een PPKG-bestand) bevat een certificaatprofiel en optioneel een Wi-Fi-profiel als het apparaat een intranetverbinding voor de inschrijving nodig heeft.  
+Bulkinschrijving in System Center Configuration Manager On-premises Mobile Device Management is een meer geautomatiseerde manier voor het inschrijven van apparaten, in vergelijking met gebruikersregistratie, waarvoor gebruikers hun referenties voor het inschrijven van het apparaat in te voeren.  Voor bulkinschrijving wordt gebruikgemaakt van een inschrijvingspakket om het apparaat tijdens de inschrijving te verifiëren. Het pakket (een PPKG-bestand) bevat een certificaatprofiel en optioneel een Wi-Fi-profiel als het apparaat een intranetverbinding voor de inschrijving nodig heeft.  
 
 > [!NOTE]  
->  De huidige vertakking van Configuration Manager ondersteunt de inschrijving in beheer van mobiele apparaten On-premises voor apparaten met de volgende besturingssystemen:  
+>  De huidige vertakking van Configuration Manager ondersteunt de inschrijving in On-premises Mobile Device Management voor apparaten met de volgende besturingssystemen:  
 >   
 > -  Windows 10 Enterprise  
 > -   Windows 10 Pro  
@@ -42,7 +38,7 @@ Bulkinschrijving in System Center Configuration Manager On-premises Mobile Devic
 > -   Windows 10 Mobile Enterprise
 > -   Windows 10 IoT Enterprise   
 
-De volgende taken wordt uitgelegd hoe bulk-computers en apparaten registreren voor op\-premises beheer van mobiele apparaten:  
+De volgende taken wordt uitgelegd hoe u bulksgewijs inschrijven computers en apparaten voor op\-premises Mobile Device Management:  
 
 -   [Een certificaatprofiel maken](#bkmk_createCert)  
 
@@ -57,28 +53,28 @@ De volgende taken wordt uitgelegd hoe bulk-computers en apparaten registreren vo
 -   [De registratie van het apparaat controleren](#bkmk_verifyEnroll)  
 
 ##  <a name="bkmk_createCert"></a> Een certificaatprofiel maken  
- Het belangrijkste onderdeel van het inschrijvingspakket is een certificaatprofiel, dat wordt gebruikt om automatisch een vertrouwd basiscertificaat in te richten op het apparaat dat wordt ingeschreven.  Dit basiscertificaat is vereist voor vertrouwde communicatie tussen de apparaten en de sitesysteemrollen op die nodig zijn voor\-premises beheer van mobiele apparaten. Zonder het basiscertificaat wordt het apparaat niet vertrouwd in HTTPS-verbindingen tussen het apparaat en de servers waarop het inschrijvingspunt, het proxypunt voor inschrijving, het distributiepunt en de sitesysteemrollen van het apparaatbeheerpunt worden gehost.  
+ Het belangrijkste onderdeel van het inschrijvingspakket is een certificaatprofiel, dat wordt gebruikt om automatisch een vertrouwd basiscertificaat in te richten op het apparaat dat wordt ingeschreven.  Dit basiscertificaat is vereist voor vertrouwde communicatie tussen de apparaten en de sitesysteemrollen op die nodig zijn voor\-premises Mobile Device Management. Zonder het basiscertificaat wordt het apparaat niet vertrouwd in HTTPS-verbindingen tussen het apparaat en de servers waarop het inschrijvingspunt, het proxypunt voor inschrijving, het distributiepunt en de sitesysteemrollen van het apparaatbeheerpunt worden gehost.  
 
- Als onderdeel van het systeem voor het voorbereiden op\-lokaal beheer van mobiele apparaten dat u een basiscertificaat die u in een profiel voor het inschrijvingspakket certificaat gebruiken kunt exporteren. Zie voor instructies over het ophalen van het vertrouwde basiscertificaat [exporteren van het certificaat met dezelfde hoofd als het webservercertificaat](../../mdm/get-started/set-up-certificates-on-premises-mdm.md#bkmk_exportCert).  
+ Als onderdeel van het systeem voor het voorbereiden op\-premises Mobile Device Management kunt u een basiscertificaat dat u in het inschrijvingspakket certificaatprofiel gebruiken kunt exporteren. Zie voor instructies over het verkrijgen van het vertrouwde basiscertificaat [exporteren van het certificaat met dezelfde basis als het webservercertificaat](../../mdm/get-started/set-up-certificates-on-premises-mdm.md#bkmk_exportCert).  
 
- Gebruikt het geëxporteerde basiscertificaat om een certificaatprofiel te maken. Zie voor instructies [certificaatprofielen maken in System Center Configuration Manager](../../protect/deploy-use/create-certificate-profiles.md).  
+ Gebruikt het geëxporteerde basiscertificaat om een certificaatprofiel te maken. Zie voor instructies [het maken van certificaatprofielen in System Center Configuration Manager](../../protect/deploy-use/create-certificate-profiles.md).  
 
 ##  <a name="CreateWifi"></a> Een Wi-Fi-profiel maken  
  Het andere onderdeel van het pakket voor bulkinschrijving is een Wi-Fi-profiel. Sommige apparaten beschikken mogelijk niet over de netwerkverbinding die nodig is voor de inschrijving totdat de netwerkinstellingen zijn ingericht. Door een Wi-Fi-profiel op te nemen in het inschrijvingspakket biedt u een manier om een netwerkverbinding voor het apparaat tot stand te brengen.  
 
- Volg de instructies in voor maken van een Wi-Fi-profielen in Configuration Manager [Wi-Fi-profielen maken in System Center Configuration Manager](../../protect/deploy-use/create-wifi-profiles.md).  
+ Volg de instructies in voor het maken van een Wi-Fi-profiel in Configuration Manager, [Wi-Fi-profielen maken in System Center Configuration Manager](../../protect/deploy-use/create-wifi-profiles.md).  
 
 > [!IMPORTANT]  
 >Houd rekening met de volgende twee problemen bij het maken van een Wi-Fi-profiel voor bulkinschrijving:
 >
-> - De huidige vertakking van Configuration Manager ondersteunt de volgende configuraties voor Wi-Fi voor alleen op\-premises beheer van mobiele apparaten:  
+> - De huidige vertakking van Configuration Manager ondersteunt alleen de volgende Wi-Fi-beveiligingsconfiguraties voor op\-premises Mobile Device Management:  
 >   
->   - Beveiligingstypen: **WPA2-Enterprise** of **WPA2 Personal**  
+>   - Beveiligingstypen: **WPA2-Enterprise** of **WPA2-Personal**  
 >   - Versleutelingstypen: **AES** of **TKIP**  
 >   - EAP-typen: **Smartcard of ander certificaat** of **PEAP**  
 >
 >
-> - Hoewel Configuration Manager een instelling voor proxyservergegevens in het Wi-Fi-profiel heeft, configureert het niet de proxy wanneer het apparaat wordt geregistreerd. Als u een proxyserver instellen met de ingeschreven apparaten moet, kunt u de instellingen die configuratie-items met zodra apparaten zijn ingeschreven of maken van de tweede pakket implementeren aan zijkant van het registratiepakket bulksgewijs via de Windows-installatiekopie en de configuratie Designer (ICD) implementeren.
+> - Hoewel Configuration Manager een instelling voor proxyservergegevens in het Wi-Fi-profiel heeft, configureert deze niet de proxy wanneer het apparaat is ingeschreven. Als u een proxyserver instellen met de ingeschreven apparaten moet, kunt u de instellingen met behulp van configuratie-items als apparaten zijn ingeschreven of maken van het tweede pakket implementeren aan zijkant het pakket voor bulksgewijs inschrijven met de installatiekopie van Windows en Configuration Designer (ICD) implementeren.
 
 ##  <a name="bkmk_createEnroll"></a> Inschrijvingsprofielen maken  
  Met het inschrijvingsprofiel kunt u de vereiste instellingen voor het inschrijven van apparaten opgeven, met inbegrip van een certificaatprofiel, waarmee op dynamische wijze een vertrouwd basiscertificaat voor het apparaat wordt ingericht, en een Wi-Fi-profiel, dat indien nodig de netwerkinstellingen inricht.  
@@ -87,7 +83,7 @@ De volgende taken wordt uitgelegd hoe bulk-computers en apparaten registreren vo
 
 #### <a name="to-create-an-enrollment-profile"></a>Een inschrijvingsprofiel maken:  
 
-1.  Klik in de Configuration Manager-console op **activa en naleving** >**overzicht** >**apparaat alle Bedrijfseigendom** >**Windows** >**Inschrijvingsprofielen**.  
+1.  Klik in de Configuration Manager-console op **activa en naleving** >**overzicht** >**alle apparaten in Bedrijfseigendom** >**Windows** >**Inschrijvingsprofielen**.  
 
 2.  Klik met de rechtermuisknop op **Inschrijvingsprofiel** en klik vervolgens op **Profiel maken**.  
 
@@ -104,15 +100,15 @@ De volgende taken wordt uitgelegd hoe bulk-computers en apparaten registreren vo
     > [!NOTE]  
     >  Als u geen Wi-Fi-profiel gebruikt voor uw inschrijvingspakket, moet u deze stap overslaan.  
 
-8.  Bevestig de instellingen voor het Registratieprofiel klik vervolgens op **volgende**. Klik op **Sluiten** om de wizard af te sluiten.  
+8.  Bevestig de instellingen voor het inschrijvingsprofiel en klikt u op **volgende**. Klik op **Sluiten** om de wizard af te sluiten.  
 
 ##  <a name="bkmk_createPpkg"></a> Een inschrijvingspakketbestand (PPKG) maken  
- Het registratiepakket is het bestand met u bulk-apparaten registreren voor op\-premises beheer van mobiele apparaten.  Dit bestand moet worden gemaakt met Configuration Manager. U kunt vergelijkbare typen van pakketten maken met de installatiekopie van Windows en Configuration Designer (ICD), maar alleen de pakketten die u in Configuration Manager maakt kunnen worden gebruikt om apparaten te registreren voor op\-beheer van mobiele apparaten van begin tot eind-premises. Pakketten die zijn gemaakt met Windows ICD leveren alleen de UPN (User Principal Name) die nodig is voor inschrijving, maar voeren het daadwerkelijk inschrijvingsproces niet uit.  
+ Het inschrijvingspakket is het bestand dat u bulksgewijs-apparaten inschrijven voor op\-premises Mobile Device Management.  Dit bestand moet worden gemaakt met Configuration Manager. U kunt vergelijkbare typen pakketten maken met Windows Image en Configuration Designer (ICD), maar alleen pakketten die u in Configuration Manager maakt kunnen worden gebruikt om apparaten te registreren voor op\-premises Mobile Device Management van begin tot eind. Pakketten die zijn gemaakt met Windows ICD leveren alleen de UPN (User Principal Name) die nodig is voor inschrijving, maar voeren het daadwerkelijk inschrijvingsproces niet uit.  
 
- Het proces voor het maken van het inschrijvingspakket vereist Windows Assessment and Deployment Toolkit (ADK) voor Windows 10.  Controleer of dat u versie 1511 van de Windows ADK geïnstalleerd hebben op de server waarop de Configuration Manager-console. Zie de ADK-sectie van [Download kits and tools for Windows 10](https://msdn.microsoft.com/windows/hardware/dn913721.aspx)(Kits en hulpprogramma's downloaden voor Windows 10) voor meer informatie.  
+ Het proces voor het maken van het inschrijvingspakket vereist Windows Assessment and Deployment Toolkit (ADK) voor Windows 10.  Op de server waarop de Configuration Manager-console wordt uitgevoerd, moet u versie 1511 van Windows ADK is geïnstalleerd. Zie de ADK-sectie van [Download kits and tools for Windows 10](https://msdn.microsoft.com/windows/hardware/dn913721.aspx)(Kits en hulpprogramma's downloaden voor Windows 10) voor meer informatie.  
 
 > [!TIP]  
->  Als u een inschrijvingspakket uit de Configuration Manager-console verwijdert, kan deze kan niet worden gebruikt om apparaten te registreren. U kunt het pakket verwijderen als manier om pakketten te beheren die u niet meer wilt gebruiken voor het bulksgewijs inschrijven van apparaten.  
+>  Als u een inschrijvingspakket uit de Configuration Manager-console verwijdert, wordt deze niet gebruikt om apparaten te registreren. U kunt het pakket verwijderen als manier om pakketten te beheren die u niet meer wilt gebruiken voor het bulksgewijs inschrijven van apparaten.  
 
 #### <a name="to-create-an-enrollment-package-ppkg-file"></a>Een inschrijvingspakketbestand (Ppkg) maken  
 
@@ -123,7 +119,7 @@ De volgende taken wordt uitgelegd hoe bulk-computers en apparaten registreren vo
 3.  Als u het pakket wilt beveiligen met een wachtwoord, schakelt u het selectievakje naast **Pakket versleutelen Package**in en klikt u op **Exporteren** . Wacht vervolgens ongeveerd tien seconden totdat de export is voltooid.  
 
     > [!NOTE]  
-    >  Als u het pakket versleutelde, biedt de Configuration Manager een bericht met de ontsleutelde wachtwoord in het. Zorg ervoor dat u de wachtwoordgegevens opslaat. Deze hebt u namelijk nodig om het pakket op apparaten in te richten.  
+    >  Als u het pakket hebt versleuteld, biedt Configuration Manager een bericht met het versleutelde wachtwoord. Zorg ervoor dat u de wachtwoordgegevens opslaat. Deze hebt u namelijk nodig om het pakket op apparaten in te richten.  
 
 4.  Klik op **OK**.  
 
@@ -152,7 +148,7 @@ De volgende taken wordt uitgelegd hoe bulk-computers en apparaten registreren vo
 
 2.  Klik op **Ja** in het bericht van Gebruikersaccountbeheer.  
 
-3.  In het dialoogvenster waarin u wordt gevraagd als het pakket afkomstig van een bron u is vertrouwt, klikt u op **Ja, voegt u deze**.  
+3.  In het dialoogvenster waarin u wordt gevraagd of het pakket afkomstig van een bron u is vertrouwt, klikt u op **Ja, voegt u deze**.  
 
      Het registratieproces wordt gestart en duur ongeveer vijf minuten.  
 
@@ -160,12 +156,11 @@ De volgende taken wordt uitgelegd hoe bulk-computers en apparaten registreren vo
 
 5.  Klik op  **Accounts** > **Toegang via het werknetwerk**. Als de registratie is geslaagd, ziet u een account onder **CompanyApps**  
 
-6.  Klik op het account en klik vervolgens op **Sync**, dat begint beheer met Configuration Manager.  
+6.  Klik op het account en klik vervolgens op **Sync**, Hiermee start u het beheer met Configuration Manager.  
 
 ##  <a name="bkmk_verifyEnroll"></a> De registratie van het apparaat controleren  
- U kunt controleren of die apparaten met succes hebben ingeschreven in de Configuration Manager-console.  
+ U kunt controleren dat apparaten zijn geregistreerd in de Configuration Manager-console.  
 
 -   Start de Configuration Manager-console.  
 
 -   Klik op **Activa en naleving** > **Overzicht** > **Apparaten**. Het geregistreerde apparaat wordt weergegeven in de lijst.  
-

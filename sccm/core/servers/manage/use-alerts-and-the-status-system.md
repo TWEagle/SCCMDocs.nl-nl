@@ -1,33 +1,30 @@
 ---
-title: Waarschuwingen en het statussysteem | Microsoft-documenten
-description: Waarschuwingen configureren en het statussysteem gebruiken om te blijven over de status van de Configuration Manager-implementatie op de hoogte.
+title: Waarschuwingen en het statussysteem | Microsoft Docs
+description: Configureer waarschuwingen en het statussysteem gebruiken om te blijven op de hoogte over de status van de Configuration Manager-implementatie.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7341cc6e-9e08-41e4-bcc6-6c1ff12e85ca
-caps.latest.revision: 10
+caps.latest.revision: "10"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 10b1010ccbf3889c58c55b87e70b354559243c90
 ms.openlocfilehash: ed692bdea055775890535d2666f09ba5f5c7c4e1
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="use-alerts-and-the-status-system-for-system-center-configuration-manager"></a>Waarschuwingen en het statussysteem voor System Center Configuration Manager gebruiken
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Waarschuwingen configureren en het ingebouwde statussysteem gebruiken om te blijven over de status van uw implementatie van System Center Configuration Manager op de hoogte.  
+Waarschuwingen configureren en gebruiken van het ingebouwde statussysteem om te blijven over de status van uw implementatie van System Center Configuration Manager op de hoogte.  
 
 
 ##  <a name="bkmk_Status"></a> Statussysteem  
@@ -35,7 +32,7 @@ Waarschuwingen configureren en het ingebouwde statussysteem gebruiken om te blij
 
  Standaard werkt de Configuration Manager-statussysteem zonder configuratie met instellingen die geschikt voor de meeste omgevingen zijn. U kunt echter het volgende configureren:  
 
--   **Statusoverzichten:** U kunt de statuswijziging van overzichten op elke site voor het beheren van de frequentie van statusberichten die een statusindicatorwijziging genereren voor de volgende vier overzichten bewerken:  
+-   **Statusoverzichten:** U kunt de statuswijziging van overzichten op elke site om te bepalen van de frequentie van statusberichten die een statusindicatorwijziging genereren voor de volgende vier overzichten bewerken:  
 
     -   Samenvattingsprogramma voor implementatie van toepassing  
 
@@ -45,15 +42,15 @@ Waarschuwingen configureren en het ingebouwde statussysteem gebruiken om te blij
 
     -   Samenvattingsprogramma van het sitesysteem  
 
--   **Statusfilterregels:** U kunt nieuwe statusfilterregels maken, de prioriteit van regels te wijzigen, uitschakelen of regels schakelen en ongebruikte regels op elke site te verwijderen.  
+-   **Statusfilterregels:** U kunt nieuwe statusfilterregels maken, de prioriteit van regels wijzigen, uitschakelen of regels inschakelen en ongebruikte regels op elke site te verwijderen.  
 
     > [!NOTE]  
     >  Statusfilterregels bieden geen ondersteuning voor het gebruik van omgevingsvariabelen om externe opdrachten uit te voeren.  
 
--   **Statusrapportage:** U kunt configureren server en client onderdeel rapportage te wijzigen hoe statusberichten worden gerapporteerd aan het statussysteem voor Configuratiebeheer en opgeven waar de statusberichten worden verzonden.  
+-   **Statusrapportage:** U kunt de server en client rapportage te wijzigen hoe statusberichten worden gerapporteerd aan het statussysteem van Configuration Manager en opgeven waarnaar statusberichten moeten worden verzonden.  
 
     > [!WARNING]  
-    >  Omdat de standaardinstellingen voor rapportage geschikt zijn voor de meeste omgevingen, kunt u deze het beste alleen wijzigen als u hier een goede reden voor hebt. Als u verhoogt verwerkt het niveau van de status door ervoor te kiezen aan rapport dat alle statusdetails kunt u het aantal statusberichten te verhogen die verhoogt de verwerkingsbelasting op de Configuration Manager-site. Als u het statusrapportageniveau verlaagt, beperkt u mogelijk het nut van de statusoverzichten.  
+    >  Omdat de standaardinstellingen voor rapportage geschikt zijn voor de meeste omgevingen, kunt u deze het beste alleen wijzigen als u hier een goede reden voor hebt. Wanneer u verhoogt verwerkt het niveau van de status door ervoor te kiezen aan rapport dat details van status van alle kunt u de hoeveelheid statusberichten te verhogen die verhoogt de verwerkingsbelasting op de Configuration Manager-site. Als u het statusrapportageniveau verlaagt, beperkt u mogelijk het nut van de statusoverzichten.  
 
 Omdat in het statussysteem afzonderlijke configuraties voor elke site worden gehanteerd, moet u elke site afzonderlijk bewerken.  
 
@@ -61,7 +58,7 @@ Omdat in het statussysteem afzonderlijke configuraties voor elke site worden geh
 
 ##### <a name="to-configure-status-summarizers"></a>Statusoverzichten configureren  
 
-1.  Navigeer in de Configuration Manager-console naar **beheer** > **siteconfiguratie** >**Sites**, en selecteer vervolgens de site waarvoor u het statussysteem configureren.  
+1.  Navigeer in de Configuration Manager-console naar **beheer** > **siteconfiguratie** >**Sites**, en selecteer vervolgens de site waarvoor u wilt configureren van het statussysteem.  
 
 2.  Klik op het tabblad **Start** in de groep **Instellingen** op **Statusoverzichten**.  
 
@@ -75,7 +72,7 @@ Omdat in het statussysteem afzonderlijke configuraties voor elke site worden geh
 
 5.  Voer de volgende stappen uit nadat u de eigenschappenpagina voor Samenvattingsprogramma van onderdeelstatus hebt uitgevoerd:  
 
-    1.  Op de **algemeen** tabblad van de eigenschappenpagina van de waarden voor replicatie en drempelperiode configureren.  
+    1.  Op de **algemene** tabblad van de eigenschappenpagina van de waarden voor replicatie en drempelperiode configureren.  
 
     2.  Selecteer op het tabblad **Drempels** het **berichttype** dat u wilt configureren en klik op de naam van een onderdeel in de lijst **Drempels** .  
 
@@ -87,7 +84,7 @@ Omdat in het statussysteem afzonderlijke configuraties voor elke site worden geh
 
 6.  Voer de volgende stappen uit nadat u de eigenschappenpagina voor Samenvattingsprogramma van het sitesysteem hebt uitgevoerd:  
 
-    1.  Op de **algemeen** tabblad van de eigenschappenpagina van de replicatie- en planningswaarden configureren.  
+    1.  Op de **algemene** tabblad van de eigenschappenpagina van de replicatie- en planningswaarden configureren.  
 
     2.  Geef op het tabblad **Drempels** waarden voor **Standaard drempelwaarden** op voor de weergaven van kritieke en waarschuwingsstatussen.  
 
@@ -157,27 +154,27 @@ Omdat in het statussysteem afzonderlijke configuraties voor elke site worden geh
 4.  Klik op **OK**.  
 
 ###  <a name="BKMK_MonitorSystemStatus"></a> Het statussysteem van Configuration Manager controleren  
- **Systeemstatus** in Configuration Manager biedt een overzicht van de algemene bewerkingen van sites en siteserverbewerkingen van uw hiërarchie. Hij kan operationele problemen onthullen voor sitesysteemservers of -onderdelen en u kunt de systeemstatus specifieke details voor verschillende bewerkingen in Configuration Manager. U bewaakt systeemstatus vanaf het **systeemstatus** knooppunt van de **bewaking** werkruimte in de Configuration Manager-console.  
+ **Systeemstatus** in Configuration Manager biedt een overzicht van de algemene bewerkingen van sites en siteserverbewerkingen van uw hiërarchie. Hij kan operationele problemen onthullen voor sitesysteemservers of -onderdelen en kunt u de systeemstatus controleren specifieke details voor verschillende Configuration Manager-bewerkingen. U bewaakt systeemstatus vanaf het **systeemstatus** knooppunt van de **bewaking** werkruimte in de Configuration Manager-console.  
 
- De meeste sitesysteemfuncties van Configuration Manager en -onderdelen genereren statusberichten. Gegevens van statusberichten worden in elk operationeel logboek van de onderdelen geregistreerd, maar worden ook verzonden naar de sitedatabase waar ze samengevat worden en getoond in een algemene rollup van elk onderdeel of van status van sitesystemen. Deze rollups van statusberichten leveren gegevensdetails voor standaardbewerkingen en -waarschuwingen en foutdetails. U kunt de drempels configureren waarbij waarschuwingen of fouten worden getriggerd en het systeem fijn bewerken om ervoor te zorgen dat rollup-informatie bekende problemen, die niet relevant zijn voor u, negeert, terwijl ze de aandacht vestigt op actuele problemen op servers of voor bewerkingen op onderdelen die u eventueel verder wenst te onderzoeken.  
+ De meeste sitesysteemrollen van Configuration Manager en -onderdelen genereren statusberichten. Gegevens van statusberichten worden in elk operationeel logboek van de onderdelen geregistreerd, maar worden ook verzonden naar de sitedatabase waar ze samengevat worden en getoond in een algemene rollup van elk onderdeel of van status van sitesystemen. Deze rollups van statusberichten leveren gegevensdetails voor standaardbewerkingen en -waarschuwingen en foutdetails. U kunt de drempels configureren waarbij waarschuwingen of fouten worden getriggerd en het systeem fijn bewerken om ervoor te zorgen dat rollup-informatie bekende problemen, die niet relevant zijn voor u, negeert, terwijl ze de aandacht vestigt op actuele problemen op servers of voor bewerkingen op onderdelen die u eventueel verder wenst te onderzoeken.  
 
- Systeemstatus wordt gerepliceerd naar andere sites in een hiërarchie als sitegegevens, niet als globale gegevens. Dit betekent dat u enkel de status voor de site waarop uw Configuration Manager-console verbinding maakt en alle onderliggende sites onder deze site kunt zien. Overweeg daarom om uw Configuration Manager-console verbinden met de site op het hoogste niveau van uw hiërarchie wanneer u systeemstatus raadpleegt.  
+ Systeemstatus wordt gerepliceerd naar andere sites in een hiërarchie als sitegegevens, niet als globale gegevens. Dit betekent dat u enkel de status voor de site waarnaar uw Configuration Manager-console verbinding maakt en alle onderliggende sites onder die site kunt zien. Overweeg daarom om uw Configuration Manager-console verbinden met het hoogste niveau van uw hiërarchie wanneer u systeemstatus raadpleegt.  
 
  Gebruik de volgende tabel om de verschillende systeemstatusweergaves te identificeren en om te bepalen wanneer elk van die weergaves dient gebruikt te worden.  
 
 |Knooppunt|Meer informatie|  
 |----------|----------------------|  
 |Sitestatus|Gebruik dit knooppunt om een rollup te zien van de status van elk sitesysteem om de status van elke sitesysteemserver te controleren. Sitesysteemstatus is bepaald door drempels die u configureert voor elke site in het **Samenvattingsprogramma van het sitesysteem**.<br /><br /> U kunt statusberichten zien voor elk sitesysteem, drempels instellen voor statusberichten en de werking van de onderdelen op sitesystemen beheren door gebruik te maken van **Configuration Manager Service Manager**.|  
-|Onderdeelstatus|Gebruik dit knooppunt om weer te geven van een samenvoeging van de status van elk onderdeel van de Configuration Manager om de operationele status van het onderdeel te controleren. Onderdeelstatus is bepaald door drempels die u configureert voor elke site in het **Samenvattingsprogramma van het sitesysteem**.<br /><br /> U kunt statusberichten zien voor elk onderdeel, drempels instellen voor statusberichten en de werking van de onderdelen beheren door gebruik te maken van **Configuration Manager Service Manager**.|  
-|Conflicterende records|Gebruik dit knooppunt om statusberichten over clients te raadplegen die eventueel conflicterende records hebben.<br /><br /> Configuration Manager gebruikt de hardware-ID om clients te identificeren die gedupliceerd kunnen zijn en waarschuwt u voor de conflicterende records. Als u een computer opnieuw installeert hebt, de hardware-ID moeten hetzelfde zijn maar de GUID die Configuration Manager gebruikt kan veranderd zijn.|  
-|Statusberichtquery 's|Gebruik dit knooppunt om de statusberichten te bevragen op specifieke gebeurtenissen en gerelateerde details. U kunt statusberichtquery's gebruiken om de statusberichten te vinden die gerelateerd zijn aan specifieke gebeurtenissen.<br /><br /> U kunt vaak query's voor statusberichten om te bepalen wanneer een specifiek onderdeel, bewerking of Configuration Manager-object is gewijzigd en het account dat is gebruikt om de wijziging. U kunt bijvoorbeeld de ingebouwde query voor **Verzamelingen, gemaakt, gewijzigd en gewist** uitvoeren om te bepalen wanneer een specifieke verzameling werd gemaakt, en de gebruikersaccount te identificeren die werd gebruikt om de verzameling te maken.|  
+|Onderdeelstatus|Gebruik dit knooppunt om een rollup van de status van elk onderdeel van de Configuration Manager om te controleren van de operationele status van het onderdeel weer te geven. Onderdeelstatus is bepaald door drempels die u configureert voor elke site in het **Samenvattingsprogramma van het sitesysteem**.<br /><br /> U kunt statusberichten zien voor elk onderdeel, drempels instellen voor statusberichten en de werking van de onderdelen beheren door gebruik te maken van **Configuration Manager Service Manager**.|  
+|Conflicterende records|Gebruik dit knooppunt om statusberichten over clients te raadplegen die eventueel conflicterende records hebben.<br /><br /> Configuration Manager gebruikt de hardware-ID om clients te identificeren die mogelijk zijn gedupliceerd en u te waarschuwen voor conflicterende records. Bijvoorbeeld, als u een computer opnieuw moet installeren, de hardware-ID op dezelfde wijze worden, maar de GUID die Configuration Manager gebruikt kan veranderd zijn.|  
+|Statusberichtquery 's|Gebruik dit knooppunt om de statusberichten te bevragen op specifieke gebeurtenissen en gerelateerde details. U kunt statusberichtquery's gebruiken om de statusberichten te vinden die gerelateerd zijn aan specifieke gebeurtenissen.<br /><br /> U kunt vaak query's voor statusberichten te identificeren wanneer een specifiek onderdeel, bewerking of Configuration Manager-object is gewijzigd en het account dat is gebruikt om de wijziging te maken. U kunt bijvoorbeeld de ingebouwde query voor **Verzamelingen, gemaakt, gewijzigd en gewist** uitvoeren om te bepalen wanneer een specifieke verzameling werd gemaakt, en de gebruikersaccount te identificeren die werd gebruikt om de verzameling te maken.|  
 
 ####  <a name="bkmk_managestatus"></a> De sitestatus en onderdeelstatus beheren  
  Gebruik de volgende informatie om de site- en onderdeelstatus te beheren:  
 
 -   Zie [Procedures voor het configureren van het statussysteem](#bkmk_configstatus)om drempels te configureren voor het statussysteem.  
 
--   Gebruiken voor het beheren van afzonderlijke onderdelen in Configuration Manager, de **Configuration Manager-servicebeheer**.  
+-   Voor het beheren van afzonderlijke onderdelen in Configuration Manager gebruikt de **Configuration Manager-servicebeheer**.  
 
 ####  <a name="bkmk_view"></a> Statusberichten weergeven  
  U kunt de statusberichten zien voor afzonderlijke sitesysteemservers en -onderdelen.  
@@ -185,7 +182,7 @@ Omdat in het statussysteem afzonderlijke configuraties voor elke site worden geh
  Selecteer een specifieke sitesysteemserver of specifiek onderdeel voor statusberichten weergeven in de Configuration Manager-console, en klik vervolgens op **Toon berichten**. Wanneer u berichten ziet, kunt u selecteren om specifieke berichttypes te zien of berichten van een bepaalde tijdsperiode, en kunt u de resultaten filteren op basis van de statusberichtgegevens.  
 
 ##  <a name="bkmk_Alerts"></a> Waarschuwingen  
- Configuration Manager-waarschuwingen worden gegenereerd door bepaalde bewerkingen, wanneer een specifieke conditie optreedt.  
+ Configuration Manager-waarschuwingen worden gegenereerd door bepaalde bewerkingen, wanneer een specifieke situatie voordoet.  
 
 -   Waarschuwingen worden doorgaans gegenereerd wanneer er een fout optreedt die u moet oplossen.  
 
@@ -195,12 +192,12 @@ Omdat in het statussysteem afzonderlijke configuraties voor elke site worden geh
 
 -   U kunt abonnementen op waarschuwingen configureren, zodat de details vervolgens via e-mail kunnen worden verzonden en u beter op de hoogte bent van belangrijke problemen.  
 
- Gebruik de volgende tabel voor informatie over het configureren van waarschuwingen en abonnementen op waarschuwingen in Configuration Manager:  
+ Gebruik de volgende tabel voor meer informatie over het configureren van waarschuwingen en waarschuwingsabonnementen in Configuration Manager:  
 
 
 |Actie|Meer informatie|  
 |------------|----------------------|  
-|Endpoint Protection-waarschuwingen voor een verzameling configureren|Zie **waarschuwingen configureren voor Endpoint Protection in Configuration Manager** in [Endpoint Protection configureren in System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md)|  
+|Endpoint Protection-waarschuwingen voor een verzameling configureren|Zie **het configureren van waarschuwingen voor Endpoint Protection in Configuration Manager** in [Endpoint Protection configureren in System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md)|  
 |Clientstatuswaarschuwingen voor een verzameling configureren|Zie [clientstatus configureren in System Center Configuration Manager](../../../core/clients/deploy/configure-client-status.md).|  
 |Configuration Manager-waarschuwingen beheren|Zie de sectie [Management tasks for alerts](#BKMK_Manage) in dit onderwerp.|  
 |E-mailabonnementen op waarschuwingen configureren|Zie de sectie [Management tasks for alerts](#BKMK_Manage) in dit onderwerp.|  
@@ -217,7 +214,7 @@ Omdat in het statussysteem afzonderlijke configuraties voor elke site worden geh
 |Beheertaak|Details|  
     |---------------------|-------------|  
     |**Configureerer**|Hiermee opent u de  *&lt;naam van waarschuwing*\>**eigenschappen** in het dialoogvenster waarin u de naam, de ernst en de drempelwaarden voor de geselecteerde waarschuwing kunt wijzigen. Als u de ernst van de waarschuwing wijzigt, deze configuratie is van invloed op hoe de waarschuwingen worden weergegeven in de Configuration Manager-console.|  
-    |**Opmerking bewerken**|Voer een opmerking voor de geselecteerde waarschuwingen in. Deze opmerkingen weergeven met de waarschuwing in de Configuration Manager-console.|  
+    |**Opmerking bewerken**|Voer een opmerking voor de geselecteerde waarschuwingen in. Deze opmerkingen worden weergeven met de waarschuwing in de Configuration Manager-console.|  
     |**Uitstellen**|De bewaking van de waarschuwing wordt onderbroken tot de opgegeven datum is bereikt. Op dat moment wordt de status van de waarschuwing bijgewerkt.<br /><br /> U kunt een waarschuwing alleen uitstellen wanneer deze is ingeschakeld.|  
     |**Abonnement maken**|Hiermee opent u het dialoogvenster **Nieuw abonnement** , waarin u een e-mailabonnement op de geselecteerde waarschuwing kunt maken.|  
 
@@ -234,7 +231,7 @@ Omdat in het statussysteem afzonderlijke configuraties voor elke site worden geh
     > [!NOTE]  
     >  U kunt geen waarschuwingen voor gebruikersverzamelingen configureren.  
 
-3.  Op de **waarschuwingen** tabblad van het  *&lt;Collectienaam*\>**eigenschappen** in het dialoogvenster, klikt u op **toevoegen**.  
+3.  Op de **waarschuwingen** tabblad van de  *&lt;verzamelingsnaam*\>**eigenschappen** in het dialoogvenster, klikt u op **toevoegen**.  
 
     > [!NOTE]  
     >  Het tabblad **Waarschuwingen** is alleen zichtbaar als aan de beveiligingsrol waaraan u gekoppeld bent machtigingen voor waarschuwingen zijn toegewezen.  
@@ -249,7 +246,7 @@ Omdat in het statussysteem afzonderlijke configuraties voor elke site worden geh
 
     -   **Waarschuwing activeren** -Geef het drempelwaardepercentage voor de waarschuwing.  
 
-6.  Klik op **OK** sluit de  *&lt;Collectienaam*\>**eigenschappen** in het dialoogvenster.  
+6.  Klik op **OK** sluiten de  *&lt;verzamelingsnaam*\>**eigenschappen** in het dialoogvenster.  
 
 ##### <a name="to-configure-email-notification-for-alerts"></a>E-mailmeldingen voor waarschuwingen configureren  
 
@@ -259,15 +256,15 @@ Omdat in het statussysteem afzonderlijke configuraties voor elke site worden geh
 
 3.  Geef in het dialoogvenster **Eigenschappen van onderdeel voor e-mailmeldingen** de volgende informatie op:  
 
-    -   **E-mailmeldingen voor waarschuwingen inschakelen**: Schakel dit selectievakje in om in te schakelen van Configuration Manager naar een SMTP-server te verzenden van e-mailwaarschuwingen.  
+    -   **E-mailmeldingen voor waarschuwingen inschakelen**: Schakel dit selectievakje in zodat de Configuration Manager een SMTP-server gebruiken om te verzenden van e-mailwaarschuwingen.  
 
-    -   **FQDN of IP-adres van de SMTP-server voor het verzenden van e-mailwaarschuwingen**: Voer de volledig gekwalificeerde domeinnaam (FQDN) of IP-adres en de SMTP-poort voor de e-server die u wilt gebruiken voor deze waarschuwingen.  
+    -   **FQDN of IP-adres van de SMTP-server voor verzenden van e-mailwaarschuwingen**: Geef de volledig gekwalificeerde domeinnaam (FQDN) of IP-adres en de SMTP-poort voor de e-mailserver die u wilt gebruiken voor deze waarschuwingen.  
 
-    -   **SMTP-Serververbindingsaccount**: Geef de verificatiemethode voor Configuration Manager voor de e-mailserver verbinding.  
+    -   **SMTP-Serververbindingsaccount**: Geef de verificatiemethode voor Configuration Manager gebruiken om verbinding van de e-mailserver te.  
 
-    -   **Adres van afzender voor e-mailwaarschuwingen**: Geef het e-mailadres waarvan de waarschuwing e-mailberichten worden verzonden.  
+    -   **Adres van afzender voor e-mailwaarschuwingen**: Geef het e-mailadres waarmee e-mailwaarschuwingen worden verzonden.  
 
-    -   **Testen van SMTP-Server**: Verzendt een testbericht naar het e-mailadres dat is opgegeven in **afzenderadres voor e-mailwaarschuwingen**.  
+    -   **SMTP-Server testen**: Verzendt een testbericht naar het e-mailadres dat is opgegeven in **adres van afzender voor e-mailwaarschuwingen**.  
 
 4.  Klik op **OK** om de instellingen op te slaan en het dialoogvenster **Eigenschappen van onderdeel voor e-mailinstellingen** te sluiten.  
 
@@ -281,9 +278,9 @@ Omdat in het statussysteem afzonderlijke configuraties voor elke site worden geh
 
     -   **Naam**: Voer een unieke naam voor het e-abonnement. U kunt maximaal 255 tekens gebruiken.  
 
-    -   **E-mailadres**: Voer het e-mailadressen die u wilt dat de melding verzonden naar. U kunt meerdere e-mailadressen opgeven door deze te scheiden met een puntkomma (;).  
+    -   **E-mailadres**: Voer het e-mailadressen die u wilt dat de waarschuwing verzonden naar. U kunt meerdere e-mailadressen opgeven door deze te scheiden met een puntkomma (;).  
 
-    -   **E-taal**: Geef de taal voor het e-mailadres in de lijst.  
+    -   **Taal e-mail**: Geef de taal voor het e-mailbericht in de lijst.  
 
 4.  Klik op **OK** om het dialoogvenster **Nieuw abonnement** te sluiten en het e-mailabonnement te maken.  
 
@@ -293,23 +290,22 @@ Omdat in het statussysteem afzonderlijke configuraties voor elke site worden geh
 ###  <a name="BKMK_MonitorAlerts"></a> Waarschuwingen controleren  
  U kunt meldingen zien in het knooppunt **Meldingen** van de werkruimte **Controle** . Waarschuwingen hebben één van de volgende statussen:  
 
--   **Nooit geactiveerd**: Er niet werd voldaan aan de voorwaarde van de waarschuwing.  
+-   **Nooit geactiveerd**: De voorwaarde van de waarschuwing niet voldaan.  
 
 -   **Actieve**: De voorwaarde van de waarschuwing wordt voldaan.  
 
 -   **Geannuleerd**: De voorwaarde van een actieve waarschuwing wordt niet meer voldaan. Deze toestand geeft aan dat de conditie die de melding veroorzaakte, nu opgelost is.  
 
--   **Uitgesteld**: Een gebruiker met beheerdersrechten is Configuration Manager voor het evalueren van de status van de waarschuwing op een later tijdstip geconfigureerd.  
+-   **Uitgesteld**: Een gebruiker met beheerdersrechten heeft Configuration Manager voor het evalueren van de status van de waarschuwing op een later tijdstip geconfigureerd.  
 
--   **Uitgeschakelde**: De waarschuwing is uitgeschakeld door een gebruiker met beheerdersrechten. Wanneer deze status een waarschuwing wordt, Configuration Manager niet geüpdatet de waarschuwing zelfs als de status van de melding wijzigt.  
+-   **Uitgeschakelde**: De waarschuwing is uitgeschakeld door een gebruiker met beheerdersrechten. Wanneer een melding in deze staat, wordt Configuration Manager de waarschuwing niet bijgewerkt zelfs als de status van de waarschuwing wordt gewijzigd.  
 
- U kunt een van de volgende acties uitvoeren als Configuration Manager een waarschuwing wordt gegenereerd:  
+ U kunt één van de volgende acties ondernemen wanneer Configuration Manager een waarschuwing genereert:  
 
 -   De conditie oplossen die de melding veroorzaakte. U lost bijvoorbeeld een netwerk- of configuratieprobleem op dat de melding genereerde. Nadat Configuration Manager heeft gedetecteerd dat het probleem niet meer bestaat, wordt de waarschuwing status verandert in **annuleren**.  
 
--   Indien de melding een bekende kwestie is, kunt u de melding uitstellen gedurende een bepaalde tijdsperiode. Configuration Manager-waarschuwing op dat moment updates naar de huidige status.  
+-   Indien de melding een bekende kwestie is, kunt u de melding uitstellen gedurende een bepaalde tijdsperiode. Configuration Manager-de waarschuwing op dat moment updates naar de huidige status.  
 
      U kunt een melding alleen uitstellen als ze actief is.  
 
 -   U kunt de **Commentaar** van een melding bewerken zodat andere gebruikers met beheerdersrechten kunnen zien dat u zich bewust bent van de melding. In de commentaar kunt u bijvoorbeeld aangeven hoe de conditie op te lossen, informatie leveren over de huidige toestand van de conditie of uitleggen waarom u de melding uitstelde.  
-

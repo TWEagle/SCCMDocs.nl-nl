@@ -6,22 +6,20 @@ ms.date: 03/26/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 02bc6bd4-ca53-4e22-8b80-d8ee5fe72567
-caps.latest.revision: 15
-caps.handback.revision: 0
+caps.latest.revision: "15"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: b7461f89f483314bd07248bbc9d5dde85ca6b6c2
 ms.openlocfilehash: 32b24b3637dfafe401ea1d9f51b3769aa749f544
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="task-sequence-built-in-variables-in-system-center-configuration-manager"></a>Ingebouwde variabelen voor de takenreeks in System Center Configuration Manager
 
@@ -102,4 +100,3 @@ ms.lasthandoff: 08/03/2017
 |SMSTSSoftwareUpdateScanTimeout| Deze biedt u de mogelijkheid om de time-out voor de software-updates tijdens de takenreeksstap [Software-updates installeren](task-sequence-steps.md#BKMK_InstallSoftwareUpdates) te bepalen. U kunt bijvoorbeeld de standaardwaarde verhogen als u een groot aantal software-updates moet installeren. De standaardwaarde is 30 minuten. |
 |SMSTSUDAUsers|Geeft de primaire gebruiker van de doelcomputer op. Hiermee worden de gebruikers opgegeven met de volgende notatie. Meerdere gebruikers worden gescheiden door een komma (,).<br /><br /> Voorbeeld:<br /><br /> **domein\gebruiker1, domein\gebruiker2, domein\gebruiker3**<br /><br /> Zie voor meer informatie over het koppelen van gebruikers aan de doelcomputer [gebruikers koppelen aan een doelcomputer](../get-started/associate-users-with-a-destination-computer.md).|  
 |SMSTSWaitForSecondReboot|Vanaf versie 1602 van Configuration Manager kan is deze optionele takenreeksvariabele beschikbaar om te helpen clientgedrag besturingselement als de installatie van een software-update moet worden opgestart twee. Deze variabele moet voorafgaand aan de stap [ Software-updates installeren](task-sequence-steps.md#BKMK_InstallSoftwareUpdates)worden ingesteld om te voorkomen dat een takenreeks mislukt omdat de installatie van de software-update een tweede keer opnieuw moet worden opgestart.<br /><br /> Stel de waarde voor SMSTSWaitForSecondReboot in seconden in om op te geven hoelang de takenreeks pauzeert tijdens de stap voor Software-updates installeren als de computer opnieuw wordt opgestart om voldoende tijd te bieden als een tweede keer opnieuw moet worden opgestart. <br />Als u SMSTSWaitForSecondReboot bijvoorbeeld instelt op 600, wordt de takenreeks na het opnieuw opstarten 10 minuten onderbroken voordat volgende stappen in de takenreeks worden uitgevoerd. Dit is handig als honderden software-updates worden geïnstalleerd met één stap in de takenreeks Software-updates installeren.|  
-

@@ -1,31 +1,28 @@
 ---
-title: Configuratie-items maken voor beheerde client Macs - Configuration Manager | Microsoft-documenten
+title: Configuratie-items maken voor beheerde client Macs - Configuration Manager | Microsoft Docs
 description: Gebruik de System Center Configuration Manager Mac OS X-configuratie-item voor het beheren van instellingen voor Mac OS X-apparaten.
 ms.custom: na
 ms.date: 03/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 722d5bf5-bedc-4dfc-b324-6eeb773874e9
-caps.latest.revision: 8
-caps.handback.revision: 0
+caps.latest.revision: "8"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
 ms.openlocfilehash: 541e5ad629a9e2ed9c353dff150f9b86b9d12b7d
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="how-to-create-configuration-items-for-mac-os-x-devices-managed-with-the-system-center-configuration-manager-client"></a>Configuratie-items maken voor Mac OS X-apparaten die worden beheerd door de System Center Configuration Manager-client
-Gebruik de System Center Configuration Manager**Mac OS X (aangepast)** configuratie-item voor het beheren van instellingen voor Mac OS X-apparaten die worden beheerd door de Configuration Manager-client.  
+De System Center Configuration Manager gebruiken**Mac OS X (aangepast)** configuratie-item voor het beheren van instellingen voor Mac OS X-apparaten die worden beheerd door Configuration Manager-client.  
   
  Het Mac OS X-besturingssysteem gebruikt eigenschappenlijstbestanden (of plist-bestanden) om toepassingsinstellingen op te slaan. Gebruik nalevingsinstellingen om instellingen in een eigenschappenlijstbestand te beoordelen en herstellen. U kunt ook Mac OS X-instellingen beheren door een shellscript te schrijven dat een waarde retourneert die u voor nalevingsdoeleinden kunt beoordelen en herstellen.  
   
@@ -41,7 +38,7 @@ Gebruik de System Center Configuration Manager**Mac OS X (aangepast)** configura
   
 5.  Selecteer onder **Geef het type configuratie-item op dat u wilt maken** de optie **Mac OS X (aangepast)**.  
   
-6.  Klik op **categorieën** als u maken en toewijzen van categorieën om te zoeken en filteren van configuratie-items in de Configuration Manager-console.  
+6.  Klik op **categorieën** als u categorieën maakt en toewijst om te zoeken en filteren van configuratie-items in de Configuration Manager-console.  
   
 7.  Selecteer op de pagina **Ondersteunde platforms** van de wizard de specifieke Mac OS X-versies die het configuratie-item beoordelen.  
   
@@ -51,7 +48,7 @@ Gebruik de System Center Configuration Manager**Mac OS X (aangepast)** configura
   
 10. Kies het **Instellingstype** dat u wilt en geef de vereiste gegevens op, zoals weergegeven in de volgende tabel:  
   
-    -   **Mac OS X voorkeuren** -  
+    -   **Mac OS X-voorkeuren** -  
   
         -   **Toepassings-id**: geef de toepassings-id van het eigenschappenlijstbestand op vanwaaruit u een sleutel op naleving wilt beoordelen.  
   
@@ -64,7 +61,7 @@ Gebruik de System Center Configuration Manager**Mac OS X (aangepast)** configura
   
     -   **Script** -  
   
-        -   **Detectiescript**: Klik op **Script toevoegen** en voer vervolgens een shellscript in om voor nalevingsdoeleinden toegang te krijgen tot instellingen op de Mac-computer. Gebruik de **echo** opdracht in de shell-script om waarden te retourneren naar Configuration Manager om te voldoen. Configuration Manager maakt gebruik van de resultaten **STDOUT** compatibiliteit evalueren.  
+        -   **Detectiescript**: Klik op **Script toevoegen** en voer vervolgens een shellscript in om voor nalevingsdoeleinden toegang te krijgen tot instellingen op de Mac-computer. Gebruik de **echo** opdracht in het shellscript om waarden te retourneren naar Configuration Manager om te voldoen. Configuration Manager gebruikt de resultaten in **STDOUT** evalueren van naleving.  
   
             > [!IMPORTANT]  
             >  Neem de opdracht **reboot** niet op in het detectiescript. Omdat het detectiescript elke keer wordt uitgevoerd wanneer de client opnieuw wordt opgestart, zorgt dit ervoor dat de Mac-computer doorlopend opnieuw wordt opgestart.  
@@ -87,18 +84,18 @@ Gebruik de System Center Configuration Manager**Mac OS X (aangepast)** configura
   
 14. Geef in het dialoogvenster **Regel maken** de volgende informatie op:  
   
-    -   **Naam:** Voer een naam voor de regel compatibiliteit.  
+    -   **Naam:** Voer een naam voor de compliantieregel.  
   
-    -   **Beschrijving:** Voer een beschrijving voor de regel voor compatibiliteit.  
+    -   **Beschrijving:** Voer een beschrijving voor de compliantieregel.  
   
-    -   **Geselecteerde instelling:** Klik op **Bladeren** openen van de **instelling selecteren** in het dialoogvenster. Selecteer de instelling waarvoor u een regel wilt definiëren of klik op **Nieuwe instelling**. Klik op **Selecteren** als u klaar bent.  
+    -   **Geselecteerde instelling:** Klik op **Bladeren** openen de **instelling selecteren** in het dialoogvenster. Selecteer de instelling waarvoor u een regel wilt definiëren of klik op **Nieuwe instelling**. Klik op **Selecteren** als u klaar bent.  
   
         > [!TIP]  
         >  U kunt ook klikken op **Eigenschappen** om informatie over de geselecteerde instelling weer te geven.  
   
-    -   **Regeltype:** Selecteer het type van de compatibiliteit regel die u wilt gebruiken:  
+    -   **Regeltype:** Selecteer het type compliantieregel dat u wilt gebruiken:  
   
-        -   **Waarde:** Een regel maken waarmee de waarde die wordt geretourneerd door de configuratie-item met een waarde die u opgeeft worden vergeleken.  
+        -   **Waarde:** Maak een regel die de waarde die is geretourneerd door de configuratie-item met een waarde die u opgeeft.  
   
         -   **Existentieel:** Maak een regel die de instelling beoordeelt, afhankelijk van of deze op een apparaat bestaat.  
   
@@ -108,7 +105,7 @@ Gebruik de System Center Configuration Manager**Mac OS X (aangepast)** configura
   
             -   **Is gelijk aan**  
   
-            -   **Niet gelijk aan**  
+            -   **Is niet gelijk aan**  
   
             -   **Groter dan**  
   
@@ -133,7 +130,7 @@ Gebruik de System Center Configuration Manager**Mac OS X (aangepast)** configura
   
     -   **Ernst van niet-compliantie voor rapporten**: Geef de ernst op die moet worden gerapporteerd als deze compliantieregel mislukt. De beschikbare ernstniveaus zijn als volgt:  
   
-        -   **Geen** -Computers die niet voldoen aan deze compliantieregel doen geen fouternst voor Configuration Manager-rapporten.  
+        -   **Geen** -Computers die niet voldoen aan deze compliantieregel niet rapporteren ernst voor Configuration Manager-rapporten.  
   
         -   **Informatie** -Computers die niet voldoen aan deze compliantieregel fouternst van **informatie** voor Configuration Manager-rapporten.  
   
@@ -151,9 +148,9 @@ Gebruik de System Center Configuration Manager**Mac OS X (aangepast)** configura
   
             -   **De instelling mag niet bestaan op clientapparaten**  
   
-        -   **Ernst van niet-compatibele voor rapporten:** Geef de ernst op die moet worden gerapporteerd als deze compliantieregel mislukt. De beschikbare ernstniveaus zijn als volgt:  
+        -   **Niet-nageleefd ernst voor rapporten:** Geef de ernst op die worden gerapporteerd als deze compliantieregel mislukt. De beschikbare ernstniveaus zijn als volgt:  
   
-            -   **Geen** -Computers die niet voldoen aan deze compliantieregel doen geen fouternst voor Configuration Manager-rapporten.  
+            -   **Geen** -Computers die niet voldoen aan deze compliantieregel niet rapporteren ernst voor Configuration Manager-rapporten.  
   
             -   **Informatie** -Computers die niet voldoen aan deze compliantieregel fouternst van **informatie** voor Configuration Manager-rapporten.  
   
@@ -176,4 +173,3 @@ Gebruik de System Center Configuration Manager**Mac OS X (aangepast)** configura
   
 ## <a name="see-also"></a>Zie ook  
  [Configuratie-items voor apparaten die worden beheerd met de System Center Configuration Manager-client](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md)
-

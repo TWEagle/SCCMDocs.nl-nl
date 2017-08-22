@@ -6,22 +6,20 @@ ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 97f2d81a-2c58-442c-88bc-defd5a1cd48f
-caps.latest.revision: 23
-caps.handback.revision: 0
+caps.latest.revision: "23"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 0663ba84762c44a5c303562548499f195bae9e1c
 ms.openlocfilehash: cc678c1133b1944f55bcad309cf9ede9f0660b57
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="manage-boot-images-with-system-center-configuration-manager"></a>Opstartinstallatiekopieën beheren met System Center Configuration Manager
 
@@ -270,4 +268,3 @@ Aangepaste opstartinstallatiekopieën worden niet gewijzigd.
 1.  Controleer of het toepasselijke bronbestand (tsres.dll) voor de takenreeks zich in de betreffende taalmap op de siteserver bevindt, voordat u de opstartinstallatiekopie bijwerkt. Het Engels bronbestand bevindt zich bijvoorbeeld op de volgende locatie:  <*ConfigMgrInstallationFolder*>\OSD\bin\x64\00000409\tsres.dll.  
 
 2.  Als onderdeel van uw prestart-opdracht stelt u de variabele voor de SMSTSLanguageFolder-omgeving in op de juiste taal-id. De taal-id moet worden opgegeven met decimale tekens en geen hexadecimale tekens. Als u bijvoorbeeld de taal-id op Engels wilt instellen, zou u een decimale waarde 1033 moeten opgeven in plaats van de hexadecimale waarde 00000409 die wordt gebruikt voor de mapnaam.  
-

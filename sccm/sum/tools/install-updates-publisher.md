@@ -6,22 +6,20 @@ ms.date: 07/03/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ab5cda93-b67c-4aa5-904d-7b63ce790aa0
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
 robots: NOINDEX, NOFOLLOW
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 70772ba7d08560aa66abcce29dc6cc6334aa2032
-ms.openlocfilehash: 63ea0383497a3f06870c0907c732010259d1a809
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/03/2017
-
+ms.openlocfilehash: 5c95a8b99b91531773392a77d25377465079b070
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="install-updates-publisher"></a>Installatie van Updates Publisher
 
@@ -122,5 +120,4 @@ Nadat de installatie is voltooid, voert u **UpdatesPublisher.exe** van de *Updat
  Na de installatie van Updates Publisher, raden we u [configureren van de opties](updates-publisher-options.md) voor Updates Publisher. Voordat u bepaalde functies van Updates Publisher kunt gebruiken, moet u enkele mogelijkheden configureren.
 
  Als u wilt de standaardinstellingen te gebruiken en niet van plan bent om updates te implementeren op een server of op beheerde apparaten, kunt u echter het recht om te gaan [software-update-catalogussen beheren](updates-publisher-catalogs.md), of [software-updates maken](create-updates-with-updates-publisher.md) en update catalogi van uw eigen maakt.
-
 

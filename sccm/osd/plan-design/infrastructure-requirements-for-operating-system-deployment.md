@@ -6,21 +6,19 @@ ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 1dc74219-7ff5-4e3b-b4f6-5aad663bb75b
-caps.latest.revision: 24
+caps.latest.revision: "24"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 1f57c63ceeb13c7f7d760d7ecfb48df749da6770
 ms.openlocfilehash: 167e639cdb9995fd743787cc9fbf364ec70f6ed9
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="infrastructure-requirements-for-operating-system-deployment-in-system-center-configuration-manager"></a>Vereisten voor de infrastructuur voor besturingssysteemimplementatie in System Center Configuration Manager
 
@@ -243,4 +241,3 @@ U moet de volgende WSUS 4.0-hotfixes installeren:
 
 ## <a name="next-steps"></a>Volgende stappen
 [Implementatie van het besturingssysteem voorbereiden](../get-started/prepare-for-operating-system-deployment.md)
-

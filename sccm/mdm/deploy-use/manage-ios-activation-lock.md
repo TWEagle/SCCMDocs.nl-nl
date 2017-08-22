@@ -1,27 +1,24 @@
 ---
-title: Beheren van iOS Activeringsvergrendeling | Microsoft-documenten
-description: IOS Activeringsvergrendeling met System Center Configuration Manager beheren.
+title: Beheren van iOS-Activeringsvergrendeling | Microsoft Docs
+description: IOS-Activeringsvergrendeling met System Center Configuration Manager beheren.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e2745bac-e1b4-4dac-8ac7-32f1c820bc9c
-caps.latest.revision: 9
+caps.latest.revision: "9"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 2c723fe7137a95df271c3612c88805efd8fb9a77
 ms.openlocfilehash: 88bef04a52f716ae13afc21c25d33dea06a3fc9c
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="manage-ios-activation-lock-with-system-center-configuration-manager"></a>iOS-activeringsvergrendeling beheren met System Center Configuration Manager
 
@@ -70,7 +67,7 @@ De zakelijk voordelen hiervan voor apparaten in bedrijfseigendom zijn:
 - De gebruiker kan werken en u weet ondertussen zeker dat u het apparaat buiten gebruik kunt stellen of kunt ontgrendelen wanneer het opnieuw moet worden toegewezen.
 
 
-## <a name="enable-activation-lock-on-supervised-devices"></a>Activeringsvergrendeling op bewaakte apparaten inschakelen
+## <a name="enable-activation-lock-on-supervised-devices"></a>Hiermee schakelt u Activeringsvergrendeling op apparaten onder supervisie
 
 U kunt de instellingen voor naleving van Configuration Manager gebruiken om een configuratie-item van het type **iOS en Mac OS X** te maken en implementeren om de activeringsvergrendeling op apparaten met supervisie in te schakelen:
 
@@ -86,7 +83,7 @@ U kunt de activeringsvergrendeling alleen overslaan of de code voor het overslaa
 
 
 
-## <a name="view-the-activation-lock-bypass-code"></a>De Activeringsvergrendeling bypass-code weergeven
+## <a name="view-the-activation-lock-bypass-code"></a>Code voor het weergeven van de Activeringsvergrendeling overslaan
 
 1. Klik op **Activa en naleving**op de Configuration Manager-console.
 2. Klik op **Apparaten** in de werkruimte **Activa en naleving**.
@@ -94,7 +91,7 @@ U kunt de activeringsvergrendeling alleen overslaan of de code voor het overslaa
 4. Op het tabblad **Start** in de groep **Apparaat** klikt u op **Acties extern apparaat** > **De code voor het overslaan van de activeringsvergrendeling weergeven**.
 5. In het dialoogvenster **Code voor het overslaan van de activeringsvergrendeling** wordt de code voor het overslaan van de activeringsvergrendeling voor het geselecteerde apparaat weergegeven.
 
-## <a name="bypass-activation-lock"></a>Activeringsvergrendeling
+## <a name="bypass-activation-lock"></a>Bypass van Activeringsvergrendeling
 
 1. Klik op **Activa en naleving**op de Configuration Manager-console.
 2. Klik op **Apparaten** in de werkruimte **Activa en naleving**.
@@ -106,4 +103,3 @@ U kunt de activeringsvergrendeling alleen overslaan of de code voor het overslaa
     - De detectiegegevens voor het apparaat in het dialoogvenster met de eigenschappen van het apparaat.
     - De kolom **Status van het overslaan van de activeringsvergrendeling** kolom in de weergave **Apparaten** (deze kolom wordt standaard verborgen).
     - De sectie **Gegevens over acties extern apparaat** op het tabblad **Samenvatting** van het detailvenster (als er een apparaat is geselecteerd).
-

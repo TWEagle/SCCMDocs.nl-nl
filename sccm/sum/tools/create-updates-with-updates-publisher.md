@@ -6,22 +6,20 @@ ms.date: 4/29/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 46a1a8ac-126c-4ee6-ae09-32dfbdb83368
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
 robots: NOINDEX, NOFOLLOW
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: c8717925dba42451b1e241a7c2f59e43896d7d99
 ms.openlocfilehash: 98e490d7f5ca17dcf2a0aaa848f14e789f214123
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/19/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="create--software-updates-and-update-bundles-with-updates-publisher"></a>Software-updates maken en updatebundels met Updates Publisher
 
@@ -193,4 +191,3 @@ Omdat deze wizard maakt gebruik van dezelfde werkstroom als de [maken bijwerken 
 7.  Op de **leden** pagina als u updates toevoegen aan de updatebundel selecteren. Alleen updates die u hebt gemaakt of geïmporteerd in Updates Publisher zijn beschikbaar.
 
 Wanneer de wizard is voltooid, de nieuwe updatebundel is toegevoegd aan een knooppunt in de **werkruimte Updates** die wordt geïdentificeerd door de **leverancier** naam die u voor de updatebundel gebruikt.
-

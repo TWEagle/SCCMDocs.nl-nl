@@ -6,22 +6,19 @@ ms.date: 6/6/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: c64e7483-b4bb-4738-95f4-ecdaeb6a2ba6
-caps.latest.revision: 21
+caps.latest.revision: "21"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 3619a73d3a39659de927e1711a7ec81de9918064
 ms.openlocfilehash: 1166b739e1e8d667172d97883f484fdbc3a142c1
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/13/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="upgrade-to-system-center-configuration-manager"></a>Bijwerken naar System Center Configuration Manager
 
@@ -402,4 +399,3 @@ Wanneer u een site hebt bijgewerkt naar een nieuw servicepack, moet u mogelijk a
 - **Wanneer u een upgrade naar versie 1511:** Zodat clients op secundaire sites kunnen vinden van het beheerpunt van de secundaire site (proxy-beheerpunt), het beheerpunt handmatig toevoegen aan grensgroepen die ook de distributiepunten op de secundaire site.  
 
 - **Wanneer u een upgrade naar versie 1606 of hoger:** Proxy-beheerpunten worden automatisch toegevoegd aan grensgroepen met distributiepunten op de secundaire site.
-

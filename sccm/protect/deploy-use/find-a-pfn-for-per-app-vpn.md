@@ -1,37 +1,35 @@
 ---
-title: Een pakket familienaam (PFN) niet vinden voor de per-app VPN | Microsoft-documenten
-description: Meer informatie over de twee manieren om te zoeken, een pakket familienaam zodat u een per-app VPN-verbinding kunt.
+title: Een package family name (PFN) voor VPN per app zoeken | Microsoft Docs
+description: Meer informatie over de twee manieren om te zoeken, een package family name zodat u VPN per app kunt configureren.
 ms.custom: na
 ms.date: 10/06/2016
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 47118499-3d26-4c25-bfde-b129de7eaa59
-caps.latest.revision: 3
+caps.latest.revision: "3"
 author: Nbigman
 ms.author: nbigman
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: bff083fe279cd6b36a58305a5f16051ea241151e
 ms.openlocfilehash: ce50645155ecb14a82d8b982aa69c0f87dd15fbf
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="find-a-package-family-name-pfn-for-per-app-vpn"></a>Een pakket familienaam (PFN) niet vinden voor de per-app VPN
+# <a name="find-a-package-family-name-pfn-for-per-app-vpn"></a>Een package family name (PFN) voor VPN per app zoeken
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
-Er zijn twee manieren om te zoeken, een PFN zodat u een VPN per app kunt configureren.
+Er zijn twee manieren om een PFN zoeken, zodat u VPN per app kunt configureren.
 
-## <a name="find-a-pfn-for-an-app-thats-installed-on-a-windows-10-computer"></a>Een PFN vinden voor een app die geïnstalleerd op een computer met Windows 10
+## <a name="find-a-pfn-for-an-app-thats-installed-on-a-windows-10-computer"></a>Een PFN zoeken voor een app die geïnstalleerd op een computer met Windows 10
 
-Als u met werkt de-app al is geïnstalleerd op een Windows-10-computer, kunt u de [Get-AppxPackage](https://technet.microsoft.com/library/hh856044.aspx) PowerShell-cmdlet de PFN ophalen.
+Als de app waarmee u met werkt al is geïnstalleerd op een computer met Windows 10, kunt u de [Get-AppxPackage](https://technet.microsoft.com/library/hh856044.aspx) PowerShell-cmdlet de PFN ophalen.
 
 De syntaxis voor Get-AppxPackage is:
 
@@ -39,14 +37,14 @@ De syntaxis voor Get-AppxPackage is:
 ` Get-AppxPackage [[-Name] <String> ] [[-Publisher] <String> ] [-AllUsers] [-User <String> ] [ <CommonParameters>]`
 
 > [!NOTE]
-> Mogelijk moet u PowerShell ook uitvoeren als een beheerder om op te halen van de PFN
+> Wellicht hebt u PowerShell als beheerder uitvoeren om op te halen van de PFN
 
-Bijvoorbeeld informatie ophalen over de universele apps geïnstalleerd op het computergebruik `Get-AppxPackage`.
+Als u bijvoorbeeld informatie ophalen over alle universele apps die zijn geïnstalleerd op de computer gebruikt `Get-AppxPackage`.
 
-Voor informatie over een app die u de naam van kent of een deel van de naam van gebruikt `Get-AppxPackage *<app_name>`. Houd rekening met het gebruik van het jokerteken, vooral nuttig zijn als u niet zeker van de volledige naam van de app bent. Gebruik bijvoorbeeld de gegevens ophalen voor OneNote `Get-AppxPackage *OneNote`.
+Als u informatie over een app u de naam van weten of een deel van de naam van, gebruikt `Get-AppxPackage *<app_name>`. Let op het gebruik van het jokerteken, met name heel handig als u niet zeker van de volledige naam van de app bent. Gebruik bijvoorbeeld de info ophalen voor OneNote `Get-AppxPackage *OneNote`.
 
 
-Hier vindt u de informatie opgehaald voor OneNote:
+Dit is de informatie opgehaald voor OneNote:
 
 `Name                   : Microsoft.Office.OneNote`
 
@@ -72,14 +70,14 @@ Hier vindt u de informatie opgehaald voor OneNote:
 
 
 
-## <a name="find-a-pfn-if-the-app-is-not-installed-on-a-computer"></a>Zoeken naar een PFN als de app is niet geïnstalleerd op een computer
+## <a name="find-a-pfn-if-the-app-is-not-installed-on-a-computer"></a>Een PFN zoeken als de app is niet geïnstalleerd op een computer
 
-1.    Ga naar https://www.microsoft.com/en-us/store/apps
-2.    Voer de naam van de app in de zoekbalk. Zoeken naar OneNote in ons voorbeeld.
-3.    Klik op de koppeling naar de app. Houd er rekening mee dat de URL die u toegang hebt tot een reeks letters aan het einde heeft. In ons voorbeeld is de URL ziet er als volgt uit:`https://www.microsoft.com/en-us/store/apps/onenote/9wzdncrfhvjl`
-4.    Plak de volgende URL in een ander tabblad `https://bspmts.mp.microsoft.com/v1/public/catalog/Retail/Products/<app id>/applockerdata`, vervangt `<app id>` met de app-id die u hebt ontvangen van https://www.microsoft.com/en-us/store/apps - reeks letters aan het einde van de URL in stap 3. In ons voorbeeld voorbeeld van OneNote, zou u plakken: `https://bspmts.mp.microsoft.com/v1/public/catalog/Retail/Products/9wzdncrfhvjl/applockerdata`.
+1.  Ga naar https://www.microsoft.com/en-us/store/apps
+2.  Voer de naam van de app in de zoekbalk. In ons voorbeeld wordt gezocht naar OneNote.
+3.  Klik op de koppeling naar de app. Houd er rekening mee dat de URL die u toegang tot een reeks letters aan het einde heeft. In ons voorbeeld wordt de URL er als volgt:`https://www.microsoft.com/en-us/store/apps/onenote/9wzdncrfhvjl`
+4.  Plak de volgende URL in een ander tabblad `https://bspmts.mp.microsoft.com/v1/public/catalog/Retail/Products/<app id>/applockerdata`en vervang `<app id>` met de app-id die u hebt verkregen via https://www.microsoft.com/en-us/store/apps - reeks letters aan het einde van de URL in stap 3. In ons voorbeeld voor OneNote plakt u het volgende: `https://bspmts.mp.microsoft.com/v1/public/catalog/Retail/Products/9wzdncrfhvjl/applockerdata`.
 
-In de rand, wordt de gewenste informatie weergegeven. Klik in Internet Explorer op **Open** om de gegevens te bekijken. De waarde PFN is gegeven op de eerste lijn. Hier ziet u hoe de resultaten komen in ons voorbeeld:
+De gewenste informatie wordt in Microsoft Edge wordt weergegeven. Klik in Internet Explorer op **Open** om de informatie te bekijken. De PFN-waarde is opgegeven op de eerste regel. Hier ziet u hoe de resultaten zien er in ons voorbeeld:
 
 
 `{`
@@ -88,4 +86,3 @@ In de rand, wordt de gewenste informatie weergegeven. Klik in Internet Explorer 
 `  "windowsPhoneLegacyId": "ca05b3ab-f157-450c-8c49-a1f127f5e71d",`
 `  "publisherCertificateName": "CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"`
 `}`
-

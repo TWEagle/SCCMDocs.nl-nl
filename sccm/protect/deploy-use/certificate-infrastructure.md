@@ -6,24 +6,21 @@ ms.date: 07/25/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 29ae59b7-2695-4a0f-a9ff-4f29222f28b3
-caps.latest.revision: 7
-caps.handback.revision: 0
+caps.latest.revision: "7"
+caps.handback.revision: "0"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: c0d94b8e6ca6ffd82e879b43097a9787e283eb6d
 ms.openlocfilehash: 640eb1df9d53fc83d93c39a7ecbaf2668e176805
-ms.contentlocale: nl-nl
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="configure-certificate-infrastructure"></a>Certificaatinfrastructuur configureren
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
@@ -209,4 +206,3 @@ U moet installeren en configureren van de System Center Configuration Manager-be
 
  
 Nu dat u de configuratiestappen hebt voltooid, bent u klaar om certificaten te implementeren voor gebruikers en apparaten door het maken en implementeren van certificaatprofielen. Zie [Certificaatprofielen in System Center Configuration Manager](../../protect/deploy-use/create-certificate-profiles.md) voor meer informatie over het gebruik van certificaatprofielen.  
-

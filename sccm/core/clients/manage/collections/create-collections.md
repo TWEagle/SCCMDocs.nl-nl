@@ -6,22 +6,20 @@ ms.date: 2/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1401a35e-4312-4d3b-8ceb-0abbb10d4f05
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 5f1412fb132e3a074742e11f1142b2594146cbe1
 ms.openlocfilehash: 44b4707b1a40624c51decf548d23ddd2164c5833
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="how-to-create-collections-in-system-center-configuration-manager"></a>Verzamelingen maken in System Center Configuration Manager
 
@@ -207,4 +205,3 @@ In de **verzamelingen selecteren** dialoogvenster Selecteer de verzamelingen die
     >  Het bestand dat u wilt importeren moet zijn geëxporteerd uit een site waarop dezelfde versie van Configuration Manager als deze wordt uitgevoerd. Zie voor meer informatie over het exporteren van verzamelingen [verzamelingen in System Center Configuration Manager beheren](../../../../core/clients/manage/collections/manage-collections.md).  
 
 6.  Voltooi de wizard om de verzameling te importeren. De nieuwe verzameling wordt weergegeven in het knooppunt **Gebruikersverzamelingen** of **Apparaatverzamelingen** van de werkruimte **Activa en naleving** . Vernieuwen of opnieuw laden van de Configuration Manager-console om te zien van de leden van de geïmporteerde verzameling.  
-

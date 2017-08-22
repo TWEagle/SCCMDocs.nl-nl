@@ -1,33 +1,30 @@
 ---
-title: 'Hardware-inventaris | Microsoft documenten | Linux UNIX '
-description: Informatie over hoe hardware-inventaris voor Linux en UNIX in System Center Configuration Manager gebruiken.
+title: 'Hardware-inventaris | Microsoft Docs | Linux, UNIX '
+description: Meer informatie over hoe hardware-inventaris voor Linux en UNIX in System Center Configuration Manager gebruiken.
 ms.custom: na
 ms.date: 02/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1026d616-2a20-4fb2-8604-d331763937f8
-caps.latest.revision: 6
+caps.latest.revision: "6"
 author: andredm7
 ms.author: andredm
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 9c5d1e48b76392beaf54b5377c69b648537e86f8
 ms.openlocfilehash: b6776fbe0cfca23244d767cffd554a2ef4567a2d
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="hardware-inventory-for-linux-and-unix-in-system-center-configuration-manager"></a>Hardware-inventaris voor Linux en UNIX in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-De System Center Configuration Manager-client voor Linux en UNIX biedt ondersteuning voor hardware-inventaris. Nadat het verzamelen van hardware-inventaris kunt u inventaris weergeven in de resource explorer of Configuration Manager-rapporten uitvoeren en deze informatie gebruiken om te maken van query's en verzamelingen die mogelijk de volgende bewerkingen:  
+De System Center Configuration Manager-client voor Linux en UNIX ondersteunt hardware-inventaris. Nadat het verzamelen van hardware-inventaris kunt u inventaris weergeven in de resource explorer of Configuration Manager-rapporten uitvoeren en deze informatie gebruiken om het maken van query's en verzamelingen die u de volgende bewerkingen:  
 
 -   Software-implementatie  
 
@@ -41,7 +38,7 @@ De System Center Configuration Manager-client voor Linux en UNIX biedt ondersteu
 
  De CIM-server wordt geïnstalleerd als onderdeel van de client voor Linux en UNIX. De client voor Linux en UNIX communiceert rechtstreeks met de CIM-server en maakt geen gebruik van de WS-MAN-interface van de CIM-server. De WS-MAN-poort op de CIM-server wordt uitgeschakeld als de client wordt geïnstalleerd. Microsoft ontwikkelde de CIM-server die nu als open source beschikbaar is via het OMI-project (Open Management Infrastructure). Zie de website [The Open Group](http://go.microsoft.com/fwlink/p/?LinkId=262317) over het Open Management Infrastructure Project voor meer informatie.  
 
- Hardware-inventaris op Linux- en UNIX-servers werkt via het toewijzen van bestaande Win32 WMI-klassen en eigenschappen aan gelijkwaardige klassen en eigenschappen voor Linux- en UNIX-servers. Deze toewijzing is een van de klassen en eigenschappen kunt de Linux- en UNIX hardware-inventaris te integreren met Configuration Manager. Inventarisgegevens van Linux en UNIX-servers worden weergegeven samen met de inventaris op Windows gebaseerde computers in de Configuration Manager-console en rapporten. Dit biedt een consistente heterogene beheerervaring.  
+ Hardware-inventaris op Linux- en UNIX-servers werkt via het toewijzen van bestaande Win32 WMI-klassen en eigenschappen aan gelijkwaardige klassen en eigenschappen voor Linux- en UNIX-servers. Deze-op-een toewijzing van klassen en eigenschappen kunt de Linux- en UNIX hardware-inventaris te integreren met Configuration Manager. Inventarisgegevens van Linux en UNIX-servers worden weergegeven samen met de inventaris van Windows-computers in de Configuration Manager-console en rapporten. Dit biedt een consistente heterogene beheerervaring.  
 
 > [!TIP]  
 >  U kunt de waarde **Bijschrift** voor de klasse **Besturingssysteem** gebruiken voor het identificeren van verschillende Linux- en UNIX-besturingssystemen in query's en verzamelingen.  
@@ -104,18 +101,18 @@ De System Center Configuration Manager-client voor Linux en UNIX biedt ondersteu
 3.  Configuration Manager voor de ondersteuning van de nieuwe provider inschakelen  
 
 ###  <a name="BKMK_LinuxProvider"></a> Een aangepaste hardware-inventarisprovider maken voor Linux- en UNIX-computers.  
- Gebruiken voor het maken van een aangepaste hardware-inventaris-provider voor de Configuration Manager-client voor Linux en UNIX, **OMI bron - v.1.0.6** en volg de instructies van OMI Getting Started Guide. Met dit proces maakt u een Managed Object Format-bestand waarmee u het schema van de nieuwe provider definieert. Later importeert u het MOF-bestand naar Configuration Manager ondersteuning van de nieuwe aangepaste inventarisklasse wilt inschakelen.  
+ Gebruik voor het maken van een aangepaste hardware-inventarisprovider voor Configuration Manager-client voor Linux en UNIX **OMI Source - v.1.0.6** en volg de instructies uit de introductiehandleiding. Met dit proces maakt u een Managed Object Format-bestand waarmee u het schema van de nieuwe provider definieert. Later importeert u het MOF-bestand naar Configuration Manager ondersteuning van de nieuwe aangepaste inventarisklasse inschakelen.  
 
- U kunt de OMI Source - v.1.0.6 en de introductiehandleiding voor OMI downloaden van de website [The Open Group](http://go.microsoft.com/fwlink/p/?LinkId=262317) . U kunt deze downloads vinden op de **documenten** op de volgende webpagina op de website OpenGroup.org tabblad: [Open Management infrastructuur (OMI)](http://go.microsoft.com/fwlink/p/?LinkId=286805).  
+ U kunt de OMI Source - v.1.0.6 en de introductiehandleiding voor OMI downloaden van de website [The Open Group](http://go.microsoft.com/fwlink/p/?LinkId=262317) . U vindt deze downloads op de **documenten** op de volgende webpagina op de website opengroup.org tabblad: [Open Management Infrastructure (OMI)](http://go.microsoft.com/fwlink/p/?LinkId=286805).  
 
 ###  <a name="BKMK_AddProvidertoLinux"></a> Configureer elke computer met Linux of UNIX met de aangepaste hardware-inventarisprovider:  
  Nadat u een aangepaste inventarisprovider hebt gemaakt, moet u het providerbibliotheekbestand kopiëren naar en registreren op elke computer waarvan u de inventaris wilt verzamelen.  
 
 1.  Kopieer de providerbibliotheek naar elke Linux- en UNIX-computer waarvan u de inventaris wilt verzamelen. De naam van de providerbibliotheek lijkt op het volgende: **XYZ_MyProvider.so**  
 
-2.  Registreer vervolgens de providerbibliotheek op elke Linux- en UNIX-computer bij de OMI-server. De server OMI installeert op de computer wanneer u de Configuration Manager-client voor Linux en UNIX installeert, maar moet u aangepaste providers handmatig registreren. Gebruik de volgende opdrachtregel voor het registreren van de provider: **/opt/microsoft/omi/bin/omireg XYZ_MyProvider.so**  
+2.  Registreer vervolgens de providerbibliotheek op elke Linux- en UNIX-computer bij de OMI-server. De OMI-server geïnstalleerd op de computer wanneer u de Configuration Manager-client voor Linux en UNIX installeert, maar u moet aangepaste providers handmatig registreren. Gebruik de volgende opdrachtregel voor het registreren van de provider: **/opt/microsoft/omi/bin/omireg XYZ_MyProvider.so**  
 
-3.  Nadat u de nieuwe provider hebt geregistreerd, test u de provider met behulp van het **omicli** -hulpprogramma. De **omicli** hulpprogramma wordt geïnstalleerd op elke Linux en UNIX-computer wanneer u de Configuration Manager-client voor Linux en UNIX installeert. Voorbeeld: als **XYZ_MyProvider** de naam is van de provider die u hebt gemaakt, voert u de volgende opdracht op de computer: **/opt/microsoft/omi/bin/omicli ei root/cimv2 XYZ_MyProvider**  
+3.  Nadat u de nieuwe provider hebt geregistreerd, test u de provider met behulp van het **omicli** -hulpprogramma. De **omicli** hulpprogramma is geïnstalleerd op elke Linux- en UNIX-computer wanneer u de Configuration Manager-client voor Linux en UNIX installeert. Voorbeeld: als **XYZ_MyProvider** de naam is van de provider die u hebt gemaakt, voert u de volgende opdracht op de computer: **/opt/microsoft/omi/bin/omicli ei root/cimv2 XYZ_MyProvider**  
 
      voor informatie over **omicli** het testen van aangepaste providers.  
 
@@ -125,5 +122,4 @@ De System Center Configuration Manager-client voor Linux en UNIX biedt ondersteu
 ###  <a name="BKMK_AddLinuxProvidertoCM"></a> Schakel de nieuwe inventarisklasse in Configuration Manager in:  
  Voordat u met Configuration Manager rapporten kunt maken over de inventaris die door de nieuwe provider op Linux- en UNIX-computers wordt gerapporteerd, moet u het Managed Object Format-bestand importeren waarin u het schema van uw aangepaste provider hebt gedefinieerd.  
 
- Zie voor het importeren van een aangepaste MOF-bestand in Configuration Manager, [hardware-inventaris configureren in System Center Configuration Manager](../../../../core/clients/manage/inventory/configure-hardware-inventory.md).  
-
+ Als u wilt importeren van een aangepaste MOF-bestand in Configuration Manager, Zie [hardware-inventaris configureren in System Center Configuration Manager](../../../../core/clients/manage/inventory/configure-hardware-inventory.md).  

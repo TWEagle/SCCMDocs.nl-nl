@@ -1,30 +1,27 @@
 ---
-title: Implementeer Windows to Go met System Center Configuration Manager | Microsoft-documenten
-description: Informatie over het inrichten van Windows To Go in System Center Configuration Manager voor het maken van een Windows To Go-werkruimte die opstart vanaf een externe schijf.
+title: Windows to Go met System Center Configuration Manager implementeren | Microsoft Docs
+description: Informatie over het inrichten van Windows To Go in System Center Configuration Manager voor het maken van een Windows To Go-werkruimte die opstart vanaf een extern station.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8eed50f5-80a4-422e-8aa6-a7ccb2171475
-caps.latest.revision: 8
-caps.handback.revision: 0
+caps.latest.revision: "8"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 1a4a9da88caba55d9e340c7fb1f31f4e3b957f3e
 ms.openlocfilehash: a8b1a42c43438553cfbb62328bed933378bb344c
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="deploy-windows-to-go-with-system-center-configuration-manager"></a>Implementeer Windows to Go met System Center Configuration Manager
+# <a name="deploy-windows-to-go-with-system-center-configuration-manager"></a>Windows to Go met System Center Configuration Manager implementeren
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
@@ -106,7 +103,7 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
 
 6.  Geef op de pagina **Media-eigenschappen**  de volgende informatie op en klik vervolgens op **Volgende**.  
 
-    -   **Gemaakt door**: Geef op wie de media maakte.  
+    -   **Gemaakt door**: Geef op wie het medium is gemaakt.  
 
     -   **Versie**: Geef het versienummer van de media.  
 
@@ -118,11 +115,11 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
 
     -   Selecteer **Schakel onbekende computerondersteuning** zodat de media een besturingssysteem implementeren op een computer die niet wordt beheerd door Configuration Manager. Er is geen record van deze computers in de Configuration Manager-database. Onbekende computers omvatten het volgende:  
 
-        -   Een computer waarop de Configuration Manager-client is geïnstalleerd  
+        -   Een computer waarop de Configuration Manager-client niet is geïnstalleerd  
 
-        -   Een computer die niet is geïmporteerd in Configuration Manager  
+        -   Een computer die is niet geïmporteerd in Configuration Manager  
 
-        -   Een computer die niet is gedetecteerd door Configuration Manager  
+        -   Een computer die door Configuration Manager niet is gedetecteerd  
 
     -   Selecteer **De media beveiligen met een wachtwoord** en voer een sterk wachtwoord in om de media te beveiligen tegen onbevoegde toegang. Wanneer u een wachtwoord opgeeft, moet de gebruiker dat wachtwoord leveren om de voorbereide media te gebruiken.  
 
@@ -138,7 +135,7 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
 
          Zie voor meer informatie over dit clientcertificaat dat wordt gebruikt voor opstartinstallatiekopieën [PKI-certificaatvereisten](../../core/plan-design/network/pki-certificate-requirements.md).  
 
-    -   **Affiniteit tussen gebruikers en apparaten**: Geef op hoe u wilt dat media gebruikers koppelen aan de doelcomputer ter ondersteuning van de gebruiker gericht beheer in Configuration Manager. Zie voor meer informatie over hoe gebruikersapparaataffiniteit ondersteuning biedt voor implementatie van besturingssystemen, [gebruikers koppelen aan een doelcomputer](../get-started/associate-users-with-a-destination-computer.md).  
+    -   **Affiniteit van gebruikersapparaat**: Ter ondersteuning van de gebruiker gericht beheer in Configuration Manager, moet u opgeven hoe u wilt dat de media gebruikers koppelen aan de doelcomputer. Zie voor meer informatie over hoe gebruikersapparaataffiniteit ondersteuning biedt voor implementatie van besturingssystemen, [gebruikers koppelen aan een doelcomputer](../get-started/associate-users-with-a-destination-computer.md).  
 
         -   Stel **Affiniteit tussen gebruikers en apparaten toestaan met automatische goedkeuring** in als u wilt dat de media gebruikers automatisch koppelen aan de doelcomputer. Deze functionaliteit is gebaseerd op de acties van de takenreeks waardoor het besturingssysteem wordt geïmplementeerd. In dit scenario brengt de takenreeks een relatie tot stand tussen de opgegeven gebruikers en de doelcomputer wanneer deze het besturingssysteem op de doelcomputer implementeert.  
 
@@ -153,12 +150,12 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
     > [!IMPORTANT]  
     >  De architectuur van de opstartinstallatiekopie die wordt gedistribueerd moet toepasselijk zijn voor de architectuur van de doelcomputer. Op een x64-doelcomputer kan een x86- of x64-opstartinstallatiekopie worden opgestart en uitgevoerd. Op een x86-doelcomputer kan echter alleen een x86-opstartinstallatiekopie worden opgestart en uitgevoerd. Voor Windows 8-gecertificeerde computers in EFI-modus, moet u een x64 opstartinstallatiekopie gebruiken.  
 
-    -   **Opstartinstallatiekopie**: Specificeer de opstartinstallatiekopie voor het starten van de doelcomputer.  
+    -   **Opstartinstallatiekopie**: Geef de opstartinstallatiekopie voor het starten van de doelcomputer.  
 
-    -   **Distributiepunt**: Geef op het distributiepunt dat als host fungeert voor de installatiekopie. De wizard haalt de opstartinstallatiekopie op van het distributiepunt en schrijft deze naar de media.  
+    -   **Distributiepunt**: Geef het distributiepunt dat als host fungeert voor de opstartinstallatiekopie. De wizard haalt de opstartinstallatiekopie op van het distributiepunt en schrijft deze naar de media.  
 
         > [!NOTE]  
-        >  De gebruiker met beheerdersrechten moet **Leesrechten** hebben tot de inhoud van de opstartinstallatiekopie op het distributiepunt. Zie voor meer informatie [beheer van accounts voor toegang tot inhoud](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).  
+        >  De gebruiker met beheerdersrechten moet **Leesrechten** hebben tot de inhoud van de opstartinstallatiekopie op het distributiepunt. Zie voor meer informatie [accounts voor toegang tot inhoud beheren](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).  
 
     -   Als u **Op site gebaseerde media** selecteerde op de pagina **Mediabeheer** van deze wizard, geeft u in het venster **Beheerpunt** een beheerpunt op van een primaire site.  
 
@@ -170,10 +167,10 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
 
     -   **Installatiekopie-index**: Geef de afbeelding als het pakket meerdere installatiekopieën van besturingssystemen bevat te implementeren.  
 
-    -   **Distributiepunt**: Geef op het distributiepunt dat als host fungeert voor de installatiekopie van pakket van het besturingssysteem. De wizard haalt de opstartinstallatiekopie van het besturingssysteem op van het distributiepunt en schrijft deze naar de media.  
+    -   **Distributiepunt**: Geef het distributiepunt dat als host fungeert voor het installatiekopiepakket van het besturingssysteem. De wizard haalt de opstartinstallatiekopie van het besturingssysteem op van het distributiepunt en schrijft deze naar de media.  
 
         > [!NOTE]  
-        >  De gebruiker met beheerdersrechten moet **Leesrechten** hebben tot de inhoud van de installatiekopie van het besturingssysteem op het distributiepunt. Zie voor meer informatie [beheer van accounts voor toegang tot inhoud](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).  
+        >  De gebruiker met beheerdersrechten moet **Leesrechten** hebben tot de inhoud van de installatiekopie van het besturingssysteem op het distributiepunt. Zie voor meer informatie [accounts voor toegang tot inhoud beheren](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).  
 
 11. Op de pagina **Toepassing selecteren** de toepassingsinhoud opgeven voor opname in het mediabestand en klikken op **Volgende**.  
 
@@ -227,7 +224,7 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
 
 2.  Kopieer het voorgefaseerde mediabestand dat u maakte in de sectie [Create prestaged media](#BKMK_CreatePrestagedMedia) naar de pakketbronmap.  
 
-3.  Kopieer het hulpprogramma van Windows To Go Creator (WTGCreator.exe) naar de pakketbronmap. De maker-hulpprogramma is beschikbaar op elke primaire site-server op de volgende locatie: <*ConfigMgrInstallationFolder*> \OSD\Tools\WTG\Creator.  
+3.  Kopieer het hulpprogramma van Windows To Go Creator (WTGCreator.exe) naar de pakketbronmap. Het hulpprogramma creator is beschikbaar op elke primaire siteserver op de volgende locatie: <*ConfigMgrInstallationFolder*> \OSD\Tools\WTG\Creator.  
 
 4.  Maak een pakket en programma met behulp van de wizard Pakket en Programma maken.  
 
@@ -247,7 +244,7 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
 
     -   **Naam**: Geef de naam van het programma. Typ bijvoorbeeld **Creator** voor de programmanaam.  
 
-    -   **Opdrachtregel**: Type **WTGCreator.exe /wim:PrestageName.wim**, waarbij prestagename de naam van het voorgefaseerde bestand dat u maakte en kopieerde naar de pakketbronmap voor het Windows To Go Creator-pakket.  
+    -   **Opdrachtregel**: Type **WTGCreator.exe /wim:PrestageName.wim**, waarbij PrestageName de naam van het voorgefaseerde bestand dat u maakte en kopieerde naar de pakketbronmap voor het Windows To Go Creator-pakket.  
 
          Eventueel kunt u de volgende opties toevoegen:  
 
@@ -255,7 +252,7 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
 
     -   **Uitvoeren**: Geef **normaal** uit te voeren op basis van het systeem en standaardprogramma.  
 
-    -   **Programma kan worden uitgevoerd**: Geef op of het programma kan worden uitgevoerd alleen als een gebruiker is aangemeld.  
+    -   **Programma kan worden uitgevoerd**: Geef op of het programma kan alleen uitgevoerd als een gebruiker is aangemeld.  
 
     -   **Uitvoermodus**: Geef op of het programma wordt uitgevoerd met aangemelde gebruikersmachtigingen of met beheerdersmachtigingen. Verhoogde machtigingen zijn vereist om Windows To Go Creator uit te voeren.  
 
@@ -263,9 +260,9 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
 
 12. Op de pagina Vereisten het volgende opgeven:  
 
-    -   **Platformvereisten**: Selecteer de toepasselijke Windows 8-platformen om toe te staan inrichting.  
+    -   **Platformvereisten**: Selecteer de toepasselijke Windows 8-platformen om toe te staan inrichten.  
 
-    -   **Geschatte schijfruimte**: Specificeer de grootte van de pakketbronmap voor de Windows To Go Creator.  
+    -   **Geschatte schijfruimte**: Geef de grootte van de pakketbronmap voor het Windows To Go Creator.  
 
     -   **Maximale toegestane uitvoeringstijd (minuten)**: Hiermee geeft u de maximale tijd die het programma uit te voeren op de clientcomputer wordt verwacht. Deze waarde is standaard ingesteld op 120 minuten.  
 
@@ -273,10 +270,10 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
         >  Als u onderhoudsvensters gebruikt voor de verzameling waarop dit programma wordt uitgevoerd, kan er een conflict optreden als de **Maximum toegestane uitvoeringstijd** langer is dan het geplande onderhoudsvenster. Als de maximum uitvoeringstijd is ingesteld op **Onbekend**, zal het starten tijdens het onderhoudsvenster, maar zal het verder worden uitgevoerd tot het voltooid of mislukt is nadat het onderhoudsvenster is gesloten. Als u de maximum uitvoeringstijd instelt op een specifieke periode (niet ingesteld op Onbekend) die langer is dan de lengte van enig beschikbaar onderhoudsvenster, zal het programma niet worden uitgevoerd.  
 
         > [!NOTE]  
-        >  Als de waarde is ingesteld op **onbekende**, Configuration Manager stelt de maximaal toegestane uitvoeringstijd in op 12 uur (720 minuten).  
+        >  Als de waarde is ingesteld op **onbekende**, Configuration Manager stelt de maximale toegestane uitvoeringstijd in op 12 uur (720 minuten).  
 
         > [!NOTE]  
-        >  Als de maximum uitvoeringstijd (hetzij ingesteld door de gebruiker hetzij als de standaardwaarde) overschreden is, Configuration Manager wordt beëindigd als **uitvoeren met beheerdersrechten** is geselecteerd en **gebruikers toestaan om te zien en gebruiken met de programma-installatie** niet is geselecteerd op de **standaardprogramma** pagina.  
+        >  Als de maximum uitvoeringstijd (hetzij ingesteld door de gebruiker hetzij als de standaardwaarde) overschreden is, wordt in Configuration Manager wordt gestopt als **uitvoeren met beheerdersrechten** is geselecteerd en **toestaan dat gebruikers de programma-installatie kunnen zien en** niet is geselecteerd op de **standaardprogramma** pagina.  
 
      Klik op **Volgende** en voltooi de wizard.  
 
@@ -298,7 +295,7 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
 
 4.  Geef op de pagina **Pakket** de naam en beschrijving van het pakket. Typ voor de pakketnaam bijvoorbeeld **BitLocker for Windows To Go** en geef voor de pakketbeschrijving **Package to update BitLocker for Windows To Go** op.  
 
-5.  Selecteer **Dit pakket bevat bronbestanden**, specificeer de locatie voor het BitLocker-hulpprogramma voor Windows To Go, en klik vervolgens op **Volgende**. Het BitLocker-hulpprogramma is beschikbaar op elke primaire siteserver van Configuration Manager op de volgende locatie: <*ConfigMgrInstallationFolder*> \OSD\Tools\WTG\BitLocker\  
+5.  Selecteer **Dit pakket bevat bronbestanden**, specificeer de locatie voor het BitLocker-hulpprogramma voor Windows To Go, en klik vervolgens op **Volgende**. Het hulpprogramma BitLocker is beschikbaar op elke primaire siteserver van Configuration Manager op de volgende locatie: <*ConfigMgrInstallationFolder*> \OSD\Tools\WTG\BitLocker\  
 
 6.  Selecteer op de pagina **Programmatype** **Geen programma maken**.  
 
@@ -316,17 +313,17 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
 
 13. Voeg op het tabblad **Eigenschappen** voor de stap **Opdrachtregel uitvoeren** het volgende toe:  
 
-    1.  **Naam**: Geef een naam voor de opdrachtregel, zoals **BitLocker voor Windows To Go inschakelen**.  
+    1.  **Naam**: Geef een naam voor de opdrachtregel, zoals **inschakelen BitLocker voor Windows To Go**.  
 
     2.  **Opdrachtregel**: i386\osdbitlocker_wtg.exe/Enable/pwd: < *geen &#124; AD*>  
 
          Parameters:  
 
-        -   / pwd: < geen &#124; AD >-Geef de BitLocker-wachtwoordherstelmodus. Deze parameter is vereist als u de parameter /Enable in de opdrachtregel gebruikt.  
+        -   / pwd: < none &#124; AD >-Geef de BitLocker-wachtwoordherstelmodus. Deze parameter is vereist als u de parameter /Enable in de opdrachtregel gebruikt.  
 
              Selecteer **AD** om BitLocker-stationsversleuteling te configureren om een back-up te maken van herstelinformatie voor door BitLocker beschermde stations naar Active Directory Domain Services (AD DS). Het maken van een back-up van herstelwachtwoorden voor een door BitLocker beschermd station laat beheerders toe het station te herstellen als het vergrendeld is. Dit zorgt ervoor dat versleutelde gegevens die behoren tot de onderneming, altijd kunnen worden geopend door geautoriseerde gebruikers. Wanneer u **Geen**specificeert, is de gebruiker verantwoordelijk voor het bewaren van een kopie van het herstelwachtwoord of de herstelsleutel. Als de gebruiker die informatie verliest of negeert om het station te ontsleutelen voordat hij de organisatie verlaat, kunnen beheerders niet gemakkelijk toegang krijgen tot het station.  
 
-        -   / wait: < waar &#124; De waarde FALSE >-opgeven of de takenreeks wacht tot versleuteling voltooid is voordat deze voltooid is.  
+        -   / wait: < TRUE &#124; FALSE >-opgeven of de takenreeks moet voor versleuteling is voltooid wachten voordat deze is voltooid.  
 
     3.  Selecteer **Pakket**, en geef dan het pakket dat u aan het begin van deze procedure hebt gemaakt.  
 
@@ -362,7 +359,7 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
 
     2.  **Verzameling**: Klik op **Bladeren** om de verzameling waarnaar u wilt implementeren van het Windows To Go-pakket te selecteren.  
 
-    3.  **Gebruik standaard distributiepuntengroepen die gekoppeld zijn aan deze verzameling**: Selecteer deze optie als u wilt opslaan van de pakketinhoud op verzamelingen standaard distributiepuntengroep. Als u de geselecteerde verzameling niet hebt gekoppeld aan een distributiepuntgroep, wordt deze optie onbeschikbaar.  
+    3.  **Gebruik standaarddistributiepuntengroepen die gekoppeld zijn aan deze verzameling**: Selecteer deze optie als u wilt opslaan van inhoud van het pakket op de verzamelingen standaard distributiepuntengroep. Als u de geselecteerde verzameling niet hebt gekoppeld aan een distributiepuntgroep, wordt deze optie onbeschikbaar.  
 
 6.  Klik op de pagina **Inhoud** op **Toevoegen** en selecteer vervolgens de distributiepunten of distributiepuntgroepen waarop u de inhoud wilt implementeren die is gekoppeld met dit pakket en programma.  
 
@@ -374,25 +371,25 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
 
 9. Configureer op de pagina **Planning**de volgende instellingen en klik vervolgens op **Volgende**.  
 
-    1.  **Plannen wanneer deze implementatie beschikbaar zal worden**: Geef de datum en tijd op waarop het pakket en programma beschikbaar is voor uitvoering op de doelcomputer. Wanneer u **UTC**selecteert, zorgt deze instelling ervoor dat het pakket en programma beschikbaar zijn voor meerdere doelcomputers tegelijkertijd eerder dan op verschillende tijdstippen, volgens de lokale tijd op de doelcomputers.  
+    1.  **Plannen wanneer deze implementatie beschikbaar zal worden**: Geef de datum en tijd wanneer het pakket en programma wordt uitgevoerd op de doelcomputer. Wanneer u **UTC**selecteert, zorgt deze instelling ervoor dat het pakket en programma beschikbaar zijn voor meerdere doelcomputers tegelijkertijd eerder dan op verschillende tijdstippen, volgens de lokale tijd op de doelcomputers.  
 
-    2.  **Plannen wanneer deze implementatie zal verlopen**: Geef de datum en tijd op waarop het pakket en programma verlopen op de doelcomputer. Wanneer u **UTC**selecteert, zorgt deze instelling ervoor dat de takenreeks verloopt op meerdere doelcomputers tegelijkertijd eerder dan op verschillende tijdstippen, volgens de lokale tijd op de doelcomputers.  
+    2.  **Plannen wanneer deze implementatie zal verlopen**: Geef de datum en tijd wanneer het pakket en programma verlopen op de doelcomputer. Wanneer u **UTC**selecteert, zorgt deze instelling ervoor dat de takenreeks verloopt op meerdere doelcomputers tegelijkertijd eerder dan op verschillende tijdstippen, volgens de lokale tijd op de doelcomputers.  
 
 10. Geef op de pagina **Gebruikerservaring** van de wizard de volgende informatie:  
 
-    -   **Software-installatie**: Laat de software installeren buiten de geconfigureerde onderhoudsvensters.  
+    -   **Software-installatie**: Hierdoor kan de software worden geïnstalleerd buiten de geconfigureerde onderhoudsvensters.  
 
-    -   **Systeem opnieuw opstarten (indien nodig om de installatie te voltooien)**: Laat een apparaat opnieuw opstarten buiten de geconfigureerde onderhoudsvensters wanneer dit vereist wordt door de software-installatie.  
+    -   **Systeem opnieuw opstarten (indien nodig om de installatie te voltooien)**: Hiermee kunt een apparaat opnieuw opstarten buiten de geconfigureerde onderhoudsvensters wanneer vereist door de software-installatie.  
 
-    -   **Embedded-apparaten**: Bij het implementeren van pakketten en programma's op Windows Embedded-apparaten met schrijffilter is ingeschakeld, kunt u opgeven voor het installeren van de pakketten en programma's op de tijdelijke overlay en doorvoer wijzigingen later, of de wijzigingen doorvoeren bij deadline van de installatie of tijdens onderhoud. Wanneer u wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster, moet er opnieuw worden opgestart, zodat de wijzigingen behouden blijven op het apparaat.  
+    -   **Embedded-apparaten**: Bij het implementeren van pakketten en programma's op Windows Embedded-apparaten met schrijffilter is ingeschakeld, kunt u opgeven voor het installeren van de pakketten en programma's op de tijdelijke overlay en doorvoeren wijzigingen later of de wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster. Wanneer u wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster, moet er opnieuw worden opgestart, zodat de wijzigingen behouden blijven op het apparaat.  
 
 11. Geef op de pagina **Distributiepunten** de volgende informatie:  
 
-    -   **Implementatieopties:** Geef **inhoud van distributiepunt downloaden en lokaal uitvoeren**.  
+    -   **Implementatie-opties:** Geef **inhoud downloaden vanaf het distributiepunt en lokaal uitvoeren**.  
 
-    -   **Clients toestaan om inhoud te delen met andere clients in hetzelfde subnet**: Selecteer deze optie om de belasting van het netwerk te verminderen doordat clients inhoud kunnen downloaden van andere clients op het netwerk die al hebben gedownload en gecached. Deze optie gebruikt Windows BranchCache en kan worden gebruikt op computers die Windows Vista SP2 en recenter uitvoeren.  
+    -   **Toestaan dat clients inhoud te delen met andere clients in hetzelfde subnet**: Selecteer deze optie om de belasting op het netwerk te verminderen door clients inhoud downloaden van andere clients op het netwerk dat al hebben gedownload en gecached. Deze optie gebruikt Windows BranchCache en kan worden gebruikt op computers die Windows Vista SP2 en recenter uitvoeren.  
 
-    -   **Alle clients een terugvalbronlocatie voor inhoud te gebruiken**: Geef op of clients toestaan om terug te vallen en een niet-voorkeursdistributiepunt gebruiken als de bronlocatie voor inhoud, wanneer de inhoud niet beschikbaar op een voorkeursdistributiepunt is.  
+    -   **Alle clients een terugvalbronlocatie voor inhoud te gebruiken**: Geef op of clients mogen terugvallen en gebruik een niet-voorkeursdistributiepunt als de bronlocatie voor inhoud wanneer de inhoud niet beschikbaar op een voorkeursdistributiepunt is.  
 
 12. Voltooi de wizard.  
 
@@ -415,32 +412,32 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
         > [!IMPORTANT]  
         >  Als de voorgefaseerde media die u in de sectie [Create prestaged media](#BKMK_CreatePrestagedMedia) hebt gemaakt, gebruik maakt van de SMSTSPreferredAdvertID-variabele, kunt u de takenreeks implementeren op de verzameling **Alle systemen** en kunt u de instelling **Alleen Windows PE (verborgen)** op de pagina **Inhoud** specificeren. Omdat de takenreeks verborgen is, zal ze enkel beschikbaar zijn voor media.  
 
-    3.  **Gebruik standaard distributiepuntengroepen die gekoppeld zijn aan deze verzameling**: Selecteer deze optie als u wilt opslaan van de pakketinhoud op verzamelingen standaard distributiepuntengroep. Als u de geselecteerde verzameling niet hebt gekoppeld aan een distributiepuntgroep, wordt deze optie onbeschikbaar.  
+    3.  **Gebruik standaarddistributiepuntengroepen die gekoppeld zijn aan deze verzameling**: Selecteer deze optie als u wilt opslaan van inhoud van het pakket op de verzamelingen standaard distributiepuntengroep. Als u de geselecteerde verzameling niet hebt gekoppeld aan een distributiepuntgroep, wordt deze optie onbeschikbaar.  
 
 6.  Configureer op de pagina **Implementatie-instellingen** de volgende instellingen en klik vervolgens op **Volgende**.  
 
     -   **Doel**: Selecteer **beschikbaar**. Wanneer u de takenreeks op een gebruiker implementeert, ziet de gebruiker de gepubliceerde takenreeks in de Application Catalog en kan hij deze op aanvraag opvragen. Wanneer u de takenreeks op een apparaat implementeert, ziet de gebruiker de takenreeks in Software Center en kan hij deze op aanvraag installeren.  
 
-    -   **Toegankelijk maken voor de volgende**: Geef op of de takenreeks toegankelijk voor Configuration Manager-clients, media of PXE is.  
+    -   **Toegankelijk maken voor de volgende**: Opgeven of de takenreeks beschikbaar is voor Configuration Manager-clients, media of PXE.  
 
         > [!IMPORTANT]  
         >  Gebruik de instelling **Alleen media en PXE (verborgen)** voor geautomatiseerde implementaties van takenreeksen. Selecteer **Implementatie van besturingssysteem zonder toezicht toestaan** en stel de SMSTSPreferredAdvertID-variabele in als deel van de voorgefaseerde media om de computer automatisch te laten opstarten naar de Windows To Go-implementatie zonder gebruikersinteractie wanneer het een Windows To Go-station detecteert. Voor meer informatie over deze voorgefaseerde media-instellingen, zie de sectie [Create prestaged media](#BKMK_CreatePrestagedMedia) .  
 
 7.  Configureer op de pagina **Planning** de volgende instellingen en klik vervolgens op **Volgende**.  
 
-    1.  **Plannen wanneer deze implementatie beschikbaar zal worden**: Geef de datum en tijd waarop de taak is uitgevoerd op de doelcomputer. Wanneer u **UTC**selecteert, zorgt deze instelling ervoor dat de takenreeks toegankelijk is voor meerdere doelcomputers tegelijkertijd eerder dan op verschillende tijdstippen, volgens de lokale tijd op de doelcomputers.  
+    1.  **Plannen wanneer deze implementatie beschikbaar zal worden**: Geef de datum en tijd waarop de takenreeks beschikbaar is voor uitvoeren op de doelcomputer. Wanneer u **UTC**selecteert, zorgt deze instelling ervoor dat de takenreeks toegankelijk is voor meerdere doelcomputers tegelijkertijd eerder dan op verschillende tijdstippen, volgens de lokale tijd op de doelcomputers.  
 
-    2.  **Plannen wanneer deze implementatie zal verlopen**: Geef de datum en tijd op waarop de takenreeks verloopt op de doelcomputer. Wanneer u **UTC**selecteert, zorgt deze instelling ervoor dat de takenreeks verloopt op meerdere doelcomputers tegelijkertijd eerder dan op verschillende tijdstippen, volgens de lokale tijd op de doelcomputers.  
+    2.  **Plannen wanneer deze implementatie zal verlopen**: Geef de datum en tijd waarop de takenreeks verloopt op de doelcomputer. Wanneer u **UTC**selecteert, zorgt deze instelling ervoor dat de takenreeks verloopt op meerdere doelcomputers tegelijkertijd eerder dan op verschillende tijdstippen, volgens de lokale tijd op de doelcomputers.  
 
 8.  Geef op de pagina **Gebruikerservaring** de volgende informatie:  
 
-    -   **Voortgang van Takenreeks weergeven**: Geef op of de Configuration Manager-client de voortgang van de takenreeks weergeeft.  
+    -   **Voortgang van Takenreeks weergeven**: Geef aan of Configuration Manager-client de voortgang van de takenreeks weergeeft.  
 
-    -   **Software-installatie**: Geef op of de gebruiker mag om software te installeren buiten een geconfigureerd onderhoudsvenster na de geplande tijd.  
+    -   **Software-installatie**: Geef op of de gebruiker is toegestaan voor het installeren van software buiten een geconfigureerd onderhoudsvenster na de geplande tijd.  
 
-    -   **Systeem opnieuw opstarten (indien nodig om de installatie te voltooien)**: Laat een apparaat opnieuw opstarten buiten de geconfigureerde onderhoudsvensters wanneer dit vereist wordt door de software-installatie.  
+    -   **Systeem opnieuw opstarten (indien nodig om de installatie te voltooien)**: Hiermee kunt een apparaat opnieuw opstarten buiten de geconfigureerde onderhoudsvensters wanneer vereist door de software-installatie.  
 
-    -   **Embedded-apparaten**: Bij het implementeren van pakketten en programma's op Windows Embedded-apparaten met schrijffilter is ingeschakeld, kunt u opgeven voor het installeren van de pakketten en programma's op de tijdelijke overlay en doorvoer wijzigingen later, of de wijzigingen doorvoeren bij deadline van de installatie of tijdens onderhoud. Wanneer u wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster, moet er opnieuw worden opgestart, zodat de wijzigingen behouden blijven op het apparaat.  
+    -   **Embedded-apparaten**: Bij het implementeren van pakketten en programma's op Windows Embedded-apparaten met schrijffilter is ingeschakeld, kunt u opgeven voor het installeren van de pakketten en programma's op de tijdelijke overlay en doorvoeren wijzigingen later of de wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster. Wanneer u wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster, moet er opnieuw worden opgestart, zodat de wijzigingen behouden blijven op het apparaat.  
 
     -   **Clients op Internet**: Geef op of de takenreeks mag worden uitgevoerd op een client met Internet. Bewerkingen waarbij er software wordt geïnstalleerd, zoals een besturingssysteem, worden bij het gebruik van deze instelling niet ondersteund. Gebruik deze optie alleen voor algemene op scripts gebaseerde takenreeksen die bewerkingen uitvoeren onder het standaardbesturingssysteem.  
 
@@ -448,13 +445,13 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
 
 10. Geef op de pagina **Distributiepunten** de volgende informatie op en klik vervolgens op **Volgende**.  
 
-    -   **Implementatie-opties**: Selecteer **inhoud lokaal downloaden wanneer nodig is voor uitvoering van takenreeks**.  
+    -   **Implementatieopties**: Selecteer **inhoud lokaal downloaden wanneer nodig is voor de uitvoering van takenreeks**.  
 
-    -   **Een extern distributiepunt gebruiken wanneer geen lokaal distributiepunt beschikbaar is,**: Specificeer of clients distributiepunten die op trage en onbetrouwbare netwerk voor het downloaden van de inhoud die is door de takenreeks vereist kunnen gebruiken.  
+    -   **Een extern distributiepunt gebruiken wanneer geen lokaal distributiepunt beschikbaar is,**: Specificeer of clients distributiepunten die zich op trage en onbetrouwbare netwerken voor het downloaden van de inhoud die is door de takenreeks vereist kunnen gebruiken.  
 
-    -   **Clients met een terugvalbronlocatie voor inhoud toestaan**:
-        - *Voor versie 1610*, kunt u de toestaan terugvalbronlocatie voor inhoud selectievakje wilt toestaan dat clients buiten deze grensgroepen terug te vallen en gebruik het distributiepunt als bronlocatie voor inhoud wanneer er geen andere distributiepunten beschikbaar zijn.
-        - *Vanaf versie 1610*, niet meer kunt u **terugvalbronlocatie voor inhoud toestaan**.  In plaats daarvan kunt configureren u relaties tussen grensgroepen om te bepalen wanneer een client beginnen kunt met zoeken naar aanvullende grensgroepen voor de locatie van een geldige inhoudsbron. 
+    -   **Clients gebruiken een terugvalbronlocatie voor inhoud toestaan**:
+        - *Voorafgaand aan versie 1610*, kunt u de toestaan terugvalbronlocatie voor inhoud selectievakje wilt toestaan dat clients buiten deze grensgroepen terug te vallen en het distributiepunt gebruiken als bronlocatie voor inhoud, wanneer er geen andere distributiepunten beschikbaar zijn.
+        - *Vanaf versie 1610*, u kunt niet meer configureren **terugvalbronlocatie voor inhoud toestaan**.  In plaats daarvan configureert u de relaties tussen grensgroepen om te bepalen wanneer een client beginnen kunt met het extra grensgroepen voor de locatie van een geldige inhoudsbron zoeken. 
 
 11. Voltooi de wizard.  
 
@@ -465,8 +462,7 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
 >  Als u opstartomleiding niet hebt ingeschakeld als deel van de opdrachtregel voor het creator-programma in de sectie [Create a Windows To Go Creator package](#BKMK_CreatePackage) , kan de gebruiker verplicht zijn handmatig op te starten naar het Windows To Go-station telkens het systeem opnieuw opstart.  
 
 ###  <a name="BKMK_ConfigureStageDrive"></a> Het Windows To Go-station wordt geconfigureerd en voorbereid door Configuration Manager  
- Nadat de computer opnieuw opgestart is naar het Windows To Go-station, zal het station opstarten naar Windows PE en een verbinding maken met het beheerpunt om het beleid te krijgen om de implementatie van het besturingssysteem te voltooien. Configuration Manager configureert en bereidt het station. Nadat Configuration Manager het station bereidt, kan de gebruiker de computer om af te handelen het inrichtingsproces (bijvoorbeeld toevoegen aan een domein of apps installeren) opnieuw. Dit proces is hetzelfde voor alle voorgefaseerde media.  
+ Nadat de computer opnieuw opgestart is naar het Windows To Go-station, zal het station opstarten naar Windows PE en een verbinding maken met het beheerpunt om het beleid te krijgen om de implementatie van het besturingssysteem te voltooien. Configuration Manager configureert en bereidt het station. Nadat Configuration Manager het station heeft voorbereid, kan de gebruiker opnieuw starten van de computer om het inrichtingsproces (zoals het koppelen van een domein of het installeren van apps) te voltooien. Dit proces is hetzelfde voor alle voorgefaseerde media.  
 
 ###  <a name="BKMK_UserLogsIn"></a> Gebruiker meldt zich aan bij Windows 8  
- Nadat Configuration Manager wordt tijdens het inrichtingsproces voltooid en de Windows 8-vergrendelingsscherm heeft getoond, wordt de gebruiker zich aanmelden op het besturingssysteem.  
-
+ Nadat Configuration Manager het inrichtingsproces is voltooid en de Windows 8-vergrendelingsscherm heeft getoond, wordt de gebruiker zich aanmelden op het besturingssysteem.  

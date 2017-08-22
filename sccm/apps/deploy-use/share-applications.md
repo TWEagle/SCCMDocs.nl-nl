@@ -6,29 +6,26 @@ ms.date: 07/31/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-app
+ms.technology: configmgr-app
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2629c376-ec43-4f0e-a78b-4223cc9302bf
-caps.latest.revision: 0
-caps.handback.revision: 0
+caps.latest.revision: "0"
+caps.handback.revision: "0"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
 ms.openlocfilehash: 9e6b32caa6c5f27f3b535b224c2a9fe31905547f
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/29/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="share-an-application-from-software-center"></a>Delen van de toepassing in Software Center
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*<!-- 1706 -->
 
-U kunt een hyperlink kopiëren naar een toepassing in Software Center met behulp van de ![Share](media/share15.png)**Share** knop in de weergave Details van de toepassing.   U kunt alleen hyperlinks voor toepassingen delen. Als de toepassing niet beschikbaar is, wordt een venster geopend met een toepassing niet beschikbaar-bericht van de hyperlink.
+U kunt een hyperlink kopiëren naar een toepassing in Software Center met behulp van de ![Share](media/share15.png)**Share** knop in de weergave Details van de toepassing. U kunt alleen hyperlinks voor toepassingen delen. Als de toepassing niet beschikbaar is, wordt een venster geopend met een toepassing niet beschikbaar-bericht van de hyperlink.
 
 1. Kies **toepassingen**, en kies vervolgens de toepassing.
 2. Klik op de ![Share](media/share15.png) **Share** knop.

@@ -1,36 +1,33 @@
 ---
-title: Internettoegang beheren met beheerde-browserbeleid | Microsoft-documenten
-description: De Intune Managed Browser om te beheren en beperken van toegang tot het Internet implementeren.
+title: Internettoegang beheren met beheerde-browserbeleid | Microsoft Docs
+description: Implementeer de Intune Managed Browser om te beheren en beperken van toegang tot Internet.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 8e25e00c-c9a8-473f-bcb7-ea989f6ca3c5
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 6424fb07802b62820b4dc78a58ab30d3b956abef
 ms.openlocfilehash: d2dd2c25a2714851ba1e71414cabcef38d3ce014
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="manage-internet-access-using-managed-browser-policies-with-system-center-configuration-manager"></a>Internettoegang beheren met beleid voor beheerde browsers in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-In System Center Configuration Manager die u kunt de Intune Managed Browser (een toepassing voor websurfen) implementeren en de toepassing koppelen aan een beheerde-browserbeleid. De beheerde-browserbeleid stelt een lijst met toegestane of een lijst met geblokkeerde websites waarmee de websites die gebruikers van de beheerde browser om te kunnen gaan worden beperkt.  
+In System Center Configuration Manager die u kunt de Intune Managed Browser (een toepassing voor websurfen) implementeren en de toepassing koppelen aan beleid voor beheerde browsers. Het beheerde-browserbeleid stelt u een lijst met toegestane of een lijst met websites, die gebruikers van de beheerde browser om te kunnen gaan.  
 
- Omdat dit een beheerde app is, kunt u ook mobile application management-beleid van toepassing, zoals het beheren van het gebruik van knippen, kopiëren en plakken. Dit voorkomt dat de registratie van het scherm en ervoor zorgen dat koppelingen naar inhoud alleen in andere beheerde apps openen. Zie voor meer informatie, [beveiligen apps met behulp van mobile application management-beleid](protect-apps-using-mam-policies.md).  
+ Omdat dit een beheerde app is, kunt u ook mobile application management-beleid van toepassing op, zoals het gebruik van knippen, kopiëren en plakken. Dit voorkomt dat schermopnamen en zorgt er ook voor dat koppelingen naar inhoud alleen in andere beheerde apps openen. Zie voor meer informatie [apps beveiligen met mobile application management-beleid](protect-apps-using-mam-policies.md).  
 
 > [!IMPORTANT]  
 >  Als gebruikers de beheerde browser zelf installeren, wordt deze niet beheerd door andere beleidsregels die u opgeeft. Om ervoor te zorgen dat de browser wordt beheerd door Configuration Manager, moeten ze de app verwijderen voordat u deze voor ze als beheerde app implementeren kunt.  
@@ -42,23 +39,23 @@ In System Center Configuration Manager die u kunt de Intune Managed Browser (een
 -   Apparaten met iOS 7 en hoger  
 
 > [!NOTE]  
->  Zie voor meer informatie en de Intune Managed Browser-app downloaden [iTunes](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) voor iOS en [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser&hl=en) voor Android.  
+>  Zie voor meer informatie en de Intune Managed Browser-app te downloaden [iTunes](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) voor iOS en [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser&hl=en) voor Android.  
 
 ## <a name="create-a-managed-browser-policy"></a>Een beheerde-browserbeleid maken  
 
-1.  Kies in de Configuration Manager-console **softwarebibliotheek** > **Toepassingsbeheer** > **beheerbeleid**.  
+1.  Kies in de Configuration Manager-console **softwarebibliotheek** > **Toepassingsbeheer** > **Application Management-beleid**.  
 
-3.  Op de **Start** tabblad, in de **maken** groep, kiest u **Application Management-beleid maken**.  
+3.  Op de **Start** tabblad, in de **maken** groep, kiest u **beleid voor toepassingsbeheer maken**.  
 
-4.  Op de **algemeen** pagina, voer de naam en beschrijving voor het beleid en kies vervolgens **volgende**.  
+4.  Op de **algemene** pagina, voer de naam en beschrijving voor het beleid en kies vervolgens **volgende**.  
 
-5.  Op de **beleidstype** pagina en selecteer het platform, selecteer **Managed Browser** voor het beleid typt en kies vervolgens **volgende**.  
+5.  Op de **beleidstype** pagina, selecteer het platform, selecteert u **Managed Browser** voor het beleid, typ en kies vervolgens **volgende**.  
 
      Selecteer op de pagina **Managed Browser** een van de volgende opties:  
 
-    -   **De beheerde browser alleen de hieronder vermelde URL's openen**– Geef een lijst met URL's die de beheerde browser kunt openen.  
+    -   **Toestaan dat de beheerde browser alleen de hieronder vermelde URL's opent**– Geef een lijst met URL's die de beheerde browser kan openen.  
 
-    -   **De beheerde browser van de hieronder vermelde URL's openen**– Geef een lijst met URL's die de beheerde browser kan worden geopend.  
+    -   **De beheerde browser de onderstaande URL's opent**– Geef een lijst met URL's die de beheerde browser kan worden geopend.  
 
     > [!NOTE]  
     >  U kunt niet zowel toegestane als geblokkeerde URL's in hetzelfde beheerde-browserbeleid opnemen.  
@@ -66,24 +63,24 @@ In System Center Configuration Manager die u kunt de Intune Managed Browser (een
      Voor meer informatie over de URL-indelingen die kunt u opgeven, Zie URL-indeling voor toegestane en geblokkeerde URL's in dit artikel.  
 
     > [!NOTE]  
-    >  Het type Algemeen beleid kunt u de functionaliteit van apps die u implementeert om deze te brengen in overeenstemming met uw bedrijf compatibiliteits- en beveiligingsbeleid wijzigen. U kunt bijvoorbeeld bewerkingen zoals knippen, kopiëren en plakken binnen een beperkte app beperken. Zie voor meer informatie over het type Algemeen beleid [beveiligen apps met behulp van mobile application management-beleid](protect-apps-using-mam-policies.md).  
+    >  Het beleidstype algemeen kunt u de functionaliteit van apps die u implementeert om ervoor te zorgen dat ze in overeenstemming met uw bedrijf naleving en het beveiligingsbeleid te wijzigen. U kunt bijvoorbeeld bewerkingen zoals knippen, kopiëren en plakken binnen een beperkte app beperken. Zie voor meer informatie over het beleidstype algemeen [apps beveiligen met mobile application management-beleid](protect-apps-using-mam-policies.md).  
 
 6.  Sluit de wizard af.  
 
 Het nieuwe beleid wordt weergegeven in het knooppunt **Beleid voor toepassingsbeheer** van de werkruimte **Softwarebibliotheek** .  
 
 ## <a name="create-a-software-deployment-for-the-managed-browser-app"></a>Een software-implementatie voor de beheerde-browserapp maken  
- Nadat u het beleid voor beheerde browsers hebt gemaakt, kunt u vervolgens een software-implementatietype voor de beheerde browsertoepassing maken. U moet zowel een algemeen en beheerde-browserbeleid voor de beheerde browserapp koppelen.  
+ Nadat u het beleid voor beheerde browsers hebt gemaakt, kunt u vervolgens een software-implementatietype voor de beheerde browsertoepassing maken. U moet zowel een algemeen en de beheerde browser-beleid voor de beheerde browser-app koppelen.  
 
  Zie voor meer informatie [toepassingen maken](create-applications.md).  
 
 ## <a name="security-and-privacy-for-the-managed-browser"></a>Beveiliging en privacy voor de beheerde browser  
 
--   Op iOS-apparaten, kan niet websites die zijn verlopen of niet-vertrouwde certificaten worden geopend.  
+-   Op iOS-apparaten de websites die zijn verlopen of niet-vertrouwde certificaten kan niet worden geopend.  
 
 -   Instellingen door gebruikers voor de ingebouwde browser op hun apparaten, worden niet gebruikt door de beheerde browser. De beheerde browser heeft geen toegang tot deze instellingen.  
 
--   Als u de opties **eenvoudige PINCODE vereisen voor toegang tot** of **bedrijfsreferenties vereisen voor toegang tot** in een mobile application management-beleid dat is gekoppeld aan de beheerde browser, een gebruiker kan Klik op Help op de verificatiepagina en ga vervolgens naar een site--zelfs een toegevoegd aan een lijst met geblokkeerde websites in het beheerde-browserbeleid.  
+-   Als u de opties ingesteld **eenvoudige PINCODE vereisen voor toegang tot** of **bedrijfsreferenties vereisen voor toegang tot** in een mobile application management-beleid die zijn gekoppeld aan de beheerde browser, een gebruiker kan Klik op Help op de pagina authenticatie en Ga naar eender welke site--zelfs een toegevoegd aan een lijst met geblokkeerde websites in het beleid voor beheerde browsers.  
 
 -   De beheerde browser kan alleen toegang tot sites blokkeren wanneer de sites rechtstreeks worden geopend. De browser kan geen toegang blokkeren als er tussenliggende services (zoals een vertaalservice) worden gebruikt voor toegang tot de site.  
 
@@ -146,11 +143,10 @@ Gebruik de volgende gegevens voor meer informatie over de toegestane indelingen 
 ### <a name="how-conflicts-between-the-allow-and-block-list-are-resolved"></a>Conflicten tussen de lijst met toegestane en de lijst met geblokkeerde websites oplossen  
  Als er meerdere beheerde-browserbeleidsregels zijn geïmplementeerd op een apparaat en de instellingen conflicteren, worden de modus (toestaan of blokkeren) en de URL-lijsten geëvalueerd op conflicten. Bij een conflict geldt het volgende gedrag:  
 
--   Als de modi in elke beleidsregel hetzelfde zijn maar de URL-lijsten verschillen, worden de URL's niet afgedwongen op het apparaat.  
+-   Als de modi in elke beleidsregel hetzelfde zijn maar de URL-lijsten verschillen, wordt de URL's niet afgedwongen op het apparaat.  
 
 -   Als de modi in elke beleidsregel verschillen maar de URL-lijsten hetzelfde zijn, wordt de URL's niet afgedwongen op het apparaat.  
 
 -   Als een apparaat voor de eerste keer beheerde-browserbeleidsregels ontvangt en twee beleidsregels conflicteren, worden de URL's niet afgedwongen op het apparaat. Gebruik het knooppunt **Conflicterende beleidsinstellingen** van de werkruimte **Beleid** om de conflicten weer te geven.  
 
 -   Als een apparaat al een beheerde-browserbeleid heeft ontvangen en er een tweede beleid met conflicterende instellingen wordt geïmplementeerd, blijven de oorspronkelijke instellingen op het apparaat. Gebruik het knooppunt **Conflicterende beleidsinstellingen** van de werkruimte **Beleid** om de conflicten weer te geven.  
-

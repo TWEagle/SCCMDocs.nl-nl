@@ -6,25 +6,22 @@ ms.date: 07/12/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4bb6afeb-d267-4f9b-ade2-26e5400c223b
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 344b55aecd72479b759b40e8252e64a06c5eaba0
 ms.openlocfilehash: 5bf4457af6bedf7bc9cd73c879f1857209c0725d
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# Algemene taken voor het maken en implementeren van configuratiebasislijnen met System Center Configuration Manager
-<a id="common-tasks-for-creating-and-deploying-configuration-baselines-with-system-center-configuration-manager" class="xliff"></a>
+# <a name="common-tasks-for-creating-and-deploying-configuration-baselines-with-system-center-configuration-manager"></a>Algemene taken voor het maken en implementeren van configuratiebasislijnen met System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
@@ -34,8 +31,7 @@ Dit onderwerp bevat algemene scenario's waarmee u meer informatie over het maken
 
  Lees voordat u begint, [aan de slag met instellingen voor naleving in System Center Configuration Manager](../../compliance/get-started/get-started-with-compliance-settings.md) basisinformatie over de instellingen voor naleving en ook lezen [plannen en configureren van instellingen voor naleving](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md) voor het implementeren van alle benodigde voorwaarden.  
 
-## Een configuratiebasislijn maken
-<a id="create-a-configuration-baseline" class="xliff"></a>  
+## <a name="create-a-configuration-baseline"></a>Een configuratiebasislijn maken  
  In dit voorbeeld hebt u een configuratie-item gemaakt voor Windows 10-computers waarop de Configuration Manager-client wordt uitgevoerd.  
 
  Dit configuratie-item dwingt een vereist wachtwoord op Windows 10-computers af van ten minste 6 tekens. De naam van het configuratie-item is **Windows 10-wachtwoordafdwinging**.  
@@ -60,8 +56,7 @@ Gebruik de volgende procedure voor meer informatie over dit configuratie-item to
 
  U ziet nu de configuratiebasislijn in de **Configuratiebasislijnen** knooppunt van de Configuration Manager-console.  
 
-## Implementeer de configuratiebasislijn
-<a id="deploy-the-configuration-baseline" class="xliff"></a>  
+## <a name="deploy-the-configuration-baseline"></a>Implementeer de configuratiebasislijn  
  In dit voorbeeld moet u de configuratiebasislijn die u hebt gemaakt in de vorige procedure om een verzameling computers te implementeren.  
 
 1.  Klik in de Configuration Manager-console op **activa en naleving** > **instellingen voor naleving** > **Configuratiebasislijnen**.  
@@ -87,8 +82,6 @@ Gebruik de volgende procedure voor meer informatie over dit configuratie-item to
 
  Als u een beknopt overzicht van de nalevingsstatistieken voor deze implementatie wilt bekijken, klikt u in de werkruimte **Bewaking** op **Implementaties**. Aan de onderkant van het scherm ziet u een **Nalevingsstatistieken** grafiek.  
 
-## Volgende stappen
-<a id="next-steps" class="xliff"></a> 
+## <a name="next-steps"></a>Volgende stappen 
 
 Zie voor meer informatie over het bewaken van configuratiebasislijnen, [instellingen voor naleving bewaken](../../compliance/deploy-use/monitor-compliance-settings.md).  
-

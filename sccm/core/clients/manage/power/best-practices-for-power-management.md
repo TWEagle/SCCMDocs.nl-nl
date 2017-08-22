@@ -1,30 +1,27 @@
 ---
-title: Aanbevolen procedures instellen voor energiebeheer | Microsoft-documenten
-description: Aanbevolen procedures voor energiebeheer in System Center Configuration Manager opgehaald.
+title: Best practices voor energiebeheer | Microsoft Docs
+description: Best practices voor energiebeheer in System Center Configuration Manager worden opgehaald.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9f7142e1-c972-4384-853b-2da1568cb3e3
-caps.latest.revision: 5
-caps.handback.revision: 0
+caps.latest.revision: "5"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: fc392e4440e84614f92218e9c7a09ec1c2c64f53
 ms.openlocfilehash: d3cc24c7923141f039dcda26ac27489cb0143e89
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="best-practices-for-power-management-in-system-center-configuration-manager"></a>Aanbevolen procedures voor energiebeheer in System Center Configuration Manager
+# <a name="best-practices-for-power-management-in-system-center-configuration-manager"></a>Best practices voor energiebeheer in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
@@ -65,23 +62,22 @@ Gebruik de volgende best practices voor energiebeheer in System Center Configura
  Energie-instellingen die worden toegepast op computers met Windows XP of Windows Server 2003 worden niet hersteld naar de oorspronkelijke waarden, zelfs niet als u de computer van energiebeheer uitsluit. In hogere versies van Windows worden bij het uitsluiten van een computer voor energiebeheer alle energie-instellingen teruggezet naar de oorspronkelijke waarden. Het is niet mogelijk oorspronkelijke waarden van afzonderlijke energie-instellingen te herstellen.  
 
 ## <a name="apply-power-plan-settings-individually"></a>Energiebeheerschema-instellingen afzonderlijk toepassen  
- Controleer het effect van het toepassen van elke energie-instelling voordat u de volgende toepast zodat elke instelling het vereiste effect heeft. Zie voor meer informatie over de energiebeheerinstellingen toe [beschikbaar management energiebeheerinstellingen toe](../../../../core/clients/manage/power/create-and-apply-power-plans.md#BKMK_Plans) in het onderwerp [maken en toepassen van energiebeheerschema's in System Center Configuration Manager](../../../../core/clients/manage/power/create-and-apply-power-plans.md).  
+ Controleer het effect van het toepassen van elke energie-instelling voordat u de volgende toepast zodat elke instelling het vereiste effect heeft. Zie voor meer informatie over energiebeheerschema-instellingen, [instellingen voor beschikbare energiebeheerschema's](../../../../core/clients/manage/power/create-and-apply-power-plans.md#BKMK_Plans) in het onderwerp [maken en toepassen van energiebeheerschema's in System Center Configuration Manager](../../../../core/clients/manage/power/create-and-apply-power-plans.md).  
 
 ## <a name="regularly-monitor-computers-to-see-if-they-have-multiple-power-plans-applied"></a>Regelmatig controleren of op computers meerdere energiebeheerschema's zijn toegepast  
  Energiebeheer bevat een rapport met computers waarop meer dan één energiebeheerschema is toegepast.  
 
  Als een computer lid is van meerdere verzamelingen, die elk verschillende energiebeheerschema’s toepassen, worden de volgende acties ondernomen:  
 
--   Energiebeheerschema voor: Als u meerdere waarden voor energie-instellingen worden toegepast op een computer, wordt de minst beperkende waarde gebruikt.  
+-   Energiebeheerschema: Als u meerdere waarden voor energie-instellingen worden toegepast op een computer, wordt de minst beperkende waarde gebruikt.  
 
--   Tijd voor Wake-up: Als meerdere keren voor Wake-up worden toegepast op een desktopcomputer, wordt de tijd die het dichtst bij middernacht gebruikt.  
+-   Activeringstijd: Als er meerdere activeringstijden worden toegepast op een desktopcomputer, wordt de tijd die het dichtst bij middernacht wordt gebruikt.  
 
-     Zie voor meer informatie [Computers met meerdere energiebeheerschema's](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md#BKMK_Multiple) in het onderwerp [monitor en plannen voor energiebeheer in System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md). Zie voor meer informatie over het omzetten van conflicten met Energiebeheer [maken en toepassen van energiebeheerschema's in System Center Configuration Manager](../../../../core/clients/manage/power/create-and-apply-power-plans.md).  
+     Zie voor meer informatie [Computers met meerdere energiebeheerschema's](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md#BKMK_Multiple) in het onderwerp [bewaken en plannen voor energiebeheer in System Center Configuration Manager](../../../../core/clients/manage/power/monitor-and-plan-for-power-management.md). Zie voor meer informatie over het omzetten van conflicten met Energiebeheer [maken en toepassen van energiebeheerschema's in System Center Configuration Manager](../../../../core/clients/manage/power/create-and-apply-power-plans.md).  
 
 ## <a name="save-or-export-power-management-information-during-the-monitoring-and-planning-phase-of-power-management"></a>Energiebeheergegevens opslaan of exporteren tijdens de bewakings- en planningsfase van energiebeheer  
- Power management-informatie die wordt gebruikt door dagelijkse rapporten wordt bewaard in de Configuration Manager-sitedatabase 31 dagen.  
+ Informatie over energiebeheer die wordt gebruikt door dagelijkse rapporten wordt bewaard in de Configuration Manager-sitedatabase 31 dagen.  
 
- Power management-informatie die wordt gebruikt door maandelijkse rapporten wordt bewaard in de Configuration Manager-sitedatabase 13 maanden.  
+ Informatie over energiebeheer die wordt gebruikt door maandelijkse rapporten wordt 13 maanden bewaard in de Configuration Manager-sitedatabase.  
 
- Wanneer u rapporten tijdens de bewaking en plannen en compatibiliteit fasen van energiebeheer uitvoeren, opslaan of exporteren van de resultaten van alle rapporten die u wilt bewaren verwijderd de gegevens voor latere vergelijking als ze later door Configuration Manager.  
-
+ Wanneer u rapporten tijdens de bewaking planning- en nalevingsfase van energiebeheer uitvoeren, opslaan of exporteren van de resultaten uit rapporten die u wilt behouden de gegevens voor later te vergelijken als ze later zijn verwijderd door Configuration Manager.  

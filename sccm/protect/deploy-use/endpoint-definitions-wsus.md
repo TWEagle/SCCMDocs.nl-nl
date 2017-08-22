@@ -1,36 +1,32 @@
 ---
-title: Endpoint Protection malware-definities van WSUS | Microsoft-documenten
+title: Endpoint Protection-malwaredefinities van WSUS | Microsoft Docs
 definition: Learn how to configure Windows Server Updates Services to auto-approve definition updates.
 ms.custom: na
 ms.date: 02/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: a34d9401-83e4-471d-8e23-b8042fc11c90
-caps.latest.revision: 21
+caps.latest.revision: "21"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 017bd5b899b364fc832c721d63cc7dbad0a11671
 ms.openlocfilehash: 0e606b25065fa25c782d1b5f3fbf164e60733353
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="enable-endpoint-protection-malware-definitions-to-download-from-windows-server-update-services-wsus-for-configuration-manager"></a>Endpoint Protection-malware-definities te downloaden van Windows Server Update Services (WSUS) voor Configuration Manager inschakelen
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
- Als u WSUS gebruikt om de anti-malwaredefinities up-to-date te houden, kunt u deze zo configureren dat de definitie-updates automatisch worden goedgekeurd. Hoewel met behulp van Configuration Manager-software-updates, de aanbevolen methode is om definities up-to-date te houden, kunt u ook WSUS configureren als een methode voor het toestaan dat gebruikers handmatig starten definitie bijgewerkt. Gebruik de volgende procedures om WSUS te configureren als een definitie-updatebron.
+ Als u WSUS gebruikt om de anti-malwaredefinities up-to-date te houden, kunt u deze zo configureren dat de definitie-updates automatisch worden goedgekeurd. Hoewel met behulp van Configuration Manager software-updates, de aanbevolen methode is om definities up-to-date te houden, kunt u ook WSUS configureren als een methode voor het toestaan dat gebruikers om definitie-updates handmatig te starten. Gebruik de volgende procedures om WSUS te configureren als een definitie-updatebron.
 
-## <a name="to-synchronize-endpoint-protection-definition-updates-in-configuration-manager-software-updates"></a>Endpoint Protection-definitie-updates in Configuration Manager-software-updates synchroniseren
+## <a name="to-synchronize-endpoint-protection-definition-updates-in-configuration-manager-software-updates"></a>Endpoint Protection-definitie-updates in Configuration Manager software-updates synchroniseren
 
 1.  Klik op **Beheer**in de Configuration Manager-console.
 
@@ -48,7 +44,7 @@ ms.lasthandoff: 05/17/2017
 
 6.  Klik op **OK** om het dialoogvenster **Eigenschappen van software-updatepuntcomponenten** te sluiten.
 
- Gebruik de volgende procedure voor het configureren van Endpoint Protection-updates wanneer de WSUS-server is niet geïntegreerd in Configuration Manager-omgeving.
+ Gebruik de volgende procedure voor het configureren van Endpoint Protection-updates wanneer de WSUS-server niet is geïntegreerd in uw Configuration Manager-omgeving.
 
 ## <a name="to-synchronize-endpoint-protection-definition-updates-in-standalone-wsus"></a>Definitie-updates van Endpoint Protection synchroniseren in zelfstandige WSUS
 
@@ -73,7 +69,7 @@ ms.lasthandoff: 05/17/2017
 
 3.  Selecteer in het dialoogvenster **Updates goedkeuren** de computergroep waarvoor u de updates wilt goedkeuren en klik vervolgens op **Goedgekeurd voor installatie**.
 
- U kunt ook een automatische goedkeuringsregel voor definitie-updates instellen naast handmatige goedkeuring en Endpoint Protection-updates. Hiermee configureert u WSUS voor het automatisch goedkeuren van Endpoint Protection definitie-updates gedownload door WSUS.
+ Naast de handmatige goedkeuring kunt u ook een automatische goedkeuringsregel voor definitie-updates instellen en updates van Endpoint Protection. Dit wordt WSUS configureren voor Endpoint Protection-definitie-updates gedownload door WSUS, automatisch worden goedgekeurd.
 
 ### <a name="to-configure-an-automatic-approval-rule"></a>Een automatische goedkeuringsregel configureren
 
@@ -81,13 +77,13 @@ ms.lasthandoff: 05/17/2017
 
 2.  Klik op het tabblad **Updateregels** op de optie **Nieuwe regel**.
 
-3.  In de **regel toevoegen** dialoogvenster onder **stap 1: Selecteer eigenschappen**, selecteer de **wanneer een update is in een specifieke classificatie** selectievakje.
+3.  In de **regel toevoegen** dialoogvenster onder **stap 1: Selecteer eigenschappen**, selecteer de **wanneer een update zich in een specifieke categorie** selectievakje.
 
 4.  Onder **stap 2: De eigenschappen bewerken**, klikt u op **een classificatie**.
 
 5.  Schakel alle selectievakjes behalve **Definitie-updates**uit en klik vervolgens op **OK**.
 
-6.  In de **regel toevoegen** dialoogvenster onder **stap 1: Selecteer eigenschappen**, selecteer de **wanneer een update is in een specifiek product** selectievakje.
+6.  In de **regel toevoegen** dialoogvenster onder **stap 1: Selecteer eigenschappen**, selecteer de **wanneer een update zich in een specifiek product** selectievakje.
 
 7.  Onder **stap 2: De eigenschappen bewerken**, klikt u op **een product**.
 
@@ -105,4 +101,3 @@ ms.lasthandoff: 05/17/2017
 
 > [!div class="button"]
 [Terug >](endpoint-configure-alerts.md)
-

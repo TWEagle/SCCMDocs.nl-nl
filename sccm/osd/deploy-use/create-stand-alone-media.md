@@ -6,23 +6,20 @@ ms.date: 06/07/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c6b9ccd2-78d9-4f0e-b25a-70d0866300ba
-caps.latest.revision: 21
-caps.handback.revision: 0
+caps.latest.revision: "21"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: c6ee0ed635ab81b5e454e3cd85637ff3e20dbb34
 ms.openlocfilehash: 98f902429ad1b9965a0dc4cc2e1bd071ad5c0779
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/08/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="create-stand-alone-media-with-system-center-configuration-manager"></a>Zelfstandige media maken met System Center Configuration Manager
 
@@ -176,4 +173,3 @@ Voordat u de wizard Takenreeksmedia maken uitvoert voor het maken van media voor
 |Windows en ConfigMgr installeren|Gebruik deze takenreeksstap om de Configuration Manager-clientsoftware te installeren. Configuration Manager installeert en registreert de GUID van de Configuration Manager-client. U kunt de vereiste installatieparameters toewijzen in het venster **Installatie-eigenschappen** .|  
 |Herstellen van gebruikersbestanden en -instellingen - **(nieuwe Takenreeksgroep)**|Maak een nieuwe takenreekssubgroep. Deze subgroep bevat de stappen die nodig zijn om de gebruikersstatus te herstellen.|  
 |Gebruikersstatus herstellen|Gebruik deze takenreeksstap om het Hulpprogramma voor migratie van gebruikersstatus (USMT) te starten en de gebruikersstatus en -instellingen te herstellen die met de actie Gebruikerstoestand vastleggen zijn vastgelegd op de doelcomputer.|  
-

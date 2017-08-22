@@ -1,34 +1,31 @@
 ---
-title: "Installatiekopieën van besturingssystemen - Configuration Manager aanpassen | Microsoft-documenten"
-description: Vastleggen en build takenreeksen, handmatige configuratie of een combinatie van beide gebruiken voor het aanpassen van een installatiekopie van een besturingssysteem.
+title: "Installatiekopieën van besturingssysteem - Configuration Manager aanpassen | Microsoft Docs"
+description: Vastleggen en build takenreeksen, handmatige configuratie of een combinatie van beide gebruiken voor het aanpassen van de installatiekopie van een besturingssysteem.
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 95033a9b-ff13-4b70-b1de-bcb25bcb6024
-caps.latest.revision: 12
-caps.handback.revision: 0
+caps.latest.revision: "12"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
 ms.openlocfilehash: 485cb3ca4988f983c1ec71b6c8daf136571bf0ea
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="customize-operating-system-images-with-system-center-configuration-manager"></a>Installatiekopieën van een besturingssysteem aanpassen met System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Installatiekopieën van besturingssystemen in System Center Configuration Manager zijn WIM-bestanden en een gecomprimeerde verzameling referentiebestanden en -mappen die vereist zijn om correct te installeren en configureren van een besturingssysteem op een computer vertegenwoordigen. Een installatiekopie van een besturingssysteem wordt samengesteld en vastgelegd vanaf een referentiecomputer die u configureert met alle vereiste besturingssysteembestanden, ondersteuningsbestanden, software-updates, hulpprogramma's en andere softwaretoepassingen. U bepaalt zelf de mate waarin u de referentiecomputer handmatig configureert. U kunt de configuratie van de referentiecomputer volledig automatiseren door een takenreeks samen te stellen en vast te leggen, u kunt een aantal aspecten van de referentiecomputer handmatig configureren en vervolgens de rest automatiseren met behulp takenreeksen of u kunt de referentiecomputer handmatig configureren zonder gebruik te maken van takenreeksen. Gebruik de volgende secties voor het aanpassen van een besturingssysteem.
+Installatiekopieën van besturingssystemen in System Center Configuration Manager zijn WIM-bestanden en omvatten een gecomprimeerde verzameling referentiebestanden en -mappen die zijn vereist voor het installeren en configureren van een besturingssysteem op een computer. Een installatiekopie van een besturingssysteem wordt samengesteld en vastgelegd vanaf een referentiecomputer die u configureert met alle vereiste besturingssysteembestanden, ondersteuningsbestanden, software-updates, hulpprogramma's en andere softwaretoepassingen. U bepaalt zelf de mate waarin u de referentiecomputer handmatig configureert. U kunt de configuratie van de referentiecomputer volledig automatiseren door een takenreeks samen te stellen en vast te leggen, u kunt een aantal aspecten van de referentiecomputer handmatig configureren en vervolgens de rest automatiseren met behulp takenreeksen of u kunt de referentiecomputer handmatig configureren zonder gebruik te maken van takenreeksen. Gebruik de volgende secties voor het aanpassen van een besturingssysteem.
 
 ##  <a name="BKMK_PrepareReferenceComputer"></a>De referentiecomputer voorbereiden  
  Voordat u een installatiekopie van besturingssysteem van een referentiecomputer vastlegt, moet u rekening houden met verschillende aspecten.  
@@ -73,7 +70,7 @@ Installatiekopieën van besturingssystemen in System Center Configuration Manage
 
 -   **Te implementeren besturingssysteem**  
 
-     De referentiecomputer moet geïnstalleerd worden met het besturingssysteem dat u van plan bent te gebruiken op uw doelcomputers. Zie voor meer informatie over de besturingssystemen die u kunt implementeren, [vereisten voor de infrastructuur voor implementatie van besturingssysteem](../plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
+     De referentiecomputer moet geïnstalleerd worden met het besturingssysteem dat u van plan bent te gebruiken op uw doelcomputers. Zie voor meer informatie over de besturingssystemen die u kunt implementeren, [vereisten voor de infrastructuur voor besturingssysteemimplementatie](../plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
 
 -   **Juist servicepack**  
 
@@ -104,7 +101,7 @@ Installatiekopieën van besturingssystemen in System Center Configuration Manage
 
      Zie [Technische naslaginformatie over systeemvoorbereiding (Sysprep)](http://go.microsoft.com/fwlink/?LinkId=280286) voor meer informatie over Sysprep.  
 
--   **Juiste hulpprogramma's en scripts die zijn vereist om in te perken installatiescenario 's**  
+-   **Juiste hulpprogramma's en scripts die zijn vereist om te beperken installatiescenario 's**  
 
      Juiste hulpprogramma's en scripts die zijn vereist om installatie-scenario's in te perken  
 
@@ -112,7 +109,7 @@ Installatiekopieën van besturingssystemen in System Center Configuration Manage
 
      U kunt de referentiecomputer configureren met de aanpassingskenmerken voor het bureaublad die u wenst over te nemen wanneer u de installatiekopie van het besturingssysteem van de referentiecomputer vastlegt. Bureaubladkenmerken omvatten achtergrond, huisstijl van de organisatie en een standaardgebruikersprofiel.  
 
-##  <a name="BKMK_ManuallyBuildReference"></a>Handmatig een referentiecomputer maken  
+##  <a name="BKMK_ManuallyBuildReference"></a>Handmatig een referentiecomputer bouwen  
  Gebruik de volgende procedure om handmatig een referentiecomputer te bouwen.  
 
 > [!NOTE]  
@@ -135,8 +132,7 @@ Installatiekopieën van besturingssystemen in System Center Configuration Manage
 
  Zodra de referentiecomputer klaar is, gebruikt u een takenreeks om de installatiekopie van het besturingssysteem van de referentiecomputer vast te leggen.  Zie [Een installatiekopie van een besturingssysteem vastleggen vanaf een bestaande referentiecomputer](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md#BKMK_CaptureExistingRefComputer) voor gedetailleerde stappen.  
 
-##  <a name="BKMK_UseTSToBuildReference"></a>Een takenreeks gebruiken een referentiecomputer maken  
+##  <a name="BKMK_UseTSToBuildReference"></a>Een takenreeks gebruiken om een referentiecomputer te bouwen  
  U kunt het proces voor het maken van een referentiecomputer automatiseren door een takenreeks te gebruiken waarmee u het besturingsysteem, de stuurprogramma's, de toepassingen, enzovoort implementeert.  Voer de volgende stappen uit om de referentiecomputer te bouwen en vervolgens de installatiekopie van het besturingssysteem vanaf de referentiecomputer vast te leggen.  
 
 -   Gebruik een takenreeks om de installatiekopie van het referentiebesturingssysteem te maken en vast te leggen.  Zie [Een referentiecomputer bouwen en vastleggen met behulp van een takenreeks](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md#BKMK_BuildCaptureTS) voor gedetailleerde stappen.  
-

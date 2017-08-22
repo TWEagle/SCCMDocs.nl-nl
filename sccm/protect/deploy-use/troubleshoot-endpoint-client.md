@@ -1,44 +1,41 @@
 ---
-title: Oplossen van problemen met Windows Defender of Endpoint Protection-client | Microsoft-documenten
-description: Informatie over het oplossen van problemen met Windows Defender en Endpoint Protection.
+title: Troubleshooting Windows Defender of Endpoint Protection-client | Microsoft Docs
+description: Informatie over het oplossen van problemen met Windows Defender- en Endpoint Protection.
 ms.custom: na
 ms.date: 01/03/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d837253e-fcc2-422a-9e2c-c78b938dfd8c
-caps.latest.revision: 7
-caps.handback.revision: 0
+caps.latest.revision: "7"
+caps.handback.revision: "0"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 6accec2d356861b273b25ba2b6338d9684a46ff6
 ms.openlocfilehash: 1b096e71f5131214fb4e235e84d0b7f63e566831
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="troubleshooting-windows-defender-or-endpoint-protection-client"></a>Windows Defender of Endpoint Protection-client oplossen
+# <a name="troubleshooting-windows-defender-or-endpoint-protection-client"></a>Problemen met Windows Defender of Endpoint Protection-client oplossen
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
 Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u contact op met uw beveiligingsadministrator voor ondersteuning. De volgende problemen kunt u ook zelf oplossen:  
 
--   [Windows Defender en/of de Endpoint Protection](#update-windows-defender-or-endpoint-protection)  
+-   [Windows Defender of Endpoint Protection bijwerken](#update-windows-defender-or-endpoint-protection)  
 -   [Windows Defender of Endpoint Protection-service wordt gestart](#starting-windows-defender-or-endpoint-protection-service)  
 -   [Problemen met de internetverbinding](#internet-connection-issues)  
 -   [Gedetecteerde bedreiging kan niet worden hersteld.](#detected-threat-cant-be-remediated)  
 -   [De Endpoint Protection-client installeren](#install-the-endpoint-protection-client)  
 
-##  <a name="update-windows-defender-or-endpoint-protection"></a>Windows Defender en/of de Endpoint Protection  
- Windows Defender of Endpoint Protection werkt automatisch met Microsoft Update om ervoor te zorgen dat de definities van virussen en spyware up-to-date worden gehouden.  
+##  <a name="update-windows-defender-or-endpoint-protection"></a>Windows Defender of Endpoint Protection bijwerken  
+ Windows Defender of Endpoint Protection werkt automatisch met Microsoft Update om ervoor te zorgen dat uw definities van virussen en spyware up-to-date worden gehouden.  
 
  **Symptomen**  
 
@@ -59,7 +56,7 @@ Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u 
 > [!IMPORTANT]  
 >  U moet Internet Explorer afsluiten om deze stappen te voltooien. Druk ze daarom af, schrijf ze op of kopieer ze naar een ander bestand en maak vervolgens een bladwijzer aan voor dit onderwerp om later te gebruiken.  
 
-### <a name="step-1-reset-your-internet-explorer-settings"></a>Stap 1: Instellingen van Internet Explorer  
+### <a name="step-1-reset-your-internet-explorer-settings"></a>Stap 1: Instellingen van Internet Explorer opnieuw instellen  
 
 1.  Sluit alle geopende programma's af, ook Internet Explorer.  
 
@@ -80,7 +77,7 @@ Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u 
 
 8.  Als het probleem zich blijft voordoen, gaat u verder met de volgende stap.  
 
-### <a name="step-2-set-internet-explorer-as-the-default-browser"></a>Stap 2: Internet Explorer instellen als de standaardbrowser  
+### <a name="step-2-set-internet-explorer-as-the-default-browser"></a>Stap 2: Internet Explorer instellen als standaardbrowser  
 
 1.  Sluit alle geopende programma's af, ook Internet Explorer.  
 
@@ -96,7 +93,7 @@ Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u 
 
 7.  Als het probleem zich blijft voordoen, gaat u verder met de volgende stap.  
 
-### <a name="step-3-ensure-that-the-date-and-time-are-set-correctly-on-your-computer"></a>Stap 3: Zorg ervoor dat de datum en tijd correct zijn ingesteld op uw computer  
+### <a name="step-3-ensure-that-the-date-and-time-are-set-correctly-on-your-computer"></a>Stap 3: Controleren of de datum en tijd correct zijn ingesteld op uw computer  
 
 1.  Open Windows Defender of Endpoint Protection.  
 
@@ -104,7 +101,7 @@ Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u 
 
 3.  Als u de datum- of tijdinstelling opnieuw wilt instellen, volgt u de stappen in [Verbroken snelkoppelingen op het bureaublad en veelvoorkomende onderhoudstaken corrigeren](http://go.microsoft.com/fwlink/?LinkId=155579) (http://go.microsoft.com/fwlink/?LinkId=155579).  
 
-### <a name="step-4-rename-the-software-distribution-folder-on-your-computer"></a>Stap 4: Naam van de softwaredistributie-map op uw computer  
+### <a name="step-4-rename-the-software-distribution-folder-on-your-computer"></a>Stap 4: Wijzig de naam van de map softwaredistributie op uw computer  
 
 1. De service Automatische updates stoppen  
 
@@ -132,7 +129,7 @@ Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u 
 
     3.  Sluit het venster van de module Services.  
 
-### <a name="step-5-reset-the-microsoft-antivirus-update-engine-on-your-computer"></a>Stap 5: De Microsoft update voor antivirus-engine op uw computer herstellen  
+### <a name="step-5-reset-the-microsoft-antivirus-update-engine-on-your-computer"></a>Stap 5: De engine voor het bijwerken van antivirussoftware van Microsoft op de computer opnieuw instellen  
 
 1.  Klik op **Start** , zoek naar  **cmd**en klik vervolgens op **OK**. Klik met de rechtermuisknop op **Opdrachtprompt**en selecteer vervolgens **Als administrator uitvoeren**.  
 
@@ -153,7 +150,7 @@ Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u 
 
 5.  Als het probleem zich blijft voordoen, gaat u verder met de volgende stap.  
 
-### <a name="step-6-manually-install-the-virus-and-spyware-definition-updates"></a>Stap 6: De virus- en spywaredefinities definitie-updates handmatig te installeren  
+### <a name="step-6-manually-install-the-virus-and-spyware-definition-updates"></a>Stap 6: Definitie-updates van virus- en spywaredefinities handmatig installeren  
 
 -   Als u een 32-bits Windows-besturingssysteem hebt, kunt u de nieuwste updates handmatig downloaden op [http://go.microsoft.com/fwlink/?LinkID=87342](http://go.microsoft.com/fwlink/?LinkID=87342) (http://go.microsoft.com/fwlink/?LinkID=87342).  
 
@@ -169,7 +166,7 @@ Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u 
 ##  <a name="starting-windows-defender-or-endpoint-protection-service"></a>Windows Defender of Endpoint Protection-service wordt gestart  
  **Symptoom**  
 
- U ontvangt een bericht om u te informeren dat **Windows Defender of Endpoint Protection is niet de bewaking van uw computer omdat het programma-service is gestopt. U moet deze nu opnieuw.** 
+ U ontvangt een bericht met de mededeling dat **Windows Defender of Endpoint Protection is niet de bewaking van uw computer omdat de service van het programma is gestopt. U start het.** 
 
  **Oplossing**  
 
@@ -177,7 +174,7 @@ Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u 
 
 -   Sluit alle toepassingen en start de computer opnieuw op.  
 
-### <a name="step-2-make-sure-the-windows-defender-or-endpoint-protection-service-is-set-to-automatic-and-is-started"></a>Stap 2: Controleer of de 'Windows Defender' of 'Endpoint Protection-service' is ingesteld op automatisch en wordt gestart  
+### <a name="step-2-make-sure-the-windows-defender-or-endpoint-protection-service-is-set-to-automatic-and-is-started"></a>Stap 2: Zorg ervoor dat de 'Windows Defender' of 'Endpoint Protection-service' is ingesteld op automatisch en wordt gestart  
 
 1.  Klik op **Start** , zoek naar **services.msc**en druk vervolgens op **Enter**.  
 
@@ -189,13 +186,13 @@ Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u 
 
 5.  Noteer eventuele fouten die tijdens dit proces optreden. Meld dit in zo’n geval online en vermeld de gegevens over de fout erbij.  
 
-### <a name="step-3-remove-any-existing-internet-security-programs"></a>Stap 3: Verwijder alle bestaande beveiligingsprogramma 's  
+### <a name="step-3-remove-any-existing-internet-security-programs"></a>Stap 3: Alle bestaande internetbeveiligingsprogramma's verwijderen  
 
 1.  Klik op **Start** , zoek naar **appwiz.cpl**en druk vervolgens op **Enter**.  
 
 2.  Verwijder uit de lijst met geïnstalleerde programma's eventuele internetbeveiligingsprogramma’s van derden.*  
 
-3.  De computer opnieuw opstarten en vervolgens probeert te installeren Windows Defender of  
+3.  Start uw computer opnieuw op en probeer het installeren van Windows Defender of  
           Endpoint Protection opnieuw.  
 
 > [!NOTE]  
@@ -203,10 +200,10 @@ Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u 
 
 > [!CAUTION]  
 >  Wanneer u internetbeveiligingsprogramma's verwijdert, is de computer niet beveiligd. Als u problemen ondervindt installeren   
->       Endpoint Protection na het verwijderen van bestaande beveiligingsprogramma's, neem contact op met de Windows Defender of  
->       Endpoint Protection ondersteuning door het indienen van een aanvraag online (Zie voor meer informatie [het indienen van een aanvraag Online](http://www.microsoft.com/en-ph/security_essentials/Support/8c9074b6-1558-4d14-bc39-d294ced11096.aspx)).  
+>       Endpoint Protection na het verwijderen van bestaande internetbeveiligingsprogramma's, neem contact op met de Windows Defender of  
+>       Endpoint Protection ondersteuning door het probleem online te dienen (Zie voor meer informatie [hoe problemen Online indienen](http://www.microsoft.com/en-ph/security_essentials/Support/8c9074b6-1558-4d14-bc39-d294ced11096.aspx)).  
 
-### <a name="step-4-uninstallreinstall-endpoint-protection"></a>Stap 4: Endpoint Protection verwijderen en opnieuw te installeren  
+### <a name="step-4-uninstallreinstall-endpoint-protection"></a>Stap 4: Endpoint Protection verwijderen/opnieuw installeren  
 
 1.  Klik op **Start** , zoek naar **appwiz.cpl**en druk vervolgens op **Enter**.  
 
@@ -217,7 +214,7 @@ Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u 
 ##  <a name="internet-connection-issues"></a>Problemen met de internetverbinding  
  Om ervoor te zorgen dat de computer de meest recente updates via Windows Update ontvangt, moet u verbonden zijn met internet.  
 
-### <a name="step-1-verify-that-your-computer-is-connected-to-the-internet"></a>Stap 1: Controleer of dat uw computer is verbonden met het Internet  
+### <a name="step-1-verify-that-your-computer-is-connected-to-the-internet"></a>Stap 1: Controleren of uw computer is verbonden met Internet  
 
 1.  Klik op **Start**, zoek naar **ncpa.cpl**en druk vervolgens op **Enter**.  
 
@@ -231,7 +228,7 @@ Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u 
 
 -   Sluit alle geopende programma's en start de computer opnieuw op.  
 
-### <a name="step-4-if-you-still-cant-connect-to-the-internet-check-your-connections"></a>Stap 4: Als u nog steeds geen verbinding met Internet, controleert u uw verbindingen  
+### <a name="step-4-if-you-still-cant-connect-to-the-internet-check-your-connections"></a>Stap 4: Als u nog steeds geen verbinding met Internet kunt maken, de verbindingen controleren  
 
 1.  Als u een inbelverbinding gebruikt, controleert u of de telefoonkabel goed is aangesloten op de wandcontactdoos en op het modem.  
 
@@ -241,7 +238,7 @@ Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u 
 
 ##  <a name="detected-threat-cant-be-remediated"></a>Gedetecteerde bedreiging kan niet worden hersteld.  
  Wanneer Windows Defender of  
-      Een mogelijke bedreiging die binnen een gecomprimeerd bestand met de extensie .zip- of binnen een netwerkshare verbergt Endpoint Protection wordt gedetecteerd, wordt geprobeerd te gaan met de bedreiging door in quarantaine plaatsen of te verwijderen van de bedreiging.  
+      Endpoint Protection een mogelijke bedreiging die verborgen in een gecomprimeerd bestand met de extensie .zip of binnen een netwerkshare detecteert, wordt geprobeerd om te gaan met de bedreiging door in quarantaine plaatsen of te verwijderen.  
 
 ### <a name="remove-or-scan-the-file"></a>Het bestand verwijderen of scannen  
 
@@ -275,7 +272,7 @@ Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u 
 > [!IMPORTANT]  
 >  U moet de computer opnieuw opstarten tijdens het oplossen van dit probleem. Maak een bladwijzer voor deze pagina (markeren als favoriet) zodat u dit onderwerp makkelijker opnieuw kunt vinden of druk de pagina af om het snel te kunnen nazoeken.  
 
-### <a name="step-1-remove-any-existing-security-programs"></a>Stap 1: Verwijder alle bestaande security-programma 's  
+### <a name="step-1-remove-any-existing-security-programs"></a>Stap 1: Bestaande beveiligingsprogramma's verwijderen  
 **Endpoint Protection alleen**
 
 1.  Verwijder alle bestaande internetbeveiligingsprogramma's volledig.  
@@ -301,7 +298,7 @@ Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u 
 
 6.  Installeer Endpoint Protection opnieuw. Als het probleem hiermee niet is opgelost, gaat u verder met de volgende stap.  
 
-### <a name="step-3-start-windows-in-selective-startup-mode"></a>Stap 3: Start Windows in de modus Selectief  
+### <a name="step-3-start-windows-in-selective-startup-mode"></a>Stap 3: Windows starten in de modus Selectief opstarten  
 
 1.  Klik op **Start** , zoek naar **msconfig**en druk vervolgens op **Enter**.  
 
@@ -319,4 +316,3 @@ Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u 
  [Veelgestelde vragen over de Endpoint Protection-client](../../protect/deploy-use/endpoint-protection-client-faq.md)   
 
  [Endpoint Protection Client Help](../../protect/deploy-use/endpoint-protection-client-help.md)
-

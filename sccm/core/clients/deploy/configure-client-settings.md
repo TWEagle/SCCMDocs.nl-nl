@@ -1,28 +1,26 @@
 ---
-title: Configureren van clientinstellingen | Microsoft-documenten
+title: Clientinstellingen configureren | Microsoft Docs
 description: Selecteer clientinstellingen in System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-client
+ms.technology: configmgr-client
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 95e9858a-bad4-4651-9e61-2e31dc5050fa
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 690d03d9c8c49a815bd318df549d7401a855bc5d
 ms.openlocfilehash: 478d562bfb7fdb3921a4278741ff096e81e6092a
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-client-settings-in-system-center-configuration-manager"></a>Clientinstellingen configureren in System Center Configuration Manager
+# <a name="how-to-configure-client-settings-in-system-center-configuration-manager"></a>Het configureren van clientinstellingen in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
@@ -31,7 +29,7 @@ U beheert alle clientinstellingen in System Center Configuration Manager uit **b
 Zie voor meer informatie over iedere clientinstelling [over clientinstellingen in System Center Configuration Manager](../../../core/clients/deploy/about-client-settings.md).
 
 > [!NOTE]  
->  U kunt ook configuratie-items gebruiken om clients te beheren voor het beoordelen, bijhouden en herstellen van de configuratienaleving van apparaten. Zie voor meer informatie [Controleer apparaatcompatibiliteit met System Center Configuration Manager](../../../compliance/understand/ensure-device-compliance.md).  
+>  U kunt ook configuratie-items gebruiken om clients te beheren voor het beoordelen, bijhouden en herstellen van de configuratienaleving van apparaten. Zie voor meer informatie [apparaatcompatibiliteit met System Center Configuration Manager garanderen](../../../compliance/understand/ensure-device-compliance.md).  
 
 ##  <a name="configure-the-default-client-settings"></a>De standaardclientinstellingen configureren    
 
@@ -41,24 +39,24 @@ Zie voor meer informatie over iedere clientinstelling [over clientinstellingen i
 
 4.  Geef de clientinstellingen voor iedere instellingengroep in het navigatiedeelvenster weer en configureer deze.  
 
- Clientcomputers zullen worden geconfigureerd met deze instellingen wanneer ze de volgende keer het clientbeleid downloaden. Zie voor het initiëren van ophaalbeleid voor één client [ophalen van beleid initiëren voor een Configuration Manager-Client](../../../core/clients/manage/manage-clients.md#BKMK_PolicyRetrieval) in [in System Center Configuration Manager-clients beheren](../../../core/clients/manage/manage-clients.md).  
+ Clientcomputers zullen worden geconfigureerd met deze instellingen wanneer ze de volgende keer het clientbeleid downloaden. Zie voor het initiëren van het ophaalbeleid voor één client [ophalen van beleid initiëren voor een Configuration Manager-Client](../../../core/clients/manage/manage-clients.md#BKMK_PolicyRetrieval) in [clients in System Center Configuration Manager beheren](../../../core/clients/manage/manage-clients.md).  
 
-##  <a name="create-and-deploy-custom-client-settings"></a>Maken en implementeren van aangepaste clientinstellingen  
+##  <a name="create-and-deploy-custom-client-settings"></a>Instellingen voor aangepaste clientinstellingen maken en implementeren  
 Wanneer u deze aangepaste instellingen implementeert, overschrijven ze de standaardclientinstellingen. Controleer voordat u met deze procedure begint of u een verzameling hebt die gebruikers of apparaten bevat waarvoor deze aangepaste clientinstellingen nodig zijn.  
 
 1.  Kies in de Configuration Manager-console **beheer** > **clientinstellingen**.  
 
-3.  Op de **Start** tabblad, in de **maken** groep, kiest u **aangepaste clientinstellingen maken**, en selecteer vervolgens een:  
+3.  Op de **Start** tabblad, in de **maken** groep, kiest u **aangepaste clientinstellingen maken**, en kies vervolgens een:  
 
     -   **Aangepaste clientapparaatinstellingen maken**  
 
     -   **Aangepaste clientgebruikersinstellingen maken**  
 
-4.  Geef een unieke naam en de optie beschrijving.  
+4.  Geef een unieke naam en de optie-beschrijving.  
 
-5.  Selecteer een of meer van de selectievakjes in die een instellingengroep weergeven.  
+5.  Selecteer een of meer van de selectievakjes die een groep instellingen weergeven.  
 
-6.  Kies iedere instellingengroep in het navigatiedeelvenster en configureer de beschikbare instellingen en klik vervolgens op **OK**.   
+6.  Elke groep instellingen kiezen in het navigatiedeelvenster en klikt u op de beschikbare instellingen configureren **OK**.   
 
 8.  Selecteer de aangepaste clientinstelling die u hebt gemaakt. Op de **Start** tabblad, in de **clientinstellingen** groep, kiest u **implementeren**.  
 
@@ -66,18 +64,18 @@ Wanneer u deze aangepaste instellingen implementeert, overschrijven ze de standa
 
 10. Geef de volgorde weer van de aangepaste clientinstelling die u zojuist hebt gemaakt. Wanneer u meerdere aangepaste clientinstellingen hebt, worden deze toegepast volgens hun volgordenummer. Als er conflicten zijn, heft de instelling met het laagste volgordenummer de andere stellingen op. De als volgordenummer wilt wijzigen, op de **Start** tabblad, in de **clientinstellingen** groep, kiest u **Item omhoog verplaatsen** of **Item omlaag verplaatsen**.  
 
- Clientcomputers zullen worden geconfigureerd met deze instellingen wanneer ze de volgende keer het clientbeleid downloaden. Zie voor het initiëren van ophaalbeleid voor één client [ophalen van beleid initiëren voor een Configuration Manager-Client](../../../core/clients/manage/manage-clients.md#BKMK_PolicyRetrieval) in [in System Center Configuration Manager-clients beheren](../../../core/clients/manage/manage-clients.md).  
+ Clientcomputers zullen worden geconfigureerd met deze instellingen wanneer ze de volgende keer het clientbeleid downloaden. Zie voor het initiëren van het ophaalbeleid voor één client [ophalen van beleid initiëren voor een Configuration Manager-Client](../../../core/clients/manage/manage-clients.md#BKMK_PolicyRetrieval) in [clients in System Center Configuration Manager beheren](../../../core/clients/manage/manage-clients.md).  
 
-##  <a name="view-client-settings"></a>Client-instellingen weergeven  
+##  <a name="view-client-settings"></a>Instellingen van de client weergeven  
  Wanneer er meerdere clientinstellingen zijn geïmplementeerd voor hetzelfde apparaat, dezelfde gebruiker of dezelfde gebruikersgroep, kan de prioriteitsaanduiding en combinatie van instellingen erg complex zijn. Instellingen voor de client weergeven:  
 
 1.  Kies in de Configuration Manager-console **activa en naleving** > **apparaten** > **gebruikers** of **Gebruikersverzamelingen**.  
 
 3.  Selecteer een apparaat, gebruiker of gebruikersgroep en selecteer **Resulterende clientinstellingen** in de groep **Clientinstellingen**.  
 
-4.  Een clientinstelling selecteert in het linkerdeelvenster en de instellingen worden weergegeven. In deze weergave worden de instellingen zijn alleen-lezen. 
+4.  Selecteer een client-instelling in het linkerdeelvenster en de instellingen worden weergegeven. In deze weergave worden de instellingen zijn alleen-lezen. 
 
     > [!NOTE]  
-    >  Als u wilt weergeven van de clientinstellingen, moet u leestoegang hebben voor clientinstellingen.  
+    >  De als clientinstellingen wilt weergeven, moet u beschikken over leestoegang voor clientinstellingen.  
 
     

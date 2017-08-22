@@ -1,33 +1,30 @@
 ---
-title: Voorwaarden en bepalingen in System Center Configuration Manager | Microsoft-documenten
-description: Voorwaarden en bepalingen implementeren op gebruikersgroepen in System Center Configuration Manager.
+title: Voorwaarden in System Center Configuration Manager. | Microsoft Docs
+description: Voorwaarden implementeren voor gebruikersgroepen in System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 4d3f9e6b-4d71-4fc4-9b91-47f1bfbd8c70
-caps.latest.revision: 9
+caps.latest.revision: "9"
 author: nathbarn
 ms.author: nathbarn
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 3b1451edaed69a972551bd060293839aa11ec8b2
 ms.openlocfilehash: 20be68496099a67ad2d475067f073da2cef16c86
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="add-terms-and-conditions-with-system-center-configuration-manager"></a>Voorwaarden en bepalingen met System Center Configuration Manager toevoegen
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-U kunt System Center Configuration Manager-voorwaarden en bepalingen implementeren op gebruikersgroepen waarin wordt uitgelegd hoe apparaatinschrijving, toegang tot het werk en via de bedrijfsportal invloed op apparaten en gebruikers. Gebruikers moeten de voorwaarden accepteren voordat ze de bedrijfsportal kunnen gebruiken om hun apparaat te registreren en toegang te krijgen tot hun werk.  
+U kunt System Center Configuration Manager voorwaarden implementeren voor gebruikersgroepen om uit te leggen hoe apparaatinschrijving, toegang tot werkresources en het gebruik van de bedrijfsportal invloed hebben op apparaten en gebruikers. Gebruikers moeten de voorwaarden accepteren voordat ze de bedrijfsportal kunnen gebruiken om hun apparaat te registreren en toegang te krijgen tot hun werk.  
 
  ## <a name="working-with-terms-and-conditions-policies-in-system-center-configuration-manager"></a>Werken met voorwaarden in System Center Configuration Manager  
  U kunt meerdere sets voorwaarden maken en implementeren. U kunt ook meerdere versies van dezelfde voorwaarden in verschillende talen maken en deze voor de betreffende groepen implementeren.  
@@ -42,7 +39,7 @@ U kunt System Center Configuration Manager-voorwaarden en bepalingen implementer
 
     -   **Naam** -een unieke naam weergegeven in de Configuration Manager-console  
 
-    -   **Beschrijving** - die helpen identificeren van de bepalingen en voorwaarden in de Configuration Manager-console  
+    -   **Beschrijving** - die helpen bij het identificeren van de voorwaarden en condities in de Configuration Manager-console  
 
      Klik vervolgens op **Volgende**.  
 
@@ -52,7 +49,7 @@ U kunt System Center Configuration Manager-voorwaarden en bepalingen implementer
 
     -   **Tekst voor voorwaarden** : de voorwaarden die voor gebruikers in de bedrijfsportal worden weergegeven  
 
-    -   **Tekst waarmee wordt uitgelegd wat het inhoudt als de gebruiker de voorwaarden accepteert** e verklaring die gebruikers zien in verband met aanvaarding **Voorbeeld**: "Ik ga akkoord met de voorwaarden en bepalingen."  
+    -   **Tekst waarmee wordt uitgelegd wat het inhoudt als de gebruiker de voorwaarden accepteert** e verklaring die gebruikers zien in verband met aanvaarding **Voorbeeld**: "Ik ga akkoord met de voorwaarden."  
 
      Klik vervolgens op **Volgende**.  
 
@@ -73,7 +70,7 @@ U kunt System Center Configuration Manager-voorwaarden en bepalingen implementer
 
 ## <a name="to-monitor-terms-and-conditions"></a>Voorwaarden controleren  
 
-1.  U kunt voorwaarden en bepalingen implementaties in de Configuration Manager-console bewaken. Open de Configuration Manager-console en ga naar **Bewaking** > **Overzicht** > **Implementaties**.  
+1.  U kunt voorwaarden en bepalingen implementaties controleren in de Configuration Manager-console. Open de Configuration Manager-console en ga naar **Bewaking** > **Overzicht** > **Implementaties**.  
 
 2.  Selecteer de implementatie voor voorwaarden in de lijst met implementaties.  
 
@@ -124,4 +121,3 @@ U kunt System Center Configuration Manager-voorwaarden en bepalingen implementer
 
 > [!div class="button"]
 [< Vorige stap](configure-intune-subscription.md)[volgende stap >  ](create-service-connection-point.md)
-

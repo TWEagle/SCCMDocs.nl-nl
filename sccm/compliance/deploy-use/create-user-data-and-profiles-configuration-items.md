@@ -1,35 +1,31 @@
 ---
-title: Gebruikersgegevens en profielen configuratie-items maken | Microsoft-documenten
+title: Gebruikersgegevens en profielen configuratie-items maken | Microsoft Docs
 description: Configuratie-items en -profielen in System Center Configuration Manager voor het beheren van Mapomleiding, offlinebestanden en zwervende profielen gebruiken.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9fcbcc81-cd6f-496e-b075-ef1afa2b8ccc
-caps.latest.revision: 6
-caps.handback.revision: 0
+caps.latest.revision: "6"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: f9e939d871e95a3248d8e5d96cb73063a81fd5cf
 ms.openlocfilehash: 85b984d739dc9f9d2046186b381eff54ba687c66
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
 # <a name="create-user-data-and-profiles-configuration-items-in-system-center-configuration-manager"></a>Gebruikersgegevens en profielen configuratie-items maken in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Gebruiker en profielen configuratie-items in System Center Configuration Manager bevatten instellingen die Mapomleiding, offlinebestanden en zwervende profielen op computers met Windows 8 en hoger voor gebruikers in uw hiërarchie kunnen beheren. U kunt bijvoorbeeld:  
+Gebruiker en -profielen configuratie-items in System Center Configuration Manager bevatten instellingen die u beheren kunnen, Mapomleiding, offlinebestanden en zwervende profielen op computers met Windows 8 en hoger voor gebruikers in uw hiërarchie. U kunt bijvoorbeeld:  
 
 -   Leid de map Documenten van een gebruiker om naar een netwerkshare.  
 
@@ -37,7 +33,7 @@ Gebruiker en profielen configuratie-items in System Center Configuration Manager
 
 -   Configureer welke bestanden in het zwervende profiel van een gebruiker worden gesynchroniseerd met een netwerkshare wanneer de gebruiker zich aan- of afmeldt.  
 
- In tegenstelling tot andere configuratie-items in Configuration Manager u niet toevoegen van gebruikersgegevens en profielen configuratie-items aan een configuratiebasislijn die u vervolgens implementeert. In plaats daarvan implementeert u het configuratie-item rechtstreeks via het dialoogvenster **Configuratie-item voor gebruikersgegevens en -profielen implementeren** .  
+ In tegenstelling tot andere configuratie-items in Configuration Manager niet gebruikersgegevens toevoegen en configuratie-items aan een configuratiebasislijn dat u vervolgens implementeert profiel. In plaats daarvan implementeert u het configuratie-item rechtstreeks via het dialoogvenster **Configuratie-item voor gebruikersgegevens en -profielen implementeren** .  
 
 > [!IMPORTANT]  
 >  U kunt alleen configuratie-items voor gebruikersgegevens en -profielen implementeren naar gebruikersverzamelingen.  
@@ -57,36 +53,36 @@ Gebruiker en profielen configuratie-items in System Center Configuration Manager
 
 ## <a name="create-a-user-data-and-profiles-configuration-item"></a>Maken van een item voor gebruikersgegevens en profielen configuratie  
 
-1.  Klik in de Configuration Manager-console op **activa en naleving** > **compatibiliteitsinstellingen** > **gebruikersgegevens en profielen**.  
+1.  Klik in de Configuration Manager-console op **activa en naleving** > **instellingen voor naleving** > **gebruikersgegevens en -profielen**.  
 
 3.  Op het tabblad **Start** in de groep **Maken** klikt u op **Configuratie-item voor gebruikersgegevens en -profielen maken**.  
 
 4.  Geef op de pagina **Algemeen** van de wizard **Configuratie-item voor gebruikersgegevens en -profielen maken**de volgende informatie op:  
 
-    -   **Naam:** Geef een unieke naam voor de configuratie-item. U kunt maximaal 256 tekens gebruiken.  
+    -   **Naam:** Voer een unieke naam voor het configuratie-item. U kunt maximaal 256 tekens gebruiken.  
 
-    -   **Beschrijving:** Geef een beschrijving met een overzicht van het configuratie-item en andere relevante informatie die helpt bij het identificeren ervan in de Configuration Manager-console. U kunt maximaal 256 tekens gebruiken.  
+    -   **Beschrijving:** Geef een beschrijving met een van de configuratie-item en andere relevante informatie die helpt overzicht bij het identificeren ervan in de Configuration Manager-console. U kunt maximaal 256 tekens gebruiken.  
 
     -   **Mapomleiding:** Schakel dit selectievakje in als u instellingen wilt configureren voor Mapomleiding voor dit configuratie-item.  
 
-    -   **Offline bestanden:** Schakel dit selectievakje in als u instellingen wilt configureren voor offlinebestanden voor dit configuratie-item.  
+    -   **Offlinebestanden:** Schakel dit selectievakje in als u instellingen wilt configureren voor offlinebestanden voor dit configuratie-item.  
 
     -   **Zwervende gebruikersprofielen:** Schakel dit selectievakje in als u instellingen wilt configureren voor zwervende gebruikersprofielen voor dit configuratie-item.  
 
 5.  Op de pagina **Mapomleiding** van de wizard **Configuratie-item voor gebruikersgegevens en -profielen maken**geeft u op hoe u Mapomleiding wilt beheren op clientcomputers van gebruikers die dit configuratie-item ontvangen. U kunt instellingen configureren voor elk apparaat waarbij de gebruiker zich aanmeldt of alleen voor de primaire apparaten van de gebruiker. Raadpleeg de Windows Server-documentatie voor meer informatie over mapomleiding.  
 
     > [!NOTE]  
-    >  Deze pagina wordt alleen weergegeven als u de gecontroleerd **Mapomleiding** op de **algemeen** pagina van de wizard.  
+    >  Deze pagina wordt alleen weergegeven als u dit selectievakje inschakelt **Mapomleiding** op de **algemene** pagina van de wizard.  
 
 6.  Op de pagina **Offlinebestanden** van de wizard **Configuratie-item voor gebruikersgegevens en -profielen maken**kunt u offlinebestanden in- of uitschakelen voor gebruikers die dit configuratie-item ontvangen en kunt u instellingen configureren voor het gedrag van offlinebestanden. U kunt ook offlinebestanden opgeven die altijd beschikbaar zijn op een computer waarbij de gebruiker zich aanmeldt. Raadpleeg de Windows Server-documentatie voor meer informatie over offlinebestanden.  
 
     > [!NOTE]  
-    >  Deze pagina wordt alleen weergegeven als u het selectievakje aangevinkt **offlinebestanden** op de **algemeen** pagina van de wizard.  
+    >  Deze pagina wordt alleen weergegeven als u het selectievakje aangevinkt **offlinebestanden** op de **algemene** pagina van de wizard.  
 
 7.  Op de pagina **Zwervende profielen** van de wizard **Configuratie-item voor gebruikersgegevens en -profielen maken**kunt u configureren of zwervende profielen beschikbaar zijn op computers waarbij de gebruiker zich aanmeldt en kunt u ook meer informatie configureren over de werking van deze profielen. Raadpleeg de Windows Server-documentatie voor meer informatie over zwervende profielen.  
 
     > [!NOTE]  
-    >  Deze pagina wordt alleen weergegeven als u het selectievakje aangevinkt **zwervende gebruikersprofielen** op de **algemeen** pagina van de wizard.  
+    >  Deze pagina wordt alleen weergegeven als u het selectievakje aangevinkt **zwervende gebruikersprofielen** op de **algemene** pagina van de wizard.  
 
 8.  Voltooi de wizard.  
 
@@ -94,7 +90,7 @@ Gebruiker en profielen configuratie-items in System Center Configuration Manager
 
 ## <a name="deploy-a-user-data-and-profiles-configuration-item"></a>Implementeren van een item voor gebruikersgegevens en profielen configuratie  
 
-1.  Klik in de Configuration Manager-console op **activa en naleving** > **compatibiliteitsinstellingen** > **gebruikersgegevens en profielen**.  
+1.  Klik in de Configuration Manager-console op **activa en naleving** > **instellingen voor naleving** > **gebruikersgegevens en -profielen**.  
 
 3.  Selecteer het configuratie-item voor gebruikersgegevens en -profielen dat u wilt implementeren en klik vervolgens op het tabblad **Start** in de groep **Implementatie** op **Implementeren**.  
 
@@ -116,7 +112,6 @@ Gebruiker en profielen configuratie-items in System Center Configuration Manager
 5.  Klik op **OK** om het dialoogvenster **Configuratie-item voor gebruikersgegevens en -profielen implementeren** te sluiten en de implementatie te maken.  
 
 ## <a name="monitor-a-user-data-and-profiles-configuration-item"></a>Een configuratie-item voor gebruikersgegevens en -profielen bewaken  
- U kunt dit type configuratie-item bewaken op dezelfde manier als u andere instellingen voor naleving controleren.  
+ U kunt dit type configuratie-item controleren op dezelfde manier als dat u andere instellingen voor naleving bewaken.  
 
- Zie voor meer informatie [om compatibiliteitsinstellingen te controleren hoe](../../compliance/deploy-use/monitor-compliance-settings.md).  
-
+ Zie voor meer informatie [instellingen voor naleving bewaken](../../compliance/deploy-use/monitor-compliance-settings.md).  

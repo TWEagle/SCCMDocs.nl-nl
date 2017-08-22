@@ -6,8 +6,7 @@ ms.date: 07/31/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7def067e-845c-4db3-9d56-fa1dcf2fd7c7
@@ -15,12 +14,11 @@ caps.latest.revision:
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: MT
-ms.sourcegitcommit: 3c75c1647954d6507f9e28495810ef8c55e42cda
 ms.openlocfilehash: dab99748902df0fad32a1e2adad0c05e0dd8bdc9
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/29/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="checklist-for-installing-update-1706-for-system-center-configuration-manager"></a>Controlelijst voor het installeren van update 1706 voor System Center Configuration Manager
 
@@ -177,4 +175,3 @@ Na het bijwerken naar versie 1706, wordt elke keer de SMS_Executive wordt de vol
 -    Microsoft SQL Server meldt SQL 515, de ernst van 16: [23000] [515] [Microsoft] [SQL Server Native Client 11.0] [SQL Server] kan niet de waarde NULL niet invoegen in kolom RowVersion, tabel 'CM_GF1.dbo.AAD_SecretChange_Notify'; kolom mag geen null-waarden. INVOEGEN is mislukt.
 
 Dit bericht u kunt negeren.  Dit gebeurt wanneer er zijn geen cloudservices zijn geconfigureerd voor gebruik voordat u bijwerkt naar versie 1706. Dit probleem worden opgelost in een toekomstige release.
-

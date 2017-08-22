@@ -1,33 +1,30 @@
 ---
-title: Apparaatinschrijving instellen | Microsoft-documenten
-description: Gebruikers toestaan hun apparaten kunnen inschrijven voor On-premises mobiele apparaten beheren in System Center Configuration Manager.
+title: Apparaatinschrijving instellen | Microsoft Docs
+description: Gebruikers toestaan hun apparaten kunnen inschrijven voor On-premises Mobile Device Management in System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 9ffaea91-1379-4b86-9953-b25e152f56a9
-caps.latest.revision: 10
+caps.latest.revision: "10"
 author: Mtillman
 ms.author: mtillman
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 6424fb07802b62820b4dc78a58ab30d3b956abef
 ms.openlocfilehash: 16d4106d486d821b7ce92a1de65ebb04469d18de
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="set-up-device-enrollment-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Apparaatinschrijving instellen voor on-premises Mobile Device Management in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Zodat gebruikers hun apparaten kunnen inschrijven voor System Center Configuration Manager op\-lokale beheer van mobiele apparaten, moet u hen daarvoor toestemming verlenen. Volg de onderstaande taken om gebruikers machtigen om apparaten te registreren.
+Hierdoor kunnen gebruikers hun apparaten kunnen inschrijven voor System Center Configuration Manager op\-premises Mobile Device Management, moet u hen daarvoor toestemming verleend. Als u wilt machtigen gebruikers apparaten inschrijven, voer de volgende taken.
 
 -   [Een inschrijvingsprofiel maken waarmee gebruikers moderne apparaten kunnen registreren](#bkmk_createProf)  
 
@@ -38,9 +35,9 @@ Zodat gebruikers hun apparaten kunnen inschrijven voor System Center Configurati
 -   [Het basiscertificaat opslaan op apparaten die moeten worden ingeschreven](#bkmk_storeCert)  
 
 ##  <a name="bkmk_createProf"></a> Een inschrijvingsprofiel maken waarmee gebruikers moderne apparaten kunnen registreren  
- Voor het pushen van de instellingen die vereist zijn om gebruikers in moderne apparaten te registreren, kunt u toevoegen een nieuw inschrijvingsprofiel aan de standaardclientinstellingen die wordt toegepast op alle gedetecteerde gebruikers in de Configuration Manager-site.  
+ Voor het pushen van de instellingen die vereist dat gebruikers moderne apparaten te registreren, kunt u toevoegen een nieuw inschrijvingsprofiel aan de standaardclientinstellingen dat wordt toegepast op alle gedetecteerde gebruikers in de Configuration Manager-site.  
 
-1.  Klik in de Configuration Manager-console op **beheer** > **overzicht** > **clientinstellingen**, open **Standaardclientinstellingen** en selecteer **inschrijving**.  
+1.  Klik in de Configuration Manager-console op **beheer** > **overzicht** > **clientinstellingen**Open **Standaardclientinstellingen** en selecteer **inschrijving**.  
 
 2.  Geef onder Apparaatinstellingen het polling-interval voor moderne apparaten op.  
 
@@ -56,7 +53,7 @@ Zodat gebruikers hun apparaten kunnen inschrijven voor System Center Configurati
 ##  <a name="bkmk_addClient"></a> Aanvullende instellingen voor geregistreerde apparaten instellen  
  Naast het instellen van het inschrijvingsprofiel voor moderne apparaten, kunt u aanvullende clientinstellingen instellen voor het configureren van apparaten wanneer deze zijn ingeschreven.  Zie [Clientinstellingen in System Center Configuration Manager configureren](../../core/clients/deploy/configure-client-settings.md) voor informatie over het instellen van clientinstellingen.  
 
- Niet alle clientinstellingen beschikbaar zijn voor op\-premises beheer van mobiele apparaten. De huidige vertakking van Configuration Manager ondersteunt de volgende clientinstellingen voor op\-premises beheer van mobiele apparaten:  
+ Niet alle clientinstellingen zijn beschikbaar voor op\-premises Mobile Device Management. De huidige vertakking van Configuration Manager ondersteunt de volgende clientinstellingen voor op\-premises Mobile Device Management:  
 
 -   Registratie: Met deze instellingen bepaalt u het inschrijvingsprofiel voor beheerde apparaten. Zie [Een inschrijvingsprofiel maken waarmee gebruikers moderne apparaten kunnen registreren](#bkmk_createProf)voor meer informatie over het instellen van een inschrijvingsprofiel.  
 
@@ -65,10 +62,10 @@ Zodat gebruikers hun apparaten kunnen inschrijven voor System Center Configurati
 -   Implementatie van software: Met deze instelling bepaalt u het interval voor het evalueren van clientapparaten voor software-implementaties. Voor meer informatie over software-beleidsinstellingen raadpleegt u de sectie Software-implementatie in [Clientinstellingen in System Center Configuration Manager](../../core/clients/deploy/about-client-settings.md)  
 
     > [!NOTE]  
-    >  Voor op\-lokale beheer van mobiele apparaten, software-implementatie instellingen kunnen alleen worden gebruikt als standaard clientinstellingen. Instellingen voor software-implementatie kunnen niet worden gebruikt met aangepaste clientinstellingen in de huidige vertakking van Configuration Manager.  
+    >  Voor op\-premises Mobile Device Management, software-implementatie instellingen kunnen alleen worden gebruikt als standaardclientinstellingen. Instellingen voor software-implementatie kunnen niet worden gebruikt met aangepaste clientinstellingen in de huidige vertakking van Configuration Manager.  
 
 ##  <a name="bkmk_enableUsers"></a> Gebruikers in staat stellen het inschrijvingsprofiel voor moderne apparaten te ontvangen  
- Voor gebruikers met het inschrijvingsprofiel voor de gewijzigde clientinstellingen ontvangen op\-premises beheer van mobiele apparaten, moeten ze worden gedetecteerd via de detectiemethode voor Active Directory. Voer detectie voor Active Directory-gebruikers om te zorgen dat iedereen die het inschrijvingsprofiel nodig heeft, het ontvangt. Zie [Detectie uitvoeren voor System Center Configuration Manager](../../core/servers/deploy/configure/run-discovery.md) voor instructies voor het detecteren van gebruikers.  
+ Voor gebruikers voor het ontvangen van het inschrijvingsprofiel voor de gewijzigde clientinstellingen op\-premises Mobile Device Management, moeten zij worden gedetecteerd via de Active Directory-detectiemethode. Voer detectie voor Active Directory-gebruikers om te zorgen dat iedereen die het inschrijvingsprofiel nodig heeft, het ontvangt. Zie [Detectie uitvoeren voor System Center Configuration Manager](../../core/servers/deploy/configure/run-discovery.md) voor instructies voor het detecteren van gebruikers.  
 
 ##  <a name="bkmk_storeCert"></a> Het basiscertificaat opslaan op apparaten die moeten worden ingeschreven  
  Gebruikers met apparaten die lid zijn van een domein, hebben waarschijnlijk al het vereiste basiscertificaat voor vertrouwde communicatie met de servers die als host dienen voor de sitesysteemrollen, omdat het basiscertificaat is uitgegeven als onderdeel van het proces om lid te worden van een domein met Active Directory. Op computers en mobiele apparaten die geen lid zijn van een domein, moet het basiscertificaat handmatig op het apparaat worden geïnstalleerd om inschrijving toe te staan. Deze apparaten beschikken niet automatisch over het vereiste basiscertificaat.  
@@ -79,7 +76,7 @@ Zodat gebruikers hun apparaten kunnen inschrijven voor System Center Configurati
 
 1.  Ga op het apparaat dat moet worden ingeschreven naar het bestand voor het basiscertificaat en dubbelklik hierop.  
 
-2.  Op het venster certificaat **certificaat installeren...**  
+2.  Klik in het dialoogvenster certificaat **certificaat installeren...**  
 
 3.  Selecteer in de wizard Certificaat importeren de optie **Lokale computer**en klik op **Volgende**.  
 
@@ -90,4 +87,3 @@ Zodat gebruikers hun apparaten kunnen inschrijven voor System Center Configurati
 6.  Klik op **Vertrouwde basiscertificeringsinstanties**, klik op **OK**en klik op **Volgende**.  
 
 7.  Klik op **Voltooien**.  
-

@@ -1,33 +1,30 @@
 ---
-title: Vernieuwen van een bestaande computer met een nieuwe versie van Windows | Microsoft-documenten
-description: U kunt verschillende methoden gebruiken in Configuration Manager te partitioneren en formatteren (wissen) een bestaande computer en een nieuw besturingssysteem installeert op de computer.
+title: Een bestaande computer vernieuwen met een nieuwe versie van Windows | Microsoft Docs
+description: U kunt verschillende methoden gebruiken in Configuration Manager voor het partitioneren en formatteren (wissen) een bestaande computer en een nieuw besturingssysteem installeert op de computer.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: b189a346-8c0d-4870-a876-0719fbb0ab04
-caps.latest.revision: 7
+caps.latest.revision: "7"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 74341fb60bf9ccbc8822e390bd34f9eda58b4bda
 ms.openlocfilehash: b247cbb68ed63a8eb99715a248686d68a28c53e2
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="refresh-an-existing-computer-with-a-new-version-of-windows-using-system-center-configuration-manager"></a>Een bestaande computer via System Center Configuration Manager vernieuwen met een nieuwe versie van Windows
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Dit onderwerp bevat de algemene stappen in System Center Configuration Manager te partitioneren en formatteren (wissen) een bestaande computer en installeer een nieuw besturingssysteem op de computer. U kunt voor dit scenario kiezen uit veel verschillende implementatiemethoden, zoals PXE, opstartbare media of Software Center. U kunt er ook voor kiezen om een statusmigratiepunt te installeren waarin de instellingen kunnen worden opgeslagen om deze vervolgens terug te zetten in het nieuwe besturingssysteem nadat dit is geïnstalleerd. Als u weet dat dit het juiste besturingssysteem implementatiescenario voor u is, ziet u [scenario's voor het implementeren van besturingssystemen enterprise](scenarios-to-deploy-enterprise-operating-systems.md).  
+Dit onderwerp bevat de algemene stappen in System Center Configuration Manager voor het partitioneren en formatteren (wissen) een bestaande computer en installeer een nieuw besturingssysteem op de computer. U kunt voor dit scenario kiezen uit veel verschillende implementatiemethoden, zoals PXE, opstartbare media of Software Center. U kunt er ook voor kiezen om een statusmigratiepunt te installeren waarin de instellingen kunnen worden opgeslagen om deze vervolgens terug te zetten in het nieuwe besturingssysteem nadat dit is geïnstalleerd. Als u niet zeker weet dat dit het juiste besturingssysteem implementatiescenario voor u is, raadpleegt u [scenario's voor het implementeren van enterprise-besturingssystemen](scenarios-to-deploy-enterprise-operating-systems.md).  
 
  Gebruik de volgende secties om een bestaande computer te vernieuwen met een nieuwe versie van Windows.  
 
@@ -35,7 +32,7 @@ Dit onderwerp bevat de algemene stappen in System Center Configuration Manager t
 
 -   **Infrastructuurvereisten plannen en implementeren**  
 
-     Er zijn verschillende vereisten voor de infrastructuur die voldaan worden moeten voordat u kunt implementeren besturingssystemen, zoals Windows ADK, gebruiker State Migration Tool (USMT), Windows Deployment Services (WDS) ondersteunde configuraties van harde schijf, enzovoort. Zie voor meer informatie [vereisten voor de infrastructuur voor implementatie van besturingssysteem](../plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
+     Er zijn verschillende infrastructuurvereisten waaraan voldaan worden moeten voordat u kunt implementeren besturingssystemen, zoals Windows ADK, User status Migration Tool (USMT), Windows Deployment Services (WDS) ondersteunde vasteschijfconfiguraties, enzovoort. Zie voor meer informatie [vereisten voor de infrastructuur voor besturingssysteemimplementatie](../plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
 
 -   **Een statusmigratiepunt installeren (alleen vereist als u instellingen overzet)**  
 
@@ -47,7 +44,7 @@ Dit onderwerp bevat de algemene stappen in System Center Configuration Manager t
 
      Opstartinstallatiekopieën starten een computer op in een Windows PE-omgeving (minimaal besturingssysteem met beperkte onderdelen en services), waarna er een volledig Windows-besturingssysteem op de computer kan worden geïnstalleerd.   Wanneer u besturingssystemen implementeert, moet u de opstartinstallatiekopie selecteren die u wilt gebruiken en de installatiekopie distribueren naar een distributiepunt. Gebruik de volgende informatie om een opstartinstallatiekopie voor te bereiden:  
 
-    -   Zie voor meer informatie over opstartinstallatiekopieën [opstartinstallatiekopieën beheren](../get-started/manage-boot-images.md).  
+    -   Zie voor meer informatie over opstartinstallatiekopieën, [opstartinstallatiekopieën beheren](../get-started/manage-boot-images.md).  
 
     -   Zie voor meer informatie over het aanpassen van een opstartinstallatiekopie [opstartinstallatiekopieën aanpassen](../get-started/customize-boot-images.md).  
 
@@ -57,13 +54,13 @@ Dit onderwerp bevat de algemene stappen in System Center Configuration Manager t
 
      De installatiekopie van het besturingssysteem bevat de bestanden die nodig zijn om het besturingssysteem op de doelcomputer te installeren. Gebruik de volgende informatie om de installatiekopie van het besturingssysteem voor te bereiden:  
 
-    -   Zie voor meer informatie over het maken van een besturingssysteeminstallatiekopie [installatiekopieën van besturingssystemen beheren](../get-started/manage-operating-system-images.md).  
+    -   Zie voor meer informatie over het maken van een installatiekopie van het besturingssysteem, [installatiekopieën van besturingssystemen beheren](../get-started/manage-operating-system-images.md).  
 
     -   Distribueer de installatiekopie van het besturingssysteem naar distributiepunten. Zie voor meer informatie [inhoud distribueren](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
 
 3.  **Een takenreeks maken om besturingssystemen via het netwerk te implementeren**  
 
-     Maak een takenreeks om de installatie van het besturingssysteem via het netwerk te automatiseren. Gebruik de stappen in [maken van een takenreeks om een besturingssysteem te installeren](create-a-task-sequence-to-install-an-operating-system.md) voor het maken van de takenreeks om het besturingssysteem te implementeren. Afhankelijk van de implementatiemethode waarvoor u kiest, kunnen er aanvullende overwegingen zijn bij het samenstellen van de takenreeks.  
+     Maak een takenreeks om de installatie van het besturingssysteem via het netwerk te automatiseren. Gebruik de stappen in [een takenreeks maken om een besturingssysteem te installeren](create-a-task-sequence-to-install-an-operating-system.md) voor het maken van de takenreeks om het besturingssysteem te implementeren. Afhankelijk van de implementatiemethode waarvoor u kiest, kunnen er aanvullende overwegingen zijn bij het samenstellen van de takenreeks.  
 
     > [!NOTE]  
     >  In dit scenario worden de harde schijven op de computer met deze takenreeks geformatteerd en gepartitioneerd. Als u gebruikersinstellingen wilt vastleggen, moet u het statusmigratiepunt gebruiken en **Gebruikersinstellingen en bestanden opslaan op een statusmigratiepunt** selecteren op de pagina **Statusmigratie** van de wizard Takenreeks maken. Als u de gebruikersinstellingen en bestanden lokaal opslaat, worden deze verloren wanneer de vaste schijf wordt geformatteerd en Configuration Manager kan geen om de instellingen te herstellen. Zie voor meer informatie [Gebruikersstatus beheren](../get-started/manage-user-state.md).  
@@ -72,21 +69,20 @@ Dit onderwerp bevat de algemene stappen in System Center Configuration Manager t
 
 -   Gebruik een van de volgende implementatiemethoden om het besturingssysteem te implementeren:  
 
-    -   [PXE gebruiken om Windows te implementeren via het netwerk](use-pxe-to-deploy-windows-over-the-network.md)  
+    -   [PXE gebruiken om Windows via het netwerk te implementeren](use-pxe-to-deploy-windows-over-the-network.md)  
 
-    -   [Gebruik multicast om Windows te implementeren via het netwerk](use-multicast-to-deploy-windows-over-the-network.md)  
+    -   [Multicast gebruiken om Windows via het netwerk te implementeren](use-multicast-to-deploy-windows-over-the-network.md)  
 
-    -   [Een installatiekopie maken voor een OEM in de fabriek of een lokale depot](create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
+    -   [Een installatiekopie voor een OEM in de fabriek of een lokaal depot maken](create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
 
-    -   [Zelfstandige media gebruiken om Windows te implementeren zonder het gebruik van het netwerk](use-stand-alone-media-to-deploy-windows-without-using-the-network.md)  
+    -   [Zelfstandige media gebruiken om Windows te implementeren zonder gebruik van het netwerk](use-stand-alone-media-to-deploy-windows-without-using-the-network.md)  
 
-    -   [Opstartbare media gebruikt om Windows te implementeren via het netwerk](use-bootable-media-to-deploy-windows-over-the-network.md)  
+    -   [Opstartbare media gebruiken om Windows te implementeren via het netwerk](use-bootable-media-to-deploy-windows-over-the-network.md)  
 
-    -   [Software Center gebruiken om Windows te implementeren via het netwerk](use-software-center-to-deploy-windows-over-the-network.md)  
+    -   [Windows met Software Center via het netwerk implementeren](use-software-center-to-deploy-windows-over-the-network.md)  
 
 ## <a name="monitor"></a>Monitor  
 
 -   **De takenreeksimplementatie controleren**  
 
-     Zie voor het controleren van de implementatie van takenreeks om het besturingssysteem te installeren, [bewaken van implementaties van besturingssystemen](monitor-operating-system-deployments.md).  
-
+     Voor het bewaken van de takenreeksimplementatie om het besturingssysteem te installeren, Zie [implementaties van besturingssystemen bewaken](monitor-operating-system-deployments.md).  

@@ -6,21 +6,19 @@ ms.date: 07/18/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-hybrid
+ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 73ff9bb9-e605-4b68-92a1-487684fed42d
-caps.latest.revision: 10
+caps.latest.revision: "10"
 author: dougeby
 ms.author: dougeby
 manager: angrobe
+ms.openlocfilehash: 26c36df77c21254c7ad2b8a45906bd3706f9ec65
+ms.sourcegitcommit: 06aef618f72c700f8a716a43fb8eedf97c62a72b
 ms.translationtype: MT
-ms.sourcegitcommit: 648bc6b96aa5ccc834442a962e6d5b5125f88bb5
-ms.openlocfilehash: ddb6d47e5dba4fddd6fa811d83b1bf0c91ad26f9
-ms.contentlocale: nl-nl
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/21/2017
 ---
 # <a name="choose-between-microsoft-intune-standalone-and-hybrid-mobile-device-management-with-system-center-configuration-manager"></a>Kiezen tussen Microsoft Intune standalone en hybride beheer van mobiele apparaten met System Center Configuration Manager
 
@@ -51,8 +49,7 @@ Hybride MDM is een oplossing die mogelijkheden voor mobile device management van
 
 
 ## <a name="changing-the-mdm-authority-setting"></a>De MDM-instantie-instelling te wijzigen
-Als u wijzigen van de instelling van de MDM-instantie wilt, kunt u deze zelf zonder contact opnemen met Microsoft Support en zonder de registratie ongedaan maken en registreren van uw bestaande beheerde apparaten. Zie voor meer informatie [wijzigen van uw MDM-instantie](/sccm/mdm/deploy-use/change-mdm-authority.md).
+Als u wijzigen van de instelling van de MDM-instantie wilt, kunt u deze zelf zonder contact opnemen met Microsoft Support en zonder de registratie ongedaan maken en registreren van uw bestaande beheerde apparaten. Zie voor meer informatie [wijzigen van uw MDM-instantie](../deploy-use/change-mdm-authority.md).
 
 > [!NOTE]    
 > U moet Configuration Manager versie 1610 of hoger te wijzigen van uw MDM-instantie in de zelfstandige versie van Intune hebben. Wanneer u een eerdere versie van Configuration Manager hebt, kunt u de MDM-instantie, maar het Help-informatie van Microsoft-ondersteuning en bewerkingen vereist. Ook moet u de registratie ongedaan maakt en al uw apparaten registreren nadat de MDM-instantie wordt gewijzigd.  
-

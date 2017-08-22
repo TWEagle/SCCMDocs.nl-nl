@@ -6,23 +6,20 @@ ms.date: 1/12/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 066caf00-e419-4efb-93d3-ba4ba878297c
-caps.latest.revision: 7
-caps.handback.revision: 0
+caps.latest.revision: "7"
+caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: c6ee0ed635ab81b5e454e3cd85637ff3e20dbb34
 ms.openlocfilehash: 17f3955aa7c63a13bab03b46002f7de0b0ec38fe
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/08/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="plan-for-the-migration-of-configuration-manager-objects-to-system-center-configuration-manager"></a>Plan voor de migratie van Configuration Manager-objecten naar System Center Configuration Manager
 
@@ -188,4 +185,3 @@ Zie voor meer informatie over het rapporteren van [rapportage in System Center C
  Er zijn geen belangrijke wijzigingen aangebracht in softwarelicentiecontrole tussen Configuration Manager 2007 en System Center Configuration Manager. U kunt uw regels voor softwarelicentiecontrole vanuit een ondersteunde bronhiërarchie naar een doelhiërarchie migreren.  
 
  Standaard worden de door u naar een doelhiërarchie gemigreerde regels voor softwarelicentiecontrole niet aan een specifieke site in de doelhiërarchie gekoppeld en zijn daarentegen van toepassing op alle clients in de hiërarchie. Wanneer u een regel voor softwarelicentiecontrole wilt laten gelden voor clients op een specifieke site, moet u de regel voor softwarelicentiecontrole bewerken na de migratie ervan.  
-

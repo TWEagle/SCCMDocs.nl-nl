@@ -1,6 +1,6 @@
 ---
-title: Downloaden van software-updates - Configuration Manager | Microsoft-documenten
-description: Gebruik de Wizard Software-Updates downloaden voor software-updates downloaden en ze distribueren naar distributiepunten, zodat ze gereed zijn voor implementatie naar clients.
+title: Downloaden van software-updates - Configuration Manager | Microsoft Docs
+description: Gebruik de Wizard Software-Updates downloaden voor software-updates downloaden en ze distribueren naar distributiepunten, zodat ze klaar om te implementeren op clients.
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -9,26 +9,19 @@ ms.date: 01/23/2017
 ms.topic: article
 ms.prod: configuration-manager
 ms.service: 
-ms.technology:
-- configmgr-sum
+ms.technology: configmgr-sum
 ms.assetid: de78e8d3-043f-4cd3-97e0-4dfb824fd3fb
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 4e44e2b8f6baf020c3b7742bafd607082ffacaa4
 ms.openlocfilehash: f38f72f9f547b82c92789f02975cbd0193b79b2d
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
-
-
-
 # <a name="download-software-updates"></a>Software-updates downloaden  
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Er zijn verschillende methoden beschikbaar voor het downloaden van softwareupdates in Configuration Manager. Wanneer u een regel voor automatische implementatie (ADR) maakt of software-updates handmatig implementeert, worden de software-updates gedownload naar de Inhoudsbibliotheek op de siteserver. Vervolgens wordt worden de software-updates gekopieerd naar de Inhoudsbibliotheek op de distributiepunten die gekoppeld aan het geconfigureerde implementatiepakket zijn. Als u de software-updates wilt downloaden voordat u deze implementeert, kunt u de wizard Updates downloaden gebruiken. Dit stelt u in staat om de controleren of de software-updates beschikbaar zijn op de distributiepunten voordat u de software-updates implementeert voor clientcomputers.  
+Er zijn verschillende methoden beschikbaar voor het downloaden van softwareupdates in Configuration Manager. Wanneer u een regel voor automatische implementatie (ADR) maakt of software-updates handmatig implementeert, worden de software-updates gedownload naar de Inhoudsbibliotheek op de siteserver. Vervolgens worden de software-updates gekopieerd naar de Inhoudsbibliotheek op de distributiepunten die gekoppeld aan het geconfigureerde implementatiepakket zijn. Als u de software-updates wilt downloaden voordat u deze implementeert, kunt u de wizard Updates downloaden gebruiken. Dit stelt u in staat om de controleren of de software-updates beschikbaar zijn op de distributiepunten voordat u de software-updates implementeert voor clientcomputers.  
 
 > [!NOTE]  
 >  Zie [Inhoudstatussen controleren](../deploy-use/monitor-software-updates.md#BKMK_ContentStatus) voor informatie over het controleren van inhoudstatussen.  
@@ -119,4 +112,3 @@ Gebruik de volgende procedure om software-updates te downloaden met de wizard So
 9. On the **Summary** page, verify the settings that you selected in the wizard, and then click **Next** to download the software updates.  
 
 10. On the **Completion** page, verify that the software updates were successfully downloaded, and then click **Close**.  --->
-

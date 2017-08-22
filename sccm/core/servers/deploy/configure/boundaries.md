@@ -1,37 +1,34 @@
 ---
-title: "Grenzen definiëren | Microsoft-documenten"
-description: Begrijpen hoe definieert netwerklocaties op het intranet die u wilt beheren apparaten kan bevatten.
+title: "Grenzen definiëren | Microsoft Docs"
+description: "Begrijpen hoe netwerklocaties op uw intranet die u wilt beheren apparaten kan bevatten definiëren."
 ms.custom: na
 ms.date: 3/27/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 4a9dc4d9-e114-42ec-ae2b-73bee14ab04f
-caps.latest.revision: 10
+caps.latest.revision: "10"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: dab5da5a4b5dfb3606a8a6bd0c70a0b21923fff9
 ms.openlocfilehash: bed70809008fde5e2b0215f4dce049402edf83ba
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="define-network-locations-as-boundaries-for-system-center-configuration-manager"></a>Definieer netwerklocaties als grenzen voor System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Configuration Manager grenzen zijn locaties op het netwerk die apparaten bevatten die u wilt beheren. De grens van die een apparaat ingeschakeld is, is gelijk aan de Active Directory-site of netwerk-IP-adres dat wordt geïdentificeerd door de Configuratoin Manager-client die op het apparaat is geïnstalleerd.
+Configuration Manager grenzen zijn locaties op uw netwerk die apparaten bevatten die u wilt beheren. De grens van die een apparaat ingeschakeld is, is gelijk aan de Active Directory-site of een netwerk-IP-adres dat wordt geïdentificeerd door de Configuratoin Manager-client die op het apparaat is geïnstalleerd.
  - U kunt handmatig afzonderlijke grenzen maken. Configuration Manager biedt echter geen ondersteuning voor de rechtstreekse invoer van een supernet als grens. Gebruik in plaats daarvan het grenstype IP-adresbereik.
- - U kunt de [detectie van Active Directory-forests](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutForest) methode voor het automatisch detecteren en grenzen maken voor elke IP-subnetten en Active Directory-sites. Wanneer de detectie van Active Directory-forests een supernet identificeert dat is toegewezen aan een Active Directory-site, wordt dit supernet door Configuration Manager in de grens van een IP-adresbereik.  
+ - U kunt de [Active Directory Forest Discovery](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutForest) methode voor het automatisch detecteren en grenzen maken voor elk IP-subnetten en Active Directory-sites. Wanneer Active Directory-Forestdetectie een supernet dat is toegewezen aan een Active Directory-site identificeert, wordt dit supernet door Configuration Manager in een grens van IP-adresbereik.  
 
-Het is niet ongebruikelijk is voor een apparaat een beheerder van Configuration Manager niet op de hoogte van is IP-adres gebruiken. Als de netwerklocatie van een apparaat waarover twijfel bestaat is, controleren wat het apparaat gerapporteerd als de locatie met behulp van de **IPCONFIG** opdracht op het apparaat.  
+Het is niet ongewoon is voor het gebruik van een IP-adres dat de Configuration Manager-beheerder niet bekend met is een apparaat. Wanneer de netwerklocatie van een apparaat onzeker is, controleert u wat het apparaat meldt als de locatie met behulp van de **IPCONFIG** opdracht op het apparaat.  
 
 Wanneer u een grens maakt, krijgt deze automatisch een naam die is gebaseerd op het type en bereik van de grens. U kunt deze naam niet wijzigen. In plaats daarvan kunt u een beschrijving die de grens in de Configuration Manager-console te identificeren.  
 
@@ -87,4 +84,3 @@ Elke grens is beschikbaar voor gebruik door elke site in uw hiërarchie. Nadat u
     -   Als u deze grens uit een grensgroep wilt verwijderen, selecteert u de grensgroep en klikt u op **Verwijderen**.  
 
 7.  Klik op **OK** om de grenseigenschappen te sluiten en de configuratie op te slaan.  
-

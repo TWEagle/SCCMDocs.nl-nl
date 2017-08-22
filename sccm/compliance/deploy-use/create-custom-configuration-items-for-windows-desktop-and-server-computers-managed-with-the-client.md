@@ -1,39 +1,36 @@
 ---
-title: Maken van configuratie-items voor computers met client beheerde Windows - Configuration Manager | Microsoft-documenten
+title: Configuratie-items maken voor Windows-computers client beheerd - Configuration Manager | Microsoft Docs
 description: Instellingen beheren voor Windows-computers en servers met een aangepaste Windows-Desktops en Servers configuratie-item.
 ms.custom: na
 ms.date: 11/18/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1eb2fcaf-acac-4388-9b31-6cccafacaabe
-caps.latest.revision: 9
-caps.handback.revision: 0
+caps.latest.revision: "9"
+caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 31819a1df4e63e1114682490a9b3c3b4e5c99cfa
 ms.openlocfilehash: e040c6b3a951d1bdf5a46dd82f1bd92b45c2e71d
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="how-to-create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-system-center-configuration-manager-client"></a>Aangepaste configuratie-items voor Windows-desktopcomputers en -servercomputers maken die worden beheerd met de System Center Configuration Manager-client
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
-Gebruik de System Center Configuration Manager **aangepaste Windows-Desktops en Servers** configuratie-item voor het beheren van instellingen voor Windows-computers en servers die worden beheerd door de Configuration Manager-client.  
+De System Center Configuration Manager gebruiken **aangepaste Windows-Desktops en Servers** configuratie-item voor het beheren van instellingen voor Windows-computers en servers die worden beheerd door de Configuration Manager-client.  
 
 ## <a name="start-the-create-configuration-item-wizard"></a>Start de configuratiewizard-item
 
-1.  Klik in de Configuration Manager-console op **activa en naleving** > **compatibiliteitsinstellingen** > **configuratie-Items**.  
+1.  Klik in de Configuration Manager-console op **activa en naleving** > **instellingen voor naleving** > **configuratie-Items**.  
 
 3.  Klik op het tabblad **Start** in de groep **Maken** op **Configuratie-item maken**.  
 
@@ -44,7 +41,7 @@ Gebruik de System Center Configuration Manager **aangepaste Windows-Desktops en 
     > [!TIP]  
     >  Als u instellingen voor de detectiemethode wilt opgeven om te controleren op het bestaan van een toepassing, selecteert u **Dit configuratie-item bevat toepassingsinstellingen**.  
 
-6.  Klik op **categorieën** als u maken en toewijzen van categorieën om te zoeken en filteren van configuratie-items in de Configuration Manager-console.  
+6.  Klik op **categorieën** als u categorieën maakt en toewijst om te zoeken en filteren van configuratie-items in de Configuration Manager-console.  
 
 ## <a name="provide-detection-method-information"></a>Gegevens voor detectiemethode opgeven  
  Gebruik deze procedure om gegevens voor de detectiemethode op te geven voor het configuratie-item.  
@@ -52,9 +49,9 @@ Gebruik de System Center Configuration Manager **aangepaste Windows-Desktops en 
 > [!NOTE]  
 >  Dit geldt alleen als u **Dit configuratie-item bevat toepassingsinstellingen** hebt geselecteerd op de pagina **Algemeen** van de wizard.  
 
- Een detectiemethode in Configuration Manager bevat regels die worden gebruikt om te detecteren of een toepassing op een computer is geïnstalleerd. Deze detectie vindt plaats voordat het configuratie-item wordt beoordeeld op naleving. Als u wilt verifiëren of een toepassing is geïnstalleerd, kunt u controleren of er een Windows Installer-bestand aanwezig is voor de toepassing, een aangepast script gebruiken of **Altijd aannemen dat de toepassing is geïnstalleerd** selecteren om het configuratie-item op naleving te controleren, ongeacht of de toepassing is geïnstalleerd.  
+ Een detectiemethode in Configuration Manager bevat de regels die worden gebruikt om te detecteren of een toepassing is geïnstalleerd op een computer. Deze detectie vindt plaats voordat het configuratie-item wordt beoordeeld op naleving. Als u wilt verifiëren of een toepassing is geïnstalleerd, kunt u controleren of er een Windows Installer-bestand aanwezig is voor de toepassing, een aangepast script gebruiken of **Altijd aannemen dat de toepassing is geïnstalleerd** selecteren om het configuratie-item op naleving te controleren, ongeacht of de toepassing is geïnstalleerd.  
 
- Gebruik deze procedures voor het configureren van detectiemethoden in System Center Configuration Manager.  
+ Gebruik deze procedures om detectiemethoden te configureren in System Center Configuration Manager.  
 
 ### <a name="to-detect-an-application-installation-by-using-the-windows-installer-file"></a>De installatie van een toepassing detecteren met het Windows Installer-bestand  
 
@@ -99,7 +96,7 @@ Gebruik de System Center Configuration Manager **aangepaste Windows-Desktops en 
 
     -   **Beschrijving:** Voer een beschrijving voor de instelling. U kunt maximaal 256 tekens gebruiken.  
 
-    -   **Instellingstype:** Kies in de lijst, en configureer een van de volgende Instellingstypen moet worden gebruikt voor deze instelling:  
+    -   **Instellingstype:** Kies in de lijst en configureer een van de volgende instellingstypen voor deze instelling gebruiken:  
 
         -   **Active Directory-query**  
 
@@ -133,7 +130,7 @@ Gebruik de System Center Configuration Manager **aangepaste Windows-Desktops en 
 
              Configureer het volgende voor dit instellingstype:  
 
-            -   **Naam van assembly:** Hiermee geeft u de naam van het assembly-object dat u wilt zoeken. Deze naam mag niet dezelfde zijn als die van een ander assembly-object van hetzelfde type en moet zijn geregistreerd in de Global Assembly-cache. De assembly-naam mag maximaal 256 tekens lang zijn.  
+            -   **Assembly-naam:** Hiermee geeft u de naam van het assembly-object dat u wilt zoeken. Deze naam mag niet dezelfde zijn als die van een ander assembly-object van hetzelfde type en moet zijn geregistreerd in de Global Assembly-cache. De assembly-naam mag maximaal 256 tekens lang zijn.  
 
              Een assembly is een stuk code dat tussen toepassingen kan worden gedeeld. Assembly's kunnen de bestandsnaamextensie .dll of .exe hebben. De Global Assembly-cache is een map met de naam *%systemroot%\Assembly* op clientcomputers waarin alle gedeelde assembly's zijn opgeslagen.  
 
@@ -151,7 +148,7 @@ Gebruik de System Center Configuration Manager **aangepaste Windows-Desktops en 
             -   **Bestands- of mapnaam**: geef de naam op van het bestands- of mapobject waarnaar moet worden gezocht. U kunt in de bestands- of map naam systeemomgevingsvariabelen specificeren en de *%USERPROFILE%*-omgevingsvariabele. U kunt ook de jokertekens * en ? in de bestandsnaam gebruiken.  
 
                 > [!NOTE]  
-                >  Als u een bestands- of mapnaam opgeeft en hierbij jokertekens, wordt deze combinatie kunt u een groot aantal resultaten krijgen en kan leiden tot een hoog bronnengebruik op de clientcomputer en veel netwerkverkeer wanneer resultaten rapporteren voor Configuration Manager.  
+                >  Als u een bestand of map opgeeft en hierbij jokertekens, wordt deze combinatie een groot aantal resultaten opleveren, kan leiden tot hoog bronnengebruik op de clientcomputer en veel netwerkverkeer wanneer resultaten rapporteren aan Configuration Manager.  
 
             -   **Inclusief submappen** – Schakel deze optie in als u in submappen wilt zoeken onder het opgegeven pad.  
 
@@ -231,7 +228,7 @@ Gebruik de System Center Configuration Manager **aangepaste Windows-Desktops en 
 
         -   **XPath-query**  
 
-            -   **Pad**: geef het pad op naar het XML-bestand op clientcomputers die wordt gebruikt om naleving te beoordelen. Configuration Manager ondersteunt het gebruik van alle systeemomgevingsvariabelen van Windows en de *% USERPROFILE %* gebruikersvariabele in de padnaam.  
+            -   **Pad**: geef het pad op naar het XML-bestand op clientcomputers die wordt gebruikt om naleving te beoordelen. Configuration Manager ondersteunt het gebruik van alle Windows-systeemomgevingsvariabelen en de *% USERPROFILE %* gebruikersvariabele in de padnaam.  
 
             -   **XML-bestandsnaam**: geef de naam van het bestand op dat de XML-query bevat die wordt gebruikt om naleving op clientcomputers te beoordelen.  
 
@@ -247,7 +244,7 @@ Gebruik de System Center Configuration Manager **aangepaste Windows-Desktops en 
 
              Als de XPath-query ongeldig is, wordt de instelling geëvalueerd als niet-compatibel op clientcomputers.  
 
-    -   **Gegevenstype:** Kies de indeling waarin de voorwaarde de gegevens retourneert voordat deze wordt gebruikt om te beoordelen van de instelling in de lijst. De lijst **Gegevenstype** wordt niet voor alle instellingstypen weergegeven.  
+    -   **Gegevenstype:** Kies de indeling waarin de voorwaarde de gegevens retourneert voordat deze wordt gebruikt voor het evalueren van de instelling in de lijst. De lijst **Gegevenstype** wordt niet voor alle instellingstypen weergegeven.  
 
         > [!NOTE]  
         >  Het gegevenstype **Drijvende komma** ondersteunt alleen 3 cijfers na het decimaalteken.  
@@ -270,16 +267,16 @@ Gebruik de System Center Configuration Manager **aangepaste Windows-Desktops en 
 
 2.  Geef in het dialoogvenster **Regel maken** de volgende informatie op:  
 
-    -   **Naam:** Voer een naam voor de regel compatibiliteit.  
+    -   **Naam:** Voer een naam voor de compliantieregel.  
 
-    -   **Beschrijving:** Voer een beschrijving voor de regel voor compatibiliteit.  
+    -   **Beschrijving:** Voer een beschrijving voor de compliantieregel.  
 
-    -   **Geselecteerde instelling:** Klik op **Bladeren** openen van de **instelling selecteren** in het dialoogvenster. Selecteer de instelling waarvoor u een regel wilt definiëren of klik op **Nieuwe instelling**. Klik op **Selecteren** als u klaar bent.  
+    -   **Geselecteerde instelling:** Klik op **Bladeren** openen de **instelling selecteren** in het dialoogvenster. Selecteer de instelling waarvoor u een regel wilt definiëren of klik op **Nieuwe instelling**. Klik op **Selecteren** als u klaar bent.  
 
         > [!NOTE]  
         >  U kunt ook klikken op **Eigenschappen** om informatie over de geselecteerde instelling weer te geven.  
 
-    -   **Regeltype:** Selecteer het type van de compatibiliteit regel die u wilt gebruiken:  
+    -   **Regeltype:** Selecteer het type compliantieregel dat u wilt gebruiken:  
 
         -   **Waarde:** maak een regel waarmee de waarde die door de configuratie-item wordt geretourneerd, wordt vergeleken met een waarde die u opgeeft.  
 
@@ -301,7 +298,7 @@ Gebruik de System Center Configuration Manager **aangepaste Windows-Desktops en 
             |Een van|Geef in het tekstvak één vermelding per regel op.|  
             |Geen|Geef in het tekstvak één vermelding per regel op.|  
 
-        -   **Regels die niet compliant zijn herstellen, waar ondersteund**: Selecteer deze optie als u wilt dat Configuration Manager automatisch niet-compatibele regels oplost. Configuration Manager kunnen de volgende typen automatisch oplossen:  
+        -   **Regels die niet compliant zijn herstellen, waar ondersteund**: Selecteer deze optie als u wilt dat Configuration Manager automatisch niet-compatibele regels oplost. Configuration Manager kan de volgende regeltypen automatisch herstellen:  
 
             -   **Registerwaarde**: de registerwaarde wordt hersteld als deze niet compatibel is en gemaakt als deze niet bestaat.  
 
@@ -314,9 +311,9 @@ Gebruik de System Center Configuration Manager **aangepaste Windows-Desktops en 
 
         -   **Niet-naleving melden als dit instellingsexemplaar niet wordt gevonden**: het configuratie-item rapporteert niet-naleving als deze instelling niet op clientcomputers is gevonden.  
 
-        -   **Ernst van niet-compatibele voor rapporten:** Geef de ernst op die moet worden gerapporteerd (in Configuration Manager-rapporten) als deze compliantieregel mislukt. De beschikbare ernstniveaus zijn als volgt:  
+        -   **Niet-nageleefd ernst voor rapporten:** Geef de ernst die wordt gerapporteerd (in Configuration Manager-rapporten) als deze compliantieregel mislukt. De beschikbare ernstniveaus zijn als volgt:  
 
-            -   **Geen** Computers die niet voldoen aan deze compliantieregel doen geen fouternst.  
+            -   **Geen** Computers die niet voldoen aan deze compliantieregel niet ernst rapporteren.  
 
             -   **Informatie** Computers die niet voldoen aan deze compliantieregel fouternst van **informatie**.  
 
@@ -337,9 +334,9 @@ Gebruik de System Center Configuration Manager **aangepaste Windows-Desktops en 
 
             -   **De instelling komt het volgende aantal keren:**  
 
-        -   **Ernst van niet-compatibele voor rapporten:** Geef de ernst op die moet worden gerapporteerd (in Configuration Manager-rapporten) als deze compliantieregel mislukt. De beschikbare ernstniveaus zijn als volgt:  
+        -   **Niet-nageleefd ernst voor rapporten:** Geef de ernst die wordt gerapporteerd (in Configuration Manager-rapporten) als deze compliantieregel mislukt. De beschikbare ernstniveaus zijn als volgt:  
 
-            -   **Geen** Computers die niet voldoen aan deze compliantieregel doen geen fouternst.  
+            -   **Geen** Computers die niet voldoen aan deze compliantieregel niet ernst rapporteren.  
 
             -   **Informatie** Computers die niet voldoen aan deze compliantieregel fouternst van **informatie**.  
 
@@ -358,4 +355,3 @@ Selecteer op de pagina **Ondersteunde platforms** van de wizard **Configuratie-i
 
 ## <a name="complete-the-wizard"></a>Voltooi de wizard  
  Controleer welke acties moeten worden ondernomen op de pagina **Overzicht** van de wizard en voltooi de wizard. Het nieuwe configuratie-item wordt weergegeven in het knooppunt **Configuratie-items** van de werkruimte **Activa en naleving**.  
-

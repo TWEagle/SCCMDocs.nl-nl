@@ -6,22 +6,19 @@ ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 0a7415ba-2c53-4433-983e-780e92aa662f
-caps.latest.revision: 11
+caps.latest.revision: "11"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 0ebda27c0f3848615346c2ecf1ab8b9bb9ab6f0d
 ms.openlocfilehash: 0a3704a2d3b75ed7e0a7f718b681448ab6fc078d
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="plan-for-site-system-servers-and-site-system-roles-for-system-center-configuration-manager"></a>Plan maken voor sitesysteemservers en sitesysteemrollen voor System Center Configuration Manager
 
@@ -154,4 +151,3 @@ Verderop staan de sitesysteemrollen die een proxyserver kunnen gebruiken:
  Voor meer informatie over proxyservers voor software-updatepunten, Zie de sectie 'Proxyserverinstellingen' in [installeert een software-updatepunt](../../../sum/get-started/install-a-software-update-point.md) onderwerp.  
 
 -   **Het service connection point.** Bij het instellen van online te zijn (niet offline), deze sitesysteemrol maakt verbinding met Microsoft Intune en de cloudservice van Microsoft.  
-

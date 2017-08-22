@@ -1,36 +1,33 @@
 ---
-title: "Opstartinstallatiekopieën - Configuration Manager aanpassen | Microsoft-documenten"
-description: Informatie over verschillende manieren naar Configuration Manager of de Deployment Image Servicing and Management (DISM) opdrachtregeltool gebruiken om aan te passen, een opstartinstallatiekopie.
+title: "Opstartinstallatiekopieën - Configuration Manager aanpassen | Microsoft Docs"
+description: Meer informatie over het gebruik van Configuration Manager of Deployment Image Servicing and Management (DISM) opdrachtregeltool aan een opstartinstallatiekopie aanpassen op verschillende manieren.
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 9cbfc406-d009-446d-8fee-4938de48c919
-caps.latest.revision: 15
-caps.handback.revision: 0
+caps.latest.revision: "15"
+caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 89158debdf4c345a325feeb608db2215a88ed81b
 ms.openlocfilehash: ab2ecb64c9c80b4effed79ba08769c99473db0c4
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="customize-boot-images-with-system-center-configuration-manager"></a>Opstartinstallatiekopieën aanpassen met System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Elke versie van Configuration Manager biedt ondersteuning voor een specifieke versie van de Windows Assessment and Deployment Kit (Windows ADK). U kunt de service of van de Configuration Manager-console wanneer ze zijn gebaseerd op een Windows PE-versie van de ondersteunde versie van Windows ADK-opstartinstallatiekopieën aanpassen. Voor andere installatiekopieën geldt dat u ze moet aanpassen met een andere methode, zoals de Deployment Image Servicing and Management (DISM) opdrachtregeltool welke deel uitmaakt van Windows AIK en Windows ADK.  
+Elke versie van Configuration Manager ondersteunt een specifieke versie van de Windows Assessment and Deployment Kit (Windows ADK). U kunt de service of installatiekopieën uit de Configuration Manager-console wanneer ze zijn gebaseerd op een Windows PE-versie van de ondersteunde versie van Windows ADK aanpassen. Voor andere installatiekopieën geldt dat u ze moet aanpassen met een andere methode, zoals de Deployment Image Servicing and Management (DISM) opdrachtregeltool welke deel uitmaakt van Windows AIK en Windows ADK.  
 
- Hieronder vindt u de ondersteunde versie van Windows ADK, de versie van Windows PE is waarop de installatiekopie gebaseerd is die kan worden aangepast via de Configuration Manager-console en de Windows PE-versies waarop de installatiekopie gebaseerd is, kunt u aanpassen met behulp van DISM en vervolgens de installatiekopie toevoegen aan Configuration Manager.  
+ Hieronder vindt u de ondersteunde versie van Windows ADK, de Windows PE-versie die op waarop de opstartinstallatiekopie is gebaseerd die kan worden aangepast via de Configuration Manager-console en de Windows PE-versies waarop de opstartinstallatiekopie is gebaseerd, u kunt aanpassen met behulp van DISM en vervolgens de installatiekopie toevoegen aan Configuration Manager.  
 
 -   **Windows ADK-versie**  
 
@@ -46,24 +43,24 @@ Elke versie van Configuration Manager biedt ondersteuning voor een specifieke ve
 
      <sup>1</sup> u kunt alleen een opstartinstallatiekopie toevoegen aan Configuration Manager wanneer deze is gebaseerd op Windows PE 3.1. Installeer Windows AIK Supplement voor Windows 7 SP1 om een upgrade van Windows AIK voor Windows 7 (gebaseerd op Windows PE 3) naar Windows AIK Supplement voor Windows 7 SP1 (gebaseerd op Windows PE 3.1) uit te voeren. U kunt Windows AIK Supplement voor Windows 7 SP1 downloaden via het [Microsoft Downloadcentrum](http://www.microsoft.com/download/details.aspx?id=5188).  
 
-     Bijvoorbeeld, wanneer u Configuration Manager hebt, kunt u installatiekopieën uit Windows ADK voor Windows 10 (op basis van Windows PE-10) aanpassen via de Configuration Manager-console. Hoewel installatiekopieën die zijn gebaseerd op Windows PE 5 wel worden wel ondersteund, moet u ze aanpassen op een andere computer en moet u die versie van DISM gebruiken die is geïnstalleerd met Windows ADK voor Windows 8. U kunt vervolgens de installatiekopie toevoegen aan de Configuration Manager-console.  
+     Bijvoorbeeld, wanneer u Configuration Manager hebt, kunt u opstartinstallatiekopieën uit Windows ADK voor Windows 10 (gebaseerd op Windows PE 10) aanpassen via de Configuration Manager-console. Hoewel installatiekopieën die zijn gebaseerd op Windows PE 5 wel worden wel ondersteund, moet u ze aanpassen op een andere computer en moet u die versie van DISM gebruiken die is geïnstalleerd met Windows ADK voor Windows 8. Vervolgens kunt u de installatiekopie toevoegen aan de Configuration Manager-console.  
 
- De procedures in dit onderwerp laten zien hoe de optionele componenten die vereist zijn door Configuration Manager aan de installatiekopie met behulp van de volgende Windows PE-pakketten:  
+ De procedures in dit onderwerp laten zien hoe u de optionele componenten die door Configuration Manager aan de installatiekopie met behulp van de volgende Windows PE-pakketten toevoegen:  
 
--   **WinPE-WMI**: Ondersteuning voor Windows Management Instrumentation (WMI).  
+-   **WinPE-WMI**: Voegt ondersteuning voor Windows Management Instrumentation (WMI) toe.  
 
--   **WinPE-Scripting**: Ondersteuning voor Windows Script Host (WSH).  
+-   **WinPE-Scripting**: Voegt ondersteuning voor Windows Script Host (WSH) toe.  
 
--   **WinPE-WDS-hulpprogramma's**: Installeert hulpprogramma's voor Windows Deployment Services.  
+-   **WinPE-WDS-Tools**: Windows Deployment Services-hulpprogramma's installeert.  
 
  Er zijn andere Windows PE-pakketten beschikbaar die u kunt toevoegen. De volgende bronnen geven informatie over de optionele onderdelen die u kunt toevoegen aan de installatiekopie.  
 
--   Zie voor Windows PE 5, [WinPE: Pakketten (Optional Components Reference) toevoegen](https://msdn.microsoft.com/library/windows/hardware/dn938382\(v=vs.85\).aspx)  
+-   Zie voor Windows PE 5 [WinPE: Pakketten (Optional Components Reference) toevoegen](https://msdn.microsoft.com/library/windows/hardware/dn938382\(v=vs.85\).aspx)  
 
 -   Voor Windows PE 3.1, zie het onderwerp [Add a Package to a Windows PE Image](http://technet.microsoft.com/library/dd799312\(v=WS.10\).aspx) (Een pakket toevoegen aan een Windows PE-installatiekopie) in de Windows 7 TechNet Documentation Library.  
 
 > [!NOTE]
->Wanneer u WinPE opstart vanuit een aangepaste installatiekopie die hulpprogramma's bevat die u hebt toegevoegd, kunt u een opdrachtprompt openen vanuit WinPE en de naam typen van het hulpprogramma om dit uit te voeren. De locatie van deze hulpprogramma's worden automatisch toegevoegd aan de variabele path. De opdrachtprompt de opdracht kan alleen worden toegevoegd als de **Schakel de opdrachtondersteuning (alleen testen)** instelling is geselecteerd op de **aanpassing** tabblad in de eigenschappen van de opstartinstallatiekopie.
+>Wanneer u WinPE opstart vanuit een aangepaste installatiekopie die hulpprogramma's bevat die u hebt toegevoegd, kunt u een opdrachtprompt openen vanuit WinPE en de naam typen van het hulpprogramma om dit uit te voeren. De locatie van deze hulpprogramma's worden automatisch toegevoegd aan de padvariabele. De opdrachtprompt kan alleen worden toegevoegd als de **opdrachtondersteuning inschakelen (alleen testen)** instelling is geselecteerd op de **aanpassing** tabblad in de eigenschappen van de opstartinstallatiekopie.
 
 ## <a name="customize-a-boot-image-that-uses-windows-pe-5"></a>Een installatiekopie die gebruikmaakt van Windows PE 5 aanpassen.  
  Als u een opstartinstallatiekopie wilt aanpassen die gebruikmaakt van Windows PE 5, moet u Windows ADK installeren en het opdrachtregelprogramma DISM gebruiken om de opstartinstallatiekopie te koppelen, de optionele componenten en stuurprogramma's toe te voegen en de wijzigingen aan te brengen in de opstartinstallatiekopie. Gebruik de volgende procedure om de installatiekopie aan te passen.  
@@ -88,17 +85,17 @@ Elke versie van Configuration Manager biedt ondersteuning voor een specifieke ve
 5.  Gebruik, nadat u de installatiekopie gekoppeld hebt, DISM om optionele componenten aan de installatiekopie toe te voegen. In Windows PE 5 bevinden de optionele 64-bits componenten zich op de volgende locatie: <*Installation path*>\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs.  
 
     > [!NOTE]
-    >  Deze procedure maakt gebruik van de volgende locatie voor de optionele componenten: C:\Program bestanden (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs. Het pad dat u gebruikt kan afwijken afhankelijk van de versie en installatieopties die u voor de Windows ADK kiest.  
+    >  Deze procedure gebruikt de volgende locatie voor de optionele onderdelen: C:\Program bestanden (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs. Het pad dat u gebruikt kan afwijken afhankelijk van de versie en installatieopties die u voor de Windows ADK kiest.  
 
      Typ het volgende om de optionele componenten te installeren:  
 
-     **DISM.exe \winpemount/Add-Package/PackagePath: "C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-wmi.cab"**  
+     **DISM.exe \winpemount/Add-Package/PackagePath: 'C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-wmi.cab'**  
 
      **DISM.exe \winpemount/Add-Package/PackagePath: "C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-scripting.cab"**  
 
-     **DISM.exe \winpemount/Add-Package/PackagePath: "C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-WDS-Tools.cab"**  
+     **DISM.exe \winpemount/Add-Package/PackagePath: 'C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-WDS-Tools.cab'**  
 
-     **DISM.exe \winpemount/Add-Package/PackagePath: "C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-SecureStartup.cab"**  
+     **DISM.exe \winpemount/Add-Package/PackagePath: 'C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-SecureStartup.cab'**  
 
      **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<locale\>* **\WinPE-SecureStartup_** *<locale\>* **.cab"**  
 
@@ -110,13 +107,13 @@ Elke versie van Configuration Manager biedt ondersteuning voor een specifieke ve
 
      Waarbij C:\WinPEMount de gekoppelde map is en taal de taal voor de onderdelen. Voor de taal **en-us** typt u bijvoorbeeld:  
 
-     **DISM.exe \winpemount/Add-Package/PackagePath: "C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-SecureStartup_en-us.cab"**  
+     **DISM.exe \winpemount/Add-Package/PackagePath: 'C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-SecureStartup_en-us.cab'**  
 
-     **DISM.exe \winpemount/Add-Package/PackagePath: "C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-WMI_en-us.cab"**  
+     **DISM.exe \winpemount/Add-Package/PackagePath: 'C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-WMI_en-us.cab'**  
 
-     **DISM.exe \winpemount/Add-Package/PackagePath: "C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-Scripting_en-us.cab"**  
+     **DISM.exe \winpemount/Add-Package/PackagePath: 'C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-Scripting_en-us.cab'**  
 
-     **DISM.exe \winpemount/Add-Package/PackagePath: "C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-WDS-Tools_en-us.cab"**  
+     **DISM.exe \winpemount/Add-Package/PackagePath: 'C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-WDS-Tools_en-us.cab'**  
 
     > [!TIP]
     >  Voor meer informatie over de optionele componenten die u aan de installatiekopie kunt toevoegen, zie het onderwerp [Windows PE Optional Components Reference](http://technet.microsoft.com/library/hh824926.aspx) (Naslagdocumentatie voor optionele componenten van Windows PE) in de Windows 8.1 en Windows 8 TechNet Documentation Library.  
@@ -133,7 +130,7 @@ Elke versie van Configuration Manager biedt ondersteuning voor een specifieke ve
 
      Waar C:\WinPEMount de gekoppelde map is.  
 
-8.  Voeg de bijgewerkte installatiekopie naar Configuration Manager om het te gebruiken in uw takenreeksen. Gebruik de volgende stappen om de bijgewerkte installatiekopie te importeren:  
+8.  Voeg de bijgewerkte installatiekopie voor Configuration Manager zodat deze beschikbaar voor gebruik in uw takenreeksen. Gebruik de volgende stappen om de bijgewerkte installatiekopie te importeren:  
 
     1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
@@ -143,7 +140,7 @@ Elke versie van Configuration Manager biedt ondersteuning voor een specifieke ve
 
     4.  Geef op de pagina **Gegevensbron** de volgende opties op en klik op **Volgende**.  
 
-        -   Geef in het venster **Pad** het pad naar het bijgewerkte installatiekopiebestand op. Het opgegeven pad moet een geldig netwerkpad zijn in UNC-indeling. For example:  **\\\\<***servername***>\\<***WinPEWAIK share***>\winpe.wim**.  
+        -   Geef in het venster **Pad** het pad naar het bijgewerkte installatiekopiebestand op. Het opgegeven pad moet een geldig netwerkpad zijn in UNC-indeling. Bijvoorbeeld:  **\\ \\ <**  *servername***>\\<***WinPEWAIK share***> \winpe.wim**.  
 
         -   Selecteer de installatiekopie in de vervolgkeuzelijst **Installatiekopie**. Als het WIM-bestand meerdere installatiekopieën bevat, wordt elke installatiekopie vermeld.  
 
@@ -167,7 +164,7 @@ Elke versie van Configuration Manager biedt ondersteuning voor een specifieke ve
 
     4.  Typ na een opdrachtprompt **wbemtest** om de Windows Management Instrumentation Tester te openen.  
 
-    5.  Type **\\\\<***SMS Provider Computer***>\root\sms\site_<***sitecode***>** in **Namespace**, and then click **Connect**.  
+    5.  Type  **\\ \\ <**  *SMS-Providercomputer***> \root\sms\site_ <***sitecode*  **>**  in **Namespace**, en klik vervolgens op **Connect**.  
 
     6.  Klik op **Instantie openen**, typ **sms_bootimagepackage.packageID="<packageID\>"** en klik vervolgens op **OK**. Voer voor pakket-id de waarde in die u in stap 3 hebt geïdentificeerd.  
 
@@ -210,7 +207,7 @@ Elke versie van Configuration Manager biedt ondersteuning voor een specifieke ve
 5.  Gebruik, nadat u de installatiekopie gekoppeld hebt, DISM om optionele componenten aan de installatiekopie toe te voegen. In Windows PE 3.1 staan de optionele componenten bijvoorbeeld in <*InstallationPath*>\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\.  
 
     > [!NOTE]
-    >  Deze procedure maakt gebruik van de volgende locatie voor de optionele componenten: C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs. Het pad dat u gebruikt kan afwijken afhankelijk van de versie en installatieopties die u voor de Windows AIK kiest.  
+    >  Deze procedure gebruikt de volgende locatie voor de optionele onderdelen: C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs. Het pad dat u gebruikt kan afwijken afhankelijk van de versie en installatieopties die u voor de Windows AIK kiest.  
 
      Typ het volgende om de optionele componenten te installeren:  
 
@@ -249,7 +246,7 @@ Elke versie van Configuration Manager biedt ondersteuning voor een specifieke ve
 
      Waar C:\WinPEMount de gekoppelde map is.  
 
-8.  Voeg de bijgewerkte installatiekopie naar Configuration Manager om het te gebruiken in uw takenreeksen. Gebruik de volgende stappen om de bijgewerkte installatiekopie te importeren:  
+8.  Voeg de bijgewerkte installatiekopie voor Configuration Manager zodat deze beschikbaar voor gebruik in uw takenreeksen. Gebruik de volgende stappen om de bijgewerkte installatiekopie te importeren:  
 
     1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
@@ -259,7 +256,7 @@ Elke versie van Configuration Manager biedt ondersteuning voor een specifieke ve
 
     4.  Geef op de pagina **Gegevensbron** de volgende opties op en klik op **Volgende**.  
 
-        -   Geef in het venster **Pad** het pad naar het bijgewerkte installatiekopiebestand op. Het opgegeven pad moet een geldig netwerkpad zijn in UNC-indeling. For example:  **\\\\<***servername***>\\<***WinPEWAIK share***>\winpe.wim**.  
+        -   Geef in het venster **Pad** het pad naar het bijgewerkte installatiekopiebestand op. Het opgegeven pad moet een geldig netwerkpad zijn in UNC-indeling. Bijvoorbeeld:  **\\ \\ <**  *servername***>\\<***WinPEWAIK share***> \winpe.wim**.  
 
         -   Selecteer de installatiekopie in de vervolgkeuzelijst **Installatiekopie**. Als het WIM-bestand meerdere installatiekopieën bevat, wordt elke installatiekopie vermeld.  
 
@@ -283,7 +280,7 @@ Elke versie van Configuration Manager biedt ondersteuning voor een specifieke ve
 
     4.  Typ na een opdrachtprompt **wbemtest** om de Windows Management Instrumentation Tester te openen.  
 
-    5.  Type **\\\\<***SMS Provider Computer***>\root\sms\site_<***sitecode***>** in **Namespace**, and then click **Connect**.  
+    5.  Type  **\\ \\ <**  *SMS-Providercomputer***> \root\sms\site_ <***sitecode*  **>**  in **Namespace**, en klik vervolgens op **Connect**.  
 
     6.  Klik op **Instantie openen**, typ **sms_bootimagepackage.packageID="<packageID\>"** en klik vervolgens op **OK**. Voer voor pakket-id de waarde in die u in stap 3 hebt geïdentificeerd.  
 
@@ -302,4 +299,3 @@ Elke versie van Configuration Manager biedt ondersteuning voor een specifieke ve
     3.  Klik op de installatiekopie die u in stap 3 hebt geïdentificeerd.  
 
     4.  Klik op het tabblad **Start** in de groep **Implementatie** op **Distributiepunten bijwerken**.  
-

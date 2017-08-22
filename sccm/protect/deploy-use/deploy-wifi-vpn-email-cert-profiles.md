@@ -1,26 +1,24 @@
 ---
-title: Wi-Fi, VPN-, e-mail en certificaatprofielen implementeren | Microsoft-documenten
-description: Informatie over het Wi-Fi, VPN-, e-mail en in System Center Configuration Manager-certificaatprofielen implementeren.
+title: Wi-Fi, VPN, e-mail en certificaatprofielen implementeren | Microsoft Docs
+description: Informatie over het implementeren van Wi-Fi, VPN, e-mail en certificaatprofielen in System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-other
+ms.technology: configmgr-other
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 3753608d-b539-44dc-8e3f-b631319e7687
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: Nbigman
 ms.author: nbigman
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: c2e3aef41e9a890d136039f85777ab07284e5c27
 ms.openlocfilehash: 70372d5df13034b48f3e43b766776442f1be5823
-ms.contentlocale: nl-nl
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/07/2017
 ---
 # <a name="deploy-profiles-in-system-center-configuration-manager"></a>In System Center Configuration Manager-profielen implementeren
 
@@ -42,27 +40,27 @@ Profielen moeten voor een of meer verzamelingen worden geïmplementeerd voordat 
 > -   [Het maken van certificaatprofielen in System Center Configuration Manager](create-certificate-profiles.md)    
 
 > [!IMPORTANT]  
->  Wanneer de implementatie van een VPN-profiel wordt verwijderd, is het niet verwijderd van clientapparaten. Als u het profiel wilt verwijderen van apparaten, moet u het handmatig verwijderen.
+>  Wanneer de implementatie van een VPN-profiel wordt verwijderd, wordt het niet verwijderd van clientapparaten. Als u het profiel wilt verwijderen van apparaten, moet u het handmatig verwijderen.
 >   
 
-## <a name="deploying--profiles"></a>Implementatie van profielen  
+## <a name="deploying--profiles"></a>Profielen implementeren  
 
 
 1.  Kies in de System Center Configuration Manager-console **activa en naleving**.  
 
-2.  In de **activa en naleving** werkruimte Vouw **compatibiliteitsinstellingen**, vouw **toegang tot bedrijfsbronnen**, en kies vervolgens het gewenste profieltype, zoals **Wi-Fi-profielen**.  
+2.  In de **activa en naleving** werkruimte Vouw **instellingen voor naleving**, vouw **toegang tot bedrijfsbronnen**, en kies vervolgens het juiste profieltype, zoals **Wi-Fi-profielen**.  
 
 3.  Selecteer in de lijst met profielen het profiel dat u implementeren wilt, en klik vervolgens in de **Start** tabblad, in de **implementatie** groep, klikt u op **implementeren**.  
 
-4.  Geef de volgende informatie in het dialoogvenster profiel implementeren:  
+4.  Geef in het dialoogvenster profiel implementeren de volgende informatie:  
 
-    -   **Verzameling** -Klik op **Bladeren** om de verzameling waar u het profiel implementeert te selecteren.  
+    -   **Verzameling** -Klik op **Bladeren** om de verzameling waar u wilt implementeren van het profiel te selecteren.  
 
-    -   **Een waarschuwing gegenereerd** -Schakel deze optie om een waarschuwing die wordt gegenereerd als de naleving van profiel kleiner dan een opgegeven percentage op een opgegeven datum en tijd is te configureren. U kunt tevens opgeven of u een melding naar System Center Operations Manager wilt verzenden.  
+    -   **Waarschuwing genereren** -Schakel deze optie om een waarschuwing die wordt gegenereerd als de naleving van het profiel kleiner dan een opgegeven percentage voor een opgegeven datum en tijd is te configureren. U kunt tevens opgeven of u een melding naar System Center Operations Manager wilt verzenden.  
 
     -   -   **Willekeurige vertraging (uren)**: (Alleen voor certificaatprofielen met instellingen voor Simple Certificate Enrollment Protocol) Hiermee geeft u een vertragingsvenster op om te voorkomen overmatige Network Device Enrollment Service. De standaardwaarde is **64** uur.  
 
-    -   **Geef het evaluatieschema voor compatibiliteit voor deze <type> profiel** -Geef de planning op waarmee het geïmplementeerde profiel wordt geëvalueerd op clientcomputers. U kunt een eenvoudig of aangepast schema opgeven.  
+    -   **Geef het evaluatieschema voor compatibiliteit op voor dit <type> profiel** -Geef de planning op waarmee het geïmplementeerde profiel wordt geëvalueerd op clientcomputers. U kunt een eenvoudig of aangepast schema opgeven.  
 
         > [!NOTE]  
         >  Het profiel wordt door de clientcomputers beoordeeld wanneer de gebruiker zich aanmeldt.  
@@ -71,7 +69,6 @@ Profielen moeten voor een of meer verzamelingen worden geïmplementeerd voordat 
 
 ### <a name="see-also"></a>Zie tevens  
 
-[Wi-Fi-, VPN- en e-mailprofielen in System Center Configuration Manager controleren](monitor-wifi-email-vpn-profiles.md)
+[Wi-Fi, VPN en e-mailprofielen in System Center Configuration Manager controleren](monitor-wifi-email-vpn-profiles.md)
 
 [Certificaatprofielen in System Center Configuration Manager controleren](monitor-certificate-profiles.md)
-
