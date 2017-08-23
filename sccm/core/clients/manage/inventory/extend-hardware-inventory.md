@@ -1,6 +1,6 @@
 ---
-title: Hardware-inventarisatie uitbreiden | Microsoft Docs
-description: Meer manieren om de hardware-inventarisatie in System Center Configuration Manager uitbreiden.
+title: "Étendre l’inventaire matériel | Microsoft Docs"
+description: "Découvrez différentes façons d’étendre l’inventaire matériel dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 02/22/2017
 ms.prod: configuration-manager
@@ -17,140 +17,140 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 3e5517e1710d0d12e51fba58efda5dc5edd08544
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-extend-hardware-inventory-in-system-center-configuration-manager"></a>Hardware-inventarisatie uitbreiden in System Center Configuration Manager
+# <a name="how-to-extend-hardware-inventory-in-system-center-configuration-manager"></a>Comment étendre l’inventaire matériel dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Hardware-inventaris leest informatie van Windows-pc's met behulp van Windows Management Instrumentation (WMI). WMI is de Microsoft-implementatie van web gebaseerde Enterprise Management (WBEM), een industriestandaard voor het werken met beheerinformatie in een onderneming. In eerdere versies van Configuration Manager kon u hardware-inventaris uitbreiden door het wijzigen van het bestand sms_def.mof op de siteserver. Dit bestand bevatte een lijst met WMI-klassen die konden worden gelezen door de hardware-inventaris. Als u dit bestand had bewerkt, kon u bestaande klassen inschakelen en uitschakelen, en kon u ook nieuwe klassen voor de inventaris maken.  
+L’inventaire matériel lit les informations sur les PC Windows en utilisant WMI (Windows Management Instrumentation). WMI est l’implémentation Microsoft de WBEM (Web-Based Enterprise Management), une norme sectorielle pour l’accès aux informations de gestion dans une entreprise. Dans les versions précédentes de Configuration Manager, vous pouviez étendre l'inventaire matériel en modifiant le fichier sms_def.mof fichier sur le serveur de site. Ce fichier contenait une liste de classes WMI qui pouvaient être lues par l’inventaire matériel. En modifiant ce fichier, vous pouviez activer et désactiver les classes existantes et également créer des classes à inventorier.  
 
-Het bestand Configuration.mof wordt gebruikt voor het definiëren van de gegevensklassen die moeten worden geïnventariseerd door hardware-inventaris op de client en is ongewijzigd ten opzichte van Configuration Manager 2012. U kunt gegevensklassen maken voor het inventariseren van bestaande of aangepaste gegevensklassen voor WMI-opslagplaatsen of registersleutels aanwezig op clientsystemen.  
+Le fichier Configuration.mof permet de définir les classes de données qui doivent faire l’objet d’un inventaire matériel sur le client. Il n’a pas été modifié depuis Configuration Manager 2012. Vous pouvez créer des classes de données pour inventorier les classes de données de référentiel WMI existantes ou personnalisées ou les clés de Registre présentes sur les systèmes clients.  
 
- Het bestand Configuration.mof bepaalt en registreert ook de WMI-providers die toegang hebben tot informatie over apparaten tijdens hardware-inventarisatie. Registreren van providers definieert het type provider dat moet worden gebruikt en de klassen die de provider ondersteunt.  
+ Le fichier Configuration.mof définit également et inscrit les fournisseurs WMI d'accéder aux informations de périphérique durant l'inventaire matériel. L'enregistrement des fournisseurs définit le type de fournisseur à utiliser et les classes prises en charge par le fournisseur.  
 
- Wanneer de Configuration Manager-clients beleid aanvragen, bijvoorbeeld tijdens hun standaard pollinginterval voor clientbeleid, het bestand Configuration.mof gekoppeld aan de beleidstekst. Dit bestand wordt vervolgens gedownload en gecompileerd door clients. Wanneer u gegevensklassen uit het bestand Configuration.mof toevoegt, wijzigt of verwijdert, compileren clients automatisch deze wijzigingen die zijn aangebracht in de gegevensklassen gerelateerd aan inventaris. Er is geen verdere actie nodig voor inventarisatie nieuwe of gewijzigde gegevensklassen op Configuration Manager-clients. Dit bestand bevindt zich in **<CMInstallLocation\>\Inboxes\clifiles.src\hinv\\** op primaire siteservers.  
+ Quand les clients Configuration Manager demandent une stratégie, par exemple, pendant leur intervalle d’interrogation standard de stratégie client, le fichier Configuration.mof est joint au corps de la stratégie. Ce fichier est ensuite téléchargé et compilé par les clients. Lorsque vous ajoutez, modifiez ou supprimez des classes de données à partir du fichier Configuration.mof, les clients compilent automatiquement ces modifications sont apportées aux classes de données liées au stock. Aucune autre action n’est requise pour inventorier les classes de données nouvelles ou modifiées sur les clients Configuration Manager. Ce fichier se trouve dans **<emplacement_installation_CM\>\Inboxes\clifiles.src\hinv\\\** sur les serveurs de site principal.  
 
- In Configuration Manager, u niet meer bewerken het bestand sms_def.mof net als bij Configuration Manager 2007. U kunt in plaats daarvan WMI-klassen inschakelen en uitschakelen, en u kunt nieuwe klassen toevoegen voor het verzamelen van hardware-inventaris met clientinstellingen. Configuration Manager biedt de volgende methoden om hardware-inventaris uitbreiden.  
+ Dans Configuration Manager, le fichier sms_def.mof n’a plus besoin d’être modifié comme c’était le cas dans Configuration Manager 2007. Au lieu de cela, vous pouvez activer et désactiver des classes WMI, et ajouter de nouvelles classes que l’inventaire matériel collectera, à l’aide des paramètres client. Configuration Manager permet d’étendre l’inventaire matériel à l’aide des méthodes ci-dessous.  
 
 > [!NOTE]  
->  Als u handmatig het bestand Configuration.mof om aangepaste inventarisklassen toevoegen hebt gewijzigd, worden deze wijzigingen overschreven wanneer u naar versie 1602 bijwerkt. Als u wilt blijven aangepaste klassen gebruiken, na het bijwerken, moet u deze naar de sectie 'Toegevoegde extensies' van het bestand Configuration.mof toevoegen nadat u hebt bijgewerkt naar 1602.  
-> Echter, moet u niet wijzigen niets boven dit gedeelte omdat deze secties worden bewerkt door Configuration Manager. U kunt een back-up van uw aangepaste Configuration.mof-bestand vinden in:  
-> **<CM Install dir\>\data\hinvarchive\\**.  
+>  Si vous avez modifié manuellement le fichier Configuration.mof pour ajouter des classes d’inventaire personnalisées, ces modifications sont remplacées quand vous effectuez la mise à jour vers la version 1602. Pour continuer à utiliser des classes personnalisées après la mise à jour, vous devez les ajouter à la section « Added extensions » du fichier Configuration.mof après la mise à jour vers 1602.  
+> En revanche, vous ne devez rien modifier au-dessus de cette section, car la modification de ces sections est réservée à Configuration Manager. Une sauvegarde de votre fichier Configuration.mof personnalisé se trouve dans :  
+> **<répertoire_installation_CM\>\data\hinvarchive\\**.  
 
-|Methode|Meer informatie|  
+|Méthode|Informations complémentaires|  
 |------------|----------------------|  
-|Bestaande inventarisklassen in- of uitschakelen|Inschakelen of uitschakelen van de standaard-inventarisklassen of aangepaste clientinstellingen maken waarmee u verschillende hardware-inventarisklassen verzamelen van opgegeven verzamelingen clients. Zie de [-of uitschakelen van bestaande inventarisklassen](#BKMK_Enable) procedure in dit onderwerp.|  
-|Een nieuwe inventarisklasse toevoegen|Een nieuwe inventarisklasse toevoegen via de WMI-naamruimte van een ander apparaat. Zie de [een nieuwe inventarisklasse toevoegen](#BKMK_Add) procedure in dit onderwerp.|  
-|Hardware-inventarisklassen importeren en exporteren|Bestanden importeren en exporteren Managed Object Format (MOF) met uit de Configuration Manager-console inventarisklassen. Zie de [hardware-inventarisklassen importeren](#BKMK_Import) en [hardware-inventarisklassen exporteren](#BKMK_Export) procedures in dit onderwerp.|  
-|NOIDMIF-bestanden maken|Gebruik NOIDMIF-bestanden voor het verzamelen van informatie over clientapparaten die niet kunnen worden geïnventariseerd door Configuration Manager. Het is bijvoorbeeld mogelijk dat u informatie wilt verzamelen over het activumnummer van een apparaat, dat alleen als label bestaat op het apparaat. NOIDMIF-inventarisatie is automatisch gekoppeld aan het clientapparaat waarvan deze is verzameld. Zie [voor het maken van NOIDMIF-bestanden](#BKMK_NOIDMIF) in dit onderwerp.|  
-|IDMIF-bestanden maken|Gebruik IDMIF-bestanden voor het verzamelen van informatie over activa in uw organisatie die niet zo zijn gekoppeld aan een Configuration Manager-client, projectors, fotokopieerapparaten en netwerkprinters. Zie [IDMIF-bestanden maken](#BKMK_IDMIF) in dit onderwerp.|  
+|Activer ou désactiver les classes d'inventaire existantes|Activez ou désactivez les classes d’inventaire par défaut ou créez des paramètres client personnalisés qui vous permettent de collecter différentes classes d’inventaire matériel depuis les regroupements de clients définis. Consultez la procédure [Pour activer ou désactiver les classes existantes d’inventaire](#BKMK_Enable) dans cette rubrique.|  
+|Ajouter une nouvelle classe d'inventaire|Ajoutez une nouvelle classe d’inventaire à partir de l’espace de noms WMI d’un autre appareil. Consultez la procédure [Pour ajouter une nouvelle classe d’inventaire](#BKMK_Add) dans cette rubrique.|  
+|Importer et exporter des classes d'inventaire matériel|Importez et exportez des fichiers MOF (Managed Object Format) qui contiennent des classes d’inventaire à partir de la console Configuration Manager. Consultez les procédures [Pour importer des classes d’inventaire matériel](#BKMK_Import) et [Pour exporter des classes d’inventaire matériel](#BKMK_Export) dans cette rubrique.|  
+|Créer des fichiers NOIDMIF|Utilisez des fichiers NOIDMIF pour collecter des informations sur les appareils clients qui ne peuvent pas être inventoriés par Configuration Manager. Par exemple, vous pouvez souhaiter recueillir des informations numéros de périphérique actif qui existe uniquement en tant qu'étiquette sur le périphérique. Inventaire NOIDMIF est automatiquement associé à l'appareil client collectées à partir de. Consultez [Pour créer des fichiers NOIDMIF](#BKMK_NOIDMIF) dans cette rubrique.|  
+|Créer les fichiers IDMIF|Utilisez des fichiers IDMIF pour collecter des informations sur les ressources de votre organisation qui ne sont associées à aucun client Configuration Manager, par exemple, les projecteurs, les photocopieurs et les imprimantes réseau. Consultez [Pour créer des fichiers IDMIF](#BKMK_IDMIF) dans cette rubrique.|  
 
-## <a name="procedures-to-extend-hardware-inventory"></a>Procedures voor het uitbreiden van hardware-inventaris  
-Deze procedures helpen u de standaardclientinstellingen voor hardware-inventaris te configureren en ze zijn van toepassing op alle clients in uw hiërarchie. Als u deze instellingen wilt toepassen op alleen enkele clients, maakt een aangepaste clientapparaatinstelling en wijst u deze toe aan een verzameling van specifieke clients. Zie [het configureren van clientinstellingen in System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
+## <a name="procedures-to-extend-hardware-inventory"></a>Procédures pour étendre l’inventaire matériel  
+Ces procédures vous aident à configurer les paramètres client par défaut pour l'inventaire matériel et elles s'appliquent à tous les clients de votre hiérarchie. Pour appliquer ces paramètres à certains clients uniquement, créez un paramètre d’appareil client personnalisé et affectez-le à un regroupement de clients spécifiques. Consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
 
-###  <a name="BKMK_Enable"></a> Bestaande inventarisklassen in- of uitschakelen  
+###  <a name="BKMK_Enable"></a> Pour activer ou désactiver les classes existantes d'inventaire  
 
-1.  Kies in de Configuration Manager-console **beheer** > **clientinstellingen** > **Standaardclientinstellingen**.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Paramètres client** > **Paramètres client par défaut**.  
 
-4.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
+4.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
 
-5.  In de **Standaardclientinstellingen** dialoogvenster Kies **Hardware-inventaris**.  
+5.  Dans la boîte de dialogue **Paramètres client par défaut**, choisissez **Inventaire matériel**.  
 
-6.  Klik in de lijst **Apparaatinstellingen** op **Klassen instellen**.  
+6.  Dans la liste **Paramètres du périphérique** , cliquez sur **Définir des classes**.  
 
-7.  In het dialoogvenster **Hardware-inventarisklassen** selecteert of wist u de klassen en klasse-eigenschappen die moeten worden verzameld door hardware-inventarisatie. U kunt klassen uitbreiden om afzonderlijke eigenschappen in een klasse te selecteren of te wissen. Gebruik het veld **Zoeken naar inventarisklassen** om te zoeken naar afzonderlijke klassen.  
+7.  Dans la boîte de dialogue **Classes d'inventaire matériel** , sélectionnez ou désélectionnez les classes et les propriétés de classe que doit collecter l'inventaire matériel. Vous pouvez développer une classe pour sélectionner ou désélectionner des propriétés individuelles dans la classe. Utilisez le champ **Rechercher des classes d'inventaire** pour rechercher des classes individuelles.  
 
     > [!IMPORTANT]  
-    >  Wanneer u nieuwe klassen aan de hardware-inventaris van Configuration Manager toevoegt, verhoogd de grootte van het inventarisatiebestand dat wordt verzameld en verzonden naar de siteserver. Dit mogelijk negatieve invloed hebben op de prestaties van uw netwerk en Configuration Manager-site. Schakel de inventarisklassen in die u wilt verzamelen.  
+    >  Quand vous ajoutez de nouvelles classes à l’inventaire matériel Configuration Manager, la taille du fichier d’inventaire collecté et envoyé au serveur de site augmente. Cela peut nuire aux performances de votre réseau et du site Configuration Manager. Activez uniquement les classes d'inventaire à collecter.  
 
 
-###  <a name="BKMK_Add"></a> Een nieuwe inventarisklasse toevoegen  
+###  <a name="BKMK_Add"></a> Pour ajouter une nouvelle classe d'inventaire  
 
-U kunt alleen inventarisklassen toevoegen vanaf de server van het hoogste niveau in de hiërarchie en door de standaardclientinstellingen te wijzigen. Deze optie is niet beschikbaar bij het maken van aangepaste apparaatinstellingen.
+Vous pouvez uniquement ajouter des classes d'inventaire à partir du serveur de niveau supérieur dans la hiérarchie et en modifiant les paramètres client par défaut. Cette option n'est pas disponible lorsque vous créez des paramètres de périphérique personnalisés.
 
-1.  Kies in de Configuration Manager-console **beheer** > **clientinstellingen** > **Standaardclientinstellingen**.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Paramètres client** > **Paramètres client par défaut**.  
 
-4.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
+4.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
 
-5.  In de **Standaardclientinstellingen** dialoogvenster Kies **Hardware-inventaris**.  
+5.  Dans la boîte de dialogue **Paramètres client par défaut**, choisissez **Inventaire matériel**.  
 
-6.  In de **apparaatinstellingen** Kies **klassen instellen**.  
+6.  Dans la liste **Paramètres de l’appareil**, choisissez **Définir des classes**.  
 
-7.  In de **Hardware-Inventarisklassen** dialoogvenster Kies **toevoegen**.  
+7.  Dans la boîte de dialogue **Classes d’inventaire matériel**, choisissez **Ajouter**.  
 
-8.  Klik in het dialoogvenster **Hardware-inventarisklasse toevoegen** op **Verbinding maken**.  
+8.  Dans la boîte de dialogue **Ajouter une classe d'inventaire matériel** , cliquez sur **Ajouter**.  
 
-9. Geef in het dialoogvenster **Verbinding maken met WMI (Windows Management Instrumentation)** de naam op van de computer waarvan u de WMI-klassen en de WMI-naamruimte ophaalt die u wilt gebruiken voor het ophalen van de klassen. Als u alle klassen wilt ophalen onder de WMI-naamruimte die u hebt opgegeven, klikt u op **Recursief**. Als de computer waarmee u verbinding maakt niet de lokale computer is, geeft u aanmeldingsreferenties voor een account op dat toegang heeft tot WMI op de externe computer.  
+9. Dans la boîte de dialogue **Connexion à Windows Management Instrumentation (WMI)** , définissez le nom de l'ordinateur depuis lequel vous allez extraire les classes WMI et l'espace de noms WMI à utiliser pour récupérer les classes. Si vous souhaitez récupérer toutes les classes sous l'espace de noms WMI spécifié, cliquez sur **Récursive**. Si l'ordinateur auquel vous vous connectez n'est pas l'ordinateur local, fournissez les informations d'identification d'un compte autorisé à accéder à WMI sur l'ordinateur distant.  
 
-10. Kies **verbinding**.  
+10. Choisissez **Connexion**.  
 
-11. In de **Hardware-Inventarisklassen** het dialoogvenster de **Inventarisklassen** , selecteert u de WMI-klassen die u wilt toevoegen aan de hardware-inventaris van Configuration Manager.  
+11. Dans la boîte de dialogue **Ajouter une classe d’inventaire matériel**, dans la liste des **classes d’inventaire**, sélectionnez les classes WMI à ajouter à l’inventaire matériel Configuration Manager.  
 
-12. Als u bewerken over de geselecteerde WMI-klasse wilt, kiest u **bewerken**, en in de **Klassekwalificaties** dialoogvenster Geef de volgende informatie:  
+12. Si vous souhaitez modifier des informations sur la classe WMI sélectionnée, choisissez **Modifier** et, dans la boîte de dialogue **Qualificatifs de classe**, fournissez les informations suivantes :  
 
-    -   **Weergavenaam** -deze wordt weergegeven in Resourceverkenner.  
+    -   **Nom complet** : ce nom sera affiché dans l’Explorateur de ressources.  
 
-    -   **Eigenschappen** -Geef de eenheden op waarin elke eigenschap van de WMI-klasse wordt weergegeven.  
+    -   **Propriétés** : définissez l’unité dans laquelle s’affiche chaque propriété de la classe WMI.  
 
-     U kunt ook eigenschappen aanwijzen als sleuteleigenschap om elke instantie van de klasse uniek te identificeren. Als er geen sleutel is gedefinieerd voor de klasse en meerdere exemplaren van de klasse worden gerapporteerd door de client, wordt alleen de laatste gevonden instantie in de database opgeslagen.  
+     Vous pouvez également désigner des propriétés comme propriété de clé pour identifier de façon unique chaque instance de la classe. Si aucune clé n'est définie pour la classe et que plusieurs instances de la classe sont signalées par le client, seule la dernière instance trouvée est stockée dans la base de données.  
 
-     Wanneer u klaar bent met het configureren van de eigenschappen, klikt u op **OK** sluiten de **Klassekwalificaties** in het dialoogvenster en de overige dialoogvensters openen. 
+     Quand vous avez terminé de configurer les propriétés, cliquez sur **OK** pour fermer la boîte de dialogue **Qualificatifs de classe** et les autres boîtes de dialogue ouvertes. 
 
 
-###  <a name="BKMK_Import"></a> Hardware-inventarisklassen importeren  
+###  <a name="BKMK_Import"></a> Pour importer des classes d'inventaire matériel  
 
-U kunt alleen inventarisklassen importeren wanneer u de standaardclientinstellingen wijzigt. U kunt echter aangepaste clientinstellingen gebruiken voor het importeren van gegevens die geen schemawijziging bevatten, zoals het wijzigen van de eigenschap van een bestaande klasse van **Waar** in **Onwaar**.  
+Vous pouvez importer uniquement des classes d'inventaire lorsque vous modifiez les paramètres par défaut du client. Toutefois, vous pouvez utiliser des paramètres client personnalisés pour importer des informations qui ne contient pas un changement de schéma, telles que la modification de la propriété d'une classe existante à partir de **True** à **False**.  
 
-1.  Kies in de Configuration Manager-console **beheer** >  **clientinstellingen** > **Standaardclientinstellingen**.  
+1.  Dans la console Configuration Manager, choisissez **Administration** >  **Paramètres client** > **Paramètres client par défaut**.  
 
-4.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
+4.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
 
-5.  In de **Standaardclientinstellingen** dialoogvenster Kies **Hardware-inventaris**.  
+5.  Dans la boîte de dialogue **Paramètres client par défaut**, choisissez **Inventaire matériel**.  
 
-6.  In de **apparaatinstellingen** Kies **klassen instellen**.  
+6.  Dans la liste **Paramètres de l’appareil**, choisissez **Définir des classes**.  
 
-7.  In de **Hardware-Inventarisklassen** dialoogvenster Kies **importeren**.  
+7.  Dans la boîte de dialogue **Classes d’inventaire matériel**, choisissez **Importer**.  
 
-8.  In de **importeren** dialoogvenster, selecteer het Managed Object Format (MOF) bestand dat u wilt importeren, en kies vervolgens **OK**. Controleer de items die moeten worden geïmporteerd en klik vervolgens op **importeren**.  
+8.  Dans la boîte de dialogue **Importer**, sélectionnez le fichier MOF (Managed Object Format) à importer, puis choisissez **OK**. Passez en revue les éléments qui seront importés, puis cliquez sur **Importer**.  
 
-###  <a name="BKMK_Export"></a> Hardware-inventarisklassen exporteren  
+###  <a name="BKMK_Export"></a> Pour exporter des classes d'inventaire matériel  
 
-1.  Kies in de Configuration Manager-console **beheer** > **clientinstellingen** > **Standaardclientinstellingen**.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Paramètres client** > **Paramètres client par défaut**.  
 
-4.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
+4.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
 
-5.  In de **Standaardclientinstellingen** dialoogvenster Kies **Hardware-inventaris**.  
+5.  Dans la boîte de dialogue **Paramètres client par défaut**, choisissez **Inventaire matériel**.  
 
-6.  In de **apparaatinstellingen** Kies **klassen instellen**.  
+6.  Dans la liste **Paramètres de l’appareil**, choisissez **Définir des classes**.  
 
-7.  In de **Hardware-Inventarisklassen** dialoogvenster Kies **exporteren**.  
+7.  Dans la boîte de dialogue **Classes d’inventaire matériel**, choisissez **Exporter**.  
 
     > [!NOTE]  
-    >  Als u klassen exporteert, worden alle geselecteerde klassen worden geëxporteerd.  
+    >  Lorsque vous exportez des classes, toutes les classes sélectionnées sont exportées.  
 
-8.  In de **exporteren** dialoogvenster Geef het Managed Object Format (MOF) bestand dat u wilt exporteren van de klassen en kies vervolgens **opslaan**.  
+8.  Dans la boîte de dialogue **Exporter**, spécifiez le fichier MOF (Managed Object Format) vers lequel vous voulez exporter les classes, puis choisissez **Enregistrer**.  
 
-## <a name="how-to-use-management-information-files-mif-files-to-extend-hardware-inventory"></a>MIF-bestanden (Management Information Format) gebruiken voor uitbreiding van hardware-inventaris  
- Gebruik Management Information Format (MIF) bestanden voor het uitbreiden van hardware-inventarisatiegegevens die van clients is verzameld door Configuration Manager. Tijdens de hardware-inventaris wordt de in MIF-bestanden opgeslagen informatie toegevoegd aan het clientinventarisrapport en opgeslagen in de sitedatabase, waar u de gegevens op dezelfde manier kunt gebruiken als standaard clientinventarisgegevens. Er zijn twee soorten MIF-bestanden: NOIDMIF en IDMIF.
-
-> [!IMPORTANT]  
->  Voordat u gegevens van MIF-bestanden aan Configuration Manager-database toevoegen kunt, moet u maken of importeren van klassegegevens voor deze. Zie de secties [Een nieuwe inventarisklasse toevoegen](#BKMK_Add) en [Hardware-inventarisklassen importeren](#BKMK_Import) in dit onderwerp voor meer informatie.  
-
-###  <a name="BKMK_NOIDMIF"></a> NOIDMIF-bestanden maken  
- NOIDMIF-bestanden kunnen worden gebruikt voor het toevoegen van gegevens aan een clienthardware-inventaris die normaal gesproken kan niet worden verzameld door Configuration Manager en is gekoppeld aan een bepaald clientapparaat. Bijvoorbeeld: veel bedrijven labelen elke computer in de organisatie met een activumnummer en catalogiseren deze handmatig. Wanneer u een NOIDMIF-bestand maakt, wordt deze informatie kan worden toegevoegd aan de Configuration Manager-database en worden gebruikt voor query's en rapportage. Zie de Configuration Manager SDK-documentatie voor informatie over het maken van NOIDMIF-bestanden.  
+## <a name="how-to-use-management-information-files-mif-files-to-extend-hardware-inventory"></a>Comment utiliser les fichiers MIF (Management Information Format) pour étendre l’inventaire matériel  
+ Utilisez des fichiers MIF (Management Information Format) pour étendre les informations d’inventaire matériel recueillies auprès des clients par Configuration Manager. Au cours de l'inventaire matériel, les informations stockées dans les fichiers MIF sont ajoutées au rapport d'inventaire du client et stockées dans la base de données de site. Vous pourrez utiliser les données depuis cet emplacement de la même manière que vous utilisez les données d'inventaire du client par défaut. Il existe deux types de fichiers MIF, NOIDMIF et IDMIF.
 
 > [!IMPORTANT]  
->  Wanneer u een NOIDMIF-bestand maakt, moet deze worden opgeslagen in een gecodeerde indeling met ANSI. NOIDMIF-bestanden in UTF-8-indeling kunnen niet worden gelezen door Configuration Manager.  
+>  Avant d’ajouter les informations de fichiers MIF à la base de données Configuration Manager, vous devez créer ou importer des informations de classe pour eux. Pour plus d’informations, consultez les sections [Pour ajouter une nouvelle classe d'inventaire](#BKMK_Add) et [Pour importer des classes d'inventaire matériel](#BKMK_Import) de cette rubrique.  
 
- Nadat u een NOIDMIF-bestand hebt gemaakt, opslaan in de *% Windir %***\CCM\Inventory\Noidmifs** op elke client. Configuration Manager verzamelt gegevens van NODMIF bestanden in deze map tijdens de volgende geplande hardware-inventarisatiefase.  
+###  <a name="BKMK_NOIDMIF"></a> Pour créer des fichiers NOIDMIF  
+ Les fichiers NOIDMIF permettent d’ajouter des informations à un inventaire matériel de client qui normalement ne peut pas être collecté par Configuration Manager et est associé à un appareil client particulier. Par exemple, de nombreuses sociétés affectent à chaque ordinateur de l’organisation un numéro d’inventaire, puis les classent manuellement. Quand vous créez un fichier NOIDMIF, ces informations peuvent être ajoutées à la base de données Configuration Manager et être utilisées pour les requêtes et la génération de rapports. Pour plus d’informations sur la création de fichiers NOIDMIF, consultez la documentation du Kit de développement logiciel (SDK) Configuration Manager.  
 
-###  <a name="BKMK_IDMIF"></a> IDMIF-bestanden maken  
- IDMIF-bestanden kunnen worden gebruikt voor het toevoegen van informatie over activa kan normaal gesproken niet worden geïnventariseerd door Configuration Manager en is niet gekoppeld aan een bepaald clientapparaat met de Configuration Manager-database. U kunt bijvoorbeeld IDMIFS informatie verzamelen over projectors, DVD-spelers, kopieerapparaten of andere apparatuur die Configuration Manager-client niet bevat. Zie de Configuration Manager SDK-documentatie voor informatie over het maken van IDMIF-bestanden.  
+> [!IMPORTANT]  
+>  Quand vous créez un fichier NOIDMIF, il doit être enregistré sous un format codé ANSI. Les fichiers NOIDMIF enregistrés au format encodé UTF-8 ne peuvent pas être lus par Configuration Manager.  
 
- Nadat u een IDMIF-bestand hebt gemaakt, opslaan in de *% Windir %***\CCM\Inventory\Idmifs** map op clientcomputers. Configuration Manager verzamelt gegevens van dit bestand tijdens de volgende geplande hardware-inventarisatiefase. U moet nieuwe klassen declareren voor gegevens in het bestand door deze toe te voegen of te importeren.  
+ Après avoir créé un fichier NOIDMIF, stockez-le dans le dossier *%Windir%***\System32\CCM\Inventory\Noidmifs** sur chaque client. Configuration Manager collecte les informations des fichiers NODMIF de ce dossier lors du prochain cycle d’inventaire matériel planifié.  
+
+###  <a name="BKMK_IDMIF"></a> Pour créer des fichiers IDMIF  
+ Les fichiers IDMIF permettent d’ajouter à la base de données Configuration Manager des informations sur les ressources qui ne pourraient normalement pas être inventoriées par Configuration Manager et qui ne sont associées à aucun appareil client particulier. Par exemple, vous pouvez utiliser des fichiers IDMIF pour recueillir des informations sur les projecteurs, lecteurs de DVD, photocopieurs ou autres équipements qui ne contiennent pas de client Configuration Manager. Pour plus d’informations sur la création de fichiers IDMIF, consultez la documentation du Kit de développement logiciel (SDK) Configuration Manager.  
+
+ Après avoir créé un fichier IDMIF, stockez-le dans le dossier *%Windir%***\CCM\Inventory\Idmifs** sur les ordinateurs clients. Configuration Manager collecte les informations de ce fichier lors du prochain cycle d’inventaire matériel planifié. Vous devez déclarer de nouvelles classes pour les informations contenues dans le fichier en les ajoutant ou en les important.  
 
 > [!NOTE]
-> MIF-bestanden kunnen grote hoeveelheden gegevens bevatten en de verzameling van deze gegevens kan een negatieve invloed hebben op de prestaties van uw site. MIF-verzameling alleen indien nodig inschakelen en configureren van de optie **aangepast MIF-bestand maximumgrootte (KB)** in de instellingen voor hardware-inventaris. Zie voor meer informatie [inleiding op hardware-inventarisatie in System Center Configuration Manager](introduction-to-hardware-inventory.md).
+> Les fichiers MIF peuvent contenir de grandes quantités de données et le regroupement de ces données pourrait affecter négativement les performances de votre site. Activez la collecte de fichiers MIF uniquement quand cela est nécessaire et configurez l’option **Taille maximale du fichier MIF personnalisé (Ko)** dans les paramètres d’inventaire matériel. Pour plus d’informations, consultez [Présentation de l’inventaire matériel dans System Center Configuration Manager](introduction-to-hardware-inventory.md).

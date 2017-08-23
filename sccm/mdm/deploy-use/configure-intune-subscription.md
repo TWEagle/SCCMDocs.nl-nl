@@ -1,6 +1,6 @@
 ---
-title: Uw Intune-abonnement met System Center Configuration Manager configureren | Microsoft Docs
-description: Configureer uw Intune-abonnement met System Center Configuration Manager.
+title: "Configurer votre abonnement Microsoft Intune avec System Center Configuration Manager | Microsoft Docs"
+description: "Configurez votre abonnement Microsoft Intune à l’aide de System Center Configuration Manager."
 ms.custom: na
 ms.date: 06/02/2017
 ms.prod: configuration-manager
@@ -17,67 +17,67 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 22d890c972d3166f9c7b583d8d3fa917c1897880
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-your-intune-subscription-with-system-center-configuration-manager-and-microsoft-intune"></a>Configureren van uw Intune-abonnement met System Center Configuration Manager en Microsoft Intune
+# <a name="configure-your-intune-subscription-with-system-center-configuration-manager-and-microsoft-intune"></a>Configurer votre abonnement Microsoft Intune avec System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Het Intune-abonnement kunt u apparaten beheren via het internet. Dit omvat opgeven welke Gebruikersverzameling apparaten kan registreren en gegevens weergegeven voor gebruikers definiëren. U kunt ook huisstijl Intune bedrijfsportal-App met uw bedrijfslogo en kleurenschema voor schema's tijdens het maken van het Intune-abonnement toevoegen.
+L’abonnement Intune vous permet de gérer des appareils via Internet. Vous pouvez notamment spécifier le regroupement d’utilisateurs pouvant inscrire des appareils, et définir les informations présentées aux utilisateurs. Lorsque vous créez un abonnement à Microsoft Intune, vous pouvez également ajouter votre marque de société au portail d’entreprise Intune, avec le logo de l’entreprise et des modèles de couleurs personnalisés.
 
-Het Intune-abonnement voert de volgende taken uit:
+L’abonnement Intune effectue les opérations suivantes :
 
--   haalt het certificaat op dat voor het serviceaansluitpunt is vereist om verbinding te maken met de Intune-service
--   bepaalt de gebruikersverzameling waarmee de gebruikers mobiele apparaten kunnen registreren
--   bepaalt en configureert de mobiele platformen die u wilt ondersteunen
+-   Récupération du certificat dont a besoin le point de connexion de service pour se connecter au service Intune
+-   Définition du regroupement d’utilisateurs permettant aux utilisateurs d’inscrire des appareils mobiles
+-   Définition et configuration des plateformes mobiles que vous souhaitez prendre en charge
 
 > [!IMPORTANT]
->  Een abonnement voor Microsoft Intune in Configuration Manager maakt wordt van uw site het service connection point geplaatst in 'online modus'. Zie [Informatie over het serviceaansluitpunt in System Center Configuration Manager](../../core/servers/deploy/configure/about-the-service-connection-point.md).
+>  La création d’un abonnement pour Microsoft Intune dans Configuration Manager place le point de connexion de service de votre site en « mode en ligne ». Consultez [À propos du point de connexion de service dans System Center Configuration Manager](../../core/servers/deploy/configure/about-the-service-connection-point.md).
 
-## <a name="to-create-the-microsoft-intune-subscription"></a>Het Microsoft Intune-abonnement maken
+## <a name="to-create-the-microsoft-intune-subscription"></a>Pour créer l'abonnement Microsoft Intune
 
-1.  Meld u via [Microsoft Intune](http://go.microsoft.com/fwlink/?LinkID=258216) aan voor een Microsoft Intune-account als u dat nog niet hebt gedaan.  Nadat uw Intune-account is gemaakt, hoeft u geen gebruikers toevoegen aan het Intune-account of extra instellingen configuraties uitvoeren.
+1.  Si vous n’avez pas encore de compte Microsoft Intune, créez-en un sur [Microsoft Intune](http://go.microsoft.com/fwlink/?LinkID=258216).  Une fois que vous avez créé votre compte Intune, vous n’avez pas besoin d’y ajouter des utilisateurs ou d’effectuer des configurations de paramètres supplémentaires.
 
-2.  Klik op **Beheer**in de Configuration Manager-console.
+2.  Dans la console Configuration Manager, cliquez sur **Administration**.
 
-3.  Vouw in de werkruimte **Beheer** het knooppunt **Cloud Services** uit en klik op **Microsoft Intune-abonnementen**. Klik op het tabblad **Start** op **Microsoft Intune-abonnement toevoegen**.
+3.  Dans l'espace de travail **Administration** , développez **Services cloud**, puis cliquez sur **Abonnements Microsoft Intune**. Sous l'onglet **Accueil** , cliquez sur **Ajouter un abonnement Microsoft Intune**.
 
-![Een Intune-abonnement maken](../media/mdm-set-intune.png)
+![Créer un abonnement Intune](../media/mdm-set-intune.png)
 
-4.  Bekijk de tekst op de pagina **Inleiding** van de Wizard Microsoft Intune-abonnement maken en klik op **Volgende**.
+4.  Dans la page **Introduction** de l'Assistant Créer un abonnement Microsoft Intune, lisez le texte et cliquez sur **Suivant**.
 
-5.  Klik op de pagina **Abonnement** op **Aanmelden** en meld u aan met behulp van uw werk- of schoolaccount. In de **de instantie voor Mobile Device Management instellen** dialoogvenster, selecteer het selectievakje in om alleen mobiele apparaten beheren met Configuration Manager via de Configuration Manager-console. U moet deze optie selecteren om door te gaan met uw abonnement.
+5.  Dans la page **Abonnement** , cliquez sur **Se connecter** , puis connectez-vous en utilisant votre compte professionnel ou scolaire. Dans la boîte de dialogue **Définir l’autorité de gestion des appareils mobiles**, cochez la case permettant de gérer uniquement les appareils mobiles à l’aide de Configuration Manager via la console Configuration Manager. Pour poursuivre la procédure d'abonnement, vous devez sélectionner cette option.
 
     > [!IMPORTANT]
-    >  Wanneer u Configuration Manager als uw instantie voor beheer selecteert, kunt u alleen uw instantie voor beheer van Microsoft Intune in Configuration Manager versie 1610 of hoger en Microsoft Intune version 1705 wijzigen zonder contact opnemen met Microsoft Support en zonder de registratie ongedaan maken en registreren van uw bestaande beheerde apparaten. Zie voor meer informatie [wijzigen van uw MDM-instantie](/sccm/mdm/deploy-use/change-mdm-authority).
+    >  Lorsque vous sélectionnez Configuration Manager comme autorité de gestion, vous pouvez uniquement remplacer votre autorité de gestion par Microsoft Intune dans Configuration Manager version 1610 ou version ultérieure et Microsoft Intune version 1705 sans avoir à contacter le Support Microsoft et sans devoir annuler l’inscription de vos appareils gérés existants et les réinscrire. Pour plus d’informations, consultez [Changer d’autorité MDM](/sccm/mdm/deploy-use/change-mdm-authority).
 
-6.  Klik op de privacykoppelingen om deze te bekijken en klik op **Volgende**.
+6.  Pour prendre connaissance de la déclaration de confidentialité, cliquez sur les liens correspondants. Cliquez ensuite sur **Suivant**.
 
-7.  Geef op de pagina **Algemeen** de volgende opties op en klik op **Volgende**.
+7.  Sur la page **Général** , spécifiez les options suivantes et cliquez sur **Suivant**.
 
-  -   **Verzameling**: Een Gebruikersverzameling opgeven die gebruikers bevat die hun mobiele apparaten gaan registreren.
+  -   **Regroupement**: spécifiez un regroupement d'utilisateurs contenant les utilisateurs qui sont appelés à inscrire leurs appareils mobiles.
 
       > [!NOTE]
-      >  Als een gebruiker wordt verwijderd uit de verzameling, blijft het apparaat van de gebruiker tot 24 uur wanneer de gebruiker wordt verwijderd uit de database worden beheerd.
+      >  Si un utilisateur est supprimé d’un regroupement, l’appareil de l’utilisateur continue d’être géré pendant 24 heures au maximum, le temps que l’enregistrement soit supprimé de la base de données utilisateur.
 
-  -   **Bedrijfsnaam**: Geef de naam van uw bedrijf.
+  -   **Nom de la société**: spécifiez le nom de votre entreprise.
 
-  -   **URL naar privacydocumentatie van bedrijf**: Als u uw bedrijf privacy-informatie naar een koppeling die via Internet toegankelijk is publiceert, geeft u een koppeling waarop gebruikers kunnen via de bedrijfsportal, bijvoorbeeld http://www.contoso.com/CP_privacy.html. Privacyinformatie kan verduidelijken welke informatie gebruikers met uw bedrijf delen.
+  -   **URL vers la documentation de confidentialité**: si vous publiez des informations de confidentialité sur votre société par le biais d’un lien accessible sur Internet, fournissez un lien auquel les utilisateurs puissent accéder à partir du portail d’entreprise, par exemple http://www.contoso.com/CP_privacy.html. Les informations de confidentialité permettent de donner des précisions sur les informations que les utilisateurs partagent avec votre entreprise.
 
-  -   **Kleurenschema voor bedrijfsportal**: Wijzig eventueel de blauwe standaardkleur voor de bedrijfsportals.
+  -   **Modèle de couleurs pour le portail de la société**: modifiez éventuellement la couleur bleue par défaut des portails d'entreprise.
 
-  -   **Configuration Manager-sitecode**: Geef een sitecode voor een primaire site om de mobiele apparaten te beheren.
+  -   **Code de site Configuration Manager**: spécifiez le code de site d'un site principal pour gérer les appareils mobiles.
 
     > [!NOTE]
-    >  Het wijzigen van de sitecode heeft enkel een weerslag op nieuwe registraties en niet op bestaande geregistreerde apparaten.
+    >  La modification du code de site affecte uniquement les nouvelles inscriptions et n'affecte pas les appareils inscrits existants.
 
-8.  Op de **contactgegevens van bedrijf** pagina, geeft u de contactgegevens van bedrijf die wordt weergegeven voor gebruikers onder **contact opnemen met IT** in de bedrijfsportal-app. Contactgegevens voor uw bedrijf bevatten, en klik vervolgens op **volgende**.
+8.  Dans la page **Coordonnées de contact de l’entreprise**, spécifiez les informations de contact de l’entreprise visibles par les utilisateurs, sous **Contacter le service informatique**, dans l’application Portail d’entreprise. Fournissez les informations de contact de votre entreprise, puis cliquez sur **Suivant**.
 
-9. Op de **bedrijfslogo** pagina kunt u kiezen of logo's weergegeven in de bedrijfsportal en klik vervolgens op **volgende**.
+9. Dans la page **Logo de l’entreprise**, choisissez d’afficher éventuellement un logo dans le Portail d’entreprise, puis cliquez sur **Suivant**.
 
-10. Voltooi de wizard.
+10. Effectuez toutes les étapes de l'Assistant.
 
 > [!div class="button"]
-[< Vorige stap](confirm-dns.md)[volgende stap >  ](terms-and-conditions.md)
+[< Étape précédente](confirm-dns.md) [Étape suivante >](terms-and-conditions.md)

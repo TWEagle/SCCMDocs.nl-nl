@@ -1,6 +1,6 @@
 ---
-title: Migratie-beveiliging en privacy | Microsoft Docs
-description: Aanbevolen beveiligingsprocedures en privacyinformatie voor migratie naar uw omgeving voor System Center Configuration Manager worden opgehaald.
+title: "Sécurité et confidentialité de la migration | Microsoft Docs"
+description: "Bonnes pratiques et informations de confidentialité pour la migration vers votre environnement System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,49 +17,49 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 8aa6971d75924ab5bcacd70c330913097ecf8717
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-migration-to-system-center-configuration-manager"></a>Beveiliging en privacy voor migratie naar System Center Configuration Manager
+# <a name="security-and-privacy-for-migration-to-system-center-configuration-manager"></a>Sécurité et confidentialité pour la migration vers System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Dit onderwerp bevat aanbevolen beveiligingsprocedures en privacyinformatie voor migratie naar uw System Center Configuration Manager-omgeving.  
+Cette rubrique contient les bonnes pratiques en matière de sécurité et les informations de confidentialité pour la migration vers votre environnement System Center Configuration Manager.  
 
-## <a name="security-best-practices-for-migration"></a>Aanbevolen beveiligingsprocedures voor migratie  
- Gebruik de volgende aanbevolen beveiligingsprocedures voor migratie.  
+## <a name="security-best-practices-for-migration"></a>Meilleures pratiques de sécurité pour la migration  
+ Utilisez les meilleures pratiques de sécurité suivantes pour la migration.  
 
-|Aanbevolen beveiligingsprocedure|Meer informatie|  
+|Meilleure pratique de sécurité|Plus d'informations|  
 |----------------------------|----------------------|  
-|Gebruik het computeraccount voor de Account van de SMS-Provider voor de bron-siteserver en de SQL Server de Bronsiteaccount in plaats van een gebruikersaccount.|Als u een gebruikersaccount voor migratie gebruiken moet, verwijdert u de accountdetails als de migratie is voltooid.|  
-|Gebruik IPsec wanneer u inhoud van een distributiepunt in een bronsite naar een distributiepunt op de bestemmingssite migreert.|Hoewel de gemigreerde inhoud wordt gehasht om te detecteren knoeien, als de gegevens worden gewijzigd terwijl ze worden overgedragen, mislukt de migratie.|  
-|Beperk en bewaak de gebruikers met beheerdersrechten die migratietaken kunnen maken.|De integriteit van de database van de doelhiërarchie is afhankelijk van de integriteit van gegevens die de gebruiker met beheerdersrechten kiest voor het importeren van de bronhiërarchie. Bovendien kan deze gebruiker met beheerdersrechten alle gegevens lezen uit de bronhiërarchie.|  
+|Utilisez le compte d'ordinateur pour le compte du fournisseur SMS du site source et le compte SQL Server du site source plutôt qu'un compte d'utilisateur.|Si vous devez utiliser un compte d'utilisateur pour la migration, supprimez les détails du compte une fois la migration terminée.|  
+|Lorsque vous migrez le contenu d'un point de distribution d'un site source vers un point de distribution d'un site de destination, utilisez IPsec.|Bien que le contenu migré soit haché pour détecter la falsification, si les données sont modifiées pendant leur transfert, la migration échoue.|  
+|Veillez à restreindre et surveiller les utilisateurs administratifs qui peuvent créer des tâches de migration.|L'intégrité de la base de données de la hiérarchie de destination dépend de l'intégrité des données que l'utilisateur administratif décide d'importer à partir de la hiérarchie source. En outre, cet utilisateur administratif peut lire toutes les données de la hiérarchie source.|  
 
-### <a name="security-issues-for-migration"></a>Beveiligingsproblemen bij migratie  
-Migratie heeft de volgende beveiligingsproblemen kijken:  
+### <a name="security-issues-for-migration"></a>Problèmes de sécurité pour la migration  
+La migration présente les problèmes de sécurité suivants :  
 
--   Clients die zijn geblokkeerd vanaf een bronsite mogelijk wel toegewezen aan de doelhiërarchie voordat de clientrecord wordt gemigreerd.  
+-   Les clients dont l'accès à un site source a été bloqué peuvent être attribués correctement à la hiérarchie de destination, avant que leur enregistrement de client n'ait été migré.  
 
-     Hoewel de Configuration Manager de geblokkeerde status van clients die u migreert behoudt, de client wel worden toegewezen aan de doelhiërarchie als deze toerwijzing plaatsvindt voordat de migratie van de clientrecord is voltooid.  
+     Bien que Configuration Manager conserve l'état de blocage des clients que vous migrez, ces derniers peuvent être correctement affectés à la hiérarchie de destination si cette affectation a lieu avant la fin de la migration de l'enregistrement de client.  
 
--   Controleberichten worden niet gemigreerd.  
+-   Les messages d'audit ne sont pas migrés.  
 
-Als u gegevens van een bronsite naar een doelsite migreert, verliest u alle controle-informatie van de bronhiërarchie.  
+Lorsque vous migrez les données d'un site source vers un site de destination, vous perdez toutes les informations d'audit de la hiérarchie source.  
 
-## <a name="privacy-information-for-migration"></a>Privacyinformatie voor migratie  
- Migratie wordt informatie gedetecteerd van de sitedatabases die u in een broninfrastructuur identificeert en slaat deze gegevens naar de database in de doelhiërarchie. De informatie die door System Center Configuration Manager kan worden gedetecteerd via een bronsite of -hiërarchie, is afhankelijk van de functies die zijn ingeschakeld in de bronomgeving, evenals de beheerbewerkingen die zijn uitgevoerd in die bronomgeving.  
+## <a name="privacy-information-for-migration"></a>Informations de confidentialité pour la migration  
+ La migration découvre des informations à partir des bases de données de site que vous identifiez dans une infrastructure source et stocke ces données dans la base de données de la hiérarchie de destination. Les informations que System Center Configuration Manager peut découvrir à partir d'un site ou d'une hiérarchie source dépendent des fonctionnalités qui ont été activées dans l'environnement source, ainsi que des opérations de gestion réalisées dans cet environnement.  
 
- Zie een van de volgende onderwerpen voor meer informatie over beveiliging en privacy-informatie:  
+ Pour plus d'informations sur la sécurité et la confidentialité, consultez l'une des rubriques suivantes :  
 
--   Zie voor meer informatie over de privacyinformatie voor Configuration Manager 2007 [beveiliging en Privacy voor Configuration Manager 2007](http://go.microsoft.com/fwlink/p/?LinkId=216450) in de Configuration Manager 2007-documentatiebibliotheek.  
+-   Pour plus d'informations sur les informations de confidentialité pour Configuration Manager 2007, voir [Sécurité et confidentialité pour Configuration Manager 2007](http://go.microsoft.com/fwlink/p/?LinkId=216450) dans la bibliothèque de documentation de Configuration Manager 2007.  
 
--   Zie voor meer informatie over de privacy-informatie voor System Center 2012 Configuration Manager [beveiliging en Privacy voor System Center 2012 Configuration Manager](https://technet.microsoft.com/library/gg682033.aspx) in de Documentatiebibliotheek van System Center 2012 Configuration Manager.  
+-   Pour plus d'informations sur les informations de confidentialité pour System Center 2012 Configuration Manager, voir [Sécurité et confidentialité pour System Center 2012 Configuration Manager](https://technet.microsoft.com/library/gg682033.aspx) dans la bibliothèque de documentation de System Center 2012 Configuration Manager.  
 
--   Zie voor meer informatie over de privacyinformatie voor System Center Configuration Manager [beveiliging en privacy voor System Center Configuration Manager](../../core/plan-design/security/security-and-privacy.md).  
+-   Pour plus d’informations sur les informations de confidentialité pour System Center Configuration Manager, voir [Sécurité et confidentialité pour System Center Configuration Manager](../../core/plan-design/security/security-and-privacy.md).  
 
-U kunt enkele of alle ondersteunde gegevens migreren van een bronsite naar een doelhiërarchie.  
+Vous pouvez migrer l'intégralité des données prises en charge d'un site source vers une hiérarchie de destination ou uniquement une partie de ces données.  
 
-Migratie wordt niet standaard ingeschakeld en vereist verschillende configuratiestappen. Migratie-informatie is niet naar Microsoft verzonden.  
+La migration n'est pas activée par défaut et nécessite plusieurs étapes de configuration. Les informations relatives à la migration ne sont pas envoyées à Microsoft.  
 
-Bedenk wat uw privacyvereisten voordat u gegevens vanuit een bronhiërarchie migreert.  
+Avant de migrer les données d'une hiérarchie source, analysez vos besoins en matière de confidentialité.  

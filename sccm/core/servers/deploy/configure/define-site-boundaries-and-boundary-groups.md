@@ -1,6 +1,6 @@
 ---
-title: Gebruik van grenzen en grensgroepen | Microsoft Docs
-description: "Gebruik grenzen en grensgroepen definiëren netwerklocaties en toegankelijk sitesystemen voor apparaten die u beheert."
+title: Utiliser les limites et les groupes de limites | Microsoft Docs
+description: "Utilisez les limites et les groupes de limites pour définir les emplacements réseau et les systèmes de site accessibles pour les appareils que vous gérez."
 ms.custom: na
 ms.date: 3/27/2017
 ms.prod: configuration-manager
@@ -16,49 +16,49 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 0fea1dece0768a2b7bcd3fcedc2288ea2d52e73d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="define-site-boundaries-and-boundary-groups-for-system-center-configuration-manager"></a>Sitegrenzen en grensgroepen definiëren voor System Center Configuration Manager
+# <a name="define-site-boundaries-and-boundary-groups-for-system-center-configuration-manager"></a>Définir des limites de site et les groupes de limites pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Grenzen voor System Center Configuration Manager definiëren netwerklocaties op uw intranet die apparaten kan bevatten die u wilt beheren. Grensgroepen zijn logische groepen grenzen die u configureert.
+Les limites pour System Center Configuration Manager définissent les emplacements réseau sur votre intranet pouvant contenir des appareils que vous souhaitez gérer. Les groupes de limites sont des groupes logiques de limites que vous configurez.
 
- Een hiërarchie kan een onbeperkt aantal grensgroepen bevatten en elke grensgroep kan een combinatie van de volgende grenstypen bevatten:  
+ Une hiérarchie peut inclure n’importe quel nombre de groupes de limites, et chaque groupe de limites peut contenir n’importe quelle combinaison des types de limites suivants :  
 
--   IP-subnet,  
--   Active Directory-sitenaam  
--   IPv6-voorvoegsel  
--   IP-adresbereik  
+-   Sous-réseau IP  
+-   Nom de site Active Directory  
+-   Préfixe IPv6  
+-   Plage d'adresses IP  
 
-Clients op het intranet evalueren hun huidige netwerklocatie en gebruiken deze informatie vervolgens om vast te stellen tot welke grensgroepen ze behoren.  
+Les clients intranet évaluent leur emplacement réseau actuel, puis utilisent ces informations pour identifier les groupes de limites auxquels ils appartiennent.  
 
- Clients gebruiken grensgroepen voor de volgende doeleinden:  
--   **Een toegewezen site vinden:** Grensgroepen kunnen clients een primaire site vinden voor clienttoewijzing (automatische sitetoewijzing).  
--   **Zoeken naar bepaalde sitesysteemrollen die kan worden gebruikt:** Als u een grensgroep aan bepaalde sitesysteemrollen koppelt, biedt de grensgroep clients die lijst met sitesystemen voor gebruik tijdens de Inhoudslocatie en als voorkeursbeheerpunten.  
+ Les clients utilisent des groupes de limites pour :  
+-   **Trouver un site attribué** : les groupes de limites permettent aux clients de trouver un site principal pour l’attribution du client (attribution automatique de site).  
+-   **Trouver des rôles de système de site spécifiques disponibles** : quand vous associez un groupe de limites à certains rôles de système de site, le groupe de limites fournit aux clients la liste des systèmes de site à utiliser pour l’emplacement du contenu et en tant que points de gestion préférés.  
 
-Clients die verbinding hebben met internet of zijn geconfigureerd als internetclients, gebruiken geen grensgegevens. Deze clients kunnen geen gebruik maken van automatische sitetoewijzing en kunnen inhoud altijd downloaden van een distributiepunt van hun toegewezen site wanneer het distributiepunt is geconfigureerd om clientverbindingen vanaf internet toe te staan.  
+Les clients Internet ou les clients configurés en tant que clients Internet uniquement n’utilisent pas les informations sur les limites. Ces clients ne peuvent pas utiliser l’attribution automatique de site. Ils peuvent toujours télécharger le contenu de n’importe quel point de distribution sur leur site attribué quand le point de distribution est configuré pour autoriser les connexions clientes depuis Internet.  
 
-**Aan de slag:**
-- Eerst [netwerklocaties als grenzen definiëren](/sccm/core/servers/deploy/configure/boundaries).
-- Vervolgens gaat u door [grensgroepen configureren](/sccm/core/servers/deploy/configure/boundary-groups) om te koppelen van clients in deze grenzen voor de sitesysteemservers die kan worden gebruikt.
+**Pour bien démarrer :**
+- Tout d’abord, [définissez les emplacements réseau en tant que limites](/sccm/core/servers/deploy/configure/boundaries).
+- Puis, poursuivez en [configurant des groupes de limites](/sccm/core/servers/deploy/configure/boundary-groups) pour associer les clients dans ces limites aux serveurs de système de site qu’ils peuvent utiliser.
 
 
 
-##  <a name="BKMK_BoundaryBestPractices"></a>Aanbevolen procedures voor grenzen en grensgroepen  
+##  <a name="BKMK_BoundaryBestPractices"></a> Meilleures pratiques en matière de limites et de groupes de limites  
 
--   **Gebruik een combinatie van het minste aantal grenzen die aan uw behoeften voldoet:**  
-   In het verleden raden we het gebruik van bepaalde grenstypen boven andere. Met wijzigingen in de prestaties verbeteren, nu we aanbevelen u welke grenstype of typen die u kiest die voor uw omgeving en waarmee u werken het minste aantal grenzen gebruiken kunt u uw beheertaken vereenvoudigen.      
+-   **Utilisez une combinaison du plus petit nombre de limites qui répondent à vos besoins :**  
+   Dans le passé, nous vous avons conseillé d’utiliser certains types de limites plus que d’autres. Compte-tenu des modifications apportées pour améliorer les performances, nous vous conseillons dorénavant d’utiliser le ou les types de votre choix qui fonctionnent dans votre environnement et qui vous permettent d’utiliser le plus petit nombre de limites possible pour simplifier vos tâches de gestion.      
 
--   **Voorkom overlappende grenzen voor automatische sitetoewijzing:**  
-     Hoewel zowel configuraties voor sitetoewijzing als inhoudslocaties door elke grensgroep worden ondersteund, wordt het aanbevolen een afzonderlijke reeks grensgroepen te maken die alleen worden gebruikt voor sitetoewijzing. Controleer daarom of de grenzen in een grensgroep geen lid zijn van een andere grensgroep met een andere sitetoewijzing. Dit is van belang omdat:  
+-   **Éviter le chevauchement des limites pour l’attribution automatique de site :**  
+     Chaque groupe de limites prend en charge les configurations d’attribution de site et d’emplacement du contenu, mais il est recommandé de créer un ensemble de groupes de limites à utiliser uniquement pour l’attribution de site. Cela signifie que vous devez vérifier qu’aucune limite d’un groupe de limites n’est membre d’un autre groupe de limites ayant une attribution de site différente. La raison est la suivante :  
 
-    -   Eén grens kan worden opgenomen in meerdere grensgroepen  
+    -   Une limite peut être incluse dans plusieurs groupes de limites.  
 
-    -   Elke grensgroep kan worden gekoppeld aan een andere primaire site voor sitetoewijzing  
+    -   Chaque groupe de limites peut être associé à un site principal différent pour l’attribution de site.  
 
-    -   Een client op een grens die lid is van twee verschillende grensgroepen met verschillende sitetoewijzingen selecteert willekeurig een site om zich daarbij te voegen. Dit kan een andere site zijn dan waaraan u de client wilt toevoegen.  Deze configuratie wordt overlappende grenzen genoemd.  
+    -   Un client sur une limite qui est membre de deux groupes de limites ayant des attributions de site différentes sélectionne au hasard un site auquel se joindre, site qui n’est pas nécessairement le site que vous avez prévu à cet effet.  Cette configuration est appelée chevauchement des limites.  
 
-     Overlappende grenzen zijn geen probleem voor inhoudslocatie, maar vormen vaak een gewenste configuratie waarmee clients toegang hebben tot aanvullende resources of de inhoudslocaties die ze kunnen gebruiken.  
+     Le chevauchement des limites n’est pas un problème pour l’emplacement du contenu. Il s’agit souvent d’une configuration souhaitée qui fournit aux clients des ressources ou emplacements de contenu supplémentaires qu’ils peuvent utiliser.  

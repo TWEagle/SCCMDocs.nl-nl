@@ -1,6 +1,6 @@
 ---
-title: Datawarehouse | Microsoft Docs
-description: Datawarehouse-servicepunt en de database voor System Center Configuration Manager
+title: "Entrepôt de données | Microsoft Docs"
+description: "Base de données et point de service de l’entrepôt de données pour System Center Configuration Manager"
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
@@ -16,179 +16,179 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: eedbf12d3bf628666efc90c85a8dfab37e4dc9ab
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="the-data-warehouse-service-point-for-system-center-configuration-manager"></a>Het datawarehouse-servicepunt voor System Center Configuration Manager
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+#  <a name="the-data-warehouse-service-point-for-system-center-configuration-manager"></a>Point de service de l’entrepôt de données pour System Center Configuration Manager
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Vanaf versie 1702 dat kunt u de datawarehouse-servicepunt op te slaan en te rapporteren over langetermijnopslag van historische gegevens voor uw Configuration Manager-implementatie.
+Depuis la version 1702, vous pouvez utiliser le point de service de l’entrepôt de données pour stocker des données d’historique à long terme et créer des rapports sur celles-ci pour votre déploiement de Configuration Manager.
 
 > [!TIP]
-> De datawarehouse-servicepunt is een voorlopige versie-functie die is geïntroduceerd in versie 1702. Als u wilt inschakelen, Zie [gebruikt functies van evaluatieversies](/sccm/core/servers/manage/pre-release-features).
+> Le point de service de l’entrepôt de données est une fonctionnalité en préversion introduite dans la version 1702. Pour savoir comment l’activer, voir [Fonctionnalités en préversion dans System Center Configuration Manager](/sccm/core/servers/manage/pre-release-features).
 
-> Vanaf versie 1706, deze functie is niet langer een voorlopige versie.
+> À compter de la version 1706, cette fonctionnalité n’est plus une fonctionnalité en préversion.
 
-Het datawarehouse ondersteunt maximaal 2 TB aan gegevens, met een tijdstempel voor het bijhouden. Opslag van gegevens wordt gedaan door geautomatiseerde synchronisaties uit de sitedatabase van Configuration Manager met de datawarehouse-database. Deze gegevens zijn toegankelijk is vanaf uw Reporting Services-punt. Gegevens die zijn gesynchroniseerd met de datawarehouse-database wordt drie jaar bewaard. Een ingebouwde taak verwijdert periodiek gegevens die ouder is dan drie jaar.
+L’entrepôt de données prend en charge jusqu’à 2 To de données, avec des horodatages pour le suivi des modifications. Pour stocker des données, vous utilisez des synchronisations automatisées entre la base de données du site Configuration Manager et la base de données de l’entrepôt de données. Ces informations sont ensuite accessibles à partir de votre point de Reporting Services. Les données qui sont synchronisées avec la base de données de l’entrepôt de données sont conservées pendant trois ans. Périodiquement, une tâche intégrée supprime les données datant de plus de trois ans.
 
-Gegevens worden gesynchroniseerd omvat het volgende uit de globale gegevens en sitegegevens groepen:
-- Status van de groepsbeleidstructuur
-- Beveiliging
-- Naleving
-- Schadelijke software   
-- Software-implementatie
-- Inventarisgegevens (inventarisgeschiedenis is echter niet gesynchroniseerd)
+Les données synchronisées incluent les éléments suivants, qui proviennent des groupes des données de site et des données globales :
+- Intégrité de l’infrastructure
+- Sécurité
+- Compatibilité
+- Programme malveillant   
+- Déploiements de logiciels
+- Détails d’inventaire (toutefois, l’historique d’inventaire n’est pas synchronisé)
 
-Wanneer de sitesysteemrol wordt geïnstalleerd, installeert en configureert u de datawarehouse-database. Deze installeert ook verschillende rapporten, zodat u gemakkelijk naar zoeken kunt en in het rapport op deze gegevens.
+Une fois installé, le rôle de système de site installe et configure la base de données de l’entrepôt de données. Il installe également plusieurs rapports, afin que vous puissiez facilement rechercher ces données et créer des rapports les concernant.
 
 
 
-## <a name="prerequisites-for-the-data-warehouse-service-point"></a>Vereisten voor het datawarehouse-servicepunt
-- De sitesysteemrol van de datawarehouse wordt alleen ondersteund op de bovenste site van uw hiërarchie. (Een centrale beheersite of zelfstandige primaire site).
-- De computer waarop u de sitesysteemrol installeert, vereist .NET Framework 4.5.2 of hoger.
-- Het computeraccount van de computer waarop u de sitesysteemrol installeert, wordt gebruikt om gegevens te synchroniseren met de datawarehouse-database. Deze account vereist de volgende machtigingen:  
-  - **Beheerder** op de computer die als voor de datawarehouse-database host fungeert.
-  - **DB_owner** machtiging op de datawarehouse-database.
-  - **DB_reader** en **uitvoeren** sitedatabase machtigingen voor de sites van het hoogste niveau.
-- De datawarehouse-database vereist het gebruik van SQL Server 2012 of later. De editie kan zijn Standard, Enterprise of Datacenter.
-- De volgende SQL Server-configuraties worden ondersteund voor het hosten van de datawarehouse-database:  
-  - Een standaardexemplaar
-  - Benoemd exemplaar
-  - SQL Server Always On beschikbaarheidsgroep
-  - SQL Server-failovercluster
--   Als de datawarehouse-database extern van de site server-database is, moet u een aparte licentie hebben voor elke SQL-Server die als host fungeert voor de database.
-- Als u [gedistribueerde weergaven](/sccm/core/servers/manage/data-transfers-between-sites#bkmk_distviews), de datawarehouse service sitesysteemrol moet installeren op dezelfde server die als host fungeert voor de database van centrale beheersite sites.
+## <a name="prerequisites-for-the-data-warehouse-service-point"></a>Conditions préalables pour le point de service de l’entrepôt de données
+- Le rôle de système de site d’entrepôt de données est pris en charge uniquement sur le site de niveau supérieur de la hiérarchie. (Un site d’administration centrale ou site principal autonome.)
+- L’ordinateur sur lequel vous installez le rôle de système de site nécessite .NET Framework 4.5.2 ou version ultérieure.
+- Le compte de l’ordinateur sur lequel vous installez le rôle de système de site est utilisé pour synchroniser les données avec la base de données de l’entrepôt de données. Ce compte nécessite les autorisations suivantes :  
+  - des autorisations de niveau **administrateur local** sur l’ordinateur qui hébergera la base de données de l’entrepôt de données ;
+  - des autorisations **DB_owner** la base de données de l’entrepôt de données.
+  - des autorisations **DB_reader** et **execute** sur la base de données des sites de niveau supérieur.
+- La base de données de l’entrepôt de données nécessite l’utilisation de SQL Server 2012 ou version ultérieure. L’édition peut être Standard, Entreprise ou Datacenter.
+- Les configurations de SQL Server suivantes sont prises en charge pour héberger la base de données de l’entrepôt :  
+  - Une instance par défaut
+  - Instance nommée
+  - Groupe de disponibilité SQL Server AlwaysOn
+  - Cluster de basculement SQL Server
+-   Quand la base de données de l’entrepôt de données ne se trouve pas au même emplacement que la base de données du serveur de site, vous devez disposer d’une licence distincte pour chaque instance de SQL Server qui héberge la base de données.
+- Si vous utilisez des [vues distribuées](/sccm/core/servers/manage/data-transfers-between-sites#bkmk_distviews), le rôle de système de site de point de service de l’entrepôt de données doit être installé sur le serveur qui héberge la base de données de site des sites d’administration centrale.
 
 
 
 > [!IMPORTANT]  
-> Het datawarehouse wordt niet ondersteund wanneer de computer waarop de datawarehouse-servicepunt of die als host fungeert de datawarehouse-database wordt uitgevoerd een van de volgende talen:
-> - JPN – Japans
-> - KOR – Koreaans
-> - CHS – Chinees (Vereenvoudigd)
-> - CHT – traditioneel Chinees dit probleem wordt opgelost in een toekomstige release.
+> L’entrepôt de données n’est pas pris en charge lorsque l’ordinateur qui exécute le point de service de l’entrepôt de données ou qui héberge la base de données de l’entrepôt de données exécute l’une des langues suivantes :
+> - JPN – Japonais
+> - KOR – Coréen
+> - CHS – Chinois simplifié
+> - CHT – Chinois traditionnel Ce problème sera résolu dans une version à venir.
 
 
-## <a name="install-the-data-warehouse"></a>Het datawarehouse installeren
-Elke hiërarchie ondersteunt slechts één exemplaar van deze rol op elk sitesysteem van de bovenste site. De SQL Server die als host fungeert voor de database voor het datawarehouse kan zijn voor de sitesysteemrol lokale of externe. Hoewel het datawarehouse met de Reporting Services-punt is geïnstalleerd op dezelfde site werkt, hoeft de twee sitesysteemrollen niet te worden geïnstalleerd op dezelfde server.   
+## <a name="install-the-data-warehouse"></a>Installer l’entrepôt de données
+Chaque hiérarchie prend en charge une seule instance de ce rôle, sur n’importe quel système de site du site de niveau supérieur. L’instance SQL Server qui héberge la base de données de l’entrepôt peut être locale ou distante par rapport au rôle de système de site. Bien que l’entrepôt de données fonctionne avec le point de Reporting Services installé sur le même site, il n’est pas nécessaire d’installer les deux rôles de système de site sur le même serveur.   
 
-U kunt de functie installeren met de **toevoegen Wizard sitesysteemrollen** of de **maken Wizard Sitesysteemserver**. Zie [sitesysteemrollen installeren](/sccm/core/servers/deploy/configure/install-site-system-roles) voor meer informatie.  
+Pour installer le rôle, vous pouvez utiliser deux assistants : **l’Assistant Ajout des rôles de système de site** ou **l’Assistant Création d’un serveur de système de site**. Pour plus d’informations, consultez [Installer des rôles de système de site](/sccm/core/servers/deploy/configure/install-site-system-roles).  
 
-Wanneer u de rol installeert, maakt Configuration Manager de datawarehouse-database voor u op het exemplaar van SQL Server die u opgeeft. Als u de naam van een bestaande database opgeven (zoals u doen zou als u [de datawarehouse-database verplaatsen naar een nieuwe SQL-Server](#move-the-data-warehouse-database)), Configuration Manager heeft niet een nieuwe database maken, maar in plaats daarvan gebruikt de die u opgeeft.
+Quand vous installez le rôle, Configuration Manager crée la base de données de l’entrepôt de données pour vous sur l’instance de SQL Server que vous spécifiez. Si vous spécifiez le nom d’une base de données existante (comme vous le feriez si vous [déplaciez la base de données de l’entrepôt de données vers un nouveau serveur SQL Server](#move-the-data-warehouse-database)), Configuration Manager ne crée pas une base de données, mais utilise à la place celle que vous spécifiez.
 
-### <a name="configurations-used-during-installation"></a>Configuraties die worden gebruikt tijdens de installatie
-**Selectie van Systeemrol** pagina:  
+### <a name="configurations-used-during-installation"></a>Configurations utilisées lors de l’installation
+Page **Sélection du rôle système** :  
 
-**Algemene** pagina:
--   **Configuration Manager-datawarehouse verbindingsinstellingen voor database**:
- - **SQL Server FQDN-naam**:  
- Geef de FQDN-naam (Fully qualified domain name) van de server die als host fungeert voor de Data Warehouse-database voor service-punt.
- - **SQL Server-instantienaam, indien van toepassing**:   
- Als u niet een standaardexemplaar van SQL Server gebruikt, moet u het exemplaar opgeven.
- - **Databasenaam**:   
- Geef een naam voor de datawarehouse-database. Naam van de database kan niet groter zijn dan 10 tekens. (De lengte van de ondersteunde worden verhoogd in een toekomstige release).
- Configuration Manager maakt de datawarehouse-database met deze naam. Als u de naam van een database die al bestaat op het exemplaar van SQL server opgeeft, wordt in Configuration Manager dat de database gebruikt.
- - **SQL Server-poort gebruikt voor verbinding**:   
- Geef de TCP/IP-poortnummer dat is geconfigureerd voor de SQL Server die als host fungeert voor de datawarehouse-database. Deze poort wordt gebruikt door de datawarehouse-synchronisatieservice verbinding maken met de datawarehouse-database.  
+Page **Général** :
+-   **Paramètres de connexion de la base de données de l’entrepôt de données Configuration Manager** :
+ - **Nom de domaine complet de SQL Server** :  
+ spécifiez le nom de domaine complet (FQDN) du serveur qui héberge le point de service de l’entrepôt de données et la base de données.
+ - **Nom d’instance SQL Server, le cas échéant** :   
+ si vous n’utilisez pas une instance par défaut de SQL Server, vous devez spécifier l’instance utilisée.
+ - **Nom de la base de données** :   
+ indiquez le nom de la base de données de l’entrepôt de données. Le nom de la base de données ne doit pas dépasser 10 caractères. (La longueur du nom prise en charge sera augmentée dans une version ultérieure.)
+ Configuration Manager crée la base de données de l’entrepôt de données en lui donnant ce nom. Si vous spécifiez un nom de base de données qui existe déjà sur l’instance de SQL Server, Configuration Manager utilise cette base de données.
+ - **Port SQL Server utilisé pour la connexion** :   
+ spécifiez le numéro de port TCP/IP configuré pour l’instance SQL Server qui héberge la base de données de l’entrepôt de données. Ce port est utilisé par le service de synchronisation de l’entrepôt de données pour se connecter à la base de données de ce dernier.  
 
-**Synchronisatieplanning** pagina:   
-- **Synchronisatieplanning**:
- - **Begintijd**:  
- Geef de tijd die u wilt dat de datawarehouse-synchronisatie te starten.
- - **Terugkeerpatroon**:
-    - **Dagelijkse**: Geef op dat de synchronisatie wordt uitgevoerd elke dag.
-    - **Wekelijkse**: Geef een enkele dag elke week en wekelijkse terugkeerpatronen voor synchronisatie.
+Page **Calendrier des synchronisations** :   
+- **Calendrier des synchronisations** :
+ - **Heure de début** :  
+ indiquez l’heure de début de la synchronisation de l’entrepôt de données.
+ - **Périodicité** :
+    - **Tous les jours** : permet d’indiquer que la synchronisation doit s’exécuter chaque jour.
+    - **Hebdomadaire** : permet de spécifier une seule journée chaque semaine ainsi qu’une périodicité hebdomadaire pour la synchronisation.
 
-## <a name="reporting"></a>Rapporten
-Nadat u een datawarehouse-servicepunt geïnstalleerd, worden diverse rapporten beschikbaar zijn op de Reporting Services-punt is geïnstalleerd op dezelfde site. Als u het webservicepunt Data Warehouse installeren voordat u een Reporting Services-punt installeert, wordt de rapporten automatisch toegevoegd wanneer u later de Reporting Services-punt installeert.
+## <a name="reporting"></a>Rapports
+Une fois que vous avez installé un point de service de l’entrepôt de données, plusieurs rapports sont disponibles sur le point de Reporting Services installé sur le même site. Si vous installez le point de service de l’entrepôt de données avant d’installer un point de Reporting Services, les rapports sont automatiquement ajoutés lorsque vous installez le point de Reporting Services.
 
-De sitesysteemrol van het datawarehouse bevat de volgende rapporten, waarvoor een categorie van **Data Warehouse**:
- - **Toepassingsimplementatie - historische**:   
- Details weergeven voor de implementatie van de toepassing voor een bepaalde toepassing en de machine.
- - **Endpoint Protection en Software-Update naleving - historische**: Computers weergeven die software-updates ontbreekt.  
- - **Algemene Hardware-inventarisatie - historische**:   
- Alle hardware-inventaris voor een specifieke computer weer.
- - **Algemene Software-inventarisatie - historische**:   
- Alle software-inventaris voor een specifieke machine weergeven.
- - **Overzicht van de Health netwerkinfrastructuur - historische**:  
- Geeft een overzicht van de status van uw Configuration Manager-infrastructuur
- - **Lijst met Malware gedetecteerd - historische**:    
- Weergave kwaadaardige software die is aangetroffen in de organisatie.
- - **Software distribueren samenvatting - historische**:   
- Een samenvatting van softwaredistributie voor een specifieke advertentie en de machine.
-
-
-## <a name="expand-an-existing-stand-alone-primary-into-a-hierarchy"></a>Een bestaande zelfstandige primaire uitbreiden naar een hiërarchie
-Voordat u een centrale beheersite als u een bestaande zelfstandige primaire site uitbreiden installeren kunt, moet u eerst de rol van het datawarehouse service verwijderen. Nadat u de centrale beheersite installeert, kunt u de sitesysteemrol op de centrale beheersite installeren.  
-
-In tegenstelling tot een verplaatsing van de datawarehouse-database, wordt deze wijziging resulteert in een verlies van de historische gegevens die u eerder hebt gesynchroniseerd op de primaire site. Dit wordt niet ondersteund voor back-up van de database van de primaire site en deze herstellen op de centrale beheersite.
+Le rôle de système de site de l’entrepôt de données inclut les rapports suivants, qui appartiennent à la catégorie **Entrepôt de données** :
+ - **Déploiement de l’application - Historique** :   
+ Affiche les détails du déploiement d’application pour une application et un ordinateur spécifiques.
+ - **Endpoint Protection et Compatibilité des mises à jour logicielles - Historique** : affiche les ordinateurs sur lesquels des mises à jour logicielles n’ont pas été effectuées.  
+ - **Inventaire matériel général - Historique** :   
+ Affiche tout l’inventaire matériel pour un ordinateur spécifique.
+ - **Inventaire logiciel général - Historique** :   
+ Affiche tout l’inventaire logiciel pour un ordinateur spécifique.
+ - **Vue d'ensemble de l'intégrité de l'infrastructure - Historique** :  
+ affiche une vue d’ensemble de l’intégrité de votre infrastructure Configuration Manager.
+ - **Liste des programmes malveillants détectés - Historique** :    
+ Affiche les programmes malveillants qui ont été détectés dans l’organisation.
+ - **Résumé de la distribution de logiciels - Historique** :   
+ Synthèse de la distribution de logiciels pour une publication et un ordinateur spécifiques.
 
 
+## <a name="expand-an-existing-stand-alone-primary-into-a-hierarchy"></a>Étendre un site principal autonome existant vers une hiérarchie
+Avant d’installer un site d’administration centrale pour développer un site principal autonome existant, vous devez désinstaller le rôle de point de service de l’entrepôt de données. Après avoir installé le site d’administration centrale, vous pouvez installer le rôle de système de site sur ce site.  
+
+Contrairement au déplacement de la base de données de l’entrepôt de données, cette modification entraîne une perte des données historiques que vous avez synchronisées sur le site principal. La sauvegarde de la base de données depuis le site principal et sa restauration sur le site d’administration centrale ne sont pas prises en charge.
 
 
-## <a name="move-the-data-warehouse-database"></a>De Data Warehouse-database verplaatsen
-Gebruik de volgende stappen uit de datawarehouse-database verplaatsen naar een nieuwe SQL-Server:
 
-1.  SQL Server Management Studio back-up van de datawarehouse-database te gebruiken. Vervolgens die database herstellen naar een SQL-Server op de nieuwe computer die als host fungeert voor het datawarehouse.   
+
+## <a name="move-the-data-warehouse-database"></a>Déplacer la base de données de l’entrepôt de données
+Procédez comme suit pour déplacer la base de données de l’entrepôt de données vers un nouveau serveur SQL Server :
+
+1.  Utilisez SQL Server Management Studio pour sauvegarder la base de données de l’entrepôt de données. Ensuite, restaurez cette base de données sur un serveur SQL Server sur le nouvel ordinateur qui héberge l’entrepôt de données.   
 > [!NOTE]     
-> Nadat u de database naar de nieuwe server teruggezet, zorg ervoor dat de toegangsmachtigingen voor de database op de nieuwe datawarehouse-database dezelfde zijn als ze op de oorspronkelijke datawarehouse-database waren.  
+> Après avoir restauré la base de données sur le nouveau serveur, vérifiez que les autorisations d’accès à la base de données sont les mêmes sur la nouvelle base de données de l’entrepôt de données que sur la base de données de l’entrepôt de données d’origine.  
 
-2.  Gebruik de Configuration Manager-console te verwijderen van de datawarehouse-service de sitesysteemrol van de huidige server.
-3.  Installeer de Data Warehouse-servicepunt en geef de naam van de nieuwe SQL-Server en het exemplaar dat als host fungeert voor de Data Warehouse-database die u teruggezet.
-4.  Nadat de sitesysteemrol is geïnstalleerd, wordt de verplaatsing is voltooid.
+2.  Utilisez la console Configuration Manager pour supprimer du serveur actuel le rôle de système de site du point de service de l’entrepôt de données.
+3.  Réinstallez le point de service de l’entrepôt de données et spécifiez le nom du nouveau serveur SQL Server et de l’instance qui héberge la base de données de l’entrepôt de données que vous avez restaurée.
+4.  Une fois le rôle de système de site installé, le déplacement est terminé.
 
-## <a name="troubleshooting-data-warehouse-issues"></a>Het oplossen van problemen met de datawarehouse
-**Logboekbestanden**:  
-Gebruik de volgende logboeken voor het onderzoeken van problemen met de installatie van de datawarehouse-service-punt of de synchronisatie van gegevens:
- - *DWSSMSI.log* en *DWSSSetup.log* -deze Logboeken gebruiken voor het onderzoeken van fouten bij het installeren van de datawarehouse-servicepunt.
- - *Microsoft.ConfigMgrDataWarehouse.log* : dit logboek gebruikt voor het onderzoeken van gegevenssynchronisatie tussen de sitedatabase naar de datawarehouse-database.
+## <a name="troubleshooting-data-warehouse-issues"></a>Résolution des problèmes relatifs à l’entrepôt de données
+**Fichiers journaux** :  
+utilisez les journaux suivants pour examiner les problèmes d’installation du point de service de l’entrepôt de données ou de synchronisation des données :
+ - *DWSSMSI.log* et *DWSSSetup.log* : utilisez ces journaux pour examiner les erreurs survenues lors de l’installation du point de service de l’entrepôt de données.
+ - *Microsoft.ConfigMgrDataWarehouse.log* : utilisez ce journal pour examiner la synchronisation des données entre la base de données de site et la base de données de l’entrepôt de données.
 
-**Fout bij instellen**  
- Installatie van de datawarehouse-servicepunt mislukt op een externe sitesysteemserver als het datawarehouse is de eerste sitesysteemrol die op die computer installeert.  
-  - **Oplossing**:   
-    Zorg ervoor dat de computer die u de datawarehouse-servicepunt op al installeert ten minste één andere sitesysteemrol host.  
-
-
-**Bekende synchronisatieproblemen**:   
-Synchronisatie mislukt met het volgende bericht in *Microsoft.ConfigMgrDataWarehouse.log*: **'is mislukt voor het vullen van de schema-objecten'**  
- - **Oplossing**:  
-    Zorg ervoor dat het computeraccount van de computer die als host fungeert voor de sitesysteemrol is een **db_owner** op de datawarehouse-database.
-
-Rapporten datawarehouse niet worden geopend wanneer de datawarehouse-database en reporting service-punt zich op verschillende systemen.  
-
- - **Oplossing**:  
-    Verleen de **Account voor Reporting Services-punt** de **db_datareader** machtiging op de datawarehouse-database.
-
-Wanneer u een rapport met inventarisatiegegevens datawarehouse opent, wordt de volgende fout geretourneerd:
-
-*Er is een fout opgetreden tijdens de rapportverwerking. (rsProcessingAborted) Kan geen verbinding met gegevensbron 'AutoGen__39B693BB_524B_47DF_9FDB_9000C3118E82_' niet maken. (rsErrorOpeningConnection) Is een verbinding met de server tot stand gebracht, maar vervolgens is er een fout opgetreden tijdens de handshake vóór aanmelding. (provider: SSL-Provider, fout: 0 - de certificaatketen is uitgegeven door een certificeringsinstantie die wordt niet vertrouwd.)*
-
-- **Oplossing**: Gebruik de volgende stappen uit om certificaten te configureren:
-
-  1. Op de computer die als host fungeert voor de datawarehouse-database:
-
-    1. Open IIS, klik op **servercertificaten**, met de rechtermuisknop op **zelfondertekend certificaat maken**, en geef vervolgens de 'beschrijvende naam"van de naam van het certificaat als **Data Warehouse SQL Server Identification Certificate**. Selecteer het certificaatarchief als **persoonlijke**.
-    2. Open **SQL Server Configuration Manager**onder **SQL Server-netwerkconfiguratie**, klik met de rechtermuisknop om te selecteren **eigenschappen** onder **protocollen voor MSSQLSERVER**. Klik op de **certificaat** tabblad **Data Warehouse SQL Server Identification Certificate** als het certificaat en sla de wijzigingen.  
-    3. Open **SQL Server Configuration Manager**onder **SQL Server-Services**, opnieuw opstarten **SQL Server-service** en **Reporting Service**.
-    4.  Open de Microsoft Management Console (MMC) en voeg de module voor **certificaten**optie voor het beheren van het certificaat voor **computeraccount** van de lokale computer. Vouw vervolgens in de MMC de **persoonlijke** map > **certificaten**, en exporteer de **Data Warehouse SQL Server Identification Certificate** als een **DER encoded binary X.509 (. CER)** bestand.    
-  2.    Open de MMC-module op de computer die als host fungeert voor SQL Server Reporting Services, en voeg de module voor **certificaten**. Selecteer voor het beheren van certificaten voor **computeraccount**. Onder de **vertrouwde basiscertificeringsinstanties** map importeren de **Data Warehouse SQL Server Identification Certificate**.
+**Échec d’installation**  
+ L’installation du point de service de l’entrepôt de données échoue sur un serveur de système de site distant quand le premier rôle de système de site installé sur cet ordinateur est celui de l’entrepôt de données.  
+  - **Solution** :   
+    Assurez-vous que l’ordinateur sur lequel vous installez le point de service de l’entrepôt de données héberge au moins un autre rôle de système de site.  
 
 
-## <a name="data-warehouse-dataflow"></a>Datawarehouse gegevensstroom   
-![Datawarehouse_flow](./media/datawarehouse.png)
+**Problèmes de synchronisation connus**   
+La synchronisation échoue et génère le message suivant dans le fichier *Microsoft.ConfigMgrDataWarehouse.log* : **« Impossible de remplir des objets de schéma ».**  
+ - **Solution** :  
+    Assurez-vous que le compte de l’ordinateur qui héberge le rôle de système de site est bien **db_owner** sur la base de données de l’entrepôt de données.
 
-**Opslag van gegevens en synchronisatie**
+Les rapports de l’entrepôt de données ne s’ouvrent pas lorsque la base de données de l’entrepôt de données et le point de Reporting Services se trouvent sur des systèmes de site différents.  
 
-| Stap   | Details  |
+ - **Solution** :  
+    Accordez au **compte du point de Reporting Services** l’autorisation d’accès **db_datareader** à la base de données de l’entrepôt de données.
+
+Lorsque vous ouvrez un rapport de l’entrepôt de données, l’erreur suivante est renvoyée :
+
+*Une erreur s’est produite lors du traitement du rapport. (rsProcessingAborted) Impossible de créer une connexion à la source de données 'AutoGen__39B693BB_524B_47DF_9FDB_9000C3118E82_'. (rsErrorOpeningConnection) Une connexion a été établie avec le serveur, mais une erreur s’est ensuite produite pendant la négociation préalable à l’ouverture de session. (Fournisseur : fournisseur SSL, erreur : 0 - La chaîne de certificats a été fournie par une autorité qui n’est pas approuvée.)*
+
+- **Solution** : procédez comme suit pour configurer les certificats.
+
+  1. Sur l’ordinateur qui héberge la base de données de l’entrepôt de données :
+
+    1. Ouvrez IIS, cliquez sur **Certificats de serveur**, puis cliquez avec le bouton droit sur **Créer un certificat auto-signé** et spécifiez le « nom convivial » du nom du certificat en tant que **certificat d’identification SQL Server de l’entrepôt de données**. Sélectionnez le magasin de certificats en tant que **Applications personnelles**.
+    2. Ouvrez le **Gestionnaire de configuration SQL Server**. Sous **Configuration du réseau SQL Server**, cliquez avec le bouton droit pour sélectionner **Propriétés** sous **Protocoles pour MSSQLSERVER**. Ensuite, sur l’onglet **Certificat**, sélectionnez le **certificat d’identification SQL Server de l’entrepôt de données** et enregistrez les modifications.  
+    3. Ouvrez le **Gestionnaire de configuration SQL Server**. Sous **Services SQL Server**, redémarrez le **service SQL Server** et le **Reporting Service**.
+    4.  Ouvrez la console MMC (Microsoft Management Console) et ajoutez le composant logiciel enfichable relatif aux **certificats**, puis sélectionnez la gestion du certificat pour le **compte d’ordinateur** de la machine locale. Ensuite, dans la console MMC, développez le dossier **Applications personnelles** > **Certificats** et exportez le **certificat d’identification SQL Server de l’entrepôt de données** en tant que fichier **Binaire codé DER X.509 (.cer)**.    
+  2.    Sur l’ordinateur qui héberge SQL Server Reporting Services, ouvrez la console MMC et ajoutez le composant logiciel enfichable **Certificats**. Ensuite, sélectionnez la gestion du certificat pour le **Compte d’ordinateur**. Sous le dossier **Autorités de certification racine reconnues**, importez le **certificat d’identification SQL Server de l’entrepôt de données**.
+
+
+## <a name="data-warehouse-dataflow"></a>Flux de données de l’entrepôt de données   
+![Flux_entrepôtdedonnées](./media/datawarehouse.png)
+
+**Synchronisation et stockage des données**
+
+| Étape   | Détails  |
 |:------:|-----------|  
-| **1**  |  De siteserver worden overgebracht en -gegevens opslaat in de sitedatabase.  |  
-| **2**  |      De datawarehouse-servicepunt haalt op basis van de planning en de configuratie, gegevens uit de sitedatabase.  |  
-| **3**  |  De datawarehouse-servicepunt brengt en een kopie van de gesynchroniseerde gegevens worden opgeslagen in de Data Warehouse-database. |  
-**Rapporten**
+| **1**  |  Le serveur de site transfère et stocke les données dans la base de données de site.  |  
+| **2**  |      Selon sa planification et de sa configuration, le point de service de l’entrepôt de données obtient des données de la base de données de site.  |  
+| **3**  |  Le point de service de l’entrepôt de données transfère et stocke une copie des données synchronisées dans la base de données de l’entrepôt de données. |  
+**Rapports**
 
-| Stap   | Details  |
+| Étape   | Détails  |
 |:------:|-----------|  
-| **A**  |  Door ingebouwde rapporten, opvraagt een gebruiker gegevens. Deze aanvraag wordt doorgegeven aan de Reporting Services verwijzen met behulp van SQL Server Reporting Services. |  
-| **B**  |      De meeste rapporten zijn voor actuele informatie en deze aanvragen worden uitgevoerd op de sitedatabase. |  
-| **C**  | Wanneer een rapport historische gegevens aanvraagt via een van de rapporten met een *categorie* van **Data Warehouse**, de aanvraag wordt uitgevoerd op de datawarehouse-database.   |  
+| **A**  |  Via des rapports intégrés, un utilisateur demande des données. La demande est transmise au point de Reporting Services à l’aide de SQL Server Reporting Services. |  
+| **B**  |      La plupart des rapports concernent des informations actuelles et ces demandes sont exécutées sur la base de données de site. |  
+| **C**  | Quand un rapport demande des données d’historique, à l’aide de l’un des rapports avec la *Catégorie* **Entrepôt de données**, la demande s’exécute sur la base de données de l’entrepôt de données.   |  

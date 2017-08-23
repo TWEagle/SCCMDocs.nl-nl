@@ -1,6 +1,6 @@
 ---
-title: Best practices voor implementatie van clients | Microsoft Docs
-description: Aanbevolen procedures voor clientimplementatie in System Center Configuration Manager worden opgehaald.
+title: "Bonnes pratiques pour le déploiement de clients | Microsoft Docs"
+description: "Bonnes pratiques pour le déploiement de clients dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,64 +16,64 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 979c21c436429cad03a61671b707a99817146d95
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="best-practices-for-client-deployment-in-system-center-configuration-manager"></a>Aanbevolen procedures voor de implementatie van clients in System Center Configuration Manager
+# <a name="best-practices-for-client-deployment-in-system-center-configuration-manager"></a>Bonnes pratiques pour le déploiement de clients dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-## <a name="use-software-update-based-client-installation-for-active-directory-computers"></a>Gebruik software-update-gebaseerde clientinstallatie voor Active Directory-computers  
- Deze client-implementatiemethode bestaande Windows-technologieën gebruikt, kan worden geïntegreerd met uw Active Directory-infrastructuur, is de minimale configuratie in Configuration Manager vereist, is het eenvoudigst te configureren voor firewalls en is de veiligste. Met behulp van beveiligingsgroepen en WMI-filtering Groepsbeleid-configuratie, hebt u ook veel flexibiliteit om te controleren welke computers de Configuration Manager-client installeren.  
+## <a name="use-software-update-based-client-installation-for-active-directory-computers"></a>Utilisation de l'installation de client basée sur des mises à jour logicielles sur les ordinateurs Active Directory  
+ Cette méthode de déploiement du client utilise les technologies Windows existantes, s’intègre avec votre infrastructure Active Directory et ne nécessite qu’une configuration minimale dans Configuration Manager. Elle est la plus facile pour configurer le pare-feu et elle est aussi la plus sûre. À l'aide de groupes de sécurité et du filtrage WMI pour la configuration de stratégie de groupe, vous disposez d'une grande flexibilité pour contrôler quels ordinateurs installent le client Configuration Manager.  
 
- Zie [Configuration Manager-clients installeren met behulp van installatie op basis van software-updates](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientSUP) voor meer informatie.  
+ Pour plus d’informations, voir [Comment installer des clients Configuration Manager à l'aide d'une installation basée sur les mises à jour logicielles](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientSUP).  
 
-## <a name="extend-the-active-directory-schema-and-publish-the-site-so-that-you-can-run-ccmsetup-without-command-line-options"></a>Breid het Active Directory-schema uit en publiceer de site zodat u CCMSetup kunt uitvoeren zonder opdrachtregelopties  
- Wanneer u het Active Directory-schema voor Configuration Manager uitbreiden en de site is gepubliceerd naar Active Directory Domain Services, worden veel clientinstallatie-eigenschappen gepubliceerd op Active Directory Domain Services. Als een computer deze clientinstallatie-eigenschappen localiseren kan, kan hij ze gebruiken tijdens de clientimplementatie van de Configuration Manager. Omdat deze informatie automatisch gegenereerd wordt, wordt het risico van menselijke fout, gekoppeld met het handmatig invoeren van installatie-eigenschappen, geëlimineerd.  
+## <a name="extend-the-active-directory-schema-and-publish-the-site-so-that-you-can-run-ccmsetup-without-command-line-options"></a>Développement du schéma Active Directory et publication du site afin de pouvoir exécuter CCMSetup sans options de ligne de commande  
+ Lorsque vous étendez le schéma Active Directory pour Configuration Manager et que le site est publié dans les services de domaine Active Directory, de nombreuses propriétés d'installation du client sont publiées dans les services de domaine Active Directory. Si un ordinateur peut localiser ces propriétés d'installation du client, il peut les utiliser au cours du déploiement du client Configuration Manager. Ces informations étant générées automatiquement, le risque d'erreur humaine propre à la saisie manuelle des propriétés d'installation est éliminé.  
 
- Zie [About client installation properties published to Active Directory Domain Services in System Center Configuration Manager](../../../../core/clients/deploy/about-client-installation-properties-published-to-active-directory-domain-services.md) (Informatie over eigenschappen van clientinstallaties die zijn gepubliceerd naar Active Directory Domain Services in System Center Configuration Manager) voor meer informatie.  
+ Pour plus d’informations, consultez [À propos de la publication des propriétés d’installation du client sur les services de domaine Active Directory dans System Center Configuration Manager](../../../../core/clients/deploy/about-client-installation-properties-published-to-active-directory-domain-services.md).  
 
-## <a name="use-a-phased-rollout-to-manage-cpu-usage"></a>Een gefaseerde implementatie gebruiken voor het beheren van CPU-gebruik  
- Minimaliseer het effect van de vereisten voor CPU-verwerking op de siteserver met behulp van een gefaseerde implementatie van clients. Implementeer clients buiten werkuren zodat andere services meer beschikbare bandbreedte tijdens de dag hebben en gebruikers niet verstoord zijn doordat hun computer traag wordt of opnieuw worden opgestart.  
+## <a name="use-a-phased-rollout-to-manage-cpu-usage"></a>Utiliser un déploiement échelonné pour gérer l’utilisation de l’UC  
+ Minimisez les besoins de traitement par le processeur sur le serveur de site en utilisant un déploiement échelonné des clients. Déployez les clients en dehors des heures de travail pour que les autres services disposent de plus de bande passante pendant la journée et pour éviter de perturber le travail des utilisateurs si leur ordinateur ralentit ou nécessite un redémarrage.  
 
-## <a name="enable-automatic-upgrade-after-your-main-client-deployment-has-finished"></a>Automatische upgrade inschakelen nadat de belangrijkste clientimplementatie is voltooid  
- [Automatische clientupgrades](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md) zijn handig als u upgraden van een beperkt aantal clientcomputers die ontbreken door uw belangrijkste clientinstallatiemethode, mogelijk wilt kunnen omdat deze offline was. 
+## <a name="enable-automatic-upgrade-after-your-main-client-deployment-has-finished"></a>Activation de la mise à niveau automatique après le déploiement client principal  
+ [Les mises à niveau automatiques du client](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md) sont utiles quand vous voulez mettre à niveau un petit nombre d’ordinateurs clients qui peuvent avoir été ignorés par votre méthode d’installation principale du client, par exemple car ils étaient hors connexion. 
 
 > [!NOTE]  
->  Prestatieverbeteringen in Configuration Manager kunt u automatische updates gebruiken als een primaire clientupgrademethode. Prestatie zal evenwel afhangen van uw hiërarchie-infrastructuur, zoals het aantal clients.  
+>  Les améliorations des performances dans Configuration Manager vous permettent d’utiliser les mises à niveau automatiques comme méthode principale de mise à niveau des clients. Toutefois, les performances dépendent de l'infrastructure de votre hiérarchie, par exemple, le nombre de clients.  
 
 
-## <a name="use-smsmp-and-fsp-if-you-install-the-client-with-clientmsi-properties"></a>Gebruik SMSMP en FSP als u de client installeert met client.msi-eigenschappen.  
- De SMSMP-eigenschap specificeert het initiële beheerpunt waarmee de client dient te communiceren en elimineert de afhankelijkheid van plaats in oplossingen zoals Active Directory Domain Services, DNS en WINS.  
+## <a name="use-smsmp-and-fsp-if-you-install-the-client-with-clientmsi-properties"></a>Utilisation de SMSMP et FSP pour l'installation du client avec les propriétés client.msi  
+ La propriété SMSMP définit le point de gestion initial avec lequel le client communique et supprime la dépendance sur les solutions d'emplacement de service telles que les services de domaine Active Directory, DNS et WINS.  
 
- Gebruik de FSP-eigenschap en installeer een terugvalstatuspunt zodat u clientinstallatie en -toewijzing kunt controleren en identificeer communicatieproblemen.  
+ Utilisez la propriété FSP et installez un point d'état de secours afin de pouvoir surveiller l'installation et l'affectation du client, et identifier les problèmes de communication.  
 
- Zie [Over de eigenschappen van clientinstallatie in System Center Configuration Manager](../../../../core/clients/deploy/about-client-installation-properties.md) voor meer informatie over deze opties.  
+ Pour plus d’informations sur ces options, consultez [À propos des propriétés d’installation du client dans System Center Configuration Manager](../../../../core/clients/deploy/about-client-installation-properties.md).  
 
-## <a name="install-client-language-packs-before-you-install-the-clients"></a>Client-taalpakketten te installeren voordat u de clients installeert  
-Het is raadzaam om client-taalpakketten te installeren voordat de client implementeren. Als u installeert [clienttaalpakketten](../../../../core/servers/deploy/install/language-packs.md) (om extra talen) op een site nadat u clients, installeert u moet de clients opnieuw installeren voordat deze talen kan worden gebruikt. Voor clients van mobiele apparaten, moet u het mobiele apparaat wissen en opnieuw inschrijven.  
+## <a name="install-client-language-packs-before-you-install-the-clients"></a>Installer des modules linguistiques client avant d’installer les clients  
+Nous vous recommandons d’installer les modules linguistiques client avant de déployer le client. Si vous installez [des modules linguistiques client](../../../../core/servers/deploy/install/language-packs.md) (pour activer des langues supplémentaires) sur un site après avoir installé des clients, vous devez réinstaller ces derniers avant qu’ils puissent utiliser ces langues. Pour les clients d’appareils mobiles, vous devez réinitialiser les appareils mobiles et les réinscrire.  
 
-## <a name="prepare-required-pki-certificates-in-advance"></a>Bereid vereiste PKI-certificaten op voorhand voor  
- Om apparaten op het internet, geregistreerde mobiele apparaten en Mac-computers te beheren, moet u PKI-certificaten hebben op sitesystemen (beheerpunten en distributiepunten) en de clientapparaten. U kunt op productienetwerken goedkeuring nodig hebben om nieuwe certificaten te gebruiken, systeemservers van de site te herstarten of gebruikers kunnen zich moeten afmelden en aanmelden voor nieuw groepslidmaatschap. Bovendien kan het zijn dat u voldoende replicatietijd voor de beveiligingsmachtigingen en voor alle nieuwe certificaatsjablonen moet voorzien.  
+## <a name="prepare-required-pki-certificates-in-advance"></a>Préparer les certificats PKI nécessaires à l’avance  
+ Pour gérer des appareils sur Internet, des appareils mobiles inscrits et des ordinateurs Mac, vous devez disposer de certificats PKI sur les systèmes de site (points de gestion et points de distribution) et les appareils clients. Sur les réseaux de production, l'approbation de la gestion des modifications peut être requise pour utiliser de nouveaux certificats et redémarrer les serveurs de système de site. Sinon, les utilisateurs devront devront fermer la session et la rouvrir pour appliquer l'appartenance au nouveau groupe. En outre, vous devrez laisser suffisamment de temps pour la réplication des autorisations de sécurité et pour les nouveaux modèles de certificat.  
 
- Zie voor meer informatie over de vereiste PKI-certificaten, [PKI-certificaatvereisten voor System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
+ Pour plus d’informations sur les certificats PKI nécessaires, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
 
-## <a name="before-you-install-clients-configure-any-required-client-settings-and-maintenance-windows"></a>Configureer, vóór u clients installeert, nodige clientinstellingen en onderhoudsvensters.  
- Weliswaar u kunt [clientinstellingen configureren](../../../../core/clients/deploy/configure-client-settings.md) en onderhoudsvensters voordat of nadat clients zijn geïnstalleerd, is het beter is vereist om instellingen te configureren voordat u clients installeert, zodat ze worden gebruikt als de client is geïnstalleerd. 
+## <a name="before-you-install-clients-configure-any-required-client-settings-and-maintenance-windows"></a>Configuration des paramètres client et des fenêtres de maintenance requis avant l'installation de clients  
+ Même si vous pouvez [configurer les paramètres client](../../../../core/clients/deploy/configure-client-settings.md) et les fenêtres de maintenance avant ou après l’installation des clients, il est préférable de configurer les paramètres nécessaires avant d’installer les clients pour pouvoir utiliser ces paramètres dès que le client est installé. 
 
- Onderhoudsvensters voor servers en voor Windows Embedded-apparaten om de bedrijfscontinuïteit voor apparaten configureren. Onderhoudsvensters zorgt ervoor dat vereiste software-updates en antimalware-software niet opnieuw de computer tijdens de kantooruren opstarten.  
+ Configurez des fenêtres de maintenance pour les serveurs et les appareils Windows Embedded, afin de garantir un fonctionnement ininterrompu des appareils critiques. Les fenêtres de maintenance garantissent que les mises à jour logicielles et les logiciels anti-programme malveillant nécessaires ne redémarrent pas l’ordinateur pendant les heures de bureau.  
 
 > [!IMPORTANT]  
->  Voor Windows 10-computers die u wilt beveiligen met Unified Write Filter (UWF), moet u het apparaat voor UWF configureren voordat u de client installeert. Hierdoor is Configuration Manager de client installeren met een aangepaste Referentieprovider die gebruikers met beperkte rechten tijdens de onderhoudsmodus aanmelden op het apparaat vergrendeld.  
+>  Pour les ordinateurs Windows 10 que vous souhaitez protéger avec le Filtre d’écriture unifié (UWF), vous devez configurer le périphérique pour UWF avant d’installer le client. Ceci permet à Configuration Manager d’installer le client avec un fournisseur d’informations d’identification personnalisées qui empêche des utilisateurs aux droits restreints de se connecter à l’appareil pendant qu’il est en mode maintenance.  
 
-## <a name="plan-your-user-enrollment-experience-for-mac-computers-and-mobile-devices"></a>Plan uw gebruikersregistratie-ervaring voor Mac-computers en mobiele apparaten   
- Als gebruikers hun eigen Mac-computers en mobiele apparaten met Configuration Manager registreren zullen, plant u de gebruikerservaring. U kunt bijvoorbeeld de installatie en het registratieproces script met behulp van een webpagina, zodat gebruikers de minimale hoeveelheid gegevens die nodig zijn invoeren, en instructies met een koppeling per e-mail verzenden.  
+## <a name="plan-your-user-enrollment-experience-for-mac-computers-and-mobile-devices"></a>Planifier l’expérience d’inscription de vos utilisateurs pour les ordinateurs Mac et les appareils mobiles   
+ Si des utilisateurs doivent inscrire leurs ordinateurs Mac et leurs appareils mobiles avec Configuration Manager, planifiez l’expérience utilisateur. Par exemple, vous pouvez créer un script pour le processus d’installation et d’inscription en utilisant une page web sur laquelle les utilisateurs indiquent seulement les informations strictement nécessaires, et leur envoyer les instructions avec un lien par e-mail.  
 
-## <a name="use-file-based-write-filters-for-windows-embedded-devices"></a>Gebruik van File Based Write Filters voor Windows Embedded-apparaten 
- Ingesloten apparaten die Verbeterde schrijffilters (EWF) gebruiken, hebben grote kans om Hersynchronisaties te ondergaan van de statusmelding. Indien u slechts enkele ingesloten apparaten hebt, die Verbeterde schrijffilters gebruiken, kan het zijn dat u daar niets van merkt. Indien u daarentegen veel ingesloten apparaten hebt die hun informatie hersynchroniseren, zoals het zenden van een volledige inventaris in plaats van een inventaris voor verschillen, kan dit een merkbare toename genereren van netwerkpakketten en een grotere CPU-verwerking op de siteserver.  
+## <a name="use-file-based-write-filters-for-windows-embedded-devices"></a>Utiliser des filtres d’écriture basés sur des fichiers pour les appareils Windows Embedded 
+ Les appareils embarqués qui utilisent des filtres d'écriture améliorés (EWF) peuvent rencontrer des resynchronisations de messages d'état. Si vous n'avez que quelques appareils embarqués qui utilisent des filtres d'écriture améliorés, il est possible que vous ne vous en rendiez pas compte. Par contre, si vous en avez beaucoup qui resynchronisent leurs informations, par exemple qui envoient un inventaire complet plutôt qu'un inventaire différentiel, cela risque de générer une augmentation détectable des paquets réseau et un traitement par le processeur plus élevé sur le serveur de site.  
 
- Wanneer u een keuze van het type schrijffilter om in te schakelen, kies bestand gebaseerde schrijffilters en configureer uitzonderingen om clientstatus en inventarisgegevens tussen het herstarten van apparaten voor netwerk- en CPU-efficiëntie op de Configuration Manager-client te behouden. Zie [Clientimplementatie op Windows Embedded-apparaten in System Center Configuration Manager plannen](../../../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md) voor meer informatie over schrijffilters.  
+ Si vous avez le choix du type de filtre d’écriture à activer, choisissez des filtres d’écriture basés sur des fichiers et configurez des exceptions pour conserver l’état du client et les données d’inventaire entre redémarrages d’appareil et préserver l’efficacité du réseau et du processeur sur le client Configuration Manager. Pour plus d’informations sur les filtres d’écriture, consultez   [Planification du déploiement de clients sur des appareils Windows Embedded dans System Center Configuration Manager](../../../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md).  
 
- Zie [Ondersteunde besturingssystemen voor clients en apparaten](../../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md) voor meer informatie over het maximum aantal Windows Embedded-clients dat een primaire site kan ondersteunen.  
+ Pour plus d’informations sur le nombre maximal de clients Windows Embedded pris en charge par un site principal, consultez [Systèmes d’exploitation pris en charge pour les clients et les appareils](../../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md).  

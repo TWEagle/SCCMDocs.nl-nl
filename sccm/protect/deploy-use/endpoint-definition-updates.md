@@ -1,6 +1,6 @@
 ---
-title: Endpoint Protection configureren | Microsoft Docs
-description: Informatie over het selecteren en configureren van methoden met Endpoint Protection in System Center Configuration Manager en anti-malwaredefinities up-to-date te houden op clientcomputers.
+title: Configurer Endpoint Protection | Microsoft Docs
+description: "Découvrez comment sélectionner et configurer des méthodes avec Endpoint Protection dans System Center Configuration Manager pour tenir à jour les définitions du logiciel anti-programme malveillant sur les ordinateurs clients."
 ms.custom: na
 ms.date: 02/14/2017
 ms.prod: configuration-manager
@@ -16,56 +16,56 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: b5da7900a4f8e2f330c4dcb2cac00b45099bd909
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="configure-definition-updates-for-endpoint-protection"></a>Definitie-Updates voor Endpoint Protection configureren  
+#  <a name="configure-definition-updates-for-endpoint-protection"></a>Configurer les mises à jour des définitions pour Endpoint Protection  
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
- Met Endpoint Protection in System Center Configuration Manager, kunt u een van de verschillende methoden beschikbaar voor anti-malwaredefinities up-to-date te houden op clientcomputers in uw hiërarchie. U kunt deze methoden aan de hand van de informatie in dit onderwerp selecteren en configureren.
+ Avec Endpoint Protection dans System Center Configuration Manager, vous pouvez utiliser une des diverses méthodes disponibles pour tenir à jour les définitions du logiciel anti-programme malveillant sur les ordinateurs clients de votre hiérarchie. Les informations contenues dans cette rubrique peuvent vous aider à sélectionner et à configurer ces méthodes.
 
- Als u anti-malwaredefinities wilt bijwerken, kunt u een of meer van de volgende methoden gebruiken:
+ Pour mettre à jour des définitions de logiciels anti-programmes malveillants, vous pouvez utiliser une ou plusieurs des méthodes suivantes :
 
--   [Gedistribueerde updates van Configuration Manager](endpoint-definitions-configmgr.md) -deze methode wordt Configuration Manager software-updates voor het leveren van definitie en engine-updates op computers in uw hiërarchie.
+-   [Mises à jour distribuées depuis Configuration Manager](endpoint-definitions-configmgr.md) : cette méthode utilise des mises à jour logicielles de Configuration Manager pour remettre les mises à jour du moteur et des définitions aux ordinateurs de votre hiérarchie.
 
--   [Updates die worden gedistribueerd vanuit Windows Server Update Services (WSUS)](endpoint-definitions-wsus.md) -deze methode wordt de WSUS-infrastructuur voor het leveren van definitie en engine-updates op computers.
+-   [Mises à jour distribuées à partir de Windows Server Update Services (WSUS)](endpoint-definitions-wsus.md) : cette méthode utilise l’infrastructure WSUS pour remettre les mises à jour du moteur et des définitions aux ordinateurs.
 
--   [Gedistribueerde updates van Microsoft Update](endpoint-definitions-microsoft-updates.md) -met deze methode kunt u computers direct verbinding maken met Microsoft Update om te downloaden van definitie en engine-updates. Deze methode kan nuttig zijn voor computers die niet vaak verbinding maken met het bedrijfsnetwerk.
+-   [Mises à jour distribuées à partir de Microsoft Update](endpoint-definitions-microsoft-updates.md) : cette méthode permet aux ordinateurs de se connecter directement à Microsoft Update pour télécharger les mises à jour du moteur et des définitions. Cette méthode peut être utile pour les ordinateurs qui ne sont pas souvent connectés au réseau d’entreprise.
 
--   [Gedistribueerde updates van Microsoft Malware Protection Center](endpoint-definitions-protection-center.md) -deze methode definitie-updates downloaden van Microsoft Malware Protection Center.
+-   [Mises à jour distribuées à partir du Centre de protection Microsoft contre les programmes malveillants](endpoint-definitions-protection-center.md) : cette méthode télécharge les mises à jour des définitions à partir du Centre de protection Microsoft contre les programmes malveillants.
 
--   [Updates van UNC-bestandsshares](endpoint-definitions-network.md) -met deze methode kunt u de meest recente definitie en engine-updates opslaan naar een share op het netwerk. Clients krijgen vervolgens toegang tot het netwerk om de updates te installeren.
+-   [Mises à jour à partir de partages de fichiers UNC](endpoint-definitions-network.md) : avec cette méthode, vous pouvez enregistrer les dernières mises à jour du moteur et des définitions dans un partage sur le réseau. Les clients peuvent ensuite accéder au réseau pour installer les mises à jour.
 
- U kunt meerdere definitie-updatebronnen configureren en de volgorde bepalen waarin deze worden beoordeeld en toegepast. Dit doet u in het dialoogvenster **Definitie-updatebronnen configureren** wanneer u een anti-malwarebeleid maakt.
+ Vous pouvez configurer plusieurs sources de mise à jour de définition et contrôler l’ordre dans lequel elles sont évaluées et appliquées. Cette opération s’effectue dans la boîte de dialogue **Configurer les sources de mise à jour de définition** quand vous créez une stratégie de logiciel anti-programme malveillant.
 
 > [!IMPORTANT]
->  U moet voor Windows 10-pc's, Endpoint Protection voor het bijwerken van definities van schadelijke software voor Windows Defender configureren.
+>  Pour les PC Windows 10, vous devez configurer Endpoint Protection pour mettre à jour les définitions de programmes malveillants pour Windows Defender.
 
-## <a name="how-to-configure-definition-update-sources"></a>Definitie-updatebronnen configureren
- Gebruik de volgende procedure voor het configureren van de definitie-updatebronnen zodat deze kunnen worden gebruikt voor elk anti-malwarebeleid.
+## <a name="how-to-configure-definition-update-sources"></a>Comment configurer des sources de mise à jour de définition
+ Utilisez la procédure suivante pour configurer les sources de mise à jour de définition à utiliser pour chaque stratégie de logiciel anti-programme malveillant.
 
-1.  Klik op **Activa en naleving**op de Configuration Manager-console.
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.
 
-2.  Vouw **Endpoint Protection** uit in de werkruimte **Activa en naleving**en klik vervolgens op **Anti-malwarebeleidsregels**.
+2.  Dans l’espace de travail **Ressources et Conformité** , développez **Endpoint Protection**, puis cliquez sur **Stratégies anti-programme malveillant**.
 
-3.  Open de eigenschappenpagina van het **standaard toegepaste anti-malwarebeleid** of maak een nieuw anti-malwarebeleid. Zie voor meer informatie over het maken van beleidsregels voor antimalware [maken en implementeren van antimalwarebeleid voor Endpoint Protection in System Center Configuration Manager](endpoint-antimalware-policies.md).
+3.  Ouvrez la page de propriétés de la **Stratégie de logiciel anti-programme malveillant par défaut** ou créez une stratégie de logiciel anti-programme malveillant. Pour plus d’informations sur la création de stratégies de logiciel anti-programme malveillant, consultez [Guide pratique pour créer et déployer des stratégies de logiciel anti-programme malveillant pour Endpoint Protection dans System Center Configuration Manager](endpoint-antimalware-policies.md).
 
-4.  Klik in de sectie **Definitie-updates** van het dialoogvenster Eigenschappen anti-malware op **Bron instellen**.
+4.  Dans la section **Mises à jour de définitions** de la boîte de dialogue des propriétés du logiciel anti-programme malveillant, cliquez sur **Définir la source**.
 
-5.  Selecteer in het dialoogvenster **Definitie-updatebronnen configureren** de bronnen die moeten worden gebruikt voor de definitie-updates. U kunt op **Omhoog** of **Omlaag** klikken om de volgorde waarin deze bronnen worden gebruikt te wijzigen.
+5.  Dans la boîte de dialogue **Configurer les sources de mise à jour de définition** , sélectionnez les sources à utiliser pour les mises à jour de définition. Vous pouvez cliquer sur **Haut** ou **Bas** pour modifier l’ordre dans lequel ces sources sont utilisées.
 
-6.  Klik op **OK** om het dialoogvenster **Definitie-updatebronnen configureren** te sluiten.
+6.  Cliquez sur **OK** pour fermer la boîte de dialogue **Configurer les sources de mise à jour de définition** .
 
-## <a name="configure-endpoint-protection-definitions"></a>Endpoint Protection-definities configureren
+## <a name="configure-endpoint-protection-definitions"></a>Configurer les définitions Endpoint Protection
 
--   [Gedistribueerde updates van Configuration Manager](endpoint-definitions-configmgr.md) -deze methode wordt Configuration Manager software-updates voor het leveren van definitie en engine-updates op computers in uw hiërarchie.
+-   [Mises à jour distribuées depuis Configuration Manager](endpoint-definitions-configmgr.md) : cette méthode utilise des mises à jour logicielles de Configuration Manager pour remettre les mises à jour du moteur et des définitions aux ordinateurs de votre hiérarchie.
 
--   [Updates die worden gedistribueerd vanuit Windows Server Update Services (WSUS)](endpoint-definitions-wsus.md) -deze methode wordt de WSUS-infrastructuur voor het leveren van definitie en engine-updates op computers.
+-   [Mises à jour distribuées à partir de Windows Server Update Services (WSUS)](endpoint-definitions-wsus.md) : cette méthode utilise l’infrastructure WSUS pour remettre les mises à jour du moteur et des définitions aux ordinateurs.
 
--   [Gedistribueerde updates van Microsoft Update](endpoint-definitions-microsoft-updates.md) -met deze methode kunt u computers direct verbinding maken met Microsoft Update om te downloaden van definitie en engine-updates. Deze methode kan nuttig zijn voor computers die niet vaak verbinding maken met het bedrijfsnetwerk.
+-   [Mises à jour distribuées à partir de Microsoft Update](endpoint-definitions-microsoft-updates.md) : cette méthode permet aux ordinateurs de se connecter directement à Microsoft Update pour télécharger les mises à jour du moteur et des définitions. Cette méthode peut être utile pour les ordinateurs qui ne sont pas souvent connectés au réseau d’entreprise.
 
--   Gedistribueerde updates van Microsoft Malware Protection Center - deze methode wordt definitie-updates downloaden van het Microsoft Malware Protection Center.
+-   Mises à jour distribuées à partir du Centre de protection Microsoft contre les programmes malveillants : cette méthode télécharge les mises à jour des définitions à partir du Centre de protection Microsoft contre les programmes malveillants.
 
--   [Updates van UNC-bestandsshares](endpoint-definitions-network.md) -met deze methode kunt u de meest recente definitie en engine-updates opslaan naar een share op het netwerk. Clients krijgen vervolgens toegang tot het netwerk om de updates te installeren.
+-   [Mises à jour à partir de partages de fichiers UNC](endpoint-definitions-network.md) : avec cette méthode, vous pouvez enregistrer les dernières mises à jour du moteur et des définitions dans un partage sur le réseau. Les clients peuvent ensuite accéder au réseau pour installer les mises à jour.

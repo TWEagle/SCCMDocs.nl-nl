@@ -1,6 +1,6 @@
 ---
-title: Cloud-gebaseerde distributiepunt | Microsoft Docs
-description: Meer informatie over configuraties en beperkingen voor het gebruik van een cloud-gebaseerde distributiepunt met System Center Configuration Manager.
+title: Point de distribution cloud | Microsoft Docs
+description: "Découvrez les configurations et les limites de l’utilisation d’un point de distribution cloud avec System Center Configuration Manager."
 ms.custom: na
 ms.date: 3/27/2017
 ms.prod: configuration-manager
@@ -16,198 +16,198 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 8caf3319d93b98680ed4a719a8db714c7e4e96ce
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-a-cloud-based-distribution-point-with-system-center-configuration-manager"></a>Een clouddistributiepunt voor System Center Configuration Manager gebruiken
+# <a name="use-a-cloud-based-distribution-point-with-system-center-configuration-manager"></a>Utiliser un point de distribution cloud avec System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Een cloud-gebaseerde distributiepunt is een System Center Configuration Manager-distributiepunt dat wordt gehost in Microsoft Azure. De volgende informatie gaat over configuraties en beperkingen voor het gebruik van een distributiepunt in de cloud.
+Un point de distribution cloud est un point de distribution System Center Configuration Manager qui est hébergé dans Microsoft Azure. Les informations suivantes visent à vous faire découvrir les différentes configurations et limitations liées à l’utilisation d’un point de distribution cloud.
 
-Nadat u hebt geïnstalleerd op een primaire site en kunt u een cloud-gebaseerde distributiepunt installeert, Zie [cloud-gebaseerde distributiepunten installeren in Azure](../../../core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure.md).
-
-
-## <a name="plan-to-use-a-cloud-based-distribution-point"></a>Het gebruik van een distributiepunt in de cloud plannen
-Als u een clouddistributie gebruikt, kunt u het volgende:  
-
--   **Configureren van clientinstellingen** om in te schakelen gebruikers en apparaten toegang tot de inhoud.  
-
--   **Een primaire site opgeven voor de overdracht van inhoud** naar het distributiepunt.  
-
--   **Drempels opgeven** voor de hoeveelheid inhoud die u wilt opslaan op het distributiepunt en de hoeveelheid inhoud die u wilt inschakelen voor clients om over te dragen van het distributiepunt.  
+Quand vous avez installé un site principal et que vous êtes prêt à installer un point de distribution cloud, consultez [Installer des points de distribution cloud dans Microsoft Azure](../../../core/servers/deploy/configure/install-cloud-based-distribution-points-in-microsoft-azure.md).
 
 
-Op basis van de drempels die u configureert, kan Configuration Manager waarschuwingen die u waarschuwen wanneer de gecombineerde hoeveelheid inhoud die u hebt opgeslagen op het distributiepunt in de buurt van de opgegeven opslaghoeveelheid, of wanneer een gegevensoverdracht door clients de drempels benadert die u hebt gedefinieerd.  
+## <a name="plan-to-use-a-cloud-based-distribution-point"></a>Planifier l’utilisation d’un point de distribution cloud
+Lorsque vous utilisez une distribution cloud, vous devez :  
 
-Cloud-gebaseerde distributiepunten ondersteunen verschillende functies die ook worden aangeboden via on-premises distributiepunten:  
+-   **Configurer les paramètres clients** pour permettre aux utilisateurs et aux appareils d’accéder au contenu.  
 
--   U beheert distributiepunten in de cloud-gebaseerde individueel of als leden van distributiepuntgroepen.  
+-   **Spécifier un site principal pour gérer le transfert de contenu** vers le point de distribution.  
 
--   U kunt een cloud-gebaseerd distributiepunt gebruiken als een locatie terugvalinhoudlocatie.  
-
--   U ontvangt ondersteuning voor clients op het intranet en Internet.  
-
-
-Cloud-gebaseerde distributiepunten bieden de volgende extra voordelen:  
-
--   Inhoud die wordt verzonden naar een cloud-gebaseerd distributiepunt wordt door Configuration Manager versleuteld voordat Configuration Manager naar Azure verzonden.  
-
--   In Azure, kunt u de cloudservice om te voldoen aan veranderende verzoeken voor inhoudsaanvragen door clients zonder de vereiste voor het installeren en het inrichten van extra distributiepunten handmatig schalen.  
-
--   Het distributiepunt in de cloud ondersteunt de download van inhoud door clients die zijn geconfigureerd voor Windows BranchCache.  
+-   **Définir des seuils** pour la quantité de contenu que vous voulez stocker sur le point de distribution et celle pouvant être transférée par les clients à partir du point de distribution.  
 
 
-Een distributiepunt in de cloud heeft de volgende beperkingen:  
+Selon les seuils configurés, Configuration Manager peut déclencher des alertes pour vous avertir quand le volume total de contenu que vous avez stocké sur le point de distribution approche de la quantité de stockage spécifiée, ou quand les transferts de données par les clients avoisinent les seuils définis.  
 
--  Voordat u versie 1610 met de Hotfix KB4010155, kunt u een cloud-gebaseerde distributiepunt host software-updatepakketten niet gebruiken. Dit probleem is opgelost met versie 1702 begin- en hoger.  
+Les points de distribution cloud prennent en charge plusieurs fonctionnalités également proposées par les points de distribution locaux :  
 
--   Kunt u een cloud-gebaseerde distributiepunt voor PXE of ingeschakelde multicast-implementaties.  
+-   Vous gérez les points de distribution cloud individuellement ou en tant que membres de groupes de points de distribution.  
 
--   Clients krijgen geen distributiepunt in de cloud aangeboden als een inhoudslocatie voor een takenreeks die is geïmplementeerd met behulp van de implementatieoptie **De inhoud lokaal downloaden wanneer deze nodig is voor de takenreeks die wordt uitgevoerd**. Takenreeksen die worden geïmplementeerd met behulp van de implementatieoptie **Alle inhoud lokaal downloaden voordat de takenreeks wordt gestart** , kunnen een distributiepunt in de cloud echter gebruiken als een geldige inhoudslocatie.  
+-   Vous pouvez utiliser un point de distribution cloud comme emplacement de contenu de secours.  
 
--   Een distributiepunt in de cloud ondersteunt geen pakketten die vanaf het distributiepunt worden uitgevoerd. Alle inhoud moet worden gedownload door de client en vervolgens lokaal worden uitgevoerd.  
-
--   Een distributiepunt in de cloud ondersteunt geen streamingtoepassingen met behulp van Application Virtualization of gelijkaardige programma's.  
-
--   Een distributiepunt in de cloud biedt geen ondersteuning voor voorbereide inhoud. De distribution manager van de primaire site die het distributiepunt beheert verwijzen verzendt alle inhoud naar het distributiepunt.  
-
--   Een clouddistributiepunt kan niet worden geconfigureerd als een pull-distributiepunt.  
-
-##  <a name="BKMK_PrereqsCloudDP"></a> Vereisten voor clouddistributiepunten  
- Een distributiepunt in de cloud vereist de volgende vereiste onderdelen voor het gebruik ervan:  
-
--   Een abonnement op Azure (Zie [over abonnementen en certificaten](#BKMK_CloudDPCerts) in dit onderwerp).
-
--   Een zelfondertekend of openbare-sleutelinfrastructuur (PKI)-beheercertificaat voor communicatie vanaf een primaire siteserver van Configuration Manager naar de cloudservice in Azure (Zie [over abonnementen en certificaten](#BKMK_CloudDPCerts) in dit onderwerp).
-
--   Een servicecertificaat (PKI) waarmee Configuration Manager-clients verbinding maken met cloud-gebaseerde distributiepunten en inhoud daarvan te downloaden met behulp van HTTPS.  
-
--  Een apparaat of gebruiker moet hebben **toegang geven tot cloud distribution points** ingesteld op **Ja** in de client instellen van **Cloudservices** voordat een apparaat of gebruiker toegang inhoud van een cloud-gebaseerd distributiepunt tot. Deze waarde is standaard ingesteld op **Nee**.  
-
--   Een client moet de naam van de cloudservice waarvoor een Domain Name System (DNS)-alias en een CNAME-record in uw DNS-naamruimte kunnen omzetten.  
-
--   Een client moet toegang kunnen hebben tot het Internet om het distributiepunt in de cloud te gebruiken.  
-
-##  <a name="BKMK_CloudDPCost"></a> De kosten van het gebruik van clouddistributie  
- Wanneer u een cloud-gebaseerd distributiepunt gebruikt, kunt u plannen voor de kosten van gegevensopslag en de download-overdrachten die Configuration Manager-clients uitvoeren.  
-
- Configuration Manager bevat opties voor het beheer van kosten en toegang tot gegevens kunt controleren:  
-
--   U kunt de hoeveelheid inhoud die u in een cloudservice opslaat beheren en controleren.  
-
--   U kunt Configuration Manager om u te waarschuwen wanneer **drempelwaarden** voor clientdownloads bereiken of maandelijkse limieten overschrijden.  
-
--   U kunt bovendien peer-caching (Windows BranchCache) gebruiken om te beperken het aantal gegevensoverdrachten van cloud-gebaseerde distributiepunten door clients. Configuration Manager-clients die zijn geconfigureerd voor BranchCache kunnen inhoud overbrengen met behulp van cloud-gebaseerde distributiepunten.  
+-   Prise en charge des clients basés sur intranet et Internet.  
 
 
-**Opties:**  
+Les points de distribution cloud offrent les autres avantages suivants :  
 
--   **Clientinstellingen voor Cloud**: Beheren van toegang tot alle cloud-gebaseerde distributiepunten in een hiërarchie met behulp van **clientinstellingen**.  
+-   Configuration Manager chiffre le contenu envoyé à un point de distribution cloud, avant de l’envoyer à Azure.  
 
-     In **Clientinstellingen**ondersteunt de categorie **Cloudinstellingen** de instelling **Toegang toestaan tot clouddistributiepunten**. Deze waarde is standaard ingesteld op **Nee**. U kunt deze instelling inschakelen voor gebruikers en apparaten.  
+-   Dans Azure, vous pouvez adapter manuellement le service cloud en fonction des demandes de contenu émanant des clients, sans avoir à installer et préparer des points de distribution supplémentaires.  
 
--   **Drempelwaarden voor gegevensoverdracht**: U kunt drempels opgeven voor de hoeveelheid gegevens die u wilt opslaan op het distributiepunt en voor de hoeveelheid gegevens die clients kunnen downloaden vanaf het distributiepunt.  
+-   Le point de distribution cloud prend en charge le téléchargement de contenu par les clients configurés pour Windows BranchCache.  
 
-     Drempelwaarden voor clouddistributiepunten zijn:  
 
-    -   **Waarschuwingsdrempel voor opslag**: Een drempel voor Opslagwaarschuwing stelt een bovenlimiet in voor de hoeveelheid gegevens of inhoud die u wilt opslaan op het cloud-gebaseerde distributiepunt. Configuration Manager kan een waarschuwing genereren wanneer de resterende vrije ruimte is bereikt die u opgeeft.  
+Un point de distribution cloud présente les limitations suivantes :  
 
-    -   **Overdrachtmeldingsdrempel**: Een overdrachtmeldingsdrempel helpt u bij het controleren van de hoeveelheid inhoud die wordt overgedragen van het distributiepunt naar clients gedurende een periode van 30 dagen. De overdrachtmeldingsdrempel bewaakt de overdracht van gegevens voor de afgelopen 30 dagen en kan een waarschuwing en een kritieke waarschuwing genereren wanneer overdrachten waarden bereikt die u definieert.  
+-  Avant d’utiliser la version 1610 avec le correctif KB4010155, vous ne pouvez pas utiliser un point de distribution cloud pour héberger des packages de mises à jour logicielles. Ce problème est résolu dans la version 1702 et les versions ultérieures.  
+
+-   Vous ne pouvez pas utiliser un point de distribution cloud pour PXE ou les déploiements en multidiffusion.  
+
+-   Aucun point de distribution cloud n'est proposé aux clients en guise d'emplacement de contenu pour une séquence de tâches déployée à l'aide de l'option **Télécharger le contenu localement si nécessaire, en exécutant la séquence de tâches**. Toutefois, les séquences de tâches qui sont déployées à l'aide de l'option de déploiement **Télécharger tout le contenu localement avant de démarrer la séquence de tâches** peuvent utiliser un point de distribution cloud en guise d'emplacement de contenu valide.  
+
+-   Un point de distribution cloud ne prend pas en charge les packages exécutés à partir du point de distribution. Tout le contenu doit être téléchargé par le client et exécuté localement.  
+
+-   Un point de distribution cloud ne prend pas en charge la diffusion en continu d'applications à l'aide d'Application Virtualization ou de programmes similaires.  
+
+-   Un point de distribution cloud ne gère pas le contenu préparé. Le Gestionnaire de distribution du site principal qui gère le point de distribution transfère l'ensemble du contenu vers le point de distribution.  
+
+-   Un point de distribution cloud ne peut pas être configuré en tant que point de distribution d'extraction.  
+
+##  <a name="BKMK_PrereqsCloudDP"></a> Conditions préalables pour les points de distribution cloud  
+ Un point de distribution cloud requiert les conditions préalables suivantes pour son utilisation :  
+
+-   Un abonnement à Azure (consultez [À propos des abonnements et des certificats](#BKMK_CloudDPCerts) dans cette rubrique.).
+
+-   Un certificat de gestion auto-signé ou PKI pour la communication entre un serveur de site principal Configuration Manager et le service cloud dans Azure (consultez [À propos des abonnements et des certificats](#BKMK_CloudDPCerts) dans cette rubrique).
+
+-   Certificat de service (PKI) que les clients Configuration Manager utilisent pour se connecter aux points de distribution cloud et y télécharger du contenu via HTTPS.  
+
+-  Un appareil ou un utilisateur doit avoir le paramètre client **Autoriser l’accès au point de distribution cloud** réglé sur **Oui** dans **Services cloud** pour pouvoir accéder au contenu d’un point de distribution cloud. Par défaut, cette valeur est définie sur **Non**.  
+
+-   Un client doit être en mesure de résoudre le nom du service cloud, ce qui nécessite la présence d’un alias DNS (Domain Name System) et d’un enregistrement CNAME dans votre espace de noms DNS.  
+
+-   Un client doit pouvoir accéder à Internet pour utiliser le point de distribution cloud.  
+
+##  <a name="BKMK_CloudDPCost"></a> Coût d’utilisation d’une distribution cloud  
+ Lorsque vous utilisez un point de distribution cloud, planifiez le coût du stockage de données et des téléchargements que les clients Configuration Manager effectuent.  
+
+ Configuration Manager inclut des options facilitant le contrôle des coûts et de l’accès aux données :  
+
+-   Vous pouvez contrôler et surveiller la quantité de contenu que vous stockez dans un service cloud.  
+
+-   Vous pouvez configurer Configuration Manager pour être averti lorsque les **seuils** mensuels des téléchargements du client sont atteints ou dépassés.  
+
+-   De plus, vous pouvez utiliser la mise en cache d’homologue (Windows BranchCache) pour réduire le nombre de transferts de données que les clients effectuent à partir des points de distribution cloud. Les clients Configuration Manager configurés pour Windows BranchCache peuvent transférer du contenu à l’aide des points de distribution cloud.  
+
+
+**Options :**  
+
+-   **Paramètres client pour cloud**: vous pouvez contrôler l’accès à tous les points de distribution cloud d’une hiérarchie à l’aide des **Paramètres client**.  
+
+     Dans **Paramètres client**, la catégorie des **paramètres cloud** prend en charge le paramètre **Autoriser l'accès au point de distribution cloud**. Par défaut, ce paramètre est défini sur **Non**. Vous pouvez l’activer pour les utilisateurs et les appareils.  
+
+-   **Seuils pour les transferts de données**: vous pouvez configurer des seuils pour la quantité de données que vous voulez stocker sur le point de distribution et pour la quantité de données que les clients peuvent télécharger à partir du point de distribution.  
+
+     Les seuils des points de distribution cloud sont les suivants :  
+
+    -   **Seuil d'alerte de stockage**: un seuil d'alerte de stockage définit la limite supérieure de la quantité de données ou de contenu que vous souhaitez stocker sur le point de distribution cloud. Configuration Manager peut générer une alerte d’avertissement lorsque l’espace disponible atteint le niveau défini.  
+
+    -   **Seuil d'alerte de transfert**: un seuil d'alerte de transfert permet de surveiller la quantité de contenu transféré à partir du point de distribution vers les clients pendant une période de 30 jours. Le seuil d’alerte de transfert surveille le transfert de données pendant les 30 derniers jours et peut émettre une alerte d’avertissement et une alerte critique lorsque les transferts atteignent la valeur définie.  
 
         > [!IMPORTANT]  
-        >  Configuration Manager bewaakt de overdracht van gegevens, maar stopt de overdracht van gegevens boven de opgegeven overdrachtwaarschuwingsdrempel niet.  
+        >  Configuration Manager surveille le transfert de données, mais n'interrompt pas ce transfert au-delà du seuil d'alerte de transfert défini.  
 
- U kunt drempels opgeven voor elk clouddistributiepunt tijdens de installatie van het distributiepunt of u kunt de eigenschappen bewerken van elk clouddistributiepunt nadat het geïnstalleerd is.  
+ Vous pouvez définir des seuils pour chaque point de distribution cloud pendant l'installation du point de distribution ou modifier les propriétés de chaque point de distribution cloud après son installation.  
 
--   **Waarschuwingen**: U kunt de Configuration Manager voor het genereren van waarschuwingen over gegevensoverdrachten naar en van elk cloud-gebaseerde distributiepunt op basis van de drempelwaarden voor gegevensoverdracht die u opgeeft. Deze waarschuwingen helpen u gegevensoverdrachten te bewaken en kunt u beslissen wanneer de cloudservice stopt, pas de inhoud die u opslaat op het distributiepunt of wijzigen welke clients kunnen cloud-gebaseerd distributiepunt gebruiken verwijst.  
+-   **Alertes** : vous pouvez configurer Configuration Manager de manière à déclencher des alertes pour les transferts de données à destination et en provenance de chaque point de distribution cloud, en fonction des seuils de transfert de données que vous spécifiez. Ces alertes vous aident à surveiller les transferts de données, à décider quand arrêter le service cloud, à ajuster le contenu que vous stockez sur le point de distribution ou à modifier les clients pouvant utiliser les points de distribution cloud.  
 
-     In een cyclus van een uur, de primaire site die het clouddistributiepunt bewaakt transactiegegevens gedownload van Azure en slaat ze op in de CloudDP -&lt;ServiceName\>.log op de siteserver. Configuration Manager beoordeelt vervolgens deze informatie met betrekking tot de opslag- en overdrachtquota voor elk cloud-gebaseerd distributiepunt. Wanneer de overdracht van gegevens bereikt of het opgegeven volume voor waarschuwingen of kritieke waarschuwingen overschrijdt, Configuration Manager de juiste melding genereert.  
+     Dans un cycle horaire, le site principal qui surveille le point de distribution cloud télécharge des données transactionnelles à partir d’Azure et les stocke dans le fichier CloudDP-&lt;nom_service\>.log sur le serveur de site. Configuration Manager évalue ensuite ces informations par rapport aux quotas de stockage et de transfert pour chaque point de distribution du cloud. Lorsque le transfert de données atteint ou dépasse le volume défini pour les avertissements ou alertes critiques, Configuration Manager génère l’alerte appropriée.  
 
     > [!WARNING]  
-    >  Omdat informatie over gegevensoverdrachten wordt gedownload van Azure hourly, dat kan gegevensgebruik een waarschuwing of kritieke drempelwaarde voordat Configuration Manager kunt toegang de gegevens tot en een melding kan genereren.  
+    >  Comme les informations sur les transferts de données sont téléchargées depuis Azure toutes les heures, cette utilisation des données peut dépasser un seuil d’avertissement ou critique avant même que Configuration Manager n’accède aux données et n’émette une alerte.  
 
     > [!NOTE]  
-    >  Waarschuwingen voor een cloud-gebaseerde distributiepunt hangen af van gebruikersstatistieken van Azure, dit kan tot 24 uur beschikbaar duren. Zie voor informatie over Opslaganalyse voor Azure, met inbegrip van hoe vaak Azure updates gebruik maken van statistieken, [Opslaganalyse](http://go.microsoft.com/fwlink/p/?LinkID=275111) in de MSDN-bibliotheek.  
+    >  Les alertes pour un point de distribution cloud dépendent des statistiques d’utilisation fournies par Azure, un délai qui peut aller jusqu’à 24 heures. Pour plus d’informations sur Storage Analytics pour Azure et la fréquence de mise à jour des statistiques d’utilisation, consultez [Storage Analytics](http://go.microsoft.com/fwlink/p/?LinkID=275111) dans la bibliothèque MSDN Library.  
 
 
--   **Stoppen of starten van de cloudservice op aanvraag**: De optie kunt u een cloudservice op elk gewenst moment om te voorkomen dat clients met behulp van de service continu te stoppen. Wanneer u de cloudservice stopt, verhindert u onmiddellijk clients om bijkomende inhoud te downloaden van de service. Bijkomend kunt u de cloudservice opnieuw opstarten om toegang te herstellen voor clients. Bijvoorbeeld zou u kunnen de cloudservice willen stoppen wanneer gegevensdrempels bereikt zijn.  
+-   **Arrêter ou démarrer le service cloud à la demande**: vous pouvez choisir d’arrêter un service cloud à tout moment pour empêcher les clients de l’utiliser en continu. Lorsque vous arrêtez le service cloud, vous empêchez immédiatement les clients de télécharger tout autre contenu à partir du service. Vous pouvez redémarrer le service cloud pour restaurer l'accès aux clients. Par exemple, vous pouvez choisir d'arrêter un service cloud lorsque les seuils de données sont atteints.  
 
-     Wanneer u een cloudservice stopt, wist de cloudservice niet de inhoud van het distributiepunt en verhindert ze de siteserver niet om bijkomende inhoud over te dragen van het clouddistributiepunt.  
+     Lorsque vous arrêtez un service cloud, le service cloud ne supprime pas le contenu du point de distribution et n'empêche pas le serveur de site de transférer du contenu supplémentaire vers le point de distribution cloud.  
 
-     Als u wilt stoppen van een cloudservice in de Configuration Manager-console, selecteert u het distributiepunt in de **Clouddistributiepunten** knooppunt onder **Cloudservices**, in de **beheer** werkruimte. Kies vervolgens **-service stoppen** stoppen van de cloudservice die wordt uitgevoerd in Azure.  
+     Pour arrêter un service cloud, dans la console Configuration Manager, sélectionnez le point de distribution dans le nœud **Points de distribution cloud**, sous **Services cloud**dans l'espace de travail **Administration**. Ensuite, cliquez sur **Arrêter le service** pour arrêter le service cloud qui s’exécute dans Azure.  
 
-##  <a name="BKMK_CloudDPCerts"></a> Abonnementen en certificaten voor clouddistributiepunten  
- Cloud-gebaseerde distributiepunten vereisen certificaten om in te schakelen van Configuration Manager voor het beheren van de cloudservice die het distributiepunt host, en voor clients voor toegang tot inhoud van het distributiepunt. De volgende informatie bevat een overzicht over deze certificaten. Zie [PKI-certificaatvereisten voor System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md) voor gedetailleerdere informatie.  
+##  <a name="BKMK_CloudDPCerts"></a> À propos des abonnements et certificats pour les points de distribution cloud  
+ Les points de distribution cloud ont besoin de certificats pour permettre à Configuration Manager de gérer le service cloud qui héberge le point de distribution et aux clients d'accéder au contenu à partir du point de distribution. Vous trouverez ci-dessous des informations générales sur ces certificats. Pour plus d’informations, consultez [Configuration requise des certificats PKI pour Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
 
- **Certificaten**  
+ **Certificats**  
 
--   **Beheercertificaat voor siteserver naar distributiepunt communicatie**: Het beheercertificaat brengt een vertrouwensrelatie tussen de Azure management API en de Configuration Manager tot stand. Deze methode kunt Configuration Manager op de Azure-API niet aanroepen wanneer u taken uitvoert zoals het distribueren van inhoud of het starten en de cloudservice wordt gestopt. U kunt uw eigen beheercertificaten zelfondertekende certificaten of certificaten die zijn uitgegeven door een certificeringsinstantie (CA) te maken met behulp van Azure:  
+-   **Certificat de gestion pour la communication entre un serveur de site et un point de distribution** : le certificat de gestion établit la relation de confiance entre l’API de gestion Azure et Configuration Manager. Cette authentification permet à Configuration Manager d’appeler l’API Azure quand vous effectuez des tâches comme le déploiement de contenu ou le démarrage et l’arrêt du service cloud. Azure permet aux clients de créer leurs propres certificats de gestion, qu’il s’agisse de certificats auto-signés ou de certificats émis par une Autorité de certification (AC) :  
 
-    -   Geef het .cer-bestand van het beheercertificaat naar Azure wanneer u Azure voor Configuration Manager configureren. Het .cer-bestand bevat de publieke sleutel voor het beheercertificaat. Voordat u een cloud-gebaseerde distributiepunt installeert, moet u dit certificaat uploaden naar Azure. Dit certificaat kunt Configuration Manager voor toegang tot de Azure-API.  
+    -   Fournissez le fichier .cer du certificat de gestion à Azure quand vous configurez Azure pour Configuration Manager. Le fichier .cer contient la clé publique pour le certificat de gestion. Avant d’installer un point de distribution cloud, vous devez charger ce certificat dans Azure. Il permet à Configuration Manager d’accéder à l’API Azure.  
 
-    -   Geef het .pfx-bestand van het beheercertificaat aan Configuration Manager wanneer u het cloud-gebaseerde distributiepunt installeert. Het PFX-bestand bevat de persoonlijke sleutel voor het beheercertificaat. Configuration Manager slaat dit certificaat in de sitedatabase. Omdat het .pfx-bestand de persoonlijke sleutel bevat, moet u het wachtwoord op voor het importeren van dit certificaatbestand in de Configuration Manager-database opgeven.  
+    -   Fournissez le fichier .pfx du certificat de gestion à Configuration Manager lorsque vous installez le point de distribution cloud. Le fichier .pfx contient la clé privée pour le certificat de gestion. Configuration Manager stocke ce certificat dans la base de données du site. Comme le fichier .pfx contient la clé privée, vous devez fournir le mot de passe pour importer ce fichier de certificat dans la base de données Configuration Manager.  
 
-    Als u een zelfondertekend certificaat maakt, moet u het certificaat eerst exporteren als een cer-bestand en vervolgens opnieuw exporteren als een .pfx-bestand.  
+    Si vous créez un certificat auto-signé, vous devez d’abord l’exporter au format .cer puis au format .pfx.  
 
-    Desgewenst kunt u een versie één **.publishsettings** bestand van de Azure SDK 1.7. Raadpleeg de documentatie van Azure voor meer informatie over .publishsettings-bestanden.  
+    Vous pouvez éventuellement spécifier un fichier **.publishsettings** version 1 du Kit de développement logiciel (SDK) Azure 1.7. Pour plus d’informations sur les fichiers .publishsettings, consultez la documentation d’Azure.  
 
-    Zie voor meer informatie [het maken van een beheercertificaat](http://go.microsoft.com/fwlink/p/?LinkId=220281) en [een beheercertificaat toevoegen aan een Azure-abonnement](http://go.microsoft.com/fwlink/p/?LinkId=241722) in de Azure-platform-sectie van de MSDN-bibliotheek.  
+    Pour plus d’informations, consultez [Vue d’ensemble des certificats pour Azure Cloud Services](http://go.microsoft.com/fwlink/p/?LinkId=220281) et [How to add a management certificate to an Azure subscription (Comment ajouter un certificat de gestion à un abonnement Azure)](http://go.microsoft.com/fwlink/p/?LinkId=241722) dans la section de la bibliothèque MSDN consacrée à la plateforme Azure.  
 
--   **Servicecertificaat voor clientcommunicatie naar het distributiepunt**: De Configuration Manager clouddistributiepunt-servicecertificaat vertrouwensrelatie tussen de Configuration Manager-clients en het cloud-gebaseerde distributiepunt te worden ingesteld en beveiligt de gegevens die clients daarvan downloaden met behulp van Secure Socket Layer (SSL) via HTTPS.  
+-   **Certificat de service pour la communication entre le client et le point de distribution** : le certificat de service du point de distribution cloud Configuration Manager établit une relation de confiance entre les clients Configuration Manager et le point de distribution cloud, puis sécurise les données que les clients téléchargent à partir de ce point de distribution grâce au protocole SSL (Secure Socket Layer) sur HTTPS.  
 
     > [!IMPORTANT]  
-    >  De algemene naam in het certificaatvak van het servicecertificaat moet uniek zijn in uw domein en mag niet overeenkomen met het apparaat dat lid is van een domein.  
+    >  Le nom commun dans la zone d'objet de certificat du certificat de service doit être unique dans votre domaine et ne correspondre à aucun appareil joint à un domaine.  
 
-   Zie de sectie voor een Voorbeeldimplementatie van dit certificaat, **het servicecertificaat voor cloud-gebaseerde distributiepunten implementeren** in het onderwerp [voorbeeld van stapsgewijze implementatie van de PKI-certificaten voor System Center Configuration Manager: Windows Server 2008-certificeringsinstantie](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
+   Pour obtenir un exemple de déploiement de ce certificat, consultez la section **Déployer le certificat de service pour les points de distribution cloud** dans la rubrique [Exemple de déploiement pas à pas des certificats PKI pour System Center Configuration Manager : autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
-##  <a name="bkmk_Tasks"></a> Algemene beheertaken voor clouddistributiepunten  
+##  <a name="bkmk_Tasks"></a> Tâches de gestion courantes pour les points de distribution cloud  
 
--   **Siteserver naar de cloud-gebaseerd distributiepunt communicatie**: Wanneer u een cloud-gebaseerde distributiepunt installeert, moet u één primaire site voor het beheren van de overdracht van inhoud naar de cloudservice toewijzen. Deze actie is gelijk aan het installeren van de sitesysteemrol van distributiepunt op een specifieke site.  
+-   **Communication entre un serveur de site et un point de distribution cloud**: quand vous installez un point de distribution cloud, vous devez affecter un site principal pour gérer le transfert de contenu vers le service cloud. Le principe est le même que lorsque vous installez le rôle de système de site du point de distribution sur un site spécifique.  
 
--   **Cloud-gebaseerd distributiepunt punt communicatie tussen clients**: Wanneer een apparaat of gebruiker van een apparaat met de clientinstelling die het gebruik van een cloud-gebaseerde distributiepunt is geconfigureerd, kan het apparaat het clouddistributiepunt ontvangen als een geldige Inhoudslocatie:  
+-   **Communication entre un client et un point de distribution cloud**: quand le paramètre client permettant l’utilisation d’un point de distribution cloud est activé pour un appareil ou un utilisateur d’appareil, l’appareil en question peut recevoir le point de distribution cloud comme emplacement de contenu valide :  
 
-    -   Het cloud-gebaseerde distributiepunt als een extern distributiepunt beschouwd wanneer een client beschikbare inhoudslocaties evalueert.  
+    -   Lorsqu’un client évalue les emplacements de contenu disponibles, un point de distribution cloud est considéré comme un point de distribution distant.  
 
-    -   Cloud-gebaseerde distributiepunten clients op het intranet alleen gebruiken als een terugvaloptie als on-premises distributiepunten niet beschikbaar.  
+    -   Les clients connectés via l'intranet utilisent uniquement les points de distribution cloud comme solution de secours si les points de distribution sur site ne sont pas disponibles.  
 
-    Hoewel u cloud-gebaseerde distributiepunten in specifieke gebieden van Azure installeert, worden clients die gebruikmaken van cloud-gebaseerde distributiepunten zijn niet op de hoogte van de Azure-regio's en niet-deterministische wijze een cloud-gebaseerde distributiepunt selecteren.
+    Même si vous installez les points de distribution cloud dans des zones spécifiques d’Azure, les clients qui utilisent les points de distribution cloud ne connaissent pas ces régions Azure et sélectionnent un point de distribution cloud de façon non déterministe.
 
-Dit betekent dat als u cloud-gebaseerde distributiepunten in meerdere gebieden installeert en een client meerdere cloud-gebaseerde distributiepunten als inhoudslocaties ontvangt, de client geen een cloud-gebaseerde distributiepunt uit dezelfde Azure-regio als de client gebruikt mogelijk.  
+Par conséquent, si vous installez des points de distribution cloud dans plusieurs régions et qu’un client reçoit plusieurs points de distribution cloud comme emplacements de contenu, le client peut ne pas utiliser un point de distribution cloud de la même zone Azure que le client.  
 
-Clients die gebruikmaken van cloud-gebaseerde distributiepunten gebruiken de volgende reeks voor aanvragen van de locatie van inhoud:  
+Pour effectuer des demandes d’emplacement de contenu, les clients qui utilisent des points de distribution cloud respectent la séquence suivante :  
 
-1.  Een client die is geconfigureerd om distributiepunten in de cloud te gebruiken, probeert altijd eerst inhoud te verkrijgen uit een voorkeursdistributiepunt.  
+1.  Un client qui est configuré pour utiliser des points de distribution cloud commence toujours par essayer d'obtenir le contenu auprès d'un point de distribution préféré.  
 
-2.  Wanneer een voorkeursdistributiepunt niet beschikbaar is, gebruikt de client een extern distributiepunt, als de implementatie deze optie ondersteunt, en als een extern distributiepunt beschikbaar is.  
+2.  Lorsque le point de distribution préféré n’est pas disponible, le client utilise un point de distribution distant si le déploiement le permet et si un tel point est disponible.  
 
-3.  Wanneer er geen voorkeursdistributiepunt of extern distributiepunt beschikbaar is, kan de client terugvallen om de inhoud van een distributiepunt in de cloud te verkrijgen.  
+3.  Lorsqu'un point de distribution préféré ou un point de distribution distant n'est pas disponible, le client cherche alors à obtenir le contenu auprès d'un point de distribution cloud.  
 
 
 
-  Wanneer een client een cloud-gebaseerde distributiepunt als een Inhoudslocatie gebruikt, verifieert de client zichzelf aan het cloud-gebaseerde distributiepunt met behulp van een toegangstoken van Configuration Manager. Als de client het certificaat van Configuration Manager cloud-gebaseerd distributiepunt punt vertrouwt, kan de client vervolgens de gevraagde inhoud downloaden.  
+  Lorsqu'un client utilise un point de distribution cloud comme emplacement de contenu, il s'authentifie auprès du point de distribution cloud en utilisant un jeton d'accès Configuration Manager. Si le client approuve le certificat de point de distribution cloud Configuration Manager, il peut ensuite télécharger le contenu demandé.  
 
--   **Cloud-gebaseerde distributiepunten bewaken**: U kunt de inhoud die u naar elk cloud-gebaseerde distributiepunt implementeert bewaken en u kunt de cloudservice bewaken die als host fungeert voor het distributiepunt.  
+-   **Surveillance des points de distribution cloud**: vous pouvez surveiller le contenu que vous déployez sur chaque point de distribution cloud, ainsi que le service cloud qui héberge le point de distribution.  
 
-    -   **Inhoud**: U bewaakt de inhoud die u naar een cloud-gebaseerde distributiepunt dezelfde manier als die u doen implementeert wanneer u inhoud voor on-premises distributiepunten implementeren.  
+    -   **Contenu** : vous surveillez le contenu que vous déployez sur un point de distribution cloud comme lorsque vous déployez du contenu sur des points de distribution locaux.  
 
-    -   **Cloudservice**: Configuration Manager controleert periodiek de Azure service en genereert een waarschuwing als de service niet actief is of als er zijn problemen met abonnementen of certificaten. U kunt ook details zien over het distributiepunt in de **Clouddistributiepunten** knooppunt onder **Cloudservices** in de **beheer** werkruimte van de Configuration Manager-console. Vanuit deze locatie ziet weergeven u informatie over het distributiepunt op hoog niveau. U kunt ook een distributiepunt selecteren en vervolgens de eigenschappen bewerken.  
+    -   **Service cloud** : Configuration Manager vérifie périodiquement le service Azure et émet une alerte si ce dernier est inactif ou si un problème d’abonnement ou de certificat est détecté. Vous pouvez également afficher des informations sur le point de distribution dans le nœud **Points de distribution cloud** sous **Services cloud** dans l'espace de travail **Administration** de la console Configuration Manager. À partir de cet emplacement, vous pouvez consulter les informations générales sur le point de distribution. Vous pouvez également sélectionner un point de distribution et modifier ses propriétés.  
 
-    Wanneer u de eigenschappen van een clouddistributiepunt bewerkt, kunt u het volgende doen:  
+    Quand vous modifiez les propriétés d’un point de distribution cloud, vous pouvez :  
 
-    -   De gegevensdrempels voor opslag en waarschuwingen.  
+    -   ajuster les seuils de données pour le stockage et les alertes ;  
 
-    -   Inhoud beheren zoals u zou doen voor een on-premises distributiepunt.  
+    -   gérer le contenu comme pour un point de distribution local.  
 
-    Tenslotte kunt u voor elk clouddistributiepunt het abonnement-ID, de servicenaam en andere gerelateerde details, die worden gespecificeerd wanneer het clouddistributiepunt wordt geïnstalleerd, zien, maar niet bewerken.  
+    Enfin, pour chaque point de distribution cloud, vous pouvez afficher, sans toutefois modifier, l'ID d'abonnement, le nom du service et d'autres informations associées qui sont définies lors de l'installation de la distribution cloud.  
 
--   **Back-up en herstel voor cloud-gebaseerde distributiepunten**: Wanneer u een cloud-gebaseerd distributiepunt in uw hiërarchie gebruikt, gebruik de volgende informatie om te plannen voor back-up of herstel van het distributiepunt:  
+-   **Sauvegarde et récupération de points de distribution cloud**: quand vous utilisez un point de distribution cloud de votre hiérarchie, aidez-vous des informations suivantes pour planifier la sauvegarde ou la récupération du point de distribution :  
 
-    -   Wanneer u de vooraf gedefinieerde gebruikt **back-upserver van Site** onderhoudstaak gebruikt, Configuration Manager omvat automatisch de configuraties voor de cloud-gebaseerd distributiepunt.  
+    -   Lorsque vous utilisez la tâche de maintenance prédéfinie **Serveur de site de sauvegarde**, Configuration Manager inclut automatiquement les configurations du point de distribution cloud.  
 
-    -   Het is een best practice back-up en sla een kopie van zowel de beheercertificaat en servicecertificaat die worden gebruikt met een cloud-gebaseerd distributiepunt. Als u de primaire site van Configuration Manager die het cloud-gebaseerd distributiepunt naar een andere computer beheert herstelt, moet u de certificaten opnieuw importeren voordat u kunt doorgaan met ze te gebruiken.  
+    -   Il est recommandé de sauvegarder et d’enregistrer une copie du certificat de gestion et du certificat de service utilisés avec un point de distribution cloud. En cas de restauration du site principal Configuration Manager qui gère le point de distribution cloud sur un autre ordinateur, vous devez réimporter les certificats pour continuer de les utiliser.  
 
--   **Verwijderen van een cloud-gebaseerde distributiepunt** : Wilt u een cloud-gebaseerde distributiepunt verwijderen, selecteert u het distributiepunt in de Configuration Manager-console en selecteer vervolgens **verwijderen**.  
+-   **Désinstaller un point de distribution cloud** : pour désinstaller un point de distribution cloud, sélectionnez-le dans la console Configuration Manager, puis sélectionnez **Supprimer**.  
 
-    Wanneer u een clouddistributiepunt uit een hiërarchie verwijdert, verwijdert Configuration Manager de inhoud van de cloudservice in Azure.  
+    Lorsque vous supprimez un point de distribution cloud d’une hiérarchie, Configuration Manager supprime le contenu du service cloud dans Azure.  

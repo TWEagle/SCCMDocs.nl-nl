@@ -1,5 +1,5 @@
 ---
-title: Wizard Setup | Microsoft Docs
+title: Assistant Installation | Microsoft Docs
 ms.custom: na
 ms.date: 7/24/2017
 ms.prod: configuration-manager
@@ -15,94 +15,94 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 678f1b35fe6f7649dacb766f7c671f4ec8ea1435
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-the-setup-wizard-to-install-system-center-configuration-manager-sites"></a>Gebruik de installatiewizard voor het installeren van System Center Configuration Manager-sites
+# <a name="use-the-setup-wizard-to-install-system-center-configuration-manager-sites"></a>Utilisez l’Assistant Installation pour installer des sites System Center Configuration Manager.
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Een nieuwe System Center Configuration Manager-site installeren met behulp van een begeleide interface, moet u de Setup Wizard van Configuration Manager (setup.exe) gebruiken. De wizard ondersteunt de installatie van een primaire site of centrale beheersite. U ook de wizard te gebruiken [een evaluatie-installatie bijwerken](../../../../core/servers/deploy/install/upgrade-an-evaluation-install-to-a-full-install.md) van Configuration Manager naar een volledig gelicentieerde installatie. Wanneer u niet wilt dat de wizard te gebruiken, kunt u in plaats daarvan gebruiken een [installatiescript](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md) en een opdrachtregelprogramma installatie zonder toezicht uitvoeren.
+Pour installer un nouveau site System Center Configuration Manager en utilisant une interface utilisateur guidée, vous utilisez l’Assistant Installation de Configuration Manager (setup.exe). Cet Assistant prend en charge l’installation d’un site principal ou d’un site d’administration centrale. Vous utilisez également cet Assistant pour [mettre à niveau une installation d’évaluation](../../../../core/servers/deploy/install/upgrade-an-evaluation-install-to-a-full-install.md) de Configuration Manager vers une installation sous licence. Si vous ne voulez pas utiliser l’Assistant, vous pouvez utiliser à la place un [script d’installation](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md) et exécuter une installation en ligne de commande sans assistance.
 
-Een secundaire site te installeren, moet u de site vanuit de Configuration Manager-console installeren. Secundaire sites ondersteunen geen een scriptinstallatie van de opdrachtregel.
+Pour installer un site secondaire, vous devez installer le site à partir de la console Configuration Manager. Les sites secondaires ne prennent pas en charge une installation en ligne de commande scriptée.
 
-## <a name="bkmk_primary"></a>Een centrale beheersite of primaire site installeren
-Gebruik de volgende procedure om een centrale beheersite of een primaire site te installeren of upgraden van een evaluatiesite naar een volledig gelicentieerde Configuration Manager-site.   
+## <a name="bkmk_primary"></a> Installer un site d’administration centrale ou un site principal
+Utilisez la procédure suivante pour installer un site d’administration centrale ou un site principal, ou encore pour mettre à niveau un site d’évaluation vers un site Configuration Manager sous licence.   
 
-Voordat u begint de installatie van de site, bekend zijn met de details in de volgende artikelen:
- -  [De installatie van sites voorbereiden](../../../../core/servers/deploy/install/prepare-to-install-sites.md)
- -  [Vereisten voor het installeren van sites](../../../../core/servers/deploy/install/prerequisites-for-installing-sites.md)
+Avant de commencer l’installation du site, vous devez être familiarisé avec le contenu des articles suivants :
+ -  [Préparer l’installation des sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md)
+ -  [Prérequis à l’installation des sites](../../../../core/servers/deploy/install/prerequisites-for-installing-sites.md)
 
-Als u een centrale beheersite als onderdeel van het scenario voor site-uitbreiding installeert, raadpleegt u de [uitbreiden een zelfstandige primaire site](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand) sectie van dit onderwerp voordat u de volgende procedure.
+Si vous installez un site d’administration centrale dans le cadre d’un scénario de développement de site, lisez la section [Développer un site principal autonome](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand) de cette rubrique avant d’utiliser la procédure suivante.
 
-### <a name="bkmk_installpri"></a>Een primaire of centrale beheersite installeren
+### <a name="bkmk_installpri"></a> Pour installer un site principal ou un site d’administration centrale
 
-1.  Voer op de computer waar u de site installeert,  **&lt;InstallationMedia\>\SMSSETUP\BIN\X64\Setup.exe** starten de **installatiewizard voor System Center Configuration Manager**.  
+1.  Sur l’ordinateur sur lequel vous voulez installer le site, exécutez **&lt;InstallationMedia\>\SMSSETUP\BIN\X64\Setup.exe** pour démarrer l’**Assistant Installation de System Center Configuration Manager**.  
 
     > [!NOTE]  
-    > Wanneer u een centrale beheersite om uit te breiden op een zelfstandige primaire site installeren of een nieuwe onderliggende primaire site in een bestaande hiërarchie installeren, moet u installatiemedia (bronbestanden) die overeenkomt met de versie van de bestaande site of websites. Als u in de console-updates die zijn gewijzigd van de versie van de eerder geïnstalleerde sites hebt geïnstalleerd, hoeft u de installatie-cd. Gebruik in plaats van de bronbestanden van de [CD. Meest recente map](../../../../core/servers/manage/the-cd.latest-folder.md) van een bijgewerkte site. Configuration Manager moet u bronbestanden gebruiken die overeenkomen met de versie van de bestaande site die de nieuwe site verbinding maken.  
+    > Quand vous installez un site d’administration centrale pour développer un site principal autonome, ou que vous installez un nouveau site principal enfant dans une hiérarchie existante, vous devez utiliser le média d’installation (fichiers sources) qui correspondent à la version du ou des sites existants. Si vous avez installé des mises à jour dans la console qui ont changé la version des sites installés précédemment, n’utilisez pas le support d’installation d’origine. Utilisez plutôt les fichiers sources du [dossier CD.Latest](../../../../core/servers/manage/the-cd.latest-folder.md) d’un site mis à jour. Configuration Manager vous impose d’utiliser des fichiers sources qui correspondent à la version du site existant auquel votre nouveau site doit se connecter.  
 
-2.  Op de **voordat u begint** pagina **volgende**.  
+2.  Dans la page **Avant de commencer**, choisissez **Suivant**.  
 
-3.  Op de **aan de slag** pagina, selecteert u het type site dat u wilt installeren:  
+3.  Dans la page **Prise en main**, sélectionnez le type de site à installer :  
 
-    -   **Centrale beheersite**, als de eerste site van een nieuwe hiërarchie, of wanneer een zelfstandige primaire site uitbreiden:  
+    -   **Site d’administration centrale** comme premier site d’une nouvelle hiérarchie, ou lors du développement d’un site principal autonome :  
 
-        Selecteer **een centrale beheersite van Configuration Manager installeren**.  
+        Sélectionnez **Installer un site d’administration centrale Configuration Manager**.  
 
-         Tijdens een latere stap van deze procedure krijgt u de keuze voor het installeren van een centrale beheersite als de eerste site van een nieuwe hiërarchie, of voor het installeren van een centrale beheersite op een zelfstandige primaire site uitbreiden.  
+         À une étape ultérieure de cette procédure, vous aurez le choix entre installer un site d’administration centrale en tant que premier site d’une nouvelle hiérarchie ou installer un site d’administration centrale par extension d’un site principal autonome.  
 
-    -    **Primaire site**, als een zelfstandige primaire site die de eerste site van een nieuwe hiërarchie, of als een onderliggende primaire:  
+    -    **Site principal**, comme site principal autonome constituant le premier site d’une nouvelle hiérarchie, comme site principal enfant :  
 
-        Selecteer **een primaire site van Configuration Manager installeert**.  
+        Sélectionnez **Installer un site principal Configuration Manager**.  
 
         > [!TIP]  
-        > Normaal gesproken alleen selecteert u de optie **gangbare installatieopties gebruiken voor een zelfstandige primaire site** als u wilt een zelfstandige primaire site installeren in een testomgeving. Wanneer u deze optie selecteert, Setup:  
+        > En règle générale, vous devez sélectionner l’option **Utiliser les options d’installation par défaut pour un site principal autonome** uniquement pour installer un site principal autonome dans un environnement de test. Quand vous sélectionnez cette option, le programme d’installation :  
 
-        > -   Configureert de site automatisch als een zelfstandige primaire site.  
-        > -   Maakt gebruik van een standaardinstallatiepad.  
-        > -   Maakt gebruik van een lokale installatie van het standaardexemplaar van SQL Server voor de sitedatabase.  
-        > -   Een beheerpunt en een distributiepunt installeert op de siteservercomputer.  
-        > -   Configureert de site met Engels en de weergavetaal van het besturingssysteem op de primaire siteserver, als deze overeenkomt met een van de talen die ondersteuning biedt voor Configuration Manager.  
+        > -   configure automatiquement le site comme site principal autonome ;  
+        > -   utilise un chemin d’installation par défaut ;  
+        > -   utilise une installation locale de l’instance par défaut de SQL Server pour la base de données du site ;  
+        > -   installe un point de gestion et un point de distribution sur l’ordinateur serveur de site ;  
+        > -   configure le site en anglais et dans la langue d’affichage du système d’exploitation sur le serveur de site principal si elle correspond à l’une des langues prises en charge par Configuration Manager.  
 
-4.  Op de **productcode** pagina:
-    - Kies of u het installeren van Configuration Manager als een evaluatie-editie of een gelicentieerde versie.  
+4.  Sur la page **Clé du produit** :
+    - Choisissez d’installer Configuration Manager en tant que version d’évaluation ou version sous licence.  
 
-      -   Als u een gelicentieerde versie selecteert, Voer uw productcode in en kies **volgende**.  
+      -   Si vous sélectionnez une version sous licence, entrez votre clé de produit, puis choisissez **Suivant**.  
 
-      -   Als u een evaluatieversie selecteert, kiest u **volgende**. (U kunt een evaluatie-installatie upgraden naar een volledige installatie later.)  
-    - U begint met de oktober 2016-release van versie 1606 basislijnmedia voor System Center Configuration Manager, kunt u de vervaldatum van uw Software Assurance overeenkomst opgeven. Op deze pagina die u hebt de mogelijkheid te geven de **Software Assurance vervaldatum** van uw gebruiksrechtovereenkomst handige eraan te herinneren dat u na die datum. Als u geen dit tijdens de installatie opgeeft, kunt u later uit binnen de Configuration Manager-console opgeven.
+      -   Si vous sélectionnez une édition d’évaluation, choisissez **Suivant**. (Vous pouvez mettre à niveau une installation d’évaluation vers une installation complète ultérieurement.)  
+    - À compter de la version Release d’octobre 2016 du support de base de référence de la version 1606 de System Center Configuration Manager, vous pouvez spécifier la date d’expiration de votre contrat Software Assurance. Dans cette page, vous avez la possibilité de spécifier la **date d’expiration de la Software Assurance** de votre contrat de licence en guise de rappel pratique pour vous. Si vous n’entrez pas cette date pendant l’installation, vous pouvez la spécifier ultérieurement dans la console Configuration Manager.
 
       > [!NOTE]   
-      > Microsoft biedt geen valideren de vervaldatum die u hebt ingevoerd en deze datum niet gebruiken voor het valideren van licenties. In plaats daarvan kunt u deze als een herinnering van de vervaldatum. Dit is nuttig omdat Configuration Manager controleert regelmatig of er nieuwe software-updates die worden aangeboden online, en de status van uw software assurance-licentie moet huidige zodat u in aanmerking voor deze aanvullende updates.    
+      > Microsoft ne valide pas la date d’expiration que vous entrez et ne l’utilise pas pour la validation de la licence. Vous pouvez ainsi l’utiliser en guise de rappel de votre date d’expiration. Ce rappel est pratique, car Configuration Manager vérifie régulièrement les nouvelles mises à jour logicielles proposées en ligne, et l’état de votre licence Software Assurance doit être actualisé pour que vous soyez autorisé à utiliser ces mises à jour supplémentaires.    
 
-      Zie voor meer informatie [licenties en vertakkingen voor System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
+      Pour plus d’informations, voir [Licences et branches pour System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
 
-5.  Op de **licentievoorwaarden voor Microsoft-Software** lees en accepteer de licentievoorwaarden.  
+5.  Dans la page **Termes du contrat de licence logiciel Microsoft** , lisez et acceptez les termes du contrat de licence.  
 
-6.  Op de **vereiste licenties** lees en accepteer de licentievoorwaarden voor de vereiste software. Setup downloadt en installeert de software automatisch op sitesystemen of clients wanneer dit is verplicht. U moet alle selectievakjes controleren voordat u kunt doorgaan naar de volgende pagina.  
+6.  Dans la page **Licences requises** , lisez et acceptez les termes du contrat de licence pour les logiciels requis. Le programme d’installation télécharge et installe automatiquement les logiciels sur les systèmes ou les clients du site, si nécessaire. Vous devez cocher toutes les cases pour pouvoir passer à la page suivante.  
 
-7.  Op de **vereiste Downloads** pagina, Geef op of Setup de recentste vereiste herdistribueerbare bestanden vanaf Internet downloaden moet of eerder bestanden gebruiken gedownloade:  
+7.  Dans la page **Téléchargements requis** , spécifiez si le programme d’installation doit télécharger les tout derniers fichiers redistribuables requis à partir d’Internet ou utiliser des fichiers téléchargés précédemment :  
 
-    -   Als u wilt dat Setup de bestanden op dit moment downloadt, selecteert u **vereiste bestanden downloaden** en geef een locatie voor het opslaan van de bestanden in.  
+    -   Si vous souhaitez que le programme d’installation télécharge les fichiers à ce stade, sélectionnez **Télécharger les fichiers requis** , puis spécifiez l’emplacement où stocker les fichiers.  
 
-    -   Als u eerder de bestanden gedownload met behulp van [Setup Downloader](../../../../core/servers/deploy/install/setup-downloader.md), selecteer **eerder gedownloade bestanden gebruiken** en geeft u de downloadmap.  
+    -   Si vous avez précédemment téléchargé les fichiers à l'aide du [téléchargeur d'installation](../../../../core/servers/deploy/install/setup-downloader.md), sélectionnez **Utiliser des fichiers précédemment téléchargés**, puis spécifiez le dossier de téléchargement.  
 
         > [!TIP]  
-        > Als u eerder gedownloade bestanden gebruikt, moet u controleren of het pad naar de downloadmap de recentste versie van de bestanden bevat.  
+        > Si vous utilisez des fichiers téléchargés précédemment, vérifiez que le dossier de téléchargement indiqué contient la version la plus récente des fichiers.  
 
-8.  Op de **selectie van servertaal** pagina, selecteert u de talen die beschikbaar voor de Configuration Manager-console en voor rapporten zijn. (Engels is standaard ingeschakeld en kan niet worden verwijderd.)  
+8.  Dans la page **Sélection de la langue du serveur**, sélectionnez les langues disponibles pour la console Configuration Manager et les rapports. (L’anglais est sélectionné par défaut et ne peut pas être supprimé.)  
 
-9. Op de **Clienttaal** pagina, selecteert u de talen die beschikbaar zijn voor clientcomputers en geef op of alle clienttalen inschakelen voor clients van mobiele apparaten. (Engels is standaard ingeschakeld en kan niet worden verwijderd.)  
+9. Dans la page **Sélection de la langue client**, sélectionnez les langues disponibles pour les ordinateurs clients, puis spécifiez si vous voulez activer toutes les langues du client pour les clients d’appareils mobiles. (L’anglais est sélectionné par défaut et ne peut pas être supprimé.)  
 
     > [!IMPORTANT]  
-    > Wanneer u een centrale beheersite gebruikt, zorgen ervoor dat u op de centrale beheersite configureert clienttalen alle clienttalen die u op elke onderliggende primaire site configureert. Dit is omdat clients worden geïnstalleerd vanaf een distributiepunt die toegang tot de clienttalen van de bovenste site, hebben terwijl de clients die worden geïnstalleerd vanuit een beheerpunt toegang hebben tot de clienttalen van hun toegewezen primaire site.  
+    > Quand vous utilisez un site d’administration centrale, vérifiez que les langues du client que vous configurez sur ce site incluent toutes les langues du client que vous configurez au niveau de chaque site principal enfant. En effet, les clients qui effectuent l’installation à partir d’un point de distribution ont accès aux langues du client à partir du site de niveau supérieur, tandis que les clients qui effectuent l’installation à partir d’un point de gestion ont accès aux langues du client à partir de leur site principal attribué.  
 
-10. Op de **Site en installatie-instellingen** pagina, geeft u het volgende voor de nieuwe site die u installeert:  
+10. Dans la page **Paramètres d’installation et du site**, spécifiez les éléments suivants pour le nouveau site que vous installez :  
 
-    -   **Sitecode:** [Elke sitecode in een hiërarchie moet uniek zijn](../../../../core/servers/deploy/install/prepare-to-install-sites.md#bkmk_sitecodes) en bestaan uit drie alfanumerieke tekens (A-Z) en 0-9. Aangezien de sitecode in mapnamen wordt gebruikt, gebruik geen Windows-gereserveerde namen voor de site, met inbegrip van:    
+    -   **Code de site** [: dans une hiérarchie, le code de chaque site doit être unique](../../../../core/servers/deploy/install/prepare-to-install-sites.md#bkmk_sitecodes) et constitué de trois caractères alphanumériques (A à Z et 0 à 9). Étant donné que le code de site est utilisé dans les noms de dossier, n’utilisez pas de noms réservés à Windows pour le site, à savoir :    
         -   AUX  
         -   CON    
         -   NUL    
@@ -110,161 +110,161 @@ Als u een centrale beheersite als onderdeel van het scenario voor site-uitbreidi
         -   SMS  
 
         > [!NOTE]  
-        > Setup controleren niet of de sitecode die u opgeeft, wordt al gebruikt of dat er een gereserveerde naam.  
+        > Le programme d’installation ne vérifie pas si le code de site que vous spécifiez est déjà utilisé ou s’il s’agit d’un nom réservé.  
 
-    -   **Naam van site:** Elke site vereist deze beschrijvende naam, waarmee u de site te identificeren.  
+    -   **Nom du site** : chaque site doit posséder un nom convivial pour faciliter son identification.  
 
-    -   **Installatiemap:** Dit is het pad naar de Configuration Manager-installatie. U kunt de locatie niet wijzigen nadat de site is geïnstalleerd. Het pad kan ook Unicode-tekens of afsluitende spaties bevatten.  
+    -   **Dossier d’installation** : chemin du dossier de l’installation de Configuration Manager. Vous ne pouvez pas modifier cet emplacement après l’installation du site. De plus, ce chemin ne doit pas contenir de caractères Unicode, ni d’espaces en fin de chaîne.  
 
-11. Op de **Site-installatie** pagina, gebruikt u de volgende optie die overeenkomt met het scenario:  
+11. Dans la page **Installation de site**, utilisez l’option suivante correspondant à votre scénario :  
 
-    -   **Ik installeer een centrale beheersite:**  
+    -   **J’installe un site d’administration centrale :**  
 
-         Op de **installatie van centrale beheersite** pagina **installeren als de eerste site in een nieuwe hiërarchie**, en kies vervolgens **volgende** om door te gaan.  
+         Dans la page **Installation du site d’administration centrale**, sélectionnez **Installer en tant que premier site d’une nouvelle hiérarchie**, puis choisissez sur **Suivant** pour continuer.  
 
-    -   **Ik Breid een zelfstandige primaire naar een hiërarchie met een centrale beheersite:**  
+    -   **J’étends un site principal autonome en une hiérarchie comportant un site d’administration centrale :**  
 
-         Op de **installatie van centrale beheersite** pagina **een bestaande zelfstandige primaire uitbreiden naar een hiërarchie**, geef de FQDN van de zelfstandige primaire siteserver en kies vervolgens **volgende** om door te gaan.  
+         Dans la page **Installation du site d’administration centrale**, sélectionnez **Étendre un site principal autonome existant dans une hiérarchie**, spécifiez le nom de domaine complet (FQDN) du serveur de site principal autonome, puis choisissez **Suivant** pour continuer.  
 
-         De media die u gebruikt voor het installeren van de nieuwe centrale beheersite moet overeenkomen met de versie van de primaire site.  
+         Le support que vous utilisez pour installer le nouveau site d’administration centrale doit correspondre à la version du site principal.  
 
-    -   **Ik installeer een zelfstandige primaire site:**  
+    -   **J’installe un site principal autonome :**  
 
-         Op de **primaire Site-installatie** pagina **de primaire site installeren als een zelfstandige site**, en kies vervolgens **volgende**.  
+         Dans la page **Installation du site principal**, sélectionnez**Installer le site principal en tant que site autonome**, puis choisissez **Suivant**.  
 
-    -   **Ik installeer een onderliggende primaire site:**  
+    -   **J’installe un site principal enfant :**  
 
-         Op de **primaire Site-installatie** pagina **de primaire site lid aan een bestaande hiërarchie**, specificeer de FQDN voor de centrale beheersite en kies vervolgens **volgende**.  
+         Dans la page **Installation du site principal**, sélectionnez **Joindre le site principal à une hiérarchie existante**, spécifiez le nom de domaine complet (FQDN) pour le site d’administration centrale, puis choisissez **Suivant**.  
 
-12. Op de **databasegegevens** pagina, geeft u de volgende informatie:  
+12. Dans la page **Informations sur la base de données**, spécifiez les informations suivantes :  
 
-    -   **SQL Server-naam (FQDN):** Standaard is dit ingesteld om te worden van de siteservercomputer.
+    -   **Nom du SQL Server (FQDN)** : par défaut, il s’agit de l’ordinateur serveur de site.
 
-     Als u een aangepaste poort gebruikt, moet u die poort toevoegen aan de FQDN-naam van de SQL Server. Volg hiertoe de FQDN van de SQL-server met een komma en vervolgens het poortnummer.   Bijvoorbeeld: voor server *SQLServer1.fabrikam.com*, gebruikt u de volgende poort *1551*:  **SQLServer1.fabrikam.com, 1551**
+     Si vous utilisez un port personnalisé, ajoutez ce port au nom FQDN du serveur SQL Server. Pour ce faire, faites suivre le nom FQDN du serveur d’une virgule, puis du numéro de port.   Par exemple, pour le serveur *SQLServer1.fabrikam.com*, procédez ainsi pour spécifier le port *1551* : **SQLServer1.fabrikam.com,1551**
 
-    -   **Instantienaam:** Dit is standaard leeg. Het standaardexemplaar van SQL wordt gebruikt op de siteservercomputer.  
+    -   **Nom de l’instance** : par défaut, cette valeur est vide. L’instance par défaut de SQL est utilisée sur l’ordinateur serveur de site.  
 
-    -   **Databasenaam:** Standaard is dit ingesteld op CM_&lt;Sitecode\>. U bent een andere naam die u opgeeft kunt gebruiken.  
+    -   **Nom de base de données** : par défaut, la valeur définie est CM_&lt;codeSite\>. Vous êtes libre de spécifier un autre nom de votre choix.  
 
-    -   **Service Broker-poort:** Standaard is dit ingesteld voor gebruik van de standaard SQL Server Service Broker (SSB)-poort 4022. SQL gebruikt om te communiceren rechtstreeks met de sitedatabase op andere sites.  
+    -   **Port Service Broker** : la valeur prédéfinie indique d’utiliser le port SQL Server Service Broker (SSB) par défaut (4022). SQL l’utilise communiquer directement avec des bases de données d’autres sites.  
 
-13. Op de tweede **databasegegevens** pagina kunt u niet-standaard locaties voor de SQL Server-gegevensbestand en het logboekbestand van SQL Server voor de sitedatabase:  
+13. Dans la deuxième page **Informations sur la base de données**, vous pouvez spécifier des emplacements autres que ceux par défaut pour le fichier de données SQL Server et le fichier journal SQL Server pour la base de données du site :  
 
-    -   Standaardbestandslocaties voor SQL Server zijn opgegeven.  
+    -   Les emplacements de fichier par défaut pour SQL Server sont indiqués.  
 
-    -   De optie voor het opgeven van niet-standaard bestandslocaties is niet beschikbaar in een SQL Server-cluster.  
+    -   Cette possibilité de spécifier des emplacements de fichiers autres que les emplacements par défaut n’est pas disponible quand vous utilisez un cluster SQL Server.  
 
-    -   De prerequisite checker niet uitgevoerd een controle voor de vrije schijfruimte voor niet-standaard bestandslocaties.  
+    -   L’Outil de vérification des prérequis ne vérifie pas l’espace disque disponible aux emplacements de fichiers autres que les emplacements par défaut.  
 
-14. Op de **SMS-Providerinstellingen** pagina, geef de FQDN voor de server waarop u wilt installeren van de SMS-Provider.  
+14. Dans la page **Paramètres du fournisseur SMS** , spécifiez le nom de domaine complet (FQDN) du serveur sur lequel vous souhaitez installer le fournisseur SMS.  
 
-    -   Standaard zijn de siteserver is opgegeven.  
+    -   Le serveur de site est spécifié par défaut.  
 
-    -   Nadat de site is geïnstalleerd, kunt u aanvullende SMS-Providers configureren.  
+    -   Une fois le site installé, vous pouvez configurer d’autres fournisseurs SMS.  
 
-15. Op de **communicatie-instellingen voor Client** pagina, kiest u of alle sitesystemen zo accepteren alleen HTTPS-communicatie van clients of de communicatiemethode voor elke sitesysteemrol moet worden geconfigureerd.  
+15. Dans la page **Paramètres de communication du client** , choisissez de configurer tous les systèmes de site pour accepter uniquement les communications HTTPS en provenance de clients ou de configurer la méthode de communication pour chaque rôle de système de site.  
 
-    Wanneer u selecteert **alle sitesysteemrollen accepteren alleen HTTPS-communicatie van clients**, de clientcomputer moet een geldig PKI-certificaat voor clientverificatie hebben. Zie voor meer informatie over PKI-certificaatvereisten [PKI-certificaatvereisten voor Configuration Manager](https://technet.microsoft.com/library/gg699362.aspx).  
-
-    > [!NOTE]  
-    > Deze stap is alleen van toepassing wanneer u een primaire site installeert. Als u een centrale beheersite installeert, moet u deze stap overslaan.  
-
-16. Op de **sitesysteemrollen** pagina, kies of u een beheerpunt of distributiepunt te installeren. Voor elke rol die u wilt de installatie hebt geïnstalleerd:  
-
-    -   Moet u de **FQDN** voor de computer die als host voor de rol en kiest u de client verbindingsmethode dat de server worden ondersteund (HTTP of HTTPS).  
-
-    -   Als u hebt geselecteerd **alle sitesysteemrollen accepteren alleen HTTPS-communicatie van clients** op de vorige pagina de clientverbindingsinstellingen automatisch geconfigureerd voor HTTPS en kan niet worden gewijzigd, tenzij u teruggaat en de instelling wijzigt.  
+    Quand vous sélectionnez **Tous les rôles de système de site acceptent uniquement les communications HTTPS depuis les clients**, l’ordinateur client doit avoir un certificat PKI valide pour l’authentification du client. Pour plus d’informations sur la configuration requise des certificats PKI, consultez [Configuration requise des certificats PKI pour Configuration Manager](https://technet.microsoft.com/library/gg699362.aspx).  
 
     > [!NOTE]  
-    > Deze stap is alleen van toepassing wanneer u een primaire site installeert. Als u een centrale beheersite installeert, moet u deze stap overslaan.  
+    > Effectuez cette étape uniquement si vous installez un site principal. Si vous installez un site d’administration centrale, ignorez cette étape.  
+
+16. Sur la page **Rôles système de site** , choisissez d'installer un point de gestion ou un point de distribution. Pour chaque rôle de votre choisissez de faire installer par le programme d’installation :  
+
+    -   Vous devez entrer le **nom de domaine complet (FQDN)** de l’ordinateur qui hébergera le rôle et choisir la méthode de connexion client que le serveur prendra en charge (HTTP ou HTTPS).  
+
+    -   Si vous avez sélectionné **Tous les rôles de système de site acceptent uniquement les communications HTTPS depuis les clients** dans la page précédente, les paramètres de connexion client sont configurés automatiquement pour HTTPS et vous ne pouvez pas les modifier sans revenir en arrière et changer le paramètre.  
 
     > [!NOTE]  
-    > Voor het installeren van sitesysteemrollen, gebruikt het installatieprogramma de **installatieaccount site**. Dit gebruikt standaard het computeraccount van de primaire site. Deze account moet een lokale beheerder op een externe computer voor het installeren van de sitesysteemrol. Als dit account beschikt niet over de vereiste machtigingen, schakelt u de sitesysteemrollen en deze later uit na het configureren van extra accounts te gebruiken als site-installatie systeemaccounts binnen de Configuration Manager-console installeren.  
-
-17. Op de **gebruiksgegevens** pagina, lees de informatie over gegevens die Microsoft verzamelt en kies vervolgens **volgende**.  
-
-18. De **serviceverbindingspunt instellen** pagina is alleen beschikbaar tijdens de installatie:  
-
-    -   Wanneer u een zelfstandige primaire site installeert.  
-
-    -   Wanneer u een centrale beheersite installeert.  
+    > Effectuez cette étape uniquement si vous installez un site principal. Si vous installez un site d’administration centrale, ignorez cette étape.  
 
     > [!NOTE]  
-    > Als u een onderliggende primaire site installeert, moet u deze stap (deze pagina is niet beschikbaar) overslaan.  
+    > Pour installer des rôles de système de site, le programme d’installation utilise le **compte d’installation du système de site**. Par défaut, il utilise le compte d’ordinateur du site principal. Ce compte doit avoir des autorisations d’administrateur local sur un ordinateur distant pour installer le rôle de système de site. Si ce compte ne possède pas les autorisations requises, désélectionnez les rôles de système de site et installez-les ultérieurement à partir de la console Configuration Manager, après avoir configuré des comptes supplémentaires à utiliser en tant que comptes d’installation du système de site.  
 
-     Als u een centrale beheersite als onderdeel van het scenario voor site-uitbreiding installeert en deze rol is al geïnstalleerd op de zelfstandige primaire site, moet u deze rol in de zelfstandige primaire site verwijderen. Slechts één exemplaar van deze rol is toegestaan in een hiërarchie, en het alleen toegestaan op de bovenste site van de hiërarchie.  
+17. Dans la page **Données d’utilisation**, consultez les informations relatives aux données que Microsoft collecte, puis choisissez **Suivant**.  
 
-     Nadat u een configuratie voor de **Service Connection Point**, kies **volgende**. (Nadat Setup is voltooid, kunt u deze configuratie uit binnen de Configuration Manager-console.)  
+18. La page **Configuration du point de connexion de service** s’affiche pendant l’installation uniquement dans les cas suivants :  
 
-19. Op de **samenvatting van instellingen** controleert u de instelling die u hebt geselecteerd. Als u klaar bent, kiest u **volgende** de Prerequisite Checker te starten.  
+    -   quand vous installez un site principal autonome ;  
 
-20. Op de **installatiecontrole** problemen die kunnen worden geïdentificeerd aan de pagina worden weergegeven.  
+    -   quand vous installez un site d’administration centrale.  
 
-    -   Als de Prerequisite Checker een probleem aantreft, kiest u een item in de lijst voor meer informatie over het oplossen van het probleem.  
+    > [!NOTE]  
+    > Si vous installez un site principal enfant, ignorez cette étape (cette page n’est pas disponible).  
 
-    -   U moet elk item met de status oplossen **mislukt** voordat u doorgaat naar de site installeert. Items met de status van **waarschuwing** moeten worden opgelost, maar ze de installatie van de site niet blokkeren.  
+     Si vous installez un site d’administration centrale dans le cadre d’un scénario de développement de site et que ce rôle est déjà installé sur le site principal autonome, vous devez désinstaller ce rôle du site principal autonome. Une seule instance de ce rôle est autorisée dans une hiérarchie, et uniquement sur le site de niveau supérieur de la hiérarchie.  
 
-    -   Na het oplossen van problemen, kies **controle uitvoeren** opnieuw uit te voeren van de Prerequisite Checker.  
+     Après avoir sélectionné une configuration pour le **point de connexion de service**, choisissez **Suivant**. (Une fois l’installation terminée, vous pouvez modifier cette configuration à partir de la console Configuration Manager.)  
 
-     Wanneer de Prerequisite Checker wordt uitgevoerd en er geen controles ontvangen een **mislukt** status, kunt u kiezen **installatie starten** de site-installatie te starten.  
+19. Dans la page **Résumé des paramètres**, vérifiez le paramètre que vous avez sélectionné. Quand vous êtes prêt, choisissez **Suivant** pour démarrer l’Outil de vérification des prérequis.  
+
+20. La page **Vérification de la configuration requise pour l’installation** répertorie tous les problèmes détectés.  
+
+    -   Quand l’outil de vérification de la configuration requise détecte un problème, choisissez un élément affiché dans la liste pour obtenir des détails sur la façon de résoudre le problème.  
+
+    -   Avant de poursuivre l’installation du site, vous devez résoudre chaque élément présentant l’état **Échec**. Les éléments présentant l’état **Avertissement** doivent être résolus, mais ils ne bloquent pas l’installation du site.  
+
+    -   Après avoir résolu les problèmes, choisissez **Vérifier** pour réexécuter l’Outil de vérification des prérequis.  
+
+     Quand l’Outil de vérification des prérequis ne rencontre plus aucun état **Échec**, vous pouvez choisir **Commencer l’installation** pour démarrer l’installation du site.  
 
     > [!TIP]  
-    > Naast de feedback die is opgegeven in de wizard, u vindt meer informatie over vereiste problemen wanneer u de **ConfigMgrPrereq.log** bestand in de hoofdmap van het systeemstation van de computer die u installeert op. Zie voor een lijst van de installatie vereiste regels en beschrijvingen [lijst met Vereistencontroles voor System Center Configuration Manager](../../../../core/servers/deploy/install/list-of-prerequisite-checks.md).  
+    > Outre les commentaires formulés dans l’Assistant, vous pouvez trouver des informations supplémentaires sur les problèmes liés aux prérequis dans le fichier **ConfigMgrPrereq.log**, situé à la racine du lecteur système de l’ordinateur sur lequel vous effectuez l’installation. Pour obtenir une liste complète des règles et des descriptions des prérequis à l’installation, voir [Liste des vérifications des prérequis pour System Center Configuration Manager](../../../../core/servers/deploy/install/list-of-prerequisite-checks.md).  
 
-21. Op de **installatie** pagina geeft de installatiestatus weer. Wanneer de installatie van de belangrijkste siteserver voltooid is, hebt u de optie voor het **sluiten** de installatiewizard. Wanneer u de wizard sluit, worden de installatie en eerste siteconfiguraties op de achtergrond voortgezet.  
+21. Dans la page **Installation** , le programme d’installation affiche l’état de l’installation. Une fois l’installation du serveur de site principal terminée, vous avez la possibilité de **Fermer** l’Assistant Installation. Quand vous fermez l’Assistant, l’installation et les configurations de site initiales continuent en arrière-plan.  
 
-    -   U kunt een Configuration Manager-console verbinden met de site voordat de installatie is voltooid. Deze console verbinding maakt als alleen-lezen en kunt u objecten en instellingen weergeven, maar u kunt geen bewerkingen worden uitgevoerd.  
+    -   Vous pouvez connecter une console Configuration Manager au site avant la fin de l’installation. Dans ce cas, cette console est connectée en lecture seule, ce qui signifie qu’elle permet l’affichage des objets et des paramètres, mais pas leur modification.  
 
-    -   Nadat Setup is voltooid, kunt u zult kunnen verbinding maken met een console waarmee objecten en instellingen kunt bewerken.  
-
-
-## <a name="bkmk_expand"></a>Een zelfstandige primaire site uitbreiden
-Wanneer u een zelfstandige primaire site hebt geïnstalleerd als uw eerste site, hebt u de optie later naar die site uitbreiden naar een grotere hiërarchie door een centrale beheersite te installeren.   
-
-Wanneer u een zelfstandige primaire site uitbreidt, kunt u een nieuwe centrale beheersite die gebruikmaakt van de bestaande zelfstandige primaire site-database als een verwijzing installeren. Nadat de nieuwe centrale beheersite is geïnstalleerd, fungeert de zelfstandige primaire site als een onderliggende primaire site.
-
--   Alleen een zelfstandige primaire site kan worden uitgebreid naar een nieuwe hiërarchie.  
-
--   Slechts één zelfstandige primaire site kan worden uitgebreid naar een specifieke hiërarchie. U kunt deze optie niet gebruiken om toe te voegen aanvullende zelfstandige primaire sites in dezelfde hiërarchie. Gebruik in plaats daarvan migratie om gegevens te migreren van een hiërarchie in een ander.  
-
--   Nadat u een zelfstandige site naar een hiërarchie met een centrale beheersite uitbreiden, kunt u extra onderliggende primaire sites toevoegen.  
-
--   Als een primaire site uit een hiërarchie met een centrale beheersite verwijderen, moet u de primaire site verwijderen.  
-
-Als de site wilt uitbreiden, moet u de Setup Wizard van System Center Configuration Manager gebruiken voor het installeren van een nieuwe centrale beheersite met het volgende voorbehoud:  
-
--   U moet de centrale beheersite installeren met behulp van dezelfde versie van Configuration Manager als de zelfstandige primaire site.  
-
--   Op de **aan de slag** pagina van de Wizard Setup u de optie voor het installeren van een centrale beheersite. In een later stadium van de installatie kiest u een optie voor het uitbreiden van een bestaande zelfstandige primaire site.  
-
--   Wanneer u configureert de **Clienttaal** pagina voor de nieuwe centrale beheersite, moet u dezelfde clienttalen die zijn geconfigureerd voor de zelfstandige primaire site die u wilt uitbreiden.  
-
--   Op de **Site-installatie** pagina selecteert u de optie voor het uitbreiden van de zelfstandige primaire site.  
-
-Als u een zelfstandige primaire site uitbreiden, ziet u eerst de [vereisten voor het uitbreiden van een site](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand), en gebruik vervolgens de procedure  *[voor het installeren van een primaire of centrale beheersite](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_installpri)*eerder in dit artikel.
+    -   Vous devez attendre la fin de l’installation pour pouvoir connecter une console permettant de modifier les objets et paramètres.  
 
 
-## <a name="bkmk_secondary"></a>Een secundaire site installeren
- De Configuration Manager-console kunt u een secundaire site installeert.  
+## <a name="bkmk_expand"></a> Développer un site principal autonome
+Après avoir installé un site principal autonome comme premier site, vous pouvez développer ce site ultérieurement dans une plus grande hiérarchie en installant un site d’administration centrale.   
 
--   Als de console die u gebruikt, is niet met de primaire site die de bovenliggende site naar de nieuwe secundaire site verbonden, wordt de opdracht voor het installeren van de site worden gerepliceerd naar de juiste primaire site.  
+Quand vous développez un site principal autonome, vous installez un nouveau site d’administration centrale qui utilise la base de données du site principal autonome existant comme référence. Après l’installation du nouveau site d’administration centrale, le site principal autonome est utilisé comme site principal enfant.
 
--   Controleer voordat u begint de installatie van de site, of uw gebruikersaccount de vereiste machtigingen heeft en dat de computer die als host voor de nieuwe secundaire site fungeert voldoet aan alle vereisten voor gebruik als een secundaire siteserver.  
+-   Seul un site principal autonome peut être étendu dans une nouvelle hiérarchie.  
 
--   Wanneer u de secundaire site installeert, configureert Configuration Manager de nieuwe site voor het gebruik van de clientcommunicatiepoorten die op de bovenliggende primaire site zijn geconfigureerd.  
+-   Un seul site principal autonome peut être étendu dans une hiérarchie spécifique. Vous ne pouvez pas utiliser cette option pour joindre d’autres sites principaux autonomes dans la même hiérarchie. À la place, utilisez une migration pour migrer des données d’une hiérarchie vers une autre.  
 
-### <a name="bkmk_installsecondary"></a>Een secundaire site te installeren  
+-   Après avoir étendu un site autonome dans une hiérarchie comportant un site d’administration centrale, vous pouvez ajouter des sites principaux enfants.  
+
+-   Pour supprimer un site principal d’une hiérarchie ayant un site d’administration centrale, vous devez le désinstaller.  
+
+Pour étendre le site, utilisez l’Assistant Installation de System Center Configuration Manager pour installer un nouveau site d’administration centrale, en prenant les précautions suivantes :  
+
+-   Vous devez installer le site d’administration centrale en utilisant la même version de Configuration Manager que celle utilisée pour le site principal autonome.  
+
+-   Dans la page **Prise en main** de l’Assistant Installation, sélectionnez l’option d’installation d’un site d’administration centrale. À un stade ultérieur, le programme d’installation vous permettra de choisir l’option de développement d’un site principal autonome existant.  
+
+-   Quand vous configurez la page **Sélection de la langue client** pour le nouveau site d’administration centrale, sélectionnez les mêmes langues client que celles configurées pour le site principal autonome que vous développez.  
+
+-   Dans la page **Installation de site**, sélectionnez l’option de développement du site principal autonome.  
+
+Pour développer un site principal autonome, consultez tout d’abord la [configuration requise pour développer un site](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand), puis utilisez la procédure *[Pour installer un site principal ou un site d’administration centrale](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_installpri)*, décrite précédemment dans cet article.
 
 
-1.  Navigeer in de Configuration Manager-console naar **beheer** > **siteconfiguratie** > **Sites**. Selecteer de site die de bovenliggende primaire site van de nieuwe secundaire site.  
+## <a name="bkmk_secondary"></a> Installer un site secondaire
+ Vous pouvez utiliser la console Configuration Manager pour installer un site secondaire.  
 
-2.  Kies **secundaire Site maken** starten de **Wizard secundaire Site maken**.  
+-   Si la console que vous utilisez n’est pas connectée au site principal qui sera le site parent du nouveau site secondaire, la commande d’installation du site sera répliquée sur le site principal approprié.  
 
-3.  Op de **voordat u begint** pagina, Controleer of de primaire site die wordt vermeld de site die u wilt worden van het bovenliggende lid van de nieuwe secundaire site. Kies vervolgens **volgende**.  
+-   Avant de commencer l’installation du site, vérifiez que votre compte d’utilisateur dispose des autorisations requises et que l’ordinateur qui va héberger le nouveau site secondaire remplit toutes les conditions préalables à une utilisation comme serveur de site secondaire.  
 
-4.  Op de **algemene** pagina, geeft u het volgende:  
+-   Quand vous installez le site secondaire, Configuration Manager configure le nouveau site pour utiliser les ports de communication client configurés sur le site principal parent.  
 
-    -   **Sitecode**: Elke sitecode in een hiërarchie moet uniek zijn en daarvan uit uit drie alfanumerieke tekens (A-Z) en 0-9. Aangezien de sitecode in mapnamen wordt gebruikt, gebruik geen Windows-gereserveerde namen voor de site, met inbegrip van:  
+### <a name="bkmk_installsecondary"></a> Pour installer un site secondaire  
+
+
+1.  Dans la console Configuration Manager, accédez à **Administration** > **Configuration du site** > **Sites**. Sélectionnez le site qui sera le site principal parent du nouveau site secondaire.  
+
+2.  Choisissez **Créer un site secondaire** pour démarrer l’**Assistant Création de site secondaire**.  
+
+3.  Dans la page **Avant de commencer**, vérifiez que le site principal répertorié est le site à utiliser comme parent du nouveau site secondaire. Ensuite, choisissez **Suivant**.  
+
+4.  Dans la page **Général** , indiquez les informations suivantes :  
+
+    -   **Code de site** : dans une hiérarchie, le code de chaque site doit être unique et constitué de trois caractères alphanumériques (A à Z et 0 à 9). Étant donné que le code de site est utilisé dans les noms de dossier, n’utilisez pas de noms réservés à Windows pour le site, à savoir :  
 
         -   AUX    
         -   CON    
@@ -273,119 +273,119 @@ Als u een zelfstandige primaire site uitbreiden, ziet u eerst de [vereisten voor
         -   SMS  
 
        > [!NOTE]  
-       > Setup controleren niet of de sitecode die u opgeeft wordt al gebruikt, of als dit een gereserveerde naam.  
+       > Le programme d’installation ne vérifie pas si le code de site que vous spécifiez est déjà utilisé ou s’il s’agit d’un nom réservé.  
 
-    -   **Naam van de siteserver**: Dit is de FQDN-naam van de server waarop de nieuwe secundaire site wilt installeren.  
+    -   **Nom du serveur de site** : nom de domaine complet du serveur sur lequel le nouveau site secondaire sera installé.  
 
-    -   **Sitenaam**: Elke site vereist deze beschrijvende naam, waarmee u de site te identificeren.  
+    -   **Nom du site** : chaque site doit posséder un nom convivial pour faciliter son identification.  
 
-    -   **Installatiemap**: Dit is het pad naar de Configuration Manager-installatie. U kunt de locatie niet wijzigen nadat de site is geïnstalleerd. Het pad bevatten geen Unicode-tekens of afsluitende spaties.  
+    -   **Dossier d’installation** : chemin du dossier de l’installation de Configuration Manager. Vous ne pouvez pas modifier cet emplacement après l’installation du site. Ce chemin ne doit pas contenir de caractères Unicode, ni d’espaces en fin de chaîne.  
 
     > [!IMPORTANT]  
-    > Als u meer informatie op deze pagina opgeeft, kunt u **samenvatting** de standaardinstellingen gebruiken voor het restant van de secundaire site-opties en gaat u rechtstreeks naar de **samenvatting** pagina van de wizard.  
+    > Après avoir spécifié les détails dans cette page, vous pouvez choisir **Résumé** pour utiliser les paramètres par défaut pour le reste des options de site secondaire et accéder directement à la page **Résumé** de l’Assistant.  
 
-    > -   Gebruik deze optie alleen als u bekend met de standaardinstellingen in deze wizard bent, en de instellingen die u wilt gebruiken.  
-    > -   Grensgroepen zijn niet gekoppeld aan het distributiepunt wanneer u de standaardinstellingen gebruikt. Totdat u grensgroepen waarin de secundaire siteserver zijn configureert, niet clients daarom het distributiepunt dat is geïnstalleerd op deze secundaire site als een bronlocatie voor inhoud gebruikt.  
+    > -   Utilisez cette option uniquement si vous êtes familiarisé avec les paramètres par défaut de cet Assistant et s’il s’agit des paramètres que vous souhaitez utiliser.  
+    > -   Les groupes de limites ne sont pas associés au point de distribution quand vous utilisez les paramètres par défaut. Par conséquent, tant que vous n’avez pas configuré de groupes de limites incluant le serveur de site secondaire, les clients n’utilisent pas le point de distribution installé sur ce site secondaire comme emplacement source du contenu.  
 
-5.  Op de **installatiebronbestanden** pagina, kiest u hoe de secundaire sitecomputer de bronbestanden voor installatie van de site verkrijgt.  
+5.  Dans la page **Fichiers sources d’installation** , choisissez la façon dont l’ordinateur du site secondaire obtient les fichiers sources pour l’installation du site.  
 
-     Wanneer u bronbestanden gebruiken die zijn opgeslagen op het netwerk of opgeslagen op de secundaire sitecomputer:  
+     Si vous utilisez des fichiers sources stockés sur le réseau ou sur l’ordinateur du site secondaire :  
 
-    -   Locatie van het bronbestand vergezeld gaan van een map met de naam **Redist** dat alle bestanden die eerder zijn gedownload met behulp van de Setup Downloader bevat.  
+    -   L’emplacement des fichiers sources doit inclure un dossier nommé **Redist** contenant tous les fichiers précédemment téléchargés à l’aide du Téléchargeur d’installation.  
 
-    -   Als een van de bestanden van **Redist** zijn niet beschikbaar is, mislukt de installatie de secundaire site te installeren.  
+    -   Si des fichiers du dossier **Redist** ne sont pas disponibles, le programme d’installation ne peut pas installer le site secondaire.  
 
-    -   Het computeraccount van de secundaire sitecomputer moet hebben **lezen** machtigingen aan de bron-bestand, map en -share.  
+    -   Le compte de l’ordinateur du site secondaire doit disposer d’autorisations de **lecture** sur le dossier et le partage des fichiers sources.  
 
-6.  Op de **SQL Server-instellingen** pagina, geef de versie van SQL Server moet worden gebruikt en configureer vervolgens gerelateerde instellingen.  
+6.  Dans la page **Paramètres SQL Server** , spécifiez la version de SQL Server à utiliser, puis configurez les paramètres associés.  
 
     > [!NOTE]  
-    > Setup kan de gegevens die u op deze pagina invoert, totdat de installatie start niet valideren. Voordat u doorgaat, controleert u of deze instellingen.  
+    > Le programme d’installation ne valide pas les informations que vous entrez dans cette page avant de démarrer l’installation. Avant de continuer, vérifiez ces paramètres.  
 
-     **Installeren en configureren van een lokaal exemplaar van SQL Express op de secundaire sitecomputer**  
+     **Installer et configurer une copie locale de SQL Express sur l'ordinateur de site secondaire**  
 
-    -   **SQL Server-servicepoort**: Geef de poort van de SQL Server-service voor SQL Server Express moet worden gebruikt. Poort van de service is standaard geconfigureerd voor het gebruik van TCP-poort 1433, maar u kunt een andere poort configureren.  
+    -   **Port de service de SQL Server**: spécifiez le port de service de SQL Server que SQL Server Express doit utiliser. Le port de service est généralement configuré pour utiliser le port TCP 1433, mais vous pouvez configurer un autre port.  
 
-    -   **SQL Server Broker-poort**: Geef de SQL Server Service Broker (SSB)-poort voor SQL Server Express moet worden gebruikt. De Service Broker is standaard geconfigureerd voor het gebruik van TCP-poort 4022, maar u kunt een andere poort configureren. U moet een geldige poort op die geen andere site of -service wordt gebruikt en dat er geen firewallbeperkingen opgeven.  
+    -   **Port SQL Server Broker**: spécifiez le port SQL Server Service Broker (SSB) que SQL Server Express doit utiliser. Le Service Broker est généralement configuré pour utiliser le port TCP 4022, mais vous pouvez configurer un port différent. Vous devez spécifier un port valide qu’aucun autre site ou service n’utilise, et qu’aucune restriction de pare-feu ne bloque.  
 
     > [!IMPORTANT]  
-    > Wanneer de Configuration Manager SQL Server Express is geïnstalleerd, wordt SQL Server Express 2012 zonder servicepack geïnstalleerd:  
+    > Quand Configuration Manager installe SQL Server Express, il installe SQL Server Express 2012 sans Service Pack :  
 
-    > -   Voor de secundaire site worden ondersteund, nadat deze is geïnstalleerd, moet u SQL Server Express 2012 te upgraden [een ondersteunde versie](/sccm/core/plan-design/configs/support-for-sql-server-versions#bkmk_SQLVersions).
-    > -   Daarnaast, als de nieuwe secundaire site-installatie niet kan worden voltooid, maar eerst de installatie van SQL Server Express 2012 is voltooid, moet u bijwerken dat exemplaar van SQL Server Express voordat Configuration Manager kan de installatie van de secundaire site opnieuw.  
+    > -   Pour permettre la prise en charge du site secondaire, après son installation, vous devez mettre à niveau SQL Server Express 2012 avec [une version prise en charge](/sccm/core/plan-design/configs/support-for-sql-server-versions#bkmk_SQLVersions).
+    > -   De plus, si l’installation du nouveau site secondaire échoue avant de se terminer, mais achève l’installation de SQL Server Express 2012, vous devez mettre à jour cette instance de SQL Server Express pour que Configuration Manager puisse réessayer d’installer correctement le site secondaire.  
 
-     **Een bestaand exemplaar van SQL Server gebruiken**  
+     **Utiliser une instance SQL Server existante**  
 
-    -   **SQL Server-FQDN**: Controleer de FQDN voor de computer met SQL Server. U moet een lokale server met SQL Server gebruiken als host van de secundaire sitedatabase en u deze instelling niet wijzigen.  
+    -   **Nom de domaine complet de SQL Server** : vérifiez le nom de domaine complet de l’ordinateur exécutant SQL Server. Vous devez utiliser un serveur local exécutant SQL Server pour héberger la base de données de site secondaire, et vous ne pouvez pas modifier ce paramètre.  
 
-    -   **SQL Server-exemplaar**: Geef het exemplaar van SQL Server gebruiken als de secundaire sitedatabase. Laat deze optie leeg als het standaardexemplaar gebruikt.  
+    -   **Instance SQL Server**: spécifiez l’instance SQL Server à utiliser en tant que base de données du site secondaire. Laissez cette option vide pour utiliser l'instance par défaut.  
 
-    -   **Naam van ConfigMgr-sitedatabase**: Geef de naam moet worden gebruikt voor de secundaire sitedatabase.  
+    -   **Nom de base de données de site ConfigMgr**: spécifiez le nom à utiliser pour la base de données du site secondaire.  
 
-    -   **SQL Server Broker-poort**: Geef de SQL Server Service Broker (SSB)-poort voor SQL Server te gebruiken. U moet een geldige poort op die geen andere site of -service wordt gebruikt en die geen firewallbeperkingen blokkeren opgeven.  
+    -   **Port SQL Server Broker**: spécifiez le port SQL Server Service Broker (SSB) que SQL Server doit utiliser. Vous devez spécifier un port valide qu'aucun autre site ou service n'utilise, et qu'aucune restriction de pare-feu ne bloque.  
 
     > [!TIP]  
-    > Zie [ondersteund SQL Server-versies](../../../../core/plan-design/configs/support-for-sql-server-versions.md) voor een lijst van de SQL Server-versies die ondersteuning biedt voor System Center Configuration Manager.  
+    > Pour obtenir la liste des versions de SQL Server prises en charge par System Center Configuration Manager, consultez [Versions SQL Server prises en charge](../../../../core/plan-design/configs/support-for-sql-server-versions.md).  
 
-7.  Op de **distributiepunt** pagina, instellingen configureren voor het distributiepunt dat wordt geïnstalleerd op de secundaire siteserver.  
+7.  Dans la page **Point de distribution** , configurez les paramètres du point de distribution à installer sur le serveur de site secondaire.  
 
-     **Vereiste instellingen:**  
+     **Paramètres obligatoires :**  
 
-    -   **Geef op hoe clientapparaten communiceren met het distributiepunt**: Kies tussen HTTP en HTTPS.  
+    -   **Spécifiez la façon dont les appareils clients communiquent avec le point de distribution** : choisissez HTTP ou HTTPS.  
 
-    -   **Maak een zelfondertekend certificaat of importeer een PKI-clientcertificaat**: Kiezen tussen het gebruik van een zelfondertekend certificaat (waarmee u ook anonieme verbindingen toestaan van Configuration Manager-clients naar de Inhoudsbibliotheek) of een certificaat importeren uit uw PKI.  
+    -   **Créez un certificat auto-signé ou importez un certificat client PKI** : choisissez entre l’utilisation d’un certificat auto-signé (qui permet également d’autoriser les connexions anonymes de clients Configuration Manager à la bibliothèque de contenu) et l’importation d’un certificat à partir de votre infrastructure à clé publique (PKI).  
 
-         Het certificaat wordt gebruikt voor verificatie van het distributiepunt naar een beheerpunt voordat het distributiepunt statusberichten verzendt.  
+         Ce certificat sert à authentifier le point de distribution auprès d’un point de gestion avant que ce point de distribution envoie des messages d’état.  
 
-         Zie voor meer informatie over de certificaatvereisten [PKI-certificaatvereisten voor Configuration Manager](https://technet.microsoft.com/library/gg699362.aspx).  
+         Pour plus d’informations sur la configuration requise des certificats, consultez [Configuration requise des certificats PKI pour Configuration Manager](https://technet.microsoft.com/library/gg699362.aspx).  
 
-    **Optionele instellingen:**  
+    **Paramètres facultatifs :**  
 
-    -   **Installeer en Configureer IIS indien vereist door Configuration Manager**: Selecteer deze instelling om Configuration Manager installeren en configureren van Internet Information Services (IIS) op de server als deze nog niet is geïnstalleerd. IIS moet worden geïnstalleerd op alle distributiepunten.  
+    -   **Installer et configurer IIS si requis par Configuration Manager** : sélectionnez ce paramètre pour permettre à Configuration Manager d’installer et de configurer Internet Information Services (IIS) sur le serveur si IIS n’est pas déjà installé. Les services Internet doivent être installés sur tous les points de distribution.  
 
         > [!NOTE]  
-        > Hoewel deze instelling optioneel is, moet IIS worden geïnstalleerd op de server voordat u een distributiepunt kan worden geïnstalleerd.  
+        > Bien que ce paramètre soit facultatif, IIS doit être installé sur le serveur pour qu’un point de distribution puisse être correctement installé.  
 
-    -   **BranchCache inschakelen en configureren voor dit distributiepunt**.  
+    -   **Activer et configurer BranchCache pour ce point de distribution**.  
 
-    -   **Beschrijving**. Dit is een beschrijving voor het distributiepunt voor hulp bij het herkennen.  
+    -   **Description**. Description conviviale du point de distribution pour faciliter son identification.  
 
-    -   **Dit distributiepunt inschakelen voor voorbereide inhoud**.  
+    -   **Activer ce point de distribution pour le contenu préparé**.  
 
-8.  Op de **Stationsinstellingen** pagina, geef de Stationsinstellingen voor het distributiepunt van de secundaire site.  
+8.  Dans la page **Paramètres du lecteur** , spécifiez les paramètres du lecteur pour le point de distribution du site secondaire.  
 
-     U kunt maximaal twee schijfstations voor de Inhoudsbibliotheek en twee schijfstations voor de pakketshare configureren. Configuration Manager kan echter extra stations gebruiken wanneer de eerste twee de geconfigureerde stationsruimtereserve bereiken. De **Stationsinstellingen** pagina is waar u de prioriteit voor de schijfstations en de hoeveelheid vrije schijfruimte op elk schijfstation blijven configureren.  
+     Vous pouvez configurer jusqu’à deux lecteurs de disque pour la bibliothèque de contenu et deux lecteurs de disque pour le partage de package. Toutefois, Configuration Manager peut utiliser des lecteurs supplémentaires quand les deux premiers atteignent la réserve d’espace disque configurée. La page **Paramètres du lecteur** permet de configurer la priorité des lecteurs de disque et la quantité d’espace disque libre restant sur chaque lecteur de disque.  
 
-    -   **Gereserveerde ruimte op station (MB)**: De waarde die u voor deze instelling configureert bepaalt de hoeveelheid vrije ruimte op een station voordat Configuration Manager een ander station kiest en verdergaat met het kopieerproces naar dat station. Inhoudsbestanden kunnen meerdere stations omvatten.  
+    -   **Réserve d’espace libre sur le lecteur (Mo)** : la valeur que vous configurez pour ce paramètre détermine la quantité d’espace libre sur un lecteur avant que Configuration Manager choisisse un autre lecteur et poursuive le processus de copie sur ce lecteur. Les fichiers de contenu peuvent s'étendre sur plusieurs lecteurs.  
 
-    -   **Inhoudslocaties**: Geef de inhoudslocaties op voor de inhoud en de pakketshare. Configuration Manager kopieert inhoud naar de primaire Inhoudslocatie, totdat de hoeveelheid vrije schijfruimte wordt bereikt die is opgegeven voor **vrije schijfruimte (MB) reserveren**.
+    -   **Emplacements du contenu**: Spécifiez les emplacements de contenu pour le partage de bibliothèque et de package de contenu. Configuration Manager copie le contenu à l’emplacement de contenu principal jusqu’à ce que la quantité d’espace libre atteigne la valeur spécifiée dans **Réserve d’espace libre sur le lecteur (Mo)**.
 
-     De inhoudslocaties zijn standaard ingesteld op **automatische**. De primaire Inhoudslocatie is ingesteld op het schijfstation dat de meeste schijfruimte nodig tijdens de installatie is. De secundaire locatie is ingesteld op het schijfstation dat de meeste vrije schijfruimte na het primaire station heeft. Wanneer de primaire en secundaire stations de gereserveerde ruimte op station bereiken, wordt Configuration Manager selecteert een ander beschikbaar station met de meeste vrije schijfruimte en blijft het kopieerproces.  
+     Par défaut, les emplacements du contenu sont définis sur **Automatique**. L’emplacement de contenu principal est défini sur le lecteur de disque disposant le plus d’espace lors de l’installation. L’emplacement secondaire, quant à lui, est attribué au deuxième lecteur de disque disposant le plus d’espace. Quand le lecteur principal et le lecteur secondaire atteignent la réserve d’espace libre sur le lecteur, Configuration Manager sélectionne un autre lecteur disponible ayant le plus d’espace disque libre et poursuit le processus de copie.  
 
-9. Op de **Inhoudsvalidatie** pagina, Geef op of de integriteit van inhoudsbestanden op het distributiepunt moet worden gevalideerd.  
+9. Sur la page **Validation du contenu** , indiquez si vous souhaitez valider l'intégrité des fichiers de contenu sur le point de distribution.  
 
-    -   Wanneer u inhoudsvalidatie op een planning inschakelt, wordt Configuration Manager start het proces op het geplande tijdstip, en wordt alle inhoud op het distributiepunt gecontroleerd.  
+    -   Quand vous activez la validation de contenu selon un calendrier, Configuration Manager démarre le processus à l’heure planifiée, et tout le contenu est vérifié sur le point de distribution.  
 
-    -   U kunt ook de **validatieprioriteit van inhoud**.  
+    -   Vous pouvez également configurer le paramètre **Priorité de la validation du contenu**.  
 
-    -   U kunt de resultaten van het inhoudvalidatieproces in de Configuration Manager-console, Ga naar **bewaking** > **distributiestatus** > **inhoudsstatus**. De inhoud van ieder pakkettype (bijvoorbeeld, toepassing, Software-updatepakket en installatiekopie) wordt weergegeven.  
+    -   Pour afficher les résultats du processus de validation du contenu, dans la console Configuration Manager, accédez à **Analyse** > **État de distribution** > **État du contenu**. Le contenu de chaque type de package (par exemple, application, package de mises à jour logicielles et image de démarrage) s'affiche.  
 
-10. Op de **Grensgroepen** pagina, beheer de grensgroepen waaraan dit distributiepunt is toegewezen:  
+10. Dans la page **Groupes de limites**, gérez les groupes de limites auxquels ce point de distribution est affecté :  
 
-    -   Tijdens inhoudsimplementatie moeten clients zich in een grensgroep die is gekoppeld aan het distributiepunt te gebruiken als bronlocatie voor inhoud.  
+    -   Lors d'un déploiement de contenu, les clients doivent se trouver dans un groupe de limites associé au point de distribution pour l'utiliser comme emplacement source pour le contenu.  
 
-    -   U kunt selecteren de **terugvalbronlocatie voor inhoud toestaan** optie wilt toestaan dat clients buiten deze grensgroepen terug te vallen en het distributiepunt gebruiken als bronlocatie voor inhoud, wanneer er geen voorkeursdistributiepunten beschikbaar zijn.  
+    -   Vous pouvez sélectionner l'option **Autoriser l'emplacement source de secours pour le contenu** afin de permettre aux clients situés en-dehors de ces groupes de limites de revenir et d'utiliser le point de distribution comme emplacement source pour le contenu lorsque aucun point de distribution préféré n'est disponible.  
 
-     Zie voor meer informatie over voorkeursdistributiepunten de [basisconcepten voor inhoudsbeheer](../../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md) onderwerp.  
+     Pour plus d’informations sur les points de distribution préférés, consultez la rubrique [Concepts fondamentaux de la gestion de contenu](../../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
-11. Op de **samenvatting** pagina, Controleer de instellingen en kies vervolgens **volgende** de secundaire site te installeren. Wanneer de wizard geeft de **voltooiing** pagina kunt u de wizard sluiten. De secundaire site-installatie wordt voortgezet op de achtergrond.  
+11. Dans la page **Résumé**, vérifiez les paramètres, puis choisissez **Suivant** pour installer le site secondaire. Quand l’Assistant affiche la page **Dernière étape**, vous pouvez fermer l’Assistant. L’installation du site secondaire se poursuit en arrière-plan.  
 
 
-### <a name="bkmk_verify"></a>Om te controleren of de status van de installatie van secundaire site  
+### <a name="bkmk_verify"></a> Pour vérifier l’état d’installation du site secondaire  
 
-1.  Navigeer in de Configuration Manager-console naar **beheer** > **siteconfiguratie** > **Sites**.  
+1.  Dans la console Configuration Manager, accédez à **Administration** > **Configuration du site** > **Sites**.  
 
-2.  Selecteer de secundaire siteserver die u installeert en kies vervolgens **installatiestatus tonen**.  
+2.  Sélectionnez le serveur de site secondaire que vous installez, puis choisissez **Afficher l’état d’installation**.  
 
     > [!TIP]  
-    > Wanneer u meer dan één secundaire site tegelijk installeert, wordt de Prerequisite Checker wordt uitgevoerd op één site op een tijdstip en een site moet zijn voltooid voordat deze wordt gestart om te controleren van de volgende site.  
+    > Quand vous installez plusieurs sites secondaires à la fois, l’Outil de vérification des prérequis s’exécute sur un seul site à la fois ; il doit terminer de vérifier un site avant de pouvoir passer au site suivant.  

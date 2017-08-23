@@ -1,6 +1,6 @@
 ---
-title: Apparaten die eigendom zijn van gebruiker voor hybride implementaties met Configuration Manager inschrijven | Microsoft Docs
-description: Meer informatie over de verschillende methoden voor het inschrijven van apparaten die eigendom zijn van gebruiker voor hybride implementaties met Configuration Manager.
+title: "Inscrire des appareils appartenant aux utilisateurs pour les déploiements hybrides avec Configuration Manager | Microsoft Docs"
+description: "Découvrez les différentes méthodes d’inscription des appareils appartenant aux utilisateurs pour les déploiements hybrides avec Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,16 +16,16 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 6793e4736fe2603dfaef9f98b0fb54e5584aa7cd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="enroll-user-owned-devices-for-hybrid-deployments-with-configuration-manager"></a>Gebruikers apparaten inschrijven voor hybride implementaties met Configuration Manager
+# <a name="enroll-user-owned-devices-for-hybrid-deployments-with-configuration-manager"></a>Inscrire des appareils appartenant aux utilisateurs pour les déploiements hybrides avec Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Apparaten van gebruikers (BYOD) kunnen worden gezet kunnen op verschillende manieren, al naar gelang het apparaat en hoe u het hebt aangeschaft.  
+Les appareils appartenant aux utilisateurs (BYOD) peuvent être gérés de différentes façons en fonction du type de l’appareil et de la méthode utilisée pour son achat.  
 
-Zodra de inschrijving is ingeschakeld, kunnen de apparaten van gebruikers worden ingeschreven via de bedrijfsportal-app.
+Une fois l’inscription activée, les appareils appartenant aux utilisateurs peuvent être inscrits via l’application du portail d’entreprise.
 
-[Bronnen over de eindgebruiker ervaring met Microsoft Intune](https://docs.microsoft.com/en-us/intune/deploy-use/what-to-tell-your-end-users-about-using-microsoft-intune) hierin worden de stappen die eindgebruikers kunnen uitvoeren moet doen verschillende taken in Intune wanneer ze hun apparaten inschrijven.
+La section [Comment former vos utilisateurs finaux à Microsoft Intune](https://docs.microsoft.com/en-us/intune/deploy-use/what-to-tell-your-end-users-about-using-microsoft-intune) passe en revue les étapes que les utilisateurs finaux doivent suivre pour effectuer différentes tâches dans Intune une fois qu’ils ont inscrit leurs appareils.

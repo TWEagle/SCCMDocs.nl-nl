@@ -1,6 +1,6 @@
 ---
-title: Service-hulpprogramma voor serviceverbindingen | Microsoft Docs
-description: Meer informatie over dit hulpprogramma waarmee u verbinding maken met de Configuration Manager-cloudservice handmatig om gebruiksgegevens te uploaden.
+title: Outil de connexion de service | Microsoft Docs
+description: "En savoir plus sur cet outil qui vous permet d’établir une connexion au service cloud Configuration Manager pour charger manuellement les informations d’utilisation."
 ms.custom: na
 ms.date: 4/7/2017
 ms.prod: configuration-manager
@@ -16,147 +16,147 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 0da80521bf223a765c3731f8ad59623d85a4c9fa
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-the-service-connection-tool-for-system-center-configuration-manager"></a>Het hulpprogramma voor serviceverbindingen in System Center Configuration Manager gebruiken
+# <a name="use-the-service-connection-tool-for-system-center-configuration-manager"></a>Utiliser l’outil de connexion de service pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Gebruik de **hulpprogramma voor serviceverbindingen** wanneer uw serviceverbindingspunt zich in de offlinemodus bevindt, of wanneer uw Configuration Manager-sitesysteemservers niet zijn verbonden met Internet. Het hulpprogramma kunt u uw site up-to-date houden met de meest recente updates voor Configuration Manager.  
+Utilisez l’**Outil de connexion de service** quand votre point de connexion de service est en mode hors connexion ou quand vos serveurs de système de site Configuration Manager ne sont pas connectés à Internet. Cet outil peut vous aider à tenir votre site à jour avec les dernières mises à jour pour Configuration Manager.  
 
-Wanneer uitvoert, wordt het hulpprogramma handmatig maakt verbinding met de Configuration Manager-cloudservice om gebruiksgegevens voor uw hiërarchie te uploaden en om updates te downloaden. Het uploaden van gebruiksgegevens is noodzakelijk om ervoor te zorgen dat de cloudservice de juiste updates voor uw implementatie kan leveren.  
+Quand vous l’exécutez, il se connecte manuellement au service cloud Configuration Manager pour charger les informations d’utilisation relatives à votre hiérarchie et pour télécharger des mises à jour. Le chargement de données d’utilisation est nécessaire pour que le service cloud vous propose les mises à jour adaptées à votre déploiement.  
 
-## <a name="prerequisites-for-using-the-service-connection-tool"></a>Vereisten voor het gebruik van het hulpprogramma voor serviceverbindingen
-De volgende zijn vereisten en bekende problemen.
+## <a name="prerequisites-for-using-the-service-connection-tool"></a>Prérequis pour utiliser l’outil de connexion de service
+Voici la liste des prérequis et des problèmes connus.
 
-**Vereisten:**
+**Conditions préalables :**
 
--   U hebt een serviceverbindingspunt geïnstalleerd dat is ingesteld op **Offline, verbinding op aanvraag**.  
+-   Vous avez installé un point de connexion de service et sélectionné l’option **Hors connexion, connexion à la demande**.  
 
--   Het hulpprogramma moet worden uitgevoerd vanaf een opdrachtprompt.  
+-   L’outil doit être exécuté à partir d’une invite de commandes.  
 
--   Elke computer waarop het hulpprogramma wordt uitgevoerd (de computer met het serviceaansluitpunt en de computer die is verbonden met internet), moet een x64 bitssysteem zijn waarop het volgende moet zijn geïnstalleerd:  
+-   Chaque ordinateur sur lequel l’outil s’exécute (l’ordinateur du point de connexion de service et l’ordinateur connecté à Internet) doit avoir un système x64 bits ainsi que les composants suivants :  
 
-    -   De x86- en x64-bestanden van **Visual C++ Redistributable** .   Configuration Manager installeert standaard de x64 versie op de computer die als host fungeert voor het serviceverbindingspunt wordt gehost.  
+    -   Fichiers x86 et x64 **Redistributable Visual C++** .   Par défaut, Configuration Manager installe la version x64 sur l’ordinateur qui héberge le point de connexion de service.  
 
-         Als u een kopie van de Visual C++-bestanden wilt downloaden, gaat u naar [Visual C++ Redistributable Packages for Visual Studio 2013](http://www.microsoft.com/download/details.aspx?id=40784) in het Microsoft Downloadcentrum.  
+         Pour télécharger une copie des fichiers Visual C++, consultez [Packages Redistributable Visual C++ pour Visual Studio 2013](http://www.microsoft.com/download/details.aspx?id=40784) dans le Centre de téléchargement Microsoft.  
 
-    -   .NET Framework 4.5.2 of hoger.  
+    -   .NET Framework 4.5.2 ou version ultérieure.  
 
--   Het account waarmee u het hulpprogramma uitvoert, moet beschikken over:
-    -   **Lokale beheerdersmachtigingen** op de computer waarop het serviceverbindingspunt wordt gehost (waarop het hulpprogramma wordt uitgevoerd).
-    -   **Lezen** -machtigingen voor de sitedatabase.  
-
-
-
--   U hebt een USB-station met voldoende beschikbare ruimte voor het opslaan van bestanden en updates of een andere methode nodige om bestanden over te dragen tussen de serviceverbindingspuntcomputer en de computer met toegang tot internet. (Dit scenario veronderstelt dat uw site en de beheerde computers geen directe verbinding met internet hebben.)  
+-   Le compte que vous utilisez pour exécuter l’outil doit avoir :
+    -   Des autorisations d’**administrateur local** sur l’ordinateur hébergeant le point de connexion de service (sur lequel l’outil s’exécute)
+    -   Des autorisations de**Lecture** sur la base de données de site  
 
 
 
-## <a name="use-the-service-connection-tool"></a>Het hulpprogramma voor serviceverbindingen gebruiken  
-
- U vindt het hulpprogramma voor serviceverbindingen (**serviceconnectiontool.exe**), in de installatiemedia van Configuration Manager **%path%\smssetup\tools\ServiceConnectionTool** map. Gebruik altijd het hulpprogramma voor serviceverbindingen die overeenkomt met de versie van Configuration Manager die u gebruikt.
+-   Pour transférer des fichiers entre l’ordinateur du point de connexion de service et celui ayant accès à Internet, vous devez disposer d’un lecteur USB avec un espace libre suffisant pour stocker les fichiers et mises à jour, ou employer une autre méthode. (Ce scénario part du principe que votre site et les ordinateurs gérés ne disposent pas d’une connexion directe à Internet.)  
 
 
- In deze procedure worden de volgende bestandsnamen en maplocaties in de voorbeelden van de opdrachtregels gebruikt (u hoeft deze paden en bestandsnamen en kunt in plaats daarvan alternatieven gebruiken die overeenkomen met uw omgeving en voorkeuren):  
 
--   Het pad naar een USB-Stick waarop gegevens worden opgeslagen voor de overdracht tussen servers:  **D:\USB\\**  
+## <a name="use-the-service-connection-tool"></a>Utiliser l’outil de connexion de service  
 
--   De naam van het CAB-bestand dat gegevens die zijn geëxporteerd van uw site bevat: **UsageData.cab**  
+ L’outil de connexion de service (**serviceconnectiontool.exe**) se trouve sur le support d’installation de Configuration Manager dans le dossier **%chemin%\smssetup\tools\ServiceConnectionTool**. Utilisez toujours l’outil de connexion de service qui correspond à votre version de Configuration Manager.
 
--   De naam van de lege map waar de gedownloade updates voor Configuration Manager wordt opgeslagen voor de overdracht tussen servers: **UpdatePacks**  
 
-Op de computer die het serviceverbindingspunt host:  
+ Dans cette procédure, les exemples de ligne de commande utilisent les noms de fichiers et les emplacements de dossiers suivants (vous pouvez très bien utiliser d’autres chemins et noms de fichiers qui correspondent à votre environnement et à vos préférences) :  
 
--   Open een opdrachtprompt met beheerdersbevoegdheden en wijzig vervolgens de mappen in de locatie waarin **serviceconnectiontool.exe**zich bevindt.  
+-   Chemin à une clé USB où sont stockées les données pour le transfert entre les serveurs : **D:\USB\\**  
 
-     Standaard kunt u dit hulpprogramma vinden in de installatiemedia van Configuration Manager **%path%\smssetup\tools\ServiceConnectionTool** map. Alle bestanden in deze map moeten in dezelfde map staan. Als dit niet het geval is, werkt het hulpprogramma voor serviceverbindingen niet.  
+-   Nom du fichier .cab contenant les données exportées à partir de votre site : **UsageData.cab**  
 
-Wanneer u de volgende opdracht uitvoert, bereidt het hulpprogramma een CAB-bestand voor met gebruiksgegevens en kopieert dit naar een locatie die u opgeeft. De gegevens in het CAB-bestand zijn gebaseerd op het niveau van het verzamelen van diagnostische gebruiksgegevens waarvoor uw site is geconfigureerd. (zie [Diagnostische gegevens en gebruiksgegevens voor System Center Configuration Manager](../../../core/plan-design/diagnostics/diagnostics-and-usage-data.md)).  Voer de volgende opdracht uit om het CAB-bestand maken:  
+-   Nom du dossier vide dans lequel les mises à jour téléchargées pour Configuration Manager sont stockées à des fins de transfert entre les serveurs : **UpdatePacks**  
+
+Sur l’ordinateur qui héberge le point de connexion de service :  
+
+-   Ouvrez une invite de commandes avec des privilèges d’administration, puis changez de répertoire pour accéder à l’emplacement du fichier **serviceconnectiontool.exe**.  
+
+     Par défaut, cet outil se trouve sur le support d’installation de Configuration Manager dans le dossier **%chemin%\smssetup\tools\ServiceConnectionTool**. Tous les fichiers dans ce dossier doivent figurer dans le même dossier pour que l’outil de connexion de service fonctionne.  
+
+Lorsque vous exécutez la commande suivante, l’outil prépare un fichier .cab contenant des informations sur l’utilisation, et le copie vers un emplacement que vous spécifiez. Les données du fichier .cab sont basées sur le niveau des données de diagnostic et d’utilisation que votre site est configuré pour collecter. (voir [Données d’utilisation et de diagnostic pour System Center Configuration Manager](../../../core/plan-design/diagnostics/diagnostics-and-usage-data.md)).  Exécutez la commande suivante pour créer le fichier .cab :  
 
 -   **serviceconnectiontool.exe -prepare -usagedatadest D:\USB\UsageData.cab**  
 
-U moet ook de map ServiceConnectionTool inclusief alle inhoud kopiëren naar het USB-station of op een andere wijze beschikbaar maken op de computer die u wilt gebruiken voor stap 3 en 4.  
+Vous devez également copier le dossier ServiceConnectionTool avec tout son contenu sur le lecteur USB, ou le rendre disponible sur l’ordinateur que vous allez utiliser aux étapes 3 et 4.  
 
-### <a name="overview"></a>Overzicht
-**Er zijn drie primaire stappen voor het gebruik van het hulpprogramma voor serviceverbindingen:**  
+### <a name="overview"></a>Vue d'ensemble
+**L’utilisation de l’outil de connexion de service nécessite trois étapes principales :**  
 
-1.  **Voorbereiden**:  Deze stap wordt uitgevoerd op de computer die als host fungeert voor het serviceverbindingspunt wordt gehost. Wanneer het hulpprogramma wordt uitgevoerd het plaatst de gebruiksgegevens in een CAB-bestand en slaat deze op een USB-station (of alternatieve transferlocatie die u opgeeft).  
+1.  **Préparation** : cette étape doit être exécutée sur l’ordinateur hébergeant le point de connexion de service. Quand vous exécutez l’outil, il place les données d’utilisation dans un fichier .cab et les stocke sur un lecteur USB (ou dans un autre emplacement de transfert spécifié).  
 
-2.  **Verbinding maken met**: Voor deze stap kunt u het hulpprogramma uitvoeren op een externe computer die is verbonden met Internet, zodat u kunt de gebruiksgegevens te uploaden en vervolgens de updates downloaden.  
+2.  **Connexion** : lors de cette étape, vous exécutez l’outil sur un ordinateur distant qui se connecte à Internet pour charger les données d’utilisation puis télécharger les mises à jour.  
 
-3.  **Importeren**: Deze stap wordt uitgevoerd op de computer die als host fungeert voor het serviceverbindingspunt wordt gehost. Wanneer uitvoert, wordt het hulpprogramma importeert u gedownload en voegt u deze toe aan uw site zodat u kunt vervolgens bekijken en deze updates vanuit de Configuration Manager-console installeren.  
+3.  **Importation** : cette étape doit être exécutée sur l’ordinateur hébergeant le point de connexion de service. Quand vous exécutez l’outil, il importe les données que vous avez téléchargées et les ajoute à votre site pour que vous puissiez ensuite afficher et installer ces mises à jour à partir de la console Configuration Manager.  
 
-Wanneer u vanaf versie 1606 verbinding maakt met Microsoft, kunt u meerdere CAB-bestanden tegelijk uploaden (elk uit een andere hiërarchie) en een proxyserver en gebruiker voor de proxyserver opgeven.   
+À compter de la version 1606, quand vous vous connectez à Microsoft, vous pouvez charger plusieurs fichiers .cab à la fois (chacun à partir d’une hiérarchie différente) et spécifier un serveur proxy et un utilisateur du serveur proxy.   
 
-**Ga als volgt te werk om meerdere CAB-bestanden te uploaden:**
- -  Zet alle CAB-bestanden die u uit verschillende hiërarchieën exporteert in dezelfde map. De naam van elk bestand moet uniek zijn. Zo nodig kunt u de naam handmatig wijzigen.
- -  Wanneer u vervolgens de opdracht voor het uploaden van gegevens naar Microsoft uitvoert, geeft u de naam op van de map met de CAB-bestanden. (Vóór update 1606 kon u alleen gegevens uit één hiërarchie tegelijk uploaden en voor het hulpprogramma was het nodig dat u de naam van het CAB-bestand in de map opgaf.)
- -  Wanneer u vervolgens de importtaak voor het serviceverbindingspunt van een hiërarchie uitvoert, importeert het hulpprogramma automatisch alleen de gegevens voor die hiërarchie.  
+**Pour charger plusieurs fichiers .cab**
+ -  Placez chaque fichier .cab que vous exportez à partir de hiérarchies distinctes dans le même dossier. Le nom de chaque fichier doit être unique, et vous pouvez les renommer manuellement si nécessaire.
+ -  Ensuite, quand vous exécutez la commande pour charger des données vers Microsoft, vous spécifiez le dossier qui contient les fichiers .cab. (Avant la mise à jour 1606, vous pouviez uniquement charger des données à partir d’une seule hiérarchie à la fois, et l’outil vous obligeait à spécifier le nom du fichier .cab dans le dossier.)
+ -  Plus tard, quand vous exécutez la tâche d’importation sur le point de connexion de service d’une hiérarchie, l’outil importe automatiquement uniquement les données de cette hiérarchie.  
 
-**Een proxyserver opgeven:**  
-U kunt de volgende optionele parameters gebruiken om een proxyserver op te geven (meer informatie over het gebruik van deze parameters vindt u in de sectie Opdrachtregelparameters van dit onderwerp):
-  - **-proxyserveruri [FQDN_van_proxyserver]**  Gebruik deze parameter om de proxyserver voor deze verbinding op te geven.
-  -  **-proxyusername [gebruikersnaam]**  Gebruik deze parameter als u een gebruiker voor de proxyserver moet opgeven.
+**Pour spécifier un serveur proxy**  
+Vous pouvez utiliser les paramètres facultatifs suivants pour spécifier un serveur proxy (vous trouverez des informations supplémentaires sur l’utilisation de ces paramètres dans la section Paramètres de ligne de commande de cette rubrique) :
+  - **-proxyserveruri [nom_domaine_complet_serveur_proxy]**  Utilisez ce paramètre pour spécifier le serveur proxy à utiliser pour cette connexion.
+  -  **-proxyusername [nom_utilisateur]**  Utilisez ce paramètre quand vous devez spécifier un utilisateur du serveur proxy.
 
 
 
-### <a name="to-use-the-service-connection-tool"></a>Het hulpprogramma voor serviceverbindingen gebruiken  
+### <a name="to-use-the-service-connection-tool"></a>Pour utiliser l’outil de connexion de service  
 
-1.  Op de computer die het serviceverbindingspunt host:  
+1.  Sur l’ordinateur qui héberge le point de connexion de service :  
 
-    -   Open een opdrachtprompt met beheerdersbevoegdheden en wijzig vervolgens de mappen in de locatie waarin **serviceconnectiontool.exe**zich bevindt.   
+    -   Ouvrez une invite de commandes avec des privilèges d’administration, puis changez de répertoire pour accéder à l’emplacement du fichier **serviceconnectiontool.exe**.   
 
-2.  Voer de volgende opdracht zodat het hulpprogramma een CAB-bestand met gebruiksgegevens voorbereidt en dat kopieert naar een locatie die u opgeeft:  
+2.  Exécutez la commande suivante pour que l’outil prépare un fichier .cab contenant des informations sur l’utilisation et le copie vers un emplacement que vous spécifiez :  
 
     -   **serviceconnectiontool.exe -prepare -usagedatadest D:\USB\UsageData.cab**  
 
-    Als u CAB-bestanden uit meer dan één hiërarchie tegelijk uploadt, moet elk CAB-bestand in de map een unieke naam hebben. Bestanden die u aan de map toevoegt, kunt u handmatig wijzigen.
+    Si vous allez charger des fichiers .cab à partir de plusieurs hiérarchies en même temps, chaque fichier .cab dans le dossier doit avoir un nom unique. Vous pouvez renommer manuellement les fichiers que vous ajoutez au dossier.
 
-    Als u de gebruiksgegevens wilt weergeven die worden verzameld voor het uploaden naar de cloudservice van Configuration Manager, voert u de volgende opdracht uit voor het exporteren van dezelfde gegevens als CSV-bestand. Dit bestand kunt u vervolgens bekijken met behulp van een toepassing zoals Excel:  
+    Si vous souhaitez afficher les informations d’utilisation collectées pour le chargement sur le service cloud Configuration Manager, exécutez la commande suivante pour exporter les mêmes données dans un fichier .csv que vous pouvez ensuite afficher à l’aide d’une application comme Excel :  
 
     -   **serviceconnectiontool.exe -export -dest D:\USB\UsageData.csv**  
 
-3.  Nadat de voorbereidingsstap is voltooid, verplaatst u het USB-station (of draagt u de geëxporteerde gegevens via een andere methode over) naar een computer die toegang heeft tot internet.  
+3.  Une fois l’étape de préparation terminée, connectez le lecteur USB (ou transférez les données exportées au moyen d’une autre méthode) à un ordinateur ayant accès à Internet.  
 
-4.  Open een opdrachtprompt met beheerdersbevoegdheden op de computer met internettoegang en wijzig de mappen in de locatie met een kopie van het hulpprogramma  **serviceconnectiontool.exe** en de aanvullende bestanden uit die map.  
+4.  Sur l’ordinateur connecté à Internet, ouvrez une invite de commandes avec des privilèges d’administration, puis changez de répertoire pour accéder à l’emplacement contenant une copie de l’outil  **serviceconnectiontool.exe** et les fichiers supplémentaires de ce dossier.  
 
-5.  Voer de volgende opdracht uit om de gebruiksgegevens te uploaden en de updates voor Configuration Manager te downloaden:  
+5.  Exécutez la commande suivante pour commencer le chargement des informations d’utilisation et le téléchargement des mises à jour pour Configuration Manager :  
 
-    -   **serviceconnectiontool.exe-connect - usagedatasrc D:\USB - updatepackdest D:\USB\UpdatePacks**
+    -   **serviceconnectiontool.exe -connect -usagedatasrc D:\USB -updatepackdest D:\USB\UpdatePacks**
 
-    Zie de sectie [Opdrachtregelopties](../../../core/servers/manage/use-the-service-connection-tool.md#bkmk_cmd) verderop in dit onderwerp voor meer voorbeelden van deze opdrachtregel.
+    Pour obtenir plus d’exemples de cette ligne de commande, consultez la section [Options de ligne de commande](../../../core/servers/manage/use-the-service-connection-tool.md#bkmk_cmd) plus loin dans cette rubrique.
 
     > [!NOTE]  
-    >  Wanneer u de opdrachtregel uitvoert om verbinding met de Configuration Manager-cloudservice te maken, wordt er mogelijk een foutbericht weergegeven dat vergelijkbaar is met het volgende bericht:  
+    >  Quand vous exécutez la ligne de commande pour vous connecter au service cloud Configuration Manager, une erreur semblable à la suivante peut se produire :  
     >   
-    >  -   Niet-verwerkte uitzondering: System.UnauthorizedAccessException:  
+    >  -   Exception non gérée : System.UnauthorizedAccessException :  
     >   
-    >      Toegang tot het pad ' C:\  
-    >     Users\br\AppData\Local\Temp\extractmanifestcab\95F8A562.sql' wordt geweigerd.  
+    >      L’accès au chemin « C:\  
+    >     Users\br\AppData\Local\Temp\extractmanifestcab\95F8A562.sql » est refusé.  
     >   
-    > Deze fout kan worden genegeerd en u kunt het foutvenster sluiten en doorgaan.  
+    > Vous pouvez ignorer cette erreur sans risque. Fermez la fenêtre d’erreur et continuez.  
 
-6.  Nadat de updates voor Configuration Manager zijn gedownload, verplaatst u het USB-station (of draagt u de geëxporteerde gegevens via een andere methode over) naar de computer die het serviceverbindingspunt host.  
+6.  Une fois le téléchargement des mises à jour pour Configuration Manager terminé, connectez le lecteur USB (ou transférez les données exportées au moyen d’une autre méthode) à l’ordinateur qui héberge le point de connexion de service.  
 
-7.  Open op de computer waarop het serviceverbindingspunt wordt gehost, een opdrachtprompt met beheerdersbevoegdheden, wijzig de mappen in de locatie waarin **serviceconnectiontool.exe**zich bevindt en voer de volgende opdracht uit:  
+7.  Sur l’ordinateur qui héberge le point de connexion de service, ouvrez une invite de commandes avec des privilèges d’administration, changez de répertoire pour accéder à l’emplacement contenant **serviceconnectiontool.exe**, puis exécutez la commande suivante :  
 
     -   **serviceconnectiontool.exe -import -updatepacksrc D:\USB\UpdatePacks**  
 
-8.  Nadat het importeren is voltooid, kunt u de opdrachtprompt sluiten. (Alleen updates voor de van toepassing zijnde hiërarchie worden geïmporteerd).  
+8.  Une fois l’importation terminée, vous pouvez fermer l’invite de commandes. (Seules les mises à jour pour la hiérarchie applicable sont importées.)  
 
-9. Open de Configuration Manager-console en Ga naar **beheer** > **Updates en onderhoud**. De geïmporteerde updates kunnen nu worden geïnstalleerd. (Voorafgaand aan versie 1702, Updates en onderhoud is onder **beheer** > **Cloudservices**.)
+9. Ouvrez la console Configuration Manager, puis accédez à **Administration** > **Mises à jour et maintenance**. Les mises à jour qui ont été importées peuvent désormais être installées. (Avant la version 1702, les mises à jour et la maintenance s’effectuaient via le menu **Administration** > **Services cloud**.)
 
- Zie [Updates binnen de console installeren voor System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md) voor informatie over het installeren van updates.  
+ Pour plus d’informations, consultez [Installer des mises à jour dans la console pour System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md).  
 
-## <a name="bkmk_cmd"></a> Opdrachtregelopties  
- Als u Help-informatie voor het hulpprogramma voor serviceverbindingspunten wilt weergeven, opent u via de opdrachtprompt de map waarin het hulpprogramma zich bevindt en voert u de volgende opdracht uit:  **serviceconnectiontool.exe**.  
+## <a name="bkmk_cmd"></a> Options de ligne de commande  
+ Pour afficher de l’aide sur l’outil de point de connexion de service, ouvrez une invite de commandes dans le dossier contenant l’outil, puis exécutez la commande suivante :  **serviceconnectiontool.exe**.  
 
-|Opdrachtregelopties|Details|  
+|Options de ligne de commande|Détails|  
 |---------------------------|-------------|  
-|**-prepare -usagedatadest [station:][pad][bestandsnaam.cab]**|Met deze opdracht worden de huidige gebruiksgegevens opgeslagen in een CAB-bestand.<br /><br /> Voer deze opdracht uit als **lokale beheerder** op de server waarop het serviceverbindingspunt wordt gehost.<br /><br /> Voorbeeld:   **-prepare -usagedatadest D:\USB\Usagedata.cab**|    
-|**-connect -usagedatasrc [station:][pad] -updatepackdest [station:][pad] -proxyserveruri [FQDN van proxyserver] -proxyusername [gebruikersnaam]** <br /> <br /> Als u voor Configuration Manager een eerdere versie dan 1606 gebruikt, moet u de naam van het CAB-bestand opgeven en kunt u niet de opties voor een proxyserver gebruiken.  De ondersteunde opdrachtparameters zijn: <br /> **-connect -usagedatasrc [station:][pad][bestandsnaam] -updatepackdest [station:][pad]** |Deze opdracht maakt verbinding met de Configuration Manager-cloudservice om de CAB-bestanden met gebruiksgegevens te uploaden vanaf de opgegeven locatie en om beschikbare updatepakketten en console-inhoud te downloaden. De opties voor proxyservers zijn optioneel.<br /><br /> Voer deze opdracht uit als **lokale beheerder** op een computer die verbinding met internet kan maken.<br /><br /> Voorbeeld van verbinding maken zonder proxyserver: **-connect -usagedatasrc D:\USB\ -updatepackdest D:\USB\UpdatePacks** <br /><br /> Voorbeeld van verbinding maken wanneer u een proxyserver gebruikt: **-connect -usagedatasrc D:\USB\Usagedata.cab -updatepackdest D:\USB\UpdatePacks -proxyserveruri itgproxy.redmond.corp.microsoft.com -proxyusername Meg** <br /><br /> Als u een eerdere versie dan 1606 gebruikt, moet u een bestandsnaam opgeven voor het CAB-bestand en kunt u geen proxyserver opgeven. Gebruik daarbij het volgende voorbeeld voor een opdrachtregel: **-connect -usagedatasrc D:\USB\Usagedata.cab -updatepackdest D:\USB\UpdatePacks**|      
-|**-import -updatepacksrc [station:][pad]**|Met deze opdracht worden de updatepakketten en de inhoud van de console geïmporteerd die u eerder hebt gedownload naar de Configuration Manager-console.<br /><br /> Voer deze opdracht uit als **lokale beheerder** op de server waarop het serviceverbindingspunt wordt gehost.<br /><br /> Voorbeeld:  **-import -updatepacksrc D:\USB\UpdatePacks**|  
-|**-export -dest [station:][pad][bestandsnaam.csv]**|Met deze opdracht exporteert u de gebruiksgegevens naar een CSV-bestand, dat u vervolgens kunt weergeven.<br /><br /> Voer deze opdracht uit als **lokale beheerder** op de server waarop het serviceverbindingspunt wordt gehost.<br /><br /> Voorbeeld: **-export -dest D:\USB\usagedata.csv**|  
+|**-prepare -usagedatadest [lecteur:][chemin][nom_fichier.cab]**|Cette commande stocke les données d’utilisation actuelles dans un fichier .cab.<br /><br /> Exécutez cette commande en tant qu’ **administrateur local** sur le serveur qui héberge le point de connexion de service.<br /><br /> Exemple :   **-prepare -usagedatadest D:\USB\Usagedata.cab**|    
+|**-connect -usagedatasrc [lecteur:][chemin] -updatepackdest [lecteur:][chemin] -proxyserveruri [nom_domaine_complet_serveur_proxy] -proxyusername [nom_utilisateur]** <br /> <br /> Si vous utilisez une version de Configuration Manager antérieure à la version 1606, vous devez spécifier le nom du fichier .cab et vous ne pouvez pas utiliser les options d’un serveur proxy.  Les paramètres de commande pris en charge sont les suivants : <br /> **-connect -usagedatasrc [lecteur:][chemin][nom_fichier] -updatepackdest [lecteur:][chemin]** |Cette commande se connecte au service cloud Configuration Manager pour charger les fichiers .cab de données d’utilisation à partir de l’emplacement spécifié et pour télécharger le contenu de console et les packs de mise à jour disponibles. Les options pour les serveurs proxy sont facultatives.<br /><br /> Exécutez cette commande en tant qu’ **administrateur local** sur un ordinateur capable de se connecter à Internet.<br /><br /> Exemple de connexion sans serveur proxy : **-connect -usagedatasrc D:\USB\ -updatepackdest D:\USB\UpdatePacks** <br /><br /> Exemple de connexion quand vous utilisez un serveur proxy : **-connect -usagedatasrc D:\USB\Usagedata.cab -updatepackdest D:\USB\UpdatePacks -proxyserveruri itgproxy.redmond.corp.microsoft.com -proxyusername Meg** <br /><br /> Si vous utilisez une version antérieure à la version 1606, vous devez spécifier un nom de fichier pour le fichier .cab et vous ne pouvez pas spécifier de serveur proxy. Utilisez l’exemple de ligne de commande suivant : **-connect -usagedatasrc D:\USB\Usagedata.cab -updatepackdest D:\USB\UpdatePacks**|      
+|**-import -updatepacksrc [lecteur:][chemin]**|Cette commande importe les packages de mise à jour et le contenu de la console que vous avec précédemment téléchargés dans la console Configuration Manager.<br /><br /> Exécutez cette commande en tant qu’ **administrateur local** sur le serveur qui héberge le point de connexion de service.<br /><br /> Exemple :  **-import -updatepacksrc D:\USB\UpdatePacks**|  
+|**-export -dest [lecteur:][chemin][nom_fichier.csv]**|Cette commande exporte les données d’utilisation dans un fichier .csv que vous pouvez ensuite afficher.<br /><br /> Exécutez cette commande en tant qu’ **administrateur local** sur le serveur qui héberge le point de connexion de service.<br /><br /> Exemple : **-export -dest D:\USB\usagedata.csv**|  

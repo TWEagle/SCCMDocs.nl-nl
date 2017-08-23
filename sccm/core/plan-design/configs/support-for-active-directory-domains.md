@@ -1,6 +1,6 @@
 ---
-title: Active Directory-domeinen ondersteund | Microsoft Docs
-description: Vereisten voor het lidmaatschap van een System Center Configuration Manager-sitesysteem in Active Directory-domein ophalen.
+title: Domaines Active Directory pris en charge | Microsoft Docs
+description: "Prenez connaissance de la configuration requise pour l’appartenance d’un système de site System Center Configuration Manager à un domaine Active Directory."
 ms.custom: na
 ms.date: 3/23/2017
 ms.prod: configuration-manager
@@ -17,32 +17,32 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 2654ab4eaaaf6a4bf3bd7dca9908e7033647dc2c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="supported-active-directory-domains-for-system-center-configuration-manager"></a>Ondersteunde Active Directory-domeinen voor System Center Configuration Manager
+# <a name="supported-active-directory-domains-for-system-center-configuration-manager"></a>Domaines Active Directory pris en charge pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Alle System Center Configuration Manager-sitesystemen moeten lid zijn van een ondersteund Windows Server Active Directory-domein. Configuration Manager-clientcomputers kunnen domeinleden of werkgroepleden zijn.  
+Tous les systèmes de site System Center Configuration Manager doivent être membres d’un domaine Windows Server Active Directory pris en charge. Les ordinateurs clients Configuration Manager peuvent être membres du domaine ou membres d’un groupe de travail.  
 
- **Vereisten en beperkingen:**  
+ **Configuration requise et limitations :**  
 
--   Lidmaatschap van een domein is van toepassing op sitesystemen die clientbeheer op Internet in een perimeternetwerk (ook wel een DMZ, gedemilitariseerde zone en gescreend subnet ondersteunen).  
+-   L’appartenance à un domaine s’applique à des systèmes de site prenant en charge la gestion du client basée sur Internet dans un réseau de périmètre (également appelé DMZ, zone démilitarisée et sous-réseau filtré).  
 
--   Wijzig de volgende voor een computer die als host fungeert voor een sitesysteemrol wordt niet ondersteund:  
+-   Cela ne permet pas de modifier les paramètres suivants pour un ordinateur qui héberge un rôle de système de site :  
 
-    -   Lidmaatschap van domein  
+    -   Appartenance au domaine  
 
-    -   Domeinnaam  
+    -   Nom du domaine  
 
-    -   Computernaam  
+    -   Nom de l'ordinateur  
 
-U moet de sitesysteemrol (inclusief de site als een siteserver is) verwijderen voordat u deze wijzigingen aanbrengt.  
+Vous devez désinstaller le rôle de système de site (y compris le site s’il s’agit d’un serveur de site) avant d’apporter ces modifications.  
 
-**Domeinen met de volgende functionaliteitsniveaus worden ondersteund:**  
-- Windows Server 2016
+**Les domaines avec les niveaux fonctionnels de domaine suivants sont pris en charge :**  
+- Windows Server 2016
 
 - Windows Server 2012 R2  
 
@@ -50,7 +50,7 @@ U moet de sitesysteemrol (inclusief de site als een siteserver is) verwijderen v
 
 - Windows Server 2008 R2
 
-- Windows Server 2008  
+- Windows Server 2008  
 
 
 
@@ -58,30 +58,30 @@ U moet de sitesysteemrol (inclusief de site als een siteserver is) verwijderen v
 
 
 
-##  <a name="bkmk_Disjoint"></a> Niet-aaneengesloten naamruimte  
-Configuration Manager ondersteunt installeren sitesystemen en clients in een domein met een niet-aaneengesloten naamruimte.  
+##  <a name="bkmk_Disjoint"></a> Espace de noms disjoint  
+Configuration Manager prend en charge l’installation de systèmes de site et de clients dans un domaine qui a un espace de noms disjoint.  
 
-Een niet-aaneengesloten naamruimte-scenario is een waarbij het achtervoegsel van primaire System DNS (Domain Name) van een computer komt niet overeen met de Active Directory-DNS-domeinnaam waarin die computer zich bevindt. De computer die gebruikmaakt van het primaire DNS-achtervoegsel komt niet overeen met niet-aaneengesloten genoemd. Een ander niet-aaneengesloten naamruimte scenario treedt op als de NetBIOS-naam van een domeincontroller komt niet overeen met de Active Directory-DNS-domeinnaam.  
+Dans un scénario d’espace de noms disjoint, le suffixe du DNS principal d’un ordinateur ne correspond pas au nom de domaine DNS Active Directory où se trouve cet ordinateur. L’ordinateur qui utilise le suffixe DNS principal qui ne correspond pas est dit « disjoint ». Un autre scénario d’espace de noms disjoint se produit si le nom de domaine NetBIOS d’un contrôleur de domaine ne correspond pas au nom de domaine DNS Active Directory.  
 
-In de volgende tabel worden de ondersteunde scenario's voor een ontkoppelde naamruimte vermeld.  
+Le tableau suivant identifie les scénarios pris en charge pour un espace de noms disjoint.  
 
-|Scenario|Meer informatie|  
+|Scénario|Plus d'informations|  
 |--------------|----------------------|  
-|**Scenario 1:**<br /><br /> Het achtervoegsel van de primaire DNS van de domeincontroller verschilt van de DNS-naam van het Active Directory-domein. Computers die lid van het domein zijn, kunnen ontkoppeld of niet-ontkoppeld zijn.|In dit scenario verschilt het achtervoegsel van de primaire DNS van de domeincontroller van de DNS-naam van het Active Directory-domein. De domeincontroller is in dit scenario ontkoppeld. Computers die lid zijn van het domein, zoals siteservers en computers, kunnen een achtervoegsel voor de primaire DNS hebben die overeenkomt met het achtervoegsel voor de primaire DNS van de domeincontroller of die overeenkomt met de DNS-naam van het Active Directory-domein.|  
-|**Scenario 2:**<br /><br /> Een computer die lid is van een Active Directory-domein is ontkoppeld, zelfs al is de domeincontroller niet ontkoppeld.|In dit scenario verschilt het achtervoegsel van de primaire DNS van een lidcomputer waarop een sitesysteem is geïnstalleerd van de DNS-naam van het Active Directory-domein, ook al is het achtervoegsel voor de primaire DNS van de domeincontroller hetzelfde als de DNS-naam van het Active Directory-domein. In dit scenario is er sprake van een domeincontroller die niet ontkoppeld is en een lidcomputer die ontkoppeld is. Lidcomputers waarop de Configuration Manager-client kunnen een primaire DNS-achtervoegsel hebben dat overeenkomt met het primaire DNS-achtervoegsel van de ontkoppelde sitesysteemserver of die overeenkomt met de naam van de Active Directory DNS-domein hebben.|  
+|**Scénario 1 :**<br /><br /> Le suffixe DNS principal du contrôleur de domaine diffère du nom de domaine DNS d'Active Directory. Les ordinateurs qui sont membres du domaine peuvent être disjoints ou non disjoints.|Dans ce scénario, le suffixe DNS principal du contrôleur de domaine diffère du nom de domaine DNS d'Active Directory. Le contrôleur de domaine est disjoint dans ce scénario. Les ordinateurs qui sont membres du domaine, comme les serveurs et les ordinateurs de site, peuvent avoir un suffixe DNS principal qui correspond soit au suffixe DNS principal du contrôleur de domaine ou au nom de domaine DNS d'Active Directory.|  
+|**Scénario 2 :**<br /><br /> Un ordinateur membre d'un domaine Active Directory est disjoint, même si le contrôleur de domaine n'est pas disjoint.|Dans ce scénario, le suffixe DNS principal d'un ordinateur membre sur lequel un système de site est installé diffère du nom de domaine DNS d'Active Directory, même si le suffixe DNS principal du contrôleur de domaine est le même que le nom de domaine DNS d'Active Directory. Dans ce scénario, un contrôleur de domaine n'est pas disjoint et un ordinateur membre est disjoint. Les ordinateurs membres qui exécutent le client Configuration Manager peuvent posséder un suffixe DNS principal qui correspond soit au suffixe DNS principal du serveur du système de site disjoint, soit au nom de domaine DNS d’Active Directory.|  
 
- Als u toegang van een computer tot ontkoppelde domeincontrollers wilt toestaan, moet u het Active Directory-kenmerk in **msDS-AllowedDNSSuffixes** wijzigen in de container voor het domeinobject. U moet beide DNS-achtervoegsels toevoegen aan het kenmerk.  
+ Pour permettre à un ordinateur d'accéder à des contrôleurs de domaine disjoints, vous devez changer l'attribut d'Active Directory **msDS-AllowedDNSSuffixes** sur le conteneur d'objets du domaine. Vous devez ajouter les deux suffixes DNS à l'attribut.  
 
- Om ervoor te zorgen dat de zoeklijst voor DNS-achtervoegsels bevat alle DNS-naamruimten die zijn geïmplementeerd in de organisatie, moet u bovendien de zoeklijst voor elke computer configureren in het domein dat is ontkoppeld. Zorg ervoor dat u het volgende in de lijst met naamruimten opnemen: het primaire DNS-achtervoegsel van de domeincontroller, de DNS-domeinnaam en eventuele aanvullende naamruimten voor andere servers die Configuration Manager met samenwerken kan. U kunt de **zoeklijst voor DNS-achtervoegsels (Domain Name System)** configureren met de console Groepsbeleidsbeheer.  
+ De plus, pour vérifier que la liste de recherche des suffixes DNS contient tous les espaces de noms DNS déployés au sein de l’organisation, vous devez configurer la liste de recherche pour chaque ordinateur du domaine disjoint. Vérifiez que vous incluez ce qui suit dans la liste d’espaces de noms : le suffixe DNS principal du contrôleur de domaine, le nom de domaine DNS et tous les espaces de noms supplémentaires d’autres serveurs avec lesquels Configuration Manager peut interagir. Vous pouvez utiliser la console de Gestion de stratégie de groupe pour configurer la liste de **Recherche de suffixe de nom de domaine (DNS)** .  
 
 > [!IMPORTANT]  
->  Wanneer u verwijst naar een computer in Configuration Manager, voert u de computer met behulp van het primaire DNS-achtervoegsel. Dit achtervoegsel moet overeenkomen met de FQDN-naam die is geregistreerd als de **dnsHostName** kenmerk in de Active Directory-domein en de Service-Principal-naam die is gekoppeld aan het systeem.  
+>  Lorsque vous référencez un ordinateur dans Configuration Manager, entrez-le à l’aide de son suffixe DNS principal. Ce suffixe doit correspondre au nom de domaine complet inscrit comme attribut **dnsHostName** dans le domaine Active Directory et au nom de principal du service associé au système.  
 
-##  <a name="bkmk_SLD"></a> Domeinen met een enkelvoudig label  
- Configuration Manager ondersteunt sitesystemen en clients in een domein met enkelvoudig label wanneer aan de volgende criteria wordt voldaan:  
+##  <a name="bkmk_SLD"></a> Noms de domaine en une seule partie  
+ Configuration Manager prend en charge les systèmes de site et les clients dans un nom domaine en une seule partie quand les critères suivants sont remplis :  
 
--   Domein met enkelvoudig label in Active Directory Domain Services moet worden geconfigureerd met een ontkoppelde DNS-naamruimte met een geldig domein op het hoogste niveau.  
+-   Le nom de domaine en une seule partie dans les services de domaine Active Directory doit être configuré avec un espace de noms DNS disjoint associé à un domaine de niveau supérieur valide.  
 
-     **Bijvoorbeeld:** Domein met enkelvoudig label van Contoso is geconfigureerd met een niet-aaneengesloten naamruimte in het DNS contoso.com. Dus als u het DNS-achtervoegsel in Configuration Manager voor een computer in het Contoso-domein opgeeft, geeft u 'Contoso.com' en niet 'Contoso'.  
+     **Exemple** : le nom de domaine en une seule partie Contoso est configuré pour avoir un espace de noms disjoint contoso.com dans DNS. Ainsi, quand vous spécifiez le suffixe DNS dans Configuration Manager pour un ordinateur du domaine Contoso, vous spécifiez « Contoso.com » et non pas « Contoso ».  
 
--   De Distributed Component Object Model (DCOM)-verbindingen tussen siteservers in de systeemcontext moeten plaatsvinden met behulp van Kerberos-verificatie.  
+-   Les connexions DCOM (Distributed Component Object Model) entre serveurs de site dans le contexte système doivent être établies avec l’authentification Kerberos.  

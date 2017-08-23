@@ -1,6 +1,6 @@
 ---
-title: Zelfstandige media maken met System Center Configuration Manager | Microsoft Docs
-description: Zelfstandige media gebruiken voor het implementeren van het besturingssysteem op een computer zonder een verbinding met een Configuration Manager-site of het netwerk.
+title: "Créer un média autonome avec System Center Configuration Manager | Documents Microsoft"
+description: "Utilisez un média autonome pour déployer le système d’exploitation sur un ordinateur sans connexion à un site Configuration Manager ou utilisant le réseau."
 ms.custom: na
 ms.date: 06/07/2017
 ms.prod: configuration-manager
@@ -17,159 +17,159 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 98f902429ad1b9965a0dc4cc2e1bd071ad5c0779
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-stand-alone-media-with-system-center-configuration-manager"></a>Zelfstandige media maken met System Center Configuration Manager
+# <a name="create-stand-alone-media-with-system-center-configuration-manager"></a>Créer un média autonome avec System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Zelfstandige media in Configuration Manager bevat alles wat vereist is voor het implementeren van het besturingssysteem op een computer zonder een verbinding met een Configuration Manager-site of via het netwerk. Gebruik zelfstandige media met de volgende implementatiescenario's voor besturingssystemen:  
+Un média autonome dans Configuration Manager contient tout ce qui est nécessaire pour déployer le système d’exploitation sur un ordinateur sans connexion à un site Configuration Manager ou utilisant le réseau. Utilisez un média autonome avec les scénarios de déploiement de système d’exploitation suivants :  
 
--   [Een bestaande computer vernieuwen met een nieuwe versie van Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)  
+-   [Actualiser un ordinateur existant avec une nouvelle version de Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)  
 
--   [Een nieuwe versie van Windows op een nieuwe computer (bare-metal) installeren](install-new-windows-version-new-computer-bare-metal.md)  
+-   [Installer une nouvelle version de Windows sur un nouvel ordinateur (système nu)](install-new-windows-version-new-computer-bare-metal.md)  
 
--   [Windows bijwerken naar de laatste versie](upgrade-windows-to-the-latest-version.md)  
+-   [Effectuer une mise à niveau de Windows vers la dernière version](upgrade-windows-to-the-latest-version.md)  
 
-Zelfstandige media bevatten de takenreeks die de stappen voor het installeren van het besturingssysteem en alle andere vereiste inhoud, met inbegrip van de opstartinstallatiekopie, de installatiekopie van besturingssysteem en de apparaatstuurprogramma's worden geautomatiseerd. Omdat alles wat nodig is voor het implementeren van het besturingssysteem op de zelfstandige media is opgeslagen, is de benodigde schijfruimte voor zelfstandige media aanzienlijk groter dan de benodigde schijfruimte voor andere mediatypen. Wanneer u op een centrale beheersite zelfstandige media maakt, haalt de client de toegewezen sitecode op uit Active Directory. Zelfstandige media die worden gemaakt op onderliggende sites, wijzen automatisch de sitecode van die site toe aan de client.  
+Le média autonome inclut la séquence de tâches qui automatise la procédure d’installation du système d’exploitation et tout autre contenu nécessaire, notamment l’image de démarrage, l’image du système d’exploitation et les pilotes de périphérique. Étant donné que tous les éléments nécessaires au déploiement du système d’exploitation sont stockés sur le média autonome, l’espace disque requis pour le média autonome est beaucoup plus important que l’espace disque requis pour d’autres types de média. Lorsque vous créez un média autonome sur un site d’administration centrale, le client récupère le code de site qui lui est attribué à partir d’Active Directory. Le média autonome créé sur les sites enfants attribue automatiquement au client le code de site pour ce site.  
 
-##  <a name="BKMK_CreateStandAloneMedia"></a>Zelfstandige media maken  
-Voordat u zelfstandige media met behulp van de Wizard Takenreeks maken Media maakt, moet dat de volgende voorwaarden wordt voldaan:  
+##  <a name="BKMK_CreateStandAloneMedia"></a> Créer un média autonome  
+Avant de créer un média autonome à l’aide de l’Assistant Création d’un média de séquence de tâches, vérifiez que les conditions suivantes sont remplies :  
 
-### <a name="create-a-task-sequence-to-deploy-an-operating-system"></a>Een takenreeks maken om een besturingssysteem te implementeren
-Als onderdeel van de zelfstandige media moet u de takenreeks voor het implementeren van een besturingssysteem opgeven. Zie voor de stappen voor het maken van een nieuwe takenreeks [een takenreeks maken voor het installeren van een besturingssysteem in System Center Configuration Manager](create-a-task-sequence-to-install-an-operating-system.md).
+### <a name="create-a-task-sequence-to-deploy-an-operating-system"></a>Créer une séquence de tâches pour déployer un système d’exploitation
+Dans le cadre du média autonome, vous devez spécifier la séquence de tâches destinée à déployer un système d’exploitation. Pour connaître les étapes permettant de créer une séquence de tâches, consultez [Créer une séquence de tâches pour installer un système d’exploitation dans System Center Configuration Manager](create-a-task-sequence-to-install-an-operating-system.md).
 
-De volgende acties worden niet ondersteund voor zelfstandige media:
-- De stap Stuurprogramma's automatisch toepassen in de takenreeks. Automatische toepassing van apparaatstuurprogramma's uit de stuurprogrammacatalogus wordt niet ondersteund, maar u kunt de stap Stuurprogramma's automatisch toepassen kiezen om een specifieke reeks stuurprogramma's beschikbaar te maken voor Windows Setup.
-- De pakketinhoud downloaden stap in de takenreeks. De gegevens van het herstelpunt is niet beschikbaar op zelfstandige media, dus dat de stap mislukt bij het opsommen van de locaties van inhoud.
-- Installatie van software-updates.
-- Installatie van software voordat u het besturingssysteem implementeert.
-- Takenreeksen die gebruikmaken van niet - besturingssysteemimplementaties.
-- Koppelen van gebruikers aan de doelcomputer ter ondersteuning van de gebruikersaffiniteit van apparaten.
-- Dynamische pakket wordt geïnstalleerd via de taak Pakketten installeren.
-- Dynamische toepassing wordt geïnstalleerd via de toepassing Taak installeren.
+Les actions suivantes ne sont pas prises en charge pour le média autonome :
+- Étape Appliquer automatiquement les pilotes dans la séquence de tâches. L’application automatique des pilotes de périphérique présents dans le catalogue de pilotes n’est pas prise en charge, mais vous pouvez choisir l’étape Appliquer le package de pilotes pour mettre à la disposition du programme d’installation de Windows un ensemble de pilotes spécifique.
+- Étape Télécharger le contenu du package dans la séquence de tâches. Les informations de point de gestion ne sont pas disponibles sur un média autonome. Par conséquent, l’étape échoue lors de la tentative d’énumération des emplacements de contenu.
+- Installation de mises à jour logicielles.
+- Installation du logiciel avant le déploiement du système d’exploitation.
+- Séquences de tâches pour les déploiements autres que les déploiements de système d’exploitation.
+- Association d'utilisateurs à l'ordinateur de destination pour prendre en charge l'affinité entre appareil et utilisateur.
+- Le package dynamique s'installe via la tâche Installer les packages.
+- L'application dynamique s'installe via la tâche Installer l'application.
 
 > [!NOTE]    
-> Als uw takenreeks voor het implementeren van een besturingssysteem bevat de [pakket installeren](../../osd/understand/task-sequence-steps.md#BKMK_InstallPackage) stap en u de zelfstandige media maken op een centrale beheersite, een fout optreden. De centrale beheersite beschikt niet over de benodigde beleidsregels voor clientconfiguratie om de agent voor softwaredistributie in te schakelen tijdens het uitvoeren van de takenreeks. Mogelijk wordt de volgende fout in het bestand CreateTsMedia.log weergegeven:    
+> Si votre séquence de tâches servant à déployer un système d’exploitation comprend l’étape [Installer le package](../../osd/understand/task-sequence-steps.md#BKMK_InstallPackage) et que vous créez le média autonome sur un site d’administration centrale, une erreur peut se produire. Le site d'administration centrale ne dispose pas des stratégies de configuration de client requises pour activer l'agent de distribution logicielle au cours de l'exécution de la séquence de tâches. L’erreur suivante peut apparaître dans le fichier CreateTsMedia.log :    
 >     
-> 'WMI-methode SMS_TaskSequencePackage.GetClientConfigPolicies is mislukt (0x80041001)'    
+> "WMI method SMS_TaskSequencePackage.GetClientConfigPolicies failed (0x80041001)"    
 > 
-> Voor zelfstandige media met een **pakket installeren** stap heeft, moet u de zelfstandige media maken op een primaire site die de agent voor softwaredistributie is ingeschakeld of Voeg een [opdrachtregel uitvoeren](../understand/task-sequence-steps.md#BKMK_RunCommandLine) stap na de [Windows en ConfigMgr installeren](../understand/task-sequence-steps.md#BKMK_SetupWindowsandConfigMgr) stap en voor de eerste **pakket installeren** stap in de takenreeks wordt uitgevoerd. Met de stap **Opdrachtregel uitvoeren** wordt een WMIC-opdracht uitgevoerd waarmee de agent voor softwaredistributie wordt ingeschakeld voordat de eerste stap Pakket installeren wordt uitgevoerd. U kunt de volgende opdracht gebruiken in de takenreeksstap **Opdrachtregel uitvoeren** :    
+> Dans le cas d’un média autonome qui comprend une étape **Installer le package**, vous devez créer le média autonome sur un site principal sur lequel l’agent de distribution logicielle est activé ou ajouter une étape [Exécuter la ligne de commande](../understand/task-sequence-steps.md#BKMK_RunCommandLine) après l’étape [Configurer Windows et ConfigMgr](../understand/task-sequence-steps.md#BKMK_SetupWindowsandConfigMgr) et avant la première étape **Installer le package** de la séquence de tâches. L'étape **Exécuter la ligne de commande** exécute une commande de ligne de commande WMIC pour activer l'agent de distribution logicielle avant l'exécution de la première étape Installer le package. Vous pouvez utiliser la ligne de commande suivante dans l'étape **Exécuter la ligne de commande** de votre séquence de tâches :    
 >    
-> *WMIC/namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName = "Enable SWDist", Enabled = "true", LockSettings = "TRUE", PolicySource = "local", PolicyVersion = "1.0", SiteSettingsKey = "1" / NOINTERACTIVE*
+> *WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName="Enable SWDist", Enabled="true", LockSettings="TRUE", PolicySource="local", PolicyVersion="1.0", SiteSettingsKey="1" /NOINTERACTIVE*
 
 
 > [!IMPORTANT]    
-> Wanneer u gebruikt de **Windows en ConfigMgr installeren** takenreeksstap in de takenreeks voor het besturingssysteem, selecteert u de **gebruik pre-productieclientpakket indien beschikbaar** instellen voor zelfstandige media. Als deze instelling is geselecteerd en de pre-productieclientpakket beschikbaar is, wordt deze wordt gebruikt in de zelfstandige media. Dit wordt niet ondersteund. Zie voor meer informatie over deze instelling [Windows en ConfigMgr installeren](/sccm/osd/understand/task-sequence-steps#BKMK_SetupWindowsandConfigMgr).
+> Lorsque vous utilisez l’étape de la séquence de tâches **Configurer Windows et ConfigMgr** dans la séquence de tâches du système d’exploitation, ne sélectionnez pas le paramètre **Utiliser le package client de préproduction quand il est disponible** pour le média autonome. Si ce paramètre est sélectionné et que le package client de préproduction est disponible, il sera utilisé dans le média autonome. Cette fonctionnalité n’est pas prise en charge. Pour plus d’informations sur ce paramètre, consultez [Configurer Windows et ConfigMgr](/sccm/osd/understand/task-sequence-steps#BKMK_SetupWindowsandConfigMgr).
 
 
-### <a name="distribute-all-content-associated-with-the-task-sequence"></a>Alle aan de takenreeks gekoppeld inhoud distribueren
-U moet alle inhoud die vereist is voor de takenreeks distribueren naar ten minste één distributiepunt. Dit omvat de opstartinstallatiekopie, de installatiekopie van het besturingssysteem en andere gekoppelde bestanden. De wizard haalt de informatie op van het distributiepunt wanneer het de zelfstandige media creëert. U moet over het toegangsrecht **Lezen** beschikken voor de inhoudsbibliotheek op het distributiepunt.  Zie [Inhoud distribueren waarnaar wordt verwezen door een specifieke takenreeks](manage-task-sequences-to-automate-tasks.md#BKMK_DistributeTS) voor meer informatie.
+### <a name="distribute-all-content-associated-with-the-task-sequence"></a>Distribuer tout le contenu associé à la séquence de tâches
+Vous devez distribuer tout le contenu exigé par la séquence de tâches à au moins un point de distribution. Cela inclut l’image de démarrage, l’image du système d’exploitation et les autres fichiers associés. L'Assistant collecte les informations à partir du point de distribution lorsqu'il crée le média autonome. Vous devez disposer de droits d’accès en **Lecture** à la bibliothèque de contenu sur ce point de distribution.  Pour plus d’informations, consultez [Distribuer du contenu référencé par une séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_DistributeTS).
 
-### <a name="prepare-the-removable-usb-drive"></a>Het verwisselbare USB-station voorbereiden
-*Voor een verwisselbaar USB-station:*
+### <a name="prepare-the-removable-usb-drive"></a>Préparer le lecteur USB amovible
+*Lecteur USB amovible :*
 
-Wanneer u een verwisselbaar USB-station wilt gebruiken, moet het USB-station zijn aangesloten op de computer waarop de wizard wordt uitgevoerd. Daarnaast moet het USB-station door Windows gedetecteerd kunnen worden als een verwisselbaar apparaat. De wizard schrijft rechtstreeks naar het USB-station wanneer deze het medium maakt. Zelfstandige media maakt gebruik van een FAT32-bestandssysteem. U kunt geen zelfstandige media maken op een USB-flashstation waarvan de inhoud een bestand bevat dat groter is dan 4 GB.
+Si vous envisagez d’utiliser un lecteur USB amovible, ce dernier doit être connecté à l’ordinateur sur lequel est exécuté l’Assistant et il doit être détectable par Windows en tant que périphérique amovible. L’Assistant écrit directement sur le lecteur USB quand il crée le média. Le média autonome utilise un système de fichiers FAT32. Vous ne pouvez pas créer de média autonome sur un disque mémoire flash USB dont le contenu inclut un fichier d'une taille supérieure à 4 Go.
 
-### <a name="create-an-output-folder"></a>Een uitvoermap maken
-*Voor een CD/DVD-set:*
+### <a name="create-an-output-folder"></a>Créer un dossier de sortie
+*Ensemble de CD/DVD :*
 
-Voordat u de wizard Takenreeksmedia maken uitvoert voor het maken van media voor een cd- of dvd-set, moet u een map maken voor de uitvoerbestanden die door de wizard worden gemaakt. Media die worden gemaakt voor een cd- of dvdset worden als .iso-bestanden direct naar de map geschreven.
+Avant d'exécuter l'Assistant Création d'un média de séquence de tâches afin de créer un média pour un ensemble de CD ou DVD, vous devez créer un dossier pour les fichiers de sortie créés par l'Assistant. Le média créé pour un ensemble de CD ou DVD est écrit sous forme de fichiers .iso directement dans le dossier.
 
 
- Gebruik de volgende procedure om zelfstandige media te maken voor een USB-station of een cd/dvd-set.  
+ Utilisez la procédure suivante pour créer un média autonome pour un lecteur USB amovible ou un ensemble de CD/DVD.  
 
-## <a name="to-create-stand-alone-media"></a>Zelfstandige media maken  
+## <a name="to-create-stand-alone-media"></a>Pour créer un média autonome  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Takenreeksen**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-3.  Klik op het tabblad **Start** in de groep **Maken** op **Takenreeksmedia maken** om de wizard Takenreeksmedia maken te starten.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un média de séquence de tâches** pour démarrer l'Assistant Création d'un média de séquence de tâches.  
 
-4.  Geef op de pagina **Mediatype selecteren** de volgende opties op en klik op **Volgende**.  
+4.  Sur la page **Sélectionner le type de média** , spécifiez les options suivantes, puis cliquez sur **Suivant**.  
 
-    -   Selecteer **Zelfstandige media**.  
+    -   Sélectionnez **Média autonome**.  
 
-    -   Selecteer optioneel, indien u wenst toe te staan dat het besturingssysteem geïmplementeerd wordt zonder invoer van de gebruiker, de optie **Implementatie van het besturingssysteem zonder toezicht toestaan**. Wanneer u deze optie selecteert, wordt de gebruiker niet gevraagd naar informatie over netwerkconfiguratie of naar optionele takenreeksen. De gebruiker wordt wel nog steeds gevraagd om een wachtwoord als de media hiervoor is geconfigureerd.  
+    -   Éventuellement, si vous souhaitez autoriser le déploiement du système d'exploitation sans intervention de l'utilisateur, sélectionnez **Autoriser le déploiement du système d'exploitation de manière autonome**. Lorsque vous sélectionnez cette option, l'utilisateur n'est pas invité à fournir des informations de configuration réseau ou des séquences de tâches facultatives. Toutefois, l'utilisateur est toujours invité à fournir un mot de passe si le média est configuré avec la protection par mot de passe.  
 
-5.  Geef op de pagina **Mediumtype** op of het medium een flashstation of een cd/dvd-set is en klik vervolgens om het volgende te configureren:  
+5.  Dans la page **Type de média** , spécifiez si le média est un disque mémoire flash ou un ensemble de CD/DVD, puis cliquez pour configurer les éléments suivants :  
 
     > [!IMPORTANT]  
-    >  Zelfstandige media maakt gebruik van een FAT32-bestandssysteem. U kunt geen zelfstandige media maken op een USB-flashstation waarvan de inhoud een bestand bevat dat groter is dan 4 GB.  
+    >  Le média autonome utilise un système de fichiers FAT32. Vous ne pouvez pas créer de média autonome sur un disque mémoire flash USB dont le contenu inclut un fichier d'une taille supérieure à 4 Go.  
 
-    -   Als u **USB-flashstation**selecteert, moet u het station opgeven waarop u de inhoud wilt opslaan.  
+    -   Si vous sélectionnez **Périphérique flash USB**, spécifiez le lecteur sur lequel stocker le contenu.  
 
-    -   Indien u **cd-/dvdset selecteert**, geef dan de capaciteit van de media en de naam en het pad van de uitvoerbestanden op. De wizard schrijft de uitvoerbestanden naar deze locatie. Bijvoorbeeld:  **\\\servername\folder\outputfile.iso**  
+    -   Si vous sélectionnez **Ensemble CD/DVD**, spécifiez la capacité du média et le nom et le chemin d'accès des fichiers de sortie. L'Assistant écrit les fichiers de sortie à cet emplacement. Par exemple : **\\\nom_serveur\dossier\fichier_sortie.iso**  
 
-         Als de capaciteit van de media te klein is om alle inhoud op te slaan, worden er meerdere bestanden gemaakt en moet u de inhoud op meerdere cd's of dvd's opslaan. Als meerdere media nodig zijn, wordt een volgnummer toegevoegd aan de naam van ieder uitvoerbestand dat wordt gemaakt van Configuration Manager. Bovendien, als u een toepassing tezamen met het besturingssysteem implementeert en de toepassing is te voor één media groot, slaat Configuration Manager de toepassing over verschillende media. Wanneer de zelfstandige media wordt uitgevoerd, wordt Configuration Manager de gebruiker naar de volgende media waar de toepassing wordt opgeslagen.   
+         Si la capacité du média est insuffisante pour stocker l’ensemble du contenu, plusieurs fichiers sont créés et vous devez stocker le contenu sur plusieurs CD ou DVD. Quand plusieurs médias sont nécessaires, Configuration Manager ajoute un numéro de séquence au nom de chaque fichier de sortie qu’il crée. De plus, si vous déployez une application en même temps que le système d’exploitation et que cette application ne peut pas tenir sur un seul média, Configuration Manager stocke l’application sur plusieurs médias. Quand le média autonome est exécuté, Configuration Manager invite l’utilisateur à insérer le média suivant sur lequel l’application est stockée.   
 
          > [!IMPORTANT]  
-         >  Als u een bestaande .iso-afbeelding selecteert, verwijdert de wizard voor het maken van takenreeksmedia die afbeelding uit het station of de share wanneer u doorgaat naar de volgende pagina van de wizard. De bestaande installatiekopie wordt gewist, zelfs als u de wizard annuleert.  
+         >  Si vous sélectionnez une image .iso existante, l'Assistant Média de séquence de tâches supprime cette image du lecteur ou du partage dès lors que vous passez à la page suivante de l'Assistant. L'image existante est supprimée même si vous annulez ensuite l'Assistant.  
 
-     Klik op **Volgende**.  
+     Cliquez sur **Suivant**.  
 
-6.  Op de **beveiliging** pagina, kiezen uit de volgende instellingen en klik vervolgens op **volgende**:
-    - **Media beveiligt met een wachtwoord**: Voer een sterk wachtwoord in om de media te beveiligen. Als u een wachtwoord opgeeft, is het wachtwoord vereist om de media te gebruiken.  
+6.  Sur la page **Sécurité**, choisissez parmi les paramètres suivants, puis cliquez sur **Suivant** :
+    - **Protéger le média à l’aide d’un mot de passe** : entrez un mot de passe fort pour protéger le média. Si vous spécifiez un mot de passe, celui-ci est requis pour utiliser le média.  
 
         > [!IMPORTANT]  
-        >  Op zelfstandige media worden alleen de takenreeksstappen en hun variabelen versleuteld. De rest van de inhoud van de media is niet versleuteld, neem dus geen gevoelige informatie op in takenreeksscripts. U kunt alle gevoelige informatie opslaan en implementeren met behulp van takenreeksvariabelen.  
+        >  Sur un média autonome, seules les étapes de séquence de tâches et leurs variables sont chiffrées. Le reste du contenu du média n'est pas chiffré, donc n'incluez pas d'informations sensibles dans les scripts de séquence de tâches. Stockez et mettez en œuvre toutes les informations sensibles en utilisant des variables de séquence de tâches.  
 
-    - **Selecteer het datumbereik voor deze zelfstandige media geldig** (te beginnen in versie 1702): Optionele begin- en verloopdatum datums instellen op de media. Deze instellingen zijn standaard uitgeschakeld. De datums worden vergeleken met de systeemtijd op de computer voordat de zelfstandige media wordt uitgevoerd. Wanneer de systeemtijd ouder dan de begintijd of hoger is dan de verlooptijd is, worden de zelfstandige media is niet gestart. Deze opties zijn ook beschikbaar via de cmdlet New-CMStandaloneMedia PowerShell.
-7.  Op de **zelfstandige CD/DVD** pagina, de takenreeks opgeven die het besturingssysteem implementeert en klik vervolgens op **volgende**. Kies **toepassingsafhankelijkheden detecteren en toevoegen aan deze media** inhoud toevoegen aan de zelfstandige media voor de afhankelijkheden voor toepassingen.
+    - **Sélectionner une plage de dates pour que le média autonome soit valide** (à partir de la version 1702) : définissez des dates de début et d’expiration facultatives sur le média. Ces paramètres sont désactivés par défaut. Les dates sont comparées à l’heure système de l’ordinateur avant l’exécution du support autonome. Lorsque l’heure du système est antérieure à l’heure de début ou ultérieure à l’heure d’expiration, le support autonome n’est pas démarré. Ces options sont également disponibles avec l’applet de commande New-CMStandaloneMedia PowerShell.
+7.  Sur la page **CD/DVD autonome** , spécifiez la séquence de tâches qui déploie le système d'exploitation, puis cliquez sur **Suivant**. Choisissez **Détecter les dépendances d’application associées et les ajouter à ce média** afin d’ajouter du contenu au média autonome pour les dépendances d’application.
     > [!TIP]
-    > Als u verwachte toepassingsafhankelijkheden niet ziet, schakelt u en selecteert u vervolgens opnieuw de **toepassingsafhankelijkheden detecteren en toevoegen aan deze media** instelling om de lijst te vernieuwen.
+    > Si les dépendances d’application attendues ne s’affichent pas, désélectionnez, puis sélectionnez à nouveau le paramètre **Détecter les dépendances d’application associées et les ajouter à ce média** pour actualiser la liste.
 
-    In de wizard kunt u alleen de takenreeksen selecteren die zijn gekoppeld aan een opstartinstallatiekopie.  
+    L'Assistant vous permet de sélectionner uniquement les séquences de tâches qui sont associées à une image de démarrage.  
 
-8. Op de **toepassing selecteren** pagina (beschikbaar vanaf versie 1702), geef toepassingsinhoud opnemen als onderdeel van het mediabestand en klik vervolgens op **volgende**.
-9. Op de **pakket selecteren** pagina (beschikbaar vanaf versie 1702), geef de inhoud van het pakket opgenomen als onderdeel van het mediabestand en klik vervolgens op **volgende**.
-10. Op de **stuurprogrammapakket selecteren** pagina (beschikbaar vanaf versie 1702), geef de inhoud van het stuurprogramma-pakket opnemen als onderdeel van het mediabestand en klik vervolgens op **volgende**.
-11.  Op de **distributiepunten** pagina en klik vervolgens op de distributiepunten die de inhoud die is vereist door de takenreeks bevatten opgeven **volgende**.  
+8. Sur la page **Sélectionner une application** (disponible à partir de la version 1702), spécifiez le contenu d’application à inclure dans le fichier du média, puis cliquez sur **Suivant**.
+9. Sur la page **Sélectionner un package** (disponible à partir de la version 1702), spécifiez le contenu de package à inclure dans le fichier du média, puis cliquez sur **Suivant**.
+10. Sur la page **Sélectionner le package de pilotes** (disponible à partir de la version 1702), spécifiez le contenu de package de pilotes à inclure dans le fichier du média, puis cliquez sur **Suivant**.
+11.  Dans la page **Points de distribution** , spécifiez les points de distribution comprenant le contenu requis par la séquence de tâches, puis cliquez sur **Suivant**.  
 
-     Configuration Manager worden alleen weergegeven voor distributiepunten die de inhoud bevatten. U moet alle inhoud die is gekoppeld aan de takenreeks (opstartinstallatiekopie, installatiekopie van het besturingssysteem, enzovoort) distribueren naar minimaal één distributiepunt voordat u verder kunt gaan. Nadat u de inhoud distribueert, u kunt de wizard opnieuw starten of verwijderen van distributiepunten die u al op deze pagina hebt geselecteerd gaat u naar de vorige pagina, en vervolgens weer terug naar de **distributiepunten** pagina de lijst met vernieuwen. Voor meer informatie over het distribueren van inhoud raadpleegt u [Inhoud distribueren waarnaar wordt verwezen door een specifieke takenreeks](manage-task-sequences-to-automate-tasks.md#BKMK_DistributeTS). Zie voor meer informatie over distributiepunten en inhoudsbeheer [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+     Configuration Manager n’affiche que les points de distribution qui disposent du contenu. Vous devez distribuer tout le contenu associé à la séquence de tâches (image de démarrage, image du système d’exploitation, etc.) sur au moins un point de distribution avant de continuer. Une fois le contenu distribué, vous pouvez redémarrer l’Assistant ou supprimer des points de distribution que vous avez déjà sélectionnés dans cette page, aller à la page précédente, puis revenir à la page **Points de distribution** pour actualiser la liste des points de distribution. Pour plus d’informations sur la distribution de contenu, consultez [Distribuer du contenu référencé par une séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_DistributeTS). Pour plus d’informations sur les points de distribution et la gestion de contenu, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
     > [!NOTE]  
-    >  U moet hebben **lezen** toegangsrechten voor de Inhoudsbibliotheek op de distributiepunten.  
+    >  Vous devez disposer de droits d’accès en **Lecture** à la bibliothèque de contenu sur les points de distribution.  
 
-12. Geef op de pagina **Aanpassing** de volgende informatie op en klik vervolgens op **Volgende**.  
+12. Sur la page **Personnalisation** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
 
-    -   Geef de variabelen op die de takenreeks gebruikt voor het implementeren van het besturingssyteem.  
+    -   Spécifiez les variables que la séquence de tâches utilise pour déployer le système d'exploitation.  
 
-    -   Geef eventuele prestart-opdrachten die u wilt uitvoeren voordat de takenreeks. Prestart-opdrachten bestaan uit een script of een uitvoerbaar bestand dat kan communiceren met de gebruiker in Windows PE voordat de takenreeks wordt uitgevoerd om het besturingssysteem te installeren. Zie voor meer informatie over prestart-opdrachten voor media [Prestart-opdrachten voor takenreeksmedia in System Center Configuration Manager](../understand/prestart-commands-for-task-sequence-media.md).  
+    -   Spécifiez les commandes de prédémarrage que vous voulez exécuter avant la séquence de tâches. Les commandes de prédémarrage sont un script ou un exécutable qui peut interagir avec l'utilisateur dans Windows PE avant que la séquence de tâches s'exécute pour installer le système d'exploitation. Pour plus d’informations sur les commandes de prédémarrage pour les médias, consultez [Commandes de prédémarrage pour les médias de séquence de tâches dans System Center Configuration Manager](../understand/prestart-commands-for-task-sequence-media.md).  
 
-         Selecteer desgewenst **bestanden voor de prestart-opdracht** vereiste te nemen met de bestanden voor de prestart-opdracht.  
+         Si vous le souhaitez, sélectionnez **Inclure les fichiers pour la commande de prédémarrage** pour inclure tous les fichiers requis pour la commande de prédémarrage.  
 
         > [!TIP]  
-        >  Tijdens het maken van taak de media schrijft de takenreeks de pakket-ID en prestart-opdrachtregel, inclusief de waarde voor eventuele takenreeksvariabelen, naar het logboekbestand CreateTSMedia.log op de computer waarop de Configuration Manager-console. U kunt dit logboekbestand controleren om de waarde voor de takenreeksvariabelen te verifiëren.  
+        >  Lors de la création du média de séquence de tâches, la séquence de tâches écrit l’ID du package et la ligne de commande de prédémarrage, dont la valeur des variables de la séquence de tâches, dans le fichier journal CreateTSMedia.log sur l’ordinateur qui exécute la console Configuration Manager. Vous pouvez consulter ce fichier journal pour vérifier la valeur des variables de séquence de tâches.  
 
-13. Voltooi de wizard.  
+13. Effectuez toutes les étapes de l'Assistant.  
 
- De bestanden voor de zelfstandige media (.iso) worden in de doelmap gemaakt. Als u **Zelfstandige cd/dvd** hebt geselecteerd, kunt u de uitvoerbestanden nu kopiëren naar een set cd's of dvd's.  
+ Les fichiers de média autonome (.iso) sont créés dans le dossier de destination. Si vous avez sélectionné **CD/DVD autonome**, vous pouvez maintenant copier les fichiers de sortie sur un ensemble de CD ou DVD.  
 
-##  <a name="BKMK_StandAloneMediaTSExample"></a>Voorbeeld van takenreeks voor zelfstandige media  
- Gebruik de volgende tabel als richtlijn bij het maken van een takenreeks om een besturingssysteem met zelfstandige media te implementeren. De tabel helpt u om de algemene volgorde te bepalen voor de takenreeksstappen en deze in te delen en te structureren in logische groepen. De takenreeks die u maakt, kan afwijken van dit voorbeeld en kan meer of minder takenreeksstappen en groepen bevatten.  
+##  <a name="BKMK_StandAloneMediaTSExample"></a> Exemple de séquence de tâches pour un média autonome  
+ Utilisez le tableau suivant comme guide lorsque vous créez une séquence de tâches afin de déployer un système d'exploitation à l'aide d'un média autonome. Ce tableau vous aidera à définir la séquence générale des étapes de votre séquence de tâches. Il vous permettra également d'organiser et de structurer ces étapes en groupes logiques. La séquence de tâches que vous créez peut être différente de celle de cet exemple, et elle peut contenir un nombre de groupes et d'étapes de séquence de tâches plus ou moins important.  
 
 > [!NOTE]  
->  U moet altijd de Wizard Takenreeksmedia maken van zelfstandige media gebruiken.  
+>  Vous devez toujours utiliser l'Assistant Média de séquence de tâches pour créer un média autonome.  
 
-|Takenreeksgroep of -stap|Beschrijving|  
+|Groupe ou étape de séquence de tâches|Description|  
 |---------------------------------|-----------------|  
-|Bestanden en instellingen - vastleggen **(nieuwe Takenreeksgroep)**|Een takenreeksgroep maken. In een takenreeksgroep houdt u vergelijkbare takenreeksstappen bij elkaar voor betere ordening en foutcontrole.|  
-|Windows-instellingen vastleggen|Gebruik deze takenreeksstap om de Microsoft Windows-instellingen te identificeren die zijn vastgelegd van het bestaande besturingssysteem op de doelcomputer voordat de installatiekopie werd teruggezet. U kunt de computernaam, gebruikers- en organisatiegegevens en de instellingen voor de tijdzone vastleggen.|  
-|Netwerkinstellingen vastleggen|Gebruik deze takenreeksstap om de netwerkinstellingen vast te leggen van de computer die de takenreeks ontvangt. U kunt naast de netwerkadapterinstellingen het lidmaatschap van de computer van een domein of werkgroep vastleggen.|  
-|Vastleggen van gebruikersbestanden en -instellingen - **(nieuwe Takenreekssubgroep)**|Maak een takenreeksgroep binnen een takenreeksgroep. Deze subgroep bevat de stappen die nodig zijn voor het vastleggen van de gegevens van de gebruikersstatus van het bestaande besturingssysteem op de doelcomputer voordat de installatiekopie werd teruggezet. Deze subgroep houdt op een soortgelijke manier als de eerste groep die u hebt toegevoegd, vergelijkbare takenreeksstappen bij elkaar voor een betere ordening en foutcontrole.|  
-|Locatie van lokale status instellen|Gebruik deze takenreeksstap om een lokale locatie met de takenreeksvariabele voor een beveiligd pad op te geven. De gebruikersstatus wordt opgeslagen in een beveiligde map op de harde schijf.|  
-|Gebruikersstatus vastleggen|Gebruik deze takenreeksstap om de gebruikersbestanden en -instellingen vast te leggen die u wilt migreren naar het nieuwe besturingssysteem.|  
-|Besturingssysteem installeren - **(nieuwe Takenreeksgroep)**|Maak een nieuwe takenreekssubgroep. Deze subgroep bevat de stappen die nodig zijn om het besturingssysteem te installeren.|  
-|Opnieuw opstarten in Windows PE of harde schijf|In deze takenreeksstap geeft u de opties op voor het opnieuw opstarten van de doelcomputer die deze takenreeks ontvangt. Bij deze stap wordt een bericht voor de gebruiker weergegeven dat de computer opnieuw wordt opgestart zodat de installatie kan doorgaan.<br /><br /> Deze stap maakt gebruik van de alleen-lezen takenreeksvariabele **_SMSTSInWinPE** . Als de gekoppelde waarde gelijk is aan **false** , wordt de takenreeksstap voortgezet.|  
-|Besturingssysteem toepassen|Met deze takenreeksstap installeert u de installatiekopie van het besturingssysteem op de doelcomputer. Deze stap verwijdert alle bestanden op dat volume (met uitzondering van Configuration Manager-specifieke besturingsbestanden) en vervolgens alle volume afbeeldingen in het WIM-bestand naar het overeenkomstige sequentiële schijfvolume toegepast. U kunt ook een **sysprep**-antwoordbestand opgeven om te configureren welke schijfpartitie voor de installatie moet worden gebruikt.|  
-|Windows-instellingen toepassen|Met deze takenreeksstap configureert u de configuratiegegevens voor de Windows-instellingen voor de doelcomputer. De Windows-instellingen die u kunt toepassen zijn gebruikers- en organisatiegegevens, product- of licentiecodegegevens, de tijdzone en het wachtwoord voor de lokale beheerder.|  
-|Netwerkinstellingen toepassen|Met deze takenreeks geeft u de gegevens voor netwerk- of werkgroepconfiguratie op voor de doelcomputer. U kunt ook opgeven of de computer een DHCP-server gebruikt of u kunt de IP-adresgegevens statisch toewijzen.|  
-|Stuurprogrammapakket toepassen|Gebruik deze takenreeksstap om alle apparaatstuurprogramma's in een stuurprogrammapakket beschikbaar te maken voor gebruik door Windows Setup. Alle benodigde apparaatstuurprogramma's moeten zijn opgenomen op de zelfstandige media.|  
-|Besturingssysteem installeren - **(nieuwe Takenreeksgroep)**|Maak een nieuwe takenreekssubgroep. Deze subgroep bevat de stappen die nodig zijn om de Configuration Manager-client te installeren.|  
-|Windows en ConfigMgr installeren|Gebruik deze takenreeksstap om de Configuration Manager-clientsoftware te installeren. Configuration Manager installeert en registreert de GUID van de Configuration Manager-client. U kunt de vereiste installatieparameters toewijzen in het venster **Installatie-eigenschappen** .|  
-|Herstellen van gebruikersbestanden en -instellingen - **(nieuwe Takenreeksgroep)**|Maak een nieuwe takenreekssubgroep. Deze subgroep bevat de stappen die nodig zijn om de gebruikersstatus te herstellen.|  
-|Gebruikersstatus herstellen|Gebruik deze takenreeksstap om het Hulpprogramma voor migratie van gebruikersstatus (USMT) te starten en de gebruikersstatus en -instellingen te herstellen die met de actie Gebruikerstoestand vastleggen zijn vastgelegd op de doelcomputer.|  
+|Capturer les fichiers et les paramètres - **(Nouveau groupe de séquences de tâches)**|Créez un groupe de séquences de tâches. Un groupe de séquences de tâches regroupe des étapes de séquence de tâches similaires pour une meilleure organisation et un contrôle plus efficace des erreurs.|  
+|Capturer les paramètres Windows|Utilisez cette étape de séquence de tâches pour identifier les paramètres Microsoft Windows qui sont capturés à partir du système d'exploitation existant sur l'ordinateur de destination avant de créer de nouvelles images. Vous pouvez capturer le nom de l'ordinateur, les informations utilisateur et organisationnelles et les paramètres des fuseaux horaires.|  
+|Capturer les paramètres réseau|Utilisez cette étape de séquence de tâches pour capturer les paramètres réseau à partir de l'ordinateur qui reçoit la séquence de tâches. Vous pouvez capturer l'appartenance au domaine ou au groupe de travail de l'ordinateur et les informations du paramètre de la carte réseau.|  
+|Capturer les paramètres et fichiers utilisateur - **(Nouveau sous-groupe de séquences de tâches)**|Créez un groupe de séquences de tâches au sein d'un groupe de séquences de tâches. Ce sous-groupe contient les étapes nécessaires à la capture des données d'état utilisateur à partir du système d'exploitation existant sur l'ordinateur de destination avant de créer de nouvelles images. Comme le groupe initial que vous avez ajouté, ce sous-groupe regroupe des étapes de séquence de tâches similaires pour une meilleure organisation et un contrôle plus efficace des erreurs.|  
+|Définir l'emplacement d'état local|Utilisez cette étape de séquence de tâches pour spécifier un emplacement local à l'aide de la variable de séquence de tâches du chemin protégé. L'état utilisateur est stocké dans un répertoire protégé sur le disque dur.|  
+|Capturer l'état utilisateur|Utilisez cette étape de séquence de tâches pour capturer les fichiers et paramètres utilisateur que vous souhaitez migrer sur le nouveau système d'exploitation.|  
+|Installer le système d'exploitation - **(Nouveau groupe de séquences de tâches)**|Créez un autre sous-groupe de séquences de tâches. Ce sous-groupe contient les étapes nécessaires à l'installation du système d'exploitation.|  
+|Redémarrer sur Windows PE ou disque dur|Utilisez cette étape de séquence de tâches pour spécifier les options de redémarrage pour l'ordinateur qui reçoit cette séquence de tâches. Cette étape affichera un message destiné à l'utilisateur et lui indiquant que l'ordinateur sera redémarré afin de poursuivre l'installation.<br /><br /> Cette étape utilise la variable de séquence de tâches **_SMSTSInWinPE** en lecture seule. Si la valeur associée est **false,** l'étape de la séquence de tâches se poursuivra.|  
+|Appliquer le système d'exploitation|Utilisez cette étape de séquence de tâches pour installer une image de système d'exploitation sur l'ordinateur de destination. Cette étape supprime tous les fichiers de ce volume (à l’exception des fichiers de contrôle propres à Configuration Manager), puis applique toutes les images de volume contenues dans le fichier WIM au volume de disque séquentiel correspondant. Vous pouvez également spécifier un fichier de réponse **sysprep** pour configurer la partition de disque à utiliser pour l’installation.|  
+|Appliquer les paramètres Windows|Utilisez cette étape de séquence de tâches pour configurer les informations de configuration des paramètres Windows pour l'ordinateur de destination. Les paramètres Windows que vous pouvez appliquer sont les informations utilisateur et organisationnelles, les informations principales sur le produit ou la clé de licence, les fuseaux horaires et le mot passe administrateur local.|  
+|Appliquer les paramètres réseau|Utilisez cette étape de séquence de tâches pour spécifier les informations de configuration du réseau ou du groupe de travail pour l'ordinateur de destination. Vous pouvez également indiquer si l'ordinateur utilise un serveur DHCP ou vous pouvez attribuer en mode statique les informations de l'adresse IP.|  
+|Appliquer le package de pilotes|Utilisez cette étape de séquence de tâches pour que tous les pilotes de périphérique d'un package de pilotes puissent être utilisés par le programme d'installation de Windows. Tous les pilotes de périphériques nécessaires doivent être contenus sur le média autonome.|  
+|Configurer le système d'exploitation - **(Nouveau groupe de séquences de tâches)**|Créez un autre sous-groupe de séquences de tâches. Ce sous-groupe contient les étapes nécessaires à l’installation du client Configuration Manager.|  
+|Configurer Windows et ConfigMgr|Cette étape de séquence de tâches permet d’installer le logiciel client Configuration Manager. Configuration Manager installe et inscrit le GUID du client Configuration Manager. Vous pouvez définir les paramètres d'installation nécessaires à partir de la fenêtre **Propriétés d'installation** .|  
+|Restaurer les fichiers et paramètres utilisateur - **(Nouveau sous-groupe de séquences de tâches)**|Créez un autre sous-groupe de séquences de tâches. Ce sous-groupe contient les étapes nécessaires à la restauration de l'état utilisateur.|  
+|Restaurer l'état utilisateur|Utilisez cette étape de séquence de tâches pour lancer l'outil de migration de l'état utilisateur afin de restaurer l'état et les paramètres utilisateur qui ont été capturés à partir de l'action Capturer l'état utilisateur sur l'ordinateur de destination.|  

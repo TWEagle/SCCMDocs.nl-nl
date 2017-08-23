@@ -1,6 +1,6 @@
 ---
-title: De CD. Meest recente map | Microsoft Docs
-description: Meer informatie over de nieuwe updateproces dat het product via de Configuration Manager-console updates levert.
+title: Dossier CD.Latest | Microsoft Docs
+description: "Découvrez le nouveau processus de mise à jour qui permet de remettre les mises à jour du produit à partir de la console Configuration Manager."
 ms.custom: na
 ms.date: 05/02/2017
 ms.prod: configuration-manager
@@ -16,48 +16,48 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 5c39e09b44500fa2f356f83579bb2fb2c1d0e937
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="the-cdlatest-folder-for-system-center-configuration-manager"></a>De map CD.Latest voor System Center Configuration Manager
+# <a name="the-cdlatest-folder-for-system-center-configuration-manager"></a>Dossier CD.Latest pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager introduceert een nieuwe updateproces waarmee updates aan het product via de Configuration Manager-console levert. Ter ondersteuning van deze nieuwe methode voor het bijwerken van Configuration Manager, een nieuwe map gemaakt met de naam **CD. Meest recente** die een kopie van de Configuration Manager-installatiebestanden voor de bijgewerkte versie van uw site bevat.  
+System Center Configuration Manager inaugure un nouveau processus de mise à jour qui permet de remettre les mises à jour du produit à partir de la console Configuration Manager. Pour prendre en charge cette nouvelle méthode de mise à jour de Configuration Manager, un nouveau dossier est créé sous le nom **CD.Latest** : il contient une copie des fichiers d’installation de Configuration Manager pour la version mise à jour de votre site.  
 
-Vanaf update 1606 bevat de map CD.Latest een map met de naam **Redist** die de herdistribueerbare bestanden bevat. Deze worden gedownload en gebruikt door Setup. Deze bestanden zijn afgestemd op de versie van de Configuration Manager-bestanden die te vinden zijn in de map CD.Latest. Wanneer u Setup uitvoert vanuit de map CD.Latest, dient u de bestanden te gebruiken die zijn afgestemd op die versie van Setup. Hiervoor kunt u via Setup opdracht geven voor het downloaden van nieuwe en actuele bestanden van Microsoft, of u kunt de opdracht geven dat de bestanden uit de map Redist (die in de map CD.Latest staat) worden gebruikt.
+À compter de la mise à jour 1606, le dossier CD.Latest contient un dossier nommé **Redist** qui contient les fichiers redistribuables téléchargés et utilisés par le programme d’installation. Ces fichiers sont mis en correspondance avec la version des fichiers de Configuration Manager dans ce dossier CD.Latest. Quand vous exécutez le programme d’installation à partir d’un dossier CD.Latest, vous devez utiliser les fichiers qui correspondent à cette version du programme d’installation. Pour ce faire, vous pouvez faire en sorte que le programme d’installation télécharge les fichiers nouveaux et existants à partir de Microsoft, ou faire en sorte qu’il utilise les fichiers présents dans le dossier Redist du dossier CD.Latest.
 
-Basislijnmedia, zoals echter de basislijnversie 1606 die in oktober 2016 wordt uitgebracht, bevat geen een Redist-map. De map Redist wordt niet gemaakt totdat u een update in de console installeert. In de tussentijd de Redist-map die u hebt gebruikt bij het installeren van sites uit de basislijnmedia gebruiken.  
+Toutefois, le média de base de référence, comme la version de base de référence 1606 publiée en octobre 2016, ne comprend pas de dossier Redist. Le dossier Redist n’est créé qu’au terme de l’installation d’une mise à jour dans la console. En attendant, utilisez le dossier Redist auquel vous avez eu recours lors de l’installation de sites à partir du média de base de référence.  
 
 > [!TIP]
-> Als u versie 1606 nog niet hebt geïnstalleerd, controleert u of de redist-bestanden die u gebruikt, actueel zijn. Als u de redist-bestanden niet recentelijk hebt gedownload, stelt u Setup zodanig in dat ze van Microsoft worden gedownload.   
+> Si vous n’avez pas encore installé la version 1606, vous devez vérifier que les fichiers de redistribution que vous utilisez sont à jour. Si vous n’avez pas téléchargé les fichiers de redistribution récemment, prévoyez d’autoriser le programme d’installation à le faire à partir du site web de Microsoft.   
 
- Hieronder volgen scenario's voor het maken of bijwerken van de map CD.Latest op een centrale beheersite of primaire siteserver:  
+ Vous trouverez ci-dessous des scénarios permettant de créer ou de mettre à jour le dossier CD.Latest sur un serveur de site d’administration centrale ou de site principal :  
 
--   U installeert een update of hotfix uit binnen de Configuration Manager-console: De map wordt gemaakt of bijgewerkt in de installatiemap van Configuration Manager.  
+-   Vous installez une mise à jour ou un correctif logiciel à partir de la console Configuration Manager : le dossier est créé ou mis à jour dans le dossier d’installation de Configuration Manager.  
 
--   U uitvoeren de ingebouwde back-uptaak voor Configuration Manager: De map wordt gemaakt of bijgewerkt op de aangewezen back-upmap.  
+-   Vous exécutez la tâche de sauvegarde intégrée de Configuration Manager : le dossier est créé ou mis à jour à l’emplacement du dossier de sauvegarde désigné.  
 
--  Vanaf versie 1606 is de CD. Meest recente map wordt gemaakt wanneer u een nieuwe site met behulp van de basislijnmedia (zoals versie 1606 of 1702) installeert.
+-  Depuis la version 1606, le dossier CD.Latest est créé lorsque vous installez un nouveau site en utilisant un support de la base de référence (version 1606 ou 1702 par exemple).
 
-De bronbestanden vanuit de map CD.Latest worden ondersteund voor het volgende:  
+Les fichiers sources du dossier CD.Latest sont pris en charge pour les opérations suivantes :  
 
-1.  **Back-up en herstel:** U kunt een site herstellen, moet u de bronbestanden vanaf een CD. Meest recente map die overeenkomt met uw site. Wanneer u een siteback-up met behulp van de ingebouwde back-uptaak van de site, de CD uitvoeren. Meest recente map is opgenomen als onderdeel van de back-up.
+1.  **Sauvegarde et récupération :** pour récupérer un site, vous devez utiliser les fichiers source d’un dossier CD.Latest correspondant à votre site. Lorsque vous exécutez une sauvegarde de site à l’aide de la tâche de sauvegarde de site intégrée, le dossier CD.Latest est inclus dans le cadre de la sauvegarde.
 
-    -   **Wanneer u een site opnieuw installeert als onderdeel van een siteherstel** , installeert u de site vanuit de map CD.Latest in uw back-up. Hiermee wordt de site geïnstalleerd met de bestandsversies die overeenkomen met uw siteback-up en sitedatabase.  Als u geen hebt toegang tot de juiste CD. Meest recente versie van de map, kunt u een CD. Meest recente map met de juiste versies door een site in een testomgeving installeren en vervolgens bij te werken zodat deze overeenkomen met de versie van die site die u wilt herstellen.
+    -   **Quand vous réinstallez le site dans le cadre d’une récupération de site** , vous installez le site à partir du dossier CD.Latest inclus dans votre sauvegarde. Cette opération installe le site à l’aide des versions de fichier correspondant à la sauvegarde et à la base de données de votre site.  Si vous n’avez pas accès à la version appropriée du dossier CD.Latest, vous pouvez obtenir un dossier CD.Latest avec les versions de fichiers appropriées en installant un site dans un environnement de laboratoire, puis en mettant à jour ce site afin qu’il corresponde à la version que vous souhaitez récupérer.
 
         > [!IMPORTANT]  
-        >  Als u niet over de juiste map CD.Latest en de bijbehorende inhoud beschikt, kunt u de site niet herstellen en moet deze opnieuw worden geïnstalleerd.  
+        >  Si le dossier CD.Latest approprié et son contenu ne sont pas disponibles, vous ne pouvez pas récupérer un site et devez le réinstaller.  
 
-    -   Wanneer u niet over een CD.Latest beschikt, maar wel een werkende onderliggende primaire site of centrale beheersite hebt, kunt u die site kunt gebruiken als referentiesite voor een siteherstel.  
+    -   Lorsque vous n’avez pas de dossier CD.Latest mais disposez d’un site principal enfant ou d’un site d’administration centrale opérationnels, vous pouvez utiliser ce site en tant que site de référence pour la récupération d’un site.  
 
-2.  **Een onderliggende primaire site installeren:** Als u installeren, een nieuwe onderliggende primaire site onder een centrale beheersite met een of meer console-updates zijn geïnstalleerd wilt, moet u Setup en de bronbestanden vanaf de CD. Meest recente map uit de centrale beheersite. Wanneer Setup wordt uitgevoerd vanuit een kopie van de map CD.Latest vanaf de centrale beheersite, worden hiervoor de bronbestanden voor installatie gebruikt die overeenkomen met de versie van de centrale beheersite. Zie [Use the Setup Wizard to install System Center Configuration Manager-sites](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md) (De wizard Setup gebruiken om System Center Configuration Manager-sites te installeren) voor meer informatie.  
+2.  **Pour installer un site principal enfant :** quand vous souhaitez installer un nouveau site principal enfant sous un site d’administration centrale qui a installé une ou plusieurs mises à jour dans la console, vous devez utiliser le programme d’installation et les fichiers sources figurant dans le dossier CD.Latest du site d’administration centrale. Lorsque le programme d’installation s’exécute à partir d’une copie du dossier CD.Latest figurant sur le site d’administration centrale, il utilise les fichiers sources d’installation correspondant à la version du site d’administration centrale. Pour plus d’informations, consultez [Utiliser l’Assistant Installation pour installer des sites](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  
 
-3.  **Een zelfstandige primaire site uitbreiden:** Wanneer u een zelfstandige primaire site uitbreidt door een nieuwe centrale beheersite installeert, moet u Setup en de bronbestanden vanaf de CD. Meest recente map van de primaire site voor het installeren van de nieuwe centrale beheersite. Wanneer een installatie wordt uitgevoerd vanuit een kopie van de map CD.Latest vanaf de primaire site, worden de bronbestanden voor installatie gebruikt die overeenkomen met de versie van de primaire site. Zie [Expand a stand-alone primary site](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand) (Een zelfstandige primaire site uitbreiden) in het onderwerp [Use the Setup Wizard to install System Center Configuration Manager-sites](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md) (De wizard Setup gebruiken om System Center Configuration Manager-sites te installeren) voor meer informatie.
+3.  **Pour étendre un site principal autonome :** quand vous étendez un site principal autonome en installant un nouveau site d’administration centrale, vous devez utiliser le programme d’installation et les fichiers sources figurant dans le dossier CD.Latest du site principal pour installer le nouveau site d’administration centrale. Lorsque vous exécutez à partir d’une copie du dossier CD.Latest du site principal, les fichiers sources d’installation utilisés correspondent à la version du site principal. Pour plus d’informations, consultez [Étendre un site principal autonome](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand)) dans [Utiliser l’Assistant Installation pour installer des sites](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).
 
 > [!IMPORTANT]  
->  De bronbestanden in de bijgewerkte map CD.Latest worden niet ondersteund voor:  
+>  Les fichiers sources mis à jour du dossier CD.Latest ne sont pas pris en charge pour les opérations suivantes :  
 >   
->  -   Installatie van een nieuwe site voor een nieuwe hiërarchie  
->  -   Een Microsoft System Center 2012 Configuration Manager-site upgraden naar System Center Configuration Manager
+>  -   installation d’un nouveau site pour une nouvelle hiérarchie ;  
+>  -   Mise à niveau d’un site Microsoft System Center 2012 Configuration Manager vers System Center Configuration Manager

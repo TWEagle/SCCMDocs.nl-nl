@@ -1,6 +1,6 @@
 ---
-title: 'Beveiligen van gegevens en apparaten voor On-premises Mobile Device Management '
-description: Beveiligen van gegevens en apparaten van On-premises Mobile Device Management in Configuration Manager.
+title: "Protéger des données et des appareils dans le cadre de la gestion des appareils mobiles locale "
+description: "Protégez des données et des appareils dans le cadre de la gestion des appareils mobiles locale de Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,19 +17,19 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 88ab415ed3617ae5385636ad23bd02809979b55a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="protect-data-and-devices-in-on-premises-mobile-device-management"></a>Beveiligen van gegevens en apparaten in On-premises Mobile Device Management
+# <a name="protect-data-and-devices-in-on-premises-mobile-device-management"></a>Protéger des données et des appareils dans le cadre de la gestion des appareils mobiles locale
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-U wilt ervoor zorgen dat de gebruikers een veilige toegang hebben tot de resources van uw organisatie, zodat zowel uw infrastructuur als uw gegevens worden beveiligd tegen blootstelling of kwaadaardige aanvallen.
+Vous souhaitez que vos utilisateurs puissent accéder en toute sécurité aux ressources de votre organisation, pour que votre infrastructure et vos données soient protégées contre toute exposition ou attaque malveillante.
 
-Volg dezelfde richtlijnen voor hybride MDM-implementaties (Zie hieronder) ter bescherming van bronnen van uw organisatie:
+Suivez ces mêmes recommandations pour les déploiements de la gestion hybride des appareils mobiles (ci-dessous) pour renforcer la protection des ressources de votre organisation :
 
-- [Wi-Fi-profielen maken](create-wifi-profiles.md)
-- [PFX-certificaatprofielen maken](create-pfx-certificate-profiles.md)
-- [VPN-profielen maken](create-vpn-profiles.md)
-- [E-mailprofielen maken](create-exchange-activesync-profiles.md)
+- [Créer des profils Wi-Fi](create-wifi-profiles.md)
+- [Créer des profils de certificat PFX](create-pfx-certificate-profiles.md)
+- [Créer des profils VPN](create-vpn-profiles.md)
+- [Créer des profils de messagerie](create-exchange-activesync-profiles.md)

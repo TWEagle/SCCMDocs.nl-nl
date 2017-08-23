@@ -1,6 +1,6 @@
 ---
-title: Installatiemethoden voor clients | Microsoft Docs
-description: Meer informatie over installatiemethoden voor clients voor System Center Configuration Manager.
+title: "Méthodes d’installation du client | Microsoft Docs"
+description: "Découvrez les méthodes d’installation du client pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/25/2017
 ms.prod: configuration-manager
@@ -17,130 +17,130 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: edca31249cc2bb3e0c67265962815c82e3f4711e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="client-installation-methods-in-system-center-configuration-manager"></a>Clientinstallatiemethoden in System Center Configuration Manager
+# <a name="client-installation-methods-in-system-center-configuration-manager"></a>Méthodes d’installation du client dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-U kunt verschillende methoden gebruiken om de Configuration Manager-clientsoftware te installeren. U kunt één methode of een combinatie van methoden gebruiken. In dit onderwerp kunt u lezen over elke methode, voor meer informatie over die beste werkt in uw organisatie.  
+Vous pouvez utiliser différentes méthodes pour installer le logiciel client Configuration Manager. Vous pouvez utiliser une méthode ou une combinaison de méthodes. Passez en revue cette rubrique pour déterminer la méthode la mieux adaptée à votre organisation.  
 
-## <a name="client-push-installation"></a>Clientpushinstallatie  
+## <a name="client-push-installation"></a>Installation poussée du client  
 
- **Ondersteund clientplatform:** Windows  
+ **Plateforme cliente prise en charge :** Windows  
 
- **Voordelen**  
+ **Avantages**  
 
--   Kan gebruikt worden om de client te installeren op één computer, een verzameling van computers of voor de resultaten van een query.  
+-   Peut être utilisée pour installer le client sur un seul ordinateur, un regroupement d'ordinateurs ou pour les résultats d'une requête.  
 
--   Kan gebruikt worden om automatisch de client te installeren op alle gedetecteerde computers.  
+-   Peut être utilisée pour installer automatiquement le client sur tous les ordinateurs découverts.  
 
--   Gebruikt automatisch clientinstallatie-eigenschappen die zijn gedefinieerd op het tabblad **Client** in het dialoogvenster **Clientpushinstallatie-eigenschappen**.  
+-   Utilise automatiquement les propriétés d'installation du client définies sous l'onglet **Client** de la boîte de dialogue **Propriétés de l'installation poussée du client** .  
 
- **Nadelen**  
+ **Inconvénients**  
 
--   Kan hoog netwerkverkeer veroorzaken wanneer te grote verzamelingen worden gepusht.  
+-   Une installation poussée vers des regroupements volumineux peut entraîner un trafic réseau excessif.  
 
--   Kan alleen worden gebruikt op computers die door Configuration Manager zijn gedetecteerd.  
+-   Peut être utilisée uniquement sur les ordinateurs ayant été découverts par Configuration Manager.  
 
--   Kan niet worden gebruikt voor het installeren van clients in een werkgroep.  
+-   Ne peut pas être utilisée pour installer des clients dans un groupe de travail.  
 
--   Er moet een clientpushinstallatie-account opgegeven worden die beheerdersrechten heeft voor de bedoelde clientcomputer.  
+-   Vous devez spécifier un compte d'installation poussée du client disposant des droits d'administration sur l'ordinateur client souhaité.  
 
--   Windows Firewall moet geconfigureerd zijn op clientcomputers met uitzonderingen zodat clientpushinstallatie vervolledigd kan worden.  
+-   Le Pare-feu Windows doit être configuré sur les ordinateurs clients avec des exceptions permettant d'effectuer l'installation poussée du client.  
 
--   U kunt clientpushinstallatie niet annuleren. Wanneer u deze clientinstallatiemethode voor een site gebruikt, wordt Configuration Manager probeert de client te installeren op alle gedetecteerde bronnen en alle mislukte pogingen maximaal 7 dagen.  
+-   Il n'est pas possible d'annuler une installation poussée du client. Lorsque vous utilisez cette méthode d’installation du client pour un site, Configuration Manager tente d’installer le client sur toutes les ressources découvertes et tente à nouveau toutes les opérations ayant échoué pendant 7 jours.  
 
- Zie [Clients implementeren op Windows-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md) voor meer informatie over deze installatiemethode.  
+ Pour plus d’informations sur cette méthode d’installation, consultez [Comment déployer des clients sur les ordinateurs Windows dans System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
-## <a name="software-update-point-based-installation"></a>Installatie op basis van software-updatepunten  
- **Ondersteund clientplatform:** Windows  
+## <a name="software-update-point-based-installation"></a>Installation basée sur un point de mise à jour logicielle  
+ **Plateforme cliente prise en charge :** Windows  
 
- **Voordelen:**  
+ **Avantages :**  
 
--   Kan uw bestaande software-update-infrastructuur gebruiken om de clientsoftware te beheren.  
+-   Peut utiliser votre infrastructure de mises à jour logicielles existante pour gérer le logiciel client.  
 
--   Kan automatisch de clientsoftware installeren op nieuwe computers als Windows Server Update Services (WSUS) en instellingen voor groepsbeleid in Active Directory Domain Services juist geconfigureerd zijn.  
+-   Peut installer automatiquement le logiciel client sur de nouveaux ordinateurs si Windows Server Update Services (WSUS) et les paramètres de stratégie de groupe dans les services de domaine Active Directory sont correctement configurés.  
 
--   Vereist niet dat computers moeten worden gedetecteerd voordat de client kan worden geïnstalleerd.  
+-   N'exige pas la découverte des ordinateurs avant l'installation du client.  
 
--   Computers kunnen clientinstallatie-eigenschappen lezen die gepubliceerd werden op Active Directory Domain Services.  
+-   Les ordinateurs peuvent lire les propriétés de l'installation du client ayant été publiées dans les services de domaine Active Directory.  
 
--   Zal de clientsoftware opnieuw installeren als hij wordt verwijderd.  
+-   Réinstalle le logiciel client si celui-ci est supprimé.  
 
--   Vereist niet dat u een installatie-account configureert en onderhoudt voor de bedoelde clientcomputer.  
+-   Ne nécessite pas de configuration ni la présence d'un compte d'installation pour l'ordinateur client choisi.  
 
- **Nadelen:**  
+ **Inconvénients :**  
 
--   Vereist een werkende software-update-infrastructuur als een vereist onderdeel.  
+-   Nécessite une infrastructure de mises à jour logicielles opérationnelle.  
 
--   Moet dezelfde server gebruiken voor clientinstallatie en software-updates en deze server moet zich bevinden op een primaire site.  
+-   Doit utiliser le même serveur pour l'installation du client et les mises à jour logicielles. Ce serveur doit résider sur un site principal.  
 
--   Als u nieuwe clients wilt installeren, moet u een groepsbeleidobject (GPO) configureren in Active Directory Domain Services met het actieve software-updatepunt en de actieve updatepoort van de client.  
+-   Pour installer de nouveaux clients, vous devez configurer un objet de stratégie de groupe (GPO) pour les services de domaine Active Directory, ainsi que le port et le point de mise à jour logicielle actifs du client.  
 
--   Indien het Active Directory-schema voor Configuration Manager niet is uitgebreid, moet u de instellingen voor Groepsbeleid gebruiken voor het inrichten van computers met clientinstallatie-eigenschappen.  
+-   Si le schéma Active Directory n’est pas étendu pour Configuration Manager, vous devez utiliser les paramètres de stratégie de groupe pour fournir les propriétés d’installation du client aux ordinateurs.  
 
- Zie [Clients implementeren op Windows-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md) voor meer informatie over deze installatiemethode.  
+ Pour plus d’informations sur cette méthode d’installation, consultez [Comment déployer des clients sur les ordinateurs Windows dans System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
-## <a name="group-policy-installation"></a>Installatie van Groepsbeleid  
- **Ondersteund clientplatform:** Windows  
+## <a name="group-policy-installation"></a>Installation via la stratégie de groupe  
+ **Plateforme cliente prise en charge :** Windows  
 
- **Voordelen:**  
+ **Avantages :**  
 
--   Vereist niet dat computers moeten worden gedetecteerd voordat de client kan worden geïnstalleerd.  
+-   N'exige pas la découverte des ordinateurs avant l'installation du client.  
 
--   Kan worden gebruikt voor de nieuwe clientinstallaties of voor upgrades.  
+-   Peut être utilisée pour l'installation de nouveaux clients ou pour les mises à niveau.  
 
--   Computers kunnen clientinstallatie-eigenschappen lezen die gepubliceerd werden op Active Directory Domain Services.  
+-   Les ordinateurs peuvent lire les propriétés de l'installation du client ayant été publiées dans les services de domaine Active Directory.  
 
--   Vereist niet dat u een installatie-account configureert en onderhoudt voor de bedoelde clientcomputer.  
+-   Ne nécessite pas de configuration ni la présence d'un compte d'installation pour l'ordinateur client choisi.  
 
- **Nadelen:**  
+ **Inconvénients :**  
 
--   Kan veel netwerkverkeer veroorzaken indien een groot aantal clients worden geïnstalleerd.  
+-   Peut entraîner un trafic réseau excessif s'il est nécessaire d'installer un grand nombre de clients.  
 
--   Indien het Active Directory-schema voor Configuration Manager niet is uitgebreid, moet u instellingen voor Groepsbeleid clientinstallatie-eigenschappen toevoegen aan computers in uw site.  
+-   Si le schéma Active Directory n’est pas étendu pour Configuration Manager, vous devez utiliser les paramètres de stratégie de groupe pour ajouter les propriétés d’installation du client sur les ordinateurs de votre site.  
 
- Zie [Clients implementeren op Windows-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md) voor meer informatie over deze installatiemethode.  
+ Pour plus d’informations sur cette méthode d’installation, consultez [Comment déployer des clients sur les ordinateurs Windows dans System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
-## <a name="logon-script-installation"></a>Aanmeldingscriptinstallatie  
- **Ondersteund clientplatform:** Windows  
+## <a name="logon-script-installation"></a>Installation via un script d'ouverture de session  
+ **Plateforme cliente prise en charge :** Windows  
 
- **Voordelen:**  
+ **Avantages :**  
 
--   Vereist niet dat computers moeten worden gedetecteerd voordat de client kan worden geïnstalleerd.  
+-   N'exige pas la découverte des ordinateurs avant l'installation du client.  
 
--   Ondersteunt opdrachtregeleigenschappen voor CCMSetup.  
+-   Prend en charge les propriétés de ligne de commande de CCMSetup.  
 
- **Nadelen:**  
+ **Inconvénients :**  
 
--   Kan veel netwerkverkeer veroorzaken indien een groot aantal clients in een korte tijdspanne worden geïnstalleerd.  
+-   Peut entraîner un trafic réseau excessif s'il est nécessaire d'installer un grand nombre de clients sur une courte période.  
 
--   Kan lange tijd duren om te installeren op alle clientcomputers indien gebruikers zich niet frequent aanmelden op het netwerk.  
+-   Le temps nécessaire à l'installation sur tous les ordinateurs clients peut être long si des utilisateurs se connectent rarement au réseau.  
 
- Zie [Clients implementeren op Windows-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md) voor meer informatie over deze installatiemethode.  
+ Pour plus d’informations sur cette méthode d’installation, consultez [Comment déployer des clients sur les ordinateurs Windows dans System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
-## <a name="manual-installation"></a>Handmatige installatie  
- **Ondersteund clientplatform:** Windows, UNIX/Linux, Mac OS X  
+## <a name="manual-installation"></a>Installation manuelle  
+ **Plateformes clientes prises en charge :** Windows, UNIX/Linux, Mac OS X  
 
- **Voordelen:**  
+ **Avantages :**  
 
--   Vereist niet dat computers moeten worden gedetecteerd voordat de client kan worden geïnstalleerd.  
+-   N'exige pas la découverte des ordinateurs avant l'installation du client.  
 
--   Kan handig zijn voor testdoeleinden.  
+-   Peut être utile dans le cadre de tests.  
 
--   Ondersteunt opdrachtregeleigenschappen voor CCMSetup.  
+-   Prend en charge les propriétés de ligne de commande de CCMSetup.  
 
- **Nadelen:**  
+ **Inconvénients :**  
 
--   Er is geen automatisering, dus tijdrovend.  
+-   Aucune automatisation, peut prendre du temps.  
 
- Zie de volgende onderwerpen voor meer informatie over het handmatig installeren van de client op de verschillende platforms:  
+ Pour plus d’informations sur la façon d’installer manuellement le client sur chaque plateforme, voir les rubriques suivantes :  
 
--   [Clients implementeren op Windows-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md)  
+-   [Guide pratique pour déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md)  
 
--   [Clients implementeren op UNIX en Linux-servers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md)  
+-   [Guide pratique pour déployer des clients sur des serveurs UNIX et Linux dans System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md)  
 
--   [Clients implementeren op Mac-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-macs.md)  
+-   [Guide pratique pour déployer des clients sur des ordinateurs Mac dans System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-macs.md)  

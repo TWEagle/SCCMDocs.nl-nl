@@ -1,5 +1,5 @@
 ---
-title: Aan de slag met System Center Configuration Manager | Microsoft Docs
+title: "Commencer à utiliser System Center Configuration Manager | Microsoft Docs"
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,22 +16,22 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 1786209f1a1b0d1caab9e31414bfccb690c8e659
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="start-using-system-center-configuration-manager"></a>Aan de slag met System Center Configuration Manager
+# <a name="start-using-system-center-configuration-manager"></a>Commencer à utiliser System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Nadat u uw System Center Configuration Manager-site en hiërarchie-topologie hebt gepland en gereed zijn om te sites geïnstalleerd of bijgewerkt, gebruikt u de informatie in de volgende onderwerpen:  
+Une fois que vous avez planifié votre topologie de site et de hiérarchie System Center Configuration Manager et que vous êtes prêt à installer ou à mettre à niveau des sites, utilisez les informations fournies dans les rubriques suivantes :  
 
--   [System Center Configuration Manager-sites installeren](/sccm/core/servers/deploy/install/installing-sites)  
+-   [Installer des sites System Center Configuration Manager](/sccm/core/servers/deploy/install/installing-sites)  
 
--   [Bijwerken naar System Center Configuration Manager](../../../core/servers/deploy/install/upgrade-to-configuration-manager.md)  
+-   [Mettre à niveau vers System Center Configuration Manager](../../../core/servers/deploy/install/upgrade-to-configuration-manager.md)  
 
--   [Scenario's om uw installatie van System Center Configuration Manager te stroomlijnen](../../../core/servers/deploy/install/scenarios-to-streamline-your-installation.md)  
+-   [Scénarios pour simplifier votre installation de System Center Configuration Manager](../../../core/servers/deploy/install/scenarios-to-streamline-your-installation.md)  
 
--   [Sites en hiërarchieën voor System Center Configuration Manager configureren](../../../core/servers/deploy/configure/configure-sites-and-hierarchies.md)  
+-   [Configurer des sites et des hiérarchies pour System Center Configuration Manager](../../../core/servers/deploy/configure/configure-sites-and-hierarchies.md)  
 
--   [Gegevens migreren tussen hiërarchieën in System Center Configuration Manager](../../../core/migration/migrate-data-between-hierarchies.md)  
+-   [Migrer des données entre hiérarchies dans System Center Configuration Manager](../../../core/migration/migrate-data-between-hierarchies.md)  

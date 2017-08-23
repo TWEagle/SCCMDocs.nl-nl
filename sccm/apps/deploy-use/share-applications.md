@@ -1,6 +1,6 @@
 ---
-title: Toepassingen van System Center Configuration Manager delen | Microsoft Docs
-description: Delen van een koppeling naar een toepassing in Software Center in System Center Configuration Manager.
+title: "Partager des applications à partir de System Center Configuration Manager | Microsoft Docs"
+description: Partagez un lien vers une application dans le Centre logiciel de System Center Configuration Manager.
 ms.custom: na
 ms.date: 07/31/2017
 ms.prod: configuration-manager
@@ -17,17 +17,17 @@ ms.author: mabrigg
 manager: angrobe
 ms.openlocfilehash: 9e6b32caa6c5f27f3b535b224c2a9fe31905547f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="share-an-application-from-software-center"></a>Delen van de toepassing in Software Center
+# <a name="share-an-application-from-software-center"></a>Partager une application à partir du Centre logiciel
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*<!-- 1706 -->
+*S’applique à : System Center Configuration Manager (Current Branch)* <!-- 1706 -->
 
-U kunt een hyperlink kopiëren naar een toepassing in Software Center met behulp van de ![Share](media/share15.png)**Share** knop in de weergave Details van de toepassing. U kunt alleen hyperlinks voor toepassingen delen. Als de toepassing niet beschikbaar is, wordt een venster geopend met een toepassing niet beschikbaar-bericht van de hyperlink.
+Pour copier un lien hypertexte vers une application dans le Centre logiciel, utilisez le bouton ![Partager](media/share15.png)**Partager** qui se trouve dans la vue Détails de l’application. Vous pouvez uniquement partager des liens hypertexte vers des applications. En cas d’indisponibilité de l’application, le lien hypertexte ouvre une fenêtre contenant un message de type « Application non disponible ».
 
-1. Kies **toepassingen**, en kies vervolgens de toepassing.
-2. Klik op de ![Share](media/share15.png) **Share** knop.
-3. Klik op **kopie** in het venster.
-4. Plak de URL in een e-mailbericht voor het delen van de toepassing.
+1. Choisissez **Applications**, puis sélectionnez l’application.
+2. Cliquez sur le bouton ![Partager](media/share15.png) **Partager**.
+3. Dans la fenêtre, cliquez sur **Copier**.
+4. Collez l’URL dans un e-mail pour partager l’application.

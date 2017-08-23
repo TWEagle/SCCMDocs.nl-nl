@@ -1,6 +1,6 @@
 ---
-title: Technische Preview 1706 | Microsoft Docs
-description: Meer informatie over functies die beschikbaar zijn in de Technical Preview-versie 1706 voor System Center Configuration Manager.
+title: Technical Preview 1706 | Microsoft Docs
+description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1706 pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 06/30/2017
 ms.prod: configuration-manager
@@ -15,15 +15,15 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: d45f504dfe0a4c7852b0e2c8ff60d54005346c02
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1706-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1706 voor System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1706-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1706 pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (Technical Preview)*
+*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
 
-Dit artikel bevat de functies die beschikbaar in de Technical Preview voor System Center Configuration Manager, versie 1706 zijn. U kunt deze versie om te werken en nieuwe mogelijkheden toevoegen aan uw Configuration Manager technical preview-site installeren. Controleer voordat u deze versie van de technical preview installeert, [Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md) om vertrouwd te raken met algemene vereisten en beperkingen voor het gebruik van een technical preview hoe bijwerken tussen versies en hoe u feedback over de functies in een technical preview.     
+Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1706 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager. Avant d’installer cette version Technical Preview, passez en revue [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md) pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version Technical Preview, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités d’une version Technical Preview.     
 
 
 <!--  Known Issues Template   
@@ -31,17 +31,17 @@ Dit artikel bevat de functies die beschikbaar in de Technical Preview voor Syste
 -   **Issue Name**. Details
     Workaround details.
 -->
-**Bekende problemen in deze Technical Preview:**
+**Problèmes connus dans cette version d’évaluation technique :**
 
--   **Verplaatsen van distributiepunt** -de opties in de console voor het verplaatsen van een distributiepunt tussen sites in deze release vanwege de technical preview-limiet van een enkele primaire site kunnen niet worden gebruikt.
+-   **Déplacer le point de distribution** : les options de la console pour déplacer un point de distribution entre sites ne peuvent pas être utilisées avec cette version en raison de la limite technique de la version préliminaire d’un seul site principal.
 
--   **Instellingen voor naleving apparaten** -u kunt tegengestelde gedrag ervaren wanneer met behulp van de twee van de nieuwe instellingen voor naleving van apparaten:
-    - **Blokkeren USB-foutopsporing op apparaat**
-    - **Blokkeren voor apps van onbekende bronnen**
+-   **Paramètres de conformité d’appareil** : vous pouvez rencontrer le comportement opposé lorsque vous utilisez les deux nouveaux paramètres de conformité d’appareil :
+    - **Bloquer le débogage USB sur l’appareil**
+    - **Bloquer les applications provenant de sources inconnues**
 
-        Bijvoorbeeld, als beheerders instellen **blok USB-foutopsporing op apparaat** naar **true**, alle apparaten waarvoor geen USB-foutopsporing is ingeschakeld, worden gemarkeerd als niet-compatibel.
+        Par exemple, si l’administrateur définit **Bloquer le débogage USB sur l’appareil** sur **true**, tous les appareils qui n’ont pas activé le débogage USB sont marqués comme non conformes.
 
-**Hier volgen nieuwe functies die u met deze versie kunt uitproberen.**  
+**Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
 
 <!--  Rough Section Template
 ##  FEATURE
@@ -53,530 +53,530 @@ Dit artikel bevat de functies die beschikbaar in de Technical Preview voor Syste
  -  Task 2              
 -->
 
-## <a name="improved-boundary-groups-for-software-update-points"></a>Verbeterde grensgroepen voor software-updatepunten
+## <a name="improved-boundary-groups-for-software-update-points"></a>Améliorations des groupes de limites pour les points de mise à jour logicielle
 <!-- 1324591 -->
-Deze release bevat verbeteringen voor de werking van software-updatepunten aan grensgroepen. Het volgende bevat een overzicht van het nieuwe terugval gedrag:
--   Opvang voor software-updatepunten gebruikt een configureerbare tijd nu voor terugvallen neighbor grensgroepen, met een minimale tijd van 120 minuten.
+Cette version inclut des améliorations pour le fonctionnement des points de mise à jour logicielle avec des groupes de limites. Voici qui résume le nouveau comportement de secours :
+-   L’action de secours pour les points de mise à jour logicielle utilise désormais un temps configurable pour le repli sur les groupes de limites voisins, avec une durée minimale de 120 minutes.
 
--   Onafhankelijk van de alternatieve configuratie probeert een client te bereiken van het laatste software-updatepunt dat wordt gebruikt voor 120 minuten. Lukt die server bereiken gedurende 120 minuten, controleert de client vervolgens de groep met beschikbare software-updatepunten, zodat deze een nieuw kan vinden.
+-   Indépendamment de la configuration de secours, un client essaie d’atteindre le dernier point de mise à jour logicielle qu'il a utilisé pendant 120 minutes. Après l’échec de communication avec ce serveur pendant 120 minutes, le client vérifie ensuite son pool de points de mise à jour logicielle disponibles, afin d’en trouver un nouveau.
 
-  -   Alle software-updatepunten in de huidige grensgroep van de client worden toegevoegd aan de adresgroep van de client onmiddellijk.
+  -   Tous les points de mise à jour logicielle dans le groupe de limites actuel du client sont ajoutés immédiatement au pool du client.
 
-  -   Omdat een client probeert te gebruiken van de oorspronkelijke server gedurende 120 minuten voordat het zoeken van een nieuwe, geen extra servers contact wordt opgenomen pas na twee uur zijn verstreken.
+  -   Comme un client tente d’utiliser son serveur d’origine pendant 120 minutes avant d’en rechercher d’un nouveau, aucun des serveurs supplémentaires n’est contacté jusqu'à ce que deux heures s’écoulent.
 
-  -   Als terugval naar een neighbor-groep is geconfigureerd voor het minimum van 120 minuten, zal software-updatepunten uit deze grensgroep neighbor onderdeel zijn van de client-groep met beschikbare servers.
+  -   Si le repli sur un groupe voisin est configuré pour un minimum de 120 minutes, les points de mise à jour logicielle à partir de ce groupe de limites voisin feront partie du pool de serveurs disponibles du client .
 
--   Na een failover naar de oorspronkelijke server te bereiken voor twee uur, wordt de client overschakelt naar een kortere cyclus voor het verbinden met een nieuw software-updatepunt.
+-   Après avoir échoué pendant deux heures à atteindre le serveur d’origine, le client passe à un cycle plus court pour contacter un nouveau point de mise à jour logicielle.
 
-    Dit betekent dat als een client geen verbinding maken met een nieuwe server, het snel de volgende server selecteert in de groep met beschikbare servers en probeert contact dat een.
+    Cela signifie que si un client ne parvient pas à se connecter avec un nouveau serveur, il sélectionne rapidement le serveur suivant à partir de son pool de serveurs disponibles et tente de le contacter.
 
-  -   Deze cyclus wordt vervolgd totdat de client verbinding met een software maakt-updatepunt kan gebruiken.
-  -   Totdat de client vindt een software-updatepunt, worden de extra servers toegevoegd aan de groep met beschikbare servers wanneer de terugval tijd voor elke grensgroep neighbor wordt voldaan.
+  -   Ce cycle se poursuit jusqu'à ce que le client se connecte à un point de mise à jour logicielle qu’il peut utiliser.
+  -   Jusqu'à ce que le client trouve un point de mise à jour logicielle, les serveurs supplémentaires sont ajoutés à un pool de serveurs disponibles lorsque le temps de secours pour chaque groupe de limites voisin est atteint.
 
-Zie voor meer informatie [software-updatepunten](/sccm/core/servers/deploy/configure/boundary-groups#software-update-points) in het onderwerp Grensgroepen voor de huidige vertakking.
+Pour plus d’informations, consultez la section [Points de mise à jour logicielle](/sccm/core/servers/deploy/configure/boundary-groups#software-update-points) dans la rubrique Groupes de limites pour Current Branch.
 
 
-## <a name="site-server-role-high-availability"></a>Beschikbaarheid van de site server-rol
+## <a name="site-server-role-high-availability"></a>Rôle serveur site haute disponibilité
 <!-- 1128774 -->
-Hoge beschikbaarheid voor de site server-rol is een Configuration Manager op basis van oplossing voor het installeren van de server van een bijkomende primaire site in *passieve* modus. De siteserver van de passieve modus is daarnaast aan uw bestaande primaire site-server die zich in *Active* modus. Een siteserver passieve modus is beschikbaar voor onmiddellijk gebruik wanneer deze nodig is.
+La haute disponibilité pour le rôle de serveur de site est une solution basée sur Configuration Manager pour installer un serveur de site principal supplémentaire en mode *Passif*. Le serveur de site en mode passif vient s’ajouter à votre serveur de site principal existant qui se trouve en mode *Actif*. Un serveur de site en mode passif est disponible pour une utilisation immédiate, si nécessaire.
 
-Een primaire siteserver in de passieve modus:
--   Maakt gebruik van dezelfde sitedatabase als de actieve siteserver.
--   Ontvangt een kopie van de actieve site servers Inhoudsbibliotheek, die vervolgens synchroon wordt gehouden.
--   Geen gegevens worden geschreven naar de sitedatabase, zolang het is in de passieve modus.
--   Ondersteunt geen installatie of verwijdering van de optionele sitesysteemrollen zolang het is in de passieve modus.
+Un serveur de site principal en mode passif :
+-   Utilise la même base de données de site en tant que serveur de site actif.
+-   Reçoit une copie de la bibliothèque de contenu des serveurs de site actifs, qui est ensuite synchronisée.
+-   N’écrit pas les données dans la base de données du site tant qu’il est en mode passif.
+-   Ne prend pas en charge l’installation ou la suppression de rôles de système de site facultatifs tant que le mode passif est activé.
 
-Als u de passieve modus siteserver uw siteserver actieve modus, Promoveer u handmatig deze. Hiermee schakelt u de actieve siteserver als de passieve siteserver. De sitesysteemrollen die beschikbaar op de oorspronkelijke server in de modus active zijn blijven beschikbaar, zolang die computer toegankelijk is. Alleen de siteserverrol is overgeschakeld tussen actieve en passieve modus.
+Pour faire du serveur de site en mode passif le serveur de site en mode actif, vous le promouvez manuellement. Le serveur de site actif devient alors le serveur de site passif. Les rôles de système de site disponibles sur le serveur en mode actif d’origine restent disponibles tant l’ordinateur est accessible. Seul le rôle de serveur de site bascule entre mode passif et mode actif.
 
-Als u wilt installeren op een siteserver passieve modus, gebruikt u de **maken Wizard Sitesysteemserver** voor het configureren van een nieuwe siteserver met het Type **primaire siteserver** en een modus van **passieve**. De wizard Setup van Configuration Manager wordt vervolgens wordt uitgevoerd op de opgegeven server voor het installeren van de nieuwe siteserver in de passieve modus. Nadat de installatie is voltooid, houdt de modus active server de passieve modus-siteserver en de Inhoudsbibliotheek synchroon met wijzigingen of configuraties die u in de actieve siteserver aanbrengt.
+Pour installer un serveur de site en mode passif, vous utilisez **l’Assistant Création d’un serveur de système de site** pour configurer un nouveau serveur de site avec le type **Serveur de site principal** et le mode **Passif**. L’assistant exécute ensuite le programme d’installation de Configuration Manager sur le serveur spécifié pour installer le nouveau serveur de site en mode passif. Une fois l’installation terminée, le serveur de site en mode actif assure la synchronisation du serveur de site en mode passif et de sa bibliothèque de contenu avec les modifications ou configurations que vous apportez sur le serveur de site actif.
 
-### <a name="prerequisites-and-limitations"></a>Vereisten en beperkingen
--   Één siteserver in de passieve modus wordt ondersteund op elke primaire site.
+### <a name="prerequisites-and-limitations"></a>Conditions préalables et limitations
+-   Un serveur de site unique en mode passif est pris en charge sur chaque site principal.
 
--   De siteserver in de passieve modus kan nu on-premises of cloud-gebaseerde in Azure.
+-   Le serveur de site en mode passif peut être local ou sur le cloud dans Azure.
 
--   De actieve modus en de passieve modus siteservers moet in hetzelfde domein.
+-   Les serveurs de site en mode actif et ceux en mode passif doivent être dans le même domaine.
 
--   De actieve modus en de passieve modus siteservers moeten gebruiken voor dezelfde sitedatabase, moet extern van de computers van elke siteserver.
+-   Les serveurs de site en mode actif et ceux en mode passif doivent utiliser la même base de données, qui doit être distante par rapport aux ordinateurs de chaque serveur de site.
 
-    -   De SQL Server die als host fungeert voor de database kunt een standaardexemplaar, benoemd exemplaar, SQL Server-cluster of een AlwaysOn-beschikbaarheidsgroep gebruiken.
+    -   Le serveur SQL qui héberge la base de données peut utiliser une instance par défaut, appelée instance, cluster SQL Server ou groupe de disponibilité AlwaysOn.
 
-    -   De siteserver in de passieve modus is geconfigureerd voor gebruik van dezelfde sitedatabase als de modus active-siteserver. Echter, de passieve modus siteserver gebruikt geen die database pas nadat deze is gepromoveerd naar de modus active.
+    -   Le serveur de site en mode passif est configuré pour utiliser la même base de données de site que le serveur de site en mode actif. Toutefois, le serveur de site en mode passif n’utilise pas cette base de données jusqu'à sa promotion en mode actif.
 
--   De computer waarop de server van de passieve modus wordt uitgevoerd:
+-   L’ordinateur qui exécutera le serveur de site en mode passif :
 
-    -   Moet voldoen aan de [vereisten voor het installeren van een primaire site](https://docs.microsoft.com/en-us/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#primary-sites-and-the-central-administration-site).
+    -   Doit respecter les [conditions requises pour installer un site principal](https://docs.microsoft.com/en-us/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#primary-sites-and-the-central-administration-site).
 
-    -   Installeert met behulp van de bronbestanden die overeenkomen met de versie van de siteserver actieve modus.
+    -   Installe à l’aide de fichiers sources correspondant à la version du serveur de site en mode actif.
 
-    -   Geen een sitesysteemrol van elke site voordat u de passieve modussite installeert.
+    -   Ne peut pas avoir un rôle de système de site à partir d’un autre site avant d’installer le site en mode passif.
 
--   De actieve en passieve modus site server-computers kunnen uitvoeren verschillende besturingssystemen worden uitgevoerd of servicepack-versies, zolang ze beide ondersteund door uw versie van Configuration Manager blijven.
+-   Les ordinateurs de serveur de site en mode passif et actif peuvent exécuter différents systèmes d’exploitation ou versions de service pack, tant les deux restent pris en charge par votre version de Configuration Manager.
 
--   Promotie van de passieve modus siteserver naar de modus active server is handmatig. Er is geen automatische failover.
+-   La promotion du serveur de site en mode passif en serveur en mode actif est manuelle. Il n’y a pas de basculement automatique.
 
--   Sitesysteemrollen kunnen alleen worden geïnstalleerd op de siteserver die in de actieve modus.
+-   Les rôles de système de site peuvent être installés uniquement sur le serveur de site qui est en mode actif.
 
-    -   Een siteserver in de actieve modus ondersteunt alle sitesysteemrollen. U kunt sitesysteemrollen niet installeren op de server wanneer deze in de passieve modus.
+    -   Un serveur de site en mode actif prend en charge tous les rôles de système de site. Vous ne pouvez pas installer des rôles de système de site sur le serveur lorsqu’il est en mode passif.
 
-    -   Sitesysteemrollen die gebruikmaken van een database (zoals het rapportagepunt) hebben dat de database op een server die de actieve modus Extern en passieve modus siteservers.
+    -   Les rôles de système de site qui utilisent une base de données (comme le point de rapport) doivent avoir cette base de données sur un serveur distant à la fois le serveur de site en mode actif et celui en mode passif.
 
-    -   De SMS-provider wordt niet geïnstalleerd op de siteserver in de passieve modus. Omdat u verbinding met een SMS-provider voor de site maken moet te promoveren handmatig de passieve modus siteserver naar de actieve modus, wordt u aangeraden [ten minste één extra exemplaar van de provider installeren](/sccm/core/plan-design/hierarchy/plan-for-the-sms-provider) op een andere computer.
+    -   SMS_Provider n’installe pas sur le serveur de site en mode passif. Étant donné que vous devez vous connecter à un SMS_Provider pour le site afin de promouvoir manuellement le serveur de site du mode passif au mode actif, nous vous recommandons [l’installation d’au moins une instance supplémentaire du fournisseur](/sccm/core/plan-design/hierarchy/plan-for-the-sms-provider) sur un autre ordinateur.
 
-**Bekende probleem**:   
-Met deze release **Status** voor de volgende voorwaarden worden weergegeven in de console als numerieke waarden in plaats van leesbare tekst:
--   131071 – installatie van de server site is mislukt
--   720895 – site server-rol verwijderen is mislukt
--   851967 – Failover is mislukt
+**Problème connu** :   
+Avec cette version, **l’état** pour que les conditions suivantes s’affichent dans la console en tant que valeurs numériques au lieu de texte lisible :
+-   131071 – L’installation du serveur de site a échoué
+-   720895 : Échec de désinstallation du rôle de serveur de site
+-   851967 : Échec du basculement
 
-### <a name="add-a-site-server-in-passive-mode"></a>Toevoegen van een siteserver in de passieve modus
-1.  Ga in de console naar **beheer** > **siteconfiguratie** > **Sites** en start de [toevoegen Wizard sitesysteemrollen](/sccm/core/servers/deploy/configure/install-site-system-roles). U kunt ook de **maken Wizard Sitesysteemserver**.
+### <a name="add-a-site-server-in-passive-mode"></a>Ajouter un serveur de site en mode passif
+1.  Dans la console, accédez à **Administration** > **Configuration du site** > **Sites** et sélectionnez [Assistant d’ajout de rôles de système de site](/sccm/core/servers/deploy/configure/install-site-system-roles). Vous pouvez également utiliser **l'Assistant Création de serveur de système de site**.
 
-2.  Op de **algemene** pagina server opgeven die als host voor de siteserver van de passieve modus fungeert. De server die u opgeeft hosten niet sitesysteemrollen voordat u een siteserver installeert in de passieve modus.
+2.  Sur la page **Général**, spécifiez le serveur qui hébergera le serveur de site en mode passif. Le serveur que vous spécifiez ne peut pas héberger les rôles de système de site avant d’installer un serveur de site en mode passif.
 
-3.  Op de **Systeemrolselectie** pagina, selecteert u alleen **primaire siteserver in de passieve modus**.
+3.  Sur la page **Sélection du rôle système**, sélectionnez uniquement **Serveur de site principal en mode passif**.
 
-4.  Om de wizard hebt voltooid, moet u de volgende informatie die wordt gebruikt voor het installatieprogramma uitvoeren en de site server-functie installeren op de opgegeven server opgeven:
-    -   Kopieer de installatiebestanden van de siteserver van actief naar de nieuwe siteserver van de passieve modus, of geef een pad naar een locatie waarin de inhoud van de actieve site-server **CD. Meest recente** map.
+4.  Pour terminer l’assistant, vous devez fournir les informations suivantes qui sont utilisées pour exécuter le programme d’installation et installer le rôle de serveur de site sur le serveur spécifié :
+    -   Choisissez de copier les fichiers d’installation du serveur de site actif vers le nouveau serveur de site en mode passif, ou spécifiez un chemin d’accès à un emplacement qui contient le contenu du dossier **CD.Latest** du serveur de site actif.
 
-    -   Geef de dezelfde Sitedatabaseserver en de databasenaam gebruikt door de siteserver actieve modus.
+    -   Spécifiez le même serveur de base de données de site et le même nom de base de données que ceux utilisés par le serveur de site en mode actif.
 
-5.  Vervolgens installeert Configuration Manager de siteserver in de passieve modus op de opgegeven server.
+5.  Configuration Manager installe ensuite le serveur de site en mode passif sur le serveur spécifié.
 
-Voor gedetailleerde installatiestatus, gaat u naar **beheer** > **siteconfiguratie** > **Sites**.
--   De status voor de siteserver in de passieve modus wordt weergegeven als **installeren**.
+Pour l’état d’installation détaillé, accédez à **Administration** > **Configuration du Site** > **Sites**.
+-   L’état du serveur de site en mode passif s’affiche sous la forme **Installation**.
 
--   Selecteer de server en klik vervolgens op **Status weergeven** openen **Site-serverstatus installatie** voor meer informatie gedetailleerde.
-
-
-
-### <a name="promote-the-passive-mode-site-server-to-active-mode"></a>De passieve modus siteserver promoveert naar actieve modus
-Als u wijzigen in de passieve modus siteserver actieve modus wilt, u dit doen via de **knooppunten** deelvenster in **beheer** > **siteconfiguratie** > **Sites**. Zolang u toegang hebt tot een exemplaar van de SMS-provider, kunt u toegang tot de site als deze wijziging wilt aanbrengen.
-1.  In de **knooppunten** deelvenster van de Configuration Manager-console, selecteer de siteserver in de passieve modus en kies vervolgens vanuit het lint **opwaarderen in actief**.
-
-2.  Eenvoudige **Status** voor de server die u promoveert wordt weergegeven in de **knooppunten** deelvenster als **promoveren**.
-
-3.  Nadat de promotie voltooid is, de **Status** kolom bevat **OK** voor zowel de nieuwe *Active* modus siteserver, en voor de nieuwe *passieve* modus siteserver.
-
-4.  In **beheer** > **siteconfiguratie** > **Sites**, de naam van de primaire siteserver bevat nu de naam van de nieuwe *Active* modus siteserver.
-Gedetailleerde status weergegeven, gaat u naar **bewaking** > **Site-serverstatus**.
-    -   De **modus** kolom geeft aan welke server *Active* of *passieve*.
-
-    -   Tijdens het promoveren van een server uit de passieve modus in de modus active, selecteer de siteserver die u promoveert naar actief en kies vervolgens **Status weergeven** vanuit het lint. Hiermee opent u de **Site-serverstatus promotie** venster waarin u aanvullende informatie over het proces.
-
-Wanneer een siteserver in de modus active wordt overgeschakeld naar de passieve modus, wordt alleen de sitesysteemrol passieve gemaakt. Alle andere sitesysteemrollen die op die computer zijn geïnstalleerd blijft actief en toegankelijk is voor clients.
+-   Sélectionnez le serveur, puis cliquez sur **Afficher l’état** pour ouvrir **État d’installation de serveur de site** pour plus d’informations.
 
 
-### <a name="daily-monitoring"></a>Dagelijks bewaking
-Wanneer u een primaire site in de passieve modus, moet u het bewaken dagelijkse om ervoor te zorgen blijft deze synchroon met de modus active-siteserver en klaar voor gebruik. Om dit te doen, gaat u naar **bewaking** > **Site-serverstatus**. Hier kunt u de actieve modus en de passieve modus siteservers weergeven.
 
-De **samenvatting** tabblad:
--   De **modus** kolom geeft aan welke server actief of passief is.
--   De **Status** kolomlijst **OK** wanneer de server passieve modus is gesynchroniseerd met de modus active-server.
--   U kunt aanvullende informatie over de status van het synchroniseren van inhoud op **status weergeven** van de synchronisatiestatus van de inhoud. Hiermee opent u de Inhoudsbibliotheek tabblad waar u proberen kunt om op te lossen problemen met synchronisatie van inhoud.
+### <a name="promote-the-passive-mode-site-server-to-active-mode"></a>Promouvoir le serveur de site en mode passif au mode actif
+Lorsque vous souhaitez promouvoir le serveur de site en mode passif au mode actif, vous pouvez le faire à partir du volet **Nœuds** dans **Administration** > **Configuration du site** > **Sites**. Tant que vous pouvez accéder à une instance de SMS_Provider, vous pouvez accéder au site pour effectuer cette modification.
+1.  Dans le volet **nœuds** de la console Configuration Manager, sélectionnez le serveur de site en mode passif, puis choisissez **Promouvoir en actif** dans le ruban.
 
-De **Inhoudsbibliotheek** tabblad:
--   Weergave de **status** voor inhoud die wordt gesynchroniseerd vanaf de actieve siteserver naar de siteserver van de passieve modus.
--   Kunt u inhoud met een status van **mislukt**, en kies vervolgens **synchroniseren van de geselecteerde items** vanuit het lint. Deze actie wordt geprobeerd om te synchroniseren die inhoud van de bron van de inhoud naar de siteserver van de passieve modus. Tijdens het herstel van de status wordt weergegeven als **Bezig**, en wanneer deze gesynchroniseerd is, wordt als **geslaagd**.
+2.  **L’état** simple pour le serveur que vous promouvez s’affiche dans le volet **Nœuds** sous la forme **Promotion**.
 
-### <a name="try-it-out"></a>Probeer het nu!
-Voer de volgende taken en klikt u vervolgens Stuur ons **Feedback** van de **Start** tabblad van het lint te laten weten hoe het is gegaan:
--   Ik kan een primaire site installeren in de passieve modus.
--   Ik kan de passieve modus siteserver kunt u de modus active server promoveert via de console en Bevestig de wijziging van de status van siteservers.
+3.  Une fois la promotion terminée, la colonne **État** affiche **OK** à la fois pour le nouveau serveur de site en mode *Actif* et le nouveau serveur de site en mode *Passif*.
+
+4.  Dans **Administration** > **Configuration du site** > **Sites**, le nom du serveur de site principal affiche désormais le nom du nouveau serveur de site en mode *Actif*.
+Pour l’état détaillé, accédez à **Surveillance** > **État du serveur de site**.
+    -   La colonne **Mode** identifie le serveur *Actif* et le serveur *Passif*.
+
+    -   Lors de la promotion d’un serveur du mode passif au mode actif, sélectionnez le serveur de site que vous promouvez au mode actif, puis choisissez **Afficher l’état** à partir du ruban. Cette opération ouvre la fenêtre **État de promotion du serveur de site** qui affiche des détails supplémentaires sur le processus.
+
+Lorsqu’un serveur de site en mode actif bascule sur le mode passif, seul le rôle de système de site est rendu passif. Tous les autres rôles de système de site installés sur cet ordinateur restent actifs et accessibles aux clients.
 
 
-## <a name="include-trust-for-specific-files-and-folders-in-a-device-guard-policy"></a>Vertrouwen voor specifieke bestanden en mappen in een beleid Device Guard opnemen
+### <a name="daily-monitoring"></a>Surveillance quotidienne
+Lorsque vous avez un site principal en mode passif, surveillez-le quotidiennement pour vous assurer qu’il reste synchronisé avec le serveur de site en mode actif et est prêt à être utilisé. Pour ce faire, accédez à **Surveillance** > **État du serveur de site**. Ici, vous pouvez afficher les serveurs de site en mode actif et ceux en mode passif.
+
+L’onglet **Résumé** :
+-   La colonne **Mode** identifie le serveur Actif et le serveur Passif.
+-   La colonne **État** indique **OK** lorsque le serveur en mode passif est synchronisé avec le serveur en mode actif.
+-   Pour afficher des détails supplémentaires sur l’état de synchronisation du contenu, cliquez sur **Afficher l’état** à partir de l’état de synchronisation du contenu. Cela ouvre l’onglet Bibliothèque de contenu où vous pouvez essayer de résoudre les problèmes de synchronisation du contenu.
+
+L’onglet **Bibliothèque de contenu** :
+-   Affichez **l’état** pour le contenu qui se synchronise du serveur de site actif vers le serveur de site en mode passif.
+-   Vous pouvez sélectionner le contenu avec un état **Échec**, puis choisir **Synchroniser les éléments sélectionnés** à partir du ruban. Cette action tente de resynchroniser ce contenu de la source de contenu vers le serveur de site en mode passif. Lors de la récupération, l’état s’affiche sous la forme **En cours**, et si le serveur est synchronisé, l’état est **Succès**.
+
+### <a name="try-it-out"></a>Essayez !
+Essayez d’effectuer les tâches suivantes, puis envoyez-nous vos **Commentaires** à partir de l’onglet **Accueil** du ruban pour nous dire comment cela a fonctionné pour vous :
+-   Je peux installer un site principal en mode passif.
+-   Je peux utiliser la console pour promouvoir le serveur de site en mode passif pour en faire le serveur de site en mode actif et confirmer le changement d’état pour les deux serveurs de site.
+
+
+## <a name="include-trust-for-specific-files-and-folders-in-a-device-guard-policy"></a>Inclure la confiance pour des fichiers et dossiers spécifiques dans une stratégie de protection des appareils
 <!-- 1324676 -->
-In deze release toegevoegd meer mogelijkheden voor [Device Guard](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager) beleidsbeheer
+Dans cette version, nous avons ajouté des fonctionnalités supplémentaires à la gestion des stratégies [Device Guard](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager)
 
-U kunt vertrouwen voor specifieke bestanden of mappen nu desgewenst toevoegen in een beleid Device Guard. Hiermee kunt u:
+Vous pouvez éventuellement ajouter l’approbation pour des fichiers spécifiques pour les dossiers dans une stratégie Device Guard. Cela vous permet de :
 
-1.  Problemen oplossen met beheerd installatieprogramma gedrag
-2.  Vertrouwensrelatie van LOB-apps die met Configuration Manager kunnen niet worden geïmplementeerd
-3.  Apps die zijn opgenomen in de installatiekopie van een besturingssysteem-implementatie, vertrouwen.
+1.  Résoudre les problèmes avec les comportements des programmes d’installation gérés
+2.  Approuver les applications métier qui ne peuvent pas être déployées avec Configuration Manager
+3.  Approuver des applications qui sont incluses dans une image de déploiement de système d’exploitation.
 
-### <a name="try-it-out"></a>Probeer het nu!
+### <a name="try-it-out"></a>Essayez !
 
-1.  Tijdens het maken van een beleid Device Guard op het tabblad opnames van de wizard beleid voor Device Guard maken, klikt u op **toevoegen**.
-2.  In de **vertrouwde bestand toevoegen of map** dialoogvenster geeft u de informatie over het bestand of map die u wilt vertrouwen. U kunt een lokaal bestand of map pad opgeven of u kunt verbinding maken met een extern apparaat waarvoor u gemachtigd bent om te koppelen en geef een bestand of map pad op dat apparaat.
-3.  Voltooi de wizard.
+1.  Lorsque vous créez une stratégie Device Guard, sous l’onglet Inclusions de l’assistant de création de stratégie Device Guard, cliquez sur **Ajouter**.
+2.  Dans la boîte de dialogue **Ajouter fichier ou dossier approuvé**, spécifiez les informations sur le fichier ou dossier que vous souhaitez approuver. Vous pouvez spécifier un chemin d’accès de dossier ou de fichier local, ou vous connecter à un appareil distant auquel vous êtes autorisé à vous connecter et spécifier un chemin d’accès de fichier ou de dossier sur cet appareil.
+3.  Effectuez toutes les étapes de l'Assistant.
 
 
-## <a name="hide-task-sequence-progress"></a>Voortgang van de takenreeks verbergen
+## <a name="hide-task-sequence-progress"></a>Masquer la progression de la séquence de tâches
 <!-- 1354291 -->
-In deze release kunt u bepalen wanneer de voortgang van de takenreeks wordt weergegeven aan eindgebruikers met behulp van een nieuwe variabele. Gebruik in uw takenreeks de **Takenreeksvariabele instellen** stap voor het instellen van de waarde voor de **TSDisableProgressUI** variabele voortgang van de takenreeks weergeven of verbergen. U kunt de stap Takenreeksvariabele instellen meerdere keren in een takenreeks om de waarde voor de variabele te wijzigen. Hiermee kunt u de voortgang van de takenreeks in verschillende secties van de takenreeks weergeven of verbergen.
+Dans cette version, vous pouvez contrôler le moment auquel la progression de la séquence de tâches s’affiche pour les utilisateurs finaux à l’aide d’une nouvelle variable. Dans votre séquence de tâches, suivez l’étape **Définir une variable de séquence de tâches** pour définir la valeur de la variable **TSDisableProgressUI** pour masquer ou afficher la progression de la séquence de tâches. Vous pouvez suivre l’étape Définir une variable de séquence de tâches plusieurs fois dans une séquence de tâches pour modifier la valeur de la variable. Cela vous permet de masquer ou afficher la progression des séquences de tâches dans les différentes sections de la séquence de tâches.
 
-#### <a name="to-hide-task-sequence-progress"></a>Voortgang van de takenreeks verbergen
-In de editor voor takenreeksen, gebruikt u de [Takenreeksvariabele instellen](/sccm/osd/understand/task-sequence-steps#BKMK_SetTaskSequenceVariable) stap voor het instellen van de waarde van de **TSDisableProgressUI** variabele **True** voor het verbergen van de voortgang van de takenreeks.
+#### <a name="to-hide-task-sequence-progress"></a>Pour afficher la progression de la séquence de tâches
+Dans l’éditeur de séquences de tâches, suivez l’étape [Définir une variable de séquence de tâches](/sccm/osd/understand/task-sequence-steps#BKMK_SetTaskSequenceVariable) pour définir la valeur de la variable **TSDisableProgressUI** sur **True** pour masquer la progression de la séquence de tâches.
 
-#### <a name="to-display-task-sequence-progress"></a>Voortgang van de takenreeks weergeven
-In de editor voor takenreeksen, gebruikt u de [Takenreeksvariabele instellen](/sccm/osd/understand/task-sequence-steps#BKMK_SetTaskSequenceVariable) stap voor het instellen van de waarde van de **TSDisableProgressUI** variabele **False** om weer te geven van de voortgang van de takenreeks.
+#### <a name="to-display-task-sequence-progress"></a>Pour afficher la progression des séquences de tâches
+Dans l’éditeur de séquences de tâches, suivez l’étape [Définir une variable de séquence de tâches](/sccm/osd/understand/task-sequence-steps#BKMK_SetTaskSequenceVariable) pour définir la valeur de la variable **TSDisableProgressUI** sur **False** pour afficher la progression de la séquence de tâches.
 
-## <a name="specify-a-different-content-location-for-install-content-and-uninstall-content"></a>Geef een andere locatie van inhoud voor installatie-inhoud en inhoud verwijderen
+## <a name="specify-a-different-content-location-for-install-content-and-uninstall-content"></a>Spécifier un autre emplacement de contenu pour installer et désinstaller le contenu
 <!-- 1097546 -->
-In Configuration Manager vandaag de dag u de locatie van de installatie die de installatiebestanden voor een app bevat. Wanneer u een locatie voor de installatie opgeeft, wordt dit ook gebruikt als locatie voor de installatie ongedaan maken voor de inhoud van de toepassing.
-Op basis van uw feedback wanneer u wilt verwijderen van een geïmplementeerde toepassing en de app-inhoud niet op de clientcomputer is, wordt vervolgens de client alle van de installatiebestanden van de app opnieuw downloaden voordat de toepassing wordt verwijderd.
-U lost dit probleem, kunt u nu zowel een inhoud locatie en een optionele verwijderen Inhoudslocatie installatie opgeven. Bovendien kunt u geen op te geven van een locatie van de inhoud verwijderen.
+Aujourd’hui, dans Configuration Manager, vous spécifiez l’emplacement d’installation qui contient les fichiers d’installation pour une application. Lorsque vous spécifiez un emplacement d’installation, ce dernier est également utilisé comme emplacement de désinstallation pour le contenu de l’application.
+Sur la base de vos retours, lorsque vous souhaitez désinstaller une application déployée, et que le contenu de l’application ne se trouve pas sur l’ordinateur client, le client va à nouveau télécharger tous les fichiers de configuration d’application à nouveau avant que l’application soit désinstallée.
+Pour résoudre ce problème, vous pouvez maintenant spécifier à la fois un emplacement de contenu d’installation et éventuellement un emplacement de contenu de désinstallation. En outre, vous pouvez choisir ne pas spécifier d’emplacement de contenu de désinstallation.
 
-### <a name="try-it-out"></a>Probeer het nu!
+### <a name="try-it-out"></a>Essayez !
 
-1. Klik in de eigenschappen van het implementatietype van een toepassing, op de **inhoud** tabblad.
-2. Configureer de **installeren Inhoudslocatie** die normaal werken.
-3. Voor **inhoudsinstellingen verwijderen**, kies een van de volgende:
-    - **Hetzelfde zijn als de inhoud wordt geïnstalleerd** -locatie van de dezelfde inhoud ongeacht of u installeert, of verwijderen van de toepassing wordt gebruikt.
-    - **Er is geen inhoud verwijderen** -Kies deze optie als u niet wilt dat een uninstall inhoud locatie voor de toepassing op te geven.
-    - **Verschilt van de installatie-inhoud** -Kies deze optie als u wilt een Inhoudslocatie verwijderen die verschilt van de locatie van de installatie-inhoud opgeven.
-5. Als u hebt geselecteerd **verschillend van installatie-inhoud**, blader naar of typ de locatie van de inhoud van de toepassing die wordt gebruikt om de toepassing te verwijderen.
-6. Klik op **OK** implementatie type in het dialoogvenster Eigenschappen te sluiten.
+1. Dans les propriétés de type de déploiement d’une application, cliquez sur l’onglet **Contenu**.
+2. Configurez **l’emplacement de contenu d’installation** normalement.
+3. Pour **Désinstaller les paramètres de contenu**, choisissez une des options suivantes :
+    - **Identique au contenu d’installation** : le même emplacement sera utilisé, que vous installiez ou désinstalliez l’application.
+    - **Aucun contenu de désinstallation** : choisissez cette option si vous ne souhaitez pas fournir d’emplacement de contenu de désinstallation de l’application.
+    - **Différent du contenu d’installation** : choisissez cette option si vous souhaitez spécifier un emplacement de contenu de désinstallation différent de l’emplacement du contenu d’installation.
+5. Si vous avez sélectionné **Différent du contenu d’installation**, recherchez ou entrez l’emplacement du contenu de l’application qui sera utilisé pour désinstaller l’application.
+6. Cliquez sur **OK** pour fermer la boîte de dialogue des propriétés de type de déploiement.
 
 
-## <a name="accessibility-improvements"></a>Verbeterde toegankelijkheid  
+## <a name="accessibility-improvements"></a>Améliorations d’accessibilité  
 <!--1253000 -->
-Dit voorbeeld maakt u kennis met verschillende verbeteringen van de [toegankelijkheidsfuncties](/sccm/core/understand/accessibility-features) in de Configuration Manager-console. Deze omvatten:     
+Cette version préliminaire apporte plusieurs améliorations aux [fonctionnalités d’accessibilité](/sccm/core/understand/accessibility-features) dans la console Configuration Manager. à savoir :     
 
-**Nieuwe sneltoetsen te navigeren in de console:**
--   CTRL + M - richten Sets in het hoofdvenster (centrale).
--   CTRL + T - Sets focus naar het bovenste knooppunt in het navigatiedeelvenster. Als de focus al in dit deelvenster is, is de focus ingesteld op het laatste knooppunt die u bezocht.
--   CTRL + I - Sets focus naar de breadcrumb-balk onder het lint.
--   CTRL + L - Sets focus naar de **Search** veld, indien beschikbaar.
--   CTRL + D - Sets focus naar het detailvenster, indien beschikbaar.
--   ALT – wijzigingen focus naar en vanuit het lint.
+**Nouveaux raccourcis clavier pour vous déplacer dans la console :**
+-   CTRL + M - Définit le focus sur le volet principal (central).
+-   CTRL + T - Définit le focus sur le nœud supérieur dans le volet de navigation. Si le focus était déjà dans ce volet, le focus est défini sur le dernier nœud que vous avez visité.
+-   CTRL + I - Définit le focus sur la barre de navigation, sous le ruban.
+-   CTRL + L - Définit le focus sur le champ **Recherche**, lorsqu’il est disponible.
+-   CTRL + D - Définit le focus sur le volet de détails, lorsqu’il est disponible.
+-   ALT - Fait basculer le focus vers et hors du ruban.
 
-**Algemene verbeteringen:**
--   Navigatie in het navigatiedeelvenster verbeterd wanneer u de letters van de naam van een knooppunt typt.
--   Er zijn nu toetsenbordnavigatie door middel van de belangrijkste weergave en het lint circulaire.
--   Toetsenbordnavigatie in het detailvenster is nu circulaire. Als u wilt terugkeren naar het vorige object of deelvenster, gebruik Ctrl + D, en vervolgens Shift + TAB.
--   Na het vernieuwen van een werkruimte weergave worden de focus is ingesteld op het hoofdvenster van die werkruimte.
--   Een probleem zodat schermlezers aankondigen van de namen van items in de lijst opgelost.
--   Toegevoegde toegankelijk namen voor meerdere besturingselementen op de pagina die kunnen schermlezers aankondigen van belangrijke informatie.
+**Améliorations générales :**
+-   Amélioration de la navigation dans le volet de navigation lorsque vous saisissez les lettres d’un nom de nœud.
+-   La navigation au clavier via la vue principale et le ruban est désormais circulaire.
+-   La navigation au clavier dans le volet d’informations est désormais circulaire. Pour revenir à l’objet ou au volet précédent, utilisez Ctrl + D, puis MAJ + TAB.
+-   Après l’actualisation d’une vue de l’espace de travail, le focus est défini sur le volet principal de cet espace de travail.
+-   Correction d’un problème pour activer les lecteurs d’écran pour annoncer les noms des éléments de liste.
+-   Ajout des noms accessibles de plusieurs contrôles sur la page qui active les lecteurs d’écran pour annoncer des informations importantes.
 
 
-## <a name="changes-to-the-azure-services-wizard-to-support-upgrade-readiness"></a>Wijzigingen in de Wizard Azure-Services voor de ondersteuning van de gereedheid voor Upgrade
+## <a name="changes-to-the-azure-services-wizard-to-support-upgrade-readiness"></a>Modifications apportées à l’assistant de services Azure pour prendre en charge Upgrade Readiness
 <!-- 1353331 -->
-De Wizard Azure-Services vanaf deze release kunt gebruiken voor het configureren van een verbinding van Configuration Manager [gereedheid voor Upgrade](/sccm/core/clients/manage/upgrade/upgrade-analytics). Het gebruik van de wizard vereenvoudigt de configuratie van de connector met behulp van de wizard voor een algemene voor gerelateerde Azure-services.   
+À partir de cette version, utilisez l’assistant de services Azure pour configurer une connexion de Configuration Manager vers [Upgrade Readiness](/sccm/core/clients/manage/upgrade/upgrade-analytics). L’utilisation de l’assistant simplifie la configuration du connecteur à l’aide d’un assistant commun pour les services Azure associés.   
 
-Hoewel de methode voor het configureren van de verbinding is gewijzigd, zijn de vereisten voor de verbinding en hoe u de gereedheid voor Upgrade gebruiken blijven ongewijzigd.   
+Bien que la méthode pour configurer la connexion a changé, les conditions préalables requises pour la connexion et l’utilisation d’Upgrade Readiness restent inchangées.   
 
-### <a name="prerequisites-for-upgrade-readiness"></a>Vereisten voor gereedheid voor Upgrade
-De vereisten voor een [verbinding met de gereedheid voor Upgrade](/sccm/core/clients/manage/upgrade/upgrade-analytics#create-a-connection-to-upgrade-readiness) zijn ongewijzigd ten opzichte van die wordt beschreven voor de huidige vertakking van Configuration Manager. Ze worden hier herhaald voor het gemak:  
+### <a name="prerequisites-for-upgrade-readiness"></a>Configuration requise pour Upgrade Readiness
+La configuration requise pour une [connexion à Upgrade Readiness](/sccm/core/clients/manage/upgrade/upgrade-analytics#create-a-connection-to-upgrade-readiness) est identique à celle détaillée pour la Current Branch de Configuration Manager. Nous la reprenons ici par commodité :  
 
-**Vereisten**
--   Om de verbinding toevoegen, moet eerst uw Configuration Manager-omgeving configureren een [serviceaansluitpunt](/sccm/core/servers/deploy/configure/about-the-service-connection-point) in een [onlinemodus](/sccm/core/servers/deploy/configure/about-the-service-connection-point#a-namebkmkmodesa-modes-of-operation). Wanneer u de verbinding aan uw omgeving toevoegen, wordt het Microsoft Monitoring Agent ook installeren op de computer waarop deze sitesysteemrol.
--   Configuration Manager registreren als beheerprogramma 'Webtoepassing en/of Web-API' en krijgt de [client-ID van deze registratie](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/).
--   Maak een clientsleutel voor het geregistreerde beheerprogramma in Azure Active Directory.
--   In de Azure-beheerportal bieden u de geregistreerde web-app met de machtiging voor toegang tot OMS, zoals beschreven in [Configuration Manager bieden met machtigingen voor OMS](https://azure.microsoft.com/documentation/articles/log-analytics-sccm/#provide-configuration-manager-with-permissions-to-oms).
+**Conditions préalables**
+-   Pour ajouter la connexion, votre environnement Configuration Manager doit d’abord configurer un [point de connexion de service](/sccm/core/servers/deploy/configure/about-the-service-connection-point) dans un [mode en ligne](/sccm/core/servers/deploy/configure/about-the-service-connection-point#a-namebkmkmodesa-modes-of-operation). Quand vous ajoutez la connexion à votre environnement, Microsoft Monitoring Agent est également installé sur l’ordinateur exécutant ce rôle de système de site.
+-   Inscrivez Configuration Manager comme outil de gestion « Application web et/ou API web » et obtenez l’[ID de client résultant de cette inscription](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/).
+-   Créer une clé de client pour l’outil de gestion inscrit dans Azure Active Directory.
+-   Dans le portail de gestion Azure, accordez à l’application web inscrite l’autorisation d’accès à OMS, comme décrit dans [Accorder à Configuration Manager les autorisations d’accès à OMS](https://azure.microsoft.com/documentation/articles/log-analytics-sccm/#provide-configuration-manager-with-permissions-to-oms).
 
 > [!IMPORTANT]       
-> Bij het configureren van machtigingen voor toegang tot OMS, moet u kiezen de **Inzender** rol, en deze machtigingen toewijzen aan de resourcegroep van de geregistreerde app.
+> Quand vous configurez l’autorisation d’accès à OMS, choisissez le rôle **Collaborateur** et accordez-lui les autorisations sur le groupe de ressources de l’application inscrite.
 
-Nadat de vereiste onderdelen zijn geconfigureerd, bent u klaar voor gebruik van de Wizard om de verbinding te maken.
+Après avoir établi la configuration requise, vous pouvez utiliser l’assistant pour créer la connexion.
 
-### <a name="use-the-azure-services-wizard-to-configure-upgrade-readiness"></a>Gebruik de Wizard Azure-Services voor het configureren van de gereedheid voor Upgrade
-1.  Ga in de console naar **beheer** > **overzicht** > **Cloudservices** > **Azure Services**, en kies vervolgens **Azure-Services configureren** van de **Start** tabblad van het lint, om te starten de **Wizard Azure-Services**.
+### <a name="use-the-azure-services-wizard-to-configure-upgrade-readiness"></a>Utilisez l’assistant de services Azure pour configurer Upgrade Readiness
+1.  Dans la console, accédez à **Administration** > **Présentation** > **Services cloud** > **Services Azure**, puis choisissez **Configurer les services Azure** à partir de l’onglet **Accueil** du ruban pour démarrer **l’Assistant Services Azure**.
 
-2.  Op de **Azure Services** pagina de **Upgrade gereedheid van de Connector**, en klik vervolgens op **volgende**.
+2.  Dans la page **Services Azure**, sélectionnez le **connecteur Upgrade Readiness**, puis cliquez sur **Suivant**.
 
-3.  Op de **App** pagina uw **Azure-omgeving** (de technical preview ondersteunt alleen de openbare Cloud). Klik vervolgens op **importeren** openen de **importeren Apps** venster.
+3.  Sur la page **Application**, spécifiez votre **environnement Azure** (la version Technical Preview prend en charge uniquement le cloud public). Ensuite, cliquez sur **Importer** pour ouvrir la fenêtre **Importer des applications**.
 
-4.  In de **importeren Apps** venster details opgeven voor een web-app die al in uw Azure AD bestaat.
-    -   Geef een beschrijvende naam voor de naam van de Azure AD-Tenant. Geef vervolgens het Tenant-ID, de toepassingsnaam, de Client-ID, de geheime sleutel voor de Azure-web-app en de App ID URI.
-    -   Klik op **controleren**, en als dit lukt, klikt u op **OK** om door te gaan.
+4.  Dans la fenêtre **Importer des applications**, spécifiez les détails pour une application web qui existe déjà dans Azure AD.
+    -   Indiquez un nom convivial pour le nom de client Azure AD. Ensuite, spécifiez l’ID de client, le nom de l’application, l’ID du client, la clé secrète pour l’application web Azure et l’URI d’ID d’application.
+    -   Cliquez sur **Vérifier** et, en cas de réussite, cliquez sur **OK** pour continuer.
 
-5.   Op de **configuratie** pagina, geeft u het abonnement, resourcegroep en Windows Analytics werkruimte die u wilt gebruiken met deze verbinding met de gereedheid van de Upgrade.  
+5.   Sur la page **Configuration**, spécifiez l’abonnement, le groupe de ressources et l’espace de travail Windows Analytics à utiliser avec cette connexion pour Upgrade Readiness.  
 
-6.  Klik op **volgende** naar de **samenvatting** pagina en voltooi de wizard om de verbinding te maken.
+6.  Cliquez sur **Suivant** pour accéder à la page **Résumé**, puis terminez l’assistant pour créer la connexion.
 
 
-## <a name="new-client-settings-for-cloud-services"></a>Nieuwe clientinstellingen voor cloud-services
+## <a name="new-client-settings-for-cloud-services"></a>Nouveaux paramètres client pour les services cloud
 <!-- 1319883 -->
 
-In deze release toegevoegd twee nieuwe clientinstellingen voor Configuration Manager. U vindt deze in de **Cloudservices** sectie.  Deze instellingen bieden u de volgende mogelijkheden:
+Dans cette version, nous avons ajouté deux nouveaux paramètres client à Configuration Manager. Vous les trouverez dans la section **Services cloud**.  Ces paramètres vous offrent les fonctionnalités suivantes :
 
-- Bepalen welke Configuration Manager-clients toegang een geconfigureerde cloud management gateway tot hebben.
-- Windows 10 domein Configuration Manager-clients automatisch wordt geregistreerd bij Azure Active Directory.
+- Contrôlez les clients Configuration Manager qui peuvent accéder à une passerelle de gestion cloud configurée.
+- Inscrivez automatiquement des clients Configuration Manager joints à un domaine Windows 10 avec Azure Active Directory.
 
-Deze nieuwe instellingen waarmee u kunt uitvoeren van de mogelijkheden die zijn beschreven in de [1705 van Configuration Manager Technical Preview](/sccm/core/get-started/capabilities-in-technical-preview-1705#new-capabilities-for-azure-ad-and-cloud-management).
+Ces nouveaux paramètres vous aident à effectuer les fonctions décrites dans [Configuration Manager 1705 Technical Preview](/sccm/core/get-started/capabilities-in-technical-preview-1705#new-capabilities-for-azure-ad-and-cloud-management).
 
-### <a name="before-you-start"></a>Voordat u begint
+### <a name="before-you-start"></a>Avant de commencer
 
-U moet hebt geïnstalleerd en Azure AD Connect geconfigureerd tussen uw lokale Active Directory en Azure AD-tenant.
+Vous devez avoir installé et configuré Azure AD Connect entre votre annuaire Active Directory local et votre client Azure AD.
 
-Als u de verbinding verwijdert, apparaten zijn niet afgemeld, maar er zijn geen nieuwe apparaten worden geregistreerd.
+Si vous supprimez la connexion, les appareils ne sont pas désinscrits, mais aucun nouvel appareil n’est inscrit.
 
-### <a name="try-it-out"></a>Probeer het nu!
+### <a name="try-it-out"></a>Essayez !
 
-1. Configureer de volgende client-instellingen (te vinden in de Cloud-Services) sectie met de informatie in [het configureren van clientinstellingen](/sccm/core/clients/deploy/configure-client-settings).
-    -   **Nieuwe Windows 10-apparaten die lid van domein automatisch wordt geregistreerd bij Azure Active Directory** – ingesteld op **Ja** (standaard), of **Nee**.
-    -   **Clients kunnen gebruiken van een cloud management gateway** – ingesteld op **Ja** (standaard), of **Nee**.
-2.  De clientinstellingen implementeren naar de vereiste verzameling van apparaten.
+1. Configurer la section suivante de paramètres client (figurant dans les services cloud) en utilisant les informations dans [Guide pratique pour configurer les paramètres client](/sccm/core/clients/deploy/configure-client-settings).
+    -   **Inscrire automatiquement les nouveaux appareils joints à un domaine Windows 10 avec Azure Active Directory** : réglez sur**Oui** (valeur par défaut) ou **Non**.
+    -   **Permettre aux clients d’utiliser une passerelle de gestion cloud** : réglez sur **Oui** (valeur par défaut) ou **Non**.
+2.  Déployez les paramètres client sur la collection requise d’appareils.
 
-Voer de opdracht uit om te bevestigen dat het apparaat wordt gekoppeld aan Azure AD, **dsregcmd.exe/status** in een opdrachtpromptvenster. De **AzureAdjoined** veld in de resultaten weergegeven **Ja** als het apparaat Azure AD zijn toegevoegd is.
+Pour confirmer que l’appareil est joint à Azure AD, exécutez la commande **dsregcmd.exe /status** dans une fenêtre d’invite de commandes. Le champ **AzureAdjoined** dans les résultats affiche **OUI** si l’appareil est joint à Azure AD.
 
-## <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Maken en PowerShell-scripts uitvoeren vanaf de Configuration Manager-console
+## <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Créer et exécuter des scripts PowerShell à partir de la console Configuration Manager
 <!-- 1236459 -->
 
-In Configuration Manager kunt u scripts voor clientapparaten die pakketten en programma's implementeren. In deze technical preview toegevoegd nieuwe functionaliteit waarmee u de volgende acties uitvoeren:
+Dans Configuration Manager, vous pouvez déployer des scripts sur des appareils clients à l’aide de packages et de programmes. Dans la Technical Preview, nous avons ajouté de nouvelles fonctionnalités qui vous permettent d’effectuer les actions suivantes :
 
-- PowerShell-Scripts importeren naar Configuration Manager
-- De scripts van de Configuration Manager-console (voor niet-ondertekende scripts alleen) bewerken
-- Scripts markeren als goedgekeurd of geweigerd, de beveiliging te verbeteren
-- Scripts uitvoeren op verzamelingen van Windows client-pc's en lokale beheerde Windows-pc's. U kunt scripts niet implementeren, in plaats daarvan ze in bijna realtime worden uitgevoerd op clientapparaten.
-- Bekijk de resultaten geretourneerd door het script in de Configuration Manager-console.
-
-
-### <a name="prerequisites"></a>Vereisten
-
-Gebruik van scripts, moet u lid zijn van de juiste Configuration Manager-beveiligingsrol.
-
-- **Om te importeren en scripts schrijven** -uw account moet hebben **maken** machtigingen voor **SMS Scripts** in de **instellingen voor naleving** beveiligingsrol.
-- **Goedkeuren of weigeren van scripts** -uw account moet hebben **goedkeuren** machtigingen voor **SMS Scripts** in de **instellingen voor naleving** beveiligingsrol.
-- **Scripts uitvoeren** -uw account moet hebben **-Script uitvoeren** machtigingen voor **verzamelingen** in de **instellingen voor naleving** beveiligingsrol.
-
-Zie voor meer informatie over beveiligingsrollen voor Configuration Manager [basisprincipes van beheer op basis van rollen](/sccm/core/understand/fundamentals-of-role-based-administration).
-
-Standaard goedkeuren gebruikers niet van een script dat ze hebben gemaakt. Aangezien scripts krachtige, veelzijdige zijn, en kunnen worden geïmplementeerd op veel apparaten, hebben wij een nieuw concept van het bieden van de mogelijkheid voor het scheiden van de rollen tussen de persoon die auteurs het script en de persoon die het script keurt deze goed is ingesteld. Hiermee geeft u aanvullende mate van beveiliging tegen het uitvoeren van een script zonder toezicht. U kunt deze secundaire goedkeuring, voor een eenvoudige test, met name tijdens de Technical Preview-versie uitschakelen.
-
-Zodat gebruikers kunnen hun eigen scripts goedkeuren:
-
-1. Klik op **Beheer**in de Configuration Manager-console.
-2. Vouw **Siteconfiguratie** uit in de werkruimte **Beheer**en klik vervolgens op **Sites**.
-3. Kies in de lijst met websites, uw site en klik op de **Start** tabblad, in de **Sites** groep, klikt u op **hiërarchie-instellingen**.
-4. Op de **algemene** tabblad van de **eigenschappen van hiërarchie-instellingen** dialoogvenster vak, schakel het selectievakje uit **staan geen script auteurs goed te keuren van hun eigen scripts**.
+- Importer des scripts PowerShell dans Configuration Manager
+- Modifier les scripts à partir de la console Configuration Manager (pour les scripts non signés uniquement)
+- Marquer les scripts comme Approuvés ou Refusés pour améliorer la sécurité
+- Exécuter des scripts sur des collections d’ordinateurs clients Windows, et des ordinateurs Windows gérés localement. Vous ne pouvez pas déployer des scripts : ils sont exécutés en temps quasi réel sur les appareils clients.
+- Examinez les résultats retournés par le script dans la console Configuration Manager.
 
 
-### <a name="try-it-out"></a>Probeer het nu!
+### <a name="prerequisites"></a>Conditions préalables
 
-#### <a name="import-and-edit-a-script"></a>Importeren en bewerken van een script
+Pour utiliser des scripts, vous devez être membre du rôle de sécurité Configuration Manager approprié.
 
-1. Klik in de Configuration Manager-console op **Softwarebibliotheek**.
-2. In de **softwarebibliotheek** werkruimte, klikt u op **Scripts**.
-3. Op de **Start** tabblad, in de **maken** groep, klikt u op **Script maken**.
-4. Op de **Script** pagina van de **Script maken** wizard configureert u het volgende:
-    - **De naam van een script** -Voer een naam voor het script. Hoewel u meerdere scripts met dezelfde naam maken kunt, maakt dit het moeilijker voor u het script u moet vinden in de Configuration Manager-console.
-    - **Scripttaal** : op dit moment alleen **PowerShell** scripts worden ondersteund.
-    - **Importeren** -importeren van een PowerShell-script in de console. Het script wordt weergegeven in de **Script** veld.
-    - **Schakel** -Hiermee verwijdert u het huidige script van de **Script** veld.
-    - **Script** -wordt het momenteel geïmporteerde script. U kunt het script in dit veld indien nodig bewerken.
-5. Voltooi de wizard. Het nieuwe script wordt weergegeven in de **Script** lijst met de status van **wachten op goedkeuring**. Voordat u dit script op clientapparaten uitvoert kunt, moet u deze goedkeuren.
+- **Pour importer et créer des scripts**, votre compte doit avoir les autorisations **Créer** pour les **Scripts SMS** dans le rôle de sécurité **Gestionnaire de paramètres de conformité**.
+- **Pour approuver ou refuser des scripts**, votre compte doit avoir les autorisations **Approuver** pour les **Scripts SMS** dans le rôle de sécurité **Gestionnaire de paramètres de conformité**.
+- **Pour exécuter des scripts**, votre compte doit avoir les autorisations **Exécuter des scripts** pour les **Collections** dans le rôle de sécurité **Gestionnaire de paramètres de conformité**.
+
+Pour plus d'informations sur les rôles de sécurité de Configuration Manager, voir [Principes de base de l’administration basée sur des rôles](/sccm/core/understand/fundamentals-of-role-based-administration).
+
+Par défaut, les utilisateurs ne peuvent pas approuver un script qu'ils ont créé. Étant donné que les scripts sont puissants, flexibles et peuvent être déployés sur de nombreux appareils, nous avons ajouté un nouveau concept avec la possibilité de séparer les rôles entre la personne qui crée le script et celle qui l’approuve. Cela procure un niveau supplémentaire de sécurité par rapport à l’exécution d’un script sans supervision. Vous pouvez désactiver cette approbation secondaire, pour faciliter les tests, particulièrement en version Technical Preview.
+
+Pour autoriser les utilisateurs à approuver leurs propres scripts :
+
+1. Dans la console Configuration Manager, cliquez sur **Administration**.
+2. Dans l'espace de travail **Administration** , développez **Configuration du site**, puis cliquez sur **Sites**.
+3. Dans la liste des sites, sélectionnez votre site, puis, dans l’onglet **accueil**, sous le groupe **Sites**, cliquez sur **Paramètres de hiérarchie**.
+4. Dans l’onglet **Général** de la boîte de dialogue **Propriétés des paramètres de hiérarchie**, décochez la case **Ne pas autoriser les auteurs à approuver leurs propres scripts**.
 
 
-#### <a name="approve-or-deny-a-script"></a>Goedkeuren of weigeren van een script
+### <a name="try-it-out"></a>Essayez !
+
+#### <a name="import-and-edit-a-script"></a>Importer et modifier un script
+
+1. Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.
+2. Dans l'espace de travail **Bibliothèque de logiciels** , cliquez sur **Scripts**.
+3. Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un script**.
+4. Sur la page **Script** de l’assistant **Créer un script**, configurez les éléments suivants :
+    - **Nom de script** : entrez un nom pour le script. Vous pouvez créer plusieurs scripts portant le même nom, mais il sera alors difficile de trouver le script dont vous avez besoin dans la console Configuration Manager.
+    - **Langage du script** : actuellement, seuls les scripts **PowerShell** sont pris en charge.
+    - **Importer** : importez un script PowerShell dans la console. Le script s’affiche dans le champ **Script**.
+    - **Effacer**  : supprime le script en cours du champ **Script**.
+    - **Script** : affiche le script actuellement importé. Vous pouvez modifier le script dans ce champ si nécessaire.
+5. Effectuez toutes les étapes de l'Assistant. Le nouveau script s’affiche dans la liste **Script** avec l’état **En attente d’approbation**. Avant de pouvoir exécuter ce script sur les appareils clients, vous devez l’approuver.
+
+
+#### <a name="approve-or-deny-a-script"></a>Approuver ou refuser un script
 
 
 
-Voordat u een script uitvoeren kunt, moeten worden goedgekeurd. Goedkeuren van een script:
+Avant de pouvoir exécuter un script, il doit être approuvé. Pour approuver un script :
 
-1. Klik in de Configuration Manager-console op **Softwarebibliotheek**.
-2. In de **softwarebibliotheek** werkruimte, klikt u op **Scripts**.
-3. In de **Script** kiest u het script dat u wilt goedkeuren of weigeren en klik op de **Start** tabblad, in de **Script** groep, klikt u op **goedkeuren/weigeren**.
-4. In de **goedkeuren of weigeren van script** in het dialoogvenster **goedkeuren**, of **weigeren** het script en voer eventueel een opmerking over uw beslissing. Als u een script weigeren, kan deze kan niet worden uitgevoerd op clientapparaten.
-5. Voltooi de wizard. In de **Script** wilt weergeven, ziet u de **goedkeuring staat** kolom wijzigen, afhankelijk van de actie die u hebt gemaakt.
+1. Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.
+2. Dans l'espace de travail **Bibliothèque de logiciels** , cliquez sur **Scripts**.
+3. Dans la liste **Script**, sélectionnez le script que vous souhaitez approuver ou refuser puis, dans l’onglet **Accueil**, sous le groupe **Script**, cliquez sur **Approuver/Refuser**.
+4. Dans la boîte de dialogue **Approuver ou refuser le script**, **Approuvez** ou **Refusez** le script et entrez éventuellement un commentaire sur votre décision. Si vous refusez un script, il ne peut pas être exécuté sur les appareils clients.
+5. Effectuez toutes les étapes de l'Assistant. Dans la liste **Script**, vous verrez la colonne **État d’approbation** changer en fonction de votre action.
 
-#### <a name="run-a-script"></a>Een script uitvoeren
+#### <a name="run-a-script"></a>Exécuter un script
 
-Zodra een script is goedgekeurd, kunt u deze kunt uitvoeren met een verzameling die u kiest.
+Une fois qu’un script a été approuvé, il peut être exécuté sur une collection que vous choisissez.
 
-1. Klik op **Activa en naleving**op de Configuration Manager-console.
-2. Klik op **Apparaatverzamelingen** in de werkruimte **Activa en naleving**.
-3. In de **Apparaatverzamelingen** lijst, klikt u op de verzameling van apparaten waarop u wilt dat het script uit te voeren.
-3. Op de **Start** tabblad, in de **alle systemen** groep, klikt u op **-Script uitvoeren**.
-4. Op de **Script** pagina van de **-Script uitvoeren** wizard kiest u een script in de lijst. Alleen goedgekeurde scripts die worden weergegeven. Klik op **volgende**, en voltooi de wizard.
+1. Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.
+2. Dans l'espace de travail **Ressources et Conformité** , cliquez sur **Regroupements de périphériques**.
+3. Dans la liste **Collections d’appareils**, cliquez sur la collection d’appareils sur laquelle vous souhaitez exécuter le script.
+3. Sous l'onglet **Accueil**, dans le groupe **Tous les systèmes**, cliquez sur **Exécuter le script**.
+4. Sur la page **Script** de l’assistant **Exécuter le Script**, choisissez un script dans la liste. Seuls les scripts approuvés sont affichés. Cliquez sur **Suivant**, puis complétez l’Assistant.
 
-#### <a name="monitor-a-script"></a>Monitor voor een script
+#### <a name="monitor-a-script"></a>Surveiller un script
 
-Nadat u hebt een script uitgevoerd op clientapparaten, moet u deze procedure gebruiken voor het bewaken van het succes van de bewerking.
+Après avoir exécuté un script sur les appareils clients, utilisez cette procédure pour surveiller la réussite de l’opération.
 
-1. Klik in de Configuration Manager-console op **bewaking**.
-2. In de **bewaking** werkruimte, klikt u op **Script resultaten**.
-3. In de **Script resultaten** wanneer u de resultaten voor elk script dat u hebt uitgevoerd op clientapparaten lijst bekijken. De afsluitcode van een script van **0**, geeft meestal aan dat het script is uitgevoerd.
+1. Dans la console Configuration Manager, cliquez sur **Surveillance**.
+2. Dans la liste **Surveillance** , cliquez sur **Résultats du script**.
+3. Dans la liste **Résultats du script**, vous pouvez voir les résultats pour chaque script que vous avez exécuté sur des appareils clients. Un code de sortie de script de **0** indique généralement que le script a été exécuté avec succès.
 
-## <a name="pxe-network-boot-support-for-ipv6"></a>Ondersteuning voor PXE-netwerk opstarten voor IPv6
+## <a name="pxe-network-boot-support-for-ipv6"></a>Prise en charge du démarrage réseau PXE pour IPv6
 <!-- 1269793 -->
-U kunt nu ondersteuning voor PXE netwerk opstarten voor IPv6 starten van het besturingssysteem van een takenreeksimplementatie inschakelen. Wanneer u deze instelling gebruikt, wordt distributiepunten met PXE-functionaliteit ondersteunen zowel IPv4 als IPv6. Deze optie vereist geen WDS en WDS wordt gestopt, indien aanwezig.
+Vous pouvez maintenant activer la prise en charge du démarrage réseau PXE pour IPv6 afin de démarrer un déploiement de système d’exploitation de séquence de tâches. Lorsque vous utilisez ce paramètre, les points de distribution compatibles PXE prendront en charge à la fois IPv4 et IPv6. Cette option ne nécessite pas de WDS arrête WDS s’il est présent.
 
-#### <a name="to-enable-pxe-boot-support-for-ipv6"></a>PXE opstartondersteuning voor IPv6 inschakelen
-Gebruik de volgende procedure de optie voor IPv6-ondersteuning voor PXE inschakelen.
+#### <a name="to-enable-pxe-boot-support-for-ipv6"></a>Pour activer la prise en charge du démarrage PXE pour IPv6
+Utilisez la procédure suivante pour activer l’option de prise en charge IPv6 pour PXE.
 
-1. Ga in de Configuration Manager-console naar **beheer** > **overzicht** > **distributiepunten**, en klik op **eigenschappen** voor distributiepunten met PXE-functionaliteit.
-2. Op de **PXE** tabblad **ondersteuning voor IPv6-** IPv6-ondersteuning voor PXE inschakelen.
+1. Dans la console Configuration Manager, accédez à **Administration** > **vue d’ensemble** > **Points de distribution**, puis cliquez sur **Propriétés** pour les points de distribution compatibles PXE.
+2. Dans l’onglet **PXE**, sélectionnez **Prise en charge d’IPv6** pour activer la prise en charge d’IPv6 pour PXE.
 
-## <a name="manage-microsoft-surface-driver-updates"></a>Updates voor Microsoft Surface stuurprogramma's beheren
+## <a name="manage-microsoft-surface-driver-updates"></a>Gérer les mises à jour du pilote Microsoft Surface
 <!-- 1098490 -->
-U kunt nu de Configuration Manager gebruiken voor het beheren van updates voor Microsoft Surface stuurprogramma's.
+Vous pouvez maintenant utiliser Configuration Manager pour gérer les mises à jour du pilote Microsoft Surface.
 
-### <a name="prerequisites"></a>Vereisten
-Alle software-updatepunten moeten Windows Server 2016 worden uitgevoerd.
+### <a name="prerequisites"></a>Prérequis
+Tous les points de mise à jour logicielle doivent exécuter Windows Server 2016.
 
-### <a name="try-it-out"></a>Probeer het nu!
-Voer de volgende taken en klikt u vervolgens Stuur ons **Feedback** van de **Start** tabblad van het lint te laten weten hoe het is gegaan:
-1. Synchronisatie voor Microsoft Surface stuurprogramma's inschakelen. Gebruik de procedure in [classificaties en producten configureren](/sccm/sum/get-started/configure-classifications-and-products) en selecteer **opnemen Microsoft Surface stuurprogramma's en firmware-updates** op de **classificaties** tabblad Surface stuurprogramma's inschakelen.
-2. [De Microsoft Surface stuurprogramma's synchroniseren](/sccm/sum/get-started/synchronize-software-updates.md).
-3. [Gesynchroniseerde Microsoft Surface stuurprogramma's implementeren](/sccm/sum/deploy-use/deploy-software-updates)
+### <a name="try-it-out"></a>Essayez !
+Essayez d’effectuer les tâches suivantes, puis envoyez-nous vos **Commentaires** à partir de l’onglet **Accueil** du ruban pour nous dire comment cela a fonctionné pour vous :
+1. Activer la synchronisation pour les pilotes Microsoft Surface. Utilisez la procédure décrite dans [Configurer la classification et les produits](/sccm/sum/get-started/configure-classifications-and-products) et sélectionnez **Inclure les pilotes Microsoft Surface et les mises à jour du microprogramme** dans l’onglet **Classifications** pour activer les pilotes Surface.
+2. [Synchroniser les pilotes Microsoft Surface](/sccm/sum/get-started/synchronize-software-updates.md).
+3. [Déployer des pilotes Microsoft Surface synchronisés](/sccm/sum/deploy-use/deploy-software-updates)
 
-## <a name="configure-windows-update-for-business-deferral-policies"></a>Windows Update voor bedrijven uitgestelde beleid configureren
+## <a name="configure-windows-update-for-business-deferral-policies"></a>Configuration de Windows Update pour les stratégies d’entreprise de report d’entreprise
 <!-- 1290890 -->
-U kunt nu uitgestelde beleidsregels voor Windows 10-functie-Updates of Quality-Updates voor Windows 10-apparaten rechtstreeks beheerd door Windows Update voor bedrijven configureren. U kunt de uitgestelde beleidsregels beheren in de nieuwe **Windows Update voor bedrijven-beleid** knooppunt onder **softwarebibliotheek** > **onderhoud van Windows 10**.
+Vous pouvez maintenant configurer des stratégies de report pour les appareils Windows 10 avec mises à jour de fonctionnalités ou de qualité gérés directement par Windows Update for Business. Vous pouvez gérer les stratégies de report du nouveau nœud **Stratégies Windows Update for Business** sous **Bibliothèque de logiciels** > **Maintenance de Windows 10**.
 
-### <a name="prerequisites"></a>Vereisten
-Windows 10-apparaten worden beheerd door Windows Update voor bedrijven moeten verbinding met Internet hebben.
+### <a name="prerequisites"></a>Conditions préalables
+Les appareils Windows 10 gérés par Windows Update for Business doivent avoir une connectivité Internet.
 
-#### <a name="to-create-a-windows-update-for-business-deferral-policy"></a>Een Windows Update voor bedrijven uitgestelde-beleid maken
-1. In **softwarebibliotheek** > **onderhoud van Windows 10** > **Windows Update voor bedrijven-beleid**
-2. Op de **Start** tabblad, in de **maken** Selecteer **Windows Update voor bedrijven-beleid maken** openen van de Update voor Windows maken voor Wizard beleid voor bedrijven.
-3. Op de **algemene** pagina, Geef een naam en beschrijving voor het beleid.
-4. Op de **uitgestelde beleid** pagina, configureren of uit te stellen of onderbreken van de functie-Updates.    
-    Functie-Updates zijn in het algemeen nieuwe functies voor Windows. Na het configureren van de **niveau van de gereedheid van de vertakking** instellen, kunt u opgeven of en hoe lang u wilt stellen functie-Updates na de beschikbaarheid van Microsoft ontvangen.
-    - **Niveau van de gereedheid van de vertakking**: Stel de vertakking waarvoor u het apparaat ontvangt updates voor Windows (huidige vertakking of Current Branch for Business).
-    - **Uitgestelde periode (dagen)**:  Geef het aantal dagen waarvoor de functie-Updates worden uitgesteld. Deze functie-Updates ontvangen voor een periode van 180 dagen na de release kan uit te stellen.
-    - **Onderbreken functies Updates vanaf**: Selecteer of onderbreken apparaten functie-Updates ontvangen voor een periode van 60 dagen vanaf het moment dat u de updates wilt onderbreken. Nadat het maximum aantal dagen zijn verstreken, onderbreken functionaliteit verloopt automatisch en het apparaat Windows-Updates voor de betreffende updates scant. U kunt de updates opnieuw onderbreken na deze scan. U kunt de functie-Updates weer hervatten door het selectievakje uit te schakelen.   
-5. Kies of u wilt stellen of onderbreken Quality-Updates.     
-    Quality-Updates zijn meestal oplossingen en verbeteringen in bestaande Windows-functionaliteit en normaal gesproken de eerste dinsdag van elke maand worden gepubliceerd, maar kunnen worden vrijgegeven op elk gewenst moment door Microsoft. U kunt definiëren als en hoe lang u wilt stellen Quality-Updates beschikbaar zijn na ontvangen.
-    - **Uitgestelde periode (dagen)**: Geef het aantal dagen waarvoor de functie-Updates worden uitgesteld. Deze functie-Updates ontvangen voor een periode van 180 dagen na de release kan uit te stellen.
-    - **Onderbreken Quality-Updates vanaf**: Selecteer of onderbreken van apparaten uit ontvangt Quality-Updates voor een periode van maximaal 35 dagen vanaf het moment dat u de updates wilt onderbreken. Nadat het maximum aantal dagen zijn verstreken, onderbreken functionaliteit verloopt automatisch en het apparaat Windows-Updates voor de betreffende updates scant. U kunt de updates opnieuw onderbreken na deze scan. U kunt Updates kwaliteit hervatten door het selectievakje uit te schakelen.
-6. Selecteer **installeren van updates van andere Microsoft-Products** waarmee de instelling voor Groepsbeleid die uitgestelde instellingen van toepassing op Microsoft Update, evenals de Windows-Updates.
-7. Selecteer **bevat de stuurprogramma's met Windows Update** automatisch bijwerken van stuurprogramma's van Windows-Updates. Als u deze instelling uitschakelt, worden updates voor stuurprogramma's niet uit de Windows-Updates gedownload.
-8. Voltooi de wizard om de nieuwe uitgestelde-beleid te maken.
+#### <a name="to-create-a-windows-update-for-business-deferral-policy"></a>Pour créer une stratégie de report Windows Update for Business
+1. Dans **Bibliothèque de logiciels** > **Maintenance de Windows 10** > **Mises à jour de Windows pour les stratégies d’entreprise**
+2. Sous l’onglet **Accueil**, dans le groupe **Créer**, sélectionnez **Créer une stratégie Windows Update for Business** pour ouvrir l’assistant de création de stratégie Windows Update for Business.
+3. Dans la page **Général**, indiquez un nom et une description pour la stratégie.
+4. Sur la page **Stratégies de report**, choisissez de différer ou suspendre les mises à jour de fonctionnalités.    
+    Les mises à jour de fonctionnalités sont généralement de nouvelles fonctionnalités pour Windows. Après avoir configuré le paramètre **Niveau de préparation de la branche**, vous pouvez définir si et pour quelle durée vous souhaitez différer la réception des fonctionnalités mises à jour après leur disponibilité auprès de Microsoft.
+    - **Niveau de préparation de la branche** : définissez la branche pour laquelle l’appareil recevra les mises à jour de Windows (Current Branch ou Current Branch for Business).
+    - **Période de report (jours)** : spécifiez le nombre de jours pendant lesquels les mises à jour de fonctionnalités sont différées. Vous pouvez différer la réception de ces mises à jour de fonctionnalités pendant une période de 180 jours à partir de leur publication.
+    - **Suspendre le démarrage des mises à jour de fonctionnalités** : choisissez de suspendre la réception des mises à jour de fonctionnalités sur vos appareils pendant une période de 60 jours à partir du moment auquel vous suspendez les mises à jour. Une fois que le nombre maximal de jours s’est écoulé, la fonctionnalité de pause expirera automatiquement et l’appareil analysera les mises à jour de Windows pour déterminer celles qui sont applicables. Suite à cette analyse, vous pouvez à nouveau suspendre les mises à jour. Vous pouvez reprendre les mises à jour de fonctionnalités en désactivant la case à cocher.   
+5. Choisissez de différer ou suspendre les mises à jour de qualité.     
+    Les mises à jour de qualité sont généralement des améliorations et correctifs apportés aux fonctionnalités existantes de Windows, et sont généralement publiées le premier mardi de chaque mois, même si la publication peut être effectuée à tout moment par Microsoft. Vous pouvez définir si et pour combien de temps vous souhaitez différer la réception des mises à jour de qualité après leur disponibilité.
+    - **Période de report (jours)** : spécifiez le nombre de jours pendant lesquels les mises à jour de fonctionnalités sont différées. Vous pouvez différer la réception de ces mises à jour de fonctionnalités pendant une période de 180 jours à partir de leur publication.
+    - **Suspendre le démarrage des mises à jour de qualité** : choisissez de suspendre la réception des mises à jour de qualité sur vos appareils pendant une période de 35 jours à partir du moment auquel vous suspendez les mises à jour. Une fois que le nombre maximal de jours s’est écoulé, la fonctionnalité de pause expirera automatiquement et l’appareil analysera les mises à jour de Windows pour déterminer celles qui sont applicables. Suite à cette analyse, vous pouvez à nouveau suspendre les mises à jour. Vous pouvez reprendre les mises à jour de qualité en désactivant la case à cocher.
+6. Sélectionnez **Installer les mises à jour à partir d’autres produits Microsoft** pour activer le paramètre de stratégie de groupe qui rend les paramètres de report applicables à Microsoft Update, ainsi qu’aux mises à jour de Windows.
+7. Sélectionnez **Inclure les pilotes avec Windows Update** pour mettre à jour automatiquement les pilotes proposés avec les mises à jour de Windows. Si vous désactivez ce paramètre, les mises à jour de pilotes ne sont pas téléchargées à partir des mises à jour de Windows.
+8. Terminez l'Assistant pour créer la stratégie de report.
 
-#### <a name="to-deploy-a-windows-update-for-business-deferral-policy"></a>Een Windows Update voor bedrijven uitgestelde beleid implementeren
-1. In **softwarebibliotheek** > **onderhoud van Windows 10** > **Windows Update voor bedrijven-beleid**
-2. Op de **Start** tabblad, in de **implementatie** Selecteer **Windows Update voor bedrijven-beleid implementeren**.
-3. Configureer de volgende instellingen:
-    - **Configuratiebeleid implementeren**: Selecteer de Windows Update voor bedrijven-beleid dat u wilt implementeren.
-    - **Verzameling**: Klik op **Bladeren** om de verzameling waar u het beleid implementeren selecteren.
-    - **Herstellen, waar ondersteund**: Selecteer alle regels die niet compatibel voor Windows Management Instrumentation (WMI), het register, scripts en alle instellingen voor mobiele apparaten die zijn ingeschreven door Configuration Manager zijn automatisch oplossen.
-    - **Herstel toestaan buiten het onderhoudsvenster**: Als een onderhoudsvenster is geconfigureerd voor de verzameling waarnaar u het beleid implementeert, moet u deze optie zodat de instellingen voor naleving herstellen van de waarde buiten het onderhoudsvenster inschakelen. Zie voor meer informatie over onderhoudsvensters [het gebruik van onderhoudsvensters](/sccm/core/clients/manage/collections/use-maintenance-windows).
-    - **Waarschuwing genereren**: Hiermee configureert u een waarschuwing die wordt gegenereerd als de naleving van de configuratiebasislijn kleiner dan een opgegeven percentage voor een opgegeven datum en tijd is. U kunt tevens opgeven of u een melding naar System Center Operations Manager wilt verzenden.
-    - **Willekeurige vertraging (uren)**: Hiermee geeft u een vertragingsvenster op om te voorkomen overmatige Network Device Enrollment Service. De standaardwaarde is 64 uur.
-    - **Planning**: Geef het evaluatieschema voor compatibiliteit op waarmee het geïmplementeerde profiel wordt beoordeeld op clientcomputers. U kunt een eenvoudig of aangepast schema opgeven. Het profiel wordt door de clientcomputers beoordeeld wanneer de gebruiker zich aanmeldt.
-4.  Voltooi de wizard voor het implementeren van het profiel.
+#### <a name="to-deploy-a-windows-update-for-business-deferral-policy"></a>Pour déployer une stratégie de report Windows Update for Business
+1. Dans **Bibliothèque de logiciels** > **Maintenance de Windows 10** > **Mises à jour de Windows pour les stratégies d’entreprise**
+2. Sous l’onglet **Accueil** du groupe **Déploiement**, sélectionnez **Déployer la stratégie Windows Update for Business**.
+3. Configurez les paramètres suivants :
+    - **Stratégie de configuration à déployer** : sélectionnez la stratégie Windows Update for Business que vous souhaitez déployer.
+    - **Regroupement**: cliquez sur **Parcourir** pour sélectionner le regroupement dans lequel vous souhaitez déployer la stratégie.
+    - **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** : sélectionnez cette option pour résoudre automatiquement toutes les règles qui ne sont pas compatibles pour Windows Management Instrumentation (WMI), le Registre, les scripts et tous les paramètres des appareils mobiles inscrits par Configuration Manager.
+    - **Autoriser les corrections en dehors de la fenêtre de maintenance** : si une fenêtre de maintenance a été configurée pour le regroupement vers lequel vous déployez la stratégie, activez cette option pour laisser les paramètres de compatibilité résoudre la valeur en dehors de la fenêtre de maintenance. Pour plus d’informations sur les fenêtres de maintenance, consultez [Guide pratique pour utiliser les fenêtres de maintenance](/sccm/core/clients/manage/collections/use-maintenance-windows).
+    - **Générer une alerte** : configure une alerte qui est générée si la compatibilité de la base de référence de configuration est inférieure à un pourcentage spécifié par une date et une heure spécifiques. Vous pouvez également spécifier si vous souhaitez qu'une alerte soit envoyée à System Center Operations Manager.
+    - **Délai aléatoire (heures)** : spécifie un délai pour éviter un traitement excessif sur le service d’inscription d’appareils réseau. La valeur par défaut est 64 heures.
+    - **Calendrier** : Spécifier le calendrier d’évaluation de la compatibilité par rapport auquel le profil déployé est évalué sur les ordinateurs clients. Il peut s'agir d'un calendrier simple ou d'un calendrier personnalisé. Lorsque l'utilisateur ouvre une session, le profil est évalué par les ordinateurs clients.
+4.  Terminez l’assistant pour déployer le profil.
 
 
 
-## <a name="support-for-entrust-certification-authorities"></a>Ondersteuning voor Entrust certificeringsinstanties
+## <a name="support-for-entrust-certification-authorities"></a>Prise en charge des autorités de certification Entrust
 <!-- 1350740 -->
-Configuration Manager ondersteunt nu Entrust certificeringsinstanties; Hierdoor kunnen de levering van PFX-certificaat voor apparaten die zijn ingeschreven bij Microsoft Intune.
+Configuration Manager prend désormais en charge les autorités de certification Entrust ; Cela permet la remise de certificats PFX pour les appareils inscrits dans Microsoft Intune.
 
-U kunt Entrust configureren als de certificeringsinstantie (CA) bij het toevoegen van een rol Certificaatregistratiepunt in Configuration Manager. Wanneer u een nieuw certificaatprofiel die PFX-certificaten uitgeeft toevoegt, kunt u een Microsoft- of Entrust certificeringsinstantie selecteren.
+Vous pouvez configurer Entrust en tant qu’autorité de certification lors de l’ajout d’un rôle de point d’enregistrement de certificat dans Configuration Manager. Lorsque vous ajoutez un nouveau profil de certificat qui émet des certificats PFX, vous pouvez sélectionner une autorité de certification Microsoft ou Entrust.
 
-**Bekende probleem**: In de technical preview 1706 zijn PFX-certificaten niet uitgegeven voor Microsoft-certificeringsinstanties. Dit geldt niet voor geïmporteerde PFX-certificaten of SCEP-profielen.
+**Problème connu** : dans la Technical Preview 1706, les certificats PFX ne sont pas émis pour les autorités de certification Microsoft. Cela n’affecte pas les certificats PFX importés ou les profils SCEP.
 
 
-## <a name="cisco-ipsec-support-for-macos-vpn-profiles"></a>Cisco (IPsec) ondersteuning voor Mac OS VPN-profielen
+## <a name="cisco-ipsec-support-for-macos-vpn-profiles"></a>Prise en charge de Cisco (IPsec) pour les profils VPN macOS
 <!-- 1321367 -->
 
-U kunt een Mac OS VPN-profiel maken met Cisco (IPsec) als het verbindingstype. Zie voor meer informatie [VPN-profielen maken](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/create-vpn-profiles#create-vpn-profiles).
+Vous pouvez créer un profil VPN macOS avec Cisco (IPsec) comme type de connexion. Pour plus d’informations, consultez [Créer des profils VPN](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/create-vpn-profiles#create-vpn-profiles).
 
 
-## <a name="new-windows-configuration-item-settings"></a>Nieuwe configuratie-item-instellingen van Windows
+## <a name="new-windows-configuration-item-settings"></a>Nouveaux paramètres d’élément de configuration Windows
 <!-- 1354715 -->
 
-In deze release toegevoegd de volgende nieuwe instellingen die kunt u in de Windows-configuratie-items:
+Dans cette version, nous avons ajouté les nouveaux paramètres suivants, que vous pouvez utiliser dans les éléments de configuration Windows :
 
-### <a name="password"></a>Wachtwoord
+### <a name="password"></a>Mot de passe
 
-- **Apparaatversleuteling**
+- **Chiffrement de l’appareil**
 
-### <a name="device"></a>Apparaat
+### <a name="device"></a>Appareil
 
-- **Wijziging regio (alleen desktop)**
-- **Wijziging van kracht en slaapstand-instellingen**
-- **Taal instellingen aanpassen**
-- **Aanpassing van het systeem tijd**
-- **Naam wijzigt van apparaat**
+- **Modification des paramètres de région (version de bureau uniquement)**
+- **Modification des paramètres d’alimentation et de mise en veille**
+- **Modification des paramètres de langue**
+- **Modification de l’heure du système**
+- **Changement de nom d’appareil**
 
-### <a name="store"></a>Opslaan
+### <a name="store"></a>Magasin
 
-- **Automatische updates store-apps**
-- **Gebruik alleen persoonlijke archief**
-- **Starten van de oorsprong app Store**
+- **Mettre à jour automatiquement les applications du Store**
+- **Utiliser uniquement le magasin privé**
+- **Stocker le démarrage de l’application d’origine**
 
 ### <a name="microsoft-edge"></a>Microsoft Edge
 
-- **Toegang tot informatie over blokkeren: vlaggen**
-- **Het SmartScreen-prompt overschrijven**
-- **Het SmartScreen-prompt overschrijven voor bestanden**
-- **WebRTC localhost-IP-adres**
-- **Standaardzoekmachine**
-- **OpenSearch XML-URL**
-- **Startpagina's (alleen desktop)**
+- **Bloquer l’accès à about:flags**
+- **Remplacement de l’invite de commandes SmartScreen**
+- **Remplacement de l’invite de commandes SmartScreen pour les fichiers**
+- **Adresse IP localhost WebRTC**
+- **Moteur de recherche par défaut**
+- **URL OpenSearch XML**
+- **Pages d’accueil (version de bureau uniquement)**
 
-Zie voor meer informatie over instellingen voor naleving [apparaatcompatibiliteit garanderen](/sccm/compliance/understand/ensure-device-compliance).
+Pour plus d'informations sur les paramètres de compatibilité, consultez [Garantir la conformité des appareils](/sccm/compliance/understand/ensure-device-compliance).
 
 
-## <a name="new-device-compliance-policy-rules"></a>Nieuwe beleidsregels voor naleving van apparaat
+## <a name="new-device-compliance-policy-rules"></a>Nouvelles règles de stratégie de conformité d’appareil
 
-* **Vereist Wachtwoordtype**. Geef op of de gebruiker een alfanumeriek wachtwoord of een numerieke wachtwoord moet maken. Voor alfanumerieke wachtwoorden, moet u ook het minimum aantal tekensets opgegeven waaruit het wachtwoord moet opgeven. De vier tekensets zijn: Kleine letters, hoofdletters, symbolen en cijfers.
+* **Type de mot de passe requis**. Spécifie si les utilisateurs doivent créer un mot de passe de type alphanumérique ou numérique. Pour les mots de passe alphanumériques, vous spécifiez également le nombre minimal de jeux de caractères que le mot de passe doit avoir. Les quatre jeux de caractères sont : lettres minuscules, lettres majuscules, symboles et chiffres.
 
-    **Ondersteund op:**
+    **Pris en charge sur :**
     * Windows Phone 8+
-    * Windows 8.1 +
+    * Windows 8.1+
     * iOS 6+
 <br></br>
-* **Blok USB-foutopsporing op apparaat**. U beschikt niet over deze instellingen configureren, zoals USB-foutopsporing is al uitgeschakeld op Android voor Work-apparaten.
+* **Bloquer le débogage USB sur l’appareil**. Vous n’avez pas à configurer ce paramètre, car le débogage USB est déjà désactivé pour les appareils Android for Work.
 
-    **Ondersteund op:**
+    **Pris en charge sur :**
     * Android 4.0+
     * Samsung KNOX Standard 4.0+
 <br></br>
-* **Blokkeren van apps van onbekende bronnen**. Vereisen dat de installatie van apps van onbekende bronnen worden voorkomen. U beschikt niet over deze instelling wilt configureren als Android voor werk apparaten altijd installatie vanuit onbekende bronnen beperken.
+* **Bloquer les applications provenant de sources inconnues**. Exiger que les appareils interdisent l’installation des applications provenant de sources inconnues. Vous n’avez pas à configurer ce paramètre, car les appareils Android for Work limitent toujours l’installation à partir de sources inconnues.
 
-    **Ondersteund op:**
+    **Pris en charge sur :**
     * Android 4.0+
     * Samsung KNOX Standard 4.0+
 <br></br>
-* **Threat moeten worden gescand op apps**. Deze instelling geeft aan dat de functie van de apps controleren is ingeschakeld op het apparaat.
+* **Exiger l’analyse des menaces sur les applications**. Ce paramètre spécifie que la fonction Vérifier les applications est activée sur l’appareil.
 
-    **Ondersteund op:**
-    * Android 4.2 via 4.4
+    **Pris en charge sur :**
+    * Android 4.2 à 4.4
     * Samsung KNOX Standard 4.0+
 
-Zie [maken en implementeren van een nalevingsbeleid voor apparaten](https://docs.microsoft.com/sccm/mdm/deploy-use/create-compliance-policy) om te proberen het nieuwe apparaat naleving van regels.
+Consultez [Créer et déployer une stratégie de conformité d’appareil](https://docs.microsoft.com/sccm/mdm/deploy-use/create-compliance-policy) pour essayer les nouvelles règles de conformité d’appareil.
 
-## <a name="new-mobile-application-management-policy-settings"></a>Nieuwe beleidsinstellingen voor mobile application management
-Vanaf deze versie, kunt u drie nieuwe beleidsinstellingen voor mobile application management (MAM):
+## <a name="new-mobile-application-management-policy-settings"></a>Nouveaux paramètres de stratégie de gestion d’application mobile
+À partir de cette version, vous pouvez utiliser trois nouveaux paramètres de stratégie de gestion des applications mobiles (MAM) :
 
-- **Schermafbeelding (alleen Android-apparaten) blokkeren:** Hiermee wordt opgegeven dat de schermafbeeldingsmogelijkheden van het apparaat zijn geblokkeerd bij gebruik van deze app.
+- **Bloquer la capture d’écran (appareils Android uniquement)** : spécifie que les fonctionnalités de capture d'écran de l'appareil sont bloquées lors de l'utilisation de cette application.
 
-- **Synchronisatie van contactpersonen uitschakelen:** Hiermee voorkomt dat de app opslaan van gegevens in de systeemeigen contactpersonen-app op het apparaat.
+- **Désactiver la synchronisation des contacts :** empêche l’application d’enregistrer des données sur l’application Contacts native de l’appareil.
 
-- **Afdrukken uitschakelen:** Voorkomt dat de app vanuit afdrukken werk- of schoolgegevens.
+- **Désactiver l’impression :** empêche l’application d’imprimer des données scolaires ou de travail.
 
-Zie [apps beveiligen met beleid voor app-beveiliging in Configuration Manager](https://docs.microsoft.com/sccm/mdm/deploy-use/protect-apps-using-mam-policies) om te proberen de nieuwe beleidsinstellingen van de app-beveiliging.
+Consultez [Protéger les applications à l’aide des stratégies de protection des applications de Configuration Manager](https://docs.microsoft.com/sccm/mdm/deploy-use/protect-apps-using-mam-policies) pour essayer de nouveaux paramètres de stratégie de protection d’application.
 
-## <a name="android-and-ios-enrollment-restrictions"></a>Beperkingen voor android en iOS-inschrijving
+## <a name="android-and-ios-enrollment-restrictions"></a>Restrictions de l’inscription Android et iOS
 <!-- 1290826 -->
-Vanaf deze release, kunnen beheerders nu opgeven dat gebruikers persoonlijke Android- of iOS-apparaten in hun omgeving hybride kunnen niet registreren. Hiermee kunt u limiet ingeschreven apparaten predeclared, bedrijfseigen apparaten of alleen met Device Enrollment Program ingeschreven iOS-apparaten.
+À partir de cette version, les administrateurs peuvent spécifier que les utilisateurs ne peuvent pas inscrire des appareils Android ou iOS personnels dans leur environnement hybride. Cela vous permet de limiter les appareils inscrits aux appareils prédéclarés, appareils d’entreprise ou appareils iOS inscrits avec le programme d’inscription des appareils.
 
-### <a name="try-it-out"></a>Try it out in
-1. Ga in de Configuration Management-console in de werkruimte **Beheer** naar **Cloudservices** > **Microsoft Intune-abonnement**.
-2. Op de **Start** tabblad de **abonnement** groep, kiest u **Platforms configureren** en selecteer vervolgens **Android** of **iOS**.
-3. Selecteer **blok persoonlijk eigendom zijn van apparaten**.
+### <a name="try-it-out"></a>Essayez
+1. Dans la console Configuration Manager, dans l’espace de travail **Administration** , accédez à **Services cloud** > **Abonnement Microsoft Intune**.
+2. Sous l’onglet **Accueil**, dans le groupe **Abonnement**, choisissez **Configurer des plateformes**, puis **Android** ou **iOS**.
+3. Sélectionnez **Bloquer les appareils personnels**.
 
-## <a name="android-for-work-application-management-policy-for-copy-paste"></a>Android for Work application management-beleid voor kopiëren en plakken
-We hebben bijgewerkt de beschrijvingen van de instelling voor Android voor werk configuratie-items voor de **toestaan gegevens delen tussen werk en persoonlijk profiel**.
+## <a name="android-for-work-application-management-policy-for-copy-paste"></a>Stratégie de gestion des applications Android for Work pour le copier-coller
+Nous avons mis à jour les descriptions de paramètre pour les éléments de configuration Android for Work pour **Autoriser le partage de données entre le profil de travail et le profil personnel**.
 
-|Voordat u 1706 Technical Preview | Naam van de nieuwe optie | Gedrag|
+|Avant la Technical Preview 1706 | Nouveau nom de l’option | Comportement|
 |-|-|-|
-|Alle delen buiten de grenzen van voorkomen| Standaard-mediumgebruik| Werk voor persoonlijk: Standaard (verwachte geblokkeerd op alle versies) <br>Personal te werk: Standaard (toegestaan op 6.x+, geblokkeerd op 5.x)|
-|Er zijn geen beperkingen|   Apps in persoonlijk profiel kunnen voor het delen van aanvragen van work-profiel verwerken| Werk voor persoonlijk: Toegestaan  <br>Personal te werk: Toegestaan|
-|Apps in work-profiel kunnen verwerken met het delen van aanvragen van persoonlijk profiel |Apps in work-profiel kunnen verwerken met het delen van aanvragen van persoonlijk profiel |Werk voor persoonlijk: Standaard<br>Personal te werk: Toegestaan<br>(Dit is alleen nuttig op 5.x waar persoonlijke om te werken is geblokkeerd)|
+|Empêcher le partage au-delà des limites| Restrictions du partage par défaut| Travail vers personnel : Par défaut (doit être bloqué sur toutes les versions) <br>Personnel vers travail : Par défaut (autorisé sur 6.x+, bloqué sur 5.x)|
+|Sans restriction|   Les applications dans le profil personnel peuvent traiter les demandes de partage du profil professionnel| Travail vers personnel : autorisé  <br>Personnel vers travail : autorisé|
+|Les applications dans le profil professionnel peuvent traiter les demandes de partage du profil personnel |Les applications dans le profil professionnel peuvent traiter les demandes de partage du profil personnel |Travail vers personnel : par défaut<br>Personnel vers travail : autorisé<br>(Utile uniquement sur 5.x, où personnel vers travail est bloqué)|
 
-Geen van deze opties niet rechtstreeks kopiëren en plakken gedrag. We hebben een aangepaste instelling toegevoegd aan de service en de bedrijfsportal-app in 1704 die kunnen worden geconfigureerd om te kopiëren en plakken voorkomen. Dit kan worden ingesteld via aangepaste URI.
+Aucune de ces options n’empêche directement le comportement de copier-coller. Nous avons ajouté un paramètre personnalisé au service et à l’application de portail d’entreprise dans la version 1704. Il peut être configuré pour éviter le copier-coller. Vous pouvez le définir via une URI personnalisée.
 
--   OMA-URI: ./Vendor/MSFT/WorkProfile/DisallowCrossProfileCopyPaste
--   Waardetype: Boolean-waarde
+-   OMA-URI:  ./Vendor/MSFT/WorkProfile/DisallowCrossProfileCopyPaste
+-   Type de valeur : booléen
 
-DisallowCrossProfileCopyPaste instellen op waar wordt voorkomen dat gedrag kopiëren en plakken tussen Android for Work persoonlijke en zakelijke profielen.
+Le paramètre DisallowCrossProfileCopyPaste réglé sur true empêche le comportement de copier-coller entre le profil personnel et le profil de travail Android for Work.
 
-### <a name="try-it-out"></a>Try it out in
-1. Selecteer in de Configuration Manager-console **activa en naleving** > **overzicht** > **instellingen voor naleving** > **configuratie-items**.
-2. Kies **maken** voor het maken van een nieuwe configuratie-item en geef **naam** en **Android for Work**.
-3. Selecteer in het apparaat voor het configureren van de instellingsgroepen **Work-profiel**, en kies **volgende**.
-4. Selecteer de waarde voor **gegevens delen tussen werk en persoonlijke profielen toestaan**, en voltooi de wizard.
+### <a name="try-it-out"></a>Essayez
+1. Dans la console Configuration Manager, sélectionnez **Ressources et Conformité** > **Vue d’ensemble** > **Paramètres de conformité** > **Éléments de configuration**.
+2. Choisissez **Créer** pour créer un nouvel élément de configuration, et spécifiez **Nom** et **Android for Work**.
+3. Dans les groupes de paramètres d’appareil à configurer, sélectionnez **Profil de travail**, puis **suivant**.
+4. Sélectionnez la valeur **Autoriser le partage de données entre les profils personnels et professionnels**, puis terminez l’assistant.
 
-## <a name="device-health-attestation-assessment-for-compliance-policies-for-conditional-access"></a>Apparaat Health Attestation beoordeling van van nalevingsbeleid voor voorwaardelijke toegang
+## <a name="device-health-attestation-assessment-for-compliance-policies-for-conditional-access"></a>Évaluation de l’attestation de l’intégrité des appareils pour les stratégies de conformité pour l’accès conditionnel
 <!-- 1097546 -->
-Vanaf deze release u kunt gebruiken Health Attestation van apparaten status als een regel voor naleving beleid voor voorwaardelijke toegang tot bedrijfsbronnen.
+Depuis cette version, vous pouvez utiliser l’état d’attestation d’intégrité de l’appareil en tant que règle de stratégie de conformité pour l’accès conditionnel aux ressources d’entreprise.
 
-### <a name="try-it-out"></a>Try it out in
-Selecteer een regel Health Attestation van apparaten als onderdeel van een beoordeling van compatibiliteit beleid.
+### <a name="try-it-out"></a>Essayez
+Sélectionnez une règle d’attestation d’intégrité de l’appareil dans le cadre d’une évaluation de stratégie de conformité.

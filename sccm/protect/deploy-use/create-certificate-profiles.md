@@ -1,6 +1,6 @@
 ---
-title: Het maken van SCEP-certificaatprofielen | Microsoft Docs
-description: Informatie over het gebruiken van certificaatprofielen voor het inrichten van beheerde apparaten met de certificaten die ze nodig hebben in System Center Configuration Manager.
+title: "Guide pratique pour créer des profils de certificat SCEP | Microsoft Docs"
+description: "Découvrez comment utiliser des profils de certificat pour configurer les appareils gérés avec les certificats nécessaires dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/28/2017
 ms.prod: configuration-manager
@@ -17,179 +17,179 @@ ms.author: nbigman
 manager: angrobe
 ms.openlocfilehash: 1e00804d27ecef2aadd8bfa395db1919c46243ee
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-certificate-profiles"></a>Certificaatprofielen maken
+# <a name="create-certificate-profiles"></a>Créer des profils de certificat
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
-
-
-Gebruik certificaatprofielen in Configuration Manager (SCCM) voor het inrichten van beheerde apparaten met de certificaten die ze nodig hebben voor toegang tot bedrijfsresources. Voordat u certificaatprofielen maakt, instellen van de certificaatinfrastructuur zoals beschreven in [certificaatinfrastructuur voor System Center Configuration Manager instellen](certificate-infrastructure.md).  
-
-Dit onderwerp wordt beschreven hoe u vertrouwde basiscertificaten en SCEP-certificaatprofielen maken. Als u wilt een PFX-certificaatprofielen maken, Zie [maken PFX-certificaatprofielen](../../protect/deploy-use/create-pfx-certificate-profiles.md).
-
-Een certificaatprofiel maken:
-
-1.  Start de Wizard Certificaatprofiel maken.
-1.  Geef algemene informatie over het certificaat.
-1.  Een vertrouwd certificaat-certificeringsinstantie (CA) configureren.  
-1.  Configureer de gegevens van SCEP-certificaat (alleen voor SCEP-certificaten).  
-1.  Ondersteunde platforms voor het certificaatprofiel opgeven.
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-## <a name="start-the-create-certificate-profile-wizard"></a>Start de wizard Certificaatprofiel maken  
+Utilisez des profils de certificat dans Configuration Manager (SCCM) pour configurer les appareils gérés avec les certificats nécessaires pour accéder aux ressources d’entreprise. Avant de créer des profils de certificat, configurez l’infrastructure de certificats, comme décrit dans [Configurer l’infrastructure de certificats pour System Center Configuration Manager](certificate-infrastructure.md).  
 
-1.  Klik in de System Center Configuration Manager-console op **activa en naleving**.  
+Cette rubrique explique comment créer des profils de certificat racine approuvé et des profils de certificat SCEP. Si vous souhaitez créer des profils de certificat PFX, consultez [Créer des profils de certificat PFX](../../protect/deploy-use/create-pfx-certificate-profiles.md).
 
-2.  Vouw in de werkruimte **Activa en naleving** het gedeelte **Instellingen voor naleving**uit, vouw vervolgens **Toegang tot bedrijfsbronnen**uit en klik op **Certificaatprofielen**.  
+Pour créer un profil de certificat :
 
-3.  Klik op **Certificaatprofiel maken** in het tabblad **Start** in de groep **Maken**.  
-
-## <a name="provide-general-information-about-the-certificate-profile"></a>Geef algemene informatie over het certificaatprofiel  
-
-Geef op de pagina **Algemeen** van de wizard Certificaatprofiel maken de volgende informatie op:  
-
--   **Naam**: Geef een unieke naam voor het certificaatprofiel. U kunt maximaal 256 tekens gebruiken.  
-
--   **Beschrijving**: Geef een beschrijving met een van het certificaatprofiel en andere relevante informatie die helpt overzicht bij het identificeren ervan in de System Center Configuration Manager-console. U kunt maximaal 256 tekens gebruiken.  
-
--   **Geef het type certificaatprofiel dat u wilt maken**: Kies een van de volgende certificaatprofieltypen:  
-
--   **Vertrouwd CA-certificaat**: Selecteer dit certificaatprofieltype als u wilt implementeren van een vertrouwde basiscertificeringsinstantie (CA) of tussenliggend CA-certificaat naar een certificaatvertrouwensketen te vormen wanneer de gebruiker of het apparaat een ander apparaat moet verifiëren. Het apparaat zou bijvoorbeeld een Remote Authentication Dial-In User Service (RADIUS)-server of een virtueel particulier netwerk (VPN)-server kunnen zijn. U moet ook een vertrouwd CA-certificaatprofiel configureren voordat u een SCEP-certificaatprofiel kunt maken. In dit geval moet het vertrouwde CA-certificaat het vertrouwde basiscertificaat zijn voor de CA die het certificaat aan de gebruiker of het apparaat zal verlenen.  
-
--   **Instellingen voor Simple Certificate Enrollment Protocol (SCEP)**: Selecteer dit certificaatprofieltype als u een certificaat aanvragen voor een gebruiker of apparaat wilt, met behulp van het Simple Certificate Enrollment Protocol en de functieservice registratieservice voor netwerkapparaten.
-
--   **Instellingen voor persoonlijke informatie Exchange PKCS #12 (PFX) - Import**: Selecteer deze optie om een PFX-certificaat te importeren. Voor meer informatie over het maken van PFX-certificaat Zie [importeren PFX-certificaatprofielen](/sccm/mdm/deploy-use/import-pfx-certificate-profiles.md).
-
--   **Instellingen voor persoonlijke informatie Exchange PKCS #12 (PFX) - maken**: Selecteer deze optie voor het verwerken van PFX-certificaten met behulp van een certificeringsinstantie. Voor meer informatie over het maken van PFX-certificaat Zie [maken PFX-certificaatprofielen](/sccm/mdm/deploy-use/create-pfx-certificate-profiles.md).
+1.  Démarrez l’Assistant Créer un profil de certificat.
+1.  Fournissez les informations générales sur le certificat.
+1.  Configurez un certificat d’autorité de certification approuvé.  
+1.  Configurez les informations de certificat SCEP (uniquement pour les certificats SCEP).  
+1.  Spécifiez les plateformes prises en charge pour le profil de certificat.
 
 
-## <a name="configure-a-trusted-ca-certificate"></a>Een vertrouwd CA-certificaat configureren  
+## <a name="start-the-create-certificate-profile-wizard"></a>Démarrer l’Assistant Créer un profil de certificat  
+
+1.  Dans la console System Center Configuration Manager, cliquez sur **Ressources et Conformité**.  
+
+2.  Dans l'espace de travail **Ressources et Conformité** , développez **Paramètres de compatibilité**, puis **Accès aux ressources de l'entreprise**, et cliquez sur **Profils de certificat**.  
+
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un profil de certificat**.  
+
+## <a name="provide-general-information-about-the-certificate-profile"></a>Fournir des informations générales sur le profil de certificat  
+
+Sur la page **Général** de l'Assistant Création d'un profil de certificat, spécifiez les informations suivantes :  
+
+-   **Nom**: entrez un nom unique pour le profil de certificat. Vous pouvez utiliser jusqu'à 256 caractères.  
+
+-   **Description** : entrez une description qui donne un aperçu du profil de certificat et d’autres informations utiles pour identifier facilement ce profil dans la console System Center Configuration Manager. Vous pouvez utiliser jusqu'à 256 caractères.  
+
+-   **Spécifiez le type de profil de certificat que vous voulez créer**: choisissez un des types de profil de certificat suivants :  
+
+-   **Certificat d’Autorité de certification approuvé**: sélectionnez ce type de profil de certificat si vous souhaitez déployer un certificat d’autorité de certification racine ou intermédiaire approuvé pour former une chaîne d’approbation des certificats quand l’utilisateur ou l’appareil doit authentifier un autre appareil. Par exemple, l'appareil peut être un serveur RADIUS (Remote Authentication Dial-In User Service) ou un serveur VPN (réseau privé virtuel). Vous devez également configurer un profil de certificat d'Autorité de certification approuvé pour pouvoir créer un profil de certificat SCEP. Dans ce cas, le certificat d'Autorité de certification approuvé doit être le certificat racine approuvé pour l'Autorité de certification qui émet le certificat à l'utilisateur ou à l'appareil.  
+
+-   **Paramètres du protocole SCEP (Simple Certificate Enrollment Protocol)**: sélectionnez ce type de profil de certificat pour demander un certificat pour un appareil ou un utilisateur à l’aide du protocole SCEP et du service de rôle du service d’inscription d’appareils réseau.
+
+-   **Échange d’informations personnelles - Paramètres PKCS #12 (PFX) - Importation** : sélectionnez cette option pour importer un certificat PFX. Pour en savoir plus sur la création de certificats PFX, consultez [Importer des profils de certificat PFX](/sccm/mdm/deploy-use/import-pfx-certificate-profiles.md).
+
+-   **Échange d’informations personnelles - Paramètres PKCS #12 (PFX) - Créer** : sélectionnez cette option pour traiter les certificats PFX en utilisant une autorité de certification. Pour en savoir plus sur la création de certificats PFX, consultez [Créer des profils de certificat PFX](/sccm/mdm/deploy-use/create-pfx-certificate-profiles.md).
+
+
+## <a name="configure-a-trusted-ca-certificate"></a>Configurer un certificat d’autorité de certification approuvé  
 
 > [!IMPORTANT]  
->  U moet minstens één vertrouwd CA-certificaatprofiel configureren voordat u een SCEP-certificaatprofiel kunt maken.    
+>  Vous devez configurer au moins un profil de certificat d'Autorité de certification approuvé pour pouvoir créer un profil de certificat SCEP.    
 >  
->  Als u een van deze waarden wijzigen nadat het certificaat wordt geïmplementeerd op een nieuw wordt certificaat aangevraagd:
->  -  Opslag van sleutels opgeven
->  -  De naam van certificaatsjabloon
->  -  Certificaattype
->  -  Indeling van de onderwerpnaam
->  -  Alternatieve onderwerpnaam
->  -  Geldigheidsduur van certificaat
->  -  Sleutelgebruik
->  -  Sleutelgrootte
->  -  Uitgebreide-sleutelgebruik
->  -  CA-basiscertificaat
+>  Si vous modifiez l’une des valeurs suivantes après le déploiement du certificat, un nouveau certificat est demandé :
+>  -  Fournisseur de stockage de clés
+>  -  Nom du modèle de certificat
+>  -  Type de certificat
+>  -  Format du nom de l'objet
+>  -  Autre nom de l'objet
+>  -  Période de validité du certificat
+>  -  Utilisation de la clé
+>  -  Taille de la clé
+>  -  Utilisation améliorée de la clé
+>  -  Certificat d’autorité de certification racine
 
-1.  Geef op de pagina **Vertrouwd CA-certificaat** van de wizard Certificaatprofiel maken de volgende informatie op:  
+1.  Sur la page **Certificat d'Autorité de certification approuvé** de l'Assistant Création d'un profil de certificat, spécifiez les informations suivantes :  
 
- -   **Certificaatbestand**: Klik op **importeren** en blader vervolgens naar het certificaatbestand dat u wilt gebruiken.  
+ -   **Fichier de certificat**: cliquez sur **Importer** , puis recherchez le fichier de certificat que vous souhaitez utiliser.  
 
- -   **Doelarchief**: Voor apparaten met meer dan één certificaatarchief selecteert u waar het certificaat wilt opslaan. Voor apparaten die slechts één archief hebben, wordt deze instelling wordt genegeerd.  
+ -   **Banque de destination**: pour les appareils qui ont plus d’un magasin de certificats, sélectionnez l’emplacement où stocker le certificat. Pour les appareils avec un seul magasin, ce paramètre est ignoré.  
 
-2.  Gebruik de **Vingerafdruk van het certificaat** om te verifiëren dat u het juiste certificaat hebt geïmporteerd.  
+2.  Utilisez la valeur **Empreinte numérique de certificat** pour vérifier que vous avez importé le certificat correct.  
 
 
-## <a name="configure-scep-certificate-information-only-for-scep-certificates"></a>Gegevens van SCEP-certificaat (alleen voor SCEP-certificaten) configureren  
+## <a name="configure-scep-certificate-information-only-for-scep-certificates"></a>Configurer les informations de certificat SCEP (uniquement pour les certificats SCEP)  
 
-1.  Op de pagina **SCEP-servers** van de wizard Certificaatprofiel maken geeft u de URL's op voor de NDES-servers die via SCEP certificaten uitgeven. U kunt ervoor kiezen om automatisch een NDES-URL toe te wijzen op basis van de configuratie van de sitesysteemserver voor het Certificaatregistratiepunt of URL's handmatig toevoegen.  
+1.  Dans la page **Serveurs SCEP** de l’Assistant Créer un profil de certificat, spécifiez l’URL des serveurs NDES qui délivreront des certificats par le biais du protocole SCEP. Vous pouvez choisir d’affecter automatiquement une URL NDES en fonction de la configuration du serveur de système de site de point d’inscription de certificat, ou ajouter les URL manuellement.  
 
-2.  Voltooi de **SCEP-registratie** pagina van de Wizard Certificaatprofiel maken.
+2.  Renseignez la page **Inscription SCEP** de l’Assistant Créer un profil de certificat.
 
- -  **Nieuwe pogingen**: Geef het aantal keren dat het apparaat wordt automatisch opnieuw geprobeerd de certificaataanvraag naar de server waarop de Network Device Enrollment Service wordt uitgevoerd. Deze instelling ondersteunt het scenario waarbij een CA-manager een certificaataanvraag moet goedkeuren voordat het wordt geaccepteerd. Deze instelling wordt doorgaans gebruikt voor sterk beveiligde omgevingen of als u een zelfstandige verlenende CA en geen bedrijfs-CA hebt. U kunt deze instelling mogelijk ook gebruiken voor testdoeleinden zodat u de certificaataanvraagopties kunt inspecteren alvorens de verlenende CA de certificaataanvraag verwerkt. Gebruik deze instellingen met de instelling **Tijd tussen pogingen (minuten)** .  
+ -  **Tentatives**: spécifiez le nombre de fois où l’appareil doit renvoyer automatiquement la demande de certificat au serveur exécutant le service d’inscription de périphériques réseau. Ce paramètre prend en charge le scénario où un gestionnaire de l'autorité de certification doit approuver une demande de certificat avant d'être accepté. Ce paramètre est généralement utilisé pour des environnements haute sécurité ou si vous avez une autorité de certification émettrice autonome plutôt qu'une autorité de certification d'entreprise. Vous pouvez également utiliser ce paramètre à des fins de test pour vérifier les options de demande de certificat avant que l'Autorité de certification émettrice traite la demande de certificat. Utilisez ce paramètre conjointement avec le paramètre **Délai de nouvelle tentative (en minutes)** .  
 
- -   **Tijd tussen elke poging (minuten)**: Geef het interval in minuten, tussen elke registratiepoging wanneer u goedkeuring van de CA-manager gebruikt voordat het verlenende CA de certificaataanvraag verwerkt. Als u beheergoedkeuring gebruikt voor testdoeleinden, zult u waarschijnlijk een lage waarde willen opgeven ,zodat u niet lang te hoeft wachten voordat het apparaat de certificaataanvraag opnieuw probeert nadat u de aanvraag goedkeurt. Als u echter beheergoedkeuring op een productienetwerk gebruikt, zult u waarschijnlijk een hogere waarde willen opgeven om voldoende tijd te geven aan de CA-beheerder om aangevraagde goedkeuringen toe te staan of te weigeren.  
+ -   **Délai de nouvelle tentative (en minutes)**: spécifiez l’intervalle, en minutes, entre deux tentatives d’inscription, quand vous utilisez l’approbation du gestionnaire de l’Autorité de certification avant que l’Autorité de certification émettrice traite la demande de certificat. Si vous utilisez l'approbation du gestionnaire à des fins de test, la spécification d'une valeur faible évitera d'attendre trop longtemps une nouvelle tentative de demande de certificat par l'appareil après l'approbation de la demande. Toutefois, si vous utilisez l'approbation du gestionnaire sur un réseau de production, vous voudrez spécifier une valeur élevée pour donner suffisamment de temps à l'administrateur de l'Autorité de certification pour vérifier et approuver ou refuser les approbations en attente.  
 
- -   **Drempelwaarde voor verlenging (%)**: Geef het percentage van de levensduur van het certificaat dat voordat het apparaat verlenging van het certificaat aanvraagt resteert.  
+ -   **Seuil de renouvellement (%)**: spécifiez le pourcentage de durée de vie restante du certificat avant que l’appareil ne demande le renouvellement du certificat.  
 
- -   **Sleutelarchiefprovider (KSP)**: Geef op waar de sleutel voor het certificaat wordt opgeslagen. Kies een van de volgende waarden:  
+ -   **Fournisseur de stockage de clés**: spécifiez l’emplacement de stockage de la clé du certificat. Choisissez l'une des valeurs suivantes :  
 
-   -   **Installeren in Trusted Platform Module (TPM), indien aanwezig**: De sleutel in de TPM geïnstalleerd. Als de TPM niet aanwezig is, wordt de sleutel geïnstalleerd in de archiefprovider voor de softwaresleutel.  
+   -   **Installer dans le module de plateforme sécurisée (TPM) s’il existe**: installe la clé dans le module de plateforme sécurisée. Si le module de plateforme sécurisée n'est pas présent, la clé est installée dans le fournisseur de stockage de la clé du logiciel.  
 
-   -   **Installeren in Trusted Platform Module (TPM), anders niet**: De sleutel in de TPM geïnstalleerd. De installatie mislukt als de TPM-module niet aanwezig is.  
+   -   **Installer dans le module de plateforme sécurisée (TPM) sinon mettre en échec**: installe la clé dans le module de plateforme sécurisée. Si le module de plateforme sécurisée n'est pas présent, l'installation échoue.  
 
-   -   **Installatie op Windows Hello voor bedrijven, anders niet**: Deze optie is beschikbaar voor Windows 10 Desktop en Mobile-apparaten. De sleutel aan wordt geregistreerd **Windows Hello voor bedrijven**, beschreven in [Windows Hello voor bedrijven-instellingen in System Center Configuration Manager](../../protect/deploy-use/windows-hello-for-business-settings.md). Met deze optie kunt u ook opgeven dat **Meervoudige verificatie vereisen** geldt tijdens de registratie van apparaten voordat certificaten naar die apparaten worden uitgegeven. Zie [Windows-apparaten beveiligen met meervoudige verificatie](https://technet.microsoft.com/library/dn889751.aspx) voor meer informatie.
+   -   **Installer dans Windows Hello Entreprise, sinon mettre en échec** : cette option est disponible pour les appareils Windows 10 Desktop et Mobile. Elle permet d’inscrire la clé dans **Windows Hello Entreprise**, comme cela est décrit dans [Paramètres Windows Hello Entreprise dans System Center Configuration Manager](../../protect/deploy-use/windows-hello-for-business-settings.md). Cette option vous permet également d’ **Exiger une authentification multifacteur** lors de l’inscription des appareils avant de délivrer des certificats à ces appareils. Pour plus d’informations, consultez [Utiliser l’authentification multifacteur dans Microsoft Intune](https://technet.microsoft.com/library/dn889751.aspx) .
 
    > [!NOTE]  
    > 
-   > Wanneer een gebruiker een Windows Hello voor bedrijven PINCODE maakt, verzendt Windows een melding die wordt herkend door Configuration Manager voor. Hierdoor kan Configuration Manager te snel worden op de hoogte welke gebruikers een Windows Hello PINCODE hebt gemaakt. Configuration Manager stuurt nieuwe certificaten voor deze gebruikers als Windows Hello wordt gebruikt als de Sleutelarchiefprovider in een certificaatprofiel.  
+   > Quand un utilisateur crée un code confidentiel Windows Hello Entreprise, Windows envoie une notification que Configuration Manager écoute. Configuration Manager peut ainsi déterminer rapidement quels utilisateurs ont créé un code confidentiel Windows Hello. Ensuite, Configuration Manager peut également émettre de nouveaux certificats pour les utilisateurs si Windows Hello est utilisé comme fournisseur de stockage de la clé dans un profil de certificat.  
 
-   -   **Installeren naar Sleutelarchiefprovider van Software**: De sleutel in de archiefprovider voor de softwaresleutel geïnstalleerd.  
+   -   **Installer dans le fournisseur de stockage de la clé du logiciel**: installe la clé dans le fournisseur de stockage de la clé du logiciel.  
 
- -   **Apparaten voor certificaatinschrijving**: Als het certificaatprofiel wordt geïmplementeerd op een Gebruikersverzameling, selecteren of toegestaan om certificaatregistratie alleen primaire apparaat met de gebruiker of op alle apparaten waarop de gebruiker zich aanmeldt. Als het certificaatprofiel wordt geïmplementeerd naar een apparaatsverzameling, dient u te selecteren of het is toegestaan om certificaatregistratie alleen voor de primaire gebruiker of voor alle gebruikers van het apparaat uit te voeren.  
+ -   **Appareils pour l’inscription du certificat**: si le profil de certificat est déployé sur un regroupement d’utilisateurs, choisissez d’autoriser l’inscription de certificats uniquement sur l’appareil principal de l’utilisateur ou sur tous les appareils auxquels se connecte l’utilisateur. Si le profil de certificat est déployé sur un regroupement d'appareils, choisissez d'autoriser l'inscription de certificats uniquement pour l'utilisateur principal de l'appareil ou pour tous les utilisateurs qui se connectent à l'appareil.  
 
-3.  Geef op de pagina **Certificaateigenschappen** van de wizard Certificaatprofiel maken de volgende informatie op:  
+3.  Sur la page **Propriétés du certificat** de l'Assistant Création d'un profil de certificat, spécifiez les informations suivantes :  
 
- -   **Certificaatsjabloonnaam**: Klik op **Bladeren** de naam van een certificaatsjabloon die de Network Device Enrollment Service is geconfigureerd voor gebruik en die is toegevoegd aan een verlenende CA selecteren. Om te kunnen bladeren certificaatsjablonen, moet de gebruikersaccount die u gebruikt voor het uitvoeren van de System Center Configuration Manager-console leesmachtiging voor de certificaatsjabloon hebben. Als u **Bladeren**echter niet kunt gebruiken, typ dan de naam van het certificaatsjabloon.  
+ -   **Nom du modèle de certificat**: cliquez sur **Parcourir** pour sélectionner le nom d’un modèle de certificat que doit utiliser le service d’inscription de périphériques réseau conformément à sa configuration et qui a été ajouté à une Autorité de certification émettrice. Pour avoir accès au modèle de certificat, le compte d’utilisateur utilisé pour exécuter la console System Center Configuration Manager doit avoir l’autorisation de lecture sur ce modèle de certificat. Vous pouvez également, si vous ne pouvez pas utiliser **Parcourir**, taper le nom du modèle de certificat.  
 
  > [!IMPORTANT]
  >   
- >  Het certificaat zal niet worden geïmplementeerd als de naam van het certificaatsjabloon niet-ASCII-tekens bevat (bijvoorbeeld teken van het Chinese alfabet). U kunt ervoor zorgen dat het certificaat wordt geïmplementeerd door eerst een kopie te maken van het certificaatsjabloon op de CA en de kopie een nieuwe naam te geven met alleen ASCII-tekens.  
+ >  Si le nom de modèle de certificat contient des caractères non-ASCII (par exemple, les caractères de l'alphabet chinois), le certificat ne sera pas déployé. Pour vous assurer que le certificat est déployé, vous devez tout d'abord créer une copie du modèle de certificat sur l'autorité de certification et renommez la copie à l'aide de caractères ASCII.  
 
-   Let op het volgende, afhankelijk of u bladert naar het certificaatsjabloon of u de certificaatnaam invoert:  
+   Notez les informations suivantes, selon que vous accédez au modèle de certificat ou tapez le nom du certificat :  
 
- -   Als u bladert om de naam van het certificaatsjabloon te selecteren, worden sommige velden op de pagina automatisch vanaf het certificaatsjabloon ingevuld. In sommige gevallen is het niet mogelijk deze waarden te wijzigen, tenzij u een ander certificaatsjabloon selecteert.  
+ -   Si vous naviguez pour sélectionner le nom du modèle de certificat, certains champs de la page sont automatiquement remplis à partir du modèle de certificat. Dans certains cas, vous ne pouvez pas modifier ces valeurs, sauf si vous choisissez un modèle de certificat différent.  
 
- -   Als u de naam van het certificaatsjabloon invoert, dient u ervoor te zorgen dat de naam exact overeenkomt met een van de certificaatsjablonen die zijn vermeld in het register van de server waarop de registratieservice van netwerkapparaten wordt uitgevoerd. Zorg ervoor dat u de naam opgeeft van het certificaatsjabloon en niet de weergavenaam van het certificaatsjabloon.  
+ -   Si vous tapez le nom du modèle de certificat, assurez-vous que le nom correspond exactement à l'un des modèles de certificat figurant dans le Registre du serveur exécutant le service d'inscription d'appareils réseau. Assurez-vous que vous spécifiez le nom du modèle de certificat et non le nom d'affichage du modèle de certificat.  
 
-   Als u de namen van certificaatsjablonen zoekt, gaat u naar de volgende sleutel: Hkey_local_machine\software\microsoft\cryptography\mscep bij te. De certificaatsjablonen worden hier vermeld als de waarden voor **EncryptionTemplate**, **GeneralPurposeTemplate**en **SignatureTemplate**. Standaard is **IPSECIntermediateOffline**de waarde voor deze drie certificaatsjablonen. Dit verwijst naar de sjabloonweergavenaam **IPSec (Offline-aanvraag)**.  
+   Pour rechercher les noms des modèles de certificats, accédez à la clé suivante : HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Cryptography\MSCEP. Les modèles de certificat s'affichent sous la forme des valeurs **EncryptionTemplate**, **GeneralPurposeTemplate**et **SignatureTemplate**. Par défaut, la valeur des trois modèles de certificat est **IPSECIntermediateOffline**, laquelle correspond au nom d'affichage du modèle **IPSec (requête hors connexion)**.  
 
    > [!WARNING]  
    > 
-   >  Omdat System Center Configuration Manager de inhoud van het certificaatsjabloon niet controleren kan als u de naam van het certificaatsjabloon plaats bladeren, is het mogelijk dat u opties die het certificaatsjabloon biedt geen ondersteuning voor en die resulteert in een mislukte certificaataanvraag kunt selecteren. Als dit gebeurt, ziet u een foutmelding voor w3wp.exe in het bestand CPR.log met het bericht dat de sjabloonnaam van het Certificate Signing Request (CSR) en de invoer niet overeenkomen.  
+   >  System Center Configuration Manager ne peut pas vérifier le contenu du modèle de certificat quand vous tapez le nom du modèle au lieu de le rechercher. De ce fait, il est possible de sélectionner des options qui ne sont pas prises en charge par le modèle de certificat et qui font échouer la demande de certificat. Dans ce cas, un message d'erreur pour w3wp.exe s'affiche dans le fichier CPR.log, indiquant que le nom du modèle dans la demande de signature de certificat (DSC) et le nom dans la vérification ne correspondent pas.  
    >   
-   >  Als u de naam van het certificaatsjabloon invoert dat is opgegeven voor de waarde **GeneralPurposeTemplate** , dient u de opties **Sleutelcodering** en de **Digitale handtekening** voor dit certificaatprofiel te selecteren. Als u echter alleen de optie **Sleutelcodering** in dit certificaatprofiel wilt inschakelen, dient u de naam van het certificaatsjabloon op te geven voor de sleutel **EncryptionTemplate** . Op dezelfde manier dient u, als u alleen de optie **Digitale handtekening** in dit certificaatprofiel wilt inschakelen, de naam van het certificaatsjabloon op te geven voor de sleutel **SignatureTemplate** .  
+   >  Lorsque vous tapez le nom du modèle de certificat spécifié pour la valeur de **modèle à usage général** , vous devez sélectionner les options **Chiffrement de clé** et **Signature numérique** pour ce profil de certificat. Toutefois, si vous voulez activer l'option **Chiffrement de clé** uniquement dans ce profil de certificat, spécifiez le nom du modèle de certificat pour la clé **Modèle de chiffrement** . De la même manière, si vous voulez activer l'option **Signature numérique** uniquement dans ce profil de certificat, spécifiez le nom du modèle de certificat pour la clé **Modèle de signature** .  
 
- -   **Certificaattype**: Selecteer of het certificaat zal worden geïmplementeerd op een apparaat of een gebruiker.  
- -   **Indeling van de onderwerpnaam**: Selecteer in de lijst hoe System Center Configuration Manager automatisch de onderwerpnaam in de certificaataanvraag maakt. Als het certificaat voor een gebruiker is, kunt u ook het e-mailadres van de gebruiker in de onderwerpnaam opnemen. 
+ -   **Type de certificat**: sélectionnez si le certificat est déployé sur un appareil ou un utilisateur.  
+ -   **Format du nom de l’objet** : dans la liste, sélectionnez de quelle manière System Center Configuration Manager crée automatiquement le nom de l’objet dans la demande de certificat. Si le certificat est pour un utilisateur, vous pouvez également inclure l'adresse de messagerie de cet utilisateur dans le nom de l'objet. 
     
    > [!NOTE]  
    > 
-   > Selecteren **IMEI-nummer** of **serienummer** kunt u onderscheid maken tussen verschillende apparaten die eigendom zijn van dezelfde gebruiker. Deze apparaten kunnen bijvoorbeeld een algemene naam, maar niet IMEI-nummer of serienummer delen. Als een IMEI-nummer of het serienummer van het apparaat niet gerapporteerd, wordt het certificaat uitgegeven aan de algemene naam.
+   > Sélectionnez **Numéro IMEI** ou **Numéro de série** pour faire la distinction entre différents appareils appartenant au même utilisateur. Par exemple, si ces appareils ont un nom commun, leur numéro IMEI ou numéro de série est unique. Si l’appareil ne signale pas de numéro IMEI ou de numéro de série, le certificat est émis avec le nom commun.
 
- -   **Alternatieve onderwerpnaam**: Geef op hoe System Center Configuration Manager automatisch de waarden voor de alternatieve onderwerpnaam (SAN) in de certificaataanvraag maakt. Als u bijvoorbeeld een gebruikerscertificaattype selecteerde, kunt u de User Principal Name (UPN) gebruiken in de alternatieve naam van het onderwerp.  Als het clientcertificaat zal worden gebruikt om een Network Policy Server te verifiëren, dient u de alternatieve naam van het onderwerp op de UPN in te stellen.  
+ -   **Autre nom de l’objet** : spécifiez de quelle manière System Center Configuration Manager crée automatiquement les valeurs pour l’autre nom de l’objet dans la demande de certificat. Par exemple, si vous avez sélectionné un type de certificat utilisateur, vous pouvez inclure le nom d'utilisateur principal (UPN) dans l'autre nom de l'objet.  Si le certificat client est utilisé pour l'authentification sur un serveur de stratégie réseau, l'autre nom de l'objet doit être défini sur le nom d'utilisateur principal.  
 
    > [!NOTE]  
-   >  - iOS-apparaten ondersteunen slechts een beperkt aantal indelingen van onderwerpnamen en alternatieve namen van onderwerpen in SCEP-certificaten. Als u een indeling opgeeft die niet wordt ondersteund, zullen er geen certificaten op iOS-apparaten worden geregistreerd. Gebruik de **Algemene naam** voor de **Indeling van de onderwerpnaam**, en de **DNS-naam**, **E-mailadres** of **UPN** voor de **Alternatieve naam voor het onderwerp**als u een SCEP-certificaatprofiel configureert voor implementatie op iOS-apparaten.  
+   >  - Les appareils iOS ne prennent pas en charge tous les formats pour le nom d'objet et autre nom d'objet dans les certificats SCEP. Si vous spécifiez un format non pris en charge, les certificats ne seront pas inscrits sur les appareils iOS. Lorsque vous configurez un profil de certificat SCEP pour le déploiement sur des appareils iOS, utilisez **Nom commun** pour **Format du nom de l'objet**et **Nom DNS**, **Adresse de messagerie** ou **UPN** pour **Autre nom de l'objet**.  
 
- -   **Geldigheidsduur van certificaat**: Als u hebt de certutil - setreg Policy\EditFlags + EDITF_ATTRIBUTEENDDATE opdracht op de verlenende CA, waarop een aangepaste geldigheidsperiode mogelijk is, kunt u de hoeveelheid resterende tijd voordat het certificaat verloopt. Zie voor meer informatie over deze opdracht [certificaatinfrastructuur in System Center Configuration Manager](../../protect/deploy-use/certificate-infrastructure.md) onderwerp.  
+ -   **Période de validité du certificat** : si vous avez exécuté la commande certutil - setreg Policy\EditFlags +EDITF_ATTRIBUTEENDDATE sur l’autorité de certification émettrice, ce qui autorise une période de validité personnalisée, vous pouvez spécifier le temps restant avant l’expiration du certificat. Pour plus d’informations sur cette commande, consultez la rubrique [Infrastructure de certificats dans System Center Configuration Manager](../../protect/deploy-use/certificate-infrastructure.md).  
 
-   U kunt een waarde opgeven die lager is dan de geldigheidsperiode in het opgegeven certificaatsjabloon, maar niet hoger. Als de geldigheidsperiode van het certificaat in het certificaatsjabloon bijvoorbeeld twee jaar is, kunt u wel één jaar, maar niet vijf jaar opgeven. De waarde moet ook lager is dan de resterende geldigheidsperiode van de verlenende CA-certificaat.  
+   Vous pouvez spécifier une valeur inférieure à la période de validité du modèle de certificat spécifié, mais pas une valeur supérieure. Par exemple, si la période de validité du certificat dans le modèle de certificat est de 2 ans, vous pouvez spécifier une valeur de 1 an mais pas une valeur de 5 ans. La valeur doit également être inférieure à la période de validité restante du certificat de l’autorité de certification émettrice.  
 
- -   **Sleutelgebruik**: Geef sleutelgebruikopties voor het certificaat. U kunt kiezen uit de volgende opties:  
+ -   **Utilisation de la clé**: spécifiez les options d’utilisation de la clé pour le certificat. Vous pouvez choisir parmi les options suivantes :  
 
-        -   **Sleutelcodering**: Sta sleuteluitwisseling toe alleen als de sleutel is gecodeerd.  
+        -   **Chiffrage de clés**: autorisez l’échange de clés uniquement quand la clé est chiffrée.  
 
-        -   **Digitale handtekening**: Sta sleuteluitwisseling toe alleen als een digitale handtekening de sleutel helpt beveiligen.  
+        -   **Signature numérique**: autorisez l’échange de clés uniquement quand une signature numérique contribue à protéger la clé.  
 
-   Als u een certificaatsjabloon selecteerde door gebruik te maken van **Bladeren**, is het mogelijk dat u deze instellingen niet kunt wijzigen tenzij u een ander certificaatsjabloon selecteert.  
+   Si vous avez sélectionné un modèle de certificat à l'aide de l'option **Parcourir**, vous risquez de ne pas pouvoir modifier ces paramètres si vous ne sélectionnez pas un autre modèle de certificat.  
 
-   De certificaatsjabloon die u hebt geselecteerd, moet zijn geconfigureerd met één of beide van de hiervoor vermelde opties voor sleutelgebruik. Als dat niet het geval is, wordt in het logbestand **Crp.log** van het certificaatregistratiepunt vermeld dat het **sleutelgebruik in CSR en de vraag niet overeenkomen**.  
-
-
-   -   **Sleutelgrootte (bits)**: Selecteer de grootte van de sleutel in bits.  
-
-   -   **Uitgebreide-sleutelgebruik**: Klik op **Selecteer** om toe te voegen waarden voor het certificaat het beoogde gebruik van. In de meeste gevallen vereist het certificaat **Clientverificatie** zodat de gebruiker of het apparaat bij een server kan worden geverifieerd. U kunt echter zo nodig andere sleutelgebruiken toevoegen.  
+   Le modèle de certificat que vous avez sélectionné doit être configuré avec une ou les deux options d'utilisation de la clé ci-dessus. Sinon, le message **Key usage in CSR and challenge do not match** est présent dans le fichier journal de point d'enregistrement de certificat, **Crp.log**.  
 
 
-   -   **Hash-algoritme**: Selecteer een van de typen beschikbare hash-algoritme om met dit certificaat te gebruiken. Selecteer het sterkste beveiligingsniveau dat door de verbindende apparaten wordt ondersteund.  
+   -   **Taille de la clé (bits)**: sélectionnez la taille de la clé en bits.  
+
+   -   **Utilisation de la clé étendue** : cliquez sur **Sélectionner** pour ajouter des valeurs pour le rôle prévu du certificat. Dans la plupart des cas, le certificat demande une **Authentification client** afin que l'utilisateur ou l'appareil puisse être authentifié sur un serveur. Toutefois, vous pouvez ajouter d'autres utilisations de la clé en fonction de vos besoins.  
+
+
+   -   **Algorithme de hachage**: sélectionnez l’un des types d’algorithme de hachage disponibles avec ce certificat. Permet de sélectionner le niveau le plus élevé de sécurité pris en charge par les appareils se connectant.  
 
    > [!NOTE]  
    > 
-   >  **SHA-2** ondersteunt SHA-256, SHA-384 en SHA-512. **SHA-3** ondersteunt alleen SHA-3.  
+   >  **SHA-2** prend en charge SHA-256, SHA-384 et SHA-512. **SHA-3** prend uniquement en charge SHA-3.  
 
-   -   **CA-basiscertificaat**: Klik op **Selecteer** kiezen van een basis-CA-certificaatprofiel die u eerder hebt geconfigureerd en geïmplementeerd voor de gebruiker of apparaat. Dit CA-certificaat moet het basiscertificaat zijn voor de CA die het certificaat verleent dat u in dit certificaatprofiel gaat configureren.  
+   -   **Certificat d’Autorité de certification racine**: cliquez sur **Sélectionner** pour choisir un profil de certificat d’autorité de certification racine que vous avez précédemment configuré et déployé sur l’utilisateur ou l’appareil. Ce certificat d'autorité de certification doit être le certificat racine de l'autorité de certification qui émet le certificat que vous configurez dans ce profil de certificat.  
 
    > [!IMPORTANT]  
-   >  Als u een basis-CA-certificaat dat niet is geïmplementeerd voor de gebruiker of apparaat opgeeft, initieert System Center Configuration Manager niet de certificaataanvraag die u in dit certificaatprofiel gaat configureren.  
+   >  Si vous spécifiez un certificat d’autorité de certification racine qui n’est pas déployé pour l’utilisateur ou l’appareil, System Center Configuration Manager ne lancera pas la demande de certificat que vous configurez dans ce profil de certificat.  
 
 
-##  <a name="specify-supported-platforms-for-the-certificate-profile"></a>Ondersteunde platforms voor het certificaatprofiel opgeven  
+##  <a name="specify-supported-platforms-for-the-certificate-profile"></a>Spécifier les plateformes prises en charge pour le profil de certificat  
 
-1. Selecteer op de pagina **Ondersteunde platforms** van de wizard Certificaatprofiel maken de besturingssystemen waarvoor u het certificaatprofiel wilt installeren of klik op **Alles selecteren** als u het certificaatprofiel wilt installeren voor alle beschikbare besturingssystemen.
-2. Controleer de **samenvatting** pagina van de wizard en kies **voltooien**. 
+1. Sur la page **Plateformes prises en charge** de l'Assistant Création d'un profil de certificat, sélectionnez les systèmes d'exploitation dans lesquels vous voulez installer le profil de certificat. Vous pouvez également cliquer sur **Sélectionner tout** pour installer le profil de certificat sur tous les systèmes d'exploitation disponibles.
+2. Dans la page **Résumé** de l’Assistant, passez en revue les paramètres, puis choisissez **Terminer**. 
  
  
-Het nieuwe certificaatprofiel wordt weergegeven in de **Certificaatprofielen** knooppunt in de **activa en naleving** werkruimte en is gereed om te worden geïmplementeerd voor gebruikers of apparaten, zoals beschreven in [profielen in System Center Configuration Manager implementeren](deploy-wifi-vpn-email-cert-profiles.md).  
+Le nouveau profil de certificat s’affiche dans le nœud **Profils de certificat** de l’espace de travail **Ressources et Conformité**. Il est prêt à être déployé pour les utilisateurs ou les appareils, comme décrit dans la rubrique [Guide pratique pour déployer des profils dans System Center Configuration Manager](deploy-wifi-vpn-email-cert-profiles.md).  

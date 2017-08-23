@@ -1,6 +1,6 @@
 ---
-title: Upgrade uitvoeren voor clients voor Mac OS - Configuration Manager | Microsoft Docs
-description: Clients op Mac-computers in System Center Configuration Manager upgraden.
+title: "Mettre à niveau des clients MacOS - Configuration Manager | Microsoft Docs"
+description: "Mettez à niveau les clients sur des ordinateurs Mac dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,61 +16,61 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 502116b66fc14914ca0606ae416e82202824de7a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-upgrade-clients-on-mac-computers-in-system-center-configuration-manager"></a>Clients op Mac-computers bijwerken in System Center Configuration Manager
+# <a name="how-to-upgrade-clients-on-mac-computers-in-system-center-configuration-manager"></a>Comment mettre à niveau les clients sur les ordinateurs Mac dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Volg de stappen op hoog niveau die hieronder worden beschreven de client voor Mac-computers bijwerken met behulp van een System Center Configuration Manager-toepassing. U kunt het installatiebestand van de Mac-client ook downloaden, kopiëren naar een gedeelde netwerklocatie of een lokale map op de Mac-computer en vervolgens de gebruikers de opdracht geven de installatie handmatig uit te voeren.  
+Suivez les étapes générales décrites ci-dessous pour mettre à niveau le client pour des ordinateurs Mac à l’aide d’une application System Center Configuration Manager. Vous pouvez également télécharger le fichier d'installation du client Mac, le copier dans un emplacement réseau partagé ou un dossier local sur l'ordinateur Mac puis demander aux utilisateurs d'exécuter l'installation manuellement.  
 
 > [!NOTE]  
->  Voordat u deze stappen uitvoert, moet u nagaan of uw Mac-computer voldoet aan de vereisten. Zie [ondersteunde besturingssystemen voor Mac-computers](../../../plan-design/configs/supported-operating-systems-for-clients-and-devices.md#mac-computers).  
+>  Avant d’effectuer ces étapes, assurez-vous que votre ordinateur Mac dispose de la configuration requise. Consultez [Systèmes d’exploitation pris en charge pour les ordinateurs Mac](../../../plan-design/configs/supported-operating-systems-for-clients-and-devices.md#mac-computers).  
 
-## <a name="step-1-download-the-latest-mac-client-installation-file-from-the-microsoft-download-center"></a>Stap 1: De meest recente installatiebestand voor de Mac-client downloaden van het Microsoft Download Center  
- De Mac-client voor Configuration Manager is niet geleverd op de installatiemedia van Configuration Manager en moet worden gedownload vanaf het Microsoft Download Center. De installatiebestanden van de Mac-client staan in een Windows installatiebestand met als naam ConfigmgrMacClient.msi.  
+## <a name="step-1-download-the-latest-mac-client-installation-file-from-the-microsoft-download-center"></a>Étape 1 : Télécharger le dernier fichier d’installation du client Mac à partir du Centre de téléchargement Microsoft  
+ Le client Mac pour Configuration Manager n’est pas fourni sur le support d’installation de Configuration Manager et doit être téléchargé à partir du Centre de téléchargement Microsoft. Les fichiers d'installation du client Mac sont contenus dans un fichier Windows Installer nommé ConfigmgrMacClient.msi.  
 
- U kunt dit bestand downloaden via het [Microsoft Downloadcentrum](http://go.microsoft.com/fwlink/p/?LinkId=525184).  
+ Vous pouvez télécharger ce fichier à partir du [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=525184).  
 
-## <a name="step-2-run-the-downloaded-installation-file-to-create-the-mac-client-installation-file"></a>Stap 2: Voer het gedownloade installatiebestand voor het maken van het installatiebestand van de Mac-client  
- Voer op een computer met Windows het door u gedownloade bestand **ConfigmgrMacClient.msi** uit om het installatiebestand van de Mac-client met de naam **Macclient.dmg**uit te pakken. Dit bestand is standaard in de map **C:\Program Files (x86)\Microsoft\System Center 2012 Configuration Manager Mac Client** te vinden op de Windows-computer wanneer u de bestanden hebt uitgepakt.  
+## <a name="step-2-run-the-downloaded-installation-file-to-create-the-mac-client-installation-file"></a>Étape 2 : Exécuter le fichier d’installation téléchargé pour créer le fichier d’installation du client Mac  
+ Sur un ordinateur exécutant Windows, exécutez **ConfigmgrMacClient.msi** que vous avez téléchargé pour décompresser le fichier d'installation du client Mac, nommé **Macclient.dmg**. Ce fichier est disponible, par défaut, dans le dossier **C:\Program Files (x86)\Microsoft\System Center 2012 Configuration Manager Mac Client** sur l'ordinateur Windows une fois que vous avez décompressé les fichiers.  
 
-## <a name="step-3-extract-the-client-installation-files"></a>Stap 3: Pak de installatiebestanden van de client  
- Kopieer het Macclient.dmg-bestand naar een netwerkshare of een lokale map op een Mac-computer. Koppel vervolgens vanaf de Mac-computer het Macclient.dmg-bestand, open het en kopieer de bestanden naar een map op de Mac-computer.  
+## <a name="step-3-extract-the-client-installation-files"></a>Étape 3 : Extraire les fichiers d’installation du client  
+ Copiez le fichier Macclient.dmg dans un partage réseau ou dans un dossier local sur un ordinateur Mac. Puis, sur l'ordinateur Mac, montez et ouvrez le fichier Macclient.dmg et copiez les fichiers dans un dossier sur l'ordinateur Mac.  
 
-## <a name="step-4-create-a-cmmac-file-that-can-be-used-to-create-an-application"></a>Stap 4: Maak een cmmac-bestand dat kan worden gebruikt voor het maken van een toepassing  
+## <a name="step-4-create-a-cmmac-file-that-can-be-used-to-create-an-application"></a>Étape 4 : Créer un fichier .cmmac pouvant être utilisé pour créer une application  
 
-1.  Maak met behulp van het hulpprogramma **CMAppUtil** (te vinden in de map **Extra** van de installatiebestanden van de Mac client) een CMMAC-bestand uit het clientinstallatiepakket. Dit bestand wordt gebruikt voor het maken van de Configuration Manager-toepassing.  
+1.  Utilisez l'outil **CMAppUtil** (disponible dans le dossier **Outils** des fichiers d'installation du client Mac) pour créer un fichier .cmmac à partir du package d'installation du client. Ce fichier sera utilisé pour créer l’application Configuration Manager.  
 
-2.  Kopieer het nieuwe bestand **CMClient.pkg.cmmac** bestand naar een locatie die beschikbaar is voor de computer waarop de Configuration Manager-console wordt uitgevoerd.  
+2.  Copiez le nouveau fichier **CMClient.pkg.cmmac** dans un emplacement disponible pour l’ordinateur qui exécute la console Configuration Manager.  
 
- Zie voor meer informatie de [aanvullende procedures voor het maken en implementeren van toepassingen voor Mac-computers](/sccm/apps/get-started/creating-mac-computer-applications#supplemental-procedures-to-create-and-deploy-applications-for-mac-computers).  
+ Pour plus d’informations, consultez [Procédures supplémentaires de création et de déploiement d’applications pour ordinateurs Mac](/sccm/apps/get-started/creating-mac-computer-applications#supplemental-procedures-to-create-and-deploy-applications-for-mac-computers).  
 
-## <a name="step-5-create-and-deploy-an-application-containing-the-mac-client-files"></a>**Stap 5:** Maken en implementeren van een toepassing met de Mac-clientbestanden  
+## <a name="step-5-create-and-deploy-an-application-containing-the-mac-client-files"></a>**Étape 5 :** Créer et déployer une application contenant les fichiers du client Mac  
 
-1.  In de Configuration Manager-console maken van een toepassing van de **CMClient.pkg.cmmac** -bestand met de clientinstallatiebestanden.  
+1.  Dans la console Configuration Manager, créez une application à partir du fichier **CMClient.pkg.cmmac** qui contient les fichiers d’installation du client.  
 
-2.  Implementeer deze toepassing op Mac-computers in uw hiërarchie.  
+2.  Déployez cette application sur les ordinateurs Mac de votre hiérarchie.  
 
- Zie voor meer informatie [maken van Mac-computertoepassingen met System Center Configuration Manager](../../../../apps/get-started/creating-mac-computer-applications.md).  
+ Pour plus d’informations, consultez [Création d’applications pour ordinateurs Mac avec System Center Configuration Manager](../../../../apps/get-started/creating-mac-computer-applications.md).  
 
-## <a name="step-6-users-install-the-latest-client"></a>Stap 6: Gebruikers installeren de nieuwste client  
- Gebruikers van Mac-clients wordt gevraagd of een update voor Configuration Manager-client beschikbaar is en moet worden geïnstalleerd. Na installatie van de client moeten gebruikers hun Mac-computer opnieuw opstarten.  
+## <a name="step-6-users-install-the-latest-client"></a>Step 6 : Les utilisateurs installent la dernière version du client  
+ Les utilisateurs de clients Mac seront informés qu’une mise à jour du client Configuration Manager est disponible et qu’elle doit être installée. Une fois que les utilisateurs installent le client, ils doivent redémarrer leur ordinateur Mac.  
 
- Wanneer de computer opnieuw is opgestart, wordt automatisch de wizard Inschrijving computer uitgevoerd voor de aanvraag van een nieuw gebruikerscertificaat.  
+ Après le redémarrage de l'ordinateur, l'Assistant Inscription d'ordinateur s'exécute automatiquement pour demander un nouveau certificat d'utilisateur.  
 
- Als u niet Configuration Manager-inschrijving gebruikt maar het clientcertificaat onafhankelijk van Configuration Manager installeren, Zie [de bijgewerkte client voor het gebruik van een bestaand certificaat configureren](#BKMK_UpgradingClient_MachineEnrollment).  
+ Si vous n’utilisez pas l’inscription Configuration Manager, mais que vous installez le certificat client indépendamment de Configuration Manager, consultez [Configurer le client mis à niveau pour qu’il utilise un certificat existant](#BKMK_UpgradingClient_MachineEnrollment).  
 
-##  <a name="BKMK_UpgradingClient_MachineEnrollment"></a> cmshort  
- Voer de volgende procedure uit om te voorkomen dat de wizard Inschrijving computer wordt uitgevoerd en om de bijgewerkte client te configureren voor het gebruik van een bestaand clientcertificaat.  
+##  <a name="BKMK_UpgradingClient_MachineEnrollment"></a> Configure the upgraded client to use an existing certificate  
+ Exécutez la procédure suivante pour empêcher l’exécution de l’Assistant Inscription ordinateur et pour configurer le client mis à niveau afin qu’il utilise un certificat client existant.  
 
--   Maak in de Configuration Manager-console een configuratie-item van het type **Mac OS X**.  
+-   Dans la console Configuration Manager, créez un élément de configuration du type **Mac OS X**.  
 
--   Voeg een instelling toe aan dit configuratie-item met het instellingstype **Script**.  
+-   Ajoutez un paramètre à cet élément de configuration avec le type de paramètre **Script**.  
 
--   Voeg het volgende script toe aan de instelling:  
+-   Ajoutez le script suivant au paramètre :  
 
     ```  
     #!/bin/sh  
@@ -98,6 +98,6 @@ Volg de stappen op hoog niveau die hieronder worden beschreven de client voor Ma
 
     ```  
 
--   Het configuratie-item toevoegen aan een configuratiebasislijn en implementeer de configuratiebasislijn op alle Mac-computers waarop een certificaat onafhankelijk van Configuration Manager installeert.  
+-   Ajoutez l’élément de configuration à une base de référence de configuration, puis déployez cette dernière sur tous les ordinateurs Mac qui installent un certificat indépendamment de Configuration Manager.  
 
- Zie voor meer informatie over het maken en implementeren van configuratie-items voor Mac-computers [het maken van configuratie-items voor Mac OS X-apparaten worden beheerd met de System Center Configuration Manager-client](../../../../compliance/deploy-use/create-configuration-items-for-mac-os-x-devices-managed-with-the-client.md) en [het implementeren van configuratiebasislijnen in System Center Configuration Manager](../../../../compliance/deploy-use/deploy-configuration-baselines.md).  
+ Pour plus d’informations sur la création et le déploiement d’éléments de configuration pour des ordinateurs Mac, consultez [Comment créer des éléments de configuration pour des appareils Mac OS X gérés avec le client System Center Configuration Manager](../../../../compliance/deploy-use/create-configuration-items-for-mac-os-x-devices-managed-with-the-client.md) et [Comment déployer des bases de référence de configuration dans System Center Configuration Manager](../../../../compliance/deploy-use/deploy-configuration-baselines.md).  

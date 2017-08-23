@@ -1,6 +1,6 @@
 ---
-title: Verzamelingen beveiliging en privacy | Microsoft Docs
-description: Aanbevolen procedures voor beveiliging en privacy in verzamelingen in System Center Configuration Manager worden opgehaald.
+title: "Sécurité et confidentialité des regroupements | Microsoft Docs"
+description: "Obtenir les bonnes pratiques de sécurité et de confidentialité des regroupements dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -17,30 +17,30 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 0cade975e96220e193db1de92816f97cd253532d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-collections-in-system-center-configuration-manager"></a>Beveiliging en privacy voor verzamelingen in System Center Configuration Manager
+# <a name="security-and-privacy-for-collections-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour les regroupements dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Dit onderwerp bevat aanbevolen beveiligingsprocedures en privacy-informatie voor verzamelingen in System Center Configuration Manager.  
+Cette rubrique contient les bonnes pratiques en matière de sécurité et les informations de confidentialité pour les regroupements dans System Center Configuration Manager.  
 
- Er is geen privacyinformatie voor verzamelingen in Configuration Manager. Verzamelingen zijn containers voor resources, zoals gebruikers en apparaten. Lidmaatschap van verzameling is vaak afhankelijk van de informatie die door Configuration Manager worden verzameld bij een normale werking. U kunt bijvoorbeeld op basis van met een detectie of inventarisatie verzamelde resourcegegevens een verzameling configureren om de apparaten te bevatten die voldoen aan opgegeven criteria. Verzamelingen kunnen ook worden gebaseerd op de huidige statusinformatie voor clientbeheeroperaties, zoals het implementeren van software en het controleren op naleving. Naast deze op query's gebaseerde verzamelingen kunnen gebruikers met beheerdersrechten ook resources aan verzamelingen toevoegen.  
+ Il n'existe aucune information de confidentialité spécifique pour les regroupements dans Configuration Manager. Les regroupements sont des conteneurs pour les ressources, telles que les utilisateurs et les appareils. L'appartenance à un regroupement dépend souvent des informations recueillies par Configuration Manager pendant le fonctionnement standard. Par exemple, en utilisant les informations sur les ressources qui ont été collectées à partir de la découverte ou de l'inventaire, un regroupement peut être configuré pour renfermer les appareils qui répondent aux critères spécifiés. Les regroupements peuvent également reposer sur les informations d'état actuelles pour les opérations de gestion de client, telles que le déploiement de logiciels et la vérification de la compatibilité. En plus de ces regroupements basés sur des requêtes, les utilisateurs administratifs peuvent également ajouter des ressources aux regroupements.  
 
- Zie voor meer informatie over verzamelingen [inleiding op verzamelingen in System Center Configuration Manager](../../../../core/clients/manage/collections/introduction-to-collections.md). Zie voor meer informatie over aanbevolen beveiligingsprocedures en privacy-informatie voor Configuration Manager-bewerkingen die kunnen worden gebruikt voor het configureren van het lidmaatschap van verzameling [best practices voor beveiliging en privacy-informatie voor System Center Configuration Manager](../../../../core/plan-design/security/security-best-practices-and-privacy-information.md).  
+ Pour plus d'informations sur les regroupements, voir [Présentation des regroupements dans System Center Configuration Manager](../../../../core/clients/manage/collections/introduction-to-collections.md). Pour plus d'informations sur les bonnes pratiques en matière de sécurité et les informations de confidentialité pour les opérations Configuration Manager qui peuvent être utilisées pour configurer l'appartenance à des regroupements, voir [Bonnes pratiques en matière de sécurité et informations de confidentialité pour System Center Configuration Manager](../../../../core/plan-design/security/security-best-practices-and-privacy-information.md).  
 
-## <a name="security-best-practices-for-collections"></a>Aanbevolen procedures voor verzamelingen  
- Gebruik de volgende aanbevolen beveiligingsprocedures voor verzamelingen.  
+## <a name="security-best-practices-for-collections"></a>Meilleures pratiques de sécurité pour les regroupements  
+ Utilisez la meilleure pratique de sécurité suivante pour les regroupements.  
 
-|Aanbevolen beveiligingsprocedure|Meer informatie|  
+|Meilleure pratique de sécurité|Plus d'informations|  
 |----------------------------|----------------------|  
-|Wanneer u een verzameling in een MOF-bestand (Managed Object Format) wilt exporteren naar of importeren van een netwerklocatie, beveiligt u die locatie en het netwerkkanaal.|Hiermee beperkt u wie toegang heeft tot de netwerkmap.<br /><br /> Gebruik SBS-ondertekening (Server Message Block) of IPsec (Internet Protocol Security) tussen de netwerklocatie en de siteserver om te voorkomen dat een kwaadwillende persoon met de geëxporteerde verzamelingsgegevens kan knoeien. Gebruik IPsec om de gegevens op het netwerk te versleutelen om openbaarmaking van informatie te voorkomen.|  
+|Lorsque vous exportez ou importez un regroupement à l'aide d'un fichier au format d'objet géré (MOF) qui est enregistré dans un emplacement réseau, sécurisez l'emplacement et le canal de réseau.|Veillez à restreindre l'accès au dossier réseau.<br /><br /> Utilisez la signature SMB ou IPsec entre l'emplacement réseau et le serveur de site pour empêcher un intrus de falsifier les données de regroupement exportées. Utilisez IPsec pour chiffrer les données sur le réseau afin d'éviter la divulgation d'informations.|  
 
-### <a name="security-issues-for-collections"></a>Beveiligingsproblemen voor verzamelingen  
- Bij verzamelingen komen de volgende beveiligingsproblemen kijken:  
+### <a name="security-issues-for-collections"></a>Problèmes de sécurité pour les regroupements  
+ Les regroupements présentent les problèmes de sécurité suivants :  
 
--   Als u verzamelingsvariabelen gebruikt, kunnen lokale beheerders potentieel gevoelige informatie lezen.  
+-   Si vous utilisez des variables de regroupement, les administrateurs locaux peuvent lire des informations potentiellement sensibles.  
 
-     Verzamelingsvariabelen kunnen worden gebruikt wanneer u een besturingssysteem implementeert.  
+     Les variables de regroupement peuvent être utilisées lorsque vous déployez un système d'exploitation.  

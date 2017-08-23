@@ -1,6 +1,6 @@
 ---
-title: Implementatie van PKI-certificaten | Microsoft Docs
-description: Ga als volgt een voorbeeld van een stapsgewijze informatie over het maken en implementeren van PKI-certificaten die gebruikmaakt van System Center Configuration Manager.
+title: "Certificats PKI de déploiement | Microsoft Docs"
+description: "Suivez un exemple de procédure pas à pas pour découvrir comment créer et déployer des certificats PKI utilisés par System Center Configuration Manager."
 ms.custom: na
 ms.date: 02/14/2017
 ms.prod: configuration-manager
@@ -16,762 +16,762 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: b15f85b4483bbae2444d4e73d2e2aa0b3979d9ab
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="step-by-step-example-deployment-of-the-pki-certificates-for-system-center-configuration-manager-windows-server-2008-certification-authority"></a>Voorbeeld van stapsgewijze implementatie van de PKI-certificaten voor System Center Configuration Manager: Windows Server 2008-certificeringsinstantie
+# <a name="step-by-step-example-deployment-of-the-pki-certificates-for-system-center-configuration-manager-windows-server-2008-certification-authority"></a>Exemple de déploiement pas à pas des certificats PKI pour System Center Configuration Manager : autorité de certification Windows Server 2008
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Deze stapsgewijze Voorbeeldimplementatie, waarbij u gebruikmaakt van een Windows Server 2008-certificeringsinstantie (CA), heeft de procedures die wordt beschreven hoe u met het maken en implementeren van de openbare-sleutelinfrastructuur (PKI)-certificaten die gebruikmaakt van System Center Configuration Manager. Bij deze procedures worden een bedrijfscertificeringsinstantie en certificaatsjablonen en gebruikt. De stappen zijn alleen geschikt voor een testnetwerk, voor het testen van het concept.  
+Cet exemple de déploiement pas à pas utilise une autorité de certification Windows Server 2008. Il contient des procédures qui vous montrent comment créer et déployer les certificats d’infrastructure à clé publique (PKI) utilisés par System Center Configuration Manager. Ces procédures utilisent une autorité de certification d'entreprise (CA) et des modèles de certificats. Les étapes conviennent uniquement à un réseau de test utilisé à des fins de démonstration du concept.  
 
- Omdat er geen enkele methode van implementatie voor de vereiste certificaten, raadpleegt u uw specifieke PKI-Implementatiedocumentatie voor de vereiste procedures en aanbevolen procedures voor het implementeren van de vereiste certificaten voor een productieomgeving. Zie voor meer informatie over de certificaatvereisten [PKI-certificaatvereisten voor System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
+ Étant donné qu’il n’existe aucune méthode unique de déploiement des certificats requis, consultez la documentation de votre déploiement d’infrastructure à clé publique (PKI) pour prendre connaissance des procédures et des bonnes pratiques liées au déploiement des certificats requis pour un environnement de production. Pour en savoir plus sur la configuration requise pour les certificats, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
 
 > [!TIP]  
->  U kunt de instructies in dit onderwerp voor de besturingssystemen die niet zijn opgenomen in de rubriek Testnetwerkvereisten aanpassen. Als u echter de verlenende certificeringsinstantie uitvoert op Windows Server 2012, wordt u niet gevraagd om de versie van het certificaatsjabloon. Geef dit op de **compatibiliteit** tabblad van de sjablooneigenschappen:  
+>  Vous pouvez adapter les instructions de cette rubrique aux systèmes d’exploitation autres que ceux décrits dans la section Configuration requise du réseau de test. Toutefois, si vous exécutez l'autorité de certification émettrice sur Windows Server 2012, vous n'êtes pas invité à indiquer la version du modèle de certificat. Spécifiez-la plutôt sous l’onglet **Compatibilité** des propriétés du modèle :  
 >   
->  -   **Certificeringsinstantie (CA)**: **WindowsServer 2003**  
-> -   **Ontvanger van certificaat**: **Windows XP / Server 2003**  
+>  -   **Autorité de certification**: **Windows Server 2003**  
+> -   **Destinataire du certificat**: **Windows XP / Server 2003**  
 
-## <a name="in-this-section"></a>In deze sectie  
- De volgende rubrieken bevatten stapsgewijze Voorbeeldinstructies om te maken en implementeren van de volgende certificaten die kunnen worden gebruikt met System Center Configuration Manager:  
+## <a name="in-this-section"></a>Dans cette section  
+ Les sections suivantes contiennent des exemples de procédures pas à pas pour créer et déployer les certificats suivants à utiliser avec System Center Configuration Manager :  
 
- [Testnetwerkvereisten](#BKMK_testnetworkenvironment)  
+ [Configuration requise du réseau de test](#BKMK_testnetworkenvironment)  
 
- [Overzicht van de certificaten](#BKMK_overview2008)  
+ [Présentation des certificats](#BKMK_overview2008)  
 
- [Implementeer het Webservercertificaat voor sitesystemen die IIS uitvoeren](#BKMK_webserver2008_cm2012)  
+ [Déployer le certificat de serveur web pour les systèmes de site qui exécutent IIS](#BKMK_webserver2008_cm2012)  
 
- [Het servicecertificaat voor cloud-gebaseerde distributiepunten implementeren](#BKMK_clouddp2008_cm2012)  
+ [Déployer le certificat de service pour les points de distribution cloud](#BKMK_clouddp2008_cm2012)  
 
- [Het clientcertificaat voor Windows-computers implementeren](#BKMK_client2008_cm2012)  
+ [Déployer le certificat client pour les ordinateurs Windows](#BKMK_client2008_cm2012)  
 
- [Het clientcertificaat voor distributiepunten implementeren](#BKMK_clientdistributionpoint2008_cm2012)  
+ [Déployer le certificat client pour les points de distribution](#BKMK_clientdistributionpoint2008_cm2012)  
 
- [Het certificaat voor inschrijving voor mobiele apparaten implementeren](#BKMK_mobiledevices2008_cm2012)  
+ [Déployer le certificat d’inscription pour les appareils mobiles](#BKMK_mobiledevices2008_cm2012)  
 
- [De certificaten voor AMT implementeren](#BKMK_AMT2008_cm2012)  
+ [Déployer les certificats pour AMT](#BKMK_AMT2008_cm2012)  
 
- [De certificaat-client voor Mac-computers implementeren](#BKMK_MacClient_SP1)  
+ [Déployer le certificat client pour les ordinateurs Mac](#BKMK_MacClient_SP1)  
 
-##  <a name="BKMK_testnetworkenvironment"></a>Testnetwerkvereisten  
- De stapsgewijze instructies hebben de volgende vereisten:  
+##  <a name="BKMK_testnetworkenvironment"></a> Configuration requise du réseau de test  
+ Dans ces instructions étape par étape, les impératifs de configuration sont les suivants :  
 
--   Het testnetwerk voert Active Directory Domain Services uit met Windows Server 2008 en is geïnstalleerd als een enkel domein, enkel forest.  
+-   Le réseau de test exécute les services de domaine Active Directory avec Windows Server 2008, et il est installé en tant que domaine unique au sein d'une même forêt.  
 
--   U hebt een lidserver die Windows Server 2008 Enterprise Edition, dat is de functie Active Directory Certificate Services is geïnstalleerd op deze, en is ingesteld als een enterprise-basiscertificeringsinstantie (CA).  
+-   Vous disposez d’un serveur membre exécutant Windows Server 2008 Enterprise Edition sur lequel est installé le rôle Services de certificats Active Directory, et il est configuré comme autorité de certification racine d’entreprise.  
 
--   U hebt één computer met Windows Server 2008 (Standard Edition of Enterprise Edition, R2 of hoger) is geïnstalleerd, die computer is aangewezen als lidserver, en Internet Information Services (IIS) is geïnstalleerd. Deze computer wordt de systeemserver van de System Center Configuration Manager-site die u met een volledig gekwalificeerde domeinnaam (FQDN configureren gaat) voor de ondersteuning van clientverbindingen op het intranet en een Internet-FQDN als u mobiele apparaten die zijn geregistreerd door System Center Configuration Manager en clients moet ondersteunen van intranet niet op het Internet.  
+-   Un ordinateur équipé de Windows Server 2008 (Standard Edition ou Enterprise Edition, R2 ou version ultérieure) doit être désigné comme serveur membre, et les services Internet (IIS) doivent être installés sur cet ordinateur. Cet ordinateur est le serveur de système de site System Center Configuration Manager que vous configurez avec un nom de domaine complet intranet (pour la prise en charge des connexions clientes sur l’intranet) et un nom de domaine complet Internet si vous devez prendre en charge des appareils mobiles inscrits auprès de System Center Configuration Manager et de clients sur Internet.  
 
--   U hebt een Windows Vista-client met het nieuwste servicepack geïnstalleerd en deze computer is ingesteld met een computernaam die ASCII-tekens bevat en is gekoppeld aan het domein. Deze computer is een System Center Configuration Manager-clientcomputer.  
+-   Vous disposez d’un client Windows Vista équipé du dernier Service Pack, et cet ordinateur configuré avec un nom d’ordinateur incluant des caractères ASCII est lié au domaine. Cet ordinateur est un ordinateur client System Center Configuration Manager.  
 
--   U kunt aanmelden met een beheerdersaccount voor hoofddomein of een beheerdersaccount voor ondernemingsdomein en dit account gebruiken voor alle procedures in deze voorbeeldimplementatie.  
+-   Vous pouvez vous connecter sous un compte d’administrateur de domaine racine ou d’entreprise et utiliser ce compte pour effectuer toutes les procédures présentées dans cet exemple de déploiement.  
 
-##  <a name="BKMK_overview2008"></a>Overzicht van de certificaten  
- De volgende tabel bevat de soorten PKI-certificaten die mogelijk vereist zijn voor System Center Configuration Manager en beschrijft hoe ze worden gebruikt.  
+##  <a name="BKMK_overview2008"></a> Présentation des certificats  
+ Le tableau suivant présente les types de certificats PKI pouvant être nécessaires pour System Center Configuration Manager et décrit leur utilisation.  
 
-|Certificaatvereiste|Certificaatbeschrijving|  
+|Certificat requis|Description du certificat|  
 |-----------------------------|-----------------------------|  
-|Webservercertificaat voor sitesystemen die IIS uitvoeren|Dit certificaat wordt gebruikt om gegevens te coderen en de server te verifiëren naar clients. Het moet extern worden geïnstalleerd van System Center Configuration Manager op sitesysteemservers waarop Internet Information Services (IIS) wordt uitgevoerd en die zijn ingesteld in System Center Configuration Manager voor gebruik van HTTPS.<br /><br /> Zie voor de stappen voor het instellen en dit certificaat te installeren, [implementeren van het Webservercertificaat voor sitesystemen die IIS uitvoeren](#BKMK_webserver2008_cm2012) in dit onderwerp.|  
-|Servicecertificaat voor clients voor verbinding maken met cloud-gebaseerde distributiepunten|Zie voor de stappen voor het configureren en installeer dit certificaat [het servicecertificaat voor cloud-gebaseerde distributiepunten implementeren](#BKMK_clouddp2008_cm2012) in dit onderwerp.<br /><br /> **Belangrijk:** Dit certificaat wordt gebruikt in combinatie met de Windows Azure-beheercertificaat. Zie voor meer informatie over het beheercertificaat [het maken van een Beheercertificaat](http://go.microsoft.com/fwlink/p/?LinkId=220281) en [een Beheercertificaat toevoegen aan een Windows Azure-abonnement](http://go.microsoft.com/fwlink/?LinkId=241722) in de Windows Azure-platformsectie van de MSDN-bibliotheek.|  
-|Clientcertificaat voor Windows-computers|Dit certificaat wordt gebruikt voor verificatie van System Center Configuration Manager-clientcomputers naar sitesystemen die zijn ingesteld voor gebruik van HTTPS. Het kan ook worden gebruikt voor beheerpunten en statusmigratiepunten om te controleren van de operationele status wanneer ze zijn ingesteld voor gebruik van HTTPS. Het moet extern worden geïnstalleerd van System Center Configuration Manager op computers.<br /><br /> Zie voor de stappen voor het instellen en dit certificaat te installeren, [het clientcertificaat voor Windows-computers implementeren](#BKMK_client2008_cm2012) in dit onderwerp.|  
-|Clientcertificaat voor distributiepunten|Dit certificaat heeft twee doeleinden:<br /><br /> Het certificaat wordt gebruikt om het distributiepunt naar een HTTPS-beheerpunt te verifiëren voordat het distributiepunt statusberichten verzendt.<br /><br /> Wanneer de distributiepuntoptie **PXE-ondersteuning voor clients inschakelen** is geselecteerd, wordt het certificaat verzonden naar computers die een PXE-opstartbewerking uitvoeren, zodat ze verbinding kunnen maken met een HTTPS-beheerpunt tijdens de implementatie van het besturingssysteem.<br /><br /> Zie voor de stappen voor het instellen en dit certificaat te installeren, [het clientcertificaat voor distributiepunten implementeren](#BKMK_clientdistributionpoint2008_cm2012) in dit onderwerp.|  
-|Certificaat voor inschrijving voor mobiele apparaten|Dit certificaat wordt gebruikt voor verificatie van System Center Configuration Manager-clients voor mobiele apparaten naar sitesystemen die zijn ingesteld voor gebruik van HTTPS. Het moet worden geïnstalleerd als onderdeel van de inschrijving van mobiele apparaten in System Center Configuration Manager, en u het geconfigureerde certificaatsjabloon als een mobiel apparaatclientinstelling kiezen.<br /><br /> Zie voor de stappen voor het instellen van dit certificaat [implementeren van het certificaat voor inschrijving voor mobiele apparaten](#BKMK_mobiledevices2008_cm2012) in dit onderwerp.|  
-|Certificaten voor Intel AMT|Drie certificaten met betrekking tot out-of-band management voor Intel AMT gebaseerde computers:<ul><li>Een certificaat voor de inrichting Active Management Technology (AMT)</li><li>Een AMT-Webservercertificaat</li><li>U kunt desgewenst een certificaat voor clientverificatie voor 802.1 X bekabelde of draadloze netwerken</li></ul>Het certificaat voor AMT-inrichting moet extern worden geïnstalleerd van System Center Configuration Manager op de computer out-of-band-service en u ervoor kiezen het geïnstalleerde certificaat in de eigenschappen van out-of-band-service. De AMT-Webservercertificaat en het certificaat voor clientverificatie worden geïnstalleerd tijdens AMT-inrichting en beheer, en u de geconfigureerde certificaatsjablonen kiezen in de onderdeeleigenschappen voor buiten-bandbeheer.<br /><br /> Zie voor de stappen voor het instellen van deze certificaten [de certificaten voor AMT implementeren](#BKMK_AMT2008_cm2012) in dit onderwerp.|  
-|Clientcertificaat voor Mac-computers|U kunt aanvragen en dit certificaat installeren vanaf een Mac-computer wanneer u System Center Configuration Manager-inschrijving gebruikt en kies het geconfigureerde certificaatsjabloon als een client voor mobiele apparaten instellen.<br /><br /> Zie voor de stappen voor het instellen van dit certificaat [het clientcertificaat voor Mac-computers implementeren](#BKMK_MacClient_SP1) in dit onderwerp.|  
+|Certificat de serveur Web pour les systèmes de site qui exécutent IIS|Ce certificat permet de chiffrer les données et d'authentifier le serveur auprès des clients. Il doit être installé indépendamment de System Center Configuration Manager sur des serveurs de systèmes de site qui exécutent IIS (Internet Information Services) et qui sont configurés dans System Center Configuration Manager pour utiliser HTTPS.<br /><br /> Pour plus d’informations sur les étapes permettant de configurer et d’installer ce certificat, consultez [Déployer le certificat de serveur web pour les systèmes de site qui exécutent IIS](#BKMK_webserver2008_cm2012) dans cette rubrique.|  
+|Certificat de service pour la connexion des clients aux points de distribution cloud|Pour plus d’informations sur les étapes permettant de configurer et d’installer ce certificat, consultez [Déployer le certificat de service pour les points de distribution cloud](#BKMK_clouddp2008_cm2012) dans cette rubrique.<br /><br /> **Important :** Ce certificat est utilisé conjointement avec le certificat de gestion Microsoft Azure. Pour plus d’informations sur le certificat de gestion, consultez [Guide pratique pour créer un certificat de gestion](http://go.microsoft.com/fwlink/p/?LinkId=220281) et [Guide pratique pour ajouter un certificat de gestion à un abonnement Windows Azure](http://go.microsoft.com/fwlink/?LinkId=241722) dans la section Plateforme Windows Azure de MSDN Library.|  
+|Certificat client pour les ordinateurs Windows|Ce certificat est utilisé pour authentifier les ordinateurs clients System Center Configuration Manager auprès des systèmes de site qui sont configurés pour utiliser HTTPS. Sur les points de gestion et les points de migration d’état, il permet de surveiller leur état de fonctionnement quand ils sont configurés pour utiliser HTTPS. Il doit être installé indépendamment de System Center Configuration Manager sur les ordinateurs.<br /><br /> Pour plus d’informations sur les étapes permettant de configurer et d’installer ce certificat, consultez [Déployer le certificat client pour les ordinateurs Windows](#BKMK_client2008_cm2012) dans cette rubrique.|  
+|Certificat client pour les points de distribution|Ce certificat a deux objectifs :<br /><br /> Ce certificat est utilisé pour authentifier le point de distribution auprès d'un point de gestion HTTPS avant que le point de distribution n'envoie des messages d'état.<br /><br /> Lorsque l'option du point de distribution **Activer la prise en charge PXE pour les clients** est sélectionnée, le certificat est envoyé aux ordinateurs qui effectuent un démarrage PXE afin qu'ils puissent se connecter à un point de gestion HTTPS pendant le déploiement du système d'exploitation.<br /><br /> Pour plus d’informations sur les étapes permettant de configurer et d’installer ce certificat, consultez [Déployer le certificat client pour les points de distribution](#BKMK_clientdistributionpoint2008_cm2012) dans cette rubrique.|  
+|Certificat d'inscription pour les appareils mobiles|Ce certificat est utilisé pour authentifier les clients d’appareils mobiles System Center Configuration Manager auprès des systèmes de site qui sont configurés pour utiliser HTTPS. Il doit être installé dans le cadre de l’inscription d’appareil mobile dans System Center Configuration Manager. Ensuite, vous choisissez le modèle de certificat configuré comme paramètre de client d’appareil mobile.<br /><br /> Pour plus d’informations sur les étapes permettant de configurer ce certificat, consultez [Déployer le certificat d’inscription pour les appareils mobiles](#BKMK_mobiledevices2008_cm2012) dans cette rubrique.|  
+|Certificats pour Intel AMT|Trois certificats sont associés à la gestion hors bande pour les ordinateurs Intel AMT :<ul><li>un certificat de configuration AMT (Active Management Technology) ;</li><li>un certificat de serveur web AMT ;</li><li>en option, un certificat d’authentification client pour les réseaux filaires ou sans fil 802.1X.</li></ul>Le certificat de configuration AMT doit être installé indépendamment de System Center Configuration Manager sur l’ordinateur de point de service hors bande. Ensuite, vous choisissez le certificat installé dans les propriétés du point de service hors bande. Le certificat de serveur web AMT ainsi que le certificat d’authentification client sont installés pendant la configuration et la gestion d’AMT. Ensuite, vous choisissez les modèles de certificats configurés dans les propriétés du composant de gestion hors bande.<br /><br /> Pour plus d’informations sur les étapes permettant de configurer ces certificats, consultez [Déployer les certificats pour AMT](#BKMK_AMT2008_cm2012) dans cette rubrique.|  
+|Certificat client pour les ordinateurs Mac|Vous pouvez obtenir et installer ce certificat à partir d’un ordinateur Mac quand vous utilisez l’inscription System Center Configuration Manager. Ensuite, vous choisissez le modèle de certificat configuré comme paramètre de client d’appareil mobile.<br /><br /> Pour plus d’informations sur les étapes permettant de configurer ce certificat, consultez [Déployer le certificat client pour les ordinateurs Mac](#BKMK_MacClient_SP1) dans cette rubrique.|  
 
-##  <a name="BKMK_webserver2008_cm2012"></a>Implementeer het Webservercertificaat voor sitesystemen die IIS uitvoeren  
- Deze certificaatimplementatie heeft de volgende procedures:  
+##  <a name="BKMK_webserver2008_cm2012"></a> Déployer le certificat de serveur web pour les systèmes de site qui exécutent IIS  
+ Les procédures de ce déploiement de certificat sont les suivantes :  
 
--   Maken en uitgeven van de webserver sjabloon Webservercertificaat bij de certificeringsinstantie  
+-   Créer et émettre le modèle de certificat de serveur web sur l’autorité de certification  
 
--   Het webservercertificaat aanvragen  
+-   Demander le certificat de serveur web  
 
--   IIS configureren voor het gebruik van het webservercertificaat  
+-   Configurer IIS en vue d’utiliser le certificat de serveur web  
 
-###  <a name="BKMK_webserver22008"></a>Maken en uitgeven van de webserver sjabloon Webservercertificaat bij de certificeringsinstantie  
- Deze procedure maakt u een certificaatsjabloon voor System Center Configuration Manager-sitesystemen en voegt het toe aan de certificeringsinstantie.  
+###  <a name="BKMK_webserver22008"></a> Créer et émettre le modèle de certificat de serveur web sur l’autorité de certification  
+ Cette procédure crée un modèle de certificat pour les systèmes de site System Center Configuration Manager et l’ajoute à l’autorité de certification.  
 
-##### <a name="to-create-and-issue-the-web-server-certificate-template-on-the-certification-authority"></a>Maken en publiceren van het sjabloon webservercertificaat bij de certificeringsinstantie  
+##### <a name="to-create-and-issue-the-web-server-certificate-template-on-the-certification-authority"></a>Pour créer et émettre le modèle de certificat de serveur Web sur l'autorité de certification  
 
-1.  Maak een beveiligingsgroep met de naam **ConfigMgr IIS Servers** die de lidservers voor het installeren van System Center Configuration Manager-sitesystemen waarop IIS wordt uitgevoerd heeft.  
+1.  Créez un groupe de sécurité nommé **Serveurs ConfigMgr IIS** qui contient les serveurs membres où installer les systèmes de site System Center Configuration Manager qui vont exécuter IIS.  
 
-2.  Op de lidserver waarop Certificate Services is geïnstalleerd, in de certificeringsinstantieconsole met de rechtermuisknop op **certificaatsjablonen** en kies vervolgens **beheren** laden van de **certificaatsjablonen** console.  
+2.  Sur le serveur membre sur lequel les services de certificats sont installés, dans la console Autorité de certification, cliquez avec le bouton droit sur **Modèles de certificats**, puis choisissez **Gérer** pour charger la console **Modèles de certificats**.  
 
-3.  In het deelvenster met resultaten met de rechtermuisknop op het item met **webserver** in de **weergavenaam van sjabloon** kolom, en kies vervolgens **sjabloon dupliceren**.  
+3.  Dans le volet des résultats, cliquez avec le bouton droit sur l’entrée qui affiche **Serveur Web** dans la colonne **Nom complet du modèle**, puis choisissez **Dupliquer le modèle**.  
 
-4.  In de **sjabloon dupliceren** dialoogvenster vak, zorg ervoor dat **Windows 2003 Server, Enterprise Edition** is geselecteerd en kies vervolgens **OK**.  
+4.  Dans la boîte de dialogue **Dupliquer le modèle**, vérifiez que l’option **Windows Server 2003, Enterprise Edition** est sélectionnée, puis choisissez **OK**.  
 
     > [!IMPORTANT]  
-    >  **Windows 2008 Server, Enterprise Edition**niet selecteren.  
+    >  Ne sélectionnez pas **Windows Server 2008, Enterprise Edition**.  
 
-5.  In de **eigenschappen van nieuwe sjabloon** in het dialoogvenster op de **algemene** tabblad, voert u de sjabloonnaam van een, zoals **ConfigMgr-Webservercertificaat**voor het genereren van de webcertificaten die worden gebruikt op Configuration Manager-sitesystemen.  
+5.  Dans la boîte de dialogue **Propriétés du nouveau modèle**, sous l’onglet **Général**, entrez un nom de modèle (par exemple, **Certificat de serveur web ConfigMgr**) pour générer les certificats web à utiliser sur les systèmes de site Configuration Manager.  
 
-6.  Kies de **onderwerpnaam** tabblad en zorg ervoor dat **met de aanvraag meeleveren** is geselecteerd.  
+6.  Choisissez l’onglet **Nom de l’objet** et vérifiez que l’option **Fournir dans la demande** est sélectionnée.  
 
-7.  Kies de **beveiliging** tabblad, en verwijder vervolgens de **inschrijven** machtiging van de **Domeinadministrators** en **Ondernemingsadministrators** beveiligingsgroepen.  
+7.  Sous l’onglet **Sécurité**, supprimez l’autorisation **Inscription** des groupes de sécurité **Administrateurs du domaine** et **Administrateurs de l’entreprise**.  
 
-8.  Kies **toevoegen**, voer **ConfigMgr IIS Servers** in de tekst in het vak en kies vervolgens **OK**.  
+8.  Choisissez **Ajouter**, entrez **Serveurs ConfigMgr IIS** dans la zone de texte, puis choisissez **OK**.  
 
-9. Kies de **inschrijven** machtiging voor deze groep en verwijder de **lezen** machtiging.  
+9. Choisissez l’autorisation **Inscription** pour ce groupe et ne désactivez pas l’autorisation **Lecture**.  
 
-10. Kies **OK**, en sluit vervolgens de **Certificaatsjablonenconsole**.  
+10. Choisissez **OK**, puis fermez la **console Modèles de certificats**.  
 
-11. In de certificeringsinstantieconsole met de rechtermuisknop op **certificaatsjablonen**, kies **nieuw**, en kies vervolgens **te verlenen certificaatsjablonen**.  
+11. Dans la console Autorité de certification, cliquez avec le bouton droit sur **Modèles de certificats**, choisissez **Nouveau**, puis **Modèle de certificat à délivrer**.  
 
-12. In de **Certificaatsjablonen inschakelen** dialoogvenster het nieuwe sjabloon dat u zojuist hebt gemaakt, kies **ConfigMgr-Webservercertificaat**, en kies vervolgens **OK**.  
+12. Dans la boîte de dialogue **Activer les modèles de certificat**, choisissez le nouveau modèle que vous venez de créer, **Certificat de serveur web ConfigMgr**, puis choisissez **OK**.  
 
-13. Als u niet wilt maken en uitgeven van certificaten meer sluit **certificeringsinstantie**.  
+13. Si vous n’avez pas besoin de créer ni d’émettre d’autres certificats, fermez **Autorité de certification**.  
 
-###  <a name="BKMK_webserver32008"></a>Het webservercertificaat aanvragen  
- Deze procedure kunt u opgeven van het intranet en Internet-FQDN-waarden die zullen worden ingesteld in de systeemservereigenschappen en installeert vervolgens het Webservercertificaat op de lidserver waarop IIS wordt uitgevoerd.  
+###  <a name="BKMK_webserver32008"></a> Demander le certificat de serveur web  
+ Cette procédure vous permet de spécifier les valeurs de nom de domaine complet intranet et Internet qui seront configurées dans les propriétés de serveur de système de site, puis installe le certificat de serveur web sur le serveur membre qui exécute IIS.  
 
-##### <a name="to-request-the-web-server-certificate"></a>Het webservercertificaat aanvragen  
+##### <a name="to-request-the-web-server-certificate"></a>Pour demander le certificat de serveur Web  
 
-1.  Start opnieuw op de lidserver waarop IIS om ervoor te zorgen dat de computer toegang heeft tot de certificaatsjabloon die u hebt gemaakt met behulp van de **lezen** en **inschrijven** machtigingen die u hebt geconfigureerd.  
+1.  Redémarrez le serveur membre qui exécute IIS pour vérifier que l’ordinateur peut accéder au modèle de certificat créé via les autorisations **Lecture** et **Inscription** configurées.  
 
-2.  Kies **Start**, kies **uitvoeren**, en typ vervolgens **mmc.exe.** Kies in de lege console **bestand**, en kies vervolgens **module toevoegen/verwijderen**.  
+2.  Choisissez **Démarrer**, **Exécuter**, puis tapez **mmc.exe.** Dans la console vide, choisissez **Fichier**, puis **Ajouter/Supprimer un composant logiciel enfichable**.  
 
-3.  In de **toevoegen of verwijderen van modules** dialoogvenster Kies **certificaten** uit de lijst met **beschikbare modules**, en kies vervolgens **toevoegen**.  
+3.  Dans la boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables**, choisissez **Certificats** dans la liste **Composants logiciels enfichables disponibles**, puis **Ajouter**.  
 
-4.  In de **-module van het certificaat** dialoogvenster Kies **computeraccount**, en kies vervolgens **volgende**.  
+4.  Dans la boîte de dialogue **Composant logiciel enfichable des certificats**, choisissez **Compte d’ordinateur**, puis **Suivant**.  
 
-5.  In de **Computer selecteren** dialoogvenster vak, zorg ervoor dat **lokale computer: (de computer waarop deze console wordt uitgevoerd)** is geselecteerd en kies vervolgens **voltooien**.  
+5.  Dans la boîte de dialogue **Sélectionner un ordinateur**, vérifiez que l’option **L’ordinateur local (l’ordinateur sur lequel cette console s’exécute)** est sélectionnée, puis choisissez **Terminer**.  
 
-6.  In de **toevoegen of verwijderen van modules** dialoogvenster Kies **OK**.  
+6.  Dans la boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables**, choisissez **OK**.  
 
-7.  In de console, vouw **certificaten (lokale Computer)**, en kies vervolgens **persoonlijke**.  
+7.  Dans la console, développez **Certificats (ordinateur local)**, puis choisissez **Personnel**.  
 
-8.  Met de rechtermuisknop op **certificaten**, kies **alle taken**, en kies vervolgens **nieuw certificaat aanvragen**.  
+8.  Cliquez avec le bouton droit sur **Certificats**, choisissez **Toutes les tâches**, puis **Demander un nouveau certificat**.  
 
-9. Op de **voordat u begint** pagina **volgende**.  
+9. Dans la page **Avant de commencer**, choisissez **Suivant**.  
 
-10. Als u ziet de **Selecteer certificaatinschrijvingsbeleid** pagina **volgende**.  
+10. Si vous voyez la page **Sélectionner la stratégie d’inscription de certificat**, choisissez **Suivant**.  
 
-11. Op de **certificaten aanvragen** pagina, identificeren de **ConfigMgr-Webservercertificaat** uit de lijst met beschikbare certificaten en kies vervolgens **meer gegevens nodig voor inschrijving voor dit certificaat. Klik hier om instellingen te configureren**.  
+11. Dans la page **Demander des certificats**, identifiez le **Certificat de serveur web ConfigMgr** dans la liste des certificats disponibles, puis choisissez **L’inscription pour obtenir ce certificat nécessite des informations supplémentaires. Cliquez ici pour configurer les paramètres**.  
 
-12. In de **certificaateigenschappen** het dialoogvenster de **onderwerp** tabblad, breng eventuele wijzigingen in **onderwerpnaam**. Dit betekent dat het vak **Waarde** voor het gedeelte **Onderwerpnaam leeg** blijft. In plaats daarvan uit de **alternatieve naam** sectie, kiest u de **Type** vervolgkeuzelijst lijst en kies vervolgens **DNS**.  
+12. Dans la boîte de dialogue **Propriétés du certificat**, dans l’onglet **Objet**, n’apportez pas de modifications à **Nom de l’objet**. Cela signifie que la zone **Valeur** de la section **Nom d'objet** reste vierge. Au lieu de cela, dans la section **Autre nom**, choisissez la liste déroulante **Type**, puis **DNS**.  
 
-13. In de **waarde** Geef de FQDN-waarden die u wilt opgeven in de sitesysteemeigenschappen van System Center Configuration Manager en kies vervolgens **OK** sluiten de **certificaateigenschappen** in het dialoogvenster.  
+13. Dans la zone **Valeur**, spécifiez les valeurs de nom de domaine complet que vous allez indiquer dans les propriétés de système de site System Center Configuration Manager, puis choisissez **OK** pour fermer la boîte de dialogue **Propriétés du certificat**.  
 
-     Voorbeelden:  
+     Exemples :  
 
-    -   Als het sitesysteem alleen clientverbindingen via het Internet accepteert, en de intranet-FQDN van de sitesysteemserver is **server1.internal.contoso.com**, voer **server1.internal.contoso.com**, en kies vervolgens **toevoegen**.  
+    -   Si le système de site accepte uniquement les connexions clientes à partir de l’intranet et que le nom de domaine complet intranet du serveur de système de site est **server1.internal.contoso.com**, entrez **server1.internal.contoso.com**, puis choisissez **Ajouter**.  
 
-    -   Als het sitesysteem clientverbindingen accepteert van het intranet en van internet, en de intranet-FQDN van de sitesysteemserver is **server1.internal.contoso.com** en de internet-FQDN van de sitesysteemserver is **server.contoso.com**:  
+    -   Si le système de site accepte uniquement les connexions client à partir de l'Intranet et d'Internet, et le nom de domaine complet Intranet du serveur de système de site est **server1.internal.contoso.com** , et le nom de domaine complet Internet du serveur de système de site est **server.contoso.com**:  
 
-        1.  Voer **server1.internal.contoso.com**, en kies vervolgens **toevoegen**.  
+        1.  Entrez **server1.internal.contoso.com**, puis choisissez **Ajouter**.  
 
-        2.  Voer **server.contoso.com**, en kies vervolgens **toevoegen**.  
+        2.  Entrez **server.contoso.com**, puis choisissez **Ajouter**.  
 
         > [!NOTE]  
-        >  U kunt de FQDN-namen opgeven voor System Center Configuration Manager in willekeurige volgorde. Controleer wel dat alle apparaten die het certificaat, zoals mobiele apparaten en proxywebservers, gebruiken een certificaat alternatieve onderwerpnaam (SAN) en meerdere waarden in de SAN gebruiken kunnen. Als apparaten beperkt worden ondersteund voor SAN-waarden in certificaten, moet u mogelijk de volgorde van de FQDN's wijzigen of de onderwerpwaarde gebruiken.  
+        >  Vous pouvez spécifier les noms de domaine complets pour System Center Configuration Manager dans n’importe quel ordre. Cependant, vérifiez que tous les appareils qui utiliseront le certificat, tels que les appareils mobiles et les serveurs web proxy, peuvent utiliser un autre nom de l’objet (SAN) du certificat et plusieurs valeurs dans cet autre nom. Si la prise en charge par les appareils des valeurs SAN dans les certificats est limitée, envisagez de modifier l'ordre des noms de domaine complets ou utilisez la valeur Objet à la place.  
 
-14. Op de **certificaten aanvragen** pagina **ConfigMgr-Webservercertificaat** uit de lijst met beschikbare certificaten en kies vervolgens **inschrijven**.  
+14. Dans la page **Demander des certificats**, choisissez **Certificat de serveur web ConfigMgr** dans la liste des certificats disponibles, puis choisissez **Inscrire**.  
 
-15. Op de **certificaatinstallatie** pagina, wacht totdat het certificaat is geïnstalleerd en kies vervolgens **voltooien**.  
+15. Dans la page **Résultats de l’installation des certificats**, attendez que le certificat soit installé, puis choisissez **Terminer**.  
 
-16. Sluit **Certificaten (lokale computer)**.  
+16. Fermez la fenêtre **Certificats (ordinateur local)**.  
 
-###  <a name="BKMK_webserver42008"></a>IIS configureren voor het gebruik van het webservercertificaat  
- Met deze procedure koppelt u het geïnstalleerde certificaat aan de **IIS-standaardwebsite**.  
+###  <a name="BKMK_webserver42008"></a> Configurer IIS en vue d’utiliser le certificat de serveur web  
+ Cette procédure lie le certificat installé au **Site Web par défaut**IIS.  
 
-##### <a name="to-set-up-iis-to-use-the-web-server-certificate"></a>IIS instellen voor het Webservercertificaat gebruiken  
+##### <a name="to-set-up-iis-to-use-the-web-server-certificate"></a>Pour configurer IIS en vue d’utiliser le certificat de serveur web  
 
-1.  Kies op de lidserver waarop IIS is geïnstalleerd, **starten**, kies **programma's**, kies **Systeembeheer**, en kies vervolgens **Internet Information Services (IIS) Manager**.  
+1.  Sur le serveur membre sur lequel IIS est installé, choisissez **Démarrer**, **Programmes**, **Outils d’administration**, puis **Gestionnaire des services Internet (IIS)**.  
 
-2.  Vouw **Sites**, met de rechtermuisknop op **standaardwebsite**, en kies vervolgens **bindingen bewerken**.  
+2.  Développez **Sites**, cliquez avec le bouton droit sur **Site Web par défaut**, puis choisissez **Modifier les liaisons**.  
 
-3.  Kies de **https** -item, en kies vervolgens **bewerken**.  
+3.  Choisissez l’entrée **https**, puis **Modifier**.  
 
-4.  In de **sitebinding bewerken** in het dialoogvenster selecteert u het certificaat dat u hebt aangevraagd met behulp van de Configuration Manager webservercertificatensjabloon en kies vervolgens **OK**.  
+4.  Dans la boîte de dialogue **Modifier la liaison de site**, sélectionnez le certificat que vous avez demandé à l’aide du modèle Certificat de serveur web ConfigMgr, puis choisissez **OK**.  
 
     > [!NOTE]  
-    >  Als u niet zeker weet dat het juiste certificaat is, kiest u een en kies vervolgens **weergave**. Hiermee kunt u de geselecteerde certificaatgegevens om de certificaten in de module Certificaten te vergelijken. De module Certificaten ziet u bijvoorbeeld het certificaatsjabloon invoert dat is gebruikt voor het certificaat aanvraagt. U kunt vervolgens vergelijken met de vingerafdruk van het certificaat dat was aangevraagd met behulp van de Configuration Manager webservercertificatensjabloon naar de vingerafdruk van het certificaat dat momenteel is geselecteerd in de **sitebinding bewerken** in het dialoogvenster.  
+    >  Si vous ne savez pas quel est le certificat correct, choisissez-en un, puis choisissez **Afficher**. Cela vous permet de comparer les détails du certificat sélectionné aux certificats affichés dans le composant logiciel enfichable Certificats. Par exemple, le composant logiciel enfichable Certificats affiche le modèle de certificat qui a été utilisé pour demander le certificat. Vous pouvez ensuite comparer l’empreinte numérique du certificat qui a été demandé en utilisant le modèle Certificat de serveur web ConfigMgr à l’empreinte numérique du certificat actuellement sélectionné dans la boîte de dialogue **Modifier la liaison de site**.  
 
-5.  Kies **OK** in de **sitebinding bewerken** dialoogvenster vak in en kies vervolgens **sluiten**.  
+5.  Choisissez **OK** dans la boîte de dialogue **Modifier la liaison de site**, puis **Fermer**.  
 
-6.  Sluit **IIS-beheer**.  
+6.  Fermez le **Gestionnaire des services Internet (IIS)**.  
 
- De lidserver wordt nu ingesteld met een System Center Configuration Manager-Webservercertificaat.  
+ Le serveur membre est désormais configuré avec un certificat de serveur web System Center Configuration Manager.  
 
 > [!IMPORTANT]  
->  Wanneer u de System Center Configuration Manager-sitesysteemserver op deze computer installeert, zorg ervoor dat u dezelfde FQDN's in de sitesysteemeigenschappen opgeeft als die u specificeerde wanneer u het certificaat aanvroeg.  
+>  Quand vous installez le serveur de système de site System Center Configuration Manager sur cet ordinateur, assurez-vous de spécifier le même nom de domaine complet dans les propriétés de système de site que vous avez spécifié lors de la demande du certificat.  
 
-##  <a name="BKMK_clouddp2008_cm2012"></a>Het servicecertificaat voor cloud-gebaseerde distributiepunten implementeren  
+##  <a name="BKMK_clouddp2008_cm2012"></a> Déployer le certificat de service pour les points de distribution cloud  
 
-Deze certificaatimplementatie heeft de volgende procedures:  
+Les procédures de ce déploiement de certificat sont les suivantes :  
 
--   [Maken en uitgeven van een aangepaste webserver sjabloon Webservercertificaat bij de certificeringsinstantie](#BKMK_clouddpcreating2008)  
+-   [Créer et émettre un modèle de certificat de serveur web personnalisé sur l’autorité de certification](#BKMK_clouddpcreating2008)  
 
--   [Het aangepaste webservercertificaat aanvragen](#BKMK_clouddprequesting2008)  
+-   [Demander le certificat de serveur web personnalisé](#BKMK_clouddprequesting2008)  
 
--   [Exporteren van het aangepaste Webservercertificaat voor cloud-gebaseerde distributiepunten](#BKMK_clouddpexporting2008)  
+-   [Exporter le certificat de serveur web personnalisé pour les points de distribution cloud](#BKMK_clouddpexporting2008)  
 
-###  <a name="BKMK_clouddpcreating2008"></a>Maken en uitgeven van een aangepaste webserver sjabloon Webservercertificaat bij de certificeringsinstantie  
- Deze procedure maakt u een aangepast certificaatsjabloon die is gebaseerd op het webservercertificaatsjabloon. Het certificaat voor System Center Configuration Manager cloud-gebaseerde distributiepunten en de persoonlijke sleutel moet exporteerbaar zijn. Na het maken van het certificaatsjabloon, wordt het toegevoegd aan de certificeringsinstantie.  
+###  <a name="BKMK_clouddpcreating2008"></a> Créer et émettre un modèle de certificat de serveur web personnalisé sur l’autorité de certification  
+ Cette procédure permet de créer un modèle de certificat personnalisé basé sur le modèle de certificat de serveur web. Le certificat est destiné aux points de distribution cloud System Center Configuration Manager, et la clé privée doit être exportable. Vous devez ajouter le modèle de certificat à l'autorité de certification après sa création.  
 
 > [!NOTE]  
->  Deze procedure maakt gebruik van een ander certificaatsjabloon dan het sjabloon Webservercertificaat die u hebt gemaakt voor sitesystemen die IIS uitvoeren. Hoewel beide certificaten nodig mogelijkheid voor serververificatie, wordt het certificaat voor cloud-gebaseerde distributiepunten moet u een aangepaste waarde opgeven voor de onderwerpnaam en de persoonlijke sleutel moet worden geëxporteerd. Als een best practice bij beveiliging komen niet certificaatsjablonen zo instellen dat de persoonlijke sleutel kan worden uitgevoerd, tenzij deze configuratie vereist is. Het cloud-gebaseerde distributiepunt vereist deze configuratie omdat u moet het certificaat als een bestand importeren, in plaats van kiezen uit het certificaatarchief.  
+>  Cette procédure utilise un modèle de certificat différent du modèle de certificat de serveur web créé pour les systèmes de site qui exécutent IIS. Même si les deux certificats nécessitent une fonctionnalité d’authentification du serveur, le certificat pour les points de distribution cloud vous demande d’entrer une valeur définie personnalisée dans le champ Nom de l’objet et la clé privée doit être exportée. Comme bonne pratique de sécurité, ne configurez pas les modèles de certificats pour autoriser l’exportation de la clé privée, sauf si cette configuration est requise. Le point de distribution cloud nécessite cette configuration, car vous devez importer le certificat en tant que fichier, au lieu de le choisir dans le magasin de certificats.  
 >   
->  Wanneer u een nieuwe certificaatsjabloon voor dit certificaat maakt, kunt u de computers die u kunnen een certificaat waarvan de persoonlijke sleutel kan worden geëxporteerd aanvragen kunt beperken. U kunt op een productienetwerk ook overwegen de volgende wijzigingen voor dit certificaat toe te voegen:  
+>  Quand vous créez un modèle de certificat pour ce certificat, vous pouvez limiter les ordinateurs qui peuvent demander un certificat dont la clé privée peut être exportée. Sur un réseau de production, vous pouvez également envisager d’apporter les modifications suivantes à ce certificat :  
 >   
->  -   Goedkeuring vereist voor het installeren van het certificaat voor extra beveiliging.  
-> -   Vergroten van de geldigheidsduur van het certificaat. Omdat u moet exporteren en importeren van het certificaat iedere keer voordat het verloopt, wordt een toename van de geldigheidsperiode gereduceerd hoe vaak moet u deze procedure herhalen. Echter, een toename van de geldigheidsperiode ook verkleint u de beveiliging van het certificaat omdat het meer tijd voor een aanvaller de persoonlijke sleutel te ontsleutelen en het certificaat te stelen biedt.  
-> -   Gebruik een aangepaste waarde in de SAN (Subject Alternative Name) van het certificaat om dit certificaat te onderscheiden van standaardwebservercertificaten die u bij IIS gebruikt.  
+>  -   Demander l’approbation d’installer le certificat, pour plus de sécurité.  
+> -   Augmenter la période de validité du certificat. Étant donné que vous devez exporter, puis importer le certificat chaque fois avant son expiration, une augmentation de la période de validité permet de réduire la fréquence de cette procédure. Cependant, une augmentation de la période de validité diminue également la sécurité du certificat, car une personne malveillante a plus de temps pour déchiffrer la clé privée et voler le certificat.  
+> -   Utilisez une valeur personnalisée dans le champ Autre nom de l'objet pour aider à identifier ce certificat parmi les certificats de serveur Web standard que vous utilisez avec IIS.  
 
-##### <a name="to-create-and-issue-the-custom-web-server-certificate-template-on-the-certification-authority"></a>Maken en uitgeven van de webserver van de aangepaste sjabloon Webservercertificaat bij de certificeringsinstantie  
+##### <a name="to-create-and-issue-the-custom-web-server-certificate-template-on-the-certification-authority"></a>Pour créer et émettre le modèle de certificat de serveur web personnalisé sur l’autorité de certification  
 
-1.  Maak een beveiligingsgroep met de naam **Configuration Manager-siteservers** die de lidservers voor het installeren van System Center Configuration Manager primaire siteservers die cloud-gebaseerde distributiepunten gaan beheren is.  
+1.  Créez un groupe de sécurité nommé **Serveurs de site ConfigMgr** qui contient les serveurs membres où installer les serveurs de site principal System Center Configuration Manager qui vont gérer les points de distribution cloud.  
 
-2.  Op de lidserver waarop de console certificeringsinstantie wordt uitgevoerd, met de rechtermuisknop op **certificaatsjablonen**, en kies vervolgens **beheren** om de beheerconsole voor certificaatsjablonen te laden.  
+2.  Sur le serveur membre qui exécute la console Autorité de certification, cliquez avec le bouton droit sur **Modèles de certificats**, puis choisissez **Gérer** pour charger la console de gestion des modèles de certificats.  
 
-3.  In het deelvenster met resultaten met de rechtermuisknop op het item met **webserver** in de **weergavenaam van sjabloon** kolom, en kies vervolgens **sjabloon dupliceren**.  
+3.  Dans le volet des résultats, cliquez avec le bouton droit sur l’entrée qui affiche **Serveur Web** dans la colonne **Nom complet du modèle**, puis choisissez **Dupliquer le modèle**.  
 
-4.  In de **sjabloon dupliceren** dialoogvenster vak, zorg ervoor dat **Windows 2003 Server, Enterprise Edition** is geselecteerd en kies vervolgens **OK**.  
+4.  Dans la boîte de dialogue **Dupliquer le modèle**, vérifiez que l’option **Windows Server 2003, Enterprise Edition** est sélectionnée, puis choisissez **OK**.  
 
     > [!IMPORTANT]  
-    >  **Windows 2008 Server, Enterprise Edition**niet selecteren.  
+    >  Ne sélectionnez pas **Windows Server 2008, Enterprise Edition**.  
 
-5.  In de **eigenschappen van nieuwe sjabloon** in het dialoogvenster op de **algemene** tabblad, voert u de sjabloonnaam van een, zoals **ConfigMgr Cloud-gebaseerde Distributiepuntcertificaat**voor het genereren van het Webservercertificaat voor cloud-gebaseerde distributiepunten.  
+5.  Dans la boîte de dialogue **Propriétés du nouveau modèle**, sous l’onglet **Général**, entrez un nom de modèle (par exemple, **Certificat de point de distribution cloud ConfigMgr**) pour générer le certificat de serveur web pour les points de distribution cloud.  
 
-6.  Kies de **afhandeling van aanvragen** tabblad en kies vervolgens **persoonlijke sleutel exporteerbaar**.  
+6.  Choisissez l’onglet **Traitement de la demande**, puis **Autoriser l’exportation de la clé privée**.  
 
-7.  Kies de **beveiliging** tabblad, en verwijder vervolgens de **inschrijven** machtiging van de **Ondernemingsadministrators** beveiligingsgroep.  
+7.  Choisissez l’onglet **Sécurité** et supprimez l’autorisation **Inscription** du groupe de sécurité **Administrateurs de l’entreprise**.  
 
-8.  Kies **toevoegen**, voer **Configuration Manager-siteservers** in de tekst in het vak en kies vervolgens **OK**.  
+8.  Choisissez **Ajouter**, entrez **Serveurs de site ConfigMgr** dans la zone de texte, puis choisissez **OK**.  
 
-9. Selecteer de machtiging **Inschrijving** voor deze groep en verwijder de machtiging **Lezen** niet.  
+9. Sélectionnez l'autorisation **Inscription** pour ce groupe et ne désactivez pas l'autorisation **Lecture** .  
 
-10. Kies **OK**, en sluit vervolgens **Certificaatsjablonenconsole**.  
+10. Choisissez **OK**, puis fermez la **console Modèles de certificats**.  
 
-11. In de certificeringsinstantieconsole met de rechtermuisknop op **certificaatsjablonen**, kies **nieuw**, en kies vervolgens **te verlenen certificaatsjablonen**.  
+11. Dans la console Autorité de certification, cliquez avec le bouton droit sur **Modèles de certificats**, choisissez **Nouveau**, puis **Modèle de certificat à délivrer**.  
 
-12. In de **Certificaatsjablonen inschakelen** dialoogvenster het nieuwe sjabloon dat u zojuist hebt gemaakt, kies **ConfigMgr Cloud-gebaseerde Distributiepuntcertificaat**, en kies vervolgens **OK**.  
+12. Dans la boîte de dialogue **Activer les modèles de certificat**, choisissez le nouveau modèle que vous venez de créer, **Certificat de point de distribution cloud ConfigMgr**, puis choisissez **OK**.  
 
-13. Als u geen maken en uitgeven van certificaten meer sluit **certificeringsinstantie**.  
+13. Si vous n’avez pas besoin de créer ni d’émettre d’autres certificats, fermez **Autorité de certification**.  
 
-###  <a name="BKMK_clouddprequesting2008"></a>Het aangepaste webservercertificaat aanvragen  
- Deze procedure vraagt en installeert het aangepaste Webservercertificaat op de lidserver die de siteserver wordt uitgevoerd.  
+###  <a name="BKMK_clouddprequesting2008"></a> Demander le certificat de serveur web personnalisé  
+ Cette procédure permet de demander, puis d’installer le certificat de serveur web personnalisé sur le serveur membre qui exécutera le serveur de site.  
 
-##### <a name="to-request-the-custom-web-server-certificate"></a>Het aangepaste webservercertificaat aanvragen  
+##### <a name="to-request-the-custom-web-server-certificate"></a>Pour demander le certificat de serveur Web personnalisé  
 
-1.  Start de lidserver opnieuw op na maken en configureren van de **Configuration Manager-siteservers** beveiligingsgroep om ervoor te zorgen dat de computer toegang heeft tot de certificaatsjabloon die u hebt gemaakt met behulp van de **lezen** en **inschrijven** machtigingen die u hebt geconfigureerd.  
+1.  Redémarrez le serveur membre après avoir créé et configuré le groupe de sécurité **Serveurs de site ConfigMgr** pour vérifier que l’ordinateur peut accéder au modèle de certificat créé via les autorisations **Lecture** et **Inscription** configurées.  
 
-2.  Kies **Start**, kies **uitvoeren**, en voer vervolgens **mmc.exe.** Kies in de lege console **bestand**, en kies vervolgens **module toevoegen/verwijderen**.  
+2.  Choisissez **Démarrer**, **Exécuter**, puis entrez **mmc.exe.** Dans la console vide, choisissez **Fichier**, puis **Ajouter/Supprimer un composant logiciel enfichable**.  
 
-3.  In de **toevoegen of verwijderen van modules** dialoogvenster Kies **certificaten** uit de lijst met **beschikbare modules**, en kies vervolgens **toevoegen**.  
+3.  Dans la boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables**, choisissez **Certificats** dans la liste **Composants logiciels enfichables disponibles**, puis **Ajouter**.  
 
-4.  In de **-module van het certificaat** dialoogvenster Kies **computeraccount**, en kies vervolgens **volgende**.  
+4.  Dans la boîte de dialogue **Composant logiciel enfichable des certificats**, choisissez **Compte d’ordinateur**, puis **Suivant**.  
 
-5.  In de **Computer selecteren** dialoogvenster vak, zorg ervoor dat **lokale computer: (de computer waarop deze console wordt uitgevoerd)** is geselecteerd en kies vervolgens **voltooien**.  
+5.  Dans la boîte de dialogue **Sélectionner un ordinateur**, vérifiez que l’option **L’ordinateur local (l’ordinateur sur lequel cette console s’exécute)** est sélectionnée, puis choisissez **Terminer**.  
 
-6.  In de **toevoegen of verwijderen van modules** dialoogvenster Kies **OK**.  
+6.  Dans la boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables**, choisissez **OK**.  
 
-7.  In de console, vouw **certificaten (lokale Computer)**, en kies vervolgens **persoonlijke**.  
+7.  Dans la console, développez **Certificats (ordinateur local)**, puis choisissez **Personnel**.  
 
-8.  Met de rechtermuisknop op **certificaten**, kies **alle taken**, en kies vervolgens **nieuw certificaat aanvragen**.  
+8.  Cliquez avec le bouton droit sur **Certificats**, choisissez **Toutes les tâches**, puis **Demander un nouveau certificat**.  
 
-9. Op de **voordat u begint** pagina **volgende**.  
+9. Dans la page **Avant de commencer**, choisissez **Suivant**.  
 
-10. Als u ziet de **Selecteer certificaatinschrijvingsbeleid** pagina **volgende**.  
+10. Si vous voyez la page **Sélectionner la stratégie d’inscription de certificat**, choisissez **Suivant**.  
 
-11. Op de **certificaten aanvragen** pagina, identificeren de **ConfigMgr Cloud-gebaseerde Distributiepuntcertificaat** uit de lijst met beschikbare certificaten en kies vervolgens **meer informatie is vereist om te schrijven voor dit certificaat. Kies hier om instellingen te configureren**.  
+11. Dans la page **Demander des certificats**, identifiez le **Certificat de point de distribution cloud ConfigMgr** dans la liste des certificats disponibles, puis choisissez **L’inscription pour obtenir ce certificat nécessite des informations supplémentaires. Cliquez ici pour configurer les paramètres**.  
 
-12. In de **certificaateigenschappen** het dialoogvenster de **onderwerp** tabblad voor de **onderwerpnaam**, kies **algemene naam** als de **Type**.  
+12. Dans la boîte de dialogue **Propriétés du certificat**, dans l’onglet **Objet**, choisissez **Nom commun** pour le champ **Nom de l’objet** comme **Type**.  
 
-13. Geef in het vak **Waarde** uw keuze op voor de servicenaam en uw domeinnaam met een FQDN-indeling. Bijvoorbeeld: **clouddp1.contoso.com**.  
-
-    > [!NOTE]  
-    >  De servicenaam uniek zijn in uw naamruimte maken. U gebruikt DNS om een alias (CNAME-record) te maken om deze servicenaam toe te wijzen aan een automatisch gegenereerd id (GUID) en een IP-adres van Windows Azure.  
-
-14. Kies **toevoegen**, en kies vervolgens **OK** sluiten de **certificaateigenschappen** in het dialoogvenster.  
-
-15. Op de **certificaten aanvragen** pagina **ConfigMgr Cloud-gebaseerde Distributiepuntcertificaat** uit de lijst met beschikbare certificaten en kies vervolgens **inschrijven**.  
-
-16. Op de **certificaatinstallatie** pagina, wacht totdat het certificaat is geïnstalleerd en kies vervolgens **voltooien**.  
-
-17. Sluit **Certificaten (lokale computer)**.  
-
-###  <a name="BKMK_clouddpexporting2008"></a>Exporteren van het aangepaste Webservercertificaat voor cloud-gebaseerde distributiepunten  
- Met deze procedure exporteert u het aangepaste webservercertificaat naar een bestand zodat het kan worden geïmporteerd wanneer u het cloud-gebaseerde distributiepunt maakt.  
-
-##### <a name="to-export-the-custom-web-server-certificate-for-cloud-based-distribution-points"></a>Exporteren van het aangepaste webservercertificaat voor cloud-gebaseerde distributiepunten  
-
-1.  In de **certificaten (lokale Computer)** console, met de rechtermuisknop op het certificaat dat u zojuist hebt geïnstalleerd, kiest u **alle taken**, en kies vervolgens **exporteren**.  
-
-2.  Kies in de Wizard certificaten exporteren **volgende**.  
-
-3.  Op de **persoonlijke sleutel exporteren** pagina **Ja, de persoonlijke sleutel exporteren**, en kies vervolgens **volgende**.  
+13. Dans le champ **Valeur** , spécifiez un nom de service et votre nom de domaine à l'aide d'un format de nom de domaine complet. Par exemple : **clouddp1.contoso.com**.  
 
     > [!NOTE]  
-    >  Als deze optie niet beschikbaar is, is het certificaat gemaakt zonder de optie om de persoonlijke sleutel te exporteren. In dit scenario kunt u het certificaat niet exporteren in de vereiste indeling. U moet de certificaatsjabloon instellen zodat de persoonlijke sleutel kan worden geëxporteerd en het certificaat vervolgens opnieuw aanvragen.  
+    >  Le nom de service doit être unique dans votre espace de noms. Utilisez le système de noms de domaine pour créer un alias (enregistrement CNAME) pour mapper le nom de ce service à un identificateur (GUID) généré automatiquement et une adresse IP à partir de Windows Azure.  
 
-4.  Op de **bestandsindeling voor Export** pagina, zorg ervoor dat de **Personal Information Exchange - PKCS #12 (. (PFX)** optie is geselecteerd.  
+14. Choisissez **Ajouter**, puis **OK** pour fermer la boîte de dialogue **Propriétés du certificat**.  
 
-5.  Op de **wachtwoord** pagina, Geef een sterk wachtwoord voor het beveiligen van het geëxporteerde certificaat met de persoonlijke sleutel en kies vervolgens **volgende**.  
+15. Dans la page **Demander des certificats**, choisissez **Certificat de point de distribution cloud ConfigMgr** dans la liste des certificats disponibles, puis choisissez **Inscrire**.  
 
-6.  Op de **te exporteren bestand** pagina, geeft u de naam van het bestand dat u wilt exporteren, en kies vervolgens **volgende**.  
+16. Dans la page **Résultats de l’installation des certificats**, attendez que le certificat soit installé, puis choisissez **Terminer**.  
 
-7.  Om de wizard sluit, kies **voltooien** in de **Wizard Certificaat exporteren** pagina en kies vervolgens **OK** in het bevestigingsvenster.  
+17. Fermez la fenêtre **Certificats (ordinateur local)**.  
 
-8.  Sluit **Certificaten (lokale computer)**.  
+###  <a name="BKMK_clouddpexporting2008"></a> Exporter le certificat de serveur web personnalisé pour les points de distribution cloud  
+ Cette procédure permet d'exporter le certificat de serveur Web personnalisé dans un fichier, afin qu'il puisse être importé lorsque vous créez le point de distribution cloud.  
 
-9. Sla het bestand veilig op en zorg ervoor dat u deze vanaf de System Center Configuration Manager-console openen kunt.  
+##### <a name="to-export-the-custom-web-server-certificate-for-cloud-based-distribution-points"></a>Pour exporter le certificat de serveur Web personnalisé pour les points de distribution cloud  
 
- Het certificaat kan nu worden geïmporteerd wanneer u een cloud-gebaseerd distributiepunt maakt.  
+1.  Dans la console **Certificats (ordinateur local)**, cliquez avec le bouton droit sur le certificat que vous venez d’installer, choisissez **Toutes les tâches**, puis **Exporter**.  
 
-##  <a name="BKMK_client2008_cm2012"></a>Het clientcertificaat voor Windows-computers implementeren  
- Deze certificaatimplementatie heeft de volgende procedures:  
+2.  Dans l’Assistant Exportation de certificats, choisissez **Suivant**.  
 
--   Maken en uitgeven van het certificaatsjabloon voor verificatie van werkstation bij de certificeringsinstantie  
+3.  Dans la page **Exporter la clé privée**, choisissez **Oui, exporter la clé privée**, puis **Suivant**.  
 
--   Configureren van automatische inschrijving van de sjabloon voor verificatie van werkstation met behulp van Groepsbeleid  
+    > [!NOTE]  
+    >  Si cette option n'est pas disponible, cela signifie que le certificat a été créé sans l'option permettant d'exporter la clé privée. Dans ce scénario, vous ne pouvez pas exporter le certificat dans le format requis. Vous devez configurer le modèle de certificat pour autoriser l’exportation de la clé privée, puis redemander le certificat.  
 
--   Automatisch inschrijven van het certificaat voor verificatie van werkstation en de installatie verifiëren op computers  
+4.  Dans la page **Format de fichier d’exportation**, vérifiez que l’option **Échange d’informations personnelles - PKCS #12 (.PFX)** est sélectionnée.  
 
-###  <a name="BKMK_client02008"></a>Maken en uitgeven van het certificaatsjabloon voor verificatie van werkstation bij de certificeringsinstantie  
- Deze procedure maakt u een certificaatsjabloon voor System Center Configuration Manager-client computers en voegt het toe aan de certificeringsinstantie.  
+5.  Dans la page **Mot de passe**, spécifiez un mot de passe fort pour protéger le certificat exporté avec sa clé privée, puis choisissez **Suivant**.  
 
-##### <a name="to-create-and-issue-the-workstation-authentication-certificate-template-on-the-certification-authority"></a>Maken en publiceren van het certificaatsjabloon voor verificatie van werkstation bij de certificeringsinstantie  
+6.  Dans la page **Fichier à exporter**, spécifiez le nom du fichier que vous voulez exporter, puis choisissez **Suivant**.  
 
-1.  Op de lidserver waarop de console certificeringsinstantie wordt uitgevoerd, met de rechtermuisknop op **certificaatsjablonen**, en kies vervolgens **beheren** om de beheerconsole voor certificaatsjablonen te laden.  
+7.  Pour fermer l’Assistant, choisissez **Terminer** dans la page **Assistant Exportation de certificat**, puis **OK** dans la boîte de dialogue de confirmation.  
 
-2.  In het deelvenster met resultaten met de rechtermuisknop op het item met **verificatie van werkstation** in de **weergavenaam van sjabloon** kolom, en kies vervolgens **sjabloon dupliceren**.  
+8.  Fermez la fenêtre **Certificats (ordinateur local)**.  
 
-3.  In de **sjabloon dupliceren** dialoogvenster vak, zorg ervoor dat **Windows 2003 Server, Enterprise Edition** is geselecteerd en kies vervolgens **OK**.  
+9. Stockez le fichier de façon sécurisée et vérifiez que vous pouvez y accéder à partir de la console System Center Configuration Manager.  
+
+ Le certificat est prêt à l'importation dès que vous créez un point de distribution cloud.  
+
+##  <a name="BKMK_client2008_cm2012"></a> Déployer le certificat client pour les ordinateurs Windows  
+ Les procédures de ce déploiement de certificat sont les suivantes :  
+
+-   Créer et émettre le modèle de certificat Authentification de station de travail sur l’autorité de certification  
+
+-   Configurer l’inscription automatique du modèle Authentification de station de travail à l’aide d’une stratégie de groupe  
+
+-   Inscrire automatiquement le certificat Authentification de station de travail et vérifier son installation sur les ordinateurs  
+
+###  <a name="BKMK_client02008"></a> Créer et émettre le modèle de certificat Authentification de station de travail sur l’autorité de certification  
+ Cette procédure crée un modèle de certificat pour les ordinateurs clients System Center Configuration Manager et l’ajoute à l’autorité de certification.  
+
+##### <a name="to-create-and-issue-the-workstation-authentication-certificate-template-on-the-certification-authority"></a>Pour créer et émettre le modèle de certificat d’authentification de station de travail sur l’autorité de certification  
+
+1.  Sur le serveur membre qui exécute la console Autorité de certification, cliquez avec le bouton droit sur **Modèles de certificats**, puis choisissez **Gérer** pour charger la console de gestion des modèles de certificats.  
+
+2.  Dans le volet des résultats, cliquez avec le bouton droit sur l’entrée qui affiche **Authentification de station de travail** dans la colonne **Nom complet du modèle**, puis choisissez **Dupliquer le modèle**.  
+
+3.  Dans la boîte de dialogue **Dupliquer le modèle**, vérifiez que l’option **Windows Server 2003, Enterprise Edition** est sélectionnée, puis choisissez **OK**.  
 
     > [!IMPORTANT]  
-    >  **Windows 2008 Server, Enterprise Edition**niet selecteren.  
+    >  Ne sélectionnez pas **Windows Server 2008, Enterprise Edition**.  
 
-4.  In de **eigenschappen van nieuwe sjabloon** in het dialoogvenster op de **algemene** tabblad, voert u de sjabloonnaam van een, zoals **ConfigMgr-clientcertificaat**voor het genereren van de clientcertificaten die zullen worden gebruikt op Configuration Manager-clientcomputers.  
+4.  Dans la boîte de dialogue **Propriétés du nouveau modèle**, sous l’onglet **Général**, entrez un nom de modèle (par exemple, **Certificat client ConfigMgr**) pour générer les certificats clients à utiliser sur les ordinateurs clients Configuration Manager.  
 
-5.  Kies de **beveiliging** tabblad de **Domeincomputers** groeperen en selecteer vervolgens de extra machtigingen **lezen** en **automatische inschrijving**. **Inschrijven**niet wissen.  
+5.  Choisissez l’onglet **Sécurité**, sélectionnez le groupe **Ordinateurs du domaine**, puis les autorisations supplémentaires **Lecture** et **Inscription automatique**. Ne désactivez pas l'option **Inscrire**.  
 
-6.  Kies **OK**, en sluit vervolgens **Certificaatsjablonenconsole**.  
+6.  Choisissez **OK**, puis fermez la **console Modèles de certificats**.  
 
-7.  In de certificeringsinstantieconsole met de rechtermuisknop op **certificaatsjablonen**, kies **nieuw**, en kies vervolgens **te verlenen certificaatsjablonen**.  
+7.  Dans la console Autorité de certification, cliquez avec le bouton droit sur **Modèles de certificats**, choisissez **Nouveau**, puis **Modèle de certificat à délivrer**.  
 
-8.  In de **Certificaatsjablonen inschakelen** dialoogvenster het nieuwe sjabloon dat u zojuist hebt gemaakt, kies **ConfigMgr-clientcertificaat**, en kies vervolgens **OK**.  
+8.  Dans la boîte de dialogue **Activer les modèles de certificat**, choisissez le nouveau modèle que vous venez de créer, **Certificat client ConfigMgr**, puis choisissez **OK**.  
 
-9. Als u niet wilt maken en uitgeven van certificaten meer sluit **certificeringsinstantie**.  
+9. Si vous n’avez pas besoin de créer ni d’émettre d’autres certificats, fermez **Autorité de certification**.  
 
-###  <a name="BKMK_client12008"></a>Configureren van automatische inschrijving van de sjabloon voor verificatie van werkstation met behulp van Groepsbeleid  
- Deze procedure stelt Groepsbeleid voor automatische inschrijving het clientcertificaat op computers.  
+###  <a name="BKMK_client12008"></a> Configurer l’inscription automatique du modèle Authentification de station de travail à l’aide d’une stratégie de groupe  
+ Cette procédure permet de configurer la stratégie de groupe pour inscrire automatiquement le certificat client sur les ordinateurs.  
 
-##### <a name="to-set-up-autoenrollment-of-the-workstation-authentication-template-by-using-group-policy"></a>Voor het instellen van automatische inschrijving van de sjabloon voor verificatie van werkstation met behulp van Groepsbeleid  
+##### <a name="to-set-up-autoenrollment-of-the-workstation-authentication-template-by-using-group-policy"></a>Pour configurer l’inscription automatique du modèle Authentification de station de travail à l’aide d’une stratégie de groupe  
 
-1.  Kies op de domeincontroller **Start**, kies **Systeembeheer**, en kies vervolgens **Group Policy Management**.  
+1.  Sur le contrôleur de domaine, choisissez **Démarrer**, **Outils d’administration**, puis **Gestion des stratégies de groupe**.  
 
-2.  Ga naar uw domein met de rechtermuisknop op het domein en kies vervolgens **een groepsbeleidsobject in dit domein maken en hier een koppeling**.  
-
-    > [!NOTE]  
-    >  De aanbevolen werkwijze voor deze stap is nieuw groepsbeleid maken voor aangepaste instellingen in plaats van het standaardgroepsbeleid te bewerken dat is geïnstalleerd met Active Directory Domain Services. Als u dit groepsbeleid op domeinniveau toewijst, wordt u deze toepassen op alle computers in het domein. In een productieomgeving kunt u de automatische inschrijving beperken zodat het inschrijft op alleen de geselecteerde computers. U kunt het groepsbeleid op het niveau van een organisatie-eenheid toewijzen of kunt u het domein van Groepsbeleid met een beveiligingsgroep filteren zodat deze alleen van toepassing op de computers in de groep. Als u automatische inschrijving beperkt, moet u de server opnemen waarvoor is ingesteld als het beheerpunt.  
-
-3.  In de **nieuw groepsbeleidsobject** dialoogvenster Voer een naam, zoals **automatische inschrijvingscertificaten**, voor het nieuwe Groepsbeleid en kies vervolgens **OK**.  
-
-4.  In het deelvenster met resultaten op de **gekoppelde groepsbeleidsobjecten** tabblad, met de rechtermuisknop op het nieuwe Groepsbeleid en kies vervolgens **bewerken**.  
-
-5.  In de **Editor voor Groepsbeleidsbeheer**, vouw **beleid** onder **Computerconfiguratie**, en ga vervolgens naar **Windows-instellingen** / **beveiligingsinstellingen** / **beleid voor openbare sleutels**.  
-
-6.  Met de rechtermuisknop op het objecttype met de naam **Certificate Services-Client - automatisch inschrijven**, en kies vervolgens **eigenschappen**.  
-
-7.  Van de **configuratiemodel** vervolgkeuzelijst Kies **ingeschakeld**, kies **verlopen certificaten vernieuwen, aangevraagde certificaten bijwerken, ingetrokken certificaten verwijderen**, kies **certificaten bijwerken die gebruikmaken van certificaatsjablonen**, en kies vervolgens **OK**.  
-
-8.  Sluit **Groepsbeleidsbeheer**.  
-
-###  <a name="BKMK_client22008"></a>Automatisch inschrijven van het certificaat voor verificatie van werkstation en de installatie verifiëren op computers  
- Met deze procedure installeert u het clientcertificaat op computers en verifieert u de installatie.  
-
-##### <a name="to-automatically-enroll-the-workstation-authentication-certificate-and-verify-its-installation-on-the-client-computer"></a>Automatisch inschrijven van het certificaat voor verificatie van werkstation en de installatie verifiëren op de clientcomputer  
-
-1.  Start de Werkstationcomputer en wacht een paar minuten voordat u zich aanmeldt.  
+2.  Accédez à votre domaine, cliquez dessus avec le bouton droit, puis choisissez **Créer un objet GPO dans ce domaine, et le lier ici**.  
 
     > [!NOTE]  
-    >  Opstarten van een computer is de betrouwbaarste methode voor een goed verloop van automatische inschrijving voor certificaten.  
+    >  Cette étape utilise la bonne pratique permettant de créer une stratégie de groupe pour des paramètres personnalisés ; elle ne modifie pas la stratégie de domaine par défaut qui est installée avec les services de domaine Active Directory. Quand vous affectez cette stratégie de groupe au niveau du domaine, vous l’appliquez à tous les ordinateurs de ce domaine. Dans un environnement de production, vous pouvez limiter l’inscription automatique aux ordinateurs sélectionnés. Vous pouvez affecter la stratégie de groupe au niveau d’une unité d’organisation, ou vous pouvez filtrer la stratégie de groupe du domaine avec un groupe de sécurité pour qu’elle s’applique uniquement aux ordinateurs du groupe. Si vous limitez l’inscription automatique, veillez à inclure le serveur configuré comme point de gestion.  
 
-2.  Aanmelden met een account dat beheerdersrechten heeft.  
+3.  Dans la boîte de dialogue **Nouvel objet GPO**, entrez un nom pour la nouvelle stratégie de groupe, par exemple **Certificats - Inscription automatique**, puis choisissez **OK**.  
 
-3.  Voer in het zoekvak **mmc.exe.**, en druk vervolgens op **Enter**.  
+4.  Dans le volet des résultats, sous l’onglet **Objets de stratégie de groupe liés**, cliquez avec le bouton droit sur la nouvelle stratégie de groupe, puis choisissez **Modifier**.  
 
-4.  Kies in de lege beheerconsole **bestand**, en kies vervolgens **module toevoegen/verwijderen**.  
+5.  Dans l’**Éditeur de gestion des stratégies de groupe**, développez **Stratégies** sous **Configuration ordinateur**, puis accédez à **Paramètres Windows** / **Paramètres de sécurité** / **Stratégies de clé publique**.  
 
-5.  In de **toevoegen of verwijderen van modules** dialoogvenster Kies **certificaten** uit de lijst met **beschikbare modules**, en kies vervolgens **toevoegen**.  
+6.  Cliquez avec le bouton droit sur le type d’objet nommé **Client des services de certificats - Inscription automatique**, puis choisissez **Propriétés**.  
 
-6.  In de **-module van het certificaat** dialoogvenster Kies **computeraccount**, en kies vervolgens **volgende**.  
+7.  Dans la liste déroulante **Modèle de configuration**, choisissez **Activé**, **Renouveler les certificats expirés, mettre à jour les certificats en attente et supprimer les certificats révoqués**, **Mettre à jour les certificats qui utilisent les modèles de certificats**, puis **OK**.  
 
-7.  In de **Computer selecteren** dialoogvenster vak, zorg ervoor dat **lokale computer: (de computer waarop deze console wordt uitgevoerd)** is geselecteerd en kies vervolgens **voltooien**.  
+8.  Fermez la fenêtre **Gestion des stratégies de groupe**.  
 
-8.  In de **toevoegen of verwijderen van modules** dialoogvenster Kies **OK**.  
+###  <a name="BKMK_client22008"></a> Inscrire automatiquement le certificat Authentification de station de travail et vérifier son installation sur les ordinateurs  
+ Cette procédure permet d'installer le certificat client sur les ordinateurs et de vérifier l'installation.  
 
-9. In de console, vouw **certificaten (lokale Computer)**, vouw **persoonlijke**, en kies vervolgens **certificaten**.  
+##### <a name="to-automatically-enroll-the-workstation-authentication-certificate-and-verify-its-installation-on-the-client-computer"></a>Pour inscrire automatiquement le certificat Authentification de station de travail et vérifier son installation sur l’ordinateur client  
 
-10. Bevestig dat een certificaat heeft in het deelvenster met resultaten **clientverificatie** in de **beoogd doeleinde** kolom en of **ConfigMgr-clientcertificaat** bevindt zich in de **certificaatsjabloon** kolom.  
+1.  Redémarrez la station de travail et attendez quelques minutes avant de vous connecter.  
 
-11. Sluit **Certificaten (lokale computer)**.  
+    > [!NOTE]  
+    >  Le redémarrage de l'ordinateur constitue la méthode la plus fiable pour l'inscription automatique des certificats.  
 
-12. Herhaal stap 1 tot en met 11 voor de lidserver om te controleren of de server die wordt ingesteld als het beheerpunt ook een clientcertificaat heeft.  
+2.  Connectez-vous avec un compte disposant de privilèges d’administrateur.  
 
- De computer is nu ingesteld met een clientcertificaat voor System Center Configuration Manager.  
+3.  Dans la zone de recherche, entrez **mmc.exe.** et appuyez sur **Entrée**.  
 
-##  <a name="BKMK_clientdistributionpoint2008_cm2012"></a>Het clientcertificaat voor distributiepunten implementeren  
+4.  Dans la console de gestion vide, choisissez **Fichier**, puis **Ajouter/Supprimer un composant logiciel enfichable**.  
+
+5.  Dans la boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables**, choisissez **Certificats** dans la liste **Composants logiciels enfichables disponibles**, puis **Ajouter**.  
+
+6.  Dans la boîte de dialogue **Composant logiciel enfichable des certificats**, choisissez **Compte d’ordinateur**, puis **Suivant**.  
+
+7.  Dans la boîte de dialogue **Sélectionner un ordinateur**, vérifiez que l’option **L’ordinateur local (l’ordinateur sur lequel cette console s’exécute)** est sélectionnée, puis choisissez **Terminer**.  
+
+8.  Dans la boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables**, choisissez **OK**.  
+
+9. Dans la console, développez **Certificats (ordinateur local)**, **Personnel**, puis choisissez **Certificats**.  
+
+10. Dans le volet des résultats, vérifiez qu’un certificat indique **Authentification du client** dans la colonne **Rôle prévu** et que **Certificat client ConfigMgr** figure dans la colonne **Modèle de certificat**.  
+
+11. Fermez la fenêtre **Certificats (ordinateur local)**.  
+
+12. Répétez les étapes 1 à 11 pour le serveur membre afin de vérifier que le serveur qui sera configuré comme point de gestion dispose également d’un certificat client.  
+
+ L’ordinateur est maintenant configuré avec un certificat client System Center Configuration Manager.  
+
+##  <a name="BKMK_clientdistributionpoint2008_cm2012"></a> Déployer le certificat client pour les points de distribution  
 
 > [!NOTE]  
->  Dit certificaat kan ook worden gebruikt voor media-afbeeldingen die geen PXE-opstartapparaat gebruiken omdat de certificaatvereisten dezelfde zijn.  
+>  Ce certificat peut également être utilisé pour les images de média qui n'utilisent pas le démarrage PXE, car la configuration requise pour le certificat est la même.  
 
- Deze certificaatimplementatie heeft de volgende procedures:  
+ Les procédures de ce déploiement de certificat sont les suivantes :  
 
--   Maken en uitgeven van een aangepast certificaatsjabloon voor verificatie van werkstation bij de certificeringsinstantie  
+-   Créer et émettre un modèle de certificat Authentification de station de travail personnalisé sur l’autorité de certification  
 
--   Het aangepaste certificaat voor verificatie van werkstation aanvragen  
+-   Demander le certificat Authentification de station de travail personnalisé  
 
--   Het clientcertificaat voor distributiepunten exporteren  
+-   Exporter le certificat client pour les points de distribution  
 
-###  <a name="BKMK_clientdistributionpoint02008"></a>Maken en uitgeven van een aangepast certificaatsjabloon voor verificatie van werkstation bij de certificeringsinstantie  
- Deze procedure maakt u een aangepast certificaatsjabloon voor System Center Configuration Manager-distributiepunten zodat de persoonlijke sleutel kan worden geëxporteerd en voegt u certificaatsjabloon toe aan de certificeringsinstantie.  
+###  <a name="BKMK_clientdistributionpoint02008"></a> Créer et émettre un modèle de certificat Authentification de station de travail personnalisé sur l’autorité de certification  
+ Cette procédure permet de créer un modèle de certificat personnalisé pour les points de distribution System Center Configuration Manager afin que la clé privée puisse être exportée, et d’ajouter le modèle de certificat à l’autorité de certification.  
 
 > [!NOTE]  
->  Deze procedure maakt gebruik van een ander certificaatsjabloon dan het certificaatsjabloon dat u hebt gemaakt voor clientcomputers. Hoewel beide certificaten clientverificatie nodig, wordt het certificaat voor distributiepunten vereist dat de persoonlijke sleutel wordt geëxporteerd. Als een best practice bij beveiliging wilt certificaatsjablonen niet instellen zodat de persoonlijke sleutel kan worden uitgevoerd, tenzij deze configuratie vereist is. Het distributiepunt vereist deze configuratie omdat u moet het certificaat als een bestand importeren in plaats van kiezen uit het certificaatarchief.  
+>  Cette procédure utilise un modèle de certificat différent du modèle de certificat créé pour les ordinateurs clients. Même si les deux certificats nécessitent une fonctionnalité d’authentification du client, le certificat pour les points de distribution requiert l’exportation de la clé privée. Comme bonne pratique de sécurité, ne configurez pas les modèles de certificats pour autoriser l’exportation de la clé privée, sauf si cette configuration est requise. Le point de distribution nécessite cette configuration, car vous devez importer le certificat en tant que fichier, au lieu de le choisir dans le magasin de certificats.  
 >   
->  Wanneer u een nieuwe certificaatsjabloon voor dit certificaat maakt, kunt u de computers die u kunnen een certificaat waarvan de persoonlijke sleutel kan worden geëxporteerd aanvragen kunt beperken. In ons implementatievoorbeeld is dit de beveiligingsgroep die u eerder hebt gemaakt voor System Center Configuration Manager-sitesysteemservers die IIS uitvoeren. Overweeg een nieuwe beveiligingsgroep voor een productienetwerk dat de IIS-sitesysteemrollen distribueert voor de servers die distributiepunten uitvoeren zodat u het certificaat kunt beperken tot alleen deze sitesysteemservers. U kunt ook overwegen de volgende wijzigingen toe te voegen voor dit certificaat:  
+>  Quand vous créez un modèle de certificat pour ce certificat, vous pouvez limiter les ordinateurs qui peuvent demander un certificat dont la clé privée peut être exportée. Dans notre exemple de déploiement, il s’agit du groupe de sécurité que vous avez créé précédemment pour les serveurs de système de site System Center Configuration Manager qui exécutent IIS. Sur un réseau de production qui distribue les rôles de système de site IIS, envisagez de créer un groupe de sécurité pour les serveurs exécutant des points de distribution, afin de limiter le certificat à ces serveurs de système de site uniquement. Vous pouvez également considérer d'apporter les modifications suivantes à ce certificat :  
 >   
->  -   Goedkeuring vereist voor het installeren van het certificaat voor extra beveiliging.  
-> -   Vergroten van de geldigheidsduur van het certificaat. Omdat u moet exporteren en importeren van het certificaat iedere keer voordat het verloopt, wordt een toename van de geldigheidsperiode gereduceerd hoe vaak moet u deze procedure herhalen. Echter, een toename van de geldigheidsperiode ook verkleint u de beveiliging van het certificaat omdat het meer tijd voor een aanvaller de persoonlijke sleutel te ontsleutelen en het certificaat te stelen biedt.  
-> -   Gebruik een aangepaste waarde in het veld Onderwerp of SAN (Subject Alternative Name) om dit certificaat te onderscheiden van standaardclientcertificaten. Dit kan vooral nuttig zijn als u hetzelfde certificaat gaat gebruiken voor meerdere distributiepunten.  
+>  -   Demander l’approbation d’installer le certificat, pour plus de sécurité.  
+> -   Augmenter la période de validité du certificat. Étant donné que vous devez exporter, puis importer le certificat chaque fois avant son expiration, une augmentation de la période de validité permet de réduire la fréquence de cette procédure. Cependant, une augmentation de la période de validité diminue également la sécurité du certificat, car une personne malveillante a plus de temps pour déchiffrer la clé privée et voler le certificat.  
+> -   Utiliser une valeur personnalisée dans le champ Objet du certificat ou Autre nom de l'objet pour aider à identifier ce certificat parmi les certificats de client standard. Cela peut s'avérer particulièrement utile si vous utilisez le même certificat pour plusieurs points de distribution.  
 
-##### <a name="to-create-and-issue-the-custom-workstation-authentication-certificate-template-on-the-certification-authority"></a>Maken en publiceren van het aangepaste certificaatsjabloon voor verificatie van werkstation bij de certificeringsinstantie  
+##### <a name="to-create-and-issue-the-custom-workstation-authentication-certificate-template-on-the-certification-authority"></a>Pour créer et émettre le modèle de certificat Authentification de station de travail personnalisé sur l'autorité de certification  
 
-1.  Op de lidserver waarop de console certificeringsinstantie wordt uitgevoerd, met de rechtermuisknop op **certificaatsjablonen**, en kies vervolgens **beheren** om de beheerconsole voor certificaatsjablonen te laden.  
+1.  Sur le serveur membre qui exécute la console Autorité de certification, cliquez avec le bouton droit sur **Modèles de certificats**, puis choisissez **Gérer** pour charger la console de gestion des modèles de certificats.  
 
-2.  In het deelvenster met resultaten met de rechtermuisknop op het item met **verificatie van werkstation** in de **weergavenaam van sjabloon** kolom, en kies vervolgens **sjabloon dupliceren**.  
+2.  Dans le volet des résultats, cliquez avec le bouton droit sur l’entrée qui affiche **Authentification de station de travail** dans la colonne **Nom complet du modèle**, puis choisissez **Dupliquer le modèle**.  
 
-3.  In de **sjabloon dupliceren** dialoogvenster vak, zorg ervoor dat **Windows 2003 Server, Enterprise Edition** is geselecteerd en kies vervolgens **OK**.  
+3.  Dans la boîte de dialogue **Dupliquer le modèle**, vérifiez que l’option **Windows Server 2003, Enterprise Edition** est sélectionnée, puis choisissez **OK**.  
 
     > [!IMPORTANT]  
-    >  **Windows 2008 Server, Enterprise Edition**niet selecteren.  
+    >  Ne sélectionnez pas **Windows Server 2008, Enterprise Edition**.  
 
-4.  In de **eigenschappen van nieuwe sjabloon** in het dialoogvenster op de **algemene** tabblad, voert u de sjabloonnaam van een, zoals **ConfigMgr-Clientdistributiepuntcertificaat**voor het genereren van het certificaat voor clientverificatie voor distributiepunten.  
+4.  Dans la boîte de dialogue **Propriétés du nouveau modèle**, sous l’onglet **Général**, entrez un nom de modèle (par exemple, **Certificat de point de distribution client ConfigMgr**) pour générer le certificat d’authentification client pour les points de distribution.  
 
-5.  Kies de **afhandeling van aanvragen** tabblad en kies vervolgens **persoonlijke sleutel exporteerbaar**.  
+5.  Choisissez l’onglet **Traitement de la demande**, puis **Autoriser l’exportation de la clé privée**.  
 
-6.  Kies de **beveiliging** tabblad, en verwijder vervolgens de **inschrijven** machtiging van de **Ondernemingsadministrators** beveiligingsgroep.  
+6.  Choisissez l’onglet **Sécurité** et supprimez l’autorisation **Inscription** du groupe de sécurité **Administrateurs de l’entreprise**.  
 
-7.  Kies **toevoegen**, voer **ConfigMgr IIS Servers** in de tekst in het vak en kies vervolgens **OK**.  
+7.  Choisissez **Ajouter**, entrez **Serveurs ConfigMgr IIS** dans la zone de texte, puis choisissez **OK**.  
 
-8.  Selecteer de machtiging **Inschrijving** voor deze groep en verwijder de machtiging **Lezen** niet.  
+8.  Sélectionnez l'autorisation **Inscription** pour ce groupe et ne désactivez pas l'autorisation **Lecture** .  
 
-9. Kies **OK**, en sluit vervolgens **Certificaatsjablonenconsole**.  
+9. Choisissez **OK**, puis fermez la **console Modèles de certificats**.  
 
-10. In de certificeringsinstantieconsole met de rechtermuisknop op **certificaatsjablonen**, kies **nieuw**, en kies vervolgens **te verlenen certificaatsjablonen**.  
+10. Dans la console Autorité de certification, cliquez avec le bouton droit sur **Modèles de certificats**, choisissez **Nouveau**, puis **Modèle de certificat à délivrer**.  
 
-11. In de **Certificaatsjablonen inschakelen** dialoogvenster het nieuwe sjabloon dat u zojuist hebt gemaakt, kies **ConfigMgr-Clientdistributiepuntcertificaat**, en kies vervolgens **OK**.  
+11. Dans la boîte de dialogue **Activer les modèles de certificat**, choisissez le nouveau modèle que vous venez de créer, **Certificat de point de distribution client ConfigMgr**, puis choisissez **OK**.  
 
-12. Als u geen maken en uitgeven van certificaten meer sluit **certificeringsinstantie**.  
+12. Si vous n’avez pas besoin de créer ni d’émettre d’autres certificats, fermez **Autorité de certification**.  
 
-###  <a name="BKMK_clientdistributionpoint12008"></a>Het aangepaste certificaat voor verificatie van werkstation aanvragen  
- Deze procedure vraagt en installeert het aangepaste clientcertificaat u aan bij de lidserver die IIS uitvoert en die wordt ingesteld als een distributiepunt.  
+###  <a name="BKMK_clientdistributionpoint12008"></a> Demander le certificat Authentification de station de travail personnalisé  
+ Cette procédure permet de demander, puis d’installer le certificat client personnalisé sur le serveur membre qui exécute IIS et qui sera configuré comme point de distribution.  
 
-##### <a name="to-request-the-custom-workstation-authentication-certificate"></a>Het aangepaste certificaat voor verificatie van werkstation aanvragen  
+##### <a name="to-request-the-custom-workstation-authentication-certificate"></a>Pour demander le certificat d'authentification de station de travail personnalisé  
 
-1.  Kies **Start**, kies **uitvoeren**, en voer vervolgens **mmc.exe.** Kies in de lege console **bestand**, en kies vervolgens **module toevoegen/verwijderen**.  
+1.  Choisissez **Démarrer**, **Exécuter**, puis entrez **mmc.exe.** Dans la console vide, choisissez **Fichier**, puis **Ajouter/Supprimer un composant logiciel enfichable**.  
 
-2.  In de **toevoegen of verwijderen van modules** dialoogvenster Kies **certificaten** uit de lijst met **beschikbare modules**, en kies vervolgens **toevoegen**.  
+2.  Dans la boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables**, choisissez **Certificats** dans la liste **Composants logiciels enfichables disponibles**, puis **Ajouter**.  
 
-3.  In de **-module van het certificaat** dialoogvenster Kies **computeraccount**, en kies vervolgens **volgende**.  
+3.  Dans la boîte de dialogue **Composant logiciel enfichable des certificats**, choisissez **Compte d’ordinateur**, puis **Suivant**.  
 
-4.  In de **Computer selecteren** dialoogvenster vak, zorg ervoor dat **lokale computer: (de computer waarop deze console wordt uitgevoerd)** is geselecteerd en kies vervolgens **voltooien**.  
+4.  Dans la boîte de dialogue **Sélectionner un ordinateur**, vérifiez que l’option **L’ordinateur local (l’ordinateur sur lequel cette console s’exécute)** est sélectionnée, puis choisissez **Terminer**.  
 
-5.  In de **toevoegen of verwijderen van modules** dialoogvenster Kies **OK**.  
+5.  Dans la boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables**, choisissez **OK**.  
 
-6.  In de console, vouw **certificaten (lokale Computer)**, en kies vervolgens **persoonlijke**.  
+6.  Dans la console, développez **Certificats (ordinateur local)**, puis choisissez **Personnel**.  
 
-7.  Met de rechtermuisknop op **certificaten**, kies **alle taken**, en kies vervolgens **nieuw certificaat aanvragen**.  
+7.  Cliquez avec le bouton droit sur **Certificats**, choisissez **Toutes les tâches**, puis **Demander un nouveau certificat**.  
 
-8.  Op de **voordat u begint** pagina **volgende**.  
+8.  Dans la page **Avant de commencer**, choisissez **Suivant**.  
 
-9. Als u ziet de **Selecteer certificaatinschrijvingsbeleid** pagina **volgende**.  
+9. Si vous voyez la page **Sélectionner la stratégie d’inscription de certificat**, choisissez **Suivant**.  
 
-10. Op de **certificaten aanvragen** pagina **ConfigMgr-Clientdistributiepuntcertificaat** uit de lijst met beschikbare certificaten en kies vervolgens **inschrijven**.  
+10. Dans la page **Demander des certificats**, choisissez **Certificat de point de distribution client ConfigMgr** dans la liste des certificats disponibles, puis choisissez **Inscrire**.  
 
-11. Op de **certificaatinstallatie** pagina, wacht totdat het certificaat is geïnstalleerd en kies vervolgens **voltooien**.  
+11. Dans la page **Résultats de l’installation des certificats**, attendez que le certificat soit installé, puis choisissez **Terminer**.  
 
-12. Bevestig dat een certificaat heeft in het deelvenster met resultaten **clientverificatie** in de **beoogd doeleinde** kolom en die **ConfigMgr-Clientdistributiepuntcertificaat** bevindt zich in de **certificaatsjabloon** kolom.  
+12. Dans le volet des résultats, vérifiez qu’un certificat indique **Authentification du client** dans la colonne **Rôle prévu** et que **Certificat de point de distribution client ConfigMgr** figure dans la colonne **Modèle de certificat**.  
 
-13. **Certificaten (lokale computer)**niet sluiten.  
+13. Ne fermez pas la fenêtre **Certificats (ordinateur local)**.  
 
-###  <a name="BKMK_exportclientdistributionpoint22008"></a>Het clientcertificaat voor distributiepunten exporteren  
- Deze procedure exporteert het aangepaste certificaat voor verificatie van werkstation naar een bestand zodat het kan worden geïmporteerd in de eigenschappen van het distributiepunt.  
+###  <a name="BKMK_exportclientdistributionpoint22008"></a> Exporter le certificat client pour les points de distribution  
+ Cette procédure permet d’exporter le certificat Authentification de station de travail personnalisé vers un fichier afin qu’il puisse être importé dans les propriétés du point de distribution.  
 
-##### <a name="to-export-the-client-certificate-for-distribution-points"></a>Exporteren van het clientcertificaat voor distributiepunten  
+##### <a name="to-export-the-client-certificate-for-distribution-points"></a>Pour exporter le certificat du client pour les points de distribution  
 
-1.  In de **certificaten (lokale Computer)** console, met de rechtermuisknop op het certificaat dat u zojuist hebt geïnstalleerd, kiest u **alle taken**, en kies vervolgens **exporteren**.  
+1.  Dans la console **Certificats (ordinateur local)**, cliquez avec le bouton droit sur le certificat que vous venez d’installer, choisissez **Toutes les tâches**, puis **Exporter**.  
 
-2.  Kies in de Wizard certificaten exporteren **volgende**.  
+2.  Dans l’Assistant Exportation de certificats, choisissez **Suivant**.  
 
-3.  Op de **persoonlijke sleutel exporteren** pagina **Ja, de persoonlijke sleutel exporteren**, en kies vervolgens **volgende**.  
+3.  Dans la page **Exporter la clé privée**, choisissez **Oui, exporter la clé privée**, puis **Suivant**.  
 
     > [!NOTE]  
-    >  Als deze optie niet beschikbaar is, is het certificaat gemaakt zonder de optie om de persoonlijke sleutel te exporteren. In dit scenario kunt u het certificaat niet exporteren in de vereiste indeling. U moet de certificaatsjabloon instellen zodat de persoonlijke sleutel kan worden geëxporteerd en het certificaat vervolgens opnieuw aanvragen.  
+    >  Si cette option n'est pas disponible, cela signifie que le certificat a été créé sans l'option permettant d'exporter la clé privée. Dans ce scénario, vous ne pouvez pas exporter le certificat dans le format requis. Vous devez configurer le modèle de certificat pour autoriser l’exportation de la clé privée, puis redemander le certificat.  
 
-4.  Op de **bestandsindeling voor Export** pagina, zorg ervoor dat de **Personal Information Exchange - PKCS #12 (. (PFX)** optie is geselecteerd.  
+4.  Dans la page **Format de fichier d’exportation**, vérifiez que l’option **Échange d’informations personnelles - PKCS #12 (.PFX)** est sélectionnée.  
 
-5.  Op de **wachtwoord** pagina, Geef een sterk wachtwoord voor het beveiligen van het geëxporteerde certificaat met de persoonlijke sleutel en kies vervolgens **volgende**.  
+5.  Dans la page **Mot de passe**, spécifiez un mot de passe fort pour protéger le certificat exporté avec sa clé privée, puis choisissez **Suivant**.  
 
-6.  Op de **te exporteren bestand** pagina, geeft u de naam van het bestand dat u wilt exporteren, en kies vervolgens **volgende**.  
+6.  Dans la page **Fichier à exporter**, spécifiez le nom du fichier que vous voulez exporter, puis choisissez **Suivant**.  
 
-7.  Om de wizard sluit, kies **voltooien** op de **Wizard Certificaat exporteren** pagina en kies **OK** in het bevestigingsvenster.  
+7.  Pour fermer l’Assistant, choisissez **Terminer** dans la page **Assistant Exportation de certificat**, puis **OK** dans la boîte de dialogue de confirmation.  
 
-8.  Sluit **Certificaten (lokale computer)**.  
+8.  Fermez la fenêtre **Certificats (ordinateur local)**.  
 
-9. Sla het bestand veilig op en zorg ervoor dat u deze vanaf de System Center Configuration Manager-console openen kunt.  
+9. Stockez le fichier de façon sécurisée et vérifiez que vous pouvez y accéder à partir de la console System Center Configuration Manager.  
 
- Het certificaat is nu gereed om te worden geïmporteerd bij het instellen van het distributiepunt.  
+ Le certificat est maintenant prêt à être importé dès que vous configurez le point de distribution.  
 
 > [!TIP]  
->  U kunt hetzelfde certificaatbestand gebruiken bij het instellen van media-afbeeldingen voor een implementatie van besturingssystemen die geen van PXE-opstart gebruikmaakt en de takenreeks om de installatiekopie te installeren moet contact opnemen met een beheerpunt waarvoor HTTPS-clientverbindingen.  
+>  Vous pouvez utiliser le même fichier de certificat lors de la configuration d’images de média pour un déploiement de système d’exploitation qui n’utilise pas le démarrage PXE, et la séquence de tâches d’installation de l’image doit contacter un point de gestion qui requiert des connexions clientes HTTPS.  
 
-##  <a name="BKMK_mobiledevices2008_cm2012"></a>Het certificaat voor inschrijving voor mobiele apparaten implementeren  
- Voor deze certificaatimplementatie wordt een enkele procedure gebruikt om het certificaatsjabloon voor inschrijving te maken en het te publiceren bij de certificeringsinstantie.  
+##  <a name="BKMK_mobiledevices2008_cm2012"></a> Déployer le certificat d’inscription pour les appareils mobiles  
+ Ce déploiement de certificat a une procédure unique pour créer et émettre le modèle de certificat d'inscription sur l'autorité de certification.  
 
-### <a name="create-and-issue-the-enrollment-certificate-template-on-the-certification-authority"></a>Maken en uitgeven van het certificaatsjabloon voor inschrijving bij de certificeringsinstantie  
- Deze procedure maakt u een certificaatsjabloon voor inschrijving voor mobiele apparaten voor System Center Configuration Manager en voegt het toe aan de certificeringsinstantie.  
+### <a name="create-and-issue-the-enrollment-certificate-template-on-the-certification-authority"></a>Créer et émettre le modèle de certificat d’inscription sur l’autorité de certification  
+ Cette procédure crée un modèle de certificat d’inscription pour les appareils mobiles System Center Configuration Manager et l’ajoute à l’autorité de certification.  
 
-##### <a name="to-create-and-issue-the-enrollment-certificate-template-on-the-certification-authority"></a>Maken en publiceren van het certificaatsjabloon voor inschrijving bij de certificeringsinstantie  
+##### <a name="to-create-and-issue-the-enrollment-certificate-template-on-the-certification-authority"></a>Pour créer et émettre le modèle de certificat d'inscription sur l'autorité de certification  
 
-1.  Maak een beveiligingsgroep met gebruikers die in System Center Configuration Manager voor mobiele apparaten gaan registreren.  
+1.  Créez un groupe de sécurité avec des utilisateurs qui vont inscrire des appareils mobiles dans System Center Configuration Manager.  
 
-2.  Op de lidserver waarop Certificate Services is geïnstalleerd, in de certificeringsinstantieconsole met de rechtermuisknop op **certificaatsjablonen**, en kies vervolgens **beheren** om de beheerconsole voor certificaatsjablonen te laden.  
+2.  Sur le serveur membre sur lequel les services de certificats sont installés, dans la console Autorité de certification, cliquez avec le bouton droit sur **Modèles de certificats**, puis choisissez **Gérer** pour charger la console de gestion Modèles de certificats.  
 
-3.  In het deelvenster met resultaten met de rechtermuisknop op het item met **geverifieerde sessie** in de **weergavenaam van sjabloon** kolom, en kies vervolgens **sjabloon dupliceren**.  
+3.  Dans le volet des résultats, cliquez avec le bouton droit sur l’entrée qui affiche **Session authentifiée** dans la colonne **Nom complet du modèle**, puis choisissez **Dupliquer le modèle**.  
 
-4.  In de **sjabloon dupliceren** dialoogvenster vak, zorg ervoor dat **Windows 2003 Server, Enterprise Edition** is geselecteerd en kies vervolgens **OK**.  
+4.  Dans la boîte de dialogue **Dupliquer le modèle**, vérifiez que l’option **Windows Server 2003, Enterprise Edition** est sélectionnée, puis choisissez **OK**.  
 
     > [!IMPORTANT]  
-    >  **Windows 2008 Server, Enterprise Edition**niet selecteren.  
+    >  Ne sélectionnez pas **Windows Server 2008, Enterprise Edition**.  
 
-5.  In de **eigenschappen van nieuwe sjabloon** in het dialoogvenster op de **algemene** tabblad, voert u de sjabloonnaam van een, zoals **certificaat voor inschrijving in Configuration Manager mobiele apparaten**voor het genereren van de inschrijving van certificaten voor de mobiele apparaten worden beheerd door System Center Configuration Manager.  
+5.  Dans la boîte de dialogue **Propriétés du nouveau modèle**, sous l’onglet **Général**, entrez un nom de modèle (par exemple, **Certificat d’inscription d’appareil mobile ConfigMgr**) pour générer les certificats d’inscription pour les appareils mobiles devant être gérés par System Center Configuration Manager.  
 
-6.  Kies de **onderwerpnaam** tabblad, zorg ervoor dat **op basis van Active Directory-informatie samenstellen** is geselecteerd, selecteer **algemene naam** voor de **indeling van de onderwerpnaam:**, en schakel vervolgens **UPN (User Principal name)** van **deze informatie opnemen in alternatieve onderwerpnaam**.  
+6.  Choisissez l’onglet **Nom de l’objet**, vérifiez que l’option **Construire à partir de ces informations Active Directory** est sélectionnée, sélectionnez **Nom commun** pour **Format du nom de l’objet :**, puis effacez **Nom d’utilisateur principal (UPN)** dans **Inclure cette information dans le nom de substitution du sujet**.  
 
-7.  Kies de **beveiliging** tabblad, kiest u de beveiligingsgroep die gebruikers met mobiele apparaten te registreren is en kies vervolgens de extra machtiging **inschrijven**. **Lezen**niet wissen.  
+7.  Choisissez l’onglet **Sécurité**, le groupe de sécurité avec des utilisateurs qui ont des appareils mobiles à inscrire, puis l’autorisation supplémentaire **Inscription**. Ne désactivez pas l'option **Lecture**.  
 
-8.  Kies **OK**, en sluit vervolgens **Certificaatsjablonenconsole**.  
+8.  Choisissez **OK**, puis fermez la **console Modèles de certificats**.  
 
-9. In de certificeringsinstantieconsole met de rechtermuisknop op **certificaatsjablonen**, kies **nieuw**, en kies vervolgens **te verlenen certificaatsjablonen**.  
+9. Dans la console Autorité de certification, cliquez avec le bouton droit sur **Modèles de certificats**, choisissez **Nouveau**, puis **Modèle de certificat à délivrer**.  
 
-10. In de **Certificaatsjablonen inschakelen** dialoogvenster het nieuwe sjabloon dat u zojuist hebt gemaakt, kies **certificaat voor inschrijving in Configuration Manager mobiele apparaten**, en kies vervolgens **OK**.  
+10. Dans la boîte de dialogue **Activer les modèles de certificat**, choisissez le nouveau modèle que vous venez de créer, **Certificat d’inscription d’appareil mobile ConfigMgr**, puis choisissez **OK**.  
 
-11. Als u niet hoeft te maken en uitgeven van certificaten meer, sluit u de console certificeringsinstantie.  
+11. Si vous n’avez pas besoin de créer ni d’émettre d’autres certificats, fermez la console Autorité de certification.  
 
- Het certificaatsjabloon voor mobiele apparaten voor inschrijving is nu gereed om te worden geselecteerd bij het instellen van een inschrijvingsprofiel voor mobiele apparaten in de clientinstellingen.  
+ Le modèle de certificat d’inscription d’appareil mobile est maintenant prêt à être sélectionné dès que vous configurez un profil d’inscription d’appareil mobile dans les paramètres client.  
 
-##  <a name="BKMK_AMT2008_cm2012"></a>De certificaten voor AMT implementeren  
- Deze certificaatimplementatie heeft de volgende procedures:  
+##  <a name="BKMK_AMT2008_cm2012"></a> Déployer les certificats pour AMT  
+ Les procédures de ce déploiement de certificat sont les suivantes :  
 
--   Maken, uitgeven en installeren van de AMT-inrichtingscertificaat  
+-   Créer, émettre et installer le certificat de configuration AMT  
 
--   Maken en uitgeven van het Webservercertificaat voor AMT-gebaseerde computers  
+-   Créer et émettre le certificat de serveur web pour les ordinateurs AMT  
 
--   Maken en uitgeven van certificaten voor clientverificaties voor 802.1 X AMT-gebaseerde computers voor de client  
+-   Créer et émettre les certificats d’authentification clients pour les ordinateurs AMT 802.1X  
 
-###  <a name="BKMK_AMTprovisioning2008"></a>Maken, uitgeven en installeren van de AMT-inrichtingscertificaat  
- Maak het inrichtingscertificaat met uw interne Certificeringsinstantie wanneer de AMT-gebaseerde computers worden ingesteld met de vingerafdruk van het certificaat van uw interne basiscertificeringsinstantie. Wanneer dit niet het geval is is, en moet u een externe certificeringsinstantie, volg de instructies van het bedrijf dat de AMT-inrichtingscertificaat, die vaak eruit ziet u het certificaat aanvraagt bij openbare website van het bedrijf uitgegeven. U vindt ook uitgebreide instructies voor de door u gekozen externe Certificeringsinstantie in de [Intel vPro Expert Center: Microsoft vPro beheerbaarheid website](http://go.microsoft.com/fwlink/?LinkId=132001).  
+###  <a name="BKMK_AMTprovisioning2008"></a> Créer, émettre et installer le certificat de configuration AMT  
+ Créez le certificat de configuration avec votre autorité de certification interne quand les ordinateurs AMT sont configurés avec l’empreinte numérique du certificat de votre autorité de certification racine interne. Quand ce n’est pas le cas et que vous devez utiliser une autorité de certification externe, suivez les instructions de la société émettrice du certificat de configuration AMT, qui exige souvent le certificat du site web public de l’entreprise. Vous pouvez également trouver des instructions détaillées sur l’autorité de certification externe que vous avez choisie sur le [site web Intel vPro Expert Center: Microsoft vPro Manageability](http://go.microsoft.com/fwlink/?LinkId=132001).  
 
 > [!IMPORTANT]  
->  Externe certificeringsinstanties ondersteunen mogelijk niet de AMT-inrichtingsobject-id van Intel. Als dit het geval is, geeft u de **Intel(R) Clientinstallatiecertificaat** OE-kenmerk.  
+>  Il se peut que des autorités de certification externes ne prennent pas en charge l'identificateur d'objet de configuration Intel AMT. Dans ce cas, fournissez l’attribut de l’unité d’organisation **Intel(R) Client Setup Certificate**.  
 
- Wanneer u een AMT-inrichtingscertificaat van een externe Certificeringsinstantie aanvraagt, moet u het certificaat installeren in de Computer persoonlijke certificaatarchief op de lidserver die als host voor de out-of-band-servicepunt fungeert.  
+ Quand vous demandez un certificat de configuration AMT auprès d’une autorité de certification externe, installez le certificat dans le magasin de certificats personnels de l’ordinateur sur le serveur membre qui va héberger le point de service hors bande.  
 
-##### <a name="to-request-and-issue-the-amt-provisioning-certificate"></a>Aanvragen en uitgeven van het certificaat voor AMT-inrichting  
+##### <a name="to-request-and-issue-the-amt-provisioning-certificate"></a>Pour demander et émettre le certificat de configuration AMT  
 
-1.  Maak een beveiligingsgroep die de computeraccounts van sitesysteemservers die wordt uitgevoerd het out-of-band-servicepunt heeft.  
+1.  Créez un groupe de sécurité qui contient les comptes d’ordinateurs des serveurs de système de site qui exécuteront le point de service hors bande.  
 
-2.  Op de lidserver waarop Certificate Services is geïnstalleerd, in de certificeringsinstantieconsole met de rechtermuisknop op **certificaatsjablonen**, en kies vervolgens **beheren** laden van de **certificaatsjablonen** console.  
+2.  Sur le serveur membre sur lequel les services de certificats sont installés, dans la console Autorité de certification, cliquez avec le bouton droit sur **Modèles de certificats**, puis choisissez **Gérer** pour charger la console **Modèles de certificats**.  
 
-3.  In het deelvenster met resultaten met de rechtermuisknop op het item met **webserver** in de **weergavenaam van sjabloon** kolom, en kies vervolgens **sjabloon dupliceren**.  
+3.  Dans le volet des résultats, cliquez avec le bouton droit sur l’entrée qui affiche **Serveur Web** dans la colonne **Nom complet du modèle**, puis choisissez **Dupliquer le modèle**.  
 
-4.  In de **sjabloon dupliceren** dialoogvenster vak, zorg ervoor dat **Windows 2003 Server, Enterprise Edition** is geselecteerd en kies vervolgens **OK**.  
+4.  Dans la boîte de dialogue **Dupliquer le modèle**, vérifiez que l’option **Windows Server 2003, Enterprise Edition** est sélectionnée, puis choisissez **OK**.  
 
     > [!IMPORTANT]  
-    >  **Windows 2008 Server, Enterprise Edition**niet selecteren.  
+    >  Ne sélectionnez pas **Windows Server 2008, Enterprise Edition**.  
 
-5.  In de **eigenschappen van nieuwe sjabloon** in het dialoogvenster op de **algemene** tabblad, voert u de sjabloonnaam van een, zoals **ConfigMgr AMT-inrichting**, voor de certificaatsjabloon voor AMT-inrichting.  
+5.  Dans la boîte de dialogue **Propriétés du nouveau modèle**, sous l’onglet **Général**, entrez un nom de modèle (par exemple, **Configuration AMT ConfigMgr**) pour générer le modèle de certificat de configuration AMT.  
 
-6.  Kies de **onderwerpnaam** Kies **op basis van Active Directory-informatie samenstellen**, en kies vervolgens **algemene naam**.  
+6.  Choisissez l’onglet **Nom de l’objet**, **Construire à partir de ces informations Active Directory**, puis **Nom commun**.  
 
-7.  Kies de **extensies** tabblad, zorg ervoor dat **toepassingsbeleid** is geselecteerd en kies vervolgens **bewerken**.  
+7.  Choisissez l’onglet **Extensions**, vérifiez que l’option **Stratégies d’application** est activée, puis choisissez **Modifier**.  
 
-8.  In de **Toepassingenbeleidsuitbreiding bewerken** dialoogvenster Kies **toevoegen**.  
+8.  Dans la boîte de dialogue **Modifier l’extension des stratégies d’application**, choisissez **Ajouter**.  
 
-9. In de **Toepassingenbeleid toevoegen** dialoogvenster Kies **nieuw**.  
+9. Dans la boîte de dialogue **Ajouter une stratégie d’application**, choisissez **Nouveau**.  
 
-10. In de **Nieuw toepassingenbeleid** dialoogvenster Voer **AMT-inrichting** in de **naam** veld en voer het volgende nummer voor de **Object-id**: **2.16.840.1.113741.1.2.3**.  
+10. Dans la boîte de dialogue **Nouvelle stratégie d’application**, entrez **Configuration AMT** dans le champ **Nom**, puis le numéro suivant dans le champ **Identificateur d’objet** : **2.16.840.1.113741.1.2.3**.  
 
-11. Kies **OK**, en kies vervolgens **OK** in de **Toepassingenbeleid toevoegen** in het dialoogvenster.  
+11. Choisissez **OK**, puis une nouvelle fois **OK** dans la boîte de dialogue **Ajouter une stratégie d’application**.  
 
-12. Kies **OK** in de **Toepassingenbeleidsuitbreiding bewerken** in het dialoogvenster.  
+12. Choisissez **OK** dans la boîte de dialogue **Modifier l’extension des stratégies d’application**.  
 
-13. In de **eigenschappen van nieuwe sjabloon** in het dialoogvenster het volgende wordt vermeld als de **toepassingsbeleid** beschrijving: **Serververificatie** en **AMT-inrichting**.  
+13. Dans la boîte de dialogue **Propriétés du nouveau modèle**, les éléments suivants sont répertoriés comme description de **Stratégies d’application** : **Authentification du serveur** et **Configuration AMT**.  
 
-14. Kies de **beveiliging** tabblad, en verwijder vervolgens de **inschrijven** machtiging van de **Domeinadministrators** en **Ondernemingsadministrators** beveiligingsgroepen.  
+14. Sous l’onglet **Sécurité**, supprimez l’autorisation **Inscription** des groupes de sécurité **Administrateurs du domaine** et **Administrateurs de l’entreprise**.  
 
-15. Kies **toevoegen**, voer de naam van een beveiligingsgroep die het computeraccount voor de sitesysteemrol out-of-band-service heeft en kies vervolgens **OK**.  
+15. Choisissez **Ajouter**, entrez le nom d’un groupe de sécurité qui contient le compte d’ordinateur pour le rôle de système de site du point de service hors bande, puis choisissez **OK**.  
 
-16. Kies de **inschrijven** machtiging voor deze groep en verwijder de **lezen** machtiging...  
+16. Choisissez l’autorisation **Inscription** pour ce groupe et ne désactivez pas l’autorisation **Lecture**.  
 
-17. Kies **OK**, en sluit vervolgens de **certificaatsjablonen** console.  
+17. Choisissez **OK**, puis fermez la console **Modèles de certificats**.  
 
-18. In **certificeringsinstantie**, met de rechtermuisknop op **certificaatsjablonen**, kies **nieuw**, en kies vervolgens **te verlenen certificaatsjablonen**.  
+18. Dans **Autorité de certification**, cliquez avec le bouton droit sur **Modèles de certificats**, choisissez **Nouveau**, puis **Modèle de certificat à délivrer**.  
 
-19. In de **Certificaatsjablonen inschakelen** dialoogvenster het nieuwe sjabloon dat u zojuist hebt gemaakt, kies **ConfigMgr AMT-inrichting**, en kies vervolgens **OK**.  
+19. Dans la boîte de dialogue **Activer les modèles de certificat**, choisissez le nouveau modèle que vous venez de créer, **Configuration AMT ConfigMgr**, puis choisissez **OK**.  
 
     > [!NOTE]  
-    >  Als u de stappen 18 of 19 niet kunt voltooien, controleer dan of u de Enterprise Edition van Windows Server 2008 gebruikt. Hoewel u sjablonen met Windows Server Standard Edition en Certificate Services instellen kunt, kunt u certificaten niet implementeren met behulp van gewijzigde certificaatsjablonen, tenzij u de Enterprise-editie van Windows Server 2008 gebruikt.  
+    >  Si vous ne pouvez pas effectuer l'étape 18 ou 19, vérifiez que vous utilisez Windows Server 2008 Enterprise Edition. Bien que vous puissiez configurer des modèles dans Windows Server Standard Edition et les services de certificats, vous ne pouvez déployer des certificats à l’aide de modèles de certificats modifiés que dans Windows Server 2008 Enterprise Edition.  
 
-20. **Certificeringsinstantie**niet sluiten.  
+20. Ne fermez pas l' **autorité de certification**.  
 
- Het certificaat voor AMT-inrichting van uw interne Certificeringsinstantie is nu gereed om te worden geïnstalleerd op de computer out-of-band-service.  
+ Le certificat de configuration AMT de votre autorité de certification interne est maintenant prêt à être installé sur l’ordinateur du point de service hors bande.  
 
-##### <a name="to-install-the-amt-provisioning-certificate"></a>Installeren van het certificaat voor AMT-inrichting  
+##### <a name="to-install-the-amt-provisioning-certificate"></a>Pour installer le certificat de configuration AMT  
 
-1.  Start opnieuw op de lidserver die IIS om ervoor te zorgen dat deze toegang heeft tot de certificaatsjabloon die u met de ingestelde machtiging wordt uitgevoerd.  
+1.  Redémarrez le serveur membre qui exécute IIS pour vérifier qu’il peut accéder au modèle de certificat via l’autorisation définie.  
 
-2.  Kies **Start**, kies **uitvoeren**, en voer vervolgens **mmc.exe.** Kies in de lege console **bestand**, en kies vervolgens **module toevoegen/verwijderen**.  
+2.  Choisissez **Démarrer**, **Exécuter**, puis entrez **mmc.exe.** Dans la console vide, choisissez **Fichier**, puis **Ajouter/Supprimer un composant logiciel enfichable**.  
 
-3.  In de **toevoegen of verwijderen van modules** dialoogvenster Kies **certificaten** uit de lijst met **beschikbare modules**, en kies vervolgens **toevoegen**.  
+3.  Dans la boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables**, choisissez **Certificats** dans la liste **Composants logiciels enfichables disponibles**, puis **Ajouter**.  
 
-4.  In de **-module van het certificaat** dialoogvenster Kies **computeraccount**, en kies vervolgens **volgende**.  
+4.  Dans la boîte de dialogue **Composant logiciel enfichable des certificats**, choisissez **Compte d’ordinateur**, puis **Suivant**.  
 
-5.  In de **Computer selecteren** dialoogvenster vak, zorg ervoor dat **lokale computer: (de computer waarop deze console wordt uitgevoerd)** is geselecteerd en kies vervolgens **voltooien**.  
+5.  Dans la boîte de dialogue **Sélectionner un ordinateur**, vérifiez que l’option **L’ordinateur local (l’ordinateur sur lequel cette console s’exécute)** est sélectionnée, puis choisissez **Terminer**.  
 
-6.  In de **toevoegen of verwijderen van modules** dialoogvenster Kies **OK**.  
+6.  Dans la boîte de dialogue **Ajouter ou supprimer des composants logiciels enfichables**, choisissez **OK**.  
 
-7.  In de console, vouw **certificaten (lokale Computer)**, en kies vervolgens **persoonlijke**.  
+7.  Dans la console, développez **Certificats (ordinateur local)**, puis choisissez **Personnel**.  
 
-8.  Met de rechtermuisknop op **certificaten**, kies **alle taken**, en kies vervolgens **nieuw certificaat aanvragen**.  
+8.  Cliquez avec le bouton droit sur **Certificats**, choisissez **Toutes les tâches**, puis **Demander un nouveau certificat**.  
 
-9. Op de **voordat u begint** pagina **volgende**.  
+9. Dans la page **Avant de commencer**, choisissez **Suivant**.  
 
-10. Als u ziet de **Selecteer certificaatinschrijvingsbeleid** pagina **volgende**.  
+10. Si vous voyez la page **Sélectionner la stratégie d’inscription de certificat**, choisissez **Suivant**.  
 
-11. Op de **certificaten aanvragen** pagina **AMT-inrichting** uit de lijst met beschikbare certificaten en kies vervolgens **inschrijven**.  
+11. Dans la page **Demander des certificats**, sélectionnez **Configuration AMT** dans la liste des certificats disponibles, puis choisissez **Inscrire**.  
 
-12. Op de **certificaatinstallatie** pagina, wacht totdat het certificaat is geïnstalleerd en kies vervolgens **voltooien**.  
+12. Dans la page **Résultats de l’installation des certificats**, attendez que le certificat soit installé, puis choisissez **Terminer**.  
 
-13. Sluit **Certificaten (lokale computer)**.  
+13. Fermez la fenêtre **Certificats (ordinateur local)**.  
 
- Het certificaat voor AMT-inrichting van uw interne Certificeringsinstantie is nu geïnstalleerd en is gereed om te worden geselecteerd in de eigenschappen van het out-of-band-service.  
+ Le certificat de configuration AMT de votre autorité de certification interne est maintenant installé et peut être sélectionné dans les propriétés du point de service hors bande.  
 
-### <a name="create-and-issue-the-web-server-certificate-for-amt-based-computers"></a>Maken en uitgeven van het Webservercertificaat voor AMT-gebaseerde computers  
- Gebruik de volgende procedure om de webservercertificaten voor op AMT-gebaseerde computers voor te bereiden.  
+### <a name="create-and-issue-the-web-server-certificate-for-amt-based-computers"></a>Créer et émettre le certificat de serveur web pour les ordinateurs AMT  
+ Procédez comme suit pour préparer les certificats de serveur Web pour les ordinateurs basés sur AMT.  
 
-##### <a name="to-create-and-issue-the-web-server-certificate-template"></a>Maken en uitgeven van de webserver certificaatsjabloon  
+##### <a name="to-create-and-issue-the-web-server-certificate-template"></a>Pour créer et émettre le modèle de certificat de serveur web  
 
-1.  Maak een lege beveiligingsgroep met de AMT-computeraccounts die System Center Configuration Manager tijdens AMT-inrichting maakt.  
+1.  Créez un groupe de sécurité vide qui contient les comptes d’ordinateurs AMT créés par System Center Configuration Manager lors de la configuration AMT.  
 
-2.  Op de lidserver waarop Certificate Services is geïnstalleerd, in de certificeringsinstantieconsole met de rechtermuisknop op **certificaatsjablonen**, en kies vervolgens **beheren** laden van de **certificaatsjablonen** console.  
+2.  Sur le serveur membre sur lequel les services de certificats sont installés, dans la console Autorité de certification, cliquez avec le bouton droit sur **Modèles de certificats**, puis choisissez **Gérer** pour charger la console **Modèles de certificats**.  
 
-3.  In het deelvenster met resultaten met de rechtermuisknop op het item met **webserver** in de **weergavenaam van sjabloon** kolom, en kies vervolgens **sjabloon dupliceren**.  
+3.  Dans le volet des résultats, cliquez avec le bouton droit sur l’entrée qui affiche **Serveur Web** dans la colonne **Nom complet du modèle**, puis choisissez **Dupliquer le modèle**.  
 
-4.  In de **sjabloon dupliceren** dialoogvenster vak, zorg ervoor dat **Windows 2003 Server, Enterprise Edition** is geselecteerd en kies vervolgens **OK**.  
-
-    > [!IMPORTANT]  
-    >  **Windows 2008 Server, Enterprise Edition.**  
-
-5.  In de **eigenschappen van nieuwe sjabloon** in het dialoogvenster op de **algemene** tabblad, voert u de sjabloonnaam van een, zoals **ConfigMgr AMT-Webservercertificaat**voor het genereren van de webcertificaten die wordt gebruikt voor out-of-band-beheer op AMT-computers.  
-
-6.  Kies de **onderwerpnaam** Kies **op basis van Active Directory-informatie samenstellen**, kies **algemene naam** voor de **indeling van de onderwerpnaam**, en schakel vervolgens **UPN (User Principal name)** voor de alternatieve onderwerpnaam.  
-
-7.  Kies de **beveiliging** tabblad, en verwijder vervolgens de **inschrijven** machtiging van de **Domeinadministrators** en **Ondernemingsadministrators** beveiligingsgroepen.  
-
-8.  Kies **toevoegen**, en voer de naam van de beveiligingsgroep die u hebt gemaakt voor AMT-inrichting en kies vervolgens **OK**.  
-
-9. Kies de volgende **toestaan** machtigingen voor deze beveiligingsgroep: **Lees** en **inschrijven**.  
-
-10. Kies **OK**, en sluit vervolgens de **certificaatsjablonen** console.  
-
-11. In de **certificeringsinstantie** console, met de rechtermuisknop op **certificaatsjablonen**, kies **nieuw**, en kies vervolgens **te verlenen certificaatsjablonen**.  
-
-12. In de **Certificaatsjablonen inschakelen** dialoogvenster het nieuwe sjabloon dat u zojuist hebt gemaakt, kies **ConfigMgr AMT-Webservercertificaat**, en kies vervolgens **OK**.  
-
-13. Als u geen maken en uitgeven van certificaten meer sluit **certificeringsinstantie**.  
-
- De AMT-webserversjabloon is nu gereed voor het instellen van AMT-gebaseerde computers met webservercertificaten. Kies deze certificaatsjabloon in de onderdeeleigenschappen voor buiten-bandbeheer.  
-
-### <a name="create-and-issue-the-client-authentication-certificates-for-8021x-amt-based-computers"></a>Maken en uitgeven van certificaten voor clientverificaties voor 802.1 X AMT-gebaseerde computers voor de client  
- Gebruik de volgende procedure als op AMT-gebaseerde computers clientcertificaten gaan gebruiken voor 802.1X-geverifieerde bekabelde en draadloze netwerken.  
-
-##### <a name="to-create-and-issue-the-client-authentication-certificate-template-on-the-ca"></a>Maken en uitgeven van het certificaatsjabloon voor clientverificatie bij de certificeringsinstantie  
-
-1.  Op de lidserver waarop Certificate Services is geïnstalleerd, in de certificeringsinstantieconsole met de rechtermuisknop op **certificaatsjablonen**, en kies vervolgens **beheren** laden van de **certificaatsjablonen** console.  
-
-2.  In het deelvenster met resultaten met de rechtermuisknop op het item met **verificatie van werkstation** in de **weergavenaam van sjabloon** kolom, en kies vervolgens **sjabloon dupliceren**.  
+4.  Dans la boîte de dialogue **Dupliquer le modèle**, vérifiez que l’option **Windows Server 2003, Enterprise Edition** est sélectionnée, puis choisissez **OK**.  
 
     > [!IMPORTANT]  
-    >  **Windows 2008 Server, Enterprise Edition.**  
+    >  Ne sélectionnez pas **Windows Server 2008, Enterprise Edition.**  
 
-3.  In de **eigenschappen van nieuwe sjabloon** in het dialoogvenster op de **algemene** tabblad, voert u de sjabloonnaam van een, zoals **ConfigMgr AMT 802. 1 X-certificaat voor verificatie**voor het genereren van de clientcertificaten die wordt gebruikt voor out-of-band-beheer op AMT-computers.  
+5.  Dans la boîte de dialogue **Propriétés du nouveau modèle**, sous l’onglet **Général**, entrez un nom de modèle (par exemple, **Certificat de serveur web AMT ConfigMgr**) pour générer les certificats web à utiliser pour la gestion hors bande sur les ordinateurs AMT.  
 
-4.  Kies de **onderwerpnaam** Kies **op basis van Active Directory-informatie samenstellen**, en kies vervolgens **algemene naam** voor de **indeling van de onderwerpnaam**. Wissen **DNS-naam** voor de alternatieve onderwerpnaam. Geef een naam in en kies vervolgens **UPN (User Principal name)**.  
+6.  Choisissez l’onglet **Nom de l’objet**, **Construire à partir de ces informations Active Directory**, **Nom commun** pour **Format du nom de l’objet**, puis effacez **Nom d’utilisateur principal (UPN)** pour l’autre nom de l’objet.  
 
-5.  Kies de **beveiliging** tabblad, en verwijder vervolgens de **inschrijven** machtiging van de **Domeinadministrators** en **Ondernemingsadministrators** beveiligingsgroepen.  
+7.  Sous l’onglet **Sécurité**, supprimez l’autorisation **Inscription** des groupes de sécurité **Administrateurs du domaine** et **Administrateurs de l’entreprise**.  
 
-6.  Kies **toevoegen**, voer de naam van de beveiligingsgroep die u wilt opgeven in de onderdeeleigenschappen out-of-band beheer om de computeraccounts van de AMT-gebaseerde computers en kies vervolgens **OK**.  
+8.  Choisissez **Ajouter** et entrez le nom du groupe de sécurité que vous avez créé pour la configuration AMT, puis choisissez **OK**.  
 
-7.  Selecteer de volgende **toestaan** machtigingen voor deze beveiligingsgroep: **Lees** en **inschrijven**.  
+9. Choisissez ces autorisations **Autoriser** applicables à ce groupe de sécurité : **Lecture** et **Inscription**.  
 
-8.  Kies **OK**, en sluit vervolgens de **certificaatsjablonen** beheerconsole **certtmpl - [Certificaatsjablonen]**.  
+10. Choisissez **OK**, puis fermez la console **Modèles de certificats**.  
 
-9. In de **certificeringsinstantie** beheerconsole, met de rechtermuisknop op **certificaatsjablonen**, kies **nieuw**, en kies vervolgens **te verlenen certificaatsjablonen**.  
+11. Dans la console **Autorité de certification**, cliquez avec le bouton droit sur **Modèles de certificats**, choisissez **Nouveau**, puis **Modèle de certificat à délivrer**.  
 
-10. In de **Certificaatsjablonen inschakelen** dialoogvenster het nieuwe sjabloon dat u zojuist hebt gemaakt, kies **ConfigMgr AMT 802. 1 X-certificaat voor verificatie**, en kies vervolgens **OK**.  
+12. Dans la boîte de dialogue **Activer les modèles de certificat**, choisissez le nouveau modèle que vous venez de créer, **Certificat de serveur web AMT ConfigMgr**, puis choisissez **OK**.  
 
-11. Als u niet wilt maken en uitgeven van certificaten meer sluit **certificeringsinstantie**.  
+13. Si vous n’avez pas besoin de créer ni d’émettre d’autres certificats, fermez **Autorité de certification**.  
 
- U kunt het certificaatsjabloon voor clientverificatie nu gebruiken om certificaten te verlenen aan op AMT-gebaseerde computers die kunnen worden gebruikt voor 802.1X-clientverificatie. Kies deze certificaatsjabloon in de onderdeeleigenschappen voor buiten-bandbeheer.  
+ Le modèle de serveur web AMT est maintenant prêt pour la configuration d’ordinateurs AMT avec des certificats de serveur web. Choisissez ce modèle de certificat dans les propriétés du composant de gestion hors bande.  
 
-##  <a name="BKMK_MacClient_SP1"></a>Het clientcertificaat voor Mac-computers implementeren  
+### <a name="create-and-issue-the-client-authentication-certificates-for-8021x-amt-based-computers"></a>Créer et émettre les certificats d’authentification clients pour les ordinateurs AMT 802.1X  
+ Utilisez la procédure suivante si les ordinateurs basés sur AMT utilisent des certificats clients pour les réseaux filaires ou sans fil authentifiés par 802.1X.  
 
-Voor deze certificaatimplementatie wordt een enkele procedure gebruikt om het certificaatsjabloon voor inschrijving te maken en het te publiceren bij de certificeringsinstantie.  
+##### <a name="to-create-and-issue-the-client-authentication-certificate-template-on-the-ca"></a>Pour créer et émettre le modèle de certificat d'authentification client sur l'autorité de certification  
 
-###  <a name="BKMK_MacClient_CreatingIssuing"></a>Maken en uitgeven van een Mac-client sjabloon Webservercertificaat bij de certificeringsinstantie  
- Deze procedure maakt een aangepast certificaatsjabloon voor System Center Configuration Manager Mac-computers en voegt u certificaatsjabloon toe aan de certificeringsinstantie.  
+1.  Sur le serveur membre sur lequel les services de certificats sont installés, dans la console Autorité de certification, cliquez avec le bouton droit sur **Modèles de certificats**, puis choisissez **Gérer** pour charger la console **Modèles de certificats**.  
+
+2.  Dans le volet des résultats, cliquez avec le bouton droit sur l’entrée qui affiche **Authentification de station de travail** dans la colonne **Nom complet du modèle**, puis choisissez **Dupliquer le modèle**.  
+
+    > [!IMPORTANT]  
+    >  Ne sélectionnez pas **Windows Server 2008, Enterprise Edition.**  
+
+3.  Dans la boîte de dialogue **Propriétés du nouveau modèle**, sous l’onglet **Général**, entrez un nom de modèle (par exemple, **Certificat d’authentification client AMT 802.1X ConfigMgr**) pour générer les certificats clients à utiliser pour la gestion hors bande sur les ordinateurs AMT.  
+
+4.  Choisissez l’onglet **Nom de l’objet**, **Construire à partir de ces informations Active Directory**, puis **Nom commun** pour **Format du nom de l’objet**. Effacez **Nom DNS** pour l’autre nom de l’objet, puis choisissez **Nom d’utilisateur principal (UPN)**.  
+
+5.  Sous l’onglet **Sécurité**, supprimez l’autorisation **Inscription** des groupes de sécurité **Administrateurs du domaine** et **Administrateurs de l’entreprise**.  
+
+6.  Choisissez **Ajouter**, entrez le nom du groupe de sécurité que vous spécifiez dans les propriétés du composant de gestion hors bande pour contenir les comptes des ordinateurs AMT, puis choisissez **OK**.  
+
+7.  Sélectionnez ces autorisations **Autoriser** applicables à ce groupe de sécurité : **Lecture** et **Inscription**.  
+
+8.  Choisissez **OK**, puis fermez la console de gestion **Modèles de certificats**, **certtmpl - [Modèles de certificats]**.  
+
+9. Dans la console de gestion **Autorité de certification**, cliquez avec le bouton droit sur **Modèles de certificats**, choisissez **Nouveau**, puis **Modèle de certificat à délivrer**.  
+
+10. Dans la boîte de dialogue **Activer les modèles de certificat**, choisissez le nouveau modèle que vous venez de créer, **Certificat d’authentification client AMT 802.1X ConfigMgr**, puis choisissez **OK**.  
+
+11. Si vous n’avez pas besoin de créer ni d’émettre d’autres certificats, fermez **Autorité de certification**.  
+
+ Le modèle de certificat d'authentification client est maintenant prêt à émettre des certificats d'ordinateurs AMT utilisables pour l'authentification client 802.1X. Choisissez ce modèle de certificat dans les propriétés du composant de gestion hors bande.  
+
+##  <a name="BKMK_MacClient_SP1"></a> Déployer le certificat client pour les ordinateurs Mac  
+
+Ce déploiement de certificat a une procédure unique pour créer et émettre le modèle de certificat d'inscription sur l'autorité de certification.  
+
+###  <a name="BKMK_MacClient_CreatingIssuing"></a> Créer et émettre un modèle de certificat client Mac sur l’autorité de certification  
+ Cette procédure crée un modèle de certificat personnalisé pour les ordinateurs Mac System Center Configuration Manager et l’ajoute à l’autorité de certification.  
 
 > [!NOTE]  
->  Met deze procedure gebruikt u een ander certificaatsjabloon dan het certificaatsjabloon dat u mogelijk hebt gemaakt voor Windows-clientcomputers of voor distributiepunten.  
+>  Cette procédure utilise un modèle de certificat différent du modèle de certificat que vous avez peut-être créé pour des ordinateurs clients Windows ou pour des points de distribution.  
 >   
->  Wanneer u een nieuwe certificaatsjabloon voor dit certificaat maakt, kunt u de certificaataanvraag beperken tot gemachtigde gebruikers.  
+>  Quand vous créez un modèle de certificat pour ce certificat, vous pouvez limiter la demande de certificat aux utilisateurs autorisés.  
 
-##### <a name="to-create-and-issue-the-mac-client-certificate-template-on-the-certification-authority"></a>De Mac-clientcertificaatsjabloon maken en bij de certificeringsinstantie indienen  
+##### <a name="to-create-and-issue-the-mac-client-certificate-template-on-the-certification-authority"></a>Pour créer et émettre le modèle de certificat client Mac sur l'autorité de certification  
 
-1.  Maak een beveiligingsgroep met gebruikersaccounts voor gebruikers met beheerdersrechten die het certificaat op de Mac-computer inschrijven zal met behulp van System Center Configuration Manager.  
+1.  Créez un groupe de sécurité qui contient les comptes des utilisateurs administratifs qui vont inscrire le certificat sur l’ordinateur Mac à l’aide de System Center Configuration Manager.  
 
-2.  Op de lidserver waarop de console certificeringsinstantie wordt uitgevoerd, met de rechtermuisknop op **certificaatsjablonen**, en kies vervolgens **beheren** om de beheerconsole voor certificaatsjablonen te laden.  
+2.  Sur le serveur membre qui exécute la console Autorité de certification, cliquez avec le bouton droit sur **Modèles de certificats**, puis choisissez **Gérer** pour charger la console de gestion des modèles de certificats.  
 
-3.  Met de rechtermuisknop op de vermelding die wordt weergegeven in het deelvenster met resultaten **geverifieerde sessie** in de **weergavenaam van sjabloon** kolom, en kies vervolgens **sjabloon dupliceren**.  
+3.  Dans le volet des résultats, cliquez avec le bouton droit sur l’entrée qui affiche **Session authentifiée** dans la colonne **Nom complet du modèle**, puis choisissez **Dupliquer le modèle**.  
 
-4.  In de **sjabloon dupliceren** dialoogvenster vak, zorg ervoor dat **Windows 2003 Server, Enterprise Edition** is geselecteerd en kies vervolgens **OK**.  
+4.  Dans la boîte de dialogue **Dupliquer le modèle**, vérifiez que l’option **Windows Server 2003, Enterprise Edition** est sélectionnée, puis choisissez **OK**.  
 
     > [!IMPORTANT]  
-    >  **Windows 2008 Server, Enterprise Edition**niet selecteren.  
+    >  Ne sélectionnez pas **Windows Server 2008, Enterprise Edition**.  
 
-5.  In de **eigenschappen van nieuwe sjabloon** in het dialoogvenster op de **algemene** tabblad, voert u de sjabloonnaam van een, zoals **ConfigMgr Mac-clientcertificaat**, om de Mac-clientcertificaat te genereren.  
+5.  Dans la boîte de dialogue **Propriétés du nouveau modèle**, sous l’onglet **Général**, entrez un nom de modèle (par exemple, **Certificat client Mac ConfigMgr**) pour générer le certificat client Mac.  
 
-6.  Kies de **onderwerpnaam** tabblad, zorg ervoor dat **op basis van Active Directory-informatie samenstellen** is geselecteerd, kiest u **algemene naam** voor de **indeling van de onderwerpnaam:**, en schakel vervolgens **UPN (User Principal name)** van **deze informatie opnemen in alternatieve onderwerpnaam**.  
+6.  Choisissez l’onglet **Nom de l’objet**, vérifiez que l’option **Construire à partir de ces informations Active Directory** est sélectionnée, choisissez **Nom commun** pour **Format du nom de l’objet :**, puis effacez **Nom d’utilisateur principal (UPN)** dans **Inclure cette information dans le nom de substitution du sujet**.  
 
-7.  Kies de **beveiliging** tabblad, en verwijder vervolgens de **inschrijven** machtiging van de **Domeinadministrators** en **Ondernemingsadministrators** beveiligingsgroepen.  
+7.  Sous l’onglet **Sécurité**, supprimez l’autorisation **Inscription** des groupes de sécurité **Administrateurs du domaine** et **Administrateurs de l’entreprise**.  
 
-8.  Kies **toevoegen**, geef de beveiligingsgroep die u in stap één hebt gemaakt en kies vervolgens **OK**.  
+8.  Choisissez **Ajouter**, spécifiez le groupe de sécurité que vous avez créé lors de la première étape, puis choisissez **OK**.  
 
-9. Kies de **inschrijven** machtiging voor deze groep en verwijder de **lezen** machtiging.  
+9. Choisissez l’autorisation **Inscription** pour ce groupe et ne désactivez pas l’autorisation **Lecture**.  
 
-10. Kies **OK**, en sluit vervolgens **Certificaatsjablonenconsole**.  
+10. Choisissez **OK**, puis fermez la **console Modèles de certificats**.  
 
-11. In de certificeringsinstantieconsole met de rechtermuisknop op **certificaatsjablonen**, kies **nieuw**, en kies vervolgens **te verlenen certificaatsjablonen**.  
+11. Dans la console Autorité de certification, cliquez avec le bouton droit sur **Modèles de certificats**, choisissez **Nouveau**, puis **Modèle de certificat à délivrer**.  
 
-12. In de **Certificaatsjablonen inschakelen** dialoogvenster het nieuwe sjabloon dat u zojuist hebt gemaakt, kies **ConfigMgr Mac-clientcertificaat**, en kies vervolgens **OK**.  
+12. Dans la boîte de dialogue **Activer les modèles de certificat**, choisissez le nouveau modèle que vous venez de créer, **Certificat client Mac ConfigMgr**, puis choisissez **OK**.  
 
-13. Als u geen maken en uitgeven van certificaten meer sluit **certificeringsinstantie**.  
+13. Si vous n’avez pas besoin de créer ni d’émettre d’autres certificats, fermez **Autorité de certification**.  
 
- Het certificaatsjabloon voor Mac-client is nu gereed om te worden geselecteerd bij het instellen van de clientinstellingen voor inschrijving.
+ Le modèle de certificat client Mac est maintenant prêt à être sélectionné dès que vous configurez les paramètres client pour l’inscription.

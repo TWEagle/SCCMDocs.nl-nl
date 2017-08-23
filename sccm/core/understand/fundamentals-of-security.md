@@ -1,6 +1,6 @@
 ---
-title: Basisprincipes van beveiliging | Microsoft Docs
-description: Meer informatie over de lagen van de beveiliging voor System Center Configuration Manager.
+title: "Notions de base de la sécurité | Microsoft Docs"
+description: "En savoir plus sur les couches de sécurité pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/30/2016
 ms.prod: configuration-manager
@@ -16,56 +16,56 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: df3198885259b1db4a1aadee0db6512a1a2d4911
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="fundamentals-of-security-for-system-center-configuration-manager"></a>Basisprincipes van beveiliging voor System Center Configuration Manager.
+# <a name="fundamentals-of-security-for-system-center-configuration-manager"></a>Notions de base de la sécurité pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Beveiliging voor System Center Configuration Manager bestaat uit meerdere lagen. De eerste laag wordt geleverd door Windows-beveiligingsfuncties voor zowel het besturingssysteem en het netwerk en omvat:  
+La sécurité pour System Center Configuration Manager se compose de plusieurs couches. La première couche est fournie par les fonctionnalités de sécurité Windows tant pour le système d’exploitation que pour le réseau, qui incluent :  
 
--   Bestand delen voor bestandsoverdracht tussen Configuration Manager-onderdelen.  
+-   Le partage de fichiers pour transférer des fichiers entre les composants Configuration Manager.  
 
--   Toegangsbeheerlijsten (ACL's) voor het beveiligde bestanden en registersleutels.  
+-   Des listes de contrôle d’accès pour sécuriser les fichiers et les clés de Registre.  
 
--   Internet Protocol Security (IPsec) om u te helpen beveiligde communicatie.  
+-   La sécurité du protocole Internet (IPsec) pour sécuriser les communications.  
 
--   Groepsbeleid instellen van beveiligingsbeleid.  
+-   Une stratégie de groupe pour définir la stratégie de sécurité.  
 
--   Distributed Component Object Model (DCOM) machtigingen voor gedistribueerde toepassingen, zoals de Configuration Manager-console.  
+-   Des autorisations DCOM (Distributed Component Object Model) pour les applications distribuées, comme la console Configuration Manager.  
 
--   Active Directory Domain Services voor het opslaan van beveiligings-principals.  
+-   Des services de domaine Active Directory pour stocker les entités de sécurité.  
 
--   Windows-accountbeveiliging, inclusief bepaalde groepen die zijn gemaakt tijdens de installatie van Configuration Manager.  
+-   La sécurité de compte Windows, notamment certains groupes qui sont créés pendant la configuration de Configuration Manager.  
 
-Vervolgens zorgt extra beveiligingsonderdelen, zoals firewalls en inbraakdetectie, voor beveiliging voor de hele omgeving. Certificaten die door de bedrijfstak standaard openbare-sleutelinfrastructuur (PKI)-implementaties te bieden voor authenticatie, ondertekening en versleuteling.  
+Des composants de sécurité supplémentaires (pare-feu, détection d’intrusion, par exemple) aident à protéger l’ensemble de l’environnement. Les certificats émis par des implémentations d’infrastructure à clé publique (PKI) standard permettent de fournir une authentification, une signature et un chiffrement.  
 
-Naast de beveiliging van de Windows server en de netwerkinfrastructuur, controleert Configuration Manager de toegang tot de Configuration Manager-console en de bijbehorende bronnen op verschillende manieren. Standaard beschikken alleen lokale beheerders over rechten op de bestanden en registersleutels die nodig zijn voor het uitvoeren van de Configuration Manager-console op computers waarop deze is geïnstalleerd.  
+Outre la sécurité fournie par l’infrastructure réseau et de serveur Windows, Configuration Manager contrôle l’accès à la console Configuration Manager et à ses ressources de plusieurs façons. Par défaut, seuls les administrateurs locaux disposent d’autorisations sur les fichiers et les clés de Registre nécessaires à l’exécution de la console Configuration Manager sur les ordinateurs où elle est installée.  
 
-De volgende beveiligingslaag is gebaseerd op toegang via WMI (Windows Management Instrumentation), in het bijzonder de SMS-provider. De SMS-Provider is een Configuration Manager-onderdeel waarmee een gebruiker toegang krijgt om op te vragen van de sitedatabase voor meer informatie. Toegang tot de provider is standaard beperkt tot leden van de lokale groep SMS Admins. Deze groep bevat eerst alleen de gebruiker die Configuration Manager hebt geïnstalleerd. Als u andere account wilt machtigen voor de CIM-opslagplaats (CIM: Common Information Model) en de SMS-provider, voegt u de andere accounts toe aan de groep SMS Admins.  
+La couche de sécurité suivante est basée sur l'accès via WMI (Windows Management Instrumentation), en particulier le fournisseur SMS. Le fournisseur SMS est un composant Configuration Manager qui octroie un accès à un utilisateur pour interroger la base de données du site afin d’obtenir des informations. Par défaut, l’accès au fournisseur est restreint aux membres du groupe Administrateurs SMS local. À l’origine, ce groupe contient uniquement l’utilisateur qui a installé Configuration Manager. Pour accorder d'autres autorisations de compte à l'emplacement de stockage CIM (Common Information Model) et au fournisseur SMS, ajoutez les autres comptes au groupe Administrateurs SMS.  
 
-De laatste beveiligingslaag is gebaseerd op machtigingen voor objecten in de sitedatabase. Standaard beheren het lokale systeemaccount en de gebruikersaccount die u gebruikt voor het installeren van Configuration Manager alle objecten in de database. U kunt verlenen en beperken van machtigingen aan extra gebruikers met beheerdersrechten in de Configuration Manager-console met behulp van op rollen gebaseerd beheer.  
+Les autorisations d'accès aux objets de la base de données de site constituent la dernière couche de sécurité. Par défaut, le compte système local et le compte d’utilisateur que vous utilisez pour installer Configuration Manager peuvent administrer tous les objets de la base de données du site. Vous pouvez accorder et limiter les autorisations à des utilisateurs administratifs supplémentaires dans la console Configuration Manager à l’aide de l’administration basée sur des rôles.  
 
 
 
-## <a name="role-based-administration"></a>Op rollen gebaseerd beheer  
- Configuration Manager gebruikt op rollen gebaseerd beheer om objecten te beveiligen zoals verzamelingen, implementaties en sites. Dit beheermodel definieert en beheert centraal instellingen voor beveiligingstoegang van alle sites in de hiërarchie en site-instellingen. Beveiligingsrollen zijn toegewezen aan gebruikers met beheerdersrechten en groepsmachtigingen. De machtigingen zijn verbonden met andere Configuration Manager-objecttypen, zoals de machtigingen die worden gebruikt voor het maken of wijzigen van clientinstellingen. Beveiligingsbereiken de groeperen specifieke exemplaren van objecten die een gebruiker met beheerdersrechten moeten worden beheerd, zoals een toepassing die Microsoft Office installeert. De combinatie van beveiligingsrollen, beveiligingsbereiken en verzamelingen definiëren de objecten die een gebruiker met beheerdersrechten kan weergeven en beheren. Configuration Manager installeert sommige standaardbeveiligingsrollen voor veelvoorkomende beheertaken. Maar kunt u uw eigen beveiligingsrollen ter ondersteuning van uw specifieke bedrijfsvereisten.  
+## <a name="role-based-administration"></a>Administration basée sur des rôles  
+ Configuration Manager utilise l’administration basée sur des rôles pour sécuriser les objets (regroupements, déploiements, sites, etc.). Ce modèle d'administration définit et gère de façon centralisée les paramètres d'accès de sécurité à l'échelle de la hiérarchie pour tous les sites et les paramètres du site. Les rôles de sécurité sont attribués aux utilisateurs administratifs et aux autorisations de groupe. Les autorisations sont connectées à différents types d’objet Configuration Manager, comme les autorisations qui sont utilisées pour créer ou modifier les paramètres du client. Les étendues de sécurité regroupent des instances d’objets spécifiques qu’un utilisateur administratif est chargé de gérer, par exemple une application qui installe Microsoft Office. La combinaison des rôles de sécurité, des étendues de sécurité et des regroupements définit les objets qu’un utilisateur administratif peut afficher et gérer. Configuration Manager installe des rôles de sécurité par défaut pour les tâches de gestion classiques. Vous pouvez toutefois créer vos propres rôles de sécurité, en fonction des besoins propres à votre activité.  
 
- Zie voor meer informatie [beheer op basis van rollen voor System Center Configuration Manager configureren](../../core/servers/deploy/configure/configure-role-based-administration.md).  
+ Pour plus d’informations, consultez [Configurer l’administration basée sur des rôles pour System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
 
-## <a name="securing-client-endpoints"></a>Clienteindpunten beveiligen  
- Communicatie van clients met sitesysteemrollen wordt beveiligd door de zelfondertekende certificaten, of met behulp van PKI-certificaten. U moet een PKI-certificaat gebruikt voor de computerclients die door Configuration Manager is gedetecteerd op Internet, en voor clients van mobiele apparaten. Het PKI-certificaat maakt gebruik van HTTPS voor het beveiligen van eindpunten voor de client. De sitesysteemrollen waarmee clients zijn verbonden, kunnen voor HTTPS- of HTTP-clientcommunicatie worden geconfigureerd. Clientcomputers communiceren altijd met behulp van de meest beveiligde methode die beschikbaar is. Clientcomputers vallen alleen terug op de minder veilige communicatiemiddel HTTP op het intranet gebruiken als u beschikt over sitesystemen beschikt die HTTP-communicatie toestaan.  
+## <a name="securing-client-endpoints"></a>Sécurisation des points de terminaison des clients  
+ La communication du client vers les rôles de système de site est sécurisée à l’aide de certificats auto-signés ou de certificats PKI. Vous devez utiliser un certificat PKI pour les ordinateurs clients que Configuration Manager détecte sur Internet ainsi que pour les clients d’appareil mobile. Le certificat PKI utilise le protocole HTTPS pour sécuriser les points de terminaison clients. Les rôles de système de site auxquels les clients se connectent peuvent être configurés pour utiliser les protocoles HTTPS ou HTTP dans le cadre de la communication avec les clients. Les ordinateurs clients communiquent toujours à l’aide de la méthode la plus sécurisée disponible. Les ordinateurs clients n’utilisent le protocole HTTP sur l’intranet que si vos rôles de système de site permettent la communication HTTP.  
 
- Zie voor meer informatie [cryptografische besturingselementen technische documentatie voor System Center Configuration Manager](../../protect/deploy-use/cryptographic-controls-technical-reference.md).  
+ Pour plus d’informations, consultez [Informations techniques de référence sur les contrôles de chiffrement pour System Center Configuration Manager](../../protect/deploy-use/cryptographic-controls-technical-reference.md).  
 
-## <a name="configuration-manager-accounts-and-groups"></a>Configuration Manager-accounts en -groepen  
- Configuration Manager gebruikt het lokale systeemaccount voor de meeste sitebewerkingen. Bepaalde beheertaken uitvoeren moet u mogelijk maken en beheren van extra accounts. Verschillende standaardgroepen en SQL Server-rollen worden gemaakt tijdens de installatie. Mogelijk moet handmatig computer- of gebruikersaccounts toevoegen aan de volgende standaardgroepen en SQL Server-rollen.  
+## <a name="configuration-manager-accounts-and-groups"></a>Comptes et groupes de Configuration Manager  
+ Configuration Manager utilise le compte Système local pour la plupart des opérations de site. Certaines tâches de gestion peuvent nécessiter la création et la gestion de comptes supplémentaires. Plusieurs groupes par défaut et rôles SQL Server sont créés pendant l’installation. Vous devez peut-être ajouter manuellement des comptes d’ordinateur ou d’utilisateur à ces groupes par défaut et à ces rôles SQL Server.  
 
- Zie [Accounts die worden gebruikt System Center Configuration Manager](../../core/plan-design/hierarchy/accounts.md) voor meer informatie.  
+ Pour plus d’informations, consultez [Comptes utilisés dans System Center Configuration Manager](../../core/plan-design/hierarchy/accounts.md).  
 
-## <a name="privacy"></a>Privacy  
- Bedrijfsbeheerproducten bieden veel voordelen omdat ze u in staat stellen tal van clients effectief te beheren. Houd er echter wel rekening mee dat deze software van invloed kan zijn op de privacy van gebruikers in uw organisatie. System Center Configuration Manager bevat veel hulpprogramma's voor het verzamelen van gegevens en apparaten te controleren. Sommige hulpprogramma's mogelijk privacyproblemen verhogen.  
+## <a name="privacy"></a>Confidentialité  
+ Bien que les produits de gestion d'entreprise offrent de nombreux avantages, car ils permettent de gérer efficacement un grand nombre de clients, vous devez également être conscient de l'impact de ces logiciels sur la confidentialité des utilisateurs de votre organisation. System Center Configuration Manager comprend de nombreux outils pour collecter les données et surveiller les appareils. Certains outils sont susceptibles de poser des problèmes de confidentialité.  
 
- Wanneer u de Configuration Manager-client installeert, zijn bijvoorbeeld veel beheerinstellingen standaard ingeschakeld. Dit zorgt ervoor dat de clientsoftware informatie naar de Configuration Manager-site te verzenden. Clientinformatie wordt opgeslagen in de Configuration Manager-database en de informatie wordt niet naar Microsoft verzonden. Bedenk wat uw privacyvereisten voordat u System Center Configuration Manager implementeert.  
+ Par exemple, quand vous installez le client Configuration Manager, de nombreux paramètres de gestion sont activés par défaut. Par conséquent, le logiciel client envoie des informations au site Configuration Manager. Les informations du client sont stockées dans la base de données Configuration Manager et ne sont pas envoyées à Microsoft. Avant d’implémenter System Center Configuration Manager, pensez à vos exigences en matière de confidentialité.  

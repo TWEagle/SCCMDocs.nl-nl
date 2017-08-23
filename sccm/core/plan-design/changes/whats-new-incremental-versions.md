@@ -1,6 +1,6 @@
 ---
-title: Incrementele versies van System Center Configuration Manager | Microsoft Docs
-description: Informatie over het installeren en beheren van updates van System Center Configuration Manager.
+title: "Versions incrémentielles de System Center Configuration Manager | Microsoft Docs"
+description: "Découvrez comment installer et gérer les mises à jour System Center Configuration Manager."
 ms.custom: na
 ms.date: 7/31/2017
 ms.reviewer: na
@@ -16,29 +16,29 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 043c9521f4a94ea2df5cebb4ca1c0b1127f0edbc
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="whats-new-in-system-center-configuration-manager-incremental-versions"></a>Wat is er nieuw in incrementele versies van System Center Configuration Manager
+# <a name="whats-new-in-system-center-configuration-manager-incremental-versions"></a>Nouveautés dans les versions incrémentielles de System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
-
-
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
- System Center Configuration Manager maakt gebruik van een console [updates en onderhoud](/sccm/core/servers/manage/updates) proces dat kunt u gemakkelijk detecteren en installeren van updates voor Configuration Manager. Dit betekent dat niet meer servicepacks of cumulatieve updateversies om bij te houden. U hoeft niet langer om te zoeken naar de meest recente release of updates worden gedownload.
-
- In plaats daarvan om het product bijwerken naar een nieuwe versie van de huidige vertakking, u de Configuration Manager-console om te zoeken en vervolgens [updates in de console installeren](../../../core/servers/manage/install-in-console-updates.md). Enkele keren elk jaar, de nieuwe versies release die omvatten productupdates. Elke versie kunt ook nieuwe functies worden geïntroduceerd.  
-
- Wanneer u een update met nieuwe functies installeert, kunt u deze functies gebruiken (of niet gebruik) in uw implementatie. Verschillende updateversies worden aangeduid met het jaar en maand. Versie 1511 identificeert bijvoorbeeld November 2015 (de maand wanneer de huidige vertakking van System Center Configuration Manager eerst werd uitgebracht voor productie). Latere updates, vanaf 2016, hebben versienamen als 1610 waarmee wordt aangegeven van een update die is gemaakt in oktober 2016.
-
- Deze updateversies kunt u zien welke incrementele versie van de installatie van System Center Configuration Manager en welke functies u beschikt om in te schakelen in uw implementatie.
-
- De oorspronkelijke versie van System Center Configuration Manager (Current Branch) is versie 1511. Sinds deze eerste release zijn aanvullende updates beschikbaar. Gebruik de volgende koppelingen om te ontdekken wat is er nieuw bij elke versie die in de ondersteuning blijft:
-  - [Wat is er nieuw in versie 1706](../../../core/plan-design/changes/whats-new-in-version-1706.md)  
-  - [Wat is er nieuw in versie 1702](../../../core/plan-design/changes/whats-new-in-version-1702.md)
-  - [Wat is er nieuw in versie 1610](../../../core/plan-design/changes/whats-new-in-version-1610.md)
 
 
- Elke versie van de update wordt ondersteund voor een jaar na de release. Er is een goed idee om up-to-date met de meest recente versie van de update zo veel mogelijk te blijven. Zie voor meer informatie [ondersteuning voor versies van System Center Configuration Manager huidige vertakking](../../../core/servers/manage/current-branch-versions-supported.md).  
+ System Center Configuration Manager utilise un processus [de mises à jour et de maintenance](/sccm/core/servers/manage/updates) dans la console qui facilite la découverte et l’installation des mises à jour de Configuration Manager. Cela signifie qu’il n’y a plus aucun suivi de Services Packs ou de versions de mise à jour cumulative à assurer. Il n’est plus nécessaire de rechercher le téléchargement de la mise en production ou des mises à jour les plus récentes.
+
+ À la place, pour mettre à jour le produit vers une nouvelle version de Current Branch, utilisez la console Configuration Manager pour rechercher et [installer les mises à jour dans la console](../../../core/servers/manage/install-in-console-updates.md). Plusieurs fois par an, de nouvelles versions sont publiées qui incluent des mises à jour du produit. Chaque version peut également introduire de nouvelles fonctionnalités.  
+
+ Quand vous installez une mise à jour avec de nouvelles fonctionnalités, vous pouvez choisir d’utiliser (ou non) ces fonctionnalités dans votre déploiement. Les versions des mises à jour sont identifiées par un numéro composé de l’année et du mois. Par exemple, la version 1511 indique novembre 2015 (mois auquel System Center Configuration Manager Current Branch a été mis en production). Depuis 2016, les mises à jour ultérieures portent des noms de version tels que 1610, lequel indique que la mise à jour a été créée en octobre 2016.
+
+ Ces versions de mise à jour sont essentielles pour identifier la version incrémentielle de votre installation System Center Configuration Manager et les fonctionnalités que vous pouvez activer dans votre déploiement.
+
+ La version initiale de System Center Configuration Manager CB (Current Branch) est la version 1511. Depuis cette mise en production initiale, des mises à jour supplémentaires ont été publiées. Utilisez les liens suivants pour découvrir les nouveautés propres à chaque version encore prise en charge :
+  - [Nouveautés dans la version 1706](../../../core/plan-design/changes/whats-new-in-version-1706.md)  
+  - [Nouveautés dans la version 1702](../../../core/plan-design/changes/whats-new-in-version-1702.md)
+  - [Nouveautés dans la version 1610](../../../core/plan-design/changes/whats-new-in-version-1610.md)
+
+
+ Chaque version de mise à jour est prise en charge pour un an après sa publication. Nous vous recommandons de rester à jour en utilisant, si possible, la plus récente version de mise à jour disponible. Pour plus d’informations, consultez [Prise en charge des versions Current Branch de System Center Configuration Manager](../../../core/servers/manage/current-branch-versions-supported.md).  

@@ -1,6 +1,6 @@
 ---
-title: Maken en implementeren van een nalevingsbeleid voor apparaten | Microsoft Docs
-description: Informatie over het maken en implementeren van beleid voor apparaatcompatibiliteit in System Center Configuration Manager.
+title: "Créer et déployer une stratégie de conformité d’appareil | Microsoft Docs"
+description: "Apprenez à créer et déployer des stratégie de conformité d’appareil dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,304 +17,304 @@ manager: angrobe
 robots: noindex
 ms.openlocfilehash: 6630d0170df22f46f14df241ffd8d48266c69263
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-and-deploy-a-device-compliance-policy"></a>Maken en implementeren van een nalevingsbeleid voor apparaten
+# <a name="create-and-deploy-a-device-compliance-policy"></a>Créer et déployer une stratégie de conformité d’appareil
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-## <a name="create-a-compliance-policy"></a>Een nalevingsbeleid maken
+## <a name="create-a-compliance-policy"></a>Créer une stratégie de conformité
 
-1.  Kies in de System Center Configuration Manager-console **activa en naleving**.
+1.  Dans la console System Center Configuration Manager, choisissez **Ressources et Conformité**.
 
-2.  In de **activa en naleving** werkruimte Vouw **instellingen voor naleving**, en kies vervolgens **nalevingsbeleid**.
+2.  Dans l'espace de travail **Ressources et Conformité**, développez **Paramètres de compatibilité**, puis choisissez **Stratégies de conformité**.
 
-3.  Op de **Start** tabblad, in de **maken** groep, kiest u **nalevingsbeleid maken**.
+3.  Sous l'onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer une stratégie de conformité**.
 
-4.  Op de **algemene** pagina van de Wizard nalevingsbeleid maken, geeft u de volgende informatie:
+4.  Dans la page **Général** de l'Assistant Création d'élément de configuration, spécifiez les informations suivantes :
 
-  * **Naam**. Voer een unieke naam in voor het nalevingsbeleid. U kunt maximaal 256 tekens gebruiken.
+  * **Nom**. Affectez un nom unique à la stratégie de conformité. Vous pouvez entrer jusqu’à 256 caractères.
 
-  * **Beschrijving**. Voer een beschrijving die een overzicht van het VPN-profiel en kan geïdentificeerd in de Configuration Manager-console. U kunt maximaal 256 tekens gebruiken.
+  * **Description**. Entrez une description qui donne un aperçu du profil VPN et permette son identification dans la console Configuration Manager. Vous pouvez entrer jusqu’à 256 caractères.
 
-  * **Type nalevingsbeleid**. Selecteer het type beleid dat u maken wilt, afhankelijk van of het apparaat wordt beheerd door Configuration Manager. Dit geldt voor versie of later.<br /><br /> Kies de optie **Nalevingsegels voor apparaten die worden beheerd zonder Configuration Manager-client** voor apparaten die worden beheerd door Intune. Wanneer u deze optie selecteert, kunt u ook het type platform dat u wilt dat dit beleid wilt toepassen.
+  * **Type de stratégie de conformité**. Sélectionnez le type de stratégie à créer selon que l’appareil est géré ou non par Configuration Manager. Cela s’applique à la version ou à une version ultérieure.<br /><br /> Pour les appareils gérés par Intune, optez pour les **règles de conformité applicables aux appareils gérés sans client Configuration Manager** . Cette option vous permet également de sélectionner le type de plateforme auquel appliquer cette stratégie.
 
-  * **Niet-nageleefd ernst voor rapporten**. Geef de ernst aan die wordt gerapporteerd als wordt vastgesteld dat het nalevingsbeleid niet compatibel is. U kunt kiezen uit de volgende ernstniveaus:
+  * **Gravité de la non conformité pour les rapports**. Spécifiez le niveau de gravité signalé si cette stratégie de conformité est évaluée comme non conforme. Les degrés de gravité disponibles sont les suivants :
 
-     * **Geen**. Apparaten die niet voldoen aan deze compliantieregel wordt de ernst voor rapporten van Configuration Manager niet rapporteren.
-     * **Informatie**. Apparaten die niet voldoen aan deze compliantieregel fouternst van **informatie** voor Configuration Manager-rapporten.   
-     * **Waarschuwing**. Apparaten die niet voldoen aan deze compliantieregel fouternst van **waarschuwing** voor Configuration Manager-rapporten.
-     * **Kritieke**. Apparaten die niet voldoen aan deze compliantieregel fouternst van **Kritiek** voor Configuration Manager-rapporten.
-     * **Kritiek met gebeurtenis**. Apparaten die niet voldoen aan deze compliantieregel fouternst van **Kritiek** voor Configuration Manager-rapporten. Dit ernstniveau wordt ook vastgelegd als een Windows-gebeurtenis in het logboek voor toepassingsgebeurtenissen.      
+     * **Aucun**. Les appareils qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec pour les rapports Configuration Manager.
+     * **Informations**. Les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations** pour les rapports Configuration Manager.   
+     * **Avertissement**. Les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement** pour les rapports Configuration Manager.
+     * **Critique**. Les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.
+     * **Critique avec événement**. Les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est également enregistré comme un événement Windows dans le journal des événements des applications.      
 
-5.  Op de **ondersteunde Platforms** pagina, kiest u de apparaatplatforms waarop dit nalevingsbeleid wordt geëvalueerd of kies **Alles selecteren** om alle apparaatplatforms te kiezen. De ondersteunde platforms zijn: Windows 7, Windows 8.1 en Windows 10; Windows Server 2008 R2, WindowsServer 2012, Windows Server 2012 R2 en WindowsServer 2016.
+5.  Dans la page **Plateformes prises en charge**, choisissez les plateformes d'appareils qui seront évaluées par cette stratégie de conformité, ou choisissez **Sélectionner tout** pour choisir toutes les plateformes d'appareils. Plates-formes prises en charge : Windows 7, Windows 8.1 et Windows 10 ; Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 et Windows Server 2016.
 
-6.  Op de pagina **Regels** definieert u een of meer regels die de configuratie bepalen die apparaten moeten hebben om als compatibel te worden beoordeeld. Wanneer u nalevingsbeleid maakt, worden bepaalde regels standaard ingeschakeld, maar u kunt deze bewerken of verwijderen. Zie de sectie 'Beleidsregels voor naleving' verderop in dit onderwerp voor een volledige lijst met alle regels.
+6.  Dans la page **Règles** , vous définissez une ou plusieurs règles qui définissent la configuration dont les appareils doivent disposer pour être évalués comme étant conformes. Quand vous créez une stratégie de conformité, certaines règles sont activées par défaut, mais vous pouvez les modifier ou les supprimer. Pour obtenir la liste complète de toutes les règles, consultez la section Règles de stratégie de conformité plus loin dans cette rubrique.
 
   > [!NOTE]  
-  >  Op Windows-pc's wordt Windows-versie van besturingssysteem 8.1 gerapporteerd als 6.3 in plaats van 8.1. Als de besturingssysteemversieregel is ingesteld op Windows 8.1 voor Windows, klikt u vervolgens het apparaat gerapporteerd als niet-compatibel zelfs als het apparaat Windows 8.1 heeft. Zorg ervoor dat u bij het instellen van het recht *gerapporteerd* versie van Windows voor de minimale en maximale OS-regels. Het versienummer moet overeenkomen met de versie die de **winver** opdracht retourneert. Windows Phone-telefoons hebben dit probleem niet. De versie wordt zoals verwacht gerapporteerd als 8.1. Voor Windows-pc's met het Windows 10-besturingssysteem, de versie moet worden ingesteld als **10.0** plus de OS-build die de **winver** opdracht retourneert.
+  >  Sur les PC Windows, la version du système d’exploitation Windows 8.1 apparaît comme étant la version 6.3 au lieu de 8.1. Si la règle de la version du système d’exploitation est définie sur Windows 8.1 pour Windows, l’appareil sera signalé comme non conforme, même si l’appareil possède Windows 8.1. Assurez-vous que vous définissez la version *signalée* correcte de Windows pour les règles de version minimale et maximale du système d’exploitation. Le numéro de version doit correspondre à la version que la commande **winver** retourne. Les téléphones Windows Phone n’ont pas ce problème, car la version signalée est 8.1 comme prévu. Pour les PC Windows avec le système d’exploitation Windows 10, la version doit être définie comme étant **10.0** plus le numéro de version du système d’exploitation que la commande **winver** retourne.
 
-7.  Op de **samenvatting** pagina Controleer de instellingen die u hebt gemaakt van de wizard en voltooi de wizard.
+7.  Dans la page **Résumé** de l'Assistant, passez en revue les paramètres que vous avez définis, puis terminez l'Assistant.
 
- Het nieuwe beleid wordt weergegeven in de **nalevingsbeleid** knooppunt van de **activa en naleving** werkruimte.
+ La nouvelle stratégie apparaît sous le nœud **Stratégies de conformité** de l'espace de travail **Ressources et Conformité**.
 
-## <a name="deploy-a-compliance-policy"></a>Een nalevingsbeleid implementeren
+## <a name="deploy-a-compliance-policy"></a>Déployer une stratégie de conformité
 
-1.  Kies in de Configuration Manager-console **activa en naleving**.
+1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité**.
 
-2.  In de **activa en naleving** werkruimte Vouw **instellingen voor naleving**, en kies vervolgens **nalevingsbeleid**.
+2.  Dans l'espace de travail **Ressources et Conformité**, développez **Paramètres de compatibilité**, puis choisissez **Stratégies de conformité**.
 
-3.  Op de **Start** tabblad, in de **implementatie** groep, kiest u **implementeren**.
+3.  Sous l’onglet **Accueil**, dans le groupe **Déploiement**, choisissez **Déployer**.
 
-4.  In de **nalevingsbeleid implementeren** dialoogvenster Kies **Bladeren** selecteren van de Gebruikersverzameling waarop het beleid te implementeren.
+4.  Dans la boîte de dialogue **Déployer une stratégie de conformité**, choisissez **Parcourir** pour sélectionner le regroupement d'utilisateurs pour lesquels déployer la stratégie.
 
-     Bovendien kunt u opties waarschuwingen worden gegenereerd wanneer het beleid is niet compatibel met en het instellen van de planning waarmee dit beleid wordt beoordeeld op naleving.
+     En outre, vous pouvez sélectionner des options pour générer des alertes quand la stratégie n'est pas conforme et définir le calendrier selon lequel cette stratégie sera évaluée pour la conformité.
 
-5.  Als u klaar bent, kiest u **OK**.
+5.  Une fois que vous avez terminé, choisissez **OK**.
 
-## <a name="monitor-the-compliance-policy"></a>Het nalevingsbeleid bewaken
+## <a name="monitor-the-compliance-policy"></a>Analyser la stratégie de conformité
 
-#### <a name="to-view-compliance-results-in-the-configuration-manager-console"></a>Nalevingsresultaten weergeven in de Configuration Manager-console
+#### <a name="to-view-compliance-results-in-the-configuration-manager-console"></a>Pour afficher les résultats de compatibilité dans la console Configuration Manager
 
-1.  Kies in de Configuration Manager-console **bewaking**.
+1.  Dans la console Configuration Manager, choisissez **Surveillance**.
 
-2.  In de **bewaking** werkruimte, kiest u **implementaties**.
+2.  Dans l'espace de travail **Surveillance**, choisissez **Déploiements**.
 
-3.  Selecteer het nalevingsbeleid waarvan u de nalevingsgegevens wilt controleren in de lijst **Implementaties** .
+3.  Dans la liste **Déploiements** , sélectionnez le déploiement de la stratégie de conformité dont vous souhaitez vérifier les informations de conformité.
 
-4.  Op de hoofdpagina kunt u samenvattingsinformatie over de naleving van de beleidsimplementatie controleren. Meer gedetailleerde informatie weergeven, selecteert u de implementatie en klik vervolgens op de **Start** tabblad, in de **implementatie** groep, kiest u **Status weergeven** openen de **Implementatiestatus** pagina.
+4.  Vous pouvez consulter un résumé des informations relatives à la conformité du déploiement de la stratégie dans la page principale. Pour afficher des informations plus détaillées, sélectionnez le déploiement, puis, sous l'onglet **Accueil**, dans le groupe **Déploiement**, choisissez **Afficher l'état** pour ouvrir la page **État du déploiement**.
 
-    De **Implementatiestatus** pagina heeft de volgende tabbladen:
+    La page **État du déploiement** contient les onglets suivants :
 
-    -   **Compatibele**. Geeft de naleving van het beleid op basis van het aantal betrokken activa. U kunt een regel voor het maken van een tijdelijk knooppunt onder de **gebruikers** of **apparaten** knooppunt van de **activa en naleving** werkruimte, die alle gebruikers of apparaten die aan deze regel voldoen bevat. De **activumgegevens** deelvenster geeft de gebruikers of apparaten die aan het beleid voldoen. Dubbelklik op een gebruiker of apparaat in de lijst om extra informatie te geven.
+    -   **Conforme**. Affiche la conformité de la stratégie en fonction du nombre de biens affectés. Vous pouvez choisir une règle pour créer un nœud temporaire sous le nœud **Utilisateurs** ou **Périphériques** de l'espace de travail **Biens et conformité**, qui contient tous les utilisateurs ou périphériques conformes à cette règle. Le volet **Détails du bien** affiche les utilisateurs ou les appareils conformes à la stratégie. Double-cliquez sur un utilisateur ou un appareil de la liste pour afficher des informations supplémentaires.
 
-    -   **Fout**. Geeft een lijst weer met alle fouten voor de geselecteerde Beleidsimplementatie op basis van het aantal betrokken activa. U kunt een regel voor het maken van een tijdelijk knooppunt onder de **gebruikers** of **apparaten** knooppunt van de **activa en naleving** werkruimte, die alle gebruikers of apparaten bevat die fouten met deze regel genereerden. Wanneer u een gebruiker of apparaat, selecteert de **activumgegevens** deelvenster geeft de gebruikers of apparaten die een probleem ondervindt. Dubbelklik op een gebruiker of apparaat in de lijst om aanvullende informatie over het probleem weergeven.
+    -   **Erreur**. Affiche une liste de toutes les erreurs pour le déploiement de stratégie sélectionné en fonction du nombre de ressources concernées. Vous pouvez choisir une règle pour créer un nœud temporaire sous le nœud **Utilisateurs** ou **Périphériques** de l'espace de travail **Biens et conformité**, qui contient tous les utilisateurs ou appareils qui ont généré des erreurs avec cette règle. Lorsque vous sélectionnez un utilisateur ou un appareil, le volet **Détails du bien** affiche les utilisateurs ou les appareils affectés par un problème. Double-cliquez sur un utilisateur ou un appareil de la liste pour afficher des informations supplémentaires sur le problème.
 
-    -   **Niet-compatibele**. Geeft een lijst weer met alle niet-compatibele regels binnen het beleid, op basis van het aantal betrokken activa. U kunt een regel voor het maken van een tijdelijk knooppunt onder de **gebruikers** of **apparaten** knooppunt van de **activa en naleving** werkruimte, die alle gebruikers of apparaten bevat die niet aan deze regel voldoen. Wanneer u een gebruiker of apparaat, selecteert de **activumgegevens** deelvenster geeft de gebruikers of apparaten die een probleem ondervindt. Dubbelklik op een gebruiker of apparaat in de lijst om verdere informatie over het probleem weergeven.
+    -   **Non conforme**. Affiche une liste de toutes les règles non conformes au sein de la stratégie en fonction du nombre de ressources affectées. Vous pouvez choisir une règle pour créer un nœud temporaire sous le nœud **Utilisateurs** ou **Périphériques** de l'espace de travail **Biens et conformité**, qui contient tous les utilisateurs ou périphériques non conformes à cette règle. Lorsque vous sélectionnez un utilisateur ou un appareil, le volet **Détails du bien** affiche les utilisateurs ou les appareils affectés par un problème. Double-cliquez sur un utilisateur ou un appareil de la liste pour afficher d'autres informations sur le problème.
 
-    -   **Onbekende**. Bevat een overzicht van alle gebruikers en apparaten die geen compatibiliteitsstatus is gerapporteerd voor de implementatie van het geselecteerde beleid, samen met de huidige clientstatus van apparaten.
+    -   **Inconnu**. Affiche une liste de tous les utilisateurs et appareils qui n’ont pas signalé leur conformité pour le déploiement de stratégie sélectionné, ainsi que l’état du client actuel des appareils.
 
-#### <a name="to-monitor-the-compliance-status-of-an-individual-device"></a>Voor het bewaken van de status van naleving van een afzonderlijk apparaat
+#### <a name="to-monitor-the-compliance-status-of-an-individual-device"></a>Pour surveiller l’état de conformité d’un appareil individuel
 
-1.  Kies in de Configuration Manager-console de **activa en naleving** werkruimte.
+1.  Dans la console Configuration Manager, choisissez l’espace de travail **Actifs et conformité**.
 
-2.  Kies **apparaten**.
+2.  Choisissez **Appareils**.
 
-3.  Met de rechtermuisknop op een van de kolommen om in te schakelen meer kolommen.
+3.  Cliquez avec le bouton droit sur une des colonnes pour en ajouter d’autres.
 
-  U kunt de volgende kolommen toevoegen:
+  Vous pouvez ajouter les colonnes suivantes :
 
-  - **Apparaat-ID van Azure Active Directory**.  De unieke id voor het apparaat in Azure Active Directory.
+  - **ID de l’appareil Azure Active Directory**.  Identificateur unique de l’appareil dans Azure Active Directory.
 
-  - **Details van compatibiliteit fout**.  Details van foutbericht wanneer de end-to-end-proces mis gaat. Als u deze kolom leeg is, betekent dit zijn geen fouten gevonden en wordt de status van naleving met succes is gerapporteerd.
+  - **Détails de l’erreur de conformité**.  Détails du message d’erreur en cas de problème avec le processus de bout en bout. Si cette colonne est vide, cela signifie qu’aucune erreur n’a été trouvée et que l’état de conformité a été correctement signalé.
 
-  - **Naleving Foutlocatie**.  Meer informatie over waar de compatibiliteit is mislukt. Als u deze kolom leeg is, betekent dit zijn geen fouten gevonden en wordt de status van naleving met succes is gerapporteerd. Voorbeelden van waar de nalevingsproces mislukken: 
-      - ConfigMgr-Client
-      - Beheerpunt
+  - **Emplacement de l’erreur de conformité**.  Plus de détails sur l’emplacement où la conformité a échoué. Si cette colonne est vide, cela signifie qu’aucune erreur n’a été trouvée et que l’état de conformité a été correctement signalé. Exemples d’emplacements où le processus de conformité est susceptible d’échouer : 
+      - Client ConfigMgr
+      - Point de gestion
       - Intune
       - Azure Active Directory
 <br></br>
-  - **Naleving evaluatietijd**. Laatste keer dat de compatibiliteit is gecontroleerd.
+  - **Heure d’évaluation de la conformité**. Heure de la dernière vérification de la conformité.
 
-  - **Naleving tijd instellen**. Laatste keer dat de compatibiliteit is bijgewerkt naar Azure Active Directory.
+  - **Heure définie de la conformité**. Dernière fois où la conformité a été mise à jour vers Azure Active Directory.
 
-  - **Voorwaardelijke toegang compatibele**.  Of de computer voldoet aan beleidsregels voor voorwaardelijke toegang.
+  - **Conformité de l’accès conditionnel**.  Indique si la machine est conforme ou non aux stratégies d’accès conditionnel.
 
   > [!IMPORTANT]
-  > Deze kolommen worden niet standaard weergegeven.
+  > Par défaut, ces colonnes ne sont pas affichées.
 
-#### <a name="to-view-intune-compliance-policies-charts"></a>Grafieken om weer te geven van de Intune-nalevingsbeleid
-1. Vanaf versie 1610 van Configuration Manager in de Configuration Manager-console, kies **bewaking**.
+#### <a name="to-view-intune-compliance-policies-charts"></a>Pour afficher les graphiques de stratégies de conformité Intune
+1. À compter de la version 1610 de Configuration Manager, dans la console Configuration Manager, choisissez **Analyse**.
 
-2. In de **bewaking** werkruimte, gaat u naar **overzicht** > **instellingen voor naleving** > **nalevingsbeleid**.
+2. Dans l’espace de travail **Analyse**, accédez à **Vue d’ensemble** > **Paramètres de compatibilité** > **Stratégies de conformité**.
 
-   De volgende grafieken weergegeven:
+   Les graphiques suivants s’affichent :
 
-    - **Algemene apparaatcompatibiliteit**. Toont de algemene compatibiliteit van apparaten voor alle beleidsregels voor naleving.
-    - **Belangrijkste redenen voor niet-naleving**. Toont de belangrijkste beleidsregels voor welke apparaten niet compatibel zijn.
+    - **Conformité globale des appareils**. Affiche la conformité globale des appareils pour toutes les stratégies de conformité.
+    - **Principales raisons de non-conformité**. Affiche les principales stratégies pour lesquelles les appareils ne sont pas conformes.
 
-3. Kies een sectie in een grafiek om een lijst van de apparaten in die categorie.
+3. Choisissez une section dans l’un des deux graphiques pour afficher la liste des appareils dans cette catégorie.
 
-#### <a name="to-view-a-health-attestation-report"></a>Een health attestation-rapport weergeven
+#### <a name="to-view-a-health-attestation-report"></a>Pour afficher un rapport d’attestation d’intégrité
 
-1.  Vanaf versie 1602 van Configuration Manager in de Configuration Manager-console, kies **bewaking**.
+1.  À compter de la version 1602 de Configuration Manager, dans la console Configuration Manager, choisissez **Analyse**.
 
-2.  U kunt een overzichtsrapport van de huidige status van apparaten op nalevingssstatus bekijken **beveiliging**, en kies vervolgens **Health Attestation**.
+2.  Pour afficher un rapport de synthèse sur l’état de conformité actuel des appareils, choisissez **Sécurité**, puis **Attestation d’intégrité**.
 
-3.  U kunt een rapport met een lijst met alle apparaten en alle health attestation-kenmerken bekijken **beveiliging**, en kies vervolgens **Health Attestation**.
+3.  Pour afficher un rapport qui répertorie tous les appareils et tous les attributs d’attestation d’intégrité, choisissez **Sécurité**,puis **Attestation d’intégrité**.
 
-## <a name="compliance-policy-rules"></a>Beleidsregels voor naleving
-* **Wachtwoordinstellingen vereisen op mobiele apparaten**. U kunt vereisen dat gebruikers een wachtwoord moeten invoeren om toegang te krijgen hun apparaat tot.
+## <a name="compliance-policy-rules"></a>Règles de stratégie de conformité
+* **Demander des paramètres de mot de passe sur les appareils mobiles**. Vous pouvez forcer les utilisateurs à entrer un mot de passe avant qu'ils ne puissent accéder à leur appareil.
 
-  **Ondersteund op:**
+  **Pris en charge sur :**
     * Windows Phone 8+
     * iOS 6+
     * Android 4.0+
     * Samsung KNOX Standard 4.0+
 
-* **Wachtwoord vereisen voor het ontgrendelen van een inactief apparaat** (1602-update). U kunt vereisen dat gebruikers een wachtwoord invoeren voor toegang tot een apparaat dat is vergrendeld.
+* **Exiger un mot de passe pour déverrouiller un appareil inactif** (mise à jour 1602). Vous pouvez forcer les utilisateurs à entrer un mot de passe pour accéder à l’appareil verrouillé.
 
-  **Ondersteund op:**
+  **Pris en charge sur :**
   * Windows Phone 8+
   * iOS 6+
   * Android 4.0+
   * Samsung KNOX Standard 4.0+
 
-* **Minuten van inactiviteit voordat wachtwoord vereist is** (1602-update). U kunt opgeven dat de niet-actieve tijd voordat de gebruiker het wachtwoord moet invoeren. De waarde ingesteld op een van de beschikbare opties: **1 minute**, **5 minutes**, **15 minutes**, **30 minutes**, **1 hour**.
+* **Minutes d’inactivité avant demande du mot de passe** (mise à jour 1602). Vous pouvez spécifier la durée d'inactivité au terme de laquelle l'utilisateur doit entrer à nouveau son mot de passe. Sélectionnez l’une des valeurs disponibles suivantes : **1 minute**, **5 minutes**, **15 minutes**, **30 minutes**, **1 heure**.
 
-  Deze regel moet worden gebruikt met **wachtwoord vereisen voor een inactief apparaat te ontgrendelen**. De hier ingestelde waarde bepaalt wanneer het apparaat wordt beschouwd als niet-actief en wordt vergrendeld. Wanneer **wachtwoord vereisen voor een inactief apparaat te ontgrendelen** is ingesteld op **True**, de gebruiker moet een wachtwoord invoeren voor toegang tot het vergrendelde apparaat.
+  Cette règle doit être utilisée avec l’option **Exiger un mot de passe pour déverrouiller un appareil inactif**. La valeur définie ici détermine quand l’appareil est considéré comme inactif puis est verrouillé. Si l’option **Exiger un mot de passe pour déverrouiller un appareil inactif**  est définie sur **True**, l’utilisateur doit entrer un mot de passe pour accéder à l’appareil verrouillé.
 
-  **Ondersteund op:**
+  **Pris en charge sur :**
   * Windows Phone 8+
   * Windows RT/8.1
   * iOS 6+
   * Android 4.0+
   * Samsung KNOX Standard 4.0+
 
-* **Automatische updates vereisen** (1602-update). U kunt apparaten met Windows 8.1 of hoger vereisen dat updates automatisch worden geïnstalleerd en u kunt de updateklasse opgeven.
+* **Exiger les mises à jour automatiques** (mise à jour 1602). Vous pouvez exiger que des appareils disposant de Windows 8.1 ou version ultérieure installent automatiquement les mises à jour, et spécifier la classe de celles-ci.
 
-  De waarde moet worden ingesteld op **geen** om te voorkomen dat automatische installatie tot **aanbevolen** automatisch alle aanbevolen updates worden geïnstalleerd of **belangrijk** om alleen de updates die zijn geclassificeerd als belangrijk te installeren.
+  La valeur doit être définie sur **Aucun** pour empêcher l’installation automatique, sur **Recommandé** pour installer automatiquement toutes les mises à jour recommandées, ou sur **Important** pour installer uniquement les mises à jour classées comme importantes.
 
-  **Ondersteund op:**
+  **Pris en charge sur :**
   * Windows Phone 8+
 
-* **Eenvoudige wachtwoorden toestaan**. U kunt gebruikers eenvoudige wachtwoorden, zoals '1234' of "1111." Deze instelling is standaard uitgeschakeld.
+* **Autoriser les mots de passe simples**. Vous pouvez autoriser les utilisateurs à créer des mots de passe simples, comme « 1234 » ou « 1111 ». Ce paramètre est désactivé par défaut.
 
-  **Ondersteund op:**
+  **Pris en charge sur :**
   * Windows Phone 8+
   * iOS 6+
 
-* **Minimale wachtwoordlengte**. U kunt opgeven dat het minimale aantal cijfers of tekens aan dat het wachtwoord van de gebruiker (6 standaard) moet hebben.
+* **Longueur minimale du mot de passe**. Vous pouvez spécifier le nombre minimal de chiffres ou de caractères que le mot de passe de l'utilisateur doit contenir (6 par défaut).
 
-  **Ondersteund op:**
+  **Pris en charge sur :**
   * Windows Phone 8+
-  * Windows 8.1
+  * Windows 8.1
   * iOS 6+
   * Android 4.0+
   * Samsung KNOX Standard 4.0+
 
   >[!NOTE]
-  >Voor apparaten die Windows uitvoeren en worden beveiligd met een Microsoft-account, het nalevingsbeleid geen goede controles worden uitgevoerd als **minimale wachtwoordlengte** groter is dan 8 tekens of als **minimumaantal tekensets** is meer dan 2.
+  >Pour les appareils qui exécutent Windows et qui sont sécurisés avec un compte Microsoft, la stratégie de conformité n’est pas évaluée correctement si l’option **Longueur minimale du mot de passe** a une valeur supérieure à 8 caractères ou si l’option **Nombre minimum de jeux de caractères** a une valeur supérieure à 2.
 
-* **Bestandsversleuteling op mobiel apparaat**. U kunt het apparaat worden versleuteld om verbinding met bronnen vereisen. Apparaten met Windows Phone 8 worden automatisch versleuteld. Apparaten met iOS worden versleuteld wanneer u de instelling **Wachtwoordinstellingen vereisen voor mobiele apparaten**configureert. Deze instelling is standaard ingeschakeld.
+* **Chiffrement des fichiers sur l'appareil mobile**. Vous pouvez exiger le chiffrement de l'appareil pour la connexion aux ressources. Les appareils qui exécutent Windows Phone 8 sont automatiquement chiffrés. Les appareils qui exécutent iOS sont chiffrés quand vous configurez le paramètre **Demander des paramètres de mot de passe sur les périphériques mobiles**. Ce paramètre est activé par défaut.
 
-  **Ondersteund op:**
+  **Pris en charge sur :**
   * Windows Phone 8+
-  * Windows 8.1
+  * Windows 8.1
   * iOS 6+
   * Android 4.0+
   * Samsung KNOX Standard 4.0+
 
-* **Apparaat mag niet gekraakt of geroot**. Als u deze instelling inschakelt, die voldoen opengebroken (iOS) of geroote (Android) apparaten niet compatibel zijn. Deze instelling is standaard uitgeschakeld.
+* **L'appareil ne doit pas être jailbreaké ou rooté**. Si vous activez ce paramètre, les appareils jailbreakés (iOS) ou rootés (Android) ne sont pas conformes. Ce paramètre est désactivé par défaut.
 
-  **Ondersteund op:**
+  **Pris en charge sur :**
   * iOS 6+
   * Android 4.0+
   * Samsung KNOX Standard 4.0+
 
-* **E-mailprofiel moet worden beheerd door Intune**. Als u deze optie instelt op **Ja**, het e-mailprofiel dat is geïmplementeerd op het apparaat moet worden gebruikt door het apparaat. Het apparaat wordt als niet-compatibel beschouwd als het e-mailprofiel niet in dezelfde gebruikersgroep wordt geïmplementeerd als de doelgroep waarop het nalevingsbeleid is gericht.
+* **Le profil de messagerie doit être géré par Intune**. Lorsque vous définissez cette option sur **Oui**, l’appareil doit utiliser le profil d’e-mail déployé sur l’appareil. L’appareil est considéré comme non conforme si le profil d’e-mail n’est pas déployé sur le groupe d’utilisateurs ciblé par la stratégie de conformité.
 
-  Het apparaat wordt ook als niet-compatibel beschouwd als de gebruiker al een e-mailaccount op het apparaat heeft ingesteld dat overeenkomt met het Intune-e-mailprofiel dat op het apparaat is geïmplementeerd. In dit geval kan Intune het door de gebruiker ingerichte profiel niet overschrijven en kan het daarom niet beheren. De gebruiker kan het apparaat onder naleving brengen door het verwijderen van de bestaande e-mailinstellingen waarmee Intune het beheerde e-mailprofiel installeren.
+  De même, l’appareil n’est pas conforme si l’utilisateur a déjà configuré sur l’appareil un compte e-mail qui correspond au profil d’e-mail Intune déployé sur l’appareil. Dans ce cas, Intune ne peut pas remplacer le profil configuré par l’utilisateur et ne peut donc pas le gérer. L’utilisateur peut mettre l’appareil en conformité en supprimant les paramètres d’e-mail existants, ce qui permet à Intune d’installer le profil d’e-mail géré.
 
-  Zie [Toegang tot zakelijke e-mail inschakelen met behulp van e-mailprofielen en Microsoft Intune](https://technet.microsoft.com/library/dn800672.aspx)voor meer informatie over e-mailprofielen. Deze instelling is standaard uitgeschakeld.
+  Pour plus d'informations sur les profils de messagerie, consultez [Activer l'accès à la messagerie professionnelle à l'aide de profils de messagerie avec Microsoft Intune](https://technet.microsoft.com/library/dn800672.aspx). Ce paramètre est désactivé par défaut.
 
-  **Ondersteund op:**
+  **Pris en charge sur :**
   * iOS 6+
 
-* **E-mailprofiel**. Als **e-mailaccount moet worden beheerd door Intune** is geselecteerd, kiest u **Selecteer** de e-mailprofiel dat apparaten moeten worden beheerd door te kiezen. Het e-mailprofiel moet aanwezig zijn op het apparaat.
+* **Profil de messagerie**. Si l'option **Le compte de messagerie doit être géré par Intune** est sélectionnée, choisissez **Sélectionner** pour choisir le profil de messagerie qui doit gérer les appareils. Le profil de messagerie doit être présent sur l'appareil.
 
-  **Ondersteund op:**
+  **Pris en charge sur :**
   * iOS 6+
 
-* **Minimale OS vereist**. Wanneer een apparaat niet aan de minimum versievereisten voor OS die u opgeeft voldoet, wordt het gerapporteerd als niet-compatibel. Een koppeling met informatie over het bijwerken wordt weergegeven. De gebruiker kan kiezen om bij te werken van hun apparaat, waarna ze zich voor toegang tot bedrijfsbronnen.
+* **Système d’exploitation minimal requis**. Quand un appareil ne satisfait pas la condition de version minimale du système d’exploitation que vous spécifiez, il est signalé comme non conforme. Un lien avec des informations sur la mise à niveau s’affiche. L’utilisateur peut choisir de mettre à niveau son appareil. Une fois cette opération effectuée, il peut accéder aux ressources de l’entreprise.
 
-  **Ondersteund op:**
+  **Pris en charge sur :**
   * Windows Phone 8+
-  * Windows 8.1
+  * Windows 8.1
   * iOS 6+
   * Android 4.0+
   * Samsung KNOX Standard 4.0+
 
-* **Maximale versie van besturingssysteem toegestaan**. Wanneer een apparaat een versie van het besturingssysteem hoger is dan die u in de regel opgeeft gebruikt, wordt toegang tot bedrijfsbronnen geblokkeerd en wordt de gebruiker gevraagd contact opnemen met hun IT-beheerder. Totdat u de regel voor het toestaan van de versie van het besturingssysteem wijzigt, kan dit apparaat niet worden gebruikt voor toegang tot bedrijfsresources.
+* **Version maximale autorisée du système d’exploitation**. Quand un appareil utilise une version du système d’exploitation ultérieure à celle que vous spécifiez dans la règle, l’accès aux ressources de l’entreprise est bloqué et l’utilisateur est invité à contacter son administrateur. Tant que vous n’avez pas modifié la règle pour autoriser la version du système d’exploitation, cet appareil ne peut pas être utilisé pour accéder aux ressources de l’entreprise.
 
-  **Ondersteund op:**
+  **Pris en charge sur :**
   * Windows Phone 8+
-  * Windows 8.1
+  * Windows 8.1
   * iOS 6+
   * Android 4.0+
   * Samsung KNOX Standard 4.0+
 
-* **Vereisen dat apparaten worden gerapporteerd als goed** (1602-update). U kunt een regel instellen om te vereisen dat Windows 10-apparaten moeten worden gerapporteerd als goed in een nieuw of bestaand nalevingsbeleid. Als u deze instelling inschakelt, worden Windows 10-apparaten via de Health Attestation Service (HAS) voor de volgende gegevenspunten beoordeeld:
+* **Exiger que les appareils soient signalés comme intègres**(mise à jour 1602). Vous pouvez définir une règle exigeant que les appareils Windows 10 soient signalés comme intègres dans les stratégies de conformité nouvelles ou existantes. Si vous activez ce paramètre, les appareils Windows 10 sont évalués via le service d’attestation de l’intégrité (HAS, Health Attestation Service) pour les points de données suivants :
 
-  - **BitLocker is ingeschakeld**. Als BitLocker ingeschakeld is, kan het apparaat gegevens die zijn opgeslagen op het station tegen onbevoegde toegang wanneer het systeem is uitgeschakeld of naar de slaapstand overschakelt kunt beveiligen.
+  - **BitLocker est activé**. Quand BitLocker est activé, l’appareil peut protéger les données stockées sur le lecteur contre tout accès non autorisé, en cas de mise hors tension ou en veille prolongée du système.
 
-   Windows BitLocker-stationsversleuteling versleutelt alle gegevens die zijn opgeslagen op het Windows-besturingssysteemvolume. BitLocker gebruikt de TPM om het Windows-besturingssysteem en de gebruikersgegevens te beveiligen. Het helpt om ervoor te zorgen dat een computer wordt geknoeid, zelfs niet als deze zonder toezicht, verloren of gestolen.
+   Le chiffrement de lecteur BitLocker Windows chiffre toutes les données stockées sur le volume hébergeant le système d’exploitation Windows. BitLocker utilise le Module de plateforme sécurisée (TPM) pour protéger le système d’exploitation Windows et les données utilisateur. Il contribue également à prévenir toute falsification d’un ordinateur, même si celui-ci est laissé sans assistance, perdu ou volé.
    
-   Als de computer is uitgerust met een compatibele TPM, gebruikt BitLocker de TPM om de versleutelingssleutels die de gegevens beveiligen te vergrendelen. Als gevolg hiervan zijn de sleutels niet toegankelijk totdat de TPM de status van de computer heeft gecontroleerd.
+   Si l’ordinateur est équipé d’un TPM compatible, BitLocker utilise celui-ci pour verrouiller les clés de chiffrement qui protègent les données. Par conséquent, les clés sont inaccessibles tant que le TPM n’a pas vérifié l’état de l’ordinateur.
 
-  - **Code-integriteit is ingeschakeld**. Code-integriteit is een functie die de integriteit van een stuurprogramma of systeembestand valideert telkens wanneer dit in het geheugen wordt geladen. Code-integriteit detecteert of een niet-ondertekend stuurprogramma of systeembestand-bestand in de kernel wordt geladen. Daarnaast wordt gedetecteerd of een systeembestand is gewijzigd door schadelijke software die wordt uitgevoerd door een gebruikersaccount met beheerdersbevoegdheden.
+  - **L’intégrité du code est activée**. L’intégrité du code est une fonctionnalité qui valide l’intégrité d’un pilote ou d’un système de fichiers à chaque chargement en mémoire. L’intégrité du code détecte si un pilote ou un fichier système non signé est chargé dans le noyau. Elle détecte également si un fichier système a été modifié par un logiciel malveillant exécuté par un compte d’utilisateur disposant de privilèges d’administrateur.
 
-  - **Beveiligd opstarten is ingeschakeld**. Als beveiligd opstarten is ingeschakeld, wordt het systeem geforceerd te starten in een vertrouwde fabrieksstatus. Als beveiligd opstarten is ingeschakeld, moeten de kernonderdelen die worden gebruikt om de machine te starten moeten ook juiste cryptografische handtekeningen die worden vertrouwd door de organisatie die het apparaat heeft geproduceerd. De UEFI-firmware verifieert dit voordat de machine wordt opgestart. Als er bestanden zijn gemanipuleerd, waardoor de handtekening wordt verbroken het systeem niet gestart.
+  - **Le démarrage sécurisé est activé**. Lorsque le démarrage sécurisé est activé, le système est contraint de démarrer dans un état approuvé par défaut. En outre, lorsque le démarrage sécurisé est activé, les composants principaux utilisés pour démarrer la machine doivent avoir des signatures de chiffrement appropriées, approuvées par le fabricant de l’appareil. Le microprogramme UEFI vérifie cela avant de laisser la machine démarrer. Si des fichiers ont été falsifiés, avec pour effet d’annuler leur signature, le système ne démarre pas.
 
-  - **Early launch antimalware is ingeschakeld**. Deze instelling geldt alleen voor pc's. Early Launch Antimalware (ELAM) biedt beveiliging voor de computers in uw netwerk wanneer deze worden opgestart en voordat stuurprogramma's van derden worden geïnitialiseerd.
+  - **Le logiciel anti-programme malveillant à lancement anticipé est activé**. Ce paramètre s’applique uniquement aux PC. Le logiciel anti-programme malveillant à lancement anticipé assure la protection des ordinateurs de votre réseau au démarrage et avant l’initialisation de pilotes tiers.
   
-   Deze regel is standaard uitgeschakeld.
+   Cette règle est désactivée par défaut.
 
-  Zie [Health Attestation CSP](https://msdn.microsoft.com/library/dn934876.aspx)(Engelstalig) voor meer informatie over de werking van de HAS-service.
+  Pour plus d’informations sur le fonctionnement du service HAS, consultez [Health Attestation CSP](https://msdn.microsoft.com/library/dn934876.aspx)(Fournisseur de services de configuration pour l’attestation de l’intégrité).
 
-  **Ondersteund op:**
-  * Windows 10 en Windows 10 Mobile
+  **Pris en charge sur :**
+  * Windows 10 et Windows 10 Mobile
 
-- **Apps die niet kunnen worden geïnstalleerd op het apparaat**. Als gebruikers een app uit de lijst admin niet-compatibele apps installeren, moeten deze worden geblokkeerd wanneer ze proberen toegang tot zakelijke e-mail en andere bedrijfsbronnen die ondersteuning bieden voor voorwaardelijke toegang. Deze regel moet de appnaam van de en de app-ID wanneer een app toe te voegen aan de lijst met niet-compatibele gedefinieerd door de beheerder. De uitgever van de app kan ook worden toegevoegd, maar dit is niet vereist.
+- **Applications qui ne peuvent pas être installées sur l’appareil**. Si les utilisateurs installent une application à partir de la liste des applications non conformes de l’administrateur, ils seront bloqués lorsqu’ils tenteront d’accéder à la messagerie de l’entreprise et à d’autres ressources de l’entreprise qui prennent en charge l’accès conditionnel. Cette règle requiert le nom de l’application et l’ID de l’application lors de l’ajout d’une application à la liste des applications non conformes définies par l’administrateur. L’éditeur de l’application peut également être ajouté, mais ce n’est pas obligatoire.
 
-    **Ondersteund op:**
+    **Pris en charge sur :**
       * iOS 6+
       * Android 4.0+
       * Samsung KNOX Standard 4.0+
 <br></br>
-* **Vereist Wachtwoordtype**. Geef op of de gebruiker een alfanumeriek wachtwoord of een numerieke wachtwoord moet maken. Voor alfanumerieke wachtwoorden, moet u ook het minimum aantal tekensets opgegeven waaruit het wachtwoord moet opgeven. De vier tekensets zijn: Kleine letters, hoofdletters, symbolen en cijfers.
+* **Type de mot de passe requis**. Spécifie si les utilisateurs doivent créer un mot de passe de type alphanumérique ou numérique. Pour les mots de passe alphanumériques, vous spécifiez également le nombre minimal de jeux de caractères que le mot de passe doit avoir. Les quatre jeux de caractères sont : lettres minuscules, lettres majuscules, symboles et chiffres.
 
-    **Ondersteund op:**
+    **Pris en charge sur :**
     * Windows Phone 8+
-    * Windows 8.1 +
+    * Windows 8.1+
     * iOS 6+
 <br></br>
-* **Blok USB-foutopsporing op apparaat**. U beschikt niet over deze instellingen configureren, zoals USB-foutopsporing is al uitgeschakeld op Android voor Work-apparaten.
+* **Bloquer le débogage USB sur l’appareil**. Vous n’avez pas à configurer ce paramètre, car le débogage USB est déjà désactivé pour les appareils Android for Work.
 
-    **Ondersteund op:**
+    **Pris en charge sur :**
     * Android 4.0+
     * Samsung KNOX Standard 4.0+
 <br></br>
-* **Blokkeren van apps van onbekende bronnen**. Vereisen dat de installatie van apps van onbekende bronnen worden voorkomen. U beschikt niet over deze instelling wilt configureren als Android voor werk apparaten altijd installatie vanuit onbekende bronnen beperken.
+* **Bloquer les applications provenant de sources inconnues**. Exiger que les appareils interdisent l’installation des applications provenant de sources inconnues. Vous n’avez pas à configurer ce paramètre, car les appareils Android for Work limitent toujours l’installation à partir de sources inconnues.
 
-    **Ondersteund op:**
+    **Pris en charge sur :**
     * Android 4.0+
     * Samsung KNOX Standard 4.0+
 <br></br>
-* **Threat moeten worden gescand op apps**. Deze instelling geeft aan dat de functie van de apps controleren is ingeschakeld op het apparaat. 
+* **Exiger l’analyse des menaces sur les applications**. Ce paramètre spécifie que la fonction Vérifier les applications est activée sur l’appareil. 
 
-    **Ondersteund op:**
-    * Android 4.2 via 4.4
+    **Pris en charge sur :**
+    * Android 4.2 à 4.4
     * Samsung KNOX Standard 4.0+
 
-### <a name="find-an-app-id"></a>Een app-ID vinden
+### <a name="find-an-app-id"></a>Trouver l’ID d’une application
 
-Een app-ID is een id die een unieke identificatie van de app in de Apple en Google toepassingsservices. Een voorbeeld is com.contoso.myapp. Te zoeken:
+L’ID d’une application est un identificateur qui identifie de façon unique l’application dans les services d’application Apple et Google. Par exemple : com.contoso.myapp. Pour rechercher un ID :
 
 - **Android**
-    - U vindt de app-ID in de Google Play-URL die is gebruikt voor het maken van de app opslaan. Een voorbeeld-app-ID is: *...? id=com.companyname.appname & hl = nl*
+    - Vous trouverez l’ID de l’application dans l’URL Google Play Store utilisée pour créer l’application. Exemple d’ID de l’application : *…?id=com.companyname.appname&hl=en*
 
 - **iOS**
-    1. Opslaan in de iTunes URL, zoek het id-nummer, zoals in dit voorbeeld: */id875948587? mt = 8*
+    1. Dans l’URL iTunes Store, trouvez le numéro d’identification, comme celui de cet exemple : */id875948587?mt=8*
 
-    2. In een webbrowser, gaat u naar de volgende URL en het aantal vervangen door de id die u zojuist hebt gevonden (in dit geval het vorige voorbeeld): https://itunes.apple.com/lookup?id=875948587
+    2. Dans un navigateur web, accédez à l’URL suivante, en remplaçant le chiffre par le numéro d’identification que vous venez de trouver (dans ce cas, l’exemple précédent) : https://itunes.apple.com/lookup?id=875948587
 
-    3. Download en open het tekstbestand.
+    3. Téléchargez et ouvrez le fichier texte.
   
-    4. Zoek de tekst **bundel-id**.
+    4. Recherchez le texte **bundleId**.
 
-    Een voorbeeld-app-ID is: "*bundel-id*": "*com.companyname.appname*' 
+    Exemple d’ID de l’application : "*bundleId*":"*com.companyname.appname*" 
 

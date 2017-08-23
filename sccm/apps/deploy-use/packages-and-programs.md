@@ -1,6 +1,6 @@
 ---
-title: Pakketten en programma's | Microsoft Docs
-description: Ondersteuning voor implementaties die pakketten en programma's of toepassingen met System Center Configuration Manager gebruiken.
+title: Packages et programmes | Microsoft Docs
+description: "Prend en charge les déploiements qui utilisent des packages et des programmes ou des applications avec System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,349 +17,349 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 6146bcf4e5aa9df6fe0b8cf71898e488ecf217cc
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="packages-and-programs-in-system-center-configuration-manager"></a>Pakketten en programma's in System Center Configuration Manager
+# <a name="packages-and-programs-in-system-center-configuration-manager"></a>Packages et programmes dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager blijft ondersteuning bieden voor pakketten en programma's die zijn gebruikt in Configuration Manager 2007. Een implementatie die pakketten en programma's gebruikt is mogelijk beter geschikt dan een implementatie die een toepassing gebruikt wanneer u het volgende implementeert:  
+System Center Configuration Manager continue de prendre en charge les packages et les programmes qui étaient utilisés dans Configuration Manager 2007. Un déploiement qui utilise des packages et des programmes peut être plus adapté qu’un déploiement qui utilise une application lors du déploiement de l’un des éléments suivants :  
 
-- Toepassingen voor Linux en UNIX-servers
-- Scripts die niet worden gebruikt voor het installeren van een toepassing op een computer, zoals een script voor het defragmenteren van het schijfstation van de computer
-- 'Eenmalige' scripts die niet voortdurend hoeven te worden bewaakt  
-- Scripts die worden uitgevoerd volgens een herhaalde planning en die geen gebruik kunnen maken van globale evaluatie
+- Applications pour les serveurs Linux et UNIX
+- des scripts n’installant pas d’application sur un ordinateur, tel qu’un script pour défragmenter le lecteur de l’ordinateur ;
+- des scripts exceptionnels qui ne doivent pas être surveillés en permanence ;  
+- des scripts qui s’exécutent selon un planning défini et qui ne peuvent pas utiliser l’évaluation globale.
 
-Wanneer u pakketten vanaf een eerdere versie van Configuration Manager migreert, kunt u ze kunt implementeren in uw Configuration Manager-hiërarchie. Zodra de migratie is voltooid, worden de pakketten weergegeven onder het knooppunt **Pakketten** in de werkruimte **Softwarebibliotheek**.
+Quand vous migrez des packages à partir d’une version antérieure de Configuration Manager, vous pouvez les déployer dans votre hiérarchie Configuration Manager. Une fois la migration terminée, les packages apparaissent dans le nœud **Packages** de l’espace de travail **Bibliothèque de logiciels** .
 
-U kunt wijzigen en implementeren van deze pakketten op dezelfde manier als die u dit hebt gedaan met behulp van softwaredistributie. De **definitie Wizard pakket importeren van** blijft in Configuration Manager om oudere pakketten te importeren. Aankondigingen worden geconverteerd naar implementaties als ze naar een Configuration Manager-hiërarchie van Configuration Manager 2007 worden gemigreerd.  
+Vous pouvez modifier et déployer ces packages de la même façon que pour la distribution de logiciels. L’**Assistant Importation d’un package à partir d’une définition** reste dans Configuration Manager pour importer les packages hérités. Les publications sont converties en déploiements quand elles sont migrées de Configuration Manager 2007 vers une hiérarchie Configuration Manager.  
 
 > [!NOTE]  
->  U kunt Microsoft System Center Configuration Manager Package Conversion Manager gebruiken om te converteren van pakketten en programma's naar Configuration Manager-toepassingen.  
+>  Vous pouvez utiliser Microsoft System Center Configuration Manager Package Conversion Manager pour convertir les packages et les programmes en applications Configuration Manager.  
 >   
->  Zie [Configuration Manager Package Conversion Manager](https://technet.microsoft.com/library/hh531519.aspx) voor meer informatie.  
+>  Pour plus d'informations, consultez [Gestionnaire de conversion des packages Configuration Manager](https://technet.microsoft.com/library/hh531519.aspx).  
 
-Pakketten kunnen enkele nieuwe functies van Configuration Manager, waaronder distributiepuntengroepen en bewaking gebruiken. Microsoft Application Virtualization (App-V)-toepassingen kunnen niet worden gedistribueerd met behulp van pakketten en programma's in Configuration Manager. Voor het distribueren van virtuele toepassingen, moet u ze als Configuration Manager-toepassingen maken.  
+Les packages peuvent utiliser certaines nouvelles fonctionnalités de Configuration Manager, notamment les groupes de points de distribution et la surveillance. Les applications Microsoft Application Virtualization (App-V) ne peuvent pas être distribuées à l’aide de packages et de programmes dans Configuration Manager. Pour distribuer des applications virtuelles, vous devez les créer en tant qu’applications Configuration Manager.  
 
-##  <a name="create-a-package-and-program"></a>Een pakket en programma maken  
- Gebruik een van deze procedures bij het maken of importeren van pakketten en programma's.  
+##  <a name="create-a-package-and-program"></a>Créer un package et un programme  
+ Utilisez l’une de ces procédures pour créer ou importer aisément des packages et des programmes.  
 
-### <a name="create-a-package-and-program-using-the-create-package-and-program-wizard"></a>Een pakket en programma maken met behulp van de wizard Pakket en Programma maken  
+### <a name="create-a-package-and-program-using-the-create-package-and-program-wizard"></a>Créer un package et un programme à l’aide de l’Assistant Création d’un package et d’un programme  
 
-1.  Kies in de Configuration Manager-console **softwarebibliotheek** > **Toepassingsbeheer** > **pakketten**.  
+1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Packages**.  
 
-3.  In de **Start** tabblad, in de **maken** groep, kiest u **pakket maken**.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer le package**.  
 
-4.  Op de **pakket** pagina van de **Wizard pakket maken en programma**, geef de volgende informatie:  
+4.  Sur la page **Package** de l' **Assistant Création d'un package et d'un programme**, spécifiez les informations suivantes :  
 
-    -   **Naam**: Geef een naam voor het pakket met een maximum van 50 tekens.  
+    -   **Nom** : spécifiez un nom pour le package, avec un maximum de 50 caractères.  
 
-    -   **Beschrijving**: Geef een beschrijving voor dit pakket met een maximum van 128 tekens.  
+    -   **Description** : spécifiez une description pour ce package, avec un maximum de 128 caractères.  
 
-    -   **Fabrikant** (optioneel): Geef een fabrikant op om het pakket in de Configuration Manager-console te herkennen. Deze naam mag maximaal 32 tekens lang zijn.
+    -   **Fabricant** (facultatif) : spécifiez un nom de fabricant pour mieux identifier le package dans la console Configuration Manager. Ce nom est limité à 32 caractères.
 
-    -   **Taal** (optioneel): Geef de taalversie van het pakket met een maximum van 32 tekens.  
+    -   **Langue** (facultatif) : spécifiez la version linguistique du package, avec un maximum de 32 caractères.  
 
-    -   **Versie** (optioneel):  Geef een uniek versienummer op voor het pakket met een maximum van 32 tekens.
+    -   **Version** (facultatif) : spécifiez un numéro de version pour le package, avec un maximum de 32 caractères.
 
-    -   **Dit pakket bevat bronbestanden**: Deze instelling geeft aan of het pakket bronbestanden aanwezig zijn op clientapparaten vereist. Standaard is dit selectievakje uitgeschakeld en Configuration Manager gebruikt geen distributiepunten voor het pakket. Als dit selectievakje is ingeschakeld, worden distributiepunten gebruikt.  
+    -   **Ce package contient des fichiers sources** : ce paramètre indique si le package nécessite la présence de fichiers sources sur les appareils clients. Par défaut, cette case est décochée et Configuration Manager n’utilise pas de points de distribution pour le package. Lorsque cette case à cocher est activée, les points de distribution sont utilisés.  
 
-    -   **Bronmap**: Als het pakket bronbestanden bevat, kiest u **Bladeren** openen de **bronmap instellen** dialoogvenster vak en geef vervolgens de locatie van de bronbestanden voor het pakket.  
+    -   **Dossier source** : si le package contient des fichiers sources, choisissez **Parcourir** pour ouvrir la boîte de dialogue **Définir le dossier source** et spécifiez l’emplacement des fichiers sources du package.  
 
         > [!NOTE]  
-        >  Het computeraccount van de siteserver moet leesrechten voor de door u opgegeven bronmap hebben.  
+        >  Le compte d’ordinateur du serveur de site doit disposer d’autorisations d’accès en lecture au dossier source que vous spécifiez.  
 
-5.  Op de **programmatype** pagina van de **Wizard pakket maken en programma**, selecteer het type programma maken en kies vervolgens **volgende**. U kunt een programma voor een computer of apparaat maken of u kunt deze stap overslaan en later een programma maken.  
+5.  Dans la page **Type de programme** de l’**Assistant Création d’un package et d’un programme**, sélectionnez le type de programme que vous souhaitez créer, puis choisissez **Suivant**. Vous pouvez créer un programme pour un ordinateur ou un appareil, ou vous pouvez ignorer cette étape et créer un programme ultérieurement.  
 
     > [!TIP]  
-    >  Als u wilt een nieuw programma voor een bestaand pakket wilt maken, moet u eerst het pakket selecteren. Klik in de **Start** tabblad, in de **pakket** groep, kiest u **programma maken** openen de **Wizard programma maken**.  
+    >  Pour créer un programme pour un package existant, sélectionnez d’abord le package. Sous l’onglet **Accueil**, dans le groupe **Package**, choisissez **Créer un programme** pour ouvrir l’**Assistant Création d’un programme**.  
 
-6.  Gebruik een van de volgende procedures om een standaardprogramma of een apparaatprogramma te maken.  
+6.  Utilisez l'une des procédures suivantes pour créer un programme standard ou un programme de périphérique.  
 
-    #### <a name="create-a-standard-program"></a>Een standaardprogramma maken  
+    #### <a name="create-a-standard-program"></a>Créer un programme standard  
 
-  1.  Op de **programmatype** pagina van de **Wizard pakket maken en programma**, kies **standaardprogramma**, en kies vervolgens **volgende**.     
+  1.  Dans la page **Type de programme** de l’**Assistant Création d’un package et d’un programme**, choisissez **Programme standard**, puis **Suivant**.     
 
-    2.  Op de **standaardprogramma** pagina, geeft u de volgende informatie:  
+    2.  Dans la page **Programme standard**, spécifiez les informations suivantes :  
 
-        -   **Naam:** Geef een naam voor het programma met een maximum van 50 tekens.  
+        -   **Nom :** Spécifiez un nom pour le programme avec un maximum de 50 caractères.  
 
             > [!NOTE]  
-            >  De naam van het programma moet uniek zijn binnen een pakket. Nadat u een programma hebt gemaakt, kunt u de naam niet wijzigen.  
+            >  Le nom du programme doit être unique au sein d'un package. Après avoir créé un programme, vous ne pouvez pas modifier son nom.  
 
-        -   **Opdrachtregel**: Geef de opdrachtregel gebruiken met dit programma te starten of kies een **Bladeren** om naar de locatie van het bestand te bladeren.  
+        -   **Ligne de commande** : entrez la ligne de commande à utiliser pour démarrer ce programme ou choisissez **Parcourir** pour naviguer jusqu’à l’emplacement du fichier.  
 
-            Als een bestandsnaam geen extensie die opgegeven, probeert Configuration Manager .com, .exe en .bat te gebruiken als mogelijke extensies.  
+            Si un nom de fichier n’a pas d’extension définie, Configuration Manager tente d’utiliser .com, .exe et .bat comme extensions possibles.  
 
-             Wanneer het programma wordt uitgevoerd op een client, Configuration Manager zoekt eerst de naam van de opdrachtregel in het pakket, wordt vervolgens in het lokale Windows-map en wordt vervolgens gezocht in lokale *% path %*. Als het bestand niet kan worden gevonden, treedt een fout op in het programma.  
+             Quand le programme est exécuté sur un client, Configuration Manager commence par rechercher le nom du fichier de ligne de commande au sein du package, dans le dossier Windows local, puis dans le dossier *%chemin%* local. Si le fichier demeure introuvable, le programme échoue.  
 
-        -   **Opstartmap** (optioneel): Geef de map waarin het programma wordt uitgevoerd, maximaal 127 tekens. Deze map kan zich een absoluut pad op de client of een pad dat ten opzichte van de distributiepuntmap die het pakket bevat.
+        -   **Dossier de démarrage**  (facultatif) : spécifiez le dossier à partir duquel le programme s’exécute, avec un maximum de 127 caractères. Ce dossier peut être un chemin absolu sur le client ou un chemin relatif au dossier du point de distribution qui contient le package.
 
-        -   **Uitvoeren**: Geef de modus waarin het programma wordt uitgevoerd op clientcomputers. Selecteer vervolgens een van de volgende opties:  
+        -   **Exécuter** : spécifiez le mode dans lequel le programme s’exécute sur les ordinateurs clients. Sélectionnez l’un des paramètres suivants :  
 
-            -   **Normaal**: Het programma wordt uitgevoerd in de normale modus op basis van systeem en standaardprogramma. Dit is de standaardmodus.  
+            -   **Normal** : le programme est exécuté en mode normal, en fonction des valeurs par défaut du système et du programme. Il s'agit du mode par défaut.  
 
-            -   **Geminimaliseerd**: Het programma wordt geminimaliseerd uitgevoerd op clientapparaten. Gebruikers zien de installatieactiviteit in het systeemvak of op de taakbalk mogelijk.  
+            -   **Réduite** : le programme est exécuté sous forme réduite sur les appareils clients. Les utilisateurs peuvent voir l’activité de l’installation dans la zone de notification ou la barre des tâches.  
 
-            -   **Gemaximaliseerd**: Het programma wordt gemaximaliseerd uitgevoerd op clientapparaten. Gebruikers zien de installatieactiviteit.  
+            -   **Agrandie** : le programme est exécuté sous forme agrandie sur les appareils clients. Les utilisateurs voient toute l’activité de l’installation.  
 
-            -   **Verborgen**: Het programma wordt verborgen uitgevoerd op clientapparaten. Gebruikers zien niet de installatieactiviteit.  
+            -   **Masquée** : le programme est exécuté sous forme masquée sur les appareils clients. Les utilisateurs ne voient aucune activité d’installation.  
 
-        -   **Programma kan worden uitgevoerd**: Geef op of het programma wordt alleen uitgevoerd als een gebruiker is aangemeld, alleen wanneer er geen gebruiker is aangemeld in, of ongeacht of een gebruiker is aangemeld bij de clientcomputer.  
+        -   **Le programme peut s’exécuter** : spécifiez si le programme s’exécute uniquement quand un utilisateur est connecté, uniquement quand aucun utilisateur n’est connecté, ou qu’un utilisateur soit connecté ou non sur l’ordinateur client.  
 
-        -   **Uitvoermodus**: Geef op of het programma wordt uitgevoerd met beheerdersmachtigingen of met de machtigingen van de gebruiker die momenteel aangemeld.  
+        -   **Mode d’exécution** : spécifiez si le programme s’exécute avec des autorisations administratives ou les autorisations de l’utilisateur actuellement connecté.  
 
-        -   **Toestaan dat gebruikers de programma-installatie kunnen zien en**: Gebruik deze instelling, indien beschikbaar, kunt u opgeven of gebruikers kunnen communiceren met de programma-installatie. Dit selectievakje is alleen beschikbaar wanneer **alleen wanneer er geen gebruiker is aangemeld** of **al dan niet een gebruiker is aangemeld** is geselecteerd voor **programma kan worden uitgevoerd** en wanneer **uitvoeren met beheerdersrechten** is geselecteerd voor **uitvoermodus**.  
+        -   **Permettre aux utilisateurs d’afficher et d’interagir avec l’installation du programme** : utilisez ce paramètre pour spécifier s’il faut autoriser les utilisateurs à interagir avec l’installation du programme. Cette case à cocher n’est disponible que quand **Uniquement lorsqu’aucun utilisateur n’a de session ouverte** ou **Qu’un utilisateur ait ouvert une session ou non** est sélectionné pour **Le programme peut s’exécuter** et qu’**Exécuter avec les droits d’administration** est sélectionné pour **Mode d’exécution**.  
 
-        -   **Stationsmodus**: Geef informatie op over hoe dit programma wordt uitgevoerd op het netwerk. Kies een van de volgende opties:  
+        -   **Mode lecteur** : spécifiez des informations sur la façon dont ce programme s’exécute sur le réseau. Choisissez l’une des options suivantes :  
 
-            -   **Wordt uitgevoerd met UNC-naam**: Geef op dat het programma wordt uitgevoerd met de naam van een Universal Naming Convention (UNC). Dit is de standaardinstelling.  
+            -   **S’exécute avec le nom UNC** : spécifiez que le programme s’exécute avec un nom Universal Naming Convention (UNC). Il s'agit du paramètre par défaut.  
 
-            -   **Vereist stationsletter**: Geef op dat het programma een stationsletter voor de locatie volledig te kwalificeren vereist. Voor deze instelling kunt de Configuration Manager alle beschikbare stationsletters gebruiken op de client.  
+            -   **Nécessite une lettre de lecteur** : spécifiez que le programme nécessite une lettre de lecteur pour qualifier entièrement son emplacement. Pour ce paramètre, Configuration Manager peut utiliser n’importe quelle lettre de lecteur disponible sur le client.  
 
-            -   **Vereist specifieke stationsletter** : Opgeven dat het programma een specifieke stationsletter die u opgeeft om de locatie volledig te kwalificeren vereist (bijvoorbeeld **Z:**). Als de opgegeven stationsletter al op een client gebruikt wordt, wordt het programma niet uitgevoerd.  
+            -   **Nécessite une lettre de lecteur spécifique** : spécifiez que le programme nécessite une lettre de lecteur spécifique que vous spécifiez pour qualifier entièrement son emplacement (par exemple, **Z:**). Si la lettre de lecteur spécifiée est déjà utilisée sur un client, le programme ne s'exécute pas.  
 
-        -   **Opnieuw verbinding maken met distributiepunt bij aanmelding op**: Gebruik dit selectievakje in om aan te geven of de clientcomputer opnieuw verbinding met het distributiepunt maakt wanneer de gebruiker zich aanmeldt. Standaard is dit selectievakje niet geselecteerd.  
+        -   **Reconnecter au point de distribution à l’ouverture de session** : utilisez cette case à cocher pour indiquer si l’ordinateur client se reconnecte au point de distribution quand l’utilisateur ouvre une session. Par défaut, cette case à cocher est désactivée.  
 
-  3.  Op de **vereisten** pagina van de **maken Wizard pakket en programma,** Geef de volgende informatie:  
+  3.  Dans la page **Spécifications** de l’**Assistant Création d’un package et d’un programme**, spécifiez les informations suivantes :  
 
-        -   **Eerst een ander programma uitvoeren**: Gebruik deze instelling om te identificeren van een pakket en programma dat wordt uitgevoerd voordat dit pakket en programma wordt uitgevoerd.  
+        -   **Exécuter un autre programme en premier** : utilisez ce paramètre pour identifier un package et un programme qui sont exécutés avant l’exécution de ce package et de ce programme.  
 
-        -   **Platformvereisten**: Selecteer **dit programma kan worden uitgevoerd op elk platform** of **dit programma kan alleen op specifieke platforms worden uitgevoerd**, en kies vervolgens de besturingssystemen die door clients moeten worden uitgevoerd om te kunnen installeren van het pakket en programma.  
+        -   **Exigences de plateformes** : sélectionnez **Ce programme peut être exécuté sur n’importe quelle plateforme** ou **Ce programme ne peut s’exécuter que sur des plateformes spécifiées**, puis choisissez les systèmes d’exploitation que les clients doivent exécuter pour pouvoir installer le package et le programme.  
 
-        -   **Geschatte schijfruimte**: Geef de hoeveelheid schijfruimte die het programma nodig heeft om uit te voeren op de computer. Dit kan worden opgegeven als **Onbekend** (de standaardinstelling) of als een geheel getal groter dan of gelijk aan nul. Als een waarde is opgegeven, moeten er ook eenheden voor de waarde worden opgegeven.  
+        -   **Espace disque estimé** : spécifiez l’espace disque nécessaire à l’exécution du logiciel sur l’ordinateur. La valeur peut être **Inconnu** (paramètre par défaut) ou un chiffre supérieur ou égal à zéro. Si vous spécifiez une valeur, des unités doivent également être spécifiées pour cette valeur.  
 
-        -   **Maximale toegestane uitvoeringstijd (minuten)**: Geef de maximale tijd die het programma uit te voeren op de clientcomputer wordt verwacht. Dit kan worden opgegeven als **Onbekend** (de standaardinstelling) of als een geheel getal groter dan nul.  
+        -   **Durée maximale d'exécution allouée (en minutes)**: spécifiez la durée maximale d'exécution attendue du programme sur l'ordinateur client. La valeur peut être **Inconnu** (paramètre par défaut) ou un chiffre supérieur à zéro.  
 
-             Deze waarde is standaard ingesteld op 120 minuten.  
+             Par défaut, cette valeur est définie à 120 minutes.  
 
             > [!IMPORTANT]  
-            >  Als u onderhoudsvensters gebruikt voor de verzameling waarop dit programma wordt uitgevoerd, een conflict kan optreden als de **maximale toegestane uitvoeringstijd** langer is dan het geplande onderhoudsvenster. Als de maximum uitvoeringstijd echter is ingesteld op **onbekende**, het programma wordt uitgevoerd tijdens het onderhoudsvenster en blijft uitvoeren indien nodig nadat het onderhoudsvenster is gesloten. Als de maximale uitvoeringstijd op een specifieke periode die langer is dan de lengte van welk beschikbaar onderhoudsvenster instelt, wordt het programma niet uitgevoerd.  
+            >  Si vous utilisez des fenêtres de maintenance pour le regroupement sur lequel ce programme est exécuté, un conflit peut survenir si la **Durée maximale d’exécution allouée** est supérieure à la fenêtre de maintenance programmée. Toutefois, si la durée maximale d’exécution a la valeur **Inconnu**, le programme démarre pendant la fenêtre de maintenance et continue de s’exécuter si nécessaire après la fermeture de la fenêtre de maintenance. Si la durée maximale d’exécution définie par l’utilisateur dépasse la longueur de toutes les fenêtres de maintenance disponibles, le programme n’est pas exécuté.  
 
-             Als de waarde is ingesteld op **onbekende**, Configuration Manager stelt de maximale toegestane uitvoeringstijd 12 uur (720 minuten).  
-
-            > [!NOTE]  
-            >  Als de maximum uitvoeringstijd (hetzij ingesteld door de gebruiker hetzij als de standaardwaarde) overschreden is, wordt in Configuration Manager wordt gestopt als **uitvoeren met beheerdersrechten** is geselecteerd en **toestaan dat gebruikers de programma-installatie kunnen zien en** niet is ingeschakeld.  
-
-  4.  Kies **volgende**.  
-
-    #### <a name="create-a-device-program"></a>Een apparaatprogramma maken  
-
-  1.  Op de **programmatype** pagina van de **Wizard pakket maken en programma**, selecteer **programma voor apparaat**, en kies vervolgens **volgende**.  
-
-  2.  Op de **programma voor apparaat** pagina, geeft u het volgende:  
-
-        -   **Naam**: Geef een naam voor het programma met een maximum van 50 tekens.  
+             Si la valeur définie est **Inconnu**, Configuration Manager fixe la durée maximale d’exécution allouée à 12 heures (720 minutes).  
 
             > [!NOTE]  
-            >  De naam van het programma moet uniek zijn binnen een pakket. Nadat u een programma hebt gemaakt, kunt u de naam niet wijzigen.  
+            >  Si cette durée d’exécution maximale (qu’elle soit définie par l’utilisateur ou qu’il s’agisse de la valeur par défaut) est dépassée, Configuration Manager arrête le programme si **Exécuter avec les droits d’administration** est sélectionné et si **Permettre aux utilisateurs d’afficher et d’interagir avec l’installation du programme** n’est pas sélectionné.  
 
-        -   **Opmerking** (optioneel): Geef een opmerking voor dit apparaatprogramma op met maximaal 127 tekens.  
+  4.  Choisissez **Suivant**.  
 
-        -   **Downloadmap**: Geef de naam van de map op het Windows CE-apparaat waarop de bronbestanden van het pakket wordt opgeslagen. De standaardwaarde is **\Temp\\**.  
+    #### <a name="create-a-device-program"></a>Créer un programme d’appareil  
 
-        -   **Opdrachtregel**: Geef de opdrachtregel gebruiken met dit programma te starten of kies een **Bladeren** om naar de locatie van het bestand te bladeren.  
+  1.  Dans la page **Type de programme** de l’**Assistant Création d’un package et d’un programme**, sélectionnez **Programme pour le périphérique**, puis **Suivant**.  
 
-        -   **Opdrachtregel uitvoeren in downloadmap**: Selecteer deze optie om het programma uitvoeren vanaf de eerder opgegeven downloadmap.  
+  2.  Dans la page **Programme pour le périphérique**, spécifiez les informations suivantes :  
 
-        -   **Opdrachtregel uitvoeren vanuit deze map**: Selecteer deze optie om op te geven van een andere map van waaruit het programma uit te voeren.  
+        -   **Nom** : spécifiez un nom pour le programme, avec un maximum de 50 caractères.  
 
-    3.  Op de **vereisten** pagina, geeft u het volgende:  
+            > [!NOTE]  
+            >  Le nom du programme doit être unique au sein d'un package. Après avoir créé un programme, vous ne pouvez pas modifier son nom.  
 
-        -   **Geschatte schijfruimte**: Geef de hoeveelheid schijfruimte die zijn voor de software vereist. Deze is zichtbaar voor gebruikers van mobiele apparaten alvorens het programma te installeren.  
+        -   **Commentaire** (facultatif) : spécifiez un commentaire pour ce programme d’appareil, avec un maximum de 127 caractères.  
 
-        -   **Programma downloaden**: Informatie over wanneer dit programma kan worden gedownload op mobiele apparaten opgeven. U kunt **Zo snel mogelijk**, **Alleen via een snel netwerk** of **Alleen wanneer het apparaat is vastgezet** opgeven.  
+        -   **Dossier de téléchargement** : spécifiez le nom du dossier sur l’appareil Windows CE dans lequel les fichiers sources du package seront stockés. La valeur par défaut est **\Temp\\**.  
 
-        -   **Aanvullende vereisten**: Geef eventuele bijkomende vereisten voor dit programma. Deze worden getoond aan gebruikers voordat ze de software installeren. U kunt gebruikers bijvoorbeeld waarschuwen dat ze alle andere toepassingen moeten sluiten voordat ze het programma uitvoeren.  
+        -   **Ligne de commande** : entrez la ligne de commande à utiliser pour démarrer ce programme ou choisissez **Parcourir** pour naviguer jusqu’à l’emplacement du fichier.  
 
-  4.  Kies **volgende**.  
+        -   **Exécuter la ligne de commande à partir du dossier de téléchargement** : sélectionnez cette option pour exécuter le programme à partir du dossier de téléchargement spécifié précédemment.  
 
-  7.  Op de **samenvatting** controleert u de acties die moeten worden ondernomen en voltooi de wizard.  
+        -   **Exécuter la ligne de commande à partir de ce dossier** : sélectionnez cette option pour spécifier un autre dossier à partir duquel exécuter le programme.  
 
- Zorg dat het nieuwe pakket en programma worden weergegeven de **pakketten** knooppunt van de **softwarebibliotheek** werkruimte.  
+    3.  Dans la page **Spécifications**, spécifiez les informations suivantes :  
 
-## <a name="create-a-package-and-program-from-a-package-definition-file"></a>Een pakket en programma maken van een pakketdefinitiebestand  
+        -   **Espace disque estimé** : spécifiez l’espace disque nécessaire pour le logiciel. Il est indiqué aux utilisateurs d’appareils mobiles avant l’installation du programme.  
 
-1.  Kies in de Configuration Manager-console **softwarebibliotheek** > **Toepassingsbeheer** > **pakketten**.  
+        -   **Télécharger le programme** : spécifiez des informations indiquant quand ce programme peut être téléchargé vers des appareils mobiles. Vous pouvez spécifier **Dès que possible**, **Uniquement avec un réseau à haut débit**ou **Uniquement lorsque le périphérique est dans sa station d’accueil**.  
 
-3.  Op de **Start** tabblad, in de **maken** groep, kiest u **pakket maken vanuit definitie**.  
+        -   **Configuration requise supplémentaire** : spécifiez toutes les exigences supplémentaires pour ce programme. Elles sont indiquées aux utilisateurs avant l’installation du logiciel. Par exemple, vous pouvez notifier aux utilisateurs dont ils ont besoin pour fermer toutes les autres applications avant d'exécuter le programme.  
 
-4.  Op de **pakketdefinitie** pagina van de **pakket maken vanuit definitie Wizard**, kies een bestaand pakketdefinitiebestand of kies **Bladeren** een nieuw pakketdefinitiebestand te openen. Nadat u een nieuw pakketdefinitiebestand hebt opgegeven, selecteert u deze uit de **pakketdefinitie** lijst en kies vervolgens **volgende**.  
+  4.  Choisissez **Suivant**.  
 
-5.  Op de **bronbestanden** pagina, informatie over de vereiste bronbestanden voor het pakket en programma opgeven en kies vervolgens **volgende**.  
+  7.  Dans la page **Résumé**, passez en revue les actions qui seront exécutées, puis terminez l’Assistant.  
 
-6.  Als het pakket bronbestanden bevat, op de **bronmap** pagina, geeft u de locatie van waaruit de bronbestanden kunnen worden verkregen en kies vervolgens **volgende**.  
+ Vérifiez que le nouveau package et le nouveau programme sont affichés dans le nœud **Packages** de l’espace de travail **Bibliothèque de logiciels**.  
 
-7.  Op de **samenvatting** controleert u de acties die moeten worden ondernomen en voltooi de wizard. Het nieuwe pakket en programma worden weergegeven in de **pakketten** knooppunt van de **softwarebibliotheek** werkruimte.  
+## <a name="create-a-package-and-program-from-a-package-definition-file"></a>Créer un package et un programme à partir d’un fichier de définition de package  
 
- Zie voor meer informatie over pakketdefinitiebestanden [over de bestandsindeling van pakketdefinities](/sccm/apps/deploy-use/packages-and-programs#about-the-package-definition-file-format) in dit onderwerp.  
+1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Packages**.  
 
-##  <a name="deploy-packages-and-programs"></a>Pakketten en programma's implementeren  
+3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer un package à partir de la définition**.  
 
-1.  Kies in de Configuration Manager-console **softwarebibliotheek** > **Toepassingsbeheer** > **pakketten**.  
+4.  Dans la page **Définition du package** de l’**Assistant Création d’un package à partir d’une définition**, choisissez un fichier de définition de package existant ou cliquez sur **Parcourir** pour ouvrir un nouveau fichier de définition de package. Après avoir spécifié un nouveau fichier de définition de package, sélectionnez-le dans la liste **Définition du package**, puis choisissez **Suivant**.  
 
-2.  Selecteer het pakket dat u implementeren wilt, en klik vervolgens in de **Start** tabblad de **implementatie** groep, kiest u **implementeren**.  
+5.  Dans la page **Fichiers sources**, spécifiez des informations sur tous les fichiers sources requis pour le package et le programme, puis choisissez **Suivant**.  
 
-3.  Op de **algemene** pagina van de **Wizard Software implementeren**, geef de naam van het pakket en programma dat u implementeren wilt, de verzameling waarnaar u wilt implementeren van het pakket en programma en optionele opmerkingen voor de implementatie.  
+6.  Si le package nécessite des fichiers sources, dans la page **Dossier source**, spécifiez l’emplacement à partir duquel les fichiers sources doivent être obtenus, puis choisissez **Suivant**.  
 
-     Selecteer **Standaarddistributiepuntengroepen gebruiken die aan deze verzameling zijn gekoppeld** als u de pakketinhoud wilt opslaan op de standaarddistributiepuntengroep van de verzameling. Als u de geselecteerde verzameling niet hebt gekoppeld aan een distributiepuntgroep, is deze optie niet beschikbaar.  
+7.  Dans la page **Résumé**, passez en revue les actions qui seront exécutées, puis terminez l’Assistant. Le nouveau package et le nouveau programme sont affichés dans le nœud **Packages** de l’espace de travail **Bibliothèque de logiciels**.  
 
-4.  Op de **inhoud** pagina **toevoegen**, en selecteer vervolgens de distributiepunten of distributiepuntengroepen waarop u wilt de inhoud die is gekoppeld aan dit pakket en programma implementeert.  
+ Pour plus d’informations sur les fichiers de définition de package, consultez [À propos du format des fichiers de définition de package](/sccm/apps/deploy-use/packages-and-programs#about-the-package-definition-file-format) dans cette rubrique.  
 
-5.  Op de **implementatie-instellingen** pagina, kiest u een doel voor deze implementatie en geef opties op voor ontwaakpakketten en verbindingen met datalimiet:  
+##  <a name="deploy-packages-and-programs"></a>Déployer des packages et des programmes  
 
-    -   **Doel**: U kunt kiezen uit:  
+1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Packages**.  
 
-        -   **Beschikbare**: Als de toepassing wordt geïmplementeerd voor een gebruiker, wordt de gebruiker ziet het gepubliceerde pakket en programma in de Application Catalog en kan deze op aanvraag opvragen. Als het pakket en programma wordt geïmplementeerd op een apparaat, wordt de gebruiker ziet het in Software Center en kan deze op verzoek installeren.  
+2.  Sélectionnez le package à déployer puis, sous l’onglet **Accueil**, dans le groupe **Déploiement**, choisissez **Déployer**.  
 
-        -   **Vereist**: Het pakket en programma wordt automatisch geïmplementeerd volgens de geconfigureerde planning. Een gebruiker kan echter de implementatiestatus van het pakket en programma volgen en deze installeren vóór de deadline door het gebruik van het Software Center.  
+3.  Dans la page **Général** de l’**Assistant Déploiement logiciel**, spécifiez le nom du package et du programme à déployer, le regroupement vers lequel le package et le programme doivent être déployés et d’éventuels commentaires sur le déploiement.  
 
-    -   **Verzenden van ontwaakpakketten**: Als het implementatiedoel is ingesteld op **vereist** en deze optie is geselecteerd, wordt een ontwaakpakket verzonden naar computers voordat de implementatie wordt geïnstalleerd om de computer uit de slaapstand deadline van de installatie te halen. Voordat u deze optie kunt gebruiken, moeten computers zijn geconfigureerd voor Wake On LAN.  
+     Sélectionnez **Utiliser des groupes de points de distribution par défaut associés à ce regroupement** si vous souhaitez enregistrer le contenu du package dans le groupe de points de distribution par défaut des regroupements. Si vous n’avez pas associé le regroupement sélectionné à un groupe de points de distribution, cette option n’est pas disponible.  
 
-    -  **Laat clients toe op een internetverbinding naar gebruik om inhoud te downloaden na de installatiedeadline, waarvoor extra kosten in rekening kan worden**: Selecteer deze optie als dit is verplicht.  
+4.  Dans la page **Contenu**, choisissez **Ajouter**, puis sélectionnez les points de distribution ou les groupes de points de distribution vers lesquels le contenu associé à ce package et ce programme doit être déployé.  
+
+5.  Dans la page **Paramètres de déploiement**, choisissez l’objet de ce déploiement, puis spécifiez des options pour les paquets de mise en éveil et les connexions limitées :  
+
+    -   **Objet** : choisissez parmi les options suivantes :  
+
+        -   **Disponible** : si l’application est déployée sur un utilisateur, l’utilisateur peut voir le package et le programme publiés dans le catalogue d’applications et peut les demander au besoin. Si le package et le programme sont déployés sur un appareil, l’utilisateur peut les voir dans le Centre logiciel et les installer à la demande.  
+
+        -   **Obligatoire** : le package et le programme sont déployés automatiquement, selon le calendrier configuré. Toutefois, un utilisateur peut suivre l'état de déploiement du package et du programme et peut les installer avant l'échéance depuis le Centre logiciel.  
+
+    -   **Envoyer des paquets de mise en éveil** : si l’objet du déploiement a la valeur **Obligatoire** et que cette option est sélectionnée, un paquet de mise en éveil est envoyé aux ordinateurs avant l’installation du déploiement, afin de sortir les ordinateurs de la veille à l’échéance de l’installation. Afin d'utiliser cette option, les ordinateurs doivent être configurés pour Wake On LAN.  
+
+    -  Si nécessaire, sélectionnez **Autoriser les clients avec une connexion Internet facturée à l’usage à télécharger le contenu une fois l’échéance d’installation atteinte, ce qui peut entraîner des frais supplémentaires**.  
 
     > [!NOTE]  
-    >  De optie **Software implementeren op het primaire apparaat van de gebruiker** is niet beschikbaar wanneer u een pakket en programma implementeert.  
+    >  L’option **Prédéployer des logiciels sur l’appareil principal de l’utilisateur** n’est pas disponible quand vous déployez un package et un programme.  
 
-6.  Op de **planning** pagina, configureren wanneer dit pakket en programma worden geïmplementeerd of beschikbaar gesteld voor clientapparaten.  
+6.  Dans la page **Planification**, indiquez à quel moment ce package et ce programme seront déployés ou mis à la disposition des appareils clients.  
 
-     De opties op deze pagina verschillen afhankelijk van of de implementatieactie ingesteld is op **beschikbaar** of **vereist**.  
+     Les options de cette page peuvent différer selon que l’action de déploiement a la valeur **Disponible** ou **Obligatoire**.  
 
-7.  Als het implementatiedoel is ingesteld op **vereist**, configureert u het gedrag voor opnieuw uitvoeren voor het programma in de **gedrag voor opnieuw uitvoeren** vervolgkeuzelijst. Kies uit de volgende opties:  
+7.  Si l’objet du déploiement a la valeur **Obligatoire**, configurez le comportement de réexécution du programme à partir du menu déroulant **Comportement de réexécution**. Choisissez parmi les options suivantes :  
 
-    |Gedrag voor opnieuw uitvoeren|Meer informatie|  
+    |comportement de réexécution|Informations complémentaires|  
     |--------------------|----------------------|  
-    |Geïmplementeerd programma nooit opnieuw uitvoeren|Het programma won't opnieuw uitgevoerd op de client, zelfs als het programma oorspronkelijk is mislukt of als de programmabestanden worden gewijzigd.|  
-    |Programma altijd opnieuw uitvoeren|Het programma wordt altijd opnieuw uitgevoerd op de client wanneer de implementatie is gepland, zelfs als het programma al is uitgevoerd. Dit kan nuttig zijn wanneer u herhaalde implementaties gebruikt waarin het programma wordt bijgewerkt, bijvoorbeeld met antivirussoftware.|  
-    |Opnieuw uitvoeren als de vorige poging is mislukt|Het programma wordt opnieuw uitgevoerd wanneer de implementatie is gepland als de vorige uitvoeringspoging is mislukt.|  
-    |Opnieuw uitvoeren als de vorige poging is gelukt|Het programma wordt alleen opnieuw uitgevoerd als het eerder is uitgevoerd op de client. Dit is nuttig wanneer u herhaalde aankondigingen gebruikt waarbij het programma regelmatig wordt bijgewerkt en waarbij het voor elke update vereist is dat de vorige update is geïnstalleerd.|  
+    |Ne jamais exécuter à nouveau un programme déployé|Le programme ne sera pas réexécuté sur le client, même si le programme a échoué initialement ou que les fichiers programmes sont modifiés.|  
+    |Toujours exécuter à nouveau le programme|Le programme est systématiquement réexécuté sur le client quand le déploiement est planifié, même si le programme a déjà été correctement exécuté. Cela peut être utile lorsque vous utilisez des déploiements périodiques dans lequel le programme est mis à jour, par exemple avec un logiciel antivirus.|  
+    |Exécuter à nouveau en cas d'échec de la tentative précédente|Le programme n’est réexécuté quand le déploiement est planifié qu’en cas d’échec de l’exécution précédente.|  
+    |Exécuter à nouveau en cas de réussite de la tentative précédente|Le programme est réexécuté uniquement en cas de réussite de l’exécution précédente sur le client. Ceci s’avère particulièrement utile quand vous utilisez des publications récurrentes dans lesquelles le programme est régulièrement mis à jour et dans lesquelles chaque mise à jour exige la réussite de l’installation de la mise à jour précédente.|  
 
-8. Geef op de pagina **Gebruikerservaring** de volgende informatie:  
+8. Sur la page **Expérience utilisateur** , spécifiez les informations suivantes :  
 
-    -   **Toestaan dat gebruikers het programma onafhankelijk van toewijzingen uit te voeren**: Bij inschakeling kunnen gebruikers deze software installeren vanuit Software Center ongeacht een eventueel gepland installatietijdstip.  
+    -   **Autoriser les utilisateurs à exécuter le programme indépendamment des attributions** : si cette option est activée, les utilisateurs peuvent installer ce logiciel à partir du Centre logiciel, indépendamment du moment auquel l’installation est planifiée.  
 
-    -   **Software-installatie**: Hierdoor kan de software worden geïnstalleerd buiten de geconfigureerde onderhoudsvensters.  
+    -   **Installation du logiciel**: permet au logiciel d’être installé en dehors de toute fenêtre de maintenance configurée.  
 
-    -   **Systeem opnieuw opstarten (indien nodig om de installatie te voltooien)**: Als de software-installatie een herstart van het apparaat vereist te voltooien, kunt u dit mag gebeuren buiten de geconfigureerde onderhoudsvensters.  
+    -   **Redémarrage du système (si nécessaire pour terminer l’installation)** : si l’installation du logiciel nécessite un redémarrage de l’appareil pour se terminer, autorisez cette option en dehors des fenêtres de maintenance configurées.  
 
-    -   **Embedded-apparaten**: Wanneer u pakketten en programma's op Windows Embedded-apparaten die write filter is ingeschakeld implementeert zijn, kunt u opgeven dat pakketten en programma's worden geïnstalleerd op de tijdelijke overlay en doorvoeren wijzigingen later. U kunt doorvoeren u de wijzigingen op de installatiedeadline of tijdens een onderhoudsvenster. Wanneer u wijzigingen op de installatiedeadline of tijdens een onderhoudsvenster doorvoert, moet worden opgestart en de wijzigingen behouden blijven op het apparaat.  
+    -   **Appareils Windows Embedded** : quand vous déployez des packages et des programmes sur des appareils Windows Embedded dont le filtre d’écriture est activé, vous pouvez choisir d’installer les packages et les programmes sur un segment de recouvrement temporaire, puis de valider les modifications ultérieurement. Vous pouvez également valider les modifications à l’échéance de l’installation ou au cours d’une fenêtre de maintenance. Quand vous validez des modifications à l’échéance de l’installation ou au cours d’une fenêtre de maintenance, un redémarrage est requis et les modifications sont conservées sur l’appareil.  
 
         > [!NOTE]  
-        >  Wanneer u een pakket of programma implementeert op een Windows Embedded-apparaat, moet u ervoor zorgen dat het apparaat lid is van een verzameling met een geconfigureerd onderhoudsvenster. Zie voor meer informatie over hoe onderhoudvensters worden gebruikt wanneer u pakketten en programma's voor Windows Embedded-apparaten implementeert, [maken van Windows Embedded-toepassingen](../../apps/get-started/creating-windows-embedded-applications.md).  
+        >  Lorsque vous déployez un package ou un programme sur un périphérique Windows Embedded, assurez-vous que le périphérique est un membre d'une collection qui dispose d'une fenêtre de maintenance configurée. Pour plus d’informations sur l’utilisation de fenêtres de maintenance pendant le déploiement de packages et de programmes sur des appareils Windows Embedded, consultez [Création d’applications Windows Embedded](../../apps/get-started/creating-windows-embedded-applications.md).  
 
-9. Geef op de pagina **Distributiepunten** de volgende informatie:  
+9. Sur la page **Points de distribution** , spécifiez les informations suivantes :  
 
-    -   **Implementatieopties**: Geef de acties die een client ondernemen moet voor het uitvoeren van programma-inhoud. U kunt gedrag opgeven wanneer de client zich in een snelle netwerkgrens bevindt of in een trage of onbetrouwbare netwerkgrens bevindt.  
+    -   **Options de déploiement** : spécifiez les actions qu’un client doit effectuer pour exécuter le contenu du programme. Vous pouvez spécifier le comportement lorsque le client est dans une limite réseau rapide ou une limite réseau lente ou instable.  
 
-    -   **Toestaan dat clients inhoud te delen met andere clients in hetzelfde subnet**: Selecteer deze optie om de belasting op het netwerk te verminderen door clients inhoud downloaden van andere clients op het netwerk die reeds zijn gedownload en gecached. Deze optie gebruikt Windows BranchCache en kan worden gebruikt op computers met Windows Vista SP2 of hoger.  
+    -   **Autoriser les clients à partager du contenu avec d’autres clients sur le même sous-réseau** : sélectionnez cette option pour réduire la charge sur le réseau en autorisant les clients à télécharger du contenu à partir d’autres clients sur le réseau qui a déjà téléchargé et mis en cache le contenu. Cette option utilise Windows BranchCache et peut être utilisée sur les ordinateurs qui exécutent Windows Vista SP2 et versions ultérieures.  
 
-    -   **Clients gebruiken een terugvalbronlocatie voor inhoud toestaan**:  
+    -   **Autoriser les clients à utiliser un emplacement source de secours pour le contenu** :  
 
-        -  **Oudere versies dan 1610**: U kunt selecteren de **terugvalbronlocatie voor inhoud selectievakje toestaan** inschakelen voor clients buiten deze grensgroepen groepen terug te vallen en het gebruik van de distributie verwijzen als bronlocatie voor inhoud wanneer er geen andere distributiepunten beschikbaar zijn.
+        -  **Versions antérieures à 1610** : vous pouvez cocher la case **Autoriser un emplacement source de secours pour le contenu** afin de permettre aux clients situés en dehors de ces groupes de limites de revenir et d’utiliser le point de distribution comme emplacement source pour le contenu quand aucun autre point de distribution n’est disponible.
 
-        - **Versie 1610 en hoger**: U kunt niet meer configureren **terugvalbronlocatie voor inhoud toestaan**.  In plaats daarvan configureert u de relaties tussen grensgroepen om te bepalen wanneer een client beginnen kunt met het extra grensgroepen voor de locatie van een geldige inhoudsbron zoeken.
+        - **Versions 1610 et ultérieures** : vous ne pouvez plus configurer **Autoriser un emplacement source de secours pour le contenu**.  Au lieu de cela, vous configurez des relations entre les groupes de limites qui déterminent quand un client peut commencer à rechercher un emplacement source de contenu valide dans d’autres groupes de limites.
 
-10. Op de **samenvatting** controleert u de acties die moeten worden ondernomen en voltooi de wizard.  
+10. Dans la page **Résumé**, passez en revue les actions qui seront exécutées, puis terminez l’Assistant.  
 
-     U ziet de implementatie in het knooppunt **Implementaties** van de werkruimte **Bewaking** en in het detailvenster van het tabblad voor de pakketimplementatie wanneer u de implementatie selecteert. Zie voor meer informatie [pakketten en programma's bewaken](/sccm/apps/deploy-use/packages-and-programs#monitor-packages-and-programs) in dit onderwerp.  
+     Vous pouvez consulter le déploiement dans le nœud **Déploiement** de l'espace de travail **Surveillance** et dans le volet d'informations de l'onglet du déploiement de package, lorsque vous sélectionnez le déploiement. Pour plus d’informations, consultez [Surveiller les packages et les programmes](/sccm/apps/deploy-use/packages-and-programs#monitor-packages-and-programs) dans cette rubrique.  
 
 > [!IMPORTANT]  
->  Als u de optie geconfigureerd **programma uitvoeren vanaf distributiepunt** op de **distributiepunten** pagina van de **Wizard Software implementeren**, schakel de optie niet uit **de inhoud in dit pakket kopiëren naar een pakketshare op distributiepunten** omdat hierdoor het pakket niet beschikbaar voor uitvoering vanaf distributiepunten.  
+>  Si vous avez configuré l’option **Exécuter le programme à partir du point de distribution** dans la page **Points de distribution** de l’**Assistant Déploiement logiciel**, ne désactivez pas l’option **Copiez le contenu de ce package dans un partage de package sur les points de distribution**, car cela rend le package indisponible et empêche son exécution à partir des points de distribution.  
 
-##  <a name="monitor-packages-and-programs"></a>Monitor voor pakketten en programma 's  
- Voor het bewaken van pakket en programma-implementaties, gebruikt u dezelfde procedures die u gebruikt voor het bewaken van toepassingen, zoals beschreven in [toepassingen bewaken](/sccm/apps/deploy-use/monitor-applications-from-the-console).  
+##  <a name="monitor-packages-and-programs"></a>Surveiller les packages et les programmes  
+ Pour surveiller les déploiements de packages et de programmes, vous devez suivre les mêmes procédures que celles utilisées pour surveiller les applications, qui sont détaillées dans [Surveiller les applications](/sccm/apps/deploy-use/monitor-applications-from-the-console).  
 
- Pakketten en programma's bevatten ook een aantal van ingebouwde rapporten waarmee u informatie kunt controleren over de implementatiestatus van pakketten en programma's. Deze rapporten hebben de rapportcategorie **Softwaredistributie – Pakketten en programma's** en **Softwaredistributie – Status van pakket- en programma-implementatie**.  
+ Les packages et les programmes incluent également des rapports intégrés qui vous permettent de surveiller les informations relatives à l’état du déploiement des packages et des programmes. Ces rapports disposent des catégories **Distribution de logiciels – Packages et programmes** et **Distribution de logiciel - État du déploiement du package et du programme**.  
 
- Zie voor meer informatie over het configureren van rapportage in Configuration Manager [rapportage in System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+ Pour plus d’informations sur la configuration de la génération de rapports dans Configuration Manager, consultez [Génération de rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md).  
 
-##  <a name="manage-packages-and-programs"></a>Pakketten en programma's beheren  
- In de **softwarebibliotheek** werkruimte Vouw **Toepassingsbeheer**, kies **pakketten**, kiest u het pakket dat u wilt beheren en kies vervolgens een beheertaak in de volgende tabel:  
+##  <a name="manage-packages-and-programs"></a>Gérer les packages et les programmes  
+ Dans l’espace de travail **Bibliothèque de logiciels**, développez **Gestion d’applications**, choisissez **Packages**, le package à gérer, puis une tâche de gestion dans le tableau suivant :  
 
-|Taak|Meer informatie|  
+|Tâche|Plus d'informations|  
 |----------|----------------------|  
-|**Voorbereid inhoudsbestand maken**|Hiermee opent u de **maken Wizard voorbereid inhoudsbestand**, waarmee u een bestand met de inhoud van het pakket kan niet handmatig worden geïmporteerd in een andere site te maken. Dit is nuttig in situaties met lage netwerkbandbreedte tussen de siteserver en het distributiepunt.|  
-|**Programma maken**|Hiermee opent u de **Wizard programma maken**, waarmee u een nieuw programma voor dit pakket maken.|  
-|**Exportereneren**|Hiermee opent u de **Wizard pakket exporteren**, waarmee u het geselecteerde pakket en de inhoud naar een bestand exporteren.<br /><br /> Zie voor meer informatie over het importeren van pakketten en programma's [pakketten en programma's maken](/sccm/apps/deploy-use/packages-and-programs#create-packages-and-programs) in dit onderwerp.|  
-|**Implementeren**|Hiermee opent u de **Wizard Software implementeren**, waarmee u het geselecteerde pakket en programma implementeren in een verzameling. Zie voor meer informatie [pakketten en programma's implementeren](/sccm/apps/deploy-use/packages-and-programs#deploy-packages-and-programs) in dit onderwerp.|  
-|**Inhoud distribueren**|Hiermee opent u de **Wizard inhoud distribueren**, waarmee u de inhoud die is gekoppeld aan het pakket en programma naar geselecteerde distributiepunten of distributiepuntengroepen verzenden.|  
-|**Distributiepunten bijwerken**|Hiermee worden distributiepunten bijwerkt met de meest recente inhoud voor het geselecteerde pakket en programma.|  
+|**Créer un fichier de contenu préparé**|Ouvre l’**Assistant Création du fichier de contenu préparé** qui vous permet de créer un fichier qui contient le contenu du package qui peut être importé manuellement vers un autre site. Ceci est utile dans les cas où vous disposez d'une faible bande passante du réseau entre le serveur de site et le point de distribution.|  
+|**Créer un programme**|Ouvre l’**Assistant Création d’un programme** qui vous permet de créer un programme pour ce package.|  
+|**Exporter**|Ouvre l’**Assistant Exportation de package** qui vous permet d’exporter le package sélectionné et son contenu vers un fichier.<br /><br /> Pour plus d’informations sur l’importation des packages et des programmes, consultez [Créer des packages et des programmes](/sccm/apps/deploy-use/packages-and-programs#create-packages-and-programs) dans cette rubrique.|  
+|**Déployer**|Ouvre l’**Assistant Déploiement logiciel** qui vous permet de déployer le package et le programme sélectionnés sur un regroupement. Pour plus d’informations, consultez [Déployer des packages et des programmes](/sccm/apps/deploy-use/packages-and-programs#deploy-packages-and-programs) dans cette rubrique.|  
+|**Distribuer du contenu**|Ouvre l’**Assistant Distribuer du contenu** qui vous permet d’envoyer le contenu qui est associé au package et au programme vers les points de distribution ou groupes de points de distribution sélectionnés.|  
+|**Mise à jour des points de distribution**|Met les points de distributions à jour avec le contenu le plus récent pour le package et le programme sélectionnés.|  
 
-##  <a name="about-the-package-definition-file-format"></a>Over de bestandsindeling van pakketdefinities  
- Pakketdefinitiebestanden zijn scripts die u gebruiken kunt voor het automatiseren van pakket en programma maken met Configuration Manager. Ze bieden alle de informatie die Configuration Manager moet maken van een pakket en programma, met uitzondering van de locatie van pakketbronbestanden. Elke pakketdefinitiebestand is een ASCII- of UTF-8-tekstbestand die gebruikmaakt van het ini-bestandsindeling en waarin de volgende secties:  
+##  <a name="about-the-package-definition-file-format"></a>À propos du format des fichiers de définition de package  
+ Les fichiers de définition de package sont des scripts qui vous permettent d’automatiser la création de packages et de programmes avec Configuration Manager. Ils procurent à Configuration Manager toutes les informations dont il a besoin pour créer un package et un programme, à l’exception de l’emplacement des fichiers sources du package. Chaque fichier de définition de package est un fichier texte ASCII ou UTF-8 qui utilise le format de fichier .ini et contient les sections suivantes :  
 
 ###  <a name="pdf"></a>[PDF]  
- Deze sectie geeft het bestand aan als een pakketdefinitiebestand. De sectie bevat de volgende informatie:  
+ Cette section identifie le fichier comme un fichier de définition de package. Il contient les informations suivantes :  
 
--   **Versie**: Geef de versie van de bestandsindeling van pakketdefinities die wordt gebruikt door het bestand. Dit komt overeen met de versie van System Management Server (SMS) of Configuration Manager waarvoor het bestand is geschreven. Dit item is vereist.  
+-   **Version** : spécifiez la version du format de fichier de définition de package utilisée par le fichier. Elle correspond à la version de System Management Server (SMS) ou de Configuration Manager pour laquelle il a été écrit. Cette entrée est obligatoire.  
 
 ###  <a name="package-definition"></a>[Package Definition]  
- De eigenschappen van het pakket en programma opgeven. De sectie bevat de volgende informatie:  
+ Spécifiez les propriétés du package et du programme. Il fournit les informations suivantes :  
 
--   **Naam**: De naam van het pakket, maximaal 50 tekens.  
+-   **Nom**: Le nom du package, comprenant jusqu'à 50 caractères.  
 
--   **Versie** (optioneel): De versie van het pakket, maximaal 32 tekens.  
+-   **Version** (facultatif) : version du package, comprenant jusqu’à 32 caractères.  
 
--   **Pictogram** (optioneel): Het bestand dat het pictogram moet worden gebruikt voor dit pakket bevat. Indien opgegeven, vervangt dit pictogram het standaardpakketpictogram in de Configuration Manager-console.
+-   **Icon** (facultatif) : fichier contenant l’icône à utiliser pour ce package. Si elle est spécifiée, cette icône remplace l’icône de package par défaut dans la console Configuration Manager.
 
--   **Publisher**: De uitgever van het pakket, maximaal 32 tekens.
+-   **Publisher**: éditeur du package, comprenant jusqu'à 32 caractères.
 
--   **Taal**: De taalversie van het pakket, maximaal 32 tekens.
+-   **Langue**: langue du package, comprenant jusqu'à 32 caractères.
 
--   **Opmerking** (optioneel): Een opmerking over het pakket, maximaal 127 tekens.
+-   **Comment** (facultatif) : commentaire concernant le package, comprenant jusqu’à 127 caractères.
 
--   **ContainsNoFiles**: Deze vermelding geeft aan of een bron gekoppeld aan het pakket is.  
+-   **ContainsNoFiles**: cette entrée indique si une source est associée ou non au package.  
 
--   **Programma's**: De programma's die zijn gedefinieerd voor dit pakket. Elke programmanaam komt overeen met een sectie **[Program]** in dit pakketdefinitiebestand.  
+-   **Programs** : programmes qui sont définis pour ce package. Chaque nom de programme correspond à une section **[Program]** dans ce fichier de définition de package.  
 
-     Voorbeeld:  
+     Exemple :  
 
      `Programs=Typical, Custom, Uninstall`  
 
--   **MIFFileName**: De naam van het Management Information Format (MIF)-bestand dat de pakketstatus, maximaal 50 tekens bevat.  
+-   **MIFFileName**: nom du fichier MIF (Management Information Format) qui contient l'état du package, limité à 50 caractères.  
 
--   **MIFName**: De naam van het pakket (voor MIF-koppeling), maximaal 50 tekens.  
+-   **MIFName**: nom du package (pour la correspondance MIF), limité à 50 caractères.  
 
--   **MIFVersion**: Het versienummer van het pakket (voor MIF-koppeling), maximaal 32 tekens.  
+-   **MIFVersion**: numéro de version du package (pour la correspondance MIF), limité à 32 caractères.  
 
--   **MIFPublisher**: De software-uitgever van het pakket (voor MIF-koppeling), maximaal 32 tekens.  
+-   **MIFPublisher**: éditeur de logiciel du package (pour la correspondance MIF), qui peut comporter 32 caractères au maximum.  
 
 ###  <a name="program"></a>[Program]  
- Voor elk programma dat opgegeven in de **programma's** vermelding in de **[Package Definition]** sectie, het pakketdefinitiebestand moet [Program] sectie bevatten waarmee dat programma wordt gedefinieerd. Elke sectie Program bevat de volgende informatie:  
+ Pour chaque programme spécifié dans l’entrée **Programs** de la section **[Package Definition]**, le fichier de définition de package doit inclure une section [Program] qui définit ce programme. Chaque section de programme fournit les informations suivantes :  
 
--   **Naam**: De naam van het programma, maximaal 50 tekens. Dit item moet uniek zijn binnen een pakket. Deze naam wordt gebruikt bij het definiëren van advertenties. Op clientcomputers wordt de naam van het programma weergegeven in **Aangekondigde programma's uitvoeren** in het Configuratiescherm.  
+-   **Nom**: nom du programme, limité à 50 caractères. Cette entrée doit être unique dans un package. Ce nom est utilisé lors de la définition des publications. Sur les ordinateurs clients, le nom du programme est affiché dans **exécuter les programmes publiés** dans le panneau de configuration.  
 
--   **Pictogram** (optioneel): Geef het bestand dat het pictogram moet worden gebruikt voor dit programma bevat. Indien opgegeven, wordt dit pictogram het standaardprogrammapictogram in de Configuration Manager-console vervangt en op clientcomputers wordt weergegeven wanneer het programma wordt aangekondigd.
+-   **Icon** (facultatif) : spécifiez le fichier contenant l’icône à utiliser pour ce programme. Si elle est spécifiée, cette icône remplace l’icône de programme par défaut dans la console Configuration Manager et s’affiche sur les ordinateurs clients quand le programme est publié.
 
--   **Opmerking** (optioneel): Een opmerking over het programma, maximaal 127 tekens.
+-   **Comment** (facultatif) : commentaire concernant le programme, comprenant jusqu’à 127 caractères.
 
--   **CommandLine**: Geef de opdrachtregel voor het programma, maximaal 127 tekens. De opdracht is relatief ten opzichte van de pakketbronmap.
+-   **CommandLine** : spécifiez la ligne de commande du programme, comprenant jusqu’à 127 caractères. La commande est relatif au dossier source du package.
 
--   **StartIn**: Geef de werkmap voor het programma, maximaal 127 tekens. Dit item kan een absoluut pad op de clientcomputer of een pad dat ten opzichte van de pakketbronmap zijn.
+-   **StartIn** : spécifiez le dossier de travail pour le programme, comprenant jusqu’à 127 caractères. Cette entrée peut être un chemin absolu sur l’ordinateur client ou un chemin relatif au dossier source du package.
 
--   **Uitvoeren**: Geef de programmamodus op waarin het programma wordt uitgevoerd. U kunt **Minimized** (Geminimaliseerd), **Maximized** (Gemaximaliseerd) of **Hidden** (Verborgen) opgeven. Als dit item niet opgenomen is, wordt het programma wordt uitgevoerd in de normale modus.  
+-   **Run** : spécifiez le mode d’exécution du programme. Vous pouvez spécifier **réduit**, **agrandie**, ou **masqué**. En l’absence de cette entrée, le programme s’exécute en mode normal.  
 
--   **AfterRunning**: Geef een speciale actie op die plaatsvindt nadat het programma is voltooid. Beschikbare opties zijn **SMSRestart**, **ProgramRestart** en **SMSLogoff**. Als dit item niet opgenomen is, niet het programma een speciale actie uitgevoerd.  
+-   **AfterRunning** : spécifiez toute action spéciale qui se produit quand le programme est correctement terminé. Les options disponibles sont **SMSRestart**, **ProgramRestart**ou **SMSLogoff**. En l’absence de cette entrée, le programme n’exécute aucune action spéciale.  
 
--   **EstimatedDiskSpace**: Geef de hoeveelheid schijfruimte die het programma nodig heeft om uit te voeren op de computer. Dit kan worden opgegeven als **Onbekend** (de standaardinstelling) of als een geheel getal groter dan of gelijk aan nul. Als een waarde is opgegeven, moeten ook de eenheden voor de waarde worden opgegeven.  
+-   **EstimatedDiskSpace** : spécifiez l’espace disque nécessaire à l’exécution du logiciel sur l’ordinateur. La valeur peut être **Inconnu** (paramètre par défaut) ou un chiffre supérieur ou égal à zéro. Si une valeur est spécifiée, les unités de la valeur doivent également être spécifiées.  
 
-     Voorbeeld:  
+     Exemple :  
 
      `EstimatedDiskSpace=38MB`  
 
--   **EstimatedRunTime**: Geef de geschatte duur (in minuten) die het programma uit te voeren op de clientcomputer wordt verwacht. Dit kan worden opgegeven als **Onbekend** (de standaardinstelling) of als een geheel getal groter dan nul.  
+-   **EstimatedRunTime** : spécifiez la durée estimée (en minutes) d’exécution du programme sur l’ordinateur client. La valeur peut être **Inconnu** (paramètre par défaut) ou un chiffre supérieur à zéro.  
 
-     Voorbeeld:  
+     Exemple :  
 
      `EstimatedRunTime=25`  
 
--   **SupportedClients**: Geef de processors en besturingssystemen op waarop dit programma wordt uitgevoerd. De opgegeven platforms moeten van elkaar worden gescheiden door komma's. Als dit item niet opgenomen is, wordt de controle van ondersteunde platforms uitgeschakeld voor dit programma.  
+-   **SupportedClients** : spécifiez les processeurs et les systèmes d’exploitation sur lesquels ce programme s’exécute. Les plateformes spécifiées doivent être séparés par des virgules. En l’absence de cette entrée, la vérification de la plateforme prise en charge est désactivée pour ce programme.  
 
--   **SupportedClientMinVersionX**, **SupportedClientMaxVersionX**: Geef de begin-tot eindbereik op voor versienummers voor de besturingssystemen die zijn opgegeven in de **SupportedClients** vermelding.  
+-   **SupportedClientMinVersionX**, **SupportedClientMaxVersionX** : spécifiez la plage du début à la fin pour les numéros de version des systèmes d’exploitation spécifiés dans l’entrée **SupportedClients**.  
 
-     Voorbeeld:  
+     Exemple :  
 
     ```  
     SupportedClients=Win NT (I386),Win NT (IA64),Win NT (x64)  
@@ -385,29 +385,29 @@ Pakketten kunnen enkele nieuwe functies van Configuration Manager, waaronder dis
     Win NT (x64) MaxVersion4=6.00.9999.9999   
     ```  
 
--   **AdditionalProgramRequirements** (optioneel): Geef alle overige informatie of vereisten voor clientcomputers, maximaal 127 tekens.
+-   **AdditionalProgramRequirements** (facultatif) : indiquez toute autre information ou exigence pour les ordinateurs clients, comprenant jusqu’à 127 caractères.
 
--   **CanRunWhen**: Geef de status van de gebruiker die het programma nodig heeft om uit te voeren op de clientcomputer. Beschikbare waarden zijn **UserLoggedOn**, **NoUserLoggedOn** en **AnyUserStatus**. De standaardwaarde is **UserLoggedOn**.  
+-   **CanRunWhen** : spécifiez l’état utilisateur nécessaire au programme pour qu’il s’exécute sur l’ordinateur client. Les valeurs disponibles sont **UserLoggedOn**, **NoUserLoggedOn**ou **AnyUserStatus**. La valeur par défaut est **UserLoggedOn**.  
 
--   **UserInputRequired**: Geef op of het programma interactie met de gebruiker vereist. Beschikbare waarden zijn **True** (Waar) of **False** (Onwaar). De standaardwaarde is **True** (Waar). Dit item wordt ingesteld op **False** (Onwaar) als **CanRunWhen** niet is ingesteld op **UserLoggedOn**.  
+-   **UserInputRequired** : spécifiez si le programme requiert une interaction avec l’utilisateur. Les valeurs disponibles sont **True** ou **False**. La valeur par défaut est **True**. Cette entrée est définie sur **False** si **CanRunWhen** n'a pas la valeur **UserLoggedOn**.  
 
--   **AdminRightsRequired**: Geef op of het programma beheerdersreferenties op de computer vereist. Beschikbare waarden zijn **True** (Waar) of **False** (Onwaar). De standaardwaarde is **False**. Dit item wordt ingesteld op **True** (Waar) als **CanRunWhen** niet is ingesteld op **UserLoggedOn**.  
+-   **AdminRightsRequired** : spécifiez si le programme requiert des informations d’identification d’administration sur l’ordinateur pour pouvoir s’exécuter. Les valeurs disponibles sont **True** ou **False**. La valeur par défaut est **False**. Cette entrée est définie sur **True** si **CanRunWhen** n'a pas la valeur **UserLoggedOn**.  
 
--   **UseInstallAccount**: Geef op of het programma het installatie-Account voor clientsoftware gebruikt wanneer deze wordt uitgevoerd op clientcomputers. Deze waarde is standaard **False** (Onwaar). Deze waarde is ook **False** (Onwaar) als **CanRunWhen** is ingesteld op **UserLoggedOn**.  
+-   **UseInstallAccount** : spécifiez si le programme utilise le compte d’installation du logiciel client quand il s’exécute sur les ordinateurs clients. Par défaut, cette valeur est **False**. Cette valeur est également **False** si **CanRunWhen** est défini à **UserLoggedOn**.  
 
--   **DriveLetterConnection**: Geef op of het programma vereist dat een stationsletter aan de pakketbestanden die zich op het distributiepunt bevinden. U kunt **True** (Waar) of **False** (Onwaar) opgeven. De standaardwaarde is **False**, waardoor het programma een Universal Naming Convention (UNC)-verbinding gebruiken. Als deze waarde is ingesteld op **True**, de eerstvolgende beschikbare stationsletter wordt gebruikt (vanaf Z: en in teruglopende volgorde).  
+-   **DriveLetterConnection** : spécifiez si le programme requiert une connexion de lettre de lecteur aux fichiers de package qui se trouvent sur le point de distribution. Vous pouvez spécifier **True** ou **False**. La valeur par défaut est **False**, ce qui permet au programme d’utiliser une connexion UNC (Universal Naming Convention). Quand la valeur est **True**, la lettre de lecteur suivante disponible est utilisée (en partant de Z: et en procédant par ordre décroissant).  
 
--   **SpecifyDrive** (optioneel): Geef een stationsletter op die het programma nodig heeft om verbinding maken met de pakketbestanden op het distributiepunt. Deze specificatie dwingt het gebruik van de opgegeven stationsletter af voor clientverbindingen met distributiepunten.
+-   **SpecifyDrive** (facultatif) : spécifiez une lettre de lecteur dont le programme a besoin pour se connecter aux fichiers du package sur le point de distribution. Cette spécification force l'utilisation de la lettre de lecteur spécifiée pour les connexions clientes aux points de distribution.
 
--   **ReconnectDriveAtLogon**: Geef op of de computer opnieuw verbinding met het distributiepunt maakt wanneer de gebruiker zich aanmeldt. Beschikbare waarden zijn **True** (Waar) of **False** (Onwaar). De standaardwaarde is **False**.  
+-   **ReconnectDriveAtLogon** : spécifiez si l’ordinateur se reconnecte au point de distribution quand l’utilisateur se connecte. Les valeurs disponibles sont **True** ou **False**. La valeur par défaut est **False**.  
 
--   **DependentProgram**: Geef een programma in dit pakket op dat moet worden uitgevoerd vóór het huidige programma. Voor item wordt de indeling **DependentProgram**=<**ProgramName>** gebruikt, waarbij **<ProgramName\>** de vermelding in de pakketdefinitie voor dat programma bij **Name** is. Als er geen afhankelijke programma's zijn, laat u dit item leeg.  
+-   **DependentProgram** : spécifiez un programme dans ce package qui doit s’exécuter avant le programme actuel. Cette entrée utilise le format **DependentProgram**=<**nom_programme>**, où **<nom_programme\>** est l’entrée **Name** pour ce programme dans le fichier de définition de package. S'il n'existe pas de programme dépendant, laissez cette entrée vide.  
 
-     Voorbeeld:  
+     Exemple :  
 
-     DependentProgram=Admin  
-    DependentProgram=  
+     DependentProgram = Admin  
+    DependentProgram =  
 
--   **Toewijzing**: Geef op hoe het programma wordt toegewezen aan gebruikers. Deze waarde kan zijn: **FirstUser** (alleen de eerste gebruiker die zich bij de client aanmeldt het programma voert) of **EveryUser** (elke gebruiker die zich aanmeldt voert het programma). Wanneer **CanRunWhen** niet is ingesteld op **UserLoggedOn**, wordt dit item ingesteld op **FirstUser**.  
+-   **Assignment** : spécifiez la manière dont le programme est attribué aux utilisateurs. Cette valeur peut être **FirstUser** (seul le premier utilisateur qui se connecte au client exécute le programme) ou **EveryUser** (chaque utilisateur qui se connecte exécute le programme). Lorsque **CanRunWhen** n'a pas la valeur **UserLoggedOn**, cette entrée est définie sur **FirstUser**.  
 
--   **Uitgeschakelde**: Geef op of dit programma kan worden aangekondigd aan clients. Beschikbare waarden zijn **True** (Waar) of **False** (Onwaar). De standaardwaarde is **False**.  
+-   **Désactivé** : spécifiez si ce programme peut être publié auprès de clients. Les valeurs disponibles sont **True** ou **False**. La valeur par défaut est **False**.  

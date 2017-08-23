@@ -1,6 +1,6 @@
 ---
-title: Controlelijst voor 1610 | System Center Configuration Manager
-description: Meer informatie over acties moet uitvoeren voordat u bijwerkt naar System Center Configuration Manager versie 1610.
+title: "Liste de contrôle pour 1610 | System Center Configuration Manager"
+description: "Découvrez les actions à entreprendre avant d’effectuer la mise à jour vers System Center Configuration Manager version 1610."
 ms.custom: na
 ms.date: 6/6/2017
 ms.reviewer: na
@@ -16,109 +16,109 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 54b243fd33ed13b8ccde48fa5e2525204455d96c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="checklist-for-installing-update-1610-for-system-center-configuration-manager"></a>Controlelijst voor het installeren van update 1610 voor System Center Configuration Manager
+# <a name="checklist-for-installing-update-1610-for-system-center-configuration-manager"></a>Liste de contrôle pour l’installation de la mise à jour 1610 pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Wanneer u de huidige vertakking van System Center Configuration Manager gebruikt, kunt u de update in de console voor versie 1610 bijwerken van uw hiërarchie van versie 1606 kunt installeren. Als uw hiërarchie versie 1511 of 1602 1606 wordt uitgevoerd, kunt u bijwerken naar versie 1610.
+Quand vous utilisez Current Branch de System Center Configuration Manager, vous pouvez installer la mise à jour dans la console de la version 1610 pour mettre à jour votre hiérarchie à partir de la version 1606. Si votre hiérarchie exécute la version 1511, 1602 ou 1606, vous pouvez effectuer la mise à jour vers la version 1610.
 
-Als u de update voor versie 1610, moet u een service connection point-sitesysteemrol op het hoogste niveau van uw hiërarchie. Dit kan zijn in de online of offline-modus. Nadat uw hiërarchie downloadt het updatepakket van Microsoft, kunt u deze vinden in de console onder **beheer &gt; overzicht &gt; Cloudservices &gt; Updates en onderhoud**.
+Pour obtenir la mise à jour de la version 1610, vous devez utiliser un rôle de système de site de point de connexion de service sur le site de niveau supérieur de votre hiérarchie. Cela peut être en mode en ligne ou hors connexion. Une fois que votre hiérarchie a téléchargé le package de mises à jour de Microsoft, celui-se trouve dans la console sous **Administration &gt; Vue d’ensemble &gt; Services cloud &gt; Mises à jour et maintenance**.
 
--   Wanneer de update wordt vermeld als **beschikbaar**, de update is gereed om te installeren. Controleer de volgende informatie voordat u versie 1610 installeert, [over het installeren van update 1610](#about-installing-update-1610) en de [controlelijst](#checklist) voor configuraties die u moet voordat u de update start.
+-   Quand la mise à jour est répertoriée comme **disponible**, elle est prête à être installée. Avant d’installer la version 1610, passez en revue les informations suivantes [sur l’installation de la mise à jour 1610](#about-installing-update-1610) et la [liste de contrôle](#checklist) pour connaître les configurations à effectuer avant de commencer la mise à jour.
 
--   Als de update wordt weergegeven als **downloaden** en niet wijzigen, Controleer de **hman.log** en **dmpdownloader.log** op fouten.
+-   Si la mise à jour s’affiche en tant que **Téléchargement en cours** et ne change pas, recherchez les erreurs dans les journaux **hman.log** et **dmpdownloader.log**.
 
-    -   Meestal kunt u ook opnieuw starten de **SMS_Executive** service op de siteserver opnieuw opstarten van het downloaden van bestanden van de update opnieuw distribueren.
+    -   En règle générale, vous pouvez également redémarrer le service **SMS_Executive** sur le serveur de site pour relancer le téléchargement des fichiers de redistribution des mises à jour.
 
-    -   Een andere algemene downloaden probleem treedt op wanneer de instellingen van proxyserver te voorkomen downloads vanaf dat <http://silverlight.dlservice.microsoft.com> en <http://download.microsoft.com>.
+    -   Un autre problème courant de téléchargement se produit quand les paramètres du serveur proxy empêchent les téléchargements à partir de <http://silverlight.dlservice.microsoft.com> et <http://download.microsoft.com>.
 
-Zie voor meer informatie over het installeren van updates [In de console updates en onderhoud](/sccm/core/servers/manage/updates#a-namebkmkinconsolea-in-console-updates-and-servicing).
+Pour plus d’informations sur l’installation des mises à jour, consultez [Mises à jour et maintenance dans la console](/sccm/core/servers/manage/updates#a-namebkmkinconsolea-in-console-updates-and-servicing).
 
-Zie voor meer informatie over de versies van de huidige vertakking [basislijn- en updateversies](/sccm/core/servers/manage/updates#bkmk_Baselines) in [Updates voor System Center Configuration Manager](/sccm/core/servers/manage/updates).
+Pour plus d’informations sur les versions de Current Branch, consultez [Versions de base et de mise à jour](/sccm/core/servers/manage/updates#bkmk_Baselines) dans [Mises à jour pour System Center Configuration Manager](/sccm/core/servers/manage/updates).
 
-## <a name="about-installing-update-1610"></a>Over het installeren van update 1610
+## <a name="about-installing-update-1610"></a>À propos de l’installation de la mise à jour 1610
 
-**Sites:**  
-Update 1610 kan alleen worden geïnstalleerd op het hoogste niveau van uw hiërarchie. Dit betekent dat u de installatie starten vanuit uw centrale beheersite als er een of vanuit uw zelfstandige primaire site. Nadat de update wordt geïnstalleerd op de bovenste site, hebben de onderliggende sites de werking van de volgende update:
+**Sites :**  
+Vous ne pouvez installer la mise à jour 1610 que sur le site de niveau supérieur de votre hiérarchie. Cela signifie que vous lancez l’installation à partir de votre site d’administration centrale si en avez un, ou à partir de votre site principal autonome. Après l’installation de la mise à jour sur le site de niveau supérieur, les sites enfants ont le comportement de mise à jour suivant :
 
--   Onderliggende primaire sites de update automatisch geïnstalleerd nadat de installatie van de update is voltooid voor de centrale beheersite. U kunt servicewindows om te bepalen wanneer een site updates installeert. Voorafgaand aan versie 1606, werden servicewindows onderhoudsvensters genoemd. Zie voor meer informatie [servicewindows voor siteservers Service](/sccm/core/servers/manage/service-windows).
+-   Les sites principaux enfants installent automatiquement la mise à jour quand le site d’administration centrale a fini de l’installer. Vous pouvez utiliser des fenêtres de service pour contrôler le moment auquel un site installe les mises à jour. Avant la version 1606, les fenêtres de service étaient désignées sous le nom de fenêtres de maintenance. Pour plus d’informations, consultez [Fenêtres de maintenance pour les serveurs de site](/sccm/core/servers/manage/service-windows).
 
--   U moet secundaire sites uit binnen de Configuration Manager-console handmatig bijwerken nadat de bovenliggende primaire site de update-installatie is voltooid. Het automatisch bijwerken van secundaire siteservers wordt niet ondersteund.
+-   Après que le site parent principal a installé la mise à jour, vous devez mettre à jour manuellement les sites secondaires à partir de la console Configuration Manager. La mise à jour automatique des serveurs de sites secondaires n’est pas prise en charge.
 
-**Sitesysteemrollen:**  
-Wanneer de siteserver wordt geïnstalleerd voor de update, wordt de sitesysteemrollen die zijn geïnstalleerd op de siteserver en toepassingen die zijn geïnstalleerd op externe computers automatisch bijgewerkt. Voordat u de update installeert, zorg er dus dat elke sitesysteemserver voldoet aan de nieuwe vereisten voor het opnieuw met de nieuwe versie van de update.
+**Rôles de système de site :**  
+Quand le serveur de site installe la mise à jour, les rôles de système de site installés sur le serveur de site et sur des ordinateurs distants sont automatiquement mis à jour. Par conséquent, avant d’installer la mise à jour, vérifiez que chaque serveur de système de site remplit les nouveaux prérequis pour les opérations avec la nouvelle version de mise à jour.
 
-**Configuration Manager-consoles:**   
-De eerste keer dat u een Configuration Manager-console gebruikt nadat de update is voltooid, wordt u gevraagd om bij te werken die console. Om dit te doen, moet u setup van Configuration Manager uitvoeren op de computer die als host fungeert voor de console en kies vervolgens de optie de console bij te werken. U kunt installeren van de update naar de console beter niet uitstellen.
+**Consoles Configuration Manager :**   
+La première fois que vous utilisez une console Configuration Manager à l’issue de la mise à jour, vous êtes invité à mettre à jour cette console. Pour cela, vous devez exécuter le programme d’installation de Configuration Manager sur l’ordinateur hébergeant la console, puis choisir l’option de mise à jour de la console. Nous vous recommandons de ne pas retarder l’installation de la mise à jour sur la console.
 
 
 
-## <a name="checklist"></a>Controlelijst
+## <a name="checklist"></a>Liste de contrôle
 
-**Zorg ervoor dat alle sites een ondersteunde versie van System Center Configuration Manager wordt uitgevoerd:** Voordat u de installatie van update 1610, elke site in de hiërarchie moet worden uitgevoerd dezelfde versie van System Center Configuration Manager: eender welke versie 1511 of 1602 1606.
+**Vérifiez que tous les sites exécutent une version prise en charge de System Center Configuration Manager** : avant de démarrer l’installation de la mise à jour 1610, chaque site dans la hiérarchie doit exécuter la même version de System Center Configuration Manager, que ce soit la version 1511, 1602 ou 1606.
 
-**Controleer de status van uw Software Assurance of gelijkwaardige abonnementsrechten:**   
-U moet een actieve Software Assurance (SA)-overeenkomst voor het installeren van update 1610 hebben. Wanneer u versie 1610 installeert, hebt u de optie op de **Licensing** tabblad om te bevestigen dat uw **Software Assurance vervaldatum**.
+**Vérifiez l’état de votre contrat Software Assurance ou des droits d’abonnement équivalents :**   
+vous devez disposer d’un contrat Software Assurance actif pour installer la mise à jour 1610. Quand vous installez la version 1610, vous avez la possibilité sous l’onglet **Licences** de confirmer la **date d’expiration de Software Assurance**.
 
-Dit is een optionele waarde die u als een handige herinnering aan uw vervaldatum licentie, dat weergegeven opgeven kunt wordt wanneer u toekomstige updates installeren. Als u Configuration Manager van de basislijnmedia versie 1606 hebt geïnstalleerd, hebt u mogelijk eerder opgegeven deze waarde tijdens de installatie of op de **Licensing** tabblad van de **hiërarchie-instellingen** na de installatie van de site.
+Il s’agit d’une valeur facultative que vous pouvez spécifier comme rappel pratique de la date d’expiration de votre licence qui est visible durant l’installation de mises à jour ultérieures. Si vous avez installé Configuration Manager à partir du média de base de référence de la version 1606, vous avez peut-être déjà spécifié cette valeur pendant l’installation, ou sous l’onglet **Licences** de **Paramètres de hiérarchie** après l’installation du site.
 
-Zie voor meer informatie [licenties en vertakkingen voor System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
+Pour plus d’informations, voir [Licences et branches pour System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
 
-**Microsoft .NET-versies revisie geïnstalleerd op sitesysteemservers:** Wanneer een site update 1610 is geïnstalleerd, installeert Configuration Manager automatisch .NET Framework 4.5.2 op elke computer die als host fungeert voor een van de volgende sitesysteemrollen als .NET Framework 4.5 of hoger, niet al is geïnstalleerd:
+**Examinez les versions installées de Microsoft .NET sur les serveurs de système de site** : quand un site installe la mise à jour 1610, Configuration Manager installe automatiquement le .NET Framework 4.5.2 sur chaque ordinateur hébergeant un des rôles de système de site suivants (si le .NET Framework 4.5 ou ultérieur n’est pas déjà installé) :
 
--   Proxypunt voor inschrijving
--   Inschrijvingspunt
--   Beheerpunt
--   Serviceverbindingspunt
+-   Point proxy d'inscription
+-   Point d'inscription
+-   Point de gestion
+-   Point de connexion de service
 
-Deze installatie kunt u de sitesysteemserver in een opnieuw opstarten in behandeling zijnde status en het rapport fouten in de viewer voor Configuration Manager component status plaatsen. Bovendien kunnen .NET-toepassingen op de server willekeurige fouten optreden, totdat de server opnieuw is opgestart.
+Cette installation peut mettre le serveur de système de site en état d’attente de redémarrage, et signaler des erreurs sur l’Afficheur des messages d’état du composant Configuration Manager. En outre, des applications .NET sur le serveur peuvent présenter des défaillances aléatoires jusqu’au redémarrage du serveur.
 
-Zie voor meer informatie [Site and site system prerequisites](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) (Vereisten voor sites en sitesystemen).
+Pour plus d’informations, consultez [Prérequis des sites et systèmes de site](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).
 
-**Bekijk de site en hiërarchiestatus en controleer of er geen onopgeloste problemen zijn:** Voordat u een site bijwerkt, moet u alle operationele problemen voor de siteserver, de Sitedatabaseserver en de sitesysteemrollen die zijn geïnstalleerd op externe computers oplossen. De update van een site kan mislukken door bestaande operationele problemen.
+**Examinez l’état du site et de la hiérarchie, et vérifiez l’absence de tout problème non résolu :** avant de mettre à jour un site, résolvez tous les problèmes opérationnels pour le serveur de site, le serveur de bases de données du site et les rôles de système de site installés sur des ordinateurs distants. Une mise à niveau de site peut échouer en raison de l’existence de problèmes opérationnels.
 
-Zie [Waarschuwingen en het statussysteem voor System Center Configuration Manager gebruiken](/sccm/core/servers/manage/use-alerts-and-the-status-system) voor meer informatie.
+Pour plus d'informations, voir [Utiliser des alertes et le système d’état pour System Center Configuration Manager](/sccm/core/servers/manage/use-alerts-and-the-status-system).
 
-**Bestands- en databasereplicatie tussen sites controleren:**   
-Zorg ervoor dat bestand en databasereplicatie tussen sites operationeel en actueel is. Vertragingen of achterstanden in een kunnen voorkomen dat een smooth, geslaagde update.
-Voor databasereplicatie kunt u Replication Link Analyzer gebruiken om u te helpen bij het oplossen van problemen voordat u de update start.
+**Examinez la réplication des fichiers et données entre sites :**   
+vérifiez que la réplication des fichiers et bases de données entre les sites est opérationnelle et active. Des retards ou backlogs dans ces domaines peuvent perturber ou empêcher la mise à jour.
+Pour la réplication de la base de données, vous pouvez utiliser l’Analyseur de lien de réplication pour faciliter la résolution des problèmes avant de commencer la mise à jour.
 
-Zie voor meer informatie [over de Replication Link Analyzer](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure#BKMK_RLA) in de [hiërarchie- en replicatie-infrastructuur bewaken in System Center Configuration Manager](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure) onderwerp.
+Pour plus d’informations, consultez [À propos de l’analyseur de lien de réplication](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure#BKMK_RLA) dans la rubrique [Surveiller l’infrastructure de la hiérarchie et de la réplication dans System Center Configuration Manager](/sccm/core/servers/manage/monitor-hierarchy-and-replication-infrastructure).
 
-**Installeer alle toepasselijke kritieke updates voor besturingssystemen op computers die als host fungeren voor de site, de Sitedatabaseserver en externe sitesysteemrollen:** Voordat u een update voor Configuration Manager installeert, installeert u alle kritieke updates voor elk toepasselijk sitesysteem. Als een update die u installeert een herstart is vereist, start u de desbetreffende computers opnieuw voordat u begint met de Configuration Manager-update.
+**Installez toutes les mises à jour critiques applicables pour les systèmes d’exploitation sur les ordinateurs hébergeant le site, le serveur de base de données du site et les rôles de système de site distants :** avant d’installer une mise à jour pour Configuration Manager, installez toutes les mises à jour critiques pour chaque système de site concerné. Si vous installez une mise à jour qui nécessite un redémarrage, redémarrez les ordinateurs concernés avant de lancer la mise à jour Configuration Manager.
 
-**Databasereplica's voor beheerpunten op primaire sites uitschakelen:**   
-Configuration Manager kan niet met succes bijwerken voor een primaire site die een databasereplica voor beheerpunten ingeschakeld heeft. Schakel databasereplicatie uit voordat u een update voor Configuration Manager installeert.
+**Désactivez les réplicas de base de données pour les points de gestion au niveau des sites principaux :**   
+Configuration Manager ne peut pas réussir la mise à jour d’un site principal ayant un réplica de base de données activé pour les points de gestion. Désactivez la réplication de base de données avant d’installer une mise à jour pour Configuration Manager.
 
-Zie [Databasereplica's voor beheerpunten voor System Center Configuration Manager](/sccm/core/servers/deploy/configure/database-replicas-for-management-points) voor meer informatie.
+Pour plus d’informations, consultez [Réplicas de base de données pour les points de gestion de System Center Configuration Manager](/sccm/core/servers/deploy/configure/database-replicas-for-management-points).
 
-**SQL Server AlwaysOn-beschikbaarheidsgroepen op handmatige failover ingesteld:**   
-Zorg ervoor dat de beschikbaarheidsgroep is ingesteld op handmatige failover voor de installatie van updates, zoals versie 1610. Nadat de site is bijgewerkt, kunt u failover worden automatisch herstellen. Zie voor meer informatie [SQL Server AlwaysOn voor een sitedatabase](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database).
+**Définissez un basculement manuel pour les groupes de disponibilité SQL Server AlwaysOn :**   
+Avant d’installer les mises à jour, comme la version 1610, vérifiez que le groupe de disponibilité est défini pour un basculement manuel. Une fois le site mis à jour, vous pouvez restaurer le basculement automatique. Pour plus d’informations, consultez [SQL Server AlwaysOn pour une base de données de site](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database).
 
-**Software-updatepunten met NLB's opnieuw configureren:**   
-Configuration Manager kan een site die gebruikmaakt van een network load balancing (NLB) cluster host software-updatepunten niet bijwerken.
+**Reconfigurez les points de mise à jour logicielle qui utilisent l’équilibrage de la charge réseau (NLB) :**   
+Configuration Manager ne peut pas mettre à jour un site qui utilise un cluster d’équilibrage de la charge réseau (NLB) pour héberger des points de mise à jour logicielle.
 
-Als u NLB-clusters voor software-updatepunten gebruikt, moet u Windows PowerShell gebruiken om te verwijderen van het NLB-cluster.
-Zie [Software-updates plannen in System Center Configuration Manager](/sccm/sum/plan-design/plan-for-software-updates) voor meer informatie.
+Si vous utilisez des clusters NLB pour les points de mise à jour logicielle, utilisez Windows PowerShell pour supprimer le cluster NLB.
+Pour plus d’informations, consultez [Planifier les mises à jour logicielles dans System Center Configuration Manager](/sccm/sum/plan-design/plan-for-software-updates).
 
-**Alle siteonderhoudstaken op elke site uitschakelen voor de duur van de installatie van de update op die site:**   
-Voordat u de update installeert, schakel alle siteonderhoudstaken die mogelijk worden uitgevoerd tijdens de tijd die het updateproces actief is. Dit omvat, maar is niet beperkt tot het volgende:
+**Désactivez toutes les tâches de maintenance de site sur chaque site pendant la durée de l’installation de la mise à jour sur ce site :**   
+Avant d’installer la mise à jour, désactivez toutes les tâches de maintenance de site qui peuvent s’exécuter pendant le processus de mise à jour. Cela inclut, sans toutefois s'y limiter, les tâches suivantes :
 
--   Back-upserver van site
--   Verouderde clientbewerkingen verwijderen
--   Verouderde detectiegegevens verwijderen
+-   Serveur de site de sauvegarde
+-   Supprimer les anciennes opérations du client
+-   Supprimer les données de découverte anciennes
 
-Wanneer een onderhoudstaak van de sitedatabase wordt uitgevoerd tijdens de installatie van updates, kan de installatie van de update mislukken. Voordat u een taak, registreert u het schema van de taak uitschakelt zodat u kunt de configuratie ervan herstellen kunt nadat de update is geïnstalleerd.
+Si une tâche de maintenance de base de données du site s’exécute pendant l’installation de la mise à jour, celle-ci peut échouer. Avant de désactiver une tâche, enregistrez sa planification pour pouvoir restaurer sa configuration une fois la mise à jour installée.
 
-Zie voor meer informatie [onderhoudstaken voor System Center Configuration Manager](/sccm/core/servers/manage/maintenance-tasks) en [verwijzing voor het onderhoud van taken voor System Center Configuration Manager](/sccm/core/servers/manage/reference-for-maintenance-tasks).
+Pour plus d’informations, consultez [Tâches de maintenance pour System Center Configuration Manager](/sccm/core/servers/manage/maintenance-tasks) et [Référence des tâches de maintenance pour System Center Configuration Manager](/sccm/core/servers/manage/reference-for-maintenance-tasks).
 
-**Maak een back-up van de sitedatabase op de centrale beheersite en primaire sites:** Voordat u een site bijwerkt, maakt u een back-up van de sitedatabase om ervoor te zorgen dat hebt u een goede back-up voor herstel na noodgevallen.
+**Créez une sauvegarde de la base de données du site d’administration centrale et des sites principaux :** avant de mettre à jour un site, sauvegardez sa base de données pour être certain de disposer d’une sauvegarde correcte utilisable en cas de récupération d’urgence.
 
-Zie voor meer informatie [back-up en herstel voor System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).
+Pour plus d’informations, consultez [Sauvegarde et récupération pour System Center Configuration Manager](/sccm/protect/understand/backup-and-recovery).
 
 <!-- Removed from update guidance 6/6/2017
 **Test the database upgrade on a copy of the most recent site database backup:** 
@@ -139,31 +139,31 @@ Configuration Manager does not support the backup of secondary sites nor does it
 Do not run a test database upgrade on the production site database. Doing so updates the site database and could render your site inoperable. For more information, see [Step 2: Test the database upgrade before installing an update](/sccm/core/servers/manage/install-in-console-updates#bkmk_step2) from **Before you install an in-console update**.
 -->
 
-**Clientproef plannen:**   
-Wanneer u een update die de client wordt bijgewerkt installeert, kunt u die nieuwe clientupdate testen in een testomgeving voordat deze worden geïmplementeerd en alle actieve clients worden bijgewerkt.
+**Planifiez un test du client :**   
+Quand vous installez une mise à jour qui affecte le client, vous pouvez la tester en mode préproduction avant de procéder au déploiement et à la mise à niveau de votre client actif.
 
-Als u wilt profiteren van deze optie, moet u uw site ter ondersteuning van automatische upgrades voor preproductie voordat u de installatie van de update configureren.
+Pour tirer parti de cette option, vous devez configurer votre site pour qu’il prenne en charge les mises à niveau automatiques pour la préproduction avant de commencer l’installation de la mise à jour.
 
-Zie voor meer informatie [in System Center Configuration Manager-clients bijwerken](/sccm/core/clients/manage/upgrade/upgrade-clients) en [clientupgrades testen in pre-productieverzameling in System Center Configuration Manager](/sccm/core/clients/manage/upgrade/test-client-upgrades).
+Pour plus d’informations, consultez [Mettre à niveau les clients dans System Center Configuration Manager](/sccm/core/clients/manage/upgrade/upgrade-clients) et [Comment tester les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager](/sccm/core/clients/manage/upgrade/test-client-upgrades).
 
-**Wilt u gebruiken servicewindows om te bepalen wanneer siteservers updates installeren:**   
-U kunt servicewindows gebruiken voor het definiëren van een periode gedurende welke updates op een siteserver kunnen worden geïnstalleerd.
+**Planifiez l’utilisation des fenêtres de service pour contrôler le moment auquel les serveurs de site installent les mises à jour :**   
+Vous pouvez utiliser les fenêtres de service pour définir une période au cours de laquelle les mises à jour à un serveur de site peuvent être installées.
 
-Hiermee kunt u bepalen wanneer de sites in uw hiërarchie de update installeren. Voorafgaand aan versie 1606, werden servicewindows onderhoudsvensters genoemd. Zie voor meer informatie [servicewindows voor siteservers Service](/sccm/core/servers/manage/service-windows).
+Cela peut vous aider à contrôler le moment où les sites au sein de votre hiérarchie installent la mise à jour. Avant la version 1606, les fenêtres de service étaient désignées sous le nom de fenêtres de maintenance. Pour plus d’informations, consultez [Fenêtres de maintenance pour les serveurs de site](/sccm/core/servers/manage/service-windows).
 
-**De setup prerequisite checker uitvoeren:**   
-Wanneer de update wordt vermeld in de console als **beschikbaar,** kunt u de prerequisite checker onafhankelijk uitvoeren voordat u de update installeert. (Wanneer u de update op de site installeert, prerequisite checker opnieuw uitgevoerd.)
+**Exécutez l’outil de vérification des prérequis du programme d’installation :**   
+Quand la mise à jour est répertoriée dans la console comme **Disponible**, vous pouvez exécuter indépendamment l’outil de vérification des prérequis avant d’installer la mise à jour. (Quand vous installez la mise à jour sur le site, l’outil de vérification des prérequis s’exécute à nouveau.)
 
-Voor een controle van vereisten uitvoeren vanaf de console, gaat u naar **beheer > overzicht > Cloudservices > Updates en onderhoud.** Vervolgens met de rechtermuisknop op **updatepakket voor Configuration Manager 1610**, en kies vervolgens **controle van vereisten uitvoeren**.
+Pour exécuter une vérification des prérequis à partir de la console, accédez à **Administration > Vue d’ensemble > Services cloud > Mises à jour et maintenance**. Ensuite, cliquez avec le bouton droit sur **Package de mise à jour 1610 de Configuration Manager**, puis choisissez **Exécuter la vérification des prérequis**.
 
-Zie voor meer informatie over het starten en vervolgens de controle op vereisten controleren **stap 3: De prerequisite checker uitvoeren voordat u een update installeert** in het onderwerp [updates in de console installeren voor System Center Configuration Manager](/sccm/core/servers/manage/install-in-console-updates).
+Pour plus d’informations sur le démarrage et la surveillance de la vérification des prérequis, consultez **Étape 3 : exécuter l’outil de vérification des prérequis avant d’installer une mise à jour** dans la rubrique [Installer des mises à jour dans la console pour System Center Configuration Manager](/sccm/core/servers/manage/install-in-console-updates).
 
 > [!IMPORTANT]  
-> Wanneer de prerequisite checker wordt uitgevoerd als onderdeel van de installatie van een update of onafhankelijk, werkt het proces enkele bronbestanden product die worden gebruikt voor siteonderhoudstaken. Daarom dat na het uitvoeren van de prerequisite checker maar voordat de update 1610 installeren als u wilt uitvoeren van een siteonderhoudstaak uitvoeren **Setupwpf.exe** (het installatieprogramma van Configuration Manager) vanaf de CD. Meest recente map op de siteserver.
+> Quand l’outil de vérification des prérequis s’exécute indépendamment ou dans le cadre de l’installation d’une mise à jour, le processus met à jour certains fichiers sources du produit qui sont utilisés pour les tâches de maintenance de site. Par conséquent, après l’exécution de l’outil de vérification des prérequis, mais avant l’installation de la mise à jour 1610, si vous devez effectuer une tâche de maintenance de site, exécutez **Setupwfe.exe** (programme d’installation de Configuration Manager) à partir du dossier CD.Latest sur le serveur de site.
 
-**Sites bijwerken:**   
-U bent nu klaar om de installatie van de update voor uw hiërarchie. Zie voor meer informatie over het installeren van de update [updates in de console installeren.](/sccm/core/servers/manage/install-in-console-updates#a-namebkmkinstalla-install-in-console-updates)
+**Mettez à jour les sites :**   
+Vous êtes maintenant prêt à commencer l’installation de la mise à jour pour votre hiérarchie. Pour plus d’informations sur l’installation de la mise à jour, consultez [Installer des mises à jour dans la console](/sccm/core/servers/manage/install-in-console-updates#a-namebkmkinstalla-install-in-console-updates).
 
-Het is raadzaam dat u installeren, de update buiten kantooruren voor elke site wilt wanneer het installatieproces van de update en de bijbehorende acties voor het installeren van de Siteonderdelen en sitesysteemrollen minimale invloed heeft op uw zakelijke activiteiten.
+Nous vous recommandons de planifier l’installation de la mise à jour en dehors des heures de bureau normales pour chaque site, quand le processus d’installation de la mise à jour et ses actions pour réinstaller les composants du site et les rôles de système de site auront le moins d’effet sur les opérations de votre entreprise.
 
-Zie [Updates voor System Center Configuration Manager](/sccm/core/servers/manage/updates) voor meer informatie.
+Pour plus d’informations, consultez [Mises à jour pour System Center Configuration Manager](/sccm/core/servers/manage/updates).

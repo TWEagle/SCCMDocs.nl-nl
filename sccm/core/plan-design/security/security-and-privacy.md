@@ -1,6 +1,6 @@
 ---
-title: Beveiliging en privacy voor System Center Configuration Manager | Microsoft Docs
-description: Informatiebronnen over beveiliging en privacy voor System Center Configuration Manager.
+title: "Sécurité et confidentialité pour System Center Configuration Manager | Microsoft Docs"
+description: "Recherchez des ressources concernant la sécurité et la confidentialité pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 1/3/2017
 ms.prod: configuration-manager
@@ -16,59 +16,59 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: de9df79c7adc24b415fd1be6e45a42aec7e16f9a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-system-center-configuration-manager"></a>Beveiliging en privacy voor System Center Configuration Manager
+# <a name="security-and-privacy-for-system-center-configuration-manager"></a>Sécurité et confidentialité pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-In dit artikel vindt u bronnen voor beveiliging en Privacy voor System Center Configuration Manager.  
+Cet article inclut des ressources concernant la sécurité et la confidentialité pour System Center Configuration Manager.  
 
- Zorg ervoor dat u kennis hebt voordat u doorgaat, de [basisprincipes van System Center Configuration Manager](../../../core/understand/fundamentals.md). Als u System Center Configuration Manager al hebt geïnstalleerd, bepaalt u de ontwerpbeslissingen voor uw implementatie. Mogelijk vindt u de Configuration Manager planning en implementatie-inhoud handig zijn.  
+ Avant de poursuivre, assurez-vous de connaître les [principes de base de System Center Configuration Manager](../../../core/understand/fundamentals.md). Si vous avez déjà installé System Center Configuration Manager, examinez les décisions de conception de votre mise en œuvre. Le calendrier et le contenu de déploiement de Configuration Manager pourront vous être utiles.  
 
- Zie de volgende artikelen voor beveiligingsfuncties in het product:  
+ Consultez les articles suivants pour en savoir plus sur les fonctionnalités liées à la sécurité dans le produit :  
 
--   [Beveiliging en privacy voor besturingssysteemimplementatie in System Center Configuration Manager](../../../osd/plan-design/security-and-privacy-for-operating-system-deployment.md)  
+-   [Sécurité et confidentialité du déploiement de systèmes d’exploitation dans System Center Configuration Manager](../../../osd/plan-design/security-and-privacy-for-operating-system-deployment.md)  
 
--   [Beveiliging en privacy voor Toepassingsbeheer in System Center Configuration Manager](../../../apps/plan-design/security-and-privacy-for-application-management.md)  
+-   [Sécurité et confidentialité pour la gestion des applications dans System Center Configuration Manager](../../../apps/plan-design/security-and-privacy-for-application-management.md)  
 
--   [Beveiliging en privacy voor software-updates in System Center Configuration Manager](../../../sum/plan-design/security-and-privacy-for-software-updates.md)  
+-   [Sécurité et confidentialité pour les mises à jour logicielles dans System Center Configuration Manager](../../../sum/plan-design/security-and-privacy-for-software-updates.md)  
 
--   [Beveiliging en privacy voor compatibiliteitsinstellingen in System Center Configuration Manager](../../../compliance/plan-design/security-and-privacy-for-compliance-settings.md)  
+-   [Sécurité et confidentialité des paramètres de compatibilité dans System Center Configuration Manager](../../../compliance/plan-design/security-and-privacy-for-compliance-settings.md)  
 
--   [Endpoint Protection in System Center Configuration Manager](../../../protect/deploy-use/endpoint-protection.md)  
+-   [Endpoint Protection dans System Center Configuration Manager](../../../protect/deploy-use/endpoint-protection.md)  
 
--   [Beveiliging en privacy voor verzamelingen in System Center Configuration Manager](../../../core/clients/manage/collections/security-and-privacy-for-collections.md)  
+-   [Sécurité et confidentialité pour les regroupements dans System Center Configuration Manager](../../../core/clients/manage/collections/security-and-privacy-for-collections.md)  
 
--   [Beveiliging en privacy voor query's in System Center Configuration Manager](../../../core/servers/manage/security-and-privacy-for-queries.md)  
+-   [Sécurité et confidentialité pour les requêtes dans System Center Configuration Manager](../../../core/servers/manage/security-and-privacy-for-queries.md)  
 
--   [Beveiliging en privacy voor energiebeheer in System Center Configuration Manager](../../../core/clients/manage/power/security-and-privacy-for-power-management.md)  
+-   [Sécurité et confidentialité pour la gestion de l’alimentation dans System Center Configuration Manager](../../../core/clients/manage/power/security-and-privacy-for-power-management.md)  
 
--   [Beveiliging en privacy voor beheer op afstand in System Center Configuration Manager](../../../core/clients/manage/remote-control/security-and-privacy-for-remote-control.md)  
+-   [Sécurité et confidentialité pour le contrôle à distance dans System Center Configuration Manager](../../../core/clients/manage/remote-control/security-and-privacy-for-remote-control.md)  
 
--   [Beveiliging en privacy voor hardware-inventaris in System Center Configuration Manager](../../../core/clients/manage/inventory/security-and-privacy-for-hardware-inventory.md)  
+-   [Sécurité et confidentialité pour l’inventaire matériel dans System Center Configuration Manager](../../../core/clients/manage/inventory/security-and-privacy-for-hardware-inventory.md)  
 
--   [Beveiliging en privacy voor software-inventaris in System Center Configuration Manager](../../../core/clients/manage/inventory/security-and-privacy-for-software-inventory.md)  
+-   [Sécurité et confidentialité pour l’inventaire logiciel dans System Center Configuration Manager](../../../core/clients/manage/inventory/security-and-privacy-for-software-inventory.md)  
 
--   [Beveiliging en privacy voor Asset Intelligence in System Center Configuration Manager](../../../core/clients/manage/asset-intelligence/security-and-privacy-for-asset-intelligence.md)  
+-   [Sécurité et confidentialité pour Asset Intelligence dans System Center Configuration Manager](../../../core/clients/manage/asset-intelligence/security-and-privacy-for-asset-intelligence.md)  
 
--   [Beveiliging en privacy voor rapportage in System Center Configuration Manager](../../../core/servers/manage/security-and-privacy-for-reporting.md)  
-
-
-
- **Beveiliging en privacy-artikelen:**  
-
--   [Beveiliging in System Center Configuration Manager plannen](../../../core/plan-design/security/plan-for-security.md)  
-
--   [Beveiliging configureren in System Center Configuration Manager](../../../core/plan-design/security/configure-security.md)  
+-   [Sécurité et confidentialité pour les rapports dans System Center Configuration Manager](../../../core/servers/manage/security-and-privacy-for-reporting.md)  
 
 
--   [Aanbevolen beveiligingsprocedures en privacy-informatie voor System Center Configuration Manager](../../../core/plan-design/security/security-best-practices-and-privacy-information.md)  
 
--   [Technische naslaginformatie voor cryptografische besturingselementen voor System Center Configuration Manager](../../../protect/deploy-use/cryptographic-controls-technical-reference.md)  
+ **Articles relatifs à la sécurité et à la confidentialité :**  
 
--   [Poorten die worden gebruikt in System Center Configuration Manager](../../../core/plan-design/hierarchy/ports.md)  
+-   [Planifier la sécurité dans System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md)  
 
--   [Accounts die worden gebruikt in System Center Configuration Manager](../../../core/plan-design/hierarchy/accounts.md)  
+-   [Configurer la sécurité dans System Center Configuration Manager](../../../core/plan-design/security/configure-security.md)  
+
+
+-   [Bonnes pratiques de sécurité et informations de confidentialité de System Center Configuration Manager](../../../core/plan-design/security/security-best-practices-and-privacy-information.md)  
+
+-   [Informations techniques de référence sur les contrôles de chiffrement pour System Center Configuration Manager](../../../protect/deploy-use/cryptographic-controls-technical-reference.md)  
+
+-   [Ports utilisés dans System Center Configuration Manager](../../../core/plan-design/hierarchy/ports.md)  
+
+-   [Comptes utilisés dans System Center Configuration Manager](../../../core/plan-design/hierarchy/accounts.md)  

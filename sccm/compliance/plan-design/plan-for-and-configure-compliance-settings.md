@@ -1,6 +1,6 @@
 ---
-title: Plannen en configureren van instellingen voor naleving | Microsoft Docs
-description: Meer informatie over de vereisten en configuratietaken voor het werken met instellingen voor naleving in System Center Configuration Manager.
+title: "Planifier et configurer les paramètres de compatibilité | Microsoft Docs"
+description: "Découvrez les prérequis et les tâches de configuration pour l’utilisation des paramètres de compatibilité dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,38 +16,38 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: d26ac3de58d2f0ef447725e63fc2d8adda6ea06c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-and-configure-compliance-settings-in-system-center-configuration-manager"></a>De instellingen voor naleving plannen en configureren in System Center Configuration Manager
+# <a name="plan-for-and-configure-compliance-settings-in-system-center-configuration-manager"></a>Planifier et configurer les paramètres de compatibilité dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Voordat u begint met het werken met System Center Configuration Manager-instellingen voor naleving, zijn er enkele vereisten die u wilt weten over en een aantal configuratietaken die u wilt uitvoeren.  
+Avant de commencer à utiliser les paramètres de compatibilité System Center Configuration Manager, vous devez prendre connaissance de certains prérequis et de certaines tâches à effectuer.  
 
-## <a name="prerequisites-for-compliance-settings"></a>Vereisten voor de nalevingsinstellingen  
+## <a name="prerequisites-for-compliance-settings"></a>Conditions préalables pour les paramètres de compatibilité  
 
-|Vereiste|Meer informatie|  
+|Configuration requise|Plus d'informations|  
 |------------------|----------------------|  
-|Windows Configuration Manager-clients moeten worden ingeschakeld en geconfigureerd voor de evaluatie van de naleving.|Hieronder vindt u de|  
-|Als u rapporten uitvoeren wilt, moet u de rapportage voor uw site configureren.|[Rapportage in System Center Configuration Manager](../../core/servers/manage/reporting.md)|  
-|Vereiste machtigingen.|De **instellingen voor naleving** beveiligingsrol bevat de vereiste machtigingen voor het beheren van instellingen voor naleving, en -profielen configuratie-items voor gebruikersgegevens en profielen voor externe verbindingen.<br /><br /> [Beheer op basis van rollen configureren](../../core/servers/deploy/configure/configure-role-based-administration.md)|  
+|Les clients Windows Configuration Manager doivent être activés et configurés pour l’évaluation de la compatibilité.|Voir ci-dessous|  
+|Si vous souhaitez exécuter des rapports, vous devez configurer la création de rapports pour votre site.|[Rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md)|  
+|Autorisations de sécurité requises.|Le rôle de sécurité **Gestionnaire de paramètres de compatibilité** inclut les autorisations nécessaires pour gérer les paramètres de compatibilité, les éléments de configuration des profils et données utilisateur, ainsi que les profils de connexion à distance.<br /><br /> [Configurer l’administration basée sur des rôles](../../core/servers/deploy/configure/configure-role-based-administration.md)|  
 
-##  <a name="enable-and-configure-compliance-settings-for-windows-pcs-only"></a>Inschakelen en configureren van instellingen voor naleving (voor Windows-pc's alleen)  
+##  <a name="enable-and-configure-compliance-settings-for-windows-pcs-only"></a>Activer et configurer les paramètres de compatibilité (pour les PC Windows uniquement)  
 
-Met deze procedure configureert u de standaardclientinstellingen voor de instellingen voor naleving en past u deze toe op alle computers in uw hiërarchie. Als u wilt dat deze instellingen alleen van toepassing zijn op enkele computers, maakt u een aangepaste apparaatclientinstelling en wijst u deze toe aan een verzameling die de computers bevat waarvoor u de instellingen voor naleving wilt gebruiken. Zie voor meer informatie over het maken van aangepaste apparaatinstellingen [het configureren van clientinstellingen](../../core/clients/deploy/configure-client-settings.md).  
+Cette procédure définit les paramètres de compatibilité client par défaut et s’applique à tous les ordinateurs de votre hiérarchie. Si vous voulez appliquer ces paramètres à certains ordinateurs seulement, créez un paramètre client d’appareil personnalisé et affectez-le à un regroupement qui contient les ordinateurs pour lesquels vous souhaitez utiliser des paramètres de compatibilité. Pour plus d’informations sur la création de paramètres d’appareil personnalisés, consultez [Guide pratique pour configurer les paramètres client](../../core/clients/deploy/configure-client-settings.md).  
 
 > [!TIP]  
->  Andere typen apparaten vereisen geen specifieke configuratie om de instellingen voor naleving te evalueren.  
+>  Les autres types d’appareils ne nécessitent aucune configuration spécifique pour évaluer les paramètres de compatibilité.  
 
-1.  Klik in de Configuration Manager-console op **beheer** > **clientinstellingen** > **standaardinstellingen**.  
-2.  Klik op **Eigenschappen** in het tabblad **Start** , in de groep **Eigenschappen**.  
-3.  Klik in het dialoogvenster **Standaardinstellingen** op **Instellingen voor naleving**.  
-4.  Configureer de volgende nalevingsinstellingen voor clients:
-    - **Compatibiliteitsevaluatie op clients** -ingesteld op **True** als u wilt evalueren van naleving op clientapparaten.
-    - **Compatibiliteitsevaluatie plannen** -Klik op **planning** als u wilt wijzigen van de planning voor nalevingsevaluatie standaard op clientapparaten.
-    - **Gebruikersgegevens en -profielen inschakelen** -Schakel deze optie als u wilt maken en implementeren van de items voor gebruikersgegevens en profielen configuratie op Windows-computers. Zie voor meer informatie [gebruikersgegevens en profielen configuratie-items maken](/sccm/compliance/deploy-use/create-remote-connection-profiles).
-5. Klik op **OK** om het dialoogvenster **Standaardinstellingen** te sluiten.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Paramètres client** > **Paramètres par défaut**.  
+2.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
+3.  Dans la boîte de dialogue **Paramètres par défaut** , cliquez sur **Paramètres de compatibilité**.  
+4.  Définissez les paramètres client suivants pour les paramètres de compatibilité :
+    - **Activer l’évaluation de compatibilité sur les clients** : Affectez la valeur **Vrai** si vous souhaitez évaluer la compatibilité sur les appareils clients.
+    - **Planifier l’évaluation de compatibilité** : Cliquez sur **Calendrier** si vous souhaitez modifier la planification d’évaluation de compatibilité par défaut sur les appareils clients.
+    - **Activer les données et profils utilisateurs** : Activez cette option si vous souhaitez créer et déployer des éléments de configuration de profils et données utilisateur sur les ordinateurs Windows. Pour plus d’informations, consultez [Créer des éléments de configuration des données et profils utilisateur](/sccm/compliance/deploy-use/create-remote-connection-profiles).
+5. Cliquez sur **OK** pour fermer la boîte de dialogue **Paramètres par défaut** .  
 
-De volgende keer dat clientcomputers clientbeleid downloaden, worden deze geconfigureerd met deze instellingen.  
+Les ordinateurs clients sont configurés avec ces paramètres la prochaine fois qu’ils téléchargent la stratégie du client.  

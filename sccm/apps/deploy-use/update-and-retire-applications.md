@@ -1,6 +1,6 @@
 ---
-title: Bijwerken en buiten gebruik stellen toepassingen | Microsoft Docs
-description: "Herzien, vervangen of geïmplementeerde toepassingen verwijderen met behulp van System Center Configuration Manager."
+title: "Mettre à jour et mettre hors service des applications | Microsoft Docs"
+description: "Révisez, remplacez ou désinstallez des applications déployées à l’aide de System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,25 +16,25 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 805e04c447747b4d12350b692880dbc005bd7168
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="update-and-retire-applications-with-system-center-configuration-manager"></a>Bijwerken en buiten gebruik stellen met System Center Configuration Manager-toepassingen
+# <a name="update-and-retire-applications-with-system-center-configuration-manager"></a>Mettre à jour et mettre hors service des applications avec System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Is het waarschijnlijk dat uiteindelijk moet u wijzigingen aanbrengen in een toepassing, een toepassing verwijderen of een geïmplementeerde toepassing vervangen door een nieuwe toepassing. System Center Configuration Manager kunt u deze mogelijkheden, bij het bijwerken en buiten gebruik stellen van toepassingen:  
+Vous finirez probablement par vouloir apporter des modifications à une application, en désinstaller une ou remplacer une application déjà déployée par une nouvelle. System Center Configuration Manager offre ces fonctionnalités pour vous aider à mettre à jour et mettre hors service des applications :  
 
--   **Toepassingen herzien**. Wanneer u wijzigingen in een toepassing of implementatietype aanbrengt, houdt een geschiedenis van de wijzigingen de Configuration Manager. U kunt de toepassing op elk gewenst moment herstellen naar een eerdere versie. U kan ook de eigenschappen bekijken, een eerdere revisie van een toepassing herstellen of een oude revisie verwijderen.  
+-   **Réviser des applications**. Quand vous apportez des modifications à un type d’application ou de déploiement, Configuration Manager conserve un historique de ces modifications. Vous pouvez revenir à tout moment à la version révisée précédente de l’application. Vous pouvez également afficher les propriétés de chaque révision, restaurer une révision précédente d’une application ou supprimer une ancienne révision.  
 
-  Zie voor meer informatie [toepassingsrevisies](revise-and-supersede-applications.md#application-revisions).  
+  Pour plus d’informations, consultez [Révisions d’applications](revise-and-supersede-applications.md#application-revisions).  
 
--   **Vervangen van toepassingen**. U kunt upgraden of vervangen van bestaande toepassingen met behulp van een vervangingsrelatie. Wanneer u een toepassing vervangt, kunt u een nieuw implementatietype ter vervanging van het implementatietype van de vervangen toepassing. Bovendien kunt u instellen of u wilt upgraden of verwijderen van de vervangen toepassing voordat de vervangende toepassing wordt geïnstalleerd.  
+-   **Remplacer des applications**. Une relation de remplacement vous permet de mettre à niveau ou remplacer des applications existantes. Quand vous remplacez une application, vous pouvez spécifier un nouveau type de déploiement pour remplacer le type de déploiement de l’application remplacée. Vous pouvez aussi définir s’il faut mettre à niveau ou désinstaller l’application remplacée avant d’installer l’application de remplacement.  
 
-  Zie voor meer informatie [vervanging van toepassingen](revise-and-supersede-applications.md#application-supersedence).  
+  Pour plus d’informations, consultez [Remplacement d’applications](revise-and-supersede-applications.md#application-supersedence).  
 
--   **Toepassingen verwijderen**. Configuration Manager maakt een toepassing eenvoudig verwijderen. Dit kunt doen op de achtergrond, zonder tussenkomst van de toepassing of apparaatgebruiker.  
+-   **Désinstaller des applications**. Configuration Manager facilite la désinstallation d’une application. La désinstallation peut s’effectuer sans assistance, c’est-à-dire sans intervention de l’utilisateur de l’application ou de l’appareil.  
 
-  Zie voor meer informatie [toepassingen verwijderen](uninstall-applications.md).  
+  Pour plus d’informations, consultez [Désinstaller des applications](uninstall-applications.md).  

@@ -1,6 +1,6 @@
 ---
-title: Grensgroepen voor 1511, 1602 en 1606 | System Center Configuration Manager
-description: Gebruik grensgroepen met Configuration Manager versie 1511, 1602 en 1606.
+title: Groupes de limites pour 1511, 1602 et 1606 | System Center Configuration Manager
+description: "Utilisez des groupes de limites avec les versions 1511, 1602 et 1606 de Configuration Manager."
 ms.custom: na
 ms.date: 2/8/2017
 ms.prod: configuration-manager
@@ -16,160 +16,160 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 311606b8d52645d3ca89642be4cc341b8a64ec56
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="boundary-groups-for-system-center-configuration-manager-version-1511-1602-and-1606"></a>Grensgroepen voor System Center Configuration Manager versie 1511, 1602 en 1606
+# <a name="boundary-groups-for-system-center-configuration-manager-version-1511-1602-and-1606"></a>Groupes de limites pour les versions 1511, 1602 et 1606 de System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 <!-- This topic drops from TOC with the release of version 1706 -->
 
-De informatie in dit onderwerp is specifiek voor het gebruik van grensgroepen met versie 1511, 1602 en 1606 van System Center Configuration Manager.
-Als u versie 1610 of hoger gebruikt, Zie [grensgroepen configureren](/sccm/core/servers/deploy/configure/boundary-groups) voor informatie over het gebruik van de vernieuwde grensgroepen.  
+Les informations contenues dans cette rubrique sont spécifiques à l’utilisation des groupes de limites avec les versions 1511, 1602 et 1606 de System Center Configuration Manager.
+Si vous utilisez la version 1610 ou une version ultérieure, consultez la page [Configurer des groupes de limites](/sccm/core/servers/deploy/configure/boundary-groups) pour plus d’informations sur la façon d’utiliser les groupes de limites remaniés.  
 
 
 ##  <a name="BKMK_BoundaryGroups"></a> Boundary groups  
- U maakt grensgroepen om gerelateerde netwerklocaties (grenzen) logisch te groeperen, zodat uw infrastructuur eenvoudiger kan worden beheerd. U moet grenzen eerst toewijzen aan grensgroepen voordat u de grensgroep kunt gebruiken. Clients gebruiken de configuratie van de grensgroep voor:  
+ Créer des groupes de limites vous permet de regrouper de façon logique des emplacements réseau (limites) pour faciliter la gestion de votre infrastructure. Vous devez attribuer des limites à des groupes de limites avant de pouvoir utiliser le groupe de limites. Les clients utilisent la configuration du groupe de limites pour les opérations suivantes :  
 
--   Automatische sitetoewijzing  
+-   Attribution automatique du site  
 
--   Inhoudslocatie  
+-   Emplacement du contenu  
 
--   Voorkeursbeheerpunten
+-   Points de gestion préférés
 
-    Als u voorkeursbeheerpunten gebruiken wilt, moet u deze optie voor de hiërarchie en niet vanuit inschakelen configuratie van de grensgroep. Zie de *gebruik van voorkeursbeheerpunten inschakelen* procedure verderop in dit onderwerp.  
+    Si vous utilisez des points de gestion préférés, vous devez activer cette option pour la hiérarchie et non pas à partir de la configuration du groupe de limites. Consultez la procédure *Pour activer l’utilisation des points de gestion préférés* plus loin dans cette rubrique.  
 
-Wanneer u grensgroepen instelt, moet u een of meer grenzen aan de grensgroep toevoegen. Vervolgens configureert u aanvullende instellingen voor gebruik door clients die zich bevinden op die grenzen.  
+Quand vous configurez des groupes de limites, vous ajoutez une ou plusieurs limites au groupe de limites. Vous configurez ensuite des paramètres supplémentaires utilisables par les clients situés sur ces limites.  
 
-#### <a name="to-create-a-boundary-group"></a>Een grensgroep maken  
+#### <a name="to-create-a-boundary-group"></a>Pour créer un groupe de limites  
 
-1.  Kies in de Configuration Manager-console **beheer** > **Hiërarchieconfiguratie** >  **Grensgroepen**.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie** >  **Groupes de limites**.  
 
-2.  Op de **Start** tabblad, in de **maken** groep, kiest u **Grensgroep maken**.  
+2.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer un groupe limite**.  
 
-3.  In de **Grensgroep maken** dialoogvenster Kies de **algemene** tabblad en voer vervolgens een **naam** voor deze grensgroep.  
+3.  Dans la boîte de dialogue **Créer un groupe limite**, choisissez l’onglet **Général**, puis entrez un **Nom** pour ce groupe de limites.  
 
-4.  Kies **OK** om op te slaan van de nieuwe grensgroep.  
+4.  Choisissez **OK** pour enregistrer le nouveau groupe de limites.  
 
-#### <a name="to-set-up-a-boundary-group"></a>Voor het instellen van een grensgroep  
+#### <a name="to-set-up-a-boundary-group"></a>Pour configurer un groupe de limites  
 
-1.  Kies in de Configuration Manager-console **beheer** > **Hiërarchieconfiguratie** >  **Grensgroepen**.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie** >  **Groupes de limites**.  
 
-2.  Kies de grensgroep die u wilt wijzigen.  
+2.  Choisissez le groupe de limites que vous souhaitez modifier.  
 
-3.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
 
-4.  In de **eigenschappen** in het dialoogvenster voor de grensgroep, kies de **algemene** tab om te wijzigen van de grenzen die lid van deze grensgroep zijn:  
+4.  Dans la boîte de dialogue **Propriétés** du groupe de limites, choisissez l’onglet **Général** pour modifier les limites membres de ce groupe de limites :  
 
-    -   Als u wilt toevoegen grenzen, kies **toevoegen**, schakel het selectievakje in voor een of meer grenzen in en kies vervolgens **OK**.  
+    -   Pour ajouter des limites, choisissez **Ajouter**, cochez la case d’une ou plusieurs limites, puis cliquez sur **OK**.  
 
-    -   Als u wilt verwijderen van grenzen, selecteert u de grens en kies vervolgens **verwijderen**.  
+    -   Pour supprimer des limites, sélectionnez la limite, puis choisissez **Supprimer**.  
 
-5.  Kies de **verwijzingen** tabblad de sitetoewijzing en een gekoppelde site server systeemconfiguratie wijzigen:  
+5.  Choisissez l’onglet **Références** pour modifier l’attribution de site et la configuration de serveur de système de site associée :  
 
-    -   Om deze grensgroep voor gebruik door clients voor sitetoewijzing, het selectievakje in voor **deze grensgroep gebruiken voor sitetoewijzing**, en kies vervolgens een site uit de **toegewezen site** vervolgkeuzelijst.  
+    -   Pour autoriser ce groupe de limites à être utilisé par les clients pour l’attribution de site, cochez la case **Utiliser ce groupe limite pour l’attribution de site**, puis choisissez un site dans la liste déroulante **Site attribué**.  
 
-    -   Voor het instellen van de beschikbare sitesysteemservers die gekoppeld aan deze grensgroep zijn:  
+    -   Pour configurer les serveurs de système de site disponibles associés à ce groupe de limites :  
 
-    1.  Kies **toevoegen**, en controleert u het selectievakje voor een of meer servers. De servers worden als gekoppelde sitesysteemservers toegevoegd aan deze grensgroep. Alleen servers waarop ondersteunde sitesysteemrollen zijn geïnstalleerd, zijn beschikbaar.  
-
-        > [!NOTE]  
-        >  U kunt een combinatie van beschikbare sitesystemen van alle sites in de hiërarchie selecteren. Geselecteerde sitesystemen worden weergegeven op het tabblad **Sitesystemen** in de eigenschappen van elke grens die deel uitmaakt van deze grensgroep.  
-
-    2.  Als een server uit deze grensgroep wilt verwijderen, kiest u de server en kies vervolgens **verwijderen**.  
+    1.  Choisissez **Ajouter**, puis cochez la case d’un ou plusieurs serveurs. Les serveurs sont ajoutés en tant que serveurs de système de site associés à ce groupe de limites. Seuls les serveurs sur lesquels un rôle de système de site pris en charge est installé sont disponibles.  
 
         > [!NOTE]  
-        >  Als u wilt stoppen met gebruik van deze grensgroep voor het koppelen van sitesystemen, moet u alle servers die worden vermeld als gekoppelde sitesysteemservers verwijderen.  
+        >  Vous pouvez sélectionner n'importe quelle combinaison de systèmes de site disponibles à partir de n'importe quel site dans la hiérarchie. Les systèmes de site sélectionnés figurent sous l'onglet **Systèmes de site** des propriétés de chaque limite appartenant à ce groupe de limites.  
 
-    3.  Als u wilt wijzigen van de netwerkverbindingssnelheid voor een sitesysteemserver voor deze grensgroep, kiest u de server en kies vervolgens **verbinding wijzigen**.  
+    2.  Pour supprimer un serveur de ce groupe de limites, choisissez le serveur, puis **Supprimer**.  
 
-         De verbindingssnelheid voor elk sitesysteem is standaard **snel**, maar u kunt de snelheid met **langzaam**. De netwerkverbindingssnelheid en configuratie van een implementatie bepalen of een client inhoud kan downloaden van de server.  
+        > [!NOTE]  
+        >  Pour ne plus utiliser ce groupe de limites pour l’association des systèmes de site, vous devez supprimer tous les serveurs répertoriés comme serveurs de système de site associés.  
 
-6.  Kies **OK** eigenschappen van de grensgroep te sluiten en de configuratie op te slaan.  
+    3.  Pour modifier la vitesse de connexion réseau d’un serveur de système de site pour ce groupe de limites, choisissez le serveur, puis **Modifier la connexion**.  
 
-#### <a name="to-associate-a-content-deployment-server-or-management-point-with-a-boundary-group"></a>Een inhoudsimplementatieserver of beheerpunt koppelen aan een grensgroep  
+         Par défaut, la vitesse de connexion pour chaque système de site est **Rapide**, mais vous pouvez sélectionner une vitesse **Lente**. La vitesse de connexion réseau et la configuration d'un déploiement déterminent si un client peut télécharger du contenu à partir du serveur.  
 
-1.  Kies in de Configuration Manager-console **beheer** > **Hiërarchieconfiguratie** >  **Grensgroepen**.  
+6.  Choisissez **OK** pour fermer les propriétés du groupe de limites et enregistrer la configuration.  
 
-2.  Kies de grensgroep die u wilt wijzigen.  
+#### <a name="to-associate-a-content-deployment-server-or-management-point-with-a-boundary-group"></a>Pour associer un serveur de déploiement de contenu ou un point de gestion à un groupe de limites  
 
-3.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie** >  **Groupes de limites**.  
 
-4.  In de **eigenschappen** in het dialoogvenster voor de grensgroep, kies de **verwijzingen** tabblad.  
+2.  Choisissez le groupe de limites que vous souhaitez modifier.  
 
-5.  Onder **sitesysteemservers selecteren**, kies **toevoegen**, schakel het selectievakje in voor de sitesysteemservers die u wilt koppelen aan deze grensgroep en kies vervolgens **OK**.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
 
-6.  Kies **OK** naar het dialoogvenster sluiten en de configuratie van de grensgroep op te slaan.  
+4.  Dans la boîte de dialogue **Propriétés** du groupe de limites, choisissez l’onglet **Références**.  
 
-#### <a name="to-enable-use-of-preferred-management-points"></a>Gebruik van voorkeursbeheerpunten inschakelen  
+5.  Sous **Sélectionner des serveurs de système de site**, choisissez **Ajouter**, cochez la case des serveurs de système de site que vous souhaitez associer à ce groupe de limites, puis choisissez **OK**.  
 
-1.  Kies in de Configuration Manager-console **beheer** > **siteconfiguratie** > **Sites**, en klik op de **Start** Kies **hiërarchie-instellingen**.  
+6.  Choisissez **OK** pour fermer la boîte de dialogue et enregistrer la configuration du groupe de limites.  
 
-2.  Op de **algemene** tabblad van **hiërarchie-instellingen**, kies **Clients gebruiken liever beheerpunten die zijn opgegeven in grensgroepen**.  
+#### <a name="to-enable-use-of-preferred-management-points"></a>Pour activer l’utilisation des points de gestion préférés  
 
-3.  Kies **OK** in het dialoogvenster sluiten en de configuratie op te slaan.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de site** > **Sites** puis, sous l’onglet **Accueil**, choisissez **Paramètres de hiérarchie**.  
 
-#### <a name="to-set-up-a-fallback-site-for-automatic-site-assignment"></a>Voor het instellen van een terugvalsite voor automatische sitetoewijzing  
+2.  Sous l’onglet **Général** de **Paramètres de hiérarchie**, choisissez **Les clients préfèrent utiliser les points de gestion spécifiés dans les groupes de limites**.  
 
-1.  Kies in de Configuration Manager-console **beheer** > **siteconfiguratie** >  **Sites**.  
+3.  Choisissez **OK** pour fermer la boîte de dialogue et enregistrer la configuration.  
 
-2.  Op de **Start** tabblad, in de **Sites** groep, kiest u **hiërarchie-instellingen**.  
+#### <a name="to-set-up-a-fallback-site-for-automatic-site-assignment"></a>Pour configurer un site de secours pour l’attribution de site automatique  
 
-3.  Op de **algemene** tabblad, controleert u het selectievakje voor **een terugvalsite gebruiken**, en kies vervolgens een site uit de **terugvalsite** vervolgkeuzelijst.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration du site** >  **Sites**.  
 
-4.  Kies **OK** aan de configuratie op te slaan.  
+2.  Sous l’onglet **Accueil**, dans le groupe **Sites**, choisissez **Paramètres de hiérarchie**.  
 
- In de volgende secties vindt u meer informatie over de configuratie van grensgroepen.  
+3.  Sous l’onglet **Général**, cochez la case **Utiliser un site de secours**, puis choisissez un site dans la liste déroulante **Site de secours**.  
 
-###  <a name="BKMK_BoundarySiteAssignment"></a> Sitetoewijzing  
- U kunt elke grensgroep met een toegewezen site voor clients instellen.  
+4.  Choisissez **OK** pour enregistrer la configuration.  
 
--   Een nieuw geïnstalleerde client die automatische sitetoewijzing gebruikt zal lid worden van de toegewezen site van een grensgroep die de huidige netwerklocatie van de client heeft.  
+ Les sections suivantes fournissent des détails supplémentaires sur les configurations de groupes de limites.  
 
--   Een client die toegewezen aan een site wordt de sitetoewijzing niet gewijzigd wanneer de client de netwerklocatie ervan wordt gewijzigd. Bijvoorbeeld, als de client naar een netwerklocatie die wordt vertegenwoordigd door een grens in een grensgroep met een andere sitetoewijzing roamt, blijft van de client toegewezen site ongewijzigd.  
+###  <a name="BKMK_BoundarySiteAssignment"></a> À propos de l’attribution de site  
+ Vous pouvez configurer chaque groupe de limites avec un site attribué pour les clients.  
 
--   Wanneer door Active Directory-systeemdetectie een nieuwe bron wordt gedetecteerd, worden netwerkgegevens voor de gedetecteerde bron geëvalueerd op basis van de grenzen in grensgroepen. In dit proces wordt de nieuwe bron aan een toegewezen site gekoppeld voor de push-clientinstallatie.  
+-   Quand un client récemment installé utilise l’attribution automatique de site, il rejoint le site attribué d’un groupe de limites qui englobe l’emplacement réseau actuel du client.  
 
--   Wanneer een grens lid is van meerdere grensgroepen met verschillende toegewezen sites, selecteer clients willekeurig een van de sites.  
+-   Un client attribué à un site ne modifie pas son attribution de site quand il change d’emplacement réseau. Par exemple, si le client est en itinérance sur un nouvel emplacement réseau représenté par une limite dans un groupe de limites disposant d’une attribution de site différente, le site attribué au client n’est pas modifié.  
 
--   Wijzigingen in de toegewezen site van een grensgroep gelden alleen voor nieuwe toewijzingen van de site. Clients die eerder zijn toegewezen aan een site evalueren hun sitetoewijzing opnieuw op basis van wijzigingen in de configuratie van een grensgroep (of hun eigen netwerklocatie) niet.  
+-   Lorsque la découverte de systèmes Active Directory détecte une nouvelle ressource, les informations sur le réseau de la ressource découverte sont évaluées en fonction des limites dans les groupes de limites. Ce processus associe la nouvelle ressource à un site attribué pour une utilisation par la méthode d'installation poussée du client.  
 
-Zie voor meer informatie over clientsitetoewijzing [automatische sitetoewijzing gebruiken voor Computers](../../../../core/clients/deploy/assign-clients-to-a-site.md#BKMK_AutomaticAssignment) in [clients toewijzen aan een site in System Center Configuration Manager](../../../../core/clients/deploy/assign-clients-to-a-site.md).  
+-   Quand une limite est membre de plusieurs groupes de limites auxquels différents sites sont attribués, les clients sélectionnent l’un des sites de manière aléatoire.  
 
-###  <a name="BKMK_BoundaryContentLocation"></a> Inhoudslocatie  
- U kunt elke grensgroep met een of meer distributiepunten en statusmigratiepunten instellen en u kunt dezelfde distributiepunten en statusmigratiepunten koppelen aan meerdere grensgroepen.  
+-   Les modifications apportées à un site attribué à des groupes de limites s’appliquent uniquement aux nouvelles actions d’attribution de site. Les clients déjà attribués à un site ne ré-évaluent pas leur attribution à un site en fonction des changements apportés à la configuration du groupe de limites (ou à leur emplacement réseau).  
 
--   **Tijdens de softwaredistributie**vragen clients een locatie aan voor de implementatie-inhoud. Configuration Manager stuurt de client een lijst met distributiepunten die zijn gekoppeld aan elke grensgroep die de huidige netwerklocatie van de client bevat.  
+Pour en savoir plus sur l’attribution de site client, consultez [Utilisation de l’attribution automatique de site pour les ordinateurs](../../../../core/clients/deploy/assign-clients-to-a-site.md#BKMK_AutomaticAssignment) dans [Guide pratique pour attribuer des clients à un site dans System Center Configuration Manager](../../../../core/clients/deploy/assign-clients-to-a-site.md).  
 
--   **Tijdens de implementatie van besturingssysteem**, vragen clients een locatie te verzenden of ontvangen van hun migratiestatusinformatie. Configuration Manager stuurt de client een lijst met statusmigratiepunten die zijn gekoppeld aan elke grensgroep die de huidige netwerklocatie van de client bevat.  
+###  <a name="BKMK_BoundaryContentLocation"></a> À propos de l’emplacement du contenu  
+ Vous pouvez configurer chaque groupe de limites avec un ou plusieurs points de distribution et points de migration d’état, mais aussi associer les mêmes points de distribution et points de migration d’état à plusieurs groupes de limites.  
 
-Dit gedrag kan de client de dichtstbijzijnde server waarvan de inhoud overbrengen selecteren of statusmigratie-informatie.  
+-   **Lors de la distribution de logiciels**, les clients demandent un emplacement pour le contenu de déploiement. Configuration Manager envoie au client une liste de points de distribution associés à chaque groupe de limites qui inclut l’emplacement réseau actuel du client.  
 
-###  <a name="BKMK_PreferredMP"></a> Voorkeursbeheerpunten  
- Voorkeursbeheerpunten kunnen een client een beheerpunt dat is gekoppeld aan de huidige netwerklocatie (grens) te identificeren.  
+-   **Durant le déploiement de système d’exploitation**, les clients demandent un emplacement où envoyer ou recevoir des informations sur la migration de leur état. Configuration Manager envoie au client une liste de points de migration d’état associés à chaque groupe de limites qui inclut l’emplacement réseau actuel du client.  
 
--   Een client probeert te gebruiken van een voorkeursbeheerpunt van de toegewezen site voordat deze maakt gebruik van een beheerpunt vanuit zijn toegewezen site die niet is ingesteld als voorkeursbeheerpunt.  
+Ce comportement permet au client de sélectionner le serveur le plus proche à partir duquel transférer le contenu ou les informations sur la migration de l’état.  
 
--   Om deze optie gebruikt, moet u voor de hiërarchie inschakelen en grensgroepen ingesteld op de afzonderlijke primaire sites op te nemen van de beheerpunten die gekoppeld aan deze grensgroep gekoppelde grenzen worden moeten  
+###  <a name="BKMK_PreferredMP"></a> À propos des points de gestion préférés  
+ Les points de gestion préférés permettent à un client d’identifier un point de gestion associé à son emplacement réseau actuel (limite) avec celui-ci.  
 
--   Wanneer voorkeursbeheerpunten zijn ingesteld en een client de lijst van management ordent verwijst, de client plaatsen voorkeur beheerpunten boven aan de lijst met toegewezen beheerpunten, waaronder alle beheerpunten van de client toegewezen site.  
+-   Un client essaie d’utiliser un point de gestion préféré de son site attribué avant d’en utiliser un qui n’est pas configuré comme préféré.  
+
+-   Pour utiliser cette option, vous devez l’activer pour la hiérarchie, puis configurer des groupes de limites au niveau de chaque site principal pour inclure les points de gestion à associer aux limites de ces groupes de limites.  
+
+-   Quand les points de gestion préférés sont configurés et qu’un client organise sa propre liste de points de gestion, il place les points de gestion préférés en haut de sa liste de points de gestion attribués (qui comprend tous les points de gestion du site attribué du client).  
 
 > [!NOTE]  
->  Wanneer een client roamt, zoals wanneer een laptop verzonden naar een externe locatie en de netwerklocatie verandert deze mogelijk gebruiken een beheerpunt (of proxybeheerpunt) van de lokale site op de nieuwe locatie voordat wordt geprobeerd een beheerpunt vanuit zijn toegewezen site (waaronder de voorkeursbeheerpunten) gebruiken.  Zie [begrijpen hoe clients siteresources en -services voor System Center Configuration Manager vinden](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md) voor meer informatie.  
+>  Quand un client est en itinérance, comme dans le cas d’un ordinateur portable déplacé vers un emplacement de bureau distant, et change d’emplacement réseau, il peut utiliser un point de gestion (ou un point de gestion proxy) du site local à son nouvel emplacement avant d’essayer d’utiliser un point de gestion de son site attribué (qui comprend les points de gestion préférés).  Consultez [Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md) pour plus d’informations.  
 
-###  <a name="BKMK_BoundaryOverlap"></a> Overlappende grenzen  
- Configuration Manager ondersteunt configuraties met overlappende grenzen voor Inhoudslocatie:  
+###  <a name="BKMK_BoundaryOverlap"></a> À propos du chevauchement des limites  
+ Configuration Manager prend en charge les configurations de limites se chevauchant pour l’emplacement du contenu :  
 
--   **Wanneer een client inhoud aanvraagt**, en de clientnetwerklocatie tot meerdere grensgroepen behoort, Configuration Manager stuurt de client een lijst van alle distributiepunten die de inhoud bevatten.  
+-   **Quand un client demande du contenu** et que l’emplacement réseau du client appartient à plusieurs groupes de limites, Configuration Manager envoie au client une liste de tous les points de distribution qui disposent du contenu.  
 
--   **Wanneer een client een server te verzenden of ontvangen van statusmigratie-informatie opvraagt**, en de clientnetwerklocatie tot meerdere grensgroepen behoort, Configuration Manager stuurt de client een lijst met alle statusmigratiepunten die zijn gekoppeld aan een grensgroep die de huidige netwerklocatie van de client bevat.  
+-   **Quand un client demande à un serveur d’envoyer ou de recevoir des informations sur la migration de son état** et que l’emplacement réseau du client appartient à plusieurs groupes de limites, Configuration Manager envoie au client une liste de tous les points de migration d’état associés à un groupe de limites qui inclut l’emplacement réseau actuel du client.  
 
-Dit gedrag kan de client de dichtstbijzijnde server waarvan de inhoud overbrengen selecteren of statusmigratie-informatie.  
+Ce comportement permet au client de sélectionner le serveur le plus proche à partir duquel transférer le contenu ou les informations sur la migration de l’état.  
 
-###  <a name="BKMK_BoudnaryNetworkSpeed"></a> Netwerkverbindingssnelheid  
- U kunt de netwerkverbindingssnelheid instellen voor elke sitesysteemserver in een grensgroep. Deze instelling geldt voor clients die verbinding met een sitesysteem op basis van deze grensgroep configuratie maken. Op dezelfde sitesysteemserver kan hiervoor een andere verbindingssnelheid zijn ingesteld in verschillende grensgroepen.  
+###  <a name="BKMK_BoudnaryNetworkSpeed"></a> À propos de la vitesse de connexion réseau  
+ Vous pouvez définir la vitesse de connexion réseau pour chaque serveur de système de site dans un groupe de limites. Ce paramètre s’applique aux clients qui se connectent à un système de site basé sur cette configuration de groupes de limites. Le même serveur de système de site peut avoir une autre vitesse de connexion définie dans des groupes de limites différents.  
 
- De netwerkverbindingssnelheid wordt standaard ingesteld op **snel**, maar u kunt wijzigen naar **langzaam**. De netwerkverbindingssnelheid en configuratie van de implementatie moet u controleren of een client inhoud vanaf een distributiepunt downloaden kan wanneer de client zich in een gekoppelde grensgroep.  
+ Par défaut, la vitesse de connexion réseau est **Rapide**, mais vous pouvez sélectionner une vitesse **Lente**. La vitesse de connexion réseau et la configuration de déploiement vérifient si un client peut télécharger du contenu à partir d’un point de distribution quand le client est dans un groupe de limites associé.  
 
- Zie voor meer informatie over de invloed van de configuratie voor de netwerkverbindingssnelheid op hoe clients inhoud downloaden [locatie van inhoudsbronnen](../../../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
+ Pour en savoir plus sur les effets de la vitesse de connexion réseau sur l’obtention du contenu par les clients, consultez [Scénarios d’emplacement source de contenu](../../../../core/plan-design/hierarchy/content-source-location-scenarios.md).  

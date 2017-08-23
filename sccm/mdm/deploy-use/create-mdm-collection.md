@@ -1,6 +1,6 @@
 ---
-title: Een MDM-verzameling met System Center Configuration Manager maken | Microsoft Docs
-description: Een MDM-verzameling met System Center Configuration Manager maken.
+title: "Créer un regroupement MDM via System Center Configuration Manager | Microsoft Docs"
+description: "Créez un regroupement MDM via System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,22 +17,22 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: fabbcfd2d5656d4fa8cb87feffe87e17998df145
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-an-mdm-collection-with-system-center-configuration-manager-and-microsoft-intune"></a>Een MDM-verzameling maken met System Center Configuration Manager en Microsoft Intune
+# <a name="create-an-mdm-collection-with-system-center-configuration-manager-and-microsoft-intune"></a>Créer un regroupement MDM via System Center Configuration Manager et Microsoft Intune
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Een Configuration Manager-Gebruikersverzameling is vereist voor het opgeven van de gebruikers apparaten bij het beheer registreren kunnen. Omdat Intune-licenties zijn toegewezen door de gebruiker, kunt u alleen verzamelingen van gebruikers (in plaats van apparaatverzamelingen) gebruiken.
+Un regroupement d’utilisateurs Configuration Manager est obligatoire pour spécifier les utilisateurs qui peuvent inscrire des appareils dans la gestion. Vous pouvez utiliser seulement des regroupements d’utilisateurs (au lieu de regroupements d’appareils ) car les licences Intune sont affectées par utilisateur.
 
 > [!NOTE]
-> Om apparaten te registreren bij Intune, hoeft u geen licenties toewijzen aan gebruikers in de Office 365-portal of Azure Active Directory-portal. In een verzameling die gekoppeld aan het Intune-abonnement wordt met inbegrip van de gebruikers (in een [later stap](configure-intune-subscription.md)), is dit is vereist.
+> Pour inscrire des appareils avec Intune, vous n’avez pas besoin d’affecter des licences aux utilisateurs dans le portail Office 365 ou dans le portail Azure Active Directory. Vous devez seulement inclure les utilisateurs dans un regroupement qui est associé à l’abonnement Intune (dans une [étape ultérieure](configure-intune-subscription.md)).
 
-Voor testdoeleinden kunt u instellen een **directe regel** en voeg specifieke gebruikers apparaten kunnen registreren. Kies in de Configuration Manager-console athe, **activa en naleving** > **Gebruikersverzamelingen**, klikt u op de **Start** tabblad > **maken** groep en klik vervolgens op **Gebruikersverzameling maken**. Voor een ruimere distributie moet u **regels Query** voor het definiëren van gebruikers. Zie voor meer informatie over verzamelingen [verzamelingen maken](https://technet.microsoft.com/library/mt629371.aspx).
+À des fins de test, vous pouvez configurer une **règle directe** et ajouter des utilisateurs spécifiques qui peuvent inscrire des appareils. Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Regroupements d’utilisateurs**, cliquez sur l’onglet **Accueil** > **Créer** un groupe, puis cliquez sur **Créer un regroupement d’utilisateurs**. Pour une distribution plus large, utilisez **Règle de requête** et définissez des utilisateurs. Pour plus d’informations sur les regroupements, consultez [Guide pratique pour créer des regroupements](https://technet.microsoft.com/library/mt629371.aspx).
 
-![Een Gebruikersverzameling maken voor MDM](../media/mdm-create-user-collection.png)
+![Créer un regroupement d’utilisateurs pour MDM](../media/mdm-create-user-collection.png)
 
 > [!div class="button"]
-[Volgende stap >](confirm-dns.md)
+[Étape suivante >](confirm-dns.md)

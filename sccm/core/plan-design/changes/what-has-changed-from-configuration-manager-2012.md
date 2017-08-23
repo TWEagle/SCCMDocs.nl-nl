@@ -1,6 +1,6 @@
 ---
-title: 'Wijzigingen van Configuration Manager 2012 | Microsoft Docs '
-description: Identificeer de wijzigingen en nieuwe mogelijkheden in System Center Configuration Manager en System Center 2012 Configuration Manager.
+title: "Modifications de Configuration Manager 2012 | Microsoft Docs "
+description: "Identifiez les changements et les nouvelles fonctionnalités de System Center Configuration Manager par rapport à System Center 2012 Configuration Manager."
 ms.custom: na
 ms.date: 05/02/2017
 ms.prod: configuration-manager
@@ -16,153 +16,153 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 0a3eb93a99533a1569d8f72ca01d6dfcdc75da20
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="what39s-changed-in-system-center-configuration-manager-from-system-center-2012-configuration-manager"></a>Wat &#39; s gewijzigd in System Center Configuration Manager van System Center 2012 Configuration Manager
+# <a name="what39s-changed-in-system-center-configuration-manager-from-system-center-2012-configuration-manager"></a>Changements dans System Center Configuration Manager par rapport à System Center 2012 Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
- De huidige vertakking van System Center Configuration Manager introduceert belangrijke wijzigingen van System Center 2012 Configuration Manager. Dit onderwerp vindt u belangrijke wijzigingen en nieuwe mogelijkheden in de basislijnversie 1511 van System Center Configuration Manager. Zie voor meer informatie over wijzigingen in de daaropvolgende updates voor System Center Configuration Manager, [wat is er nieuw in System Center Configuration Manager incrementele versies](/sccm/core/plan-design/changes/whats-new-incremental-versions).
+ Current Branch de System Center Configuration Manager présente des changements importants par rapport à System Center 2012 Configuration Manager. Cette rubrique identifie les changements importants et les nouvelles fonctionnalités dans la version de base de référence 1511 de System Center Configuration Manager. Pour en savoir plus sur les changements introduits dans les mises à jour suivantes pour System Center Configuration Manager, consultez [Nouveautés dans les versions incrémentielles de System Center Configuration Manager](/sccm/core/plan-design/changes/whats-new-incremental-versions).
 
 
 
- De December 2015-release van System Center Configuration Manager (versie 1511) is de initiële versie van het huidige product van de Configuration Manager van Microsoft. Dit wordt meestal aangeduid als de huidige vertakking van System Center Configuration Manager. *Huidige vertakking* geeft aan dat dit een versie die ondersteuning biedt voor incrementele updates voor het product. Het bevat ook een manier onderscheid maken tussen deze release en eerdere versies van Configuration Manager.  
+ La version de décembre 2015 de System Center Configuration Manager (version 1511) était la version initiale du produit Configuration Manager actuel de Microsoft. Elle est généralement désignée sous le nom de « Current Branch » de System Center Configuration Manager. La mention *Current Branch* indique qu’il s’agit d’une version qui prend en charge les mises à jour incrémentielles du produit. Elle représente également un moyen de faire la distinction entre cette version et les versions précédentes de Configuration Manager.  
 
- System Center Configuration Manager:  
+ System Center Configuration Manager :  
 
--   Gebruikt een jaar of product-id niet in de naam van het product, in tegenstelling tot eerdere versies zoals Configuration Manager 2007 of System Center 2012 Configuration Manager.
+-   N’utilise pas d’identificateur d’année ni de produit dans le nom du produit, comme c’était le cas dans les versions précédentes telles que Configuration Manager 2007 ou System Center 2012 Configuration Manager.
 
--   Biedt ondersteuning voor incrementele, binnen het product updates, ook wel updateversies genoemd. De eerste release is versie 1511. Latere versies worden er verschillende keren een jaar als in de console-updates, zoals versie 1610 uitgebracht.
--   Wordt geïnstalleerd met een basislijnversie. Tijdens de oorspronkelijke basislijnversie 1511, nieuwe basislijnversies ook van tijd tot tijd vrijgegeven zoals 1702. Basislijnversies kunnen worden gebruikt om een nieuwe System Center Configuration Manager-site en hiërarchie te installeren of upgraden van een ondersteunde versie van Configuration Manager 2012.
+-   Prend en charge les mises à jour incrémentielles dans le produit, aussi appelées versions de mise à jour. La version initiale était la version 1511. Les versions suivantes sont publiées plusieurs fois par an comme mises à jour dans la console, telles que la version 1610.
+-   Est installé à l’aide d’une version de base. La version 1511 était la version de base initiale, mais de nouvelles versions de base sont également publiées de temps à autre, comme la version 1702. Les versions de base peuvent être utilisées pour installer un nouveau site System Center Configuration Manager et sa hiérarchie ou pour mettre à niveau à partir d’une version prise en charge de Configuration Manager 2012.
 
 
 
 
-##  <a name="bkmk_updates"></a> Updates binnen de console voor Configuration Manager  
- System Center Configuration Manager maakt gebruik van een in de console-servicemethode aangeroepen **Updates en onderhoud** waarmee u gemakkelijk om te zoeken en aanbevolen updates te installeren.  
+##  <a name="bkmk_updates"></a> Mises à jour dans la console pour Configuration Manager  
+ System Center Configuration Manager utilise une méthode de service dans la console appelée **Mises à jour et maintenance** qui facilite la localisation et l’installation des mises à jour recommandées.  
 
- Sommige versies zijn alleen beschikbaar als updates voor bestaande sites (uit binnen de Configuration Manager-console) en kan niet worden gebruikt om nieuwe Configuration Manager-sites te installeren.   
-Bijvoorbeeld: de update 1610 is alleen beschikbaar vanuit de Configuration Manager-console. Deze wordt gebruikt voor het bijwerken van een site waarop al een versie van System Center Configuration Manager.
+ Certaines versions disponibles uniquement comme mises à jour pour des sites existants (à partir de la console Configuration Manager) ne peuvent pas être utilisées pour installer de nouveaux sites Configuration Manager.   
+Par exemple, la mise à jour 1610 est disponible uniquement à partir de la console Configuration Manager. Elle est utilisée pour mettre à jour un site qui exécute déjà une version de System Center Configuration Manager.
 
-Een updateversie wordt ook verschijnen als nieuwe basislijnversie (zoals update 1702). Dit soort update kan worden gebruikt voor het installeren van een nieuwe hiërarchie, zonder de noodzaak om te beginnen met een oudere basislijnversie (zoals 1511) en uw manier om de meest recente versie te upgraden.
+Une version de mise à jour est également publiée régulièrement comme nouvelle version de base (par exemple, la mise à jour 1702). Ce type de mise à jour peut être utilisée pour installer une nouvelle hiérarchie sans avoir à démarrer avec une ancienne version de base de référence (comme 1511) et à effectuer une mise à niveau vers la version la plus récente.
 
 
-Zie voor meer informatie over het gebruik van updates [Updates voor System Center Configuration Manager](../../../core/servers/manage/updates.md).  
-Zie voor meer informatie over baslines [basislijn- en updateversies](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions).
+Pour plus d’informations sur l’utilisation des mises à jour, consultez [Mises à jour pour System Center Configuration Manager](../../../core/servers/manage/updates.md).  
+Pour plus d’informations sur les versions de base, consultez [Versions de base et de mise à jour](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions).
 
-##  <a name="bkmk_servicepoint"></a>Nieuwe sitesysteemrol: serviceaansluitpunt  
- De **Microsoft Intune-connector** wordt vervangen door een nieuwe sitesysteemrol die aanvullende functionaliteit mogelijk maakt de **serviceaansluitpunt**. Het serviceverbindingspunt:  
+##  <a name="bkmk_servicepoint"></a>Nouveau rôle de système de site : point de connexion de service  
+ Le **connecteur Microsoft Intune** est remplacé par un nouveau rôle de système de site qui offre des fonctionnalités supplémentaires, à savoir le **point de connexion de service**. Le point de connexion de service :  
 
--   Vervangt de Microsoft Intune-connector wanneer u Intune met System Center Configuration Manager-op-premises mobile device management integreert.  
+-   remplace le connecteur Microsoft Intune quand vous intégrez Intune à la gestion des appareils mobiles locale System Center Configuration Manager.  
 
--   Wordt gebruikt als een punt van de contactpersoon voor apparaten die u beheert.  
+-   est utilisé comme point de contact pour les appareils que vous gérez.  
 
--   Gebruiksgegevens over uw implementatie naar de Microsoft cloud-service geüpload.  
+-   charge des données d’utilisation relatives à votre déploiement sur le service cloud Microsoft.  
 
--   Updates voor uw implementatie beschikbaar is vanuit de Configuration Manager-console maakt.  
+-   met des mises à jour qui s’appliquent à votre déploiement à disposition à partir de la console Configuration Manager.  
 
-Deze sitesysteemrol ondersteunt zowel online als offline bewerkingsmodi. Zie [Informatie over het serviceaansluitpunt in System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md) voor meer informatie.  
+Ce rôle de système de site prend en charge à la fois un mode en ligne et hors connexion de fonctionnement. Pour plus d’informations, voir [À propos du point de connexion de service dans System Center Configuration Manager](../../../core/servers/deploy/configure/about-the-service-connection-point.md).  
 
-##  <a name="bkmk_usage"></a> De verzameling van gebruiksgegevens  
- System Center Configuration Manager verzamelt gebruiksgegevens over uw sites en infrastructuur. Deze informatie is gecompileerd en verzonden naar de Microsoft cloud-service door het serviceverbindingspunt wordt gehost. Dit is vereist voor het inschakelen van Configuration Manager downloaden van updates voor uw implementatie die betrekking hebben op de versie van Configuration Manager u gebruikt. Bij het instellen van het serviceverbindingspunt wordt gehost, kunt u zowel op het niveau van de gegevens die worden verzameld en of deze automatisch worden verzonden (onlinemodus) of handmatig (offlinemodus).  
+##  <a name="bkmk_usage"></a> Collecte des données d’utilisation  
+ System Center Configuration Manager collecte des données d’utilisation sur vos sites et votre infrastructure. Ces informations sont compilées et transmises au service cloud Microsoft par le point de connexion de service. Configuration Manager en a besoin pour télécharger les mises à jour applicables à la version de Configuration Manager que vous utilisez pour votre déploiement. Au moment de configurer le point de connexion de service, vous pouvez définir le niveau des données collectées et si celles-ci sont envoyées automatiquement (mode en ligne) ou manuellement (mode hors connexion).  
 
- Zie voor meer informatie [gebruiksgegevensniveaus en instellingen](../../../core/servers/deploy/install/setup-reference.md#bkmk_usage).  
+ Pour plus d’informations, consultez [Paramètres et niveaux de données d’utilisation](../../../core/servers/deploy/install/setup-reference.md#bkmk_usage).  
 
-##  <a name="bkmk_AMT"></a> Ondersteuning voor Intel Active Management Technology (AMT)  
- Met System Center Configuration Manager systeemeigen ondersteuning voor AMT-gebaseerde computers uit binnen de Configuration Manager-console is verwijderd. AMT-gebaseerde computers blijven volledig beheerd wanneer u de [Intel SCS-invoegtoepassing voor Microsoft System Center Configuration Manager](http://www.intel.com/content/www/us/en/software/setup-configuration-software.html). De invoegtoepassing biedt dat u toegang tot de nieuwste mogelijkheden voor het beheer van AMT terwijl beperkingen die zijn geïntroduceerd totdat Configuration Manager deze wijzigingen kon opvangen worden weggenomen.  
+##  <a name="bkmk_AMT"></a> Prise en charge de la technologie Intel AMT (Active Management Technology)  
+ Avec System Center Configuration Manager, la prise en charge native des ordinateurs AMT à partir de la console Configuration Manager est supprimée. Les ordinateurs AMT restent entièrement gérés quand vous utilisez le [module complémentaire Intel SCS pour Microsoft System Center Configuration Manager](http://www.intel.com/content/www/us/en/software/setup-configuration-software.html). Ce module complémentaire vous permet d’accéder aux dernières fonctionnalités permettant de gérer AMT tout en supprimant les limitations introduites jusqu’à ce que Configuration Manager puisse intégrer ces changements.  
 
-Het verwijderen van geïntegreerde AMT voor System Center Configuration Manager bevat Out-of-Band-beheer. De sitesysteemrol buiten-Bandbeheer is niet langer gebruikt, en is ook beschikbaar.  
+La suppression de la technologie AMT intégrée pour System Center Configuration Manager inclut la gestion hors bande. Le rôle de système de site de point de gestion hors bande n’est plus utilisé, ni disponible.  
 
-Houd er rekening mee Out-of-Band-beheer in System Center 2012 Configuration Manager wordt niet beïnvloed door deze wijziging.
+Notez que la gestion hors bande dans System Center 2012 Configuration Manager n’est pas affectée par cette modification.
 
-##  <a name="bkmk_out"></a> Afgeschafte functies  
- Sommige mogelijkheden, zoals systeemeigen [ondersteuning voor Intel Active Management Technology (AMT)](#bkmk_AMT) op computers worden verwijderd uit de Configuration Manager-console. Andere mogelijkheden, zoals Network Access Protection worden volledig verwijderd. Bovendien worden sommige oudere Microsoft-producten, zoals Windows Vista, Windows Server 2008 en SQL Server 2008 niet meer ondersteund.  
+##  <a name="bkmk_out"></a> Fonctionnalités déconseillées  
+ Certaines fonctionnalités, telles que la [prise en charge de la technologie Intel AMT (Active Management Technology)](#bkmk_AMT), sont retirées de la console Configuration Manager. D’autres comme la protection d’accès réseau sont entièrement retirées. Par ailleurs, certains produits Microsoft plus anciens comme Windows Vista, Windows Server 2008 et SQL Server 2008 ne sont plus pris en charge.  
 
- Zie voor een lijst met afgeschafte functies [verwijderd en afgeschafte functies voor System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+ Pour obtenir la liste des fonctionnalités dépréciées, consultez [Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
 
- Zie voor meer informatie over ondersteunde producten, besturingssystemen en configuraties [ondersteunde configuraties voor System Center Configuration Manager](../../../core/plan-design/configs/supported-configurations.md).  
+ Pour plus d’informations sur les produits, les systèmes d’exploitation et les configurations pris en charge, consultez [Configurations prises en charge pour System Center Configuration Manager](../../../core/plan-design/configs/supported-configurations.md).  
 
-## <a name="client-deployment"></a>Clientimplementatie  
- System Center Configuration Manager introduceert een nieuwe functie voor het testen van nieuwe versies van Configuration Manager-client vóór de upgrade van de rest van de site met de nieuwe software. U kunt instellen wanneer er een pre-productieverzameling waarin de testfase van een nieuwe client. Wanneer u tevreden met de nieuwe clientsoftware in een testomgeving bent, kunt u de client automatisch upgraden van de rest van de site met de nieuwe versie te promoveren.  
+## <a name="client-deployment"></a>Déploiement des clients  
+ System Center Configuration Manager inaugure une nouvelle fonctionnalité visant à tester les nouvelles versions du client Configuration Manager avant la mise à niveau du reste du site avec le nouveau logiciel. Vous pouvez configurer un regroupement de préproduction dans lequel piloter un nouveau client. Dès lors que vous êtes satisfait du nouveau logiciel client en préproduction, vous pouvez le promouvoir pour mettre automatiquement à niveau le reste du site avec la nouvelle version.  
 
- Zie voor meer informatie over het testen van clients [clientupgrades testen in pre-productieverzameling in System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).  
+ Pour plus d’informations sur le test des clients, consultez [Comment tester les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).  
 
-## <a name="operating-system-deployment"></a>Implementatie van besturingssystemen  
+## <a name="operating-system-deployment"></a>Déploiement du système d'exploitation  
 
-Let op de volgende wijzigingen aan de implementatie van besturingssysteem:
+Tenez compte des modifications suivantes apportées au déploiement du système d’exploitation :
 
--   In de Wizard Takenreeks maken, **Upgrade van een besturingssysteem vanaf upgradepakket**, een nieuw takenreekstype beschikbaar is. De stappen voor het bijwerken van computers met Windows 7, Windows 8 of Windows 8.1 naar Windows 10 wordt gemaakt. Zie [Windows upgraden naar de nieuwste versie met System Center Configuration Manager](../../../osd/deploy-use/upgrade-windows-to-the-latest-version.md) voor meer informatie.  
+-   Dans l’Assistant Création d’une séquence de tâches, un nouveau type de séquence de tâches est disponible, à savoir **Mettre à niveau un système d’exploitation à partir du package de mise à niveau**. Cette séquence permet de créer la procédure de mise à niveau des ordinateurs Windows 7, Windows 8 ou Windows 8.1 vers Windows 10. Pour plus d’informations, voir [Upgrade Windows to the latest version with System Center Configuration Manager](../../../osd/deploy-use/upgrade-windows-to-the-latest-version.md).  
 
--   Windows PE Peer Cache is nu beschikbaar wanneer u besturingssystemen implementeert. Computers met een takenreeks om een besturingssysteem te implementeren kunnen Windows PE-Peer-Cache gebruiken om inhoud te verkrijgen van een lokale peer (een peer-cachebron), in plaats van inhoud downloaden vanaf een distributiepunt. Dit helpt het Wide Area Network-verkeer (WAN) te beperken indien er sprake is van meerdere filialen terwijl er geen lokaal distributiepunt bestaat. Zie [Windows PE-Peer-Cache voorbereiden om WAN-verkeer te beperken in System Center Configuration Manager](/sccm/osd/get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic) voor meer informatie.  
+-   Le cache d’homologue Windows PE est désormais disponible pendant le déploiement de systèmes d’exploitation. Les ordinateurs qui exécutent une séquence de tâches pour le déploiement d’un système d’exploitation peuvent utiliser le cache d’homologue Windows PE pour obtenir le contenu d’un homologue local (source de cache d’homologue) au lieu de télécharger du contenu auprès d’un point de distribution. Cela permet de réduire le trafic du réseau étendu dans les scénarios de succursale où il n'existe aucun point de distribution local. Pour plus d'informations, voir [Prepare Windows PE peer cache to reduce WAN traffic in System Center Configuration Manager](/sccm/osd/get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic).  
 
--   U kunt nu de status van Windows als een service in uw omgeving weergeven. U kunt ook maken onderhoudsplannen om implementatieringen te vormen en ervoor te zorgen dat de huidige vertakking computers Windows 10 worden bijgewerkt wanneer er nieuwe builds worden vrijgegeven. Bovendien kunt u waarschuwingen weergeven wanneer Windows 10-clients het einde van de ondersteuningsperiode voor hun build van Current Branch (CB) of Current Branch for Business (CBB) naderen. Zie [Windows als een service beheren met System Center Configuration Manager](../../../osd/deploy-use/manage-windows-as-a-service.md) voor meer informatie.  
+-   Vous pouvez désormais afficher l’état de Windows sous forme de service dans votre environnement. Vous pouvez également créer des plans de maintenance pour former des anneaux de déploiement et vérifier que les ordinateurs Windows 10 Current Branch sont tenus à jour quand de nouvelles versions sont publiées. Par ailleurs, vous pouvez être alerté quand la prise en charge de la build CB (Current Branch) ou CBB (Current Branch for Business) des clients Windows 10 touche à sa fin. Pour plus d'informations, voir [Gérer Windows as a Service (WaaS) à l’aide de System Center Configuration Manager](../../../osd/deploy-use/manage-windows-as-a-service.md).  
 
-## <a name="application-management"></a>Toepassingsbeheer  
+## <a name="application-management"></a>Gestion des applications  
 
-Let op de volgende wijzigingen aan toepassingsbeheer:
+Tenez compte des modifications suivantes apportées à la gestion des applications :
 
--   System Center Configuration Manager kunt u Universal Windows Platform (UWP) apps implementeren voor apparaten met Windows 10 en hoger. Zie [Windows-toepassingen maken met System Center Configuration Manager](../../../apps/get-started/creating-windows-applications.md).  
+-   System Center Configuration Manager vous permet de déployer des applications de la plateforme Windows universelle pour les appareils exécutant Windows 10 et des versions ultérieures. Consultez [Création d’applications Windows avec System Center Configuration Manager](../../../apps/get-started/creating-windows-applications.md).  
 
--   Software Center heeft een nieuwe, moderne vormgeving. Apps die alleen in de Toepassingscatalogus (voor gebruikers beschikbare apps) nu eerst worden weergegeven in Software Center op het tabblad toepassingen. Dit maakt deze implementaties beter kunnen worden gevonden en is het niet nodig zijn voor gebruikers om te verwijzen naar de Application Catalog. Bovendien is er geen browser met Silverlight meer vereist. Zie [Toepassingsbeheer plannen en configureren in System Center Configuration Manager ](../../../apps/plan-design/plan-for-and-configure-application-management.md).  
+-   Le Centre logiciel a été modernisé. Les applications qui figuraient uniquement dans le catalogue d’applications (applications accessibles à l’utilisateur) apparaissent désormais dans le Centre logiciel sous l’onglet Applications. Ces déploiements sont ainsi plus identifiables pour les utilisateurs qui n’ont plus besoin d’utiliser le catalogue d’applications. De plus, un navigateur Silverlight n’est plus nécessaire. Consultez [Planifier et configurer la gestion des applications dans System Center Configuration Manager](../../../apps/plan-design/plan-for-and-configure-application-management.md).  
 
--   Met het nieuwe toepassingstype Windows Installer via MDM kunt u Windows Installer-apps maken en implementeren op ingeschreven pc's met Windows 10. Zie [Windows-toepassingen maken met System Center Configuration Manager](../../../apps/get-started/creating-windows-applications.md).  
+-   Par l’intermédiaire du type d’application MDM, le nouveau Windows Installer vous permet de créer et déployer des applications Windows Installer sur les PC inscrits qui exécutent Windows 10. Consultez [Création d’applications Windows avec System Center Configuration Manager](../../../apps/get-started/creating-windows-applications.md).  
 
--   Wanneer u een toepassing voor een interne iOS-app maakt, moet u alleen het installatiebestand (.ipa) voor de app opgeven. U hoeft niet meer een bijbehorend eigenschappenlijstbestand (.plist) op te geven. Zie [iOS-toepassingen maken met System Center Configuration Manager](../../../apps/get-started/creating-ios-applications.md).  
+-   Quand vous créez une application pour une application iOS interne, vous devez seulement spécifier le fichier d’installation (.ipa) de l’application. Vous n’avez plus besoin de spécifier de fichier de liste de propriétés (.plist) correspondant. Consultez [Création d’applications iOS avec System Center Configuration Manager](../../../apps/get-started/creating-ios-applications.md).  
 
--   In Configuration Manager 2012 om een koppeling naar een app in de Windows Store, kunt u ofwel de koppeling rechtstreeks opgeven, of blader naar een externe computer die de app geïnstalleerd was. In System Center Configuration Manager, u kunt nog steeds de koppeling rechtstreeks invoeren, maar in plaats van bladeren naar een referentiecomputer, kunt u nu de store naar de app rechtstreeks vanuit de Configuration Manager-console bladeren.  
+-   Dans Configuration Manager 2012, pour spécifier un lien vers une application du Windows Store, vous pouviez soit spécifier directement le lien, soit accéder à un ordinateur distant sur lequel l’application était installée. Dans System Center Configuration Manager, vous pouvez toujours entrer directement le lien mais, au lieu d’accéder à un ordinateur de référence, vous pouvez rechercher l’application directement dans le Store à partir de la console Configuration Manager.  
 
-## <a name="software-updates"></a>Software-updates  
+## <a name="software-updates"></a>Mises à jour logicielles  
 
-Let op de volgende wijzigingen voor software-updates:
+Tenez compte des modifications suivantes apportées aux mises à jour logicielles :
 
--   System Center Configuration Manager kan nu het verschil tussen het software-update-beheermethoden voor computers detecteren. In het bijzonder kan het onderscheid maken tussen een Windows 10-computer die verbinding maakt met Windows Update voor bedrijven (WUfB) voor het beheer van software-updates, en een computer die verbinding naar de Windows Server Update Services (WSUS) voor het beheer van software-updates. De **UseWUServer** kenmerk is er nieuw en Hiermee geeft u op of de computer wordt beheerd met WUfB. U kunt deze instelling in een verzameling gebruiken om deze computers uit het software-updatebeheer te verwijderen. Zie [Integratie met Windows Update voor bedrijven in Windows 10](../../../sum/deploy-use/integrate-windows-update-for-business-windows-10.md) voor meer informatie.  
+-   System Center Configuration Manager peut désormais faire la distinction entre les différentes méthodes de gestion des mises à jour logicielles pour les ordinateurs. Plus précisément, il peut faire la différence entre un ordinateur Windows 10 qui se connecte à WUfB (Windows Update for Business) pour la gestion des mises à jour logicielles et un ordinateur connecté à WSUS à cette même fin. **UseWUServer** est un nouvel attribut qui indique si l’ordinateur est géré avec WUfB. Vous pouvez utiliser ce paramètre dans un regroupement pour retirer ces ordinateurs de la gestion des mises à jour logicielles. Pour plus d'informations, voir [Intégration avec Windows Update for Business dans Windows 10](../../../sum/deploy-use/integrate-windows-update-for-business-windows-10.md).  
 
--   U kunt nu plannen en uitvoeren van de taak WSUS-opschoning van de Configuration Manager-console. In **onderdeel Software-updatepunt** eigenschappen, wanneer u selecteert voor de WSUS-opschoning-taak, deze wordt uitgevoerd op de volgende synchronisatie van software-updates. De verlopen software-updates zijn ingesteld op de status geweigerd op de WSUS-server en de Windows Update Agent op computers scant deze software-updates niet meer. Voor meer informatie, zie [De WSUS-opschoontaak plannen en uitvoeren](../../../sum/deploy-use/software-updates-maintenance.md).  
+-   Vous pouvez maintenant planifier et exécuter la tâche de nettoyage WSUS à partir de la console Configuration Manager. Dans les propriétés du **composant du point de mise à jour logicielle**, quand vous choisissez d’exécuter la tâche de nettoyage WSUS, elle s’exécute à la prochaine synchronisation des mises à jour logicielles. Les mises à jour logicielles qui ont expiré présentent un état refusé sur le serveur WSUS et l’Agent Windows Update ne les analyse plus. Pour plus d'informations, voir [Schedule and run the WSUS clean up task](../../../sum/deploy-use/software-updates-maintenance.md).  
 
-## <a name="compliance-settings"></a>Instellingen voor naleving  
+## <a name="compliance-settings"></a>Paramètres de compatibilité  
 
-Let op de volgende wijzigingen aan de instellingen voor naleving:
+Tenez compte des modifications suivantes apportées aux paramètres de compatibilité :
 
--   System Center Configuration Manager verbetert de werkstroom voor het maken van configuratie-items. Wanneer u nu een configuratie-item maakt en ondersteunde platformen selecteert, zijn alleen de instellingen die relevant zijn voor dat platform beschikbaar . Zie [Aan de slag met de instellingen voor naleving in System Center Configuration Manager](../../../compliance/get-started/get-started-with-compliance-settings.md).  
+-   System Center Configuration Manager améliore le flux de travail pour créer les éléments de configuration. Désormais, quand vous créez un élément de configuration et que vous sélectionnez une plateforme prise en charge, seuls les paramètres correspondant à cette plateforme vous sont proposés. Consultez [Prise en main des paramètres de compatibilité dans System Center Configuration Manager](../../../compliance/get-started/get-started-with-compliance-settings.md).  
 
--   De **configuratie-Item maken** wizard nu gemakkelijker om te kiezen van het type voor configuratie-item dat u wilt maken. Daarnaast zijn er nieuwe en bijgewerkte configuratie-items beschikbaar voor:  
+-   L’Assistant **Création d’élément de configuration** vous permet désormais de choisir plus facilement le type d’élément de configuration à créer. De plus, les éléments de configuration nouveaux et mis à jour sont disponibles pour :  
 
-    -   Windows 10-apparaten die worden beheerd door Configuration Manager-client.  
+    -   les appareils Windows 10 gérés avec le client Configuration Manager ;  
 
-    -   Mac OS X-apparaten met Configuration Manager-client worden beheerd.  
+    -   les appareils Mac OS X gérés avec le client Configuration Manager ;  
 
-    -   Windows desktop- en servercomputers die worden beheerd door Configuration Manager-client.  
+    -   les ordinateurs de bureau et serveur Windows gérés avec le client Configuration Manager ;  
 
-    -   Windows 8.1 en Windows 10-apparaten worden beheerd zonder de Configuration Manager-client.  
+    -   les appareils Windows 8.1 et Windows 10 gérés sans le client Configuration Manager ;  
 
-    -   Windows Phone-apparaten die worden beheerd zonder de Configuration Manager-client.  
+    -   les appareils Windows Phone gérés sans le client Configuration Manager ;  
 
-    -   iOS en Mac OS X-apparaten die worden beheerd zonder Configuration Manager-client.  
+    -   les appareils iOS et Mac OS X gérés sans le client Configuration Manager ;  
 
-    -   Android en Samsung KNOX Standard-apparaten die worden beheerd zonder Configuration Manager-client.  
+    -   les appareils Samsung KNOX Standard et Android gérés sans le client Configuration Manager.  
 
- Zie [Configuratie-items maken in System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-items.md).  
+ Consultez [Comment créer des éléments de configuration dans System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-items.md).  
 
--   Ondersteuning voor het beheren van instellingen op Mac OS X-computers die ofwel met Microsoft Intune zijn ingeschreven of beheerd via de Configuration Manager-client. Zie [Configuratie-items maken voor iOS en Mac OS X-apparaten die worden beheerd zonder de System Center Configuration Manager-client](../../../compliance/deploy-use/create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client.md).  
+-   Prise en charge de la gestion des paramètres sur les ordinateurs Mac OS X inscrits avec Microsoft Intune ou gérés à l’aide du client Configuration Manager. Consultez [Comment créer des éléments de configuration pour des appareils iOS et Mac OS X gérés sans le client System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client.md).  
 
-## <a name="protect-data-and-site-infrastructure"></a>Gegevens en site-infrastructuur beveiligen  
-System Center Configuration Manager kunt u de integratie met Windows Hello voor bedrijven (voorheen Microsoft Passport for Work). Windows Hello voor bedrijven is een alternatieve aanmeldingsmethode waarbij Active Directory of een Azure Active Directory-account worden gebruikt ter vervanging van een wachtwoord, smartcard of virtuele smartcard op apparaten met Windows 10. Zie [Instellingen voor Windows Hello voor Bedrijven in System Center Configuration Manager](../../../protect/deploy-use/windows-hello-for-business-settings.md).
+## <a name="protect-data-and-site-infrastructure"></a>Protéger l’infrastructure de site et les données  
+System Center Configuration Manager permet d’intégrer Windows Hello Entreprise (anciennement Microsoft Passport pour Windows). Windows Hello Entreprise constitue une méthode de connexion alternative qui utilise Active Directory ou un compte Azure Active Directory en remplacement d’un mot de passe, d’une carte à puce ou d’une carte à puce virtuelle sur les appareils exécutant Windows 10. Consultez [Paramètres Windows Hello Entreprise dans System Center Configuration Manager](../../../protect/deploy-use/windows-hello-for-business-settings.md).
 
-## <a name="mobile-device-management-with-microsoft-intune"></a>Beheer van mobiele apparaten met Microsoft Intune  
- System Center Configuration Manager introduceert verbeteringen aan de beheerervaring van mobiele apparaten, met inbegrip van:  
+## <a name="mobile-device-management-with-microsoft-intune"></a>Gestion des appareils mobiles avec Microsoft Intune  
+ System Center Configuration Manager propose des améliorations en matière de gestion des appareils mobiles, avec notamment :  
 
--   Een limiet plaatsen op het aantal apparaten dat kan een gebruiker registreren.  
+-   une limitation du nombre d’appareils qu’un utilisateur peut inscrire ;  
 
--   Geven voorwaarden en bepalingen gebruikers van de bedrijfsportal moet accepteren voordat ze kunnen registreren of de app gebruiken.  
+-   la possibilité de spécifier des conditions générales que les utilisateurs du portail d’entreprise doivent accepter avant de pouvoir inscrire ou utiliser l’application ;  
 
--   Een apparaatinschrijvingsmanager om u te helpen bij het beheer van grote aantallen apparaten toevoegen.  
+-   l’ajout d’un rôle de gestionnaire d’inscription d’appareil pour faciliter la gestion d’un grand nombre d’appareils.  
 
-Zie voor meer informatie over de beheermogelijkheden voor mobiele apparaten met Configuration Manager en Intune [hybride mobile device management (MDM) met System Center Configuration Manager en Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md).  
+Pour plus d’informations sur les fonctionnalités de gestion des appareils mobiles avec Configuration Manager et Intune, consultez [Gestion des appareils mobiles (MDM) hybride avec System Center Configuration Manager et Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md).  
 
-## <a name="on-premises-mobile-device-management"></a>On-premises Mobile Device Management  
- U kunt nu mobiele apparaten beheren met behulp van on-premises Configuration Manager-infrastructuur. Alle Apparaatbeheer en beheergegevens is lokaal verwerkt en maakt geen deel uit van Microsoft Intune of andere cloudservices. Dit type Apparaatbeheer vereist geen clientsoftware. Configuration Manager beheert voor apparaten met de mogelijkheden die zijn ingebouwd in de besturingssystemen van apparaten.  
+## <a name="on-premises-mobile-device-management"></a>Gestion des appareils mobiles (MDM) locale  
+ Vous pouvez désormais gérer les appareils mobiles au moyen d’une infrastructure Configuration Manager locale. La gestion des appareils et les données associées sont traitées localement et ne font pas partie de Microsoft Intune ni d’autres services cloud. Ce type de gestion d’appareils ne fait appel à aucun logiciel client. Configuration Manager gère les appareils avec des fonctionnalités qui sont intégrées aux systèmes d’exploitation des appareils.  
 
- Zie voor meer informatie, [mobiele apparaten beheren met on-premises infrastructuur in System Center Configuration Manager](../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).
+ Pour en savoir plus, consultez [Gérer des appareils mobiles avec une infrastructure locale dans System Center Configuration Manager](../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).

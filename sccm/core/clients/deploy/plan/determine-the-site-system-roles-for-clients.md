@@ -1,6 +1,6 @@
 ---
-title: Sitesysteemrollen voor clients | Microsoft Docs
-description: Sitesysteemrollen bepalen voor clients in System Center Configuration Manager.
+title: "Rôles de système de site pour les clients | Documents Microsoft"
+description: "Déterminez les rôles de système de site pour les clients dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,73 +17,73 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 9f2dda834f23b2ee85c4c301c7e1b6a3a54ebc97
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="determine-the-site-system-roles-for-system-center-configuration-manager-clients"></a>De sitesysteemrollen voor System Center Configuration Manager-clients bepalen
+# <a name="determine-the-site-system-roles-for-system-center-configuration-manager-clients"></a>Déterminer les rôles de système de site pour les clients System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-In dit onderwerp kunt u de sitesysteemrollen die u nodig hebt voor het implementeren van Configuration Manager-clients bepalen:  
+Cette rubrique peut vous aider à déterminer les rôles de système de site dont vous avez besoin pour déployer les clients Configuration Manager :  
 
- Zie voor meer informatie over waar u de sitesysteemrollen installeren die zijn vereist in de hiërarchie [een sitehiërarchie ontwerpen voor System Center Configuration Manager](../../../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md).  
+ Pour plus d’informations sur l’emplacement d’installation des rôles de système de site requis dans la hiérarchie, consultez [Concevoir une hiérarchie de sites pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md).  
 
- Zie voor meer informatie over het installeren en configureren van de sitesysteemrollen die u nodig hebt, [sitesysteemrollen installeren](../../../../core/servers/deploy/configure/install-site-system-roles.md).  
+ Pour plus d’informations sur l’installation et la configuration des rôles de système de site dont vous avez besoin, consultez [Installer des rôles de système de site](../../../../core/servers/deploy/configure/install-site-system-roles.md).  
 
-##  <a name="determine-if-you-need-a-management-point"></a>Bepalen of u een beheerpunt moet  
- Standaard worden alle Windows-clientcomputers een distributiepunt gebruiken om de Configuration Manager-client te installeren en kunnen terugvallen op een beheerpunt wanneer een distributiepunt niet beschikbaar is. Echter, u kunt Windows-clients installeren vanaf een alternatieve bron op computers wanneer u de CCMSetup opdrachtregeleigenschap **/source: < pad\>**. U kunt dit bijvoorbeeld doen als u clients op het Internet installeert. Een ander scenario is wanneer u voorkomen dat het verzenden van pakketten tussen de computer en het beheerpunt tijdens de clientinstallatie, mogelijk wilt omdat de vereiste poorten wordt geblokkeerd door een firewall of omdat er een verbinding met een lage bandbreedte. Alle clients moeten echter communiceren met een beheerpunt toewijzen aan een site en worden beheerd door Configuration Manager.  
+##  <a name="determine-if-you-need-a-management-point"></a>Déterminer si vous avez besoin d’un point de gestion  
+ Par défaut, tous les ordinateurs clients Windows utilisent un point de distribution pour installer le client Configuration Manager. En cas d’indisponibilité du point de distribution, ils peuvent basculer sur un point de gestion. Toutefois, vous pouvez installer des clients Windows sur les ordinateurs à partir d’une autre source, en utilisant la propriété de ligne de commande CCMSetup **/source:<chemin_accès\>**. Par exemple, ceci peut être approprié si vous installez des clients sur Internet. Un autre scénario est d’éviter l’envoi des paquets réseau entre les ordinateurs et le point de gestion lors de l’installation du client, par exemple car un pare-feu bloque les ports nécessaires ou que vous disposez d’une connexion à faible bande passante. Tous les clients doivent cependant communiquer avec un point de gestion à affecter à un site et pour être gérés par Configuration Manager.  
 
- Voor meer informatie over de CCMSetup opdrachtregeleigenschap **/source: < pad\>**, Zie [over eigenschappen van clientinstallatie in System Center Configuration Manager](../../../../core/clients/deploy/about-client-installation-properties.md).  
+ Pour plus d’informations sur la propriété de ligne de commande CCMSetup **/source:<chemin_accès\>**, consultez [À propos des propriétés d’installation du client dans System Center Configuration Manager](../../../../core/clients/deploy/about-client-installation-properties.md).  
 
- Wanneer u meer dan één beheerpunt in de hiërarchie installeert, worden clients automatisch verbinding met een beheerpunt op basis van hun forest-lidmaatschap en netwerk-locatie. U kunt meer dan één beheerpunt niet installeren op een secundaire site.  
+ Quand vous installez plusieurs points de gestion dans la hiérarchie, les clients se connectent automatiquement à une seul point en fonction des forêts auxquelles ils appartiennent et de leur emplacement réseau. Vous ne pouvez pas installer plusieurs points de gestion dans un site secondaire.  
 
- Mac-computerclients en clients voor mobiele apparaten die u met Configuration Manager altijd inschrijft vereisen een beheerpunt voor clientinstallaties. Dit beheerpunt moet zich in een primaire site, moet zijn geconfigureerd voor ondersteuning van mobiele apparaten en moet clientverbindingen accepteert van het Internet. Deze clients kunnen beheerpunten in secundaire sites gebruiken of verbinding maken met beheerpunten in andere primaire sites.  
+ Les ordinateurs clients Mac et les clients d’appareil mobile que vous inscrivez à l’aide de Configuration Manager nécessitent dans tous les cas un point de gestion pour l’installation du client. Ce point de gestion doit se trouver dans un site principal. Il doit en outre être configuré pour prendre en charge les appareils mobiles et doit accepter les connexions de clients via Internet. Ces clients ne peuvent pas utiliser les points de gestion des sites secondaires ni se connecter aux points de gestion d'autres sites principaux.  
 
-##  <a name="determine-if-you-need-a-fallback-status-point"></a>Bepalen of u een terugvalstatuspunt moet.  
- U kunt een terugvalstatuspunt gebruiken om te controleren van clientimplementatie voor Windows-computers. U kunt ook de Windows-computer-clients die onbeheerd zijn doordat ze niet kunnen met een beheerpunt communiceren identificeren. Mac-computers, mobiele apparaten die zijn ingeschreven door Configuration Manager en mobiele apparaten die worden beheerd via de Exchange Server-connector gebruik een terugvalstatuspunt niet.  
+##  <a name="determine-if-you-need-a-fallback-status-point"></a>Déterminer si un point d’état de secours est nécessaire  
+ Vous pouvez utiliser un point d’état de secours pour surveiller le déploiement du client pour les ordinateurs Windows. Vous pouvez également identifier les ordinateurs clients Windows qui ne sont pas gérés car ils ne peuvent pas communiquer avec un point de gestion. Les ordinateurs Mac, les appareils mobiles inscrits par le biais de Configuration Manager et les appareils mobiles gérés à l’aide du connecteur du serveur Exchange Server n’utilisent pas de point d’état de secours.  
 
- Een terugvalstatuspunt is niet vereist voor het bewaken van clientactiviteit en status van de client.  
+ Un point d'état de secours n'est pas nécessaire pour surveiller l'activité et l'intégrité du client.  
 
- Het terugvalstatuspunt communiceert altijd met clients via HTTP, die gebruikmaakt van niet-geverifieerde verbindingen en gegevens in leesbare tekst verzonden. Dit maakt het terugvalstatuspunt kwetsbaar voor aanvallen, vooral wanneer deze wordt gebruikt met clientbeheer op Internet. Om te beperken van de kwetsbaarheid voor aanvallen, altijd een speciale server voor het uitvoeren van het terugvalstatuspunt en installeer geen andere sitesysteemrollen op dezelfde server in een productieomgeving.  
+ Le point d’état de secours communique toujours avec les clients via HTTP, qui utilise des connexions non authentifiées et envoie les données en texte clair. Ainsi, le point d'état de secours est vulnérable aux attaques, en particulier lorsqu'il est utilisé avec la gestion de clients basés sur Internet. Pour réduire la surface d'attaque, dédiez toujours un serveur à l'exécution du point d'état de secours et n'installez aucun autre rôle de système de site sur le même serveur, dans un environnement de production.  
 
- Installeer een terugvalstatuspunt als alle volgende van toepassing:  
+ Installez un point d’état de secours si tout ce qui suit s’applique :  
 
--   Gewenste clientcommunicatiefouten van Windows-computers worden verzonden naar de site, zelfs als deze clientcomputers niet kunnen met een beheerpunt communiceren.  
+-   Vous souhaitez que les erreurs de communication avec les clients des ordinateurs Windows soient envoyées au site, même si ces ordinateurs clients ne peuvent pas communiquer avec un point de gestion.  
 
--   U wilt gebruiken van de Configuration Manager clientimplementatierapporten, waarin de gegevens die worden verzonden door het terugvalstatuspunt worden weergegeven.  
+-   Vous souhaitez utiliser les rapports de déploiement de client Configuration Manager, qui contiennent les données envoyées par le point d’état de secours.  
 
--   U hebt een speciale server voor deze sitesysteemrol en hebt aanvullende beveiligingsmaatregelen getroffen om de server te beschermen tegen een aanval.  
+-   Vous disposez d'un serveur dédié pour ce rôle de système de site et avez en outre mis en place des mesures de sécurité pour renforcer la protection du serveur contre les attaques.  
 
--   De voordelen van het gebruik van een terugvalstatuspunt bieden, opwegen tegen eventuele beveiligingsrisico's met niet-geverifieerde verbindingen en leesbare tekst overdrachten via HTTP-verkeer.  
+-   Les avantages que présentent l'utilisation d'un point d'état de secours compensent les risques de sécurité liés aux connexions non authentifiées et aux transferts de texte en clair, sur du trafic HTTP.  
 
- Installeer een terugvalstatuspunt niet als de beveiligingsrisico's van het uitvoeren van een website met niet-verbindingen geverifieerde en overdrachten ongecodeerde tekst bieden, opwegen tegen de voordelen van clientcommunicatieproblemen te identificeren.  
+ N’installez pas un point d’état de secours si les risques de sécurité liés à l’exécution d’un site web avec des connexions non authentifiées et des transferts de texte en clair dépassent les avantages de l’identification des problèmes de communication du client.  
 
-##  <a name="determine-whether-you-need-a-reporting-services-point"></a>Bepalen of u een reporting moet services-punt  
- Configuration Manager biedt tal van rapporten helpen bij het bewaken van de installatie, de toewijzing en het beheer van clients in de Configuration Manager-console. Sommige van de clientimplementatierapporten vereisen dat clients zijn toegewezen aan een terugvalstatuspunt.  
+##  <a name="determine-whether-you-need-a-reporting-services-point"></a>Déterminer si un point Reporting Services est nécessaire  
+ Configuration Manager fournit de nombreux rapports pour vous aider à surveiller l’installation, l’attribution et la gestion des clients sur la console Configuration Manager. Certains rapports sur le déploiement du client exigent que des clients soient attribués à un point d'état de secours.  
 
- Hoewel de rapporten niet nodig zijn voor het implementeren van clients en u enige implementatiegegevens in de Configuration Manager-console bekijken of gebruik de logboekbestanden van client voor meer informatie, bieden de clientrapporten waardevolle informatie voor het controleren en problemen oplossen clientimplementatie.  
+ Même si les rapports ne sont pas nécessaires pour déployer des clients et si vous pouvez consulter des informations sur le déploiement dans la console Configuration Manager ou des informations détaillées dans les fichiers journaux du client, les rapports du client donnent des informations importantes pour vous aider à surveiller et à résoudre les problèmes de déploiement du client.  
 
-##  <a name="determine-if-you-need-an-enrollment-point-and-an-enrollment-proxy-point"></a>Bepalen of u een inschrijvingspunt en een inschrijvingsproxypunt nodig hebt  
- Configuration Manager vereist het inschrijvingspunt en het inschrijvingsproxypunt mobiele apparaten te registreren en het inschrijven van certificaten voor Mac-computers. Deze sitesysteemrollen zijn niet nodig als u mobiele apparaten beheren wilt met behulp van de Exchange Server-connector of als u de verouderde client van mobiele apparaten (bijvoorbeeld voor Windows CE) installeert of als u aanvragen en installeren van het clientcertificaat op Mac-computers onafhankelijk van Configuration Manager.  
+##  <a name="determine-if-you-need-an-enrollment-point-and-an-enrollment-proxy-point"></a>Déterminer si un point d’inscription et un point proxy d’inscription sont nécessaires  
+ Configuration Manager a besoin du point d’inscription et du point proxy d’inscription pour inscrire les appareils mobiles et les certificats des ordinateurs Mac. Ces rôles de système de site ne sont pas nécessaires dans les trois cas suivants : si vous avez l’intention de gérer les appareils mobiles à l’aide du connecteur du serveur Exchange Server, si vous installez le client d’appareil mobile hérité (par exemple Windows CE), ou si vous demandez et installez le certificat client sur des ordinateurs Mac indépendamment de Configuration Manager.  
 
-##  <a name="determine-if-you-need-a-distribution-point"></a>Bepalen of u een distributiepunt moet  
- U hoeft niet een distributiepunt voor het installeren van Configuration Manager-clients op Windows-computers. Echter, standaard, Configuration Manager maakt gebruik van een distributiepunt voor het installeren van de clientbronbestanden op Windows-computers maar kunnen terugvallen op deze bestanden downloaden van een beheerpunt. Distributiepunten worden niet gebruikt voor het installeren van clients van mobiele apparaten die zijn ingeschreven door Configuration Manager, maar worden gebruikt als u de verouderde client voor mobiele apparaten installeert. Als u de Configuration Manager-client als onderdeel van de implementatie van een besturingssysteem installeert, wordt de installatiekopie van het besturingssysteem opgeslagen en opgehaald uit een distributiepunt.  
+##  <a name="determine-if-you-need-a-distribution-point"></a>Déterminer si un point de distribution est nécessaire  
+ Vous n’avez pas besoin d’un point de distribution pour installer les clients Configuration Manager sur les ordinateurs Windows. Cependant, par défaut, Configuration Manager utilise un point de distribution pour installer les fichiers sources du client sur ces ordinateurs. Si nécessaire, il peut également télécharger ces fichiers à partir d’un point de gestion. Les points de distribution ne sont pas utilisés pour installer des clients d’appareils mobiles qui sont inscrits auprès de Configuration Manager, mais ils sont utilisés si vous installez le client hérité de l’appareil mobile. Si vous installez le client Configuration Manager dans le cadre d’un déploiement de système d’exploitation, l’image du système d’exploitation est stockée et récupérée à partir d’un point de distribution.  
 
- Hoewel u mogelijk geen distributiepunten voor het installeren van de meeste Configuration Manager-clients, moet u deze software zoals toepassingen en software-updates te installeren op de clients.  
+ Bien que les points de distribution ne soient pas indispensables pour installer la plupart des clients Configuration Manager, vous en avez besoin pour installer des logiciels comme des applications et des mises à jour logicielles sur les clients.  
 
-##  <a name="determine-if-you-need-an-application-catalog-website-point-and-an-application-catalog-web-services-point"></a>Bepalen of u een application catalog-websitepunt en een toepassingscatalogus Web services-punt moet  
- De application catalog-websitepunt en application catalog-webservicepunt zijn niet nodig voor de clientimplementatie. Echter, u mogelijk ze wil installeren als onderdeel van uw clientimplementatie, zodat gebruikers de volgende acties uitvoeren kunnen als u de Configuration Manager-client is geïnstalleerd op Windows-computers:  
+##  <a name="determine-if-you-need-an-application-catalog-website-point-and-an-application-catalog-web-services-point"></a>Déterminer si un point du site web du catalogue des applications et un point de service web du catalogue des applications sont nécessaires  
+ Le point du site web du catalogue des applications et le point de service web du catalogue des applications ne sont pas nécessaires pour le déploiement du client. Cependant, il peut être utile de les installer dans le cadre du processus de déploiement des clients, pour que les utilisateurs puissent effectuer les actions suivantes dès que le client Configuration Manager est installé sur les ordinateurs Windows :  
 
--   Hun mobiele apparaten wissen.  
+-   Réinitialiser les appareils mobiles.  
 
--   Zoeken en installeren van toepassingen uit de Application Catalog.  
+-   Recherchez et installez des applications à partir du catalogue d'applications.  
 
--   Toepassingen implementeren voor gebruikers en apparaten met een implementatiedoel van **beschikbaar**.  
+-   Déployez des applications auprès des utilisateurs et des appareils en utilisant l'objet de déploiement **Disponible**.  
 
-##  <a name="determine-whether-you-require-a-cloud-management-gateway-connector-point"></a>Bepalen of u een punt Cloud Management Gateway-Connector nodig 
+##  <a name="determine-whether-you-require-a-cloud-management-gateway-connector-point"></a>Déterminer si un point de connecteur de passerelle de gestion cloud est nécessaire 
 
-U moet een cloud gateway connector beheerpunt als u instelt een [cloudgateway management](/sccm/core/clients/manage/setup-cloud-management-gateway) naar [beheren van clients op het Internet](/sccm/core/clients/manage/manage-clients-internet).
+Vous avez besoin d’un point de connecteur de passerelle de gestion cloud si vous configurez une [passerelle de gestion cloud](/sccm/core/clients/manage/setup-cloud-management-gateway) pour [gérer les clients sur Internet](/sccm/core/clients/manage/manage-clients-internet).
 
 
  

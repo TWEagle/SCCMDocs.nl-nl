@@ -1,6 +1,6 @@
 ---
-title: Gebruikers en apparaten koppelen met affiniteit van gebruikersapparaat | Microsoft Docs
-description: Gebruikers en apparaten koppelen met affiniteit tussen gebruikers en apparaten en apps automatisch op alle apparaten die zijn gekoppeld aan een gebruiker implementeert.
+title: "Lier des utilisateurs et des appareils avec l’affinité entre utilisateur et appareil | Microsoft Docs"
+description: "Lier des utilisateurs et des appareils avec l’affinité entre utilisateur et appareil et déployez automatiquement des applications sur tous les appareils associés à un utilisateur."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,123 +17,123 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 4e8e677851ad9ae7d027ab685e842a8ff5e35573
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="link-users-and-devices-with-user-device-affinity-in-system-center-configuration-manager"></a>Gebruikers en apparaten koppelen met affiniteit tussen gebruikers en apparaten in System Center Configuration Manager
+# <a name="link-users-and-devices-with-user-device-affinity-in-system-center-configuration-manager"></a>Lier des utilisateurs et des appareils avec l’affinité entre utilisateur et appareil dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Een gebruiker koppelt affiniteit van gebruikersapparaat in System Center Configuration Manager (Configuration Manager) aan een of meer apparaten. Dit kan niet meer hoeft te weten de namen van de apparaten van een gebruiker voor het implementeren van een toepassing voor de gebruiker. In plaats van de toepassing voor alle apparaten van een gebruiker te implementeren, kunt u de toepassing voor de gebruiker zelf implementeren. Affiniteit tussen gebruikers en apparaten zorgt er daarna automatisch voor dat de toepassing wordt geïnstalleerd op alle apparaten die aan die gebruiker zijn gekoppeld.  
+L’affinité entre utilisateur et appareil dans System Center Configuration Manager (Configuration Manager) associe un utilisateur à un ou plusieurs appareils. Vous n’avez alors pas besoin de connaître les noms des appareils d’un utilisateur pour déployer une application sur cet utilisateur. Au lieu de déployer l’application sur chacun des appareils de l’utilisateur, vous déployez l’application auprès de l’utilisateur. Ensuite, l’affinité entre utilisateur et appareil entraîne l’installation automatique de l’application sur tous les appareils associés à cet utilisateur.  
 
- U kunt primaire apparaten die zijn doorgaans de apparaten die gebruikers dagelijks gebruiken definiëren om hun werk te doen. Wanneer u affiniteit tussen een gebruiker en een apparaat instelt, beschikt u over meer implementatieopties voor apps. Bijvoorbeeld als een gebruiker Microsoft Visio vereist, kunt u deze installeren op het primaire apparaat van de gebruiker met behulp van een Windows Installer-implementatie. Op een apparaat dat geen primair apparaat, kunt u echter Visio implementeren als een virtuele toepassing. U kunt gebruikersaffiniteit apparaat gebruiken voor het implementeren van software op een gebruikersapparaat wanneer de gebruiker niet is aangemeld, zodat, wanneer de gebruiker zich aanmeldt, de app al is geïnstalleerd en gereed om uit te voeren.  
+ Vous pouvez définir des appareils principaux, qui sont généralement les appareils utilisés quotidiennement par les utilisateurs pour effectuer leur travail. Quand vous créez une affinité entre un utilisateur et un appareil, vous profitez d’un plus grand nombre d’options de déploiement d’applications. Par exemple, si un utilisateur requiert Microsoft Visio, vous pouvez l'installer sur le périphérique principal de l'utilisateur à l'aide d'un déploiement Windows Installer. Toutefois, sur un appareil qui n’est pas un appareil principal, vous pouvez déployer Visio sous forme d’application virtuelle. Vous pouvez également utiliser l’affinité entre utilisateur et appareil pour prédéployer des logiciels sur l’appareil d’un utilisateur quand celui-ci n’est pas connecté pour que, dès que l’utilisateur se connecte, l’application soit déjà installée et prête à être utilisée.  
 
- U moet de gegevens van gebruikersaffiniteit met apparaat voor computers beheren. Configuration Manager beheert automatisch de affiniteit van Gebruikersapparaten voor de mobiele apparaten dat het inschrijft.  
+ Vous devez gérer les informations d'affinité entre appareil et utilisateur pour les ordinateurs. Configuration Manager gère automatiquement les affinités entre utilisateurs et appareils pour les appareils mobiles inscrits.  
 
-## <a name="manually-set-up-user-device-affinity"></a>Gebruikersaffiniteit met apparaat handmatig instellen  
+## <a name="manually-set-up-user-device-affinity"></a>Configurer manuellement l’affinité entre utilisateur et appareil  
 
-1.  Kies in de Configuration Manager-console **activa en naleving** > **apparaten**.  
+1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Appareils**.  
 
-3.  Selecteer een apparaat in de lijst. Klik op de **Start** tabblad, in de **apparaat** groep, kiest u **primaire gebruikers bewerken**.  
+3.  Sélectionnez un appareil dans la liste. Sous l’onglet **Accueil**, dans le groupe **Appareil**, choisissez **Modifier les utilisateurs principaux**.  
 
-4.  In de **primaire gebruikers bewerken** in het dialoogvenster Zoek en selecteer vervolgens de gebruikers om toe te voegen als primaire gebruikers voor het geselecteerde apparaat. Kies **toevoegen**.  
-
-    > [!NOTE]  
-    > De **primaire gebruikers** lijst toont gebruikers die al primaire gebruikers van dit apparaat en de methode volgens welke iedere gebruiker-apparaat relatie is toegewezen.  
-
-## <a name="set-up-primary-devices-for-a-user"></a>Primaire apparaten voor een gebruiker instellen  
-
-1.  Kies in de Configuration Manager-console **activa en naleving** > **gebruikers**.  
-
-3.  Selecteer een gebruiker in de lijst. Klik op de **apparaat** Kies **primaire apparaten bewerken**.  
-
-4.  In de **primaire apparaten bewerken** Zoek en selecteer vervolgens de apparaten om toe te voegen als primaire apparaten voor de geselecteerde gebruiker in het dialoogvenster. Kies **toevoegen**.  
+4.  Dans la boîte de dialogue **Modifier les utilisateurs principaux**, recherchez et sélectionnez les utilisateurs que vous souhaitez ajouter en tant qu’utilisateurs principaux pour l’appareil sélectionné. Choisissez **Ajouter**.  
 
     > [!NOTE]  
-    > De **primaire apparaten** lijst met apparaten weergegeven die al zijn ingesteld als primaire apparaten voor deze gebruiker en de methode volgens welke iedere gebruiker-apparaat relatie is toegewezen.  
+    > La liste **Utilisateurs principaux** indique quels utilisateurs sont déjà les utilisateurs principaux de cet appareil, ainsi que la méthode par laquelle la relation entre utilisateur et appareil a été attribuée.  
 
-## <a name="automatically-create-user-device-affinities-windows-pcs-only"></a>Automatisch affiniteit tussen gebruikers en apparaten instellen (alleen Windows-pc's)  
- Configuration Manager leest de gegevens over gebruikersaanmeldingen uit het Windows-gebeurtenislogboek. Voor het automatisch maken van gebruikersaffiniteit voor apparaten, moet u deze twee opties in het lokale beveiligingsbeleid op clientcomputers aanmeldingsgebeurtenissen in het Windows-gebeurtenislogboek opslaan inschakelen:  
+## <a name="set-up-primary-devices-for-a-user"></a>Configurer les appareils principaux pour un utilisateur  
 
--   **Aanmeldingsgebeurtenissen voor accounts controleren**  
--   **Aanmeldingsgebeurtenissen controleren**  
+1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Utilisateurs**.  
 
- Deze instellingen configureren door Windows groepsbeleid te gebruiken.  
+3.  Sélectionnez un utilisateur dans la liste. Ensuite, sous l’onglet **Appareil**, choisissez **Modifier les appareils principaux**.  
+
+4.  Dans la boîte de dialogue **Modifier les appareils principaux**, recherchez et sélectionnez les appareils que vous souhaitez ajouter en tant qu’appareils principaux pour l’utilisateur sélectionné. Choisissez **Ajouter**.  
+
+    > [!NOTE]  
+    > La liste **Appareils principaux** indique quels appareils sont déjà configurés en tant qu’appareils principaux pour cet utilisateur, ainsi que la méthode par laquelle la relation entre utilisateur et appareil a été attribuée.  
+
+## <a name="automatically-create-user-device-affinities-windows-pcs-only"></a>Créer automatiquement des affinités entre utilisateur et appareil (ordinateurs Windows uniquement)  
+ Configuration Manager lit les données sur les ouvertures de session des utilisateurs dans le journal des événements Windows. Pour créer automatiquement des affinités entre des utilisateurs et des appareils, vous devez activer les deux options suivantes dans la stratégie de sécurité locale des ordinateurs clients, afin de stocker les événements d’ouverture de session dans le journal des événements Windows :  
+
+-   **Auditer les événements d'ouverture de session de compte**  
+-   **Auditer les événements d'ouverture de session**  
+
+ Pour configurer ces paramètres, utilisez la stratégie de groupe Windows.  
 
 > [!IMPORTANT]  
-> Als een fout veroorzaakt in het Windows-gebeurtenislogboek voor het genereren van een groot aantal vermeldingen, kunt u een nieuw gebeurtenislogboek mogelijk gemaakt. Als dit gebeurt zijn bestaande aanmeldingsgebeurtenissen mogelijk worden niet langer beschikbaar voor Configuration Manager.  
+> Si une erreur provoque l’ajout d’un nombre important d’entrées au journal des événements Windows, il se peut qu’un autre journal des événements soit créé. Dans ce cas, Configuration Manager risque de ne plus pouvoir accéder aux événements d'ouverture de session existants.  
 >   
-> Wees voorzichtig wanneer u de **accountaanmeldingsgebeurtenissen** en **Aanmeldingsgebeurtenissen controleren** instellingen in Windows XP. Standaard het bewaarbeleid is 7 dagen en is het zeer waarschijnlijk dat deze gebeurtenissen vol. van het beveiligingslogboek. Standaardgebruikers niet mogelijk om aan te melden als het gebeurtenislogboek vol is. Om dit te voorkomen, voor het beveiligingslogboek, stelt u het beleid **bewaarmethode** van waarde naar **gebeurtenissen overschrijven indien nodig**. Voor voldoende gegevens voor apparaataffiniteit van gebruikers, moet u ook de grootte van het beleid maximale beveiliging gebeurtenislogboek instellen op een redelijke waarde, zoals 5-20 MB.  
+> Soyez prudent lors de l’activation des paramètres **Auditer les événements de connexion aux comptes** et **Auditer les événements de connexion** dans Windows XP. Par défaut, la stratégie de rétention est de 7 jours et il est très probable que ces événements remplissent le journal des événements de sécurité. Les utilisateurs standard ne pourront pas se connecter si le journal des événements est plein. Pour éviter ce problème pour le journal des événements de sécurité, affectez à la stratégie **Méthode de conservation** la valeur **Remplacer les événements si nécessaire**. Pour autoriser des données suffisantes pour l’affinité entre utilisateur et appareil, affectez également à la stratégie de taille maximale du journal des événements de sécurité une valeur raisonnable, par exemple 5 à 20 Mo.  
 
-### <a name="set-up-the-site-to-automatically-create-user-device-affinities"></a>Instellen van de site automatisch gebruikersaffiniteiten apparaat  
+### <a name="set-up-the-site-to-automatically-create-user-device-affinities"></a>Configurer le site pour créer automatiquement des affinités entre utilisateur et appareil  
 
-1.  Kies in de Configuration Manager-console **beheer** > **clientinstellingen**.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Paramètres du client**.  
 
-2.  Selecteer voor het wijzigen van de standaardclientinstellingen **Standaardclientinstellingen**, en klik op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**. Aangepaste clientagentinstellingen om instellingen te maken, selecteer de **clientinstellingen** knooppunt en klik op de **Start** tabblad, in de **maken** groep, kiest u **aangepaste Clientapparaatinstellingen maken**.  
+2.  Pour modifier les paramètres du client par défaut, sélectionnez **Paramètres client par défaut** puis, sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**. Pour créer des paramètres de l’agent du client personnalisés, sélectionnez le nœud **Paramètres du client** puis, sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer des paramètres de périphérique client personnalisés**.  
 
     > [!NOTE]  
-    > Als u de standaardclientinstellingen aanpast, worden deze instellingen geïmplementeerd voor alle computers in de hiërarchie. Zie voor meer informatie over het configureren van clientinstellingen [het configureren van clientinstellingen in System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md).  
+    > Si vous modifiez les paramètres client par défaut, ils seront déployés sur tous les ordinateurs de la hiérarchie. Pour plus d'informations sur la configuration des paramètres client, voir [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md).  
 
-3.  Voor **gebruiker en Apparaataffiniteit**, stel het volgende:  
+3.  Pour **Affinité entre utilisateur et périphérique**, définissez les éléments suivants :  
 
-    -   **Gebruiksdrempel van affiniteit van gebruiker-apparaat (minuten)**. Het aantal minuten van gebruik van het apparaat instellen voordat gebruikersaffiniteit met apparaat wordt gemaakt.  
+    -   **User device affinity threshold (minutes)** (Seuil de l’affinité entre utilisateur et appareil (minutes)). Définissez une période (en minutes) pendant laquelle l’appareil est utilisé avant la création d’une affinité entre utilisateur et appareil.  
 
-    -   **Gebruiksdrempel affiniteit van gebruiker met apparaat (dagen)**. Stel het aantal dagen op waarover de op gebruik gebaseerde affiniteitsdrempel wordt gemeten.  
+    -   **User device affinity threshold (days)** (Seuil de l’affinité entre utilisateur et appareil (jours)). Définissez une période (en jours) pendant laquelle le seuil de l’affinité basé sur l’utilisation est mesuré.  
 
-    -   **Gebruikersapparaataffiniteit apparaat automatisch configureren van gebruiksgegevens**. Als u wilt laten de site automatisch gebruikersaffiniteiten met apparaten, uit de vervolgkeuzelijst, selecteer **True**. Als u selecteert **False**, moet u alle apparaten toewijzingen van gebruikersaffiniteit goedkeuren.  
+    -   **Configurer automatiquement l’affinité entre utilisateur et appareil à partir des données d’utilisation**. Pour laisser le site créer automatiquement des affinités entre utilisateur et appareil, sélectionnez **True** dans la liste déroulante. Si vous sélectionnez **False**, vous devez approuver toutes les attributions d’affinité entre utilisateur et appareil.  
 
     > [!TIP]  
-    > **Voorbeeld:** Als u instelt **gebruiksdrempel van affiniteit van gebruiker-apparaat (minuten)** naar **60** minuten en u ingesteld **gebruiksdrempel affiniteit van gebruiker met apparaat (dagen)** naar**5** dagen, de gebruiker moet het apparaat gebruiken voor ten minste 60 minuten gedurende een periode van 5 dagen gebruikersaffiniteit met apparaat automatisch wordt gemaakt.  
+    > **Exemple** : si vous affectez à **User device affinity threshold (minutes)** (Seuil de l’affinité entre utilisateur et appareil (minutes)) la valeur **60** minutes et à **User device affinity threshold (days)** (Seuil de l’affinité entre utilisateur et appareil (jours)) la valeur **5** jours, l’utilisateur doit utiliser l’appareil pendant au moins 60 minutes sur une période de 5 jours pour qu’une affinité entre utilisateur et appareil puisse être automatiquement créée.  
 
-Nadat een automatische gebruikersaffiniteit met apparaat is gemaakt, blijft de Configuration Manager voor het bewaken van de gebruiksdrempels van affiniteit van gebruiker-apparaat. Als de Gebruikersactiviteit voor het apparaat onder de drempelwaarden die u hebt ingesteld valt, wordt de gebruikersaffiniteit van apparaten verwijderd. Stel **gebruiksdrempel affiniteit van gebruiker met apparaat (dagen)** naar een waarde van ten minste **7** dagen om situaties te voorkomen waarin een automatisch geconfigureerde gebruikersaffiniteit met apparaat mogelijk verloren wanneer de gebruiker is niet aangemeld, bijvoorbeeld tijdens het weekend.  
+Après la création automatique d'une affinité entre utilisateur et appareil, Configuration Manager continue de surveiller les seuils d'affinité entre utilisateur et appareil. Si l’activité de l’utilisateur pour cet appareil devient inférieure aux seuils configurés, l’affinité entre utilisateur et appareil est supprimée. Affectez à **User device affinity threshold (days)** (Seuil de l’affinité entre utilisateur et appareil (jours)) une valeur d’au moins **7** jours pour éviter la suppression d’une affinité entre utilisateur et appareil automatiquement configurée quand l’utilisateur n’est pas connecté, par exemple pendant le week-end.  
 
-## <a name="import-user-device-affinities-from-a-file"></a>Affiniteiten tussen gebruikers en apparaten importeren vanuit een bestand  
- Voor het maken van vele relaties kunt u in één keer een bestand met de details voor meerdere affiniteiten van gebruikersapparaat importeren. Voor deze procedure moeten de betreffende apparaten moeten zijn gedetecteerd en als bronnen in de Configuration Manager-database bestaan, of de procedure mislukken.  
+## <a name="import-user-device-affinities-from-a-file"></a>Importer des affinités entre utilisateur et périphérique à partir d’un fichier  
+ Pour créer plusieurs relations simultanément, vous pouvez importer un fichier contenant les détails des affinités entre des utilisateurs et des appareils. Pour que cette procédure fonctionne, les appareils concernés doivent avoir été découverts et faire partie des ressources de la base de données Configuration Manager.  
 
-1.  Kies in de Configuration Manager-console **activa en naleving** > **gebruikers** of **apparaten**.  
+1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Utilisateurs** ou **Appareils**.  
 
-2.  Op de **Start** tabblad, in de **maken** groep, kiest u **Apparaataffiniteit van gebruiker importeren**.  
+2.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Importer une affinité entre utilisateur et périphérique**.  
 
-3.  In de Import Wizard Apparaataffiniteiten van gebruikers, op de **toewijzing selecteren** pagina, stelt u deze informatie:  
+3.  Dans l’Assistant Importation d’affinités entre utilisateur et périphérique, dans la page **Choisir un mappage**, définissez ce qui suit :  
 
-    -   **Bestandsnaam**. Geef een bestand met door komma's gescheiden waarden (CSV) met een lijst met gebruikers en apparaten die u wilt de affiniteit. In dit bestand moet elke gebruiker-en-apparaatpaar in een eigen rij met waarden die worden gescheiden door een komma. Gebruik de volgende notatie: <*domein*> &#92; <*gebruikersnaam*>, <*apparaat NetBIOS-naam*>.  
+    -   **Nom du fichier**. Spécifiez un fichier de valeurs séparées par des virgules (CSV) contenant une liste d’utilisateurs et d’appareils entre lesquels vous souhaitez créer une affinité. Dans ce fichier, chaque paire utilisateur-appareil doit se trouver sur sa propre ligne, avec les valeurs séparées par une virgule. Utilisez le format <*Domaine*>&#92;<*nom_utilisateur*>,<*nom_NetBIOS_appareil*>.  
 
-    -   **Dit bestand heeft kolomkoppen voor referentiedoeleinden**. Het CSV-bestand een kopregel heeft, selecteer deze optie als de rij met kolomkoppen wordt genegeerd tijdens het importeren.  
+    -   **Ce fichier contient des en-têtes de colonnes à titre de référence**. Si le fichier .csv présente un en-tête sur la ligne supérieure, sélectionnez cette option pour ignorer cette ligne lors de l’importation.  
 
-4.  Als de te importeren bestand meer dan twee items in elke rij bevat, kunt u **kolom** en **toewijzen** om op te geven welke kolom gebruikers en apparaten vertegenwoordigt en welke kolommen moeten worden genegeerd tijdens het importeren.  
+4.  Si le fichier que vous importez comporte plus de deux éléments sur chaque ligne, vous pouvez utiliser les commandes **Colonne** et **Attribuer** pour indiquer quelles colonnes représentent les utilisateurs et les appareils, et quelles colonnes doivent être ignorées lors de l’importation.  
 
-5.  Kies **volgende**, en voltooi de Import Wizard Apparaataffiniteiten van gebruikers.  
+5.  Choisissez **Suivant** et terminez l’Assistant Importation d’affinités entre utilisateur et périphérique.  
 
-## <a name="let-users-create-their-own-device-affinities"></a>Stel in dat gebruikers hun eigen gebruikersaffiniteit met apparaat  
- Met de volgende procedures kunt u een gebruiker instellen voor het maken van hun eigen gebruikersaffiniteit met apparaat in de Software Center-app.  
+## <a name="let-users-create-their-own-device-affinities"></a>Laisser les utilisateurs créer leurs propres affinités entre utilisateurs et appareils  
+ Utilisez les procédures suivantes afin de configurer un utilisateur pour qu’il crée sa propre affinité entre utilisateur et appareil dans l’application du Centre logiciel.  
 
-### <a name="set-up-the-site-to-allow-user-created-user-device-affinity-requests"></a>Instellen van de site waarmee de gebruiker gemaakte affiniteitsaanvragen van Gebruikersapparaten  
+### <a name="set-up-the-site-to-allow-user-created-user-device-affinity-requests"></a>Configurer le site de façon à autoriser les demandes d’affinité entre utilisateur et appareil créées par l’utilisateur  
 
-1.  Kies in de Configuration Manager-console **beheer** > **clientinstellingen**.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Paramètres du client**.  
 
-2.  Selecteer voor het wijzigen van de standaardclientinstellingen **Standaardclientinstellingen**, en klik op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**. Aangepaste clientagentinstellingen om instellingen te maken, selecteer de **clientinstellingen** knooppunt en klik op de **Start** tabblad, in de **maken** groep, kiest u **aangepaste Clientgebruikersinstellingen maken**.  
+2.  Pour modifier les paramètres du client par défaut, sélectionnez **Paramètres client par défaut** puis, sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**. Pour créer des paramètres de l’agent du client personnalisés, sélectionnez le nœud **Paramètres du client** puis, sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer des paramètres utilisateur client personnalisés**.  
 
     > [!NOTE]  
-    > Als u de standaardclientinstellingen aanpast, worden deze instellingen geïmplementeerd voor alle computers in de hiërarchie. Zie voor meer informatie over het configureren van clientinstellingen [clientinstellingen configureren](../../core/clients/deploy/configure-client-settings.md).  
+    > Si vous modifiez les paramètres client par défaut, ils seront déployés sur tous les ordinateurs de la hiérarchie. Pour plus d’informations sur la configuration des paramètres client, voir [Configurer les paramètres client](../../core/clients/deploy/configure-client-settings.md).  
 
-3.  Selecteer de clientinstelling **Affiniteit van gebruiker en apparaat** en selecteer in de vervolgkeuzelijst **Gebruiker toestaan hun primaire apparaten te definiëren** de optie **Waar**.  
+3.  Sélectionnez le paramètre client **Affinité entre utilisateur et périphérique** puis, dans la liste déroulante **Autoriser les utilisateurs à définir leurs périphériques principaux** , sélectionnez **Vrai**.  
 
-### <a name="set-up-a-user-device-affinity"></a>Gebruikersaffiniteit met apparaat instellen  
+### <a name="set-up-a-user-device-affinity"></a>Configurer une affinité entre utilisateur et appareil  
 
-1.  Kies in de Application Catalog, **Mijn systemen**.  
+1.  Dans le catalogue d’applications, choisissez **Mes systèmes**.  
 
-2.  Selecteer de optie **ik gebruik deze computer regelmatig voor mijn werk**.  
+2.  Sélectionnez l’option **J’utilise régulièrement cet ordinateur pour faire mon travail**.  
 
-## <a name="manage-user-device-affinity-requests-from-users"></a>Aanvragen van gebruikers voor affiniteit tussen gebruikers en apparaten beheren  
- Wanneer de clientinstelling **Affiniteit van gebruiker met apparaat automatisch configureren aan de hand van gebruiksgegevens** is ingesteld op **Onwaar**, moet u alle toewijzingen van affiniteit tussen gebruikers en apparaten goedkeuren.  
+## <a name="manage-user-device-affinity-requests-from-users"></a>Gérer les demandes d’affinité entre utilisateur et périphérique faites par les utilisateurs  
+ Quand le paramètre client **Configurer automatiquement l’affinité entre utilisateur et périphérique à partir des données d’utilisation** est défini sur **Faux**, vous devez approuver toutes les attributions d’affinité entre utilisateur et périphérique.  
 
-### <a name="approve-or-reject-a-user-device-affinity-request"></a>Goedkeuren of afwijzen een gebruikersaanvraag voor de affiniteit van apparaat  
+### <a name="approve-or-reject-a-user-device-affinity-request"></a>Pour approuver ou refuser une demande d’affinité entre utilisateur et appareil  
 
-1.  Kies in de Configuration Manager-console **activa en naleving**.  
+1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité**.  
 
-2.  Selecteer in de werkruimte **Activa en naleving** de gebruikers- of apparaatverzameling waarvoor u de affiniteitsaanvragen wilt beheren.  
+2.  Dans l'espace de travail **Ressources et Conformité** , sélectionnez le regroupement d'utilisateurs ou d'appareils dont vous souhaitez gérer les demandes d'affinité.  
 
-3.  Op de **Start** tabblad, in de **verzameling** groep, kiest u **Affiniteitsaanvragen**.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Regroupement**, choisissez **Gérer les demandes d’affinité**.  
 
-4.  In de **beheren Affiniteitsaanvragen van Gebruikersapparaten** in het dialoogvenster Selecteer een affiniteitsaanvraag en kies vervolgens **goedkeuren** of **afwijzen**.  
+4.  Dans la boîte de dialogue **Gérer les demandes d’affinité entre périphérique et utilisateur**, sélectionnez une demande d’affinité, puis choisissez **Approuver** ou **Refuser**.  

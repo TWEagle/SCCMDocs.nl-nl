@@ -1,6 +1,6 @@
 ---
-title: Met behulp van System Center Configuration Manager platform-inschrijving inschakelen | Microsoft Docs
-description: Met System Center Configuration Manager en Microsoft Intune platform-registratie inschakelen.
+title: "Activer l’inscription de la plateforme via System Center Configuration Manager | Microsoft Docs"
+description: "Activez l’inscription de la plateforme via System Center Configuration Manager et Microsoft Intune."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,19 +17,19 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 4b047aa752b638aeeb7dd363a66564800d00a8df
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="enable-platform-enrollment-with-system-center-configuration-manager-and-microsoft-intune"></a>Inschrijving met System Center Configuration Manager en Microsoft Intune platform inschakelen
+# <a name="enable-platform-enrollment-with-system-center-configuration-manager-and-microsoft-intune"></a>Activer l’inscription de la plateforme via System Center Configuration Manager et Microsoft Intune
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Verschillende apparaatplatforms aanvullende configuratie vereist om apparaatinschrijving inschakelen.
-  - [iOS en Mac-inschrijving setup](enroll-hybrid-ios-mac.md): Haal een Apple MDM-Push-certificaat
+Les différentes plateformes d’appareils nécessitent une configuration supplémentaire pour permettre l’inscription des appareils.
+  - [Configuration de l’inscription pour iOS et Mac](enroll-hybrid-ios-mac.md) : obtenez un certificat Push MDM Apple
 
-  - [Installatie van Windows-registratie](enroll-hybrid-windows.md): Configureer DNS en registratie inschakelen voor zowel Windows-pc's, Windows 10 Mobile en Windows Phone-apparaten
+  - [Configuration de l’inscription pour Windows](enroll-hybrid-windows.md) : configurez le DNS et activez l’inscription pour les ordinateurs Windows, ainsi que pour les appareils Windows 10 Mobile et Windows Phone
 
-  - [Android](enroll-hybrid-android.md): Android-apparaten vereisen geen extra stappen registratie inschakelen
+  - [Android](enroll-hybrid-android.md) : les appareils Android ne nécessitent aucune étape supplémentaire pour permettre l’inscription
 
-Als u MDM-beheer inschakelen, kunt u het aantal apparaten dat elke gebruiker inschrijven kan, maximaal 15 apparaten per gebruiker.
+Une fois que vous activez la gestion des appareils mobiles, vous pouvez spécifier le nombre d’appareils que chaque utilisateur peut inscrire, jusqu’à 15 chacun.

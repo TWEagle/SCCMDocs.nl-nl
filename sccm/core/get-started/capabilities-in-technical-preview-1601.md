@@ -1,6 +1,6 @@
 ---
-title: Mogelijkheden in Technical Preview 1601 Configuration Manager
-description: Meer informatie over functies die beschikbaar zijn in de Technical Preview voor System Center Configuration Manager, versie 1601.
+title: "Fonctionnalités de Technical Preview 1601 Configuration Manager"
+description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1601 pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -17,25 +17,25 @@ manager: angrobe
 robots: noindex,nofollow
 ms.openlocfilehash: ef0db5b11ae2be5edcb4db87400c5c273c89972e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1601-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1601 voor System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1601-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1601 pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (Technical Preview)*
+*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
 
-Dit artikel bevat de functies die beschikbaar in de Technical Preview voor System Center Configuration Manager, versie 1601 zijn. U kunt deze versie om te werken en nieuwe mogelijkheden toevoegen aan uw Configuration Manager technical preview-site installeren.      Controleer voordat u deze versie van de technical preview installeert, de inleidende informatie [Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md), om vertrouwd te raken met algemene vereisten en beperkingen voor het gebruik van een technical preview hoe bijwerken tussen versies en hoe u feedback over de functies in een technical preview.  
+Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1601 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique de Configuration Manager.      Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
 
- **Bekende problemen voor deze Technical Preview:**  
+ **Problèmes connus relatifs à cette version d’évaluation technique :**  
 
--   Wanneer u beheert **Clientupdateopties** als u een pre-productieclient naar productie verhogen, de tekst voor het selectievakje wordt weergegeven een clientversie van nul (0) in plaats van het werkelijke client build-nummer. De juiste clientversie voor preproductie wordt weergegeven in het gedeelte boven deze optie en de clientversie die wordt gepromoveerd voor productie wanneer u deze optie selecteert.  
+-   quand vous gérez les **Options de mise à jour des clients** pour promouvoir un client de préproduction en production, le texte de la case à cocher affiche zéro (0) pour la version du client, au lieu du numéro réel de la build du client. La version du client de préproduction correcte est affichée sur la zone située au-dessus de cette option : il s’agit de la version du client qui est promue en production quand vous sélectionnez cette option.  
 
--   Wanneer u bijwerkt naar Technical Preview 1601 en ervoor kiest de Configuration Manager-client testen in pre-productieverzameling, wordt het clientpakket voor de verzameling niet worden bijgewerkt. Dit probleem is alleen voor Technical Preview 1601.  
+-   Quand vous effectuez une mise à jour vers Technical Preview 1601  et que vous choisissez de tester le client Configuration Manager dans un regroupement de préproduction, le package du client pour le regroupement n’est pas mis à niveau. Ce problème concerne uniquement Technical Preview 1601.  
 
-     Als tijdelijke oplossing Voer deze problemen een van de volgende:  
+     Pour contourner ces problèmes, procédez de l’une des façons suivantes :  
 
-    -   Voer de volgende SQL-script op de primaire sitedatabase:  
+    -   Exécutez le script SQL suivant sur la base de données du site principal :  
 
         ```  
         DECLARE @PilotingPkgID NVARCHAR(8)  
@@ -56,165 +56,165 @@ Dit artikel bevat de functies die beschikbaar in de Technical Preview voor Syste
 
         ```  
 
-    -   Een nieuwe site distributiepuntrol toevoegen aan uw labsite. Het nieuwe distributiepunt upgradet de pre-productieverzameling met het nieuwe clientpakket.  
+    -   Ajoutez un nouveau rôle système de site de point de distribution à votre site de laboratoire. Le nouveau point de distribution met à niveau le regroupement de préproduction avec le nouveau package du client.  
 
-**Hier volgen nieuwe functies die u met deze versie kunt uitproberen.**  
+**Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
 
-##  <a name="bkmk_hybrid1"></a>Verbeteringen aan Microsoft Intune-integratie  
-In de Technical Preview 1601 is ondersteuning voor de volgende functies toegevoegd:  
+##  <a name="bkmk_hybrid1"></a> Améliorations apportées à l’intégration de Microsoft Intune  
+Dans la version Technical Preview 1601, nous avons ajouté la prise en charge des fonctionnalités suivantes :  
 
-### <a name="improvements-to-conditional-access"></a>Verbeteringen aan voorwaardelijke toegang  
+### <a name="improvements-to-conditional-access"></a>Améliorations apportées à l’accès conditionnel  
 
--   **Ondersteuning voor voorwaardelijke toegang voor pc's die worden beheerd door System Center Configuration Manager**  
+-   **Prise en charge de l’accès conditionnel pour les PC gérés par System Center Configuration Manager**  
 
-     Nu kunt u beleidsregels voor voorwaardelijke toegang instellen voor pc's die worden beheerd door System Center Configuration Manager, die wordt vereist dat de pc's compatibel met het nalevingsbeleid zijn om toegang tot Exchange Online en SharePoint Online-services.  Met deze nieuwe functionaliteit kunt u ook pc's met Azure AD via het nalevingsbeleid en bewaken en rapporteren op Azure AD-registratie te registreren.  
+     Vous pouvez maintenant définir des stratégies d’accès conditionnel pour les PC gérés par System Center Configuration Manager, qui exige que les PC soient conformes à la stratégie de conformité pour accéder aux services Exchange Online et SharePoint Online.  Avec cette nouvelle fonctionnalité, vous pouvez également inscrire des PC auprès d’Azure AD via la stratégie de conformité, et surveiller et générer des rapports sur l’inscription Azure Active Directory.  
 
     > [!NOTE]  
-    >  Voorwaardelijke toegang is nog niet ondersteund op Windows 10.  
+    >  L’accès conditionnel n’est pas encore pris en charge sur Windows 10.  
 
-    Hieronder volgen de vereisten voor het gebruik van deze functie:  
+    Voici la configuration requise pour utiliser cette fonctionnalité :  
 
-    -   Azure Active Directory Premium-abonnement en ADFS-synchronisatie.  
+    -   Abonnement Premium à Azure Active Directory et Synchronisation ADFS.  
 
-    -   Een Microsoft Intune-abonnement. De Microsoft Intune-abonnement moet worden geconfigureerd in Configuration Manager-Console.  
+    -   Abonnement Microsoft Intune L’abonnement Microsoft Intune doit être configuré dans la console Configuration Manager.  
 
-    -   [Vereisten voor automatische registratie van Azure AD](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
+    -   [Conditions requises pour l’inscription automatique à Azure AD](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
 
-    Voor het gebruik van de optie moet u een nalevingsbeleid in Configuration Manager maken met specifieke regels die hieronder worden beschreven en beleid voor voorwaardelijke toegang instellen in de Intune-console.  Ook om te zorgen dat alleen compatibele pc's toegang hebben, stelt u de vereiste Windows-PC op **apparaten moeten voldoen** optie. Hier volgen de compatibiliteitsbeleidsregels die van toepassing op pc's die worden beheerd door System Center Configuration manager.  
+    Pour utiliser cette option, vous devez créer une stratégie de conformité dans Configuration Manager avec des règles spécifiques décrites ci-dessous, et définir une stratégie d’accès conditionnel dans la console Intune.  En outre, pour que l’accès soit autorisé seulement aux PC conformes, vous devez activer l’option **Les appareils doivent être conformes** comme spécification requise pour les PC Windows. Voici les règles de stratégie de conformité qui sont applicables aux ordinateurs gérés par System Center Configuration Manager.  
 
-    -   **Registratie in Azure Active Directory vereisen:** Deze regel controleert u of het apparaat van de gebruiker is toegevoegd aan Azure AD en als dat niet het geval is, wordt het apparaat automatisch geregistreerd bij Azure AD. Automatische inschrijving wordt alleen ondersteund op Windows 8.1. Implementeer een MSI-bestand om automatische inschrijving voor Windows 7-pc's uit te voeren. Zie voor meer informatie [hier](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
+    -   **Exiger l’inscription dans Azure Active Directory :** Cette règle vérifie si l’appareil de l’utilisateur a fait l’objet d’une jonction d’espace de travail à Azure AD. Dans le cas contraire, l’appareil est automatiquement inscrit dans Azure AD. L’inscription automatique est prise en charge seulement sur Windows 8.1. Pour les PC Windows 7, déployez un fichier MSI pour effectuer l’inscription automatique. Pour plus d’informations, cliquez [ici](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
 
-    -   **Alle vereiste updates zijn geïnstalleerd met een deadline die ouder zijn dan een bepaald aantal dagen:** Deze regel controleert om te zien als apparaat van de gebruiker beschikt over alle vereiste updates (opgegeven in de **vereiste automatische updates** regel) binnen de deadline en respijtperiode die is opgegeven door u en automatisch eventuele vereiste updates die nog niet installeren.  
+    -   **Toutes les mises à jour requises installées avec une échéance supérieure à X jours :** Cette règle vérifie si l’appareil de l’utilisateur a toutes les mises à jour obligatoires (spécifiées dans la règle **Mises à jour automatiques requises**) dans le délai et la période de grâce que vous avez spécifiés. Elle installe automatiquement toutes les mises à jour requises en attente.  
 
-    -   **BitLocker-stationsversleuteling vereisen:** Dit is een controleert u of het primaire station (bijvoorbeeld C:\\) op het apparaat BitLocker versleuteld. Als Bitlocker-versleuteling niet is ingeschakeld op het primaire station, wordt de toegang tot e-mail en SharePoint-services geblokkeerd.  
+    -   **Exiger le chiffrement de lecteur BitLocker :** Cette règle vérifie si le lecteur principal (par exemple C:\\) de l’appareil est chiffré avec BitLocker. Si le chiffrement BitLocker n’est pas activé sur le lecteur principal, l’accès de l’appareil aux services de messagerie et SharePoint est bloqué.  
 
-    -   **Antimalware vereisen:** Dit is een controleert u of de antimalwaresoftware (System Center Endpoint Protection of alleen Windows Defender) is ingeschakeld en worden uitgevoerd.  
-         Indien dit niet is ingeschakeld, wordt de toegang tot e-mail en SharePoint-services geblokkeerd.  
+    -   **Exiger un logiciel anti-programme malveillant :** Cette règle vérifie si le logiciel anti-programme malveillant (System Center Endpoint Protection ou Windows Defender uniquement) est activé et en cours d’exécution.  
+         S’il n’est pas activé, l’accès aux services de messagerie et SharePoint est bloqué.  
 
-    Eindgebruikers die zijn geblokkeerd vanwege niet-naleving wordt compatibiliteitsinformatie weergeven in het SCCM Software Center en een nieuwe evaluatie van het beleid wordt gestart wanneer de nalevingsproblemen zijn hersteld.  
+    Les utilisateurs finaux bloqués en raison d’une non-conformité peuvent consulter des informations sur la conformité dans le Centre logiciel SCCM et lancer une nouvelle évaluation de la stratégie quand les problèmes de conformité sont résolus.  
 
--   **Voorwaardelijke toegang met Health Attestation-Service** u kunt nu toegang tot e-mail en 0365-services op basis van de status van apparaten, zoals gemeld door de Health Attestation-Service beperken.  Daarnaast worden apparaten die worden beheerd door Intune opgenomen in de statusrapporten over apparaten.  
+-   **Accès conditionnel avec le service d’attestation d’intégrité** Vous pouvez maintenant limiter l’accès aux services de messagerie et Office 365 en fonction de l’intégrité des appareils, qui est signalée par le service d’attestation d’intégrité.  En outre, les appareils gérés par Intune sont inclus dans les rapports d’intégrité des appareils.  
 
-    Een nieuwe regel voor naleving is toegevoegd aan de configuration manager-console kunt u opgeven of de apparaten moeten worden toegestaan of geblokkeerd toegang op basis van hun gezondheidsstatus.  Voor deze regel maakt, opent u de **Wizard nalevingsbeleid maken**, en een nieuwe regel toevoegen.  Selecteer de **door de Health Attestation-Service als health gerapporteerd** voor de voorwaarde, en stel de waarde op **True**.  Hiermee zorgt u ervoor dat alleen apparaten die worden gerapporteerd als goed toegang tot uw bedrijfsbronnen vormen hebben. Zie voor meer informatie over Health Attestation-Service en hoe de status van apparaten in Intune wordt gerapporteerd [Health Attestation van apparaten](#bkmk_devicehealth).  
+    Une nouvelle règle de conformité a été ajoutée à la console Configuration Manager pour vous permettre de spécifier si l’accès doit être autorisé ou refusé aux appareils en fonction de leur état d’intégrité.  Pour créer cette règle, ouvrez l’**Assistant Création de stratégies de conformité** et ajoutez une nouvelle règle.  Sélectionnez comme condition **Signalé comme ne posant aucun problème d’intégrité par le service HAS (Health Attestation Service)** pour la condition et affectez la valeur **True**.  Cette opération permet de garantir que seuls les appareils qui sont signalés comme étant en état d’intégrité auront accès aux ressources de votre entreprise. Pour plus d’informations sur le service d’attestation d’intégrité et sur la façon dont l’intégrité des appareils est signalée dans Intune, consultez [Attestation d’intégrité de l’appareil](#bkmk_devicehealth).  
 
--   **Nieuwe beleidsinstellingen voor naleving:** De nieuwe instellingen nalevingsbeleid betere beveiliging en bescherming op apparaten die worden gebruikt voor toegang tot bedrijfse-mail en SharePoint-services:  
+-   **Nouveaux paramètres de stratégie de conformité :** Les nouveaux paramètres de stratégie de conformité vous aident à améliorer la sécurité et la protection sur les appareils utilisés pour accéder aux services de messagerie d’entreprise et SharePoint :  
 
-    -   **Automatische updates vereisen:** U kunt apparaten met Windows 8.1 of hoger vereisen toestaan automatische installatie van updates en tevens opgeven welke klasse updates die zijn geïnstalleerd.  U kunt kiezen om te: Installeer alleen de updates die zijn gemarkeerd als belangrijk of alle aanbevolen updates installeren.  
+    -   **Exiger les mises à jour automatiques :** Vous pouvez obliger les appareils dotés de Windows 8.1 ou version ultérieure à autoriser l’installation automatique des mises à jour, et spécifier la classe des mises à jour qui sont installées.  Vous pouvez choisir d’installer uniquement les mises à jour marquées comme importantes ou d’installer toutes les mises à jour recommandées.  
 
-         Voor het maken van een regel voor automatische updates, opent u de **Wizard nalevingsbeleid maken**, en een nieuwe regel toevoegen.  Selecteer **minimale classificatie van vereiste updates** als de voorwaarde, en stel de waarde in op een van de beschikbare waarden: **Geen**, **aanbevolen**, en **belangrijke**.  
+         Pour créer une règle pour les mises à jour automatiques, ouvrez l’**Assistant Création de stratégies de conformité** et ajoutez une nouvelle règle.  Sélectionnez **Classification minimale des mises à jour nécessaires** comme condition et définissez-la sur une des valeurs disponibles : **Aucun**, **Recommandé** et **Important**.  
 
-        -   **Geen:** Updates worden niet automatisch geïnstalleerd.  
+        -   **Aucun :** Les mises à jour logicielles sont installées automatiquement.  
 
-        -   **Aanbevolen:** Alle aanbevolen updates zijn geïnstalleerd  
+        -   **Recommandé :** Toutes les mises à jour recommandées sont installées.  
 
-        -   **Belangrijk:** Alleen de updates die zijn geclassificeerd als belangrijk worden geïnstalleerd.  
+        -   **Important :** Seules les mises à jour classifiées comme importantes sont installées.  
 
-    -   **Wachtwoord vereisen voor het ontgrendelen van mobiele apparaten:** Wanneer deze instelling is ingesteld op **Ja**, de eindgebruikers een wachtwoord moeten invoeren voordat ze toegang hun apparaat tot.  
+    -   **Exiger un mot de passe pour déverrouiller des appareils mobiles :** Quand ce paramètre a la valeur **Oui**, les utilisateurs finaux doivent entrer un mot de passe avant de pouvoir accéder à leur appareil.  
 
-         Voor het maken van een regel voor het wachtwoord voor het ontgrendelen van mobiele apparaten, opent u de **Wizard nalevingsbeleid maken**, en een nieuwe regel toevoegen. Selecteer **wachtwoord vereisen voor een inactief apparaat te ontgrendelen** als de voorwaarde, en stel de waarde op **True**.  
+         Pour créer une règle exigeant un mot de passe pour déverrouiller les appareils mobiles, ouvrez l’**Assistant Création de stratégies de conformité** et ajoutez une nouvelle règle. Sélectionnez **Exiger un mot de passe pour déverrouiller un appareil inactif** comme condition et définissez la valeur sur **True**.  
 
-    -   **Minuten van inactiviteit voordat wachtwoord vereist is:**  Hiermee geeft u aan na hoeveel niet-actieve tijd gebruikers hun wachtwoord opnieuw moeten invoeren.  
+    -   **Minutes d’inactivité avant demande du mot de passe :** Spécifie la durée d’inactivité au terme de laquelle l’utilisateur doit entrer à nouveau son mot de passe.  
 
-         Voor deze regel maakt, opent u de **Wizard nalevingsbeleid maken**, en een nieuwe regel toevoegen. **Selecteer minuten van inactiviteit voordat wachtwoord vereist is** als de voorwaarde, en stel de waarde in op een van de beschikbare opties: 1 minuut, 5 minuten, 15 minuten, 30 minuten ik uur.  
+         Pour créer cette règle, ouvrez l’**Assistant Création de stratégies de conformité** et ajoutez une nouvelle règle. Sélectionnez **Minutes d’inactivité avant qu’un mot de passe soit demandé** comme condition et définissez la valeur sur l’une des options disponibles : 1 minute, 5 minutes, 15 minutes, 30 minutes et 1 heure.  
 
--   **Standaardregel negeren - altijd geregistreerd bij Intune en compatibele apparaten toegang tot Exchange on-premises toestaan:**  
+-   **Remplacer la règle par défaut : toujours autoriser les appareils inscrits et conformes à Intune à accéder à Exchange sur site :**  
 
-     Als u deze optie inschakelt, mogen apparaten die zijn ingeschreven in Intune en voldoen aan het nalevingsbeleid toegang tot Exchange on-premises. Deze regel wordt genegeerd voor de standaardregel dit houdt in dat zelfs als u instelt dat de standaardregel quarantaine uitvoert of de toegang hiervoor blokkeren, ingeschreven en compatibele apparaten worden nog steeds toegang tot Exchange on-premises.  
-     Gebruik deze instelling als u wilt dat ingeschreven en compatibele apparaten altijd toegang hebben tot e-mail via Exchange on-premises.  
+     Quand vous activez cette option, les appareils inscrits dans Intune et conformes aux stratégies de conformité sont autorisés à accéder à Exchange sur site. Cette règle remplace la règle par défaut, ce qui signifie que même si vous définissez la règle par défaut de façon à mettre en quarantaine ou à bloquer l’accès, les appareils inscrits et conformes peuvent néanmoins toujours accéder à Exchange sur site.  
+     Utilisez ce paramètre quand vous voulez que les appareils inscrits et conformes aient toujours accès à la messagerie via Exchange sur site.  
 
-     Dit wordt ondersteund op de volgende platforms:  Windows Phone 8 en hoger, iOS 6 en hoger. Android 4.0 en hoger, Samsung KNOX Standard 4.0 en hoger.  
+     Cela est pris en charge sur les plateformes suivantes : Windows Phone 8 et versions ultérieures, iOS 6 et versions ultérieures. Android 4.0 et ultérieur, Samsung Knox Standard 4.0 et ultérieur  
 
-     Om deze optie gebruikt, gaat u naar de **algemene** pagina van de **Wizard voorwaardelijke toegang configureren beleid** voor Exchange on-premises.  
+     Pour utiliser cette option, accédez à la page **Général** de l’**Assistant Configuration de la stratégie d’accès conditionnel** pour Exchange sur site.  
 
-##  <a name="bkmk_clientStatus"></a>Onlinestatus van clients  
-Vanaf technical preview 1601, kunt u identificeren in één oogopslag of een client online of offline in de Configuration Manager-console is. Met bijgewerkte pictogrammen en kolommen in het apparaatoverzicht van de console, kunt u de status van clients in uw omgeving om probleemgebieden en andere problemen die mogelijk uw aandacht te identificeren beoordelen.  
+##  <a name="bkmk_clientStatus"></a> État de connexion du client  
+Depuis la version d’évaluation technique 1601, vous pouvez identifier rapidement dans la console Configuration Manager si un client est en ligne ou hors connexion. Avec des icônes et des colonnes mises à jour dans les listes d’appareils de la console, vous pouvez évaluer l’état des clients dans votre environnement pour identifier les zones à problème et d’autres problèmes nécessitant votre attention.  
 
-Een client is online als deze momenteel is verbonden met een Configuration Manager management sitesysteemrol. Zolang het beheerpunt ping-achtige berichten van de client ontvangt, wordt de status online is. Als het beheer een bericht voor de 5 minuten ontvangen heeft, wordt de status van de client gewijzigd naar offline.  
+Un client est en ligne s’il est actuellement connecté à un rôle de système de site du point de gestion Configuration Manager. Tant que le point de gestion reçoit des messages de type test ping du client, son état est en ligne. Si la gestion ne reçoit pas de message pendant environ 5 minutes, l’état du client devient hors connexion.  
 
-### <a name="icons-for-client-status"></a>Pictogrammen voor de clientstatus  
+### <a name="icons-for-client-status"></a>Icônes d’état du client  
 
 |||  
 |-|-|  
-|![online-statuspictogram voor clients](media/online-status-icon.png)|Client is online.|  
-|![offline-statuspictogram voor clients](media/offline-status-icon.png)|Client is offline.|  
-|![onbekende-statuspictogram voor clients](media/unknown-status-icon.png)|Clientstatus is onbekend.|  
+|![icône de statut de connexion des clients](media/online-status-icon.png)|Le client est en ligne.|  
+|![icône de statut déconnecté des clients](media/offline-status-icon.png)|Le client est hors connexion.|  
+|![icône de statut inconnu des clients](media/unknown-status-icon.png)|L’état du client est inconnu.|  
 
-### <a name="prerequisites"></a>Vereisten  
- Onlinestatus van clients zijn geen vereisten. U kunt deze gaan gebruiken zodra de Configuration Manager technical preview 1601 is geïnstalleerd.  
+### <a name="prerequisites"></a>Conditions préalables  
+ L’état de connexion du client n’a pas de conditions préalables. Vous pouvez commencer à l’utiliser dès que la version d’évaluation technique 1601 de Configuration Manager est installée.  
 
-### <a name="limitations"></a>Beperkingen  
- Onlinestatus van clients is alleen beschikbaar voor Windows-computers met de Configuration Manager-client is geïnstalleerd. Onlinestatus van clients wordt niet ondersteund voor Mac-computers, Linux of UNIX-computer of apparaten die worden beheerd met op\-premises Mobile Device Management.  
+### <a name="limitations"></a>Limitations  
+ L’état de connexion du client est disponible seulement pour les ordinateurs Windows où le client Configuration Manager est installé. L’état de connexion du client n’est pas pris en charge pour les ordinateurs Mac, Linux ou UNIX, ni pour les appareils gérés à l’aide de la gestion des appareils mobiles sur site.  
 
-### <a name="to-view-client-online-status"></a>Onlinestatus van clients weergeven  
+### <a name="to-view-client-online-status"></a>Pour afficher l’état de connexion du client  
 
-1.  Ga in de Configuration Manager-console naar **activa en naleving > overzicht > apparaten**.  
+1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité > Vue d’ensemble > Appareils**.  
 
-2.  Met de rechtermuisknop op de kolomkop en klik vervolgens op een van de velden van de onlinestatus van de client toe te voegen aan de apparaatweergave. De velden zijn  
+2.  Cliquez avec le bouton droit dans l’en-tête de colonne, puis cliquez sur un des champs de l’état de connexion du client pour l’ajouter à la vue des appareils. Les champs sont :  
 
-    -   **Onlinestatus van het apparaat** geeft aan of de client op dit moment online of offline is.  
+    -   **Statut de connexion de l’appareil** indique si le client est actuellement en ligne ou hors connexion.  
 
-    -   **Laatste tijdstip Online** geeft aan wanneer de onlinestatus van clients is gewijzigd van offline naar online.  
+    -   **Heure de la dernière connexion** : indique quand l’état de connexion du client est passé de hors connexion à en ligne.  
 
-    -   **Laatste tijdstip Offline** geeft aan wanneer de status is gewijzigd van online naar offline.  
+    -   **Heure de la dernière déconnexion** : indique quand l’état de connexion du client est passé de en ligne à hors connexion.  
 
- Als u wilt weergeven van recente wijzigingen in de status van de client, vernieuw de console.  
+ Pour afficher les modifications récentes apportées à l’état du client, actualisez la console.  
 
-##  <a name="bkmk_appmgmt1601"></a>Verbeteringen aan Toepassingsbeheer  
- In Technical Preview 1601 is ondersteuning voor de volgende functies toegevoegd:  
+##  <a name="bkmk_appmgmt1601"></a> Améliorations de la gestion d’applications  
+ Dans la version Technical Preview 1601, nous avons ajouté la prise en charge des fonctionnalités suivantes :  
 
-### <a name="manage-volume-purchased-apps-for-ios-devices"></a>Volume-purchased apps voor iOS-apparaten beheren  
- Bepaalde app stores bieden u de mogelijkheid meerdere licenties voor een app die u wilt uitvoeren binnen uw bedrijf te kopen. Zodoende kunt u de administratieve overhead voor het bijhouden reduceren als u meerdere exemplaren van apps hebt aangeschaft.  
+### <a name="manage-volume-purchased-apps-for-ios-devices"></a>Gérer les applications pour appareils iOS achetées en volume  
+ Certains magasins d’applications vous permettent d’acheter plusieurs licences pour une application que vous voulez utiliser dans votre entreprise. Vous pouvez ainsi réduire les coûts d’administration liés au suivi de plusieurs copies d’application achetées.  
 
- Configuration Manager kunt u nu apps beheren die u via een dergelijk programma hebt aangeschaft door de licentiegegevens uit de appstore te importeren en bij te houden hoeveel licenties u hebt gebruikt.  
+ Configuration Manager vous aide maintenant à gérer les applications que vous avez achetées par le biais d’un programme de ce type, en important les informations de licence depuis le magasin d’applications et en effectuant le suivi du nombre de licences que vous avez utilisées.  
 
- Zie voor meer informatie [apps die u hebt aangeschaft via een volume-aankoopprogramma met Configuration Manager beheren](https://technet.microsoft.com/library/mt627954.aspx).  
+ Pour plus de détails, consultez [Gérer les applications que vous avez achetées par le biais d’un programme d’achat en volume avec Configuration Manager](https://technet.microsoft.com/library/mt627954.aspx).  
 
-### <a name="ios---app-configuration-for-applicationsbr-hybrid"></a>iOS - App-configuratie voor toepassingen<br />Hybride  
- Sommige iOS-toepassingen ondersteunen het vooraf configureren van instellingen, zoals een server of database waarmee de toepassing verbinding moet maken. Configuration Manager ondersteunt nu implementeren app configuratiebeleid naar het apparaat zodat de gebruiker de app meteen kan gebruiken zonder te weten. Ontwikkelaars moeten deze functie in hun apps inschakelen.  
+### <a name="ios---app-configuration-for-applicationsbr-hybrid"></a>iOS : configuration d’applications pour les applications<br />Hybride  
+ Certaines applications iOS prennent en charge les paramètres de préconfiguration, comme un serveur ou une base de données auquel l’application doit se connecter. Configuration Manager prend maintenant en charge le déploiement de stratégies de configuration d’applications sur l’appareil, ce qui permet à l’utilisateur d’utiliser l’application immédiatement sans avoir besoin de connaître ces informations. Les développeurs doivent activer cette fonctionnalité dans leurs applications.  
 
- Een beperkt aantal openbaar vrijgegeven apps ondersteund momenteel vooraf configureren van instellingen; u kunt ook hebt intern ontwikkelde line-of-business-apps die deze ondersteunen.  
+ Un nombre limité d’applications distribuées publiquement prennent actuellement en charge la préconfiguration des paramètres. Vous pouvez également disposer d’applications d’entreprise développées en interne et prenant en charge cette préconfiguration.  
 
-#### <a name="prerequisites-for-this-scenario"></a>Vereisten voor dit scenario  
+#### <a name="prerequisites-for-this-scenario"></a>Conditions requises pour ce scénario  
 
--   U moet hebt toegevoegd een abonnement op Microsoft Intune aan Configuration Manager.  
+-   Vous devez avoir ajouté un abonnement Microsoft Intune à Configuration Manager.  
 
--   U moet hebt een geldig Apple APNs-certificaat toegevoegd aan het Intune-abonnement.  
+-   Vous devez avoir ajouté un certificat APNs d’Apple valide à l’abonnement Intune.  
 
--   U moet een iOS-toepassing die ondersteuning biedt voor Toepassingsconfiguratie hebt geïmplementeerd.  
+-   Vous devez avoir déployé une application iOS qui prend en charge la configuration d’applications.  
 
-#### <a name="try-it-out"></a>Probeer het nu!  
- Als de bovenstaande vereisten is voldaan, moet u een Configuration Manager-toepassing die gebruikmaakt van een iOS-implementatietype maken. De app die u gebruikt, moet Toepassingsconfiguratie ondersteunen. Raadpleeg de documentatie van de leverancier van de toepassing voor meer informatie over welke specifieke items (naam/waarde-paren), kunt u configureren.  
+#### <a name="try-it-out"></a>Essayez !  
+ Une fois que les conditions ci-dessus sont remplies, vous devez créer une application Configuration Manager qui utilise un type de déploiement iOS. L’application que vous utilisez doit prendre en charge la configuration d’applications. Reportez-vous à la documentation du fournisseur de l’application pour savoir quels éléments spécifiques (paires nom/valeur) vous pouvez configurer.  
 
- Vervolgens koppelt u de app-configuratiebeleid aan het iOS-implementatietype tijdens de implementatie van de app. U kunt ook implementeren met het beleid vanuit de **Configuratiebeleidsregels** knooppunt, gericht op een bestaande app en verzameling.  
+ Ensuite, vous associez la stratégie de configuration d’applications avec le type de déploiement iOS lors du déploiement de l’application. Vous pouvez également déployer la stratégie à partir du nœud **Stratégies de configuration des applications**, ciblée vers une application et un regroupement existants.  
 
- Voer de volgende taken uitvoeren en vervolgens met de feedbackinformatie boven aan dit onderwerp laat ons weten hoe het is gegaan:  
+ Essayez d'exécuter les tâches suivantes, puis utilisez les informations fournies au début de cette rubrique pour nous dire si tout a fonctionné comme prévu :  
 
--   Als u een iOS-app die ondersteuning biedt voor app-configuratie hebt, raadpleegt u de documentatie van de leverancier van de app voor meer informatie over de naam en waarde-paren dat u moet opgeven om de toepassing te configureren.  
+-   Si vous avez une application iOS qui prend en charge la configuration d’applications, consultez la documentation du fournisseur de l’application pour rechercher les paires nom/valeur que vous devez spécifier pour configurer l’application.  
 
--   Start de **App-configuratiebeleid maken** wizard. Op de **iOS-beleid** pagina van de wizard, voegt u de naam en waarde-paren u in de documentatie van de leverancier van de app of u gevonden kunnen een XML-bestand met de vereiste waarden importeren.  
+-   Démarrez l’**Assistant Création d’une stratégie de configuration d’applications**. Dans la page **Stratégie iOS** de l’Assistant, essayez d’ajouter les paires nom/valeur trouvées dans la documentation du fournisseur de l’application. Vous pouvez aussi importer un fichier XML contenant les valeurs requises.  
 
--   In de **Software distribueren** wizard op de **App-configuratiebeleid** pagina, de app-configuratiebeleid die u hebt gemaakt met een compatibele implementatietype van de toepassing koppelen.  
+-   Dans l’**Assistant Déploiement logiciel**, dans la page **Stratégie de configuration des applications**, associez la stratégie de configuration d’application que vous avez créée à un type de déploiement compatible de l’application.  
 
-##  <a name="bkmk_compliance1601"></a>Verbeteringen in de instellingen voor naleving  
- In Technical Preview 1601 is ondersteuning voor de volgende functies toegevoegd:  
+##  <a name="bkmk_compliance1601"></a> Améliorations apportées aux paramètres de conformité  
+ Dans la version Technical Preview 1601, nous avons ajouté la prise en charge des fonctionnalités suivantes :  
 
-### <a name="microsoft-edge-browser-settings"></a>Microsoft Edge-browserinstellingen  
- Nieuwe instellingen voor de browser Microsoft Edge zijn toegevoegd aan de **Windows 8.1 en Windows 10** configuratie-item (instellingen toegepast op Windows 10-apparaten).  
+### <a name="microsoft-edge-browser-settings"></a>Paramètres du navigateur Microsoft Edge  
+ De nouveaux paramètres du navigateur Microsoft Edge ont été ajoutés à l’élément de configuration de **Windows 8.1 et Windows 10** (les paramètres s’appliquent seulement aux appareils Windows 10).  
 
- Kies een overzicht van de nieuwe instellingen **Microsoft Edge** van configuratie-item **apparaatinstellingen** pagina van de **configuratie-Item maken** wizard.  
+ Pour afficher les nouveaux paramètres, choisissez **Microsoft Edge** dans la page **Paramètres de l’appareil** de l’élément de configuration de l’**Assistant Création d’élément de configuration**.  
 
- Zie voor meer informatie [het maken van configuratie-items voor Windows 8.1 en Windows 10-apparaten worden beheerd zonder de System Center Configuration Manager-client](../../compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md).  
+ Pour plus d’informations, consultez [Comment créer des éléments de configuration pour des appareils Windows 8.1 et Windows 10 gérés sans le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md).  
 
-### <a name="compliance-settings-for-windows-10-team-devices"></a>Instellingen voor naleving voor Windows 10 Team-apparaten  
- Gebruik deze nieuwe instellingen voor naleving om apparaten met Windows 10 team, zoals Surface Hub-apparaten te configureren.  
+### <a name="compliance-settings-for-windows-10-team-devices"></a>Paramètres de conformité pour les appareils Windows 10 Collaboration  
+ Utilisez ces nouveaux paramètres de conformité pour configurer les appareils qui exécutent Windows 10 Collaboration, comme des appareils Surface Hub.  
 
- Kies een overzicht van de nieuwe instellingen **Windows 10 Team** van configuratie-item **apparaatinstellingen** pagina van de **configuratie-Item maken** wizard.  
+ Pour afficher les nouveaux paramètres, cliquez sur **Windows 10 Collaboration** dans la page **Paramètres de l’appareil** de l’élément de configuration de l’**Assistant Création d’élément de configuration**.  
 
- Zie voor meer informatie [het maken van configuratie-items voor Windows 8.1 en Windows 10-apparaten worden beheerd zonder de System Center Configuration Manager-client](../../compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md).  
+ Pour plus d’informations, consultez [Comment créer des éléments de configuration pour des appareils Windows 8.1 et Windows 10 gérés sans le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md).  
 
-### <a name="android---kiosk-mode-for-samsung-knox-standardbr-hybrid"></a>Android: kioskmodus voor Samsung KNOX Standard<br />Hybride  
- Kioskmodus kunt u een apparaat zo vergrendelen dat alleen bepaalde functies werken. U kunt bijvoorbeeld toestaan dat een apparaat slechts één beheerde app uitvoert die u opgeeft, of kunt u de volumeknoppen op een apparaat uitschakelen. Deze instellingen kunnen worden gebruikt voor een demonstratiemodel van een apparaat of voor een apparaat dat is toegewezen aan slechts één functie, zoals een verkooppuntapparaat. Deze instellingen zijn niet beschikbaar voor Samsung KNOX Standard-apparaten in de **Windows 8.1 en Windows 10** configuratie-item (instellingen toegepast op Windows 10-apparaten).  
+### <a name="android---kiosk-mode-for-samsung-knox-standardbr-hybrid"></a>Android : mode plein écran pour Samsung KNOX Standard<br />Hybride  
+ Le mode plein écran vous permet de verrouiller un appareil pour autoriser seulement certaines fonctionnalités. Par exemple, vous pouvez autoriser un appareil à exécuter seulement une application gérée que vous spécifiez ou vous pouvez désactiver les boutons de volume sur un appareil. Ces paramètres peuvent être utilisés pour un modèle de démonstration d'un appareil ou pour un appareil dédié à l'exécution d'une seule fonction, par exemple dans un point de vente. Ces paramètres ne sont pas disponibles pour les appareils Samsung KNOX Standard dans l’élément de configuration **Windows 8.1 et Windows 10** (les paramètres s’appliquent seulement aux appareils Windows 10).  
 
- Kies een overzicht van de nieuwe instellingen **kioskmodus - Samsung KNOX** van configuratie-item **apparaatinstellingen** pagina van de **configuratie-Item maken** wizard.  
+ Pour afficher les nouveaux paramètres, choisissez **Mode plein écran - Samsung KNOX** dans la page **Paramètres de l’appareil** de l’élément de configuration de l’**Assistant Création d’élément de configuration**.  
 
- Zie voor meer informatie [het maken van configuratie-items voor Windows 8.1 en Windows 10-apparaten worden beheerd zonder de System Center Configuration Manager-client](../../compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md).  
+ Pour plus d’informations, consultez [Comment créer des éléments de configuration pour des appareils Windows 8.1 et Windows 10 gérés sans le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md).  

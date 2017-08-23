@@ -1,6 +1,6 @@
 ---
-title: Updates beheren | Microsoft Docs
-description: De updates die u implementeert en maken met System Center Updates Publisher beheren
+title: "Gérer les mises à jour | Microsoft Docs"
+description: "Gérer les mises à jour que vous déployez et créez avec l’éditeur de mise à jour System Center"
 ms.custom: na
 ms.date: 4/29/2017
 ms.prod: configuration-manager
@@ -17,122 +17,122 @@ manager: angrobe
 robots: NOINDEX, NOFOLLOW
 ms.openlocfilehash: 1d6c3b1db14867bdbc5cae8ded099d9024a79549
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-software-updates-in-updates-publisher"></a>Software-updates in Updates Publisher beheren
+# <a name="manage-software-updates-in-updates-publisher"></a>Gérer les mises à jour logicielles dans l’éditeur de mise à jour
 
-*Van toepassing op: System Center Updates Publisher*     
+*S’applique à : l'éditeur de mise à jour System Center*     
 
-In System Center Updates Publisher, gebruikt u de **werkruimte Updates** voor het beheren van software-updates en pakketten die u hebt geïmporteerd in de opslagplaats.  
+Dans l’éditeur de mise à jour System Center, vous utilisez l**’espace de travail Mises à jour** pour gérer les mises à jour logicielles et offres groupées que vous avez importées dans le référentiel.  
 
-Beheertaken bevatten dupliceren, bewerken en verloopt of opnieuw activeren van updates en pakketten, toewijzen en updates bundels publicaties. U kunt ook aangepaste catalogussen voor gebruik met andere installaties van Updates Publisher exporteren.
+Les tâches de gestion incluent la duplication, la modification et l’expiration ou la réactivation des mises à jour et offres groupées, ainsi que l’affectation de mises à jour et d’offres groupées à des publications. Vous pouvez également exporter des catalogues personnalisés pour une utilisation avec d’autres installations de l’éditeur de mise à jour.
 
-Ophalen van updates die u kunt beheren:
--  [Toevoegen van een update-catalogus](/sccm/sum/tools/updates-publisher-catalogs#add-software-update-catalogs) op de installatie van Updates Publisher
--  [Importeren](/sccm/sum/tools/updates-publisher-catalogs#import-updates) de updates uit die catalogus naar uw opslagplaats.
+Pour obtenir des mises à jour que vous pouvez gérer :
+-  [Ajoutez un catalogue de mises à jour](/sccm/sum/tools/updates-publisher-catalogs#add-software-update-catalogs) à votre installation de l’éditeur de mise à jour
+-  [Importez](/sccm/sum/tools/updates-publisher-catalogs#import-updates) dans votre référentiel les mises à jour à partir de ce catalogue.
 
-U kunt ook [maken van uw eigen updates](/sccm/sum/tools/create-updates-with-updates-publisher).
+Vous pouvez également [créer vos propres mises à jour](/sccm/sum/tools/create-updates-with-updates-publisher).
 
 
 
-## <a name="create-a-duplicate-of-an-update"></a>Een duplicaat van een update maken
-U kunt duplicaten, of een kopie van de updates die in de opslagplaats maken. Vervolgens kunt u de kopie in plaats van het wijzigen van de oorspronkelijke update wijzigen. U kunt geen kopieën van updatebundels maken.
+## <a name="create-a-duplicate-of-an-update"></a>Créer un doublon d’une mise à jour
+Vous pouvez créer des doublons, ou copies, des mises à jour dans votre référentiel. Vous pouvez ensuite modifier la copie au lieu de modifier la mise à jour originale. Vous ne pouvez pas créer de copies d’offres groupées de mises à jour.
 
-Als u wilt een kopie maken, selecteer een update in de **werkruimte Updates**, en kies vervolgens **dubbele**. De kopie van de update wordt weergegeven op dezelfde locatie in de werkruimte Updates met *kopiëren van* toegevoegd aan de naam ervan.
+Pour créer une copie, sélectionnez une mise à jour dans l**’espace de travail Mises à jour**, puis choisissez **Dupliquer**. La copie de la mise à jour s’affiche au même emplacement dans l’espace de travail Mises à jour avec la mention *Copie de* ajoutée à son nom.
 
-Een nieuw exemplaar dat u maakt, heeft de status van **Unexpired**, maar de instellingen van de oorspronkelijke anders behoudt.
+La nouvelle copie que vous créez affiche l’état **Non expirée** mais conserve les paramètres de la version originale.
 
-## <a name="edit-updates-and-bundles"></a>Updates en bundels bewerken
-U kunt updates en bundels die zich in uw opslagplaats wijzigen.
+## <a name="edit-updates-and-bundles"></a>Modifier des mises à jour et des offres groupées
+Vous pouvez sélectionner et modifier des mises à jour et des offres groupées figurant dans votre référentiel.
 
-In de **werkruimte Updates** selecteert u een update of bundel en selecteer vervolgens **bewerken** van de **Start** tabblad om de wizard bewerken te openen. Updates en bundels hebt afzonderlijke maar nauw verwante wizards die beschikken over dezelfde opties als de [maken bijwerken](/sccm/sum/tools/create-updates-with-updates-publisher#the-create-update-wizard) of [bundel maken](/sccm/sum/tools/create-updates-with-updates-publisher#the-create-bundle-wizard) wizards.
+Dans l**’espace de travail Mises à jour**, sélectionnez une mise à jour ou une offre groupée, puis choisissez **Modifier** dans l’onglet **Accueil** pour ouvrir l’Assistant de modification. Les mises à jour et les offres groupées disposent d’assistants étroitement liés mais distincts qui présentent les mêmes options que les Assistants [Création d’une mise à jour](/sccm/sum/tools/create-updates-with-updates-publisher#the-create-update-wizard) ou [Création d’une offre groupée](/sccm/sum/tools/create-updates-with-updates-publisher#the-create-bundle-wizard).
 
-Wanneer u bewerkt, kunt u alle beschikbare details over de update wijzigen of bundel zodat deze kan worden gebruikt in uw omgeving. U kunt bijvoorbeeld, bewerk de regels voor toepasselijkheid of prioriteit of de taal te wijzigen. U kunt ook wijzigen in het product en de leverancier van de update verplaatsen of bundel naar een aangepaste map groep updates voor uw eigen gebruik.
+Lors de la modification, vous pouvez modifier les détails disponibles concernant la mise à jour ou l’offre groupée afin de l’utiliser dans votre environnement. Par exemple, vous pouvez modifier les règles de mise en application, de priorité ou la langue. Vous pouvez également modifier le produit et le fournisseur pour déplacer la mise à jour ou l’offre groupée vers un dossier personnalisé et regrouper les mises à jour pour votre usage personnel.
 
-## <a name="assign-updates-and-bundles-to-a-publication"></a>Updates en bundels toewijzen aan een publicatie
-Kunt u updates en pakketten in de **werkruimte Updates** en kies vervolgens **toewijzen** van de **Start** tabblad van het lint toe te voegen aan een publicatie. Hiermee start u de **toewijzen van Software-Updates** wizard.
--  Zie [publiceren van updates en bundels](#publish-updates-and-bundles-from-the-updates-workspace) voor informatie over het selecteren en updates en bundels publiceren als een enkele taak.
--  Zie [beheren publicaties](/sccm/sum/tools/updates-publisher-publications) voor informatie over het beheren van groepen van updates en bundels als een enkel object. Nadat u de updates op een publicatie toewijst, kunt u publicatie, waaronder op zijn beurt alle toegewezen updates kunt beheren.
+## <a name="assign-updates-and-bundles-to-a-publication"></a>Affecter des mises à jour et des offres groupées à une publication
+Vous pouvez sélectionner des mises à jour et des offres groupées dans l**’espace de travail Mises à jour**, puis les **affecter** à partir de l’onglet **Accueil** du ruban afin de les ajouter à une publication. Cette opération lance l’Assistant **Affectation de mises à jour logicielles**.
+-  Consultez la rubrique [Publier des mises à jour et des offres groupées](#publish-updates-and-bundles-from-the-updates-workspace) pour plus d’informations sur la sélection et la publication de mises à jour et d’offres groupées en une seule tâche.
+-  Consultez la rubrique [Gérer les publications](/sccm/sum/tools/updates-publisher-publications) pour plus d’informations sur la gestion de groupes de mises à jour et d’offres groupées comme un seul objet. Après avoir affecté des mises à jour à une publication, vous pouvez gérer cette publication, qui à son tour inclut toutes ses mises à jour affectées.
 
-Wanneer u updates toewijst aan een publicatie:
+Lorsque vous affectez des mises à jour à une publication :
 
--   U kunt verlopen en niet verlopen updates en bundels opnemen in dezelfde publicatie.
+-   Vous pouvez inclure des mises à jour expirées et non expirées ainsi que des offres groupées dans la même publication.
 
--   Geef het publicatietype:
+-   Spécifiez le type de publication :
 
-    -   **Volledige inhoud** – Hiermee publiceert u de volledige inhoud van de update naar uw WSUS-Server. Dit omvat metagegevens en de binaire updatebestanden.
+    -   **Tout le contenu** : cette option publie tout le contenu de la mise à jour sur votre serveur WSUS. Cela inclut les métadonnées et les fichiers binaires des mises à jour.
 
-    -   **Alleen metagegevens** – Hiermee alleen de metagegevens publiceert; binaire updatebestanden worden niet gepubliceerd. U kunt deze optie als u wilt verzamelen van Nalevingsgegevens.
+    -   **Métadonnées uniquement** : cette option publie uniquement les métadonnées ; les fichiers binaires des mises à jour ne sont pas publiés. Vous pouvez choisir cette option si vous souhaitez regrouper les données de conformité.
 
-    -   **Automatische** – deze modus is alleen beschikbaar wanneer u naar Configuration Manager hebt verbonden voor Updates Publisher (Zie de [Configuration Manager-Server](/sccm/sum/tools/updates-publisher-options#configmgr-server) optie.)
+    -   **Automatique** : ce mode est uniquement disponible si l’éditeur de mise à jour est connecté à Configuration Manager (voir l’option [Serveur ConfigMgr](/sccm/sum/tools/updates-publisher-options#configmgr-server).)
 
-    Met dit type query Updates Publisher Configuration Manager om te bepalen of de updates of bundels moeten worden gepubliceerd met de volledige inhoud of alleen metagegevens. Volledige inhoud van een update is gepubliceerd, alleen wanneer dat werk voldoet aan de **drempelwaarde voor het aantal aangevraagde client** en **pakket bron grootte drempelwaarde** die zijn opgegeven op de **Configuration Manager-Server** pagina van de opties voor Updates Publisher.
+    Avec ce type, l’éditeur de mise à jour interroge Configuration Manager pour déterminer si les mises à jour ou les offres groupées doivent être publiées avec tout le contenu ou uniquement les métadonnées. Tout le contenu d’une mise à jour est publié uniquement si cette mise à jour respecte le **seuil du nombre de clients demandé** et le **seuil de taille source du package,** qui sont spécifiés dans la page **Serveur ConfigMgr** des options de l’éditeur de mise à jour.
 
--   Selecteer een publicatie:
+-   Sélectionnez une publication :
 
-    -   Gebruik **software-update toewijzen aan bestaande publicaties** wanneer u een publicatie die u wilt gebruiken al hebt gemaakt. Deze optie is niet beschikbaar totdat er ten minste één publicatie bestaat.
+    -   Utilisez l’option **Affecter une mise à jour logicielle aux publications existantes** si vous avez déjà créé une publication que vous souhaitez utiliser. Cette option n’est disponible que si au moins une publication existe.
 
-    -   Gebruik **software-update toewijzen aan een nieuwe publicatie** wanneer u niet over een geschikte publicatie. Hiermee wordt een nieuwe publicatie gemaakt met de naam die u opgeeft.
+    -   Utilisez l’option **Affecter une mise à jour logicielle à une nouvelle publication** si vous ne disposez d’aucune publication appropriée. Elle créera une nouvelle publication portant le nom que vous spécifiez.
 
-Nadat u de updates op een publicatie toewijst, kunt u de **publicatie werkruimte** naar [publiceren](/sccm/sum/tools/updates-publisher-publications#publish-pubilcations) of [exporteren](/sccm/sum/tools/updates-publisher-publications#export-a-pubilcation) de publicatie als een groep.
+Après avoir affecté des mises à jour à une publication, vous pouvez utiliser l**’espace de travail Publications** pour [publier](/sccm/sum/tools/updates-publisher-publications#publish-pubilcations) ou [exporter](/sccm/sum/tools/updates-publisher-publications#export-a-pubilcation) la publication en tant que groupe.
 
-## <a name="publish-updates-and-bundles-from-the-updates-workspace"></a>Updates en bundels vanuit de werkruimte Updates publiceren
-Wanneer u updates en bundels publiceert, wordt informatie over deze updates en bundels (metagegevens) en mogelijk de binaire bestanden voor de updates (volledige inhoud) in Updates Publisher toegevoegd aan een updateserver voor implementatie op apparaten.
+## <a name="publish-updates-and-bundles-from-the-updates-workspace"></a>Publier des mises à jour et des offres groupées à partir de l’espace de travail Mises à jour
+Lorsque vous publiez des mises à jour et des offres groupées, l’éditeur de mise à jour ajoute des informations sur ces mises à jour et offres (métadonnées) et éventuellement les fichiers binaires des mises à jour (tout le contenu) à un serveur de mise à jour pour le déploiement sur des appareils.
 
-Voordat u de optie om te publiceren hebt, moet u de [updateserver](/sccm/sum/tools/updates-publisher-options#update-server) optie voor Updates Publisher. Als u wilt deze configuratieoptie openen, gaat u naar **werkruimte Updates** &gt; **overzicht** en selecteer **WSUS configureren en certificaat voor ondertekening.** U kunt ook gaan naar de updateserver pagina in de opties voor Updates Publisher.
+Avant de pouvoir publier une mise à jour, vous devez configurer l’option [Serveur de mise à jour](/sccm/sum/tools/updates-publisher-options#update-server) de l’éditeur de mise à jour. Pour ouvrir cette option de configuration, accédez à l**’espace de travail Mises à jour** &gt; **Vue d’ensemble** et sélectionnez **Configurer WSUS et le certificat de signature.** Vous pouvez également accéder à la page Serveur de mise à jour dans les options de l’éditeur de mise à jour.
 
-Er zijn twee manieren om updates en bundels te publiceren:
--   Rechtstreeks vanuit de werkruimte Updates. (Zie de volgende procedure *voor het publiceren van updates en bundels*.)
--   Als een [publicatie](/sccm/sum/tools/updates-publisher-publications#publish-pubilcations) vanuit de werkruimte publicaties.  
+Il existe deux façons de publier des mises à jour et des offres groupées :
+-   Directement depuis l'espace de travail Mises à jour. (Consultez la procédure suivante *pour publier des mises à jour et des offres groupées*.)
+-   En tant que [publication](/sccm/sum/tools/updates-publisher-publications#publish-pubilcations) depuis l’espace de travail Publications.  
 
 > [!NOTE]   
-> Updates die 375 megabytes (MB) of de grootte zijn kan alleen worden gepubliceerd in updates Publisher.
+> Le serveur de mise à jour peut uniquement publier des mises à jour d’une taille maximale de 375 mégaoctets (Mo).
 
-### <a name="to-publish-updates-and-bundles"></a>Updates en bundels publiceren
-1.  Ga naar **werkruimte Updates** en selecteer een of meer updates en pakketten die u wilt publiceren. Kies vervolgens **publiceren** van **Start** tabblad van het lint.
+### <a name="to-publish-updates-and-bundles"></a>Pour publier des mises à jour et des offres groupées
+1.  Accédez à l**’espace de travail Mises à jour**, puis sélectionnez une ou plusieurs mises à jour et offres groupées que vous souhaitez publier. Puis choisissez **Publier** dans l’onglet **Accueil** du ruban.
 
-2.  Op de **Selecteer** pagina van de **publiceren** wizard, selecteer hoe wilt u de updates publiceren. De opties zijn hetzelfde als voor [updates toe te wijzen](#assign-updates-and-bundles-to-a-publication): **Volledige inhoud**, **bestaan alleen uit metagegevens**, of **automatische**.
+2.  Sur la page **Sélectionner** de l’Assistant **Publication**, indiquez comment vous voulez publier les mises à jour. Les options sont les mêmes que pour l[’attribution des mises à jour](#assign-updates-and-bundles-to-a-publication) : **Tout le contenu**, **Uniquement les métadonnées** ou **Automatique**.
 
-    U kunt ook voor het ondertekenen van alle updates met een nieuw certificaat voor de publicatie.
+    Vous pouvez également choisir de signer toutes les mises à jour avec un nouveau certificat de publication.
 
-3.  Voltooi de wizard.
+3.  Effectuez toutes les étapes de l'Assistant.
 
-Als het publiceren is mislukt, krijgt u een koppeling naar het bestand UpdatesPublisher.log met meer informatie.
+Si la publication échoue, vous recevez un lien vers le fichier UpdatesPublisher.log apparaît qui peut fournir plus d’informations.
 
-## <a name="export-updates"></a>Het exporteren van updates
-U kunt updates en bundels exporteren van uw opslagplaats Updates Publisher te maken van een aangepaste update-catalogus. Vervolgens kunt u [toevoegen](/sccm/sum/tools/updates-publisher-catalogs#add-software-update-catalogs) en vervolgens [importeren](/sccm/sum/tools/updates-publisher-catalogs#mport-updates) die catalogus naar een ander exemplaar van de Updates Publisher. (U kunt ook [updates exporteren als een publicatie](/sccm/sum/tools/updates-publisher-publications##export-a-publication).)
+## <a name="export-updates"></a>Exporter des mises à jour
+Vous pouvez exporter des mises à jour et des offres groupées depuis le référentiel de l’éditeur de mise à jour afin de créer un catalogue personnalisé de mises à jour. Vous pouvez ensuite [ajouter](/sccm/sum/tools/updates-publisher-catalogs#add-software-update-catalogs) puis [importer](/sccm/sum/tools/updates-publisher-catalogs#mport-updates) ce catalogue vers une autre instance de l’éditeur de mise à jour. (Vous pouvez également [exporter des mises à jour sous la forme d’une publication](/sccm/sum/tools/updates-publisher-publications##export-a-publication).)
 
-Als u wilt exporteren rechtstreeks, gaat u naar **werkruimte Updates** > **alle Software-Updates** en selecteer een of meer updates en bundels. U kunt een leverancier of de hoofdmap van het product niet exporteren, maar u kunt een map selecteren en selecteer vervolgens de updates in de map voor uitvoer.
+Pour exporter directement des mises à jour, accédez à l**’espace de travail Mises à jour** > **Toutes les mises à jour logicielles** et sélectionnez une ou plusieurs mises à jour et offres groupées. Vous ne pouvez pas exporter un fournisseur ou un dossier de produit, mais vous pouvez sélectionner un dossier puis les mises à jour de ce dossier pour l’exportation.
 
-Met een of meer updates geselecteerd, kiest **exporteren** van de **Start** tabblad van het lint en geef een pad en bestandsnaam voor het exporteren van de catalogus.
+Après avoir sélectionné une ou plusieurs mises à jour, choisissez **Exporter** dans l’onglet **Accueil** du ruban, puis indiquez un chemin d’accès et un nom de fichier pour l’exportation du catalogue.
 
-U hebt de mogelijkheid om te exporteren (inclusief) afhankelijke software-updates.
+Vous pourrez également exporter (inclure) des mises à jour de logiciels dépendantes.
 
-## <a name="delete-updates-and-bundles"></a>Updates en bundels verwijderen
-U kunt updates en bundels van updates om ze te verwijderen uit de opslagplaats voor Updates Publisher verwijderen.
+## <a name="delete-updates-and-bundles"></a>Supprimer des mises à jour et des offres groupées
+Vous pouvez supprimer des mises à jour et des offres groupées de mises à jour afin de les supprimer du référentiel de l’éditeur de mise à jour.
 
-Ga naar **werkruimte Updates** > **alle Software-Updates** en selecteer een of meer afzonderlijke updates. Kies vervolgens **verwijderen** van de **Start** tabblad van het lint.
+Accédez à l**’espace de travail Mises à jour** > **Toutes les mises à jour logicielles** et sélectionnez une ou plusieurs mises à jour individuelles. Puis choisissez **Supprimer** dans l’onglet **Accueil** du ruban.
 
--   Als de selectie bevat alleen updates of pakketten die niet zijn gepubliceerd of die zijn verstreken, wordt u gevraagd te bevestigen voordat ze worden verwijderd.
+-   Si votre sélection contient uniquement des mises à jour ou des offres groupées qui n’ont pas été publiées ou qui ont expiré, vous êtes invité à confirmer la suppression.
 
--   Als uw selectie bevat een update of bundel die is gepubliceerd en nog niet is verlopen, krijgt u een waarschuwing. U moet [verlopen](/sccm/sum/tools/updates-publisher-pubilcations#expire-or-reactivate-updates-and-bundles) die updates en vervolgens die wijziging publiceren voordat u deze uit de opslagplaats verwijderen.  
+-   Si votre sélection contient une mise à jour ou une offre groupée qui a été publiée mais n’a pas encore expiré, vous recevez un avertissement. Vous devez [faire expirer](/sccm/sum/tools/updates-publisher-pubilcations#expire-or-reactivate-updates-and-bundles) ces mises à jour puis publier cette modification avant de supprimer les mises à jour du référentiel.  
 
-Als u een update te verwijderen of bundel van een leverancier en vervolgens opnieuw die catalogus importeren, wordt deze update wordt teruggezet naar uw opslagplaats.
+Si vous supprimez une mise à jour ou une offre groupée d’un fournisseur puis importez de nouveau ce catalogue, cette mise à jour est restaurée dans votre référentiel.
 
-## <a name="manage-vendor-and-product-folders"></a>Leverancier en product mappen beheren
-Voor een lijst met leveranciers en producten voor elke leverancier waarvoor u hebt geïmporteerd of updates gemaakt, gaat u naar **werkruimte Updates** > **overzicht** > **alle Software-Updates**.
+## <a name="manage-vendor-and-product-folders"></a>Gérer des dossiers de produit et de fournisseur
+Pour afficher une liste des fournisseurs et des produits de chaque fournisseur pour lequel vous avez importé ou créé des mises à jour, accédez à l**’espace de travail Mises à jour** > **Vue d’ensemble** > **Toutes les mises à jour logicielles**.
 
-Mappen voor leveranciers en -producten worden automatisch door Updates Publisher gemaakt wanneer u een wizard gebruiken om te importeren of een software-update of bundel maken. U kunt deze mappen ook handmatig maken.
+Les dossiers des fournisseurs et des produits sont automatiquement créés par l’éditeur de mise à jour lorsque vous utilisez un Assistant pour importer ou créer une mise à jour logicielle ou une offre groupée. Vous pouvez également créer manuellement ces dossiers.
 
--   Een Leveranciermap maken in het navigatievenster van de **werkruimte Updates**, met de rechtermuisknop op **alle Software-Updates**, en kies vervolgens **maken leverancier**.
+-   Pour créer un dossier de fournisseur, dans le volet de navigation de l**’espace de travail Mises à jour**, cliquez avec le bouton droit sur **Toutes les mises à jour logicielles**, puis choisissez **Créer un fournisseur**.
 
--   Met de rechtermuisknop op de Leveranciermap voor het maken van een productmap onder de Leveranciermap van een, en kies **Product maken**.
+-   Pour créer un dossier de produit dans un dossier de fournisseur, cliquez avec le bouton droit sur le dossier de fournisseur et choisissez **Créer un produit**.
 
-U kunt naast het maken van mappen wijzigen of verwijderen van een leverancier of de hoofdmap van het product in de opslagplaats. Dit doet, met de rechtermuisknop op de map en kies de gewenste optie **naam** of **verwijderen**. Een map verwijdert, wordt de updates en bundels in die map en bijbehorende mappen product uit de opslagplaats voor Updates Publisher.
+Outre la création de dossiers, vous pouvez renommer ou supprimer n’importe quel dossier de fournisseur ou de produit de votre référentiel. Pour cela, cliquez avec le bouton droit sur le dossier puis choisissez l’option souhaitée, **Renommer** ou **Supprimer**. La suppression d’un dossier supprime toutes les mises à jour et offres groupées de ce dossier ainsi que ses dossiers de produit du référentiel de l’éditeur de mise à jour.
 
-U kunt updates verplaatsen tussen leverancier en product mappen, met inbegrip van mappen die u maakt. Als u wilt verplaatsen van een update of naar een nieuwe map te bundelen, u moet selecteren en vervolgens **bewerken** update of bundel. Klik op de **informatie** pagina van de wizard Update bewerken kunt u de leverancier en product toewijzen. Wanneer de **bewerken bijwerken** wizard is voltooid, wordt de wijziging toegepast en de update wordt verplaatst naar de nieuwe map.
+Vous pouvez déplacer des mises à jour entre des dossiers de fournisseurs et de produits, y compris les dossiers que vous créez. Pour déplacer une mise à jour ou une offre groupée vers un nouveau dossier, vous devez sélectionner puis **modifier** la mise à jour ou l’offre groupée. Puis, dans la page **Informations** de l’Assistant Modification d’une mise à jour, vous pouvez réaffecter le produit et le fournisseur. À la fin de l’Assistant **Modification d’une mise à jour**, la modification est appliquée et la mise à jour est déplacée vers le nouveau dossier.
 
-## <a name="view-the-xml-of-an-update-or-bundle"></a>De XML van een update of bundel weergeven
-U kunt selecteren van een update of bundel de **werkruimte Updates** en kies vervolgens **weergave** XML om weer te geven van de XML-structuur van de update. Er zijn geen opties in de XML-structuur om rechtstreeks te bewerken.
+## <a name="view-the-xml-of-an-update-or-bundle"></a>Afficher la structure XML d’une mise à jour ou d’une offre groupée
+Pour sélectionner une mise à jour ou une offre groupée unique, dans l**’espace de travail Mises à jour**, choisissez **Affichage** XML pour afficher la structure XML de cette mise à jour. Il n’existe aucune option permettant de modifier directement la structure XML.

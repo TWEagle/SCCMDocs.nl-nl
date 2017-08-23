@@ -1,6 +1,6 @@
 ---
-title: Migratie bewaken | Microsoft Docs
-description: Informatie over het gebruik van de Configuration Manager-console voor het bewaken van de voortgang en het slagen van migratietaken.
+title: Surveiller la migration | Microsoft Docs
+description: "Apprenez à surveiller l’avancement et la réussite des tâches de migration à l’aide de la console Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,24 +17,24 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 896807ec2c4be2835094a27add59d4cc09e93add
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="planning-to-monitor-migration-activity-in-system-center-configuration-manager"></a>Het bewaken van migratieactiviteiten in System Center Configuration Manager plannen
+# <a name="planning-to-monitor-migration-activity-in-system-center-configuration-manager"></a>Planification de la surveillance de la migration dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Met System Center Configuration Manager u migratie bewaken in de Configuration Manager-console die verbinding met de doelhiërarchie maakt. In de Configuration Manager-console in de **beheer** werkruimte kunt u de **migratie** knooppunt voor het bewaken van de voortgang en het slagen van migratietaken. U kunt samenvattingsgegevens voor elke migratietaak die objecten die zijn gemigreerd, objecten die nog niet gemigreerd identificeert en het aantal objecten die zijn uitgesloten van een migratietaak weergeven. U ziet ook details van eventuele migratieproblemen.  
+System Center Configuration Manager vous permet de surveiller la migration dans la console Configuration Manager qui se connecte à la hiérarchie de destination. Dans la console Configuration Manager, dans l’espace de travail **Administration**, vous pouvez utiliser le nœud **Migration** pour surveiller l’avancement et la réussite des tâches de migration. Vous pouvez consulter les informations récapitulatives de chaque tâche de migration qui identifie les objets qui ont été migrés, ceux qui n'ont pas encore été migrés et le nombre d'objets qui ont été exclus de la migration. Elles contiennent également des informations sur les problèmes éventuels de migration.  
 
-## <a name="view-migration-progress"></a>Voortgang van migratie weergeven  
- Om de voortgang van een migratietaak weergeven, gebruikt u een van de volgende acties:  
+## <a name="view-migration-progress"></a>Afficher l'avancement de la migration  
+ Pour afficher l'avancement d'une tâche de migration, optez pour l'une des actions suivantes :  
 
--   In de **beheer** werkruimte van de Configuration Manager-console, vouw de **migratietaken** knooppunt, selecteer een migratietaak en selecteer vervolgens de **objecten in taak** tabblad.  
+-   Dans l’espace de travail **Administration** de la console Configuration Manager, développez le nœud **Tâches de migration**, sélectionnez une tâche de migration, puis sélectionnez l’onglet **Objets dans la tâche**.  
 
--   De logboekbestanden van de Configuration Manager gebruiken om de voortgang van de migratie te beoordelen of eventuele problemen vast te stellen. Migratiebeheer is het Configuration Manager-proces waarmee migratieacties worden bijgehouden en geregistreerd in het bestand migmctrl.log in de  **\&lt; InstallationPath\>\\LOGBOEKEN** map op de siteserver.  
+-   Utilisez les fichiers journaux Configuration Manager pour vérifier l’avancement de la migration ou pour identifier les problèmes. Le gestionnaire de migration est le processus de Configuration Manager qui suit les actions de migration et les enregistre dans le fichier migmctrl.log dans le dossier **\&lt;Chemin_Installation\>\\LOGS** sur le serveur de site.  
 
     > [!NOTE]  
-    >  Als een migratietaak mislukt, Controleer u de details in het bestand migmctrl.log zo snel mogelijk. De logboekvermeldingen voor migratie worden continu toegevoegd aan het bestand en oude details overschrijven. Als de vermeldingen worden overschreven, kunt u mogelijk niet bepalen of eventuele problemen die met de gemigreerde objecten optreden kunnen verband met migratieproblemen houden. Migratieactiviteit wordt geregistreerd boven\-site niveau van de hiërarchie, ongeacht de site de Configuration Manager-console verbinding maakt wanneer u migratie configureert.  
+    >  Si une tâche de migration échoue, examinez les informations dans ce fichier dès que possible. Les entrées du journal de migration sont continuellement ajoutées au fichier et remplacent les anciennes. Si les entrées sont remplacées, vous risquez de ne pas pouvoir déterminer si les problèmes qui peuvent apparaître avec les objets migrés sont liés à la migration. L’activité de migration est consignée sur le site de niveau supérieur de la hiérarchie, quel que soit le site auquel la console Configuration Manager se connecte au moment où vous configurez la migration.  
 
--   Gebruik Configuration Manager-rapportage. Configuration Manager biedt diverse ingebouwde\-in rapporten voor migratie, of u kunt deze rapporten ook naar wens bewerken. Zie voor meer informatie over Configuration Manager-rapporten, [rapportage in System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+-   Utilisez les rapports Configuration Manager. Configuration Manager propose plusieurs rapports intégrés pour la migration, que vous pouvez aussi modifier en fonction de vos besoins. Pour plus d’informations sur les rapports Configuration Manager, consultez [Génération de rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md).  

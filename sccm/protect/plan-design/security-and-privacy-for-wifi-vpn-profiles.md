@@ -1,6 +1,6 @@
 ---
-title: Wi-Fi en VPN-profiel beveiliging en privacy | Microsoft Docs
-description: Meer informatie over de beveiliging aanbevolen procedures voor het beheren van Wi-Fi en VPN-profielen voor apparaten in System Center Configuration Manager.
+title: "Sécurité et confidentialité des profils Wi-Fi et VPN | Microsoft Docs"
+description: "Découvrez les bonnes pratiques en matière de sécurité pour la gestion des profils Wi-Fi et VPN des appareils dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/28/2016
 ms.prod: configuration-manager
@@ -17,24 +17,24 @@ ms.author: nbigman
 manager: angrobe
 ms.openlocfilehash: 6d1d0a393a2ce614ae5f819475bd47b05e699b45
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-wi-fi-and-vpn-profiles-in-system-center-configuration-manager"></a>Beveiliging en privacy voor Wi-Fi en VPN-profielen in System Center Configuration Manager
+# <a name="security-and-privacy-for-wi-fi-and-vpn-profiles-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour les profils Wi-Fi et VPN dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-##  <a name="security-best-practices-for-wi-fi--and-vpn-profiles"></a>Aanbevolen beveiligingsprocedures voor Wi-Fi en VPN-profielen  
- Gebruik de volgende aanbevolen beveiligingsprocedures wanneer u Wi-Fi en VPN-profielen voor apparaten beheert.  
+##  <a name="security-best-practices-for-wi-fi--and-vpn-profiles"></a>Bonnes pratiques de sécurité pour les profils Wi-Fi et VPN  
+ Utilisez les bonnes pratiques de sécurité suivantes quand vous gérez des profils Wi-Fi et VPN pour des appareils.  
 
-|Aanbevolen beveiligingsprocedure|Meer informatie|  
+|Bonnes pratiques de sécurité|Plus d'informations|  
 |----------------------------|----------------------|  
-|Kies indien mogelijk de veiligste opties die ondersteuning voor uw Wi-Fi en VPN-infrastructuur en clientbesturingssystemen biedt.|Wi-Fi en VPN-profielen bieden een handige methode om centraal te distribueren en beheren van Wi-Fi en VPN-instellingen die uw apparaten al ondersteunen. Configuration Manager voegt geen Wi-Fi of VPN-functionaliteit.<br /><br /> Bepaal, implementeer en volg alle 'best practice' beveiligingsprocedures die voor uw apparaten en infrastructuur worden aanbevolen.|  
+|Dans la mesure du possible, choisissez les options les plus sécurisées prises en charge par votre système d’exploitation client et votre infrastructure Wi-Fi et VPN.|Les profils Wi-Fi et VPN fournissent une méthode pratique pour distribuer et gérer de manière centralisée des paramètres Wi-Fi et VPN que vos appareils prennent déjà en charge. Configuration Manager n’ajoute pas de fonctionnalité Wi-Fi ou VPN.<br /><br /> Identifiez, implémentez et suivez les bonnes pratiques de sécurité recommandées pour vos appareils et votre infrastructure.|  
 
-## <a name="privacy-information-for-wi-fi-profiles"></a>Privacy-informatie voor Wi-Fi-profielen  
- Wi-Fi en VPN-profielen kunt u configureren dat clientapparaten verbinding maken met Wi-Fi en VPN-servers en te evalueren of die apparaten compatibel worden nadat de profielen zijn toegepast. De compatibiliteitsinformatie wordt door het beheerpunt naar de siteserver verzonden en deze informatie wordt opgeslagen in de sitedatabase. De informatie wordt versleuteld wanneer apparaten deze naar het beheerpunt verzenden, maar deze wordt niet in een versleutelde indeling opgeslagen in de sitedatabase. Informatie wordt bewaard in de database en wordt na negentig dagen verwijderd door de siteonderhoudstaak **Verouderde gegevens van Configuration Manager verwijderen** . Het standaardinterval voor verwijderen is 90 dagen, maar dit kunt u wijzigen. Er wordt geen compatibiliteitsinformatie naar Microsoft verzonden.  
+## <a name="privacy-information-for-wi-fi-profiles"></a>Informations de confidentialité pour les profils Wi-Fi  
+ Vous pouvez utiliser des profils Wi-Fi et VPN pour configurer des appareils clients afin qu’ils se connectent à des serveurs Wi-Fi et VPN, puis pour évaluer si ces appareils deviennent compatibles après l’application des profils. Le point de gestion transmet les informations de compatibilité au serveur de site et les informations sont stockées dans la base de données de site. Les informations sont chiffrées lorsque les périphériques les envoient au point de gestion mais ne sont pas stockées au format chiffré dans la base de données de site. La base de données conserve les informations jusqu'à ce que la tâche de maintenance de site **Supprimer les données de gestion de configuration anciennes** les supprime. L'intervalle de suppression par défaut est de 90 jours, mais vous pouvez la modifier. Les informations de compatibilité ne sont pas transmises à Microsoft.  
 
- Standaard apparaten niet geëvalueerd Wi-Fi en VPN-profielen. Bovendien moet u de profielen configureren en implementeren voor gebruikers.  
+ Par défaut, les appareils n’évaluent pas les profils Wi-Fi et VPN. En outre, vous devez configurer les profils, puis les déployer auprès des utilisateurs.  
 
- Bedenk wat uw privacyvereisten voordat u Wi-Fi of VPN-profielen configureert.  
+ Avant de configurer les profils Wi-Fi ou VPN, pensez à vos besoins en matière de confidentialité.  

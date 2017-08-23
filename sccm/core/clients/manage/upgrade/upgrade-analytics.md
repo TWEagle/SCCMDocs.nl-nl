@@ -1,6 +1,6 @@
 ---
-title: Gereedheid voor upgrade | System Center Configuration Manager
-description: "Gereedheid voor Upgrade worden geïntegreerd met Configuration Manager. Toegang tot upgradecompatibiliteit gegevens in de beheerconsole. Apparaten voor herstel of upgrade."
+title: Upgrade Readiness | System Center Configuration Manager
+description: "Intégrez Upgrade Readiness à Configuration Manager. Accédez aux données de compatibilité de mise à niveau dans votre console d’administration. Ciblez des appareils pour la mise à niveau ou la mise à jour."
 keywords: 
 author: mattbriggs
 ms.author: mabrigg
@@ -13,130 +13,130 @@ ms.technology: configmgr-client
 ms.assetid: 68407ab8-c205-44ed-9deb-ff5714451624
 ms.openlocfilehash: b1f4cd4a6f19a02d2b2dc3f9a841aeeb2a1403dd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="integrate-upgrade-readiness-with-system-center-configuration-manager"></a>Gereedheid voor Upgrade integreren met System Center Configuration Manager
+# <a name="integrate-upgrade-readiness-with-system-center-configuration-manager"></a>Intégrer Upgrade Readiness à System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Gereedheid voor upgrade (voorheen Upgrade Analytics) kunt u om te beoordelen en analyseren van de gereedheid van het apparaat met Windows 10. Gereedheid voor Upgrade worden geïntegreerd met Configuration Manager toegang tot gegevens van de client upgradecompatibiliteit in de beheerconsole van Configuration Manager. U zich aan doelapparaten voor herstel of upgrade van de lijst met apparaten.
+Upgrade Readiness (anciennement Upgrade Analytics) vous permet d’évaluer et d’analyser l’état de préparation des appareils et leur compatibilité avec Windows 10. Intégrez Upgrade Readiness à Configuration Manager pour accéder aux données de compatibilité de mise à niveau du client dans la console d’administration de Configuration Manager. Vous pouvez cibler des appareils pour la mise à niveau ou la mise à jour dans la liste d’appareils.
 
-Gereedheid voor upgrade is een oplossing in de Microsoft Operations Management Suite (OMS). U kunt meer lezen over gereedheid voor Upgrade in [aan de slag met de gereedheid voor Upgrade](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness).
+Upgrade Readiness est une solution incluse dans Microsoft Operations Management Suite (OMS). Pour en savoir plus sur Upgrade Readiness, consultez [Bien démarrer avec Upgrade Readiness](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness).
 
-## <a name="configure-clients"></a>Clients configureren
+## <a name="configure-clients"></a>Configurer des clients
 
-Er zijn diverse configuratiestappen die u uitvoeren moet om ervoor te zorgen dat uw clients gegevens voor gereedheid voor Upgrade leveren kunnen:
+Il existe plusieurs étapes de configuration pour vérifier que vos clients peuvent fournir des données à Upgrade Readiness :
 
--  Telemetrie-clientinstellingen configureren zoals beschreven in [telemetrie van de configuratie van Windows in uw organisatie](https://technet.microsoft.com/itpro/windows/manage/configure-windows-telemetry-in-your-organization).
--  Installeren van de beschreven in kB de * de update voor compatibiliteit en het bijbehorende kB implementeren * sectie van [aan de slag met de gereedheid voor Upgrade](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness).
+-  Configurez les paramètres de télémétrie du client comme décrit dans [Configurer la télémétrie Windows dans votre organisation](https://technet.microsoft.com/itpro/windows/manage/configure-windows-telemetry-in-your-organization).
+-  Installez les bases de connaissances décrites dans la section *Déployer la mise à jour de compatibilité et les bases de connaissances associées* de l’article [Bien démarrer avec Upgrade Readiness](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness).
 
     > [!NOTE]
-    > U kunt een script voor het automatiseren van veel van de client-instellingstaken downloaden. Zie de *het implementatiescript gereedheid voor Upgrade uitvoeren* sectie van [aan de slag met de gereedheid voor Upgrade](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness) voor meer informatie over het script.
+    > Vous pouvez télécharger un script pour automatiser de nombreuses tâches d’installation du client. Consultez la section *Exécuter le script de déploiement d’Upgrade Readiness* de la rubrique [Bien démarrer avec Upgrade Readiness](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness) pour plus d’informations sur le script.
 
-## <a name="connect-to-upgrade-readiness"></a>Verbinding maken met de gereedheid voor Upgrade
+## <a name="connect-to-upgrade-readiness"></a>Se connecter à Upgrade Readiness
 
-### <a name="prerequisites"></a>Vereisten
+### <a name="prerequisites"></a>Prérequis
 
-Vanaf versie van de huidige vertakking 1706, wordt de Wizard Azure-Services gebruikt voor het vereenvoudigen van het proces van het configureren van Azure-services die u met Configuration Manager gebruikt. Om de wizard gebruikt, moet u een Azure-web-app configureren. Voor meer informatie ziet, [Wizard Azure-Services](/sccm/core/servers/deploy/configureazure-services-wizard).
+À compter de Current Branch version 1706, l’Assistant Services Azure est utilisé pour simplifier le processus de configuration des services Azure que vous utilisez avec Configuration Manager. Pour pouvoir utiliser l’Assistant, vous devez configurer une application web Azure. Pour plus d’informations, consultez [Assistant Services Azure](/sccm/core/servers/deploy/configureazure-services-wizard).
 
-### <a name="use-the-azure-wizard-to-create-the-connection"></a>Gebruik de Wizard Azure-verbinding
+### <a name="use-the-azure-wizard-to-create-the-connection"></a>Utiliser l’Assistant Azure pour créer la connexion
 
-1.  In de **beheer** werkruimte van de Configuration Manager-console, vouw **Cloudservices**, en klik vervolgens op **Azure Services**.
-2.  Op de **Start** tabblad, in de **Azure Services** groep, klikt u op **Azure-Services configureren**.
-3.  Typ een beschrijvende naam op de pagina Azure-Services. U kunt ook een beschrijving invoeren. Selecteer vervolgens **Upgrade gereedheid van de Connector** en klik op **volgende**.
-4.  Geef uw Azure-omgeving op de pagina. Klik op **Bladeren** voor het instellen van een server-app.
-5.  Klik op **importeren** verbinding maken met uw Web-app in Azure.
-    -  Typ de **Azure AD-Tenant naam**.
-    -  Typ de **Azure AD-Tenant-ID**.
-    -  Typ de **toepassingsnaam**.
-    -  Typ de **Client-ID**.
-    -  Typ de **geheime sleutel**.
-    -  Selecteer de datum voor de **geheime sleutel verstrijken** datum.
-    -  Typ een URL voor de **toepassing-ID-URI**.
-    -  Klik op **controleren**, en klik vervolgens op **OK**.
+1.  Dans l’espace de travail **Administration** de la console Configuration Manager, développez **Services cloud**, puis cliquez sur **Services Azure**.
+2.  Sur l’onglet **Accueil**, sous le groupe **Services Azure**, cliquez sur **Configurer les services Azure**.
+3.  Tapez un nom convivial dans la page Services Azure. Vous pouvez également taper une description. Ensuite, sélectionnez **Connecteur Upgrade Readiness** et cliquez sur **Suivant**.
+4.  Dans la page Application, spécifiez votre environnement Azure. Cliquez sur **Parcourir** pour configurer une application serveur.
+5.  Cliquez sur **Importer** pour vous connecter à votre application Web dans Azure.
+    -  Tapez le **Nom du locataire Azure AD**.
+    -  Tapez l’**ID du locataire Azure AD**.
+    -  Tapez le **Nom de l’application**.
+    -  Tapez l’**ID du client**.
+    -  Tapez la **Clé secrète**.
+    -  Sélectionnez la date d’expiration dans **Expiration de la clé secrète**.
+    -  Tapez une URL dans **URI d’ID d’application**.
+    -  Cliquez sur **Vérifier**, puis sur **OK**.
 
-6.  Geef de verbinding met de gereedheid van de Upgrade op de pagina configuratie. Selecteer de volgende waarden:  
-    -  Azure-abonnementen
-    -  Azure-resourcegroep
-    -  Windows Analytics-werkruimte
-8.  Klik op **Volgende**. U kunt de verbinding in de pagina samenvatting bekijken. 
+6.  Spécifiez la connexion à Upgrade Readiness dans la page Configuration. Sélectionnez les valeurs suivantes :  
+    -  Abonnements Azure
+    -  Groupe de ressources Azure
+    -  Espace de travail Windows Analytics
+8.  Cliquez sur **Suivant**. Vous pouvez passer en revue votre connexion dans la page Résumé. 
 
-## <a name="complete-upgrade-readiness-tasks"></a>Taken uitvoeren gereedheid voor Upgrade  
+## <a name="complete-upgrade-readiness-tasks"></a>Effectuer les tâches d’Upgrade Readiness  
 
-Nadat u de verbinding hebt gemaakt, deze taken uitvoeren zoals is beschreven in [aan de slag met de gereedheid voor Upgrade](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness).  
+Une fois la connexion créée, effectuez les tâches suivantes. Celle-ci sont décrites dans [Bien démarrer avec Upgrade Readiness](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-readiness).  
 
-1. De service UpgradeReadiness toevoegen aan de OMS-werkruimte.  
-2. Genereren van een commerciële-ID.  
-3. Zich abonneren om de gereedheid voor Upgrade.   
+1. Ajoutez le service UpgradeReadiness à l’espace de travail OMS.  
+2. Générez un ID commercial.  
+3. Abonnez-vous à Upgrade Readiness.   
 
-## <a name="use-the-upgrade-readiness-deployment-script"></a>Gebruik het implementatiescript gereedheid voor Upgrade  
+## <a name="use-the-upgrade-readiness-deployment-script"></a>Utiliser le script de déploiement d’Upgrade Readiness  
 
-U kunt veel van de gereedheid van de Upgrade-taken automatiseren en oplossen van problemen met de Microsoft delen van gegevens **implementatiescript gereedheid voor Upgrade**.  
-Het script voor gereedheid voor Upgrade-implementatie, gebeurt het volgende:  
+Vous pouvez automatiser de nombreuses tâches d’Upgrade Readiness et résoudre des problèmes de partage de données avec le **script de déploiement de Microsoft Upgrade Readiness**.  
+Le script de déploiement d’Upgrade Readiness effectue les tâches suivantes :  
 
-- Hiermee stelt u commerciële ID-toets + CommercialDataOptIn + RequestAllAppraiserVersions sleutels.  
-- Controleert of computers van gebruikers kunnen gegevens naar Microsoft verzenden.  
-- Controleert of de computer opnieuw opstarten in behandeling heeft.   
-- Verifieert dat de nieuwste versie van KB 10.0 x inpakken is geïnstalleerd (10.0.14913 of latere versies vereist).  
-- Bij inschakeling Hiermee schakelt u uitgebreide modus voor het oplossen van problemen.  
-- Initieert de verzameling van de telemetriegegevens die Microsoft nodig heeft om de gereedheid voor upgrade van uw organisatie vast te stellen.  
-- Bij inschakeling voortgang wordt weergegeven van het script in een opdrachtvenster. Dit biedt inzicht in problemen (slagen of mislukken voor elke stap) en/of schrijft naar het logboekbestand.  
+- Définit la clé ID commercial et les clés CommercialDataOptIn et RequestAllAppraiserVersions.  
+- Vérifie que les ordinateurs des utilisateurs peuvent envoyer des données à Microsoft.  
+- Vérifie si l’ordinateur a un redémarrage en attente.   
+- Vérifie que la dernière version du package de bases de connaissances 10.0.x est installée (nécessite la version 10.0.14913 ou ultérieure).  
+- S’il est activé, active le mode détaillé pour la résolution des problèmes.  
+- Lance la collecte des données de télémétrie dont Microsoft a besoin pour évaluer l’état de préparation de votre organisation pour la mise à niveau.  
+- S’il est activé, affiche la progression du script dans une fenêtre cmd. Vous bénéficiez ainsi d’une visibilité des problèmes (succès ou échec pour chaque étape) et/ou des écritures dans le fichier journal.  
 
-## <a name="to-run-the-upgrade-readiness-deployment-script"></a>Het implementatiescript gereedheid voor Upgrade uitvoeren:  
+## <a name="to-run-the-upgrade-readiness-deployment-script"></a>Pour exécuter le script de déploiement d’Upgrade Readiness :  
 
-1. Download de [implementatiescript gereedheid voor Upgrade](https://go.microsoft.com/fwlink/?LinkID=822966&clcid=0x409) en UpgradeReadiness.zip extraheren. De bestanden in de **Diagnostics** map zijn alleen nodig als u van plan bent om uit te voeren van het script in de modus voor probleemoplossing.  
-2. Deze parameters in RunConfig.bat bewerken:  
-- Opslaglocatie voor de informatie in het foutenlogboek. Voorbeeld: % SystemDrive%\URDiagnostics. U kunt de informatie in het foutenlogboek opslaan op een externe bestandsshare of een lokale map. Als het script wordt geblokkeerd vanuit het maken van het logboekbestand voor het opgegeven pad, maakt de logboekbestanden in het station met de Windows-map.  
-- Commerciële ID-sleutel.  
-- Standaard wordt met het script logboekgegevens verzendt naar zowel de console en het logboekbestand. Als u wilt het standaardgedrag wijzigen, gebruikt u een van de volgende opties:  
-    - logMode = 0 logboek alleen console  
-    - logMode = 1 log-bestand en de console  
-    - logMode = 2 log naar het bestand alleen  
-    - Voor het oplossen van problemen ingesteld **isVerboseLogging** naar **$true** voor het genereren van logboekgegevens die u helpen kan bij het oplossen van problemen. Standaard **isVerboseLogging** is ingesteld op **$false**. Zorg ervoor dat de map diagnostische gegevens in dezelfde map als het script moet worden gebruikt in deze modus is geïnstalleerd.  
-    - Waarschuw gebruikers als de computer opnieuw opstarten vereist. Dit is standaard uitgeschakeld.  
+1. Téléchargez le [script de déploiement d’Upgrade Readiness](https://go.microsoft.com/fwlink/?LinkID=822966&clcid=0x409) et extrayez UpgradeReadiness.zip. Les fichiers du dossier **Diagnostics** sont nécessaires uniquement si vous projetez d’exécuter le script en mode de résolution de problèmes.  
+2. Modifiez ces paramètres dans RunConfig.bat :  
+- Emplacement de stockage des informations du journal. Exemple : %SystemDrive%\URDiagnostics. Vous pouvez stocker les informations du journal dans un partage de fichiers distant ou un répertoire local. Si le script ne peut pas créer le fichier journal dans le chemin indiqué, il crée les fichiers journaux dans le lecteur contenant le répertoire Windows.  
+- Clé ID commercial.  
+- Par défaut, le script envoie les informations du journal à la console et au fichier journal. Pour modifier le comportement par défaut, utilisez l’une des options suivantes :  
+    - logMode = 0 écrit les informations dans la console uniquement  
+    - logMode = 1 écrit les informations dans le fichier et la console  
+    - logMode = 2 écrit les informations dans le fichier uniquement  
+    - Pour la résolution des problèmes, définissez **isVerboseLogging** avec la valeur **$true** pour générer des informations de journal pouvant faciliter le diagnostic des problèmes. Par défaut, **isVerboseLogging** a la valeur **$false**. Vérifiez que le dossier Diagnostics est installé dans le même répertoire que le script pour utiliser ce mode.  
+    - Informez les utilisateurs s’ils doivent redémarrer leur ordinateur. Par défaut, ce paramètre est désactivé.  
 
-3. Nadat u de parameters in RunConfig.bat bewerken, moet u het script uitvoeren als beheerder.  
+3. Une fois que vous avez modifié les paramètres dans RunConfig.bat, exécutez le script en tant qu’administrateur.  
 
 
-## <a name="view-microsoft-upgrade-readiness-properties-in-configuration-manager"></a>Eigenschappen van de gereedheid voor Upgrade van Microsoft weergeven in Configuration Manager  
+## <a name="view-microsoft-upgrade-readiness-properties-in-configuration-manager"></a>Afficher les propriétés de Microsoft Upgrade Readiness dans Configuration Manager  
 
-1.  Navigeer in de Configuration Manager-console naar **Cloudservices**, en kies vervolgens **OMS Connector** openen de **OMS verbindingseigenschappen** pagina.  
+1.  Dans la console Configuration Manager, accédez à **Services cloud**, puis choisissez **Connecteur OMS** pour ouvrir la page **Propriétés de connexion OMS**.  
 
-2.  Er zijn twee tabbladen in deze pagina:
-  * De **Azure Active Directory** tabblad toont uw **Tenant**, **Client-ID**, **Client geheime sleutelverloop**, en kunt u **controleren** uw **geheime sleutel van de Client** als deze is verlopen.
-  * De **gereedheid voor Upgrade** tabblad toont uw **Azure-abonnement**, **Azure-resourcegroep**, en **Operations Management Suite-werkruimte**.
+2.  Cette page contient deux onglets :
+  * L’onglet **Azure Active Directory** affiche votre **Locataire**, l’**ID Client**, l’**Expiration de la clé secrète client** et vous permet de **vérifier** votre **Clé secrète client** si elle a expiré.
+  * L’onglet **Upgrade Readiness** affiche vos valeurs pour les champs **Abonnement Azure**, **Groupe de ressources Azure** et **Espace de travail Operations Management Suite**.
 
-## <a name="view-and-use-the-upgrade-information"></a>Weergeven en gebruiken de informatie over de upgrade
+## <a name="view-and-use-the-upgrade-information"></a>Afficher et utiliser les informations de mise à niveau
 
-Nadat u hebt gereedheid voor Upgrade geïntegreerd met Configuration Manager, kunt u de analyse van de gereedheid voor upgrade van uw clients weergeven en vervolgens actie ondernemen.
+Une fois que vous avez intégré Upgrade Readiness à Configuration Manager, vous pouvez afficher l’analyse de la préparation de vos clients pour la mise à niveau et agir en conséquence.
 
-1. Kies in de Configuration Manager-console **bewaking** > **overzicht** > **gereedheid voor Upgrade**.
-2. Controleer de gegevens, waaronder de status van de gereedheid voor upgrade en het percentage van de Windows-apparaten die telemetrie rapporteren.
-3. U kunt het dashboard om gegevens voor apparaten in specifieke verzamelingen weer te filteren.
-4. U kunt de apparaten in een bepaalde gereedheidsstatus weergeven en een dynamische verzameling voor apparaten maken zodat u kunt upgraden van deze apparaten als gereed of actie ondernemen om te zorgen dat ze naar een gereedheidsstatus.
+1. Dans la console Configuration Manager, choisissez **Surveillance** > **Vue d’ensemble** > **Upgrade Readiness**.
+2. Passez en revue les données, notamment l’état de préparation à la mise à niveau et le pourcentage d’appareils Windows qui envoient des données de télémétrie.
+3. Vous pouvez filtrer le tableau de bord pour afficher les données d’appareils dans des regroupements spécifiques.
+4. Vous pouvez afficher les appareils dans un état de préparation particulier et créer un regroupement dynamique pour ces derniers afin de pouvoir les mettre à niveau s’ils sont prêts ou effectuer les actions nécessaires pour les préparer à la mise à niveau.
 
-## <a name="create-a-connection-to-upgrade-readiness-1702-and-earlier"></a>Maak een verbinding met gereedheid voor Upgrade (1702 en lager)
+## <a name="create-a-connection-to-upgrade-readiness-1702-and-earlier"></a>Créer une connexion à Upgrade Readiness (1702 et antérieur)
 
-Voordat de 1706 vereist vertakking van Configuration Manager is een verbinding maken met gereedheid voor Upgrade de volgende stappen uit.
+Avant la branche 1706 de Configuration Manager, vous deviez effectuer les étapes suivantes pour créer une connexion à Upgrade Readiness.
 
-### <a name="prerequisites"></a>Vereisten
+### <a name="prerequisites"></a>Prérequis
 
-- Om de verbinding toevoegen, moet eerst uw Configuration Manager-omgeving configureren een [serviceaansluitpunt](/sccm/core/servers/deploy/configure/about-the-service-connection-point) in een [onlinemodus](https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/). Wanneer u de verbinding aan uw omgeving toevoegen, wordt het Microsoft Monitoring Agent ook installeren op de computer waarop deze sitesysteemrol.
-- Configuration Manager registreren als beheerprogramma 'Webtoepassing en/of Web-API' en krijgt de [client-ID van deze registratie](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/).
-- Maak een clientsleutel voor het geregistreerde beheerprogramma in Azure Active Directory.
-- In de Azure-portal bieden u de geregistreerde web-app met de machtiging voor toegang tot OMS, zoals beschreven in [Configuration Manager bieden met machtigingen voor OMS](https://azure.microsoft.com/documentation/articles/log-analytics-sccm/#provide-configuration-manager-with-permissions-to-oms).
+- Pour ajouter la connexion, votre environnement Configuration Manager doit d’abord configurer un [point de connexion de service](/sccm/core/servers/deploy/configure/about-the-service-connection-point) dans un [mode en ligne](https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/). Quand vous ajoutez la connexion à votre environnement, Microsoft Monitoring Agent est également installé sur l’ordinateur exécutant ce rôle de système de site.
+- Inscrivez Configuration Manager comme outil de gestion « Application web et/ou API web » et obtenez l’[ID de client résultant de cette inscription](https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/).
+- Créer une clé de client pour l’outil de gestion inscrit dans Azure Active Directory.
+- Dans le portail Azure, autorisez l’application web inscrite à accéder à OMS en suivant les étapes décrites dans [Accorder à Configuration Manager les autorisations d’accès à OMS](https://azure.microsoft.com/documentation/articles/log-analytics-sccm/#provide-configuration-manager-with-permissions-to-oms).
 
     > [!IMPORTANT]
-    > Bij het configureren van machtigingen voor toegang tot OMS, moet u kiezen de **Inzender** rol, en deze machtigingen toewijzen aan de resourcegroep van de geregistreerde app.
+    > Quand vous configurez l’autorisation d’accès à OMS, choisissez le rôle **Collaborateur** et accordez-lui les autorisations sur le groupe de ressources de l’application inscrite.
 
-### <a name="create-the-connection"></a>De verbinding maken
+### <a name="create-the-connection"></a>Créer la connexion
 
-1.  Kies in de Configuration Manager-console **beheer** > **Cloudservices** > **Upgrade gereedheid van de Connector** > **verbinding maken met Analytics Upgrade** starten de **Wizard upgradepakket toevoegen Analytics verbinding**.
-3.  Op de **Azure Active Directory** scherm, bieden **Tenant**, **Client-ID**, en **geheime sleutel van de Client**, selecteer daarna **volgende**.
-4.  Op de **gereedheid voor Upgrade** scherm, geeft u de verbindingsinstellingen door in te vullen uw **Azure-abonnement**, **Azure-resourcegroep**, en **Operations Management Suite-werkruimte**.
-5.  Controleer de verbindingsinstellingen op de **samenvatting** scherm en selecteer vervolgens **volgende**.
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Services cloud** > **Connecteur Upgrade Readiness** > **Créer une connexion à Upgrade Analytics** pour démarrer l’**Assistant Ajout d’une connexion Upgrade Analytics**.
+3.  Dans l’écran **Azure Active Directory**, indiquez les valeurs de **Locataire**, **ID de client** et **Clé secrète du client**, puis sélectionnez **Suivant**.
+4.  Dans l’écran **Upgrade Readiness**, définissez vos paramètres de connexion en renseignant les champs **Abonnement Azure**, **Groupe de ressources Azure** et **Espace de travail Operations Management Suite**.
+5.  Vérifiez vos paramètres de connexion dans l’écran **Résumé**, puis sélectionnez **Suivant**.
 
     > [!NOTE]
-    > U moet gereedheid voor Upgrade verbinden met de hoogste site in uw hiërarchie. Als u verbinding maken met gereedheid voor Upgrade van een zelfstandige primaire site en vervolgens een centrale beheersite toe te aan uw omgeving voegen, moet u deze verwijderen en opnieuw maken van de OMS-verbinding in de nieuwe hiërarchie.
+    > Vous devez connecter Upgrade Readiness au site de niveau supérieur de votre hiérarchie. Si vous connectez Upgrade Readiness à un site principal autonome et que vous ajoutez ensuite un site d’administration centrale à votre environnement, vous devez supprimer et recréer la connexion OMS au sein de la nouvelle hiérarchie.

@@ -1,6 +1,6 @@
 ---
-title: Ondersteuning voor Windows-onderdelen | Microsoft Docs
-description: Meer informatie over welke Windows- en netwerken functies ondersteunt van System Center Configuration Manager.
+title: "Prise en charge des fonctionnalités de Windows | Microsoft Docs"
+description: "Découvrez les fonctionnalités de Windows et des réseaux que System Center Configuration Manager prend en charge."
 ms.custom: na
 ms.date: 3/30/2017
 ms.prod: configuration-manager
@@ -17,122 +17,122 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: e040552dab21ba9a71e06a78f6acc2ffe1b0eb61
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="support-for-windows-features-and-networks-in-system-center-configuration-manager"></a>Ondersteuning voor Windows-onderdelen en -netwerken in System Center Configuration Manager
+# <a name="support-for-windows-features-and-networks-in-system-center-configuration-manager"></a>Prise en charge des fonctionnalités de Windows et des réseaux dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Dit onderwerp vindt u System Center Configuration Manager-ondersteuning voor algemene Windows- en netwerkfuncties.  
+Cette rubrique porte sur la prise en charge par System Center Configuration Manager des fonctionnalités courantes de Windows et des réseaux.  
 
 
 ##  <a name="bkmk_branchcache"></a> BranchCache  
-U kunt Windows BranchCache gebruiken met Configuration Manager wanneer u BranchCache op distributiepunten inschakelen en configureren van clients voor het gebruik van BranchCache in de modus gedistribueerde cache.
+Vous pouvez utiliser Windows BranchCache avec Configuration Manager quand vous activez BranchCache sur des points de distribution, puis configurer les clients pour qu’ils utilisent BranchCache en mode de cache distribué.
 
-U kunt de BranchCache-instellingen voor een implementatietype voor toepassingen, voor de implementatie voor een pakket en voor takenreeksen configureren.  
+Vous pouvez configurer les paramètres de BranchCache sur un type de déploiement d’applications, sur le déploiement d'un package et pour des séquences de tâches.  
 
-Wanneer de vereisten voor BranchCache wordt voldaan, kan deze functie clients op externe locaties inhoud ophalen van lokale clients met een huidige cache van de inhoud.  
+Quand les conditions requises de BranchCache sont remplies, cette fonctionnalité permet aux clients situés à des emplacements distants d’obtenir le contenu des clients locaux qui ont un cache actif du contenu.  
 
-Als bijvoorbeeld de eerste clientcomputer met BranchCache inhoud aanvraagt van een distributiepunt dat is geconfigureerd als een BrancheCache-server, wordt de inhoud door de clientcomputer gedownload en opgeslagen in het cachegeheugen. Deze inhoud wordt vervolgens beschikbaar gesteld voor clients op hetzelfde subnet die deze inhoud wordt aangevraagd.
+Par exemple, quand le premier ordinateur client compatible BranchCache demande du contenu à partir d’un point de distribution configuré en tant que serveur BranchCache, l’ordinateur client télécharge et met en cache le contenu. Ce contenu est ensuite rendu disponible pour les clients sur le même sous-réseau qui celui qui a demandé ce contenu.
 
-Deze clients cache ook de inhoud. Op deze wijze hoeven opeenvolgende clients in hetzelfde subnet de inhoud niet van het distributiepunt te downloaden en wordt de inhoud over meerdere clients gedistribueerd voor toekomstige overdrachten.  
+Ces clients mettent également en cache le contenu. De cette façon, les clients successifs sur le même sous-réseau n'ont pas besoin de télécharger du contenu depuis le point de distribution, et le contenu est distribué sur plusieurs clients pour des transferts futurs.  
 
-**Vereisten voor de ondersteuning van BranchCache met Configuration Manager:**  
--   **Distributiepunten configureren:**  
-    Voeg het onderdeel **Windows BranchCache** toe aan de sitesysteemserver die is geconfigureerd als een distributiepunt.    
+**Conditions requises pour prendre en charge BranchCache avec Configuration Manager :**  
+-   **Configurer des points de distribution**  
+    Ajoutez la fonctionnalité **Windows BranchCache** au serveur de système de site qui est configuré en tant que point de distribution.    
 
-    -   Distributiepunten op servers die zijn geconfigureerd voor ondersteuning van BranchCache is geen aanvullende configuratie vereist.   
-    -   U kunt Windows BranchCache niet toevoegen aan een cloud-gebaseerd distributiepunt, maar de cloud-gebaseerde distributiepunten bieden ondersteuning voor het downloaden van inhoud door clients die zijn geconfigureerd voor Windows BranchCache.  
+    -   Les points de distribution sur les serveurs configurés pour prendre en charge BranchCache ne nécessitent aucune configuration supplémentaire.   
+    -   Vous ne pouvez pas ajouter Windows BranchCache à un point de distribution cloud, mais les points de distribution cloud prennent en charge le téléchargement de contenu par des clients configurés pour Windows BranchCache.  
 
--   **Clients configureren:**    
-    -   De clients die BranchCache kunnen ondersteunen, moeten worden geconfigureerd voor de gedistribueerde-cachemodus van BranchCache.  
-    -   De besturingssysteeminstelling voor BITS-clientinstellingen moet zijn ingeschakeld voor de ondersteuning van BranchCache.   <br /> <br />
+-   **Configurer des clients :**    
+    -   Les clients pouvant prendre en charge BranchCache doivent être configurés pour le mode de cache distribué de BranchCache.  
+    -   Le paramètre de système d’exploitation pour les paramètres du client BITS doit être activé pour prendre en charge BranchCache.   <br /> <br />
         
-    Zie voor informatie over hoe u clients ter ondersteuning van BranchCache kunt configureren, de [clients configureren](https://technet.microsoft.com/itpro/windows/manage/waas-branchcache#configure-clients-for-branchcache) in sectie [BranchCache configureren voor Windows 10-updates](https://technet.microsoft.com/itpro/windows/manage/waas-branchcache).
+    Pour plus d’informations sur la configuration des clients pour qu’ils prennent en charge BranchCache, consultez la section [Configurer des clients](https://technet.microsoft.com/itpro/windows/manage/waas-branchcache#configure-clients-for-branchcache) dans [Configurer BranchCache pour les mises à jour Windows 10](https://technet.microsoft.com/itpro/windows/manage/waas-branchcache).
 
 
-**Configuration Manager ondersteunt de volgende client-besturingssystemen met Windows BranchCache:**  
+**Configuration Manager prend en charge les systèmes d’exploitation clients suivants avec Windows BranchCache :**  
 
-|Besturingssysteem|Ondersteuningsgegevens|  
+|Système d'exploitation|Détails de la prise en charge|  
 |----------------------|---------------------|  
-|Windows 7 met SP1|Standaard ondersteund|  
-|Windows 8|Standaard ondersteund|  
-|Windows 8.1|Standaard ondersteund|  
-|Windows 10|Standaard ondersteund|  
-|Windows Server 2008 met SP2|**BITS 4.0 vereist**: U kunt de BITS 4.0-release van Configuration Manager-clients installeren met behulp van software-updates of softwaredistributie. Zie [Windows Management Framework](http://go.microsoft.com/fwlink/p/?LinkId=181979)voor meer informatie over de BITS 4.0-release.<br /><br /> Dit besturingssysteem biedt geen ondersteuning voor de BranchCache-clientfunctie voor softwaredistributie die wordt uitgevoerd vanaf het netwerk of voor SMB-bestandsoverdrachten. Bovendien kan dit besturingssysteem de BranchCache-functionaliteit niet gebruiken met clouddistributiepunten.|  
-|Windows Server 2008 R2|Standaard ondersteund|  
-|Windows Server 2012|Standaard ondersteund|  
-|Windows Server 2012 R2|Standaard ondersteund|  
+|Windows 7 avec SP1|Pris en charge par défaut|  
+|Windows 8|Pris en charge par défaut|  
+|Windows 8.1|Pris en charge par défaut|  
+|Windows 10|Pris en charge par défaut|  
+|Windows Server 2008 avec SP2|**Nécessite BITS 4.0** : vous pouvez installer BITS 4.0 sur des clients Configuration Manager à l’aide de mises à jour logicielles ou d’une distribution de logiciels. Pour plus d’informations sur BITS 4.0, consultez [Windows Management Framework](http://go.microsoft.com/fwlink/p/?LinkId=181979).<br /><br /> Sur ce système d’exploitation, la fonctionnalité cliente BranchCache n’est pas prise en charge pour la distribution de logiciels exécutée à partir du réseau ou pour les transferts de fichiers SMB. De plus, ce système d’exploitation ne peut pas utiliser la fonctionnalité BranchCache avec des points de distribution cloud.|  
+|Windows Server 2008 R2|Pris en charge par défaut|  
+|Windows Server 2012|Pris en charge par défaut|  
+|Windows Server 2012 R2|Pris en charge par défaut|  
 
- Zie [BranchCache voor Windows](http://go.microsoft.com/fwlink/p/?LinkId=177945) in de Windows Server-documentatie voor meer informatie.  
+ Pour plus d'informations sur BranchCache, consultez [BranchCache pour Windows](http://go.microsoft.com/fwlink/p/?LinkId=177945) dans la documentation de Windows Server.  
 
-##  <a name="bkmk_Workgroups"></a>Computers in werkgroepen  
-Configuration Manager biedt ondersteuning voor clients in werkgroepen.  
+##  <a name="bkmk_Workgroups"></a> Ordinateurs dans des groupes de travail  
+Configuration Manager prend en charge les clients dans des groupes de travail.  
 
--   Configuration Manager ondersteunt het verplaatsen van een client van een werkgroep naar een domein of van een domein naar een werkgroep. Zie voor meer informatie [Configuration Manager-clients installeren op Computers in werkgroepen](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientWorkgroup) in de [clients implementeren op Windows-computers in System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-windows-computers.md) onderwerp.  
+-   Configuration Manager prend en charge le déplacement d’un client depuis un groupe de travail vers un domaine, et inversement. Pour plus d’informations, consultez [Guide pratique pour installer des clients Configuration Manager sur des ordinateurs d’un groupe de travail](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientWorkgroup) dans la rubrique [Guide pratique pour déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-windows-computers.md).  
 
 > [!NOTE]  
->  Hoewel clients in werkgroepen worden ondersteund, moeten alle sitesystemen lid van een ondersteund Active Directory-domein.  
+>  Les clients des groupes de travail sont pris en charge, mais tous les systèmes de site doivent être membres d’un domaine Active Directory pris en charge.  
 
 
-##  <a name="bkmmk_datadedup"></a> Gegevensontdubbeling  
-Configuration Manager ondersteunt het gebruik van gegevensontdubbeling met distributiepunten op de volgende besturingssystemen:  
+##  <a name="bkmmk_datadedup"></a> Déduplication des données  
+Configuration Manager prend en charge l’utilisation de la déduplication des données avec des points de distribution sur les systèmes d’exploitation suivants :  
 
--   Windows Server 2012  
+-   Windows Server 2012  
 
 -   Windows Server 2012 R2  
 
 > [!IMPORTANT]  
->  Het volume dat als host fungeert voor bronbestanden van een pakket kan niet worden gemarkeerd voor gegevensontdubbeling. Dit is omdat gegevensontdubbeling reparsepunten gebruikt en Configuration Manager biedt geen ondersteuning voor het gebruik van een inhoudsbronlocatie met bestanden die op reparsepunten worden opgeslagen.  
+>  Le volume qui héberge les fichiers sources de package ne peut pas être marqué pour la déduplication des données. En effet, la déduplication des données utilise des points d’analyse et Configuration Manager ne prend pas en charge l’utilisation d’un emplacement source de contenu avec des fichiers stockés sur des points d’analyse.  
 
-Zie voor meer informatie [distributiepunten van Configuration Manager en Windows Server 2012-Gegevensontdubbeling](http://blogs.technet.com/b/configmgrteam/archive/2014/02/18/configuration-manager-distribution-points-and-windows-server-2012-data-deduplication.aspx) op de Configuration Manager-teamblog en [overzicht Gegevensontdubbeling](http://technet.microsoft.com/library/hh831602.aspx) in de Windows Server TechNet-bibliotheek.  
+Pour plus d’informations, consultez [Points de distribution Configuration Manager et déduplication des données de Windows Server 2012](http://blogs.technet.com/b/configmgrteam/archive/2014/02/18/configuration-manager-distribution-points-and-windows-server-2012-data-deduplication.aspx) sur le blog de l’équipe Configuration Manager et [Vue d’ensemble de la déduplication des données](http://technet.microsoft.com/library/hh831602.aspx) dans la bibliothèque TechNet de Windows Server.  
 
 ##  <a name="bkmk_DA"></a> DirectAccess  
-Configuration Manager ondersteunt de functie DirectAccess in Windows Server 2008 R2 en hoger voor communicatie tussen clients en sitesystemen van de server.  
+Configuration Manager prend en charge la fonctionnalité DirectAccess dans Windows Server 2008 R2 et versions ultérieures pour la communication entre les clients et les systèmes de serveur de site.  
 
--   Als alle vereisten voor DirectAccess is voldaan, kan DirectAccess Configuration Manager-clients op Internet om te communiceren met hun toegewezen site alsof ze op het intranet.  
+-   Quand toutes les exigences pour DirectAccess sont satisfaites, DirectAccess permet aux clients Configuration Manager sur Internet de communiquer avec le site qui leur est affecté comme s’ils étaient sur l’intranet.  
 
--   Voor serveracties, zoals beheer op afstand en clientpushinstallaties, moet op de computer die deze actie in gang heeft gezet (zoals de siteserver) IPv6 worden uitgevoerd en dit protocol moet worden ondersteund op alle betrokken netwerkapparaten.  
+-   Pour les actions effectuées par le serveur, telles que le contrôle à distance ou l'installation poussée de client, l'ordinateur concerné (tel que le serveur de site) doit exécuter IPv6 et ce protocole doit être supporté sur tous les périphériques réseau impliqués.  
 
-Configuration Manager biedt geen ondersteuning voor het volgende via DirectAccess:  
+Configuration Manager ne prend pas en charge les éléments suivants sur DirectAccess :  
 
--   De implementatie van besturingssystemen  
+-   Le déploiement de systèmes d’exploitation  
 
--   Communicatie tussen sites van Configuration Manager  
+-   Communication entre les sites Configuration Manager  
 
--   Communicatie tussen Configuration Manager-sitesysteemservers binnen een site  
+-   Communication entre les serveurs de système de site Configuration Manager au sein d’un site  
 
-##  <a name="bkmk_dualboot"></a> Dual-bootcomputers  
- Configuration Manager kan niet meer dan één besturingssysteem op één computer beheren. Als er meer dan één besturingssysteem op een computer die moet worden beheerd is, past u de detectie- en installatiemethoden die worden gebruikt om ervoor te zorgen dat de Configuration Manager client alleen wordt geïnstalleerd op het besturingssysteem dat moet worden beheerd.  
+##  <a name="bkmk_dualboot"></a> Ordinateurs à double démarrage  
+ Configuration Manager ne peut pas gérer plusieurs systèmes d’exploitation sur un seul ordinateur. Si plusieurs systèmes d’exploitation sont présents sur un ordinateur à gérer, ajustez les méthodes de découverte et d’installation utilisées, pour garantir que le client Configuration Manager est installé uniquement sur le système d’exploitation qui doit être géré.  
 
-##  <a name="bkmk_IPv6"></a>Internet Protocol versie 6  
- Configuration Manager ondersteunt naast Internet Protocol versie 4 (IPv4), Internet Protocol versie 6 (IPv6) met de volgende uitzonderingen:  
+##  <a name="bkmk_IPv6"></a> Protocole Internet version 6  
+ En plus du protocole Internet version 4 (IPv4), Configuration Manager prend en charge le protocole Internet version 6 (IPv6) avec les exceptions suivantes :  
 
-|Functie| Uitzondering op IPv6-ondersteuning|  
+|Fonction| Exception à la prise en charge IPv6|  
 |--------------|-------------------------------|  
-|Clouddistributiepunten|IPv4 is vereist voor de ondersteuning van Microsoft Azure en clouddistributiepunten.|  
-|Mobiele apparaten die zijn geregistreerd door Microsoft Intune en de Microsoft-serviceconnector|IPv4 is vereist voor ondersteuning van mobiele apparaten die zijn geregistreerd door Microsoft Intune en de Microsoft-serviceconnector.|  
-|Netwerkdetectie|IPv4 is vereist als u een DHCP-server configureert om in Netwerkdetectie te zoeken.|  
-|Implementatie van besturingssystemen|IPv4 is vereist voor ondersteuning van de implementatie van besturingssystemen.|  
-|Communicatie van de wake-up proxy|IPv4 is vereist voor de ondersteuning van de pakketten voor de wake-up proxy van clients.|  
-|Windows CE|IPv4 is vereist voor de ondersteuning van Configuration Manager-client op Windows CE-apparaten.|  
+|Points de distribution cloud|IPv4 est requis pour prendre en charge Microsoft Azure et les points de distribution cloud.|  
+|Appareils mobiles inscrits par Microsoft Intune et le connecteur de service Microsoft|IPv4 est requis pour prendre en charge les appareils mobiles inscrits par Microsoft Intune et le connecteur de service Microsoft.|  
+|Découverte du réseau|IPv4 est requis lorsque vous configurez un serveur DHCP pour effectuer une recherche dans la découverte du réseau.|  
+|Déploiement du système d'exploitation|IPv4 est requis pour prendre en charge le déploiement de systèmes d'exploitation.|  
+|Communication avec le proxy de mise en éveil à distance|IPv4 est requis pour prendre en charge les paquets de proxy de mise en éveil du client.|  
+|Windows CE|IPv4 est requis pour prendre en charge le client Configuration Manager sur les appareils Windows CE.|  
 
-##  <a name="bkmk_NAT"></a> Network Address Translation  
- NAT (Network Address Translation) wordt niet ondersteund voor in Configuration Manager, tenzij de site biedt ondersteuning voor clients die zich op het Internet en de client detecteert dat is verbonden met Internet. Zie voor meer informatie over clientbeheer op Internet, [plannen voor het beheren van clients op Internet in System Center Configuration Manager](../../../core/clients/deploy/plan/plan-for-managing-internet-based-clients.md).  
+##  <a name="bkmk_NAT"></a> Traduction d’adresses réseau  
+ La traduction d’adresses réseau n’est pas prise en charge dans Configuration Manager, sauf si le site prend en charge les clients qui se trouvent sur Internet et que le client détecte qu’ils sont connectés à Internet. Pour plus d’informations sur la gestion des clients Internet, consultez [Planifier la gestion des clients Internet dans System Center Configuration Manager](../../../core/clients/deploy/plan/plan-for-managing-internet-based-clients.md).  
 
-##  <a name="bkmk_storage"></a> Gespecialiseerde opslagtechnologie  
- Configuration Manager werkt met alle hardware die is gecertificeerd op de Windows Hardware Compatibility List voor de versie van het besturingssysteem waarop het onderdeel Configuration Manager is geïnstalleerd.
+##  <a name="bkmk_storage"></a> Technologie de stockage spécialisée  
+ Configuration Manager est conçu pour fonctionner avec tout matériel approuvé dans la liste de conformité matérielle de Windows pour la version du système d’exploitation sur laquelle le composant Configuration Manager est installé.
 
-Voor siteserverfuncties zijn NTFS-bestandssystemen vereist zodat map- en bestandsmachtigingen kunnen worden ingesteld. Omdat Configuration Manager wordt ervan uitgegaan dat er volledig eigenaar is van een logisch station, kunnen geen sitesystemen op afzonderlijke computers met een logische partitie in welke opslagtechnologie delen. Elke computer kan echter een afzonderlijke logische partitie gebruiken op dezelfde fysieke partitie van een gedeeld opslagapparaat.  
+Les rôles de serveur de site requièrent des systèmes de fichiers NTFS afin que les autorisations sur les répertoires et les fichiers puissent être définies. Comme Configuration Manager suppose qu’il a la propriété complète d’un lecteur logique, les systèmes de site qui s’exécutent sur des ordinateurs distincts ne peuvent pas partager une partition logique sur une technologie de stockage, quelle qu’elle soit. Cependant, chaque ordinateur peut utiliser une partition logique distincte sur la même partition physique d'un dispositif de stockage partagé.  
 
- **Ondersteuningsoverwegingen:**  
+ **Considérations relatives à la prise en charge :**  
 
--   **Storage Area Network**: Een Storage Area Network (SAN) wordt ondersteund wanneer een ondersteunde Windows-server rechtstreeks wordt gekoppeld aan het volume dat wordt gehost door de SAN.  
+-   **Réseau de zone de stockage**: l’utilisation d’un réseau de zone de stockage (SAN) est prise en charge quand un serveur Windows pris en charge est directement associé au volume hébergé par le SAN.  
 
--   **Single Instance Storage**: Configuration Manager biedt geen ondersteuning voor configuratie van mappen voor distributiepuntpakketten en handtekeningen in een Single Instance Storage SIS-volume.  
+-   **Stockage d’instance simple (SIS)** : Configuration Manager ne prend pas en charge la configuration de dossiers de packages de points de distribution et de signatures sur un volume SIS.  
 
-     Bovendien worden de cache van een Configuration Manager-client wordt niet ondersteund in een SIS-volume.  
+     En outre, le cache d’un client Configuration Manager n’est pas pris en charge sur un volume SIS.  
 
--   **Verwisselbare-schijfstation**: Configuration Manager biedt geen ondersteuning voor de installatie van Configuration Manager-sitesystemen of clients op een verwisselbaar station.  
+-   **Lecteur de disque amovible** : Configuration Manager ne prend pas en charge l’installation d’un système de site ou de clients Configuration Manager sur un lecteur de disque amovible.  

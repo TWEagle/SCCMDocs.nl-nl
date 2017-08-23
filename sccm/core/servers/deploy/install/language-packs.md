@@ -1,6 +1,6 @@
 ---
-title: Taalpakketten | Microsoft Docs
-description: Meer informatie over de ondersteuning voor talen die beschikbaar is in System Center Configuration Manager.
+title: Modules linguistiques | Microsoft Docs
+description: "Découvrez la prise en charge linguistique disponible dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 1/3/2017
 ms.prod: configuration-manager
@@ -16,81 +16,81 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 47da3c531289ddf13d357bde8bbda85d79ed2803
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="language-packs-in-system-center-configuration-manager"></a>Taalpakketten in System Center Configuration Manager
+# <a name="language-packs-in-system-center-configuration-manager"></a>Modules linguistiques dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-In dit onderwerp vindt u technische gegevens over taalondersteuning in System Center Configuration Manager.  
+Cette rubrique fournit des détails techniques sur la prise en charge linguistique dans System Center Configuration Manager.  
 
-## <a name="BKMK_SupLanguagePacks"></a>Ondersteund besturingssysteemtalen  
- U kunt ondersteuning voor de Weergavetalen installeren in de volgende tabellen door het installeren van **servertaalpakketten** of **clienttaalpakketten** op een centrale beheersite en op primaire sites. U selecteren de server en clienttalen ter ondersteuning van op een site uit de beschikbare taalpakketbestanden tijdens het installatieproces van de site.
+## <a name="BKMK_SupLanguagePacks"></a> Langues du système d’exploitation prises en charge  
+ Vous pouvez installer la prise en charge des langues d’affichage des tableaux suivants en installant les **modules linguistiques du serveur** ou les **modules linguistiques du client** sur le site d’administration centrale et sur les sites principaux. Vous sélectionnez les langues de serveur et de client à prendre en charge sur ce site parmi les fichiers de modules linguistiques disponibles au cours du processus d’installation.
 
- Taalpakketbestanden worden gedownload wanneer u Setup als onderdeel van de vereisten en herdistribueerbare bestand downloaden uitvoert. U kunt ook gebruiken [Setup Downloader](setup-downloader.md) deze om bestanden te downloaden voordat u Setup uitvoert.   
+ Les fichiers de modules linguistiques sont téléchargés quand vous exécutez le programme d’installation dans le cadre du téléchargement des fichiers prérequis et redistribuables. Vous pouvez également utiliser le [Téléchargeur d’installation](setup-downloader.md) pour télécharger ces fichiers avant d’exécuter le programme d’installation.   
 
- Gebruik de volgende tabel een landinstellingen-ID toewijzen aan een taal die u wilt ondersteunen op servers of clientcomputers. Zie voor meer informatie over landinstellingen-id [landinstellingen-id's toegewezen door Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=252609).  
+ Aidez-vous du tableau suivant pour mapper un ID de paramètres régionaux à la langue que vous voulez prendre en charge sur des serveurs ou des ordinateurs clients. Pour plus d’informations sur les ID de paramètres régionaux, consultez [ID de paramètres régionaux attribués par Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=252609).  
 
-### <a name="server-languages"></a>Servertalen  
+### <a name="server-languages"></a>Langues du serveur  
 
-|Servertaal|Landinstellingen-id (LCID)|Drieletterige code|  
+|Langue du serveur|ID de paramètres régionaux (LCID)|Code en trois lettres|  
 |---------------------|------------------------|-----------------------|  
-|Engels (standaard)|0409|ENU|  
-|Chinees (Traditioneel, Hongkong SAR)|0c04|ZHH|  
-|Chinees (Vereenvoudigd)|0804|CHS|  
-|Chinees (Traditioneel, Taiwan)|0404|CHT|  
-|Tsjechisch|0405|CSY|  
-|Nederlands - Nederland|0413|NLD|  
-|Frans|040c|FRA|  
-|Duits|0407|DEU|  
-|Hongaars|040e|HUN|  
-|Italiaans - Italië|0410|ITA|  
-|Japans|0411|JPN|  
-|Koreaans|0412|KOR|  
-|Pools|0415|PLK|  
-|Portugees - Brazilië|0416|PTB|  
-|Portugees - Portugal|0816|PTG|  
-|Russisch|0419|RUS|  
-|Spaans – Spanje|0c0a|ESN|  
-|Zweeds|041d|SVE|  
-|Turks|041f|TRK|  
+|Anglais (par défaut)|0409|ENU|  
+|Chinois (traditionnel, Hong Kong R.A.S.)|0c04|ZHH|  
+|Chinois (simplifié)|0804|CHS|  
+|Chinois (traditionnel, Taïwan)|0404|CHT|  
+|Tchèque|0405|CSY|  
+|Néerlandais - Pays-bas|0413|NLD|  
+|Français|040c|FRA|  
+|Allemand|0407|DEU|  
+|Hongrois|040e|HUN|  
+|Italien - Italie|0410|ITA|  
+|Japonais|0411|JPN|  
+|Coréen|0412|KOR|  
+|Polonais|0415|PLK|  
+|Portugais - Brésil|0416|PTB|  
+|Portugais - Portugal|0816|PTG|  
+|Russe|0419|RUS|  
+|Espagnol - Espagne|0c0a|ESN|  
+|Suédois|041d|SVE|  
+|Turc|041f|TRK|  
 
-### <a name="client-languages"></a>Clienttalen  
+### <a name="client-languages"></a>Langues du client  
 
-|Clienttaal|Landinstellingen-id (LCID)|Drieletterige code|  
+|Langue du client|ID de paramètres régionaux (LCID)|Code en trois lettres|  
 |---------------------|------------------------|-----------------------|  
-|Engels (standaard)|0409|ENG|  
-|Chinees (Traditioneel, Hongkong SAR)|0c04|ZHH|  
-|Chinees - Vereenvoudigd|0804|CHS|  
-|Chinees (Traditioneel, Taiwan)|0404|CHT|  
-|Tsjechisch|0405|CSY|  
-|Deens|0406|DAN|  
-|Nederlands - Nederland|0413|NLD|  
-|Fins|040b|FIN|  
-|Frans|040c|FRA|  
-|Duits|0407|DEU|  
-|Grieks|0408|ELL|  
-|Hongaars|040e|HUN|  
-|Italiaans - Italië|0410|ITA|  
-|Japans|0411|JPN|  
-|Koreaans|0412|KOR|  
-|Noors|0414|NOR|  
-|Pools|0415|PLK|  
-|Portugees (Brazilië)|0416|PTB|  
-|Portugees (Portugal)|0816|PTG|  
-|Russisch|0419|RUS|  
-|Spaans – Spanje|0c0a|ESN|  
-|Zweeds|041d|SVE|  
-|Turks|041f|TRK|  
+|Anglais (par défaut)|0409|ENG|  
+|Chinois (traditionnel, Hong Kong R.A.S.)|0c04|ZHH|  
+|Chinois simplifié|0804|CHS|  
+|Chinois (traditionnel, Taïwan)|0404|CHT|  
+|Tchèque|0405|CSY|  
+|Danois|0406|DAN|  
+|Néerlandais - Pays-bas|0413|NLD|  
+|Finnois|040b|FIN|  
+|Français|040c|FRA|  
+|Allemand|0407|DEU|  
+|Grec|0408|ELL|  
+|Hongrois|040e|HUN|  
+|Italien - Italie|0410|ITA|  
+|Japonais|0411|JPN|  
+|Coréen|0412|KOR|  
+|Norvégien|0414|NOR|  
+|Polonais|0415|PLK|  
+|Portugais (Brésil)|0416|PTB|  
+|Portugais (Portugal)|0816|PTG|  
+|Russe|0419|RUS|  
+|Espagnol - Espagne|0c0a|ESN|  
+|Suédois|041d|SVE|  
+|Turc|041f|TRK|  
 
-### <a name="mobile-device-client-languages"></a>Clienttalen voor mobiele apparaten  
- Wanneer u ondersteuning voor talen voor mobiele apparaten toevoegt, worden alle clienttalen voor ondersteunde mobiele apparaten opgenomen. U kunt geen afzonderlijke taalpakketten selecteren voor ondersteuning op mobiele apparaten.  
+### <a name="mobile-device-client-languages"></a>Langues du client d’appareil mobile  
+ Quand vous ajoutez des prises en charge linguistiques pour des appareils mobiles, toutes les langues du client d’appareil mobile prises en charge sont incluses. Vous ne pouvez pas sélectionner individuellement les modules linguistiques pour la prise en charge linguistique sur les appareils mobiles.  
 
-### <a name="identify-installed-language-packs"></a>Geïnstalleerde taalpakketten identificeren  
-Als u de taalpakketten die zijn geïnstalleerd op een computer waarop de Configuration Manager-client, kijkt u voor de landinstelling-ID (LCID) van de geïnstalleerde taalpakketten in het register van computer. Deze informatie is beschikbaar op:
+### <a name="identify-installed-language-packs"></a>Identifier les modules linguistiques installés  
+Pour savoir quels modules linguistiques sont installés sur un ordinateur qui exécute le client Configuration Manager, recherchez l’ID de paramètres régionaux (LCID) des modules linguistiques installés dans le Registre de l’ordinateur. Ces informations sont disponibles à l’emplacement suivant :
 
  **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\CCMSetup\InstalledLangs**  
 
-U kunt hardware-inventarisatie gebruiken om deze informatie te verzamelen en dit vervolgens een aangepast rapport om de taaldetails te bekijken. Zie voor meer informatie over het verzamelen van aangepaste hardware-inventaris [hardware-inventaris configureren in System Center Configuration Manager](../../../../core/clients/manage/inventory/configure-hardware-inventory.md). Zie voor informatie over het maken van rapporten, de [beheren van Configuration Manager-rapporten](../../../../core/servers/manage/operations-and-maintenance-for-reporting.md#BKMK_ManageReports) sectie het [bewerkingen en onderhoud voor rapportage in System Center Configuration Manager](../../../../core/servers/manage/operations-and-maintenance-for-reporting.md) onderwerp.  
+Vous pouvez utiliser un inventaire matériel pour collecter ces informations, puis créer un rapport personnalisé contenant des informations détaillées sur les langues. Pour plus d’informations sur la collecte d’un inventaire matériel personnalisé, consultez [Guide pratique pour configurer l’inventaire matériel dans System Center Configuration Manager](../../../../core/clients/manage/inventory/configure-hardware-inventory.md). Pour plus d’informations sur la création de rapports, consultez la section [Gérer des rapports de Configuration Manager](../../../../core/servers/manage/operations-and-maintenance-for-reporting.md#BKMK_ManageReports) dans la rubrique [Opérations et maintenance pour les rapports dans System Center Configuration Manager](../../../../core/servers/manage/operations-and-maintenance-for-reporting.md).  

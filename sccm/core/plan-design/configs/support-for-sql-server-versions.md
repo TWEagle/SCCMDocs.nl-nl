@@ -1,6 +1,6 @@
 ---
-title: Ondersteunde versies van SQL Server | Microsoft Docs
-description: Ophalen van SQL Server-versie en configuratie van vereisten voor het hosten van een System Center Configuration Manager-sitedatabase.
+title: "Versions SQL Server prises en charge | Microsoft Docs"
+description: "Découvrez les exigences en matière de version et de configuration de SQL Server pour l’hébergement d’une base de données du site System Center Configuration Manager."
 ms.custom: na
 ms.date: 05/10/2017
 ms.prod: configuration-manager
@@ -16,100 +16,100 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: b35e45b9514297e2f9ce405a3244462ed735f39f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="supported-sql-server-versions-for-system-center-configuration-manager"></a>Ondersteunde versies van SQL Server voor System Center Configuration Manager
+# <a name="supported-sql-server-versions-for-system-center-configuration-manager"></a>Versions SQL Server prises en charge pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Elke System Center Configuration Manager-site is vereist voor een ondersteunde versie van SQL Server en -configuratie om de sitedatabase te hosten.  
+Chaque site System Center Configuration Manager a besoin d’une version et d’une configuration de SQL Server prises en charge pour héberger la base de données du site.  
 
-##  <a name="bkmk_Instances"></a> SQL Server-exemplaren en -locaties  
- **Centrale beheersite en primaire sites:**  
-De sitedatabase moet een volledige installatie van SQL Server gebruiken.  
+##  <a name="bkmk_Instances"></a> Emplacements et instances SQL Server  
+ **Site d’administration centrale et sites principaux :**  
+La base de données du site doit utiliser une installation complète de SQL Server.  
 
- SQL Server kan zich bevinden op:  
+ SQL Server peut être à l’un de ces emplacements :  
 
--   De siteservercomputer.  
--   Een computer die extern zijn van de siteserver.  
+-   L’ordinateur de serveur de site.  
+-   Un ordinateur distant du serveur de site.  
 
-De volgende exemplaren worden ondersteund:  
+Les instances suivantes sont prises en charge :  
 
--   De standaard of benoemd exemplaar van SQL Server.  
--   Configuraties met meerdere exemplaren.  
--   Een SQL Server-cluster. Zie [SQL Server-cluster gebruiken voor het hosten van de sitedatabase](../../../core/servers/deploy/configure/use-a-sql-server-cluster-for-the-site-database.md).
--   Een SQL Server AlwaysOn-beschikbaarheidsgroep. Deze optie is Configuration Manager versie 1602 of hoger vereist. Zie voor meer informatie [SQL Server AlwaysOn voor een maximaal beschikbare sitedatabase voor System Center Configuration Manager](../../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).
-
-
- **Secundaire sites:**  
- De sitedatabase kan het standaardexemplaar van een volledige installatie van SQL Server of SQL Server Express gebruiken.  
-
- SQL Server moet zich bevinden op de siteservercomputer.  
-
- **Beperkingen voor de ondersteuning van**   
- De volgende configuraties worden niet ondersteund:
- -   Een SQL Server-cluster in een clusterconfiguratie Network Load Balancing (NLB)
- -   Een SQL Server-cluster op een Cluster Shared Volume (CSV)
- -   SQL Server databasespiegeling en peer-to-peer-replicatie,
-
-SQL Server transactionele replicatie wordt alleen ondersteund voor het repliceren van objecten naar beheerpunten die zijn geconfigureerd voor gebruik [databasereplica](https://technet.microsoft.com/library/mt608546.aspx).  
-
-##  <a name="bkmk_SQLVersions"></a> Ondersteunde versies van SQL Server  
- In een hiërarchie met meerdere sites kunnen verschillende sites verschillende versies van SQL Server gebruiken voor het hosten van de sitedatabase, zolang de volgende voorwaarden voldaan wordt:
- -  Configuration Manager ondersteunt de versies van SQL Server die u gebruikt.
- -  De SQL Server-versies die u gebruikt, blijven worden ondersteund door Microsoft.
- -  SQL Server biedt ondersteuning voor replicatie tussen de twee versies van SQL Server.  Bijvoorbeeld: [SQL Server biedt geen ondersteuning voor replicatie tussen SQL Server 2008 R2 en SQL Server 2016](https://docs.microsoft.com/sql/relational-databases/replication/deprecated-features-in-sql-server-replication).
+-   L’instance par défaut ou nommée de SQL Server.  
+-   Des configurations d’instances multiples.  
+-   Un cluster SQL Server. Consultez [Utiliser un cluster SQL Server pour héberger la base de données de site](../../../core/servers/deploy/configure/use-a-sql-server-cluster-for-the-site-database.md).
+-   Un groupe de disponibilité SQL Server AlwaysOn. Cette option nécessite Configuration Manager version 1602 ou ultérieure. Pour plus d’informations, consultez [SQL Server AlwaysOn pour une base de données de site à haut niveau de disponibilité pour System Center Configuration Manager](../../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).
 
 
+ **Sites secondaires :**  
+ La base de données du site peut utiliser l’instance par défaut d’une installation complète de SQL Server ou de SQL Server Express.  
 
- Tenzij anders vermeld, worden de volgende versies van SQL Server worden ondersteund met alle actieve versies van System Center Configuration Manager. Als ondersteuning voor een nieuwe SQL Server-versie of servicepack wordt toegevoegd, wordt de Configuration Manager-versie die wordt toegevoegd die ondersteuning bieden voor worden opgemerkt. Op dezelfde manier als ondersteuning is afgeschaft, zoek voor meer informatie over de desbetreffende versies van Configuration Manager.   
+ SQL Server doit se trouver sur l’ordinateur du serveur de site.  
 
-Ondersteuning voor een specifieke SQL Server-servicepack bevat cumulatieve updates naar die servicepack, tenzij een cumulatieve update de achterwaartse die basisservice pack-versie. Wanneer er geen versie van het servicepack is vermeld, is de ondersteuning voor die versie van SQL Server zonder service Pack. In de toekomst, als een servicepack voor die versie wordt uitgebracht, wordt een afzonderlijke ondersteuningsverklaring worden gedeclareerd voordat deze nieuwe versie van servicepack wordt ondersteund.
+ **Limitations de la prise en charge**   
+ Les configurations suivantes ne sont pas prises en charge :
+ -   Un cluster SQL Server dans une configuration de cluster d’équilibrage de la charge réseau (NLB)
+ -   Un cluster SQL Server sur un volume partagé de cluster (CSV)
+ -   La technologie de mise en miroir de base de données SQL Server et la réplication d’égal à égal
+
+La réplication transactionnelle de SQL Server est prise en charge uniquement pour répliquer des objets sur des points de gestion configurés pour utiliser des [réplicas de base de données](https://technet.microsoft.com/library/mt608546.aspx).  
+
+##  <a name="bkmk_SQLVersions"></a> Versions SQL Server prises en charge  
+ Dans une hiérarchie comprenant plusieurs sites, chaque site peut utiliser différentes versions de SQL Server pour héberger la base de données du site, dès lors que les conditions suivantes sont réunies :
+ -  Configuration Manager prend en charge les versions de SQL Server que vous utilisez.
+ -  Les versions SQL Server que vous utilisez restent prises en charge par Microsoft.
+ -  SQL Server prend en charge la réplication entre les deux versions de SQL Server.  Par exemple, [SQL Server ne prend pas en charge la réplication entre SQL Server 2008 R2 et SQL Server 2016](https://docs.microsoft.com/sql/relational-databases/replication/deprecated-features-in-sql-server-replication).
+
+
+
+ Sauf indication contraire, les versions suivantes de SQL Server sont prises en charge avec toutes les versions System Center Configuration Manager actives. Si vous ajoutez la prise en charge d’une nouvelle version de SQL Server ou un Service Pack, la version de Configuration Manager qui ajoute cette prise en charge sera indiquée. De même, si la prise en charge est déconseillée, recherchez plus d’informations sur les versions Configuration Manager concernées.   
+
+La prise en charge d’un Service Pack de SQL Server spécifique inclut des mises à jour cumulatives pour ce Service Pack, sauf si une mise à jour cumulative interrompt la compatibilité descendante vers cette version du Service Pack de base. Si aucune version du Service Pack n’est indiquée, la prise en charge s’applique à cette version de SQL Server sans Service Pack. À l’avenir, si un Service Pack est fourni pour cette version, une instruction de prise en charge dinstincte sera déclarée avant que cette version du Service Pack ne soit prise en charge.
 
 
 > [!IMPORTANT]  
->  Wanneer u SQL Server Standard voor de database op de centrale beheersite gebruikt, beperkt u het totale aantal clients dat een hiërarchie kan ondersteunen. Zie [Grootte en schaalgetallen](../../../core/plan-design/configs/size-and-scale-numbers.md).
+>  Si vous utilisez SQL Server Standard pour la base de données du site d’administration centrale, vous limitez le nombre total de clients qu’une hiérarchie peut prendre en charge. Consultez [Taille et échelle en chiffres](../../../core/plan-design/configs/size-and-scale-numbers.md).
 
-### <a name="sql-server-2016-sp1-standard-enterprise"></a>SQL Server 2016 SP1: Standard, Enterprise  
-U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:  
+### <a name="sql-server-2016-sp1-standard-enterprise"></a>SQL Server 2016 SP1 : Standard, Enterprise  
+Vous pouvez utiliser cette version de SQL Server sans version de mise à jour cumulative minimale pour les éléments suivants :  
 
--   Een centrale beheersite  
--   Een primaire site  
--   Een secundaire site  
+-   Un site d’administration centrale  
+-   Un serveur de site principal  
+-   Un site secondaire  
 
-### <a name="sql-server-2016-standard-enterprise"></a>SQL Server 2016: Standard, Enterprise  
-U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:  
+### <a name="sql-server-2016-standard-enterprise"></a>SQL Server 2016 :- Standard, Enterprise  
+Vous pouvez utiliser cette version de SQL Server sans version de mise à jour cumulative minimale pour les éléments suivants :  
 
--   Een centrale beheersite  
--   Een primaire site  
--   Een secundaire site  
-
-
-### <a name="sql-server-2014-sp2-standard-enterprise"></a>SQL Server 2014 SP2: Standard, Enterprise  
-U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:  
-
--   Een centrale beheersite  
--   Een primaire site  
--   Een secundaire site
+-   Un site d’administration centrale  
+-   Un serveur de site principal  
+-   Un site secondaire  
 
 
+### <a name="sql-server-2014-sp2-standard-enterprise"></a>SQL Server 2014 SP2 : Standard, Enterprise  
+Vous pouvez utiliser cette version de SQL Server sans version de mise à jour cumulative minimale pour les éléments suivants :  
 
-### <a name="sql-server-2014-sp1-standard-enterprise"></a>SQL Server 2014 SP1: Standard, Enterprise  
- U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:  
-
--   Een centrale beheersite  
--   Een primaire site  
--   Een secundaire site
+-   Un site d’administration centrale  
+-   Un serveur de site principal  
+-   Un site secondaire
 
 
-### <a name="sql-server-2012-sp3-standard-enterprise"></a>SQL Server 2012 SP3: Standard, Enterprise  
- U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:  
 
--   Een centrale beheersite  
--   Een primaire site  
--   Een secundaire site  
+### <a name="sql-server-2014-sp1-standard-enterprise"></a>SQL Server 2014 SP1 : Standard, Enterprise  
+ Vous pouvez utiliser cette version de SQL Server sans version de mise à jour cumulative minimale pour les éléments suivants :  
+
+-   Un site d’administration centrale  
+-   Un serveur de site principal  
+-   Un site secondaire
+
+
+### <a name="sql-server-2012-sp3-standard-enterprise"></a>SQL Server 2012 SP3 : Standard, Enterprise  
+ Vous pouvez utiliser cette version de SQL Server sans version de mise à jour cumulative minimale pour les éléments suivants :  
+
+-   Un site d’administration centrale  
+-   Un serveur de site principal  
+-   Un site secondaire  
 
 <!-- Support for this service pack version has been dropped by Microsoft    
 ### SQL Server 2012 SP2: Standard, Enterprise   
@@ -120,42 +120,42 @@ U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebru
 -   A secondary site  
 -->
 
-### <a name="sql-server-2008-r2-sp3-standard-enterprise-datacenter"></a>SQL Server 2008 R2 SP3: Standard, Enterprise, Datacenter     
-  Deze versie van SQL Server wordt niet ondersteund [vanaf versie 1702](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-support-for-sql-server-versions-as-a-site-database).  
- Deze versie van SQL Server blijft ondersteund wanneer u een eerdere versie van Configuration Manager dan 1702 gebruikt.
+### <a name="sql-server-2008-r2-sp3-standard-enterprise-datacenter"></a>SQL Server 2008 R2 SP3 : Standard, Enterprise, Datacenter     
+  Cette version de SQL Server n’est pas prise en charge [depuis la version 1702](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-support-for-sql-server-versions-as-a-site-database).  
+ Cette version de SQL Server reste prise en charge si vous utilisez une version de Configuration Manager antérieure à la version 1702.
 
-Wanneer dit wordt ondersteund door uw versie van Configuration Manager, kunt u deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:  
+Si elle est prise en charge par votre version de Configuration Manager, vous pouvez utiliser cette version de SQL Server sans version de mise à jour cumulative minimale pour les éléments suivants :  
 
--   Een centrale beheersite  
--   Een primaire site
--   Een secundaire site
-
-
-
-### <a name="sql-server-2016-express-sp1"></a>SQL Server 2016 snelle SP1  
-U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:
--   Een secundaire site
-
-### <a name="sql-server-2016-express"></a>SQL Server 2016 Express
-U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:
--   Een secundaire site
+-   Un site d’administration centrale  
+-   Un serveur de site principal
+-   Un site secondaire
 
 
-### <a name="sql-server-2014-express-sp2"></a>SQL Server 2014 snelle SP2   
-U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:  
 
--   Een secundaire site  
+### <a name="sql-server-2016-express-sp1"></a>SQL Server 2016 Express SP1  
+Vous pouvez utiliser cette version de SQL Server sans version de mise à jour cumulative minimale pour les éléments suivants :
+-   Un site secondaire
+
+### <a name="sql-server-2016-express"></a>SQL Server 2016 Express
+Vous pouvez utiliser cette version de SQL Server sans version de mise à jour cumulative minimale pour les éléments suivants :
+-   Un site secondaire
+
+
+### <a name="sql-server-2014-express-sp2"></a>SQL Server 2014 Express SP2   
+Vous pouvez utiliser cette version de SQL Server sans version de mise à jour cumulative minimale pour les éléments suivants :  
+
+-   Un site secondaire  
 
 
 ### <a name="sql-server-2014-express-sp1"></a>SQL Server 2014 Express SP1   
- U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:  
+ Vous pouvez utiliser cette version de SQL Server sans version de mise à jour cumulative minimale pour les éléments suivants :  
 
--   Een secundaire site  
+-   Un site secondaire  
 
 ### <a name="sql-server-2012-express-sp3"></a>SQL Server 2012 Express SP3  
-U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebruiken voor het volgende:  
+Vous pouvez utiliser cette version de SQL Server sans version de mise à jour cumulative minimale pour les éléments suivants :  
 
--   Een secundaire site  
+-   Un site secondaire  
 
 <!-- Support for this service pack version has been dropped by Microsoft   
 ### SQL Server 2012 Express SP2   
@@ -165,98 +165,98 @@ U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebru
 -->
 
 
-##  <a name="bkmk_SQLConfig"></a> Vereiste configuraties voor SQL Server  
- Het volgende is vereist voor alle installaties van SQL Server die u voor een sitedatabase gebruikt (inclusief SQL Server Express). Wanneer Configuration Manager SQL Server Express als onderdeel van een secundaire site-installatie installeert, worden deze configuraties automatisch voor u gemaakt.  
+##  <a name="bkmk_SQLConfig"></a> Configurations requises pour SQL Server  
+ Les éléments suivants sont nécessaires pour toutes les installations de SQL Server que vous utilisez pour une base de données de site (y compris SQL Server Express). Quand Configuration Manager installe SQL Server Express dans le cadre d’une installation de site secondaire, ces configurations sont créées automatiquement.  
 
- **Versie van SQL Server-architectuur:**  
- Configuration Manager vereist een 64-bits versie van SQL Server om de sitedatabase te hosten.  
+ **Version d’architecture de SQL Server :**  
+ Configuration Manager requiert une version 64 bits de SQL Server pour héberger la base de données de site.  
 
- **Databasesortering:**  
- Het exemplaar van SQL Server die wordt gebruikt voor de site en de sitedatabase moet de volgende sortering gebruiken op elke site: **SQL_Latin1_General_CP1_CI_AS**.  
+ **Classement de la base de données**  
+ Sur chaque site, à la fois l'instance de SQL Server qui est utilisée pour le site et la base de données de site doivent utiliser le classement suivant : **SQL_Latin1_General_CP1_CI_AS**.  
 
- Configuration Manager ondersteunt twee uitzonderingen op deze sortering om te voldoen aan de normen die zijn gedefinieerd in GB18030 voor gebruik in China. Voor meer informatie, zie [Internationale ondersteuning in System Center Configuration Manager](../../../core/plan-design/hierarchy/international-support.md).  
+ Configuration Manager prend en charge deux exceptions à ce classement pour satisfaire aux normes définies dans GB18030 pour une utilisation en Chine. Pour plus d’informations, consultez [Prise en charge internationale dans System Center Configuration Manager](../../../core/plan-design/hierarchy/international-support.md).  
 
- **SQL Server-functies:**  
- Alleen het onderdeel **Database-engineservices** is vereist voor elke siteserver.  
+ **Fonctionnalités SQL Server :**  
+ Seule la fonctionnalité **Services Moteur de base de données** est requise pour chaque serveur de site.  
 
- Configuration Manager-databasereplicatie vereist de **SQL Server-replicatie** functie. Deze SQL Server-configuratie is echter vereist als u [Databasereplica's voor beheerpunten voor System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
+ La réplication de la base de données Configuration Manager ne nécessite pas la fonctionnalité **Réplication SQL Server**. Toutefois, cette configuration de SQL Server est requise si vous utilisez des [réplicas de base de données pour les points de gestion de System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
 
- **Windows-verificatie:**  
- Configuration Manager vereist **Windows-verificatie** valideren van verbindingen met de database.  
+ **Authentification Windows :**  
+ Configuration Manager nécessite l’**authentification Windows** pour valider les connexions à la base de données.  
 
- **SQL Server-exemplaar:**  
- U moet een exclusief exemplaar van SQL Server gebruiken voor elke site. Dit kan een **benoemd exemplaar** of het **standaardexemplaar**zijn.  
+ **Instance SQL Server :**  
+ Vous devez utiliser une instance dédiée de SQL Server pour chaque site. Il peut s’agir d’une **instance nommée** ou de l’ **instance par défaut**.  
 
- **SQL Server-geheugen:**  
- Reserveer geheugen voor SQL Server met behulp van SQL Server Management Studio en instelling van de **Minimum servergeheugen** onder **Servergeheugenopties**. Zie voor meer informatie over het instellen van een vaste hoeveelheid geheugen [hoe: Instellen van een vaste hoeveelheid geheugen (SQL Server Management Studio)](http://go.microsoft.com/fwlink/p/?LinkId=233759).  
+ **Mémoire de SQL Server :**  
+ Réservez de la mémoire pour SQL Server en utilisant SQL Server Management Studio et en définissant le paramètre **Mémoire minimale du serveur** sous **Options mémoire du serveur**. Pour plus d’informations sur la manière de définir une quantité fixe de mémoire, consultez [Procédure : définir une quantité fixe de mémoire (SQL Server Management Studio)](http://go.microsoft.com/fwlink/p/?LinkId=233759).  
 
--   **Voor een databaseserver die is geïnstalleerd op dezelfde computer als de siteserver:** Beperk het geheugen voor SQL Server tot 50 à 80 procent van het beschikbare systeemgeheugen.  
+-   **Pour un serveur de base de données installé sur le même ordinateur que le serveur du site :** limitez la mémoire pour SQL Server à 50-80 % de la mémoire système adressable disponible.  
 
--   **Voor een toegewezen databaseserver (extern van de siteserver):** Beperk het geheugen voor SQL Server tot 80 à 90 procent van het beschikbare systeemgeheugen.  
+-   **Pour un serveur de base de données dédié (distant du serveur de site) :** limitez la mémoire pour SQL Server à 80-90 % de la mémoire système adressable disponible.  
 
--   **Voor een geheugenreservering op voor de buffergroep van elk SQL Server-exemplaar gebruikt:**  
+-   **Pour une réserve de mémoire pour le pool de mémoires tampons de chaque instance SQL Server en cours d’utilisation :**  
 
-    -   Voor een centrale beheersite: Stel een minimum van 8 gigabyte (GB).  
-    -   Voor een primaire site: Stel een minimum van 8 gigabyte (GB).  
-    -   Voor een secundaire site: Stel een minimum van 4 gigabyte (GB).  
+    -   Pour un site d’administration centrale, définissez un minimum de 8 gigaoctets (Go).  
+    -   Pour un site principal, définissez un minimum de 8 gigaoctets (Go).  
+    -   Pour un site secondaire, définissez un minimum de 4 gigaoctets (Go).  
 
-**Geneste SQL-triggers:**  
- [Genest SQL-triggers](http://go.microsoft.com/fwlink/?LinkId=528802) moet zijn ingeschakeld.  
+**Déclencheurs imbriqué SQL :**  
+ Les[déclencheurs imbriqués SQL](http://go.microsoft.com/fwlink/?LinkId=528802) doivent être activés.  
 
- **SQL Server CLR-integratie**  
-  SQL Server Common Language Runtime (CLR) moet zijn ingeschakeld voor de sitedatabase. Dit wordt automatisch ingeschakeld wanneer Configuration Manager wordt geïnstalleerd. Zie voor meer informatie over CLR [Inleiding tot SQL Server CLR-integratie](https://msdn.microsoft.com/library/ms254498\(v=vs.110\).aspx).  
+ **Intégration du CLR SQL Server**  
+  La base de données du site nécessite que le CLR (Common Language Runtime) SQL Server soit activé. Cette option est activée automatiquement lors de l’installation de Configuration Manager. Pour plus d’informations sur le CLR, consultez [Présentation de l’intégration de CLR dans SQL Server](https://msdn.microsoft.com/library/ms254498\(v=vs.110\).aspx).  
 
-##  <a name="bkmk_optional"></a> Optionele configuraties voor SQL Server  
- De volgende configuraties zijn optioneel voor elke database die een volledige installatie van SQL Server gebruikt.  
+##  <a name="bkmk_optional"></a> Configurations facultatives pour SQL Server  
+ Les configurations suivantes sont facultatives pour chaque base de données utilisant une installation complète de SQL Server.  
 
- **SQL Server-service:**  
- U kunt de SQL Server-service zo configureren dat deze wordt uitgevoerd met:  
+ **Service SQL Server :**  
+ Vous pouvez configurer le service SQL Server pour s’exécuter avec les ressources suivantes :  
 
--   De **lokale gebruiker in domein** account:  
+-   Le compte d’**utilisateur local de domaine** :  
 
-    -   Dit is een best practice en mogelijk moet u de service principal name (SPN) voor het account handmatig registreren.  
+    -   Il s’agit d’une bonne pratique qui peut exiger que vous enregistriez manuellement le nom de principal du service (SPN) pour le compte.  
 
--   De **lokaal systeem** account van de computer waarop SQL Server wordt uitgevoerd:  
+-   Le compte **système local** de l’ordinateur exécutant SQL Server :  
 
-    -   Gebruik het account voor het lokale systeem om het configuratieproces te vereenvoudigen.  
-    -   Wanneer u het lokale systeemaccount gebruikt, wordt in Configuration Manager automatisch de SPN voor de SQL Server-service geregistreerd.  
-    -   Houd er wel rekening mee dat u het lokale systeemaccount in SQL Server beter niet kunt gebruiken voor de SQL Server-service.  
+    -   Utilisez le compte système local pour simplifier le processus de configuration.  
+    -   Quand vous utilisez le compte système local, Configuration Manager inscrit automatiquement le SPN pour le service SQL Server.  
+    -   Notez que l’utilisation du compte système local pour le service SQL Server n’est pas une bonne pratique pour SQL Server.  
 
-Wanneer de computer met SQL Server niet de lokale systeemaccount gebruikt de SQL Server-service uit te voeren, moet u de SPN-naam van het account dat de SQL Server-service wordt uitgevoerd in Active Directory Domain Services configureren. (Wanneer het systeem-account wordt gebruikt, de SPN-naam wordt automatisch voor u geregistreerd.)
+Si l’ordinateur qui exécute SQL Server n’utilise pas son compte système local pour exécuter le service SQL Server, vous devez configurer le SPN du compte qui exécute le service SQL Server dans Active Directory Domain Services. (Quand le compte système est utilisé, le SPN est inscrit automatiquement.)
 
-Zie voor meer informatie over de SPN's voor de sitedatabase [beheren van de SPN voor de Sitedatabaseserver](../../../core/servers/manage/modify-your-infrastructure.md#bkmk_SPN) in de [uw infrastructuur van System Center Configuration Manager aanpassen](../../../core/servers/manage/modify-your-infrastructure.md) onderwerp.  
+Pour plus d’informations sur les SPN pour la base de données du site, consultez [Gérer le SPN pour le serveur de base de données du site](../../../core/servers/manage/modify-your-infrastructure.md#bkmk_SPN) dans la rubrique [Modifier votre infrastructure System Center Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md).  
 
-Zie voor meer informatie over het wijzigen van het account dat wordt gebruikt door de SQL Server-service [hoe: Het starten van de serviceaccount voor SQL Server (SQL Server Configuration Manager) wijzigen](http://go.microsoft.com/fwlink/p/?LinkId=237661).  
+Pour plus d’informations sur la façon de modifier le compte utilisé par le service SQL Server, consultez [Modifier le compte de démarrage du service pour SQL Server (Gestionnaire de configuration SQL Server)](http://go.microsoft.com/fwlink/p/?LinkId=237661).  
 
-**SQL Server Reporting Services:**  
-SQL Server Reporting Services is vereist voor het installeren van een reporting services-punt waarmee u rapporten uitvoeren.  
+**SQL Server Reporting Services :**  
+SQL Server Reporting Services est nécessaire pour installer un point de Reporting Services permettant de générer des rapports.  
 
 > [!IMPORTANT]  
-> Nadat u SQL Server een van een eerdere versie upgrade, ziet u mogelijk de volgende fout:  *Report Builder bestaat niet*.    
-> U lost deze fout, moet u de reporting services-punt-sitesysteemrol installeren.
+> Une fois SQL Server mis à niveau à partir d’une version précédente, l’erreur suivante peut s’afficher : *Le Générateur de rapports n’existe pas*.    
+> Pour corriger cette erreur, vous devez réinstaller le rôle de système de site du point de Reporting Services.
 
-**SQL Server-poorten:**  
-Voor communicatie met de SQL Server database engine en voor intersitereplicatie kunt u de standaardconfiguratie van de SQL Server-poort gebruiken of aangepaste poorten opgeven:  
+**Ports SQL Server :**  
+Pour la communication vers le moteur de base de données SQL Server et pour la réplication intersites, vous pouvez utiliser les configurations de port SQL Server par défaut ou spécifier des ports personnalisés :  
 
--   **Intersite-communicatie** SQL Server Service Broker dat via TCP-4022 standaard poort gebruiken.  
--   **Intrasite-communicatie** tussen de SQL Server database engine en verschillende Configuration Manager-sitesysteem functies gebruiken standaard poort TCP 1433. De volgende sitesysteemrollen communiceren direct met de SQL Server database:  
+-   Les **communications intersites** font appel à SQL Server Service Broker, qui utilise le port TCP 4022 par défaut.  
+-   Les **communications intrasite** entre le moteur de base de données SQL Server et les divers rôles de système de site Configuration Manager utilisent le port TCP 1433 par défaut. Les rôles de système de site suivants communiquent directement avec la base de données SQL Server :  
 
-    -   Beheerpunt  
-    -   Computer van de SMS-provider  
-    -   Reporting Services-punt  
-    -   Siteserver  
+    -   Point de gestion  
+    -   Ordinateur du fournisseur SMS  
+    -   Point de Reporting Services  
+    -   Serveur de site  
 
-Wanneer een computer met SQL Server als host fungeert voor een database van meer dan één site, moet elke database een afzonderlijk exemplaar van SQL Server gebruiken. Elk exemplaar moet ook worden geconfigureerd voor het gebruik van een unieke set van poorten.  
+Quand un ordinateur exécutant SQL Server héberge une base de données de plusieurs sites, chaque base de données doit utiliser une instance distincte de SQL Server. De plus, chaque instance doit être configurée pour utiliser un ensemble de ports unique.  
 
 > [!WARNING]  
->  Configuration Manager biedt geen ondersteuning voor dynamische poorten. Omdat SQL Server genoemde instanties standaard dynamische poorten gebruiken voor verbindingen naar de database-engine, moet u, wanneer u een genoemde instantie gebruikt, de statische poort, die u wenst te gebruiken voor intrasite-communicatie, handmatig configureren.  
+>  Configuration Manager ne prend pas en charge les ports dynamiques. Étant donné que les instances nommées de SQL Server utilisent par défaut des ports dynamiques pour les connexions au moteur de base de données, lorsque vous utilisez une instance nommée, vous devez configurer manuellement le port statique que vous souhaitez utiliser pour la communication intrasite.  
 
-Als u een firewall hebt ingeschakeld op de computer waarop SQL Server wordt uitgevoerd, controleer dan of deze de poorten toestaat die bij uw implementatie en op de locaties in het netwerk tussen computers die communiceren met de SQL Server, worden gebruikt.  
+Si un pare-feu est activé sur l'ordinateur exécutant SQL Server, assurez-vous qu'il est configuré pour autoriser les ports utilisés par votre déploiement et, à tous les emplacements du réseau, entre les ordinateurs qui communiquent avec SQL Server.  
 
-Zie voor een voorbeeld van hoe u SQL Server configureren voor het gebruik van een specifieke poort [hoe: Configureren van een Server om te luisteren naar een specifieke TCP-poort (SQL Server Configuration Manager)](http://go.microsoft.com/fwlink/p/?LinkID=226349) in de SQL Server TechNet-bibliotheek.  
+Pour obtenir un exemple montrant comment configurer SQL Server pour utiliser un port spécifique, consultez [Configurer un serveur pour écouter un port TCP spécifique (Gestionnaire de configuration SQL Server)](http://go.microsoft.com/fwlink/p/?LinkID=226349) dans la bibliothèque TechNet relative à SQL Server.  
 
-## <a name="upgrade-options-for-sql-server"></a>Upgrade-opties voor SQL Server
-Als u moet de versie van SQL Server wilt bijwerken, raden wij de volgende methoden van eenvoudig complexere.
-1. [SQL Server in-place upgrade](/sccm/core/servers/manage/upgrade-on-premises-infrastructure#a-namebkmksupconfigupgradedbsrva-upgrade-sql-server-on-the-site-database-server) (aanbevolen).
-2. Een nieuwe versie van SQL Server op een nieuwe computer installeren en vervolgens [gebruikt u de optie-database verplaatsen](/sccm/core/servers/manage/modify-your-infrastructure#a-namebkmkdbconfiga-modify-the-site-database-configuration) installatieprogramma van Configuration Manager uw siteserver verwijzen naar de nieuwe SQL-Server.
-3. Gebruik [back-up en herstel](/sccm/protect/understand/backup-and-recovery).
+## <a name="upgrade-options-for-sql-server"></a>Options de mise à niveau pour SQL Server
+Si vous devez mettre à niveau votre version de SQL Server, nous vous recommandons les méthodes suivantes, de la plus simple à la plus complexe.
+1. [Mise à niveau de SQL Server sur place](/sccm/core/servers/manage/upgrade-on-premises-infrastructure#a-namebkmksupconfigupgradedbsrva-upgrade-sql-server-on-the-site-database-server) (recommandé).
+2. Installez une nouvelle version de SQL Server sur un nouvel ordinateur, puis [utilisez l’option de déplacement de la base de données](/sccm/core/servers/manage/modify-your-infrastructure#a-namebkmkdbconfiga-modify-the-site-database-configuration) du programme d’installation de Configuration Manager pour pointer votre serveur de site vers la nouvelle version de SQL Server.
+3. Utilisez la [sauvegarde et la récupération](/sccm/protect/understand/backup-and-recovery).

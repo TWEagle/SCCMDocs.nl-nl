@@ -1,6 +1,6 @@
 ---
-title: Softwareupdates automatisch implementeren | Microsoft Docs
-description: Softwareupdates automatisch implementeren door nieuwe updates toe te voegen aan een updategroep die is gekoppeld aan een actieve implementatie of ADR's.
+title: "Déployer automatiquement des mises à jour logicielles | Documents Microsoft"
+description: "Déployez automatiquement des mises à jour logicielles en ajoutant de nouvelles mises à jour logicielles à un groupe de mises à jour qui est associé à un déploiement actif ou en utilisant des règles ADR."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,305 +13,305 @@ ms.technology: configmgr-sum
 ms.assetid: b27682de-adf8-4edd-9572-54886af8f7fb
 ms.openlocfilehash: 804a9d7a32cfbdb498c6748c5d99a1874261c231
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="BKMK_AutoDeploy"></a> Software-updates automatisch implementeren  
+#  <a name="BKMK_AutoDeploy"></a> Déployer automatiquement des mises à jour logicielles  
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
- U kunt software-updates automatisch implementeren door nieuwe software-updates toe te voegen aan een updategroep die is gekoppeld aan een actieve implementatie of kunt u een regel voor automatische implementatie (ADR). Normaal gesproken u ADR's gebruikt voor maandelijkse software-updates (normaal gesproken bekend als updates van de Patch-dinsdag) implementeren en beheren van definitie-updates. Als u hulp nodig hebt om te bepalen welke implementatie methode is geschikt is voor u, raadpleegt u [software-updates implementeren](deploy-software-updates.md)
+ Vous pouvez déployer automatiquement des mises à jour logicielles en ajoutant de nouvelles mises à jour logicielles à un groupe de mises à jour qui est associé à un déploiement actif ou vous pouvez utiliser une règle de déploiement automatique (ADR, Automatic Deployment Rule). D’une manière générale, vous utilisez des règles ADR pour déployer les mises à jour logicielles mensuelles (généralement appelées mises à jour Patch Tuesday) et pour la gestion des mises à jour de définitions. Si vous avez besoin d’aide pour déterminer la méthode de déploiement qui vous convient, voir [Déployer des mises à jour logicielles](deploy-software-updates.md).
 
-##  <a name="BKMK_AddUpdatesToExistingGroup"></a> Software-updates toevoegen aan een geïmplementeerde updategroep  
-Nadat u maken en implementeren van software-updategroep, kunt u software-updates toevoegen aan de groep bijwerken en deze worden vervolgens automatisch geïmplementeerd.  
+##  <a name="BKMK_AddUpdatesToExistingGroup"></a> Ajouter des mises à jour logicielles à un groupe de mises à jour déployé  
+Après avoir créé et déployé un groupe de mises à jour logicielles, vous pouvez ajouter des mises à jour logicielles au groupe de mises à jour ; elles sont déployées automatiquement.  
 
 > [!IMPORTANT]  
->  Wanneer u software-updates toevoegt aan een bestaande software-updategroep die al is geïmplementeerd, duurt het mogelijk enkele minuten voordat de aanvullende software-updates aan de implementatie worden toegevoegd.  
+>  Lorsque vous ajoutez des mises à jour logicielles à un groupe de mises à jour logicielles existant qui a déjà été déployé, l'ajout des mises à jour logicielles supplémentaires au déploiement peut prendre plusieurs minutes.  
 
-Gebruik de volgende procedure om software-updates toe te voegen aan een bestaande updategroep.  
+Pour ajouter des mises à jour logicielles à un groupe de mises à jour existant, procédez comme suit.  
 
-#### <a name="to-add-software-updates-to-an-existing-software-update-group"></a>Software-updates toevoegen aan een bestaande software-updategroep  
+#### <a name="to-add-software-updates-to-an-existing-software-update-group"></a>Pour ajouter des mises à jour logicielles à un groupe de mises à jour logicielles existant  
 
-1.  Navigeer in de Configuration Manager-console naar **softwarebibliotheek** > **overzicht** > **Software-Updates**.  
+1.  Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Mises à jour logicielles**.  
 
-2.  Selecteer de software-updates die aan de nieuwe software-updategroep moeten worden toegevoegd.  
+2.  Sélectionnez les mises à jour logicielles à ajouter au nouveau groupe de mises à jour logicielles.  
 
-3.  Klik in het tabblad **Start** in de groep **Update** op **Lidmaatschap bewerken**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Modifier l'adhésion**.  
 
-4.  Selecteer de software-updategroep waaraan u de software-updates wilt toevoegen als leden.  
+4.  Sélectionnez le groupe de mises à jour logicielles auquel ajouter les mises à jour logicielles en tant que membres.  
 
-5.  Klik op het knooppunt **Software-updategroepen** om de software-updategroep weer te geven.  
+5.  Cliquez sur le nœud **Groupes de mises à jour logicielles** pour afficher le groupe de mises à jour logicielles.  
 
-6.  Klik op de software-updategroep en klik op het tabblad **Start** in de groep **Bijwerken** op **Leden weergeven** om een lijst met software-updates in de groep weer te geven.  
+6.  Cliquez sur le groupe de mises à jour logicielles et, dans l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Afficher les membres** pour afficher une liste des mises à jour logicielles dans le groupe.  
 
-##  <a name="BKMK_CreateAutomaticDeploymentRule"></a> Een regel voor automatische implementatie (ADR) maken  
-U kunt software-update automatisch goedkeuren en implementeren door gebruik te maken van een ADR. U kunt instellen dat met de regel software-updates worden toegevoegd aan een nieuwe software-updategroep elke keer dat de regel wordt uitgevoerd of u kunt software-updates laten toevoegen aan een bestaande groep. Wanneer een regel wordt uitgevoerd en software-updates worden toegevoegd aan een bestaande groep, worden met de regel alle software-updates verwijderd uit de groep en vervolgens de software-updates aan de groep toegevoegd die voldoen aan de criteria die u hebt gedefinieerd. Als u bijvoorbeeld een ADR wilt uitvoeren om elke dag nieuw uitgebrachte software-updates te zoeken en deze op clients te implementeren, moet u kiezen voor de optie om een nieuwe software-updategroep te maken in plaats van het toevoegen van de software-updates aan een bestaande groep.  
+##  <a name="BKMK_CreateAutomaticDeploymentRule"></a> Créer une règle de déploiement automatique (ADR)  
+Vous pouvez approuver et déployer automatiquement des mises à jour logicielles en utilisant une règle ADR. Vous pouvez faire en sorte que la règle ajoute des mises à jour logicielles à un nouveau groupe de mises à jour logicielles chaque fois qu'elle s'exécute ou vous pouvez ajouter des mises à jour logicielles à un groupe existant. Lorsqu'une règle s'exécute et ajoute des mises à jour logicielles à un groupe existant, elle supprime toutes les mises à jour logicielles du groupe, puis elle ajoute au groupe les mises à jour logicielles qui répondent aux critères que vous définissez. Par exemple, pour exécuter une règle ADR dans le but de rechercher les nouvelles mises à jour logicielles chaque jour et les déployer sur les clients, vous devez choisir l’option de création d’un nouveau groupe de mises à jour logicielles au lieu d’ajouter les mises à jour logicielles à un groupe existant.  
 
 > [!WARNING]  
->  Voordat u voor het eerst een ADR maakt, moet u controleren of het synchroniseren van software-updates op de site is voltooid. Dit is vooral belangrijk wanneer u Configuration Manager met een niet-Engelse taal uitvoert omdat software-updateclassificaties voorafgaande aan de eerste synchronisatie in het Engels weergegeven en vervolgens in de gelokaliseerde taal weergegeven nadat de synchronisatie van software-update is voltooid. Regels die u maakt voordat u software-updates synchroniseert, werken mogelijk na het synchroniseren niet meer naar behoren omdat de teksttekenreeks niet langer overeenkomt.  
+>  Avant de créer une règle ADR pour la première fois, vérifiez que la synchronisation des mises à jour logicielles est terminée sur le site. Cela s'avère particulièrement important lorsque vous exécutez Configuration Manager dans une langue autre que l'anglais, car les classifications des mises à jour logicielles s'affichent en anglais avant la première synchronisation, puis elles s'affichent dans la langue localisée une fois la synchronisation des mises à jour logicielles terminée. Les règles que vous créez avant de synchroniser les mises à jour logicielles risquent ne pas fonctionner correctement après la synchronisation car la chaîne de texte peut ne pas correspondre.  
 
- Gebruik de volgende procedure om een ADR te maken.  
+ Utilisez la procédure suivante pour créer une règle ADR.  
 
-#### <a name="to-create-an-adr"></a>Een ADR maken  
+#### <a name="to-create-an-adr"></a>Pour créer une règle ADR  
 
-1.  Navigeer in de Configuration Manager-console naar **softwarebibliotheek** **overzicht** > **Software-Updates** > **regels voor automatische implementatie**.  
+1.  Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels****Vue d’ensemble** > **Mises à jour logicielles** > **Règles de déploiement automatique**.  
 
-2.  Klik op het tabblad **Start** in de groep **Maken** op **Regel voor automatische implementatie maken**. De wizard Regel voor automatische implementatie maken wordt geopend.  
+2.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une règle de déploiement automatique**. L'Assistant Création d'une règle de déploiement automatique s'ouvre.  
 
-3.  Configureer de volgende instellingen op de pagina **Algemeen** :  
+3.  Sur la page **Général** , configurez les paramètres suivants :  
 
-    -   **Naam**: Geef de naam voor de ADR. De naam moet uniek zijn, het doel van de regel beschrijven en onderscheiden van andere gebruikers in de Configuration Manager-site.  
+    -   **Nom :**spécifiez le nom de la règle ADR. Le nom doit être unique, permettre de décrire l'objectif de la règle et être identifiable parmi d'autres dans le site Configuration Manager.  
 
-    -   **Beschrijving**: Geef een beschrijving voor de ADR. De beschrijving moet bieden een overzicht van de regel voor implementatie en eventuele andere relevante informatie die helpt om te bepalen en te onderscheiden van andere gebruikers in de Configuration Manager-site. Het beschrijvingsveld is optioneel en kent een limiet van 256 tekens. Het veld is standaard leeg.  
+    -   **Description :**spécifiez une description pour la règle ADR. La description doit fournir une vue d'ensemble de la règle de déploiement et toutes autres informations pertinentes permettant de l'identifier et de la différencier des autres dans le site Configuration Manager. Le champ de description facultatif est limité à 256 caractères et est vierge par défaut.  
 
-    -   **Implementatiesjabloon selecteren**: Geef op of een eerder opgeslagen implementatiesjabloon moet worden toegepast. U kunt een implementatiesjabloon zo configureren dat deze meerdere algemene eigenschappen voor software-update-implementatie bevat. Deze kan vervolgens worden gebruikt wanneer u ADR's maakt. Deze sjablonen helpen de consistentie met soortgelijke implementaties te garanderen en besparen tijd.  
+    -   **Sélectionner un modèle de déploiement**: indiquez si un modèle de déploiement enregistré précédemment doit être appliqué. Vous pouvez configurer un modèle de déploiement de sorte qu’il contienne plusieurs propriétés de déploiement de mises à jour logicielles communes, utilisables par la suite pour créer des règles ADR. Ces modèles permettent de garantir la cohérence entre des déploiements similaires et de gagner du temps.  
 
-         U kunt via de wizard Regel voor automatische implementatie kiezen uit de ingebouwde implementatiesjablonen voor software-updates. De sjabloon **Definitie-updates** biedt algemene instellingen die u kunt gebruiken wanneer u definitiesoftware-updates implementeert. De sjabloon **Patch Tuesday** biedt algemene instellingen die u kunt gebruiken wanneer u software-updates implementeert op basis van een maandelijkse cyclus.  
+         Vous pouvez opter pour l’un des modèles de déploiement de mises à jour logicielles prédéfinis à partir de l’Assistant Création d’une règle de déploiement automatique. Le modèle **Mises à jour de définitions** fournit des paramètres communs à utiliser lorsque vous déployez des mises à jour logicielles de définitions. Le modèle **Patch Tuesday** fournit des paramètres communs à utiliser lorsque vous déployez des mises à jour logicielles selon un cycle mensuel.  
 
-    -   **Verzameling**: Hiermee geeft u de doelverzameling op die moet worden gebruikt voor de implementatie. Leden van de verzameling ontvangen de software-updates die in de implementatie zijn gedefinieerd.  
+    -   **Regroupement**: indique le regroupement cible à utiliser pour le déploiement. Les membres du regroupement reçoivent les mises à jour logicielles définies dans le déploiement.  
 
-    -   Bepaal of u software-updates toevoegt aan een nieuwe of een bestaande software-updategroep. In de meeste gevallen kiest u waarschijnlijk voor het maken van een nieuwe software-updategroep wanneer de ADR wordt uitgevoerd. U kunt er echter voor kiezen om een bestaande groep uit te voeren als de regel wordt uitgevoerd volgens een agressievere planning. Als u de regel bijvoorbeeld dagelijks uitvoert voor definitie-updates, zou u de software-updates aan een bestaande software-updategroep kunnen toevoegen.  
+    -   déterminer si des mises à jour logicielles seront ajoutées à un groupe de mises à jour logicielles nouveau ou existant. Dans la plupart des cas, vous choisirez probablement de créer un nouveau groupe de mises à jour logicielles au moment d’exécuter la règle ADR. Toutefois, vous pouvez choisir d'utiliser un groupe existant, si la règle s'exécute selon une planification plus agressive. Par exemple, si vous exécutez la règle quotidiennement pour des mises à jour de définitions, vous pouvez ajouter les mises à jour logicielles à un groupe de mises à jour logicielles existant.  
 
-    -   **De implementatie inschakelen nadat deze regel is uitgevoerd**: Geef op of de software-update-implementatie inschakelen nadat de ADR wordt uitgevoerd. Overweeg met betrekking tot deze specificatie het volgende:  
+    -   **Activer le déploiement après l’exécution de cette règle**: indiquez si le déploiement des mises à jour logicielles doit être activé après l’exécution de la règle ADR. En ce qui concerne cette spécification, tenez compte des éléments suivants :  
 
-        -   Wanneer u de implementatie inschakelt, worden de software-updates die voldoen aan de gedefinieerde criteria in de regel, toegevoegd aan een software-updategroep, de inhoud van software-updates wordt, wanneer nodig, gedownload, de inhoud wordt gekopieerd naar de opgegeven distributiepunten en de software-updates worden geïmplementeerd op de clients in de doelverzameling.  
+        -   Lors de l'activation du déploiement, les mises à jour logicielles qui répondent aux critères définis dans la règle sont ajoutées à un groupe de mises à jour logicielles, le contenu des mises à jour logicielles est téléchargé si besoin, le contenu est copié vers les points de distribution spécifiés, puis les mises à jour logicielles sont déployées sur les clients dans le regroupement cible.  
 
-        -   Wanneer u de implementatie niet inschakelt, worden de software-updates die voldoen aan de gedefinieerde criteria in de regel, toegevoegd aan een software-updategroep en wordt het software-updatebeleid geconfigureerd, maar worden de software-updates niet gedownload of op clients geïmplementeerd. Deze situatie biedt u, wanneer nodig, tijd om het implementeren van de software-updates voor te bereiden, om te controleren of de software-updates die aan de criteria voldoen, toereikend zijn en om vervolgens de implementatie op een later tijdstip in te schakelen.  
+        -   Lorsque vous n'activez pas le déploiement, les mises à jour logicielles qui répondent aux critères définis dans la règle sont ajoutées à un groupe de mises à jour logicielles et la stratégie de déploiement des mises à jour logicielles est configurée, mais les mises à jour logicielles ne sont pas téléchargées ni déployées sur les clients. Cette situation vous laisse le temps suffisant pour préparer le déploiement des mises à jour logicielles, vérifier que les mises à jour logicielles répondant aux critères sont adéquates, puis activer ultérieurement le déploiement.  
 
-4.  Configureer de volgende instellingen op de pagina Implementatie-instellingen:  
+4.  Sur la page Paramètres de déploiement, configurez les paramètres suivants :  
 
-    -   **Wake-on-LAN gebruiken om clients voor vereiste implementaties te laten ontwaken**: Hiermee geeft u op of Wake On LAN tegen de deadline voor het verzenden van ontwaakpakketten naar computers waarvoor een of meer software-updates in de implementatie. Computers die zich op het tijdstip van de installatiedeadline in de slaapstandmodus bevinden, worden uit deze stand gehaald, zodat de installatie van de software-update kan worden gestart. Clients die zich in de slaapstandmodus bevinden en geen software-updates nodig hebben, worden niet gestart. Deze instelling is standaard uitgeschakeld.  
+    -   **Utiliser Wake-on-LAN pour réveiller les clients pour les déploiements requis**: indique si l’éveil par appel réseau (Wake On LAN) doit être activé à l’échéance pour envoyer des paquets de mise en éveil aux ordinateurs qui nécessitent une ou plusieurs mises à jour logicielles du déploiement. Tous les ordinateurs en mode veille à l'échéance de l'installation sont mis en éveil pour que l'installation des mises à jour logicielles puisse démarrer. Les clients en mode veille qui ne nécessitent pas les mises à jour logicielles incluses dans le déploiement ne sont pas démarrés. Par défaut, ce paramètre n'est pas activé.  
 
         > [!WARNING]  
-        >  Voordat u deze optie kunt gebruiken, moeten computers en netwerken worden geconfigureerd voor Wake On LAN.  
+        >  Avant de pouvoir utiliser cette option, vous devez configurer les ordinateurs et les réseaux pour l'éveil par appel réseau.  
 
-    -   **Detailniveau**: Geef het detailniveau voor de statusberichten die zijn gerapporteerd door clientcomputers.  
+    -   **Niveau de détail**: indiquez le niveau de détail pour les messages d’état qui sont signalés par les ordinateurs clients.  
 
         > [!IMPORTANT]  
-        >  Stel, wanneer u definitie-updates implementeert, het detailniveau in op **Alleen fouten** als u wilt dat clients alleen statusberichten rapporteren wanneer een definitie-update niet bij de client wordt bezorgd. Als u dat niet doet, rapporteert de client mogelijk een groot aantal statusberichten dat van invloed kan zijn op de prestaties van de site server.  
+        >  Lorsque vous déployez des mises à jour de définitions, affectez au niveau de détails la valeur **Erreur uniquement** pour que le client envoie un message d'état uniquement lorsqu'une mise à jour de définition ne lui est pas remise. Sinon, le client envoie un grand nombre de messages d'état pouvant avoir un effet sur les performances du serveur de site.  
 
-    -   **Instelling voor licentiebepalingen**: Geef op of voor de automatische implementatie van software-updates waaraan licentiebepalingen zijn gekoppeld. Sommige software-updates bevatten licentiebepalingen. Dit is bijvoorbeeld het geval bij een servicepack. Wanneer u software-updates automatisch implementeert, worden de licentiebepalingen niet weergegeven en wordt er geen mogelijkheid geboden om de licentiebepalingen te accepteren. U kunt ervoor kiezen om alle software-updates automatisch te implementeren, ongeacht bijbehorende licentiebepalingen of om software-updates alleen te implementeren als er geen licentiebepalingen aan deze updates zijn gekoppeld.  
+    -   **Paramètre du contrat de licence**: indiquez si les mises à jour logicielles doivent être déployées automatiquement avec un contrat de licence associé. Certaines mises à jour logicielles comprennent un contrat de licence, dans le cas d'un Service Pack par exemple. Lorsque vous déployez automatiquement des mises à jour logicielles, le contrat de licence ne s'affiche pas et il n'est pas possible d'accepter le contrat de licence. Vous pouvez choisir de déployer automatiquement toutes les mises à jour logicielles indépendamment d'un contrat de licence associé ou de déployer uniquement les mises à jour logicielles qui ne sont associées à aucun contrat de licence.  
 
         > [!NOTE]  
-        >  Als u de licentiebepalingen voor een software-update wilt weergeven, selecteert u de software in het knooppunt **Alle software-updates** van de werkruimte **Softwarebibliotheek** en vervolgens klikt u op het tabblad **Start** in de groep **Update** op **Licentie weergeven**.  
+        >  Pour consulter le contrat de licence d'une mise à jour logicielle, vous pouvez sélectionner la mise à jour logicielle dans le nœud **Toutes les mises à jour logicielles** de l'espace de travail **Bibliothèque de logiciels** , puis, sur l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Consulter le contrat de licence**.  
         >   
-        >  Als u wilt zoeken naar software-updates waaraan licentiebepalingen zijn gekoppeld, kunt u de kolom **Licentiebepalingen** toevoegen aan het deelvenster met resultaten in het knooppunt **Alle software-updates** en vervolgens op de kolomkop klikken om de kolom te sorteren op software-updates met licentiebepalingen.  
+        >  Pour trouver des mises à jour logicielles avec un contrat de licence associé, vous pouvez ajouter la colonne **Termes du contrat de licence** au volet des résultats dans le nœud **Toutes les mises à jour logicielles** , puis cliquer sur l'en-tête de la colonne pour effectuer un tri selon les mises à jour logicielles associées à un contrat de licence.  
 
-5.  Configureer op de pagina Software-updates de criteria voor de software-updates die via de ADR worden opgehaald en toegevoegd aan de software-updategroep.  
+5.  Dans la page Mises à jour logicielles, configurez les critères des mises à jour logicielles que la règle ADR récupère et ajoute au groupe de mises à jour logicielles.  
 
     > [!IMPORTANT]  
-    >  De limiet voor software-updates in de ADR is 1000 software-updates. Als u er zeker van wilt zijn dat de criteria die u op deze pagina opgeeft, ertoe leiden dat er minder dan 1000 software-updates worden opgehaald, kunt u overwegen om dezelfde criteria in te stellen in het knooppunt **Alle software-updates** in de werkruimte **Softwarebibliotheek** .  
+    >  Dans une règle ADR, le nombre limite de mises à jour logicielles est de 1 000. Pour veiller à ce que les critères spécifiés sur cette page permettent de récupérer moins de 1 000 mises à jour logicielles, envisagez de définir les mêmes critères sur le nœud **Toutes les mises à jour logicielles** dans l'espace de travail **Bibliothèque de logiciels** .  
 
     > [!NOTE]
-    > U start in Configuration Manager versie 1610, kunt u filteren op de grootte van de inhoud voor software-updates in de regels voor automatische implementatie. U kunt bijvoorbeeld instellen de **inhoud grootte (KB)** filteren op **< 2048** alleen softwareupdates te downloaden die kleiner dan 2 MB zijn. Met dit filter voorkomt dat grote software-updates automatisch downloaden naar betere ondersteuning vereenvoudigd Windows downlevel-onderhoud als de netwerkbandbreedte beperkt is. Zie voor meer informatie [Configuration Manager en vereenvoudigd onderhoud van Windows op omlaag niveau besturingssystemen](https://blogs.technet.microsoft.com/enterprisemobility/2016/10/07/configuration-manager-and-simplified-windows-servicing-on-down-level-operating-systems/).
+    > Depuis Configuration Manager version 1610, vous pouvez filtrer sur la taille du contenu des mises à jour logicielles dans les règles de déploiement automatique. Par exemple, vous pouvez définir le filtre **Taille du contenu (Ko)** sur **< 2048** pour télécharger uniquement les mises à jour logicielles inférieures à 2 Mo. Ce filtre empêche le téléchargement automatique des mises à jour logicielles volumineuses pour une meilleure prise en charge de la maintenance de bas niveau Windows simplifiée lorsque la bande passante du réseau est limitée. Pour plus d’informations, consultez [Configuration Manager et maintenance Windows simplifiée sur des systèmes d’exploitation de bas niveau](https://blogs.technet.microsoft.com/enterprisemobility/2016/10/07/configuration-manager-and-simplified-windows-servicing-on-down-level-operating-systems/).
 
-6.  Geef op de pagina Evaluatieplanning op of de ADR moet worden ingeschakeld voor uitvoeren op basis van een planning. Wanneer dit is ingeschakeld, klikt u op **Aanpassen** om de terugkerende planning in te schakelen.  
+6.  Dans la page Calendrier d’évaluation, indiquez si l’exécution de la règle ADR doit obéir à un calendrier. Si elle est activée, cliquez sur **Personnaliser** pour définir le calendrier périodique.  
 
     > [!IMPORTANT]  
-    >  De synchronisatieplanning voor het software-updatepunt wordt weergegeven om u te helpen bij het vaststellen van de frequentie van de evaluatieplanning. De evaluatieplanning mag nooit zo worden ingesteld dat de frequentie hoger is dan de synchronisatieplanning voor software-updates. De begintijdconfiguratie voor de planning is gebaseerd op de lokale tijd van de computer waarop de Configuration Manager-console.  
+    >  Le calendrier de synchronisation du point de mise à jour logicielle s'affiche pour vous aider à déterminer la fréquence du calendrier d'évaluation. Il est préférable de ne jamais définir le calendrier d'évaluation selon une fréquence supérieure au calendrier de synchronisation des mises à jour logicielles. La configuration de l'heure de début du calendrier se base sur l'heure locale de l'ordinateur qui exécute la console Configuration Manager.  
 
     > [!NOTE]  
-    >  Als u de ADR handmatig wilt uitvoeren, selecteert u de regel en klikt u vervolgens op **Nu uitvoeren** op het tabblad **Start** in de groep **Regel voor automatische implementatie** . Controleer of de synchronisatie voor software-updates is uitgevoerd sinds u de regel voor het laatst hebt uitgevoerd voordat u de ADR handmatig uitvoert.  
+    >  Pour exécuter manuellement la règle ADR, sélectionnez la règle, puis cliquez sur **Exécuter maintenant** sous l’onglet **Accueil** dans le groupe **Règle de déploiement automatique** . Avant d’exécuter manuellement la règle ADR, vérifiez que la synchronisation des mises à jour logicielles a été exécutée depuis la dernière exécution de la règle.  
 
     > [!IMPORTANT]  
-    >  De ADR-evaluatie kan twee tot drie keer per dag worden uitgevoerd.  
+    >  La règle ADR peut être évaluée jusqu’à trois fois par jour.  
 
-7.  Configureer de volgende instellingen op de pagina Implementatieplanning:  
+7.  Sur la page Calendrier de déploiement, configurez les paramètres suivants :  
 
-    -   **Evaluatie van planning**: Geef aan of Configuration Manager de beschikbare tijd en de tijdstippen voor de installatiedeadline evalueert op basis van UTC of van de lokale tijd van de computer waarop de Configuration Manager-console.  
-
-        > [!NOTE]  
-        >  Als u lokale tijd selecteert en selecteer vervolgens **zo snel mogelijk** voor de **tijd Software beschikbaar** of **installatiedeadline**, de huidige tijd op de computer die de Configuration Manager-console wordt gebruikt om te evalueren wanneer updates beschikbaar zijn of wanneer ze worden geïnstalleerd op een client wordt uitgevoerd. Als de client zich in een andere tijdzone bevindt, worden deze acties uitgevoerd wanneer de tijd van de client de evaluatietijd heeft bereikt.  
-
-    -   **Tijd software beschikbaar**: Selecteer een van de volgende instellingen op te geven wanneer de software-updates beschikbaar voor clients zijn:  
-
-        -   **Zo spoedig mogelijk**: Selecteer deze instelling om de softwareupdates die zijn opgenomen in de implementatie beschikbaar voor de clientcomputers zo snel mogelijk. Wanneer u de implementatie met deze instelling is ingeschakeld maakt, wordt in Configuration Manager het clientbeleid bijgewerkt. Clients detecteren de implementatie vervolgens gedurende de volgende pollingcyclus van het clientbeleid en kunnen de updates verkrijgen die beschikbaar zijn voor installatie.  
-
-        -   **Specifiek tijdstip**: Selecteer deze instelling om de softwareupdates die zijn opgenomen in de implementatie op een specifieke datum en tijd beschikbaar is voor de clientcomputers. Wanneer u de implementatie met deze instelling is ingeschakeld maakt, wordt in Configuration Manager het clientbeleid bijgewerkt. Clients detecteren de implementatie vervolgens gedurende de volgende pollingcyclus van het clientbeleid. De software-updates in de implementatie zijn echter pas na de geconfigureerde datum en het geconfigureerde tijdstip beschikbaar voor installatie.  
-
-    -   **Installatiedeadline**: Selecteer een van de volgende instellingen om op te geven van de installatiedeadline voor de software-updates in de implementatie:  
-
-        -   **Zo spoedig mogelijk**: Selecteer deze instelling om de software-updates in de implementatie zo spoedig mogelijk automatisch worden geïnstalleerd.  
-
-        -   **Specifiek tijdstip**: Selecteer deze instelling om de software-updates in de implementatie op een specifieke datum en tijd automatisch worden geïnstalleerd. Configuration Manager bepaalt de deadline voor het installeren van software-updates door het geconfigureerde **specifiek tijdstip** interval voor de **tijd Software beschikbaar**.  
+    -   **Calendrier d’évaluation** : indiquez si Configuration Manager évalue la durée disponible et la date d’échéance de l’installation à l’heure UTC ou à l’heure locale de l’ordinateur exécutant la console Configuration Manager.  
 
         > [!NOTE]  
-        >  Het daadwerkelijke tijdstip van de installatiedeadline is het weergegeven deadlinetijdstip plus een willekeurige hoeveelheid die maximaal twee uur is. Hierdoor wordt de mogelijke invloed op alle clientcomputers in de doelverzameling waarop de software-updates in de implementatie gelijktijdig worden geïnstalleerd, gereduceerd.  
+        >  Si vous sélectionnez l’heure locale, puis **Dès que possible** pour le **Temps disponible du logiciel** ou **Échéance d’installation**, l’heure actuelle sur l’ordinateur exécutant la console Configuration Manager est utilisée pour évaluer quand les mises à jour sont disponibles ou quand elles sont installées sur un client. Si le client est dans un autre fuseau horaire, ces actions se produisent quand l’heure du client atteint l’heure de l’évaluation.  
+
+    -   **Temps disponible du logiciel**: sélectionnez l’un des paramètres suivants pour spécifier le moment où les mises à jour logicielles sont disponibles pour les clients :  
+
+        -   **Dès que possible**: sélectionnez ce paramètre pour permettre aux ordinateurs clients d’accéder dès que possible aux mises à jour logicielles incluses dans le déploiement. Quand vous créez le déploiement avec ce paramètre sélectionné, Configuration Manager met à jour la stratégie client. Ensuite, au prochain cycle d'interrogation de la stratégie client, les clients prennent connaissance du déploiement et peuvent obtenir les mises à jour disponibles à l'installation.  
+
+        -   **Heure spécifique**: sélectionnez ce paramètre pour permettre aux ordinateurs clients d’accéder aux mises à jour logicielles incluses dans le déploiement à une date et heure précises. Quand vous créez le déploiement avec ce paramètre activé, Configuration Manager met à jour la stratégie client. Ensuite, au prochain cycle d'interrogation de la stratégie client, les clients prennent connaissance du déploiement. Toutefois, les mises à jour logicielles incluses dans le déploiement ne sont pas disponibles à l'installation avant la date et l'heure configurées.  
+
+    -   **Échéance d’installation**: sélectionnez l’un des paramètres suivants pour spécifier l’échéance d’installation des mises à jour logicielles incluses dans le déploiement :  
+
+        -   **Dès que possible**: sélectionnez ce paramètre pour installer automatiquement les mises à jour logicielles incluses dans le déploiement dès que possible.  
+
+        -   **Heure spécifique**: sélectionnez ce paramètre pour installer automatiquement les mises à jour logicielles incluses dans le déploiement à une date et une heure spécifiques. Configuration Manager détermine l’échéance d’installation des mises à jour logicielles en ajoutant l’intervalle **Heure spécifique** configuré au **Temps disponible du logiciel**.  
+
+        > [!NOTE]  
+        >  L'heure d'échéance de l'installation réelle est l'heure d'échéance affichée plus un laps de temps aléatoire pouvant atteindre 2 heures. Elle permet de réduire l'impact lié à l'installation simultanée, par tous les ordinateurs clients du regroupement de destination, des mises à jour logicielles incluses dans le déploiement.  
         >   
-        >  U kunt de **Computeragent** -clientinstelling **Willekeurig toepassen van deadline uitschakelen** configureren om de willekeurige installaties voor vereiste software-updates uit te schakelen. Zie [Computeragent](../../core/clients/deploy/about-client-settings.md#computer-agent) voor meer informatie.  
+        >  Vous pouvez configurer le paramètre client **Agent ordinateur** , **Désactiver la randomisation des échéances** , pour désactiver le délai de randomisation de l’installation des mises à jour logicielles requises. Pour plus d’informations, voir [Computer Agent](../../core/clients/deploy/about-client-settings.md#computer-agent).  
 
-8. Configureer de volgende instellingen op de pagina Gebruikerservaring:  
+8. Sur la page Expérience utilisateur, configurez les paramètres suivants :  
 
-    -   **Meldingen voor gebruikers**: Geef op of meldingen van de software-updates weergeven in Software Center op de clientcomputer op de geconfigureerde **tijd Software beschikbaar** en of meldingen voor gebruikers weergegeven op de clientcomputers.  
+    -   **Notifications à l’utilisateur**: indiquez si vous souhaitez afficher les notifications des mises à jour logicielles dans le Centre logiciel sur l’ordinateur client selon la valeur **Temps disponible du logiciel** configuré et si les notifications à l’utilisateur doivent s’afficher sur les ordinateurs clients.  
 
-    -   **Deadlinegedrag**: Geef het gedrag op dat moet worden vertoond als de deadline voor de implementatie van de software-update wordt bereikt. Geef op of de software-updates in de implementatie moeten worden geïnstalleerd. Geef ook op of het systeem na het installeren van software-updates opnieuw moet worden opgestart, ongeacht het geconfigureerde onderhoudsvenster. Zie voor meer informatie over onderhoudsvensters [het gebruik van onderhoudsvensters](../../core/clients/manage/collections/use-maintenance-windows.md).  
+    -   **Comportement à l’échéance**: spécifiez le comportement qui doit se produire lorsque l’échéance est atteinte pour le déploiement des mises à jour logicielles. Indiquez si vous souhaitez installer les mises à jour logicielles incluses dans le déploiement. Spécifiez également si un redémarrage du système doit être effectué après l'installation des mises à jour logicielles, quelle que soit la fenêtre de maintenance configurée. Pour plus d’informations sur les fenêtres de maintenance, consultez [Guide pratique pour utiliser les fenêtres de maintenance](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-    -   **Gedrag voor opnieuw opstarten apparaat**: Geef op of het onderdrukken van opnieuw opstarten van servers en werkstations nadat software-updates zijn geïnstalleerd en opnieuw opstarten is vereist om de installatie te voltooien.  
+    -   **Comportement de redémarrage du périphérique**: indiquez si le redémarrage du système sur les serveurs et stations de travail doit être supprimé une fois les mises à jour logicielles installées et si un redémarrage du système est nécessaire pour terminer l’installation.  
 
         > [!IMPORTANT]  
-        >  Het onderdrukken van het opnieuw opstarten van het systeem kan nuttig zijn in serveromgevingen of in andere gevallen waarin u wilt dat de computers die de software-updates installeren, niet standaard opnieuw worden opgestart. Dit kan er echter toe leiden dat computers zich in een onbeveiligde toestand bevinden. Het toestaan van afgedwongen opnieuw opstarten garandeert onmiddellijke voltooiing van de installatie van software-updates.  
+        >  La suppression du redémarrage système peut s'avérer utile dans les environnements de serveurs ou lorsque vous ne souhaitez pas que les ordinateurs qui installent les mises à jour logicielles redémarrent par défaut. Toutefois, elle peut laisser les ordinateurs dans un état non sécurisé, alors que l'autorisation d'un redémarrage forcé contribue à garantir l'exécution immédiate de l'installation des mises à jour logicielles.  
 
-    -   **Schrijffilters voor Windows Embedded-apparaten**: Wanneer u software-updates op Windows Embedded-apparaten waarvoor schrijffilters ingeschakeld implementeren zijn, kunt u opgeven om de software-update op een tijdelijke overlay en de wijzigingen later installeren of de wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster. Wanneer u wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster, moet er opnieuw worden opgestart, zodat de wijzigingen behouden blijven op het apparaat.  
+    -   **Traitement des filtres d’écriture pour les appareils Windows Embedded**: quand vous déployez des mises à jour logicielles sur des appareils Windows Embedded pour lesquels le filtre d’écriture est activé, vous pouvez choisir d’installer la mise à jour logicielle sur le segment de recouvrement temporaire et valider les modifications ultérieurement ou à l’échéance de l’installation ou bien pendant une fenêtre de maintenance. Lorsque vous validez des modifications à l'échéance de l'installation ou au cours d'une fenêtre de maintenance, un redémarrage est requis et les modifications sont conservées sur l'appareil.  
 
         > [!NOTE]  
-        >  Wanneer u een software-update implementeert op een Windows Embedded-apparaat, moet u ervoor zorgen dat het apparaat lid is van een verzameling met een geconfigureerd onderhoudsvenster.  
+        >  Lorsque vous déployez une mise à jour logicielle sur un appareil Windows Embedded, assurez-vous que l'appareil fait partie des membres d'un regroupement pour lequel une fenêtre de maintenance a été configurée.  
 
-    - **Implementatiegedrag voor nieuwe evaluatie bij het opnieuw opstarten van software-updates**: Vanaf Configuration Manager versie 1606, selecteer deze instelling om software-updates implementaties configureren zodat clients op een nalevingsscan voor software-updates onmiddellijk nadat een client software installeert-updates en opnieuw gestart. Hierdoor kan de client controleren op aanvullende beschikbare software-updates nadat de client opnieuw is opgestart, en deze installeren (en zorgen voor naleving) tijdens datzelfde onderhoudsvenster.
+    - **Comportement de réévaluation du déploiement des mises à jour logicielles après le redémarrage** : à compter de Configuration Manager version 1606, sélectionnez ce paramètre pour configurer les déploiements de mises à jour logicielles de façon à ce que les clients exécutent une analyse de conformité des mises à jour logicielles immédiatement après avoir installé celles-ci et redémarré. Cela permet au client de vérifier la disponibilité de mises à jour logicielles supplémentaires devenues applicables après le redémarrage, puis de les installer (et devenir ainsi conforme) au cours d’une même fenêtre de maintenance.
 
-9. Configureer op de pagina waarschuwingen hoe Configuration Manager en System Center Operations Manager waarschuwingen voor deze implementatie genereren moeten.  
-
-    > [!NOTE]  
-    >  U kunt recente waarschuwingen met betrekking tot software-updates weergegeven in het knooppunt **Software-updates** in de werkruimte **Softwarebibliotheek** .  
-
-10. Configureer de volgende instellingen op de pagina Downloadinstellingen:  
-
-    - Geef op of de client de software-updates moet downloaden en installeren wanneer een client is verbonden met een langzaam netwerk of wanneer deze gebruikmaakt van een locatie terugvalinhoudlocatie.  
-
-    - Geef op of de client de software-updates moet downloaden en installeren vanaf een terugvaldistributiepunt wanneer de inhoud voor de software-updates niet beschikbaar is op een voorkeursdistributiepunt.  
-
-    - **Toestaan dat clients inhoud te delen met andere clients in hetzelfde subnet**: Geef op of het gebruik van BranchCache voor inhouddownloads inschakelen. Zie [Concepten voor inhoudsbeheer](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache) voor meer informatie over BranchCache.  
-
-    - **Als software-updates niet beschikbaar is op het distributiepunt in de huidige, neighbor of site groepen, inhoud downloaden van Microsoft Updates**: Selecteer deze instelling clients die zijn verbonden met het intranet software-updates voor downloaden vanaf Microsoft Update als software-updates niet beschikbaar zijn op distributiepunten hebben. Clients op Internet gaat altijd u naar Microsoft Update voor de inhoud van software-updates.
-
-    - Geef op of clients mogen downloaden na een installatiedeadline wanneer deze internetverbindingen met een datalimiet gebruiken. Internetproviders brengen soms de hoeveelheid gegevens die u verzendt en ontvangt in rekening wanneer u gebruikmaakt van een internetverbinding naar gebruik.  
+9. Sur la page Alertes, configurez la manière dont Configuration Manager et System Center Operations Manager génèreront des alertes pour ce déploiement.  
 
     > [!NOTE]  
-    >  Clients vragen de inhoudlocatie aan bij het beheerpunt voor de software-updates in een implementatie. Het downloadgedrag is afhankelijk van hoe u het distributiepunt, implementatiepakket en de instellingen op deze pagina hebt geconfigureerd. Zie [Scenario's voor de locatie van inhoudsbronnen](../../core/plan-design/hierarchy/content-source-location-scenarios.md) voor meer informatie.  
+    >  Vous pouvez consulter les récentes alertes de mises à jour logicielles à partir du nœud **Mises à jour logicielles** dans l'espace de travail **Bibliothèque de logiciels** .  
 
-11. Selecteer op de pagina Implementatiepakket een bestaand implementatiepakket of configureer de volgende instellingen voor het maken van een nieuw implementatiepakket:  
+10. Sur la page Paramètres de téléchargement, configurez les paramètres suivants :  
 
-    1.  **Naam**: Geef de naam van het implementatiepakket. Dit moet een unieke naam zijn die de pakketinhoud beschrijft. Er kunnen maximaal 50 tekens worden ingevoerd.  
+    - Indiquez si le client va télécharger et installer les mises à jour logicielles quand il est connecté à un réseau lent ou utilise un emplacement de secours pour le contenu.  
 
-    2.  **Beschrijving**: Geef een beschrijving die informatie over het implementatiepakket biedt. De beschrijving mag niet langer zijn dan 127 tekens.  
+    - Indiquez si le client doit télécharger et installer les mises à jour logicielles à partir d'un point de distribution de secours quand le contenu pour les mises à jour logicielles n'est pas disponible sur un point de distribution préféré.  
 
-    3.  **Pakketbron**: Hiermee geeft u de locatie van de bronbestanden voor software-update.  Typ een netwerkpad voor de bronlocatie, zoals **\\\\server\sharenaam\pad**, of klik op **Bladeren** en ga naar de netwerklocatie. U moet een gedeelde map maken voor de bronbestanden van het installatiepakket voordat u doorgaat naar de volgende pagina.  
+    - **Autoriser les clients à partager du contenu avec d’autres clients sur le même sous-réseau**: indiquez si vous souhaitez activer l’utilisation de BranchCache pour les téléchargements du contenu. Pour plus d’informations sur BrandCache, consultez [Concepts for content management](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
+
+    - **Si les mises à jour logicielles ne sont pas disponibles sur le point de distribution de groupes actuels, voisins ou de site, téléchargez le contenu à partir de Microsoft Updates** : sélectionnez ce paramètre afin que les clients connectés à l’intranet téléchargent les mises à jour logicielles depuis Microsoft Update si les mises à jour logicielles ne sont pas disponibles sur les points de distribution. Les clients Internet peuvent toujours accéder à Microsoft Update pour obtenir le contenu des mises à jour logicielles.
+
+    - Indiquez si les clients peuvent procéder au téléchargement une fois l’échéance de l’installation dépassée dans le cas où ils utilisent des connexions Internet facturées à l’usage. Les fournisseurs Internet facturent parfois en fonction de la quantité de données que vous envoyez et recevez lorsque vous utilisez une connexion Internet facturée à l'usage.  
+
+    > [!NOTE]  
+    >  Les clients demandent l'emplacement du contenu à partir d'un point de gestion pour les mises à jour logicielles dans un déploiement. Le comportement de téléchargement dépend de la manière dont vous avez configuré le point de distribution, le package de déploiement et les paramètres sur cette page. Pour plus d'informations, voir [Content source location scenarios](../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
+
+11. Sur la page Package de déploiement, sélectionnez un package de déploiement existant ou configurez les paramètres suivants pour créer un package de déploiement :  
+
+    1.  **Nom**: spécifiez le nom du package de déploiement. Celui-ci doit être un nom unique qui décrit le contenu du package. Il est limité à 50 caractères.  
+
+    2.  **Description**: spécifiez une description qui fournit des informations sur le package de déploiement. La description est limitée à 127 caractères.  
+
+    3.  **Source du package**: spécifie l’emplacement des fichiers sources des mises à jour logicielles.  Tapez un chemin réseau pour l’emplacement source, par exemple **\\\serveur\nom_partage\chemin**ou cliquez sur **Parcourir** pour rechercher l’emplacement réseau. Vous devez créer le dossier partagé pour les fichiers sources du package de déploiement avant de passer à la page suivante.  
 
         > [!NOTE]  
-        >  De bronlocatie van het installatiepakket die u opgeeft, mag niet door een ander software-installatiepakket worden gebruikt.  
+        >  L'emplacement source du package de déploiement que vous spécifiez ne peut pas être utilisé par un autre package de déploiement de logiciel.  
 
         > [!IMPORTANT]  
-        >  Het computeraccount van de SMS-provider en de gebruiker die de wizard uitvoert voor het downloaden van de software-updates, moeten over NTFS-machtigingen voor **schrijven** op de downloadlocatie beschikken. U moet de toegang tot de downloadlocatie zorgvuldig beperken om het risico op kwaadwillenden die met bronbestanden van de software-update knoeien, te reduceren.  
+        >  Le compte d'ordinateur du fournisseur SMS et l'utilisateur qui exécute l'Assistant Téléchargement des mises à jour logicielles nécessitent des autorisations NTFS en **Écriture** sur l'emplacement de téléchargement. Vous devez soigneusement limiter l'accès à l'emplacement de téléchargement pour éviter que des personnes malintentionnées ne falsifient les fichiers sources des mises à jour logicielles.  
 
         > [!IMPORTANT]  
-        >  U kunt de pakketbronlocatie in de eigenschappen van het installatiepakket wijzigen nadat Configuration Manager het implementatiepakket maakt. Als u dit doet, moet u echter eerst de inhoud van de oorspronkelijke pakketbron kopiëren naar de nieuwe pakketbronlocatie.  
+        >  Une fois que le package de déploiement a été créé par Configuration Manager, vous pouvez modifier l’emplacement source du package de déploiement dans les propriétés du package. Mais le cas échéant, vous devez d'abord copier le contenu à partir de la source du package d'origine vers le nouvel emplacement source du package.  
 
-    4.  **Prioriteit voor verzenden**: Geef de prioriteit voor verzenden voor het implementatiepakket. Configuration Manager gebruikt de prioriteit voor verzenden voor het implementatiepakket wanneer het pakket naar distributiepunten wordt verzonden. Installatiepakketten worden in volgorde van prioriteit verzonden: Hoog, Gemiddeld of laag. Pakketten met een identieke prioriteit worden verzonden in de volgorde waarin deze zijn gemaakt. Als er geen achterstand is, wordt het pakket onmiddellijk verwerkt, ongeacht de prioriteit van het pakket.  
+    4.  **Priorité d’expédition**: spécifiez la priorité d’envoi pour le package de déploiement. Configuration Manager utilise la priorité d’expédition du package de déploiement quand il envoie le package aux points de distribution. Les packages de déploiement sont envoyés par ordre de priorité : Haute, Moyenne ou Faible. Les packages disposant de priorités identiques sont transmis dans l'ordre dans lequel ils ont été créés. En l'absence de backlog, le package est immédiatement traité quelle que soit sa priorité.  
 
-12. Geef op de pagina Distributiepunten de distributiepunten of distributiepuntgroepen op die als host zullen fungeren voor de software-updatebestanden. Zie [Configuraties van het distributiepunt](../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs) voor meer informatie over distributiepunten.  
-
-    > [!NOTE]  
-    >  Deze pagina is alleen beschikbaar wanneer u een nieuw implementatiepakket voor software-updates maakt.  
-
-13. Geef op de pagina Downloadlocatie op of de software-updatebestanden moeten worden gedownload vanaf internet of vanaf uw lokale netwerk. Configureer de volgende instellingen:  
-
-    -   **Software-updates downloaden vanaf Internet**: Selecteer deze instelling om de software-updates downloaden vanaf een opgegeven locatie op Internet. Deze instelling is standaard ingeschakeld.  
-
-    -   **Software-updates downloaden vanaf een locatie op het lokale netwerk**: Selecteer deze instelling om de softwareupdates downloaden vanaf een lokale map of gedeelde map. Deze instelling is nuttig wanneer de computer waarop de wizard wordt uitgevoerd, geen toegang tot internet heeft. Computers met internettoegang kunnen software-updates voortijdig downloaden en deze opslaan op een locatie op het lokale netwerk die toegankelijk is vanaf de computer waarop de wizard wordt uitgevoerd.  
-
-14. Selecteer de talen waarvoor de geselecteerde software-updates worden gedownload op de pagina Taal selecteren. De software-updates worden alleen gedownload als deze beschikbaar zijn in de geselecteerde talen. Software-updates die niet aan een specifieke taal zijn gebonden, worden altijd gedownload. De wizard selecteert standaard de talen die u hebt geconfigureerd in de eigenschappen van het software-updatepunt. Er moet ten minste één taal worden geselecteerd voordat u doorgaat naar de volgende pagina. Wanneer u alleen talen selecteert die niet door een software-update worden ondersteund, mislukt het downloaden van de software-update.  
-
-15. Controleer de instellingen op de pagina Overzicht. Klik, als u de instellingen wilt opslaan naar een implementatiesjabloon, op **Opslaan als sjabloon**, voer een naam in, selecteer de instellingen die u in de sjabloon wilt opnemen en klik op **Opslaan**. Als u een geconfigureerde instelling wilt wijzigen, klikt u op de gekoppelde wizardpagina en wijzigt u de instelling.  
+12. Sur la page Points de distribution, spécifiez les points de distribution ou les groupes de points de distribution qui vont héberger les fichiers de mise à jour logicielle. Pour plus d’informations sur les points de distribution, consultez [Configurations des points de distribution](../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs).  
 
     > [!NOTE]  
-    >  De sjabloonnaam mag alfanumerieke ASCII-tekens en de tekens **\\** (backslash) en **‘** (apostrof) bevatten.  
+    >  Cette page est disponible uniquement lorsque vous créez un nouveau package de déploiement de mise à jour logicielle.  
 
-16. Klik op **Volgende** om de ADR te maken.  
+13. Sur la page Emplacement de téléchargement, indiquez si les fichiers de mise à jour logicielle doivent être téléchargés à partir d'Internet ou de votre réseau local. Configurez les paramètres suivants :  
 
- Nadat u de wizard hebt voltooid, wordt de ADR uitgevoerd. Deze voegt software-updates toe die voldoen aan de opgegeven criteria voor een software-updategroep, downloadt de software-updates naar de inhoudsbibliotheek op de site server, distribueert de software-updates naar de geconfigureerde distributiepunten en implementeert de software-updategroep voor clients op de doellocatie.  
+    -   **Télécharger les mises à jour logicielles depuis Internet**: sélectionnez ce paramètre pour télécharger les mises à jour logicielles à partir d’un emplacement spécifié sur Internet. Ce paramètre est activé par défaut.  
 
-##  <a name="BKMK_AddDeploymentToADR"></a> Nieuwe implementaties aan een bestaande ADR toevoegen  
- Nadat u een regel voor automatische implementatie hebt gemaakt, kunt u aanvullende implementaties aan de regel toevoegen. Dit kan helpen bij het beheren van de complexiteit van het implementeren van verschillende updates voor verschillende verzamelingen. Elke nieuwe implementatie heeft alle functionaliteit en biedt de volledige implementatiebewakingservaring.  
+    -   **Télécharger les mises à jour logicielles à partir d’un emplacement sur le réseau local**: sélectionnez ce paramètre pour télécharger les mises à jour logicielles à partir d’un répertoire local ou d’un dossier partagé. Ce paramètre s'avère utile lorsque l'ordinateur exécutant l'Assistant ne dispose d'aucun accès à Internet. N'importe quel ordinateur connecté à Internet peut préalablement télécharger les mises à jour logicielles et les stocker à un emplacement sur le réseau local qui est accessible à partir de l'ordinateur qui exécute l'Assistant.  
 
-#### <a name="to-add-a-new-deployment-to-an-existing-adr"></a>Een nieuwe implementatie aan een bestaande ADR toevoegen  
+14. Sur la page Sélection de la langue, sélectionnez les langues pour lesquelles les mises à jour logicielles sélectionnées sont téléchargées. Les mises à jour logicielles sont téléchargées uniquement si elles sont disponibles dans les langues sélectionnées. Les mises à jour logicielles qui ne sont spécifiques à aucune langue sont toujours téléchargées. Par défaut, l'Assistant sélectionne les langues que vous avez configurées dans les propriétés du point de mise à jour logicielle. Au moins une langue doit être sélectionnée avant de passer à la page suivante. Quand vous sélectionnez uniquement des langues qui ne sont pas prises en charge par une mise à jour logicielle, le téléchargement échoue pour cette mise à jour logicielle.  
 
-1.  Navigeer in de Configuration Manager-console naar **softwarebibliotheek** > **overzicht** > **Software-Updates** > **regels voor automatische implementatie**, en selecteer vervolgens de gewenste regel.  
+15. Sur la page Résumé, passez en revue les paramètres. Pour enregistrer les paramètres dans un modèle de déploiement, cliquez sur **Enregistrer comme modèle**, entrez un nom et sélectionnez les paramètres à inclure dans le modèle, puis cliquez sur **Enregistrer**. Pour modifier un paramètre configuré, cliquez sur la page de l'Assistant associée et modifiez le paramètre.  
 
-2.  Klik op het tabblad **Start** in de groep **Regels voor automatische implementatie** op **Implementatie toevoegen**. De wizard Implementatie toevoegen wordt geopend.  
+    > [!NOTE]  
+    >  Le nom du modèle peut comporter des caractères ASCII alphanumériques ainsi que les caractères **\\** (barre oblique inverse) ou **‘** (guillemet-apostrophe).  
 
-3.  Configureer op het tabblad **Verzameling** de volgende instellingen:  
+16. Cliquez sur **Suivant** pour créer la règle ADR.  
 
-    -   **Verzameling**: Hiermee geeft u de doelverzameling op die moet worden gebruikt voor de implementatie. Leden van de verzameling ontvangen de software-updates die in de implementatie zijn gedefinieerd.  
+ La règle ADR s’exécute une fois que vous avez terminé l’Assistant. Elle permet d'ajouter les mises à jour logicielles qui correspondent aux critères spécifiés à un groupe de mises à jour logicielles, de télécharger les mises à jour logicielles dans la bibliothèque de contenu sur le serveur de site, de distribuer les mises à jour logicielles aux points de distribution configurés, puis de déployer le groupe de mises à jour logicielles sur les clients du regroupement cible.  
 
-    -   **De implementatie inschakelen nadat deze regel is uitgevoerd**: Geef op of de software-update-implementatie inschakelen nadat de ADR wordt uitgevoerd. Overweeg met betrekking tot deze specificatie het volgende:  
+##  <a name="BKMK_AddDeploymentToADR"></a> Ajouter un nouveau déploiement à une règle ADR existante  
+ Après avoir créé une règle ADR, vous pouvez y ajouter des déploiements supplémentaires. Cela peut vous aider à gérer la complexité liée au déploiement de différentes mises à jour vers différents regroupements. Chaque nouveau déploiement possède la gamme complète de fonctionnalités et d'expérience de surveillance de déploiement.  
 
-        -   Wanneer u de implementatie inschakelt, worden de software-updates die voldoen aan de gedefinieerde criteria in de regel, toegevoegd aan een software-updategroep, de inhoud van software-updates wordt, wanneer nodig, gedownload, de inhoud wordt gekopieerd naar de opgegeven distributiepunten en de software-updates worden geïmplementeerd op de clients in de doelverzameling.  
+#### <a name="to-add-a-new-deployment-to-an-existing-adr"></a>Pour ajouter un nouveau déploiement à une règle ADR existante  
 
-        -   Wanneer u de implementatie niet inschakelt, worden de software-updates die voldoen aan de gedefinieerde criteria in de regel, toegevoegd aan een software-updategroep en wordt het software-updatebeleid geconfigureerd, maar worden de software-updates niet gedownload of op clients geïmplementeerd. Deze situatie biedt u, wanneer nodig, tijd om het implementeren van de software-updates voor te bereiden, om te controleren of de software-updates die aan de criteria voldoen, toereikend zijn en om vervolgens de implementatie op een later tijdstip in te schakelen.  
+1.  Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Mises à jour logicielles** > **Règles de déploiement automatique**, puis sélectionnez la règle de votre choix.  
 
-4.  Configureer de volgende instellingen op de pagina Implementatie-instellingen:  
+2.  Sous l’onglet **Accueil** , dans le groupe **Règle de déploiement automatique** , cliquez sur **Ajouter un déploiement**. L’Assistant Ajout de déploiement s’ouvre.  
 
-    -   **Wake-on-LAN gebruiken om clients voor vereiste implementaties te laten ontwaken**: Hiermee geeft u op of Wake On LAN tegen de deadline voor het verzenden van ontwaakpakketten naar computers waarvoor een of meer software-updates in de implementatie. Computers die zich op het tijdstip van de installatiedeadline in de slaapstandmodus bevinden, worden uit deze stand gehaald, zodat de installatie van de software-update kan worden gestart. Clients die zich in de slaapstandmodus bevinden en geen software-updates nodig hebben, worden niet gestart. Deze instelling is standaard uitgeschakeld.  
+3.  Dans la page **Regroupement** , configurez les paramètres suivants :  
+
+    -   **Regroupement**: indique le regroupement cible à utiliser pour le déploiement. Les membres du regroupement reçoivent les mises à jour logicielles définies dans le déploiement.  
+
+    -   **Activer le déploiement après l’exécution de cette règle**: indiquez si le déploiement des mises à jour logicielles doit être activé après l’exécution de la règle ADR. En ce qui concerne cette spécification, tenez compte des éléments suivants :  
+
+        -   Lors de l'activation du déploiement, les mises à jour logicielles qui répondent aux critères définis dans la règle sont ajoutées à un groupe de mises à jour logicielles, le contenu des mises à jour logicielles est téléchargé si besoin, le contenu est copié vers les points de distribution spécifiés, puis les mises à jour logicielles sont déployées sur les clients dans le regroupement cible.  
+
+        -   Lorsque vous n'activez pas le déploiement, les mises à jour logicielles qui répondent aux critères définis dans la règle sont ajoutées à un groupe de mises à jour logicielles et la stratégie de déploiement des mises à jour logicielles est configurée, mais les mises à jour logicielles ne sont pas téléchargées ni déployées sur les clients. Cette situation vous laisse le temps suffisant pour préparer le déploiement des mises à jour logicielles, vérifier que les mises à jour logicielles répondant aux critères sont adéquates, puis activer ultérieurement le déploiement.  
+
+4.  Sur la page Paramètres de déploiement, configurez les paramètres suivants :  
+
+    -   **Utiliser Wake-on-LAN pour réveiller les clients pour les déploiements requis**: indique si l’éveil par appel réseau (Wake On LAN) doit être activé à l’échéance pour envoyer des paquets de mise en éveil aux ordinateurs qui nécessitent une ou plusieurs mises à jour logicielles du déploiement. Tous les ordinateurs en mode veille à l'échéance de l'installation sont mis en éveil pour que l'installation des mises à jour logicielles puisse démarrer. Les clients en mode veille qui ne nécessitent pas les mises à jour logicielles incluses dans le déploiement ne sont pas démarrés. Par défaut, ce paramètre n'est pas activé.  
 
         > [!WARNING]  
-        >  Voordat u deze optie kunt gebruiken, moeten computers en netwerken worden geconfigureerd voor Wake On LAN.  
+        >  Avant de pouvoir utiliser cette option, vous devez configurer les ordinateurs et les réseaux pour l'éveil par appel réseau.  
 
-    -   **Detailniveau**: Geef het detailniveau voor de statusberichten die zijn gerapporteerd door clientcomputers.  
+    -   **Niveau de détail**: indiquez le niveau de détail pour les messages d’état qui sont signalés par les ordinateurs clients.  
 
         > [!IMPORTANT]  
-        >  Stel, wanneer u definitie-updates implementeert, het detailniveau in op **Alleen fouten** als u wilt dat clients alleen statusberichten rapporteren wanneer een definitie-update niet bij de client wordt bezorgd. Als u dat niet doet, rapporteert de client mogelijk een groot aantal statusberichten dat van invloed kan zijn op de prestaties van de site server.  
+        >  Lorsque vous déployez des mises à jour de définitions, affectez au niveau de détails la valeur **Erreur uniquement** pour que le client envoie un message d'état uniquement lorsqu'une mise à jour de définition ne lui est pas remise. Sinon, le client envoie un grand nombre de messages d'état pouvant avoir un effet sur les performances du serveur de site.  
 
-5.  Configureer de volgende instellingen op de pagina Implementatieplanning:  
+5.  Sur la page Calendrier de déploiement, configurez les paramètres suivants :  
 
-    -   **Evaluatie van planning**: Geef aan of Configuration Manager de beschikbare tijd en de tijdstippen voor de installatiedeadline evalueert op basis van UTC of van de lokale tijd van de computer waarop de Configuration Manager-console.  
-
-        > [!NOTE]  
-        >  Als u lokale tijd selecteert en selecteer vervolgens **zo snel mogelijk** voor de **tijd Software beschikbaar** of **installatiedeadline**, de huidige tijd op de computer die de Configuration Manager-console wordt gebruikt om te evalueren wanneer updates beschikbaar zijn of wanneer ze worden geïnstalleerd op een client wordt uitgevoerd. Als de client zich in een andere tijdzone bevindt, worden deze acties uitgevoerd wanneer de tijd van de client de evaluatietijd heeft bereikt.  
-
-    -   **Tijd software beschikbaar**: Selecteer een van de volgende instellingen op te geven wanneer de software-updates beschikbaar voor clients zijn:  
-
-        -   **Zo spoedig mogelijk**: Selecteer deze instelling om de softwareupdates die zijn opgenomen in de implementatie beschikbaar voor de clientcomputers zo snel mogelijk. Wanneer u de implementatie met deze instelling is ingeschakeld maakt, wordt in Configuration Manager het clientbeleid bijgewerkt. Clients detecteren de implementatie vervolgens gedurende de volgende pollingcyclus van het clientbeleid en kunnen de updates verkrijgen die beschikbaar zijn voor installatie.  
-
-        -   **Specifiek tijdstip**: Selecteer deze instelling om de softwareupdates die zijn opgenomen in de implementatie op een specifieke datum en tijd beschikbaar is voor de clientcomputers. Wanneer u de implementatie met deze instelling is ingeschakeld maakt, wordt in Configuration Manager het clientbeleid bijgewerkt. Clients detecteren de implementatie vervolgens gedurende de volgende pollingcyclus van het clientbeleid. De software-updates in de implementatie zijn echter pas na de geconfigureerde datum en het geconfigureerde tijdstip beschikbaar voor installatie.  
-
-    -   **Installatiedeadline**: Selecteer een van de volgende instellingen om op te geven van de installatiedeadline voor de software-updates in de implementatie:  
-
-        -   **Zo spoedig mogelijk**: Selecteer deze instelling om de software-updates in de implementatie zo spoedig mogelijk automatisch worden geïnstalleerd.  
-
-        -   **Specifiek tijdstip**: Selecteer deze instelling om de software-updates in de implementatie op een specifieke datum en tijd automatisch worden geïnstalleerd. Configuration Manager bepaalt de deadline voor het installeren van software-updates door het geconfigureerde **specifiek tijdstip** interval voor de **tijd Software beschikbaar**.  
+    -   **Calendrier d’évaluation** : indiquez si Configuration Manager évalue la durée disponible et la date d’échéance de l’installation à l’heure UTC ou à l’heure locale de l’ordinateur exécutant la console Configuration Manager.  
 
         > [!NOTE]  
-        >  Het daadwerkelijke tijdstip van de installatiedeadline is het weergegeven deadlinetijdstip plus een willekeurige hoeveelheid die maximaal twee uur is. Hierdoor wordt de mogelijke invloed op alle clientcomputers in de doelverzameling waarop de software-updates in de implementatie gelijktijdig worden geïnstalleerd, gereduceerd.  
+        >  Si vous sélectionnez l’heure locale, puis **Dès que possible** pour le **Temps disponible du logiciel** ou **Échéance d’installation**, l’heure actuelle sur l’ordinateur exécutant la console Configuration Manager est utilisée pour évaluer quand les mises à jour sont disponibles ou quand elles sont installées sur un client. Si le client est dans un autre fuseau horaire, ces actions se produisent quand l’heure du client atteint l’heure de l’évaluation.  
+
+    -   **Temps disponible du logiciel**: sélectionnez l’un des paramètres suivants pour spécifier le moment où les mises à jour logicielles sont disponibles pour les clients :  
+
+        -   **Dès que possible**: sélectionnez ce paramètre pour permettre aux ordinateurs clients d’accéder dès que possible aux mises à jour logicielles incluses dans le déploiement. Quand vous créez le déploiement avec ce paramètre sélectionné, Configuration Manager met à jour la stratégie client. Ensuite, au prochain cycle d'interrogation de la stratégie client, les clients prennent connaissance du déploiement et peuvent obtenir les mises à jour disponibles à l'installation.  
+
+        -   **Heure spécifique**: sélectionnez ce paramètre pour permettre aux ordinateurs clients d’accéder aux mises à jour logicielles incluses dans le déploiement à une date et heure précises. Quand vous créez le déploiement avec ce paramètre activé, Configuration Manager met à jour la stratégie client. Ensuite, au prochain cycle d'interrogation de la stratégie client, les clients prennent connaissance du déploiement. Toutefois, les mises à jour logicielles incluses dans le déploiement ne sont pas disponibles à l'installation avant la date et l'heure configurées.  
+
+    -   **Échéance d’installation**: sélectionnez l’un des paramètres suivants pour spécifier l’échéance d’installation des mises à jour logicielles incluses dans le déploiement :  
+
+        -   **Dès que possible**: sélectionnez ce paramètre pour installer automatiquement les mises à jour logicielles incluses dans le déploiement dès que possible.  
+
+        -   **Heure spécifique**: sélectionnez ce paramètre pour installer automatiquement les mises à jour logicielles incluses dans le déploiement à une date et une heure spécifiques. Configuration Manager détermine l’échéance d’installation des mises à jour logicielles en ajoutant l’intervalle **Heure spécifique** configuré au **Temps disponible du logiciel**.  
+
+        > [!NOTE]  
+        >  L'heure d'échéance de l'installation réelle est l'heure d'échéance affichée plus un laps de temps aléatoire pouvant atteindre 2 heures. Elle permet de réduire l'impact lié à l'installation simultanée, par tous les ordinateurs clients du regroupement de destination, des mises à jour logicielles incluses dans le déploiement.  
         >   
-        >  U kunt de **Computeragent** -clientinstelling **Willekeurig toepassen van deadline uitschakelen** configureren om de willekeurige installaties voor vereiste software-updates uit te schakelen. Zie [Computeragent](../../core/clients/deploy/about-client-settings.md#computer-agent) voor meer informatie.  
+        >  Vous pouvez configurer le paramètre client **Agent ordinateur** , **Désactiver la randomisation des échéances** , pour désactiver le délai de randomisation de l’installation des mises à jour logicielles requises. Pour plus d’informations, voir [Computer Agent](../../core/clients/deploy/about-client-settings.md#computer-agent).  
 
-6.  Configureer de volgende instellingen op de pagina Gebruikerservaring:  
+6.  Sur la page Expérience utilisateur, configurez les paramètres suivants :  
 
-    -   **Meldingen voor gebruikers**: Geef op of meldingen van de software-updates weergeven in Software Center op de clientcomputer op de geconfigureerde **tijd Software beschikbaar** en of meldingen voor gebruikers weergegeven op de clientcomputers.  
+    -   **Notifications à l’utilisateur**: indiquez si vous souhaitez afficher les notifications des mises à jour logicielles dans le Centre logiciel sur l’ordinateur client selon la valeur **Temps disponible du logiciel** configuré et si les notifications à l’utilisateur doivent s’afficher sur les ordinateurs clients.  
 
-    -   **Deadlinegedrag**: Geef het gedrag op dat moet worden vertoond als de deadline voor de implementatie van de software-update wordt bereikt. Geef op of de software-updates in de implementatie moeten worden geïnstalleerd. Geef ook op of het systeem na het installeren van software-updates opnieuw moet worden opgestart, ongeacht het geconfigureerde onderhoudsvenster. Zie voor meer informatie over onderhoudsvensters [het gebruik van onderhoudsvensters](../../core/clients/manage/collections/use-maintenance-windows.md).  
+    -   **Comportement à l’échéance**: spécifiez le comportement qui doit se produire lorsque l’échéance est atteinte pour le déploiement des mises à jour logicielles. Indiquez si vous souhaitez installer les mises à jour logicielles incluses dans le déploiement. Spécifiez également si un redémarrage du système doit être effectué après l'installation des mises à jour logicielles, quelle que soit la fenêtre de maintenance configurée. Pour plus d’informations sur les fenêtres de maintenance, consultez [Guide pratique pour utiliser les fenêtres de maintenance](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-    -   **Gedrag voor opnieuw opstarten apparaat**: Geef op of het onderdrukken van opnieuw opstarten van servers en werkstations nadat software-updates zijn geïnstalleerd en opnieuw opstarten is vereist om de installatie te voltooien.  
+    -   **Comportement de redémarrage du périphérique**: indiquez si le redémarrage du système sur les serveurs et stations de travail doit être supprimé une fois les mises à jour logicielles installées et si un redémarrage du système est nécessaire pour terminer l’installation.  
 
         > [!IMPORTANT]  
-        >  Het onderdrukken van het opnieuw opstarten van het systeem kan nuttig zijn in serveromgevingen of in andere gevallen waarin u wilt dat de computers die de software-updates installeren, niet standaard opnieuw worden opgestart. Dit kan er echter toe leiden dat computers zich in een onbeveiligde toestand bevinden. Het toestaan van afgedwongen opnieuw opstarten garandeert onmiddellijke voltooiing van de installatie van software-updates.  
+        >  La suppression du redémarrage système peut s'avérer utile dans les environnements de serveurs ou lorsque vous ne souhaitez pas que les ordinateurs qui installent les mises à jour logicielles redémarrent par défaut. Toutefois, elle peut laisser les ordinateurs dans un état non sécurisé, alors que l'autorisation d'un redémarrage forcé contribue à garantir l'exécution immédiate de l'installation des mises à jour logicielles.  
 
-    -   **Schrijffilters voor Windows Embedded-apparaten**: Wanneer u software-updates op Windows Embedded-apparaten waarvoor schrijffilters ingeschakeld implementeren zijn, kunt u opgeven om de software-update op een tijdelijke overlay en de wijzigingen later installeren of de wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster. Wanneer u wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster, moet er opnieuw worden opgestart, zodat de wijzigingen behouden blijven op het apparaat.  
+    -   **Traitement des filtres d’écriture pour les appareils Windows Embedded**: quand vous déployez des mises à jour logicielles sur des appareils Windows Embedded pour lesquels le filtre d’écriture est activé, vous pouvez choisir d’installer la mise à jour logicielle sur le segment de recouvrement temporaire et valider les modifications ultérieurement ou à l’échéance de l’installation ou bien pendant une fenêtre de maintenance. Lorsque vous validez des modifications à l'échéance de l'installation ou au cours d'une fenêtre de maintenance, un redémarrage est requis et les modifications sont conservées sur l'appareil.  
 
         > [!NOTE]  
-        >  Wanneer u een software-update implementeert op een Windows Embedded-apparaat, moet u ervoor zorgen dat het apparaat lid is van een verzameling met een geconfigureerd onderhoudsvenster.  
+        >  Lorsque vous déployez une mise à jour logicielle sur un appareil Windows Embedded, assurez-vous que l'appareil fait partie des membres d'un regroupement pour lequel une fenêtre de maintenance a été configurée.  
 
-7.  Configureer op de pagina waarschuwingen hoe Configuration Manager en System Center Operations Manager waarschuwingen voor deze implementatie genereren moeten.  
+7.  Sur la page Alertes, configurez la manière dont Configuration Manager et System Center Operations Manager génèreront des alertes pour ce déploiement.  
 
     > [!WARNING]  
-    >  U kunt recente waarschuwingen met betrekking tot software-updates weergegeven in het knooppunt **Software-updates** in de werkruimte **Softwarebibliotheek** .  
+    >  Vous pouvez consulter les récentes alertes de mises à jour logicielles à partir du nœud **Mises à jour logicielles** dans l'espace de travail **Bibliothèque de logiciels** .  
 
-8. Configureer de volgende instellingen op de pagina Downloadinstellingen:  
+8. Sur la page Paramètres de téléchargement, configurez les paramètres suivants :  
 
-    - Geef op of de client de software-updates moet downloaden en installeren wanneer een client is verbonden met een langzaam netwerk of wanneer deze gebruikmaakt van een locatie terugvalinhoudlocatie.  
+    - Indiquez si le client va télécharger et installer les mises à jour logicielles quand il est connecté à un réseau lent ou utilise un emplacement de secours pour le contenu.  
 
-    - Geef op of de client de software-updates moet downloaden en installeren vanaf een terugvaldistributiepunt wanneer de inhoud voor de software-updates niet beschikbaar is op een voorkeursdistributiepunt.  
+    - Indiquez si le client doit télécharger et installer les mises à jour logicielles à partir d'un point de distribution de secours quand le contenu pour les mises à jour logicielles n'est pas disponible sur un point de distribution préféré.  
 
-    - **Toestaan dat clients inhoud te delen met andere clients in hetzelfde subnet**: Geef op of het gebruik van BranchCache voor inhouddownloads inschakelen. Zie [Concepten voor inhoudsbeheer](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache) voor meer informatie over BranchCache.  
+    - **Autoriser les clients à partager du contenu avec d’autres clients sur le même sous-réseau**: indiquez si vous souhaitez activer l’utilisation de BranchCache pour les téléchargements du contenu. Pour plus d’informations sur BrandCache, consultez [Concepts for content management](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
 
-    - **Als software-updates niet beschikbaar is op het distributiepunt in de huidige, neighbor of site groepen, inhoud downloaden van Microsoft Updates**: Selecteer deze instelling clients die zijn verbonden met het intranet software-updates voor downloaden vanaf Microsoft Update als software-updates niet beschikbaar zijn op distributiepunten hebben. Clients op Internet gaat altijd u naar Microsoft Update voor de inhoud van software-updates.
+    - **Si les mises à jour logicielles ne sont pas disponibles sur le point de distribution de groupes actuels, voisins ou de site, téléchargez le contenu à partir de Microsoft Updates** : sélectionnez ce paramètre afin que les clients connectés à l’intranet téléchargent les mises à jour logicielles depuis Microsoft Update si les mises à jour logicielles ne sont pas disponibles sur les points de distribution. Les clients Internet peuvent toujours accéder à Microsoft Update pour obtenir le contenu des mises à jour logicielles.
 
-    - Geef op of clients mogen downloaden na een installatiedeadline wanneer deze internetverbindingen met een datalimiet gebruiken. Internetproviders brengen soms de hoeveelheid gegevens die u verzendt en ontvangt in rekening wanneer u gebruikmaakt van een internetverbinding naar gebruik.  
+    - Indiquez si les clients peuvent procéder au téléchargement une fois l’échéance de l’installation dépassée dans le cas où ils utilisent des connexions Internet facturées à l’usage. Les fournisseurs Internet facturent parfois en fonction de la quantité de données que vous envoyez et recevez lorsque vous utilisez une connexion Internet facturée à l'usage.  
 
     > [!NOTE]  
-    > Clients vragen de inhoudlocatie aan bij het beheerpunt voor de software-updates in een implementatie. Het downloadgedrag is afhankelijk van hoe u het distributiepunt, implementatiepakket en de instellingen op deze pagina hebt geconfigureerd. Zie [Scenario's voor de locatie van inhoudsbronnen](../../core/plan-design/hierarchy/content-source-location-scenarios.md) voor meer informatie.  
+    > Les clients demandent l'emplacement du contenu à partir d'un point de gestion pour les mises à jour logicielles dans un déploiement. Le comportement de téléchargement dépend de la manière dont vous avez configuré le point de distribution, le package de déploiement et les paramètres sur cette page. Pour plus d'informations, voir [Content source location scenarios](../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
 
-Zie [Implementatieproces voor software-updates](../../sum/understand/software-updates-introduction.md#BKMK_DeploymentProcess) voor meer informatie over het implementatieproces.
+Pour plus d’informations sur le processus de déploiement, consultez [Software update deployment process](../../sum/understand/software-updates-introduction.md#BKMK_DeploymentProcess).
 
-## <a name="next-steps"></a>Volgende stappen
-[Software-updates controleren](monitor-software-updates.md)
+## <a name="next-steps"></a>Étapes suivantes
+[Surveiller les mises à jour logicielles](monitor-software-updates.md)

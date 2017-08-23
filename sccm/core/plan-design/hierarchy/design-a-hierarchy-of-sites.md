@@ -1,6 +1,6 @@
 ---
-title: "Een sitehiërarchie - Configuration Manager ontwerpen | Microsoft Docs"
-description: "Overzicht van de beschikbare topologieën en beheeropties voor System Center Configuration Manager zodat u kunt uw sitehiërarchie plannen."
+title: "Concevoir une hiérarchie de sites - Configuration Manager | Microsoft Docs"
+description: "Découvrez les topologies et les options de gestion disponibles pour System Center Configuration Manager afin de pouvoir planifier votre hiérarchie de site."
 ms.custom: na
 ms.date: 6/16/2017
 ms.prod: configuration-manager
@@ -17,171 +17,171 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 4710b1b89eb50cb7bcf4c4ee50c12a96b6561bc9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="design-a-hierarchy-of-sites-for-system-center-configuration-manager"></a>Een sitehiërarchie ontwerpen voor System Center Configuration Manager
+# <a name="design-a-hierarchy-of-sites-for-system-center-configuration-manager"></a>Concevoir une hiérarchie de sites pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Voordat u de eerste site van een nieuwe System Center Configuration Manager-hiërarchie installeert, is het een goed idee om te begrijpen van de beschikbare topologieën voor Configuration Manager, de typen beschikbare sites en hun relaties met elkaar en het bereik van beheer van elk sitetype.
-Vervolgens, met inbegrip van opties voor inhoudbeheer die kunnen Verminder het aantal sites die u wilt installeren, u kunt een topologie die behoeften van uw huidige bedrijf efficiënt fungeert plannen en later kunt uitbreiden voor het beheren van toekomstige groei.  
+Avant d’installer le premier site d’une nouvelle hiérarchie System Center Configuration Manager, il est judicieux de comprendre les topologies disponibles pour Configuration Manager, les types de sites disponibles et leurs relations mutuelles, ainsi que l’étendue de gestion fournie par chaque type de site.
+Après avoir étudié les options de gestion de contenu qui peuvent réduire le nombre de sites à installer, vous pouvez planifier une topologie qui répond efficacement aux besoins de votre entreprise et peut être étendue par la suite pour gérer la croissance à venir.  
 
 > [!NOTE]
-> Bij het plannen van een nieuwe installatie van Configuration Manager zich bewust zijn van de [release-opmerkingen]( /sccm/core/servers/deploy/install/release-notes), actuele problemen in de actieve versies die worden in detail beschreven. De releaseopmerkingen gelden voor alle vertakkingen van Configuration Manager.  Wanneer u echter gebruiken de [Technical Preview vertakking]( /sccm/core/get-started/technical-preview), vindt u problemen alleen op dat filiaal in de documentatie voor elke versie van de Technical Preview.  
+> Quand vous planifiez une nouvelle installation de Configuration Manager, tenez compte des [notes de publication]( /sccm/core/servers/deploy/install/release-notes) qui décrivent en détail les problèmes dans les versions actives. Les notes de publication s’appliquent à toutes les branches de Configuration Manager.  Toutefois, quand vous utilisez l’[édition Technical Preview]( /sccm/core/get-started/technical-preview), vous rencontrez des problèmes spécifiques uniquement à cette édition dans la documentation pour chaque version de Technical Preview.  
 
-##  <a name="bkmk_topology"></a>Hiërarchietopologie  
- Hiërarchietopologieën variëren van één zelfstandige primaire site naar een groep verbonden primaire en secundaire sites met een centrale beheersite op het hoogste niveau (bovenste) van de hiërarchie.   De belangrijkste factor voor het type en aantal sites die u in een hiërarchie gebruikt is gewoonlijk het aantal en type apparaten dat u, als volgt ondersteunen moet:   
+##  <a name="bkmk_topology"></a> Topologie de la hiérarchie  
+ Les topologies de hiérarchie peuvent aller d’un site principal autonome unique à un groupe de sites principaux et secondaires connectés avec un site d’administration centrale dans le site de niveau supérieur de la hiérarchie.   Le principal facteur qui détermine le type et le nombre de sites que vous utilisez dans une hiérarchie est généralement le nombre et le type d’appareils que vous devez prendre en charge, comme illustré ci-dessous :   
 
- **Zelfstandige primaire site:** Gebruik van een zelfstandige primaire site als een enkele primaire site beheer van al uw apparaten en gebruikers ondersteunen kan (Zie [grootte en schaalgetallen](/sccm/core/plan-design/configs/size-and-scale-numbers)). Deze topologie is ook geslaagde bij uw bedrijf verschillende geografische locaties kunnen met succes worden geleverd door een enkele primaire site.  Om te helpen het netwerkverkeer beheren, kunt u voorkeursbeheerpunten en een zorgvuldig geplande inhoudsinfrastructuur (Zie [basisconcepten voor inhoudsbeheer in System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md)).  
+ **Site principal autonome :** utilisez un site principal autonome quand un seul site principal peut prendre en charge la gestion de tous vos appareils et utilisateurs (consultez [Le dimensionnement et la mise à l’échelle en nombres](/sccm/core/plan-design/configs/size-and-scale-numbers)). Cette topologie convient également quand les différents emplacements géographiques de votre société peuvent être correctement servis par un seul site principal.  Pour mieux gérer le trafic réseau, vous pouvez utiliser des points de gestion préférés et une infrastructure de contenu soigneusement planifiée (consultez [Concepts fondamentaux de la gestion de contenu dans System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md)).  
 
- Voordelen van deze topologie zijn onder andere:  
+ Les avantages de cette topologie sont notamment les suivants :  
 
--   Vereenvoudigde administratieve overhead.  
+-   Surcharge administrative simplifiée.  
 
--   Vereenvoudigde clientsitetoewijzing en detectie van beschikbare resources en services.  
+-   Attribution des sites clients simplifiée et découverte des services et des ressources disponibles.  
 
--   Het verwijderen van eventuele vertraging weg die geïntroduceerd door databasereplicatie tussen sites.
+-   Élimination du retard possible engendré par la réplication de base de données entre sites.
 
--   De optie voor het uitbreiden van een zelfstandige primaire hiërarchie naar een grotere hiërarchie met een centrale beheersite. Hiermee kunt u nieuwe primaire sites installeren om de schaal van uw implementatie te vergroten.  
+-   Possibilité de développer une hiérarchie principale autonome en une hiérarchie plus grande avec un site d’administration centrale. Cela vous permet d’installer ensuite de nouveaux sites principaux pour étendre l’échelle de votre déploiement.  
 
 
-**Centrale beheersite met een of meer onderliggende primaire sites:** Deze topologie gebruiken wanneer u meer dan één primaire site voor de ondersteuning van beheer van uw apparaten en gebruikers vereist.  Dit is verplicht als u wilt meer dan één primaire site. Voordelen van deze topologie zijn onder andere:  
+**Site d’administration centrale avec un ou plusieurs sites principaux enfants :** Utilisez cette topologie quand vous avez besoin de plusieurs sites principaux pour prendre en charge la gestion de tous les appareils et utilisateurs.  Elle est nécessaire quand vous avez besoin d’utiliser plusieurs sites principaux. Les avantages de cette topologie sont notamment les suivants :  
 
 
--   Het ondersteunt maximaal 25 primaire sites waarmee u de schaal van uw hiërarchie uitbreiden.  
+-   Elle prend en charge jusqu’à 25 sites principaux, ce qui vous permet d’étendre l’échelle de votre hiérarchie.  
 
--   (Tenzij u uw sites opnieuw installeert), wordt u altijd de centrale beheersite gebruiken. Dit is een permanente optie. U kunt een onderliggende primaire site zodat het een zelfstandige primaire site kan niet loskoppelen.
+-   Vous utiliserez toujours le site d’administration centrale, sauf si vous réinstallez vos sites. Ce choix est définitif. Vous ne pouvez pas détacher un site principal enfant pour en faire un site principal autonome.
 
- In de volgende secties leest u wanneer u een specifieke site- of inhoudbeheeroptie in plaats van een extra site gebruikt.  
+ Les sections suivantes peuvent vous aider à déterminer quand utiliser un site ou une option de gestion de contenu spécifique plutôt qu’un site supplémentaire.  
 
-##  <a name="BKMK_ChooseCAS"></a>Bepalen wanneer een centrale beheersite gebruiken  
- Gebruik een centrale beheersite binnen de gehele hiërarchie-instellingen te configureren en bewaken van alle sites en objecten in de hiërarchie. Dit sitetype beheert clients niet rechtstreeks, maar het coördineert gegevensreplicatie tussen sites, waaronder de configuratie van sites en clients in de gehele hiërarchie.  
+##  <a name="BKMK_ChooseCAS"></a> Déterminer quand utiliser un site d’administration centrale  
+ Utilisez un site d'administration centrale pour configurer des paramètres à l'échelle de la hiérarchie et surveiller tous les sites et objets dans la hiérarchie. Ce type de site ne gère pas directement les clients, mais il coordonne la réplication de données inter-site, y compris la configuration de sites et de clients dans toute la hiérarchie.  
 
-**De volgende informatie kunt u bepalen wanneer u een centrale beheersite installeert:**  
+**Les informations suivantes peuvent vous aider à déterminer quand installer un site d’administration centrale :**  
 
--   De centrale beheersite is het hoogste niveau in een hiërarchie.  
+-   Le site d'administration centrale est le site de niveau supérieur dans une hiérarchie.  
 
--   Wanneer u een hiërarchie met meer dan één primaire site configureert, moet u een centrale beheersite installeren. Als u twee of meer primaire sites onmiddellijk moeten, installeert u eerst de centrale beheersite. Wanneer u al een primaire site en installeer een centrale beheersite wilt, moet u [de zelfstandige primaire site uitbreiden](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand) voor het installeren van de centrale beheersite. 
+-   Lorsque vous configurez une hiérarchie comprenant plusieurs sites principaux, vous devez installer un site d'administration centrale. Si vous avez immédiatement besoin de deux ou plusieurs sites principaux, installez tout d’abord le site d’administration centrale. Si vous disposez déjà d’un site principal et que vous souhaitez installer un site d’administration centrale, vous devez [développer le site principal autonome](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand) pour installer le site administration centrale. 
 
--   De centrale beheersite ondersteunt alleen primaire sites als onderliggende sites.  
+-   Le site d'administration centrale prend en charge uniquement des sites principaux en tant que sites enfants.  
 
--   De centrale beheersite geen clients toegewezen krijgen.  
+-   Vous ne pouvez pas attribuer de clients au site d'administration centrale.  
 
--   De centrale beheersite ondersteunt geen sitesysteemrollen die rechtstreeks ondersteuning van clients, zoals beheerpunten en distributiepunten.  
+-   Le site d’administration centrale ne prend pas en charge les rôles de système de site qui prennent directement en charge les clients, comme les points de gestion et les points de distribution.  
 
--   U kunt alle clients in de hiërarchie beheren en sitebeheertaken uitvoeren voor elke onderliggende site wanneer u een Configuration Manager-console die is verbonden met de centrale beheersite. Dit kunnen bijvoorbeeld beheerpunten of andere sitesysteemrollen op onderliggende primaire of secundaire sites installeren.  
+-   Vous pouvez gérer tous les clients dans la hiérarchie et exécuter des tâches de gestion de site pour tout site enfant quand vous utilisez une console Configuration Manager connectée au site d’administration centrale. Cela peut comprendre l’installation de points de gestion ou d’autres rôles de système de site sur des sites principaux ou secondaires enfants.  
 
--   Wanneer u een centrale beheersite gebruikt, is de centrale beheersite de enige plaats waar u sitegegevens van alle sites in uw hiërarchie kunt zien. Deze gegevens omvatten informatie zoals inventaris en statusberichten.  
+-   Quand vous utilisez un site d’administration centrale, il s’agit du seul emplacement où vous pouvez consulter les données de tous les sites de votre hiérarchie. Ces données incluent des informations telles que des données d'inventaire et des messages d'état.  
 
--   U kunt detectiebewerkingen in de gehele hiërarchie uit de centrale beheersite door toe te wijzen detectiemethoden worden uitgevoerd op de afzonderlijke sites configureren.  
+-   Vous pouvez configurer des opérations de découverte dans toute la hiérarchie à partir du site d'administration centrale en attribuant l'exécution de méthodes de découverte sur des sites individuels.  
 
--   U kunt beveiliging beheren in de gehele hiërarchie door verschillende beveiligingsrollen, beveiligingsbereiken en verzamelen toe te wijzen aan verschillende beheerders. Deze configuraties van toepassing op elke site in de hiërarchie.  
+-   Vous pouvez gérer la sécurité dans toute la hiérarchie en attribuant différents rôles de sécurité, étendues de sécurité et regroupements à différents utilisateurs administratifs. Ces configurations s'appliquent à chaque site dans la hiérarchie.  
 
--   U kunt bestandsreplicatie en databasereplicatie configureren om communicatie tussen sites in de hiërarchie te controleren. Dit omvat de planning van databasereplicatie voor sitegegevens en het beheer van de bandbreedte voor de overdracht van gegevens op basis van bestanden tussen sites.  
+-   Vous pouvez configurer la réplication de fichiers et la réplication de base de données pour contrôler la communication entre les sites de la hiérarchie. Cela consiste notamment à planifier la réplication de base de données pour les données de site et à gérer la bande passante pour le transfert de données basées sur des fichiers entre les sites.  
 
-##  <a name="BKMK_ChoosePriimary"></a>Bepalen wanneer een primaire site worden gebruikt  
- Gebruik primaire sites om clients te beheren. U kunt een primaire site installeren als een onderliggende primaire site onder een centrale beheersite, of als de eerste site van een nieuwe hiërarchie. Een primaire site die is geïnstalleerd als de eerste site van een hiërarchie maakt een zelfstandige primaire site. Zowel onderliggende primaire sites als zelfstandige primaire sites ondersteunen secundaire sites als onderliggende sites van de primaire site.  
+##  <a name="BKMK_ChoosePriimary"></a> Déterminer quand utiliser un site principal  
+ Utilisez les sites principaux pour gérer les clients. Vous pouvez installer un site principal en tant que site principal enfant sous un site d’administration centrale, ou en tant que premier site d’une nouvelle hiérarchie. Un site principal installé en tant que premier site d’une hiérarchie crée un site principal autonome. Les sites principaux enfants et les sites principaux autonomes prennent en charge les sites secondaires en tant que sites enfants du site principal.  
 
- Overweeg het gebruik van een primaire site om een van de volgende redenen:  
+ Utilisez un site principal pour l’une des raisons suivantes :  
 
--   Voor het beheren van apparaten en gebruikers.  
+-   Pour gérer des appareils et des utilisateurs.  
 
--   U kunt voor een verhoging van het aantal apparaten beheren met een enkele hiërarchie.  
+-   Pour augmenter le nombre d’appareils que vous pouvez gérer avec une hiérarchie unique.  
 
--   Bieden een aanvullend connectiviteitspunt voor het beheer van uw implementatie.  
+-   Pour fournir un point de connectivité supplémentaire pour l’administration de votre déploiement.  
 
--   Het voldoen aan de beheersvereisten van de organisatie. U kunt bijvoorbeeld een primaire site op een externe locatie voor het beheren van de overdracht van implementatie-inhoud via een netwerk met lage bandbreedte installeren. Echter, met System Center Configuration Manager kunt u opties voor het gebruik van netwerkbandbreedte beperken bij de overdracht van gegevens naar een distributiepunt. Deze beheerfunctionaliteit kan de noodzaak voor het installeren van extra sites vervangen.  
+-   Pour répondre aux exigences de gestion organisationnelles. Par exemple, vous pouvez installer un site principal à un emplacement distant pour gérer le transfert de contenu de déploiement dans un réseau à faible bande passante. Cependant, avec System Center Configuration Manager, vous pouvez utiliser des options pour limiter l’utilisation de la bande passante réseau lors du transfert de données vers un point de distribution. Cette fonctionnalité de gestion du contenu peut remplacer le besoin d’installer des sites supplémentaires.  
 
 
-**De volgende informatie kunt u bepalen wanneer u een primaire site installeert:**  
+**Les informations suivantes peuvent vous aider à déterminer quand installer un site principal :**  
 
--   Een primaire site is een zelfstandige primaire site of een onderliggende primaire site in een grotere hiërarchie. Wanneer een primaire site lid is van een hiërarchie met een centrale beheersite, gebruiken de sites databasereplicatie om gegevens tussen de sites te repliceren. Tenzij u moet meer clients te ondersteunen en de apparaten dan een enkele primaire site ondersteunen kan, kunnen u een zelfstandige primaire site installeren.  Nadat een zelfstandige primaire site is geïnstalleerd, kunt u deze rapporteert aan een nieuwe centrale beheersite om te schalen van uw implementatie kunt uitbreiden.  
+-   Un site principal peut être un site principal autonome ou un site principal enfant dans une hiérarchie plus grande. Lorsqu'un site principal est membre d'une hiérarchie avec un site d'administration centrale, les sites utilisent la réplication de base de données pour répliquer des données entre les sites. Sauf si vous avez besoin de prendre en charge un nombre de clients et de périphériques supérieur à la capacité d'un seul site principal, envisagez l'installation d'un site principal autonome.  Après l’installation d’un site principal autonome, vous pouvez l’étendre pour qu’il rende compte à un nouveau site d’administration centrale, pour faire monter votre déploiement en puissance.  
 
--   Een primaire site ondersteunt alleen een centrale beheersite als een bovenliggende site.  
+-   Un site principal prend en charge uniquement un site d'administration centrale en tant que site parent.  
 
--   Een primaire site ondersteunt alleen secundaire sites als onderliggende sites, en kunt bieden ook ondersteuning voor meerdere secundaire onderliggende sites.  
+-   Un site principal prend en charge uniquement des sites secondaires en tant que sites enfants, et peut aussi prendre en charge plusieurs sites enfants secondaires.  
 
--   Primaire sites zijn verantwoordelijk voor het verwerken van alle clientgegevens van hun toegewezen clients.  
+-   Les sites principaux sont chargés de traiter toutes les données du client à partir de leurs clients attribués.  
 
--   Primaire sites gebruiken databasereplicatie om te communiceren rechtstreeks met hun centrale beheersite (die wordt automatisch geconfigureerd wanneer een nieuwe site wordt geïnstalleerd).  
+-   Les sites principaux utilisent la réplication de base de données pour communiquer directement avec leur site d’administration centrale (qui est configuré automatiquement lors de l’installation d’un nouveau site).  
 
-##  <a name="BKMK_ChooseSecondary"></a>Bepalen wanneer een secundaire site gebruiken  
- Gebruik secundaire sites voor het beheren van de overdracht van implementatie-inhoud en clientgegevens over netwerken met een lage bandbreedte.  
+##  <a name="BKMK_ChooseSecondary"></a> Déterminer quand utiliser un site secondaire  
+ Utilisez des sites secondaires pour gérer le transfert de contenu de déploiement et de données client dans les réseaux à faible bande passante.  
 
- U kunt een secundaire site beheren vanuit een centrale beheersite of de secundaire site direct bovenliggende primaire site. Secundaire sites moeten zijn gekoppeld aan een primaire site en u ze niet verplaatsen naar een andere bovenliggende site zonder ze eerst te verwijderen en vervolgens opnieuw installeren als een onderliggende site onder nieuwe primaire site.
+ Vous gérez un site secondaire à partir d’un site d’administration centrale ou du site principal parent direct du site secondaire. Vous devez associer les sites secondaires à un site principal, et vous ne pouvez pas les déplacer vers un autre site parent sans les avoir préalablement désinstallés puis réinstallés en tant que site enfant sous le nouveau site principal.
 
-U kunt echter wel inhoud versturen tussen twee peer secundaire sites voor het beheer van de op bestanden gebaseerde replicatie van implementatie-inhoud. Om clientgegevens te zetten naar een primaire site, gebruikt de secundaire site bestandsgebaseerde replicatie. Een secundaire site gebruikt ook databasereplicatie om met de bovenliggende primaire site ervan te communiceren.  
+Toutefois, vous pouvez acheminer du contenu entre deux sites secondaires homologues pour aider à gérer la réplication basée sur les fichiers du contenu de déploiement. Pour transférer des données du client vers un site principal, le site secondaire utilise la réplication basée sur les fichiers. Un site secondaire utilise également la réplication de base de données pour communiquer avec son site principal parent.  
 
- Overweeg de installatie van een secundaire site om een van de volgende redenen:  
+ Envisagez d'installer un site secondaire si l'une des conditions suivantes est remplie :  
 
--   U hebt geen een lokaal connectiviteitspunt nodig voor een gebruiker met beheerdersrechten.  
+-   Vous n’avez pas besoin de point de connectivité local pour un utilisateur administratif.  
 
--   U moet de overdracht van implementatie-inhoud naar sites lager in de hiërarchie beheren.  
+-   Vous devez gérer le transfert de contenu de déploiement vers des sites qui se trouvent à un niveau inférieur dans la hiérarchie.  
 
--   U moet clientinformatie beheren die naar sites hoger in de hiërarchie wordt verzonden.  
+-   Vous devez gérer des informations clientes qui sont envoyées à des sites à un niveau supérieur dans la hiérarchie.  
 
- Als u geen secundaire site wilt installeren en u clients op externe locaties hebt, overweeg dan het gebruik van Windows BranchCache of de installatie van distributiepunten die zijn ingeschakeld voor bandbreedteregeling en -planning. U kunt deze inhoudbeheeropties met of zonder secundaire sites gebruiken en kunt u Verminder het aantal sites en servers die moeten worden geïnstalleerd. Zie voor meer informatie over opties voor inhoudbeheer in Configuration Manager [bepalen wanneer gebruikt u opties voor inhoudbeheer](#BKMK_ChooseSecondaryorDP).  
+ Si vous ne souhaitez pas installer de site secondaire et que vous avez des clients à des emplacements distants, utilisez Windows BranchCache ou installez des points de distribution qui sont activés pour la planification et le contrôle de la bande passante. Vous pouvez utiliser ces options de gestion de contenu avec ou sans sites secondaires et elles peuvent vous aider à réduire le nombre de sites et de serveurs que vous devez installer. Pour plus d’informations sur les options de gestion de contenu dans Configuration Manager, consultez [Déterminer quand utiliser les options de gestion de contenu](#BKMK_ChooseSecondaryorDP).  
 
 
-**De volgende informatie kunt u bepalen wanneer u een secundaire site installeert:**  
+**Les informations suivantes peuvent vous aider à déterminer quand installer un site secondaire :**  
 
--   Secundaire sites installeren automatisch SQL Server Express tijdens site-installatie als een lokaal exemplaar van SQL Server niet beschikbaar is.  
+-   Les sites secondaires installent automatiquement SQL Server Express lors de l'installation de site si une instance locale de SQL Server n'est pas disponible.  
 
--   Secundaire site-installatie wordt gestart vanuit de Configuration Manager-console, in plaats van het installatieprogramma uitvoert op een computer rechtstreeks.  
+-   Une installation de site secondaire est lancée à partir de la console Configuration Manager plutôt qu’en exécutant le programme d’installation directement sur un ordinateur.  
 
--   Secundaire sites gebruiken een subset van de informatie in de sitedatabase, waardoor de hoeveelheid gegevens die door databasereplicatie tussen de bovenliggende primaire en secundaire site gerepliceerd.  
+-   Les sites secondaires utilisent un sous-ensemble des informations contenues dans la base de données de site, ce qui réduit la quantité de données répliquées par la réplication de base de données entre le site principal et le site secondaire.  
 
--   Secundaire sites ondersteunen het versturen van op bestanden gebaseerde inhoud naar andere secundaire sites die een gemeenschappelijke bovenliggende primaire site hebben.  
+-   Les sites secondaires prennent en charge l'acheminement de contenu basé sur des fichiers vers d'autres sites secondaires qui possèdent un site principal parent commun.  
 
--   Installaties van secundaire sites implementeren automatisch een beheerpunt en distributiepunt dat zich op de secundaire siteserver bevinden.  
+-   Les installations de site secondaire déploient automatiquement un point de gestion et un point de distribution situés sur le serveur de site secondaire.  
 
-##  <a name="BKMK_ChooseSecondaryorDP"></a>Bepalen wanneer gebruikt u opties voor inhoudbeheer  
- Als u clients op externe netwerklocaties hebt, overweeg dan het gebruik van een of meerdere opties voor inhoudbeheer in plaats van een primaire of secundaire site. U kunt vaak de noodzaak voor het installeren van een site wanneer u Windows BranchCache gebruiken, distributiepunten voor bandbreedteregeling configureert of inhoud handmatig naar distributiepunten (voorbereide inhoud kopieert) verwijderen.  
+##  <a name="BKMK_ChooseSecondaryorDP"></a> Déterminer quand utiliser les options de gestion de contenu  
+ Si vous possédez des clients dans des emplacements réseau distants, envisagez d'utiliser une ou plusieurs options de gestion de contenu plutôt qu'un site principal ou secondaire. Souvent, vous n’avez pas besoin d’installer un site quand vous utilisez Windows BranchCache, quand vous configurez des points de distribution pour le contrôle de la bande passante, ou quand vous copiez manuellement du contenu vers des points de distribution (préparation du contenu).  
 
 
-**Overweeg het implementeren van een distributiepunt in plaats van installatie van een andere site als een van de volgende voorwaarden van toepassing:**  
+**Envisagez de déployer un point de distribution plutôt que d’installer un autre site si l’une des conditions suivantes s’applique :**  
 
--   Uw netwerkbandbreedte is voldoende om clientcomputers op de externe locatie te communiceren met een beheerpunt om te downloaden van clientbeleid en inventaris, rapporteringsstatus en detectie-informatie verzenden.  
+-   Votre bande passante réseau est suffisante pour que les ordinateurs clients situés à l'emplacement distant communiquent avec un point de gestion afin de télécharger une stratégie client et envoient un inventaire, un état du rapport et des informations de découverte.  
 
--   Background Intelligent Transfer Service (BITS) biedt onvoldoende bandbreedteregeling voor uw netwerkvereisten.  
+-   Le service de transfert intelligent en arrière-plan (BITS) ne fournit pas de contrôle de bande passante suffisant pour les besoins de votre réseau.  
 
- Zie voor meer informatie over opties voor inhoudbeheer in Configuration Manager [basisconcepten voor inhoudsbeheer in System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
+ Pour plus d’informations sur les options de gestion de contenu dans Configuration Manager, consultez [Concepts fondamentaux de la gestion de contenu dans System Center Configuration Manager](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
-##  <a name="bkmk_beyond"></a>Afgezien van hiërarchietopologie  
- Naast de hiërarchietopologie van een initiële, overweeg welke services of mogelijkheden beschikbaar in verschillende sites zijn in de hiërarchie (sitesysteemrollen), en hoe hiërarchiebrede configuraties en -mogelijkheden in uw infrastructuur worden beheerd. De volgende algemene overwegingen worden in afzonderlijke onderwerpen besproken. Dit zijn belangrijk omdat ze invloed kunnen hebben op of worden beïnvloed door uw hiërarchie-ontwerp:  
+##  <a name="bkmk_beyond"></a> Au-delà de la topologie de la hiérarchie  
+ En plus de la topologie de la hiérarchie initiale, réfléchissez aux services ou aux fonctionnalités qui seront disponibles à partir de différents sites dans la hiérarchie (rôles de système de site), et à la façon dont les fonctionnalités et configurations à l’échelle de la hiérarchie seront gérées dans votre infrastructure. Les considérations courantes suivantes sont traitées dans des rubriques distinctes. Ces éléments sont importants, car ils peuvent influencer la conception de votre hiérarchie ou être influencés par celle-ci :  
 
--   Wanneer u zich voorbereiden op [beheren van computers en apparaten met System Center Configuration Manager](/sccm/core/clients/manage/manage-clients), overweeg of de apparaten die u beheert zich on-premises, in de cloud, of apparaten die eigendom zijn van gebruiker (BYOD) opnemen.  Houd ook rekening met hoe u apparaten beheert die worden ondersteund door meerdere beheeropties, zoals Windows 10-computers die beheerd kunnen worden rechtstreeks door Configuration Manager of door integratie met Microsoft Intune.  
+-   Quand vous vous préparez à [gérer des ordinateurs et des appareils avec System Center Configuration Manager](/sccm/core/clients/manage/manage-clients), déterminez si les appareils que vous gérez sont locaux, situés dans le cloud ou comptent des appareils appartenant à l’utilisateur (BYOD).  Étudiez également la façon dont vous allez gérer les appareils qui sont pris en charge par plusieurs options de gestion, tels que des ordinateurs Windows 10 pouvant être gérés directement par Configuration Manager ou via l’intégration à Microsoft Intune.  
 
--   Begrijpen hoe uw beschikbare netwerkinfrastructuur invloed kan zijn op de gegevensoverdracht tussen externe locaties (Zie [uw netwerkomgeving voorbereiden voor System Center Configuration Manager](/sccm/core/plan-design/network/configure-firewalls-ports-domains)). U kunt ook waar de gebruikers en apparaten die u beheert zich geografisch heeft bevonden en of ze toegang heeft tot uw infrastructuur via uw bedrijfsdomein of via Internet.  
+-   Découvrez comment votre infrastructure réseau disponible peut affecter le flux de données entre des sites distants (consultez [Préparer votre environnement réseau pour System Center Configuration Manager](/sccm/core/plan-design/network/configure-firewalls-ports-domains)). Tenez aussi compte de l’emplacement géographique des utilisateurs et appareils que vous gérez, et déterminez s’ils accèdent à votre infrastructure par l’intermédiaire de votre domaine d’entreprise ou d’Internet.  
 
--   Plan voor een infrastructuur voor inhoud om de informatie die u implementeert (bestanden en apps) efficiënt te distribueren naar apparaten die u beheert (Zie [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md)).  
+-   Planifiez une infrastructure de contenu pour distribuer efficacement les informations que vous déployez (fichiers et applications) sur les appareils que vous gérez (consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md)).  
 
--   Bepalen welke [functies en mogelijkheden van System Center Configuration Manager](../../../core/plan-design/changes/features-and-capabilities.md) u wilt gebruiken, de sitesysteemrollen of de Windows-infrastructuur ze nodig hebben en op welke sites in een hiërarchie met meerdere sites kunt u ze implementeren voor het meest efficiënt gebruik van uw netwerk- en serverbronnen.  
+-   Identifiez les [fonctions et fonctionnalités de System Center Configuration Manager](../../../core/plan-design/changes/features-and-capabilities.md) que vous envisagez d’utiliser, les rôles de système de site ou l’infrastructure Windows nécessaires ainsi que les sites au niveau desquels vous pouvez les déployer dans une hiérarchie comportant plusieurs sites pour une utilisation optimale du réseau et des ressources serveur.  
 
--   Denk na over de beveiliging van gegevens en apparaten, waaronder het gebruik van een PKI. Zie [PKI-certificaatvereisten voor System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
+-   Prenez en compte la sécurité des données et des appareils, notamment l’utilisation d’une infrastructure à clé publique. Consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
 
 
-**Controleer de volgende bronnen voor sitespecifieke configuraties:**  
+**Passez en revue les ressources suivantes pour les configurations spécifiques aux sites :**  
 
--   [Plannen voor de SMS-Provider voor System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md)  
+-   [Planifier le fournisseur SMS pour System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md)  
 
--   [Plan voor de sitedatabase voor System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-site-database.md)  
+-   [Planifier la base de données du site pour System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-site-database.md)  
 
--   [Plan maken voor sitesysteemservers en sitesysteemrollen voor System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md)  
+-   [Planifier des serveurs de système de site et des rôles système de site pour System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md)  
 
--   [Beveiliging in System Center Configuration Manager plannen](../../../core/plan-design/security/plan-for-security.md)  
+-   [Planifier la sécurité dans System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md)  
 
--   [Netwerkbandbreedte beheren](../../../core/plan-design/hierarchy/manage-network-bandwidth.md) wanneer u inhoud implementeer binnen een site  
+-   [Managing network bandwidth](../../../core/plan-design/hierarchy/manage-network-bandwidth.md) lors du déploiement de contenu dans un site  
 
 
-**Houd rekening met configuraties die sites en hiërarchieën omvatten:**  
+**Tenez compte des configurations qui couvrent plusieurs sites et hiérarchies :**  
 
--   [Opties voor hoge beschikbaarheid voor System Center Configuration Manager](/sccm/protect/understand/high-availability-options) voor sites en hiërarchieën
+-   [Options de haute disponibilité pour System Center Configuration Manager](/sccm/protect/understand/high-availability-options) pour les sites et hiérarchies
 
--   [Het Active Directory-schema uitbreiden voor System Center Configuration Manager](../../../core/plan-design/network/extend-the-active-directory-schema.md) en sites configureren voor [sitegegevens voor System Center Configuration Manager publiceren](../../../core/servers/deploy/configure/publish-site-data.md)  
+-   [Étendre le schéma Active Directory pour System Center Configuration Manager](../../../core/plan-design/network/extend-the-active-directory-schema.md) et configurer des sites pour la [publication de données de site pour System Center Configuration Manager](../../../core/servers/deploy/configure/publish-site-data.md)  
 
--   [Gegevensoverdracht tussen sites in System Center Configuration Manager](../../../core/servers/manage/data-transfers-between-sites.md)  
+-   [Transfert de données entre sites dans System Center Configuration Manager](../../../core/servers/manage/data-transfers-between-sites.md)  
 
--   [Basisprincipes van beheer op basis van rollen voor System Center Configuration Manager](../../../core/understand/fundamentals-of-role-based-administration.md)
+-   [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../../core/understand/fundamentals-of-role-based-administration.md)

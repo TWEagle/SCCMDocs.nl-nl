@@ -1,6 +1,6 @@
 ---
-title: UNIX/Linux-clients implementeren | Microsoft Docs
-description: Informatie over het implementeren van een client op een UNIX- of Linux-server in System Center Configuration Manager.
+title: "Déployer les clients UNIX/Linux | Microsoft Docs"
+description: "Découvrez comment déployer un client sur un serveur UNIX ou Linux dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,224 +16,224 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: d61d53daa5ef3d9c986cba8791d4471fea94d29d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-deploy-clients-to-unix-and-linux-servers-in-system-center-configuration-manager"></a>Clients implementeren op UNIX- en Linux-servers in System Center Configuration Manager
+# <a name="how-to-deploy-clients-to-unix-and-linux-servers-in-system-center-configuration-manager"></a>Comment déployer des clients sur des serveurs UNIX et Linux dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Voordat u een Linux- of UNIX-server met System Center Configuration Manager beheren kunt, moet u de Configuration Manager-client voor Linux en UNIX installeren op elke Linux- of UNIX-server. U kunt de installatie van de client handmatig op elke computer uitvoeren of een shell-script gebruiken waarmee de client op afstand wordt geïnstalleerd. Configuration Manager biedt geen ondersteuning voor het gebruik van de push-clientinstallatie voor Linux of UNIX-servers. U kunt eventueel een runbook voor System Center Orchestrator configureren om de installatie van de client op de Linux-of UNIX-server te automatiseren.  
+Avant de pouvoir gérer un serveur Linux ou UNIX avec System Center Configuration Manager, vous devez installer le client Configuration Manager pour Linux et UNIX sur chaque serveur Linux ou UNIX. Vous pouvez soit installer manuellement le client sur chaque ordinateur, soit utiliser un script Shell qui installe le client à distance. Configuration Manager ne prend pas en charge l’installation Push du client pour les serveurs Linux ou UNIX. Vous pouvez éventuellement configurer un Runbook pour System Center Orchestrator pour automatiser l’installation du client sur le serveur Linux ou UNIX.  
 
- Welke installatiemethode u ook gebruikt, het installatieproces vereist het gebruik van een script met de naam **install** om het installatieproces te beheren. Dit script is opgenomen in de download voor de client voor Linux en UNIX.  
+ Quelle que soit la méthode d’installation utilisée, le processus d’installation nécessite un script nommé **install** pour gérer le processus d’installation. Ce script est inclus lorsque vous téléchargez le Client pour Linux et UNIX.  
 
- Het installatiescript voor de Configuration Manager-client voor Linux en UNIX ondersteunt opdrachtregeleigenschappen. Bepaalde opdrachtregeleigenschappen zijn vereist, terwijl andere optioneel zijn. Als u bijvoorbeeld de client installeert, moet u een beheerpunt opgeven via de site die door de Linux- of UNIX-server wordt gebruikt voor het eerste contact met de site. Zie [Eigenschappen van de opdrachtregel voor het installeren van de Client op Linux- en UNIX-Servers](#BKMK_CmdLineInstallLnUClient)voor de volledige lijst met opdrachtregeleigenschappen.  
+ Le script d’installation pour le client Configuration Manager pour Linux et UNIX prend en charge les propriétés de ligne de commande. Certaines propriétés de ligne de commande sont requises, tandis que d'autres sont facultatives. Par exemple, lorsque vous installez le client, vous devez spécifier un point de gestion à partir du site est utilisé par le serveur Linux ou UNIX pour son contact initial avec le site. Pour obtenir la liste complète des propriétés de ligne de commande, consultez [Propriétés de ligne de commande pour installer le client sur des serveurs Linux et UNIX](#BKMK_CmdLineInstallLnUClient).  
 
- Nadat u de client hebt geïnstalleerd, kunt u clientinstellingen opgeven in de Configuration Manager-console voor het configureren van de clientagent op dezelfde manier als die u Windows gebaseerde clients zou doen. Zie [Clientinstellingen voor Linux- en UNIX-servers](../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md#BKMK_ClientSettingsforLnU) voor meer informatie.  
+ Après avoir installé le client, spécifiez les paramètres du client dans la console Configuration Manager pour configurer l’agent du client. Suivez la même procédure que pour un client Windows. Pour plus d’informations, consultez [Paramètres client pour les serveurs Linux et UNIX](../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md#BKMK_ClientSettingsforLnU).  
 
-##  <a name="BKMK_AboutInstallPackages"></a> Over clientinstallatiepakketten en de universele agent  
- Als u de client voor Linux en UNIX op een bepaald platform wilt installeren, moet u het desbetreffende clientinstallatiepakket gebruiken voor de computer waarop u de client installeert. Elke clientdownload uit het [Microsoft Downloadcentrum](http://go.microsoft.com/fwlink/?LinkID=525184)bevat de betreffende clientinstallatiepakketten. Naast de clientinstallatiepakketten bevat de clientdownload het **installatie** script waarmee de installatie van de client op elke computer wordt beheerd.  
+##  <a name="BKMK_AboutInstallPackages"></a> À propos des Packages d'Installation de Client et l'Agent universel  
+ Pour installer le client pour Linux et UNIX sur une plateforme spécifique, vous devez utiliser le package d’installation du client applicable pour l’ordinateur sur lequel vous installez le client. Les packages d’installation de client applicables sont inclus dans chaque téléchargement du client effectué à partir du [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkID=525184). En plus des packages d’installation de client, le téléchargement du client comprend le script **install** qui gère l’installation du client sur chaque ordinateur.  
 
- Wanneer u een client installeert, kunt u dezelfde eigenschappen voor het proces en de opdrachtregel gebruiken, ongeacht welk clientinstallatiepakket u gebruikt.  
+ Lorsque vous installez un client, vous pouvez utiliser les mêmes propriétés de processus et de ligne de commande que vous utilisez le package d'installation client.  
 
- Zie voor informatie over de besturingssystemen, platforms en clientinstallatiepakketten die door elke release van Configuration Manager-client voor Linux en UNIX worden ondersteund, [Linux en UNIX-servers](/sccm/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#linux-and-unix-servers).  
+ Pour plus d’informations sur les systèmes d’exploitation, les plateformes et les packages d’installation de client pris en charge par chaque version du client Configuration Manager pour Linux et UNIX, consultez [Serveurs Linux et UNIX](/sccm/core/plan-design/configs/supported-operating-systems-for-clients-and-devices#linux-and-unix-servers).  
 
-##  <a name="BKMK_InstallLnUClient"></a> De client op Linux- en UNIX-servers installeren  
- Als u de client voor Linux en UNIX wilt installeren, voert u op elke Linux- of UNIX-computer een script uit. Het script heeft de naam **install** en ondersteunt opdrachtregeleigenschappen die het installatiegedrag wijzigen en verwijzen naar het clientinstallatiepakket. Het installatiescript en clientinstallatiepakket moeten zich op de client bevinden. Het clientinstallatiepakket bevat de bestanden van de Configuration Manager-client voor een specifiek Linux of UNIX-besturingssysteem en platform.
-Elk clientinstallatiepakket bevat alle benodigde bestanden om de clientinstallatie te voltooien en downloadt, in tegenstelling tot Windows-computers, geen aanvullende bestanden van een beheerpunt of andere bronlocatie.  
+##  <a name="BKMK_InstallLnUClient"></a> Installer le Client sur des serveurs Linux et UNIX  
+ Pour installer le client pour Linux et UNIX, vous exécutez un script sur chaque ordinateur Linux ou UNIX. Le script est nommé **installer** et prend en charge les propriétés de ligne de commande qui modifient le comportement d'installation et de référencent le package d'installation du client. Le package d'installation installation script et le client doit se trouver sur le client. Le package d’installation client contient les fichiers du client Configuration Manager pour une plate-forme et un système d’exploitation Linux ou UNIX spécifiques.
+Chaque package d'installation du client contient tous les fichiers nécessaires pour terminer l'installation du client et contrairement aux ordinateurs fonctionnant sous Windows, ne pas télécharge des fichiers supplémentaires à partir d'un point de gestion ou un autre emplacement source.  
 
- Nadat u de Configuration Manager-client voor Linux en UNIX installeert, hoeft u niet de computer opnieuw opstarten. Zodra de software-installatie is voltooid, is de client operationeel. Als u de computer opnieuw opstart, wordt de Configuration Manager-client automatisch opnieuw gestart.  
+ Après avoir installé le client Configuration Manager pour Linux et UNIX, vous n’avez pas besoin de redémarrer l’ordinateur. Dès que l'installation est terminé, le client est opérationnel. Si vous redémarrez l’ordinateur, le client Configuration Manager redémarre automatiquement.  
 
- De geïnstalleerde client wordt uitgevoerd met hoofdreferenties. Hoofdreferenties zijn vereist om de hardware-inventaris te verzamelen en software-implementaties uit te voeren.  
+ Le client installé s'exécute avec les informations d'identification racine. Des informations d’identification racine sont nécessaires pour collecter l’inventaire matériel et effectuer les déploiements de logiciels.  
 
- De opdracht heeft de volgende notatie:  
+ Le format de la commande est le suivant :  
 
- **. / -mp installeren &lt;computer\> - sitecode &lt;sitecode\> &lt;eigenschap #1 > &lt;eigenschap #2 > &lt;clientinstallatiepakket\>**  
+ **./install -mp &lt;ordinateur\> -sitecode &lt;code_site\> &lt;propriété 1> &lt;propriété 2> &lt;package d’installation du client\>**  
 
--   **install** is de naam van het scriptbestand waarmee de client voor Linux en UNIX wordt geïnstalleerd. Dit bestand wordt geleverd bij de clientsoftware.  
+-   **installer** est le nom du fichier de script qui installe le client pour Linux et UNIX. Ce fichier est fourni avec le logiciel client.  
 
--   **-mp &lt;computer** specificeert het initiële beheerpunt dat wordt gebruikt door de client.  
+-   **-mp &lt;ordinateur** spécifie le point de gestion initial utilisé par le client.  
 
-     Voorbeeld: smsmp.contoso.com  
+     Exemple : smsmp.contoso.com  
 
--   **-sitecode &lt;sitecode\>**  geeft de sitecode die de client is toegewezen aan.  
+-   **-sitecode &lt;code_site\>** spécifie le code de site auquel le client est affecté.  
 
-     Voorbeeld: S01  
+     Exemple : S01  
 
--   &lt;eigenschap #1 > &lt;eigenschap #2 > Hiermee geeft u aan de opdrachtregeleigenschappen gebruiken met het script voor installatie.  
+-   &lt;propriété 1> &lt;propriété 2> spécifie les propriétés de ligne de commande à utiliser avec le script d’installation.  
 
     > [!NOTE]  
-    >  Zie [Eigenschappen van de opdrachtregel voor het installeren van de Client op Linux- en UNIX-Servers](#BKMK_CmdLineInstallLnUClient)voor meer informatie  
+    >  Pour plus d’informations, consultez [Propriétés de ligne de commande pour installer le client sur des serveurs Linux et UNIX](#BKMK_CmdLineInstallLnUClient)  
 
--   **clientinstallatiepakket** is de naam van het TAR-clientinstallatiepakket voor het besturingssysteem, de versie en de CPU-architectuur van deze computer. Het TAR-bestand voor de clientinstallatie moet als laatste worden opgegeven.  
+-   **package d’installation du client** est le nom du package .tar d’installation du client pour le système d’exploitation, la version et l’architecture d’UC de l’ordinateur. Le fichier .tar d'installation client doit être spécifié en dernier.  
 
-     Voorbeeld: ccm-Universal-x64. &lt;bouwen\>tar  
+     Exemple : ccm-Universal-x64.&lt;build\>.tar  
 
-###  <a name="BKMK_ToInstallLnUClinent"></a> De Configuration Manager-client installeren op Linux- en UNIX-servers  
+###  <a name="BKMK_ToInstallLnUClinent"></a> Pour installer le Client Configuration Manager sur des serveurs Linux et UNIX  
 
-1.  Op een Windows-computer: [download het betreffende clientbestand voor de Linux- of UNIX-server](http://go.microsoft.com/fwlink/?LinkID=525184) die u wilt beheren.  
+1.  Sur un ordinateur Windows, [téléchargez le fichier client approprié pour le serveur Linux ou UNIX](http://go.microsoft.com/fwlink/?LinkID=525184) que vous souhaitez gérer.  
 
-2.  Voer het zelfuitpakkende .exe-bestand uit op de Windows-computer om het installatiescript en het .tar-bestand voor de clientinstallatie uit te pakken.  
+2.  Exécutez le fichier .exe à extraction automatique sur l’ordinateur Windows pour extraire le script d’installation et le fichier .tar d’installation du client.  
 
-3.  Kopieer het **installatie** script en het .tar-bestand naar een map op de server die u wilt beheren.  
+3.  Copiez le script d’ **installation** et le fichier .tar dans un dossier sur le serveur que vous souhaitez gérer.  
 
-4.  Voer op de UNIX- of Linux-server de volgende opdracht uit om het script uit te voeren als een programma: **chmod +x install**  
+4.  Sur le serveur UNIX ou Linux, exécutez la commande suivante pour autoriser le script à s’exécuter comme un programme : **chmod +x install**  
 
     > [!IMPORTANT]  
-    >  U moet hoofdreferenties gebruiken om de client te installeren.  
+    >  Vous devez utiliser des informations d'identification racine pour installer le client.  
 
-5.  Voer vervolgens de volgende opdracht om de Configuration Manager-client te installeren: **. / -mp installeren &lt;hostnaam\> - sitecode &lt;code\> ccm-Universal-x64.&lt; bouwen\>tar**  
+5.  Ensuite, exécutez la commande suivante pour installer le client Configuration Manager : **./install –mp &lt;nom_hôte\> -sitecode &lt;code\> ccm-Universal-x64.&lt;build\>.tar**  
 
-     Wanneer u deze opdracht opgeeft, gebruikt u aanvullende opdrachtregeleigenschappen die u nodig hebt.  Zie [Eigenschappen van de opdrachtregel voor het installeren van de Client op Linux- en UNIX-Servers](#BKMK_CmdLineInstallLnUClient)voor de lijst van opdrachtregeleigenschappen.  
+     Lorsque vous entrez cette commande, utilisez les propriétés de ligne de commande supplémentaires que vous avez besoin.  Pour obtenir la liste des propriétés de ligne de commande, consultez [Propriétés de ligne de commande pour installer le client sur des serveurs Linux et UNIX](#BKMK_CmdLineInstallLnUClient).  
 
-6.  Nadat het script is uitgevoerd, valideert u de installatie door het bestand **/var/opt/microsoft/scxcm.log** te controleren. Bovendien kunt u bevestigen dat de client is geïnstalleerd en communiceert met de site door details weergeven voor de client in de **apparaten** knooppunt van de **activa en naleving** werkruimte in de Configuration Manager-console.  
+6.  Une fois le script exécuté, validez l’installation en examinant le fichier **/var/opt/microsoft/scxcm.log** . De plus, vous pouvez vérifier que le client est installé et qu’il communique avec le site en affichant les détails relatifs au client dans le nœud **Appareils** de l’espace de travail **Ressources et Conformité** dans la console Configuration Manager.  
 
-###  <a name="BKMK_CmdLineInstallLnUClient"></a> Eigenschappen van de opdrachtregel voor het installeren van de Client op Linux- en UNIX-Servers  
- De volgende eigenschappen zijn beschikbaar voor het aanpassen van het gedrag van het installatiescript:  
+###  <a name="BKMK_CmdLineInstallLnUClient"></a> Propriétés de ligne de commande pour installer le client sur des serveurs Linux et UNIX  
+ Les propriétés suivantes sont disponibles pour modifier le comportement du script d’installation :  
 
 > [!NOTE]  
->  Gebruik de eigenschap **-h** om deze lijst met ondersteunde eigenschappen weer te geven.  
+>  Utilisez la propriété **-h** pour afficher la liste des propriétés prises en charge.  
 
--   **-mp &lt;FQDN-naam server\>**  
+-   **-mp &lt;nom_de_domaine_complet_du_serveur\>**  
 
-     Vereist. Hiermee geeft u met de FQDN-naam de beheerpuntserver op die door de client wordt gebruikt als een eerste contactpunt.  
+     Obligatoire. Spécifie le nom de domaine complet, le serveur de point de gestion que le client utilisera comme un point de contact initial.  
 
     > [!IMPORTANT]  
-    >  Deze eigenschap specificeert niet het beheerpunt waaraan de client na de installatie wordt toegewezen.  
+    >  Cette propriété n’indique pas le point de gestion auquel le client sera attribué après l’installation.  
 
     > [!NOTE]  
-    >  Wanneer u de eigenschap **-mp** gebruikt om een beheerpunt op te geven die alleen HTTPS-clientverbindingen accepteert, dient u ook de eigenschap **-UsePKICert** te gebruiken.  
+    >  Quand vous utilisez la propriété **-mp** pour spécifier un point de gestion qui est configuré pour accepter uniquement les connexions client HTTPS, vous devez également employer la propriété **-UsePKICert** .  
 
--   **-sitecode &lt;sitecode\>**  
+-   **-sitecode &lt;code_site\>**  
 
-     Vereist. Hiermee geeft u de primaire site van Configuration Manager als u wilt toewijzen aan Configuration Manager-client.  
+     Obligatoire. Spécifie le site principal Configuration Manager auquel attribuer le client Configuration Manager.  
 
-     Voorbeeld: -sitecode S01  
+     Exemple : -sitecode S01  
 
--   **-fsp &lt;server_FQDN >**  
+-   **-fsp &lt;nom_de_domaine_complet_du_serveur>**  
 
-     Optioneel. Hiermee geeft u met FQDN-naam de server van het terugvalstatuspunt op dat door de client wordt gebruikt om statusberichten te verzenden.  
+     Facultatif. Spécifie le nom de domaine complet, le serveur de point d'état de secours que le client utilise pour envoyer des messages d'état.  
 
-     Zie [Bepalen of u een terugvalstatuspunt nodig hebt](/sccm/core/clients/deploy/plan/determine-the-site-system-roles-for-clients#determine-if-you-need-a-fallback-status-point) voor meer informatie over het terugvalstatuspunt.  
+     Pour plus d’informations sur le point d’état de secours, consultez [Determine Whether You Require a Fallback Status Point](/sccm/core/clients/deploy/plan/determine-the-site-system-roles-for-clients#determine-if-you-need-a-fallback-status-point) .  
 
 
--   **-dir &lt;directory\>**  
+-   **-dir &lt;répertoire\>**  
 
-     Optioneel. Hiermee geeft u een alternatieve locatie voor het installeren van de bestanden van de Configuration Manager-client.  
+     Facultatif. Spécifie un autre emplacement pour installer les fichiers du client Configuration Manager.  
 
-     De client installeert de bestanden standaard op de volgende locatie: **/opt/microsoft**.  
+     Par défaut, le client est installé à l'emplacement suivant : **/opt/microsoft**.  
 
 -   **-nostart**  
 
-     Optioneel. Voorkomt dat het automatisch starten van de Configuration Manager clientservice, **ccmexec.bin**, nadat de installatie van de client is voltooid.  
+     Facultatif. Empêche le démarrage automatique du service client Configuration Manager, **ccmexec.bin**, après l’installation du client.  
 
-     Nadat de client is geïnstalleerd, moet u de clientservice handmatig starten.  
+     Une fois le client installé, vous devez démarrer manuellement le service client.  
 
-     Standaard wordt de clientservice gestart nadat de clientinstallatie is voltooid en telkens wanneer de computer opnieuw wordt opgestart.  
+     Par défaut, le service client démarre après la fin de l'installation du client, et chaque fois que l'ordinateur redémarre.  
 
--   **-clean**  
+-   **-nettoyage**  
 
-     Optioneel. Hiermee geeft u aan dat alle clientbestanden en -gegevens van een eerder geïnstalleerde client voor Linux en UNIX moeten worden verwijderd voordat de nieuwe installatie wordt gestart. Hiermee verwijdert u de database van de client en het certificaatarchief.  
+     Facultatif. Spécifie la suppression de tous les fichiers du client et les données à partir d'un client installé précédemment pour Linux et UNIX, avant le démarrage de la nouvelle installation. Cela supprime le magasin de certificats et la base de données du client.  
 
--   **-keepdb**  
+-   **-keepdb n' n'**  
 
-     Optioneel. Hiermee geeft u aan dat u de lokale clientdatabase wilt behouden en wilt gebruiken wanneer u een client opnieuw installeert. Standaard wordt deze database verwijderd wanneer u een client opnieuw installeert.  
+     Facultatif. Spécifie que la base de données client local est conservée et réutilisée, lorsque vous réinstallez un client. Par défaut, lorsque vous réinstallez un client de cette base de données est supprimé.  
 
--   **-UsePKICert &lt;parameter\>**  
+-   **-UsePKICert &lt;paramètre\>**  
 
-     Optioneel. Hiermee geeft u het volledige pad naar en de bestandsnaam van een X.509 PKI-certificaat in de PKCS#12-notatie (Public Key Certificate Standard) op. Dit certificaat word gebruikt om de client te verifiëren. Als er tijdens de installatie geen certificaat is opgegeven en u een certificaat moet toevoegen of wijzigen, gebruikt u het hulpprogramma **certutil** . Zie [Certificaten beheren op de client voor Linux en UNIX](../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md#BKMK_ManageLinuxCerts) voor informatie over certutil.  
+     Facultatif. Spécifie le chemin d'accès et le nom complet à un certificat X.509 PKI au format Public Key Certificate Standard (PKCS #12). Ce certificat est utilisé pour l'authentification du client. Si aucun certificat n’est spécifié pendant l’installation et que vous devez en ajouter ou en modifier un, faites appel à l’utilitaire **certutil** . Pour plus d’informations sur certutil, consultez [How to manage certificates on the client for Linux and UNIX](../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md#BKMK_ManageLinuxCerts) .  
 
-     Als u **-UsePKICert**gebruikt, dient u de opdrachtregelparameter **-certpw** te gebruiken om het wachtwoord op te geven dat aan het PKCS#12-bestand is gekoppeld.  
+     Quand vous utilisez **-UsePKICert**, vous devez également fournir le mot de passe associé au fichier PKCS #12 à l’aide du paramètre de ligne de commande **-certpw** .  
 
-     Als u deze eigenschap niet gebruikt om een PKI-certificaat op te geven, gebruikt de client een zelfondertekend certificaat en vindt alle communicatie naar sitesystemen plaats via HTTP.  
+     Si vous n'utilisez pas cette propriété pour spécifier un certificat PKI, le client utilise un certificat auto-signé et sont des systèmes de site de toutes les communications via HTTP.  
 
-     Als u een ongeldig certificaat opgeeft op de opdrachtregel voor het installeren van de client, worden er geen fouten geretourneerd. Dit komt doordat het certificaat pas wordt gevalideerd nadat de client is geïnstalleerd. Wanneer de client wordt gestart, certificaten worden gevalideerd met het beheerpunt en als een certificaat niet kan worden gevalideerd door het volgende bericht wordt weergegeven in **scxcm.log**, het logboekbestand Unix en Linux Configuration Manager-client: **Kan het certificaat voor beheerpunt valideren**. De standaardlocatie van het logboek is  **/var/opt/microsoft/scxcm.log**.  
+     Si vous spécifiez un certificat non valide sur le client installation de ligne de commande, aucune erreur n'est retournée. Il s'agit, car la validation de certificat se produit après l'installation du client. Lorsque le client démarre, les certificats sont validés avec le point de gestion et si un certificat de validation échoue le message suivant apparaît dans **scxcm.log**, le fichier journal du client Unix et Linux Configuration Manager : **Échec de valider le certificat de Point de gestion**. L’emplacement par défaut du fichier journal est :  **/var/opt/microsoft/scxcm.log**.  
 
     > [!NOTE]  
-    >  U moet deze eigenschap opgeven wanneer u een client installeert en de eigenschap **-mp** gebruikt om een beheerpunt op te geven dat zodanig is geconfigureerd dat alleen HTTPS-clientverbindingen worden geaccepteerd.  
+    >  Vous devez spécifier cette propriété quand vous installez un client et utiliser la propriété **-mp** pour indiquer un point de gestion qui est configuré pour accepter uniquement les connexions client HTTPS.  
 
-     Voorbeeld: - UsePKICert &lt;volledige pad en bestandsnaam\> - certpw &lt;wachtwoord\>  
+     Exemple : -UsePKICert &lt;chemin_complet_et_nom_de_fichier\> -certpw &lt;mot_de_passe\>  
 
--   **-certpw &lt;parameter\>**  
+-   **-certpw &lt;paramètre\>**  
 
-     Optioneel. Hiermee geeft u het wachtwoord op dat is gekoppeld aan het PKCS #12-bestand dat u hebt opgegeven met de eigenschap **- UsePKICert** .  
+     Facultatif. Spécifie le mot de passe associé au fichier PKCS #12 que vous avez spécifié à l'aide de la **- /usepkicert** propriété.  
 
-     Voorbeeld: - UsePKICert &lt;volledige pad en bestandsnaam\> - certpw &lt;wachtwoord\>  
+     Exemple : -UsePKICert &lt;chemin_complet_et_nom_de_fichier\> -certpw &lt;mot_de_passe\>  
 
--   **-NoCRLCheck**  
+-   **-/Nocrlcheck**  
 
-     Optioneel. Hiermee geeft u aan dat een client de certificaatintrekkingslijst (CRL) niet moet controleren wanneer deze middels een PKI-certificaat via HTTPS communiceert. Als deze optie niet is opgegeven, controleert de client de CRL voordat er een HTTPS-verbinding via PKI-certificaten wordt gemaakt. Zie 'Planning voor PKI-certificaatintrekking' voor meer informatie over de CRL-controle voor clients.  
+     Facultatif. Spécifie qu'un client ne doit pas vérifier la liste de révocation de certificats (CRL) lorsqu'il communique via HTTPS à l'aide d'un certificat PKI. Lorsque cette option n'est pas spécifiée, le client vérifie la révocation de certificats avant d'établir une connexion HTTPS à l'aide de certificats PKI. Pour plus d'informations sur la vérification de révocation de certificats client, consultez Planification de la révocation de certificats PKI.  
 
-     Voorbeeld: - UsePKICert &lt;volledige pad en bestandsnaam\> - certpw &lt;wachtwoord\> - NoCRLCheck  
+     Exemple : -UsePKICert &lt;chemin_complet_et_nom_de_fichier\> -certpw &lt;mot_de_passe\> -NoCRLCheck  
 
--   **-rootkeypath &lt;bestandslocatie\>**  
+-   **-rootkeypath &lt;emplacement_fichier\>**  
 
-     Optioneel. Hiermee geeft u het volledige pad en bestandsnaam van de vertrouwde basissleutel van Configuration Manager. De Configuration Manager vertrouwde basissleutel biedt een mechanisme die Linux en UNIX-clients gebruiken om te controleren of ze zijn verbonden met een sitesysteem dat de juiste hiërarchie hoort.  
+     Facultatif. Spécifie le chemin d’accès complet et le nom de fichier de la clé racine approuvée Configuration Manager. La clé racine approuvée Configuration Manager fournit un mécanisme que les clients Linux et UNIX utilisent pour vérifier qu’ils sont connectés à un système de site qui appartient à la hiérarchie appropriée.  
 
-     Als u geen vertrouwde basissleutel opgeeft op de opdrachtregel, vertrouwt de client het eerste beheerpunt waarmee wordt gecommuniceerd en wordt automatisch de vertrouwde basissleutel opgehaald van dat beheerpunt.  
+     Si vous ne spécifiez pas la clé racine approuvée sur la ligne de commande, le client approuve le premier point de gestion avec lequel il communique et récupère automatiquement la clé racine approuvée à partir de ce point de gestion.  
 
-     Zie [Planning voor de vertrouwde basissleutel](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForRTK) voor meer informatie.  
+     Pour plus d’informations, consultez  [Planning for the Trusted Root Key](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForRTK).  
 
-     Voorbeeld: - rootkeypath &lt;volledige pad en bestandsnaam\>  
+     Exemple : -rootkeypath \>chemin_complet_et_nom_de_fichier&lt;  
 
--   **-httpport &lt;poort\>**  
+-   **-httpport &lt;port\>**  
 
-     Optioneel. Hiermee geeft u de poort op die is geconfigureerd op beheerpunten die de client gebruikt voor de communicatie met beheerpunten via HTTP. Als er geen poort is opgegeven, wordt de standaardwaarde 80 gebruikt.  
+     Facultatif. Spécifie le port est configuré sur les points de gestion que le client utilise lors de la communication aux points de gestion via HTTP. Si le port n'est pas spécifié, la valeur par défaut 80 est utilisée.  
 
-     Voorbeeld: -httpport 80  
+     Exemple : -httpport 80  
 
--   **-httpsport &lt;poort\>**  
+-   **-httpsport &lt;port\>**  
 
-     Optioneel. Hiermee geeft u de poort op die is geconfigureerd op beheerpunten die de client gebruikt voor de communicatie met beheerpunten via HTTPS. Als er geen poort is opgegeven, wordt de standaardwaarde 443 gebruikt.  
+     Facultatif. Spécifie le port est configuré sur les points de gestion que le client utilise lors de la communication aux points de gestion via HTTPS. Si le port n'est pas spécifié, la valeur par défaut 443 est utilisée.  
 
-     Voorbeeld: - UsePKICert &lt;volledige pad en de certificaat-naam\> - httpsport 443  
+     Exemple : -UsePKICert &lt;chemin_complet_et_nom_de_certificat\> -httpsport 443  
 
 -   **-ignoreSHA256validation**  
 
-     Optioneel. Hiermee geeft u op dat de clientinstallatie de SHA-256-validatie overslaat. Gebruik deze optie wanneer u de client installeert op besturingssystemen die zijn gepubliceerd zonder een versie van OpenSSL met ondersteuning voor SHA-256. Zie [Informatie over Linux- en UNIX besturingssystemen zonder ondersteuning voor SHA-256](../../../core/clients/deploy/plan/planning-for-client-deployment-to-linux-and-unix-computers.md#BKMK_NoSHA-256) voor meer informatie.  
+     Facultatif. Spécifie que l'installation du client ignore la validation de l'algorithme SHA-256. Utilisez cette option quand vous installez le client sur des systèmes d’exploitation publiés avec une version d’OpenSSL qui ne prend pas en charge SHA-256. Pour plus d’informations, voir [About Linux and UNIX Operating Systems That do not Support SHA-256](../../../core/clients/deploy/plan/planning-for-client-deployment-to-linux-and-unix-computers.md#BKMK_NoSHA-256).  
 
--   **-signcertpath &lt;bestandslocatie\>**  
+-   **-signcertpath &lt;emplacement_fichier\>**  
 
-     Optioneel. Geeft het volledige pad en de **CER** -bestandsnaam van het geëxporteerde zelfondertekende certificaat op de siteserver. Als u geen PKI-certificaten beschikbaar zijn, genereert de Configuration Manager-siteserver automatisch zelfondertekende certificaten.  
+     Facultatif. Spécifie le chemin d'accès complet et **.cer** nom de fichier du certificat auto-signé exporté sur le serveur de site. Si les certificats PKI ne sont pas disponibles, le serveur de site Configuration Manager génère automatiquement des certificats auto-signés.  
 
-     Deze certificaten worden gebruikt om te valideren dat het clientbeleid dat via het beheerpunt is gedownload, is verzonden vanaf de gewenste site. Als er tijdens de installatie geen zelfondertekend bestand is opgegeven of u het certificaat moet wijzigen, gebruikt u het hulpprogramma **certutil** . Zie [Certificaten beheren op de client voor Linux en UNIX](../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md#BKMK_ManageLinuxCerts) voor informatie over certutil.  
+     Ces certificats sont utilisés pour valider que les stratégies client téléchargés à partir du point de gestion ont été envoyés à partir du site de destination. Si aucun certificat auto-signé n’est spécifié pendant l’installation ou que vous devez modifier le certificat, faites appel à l’utilitaire **certutil** . Pour plus d’informations sur certutil, consultez [How to manage certificates on the client for Linux and UNIX](../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md#BKMK_ManageLinuxCerts) .  
 
-     Dit certificaat kan worden opgehaald via het **SMS** -certificaatarchief en heeft de objectnaam **Site Server** en de beschrijvende naam **Site Server Signing Certificate**.  
+     Ce certificat, qui peut être récupéré dans le magasin de certificats **SMS** , porte le nom d’objet **Serveur de site** et le nom convivial **Certificat de signature du serveur de site**.  
 
-     Als deze optie niet tijdens de installatie wordt opgegeven, vertrouwen Linux- en UNIX-clients het eerste beheerpunt waarmee ze communiceren en halen ze automatisch het handtekeningcertificaat van dit beheerpunt op.  
+     Si cette option n'est pas spécifiée lors de l'installation, les clients Linux et UNIX approuvent le premier point de gestion qu'ils communiquent avec et récupère automatiquement le certificat de signature à partir de ce point de gestion.  
 
-     Voorbeeld: - signcertpath &lt;volledig pad en de naam\>  
+     Exemple : -signcertpath &lt;chemin_complet_et_nom_de_fichier\>  
 
 -   **-rootcerts**  
 
-     Optioneel. Hiermee geeft u aan welke aanvullende PKI-certificaten moeten worden geïmporteerd die geen deel uitmaken van de CA-hiërarchie (certificeringsinstantie) van het beheerpunt. Als u meerdere certificaten op de opdrachtregel opgeeft, moeten ze worden gescheiden door komma's.  
+     Facultatif. Spécifie les autres certificats PKI pour importer qui ne font pas partie d'une hiérarchie d'autorité de certification gestion des points. Si vous spécifiez plusieurs certificats dans la ligne de commande, ils doivent être séparés par des virgules.  
 
-     Gebruik deze optie als u PKI-clientcertificaten gebruikt die niet zijn gekoppeld aan het basis-CA-certificaat dat door de beheerpunten van uw sites wordt vertrouwd. Beheerpunten zullen de client weigeren als het clientcertificaat niet is gekoppeld aan een vertrouwd basiscertificaat in de lijst met certificaatverleners van de site.  
+     Utilisez cette option si vous utilisez des certificats clients PKI qui ne se lient pas à un certificat d'autorité de certification racine approuvée par les points de gestion de vos sites. Les points de gestion rejettent le client si le certificat client n’est pas associé à un certificat racine approuvé dans la liste des émetteurs de certificat du site.  
 
-     Als u deze optie niet gebruikt, zal de client voor Linux en UNIX de vertrouwenshiërarchie alleen verifiëren met het certificaat in de optie **-UsePKICert** .  
+     Si vous n'utilisez pas cette option, le client Linux et UNIX vérifiera la hiérarchie d'approbation en utilisant uniquement le certificat dans le **- /usepkicert** option.  
 
-     Voorbeeld: - rootcerts &lt;volledig pad en de naam\>,&lt;volledig pad en de naam\>  
+     Exemple : -rootcerts &lt;chemin_complet_et_nom_de_fichier\>,&lt;chemin_complet_et_nom_de_fichier\>  
 
-###  <a name="BKMK_UninstallLnUClient"></a> De client van Linux- en UNIX-servers verwijderen  
- Verwijderen van Configuration Manager-client voor Linux en UNIX gebruikt van het hulpprogramma verwijderen **verwijderen**. Dit bestand bevindt zich standaard in de map **/opt/microsoft/configmgr/bin/** op de clientcomputer. Deze opdrachtregel voor verwijderen ondersteunt geen opdrachtregelparameters en verwijdert alle bestanden met betrekking tot de clientsoftware van de server.  
+###  <a name="BKMK_UninstallLnUClient"></a> Désinstallation du client sur des serveurs Linux et UNIX  
+ Pour désinstaller le client Configuration Manager pour Linux et UNIX, vous utilisez l’utilitaire de désinstallation, **uninstall**. Par défaut, ce fichier se trouve dans le **/opt/microsoft/configmgr/bin/** dossier sur l'ordinateur client. Cette commande de désinstallation ne prend pas en charge des paramètres de ligne de commande et supprimera tous les fichiers liés au logiciel client à partir du serveur.  
 
- Als u de client wilt verwijderen, gebruikt u de volgende opdrachtregel: **/opt/microsoft/configmgr/bin/uninstall**  
+ Pour désinstaller le client, utilisez la ligne de commande suivante : **/opt/microsoft/configmgr/bin/uninstall**  
 
- U beschikt niet over de computer opnieuw opstarten na het verwijderen van Configuration Manager-client voor Linux en UNIX.  
+ Après avoir désinstallé le client Configuration Manager pour Linux et UNIX, vous n’avez pas besoin de redémarrer l’ordinateur.  
 
-##  <a name="BKMK_ConfigLnUClientCommuincations"></a> Aanvraagpoorten configureren voor de client voor Linux en UNIX  
- Net zoals bij op basis van Windows-clients, Configuration Manager-client voor Linux en UNIX gebruikt HTTP en HTTPS om te communiceren met sitesystemen van Configuration Manager. De poorten die Configuration Manager-client gebruikt om te communiceren, worden een aanvraagpoorten genoemd.  
+##  <a name="BKMK_ConfigLnUClientCommuincations"></a> Configurer les Ports de requêtes pour le Client pour Linux et UNIX  
+ Comme les clients basés sur Windows, le client Configuration Manager pour Linux et UNIX utilise HTTP et HTTPS pour communiquer avec les systèmes de site Configuration Manager. Les ports que le client Configuration Manager utilise pour communiquer sont appelés ports de demande.  
 
- Wanneer u de Configuration Manager-client voor Linux en UNIX installeert, kunt u de standaardaanvraagpoorten wijzigen door op te geven de **- httpport** en **- httpsport** installatie-eigenschappen. Als u geen installatie-eigenschap en aangepaste waarde opgeeft, gebruikt de client de standaardwaarden. De standaardwaarde voor HTTP-verkeer is **80** en de standaardwaarde voor HTTPS-verkeer is **443** .  
+ Lorsque vous installez le client Configuration Manager pour Linux et UNIX, vous pouvez modifier les ports de demande par défaut du client en spécifiant les propriétés d’installation **-httpport** et **-httpsport**. Lorsque vous ne spécifiez pas la propriété d'installation et une valeur personnalisée, le client utilise les valeurs par défaut. Les valeurs par défaut sont **80** pour le trafic HTTP et **443** pour le trafic HTTPS.  
 
- Nadat u de client hebt geïnstalleerd, kunt u de configuratie van de aanvraagpoort niet meer wijzigen. Als u de poortconfiguratie wilt wijzigen, moet u de client opnieuw installeren en de nieuwe poortconfiguratie opgeven. Wanneer u de client opnieuw installeert om de aanvraagpoortnummers te wijzigen, voert u de opdracht **install** uit, op dezelfde manier als voor de nieuwe clientinstallatie, maar gebruikt u de aanvullende opdrachtregeleigenschap **-keepdb**. Met deze schakeloptie geeft u aan dat de clientdatabase en -bestanden moeten worden behouden tijdens de installatie, inclusief de GUID en het certificaatarchief van de client.  
+ Après avoir installé le client, vous ne pouvez pas modifier sa configuration de port de demande. En revanche, pour modifier la configuration du port, vous devez réinstaller le client et spécifier la configuration du port. Lorsque vous réinstallez le client pour modifier les numéros de port de requête, exécutez le **installer** commande semblable à l'installation du client, mais utilisez la propriété de ligne de commande supplémentaires de **- keepdb ne**. Ce commutateur indique à l'installation pour conserver la base de données client et les fichiers, notamment le magasin GUID et des certificats clients.  
 
- Zie [Clientcommunicatiepoorten in System Center Configuration Manager configureren](../../../core/clients/deploy/configure-client-communication-ports.md) voor informatie over poortnummers voor clientcommunicatie.  
+ Pour plus d’informations sur les numéros de port de communication client, consultez [Comment configurer les ports de communication des clients dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-communication-ports.md).  
 
-##  <a name="BKMK_ConfigClientMP"></a> De client voor Linux en UNIX configureren om beheerpunten te zoeken  
- Wanneer u de Configuration Manager-client voor Linux en UNIX installeert, moet u een beheerpunt om te gebruiken als een eerste contactpunt.  
+##  <a name="BKMK_ConfigClientMP"></a> Configurer le Client pour Linux et UNIX de localiser des Points de gestion  
+ Lorsque vous installez le client Configuration Manager pour Linux et UNIX, vous devez spécifier un point de gestion à utiliser comme point de contact initial.  
 
- Configuration Manager-client voor Linux en UNIX maakt contact met dit beheerpunt op het moment dat de client is geïnstalleerd. Als de client geen contact kan maken met het beheerpunt, blijft de clientsoftware opnieuw proberen totdat er contact is gemaakt.  
+ Le client Configuration Manager pour Linux et UNIX contacte ce point de gestion au moment de l’installation du client. Si le client ne parvient pas à contacter le point de gestion, le logiciel client renouvelle les tentatives jusqu’à ce que le contact soit établi.  
 
- Zie [Zoeken naar beheerpunten](/sccm/core/clients/deploy/assign-clients-to-a-site#locating-management-points) voor meer informatie over hoe clients beheerpunten zoeken.
+ Pour plus d’informations sur la manière dont les clients localisent les points de gestion, consultez [Locating Management Points](/sccm/core/clients/deploy/assign-clients-to-a-site#locating-management-points).

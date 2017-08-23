@@ -1,6 +1,6 @@
 ---
-title: Windows to Go met System Center Configuration Manager implementeren | Microsoft Docs
-description: Informatie over het inrichten van Windows To Go in System Center Configuration Manager voor het maken van een Windows To Go-werkruimte die opstart vanaf een extern station.
+title: "Déployer Windows To Go avec System Center Configuration Manager | Microsoft Docs"
+description: "Découvrez comment mettre en service Windows To Go dans System Center Configuration Manager pour créer un espace de travail Windows To Go qui démarre à partir d’un lecteur externe."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,452 +17,452 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: a8b1a42c43438553cfbb62328bed933378bb344c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="deploy-windows-to-go-with-system-center-configuration-manager"></a>Windows to Go met System Center Configuration Manager implementeren
+# <a name="deploy-windows-to-go-with-system-center-configuration-manager"></a>Déployer Windows To Go avec System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Center Configuration Manager. Windows To Go is een ondernemingsfunctie van Windows 8, die het mogelijk maakt een Windows To Go-werkruimte te maken die kan worden opgestart vanaf een via een USB-verbinding aangesloten extern station op computers die voldoen aan de certificeringsvereisten van Windows 7 of Windows 8, ongeacht het besturingssysteem van de computer. Windows To Go-werkruimten kunnen dezelfde installatiekopie gebruiken die ondernemingen gebruiken voor hun desktops en laptops en kunnen op dezelfde wijze worden beheerd.  
+Cette rubrique fournit les étapes permettant de mettre en service Windows To Go dans System Center Configuration Manager. Windows To Go est une fonctionnalité d'entreprise de Windows 8 qui permet de créer un espace de travail Windows To Go pouvant être démarré à partir d'un lecteur externe USB sur les ordinateurs qui satisfont les conditions de certification de Windows 7 ou Windows 8, quel que soit le système d'exploitation en cours d'exécution sur ces ordinateurs. Les espaces de travail Windows To Go peuvent utiliser la même image que celle que les entreprises utilisent pour leurs ordinateurs de bureau et ordinateurs portables ; ils peuvent être gérés de la même façon.  
 
- Zie voor meer informatie inzake Windows To Go [Windows To Go Functieoverzicht](http://go.microsoft.com/fwlink/p/?LinkId=263433).  
+ Pour plus d’informations sur Windows To Go, consultez [Windows To Go : vue d’ensemble des fonctionnalités](http://go.microsoft.com/fwlink/p/?LinkId=263433).  
 
-## <a name="provision-windows-to-go"></a>Inrichting Windows To Go  
- Windows To Go is een besturingssysteem dat is opgeslagen op een extern station dat is aangesloten via een USB-verbinding. U kunt het Windows To Go-station inrichten zoals u andere implementaties van het besturingssysteem inricht. Niettemin moet u een lichtjes andere benadering gebruiken om deze stations in te richten, omdat Windows To Go is ontwikkeld als een op de gebruiker gerichte, zeer mobiele oplossing.  
+## <a name="provision-windows-to-go"></a>Préparer Windows To Go  
+ Windows To Go est un système d'exploitation stocké sur un lecteur externe USB. Vous pouvez préparer le lecteur Windows To Go de la même manière que vous préparez les déploiements d'autres systèmes d'exploitation. Toutefois, étant donné que Windows To Go a vocation à constituer une solution centrée sur l'utilisateur et hautement mobile, vous devez adopter une approche légèrement différente pour préparer ces lecteurs.  
 
- Op een hoog niveau is Windows To Go een implementatie in twee fasen, waarin u het Windows To Go-apparaat kunt configureren en inhoud voorbereiden voor de implementatie van het besturingssysteem. U kunt dit doen met minimale gevolgen voor de gebruiker en waarbij de downtime voor de computer van de gebruiker. Nadat u de computer hebt voorbereid, moet u het inrichtingsproces voltooien om te zorgen dat de computer klaar is voor de gebruiker. Het inrichtingsproces lijkt veel op het actuele implementatieproces van het besturingssysteem. Hieronder ziet u de algemene werkstroom voor de voorbereiding van de inhoud en inrichting van Windows To Go:  
+ À niveau élevé, Windows To Go est un déploiement en deux phases qui vous permet de configurer le périphérique Windows To Go et le contenu préparé pour le déploiement du système d'exploitation. Vous pouvez y parvenir avec un impact minimal sur l’utilisateur tout en limitant le temps d’arrêt de son ordinateur. Une fois que vous avez préparé l'ordinateur, vous devez exécuter le processus de préparation pour vous assurer que l'ordinateur est prêt pour l'utilisateur. Le processus de préparation est similaire au processus de déploiement du système d'exploitation actif. Voici le flux de travail général pour préparer le contenu et préparer Windows To Go :  
 
-1.  [Vereisten voor het inrichten van Windows To Go](#BKMK_Prereqs)  
+1.  [Conditions préalables à la préparation de Windows To Go](#BKMK_Prereqs)  
 
-2.  [Voorbereide media maken](#BKMK_CreatePrestagedMedia)  
+2.  [Créer un média préparé](#BKMK_CreatePrestagedMedia)  
 
-3.  [Een Windows To Go Creator-pakket maken](#BKMK_CreatePackage)  
+3.  [Créer un package Windows To Go Creator](#BKMK_CreatePackage)  
 
-4.  [De takenreeks bijwerken om BitLocker voor Windows To Go in te schakelen](#BKMK_UpdateTaskSequence)  
+4.  [Mettre à jour la séquence de tâches pour activer BitLocker pour Windows To Go](#BKMK_UpdateTaskSequence)  
 
-5.  [Het Windows To Go Creator-pakket en de takenreeks implementeren](#BKMK_Deployments)  
+5.  [Déployer le package Windows To Go Creator et la séquence de tâches](#BKMK_Deployments)  
 
-6.  [Windows To Go Creator wordt uitgevoerd door de gebruiker](#BKMK_UserExperience)  
+6.  [L’utilisateur exécute Windows To Go Creator](#BKMK_UserExperience)  
 
-7.  [Het Windows To Go-station wordt geconfigureerd en voorbereid door Configuration Manager](#BKMK_ConfigureStageDrive)  
+7.  [Configuration Manager configure et prépare le lecteur Windows To Go](#BKMK_ConfigureStageDrive)  
 
-8.  [Gebruiker meldt zich aan bij Windows 8](#BKMK_UserLogsIn)  
+8.  [L’utilisateur ouvre une session Windows 8](#BKMK_UserLogsIn)  
 
-###  <a name="BKMK_Prereqs"></a> Vereisten voor het inrichten van Windows To Go  
- Voordat u Windows To Go inricht, moet u het volgende in Configuration Manager voltooien:  
+###  <a name="BKMK_Prereqs"></a> Conditions préalables à la préparation de Windows To Go  
+ Avant de mettre en service Windows To Go, vous devez effectuer les opérations suivantes dans Configuration Manager :  
 
--   **Een opstartinstallatiekopie naar een distributiepunt distribueren**  
+-   **Distribuer une image de démarrage à un point de distribution**  
 
-     Voordat u voorgefaseerde media maakt, moet u de opstartinstallatiekopie naar een distributiepunt distribueren.  
-
-    > [!NOTE]  
-    >  Opstartinstallatiekopieën worden gebruikt voor het installeren van het besturingssysteem op de doelcomputers in uw Configuration Manager-omgeving. Ze bevatten een versie van Windows PE waarmee het besturingssysteem en eventuele benodigde apparaatstuurprogramma's worden geïnstalleerd. Configuration Manager biedt twee opstartinstallatiekopieën: Één ter ondersteuning van x86-platformen en één ter ondersteuning van x64 platforms. U kunt ook uw eigen opstartinstallatiekopieën maken. Zie voor meer informatie [opstartinstallatiekopieën beheren](../get-started/manage-boot-images.md).  
-
--   **De installatiekopie van het Windows 8-besturingssysteem naar een distributiepunt distribueren**  
-
-     Voordat u voorgefaseerde media maakt, moet u de installatiekopie van het Windows 8-besturingssysteem naar een distributiepunt distribueren.  
+     avant de créer des médias préparés, vous devez distribuer l'image de démarrage à un point de distribution.  
 
     > [!NOTE]  
-    >  Installatiekopieën van besturingssystemen zijn WIM-bestanden. Ze omvatten een gecomprimeerde verzameling referentiebestanden en -mappen die zijn vereist om een besturingssysteem correct te installeren en configureren op een computer. Zie voor meer informatie [installatiekopieën van besturingssystemen beheren](../get-started/manage-operating-system-images.md).  
+    >  Les images de démarrage sont utilisées pour installer le système d’exploitation sur les ordinateurs de destination dans votre environnement Configuration Manager. Elles contiennent une version de Windows PE qui installe le système d'exploitation, ainsi que les autres pilotes de périphérique nécessaires. Configuration Manager fournit deux images de démarrage : une pour la prise en charge des plateformes x86 et une autre pour la prise en charge des plateformes x64. Vous pouvez également créer vos propres images de démarrage. Pour plus d’informations, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
 
--   **Takenreeks maken om Windows 8 te implementeren**  
+-   **Distribuer l’image du système d’exploitation Windows 8 à un point de distribution**  
 
-     U moet een takenreeks maken voor een implementatie van Windows 8 waarnaar u verwijst bij het maken van voorgefaseerde media. Zie voor meer informatie [beheren van takenreeksen om taken te automatiseren](manage-task-sequences-to-automate-tasks.md).  
+     avant de créer des médias préparés, vous devez distribuer l'image du système d'exploitation Windows 8 à un point de distribution.  
 
-###  <a name="BKMK_CreatePrestagedMedia"></a> Voorbereide media maken  
- Voorbereide media bevatten de opstartinstallatiekopie die wordt gebruikt voor het starten van de doelcomputer en de installatiekopie van het besturingssysteem die op de doelcomputer wordt toegepast. De computer die u inricht met voorgefaseerde media kan worden gestart met behulp van de opstartinstallatiekopie. De computer kan vervolgens een bestaande takenreeks voor implementatie van een besturingssysteem uitvoeren om een volledige implementatie van het besturingssysteem te installeren. De takenreeks waarmee het besturingssysteem wordt geïmplementeerd, staat niet op de media.  
+    > [!NOTE]  
+    >  Les images de système d'exploitation sont des fichiers au format .WIM et représentent un regroupement compressé de fichiers et dossiers de référence nécessaires à l'installation et à la configuration d'un système d'exploitation sur un ordinateur. Pour plus d’informations, consultez [Gérer les images de système d’exploitation](../get-started/manage-operating-system-images.md).  
 
- U kunt inhoud toevoegen, zoals toepassingen en stuurprogramma's, naast de installatiekopie en de opstartinstallatiekopie van het besturingssysteem tijdens de voorbereidende fase. Dit verkort de termijn die nodig is om een besturingssysteem te implementeren en vermindert het netwerkverkeer want de inhoud bevindt zich reeds in het station.  
+-   **Créer une séquence de tâches pour déployer Windows 8**  
 
- De volgende procedure gebruiken om de voorgefaseerde media te maken.  
+     vous devez créer une séquence de tâches pour un déploiement de Windows 8, auquel vous ferez référence lorsque vous créerez des médias préparés. Pour plus d’informations, consultez [Gérer les séquences de tâches pour automatiser des tâches](manage-task-sequences-to-automate-tasks.md).  
 
-#### <a name="to-create-prestaged-media"></a>Voorbereide media maken  
+###  <a name="BKMK_CreatePrestagedMedia"></a> Créer un média préparé  
+ Un média préparé contient l'image de démarrage utilisée pour démarrer l'ordinateur de destination et l'image du système d'exploitation qui est appliquée à l'ordinateur de destination. L'ordinateur que vous préparez avec des médias préparés peut être démarré à l'aide de l'image de démarrage. L'ordinateur peut alors exécuter une séquence de tâches de déploiement du système d'exploitation existant, pour installer un déploiement de système d'exploitation complet. La séquence de tâches qui déploie le système d'exploitation n'est pas incluse dans le média.  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+ Vous pouvez ajouter du contenu, tel que des applications et des pilotes de périphériques, en plus de l’image du système d’exploitation et de l’image de démarrage, pendant la phase de préparation. Vous réduisez ainsi le temps nécessaire pour déployer un système d'exploitation et le trafic réseau car le contenu est déjà sur le lecteur.  
 
-2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Takenreeksen**.  
+ Pour créer les médias préparés, appliquez la procédure suivante.  
 
-3.  Klik op het tabblad **Start** in de groep **Maken** op **Takenreeksmedia maken** om de wizard Takenreeksmedia maken te starten.  
+#### <a name="to-create-prestaged-media"></a>Pour créer un média préparé  
 
-4.  Geef op de pagina **Mediatype selecteren** de volgende informatie op en klik op **Volgende**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-    -   Selecteer **Voorbereide media**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-    -   Selecteer **Implementatie van besturingssysteem zonder toezicht toestaan** om de implementatie van Windows To Go gebruikersinteractie op te starten.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un média de séquence de tâches** pour démarrer l'Assistant Création d'un média de séquence de tâches.  
 
-        > [!IMPORTANT]  
-        >  Als u deze optie gebruikt met SMSTSPreferredAdvertID aangepaste variabele (later in dit proces instellen), is geen gebruikersinteractie vereist en zal de computer automatisch opstarten naar de implementatie van Windows To Go wanneer deze een Windows To Go-station detecteert. De gebruiker wordt nog steeds gevraagd om een wachtwoord als de media hiervoor is geconfigureerd. Als u de instelling **Implementatie van besturingssysteem zonder toezicht toestaan** gebruikt zonder de variabele SMSTSPreferredAdvertID te configureren, treedt een fout op wanneer u de takenreeks implementeert.  
+4.  Sur la page **Sélectionner le type de média** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
 
-5.  Geef op de pagina **Mediabeheer** de volgende informatie op en klik op **Volgende**.  
+    -   Sélectionnez **Média préparé**.  
 
-    -   Selecteer **Dynamische media** als u wilt toestaan dat een beheerpunt media omleidt naar een ander beheerpunt op basis van de clientlocatie binnen de sitegrenzen.  
-
-    -   Selecteer **Op site gebaseerde media** als u wilt dat de media alleen contact maken met het opgegeven beheerpunt.  
-
-6.  Geef op de pagina **Media-eigenschappen**  de volgende informatie op en klik vervolgens op **Volgende**.  
-
-    -   **Gemaakt door**: Geef op wie het medium is gemaakt.  
-
-    -   **Versie**: Geef het versienummer van de media.  
-
-    -   **Opmerking**: Geef een unieke beschrijving van wat de media wordt gebruikt.  
-
-    -   **Mediabestand**: Geef de naam en pad van de uitvoerbestanden op. De wizard schrijft de uitvoerbestanden naar deze locatie. Bijvoorbeeld:  **\\\servername\folder\outputfile.wim**  
-
-7.  Geef op de pagina **Beveiliging** de volgende informatie op en klik vervolgens op **Volgende**.  
-
-    -   Selecteer **Schakel onbekende computerondersteuning** zodat de media een besturingssysteem implementeren op een computer die niet wordt beheerd door Configuration Manager. Er is geen record van deze computers in de Configuration Manager-database. Onbekende computers omvatten het volgende:  
-
-        -   Een computer waarop de Configuration Manager-client niet is geïnstalleerd  
-
-        -   Een computer die is niet geïmporteerd in Configuration Manager  
-
-        -   Een computer die door Configuration Manager niet is gedetecteerd  
-
-    -   Selecteer **De media beveiligen met een wachtwoord** en voer een sterk wachtwoord in om de media te beveiligen tegen onbevoegde toegang. Wanneer u een wachtwoord opgeeft, moet de gebruiker dat wachtwoord leveren om de voorbereide media te gebruiken.  
+    -   Sélectionnez **Autoriser le déploiement du système d'exploitation de manière autonome** pour démarrer le déploiement de Windows To Go sans aucune interaction utilisateur.  
 
         > [!IMPORTANT]  
-        >  Wijs, als een beste praktijk op vlak van beveiliging, altijd een wachtwoord toe om te helpen de vooraf geplaatste media te beschermen.  
+        >  Lorsque vous utilisez cette option avec la variable personnalisée SMSTSPreferredAdvertID (définie plus tard au cours de cette procédure), aucune interaction utilisateur n'est requise et l'ordinateur démarre automatiquement le déploiement de Windows To Go lorsqu'il détecte un lecteur Windows To Go. L'utilisateur est quand même invité à fournir un mot de passe si le média est configuré avec une protection par mot de passe. Si vous utilisez le paramètre **Autoriser le déploiement du système d'exploitation de manière autonome** sans configurer la variable SMSTSPreferredAdvertID, une erreur se produit lorsque vous déployez la séquence de tâches.  
+
+5.  Sur la page **Gestion du média** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+
+    -   Sélectionnez **Média dynamique** si vous souhaitez autoriser un point de gestion à rediriger le média vers un autre point de gestion, basé sur l'emplacement du client dans les limites du site.  
+
+    -   Sélectionnez **Média basé sur le site** si vous souhaitez que le média contacte uniquement le point de gestion spécifié.  
+
+6.  Dans la page **Propriétés du média**  , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+
+    -   **Créé par**: spécifiez qui a créé le média.  
+
+    -   **Version**: spécifiez le numéro de version du média.  
+
+    -   **Commentaire**: spécifiez une description unique de ce pour quoi le média est utilisé.  
+
+    -   **Fichier multimédia**: spécifiez le nom et le chemin des fichiers de sortie. L'Assistant écrit les fichiers de sortie à cet emplacement. Par exemple : **\\\nomserveur\dossier\outputfile.wim**  
+
+7.  Sur la page **Sécurité** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+
+    -   Sélectionnez **Activer la prise en charge d’ordinateur inconnu** pour autoriser le média à déployer un système d’exploitation sur un ordinateur qui n’est pas géré par Configuration Manager. Il n’existe aucun enregistrement de ces ordinateurs dans la base de données Configuration Manager. Les ordinateurs inconnus sont les suivants :  
+
+        -   Un ordinateur sur lequel le client Configuration Manager n’est pas installé  
+
+        -   Un ordinateur qui n’est pas importé dans Configuration Manager  
+
+        -   Un ordinateur qui n’a pas été découvert par Configuration Manager.  
+
+    -   Sélectionnez **Protéger le média à l'aide d'un mot de passe** et entrez un mot de passe fort pour mieux protéger le média contre les accès non autorisés. Lorsque vous spécifiez un mot de passe, l'utilisateur doit fournir ce mot de passe pour utiliser le média préparé.  
+
+        > [!IMPORTANT]  
+        >  Pour une sécurité optimale, il vous est conseillé de toujours attribuer un mot de passe pour protéger les médias préparés.  
 
         > [!NOTE]  
-        >  Wanneer u de voorgefaseerde media beveiligt met een wachtwoord, wordt de gebruiker om het wachtwoord verzocht zelfs wanneer de media is geconfigureerd met de instelling **Implementatie van besturingssysteem zonder toezicht toestaan** .  
+        >  Lorsque vous protégez le média préparé à l'aide d'un mot de passe, l'utilisateur est invité à entrer ce mot de passe même quand le média est configuré avec le paramètre **Autoriser le déploiement du système d'exploitation de manière autonome** .  
 
-    -   Selecteer **Zelfondertekend certificaat maken**voor HTTP-communicatie en geef vervolgens de begin- en verloopdatum voor het certificaat op.  
+    -   Pour les communications HTTP, sélectionnez **Créer un certificat de média auto-signé**, puis spécifiez les dates de début et d'expiration du certificat.  
 
-    -   Selecteer **PKI-certificaat importeren**voor HTTPS-communicatie en geef vervolgens het certificaat op dat moet worden geïmporteerd met het bijbehorende wachtwoord.  
+    -   Pour les communications HTTPS, sélectionnez **Importer un certificat PKI**, puis spécifiez le certificat à importer et son mot de passe.  
 
-         Zie voor meer informatie over dit clientcertificaat dat wordt gebruikt voor opstartinstallatiekopieën [PKI-certificaatvereisten](../../core/plan-design/network/pki-certificate-requirements.md).  
+         Pour plus d’informations sur ce certificat client utilisé pour les images de démarrage, consultez [Configuration requise des certificats PKI](../../core/plan-design/network/pki-certificate-requirements.md).  
 
-    -   **Affiniteit van gebruikersapparaat**: Ter ondersteuning van de gebruiker gericht beheer in Configuration Manager, moet u opgeven hoe u wilt dat de media gebruikers koppelen aan de doelcomputer. Zie voor meer informatie over hoe gebruikersapparaataffiniteit ondersteuning biedt voor implementatie van besturingssystemen, [gebruikers koppelen aan een doelcomputer](../get-started/associate-users-with-a-destination-computer.md).  
+    -   **Affinité entre appareil et utilisateur** : pour prendre en charge la gestion centrée sur l’utilisateur dans Configuration Manager, spécifiez la manière dont vous voulez que le média associe des utilisateurs à l’ordinateur de destination. Pour plus d’informations sur la prise en charge de l’affinité entre utilisateur et appareil par le déploiement de systèmes d’exploitation, consultez [Associer des utilisateurs à un ordinateur de destination](../get-started/associate-users-with-a-destination-computer.md).  
 
-        -   Stel **Affiniteit tussen gebruikers en apparaten toestaan met automatische goedkeuring** in als u wilt dat de media gebruikers automatisch koppelen aan de doelcomputer. Deze functionaliteit is gebaseerd op de acties van de takenreeks waardoor het besturingssysteem wordt geïmplementeerd. In dit scenario brengt de takenreeks een relatie tot stand tussen de opgegeven gebruikers en de doelcomputer wanneer deze het besturingssysteem op de doelcomputer implementeert.  
+        -   Spécifiez **Autoriser une affinité entre périphérique et utilisateur avec approbation automatique** si vous voulez que le média associe automatiquement des utilisateurs à l'ordinateur de destination. Cette fonctionnalité est basée sur les actions de la séquence de tâches qui déploie le système d'exploitation. Dans ce scénario, la séquence de tâches crée une relation entre les utilisateurs spécifiés et l'ordinateur de destination lorsqu'elle déploie le système d'exploitation sur l'ordinateur de destination.  
 
-        -   Stel **Affiniteit tussen gebruikers en apparaten toestaan in afwachting van goedkeuring door beheerder** in als u wilt dat de media gebruikers aan de doelcomputer koppelen nadat er goedkeuring is verleend. Deze functionaliteit is gebaseerd op het bereik van de takenreeks waardoor het besturingssysteem wordt geïmplementeerd. In dit scenario brengt de takenreeks een relatie tot stand tussen de opgegeven gebruikers en de doelcomputer, maar wordt er gewacht op goedkeuring van een gebruiker met beheerderrechten voordat het besturingssysteem wordt geïmplementeerd.  
+        -   Spécifiez **Autoriser une affinité entre périphérique et utilisateur en attente de l'approbation de l'administrateur** si vous souhaitez que le média associe des utilisateurs à l'ordinateur de destination une fois l'approbation accordée. Cette fonctionnalité est basée sur l'étendue de la séquence de tâches qui déploie le système d'exploitation. Dans ce scénario, la séquence de tâches crée une relation entre les utilisateurs spécifiés et l'ordinateur de destination, mais attend l'approbation d'un utilisateur administratif avant le déploiement du système d'exploitation.  
 
-        -   Stel **Geen affiniteit tussen gebruikers en apparaten toestaan** in als niet wilt dat de media gebruikers aan de doelcomputer koppelen. In dit scenario koppelt de takenreeks geen gebruikers aan de doelcomputer wanneer dit het besturingssysteem implementeert.  
+        -   Spécifiez **Ne pas autoriser d'affinité entre périphérique et utilisateur** si vous ne souhaitez pas que le média associe des utilisateurs à l'ordinateur de destination. Dans ce scénario, la séquence de tâches n'associe pas d'utilisateurs à l'ordinateur de destination lorsqu'elle déploie le système d'exploitation.  
 
-8.  Op de pagina **Takenreeks** de takenreeks van Windows 8 opgeven die u in de voorgaande sectie hebt gemaakt.  
+8.  Sur la page **Séquence de tâches** , spécifiez la séquence de tâches Windows 8 que vous avez créée dans la section précédente.  
 
-9. Geef op de pagina **Opstartinstallatiekopie** de volgende informatie op en klik vervolgens op **Volgende**.  
+9. Sur la page **Image de démarrage** , spécifiez les informations suivantes et cliquez sur **Suivant**.  
 
     > [!IMPORTANT]  
-    >  De architectuur van de opstartinstallatiekopie die wordt gedistribueerd moet toepasselijk zijn voor de architectuur van de doelcomputer. Op een x64-doelcomputer kan een x86- of x64-opstartinstallatiekopie worden opgestart en uitgevoerd. Op een x86-doelcomputer kan echter alleen een x86-opstartinstallatiekopie worden opgestart en uitgevoerd. Voor Windows 8-gecertificeerde computers in EFI-modus, moet u een x64 opstartinstallatiekopie gebruiken.  
+    >  L'architecture de l'image de démarrage qui est distribuée doit être adaptée à l'architecture de l'ordinateur de destination. Par exemple, un ordinateur de destination x64 peut démarrer et exécuter une image de démarrage x86 ou x64. Toutefois, un ordinateur de destination x86 peut démarrer et exécuter uniquement une image de démarrage x86. Pour les ordinateurs certifiés Windows 8 en mode EFI, vous devez utiliser une image de démarrage x64.  
 
-    -   **Opstartinstallatiekopie**: Geef de opstartinstallatiekopie voor het starten van de doelcomputer.  
+    -   **Image de démarrage**: spécifiez l’image de démarrage pour démarrer l’ordinateur de destination.  
 
-    -   **Distributiepunt**: Geef het distributiepunt dat als host fungeert voor de opstartinstallatiekopie. De wizard haalt de opstartinstallatiekopie op van het distributiepunt en schrijft deze naar de media.  
-
-        > [!NOTE]  
-        >  De gebruiker met beheerdersrechten moet **Leesrechten** hebben tot de inhoud van de opstartinstallatiekopie op het distributiepunt. Zie voor meer informatie [accounts voor toegang tot inhoud beheren](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).  
-
-    -   Als u **Op site gebaseerde media** selecteerde op de pagina **Mediabeheer** van deze wizard, geeft u in het venster **Beheerpunt** een beheerpunt op van een primaire site.  
-
-    -   Als u **Dynamische media** selecteerde op de pagina **Mediabeheer** van de wizard, geeft u in het venster **Gekoppelde beheerpunten** de te gebruiken beheerpunten van de primaire site op en een volgorde van prioriteit voor de eerste communicaties.  
-
-10. Geef op de pagina **Installatiekopieën** de volgende informatie op en klik vervolgens op **Volgende**.  
-
-    -   **Installatiekopiepakket**: Geef het pakket met de installatiekopie van het besturingssysteem Windows 8.  
-
-    -   **Installatiekopie-index**: Geef de afbeelding als het pakket meerdere installatiekopieën van besturingssystemen bevat te implementeren.  
-
-    -   **Distributiepunt**: Geef het distributiepunt dat als host fungeert voor het installatiekopiepakket van het besturingssysteem. De wizard haalt de opstartinstallatiekopie van het besturingssysteem op van het distributiepunt en schrijft deze naar de media.  
+    -   **Point de distribution**: spécifiez le point de distribution qui héberge l’image de démarrage. L'Assistant extrait l'image de démarrage à partir du point de distribution et l'écrit sur le média.  
 
         > [!NOTE]  
-        >  De gebruiker met beheerdersrechten moet **Leesrechten** hebben tot de inhoud van de installatiekopie van het besturingssysteem op het distributiepunt. Zie voor meer informatie [accounts voor toegang tot inhoud beheren](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).  
+        >  L'utilisateur administratif doit posséder des droits d'accès en **Lecture** au contenu de l'image de démarrage sur le point de distribution. Pour plus d’informations, consultez [Gérer les comptes pour accéder au contenu](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).  
 
-11. Op de pagina **Toepassing selecteren** de toepassingsinhoud opgeven voor opname in het mediabestand en klikken op **Volgende**.  
+    -   Si vous avez sélectionné **Média basé sur le site** sur la page **Gestion du média** de l'Assistant, dans la zone **Point de gestion** , spécifiez un point de gestion à partir d'un site principal.  
 
-12. Op de pagina **Pakket selecteren** de aanvullende pakketinhoud opgeven voor opname in het mediabestand en klikken op **Volgende**.  
+    -   Si vous avez sélectionné **Média dynamique** sur la page **Gestion du média** de l'Assistant, dans la zone **Points de gestion associés** , spécifiez les points de gestion de site principal à utiliser et un ordre de priorité pour les communications initiales.  
 
-13. Op de pagina **Stuurprogrammapakket selecteren** de stuurprogramma-inhoud opgeven voor opname in het mediabestand en klikken op **Volgende**.  
+10. Sur la page **Images** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
 
-14. Selecteer, op de pagina **Distributiepunten** , een of meer distributiepunten die de inhoud bevatten die vereist is door de takenreeks, en klik vervolgens op **Volgende**.  
+    -   **Package d’images**: spécifiez le package qui contient l’image du système d’exploitation Windows 8.  
 
-15. Geef op de pagina **Aanpassing** de volgende informatie op en klik vervolgens op **Volgende**.  
+    -   **Index d’images**: spécifiez l’image à déployer si le package contient plusieurs images de système d’exploitation.  
 
-    -   **Variabelen**: Geef de variabelen op die de takenreeks gebruikt voor het implementeren van het besturingssyteem. Gebruik voor Windows To Go, de variabele SMSTSPreferredAdvertID om automatisch de implementatie van Windows To Go te selecteren met behulp van de volgende indeling:  
+    -   **Point de distribution**: spécifiez le point de distribution qui héberge le package d’images de système d’exploitation. L'Assistant extrait l'image du système d'exploitation à partir du point de distribution et l'écrit sur le média.  
 
-         SMSTSPreferredAdvertID = {*DeploymentID*}, waarbij DeploymentID de implementatie-id is die gekoppeld is aan de takenreeks die u gebruikt om het inrichtingsproces voor het Windows To Go-station te voltooien.  
+        > [!NOTE]  
+        >  L'utilisateur administratif doit posséder des droits d'accès en **Lecture** au contenu de l'image du système d'exploitation sur le point de distribution. Pour plus d’informations, consultez [Gérer les comptes pour accéder au contenu](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md).  
+
+11. Sur la page **Sélectionner une application** , sélectionnez le contenu d'application à inclure dans le fichier du média, puis cliquez sur **Suivant**.  
+
+12. Sur la page **Sélectionner le package** , sélectionnez le contenu de package supplémentaire à inclure dans le fichier du média, puis cliquez sur **Suivant**.  
+
+13. Sur la page **Sélectionner le package de pilotes** , sélectionnez le contenu du package de pilotes à inclure dans le fichier du média, puis cliquez sur **Suivant**.  
+
+14. Sur la page **Points de distribution** , sélectionnez un ou plusieurs points de distribution comprenant le contenu requis par la séquence de tâches, puis cliquez sur **Suivant**.  
+
+15. Sur la page **Personnalisation** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+
+    -   **Variables**: spécifiez les variables que la séquence de tâches utilise pour déployer le système d’exploitation. Pour Windows To Go, utilisez la variable SMSTSPreferredAdvertID pour sélectionner automatiquement le déploiement de Windows To Go à l'aide du format suivant :  
+
+         SMSTSPreferredAdvertID = {*DeploymentID*}, où DeploymentID correspond à l'ID de déploiement associé à la séquence de tâches que vous allez utiliser pour exécuter le processus de préparation du lecteur Windows To Go.  
 
         > [!TIP]  
-        >  Als u deze variabele gebruikt met de takenreeks die ingesteld is om zonder toezicht te worden uitgevoerd (voorheen in dit proces ingesteld), is geen gebruikersinteractie vereist en start de computer automatisch op naar de implementatie van Windows To Go wanneer deze een Windows To Go-station detecteert. De gebruiker wordt nog steeds gevraagd om een wachtwoord als de media hiervoor is geconfigureerd.  
+        >  Lorsque vous utilisez cette variable avec une séquence de tâches définie pour s'exécuter sans assistance (définie plus tôt au cours de cette procédure), aucune interaction utilisateur n'est requise et l'ordinateur démarre automatiquement le déploiement de Windows To Go lorsqu'il détecte un lecteur Windows To Go. L'utilisateur est quand même invité à fournir un mot de passe si le média est configuré avec une protection par mot de passe.  
 
-    -   **Prestart-opdrachten**: Geef eventuele prestart-opdrachten op die u wilt uitvoeren voordat de takenreeks wordt uitgevoerd. Prestart-opdrachten kunnen bestaan uit een script of een uitvoerbaar bestand dat kan communiceren met de gebruiker in Windows PE voordat de takenreeks wordt uitgevoerd om het besturingssysteem te installeren. Het volgende voor de implementatie van Windows To Go configureren:  
+    -   **Commandes de prédémarrage**: spécifiez les commandes de prédémarrage que vous voulez exécuter avant l’exécution de la séquence de tâches. Les commandes de prédémarrage peuvent être un script ou un exécutable capable d'interagir avec l'utilisateur dans Windows PE avant que la séquence de tâches s'exécute pour installer le système d'exploitation. Configurez les éléments suivants pour le déploiement de Windows To Go :  
 
-        -   **OSDBitLockerPIN**: BitLocker voor Windows To Go vereist een wachtwoordzin. De variabele **OSDBitLockerPIN** instellen als onderdeel van een prestart-opdracht om de BitLocker-wachtwoordzin voor het Windows To Go-station in te stellen.  
+        -   **OSDBitLockerPIN**: BitLocker pour Windows To Go nécessite une phrase secrète. Définissez la variable **OSDBitLockerPIN** dans le cadre d'une commande de prédémarrage pour définir la phrase secrète BitLocker pour le lecteur Windows To Go.  
 
             > [!WARNING]  
-            >  Nadat BitLocker is ingeschakeld voor de wachtwoordzin, moet de gebruiker de wachtwoordzin invoeren telkens wanneer de computer opstart naar het Windows To Go-station.  
+            >  Une fois que BitLocker est activé pour la phrase secrète, l'utilisateur doit entrer cette phrase secrète chaque fois que l'ordinateur démarre sur le lecteur Windows To Go.  
 
-        -   **SMSTSUDAUsers**: Geeft de primaire gebruiker van de doelcomputer op. Gebruik deze variabele om de gebruikersnaam in te zamelen, die vervolgens kan worden gebruikt om de gebruiker te koppelen aan het apparaat. Zie voor meer informatie [gebruikers koppelen aan een doelcomputer](../get-started/associate-users-with-a-destination-computer.md).  
+        -   **SMSTSUDAUsers**: spécifie l’utilisateur principal de l’ordinateur de destination. Utilisez cette variable pour collecter le nom d'utilisateur, lequel peut ensuite être utilisé pour associer l'utilisateur et le périphérique. Pour plus d’informations, consultez [Associer des utilisateurs à un ordinateur de destination](../get-started/associate-users-with-a-destination-computer.md).  
 
             > [!TIP]  
-            >  Om de gebruikersnaam op te halen, kunt u een invoervak maken als onderdeel van de prestart-opdracht, laat u de gebruiker zijn gebruikersnaam invoeren en stelt vervolgens de variabele met de waarde in. U kunt bijvoorbeeld de volgende regels toevoegen aan het scriptbestand van de prestart-opdracht:  
+            >  Pour extraire le nom d'utilisateur, vous pouvez créer une zone de saisie dans le cadre d'une commande de prédémarrage, inviter l'utilisateur à entrer son nom d'utilisateur, puis affecter la valeur à la variable. Par exemple, vous pouvez ajouter les lignes suivantes au fichier de script de la commande de prédémarrage :  
             >   
             >  `UserID = inputbox("Enter Username" ,"Enter your username:","",400,0)`  
             >   
             >  `env("SMSTSUDAUsers") = UserID`  
 
-         Zie voor meer informatie over het maken van een scriptbestand om te gebruiken als uw prestart-opdracht [Prestart-opdrachten voor takenreeksmedia](../understand/prestart-commands-for-task-sequence-media.md).  
+         Pour plus d’informations sur la manière de créer un fichier de script à utiliser en tant que commande de prédémarrage, consultez [Commandes de prédémarrage pour les médias de séquence de tâches](../understand/prestart-commands-for-task-sequence-media.md).  
 
-16. Voltooi de wizard.  
-
-    > [!NOTE]  
-    >  De wizard kan er lang over doen om het voorgefaseerde mediabestand te voltooien.  
-
-###  <a name="BKMK_CreatePackage"></a> Een Windows To Go Creator-pakket maken  
- Als onderdeel van de implementatie van Windows To Go, moet u een pakket maken om het voorgefaseerde mediabestand te implementeren. Het pakket moet het hulpprogramma bevatten dat het Windows To Go-station configureert en de voorgefaseerde media naar het station uitvoert. Gebruik de volgende procedure om het Windows To Go Creator-pakket te maken.  
-
-#### <a name="to-create-the-windows-to-go-creator-package"></a>Het Windows To Go Creator-pakket maken  
-
-1.  Maak op de server om de Windows To Go Creator pakketbestanden te hosten, een bronmap voor de pakketbronbestanden.  
+16. Effectuez toutes les étapes de l'Assistant.  
 
     > [!NOTE]  
-    >  Het computeraccount van de siteserver moet **Leesrechten** voor de bronmap hebben.  
+    >  La création du fichier de média préparé par l'Assistant peut être un processus très long.  
 
-2.  Kopieer het voorgefaseerde mediabestand dat u maakte in de sectie [Create prestaged media](#BKMK_CreatePrestagedMedia) naar de pakketbronmap.  
+###  <a name="BKMK_CreatePackage"></a> Créer un package Windows To Go Creator  
+ Dans le cadre du déploiement de Windows To Go, vous devez créer un package pour déployer le fichier de média préparé. Le package doit inclure l'outil qui configure le lecteur Windows To Go et extrait le média préparé vers le lecteur. Appliquez la procédure suivante pour créer le package Windows To Go Creator.  
 
-3.  Kopieer het hulpprogramma van Windows To Go Creator (WTGCreator.exe) naar de pakketbronmap. Het hulpprogramma creator is beschikbaar op elke primaire siteserver op de volgende locatie: <*ConfigMgrInstallationFolder*> \OSD\Tools\WTG\Creator.  
+#### <a name="to-create-the-windows-to-go-creator-package"></a>Pour créer le package Windows To Go Creator  
 
-4.  Maak een pakket en programma met behulp van de wizard Pakket en Programma maken.  
+1.  Sur le serveur qui doit héberger les fichiers du package Windows To Go Creator, créez un dossier source pour les fichiers sources du package.  
 
-5.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+    > [!NOTE]  
+    >  Le compte d'ordinateur du serveur de site doit disposer de droits d'accès en **Lecture** sur le dossier source.  
 
-6.  Vouw **Toepassingsbeheer** uit in de werkruimte **Softwarebibliotheek**en klik vervolgens op **pakketten**.  
+2.  Copiez le fichier du média préparé que vous avez créé dans la section [Create prestaged media](#BKMK_CreatePrestagedMedia) vers le dossier source du package.  
 
-7.  Klik op **Pakket maken** in het tabblad **Start** in de groep **Maken**.  
+3.  Copiez l'outil Windows To Go Creator (WTGCreator.exe) vers le dossier source du package. L’outil Creator est disponible sur n’importe quel serveur de site principal à l’emplacement suivant : <*dossier_installation_Configuration_Manager*>\OSD\Tools\WTG\Creator.  
 
-8.  Geef op de pagina **Pakket** de naam en beschrijving van het pakket. Voer voor de pakketnaam bijvoorbeeld **Windows To Go** in en geef voor de pakketbeschrijving **Package to configure a Windows To Go drive using System Center Configuration Manager** op.  
+4.  Créez un package et un programme à l'aide de l'Assistant Création d'un package et d'un programme.  
 
-9. Selecteer **Dit pakket bevat bronbestanden**, geef het pad op naar de pakketbronmap die u maakte in stap 1 en klik vervolgens op **Next**.  
+5.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-10. Op de pagina **Programmatype** selecteert u **Standaardprogramma**, en klikt u dan op **Volgende**.  
+6.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Gestion d'applications**, puis cliquez sur **Packages**.  
 
-11. Op de pagina **Standaardprogramma** het volgende opgeven:  
+7.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer le package**.  
 
-    -   **Naam**: Geef de naam van het programma. Typ bijvoorbeeld **Creator** voor de programmanaam.  
+8.  Sur la page **Package** , spécifiez le nom et la description du package. Par exemple, entrez **Windows To Go** comme nom de package et spécifiez **Package to configure a Windows To Go drive using System Center Configuration Manager** comme description de package.  
 
-    -   **Opdrachtregel**: Type **WTGCreator.exe /wim:PrestageName.wim**, waarbij PrestageName de naam van het voorgefaseerde bestand dat u maakte en kopieerde naar de pakketbronmap voor het Windows To Go Creator-pakket.  
+9. Sélectionnez **Ce package contient des fichiers sources**, spécifiez le chemin d'accès au dossier source du package que vous avez créé à l'étape 1, puis cliquez sur **Suivant**.  
 
-         Eventueel kunt u de volgende opties toevoegen:  
+10. Sur la page **Type de programme** , sélectionnez **Programme standard**, puis cliquez sur **Suivant**.  
 
-        -   **enableBootRedirect**: opdrachtregeloptie om de opstartopties van Windows To Go te wijzigen en een omleiding voor opstarten toe te staan. Als u deze optie gebruikt, zal de computer opstarten vanuit USB zonder dat wijziging van de opstartvolgorde van de computer firmware vereist is of de gebruiker moet worden geselecteerd uit een lijst met opstartopties bij het opstarten. Als een Windows To Go-station is gedetecteerd, start de computer op naar dit station.  
+11. Sur la page **Programme standard** , spécifiez les informations suivantes :  
 
-    -   **Uitvoeren**: Geef **normaal** uit te voeren op basis van het systeem en standaardprogramma.  
+    -   **Nom**: spécifiez le nom du programme. Par exemple, tapez **Creator** comme nom de programme.  
 
-    -   **Programma kan worden uitgevoerd**: Geef op of het programma kan alleen uitgevoerd als een gebruiker is aangemeld.  
+    -   **Ligne de commande**: tapez **WTGCreator.exe /wim:PrestageName.wim**, où PrestageName correspond au nom du fichier préparé que vous avez créé et copié vers le dossier source du package pour le package Windows To Go Creator.  
 
-    -   **Uitvoermodus**: Geef op of het programma wordt uitgevoerd met aangemelde gebruikersmachtigingen of met beheerdersmachtigingen. Verhoogde machtigingen zijn vereist om Windows To Go Creator uit te voeren.  
+         Éventuellement, vous pouvez ajouter les options suivantes :  
 
-    -   Selecteer **Gebruikers toestaan de programma-installatie te bekijken en interacties uit te voeren**en klik vervolgens op **Volgende**.  
+        -   **enableBootRedirect**: option de ligne de commande pour modifier les options de démarrage Windows To Go pour autoriser la redirection de démarrage. Lorsque vous utilisez cette option, l'ordinateur démarre à partir du lecteur USB sans avoir à modifier l'ordre de démarrage dans le microprogramme de l'ordinateur ni à inviter l'utilisateur à sélectionner une option de démarrage dans une liste au moment du démarrage. Si un lecteur Windows To Go est détecté, l'ordinateur démarre sur ce lecteur.  
 
-12. Op de pagina Vereisten het volgende opgeven:  
+    -   **Exécuter**: spécifiez **Normal** pour exécuter le programme en fonction des paramètres par défaut du système et du programme.  
 
-    -   **Platformvereisten**: Selecteer de toepasselijke Windows 8-platformen om toe te staan inrichten.  
+    -   **Le programme peut s’exécuter**: spécifiez si le programme peut s’exécuter uniquement quand un utilisateur est connecté.  
 
-    -   **Geschatte schijfruimte**: Geef de grootte van de pakketbronmap voor het Windows To Go Creator.  
+    -   **Mode d’exécution**: spécifiez si le programme s’exécute avec les autorisations d’utilisateurs connectés ou les autorisations administratives. Windows To Go Creator requiert des autorisations avec élévation de privilèges pour s'exécuter.  
 
-    -   **Maximale toegestane uitvoeringstijd (minuten)**: Hiermee geeft u de maximale tijd die het programma uit te voeren op de clientcomputer wordt verwacht. Deze waarde is standaard ingesteld op 120 minuten.  
+    -   Sélectionnez **Permettre aux utilisateurs d'afficher et d'interagir avec l'installation du programme**, puis cliquez sur **Suivant**.  
+
+12. Sur la page Spécifications, spécifiez les informations suivantes :  
+
+    -   **Exigences de plateformes**: sélectionnez les plateformes Windows 8 applicables pour permettre la configuration.  
+
+    -   **Espace disque estimé**: spécifiez la taille du dossier source du package pour Windows To Go Creator.  
+
+    -   **Durée maximale d’exécution allouée (en minutes)**: indique la durée maximale pendant laquelle le programme est supposé être exécuté sur l’ordinateur client. Par défaut, cette valeur est définie à 120 minutes.  
 
         > [!IMPORTANT]  
-        >  Als u onderhoudsvensters gebruikt voor de verzameling waarop dit programma wordt uitgevoerd, kan er een conflict optreden als de **Maximum toegestane uitvoeringstijd** langer is dan het geplande onderhoudsvenster. Als de maximum uitvoeringstijd is ingesteld op **Onbekend**, zal het starten tijdens het onderhoudsvenster, maar zal het verder worden uitgevoerd tot het voltooid of mislukt is nadat het onderhoudsvenster is gesloten. Als u de maximum uitvoeringstijd instelt op een specifieke periode (niet ingesteld op Onbekend) die langer is dan de lengte van enig beschikbaar onderhoudsvenster, zal het programma niet worden uitgevoerd.  
+        >  Si vous utilisez des fenêtres de maintenance pour le regroupement sur lequel ce programme est exécuté, un conflit peut survenir si la **Durée maximale d'exécution allouée** est supérieure à la fenêtre de maintenance programmée. Si la durée d'exécution maximale est définie sur **Inconnu**, il démarre pendant la fenêtre de maintenance mais continue son exécution jusqu'à ce qu'il ait terminé ou échoué après la fermeture de la fenêtre de maintenance. Si vous définissez la durée d'exécution maximale sur une période donnée (pas sur Inconnu) qui dépasse la durée de toute fenêtre de maintenance disponible, ce programme n'est pas exécuté.  
 
         > [!NOTE]  
-        >  Als de waarde is ingesteld op **onbekende**, Configuration Manager stelt de maximale toegestane uitvoeringstijd in op 12 uur (720 minuten).  
+        >  Si la valeur définie est **Inconnu**, Configuration Manager fixe la durée d’exécution maximale autorisée à 12 heures (720 minutes).  
 
         > [!NOTE]  
-        >  Als de maximum uitvoeringstijd (hetzij ingesteld door de gebruiker hetzij als de standaardwaarde) overschreden is, wordt in Configuration Manager wordt gestopt als **uitvoeren met beheerdersrechten** is geselecteerd en **toestaan dat gebruikers de programma-installatie kunnen zien en** niet is geselecteerd op de **standaardprogramma** pagina.  
+        >  Si cette durée d’exécution maximale (qu’elle soit définie par l’utilisateur ou par défaut) est dépassée, Configuration Manager arrête le programme si **Exécuter avec les droits d’administration** est sélectionné et si **Permettre aux utilisateurs d’afficher et d’interagir avec l’installation du programme** n’est pas sélectionné sur la page **Programme standard**.  
 
-     Klik op **Volgende** en voltooi de wizard.  
+     Cliquez sur **Suivant** pour terminer l'Assistant.  
 
-###  <a name="BKMK_UpdateTaskSequence"></a> De takenreeks bijwerken om BitLocker voor Windows To Go in te schakelen  
- Windows To Go schakelt BitLocker in op een extern opstartbaar station zonder het gebruik van TPM. Daarom moet u een afzonderlijk hulpprogramma gebruiken om BitLocker op het Windows To Go-station te configureren. Om BitLocker in te schakelen, moet u een actie toevoegen aan de takenreeks na de stap **Windows en ConfigMgr installeren** .  
+###  <a name="BKMK_UpdateTaskSequence"></a> Mettre à jour la séquence de tâches pour activer BitLocker pour Windows To Go  
+ Windows To Go active BitLocker sur un lecteur externe démarrable sans utiliser le Module de plateforme sécurisée (TPM). Par conséquent, vous devez utiliser un outil distinct pour configurer BitLocker sur le lecteur Windows To Go. Pour activer BitLocker, vous devez ajouter une action à la séquence de tâches après l'étape **Configurer Windows et ConfigMgr** .  
 
 > [!NOTE]  
->  BitLocker voor Windows To Go vereist een wachtwoordzin. In de stap [Create prestaged media](#BKMK_CreatePrestagedMedia) stelt u de wachtwoordzin in als deel van een prestart-opdracht door de OSDBitLockerPIN-variabele te gebruiken.  
+>  BitLocker pour Windows To Go nécessite une phrase secrète. À l'étape [Create prestaged media](#BKMK_CreatePrestagedMedia) , vous avez défini la phrase secrète dans le cadre d'une commande de prédémarrage à l'aide de la variable OSDBitLockerPIN.  
 
- Gebruik de volgende procedure om de Windows 8-takenreeks bij te werken om BitLocker voor Windows To Go in te schakelen.  
+ Appliquez la procédure suivante pour mettre à jour la séquence de tâches Windows 8 pour activer BitLocker pour Windows To Go.  
 
-#### <a name="to-update-the-windows-8-task-sequence-to-enable-bitlocker"></a>Bijwerken van de Windows 8-takenreeks om BitLocker in te schakelen  
+#### <a name="to-update-the-windows-8-task-sequence-to-enable-bitlocker"></a>Pour mettre à jour la séquence de tâches Windows 8 pour activer BitLocker  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Vouw **Toepassingsbeheer** uit in de werkruimte **Softwarebibliotheek**en klik vervolgens op **pakketten**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Gestion d'applications**, puis cliquez sur **Packages**.  
 
-3.  Klik op **Pakket maken** in het tabblad **Start** in de groep **Maken**.  
+3.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer le package**.  
 
-4.  Geef op de pagina **Pakket** de naam en beschrijving van het pakket. Typ voor de pakketnaam bijvoorbeeld **BitLocker for Windows To Go** en geef voor de pakketbeschrijving **Package to update BitLocker for Windows To Go** op.  
+4.  Sur la page **Package** , spécifiez le nom et la description du package. Par exemple, tapez **BitLocker for Windows To Go** comme nom de package et spécifiez **Package to update BitLocker for Windows To Go** comme description de package.  
 
-5.  Selecteer **Dit pakket bevat bronbestanden**, specificeer de locatie voor het BitLocker-hulpprogramma voor Windows To Go, en klik vervolgens op **Volgende**. Het hulpprogramma BitLocker is beschikbaar op elke primaire siteserver van Configuration Manager op de volgende locatie: <*ConfigMgrInstallationFolder*> \OSD\Tools\WTG\BitLocker\  
+5.  Sélectionnez **Ce package contient des fichiers sources**, spécifiez l'emplacement de l'outil BitLocker pour Windows To Go, puis cliquez sur **Suivant**. L’outil BitLocker est disponible sur n’importe quel serveur de site principal Configuration Manager à l’emplacement suivant : <*dossier_installation_Configuration_Manager*>\OSD\Tools\WTG\BitLocker\  
 
-6.  Selecteer op de pagina **Programmatype** **Geen programma maken**.  
+6.  Sur la page **Type de programme** , sélectionnez **Ne pas créer de programme**.  
 
-7.  Klik op **Volgende** en voltooi de wizard.  
+7.  Cliquez sur **Suivant** pour terminer l'Assistant.  
 
-8.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+8.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-9. Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Takenreeksen**.  
+9. Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-10. Selecteer de Windows 8-takenreeks waarnaar u verwijst in de voorgefaseerde media.  
+10. Sélectionnez la séquence de tâches de Windows 8 que vous référencez dans les médias préparés.  
 
-11. Klik in het tabblad **Start** in de groep **Takenreeks** op **Bewerken**.  
+11. Sous l'onglet **Accueil** , dans le groupe **Séquence de tâches** , cliquez sur **Modifier**.  
 
-12. Klik op de stap **Windows en ConfigMgr installeren** , klik op **Toevoegen**, klik op **Algemeen**, en klik vervolgens op **Opdrachtregel uitvoeren**. De stap Opdrachtregel uitvoeren wordt toegevoegd na de stap Windows en ConfigMgr installeren.  
+12. Cliquez sur l'étape **Configurer Windows et ConfigMgr** , cliquez sur **Ajouter**, cliquez sur **Général**, puis sur **Exécuter la ligne de commande**. L'étape Exécuter la ligne de commande est ajoutée après l'étape Configurer Windows et ConfigMgr.  
 
-13. Voeg op het tabblad **Eigenschappen** voor de stap **Opdrachtregel uitvoeren** het volgende toe:  
+13. Sous l'onglet **Propriétés** de l'étape **Exécuter la ligne de commande** , ajoutez les éléments suivants :  
 
-    1.  **Naam**: Geef een naam voor de opdrachtregel, zoals **inschakelen BitLocker voor Windows To Go**.  
+    1.  **Nom**: spécifiez un nom pour la ligne de commande, par exemple **Enable BitLocker for Windows To Go**.  
 
-    2.  **Opdrachtregel**: i386\osdbitlocker_wtg.exe/Enable/pwd: < *geen &#124; AD*>  
+    2.  **Ligne de commande** : i386\osdbitlocker_wtg.exe /Enable /pwd:< *None&#124;AD*>  
 
-         Parameters:  
+         Paramètres :  
 
-        -   / pwd: < none &#124; AD >-Geef de BitLocker-wachtwoordherstelmodus. Deze parameter is vereist als u de parameter /Enable in de opdrachtregel gebruikt.  
+        -   /pwd:<None&#124;AD> : spécifiez le mode de récupération de mot de passe BitLocker. Ce paramètre est requis si vous utilisez le paramètre /Enable dans la ligne de commande.  
 
-             Selecteer **AD** om BitLocker-stationsversleuteling te configureren om een back-up te maken van herstelinformatie voor door BitLocker beschermde stations naar Active Directory Domain Services (AD DS). Het maken van een back-up van herstelwachtwoorden voor een door BitLocker beschermd station laat beheerders toe het station te herstellen als het vergrendeld is. Dit zorgt ervoor dat versleutelde gegevens die behoren tot de onderneming, altijd kunnen worden geopend door geautoriseerde gebruikers. Wanneer u **Geen**specificeert, is de gebruiker verantwoordelijk voor het bewaren van een kopie van het herstelwachtwoord of de herstelsleutel. Als de gebruiker die informatie verliest of negeert om het station te ontsleutelen voordat hij de organisatie verlaat, kunnen beheerders niet gemakkelijk toegang krijgen tot het station.  
+             Sélectionnez **AD** pour configurer le chiffrement de lecteur BitLocker pour la sauvegarde des informations de récupération des lecteurs protégés par BitLocker sur les services de domaine Active Directory (AD DS). La sauvegarde des mots de passe de récupération d'un lecteur protégé par BitLocker permet aux utilisateurs administratifs de récupérer le lecteur s'il est verrouillé. Ainsi, les utilisateurs autorisés peuvent toujours accéder aux données chiffrées appartenant à l'entreprise. Lorsque vous spécifiez **Aucun**, l'utilisateur est responsable de la conservation d'une copie du mot de passe de récupération ou de la clé de récupération. Si l'utilisateur perd ces informations ou omet de déchiffrer le lecteur avant de quitter l'organisation, les utilisateurs administratifs ne peuvent pas accéder facilement au lecteur.  
 
-        -   / wait: < TRUE &#124; FALSE >-opgeven of de takenreeks moet voor versleuteling is voltooid wachten voordat deze is voltooid.  
+        -   /wait:<TRUE&#124;FALSE> : indiquez si la séquence de tâches attend la fin du chiffrement avant de se terminer.  
 
-    3.  Selecteer **Pakket**, en geef dan het pakket dat u aan het begin van deze procedure hebt gemaakt.  
+    3.  Sélectionnez **Package**, puis définissez le package que vous avez créé au début de cette procédure.  
 
-    4.  Specificeer op het tabblad **Opties** de volgende condities:  
+    4.  Sous l'onglet **Options** , spécifiez les conditions suivantes :  
 
-        -   Conditie = Takenreeksvariabele  
+        -   Condition = Variable de séquence de tâches  
 
-        -   Variabele = _SMSTSWTG  
+        -   Variable = _SMSTSWTG  
 
-        -   Conditie = is gelijk aan  
+        -   Condition = Égal à  
 
-        -   Waarde = True  
+        -   Valeur = True  
 
     > [!NOTE]  
-    >  De stap **BitLocker inschakelen** , die waarschijnlijk is na de nieuwe opdrachtregelstap, wordt niet gebruikt om BitLocker voor Windows To Go in te schakelen. U kunt deze stap echter in de takenreeks houden om te gebruiken voor Windows 8-implementaties die geen Windows To Go-station gebruiken.  
+    >  L'étape **Activer BitLocker** , susceptible d'intervenir après la nouvelle étape de ligne de commande, n'est pas utilisée pour activer BitLocker pour Windows To Go. Toutefois, vous pouvez conserver cette étape dans la séquence de tâches et l'utiliser pour les déploiements de Windows 8 qui n'utilisent pas un lecteur Windows To Go.  
 
-###  <a name="BKMK_Deployments"></a> Het Windows To Go Creator-pakket en de takenreeks implementeren  
- Windows To Go is een proces voor hybride implementatie. Daarom moet u het Windows To Go Creator-pakket en de Windows 8-takenreeks implementeren. Gebruik de volgende procedures om de implementatieproces te voltooien.  
+###  <a name="BKMK_Deployments"></a> Déployer le package Windows To Go Creator et la séquence de tâches  
+ Windows To Go est un processus de déploiement hybride. Par conséquent, vous devez déployer le package Windows To Go Creator et la séquence de tâches Windows 8. Utilisez les procédures suivantes pour terminer le processus de déploiement.  
 
-#### <a name="to-deploy-the-windows-to-go-creator-package"></a>Het Windows To Go Creator-pakket implementeren  
+#### <a name="to-deploy-the-windows-to-go-creator-package"></a>Pour déployer le package Windows To Go Creator  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Vouw **Toepassingsbeheer** uit in de werkruimte **Softwarebibliotheek**en klik vervolgens op **pakketten**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Gestion d'applications**, puis cliquez sur **Packages**.  
 
-3.  Selecteer het Windows To Go-pakket dat u in de stap [Een Windows To Go Creator-pakket maken](#BKMK_CreatePackage) hebt gemaakt.  
+3.  Sélectionnez le package Windows To Go que vous avez créé à l'étape [Créer un package Windows To Go Creator](#BKMK_CreatePackage) .  
 
-4.  Klik op het tabblad **Start** in de groep **Implementatie** op **Implementeren**.  
+4.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Déployer**.  
 
-5.  Geef op het tabblad **Algemeen** de volgende instellingen op:  
+5.  Sur la page **Général** , spécifiez les paramètres suivants :  
 
-    1.  **Software**: Controleer of het pakket voor Windows To Go is geselecteerd.  
+    1.  **Logiciel**: vérifiez que le package Windows To Go est sélectionné.  
 
-    2.  **Verzameling**: Klik op **Bladeren** om de verzameling waarnaar u wilt implementeren van het Windows To Go-pakket te selecteren.  
+    2.  **Regroupement**: cliquez sur **Parcourir** pour sélectionner le regroupement vers lequel vous voulez déployer le package Windows To Go.  
 
-    3.  **Gebruik standaarddistributiepuntengroepen die gekoppeld zijn aan deze verzameling**: Selecteer deze optie als u wilt opslaan van inhoud van het pakket op de verzamelingen standaard distributiepuntengroep. Als u de geselecteerde verzameling niet hebt gekoppeld aan een distributiepuntgroep, wordt deze optie onbeschikbaar.  
+    3.  **Utiliser des groupes de points de distribution par défaut associés à ce regroupement**: sélectionnez cette option si vous voulez stocker le contenu du package sur le groupe de points de distribution par défaut du regroupement. Si vous n'avez pas associé le regroupement sélectionné à un groupe de points de distribution, cette option ne sera pas disponible.  
 
-6.  Klik op de pagina **Inhoud** op **Toevoegen** en selecteer vervolgens de distributiepunten of distributiepuntgroepen waarop u de inhoud wilt implementeren die is gekoppeld met dit pakket en programma.  
+6.  Sur la page **Contenu** , cliquez sur **Ajouter** , puis sélectionnez les points de distribution ou les groupes de points de distribution vers lesquels le contenu associé à ce package et ce programme doit être déployé.  
 
-7.  Op de pagina **Implementatie-instellingen** selecteert u **Beschikbaar** voor het implementatietype, en klikt u vervolgens op **Volgende**.  
+7.  Sur la page **Paramètres de déploiement** , sélectionnez **Disponible** pour le type de déploiement, puis cliquez sur **Suivant**.  
 
-8.  Configureer op de **Planning**wanneer dit pakket en programma zullen worden geïmplementeerd of beschikbaar zullen worden gemaakt voor clientapparaten.  
+8.  Sur la page **Planification**, configurez l'heure à laquelle ce package et ce programme seront déployés ou mis à disposition des périphériques clients.  
 
-     De opties op deze pagina zullen verschillen afhankelijk van of de implementatieactie ingesteld is op **Beschikbaar** of **Vereist**.  
+     Les options de cette page pourront différer selon si l'action de déploiement est définie sur **Disponible** ou sur **Obligatoire**.  
 
-9. Configureer op de pagina **Planning**de volgende instellingen en klik vervolgens op **Volgende**.  
+9. Sur la page **Planification**, configurez les paramètres suivants, puis cliquez sur **Suivant**.  
 
-    1.  **Plannen wanneer deze implementatie beschikbaar zal worden**: Geef de datum en tijd wanneer het pakket en programma wordt uitgevoerd op de doelcomputer. Wanneer u **UTC**selecteert, zorgt deze instelling ervoor dat het pakket en programma beschikbaar zijn voor meerdere doelcomputers tegelijkertijd eerder dan op verschillende tijdstippen, volgens de lokale tijd op de doelcomputers.  
+    1.  **Planifier la disponibilité de ce déploiement**: spécifiez la date et l’heure auxquelles le package et le programme sont disponibles pour s’exécuter sur l’ordinateur de destination. Lorsque vous sélectionnez **UTC**, ce paramètre s'assure que le package et le programme sont disponibles pour plusieurs ordinateurs de destination en même temps plutôt qu'à des heures différentes, en fonction de l'heure locale sur les ordinateurs de destination.  
 
-    2.  **Plannen wanneer deze implementatie zal verlopen**: Geef de datum en tijd wanneer het pakket en programma verlopen op de doelcomputer. Wanneer u **UTC**selecteert, zorgt deze instelling ervoor dat de takenreeks verloopt op meerdere doelcomputers tegelijkertijd eerder dan op verschillende tijdstippen, volgens de lokale tijd op de doelcomputers.  
+    2.  **Planifier la date d’expiration de ce déploiement**: spécifiez la date et l’heure d’expiration du package et du programme sur l’ordinateur de destination Lorsque vous sélectionnez **UTC**, ce paramètre s'assure que la séquence de tâches expire sur plusieurs ordinateurs de destination en même temps plutôt qu'à des heures différentes, en fonction de l'heure locale sur les ordinateurs de destination.  
 
-10. Geef op de pagina **Gebruikerservaring** van de wizard de volgende informatie:  
+10. Sur la page **Expérience utilisateur** de l'Assistant, spécifiez les informations suivantes :  
 
-    -   **Software-installatie**: Hierdoor kan de software worden geïnstalleerd buiten de geconfigureerde onderhoudsvensters.  
+    -   **Installation du logiciel**: permet au logiciel d’être installé en dehors de toute fenêtre de maintenance configurée.  
 
-    -   **Systeem opnieuw opstarten (indien nodig om de installatie te voltooien)**: Hiermee kunt een apparaat opnieuw opstarten buiten de geconfigureerde onderhoudsvensters wanneer vereist door de software-installatie.  
+    -   **Redémarrage du système (si nécessaire pour terminer l’installation)**: permet à un appareil de redémarrer en dehors des fenêtres de maintenance configurées quand cela est exigé par l’installation du logiciel.  
 
-    -   **Embedded-apparaten**: Bij het implementeren van pakketten en programma's op Windows Embedded-apparaten met schrijffilter is ingeschakeld, kunt u opgeven voor het installeren van de pakketten en programma's op de tijdelijke overlay en doorvoeren wijzigingen later of de wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster. Wanneer u wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster, moet er opnieuw worden opgestart, zodat de wijzigingen behouden blijven op het apparaat.  
+    -   **Appareils Windows Embedded**: quand vous déployez des packages et des programmes sur des appareils Windows Embedded dont le filtre d’écriture est activé, vous pouvez choisir d’installer les packages et les programmes sur un segment de recouvrement temporaire puis de valider les modifications ultérieurement, ou de valider les modifications à l’échéance de l’installation ou au cours d’une fenêtre de maintenance. Lorsque vous validez des modifications à l'échéance de l'installation ou au cours d'une fenêtre de maintenance, un redémarrage est requis et les modifications sont conservées sur l'appareil.  
 
-11. Geef op de pagina **Distributiepunten** de volgende informatie:  
+11. Sur la page **Points de distribution** , spécifiez les informations suivantes :  
 
-    -   **Implementatie-opties:** Geef **inhoud downloaden vanaf het distributiepunt en lokaal uitvoeren**.  
+    -   **Options de déploiement :** spécifiez **Télécharger le contenu à partir du point de distribution et l’exécuter localement**.  
 
-    -   **Toestaan dat clients inhoud te delen met andere clients in hetzelfde subnet**: Selecteer deze optie om de belasting op het netwerk te verminderen door clients inhoud downloaden van andere clients op het netwerk dat al hebben gedownload en gecached. Deze optie gebruikt Windows BranchCache en kan worden gebruikt op computers die Windows Vista SP2 en recenter uitvoeren.  
+    -   **Autoriser les clients à partager du contenu avec d’autres clients sur le même sous-réseau**: sélectionnez cette option pour réduire la charge du réseau en autorisant les clients à télécharger du contenu à partir d’autres clients du réseau ayant déjà téléchargé et mis en cache le contenu. Cette option utilise Windows BranchCache et peut être utilisée sur des ordinateurs exécutant Windows Vista SP2 et versions ultérieures.  
 
-    -   **Alle clients een terugvalbronlocatie voor inhoud te gebruiken**: Geef op of clients mogen terugvallen en gebruik een niet-voorkeursdistributiepunt als de bronlocatie voor inhoud wanneer de inhoud niet beschikbaar op een voorkeursdistributiepunt is.  
+    -   **Autoriser les clients à utiliser un emplacement source de secours pour le contenu**: spécifiez si les clients sont autorisés à revenir et à utiliser un point de distribution non préféré en tant qu’emplacement source de contenu quand le contenu n’est pas disponible sur un point de distribution préféré.  
 
-12. Voltooi de wizard.  
+12. Effectuez toutes les étapes de l'Assistant.  
 
-#### <a name="to-deploy-the-windows-8-task-sequence"></a>De Windows 8-takenreeks implementeren  
+#### <a name="to-deploy-the-windows-8-task-sequence"></a>Pour déployer la séquence de tâches de Windows 8  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Takenreeksen**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-3.  Selecteer de Windows 8-takenreeks die in u stap [Prerequisites to provision Windows To Go](#BKMK_Prereqs) hebt gemaakt.  
+3.  Sélectionnez la séquence de tâche Windows 8 que vous avez créée à l'étape [Prerequisites to provision Windows To Go](#BKMK_Prereqs) .  
 
-4.  Klik op het tabblad **Start** in de groep **Implementatie** op **Implementeren**.  
+4.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Déployer**.  
 
-5.  Geef op het tabblad **Algemeen** de volgende instellingen op:  
+5.  Sur la page **Général** , spécifiez les paramètres suivants :  
 
-    1.  **Takenreeks**: Controleer of de Windows 8-takenreeks is geselecteerd.  
+    1.  **Séquence de tâches**: vérifiez que la séquence de tâches de Windows 8 est sélectionnée.  
 
-    2.  **Verzameling**: Klik op **Bladeren** om de verzameling die alle apparaten waarvoor een gebruiker Windows To Go kan inrichten bevat selecteren.  
-
-        > [!IMPORTANT]  
-        >  Als de voorgefaseerde media die u in de sectie [Create prestaged media](#BKMK_CreatePrestagedMedia) hebt gemaakt, gebruik maakt van de SMSTSPreferredAdvertID-variabele, kunt u de takenreeks implementeren op de verzameling **Alle systemen** en kunt u de instelling **Alleen Windows PE (verborgen)** op de pagina **Inhoud** specificeren. Omdat de takenreeks verborgen is, zal ze enkel beschikbaar zijn voor media.  
-
-    3.  **Gebruik standaarddistributiepuntengroepen die gekoppeld zijn aan deze verzameling**: Selecteer deze optie als u wilt opslaan van inhoud van het pakket op de verzamelingen standaard distributiepuntengroep. Als u de geselecteerde verzameling niet hebt gekoppeld aan een distributiepuntgroep, wordt deze optie onbeschikbaar.  
-
-6.  Configureer op de pagina **Implementatie-instellingen** de volgende instellingen en klik vervolgens op **Volgende**.  
-
-    -   **Doel**: Selecteer **beschikbaar**. Wanneer u de takenreeks op een gebruiker implementeert, ziet de gebruiker de gepubliceerde takenreeks in de Application Catalog en kan hij deze op aanvraag opvragen. Wanneer u de takenreeks op een apparaat implementeert, ziet de gebruiker de takenreeks in Software Center en kan hij deze op aanvraag installeren.  
-
-    -   **Toegankelijk maken voor de volgende**: Opgeven of de takenreeks beschikbaar is voor Configuration Manager-clients, media of PXE.  
+    2.  **Regroupement**: cliquez sur **Parcourir** pour sélectionner le regroupement qui contient tous les appareils pour lesquels un utilisateur peut configurer Windows To Go.  
 
         > [!IMPORTANT]  
-        >  Gebruik de instelling **Alleen media en PXE (verborgen)** voor geautomatiseerde implementaties van takenreeksen. Selecteer **Implementatie van besturingssysteem zonder toezicht toestaan** en stel de SMSTSPreferredAdvertID-variabele in als deel van de voorgefaseerde media om de computer automatisch te laten opstarten naar de Windows To Go-implementatie zonder gebruikersinteractie wanneer het een Windows To Go-station detecteert. Voor meer informatie over deze voorgefaseerde media-instellingen, zie de sectie [Create prestaged media](#BKMK_CreatePrestagedMedia) .  
+        >  Si le média préparé que vous avez créé dans dans la section [Create prestaged media](#BKMK_CreatePrestagedMedia) utilise la variable SMSTSPreferredAdvertID, vous pouvez déployer la séquence de tâches sur le regroupement **Tous les systèmes** et définir le paramètre **Windows PE uniquement (masqué)** sur la page **Contenu** . La séquence de tâches étant masquée, elle ne sera disponible que pour le média.  
 
-7.  Configureer op de pagina **Planning** de volgende instellingen en klik vervolgens op **Volgende**.  
+    3.  **Utiliser des groupes de points de distribution par défaut associés à ce regroupement**: sélectionnez cette option si vous voulez stocker le contenu du package sur le groupe de points de distribution par défaut du regroupement. Si vous n'avez pas associé le regroupement sélectionné à un groupe de points de distribution, cette option ne sera pas disponible.  
 
-    1.  **Plannen wanneer deze implementatie beschikbaar zal worden**: Geef de datum en tijd waarop de takenreeks beschikbaar is voor uitvoeren op de doelcomputer. Wanneer u **UTC**selecteert, zorgt deze instelling ervoor dat de takenreeks toegankelijk is voor meerdere doelcomputers tegelijkertijd eerder dan op verschillende tijdstippen, volgens de lokale tijd op de doelcomputers.  
+6.  Sur la page **Paramètres de déploiement** , configurez les paramètres suivants, puis cliquez sur **Suivant**.  
 
-    2.  **Plannen wanneer deze implementatie zal verlopen**: Geef de datum en tijd waarop de takenreeks verloopt op de doelcomputer. Wanneer u **UTC**selecteert, zorgt deze instelling ervoor dat de takenreeks verloopt op meerdere doelcomputers tegelijkertijd eerder dan op verschillende tijdstippen, volgens de lokale tijd op de doelcomputers.  
+    -   **Objet**: sélectionnez **Disponible**. Lorsque vous déployez la séquence de tâches sur un utilisateur, l'utilisateur peut voir la séquence de tâches publiée dans le catalogue des applications et il peut la demander au besoin. Si la séquence de tâches est déployée sur un périphérique, l'utilisateur pourra la voir dans le Centre logiciel et peut l'installer sur demande.  
 
-8.  Geef op de pagina **Gebruikerservaring** de volgende informatie:  
+    -   **Rendre disponible aux éléments suivants** : spécifiez si la séquence de tâches est disponible pour les clients Configuration Manager, les médias ou les environnements PXE.  
 
-    -   **Voortgang van Takenreeks weergeven**: Geef aan of Configuration Manager-client de voortgang van de takenreeks weergeeft.  
+        > [!IMPORTANT]  
+        >  Utilisez le paramètre **Média et environnement PXE uniquement (masqué)** pour les déploiements de séquence de tâches automatisés. Sélectionnez **Autoriser le déploiement du système d'exploitation de manière autonome** et définissez la variable SMSTSPreferredAdvertID à inclure dans le média préparé de sorte que l'ordinateur démarre automatiquement le déploiement de Windows To Go sans aucune interaction utilisateur lorsqu'il détecte un lecteur Windows To Go. Pour plus d'informations sur ces paramètres de média préparé, voir la section [Create prestaged media](#BKMK_CreatePrestagedMedia) .  
 
-    -   **Software-installatie**: Geef op of de gebruiker is toegestaan voor het installeren van software buiten een geconfigureerd onderhoudsvenster na de geplande tijd.  
+7.  Sur la page **Planification** , configurez les paramètres suivants, puis cliquez sur **Suivant**.  
 
-    -   **Systeem opnieuw opstarten (indien nodig om de installatie te voltooien)**: Hiermee kunt een apparaat opnieuw opstarten buiten de geconfigureerde onderhoudsvensters wanneer vereist door de software-installatie.  
+    1.  **Planifier la disponibilité de ce déploiement**: spécifiez la date et l’heure auxquelles la séquence de tâches est disponible pour s’exécuter sur l’ordinateur de destination. Lorsque vous sélectionnez **UTC**, ce paramètre s'assure que la séquence de tâches est disponible pour plusieurs ordinateurs de destination en même temps plutôt qu'à des heures différentes, en fonction de l'heure locale sur les ordinateurs de destination.  
 
-    -   **Embedded-apparaten**: Bij het implementeren van pakketten en programma's op Windows Embedded-apparaten met schrijffilter is ingeschakeld, kunt u opgeven voor het installeren van de pakketten en programma's op de tijdelijke overlay en doorvoeren wijzigingen later of de wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster. Wanneer u wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster, moet er opnieuw worden opgestart, zodat de wijzigingen behouden blijven op het apparaat.  
+    2.  **Planifier la disponibilité de ce déploiement**: spécifiez la date et l’heure d’expiration de la séquence de tâches sur l’ordinateur de destination. Lorsque vous sélectionnez **UTC**, ce paramètre s'assure que la séquence de tâches expire sur plusieurs ordinateurs de destination en même temps plutôt qu'à des heures différentes, en fonction de l'heure locale sur les ordinateurs de destination.  
 
-    -   **Clients op Internet**: Geef op of de takenreeks mag worden uitgevoerd op een client met Internet. Bewerkingen waarbij er software wordt geïnstalleerd, zoals een besturingssysteem, worden bij het gebruik van deze instelling niet ondersteund. Gebruik deze optie alleen voor algemene op scripts gebaseerde takenreeksen die bewerkingen uitvoeren onder het standaardbesturingssysteem.  
+8.  Sur la page **Expérience utilisateur** , spécifiez les informations suivantes :  
 
-9. Geef op de pagina **Waarschuwingen** de waarschuwingsinstelling die u wilt voor de implementatie van deze takenreeks en klik vervolgens op **Volgende**.  
+    -   **Afficher la progression de la séquence de tâches** : spécifiez si le client Configuration Manager affiche la progression de la séquence de tâches.  
 
-10. Geef op de pagina **Distributiepunten** de volgende informatie op en klik vervolgens op **Volgende**.  
+    -   **Installation du logiciel**: spécifiez si l’utilisateur est autorisé à installer le logiciel en dehors de fenêtres de maintenance configurées après l’heure planifiée.  
 
-    -   **Implementatieopties**: Selecteer **inhoud lokaal downloaden wanneer nodig is voor de uitvoering van takenreeks**.  
+    -   **Redémarrage du système (si nécessaire pour terminer l’installation)**: permet à un appareil de redémarrer en dehors des fenêtres de maintenance configurées quand cela est exigé par l’installation du logiciel.  
 
-    -   **Een extern distributiepunt gebruiken wanneer geen lokaal distributiepunt beschikbaar is,**: Specificeer of clients distributiepunten die zich op trage en onbetrouwbare netwerken voor het downloaden van de inhoud die is door de takenreeks vereist kunnen gebruiken.  
+    -   **Appareils Windows Embedded**: quand vous déployez des packages et des programmes sur des appareils Windows Embedded dont le filtre d’écriture est activé, vous pouvez choisir d’installer les packages et les programmes sur un segment de recouvrement temporaire puis de valider les modifications ultérieurement, ou de valider les modifications à l’échéance de l’installation ou au cours d’une fenêtre de maintenance. Lorsque vous validez des modifications à l'échéance de l'installation ou au cours d'une fenêtre de maintenance, un redémarrage est requis et les modifications sont conservées sur l'appareil.  
 
-    -   **Clients gebruiken een terugvalbronlocatie voor inhoud toestaan**:
-        - *Voorafgaand aan versie 1610*, kunt u de toestaan terugvalbronlocatie voor inhoud selectievakje wilt toestaan dat clients buiten deze grensgroepen terug te vallen en het distributiepunt gebruiken als bronlocatie voor inhoud, wanneer er geen andere distributiepunten beschikbaar zijn.
-        - *Vanaf versie 1610*, u kunt niet meer configureren **terugvalbronlocatie voor inhoud toestaan**.  In plaats daarvan configureert u de relaties tussen grensgroepen om te bepalen wanneer een client beginnen kunt met het extra grensgroepen voor de locatie van een geldige inhoudsbron zoeken. 
+    -   **Clients basés sur Internet**: spécifiez si la séquence de tâches est autorisée à s’exécuter sur un client basé sur Internet. Les opérations qui installent le logiciel, tel qu'un système d'exploitation, ne sont pas prises en charge avec ce paramètre. Utilisez cette option uniquement pour les séquences de tâches basées sur des scripts génériques qui effectuent des opérations dans le système d'exploitation standard.  
 
-11. Voltooi de wizard.  
+9. Sur la page **Alertes** , spécifiez les paramètres d'alerte que vous souhaitez pour ce déploiement de séquence de tâches, puis cliquez sur **Suivant**.  
 
-###  <a name="BKMK_UserExperience"></a> Windows To Go Creator wordt uitgevoerd door de gebruiker  
- Nadat u het Windows To Go-pakket en de Window 8-takenreeks hebt geïmplementeerd, is Windows To Go Creator toegankelijk voor de gebruiker. De gebruiker kan naar de softwarecatalogus gaan, of Software Center als de Windows To Go Creator werd geïmplementeerd op apparaten, en hij kan het Windows To Go Creator-programma uitvoeren. Zodra het creator-pakket is gedownload, verschijnt een knipperend pictogram op de taakbalk. Wanneer de gebruiker op het pictogram klikt, wordt een dialoogvenster getoond aan de gebruiker om het Windows To Go-station te selecteren om in te richten (tenzij de /drive-opdrachtregeloptie wordt gebruikt). Als het station niet voldoet aan de vereisten voor windows To Go of als het station onvoldoende vrij schrijfruimte heeft om de installatiekopie te installeren, toont het creator-programma een foutboodschap. De gebruiker kan het station en de installatiekopie controleren die vanop de bevestigingspagina zullen worden toegepast. Terwijl de creator inhoud naar het Windows To Go-station configureert en voorbereidt, wordt het vooruitgangsdialoogvenster getoond. Nadat de voorbereiding voltooid is, toont de creator een prompt om de computer opnieuw op te starten om te starten naar het Windows To Go-station.  
+10. Sur la page **Points de distribution** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+
+    -   **Options de déploiement**: sélectionnez **Télécharger le contenu localement si nécessaire, en exécutant la séquence de tâches**.  
+
+    -   **Quand aucun point de distribution local n’est disponible, utiliser un point de distribution distant**: spécifiez si les clients peuvent utiliser les points de distribution qui se trouvent sur des réseaux lents et peu fiables pour télécharger le contenu exigé par la séquence de tâches.  
+
+    -   **Autoriser les clients à utiliser un emplacement source de secours pour le contenu** :
+        - *Avant la version 1610*, vous pouviez cocher la case Autoriser un emplacement source de secours pour le contenu pour permettre aux clients situés en dehors de ces groupes de limites d’avoir recours au point de distribution comme emplacement source pour le contenu quand aucun autre point de distribution n’est disponible.
+        - *À partir de la version 1610*, vous ne pouvez plus configurer l’option **Autoriser un emplacement source de secours pour le contenu**.  Au lieu de cela, vous configurez des relations entre les groupes de limites qui déterminent quand un client peut commencer à rechercher un emplacement source de contenu valide dans d’autres groupes de limites. 
+
+11. Effectuez toutes les étapes de l'Assistant.  
+
+###  <a name="BKMK_UserExperience"></a> L’utilisateur exécute Windows To Go Creator  
+ Suite au déploiement du package Windows To Go et de la séquence de tâches de Windows 8, Windows To Go Creator est disponible pour l'utilisateur. L'utilisateur peut accéder au catalogue de logiciels ou au centre logiciel si Windows To Go Creator a été déployé sur les périphériques et exécute le programme Windows To Go Creator. Une fois le package Creator téléchargé, une icône clignotante s'affiche dans la barre des tâches. Lorsque l'utilisateur clique sur cette icône, une boîte de dialogue s'affiche et permet à l'utilisateur de sélectionner le lecteur Windows To Go à préparer (sauf si l'option de ligne de commande /drive est utilisée). Si le lecteur n'est pas conforme à la configuration requise pour Windows To Go ou si l'espace disque disponible est insuffisant pour installer l'image, le programme Creator affiche un message d'erreur. L'utilisateur peut vérifier le lecteur et l'image qui sera appliquée à partir de la page de confirmation. Lorsque Creator configure et prépare un contenu pour le lecteur Windows To Go, une boîte de dialogue indique la progression. Une fois la préparation terminée, Creator vous invite à redémarrer l'ordinateur pour démarrer sur le lecteur Windows Go To.  
 
 > [!NOTE]  
->  Als u opstartomleiding niet hebt ingeschakeld als deel van de opdrachtregel voor het creator-programma in de sectie [Create a Windows To Go Creator package](#BKMK_CreatePackage) , kan de gebruiker verplicht zijn handmatig op te starten naar het Windows To Go-station telkens het systeem opnieuw opstart.  
+>  Si vous n'avez pas activé la redirection de démarrage dans le cadre de la ligne de commande du programme Creator dans la section [Create a Windows To Go Creator package](#BKMK_CreatePackage) , l'utilisateur devra peut-être effectuer manuellement le démarrage sur le lecteur Windows To Go à chaque redémarrage du système.  
 
-###  <a name="BKMK_ConfigureStageDrive"></a> Het Windows To Go-station wordt geconfigureerd en voorbereid door Configuration Manager  
- Nadat de computer opnieuw opgestart is naar het Windows To Go-station, zal het station opstarten naar Windows PE en een verbinding maken met het beheerpunt om het beleid te krijgen om de implementatie van het besturingssysteem te voltooien. Configuration Manager configureert en bereidt het station. Nadat Configuration Manager het station heeft voorbereid, kan de gebruiker opnieuw starten van de computer om het inrichtingsproces (zoals het koppelen van een domein of het installeren van apps) te voltooien. Dit proces is hetzelfde voor alle voorgefaseerde media.  
+###  <a name="BKMK_ConfigureStageDrive"></a> Configuration Manager configure et prépare le lecteur Windows To Go  
+ Après le redémarrage de l'ordinateur sur le lecteur Windows To Go, le lecteur démarre dans Windows PE et se connecte au point de gestion pour obtenir la stratégie de finalisation du déploiement du système d'exploitation. Configuration Manager configure et prépare le lecteur. Après la préparation du lecteur par Configuration Manager, l’utilisateur peut redémarrer l’ordinateur pour finaliser le processus de mise en service (par exemple, joindre un domaine ou installer des applications). Ce processus est le même pour tous les médias préparés.  
 
-###  <a name="BKMK_UserLogsIn"></a> Gebruiker meldt zich aan bij Windows 8  
- Nadat Configuration Manager het inrichtingsproces is voltooid en de Windows 8-vergrendelingsscherm heeft getoond, wordt de gebruiker zich aanmelden op het besturingssysteem.  
+###  <a name="BKMK_UserLogsIn"></a> L’utilisateur ouvre une session Windows 8  
+ Lorsque Configuration Manager termine le processus de mise en service et que l’écran de verrouillage Windows 8 s’affiche, l’utilisateur peut ouvrir une session sur le système d’exploitation.  

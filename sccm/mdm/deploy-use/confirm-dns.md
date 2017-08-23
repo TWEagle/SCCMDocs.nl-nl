@@ -1,6 +1,6 @@
 ---
-title: Vereisten voor de naam van het domein met System Center Configuration Manager controleren | Microsoft Docs
-description: Controleer de vereisten voor de naam van het domein met System Center Configuration Manager.
+title: "Confirmer les exigences relatives aux noms de domaine via System Center Configuration Manager | Microsoft Docs"
+description: "Confirmez les exigences relatives aux noms de domaine via System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/21/2017
 ms.prod: configuration-manager
@@ -17,38 +17,38 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 35b24294073956a6bdb14cae07705f56d31e00a9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="confirm-domain-name-requirements-with-system-center-configuration-manager-and-microsoft-intune"></a>Bevestig de vereisten voor de naam van het domein met System Center Configuration Manager en Microsoft Intune
+# <a name="confirm-domain-name-requirements-with-system-center-configuration-manager-and-microsoft-intune"></a>Confirmer les exigences relatives aux noms de domaine via System Center Configuration Manager et Microsoft Intune
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Indien nodig, de volgende stappen uitvoeren om te voldoen aan eventuele afhankelijkheden extern aan Configuration Manager:
+Si nécessaire, procédez comme suit pour satisfaire les éventuelles dépendances externes à Configuration Manager :
 
-1. Elke gebruiker moet een Intune-licentie toegewezen aan apparaten inschrijven hebben. Om te koppelen van Intune-licenties aan gebruikers, elke gebruiker een UPN (user Principal name) die openbaar omgezet worden kan moet hebben (bijvoorbeeld johndoe@contoso.com) of een alternatieve aanmeldings-ID die is geconfigureerd in Azure Active Directory. Configureren van een alternatieve aanmeldings-ID, kunnen gebruikers zich aanmelden via een e-mailadres, bijvoorbeeld, zelfs als de UPN in een NetBIOS-indeling (bijvoorbeeld contoso\janjansen).
+1. Chaque utilisateur doit disposer d’une licence Intune pour l’inscription des appareils. Pour que la solution puisse associer des licences Intune avec des utilisateurs, chaque utilisateur doit disposer d’un nom d’utilisateur principal (UPN) qui peut être résolu publiquement (par exemple johndoe@contoso.com) ou un ID de connexion de substitution configuré dans Azure Active Directory. La configuration d’un ID de connexion de substitution permet aux utilisateurs de se connecter avec une adresse e-mail, même si leur UPN est au format NetBIOS (par exemple, CONTOSO\johndoe).
 
-  - Als uw bedrijf openbaar omzetbare UPN's hanteert (dat wil zeggen johndoe@contoso.com), is geen verdere configuratie vereist.
-  - Als uw bedrijf gebruikt een niet-omgezette UPN (dat wil zeggen contoso\janjansen), moet u [een alternatieve ID configureren in Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-get-started-custom/#pages-under-the-section-sync).
+  - Si votre entreprise utilise des UPN qui peuvent être résolues publiquement (par exemple johndoe@contoso.com), aucune configuration supplémentaire n’est nécessaire.
+  - Si votre entreprise utilise un UPN qui ne peut pas être résolu (par exemple CONTOSO\johndoe), vous devez [configurer un ID de substitution dans Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-get-started-custom/#pages-under-the-section-sync).
 
-2.  Implementeer en configureer Active Directory Federation Services (AD FS). (Optioneel)
+2.  Déployez et configurez les services ADFS (Active Directory Federation Services). (Facultatif)
 
-     Bij het instellen van eenmalige aanmelding, kunnen uw gebruikers toegang krijgen tot de services in Intune zich aanmelden met hun bedrijfsreferenties.
+     Quand vous configurez l’authentification unique, vos utilisateurs peuvent se connecter à l’aide de leurs informations d’identification d’entreprise pour accéder aux services d’Intune.
 
-     Zie de volgende onderwerpen voor meer informatie:
-    -   [Voorbereiden voor eenmalige aanmelding](http://go.microsoft.com/fwlink/?LinkID=271124)
-    -   [Plannen en implementeren van AD FS 2.0 voor gebruik met eenmalige aanmelding](http://go.microsoft.com/fwlink/?LinkID=271125)
+     Pour plus d'informations, consultez les rubriques suivantes :
+    -   [Préparer l’authentification unique](http://go.microsoft.com/fwlink/?LinkID=271124)
+    -   [Planifier et déployer AD FS 2.0 en vue d’une utilisation avec l’authentification unique](http://go.microsoft.com/fwlink/?LinkID=271125)
 
-3.  Implementeer en configureer adreslijstsynchronisatie.
+3.  Déploiement et configuration de la synchronisation d'annuaires
 
-     Adreslijstsynchronisatie kunt u Intune in te vullen met gesynchroniseerde gebruikersaccounts. De gesynchroniseerde gebruikersaccounts en beveiligingsgroepen worden toegevoegd aan Intune. Het niet inschakelen van adreslijstsynchronisatie is een veel voorkomende oorzaak voor het niet kunnen registreren van apparaten tijdens het instellen van Configuration Manager MDM met Microsoft Intune.
+     La synchronisation de répertoires vous permet de remplir Intune avec des comptes d’utilisateur synchronisés. Les comptes d’utilisateur et les groupes de sécurité synchronisés sont ajoutés à Intune. L’échec d’activation de la synchronisation d’annuaires est une cause courante de l’incapacité des appareils à s’inscrire lors de la configuration du MDM Configuration Manager avec Microsoft Intune.
 
-     Zie [Directory-integratie](http://go.microsoft.com/fwlink/?LinkID=271120) in de Active Directory-documentatiebibliotheek voor meer informatie.
+     Pour plus d’informations, consultez [Intégration d’annuaire](http://go.microsoft.com/fwlink/?LinkID=271120) dans la bibliothèque de documentation d’Active Directory.
 
-4.  Optioneel, niet aanbevolen: Als u Active Directory Federation Services niet gebruikt, moet u gebruikers Microsoft Online-wachtwoorden opnieuw instellen.
+4.  Facultatif et non recommandé : si vous n’utilisez pas les services ADFS (Active Directory Federation Services), réinitialisez les mots de passe Microsoft Online des utilisateurs.
 
-     Als u AD FS niet gebruikt, moet u voor elke gebruiker een Microsoft Online-wachtwoord instellen.
+     Si vous n'utilisez pas AD FS, vous devez définir un mot de passe Microsoft Online pour chaque utilisateur.
 
 > [!div class="button"]
-[< Vorige stap](create-mdm-collection.md)[volgende stap >  ](configure-intune-subscription.md)
+[< Étape précédente](create-mdm-collection.md) [Étape suivante >](configure-intune-subscription.md)

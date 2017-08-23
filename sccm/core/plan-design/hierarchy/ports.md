@@ -1,6 +1,6 @@
 ---
-title: Poorten die worden gebruikt door Configuration Manager | Microsoft Docs
-description: Meer informatie over de vereiste en aanpasbare poorten die System Center Configuration Manager voor verbindingen gebruikt.
+title: "Ports utilisés par Configuration Manager | Microsoft Docs"
+description: "Découvrez les ports requis et personnalisables qu’utilise System Center Configuration Manager pour les connexions."
 ms.custom: na
 ms.date: 3/20/2017
 ms.prod: configuration-manager
@@ -17,703 +17,703 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 78caa69e10f5d386daab1e61e484d4d134469708
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="ports-used-in-system-center-configuration-manager"></a>Poorten die worden gebruikt in System Center Configuration Manager
+# <a name="ports-used-in-system-center-configuration-manager"></a>Ports utilisés dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager is een gedistribueerd client/server-systeem. De gedistribueerde aard van Configuration Manager betekent dat verbindingen worden tussen siteservers, sitesystemen en clients gemaakt kunnen. Sommige verbindingen gebruiken poorten die zijn niet configureerbaar en sommige ondersteunen aangepaste poorten die u opgeeft. U moet controleren of de vereiste poorten beschikbaar zijn als u een poortfiltertechnologie gebruikt zoals firewalls, routers, proxy-servers of IPsec.  
+System Center Configuration Manager est un système client/serveur distribué. Du fait de la nature distribuée de Configuration Manager, il est possible d’établir des connexions entre les serveurs de site, les systèmes de site et les clients. Certaines connexions utilisent des ports qui ne sont pas configurables et certaines prennent en charge des ports personnalisés que vous spécifiez. Si vous utilisez une technologie de filtrage de port, telle que des pare-feu, des routeurs, des serveurs proxy ou IPSec, vous devez vérifier que les ports requis sont disponibles.  
 
 > [!NOTE]  
->  Als u ondersteuning voor clients op Internet met behulp van SSL-bridging, naast Poortvereisten, kunt u wellicht ook toestaan dat sommige HTTP-woorden en -koppen bladeren door uw firewall.   
+>  Si vous prenez en charge les clients Internet par pontage SSL, parallèlement aux exigences de port, vous devrez peut-être également autoriser certains verbes et en-têtes HTTP pour traverser le pare-feu.   
 
- De lijsten van poorten die volgen, worden gebruikt door Configuration Manager en bevatten geen informatie voor standaard Windows-services, zoals groepsbeleidinstellingen voor Active Directory Domain Services of Kerberos-verificatie. Voor informatie over Windows Server services en poorten, zie [Service overview and network port requirements for Windows (Service overzicht en netwerkpoortvereisten voor het Windows Server-systeem)](http://go.microsoft.com/fwlink/p/?LinkID=123652).  
+ Les listes de ports ci-après sont utilisées par Configuration Manager et ne comportent aucune information relative aux services Windows standard, tels que les paramètres Stratégie de groupe pour les services de domaine Active Directory ou l’authentification Kerberos. Pour plus d'informations sur les ports et les services de Windows Server, voir [Vue d'ensemble des services et exigences du port réseau pour le système Windows Server](http://go.microsoft.com/fwlink/p/?LinkID=123652).  
 
-##  <a name="BKMK_ConfigurablePorts"></a> Poorten die u kunt configureren  
- Configuration Manager kunt u de poorten voor de volgende communicatietypen configureren:  
+##  <a name="BKMK_ConfigurablePorts"></a> Ports configurables  
+ Configuration Manager vous permet de configurer les ports pour les types de communication suivants :  
 
--   Application Catalog-websitepunt naar Application Catalog-webservicepunt  
+-   Point du site web du catalogue des applications vers point de service web du catalogue des applications  
 
--   Registratie-proxypunt naar registratiepunt  
+-   Point proxy d'inscription vers point d'inscription  
 
--   Client-naar-site-systemen die IIS uitvoeren  
+-   Client vers systèmes de site exécutant IIS  
 
--   Client-naarInternet (als instellingen van proxyserver)  
+-   Client à Internet (sous forme de paramètres du serveur proxy)  
 
--   Software-updatepunt naar Internet (als instellingen van proxyserver)  
+-   Point de mise à jour logicielle à Internet (sous forme de paramètres du serveur proxy)  
 
--   Software-updatepunt naar WSUS-server  
+-   Point de mise à jour logicielle à serveur WSUS  
 
--   Siteserver met sitedatabaseserver  
+-   Serveur de site à serveur de base de données de site  
 
--   Reporting Services-punten  
+-   Points de Reporting Services  
 
     > [!NOTE]  
-    >  De poorten die gebruikt voor de reporting services-punt-sitesysteemrol worden worden geconfigureerd in SQL Server Reporting Services. Deze poorten worden vervolgens door Configuration Manager gebruikt tijdens communicaties met reporting services-punt. Zorg ervoor dat deze poorten waarmee het IP-filter informatie voor IPsec beleidslijnen of om firewalls te configureren controleren.  
+    >  Les ports qui sont utilisés pour le rôle de système de site du point de Reporting Services sont configurés dans SQL Server Reporting Services. Ces ports sont ensuite utilisés par Configuration Manager pendant les communications à destination du point de Reporting Services. Veillez à passer en revue les ports qui définissent les informations de filtre IP pour les stratégies IPsec ou pour la configuration des pare-feu.  
 
-Standaard wordt poort 80 van de HTTP-poort die wordt gebruikt voor client-naar-site systeemcommunicatie en de standaard HTTPS-poort is 443. Poorten voor client-naar-site systeemcommunicatie via HTTP of HTTPS kunnen worden gewijzigd tijdens setup of in de site-eigenschappen voor uw Configuration Manager-site.  
+Par défaut, le port HTTP utilisé pour la communication entre le client et le système de site est le port 80, et le port HTTPS par défaut est le port 443. Vous pouvez modifier les ports HTTP ou HTTPS de communication entre le client et le système de site pendant l’installation ou dans les propriétés de votre site Configuration Manager.  
 
-De poorten die gebruikt voor de reporting services-punt-sitesysteemrol worden worden geconfigureerd in SQL Server Reporting Services. Deze poorten worden vervolgens door Configuration Manager gebruikt tijdens communicaties met reporting services-punt. Zorg ervoor dat deze poorten controleren wanneer u bij het definiëren van de IP-filter informatie voor IPsec beleidslijnen of om firewalls te configureren.  
+Les ports qui sont utilisés pour le rôle de système de site du point de Reporting Services sont configurés dans SQL Server Reporting Services. Ces ports sont ensuite utilisés par Configuration Manager pendant les communications à destination du point de Reporting Services. Veillez à passer en revue ces ports quand vous définissez les informations de filtre IP pour les stratégies IPsec ou pour la configuration des pare-feu.  
 
-##  <a name="BKMK_NonConfigurablePorts"></a> Niet-configureerbare poorten  
-Configuration Manager niet toe dat u voor het configureren van poorten voor de volgende communicatietypen:  
+##  <a name="BKMK_NonConfigurablePorts"></a> Ports non configurables  
+Configuration Manager ne vous autorise pas à configurer des ports pour les types de communication suivants :  
 
--   Site-naar-site  
+-   Site à site  
 
--   Siteserver-naar-site-systeem  
+-   Serveur de site à système de site  
 
--   Configuration Manager-console naar SMS-Provider  
+-   Console Configuration Manager vers le fournisseur SMS  
 
--   Configuration Manager-console naar Internet  
+-   Console Configuration Manager vers Internet  
 
--   Verbindingen met cloudservices, zoals Microsoft Intune en cloud-gebaseerde distributiepunten  
+-   Connexions aux services cloud tels que Microsoft Intune et les points de distribution cloud  
 
-##  <a name="BKMK_CommunicationPorts"></a> Poorten die door Configuration Manager-clients en sitesystemen worden gebruikt  
-De volgende secties detailleren de poorten die worden gebruikt voor communicatie in Configuration Manager. De pijlen in de sectietitel vertegenwoordigen de richting van de communicatie:  
+##  <a name="BKMK_CommunicationPorts"></a> Ports utilisés par les clients Configuration Manager et les systèmes de site  
+Les sections suivantes détaillent les ports qui sont utilisés pour la communication dans Configuration Manager. Les flèches figurant dans les titres des sections indiquent le sens de la communication :  
 
--   --> Geeft aan dat één computer de communicatie start en de andere computer altijd antwoordt  
+-   -- > indique qu’un ordinateur initie la communication et que l’autre ordinateur répond toujours ;  
 
--   &lt;--> Geeft aan dat elke computer communicatie kan initiëren  
+-   &lt; -- > indique que les deux ordinateurs peuvent initier la communication.  
 
-###  <a name="BKMK_PortsAI"></a>Asset Intelligence-synchronisatiepunt--> Microsoft  
+###  <a name="BKMK_PortsAI"></a> Point de synchronisation Asset Intelligence -- > Microsoft  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Secure Hypertext Transfer Protocol (HTTPS)|--|443|  
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsAI-to-SQL"></a>Asset Intelligence-synchronisatiepunt--> SQL Server  
+###  <a name="BKMK_PortsAI-to-SQL"></a> Point de synchronisation Asset Intelligence -- > SQL Server  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|SQL via TCP|--|1433 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
+|SQL sur TCP|--|1433 (voir note 2, **autre port disponible**)|  
 
-###  <a name="BKMK_PortsAppCatalogService-SQL"></a>Application Catalog-webservicepunt--> SQL Server  
+###  <a name="BKMK_PortsAppCatalogService-SQL"></a> Point de service Web du catalogue des applications -- > SQL Server  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|SQL via TCP|--|1433 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
+|SQL sur TCP|--|1433 (voir note 2, **Autre port disponible**)|  
 
-###  <a name="BKMK_PortsAppCatalogWebSitePoint_AppCatalogWebServicePoint"></a>Application Catalog-website-punt--> Application Catalog-webservicepunt  
+###  <a name="BKMK_PortsAppCatalogWebSitePoint_AppCatalogWebServicePoint"></a> Point du site Web du catalogue des applications -- > Point de service Web du catalogue des applications  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Hypertext Transfer Protocol (HTTP)|--|80 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
-|Secure Hypertext Transfer Protocol (HTTPS)|--|443 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
+|HTTP (Hypertext Transfer Protocol)|--|80 (voir note 2, **Autre port disponible**)|  
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443 (voir note 2, **Autre port disponible**)|  
 
-###  <a name="BKMK_PortsClient-AppCatalogWebsitePoint"></a>Client--> Application Catalog-websitepunt  
+###  <a name="BKMK_PortsClient-AppCatalogWebsitePoint"></a> Client -- > Point du site Web du catalogue des applications  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Hypertext Transfer Protocol (HTTP)|--|80 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
-|Secure Hypertext Transfer Protocol (HTTPS)|--|443 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
+|HTTP (Hypertext Transfer Protocol)|--|80 (voir note 2, **Autre port disponible**)|  
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443 (voir note 2, **Autre port disponible**)|  
 
 ###  <a name="BKMK_PortsClient-ClientWakeUp"></a> Client -- &gt; Client  
- Naast de poorten die worden vermeld in de volgende tabel, gebruikt wake-up proxy ook Internet Control Message Protocol (ICMP) echoaanvraagberichten van één client met een andere client wanneer ze zijn geconfigureerd voor wake-up proxy.
+ En plus des ports répertoriés dans le tableau ci-dessous, le proxy de mise en éveil utilise également des messages de demande d’écho ICMP (Internet Control Message Protocol) d’un client à un autre, lorsque ceux-ci sont configurés pour utiliser le proxy de mise en éveil.
 
-Deze communicatie wordt gebruikt om te bevestigen of de andere clientcomputer actief is op het netwerk. Naar ICMP wordt soms verwezen als TCP/IP-pingopdrachten. ICMP heeft geen UDP- of TCP-protocolnummer en komt dus niet voor op de lijst in de volgende tabel. Evenwel moet elke host-gebaseerde firewall op deze clientcomputers of tussenliggende netwerkapparaten binnen het subnet ICMP-verkeer toelating geven ​​voor wake-up proxy communicatie om te slagen.  
+Cette communication permet de savoir si l'autre ordinateur client est en éveil sur le réseau. ICMP est parfois appelé commandes ping TCP/IP. ICMP ne dispose pas d'un numéro de protocole UDP ou TCP, et par conséquent, il ne figure pas dans le tableau suivant. Toutefois, les pare-feu d'hôte de ces ordinateurs clients ou les appareils réseau intervenant sur le sous-réseau doivent autoriser le trafic ICMP pour que la communication avec le proxy de mise en éveil aboutisse.  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Wake on LAN|9 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|--|  
-|Wake-up proxy|25536 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|--|  
+|Éveil par appel réseau|9 (voir note 2, **Autre port disponible**)|--|  
+|Proxy de mise en éveil|25536 (voir note 2, **Autre port disponible**)|--|  
 
-###  <a name="BKMK_PortsClient-PolicyModule"></a> Client -- &gt; Configuration Manager beleidsmodule (registratieservice netwerkapparaat)  
+###  <a name="BKMK_PortsClient-PolicyModule"></a> Client --&gt; Module de stratégie de Configuration Manager (service d'inscription d'appareils réseau)  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Hypertext Transfer Protocol (HTTP)||80|  
-|Secure Hypertext Transfer Protocol (HTTPS)|--|443|  
+|HTTP (Hypertext Transfer Protocol)||80|  
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsClient-CloudDP"></a>Client--> Cloud-gebaseerd distributiepunt  
+###  <a name="BKMK_PortsClient-CloudDP"></a> Client -- > Point de distribution cloud  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Secure Hypertext Transfer Protocol (HTTPS)|--|443|  
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsClient-DP"></a>Client--> Distributiepunt  
+###  <a name="BKMK_PortsClient-DP"></a> Client -- > Point de distribution  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Hypertext Transfer Protocol (HTTP)|--|80 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
-|Secure Hypertext Transfer Protocol (HTTPS)|--|443 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
+|HTTP (Hypertext Transfer Protocol)|--|80 (voir note 2, **Autre port disponible**)|  
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443 (voir note 2, **Autre port disponible**)|  
 
-###  <a name="BKMK_PortsClient-DP2"></a>Client--> Distributiepunt is geconfigureerd voor multicast  
+###  <a name="BKMK_PortsClient-DP2"></a> Client -- > Point de distribution configuré pour la multidiffusion  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Server Message Block (SMB)|--|445|  
-|Multicast-protocol|63000-64000|--|  
+|SMB (Server Message Block)|--|445|  
+|Protocole de multidiffusion|63000-64000|--|  
 
-###  <a name="BKMK_PortsClient-DP3"></a>Client--> Distributiepunt is geconfigureerd voor PXE  
+###  <a name="BKMK_PortsClient-DP3"></a> Client -- > Point de distribution configuré pour PXE  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Dynamic Host Configuration Protocol (DHCP)|67 en 68|--|  
-|Trivial File Transfer Protocol (TFTP)|69 (Zie opmerking 4, **Trivial FTP (TFTP) Daemon**)|--|  
-|Boot Information Negotiation Layer (BINL)|4011|--|  
+|DHCP (Dynamic Host Configuration Protocol)|67 et 68|--|  
+|TFTP (Trivial File Transfer Protocol)|69 (voir note 4, **Service Trivial FTP (TFTP)**)|--|  
+|BINL (Boot Information Negotiation Layer)|4011|--|  
 
-###  <a name="BKMK_PortsClient-FSP"></a>Client--> Terugvalstatuspunt  
+###  <a name="BKMK_PortsClient-FSP"></a> Client -- > Point d’état de secours  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Hypertext Transfer Protocol (HTTP)|--|80 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
+|HTTP (Hypertext Transfer Protocol)|--|80 (voir note 2, **Autre port disponible**)|  
 
-###  <a name="BKMK_PortsClient-GCDC"></a>Client--> Globale catalogus-domeincontroller  
- Een Configuration Manager-client neemt geen contact op met een server voor globale catalogus wanneer hij een werkgroepcomputer is of wanneer hij geconfigureerd is voor Internet-only-communicatie.  
+###  <a name="BKMK_PortsClient-GCDC"></a> Client -- > Contrôleur de domaine de catalogue global  
+ Un client Configuration Manager ne contacte pas de serveur de catalogue global lorsqu'il s'agit d'un ordinateur d'un groupe de travail ou lorsqu'il est configuré pour les communications Internet uniquement.  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Globale catalogus LDAP|--|3268|  
-|Globale catalogus LDAP SSL|--|3269|  
+|LDAP de catalogue global|--|3268|  
+|SSL LDAP de catalogue global|--|3269|  
 
-###  <a name="BKMK_PortsClient-MP"></a>Client--> Beheerpunt  
+###  <a name="BKMK_PortsClient-MP"></a> Client -- > Point de gestion  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Melding client (standaardcommunicatie vóór terug te vallen op HTTP of HTTPS)|--|10123 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
-|Hypertext Transfer Protocol (HTTP)|--|80 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
-|Secure Hypertext Transfer Protocol (HTTPS)|--|443 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
+|Notification du client (communication par défaut avant le basculement en HTTP ou HTTPS)|--|10123 (voir note 2, **Autre port disponible**)|  
+|HTTP (Hypertext Transfer Protocol)|--|80 (voir note 2, **Autre port disponible**)|  
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443 (voir note 2, **Autre port disponible**)|  
 
-###  <a name="BKMK_PortsClient-SUP"></a>Client--> Software-updatepunt  
+###  <a name="BKMK_PortsClient-SUP"></a> Client -- > Point de mise à jour logicielle  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Hypertext Transfer Protocol (HTTP)|--|80 of 8530 (zie opmerking 3, **Windows Server-updateservices**)|  
-|Secure Hypertext Transfer Protocol (HTTPS)|--|443 of 8531 (zie opmerking 3, **Windows Server-updateservices**)|  
+|HTTP (Hypertext Transfer Protocol)|--|80 ou 8530 (Voir la remarque 3, **Windows Server Update Services**)|  
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443 ou 8531 (Voir la remarque 3, **Windows Server Update Services**)|  
 
-###  <a name="BKMK_PortsClient-SMP"></a>Client--> Statusmigratiepunt  
+###  <a name="BKMK_PortsClient-SMP"></a> Client -- > Point de migration d’état  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Hypertext Transfer Protocol (HTTP)|--|80 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
-|Secure Hypertext Transfer Protocol (HTTPS)|--|443 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
-|Server Message Block (SMB)|--|445|  
+|HTTP (Hypertext Transfer Protocol)|--|80 (voir note 2, **Autre port disponible**)|  
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443 (voir note 2, **Autre port disponible**)|  
+|SMB (Server Message Block)|--|445|  
 
-###  <a name="BKMK_PortsConsole-Client"></a>Configuration Manager-console--> Client  
+###  <a name="BKMK_PortsConsole-Client"></a> Console Configuration Manager -- > Client  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Beheer op afstand (controle)|--|2701|  
-|Hulp op afstand (RDP en RTC)|--|3389|  
+|Contrôle à distance (contrôle)|--|2701|  
+|Assistance à distance (RDP et RTC)|--|3389|  
 
-###  <a name="BKMK_PortsConsole-Internet"></a>Configuration Manager-console--> Internet  
+###  <a name="BKMK_PortsConsole-Internet"></a>Console Configuration Manager -- > Internet  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Hypertext Transfer Protocol (HTTP)|--|80|  
+|HTTP (Hypertext Transfer Protocol)|--|80|  
 
-###  <a name="BKMK_PortsConsole-RSP"></a>Configuration Manager-console--> Reporting Services-punt  
+###  <a name="BKMK_PortsConsole-RSP"></a> Console Configuration Manager -- > Point de Reporting Services  
 
 
-|Beschrijving|UDP|TCP|
+|Description|UDP|TCP|
 |-----------------|---------|---------|   
-|Hypertext Transfer Protocol (HTTP)|--|80 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
-|Secure Hypertext Transfer Protocol (HTTPS)|--|443 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
+|HTTP (Hypertext Transfer Protocol)|--|80 (voir note 2, **Autre port disponible**)|  
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443 (voir note 2, **Autre port disponible**)|  
 
-###  <a name="BKMK_PortsConsole-Site"></a>Configuration Manager-console--> siteserver  
+###  <a name="BKMK_PortsConsole-Site"></a> Console Configuration Manager -- > Serveur de site  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|RPC (initiële verbinding naar WMI om providersysteem te vinden)|--|135|  
+|RPC (connexion initiale à WMI pour localiser le système fournisseur)|--|135|  
 
-###  <a name="BKMK_PortsConsole-Provider"></a>Configuration Manager-console--> SMS-Provider  
+###  <a name="BKMK_PortsConsole-Provider"></a> Console Configuration Manager -- > Fournisseur SMS  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|RPC-eindpunttoewijzer|135|135|  
-|RPC|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
+|Mappeur de point de terminaison RPC|135|135|  
+|RPC|--|DYNAMIQUE (voir la note 6, **Ports dynamiques**)|  
 
-###  <a name="BKMK_PortsCertificateRegistationPoint_PolicyModule"></a>Configuration Manager-beleidsmodule (registratieservice netwerkapparaat)--> Certificaatregistratiepunt  
+###  <a name="BKMK_PortsCertificateRegistationPoint_PolicyModule"></a> Module de stratégie de Configuration Manager (service d’inscription de périphériques réseau) -- > Point d’enregistrement de certificat  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Secure Hypertext Transfer Protocol (HTTPS)|--|443 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443 (voir note 2, **Autre port disponible**)|  
 
-###  <a name="BKMK_PortsDist_MP"></a>Distributiepunt--> beheerpunt  
- Een distributiepunt communiceert met het beheerpunt in de volgende scenario's:  
+###  <a name="BKMK_PortsDist_MP"></a> Point de distribution -- > Point de gestion  
+ Un point de distribution communique avec le point de gestion dans les scénarios suivants :  
 
--   De status van voorgefaseerde inhoud rapporteren  
+-   Pour signaler l’état du contenu préparé  
 
--   Samenvattingsgegevens over gebruik rapporteren  
+-   Pour signaler les données de synthèse d'utilisation  
 
--   Inhoudsvalidatie rapporteren  
+-   Pour signaler la validation du contenu  
 
--   Voor het rapporteren van de status van pakket downloads (pull-distributiepunt)
+-   Pour signaler l’état des téléchargements de packages (point de distribution d’extraction)
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Hypertext Transfer Protocol (HTTP)|--|80 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
-|Secure Hypertext Transfer Protocol (HTTPS)|--|443 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
+|HTTP (Hypertext Transfer Protocol)|--|80 (voir note 2, **Autre port disponible**)|  
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443 (voir note 2, **Autre port disponible**)|  
 
-###  <a name="BKMK_PortsEndpointProtection_Internet"></a>Endpoint Protection-punt--> Internet  
+###  <a name="BKMK_PortsEndpointProtection_Internet"></a> Point Endpoint Protection -- > Internet  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Hypertext Transfer Protocol (HTTP)|--|80|  
+|HTTP (Hypertext Transfer Protocol)|--|80|  
 
-###  <a name="BKMK_PortsEP-to-SQL"></a>Endpoint Protection-punt--> SQL Server  
+###  <a name="BKMK_PortsEP-to-SQL"></a> Point Endpoint Protection -- > SQL Server  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|SQL via TCP|--|1433 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
+|SQL sur TCP|--|1433 (voir note 2, **Autre port disponible**)|  
 
-###  <a name="BKMK_PortsEnrollmentProxyEnrollmentPoint"></a>Proxypunt voor inschrijving--> registratiepunt  
+###  <a name="BKMK_PortsEnrollmentProxyEnrollmentPoint"></a> Point proxy d’inscription -- > Point d’inscription  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Secure Hypertext Transfer Protocol (HTTPS)|--|443 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443 (voir note 2, **Autre port disponible**)|  
 
-###  <a name="BKMK_PortsEnrollmentEnrollmentSQL"></a>Registratiepunt--> SQL Server  
+###  <a name="BKMK_PortsEnrollmentEnrollmentSQL"></a> Point d’inscription -- > SQL Server  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|SQL via TCP|--|1433 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
+|SQL sur TCP|--|1433 (voir note 2, **Autre port disponible**)|  
 
-###  <a name="BKMK_PortsExchangeConnectorHosted"></a> Exchange Server-Connector -- &gt; Exchange Online  
+###  <a name="BKMK_PortsExchangeConnectorHosted"></a> Connecteur du serveur Exchange Server -- &gt; Exchange Online  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Windows Remote Management via HTTPS|--|5986|  
+|Gestion à distance de Windows via HTTPS|--|5986|  
 
-###  <a name="BKMK_PortsExchangeConnectorOnPrem"></a>Exchange Server-Connector--> On-Premises Exchange Server  
+###  <a name="BKMK_PortsExchangeConnectorOnPrem"></a> Connecteur du serveur Exchange Server -- > Serveur Exchange Server local  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Windows Remote Management via HTTP|--|5985|  
+|Gestion à distance de Windows via HTTP|--|5985|  
 
-###  <a name="BKMK_PortsMacEnrollmentProxyPoint"></a>Mac-computer--> proxypunt voor inschrijving  
+###  <a name="BKMK_PortsMacEnrollmentProxyPoint"></a> Ordinateur Mac -- > Point proxy d’inscription  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Secure Hypertext Transfer Protocol (HTTPS)|--|443|  
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsMP-DC"></a>Beheerpunt--> domeincontroller  
+###  <a name="BKMK_PortsMP-DC"></a> Point de gestion -- > Contrôleur de domaine  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Lightweight Directory Access Protocol (LDAP)|--|389|  
-|LDAP (Secure Sockets Layer [SSL]-verbinding)|636|636|  
-|Globale catalogus LDAP|--|3268|  
-|Globale catalogus LDAP SSL|--|3269|  
-|RPC-eindpunttoewijzer|135|135|  
-|RPC|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
+|LDAP (Lightweight Directory Access Protocol)|--|389|  
+|LDAP (connexion SSL [Secure Sockets Layer])|636|636|  
+|LDAP de catalogue global|--|3268|  
+|SSL LDAP de catalogue global|--|3269|  
+|Mappeur de point de terminaison RPC|135|135|  
+|RPC|--|DYNAMIQUE (voir la note 6, **Ports dynamiques**)|  
 
-###  <a name="BKMK_PortsMP-Site"></a>Beheerpunt &lt; --> siteserver  
- (zie opmerking 5, **Communicatie tussen de siteserver en sitesystemen**)  
+###  <a name="BKMK_PortsMP-Site"></a> Point de gestion &lt; -- > Serveur de site  
+ (Voir remarque 5, **Communications entre le serveur de site et les systèmes de site**)  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|RPC-eindpunttoewijzer|--|135|  
-|RPC|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
-|Server Message Block (SMB)|--|445|  
+|Mappeur de point de terminaison RPC|--|135|  
+|RPC|--|DYNAMIQUE (voir la note 6, **Ports dynamiques**)|  
+|SMB (Server Message Block)|--|445|  
 
-###  <a name="BKMK_PortsMP-SQL"></a>Beheerpunt--> SQL Server  
+###  <a name="BKMK_PortsMP-SQL"></a> Point de gestion -- > SQL Server  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|SQL via TCP|--|1433 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
+|SQL sur TCP|--|1433 (voir note 2, **Autre port disponible**)|  
 
-###  <a name="BKMK_PortsMobileDeviceClient-EnrollmentProxyPoint"></a>Mobiele apparaten--> proxypunt voor inschrijving  
+###  <a name="BKMK_PortsMobileDeviceClient-EnrollmentProxyPoint"></a> Appareil mobile -- > Point proxy d’inscription  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Secure Hypertext Transfer Protocol (HTTPS)|--|443|  
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsMobileDeviceClient-WindowsIntune"></a>Mobiele apparaten--> Microsoft Intune  
+###  <a name="BKMK_PortsMobileDeviceClient-WindowsIntune"></a> Appareil mobile -- > Microsoft Intune  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Secure Hypertext Transfer Protocol (HTTPS)|--|443|  
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsRSP-SQL"></a>Reporting Services-punt--> SQL Server  
+###  <a name="BKMK_PortsRSP-SQL"></a> Point de Reporting Services -- > SQL Server  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|SQL via TCP|--|1433 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
+|SQL sur TCP|--|1433 (voir note 2, **Autre port disponible**)|  
 
-###  <a name="BKMK_PortsIntuneConnector-WindowsIntune"></a>Serviceverbindingspunt--> Microsoft Intune  
+###  <a name="BKMK_PortsIntuneConnector-WindowsIntune"></a> Point de connexion de service -- > Microsoft Intune  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Secure Hypertext Transfer Protocol (HTTPS)|--|443|
-Zie voor meer informatie [vereisten voor internettoegang](/sccm/core/servers/deploy/configure/about-the-service-connection-point#bkmk_urls) voor het serviceverbindingspunt wordt gehost.
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443|
+Pour plus d’informations, consultez [Conditions requises pour l’accès Internet](/sccm/core/servers/deploy/configure/about-the-service-connection-point#bkmk_urls) pour le point de connexion de service.
 
-###  <a name="BKMK_PortsAppCatalogWebServicePoint_SiteServer"></a>Siteserver &lt; --> Application Catalog-webservicepunt  
+###  <a name="BKMK_PortsAppCatalogWebServicePoint_SiteServer"></a> Serveur de site &lt; -- > Point de service Web du catalogue des applications  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Server Message Block (SMB)|--|445|  
-|RPC-eindpunttoewijzer|135|135|  
-|RPC|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
+|SMB (Server Message Block)|--|445|  
+|Mappeur de point de terminaison RPC|135|135|  
+|RPC|--|DYNAMIQUE (voir la note 6, **Ports dynamiques**)|  
 
-###  <a name="BKMK_PortsAppCatalogWebSitePoint_SiteServer"></a>Siteserver &lt; --> Application Catalog-websitepunt  
+###  <a name="BKMK_PortsAppCatalogWebSitePoint_SiteServer"></a> Serveur de site &lt; -- > Point du site Web du catalogue des applications  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Server Message Block (SMB)|--|445|  
-|RPC-eindpunttoewijzer|135|135|  
-|RPC|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
+|SMB (Server Message Block)|--|445|  
+|Mappeur de point de terminaison RPC|135|135|  
+|RPC|--|DYNAMIQUE (voir la note 6, **Ports dynamiques**)|  
 
-###  <a name="BKMK_PortsSite-AISP"></a>Siteserver &lt; --> Asset Intelligence-synchronisatiepunt  
+###  <a name="BKMK_PortsSite-AISP"></a> Serveur de site &lt; -- > Point de synchronisation Asset Intelligence  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Server Message Block (SMB)|--|445|  
-|RPC-eindpunttoewijzer|135|135|  
-|RPC|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
+|SMB (Server Message Block)|--|445|  
+|Mappeur de point de terminaison RPC|135|135|  
+|RPC|--|DYNAMIQUE (voir la note 6, **Ports dynamiques**)|  
 
-###  <a name="BKMK_PortsSite-Client"></a>Siteserver--> Client  
+###  <a name="BKMK_PortsSite-Client"></a> Serveur de site -- > Client  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Wake on LAN|9 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|--|  
+|Éveil par appel réseau|9 (voir note 2, **Autre port disponible**)|--|  
 
-###  <a name="BKMK_PortsSiteServer-CloudDP"></a>Siteserver--> Cloud-gebaseerd distributiepunt  
+###  <a name="BKMK_PortsSiteServer-CloudDP"></a> Serveur de site -- > Point de distribution cloud  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Secure Hypertext Transfer Protocol (HTTPS)|--|443|  
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443|  
 
-###  <a name="BKMK_PortsSite-DP"></a>Siteserver--> distributiepunt  
- (zie opmerking 5, **Communicatie tussen de siteserver en sitesystemen**)  
+###  <a name="BKMK_PortsSite-DP"></a> Serveur de site -- > Point de distribution  
+ (Voir remarque 5, **Communications entre le serveur de site et les systèmes de site**)  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Server Message Block (SMB)|--|445|  
-|RPC-eindpunttoewijzer|135|135|  
-|RPC|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
+|SMB (Server Message Block)|--|445|  
+|Mappeur de point de terminaison RPC|135|135|  
+|RPC|--|DYNAMIQUE (voir la note 6, **Ports dynamiques**)|  
 
-###  <a name="BKMK_PortsSite-DC"></a>Siteserver--> domeincontroller  
+###  <a name="BKMK_PortsSite-DC"></a> Serveur de site -- > Contrôleur de domaine  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Lightweight Directory Access Protocol (LDAP)|--|389|  
-|LDAP (Secure Sockets Layer [SSL]-verbinding)|636|636|  
-|Globale catalogus LDAP|--|3268|  
-|Globale catalogus LDAP SSL|--|3269|  
-|RPC-eindpunttoewijzer|135|135|  
-|RPC|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
+|LDAP (Lightweight Directory Access Protocol)|--|389|  
+|LDAP (connexion SSL [Secure Sockets Layer])|636|636|  
+|LDAP de catalogue global|--|3268|  
+|SSL LDAP de catalogue global|--|3269|  
+|Mappeur de point de terminaison RPC|135|135|  
+|RPC|--|DYNAMIQUE (voir la note 6, **Ports dynamiques**)|  
 
-###  <a name="BKMK_PortsCertificateRegistrationPoint_SiteServer"></a>Siteserver &lt; --> Certificaatregistratiepunt  
+###  <a name="BKMK_PortsCertificateRegistrationPoint_SiteServer"></a> Serveur de site &lt; -- > Point d’enregistrement de certificat  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Server Message Block (SMB)|--|445|  
-|RPC-eindpunttoewijzer|135|135|  
-|RPC|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
+|SMB (Server Message Block)|--|445|  
+|Mappeur de point de terminaison RPC|135|135|  
+|RPC|--|DYNAMIQUE (voir la note 6, **Ports dynamiques**)|  
 
-###  <a name="BKMK_PortsEndpointProtection_SiteServer"></a>Siteserver &lt; --> Endpoint Protection-punt  
+###  <a name="BKMK_PortsEndpointProtection_SiteServer"></a> Serveur de site &lt; -- > Point Endpoint Protection  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Server Message Block (SMB)|--|445|  
-|RPC-eindpunttoewijzer|135|135|  
-|RPC|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
+|SMB (Server Message Block)|--|445|  
+|Mappeur de point de terminaison RPC|135|135|  
+|RPC|--|DYNAMIQUE (voir la note 6, **Ports dynamiques**)|  
 
-###  <a name="BKMK_EnrollmentPoint_SiteServer"></a>Siteserver &lt; --> registratiepunt  
+###  <a name="BKMK_EnrollmentPoint_SiteServer"></a> Serveur de site &lt; -- > Point d’inscription  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Server Message Block (SMB)|--|445|  
-|RPC-eindpunttoewijzer|135|135|  
-|RPC|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
+|SMB (Server Message Block)|--|445|  
+|Mappeur de point de terminaison RPC|135|135|  
+|RPC|--|DYNAMIQUE (voir la note 6, **Ports dynamiques**)|  
 
-###  <a name="BKMK_EnrollmentProxyPoint_SiteServer"></a>Siteserver &lt; --> proxypunt voor inschrijving  
+###  <a name="BKMK_EnrollmentProxyPoint_SiteServer"></a> Serveur de site &lt; -- > Point proxy d’inscription  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Server Message Block (SMB)|--|445|  
-|RPC-eindpunttoewijzer|135|135|  
-|RPC|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
+|SMB (Server Message Block)|--|445|  
+|Mappeur de point de terminaison RPC|135|135|  
+|RPC|--|DYNAMIQUE (voir la note 6, **Ports dynamiques**)|  
 
-###  <a name="BKMK_PortsSite-FSP"></a>Siteserver &lt; --> terugvalstatuspunt  
- (zie opmerking 5, **Communicatie tussen de siteserver en sitesystemen**)  
+###  <a name="BKMK_PortsSite-FSP"></a> Serveur de site &lt; -- > Point d’état de secours  
+ (Voir remarque 5, **Communications entre le serveur de site et les systèmes de site**)  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Server Message Block (SMB)|--|445|  
-|RPC-eindpunttoewijzer|135|135|  
-|RPC|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
+|SMB (Server Message Block)|--|445|  
+|Mappeur de point de terminaison RPC|135|135|  
+|RPC|--|DYNAMIQUE (voir la note 6, **Ports dynamiques**)|  
 
-###  <a name="BKMK_PortSite-Internet"></a>Siteserver--> Internet  
+###  <a name="BKMK_PortSite-Internet"></a> Serveur de site -- > Internet  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Hypertext Transfer Protocol (HTTP)|--|80 (Zie Opmerking 1, **proxyserverpoort**)|  
+|HTTP (Hypertext Transfer Protocol)|--|80 (voir note 1, **Port de serveur proxy**)|  
 
-###  <a name="BKMK_PortsIssuingCA_SiteServer"></a>Siteserver &lt; --> verlenende certificeringsinstantie (CA)  
- Deze communicatie wordt gebruikt wanneer u certificaatprofielen implementeert door gebruik te maken van het certificaatregistratiepunt. De communicatie wordt niet gebruikt voor elke siteserver in de hiërarchie. In plaats daarvan wordt alleen voor de siteserver bovenaan de hiërarchie.  
+###  <a name="BKMK_PortsIssuingCA_SiteServer"></a> Serveur de site &lt; -- > Autorité de certification (CA) émettrice  
+ Cette communication est utilisée lorsque vous déployez des profils de certificat à l'aide du point d'enregistrement de certificat. La communication n’est pas utilisée pour chaque serveur de site de la hiérarchie. En fait, elle est utilisée uniquement pour le serveur de site situé en haut de la hiérarchie.  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|RPC-eindpunttoewijzer|135|135|  
-|RPC (DCOM)|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
+|Mappeur de point de terminaison RPC|135|135|  
+|RPC (DCOM)|--|DYNAMIQUE (voir la note 6, **Ports dynamiques**)|  
 
-###  <a name="BKMK_PortsSite-RSP"></a>Siteserver &lt; --> Reporting services-punt  
- (zie opmerking 5, **Communicatie tussen de siteserver en sitesystemen**)  
+###  <a name="BKMK_PortsSite-RSP"></a> Serveur de site &lt; -- > Point de Reporting Services  
+ (Voir remarque 5, **Communications entre le serveur de site et les systèmes de site**)  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Server Message Block (SMB)|--|445|  
-|RPC-eindpunttoewijzer|135|135|  
-|RPC|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
+|SMB (Server Message Block)|--|445|  
+|Mappeur de point de terminaison RPC|135|135|  
+|RPC|--|DYNAMIQUE (voir la note 6, **Ports dynamiques**)|  
 
-###  <a name="BKMK_PortsSite-Site"></a>Siteserver &lt; --> siteserver  
+###  <a name="BKMK_PortsSite-Site"></a> Serveur de site &lt; -- > Serveur de site  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Server Message Block (SMB)|--|445|  
+|SMB (Server Message Block)|--|445|  
 
-###  <a name="BKMK_PortsSite-SQL"></a>Siteserver--> SQL Server  
+###  <a name="BKMK_PortsSite-SQL"></a> Serveur de site -- > SQL Server  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|SQL via TCP|--|1433 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
+|SQL sur TCP|--|1433 (voir note 2, **Autre port disponible**)|  
 
- Tijdens de installatie van een site die gebruikmaakt van een externe SQL Server om de sitedatabase te hosten, moet u de volgende poorten tussen de siteserver en de SQL Server openen:  
+ Lors de l’installation d’un site utilisant une instance SQL Server distante pour héberger la base de données de site, vous devez ouvrir les ports suivants entre le serveur de site et l’instance SQL Server :  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Server Message Block (SMB)|--|445|  
-|RPC-eindpunttoewijzer|135|135|  
-|RPC|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
+|SMB (Server Message Block)|--|445|  
+|Mappeur de point de terminaison RPC|135|135|  
+|RPC|--|DYNAMIQUE (voir la note 6, **Ports dynamiques**)|  
 
-###  <a name="BKMK_PortsSite-Provider"></a>Siteserver--> SMS-Provider  
+###  <a name="BKMK_PortsSite-Provider"></a> Serveur de site -- > Fournisseur SMS  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Server Message Block (SMB)|--|445|  
-|RPC-eindpunttoewijzer|135|135|  
-|RPC|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
+|SMB (Server Message Block)|--|445|  
+|Mappeur de point de terminaison RPC|135|135|  
+|RPC|--|DYNAMIQUE (voir la note 6, **Ports dynamiques**)|  
 
-###  <a name="BKMK_PortsSite-SUP"></a>Siteserver &lt; --> Software-updatepunt  
- (zie opmerking 5, **Communicatie tussen de siteserver en sitesystemen**)  
+###  <a name="BKMK_PortsSite-SUP"></a> Serveur de site &lt; -- > Point de mise à jour logicielle  
+ (Voir remarque 5, **Communications entre le serveur de site et les systèmes de site**)  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Server Message Block (SMB)|--|445|  
-|Hypertext Transfer Protocol (HTTP)|--|80 of 8530 (zie opmerking 3, **Windows Server-updateservices**)|  
-|Secure Hypertext Transfer Protocol (HTTPS)|--|443 of 8531 (zie opmerking 3, **Windows Server-updateservices**)|  
+|SMB (Server Message Block)|--|445|  
+|HTTP (Hypertext Transfer Protocol)|--|80 ou 8530 (Voir la remarque 3, **Windows Server Update Services**)|  
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443 ou 8531 (Voir la remarque 3, **Windows Server Update Services**)|  
 
-###  <a name="BKMK_PortsSite-SMP"></a>Siteserver &lt; --> Statusmigratiepunt  
- (zie opmerking 5, **Communicatie tussen de siteserver en sitesystemen**)  
+###  <a name="BKMK_PortsSite-SMP"></a> Serveur de site &lt; -- > Point de migration d’état  
+ (Voir remarque 5, **Communications entre le serveur de site et les systèmes de site**)  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Server Message Block (SMB)|--|445|  
-|RPC-eindpunttoewijzer|135|135|  
+|SMB (Server Message Block)|--|445|  
+|Mappeur de point de terminaison RPC|135|135|  
 
-###  <a name="BKMK_PortsProvider-SQL"></a> SMS-Provider -- &gt; SQL Server  
+###  <a name="BKMK_PortsProvider-SQL"></a> Fournisseur SMS -- &gt; SQL Server  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|SQL via TCP|--|1433 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
+|SQL sur TCP|--|1433 (voir note 2, **Autre port disponible**)|  
 
-###  <a name="BKMK_PortsSUP-Internet"></a>Software-updatepunt--> Internet  
+###  <a name="BKMK_PortsSUP-Internet"></a> Point de mise à jour logicielle -- > Internet  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Hypertext Transfer Protocol (HTTP)|--|80 (Zie Opmerking 1, **proxyserverpoort**)|  
+|HTTP (Hypertext Transfer Protocol)|--|80 (voir note 1, **Port de serveur proxy**)|  
 
-###  <a name="BKMK_PortsSUP-WSUS"></a>Software-updatepunt--> Upstream WSUS-server  
+###  <a name="BKMK_PortsSUP-WSUS"></a> Point de mise à jour logicielle -- > Serveur WSUS en amont  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Hypertext Transfer Protocol (HTTP)|--|80 of 8530 (zie opmerking 3, **Windows Server-updateservices**)|  
-|Secure Hypertext Transfer Protocol (HTTPS)|--|443 of 8531 (zie opmerking 3, **Windows Server-updateservices**)|  
+|HTTP (Hypertext Transfer Protocol)|--|80 ou 8530 (Voir la remarque 3, **Windows Server Update Services**)|  
+|HTTPS (Secure Hypertext Transfer Protocol)|--|443 ou 8531 (Voir la remarque 3, **Windows Server Update Services**)|  
 
 ###  <a name="BKMK_PortsSQL-SQL"></a> SQL Server --&gt; SQL Server  
- Databasereplicatie tussen sites moet de SQL Server op één site om te communiceren rechtstreeks met de SQL Server op de bovenliggende of onderliggende site.  
+ La réplication inter-sites de base de données exige que le serveur SQL Server d’un site communique directement avec le serveur SQL Server de son site parent ou enfant.  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|SQL Server-service|--|1433 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
-|SQL Server Service Broker|--|4022 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
+|Service SQL Server|--|1433 (voir note 2, **Autre port disponible**)|  
+|Service Broker SQL Server|--|4022 (voir note 2, **Autre port disponible**)|  
 
 > [!TIP]  
->  Configuration Manager is niet vereist voor de SQL Server Browser, die poort UDP 1434 gebruikt.  
+>  Configuration Manager ne nécessite pas le navigateur SQL Server, qui utilise le port UDP 1434.  
 
-###  <a name="BKMK_PortsStateMigrationPoint-to-SQL"></a>Statusmigratiepunt--> SQL Server  
+###  <a name="BKMK_PortsStateMigrationPoint-to-SQL"></a> Point de migration d’état -- > SQL Server  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|SQL via TCP|--|1433 (Zie Opmerking 2, **alternatieve poort beschikbaar**)|  
+|SQL sur TCP|--|1433 (voir note 2, **Autre port disponible**)|  
 
 
 
-###  <a name="BKMY_PortNotes"></a> Opmerkingen voor poorten die door Configuration Manager-clients en sitesystemen worden gebruikt  
+###  <a name="BKMY_PortNotes"></a> Notes pour les ports utilisés par les clients Configuration Manager et les systèmes de site  
 
-1.  **Proxy-serverpoort**: Deze poort kan niet worden geconfigureerd, maar kan worden gerouteerd via een geconfigureerde proxyserver.  
+1.  **Port de serveur proxy** : ce port ne peut pas être configuré, mais il peut être routé via un serveur proxy configuré.  
 
-2.  **Alternatieve poort beschikbaar**: In Configuration Manager kan een alternatieve poort gedefinieerd voor deze waarde. Indien een aangepaste poort is gedefinieerd, vervang dan deze aangepaste poort wanneer u de IP-filter informatie definieert voor IPsec-beleidslijnen of om firewalls te configureren.  
+2.  **Autre port disponible** : un autre port peut être défini dans Configuration Manager pour cette valeur. Si un port personnalisé a été défini, remplacez-le lorsque vous définissez les informations de filtre IP pour les stratégies IPsec ou pour configurer les pare-feu.  
 
-3.  **Windows Server updateservices (WSUS)**: WSUS kan worden geïnstalleerd om de poorten 80/443 of poorten 8530/8531 gebruikt voor clientcommunicatie. Wanneer u WSUS in Windows Server 2012 of Windows Server 2016 uitvoert, is WSUS standaard geconfigureerd voor gebruik van poort 8530 voor HTTP en poort 8531 voor HTTPS.  
+3.  **Windows Server Update Services (WSUS)** : WSUS peut être installé pour utiliser les ports 80/443 ou 8530/8531 pour la communication client. Quand vous exécutez WSUS dans Windows Server 2012 ou Windows Server 2016, WSUS est configuré par défaut pour utiliser le port 8530 pour HTTP et le port 8531 pour HTTPS.  
 
-     Na de installatie, kan de poort worden gewijzigd. U moet niet hetzelfde poortnummer gebruiken over de hele sitehiërarchie.  
+     Ce port peut être modifié après l'installation. Vous n'avez pas à utiliser le même numéro de port dans l'ensemble de la hiérarchie du site.  
 
-    -   Als de HTTP-poort 80 is, moet de HTTPS-poort 443 zijn.  
+    -   Si le numéro de port HTTP est 80, le numéro de port HTTPS doit être 443.  
 
-    -   Als de HTTP-poort iets anders is, moet de HTTPS-poort 1 of hoger, bijvoorbeeld 8530 en 8531.   
+    -   Si le port HTTP a un autre numéro, le port HTTPS doit avoir le numéro 1 ou plus (par exemple 8530 et 8531).   
 
     > [!NOTE]  
-    >  Wanneer u het software-updatepunt voor gebruik van HTTPS configureert, moet de HTTP-poort ook zijn geopend. Niet-versleutelde gegevens, zoals de gebruiksrechtovereenkomst voor specifieke updates, gebruiken de HTTP-poort.  
+    >  Quand vous configurez le point de mise à jour logicielle pour utiliser HTTPS, le port HTTP doit également être ouvert. Les données non chiffrées, telles que le CLUF pour les mises à jour spécifiques, utilisent le port HTTP.  
 
-4.  **Trivial FTP (TFTP) Daemon**: De Trivial FTP (TFTP) Daemon-systeemservice vereist geen gebruikersnaam of wachtwoord en is een integraal onderdeel van Windows Deployment Services (WDS). De Trivial FTP Daemon service implementeert ondersteuning voor de TFTP-protocol dat wordt gedefinieerd door de volgende RFC's:  
+4.  **Service Trivial FTP (TFTP)** : le service système Trivial FTP ne nécessite pas de nom d’utilisateur ni de mot de passe, et il fait partie intégrante des services de déploiement Windows (WDS). Le service Trivial FTP met en œuvre la prise en charge du protocole TFTP qui est défini par les normes RFC suivantes :  
 
-    -   RFC 350: TFTP  
+    -   RFC 350  : TFTP  
 
-    -   RFC 2347: Uitbreiding van de optie  
+    -   RFC 2347 : extension d’option  
 
-    -   RFC 2348: Optie voor blokgrootte  
+    -   RFC 2348 : option de taille de bloc  
 
-    -   RFC 2349: Time-opties voor interval en overdracht  
+    -   RFC 2349 : options d’intervalle de délai d’attente et de taille de transfert  
 
-     Trivial File Transfer Protocol is ontworpen om opstartomgevingen zonder schijf te ondersteunen. TFTP Daemons luisteren op UDP-poort 69 maar antwoorden vanaf een dynamisch toegewezen hoge poort. Daarom deze poort inschakelen de TFTP-service voor het ontvangen van inkomende TFTP-aanvragen kan maar de geselecteerde server te reageren op aanvragen die afkomstig zijn niet toegestaan. U kunt de geselecteerde server te reageren op binnenkomende TFTP-aanvragen, tenzij de TFTP-server is geconfigureerd om te antwoorden vanaf poort 69 niet inschakelen.  
+     Le protocole Trivial FTP est conçu pour prendre en charge les environnements de démarrage sans disque. Les services Trivial FTP écoutent au port UDP 69 mais répondent à partir d'un port à numéro élevé alloué de manière dynamique. Ainsi, l’activation de ce port permet au service TFTP de recevoir les demandes TFTP entrantes mais n’autorise pas le serveur sélectionné à répondre à ces demandes. Vous ne pouvez pas permettre au serveur sélectionné de répondre aux demandes TFTP entrantes, à moins que le serveur TFTP soit configuré de manière à répondre à partir du port 69.  
 
-5.  **Communicatie tussen de siteserver en sitesystemen**: Standaard is de communicatie tussen de siteserver en sitesystemen bidirectioneel. De siteserver initieert communicatie om het sitesysteem te configureren, en dan maken de meeste sitesystemen terug verbinding naar de siteserver om statusinformatie te sturen. Reporting Service-punten en distributiepunten zenden geen statusinformatie. Als u selecteert **de siteserver moet verbinding met dit sitesysteem initiëren** op de sitesysteem-eigenschappen nadat het sitesysteem is geïnstalleerd, het sitesysteem won't starten communicatie met de siteserver. In plaats daarvan de siteserver de communicatie start en de account voor de installatie van de site gebruikt voor verificatie met de sitesysteemserver.  
+5.  **Communications entre le serveur de site et les systèmes de site**: par défaut, les communications entre le serveur de site et les systèmes de site sont bidirectionnelles. Le serveur de site initialise la communication pour configurer le système de site, puis la plupart des systèmes de site se connectent à leur tour au serveur de site pour envoyer des informations d'état. Les points de Reporting Services et les points de distribution n'envoient pas d'informations d'état. Si vous sélectionnez **Exiger que le serveur de site démarre les connexions vers ce système de site** dans les propriétés du système de site, après l’installation du système de site, ce dernier n’établit pas la communication vers le système de site. Au lieu de cela, le serveur de site initie la communication et utilise le compte d’installation du système de site pour l’authentification auprès du serveur de système de site.  
 
-6.  **Dynamische poorten**: Dynamische poorten (ook wel kortstondige poorten) gebruiken een bereik van poortnummers die gedefinieerd door de besturingssysteemversie. Voor meer informatie over de standaardpoortbereiken, zie [Service overview and network port requirements for Windows (Service overzicht en netwerk poortvereisten voor Windows)](http://go.microsoft.com/fwlink/p/?LinkId=317965).  
+6.  **Ports dynamiques** : les ports dynamiques (également appelés ports éphémères) utilisent une plage de numéros de port qui est définie par la version du système d’exploitation. Pour plus d'informations sur les plages de port par défaut, voir [Vue d'ensemble des services et exigences de ports réseau pour le système Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=317965).  
 
-##  <a name="BKMK_AdditionalPorts"></a> Aanvullende lijsten met poorten  
- De volgende secties bevatten aanvullende informatie over de poorten die worden gebruikt door Configuration Manager.  
+##  <a name="BKMK_AdditionalPorts"></a> Listes de ports supplémentaires  
+ Les sections suivantes fournissent des informations supplémentaires sur les ports utilisés par Configuration Manager.  
 
-###  <a name="BKMK_ClientShares"></a> Client naar servershares  
- Clients gebruiken Server Message Block (SMB) wanneer ze verbinden met UNC shares. Bijvoorbeeld:  
+###  <a name="BKMK_ClientShares"></a> Client vers partages serveur  
+ Les clients utilisent le protocole SMB (Server Message Block) à chaque fois qu'ils se connectent à des partages UNC. Exemple :  
 
--   Handmatige clientinstallatie die de CCMSetup.exe **/source:** opdrachtregel-eigenschap  
+-   Installation manuelle du client spécifiant la propriété de ligne de commande CCMSetup.exe **/source:**  
 
--   Endpoint Protection-clients die definitiebestanden van een UNC-pad downloaden
+-   Clients Endpoint Protection qui téléchargent des fichiers de définition à partir d’un chemin UNC
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Server Message Block (SMB)|--|445|  
+|SMB (Server Message Block)|--|445|  
 
-###  <a name="BKMK_SQLPorts"></a> Verbindingen met Microsoft SQL Server  
- Voor communicatie met de SQL Server database-engine en voor intersitereplicatie kunt u de standaard SQL Server-poort gebruiken of aangepaste poorten opgeven:  
+###  <a name="BKMK_SQLPorts"></a> Connexions à Microsoft SQL Server  
+ Pour la communication vers le moteur de base de données SQL Server et pour la réplication intersite, vous pouvez utiliser le port de SQL Server par défaut ou spécifier des ports personnalisés :  
 
--   Gebruik van de communicatie tussen sites:  
+-   Utilisation des communications intersites :  
 
-    -   SQL Server Service Broker is standaard poort TCP 4022.  
+    -   SQL Server Service Broker, qui utilise par défaut le port TCP 4022.  
 
-    -   SQL Server-service, die standaard TCP-poort 1433.  
+    -   Service SQL Server, qui utilise par défaut le port TCP 1433.  
 
--   Intrasite-communicatie tussen de SQL Server database engine en verschillende sitesysteemrollen van Configuration Manager standaard poort TCP 1433.  
+-   Les communications intrasites entre le moteur de base de données SQL Server et divers rôles de système de site Configuration Manager utilisent par défaut le port TCP 1433.  
 
-- Configuration Manager gebruikt de dezelfde poorten en protocollen om te communiceren met elke SQL-beschikbaarheidsgroep replica die de sitedatabase host als de replica een zelfstandige SQL Server-exemplaar is.
+- Configuration Manager utilise les mêmes ports et protocoles pour communiquer avec chaque réplica du groupe de disponibilité SQL qui héberge la base de données comme si le réplica était une instance SQL Server autonome.
 
-Wanneer u Azure gebruiken en de sitedatabase zich achter een interne of externe Load Balancer, het configureren van de volgende firewalluitzonderingen op elke replica en toevoegen van load-balancingregels voor de volgende poorten:
- - SQL via TCP: TCP 1433
- - SQL Server Service Broker: TCP 4022
- - Server Message Block (SMB): TCP 445
- - RPC-eindpunttoewijzer: TCP 135
+Quand vous utilisez Azure et que la base de données de site se trouve derrière un équilibreur de charge interne ou externe, configurez les exceptions de pare-feu suivantes sur chaque réplica et ajoutez des règles d’équilibrage de charge pour les ports suivants :
+ - SQL sur TCP : TCP 1433
+ - SQL Server Service Broker : TCP 4022
+ - Server Message Block (SMB) : TCP 445
+ - Mappeur de point de terminaison RPC : TCP 135
 
 > [!WARNING]  
->  Configuration Manager biedt geen ondersteuning voor dynamische poorten. Omdat SQL Server genoemde instanties standaard dynamische poorten gebruiken voor verbindingen naar de database-engine, moet u, wanneer u een genoemde instantie gebruikt, de statische poort, die u wenst te gebruiken voor intrasite-communicatie, handmatig configureren.  
+>  Configuration Manager ne prend pas en charge les ports dynamiques. Étant donné que les instances nommées de SQL Server utilisent par défaut des ports dynamiques pour les connexions au moteur de base de données, lorsque vous utilisez une instance nommée, vous devez configurer manuellement le port statique que vous souhaitez utiliser pour la communication intrasite.  
 
- De volgende sitesysteemrollen communiceren direct met de SQL Server database:  
+ Les rôles de système de site suivants communiquent directement avec la base de données SQL Server :  
 
--   Application Catalog-webservicepunt  
+-   Point de service Web du catalogue des applications  
 
--   Certificaatregistratiepuntrol  
+-   Rôle de point d'enregistrement de certificat  
 
--   Servicepunt voor inschrijving  
+-   Rôle de point d'inscription  
 
--   Beheerpunt  
+-   Point de gestion  
 
--   Siteserver  
+-   Serveur de site  
 
--   Reporting Services-punt  
+-   Point de Reporting Services  
 
--   SMS-provider  
+-   fournisseur SMS  
 
--   SQL Server--> SQL Server  
+-   SQL Server --> SQL Server  
 
-Wanneer een SQL Server een database host voor meer dan één site, moet elke database een afzonderlijke instantie van SQL Server gebruiken, en elke instantie moet geconfigureerd zijn met een unieke set van poorten.  
+Lorsqu'un SQL Server héberge une base de données provenant de plusieurs sites, chaque base de données doit utiliser une instance distincte de SQL Server, et chaque instance doit être configurée avec un ensemble de ports unique.  
 
-Als er een firewall ingeschakeld op de computer met SQL Server, zorg ervoor dat deze is geconfigureerd om toe te staan de poorten in gebruik door uw implementatie. Configureer ook firewalls die op extra locaties op het netwerk tussen computers die met de SQL-Server communiceren zodat deze dezelfde poorten zijn.  
+Si un pare-feu est activé sur l’ordinateur SQL Server, assurez-vous qu’il est configuré pour autoriser les ports utilisés par votre déploiement. Configurez également les pare-feu situés à d’autres emplacements sur le réseau, entre les ordinateurs qui communiquent avec le serveur SQL Server, de manière à autoriser ces ports.  
 
-Zie voor een voorbeeld van hoe u SQL Server configureren voor het gebruik van een specifieke poort [hoe: Configureren van een Server om te luisteren naar een specifieke TCP-poort (SQL Server Configuration Manager)](http://go.microsoft.com/fwlink/p/?LinkID=226349) in de SQL Server TechNet-bibliotheek.  
-
-
-### <a name="bkmk_discovery"></a> Detectie en publiceren
-De volgende poorten worden gebruikt voor de detectie en het publiceren van site-informatie:
- - Lightweight Directory Access Protocol (LDAP): 389
- - LDAP (Secure Sockets Layer [SSL]-verbinding): 636
+Pour obtenir un exemple montrant comment configurer SQL Server pour utiliser un port spécifique, consultez [Configurer un serveur pour écouter un port TCP spécifique (Gestionnaire de configuration SQL Server)](http://go.microsoft.com/fwlink/p/?LinkID=226349) dans la bibliothèque TechNet relative à SQL Server.  
 
 
- - Globale catalogus LDAP 3268
- - Globale catalogus LDAP SSL: 3269
+### <a name="bkmk_discovery"> </a> Découverte et publication
+Les ports suivants sont utilisés pour la découverte et la publication d’informations de site :
+ - LDAP (Lightweight Directory Access Protocol) : 389
+ - LDAP (connexion SSL [Secure Sockets Layer]) : 636
 
 
- - RPC-eindpunttoewijzer: 135
- - RPC: Dynamisch toegewezen hoge TCP-poorten
+ - LDAP de catalogue global : 3268
+ - SSL LDAP de catalogue global : 3269
 
 
- - TCP: 1024: 5000
- - TCP:  49152: 65535
+ - Mappeur de point de terminaison RPC : 135
+ - RPC : ports TCP à numéro élevé alloués dynamiquement
 
 
-###  <a name="BKMK_External"></a> Externe verbindingen gemaakt door Configuration Manager  
- Configuration Manager-clients of sitesystemen kunnen de volgende externe verbindingen maken:  
+ - TCP : 1024 : 5000
+ - TCP :  49152 : 65535
 
--   [Asset Intelligence-synchronisatiepunt-- &gt; Microsoft](#BKMK_PortsAI)  
 
--   [Endpoint Protection-punt-- &gt; Internet](#BKMK_PortsEndpointProtection_Internet)  
+###  <a name="BKMK_External"></a> Connexions externes effectuées par Configuration Manager  
+ Les clients ou les systèmes de site Configuration Manager peuvent établir les connexions externes suivantes :  
 
--   [Client-- &gt; globale catalogus-domeincontroller](#BKMK_PortsClient-GCDC)  
+-   [Point de synchronisation Asset Intelligence -- &gt; Microsoft](#BKMK_PortsAI)  
 
--   [Configuration Manager-console-- &gt; Internet](#BKMK_PortsConsole-Internet)  
+-   [Point Endpoint Protection -- &gt; Internet](#BKMK_PortsEndpointProtection_Internet)  
 
--   [Beheerpunt-- &gt; domeincontroller](#BKMK_PortsMP-DC)  
+-   [Client -- &gt; Contrôleur de domaine de catalogue global](#BKMK_PortsClient-GCDC)  
 
--   [Siteserver-- &gt; domeincontroller](#BKMK_PortsSite-DC)  
+-   [Console Configuration Manager -- &gt; Internet](#BKMK_PortsConsole-Internet)  
 
--   [Siteserver &lt;  --  &gt; verlenende certificeringsinstantie (CA)](#BKMK_PortsIssuingCA_SiteServer)  
+-   [Point de gestion -- &gt; Contrôleur de domaine](#BKMK_PortsMP-DC)  
 
--   [Software-updatepunt-- &gt; Internet](#BKMK_PortsSUP-Internet)  
+-   [Serveur de site -- &gt; Contrôleur de domaine](#BKMK_PortsSite-DC)  
 
--   [Software-updatepunt-- &gt; Upstream WSUS-Server](#BKMK_PortsSUP-WSUS)  
+-   [Serveur de site &lt; -- &gt; Autorité de certification (CA) émettrice](#BKMK_PortsIssuingCA_SiteServer)  
 
--   [Serviceverbindingspunt-- &gt; Microsoft Intune](#BKMK_PortsIntuneConnector-WindowsIntune)  
+-   [Point de mise à jour logicielle -- &gt; Internet](#BKMK_PortsSUP-Internet)  
 
-###  <a name="BKMK_IBCMports"></a> Installatievereisten voor sitesystemen die ondersteuning bieden voor internet-clients  
- Beheerpunten en distributiepunten die ondersteuning bieden voor clients op Internet, de software-updatepunt en het terugvalstatuspunt gebruiken de volgende poorten voor installatie en herstel:  
+-   [Point de mise à jour logicielle -- &gt; Serveur WSUS en amont](#BKMK_PortsSUP-WSUS)  
 
--   Siteserver--> sitesysteem: RPC-eindpunttoewijzing via UDP en TCP-poort 135.  
+-   [Point de connexion de service -- &gt; Microsoft Intune](#BKMK_PortsIntuneConnector-WindowsIntune)  
 
--   Siteserver--> sitesysteem: RPC dynamische TCP-poorten  
+###  <a name="BKMK_IBCMports"></a> Configuration requise pour les systèmes de site qui prennent en charge les clients Internet  
+ Les points de gestion et les points de distribution qui prennent en charge les clients Internet, le point de mise à jour logicielle et le point d’état de secours utilisent les ports suivants pour l’installation et la réparation :  
 
--   Siteserver &lt; --> sitesysteem: Server message blocks (SMB) via TCP-poort 445
+-   Serveur de site --> Système de site : mappeur de point de terminaison RPC utilisant le port UDP et TCP 135  
 
-Installaties van toepassingen en pakketten op distributiepunten vereisen de volgende RPC-poorten:  
+-   Serveur de site --> Système de site : ports TCP RPC dynamiques  
 
--   Siteserver--> distributiepunt: RPC-eindpunttoewijzing via UDP en TCP-poort 135
+-   Serveur de site &lt; --> Système de site : protocole SMB (Server Message Blocks) utilisant le port TCP 445
 
--   Siteserver--> distributiepunt: RPC dynamische TCP-poorten  
+Les installations d'applications et de packages sur les points de distribution nécessitent les ports RPC suivants :  
 
-Gebruik IPsec voor verkeer tussen de siteserver en sitesystemen. Als u de dynamische poorten moet beperken die worden gebruikt met RPC, kunt u het Microsoft RPC-configuratieprogramma (rpccfg.exe) gebruiken om een beperkt aantal poorten te configureren voor deze RPC-pakketten. Zie voor meer informatie over het RPC-configuratieprogramma [RPC configureren voor het gebruik van bepaalde poorten en deze poorten helpen beveiligen met behulp van IPsec](http://go.microsoft.com/fwlink/p/?LinkId=124096).  
+-   Serveur de site --> Point de distribution : mappeur de point de terminaison RPC utilisant le port UDP et TCP 135
+
+-   Serveur de site --> Point de distribution : ports TCP RPC dynamiques  
+
+Utilisez IPsec pour sécuriser le trafic entre le serveur de site et les systèmes de site. Si vous devez restreindre les ports dynamiques utilisés par RPC, vous pouvez employer l'outil de configuration Microsoft RPC (rpccfg.exe) pour configurer une plage de ports limitée à ces paquets RPC. Pour plus d'informations sur l'outil de configuration RPC, voir [Comment configurer RPC pour qu'il utilise certains ports et comment sécuriser ces ports à l'aide d'IPsec](http://go.microsoft.com/fwlink/p/?LinkId=124096).  
 
 > [!IMPORTANT]  
->  Voordat u deze sitesystemen installeert, zorg ervoor dat de remote registry-service wordt uitgevoerd op de sitesysteemserver en dat u een installatieaccount hebt opgegeven als het sitesysteem zich in een ander Active Directory-forest zonder een vertrouwensrelatie.  
+>  Avant d'installer ces systèmes de site, vérifiez que le service d'accès à distance au Registre est en cours d'exécution sur le serveur de système de site et que vous avez spécifié un compte d'installation du système de site si le système de site est situé dans une autre forêt Active Directory sans relation d'approbation.  
 
-###  <a name="BKMK_PortsClientInstall"></a> Poorten die worden gebruikt door de Configuration Manager-clientinstallatie  
-Welke poorten worden gebruikt tijdens de clientinstallatie is afhankelijk van de implementatiemethode van de client. Zie voor een lijst met poorten voor iedere client-implementatiemethode **poorten die worden gebruikt tijdens de clientimplementatie van de Configuration Manager-** in de [Windows Firewall- en poortinstellingen voor clients in System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md) onderwerp. Zie voor meer informatie over het configureren van Windows Firewall op de client voor clientinstallatie en communicatie na de installatie [Windows Firewall- en poortinstellingen voor clients in System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md).  
+###  <a name="BKMK_PortsClientInstall"></a> Ports utilisés par l’installation du client Configuration Manager  
+Les ports utilisés lors de l'installation du client dépendent de la méthode de déploiement du client. Pour obtenir la liste des ports utilisés pour chaque méthode de déploiement de client, consultez **Ports utilisés lors du déploiement du client de Configuration Manager** dans la rubrique [Paramètres de port et de pare-feu Windows pour les clients dans System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md). Pour plus d’informations sur la configuration du Pare-feu Windows sur le client pour l’installation du client et la communication après l’installation, consultez [Paramètres de port et de pare-feu Windows pour les clients dans System Center Configuration Manager](../../../core/clients/deploy/windows-firewall-and-port-settings-for-clients.md).  
 
-###  <a name="BKMK_MigrationPorts"></a> Poorten die door de migratie worden gebruikt  
-De siteserver waarop migratie gebruikt diverse poorten om verbinding met toepasselijke sites in de bronhiërarchie voor het verzamelen van gegevens van de bronsites SQL Server-databases en om distributiepunten te delen.  
+###  <a name="BKMK_MigrationPorts"></a> Ports utilisés par la migration  
+Le serveur de site qui exécute la migration utilise plusieurs ports pour se connecter aux sites applicables dans la hiérarchie source, pour recueillir des données à partir des bases de données SQL Server des sites sources et pour partager des points de distribution.  
 
- Zie voor meer informatie over deze poorten de [vereiste configuraties voor migratie](../../../core/migration/prerequisites-for-migration.md#BKMK_Required_Configurations) sectie het [vereisten voor migratie in System Center Configuration Manager](../../../core/migration/prerequisites-for-migration.md) onderwerp.  
+ Pour plus d’informations sur ces ports, consultez la section [Configurations requises pour la migration](../../../core/migration/prerequisites-for-migration.md#BKMK_Required_Configurations) dans la rubrique [Prérequis de la migration dans System Center Configuration Manager](../../../core/migration/prerequisites-for-migration.md).  
 
-###  <a name="BKMK_ServerPorts"></a> Poorten die door Windows Server worden gebruikt  
- De volgende tabel bevat enkele belangrijke poorten gebruikt door Windows Server samen met hun functies. Zie [Service overview and network port requirements for Windows (Service-overzicht en netwerkpoortvereisten voor het Windows Server-systeem)](http://go.microsoft.com/fwlink/p/?LinkID=123652)voor een volledig overzicht van Windows Server-services en netwerkpoortvereisten.  
+###  <a name="BKMK_ServerPorts"></a> Ports utilisés par Windows Server  
+ Le tableau suivant répertorie certains ports principaux utilisés par Windows Server, ainsi que leurs fonctions respectives. Pour une liste plus complète des services Windows Server et les exigences des ports réseau, voir [Vue d'ensemble des services et exigences du port réseau pour le système Windows Server](http://go.microsoft.com/fwlink/p/?LinkID=123652).  
 
-|Beschrijving|UDP|TCP|  
+|Description|UDP|TCP|  
 |-----------------|---------|---------|  
-|Domain Name System (DNS)|53|53|  
-|Dynamic Host Configuration Protocol (DHCP)|67 en 68|--|  
-|NetBIOS-naamomzetting|137|--|  
-|NetBIOS Datagram-service|138|--|  
-|NetBIOS-sessieservice|--|139|  
+|DNS (Domain Name System)|53|53|  
+|DHCP (Dynamic Host Configuration Protocol)|67 et 68|--|  
+|Résolution de noms Netbios|137|--|  
+|Service de datagramme NetBIOS|138|--|  
+|Service de session NETBIOS|--|139|  

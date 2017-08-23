@@ -1,6 +1,6 @@
 ---
-title: Aanbevolen hardware | Microsoft Docs
-description: Hardware-aanbevelingen voor het schalen van uw omgeving voor System Center Configuration Manager dan een eenvoudige implementatie worden opgehaald.
+title: "Matériel recommandé | Microsoft Docs"
+description: "Consultez les recommandations de matériel pour mieux assurer la scalabilité de votre environnement System Center Configuration Manager après son déploiement de base."
 ms.custom: na
 ms.date: 05/04/2017
 ms.prod: configuration-manager
@@ -17,167 +17,167 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 8dac6df60b07461d6410d305723b3f03fb09fa16
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="recommended-hardware-for-system-center-configuration-manager"></a>Aanbevolen hardware voor System Center Configuration Manager
+# <a name="recommended-hardware-for-system-center-configuration-manager"></a>Matériel recommandé pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-De volgende aanbevelingen zijn richtlijnen voor hulp bij het schalen van uw System Center Configuration Manager-omgeving ter ondersteuning van meer dan een zeer eenvoudige implementatie van sites, sitesystemen en clients. Deze aanbevelingen omvatten niet alle mogelijke site- en hiërarchieconfiguraties.  
+Les recommandations suivantes sont des indications destinées à vous aider à adapter votre environnement System Center Configuration Manager pour qu’il prenne en charge un déploiement plus complexe de sites, de systèmes de site et de clients. Elles ne sont pas prévues pour couvrir toutes les configurations possibles de site et de hiérarchie.  
 
- Gebruik de informatie in de volgende secties als leidraad bij het plannen voor hardware die kan voorzien in de verwerkingsbelasting voor clients en sites die gebruikmaken van de beschikbare functies in de Configuration Manager met de standaardconfiguraties.  
+ Aidez-vous des informations des sections suivantes pour prévoir le matériel capable de répondre aux charges de traitement des clients et des sites qui utilisent les fonctionnalités de Configuration Manager disponibles avec les configurations par défaut.  
 
 
-##  <a name="bkmk_ScaleSieSystems"></a>Site-systemen  
- Deze sectie vindt aanbevolen hardwareconfiguraties voor Configuration Manager de sitesystemen voor implementaties die het maximale aantal clients ondersteunen en de meeste of alle Configuration Manager-functies gebruiken. Implementaties die minder dan het maximum aantal clients ondersteunen en niet alle beschikbare functies gebruiken mogelijk vereisen minder computerresources. In het algemeen zijn dit de belangrijkste factoren die de prestaties van het algehele systeem beperken (in volgorde):  
+##  <a name="bkmk_ScaleSieSystems"></a> Systèmes de site  
+ Cette section présente les configurations matérielles recommandées pour les systèmes de site Configuration Manager pour les déploiements prenant en charge le nombre maximal de clients et utilisant la plupart ou l’ensemble des fonctionnalités de Configuration Manager. Les déploiements qui ne prennent pas en charge le nombre maximal de clients et qui n’utilisent pas toutes les fonctionnalités disponibles nécessitent généralement moins de ressources informatiques. En règle générale, les facteurs clés qui limitent les performances de l'ensemble du système sont les suivants, par ordre d'importance :  
 
-1.  I/O-prestaties schijf  
+1.  Performances d'E/S du disque  
 
-2.  Beschikbaar geheugen  
+2.  Mémoire disponible  
 
-3.  CPU  
+3.  Processeur  
 
-Gebruik voor de beste prestaties RAID 10-configuraties voor alle gegevensstations en een 1-Gbps Ethernet-netwerk.  
+Pour des performances optimales, utilisez des configurations RAID 10 pour tous les lecteurs de données et une connectivité réseau Ethernet 1 Gbit/s.  
 
-###  <a name="bkmk_ScaleSiteServer"></a>Siteservers  
+###  <a name="bkmk_ScaleSiteServer"></a> Serveurs de site  
 
-|Zelfstandige primaire site|CPU (kernen)|Geheugen (GB)|Toewijzing van geheugen voor SQL Server (%)|  
+|Site principal autonome|Cœurs de processeur|Mémoire (Go)|% d’allocation de mémoire pour SQL Server|  
 |-------------------------------|---------------|---------------|----------------------------------------|  
-|Zelfstandige primaire siteserver met een databasesiterol op dezelfde server<sup>1</sup>|16|96|80|  
-|Zelfstandige primaire siteserver met een externe sitedatabase|8|16|-|  
-|Externe databaseserver voor een zelfstandige primaire site|16|72|90|  
-|Server centrale beheersite met een databasesiterol op dezelfde server<sup>1</sup>|20|128|80|  
-|Server van de centrale beheersite met een externe sitedatabase|8|16|-|  
-|Externe databaseserver voor een centrale beheersite|16|96|90|  
-|Onderliggende primaire site met een databasesiterol op dezelfde server|16|96|80|  
-|Onderliggende primaire siteserver met een externe sitedatabase|8|16|-|  
-|Externe databaseserver voor een onderliggende primaire site|16|72|90|  
-|Secundaire siteserver|8|16|-|  
+|Serveur de site principal autonome avec un rôle site de base de données sur le même serveur<sup>1</sup>|16|96|80|  
+|Serveur de site principal autonome avec une base de données de site distante|8|16|-|  
+|Serveur de bases de données distant pour un site principal autonome|16|72|90|  
+|Serveur de site d’administration centrale avec un rôle site de base de données sur le même serveur<sup>1</sup>|20|128|80|  
+|Serveur de site d’administration centrale avec une base de données de site distante|8|16|-|  
+|Serveur de bases de données distant pour un site d’administration centrale|16|96|90|  
+|Site principal enfant avec un rôle site de base de données sur le même serveur|16|96|80|  
+|Serveur de site principal enfant avec une base de données de site distante|8|16|-|  
+|Serveur de bases de données distant pour un site principal enfant|16|72|90|  
+|Serveur de site secondaire|8|16|-|  
 
- <sup>1</sup> wanneer de siteserver en SQL Server zijn geïnstalleerd op dezelfde computer, de implementatie de maximale ondersteunt [grootte en schaalgetallen](/sccm/core/plan-design/configs/size-and-scale-numbers) voor sites en clients. Maar deze configuratie kunt beperken [opties voor hoge beschikbaarheid voor System Center Configuration Manager](/sccm/protect/understand/high-availability-options), zoals het gebruik van een SQL Server-cluster. Vanwege de hogere i/o-vereisten die nodig zijn ter ondersteuning van zowel SQL Server en de Configuration Manager-siteserver wanneer u beide op dezelfde computer uitvoert, is er bovendien een goed idee om Overweeg het gebruik van een configuratie met een externe SQL Server-computer als u een grotere implementatie hebt.  
+ <sup>1</sup> Quand le serveur de site et SQL Server sont installés sur le même ordinateur, le déploiement prend en charge les [tailles et échelles](/sccm/core/plan-design/configs/size-and-scale-numbers) maximales pour les sites et les clients. Toutefois, cette configuration peut limiter les [options de haute disponibilité pour System Center Configuration Manager](/sccm/protect/understand/high-availability-options), comme l’utilisation d’un cluster SQL Server. De plus, en raison d’un plus grand nombre d’E/S nécessaire pour prendre en charge l’exécution de SQL Server et du serveur de site Configuration Manager sur le même ordinateur, nous vous conseillons d’utiliser une configuration avec une machine SQL Server distante dans les déploiements de plus grande taille.  
 
-###  <a name="bkmk_RemoteSiteSystem"></a>Externe sitesysteemservers  
- De volgende richtlijnen zijn bedoeld voor computers die een enkele sitesysteemrol bevatten. Houd er rekening mee dat u wijzigingen moet aanbrengen wanneer u meerdere sitesysteemrollen op dezelfde computer installeert.  
+###  <a name="bkmk_RemoteSiteSystem"></a> Serveurs de système de site distants  
+ Les indications ci-dessous concernent les ordinateurs qui ont un seul rôle de système de site. Ajustez les valeurs indiquées si vous installez plusieurs rôles de système de site sur le même ordinateur.  
 
-|Sitesysteemrol|CPU (kernen)|Geheugen (GB)|Schijfruimte (GB)|  
+|Rôle de système de site|Cœurs de processeur|Mémoire (Go)|Espace disque (Go)|  
 |----------------------|---------------|---------------|--------------------|  
-|Beheerpunt|4|8|50|  
-|Distributiepunt|2|8|Zoals wordt vereist door het besturingssysteem en voor het opslaan van inhoud die u implementeert|  
-|Toepassingscatalogus, met de webservice en website op de sitesysteemcomputer|4|16|50|  
-|Software-updatepunt<sup>1</sup>|8|16|Zoals wordt vereist door het besturingssysteem en voor het opslaan van updates die u implementeert|  
-|Alle andere sitesysteemrollen|4|8|50|  
+|Point de gestion|4|8|50|  
+|Point de distribution|2|8|Espace disque exigé par le système d’exploitation et pour stocker le contenu que vous déployez|  
+|Catalogue d'applications, avec le service Web et le site Web sur l'ordinateur du système de site|4|16|50|  
+|Point de mise à jour logicielle<sup>1</sup>|8|16|Espace disque exigé par le système d’exploitation et pour stocker les mises à jour que vous déployez|  
+|Tous les autres rôles de système de site|4|8|50|  
 
- <sup>1</sup> de computer die als host fungeert voor een software-updatepunt vereist de volgende configuraties voor IIS-toepassingsgroepen:  
+ <sup>1</sup> L’ordinateur qui héberge un point de mise à jour logicielle nécessite les configurations suivantes pour les pools d’applications IIS :  
 
--   Vergroot de **wachtrijlengte voor WsusPool** naar **2000**.  
+-   Augmenter la **longueur de file d’attente WsusPool** à **2000**.  
 
--   Vergroot de **privégeheugenlimiet** door 4 keer of stel deze in op **0** (onbeperkt).  
+-   Multiplier par quatre la **limite de mémoire privée WsusPool**, ou lui affecter la valeur **0** (illimitée).  
 
-###  <a name="bkmk_DiskSpace"></a>Schijfruimte voor sitesystemen  
- Schijftoewijzing en -configuratie bijdraagt aan de prestaties van Configuration Manager. Omdat elke Configuration Manager-omgeving anders is, worden de waarden die u implementeert kunnen variëren van het volgende advies.  
+###  <a name="bkmk_DiskSpace"></a> Espace disque pour les systèmes de site  
+ L’allocation et la configuration de disque contribuent aux performances de Configuration Manager. Comme chaque environnement Configuration Manager est différent, ajustez les valeurs indiquées ci-dessous en fonction de vos besoins.  
 
- Voor de beste prestaties plaatst u elk object op een afzonderlijk, speciaal RAID-volume. Gebruik voor alle gegevensvolumes (Configuration Manager en de bijbehorende databasebestanden) RAID 10 voor de beste prestaties.  
+ Pour des performances optimales, placez chaque objet sur un volume RAID séparé et dédié. Pour tous les volumes de données (Configuration Manager et ses fichiers de base de données), utilisez RAID 10 pour des performances optimales.  
 
-|Gegevensgebruik|Minimale schijfruimte|25.000 clients|50.000 clients|100.000 clients|150.000 clients|700.000 clients (centrale beheersite)|  
+|Utilisation des données|Espace disque minimum|25 000 clients|50 000 clients|100 000 clients|150 000 clients|700 000 clients (site d’administration centrale)|  
 |----------------|------------------------|--------------------|--------------------|---------------------|---------------------|-----------------------------------------------------|  
-|Besturingssysteem|Zie de richtlijnen voor het besturingssysteem.|Zie de richtlijnen voor het besturingssysteem.|Zie de richtlijnen voor het besturingssysteem.|Zie de richtlijnen voor het besturingssysteem.|Zie de richtlijnen voor het besturingssysteem.|Zie de richtlijnen voor het besturingssysteem.|  
-|Configuration Manager-toepassing en logboekbestanden bestanden|25 GB|50 GB|100 GB|200 GB|300 GB|200 GB|  
-|MDF-bestand van sitedatabase|75 GB voor elke 25.000 clients|75 GB|150 GB|300 GB|500 GB|2 TB|  
-|LDF-bestand van sitedatabase|25 GB voor elke 25.000 clients|25 GB|50 GB|100 GB|150 GB|100 GB|  
-|Tijdelijke databasebestanden (MDF en LDF)|Indien nodig|Indien nodig|Indien nodig|Indien nodig|Indien nodig|Indien nodig|  
-|Inhoud (distributiepuntshares)|Indien nodig<sup>1</sup>|Indien nodig<sup>1</sup>|Indien nodig<sup>1</sup>|Indien nodig<sup>1</sup>|Indien nodig<sup>1</sup>|Indien nodig<sup>1</sup>|  
+|Système d'exploitation|Consultez les conseils pour le système d'exploitation.|Consultez les conseils pour le système d'exploitation.|Consultez les conseils pour le système d'exploitation.|Consultez les conseils pour le système d'exploitation.|Consultez les conseils pour le système d'exploitation.|Consultez les conseils pour le système d'exploitation.|  
+|Fichiers journaux et d’application de Configuration Manager|25 Go|50 Go|100 Go|200 Go|300 Go|200 Go|  
+|Fichier .mdf de base de données du site|75 Go par tranche de 25 000 clients|75 Go|150 Go|300 Go|500 Go|2 To|  
+|Fichier .ldf de base de données du site|25 Go par tranche de 25 000 clients|25 Go|50 Go|100 Go|150 Go|100 Go|  
+|Fichiers de base de données temporaires (.mdf et .ldf)|En fonction des besoins|En fonction des besoins|En fonction des besoins|En fonction des besoins|En fonction des besoins|En fonction des besoins|  
+|Contenu (partages de point de distribution)|En fonction des besoins<sup>1</sup>|En fonction des besoins<sup>1</sup>|En fonction des besoins<sup>1</sup>|En fonction des besoins<sup>1</sup>|En fonction des besoins<sup>1</sup>|En fonction des besoins<sup>1</sup>|  
 
- <sup>1</sup> het advies ruimte niet de benodigde ruimte voor inhoud die in de Inhoudsbibliotheek op de siteserver of distributiepunt bevindt zich bevat. Zie [De inhoudsbibliotheek](../../../core/plan-design/hierarchy/the-content-library.md) voor informatie over het plannen van de inhoudsbibliotheek.  
+ <sup>1</sup> Les instructions relatives à l’espace disque n’incluent pas l’espace requis pour le contenu situé dans la bibliothèque de contenu sur le serveur de site ou les points de distribution. Pour plus d’informations sur la planification de la bibliothèque de contenu, consultez [Bibliothèque de contenu](../../../core/plan-design/hierarchy/the-content-library.md).  
 
- Naast het voorafgaande advies moet u ook rekening houden met de volgende richtlijnen wanneer u de vereisten voor de schijfruimte plant:  
+ En plus des indications précédentes, prenez en compte les recommandations suivantes pour prévoir l’espace disque nécessaire :  
 
--   Voor elke client is ongeveer 5 MB aan ruimte vereist.  
+-   Chaque client nécessite environ 5 Mo d’espace.  
 
--   Wanneer u plant voor de grootte van de tijdelijke database voor een primaire site, plan voor een gecombineerde grootte die 25% tot 30% van het MDF-bestand van de site-database. De werkelijke grootte kan aanzienlijk worden kleiner of groter — deze afhankelijk is van de prestaties van de siteserver en het volume van binnenkomende gegevens gedurende zowel korte als lange perioden.  
+-   Quand vous planifiez la taille de la base de données temporaire pour un site principal, prévoyez une taille combinée de 25 à 30 % du fichier .mdf de la base de données du site. La taille réelle peut être beaucoup plus petite ou plus grande en fonction des performances du serveur de site et du volume de données entrantes sur de courtes et longues périodes.  
 
     > [!NOTE]  
-    >  Wanneer u 50.000 of meer clients op een site hebt, moet u wilt gebruiken van vier of meer Temp database MDF-bestanden.  
+    >  Quand vous avez 50 000 clients ou plus sur un site, prévoyez d’utiliser au moins quatre fichiers .mdf de base de données temporaire.  
 
--   De grootte van de tijdelijke database voor een centrale beheersite is doorgaans veel kleiner dan voor een primaire site.  
+-   La taille de la base de données temporaire pour un site d’administration centrale est généralement beaucoup plus petite que celle d'un site principal.  
 
--   De secundaire sitedatabase is in grootte beperkt tot het volgende:  
+-   La base de données d'un site secondaire est limitée en taille pour les éléments suivants :  
 
-    -   SQL Server 2012 Express: 10 GB  
+    -   SQL Server 2012 Express : 10 Go  
 
-    -   SQL Server 2014 Express: 10 GB  
+    -   SQL Server 2014 Express : 10 Go  
 
-##  <a name="bkmk_ScaleClient"></a>Clients  
- Deze sectie vindt aanbevolen hardwareconfiguraties voor computers die u beheert met behulp van Configuration Manager-clientsoftware.  
+##  <a name="bkmk_ScaleClient"></a> Clients  
+ Cette section présente les configurations matérielles recommandées pour les ordinateurs que vous gérez à l’aide du logiciel client Configuration Manager.  
 
-### <a name="client-for-windows-computers"></a>Client voor Windows-computers:  
- De volgende zijn vereisten de minimumvereisten voor Windows-computers die u beheert met behulp van Configuration Manager, inclusief ingesloten besturingssystemen:  
+### <a name="client-for-windows-computers"></a>Client pour les ordinateurs Windows  
+ Le tableau suivant indique la configuration minimale requise pour les ordinateurs Windows gérés à l’aide de Configuration Manager, y compris les systèmes d’exploitation embarqués :  
 
--   **Processor en geheugen:** Raadpleeg de processor en het RAM-vereisten voor het computerbesturingssysteem.  
+-   **Processeur et mémoire :** reportez-vous à la configuration de processeur et mémoire RAM requise pour le système d’exploitation de l’ordinateur.  
 
--   **Schijfruimte:** 500 MB beschikbare schijfruimte, waarbij 5 GB wordt aanbevolen voor de Configuration Manager-clientcache. Minder schijfruimte is vereist als u aangepaste instellingen voor het installeren van Configuration Manager-client gebruikt:  
+-   **Espace disque :** 500 Mo d’espace disque disponible, avec 5 Go recommandés pour le cache du client Configuration Manager. L’espace disque requis est moindre si vous utilisez des paramètres personnalisés pour installer le client Configuration Manager :  
 
-    -   Gebruik de CCMSetup-opdrachtregeleigenschap/skipprereq om te voorkomen dat bestanden worden geïnstalleerd die de client niet nodig. Bijvoorbeeld: uitvoeren **CCMSetup.exe /skipprereq:silverlight.exe** als de client de Toepassingscatalogus niet gebruiken.  
+    -   Utilisez la propriété /skipprereq de la ligne de commande de CCMSetup pour éviter d’installer des fichiers dont le client n’a pas besoin. Par exemple, exécutez **CCMSetup.exe /skipprereq:silverlight.exe** si le client n’utilise pas le catalogue d’applications.  
 
-    -   Gebruik de Client.msi-eigenschap SMSCACHESIZE om een cachebestand in te stellen dat kleiner is dan de standaardgrootte van 5120 MB. De minimumgrootte is 1 MB. Met **CCMSetup.exe SMSCachesize=2** maakt u bijvoorbeeld een cache van 2 MB.  
+    -   Utilisez la propriété SMSCACHESIZE de Client.msi pour définir un fichier de cache d'une taille inférieure à la taille par défaut de 5 120 Mo. La taille minimale est de 1 Mo. Par exemple, **CCMSetup.exe SMSCachesize=2** crée un cache d’une taille de 2 Mo.  
 
-    Zie [Over de eigenschappen van clientinstallatie in System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md) voor meer informatie over deze instellingen voor een clientinstallatie.  
+    Pour plus d’informations sur les paramètres d’installation du client, consultez [À propos des propriétés d’installation du client dans System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
 
     > [!TIP]  
-    >  Het installeren van de client met minimale schijfruimte is handig voor Windows Embedded-apparaten die doorgaans over een kleinere schijf beschikken dan de gewone Windows-computers.  
+    >  L'installation du client avec un minimum d'espace disque est utile pour les appareils Windows Embedded qui ont généralement des tailles de disque plus petites que les ordinateurs Windows standard.  
 
 
 
- De volgende extra vereisten zijn minimale hardwarevereisten voor optionele functies in Configuration Manager.  
+ Voici des configurations matérielles minimales supplémentaires pour les fonctionnalités facultatives dans Configuration Manager.  
 
--   **Implementatie van besturingssysteem:** 384 MB RAM-geheugen  
+-   **Déploiement du système d’exploitation :** 384 Mo de RAM  
 
--   **Software Center:** 500 MHz-processor  
+-   **Centre logiciel :** processeur 500 MHz  
 
--   **Beheer op afstand:** Pentium 4 Hyper-threaded 3 GHz (één kern) of vergelijkbare CPU, met ten minste 1 GB RAM-geheugen voor optimale prestaties  
+-   **Contrôle à distance :** Pentium 4 Hyper-Threaded 3 GHz (simple cœur) ou processeur comparable, avec au moins 1 Go de RAM pour une expérience optimale  
 
-### <a name="client-for-linux-and-unix"></a>Client voor Linux en UNIX  
- De volgende zijn vereisten de minimumvereisten voor Linux en UNIX-servers die u met Configuration Manager beheert.  
+### <a name="client-for-linux-and-unix"></a>Client pour Linux et UNIX  
+ Le tableau suivant indique la configuration minimale requise pour les ordinateurs Linux et UNIX que vous gérez avec Configuration Manager.  
 
-|Vereiste|Details|  
+|Exigence|Détails|  
 |-----------------|-------------|  
-|Processor en geheugen|Raadpleeg de processor en het RAM-vereisten voor het besturingssysteem van de computer.|  
-|Schijfruimte|500 MB beschikbare schijfruimte, waarbij 5 GB wordt aanbevolen voor de Configuration Manager-clientcache.|  
-|Netwerkconnectiviteit|Configuration Manager-clientcomputers moeten netwerk zijn verbonden met sitesystemen van Configuration Manager om te beheren.|  
+|Processeur et mémoire|Reportez-vous à la configuration de processeur et mémoire RAM requise pour le système d'exploitation de l'ordinateur.|  
+|Espace disque|500 Mo d’espace disque disponible, avec 5 Go recommandés pour le cache du client Configuration Manager.|  
+|Connectivité réseau|Les ordinateurs clients Configuration Manager doivent disposer d’une connexion réseau aux systèmes de site Configuration Manager pour en permettre la gestion.|  
 
-##  <a name="bkmk_ScaleConsole"></a>Configuration Manager-console  
- De vereisten in de volgende tabel zijn van toepassing op elke computer waarop de Configuration Manager-console.  
+##  <a name="bkmk_ScaleConsole"></a> Console Configuration Manager  
+ La configuration requise indiquée dans le tableau ci-dessous s’applique à chaque ordinateur qui exécute la console Configuration Manager.  
 
- **Minimale hardwareconfiguratie:**  
+ **Configuration matérielle minimale :**  
 
--   Intel i3 of vergelijkbare CPU  
+-   Intel i3 ou processeur comparable  
 
--   2 GB RAM-geheugen  
+-   2 Go de RAM  
 
--   2 GB aan schijfruimte  
+-   2 Go d’espace disque  
 
-|DPI-instelling|Minimale resolutie|  
+|Paramètre PPP|Résolution minimale|  
 |-----------------|------------------------|  
-|96 / 100%|1024 x 768|  
-|120 / 125%|1280 x 960|  
-|144 / 150%|1600 x 1200|  
-|196 / 200%|2500 x 1600|  
+|96 / 100 %|1024 x 768|  
+|120 /125 %|1280 x 960|  
+|144 / 150 %|1600 x 1200|  
+|196 / 200 %|2500 x 1600|  
 
- **Ondersteuning voor PowerShell:**  
+ **Prise en charge de PowerShell :**  
 
- Wanneer u ondersteuning voor PowerShell op een computer waarop de Configuration Manager-console installeert, kunt u PowerShell-cmdlets uitvoeren op die computer voor het beheren van Configuration Manager.
+ Quand vous installez la prise en charge de PowerShell sur un ordinateur qui exécute la console Configuration Manager, vous pouvez exécuter des applets de commande PowerShell sur cet ordinateur pour gérer Configuration Manager.
 
- - PowerShell 3.0 of hoger wordt ondersteund.
+ - PowerShell 3.0 ou ultérieur est pris en charge
 
-Naast PowerShell worden wordt Windows Management Framework (WMF) versie 3.0 of hoger ondersteund.   
+En plus de PowerShell, WMF (Windows Management Framework) version 3.0 ou ultérieure est pris en charge.   
 
 
-##  <a name="bkmk_ScaleLab"></a>Testimplementaties  
- Gebruik de volgende minimale hardwarevereisten voor laboratorium- en testimplementaties implementaties van Configuration Manager. Deze aanbevelingen zijn van toepassing op alle sitetypen maximaal 100 clients:  
+##  <a name="bkmk_ScaleLab"></a> Déploiements de laboratoire  
+ Utilisez les recommandations de configuration matérielle suivantes pour les déploiements de laboratoire et de test de Configuration Manager. Ces recommandations s’appliquent à tous les types de sites, avec un maximum de 100 clients :  
 
-|Rol|CPU (kernen)|Geheugen (GB)|Schijfruimte (GB)|  
+|Rôle|Cœurs de processeur|Mémoire (Go)|Espace disque (Go)|  
 |----------|---------------|-------------------|-----------------------|  
-|Site- en databaseserver|2 - 4|7 - 12|100|  
-|Sitesysteemserver|1 - 4|2 - 4|50|  
+|Serveur de site et de bases de données|2 - 4|7 - 12|100|  
+|Serveur de système de site|1 - 4|2 - 4|50|  
 |Client|1 - 2|1 - 3|30|  

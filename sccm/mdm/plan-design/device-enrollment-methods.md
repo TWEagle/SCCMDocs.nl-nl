@@ -1,6 +1,6 @@
 ---
-title: Registratiemethoden voor apparaten voor hybride MDM | Microsoft Docs
-description: Registratiemethoden voor apparaten voor hybride MDM
+title: "Méthodes d’inscription des appareils à des fins de gestion des appareils mobiles hybride | Microsoft Docs"
+description: "Méthodes d’inscription des appareils à des fins de gestion des appareils mobiles hybride."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,68 +17,68 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: e09e639e939b846cdc162681f9d7bd4c39cd6fbf
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="overview-of-device-enrollment-methods"></a>Overzicht van registratiemethoden voor apparaten
+# <a name="overview-of-device-enrollment-methods"></a>Présentation des méthodes d’inscription des appareils
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Nadat u de Configuration Manager met Intune uitbreidt, kunt u registreren en beheren van apparaten in Bedrijfseigendom of gebruikers machtigen hun persoonlijke apparaten kunnen inschrijven. U kunt ook bedrijfsapparaten beheren met Intune met Configuration Manager.
+Après avoir étendu Configuration Manager avec Intune, vous pouvez inscrire et gérer des appareils appartenant à l’entreprise ou autoriser les utilisateurs à inscrire leurs appareils personnels. Vous pouvez également gérer des appareils d’entreprise avec Intune à partir de Configuration Manager.
 
-De volgende tabel bevat registratiemethoden met hun ondersteunde mogelijkheden. Deze mogelijkheden zijn:
-- **Wissen** -de fabrieksinstellingen van het apparaat, alle gegevens verwijderd. [Apparaten buiten gebruik stellen](../deploy-use/wipe-lock-reset-devices.md)
-- **Affiniteit** -apparaten worden gekoppeld aan gebruikers. Vereist voor het beheer van mobiele toepassingen (MAM) en voorwaardelijke toegang tot bedrijfsgegevens. [Affiniteit tussen gebruikers](../deploy-use/user-affinity-for-hybrid-managed-devices.md)
-- **Vergrendeling** voorkomen dat gebruikers het apparaat uit beheer verwijderd. iOS-apparaten vereisen modus onder supervisie actief voor vergrendeling. [Vergrendelen op afstand](../deploy-use/wipe-lock-reset-devices.md#remote-lock)
+Le tableau suivant présente les différentes méthodes d’inscription et les fonctionnalités qu’elles prennent en charge. Ces fonctionnalités sont les suivantes :
+- **Réinitialisation** : réinitialise l’appareil aux paramètres d’usine, en supprimant toutes les données. [Mettre des appareils hors service](../deploy-use/wipe-lock-reset-devices.md)
+- **Affinité** : associe les appareils à des utilisateurs. Fonctionnalité nécessaire pour la gestion des applications mobiles (MAM) et l’accès conditionnel aux données d’entreprise. [Affinité utilisateur](../deploy-use/user-affinity-for-hybrid-managed-devices.md)
+- **Verrouillage** : empêche les utilisateurs de retirer leur appareil de la gestion. Les appareils iOS nécessitent le mode de verrouillage Supervisé. [Verrouillage à distance](../deploy-use/wipe-lock-reset-devices.md#remote-lock)
 
-**iOS-registratiemethoden**
+**Méthodes d’inscription des appareils iOS**
 
-| **Methode** |  **Wissen** |  **Affiniteit**    |   **Vergrendelen** | **Details** |
+| **Méthode** |  **Réinitialisation** |  **Affinité**    |   **Verrouillage** | **Détails** |
 |:---:|:---:|:---:|:---:|:---:|
-|**[BYOD](#byod)** | Nee|    Ja |   Nee | [meer](../deploy-use/enable-platform-enrollment.md)|
-|**[DEM](#dem)**|   Nee |Nee |Nee  | [meer](../deploy-use/enroll-devices-with-device-enrollment-manager.md)|
-|**[DEP](#dep)**|   Ja |   Optioneel |  Optioneel|[meer](../deploy-use/ios-device-enrollment-program-for-hybrid.md)|
-|**[USB-SA](#usb-sa)**| Ja |   Optioneel |  Nee| [meer](../deploy-use/ios-hybrid-enrollment-using-apple-configurator.md)|
+|**[BYOD](#byod)** | Non|    Oui |   Non | [Plus d’informations](../deploy-use/enable-platform-enrollment.md)|
+|**[Gestionnaire d’inscription d’appareil](#dem)**|   Non |Non |Non  | [Plus d’informations](../deploy-use/enroll-devices-with-device-enrollment-manager.md)|
+|**[DEP](#dep)**|   Oui |   Facultatif |  Facultatif|[Plus d’informations](../deploy-use/ios-device-enrollment-program-for-hybrid.md)|
+|**[USB-SA](#usb-sa)**| Oui |   Facultatif |  Non| [Plus d’informations](../deploy-use/ios-hybrid-enrollment-using-apple-configurator.md)|
 
-**Windows- en Android-registratiemethoden**
+**Méthodes d’inscription des appareils Windows et Android**
 
-| **Methode** |  **Wissen** |  **Affiniteit**    |   **Vergrendelen** | **Details**|
+| **Méthode** |  **Réinitialisation** |  **Affinité**    |   **Verrouillage** | **Détails**|
 |:---:|:---:|:---:|:---:|:---:|:---:|
-|**[BYOD](#byod)** | Nee|    Ja |   Nee | [meer](../deploy-use/enroll-hybrid-windows.md)|
-|**[DEM](#dem)**|   Nee |Nee |Nee  |[meer](../deploy-use/enroll-devices-with-device-enrollment-manager.md)|
+|**[BYOD](#byod)** | Non|    Oui |   Non | [Plus d’informations](../deploy-use/enroll-hybrid-windows.md)|
+|**[Gestionnaire d’inscription d’appareil](#dem)**|   Non |Non |Non  |[Plus d’informations](../deploy-use/enroll-devices-with-device-enrollment-manager.md)|
 
-Voor een reeks van vraag die u helpen de juiste methode vinden, Zie [kiezen hoe u apparaten registreert](/intune/get-started/choose-how-to-enroll-devices1).
+Pour répondre à une série de questions qui vous aideront à déterminer la méthode appropriée, consultez [Choisir comment inscrire des appareils](/intune/get-started/choose-how-to-enroll-devices1).
 
 ## <a name="byod"></a>BYOD
-'Bring your own device' (BYOD) gebruikers de bedrijfsportal-app installeren en registreren van hun apparaat. Dit kunt gebruiken om gebruikers verbinding maken met het bedrijfsnetwerk, aan het domein of Azure Active Directory. Inschakelen van BYOD-inschrijving is een vereiste voor veel COD-scenario's voor de meeste platforms. Zie [Setup hybride MDM](../deploy-use/setup-hybrid-mdm.md). ([Terug naar de tabel](#overview-of-device-enrollment-methods))
+Avec la méthode d’inscription BYOD (« Apportez votre propre appareil »), les utilisateurs d’appareils personnels installent l’application Portail d’entreprise et inscrivent leurs propres appareils. Ils peuvent ensuite se connecter au réseau d’entreprise et rejoindre le domaine ou Azure Active Directory. Dans beaucoup de scénarios de gestion d’appareils d’entreprise (COD), l’inscription BYOD est nécessaire pour la plupart des plateformes d’appareils. Consultez [Configurer la gestion des appareils mobiles (MDM) hybride](../deploy-use/setup-hybrid-mdm.md). ([Retour au tableau](#overview-of-device-enrollment-methods))
 
-## <a name="corporate-owned-devices"></a>Apparaten in Bedrijfseigendom
-Apparaten in Bedrijfseigendom (COD) kunnen worden beheerd met de Configuration Manager-console. iOS-apparaten kunnen worden ingeschreven rechtstreeks via hulpprogramma's van Apple. Alle typen apparaten kunnen worden ingeschreven door een beheerder of manager met behulp van de manager voor apparaatregistratie. Apparaten met een IMEI-nummer worden ook geïdentificeerd en worden deze gelabeld als Bedrijfseigendom COD-scenario's te maken.
+## <a name="corporate-owned-devices"></a>Appareils d’entreprise
+Les appareils d’entreprise (COD) peuvent être gérés à l’aide de la console Configuration Manager. Il est possible d’inscrire des appareils iOS directement par le biais des outils fournis par Apple. Tous les types d’appareils peuvent être inscrits par un administrateur ou un responsable à l’aide du gestionnaire d’inscription d’appareil. Les appareils dotés d’un numéro IMEI peuvent également être identifiés et référencés comme appartenant à l’entreprise pour mettre en œuvre des scénarios COD.
 
-[Apparaten inschrijven waarvan het bedrijf de eigenaar is](../deploy-use/enroll-company-owned-devices.md)
+[Inscrire des appareils d’entreprise](../deploy-use/enroll-company-owned-devices.md)
 
-### <a name="dem"></a>DEM
-Apparaatinschrijvingsbeheerder is een speciaal gebruikersaccount gebruikt om te registreren en beheren van meerdere apparaten in Bedrijfseigendom. Beheerders kunnen de bedrijfsportal installeren en veel apparaten zonder gebruiker registreren. Meer informatie over [DEM](../deploy-use/enroll-devices-with-device-enrollment-manager.md). ([Terug naar de tabel](#overview-of-device-enrollment-methods))
+### <a name="dem"></a>Gestionnaire d’inscription d’appareil
+Le gestionnaire d’inscription d’appareil est un compte d’utilisateur spécial qui permet d’inscrire et de gérer plusieurs appareils d’entreprise. Les responsables peuvent installer l’application Portail d’entreprise et inscrire de nombreux appareils sans utilisateur. En savoir plus sur le [gestionnaire d’inscription d’appareil](../deploy-use/enroll-devices-with-device-enrollment-manager.md). ([Retour au tableau](#overview-of-device-enrollment-methods))
 
 ### <a name="dep"></a>DEP
-Apple Device Enrollment Program (DEP)-beheer kunt u beleid maken en implementeren 'draadloos' op iOS-apparaten die zijn gekocht en beheerd met DEP. Het apparaat wordt geregistreerd wanneer de gebruiker het apparaat voor het eerst inschakelt en de iOS-Configuratieassistent wordt uitgevoerd. Deze methode ondersteunt **iOS onder supervisie** modus die zorgt:
-  - Vergrendelde registratie
-  - Voorwaardelijke toegang
-  - Jailbreakdetectie
-  - Beheer van mobiele toepassingen
+Le programme d’inscription d’appareil (ou DEP) d’Apple vous permet de créer et déployer une stratégie « à distance » sur des appareils iOS achetés et gérés avec DEP. L’appareil est inscrit quand l’utilisateur le démarre pour la première fois et exécute l’Assistant d’installation iOS. Cette méthode prend en charge le mode **iOS supervisé**, qui fournit les fonctionnalités suivantes :
+  - Inscription verrouillée
+  - Accès conditionnel
+  - Détection de jailbreak
+  - Gestion des applications mobiles
 
-Meer informatie over [DEP](../deploy-use/ios-device-enrollment-program-for-hybrid.md). ([Terug naar de tabel](#overview-of-device-enrollment-methods))
+En savoir plus sur la méthode [DEP](../deploy-use/ios-device-enrollment-program-for-hybrid.md). ([Retour au tableau](#overview-of-device-enrollment-methods))
 
 ### <a name="usb-sa"></a>USB-SA
-Door USB verbonden registratie met Configuratieassistent. De beheerder maakt een beleid en exporteert het naar Apple Configurator. USB-verbinding, zakelijke eigendom apparaten worden voorbereid met het beleid. De beheerder moet elk apparaat handmatig registreren. Gebruikers ontvangen hun apparaten en voeren Configuratieassistent uit inschrijving van het apparaat. Deze methode ondersteunt **iOS onder supervisie** modus die zorgt:
-  - Voorwaardelijke toegang
-  - Jailbreakdetectie
-  - Beheer van mobiele toepassingen
+Cette méthode permet d’inscrire des appareils connectés par USB en utilisant l’Assistant Configuration. L’administrateur crée une stratégie et l’exporte vers Apple Configurator. Les appareils d’entreprise connectés par USB sont préparés à l’aide d’une stratégie. L’administrateur doit inscrire manuellement chaque appareil. Après avoir reçu leur appareil, les utilisateurs exécutent l’Assistant Configuration pour inscrire l’appareil. Cette méthode prend en charge le mode **iOS supervisé**, qui fournit les fonctionnalités suivantes :
+  - Accès conditionnel
+  - Détection de jailbreak
+  - Gestion des applications mobiles
 
-Meer informatie over [inschrijving via Configuratieassistent met Apple Configurator](../deploy-use/ios-hybrid-enrollment-using-apple-configurator.md). ([Terug naar de tabel](#overview-of-device-enrollment-methods))
+En savoir plus sur l’[inscription via l’Assistant Configuration avec Apple Configurator](../deploy-use/ios-hybrid-enrollment-using-apple-configurator.md). ([Retour au tableau](#overview-of-device-enrollment-methods))
 
-## <a name="mobile-device-management-with-exchange-activesync-and-configuration-manager"></a>Mobile device management met Exchange ActiveSync en Configuration Manager
-Mobiele apparaten die niet zijn geregistreerd, maar die verbinding maken met Exchange ActiveSync (EAS) kunnen worden beheerd door Intune met EAS MDM-beleid. Intune gebruikt een Exchange-Connector om te communiceren met EAS, on-premises en cloud-gebaseerde.
+## <a name="mobile-device-management-with-exchange-activesync-and-configuration-manager"></a>Gestion des appareils mobiles avec Exchange ActiveSync et Configuration Manager
+Les appareils mobiles qui ne sont pas inscrits mais qui se connectent à Exchange ActiveSync (EAS) peuvent être gérés par Intune à l’aide de la stratégie de gestion des appareils mobiles EAS. Intune utilise un connecteur Exchange pour communiquer avec EAS, localement ou hébergé dans le cloud.
 
-[Mobile device management met Exchange ActiveSync en Intune](../deploy-use/manage-mobile-devices-with-exchange-activesync.md)
+[Gestion des appareils mobiles à l’aide d’Exchange ActiveSync et d’Intune](../deploy-use/manage-mobile-devices-with-exchange-activesync.md)

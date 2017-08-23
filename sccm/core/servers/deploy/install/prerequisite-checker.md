@@ -1,6 +1,6 @@
 ---
-title: Prerequisite Checker | Microsoft Docs
-description: Informatie over het gebruik van Prerequisite Checker te identificeren en oplossen van problemen die een site of sitesysteemrolinstallatie kunnen blokkeren.
+title: "Outil de vérification des prérequis | Microsoft Docs"
+description: "Découvrez comment utiliser l’Outil de vérification des prérequis pour identifier et résoudre les problèmes susceptibles de bloquer l’installation d’un site ou d’un rôle de système de site."
 ms.custom: na
 ms.date: 3/1/2017
 ms.prod: configuration-manager
@@ -16,42 +16,42 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: f0d44f82a0b6068f8cecc5808774677eccb0f8d9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prerequisite-checker-for-system-center-configuration-manager"></a>Vereistencontrole voor System Center Configuration Manager
+# <a name="prerequisite-checker-for-system-center-configuration-manager"></a>Outil de vérification des prérequis pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
- Voordat u Setup uitvoeren om te installeren of upgraden van een System Center Configuration Manager-site of voordat u een sitesysteemrol op een nieuwe server installeert, kunt u deze zelfstandige toepassing (**Prereqchk.exe**) van de versie van Configuration Manager die u wilt gebruiken om te controleren of de gereedheid van de server. Gebruik de Prerequisite Checker vaststellen en oplossen van problemen die een site of sitesysteemrolinstallatie blokkeren.  
+ Avant d’exécuter le programme d’installation pour installer ou mettre à niveau un site System Center Configuration Manager, ou avant d’installer un rôle de système de site sur un nouveau serveur, vous pouvez utiliser cette application autonome (**Prereqchk.exe**) de la version de Configuration Manager que vous voulez utiliser pour vérifier l’état de préparation du serveur. Utilisez l’Outil de vérification des prérequis pour identifier et résoudre les problèmes susceptibles de bloquer l’installation d’un site ou d’un rôle de système de site.  
 
 > [!NOTE]  
->  Prerequisite Checker wordt altijd uitgevoerd als onderdeel van de installatie.  
+>  L’Outil de vérification des prérequis s’exécute toujours pendant l’installation.  
 
-Standaard de Prerequisite Checker uitgevoerd:  
+Par défaut, quand l’Outil de vérification des prérequis s’exécute :  
 
--   Valideert de server waarop deze wordt uitgevoerd.  
--   De lokale computer gescand naar een bestaande siteserver en alleen de controles die van toepassing op de site zijn worden uitgevoerd.  
--   Als er geen bestaande sites worden gedetecteerd, worden alle vereiste regels uitgevoerd.  
--   Controleert deze regels om te controleren of software en instellingen die vereist zijn voor installatie zijn geïnstalleerd. Het is mogelijk dat de vereiste software is vereist aanvullende configuratie of software-updates die niet worden geverifieerd door Prerequisite Checker.  
--   De resultaten worden geregistreerd de **ConfigMgrPrereq.log** -bestand op het systeemstation van de computer. Het logboekbestand kan aanvullende informatie bevatten die niet wordt weergegeven in de toepassingsinterface van de.  
+-   Il valide le serveur sur lequel il s’exécute.  
+-   Il recherche un serveur de site sur l’ordinateur local et exécute uniquement les vérifications applicables au site.  
+-   Si aucun site existant n'est détecté, toutes les règles de vérification des prérequis sont exécutées.  
+-   Il vérifie les règles pour s’assurer de la présence des logiciels et des paramètres nécessaires à l’installation. Il est possible qu’un logiciel requis nécessite des configurations ou des mises à jour logicielles supplémentaires qui ne sont pas vérifiées par l’Outil de vérification des prérequis.  
+-   Il enregistre ses résultats dans le fichier journal **ConfigMgrPrereq.log** sur le lecteur système de l’ordinateur. Le fichier journal peut contenir des informations supplémentaires qui n’apparaissent pas dans l’interface de l’application.  
 
-Wanneer u Prerequisite Checker uitvoert vanaf een opdrachtprompt en specifieke opdrachtregelopties opgeeft:  
+Quand vous exécutez l’Outil de vérification des prérequis à l’invite de commandes et spécifiez des options de ligne de commande :  
 
--   Prerequisite Checker voert alleen de controles die zijn gekoppeld aan de siteserver of sitesystemen die u in de opdrachtregel opgeeft.  
--   Om te controleren op een externe computer, moet uw gebruikersaccount beheerdersrechten voor de externe computer hebben.  
+-   L’Outil de vérification des prérequis effectue uniquement les vérifications associées au serveur de site ou aux systèmes de site que vous spécifiez sur la ligne de commande.  
+-   Pour vérifier un ordinateur distant, votre compte d’utilisateur doit disposer des droits d’administrateur sur cet ordinateur.  
 
-Zie voor meer informatie over de controles die Prerequisite Checker uitvoert [lijst met vereistencontroles voor System Center Configuration Manager controleert](../../../../core/servers/deploy/install/list-of-prerequisite-checks.md).  
+Pour plus d’informations sur les vérifications effectuées par l’Outil de vérification des prérequis, consultez [Liste des vérifications des prérequis pour System Center Configuration Manager](../../../../core/servers/deploy/install/list-of-prerequisite-checks.md).  
 
-## <a name="copy-prerequisite-checker-files-to-another-computer"></a>Prerequisite Checker-bestanden kopiëren naar een andere computer  
+## <a name="copy-prerequisite-checker-files-to-another-computer"></a>Copier les fichiers de l’Outil de vérification des prérequis sur un autre ordinateur  
 
-1.  Ga in Windows Verkenner naar een van de volgende locaties:  
+1.  Dans l’Explorateur Windows, accédez à l’un des emplacements suivants :  
 
-    -   **&lt;*Configuration Manager-installatiemedia*\>\SMSSETUP\BIN\X64**  
-    -   **&lt;*Configuration Manager-installatiepad*\>\BIN\X64**  
+    -   **&lt;*Support d’installation de Configuration Manager*\>\SMSSETUP\BIN\X64**  
+    -   **&lt;*Répertoire d’installation de Configuration Manager*\>\BIN\X64**  
 
-2.  Kopieer de volgende bestanden naar de doelmap op de andere computer:  
+2.  Copiez les fichiers suivants vers le dossier de destination sur l'autre ordinateur :  
 
     -   Prereqchk.exe  
     -   Prereqcore.dll  
@@ -59,140 +59,140 @@ Zie voor meer informatie over de controles die Prerequisite Checker uitvoert [li
     -   Basesvr.dll  
     -   Baseutil.dll  
 
-##  <a name="run-prerequisite-checker-with-default-checks"></a>Prerequisite Checker uitvoeren met standaardcontroles  
+##  <a name="run-prerequisite-checker-with-default-checks"></a>Exécuter l’Outil de vérification des prérequis avec les vérifications par défaut  
 
-1.  Ga in Windows Verkenner naar een van de volgende locaties:  
+1.  Dans l’Explorateur Windows, accédez à l’un des emplacements suivants :  
 
-    -   **&lt;*Configuration Manager-installatiemedia*\>\SMSSETUP\BIN\X64**  
-    -   **&lt;*Configuration Manager-installatiepad*\>\BIN\X64**  
+    -   **&lt;*Support d’installation de Configuration Manager*\>\SMSSETUP\BIN\X64**  
+    -   **&lt;*Répertoire d’installation de Configuration Manager*\>\BIN\X64**  
 
-2.  Voer **prereqchk.exe** om Prerequisite Checker te starten.   
-    Prerequisite Checker detecteert bestaande sites, en als gevonden, controleert voor gereedheid voor upgrade. Als er geen sites worden gevonden, worden alle controles worden uitgevoerd. De **Sitetype** kolom bevat informatie over de siteserver of sitesysteem waaraan de regel gekoppeld is.  
+2.  Exécutez **prereqchk.exe** pour démarrer l’Outil de vérification des prérequis.   
+    L’Outil de vérification des prérequis détecte les sites existants et, une fois identifiés, vérifie s'ils sont prêts pour une mise à niveau. Si aucun site n'est trouvé, toutes les vérifications sont effectuées. La colonne **Type de site** fournit des informations sur le serveur de site ou le système de site auquel la règle est associée.  
 
-##  <a name="run-prerequisite-checker-from-a-command-prompt-for-all-default-checks"></a>Prerequisite Checker uitvoeren vanaf een opdrachtprompt voor alle standaardcontroles  
+##  <a name="run-prerequisite-checker-from-a-command-prompt-for-all-default-checks"></a>Exécuter l’Outil de vérification des prérequis à partir d’une invite de commandes pour toutes les vérifications par défaut  
 
-1.  Open een opdrachtpromptvenster en wijzig de mappen in een van de volgende locaties:  
+1.  Ouvrez une fenêtre d’invite de commandes, puis accédez à l’un des répertoires suivants :  
 
-    -   **&lt;*Configuration Manager-installatiemedia*\>\SMSSETUP\BIN\X64**  
-    -   **&lt;*Configuration Manager-installatiepad*\>\BIN\X64**  
+    -   **&lt;*Support d’installation de Configuration Manager*\>\SMSSETUP\BIN\X64**  
+    -   **&lt;*Répertoire d’installation de Configuration Manager*\>\BIN\X64**  
 
-2.  Voer **prereqchk.exe/Local** Prerequisite Checker starten en alle vereiste controles op de server worden uitgevoerd.  
+2.  Entrez  **prereqchk.exe /LOCAL** pour démarrer l’Outil de vérification des prérequis et effectuer toutes les vérifications des prérequis sur le serveur.  
 
-## <a name="run-prerequisite-checker-from-a-command-prompt-to-use-options"></a>Prerequisite Checker uitvoeren vanaf een opdrachtprompt te gebruiken opties  
+## <a name="run-prerequisite-checker-from-a-command-prompt-to-use-options"></a>Exécuter l’Outil de vérification des prérequis à partir d’une invite de commandes pour utiliser des options  
 
-1.  Open een opdrachtpromptvenster en wijzig de mappen in een van de volgende locaties:  
+1.  Ouvrez une fenêtre d’invite de commandes, puis accédez à l’un des répertoires suivants :  
 
-    -   **&lt;*Configuration Manager-installatiemedia*\>\SMSSETUP\BIN\X64**  
-    -   **&lt;*Configuration Manager-installatiepad*\>\BIN\X64**  
+    -   **&lt;*Support d’installation de Configuration Manager*\>\SMSSETUP\BIN\X64**  
+    -   **&lt;*Répertoire d’installation de Configuration Manager*\>\BIN\X64**  
 
-2.  Voer **prereqchk.exe** met het toevoegen van een of meer van de volgende opdrachtregelopties.  
+2.  Entrez **prereqchk.exe** en ajoutant une ou plusieurs des options de ligne de commande suivantes.  
 
-    Bijvoorbeeld, om te controleren op een primaire site, kunt u het volgende:  
+    Par exemple, pour vérifier un site principal, vous pouvez spécifier ce qui suit :  
 
-       **prereqchk.exe [/ noui] / PRI/SQL &lt;FQDN van SQL Server\> /SDK &lt;FQDN van SMS-Provider\> [/ JOIN &lt;FQDN-naam van de centrale beheersite\>] [/MP &lt;FQDN van beheerpunt\>] [/DP &lt;FQDN van distributiepunt\>]**  
+       **prereqchk.exe [/NOUI] /PRI /SQL &lt;Nom de domaine complet de SQL Server\> /SDK &lt;Nom de domaine complet du fournisseur SMS\> [/JOIN &lt;Nom de domaine complet du site d’administration centrale\>] [/MP &lt;Nom de domaine complet du point de gestion\>] [/DP &lt;Nom de domaine complet du point de distribution\>]**  
 
-    **Server centrale beheersite:**  
+    **Serveur de site d’administration centrale** :  
 
-    -   **/ NOUI**  
+    -   **/NOUI**  
 
-         Niet vereist. Prerequisite Checker gestart zonder de gebruikersinterface weer te geven. U moet deze optie voordat een andere optie opgeven op de opdrachtregel.  
+         Non obligatoire. Démarre l’Outil de vérification des prérequis sans afficher l’interface utilisateur. Vous devez spécifier cette option avant toute autre option dans la ligne de commande.  
 
-    -   **/ CA 'S**  
+    -   **/CAS**  
 
-         Vereist. Verifieert of de lokale computer voldoet aan de vereisten voor de centrale beheersite.  
+         Obligatoire. Vérifie que l'ordinateur local répond à la configuration requise pour le site d'administration centrale.  
 
-    -   **/ SQL &lt;* FQDN van SQL Server*>**  
+    -   **/SQL &lt;*Nom de domaine complet de SQL Server*>**  
 
-         Vereist. Met behulp van de volledig gekwalificeerde domeinnaam (FQDN), wordt gecontroleerd of de opgegeven computer voldoet aan de vereisten voor SQL Server om de Configuration Manager-sitedatabase te hosten.  
+         Obligatoire. À l’aide du nom de domaine complet, vérifie que l’ordinateur spécifié présente la configuration requise pour que SQL Server puisse héberger la base de données du site Configuration Manager.  
 
-    -   **/ SDK &lt;* FQDN van SMS-Provider*>**  
+    -   **/SDK &lt;*Nom de domaine complet du fournisseur SMS*>**  
 
-         Vereist. Verifieert of de opgegeven computer voldoet aan de vereisten voor de SMS-Provider.  
+         Obligatoire. Vérifie que l'ordinateur spécifié répond à la configuration requise pour le fournisseur SMS.  
 
-    -   **/ Ssbport**  
+    -   **/Ssbport**  
 
-         Niet vereist. Controleert of een firewalluitzondering actief is voor de communicatie via de poort van SQL Server Service Broker (SSB). De standaard SSB-poort is 4022.  
+         Non obligatoire. Vérifie qu’une exception de pare-feu est en place pour autoriser la communication sur le port SQL Server Service Broker (SSB). Le port SSB par défaut est 4022.  
 
-    -   **InstallDir &lt;* installatiepad Configuration Manager*>**  
+    -   **InstallDir &lt;*Chemin d’installation de Configuration Manager*>**  
 
-         Niet vereist. Controleert of de minimale schijfruimte van vereisten voor site-installatie.  
+         Non obligatoire. Vérifie l’espace disque minimal nécessaire pour l’installation du site.  
 
-    **Primaire siteserver:**  
+    **Serveur de site principal** :  
 
-    -   **/ NOUI**  
+    -   **/NOUI**  
 
-        Niet vereist. Prerequisite Checker gestart zonder de gebruikersinterface weer te geven. U moet deze optie voordat een andere optie opgeven op de opdrachtregel.  
+        Non obligatoire. Démarre l’Outil de vérification des prérequis sans afficher l’interface utilisateur. Vous devez spécifier cette option avant toute autre option dans la ligne de commande.  
 
-    -   **/ PRI**  
+    -   **/PRI**  
 
-         Vereist. Verifieert of de lokale computer voldoet aan de vereisten voor de primaire site.  
+         Obligatoire. Vérifie que l'ordinateur local répond à la configuration requise pour le site principal.  
 
-    -   **/ SQL &lt;* FQDN van SQL Server*>**  
+    -   **/SQL &lt;*Nom de domaine complet de SQL Server*>**  
 
-         Vereist. Hiermee wordt gecontroleerd of de opgegeven computer voldoet aan de vereisten voor SQL Server om de Configuration Manager-sitedatabase te hosten.  
+         Obligatoire. Vérifie que l’ordinateur spécifié présente la configuration requise pour que SQL Server puisse héberger la base de données du site Configuration Manager.  
 
-    -   **/ SDK &lt;* FQDN van SMS-Provider*>**  
+    -   **/SDK &lt;*Nom de domaine complet du fournisseur SMS*>**  
 
-         Vereist. Verifieert of de opgegeven computer voldoet aan de vereisten voor de SMS-Provider.  
+         Obligatoire. Vérifie que l'ordinateur spécifié répond à la configuration requise pour le fournisseur SMS.  
 
-    -   **/ JOIN &lt;* FQDN-naam van de centrale beheersite*>**  
+    -   **/JOIN &lt;*Nom de domaine complet du site d’administration centrale*>**  
 
-         Niet vereist. Hiermee wordt gecontroleerd of de lokale computer voldoet aan de vereisten voor het verbinden met de server van centrale beheersite.  
+         Non obligatoire. Vérifie que l'ordinateur local est conforme à la configuration requise pour se connecter au serveur de site d'administration centrale.  
 
-    -   **/MP &lt;* FQDN van beheerpunt*>**  
+    -   **/MP &lt;*Nom de domaine complet du point de gestion*>**  
 
-         Niet vereist. Hiermee wordt gecontroleerd of de opgegeven computer voldoet aan de vereisten voor de sitesysteemrol management. Deze optie wordt alleen ondersteund wanneer u de **/PRI** optie.  
+         Non obligatoire. Vérifie que l'ordinateur spécifié répond à la configuration requise pour le rôle de système de site du point de gestion. Cette option est prise en charge uniquement avec l’option **/PRI** .  
 
-    -   **/DP &lt;* FQDN van distributiepunt*>**  
+    -   **/DP &lt;*Nom de domaine complet du point de distribution*>**  
 
-         Niet vereist. Hiermee wordt gecontroleerd of de opgegeven computer voldoet aan de vereisten voor de sitesysteemrol distributiepunt. Deze optie wordt alleen ondersteund wanneer u de **/PRI** optie.  
+         Non obligatoire. Vérifie que l'ordinateur spécifié répond à la configuration requise pour le rôle de système de site du point de distribution. Cette option est prise en charge uniquement avec l’option **/PRI** .  
 
-    -   **/ Ssbport**  
+    -   **/Ssbport**  
 
-         Niet vereist. Controleert of een firewalluitzondering actief is voor de communicatie voor de SSB-poort. De standaard SSB-poort is 4022.  
+         Non obligatoire. Vérifie qu'une exception de pare-feu est en place pour permettre la communication sur le port SSB. Le port SSB par défaut est 4022.  
 
-    -   **InstallDir &lt;* installatiepad Configuration Manager*>**  
+    -   **InstallDir &lt;*Chemin d’installation de Configuration Manager*>**  
 
-         Niet vereist. Controleert of de minimale schijfruimte van vereisten voor site-installatie.  
+         Non obligatoire. Vérifie l’espace disque minimal nécessaire pour l’installation du site.  
 
-    **Secundaire siteserver:**  
+    **Serveur de site secondaire** :  
 
-    -   **/ NOUI**  
+    -   **/NOUI**  
 
-         Niet vereist. Prerequisite Checker gestart zonder de gebruikersinterface weer te geven. U moet deze optie voordat een andere optie opgeven op de opdrachtregel.  
+         Non obligatoire. Démarre l’Outil de vérification des prérequis sans afficher l’interface utilisateur. Vous devez spécifier cette option avant toute autre option dans la ligne de commande.  
 
-    -   **/ SEC &lt;* FQDN van secundaire siteserver*>**  
+    -   **/SEC &lt;*Nom de domaine complet du serveur de site secondaire*>**  
 
-         Vereist. Hiermee wordt gecontroleerd of de opgegeven computer voldoet aan de vereisten voor de secundaire site.  
+         Obligatoire. Vérifie que l'ordinateur spécifié répond aux exigences pour le site secondaire.  
 
-    -   **/ INSTALLSQLEXPRESS**  
+    -   **/INSTALLSQLEXPRESS**  
 
-         Niet vereist. Verifieert dat SQL Server Express kan worden geïnstalleerd op de opgegeven computer.  
+         Non obligatoire. Vérifie que SQL Server Express peut être installé sur l'ordinateur spécifié.  
 
-    -   **/ Ssbport**  
+    -   **/Ssbport**  
 
-         Niet vereist. Controleert of een firewalluitzondering actief is voor de communicatie voor de SSB-poort. De standaard SSB-poort is 4022.  
+         Non obligatoire. Vérifie qu’une exception de pare-feu est en place pour permettre la communication sur le port SSB. Le port SSB par défaut est 4022.  
 
-    -   **/ Sqlport**  
+    -   **/Sqlport**  
 
-         Niet vereist. Controleert of een firewalluitzondering actief is voor communicatie voor de SQL Server-servicepoort en de poort is niet in gebruik door het benoemde exemplaar van SQL Server. De standaardpoort is 1433.  
+         Non obligatoire. Vérifie qu’une exception de pare-feu est en place pour permettre la communication pour le port de service SQL Server, et que le port n’est pas utilisé par une autre instance nommée de SQL Server. Le port par défaut est 1433.  
 
-    -   **InstallDir &lt;* installatiepad Configuration Manager*>**  
+    -   **InstallDir &lt;*Chemin d’installation de Configuration Manager*>**  
 
-         Niet vereist. Controleert of de minimale schijfruimte van vereisten voor site-installatie.  
+         Non obligatoire. Vérifie l’espace disque minimal nécessaire pour l’installation du site.  
 
-    -   **/ SourceDir**  
+    -   **/SourceDir**  
 
-         Niet vereist. Hiermee wordt gecontroleerd of het computeraccount van de secundaire site toegang heeft tot de map die als host fungeert voor de bronbestanden voor installatie.  
+         Non obligatoire. Vérifie que le compte d'ordinateur du site secondaire peut accéder au dossier qui héberge les fichiers sources d'installation.  
 
-   **Configuration Manager-console:**  
+   **Console Configuration Manager** :  
 
-    -   **/ Adminui**  
+    -   **/Adminui**  
 
-         Vereist. Verifieert of de lokale computer voldoet aan de vereisten voor het installeren van Configuration Manager.  
+         Obligatoire. Vérifie que l’ordinateur local présente la configuration requise pour l’installation de Configuration Manager.  
 
-3.  In de gebruikersinterface van Prerequisite Checker Prerequisite Checker maakt een lijst met gedetecteerde problemen in de **vereistenresultaat** sectie.  
+3.  L’interface utilisateur de l’Outil de vérification des prérequis affiche la liste des problèmes détectés dans la section **Résultat de la vérification de configuration requise** .  
 
-    -   Klik op een item in de lijst voor meer informatie over het oplossen van het probleem.  
-    -   U moet alle items in de lijst met oplossen een **fout** status voordat de installatie van de siteserver, sitesysteem of Configuration Manager-console.  
-    -   U kunt ook openen de **ConfigMgrPrereq.log** bestand in de hoofdmap van het systeemstation te bekijken van resultaten van Prerequisite Checker. Het logboekbestand kan aanvullende informatie bevatten die niet wordt weergegeven in de gebruikersinterface van Prerequisite Checker.  
+    -   Cliquez sur un élément de la liste pour obtenir plus d'informations sur la façon de résoudre le problème.  
+    -   Vous devez résoudre tous les éléments de la liste qui présentent un état **Erreur** avant d’installer le serveur de site, le système de site ou la console Configuration Manager.  
+    -   Vous pouvez également ouvrir le fichier **ConfigMgrPrereq.log** à la racine du lecteur système pour examiner les résultats de l’Outil de vérification des prérequis. Le fichier journal peut contenir des informations supplémentaires qui ne sont pas affichées dans l’interface utilisateur de l’Outil de vérification des prérequis.  

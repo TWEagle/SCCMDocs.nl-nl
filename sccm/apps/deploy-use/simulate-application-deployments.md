@@ -1,6 +1,6 @@
 ---
-title: Implementaties van toepassingen simuleren | Microsoft Docs
-description: De detectiemethode, vereisten en afhankelijkheden voor een implementatietype zonder de toepassing installeren evalueren.
+title: "Simuler des déploiements d’applications | Microsoft Docs"
+description: "Évaluez la méthode de détection, les exigences et les dépendances d’un type de déploiement sans installer l’application."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,40 +17,40 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: b06539ded21eac71dda7da89dae96fda7a801260
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="simulate-application-deployments-with-system-center-configuration-manager"></a>Implementaties van toepassingen met System Center Configuration Manager simuleren
+# <a name="simulate-application-deployments-with-system-center-configuration-manager"></a>Simuler des déploiements d’applications avec System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-U kunt gesimuleerde implementaties gebruiken voor het testen van de implementatie van een toepassing zonder installeren of verwijderen van de toepassing. Een gesimuleerde implementatie evalueert de detectiemethode, vereisten en afhankelijkheden voor een implementatietype. Deze rapporteert de resultaten in de **implementaties** knooppunt van de **bewaking** werkruimte. Gebruik de procedure in dit onderwerp om te simuleren van de implementatie van een toepassing in System Center Configuration Manager (Configuration Manager).  
+Vous pouvez utiliser des déploiements simulés pour tester le déploiement d’une application sans installer ni désinstaller l’application. Un déploiement simulé évalue la méthode de détection, les exigences et les dépendances d’un type de déploiement. Les résultats sont signalés dans le nœud **Déploiements** de l’espace de travail **Analyse**. Utilisez la procédure indiquée dans cette rubrique pour simuler un déploiement d’application dans System Center Configuration Manager (Configuration Manager).  
 
 > [!NOTE]  
-> U kunt gesimuleerde implementaties niet gebruiken voor verzamelingen van mobiele apparaten.  
+> Vous ne pouvez pas utiliser les déploiements simulés pour les regroupements d'appareils mobiles.  
 >   
-> U kunt een toepassing niet implementeren met het implementatiedoel **Verwijderen** als een gesimuleerde implementatie van dezelfde toepassing actief is.  
+> Vous ne pouvez pas déployer une application dont l'objet de déploiement est **Désinstaller** si un déploiement simulé de la même application est actif.  
 
-## <a name="configure-a-simulated-application-deployment"></a>Een gesimuleerde toepassingsimplementatie configureren
+## <a name="configure-a-simulated-application-deployment"></a>Configurer un déploiement d’application simulé
 
-1.  Selecteer in de Configuration Manager-console een van de volgende opties:  
-    -   Een verzameling gebruikers.  
-    -   Een verzameling apparaten.  
-    -   Een Configuration Manager-toepassing.  
+1.  Dans la console Configuration Manager, sélectionnez un des éléments suivants :  
+    -   Un regroupement d'utilisateurs.  
+    -   Un regroupement de périphériques.  
+    -   Une application Configuration Manager.  
 
-2.  Op de **Start** tabblad, in de **implementatie** groep, kiest u **implementatie simuleren**.  
+2.  Sous l’onglet **Accueil**, dans le groupe **Déploiement**, cliquez sur **Simuler un déploiement**.  
 
-3.  Stel in de Wizard toepassing implementatie simuleren in de volgende gegevens voor uw gesimuleerde implementatie:  
+3.  Dans l’Assistant Simuler un déploiement d’application, définissez les détails suivants pour votre déploiement simulé :  
 
-    -   **Toepassing**. Kies **Bladeren**, en selecteer vervolgens de toepassing die u wilt maken van een gesimuleerde implementatie voor.  
+    -   **Application**. Choisissez **Parcourir**, puis sélectionnez l’application pour laquelle vous souhaitez créer une simulation de déploiement.  
 
-    -   **Verzameling**. Kies **Bladeren**, en selecteer vervolgens de verzameling die u wilt gebruiken voor de gesimuleerde implementatie.  
+    -   **Regroupement**. Choisissez **Parcourir**, puis sélectionnez le regroupement à utiliser pour le déploiement simulé.  
 
-    -   **Actie**. Selecteer in de vervolgkeuzelijst of u wilt de installatie of het verwijderen van de geselecteerde toepassing simuleren.  
+    -   **Action**. Dans la liste déroulante, indiquez si vous souhaitez simuler l’installation ou la désinstallation de l’application sélectionnée.  
 
-    -   **Automatisch implementeren met of zonder gebruikersaanmelding**. Als deze optie is ingeschakeld, evalueren de clients de gesimuleerde implementatie of de clients zijn aangemeld of niet.  
+    -   **Déployer automatiquement avec ou sans connexion de l’utilisateur**. Si cette option est cochée, les clients évaluent le déploiement simulé, qu’ils soient connectés ou non.  
 
-4.  Klik op **volgende**, lees de informatie op de **samenvatting** pagina en voltooi de wizard voor het maken van de gesimuleerde toepassingsimplementatie.  
+4.  Cliquez sur **Suivant**, consultez les informations indiquées dans la page **Résumé**, puis terminez l’Assistant pour créer le déploiement d’application simulé.  
 
-5.  Gesimuleerde toepassingen worden weergegeven de **implementaties** knooppunt van de **bewaking** werkruimte met als doel **simuleren**. Zie voor meer informatie over het bewaken van toepassingsimplementaties [toepassingen bewaken vanuit de System Center Configuration Manager-console](../../apps/deploy-use/monitor-applications-from-the-console.md).  
+5.  Les applications simulées apparaissent dans le nœud **Déploiements** de l’espace de travail **Analyse** et leur objet est **Simuler**. Pour plus d’informations sur la surveillance des déploiements d’applications, consultez [Surveiller des applications à partir de la console System Center Configuration Manager](../../apps/deploy-use/monitor-applications-from-the-console.md).  

@@ -1,6 +1,6 @@
 ---
-title: Registratiehulpprogramma bijwerken | Microsoft Docs
-description: Ontdek wanneer en hoe u het hulpprogramma registratie bijwerken met een update handmatig te importeren naar de Configuration Manager-console.
+title: "Outil Inscription de la mise à jour | Microsoft Docs"
+description: "Découvrez quand et comment utiliser l’outil Inscription de la mise à jour pour importer manuellement une mise à jour dans la console Configuration Manager."
 ms.custom: na
 ms.date: 3/27/2017
 ms.prod: configuration-manager
@@ -16,56 +16,56 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 35a4c201f73469fdfaa5bb8629e91886f7ae8751
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-the-update-registration-tool-to-import-hotfixes-to-system-center-configuration-manager"></a>Gebruik het hulpprogramma Registratie bijwerken om hotfixes te importeren naar System Center Configuration Manager
+# <a name="use-the-update-registration-tool-to-import-hotfixes-to-system-center-configuration-manager"></a>Importer des correctifs pour System Center Configuration Manager avec l’outil Inscription de la mise à jour
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Sommige updates voor Configuration Manager zijn niet beschikbaar is via het Microsoft-cloudservice en zijn alleen out-of-band te verkrijgen. Een voorbeeld is een beperkt uitgegeven hotfix voor een specifiek probleem.   
-Wanneer u een out-of-band-versie moet installeren en de bestandsnaam update of hotfix eindigt met de extensie **update.exe**, u de **hulpprogramma registratie bijwerken** handmatig importeren van de update naar de Configuration Manager-console. Met het hulpprogramma kunt u het updatepakket uitpakken en overdragen naar de siteserver en de update registreren bij de Configuration Manager-console.  
+Certaines mises à jour de Configuration Manager indisponibles sur le service cloud Microsoft ne peuvent être obtenues que hors-bande. C’est le cas, par exemple, d’un correctif logiciel en édition limitée destiné à résoudre un problème spécifique.   
+Quand vous devez installer une version hors-bande et que le nom de fichier du correctif ou de la mise à jour se termine par l’extension **update.exe**, vous pouvez vous servir de l’**outil Inscription de la mise à jour** pour importer manuellement la mise à jour dans la console Configuration Manager. Cet outil vous permet d’extraire et de transférer le package de mise à jour vers le serveur de site, et d’inscrire la mise à jour auprès de la console Configuration Manager.  
 
- Als het hotfixbestand de **.exe** bestandsextensie (geen **update.exe**), Zie [het Hotfix-installatieprogramma gebruiken om updates te installeren voor System Center Configuration Manager](../../../core/servers/manage/use-the-hotfix-installer-to-install-updates.md)  
+ Si le fichier de correctif a l’extension de fichier **.exe** et non **update.exe**, consultez [Utiliser le programme d’installation de correctif logiciel pour installer les mises à jour de System Center Configuration Manager](../../../core/servers/manage/use-the-hotfix-installer-to-install-updates.md)  
 
 > [!NOTE]  
->  In dit onderwerp biedt algemene richtlijnen over het installeren van hotfixes om System Center Configuration Manager bij te werken. Raadpleeg de bijbehorende artikel Knowledge Base (KB) op Microsoft Support voor meer informatie over een specifieke hotfix of update.  
+>  Cette rubrique fournit des indications générales sur la façon d’installer les correctifs pour la mise à jour de System Center Configuration Manager. Pour plus d’informations sur un correctif ou une mise à jour spécifiques, voir l’article correspondant dans la Base de connaissances du support Microsoft.  
 
- **Vereisten voor het gebruik van het hulpprogramma Registratie bijwerken:**  
+ **Conditions préalables à l’utilisation de l’outil Inscription de la mise à jour :**  
 
--   Alleen out-of-band-updates die eindigen op de **. update.exe** uitbreiding kan worden geïnstalleerd met dit hulpprogramma  
+-   Cet outil permet d’installer uniquement des mises à jour hors-bande dont le nom se termine par l’extension **.update.exe**  
 
--   Het hulpprogramma is ingesloten in de afzonderlijke updates die u rechtstreeks van Microsoft krijgen  
+-   L’outil est autonome et comprend les mises à jour individuelles que vous recevez directement de Microsoft.  
 
--   Het hulpprogramma is niet afhankelijk van de modus van het serviceaansluitpunt  
+-   L’outil n’a aucune dépendance par rapport au mode du point de connexion de service.  
 
--   Het hulpprogramma moet worden uitgevoerd op de computer die het serviceaansluitpunt host  
+-   L’outil doit être exécuté sur l’ordinateur hébergeant le point de connexion de service.  
 
--   De computer waarop het hulpprogramma wordt uitgevoerd (de computer met het serviceaansluitpunt) moet .NET Framework 4.52 zijn geïnstalleerd  
+-   .NET Framework 4.52 doit être installé sur l’ordinateur sur lequel l’outil s’exécute (ordinateur faisant office de point de connexion de service).  
 
--   Het account waarmee u het hulpprogramma uitvoert moet hebben **lokale beheerder** machtigingen op de computer die als host fungeert voor het service connection point (waarop het hulpprogramma wordt uitgevoerd)  
+-   Le compte que vous utilisez pour exécuter l’outil doit disposer d’autorisations d’**administrateur local** sur l’ordinateur hébergeant le point de connexion de service sur lequel l’outil s’exécute  
 
--   Het account waarmee u het hulpprogramma uitvoert moet hebben **schrijven** machtigingen voor de volgende map op de computer die als host fungeert voor het service connection point:  **&lt;ConfigMgr-installatiemap\>\EasySetupPayload\offline**  
+-   Le compte que vous utilisez pour exécuter l’outil doit disposer d’autorisations en **écriture** sur le dossier suivant de l’ordinateur hébergeant le point de connexion de service : **&lt;Répertoire d’installation de ConfigMgr\>\EasySetupPayload\offline**  
 
-### <a name="to-use-the-update-registration-tool"></a>Het hulpprogramma Registratie bijwerken gebruiken  
+### <a name="to-use-the-update-registration-tool"></a>Pour utiliser l’outil Inscription de la mise à jour  
 
-1.  Op de computer die het serviceverbindingspunt host:  
+1.  Sur l’ordinateur qui héberge le point de connexion de service :  
 
-    -   Open een opdrachtprompt met beheerdersbevoegdheden en wijzig de mappen in de locatie waarin  **&lt;Product\>-&lt;productversie\>-&lt;KB-artikel-ID\>-ConfigMgr.Update.exe**  
+    -   Ouvrez une invite de commandes avec des privilèges d’administration, puis remplacez les répertoires par l’emplacement contenant **&lt;Produit\>-&lt;version du produit\>-&lt;ID d’article de la Base de connaissances\>-ConfigMgr.Update.exe**  
 
-2.  Voer de volgende opdracht uit om het hulpprogramma Registratie bijwerken te openen:  
+2.  Exécutez la commande suivante pour démarrer l’outil Inscription de la mise à jour :  
 
-    -   **&lt;Product\>-&lt;productversie\>-&lt;KB-artikel-ID\>-ConfigMgr.Update.exe**  
+    -   **&lt;Produit\>-&lt;version du produit\>-&lt;ID d’article de la Base de connaissances\>-ConfigMgr.Update.exe**  
 
-    Wanneer de hotfix is geregistreerd, wordt deze binnen 24 uur weergegeven als nieuwe update in de console.  U kunt het proces versnellen:
+    Une fois inscrit, le correctif logiciel s’affiche en tant que nouvelle mise à jour dans la console dans les 24 heures.  Vous pouvez accélérer le processus :
 
-    - Open de Configuration Manager-console en Ga naar naar **beheer** > **Updates en onderhoud**, en klik vervolgens op **controleren op Updates**. (Voorafgaand aan versie 1702, Updates en onderhoud is onder **beheer** > **Cloudservices**.) 
+    - Ouvrez la console Configuration Manager, accédez à **Administration** > **Mises à jour et maintenance** puis cliquez sur **Rechercher les mises à jour**. (Avant la version 1702, les mises à jour et la maintenance s’effectuaient via le menu **Administration** > **Services cloud**.) 
 
-    Het hulpprogramma Registratie bijwerken registreert de uitgevoerde bewerkingen in een logboekbestand op de lokale computer. Het logboekbestand heeft dezelfde naam als het hotfixbestand .exe en geschreven naar de **%SystemRoot%/Temp** map.  
+    L’outil Inscription de la mise à jour consigne ses actions dans un fichier .log sur l’ordinateur local. Ce fichier journal porte le même nom que le fichier .exe du correctif, et est stocké dans le dossier **%SystemRoot%/Temp**.  
 
-     Wanneer de update is geregistreerd, kunt u het hulpprogramma Registratie bijwerken sluiten.  
+     Une fois la mise à jour inscrite, vous pouvez fermer l’outil Inscription de la mise à jour.  
 
-3.  Open de Configuration Manager-console en Ga naar **beheer** > **Updates en onderhoud**. De geïmporteerde hotfixes kunnen nu worden geïnstalleerd. (Voorafgaand aan versie 1702, Updates en onderhoud is onder **beheer** > **Cloudservices**.)
+3.  Ouvrez la console Configuration Manager, puis accédez à **Administration** > **Mises à jour et maintenance**. Les correctifs importés peuvent désormais être installés. (Avant la version 1702, les mises à jour et la maintenance s’effectuaient via le menu **Administration** > **Services cloud**.)
 
- Zie voor meer informatie over het installeren van updates [updates in de console voor System Center Configuration Manager installeren](../../../core/servers/manage/install-in-console-updates.md)  
+ Pour plus d’informations sur l’installation des mises à jour, consultez [Installer des mises à jour dans la console pour System Center Configuration Manager](../../../core/servers/manage/install-in-console-updates.md)  

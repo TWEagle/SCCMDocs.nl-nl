@@ -1,6 +1,6 @@
 ---
-title: Configuratie-items maken voor Windows-computers client beheerd - Configuration Manager | Microsoft Docs
-description: Instellingen beheren voor Windows-computers en servers met een aangepaste Windows-Desktops en Servers configuratie-item.
+title: "Créer des éléments de configuration pour des ordinateurs Windows gérés par un client - Configuration Manager | Microsoft Docs"
+description: "Gérer les paramètres des ordinateurs et des serveurs Windows avec un élément de configuration Ordinateurs de bureau et serveurs Windows."
 ms.custom: na
 ms.date: 11/18/2016
 ms.prod: configuration-manager
@@ -17,63 +17,63 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: e040c6b3a951d1bdf5a46dd82f1bd92b45c2e71d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-system-center-configuration-manager-client"></a>Aangepaste configuratie-items voor Windows-desktopcomputers en -servercomputers maken die worden beheerd met de System Center Configuration Manager-client
+# <a name="how-to-create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-system-center-configuration-manager-client"></a>Comment créer des éléments de configuration personnalisés pour les ordinateurs et serveurs Windows gérés par le client System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-De System Center Configuration Manager gebruiken **aangepaste Windows-Desktops en Servers** configuratie-item voor het beheren van instellingen voor Windows-computers en servers die worden beheerd door de Configuration Manager-client.  
+Utilisez l’élément de configuration **Ordinateurs de bureau et serveurs Windows (personnalisés)** pour gérer les paramètres des ordinateurs de bureau et serveurs Windows qui sont gérés par le client  Configuration Manager.  
 
-## <a name="start-the-create-configuration-item-wizard"></a>Start de configuratiewizard-item
+## <a name="start-the-create-configuration-item-wizard"></a>Démarrer l'Assistant Création d'élément de configuration
 
-1.  Klik in de Configuration Manager-console op **activa en naleving** > **instellingen voor naleving** > **configuratie-Items**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Éléments de configuration**.  
 
-3.  Klik op het tabblad **Start** in de groep **Maken** op **Configuratie-item maken**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un élément de configuration**.  
 
-4.  Geef op de pagina **Algemeen** van de **Wizard Configuratie-item maken** een naam en een optionele beschrijving voor het configuratie-item op.  
+4.  Dans la page **Général** page de l’ **Assistant Création d’élément de configuration**, spécifiez un nom et une éventuelle description pour l’élément de configuration.  
 
-5.  Selecteer onder **Geef het type configuratie-item op dat u wilt maken** de optie **Windows-desktops en -servers (aangepast)**.  
+5.  Sous **Spécifier le type d’élément de configuration que vous voulez créer**, sélectionnez **Ordinateurs et serveurs Windows (personnalisés)**.  
 
     > [!TIP]  
-    >  Als u instellingen voor de detectiemethode wilt opgeven om te controleren op het bestaan van een toepassing, selecteert u **Dit configuratie-item bevat toepassingsinstellingen**.  
+    >  Si vous voulez fournir des paramètres de méthode de détection pour vérifier l’existence d’une application, sélectionnez **Cet élément de configuration contient des paramètres d’application**.  
 
-6.  Klik op **categorieën** als u categorieën maakt en toewijst om te zoeken en filteren van configuratie-items in de Configuration Manager-console.  
+6.  Cliquez sur **Catégories** si vous créez et attribuez des catégories pour faciliter la recherche et le filtrage des éléments de configuration dans la console Configuration Manager.  
 
-## <a name="provide-detection-method-information"></a>Gegevens voor detectiemethode opgeven  
- Gebruik deze procedure om gegevens voor de detectiemethode op te geven voor het configuratie-item.  
+## <a name="provide-detection-method-information"></a>Fournir des informations de méthode de détection  
+ Utilisez cette procédure pour fournir les informations de méthode de détection de l'élément de configuration.  
 
 > [!NOTE]  
->  Dit geldt alleen als u **Dit configuratie-item bevat toepassingsinstellingen** hebt geselecteerd op de pagina **Algemeen** van de wizard.  
+>  S'applique uniquement si vous avez sélectionné **cet élément de configuration contient des paramètres d'application** sur la **Général** page de l'Assistant.  
 
- Een detectiemethode in Configuration Manager bevat de regels die worden gebruikt om te detecteren of een toepassing is geïnstalleerd op een computer. Deze detectie vindt plaats voordat het configuratie-item wordt beoordeeld op naleving. Als u wilt verifiëren of een toepassing is geïnstalleerd, kunt u controleren of er een Windows Installer-bestand aanwezig is voor de toepassing, een aangepast script gebruiken of **Altijd aannemen dat de toepassing is geïnstalleerd** selecteren om het configuratie-item op naleving te controleren, ongeacht of de toepassing is geïnstalleerd.  
+ Une méthode de détection dans Configuration Manager contient des règles qui sont utilisées pour déterminer si une application est installée sur un ordinateur. La détection a lieu avant l'évaluation de la compatibilité de l'élément de configuration. Pour déterminer si une application est installée, vous pouvez détecter la présence du Windows Installer de l'application, utiliser un script personnalisé ou sélectionner **Toujours partir du principe que l'application est installée** pour évaluer la compatibilité de l'élément de configuration, que l'application soit installée ou non.  
 
- Gebruik deze procedures om detectiemethoden te configureren in System Center Configuration Manager.  
+ Utilisez ces procédures pour configurer des méthodes de détection dans System Center Configuration Manager.  
 
-### <a name="to-detect-an-application-installation-by-using-the-windows-installer-file"></a>De installatie van een toepassing detecteren met het Windows Installer-bestand  
+### <a name="to-detect-an-application-installation-by-using-the-windows-installer-file"></a>Pour détecter une installation d'application en utilisant le fichier Windows Installer  
 
-1.  Schakel op de pagina **Detectiemethoden** van de wizard **Configuratie-item maken** het selectievakje **Detectie van Windows-installatieprogramma gebruiken** in.  
+1.  Sur le **des méthodes de détection** page de la **Assistant Création d'un élément de Configuration**, sélectionnez le **utiliser Windows Installer detection** case à cocher.  
 
-2.  Klik op **Openen**, blader naar het Windows Installer-bestand (.msi) dat u wilt detecteren en klik op **Openen**.  
+2.  Cliquez sur **Open**, recherchez le fichier Windows Installer (.msi) que vous souhaitez détecter, puis cliquez sur **Open**.  
 
-3.  In het vak **Versie** wordt automatisch het versienummer ingevuld van het Windows Installer-bestand dat u hebt geselecteerd. U kunt een nieuwe versienummer in dit vak invoeren als de weergegeven waarde onjuist is.  
+3.  Le **Version** zone est automatiquement renseignée avec le numéro de version du fichier Windows Installer que vous avez sélectionné. Si la valeur affichée est incorrecte, vous pouvez entrer un nouveau numéro de version dans cette zone.  
 
-4.  Schakel het selectievakje **Deze toepassing is geïnstalleerd voor een of meer gebruikers** in als u elk gebruikersprofiel op de computer wilt detecteren.  
+4.  Cochez la case **Cette application n’est pas installée pour un ou plusieurs utilisateurs** pour détecter chaque profil utilisateur sur l’ordinateur.  
 
-### <a name="to-detect-a-specific-application-and-deployment-type"></a>Een bepaalde toepassing en een implementatietype detecteren  
+### <a name="to-detect-a-specific-application-and-deployment-type"></a>Pour détecter un type d’application et de déploiement spécifique  
 
-1.  Schakel op de pagina **Detectiemethoden** van de wizard **Configuratie-item configureren** het selectievakje **Een bepaalde toepassing en implementatietype detecteren** in en klik op **Selecteren**.  
+1.  Dans la page **Méthodes de détection** de l’ **Assistant Création d’élément de configuration**, cochez la case **Détecter un type d’application et de déploiement spécifique** , puis cliquez sur **Sélectionner**.  
 
-2.  Selecteer in het dialoogvenster **Toepassing opgeven** de toepassing en een bijbehorend implementatietype dat u wilt detecteren.  
+2.  Dans la boîte de dialogue **Spécifier une application** , sélectionnez l’application et un type de déploiement associé à détecter.  
 
-### <a name="to-detect-an-application-installation-by-using-a-custom-script"></a>De installatie van een toepassing detecteren met een aangepast script  
+### <a name="to-detect-an-application-installation-by-using-a-custom-script"></a>Pour détecter une installation d’application à l’aide d’un script personnalisé  
 
-1.  Schakel op de pagina **Detectiemethoden** van de wizard **Configuratie-item maken** het selectievakje **Aangepast script gebruiken om deze toepassing te detecteren** in.  
+1.  Sur le **méthodes de détection** page de la **Assistant Création d'un élément de Configuration**, sélectionnez le **utiliser un script personnalisé pour détecter cette application** case à cocher.  
 
-2.  Selecteer in de lijst de taal van het script dat u wilt openen. Kies uit de volgende scripts:  
+2.  Dans la liste, sélectionnez la langue du script que vous souhaitez ouvrir. Choisissez les scripts suivants :  
 
     -   **VBScript**  
 
@@ -81,277 +81,277 @@ De System Center Configuration Manager gebruiken **aangepaste Windows-Desktops e
 
     -   **PowerShell**  
 
-3.  Klik op **Openen**, blader naar het script dat u wilt gebruiken en klik vervolgens op **Openen**.  
+3.  Cliquez sur **Ouvrir**, accédez au script à utiliser, puis cliquez sur **Ouvrir**.  
 
-##  <a name="configure-settings"></a>Instellingen configureren  
- Gebruik deze procedure om de instellingen in het configuratie-item te configureren.  
+##  <a name="configure-settings"></a>Configurer les paramètres  
+ Utilisez cette procédure pour configurer les paramètres dans l'élément de configuration.  
 
- Instellingen vertegenwoordigen de zakelijke of technische voorwaarden die worden gebruikt voor het evalueren van naleving op clientapparaten. U kunt een nieuwe instelling configureren of naar een bestaande instelling op een referentiecomputer bladeren.  
+ Représentent les paramètres de l'entreprise ou critères techniques sont utilisées pour évaluer la conformité des périphériques clients. Vous pouvez configurer un nouveau paramètre ou accéder à un paramètre existant sur un ordinateur de référence.  
 
-1.  Klik op de pagina **Instellingen** van de wizard **Configuratie-item maken** op **Nieuw**.  
+1.  Dans la page **Paramètres** de l' **Assistant Création d'élément de configuration**, cliquez sur **Nouveau**.  
 
-2.  Op het tabblad **Algemeen** van het dialoogvenster **Instellingen maken** geeft u de volgende gegevens op:  
+2.  Sur l'onglet **Général** de la boîte de dialogue **Créer un paramètre** , fournissez les informations suivantes :  
 
-    -   **Naam:** Geef een unieke naam voor de instelling. U kunt maximaal 256 tekens gebruiken.  
+    -   **Nom :** Entrez un nom unique pour le paramètre. Vous pouvez utiliser jusqu'à 256 caractères.  
 
-    -   **Beschrijving:** Voer een beschrijving voor de instelling. U kunt maximaal 256 tekens gebruiken.  
+    -   **Description :** Entrez une description pour le paramètre. Vous pouvez utiliser jusqu'à 256 caractères.  
 
-    -   **Instellingstype:** Kies in de lijst en configureer een van de volgende instellingstypen voor deze instelling gebruiken:  
+    -   **Type de paramètre :** Dans la liste, choisissez et configurez l’un des types de paramètres suivants à utiliser pour ce paramètre :  
 
-        -   **Active Directory-query**  
+        -   **Requête Active Directory**  
 
-             **LDAP-voorvoegsel** - Geef een geldig voorvoegsel op in de Active Directory Domain Services-query om de naleving vast te stellen op clientcomputers. U kunt **LDAP://** gebruiken of **GC://**, als u wilt zoeken in de globale catalogus.  
+             **Préfixe LDAP** : désigne un préfixe valide pour la requête des services de domaine Active Directory afin d’évaluer la compatibilité sur les ordinateurs clients. Vous pouvez utiliser **LDAP: / /** pour un ou **GC: / /** pour effectuer une recherche de catalogue global...  
 
-             **DN-naam**: Geef de DN-naam op van het Active Directory Domain Services-object dat op naleving wordt gecontroleerd op clientcomputers.  
+             **Nom unique (DN)** -spécifier le nom unique de l'objet Services de domaine Active Directory qui est évaluée pour la conformité sur les ordinateurs clients.  
 
-             Als u een waarde gerelateerd aan een gebruiker met de naam John Smith in het domein corp.contoso.com wilt evalueren, voert u het volgende in:  
+             Par exemple, si vous voulez évaluer une valeur associée à un utilisateur nommé John Smith dans le domaine corp.contoso.com, entrez ce qui suit :  
 
-            -   **Zoekfilter**: Geef een optionele LDAP-filter op om de resultaten van de Active Directory Domain Services-query te verfijnen om de compatibiliteit vast te stellen op clientcomputers.  
+            -   **Filtre de recherche** : indique le filtre LDAP facultatif permettant d'affiner les résultats de la requête Services de domaine Active Directory pour évaluer la compatibilité sur les ordinateurs clients.  
 
-                 Als u alle resultaten van de query wilt retourneren, voert u  **(objectklasse=\*)** in.  
+                 Pour renvoyer tous les résultats de la requête, entrez **(objectclass=\*)**.  
 
-            -   **Zoekbereik**: geef het zoekbereik op in Active Directory Domain Services/ U kunt kiezen uit:  
+            -   **Zone de recherche :** indique la zone de recherche dans les services de domaine Active Directory. Les choix sont les suivants :  
 
-                -   **Basis**: hiermee zoekt u alleen in het opgegeven object.  
+                -   **Base** -interroge uniquement l'objet spécifié.  
 
-                -   **Eén niveau** -deze optie wordt niet gebruikt in deze versie van Configuration Manager.  
+                -   **Un niveau** : cette option n’est pas utilisée dans cette version de Configuration Manager.  
 
-                -   **Substructuur**: hiermee zoekt u in het opgegeven object en de volledige substructuur in de map.  
+                -   **Sous-arborescence** -interroge l'objet spécifié et son sous-arbre dans l'annuaire.  
 
-            -   **Eigenschap**: hier geeft u de eigenschap op van een Active Directory Domain Services-object dat wordt gebruikt om de naleving te beoordelen op clientcomputers.  
+            -   **Propriété** -spécifier la propriété de l'objet Services de domaine Active Directory qui est utilisé pour évaluer la conformité sur les ordinateurs clients.  
 
-                 Als u bijvoorbeeld een query wilt uitvoeren op de Active Directory-eigenschap **badPwdCount**, waarin wordt opgeslagen hoe vaak een gebruiker een wachtwoord onjuist invoert, voert u **badPwdCount** in dit veld in.  
+                 Par exemple, si vous souhaitez interroger la propriété Active Directory **badPwdCount**, qui stocke le nombre de fois qu'un utilisateur entre incorrectement un mot de passe, entrez **badPwdCount** dans ce champ.  
 
-            -   **Query**: hier wordt de query weergegeven die is samengesteld uit de invoer in **LDAP-voorvoegsel**, **DN-naam**, **Zoekfilter**, indien opgegeven, en **Eigenschap**. Deze vakken worden gebruikt om naleving op clientcomputers te beoordelen.  
+            -   **Requête** -affiche la requête créée à partir des entrées dans **préfixe LDAP**, **nom unique (DN)**, **filtre de recherche** (si spécifiée), et **propriété**, qui sont utilisés pour évaluer la conformité sur les ordinateurs clients.  
 
-             Raadpleeg de Windows Server-documentatie voor meer informatie over het maken van LDAP-query’s.  
+             Pour plus d'informations sur la construction des requêtes LDAP, voir la documentation de Windows Server.  
 
         -   **Assembly**  
 
-             Configureer het volgende voor dit instellingstype:  
+             Configurez les éléments suivants pour ce type de paramètre :  
 
-            -   **Assembly-naam:** Hiermee geeft u de naam van het assembly-object dat u wilt zoeken. Deze naam mag niet dezelfde zijn als die van een ander assembly-object van hetzelfde type en moet zijn geregistreerd in de Global Assembly-cache. De assembly-naam mag maximaal 256 tekens lang zijn.  
+            -   **Nom de l'assembly :** Spécifie le nom de l'objet de l'assembly que vous souhaitez rechercher. Ce nom doit être différent des autres objets assembly de même type et il doit être enregistré dans le GAC (Global Assembly Cache). Le nom de l'assembly peut comporter jusqu'à 256 caractères.  
 
-             Een assembly is een stuk code dat tussen toepassingen kan worden gedeeld. Assembly's kunnen de bestandsnaamextensie .dll of .exe hebben. De Global Assembly-cache is een map met de naam *%systemroot%\Assembly* op clientcomputers waarin alle gedeelde assembly's zijn opgeslagen.  
+             Un assembly est un fragment de code qui peut être partagé entre plusieurs applications. Les assemblys peuvent comporter l'extension de fichier .dll ou .exe. Le Global Assembly Cache est un dossier appelé *%systemroot%\Assembly* sur client ordinateurs où tous les assemblys partagés sont stockés.  
 
-        -   **Bestandssysteem**  
+        -   **Système de fichiers**  
 
-            -   **Type**: geef in de lijst aan of u wilt zoeken naar een **bestand** of **map**.  
+            -   **Type** : dans la liste, indiquez si vous voulez rechercher un **fichier** ou un **dossier**.  
 
-            -   **Pad**: geef het pad op naar het opgegeven bestand of de map op clientcomputers. U kunt in het pad systeemomgevingsvariabelen specificeren en de *%USERPROFILE%*-omgevingsvariabele.  
+            -   **Chemin** -spécifier le chemin d'accès du fichier spécifié ou du dossier sur les ordinateurs clients. Vous pouvez spécifier des variables d'environnement système et la variable d'environnement *%USERPROFILE%* dans le chemin.  
 
                 > [!NOTE]  
-                >  Als u de omgevingsvariabele *%USERPROFILE%* gebruikt in het vak **Pad** of **Naam van bestand of map**, worden alle gebruikersprofielen op de clientcomputer doorzocht, wat kan leiden tot meerdere exemplaren van een gevonden bestand of map.  
+                >  Si vous utilisez la variable d’environnement *%USERPROFILE%* dans les zones **Chemin** ou **Nom de fichier ou de dossier** , tous les profils utilisateur sont recherchés sur l’ordinateur client et plusieurs instances du fichier ou du dossier peuvent être trouvées.  
                 >   
-                >  Als nalevingsinstellingen geen toegang tot het opgegeven pad hebben, wordt er een detectiefout gegenereerd. Er wordt ook een detectiefout gegenereerd als het bestand dat u zoekt momenteel in gebruik is.  
+                >  Si les paramètres de compatibilité n’ont pas accès au chemin spécifié, une erreur de découverte est générée. En outre, si le fichier que vous recherchez est actuellement en cours d'utilisation, une erreur de découverte est générée.  
 
-            -   **Bestands- of mapnaam**: geef de naam op van het bestands- of mapobject waarnaar moet worden gezocht. U kunt in de bestands- of map naam systeemomgevingsvariabelen specificeren en de *%USERPROFILE%*-omgevingsvariabele. U kunt ook de jokertekens * en ? in de bestandsnaam gebruiken.  
-
-                > [!NOTE]  
-                >  Als u een bestand of map opgeeft en hierbij jokertekens, wordt deze combinatie een groot aantal resultaten opleveren, kan leiden tot hoog bronnengebruik op de clientcomputer en veel netwerkverkeer wanneer resultaten rapporteren aan Configuration Manager.  
-
-            -   **Inclusief submappen** – Schakel deze optie in als u in submappen wilt zoeken onder het opgegeven pad.  
-
-            -   **Dit bestand of deze map is gekoppeld aan een 64-bits toepassing**: indien ingeschakeld, worden alleen 64-bits bestandslocaties (zoals *%ProgramFiles%*) gecontroleerd op 64-bits computers. Als deze optie niet is ingeschakeld, worden zowel 32-bits (zoals *% ProgramFiles(x86) %*) als 64-bits locaties gecontroleerd.  
+            -   **Nom de fichier ou dossier** -spécifiez le nom de l'objet fichier ou dossier à rechercher. Vous pouvez spécifier des variables d'environnement système et la variable d'environnement *%USERPROFILE%* dans le nom de fichier ou de dossier. Vous pouvez aussi utiliser les caractères génériques * et ? dans le nom du fichier.  
 
                 > [!NOTE]  
-                >  Als hetzelfde bestand of dezelfde map zowel op de 64-bits als op de 32-bits systeembestandslocatie van dezelfde 64-bits computer bestaat, worden meerdere bestanden gedetecteerd door de globale voorwaarde.  
+                >  Si vous spécifiez un nom de fichier ou dossier en utilisant des caractères génériques, cette combinaison peut produire un grand nombre de résultats et entraîner une forte utilisation des ressources sur l’ordinateur client ainsi qu’un trafic réseau élevé lors du signalement des résultats à System Center 2012 Configuration Manager.  
 
-             Het instellingstype **Bestandssysteem** biedt geen ondersteuning voor de opgave van een UNC-pad naar een netwerkshare in het veld **Pad**.  
+            -   **Inclure les sous-dossiers** : activez cette option si vous voulez également effectuer la recherche dans les sous-dossiers dans le chemin spécifié.  
 
-        -   **IIS Metabase**  
-
-            -   **Metabasepad**: geef een geldig pad op naar de IIS Metabase (Internet Information Services).  
-
-            -   **Eigenschaps-id** - Geef de numerieke eigenschap op van de IIS Metabase-instelling.  
-
-        -   **Registersleutel**  
-
-            -   **Component**: selecteer in de lijst de registercomponent waarin u wilt zoeken.  
-
-            -   **Sleutel**: specificeer de naam van de registersleutel waarnaar u wilt zoeken. Gebruik de indeling *sleutel\subsleutel*.  
-
-            -   **Deze registersleutel is gekoppeld aan een 64-bits toepassing**: hiermee geeft u op of naast de 32-bits registersleutels ook de 64-bits registersleutels moeten worden doorzocht op clients die worden uitgevoerd op een 64-bits versie van Windows.  
+            -   **Ce fichier ou dossier est associé à une application 64 bits** - si activé, seuls les emplacements de fichiers 64 bits (tel que *% ProgramFiles%*) sera vérifié sur les ordinateurs 64 bits. Si cette option n’est pas activée, les emplacements 32 bits (tels que *%ProgramFiles(x86)%*) et 64 bits sont vérifiés.  
 
                 > [!NOTE]  
-                >  Als dezelfde registersleutel zowel op de 64-bits als op de 32-bits registerlocatie van dezelfde 64-bits computer bestaat, worden beide registersleutels gedetecteerd door de globale voorwaarde.  
+                >  Si le même fichier ou dossier existe dans les emplacements de systèmes de fichiers 64 bits et 32 bits sur le même ordinateur 64 bits, la condition globale détecte plusieurs fichiers.  
 
-        -   **Registerwaarde**  
+             Le paramètre **Système de fichiers** ne permet pas de définir un chemin UNC de partage réseau dans la zone **Chemin** .  
 
-            -   **Component**: selecteer in de lijst de registercomponent waarin u wilt zoeken.  
+        -   **Métabase IIS**  
 
-            -   **Sleutel**: specificeer de naam van de registersleutel waarnaar u wilt zoeken. Gebruik de indeling *sleutel\subsleutel*.  
+            -   **Chemin de la métabase** : spécifiez un chemin valide à la métabase Internet Information Services (IIS).  
 
-            -   **Waarde**: specificeer de waarde die moet zijn opgenomen in de opgegeven registersleutel.  
+            -   **ID de propriété** : indique la propriété numérique du paramètre Métabase IIS.  
 
-            -   **Deze registersleutel is gekoppeld aan een 64-bits toepassing**: hiermee geeft u op of naast de 32-bits registersleutels ook de 64-bits registersleutels moeten worden doorzocht op clients die worden uitgevoerd op een 64-bits versie van Windows.  
+        -   **Clé du Registre**  
+
+            -   **Ruche** : dans la liste, sélectionnez la ruche du Registre dans laquelle vous voulez effectuer la recherche.  
+
+            -   **Clé** : indiquez le nom de clé de Registre à rechercher. Utilisez le format *clé\sous-clé*.  
+
+            -   **Cette clé de Registre est associée à une application 64 bits** -Spécifie si les clés de Registre 64 bits doivent être recherchés en plus des clés de Registre 32 bits sur les clients qui exécutent une version 64 bits de Windows.  
 
                 > [!NOTE]  
-                >  Als dezelfde registersleutel zowel op de 64-bits als op de 32-bits registerlocatie van dezelfde 64-bits computer bestaat, worden beide registersleutels gedetecteerd door de globale voorwaarde.  
+                >  Si la même clé de Registre existe dans les emplacements de Registre 64 bits et 32 bits sur un même ordinateur 64 bits, les deux clés de Registre sont détectées par la condition globale.  
 
-             U kunt ook klikken op **Bladeren** om te bladeren naar een registerlocatie op de computer of op een externe computer. Als u wilt bladeren naar een externe computer, moet u op de externe computer over beheerdersrechten beschikken en moet op de externe computer de Remote Registry-service worden uitgevoerd.  
+        -   **Valeur de Registre**  
+
+            -   **Ruche** : dans la liste, sélectionnez la ruche du Registre dans laquelle vous voulez effectuer la recherche.  
+
+            -   **Clé** : indiquez le nom de clé de Registre à rechercher. Utilisez le format *clé\sous-clé*.  
+
+            -   **Valeur** : indiquez la valeur qui doit être contenue dans la clé de Registre spécifiée.  
+
+            -   **Cette clé de Registre est associée à une application 64 bits** : indique si la recherche doit être effectuée dans les clés de Registre 64 bits en plus des clés de Registre 32 bits sur les clients qui exécutent une version Windows 64 bits.  
+
+                > [!NOTE]  
+                >  Si la même clé de Registre existe dans les emplacements de Registre 64 bits et 32 bits sur un même ordinateur 64 bits, les deux clés de Registre sont détectées par la condition globale.  
+
+             Vous pouvez également cliquer sur **Parcourir** pour accéder à un emplacement de Registre sur l’ordinateur ou sur un ordinateur distant. Pour rechercher un ordinateur distant, vous devez disposer des droits d'administrateur sur l'ordinateur distant et l'ordinateur distant doit exécuter le service Registre distant.  
 
         -   **Script**  
 
-            -   **Detectiescript**: klik op **Toevoegen** om naar het script te bladeren dat u wilt gebruiken. U kunt Windows PowerShell-, VBScript- of Microsoft JScript-scripts gebruiken.  
+            -   **Script de découverte** : cliquez sur **Ajouter** pour entrer ou rechercher le script que vous souhaitez utiliser. Vous pouvez utiliser des scripts Windows PowerShell, VBScript ou Microsoft JScript.  
 
-            -   **Scripts uitvoeren met de referenties van de aangemelde gebruiker**: als u deze optie inschakelt, wordt het script uitgevoerd op clientcomputers met de referenties van de aangemelde gebruikers.  
-
-                > [!NOTE]  
-                >  De geretourneerde waarde door het script wordt gebruikt om de naleving van de globale voorwaarde vast te stellen. Wanneer u bijvoorbeeld VBScript gebruikt, kunt u de opdracht **WScript.Echo Result** gebruiken om de variabele waarde *Result* te retourneren naar de globale voorwaarde.  
-
-        -   **SQL-query**  
-
-            -   **SQL Server-exemplaar** – Kies of u de SQL-query wilt uitvoeren op het standaardexemplaar, alle exemplaren of op de naam van een specifiek database-exemplaar.  
+            -   **Exécuter des scripts avec les informations d’identification d’utilisateur dont la session est ouverte** : si vous activez cette option, le script s’exécute sur les ordinateurs clients qui utilisent les informations d’identification des utilisateurs connectés.  
 
                 > [!NOTE]  
-                >  De naam van het exemplaar moet verwijzen naar een lokaal exemplaar van de SQL Server. Gebruik een scriptinstelling om te verwijzen naar een geclusterd SQL server-exemplaar.  
+                >  La valeur renvoyée par le script est utilisée pour évaluer la compatibilité de la condition globale. Par exemple, quand vous utilisez VBScript, vous pouvez utiliser la commande **WScript.Echo Result** pour renvoyer la valeur de la variable *Result* vers la condition globale.  
 
-            -   **Database**: geef de naam op van de Microsoft SQL Server-database waarvoor u de SQL query wilt uitvoeren.  
+        -   **Requête SQL**  
 
-            -   **Kolom**: geef de naam van de kolom op die door de Transact-SQL-instructie wordt geretourneerd om de naleving van de globale voorwaarde vast te stellen.  
+            -   **Instance SQL Server** : indiquez si vous préférez que la requête SQL soit exécutée sur l'instance par défaut, sur toutes les instances ou sur le nom d'une instance de base de données spécifique.  
 
-            -   **Transact-SQL-instructie**: geef de volledige SQL-query op die u wilt gebruiken voor de globale voorwaarde. U kunt ook op **Openen** klikken om een bestaande SQL-query te openen.  
+                > [!NOTE]  
+                >  Le nom de l'instance doit faire référence à une instance locale de SQL Server. Pour faire référence à une instance SQL Server en cluster, utilisez plutôt un paramètre de script.  
+
+            -   **Base de données** -spécifiez le nom de la base de données Microsoft SQL Server sur lequel vous souhaitez exécuter la requête SQL.  
+
+            -   **Colonne** -Indiquez le nom de la colonne renvoyée par l'instruction Transact-SQL qui est utilisée pour évaluer la conformité de la condition globale.  
+
+            -   **Instruction Transact-SQL** : permet d'indiquer la requête SQL complète que vous souhaitez utiliser pour la condition globale. Vous pouvez également cliquer sur **Ouvrir** pour ouvrir une requête SQL existante.  
 
                 > [!IMPORTANT]  
-                >  SQL Query-instellingen bieden geen ondersteuning voor SQL-opdrachten waarmee de database wordt gewijzigd. U kunt alleen SQL-opdrachten gebruiken waarmee gegevens uit de database worden gelezen.  
+                >  Les paramètres de requête SQL ne prennent pas en charge les commandes SQL qui modifient la base de données. Vous pouvez uniquement utiliser les commandes SQL qui lisent des informations à partir de la base de données.  
 
-        -   **WQL-query**  
+        -   **Requête WQL**  
 
-            -   **Naamruimte**: geef de WMI-naamruimte (Windows Management Instrumentation) op die wordt gebruikt om een WQL-query samen te stellen waarvan de naleving op clientcomputers wordt beoordeeld. De standaardwaarde is Root\cimv2.  
+            -   **Espace de noms** -spécifiez l'espace de noms Windows Management Instrumentation (WMI) qui est utilisé pour créer une requête WQL qui est évaluée pour la conformité sur les ordinateurs clients. La valeur par défaut est Root\cimv2.  
 
-            -   **Klasse**: hier geeft u de WMI-klasse op die wordt gebruikt om een WQL-query samen te stellen waarvan de naleving op clientcomputers wordt beoordeeld.  
+            -   **Classe** -spécifie la classe WMI qui permet de créer une requête WQL qui est évaluée pour la conformité sur les ordinateurs clients.  
 
-            -   **Eigenschap**: hier geeft u de WMI-eigenschap op die wordt gebruikt om een WQL-query samen te stellen waarvan de naleving op clientcomputers wordt beoordeeld.  
+            -   **Propriété** -spécifie la propriété WMI qui permet de créer une requête WQL qui est évaluée pour la conformité sur les ordinateurs clients.  
 
-            -   **WHERE-component van WQL-query** - U kunt het item **WHERE-component van WQL-query** gebruiken om een WHERE-component te specificeren die moet worden toegepast op de opgegeven naamruimte en de eigenschap op clientcomputers.  
+            -   **Clause WHERE de la requête WQL** : vous pouvez utiliser l'élément **Clause WHERE de la requête WQL** pour indiquer la clause WHERE à appliquer à l'espace de noms, à la classe et à la propriété spécifiés sur les ordinateurs clients.  
 
-        -   **XPath-query**  
+        -   **Requête XPath**  
 
-            -   **Pad**: geef het pad op naar het XML-bestand op clientcomputers die wordt gebruikt om naleving te beoordelen. Configuration Manager ondersteunt het gebruik van alle Windows-systeemomgevingsvariabelen en de *% USERPROFILE %* gebruikersvariabele in de padnaam.  
+            -   **Chemin** : spécifiez le chemin du fichier .xml sur les ordinateurs clients utilisé pour évaluer la compatibilité. Configuration Manager prend en charge l’utilisation de toutes les variables d’environnement système Windows et de la variable utilisateur *% USERPROFILE%* dans le nom de chemin.  
 
-            -   **XML-bestandsnaam**: geef de naam van het bestand op dat de XML-query bevat die wordt gebruikt om naleving op clientcomputers te beoordelen.  
+            -   **Nom du fichier XML** -spécifier le nom du fichier contenant la requête XML qui est utilisée pour évaluer la conformité sur les ordinateurs clients.  
 
-            -   **Inclusief submappen** - Schakel deze optie in als u in submappen wilt zoeken onder het opgegeven pad.  
+            -   **Inclure les sous-dossiers** : activez cette option si vous voulez également rechercher dans tous les sous-dossiers sous le chemin spécifié.  
 
-            -   **Dit bestand is gekoppeld aan een 64-bits toepassing** -kiezen of de 64-bits systeembestandslocatie (*% windir %*\System32) moet worden doorzocht naast de 32-bits systeembestandslocatie (*% windir %*\Syswow64) op de Configuration Manager-clients die een 64-bits versie van Windows worden uitgevoerd.  
+            -   **Ce fichier est associé à une application 64 bits** : indiquez si la recherche doit porter également sur l’emplacement de fichier système 64 bits (*%windir%*\System32) en plus de l’emplacement de fichier système 32 bits (*%windir%*\Syswow64) sur les clients Configuration Manager qui exécutent une version 64 bits de Windows.  
 
-            -   **XPath-query**: geef een geldige, volledige query voor de XML Path-taal (XPath) op om de naleving op clientcomputers te beoordelen.  
+            -   **Requête XPath** -spécifier une valide complet requête XML path language (XPath) qui est utilisée pour évaluer la conformité sur les ordinateurs clients.  
 
-            -   **Naamruimten**: hiermee opent u het dialoogvenster **XML-naamruimten** om naamruimten en voorvoegsels te identificeren voor gebruik tijdens de XPath-query.  
+            -   **Espaces de noms** : ouvre la boîte de dialogue **Espaces de noms XML** pour identifier les espaces de noms et les préfixes à utiliser pendant la requête XPath.  
 
-             Als u een versleuteld XML-bestand probeert te detecteren, vinden de instellingen voor naleving het bestand, maar levert de XPath-query geen resultaten op en wordt er geen fout gegenereerd.  
+             Si vous tentez de détecter un fichier .xml chiffré, les paramètres de compatibilité trouvent le fichier, mais la requête XPath ne produit aucun résultat, et aucune erreur n’est générée.  
 
-             Als de XPath-query ongeldig is, wordt de instelling geëvalueerd als niet-compatibel op clientcomputers.  
+             Si la requête XPath n’est pas valide, le paramètre est évalué comme étant non compatible sur les ordinateurs clients.  
 
-    -   **Gegevenstype:** Kies de indeling waarin de voorwaarde de gegevens retourneert voordat deze wordt gebruikt voor het evalueren van de instelling in de lijst. De lijst **Gegevenstype** wordt niet voor alle instellingstypen weergegeven.  
+    -   **Type de données :** dans la liste, choisissez le format dans lequel la condition retourne les données avant de les utiliser pour évaluer le paramètre. Le **type de données** liste n'est pas affichée pour tous les types de paramètre.  
 
         > [!NOTE]  
-        >  Het gegevenstype **Drijvende komma** ondersteunt alleen 3 cijfers na het decimaalteken.  
+        >  Le type de données **Virgule flottante** prend en charge uniquement 3 chiffres après la virgule décimale.  
 
-3.  Configureer aanvullende informatie over deze instelling onder de lijst **Instellingstype**. Welke items u kunt configureren, is afhankelijk van het instellingstype dat u hebt geselecteerd.  
+3.  Configurer des détails supplémentaires sur ce paramètre sous la **définition de type** liste. Les éléments que vous pouvez configurer varient selon le type de paramètre que vous avez sélectionné.  
 
     > [!NOTE]  
-    >  Wanneer u instellingen van het type **Bestandssysteem**, **Registersleutel** en **Registerwaarde** maakt, kunt u op **Bladeren** klikken om de instelling te configureren op basis van waarden op een referentiecomputer. Als u wilt bladeren naar een registersleutel of waarde op een externe computer, moet op de externe computer de Remote Registry-service zijn ingeschakeld.  
+    >  Lorsque vous créez des paramètres de type **système de fichiers**, **clé de Registre**, et **valeur de Registre**, vous pouvez cliquer sur **Parcourir** pour configurer le paramètre à partir de valeurs sur un ordinateur de référence. Pour accéder à une clé de Registre ou une valeur sur un ordinateur distant, l'ordinateur distant doit avoir le service Registre distant est activé.  
 
-4.  Klik op **OK** om de instelling op te slaan en het dialoogvenster **Instelling maken** te sluiten.  
+4.  Cliquez sur **OK** pour enregistrer le paramètre et fermer la boîte de dialogue **Créer un paramètre** .  
 
-##  <a name="configure-compliance-rules"></a>Compliantieregels configureren  
- Gebruik de volgende procedure om compliantieregels voor het configuratie-item te configureren.  
+##  <a name="configure-compliance-rules"></a>Configurer des règles de compatibilité  
+ Procédez comme suit pour configurer des règles de compatibilité pour l'élément de configuration.  
 
- Met compliantieregels geeft u de voorwaarden voor naleving van een configuratie-item op. Voordat een instelling kan worden beoordeeld op naleving, moet de instelling minimaal één compliantieregel hebben. Met WMI-, register- en scriptinstellingen kunt u waarden herstellen die niet compliant zijn. U kunt nieuwe regels maken of naar een bestaande instelling in een configuratie-item bladeren om regels hierin te selecteren.  
+ Les règles de compatibilité spécifient les critères qui définissent la compatibilité d'un élément de configuration. Avant que la compatibilité d'un paramètre puisse être évaluée, celui-ci doit comporter au moins une règle de compatibilité. WMI, Registre et les paramètres de script vous permettent de corriger les valeurs qui sont identifiés comme étant non conforme. Vous pouvez créer de nouvelles règles ou accédez à un paramètre existant dans n'importe quel élément de configuration pour sélectionner les règles qu'il contient.  
 
-### <a name="to-create-a-compliance-rule"></a>Een compliantieregel maken  
+### <a name="to-create-a-compliance-rule"></a>Pour créer une règle de compatibilité  
 
-1.  Klik op de pagina **Compliantieregels** van de wizard **Configuratie-item maken** op **Nieuw**.  
+1.  Sur la page **Règles de compatibilité** de l' **Assistant Création d'élément de configuration**, cliquez sur **Nouveau**.  
 
-2.  Geef in het dialoogvenster **Regel maken** de volgende informatie op:  
+2.  Dans la boîte de dialogue **Créer une règle** , indiquez les informations suivantes :  
 
-    -   **Naam:** Voer een naam voor de compliantieregel.  
+    -   **Nom :** Entrez un nom pour la règle de conformité.  
 
-    -   **Beschrijving:** Voer een beschrijving voor de compliantieregel.  
+    -   **Description :** Entrez une description pour la règle de conformité.  
 
-    -   **Geselecteerde instelling:** Klik op **Bladeren** openen de **instelling selecteren** in het dialoogvenster. Selecteer de instelling waarvoor u een regel wilt definiëren of klik op **Nieuwe instelling**. Klik op **Selecteren** als u klaar bent.  
+    -   **Paramètre sélectionné :** Cliquez sur **Parcourir** pour ouvrir le **Sélectionner le paramètre** boîte de dialogue. Sélectionnez le paramètre que vous souhaitez définir une règle, ou cliquez sur **nouveau paramètre**. Lorsque vous avez terminé, cliquez sur **Sélectionner**.  
 
         > [!NOTE]  
-        >  U kunt ook klikken op **Eigenschappen** om informatie over de geselecteerde instelling weer te geven.  
+        >  Vous pouvez également cliquer sur **Propriétés** pour afficher des informations sur le paramètre actuellement sélectionné.  
 
-    -   **Regeltype:** Selecteer het type compliantieregel dat u wilt gebruiken:  
+    -   **Type de règle :** Sélectionnez le type de règle de compatibilité que vous souhaitez utiliser :  
 
-        -   **Waarde:** maak een regel waarmee de waarde die door de configuratie-item wordt geretourneerd, wordt vergeleken met een waarde die u opgeeft.  
+        -   **Valeur** créer une règle qui compare la valeur renvoyée par l'élément de configuration par rapport à une valeur que vous spécifiez.  
 
-        -   **Existentieel:** maak een regel om de instelling te beoordelen, afhankelijk van of deze op een clientapparaat bestaat of op basis van het aantal keren dat deze wordt gevonden.  
+        -   **Existentiel** créer une règle qui évalue le paramètre, selon qu'elle existe sur un périphérique client ou sur le nombre de fois où il se trouve.  
 
-    -   Geef voor het regeltype **Waarde** de volgende informatie op:  
+    -   Pour un type de règle **Valeur**, spécifiez les informations suivantes :  
 
-        -   **De instelling moet voldoen aan de volgende regel:** selecteer een operator en een waarde die worden beoordeeld op naleving van de geselecteerde instelling. U kunt de volgende operatoren gebruiken:  
+        -   **Le paramètre doit respecter la règle suivante** – sélectionnez un opérateur et une valeur d'évaluation de la compatibilité avec le paramètre sélectionné. Vous pouvez utiliser les opérateurs suivants :  
 
-            |Operator|Meer informatie|  
+            |Opérateur|Plus d'informations|  
             |--------------|----------------------|  
-            |Is gelijk aan|Geen aanvullende informatie|  
-            |Niet gelijk aan|Geen aanvullende informatie|  
-            |Groter dan|Geen aanvullende informatie|  
-            |Kleiner dan|Geen aanvullende informatie|  
-            |Tussen|Geen aanvullende informatie|  
-            |Groter dan of gelijk aan|Geen aanvullende informatie|  
-            |Kleiner dan of gelijk aan|Geen aanvullende informatie|  
-            |Een van|Geef in het tekstvak één vermelding per regel op.|  
-            |Geen|Geef in het tekstvak één vermelding per regel op.|  
+            |Égal à|Aucune information supplémentaire|  
+            |N'est pas égal à|Aucune information supplémentaire|  
+            |Supérieur à|Aucune information supplémentaire|  
+            |Inférieur à|Aucune information supplémentaire|  
+            |Entre|Aucune information supplémentaire|  
+            |Supérieur ou égal à|Aucune information supplémentaire|  
+            |Inférieur ou égal à|Aucune information supplémentaire|  
+            |L'un des|Dans la zone de texte, spécifiez une entrée sur chaque ligne.|  
+            |Aucun des|Dans la zone de texte, spécifiez une entrée sur chaque ligne.|  
 
-        -   **Regels die niet compliant zijn herstellen, waar ondersteund**: Selecteer deze optie als u wilt dat Configuration Manager automatisch niet-compatibele regels oplost. Configuration Manager kan de volgende regeltypen automatisch herstellen:  
+        -   **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** : sélectionnez cette option si vous voulez que Configuration Manager corrige automatiquement les règles non compatibles. Configuration Manager.peut corriger automatiquement les types de règles suivants :  
 
-            -   **Registerwaarde**: de registerwaarde wordt hersteld als deze niet compatibel is en gemaakt als deze niet bestaat.  
+            -   **Valeur de Registre** – la valeur de Registre est mis à jour si elle est non conforme et créé s'il n'existe pas.  
 
-            -   **Script** (door automatisch een herstelscript uit te voeren).  
+            -   **Script** (en exécutant automatiquement un script de correction).  
 
-            -   **WQL-Query**  
+            -   **Requête WQL**  
 
             > [!IMPORTANT]  
-            >  U kunt niet-compatibele regels alleen herstellen als de regeloperator is ingesteld op **Is gelijk aan**.  
+            >  Vous ne pouvez corriger que les règles non compatibles lorsque l'opérateur de règle est défini sur **Égal à**.  
 
-        -   **Niet-naleving melden als dit instellingsexemplaar niet wordt gevonden**: het configuratie-item rapporteert niet-naleving als deze instelling niet op clientcomputers is gevonden.  
+        -   **Rapport de non-conformité si cette définition de l'instance est introuvable** : l'élément de configuration des rapports non-conformité si ce paramètre n'est pas disponible sur les ordinateurs clients.  
 
-        -   **Niet-nageleefd ernst voor rapporten:** Geef de ernst die wordt gerapporteerd (in Configuration Manager-rapporten) als deze compliantieregel mislukt. De beschikbare ernstniveaus zijn als volgt:  
+        -   **Gravité de non-compatibilité pour les rapports** : spécifiez le niveau de gravité signalé (dans les rapports Configuration Manager) si cette règle de conformité échoue. Les niveaux de gravité disponibles sont les suivants :  
 
-            -   **Geen** Computers die niet voldoen aan deze compliantieregel niet ernst rapporteren.  
+            -   **Aucun** : les ordinateurs non conformes à cette règle de compatibilité ne signalent pas de gravité d'échec.  
 
-            -   **Informatie** Computers die niet voldoen aan deze compliantieregel fouternst van **informatie**.  
+            -   **Information** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Informations**.  
 
-            -   **Waarschuwing** Computers die niet voldoen aan deze compliantieregel fouternst van **waarschuwing**.  
+            -   **Avertissement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Avertissement**.  
 
-            -   **Kritieke** Computers die niet voldoen aan deze compliantieregel fouternst van **kritieke**.  
+            -   **Critique** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Critique**.  
 
-            -   **Kritiek met gebeurtenis** Computers die niet voldoen aan deze compliantieregel fouternst van **kritieke**. Dit ernstniveau wordt ook vastgelegd als een Windows-gebeurtenis in het logboek voor toepassingsgebeurtenissen.  
+            -   **Critique avec événement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Critique**. Ce niveau de gravité est également enregistré comme un événement Windows dans le journal des événements des applications.  
 
-        -   Geef voor het regeltype **Existentieel** de volgende informatie op:  
+        -   Pour un type de règle **Existentiel**, spécifiez les informations suivantes :  
 
             > [!NOTE]  
-            >  Welke opties worden weergegeven, hangt af van het instellingstype waarvoor u een regel configureert.  
+            >  Les options affichées peuvent varier selon le type de paramètre pour lequel vous configurez une règle.  
 
-            -   **De instelling moet bestaan op clientapparaten**  
+            -   **Le paramètre doit exister sur les appareils clients**  
 
-            -   **De instelling mag niet bestaan op clientapparaten**  
+            -   **Le paramètre ne doit pas exister sur les appareils clients**  
 
-            -   **De instelling komt het volgende aantal keren:**  
+            -   **Le paramètre se produit le nombre de fois suivant :**  
 
-        -   **Niet-nageleefd ernst voor rapporten:** Geef de ernst die wordt gerapporteerd (in Configuration Manager-rapporten) als deze compliantieregel mislukt. De beschikbare ernstniveaus zijn als volgt:  
+        -   **Gravité de non-compatibilité pour les rapports** : spécifiez le niveau de gravité signalé (dans les rapports Configuration Manager) si cette règle de conformité échoue. Les niveaux de gravité disponibles sont les suivants :  
 
-            -   **Geen** Computers die niet voldoen aan deze compliantieregel niet ernst rapporteren.  
+            -   **Aucun** : les ordinateurs non conformes à cette règle de compatibilité ne signalent pas de gravité d'échec.  
 
-            -   **Informatie** Computers die niet voldoen aan deze compliantieregel fouternst van **informatie**.  
+            -   **Information** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Informations**.  
 
-            -   **Waarschuwing** Computers die niet voldoen aan deze compliantieregel fouternst van **waarschuwing**.  
+            -   **Avertissement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Avertissement**.  
 
-            -   **Kritieke** Computers die niet voldoen aan deze compliantieregel fouternst van **kritieke**.  
+            -   **Critique** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Critique**.  
 
-            -   **Kritiek met gebeurtenis** Computers die niet voldoen aan deze compliantieregel fouternst van **kritieke**. Dit ernstniveau wordt ook vastgelegd als een Windows-gebeurtenis in het logboek voor toepassingsgebeurtenissen.  
+            -   **Critique avec événement** : les ordinateurs non conformes à cette règle de compatibilité signalent une gravité d'échec **Critique**. Ce niveau de gravité est également enregistré comme un événement Windows dans le journal des événements des applications.  
 
-3.  Klik op **OK** om het dialoogvenster **Regel maken** te sluiten.  
+3.  Cliquez sur **OK** pour fermer la boîte de dialogue **Créer une règle** .  
 
-##  <a name="specify-supported-platforms"></a>Ondersteunde platforms opgeven  
- Ondersteunde platforms zijn de besturingssystemen waarop een configuratie-item wordt beoordeeld op naleving.  
+##  <a name="specify-supported-platforms"></a>Spécifier les plateformes prises en charge  
+ Les plateformes prises en charge sont les systèmes d’exploitation sur lesquels la compatibilité d’un élément de configuration est évaluée.  
 
-Selecteer op de pagina **Ondersteunde platforms** van de wizard **Configuratie-item maken** in de lijst de Windows-versies waarop het configuratie-item moet worden beoordeeld op naleving of klik op **Alles selecteren**.  
+Dans la page **Plateformes prises en charge** de l’ **Assistant Création d’élément de configuration**, dans la liste, sélectionnez les versions Windows sur lesquelles vous voulez évaluer la compatibilité de l’élément de configuration ou cliquez sur **Sélectionner tout**.  
 
-## <a name="complete-the-wizard"></a>Voltooi de wizard  
- Controleer welke acties moeten worden ondernomen op de pagina **Overzicht** van de wizard en voltooi de wizard. Het nieuwe configuratie-item wordt weergegeven in het knooppunt **Configuratie-items** van de werkruimte **Activa en naleving**.  
+## <a name="complete-the-wizard"></a>Effectuer toutes les étapes de l'Assistant  
+ Dans la page **Résumé** de l’Assistant, passez en revue les actions qui seront exécutées, puis terminez l’Assistant. Le nouvel élément de configuration est affiché dans le nœud **Éléments de configuration** de l’espace de travail **Ressources et Conformité**.  

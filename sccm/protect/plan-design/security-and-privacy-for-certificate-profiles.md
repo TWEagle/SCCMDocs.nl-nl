@@ -1,6 +1,6 @@
 ---
-title: Profiel voor beveiliging en privacy-certificaat | Microsoft Docs
-description: Meer informatie over de beveiliging aanbevolen procedures voor het beheren van certificaatprofielen voor gebruikers en apparaten in System Center Configuration Manager.
+title: "Sécurité et confidentialité des profils de certificat | Microsoft Docs"
+description: "Découvrez les bonnes pratiques en matière de sécurité pour la gestion des profils de certificat des utilisateurs et des appareils dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/28/2016
 ms.prod: configuration-manager
@@ -17,33 +17,33 @@ ms.author: nbigman
 manager: angrobe
 ms.openlocfilehash: c51787ad3fa0bdb285017cfab1ca6931afba9ea6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-certificate-profiles-in-system-center-configuration-manager"></a>Beveiliging en privacy voor certificaatprofielen in System Center Configuration Manager
+# <a name="security-and-privacy-for-certificate-profiles-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour les profils de certificat dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-##  <a name="security-best-practices-for-certificate-profiles"></a>Aanbevolen beveiligingsprocedures voor certificaatprofielen  
- Gebruik de volgende aanbevolen beveiligingsprocedures wanneer u certificaatprofielen beheert voor gebruikers en apparaten.  
+##  <a name="security-best-practices-for-certificate-profiles"></a>Bonnes pratiques pour la sécurité des profils de certificat  
+ Utilisez les bonnes pratiques de sécurité suivantes lorsque vous gérez des profils de certificat pour des appareils.  
 
-|Aanbevolen beveiligingsprocedure|Meer informatie|  
+|Bonnes pratiques de sécurité|Plus d'informations|  
 |----------------------------|----------------------|  
-|Bepaal en volg alle aanbevolen beveiligingsprocedures voor de registratieservice voor netwerkapparaten, waaronder het configureren van de website van de Registratieservice voor netwerkapparaten in Internet Information Services (IIS) om SSL te vereisen en clientcertificaten te negeren.|Zie [Network Device Enrollment Service Guidance](http://go.microsoft.com/fwlink/p/?LinkId=309016) (Richtlijnen voor de Registratieservice van netwerkapparaten) in de bibliotheek Active Directory Certificate Services-bibliotheek op TechNet.|  
-|Kies bij het configureren van SCEP-certificaatprofielen de veiligste opties die door de apparaten en uw infrastructuur worden ondersteund.|Bepaal, implementeer en volg alle 'best practice' beveiligingsprocedures die voor uw apparaten en infrastructuur worden aanbevolen.|  
-|Geef handmatig de gebruikersaffiniteit met apparaat op in plaats van gebruikers toe te staan hun primaire apparaat te identificeren. Zorg daarnaast dat op gebruik gebaseerde configuratie niet is ingeschakeld.|Als u op de optie **Alleen certificaatinschrijving op het primaire apparaat van gebruikers toestaan** in een SCEP-certificaatprofiel klikt, moet u de informatie die van gebruikers of van het apparaat wordt verzameld niet als gezaghebbend beschouwen. Als u SCEP-certifcaatprofielen bij deze configuratie implementeert en een vertrouwde gebruiker met beheerdersrechten geeft de gebruikersaffiniteit met apparaat niet op, dan kunnen onbevoegde gebruikers verhoogde bevoegdheden krijgen en kunnen certificaten worden verleend voor verificatie.<br /><br /> **Opmerking:** Als u op gebruik gebaseerde configuratie inschakelt toch, wordt deze informatie verzameld via statusberichten die niet beveiligd zijn door System Center Configuration Manager. Gebruik om deze dreiging te voorkomen, SMB-ondertekening of IPsec tussen clientcomputers en het beheerpunt.|  
-|Voeg geen lees- en registratiemachtigingen toe aan de certificaatsjablonen of configureer het certificaatregistratiepunt om de certificaatsjablooncontrole over te slaan.|Hoewel Configuration Manager de aanvullende controle ondersteunt als u de beveiligingsmachtigingen lezen en inschrijven voor gebruikers toevoegt en u dat het certificaatregistratiepunt configureren kunt voor deze controle overslaan als verificatie niet mogelijk is, is geen van beide configuraties aanbevolen beveiligingsprocedure. Voor meer informatie, zie [Certificaatsjabloonmachtigingen voor certificaatprofielen plannen in System Center Configuration Manager](../../protect/plan-design/planning-for-certificate-template-permissions.md).|  
+|Identifiez et suivez les bonnes pratiques de sécurité pour le service d'inscription de périphériques réseau, ce qui comprend la configuration du site web Service d'inscription de périphériques réseau dans IIS (Internet Information Services) pour exiger le protocole SSL et ignorer les certificats clients.|Pour plus d'informations, voir [Guide du service d'inscription de périphérique réseau](http://go.microsoft.com/fwlink/p/?LinkId=309016) dans la bibliothèque des services de certificats Microsoft Active Directory sur TechNet.|  
+|Lorsque vous configurez des profils de certificat SCEP, choisissez les options les plus sécurisées prises en charge par vos périphériques et votre infrastructure.|Identifiez, implémentez et suivez les bonnes pratiques de sécurité recommandées pour vos appareils et votre infrastructure.|  
+|Spécifiez manuellement l'affinité entre utilisateur et appareil au lieu de permettre aux utilisateurs d'identifier leur appareil principal. En outre, n'activez pas la configuration basée sur l'utilisation.|Si vous cliquez sur l'option **Autoriser l'inscription du certificat uniquement sur le périphérique principal des utilisateurs** dans un profil de certificat SCEP, ne considérez pas les informations collectées à partir d'utilisateurs ou du périphérique comme faisant autorité. Si vous déployez des profils de certificat SCEP avec cette configuration et que l'affinité entre utilisateur et appareils n'est pas spécifiée par un utilisateur administratif approuvé, une élévation de privilèges et des certificats pour l'authentification peuvent être accordés à des utilisateurs qui ne sont pas autorisés.<br /><br /> **Remarque :** Si vous autorisez la configuration basée sur l’utilisation, ces informations sont collectées à l’aide de messages d’état non sécurisés par System Center Configuration Manager. Pour réduire l'étendue de cette menace, utilisez la signature SMB ou IPsec entre les ordinateurs clients et le point de gestion.|  
+|N'ajoutez pas d'autorisations de lecture et d'inscription pour les utilisateurs sur les modèles de certificats ou configurez le point d'enregistrement de certificat de manière à ignorer la vérification du modèle de certificat.|Même si Configuration Manager prend en charge la vérification supplémentaire si vous ajoutez les autorisations de sécurité Lecture et Inscription pour les utilisateurs, et que vous pouvez configurer le point d’enregistrement de certificat de manière à ignorer cette vérification si l’authentification n’est pas possible, ces configurations ne représentent pas les bonnes pratiques en matière de sécurité. Pour plus d’informations, consultez [Planification d’autorisations de modèles de certificat pour les profils de certificat dans System Center Configuration Manager](../../protect/plan-design/planning-for-certificate-template-permissions.md).|  
 
-## <a name="privacy-information-for-certificate-profiles"></a>Privacyinformatie voor certificaatprofielen  
- U kunt certificaatprofielen gebruiken om de basiscertificeringsinstantie (CA) en clientcertificaten te implementeren en om te evalueren of die apparaten compatibel zijn nadat de profielen zijn toegepast. Het beheerpunt compatibiliteitsinformatie wordt verzonden naar de siteserver en System Center Configuration Manager slaat die informatie in de sitedatabase. Compatibiliteitsinformatie omvat certificaateigenschappen zoals onderwerpnaam en vingerafdruk. De informatie wordt versleuteld wanneer apparaten deze naar het beheerpunt verzenden, maar deze wordt niet in een versleutelde indeling opgeslagen in de sitedatabase. De informatie wordt in de database behouden totdat deze door de siteonderhoudstaak **Verouderde gegevens van Configuration Manager verwijderen** na de standaardintervaltijd van 90 dagen wordt verwijderd. U kunt het verwijderingsinterval configureren. Er wordt geen compatibiliteitsinformatie naar Microsoft verzonden.  
+## <a name="privacy-information-for-certificate-profiles"></a>Informations de confidentialité pour les profils de certificat  
+ Vous pouvez utiliser des profils de certificat pour déployer des certificats d'Autorité de certification racine et clients et évaluer si ces appareils deviennent conformes après l'application des profils. Le point de gestion transmet les informations de compatibilité au serveur de site et System Center Configuration Manager les stocke dans la base de données de site. Les informations de compatibilité incluent des propriétés de certificat telles que le nom d'objet et l'empreinte numérique. Les informations sont chiffrées lorsque les appareils les envoient au point de gestion mais ne sont pas stockées au format chiffré dans la base de données de site. La base de données conserve les informations jusqu'à ce que la tâche de maintenance **Supprimer les données de gestion de configuration anciennes** les supprime après le délai par défaut de 90 jours. Vous pouvez configurer l'intervalle de suppression. Les informations de compatibilité ne sont pas transmises à Microsoft.  
 
- Certificaat certificaatprofielen gebruiken informatie die Configuration Manager worden verzameld met behulp van detectie. Zie de sectie **Privacyinformatie voor detectie** in [Beveiliging en privacy voor System Center Configuration Manager](../../core/plan-design/security/security-and-privacy.md)voor meer informatie over de detectie van privacygegevens.  
+ Les profils de certificat utilisent les informations que Configuration Manager collecte à l’aide de la découverte. Pour plus d'informations sur les informations de confidentialité pour la découverte, voir la section **Informations de confidentialité pour la découverte** dans la rubrique [Sécurité et confidentialité pour System Center Configuration Manager](../../core/plan-design/security/security-and-privacy.md).  
 
 > [!NOTE]  
->  Aan gebruikers of apparaten uitgegeven certificaten staan mogelijk toegang toe tot vertrouwelijke informatie.  
+>  Les certificats délivrés aux utilisateurs ou appareils peuvent autoriser l'accès aux informations confidentielles.  
 
- Standaard worden certificaatprofielen niet door apparaten geëvalueerd. Bovendien moet u de certificaatprofielen configureren en vervolgens implementeren voor gebruikers of apparaten.  
+ Par défaut, les appareils n'évaluent pas les profils de certificat. Vous devez aussi configurer les profils de certificat, puis les déployer pour des utilisateurs ou des appareils.  
 
- Voordat u certificaatprofielen configureert, moet u nadenken over uw privacyvereisten.  
+ Avant de configurer les profils de certificat, pensez à vos besoins en matière de confidentialité.  

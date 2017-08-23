@@ -1,6 +1,6 @@
 ---
-title: Clients beheren | Microsoft Docs
-description: Informatie over het beheren van clients in System Center Configuration Manager.
+title: "Gérer les clients | Microsoft Docs"
+description: "Découvrez comment gérer les clients dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,202 +16,202 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 3a86924b2e5db3ac16eeda78b95ae6747ffd656f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-manage-clients-in-system-center-configuration-manager"></a>Clients beheren in System Center Configuration Manager
+# <a name="how-to-manage-clients-in-system-center-configuration-manager"></a>Guide pratique pour gérer les clients dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Wanneer een System Center Configuration Manager-client is geïnstalleerd en is toegewezen aan een Configuration Manager-site, ziet u het apparaat in de **activa en naleving** werkruimte in de **apparaten** knooppunt, en in een of meer verzamelingen in de **Apparaatverzamelingen** knooppunt. Wanneer u het apparaat of een verzameling selecteert, kunt u bewerkingen kunt uitvoeren. Er zijn echter ook andere manieren voor het beheren van de client, die andere werkruimtes in de console, of taken die geen gebruikmaken van de Configuration Manager-console kan erbij betrekken.  
+Une fois qu’un client System Center Configuration Manager a été installé et attribué à un site Configuration Manager, l’appareil est affiché dans l’espace de travail **Ressources et Conformité** du nœud **Appareils**, ainsi que dans un ou plusieurs regroupements du nœud **Regroupements d’appareils**. Quand vous sélectionnez l’appareil ou un regroupement, vous pouvez effectuer des opérations de gestion. Toutefois, il existe d’autres manières de gérer le client, pouvant impliquer d’autres espaces de travail dans la console ou des tâches qui n’utilisent pas la console Configuration Manager.  
 
 > [!NOTE]  
->  Een Configuration Manager-client kan worden geïnstalleerd maar niet weergegeven in de Configuration Manager-console. Dit kan gebeuren als de client nog is nog niet aan een site toegewezen, of de console moet worden vernieuwd of een lidmaatschap moet geüpdatet.  
+>  Il arrive qu’un client Configuration Manager installé ne s’affiche pas dans la console Configuration Manager. Ceci peut se produire si le client n’a pas encore été affecté à un site, si la console doit être actualisée ou si une appartenance au regroupement doit être mise à jour.  
 >   
->  Bovendien een apparaat ook worden weergegeven in de console wanneer de Configuration Manager-client niet is geïnstalleerd. Dit kan gebeuren als het apparaat wordt gedetecteerd, maar de Configuration Manager-client niet is geïnstalleerd en toegewezen. Mobiele apparaten die worden beheerd via de Exchange Server-connector en de apparaten die zijn geregistreerd door Microsoft Intune, Installeer geen Configuration Manager-client.  
+>  De plus, un appareil peut s’afficher dans la console quand le client Configuration Manager n’est pas installé. Ceci peut se produire si l’appareil a été découvert, mais que le client Configuration Manager n’est pas installé ni affecté. Les appareils mobiles gérés à l’aide du connecteur Exchange Server et les appareils qui sont inscrits par Microsoft Intune n’installent pas le client Configuration Manager.  
 >   
->  Gebruik de **Client** kolom in de Configuration Manager-console om te bepalen of Configuration Manager-client is geïnstalleerd zodat u hem vanuit de Configuration Manager-console beheren kunt.  
+>  Examinez la colonne **Client** dans la console Configuration Manager pour savoir si le client Configuration Manager est installé et si vous pouvez donc le gérer à partir de la console Configuration Manager.  
 
-##  <a name="BKMK_ManagingClients_DevicesNode"></a> Clients beheren in het knooppunt Apparaten  
+##  <a name="BKMK_ManagingClients_DevicesNode"></a> Gérer les clients à partir du nœud Appareils  
 
-Houd er rekening mee dat, afhankelijk van het apparaattype sommige van deze opties mogelijk niet beschikbaar.  
+Notez que, selon le type d’appareil, certaines de ces options peuvent ne pas être disponibles.  
 
-1.  Kies in de Configuration Manager-console **activa en naleving** >  **apparaten**.  
+1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** >  **Appareils**.  
 
-3.  Selecteer een of meer apparaten en selecteer vervolgens een van deze clientbeheertaken van het lint, of door met de rechtermuisknop op het apparaat:  
+3.  Sélectionnez un ou plusieurs appareils, puis sélectionnez une des tâches de gestion de client disponible dans le ruban ou en cliquant avec le bouton droit sur l’appareil :  
 
-    -   **Informatie van affiniteit gebruikerapparaat beheren**  
+    -   **Gérer les informations relatives à l'affinité entre périphérique et utilisateur**  
 
-         Configureer de koppelingen tussen gebruikers en apparaten, zodat u software efficiënt voor gebruikers implementeren kunt.  
+         Configurez les associations entre les utilisateurs et les appareils, ce qui vous permet de déployer efficacement des logiciels sur les utilisateurs.  
 
-         Zie [Gebruikers en apparaten koppelen met affiniteit tussen gebruikers en apparaten in System Center Configuration Manager](../../../apps/deploy-use/link-users-and-devices-with-user-device-affinity.md)  
+         Consultez [Lier des utilisateurs et des appareils avec l’affinité entre utilisateur et appareil dans System Center Configuration Manager](../../../apps/deploy-use/link-users-and-devices-with-user-device-affinity.md)  
 
-    -   **Het apparaat toevoegen aan een nieuwe of bestaande verzameling**  
+    -   **Ajouter l’appareil à un regroupement nouveau ou existant**  
 
-         Het apparaat toevoegen aan een verzameling met een directe regel.  
+         Ajoutez l’appareil à un regroupement avec une règle directe.  
          
-    -   **Installeer en installeer de client opnieuw door gebruik te maken van de wizard clientpush.**  
+    -   **Installer et réinstaller le client à l'aide de l'Assistant Installation poussée du client**  
 
-         Installeren en opnieuw installeren van Configuration Manager-client om hem te herstellen of opnieuw te configureren op computers waarop Windows wordt uitgevoerd. Bevat opties voor site-configuratie en client.msi-eigenschappen die u hebt ingesteld voor push-clientinstallatie.  
+         Installez et réinstallez le client Configuration Manager pour le réparer ou pour le reconfigurer sur les ordinateurs qui exécutent Windows. Inclut des options de configuration de site et les propriétés client.msi que vous définissez pour l’installation Push du client.  
 
         > [!TIP]  
-        >  Er zijn veel verschillende manieren Configuration Manager-client installeren (en opnieuw installeren). Hoewel de wizard Clientpush een handige biedt client-installatiemethode omdat u hem vanaf de console uitvoeren kunt, wordt deze methode veel afhankelijkheden heeft en is niet geschikt voor alle omgevingen. Zie [Vereisten voor de implementatie van Configuration Manager-clients op Windows-pc's](../../../core/clients/deploy/prerequisites-for-deploying-clients-to-windows-computers.md) voor meer informatie over de afhankelijkheden. Zie [Clientinstallatiemethoden in System Center Configuration Manager](../../../core/clients/deploy/plan/client-installation-methods.md) voor meer informatie over de andere clientinstallatiemethoden.  
+        >  Vous avez le choix entre plusieurs méthodes d’installation (et de réinstallation) du client Configuration Manager. L’Assistant Installation Push du client constitue une méthode pratique d’installation du client car elle peut être exécutée depuis la console, mais cette méthode a de nombreuses dépendances et n’est pas adaptée à tous les environnements. Pour plus d’informations sur les dépendances, consultez [Configuration requise pour le déploiement de clients sur des ordinateurs Windows dans System Center Configuration Manager](../../../core/clients/deploy/prerequisites-for-deploying-clients-to-windows-computers.md). Pour plus d’informations sur les autres méthodes d’installation de clients, consultez [Méthodes d’installation de clients dans System Center Configuration Manager](../../../core/clients/deploy/plan/client-installation-methods.md).  
 
-         Zie [Het installeren van Configuration Manager-Clients met behulp van clientpush](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientPush).  
+         Consultez [Comment installer des clients Configuration Manager à l'aide de l'installation poussée du client](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientPush).  
 
-    -   **Site opnieuw toewijzen**  
+    -   **Réaffecter le site**  
 
-         Wijs één of meerdere klanten, waaronder beheerde mobiele apparaten, toe aan een andere primaire site in de hiërarchie. Clients kunnen afzonderlijk opnieuw worden toegewezen of kunnen meervoudig worden geselecteerd en in bulk aan een nieuwe site worden toegewezen.  
+         Vous pouvez réaffecter un ou plusieurs clients, notamment des appareils mobiles gérés, à un autre site principal de la hiérarchie. Les clients peuvent être réattribués individuellement ou tous sélectionnés et réattribués en bloc à un nouveau site.  
 
-    -   **Extern beheer van de client**  
+    -   **Administrer le client à distance**  
 
-         U kunt Resource Explorer uitvoeren om de informatie over hardware-en software-inventaris van een Windows-client te raadplegen, en deze te beheren op afstand met afstandsbediening, hulp op afstand, of extern bureaublad.  
+         Vous pouvez exécuter l'Explorateur de ressources pour afficher les informations d'inventaire matériel et logiciel d'un client Windows et les administrer à distance à l'aide du contrôle à distance, de l'assistance à distance ou du Bureau à distance.  
 
-         Zie [Resource Explorer gebruiken om hardware-inventaris te bekijken in System Center Configuration Manager](../../../core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md) en [Resource Explorer gebruiken om software-inventaris te bekijken in System Center Configuration Manager](../../../core/clients/manage/inventory/use-resource-explorer-to-view-software-inventory.md).  
+         Consultez [Comment utiliser l’Explorateur de ressources pour afficher l’inventaire matériel dans System Center Configuration Manager](../../../core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md) et [Comment utiliser l’Explorateur de ressources pour afficher l’inventaire logiciel dans System Center Configuration Manager](../../../core/clients/manage/inventory/use-resource-explorer-to-view-software-inventory.md).  
 
-         Zie [Een Windows-clientcomputer op afstand beheren met System Center Configuration Manager](../../../core/clients/manage/remote-control/remotely-administer-a-windows-client-computer.md).  
+         Consultez [Comment administrer à distance un ordinateur client Windows à l’aide de System Center Configuration Manager](../../../core/clients/manage/remote-control/remotely-administer-a-windows-client-computer.md).  
 
-    -   **Een client goedkeuren**  
+    -   **Approuver un client**  
 
-         Wanneer de client met sitesystemen met HTTP- en een zelfondertekend certificaat communiceert, moet u deze clients als u deze herkennen als vertrouwde computers wilt goedkeuren. Standaard keurt de siteconfiguratie automatisch clients goed van dezelfde Active Directory-forests en vertrouwde forests, zodat u niet elke client handmatig moet goedkeuren. U moet evenwel handmatig werkgroepcomputers goedkeuren die u vertrouwt en andere computers die u vertrouwt, maar die niet goedgekeurd zijn.  
-
-        > [!WARNING]  
-        >  Hoewel sommige beheerfuncties voor niet-goedgekeurde clients werken kunnen, is dit een niet-ondersteund scenario voor Configuration Manager.  
-
-         U beschikt niet over goedkeuren die altijd communiceren met sitesystemen via HTTPS-clients of clients die een PKI-certificaat gebruiken wanneer ze communiceren met sitesystemen via HTTP. Deze clients stellen vertrouwen met behulp van de PKI-certificaten.  
-
-    -   **Blokkeren of deblokkeringen van een client**  
-
-         Blokkeer een client die u niet langer vertrouwt, om hem te beletten clientbeleid te krijgen en om te voorkomen dat Configuration Manager-sitesystemen mee te communiceren.  
+         Quand le client communique avec les systèmes de site en utilisant HTTP et un certificat autosigné, vous devez approuver ces clients pour les identifier comme ordinateurs approuvés. Par défaut, la configuration du site approuve automatiquement les clients de la même forêt Active Directory et de forêts approuvées pour vous éviter d'approuver manuellement chaque client. Toutefois, vous devez approuver manuellement les ordinateurs du groupe de travail auxquels vous faites confiance et tous les autres ordinateurs auxquels vous faites confiance, mais qui ne sont pas approuvés.  
 
         > [!WARNING]  
-        >  Een client blokkeert alleen verhindert communicatie van de client naar Configuration Manager-sitesystemen en belet geen communicatie met andere apparaten. Wanneer, bijkomend, de client communiceert met sitesystemen door gebruik te maken van HTTP in plaats van HTTPS, zijn er bepaalde beveiligingsbeperkingen.  
+        >  Certaines fonctions de gestion peuvent fonctionner pour les clients non approuvés, mais ce scénario n’est pas pris en charge pour Configuration Manager.  
 
-         U kunt een client die geblokkeerd werd blokkering opheffen. Indien u evenwel een AMT-gebaseerde computer deblokkeert die was ingericht voor AMT wanneer hij geblokkeerd was, moet u bijkomende stappen ondernemen vóór u die computer opnieuw buiten-band kunt beheren.  
+         Vous ne devez pas approuver les clients qui communiquent toujours avec les systèmes de site en utilisant le protocole HTTPS, ou les clients qui utilisent un certificat PKI quand ils communiquent avec les systèmes de site en utilisant le protocole HTTP. Ces clients établissent une relation de confiance en utilisant les certificats PKI.  
 
-         Zie [Bepalen of clients worden geblokkeerd in System Center Configuration Manager](../../../core/clients/deploy/plan/determine-whether-to-block-clients.md).  
+    -   **Bloquer ou débloquer un client**  
 
-    -   **Wissen van een vereiste PXE-implementatie**  
-
-         Implementeer vereiste PXE-implementaties voor de computer opnieuw.  
-
-         Zie [PXE gebruiken om Windows via het netwerk te implementeren met System Center Configuration Manager](../../../osd/deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
-
-    -   **De clienteigenschappen beheren**  
-
-         De detectiegegevens en implementaties dat voor de client weergeven. U kunt ook variabelen die takenreeksen gebruiken voor het implementeren van een besturingssysteem op het apparaat configureren.  
-
-    -   **Verwijderen van de client**  
+         Bloquez un client auquel vous ne faites plus confiance pour l’empêcher de recevoir la stratégie client et empêcher les systèmes de site Configuration Manager de communiquer avec lui.  
 
         > [!WARNING]  
-        >  Een client niet verwijderen als u wilt de Configuration Manager-client te verwijderen of te verwijderen uit een verzameling.  
+        >  Le fait de bloquer un client empêche les communications entre le client et les systèmes de site Configuration Manager uniquement. Cela n’empêche pas les communications avec d’autres appareils. De plus, lorsque le client communique avec des systèmes de site à l'aide du protocole HTTP au lieu de HTTPS, certaines contraintes de sécurité se présentent.  
 
-         De **verwijderen** actie wist handmatig het client-record van de Configuration Manager-database en typisch, dient u deze actie behalve probleemoplossende scenario's niet gebruiken. Als u het clientrecord wist en de client nog steeds geïnstalleerd en communicatie met Configuration Manager door Heartbeat-detectie het clientrecord opnieuw creëren en zal het opnieuw verschijnen in de Configuration Manager-console, hoewel de clientgeschiedenis en vroegere koppelingen verloren zullen zijn.  
+         Vous pouvez débloquer un client qui a été bloqué. Toutefois, après avoir débloqué un ordinateur basé sur AMT Intel configuré pour AMT lorsqu'il était bloqué, vous devez exécuter des étapes supplémentaires pour pouvoir le gérer hors bande de nouveau.  
+
+         Consultez [Déterminer si des clients doivent être bloqués dans System Center Configuration Manager](../../../core/clients/deploy/plan/determine-whether-to-block-clients.md).  
+
+    -   **Effacer un déploiement PXE requis**  
+
+         Redéployez les déploiements PXE nécessaires pour l’ordinateur.  
+
+         Consultez [Utiliser PXE pour déployer Windows sur le réseau avec System Center Configuration Manager](../../../osd/deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
+
+    -   **Gérer les propriétés du client**  
+
+         Vous pouvez afficher les données de découverte et les déploiements ciblés pour le client. Vous pouvez également configurer des variables qui sont utilisées par les séquences de tâches pour déployer un système d’exploitation sur l’appareil.  
+
+    -   **Supprimer le client**  
+
+        > [!WARNING]  
+        >  Ne supprimez pas un client si vous souhaitez désinstaller le client Configuration Manager ou le supprimer d’un regroupement.  
+
+         L’action **Supprimer** permet de supprimer manuellement l’enregistrement client de la base de données Configuration Manager. En général, cette action est utilisée dans les scénarios de résolution des problèmes. Si vous supprimez l’enregistrement client et que le client est toujours installé et communique avec Configuration Manager, la découverte par pulsations d’inventaire recrée l’enregistrement client, qui réapparaît dans la console Configuration Manager, mais sans l’historique du client ni les associations précédentes, qui sont perdus.  
 
         > [!NOTE]  
-        >  Wanneer u een client voor mobiele apparaten dat is geregistreerd door Configuration Manager verwijdert, wordt deze actie ook het PKI-certificaat dat was uitgegeven aan het mobiele apparaat worden ingetrokken en wordt dit certificaat wordt dan geweigerd door het beheerpunt, zelfs als IIS de CRL niet controleert. Certificaten op verouderde mobiele apparaten worden niet ingetrokken wanneer u deze clients wist.  
+        >  Si vous supprimez un client d’appareil mobile inscrit par Configuration Manager, cette action révoque également le certificat PKI émis pour l’appareil mobile. Ce certificat est alors rejeté par le point de gestion, même si IIS ne vérifie pas la liste de révocation de certificats. Les certificats sur les clients hérités d'appareils mobiles ne sont pas révoqués lorsque vous supprimez ces clients.  
 
-         Om de installatie van de client ongedaan te maken, zie [De installatie van de Configuration Manager-client ongedaan maken](#BKMK_UninstalClient).  
+         Pour désinstaller le client, voir [Désinstaller le client Configuration Manager](#BKMK_UninstalClient).  
 
-         Zie [Clients toewijzen aan een site in System Center Configuration Manager](../../../core/clients/deploy/assign-clients-to-a-site.md) voor meer informatie over het toewijzen van de client aan een nieuwe primaire site.  
+         Pour affecter le client à un nouveau site principal, consultez [Comment affecter des clients à un site dans System Center Configuration Manager](../../../core/clients/deploy/assign-clients-to-a-site.md).  
 
-         Configureer, om de client te verwijderen uit een verzameling, opnieuw de eigenschappen van de verzameling. Zie [Verzamelingen beheren in System Center Configuration Manager](../../../core/clients/manage/collections/manage-collections.md).  
+         Pour supprimer le client d'un regroupement, reconfigurez les propriétés du regroupement. Consultez [Comment gérer des regroupements dans System Center Configuration Manager](../../../core/clients/manage/collections/manage-collections.md).  
 
-    -   **Een mobiel apparaat wissen**  
+    -   **Réinitialiser un appareil mobile**  
 
-         U kunt mobiele apparaten wissen die de wisopdracht ondersteunen.  
+         Vous pouvez réinitialiser les appareils mobiles qui prennent en charge la commande de réinitialisation.  
 
-         Deze actie verwijdert permanent alle gegevens op het mobiele apparaat, met inbegrip van persoonlijke instellingen en persoonlijke gegevens. Typisch zet deze actie het mobiele apparaat terug naar zijn fabrieksinstellingen. Wissen op een mobiel apparaat wanneer het mobiele apparaat niet langer vertrouwd, bijvoorbeeld als dit is zoekgeraakt of gestolen.  
+         Cette action supprime définitivement toutes les données sur l’appareil mobile, notamment les paramètres et données personnels. En général, cette action rétablit les paramètres par défaut de l'appareil mobile. Réinitialisez un appareil mobile quand vous ne lui faites plus confiance, par exemple s’il a été perdu ou volé.  
 
         > [!TIP]  
-        >  Raadpleeg de documentatie van de fabrikant voor meer informatie over hoe het mobiele apparaat een externe wisopdracht verwerkt.  
+        >  Consultez la documentation du fabricant pour obtenir plus d’informations sur la façon dont l’appareil mobile traite les commandes de réinitialisation à distance.  
 
-         Er is vaak een vertraging totdat het mobiele apparaat de wisopdracht ontvangt:  
+         L’appareil mobile reçoit souvent la commande de réinitialisation avec un certain délai :  
 
-        -   Als het mobiele apparaat is ingeschreven door Configuration Manager of door Microsoft Intune, ontvangt de client de opdracht wanneer het het clientbeleid downloadt.  
+        -   Si l’appareil mobile est inscrit par Configuration Manager ou Microsoft Intune, le client reçoit la commande quand il télécharge sa stratégie client.  
 
-        -   Als het mobiele apparaat wordt beheerd door de Exchange Server-connector, ontvangt de opdracht wanneer het synchroniseert met Exchange.  
+        -   Si l’appareil mobile est géré par le connecteur Exchange Server, il reçoit la commande quand il se synchronise avec Exchange.  
 
-         U kunt de **Wisstatus** kolom om te controleren wanneer het apparaat de wisopdracht ontvangt. U kunt de wisopdracht annuleren totdat het apparaat een wisbevestiging naar Configuration Manager verzendt.  
+         Vous pouvez utiliser la colonne **État de réinitialisation** pour surveiller quand l’appareil reçoit la commande de réinitialisation. Vous pouvez annuler cette commande tant que l’appareil n’a pas envoyé d’accusé de réception de la réinitialisation à Configuration Manager.  
 
-    -   **Een mobiel apparaat buiten gebruik stellen**  
+    -   **Mettre hors service un appareil mobile**  
 
-         De **buiten gebruik stellen** optie wordt alleen ondersteund door mobiele apparaten die zijn ingeschreven door Intune of door op\-premises Mobile Device Management.  
+         L’option **Mettre hors service** est prise en charge uniquement par les appareils mobiles inscrits par Intune ou par la gestion des appareils mobiles (MDM) locale.  
 
-         Zie [Help uw gegevens beschermen met wissen op afstand, vergrendelen op afstand of opnieuw instellen van wachtwoordcode met behulp van System Center Configuration Manager](../../../mdm/deploy-use/wipe-lock-reset-devices.md) voor meer informatie.  
+         Pour plus d’informations, consultez [Protéger vos données à l’aide de la réinitialisation à distance, du verrouillage à distance ou de la réinitialisation du code d’accès avec System Center Configuration Manager](../../../mdm/deploy-use/wipe-lock-reset-devices.md).  
 
-    -   **Het eigendom van een apparaat wijzigen**  
+    -   **Modifier la propriété d’un appareil**  
 
-         U kunt de eigendom van apparaten te wijzigen **bedrijf** of **persoonlijke** als een apparaat geen lid van een domein en geen Configuration Manager-client geïnstalleerd heeft.  
+         Vous pouvez modifier la propriété d’un appareil à **Entreprise** ou **Personnel** si l’appareil n’est pas joint à un domaine et qu’il n’a pas le client Configuration Manager installé.  
 
-         U kunt deze waarde gebruiken in toepassingsvereisten om implementaties te controleren en om te bepalen hoeveel inventaris worden verzameld van de apparaten van gebruikers.  
+         Vous pouvez utiliser cette valeur dans les conditions des applications pour contrôler les déploiements, et pour contrôler la quantité de données d’inventaire collectées auprès des appareils des utilisateurs.  
 
-        U wilt toevoegen de **eigenaar van het apparaat** kolom naar de weergave door met de rechtermuisknop op een kolomkop en deze te kiezen.
+        Il peut être nécessaire d’ajouter la colonne **Propriétaire de l’appareil**à la vue en à la vue en cliquant avec le bouton droit sur n’importe quel titre de colonne et en choisissant le choisissant.
 
-         Zie [Hybride Mobile Device Management (MDM) met System Center Configuration Manager en Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md) voor meer informatie.  
+         Pour plus d’informations, consultez [Gestion des appareils mobiles (MDM) hybride avec System Center Configuration Manager et Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md).  
 
-##  <a name="BKMK_ManagingClients_DeviceCollectionsNode"></a> Clients beheren in het knooppunt Apparaatverzamelingen  
-  Veel van de taken die u kunt uitvoeren op één apparaat of op meerdere apparaten in de **apparaten** knooppunt op verzamelingen kan worden uitgevoerd. Dit de bewerking voor het automatisch toegepast op alle verkiesbare apparaten in de verzameling. Houd er rekening mee dat dit veel netwerkpakketten genereert en verhoogt de CPU-gebruik op de siteserver.  
+##  <a name="BKMK_ManagingClients_DeviceCollectionsNode"></a> Gérer les clients à partir du nœud Regroupements d’appareils  
+  Un grand nombre des tâches que vous pouvez réaliser sur un seul appareil ou sur plusieurs appareils dans le nœud **Appareils** peuvent être réalisées sur des regroupements. Ceci s’applique automatiquement l’opération à tous les appareils éligibles du regroupement. Notez que ceci génère un grand nombre de paquets réseau et augmente l’utilisation de l’UC sur le serveur de site.  
 
-  Houd rekening, vóór u clientbeheertaken uitvoert op het niveau van verzameling, met het aantal apparaten in de verzameling, of ze verbonden zijn door lage-bandbreedte-netwerkverbindingen en met hoe lang de taak zal duren vóór hij wordt voltooid door alle apparaten. Eenmaal gestart, kunt u de taak van de console kan niet stoppen.  
+  Avant d'effectuer des tâches de gestion du client au niveau du regroupement, vous devez prendre en compte le nombre de périphériques dans le regroupement, s'ils utilisent des connexions réseau à faible bande passante, et le temps que prendra la tâche pour tous les périphériques. Une fois démarrée, vous ne pouvez pas arrêter la tâche à partir de la console.  
 
-#### <a name="to-manage-clients-from-the-device-collections-node"></a>Clients beheren in het knooppunt Apparaatverzamelingen  
+#### <a name="to-manage-clients-from-the-device-collections-node"></a>Pour gérer les clients à partir du nœud Regroupements de périphériques  
 
-1.  Kies in de Configuration Manager-console **activa en naleving** > **Apparaatverzamelingen**.  
+1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Regroupements d’appareils**.  
 
-3.  Selecteer een verzameling en selecteer vervolgens een van de volgende clientbeheertaken van het lint, of door met de rechtermuisknop op de verzameling. Deze clientbeheertaken kunnen *alleen* worden uitgevoerd op het niveau verzameling.  
+3.  Sélectionnez un regroupement, puis sélectionnez une des tâches de gestion du client disponibles dans le ruban ou en cliquant avec le bouton droit sur le regroupement. Ces tâches de gestion de client peuvent être réalisées *uniquement* au niveau du regroupement.  
 
-    -   **Scan computers op schadelijke software en download anti-malware-definitiebestanden.**  
+    -   **Analysez les ordinateurs pour y détecter des programmes malveillants et téléchargez des fichiers de définition de logiciel anti-programme malveillant.**  
 
-         Zie [Endpoint Protection in System Center Configuration Manager](../../../protect/deploy-use/endpoint-protection.md).  
+         Consultez [Endpoint Protection dans System Center Configuration Manager](../../../protect/deploy-use/endpoint-protection.md).  
 
-    -   **Software, configuratiebasislijnen en takenreeksen implementeren.**  
+    -   **Déployez des logiciels, des lignes de base de configuration et des séquences de tâches.**  
 
-         Zie:  
+         Consultez :  
 
-        -   [Software-updates in System Center Configuration Manager implementeren](../../../sum/deploy-use/deploy-software-updates.md)  
+        -   [Déployer des mises à jour logicielles dans System Center Configuration Manager](../../../sum/deploy-use/deploy-software-updates.md)  
 
-        -   [Plannen en configureren van instellingen voor naleving in System Center Configuration Manager](../../../compliance/plan-design/plan-for-and-configure-compliance-settings.md)  
+        -   [Planifier et configurer les paramètres de conformité dans System Center Configuration Manager](../../../compliance/plan-design/plan-for-and-configure-compliance-settings.md)  
 
-    -   **Energiebeheerinstellingen configureren.**  
+    -   **Configurez les paramètres de gestion de l'alimentation.**  
 
-         Zie [Energiebeheerschema's maken en toepassen in System Center Configuration Manager](../../../core/clients/manage/power/create-and-apply-power-plans.md). Energiebeheerplannen kunnen enkel worden gebruikt met computers die Windows uitvoeren.  
+         Consultez [Comment créer et appliquer des modes de gestion de l’alimentation dans System Center Configuration Manager](../../../core/clients/manage/power/create-and-apply-power-plans.md). Les modes de gestion de l'alimentation ne peuvent être utilisés qu'avec les ordinateurs qui exécutent Windows.  
 
-    -   **Verwittig zo snel mogelijk computers om beleid te downloaden.**  
+    -   **Invitez les ordinateurs à télécharger la stratégie dès que possible.**  
 
-         Gebruik clientmelding om de geselecteerde Windows-clients voor het downloaden van computerbeleid zo snel mogelijk buiten het pollinginterval voor clientbeleid in kennis.  
+         Utilisez une notification de client pour inviter les clients Windows sélectionnés à télécharger la stratégie de l’ordinateur dès que possible en dehors de l’intervalle d’interrogation de stratégie du client.  
 
-         Clientmeldingstaken worden weergegeven in het knooppunt **Clientbewerkingen** in de werkruimte **Bewaken** .  
+         Les tâches de notification de client s'affichent dans le nœud **Opérations du client** de l'espace de travail **Surveillance** .  
 
-##  <a name="BKMK_ClientCache"></a> De clientcache configureren voor Configuration Manager-clients  
-De clientcache slaat tijdelijke bestanden voor wanneer clients toepassingen en programma's installeren. De clientcache wordt eveneens gebruikt door software-updates, maar software-updates worden niet beperkt door de geconfigureerde cachegrootte en worden altijd gedownload naar de cache. U kunt de clientcache-instellingen, zoals de grootte en locatie, configureren wanneer u de Configuration Manager-client handmatig installeert wanneer u push-clientinstallatie of nadat de client is geïnstalleerd.
+##  <a name="BKMK_ClientCache"></a> Configurer le cache du client pour les clients Configuration Manager  
+Le cache du client stocke les fichiers temporaires utilisés lors de l’installation d’applications et de programmes par les clients. Les mises à jour logicielles utilisent également le cache du client, mais elles ne sont pas limitées par la taille configurée pour le cache et tenteront toujours de télécharger vers le cache. Vous pouvez configurer les paramètres du cache du client, comme la taille et l’emplacement, quand vous installez manuellement le client Configuration Manager, quand vous utilisez une installation Push du client ou après que le client a été installé.
 
-Beginnend met Configuration Manager versie 1606, kunt u de cachegrootte van de map met clientinstellingen in de Configuration Manager-console.   
+Depuis Configuration Manager version 1606, vous pouvez spécifier la taille du dossier du cache en utilisant les paramètres client dans la console Configuration Manager.   
 
- De standaardlocatie voor de Configuration Manager-clientcache is %*windir*%\ccmcache en de standaardschijfruimte is 5120 MB.  
+ L’emplacement par défaut pour le cache du client Configuration Manager est %*windir*%\ccmcache, et l’espace disque par défaut est de 5 120 Mo.  
 
 > [!IMPORTANT]  
->  Versleutel de map die wordt gebruikt voor de clientcache niet. Door Configuration Manager kan geen inhoud naar een versleutelde map worden gedownload.  
+>  Ne chiffrez pas le dossier utilisé pour le cache du client. Configuration Manager ne peut pas télécharger du contenu vers un dossier chiffré.  
 
-### <a name="about-client-cache"></a>Over de clientcache  
+### <a name="about-client-cache"></a>À propos du cache du client  
 
-Configuration Manager-client downloadt de inhoud voor vereiste software kort na de implementatie wordt ontvangen, maar deze wordt uitgevoerd totdat de geplande tijd. Op het geplande tijdstip, Configuration Manager-client gecontroleerd of de inhoud beschikbaar in de cache is. Als de inhoud zich in de cache en de juiste versie is, gebruikt de client de inhoud in de cache. Wanneer de vereiste versie van de inhoud is gewijzigd of als de inhoud is verwijderd om ruimte voor een ander pakket te maken, wordt de inhoud opnieuw naar de cache gedownload.  
+Le client Configuration Manager télécharge le contenu pour les logiciels nécessaires dès qu’il reçoit le déploiement, mais il ne l’exécute pas avant l’heure planifiée du déploiement. À l’heure planifiée, le client Configuration Manager vérifie si le contenu est disponible dans le cache. Si le contenu est dans le cache et qu’il s’agit de la version correcte, le client utilise le contenu mis en cache. Quand la version demandée du contenu a été modifiée ou si le contenu a été supprimé pour faire de la place pour un autre package, le contenu est à nouveau téléchargé dans le cache.  
 
-Als de client probeert inhoud te downloaden voor een programma dat of toepassing die groter is dan de grootte van de cache, mislukt de implementatie vanwege ontoereikende cachegrootte en Configuration Manager genereert statusbericht-ID 10050. Als de cache later wordt vergroot, wordt het resultaat is:  
+Si le client tente de télécharger du contenu pour un programme ou une application dont la taille est supérieure à celle du cache, le déploiement échoue en raison de la taille insuffisante du cache et Configuration Manager génère un message d’état (ID 10050). Si la taille du cache est augmentée par la suite, le résultat est :  
 
--   Voor een vereist programma: De client probeert niet automatisch opnieuw de inhoud te downloaden. U moet het pakket en programma opnieuw implementeren op de client.  
--   Voor een vereiste toepassing: De client wordt automatisch opnieuw geprobeerd de inhoud te downloaden wanneer deze keer zijn clientbeleid downloadt.  
+-   Pour un programme requis : le client ne retente pas automatiquement de télécharger le contenu. Vous devez redéployer le package et le programme vers le client.  
+-   Pour une application demandée : le client tente automatiquement de télécharger le contenu quand il télécharge sa stratégie client.  
 
-Als de client probeert te downloaden van een pakket dat is minder dan de grootte van de cache, maar de cache volledig is, worden alle vereiste implementaties blijven proberen totdat de cacheruimte beschikbaar is, totdat het downloaden van de time-out of totdat de limiet voor opnieuw proberen is bereikt voor de mislukking van de cache-ruimte. Als de cache later wordt vergroot, probeert de Configuration Manager-client te downloaden van het pakket opnieuw tijdens de volgende interval opnieuw. De client probeert de inhoud elke vier uur te downloaden tot het achttien keer is geprobeerd.  
+Si le client tente de télécharger un package dont la taille est inférieure à celle du cache, mais que le cache est plein, tous les déploiements demandés continuent leurs tentatives, jusqu’à ce que l’espace du cache soit disponible, et ce jusqu’à expiration du délai de téléchargement ou jusqu’à ce que la limite du nombre de tentatives d’accès à l’espace du cache soit atteinte. Si la taille du cache augmente ultérieurement, Configuration Manager effectue une nouvelle tentative de téléchargement du package à l’intervalle suivant. Le client tente de télécharger le contenu toutes les 4 heures jusqu'à ce qu'il atteigne 18 tentatives.  
 
-Inhoud in de cache wordt niet automatisch verwijderd, maar blijft minimaal één dag in de cache nadat de client die inhoud heeft gebruikt. Als u de pakketeigenschappen configureert met de optie om inhoud permanent te behouden in de clientcache, wordt de pakketinhoud niet automatisch verwijderd uit de cache. Als de cacheruimte voor de client wordt gebruikt door pakketten die de afgelopen 24 uur zijn gedownload en er nieuwe pakketten moeten worden gedownload, kunt u de cachegrootte voor de client uitbreiden of de verwijderingsoptie kiezen om blijvende cache-inhoud te verwijderen.  
+Le contenu mis en cache n'est pas automatiquement supprimé, mais reste dans le cache pendant au moins un jour après son utilisation par le client. Si vous configurez les propriétés du package avec l'option de conserver le contenu dans le cache du client, le client ne supprime pas automatiquement le contenu du package du cache. Si l'espace du cache du client est utilisé par des packages ayant été téléchargés au cours des dernières 24 heures et que le client doit télécharger de nouveaux packages, vous pouvez augmenter la taille du cache ou choisir l'option de suppression pour supprimer le contenu conservé dans le cache.  
 
- Gebruik de volgende procedures om de clientcache te configureren tijdens de handmatige clientinstallatie of nadat de client is geïnstalleerd.  
+ Utilisez les procédures suivantes pour configurer le cache du client lors de l'installation manuelle du client, ou après avoir installé le client.  
 
-### <a name="to-configure-the-client-cache-when-you-install-clients-by-using-manual-client-installation"></a>De clientcache configureren wanneer u clients installeert op basis van een handmatige clientinstallatie  
+### <a name="to-configure-the-client-cache-when-you-install-clients-by-using-manual-client-installation"></a>Pour configurer le cache du client lorsque vous installez les clients à l'aide de l'installation client manuelle  
 
-Voer de opdracht CCMSetup.exe uit vanaf de installatiebronlocatie en geef de volgende eigenschappen op, indien vereist (gescheiden door spaties):  
+Exécutez la commande CCMSetup.exe à partir de l'emplacement source d'installation et spécifiez les propriétés suivantes dont vous avez besoin, séparées par des espaces :  
 
    -   DISABLECACHEOPT  
 
@@ -222,17 +222,17 @@ Voer de opdracht CCMSetup.exe uit vanaf de installatiebronlocatie en geef de vol
     -   SMSCACHESIZE  
 
         > [!NOTE]
-        > Voor versie 1606, gebruikt u de cache voor grootte-instellingen beschikbaar zijn in **clientinstellingen** in de Configuration Manager-console in plaats van SMSCACHESIZE. Zie [Clientcache-instellingen](../../../core/clients/deploy/about-client-settings.md#client-cache-settings) voor meer informatie.
+        > Pour la version 1606, utilisez les paramètres de taille du cache disponibles dans **Paramètres client** dans la console Configuration Manager au lieu de la propriété SMSCACHESIZE. Pour plus d’informations, consultez [Paramètres du cache client](../../../core/clients/deploy/about-client-settings.md#client-cache-settings) (Paramètres du cache du client).
 
-Zie [Over de eigenschappen van clientinstallatie in System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md) voor meer informatie over het gebruik van deze opdrachtregeleigenschappen voor CCMSetup.exe.  
+Pour plus d’informations sur l’utilisation de ces propriétés de ligne de commande pour CCMSetup.exe, consultez [À propos des propriétés d’installation du client dans System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
 
-### <a name="to-configure-the-client-cache-folder-when-you-install-clients-by-using-client-push-installation"></a>De clientcache configureren wanneer u clients installeert op basis van een push-clientinstallatie  
+### <a name="to-configure-the-client-cache-folder-when-you-install-clients-by-using-client-push-installation"></a>Pour configurer le dossier du cache du client lorsque vous installez les clients à l'aide de l'installation poussée du client  
 
-1.  Kies in de Configuration Manager-console **beheer** > **siteconfiguratie** > **Sites**.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration du site** > **Sites**.  
 
-3.  Selecteer de gewenste website, en klik op de **Start** tabblad, in de **instellingen** groep, kiest u **clientinstallatie-instellingen** > **installatie-eigenschappen tabblad**.  
+3.  Sélectionnez le site approprié et, sous l’onglet **Accueil**, dans le groupe **Paramètres**, choisissez **Paramètres d’installation du client** > **Onglet Propriétés de l’installation**.  
 
-5.  Geef de volgende eigenschappen, gescheiden door spaties:  
+5.  Spécifiez les propriétés suivantes, séparées par des espaces :  
 
     -   DISABLECACHEOPT  
 
@@ -243,125 +243,125 @@ Zie [Over de eigenschappen van clientinstallatie in System Center Configuration 
     -   SMSCACHESIZE  
 
         > [!NOTE]
-        > Voor versie 1606, gebruikt u de cache voor grootte-instellingen beschikbaar zijn in **clientinstellingen** in de Configuration Manager-console in plaats van SMSCACHESIZE. Zie [Clientcache-instellingen](../../../core/clients/deploy/about-client-settings.md#client-cache-settings) voor meer informatie.
+        > Pour la version 1606, utilisez les paramètres de taille du cache disponibles dans **Paramètres client** dans la console Configuration Manager au lieu de la propriété SMSCACHESIZE. Pour plus d’informations, consultez [Paramètres du cache client](../../../core/clients/deploy/about-client-settings.md#client-cache-settings) (Paramètres du cache du client).
 
-       Zie [Over de eigenschappen van clientinstallatie in System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md) voor meer informatie over het gebruik van deze opdrachtregeleigenschappen voor CCMSetup.exe.  
+       Pour plus d’informations sur l’utilisation de ces propriétés de ligne de commande pour CCMSetup.exe, consultez [À propos des propriétés d’installation du client dans System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
 
-### <a name="to-configure-the-client-cache-folder-on-the-client-computer"></a>De clientcachemap configureren op de clientcomputer  
+### <a name="to-configure-the-client-cache-folder-on-the-client-computer"></a>Pour configurer le dossier du cache du client sur l’ordinateur client  
 
-1.  Navigeer op de clientcomputer naar **Configuration Manager** in het Configuratiescherm en dubbelklik om de eigenschappen te openen.  
+1.  Sur l’ordinateur client, accédez à **Configuration Manager** dans le Panneau de configuration et double-cliquez pour ouvrir les propriétés.  
 
-2.  Op de **Cache** tabblad Eigenschappen ruimte en locatie instellen. De standaardlocatie is *%windir%*\ccmcache.  
+2.  Sous l’onglet **Cache**, définissez les propriétés de l’espace et de l’emplacement. L'emplacement par défaut est *%windir%*\ccmcache.  
 
-5.  Voor het verwijderen van de bestanden in de cachemap kiezen **bestanden verwijderen**.  
+5.  Pour supprimer les fichiers dans le dossier du cache, choisissez **Supprimer les fichiers**.  
 
     > [!NOTE]
     > 
-    > De cachemap is een gewone Windows-map, zodat u de verwijdering van de inhoud van de map met een script, een hulpprogramma of met de PowerShell-cmdlet kunt automatiseren `Remove-Item`. 
+    > Le dossier du cache est un dossier Windows normal : vous pouvez donc automatiser la suppression du contenu du dossier à l’aide d’un script ou d’un utilitaire, ou avec l’applet de commande PowerShell `Remove-Item`. 
 
 
-### <a name="to-configure-client-cache-size-in-client-settings"></a>De client-cachegrootte in clientinstellingen configureren
+### <a name="to-configure-client-cache-size-in-client-settings"></a>Pour configurer la taille du cache du client dans les paramètres client
 
-Vanaf versie 1606, kunt u de grootte van de clientcachemap aanpassen zonder de client opnieuw installeert. Om dit te doen, configureert u de client-cachegrootte in de Configuration Manager-console via Clientinstellingen.  
+À compter de la version 1606, vous pouvez ajuster la taille du dossier du cache du client sans avoir à réinstaller le client. Pour ce faire, vous configurez la taille du cache du client dans la console Configuration Manager à l’aide des paramètres client.  
 
-1. Ga in de Configuration Manager-console naar **Beheer** > **Clientinstellingen**.
+1. Dans la console Configuration Manager, accédez à **Administration** > **Paramètres client**.
 
-2. Dubbelklik op **Standaardclientinstellingen**.
-  U kunt ook aangepaste clientinstellingen maken zodat u de cachegrootte selectiever kunt toepassen. Zie [Clientinstellingen in System Center Configuration Manager configureren](../../../core/clients/deploy/configure-client-settings.md) voor meer informatie over standaardclientinstellingen en aangepaste clientinstellingen.
+2. Double-cliquez sur **Paramètres client par défaut**.
+  Vous pouvez également créer des paramètres client personnalisés pour appliquer la taille du cache de manière plus sélective. Pour plus d’informations sur les paramètres client personnalisés et par défaut, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-settings.md).
 
- 3. Kies **clientcache-instellingen** en kies **Ja** voor **clientcachegrootte configureren**, gebruik de **MB** of **percentage van de instellingen voor de schijf**. De cache wordt aangepast aan de kleinste grootte.
+ 3. Choisissez **Paramètres de cache du client** et choisissez **Oui** pour **Configurer la taille du cache du client**, puis utilisez le paramètre **Mo** ou **Pourcentage du disque**. La taille du cache est ajustée en fonction de la plus petite valeur.
 
-     De Configuration Manager-client configureert de cachegrootte op grond van deze instellingen de volgende keer dat er een clientbeleid wordt gedownload.
+     Le client Configuration Manager configurera la taille du cache avec ces paramètres lors du téléchargement de la stratégie client suivante.
 
-##  <a name="BKMK_UninstalClient"></a> De Configuration Manager-client verwijderen  
- U kunt de Windows Configuration Manager-clientsoftware verwijderen van een computer met behulp van **CCMSetup.exe** met de **/Uninstall** eigenschap. Voer CCMSetup.exe op een afzonderlijke computer uit via de opdrachtprompt of implementeer een pakket en programma om de client te verwijderen voor een verzameling computers.  
+##  <a name="BKMK_UninstalClient"></a> Désinstaller le client Configuration Manager  
+ Vous pouvez désinstaller le client Configuration Manager d’un ordinateur Windows en exécutant **CCMSetup.exe** avec la propriété **/Uninstall**. Exécutez CCMSetup.exe sur un ordinateur individuel à partir de l'invite de commande ou déployez un package et un programme pour désinstaller le client pour un regroupement d'ordinateurs.  
 
 > [!WARNING]  
->  U kunt de Configuration Manager-client niet verwijderen van een mobiel apparaat. Als u de Configuration Manager-client van een mobiel apparaat verwijdert moet, moet u het apparaat verwijdert u alle gegevens op het mobiele apparaat wissen.  
+>  Il n’est pas possible de désinstaller le client Configuration Manager depuis un appareil mobile. Si vous devez supprimer le client Configuration Manager d’un appareil mobile, vous devez le réinitialiser, ce qui supprime toutes les données présentes sur l’appareil mobile.  
 
-#### <a name="to-uninstall-the-configuration-manager-client-from-the-command-prompt"></a>De Configuration Manager-client verwijderen via de opdrachtprompt  
+#### <a name="to-uninstall-the-configuration-manager-client-from-the-command-prompt"></a>Pour désinstaller le client Configuration Manager à partir de l'invite de commande  
 
-1.  Open een Windows-opdrachtprompt en wijzig de map in de locatie waarin CCMSetup.exe zich bevindt.  
+1.  Ouvrez une invite de commandes Windows et accédez à l'emplacement du fichier CCMSetup.exe.  
 
-2.  Typ **Ccmsetup.exe /uninstall**en druk op **Enter**.  
+2.  Entrez **Ccmsetup.exe /uninstall**, puis appuyez sur **Entrée**.  
 
 > [!NOTE]  
->  Het verwijderingsproces worden geen resultaten weergegeven op het scherm. Om te controleren of client is verwijderd, bekijkt u het logbestand **CCMSetup.log** in de map *%windir%\ ccmsetup* op de clientcomputer.  
+>  Le processus de désinstallation n’affiche pas de résultats à l’écran. Pour vérifier que la désinstallation du client s’est déroulée correctement, examinez le fichier journal **CCMSetup.log** dans le dossier *%windir%\ ccmsetup* de l’ordinateur client.  
 
-##  <a name="BKMK_ConflictingRecords"></a> Conflicterende records voor Configuration Manager-clients beheren  
- Configuration Manager gebruikt de hardware-ID om clients te identificeren die mogelijk zijn gedupliceerd en u te waarschuwen voor conflicterende records. Bijvoorbeeld, als u een computer installeert, de hardware-ID zou dezelfde, maar de GUID die wordt gebruikt door Configuration Manager kan worden gewijzigd.  
+##  <a name="BKMK_ConflictingRecords"></a> Gérer les enregistrements en conflit pour les clients Configuration Manager  
+ Configuration Manager utilise l’ID du matériel pour tenter d’identifier les éventuels clients dupliqués et vous signale les conflits d’enregistrement qu’il trouve. Par exemple, si vous réinstallez un ordinateur, il est possible que l’ID du matériel soit le même, mais que le GUID utilisé par Configuration Manager soit différent.  
 
- Wanneer de Configuration Manager een conflict kan oplossen met behulp van Windows-verificatie van het computeraccount of een PKI-certificaat van een vertrouwde bron, wordt het conflict automatisch voor u opgelost. Echter, wanneer het conflict kan niet worden omgezet in Configuration Manager, gebruikt een hiërarchie-instelling dat een automatisch de records worden samengevoegd wanneer dubbele hardware-id's (de standaardinstelling) worden gedetecteerd of kunt u bepalen wanneer samenvoegen, blokkeren of nieuwe client-records maken. Als u besluit dubbele records handmatig te beheren, moet u de conflicterende records in de Configuration Manager-console handmatig oplossen.  
-
-
-#### <a name="to-change-the-hierarchy-setting-for-managing-conflicting-records"></a>De hiërarchie-instellingen wijzigen voor het beheren van conflicterende records  
-
-1.  Kies in de Configuration Manager-console **beheer** > **siteconfiguratie** > **Sites** > **hiërarchie-instellingen**
-2.  Op de **goedkeuring van Client en conflicterende Records** tabblad, kiest u **conflicterende records automatisch oplossen**, of **conflicterende records handmatig oplossen**.  
-
-#### <a name="to-manually-resolve-conflicting-records"></a>Conflicterende records handmatig oplossen  
-
-1.  Kies in de Configuration Manager-console **bewaking** > **systeemstatus** > **conflicterende Records**.  
-
-3.  Selecteer een of meer conflicterende records en kies vervolgens **conflicterende Record**.  
-
-4.  Selecteer vervolgens een van de volgende opties:  
-
-    -   **Samenvoegen** combineren van de nieuwe record met de bestaande clientrecord.  
-
-    -   **Nieuw** : maak een nieuwe record voor de conflicterende clientrecord.  
-
-    -   **Blokkeren** : maak een nieuwe record voor de conflicterende clientrecord, maar markeer deze als geblokkeerd.  
-
-## <a name="manage-duplicate-hardware-identifiers"></a>Dubbele hardware-id's beheren
-U kunt een lijst met hardware-id's in Configuration Manager wordt genegeerd voor PXE-opstart- en clientregistratie vanaf Configuration Manager versie 1610, opgeven. Er zijn twee veelvoorkomende problemen die hierdoor adres.
-
-1. Veel nieuwe apparaten, zoals Surface Pro, 3, beschikken niet over een ingebouwde Ethernet-poort. Een USB-Ethernet-adapter wordt doorgaans een bekabelde verbinding ten behoeve van de implementatie van besturingssystemen worden gebruikt. Dit zijn echter vaak gedeelde adapters vanwege de kosten en algemene bruikbaarheid. Omdat het MAC-adres van deze adapter wordt gebruikt om het apparaat hebt geïdentificeerd, wordt hergebruiken van de adapter problematisch zonder extra beheerdersacties weergegeven tussen elke implementatie. Vanaf versie 1610, kunt u het MAC-adres van deze adapter uitsluiten, zodat deze opnieuw kan worden gebruikt in dit scenario.
-2. Terwijl de SMBIOS-ID een unieke hardware-id zijn moet, worden sommige speciale hardware-apparaten zijn gebouwd met dubbele id. Hoewel dit niet zo gebruikelijk zijn als het bovenstaande USB Ethernet-adapter scenario, kan de lijst met hardware-id's voor het oplossen van dit probleem ook worden gebruikt.
-
-#### <a name="to-add-hardware-identifiers-for-configuration-manager-to-ignore"></a>Toevoegen van hardware-id's voor Configuration Manager te negeren  
-1. Ga in de Configuration Manager-console naar **beheer** > **overzicht** > **siteconfiguratie** > **Sites**.
-2. Op de **Start** tabblad, in de **Sites** groep, kiest u **hiërarchie-instellingen**.
-3. Op de **goedkeuring van Client en conflicterende Records** Kies **toevoegen** in de **dubbele hardware-id's** sectie voor het toevoegen van nieuwe hardware-id's.
-
-##  <a name="BKMK_PolicyRetrieval"></a> Ophalen van beleid initiëren voor een Configuration Manager-client  
- Een Windows Configuration Manager-client downloadt het clientbeleid volgens een schema dat u configureert als een clientinstelling. Echter, kunnen er gevallen, als u ad-hoc beleid direct op te halen van de client, bijvoorbeeld wilt voor het oplossen van problemen of testen.  
-
-U kunt starten ophalen met behulp van beleid:
+ Si Configuration Manager peut résoudre un conflit en utilisant l’authentification Windows du compte d’ordinateur ou un certificat PKI émis par une source approuvée, le conflit est résolu automatiquement. Si Configuration Manager ne peut pas résoudre le conflit, il utilise un paramètre de hiérarchie qui fusionne automatiquement les enregistrements avec le même ID de matériel qu’il a détectés (il s’agit du paramètre par défaut) ou qui vous laisse le choix de fusionner ou de bloquer les enregistrements du client, ou d’en créer d’autres. Si vous décidez de gérer manuellement les enregistrements en doublon, vous devez résoudre vous-même les enregistrements en conflit dans la console Configuration Manager.  
 
 
-- [Clientmeldingen](#initiate-client-policy-retrieval-using-client-notification) 
-- [De **acties** tabblad op de client](#manually-initiate-client-policy-retrieval-on-the-actions-tab-of-the-configuration-manager-client)
-- [Een script](#manually-initiate-client-policy-retrieval-by-script)
+#### <a name="to-change-the-hierarchy-setting-for-managing-conflicting-records"></a>Pour modifier le paramètre de hiérarchie pour gérer les conflits d'enregistrement  
+
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration du site** > **Sites** > **Paramètres de hiérarchie**.
+2.  Sous l’onglet **Approbation client et enregistrements en conflit**, choisissez **Résoudre automatiquement les enregistrements en conflit** ou **Résoudre manuellement les enregistrements en conflit**.  
+
+#### <a name="to-manually-resolve-conflicting-records"></a>Pour résoudre manuellement les enregistrements en conflit  
+
+1.  Dans la console Configuration Manager, choisissez **Surveillance** > **État du système** > **Enregistrements en conflit**.  
+
+3.  Sélectionnez un ou plusieurs enregistrements en conflit, puis choisissez **Enregistrement en conflit**.  
+
+4.  Sélectionnez l’un des paramètres suivants :  
+
+    -   **Fusionner** : permet de combiner le nouvel enregistrement détecté avec l’enregistrement client existant.  
+
+    -   **Nouveau** : permet de créer un nouvel enregistrement pour l'enregistrement de client en conflit.  
+
+    -   **Bloquer** : permet de créer un nouvel enregistrement pour l'enregistrement de client en conflit, mais le marquer comme bloqué.  
+
+## <a name="manage-duplicate-hardware-identifiers"></a>Gérer les identificateurs de matériel dupliqués
+Depuis Configuration Manager version 1610, vous pouvez fournir la liste des ID de matériel ignorés par Configuration Manager dans le cadre du démarrage PXE et de l’inscription des clients. Deux problèmes courants bénéficient de cette fonctionnalité.
+
+1. De nombreux nouveaux appareils, comme la Surface Pro 3, ne comprennent pas de port Ethernet intégré. Une carte USB-Ethernet est généralement utilisée pour établir une connexion filaire afin de déployer le système d’exploitation. Toutefois, il s’agit souvent de cartes partagées pour des questions de coût et de facilité d’utilisation. Étant donné que l’adresse MAC de cette carte est utilisée pour identifier l’appareil, la réutilisation de cette carte nécessite l’intervention supplémentaire d’un administrateur entre chaque déploiement. Depuis la version 1610, vous pouvez exclure l’adresse MAC de cette carte pour permettre sa réutilisation dans ce scénario.
+2. Tandis que l’ID SMBIOS est supposé être un identificateur de matériel unique, certains appareils spécialisés sont créés avec des ID dupliqués. La liste des ID de matériel peut également être utilisée pour résoudre ce problème, même s’il s’agit d’un scénario plus rare que l’utilisation d’une carte USB-Ethernet ci-dessus.
+
+#### <a name="to-add-hardware-identifiers-for-configuration-manager-to-ignore"></a>Pour ajouter des identificateurs de matériel que Configuration Manager doit ignorer  
+1. Dans la console Configuration Manager, accédez à **Administration** > **Vue d’ensemble** > **Configuration du site** > **Sites**.
+2. Sous l’onglet **Accueil**, dans le groupe **Sites**, choisissez **Paramètres de hiérarchie**.
+3. Sous l’onglet **Approbation client et enregistrements en conflit**, choisissez **Ajouter** dans la section **Identificateurs de matériel en doublon** pour ajouter de nouveaux identificateurs de matériel.
+
+##  <a name="BKMK_PolicyRetrieval"></a> Lancer une récupération de stratégie pour un client Configuration Manager  
+ Sur Windows, un client Configuration Manager télécharge sa stratégie client selon un calendrier que vous configurez comme paramètre du client. Il se peut cependant que dans certaines situations vous souhaitiez lancer une récupération de stratégie ad hoc à partir du client, par exemple dans un scénario de résolution de problème ou de test.  
+
+Vous pouvez lancer une récupération de stratégie en utilisant :
+
+
+- [Notification du client](#initiate-client-policy-retrieval-using-client-notification) 
+- [L’onglet **Actions** sur le client](#manually-initiate-client-policy-retrieval-on-the-actions-tab-of-the-configuration-manager-client)
+- [Un script](#manually-initiate-client-policy-retrieval-by-script)
 
 > [!NOTE]  
 >   
->  Zie [Computerbeleid voor Linux- en UNIX-servers](../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md#BKMK_PolicyforLnU) voor informatie over het ophalen van beleid voor clients met Linux en UNIX.  
+>  Pour plus d’informations sur la récupération des stratégies pour les clients qui exécutent Linux et UNIX, consultez [Computer policy for Linux and UNIX servers](../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md#BKMK_PolicyforLnU).  
 
-#### <a name="initiate-client-policy-retrieval-using-client-notification"></a>Clientbeleid ophalen met behulp van clientmeldingen  
+#### <a name="initiate-client-policy-retrieval-using-client-notification"></a>Lancer une récupération de stratégie client en utilisant une notification de client  
 
-1.  Kies in de Configuration Manager-console **activa en naleving** > **Apparaatverzamelingen**.  
+1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Regroupements de périphériques**.  
 
-3.  Selecteer de apparaatverzameling met de computers waarvan u beleid wilt downloaden. Op de **Start** tabblad, in de **verzamelingen** groep, kiest u **Clientmelding** > **computerbeleid downloaden**.  
+3.  Sélectionnez le regroupement d’appareils contenant les ordinateurs dont vous voulez télécharger la stratégie. Sous l’onglet **Accueil**, dans le groupe **Regroupements**, choisissez **Notification du Client** > **Télécharger la stratégie d’ordinateur**.  
 
     > [!NOTE]  
-    >  U kunt Clientmelding ook gebruiken om beleid op te halen voor een of meer geselecteerde apparaten die worden weergegeven in een tijdelijk verbindingsknooppunt onder het knooppunt **Apparaten** .  
+    >  Vous pouvez également utiliser une notification de client pour lancer la récupération de la stratégie pour un ou plusieurs périphériques sélectionnés affichés dans un nœud de regroupement temporaire sous le nœud **Périphériques** .  
 
-#### <a name="manually-initiate-client-policy-retrieval-on-the-actions-tab-of-the-configuration-manager-client"></a>Clientbeleid ophalen op het tabblad acties van de Configuration Manager-client handmatig te starten  
+#### <a name="manually-initiate-client-policy-retrieval-on-the-actions-tab-of-the-configuration-manager-client"></a>Lancer manuellement la récupération de stratégie du client sous l’onglet Actions du client Configuration Manager  
 
-1.  Selecteer **Configuration Manager** in het Configuratiescherm van de computer.  
+1.  Sélectionnez **Configuration Manager** dans le panneau de configuration de l'ordinateur.  
 
-2.  Op de **acties** tabblad kiezen **ophaal- en evaluatiefase computerbeleid** het computerbeleid te initiëren en klik vervolgens op **nu uitvoeren**.  
+2.  Sous l’onglet **Actions**, choisissez **Récupération de stratégie ordinateur et cycle d’évaluation** pour lancer la stratégie ordinateur, puis choisissez **Exécuter maintenant**.  
 
-4.  Kies **OK** om te bevestigen.  
+4.  Cliquez sur **OK** pour confirmer la demande.  
 
-5.  Herhaal stap 3 en 4 voor eventuele andere vereiste acties, bijvoorbeeld **Ophaal- en evaluatiefase gebruikersbeleid** voor gebruikersclientinstellingen.  
+5.  Répétez les étapes 3 et 4 pour toutes les actions dont vous avez besoin, telles que **Récupération de stratégie utilisateur et cycle d’évaluation** pour les paramètres client utilisateur.  
 
-#### <a name="manually-initiate-client-policy-retrieval-by-script"></a>Clientbeleid handmatig starten door script  
+#### <a name="manually-initiate-client-policy-retrieval-by-script"></a>Lancer manuellement la récupération de stratégie du client par script  
 
-1.  Open een teksteditor, zoals Kladblok.  
+1.  Ouvrez un éditeur de texte, tel que le Bloc-notes.  
 
-2.  Kopieer het volgende en voeg dit in het bestand in:  
+2.  Copiez et insérez le code suivant dans le fichier :  
 
     ```  
     on error resume next  
@@ -398,12 +398,12 @@ U kunt starten ophalen met behulp van beleid:
     set oCPAppletMgr=nothing  
     ```  
 
-3.  Sla het bestand op met een VBS-extensie.  
+3.  Enregistrez le fichier avec une extension .vbs.  
 
-4.  Gebruik een van de volgende methoden om het bestand uit te voeren op de clientcomputer:  
+4.  Sur l'ordinateur client, exécutez le fichier à l'aide de l'une des méthodes ci-après :  
 
-    -   Navigeer in Windows Verkenner naar het bestand en dubbelklik op het scriptbestand.  
+    -   Accédez au fichier via l'Explorateur Windows et double-cliquez sur le fichier de script.  
 
-    -   Open een opdrachtprompt en typ: **cscript &lt;pad\bestandsnaam.vbs >**.  
+    -   Ouvrez une invite de commandes et tapez **cscript &lt;chemin\nom_fichier.vbs>**.  
 
-5.  Kies **OK** in de **Windows Script Host** in het dialoogvenster.  
+5.  Cliquez sur **OK** dans la boîte de dialogue **Environnement d’exécution de scripts WSH (Windows Script Host)**.  

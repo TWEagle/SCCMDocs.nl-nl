@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Windows Defender of Endpoint Protection-client | Microsoft Docs
-description: Informatie over het oplossen van problemen met Windows Defender- en Endpoint Protection.
+title: "Résolution des problèmes du client Windows Defender ou Endpoint Protection | Microsoft Docs"
+description: "Découvrez comment résoudre les problèmes liés à Windows Defender et Endpoint Protection."
 ms.custom: na
 ms.date: 01/03/2017
 ms.prod: configuration-manager
@@ -17,302 +17,302 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 1b096e71f5131214fb4e235e84d0b7f63e566831
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="troubleshooting-windows-defender-or-endpoint-protection-client"></a>Problemen met Windows Defender of Endpoint Protection-client oplossen
+# <a name="troubleshooting-windows-defender-or-endpoint-protection-client"></a>Résolution des problèmes du client Windows Defender ou Endpoint Protection
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Als u problemen ondervindt met Windows Defender of Endpoint Protection, neemt u contact op met uw beveiligingsadministrator voor ondersteuning. De volgende problemen kunt u ook zelf oplossen:  
+Si vous rencontrez des problèmes avec Windows Defender ou Endpoint Protection, contactez votre administrateur de sécurité pour obtenir du support. Vous pouvez également tenter de résoudre les problèmes suivants :  
 
--   [Windows Defender of Endpoint Protection bijwerken](#update-windows-defender-or-endpoint-protection)  
--   [Windows Defender of Endpoint Protection-service wordt gestart](#starting-windows-defender-or-endpoint-protection-service)  
--   [Problemen met de internetverbinding](#internet-connection-issues)  
--   [Gedetecteerde bedreiging kan niet worden hersteld.](#detected-threat-cant-be-remediated)  
--   [De Endpoint Protection-client installeren](#install-the-endpoint-protection-client)  
+-   [Mettre à jour Windows Defender ou Endpoint Protection](#update-windows-defender-or-endpoint-protection)  
+-   [Démarrage du service Windows Defender ou Endpoint Protection](#starting-windows-defender-or-endpoint-protection-service)  
+-   [Problèmes de connexion Internet](#internet-connection-issues)  
+-   [Impossible de remédier à une menace détectée](#detected-threat-cant-be-remediated)  
+-   [Installer le client Endpoint Protection](#install-the-endpoint-protection-client)  
 
-##  <a name="update-windows-defender-or-endpoint-protection"></a>Windows Defender of Endpoint Protection bijwerken  
- Windows Defender of Endpoint Protection werkt automatisch met Microsoft Update om ervoor te zorgen dat uw definities van virussen en spyware up-to-date worden gehouden.  
+##  <a name="update-windows-defender-or-endpoint-protection"></a>Mettre à jour Windows Defender ou Endpoint Protection  
+ Windows Defender ou Endpoint Protection fonctionne automatiquement avec Microsoft Update pour garantir que vos définitions de virus et de logiciels espions sont à jour.  
 
- **Symptomen**  
+ **Symptômes**  
 
- In dit artikel worden veelvoorkomende problemen met automatische updates behandeld, waaronder de volgende situaties:  
+ Cet article traite des problèmes courants liés aux mises à jour automatiques, notamment les situations suivantes :  
 
--   U ziet foutberichten die aangeven dat er updates zijn mislukt.  
+-   Vous voyez des messages d’erreur indiquant que les mises à jour ont échoué.  
 
--   Wanneer u op updates wilt controleren, krijgt u een foutbericht dat de updates van de virus- en spywaredefinities niet kunnen worden gecontroleerd, gedownload of geïnstalleerd.  
+-   Quand vous recherchez les mises à jour, vous recevez un message d’erreur indiquant que les mises à jour des définitions de virus et de logiciels espions ne peut pas être recherchées, téléchargées ou installées.  
 
--   Hoewel u met internet verbonden bent, mislukken de updates.  
+-   Même si vous êtes connecté à Internet, les mises à jour échouent.  
 
--   Updates worden niet automatisch volgens de planning geïnstalleerd.  
+-   Les mises à jour ne sont pas installées automatiquement comme planifié.  
 
- **Oorzaak**  
+ **Cause**  
 
- De meest voorkomende oorzaken voor problemen met updates zijn problemen met de internetverbinding. Als u weet dat u bent verbonden met internet omdat u naar andere websites kunt bladeren, kan het probleem worden veroorzaakt door foutieve instellingen in Windows Internet Explorer.  
+ Les causes les plus courantes des problèmes de mise à jour sont des problèmes de connectivité Internet. Cependant, si vous savez que vous êtes connecté à Internet dans la mesure où vous pouvez accéder à d’autres sites web, le problème peut être dû à des conflits avec vos paramètres de Windows Internet Explorer.  
 
 > [!IMPORTANT]  
->  U moet Internet Explorer afsluiten om deze stappen te voltooien. Druk ze daarom af, schrijf ze op of kopieer ze naar een ander bestand en maak vervolgens een bladwijzer aan voor dit onderwerp om later te gebruiken.  
+>  Vous devez quitter Internet Explorer pour effectuer ces étapes. Par conséquent, imprimez-les, notez-les ou copiez-les dans un autre fichier, puis ajoutez cette rubrique à vos favoris pour y accéder ultérieurement.  
 
-### <a name="step-1-reset-your-internet-explorer-settings"></a>Stap 1: Instellingen van Internet Explorer opnieuw instellen  
+### <a name="step-1-reset-your-internet-explorer-settings"></a>Étape 1 : Réinitialiser vos paramètres Internet Explorer  
 
-1.  Sluit alle geopende programma's af, ook Internet Explorer.  
+1.  Quittez tous les programmes ouverts, y compris Internet Explorer.  
 
     > [!NOTE]  
-    >  Als u deze instellingen in Internet Explorer opnieuw instelt, worden de tijdelijke bestanden, cookies, browsegeschiedenis en online wachtwoorden verwijderd. Uw Favorieten worden echter niet verwijderd.  
+    >  La réinitialisation de ces paramètres dans Internet Explorer supprime vos fichiers temporaires, vos cookies, votre historique de navigation et vos mots de passe en ligne. Vos favoris ne sont cependant pas supprimés.  
 
-2.  Klik op **Start** , zoek naar **inetcpl.cpl**en druk vervolgens op **Enter**.  
+2.  Cliquez sur **Démarrer** et recherchez **inetcpl.cpl**, puis appuyez sur **Entrée**.  
 
-3.  Klik in het dialoogvenster **Internetopties** op het tabblad **Geavanceerd** .  
+3.  Dans la boîte de dialogue **Options Internet** , cliquez sur l’onglet **Avancé** .  
 
-4.  Klik onder **Instellingen voor Internet Explorer opnieuw instellen**op **Opnieuw instellen**en klik vervolgens nogmaals op **Opnieuw instellen** .  
+4.  Sous **Réinitialiser les paramètres d’Internet Explorer**, cliquez sur **Réinitialiser**, puis cliquez à nouveau sur **Réinitialiser** .  
 
-5.  Wacht tot de instellingen in Internet Explorer opnieuw zijn ingesteld en klik vervolgens op **OK**.  
+5.  Attendez qu’Internet Explorer ait terminé de réinitialiser les paramètres, puis cliquez sur **OK**.  
 
-6.  Open Internet Explorer.  
+6.  Ouvrez Internet Explorer.  
 
-7.  Open Microsoft Security Essentials, klik op het tabblad **Bijwerken** en klik vervolgens op **Bijwerken**.  
+7.  Ouvrez Microsoft Security Essentials, cliquez sur l’onglet **Mettre à jour** , puis cliquez sur **Mettre à jour**.  
 
-8.  Als het probleem zich blijft voordoen, gaat u verder met de volgende stap.  
+8.  Si le problème persiste, passez à l’étape suivante.  
 
-### <a name="step-2-set-internet-explorer-as-the-default-browser"></a>Stap 2: Internet Explorer instellen als standaardbrowser  
+### <a name="step-2-set-internet-explorer-as-the-default-browser"></a>Étape 2 : Définir Internet Explorer comme navigateur par défaut  
 
-1.  Sluit alle geopende programma's af, ook Internet Explorer.  
+1.  Quittez tous les programmes ouverts, y compris Internet Explorer.  
 
-2.  Klik op **Start** , zoek naar **inetcpl.cpl**en druk vervolgens op **Enter**.  
+2.  Cliquez sur **Démarrer** et recherchez **inetcpl.cpl**, puis appuyez sur **Entrée**.  
 
-3.  Klik in het dialoogvenster **Internetopties** op het tabblad **Programma's** .  
+3.  Dans la boîte de dialogue **Options Internet** , cliquez sur l’onglet **Programmes** .  
 
-4.  Klik onder **Standaardwebbrowser**op **Als standaard instellen**.  
+4.  Sous **Navigateur Web par défaut**, cliquez sur **Par défaut**.  
 
-5.  Klik op **OK**.  
+5.  Cliquez sur **OK**.  
 
-6.  Open Windows Defender of Endpoint Protection. Klik op het tabblad **Bijwerken** en klik vervolgens op **Bijwerken**.  
+6.  Ouvrez Windows Defender ou Endpoint Protection. Cliquez sur l'onglet **Mise à jour** , puis sur **Mettre à jour**.  
 
-7.  Als het probleem zich blijft voordoen, gaat u verder met de volgende stap.  
+7.  Si le problème persiste, passez à l’étape suivante.  
 
-### <a name="step-3-ensure-that-the-date-and-time-are-set-correctly-on-your-computer"></a>Stap 3: Controleren of de datum en tijd correct zijn ingesteld op uw computer  
+### <a name="step-3-ensure-that-the-date-and-time-are-set-correctly-on-your-computer"></a>Étape 3 : Vérifier que la date et l’heure sont correctement définies sur votre ordinateur  
 
-1.  Open Windows Defender of Endpoint Protection.  
+1.  Ouvrez Windows Defender ou Endpoint Protection.  
 
-2.  Als het foutbericht dat u hebt ontvangen de code 0x80072f8f bevat, wordt het probleem waarschijnlijk veroorzaakt door een onjuiste instelling van de datum of tijd op uw computer.  
+2.  Si le message d’erreur que vous avez reçu contient le code 0x80072f8f, le problème est probablement dû à une valeur de date ou d’heure incorrecte sur votre ordinateur.  
 
-3.  Als u de datum- of tijdinstelling opnieuw wilt instellen, volgt u de stappen in [Verbroken snelkoppelingen op het bureaublad en veelvoorkomende onderhoudstaken corrigeren](http://go.microsoft.com/fwlink/?LinkId=155579) (http://go.microsoft.com/fwlink/?LinkId=155579).  
+3.  Pour réinitialiser la date ou l’heure de votre ordinateur, suivez les étapes décrites dans [Réparez les problèmes courants de maintenance de votre PC](http://go.microsoft.com/fwlink/?LinkId=155579) (http://go.microsoft.com/fwlink/?LinkId=155579).  
 
-### <a name="step-4-rename-the-software-distribution-folder-on-your-computer"></a>Stap 4: Wijzig de naam van de map softwaredistributie op uw computer  
+### <a name="step-4-rename-the-software-distribution-folder-on-your-computer"></a>Étape 4 : Renommer le dossier Distribution de logiciels sur votre ordinateur  
 
-1. De service Automatische updates stoppen  
+1. Arrêtez le service Mises à jour automatiques  
 
-    1.  Klik op **Start** , zoek naar **services.msc**en druk vervolgens op **OK**.  
+    1.  Cliquez sur **Démarrer** et recherchez **services.msc**, puis cliquez sur **OK**.  
 
-    2.  Klik met de rechtermuisknop op **Automatische updates-service**en klik vervolgens op **Stoppen**.  
+    2.  Cliquez avec le bouton droit de la souris sur **Service Mises à jour automatiques**, puis cliquez sur **Arrêter**.  
 
-    3.  Minimaliseer de module Services.  
+    3.  Réduisez le composant logiciel enfichable Services.  
 
-2.  Wijzig de naam van de adreslijst **SoftwareDistribution** als volgt:  
+2.  Renommez le répertoire **SoftwareDistribution** comme suit :  
 
-    1.  Klik op **Start** , zoek naar  **cmd**en druk vervolgens op **OK**.  
+    1.  Cliquez sur **Démarrer** et recherchez  **cmd**, puis cliquez sur **OK**.  
 
-    2.  Typ **cd %windir%**en druk op **Enter**.  
+    2.  Tapez **cd %windir%**, puis appuyez sur **Entrée**.  
 
-    3.  Typ **ren SoftwareDistribution SDTemp**en druk op **Enter**.  
+    3.  Tapez **ren SoftwareDistribution SDTemp**, puis appuyez sur **Entrée**.  
 
-    4.  Typ **exit**en druk op **Enter**.  
+    4.  Tapez **exit**, puis appuyez sur **Entrée**.  
 
-3.  Start de service Automatische updates als volgt:  
+3.  Démarrez le service Mises à jour automatiques comme suit :  
 
-    1.  Maximaliseer de module Services.  
+    1.  Agrandissez le composant logiciel enfichable Services.  
 
-    2.  Klik met de rechtermuisknop op **Automatische updates-service**en klik vervolgens op **Starten**.  
+    2.  Cliquez avec le bouton droit de la souris sur **Service Mises à jour automatiques**, puis cliquez sur **Démarrer**.  
 
-    3.  Sluit het venster van de module Services.  
+    3.  Fermez la fenêtre du composant logiciel enfichable Services.  
 
-### <a name="step-5-reset-the-microsoft-antivirus-update-engine-on-your-computer"></a>Stap 5: De engine voor het bijwerken van antivirussoftware van Microsoft op de computer opnieuw instellen  
+### <a name="step-5-reset-the-microsoft-antivirus-update-engine-on-your-computer"></a>Étape 5 : Réinitialiser le moteur de mise à jour antivirus de Microsoft sur votre ordinateur  
 
-1.  Klik op **Start** , zoek naar  **cmd**en klik vervolgens op **OK**. Klik met de rechtermuisknop op **Opdrachtprompt**en selecteer vervolgens **Als administrator uitvoeren**.  
+1.  Cliquez sur **Démarrer** et recherchez  **cmd**, cliquez sur **OK**, cliquez sur **Invite de commande**, puis sélectionnez **Exécuter en tant qu’administrateur**.  
 
-2.  Typ in het venster **Opdrachtprompt** de volgende opdrachten en druk na elke opdracht op **Enter** :  
+2.  Dans la fenêtre **Invite de commande** , tapez les commandes suivantes en appuyant sur **Entrée** après chacune d’elles.  
 
      **Cd\\**  
 
-     **Cd programma files\windows defender**  
+     **Cd program files\windows defender**  
 
-     **MpCmdRun - RemoveDefinitions-alle**  
+     **Mpcmdrun -RemoveDefinitions -all**  
 
-     **Afsluiten**  
+     **Quitter**  
 
-3.  De computer opnieuw opstarten  
+3.  Redémarrez votre ordinateur.  
 
-4.  Open Windows Defender of  
-          Endpoint Protection, klikt u op de **Update** tabblad en klik vervolgens op **Update**.  
+4.  Ouvrez Windows Defender ou  
+          Endpoint Protection, cliquez sur l’onglet **Mise à jour**, puis cliquez sur **Mettre à jour**.  
 
-5.  Als het probleem zich blijft voordoen, gaat u verder met de volgende stap.  
+5.  Si le problème persiste, passez à l’étape suivante.  
 
-### <a name="step-6-manually-install-the-virus-and-spyware-definition-updates"></a>Stap 6: Definitie-updates van virus- en spywaredefinities handmatig installeren  
+### <a name="step-6-manually-install-the-virus-and-spyware-definition-updates"></a>Étape 6 : Installer manuellement les mises à jour des définitions de virus et de logiciels espions  
 
--   Als u een 32-bits Windows-besturingssysteem hebt, kunt u de nieuwste updates handmatig downloaden op [http://go.microsoft.com/fwlink/?LinkID=87342](http://go.microsoft.com/fwlink/?LinkID=87342) (http://go.microsoft.com/fwlink/?LinkID=87342).  
+-   Si vous exécutez un système d’exploitation Windows 32 bits, téléchargez les dernières mises à jour manuellement à l’adresse [http://go.microsoft.com/fwlink/?LinkID=87342](http://go.microsoft.com/fwlink/?LinkID=87342) (http://go.microsoft.com/fwlink/?LinkID=87342).  
 
--   Als u een 64-bits Windows-besturingssysteem hebt, kunt u de nieuwste updates handmatig downloaden op [http://go.microsoft.com/fwlink/?LinkID=87341](http://go.microsoft.com/fwlink/?LinkID=87341) (http://go.microsoft.com/fwlink/?LinkID=87341).  
+-   Si vous exécutez un système d’exploitation Windows 64 bits, téléchargez les dernières mises à jour manuellement à l’adresse [http://go.microsoft.com/fwlink/?LinkID=87341](http://go.microsoft.com/fwlink/?LinkID=87341) (http://go.microsoft.com/fwlink/?LinkID=87341).  
 
--   Klik op **Uitvoeren**. De meest recente updates worden handmatig op uw computer geïnstalleerd.  
+-   Cliquez sur **Exécuter**. Les dernières mises à jour sont installés manuellement sur votre ordinateur.  
 
 
-### <a name="step-7-contact-support"></a>Stap 7: Neem contact op met ondersteuning  
+### <a name="step-7-contact-support"></a>Étape 7 : Contacter le support technique  
 
--   Als u met de stappen het probleem niet hebt opgelost, kunt u contact opnemen met de ondersteuning. Zie [Klantondersteuning](http://go.microsoft.com/fwlink/?LinkID=196174) (http://go.microsoft.com/fwlink/?LinkID=196174) voor meer informatie.  
+-   Si les étapes ne résolvent pas le problème, contactez le support technique. Pour plus d’informations, consultez [Service client](http://go.microsoft.com/fwlink/?LinkID=196174) (http://go.microsoft.com/fwlink/?LinkID=196174).  
 
-##  <a name="starting-windows-defender-or-endpoint-protection-service"></a>Windows Defender of Endpoint Protection-service wordt gestart  
- **Symptoom**  
+##  <a name="starting-windows-defender-or-endpoint-protection-service"></a>Démarrage du service Windows Defender ou Endpoint Protection  
+ **Symptôme**  
 
- U ontvangt een bericht met de mededeling dat **Windows Defender of Endpoint Protection is niet de bewaking van uw computer omdat de service van het programma is gestopt. U start het.** 
+ Vous recevez un message qui vous informe que **Windows Defender ou Endpoint Protection ne surveille pas votre ordinateur car le service du programme s’est arrêté. Nous vous conseillons de le redémarrer immédiatement.** 
 
- **Oplossing**  
+ **Solution**  
 
-### <a name="step-1-restart-your-computer"></a>Stap 1: De computer opnieuw opstarten  
+### <a name="step-1-restart-your-computer"></a>Étape 1 : Redémarrer votre ordinateur  
 
--   Sluit alle toepassingen en start de computer opnieuw op.  
+-   Fermez toutes les applications et redémarrez l'ordinateur.  
 
-### <a name="step-2-make-sure-the-windows-defender-or-endpoint-protection-service-is-set-to-automatic-and-is-started"></a>Stap 2: Zorg ervoor dat de 'Windows Defender' of 'Endpoint Protection-service' is ingesteld op automatisch en wordt gestart  
+### <a name="step-2-make-sure-the-windows-defender-or-endpoint-protection-service-is-set-to-automatic-and-is-started"></a>Étape 2: Vérifier que le service « Windows Defender » ou « Endpoint Protection » est défini sur « Automatique » et qu’il est démarré  
 
-1.  Klik op **Start** , zoek naar **services.msc**en druk vervolgens op **Enter**.  
+1.  Cliquez sur **Démarrer** et recherchez **services.msc**, puis appuyez sur **Entrée**.  
 
-2.  Zoek naar **Microsoft Antimalwareservice**. Klik er met de rechtermuisknop op en selecteer **Eigenschappen** of dubbelklik erop om de service te openen.  
+2.  Recherchez **Service anti-programme malveillant de Microsoft**. Cliquez avec le bouton droit de la souris et sélectionnez **Propriétés** ou double-cliquez pour ouvrir le service.  
 
-3.  Controleer of**Opstarttype**is ingesteld op**Automatisch**.  
+3.  Vérifiez que**Type de démarrage**est défini sur**Automatique**.  
 
-4.  Klik op de knop **Starten** om de service te starten. Als de knop **Starten** niet beschikbaar is, klikt u op de knop **Stoppen** en vervolgens op de knop **Starten** om de service opnieuw te starten.  
+4.  Cliquez sur le bouton **Démarrer** pour lancer le service. Si le bouton **Démarrer** n'est pas disponible, cliquez sur le bouton **Arrêter** , puis sur le bouton **Démarrer** pour relancer le service.  
 
-5.  Noteer eventuele fouten die tijdens dit proces optreden. Meld dit in zo’n geval online en vermeld de gegevens over de fout erbij.  
+5.  N'oubliez pas de noter toutes les erreurs pouvant apparaître lors de cette procédure et d'envoyer votre problème en ligne en incluant les informations sur l'erreur.  
 
-### <a name="step-3-remove-any-existing-internet-security-programs"></a>Stap 3: Alle bestaande internetbeveiligingsprogramma's verwijderen  
+### <a name="step-3-remove-any-existing-internet-security-programs"></a>Étape 3 : Supprime les programmes de sécurité Internet existants  
 
-1.  Klik op **Start** , zoek naar **appwiz.cpl**en druk vervolgens op **Enter**.  
+1.  Cliquez sur **Démarrer** et recherchez **appwiz.cpl**, puis appuyez sur **Entrée**.  
 
-2.  Verwijder uit de lijst met geïnstalleerde programma's eventuele internetbeveiligingsprogramma’s van derden.*  
+2.  Dans la liste des programmes installés, désinstallez tous les programmes de sécurité Internet tiers.*  
 
-3.  Start uw computer opnieuw op en probeer het installeren van Windows Defender of  
-          Endpoint Protection opnieuw.  
+3.  Redémarrez votre ordinateur, puis réessayez d’installer Windows Defender ou  
+          Endpoint Protection.  
 
 > [!NOTE]  
->  Sommige internetbeveiligingstoepassingen kunnen niet volledig worden verwijderd. Mogelijk moet u voor de vorige beveiligingstoepassing een opschoonprogramma downloaden en uitvoeren om deze volledig te kunnen verwijderen.  
+>  Certaines applications de sécurité Internet ne se désinstallent pas complètement. Vous devrez peut-être télécharger et exécuter un utilitaire de nettoyage approprié afin de supprimer complètement l'application de sécurité précédente.  
 
 > [!CAUTION]  
->  Wanneer u internetbeveiligingsprogramma's verwijdert, is de computer niet beveiligd. Als u problemen ondervindt installeren   
->       Endpoint Protection na het verwijderen van bestaande internetbeveiligingsprogramma's, neem contact op met de Windows Defender of  
->       Endpoint Protection ondersteuning door het probleem online te dienen (Zie voor meer informatie [hoe problemen Online indienen](http://www.microsoft.com/en-ph/security_essentials/Support/8c9074b6-1558-4d14-bc39-d294ced11096.aspx)).  
+>  Lorsque vous supprimez les programmes de sécurité Internet, votre ordinateur n'est plus protégé. Si vous rencontrez des problèmes pour installer   
+>       Endpoint Protection après avoir supprimé des programmes de sécurité Internet existants, contactez le support de Windows Defender ou  
+>       Endpoint Protection en envoyant un dossier en ligne (pour plus d’informations, consultez [Guide pratique pour envoyer un dossier en ligne](http://www.microsoft.com/en-ph/security_essentials/Support/8c9074b6-1558-4d14-bc39-d294ced11096.aspx)).  
 
-### <a name="step-4-uninstallreinstall-endpoint-protection"></a>Stap 4: Endpoint Protection verwijderen/opnieuw installeren  
+### <a name="step-4-uninstallreinstall-endpoint-protection"></a>Étape 4 : Désinstaller/réinstaller Endpoint Protection  
 
-1.  Klik op **Start** , zoek naar **appwiz.cpl**en druk vervolgens op **Enter**.  
+1.  Cliquez sur **Démarrer** et recherchez **appwiz.cpl**, puis appuyez sur **Entrée**.  
 
-2.  Klik in de lijst met geïnstalleerde programma's op **Endpoint Protection**en verwijder dit.  
+2.  Dans la liste des programmes installés, cliquez sur **Endpoint Protection**, puis désinstallez-le.  
 
-3.  Start uw computer opnieuw op als daarom wordt gevraagd en installeer vervolgens Endpoint Protection opnieuw.  
+3.  Si vous y êtes invité, redémarrez l’ordinateur, puis essayez de réinstaller Endpoint Protection.  
 
-##  <a name="internet-connection-issues"></a>Problemen met de internetverbinding  
- Om ervoor te zorgen dat de computer de meest recente updates via Windows Update ontvangt, moet u verbonden zijn met internet.  
+##  <a name="internet-connection-issues"></a>Problèmes de connexion Internet  
+ Pour que votre ordinateur reçoive bien les dernières mises à jour de Windows Update, vous devez être connecté à Internet.  
 
-### <a name="step-1-verify-that-your-computer-is-connected-to-the-internet"></a>Stap 1: Controleren of uw computer is verbonden met Internet  
+### <a name="step-1-verify-that-your-computer-is-connected-to-the-internet"></a>Étape 1 : Vérifier que votre ordinateur est connecté à Internet  
 
-1.  Klik op **Start**, zoek naar **ncpa.cpl**en druk vervolgens op **Enter**.  
+1.  Cliquez sur **Démarrer**et recherchez **ncpa.cpl**, puis appuyez sur **Entrée**.  
 
-2.  Klik met de rechtermuisknop op de naam van de verbinding en klik vervolgens op **Status**.  
+2.  Cliquez avec le bouton droit sur le nom de la connexion, puis cliquez sur **État**.  
 
-3.  Als de computer verbinding heeft, wordt in Windows XP de status van de verbinding weergegeven als **Verbonden**, **Ingeschakeld**of **Verificatie** geslaagd. In Windows Vista en Windows 7 wordt de **IPv4** -status weergegeven als **Internet**.  
+3.  Si votre ordinateur est connecté, dans Windows XP, l’état de la connexion peut être **Connectée**, **Activée**ou **Authentification réussie** . Dans Windows Vista et Windows 7, l’état de **IPv4** est **Internet**.  
 
-4.  Als de computer geen verbinding heeft, klikt u met de rechtermuisknop op de naam van de verbinding en klikt u vervolgens op **Verbinden**, **Inschakelen**, **Verifiëren**of **Herstellen**.  
+4.  Si votre ordinateur n’est pas connecté, cliquez avec le bouton droit sur le nom de la connexion, puis cliquez sur **Connecter**, **Activer**, **Authentifier**ou **Réparer**.  
 
-### <a name="step-3-restart-your-computer"></a>Stap 3: De computer opnieuw opstarten  
+### <a name="step-3-restart-your-computer"></a>Étape 3 : Redémarrer votre ordinateur  
 
--   Sluit alle geopende programma's en start de computer opnieuw op.  
+-   Fermez tous les programmes ouverts et redémarrez votre ordinateur.  
 
-### <a name="step-4-if-you-still-cant-connect-to-the-internet-check-your-connections"></a>Stap 4: Als u nog steeds geen verbinding met Internet kunt maken, de verbindingen controleren  
+### <a name="step-4-if-you-still-cant-connect-to-the-internet-check-your-connections"></a>Étape 4 : Si vous ne pouvez toujours pas vous connecter à Internet, vérifier vos connexions  
 
-1.  Als u een inbelverbinding gebruikt, controleert u of de telefoonkabel goed is aangesloten op de wandcontactdoos en op het modem.  
+1.  Si vous utilisez une connexion d’accès à distance, vérifiez que le cordon téléphonique de la prise murale et de votre modem est correctement branché.  
 
-2.  Als u een kabelmodem gebruikt, controleert u of de kabelverbinding met het modem en de verbinding van het modem naar de computer goed is aangesloten.  
+2.  Si vous utilisez un modem câble, vérifiez que la connexion du câble au modem et la connexion du modem à votre ordinateur sont correctement branchées.  
 
-3.  Als u een kabelmodem of DSL-router, controleert u of de verbindingen met de router en die met de computer goed zijn aangesloten. Koppel de router en het modem los en schakel ze uit. Wacht enkele minuten, sluit het modem eerst aan, wacht opnieuw een minuut en sluit vervolgens de router aan. Start daarna de computer opnieuw op.  
+3.  Si vous utilisez un modem câble ou un routeur DSL, vérifiez que les connexions au routeur et à l’ordinateur sont correctement branchées. Déconnectez et arrêtez le routeur et le modem. Attendez quelques minutes, branchez d’abord le modem, patientez une minute, puis branchez le routeur et redémarrez votre ordinateur.  
 
-##  <a name="detected-threat-cant-be-remediated"></a>Gedetecteerde bedreiging kan niet worden hersteld.  
- Wanneer Windows Defender of  
-      Endpoint Protection een mogelijke bedreiging die verborgen in een gecomprimeerd bestand met de extensie .zip of binnen een netwerkshare detecteert, wordt geprobeerd om te gaan met de bedreiging door in quarantaine plaatsen of te verwijderen.  
+##  <a name="detected-threat-cant-be-remediated"></a>Impossible de remédier à une menace détectée  
+ Quand Windows Defender ou  
+      Endpoint Protection détecte une menace potentielle dissimulée dans un fichier compressé portant une extension .zip ou dans un partage réseau, il tente d’y remédier en supprimant le fichier ou en le plaçant en quarantaine.  
 
-### <a name="remove-or-scan-the-file"></a>Het bestand verwijderen of scannen  
+### <a name="remove-or-scan-the-file"></a>Supprimer ou analyser le fichier  
 
--   Als de gedetecteerde bedreiging zich in een zip-bestand bevindt, bladert u naar het zip-bestand en verwijdert u vervolgens het bestand of scant u dit door met de rechtermuisknop op het bestand te klikken en **Scannen met Windows Defender** of **Scannen met Endpoint Protection**te selecteren. Als Windows Defender of Endpoint Protection meer bedreigingen in het bestand detecteert, ontvangt u een melding over deze bedreigingen en kunt u geschikte actie ondernemen.  
+-   Si la menace détectée se trouve dans un fichier .zip, accédez à ce fichier, puis supprimez-le, ou analysez-le en cliquant avec le bouton droit sur le fichier et en sélectionnant **Analyser avec Windows Defender** ou **Analyser avec Endpoint Protection**. Si Windows Defender ou Endpoint Protection détecte d’autres menaces dans le fichier, il vous en avertit et vous permet de choisir une action appropriée.  
 
--   Als de gedetecteerde bedreiging zich in een netwerkshare bevindt, bladert u naar de netwerkshare en scant u dit door met de rechtermuisknop op het bestand te klikken en **Scannen met Windows Defender** of **Scannen met Endpoint Protection**te selecteren. Als Windows Defender of Endpoint Protection meer bedreigingen in de netwerkshare detecteert, ontvangt u een melding over deze bedreigingen en kunt u geschikte actie ondernemen.  
+-   Si la menace détectée se trouve dans un partage réseau, accédez au partage réseau et analysez-la en cliquant avec le bouton droit sur le fichier et en sélectionnant **Analyser avec Windows Defender** ou **Analyser avec Endpoint Protection**. Si Windows Defender ou Endpoint Protection détecte d’autres menaces dans le partage réseau, il vous en avertit et vous permet de choisir une action appropriée.  
 
--   Als u niet zeker bent van de oorsprong van het bestand, kunt u het beste een volledige scan uitvoeren op uw computer. Een volledige scan kan enige tijd duren, maar maakt het mogelijk voor Windows Defender of Endpoint Protection om de bron van de infectie te vinden en deze op te schonen.  
+-   Si vous n'êtes pas certain de l'origine du fichier, la meilleure solution est de lancer une analyse complète sur votre ordinateur. Une analyse complète peut prendre un certain temps, mais elle permet à Windows Defender ou à Endpoint Protection de rechercher la source de l’infection et de la nettoyer.  
 
-##  <a name="install-the-endpoint-protection-client"></a>De Endpoint Protection-client installeren  
+##  <a name="install-the-endpoint-protection-client"></a>Installer le client Endpoint Protection  
 
 > [!NOTE]  
->  Windows Defender wordt op Windows 10-pc’s samen met het besturingssysteem geïnstalleerd.  
+>  Windows Defender est installé avec le système d’exploitation sur les PC Windows 10.  
 
- **Symptomen**  
+ **Symptômes**  
 
- Installatie mislukt om een onbekende reden, of u krijgt een foutbericht met een foutcode zoals 0x80070643, 0X8007064A, 0x8004FF2E, 0x8004FF01, 0x8004FF07, 0x80070002, 0x8007064C, 0x8004FF00, 0x80070001, 0x80070656, 0x8004FF40, 0xC0000156, 0x8004FF41 0x8004FF0B, 0x8004FF11, 0x80240022, 0x8004FF04, 0x80070660, 0x800106B5, 0x80070715, 0x80070005, 0x8004EE00, 0x8007003, 0x800B0100, 0x8007064E of 0x8007007E.  
+ L'installation a échoué pour une raison inconnue ou un message d'erreur s'affiche avec un code d'erreur de type 0x80070643, 0X8007064A, 0x8004FF2E, 0x8004FF01, 0x8004FF07, 0x80070002, 0x8007064C, 0x8004FF00, 0x80070001, 0x80070656, 0x8004FF40, 0xC0000156, 0x8004FF41 0x8004FF0B, 0x8004FF11, 0x80240022, 0x8004FF04, 0x80070660, 0x800106B5, 0x80070715, 0x80070005, 0x8004EE00, 0x8007003, 0x800B0100, 0x8007064E ou 0x8007007E.  
 
- Als u een computer hebt met Windows XP Service Pack 2 (SP2) ziet u mogelijk een of meer van de volgende foutberichten:  
+ Si votre ordinateur exécute Windows XP Service Pack 2 (SP2), un ou plusieurs des messages suivants peuvent s'afficher :  
 
--   Een updatepakket voor filterbeheer ontbreekt, waardoor de installatiewizard de installatie niet kan voltooien.  
+-   L'exécution de l'Assistant Installation ne peut pas se terminer car un package cumulatif pour le gestionnaire de filtres est manquant.  
 
--   KB914882 Setup-fout, Setup kan de Windows XP-bestanden niet bijwerken omdat de op het systeem geïnstalleerde taal niet overeenkomt met de taal van de update.  
+-   KB914882 Erreur d'installation : le programme d'installation ne peut pas mettre à jour les fichiers Windows XP car la langue installée sur le système et celle de la mise à jour ne correspondent pas.  
 
- **Oorzaak**  
+ **Cause**  
 
- Endpoint Protection kan niet worden geïnstalleerd op een computer met andere beveiligingsprogramma's. Soms worden ze niet volledig verwijderd, zelfs niet als u andere beveiligingsprogramma's verwijdert. U moet een legitieme versie uitvoeren van het Windows-besturingssysteem om Endpoint Protection te kunnen installeren.  
+ Il est impossible d’installer Endpoint Protection sur un ordinateur exécutant d’autres programmes de sécurité. Parfois, même si vous supprimez ces autres programmes de sécurité, ils ne se désinstallent pas complètement. Vous devez exécuter une version authentique du système d’exploitation Windows pour installer Endpoint Protection.  
 
- **Oplossing**  
+ **Solution**  
 
 > [!IMPORTANT]  
->  U moet de computer opnieuw opstarten tijdens het oplossen van dit probleem. Maak een bladwijzer voor deze pagina (markeren als favoriet) zodat u dit onderwerp makkelijker opnieuw kunt vinden of druk de pagina af om het snel te kunnen nazoeken.  
+>  Vous devrez redémarrer votre ordinateur au cours de la procédure de résolution de ce problème. Créez un signet pour cette page (ajoutez-la à vos Favoris) pour pouvoir retrouver cette rubrique plus facilement, ou imprimez-la pour vous y référer ultérieurement.  
 
-### <a name="step-1-remove-any-existing-security-programs"></a>Stap 1: Bestaande beveiligingsprogramma's verwijderen  
-**Endpoint Protection alleen**
+### <a name="step-1-remove-any-existing-security-programs"></a>Étape 1 : Supprimer les programmes de sécurité existants  
+**Endpoint Protection uniquement**
 
-1.  Verwijder alle bestaande internetbeveiligingsprogramma's volledig.  
+1.  Désinstallez complètement les programmes de sécurité Internet existants.  
 
-2.  De computer opnieuw opstarten  
+2.  Redémarrez votre ordinateur.  
 
-3.  Installeer Endpoint Protection opnieuw. Als het probleem hiermee niet is opgelost, gaat u verder met de volgende stap.  
+3.  Installez à nouveau Endpoint Protection. Si le problème n'est pas résolu, passez à l'étape suivante.  
 
-### <a name="step-2-ensure-that-the-windows-installer-service-is-running"></a>Stap 2: Controleer of de Windows Installer-service wordt uitgevoerd  
+### <a name="step-2-ensure-that-the-windows-installer-service-is-running"></a>Étape 2 : Vérifier que le service Windows Installer est en cours d’exécution  
 
-1.  Klik op **Start** , zoek naar **services.msc**en druk vervolgens op **Enter**.  
+1.  Cliquez sur **Démarrer** et recherchez **services.msc**, puis appuyez sur **Entrée**.  
 
-2.  Klik met de rechtermuisknop op **Windows Installer**en klik vervolgens op **Starten**. Als **Starten** niet beschikbaar is en de opties **Stoppen** en **Opnieuw starten** wel beschikbaar zijn, dan weet u dat de service al is gestart.  
+2.  Cliquez avec le bouton droit de la souris sur **Windows Installer**, puis cliquez sur **Démarrer**. Si le bouton **Démarrer** n'est pas disponible et que les options **Arrêter** et **Redémarrer** sont disponibles, vous pouvez en déduire que le service est déjà lancé.  
 
-3.  Klik op de pagina **Services** , in het menu **Bestand** , op **Afsluiten**.  
+3.  Dans la page **Services** , dans le menu **Fichier** , cliquez sur **Quitter**.  
 
-4.  Klik op **Start** en zoek naar **opdrachtprompt**. Klik met de rechtermuisknop op **Opdrachtprompt**en klik vervolgens op **Als administrator uitvoeren**.  
+4.  Cliquez sur **Démarrer** et recherchez **invite de commandes**. Cliquez avec le bouton droit de la souris sur **Invite de commande**, puis cliquez sur **Exécuter en tant qu'administrateur**.  
 
-5.  Type **MSIEXEC/REGSERVER**en druk vervolgens op **Enter**.  
+5.  Tapez **MSIEXEC /REGSERVER**, puis appuyez sur **Entrée**.  
 
     > [!NOTE]  
-    >  Er is geen aanwijzing dat deze opdracht is geslaagd of mislukt.  
+    >  Aucun message ne s'affiche pour indiquer si la commande a réussi ou échoué.  
 
-6.  Installeer Endpoint Protection opnieuw. Als het probleem hiermee niet is opgelost, gaat u verder met de volgende stap.  
+6.  Installez à nouveau Endpoint Protection. Si le problème n'est pas résolu, passez à l'étape suivante.  
 
-### <a name="step-3-start-windows-in-selective-startup-mode"></a>Stap 3: Windows starten in de modus Selectief opstarten  
+### <a name="step-3-start-windows-in-selective-startup-mode"></a>Étape 3 : Démarrer Windows en mode de démarrage sélectif  
 
-1.  Klik op **Start** , zoek naar **msconfig**en druk vervolgens op **Enter**.  
+1.  Cliquez sur **Démarrer** et recherchez **msconfig**, puis appuyez sur **Entrée**.  
 
-2.  Klik op het tabblad **Algemeen** op **Selectief opstarten**en schakel vervolgens het selectievakje **Opstartonderdelen laden** uit.  
+2.  Sur l'onglet **Général** , cliquez sur **Démarrage Sélectif**, puis désactivez la case à cocher **Charger les éléments de démarrage** .  
 
-3.  Schakel op het tabblad **Services** het selectievakje **Alle Microsoft-services verbergen** in en schakel alle selectievakjes uit voor de services die nog in de lijst staan.  
+3.  Sous l'onglet **Services** , cochez la case **Masquer tous les services Microsoft** , puis décochez toutes les cases correspondant aux services restants dans la liste.  
 
-4.  Klik op **OK**en klik vervolgens op **Opnieuw opstarten** om de computer opnieuw op te starten.  
+4.  Cliquez sur **OK**, puis sur **Redémarrer** pour relancer l'ordinateur.  
 
-5.  Installeer Endpoint Protection opnieuw.  
+5.  Essayez d’installer à nouveau Endpoint Protection.  
 
 
 
-### <a name="see-also"></a>Zie tevens  
- [Veelgestelde vragen over de Endpoint Protection-client](../../protect/deploy-use/endpoint-protection-client-faq.md)   
+### <a name="see-also"></a>Voir aussi  
+ [Forum aux questions sur le client Endpoint Protection](../../protect/deploy-use/endpoint-protection-client-faq.md)   
 
- [Endpoint Protection Client Help](../../protect/deploy-use/endpoint-protection-client-help.md)
+ [Aide du client Endpoint Protection](../../protect/deploy-use/endpoint-protection-client-help.md)

@@ -1,6 +1,6 @@
 ---
-title: Mac-clients beheren | Microsoft Docs
-description: Onderhoudstaken voor Configuration Manager Mac-clients.
+title: "Gérer des clients Mac | Documents Microsoft"
+description: "Tâches de maintenance pour les clients Mac de Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,146 +16,146 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 3bf6651f58dc0c2aa4773f77115c3fbcd4a33221
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="maintain-mac-clients"></a>Mac-clients beheren
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+# <a name="maintain-mac-clients"></a>Gérer les clients Mac
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Hier vindt u procedures voor het verwijderen van Mac-clients en voor het vernieuwen van hun certificaten.
+Voici des procédures relatives à la désinstallation de clients Mac et au renouvellement de leurs certificats.
 
-##  <a name="uninstalling-the-mac-client"></a>De Mac-client verwijderen  
+##  <a name="uninstalling-the-mac-client"></a>Désinstallation du client Mac  
 
-1.  Open op een Mac-computer een terminalvenster en navigeer naar de map met **macclient.dmg**.  
+1.  Sur un ordinateur Mac, ouvrez une fenêtre de terminal et accédez au dossier contenant **macclient.dmg**.  
 
-2.  Ga naar de map Hulpprogramma's en geef de volgende opdrachtregel in:  
+2.  Accédez au dossier Outils, puis entrez la ligne de commande suivante :  
 
-     **. / CMUninstall - c**  
+     **./CMUninstall -c**  
 
     > [!NOTE]  
-    >  De **- c** eigenschap instrueert de client ook Logboeken crash-client verwijderen en logboekbestanden verwijderen. We raden u dit om verwarring te voorkomen als u later de client opnieuw installeert.  
+    >  La propriété **-c** demande au programme de désinstallation du client de supprimer aussi les fichier journaux et les journaux d’incidents du client. Nous recommandons d’utiliser cette propriété pour éviter toute confusion si vous réinstallez le client ultérieurement.  
 
-3.  Indien nodig, handmatig verwijderen van het certificaat voor clientverificatie die het gebruik van Configuration Manager, of Trek het. CMUnistall verwijdert of trekt dit certificaat niet in.  
+3.  Si nécessaire, supprimez manuellement le certificat d’authentification de client que Configuration Manager utilisait, ou révoquez-le. CMUnistall ne supprime et ne révoque pas ce certificat.  
 
-##  <a name="renewing-the-mac-client-certificate"></a>Het certificaat van de Mac-client vernieuwen  
- Gebruik een van de volgende methodes om het certificaat van de Mac-client te vernieuwen:  
+##  <a name="renewing-the-mac-client-certificate"></a>Renouvellement du certificat client Mac  
+ Pour renouveler le certificat client Mac, utilisez une des méthodes suivantes :  
 
--   [Certificaatwizard vernieuwen](#renew-certificate-wizard)  
+-   [Assistant Renouveler le certificat](#renew-certificate-wizard)  
 
--   [Certificaat handmatig vernieuwen](#renew-certificate-manually)  
+-   [Renouveler le certificat manuellement](#renew-certificate-manually)  
 
-###  <a name="renew-certificate-wizard"></a>Certificaatwizard vernieuwen  
+###  <a name="renew-certificate-wizard"></a>Assistant Renouveler le certificat  
 
-1.  Configureer de volgende waarden als *tekenreeksen* in het ccmclient.plist-bestand die bepaalt wanneer de Wizard Certificaat vernieuwen wordt geopend:  
+1.  Configurez les valeurs suivantes comme *chaînes* dans le fichier ccmclient.plist qui contrôle l’ouverture de l’Assistant Renouvellement de certificat :  
 
- -   **RenewalPeriod1** -geeft, in seconden, de eerste vernieuwingsperiode waarin gebruikers het certificaat kunnen vernieuwen. De standaardwaarde is 3.888.000 seconden (45 dagen). Niet een waarde die kleiner is dan 300 configureren zoals de periode wordt teruggezet op de standaardwaarde. 
+ -   **RenewalPeriod1** : spécifie, en secondes, la première période de renouvellement pendant laquelle les utilisateurs peuvent renouveler le certificat. La valeur par défaut correspond à 3 888 000 secondes (45 jours). Ne configurez pas de valeur inférieure à 300, sinon la période est rétablie à la valeur par défaut. 
 
- -   **RenewalPeriod2** -geeft, in seconden, de tweede vernieuwingsperiode waarin gebruikers het certificaat kunnen vernieuwen. De standaardwaarde is 259.200 seconden (3 dagen). Als deze waarde is geconfigureerd en groter dan of gelijk is aan 300 seconden is en kleiner is dan of gelijk zijn aan **RenewalPeriod1**, de waarde wordt gebruikt. Als de waarde voor **RenewalPeriod1** groter is dan 3 dagen, wordt een waarde van 3 dagen gebruikt voor **RenewalPeriod2**.  Als de waarde voor **RenewalPeriod1** kleiner is dan 3 dagen, wordt **RenewalPeriod2** vervolgens ingesteld op dezelfde waarde als **RenewalPeriod1**.  
+ -   **RenewalPeriod2** : spécifie, en secondes, la deuxième période de renouvellement pendant laquelle les utilisateurs peuvent renouveler le certificat. La valeur par défaut correspond à 259 200 secondes (3 jours). Si cette valeur est configurée sur une valeur supérieure ou égale à 300 secondes et inférieure ou égale à **RenewalPeriod1**, la valeur configurée est utilisée. Si **RenewalPeriod1** est supérieure à 3 jours, une valeur de 3 jours sera utilisée pour **RenewalPeriod2**.  Si **RenewalPeriod1** est inférieure à 3 jours, **RenewalPeriod2** est définie sur la même valeur que **RenewalPeriod1**.  
 
- -   **RenewalReminderInterval1** -Hiermee geeft u in seconden, de frequentie waarmee de Wizard Certificaat vernieuwen zal worden getoond aan gebruikers tijdens de eerste vernieuwingsperiode. De standaardwaarde is 86.400 seconden (1 dag). Als **RenewalReminderInterval1** groter is dan 300 seconden en kleiner dan de waarde die is geconfigureerd voor **RenewalPeriod1**, dan zal de geconfigureerde waarde worden gebruikt. Anders wordt de standaardwaarde van 1 dag gebruikt.  
+ -   **RenewalReminderInterval1** : spécifie, en secondes, la fréquence à laquelle l’Assistant Renouveler le certificat sera affiché pour les utilisateurs lors de la première période de renouvellement. La valeur par défaut correspond à 86 400 secondes (1 jour). Si **RenewalReminderInterval1** est supérieur à 300 secondes et inférieur à la valeur configurée pour **RenewalPeriod1**, la valeur configurée sera utilisée. Dans le cas contraire, la valeur par défaut de 1 jour sera utilisée.  
 
- -   **RenewalReminderInterval2** -Hiermee geeft u, in seconden, de frequentie waarmee de Wizard Certificaat vernieuwen zal worden getoond aan gebruikers tijdens de tweede vernieuwingsperiode. De standaardwaarde is 28.800 seconden (8 uur). Als de waarde voor **RenewalReminderInterval2** groter is dan 300 seconden, kleiner dan of gelijk aan **RenewalReminderInterval1** is en kleiner dan of gelijk aan **RenewalPeriod2**is, wordt de geconfigureerde waarde gebruikt. Anders wordt een waarde van 8 uur gebruikt.  
+ -   **RenewalReminderInterval2** : spécifie, en secondes, la fréquence à laquelle l’Assistant Renouveler le certificat sera affiché pour les utilisateurs lors de la deuxième période de renouvellement. La valeur par défaut correspond à 28 800 secondes (8 heures). Si **RenewalReminderInterval2** est supérieure à 300 secondes, inférieure ou égale à **RenewalReminderInterval1** et inférieure ou égale à **RenewalPeriod2**, la valeur configurée sera utilisée. Sinon, une valeur de 8 heures sera utilisée.  
 
-     **Voorbeeld:** Als de waarden als standaardwaarden worden gelaten, 45 dagen voordat het certificaat verloopt, de wizard elke 24 uur geopend.  Vanaf 3 dagen vóór het verlopen van het certificaat wordt de wizard elke 8 uur geopend.  
+     **Exemple** : si les valeurs sont laissées sur leurs valeurs par défaut, 45 jours avant l’expiration du certificat, l’Assistant s’ouvre toutes les 24 heures.  Dans les 3 jours de la date d'expiration du certificat, l'Assistant s'ouvre toutes les 8 heures.  
 
-     **Voorbeeld:** De volgende opdrachtregel of een script gebruiken om in te stellen van de eerste vernieuwingsperiode op 20 dagen.  
+     **Exemple** : utilisez la ligne de commande suivante, ou un script, pour définir la première période de renouvellement sur 20 jours.  
 
      `sudo defaults write com.microsoft.ccmclient RenewalPeriod1 1728000`  
 
-2.  Wanneer de Wizard Certificaat vernieuwen wordt geopend, de **gebruikersnaam** en **servernaam** velden gewoonlijk al ingevuld en moet de gebruiker kan alleen een wachtwoord invoeren voor het certificaat vernieuwen.  
+2.  Quand l’Assistant Renouveler le certificat s’ouvre, les champs **Nom d’utilisateur** et **Nom du serveur** sont en général déjà remplis et l’utilisateur peut simplement entrer qu’un mot de passe pour renouveler le certificat.  
 
     > [!NOTE]  
-    >  Als de wizard niet wordt geopend, of als u de wizard onopzettelijk sluit, klik dan op **Vernieuwen** op de **Configuration Manager** -voorkeurspagina om de wizard te openen.  
+    >  Si l'Assistant ne s'ouvre pas ou si vous fermez l'Assistant par inadvertance, cliquez sur **Renouveler** sur la page des préférences **Configuration Manager** pour ouvrir l'Assistant.  
 
-###  <a name="renew-certificate-manually"></a>Certificaat handmatig vernieuwen  
- De geldigheidsperiode voor het Mac-clientcertificaat is doorgaans 1 jaar. Configuration Manager verlengt het gebruikerscertificaat dat het aanvraagt tijdens de inschrijving, zodat u de volgende procedure gebruiken moet om het certificaat handmatig vernieuwen niet automatisch.  
+###  <a name="renew-certificate-manually"></a>Renouveler le certificat manuellement  
+ La période de validité classique pour le certificat client Mac est de 1 an. Configuration Manager ne renouvelle pas automatiquement le certificat utilisateur demandé à l’inscription ; vous devez donc procéder comme suit pour renouveler manuellement le certificat.  
 
 > [!IMPORTANT]  
->  Als het certificaat verloopt, moet u de Mac-client verwijderen, opnieuw installeren en vervolgens opnieuw inschrijven.  
+>  Si le certificat a expiré, vous devez désinstaller, réinstaller et réinscrire le client Mac.  
 
- Deze procedure verwijdert de SMSID, die vereist is om een nieuw certificaat aan te vragen voor dezelfde Mac-computer. Wanneer u verwijdert en vervangt u de client-SMSID, wordt de opgeslagen clientgeschiedenis als inventaris gewist nadat verwijderen van de client uit de Configuration Manager-console.  
+ Cette procédure supprime l'ID SMS, qui est requis pour demander un nouveau certificat pour le même ordinateur Mac. Lorsque vous supprimez et remplacez l’ID SMS client, tout historique client stocké, tel que l’inventaire, est supprimé après la suppression du client de la console Configuration Manager.  
 
-1.  U maakt en vult u een apparaatverzameling voor de Mac-computers die de gebruikerscertificaten moet vernieuwen.  
+1.  Créez et remplissez un regroupement d’appareils pour les ordinateurs Mac qui doivent renouveler les certificats utilisateur.  
 
     > [!WARNING]  
-    >  Configuration Manager controleert de geldigheidsperiode van het certificaat dat het inschrijft voor Mac-computers. U moet controleren dit onafhankelijk van Configuration Manager voor het identificeren van de Mac-computers toevoegen aan deze verzameling.  
+    >  Configuration Manager ne surveille pas la période de validité du certificat qu’il inscrit pour les ordinateurs Mac. Vous devez surveiller cette validité indépendamment de Configuration Manager pour identifier les ordinateurs Mac à ajouter à ce regroupement.  
 
-2.  Start in de werkruimte **Activa en naleving** de wizard **Configuratie-item maken**.  
+2.  Dans l'espace de travail **Ressources et compatibilité** , démarrez l' **Assistant Création d'élément de configuration**.  
 
-3.  Geef op de pagina **Algemeen** de volgende gegevens op:  
+3.  Sur la page **Général** , spécifiez informations suivantes :  
 
-    -   **Naam:Verwijder SMSID voor Mac**  
+    -   **Nom :Supprimer l’ID SMS pour Mac**  
 
-    -   **Type:Mac OS X**  
+    -   **Type :Mac OS X**  
 
-4.  Op de **ondersteunde Platforms** pagina, zorg ervoor dat alle Mac OS X-versies zijn geselecteerd.  
+4.  Dans la page **Plateformes prises en charge**, vérifiez que toutes les versions de Mac OS X sont sélectionnées.  
 
-5.  Op de **instellingen** pagina **nieuw** en klikt u op de **instelling maken** dialoogvenster geeft u de volgende informatie:  
+5.  Dans la page **Paramètres**, choisissez **Nouveau**, puis dans la boîte de dialogue **Créer un paramètre**, spécifiez les informations suivantes :  
 
-    -   **Naam:Verwijder SMSID voor Mac**  
+    -   **Nom :Supprimer l’ID SMS pour Mac**  
 
-    -   **Instellingstype:script**  
+    -   **Type de paramètre :Script**  
 
-    -   **Gegevenstype:tekenreeks**  
+    -   **Type de données :Chaîne**  
 
-6.  In de **instelling maken** in het dialoogvenster voor **detectiescript**, kies **script toevoegen** om op te geven van een script dat Mac-computers met een geconfigureerde SMSID detecteert.  
+6.  Dans la boîte de dialogue **Créer un paramètre**, sous **Script de découverte**, choisissez **Ajouter un script** pour spécifier un script de découverte des ordinateurs Mac configurés avec un SMSID configuré.  
 
-7.  Geef in het dialoogvenster **Detectiescript bewerken** het volgende Shellscript in:  
+7.  Dans la boîte de dialogue **Modifier un script de découverte** , entrez le script Shell suivant :  
 
     ```  
     defaults read com.microsoft.ccmclient SMSID  
     ```  
 
-8.  Kies **OK** sluiten de **detectiescript bewerken** in het dialoogvenster.  
+8.  Choisissez **OK** pour fermer la boîte de dialogue **Modifier un script de découverte**.  
 
-9. In de **instelling maken** in het dialoogvenster voor **herstelscript (optioneel)**, kies **script toevoegen** om op te geven van een script dat de SMSID verwijdert wanneer deze op Mac-computers wordt aangetroffen.  
+9. Dans la boîte de dialogue **Créer un paramètre**, sous **Script de correction (facultatif)**, choisissez **Ajouter un script** pour spécifier un script de suppression du SMSID détecté sur les ordinateurs Mac.  
 
-10. Geef in het dialoogvenster **Herstelscript maken** het volgende Shellscript in:  
+10. Dans la boîte de dialogue **Créer un script de correction** , entrez le script Shell suivant :  
 
     ```  
     defaults delete com.microsoft.ccmclient SMSID  
     ```  
 
-11. Kies **OK** sluiten de **Herstelscript maken** in het dialoogvenster.  
+11. Choisissez **OK** pour fermer la boîte de dialogue **Créer un script de correction**.  
 
-12. Klik, op de pagina **Compliantieregels** van de wizard, op **Nieuw**en geef dan in het dialoogvenster **Regel maken** de volgende informatie:  
+12. Sur la page **Règles de compatibilité** de l'Assistant, cliquez sur **Nouveau**, puis dans la boîte de dialogue **Créer une règle** , spécifiez les informations suivantes :  
 
-    -   **Naam:Verwijder SMSID voor Mac**  
+    -   **Nom :Supprimer l’ID SMS pour Mac**  
 
-    -   **Geselecteerde instelling:** Kies **Bladeren** en selecteer vervolgens het detectiescript dat u eerder hebt opgegeven.  
+    -   **Paramètre sélectionné :** Choisissez **Parcourir**, puis sélectionnez le script de découverte que vous avez spécifié précédemment.  
 
-    -   Typ in **het volgende waarden** veld de waarde **The domain/default pair of (com.microsoft.ccmclient, SMSID) does not exist**.  
+    -   Dans **les valeurs suivantes** , entrez **la paire domaine/par défaut (com.microsoft.ccmclient, ID SMS) n'existe pas**.  
 
-    -   Schakel de optie **Het opgegeven herstelscript uitvoeren wanneer deze instelling niet compatibel is**.  
+    -   Activez l'option **Exécuter le script de correction spécifié lorsque ce paramètre n'est pas compatible**.  
 
-13. Voer de wizard Configuratie-item maken uit.  
+13. Effectuez toutes les étapes de l'Assistant Création d'élément de configuration.  
 
-14. Maak een configuratiebasislijn met de configuratie-item dat u net hebt gemaakt en deze implementeren in de verzameling met apparaten die u in stap 1 hebt gemaakt.  
+14. Créez une ligne de base de configuration contenant l’élément de configuration que vous venez de créer et déployez-la sur le regroupement d’appareils créé à l’étape 1.  
 
-     Zie voor meer informatie over het maken en implementeren van configuratiebasislijnen [configuratiebasislijnen maken in System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-baselines.md) en [het implementeren van configuratiebasislijnen in System Center Configuration Manager](../../../compliance/deploy-use/deploy-configuration-baselines.md).  
+     Pour plus d’informations sur la création et le déploiement de lignes de base de configuration, consultez [Comment créer des bases de référence de configuration dans System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-baselines.md) et [Comment déployer des lignes de base de configuration dans System Center Configuration Manager](../../../compliance/deploy-use/deploy-configuration-baselines.md).  
 
-15. Voer op Mac-computers waarvan de SMSID is verwijderd, de volgende opdracht uit om een nieuw certificaat te installeren.  
+15. Sur les ordinateurs Mac sur lesquels l'ID SMS a été supprimé, exécutez la commande suivante pour installer un nouveau certificat :  
 
     ```  
     sudo ./CMEnroll -s <enrollment_proxy_server_name> -ignorecertchainvalidation -u <'user name'>  
     ```  
 
-     Geef, wanneer dit wordt gevraagd, het wachtwoord voor de supergebruikersaccount om de opdracht uit te voeren en dan het wachtwoord voor de Active Directory-gebruikersaccount.  
+     Lorsque vous y êtes invité, fournissez le mot de passe du compte de superutilisateur qui exécute la commande, puis le mot de passe du compte d'utilisateur Active Directory.  
 
-16. Als u wilt beperken van het ingeschreven certificaat naar Configuration Manager op de Mac-computer, open een terminalvenster en breng de volgende wijzigingen:  
+16. Pour limiter le certificat inscrit à Configuration Manager, sur l’ordinateur Mac, ouvrez une fenêtre de terminal et apportez les modifications suivantes :  
 
-    a.  Voer de opdracht **sudo /Applications/Utilities/Keychain\ Access.app/Contents/MacOS/Keychain\ Access**in  
+    a.  Entrez la commande **sudo /Applications/Utilities/Keychain\ Access.app/Contents/MacOS/Keychain\ Access**  
 
-    b.  In de **toegang tot sleutelhanger** dialoogvenster in de **sleutelhangers** sectie **System**, en klikt u op de **categorie** sectie **sleutels**.  
+    b.  Dans la boîte de dialogue **Trousseau d’accès**, dans la zone **Trousseau**, choisissez **Système**, puis dans la zone **Catégorie**, choisissez **Clés**.  
 
-    c.  Vouw de sleutels uit om de clientcertificaten weer te geven. Wanneer u het certificaat met een persoonlijke sleutel hebt geïdentificeerd dat u zojuist hebt geïnstalleerd, dubbelklikt u op de sleutel.  
+    c.  Développez les clés pour afficher les certificats clients. Lorsque vous avez identifié le certificat avec une clé privée que vous venez d'installer, double-cliquez sur la clé.  
 
-    d.  Op de **toegangsbeheer** Kies **bevestigen alvorens toegang toe te staan**.  
+    d.  Sous l’onglet **Contrôle d’accès**, choisissez **Confirmer avant d’autoriser l’accès**.  
 
-    e.  Blader naar **Library/Application Support/Microsoft/CCM**, selecteer **CCMClient**, en kies vervolgens **toevoegen**.  
+    e.  Accédez à **/Library/Application Support/Microsoft/CCM**, sélectionnez **CCMClient**, puis choisissez **Ajouter**.  
 
-    f.  Kies **wijzigingen opslaan** en sluit de **Sleutelhangertoegang** in het dialoogvenster.  
+    f.  Choisissez **Enregistrer les modifications** et fermez la boîte de dialogue **Trousseau d’accès**.  
 
-17. Start de Mac-computer opnieuw op.  
+17. Redémarrez l'ordinateur Mac.  
 

@@ -1,6 +1,6 @@
 ---
-title: Windows-computer op afstand beheren | Microsoft Docs
-description: Een externe computer van de Windows-client beheren met behulp van System Center Configuration Manager.
+title: "Administrer à distance un ordinateur Windows | Microsoft Docs"
+description: "Administrez un ordinateur client Windows distant à l’aide de System Center Configuration Manager."
 ms.custom: na
 ms.date: 07/27/2017
 ms.prod: configuration-manager
@@ -17,81 +17,81 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: aecc4ccfec98932f3988f1ca1fcdc898cd417933
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-remotely-administer-a-windows-client-computer-by-using-system-center-configuration-manager"></a>Hoe u een Windows-clientcomputer op afstand beheren met behulp van System Center Configuration Manager
+# <a name="how-to-remotely-administer-a-windows-client-computer-by-using-system-center-configuration-manager"></a>Comment administrer à distance un ordinateur client Windows à l’aide de System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Neem de informatie in de volgende onderwerpen door voordat u aan de slag gaat met beheer op afstand:  
+Avant de commencer à utiliser le contrôle à distance, veillez à consulter les informations des rubriques suivantes :  
 
--   [Vereisten voor extern beheer in System Center Configuration Manager](../../../../core/clients/manage/remote-control/prerequisites-for-remote-control.md)  
+-   [Prérequis pour le contrôle à distance dans System Center Configuration Manager](../../../../core/clients/manage/remote-control/prerequisites-for-remote-control.md)  
 
--   [Beheer op afstand configureren in System Center Configuration Manager](../../../../core/clients/manage/remote-control/configuring-remote-control.md)  
+-   [Configuration du contrôle à distance dans System Center Configuration Manager](../../../../core/clients/manage/remote-control/configuring-remote-control.md)  
 
-Hier volgen drie manieren de viewer voor beheer op afstand starten:  
+Vous pouvez démarrer l’observateur de contrôle à distance de trois manières :  
 
--   In de Configuration Manager-console.  
+-   Dans la console Configuration Manager.  
 
--   In een Windows-opdrachtprompt.  
+-   À une invite de commandes Windows.  
 
--   Windows **Start** menu op een computer waarop de Configuration Manager-console van de **Microsoft System Center** programmagroep.  
+-   Dans le menu **Démarrer** de Windows sur un ordinateur qui exécute la console Configuration Manager à partir du groupe de programmes **Microsoft System Center**.  
 
-### <a name="to-remotely-administer-a-client-computer-from-the-configuration-manager-console"></a>Een clientcomputer op afstand beheren vanuit de Configuration Manager-console  
+### <a name="to-remotely-administer-a-client-computer-from-the-configuration-manager-console"></a>Pour administrer à distance un ordinateur client à partir de la console Configuration Manager  
 
-1.  Kies in de Configuration Manager-console **activa en naleving** > **apparaten** of **Apparaatverzamelingen**.  
+1.  Dans la console Configuration Manager, choisissez **Actifs et Conformité** > **Appareils** ou **Regroupements d’appareils**.  
 
-3.  Selecteer de computer die u extern wilt beheren en klikt u op de **Start** tabblad, in de **apparaat** groep, kiest u **Start** > **beheer op afstand**.  
+3.  Sélectionnez l’ordinateur à administrer à distance puis, sous l’onglet **Accueil**, dans le groupe **Appareil**, choisissez **Démarrer** > **Contrôle à distance**.  
 
     > [!IMPORTANT]  
-    >  Als de clientinstelling **Gebruikers vragen naar machtiging voor Beheer op afstand** is ingesteld op **Waar**, wordt de verbinding pas geïnitieerd als de gebruiker op de externe computer hiermee instemt. Zie voor meer informatie [beheer op afstand configureren in System Center Configuration Manager](../../../../core/clients/manage/remote-control/configuring-remote-control.md).  
+    >  Si le paramètre client **Inviter l’utilisateur à autoriser le contrôle à distance** a la valeur **True**, la connexion ne démarre pas tant que l’utilisateur de l’ordinateur distant n’accepte pas l’invite de contrôle à distance. Pour plus d’informations, consultez [Configuration du contrôle à distance dans System Center Configuration Manager](../../../../core/clients/manage/remote-control/configuring-remote-control.md).  
 
-4.  Als het venster **Configuration Manager - Beheer op afstand** wordt geopend, kunt u de clientcomputer op afstand beheren. Gebruik de volgende opties om de verbinding te configureren.  
+4.  Lorsque la fenêtre **Contrôle à distance de Configuration Manager** s'ouvre, vous pouvez administrer à distance l'ordinateur client. Utilisez les options suivantes pour configurer la connexion.  
 
     > [!NOTE]  
-    >  Als de computer waarmee u verbinding maakt meerdere beeldschermen heeft, wordt de weergave van alle monitors weergegeven in het venster voor beheer op afstand.  
+    >  Si l’ordinateur auquel vous vous connectez dispose de plusieurs moniteurs, l’affichage de tous les moniteurs apparaît dans la fenêtre de contrôle à distance.  
 
-    -   **Bestand - verbinden** -verbinding maken met een andere computer. Deze optie is niet beschikbaar als een sessie voor beheer op afstand actief is.  
+    -   **Fichier - Connecter** : se connecte à un autre ordinateur. Cette option n'est pas disponible lorsqu'une session de contrôle à distance est active.  
 
-    -   **Bestand - verbinding verbreken** : de sessie actieve beheer op afstand verbreekt, maar u sluit het **afstandbediening voor Configuration Manager** venster.  
+    -   **Fichier - Déconnecter** : déconnecte la session active de contrôle à distance, mais ne ferme pas la fenêtre **Contrôle à distance de Configuration Manager**.  
 
-    -   **Bestand - afsluiten** : de sessie actieve beheer op afstand verbreekt en sluit u de **afstandbediening voor Configuration Manager** venster.  
-
-        > [!NOTE]  
-        >  Wanneer u de verbinding van een sessie voor beheer op afstand verbreekt, wordt op de computer die u weergeeft de inhoud van het Windows Klembord verwijderd.  
-
-    -   **Beeld - Volledig scherm** -maximaliseert de **afstandbediening voor Configuration Manager** venster.  
+    -   **Fichier - Quitter** : déconnecte la session de contrôle à distance active et ferme la fenêtre **Contrôle à distance de Configuration Manager**.  
 
         > [!NOTE]  
-        >  Druk op Ctrl+Alt+Break om de modus voor volledig scherm af te sluiten.  
+        >  Quand vous vous déconnectez d’une session de contrôle à distance, le contenu du Presse-papiers de Windows sur l’ordinateur que vous visualisez est supprimé.  
 
-    -   **Beeld - aanpassen aan pagina** -Hiermee wordt de weergave van de externe computer aan de grootte van de **afstandbediening voor Configuration Manager** venster.  
-
-    -   **Beeld - Statusbalk** -Hiermee wordt de weergave van de **afstandbediening voor Configuration Manager** statusbalk venster.  
-
-    -   **Actie - verzenden Ctrl + Alt + Del sleutel** -verzendt een toetscombinatie Ctrl + Alt + Del naar de externe computer.  
-
-    -   **Actie - Klembord delen activeren** -kunt u items naar en van de externe computer kopiëren en plakken. Als u deze waarde wijzigt, moet u de sessie voor beheer op afstand opnieuw starten om de wijziging door te voeren.  
+    -   **Affichage - Plein écran** : optimise la fenêtre **Contrôle à distance de Configuration Manager**.  
 
         > [!NOTE]  
-        >  Als u niet wilt dat Klembord delen om te worden ingeschakeld in de Configuration Manager-console op de computer met de console, stelt u de waarde van de registersleutel **HKEY_CURRENT_USER\Software\Microsoft\ConfigMgr10\Remote Control\Clipboard Sharing** naar **0**.  
+        >  Pour quitter le mode plein écran, appuyez sur Ctrl+Alt+Pause.  
 
-    -   **Actie - extern toetsenbord en muis vergrendelen** -Hiermee vergrendelt u het externe toetsenbord en muis om te voorkomen dat de gebruiker de externe computer bedient.  
+    -   **Afficher - Ajuster à la page** : redimensionne l’affichage de l’ordinateur distant pour l’adapter à la taille de la fenêtre **Contrôle à distance de Configuration Manager**.  
 
-    -   **Help - Info over beheer op afstand** -geeft IDE huidige versie van de viewer.  
+    -   **Afficher - Barre d’état** : active ou désactive l’affichage de la barre d’état de la fenêtre **Contrôle à distance de Configuration Manager**.  
 
-5.  Gebruikers op de externe computer kunnen meer informatie over de sessie voor extern beheer als ze op de Configuration Manager weergeven**beheer op afstand** pictogram in het systeemvak of het pictogram op de balk van de sessie beheer op afstand.  
+    -   **Action - Envoyer Ctrl+Alt+Suppr** : envoie la séquence de touches Ctrl+Alt+Suppr à l’ordinateur distant.  
 
-### <a name="to-start-the-remote-control-viewer-from-the-windows-command-line"></a>De viewer voor beheer op afstand starten via de Windows-opdrachtregel  
+    -   **Action - Activer le partage du Presse-papiers** : permet de copier et coller des éléments vers et depuis l’ordinateur distant. Si vous modifiez cette valeur, vous devez redémarrer la session de contrôle à distance pour appliquer la modification.  
 
--   Typ het volgende achter de opdrachtprompt van Windows *< installatiemap van Configuration Manager\>***\AdminConsole\Bin\x64\CmRcViewer.exe**  
+        > [!NOTE]  
+        >  Si vous ne voulez pas que le partage du Presse-papiers soit activé dans la console Configuration Manager, sur l’ordinateur exécutant la console, définissez la valeur de la clé de Registre **HKEY_CURRENT_USER\Software\Microsoft\ConfigMgr10\Remote Control\Clipboard Sharing** sur **0**.  
 
-CmRcViewer.exe ondersteunt de volgende opdrachtregelopties:  
+    -   **Action - Verrouiller le clavier distant et la souris** : verrouille le clavier et la souris distants pour empêcher l’utilisateur d’utiliser l’ordinateur distant.  
 
-- *Adres* -Hiermee geeft u de NetBIOS-naam, de volledig gekwalificeerde domeinnaam (FQDN) of het IP-adres van de client waarmee u verbinding wilt maken.
-- *Siteservernaam* -geeft de naam van de System Center Configuration Manager-siteserver waarnaar u wilt statusberichten die zijn gerelateerd aan de sessie voor beheer op afstand verzenden.
-- **/?** -Geeft de opdrachtregelopties voor beheer op afstand viewer.  
+    -   **Aide - À propos du contrôle à distance** : affiche la version actuelle de l’observateur.  
+
+5.  Les utilisateurs de l’ordinateur distant peuvent afficher plus d’informations sur la session de contrôle à distance lorsqu’ils cliquent sur l’icône **Contrôle à distance** de Configuration Manager dans la zone de notification de Windows ou sur l’icône dans la barre de la session de contrôle à distance.  
+
+### <a name="to-start-the-remote-control-viewer-from-the-windows-command-line"></a>Pour démarrer l'observateur de contrôle à distance à partir de la ligne de commande Windows  
+
+-   À l’invite de commandes Windows, tapez *<Dossier d’installation Configuration Manager>\>***\AdminConsole\Bin\x64\CmRcViewer.exe**  
+
+CmRcViewer.exe prend en charge les options de ligne de commande suivantes :  
+
+- *Adresse* : spécifie le nom NetBIOS, le nom de domaine complet (FQDN) ou l’adresse IP de l’ordinateur client auquel vous voulez vous connecter.
+- *Nom du serveur de site* : indique le nom du serveur de site System Center Configuration Manager auquel vous voulez envoyer des messages d’état associés à la session de contrôle à distance.
+- **/?** : affiche les options de ligne de commande de l’observateur de contrôle à distance.  
      
-**Example:CmRcViewer.exe** *< adres\>*   *< \\\Site-servernaam >*  
+**Example:CmRcViewer.exe** *<Adresse\>* *<\\\Nom du serveur de site>*  

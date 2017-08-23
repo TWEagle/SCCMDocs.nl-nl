@@ -1,6 +1,6 @@
 ---
-title: Updates maken | Microsoft Docs
-description: Maken en de bundel van software-updates met System Center Updates Publisher
+title: "Créer des mises à jour | Microsoft Docs"
+description: "Créer et regrouper des mises à jour logicielles avec l’éditeur de mise à jour System Center"
 ms.custom: na
 ms.date: 4/29/2017
 ms.prod: configuration-manager
@@ -17,177 +17,177 @@ manager: angrobe
 robots: NOINDEX, NOFOLLOW
 ms.openlocfilehash: 98e490d7f5ca17dcf2a0aaa848f14e789f214123
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create--software-updates-and-update-bundles-with-updates-publisher"></a>Software-updates maken en updatebundels met Updates Publisher
+# <a name="create--software-updates-and-update-bundles-with-updates-publisher"></a>Créer des mises à jour logicielles et des offres groupées de mises à jour avec l’éditeur de mise à jour
 
-*Van toepassing op: System Center Updates Publisher*
+*S’applique à : l'éditeur de mise à jour System Center*
 
-Met Updates Publisher kunt u de **maken bijwerken** wizard voor het maken van uw eigen updates en de **bundel maken** wizard voor het maken van bundels van updates.
+L’éditeur de mise à jour vous permet d’utiliser l’Assistant **Création d’une mise à jour** pour créer vos propres mises à jour et l’Assistant **Création d’une offre groupée** pour créer des offres groupées de mises à jour.
 
-Omdat deze twee wizards een vergelijkbare werkstroom hebben, wordt de procedure voor het maken van een updatebundel verwijst naar de procedure voor het maken van updates met alleen de relevante verschillen beschreven.
+Ces deux Assistants ayant un flux de travail similaire, la procédure de création d’une offre groupée de mises à jour fait référence à la procédure de création de mises à jour et seules les différences pertinentes sont détaillées.
 
-## <a name="use-the-create-update-wizard"></a>Gebruik de wizard Update maken
-1.  Ga in de console naar **werkruimte Updates**, en klik vervolgens in de **aan de slag** deelvenster kiezen **Update** van de **Start** tabblad van het lint. Hiermee opent u de **maken bijwerken** wizard.
+## <a name="use-the-create-update-wizard"></a>Utiliser l’Assistant Création d’une mise à jour
+1.  Dans la console, accédez à l**’espace de travail Mises à jour** puis, dans le volet **Mise en route**, choisissez **Mise à jour** dans l’onglet **Accueil** du ruban. Cette opération ouvre l’Assistant **Création d’une mise à jour**.
 
-2.  Op de **pakket** pagina, gebruikt u de volgende informatie kunt u de update te configureren:
+2.  Sur la page **Package**, utilisez les informations suivantes pour vous aider à configurer la mise à jour :
 
-    -   Kies **Bladeren** de software-updatepakket dat u als een pakketbron gebruikt vinden. Geldige bronnen bevatten. MSI. MSP, of. EXE-bestanden. Updates Publisher vereist toegang tot het bestand te maken van een bestands-hash. Het hash- en de naam worden vervolgens gebruikt in de metagegevens van de update voor de update die u maakt.
+    -   Choisissez **Parcourir** pour rechercher le package de mises à jour logicielles que vous allez utiliser comme source de package. Les sources valides incluent les fichiers .MSI, .MSP ou .EXE. L’éditeur de mise à jour nécessite l’accès au fichier pour créer un hachage de fichier. Le hachage et le nom du fichier sont ensuite utilisés dans les métadonnées de la mise à jour que vous créez.
 
-    -   Geef de bronlocatie van de inhoud voor deze update. Dit is normaal gesproken de locatie waar het binaire update wordt gedownload van tijdens het publiceren naar een WSUS-server.  Als de **een lokale bron gebruiken voor het publiceren van software-update-inhoud** optie is ingeschakeld, wordt het pad is niet vereist.
+    -   Spécifiez l’emplacement source du contenu de cette mise à jour. Il s’agit normalement de l’emplacement où le fichier binaire de mise à jour est téléchargé lors de la publication sur un serveur WSUS.  Si l’option permettant d’**utiliser une source locale pour publier le contenu de la mise à jour logicielle** est sélectionnée, le chemin d’accès n’est pas requis.
 
-        Later, wanneer de update is gepubliceerd naar een WSUS-server, downloadt Updates Publisher de binaire bestanden voor de update van de opgegeven bronlocatie.  Als geen pad is opgegeven Publisher bijwerken zoekt de [lokale bron publicatiepad](/sccm/sum/tools/updates-publisher-options#advanced) voor de update-binary.
+        Ultérieurement, si la mise à jour est publiée sur un serveur WSUS, l’éditeur de mise à jour télécharge les fichiers binaires de la mise à jour depuis l’emplacement source indiqué.  Si aucun chemin d’accès n’est fourni, l’éditeur de mise à jour recherchera le [chemin de publication de la source locale](/sccm/sum/tools/updates-publisher-options#advanced) pour le fichier binaire de mise à jour.
 
-    -   Geef de **binaire taal** van de software-update.
+    -   Spécifiez le **langage binaire** de la mise à jour logicielle.
 
-    -   Geef **geslaagd retourcodes**, en **geslaagd in afwachting van opnieuw opstarten codes** voor de update. Meerdere retourcodes gescheiden door komma's. U kunt retourcodes gebruiken om te bepalen wanneer de installatie van update is voltooid en wanneer opnieuw opstarten vereist zijn.
+    -   Spécifiez les **codes de retour de réussite** et les **codes de redémarrage en attente de réussite** de la mise à jour. Séparez plusieurs codes de retour à l’aide d’une virgule. Vous pouvez utiliser les codes de retour pour déterminer si l’installation de la mise à jour a réussi et si des redémarrages ont été requis.
 
-        -   Windows installer-bestanden en -patches (. MSI en. MSP-bestanden) automatisch deze waarden instellen en kan niet worden gewijzigd.
+        -   Les fichiers du programme d’installation et correctifs Windows (fichiers .MSI et .MSP) définissent automatiquement ces valeurs, qui ne peuvent pas être modifiées.
 
-        -   Voor. EXE-updates, de standaard-codes gedefinieerd door de. EXE-bestand worden gebruikt als er geen retourcodes zijn opgegeven.
+        -   Pour les mises à jour .EXE, les codes par défaut définis par le fichier .EXE sont utilisés si aucun code de retour n’est spécifié.
 
-    -   Geef geen opdrachtregelargumenten die nodig zijn voor het installeren van de software-update.
+    -   Spécifiez les arguments de ligne de commande nécessaires pour installer la mise à jour.
 
-        -   Windows installer-bestanden en -patches (. MSI en. MSP-bestanden) instellen automatisch deze waarden. Voor deze bestandstypen de argumenten moeten worden opgegeven als  **\[naam\]=\[waarde\]**. Bovendien alle opties die beginnen met een  **/**  (zoals **/qn**) worden niet ondersteund voor. MSI of. MSP-software-updates.
+        -   Les fichiers du programme d’installation et correctifs Windows (fichiers .MSI et .MSP) définissent automatiquement ces valeurs. Pour ces types de fichiers, les arguments doivent être spécifiés en tant que **\[nom\]=\[valeur\]**. En outre, toutes les options qui commencent par **/** (comme **/qn**) ne sont pas prises en charge pour les mises à jour .MSI ou .MSP.
 
-        -   Voor. EXE-updates, alle argumenten zijn ongeldig.
+        -   Pour les mises à jour .EXE, tous les arguments sont valides.
 
-3.  Op de **informatie** pagina, Geef details over de update die opgenomen zijn wanneer de update is gepubliceerd of geëxporteerd. Details bevatten gelokaliseerde eigenschappen zoals de naam van de updates (titel) en een beschrijving. Vervolgens geeft opgeeft u meer algemene informatie zoals de classificatie, leverancier, product en waar u meer informatie over de update.
+3.  Sur la page **Informations**, spécifiez les informations relatives à la mise à jour, incluses lorsque celle-ci est publiée ou exportée. Les détails incluent les propriétés localisées telles que le nom (titre) et la description des mises à jour. Spécifiez ensuite des informations plus générales comme la classification, le fournisseur, le produit et où obtenir plus de détails sur la mise à jour.
 
-     __Gelokaliseerde eigenschappen:__
+     __Propriétés localisées :__
 
-    -   **Taal**: Selecteer een taal en geef vervolgens een titel en beschrijving. Vervolgens kunt u extra talen, één voor elke taal ondersteunt een eigen titel en beschrijving.
+    -   **Langue** : sélectionnez une langue, puis spécifiez un titre et une description. Vous pouvez ensuite sélectionner d’autres langues, une par une, chaque langue prenant en charge ses propres titre et description.
 
-    -   **Titel**: Voer de naam van de update. Deze naam wordt weergegeven in de werkruimte Updates van de Updates Publisher-console.
+    -   **Titre** : entrez le nom de la mise à jour. Ce nom s’affiche dans l’espace de travail Mises à jour de la console de l’éditeur de mise à jour.
 
-    -   **Beschrijving**: Een beschrijving van de update. U kunt opnemen wat de update is geïnstalleerd en waarom en wanneer moet worden gebruikt.
+    -   **Description**: une description claire de la mise à jour. Vous pouvez inclure les éléments installés par la mise à jour et indiquer pourquoi ou quand celle-ci doit être utilisée.
 
-     **Classificatie:** Hier volgt een algemene beschrijving voor de verschillende classificaties.
+     **Classification :** les éléments suivants sont des descriptions communes des différentes classifications.
 
-    -   **Update**: Een update voor een toepassing of bestand dat momenteel is geïnstalleerd.
+    -   **Mise à jour** : mise à jour d'une application ou d'un fichier qui sont déjà installés.
 
-    -   **Kritieke**: Een grote schaal uitgebrachte update aan voor een specifiek probleem die zijn gericht op een kritieke fout die niet gerelateerd is aan beveiliging.
+    -   **Critique** : mise à jour distribuée en grand nombre, répondant à un problème spécifique qui concerne un bogue critique non lié à la sécurité.
 
-    -   **Functiepakket**: Nieuwe productfuncties die zijn gedistribueerd buiten een productrelease en die gewoonlijk zijn opgenomen in de volgende productrelease.
+    -   **Feature Pack** : nouvelles fonctionnalités de produit, distribuées en dehors d'une version de produit et incluses généralement dans la version suivante du produit.
 
-    -   **Beveiliging**: Een grote schaal uitgebrachte update aan voor een productspecifiek probleem met betrekking tot beveiliging.
+    -   **Sécurité** : mise à jour distribuée en grand nombre, répondant à un problème de sécurité spécifique à un produit.
 
-    -   **Updatepakket**: Een volledige reeks van hotfixes die samen zijn verpakt voor een gemakkelijke implementatie. Deze hotfixes omvatten beveiligingsupdates, essentiële updates, enzovoort. Een updatepakket adressen in het algemeen een specifiek gebied, zoals beveiliging of een functie van het product.
+    -   **Correctif cumulatif**: ensemble cumulé de correctifs assemblés pour faciliter leur déploiement. Ces correctifs peuvent comprendre des mises à jour de sécurité, des mises à jour critiques, des mises à jour, etc. Les correctifs cumulatifs concernent généralement un domaine particulier, par exemple la sécurité ou une fonctionnalité de produit.
 
-    -   **Service Pack**: Een volledige reeks van hotfixes die op een toepassing worden toegepast. Deze hotfixes omvatten beveiligingsupdates, essentiële updates, software-updates, enzovoort.
+    -   **Service Pack** : ensemble cumulé de correctifs rattachés à une application. Ces correctifs peuvent comprendre des mises à jour de sécurité, des mises à jour critiques, des mises à jour logicielles, etc.
 
-    -   **Hulpprogramma**: Geeft een hulpprogramma of onderdeel aan waarmee een of meer taken uitvoeren.
+    -   **Outil** : outil ou fonctionnalité permettant d'effectuer une ou plusieurs tâches.
 
-     -   **Stuurprogramma**: Een update voor stuurprogramma's.
+     -   **Pilote** : mise à jour du logiciel d’un pilote.
 
-    **Leverancier:** Geef een leverancier voor de update. U kunt de vervolgkeuzelijst gebruiken als u de waarden van updates die in de opslagplaats. Als u een leverancier opgeeft, maakt de wizard een map met die Leveranciersnaam onder **alle Software-Updates** in de **werkruimte Updates** als deze map niet bestaat. Hier volgen de Windows Server Update Services (WSUS) gereserveerde namen die kunnen niet worden ingevoerd voor updates die u maakt:
+    **Fournisseur :** spécifie un fournisseur pour la mise à jour. Vous pouvez utiliser la liste déroulante pour choisir les valeurs des mises à jour figurant dans le référentiel. Lorsque vous spécifiez un fournisseur, l’Assistant crée un dossier portant le nom de ce fournisseur sous **Toutes les mises à jour logicielles** dans l**’espace de travail Mises à jour** si ce dossier n’existe pas déjà. Voici une liste des noms Windows Server Update Services (WSUS) réservés qui ne peuvent pas être entrés pour les mises à jour que vous créez :
  >*   Microsoft Corporation
  >*   Microsoft
- >*   bijwerken
- >*   Software-Update
- >*   Hulpprogramma 's
- >*   Hulpprogramma
- >*   Kritiek
- >*   Essentiële Updates
- >*   Beveiliging
- >*   Beveiligingsupdates
- >*   Functiepakket
- >*   Updatepakket
+ >*   Mise à jour
+ >*   Mise à jour logicielle
+ >*   Outils
+ >*   Outil
+ >*   Critique
+ >*   Mises à jour critiques
+ >*   Sécurité
+ >*   Mises à jour de sécurité
+ >*   Feature Pack
+ >*   Correctif cumulatif
  >*   Service Pack
- >*   Stuurprogramma
- >*   Stuurprogramma-Update
- >*   Bundel
- >*   De Bundelupdate
+ >*   Pilote
+ >*   Mise à jour du pilote
+ >*   Offre groupée
+ >*   Offre groupée de mises à jour
 
-**Product**: Geef het type van het product dat de update voor. U kunt de vervolgkeuzelijst gebruiken als u de waarden van updates die in de opslagplaats. Dezelfde lijst met WSUS-gereserveerde namen die niet worden gebruikt voor **leverancier**, kan niet worden gebruikt voor **Product**.
+**Produit** : spécifie le type de produit pour lequel la mise à jour est destinée. Vous pouvez utiliser la liste déroulante pour choisir les valeurs des mises à jour figurant dans le référentiel. La même liste de noms WSUS réservés qui ne peuvent pas être utilisés pour **Fournisseur**, ne peut pas être utilisée pour **Produit**.
 
- **URL voor meer info**: Geef de URL waar u meer informatie over deze update vindt. Moet u kleine letters voor **https** of **http** wanneer u deze URL invoert.
+ **URL Informations** : spécifie l’URL où vous trouverez plus d’informations sur cette mise à jour. Vous devez utiliser des minuscules pour **https** ou **http** lorsque vous entrez cette URL.
 
-4.  Op de **optionele Info** pagina, u kunt details configureren die vindt u aanvullende informatie over de update.
+4.  Sur la page **Informations facultatives**, vous pouvez configurer les détails qui fournissent des informations supplémentaires sur la mise à jour.
 
-    -   **Bulletin-ID**: Bulletin-id's worden meestal, maar niet altijd geleverd door de leveranciers van de update.
+    -   **ID du bulletin** : les ID de bulletin sont généralement, mais pas toujours, fournis par les fournisseurs de mises à jour.
 
-    -   **Artikel-ID**: Als een artikel van software-update beschikbaar is, kan de artikel-ID nuttig zijn voor personen aanvullende informatie over de update te zoeken.
+    -   **ID de l’article** : si l’article d’une mise à jour logicielle est disponible, l’ID de l’article peut être utile pour les personnes qui cherchent plus d’informations sur la mise à jour.
 
-    -   **CVE-id's:** Overzicht van een of meer algemene beveiligingsproblemen en Exposures (CVE)-id's die informatie over de update beveiliging bieden of bundel bijwerken. Wanneer meer dan één, gebruik een puntkomma te scheiden van de CVEs zoals in dit voorbeeld: *CVE1; CVE2.*
+    -   **ID de CVE :** répertorie un ou plusieurs identificateurs CVE (Common Vulnerabilities and Exposures) qui fournissent des informations de sécurité sur la mise à jour ou l’offre groupée de mises à jour. Si la liste contient plusieurs CVE, utilisez un point-virgule pour les séparer, comme dans cet exemple : *CVE1;CVE2.*
 
-    -   **Ondersteunings-URL:** De URL die informatie over ondersteuning voor deze update bevat een lijst indien beschikbaar. Moet u kleine letters voor **https** of **http** wanneer u deze URL invoert.
+    -   **URL de prise en charge :** répertorie les URL qui contiennent des informations de prise en charge pour cette mise à jour, le cas échéant. Vous devez utiliser des minuscules pour **https** ou **http** lorsque vous entrez cette URL.
 
-    -   **Ernst:** Stel de ernst voor deze update.
+    -   **Gravité :** définit le niveau de gravité de cette mise à jour.
 
-    -   **Gevolgen:** De volgende opties kunnen worden gebruikt om op te geven gevolgen:
-        -   **Normaal –** gebruiken deze om aan te geven van de update vereist een standaardinstallatie procedures.
-        -   **Secundaire –** gebruiken deze om aan te geven van de update vereist minimale installatieprocedures.
-        -   **Exclusieve verwerkt – moet** gebruiken deze om aan te geven van de update moet zelfstandig exclusieve van andere updates worden geïnstalleerd.   <br /><br />
+    -   **Impact :** les options suivantes peuvent être utilisées pour spécifier l’impact :
+        -   **Normal** : indique que la mise à jour nécessite les procédures d’installation par défaut.
+        -   **Mineur**  : indique que la mise à jour nécessite les procédures d’installation minimale.
+        -   **Nécessite une prise en charge exclusive** : indique que la mise à jour doit être installée par elle-même, sans tenir compte d’autres mises à jour.   <br /><br />
 
-    -   **Gedrag voor opnieuw opstarten:** Gebruik deze informatie over het gedrag voor updates opnieuw opstarten opgeven. Deze instelling heeft geen invloed op het werkelijke gedrag van de installatie van de update.
+    -   **Comportement de redémarrage :** permet de fournir des informations sur le comportement de redémarrage des mises à jour. Ce paramètre n’affecte pas le comportement réel de l’installation de la mise à jour.
 
-        -   **Nooit opnieuw wordt opgestart**: Nooit levert de computer opnieuw opstarten na de installatie van de software-update.
-        -   **Opnieuw opstarten is het vereist**: Altijd levert de computer opnieuw opstarten na de installatie van de software-update.
-        -   **Opnieuw opstarten kan aanvragen**: Nadat de software-update is geïnstalleerd, vraagt de computer opnieuw opstarten alleen als een herstart nodig is. De gebruiker heeft de optie voor opnieuw opstarten uitstellen. Dit is de standaardwaarde. <br /><br />
+        -   **Ne redémarre jamais** : l’ordinateur n’effectue jamais un redémarrage du système après l’installation de la mise à jour logicielle.
+        -   **Nécessite toujours un redémarrage** : l’ordinateur effectue toujours un redémarrage du système après l’installation de la mise à jour logicielle.
+        -   **Peut nécessiter un redémarrage** : après l’installation de la mise à jour, l’ordinateur demande un redémarrage du système uniquement si un redémarrage est nécessaire. L’utilisateur a la possibilité de reporter le redémarrage. Il s'agit de la valeur par défaut. <br /><br />
 
-5.  Op de **vereiste** pagina, geeft u de vereisten die moeten worden geïnstalleerd op een computer voordat deze update kunt installeren. Vereisten kunnen worden **detectoids** of andere updates. Detectoids worden op hoog niveau regels, zoals die de computers CPU alleen moet een 64-bits processor. Detectoids kunt ook opgeven voor specifieke updates die moeten worden geïnstalleerd voordat deze update kunt installeren.
+5.  Sur la page des **conditions préalables**, spécifiez les conditions préalables qui doivent être réunies sur un ordinateur avant de pouvoir installer cette mise à jour. Les conditions requises peuvent être des **detectoids** ou d’autres mises à jour. Les detectoids sont des règles de haut niveau nécessitant, par exemple, des ordinateurs équipés d’un processeur 64 bits. Les detectoids peuvent également indiquer les mises à jour spécifiques qui doivent être installées avant de pouvoir installer cette mise à jour.
 
-    -   Gebruik voor betere prestaties detectoids in plaats van maken *installeerbare* en *geïnstalleerd regels* die de controle van dezelfde of een actie uitgevoerd.
+    -   Pour de meilleures performances, utilisez des detectoids au lieu de créer des règles *installables* et des *règles installées* qui effectuent la même vérification ou action.
 
-    Gebruik de zoekopties voor **beschikbare software-updates en detectoids** om te zoeken naar specifieke updates of detectoids. Bijvoorbeeld zoeken op **CPU** de detectoids vinden waarmee u de installatie op basis van specifieke CPU-architectuur beperken.
+    Utilisez l’option de recherche des **mises à jour logicielles et detectoids disponibles** pour vous aider à trouver des mises à jour ou des detectoids spécifiques. Par exemple, recherchez **processeur** pour trouver les detectoids vous permettant de limiter l’installation à une architecture de processeur spécifique.
 
-    U kunt een of meer items selecteren tegelijk wilt toevoegen als een vereiste. Wanneer u vereisten toevoegt, worden de geselecteerde detectoids toegevoegd als een of meer groepen. Om in aanmerking komen voor de installatie, kan een computer moet voldoen aan de vereiste van ten minste één lid van elke groep die u configureert:
+    Vous pouvez sélectionner un ou plusieurs éléments à la fois pour les ajouter comme condition préalable. Lorsque vous ajoutez des conditions préalables, les detectoids sélectionnés sont ajoutés comme un ou plusieurs groupes. Pour pouvoir effectuer l’installation, un ordinateur doit remplir les conditions d’au moins un membre de chaque groupe que vous configurez :
 
- -   Wanneer u klikt op **vereiste toevoegen** alle items die u hebt geselecteerd, worden toegevoegd aan afzonderlijke individuele, groepen. Om in aanmerking komen voor deze update, moet een computer voldoen aan de vereiste van deze groep en geven vereisten voor groepen die zijn geconfigureerd.
+ -   Lorsque vous cliquez sur **Ajouter une condition préalable**, tous les éléments que vous avez sélectionnés sont ajoutés à des groupes individuels distincts. Pour bénéficier de cette mise à jour, un ordinateur doit remplir les conditions de ce groupe et répondre aux exigences de tous les autres groupes configurés.
 
- -   Wanneer u klikt op **groep toevoegen,** alle items die u hebt geselecteerd worden toegevoegd aan één groep. Om in aanmerking komen voor deze update, moet een computer voldoen aan ten minste één van de vereisten van deze groep en geven vereisten voor groepen die zijn geconfigureerd.
+ -   Lorsque vous cliquez sur **Ajouter un groupe**, tous les éléments que vous avez sélectionnés sont ajoutés à un même groupe. Pour bénéficier de cette mise à jour, un ordinateur doit remplir au moins une des conditions de ce groupe et répondre aux exigences de tous les autres groupes configurés.
 
-6.  Op de **vervanging** pagina, geeft u de updates die zijn vervangen door deze update (vervangen). Wanneer deze update is gepubliceerd, Configuration Manager elke update die wordt vervangen als worden gemarkeerd **verlopen**. Clients installeert vervolgens deze update in plaats van de vervangen updates.
+6.  Sur la page **Remplacement**, spécifiez les mises à jour remplacées par cette mise à jour. Lorsque cette mise à jour est publiée, Configuration Manager marque chaque mise à jour remplacée comme ayant **expiré**. Les clients installeront ensuite cette mise à jour au lieu des mises à jour remplacées.
 
-7.  Op de **toepasselijkheid** gebruik pagina de **regeleditor** voor het definiëren van een reeks regels die bepalen of een apparaat deze update moet. (Deze pagina is vergelijkbaar met de **geïnstalleerde** pagina die erop volgt.)
+7.  Sur la page **Mise en application**, utilisez l**’éditeur de règles** pour définir un ensemble de règles déterminant si un appareil a besoin de cette mise à jour. (Cette page est similaire à la page **Installé** qui la suit.)
 
-    Als u wilt een nieuwe regel toevoegen, klikt u op ![Nieuwe regel](media/newrule.png). Hiermee opent u de Toepassingsregel pagina waar u regels kunt configureren.
+    Pour ajouter une nouvelle règle, cliquez sur ![Nouvelle règle](media/newrule.png). Cette opération ouvre la page Règle de mise en application dans laquelle vous pouvez configurer des règles.
 
-    Typen regels die u kunt maken, zijn onder andere:
+    Les types de règles que vous pouvez créer sont les suivants :
 
-    -   **Bestand** : deze regel gebruiken om te vereisen dat een apparaat een bestand met de eigenschappen die voldoen aan een of meer criteria die u voordat u deze update opgeeft kunnen worden toegepast.
+    -   **Fichier** : cette règle oblige un appareil à utiliser un fichier de propriétés correspondant à un ou plusieurs critères que vous spécifiez, avant de pouvoir appliquer cette mise à jour.
 
-    -   **Register –** gebruik van dit type Registerdetails die aanwezig zijn moeten voordat een apparaat in aanmerking komt voor het installeren van deze update opgeven.
+    -   **Registre** : ce type permet de spécifier les détails de registre qui doivent être présents avant de pouvoir installer cette mise à jour sur un appareil.
 
-    -   **Systeem:** met deze regel details van systeem gebruikt om te bepalen van de toepassing. U kunt kiezen tussen een Windows-versie, een Windows-taal, de processorarchitectuur definiëren of geef een WMI-query om te identificeren van het besturingssysteem van de apparaten.
+    -   **Système** : cette règle utilise les informations système pour déterminer les conditions de mise en application. Vous pouvez choisir entre la définition d’une version de Windows, une langue de Windows, l’architecture du processeur, ou spécifier une requête WMI qui identifie le système d’exploitation des appareils.
 
-    -   **Windows Installer –** dit regeltype gebruiken om te bepalen op basis van een geïnstalleerde toepassing. MSI- of Windows Installer-patch (. MSP). U kunt ook bepalen of bepaalde onderdelen of functies zijn geïnstalleerd als onderdeel van de vereiste.
+    -   **Windows Installer** : utilisez ce type de règle pour déterminer les conditions de mise en application en fonction d’un correctif .MSI ou Windows Installer (.MSP) installé. Vous pouvez également déterminer si des composants ou des fonctionnalités spécifiques sont installés dans le cadre des exigences.
 
         > [!IMPORTANT]  
-        > Op beheerde deices, de Windows Update Agent kan niet worden geïnstalleerd door Windows-pakketten die zijn geïnstalleerd per gebruiker detecteren. Wanneer u dit regeltype gebruikt, regels voor toepasselijkheid aanvullende, zoals versies van bestanden of registersleutelwaarden zodanig configureren dat de Windows Installer-pakket correct ongeacht basis per gebruiker of per systeem kan worden gedetecteerd.
+        > Sur les appareils gérés, l’Agent Windows Update ne peut pas détecter les packages Windows Installer installés par l’utilisateur. Lorsque vous utilisez ce type de règle, configurez des règles de mise en application supplémentaires, notamment les versions des fichiers ou les valeurs de clé de registre, de façon à détecter correctement le package Windows Installer, que ce soit par utilisateur ou par système.
 
-    -   **Regel: opgeslagen** met deze optie kunt u zoeken en regels u *gemaakt in de werkruimte regels*.
+    -   **Règle enregistrée** : cette option vous permet de rechercher et d’utiliser les règles que vous avez *créé dans l’espace de travail Règles*.
 
-        Nadat u een regel maakt, kunt u de andere pictogrammen wijzigen van de regel en als er meerdere regels, om relaties tussen deze regels te definiëren.
+        Après avoir créé une règle, vous pouvez utiliser les autres icônes pour modifier la règle, et s’il existe plusieurs règles, pour définir des relations entre elles.
 
-    Wanneer u bent gereed te maken en regels toe te voegen, klikt u op **OK** in de **Set van regel maken** in het dialoogvenster om op te slaan die set. Vervolgens kunt u maken een **nieuw** regel en voeg die toe aan de set ook.
+    Lorsque vous avez fini de créer et d’ajouter des règles, cliquez sur **OK** dans la boîte de dialogue **Créer un ensemble de règles** pour enregistrer cet ensemble. Vous pouvez ensuite créer une **nouvelle** règle et l’ajouter également à l’ensemble.
 
-    Wanneer er meerdere regels of regelsets toevoegen aan een update, kunt u de logische operators in de **regeleditor** vastgesteld tussen de regels en de volgorde waarin ze worden verwerkt.
+    Si vous avez plusieurs règles ou ensembles de règles à ajouter à une mise à jour, vous pouvez utiliser les opérateurs logiques de l**’éditeur de règles** pour déterminer les conditions entre les règles et l’ordre dans lequel elles sont traitées.
 
-8.  Op de **geïnstalleerde** gebruik pagina de **Rule Editor naar** definiëren van een reeks regels die bepalen of een apparaat de update die u configureert al is geïnstalleerd. (Deze pagina is vergelijkbaar met de **toepasselijkheid** pagina die wordt uitgevoerd op deze pagina.)
+8.  Sur la page **Installé**, utilisez l**’éditeur de règles pour** définir un ensemble de règles déterminant si un appareil a déjà installé la mise à jour que vous configurez. (Cette page est similaire à la page **Mise en application** qui la suit.)
 
-    Deze pagina van de wizard ondersteunt configureren regels met dezelfde opties en criteria als de **toepasselijkheid** pagina.
+    Cette page de l’Assistant permet de configurer des règles avec les mêmes options et critères que la page **Mise en application**.
 
-    Wanneer de wizard is voltooid, de nieuwe update is toegevoegd aan een knooppunt in de **werkruimte Updates** die wordt geïdentificeerd door de **leverancier** en **Product** naam die u voor deze update gebruikt.
+    À la fin de l’Assistant, la nouvelle mise à jour est ajoutée à un nœud dans l**’espace de travail Mises à jour** qui est identifié par le nom du **fournisseur** et du **produit** de cette mise à jour.
 
-## <a name="use-the-create-bundle-wizard"></a>Gebruik de wizard pakket maken
-Omdat deze wizard maakt gebruik van dezelfde werkstroom als de [maken bijwerken wizard](#use-the-create-update-wizard), die werkstroom gebruiken, maar let op het volgende verschil voor bundels:
+## <a name="use-the-create-bundle-wizard"></a>Utiliser l’Assistant Création d’une offre groupée
+Comme cet Assistant utilise le même flux de travail que l’[Assistant Création d’une mise à jour](#use-the-create-update-wizard), utilisez ce flux de travail en tenant compte de la différence suivante concernant les offres groupées :
 
-1.  U start de wizard, in de console gaat u naar **werkruimte Updates**, en selecteer vervolgens **bundel** van de **Start** tabblad van het lint.
+1.  Pour démarrer l’Assistant, dans la console, accédez à l**’espace de travail Mises à jour** puis choisissez **Offre groupée** dans l’onglet **Accueil** du ruban.
 
-2.  In tegenstelling tot de wizard Update maken is er geen pakketpagina bij het maken van een bundel.
+2.  Contrairement à l’Assistant Création d’une mise à jour, il n’existe aucune page Package lors de la création d’une offre groupée.
 
-3.  Op de **informatie** pagina, Geef details over de updatebundel die opgenomen zijn wanneer de update is gepubliceerd of geëxporteerd.
+3.  Sur la page **Informations**, spécifiez les informations relatives à l’offre groupée de mises à jour, incluses lorsque celle-ci est publiée ou exportée.
 
-4.  Op de **optionele Info** pagina kunt u details met aanvullende informatie over de updatebundel. De beschikbare opties zijn hetzelfde als voor het maken van een update. Opties voor Impact en het gedrag voor opnieuw opstarten zijn echter niet beschikbaar als ze niet van toepassing op bundels.
+4.  Sur la page **Informations facultatives**, vous pouvez configurer les détails qui fournissent des informations supplémentaires sur l’offre groupée de mises à jour. Les options disponibles sont les mêmes que pour la création d’une mise à jour. Toutefois, les options liées à l’impact et au comportement du redémarrage ne sont pas disponibles car elles ne s’appliquent pas aux offres groupées.
 
-5.  Op de **vereiste** pagina, geeft u de vereisten die op een computer moeten worden geïnstalleerd voordat dit pakket kunt installeren. Deze regels zijn hetzelfde zoals te zien voor afzonderlijke updates.
+5.  Sur la page des **conditions préalables**, spécifiez les conditions préalables qui doivent être réunies sur un ordinateur avant de pouvoir installer cette offre groupée. Ces règles sont les mêmes que pour les mises à jour individuelles.
 
-6.  Op de **vervanging** pagina, geeft u de updates die zijn vervangen door deze updatebundel (vervangen). Deze regels zijn hetzelfde zoals te zien voor afzonderlijke updates.
+6.  Sur la page **Remplacement**, spécifiez les mises à jour remplacées par cette offre groupée de mises à jour. Ces règles sont les mêmes que pour les mises à jour individuelles.
 
-7.  Op de **leden** pagina als u updates toevoegen aan de updatebundel selecteren. Alleen updates die u hebt gemaakt of geïmporteerd in Updates Publisher zijn beschikbaar.
+7.  Sur la page **Membres**, sélectionnez les mises à jour à ajouter à l’offre groupée. Seules les mises à jour que vous avez créées ou importées vers l’éditeur de mise à jour sont disponibles.
 
-Wanneer de wizard is voltooid, de nieuwe updatebundel is toegevoegd aan een knooppunt in de **werkruimte Updates** die wordt geïdentificeerd door de **leverancier** naam die u voor de updatebundel gebruikt.
+À la fin de l’Assistant, la nouvelle offre groupée de mises à jour est ajoutée à un nœud dans l**’espace de travail Mises à jour** qui est identifié par le nom du **fournisseur** de cette offre groupée.

@@ -1,6 +1,6 @@
 ---
-title: Upgrade uitvoeren voor clients | Microsoft Docs
-description: Informatie ophalen over het upgraden van clients in System Center Configuration Manager.
+title: "Mettre à niveau les clients | Microsoft Docs"
+description: "Obtenez des informations sur la mise à niveau des clients dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,135 +16,135 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 4b80e0e688dd6482bc9a7fe111607e258071f45a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="upgrade-clients-in-system-center-configuration-manager"></a>Clients bijwerken in System Center Configuration Manager
+# <a name="upgrade-clients-in-system-center-configuration-manager"></a>Mettre à niveau les clients dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-U kunt verschillende methoden gebruiken om de System Center Configuration Manager-clientsoftware op Windows-computers, UNIX en Linux-servers en Mac-computers te werken. Hier volgen de voordelen en nadelen van elke methode.  
+Vous pouvez utiliser différentes méthodes pour mettre à niveau le logiciel client System Center Configuration Manager sur les ordinateurs Windows, les serveurs UNIX et Linux ainsi que les ordinateurs Mac. Les avantages et les inconvénients de chaque méthode sont présentés ci-dessous.  
 
 > [!TIP]  
->  Als u een upgrade van uw serverinfrastructuur uitvoert vanaf een eerdere versie van Configuration Manager \(zoals Configuration Manager 2007 of System Center 2012 Configuration Manager\), wordt u aangeraden de serverupgrades, inclusief alle updates van Current Branch, uit te voeren voordat u een upgrade uitvoert van de Configuration Manager-clients. Op deze manier ook hebt u de meest recente versie van de clientsoftware.  
+>  Si vous mettez à niveau votre infrastructure de serveur à partir d’une version précédente de Configuration Manager \(comme Configuration Manager 2007 ou System Center 2012 Configuration Manager\), nous vous recommandons d’effectuer les mises à niveau du serveur, dont l’installation de toutes les mises à jour de Current Branch, avant la mise à niveau des clients. De cette façon, vous disposez également de la version la plus récente du logiciel client.  
 
-## <a name="group-policy-installation"></a>Installatie van Groepsbeleid  
- **Ondersteund clientplatform:** Windows  
+## <a name="group-policy-installation"></a>Installation via la stratégie de groupe  
+ **Plateforme cliente prise en charge :** Windows  
 
- **Voordelen**  
+ **Avantages**  
 
--   Vereist niet dat computers moeten worden gedetecteerd voordat de client kan worden bijgewerkt.  
+-   N’exige pas la découverte des ordinateurs préalablement à la mise à niveau du client.  
 
--   Kan worden gebruikt voor de nieuwe clientinstallaties of voor upgrades.  
+-   Peut être utilisée pour l'installation de nouveaux clients ou pour les mises à niveau.  
 
--   Computers kunnen clientinstallatie-eigenschappen lezen die gepubliceerd werden op Active Directory Domain Services.  
+-   Les ordinateurs peuvent lire les propriétés de l'installation du client ayant été publiées dans les services de domaine Active Directory.  
 
--   Vereist niet dat u een installatie-account configureert en onderhoudt voor de bedoelde clientcomputer.  
+-   Ne nécessite pas de configuration ni la présence d'un compte d'installation pour l'ordinateur client choisi.  
 
- **Nadelen**  
+ **Inconvénients**  
 
--   Kan hoog netwerkverkeer veroorzaken indien u een een groot aantal clients upgrade uitvoert.  
+-   Peut occasionner un trafic réseau intense si vous effectuez la mise à niveau d’un grand nombre de clients.  
 
--   Als de Active Directory-schema voor Configuration Manager niet is uitgebreid, moet u [instellingen voor groepsbeleid](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientGP) clientinstallatie-eigenschappen toevoegen aan computers in uw site.  
+-   Si le schéma Active Directory n’est pas étendu pour Configuration Manager, vous devez utiliser les [paramètres de stratégie de groupe](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientGP) pour ajouter les propriétés d’installation du client aux ordinateurs de votre site.  
 
 
-## <a name="logon-script-installation"></a>Aanmeldingscriptinstallatie  
- **Ondersteund clientplatform:** Windows  
+## <a name="logon-script-installation"></a>Installation via un script d'ouverture de session  
+ **Plateforme cliente prise en charge :** Windows  
 
- **Voordelen**  
+ **Avantages**  
 
--   Vereist niet dat computers moeten worden gedetecteerd voordat de client kan worden geïnstalleerd.  
+-   N'exige pas la découverte des ordinateurs avant l'installation du client.  
 
--   Kan worden gebruikt voor de nieuwe clientinstallaties of voor upgrades.  
+-   Peut être utilisée pour l'installation de nouveaux clients ou pour les mises à niveau.  
 
--   Ondersteunt opdrachtregeleigenschappen voor CCMSetup.  
+-   Prend en charge les propriétés de ligne de commande de CCMSetup.  
 
- **Nadelen**  
+ **Inconvénients**  
 
--   Kan hoog netwerkverkeer veroorzaken indien u een van clients in korte tijd veel upgrade uitvoert.  
+-   Peut occasionner un trafic réseau intense si vous effectuez la mise à niveau d’un grand nombre de clients sur une courte période.  
 
--   Kan lang duren om bij te werken van alle clientcomputers indien gebruikers zich niet regelmatig op met het netwerk aanmelden.  
+-   La mise à niveau de tous les ordinateurs clients peut prendre beaucoup de temps si les utilisateurs ne se connectent pas souvent au réseau.  
 
- Zie [Configuration Manager-clients met behulp van aanmeldingsscripts installeren](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientLogonScript) voor meer informatie.  
+ Pour plus d’informations, consultez [Comment installer des clients Configuration Manager à l’aide de scripts de connexion](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientLogonScript).  
 
-## <a name="manual-installation"></a>Handmatige installatie  
- **Ondersteund clientplatform:** Windows, UNIX/Linus, Mac OS X  
+## <a name="manual-installation"></a>Installation manuelle  
+ **Plateformes clientes prises en charge :** Windows, UNIX/Linux, Mac OS X  
 
- **Voordelen**  
+ **Avantages**  
 
--   Vereist niet dat computers moeten worden gedetecteerd voordat de client kan worden bijgewerkt.  
+-   N’exige pas la découverte des ordinateurs préalablement à la mise à niveau du client.  
 
--   Kan handig zijn voor testdoeleinden.  
+-   Peut être utile dans le cadre de tests.  
 
--   Ondersteunt opdrachtregeleigenschappen voor CCMSetup.  
+-   Prend en charge les propriétés de ligne de commande de CCMSetup.  
 
- **Nadelen**  
+ **Inconvénients**  
 
--   Er is geen automatisering, dus tijdrovend.  
+-   Aucune automatisation, peut prendre du temps.  
 
- Zie de volgende onderwerpen voor meer informatie:  
+ Pour plus d'informations, consultez les rubriques suivantes :  
 
--   [Configuration Manager-Clients handmatig installeren](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Manual)  
+-   [Guide pratique pour installer manuellement des clients Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_Manual)  
 
--   [Clients voor Linux en UNIX-servers in System Center Configuration Manager bijwerken](../../../../core/clients/manage/upgrade/upgrade-clients-for-linux-and-unix-servers.md)  
+-   [Guide pratique pour mettre à niveau les clients pour des serveurs Linux et UNIX dans System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-linux-and-unix-servers.md)  
 
--   [Clients op Mac-computers in System Center Configuration Manager bijwerken](../../../../core/clients/manage/upgrade/upgrade-clients-on-mac-computers.md)  
+-   [Guide pratique pour mettre à niveau les clients sur des ordinateurs Mac dans System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-on-mac-computers.md)  
 
-## <a name="upgrade-installation-application-management"></a>Installatie-upgrade (toepassingsbeheer)  
- **Ondersteund clientplatform:** Windows  
-
-> [!NOTE]  
->  U kunt Configuration Manager 2007-clients niet bijwerken met deze methode. In dit scenario kunt u de Configuration Manager-client implementeren als een pakket vanuit de Configuration Manager 2007-site of kunt u automatische Clientupgrade, waarbij automatisch maakt en implementeert een pakket met de meest recente versie van de client.  
-
- **Voordelen**  
-
--   Ondersteunt opdrachtregeleigenschappen voor CCMSetup.  
-
- **Nadelen**  
-
--   Kan hoog netwerkverkeer veroorzaken als u de client te grote verzamelingen distribueert.  
-
--   Kan enkel gebruikt worden om clientsoftware up te daten op computers die werden gedetecteerd en toegewezen aan de site.  
-
- Zie [Configuration Manager-clients met behulp van aanmeldingsscripts installeren](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientApp) voor meer informatie.  
-
-## <a name="automatic-client-upgrade"></a>Automatische clientupgrade  
+## <a name="upgrade-installation-application-management"></a>Mettre à niveau l'installation (gestion des applications)  
+ **Plateforme cliente prise en charge :** Windows  
 
 > [!NOTE]  
->  Configuration Manager 2007-clients upgraden naar System Center Configuration Manager-clients kan worden gebruikt. Een Configuration Manager 2007-client kan toewijzen aan een Configuration Manager-site, maar kan acties uitvoeren behalve automatische Clientupgrade.  
+>  Vous ne pouvez pas mettre à niveau des clients Configuration Manager 2007 avec cette méthode. Dans ces circonstances, vous pouvez déployer le client Configuration Manager comme un package à partir du site Configuration Manager 2007 ou vous pouvez utiliser la mise à niveau automatique du client, qui crée et déploie automatiquement un package contenant la dernière version du client.  
 
- **Ondersteund clientplatform:** Windows  
+ **Avantages**  
 
- **Voordelen**  
+-   Prend en charge les propriétés de ligne de commande de CCMSetup.  
 
--   Kan gebruikt worden om automatisch clients in uw site up to date te laten zijn met de laatste versie.  
+ **Inconvénients**  
 
--   Vereist minimaal beheer.  
+-   Peut occasionner un trafic réseau intense si vous distribuez le client vers des regroupements volumineux.  
 
- **Nadelen**  
+-   Peut être utilisée uniquement pour mettre à niveau le logiciel client sur les ordinateurs ayant été découverts et attribués au site.  
 
--   Kan enkel gebruikt worden om de clientsoftware up te daten en kan niet gebruikt worden om een nieuwe client te installeren.  
+ Pour plus d’informations, consultez [Comment installer les clients Configuration Manager à l’aide d’un package et d’un programme](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientApp).  
 
--   Niet geschikt voor het gelijktijdig updaten van een groot aantal clients.  
+## <a name="automatic-client-upgrade"></a>Mise à niveau automatique du client  
 
--   Is van toepassing op alle clients in de hiërarchie die toegewezen zijn aan een site. Kan niet worden ingedeeld per verzameling.  
+> [!NOTE]  
+>  Peut être utilisée pour mettre à niveau les clients Configuration Manager 2007 vers des clients System Center Configuration Manager. Un client Configuration Manager 2007 peut être attribué à un site Configuration Manager, mais ne peut effectuer aucune action en dehors de la mise à niveau automatique du client.  
 
--   Beperkte opties voor het plannen.  
+ **Plateforme cliente prise en charge :** Windows  
 
- Zie [Clients voor Windows-computers bijwerken in System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md) voor meer informatie.  
+ **Avantages**  
 
-## <a name="client-testing"></a>Client testen  
- **Ondersteund clientplatform:** Windows  
+-   Peut être utilisée pour que les clients du site disposent automatiquement de la dernière version.  
 
- **Voordelen**  
+-   Nécessite une administration minimale.  
 
--   Kan worden gebruikt voor het testen van nieuwe clientversies in kleinere pre-productieverzameling.  
+ **Inconvénients**  
 
--   Wanneer de test is voltooid, worden clients vóór productie verhoogd naar productie en automatisch bijgewerkt op de Configuration Manager-site.  
+-   Ne peut être utilisée que pour mettre le logiciel client à niveau et ne peut pas être utilisée pour installer un nouveau client.  
 
- **Nadelen**  
+-   N'est pas compatible avec la mise à niveau simultanée de plusieurs clients.  
 
--   Kan enkel gebruikt worden om de clientsoftware up te daten en kan niet gebruikt worden om een nieuwe client te installeren.  
+-   S'applique à tous les clients de la hiérarchie affectés à un site. Ne peut pas être étendue par regroupement.  
 
- [Clientupgrades testen in pre-productieverzameling in System Center Configuration Manager](../../../../core/clients/manage/upgrade/test-client-upgrades.md)  
+-   Options de planification limitées.  
+
+ Pour plus d’informations, consultez [Comment mettre à niveau les clients pour les ordinateurs Windows dans System Center Configuration Manager](../../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
+
+## <a name="client-testing"></a>Test du client  
+ **Plateforme cliente prise en charge :** Windows  
+
+ **Avantages**  
+
+-   Permet de tester les nouvelles versions du client dans un regroupement de préproduction plus petit.  
+
+-   Une fois le test terminé, les clients en préproduction sont promus en production et automatiquement mis à niveau à l’échelle du site Configuration Manager.  
+
+ **Inconvénients**  
+
+-   Ne peut être utilisée que pour mettre le logiciel client à niveau et ne peut pas être utilisée pour installer un nouveau client.  
+
+ [Comment tester les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager](../../../../core/clients/manage/upgrade/test-client-upgrades.md)  

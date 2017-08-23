@@ -1,6 +1,6 @@
 ---
-title: Hoge beschikbaarheid | Microsoft Docs
-description: Informatie over het implementeren van System Center Configuration Manager met behulp van de opties die een hoge servicebeschikbaarheid mogelijk.
+title: "Haute disponibilité | Microsoft Docs"
+description: "Découvrez comment déployer System Center Configuration Manager avec des options qui garantissent une haute disponibilité des services."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,248 +16,248 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: d3e9afb90cdc85bc7299626b642c52be659e3bdf
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="high-availability-options-for-system-center-configuration-manager"></a>Opties voor hoge beschikbaarheid voor System Center Configuration Manager
+# <a name="high-availability-options-for-system-center-configuration-manager"></a>Options de haute disponibilité pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
-
-
-
-U kunt System Center Configuration Manager met behulp van de opties die een hoge servicebeschikbaarheid mogelijk implementeren.   
-
-De opties die ondersteuning bieden voor hoge beschikbaarheid:   
-
--   Sites ondersteunen meerdere exemplaren van sitesysteemservers die belangrijke services aan clients leveren.  
-
--   Centrale beheersites en primaire sites ondersteunen de back-up van de sitedatabase. De sitedatabase bevat alle configuraties voor sites en clients en het wordt gedeeld tussen sites in een hiërarchie met een centrale beheersite.  
-
--   Ingebouwde opties voor site recovery kunnen de downtime van de server verminderen en geavanceerde opties bevatten die het herstel vereenvoudigen wanneer u een hiërarchie hebt met een centrale beheersite.  
-
--   Clients kunnen normale problemen zonder interventie van een beheerder automatisch worden opgelost.  
-
--   Sites genereren waarschuwingen over clients die geen recente gegevens dit beheerders dat potentiële problemen verwittigt kunnen worden verzonden.  
-
--   Configuration Manager bevat verschillende ingebouwde rapporten waarmee u kunt het identificeren van problemen en trends voordat ze problemen worden voor server- of clientbewerkingen.  
-
- Configuration Manager biedt geen real-service en u moet deze kan werken met enige vertraging worden bijgewerkt gegevens verwacht. Daarom is het onwaarschijnlijk voor de meeste scenario's voor een tijdelijke onderbreking van de service om te worden van een kritiek probleem. Wanneer u uw sites en hiërarchieën met hoge beschikbaarheid in gedachten hebt geconfigureerd, kunt de downtime minimaliseren, autonomie van de bewerkingen onderhouden, en een hoog niveau van de service opgegeven.  
-
- Bijvoorbeeld, werken Configuration Manager-clients doorgaans autonoom met behulp van bekende schema's en configuraties voor bewerkingen, en schema's om gegevens naar de site voor de verwerking te verzenden.  
-
--   Wanneer clients geen contact met de site, cache ze gegevens zullen worden verstuurd wanneer ze contact met de site opnemen kunnen.  
-
--   Clients die geen contact krijgt met de site blijven functioneren door gebruik van de laatst bekende schema's en in de cache opgeslagen gegevens, zoals een eerder gedownloade toepassing die ze moeten uitvoeren of installeren, totdat ze kunnen contact opnemen met de site en nieuw beleid kunnen ontvangen.  
-
--   De site controleert sitesystemen en clients op periodieke statusupdates en kan waarschuwingen genereren wanneer deze mislukken, om te registreren.  
-
--   Ingebouwde rapporten bieden inzicht in actieve bewerkingen historische bewerkingen en trends. Configuration Manager ondersteunt ook de status gebaseerde berichten die gegevens bijna in realtime voor lopende bewerkingen geven.  
-
-  Gebruik de informatie in dit onderwerp samen met de informatie in de volgende artikelen:
--   [Aanbevolen hardware](../../core/plan-design/configs/recommended-hardware.md)
--   [Ondersteunde besturingssystemen voor de site system serveres](../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md)  
-
--   [Vereisten voor sites en sitesystemen](../../core/plan-design/configs/site-and-site-system-prerequisites.md)
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-##  <a name="bkmk_snh"></a>Hoge beschikbaarheid voor sites en hiërarchieën  
- **Gebruik een SQL Server-cluster om de sitedatabase te hosten:**  
 
- Wanneer u een SQL Server-cluster voor de database op een centrale beheersite of primaire site gebruikt, gebruikt u de failover-ondersteuning is ingebouwd in SQL Server.  
+Vous pouvez déployer System Center Configuration Manager avec des options qui garantissent une haute disponibilité des services.   
 
- Secundaire sites kunnen geen SQL Server-cluster gebruiken en ondersteunen geen back-up of herstel van hun sitedatabase. Een secundaire site herstellen door de secundaire site vanuit de bovenliggende primaire site opnieuw te installeren.  
+Les options de haute disponibilité sont les suivantes :   
 
- **Een SQL Server AlwaysOn-beschikbaarheidsgroep gebruiken om de sitedatabase te hosten:**  
+-   Les sites prennent en charge plusieurs instances de serveurs de système de site qui fournissent des services importants aux clients.  
 
- Vanaf versie 1602 kunt u SQL Server AlwaysOn-beschikbaarheidsgroepen voor het hosten van de sitedatabase op primaire sites en de centrale beheersite als oplossing voor hoge beschikbaarheid en herstel na noodgevallen. Zie voor meer informatie [SQL Server AlwaysOn voor een maximaal beschikbare sitedatabase voor System Center Configuration Manager](../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).  
+-   Les sites d'administration centrale et les sites principaux prennent en charge la sauvegarde de la base de données de site. La base de données de site contient toutes les configurations des sites et des clients : de plus, elle est partagée entre les sites d'une hiérarchie contenant un site d'administration centrale.  
 
- **Een hiërarchie van sites met een centrale beheersite en een of meer onderliggende primaire sites implementeren:**  
+-   Les options de récupération de site intégrées permettent de réduire les temps d'arrêt du serveur. En outre, des options avancées permettent de simplifier la récupération lorsque votre hiérarchie comprend un site d'administration centrale.  
 
- Deze configuratie kan fouttolerantie wanneer uw sites overlappende segmenten van uw netwerk beheren. Deze configuratie biedt bovendien een bijkomende hersteloptie voor het gebruik van de informatie in de gedeelde database op een andere site opnieuw opbouwen van de sitedatabase op de herstelde site. Deze optie kunt u een mislukte of niet-beschikbare back-up van de mislukte sitedatabase te vervangen.  
+-   Les clients peuvent corriger automatiquement les problèmes typiques sans intervention de l'administrateur.  
 
- **Maak regelmatig back-ups op centrale beheersites en primaire sites:**  
+-   Les sites génèrent des alertes concernant les clients qui ne soumettent pas de données récentes, ce qui a pour effet d'informer les administrateurs d'éventuels problèmes.  
 
- Wanneer u maken en testen van een regelmatige siteback-up, kunt u ervoor zorgen dat u de gegevens die nodig zijn om een site en de ervaring hebt voor het herstellen van een site in de minimale hoeveelheid tijd te herstellen.  
+-   Configuration Manager fournit plusieurs rapports intégrés qui vous permettent d’identifier en amont les problèmes et les tendances, et ainsi de garantir le bon fonctionnement du serveur et du client.  
 
- **Meerdere exemplaren van sitesysteemrollen installeren:**  
+ Configuration Manager ne fournit pas un service en temps réel, ce qui peut entraîner une latence des données dans son fonctionnement. Par conséquent, il est rare pour la plupart des scénarios qui impliquent une interruption du service temporaire de se transformer en problème critique. Lorsque vous configurez vos sites et hiérarchies en tenant compte de la haute disponibilité, vous pouvez minimiser les temps d'arrêt, maintenir l'autonomie des opérations et fournir un niveau de service élevé.  
 
- Wanneer u meerdere exemplaren van kritieke sitesysteemrollen zoals het beheerpunt en distributiepunt installeert, voorziet u overbodige contactpunten van contactpersoon voor clients in het geval dat een specifieke sitesysteemserver offline is.  
+ Par exemple, les clients Configuration Manager fonctionnent généralement de manière autonome en se basant sur les planifications et configurations connues pour les opérations, ainsi que sur les planifications d’envoi des données à traiter au site.  
 
- **Meerdere exemplaren van de SMS-Provider op een site installeren:** De SMS-Provider verleent het punt van beheercontact voor een of meer Configuration Manager-consoles. Als u meerdere SMS-providers installeert, kunt u redundantie verlenen aan contactpunten om u site en hiërarchie te beheren.  
+-   Lorsque les clients ne parviennent pas à contacter le site, ils mettent en cache données à envoyer jusqu'à ce qu'ils puissent contacter le site.  
 
-##  <a name="bkmk_ssr"></a>Hoge beschikbaarheid voor sitesysteemrollen  
- Op elke site implementeert u sitesysteemrollen om de services die u wilt dat clients gebruiken op deze site te bieden. De sitedatabase bevat de configuratiegegevens voor de site en voor alle clients. Een of meer van de beschikbare opties gebruiken om te bieden voor hoge beschikbaarheid van de sitedatabase en het herstel van de site en sitedatabase, indien nodig.  
+-   Les clients qui ne parviennent pas à contacter le site continuent à fonctionner en utilisant les dernières planifications connues, ainsi que les informations mises en cache, concernant par exemple une application précédemment téléchargée qu’ils doivent exécuter ou installer, jusqu’au moment où ils parviennent à contacter le site et à recevoir de nouvelles stratégies.  
 
- **Redundantie voor belangrijke sitesysteemrollen:**  
+-   Le site surveille ses systèmes de site et clients à la recherche de mises à jour d'état périodiques, et peut générer des alertes si ces dernières ne sont pas enregistrées.  
 
--   Application Catalog-webservicepunt  
+-   Les rapports intégrés fournissent une vision des opérations en cours ainsi que des opérations historiques et des tendances. Configuration Manager prend en charge des messages basés sur l’état qui fournissent des informations presque en temps réel sur les opérations en cours.  
 
--   Application Catalog-websitepunt  
+  Utilisez les informations de cette rubrique ainsi que celles contenues dans les articles suivants :
+-   [Matériel recommandé](../../core/plan-design/configs/recommended-hardware.md)
+-   [Systèmes d’exploitation pris en charge pour les serveurs de système de site](../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md)  
 
--   Distributiepunt  
-
--   Beheerpunt  
-
--   Software-updatepunt  
-
--   Statusmigratiepunt  
-
- U kunt meerdere exemplaren van de rol Reporting services-punt om redundantie te verlenen voor rapportage over sites en -clients installeren.
-
- U kunt PowerShell gebruiken voor het installeren van de sitesysteemrol van Software-update-punt op een cluster met Windows Network Load Balancing (NLB) om failover-ondersteuning te bieden  
+-   [Prérequis des sites et systèmes de site](../../core/plan-design/configs/site-and-site-system-prerequisites.md)
 
 
- **Ingebouwde siteback-up:**  
+##  <a name="bkmk_snh"></a> Haute disponibilité pour les sites et les hiérarchies  
+ **Utiliser un cluster SQL Server pour héberger la base de données de site :**  
 
- Configuration Manager bevat een ingebouwde back-uptaak om u te helpen back-up van uw site en uw kritieke informatie regelmatig. Daarnaast ondersteunt de wizard Setup van Configuration Manager siteherstelacties om u te helpen u de activiteit van een site te herstellen.  
+ Lorsque vous utilisez un cluster SQL Server pour la base de données sur un site d'administration centrale ou sur un site principal, vous utilisez la prise en charge de basculement intégrée à SQL Server.  
 
- **Publiceren naar Active Directory Domain Services en DNS:**  
+ Les sites secondaires ne peuvent pas utiliser un cluster SQL Server et ne prennent pas en charge la sauvegarde ou la restauration de leur base de données de site. La récupération d’un site secondaire s’effectue en le réinstallant à partir de son site principal parent.  
 
- U kunt elke site om gegevens over sitesysteemservers en -services te publiceren naar Active Directory Domain Services en naar DNS configureren. Hierdoor kunnen clients de meest toegankelijke server op het netwerk te identificeren en te identificeren wanneer nieuwe sitesysteemservers die belangrijke services, zoals beheerpunten, kunnen bieden beschikbaar zijn.  
+ **Utiliser un groupe de disponibilité SQL Server AlwaysOn pour héberger la base de données de site :**  
 
- **SMS-Provider en Configuration Manager-console:**  
+ Depuis la version 1602, vous pouvez utiliser des groupes de disponibilité SQL Server AlwaysOn pour héberger la base de données du site sur des sites principaux et le site d’administration centrale, en tant que solution de haute disponibilité et de récupération d’urgence. Pour plus d’informations, consultez [SQL Server AlwaysOn pour une base de données de site à haut niveau de disponibilité pour System Center Configuration Manager](../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).  
 
- Configuration Manager ondersteunt de installatie van meerdere SMS-Providers, elk op een afzonderlijke computer, zodat meerdere toegangspunten voor de Configuration Manager-console. Dit zorgt ervoor dat als een SMS-providercomputer offline is, u de mogelijkheid behoudt om te bekijken en Configuration Manager-sites en clients configureren.  
+ **Déployer une hiérarchie de sites avec un site d’administration centrale et un ou plusieurs sites principaux enfants :**  
 
- Wanneer een Configuration Manager-console verbinding met een site maakt, wordt deze verbinding maakt met een exemplaar van de SMS-Provider op die site. Het exemplaar van de SMS-Provider is niet-deterministisch geselecteerd. Als de geselecteerde SMS-Provider niet beschikbaar is, hebt u de volgende opties:  
+ Cette configuration peut fournir une tolérance aux pannes lorsque vos sites gèrent des segments se chevauchant de votre réseau. De plus, cette configuration propose une option de récupération supplémentaire pour utiliser les informations dans la base de données partagée disponible sur un autre site afin de reconstruire la base de données de site sur le site récupéré. Vous pouvez utiliser cette option pour remplacer une sauvegarde non réussie ou non disponible de la base de données du site ayant échoué.  
 
--   Verbind de console naar de site opnieuw. Elke nieuwe verbindingsaanvraag is niet-deterministisch een exemplaar van de SMS-Provider toegewezen en is het mogelijk dat op de nieuwe verbinding een beschikbaar exemplaar zal worden toegewezen.  
+ **Créer des sauvegardes régulières sur des sites d’administration centrale et des sites principaux :**  
 
--   Verbind de console met een andere Configuration Manager-site en beheer van de configuratie vanuit die verbinding. Dit introduceert een lichte vertraging van wijzigingen in de configuratie van niet meer dan een paar minuten. Nadat de SMS-Provider voor de site online is, kunt u uw Configuration Manager-console rechtstreeks naar de site die u wilt beheren kunt herstellen.  
+ Lorsque vous créez et testez une sauvegarde de site régulière, vous pouvez vous assurer que vous disposez des données nécessaires à la récupération d'un site et de l'expérience pour récupérer un site le plus rapidement possible.  
 
- U kunt de Configuration Manager-console installeren op meerdere computers voor gebruik door gebruikers met beheerdersrechten. Elke SMS-Provider ondersteunt verbindingen van meerdere Configuration Manager-consoles.  
+ **Installer plusieurs instances de rôles de système de site :**  
 
- **Beheerpunt:**  
+ Lorsque vous installez plusieurs instances de rôles de système de site critiques, par exemple, le point de gestion et le point de distribution, vous fournissez des points de contact redondants pour les clients dans le cas où un serveur de système de site est hors-ligne.  
 
- Installeer meerdere beheerpunten op elke primaire site en schakel de sites om sitegegevens te publiceren naar Active Directory-infrastructuur en naar DNS.  
+ **Installer plusieurs instances du fournisseur SMS sur un site :** le fournisseur SMS fournit le point de contact administratif pour une ou plusieurs consoles Configuration Manager. Lorsque vous installez plusieurs fournisseurs SMS, vous pouvez fournir une redondance pour l'administration de votre site et hiérarchie par des points de contact.  
 
- Meerdere beheerpunten helpt lastenverdeling in het gebruik van één beheerpunt door meerdere clients. Bovendien kunt u een of meer Databasereplica's voor beheerpunten verminderen de CPU-intensieve bewerkingen van het beheerpunt en verhoogt de beschikbaarheid van deze kritieke sitesysteemrol installeren.  
+##  <a name="bkmk_ssr"></a> Haute disponibilité pour les rôles système de site  
+ Sur chaque site, vous déployez des rôles de système de site pour fournir les services que vous souhaitez voir les clients utiliser sur ce site. La base de données du site contient les informations de configuration du site et de tous les clients. Utilisez une ou plusieurs des options disponibles pour fournir une haute disponibilité de la base de données de site et la récupération du site et de la base de données de site, le cas échéant.  
 
- Omdat u slechts één beheerpunt in een secundaire site installeren kunt, zich op de secundaire siteserver bevinden moet, beheerpunten op secundaire sites worden niet beschouwd als een maximaal beschikbare configuratie.  
+ **Redondance pour les rôles de système de site importants :**  
+
+-   Point de service Web du catalogue des applications  
+
+-   Point du site web du catalogue des applications  
+
+-   Point de distribution  
+
+-   Point de gestion  
+
+-   Point de mise à jour logicielle  
+
+-   Point de migration d’état  
+
+ Vous pouvez installer plusieurs instances du rôle de point de Reporting Services pour fournir la redondance des rapports sur les sites et les clients.
+
+ Vous pouvez utiliser PowerShell pour installer le rôle de système de site de point de mise à jour logicielle sur un cluster NLB Windows pour fournir la prise en charge du basculement.  
+
+
+ **Sauvegarde de site intégrée :**  
+
+ Configuration Manager inclut une tâche de sauvegarde intégrée pour vous aider à sauvegarder votre site et vos informations critiques à intervalles réguliers. En outre, l’Assistant Installation de Configuration Manager prend en charge des actions de restauration de site pour vous aider à restaurer l’état de fonctionnement d’un site.  
+
+ **Publication vers les services de domaine Active Directory et DNS :**  
+
+ Vous pouvez configurer chaque site afin de publier des données concernant les serveurs de système de site et les services vers les services de domaine Active Directory et DNS. Cela permet aux clients d'identifier le serveur le plus accessible sur le réseau, ainsi que la disponibilité de nouveaux serveurs de système de site qui fournissent des services importants, tels que des points de gestion.  
+
+ **Fournisseur SMS et console Configuration Manager :**  
+
+ Configuration Manager permet l’installation de plusieurs fournisseurs SMS, chacun sur un ordinateur distinct, pour mettre plusieurs points d’accès à la disposition de la console Configuration Manager. Cela garantit que, si un ordinateur fournisseur SMS est hors connexion, vous avez la possibilité d’afficher et de reconfigurer les sites et clients Configuration Manager.  
+
+ Quand une console Configuration Manager se connecte à un site, elle se connecte à une instance du fournisseur SMS sur ce site. L’instance du fournisseur SMS est sélectionnée de façon non déterministe. Si le fournisseur SMS sélectionné n’est pas disponible, vous disposez des options suivantes :  
+
+-   Reconnectez la console au site. Une instance du fournisseur SMS est affectée de façon non déterministe à chaque nouvelle demande de connexion. Il se peut également qu’une instance disponible soit affectée à la nouvelle connexion.  
+
+-   Connectez la console à un autre site Configuration Manager, puis gérez la configuration à partir de cette connexion. L'application des modifications apportées à la configuration prend quelques minutes. Lorsque le fournisseur SMS pour le site est en ligne, vous pouvez reconnecter votre console Configuration Manager directement au site à gérer.  
+
+ Vous pouvez installer la console Configuration Manager sur plusieurs ordinateurs afin que les utilisateurs administratifs puissent l’utiliser. Chaque fournisseur SMS prend en charge des connexions à partir de plusieurs consoles Configuration Manager.  
+
+ **Point de gestion :**  
+
+ Installez plusieurs points de gestion sur chaque site principal et activez les sites pour publier des données de site vers votre infrastructure Active Directory et vers DNS.  
+
+ Des points de gestion multiples permettent d'équilibrer la charge d'utilisation d'un point de gestion unique par plusieurs clients. Sans compter que vous pouvez installer une ou plusieurs réplicas de la base de données pour les points de gestion afin de réduire les opérations intensives du point de gestion et d'augmenter la disponibilité de ce rôle de système de site critique.  
+
+ Comme vous ne pouvez installer qu'un seul point de gestion dans un site secondaire et qu'il doit se trouver sur le serveur de site secondaire, les points de gestion des sites secondaires ne sont pas considérés comme ayant une configuration à haute disponibilité.  
 
 > [!NOTE]  
->  Apparaten die worden beheerd door on-premises-beheer voor mobiele apparaten verbinding maken met slechts één beheerpunt op een primaire site. Het beheerpunt tijdens de inschrijving door Configuration Manager is toegewezen aan het mobiele apparaat en wordt niet gewijzigd. Wanneer u meerdere beheerpunten installeert en meer dan één voor mobiele apparaten inschakelen, is het beheerpunt dat is toegewezen aan een client voor mobiele apparaten niet-deterministisch.  
+>  Les appareils gérés par une gestion des appareils mobiles locale se connectent à un seul point de gestion sur un site principal. Configuration Manager attribue le point de gestion à l’appareil mobile au moment de l’inscription et ne le change pas par la suite. Lorsque vous installez plusieurs points de gestion et que vous en activez plusieurs pour les appareils mobiles, le point de gestion qui est attribué à un client d'appareil mobile n'est pas déterministe.  
 >   
->  Als het beheerpunt dat gebruikmaakt van een client voor mobiele apparaten niet beschikbaar is, moet u los het probleem met dat beheerpunt of het mobiele apparaat wissen en het mobiele apparaat opnieuw inschrijven zodat deze kan worden toegewezen aan een geactiveerd beheerpunt dat ingeschakeld is voor mobiele apparaten.  
+>  Si le point de gestion utilisé par un client d’appareil mobile n’est plus disponible, vous devez résoudre le problème au niveau de ce point de gestion, ou réinitialiser l’appareil mobile et le réinscrire pour qu’il puisse être attribué à un autre point de gestion disponible pour les appareils mobiles.  
 
- **Distributiepunt:**  
+ **Point de distribution :**  
 
- Installeer meerdere distributiepunten en implementeer inhoud naar meerdere distributiepunten. U kunt overlappende grensgroepen configureren voor de locatie van inhoud om ervoor te zorgen dat clients op elk subnet toegang krijgen een implementatie uit twee of meer distributiepunten tot. Ten slotte kunt u overwegen een of meer distributiepunten configureren als terugvallocaties voor inhoud.  
+ Installez plusieurs points de distribution et déployez du contenu sur plusieurs points de distribution. Vous pouvez configurer des groupes de limites se chevauchant pour l'emplacement de contenu, afin de garantir aux clients sur chaque sous-réseau d'accéder à un déploiement à partir de deux points de distribution ou plus. Enfin, envisagez de configurer un point de distribution ou plus comme emplacements de secours pour le contenu.  
 
- Zie voor meer informatie over terugvallocaties voor inhoud, [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+ Pour plus d’informations sur les emplacements de secours pour le contenu, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
- **Application Catalog-webservicepunt en Application Catalog-websitepunt:**  
+ **Point de service web du catalogue des applications et point du site web du catalogue des applications :**  
 
- U kunt meerdere exemplaren van elke sitesysteemrol en voor de beste prestaties installeren, één van elk op dezelfde sitesysteemcomputer implementeert.  
+ Vous pouvez installer plusieurs instances de chaque rôle de système de site, et pour obtenir des performances optimales, en déployer une de chaque sur le même ordinateur de système de site.  
 
- Elke Application Catalog-sitesysteemrol biedt dezelfde informatie als andere instanties van die sitesysteemrol, ongeacht de locatie van deze siteserverrol in de hiërarchie. Daarom wanneer een client een aanvraag doet voor de Application Catalog en u hebt geconfigureerd de standaard Application Catalog-website-punt clientinstelling voor apparaten automatisch detecteren, kan de client naar een beschikbare instantie worden omgeleid. De voorkeur wordt gegeven voor lokale Application Catalog sitesysteemservers, op basis van de huidige netwerklocatie van de client.  
+ Chaque rôle de système de site du catalogue d'applications fournit les mêmes informations que les autres instances de ce rôle de système de site quel que soit l'emplacement du rôle de serveur de site dans la hiérarchie. Par conséquent, quand un client envoie une demande pour le catalogue d’applications et que vous avez configuré le paramètre de l’appareil client Point du site web du catalogue des applications par défaut sur Détecter automatiquement, le client peut être redirigé vers une instance disponible. La préférence est donnée aux serveurs de système de site du catalogue d’applications locaux, sur la base de l’emplacement réseau actuel du client.  
 
- Zie voor meer informatie over deze clientinstelling en de werking van automatische detectie werkt, de [Computeragent](../../core/clients/deploy/about-client-settings.md#computer-agent) sectie het [over clientinstellingen in System Center Configuration Manager](../../core/clients/deploy/about-client-settings.md) onderwerp.  
+ Pour plus d’informations sur ce paramètre client et sur le fonctionnement de la détection automatique, consultez la section [Agent ordinateur](../../core/clients/deploy/about-client-settings.md#computer-agent) dans la rubrique [À propos des paramètres client dans System Center Configuration Manager](../../core/clients/deploy/about-client-settings.md).  
 
-##  <a name="bkmk_client"></a>Hoge beschikbaarheid voor clients  
- **Clientbewerkingen zijn autonoom:**  
+##  <a name="bkmk_client"></a> Haute disponibilité pour les clients  
+ **Le client fonctionne de manière autonome :**  
 
- Configuration Manager-clientautonomie omvat het volgende:  
+ L’autonomie du client Configuration Manager se traduit ainsi :  
 
--   Clients hebben geen continu contact met een specifieke sitesysteemserver nodig. Ze gebruiken bekende configuraties om uit te voeren van vooraf geconfigureerde acties volgens een schema.  
+-   Les clients ne nécessitent pas un contact permanent avec un serveur de système de site spécifique. Ils utilisent de configurations connues pour effectuer des actions préconfigurées selon une planification.  
 
--   Clients kunnen elke beschikbaar exemplaar van een sitesysteemrol die services aan clients levert gebruiken, en ze zullen proberen om contact op met bekende servers totdat een beschikbare server zich bevindt.  
+-   Les clients peuvent utiliser toute instance disponible d'un rôle de système de site qui fournit des services aux clients. Ils continueront de contacter les serveurs connus jusqu'à localiser un serveur disponible.  
 
--   Clients kunnen uitvoeren-inventarisatie, software-implementaties en vergelijkbare geplande acties onafhankelijk van rechtstreeks contact met sitesysteemservers.  
+-   Les clients peuvent exécuter un inventaire, des déploiements de logiciels et autres actions planifiées similaires indépendamment d'un contact direct avec les serveurs de système de site.  
 
--   Clients die zijn geconfigureerd voor het gebruik van een terugvalstatuspunt kunnen gegevens verzenden naar het terugvalstatuspunt wanneer ze niet kunnen met een beheerpunt communiceren.  
+-   Les clients qui sont configurés pour utiliser un point d'état de secours peuvent soumettre des détails sur le point d'état de secours lorsque la communication avec un point de gestion n'est pas possible.  
 
- **Clients kunnen zichzelf herstellen:**  
+ **Les clients peuvent se réparer eux-mêmes :**  
 
- Meest voorkomende problemen zonder rechtstreekse interventie van een beheerder wordt automatisch hersteld door clients:  
+ Les clients corrigent automatiquement les problèmes les plus typiques sans une intervention directe de l'administrateur :  
 
--   Clients worden regelmatig zelf evalueren hun status en onderneem actie typische problemen oplossen met behulp van een lokale cache herstelstappen en bronbestanden voor reparaties.  
+-   Régulièrement, les clients évaluent leur état et prennent les mesures nécessaires pour corriger les problèmes typiques à l'aide d'un cache local d'étapes de mise à jour et de fichiers sources pour la réparation.  
 
--   De site kan een waarschuwing kan genereren wanneer een client mislukt statusinformatie naar de site verzenden. Gebruikers met beheerdersrechten die deze waarschuwingen ontvangen, kunnen onmiddellijk actie te herstellen van de normale werking van de client ondernemen.  
+-   Lorsqu'un client ne soumet des informations d'état sur son site, le site génère une alerte. Les utilisateurs administratifs qui reçoivent ces alertes peuvent prendre des mesures immédiates pour restaurer le fonctionnement normal du client.  
 
- **Informatie over het gebruik in de toekomst in het cachegeheugen:**  
+ **Les clients mettent en cache les informations dont ils auront besoin ultérieurement :**  
 
- Wanneer een client met een beheerpunt communiceert, kan de client kan verkrijgen en de volgende informatie in de cache:  
+ Lorsqu'un client communique avec un point de gestion, le client peut obtenir et mettre en cache les informations suivantes :  
 
--   Clientinstellingen.  
+-   Paramètres client.  
 
--   Clientschema's.  
+-   Planifications du client.  
 
--   Informatie over software-implementaties en downloaden van een van de software van de client is te installeren, wanneer de implementatie is geconfigureerd voor deze actie gepland.  
+-   Des informations sur les déploiements de logiciels et un téléchargement du logiciel que le client doit installer, lorsque le déploiement est configuré pour cette action.  
 
- Wanneer een client kan geen verbinding maken met een beheerpunt de clients lokaal cache de status, status en client-gegevens die ze naar de site rapporteren, en deze gegevens overgedragen nadat ze contact met een beheerpunt tot stand brengen.  
+ Quand un client ne réussit pas à contacter un point de gestion, il copie dans le cache local les informations sur le statut, l’état et le client qu’il consigne sur le site. Il transfère ces données dès qu’il réussit à contacter un point de gestion.  
 
- **Client kan de status verzenden naar een terugvalstatuspunt:**  
+ **Le client peut soumettre l’état à un point d’état de secours :**  
 
- Wanneer u een client een terugvalstatuspunt configureert, kunt u een extra contactpunt voor de client verzenden van belangrijke informatie over de werking ervan opgeven. Clients die zijn geconfigureerd voor gebruik van een terugvalstatuspunt blijven status van hun activiteiten verzenden naar die sitesysteemrol, zelfs wanneer de client niet kan met een beheerpunt communiceren.  
+ Quand vous configurez un client pour qu’il utilise un point d’état de secours, vous fournissez au client un point de contact supplémentaire vers lequel il peut envoyer des informations détaillées importantes sur son fonctionnement. Les clients qui sont configurés de manière à utiliser un point d'état de secours continuent à envoyer des informations sur l'état de leurs opérations vers ce rôle de système de site lorsque la communication avec un point de gestion n'est pas possible.  
 
- **Centraal beheer van clientgegevens en clientidentiteit:**  
+ **Gestion centralisée des données et de l’identité du client :**  
 
- De sitedatabase in plaats van de individuele client bevat belangrijke informatie over de identiteit van de client en koppelt die gegevens op een specifieke computer of gebruiker. Dit betekent dat:  
+ La base de données de site, plutôt que le client, conserve les informations importantes sur l’identité de chaque client et associe ces données à un utilisateur ou un ordinateur spécifique. Cela a les conséquences suivantes :  
 
--   De clientbronbestanden op een computer kunnen worden verwijderd en opnieuw geïnstalleerd zonder de historische records voor de computer waarop de client is geïnstalleerd.  
+-   Les fichiers source du client sur un ordinateur peuvent être désinstallés et réinstallés sans modifier les enregistrements historiques de l’ordinateur sur lequel est installé le client.  
 
--   Fout van een clientcomputer heeft geen invloed op de integriteit van de informatie die is opgeslagen in de database. Deze informatie kan beschikbaar blijven voor rapportage.  
+-   La défaillance d'un ordinateur client n'affecte pas l'intégrité des informations qui sont stockées dans la base de données. Ces informations peuvent rester disponibles pour les rapports.  
 
-##  <a name="bkmk_nonHAoptions"></a>Opties voor sites en sitesysteemrollen die niet maximaal beschikbaar  
- Verschillende sitesystemen bieden geen ondersteuning voor meerdere exemplaren op een site of in de hiërarchie. Deze informatie kunt u deze sitesystemen offline gaan voorbereiden.  
+##  <a name="bkmk_nonHAoptions"></a> Options pour les sites et les rôles système de site qui n’ont pas un haut niveau de disponibilité  
+ Plusieurs systèmes de site ne prennent pas en charge des instances multiples sur un site ou dans la hiérarchie. Aidez-vous des informations ci-dessous pour préparer la mise hors connexion de ces systèmes de site.  
 
- **Siteserver (site):**  
+ **Serveur de site (site) :**  
 
- Configuration Manager biedt geen ondersteuning voor de installatie van de siteserver voor elke site op een Windows Server-cluster of NLB-cluster.  
+ Configuration Manager ne prend pas en charge l’installation du serveur de site pour chaque site d’un cluster Windows Server ou NLB.  
 
- De volgende informatie kunt u als een siteserver uitvalt of niet operationeel is voorbereiden:  
+ Les informations suivantes peuvent vous aider à vous préparer au cas où un serveur de site tomberait en panne ou ne serait pas opérationnel :  
 
--   Gebruik de ingebouwde back-uptaak Maak regelmatig een back-up van de site. In een testomgeving regelmatig practice sites terugzetten vanuit een back-up.  
+-   La tâche de sauvegarde intégrée permet de faire une sauvegarde régulière du site. Dans un environnement de test, pratiquez régulièrement la restauration de sites à partir d'une sauvegarde.  
 
--   Implementeer meerdere Configuration Manager primaire sites in een hiërarchie met een centrale beheersite om redundantie tot stand. Als u een site uitvalt ondervindt, kunt u overwegen Windows-groep of aanmeldscripts te gebruiken op het opnieuw toewijzen van clients naar een werkende site.  
+-   Déployez plusieurs sites principaux Configuration Manager dans une hiérarchie avec un site d’administration centrale pour créer un système redondant. En cas de panne du site, envisagez d'utiliser la stratégie de groupe Windows ou des scripts d'ouverture de session pour réattribuer des clients à un site fonctionnel.  
 
--   Als u een hiërarchie met een centrale beheersite hebt, kunt u de centrale beheersite of een onderliggende primaire site kunt herstellen met behulp van de optie voor het herstellen van een sitedatabase van een andere site in uw hiërarchie.  
+-   Si votre hiérarchie dispose d'un site d'administration centrale, vous pouvez restaurer celui-ci ou un site principal enfant en utilisant l'option de restauration d'une base de donnée de site à partir d'un autre site de la hiérarchie.  
 
--   Secundaire sites kunnen niet worden hersteld en opnieuw moeten worden geïnstalleerd.  
+-   Les sites secondaires ne peuvent pas être restaurés et doivent être réinstallés.  
 
- **Asset Intelligence-synchronisatiepunt (hiërarchie):**  
+ **Point de synchronisation Asset Intelligence (hiérarchie) :**  
 
- Deze sitesysteemrol wordt niet als bedrijfskritisch gezien en biedt optionele functionaliteit in Configuration Manager. Als dit sitesysteem offline gaat, gebruikt u een van de volgende opties:  
+ Ce rôle de système de site n’est pas capital et fournit une fonctionnalité facultative dans Configuration Manager. Si ce système de site est mis hors ligne, utilisez l'une des options suivantes :  
 
--   Los de oorzaak van het sitesysteem offline zijn.  
+-   Résolvez la cause de mise hors ligne du système de site.  
 
--   De rol niet verwijderen van de huidige server en de functie installeren op een nieuwe server.  
+-   Désinstallez le rôle du serveur en cours et installez le rôle sur un nouveau serveur.  
 
- **Endpoint Protection-punt (hiërarchie):**  
+ **Point Endpoint Protection (hiérarchie) :**  
 
- Deze sitesysteemrol wordt niet als bedrijfskritisch gezien en biedt optionele functionaliteit in Configuration Manager. Als dit sitesysteem offline gaat, gebruikt u een van de volgende opties:  
+ Ce rôle de système de site n’est pas capital et fournit une fonctionnalité facultative dans Configuration Manager. Si ce système de site est mis hors ligne, utilisez l'une des options suivantes :  
 
--   Los de oorzaak van het sitesysteem offline zijn.  
+-   Résolvez la cause de mise hors ligne du système de site.  
 
--   De rol niet verwijderen van de huidige server en de functie installeren op een nieuwe server.  
+-   Désinstallez le rôle du serveur en cours et installez le rôle sur un nouveau serveur.  
 
- **Inschrijvingspunt (site):**  
+ **Point d’inscription (site) :**  
 
- Deze sitesysteemrol wordt niet als bedrijfskritisch gezien en biedt optionele functionaliteit in Configuration Manager. Als dit sitesysteem offline gaat, gebruikt u een van de volgende opties:  
+ Ce rôle de système de site n’est pas capital et fournit une fonctionnalité facultative dans Configuration Manager. Si ce système de site est mis hors ligne, utilisez l'une des options suivantes :  
 
--   Los de oorzaak van het sitesysteem offline zijn.  
+-   Résolvez la cause de mise hors ligne du système de site.  
 
--   De rol niet verwijderen van de huidige server en de functie installeren op een nieuwe server.  
+-   Désinstallez le rôle du serveur en cours et installez le rôle sur un nouveau serveur.  
 
- **Inschrijvingsproxypunt (site):**  
+ **Point proxy d’inscription (site) :**  
 
- Deze sitesysteemrol wordt niet als bedrijfskritisch gezien en biedt optionele functionaliteit in Configuration Manager. U kunt echter meerdere exemplaren van deze sitesysteemrol op een site en op meerdere sites in de hiërarchie installeren. Als dit sitesysteem offline gaat, gebruikt u een van de volgende opties:  
+ Ce rôle de système de site n’est pas capital et fournit une fonctionnalité facultative dans Configuration Manager. Vous pouvez toutefois installer plusieurs instances de ce rôle de système de site sur un site et sur plusieurs sites dans la hiérarchie. Si ce système de site est mis hors ligne, utilisez l'une des options suivantes :  
 
--   Los de oorzaak van het sitesysteem offline zijn.  
+-   Résolvez la cause de mise hors ligne du système de site.  
 
--   De rol niet verwijderen van de huidige server en de functie installeren op een nieuwe server.  
+-   Désinstallez le rôle du serveur en cours et installez le rôle sur un nouveau serveur.  
 
- Wanneer u meer dan één inschrijvingsproxyserver in een site hebt, gebruikt u een DNS-alias voor de servernaam. Wanneer u deze configuratie gebruikt, DNS round robin enige fouttolerantie en taakverdeling voor wanneer gebruikers hun mobiele apparaten inschrijven biedt.  
+ Lorsque vous disposez de plusieurs serveurs proxy d'inscription sur un site, utilisez un alias DNS pour le nom du serveur. Lorsque vous utilisez cette configuration, le tourniquet DNS tolère des erreurs et l'équilibrage de charge dans une certaine mesure lorsque les utilisateurs inscrivent leurs appareils mobiles.  
 
- **Terugvalstatuspunt (site of hiërarchie):**  
+ **Point d’état de secours (site ou hiérarchie) :**  
 
- Deze sitesysteemrol wordt niet als bedrijfskritisch gezien en biedt optionele functionaliteit in Configuration Manager. Als dit sitesysteem offline gaat, gebruikt u een van de volgende opties:  
+ Ce rôle de système de site n’est pas capital et fournit une fonctionnalité facultative dans Configuration Manager. Si ce système de site est mis hors ligne, utilisez l'une des options suivantes :  
 
--   Los de oorzaak van het sitesysteem offline zijn.  
+-   Résolvez la cause de mise hors ligne du système de site.  
 
--   De rol niet verwijderen van de huidige server en de functie installeren op een nieuwe server. Omdat clients worden toegewezen aan het terugvalstatuspunt tijdens de clientinstallatie, moet u bestaande clients voor het gebruik van de nieuwe sitesysteemserver te wijzigen.  
+-   Désinstallez le rôle du serveur en cours et installez le rôle sur un nouveau serveur. Comme les clients sont affectés au point d'état de secours lors de leur installation, vous devrez modifier les clients existants pour qu'ils utilisent le nouveau serveur de système de site.  
 
-### <a name="see-also"></a>Zie tevens  
- [Ondersteunde configuraties voor System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md)
+### <a name="see-also"></a>Voir aussi  
+ [Configurations prises en charge pour System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md)

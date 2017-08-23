@@ -1,6 +1,6 @@
 ---
-title: Prestart-opdrachten voor takenreeksmedia | Microsoft Docs
-description: Een script te gebruiken voor de prestart-opdracht, distribueert de inhoud die is gekoppeld aan de prestart-opdracht maken en configureren van de prestart-opdracht in media.
+title: "Commandes de prédémarrage pour les médias de séquence de tâches | Microsoft Docs"
+description: "Créez un script à utiliser avec la commande de prédémarrage, distribuez le contenu associé à la commande de prédémarrage et configurez la commande de prédémarrage dans le média."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,18 +17,18 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 1c396534425179c6828d48acc578295167c566be
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prestart-commands-for-task-sequence-media-in-system-center-configuration-manager"></a>Prestart-opdrachten voor takenreeksmedia in System Center Configuration Manager
+# <a name="prestart-commands-for-task-sequence-media-in-system-center-configuration-manager"></a>Commandes de prédémarrage pour les médias de séquence de tâches dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-U kunt een prestart-opdracht maken in System Center Configuration Manager te gebruiken met opstartbare media, zelfstandige media en voorbereide media. De prestart-opdracht is een script of een uitvoerbaar bestand dat wordt uitgevoerd voordat de takenreeks wordt geselecteerd en dat kan communiceren met de gebruiker in Windows PE. Met de prestart-opdracht kan een gebruiker om informatie worden gevraagd die vervolgens wordt opgeslagen in de takenreeksomgeving. Daarnaast kan een query op een takenreeksvariabele worden uitgevoerd om informatie te verzamelen. Wanneer de doelcomputer wordt opgestart, wordt de opdrachtregel uitgevoerd voordat het beleid wordt gedownload van het beheerpunt. Gebruik de volgende procedures om een script te maken voor de prestart-opdracht, de inhoud gekoppeld aan de prestart-opdracht te distribueren en de prestart-opdracht voor media te configureren.  
+Vous pouvez créer une commande de prédémarrage dans System Center Configuration Manager à utiliser avec un média de démarrage, un média autonome et un média préparé. La commande de prédémarrage est un script ou un exécutable qui s'exécute avant la sélection de la séquence de tâches et qui peut interagir avec l'utilisateur dans Windows PE. La commande de prédémarrage peut demander des informations à l'utilisateur et les enregistrer dans l'environnement de la séquence de tâches, ou interroger une variable de séquence de tâches pour obtenir des informations. Au démarrage de l'ordinateur de destination, la ligne de commande est exécutée avant que la stratégie ne soit téléchargée auprès du point de gestion. Suivez les procédures ci-dessous pour créer un script qui sera utilisé avec la commande de prédémarrage, distribuer le contenu associé à la commande de prédémarrage et configurer la commande de prédémarrage dans le média.  
 
-## <a name="create-a-script-file-to-use-for-the-prestart-command"></a>Een scriptbestand maken voor de prestart-opdracht  
- Takenreeksvariabelen kunnen door het COM-object Microsoft.SMS.TSEnvironment worden gelezen en geschreven terwijl de takenreeks wordt uitgevoerd. In het volgende voorbeeld wordt door een Visual Basic-scriptbestand een query op de takenreeksvariabele _SMSTSLogPath uitgevoerd om de huidige logboeklocatie te achterhalen. Met het script wordt ook een aangepaste variabele ingesteld.  
+## <a name="create-a-script-file-to-use-for-the-prestart-command"></a>Créer un fichier de script à utiliser avec la commande de prédémarrage  
+ Vous pouvez lire et écrire les variables de séquence de tâches à l’aide de l’objet COM Microsoft.SMS.TSEnvironment pendant l’exécution de la séquence de tâches. L'exemple suivant illustre un fichier de script Visual Basic qui interroge la variable de séquence de tâches _SMSTSLogPath afin d'obtenir l'emplacement actuel du fichier journal. Le script définit également une variable personnalisée.  
 
 ```  
 dim osd: set env = CreateObject("Microsoft.SMS.TSEnvironment")  
@@ -39,41 +39,41 @@ logPath = env("_SMSTSLogPath")
 env("MyCustomVariable") = "varname"  
 ```  
 
-## <a name="create-a-package-for-the-script-file-and-distribute-the-content"></a>Een pakket voor het scriptbestand maken en de inhoud distribueren  
- Wanneer u het script of uitvoerbare bestand voor de prestart-opdracht hebt gemaakt, moet u een pakketbron maken om de bestanden voor het script of uitvoerbare bestand te hosten, een pakket voor de bestanden maken (geen programma vereist) en de inhoud vervolgens distribueren naar een distributiepunt.  
+## <a name="create-a-package-for-the-script-file-and-distribute-the-content"></a>Créer un package pour le fichier de script et distribuer le contenu  
+ Une fois que vous avez créé le script ou l'exécutable de la commande de prédémarrage, vous devez créer une source de package pour héberger les fichiers du script ou de l'exécutable, créer un package pour les fichiers (aucun programme n'est requis), puis distribuer le contenu auprès d'un point de distribution.  
 
- Zie voor meer informatie over het maken van een pakket [pakketten en programma's](../../apps/deploy-use/packages-and-programs.md).  
+ Pour plus d’informations sur la création d’un package, consultez [Packages et programmes](../../apps/deploy-use/packages-and-programs.md).  
 
- Zie voor meer informatie over het distribueren van inhoud [inhoud distribueren](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
+ Pour plus d’informations sur la distribution du contenu, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
 
-## <a name="configure-the-prestart-command-in-media"></a>De prestart-opdracht configureren voor media  
- U kunt een prestart-opdracht in de wizard Takenreeksmedia maken configureren voor zelfstandige media, opstartbare media en voorgefaseerde media. Zie voor meer informatie over de mediatypen [takenreeksmedia maken](../deploy-use/create-task-sequence-media.md). Gebruik de volgende procedure om een prestart-opdracht voor media te maken.  
+## <a name="configure-the-prestart-command-in-media"></a>Configurer la commande de prédémarrage dans le média  
+ Vous pouvez configurer une commande de prédémarrage pour un média autonome, un média de démarrage ou un média préparé dans l'Assistant Création d'un média de séquence de tâches. Pour plus d’informations sur les types de médias, consultez [Créer un média de séquence de tâches](../deploy-use/create-task-sequence-media.md). Suivez la procédure ci-dessous pour créer une commande de prédémarrage dans le média.  
 
-#### <a name="to-create-a-prestart-command-in-media"></a>Een prestart-opdracht voor media maken  
+#### <a name="to-create-a-prestart-command-in-media"></a>Pour créer une commande de prédémarrage dans le média  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Takenreeksen**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-3.  Klik op het tabblad **Start** in de groep **Maken** op **Takenreeksmedia maken** om de wizard Takenreeksmedia maken te starten.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un média de séquence de tâches** pour démarrer l'Assistant Création d'un média de séquence de tâches.  
 
-4.  Selecteer op de pagina **Mediatype selecteren** de optie **Zelfstandige media**, **Opstartbare media**of **Voorgefaseerde media**en klik vervolgens op **Volgende**.  
+4.  Sur la page **Sélectionner le type de média** , sélectionnez **Média autonome**, **Média de démarrage**ou **Média préparé**, puis cliquez sur **Suivant**.  
 
-5.  Navigeer naar de pagina **Aanpassing** van de wizard. Zie voor meer informatie over het configureren van de andere pagina's in de wizard [takenreeksmedia maken](../deploy-use/create-task-sequence-media.md).  
+5.  Accédez à la page **Personnalisation** de l'Assistant. Pour plus d’informations sur la configuration des autres pages de l’Assistant, consultez [Créer un média de séquence de tâches](../deploy-use/create-task-sequence-media.md).  
 
-6.  Geef op de pagina **Aanpassing** de volgende informatie op en klik vervolgens op **Volgende**.  
+6.  Sur la page **Personnalisation** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
 
-    -   Selecteer **Prestart-opdracht inschakelen**.  
+    -   Sélectionnez **Activer une commande de prédémarrage**.  
 
-    -   Voer in het tekstvak **Opdrachtregel** het script of uitvoerbare bestand in dat u hebt gemaakt voor de prestart-opdracht.  
+    -   Dans la zone de texte **Ligne de commande** , entrez le script ou l'exécutable créé pour la commande de prédémarrage.  
 
         > [!IMPORTANT]  
-        >  Gebruik **cmd /C < prestart-opdracht\>**  om op te geven van de prestart-opdracht. Als u bijvoorbeeld TSScript.vbs hebt gebruikt als de naam voor uw prestart-opdrachtscript, voert u dus **cmd /C TSScript.vbs** in op de opdrachtregel. Hierbij opent u met **cmd /C** een nieuw venster van de Windows-opdrachtinterpreter en wordt de omgevingsvariabele Path gebruikt om het script of uitvoerbare bestand voor de prestart-opdracht te vinden. U kunt ook het volledige pad naar de prestart-opdracht opgeven, maar de stationsletter kan afwijken op computers met andere stationsconfiguraties.  
+        >  Pour spécifier la commande de prédémarrage, exécutez **cmd /C <commande_prédémarrage\>**. Par exemple, si le nom du script de votre commande de prédémarrage est TSScript.vbs, entrez la ligne de commande **cmd /C TSScript.vbs** . **cmd /C** ouvre une nouvelle fenêtre d’interpréteur de commandes Windows et utilise la variable d’environnement Path pour trouver le script ou l’exécutable de la commande de prédémarrage. Vous pouvez également indiquer le chemin d'accès complet à la commande de prédémarrage, mais sachez que la lettre de lecteur peut varier d'un ordinateur à l'autre, selon la configuration des lecteurs.  
 
-    -   Selecteer **Inclusief bestanden voor de prestart-opdracht**.  
+    -   Sélectionnez **Inclure les fichiers pour la commande de prédémarrage**.  
 
-    -   Klik op **Instellen** om het pakket te selecteren dat is gekoppeld aan de prestart-opdrachtbestanden.  
+    -   Cliquez sur **Définir** pour sélectionner le package associé aux fichiers de la commande de prédémarrage.  
 
-    -   Klik op **Bladeren** om het distributiepunt te selecteren dat de inhoud voor de prestart-opdracht host.  
+    -   Cliquez sur **Parcourir** pour sélectionner le point de distribution hébergeant le contenu de la commande de prédémarrage.  
 
-7.  Voltooi de wizard.  
+7.  Effectuez toutes les étapes de l'Assistant.  

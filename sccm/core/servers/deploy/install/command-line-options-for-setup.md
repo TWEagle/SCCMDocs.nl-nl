@@ -1,6 +1,6 @@
 ---
-title: Setup-opdrachtregelopties | Microsoft Docs
-description: Gebruik de informatie in dit artikel voor het configureren van scripts of System Center Configuration Manager installeren vanaf een opdrachtregel.
+title: "Options de ligne de commande du programme d’installation | Microsoft Docs"
+description: "Utilisez les informations de cet article pour configurer des scripts ou installer System Center Configuration Manager à partir d’une ligne de commande."
 ms.custom: na
 ms.date: 03/27/2017
 ms.prod: configuration-manager
@@ -16,1262 +16,1262 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 04fe7b3e674287c4255563ab4a308e54d0b6c3aa
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="command-line-options-for-setup-in-system-center-configuration-manager"></a>Opdrachtregelopties voor Setup in System Center Configuration Manager
+# <a name="command-line-options-for-setup-in-system-center-configuration-manager"></a>Options de ligne de commande pour le programme d’installation de System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
- Gebruik de volgende informatie voor het configureren van scripts of System Center Configuration Manager installeren vanaf een opdrachtregel.  
+ Utilisez les informations suivantes pour configurer des scripts ou installer System Center Configuration Manager à partir d’une ligne de commande.  
 
-##  <a name="bkmk_setup"></a>Opdrachtregelopties voor Setup  
- **/ DEINSTALL**  
- Hiermee verwijdert u de site. U moet Setup uitvoeren vanaf de site server-computer.  
+##  <a name="bkmk_setup"></a> Options de ligne de commande pour le programme d’installation  
+ **/DEINSTALL**  
+ Désinstalle le site. Vous devez exécuter le programme d'installation à partir de l'ordinateur sur lequel est installé le serveur de site.  
 
- **/ DONTSTARTSITECOMP**  
- Hiermee installeert u een site, maar de service Site Component Manager kan niet starten. De site is niet actief totdat de service Site Component Manager is gestart. Site Component Manager is verantwoordelijk voor het installeren en starten van de service SMS_Executive en aanvullende processen op de site. Nadat de site-installatie is voltooid, wanneer u de service Site Component Manager start, installeert de service SMS_Executive en aanvullende processen die nodig zijn voor de site om te werken.  
+ **/DONTSTARTSITECOMP**  
+ Installe un site, mais empêche le démarrage du service Gestionnaire de composant de site. Tant que le service Gestionnaire de composant de site n'a pas démarré, le site n'est pas actif. Le Gestionnaire de composant de site est chargé d’installer et de démarrer le service SMS_Executive, ainsi que d’autres processus au niveau du site. Une fois l’installation du site terminée, quand vous démarrez le service Gestionnaire de composant de site, ce dernier installe le service SMS_Executive et d’autres processus nécessaires au fonctionnement du site.  
 
- **/ VERBORGEN**  
- Hiermee verbergt u de gebruikersinterface tijdens de installatie. Gebruik deze optie alleen in combinatie met de **/SCRIPT** optie. Het script zonder toezicht-bestand moet alle vereiste opties bevatten, anders mislukt Setup.  
+ **/HIDDEN**  
+ Masque l’interface utilisateur pendant l’installation. Utilisez cette option uniquement avec l’option **/SCRIPT**. Le fichier de script sans assistance doit fournir toutes les options nécessaires pour éviter l’échec du programme d’installation.  
 
- **/ NOUSERINPUT**  
- Hiermee schakelt gebruikersinvoer tijdens de installatie, maar de Wizard Setup wordt weergegeven. Gebruik deze optie alleen in combinatie met de **/SCRIPT** optie. Het script zonder toezicht-bestand moet alle vereiste opties bevatten, anders mislukt Setup.  
+ **/NOUSERINPUT**  
+ Désactive l’entrée utilisateur pendant l’installation, mais affiche l’Assistant Installation. Utilisez cette option uniquement avec l’option **/SCRIPT**. Le fichier de script sans assistance doit fournir toutes les options nécessaires pour éviter l’échec du programme d’installation.  
 
- **/ RESETSITE**  
- Voert een site opnieuw instellen die de database en serviceaccounts voor de site wordt opnieuw ingesteld. U moet Setup uitvoeren vanuit  **<* Configuration Manager-installatiepad*> \BIN\X64** op de siteserver. Zie voor meer informatie over het opnieuw instellen van de site, de [een site resetten](../../../../core/servers/manage/modify-your-infrastructure.md#bkmk_reset) in sectie [uw infrastructuur van System Center Configuration Manager aanpassen](../../../../core/servers/manage/modify-your-infrastructure.md).  
+ **/RESETSITE**  
+ Effectue une réinitialisation du site qui permet de réinitialiser la base de données et les comptes de service du site. Vous devez exécuter le programme d’installation à partir de **<*Chemin d’installation de Configuration Manager*>\BIN\X64** sur le serveur de site. Pour plus d’informations sur la réinitialisation du site, consultez la section [Exécuter une réinitialisation de site](../../../../core/servers/manage/modify-your-infrastructure.md#bkmk_reset) de la rubrique [Modifier votre infrastructure System Center Configuration Manager](../../../../core/servers/manage/modify-your-infrastructure.md).  
 
- **/ TESTDBUPGRADE <*exemplaarnaam*>\\<*databasenaam*>**  
- Voert een test op een back-up van de sitedatabase om ervoor te zorgen dat de database geschikt voor een upgrade is. U moet de instantienaam en databasenaam voor de sitedatabase opgeven. Als u alleen de databasenaam opgeeft, gebruikt Setup de standaardinstantienaam.  
+ **/TESTDBUPGRADE <*Nom de l’instance*>\\<*Nom de la base de données*>**  
+ Effectue un test sur une sauvegarde de la base de données du site pour vérifier qu’elle peut être mise à niveau. Vous devez fournir le nom d'instance et le nom de base de données pour la base de données de site. Si vous spécifiez uniquement le nom de la base de données, le programme d'installation utilise le nom de l'instance par défaut.  
 
 > [!IMPORTANT]  
->  Deze opdrachtregeloptie te gebruiken op uw productie-sitedatabase niet uitgevoerd. Deze opdrachtregeloptie te gebruiken op uw productiesitedatabase uitgevoerd upgrades van de sitedatabase en kan de site onbruikbaar.  
+>  N’exécutez pas cette option de ligne de commande sur la base de données de votre site de production. L’exécution de cette option de ligne de commande sur la base de données de votre site de production met à niveau la base de données du site et risque de rendre votre site inutilisable.  
 
- **/ UPGRADE**  
- Voert een upgrade zonder toezicht van een site. Als u werkt met **/UPGRADE**, moet u de productcode, inclusief de liggende streepjes (-). Bovendien moet u het pad naar het eerder gedownloade vereiste bestanden voor Setup.  
+ **/UPGRADE**  
+ Exécute une mise à niveau sans assistance d’un site. Quand vous utilisez **/UPGRADE**, vous devez spécifier la clé du produit, en incluant les tirets (-). Par ailleurs, vous devez spécifier le chemin des fichiers nécessaires au programme d’installation que vous avez téléchargés précédemment.  
 
- Voorbeeld: `setupwpf.exe /UPGRADE xxxxx-xxxxx-xxxxx-xxxxx-xxxxx <path to external component files>`  
+ Exemple : `setupwpf.exe /UPGRADE xxxxx-xxxxx-xxxxx-xxxxx-xxxxx <path to external component files>`  
 
- Zie voor meer informatie over de vereiste bestanden voor Setup [Setup Downloader](setup-downloader.md).  
+ Pour plus d’informations sur les fichiers nécessaires au programme d’installation, consultez [Téléchargeur d’installation](setup-downloader.md).  
 
- **/ SCRIPT <*pad naar Setup-script*>**  
- Installaties zonder toezicht uitvoert. Is een Setup-initialisatiebestand vereist wanneer u de **/SCRIPT** optie. Zie voor meer informatie over het uitvoeren van installaties zonder toezicht [sites installeren met een opdrachtregel](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md).  
+ **/SCRIPT <*Chemin d’accès du script d’installation*>**  
+ Effectue des installations sans assistance. Un fichier d’initialisation de l’installation est requis lorsque vous utilisez l’option **/SCRIPT** . Pour plus d’informations sur l’exécution du programme d’installation sans assistance, consultez [Installer des sites à l’aide d’une ligne de commande](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md).  
 
- **/ SDKINST <*FQDN-naam van de SMS-Provider*>**  
- De SMS-Provider wordt geïnstalleerd op de opgegeven computer. U moet de volledig gekwalificeerde domeinnaam (FQDN) voor de computer van de SMS-Provider opgeven. Zie voor meer informatie over de SMS-Provider [plannen voor de SMS-Provider voor System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
+ **/SDKINST <*Nom de domaine complet du fournisseur SMS*>**  
+ Installe le fournisseur SMS sur l'ordinateur spécifié. Vous devez fournir le nom de domaine complet de l’ordinateur du fournisseur SMS. Pour plus d’informations sur le fournisseur SMS, consultez [Planifier le fournisseur SMS pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
 
- **/ SDKDEINST <*FQDN-naam van de SMS-Provider*>**  
- Hiermee verwijdert u de SMS-Provider op de opgegeven computer. U moet de FQDN-naam opgeven voor de computer van de SMS-Provider.  
+ **/SDKDEINST <*Nom de domaine complet du fournisseur SMS*>**  
+ Désinstalle le fournisseur SMS sur l'ordinateur spécifié. Vous devez fournir le nom de domaine complet pour l'ordinateur du fournisseur SMS.  
 
- **/ MANAGELANGS <*scriptpad taal*>**  
- Beheert de talen die op een eerder geïnstalleerde site zijn geïnstalleerd. Om deze optie gebruikt, u moet Setup uitvoeren vanuit  **<* Configuration Manager-installatiepad*> \BIN\X64** op de siteserver en de locatie opgeven voor het taalscriptbestand dat de taalinstellingen bevat. Zie voor meer informatie over de beschikbare taalopties in het taalscriptbestand [opdrachtregelopties voor het beheren van talen](#bkmk_Lang) in dit onderwerp.  
+ **/MANAGELANGS <*Chemin d’accès au script de langue*>**  
+ Gère les langues installées sur un site installé précédemment. Pour utiliser cette option, vous devez exécuter le programme d’installation à partir de **<*Chemin d’installation de Configuration Manager*>\BIN\X64** sur le serveur de site et spécifier l’emplacement du fichier de script de langue contenant les paramètres de langue. Pour plus d’informations sur les options de langue disponibles dans le fichier du script d’installation de langue, consultez [Options de ligne de commande pour gérer les langues](#bkmk_Lang) dans cette rubrique.  
 
-##  <a name="bkmk_Lang"></a>Opdrachtregelopties voor het beheren van talen  
- **Identificatie**  
+##  <a name="bkmk_Lang"></a> Options de ligne de commande pour gérer les langues  
+ **Identification**  
 
--   **Naam sleutel:** Actie  
+-   **Nom de clé :** Action  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** ManageLanguages  
+    -   **Valeurs :** ManageLanguages  
 
-    -   **Details:** Beheert de server, client en mobiele clienttaalondersteuning op een site.  
+    -   **Détails :** gère la prise en charge des langues de serveur, de client et de client mobile d’un site.  
 
-**Opties**  
+**Options**  
 
--   **Naam sleutel:** AddServerLanguages  
+-   **Nom de clé :** AddServerLanguages  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** DUI, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HON, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK, of ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Hiermee geeft u de servertalen die beschikbaar zijn voor de Configuration Manager-console, rapporten en Configuration Manager-objecten. Engels is standaard beschikbaar.  
+    -   **Détails :** spécifie les langues de serveur qui seront disponibles pour la console Configuration Manager, les rapports et les objets Configuration Manager. L'anglais est disponible par défaut.  
 
--   **Naam sleutel:** AddClientLanguages  
+-   **Nom de clé :** AddClientLanguages  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** DUI, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HON, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK, of ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Hiermee geeft u de talen die beschikbaar zijn voor clientcomputers. Engels is standaard beschikbaar.  
+    -   **Détails :** spécifie les langues qui seront disponibles sur les ordinateurs clients. L'anglais est disponible par défaut.  
 
--   **Naam sleutel:** DeleteServerLanguages  
+-   **Nom de clé :** DeleteServerLanguages  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** DUI, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HON, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK, of ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Hiermee geeft u de te verwijderen talen en die niet langer beschikbaar voor de Configuration Manager-console, rapporten en Configuration Manager-objecten. Engels is standaard beschikbaar en kan niet worden verwijderd.  
+    -   **Détails :** Spécifie les langues à supprimer qui ne seront plus disponibles pour la console Configuration Manager, les rapports et les objets Configuration Manager. L'anglais est disponible par défaut et ne peut pas être supprimé.  
 
--   **Naam sleutel:** DeleteClientLanguages  
+-   **Nom de clé :** DeleteClientLanguages  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** DUI, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HON, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK, of ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Hiermee geeft u de te verwijderen talen en die niet langer beschikbaar voor clientcomputers. Engels is standaard beschikbaar en kan niet worden verwijderd.  
+    -   **Détails :** Spécifie les langues à supprimer qui ne seront plus disponibles sur les ordinateurs clients. L'anglais est disponible par défaut et ne peut pas être supprimé.  
 
--   **Naam sleutel:** MobileDeviceLanguage  
+-   **Nom de clé :** MobileDeviceLanguage  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = geen niet installeren  
+         0 = Ne pas installer  
 
-         1 = install  
+         1 = Installer  
 
-    -   **Details:** Hiermee geeft u op of de clienttalen voor mobiele apparaten zijn geïnstalleerd.  
+    -   **Détails :** spécifie si les langues du client d’appareil mobile sont installées.  
 
--   **Naam sleutel:** PrerequisiteComp  
+-   **Nom de clé :** PrerequisiteComp  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = downloaden  
+         0 = Télécharger  
 
-         1 = reeds gedownload  
+         1 = Déjà téléchargé  
 
-    -   **Details:** Hiermee geeft u op of Setup vereiste bestanden al zijn gedownload. Als u een waarde van bijvoorbeeld **0**, Setup de bestanden downloaden.  
+    -   **Détails :** spécifie si les fichiers d’installation prérequis ont déjà été téléchargés. Par exemple, si vous utilisez la valeur **0**, le programme d’installation télécharge les fichiers.  
 
--   **Naam sleutel:** PrerequisitePath  
+-   **Nom de clé :** PrerequisitePath  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*pad naar Setup vereiste bestanden*>  
+    -   **Valeurs :** <*Chemin des fichiers nécessaires à l’installation*>  
 
-    -   **Details:** Hiermee geeft u het pad naar de vereiste bestanden voor Setup. Afhankelijk van de waarde van **PrerequisiteComp** gebruikt het installatieprogramma dit pad om de gedownloade bestanden op te slaan of om naar de eerder gedownloade bestanden te zoeken.  
+    -   **Détails :** spécifie le chemin vers les fichiers d’installation prérequis. Selon la valeur **PrerequisiteComp** , le programme d'installation utilise ce chemin d'accès pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
 
-##  <a name="bkmk_Unattended"></a>Bestand zonder toezicht installatiescriptsleutels  
- Gebruik de volgende secties voor hulp bij het maken van uw script voor installatie zonder toezicht. De lijsten ziet u de beschikbare installatiescriptsleutels, de bijbehorende waarden, of ze zijn vereist, welk type installatie ze worden gebruikt voor en een korte beschrijving van de sleutel.  
+##  <a name="bkmk_Unattended"></a> Clés du fichier de script d’installation sans assistance  
+ Utilisez les sections suivantes pour vous aider à créer votre script d’installation sans assistance. Les listes affichent les clés de script d’installation disponibles ainsi que leurs valeurs correspondantes, indiquent si elles sont obligatoires ou non, le type d’installation pour lequel elles sont utilisées, ainsi qu’une brève description de la clé.  
 
-### <a name="unattended-install-for-a-central-administration-site"></a>Installatie zonder toezicht voor een centrale beheersite  
- Gebruik de volgende informatie op een centrale beheersite installeren met behulp van een scriptbestand.  
+### <a name="unattended-install-for-a-central-administration-site"></a>Installation sans assistance d’un site d’administration centrale  
+ Utilisez les détails suivants pour installer un site d’administration centrale à l’aide d’un fichier de script d’installation sans assistance.  
 
-**Identificatie**  
+**Identification**  
 
--   **Naam sleutel:** Actie  
+-   **Nom de clé :** Action  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** InstallCAS  
+    -   **Valeurs :** InstallCAS  
 
-    -   **Details:** Een centrale beheersite installeert.  
+    -   **Détails :** installe un site d’administration centrale.  
 
--   **Naam sleutel:** CDLatest  
+-   **Nom de la clé :** CDLatest  
 
-    -   **Vereist:** Ja, alleen bij gebruik van media vanaf de CD. Meest recente map.    
+    -   **Obligatoire :** Oui, uniquement en cas d’utilisation de médias du dossier CD.Latest.    
 
-    -   **Waarden:** 1 een andere waarde dan 1 wordt beschouwd als CD niet worden gebruikt. Meest recente.
+    -   **Valeurs :** 1. Toute autre valeur est considérée comme signifiant que CD.Latest ne doit pas être utilisé.
 
-    -   **Details:** Wanneer u setup vanaf media in een CD uitvoert moet uw script deze sleutel en waarde bevatten. Meest recente map voor het installeren van een primaire of centrale beheersite of een primaire of centrale beheersite herstelt. Deze waarde informeert setup dat media CD vormen. Meest recente wordt gebruikt.
+    -   **Détails :** Le script doit inclure cette clé et cette valeur en cas d’exécution de l’installation à partir de médias du dossier CD.Latest dans le cadre de l’installation d’un site principal ou d’administration centrale, ou de la récupération d’un site principal ou d’administration centrale. Cette valeur indique au programme d’installation que des médias de CD.Latest sont utilisés.
 
-**Opties**  
+**Options**  
 
--   **Naam sleutel:** Product-id  
+-   **Nom de clé :** ProductID  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*> *of* Eval  
+    -   **Valeurs :** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*> *ou* Eval  
 
-    -   **Details:** Hiermee geeft u de productcode voor de Configuration Manager de installatie, inclusief de streepjes. Voer **Eval** om de evaluatieversie van Configuration Manager te installeren.  
+    -   **Détails :** Spécifie la clé de produit de l’installation de Configuration Manager avec les tirets. Entrez **Eval** pour installer la version d’évaluation de Configuration Manager.  
 
--   **Naam sleutel:** SiteCode  
+-   **Nom de clé :** SiteCode  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*sitecode*>  
+    -   **Valeurs :** <*Code de site*>  
 
-    -   **Details:** Hiermee geeft u drie alfanumerieke tekens die de site in uw hiërarchie identificeren.  
+    -   **Détails :** spécifie les trois caractères alphanumériques qui identifient le site de manière unique dans votre hiérarchie.  
 
--   **Naam sleutel:** Sitenaam  
+-   **Nom de clé :** Nom de site  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*sitenaam*>  
+    -   **Valeurs :** <*Nom de site*>  
 
-    -   **Details:** Geeft de naam voor deze site.  
+    -   **Détails :** spécifie le nom de ce site.  
 
--   **Naam sleutel:** SMSInstallDir  
+-   **Nom de clé :** SMSInstallDir  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*installatiepad Configuration Manager*>  
+    -   **Valeurs :** <*Chemin d’installation de Configuration Manager*>  
 
-    -   **Details:** Hiermee geeft u de installatiemap voor de programmabestanden van Configuration Manager.  
+    -   **Détails :** spécifie le dossier d’installation des fichiers programmes de Configuration Manager.  
 
--   **Naam sleutel:** SDKServer  
+-   **Nom de clé :** SDKServer  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*FQDN-naam van de SMS-Provider*>  
+    -   **Valeurs :** <*Nom de domaine complet du fournisseur SMS*>  
 
-    -   **Details:** Hiermee geeft u de FQDN-naam voor de server die als host voor de SMS-Provider fungeert. U kunt bijkomende SMS-providers voor de site configureren na de eerste installatie.  
+    -   **Détails :** spécifie le FQDN du serveur qui héberge le fournisseur SMS. Vous pouvez configurer d'autres fournisseurs SMS pour le site après l'installation initiale.  
 
--   **Naam sleutel:** PrerequisiteComp  
+-   **Nom de clé :** PrerequisiteComp  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = downloaden  
+         0 = Télécharger  
 
-         1 = reeds gedownload  
+         1 = Déjà téléchargé  
 
-    -   **Details:** Hiermee geeft u op of Setup vereiste bestanden al zijn gedownload. Als u een waarde van bijvoorbeeld **0**, zal Setup de bestanden downloaden.  
+    -   **Détails :** spécifie si les fichiers d’installation prérequis ont déjà été téléchargés. Par exemple, si vous utilisez la valeur **0**, le programme d’installation télécharge les fichiers.  
 
--   **Naam sleutel:** PrerequisitePath  
+-   **Nom de clé :** PrerequisitePath  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*pad naar Setup vereiste bestanden*>  
+    -   **Valeurs :** <*Chemin des fichiers nécessaires à l’installation*>  
 
-    -   **Details:** Hiermee geeft u het pad naar de vereiste bestanden voor Setup. Afhankelijk van de waarde van **PrerequisiteComp** gebruikt het installatieprogramma dit pad om de gedownloade bestanden op te slaan of om naar de eerder gedownloade bestanden te zoeken.  
+    -   **Détails :** spécifie le chemin vers les fichiers d’installation prérequis. Selon la valeur **PrerequisiteComp** , le programme d'installation utilise ce chemin d'accès pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
 
--   **Naam sleutel:** AdminConsole  
+-   **Nom de clé :** AdminConsole  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = geen niet installeren  
+         0 = Ne pas installer  
 
-         1 = install  
+         1 = Installer  
 
-    -   **Details:** Geeft aan of de Configuration Manager-console te installeren.  
+    -   **Détails :** spécifie si la console Configuration Manager doit ou non être installée.  
 
--   **Naam sleutel:** JoinCEIP  
+-   **Nom de clé :** JoinCEIP  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = geen geen lid worden van  
+         0 = Ne pas participer  
 
-         1 = join  
+         1 = Participer  
 
-    -   **Details:** Hiermee geeft u op of u deelneemt aan het Customer Experience Improvement Program (CEIP).  
+    -   **Détails :** Spécifie si vous voulez participer au programme d’amélioration des services.  
 
--   **Naam sleutel:** AddServerLanguages  
+-   **Nom de clé :** AddServerLanguages  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** DUI, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HON, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK, of ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Hiermee geeft u de servertalen die beschikbaar zijn voor de Configuration Manager-console, rapporten en Configuration Manager-objecten. Engels is standaard beschikbaar.  
+    -   **Détails :** spécifie les langues de serveur qui seront disponibles pour la console Configuration Manager, les rapports et les objets Configuration Manager. L'anglais est disponible par défaut.  
 
--   **Naam sleutel:** AddClientLanguages  
+-   **Nom de clé :** AddClientLanguages  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** DUI, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HON, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK, of ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Hiermee geeft u de talen die beschikbaar zijn voor clientcomputers. Engels is standaard beschikbaar.  
+    -   **Détails :** spécifie les langues qui seront disponibles sur les ordinateurs clients. L'anglais est disponible par défaut.  
 
--   **Naam sleutel:** DeleteServerLanguages  
+-   **Nom de clé :** DeleteServerLanguages  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** DUI, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HON, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK, of ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Wijzigt een site nadat deze is geïnstalleerd. Hiermee geeft u de te verwijderen talen en die niet langer beschikbaar voor de Configuration Manager-console, rapporten en Configuration Manager-objecten. Engels is standaard beschikbaar en kan niet worden verwijderd.  
+    -   **Détails :** modifie un site après son installation. Spécifie les langues à supprimer qui ne seront plus disponibles pour la console Configuration Manager, les rapports et les objets Configuration Manager. L'anglais est disponible par défaut et ne peut pas être supprimé.  
 
--   **Naam sleutel:** DeleteClientLanguages  
+-   **Nom de clé :** DeleteClientLanguages  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** DUI, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HON, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK, of ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Wijzigt een site nadat deze is geïnstalleerd. Hiermee geeft u de te verwijderen talen en die niet langer beschikbaar voor clientcomputers. Engels is standaard beschikbaar en kan niet worden verwijderd.  
+    -   **Détails :** modifie un site après son installation. Spécifie les langues à supprimer qui ne seront plus disponibles sur les ordinateurs clients. L'anglais est disponible par défaut et ne peut pas être supprimé.  
 
--   **Naam sleutel:** MobileDeviceLanguage  
+-   **Nom de clé :** MobileDeviceLanguage  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = geen niet installeren  
+         0 = Ne pas installer  
 
-         1 = install  
+         1 = Installer  
 
-    -   **Details:** Hiermee geeft u op of de clienttalen voor mobiele apparaten zijn geïnstalleerd.  
+    -   **Détails :** spécifie si les langues du client d’appareil mobile sont installées.  
 
 **SQLConfigOptions**  
 
--   **Naam sleutel:** SQLServerName  
+-   **Nom de clé :** SQLServerName  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*SQL-servernaam*>  
+    -   **Valeurs :** <*Nom du serveur SQL*>  
 
-    -   **Details:** Geeft de naam van de server of het geclusterde exemplaar waarop SQL Server wordt uitgevoerd en die de sitedatabase zal hosten.  
+    -   **Détails :** Spécifie le nom du serveur ou de l’instance en cluster exécutant SQL Server qui hébergera la base de données du site.  
 
--   **Naam sleutel:** DatabaseName  
+-   **Nom de clé :** DatabaseName  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*Sitedatabasenaam*> of <*exemplaarnaam*>\\<*naam van de sitedatabase*>  
+    -   **Valeurs :** <*Nom de la base de données du site*> ou <*Nom de l’instance*>\\<*Nom de la base de données du site*>  
 
-    -   **Details:** Hiermee geeft u de naam van de SQL Server-database te maken of de SQL Server-database moet worden gebruikt bij het installeren van de database van centrale beheersite.  
+    -   **Détails :** Spécifie le nom de la base de données SQL Server à créer ou de la base de données SQL Server à utiliser pour installer la base de données du site d’administration centrale.  
 
         > [!IMPORTANT]  
-        >  U moet de naam van het exemplaar en de naam van de sitedatabase opgeven als u het standaardexemplaar niet gebruikt.  
+        >  Si vous n'utilisez pas l'instance par défaut, vous devez spécifier le nom d'instance et le nom de base de données de site.  
 
--   **Naam sleutel:** SQLSSBPort  
+-   **Nom de clé :** SQLSSBPort  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*SSB-poortnummer*>  
+    -   **Valeurs :** <*Numéro du port SSB*>  
 
-    -   **Details:** Geeft de poort voor SQL Server Service Broker (SSB) die SQL Server gebruikt. SSB is standaard geconfigureerd voor het gebruik van TCP-poort 4022, maar u kunt een andere poort gebruiken.  
+    -   **Détails :** spécifie le port SQL Server Service Broker (SSB) que SQL Server utilise. SSB est généralement configuré pour utiliser le port TCP 4022, mais vous pouvez configurer un autre port.  
 
--   **Naam sleutel:** SQLDataFilePath  
+-   **Nom de clé :** SQLDataFilePath  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*pad naar MDB-bestand van database*>  
+    -   **Valeurs :** <*Chemin du fichier .mdb de la base de données*>  
 
-    -   **Details:** Hiermee geeft u een alternatieve locatie voor het maken van de database mdb-bestand.  
+    -   **Détails :** Spécifie un autre emplacement pour créer le fichier .mdb de la base de données.  
 
--   **Naam sleutel:** SQLLogFilePath  
+-   **Nom de clé :** SQLLogFilePath  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*pad naar LDF-bestand van database*>  
+    -   **Valeurs :** <*Chemin du fichier .ldf de la base de données*>  
 
-    -   **Details:** Hiermee geeft u een alternatieve locatie voor het maken van de database LDF-bestand.  
+    -   **Détails :** Spécifie un autre emplacement pour créer le fichier .ldf de la base de données.  
 
 **CloudConnectorOptions**  
 
--   **Naam sleutel:** CloudConnector  
+-   **Nom de clé :** CloudConnector  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = geen niet installeren  
+         0 = Ne pas installer  
 
-         1 = install  
+         1 = Installer  
 
-    -   **Details:** Geeft aan of voor het installeren van een service connection point op deze site. Omdat het serviceverbindingspunt kan alleen worden geïnstalleerd op de bovenste site van een hiërarchie, moet deze waarde **0** voor een onderliggende primaire site.  
+    -   **Détails :** Spécifie s’il faut installer un point de connexion de service sur ce site. Comme le point de connexion de service peut uniquement être installé sur le site de niveau supérieur d’une hiérarchie, cette valeur doit être **0** pour un site principal enfant.  
 
--   **Naam sleutel:** CloudConnectorServer  
+-   **Nom de clé :** CloudConnectorServer  
 
-    -   **Vereist:** Vereist wanneer **CloudConnector** gelijk is aan 1  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Waarden:** <*Service connection point-server FQDN-naam*>  
+    -   **Valeurs :** <*Nom de domaine complet du serveur de point de connexion de service*>  
 
-    -   **Details:** Hiermee geeft u de FQDN-naam van de server die als voor de service connection point-sitesysteemrol host fungeert.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur qui hébergera le rôle de système de site de point de connexion de service.  
 
--   **Naam sleutel:** UseProxy  
+-   **Nom de clé :** UseProxy  
 
-    -   **Vereist:** Vereist wanneer **CloudConnector** gelijk is aan 1  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = geen niet installeren  
+         0 = Ne pas installer  
 
-         1 = install  
+         1 = Installer  
 
-    -   **Details:** Hiermee geeft u op of het service connection point een proxyserver gebruiken.  
+    -   **Détails :** Spécifie si le point de connexion de service doit utiliser un serveur proxy.  
 
--   **Naam sleutel:** ProxyName  
+-   **Nom de clé :** ProxyName  
 
-    -   **Vereist:** Vereist wanneer **UseProxy** gelijk is aan 1  
+    -   **Obligatoire :** Obligatoire quand **UseProxy** est égal à 1  
 
-    -   **Waarden:** <*FQDN van proxyserver*>  
+    -   **Valeurs :** <*Nom de domaine complet du serveur proxy*>  
 
-    -   **Details:** Hiermee geeft u de FQDN-naam van de proxyserver die wordt gebruikt door de service connection point-sitesysteemrol.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur proxy qui sera utilisé par le rôle de système de site de point de connexion de service.  
 
--   **Naam sleutel:** ProxyPort  
+-   **Nom de clé :** ProxyPort  
 
-    -   **Vereist:** Vereist wanneer **UseProxy** gelijk is aan 1  
+    -   **Obligatoire :** Obligatoire quand **UseProxy** est égal à 1  
 
-    -   **Waarden:** <*poortnummer*>  
+    -   **Valeurs :** <*Numéro de port*>  
 
-    -   **Details:** Hiermee geeft u het poortnummer dat moet worden gebruikt voor de proxypoort op.  
+    -   **Détails :** Spécifie le numéro de port à utiliser pour le port proxy.  
 
-### <a name="unattended-install-for-a-primary-site"></a>Installatie zonder toezicht voor een primaire site  
-Gebruik de volgende informatie op een primaire site installeren met behulp van een scriptbestand.  
+### <a name="unattended-install-for-a-primary-site"></a>Installation sans assistance d’un site principal  
+Utilisez les détails suivants pour installer un site principal à l’aide d’un fichier de script d’installation sans assistance.  
 
-**Identificatie**  
+**Identification**  
 
--   **Naam sleutel:** Actie  
+-   **Nom de clé :** Action  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** InstallPrimarySite  
+    -   **Valeurs :** InstallPrimarySite  
 
-    -   **Details:** Een primaire site installeert.  
+    -   **Détails :** installe un site principal.  
 
--   **Naam sleutel:** CDLatest  
+-   **Nom de la clé :** CDLatest  
 
-    -   **Vereist:** Ja, alleen bij gebruik van media vanaf de CD. Meest recente map.    
+    -   **Obligatoire :** Oui, uniquement en cas d’utilisation de médias du dossier CD.Latest.    
 
-    -   **Waarden:** 1 een andere waarde dan 1 wordt beschouwd als CD niet worden gebruikt. Meest recente.
+    -   **Valeurs :** 1. Toute autre valeur est considérée comme signifiant que CD.Latest ne doit pas être utilisé.
 
-    -   **Details:** Wanneer u setup vanaf media in een CD uitvoert moet uw script deze sleutel en waarde bevatten. Meest recente map voor het installeren van een primaire of centrale beheersite of een primaire of centrale beheersite herstelt. Deze waarde informeert setup dat media CD vormen. Meest recente wordt gebruikt.
+    -   **Détails :** Le script doit inclure cette clé et cette valeur en cas d’exécution de l’installation à partir de médias du dossier CD.Latest dans le cadre de l’installation d’un site principal ou d’administration centrale, ou de la récupération d’un site principal ou d’administration centrale. Cette valeur indique au programme d’installation que des médias de CD.Latest sont utilisés.
 
-**Opties**  
+**Options**  
 
--   **Naam sleutel:** Product-id  
+-   **Nom de clé :** ProductID  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*> *of* Eval  
+    -   **Valeurs :** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*> *ou* Eval  
 
-    -   **Details:** Hiermee geeft u de productcode voor de Configuration Manager de installatie, inclusief de streepjes. Voer **Eval** om de evaluatieversie van Configuration Manager te installeren.  
+    -   **Détails :** Spécifie la clé de produit de l’installation de Configuration Manager avec les tirets. Entrez **Eval** pour installer la version d’évaluation de Configuration Manager.  
 
--   **Naam sleutel:** SiteCode  
+-   **Nom de clé :** SiteCode  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*sitecode*>  
+    -   **Valeurs :** <*Code de site*>  
 
-    -   **Details:** Hiermee geeft u drie alfanumerieke tekens die de site in uw hiërarchie identificeren.  
+    -   **Détails :** spécifie les trois caractères alphanumériques qui identifient le site de manière unique dans votre hiérarchie.  
 
--   **Naam sleutel:** Sitenaam  
+-   **Nom de clé :** SiteName  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*sitenaam*>  
+    -   **Valeurs :** <*Nom de site*>  
 
-    -   **Details:** Geeft de naam voor deze site.  
+    -   **Détails :** spécifie le nom de ce site.  
 
--   **Naam sleutel:** SMSInstallDir  
+-   **Nom de clé :** SMSInstallDir  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*installatiepad Configuration Manager*>
+    -   **Valeurs :** <*Chemin d’installation de Configuration Manager*>
 
-    -   **Details:** Hiermee geeft u de installatiemap voor de programmabestanden van Configuration Manager.  
+    -   **Détails :** spécifie le dossier d’installation des fichiers programmes de Configuration Manager.  
 
--   **Naam sleutel:** SDKServer  
+-   **Nom de clé :** SDKServer  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*FQDN-naam van de SMS-Provider*>  
+    -   **Valeurs :** <*Nom de domaine complet du fournisseur SMS*>  
 
-    -   **Details:** Hiermee geeft u de FQDN-naam voor de server die als host voor de SMS-Provider fungeert. U kunt bijkomende SMS-providers voor de site configureren na de eerste installatie.  
+    -   **Détails :** spécifie le FQDN du serveur qui héberge le fournisseur SMS. Vous pouvez configurer d'autres fournisseurs SMS pour le site après l'installation initiale.  
 
--   **Naam sleutel:** PrerequisiteComp  
+-   **Nom de clé :** PrerequisiteComp  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = downloaden  
+         0 = Télécharger  
 
-         1 = reeds gedownload  
+         1 = Déjà téléchargé  
 
-    -   **Details:** Hiermee geeft u op of Setup vereiste bestanden al zijn gedownload. Als u een waarde van bijvoorbeeld **0**, zal Setup de bestanden downloaden.  
+    -   **Détails :** spécifie si les fichiers d’installation prérequis ont déjà été téléchargés. Par exemple, si vous utilisez la valeur **0**, le programme d’installation télécharge les fichiers.  
 
--   **Naam sleutel:** PrerequisitePath  
+-   **Nom de clé :** PrerequisitePath  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*pad naar Setup vereiste bestanden*>  
+    -   **Valeurs :** <*Chemin des fichiers nécessaires à l’installation*>  
 
-    -   **Details:** Hiermee geeft u het pad naar de vereiste bestanden voor Setup. Afhankelijk van de waarde van **PrerequisiteComp** gebruikt het installatieprogramma dit pad om de gedownloade bestanden op te slaan of om naar de eerder gedownloade bestanden te zoeken.  
+    -   **Détails :** spécifie le chemin vers les fichiers d’installation prérequis. Selon la valeur **PrerequisiteComp** , le programme d'installation utilise ce chemin d'accès pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
 
--   **Naam sleutel:** AdminConsole  
+-   **Nom de clé :** AdminConsole  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = geen niet installeren  
+         0 = Ne pas installer  
 
-         1 = install  
+         1 = Installer  
 
-    -   **Details:** Geeft aan of de Configuration Manager-console te installeren.  
+    -   **Détails :** spécifie si la console Configuration Manager doit ou non être installée.  
 
--   **Naam sleutel:** JoinCEIP  
+-   **Nom de clé :** JoinCEIP  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = geen geen lid worden van  
+         0 = Ne pas participer  
 
-         1 = join  
+         1 = Participer  
 
-    -   **Details:** Hiermee geeft u op of u deelneemt aan het programma voor Kwaliteitsverbetering.  
+    -   **Détails :** Spécifie s’il faut participer au programme d’amélioration des services.  
 
--   **Naam sleutel:** ManagementPoint  
+-   **Nom de clé :** ManagementPoint  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*siteserver-FQDN van beheerpunt*>  
+    -   **Valeurs :** <*Nom de domaine complet du serveur de site du point de gestion*>  
 
-    -   **Details:** Hiermee geeft u de FQDN-naam van de server die als voor de sitesysteemrol management host fungeert.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur qui hébergera le rôle de système de site de point de gestion.  
 
--   **Naam sleutel:** ManagementPointProtocol  
+-   **Nom de clé :** ManagementPointProtocol  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** HTTPS *of* HTTP  
+    -   **Valeurs :** HTTPS *ou* HTTP  
 
-    -   **Details:** Hiermee geeft u het protocol moet worden gebruikt voor het beheerpunt.  
+    -   **Détails :** spécifie le protocole à utiliser pour le point de gestion.  
 
--   **Naam sleutel:** DistributionPoint  
+-   **Nom de clé :** DistributionPoint  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*site distributiepuntserver FQDN-naam*>  
+    -   **Valeurs :** <*Nom de domaine complet du serveur de site du point de distribution*>  
 
-    -   **Details:** Hiermee geeft u het protocol moet worden gebruikt voor het distributiepunt.  
+    -   **Détails :** spécifie le protocole à utiliser pour le point de distribution.  
 
--   **Naam sleutel:** DistributionPointProtocol  
+-   **Nom de clé :** DistributionPointProtocol  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** HTTPS *of* HTTP  
+    -   **Valeurs :** HTTPS *ou* HTTP  
 
-    -   **Details:** Hiermee geeft u het protocol moet worden gebruikt voor het distributiepunt.  
+    -   **Détails :** spécifie le protocole à utiliser pour le point de distribution.  
 
--   **Naam sleutel:** RoleCommunicationProtocol  
+-   **Nom de clé :** RoleCommunicationProtocol  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** EnforceHTTPS *of* HTTPorHTTPS  
+    -   **Valeurs :** EnforceHTTPS *ou* HTTPorHTTPS  
 
-    -   **Details:** Geeft aan of alle sitesystemen zo accepteren alleen HTTPS-communicatie van clients of de communicatiemethode voor elke sitesysteemrol moet worden geconfigureerd. Als u inschakelt om **EnforceHTTPS**, clientcomputer moet beschikken over een geldige openbare-sleutelinfrastructuur (PKI)-certificaat voor clientverificatie.  
+    -   **Détails :** Spécifie s’il faut configurer tous les systèmes de site pour n’accepter que les communications HTTPS des clients ou pour que la méthode de communication soit configurée pour chaque rôle de système de site. Quand vous sélectionnez **EnforceHTTPS**, l’ordinateur client doit disposer d’un certificat d’infrastructure à clé publique (PKI) valide pour l’authentification du client.  
 
--   **Naam sleutel:** ClientsUsePKICertificate  
+-   **Nom de clé :** ClientsUsePKICertificate  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = geen niet gebruiken  
+         0 = Ne pas utiliser  
 
-         1 = gebruiken  
+         1 = Utiliser  
 
-    -   **Details:** Hiermee geeft u op of clients een PKI-clientcertificaat gebruiken om te communiceren met sitesysteemrollen.  
+    -   **Détails :** spécifie si les clients utiliseront un certificat PKI de client pour communiquer avec les rôles de système de site.  
 
--   **Naam sleutel:** AddServerLanguages  
+-   **Nom de clé :** AddServerLanguages  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** DUI, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HON, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK, of ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Hiermee geeft u de servertalen die beschikbaar zijn voor de Configuration Manager-console, rapporten en Configuration Manager-objecten. Engels is standaard beschikbaar.  
+    -   **Détails :** spécifie les langues de serveur qui seront disponibles pour la console Configuration Manager, les rapports et les objets Configuration Manager. L'anglais est disponible par défaut.  
 
--   **Naam sleutel:** AddClientLanguages  
+-   **Nom de clé :** AddClientLanguages  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** DUI, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HON, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK, of ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Hiermee geeft u de talen die beschikbaar zijn voor clientcomputers. Engels is standaard beschikbaar.  
+    -   **Détails :** spécifie les langues qui seront disponibles sur les ordinateurs clients. L'anglais est disponible par défaut.  
 
--   **Naam sleutel:** DeleteServerLanguages  
+-   **Nom de clé :** DeleteServerLanguages  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** DUI, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HON, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK, of ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Wijzigt een site nadat deze is geïnstalleerd. Hiermee geeft u de te verwijderen talen en die niet langer beschikbaar voor de Configuration Manager-console, rapporten en Configuration Manager-objecten. Engels is standaard beschikbaar en kan niet worden verwijderd.  
+    -   **Détails :** modifie un site après son installation. Spécifie les langues à supprimer qui ne seront plus disponibles pour la console Configuration Manager, les rapports et les objets Configuration Manager. L'anglais est disponible par défaut et ne peut pas être supprimé.  
 
--   **Naam sleutel:** DeleteClientLanguages  
+-   **Nom de clé :** DeleteClientLanguages  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** DUI, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HON, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK, of ZHH  
+    -   **Valeurs :** DEU, FRA, RUS, CHS, JPN, CHT, CSY, ESN, HUN, ITA, KOR, NLD, PLK, PTB, PTG, SVE, TRK ou ZHH  
 
-    -   **Details:** Wijzigt een site nadat deze is geïnstalleerd. Hiermee geeft u de te verwijderen talen en die niet langer beschikbaar voor clientcomputers. Engels is standaard beschikbaar en kan niet worden verwijderd.  
+    -   **Détails :** modifie un site après son installation. Spécifie les langues à supprimer qui ne seront plus disponibles sur les ordinateurs clients. L'anglais est disponible par défaut et ne peut pas être supprimé.  
 
--   **Naam sleutel:** MobileDeviceLanguage  
+-   **Nom de clé :** MobileDeviceLanguage  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = geen niet installeren  
+         0 = Ne pas installer  
 
-         1 = install  
+         1 = Installer  
 
-    -   **Details:** Hiermee geeft u op of de clienttalen voor mobiele apparaten zijn geïnstalleerd.  
+    -   **Détails :** spécifie si les langues du client d’appareil mobile sont installées.  
 
 **SQLConfigOptions**  
 
--   **Naam sleutel:** SQLServerName  
+-   **Nom de clé :** SQLServerName  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*SQL-servernaam*>  
+    -   **Valeurs :** <*Nom du serveur SQL*>  
 
-    -   **Details:** Geeft de naam van de server of het geclusterde exemplaar waarop SQL Server wordt uitgevoerd en die de sitedatabase zal hosten.  
+    -   **Détails :** Spécifie le nom du serveur ou de l’instance en cluster exécutant SQL Server qui hébergera la base de données du site.  
 
--   **Naam sleutel:** DatabaseName  
+-   **Nom de clé :** DatabaseName  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*Sitedatabasenaam*> of <*exemplaarnaam*>\\<*naam van de sitedatabase*>  
+    -   **Valeurs :** <*Nom de la base de données du site*> ou <*Nom de l’instance*>\\<*Nom de la base de données du site*>  
 
-    -   **Details:** Hiermee geeft u de naam van de SQL Server-database te maken of de SQL Server-database moet worden gebruikt bij het installeren van de primaire sitedatabase.  
+    -   **Détails :** Spécifie le nom de la base de données SQL Server à créer ou de la base de données SQL Server à utiliser pour installer la base de données du site principal.  
 
         > [!IMPORTANT]  
-        >  U moet de naam van het exemplaar en de naam van de sitedatabase opgeven als u het standaardexemplaar niet gebruikt.  
+        >  Si vous n'utilisez pas l'instance par défaut, vous devez spécifier le nom d'instance et le nom de base de données de site.  
 
--   **Naam sleutel:** SQLSSBPort  
+-   **Nom de clé :** SQLSSBPort  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*SSB-poortnummer*>  
+    -   **Valeurs :** <*Numéro du port SSB*>  
 
-    -   **Details:** Hiermee geeft u de SSB-poort die SQL Server gebruikt. SSB is standaard geconfigureerd voor het gebruik van TCP-poort 4022, maar u kunt een andere poort gebruiken.  
+    -   **Détails :** Spécifie le port SSB que SQL Server utilise. SSB est généralement configuré pour utiliser le port TCP 4022, mais vous pouvez configurer un autre port.  
 
--   **Naam sleutel:** SQLDataFilePath  
+-   **Nom de clé :** SQLDataFilePath  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*pad naar MDB-bestand van database*>  
+    -   **Valeurs :** <*Chemin du fichier .mdb de la base de données*>  
 
-    -   **Details:** Hiermee geeft u een alternatieve locatie voor het maken van de database mdb-bestand.  
+    -   **Détails :** Spécifie un autre emplacement pour créer le fichier .mdb de la base de données.  
 
--   **Naam sleutel:** SQLLogFilePath  
+-   **Nom de clé :** SQLLogFilePath  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*pad naar LDF-bestand van database*>  
+    -   **Valeurs :** <*Chemin du fichier .ldf de la base de données*>  
 
-    -   **Details:** Hiermee geeft u een alternatieve locatie voor het maken van de database LDF-bestand.  
+    -   **Détails :** Spécifie un autre emplacement pour créer le fichier .ldf de la base de données.  
 
 **HierarchyExpansionOption**  
 
--   **Naam sleutel:** CCARSiteServer  
+-   **Nom de clé :** CCARSiteServer  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*centrale beheersite FQDN-naam*>  
+    -   **Valeurs :** <*Nom de domaine complet du site d’administration centrale*>  
 
-    -   **Details:** Hiermee geeft u de centrale beheersite waarmee een primaire site zal worden gekoppeld wanneer deze lid wordt van de Configuration Manager-hiërarchie. Tijdens de installatie moet u de centrale beheersite.  
+    -   **Détails :** spécifie le site d’administration centrale auquel un site principal s’attache quand il rejoint la hiérarchie Configuration Manager. Vous devez spécifier le site d'administration centrale lors de l'installation.  
 
--   **Naam sleutel:** CASRetryInterval  
+-   **Nom de clé :** CASRetryInterval  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*Interval*>  
+    -   **Valeurs :** <*intervalle*>  
 
-    -   **Details:** Hiermee geeft u het interval (in minuten) waarna wordt geprobeerd een verbinding met de centrale beheersite nadat de verbinding is verbroken. Bijvoorbeeld, als de verbinding met de centrale beheersite mislukt, de primaire site wacht gedurende het aantal minuten dat u opgeeft voor de **CASRetryInterval** waarde en probeert het dan opnieuw de verbinding.  
+    -   **Détails :** spécifie l’intervalle (en minutes) avant une nouvelle tentative de connexion au site d’administration centrale après un échec de connexion. Par exemple, en cas d’échec de la connexion au site d’administration centrale, le site principal attend le nombre de minutes que vous avez spécifié pour la valeur **CASRetryInterval** et réessaye d’établir la connexion.  
 
--   **Naam sleutel:** WaitForCASTimeout  
+-   **Nom de clé :** WaitForCASTimeout  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*Time-out*>  
+    -   **Valeurs :** <*délai_attente*>  
 
-         Een waarde van **0** naar **100**  
+         Valeur de **0** à **100**  
 
-    -   **Details:** Hiermee geeft u de maximum time-outwaarde (in minuten) voor een primaire site verbinding maken met de centrale beheersite. Bijvoorbeeld, als een primaire site geen verbinding maken met een centrale beheersite, de primaire site opnieuw de verbinding met de centrale beheersite op basis van de **CASRetryInterval** waarde totdat de **WaitForCASTimeout** periode is bereikt. U kunt een waarde opgeven van **0** naar **100**.  
+    -   **Détails :** spécifie la valeur maximale du délai d’attente (en minutes) pour qu’un site principal se connecte au site d’administration centrale. Par exemple, en cas d’échec de la connexion d’un site principal à un site d’administration centrale, le site principal réessaye d’établir la connexion en fonction de la valeur de **CASRetryInterval** jusqu’à ce que le délai **WaitForCASTimeout** soit atteint. Vous pouvez spécifier une valeur entre **0** et **100**.  
 
 **CloudConnectorOptions**  
 
--   **Naam sleutel:** CloudConnector  
+-   **Nom de clé :** CloudConnector  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = geen niet installeren  
+         0 = Ne pas installer  
 
-         1 = install  
+         1 = Installer  
 
-    -   **Details:** Geeft aan of voor het installeren van een service connection point op deze site. Omdat het serviceverbindingspunt kan alleen worden geïnstalleerd op de bovenste site van een hiërarchie, moet deze waarde **0** voor een onderliggende primaire site.  
+    -   **Détails :** Spécifie s’il faut installer un point de connexion de service sur ce site. Comme le point de connexion de service peut uniquement être installé sur le site de niveau supérieur d’une hiérarchie, cette valeur doit être **0** pour un site principal enfant.  
 
--   **Naam sleutel:** CloudConnectorServer  
+-   **Nom de clé :** CloudConnectorServer  
 
-    -   **Vereist:** Vereist wanneer **CloudConnector** gelijk is aan 1  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Waarden:** <*Service connection point-server FQDN-naam*\>  
+    -   **Valeurs :** <*Nom de domaine complet du serveur de point de connexion de service*\>  
 
-    -   **Details:** Hiermee geeft u de FQDN-naam van de server die als voor de service connection point-sitesysteemrol host fungeert.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur qui hébergera le rôle de système de site de point de connexion de service.  
 
--   **Naam sleutel:** UseProxy  
+-   **Nom de clé :** UseProxy  
 
-    -   **Vereist:** Vereist wanneer **CloudConnector** gelijk is aan 1  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = geen niet installeren  
+         0 = Ne pas installer  
 
-         1 = install  
+         1 = Installer  
 
-    -   **Details:** Hiermee geeft u op of het service connection point een proxyserver gebruiken.  
+    -   **Détails :** Spécifie si le point de connexion de service doit utiliser un serveur proxy.  
 
--   **Naam sleutel:** ProxyName  
+-   **Nom de clé :** ProxyName  
 
-    -   **Vereist:** Vereist wanneer **UseProxy** gelijk is aan 1  
+    -   **Obligatoire :** Obligatoire quand **UseProxy** est égal à 1  
 
-    -   **Waarden:** <*FQDN van proxyserver*>  
+    -   **Valeurs :** <*Nom de domaine complet du serveur proxy*>  
 
-    -   **Details:** Hiermee geeft u de FQDN-naam van de proxyserver die wordt gebruikt door de service connection point-sitesysteemrol.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur proxy qui sera utilisé par le rôle de système de site de point de connexion de service.  
 
--   **Naam sleutel:** ProxyPort  
+-   **Nom de clé :** ProxyPort  
 
-    -   **Vereist:** Vereist wanneer **UseProxy** gelijk is aan 1  
+    -   **Obligatoire :** Obligatoire quand **UseProxy** est égal à 1  
 
-    -   **Waarden:** <*poortnummer*>  
+    -   **Valeurs :** <*Numéro de port*>  
 
-    -   **Details:** Hiermee geeft u het poortnummer dat moet worden gebruikt voor de proxypoort op.  
+    -   **Détails :** Spécifie le numéro de port à utiliser pour le port proxy.  
 
-### <a name="unattended-recovery-for-a-central-administration-site"></a>Herstel voor een centrale beheersite zonder toezicht  
- Gebruik de volgende informatie op een centrale beheersite herstellen met behulp van een scriptbestand.  
+### <a name="unattended-recovery-for-a-central-administration-site"></a>Récupération sans assistance d’un site d’administration centrale  
+ Utilisez les détails suivants pour récupérer un site d’administration centrale à l’aide d’un fichier de script d’installation sans assistance.  
 
-**Identificatie**  
+**Identification**  
 
--   **Naam sleutel:** Actie  
+-   **Nom de clé :** Action  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** RecoverCCAR  
+    -   **Valeurs :** RecoverCCAR  
 
-    -   **Details:** Een centrale beheersite herstelt.  
+    -   **Détails :** récupère un site d’administration centrale.  
 
--   **Naam sleutel:** CDLatest  
+-   **Nom de la clé :** CDLatest  
 
-    -   **Vereist:** Ja, alleen bij gebruik van media vanaf de CD. Meest recente map.    
+    -   **Obligatoire :** Oui, uniquement en cas d’utilisation de médias du dossier CD.Latest.    
 
-    -   **Waarden:** 1 een andere waarde dan 1 wordt beschouwd als CD niet worden gebruikt. Meest recente.
+    -   **Valeurs :** 1. Toute autre valeur est considérée comme signifiant que CD.Latest ne doit pas être utilisé.
 
-    -   **Details:** Wanneer u setup vanaf media in een CD uitvoert moet uw script deze sleutel en waarde bevatten. Meest recente map voor het installeren van een primaire of centrale beheersite of een primaire of centrale beheersite herstelt. Deze waarde informeert setup dat media CD vormen. Meest recente wordt gebruikt.
+    -   **Détails :** Le script doit inclure cette clé et cette valeur en cas d’exécution de l’installation à partir de médias du dossier CD.Latest dans le cadre de l’installation d’un site principal ou d’administration centrale, ou de la récupération d’un site principal ou d’administration centrale. Cette valeur indique au programme d’installation que des médias de CD.Latest sont utilisés.
 
 **RecoveryOptions**  
 
--   **Naam sleutel:** ServerRecoveryOptions  
+-   **Nom de clé :** ServerRecoveryOptions  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 1, 2 of 4  
+    -   **Valeurs :** 1, 2 ou 4  
 
-         1 = siteserver herstellen en SQL Server.  
+         1 = Récupérer le serveur de site et SQL Server.  
 
-         2 = Alleen siteserver herstellen.  
+         2 = Récupérer le serveur de site uniquement.  
 
-         4 = Alleen SQL Server herstellen.  
+         4 = Récupérer SQL Server uniquement.  
 
-    -   **Details:** Hiermee geeft u op of het installatieprogramma de siteserver, SQL Server of beide zal herstellen. De gekoppelde sleutels zijn vereist wanneer u de volgende waarde instellen voor de **ServerRecoveryOptions** instelling:  
+    -   **Détails :** spécifie si le programme d’installation doit récupérer le serveur de site, SQL Server ou les deux. Les clés associées sont nécessaires quand vous définissez la valeur suivante pour le paramètre **ServerRecoveryOptions** :  
 
-        -   Waarde = 1: U hebt de mogelijkheid om op te geven van een waarde op voor de **SiteServerBackupLocation** sleutel op de site te herstellen met behulp van een siteback-up. Als u geen waarde opgeeft, wordt de site opnieuw geïnstalleerd zonder dat deze wordt hersteld uit een back-upset.  
+        -   Valeur = 1 : vous avez la possibilité de spécifier une valeur pour la clé **SiteServerBackupLocation** afin de récupérer le site à l’aide d’une sauvegarde de site. Si vous ne spécifiez pas de valeur, le site est réinstallé sans être restauré à partir d'un jeu de sauvegarde.  
 
-        -   Waarde = 2: U hebt de mogelijkheid om op te geven van een waarde op voor de **SiteServerBackupLocation** sleutel op de site te herstellen met behulp van een siteback-up. Als u geen waarde opgeeft, wordt de site opnieuw geïnstalleerd zonder dat deze wordt hersteld uit een back-upset.  
+        -   Valeur = 2 : vous avez la possibilité de spécifier une valeur pour la clé **SiteServerBackupLocation** afin de récupérer le site à l’aide d’une sauvegarde de site. Si vous ne spécifiez pas de valeur, le site est réinstallé sans être restauré à partir d'un jeu de sauvegarde.  
 
-        -   Waarde = 4: De sleutel **BackupLocation** is vereist wanneer u een waarde van **10** configureert voor de sleutel **DatabaseRecoveryOptions** . Hiermee wordt de sitedatabase uit de back-up hersteld.  
+        -   Valeur = 4 : la clé **BackupLocation** est obligatoire si vous attribuez la valeur **10** à la clé **DatabaseRecoveryOptions** afin de restaurer la base de données du site à partir d’une sauvegarde.  
 
--   **Naam sleutel:** DatabaseRecoveryOptions  
+-   **Nom de clé :** DatabaseRecoveryOptions  
 
-    -   **Vereist:** Deze sleutel is vereist wanneer de instelling **ServerRecoveryOptions** een waarde heeft van **1** of **4**.  
+    -   **Obligatoire :** Cette clé est obligatoire quand la valeur du paramètre **ServerRecoveryOptions** est **1** ou **4**.  
 
-    -   **Waarden:** 10, 20, 40 of 80  
+    -   **Valeurs :** 10, 20, 40 ou 80  
 
-         10 = De sitedatabase uit de back-up herstellen.  
+         10 = Restaurer la base de données du site à partir d'une sauvegarde.  
 
-         20 = Gebruik een sitedatabase die handmatig wordt hersteld met behulp van een andere methode.  
+         20 = Utiliser une base de données de site qui a été récupérée manuellement à l'aide d'une autre méthode.  
 
-         40 = Maak een nieuwe database voor de site. Gebruik deze optie wanneer er geen back-up van de sitedatabase beschikbaar is. Globale en sitegegevens worden hersteld via replicatie vanaf andere sites.  
+         40 = Créer une nouvelle base de données de site. Utilisez cette option lorsqu'aucune sauvegarde de base de données de site n'est disponible. Les données globales et de site sont récupérées via la réplication à partir d'autres sites.  
 
-         80 = databaseherstel overslaan.  
+         80 = Ignorer la récupération de base de données.  
 
-    -   **Details:** Hiermee geeft u op hoe de sitedatabase in SQL Server door Setup wordt hersteld.  
+    -   **Détails :** spécifie comment le programme d’installation récupère la base de données du site dans SQL Server.  
 
--   **Naam sleutel:** ReferenceSite  
+-   **Nom de clé :** ReferenceSite  
 
-    -   **Vereist:** Deze sleutel is vereist wanneer de instelling **DatabaseRecoveryOptions** een waarde heeft van **40**.  
+    -   **Obligatoire :** cette clé est obligatoire quand la valeur du paramètre **DatabaseRecoveryOptions** est **40**.  
 
-    -   **Waarden:** <*referentiesite FQDN-naam*>  
+    -   **Valeurs :** <*Nom de domaine complet du site de référence*>  
 
-    -   **Details:** Hiermee geeft u de primaire site die gebruikmaakt van de centrale beheersite globale gegevens herstelt als de databaseback-up ouder dan de bewaarperiode voor wijzigingen bijhouden is of wanneer u een site zonder een back-up herstelt.  
+    -   **Détails :** Spécifie le site principal de référence que le site d’administration centrale utilise pour récupérer des données globales si la sauvegarde de la base de données est antérieure à la période de rétention du suivi des modifications ou quand vous récupérez le site sans sauvegarde.  
 
-         Wanneer u geen referentiesite opgeeft en de back-up ouder dan de bewaarperiode voor wijzigingen bijhouden is, worden alle primaire sites opnieuw geïnitialiseerd met de herstelde gegevens van de centrale beheersite.  
+         Quand vous ne spécifiez pas de site de référence et que la sauvegarde est antérieure à la période de rétention du suivi des modifications, tous les sites principaux sont réinitialisés avec les données restaurées à partir du site d’administration centrale.  
 
-         Wanneer u geen referentiesite opgeeft en de back-up valt binnen de bewaarperiode voor wijzigingen bijhouden, alleen de wijzigingen die zijn aangebracht nadat de back-up worden gerepliceerd van primaire sites. Wanneer er conflicterende wijzigingen van verschillende primaire sites zijn, gebruikt de centrale beheersite de eerste die het ontvangt.  
+         Quand vous ne spécifiez pas de site de référence et que la sauvegarde est comprise dans la période de rétention du suivi des modifications, seules les modifications effectuées après la sauvegarde sont répliquées à partir des sites principaux. Lorsqu'il existe des conflits entre des modifications issues de différents sites principaux, le site d'administration centrale utilise la première modification reçue.  
 
--   **Naam sleutel:** SiteServerBackupLocation  
+-   **Nom de clé :** SiteServerBackupLocation  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*pad naar back-upset siteserver*>  
+    -   **Valeurs :** <*Chemin du jeu de sauvegarde du serveur de site*>  
 
-    -   **Details:** Hiermee geeft u het pad naar de back-upset van de siteserver. Deze sleutel is optioneel wanneer de instelling **ServerRecoveryOptions** een waarde heeft van **1** of **2**. Geef een waarde op voor de sleutel **SiteServerBackupLocation** om de site te herstellen met behulp van een siteback-up. Als u geen waarde opgeeft, wordt de site opnieuw geïnstalleerd zonder dat deze wordt hersteld uit een back-upset.  
+    -   **Détails :** spécifie le chemin vers le jeu de sauvegarde du serveur de site. Cette clé est optionnelle lorsque la valeur du paramètre **ServerRecoveryOptions** est **1** ou **2**. Spécifiez une valeur pour la clé **SiteServerBackupLocation** pour récupérer le site à l'aide d'une sauvegarde de site. Si vous ne spécifiez pas de valeur, le site est réinstallé sans être restauré à partir d'un jeu de sauvegarde.  
 
--   **Naam sleutel:** Back-uplocatie  
+-   **Nom de clé :** BackupLocation  
 
-    -   **Vereist:** Deze sleutel is vereist bij het configureren van een waarde van **1** of **4** voor de **ServerRecoveryOptions** sleutel en kunt u een waarde van configureert **10** voor de **DatabaseRecoveryOptions** sleutel.  
+    -   **Obligatoire :** Cette clé est obligatoire quand vous configurez la valeur **1** ou **4** pour la clé **ServerRecoveryOptions**, et la valeur **10** pour la clé **DatabaseRecoveryOptions**.  
 
-    -   **Waarden:** <*pad naar back-upset van sitedatabase*>  
+    -   **Valeurs :** <*Chemin du jeu de sauvegarde de la base de données du site*>  
 
-    -   **Details:** Hiermee geeft u het pad naar back-upset van de sitedatabase.  
+    -   **Détails :** spécifie le chemin d’accès au jeu de sauvegarde de la base de données du site.  
 
-**Opties**  
+**Options**  
 
--   **Naam sleutel:** Product-id  
+-   **Nom de clé :** ProductID  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*> *of* Eval  
+    -   **Valeurs :** <*xxxxx-xxxxx-xxxxx-xxxxx-xxxxx*> *ou* Eval  
 
-    -   **Details:** Hiermee geeft u de productcode voor de Configuration Manager de installatie, inclusief de streepjes. Voer **Eval** om de evaluatieversie van Configuration Manager te installeren.  
+    -   **Détails :** Spécifie la clé de produit de l’installation de Configuration Manager avec les tirets. Entrez **Eval** pour installer la version d’évaluation de Configuration Manager.  
 
--   **Naam sleutel:** SiteCode  
+-   **Nom de clé :** SiteCode  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*sitecode*>  
+    -   **Valeurs :** <*Code de site*>  
 
-    -   **Details:** Hiermee geeft u drie alfanumerieke tekens die de site in uw hiërarchie identificeren. U moet de sitecode opgeven die de site vóór de fout gebruikt.
+    -   **Détails :** spécifie les trois caractères alphanumériques qui identifient le site de manière unique dans votre hiérarchie. Vous devez spécifier le code de site que le site utilisait avant la défaillance.
 
--   **Naam sleutel:** Sitenaam  
+-   **Nom de clé :** SiteName  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*sitenaam*>  
+    -   **Valeurs :** <*Nom de site*>  
 
-    -   **Details:** Geeft de naam voor deze site.  
+    -   **Détails :** spécifie le nom de ce site.  
 
--   **Naam sleutel:** SMSInstallDir  
+-   **Nom de clé :** SMSInstallDir  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*installatiepad Configuration Manager*>  
+    -   **Valeurs :** <*Chemin d’installation de Configuration Manager*>  
 
-    -   **Details:** Hiermee geeft u de installatiemap voor de programmabestanden van Configuration Manager.  
+    -   **Détails :** spécifie le dossier d’installation des fichiers programmes de Configuration Manager.  
 
--   **Naam sleutel:** SDKServer  
+-   **Nom de clé :** SDKServer  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*FQDN-naam van de SMS-Provider*>  
+    -   **Valeurs :** <*Nom de domaine complet du fournisseur SMS*>  
 
-    -   **Details:** Hiermee geeft u de FQDN-naam voor de server die als host voor de SMS-Provider fungeert. U moet de server opgeven die als host optrad voor de SMS-provider voorafgaand aan de fout.  
+    -   **Détails :** spécifie le FQDN du serveur qui héberge le fournisseur SMS. Vous devez spécifier le serveur qui hébergeait le fournisseur SMS avant la défaillance.  
 
-         U kunt bijkomende SMS-providers voor de site configureren na de eerste installatie. Zie voor meer informatie over de SMS-Provider [plannen voor de SMS-Provider voor System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
+         Vous pouvez configurer d'autres fournisseurs SMS pour le site après l'installation initiale. Pour plus d’informations sur le fournisseur SMS, consultez [Planifier le fournisseur SMS pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
 
--   **Naam sleutel:** PrerequisiteComp  
+-   **Nom de clé :** PrerequisiteComp  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = downloaden  
+         0 = Télécharger  
 
-         1 = reeds gedownload  
+         1 = Déjà téléchargé  
 
-    -   **Details:** Hiermee geeft u op of Setup vereiste bestanden al zijn gedownload. Als u een waarde van bijvoorbeeld **0**, Setup de bestanden downloaden.  
+    -   **Détails :** spécifie si les fichiers d’installation prérequis ont déjà été téléchargés. Par exemple, si vous utilisez la valeur **0**, le programme d’installation télécharge les fichiers.  
 
--   **Naam sleutel:** PrerequisitePath  
+-   **Nom de clé :** PrerequisitePath  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*pad naar Setup vereiste bestanden*>  
+    -   **Valeurs :** <*Chemin des fichiers nécessaires à l’installation*>  
 
-    -   **Details:** Hiermee geeft u het pad naar de vereiste bestanden voor Setup. Afhankelijk van de waarde van **PrerequisiteComp** gebruikt het installatieprogramma dit pad om de gedownloade bestanden op te slaan of om naar de eerder gedownloade bestanden te zoeken.  
+    -   **Détails :** spécifie le chemin vers les fichiers d’installation prérequis. Selon la valeur **PrerequisiteComp** , le programme d'installation utilise ce chemin d'accès pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
 
--   **Naam sleutel:** AdminConsole  
+-   **Nom de clé :** AdminConsole  
 
-    -   **Vereist:** Deze sleutel is vereist, behalve wanneer de instelling **ServerRecoveryOptions** een waarde heeft van **4**.  
+    -   **Obligatoire :** cette clé est obligatoire sauf quand le paramètre **ServerRecoveryOptions** a la valeur **4**.  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = geen niet installeren  
+         0 = Ne pas installer  
 
-         1 = install  
+         1 = Installer  
 
-    -   **Details:** Geeft aan of de Configuration Manager-console te installeren.  
+    -   **Détails :** spécifie si la console Configuration Manager doit ou non être installée.  
 
--   **Naam sleutel:** JoinCEIP  
+-   **Nom de clé :** JoinCEIP  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = geen geen lid worden van  
+         0 = Ne pas participer  
 
-         1 = join  
+         1 = Participer  
 
-    -   **Details:** Hiermee geeft u op of u deelneemt aan het programma voor Kwaliteitsverbetering.  
+    -   **Détails :** Spécifie s’il faut participer au programme d’amélioration des services.  
 
 **SQLConfigOptions**  
 
--   **Naam sleutel:** SQLServerName  
+-   **Nom de clé :** SQLServerName  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*SQL-servernaam*>  
+    -   **Valeurs :** <*Nom du serveur SQL*>  
 
-    -   **Details:** Geeft de naam van de server of het geclusterde exemplaar waarop SQL Server wordt uitgevoerd en die de sitedatabase zal hosten. U moet dezelfde server opgeven die als host optrad voor de sitedatabase voorafgaand aan de fout.  
+    -   **Détails :** Spécifie le nom du serveur ou de l’instance en cluster exécutant SQL Server qui hébergera la base de données du site. Vous devez spécifier le serveur qui a hébergé la base de données de site avant la défaillance.  
 
--   **Naam sleutel:** DatabaseName  
+-   **Nom de clé :** DatabaseName  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*Sitedatabasenaam*> of <*exemplaarnaam*>\\<*naam van de sitedatabase*>  
+    -   **Valeurs :** <*Nom de la base de données du site*> ou <*Nom de l’instance*>\\<*Nom de la base de données du site*>  
 
-    -   **Details:** Hiermee geeft u de naam van de SQL Server-database te maken of de SQL Server-database moet worden gebruikt bij het installeren van de database van centrale beheersite. U moet dezelfde databasenaam opgeven die werd gebruikt voorafgaand aan de fout.  
+    -   **Détails :** Spécifie le nom de la base de données SQL Server à créer ou de la base de données SQL Server à utiliser pour installer la base de données du site d’administration centrale. Vous devez spécifier le nom de base de données qui était utilisé avant la défaillance.  
 
         > [!IMPORTANT]  
-        >  U moet de naam van het exemplaar en de naam van de sitedatabase opgeven als u het standaardexemplaar niet gebruikt.  
+        >  Si vous n'utilisez pas l'instance par défaut, vous devez spécifier le nom d'instance et le nom de base de données de site.  
 
--   **Naam sleutel:** SQLSSBPort  
+-   **Nom de clé :** SQLSSBPort  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*SSB-poortnummer*>  
+    -   **Valeurs :** <*Numéro du port SSB*>  
 
-    -   **Details:** Hiermee geeft u de SSB-poort die SQL Server gebruikt. SSB is standaard geconfigureerd voor het gebruik van TCP-poort 4022. U moet dezelfde SSB-poort opgeven die werd gebruikt vóór de fout.  
+    -   **Détails :** Spécifie le port SSB que SQL Server utilise. Généralement, SSB est configuré pour utiliser le port TCP 4022. Vous devez définir le même port SSB utilisé avant la défaillance.  
 
--   **Naam sleutel:** SQLDataFilePath  
+-   **Nom de clé :** SQLDataFilePath  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*pad naar MDB-bestand van database*>  
+    -   **Valeurs :** <*Chemin du fichier .mdb de la base de données*>  
 
-    -   **Details:** Hiermee geeft u een alternatieve locatie voor het maken van de database mdb-bestand.  
+    -   **Détails :** Spécifie un autre emplacement pour créer le fichier .mdb de la base de données.  
 
--   **Naam sleutel:** SQLLogFilePath  
+-   **Nom de clé :** SQLLogFilePath  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*pad naar LDF-bestand van database*>  
+    -   **Valeurs :** <*Chemin du fichier .ldf de la base de données*>  
 
-    -   **Details:** Hiermee geeft u een alternatieve locatie voor het maken van de database LDF-bestand.  
+    -   **Détails :** Spécifie un autre emplacement pour créer le fichier .ldf de la base de données.  
 
 **CloudConnectorOptions**  
 
--   **Naam sleutel:** CloudConnector  
+-   **Nom de clé :** CloudConnector  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = geen niet installeren  
+         0 = Ne pas installer  
 
-         1 = install  
+         1 = Installer  
 
-    -   **Details:** Geeft aan of voor het installeren van een service connection point op deze site. Omdat het serviceverbindingspunt kan alleen worden geïnstalleerd op de bovenste site van een hiërarchie, moet deze waarde **0** voor een onderliggende primaire site.  
+    -   **Détails :** Spécifie s’il faut installer un point de connexion de service sur ce site. Comme le point de connexion de service peut uniquement être installé sur le site de niveau supérieur d’une hiérarchie, cette valeur doit être **0** pour un site principal enfant.  
 
--   **Naam sleutel:** CloudConnectorServer  
+-   **Nom de clé :** CloudConnectorServer  
 
-    -   **Vereist:** Vereist wanneer **CloudConnector** gelijk is aan 1  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Waarden:** <*Service connection point-server FQDN-naam*>  
+    -   **Valeurs :** <*Nom de domaine complet du serveur de point de connexion de service*>  
 
-    -   **Details:** Hiermee geeft u de FQDN-naam van de server die als voor de service connection point-sitesysteemrol host fungeert.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur qui hébergera le rôle de système de site de point de connexion de service.  
 
--   **Naam sleutel:** UseProxy  
+-   **Nom de clé :** UseProxy  
 
-    -   **Vereist:** Vereist wanneer **CloudConnector** gelijk is aan 1  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = geen niet installeren  
+         0 = Ne pas installer  
 
-         1 = install  
+         1 = Installer  
 
-    -   **Details:** Hiermee geeft u op of het service connection point een proxyserver gebruiken.  
+    -   **Détails :** Spécifie si le point de connexion de service doit utiliser un serveur proxy.  
 
--   **Naam sleutel:** ProxyName  
+-   **Nom de clé :** ProxyName  
 
-    -   **Vereist:** Vereist wanneer **CloudConnector** gelijk is aan 1  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Waarden:** <*FQDN van proxyserver*>  
+    -   **Valeurs :** <*Nom de domaine complet du serveur proxy*>  
 
-    -   **Details:** Hiermee geeft u de FQDN-naam van de proxyserver die wordt gebruikt door de service connection point-sitesysteemrol.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur proxy qui sera utilisé par le rôle de système de site de point de connexion de service.  
 
--   **Naam sleutel:** ProxyPort  
+-   **Nom de clé :** ProxyPort  
 
-    -   **Vereist:** Vereist wanneer **CloudConnector** gelijk is aan 1  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Waarden:** <*poortnummer*>  
+    -   **Valeurs :** <*Numéro de port*>  
 
-    -   **Details:** Hiermee geeft u het poortnummer dat moet worden gebruikt voor de proxypoort op.  
+    -   **Détails :** Spécifie le numéro de port à utiliser pour le port proxy.  
 
-### <a name="unattended-recovery-for-a-primary-site"></a>Herstel voor een primaire site zonder toezicht  
- Gebruik de volgende informatie voor het herstellen van een primaire site met behulp van een scriptbestand.  
+### <a name="unattended-recovery-for-a-primary-site"></a>Récupération sans assistance d’un site principal  
+ Utilisez les détails suivant pour récupérer un site principal à l’aide d’un fichier de script d’installation sans assistance.  
 
-**Identificatie**  
+**Identification**  
 
--   **Naam sleutel:** Actie  
+-   **Nom de clé :** Action  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*RecoverPrimarySite*>  
+    -   **Valeurs :** <*RecoverPrimarySite*>  
 
-    -   **Details:** Een primaire site herstelt.  
+    -   **Détails :** récupère un site principal.  
 
--   **Naam sleutel:** CDLatest  
+-   **Nom de la clé :** CDLatest  
 
-    -   **Vereist:** Ja, alleen bij gebruik van media vanaf de CD. Meest recente map.    
+    -   **Obligatoire :** Oui, uniquement en cas d’utilisation de médias du dossier CD.Latest.    
 
-    -   **Waarden:** 1 een andere waarde dan 1 wordt beschouwd als CD niet worden gebruikt. Meest recente.
+    -   **Valeurs :** 1. Toute autre valeur est considérée comme signifiant que CD.Latest ne doit pas être utilisé.
 
-    -   **Details:** Wanneer u setup vanaf media in een CD uitvoert moet uw script deze sleutel en waarde bevatten. Meest recente map voor het installeren van een primaire of centrale beheersite of een primaire of centrale beheersite herstelt. Deze waarde informeert setup dat media CD vormen. Meest recente wordt gebruikt.    
+    -   **Détails :** Le script doit inclure cette clé et cette valeur en cas d’exécution de l’installation à partir de médias du dossier CD.Latest dans le cadre de l’installation d’un site principal ou d’administration centrale, ou de la récupération d’un site principal ou d’administration centrale. Cette valeur indique au programme d’installation que des médias de CD.Latest sont utilisés.    
 
 **RecoveryOptions**  
 
--   **Naam sleutel:** ServerRecoveryOptions  
+-   **Nom de clé :** ServerRecoveryOptions  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 1, 2 of 4  
+    -   **Valeurs :** 1, 2 ou 4  
 
-         1 = siteserver herstellen en SQL Server.  
+         1 = Récupérer le serveur de site et SQL Server.  
 
-         2 = Alleen siteserver herstellen.  
+         2 = Récupérer le serveur de site uniquement.  
 
-         4 = Alleen SQL Server herstellen.  
+         4 = Récupérer SQL Server uniquement.  
 
-    -   **Details:** Hiermee geeft u op of het installatieprogramma de siteserver, SQL Server of beide zal herstellen. De gekoppelde sleutels zijn vereist wanneer u de volgende waarde instellen voor de **ServerRecoveryOptions** instelling:  
+    -   **Détails :** spécifie si le programme d’installation doit récupérer le serveur de site, SQL Server ou les deux. Les clés associées sont nécessaires quand vous définissez la valeur suivante pour le paramètre **ServerRecoveryOptions** :  
 
-        -   Waarde = 1: U hebt de mogelijkheid om op te geven van een waarde op voor de **SiteServerBackupLocation** sleutel op de site te herstellen met behulp van een siteback-up. Als u geen waarde opgeeft, wordt de site opnieuw geïnstalleerd zonder dat deze wordt hersteld uit een back-upset.  
+        -   Valeur = 1 : vous avez la possibilité de spécifier une valeur pour la clé **SiteServerBackupLocation** afin de récupérer le site à l’aide d’une sauvegarde de site. Si vous ne spécifiez pas de valeur, le site est réinstallé sans être restauré à partir d'un jeu de sauvegarde.  
 
-        -   Waarde = 2: U hebt de mogelijkheid om op te geven van een waarde op voor de **SiteServerBackupLocation** sleutel op de site te herstellen met behulp van een siteback-up. Als u geen waarde opgeeft, wordt de site opnieuw geïnstalleerd zonder dat deze wordt hersteld uit een back-upset.  
+        -   Valeur = 2 : vous avez la possibilité de spécifier une valeur pour la clé **SiteServerBackupLocation** afin de récupérer le site à l’aide d’une sauvegarde de site. Si vous ne spécifiez pas de valeur, le site est réinstallé sans être restauré à partir d'un jeu de sauvegarde.  
 
-        -   Waarde = 4: De sleutel **BackupLocation** is vereist wanneer u een waarde van **10** configureert voor de sleutel **DatabaseRecoveryOptions** . Hiermee wordt de sitedatabase uit de back-up hersteld.  
+        -   Valeur = 4 : la clé **BackupLocation** est obligatoire si vous attribuez la valeur **10** à la clé **DatabaseRecoveryOptions** afin de restaurer la base de données du site à partir d’une sauvegarde.  
 
--   **Naam sleutel:** DatabaseRecoveryOptions  
+-   **Nom de clé :** DatabaseRecoveryOptions  
 
-    -   **Vereist:** Deze sleutel is vereist wanneer de instelling **ServerRecoveryOptions** een waarde heeft van **1** of **4**.  
+    -   **Obligatoire :** Cette clé est obligatoire quand la valeur du paramètre **ServerRecoveryOptions** est **1** ou **4**.  
 
-    -   **Waarden:** 10, 20, 40 of 80  
+    -   **Valeurs :** 10, 20, 40 ou 80  
 
-         10 = De sitedatabase uit de back-up herstellen.  
+         10 = Restaurer la base de données du site à partir d'une sauvegarde.  
 
-         20 = Gebruik een sitedatabase die handmatig wordt hersteld met behulp van een andere methode.  
+         20 = Utiliser une base de données de site qui a été récupérée manuellement à l'aide d'une autre méthode.  
 
-         40 = Maak een nieuwe database voor de site. Gebruik deze optie wanneer er geen back-up van de sitedatabase beschikbaar is. Globale en sitegegevens worden hersteld via replicatie vanaf andere sites.  
+         40 = Créer une nouvelle base de données de site. Utilisez cette option lorsqu'aucune sauvegarde de base de données de site n'est disponible. Les données globales et de site sont récupérées via la réplication à partir d'autres sites.  
 
-         80 = databaseherstel overslaan.  
+         80 = Ignorer la récupération de base de données.  
 
-    -   **Details:** Hiermee geeft u op hoe de sitedatabase in SQL Server door Setup wordt hersteld.  
+    -   **Détails :** spécifie comment le programme d’installation récupère la base de données du site dans SQL Server.  
 
--   **Naam sleutel:** SiteServerBackupLocation  
+-   **Nom de clé :** SiteServerBackupLocation  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*pad naar back-upset siteserver*>  
+    -   **Valeurs :** <*Chemin du jeu de sauvegarde du serveur de site*>  
 
-    -   **Details:**  
+    -   **Détails :**  
 
-         Hiermee geeft u het pad naar de back-upset van de siteserver. Deze sleutel is optioneel wanneer de instelling **ServerRecoveryOptions** een waarde heeft van **1** of **2**. Geef een waarde op voor de sleutel **SiteServerBackupLocation** om de site te herstellen met behulp van een siteback-up. Als u geen waarde opgeeft, wordt de site opnieuw geïnstalleerd zonder dat deze wordt hersteld uit een back-upset.  
+         Spécifie le chemin d'accès au jeu de sauvegarde du serveur de site. Cette clé est facultative si le paramètre **ServerRecoveryOptions** a la valeur **1** ou **2**. Spécifiez une valeur pour la clé **SiteServerBackupLocation** pour récupérer le site à l'aide d'une sauvegarde de site. Si vous ne spécifiez pas de valeur, le site est réinstallé sans être restauré à partir d'un jeu de sauvegarde.  
 
--   **Naam sleutel:** Back-uplocatie  
+-   **Nom de clé :** BackupLocation  
 
-    -   **Vereist:** Deze sleutel is vereist bij het configureren van een waarde van **1** of **4** voor de **ServerRecoveryOptions** sleutel en een waarde van configureren **10** voor de **DatabaseRecoveryOptions** sleutel.  
+    -   **Obligatoire :** cette clé est obligatoire quand vous configurez la valeur **1** ou **4** pour la clé **ServerRecoveryOptions**, et la valeur **10** pour la clé **DatabaseRecoveryOptions**.  
 
-    -   **Waarden:** <*pad naar back-upset van sitedatabase*>  
+    -   **Valeurs :** <*Chemin du jeu de sauvegarde de la base de données du site*>  
 
-    -   **Details:** Hiermee geeft u het pad naar back-upset van de sitedatabase.  
+    -   **Détails :** spécifie le chemin d’accès au jeu de sauvegarde de la base de données du site.  
 
-**Opties**  
+**Options**  
 
--   **Naam sleutel:** Product-id  
+-   **Nom de clé :** ProductID  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** *xxxxx-xxxxx-xxxxx-xxxxx-xxxxx* of *Eval*  
+    -   **Valeurs :** *xxxxx-xxxxx-xxxxx-xxxxx-xxxxx* ou *Eval*  
 
-    -   **Details:** Hiermee geeft u de productcode voor de Configuration Manager de installatie, inclusief de streepjes. Voer **Eval** om de evaluatieversie van Configuration Manager te installeren.  
+    -   **Détails :** Spécifie la clé de produit de l’installation de Configuration Manager avec les tirets. Entrez **Eval** pour installer la version d’évaluation de Configuration Manager.  
 
--   **Naam sleutel:** SiteCode  
+-   **Nom de clé :** SiteCode  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*sitecode*>  
+    -   **Valeurs :** <*Code de site*>  
 
-    -   **Details:** Hiermee geeft u drie alfanumerieke tekens die de site in uw hiërarchie identificeren. U moet de sitecode opgeven die de site vóór de fout gebruikt.
+    -   **Détails :** spécifie les trois caractères alphanumériques qui identifient le site de manière unique dans votre hiérarchie. Vous devez spécifier le code de site que le site utilisait avant la défaillance.
 
--   **Naam sleutel:** Sitenaam  
+-   **Nom de clé :** SiteName  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*sitenaam*>  
+    -   **Valeurs :** <*Nom de site*>  
 
-    -   **Details:** Geeft de naam voor deze site.  
+    -   **Détails :** spécifie le nom de ce site.  
 
--   **Naam sleutel:** SMSInstallDir  
+-   **Nom de clé :** SMSInstallDir  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*installatiepad Configuration Manager*>  
+    -   **Valeurs :** <*Chemin d’installation de Configuration Manager*>  
 
-    -   **Details:** Hiermee geeft u de installatiemap voor de programmabestanden van Configuration Manager.  
+    -   **Détails :** spécifie le dossier d’installation des fichiers programmes de Configuration Manager.  
 
--   **Naam sleutel:** SDKServer  
+-   **Nom de clé :** SDKServer  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*FQDN-naam van de SMS-Provider*>  
+    -   **Valeurs :** <*Nom de domaine complet du fournisseur SMS*>  
 
-    -   **Details:** Hiermee geeft u de FQDN-naam voor de server die als host voor de SMS-Provider fungeert. U moet de server opgeven die als host optrad voor de SMS-provider voorafgaand aan de fout. U kunt bijkomende SMS-providers voor de site configureren na de eerste installatie. Zie voor meer informatie over de SMS-Provider [plannen voor de SMS-Provider voor System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
+    -   **Détails :** spécifie le FQDN du serveur qui héberge le fournisseur SMS. Vous devez spécifier le serveur qui hébergeait le fournisseur SMS avant la défaillance. Vous pouvez configurer d'autres fournisseurs SMS pour le site après l'installation initiale. Pour plus d’informations sur le fournisseur SMS, consultez [Planifier le fournisseur SMS pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
 
--   **Naam sleutel:** PrerequisiteComp  
+-   **Nom de clé :** PrerequisiteComp  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = downloaden  
+         0 = Télécharger  
 
-         1 = reeds gedownload  
+         1 = Déjà téléchargé  
 
-    -   **Details:** Hiermee geeft u op of Setup vereiste bestanden al zijn gedownload. Als u een waarde van bijvoorbeeld **0**, Setup de bestanden downloaden.  
+    -   **Détails :** spécifie si les fichiers d’installation prérequis ont déjà été téléchargés. Par exemple, si vous utilisez la valeur **0**, le programme d’installation télécharge les fichiers.  
 
--   **Naam sleutel:** PrerequisitePath  
+-   **Nom de clé :** PrerequisitePath  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*pad naar Setup vereiste bestanden*>  
+    -   **Valeurs :** <*Chemin des fichiers nécessaires à l’installation*>  
 
-    -   **Details:** Hiermee geeft u het pad naar de vereiste bestanden voor Setup. Afhankelijk van de waarde van **PrerequisiteComp** gebruikt het installatieprogramma dit pad om de gedownloade bestanden op te slaan of om naar de eerder gedownloade bestanden te zoeken.  
+    -   **Détails :** spécifie le chemin vers les fichiers d’installation prérequis. Selon la valeur **PrerequisiteComp** , le programme d'installation utilise ce chemin d'accès pour stocker les fichiers téléchargés ou pour localiser des fichiers précédemment téléchargés.  
 
--   **Naam sleutel:** AdminConsole  
+-   **Nom de clé :** AdminConsole  
 
-    -   **Vereist:** Deze sleutel is vereist, behalve wanneer de instelling **ServerRecoveryOptions** een waarde heeft van **4**.  
+    -   **Obligatoire :** cette clé est obligatoire sauf quand le paramètre **ServerRecoveryOptions** a la valeur **4**.  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = geen niet installeren  
+         0 = Ne pas installer  
 
-         1 = install  
+         1 = Installer  
 
-    -   **Details:** Geeft aan of de Configuration Manager-console te installeren.  
+    -   **Détails :** spécifie si la console Configuration Manager doit ou non être installée.  
 
--   **Naam sleutel:** JoinCEIP  
+-   **Nom de clé :** JoinCEIP  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = geen geen lid worden van  
+         0 = Ne pas participer  
 
-         1 = join  
+         1 = Participer  
 
-    -   **Details:** Hiermee geeft u op of u deelneemt aan het programma voor Kwaliteitsverbetering.  
+    -   **Détails :** Spécifie s’il faut participer au programme d’amélioration des services.  
 
 **SQLConfigOptions**  
 
--   **Naam sleutel:** SQLServerName  
+-   **Nom de clé :** SQLServerName  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*SQL-servernaam*>  
+    -   **Valeurs :** <*Nom du serveur SQL*>  
 
-    -   **Details:** Geeft de naam van de server of het geclusterde exemplaar waarop SQL Server wordt uitgevoerd en die de sitedatabase zal hosten. U moet dezelfde server opgeven die als host optrad voor de sitedatabase voorafgaand aan de fout.  
+    -   **Détails :** Spécifie le nom du serveur ou de l’instance en cluster exécutant SQL Server qui hébergera la base de données du site. Vous devez spécifier le serveur qui a hébergé la base de données de site avant la défaillance.  
 
--   **Naam sleutel:** DatabaseName  
+-   **Nom de clé :** DatabaseName  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:**  <*Sitedatabasenaam*> of <*exemplaarnaam*>\\<*naam van de sitedatabase*>
+    -   **Valeurs :**  <*Nom de la base de données du site*> ou <*Nom de l’instance*>\\<*Nom de la base de données du site*>
 
-    -   **Details:**  
+    -   **Détails :**  
 
-         Hiermee geeft u de naam van de SQL Server-database te maken of de SQL Server-database moet worden gebruikt bij het installeren van de database van centrale beheersite. U moet dezelfde databasenaam opgeven die werd gebruikt voorafgaand aan de fout.  
+         Spécifie le nom de la base de données SQL Server à créer ou de la base de données SQL Server à utiliser pour installer la base de données du site d’administration centrale. Vous devez spécifier le nom de base de données qui était utilisé avant la défaillance.  
 
         > [!IMPORTANT]  
-        >  U moet de naam van het exemplaar en de naam van de sitedatabase opgeven als u het standaardexemplaar niet gebruikt.  
+        >  Si vous n'utilisez pas l'instance par défaut, vous devez spécifier le nom d'instance et le nom de base de données de site.  
 
--   **Naam sleutel:** SQLSSBPort  
+-   **Nom de clé :** SQLSSBPort  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** <*SSB-poortnummer*>  
+    -   **Valeurs :** <*Numéro du port SSB*>  
 
-    -   **Details:** Hiermee geeft u de SSB-poort die SQL Server gebruikt. Doorgaans is SSB geconfigureerd voor gebruik van TCP-poort 4022. U moet dezelfde SSB-poort opgeven die werd gebruikt vóór de fout.  
+    -   **Détails :** Spécifie le port SSB que SQL Server utilise. Généralement, SSB est configuré pour utiliser le port TCP 4022. Vous devez définir le même port SSB utilisé avant la défaillance.  
 
--   **Naam sleutel:** SQLDataFilePath  
+-   **Nom de clé :** SQLDataFilePath  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*pad naar MDB-bestand van database*>  
+    -   **Valeurs :** <*Chemin du fichier .mdb de la base de données*>  
 
-    -   **Details:** Hiermee geeft u een alternatieve locatie voor het maken van de database mdb-bestand.  
+    -   **Détails :** Spécifie un autre emplacement pour créer le fichier .mdb de la base de données.  
 
--   **Naam sleutel:** SQLLogFilePath  
+-   **Nom de clé :** SQLLogFilePath  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*pad naar LDF-bestand van database*>  
+    -   **Valeurs :** <*Chemin du fichier .ldf de la base de données*>  
 
-    -   **Details:** Hiermee geeft u een alternatieve locatie voor het maken van de database LDF-bestand.  
+    -   **Détails :** Spécifie un autre emplacement pour créer le fichier .ldf de la base de données.  
 
 **HierarchyExpansionOptions**  
 
--   **Naam sleutel:** CCARSiteServer  
+-   **Nom de clé :** CCARSiteServer  
 
-    -   **Vereist:** Zie details.  
+    -   **Obligatoire :** afficher les détails.  
 
-    -   **Waarden:** <*sitecode voor de centrale beheersite*>  
+    -   **Valeurs :** <*Code du site d’administration centrale*>  
 
-    -   **Details:** Hiermee geeft u de centrale beheersite op waaraan een primaire site wordt gekoppeld wanneer deze lid wordt van de Configuration Manager-hiërarchie. Deze instelling is vereist als de primaire site was gekoppeld aan een centrale beheersite vóór de fout. U moet de sitecode opgeven die werd gebruikt door de centrale beheersite vóór de fout.  
+    -   **Détails :** spécifie le site d’administration centrale auquel un site principal s’attache quand il rejoint la hiérarchie Configuration Manager. Ce paramètre est requis si le site principal était attaché à un site d'administration centrale avant la défaillance. Vous devez spécifier le code de site qui était utilisé pour le site d'administration centrale avant la défaillance.  
 
--   **Naam sleutel:** CASRetryInterval  
+-   **Nom de clé :** CASRetryInterval  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*Interval*>  
+    -   **Valeurs :** <*intervalle*>  
 
-    -   **Details:** Hiermee geeft u het interval (in minuten) waarna wordt geprobeerd een verbinding met de centrale beheersite nadat de verbinding is verbroken. Bijvoorbeeld, als de verbinding met de centrale beheersite mislukt, de primaire site wacht gedurende het aantal minuten dat u opgeeft voor de **CASRetryInterval** waarde en probeert het dan opnieuw de verbinding.  
+    -   **Détails :** spécifie l’intervalle (en minutes) avant une nouvelle tentative de connexion au site d’administration centrale après un échec de connexion. Par exemple, en cas d’échec de la connexion au site d’administration centrale, le site principal attend le nombre de minutes que vous avez spécifié pour la valeur **CASRetryInterval** et réessaye d’établir la connexion.  
 
--   **Naam sleutel:** WaitForCASTimeout  
+-   **Nom de clé :** WaitForCASTimeout  
 
-    -   **Vereist:** Nee  
+    -   **Obligatoire :** non  
 
-    -   **Waarden:** <*Time-out*>  
+    -   **Valeurs :** <*délai_attente*>  
 
-    -   **Details:** Hiermee geeft u de maximum time-outwaarde (in minuten) voor een primaire site verbinding maken met de centrale beheersite. Bijvoorbeeld, als een primaire site geen verbinding maken met een centrale beheersite, de primaire site opnieuw de verbinding met de centrale beheersite op basis van de **CASRetryInterval** waarde totdat de **WaitForCASTimeout** periode is bereikt. U kunt een waarde opgeven van **0** naar **100**.  
+    -   **Détails :** spécifie la valeur maximale du délai d’attente (en minutes) pour qu’un site principal se connecte au site d’administration centrale. Par exemple, en cas d’échec de la connexion d’un site principal à un site d’administration centrale, le site principal réessaye d’établir la connexion en fonction de la valeur de **CASRetryInterval** jusqu’à ce que le délai **WaitForCASTimeout** soit atteint. Vous pouvez spécifier une valeur entre **0** et **100**.  
 
 **CloudConnectorOptions**  
 
--   **Naam sleutel:** CloudConnector  
+-   **Nom de clé :** CloudConnector  
 
-    -   **Vereist:** Ja  
+    -   **Obligatoire :** Oui  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = geen niet installeren  
+         0 = Ne pas installer  
 
-         1 = install  
+         1 = Installer  
 
-    -   **Details:** Geeft aan of voor het installeren van een service connection point op deze site. Omdat het serviceverbindingspunt kan alleen worden geïnstalleerd op de bovenste site van een hiërarchie, moet deze waarde **0** voor een onderliggende primaire site.  
+    -   **Détails :** Spécifie s’il faut installer un point de connexion de service sur ce site. Comme le point de connexion de service peut uniquement être installé sur le site de niveau supérieur d’une hiérarchie, cette valeur doit être **0** pour un site principal enfant.  
 
--   **Naam sleutel:** CloudConnectorServer  
+-   **Nom de clé :** CloudConnectorServer  
 
-    -   **Vereist:** Vereist wanneer **CloudConnector** gelijk is aan 1  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Waarden:** <*Service connection point-server FQDN-naam*>  
+    -   **Valeurs :** <*Nom de domaine complet du serveur de point de connexion de service*>  
 
-    -   **Details:** Hiermee geeft u de FQDN-naam van de server die als voor de service connection point-sitesysteemrol host fungeert.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur qui hébergera le rôle de système de site de point de connexion de service.  
 
--   **Naam sleutel:** UseProxy  
+-   **Nom de clé :** UseProxy  
 
-    -   **Vereist:** Vereist wanneer **CloudConnector** gelijk is aan 1  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Waarden:** 0 of 1  
+    -   **Valeurs :** 0 ou 1  
 
-         0 = geen niet installeren  
+         0 = Ne pas installer  
 
-         1 = install  
+         1 = Installer  
 
-    -   **Details:** Hiermee geeft u op of het service connection point een proxyserver gebruiken.  
+    -   **Détails :** Spécifie si le point de connexion de service doit utiliser un serveur proxy.  
 
--   **Naam sleutel:** ProxyName  
+-   **Nom de clé :** ProxyName  
 
-    -   **Vereist:** Vereist wanneer **CloudConnector** gelijk is aan 1  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Waarden:** <*FQDN van proxyserver*>  
+    -   **Valeurs :** <*Nom de domaine complet du serveur proxy*>  
 
-    -   **Details:** Hiermee geeft u de FQDN-naam van de proxyserver die wordt gebruikt door de service connection point-sitesysteemrol.  
+    -   **Détails :** spécifie le nom de domaine complet du serveur proxy qui sera utilisé par le rôle de système de site de point de connexion de service.  
 
--   **Naam sleutel:** ProxyPort  
+-   **Nom de clé :** ProxyPort  
 
-    -   **Vereist:** Vereist wanneer **CloudConnector** gelijk is aan 1  
+    -   **Obligatoire :** Obligatoire quand **CloudConnector** est égal à 1  
 
-    -   **Waarden:** <*poortnummer*>  
+    -   **Valeurs :** <*Numéro de port*>  
 
-    -   **Details:** Hiermee geeft u het poortnummer dat moet worden gebruikt voor de proxypoort op.  
+    -   **Détails :** Spécifie le numéro de port à utiliser pour le port proxy.  

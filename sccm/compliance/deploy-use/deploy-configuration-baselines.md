@@ -1,6 +1,6 @@
 ---
-title: Configuratiebasislijnen implementeren | Microsoft Docs
-description: "Implementeer configuratiebasislijnen voor het definiëren van implementaties van configuratiebasislijnen en voor het toevoegen of verwijderen van configuratiebasislijnen uit implementaties."
+title: "Déployer des lignes de base de configuration | Microsoft Docs"
+description: "Déployez des bases de référence de configuration pour définir les déploiements de bases de référence de configuration et pour ajouter ou supprimer des bases de référence de configuration dans les déploiements."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,42 +17,42 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 9c9e6b7780c7c10c20a60dbbbf506e916031eb88
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-deploy-configuration-baselines-in-system-center-configuration-manager"></a>Het implementeren van configuratiebasislijnen in System Center Configuration Manager
+# <a name="how-to-deploy-configuration-baselines-in-system-center-configuration-manager"></a>Comment déployer des lignes de base de configuration dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Configuratiebasislijnen in System Center Configuration Manager moeten worden geïmplementeerd op een of meer verzamelingen van gebruikers of apparaten voordat clientapparaten in deze verzamelingen hun compatibiliteit met de configuratiebasislijn kunnen beoordelen.  
+Les bases de référence de configuration dans System Center Configuration Manager doivent être déployées vers un ou plusieurs regroupements d’utilisateurs ou d’appareils avant que les appareils clients de ces mêmes regroupements ne puissent évaluer leur conformité avec la base de référence de configuration.  
 
-Gebruik de **Configuratiebasislijnen implementeren** in het dialoogvenster voor het definiëren van implementaties van configuratiebasislijnen, waaronder het toevoegen aan of verwijderen van configuratiebasislijnen uit implementaties naast het opgeven van het evaluatieschema.  
+Utilisez la boîte de dialogue **Déployer des lignes de base de configuration** pour définir les déploiements des lignes de base de configuration, y compris l'ajout ou la suppression de lignes de base de configuration dans des déploiements et la définition du calendrier d'évaluation.  
 
-## <a name="deploy-a-configuration-baseline"></a>Een configuratiebasislijn implementeren  
+## <a name="deploy-a-configuration-baseline"></a>Déployer une base de référence de configuration  
 
-1.  Klik in de Configuration Manager-console op **activa en naleving** > **instellingen voor naleving** > **Configuratiebasislijnen**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Lignes de base de configuration**.  
 
-3.  Selecteer in de lijst **Configuratiebasislijnen** de configuratiebasislijn die u wilt implementeren en klik vervolgens op het tabblad **Start** in de groep **Implementatie** op **Implementeren**.  
+3.  Dans la liste **Lignes de base de configuration** , sélectionnez la ligne de base de configuration que vous souhaitez déployer, puis, dans l’onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Déployer**.  
 
-4.  Selecteer in het dialoogvenster **Configuratiebasislijnen implementeren** de configuratiebasislijnen die u wilt implementeren in de lijst **Beschikbare configuratiebasislijnen** . Klik op **Toevoegen** om ze toe te voegen aan de lijst **Geselecteerde configuratiebasislijnen** .  
+4.  Dans la boîte de dialogue **Déployer des lignes de base de configuration** , sélectionnez les lignes de base de configuration que vous souhaitez déployer dans la liste **Lignes de base de configuration disponibles** . Cliquez sur **Ajouter** pour ajouter celles-ci à la liste **Lignes de base de configuration sélectionnées** .  
 
     > [!IMPORTANT]  
-    >  Als u een configuratie-item wijzigt dat is toegevoegd aan een geïmplementeerde configuratiebasislijn, wordt het gewijzigde configuratie-item pas op de volgende geplande evaluatietijd op compatibiliteit geëvalueerd.  
+    >  Si vous modifiez un élément de configuration qui a été ajouté à une ligne de base de configuration déployée, la conformité de l’élément de configuration révisé ne sera évaluée que lors de sa prochaine évaluation programmée.  
 
-5.  Geef de volgende aanvullende informatie op:  
+5.  Spécifiez les informations supplémentaires suivantes :  
 
-    -   **Herstellen, waar ondersteund** – automatisch herstelt de regels die niet compatibel voor Windows Management Instrumentation (WMI), het register, scripts en alle instellingen voor mobiele apparaten die zijn ingeschreven door Configuration Manager zijn.  
+    -   **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** : activez cette option pour résoudre automatiquement toutes les règles qui ne sont pas compatibles pour Windows Management Instrumentation (WMI), le Registre, les scripts et tous les paramètres des appareils mobiles inscrits par Configuration Manager.  
 
-    -   **Herstel toestaan buiten het onderhoudsvenster** : Als er een onderhoudsvenster is geconfigureerd voor de verzameling waarnaar u de configuratiebasislijn implementeert, schakelt u deze optie in om de waarde buiten het onderhoudsvenster te laten herstellen met de instellingen voor naleving. Zie voor meer informatie over onderhoudsvensters [het gebruik van onderhoudsvensters](/sccm/core/clients/manage/collections/use-maintenance-windows).  
+    -   **Autoriser les corrections en dehors de la fenêtre de maintenance** : si une fenêtre de maintenance a été configurée pour le regroupement vers lequel vous déployez la ligne de base de configuration, activez cette option pour laisser les paramètres de compatibilité résoudre la valeur en dehors de la fenêtre de maintenance. Pour plus d’informations sur les fenêtres de maintenance, consultez [Comment utiliser les fenêtres de maintenance](/sccm/core/clients/manage/collections/use-maintenance-windows).  
 
-6.  **Waarschuwing genereren** – Hiermee configureert u een waarschuwing die wordt gegenereerd als de naleving van de configuratiebasislijn kleiner dan een opgegeven percentage voor een opgegeven datum en tijd is. U kunt tevens opgeven of u een melding naar System Center Operations Manager wilt verzenden.  
+6.  **Générer une alerte** : configure une alerte qui est générée si la compatibilité de la base de référence de configuration est inférieure à un pourcentage spécifié par une date et une heure spécifiques. Vous pouvez également spécifier si vous souhaitez qu'une alerte soit envoyée à System Center Operations Manager.  
 
-7.  **Verzameling** : klik op **Bladeren** om de verzameling te selecteren waarvoor u de configuratiebasislijn wilt implementeren.  
+7.  **Regroupement** : cliquez sur **Parcourir** pour sélectionner le regroupement dans lequel vous souhaitez déployer la ligne de base de configuration.  
 
-8.  **Geef het evaluatieschema voor compatibiliteit op voor deze configuratiebasislijn** Hiermee geeft u de planning op waarmee de geïmplementeerde configuratiebasislijn wordt geëvalueerd op clientcomputers. U kunt een eenvoudige of een aangepaste planning opgeven.  
+8.  **Spécifier le calendrier d’évaluation de la compatibilité pour cette ligne de base de configuration** : spécifie le calendrier d’évaluation de la base de référence de configuration déployée sur des ordinateurs clients. Il peut s'agir d'un calendrier simple ou d'un calendrier personnalisé.  
 
     > [!NOTE]  
-    >  Als de configuratiebasislijn wordt geïmplementeerd op een computer, wordt deze voor naleving binnen twee uur na het begintijdstip dat u plant geëvalueerd. Als de configuratiebasislijn wordt geïmplementeerd voor een gebruiker, wordt de naleving geëvalueerd wanneer de gebruiker zich aanmeldt.  
+    >  Si la ligne de base de configuration est déployée vers un ordinateur, sa conformité est évaluée dans les deux heures suivant l’heure de début que vous programmez. Si elle est déployée vers un utilisateur, sa conformité est évaluée quand l’utilisateur se connecte.  
 
-9. Klik op **OK** om het dialoogvenster **Configuratiebasislijnen implementeren** te sluiten en de implementatie te maken. Zie voor meer informatie over het bewaken van de implementatie [instellingen voor naleving bewaken](/sccm/compliance/deploy-use/monitor-compliance-settings).  
+9. Cliquez sur **OK** pour fermer la boîte de dialogue **Déployer des lignes de base de configuration** et pour créer le déploiement. Pour plus d’informations sur la surveillance du déploiement, consultez [Surveiller les paramètres de compatibilité](/sccm/compliance/deploy-use/monitor-compliance-settings).  

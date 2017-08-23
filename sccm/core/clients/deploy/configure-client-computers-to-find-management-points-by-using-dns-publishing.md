@@ -1,6 +1,6 @@
 ---
-title: Clients zoeken management punten DNS-publishing configureren | Microsoft Docs
-description: Ingesteld op clientcomputers om beheerpunten te vinden met DNS-publishing in System Center Configuration Manager.
+title: "Configurer des ordinateurs clients pour trouver des points de gestion à l’aide de la publication DNS | Microsoft Docs"
+description: "Définissez des ordinateurs clients pour trouver des points de gestion à l’aide de la publication DNS dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,43 +16,43 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: d016ec3fe106b2d90b3c14b4f9296aed4d198644
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-client-computers-to-find-management-points-by-using-dns-publishing-in-system-center-configuration-manager"></a>Het configureren van clientcomputers om beheerpunten te vinden met DNS-publishing in System Center Configuration Manager
+# <a name="how-to-configure-client-computers-to-find-management-points-by-using-dns-publishing-in-system-center-configuration-manager"></a>Comment configurer des ordinateurs clients pour trouver des points de gestion à l’aide de la publication DNS dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Clients in System Center Configuration Manager moeten een beheerpunt vinden om te site-toewijzing vervolledigen en als een continu proces om beheerd te blijven. Active Directory Domain Services is de veiligste methode om clients op het intranet beheerpunten te laten vinden. Als clients deze servicelocatiemethode echter niet kunnen gebruiken (bijvoorbeeld als u het Active Directory-schema niet hebt uitgebreid of clients deel uitmaken van een werkgroep), gebruikt u DNS-publicatie als voorkeursalternatief voor de servicelocatiemethode.  
+Les clients de System Center Configuration Manager doivent localiser un point de gestion pour terminer l’affectation de site et, dans le cadre d’un processus continu, pour continuer d’être gérés. Les services de domaine Active Directory offrent la méthode la plus sûre pour que les clients sur l'intranet trouvent leurs points de gestion. Toutefois, si les clients ne peuvent pas utiliser cette méthode d'emplacement des services (par exemple, parce que vous n'avez pas étendu le schéma Active Directory ou que les clients font partie d'un groupe de travail), utilisez la publication DNS comme alternative principale à cette méthode.  
 
 > [!NOTE]  
->  Wanneer u de client voor Linux en UNIX installeert, moet u een beheerpunt opgeven dat moet worden gebruikt als eerste contactpunt. Zie voor meer informatie over het installeren van de client voor Linux en UNIX [clients implementeren op UNIX en Linux-servers in System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md).  
+>  Lorsque vous installez le client pour Linux et UNIX, vous devez indiquer le point de gestion à utiliser comme point de contact initial. Pour plus d’informations sur l’installation du client pour Linux et UNIX, consultez [Guide pratique pour déployer des clients sur des serveurs UNIX et Linux dans System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md).  
 
- Voordat u DNS-publicatie gebruikt voor beheerpunten, moet u ervoor zorgen dat DNS-servers op intranet servicelocatiebronrecords (SRV RR) en bijbehorende hostbronrecords (A of AAA) hebben voor de beheerpunten van de site. De servicelocatiebronrecords kunnen automatisch worden gemaakt door Configuration Manager of handmatig, door de DNS-beheerder die de records in DNS maakt.  
+ Avant d'utiliser la publication DNS pour les points de gestion, assurez-vous que les serveurs DNS sur l'intranet disposent d'enregistrements de ressource d'emplacement de service (SRV RR) et d'enregistrements de ressource d'hôte correspondant (A ou AAA) pour les points de gestion du site. Les enregistrements de ressource d’emplacement de service peuvent être créés automatiquement par Configuration Manager ou manuellement par l’administrateur DNS qui crée les enregistrements dans DNS.  
 
- Zie voor meer informatie over DNS-publicatie als servicelocatiebepalingsmethode voor Configuration Manager-clients, [begrijpen hoe clients siteresources en -services voor System Center Configuration Manager vinden](../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
+ Pour plus d’informations sur la publication DNS comme méthode d’emplacement de service pour les clients Configuration Manager, consultez [Comprendre comment les clients recherchent des services et ressources de site pour System Center Configuration Manager](../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 
- Clients zoeken standaard in DNS naar beheerpunten in hun DNS-domein. Echter, als er geen beheerpunten zijn gepubliceerd in het domein van clients, moet u handmatig configureren clients met een achtervoegsel van een DNS-punt. U kunt dit DNS-achtervoegsel op clients configureren tijdens of na de clientinstallatie:  
+ Par défaut, les clients recherchent DNS pour les points de gestion dans leur domaine DNS. Toutefois, si aucun point de gestion n’est publié dans le domaine des clients, vous devez configurer manuellement les clients avec un suffixe DNS de point de gestion. Vous pouvez configurer ce suffixe DNS sur les clients, soit pendant l'installation du client, soit après :  
 
--   Als u clients tijdens de clientinstallatie wilt configureren voor het achtervoegsel van een beheerpunt, configureert u de Client.msi-eigenschappen van CCMSetup.  
+-   Pour configurer les clients pour un suffixe de point de gestion pendant l'installation du client, configurez les propriétés CCMSetup Client.msi.  
 
--   Als u clients na de clientinstallatie wilt configureren voor het achtervoegsel van een beheerpunt, configureert u de **Eigenschappen van Configuration Manager**.  
+-   Pour configurer les clients pour un suffixe de point de gestion après l'installation du client, dans le panneau de configuration, configurez les **Propriétés du Configuration Manager**.  
 
-#### <a name="to-configure-clients-for-a-management-point-suffix-during-client-installation"></a>Clients configureren voor een achtervoegsel van een beheerpunt tijdens de clientinstallatie  
+#### <a name="to-configure-clients-for-a-management-point-suffix-during-client-installation"></a>Pour configurer les clients pour un suffixe de point de gestion pendant l'installation du client  
 
--   Installeer de client met de volgende Client.msi-eigenschap van CCMSetup:  
+-   Installez le client avec la propriété CCMSetup Client.msi suivante :  
 
-    -   **DNSSUFFIX =**  *&lt;beheerpunt domein\>*  
+    -   **DNSSUFFIX=** *&lt;domaine du point de gestion\>*  
 
-         Als de site meer dan één beheerpunt heeft en deze zich in meer dan één domein bevinden, geeft u slechts één domein op. Wanneer clients verbinding maken met een beheerpunt in dit domein, downloaden ze een lijst met beschikbare beheerpunten, inclusief de beheerpunten van de andere domeinen.  
+         Si le site dispose de plusieurs points de gestion et que ceux-ci se trouvent dans plusieurs domaines, ne spécifiez qu'un seul domaine. Lorsque les clients se connectent à un point de gestion dans ce domaine, ils téléchargent une liste de points de gestion disponibles, qui inclura les points de gestion des autres domaines.  
 
-     Zie voor meer informatie over de CCMSetup-opdrachtregeleigenschappen [over eigenschappen van clientinstallatie in System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
+     Pour plus d’informations sur les propriétés de ligne de commande CCMSetup, consultez [À propos des propriétés d’installation du client dans System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
 
-#### <a name="to-configure-clients-for-a-management-point-suffix-after-client-installation"></a>Clients configureren voor een achtervoegsel van een beheerpunt na de clientinstallatie  
+#### <a name="to-configure-clients-for-a-management-point-suffix-after-client-installation"></a>Pour configurer les clients pour un suffixe de point de gestion après l'installation du client  
 
-1.  Navigeer in het Configuratiescherm van de clientcomputer naar **Configuration Manager**en dubbelklik vervolgens op **Eigenschappen**.  
+1.  Dans le Panneau de configuration de l'ordinateur client, accédez à **Configuration Manager**, puis double-cliquez sur **Propriétés**.  
 
-2.  Geef op het tabblad **Site** het DNS-achtervoegsel van een beheerpunt op en klik vervolgens op **OK**.  
+2.  Dans l'onglet **Site** , spécifiez le suffixe DNS d'un point de gestion, puis cliquez sur **OK**.  
 
-     Als de site meer dan één beheerpunt heeft en deze zich in meer dan één domein bevinden, geeft u slechts één domein op. Wanneer clients verbinding maken met een beheerpunt in dit domein, downloaden ze een lijst met beschikbare beheerpunten, inclusief de beheerpunten van de andere domeinen.
+     Si le site dispose de plusieurs points de gestion et que ceux-ci se trouvent dans plusieurs domaines, ne spécifiez qu'un seul domaine. Lorsque les clients se connectent à un point de gestion dans ce domaine, ils téléchargent une liste de points de gestion disponibles, qui inclura les points de gestion des autres domaines.

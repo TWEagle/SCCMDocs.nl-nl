@@ -1,6 +1,6 @@
 ---
-title: Upgrade van de lange termijn onderhoud vertakking naar de huidige vertakking | Microsoft Docs
-description: Informatie over het converteren van een filiaalsite Long-Term onderhoud naar een Current Branch-site.
+title: "Mettre à niveau Long-Term Servicing Branch vers Current Branch | Microsoft Docs"
+description: "Apprenez à convertir un site Long-Term Servicing Branch en site Current Branch."
 ms.custom: na
 ms.date: 2/8/2017
 ms.prod: configuration-manager
@@ -16,39 +16,39 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 6e7edc85630d22c5bbba1ff66bd1199903db76db
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="upgrade-the-long-term-servicing-branch-to-the-current-branch"></a>Upgrade van de lange termijn onderhoud vertakking naar de huidige vertakking
+# <a name="upgrade-the-long-term-servicing-branch-to-the-current-branch"></a>Mettre à niveau Long-Term Servicing Branch vers Current Branch
 
-*Van toepassing op: System Center Configuration Manager (op lange termijn onderhoud vertakking)*
+*S’applique à : System Center Configuration Manager (Long-Term Servicing Branch)*
 
-Gebruik dit onderwerp voor informatie over het upgraden van (omzetten), een site en hiërarchie waarop de Long-Term Servicing Branch (LTSB) van Configuration Manager uitgevoerd naar de huidige vertakking.
+Cette rubrique est destinée à vous apprendre à mettre à niveau (convertir) un site et une hiérarchie qui exécutent une installation Long-Term Servicing Branch (LTSB) de Configuration Manager vers la version Current Branch.
 
-Wanneer u een huidige Software Assurance-overeenkomst (of vergelijkbaar licentierechten) die verleent u rechten voor het gebruik van de huidige vertakking hebt, kunt u de installatie van de LTSB converteren naar de huidige vertakking.  Dit is een eenzijdige conversie omdat er geen ondersteuning is voor het converteren van een site van de huidige vertakking naar de LTSB.
+Si vous avez souscrit un contrat Software Assurance (ou des droits de licence similaires) qui vous donnent le droit d’utiliser Current Branch, vous pouvez convertir votre installation LTSB en version Current Branch.  Il s’agit d’une conversion unidirectionnelle, car la conversion d’un site Current Branch en LTSB n’est pas prise en charge.
 
-Als u meerdere sites hebt, hoeft u alleen de bovenste site van uw hiërarchie te converteren. Nadat de bovenste site is geconverteerd:
-- Onderliggende primaire sites automatisch worden geconverteerd.
--   U moet secundaire sites uit binnen de Configuration Manager-console handmatig bijwerken.
+Si vous avez plusieurs sites, il vous suffit de convertir le site de niveau supérieur de votre hiérarchie. Dès lors que le site de niveau supérieur est converti :
+- les sites principaux enfants sont convertis automatiquement ;
+-   vous devez procéder à une mise à jour manuelle des sites secondaires dans la console Configuration Manager.
 
-## <a name="run-setup-to-convert-the-long-term-servicing-branch"></a>Setup uitvoeren om te converteren van de vertakking Long-Term onderhoud
-Op de bovenste site van uw hiërarchie, kunt u setup van Configuration Manager niet in aanmerking komt basislijnmedia uitvoeren en selecteer **Site-onderhoud**.  Wanneer met de licentiegegevens pagina weergegeven, klikt u vervolgens de optie voor de huidige vertakking en voltooi de wizard.
+## <a name="run-setup-to-convert-the-long-term-servicing-branch"></a>Exécuter le programme d’installation pour convertir Long-Term Servicing Branch
+Sur le site de niveau supérieur de votre hiérarchie, vous pouvez exécuter le programme d’installation de Configuration Manager à partir du media de base de référence éligible et sélectionner **Maintenance de site**.  Ensuite, une fois dans la page de licence, sélectionnez l’option Current Branch, puis terminez l’Assistant.
 
-Als uw site is geconverteerd naar de huidige vertakking, eerder zijn niet-beschikbare functies en mogelijkheden beschikbaar voor gebruik.
+Une fois votre site converti en version Current Branch, vous avez accès à des fonctions et fonctionnalités qui n’étaient pas disponibles auparavant.
 
 > [!NOTE]  
-> In aanmerking komende basislijnmedia is een medium met een versie die gelijk is aan of later zijn dan de LTSB-installatie.
+> Le média de ligne de base éligible est un média qui contient une version équivalente ou postérieure à votre installation LTSB.
 
-Bijvoorbeeld, omdat de LTSB is gebaseerd op versie 1606, u niet gebruiken de basislijnmedia 1511 converteren naar de huidige vertakking. In plaats daarvan u het installatieprogramma uitvoeren vanaf de dezelfde versie 1606 basislijnmedia die u gebruikt voor het installeren van de LTSB-site en kiest u de optie Licentieverlening voor de huidige vertakking.  Ook als een hoger basislijn van de huidige vertakking is vrijgegeven, kunt u setup uitvoeren vanaf die basislijnmedia.
+Par exemple, sachant que LTSB est basé sur la version 1606, vous ne pouvez pas utiliser le média de ligne de base 1511 pour une conversion vers Current Branch. Vous devez exécuter le programme d’installation du média de base de référence de la version 1606 dont vous vous êtes servi pour installer le site LTSB, puis choisir l’option de licence correspondant à Current Branch.  Autrement, si une base de référence ultérieure de Current Branch a été publiée, vous pouvez exécuter le programme d’installation à partir de ce média de base de référence.
 
-Zie voor een lijst van basislijnversies **basislijn- en updateversies** in [Updates voor Configuration Manager](/sccm/core/servers/manage/updates).
+Pour obtenir la liste des versions de ligne de base, consultez **Versions de base et de mise à jour** dans [Mises à jour pour Configuration Manager](/sccm/core/servers/manage/updates).
 
-## <a name="use-the-configuration-manager-console-to-convert-the-long-term-servicing-branch"></a>De Configuration Manager-console gebruiken voor het converteren van de lange termijn onderhoud vertakking
-Als uw site wordt uitgevoerd de LTSB, kunt u de volgende optie in de Configuration Manager-console gebruiken om te converteren naar de huidige vertakking:
+## <a name="use-the-configuration-manager-console-to-convert-the-long-term-servicing-branch"></a>Utiliser la console Configuration Manager pour convertir Long-Term Servicing Branch
+Si votre site s’exécute LTSB, vous pouvez utiliser l’option suivante dans la console Configuration Manager pour convertir Current Branch :
 
- 1. Ga in de console naar **beheer** > **siteconfiguratie** > **Sites**, en open vervolgens **hiërarchie-instellingen**.  
+ 1. Dans la console, accédez à **Administration** > **Configuration du site** > **Sites**, puis ouvrez **Paramètres de hiérarchie**.  
 
- 2. Selecteer de optie voor het converteren naar de huidige vertakking en kies vervolgens **toepassen**.  
+ 2. Sélectionnez l’option de conversion vers Current Branch, puis choisissez **Appliquer**.  
 
-Als uw site is geconverteerd naar de huidige vertakking, eerder zijn niet-beschikbare functies en mogelijkheden beschikbaar voor gebruik.
+Une fois votre site converti en version Current Branch, vous avez accès à des fonctions et fonctionnalités qui n’étaient pas disponibles auparavant.

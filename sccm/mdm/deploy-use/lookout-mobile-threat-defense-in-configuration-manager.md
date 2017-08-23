@@ -1,6 +1,6 @@
 ---
-title: Beperken van toegang op basis van risico | Microsoft Docs
-description: Toegang tot bedrijfsbronnen op basis van apparaat-, netwerk- en toepassing risico beperken.
+title: "Restreindre l’accès aux ressources en fonction des risques | Microsoft Docs"
+description: "Restreignez l’accès aux ressources d’entreprise en fonction du risque évalué pour l’appareil, le réseau et l’application."
 ms.custom: na
 ms.date: 04/25/2017
 ms.prod: configuration-manager
@@ -16,79 +16,79 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 21841d97387f07f53993d957641f9ad892d723c2
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-access-to-company-resource-based-on-device-network-and-application-risk"></a>Toegang tot bedrijfsbronnen op basis van apparaat-, netwerk- en toepassing risico's beheren
+# <a name="manage-access-to-company-resource-based-on-device-network-and-application-risk"></a>Gérer l’accès aux ressources d’entreprise en fonction du risque évalué pour l’appareil, le réseau et l’application
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-U kunt mobiele apparaten toegang heeft tot bedrijfsbronnen op basis van de risico-evaluatie uitgevoerd door Lookout, een apparaat threat protection-oplossing die is geïntegreerd met Microsoft Intune kunt beheren. Het risico is gebaseerd op de telemetrie die de Lookout-service worden verzameld van apparaten voor het besturingssysteem (OS) beveiligingslekken geïnstalleerde schadelijke apps en schadelijke netwerkprofielen. 
+Vous pouvez contrôler l’accès aux ressources d’entreprise à partir des appareils mobiles, en fonction de l’évaluation des risques effectuée par Lookout, une solution de protection des appareils contre les menaces qui est intégrée à Microsoft Intune. Le risque est évalué sur la base des données de télémétrie que le service Lookout collecte auprès des appareils pour les vulnérabilités du système d’exploitation, les applications malveillantes installées et les profils réseau malveillants. 
 
-Op basis van de Lookout gemelde risicoanalyse ingeschakeld via beleidsregels voor naleving van System center configuration manager (SCCM), kunt u beleid voor voorwaardelijke toegang configureren en toestaan of blokkeren van apparaten die niet compliant is als gevolg van bedreigingen die zijn gedetecteerd op deze apparaten zijn vastgesteld.
+Sur la base de l’évaluation des risques signalée par Lookout grâce aux stratégies de conformité SCCM (System Center Configuration Manager), vous pouvez configurer des stratégies d’accès conditionnel et autoriser ou bloquer des appareils évalués comme non conformes en raison des menaces qui y ont été détectées.
 
-De [hybride MDM-implementatie (SCCM met Intune)](https://docs.microsoft.com/sccm/mdm/understand/choose-between-standalone-intune-and-hybrid-mobile-device-management) biedt u de mogelijkheid om te bepalen van de toegang tot bedrijfsbronnen en gegevens op basis van de risico-evaluatie dat apparaat dreiging oplossingen voor gegevensbeveiliging zoals Lookout biedt.
+Le [déploiement de la gestion des appareils mobiles hybride (SCCM avec Intune)](https://docs.microsoft.com/sccm/mdm/understand/choose-between-standalone-intune-and-hybrid-mobile-device-management) vous permet de contrôler l’accès aux ressources et aux données d’entreprise en fonction de l’évaluation des risques fournie par des solutions de protection des appareils contre les menaces comme Lookout.
 
-## <a name="how-do-the-hybrid-mdm-deployment-and-lookout-device-threat-protection-help-protect-company-resources"></a>Hoe de implementatie van hybride MDM en Lookout device threat protection helpen bedrijfsresources beveiligen?
-Lookout van mobiele Apps (Lookout for work), uitgevoerd op mobiele apparaten, bestandssysteem, network-stack, apparaat en toepassing telemetrie vastgelegd (indien beschikbaar) en verzendt het naar de Lookout device threat protection cloudservice voor het berekenen van een statistische apparaat risico voor mobiele bedreigingen. U kunt ook de indeling van het risiconiveau voor het omgaan met bedreigingen in de console Lookout volgens uw vereisten wijzigen.  
+## <a name="how-do-the-hybrid-mdm-deployment-and-lookout-device-threat-protection-help-protect-company-resources"></a>Comment le déploiement de la gestion des appareils mobiles hybride et le service Lookout de protection des appareils contre les menaces vous aident-ils à protéger les ressources d’entreprise ?
+Quand l’application mobile de Lookout (Lookout for Work) est exécutée sur des appareils mobiles, elle capture des données de télémétrie sur le système de fichiers, la pile réseau, l’appareil et l’application (le cas échéant), et envoie toutes ces données au service cloud Lookout de protection des appareils contre les menaces, qui calcule le risque cumulé des menaces mobiles pour l’appareil. Vous pouvez également modifier la classification des niveaux de risque des menaces dans la console Lookout pour l’adapter à vos besoins.  
 
-Het nalevingsbeleid in SCCM bevat nu een nieuwe regel voor Lookout mobiele threat protection die is gebaseerd op de Lookout device threat risico-evaluatie. Als deze regel is ingeschakeld, wordt het apparaat op compatibiliteit geëvalueerd.
+La stratégie de conformité dans SCCM inclut maintenant une nouvelle règle pour la protection contre les menaces mobiles de Lookout qui est basée sur l’évaluation du risque de menaces sur les appareils réalisée par Lookout. Quand cette règle est activée, l’appareil est évalué pour vérifier s’il est conforme.
 
-Als het apparaat wordt vastgesteld als niet-compatibel met het nalevingsbeleid, betekent dit dat toegang tot resources, zoals Exchange Online en SharePoint Online kunt met behulp van beleid voor voorwaardelijke toegang geblokkeerd. Wanneer toegang wordt geblokkeerd, wordt de eindgebruikers worden geleverd bij een scenario om u te helpen het probleem is opgelost en toegang krijgen tot bedrijfsbronnen. In dit scenario wordt gestart via de Lookout for work-app.
+Si l’appareil est évalué comme non conforme à la stratégie de conformité, l’accès aux ressources telles que SharePoint Online et Exchange Online peut être bloqué à l’aide de stratégies d’accès conditionnel. Si l’accès est bloqué, une procédure pas à pas est indiquée aux utilisateurs finaux pour les aider à résoudre le problème et à récupérer l’accès aux ressources d’entreprise. Cette procédure pas à pas s’affiche dans l’application Lookout for Work.
 
-## <a name="supported-platforms"></a>Ondersteunde platforms:
-* **Android 4.1 en hoger**, en ingeschreven bij Microsoft Intune.
-* **iOS 8 en hoger**, en ingeschreven bij Microsoft Intune.
-Zie voor informatie over platforms en talen die ondersteuning biedt voor Lookout [artikel](https://personal.support.lookout.com/hc/en-us/articles/114094140253).
+## <a name="supported-platforms"></a>Plateformes prises en charge :
+* **Android 4.1 et versions ultérieures**, et inscription à Microsoft Intune.
+* **iOS 8 et versions ultérieures**, et inscription à Microsoft Intune.
+Pour plus d’informations sur les plateformes et les langues prises en charge par Lookout, consultez cet [article](https://personal.support.lookout.com/hc/en-us/articles/114094140253).
 
-## <a name="prerequisites"></a>Vereisten:
-* [Hybride MDM-implementatie](https://docs.microsoft.com/sccm/mdm/understand/choose-between-standalone-intune-and-hybrid-mobile-device-management)
-* Een abonnement op Microsoft Intune en Azure Active Directory.
-* Een enterprise-abonnement op Lookout Mobile EndPoint Security.  Zie voor meer informatie [Lookout Mobile Endpoint Security](https://www.lookout.com/products/mobile-endpoint-security)
+## <a name="prerequisites"></a>Conditions préalables :
+* [Déploiement de la gestion des appareils mobiles hybride](https://docs.microsoft.com/sccm/mdm/understand/choose-between-standalone-intune-and-hybrid-mobile-device-management)
+* Abonnement à Microsoft Intune et Azure Active Directory.
+* Abonnement d’entreprise à Lookout Mobile EndPoint Security.  Pour plus d’informations, consultez [Lookout Mobile Endpoint Security](https://www.lookout.com/products/mobile-endpoint-security)
 
-## <a name="example-scenarios"></a>Voorbeeldscenario 's
-Hieronder volgen enkele algemene scenario's:
-### <a name="control-access-based-on-threat-from-malicious-apps"></a>Toegangsbeheer op basis van dreiging van schadelijke apps:
-Wanneer schadelijke apps zoals malware wordt gedetecteerd op het apparaat, kunt u dergelijke apparaten blokkeren:
-* Verbinding maken met zakelijke e-mailadres voor het omzetten van de bedreiging.
-* Synchroniseren van zakelijke bestanden met behulp van de OneDrive voor Work-app.
-* Toegang tot essentiële apps.
+## <a name="example-scenarios"></a>Exemples de scénarios
+Voici quelques scénarios courants :
+### <a name="control-access-based-on-threat-from-malicious-apps"></a>Contrôler l’accès en fonction de la menace émanant des applications malveillantes :
+Quand des applications ou programmes malveillants sont détectés sur un appareil, vous pouvez empêcher l’appareil d’effectuer les opérations suivantes :
+* Se connecter à la messagerie d’entreprise tant que la menace n’est pas résolue.
+* Synchroniser les fichiers d’entreprise à l’aide de l’application OneDrive pour le travail.
+* Accéder à des applications stratégiques.
 
-**De toegang is geblokkeerd wanneer schadelijke apps worden gedetecteerd:**
+**Accès bloqué après la détection d’applications malveillantes :**
 
-![diagram van voorwaardelijk beleid blokkeren van toegang wanneer het apparaat niet-compatibele vanwege schadelijke apps op het apparaat wordt bepaald](media/config-mgr-maliciousapps_blocked.png)
+![Diagramme illustrant une stratégie d’accès conditionnel interdisant l’accès quand l’appareil est évalué comme non conforme en raison de la présence d’applications malveillantes](media/config-mgr-maliciousapps_blocked.png)
 
-**Apparaat gedeblokkeerd en toegang tot bedrijfsresources wanneer de bedreiging wordt hersteld is:**
+**Appareil débloqué pouvant accéder aux ressources d’entreprise après correction de la menace :**
 
-![diagram van beleid voor voorwaardelijke toegang verlenen van toegang wanneer het apparaat wordt bepaald aan het beleid voldoen na herstel](media/config-mgr-maliciousapps-unblocked.png)
-### <a name="control-access-based-on-threat-to-network"></a>Toegangsbeheer op basis van het netwerk:
-Bedreigingen voor uw netwerk zoals Man-in-the-middle-aanvallen te detecteren en beperk de toegang tot Wi-Fi-netwerken op basis van het risico van het apparaat.
+![Diagramme illustrant une stratégie d’accès conditionnel accordant l’accès quand l’appareil est évalué comme conforme après correction](media/config-mgr-maliciousapps-unblocked.png)
+### <a name="control-access-based-on-threat-to-network"></a>Contrôler l’accès en fonction de la menace pour le réseau :
+Détectez les menaces pour votre réseau, telles que les attaques de l’intercepteur (« Man-in-the-middle »), et restreignez l’accès aux réseaux Wi-Fi en fonction du risque évalué pour l’appareil.
 
-**Toegang tot netwerk via Wi-Fi geblokkeerd:**
+**Accès au réseau par Wi-Fi bloqué :**
 
-![diagram van voorwaardelijke toegang blokkeren Wi-Fi-toegang op basis van bedreigingen voor netwerken](media/config-mgr-network-wifi-blocked.png)
+![Diagramme illustrant l’accès conditionnel interdisant l’accès par Wi-Fi en fonction des menaces pour le réseau](media/config-mgr-network-wifi-blocked.png)
 
-**De toegang is verleend op herstel:**
+**Accès accordé après correction :**
 
-![diagram van voorwaardelijke toegang waardoor de toegang van herstel van de bedreiging](media/config-mgr-network-wifi-unblocked.png)
-### <a name="control-access-to-sharepoint-online-based-on-threat-to-network"></a>Toegang tot SharePoint Online op basis van het netwerk beheren:
+![Diagramme illustrant l’accès conditionnel autorisant l’accès après correction de la menace](media/config-mgr-network-wifi-unblocked.png)
+### <a name="control-access-to-sharepoint-online-based-on-threat-to-network"></a>Contrôler l’accès à SharePoint Online en fonction de la menace pour le réseau :
 
-Bedreigingen voor uw netwerk zoals Man-in-the-middle-aanvallen te detecteren en te voorkomen dat de synchronisatie van zakelijke bestanden op basis van het risico van het apparaat.
+Détectez les menaces pour votre réseau, telles que les attaques de l’intercepteur, et empêchez la synchronisation des fichiers d’entreprise en fonction du risque évalué pour l’appareil.
 
-**Toegang tot SharePoint Online op basis van netwerk-bedreiging is gedetecteerd op het apparaat geblokkeerd:**
+**Accès à SharePoint Online bloqué en raison de la menace pour le réseau détectée sur l’appareil :**
 
-![Diagram van voorwaardelijke toegang Apparaattoegang tot SharePoint Online op basis van detectie van dreigingen worden geblokkeerd](media/config-mgr-network-spo-blocked.png)
+![Diagramme illustrant l’accès conditionnel interdisant l’accès de l’appareil à SharePoint Online après détection de la menace](media/config-mgr-network-spo-blocked.png)
 
 
-**De toegang is verleend op herstel:**
+**Accès accordé après correction :**
 
-![Diagram van voorwaardelijke toegang om toegang kunnen nadat de netwerk-bedreiging is hersteld](media/config-mgr-network-spo-unblocked.png)
+![Diagramme illustrant l’accès conditionnel autorisant l’accès après correction de la menace pour le réseau](media/config-mgr-network-spo-unblocked.png)
 
-## <a name="next-steps"></a>Volgende stappen
-Hier volgen de belangrijkste stappen die u doen moet om deze oplossing te implementeren:
-1.  [Instellen van uw abonnement met Lookout mobiele threat protection](set-up-your-subscription-with-lookout.md)
-2.  [Lookout MTP-verbinding in Intune inschakelen](enable-lookout-connection-in-intune.md)
-3.  [Configureer en implementeer Lookout voor work-toepassing](configure-and-deploy-lookout-for-work-apps.md)
-4.  [Nalevingsbeleid configureren](enable-device-threat-protection-rule-compliance-policy.md)
-5.  [Problemen oplossen met de integratie van Lookout](troubleshoot-lookout-integration.md)
+## <a name="next-steps"></a>Étapes suivantes
+Voici les principales étapes à effectuer pour implémenter cette solution :
+1.  [Configurer votre abonnement avec Lookout Mobile Threat Protection](set-up-your-subscription-with-lookout.md)
+2.  [Activer la connexion à Lookout MTP dans Intune](enable-lookout-connection-in-intune.md)
+3.  [Configurer et déployer l’application Lookout for Work](configure-and-deploy-lookout-for-work-apps.md)
+4.  [Configurer une stratégie de conformité](enable-device-threat-protection-rule-compliance-policy.md)
+5.  [Résoudre les problèmes liés à l’intégration de Lookout](troubleshoot-lookout-integration.md)

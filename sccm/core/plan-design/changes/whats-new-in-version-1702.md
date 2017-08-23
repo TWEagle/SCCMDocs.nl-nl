@@ -1,6 +1,6 @@
 ---
-title: Nieuwe versie 1702 | Microsoft Docs
-description: "Meer informatie over deze wijzigingen en nieuwe mogelijkheden die zijn geïntroduceerd in versie 1702 van System Center Configuration Manager."
+title: "Nouvelle version 1702 | Microsoft Docs"
+description: "Obtenez des détails sur les modifications et les nouvelles fonctionnalités introduites dans la version 1702 de System Center Configuration Manager."
 ms.custom: na
 ms.date: 05/02/2017
 ms.reviewer: na
@@ -14,320 +14,320 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: a2954b3c6f9a09b7246347e780c4cfc49ba39ca1
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="what39s-new-in-version-1702-of-system-center-configuration-manager"></a>Wat &#39; s is nieuw in versie 1702 van System Center Configuration Manager
+# <a name="what39s-new-in-version-1702-of-system-center-configuration-manager"></a>Nouveautés de la version 1702 de System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Update 1702 voor de huidige vertakking van System Center Configuration Manager is beschikbaar als een update in de console voor eerder geïnstalleerde sites waarop versie 1602 1606 of 1610 uitgevoerd. Het is ook beschikbaar als een basislijnversie die u gebruiken kunt bij het installeren van een nieuwe implementatie.
+La mise à jour 1702 de la version Current Branch de System Center Configuration Manager est une mise à jour dans la console des sites déjà installés qui exécutent la version 1602, 1606 ou 1610. Elle est également disponible sous la forme d’une version de ligne de base, que vous pouvez utiliser lors de l’installation d’un nouveau déploiement.
 
 > [!TIP]  
-> Een nieuwe site te installeren, moet u een basislijnversie van Configuration Manager.  
->  Meer informatie over:    
->   - [Nieuwe sites installeren](https://technet.microsoft.com/library/mt590197.aspx)  
->   - [Updates installeren op sites](https://technet.microsoft.com/library/mt607046.aspx)  
->   - [Basislijn- en updateversies](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions)  
+> Pour installer un nouveau site, vous devez utiliser une version de base de Configuration Manager.  
+>  Informations supplémentaires :    
+>   - [Installation de nouveaux sites](https://technet.microsoft.com/library/mt590197.aspx)  
+>   - [Installation de mises à jour sur les sites](https://technet.microsoft.com/library/mt607046.aspx)  
+>   - [Versions de base et de mise à jour](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions)  
 
-De volgende secties bevatten informatie over wijzigingen en nieuwe mogelijkheden die zijn geïntroduceerd in versie 1702 van Configuration Manager.  
+Les sections suivantes fournissent des détails sur les modifications et les nouvelles fonctionnalités introduites dans la version 1702 de Configuration Manager.  
 
-## <a name="deprecated-features-and-operating-systems"></a>Afgeschafte functies en -besturingssystemen
-Meer informatie over ondersteuning voor wijzigingen voordat ze worden geïmplementeerd in [verwijderde en afgeschafte functies](/sccm/core/plan-design/changes/removed-and-deprecated-features).
+## <a name="deprecated-features-and-operating-systems"></a>Fonctionnalités et systèmes d'exploitation déconseillés
+En savoir plus sur les modifications de prise en charge avant leur implémentation dans des [fonctionnalités supprimées et déconseillées](/sccm/core/plan-design/changes/removed-and-deprecated-features).
 
-Versie 1702 geen ondersteuning meer voor de volgende producten:
-- **SQL Server 2008 R2**, voor site-databaseservers. Afschaffing van ondersteuning is [eerst aangekondigd](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-support-for-sql-server-versions-as-a-site-database) op 10 juli 2015. Deze versie van SQL Server blijft ondersteund wanneer u een Configuration Manager versie voorafgaand aan versie 1702 gebruikt.
-- **Windows Server 2008 R2**, voor sitesysteemservers en de meeste sitesysteemrollen. Afschaffing van ondersteuning is [eerst aangekondigd](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-operating-systems) op 10 juli 2015. Deze versie van Windows blijft ondersteund wanneer u een Configuration Manager versie voorafgaand aan versie 1702 gebruikt.  
-- **Windows Server 2008**, voor sitesysteemservers en de meeste sitesysteemrollen. Afschaffing van ondersteuning is [eerst aangekondigd](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-operating-systems) op 10 juli 2015.
-- **Windows XP Embedded**, als een client-besturingssysteem. Afschaffing is [eerst aangekondigd](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-operating-systems) op 10 juli 2015. Deze versie van Windows blijft ondersteund wanneer u een Configuration Manager versie voorafgaand aan versie 1702 gebruikt.
-
-
+La version 1702 n’offre plus de prise en charge pour les produits suivants :
+- **SQL Server 2008 R2**, pour les serveurs de base de données de site. La fin de la prise en charge a été [annoncée](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-support-for-sql-server-versions-as-a-site-database) le 10 juillet 2015. Cette version de SQL Server reste prise en charge si vous utilisez une version de Configuration Manager antérieure à la version 1702.
+- **Windows Server 2008 R2**, pour les serveurs de système de site et la plupart des rôles de système de site. La fin de la prise en charge a été [annoncée](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-operating-systems) le 10 juillet 2015. Cette version de Windows reste prise en charge si vous utilisez une version de Configuration Manager antérieure à la version 1702.  
+- **Windows Server 2008**, pour les serveurs de système de site et la plupart des rôles de système de site. La fin de la prise en charge a été [annoncée](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-operating-systems) le 10 juillet 2015.
+- **Windows XP Embedded**, en tant que système d’exploitation client. La fin de la prise en charge a été [annoncée](/sccm/core/plan-design/changes/removed-and-deprecated-features#deprecated-operating-systems) le 10 juillet 2015. Cette version de Windows reste prise en charge si vous utilisez une version de Configuration Manager antérieure à la version 1702.
 
 
-## <a name="site-infrastructure"></a>Site-infrastructuur
-
-### <a name="improvements-for-in-console-search"></a>Verbeteringen voor zoeken in de console
-De volgende zijn verbeteringen voor het gebruik van zoeken in de Configuration Manager-console:
- - **Pad naar het object:**  
-  Veel objecten ondersteunen nu een kolom genaamd **objectpad**.  Wanneer u zoeken en deze kolom in de weergave van de resultaten bevatten, kunt u het pad naar elk object kunt weergeven. Bijvoorbeeld, als u een zoekopdracht voor apps in het knooppunt toepassingen uitvoeren en zoekt ook onderliggende knooppunten de *objectpad* kolom in het resultatenvenster ziet u het pad voor elk object dat wordt geretourneerd.   
-
-- **Behoud van zoektekst:**  
-  Wanneer u tekst in het zoekvak invoeren en weer schakelen tussen het zoeken naar een onderliggende knooppunt en het huidige knooppunt, wordt de tekst die u hebt getypt nu behouden blijven en beschikbaar blijven voor een nieuwe zoekopdracht zonder deze opnieuw in te voeren.
-
-- **Behoud van uw beslissing om te zoeken van onderliggende knooppunten:**  
- De optie die u kiest voor het zoeken in de *huidige knooppunt* of *alle onderliggende knooppunten* nu zich blijft voordoen wanneer u het knooppunt dat u in werkt wijzigt. Dit betekent dat u niet deze beslissing voortdurend opnieuw instellen wilt als u de console navigeert. Als u de console opent is de optie om te zoeken alleen het huidige knooppunt.
 
 
-### <a name="send-feedback-from-the-configuration-manager-console"></a>Feedback verzenden vanuit de Configuration Manager-console
+## <a name="site-infrastructure"></a>Infrastructure de site
 
- U kunt de feedback in de console-opties gebruiken en feedback verzenden rechtstreeks naar het ontwikkelingsteam.
+### <a name="improvements-for-in-console-search"></a>Améliorations apportées à la recherche dans la console
+Voici des améliorations apportées à l’utilisation de la recherche dans la console Configuration Manager :
+ - **Chemin d’accès de l’objet :**  
+  De nombreux objets prennent désormais en charge une colonne nommée **Chemin d’accès de l’objet**.  Quand vous effectuez des recherches et incluez cette colonne dans les résultats d’affichage, vous pouvez afficher le chemin d’accès à chaque objet. Par exemple, si vous exécutez une recherche d’applications dans le nœud Applications et également dans les sous-nœuds, la colonne *Chemin d’accès de l’objet* dans le volet des résultats affiche le chemin d’accès à chaque objet retourné.   
 
- U vindt de **Feedback** optie:
- -  In het lint, aan de linkerkant van het tabblad Start van elk knooppunt.  
-    ![Lint](./media/feedback-home.png)
+- **Conservation du texte recherché :**  
+  Quand vous entrez du texte dans la zone de recherche, puis que vous changez la zone dans laquelle effectuer la recherche (d’un sous-nœud au nœud actuel), le texte saisi est désormais conservé et vous n’avez pas à le retaper.
 
- -  Wanneer u met de rechtermuisknop op een object in de console.   
-     ![De optie kopiëren en klik op](./media/feedback-option.png)   
-
- Kiezen **Feedback** opent uw browservenster met de [website voor Configuration Manager UserVoice-feedback over](https://go.microsoft.com/fwlink/?linkid=617029).
-
-
-###  <a name="changes-for-updates-and-servicing"></a>Wijzigingen voor Updates en onderhoud
-Hier volgen de wijzigingen voor Updates en onderhoud:
-
-- **Locatie van knooppunt**   
-  Na de installatie van versie 1702, de **Updates en onderhoud** knooppunt wordt weergegeven als een knooppunt op het hoogste niveau onder **beheer**. Het is niet langer een onderliggend knooppunt onderstaande **Cloudservices**.
-
-- **Nieuwe updatestatussen**  
-  Wanneer u de beschikbare updates in de console bekijken, moet u er twee nieuwe statussen zijn:  
-  - **Beschikbaar voor installatie** -dit is een update die is gedownload en gereed om te installeren.
-  - **Gereed voor download** -met deze update is beschikbaar, maar is niet gedownload. U kunt deze update wilt downloaden, maar deze is vervangen door een recentere update.
+- **Maintien de votre décision d’effectuer des recherches dans les sous-nœuds :**  
+ L’option que vous choisissez pour effectuer des recherches dans le *nœud actuel* ou *tous les sous-nœuds* est désormais conservée quand vous changez le nœud dans lequel vous travaillez. Ce nouveau comportement signifie que vous n’avez pas besoin de réinitialiser constamment la décision quand vous parcourez la console. Par défaut, quand vous ouvrez la console, l’option consiste à effectuer des recherches uniquement dans le nœud actuel.
 
 
-- **Eenvoudiger update keuzes**  
-  De volgende keer dat uw infrastructuur in aanmerking komt voor twee of meer updates, wordt alleen de meest recente update gedownload. Bijvoorbeeld, als uw huidige siteversie is twee of meer ouder is dan de meest recente versie die beschikbaar is, is deze meest recente updateversie automatisch wordt gedownload.  
+### <a name="send-feedback-from-the-configuration-manager-console"></a>Envoyer des commentaires à partir de la console Configuration Manager
 
-  U kunt downloaden en installeren van de andere beschikbare updates, zelfs wanneer ze niet de meest recente versie. Als u een oudere update downloadt, ontvangt u een waarschuwing dat de update is vervangen door een nieuwere versie. Voor het downloaden van een update die *beschikbaar voor Download*, selecteert u de update in de console en klik vervolgens op **downloaden**.
+ Vous pouvez utiliser les options de commentaires dans la console pour envoyer vos commentaires directement à l’équipe de développement.
 
-- **Verbeterde het opruimen van de oudere updates**   
-  We hebben een automatische opschoning-functie die de overbodige downloads uit de map 'EasySetupPayload' op uw siteserver verwijdert toegevoegd. Omdat dit is geïntroduceerd in versie 1702, begint de opschonen na de installatie van een nieuwe update zoals een updatepakket of een toekomstige updateversie werken.  
+ L’option **Commentaires** est accessible :
+ -  Dans le ruban, à l’extrême gauche de l’onglet Accueil de chaque nœud.  
+    ![Ruban](./media/feedback-home.png)
 
+ -  Quand vous cliquez avec le bouton droit sur n’importe quel objet dans la console.   
+     ![Option de clic droit](./media/feedback-option.png)   
 
-### <a name="data-warehouse-service-point"></a>Datawarehouse-servicepunt
- Gebruik de datawarehouse-servicepunt op te slaan en te rapporteren over langetermijnopslag van historische gegevens voor uw Configuration Manager-implementatie.
-
- Het datawarehouse ondersteunt maximaal 2 TB aan gegevens, met een tijdstempel voor het bijhouden. Opslag van gegevens wordt gedaan door geautomatiseerde synchronisaties uit de sitedatabase van Configuration Manager met de datawarehouse-database. Deze gegevens zijn toegankelijk is vanaf uw Reporting Services-punt.
-
- Zie voor meer informatie [The Data Warehouse-servicepunt](/sccm/core/servers/manage/data-warehouse).
+ Un clic sur **Commentaires** affiche le site de commentaires [Configuration Manager UserVoice dans votre navigateur](https://go.microsoft.com/fwlink/?linkid=617029).
 
 
-### <a name="peer-cache-improvements"></a>Verbeteringen voor peer-Cache
- Vanaf versie 1702, weigert een peer-cache-broncomputer een aanvraag voor inhoud wanneer de peer-cache-bron-computer voldoet aan een van de volgende voorwaarden:  
-  -  In de modus voor laag accuvermogen is.
-  -  CPU-belasting groter is dan 80% op het moment dat de inhoud wordt aangevraagd.
-  -  Schijf-i/o heeft een *AvgDiskQueueLength* die groter is dan 10.
-  -  Er zijn niet meer beschikbaar zijn verbindingen met de computer.   
-Zie voor meer informatie **beperkte toegang tot een peer-cachebron** in [Peer-Cache voor Configuration Manager-clients](/sccm/core/plan-design/hierarchy/client-peer-cache).   
+###  <a name="changes-for-updates-and-servicing"></a>Modifications pour les mises à jour et la maintenance
+Voici des modifications apportées aux mises à jour et à la maintenance :
 
-Daarnaast zijn drie nieuwe rapporten toegevoegd aan uw rapportagepunt. U kunt deze rapporten gebruiken om te begrijpen meer informatie over geweigerde aanvragen voor inhoud, inclusief welke grens groep-, computer- en inhoud is betrokken. Zie [bewaking](/sccm/core/plan-design/hierarchy/client-peer-cache#monitoring) in het onderwerp van peer-cache.
+- **Emplacement du nœud**   
+  Après avoir installé la version 1702, le nœud **Mises à jour et maintenance** apparaît comme un nœud de niveau supérieur sous **Administration**. Il n’est plus un nœud enfant situé sous **Services de cloud**.
 
-### <a name="content-library-cleanup-tool"></a>Inhoudsbibliotheek opschoonprogramma
- Gebruik de [Inhoudsbibliotheek opschoonprogramma](/sccm/core/plan-design/hierarchy/content-library-cleanup-tool) inhoud van distributiepunten verwijderen wanneer deze inhoud niet meer gekoppeld aan een toepassing is.
+- **Nouveaux états de mise à jour**  
+  Lorsque vous affichez les mises à jour disponibles dans la console, deux nouveaux états apparaissent :  
+  - **Disponible pour l’installation** : il s’agit d’une mise à jour qui a été téléchargée et qui est prête à être installée.
+  - **Prêt pour le téléchargement** : cette mise à jour est disponible mais n’a pas été téléchargée. Vous pouvez choisir de télécharger cette mise à jour, mais elle a été remplacée par une mise à jour plus récente.
 
 
-### <a name="use-the-oms-connector-with-the-azure-government-cloud"></a>Gebruik de OMS-connector met de cloud Azure Government
-Verbinding maken met OMS Log Analytics in Microsoft Azure Government cloud kunt u de OMS-connector. Hiervoor moet u een configuratiebestand aanpassen voordat u de OMS-connector installeert, zodat de connector met de cloud van de overheid werken kunt. Zie voor meer informatie [de OMS-connector gebruiken met de cloud Azure Government](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite#fairfaxconfig).
+- **Choix de mise à jour plus simples**  
+  Si votre infrastructure est en droit de recevoir plusieurs mises à jour, seule la dernière mise à jour est téléchargée. Par exemple, si le numéro de version actuel de votre site est inférieur de deux ou plus à la version la plus récente disponible, seule cette dernière version de mise à jour est téléchargée automatiquement.  
 
-### <a name="software-update-points-are-added-to-boundary-groups"></a>Software-updatepunten zijn toegevoegd aan grensgroepen
-Vanaf versie 1702, clients gebruiken grensgroepen om te zoeken naar een nieuw software-updatepunt en terugval en zoeken naar een nieuwe software-updatepunt als de huidige bewerking is niet langer toegankelijk. U kunt afzonderlijke software-updatepunten toevoegen aan verschillende grensgroepen om te bepalen welke servers een client kunt vinden. Zie voor meer informatie [software-updatepunten](/sccm/core/servers/deploy/configure/boundary-groups#software-update-points) in de [grensgroepen configureren](/sccm/core/servers/deploy/configure/boundary-groups) onderwerp.
+  Vous pouvez choisir de télécharger et d’installer les autres mises à jour disponibles, même quand il ne s’agit pas de la version la plus récente. Si vous téléchargez une mise à jour plus ancienne, vous recevrez un message d’avertissement indiquant que la mise à jour a été remplacée par une version plus récente. Pour télécharger une mise à jour qui est *Disponible en téléchargement*, sélectionnez la mise à jour dans la console, puis cliquez sur **Télécharger**.
+
+- **Nettoyage amélioré des anciennes mises à jour**   
+  Nous avons ajouté une fonction de nettoyage automatique qui supprime les téléchargements inutiles du dossier « EasySetupPayload » sur votre serveur de site. Puisqu’elle a été introduite avec la version 1702, la fonction de nettoyage commence à fonctionner après l’installation d’une mise à jour comme un correctif cumulatif ou une version de mise à jour ultérieure.  
+
+
+### <a name="data-warehouse-service-point"></a>Point de service de l’entrepôt de données
+ Utilisez le point de service de l’entrepôt de données pour stocker des données d’historique à long terme et créer des rapports sur celles-ci pour votre déploiement de Configuration Manager.
+
+ L’entrepôt de données prend en charge jusqu’à 2 To de données, avec des horodatages pour le suivi des modifications. Pour stocker des données, vous utilisez des synchronisations automatisées entre la base de données du site Configuration Manager et la base de données de l’entrepôt de données. Ces informations sont ensuite accessibles à partir de votre point de Reporting Services.
+
+ Pour en savoir plus, consultez la section relative au [point de service de l’entrepôt de données](/sccm/core/servers/manage/data-warehouse).
+
+
+### <a name="peer-cache-improvements"></a>Améliorations de Cache d’homologue
+ À compter de la version 1702, un ordinateur source de cache d’homologue rejette une demande de contenu quand il remplit l’une des conditions suivantes :  
+  -  Il est en mode de batterie faible.
+  -  La charge de l’UC dépasse 80 % au moment où le contenu est demandé.
+  -  Les E/S disque ont une valeur *AvgDiskQueueLength* supérieure à 10.
+  -  Il n’y a plus de connexion disponible vers l’ordinateur.   
+Pour plus d’informations, consultez **Accès limité à une source de cache d’homologue** dans [Cache d’homologue pour les clients Configuration Manager](/sccm/core/plan-design/hierarchy/client-peer-cache).   
+
+En outre, trois nouveaux rapports sont ajoutés à votre point de rapport. Vous pouvez utiliser ces rapports pour obtenir plus de détails sur les requêtes de contenu rejetées, notamment le groupe de limites, l’ordinateur et le contenu impliqués. Consultez la section [Surveillance](/sccm/core/plan-design/hierarchy/client-peer-cache#monitoring) dans la rubrique de cache d’homologue.
+
+### <a name="content-library-cleanup-tool"></a>Outil de nettoyage de la bibliothèque de contenu
+ Utilisez l’[outil de nettoyage de la bibliothèque de contenu](/sccm/core/plan-design/hierarchy/content-library-cleanup-tool) pour supprimer du contenu des points de distribution lorsque ce contenu n’est plus associé à une application.
+
+
+### <a name="use-the-oms-connector-with-the-azure-government-cloud"></a>Utiliser le connecteur OMS avec Azure Government Cloud
+Vous pouvez utiliser le connecteur OMS pour vous connecter à OMS Log Analytics dans Azure Government Cloud. Pour cela, vous devez modifiez un fichier de configuration avant d’installer le connecteur OMS afin que le connecteur puisse travailler avec Government Cloud. Pour plus d’informations, consultez [Utiliser le connecteur OMS avec Azure Government Cloud](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite#fairfaxconfig).
+
+### <a name="software-update-points-are-added-to-boundary-groups"></a>Des points de mise à jour logicielle sont ajoutés aux groupes de limites
+Depuis la version 1702, les clients utilisent des groupes de limites pour rechercher un nouveau point de mise à jour logicielle et pour rétablir et trouver un nouveau point de mise à jour logicielle si leur point actuel n’est plus accessible. Vous pouvez ajouter des points de mise à jour logicielle individuels à différents groupes de limites pour contrôler les serveurs qu’un client peut trouver. Pour plus d’informations, consultez la section [Points de mise à jour logicielle](/sccm/core/servers/deploy/configure/boundary-groups#software-update-points) dans la rubrique [Configuration des groupes de limites](/sccm/core/servers/deploy/configure/boundary-groups).
 
 
 <!-- ## Migration  -->
 
 <!-- ## Client management  -->
 
-## <a name="compliance-settings"></a>Instellingen voor naleving
+## <a name="compliance-settings"></a>Paramètres de compatibilité
 
-### <a name="new-compliance-settings-for-ios"></a>Nieuwe instellingen voor naleving voor iOS
+### <a name="new-compliance-settings-for-ios"></a>Nouveaux paramètres de conformité pour iOS
 
-We hebt veel nieuwe instellingen voor iOS-apparaten zodat deze overeenkomen met die beschikbaar zijn met Microsoft Intune toegevoegd.
-Zie voor een lijst met alle beschikbare instellingen [configuratie-items maken voor iOS en Mac OS X-apparaten worden beheerd door Intune](/sccm/mdm/deploy-use/create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client).
-
-
-## <a name="application-management"></a>Toepassingsbeheer
-
-### <a name="improved-support-for-windows-store-for-business-apps"></a>Verbeterde ondersteuning voor Windows Store voor bedrijven-apps
-
-U kunt nu online gelicentieerde apps uit de Windows Store voor bedrijven om Windows 10-pc's die u beheert met de Configuration Manager-client te implementeren.
-Zie voor meer informatie [apps beheren via de Windows Store voor bedrijven](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
-
-### <a name="check-for-running-executable-files-before-installing-an-application"></a>Controleer voor het uitvoeren van uitvoerbare bestanden voordat u een toepassing installeert
-
-In de **eigenschappen** in het dialoogvenster van een implementatie hebt getypt, op de **gedrag installeren** tabblad kunt u een meer uitvoerbare bestanden die als actief is, wordt de installatie van het implementatietype blokkeren. De gebruiker moet de lopende uitvoerbaar bestand sluiten (of het automatisch kan worden gesloten voor implementaties met als doel vereist) voordat de implementatie van het type kan worden geïnstalleerd.
-
-Als de toepassing is geïmplementeerd als **beschikbaar**, en een eindgebruiker probeert een toepassing te installeren, wordt hij gevraagd om te sluiten van alle actieve uitvoerbare bestanden opgegeven voordat ze de installatie kunnen voortzetten.
-
-Als de toepassing is geïmplementeerd als **vereist**, en de optie **automatisch sluit alle actieve uitvoerbare bestanden die u hebt opgegeven op het tabblad voor het gedrag van installatie van het dialoogvenster voor eigenschappen van implementatie type** is geselecteerd, zien ze een dialoogvenster waarin ze worden geïnformeerd dat uitvoerbare bestanden die u hebt opgegeven automatisch worden gesloten wanneer de deadline van de installatie van de toepassing is bereikt.
-
-### <a name="app-management-improvements-for-hybrid-mdm"></a>App management verbeteringen voor hybride MDM
-
-- [Volume-purchased iOS-apps implementeren op apparaatverzamelingen](#deploy-volume-purchased-ios-apps-to-device-collections)
-- [Ondersteuning voor iOS Volume Purchase Program voor onderwijs](#support-for-ios-volume-purchase-program-for-education)
-- [Ondersteuning voor meerdere volume purchase program-tokens](#support-for-multiple-volume-purchase-program-tokens)
+Nous avons ajouté plusieurs nouveaux paramètres afin que les appareils iOS correspondent à ceux qui sont disponibles avec Microsoft Intune.
+Pour obtenir une liste de tous les paramètres disponibles, consultez [Créer des éléments de configuration pour les appareils iOS et Mac OS X gérés via Microsoft Intune](/sccm/mdm/deploy-use/create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client).
 
 
-## <a name="operating-system-deployment"></a>Implementatie van besturingssystemen
+## <a name="application-management"></a>Gestion des applications
 
-### <a name="expire-stand-alone-media"></a>Verlopen van zelfstandige media
-Wanneer u zelfstandige media maakt, zijn er nieuwe opties optionele begin- en verloopdatum datums instellen op de media. Deze instellingen zijn standaard uitgeschakeld. De datums worden vergeleken met de systeemtijd op de computer voordat de zelfstandige media wordt uitgevoerd. Wanneer de systeemtijd ouder dan de begintijd of hoger is dan de verlooptijd is, worden de zelfstandige media is niet gestart. Deze opties zijn ook beschikbaar via de cmdlet New-CMStandaloneMedia PowerShell. Zie voor meer informatie [zelfstandige media maken](/sccm/osd/deploy-use/create-stand-alone-media).
+### <a name="improved-support-for-windows-store-for-business-apps"></a>Meilleure prise en charge des applications du Windows Store pour Entreprises
 
-### <a name="package-id-displayed-in-task-sequence-steps"></a>Pakket-ID weergegeven in de stappen voor takenreeksen
-Elke takenreeks die verwijst naar een pakket, stuurprogrammapakket, besturingssysteemkopie, opstartinstallatiekopie of upgradepakket voor besturingssysteem wordt nu weergegeven voor de pakket-ID van het object waarnaar wordt verwezen. Als een takenreeksstap verwijst naar een toepassing, wordt weergegeven de object-ID.
+Vous pouvez désormais déployer des applications sous licence à partir du Windows Store pour Entreprises vers des PC sous Windows 10 que vous gérez à l’aide du client Configuration Manager.
+Pour plus d’informations, consultez [Gérer les applications à partir du Windows Store pour Entreprises](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 
-### <a name="support-for-additional-content-in-stand-alone-media"></a>Ondersteuning voor aanvullende inhoud in de zelfstandige media
-Aanvullende inhoud wordt nu ondersteund in zelfstandige media. U kunt extra pakketten, stuurprogrammapakketten en toepassingen moeten worden geïnstalleerd op de media en de andere inhoud waarnaar wordt verwezen in de takenreeks selecteren. Voorheen is alleen inhoud waarnaar wordt verwezen in de takenreeks voorbereid op zelfstandige media. Zie voor meer informatie [zelfstandige media maken](/sccm/osd/deploy-use/create-stand-alone-media).
+### <a name="check-for-running-executable-files-before-installing-an-application"></a>Vérifier si des fichiers exécutables sont en cours d’exécution avant d’installer une application
 
-### <a name="hardware-inventory-collects-uefi-information"></a>Hardware-inventaris verzamelt UEFI-informatie
-Een nieuwe hardware-inventarisklasse (**SMS_Firmware**) en de eigenschap (**UEFI**) zijn beschikbaar om te bepalen of een computer in UEFI-modus wordt gestart. Wanneer een computer in UEFI-modus is gestart de **UEFI** eigenschap is ingesteld op **TRUE**. Dit is standaard ingeschakeld in de hardware-inventaris. Zie voor meer informatie over hardware-inventaris [het configureren van hardware-inventaris](/sccm/core/clients/manage/inventory/configure-hardware-inventory).
+Dans la boîte de dialogue **Propriétés** d’un type de déploiement, sous l’onglet **Comportement à l’installation**, vous pouvez désormais spécifier un ou plusieurs fichiers exécutables qui, s’ils sont en cours d’exécution, bloqueront l’installation du type de déploiement. L’utilisateur doit fermer le fichier exécutable en cours d’exécution (ou il peut être fermé automatiquement pour les déploiements dont l’objet est défini sur Obligatoire) pour que le type de déploiement puisse être installé.
 
-### <a name="improvements-to-software-center-warning-messages-for-high-impact-task-sequences"></a>Verbeteringen aan Software Center waarschuwingsberichten voor hoge impact takenreeksen
-Deze release zijn de volgende verbeteringen aan Software Center waarschuwingsberichten voor takenreeksen hoge impact implementatie:
+Si l’application a été déployée en tant que **Disponible** et qu’un utilisateur final tente d’installer une application, il est invité à fermer les fichiers exécutables en cours d’exécution que vous avez spécifiés avant de poursuivre l’installation.
 
-- In de eigenschappen voor de takenreeks wordt uitgevoerd, kunt u nu een takenreeks wordt uitgevoerd, niet het besturingssysteemstation takenreeksen, waaronder als een implementatie met hoog risico configureren. Elke takenreeks die voldoet aan bepaalde voorwaarden wordt automatisch gedefinieerd als hoge impact. Zie voor meer informatie [beheren van implementaties met een hoog risico](/sccm/protect/understand/settings-to-manage-high-risk-deployments).
-- In de eigenschappen voor de takenreeks wordt uitgevoerd, kunt u het meldingsbericht standaard gebruiken of maken van uw eigen aangepaste Meldingsbericht voor implementaties met hoge impact.
-- In de eigenschappen voor de takenreeks wordt uitgevoerd, kunt u Software Center-eigenschappen, waaronder een herstart vereist is, Controleer de grootte van het downloadpakket van de takenreeks en de geschatte tijd worden uitgevoerd.
-- Het standaardbericht implementatie met hoge impact voor in-place upgrades nu statussen uw apps, gegevens en instellingen automatisch gemigreerd. Voorheen het standaardbericht voor de installatie van een besturingssysteem wordt aangegeven dat alle apps, gegevens en instellingen zouden verloren gaan, die is niet true zijn voor een in-place upgrade.
+Si l’application a été déployée en tant que **Obligatoire** et que l’option **Fermer automatiquement les fichiers exécutables en cours d’exécution que vous avez spécifiés sous l’onglet de comportement à l’installation de la boîte de dialogue des propriétés du type de déploiement** est sélectionnée, une boîte de dialogue signale à l’utilisateur que les fichiers exécutables que vous avez spécifiés seront fermés automatiquement quand l’installation de l’application arrivera à échéance.
 
-Zie voor meer informatie [hoge impact taak reeks instellingen configureren](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#set-a-task-sequence-as-a-high-impact-task-sequence)
+### <a name="app-management-improvements-for-hybrid-mdm"></a>Amélioration de la gestion des applications pour la gestion des appareils mobiles hybride
 
-### <a name="return-to-previous-page-when-a-task-sequence-fails"></a>Terug naar vorige pagina wanneer een takenreeks mislukt
-U kunt nu terugkeren naar een vorige pagina als u een takenreeks uitvoert en er een fout is. Vóór deze versie moest u de takenreeks opnieuw opstarten als er een fout is opgetreden. U kunt bijvoorbeeld de **vorige** knop in de volgende scenario's:
+- [Déployer des applications iOS achetées en volume sur des regroupements d’appareils](#deploy-volume-purchased-ios-apps-to-device-collections)
+- [Prise en charge du programme d’achat en volume iOS pour l’éducation](#support-for-ios-volume-purchase-program-for-education)
+- [Prise en charge de plusieurs jetons de programme d’achat en volume](#support-for-multiple-volume-purchase-program-tokens)
 
-- Wanneer een computer wordt opgestart in Windows PE, wordt het dialoogvenster taak sequence bootstrap mogelijk weer voordat de takenreeks beschikbaar is. Wanneer u in dit scenario op Volgende klikt, wordt de laatste pagina van de takenreeks weergegeven met een bericht dat er geen takenreeksen beschikbaar zijn. Nu kunt u **vorige** opnieuw zoeken naar beschikbare takenreeksen. U kunt dit proces herhalen totdat de takenreeks beschikbaar is.
-- Wanneer u een takenreeks uitvoert, maar de afhankelijke inhoud pakketten nog niet beschikbaar zijn op distributiepunten zijn, mislukt de takenreeks wordt uitgevoerd. U kunt nu de ontbrekende inhoud distribueren (indien deze nog niet is gedistribueerd) of wacht totdat de inhoud beschikbaar zijn op distributiepunten en klik op **vorige** het zoeken van de reeks taak opnieuw naar de inhoud hebben.
 
-### <a name="pre-cache-content-for-available-deployments-and-task-sequences"></a>Vooraf cache-inhoud voor beschikbare implementaties en takenreeksen
-Vanaf versie 1702, voor beschikbare implementaties van takenreeksen, kunt u vooraf cache-inhoud gebruiken. Vooraf cache-inhoud biedt u de optie voor het toestaan van de client alleen de inhoud te downloaden van toepassing als de implementatie wordt ontvangen. Daarom wanneer de gebruiker klikt op **installeren** in Software Center, de inhoud gereed is en de installatie begint snel omdat de inhoud op de lokale vaste schijf. Zie voor meer informatie [vooraf cache-inhoud configureren](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system#configure-pre-cache-content).
+## <a name="operating-system-deployment"></a>Déploiement du système d'exploitation
 
-### <a name="convert-from-bios-to-uefi-during-an-in-place-upgrade"></a>Converteren van BIOS naar UEFI tijdens een upgrade ter plekke
-Windows 10 auteurs Update introduceert een conversie van eenvoudige hulpprogramma dat automatiseert het proces voor het partitioneren van de harde schijf voor UEFI geschikte hardware en het hulpprogramma voor de conversie is geïntegreerd in de Windows 7 naar Windows 10 in-place upgradeproces. Wanneer u dit hulpprogramma worden gecombineerd met de upgradetakenreeks van uw besturingssysteem en het OEM-hulpprogramma dat de firmware van BIOS naar UEFI converteert, kunt u uw computers converteren vanuit BIOS naar UEFI tijdens een in-place upgrade naar de Update voor Windows 10 auteurs. Zie voor meer informatie [Takenreeksstappen voor het beheren van BIOS naar UEFI conversie](/sccm/osd/deploy-use/task-sequence-steps-to-manage-bios-to-uefi-conversion#convert-from-bios-to-uefi-during-an-in-place-upgrade).
+### <a name="expire-stand-alone-media"></a>Expiration des supports autonomes
+Lorsque vous créez un support autonome, de nouvelles options vous permettent de définir des dates facultatives de début et d’expiration pour ce support. Ces paramètres sont désactivés par défaut. Les dates sont comparées à l’heure système de l’ordinateur avant l’exécution du support autonome. Lorsque l’heure du système est antérieure à l’heure de début ou ultérieure à l’heure d’expiration, le support autonome n’est pas démarré. Ces options sont également disponibles avec l’applet de commande New-CMStandaloneMedia PowerShell. Pour plus d’informations, consultez [Créer un média autonome](/sccm/osd/deploy-use/create-stand-alone-media).
 
-### <a name="improvements-to-the-install-applications-task-sequence-step"></a>Verbeteringen aan de takenreeks toepassingen installeren-stap
-Deze versie zijn de volgende verbeteringen geïntroduceerd:
-- Vergroot het maximum aantal toepassingen die u kunt installeren en 99 in de **toepassingen installeren** takenreeksstap. Het vorige maximum aantal is 9 toepassingen.
-- Bij het toevoegen van toepassingen naar de **toepassingen installeren** takenreeksstap in de editor voor takenreeksen, kunt u nu meerdere toepassingen uit de **Selecteer de te installeren toepassing** deelvenster.
+### <a name="package-id-displayed-in-task-sequence-steps"></a>L’’ID de package s’affiche désormais dans les séquences de tâches
+Toutes les étapes de séquence de tâches qui font référence à un package, un package de pilotes, une image de système d’exploitation, une image de démarrage ou un package de mise à niveau de système d’exploitation affichent désormais l’ID de package de l’objet référencé. Lorsqu’une séquence de tâches fait référence à une application, elle affiche l’ID de l’objet.
 
-### <a name="improvements-to-the-auto-apply-driver-task-sequence"></a>Verbeteringen aan de takenreeks automatisch toepassen van stuurprogramma
-Nieuwe takenreeksvariabelen zijn nu beschikbaar voor het configureren van de time-outwaarde op de takenreeksstap voor het automatisch toepassen van stuurprogramma bij het maken van HTTP-aanvragen voor catalogus. De volgende variabelen en de standaardwaarden (in seconden) zijn beschikbaar:
+### <a name="support-for-additional-content-in-stand-alone-media"></a>Prise en charge du contenu supplémentaire dans un média autonome
+Le contenu supplémentaire est maintenant pris en charge dans le média autonome. Vous pouvez sélectionner des packages supplémentaires, des packages de pilotes et des applications en vue d’effectuer une copie intermédiaire sur les supports, ainsi que d’autres types de contenu référencés dans la séquence de tâches. Auparavant, seul le contenu référencé dans la séquence de tâches était copié sur les supports autonomes. Pour plus d’informations, consultez [Créer un média autonome](/sccm/osd/deploy-use/create-stand-alone-media).
+
+### <a name="hardware-inventory-collects-uefi-information"></a>L’inventaire matériel collecte des informations UEFI
+Une nouvelle classe d’inventaire matériel (**SMS_Firmware**) et une nouvelle propriété (**UEFI**) sont disponibles pour vous aider à déterminer si un ordinateur démarre ou non en mode UEFI. Quand un ordinateur démarre en mode UEFI, la propriété **UEFI** est définie sur **TRUE**. Cette option est activée dans l’inventaire matériel par défaut. Pour plus d’informations sur l’inventaire matériel, consultez [Guide pratique pour configurer l’inventaire matériel](/sccm/core/clients/manage/inventory/configure-hardware-inventory).
+
+### <a name="improvements-to-software-center-warning-messages-for-high-impact-task-sequences"></a>Améliorations apportées aux messages d’avertissement du Centre logiciel pour les séquences de tâches à fort impact
+Cette version inclut les améliorations suivantes apportées messages d’avertissement du Centre logiciel pour les séquences de tâches de déploiement à fort impact :
+
+- Dans les propriétés de la séquence de tâches, vous pouvez maintenant configurer n’importe quelle séquence de tâches, notamment celles non liées au système d’exploitation, comme déploiement à haut risque. Toute séquence de tâches qui remplit certaines conditions est définie automatiquement comme séquence à fort impact. Pour plus d’informations, consultez [Paramètres pour gérer les déploiements à haut risque pour System Center Configuration Manager](/sccm/protect/understand/settings-to-manage-high-risk-deployments).
+- Dans les propriétés de la séquence de tâches, vous pouvez choisir d’utiliser le message de notification par défaut ou créer votre propre message de notification personnalisé pour les déploiements à fort impact.
+- Dans les propriétés de la séquence de tâches, vous pouvez configurer les propriétés du Centre logiciel, notamment exiger un redémarrage ou définir la taille de téléchargement de la séquence de tâches et la durée d’exécution estimée.
+- Le message de déploiement à fort impact par défaut pour les mises à niveau sur place signale désormais que vos applications, vos données et vos paramètres sont migrés automatiquement. Auparavant, le message par défaut pour toute installation de système d’exploitation indiquait que tous les paramètres, les données et les applications seraient perdues, ce qui était faux pour une mise à niveau sur place.
+
+Pour plus d’informations, consultez [Configurer des paramètres de séquence de tâches à fort impact](/sccm/osd/deploy-use/manage-task-sequences-to-automate-tasks#set-a-task-sequence-as-a-high-impact-task-sequence)
+
+### <a name="return-to-previous-page-when-a-task-sequence-fails"></a>Revenir à la page précédente en cas d’échec d’une séquence de tâches
+Vous pouvez désormais revenir à une page précédente quand vous exécutez une séquence de tâches qui échoue. Avant cette version, vous deviez redémarrer la séquence de tâches en cas d’échec. Par exemple, vous pouvez utiliser le bouton **Précédent** dans les scénarios suivants :
+
+- Quand un ordinateur démarre dans Windows PE, la boîte de dialogue d’amorçage de la séquence de tâches peut s’afficher avant que la séquence de tâches ne soit disponible. Quand vous cliquez sur Suivant dans ce scénario, la dernière page de la séquence de tâches s’affiche avec un message indiquant qu’aucune séquence de tâches n’est disponible. À présent, vous pouvez cliquer sur **Précédent** pour relancer la recherche des séquences de tâches disponibles. Vous pouvez répéter ce processus jusqu’à ce que la séquence de tâches soit disponible.
+- Quand vous exécutez une séquence de tâches, mais que les packages de contenu dépendants ne sont pas encore disponibles sur les points de distribution, la séquence de tâches échoue. Vous pouvez désormais distribuer le contenu manquant (s’il ne l’a pas encore été) ou attendre qu’il soit disponible sur les points de distribution, puis cliquer sur **Précédent** pour que la séquence de tâches recherche une nouvelle fois le contenu.
+
+### <a name="pre-cache-content-for-available-deployments-and-task-sequences"></a>Mettre préalablement en cache le contenu pour les déploiements et les séquences de tâches disponibles
+Depuis la version 1702, pour les déploiements disponibles des séquences de tâches, vous pouvez choisir d’utiliser la mise en cache préalable du contenu. La mise en cache préalable du contenu permet au client de télécharger uniquement le contenu applicable dès qu’il reçoit le déploiement. Ainsi, quand l’utilisateur clique sur **Installer** dans le Centre logiciel, le contenu est prêt et l’installation démarre rapidement, car le contenu se trouve sur le disque dur local. Pour plus d’informations, consultez [Configurer la mise en cache préalable du contenu](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system#configure-pre-cache-content).
+
+### <a name="convert-from-bios-to-uefi-during-an-in-place-upgrade"></a>Convertir du BIOS en UEFI pendant une mise à niveau sur place
+Windows 10 Creators Update inclut un outil de conversion simple qui automatise le processus de repartitionnement du disque dur pour le matériel compatible UEFI et intègre l’outil de conversion dans le processus de mise à niveau sur place de Windows 7 vers Windows 10. Lorsque vous combinez cet outil avec la séquence de tâches de mise à niveau du système d’exploitation et l’outil OEM qui convertit le microprogramme du BIOS en UEFI, vous pouvez convertir vos ordinateurs du BIOS en UEFI pendant une mise à niveau sur place vers Windows 10 Creators Update. Pour plus d’informations, consultez [Étapes de séquence de tâches pour gérer la conversion du BIOS en UEFI](/sccm/osd/deploy-use/task-sequence-steps-to-manage-bios-to-uefi-conversion#convert-from-bios-to-uefi-during-an-in-place-upgrade).
+
+### <a name="improvements-to-the-install-applications-task-sequence-step"></a>Améliorations apportées à l’étape de séquence de tâches Installer les applications
+Cette version intègre les améliorations suivantes :
+- Augmentation à 99 du nombre maximal d’applications que vous pouvez installer dans l’étape de séquence de tâches **Installer les applications**. Auparavant, le maximum était de 9 applications.
+- Lorsque vous ajoutez une application dans la séquence de tâches **Installer les applications** dans l’éditeur de séquences de tâches, il vous est désormais possible de sélectionner plusieurs applications dans le volet **Sélectionner l’application à installer**.
+
+### <a name="improvements-to-the-auto-apply-driver-task-sequence"></a>Améliorations apportées à la séquence de tâches Appliquer automatiquement les pilotes
+De nouvelles variables de séquence de tâches sont désormais disponibles pour configurer le délai d’expiration dans la séquence de tâches Appliquer automatiquement les pilotes lorsque vous effectuez des demandes de catalogue HTTP. Les variables et valeurs par défaut (en secondes) suivantes sont disponibles :
    - SMSTSDriverRequestResolveTimeOut  
-     Standaardwaarde: 60
+     Par défaut : 60
    - SMSTSDriverRequestConnectTimeOut  
-     Standaardwaarde: 60
+     Par défaut : 60
    - SMSTSDriverRequestSendTimeOut  
-     Standaardwaarde: 60
+     Par défaut : 60
    - SMSTSDriverRequestReceiveTimeOut  
-     Standaardwaarde: 480
+     Par défaut : 480
 
-### <a name="windows-10-adk-tracked-by-build-version"></a>Windows 10 ADK bijgehouden door het build-versie
-Windows 10 ADK wordt nu bijgehouden door het build-versie om te controleren of een meer ondersteunde ervaring bij het Windows 10-opstartinstallatiekopieën aanpassen. Als de site de Windows ADK voor Windows 10 versie 1607 gebruikt, kunnen er bijvoorbeeld opstartinstallatiekopieën met versie 10.0.14393 worden aangepast in de console. Zie voor meer informatie over het aanpassen van WinPE-versies [opstartinstallatiekopieën aanpassen](/sccm/osd/get-started/customize-boot-images).
+### <a name="windows-10-adk-tracked-by-build-version"></a>Le kit de déploiement et d’évaluation Windows 10 (ADK) est suivi par le numéro de version
+Le kit de déploiement et d’évaluation Windows 10 est désormais suivi par le numéro de version pour garantir une meilleure prise en charge lors de la personnalisation d’images de démarrage Windows 10. Par exemple, si le site utilise la version 1607 du Windows ADK pour Windows 10, seules les images de démarrage dont la version est 10.0.14393 pourront être personnalisées dans la console. Pour plus d’informations sur la personnalisation des versions de WinPE, consultez [Personnaliser les images de démarrage](/sccm/osd/get-started/customize-boot-images).
 
-### <a name="default-boot-image-source-path-can-no-longer-be-changed"></a>Bronpad opstartimage standaard kan niet meer worden gewijzigd.
-Standaardopstartinstallatiekopieën worden beheerd door Configuration Manager en het bronpad standaard opstartimage kan niet meer worden gewijzigd in de Configuration Manager-console of met behulp van de Configuration Manager-SDK. U kunt blijven voor het configureren van een aangepaste bronpad voor aangepaste opstartinstallatiekopieën.
+### <a name="default-boot-image-source-path-can-no-longer-be-changed"></a>Le chemin source par défaut de l’image de démarrage ne peut plus être modifié
+Les images de démarrage par défaut sont gérées par Configuration Manager et le chemin source par défaut de l’image de démarrage ne peut donc plus être modifié dans la console Configuration Manager ni à l’aide du SDK Configuration Manager. Vous pouvez toutefois continuer à configurer un chemin source personnalisé pour les images de démarrage personnalisées.
 
-### <a name="default-boot-images-are-regenerated-after-upgrading-configuration-manager-to-a-new-version"></a>Standaardopstartinstallatiekopieën worden opnieuw gegenereerd na de upgrade van Configuration Manager naar een nieuwe versie
-In deze release, vanaf het moment dat u de Windows ADK-versie bijwerken en vervolgens gebruiken om updates en onderhoud voor het installeren van de meest recente versie van Configuration Manager, Configuration Manager genereert de standaardopstartinstallatiekopieën. Dit omvat het nieuwe venster PE-versie van de bijgewerkte Windows ADK, de nieuwe versie van de Configuration Manager-client, stuurprogramma's, aanpassingen, enzovoort. Aangepaste opstartinstallatiekopieën worden niet gewijzigd. Zie voor meer informatie [opstartinstallatiekopieën beheren](/sccm/osd/get-started/manage-boot-images#BKMK_BootImageDefault).
+### <a name="default-boot-images-are-regenerated-after-upgrading-configuration-manager-to-a-new-version"></a>Les images de démarrage par défaut sont régénérées après la mise à niveau de Configuration Manager vers une nouvelle version.
+À compter de cette version, quand vous mettez à niveau la version du Windows ADK et que vous utilisez les mises à jour et la maintenance pour installer la dernière version de Configuration Manager, Configuration Manager régénère les images de démarrage par défaut. Ceci inclut la nouvelle version de Windows PE du Windows ADK mis à jour, la nouvelle version du client Configuration Manager, les pilotes, les personnalisations, etc. Les images de démarrage personnalisées ne sont pas modifiées. Pour plus d’informations, consultez [Gérer les images de démarrage](/sccm/osd/get-started/manage-boot-images#BKMK_BootImageDefault).
 
-## <a name="software-updates"></a>Software-updates
+## <a name="software-updates"></a>Mises à jour logicielles
 
-### <a name="deploy-office-365-apps-to-clients"></a>Office 365-apps implementeren op clients
-Vanaf versie 1702, vanuit het dashboard beheer van Office 365 Client kunt u het installatieprogramma van Office 365 waarmee u Office 365-installatie-instellingen configureren, bestanden downloaden van inhoud levering bedrijfsnetwerken (CDN) en de bestanden kunnen worden geïmplementeerd als een toepassing in Configuration Manager starten. Zie voor meer informatie [beheren van Office 365 ProPlus-updates](/sccm/sum/deploy-use/manage-office-365-proplus-updates#deploy-office-365-apps).
+### <a name="deploy-office-365-apps-to-clients"></a>Déployer des applications Office 365 sur des clients
+Depuis la version 1702, à partir du tableau de bord Gestion des clients Office 365, vous pouvez démarrer le programme d’installation d’Office 365 qui vous permet de configurer les paramètres d’installation Office 365, de télécharger des fichiers à partir de réseaux de distribution de contenu Office et de déployer les fichiers en tant qu’application dans Configuration Manager. Pour plus d’informations, consultez [Gérer les mises à jour Office 365 ProPlus](/sccm/sum/deploy-use/manage-office-365-proplus-updates#deploy-office-365-apps).
 
 > [!IMPORTANT]
-> De Office 365-app die u maakt en implementeert met behulp van de Wizard toepassing van Office 365 in Configuration Manager wordt niet automatisch worden beheerd door Configuration Manager totdat u de **beheer van de Office 365 Client opnieuw inschakelen** clientagent voor software-updates instellen. Zie voor meer informatie [over clientinstellingen](/sccm/core/clients/deploy/about-client-settings).
+> L’application Office 365 que vous créez et déployez à l’aide de l'Assistant Création d'une application Office 365 dans Configuration Manager n’est pas automatiquement gérée par Configuration Manager tant que vous n’avez pas activé le paramètre de l’agent client des mises à jour logicielles **Enable management of the Office 365 Client Again**. Pour plus d’informations, consultez [À propos des paramètres du client](/sccm/core/clients/deploy/about-client-settings).
 
-### <a name="manage-express-installation-files-for-windows-10-updates"></a>Bestanden voor snelle installatie voor Windows 10-updates beheren
-Vanaf versie 1702, ondersteunt Configuration Manager voor de bestanden voor snelle installatie voor Windows 10-updates. Wanneer u een ondersteunde versie van Windows 10, kunt u Configuration Manager-instellingen voor het downloaden van alleen de wijzigingen tussen de huidige maand Windows 10 cumulatieve Update en de vorige maand update. Zonder bestanden voor snelle installatie Configuration Manager de volledige 10 cumulatieve Update voor Windows (met inbegrip van alle updates van afgelopen maanden) downloadt elke maand. Het gebruik van bestanden voor snelle installatie biedt voor kleinere downloaden en installatie sneller op clients. Zie voor meer informatie [bestanden voor snelle installatie voor Windows 10-updates beheren](/sccm/sum/deploy-use/manage-express-installation-files-for-windows-10-updates).
+### <a name="manage-express-installation-files-for-windows-10-updates"></a>Gérer les fichiers d’installation rapide pour les mises à jour de Windows 10
+Depuis la version 1702, Configuration Manager prend en charge les fichiers d’installation rapide pour les mises à jour de Windows 10. Quand vous utilisez une version prise en charge de Windows 10, vous pouvez utiliser les paramètres Configuration Manager pour télécharger uniquement les modifications entre la mise à jour cumulative de Windows 10 du mois en cours et la mise à jour du mois précédent. Sans les fichiers d’installation rapide, Configuration Manager télécharge l’intégralité de la mise à jour cumulative de Windows 10 (notamment toutes les mises à jour des mois précédents) chaque mois. L’utilisation de fichiers d’installation rapide permet des téléchargements plus petits et des durées d’installation plus courtes sur les clients. Pour plus d’informations, consultez [Gérer les fichiers d’installation rapide pour les mises à jour de Windows 10](/sccm/sum/deploy-use/manage-express-installation-files-for-windows-10-updates).
 
 
 <!-- ## Reporting  -->
 
 <!-- ## Inventory  -->
 
-## <a name="mobile-device-management"></a>Beheer van mobiele apparaten
+## <a name="mobile-device-management"></a>Gestion des appareils mobiles
 
-### <a name="android-and-ios-versions-are-no-longer-targetable-in-creation-wizards-for-hybrid-mdm"></a>Android en iOS-versies worden niet meer targetable in wizards voor hybride MDM maken
+### <a name="android-and-ios-versions-are-no-longer-targetable-in-creation-wizards-for-hybrid-mdm"></a>Les versions Android et iOS ne peuvent plus être ciblées dans les Assistants de création pour la gestion MDM hybride
 
-Vanaf versie 1702 voor hybride mobile device management (MDM) is hoeft niet langer te gericht op specifieke versies van Android en iOS bij het maken van nieuwe beleidsregels en profielen voor Intune-beheerde apparaten. In plaats daarvan, kies een van de volgende typen apparaten:
+Depuis la version 1702, vous n’avez plus besoin de cibler des versions Android et iOS spécifiques quand vous créez des stratégies et des profils pour des appareils gérés par Intune dans le cadre d’une gestion des appareils mobiles (MDM) hybride. Au lieu de cela, vous choisissez l’un des types d’appareils suivants :
 
 - Android
-- Samsung KNOX Standard 4.0 en hoger
+- Samsung KNOX Standard 4.0 et versions supérieures
 - iPhone
 - iPad
 
-Deze wijziging is van invloed op de wizards voor het maken van de volgende items:
+Cette modification affecte les Assistants de création des éléments suivants :
 
-- Configuratie-items
-- Nalevingsbeleid
-- Certificaatprofielen
-- E-mailprofielen
-- VPN-profielen
-- Wi-Fi-profielen
+- Éléments de configuration
+- Stratégies de conformité
+- Profils de certificat
+- Profils de messagerie
+- Profils VPN
+- Profils Wi-Fi
 
-Met deze wijziging kunnen hybride implementaties ondersteuning bieden sneller op nieuwe versies van Android en iOS zonder een nieuwe release van Configuration Manager of een uitbreiding. Wanneer een nieuwe versie wordt ondersteund in de zelfstandige versie van Intune, kunnen gebruikers zich kunnen hun mobiele apparaten voor die versie te upgraden.
+Grâce à cette modification, les déploiements hybrides peuvent prendre en charge plus rapidement les nouvelles versions Android et iOS sans avoir besoin d’une nouvelle version de Configuration Manager ou d’une extension. Quand une nouvelle version est prise en charge dans Intune autonome, les utilisateurs peuvent mettre à niveau leurs appareils mobiles avec cette version.
 
-Mobiele besturingssysteemversies zijn om te voorkomen dat u problemen bij een upgrade van eerdere versies van Configuration Manager, nog steeds beschikbaar in de eigenschappenpagina's voor deze items. Als u nog steeds een specifieke versie als doel wilt, kunt u de nieuw item maken en geef vervolgens de doelversie van de eigenschappenpagina van het nieuwe item.
+Pour éviter tout problème lors de la mise à niveau de versions antérieures de Configuration Manager, les versions des systèmes d’exploitation des appareils mobiles restent disponibles dans les pages de propriétés de ces éléments. Si vous avez encore besoin de cibler une version spécifique, créez l’élément, puis spécifiez la version ciblée dans la page de propriétés du nouvel élément.
 
-### <a name="android-for-work-support"></a>Android voor Work-ondersteuning
-Beginnen met 1702, hybride mobile device management met Microsoft Intune biedt nu ondersteuning voor Android voor werk apparaatinschrijving en -beheer. Beheerde Android voor werk apparaat richtlijnen:
+### <a name="android-for-work-support"></a>Prise en charge d’Android for Work
+À partir de la version 1702, la gestion des appareils mobiles hybride avec Microsoft Intune prend désormais en charge l’inscription et la gestion des appareils Android for Work. Guide pour la gestion des appareils Android for Work :
 
-- [Android voor werk apparaten inschrijven](/sccm/mdm/deploy-use/enroll-hybrid-android#enable-android-enrollment)
-- [Goedkeuren en implementeren van Android voor bedrijfs-apps](/sccm/mdm/deploy-use/creating-android-applications#approve-and-deploy-android-for-work-apps)
-- [Configuratie-items maken voor Android for Work.](/sccm/mdm/deploy-use/create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client#android-for-work-configuration-items)
-- [Selectief wissen op Android voor Work-apparaten](/sccm/mdm/deploy-use/wipe-lock-reset-devices#selective-wipe)
-- [E-mailprofielen voor Android for Work.](/sccm/mdm/deploy-use/create-exchange-activesync-profiles)
-- [Nalevingsbeleid voor Android for Work.](/sccm/mdm/deploy-use/create-compliance-policy)
+- [Inscrire des appareils Android for Work](/sccm/mdm/deploy-use/enroll-hybrid-android#enable-android-enrollment)
+- [Approuver et déployer des applications Android for Work](/sccm/mdm/deploy-use/creating-android-applications#approve-and-deploy-android-for-work-apps)
+- [Créer des éléments de configuration Android for Work](/sccm/mdm/deploy-use/create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client#android-for-work-configuration-items)
+- [Effectuer une réinitialisation sélective sur des appareils Android for Work](/sccm/mdm/deploy-use/wipe-lock-reset-devices#selective-wipe)
+- [Profils de messagerie pour Android for Work](/sccm/mdm/deploy-use/create-exchange-activesync-profiles)
+- [Stratégies de conformité pour Android for Work](/sccm/mdm/deploy-use/create-compliance-policy)
 
 
-### <a name="deploy-volume-purchased-ios-apps-to-device-collections"></a>Volume-purchased iOS-apps implementeren op apparaatverzamelingen
+### <a name="deploy-volume-purchased-ios-apps-to-device-collections"></a>Déployer des applications iOS achetées en volume sur des regroupements d’appareils
 
-U kunt nu gelicentieerde apps implementeren op apparaten, evenals gebruikers. Afhankelijk van de apps mogelijkheid om apparaat-licentieverlening te ondersteunen, wordt een juiste licentie wordt geclaimd bij het implementeren, als volgt:
+Vous pouvez désormais déployer des applications sous licence sur des appareils ainsi que des utilisateurs. En fonction de la capacité des applications à prendre en charge les licences d’appareils, une licence appropriée sera réclamée lors du déploiement, comme suit :
 
 |||||
 |-|-|-|-|
-|Versie van Configuration Manager|App ondersteunt apparaat licentieverlening?|Implementatietype van de verzameling|De geclaimde licentie|
-|Ouder dan 1702|Ja|Gebruiker|Gebruikerslicentie|
-|Ouder dan 1702|Nee|Gebruiker|Gebruikerslicentie|
-|Ouder dan 1702|Ja|Apparaat|Gebruikerslicentie|
-|Ouder dan 1702|Nee|Apparaat|Gebruikerslicentie|
-|1702 en hoger|Ja|Gebruiker|Gebruikerslicentie|
-|1702 en hoger|Nee|Gebruiker|Gebruikerslicentie|
-|1702 en hoger|Ja|Apparaat|Apparaatlicentie|
-|1702 en hoger|Nee|Apparaat|Gebruikerslicentie|
+|Version de Configuration Manager|L’application prend-elle en charge les licences d’appareil ?|Type de regroupement de déploiement|Licence demandée|
+|Antérieure à 1702|Oui|utilisateur|Licence utilisateur|
+|Antérieure à 1702|Non|utilisateur|Licence utilisateur|
+|Antérieure à 1702|Oui|Appareil|Licence utilisateur|
+|Antérieure à 1702|Non|Appareil|Licence utilisateur|
+|1702 et versions ultérieures|Oui|utilisateur|Licence utilisateur|
+|1702 et versions ultérieures|Non|utilisateur|Licence utilisateur|
+|1702 et versions ultérieures|Oui|Appareil|Licence d’appareil|
+|1702 et versions ultérieures|Non|Appareil|Licence utilisateur|
 
-Zie voor meer informatie over volume-purchased iOS-apps, [volume-purchased iOS-apps beheren](/sccm/mdm/deploy-use/manage-volume-purchased-ios-apps).
+Pour plus d’informations sur les applications achetées en volume, consultez [Gérer des applications iOS achetées en volume](/sccm/mdm/deploy-use/manage-volume-purchased-ios-apps).
 
-### <a name="support-for-ios-volume-purchase-program-for-education"></a>Ondersteuning voor iOS Volume Purchase Program voor onderwijs
+### <a name="support-for-ios-volume-purchase-program-for-education"></a>Prise en charge du programme d’achat en volume iOS pour l’éducation
 
-U kunt nu ook implementeren en bijhouden van apps die u hebt aangeschaft via de iOS Volume Purchase Program voor onderwijs.
-Zie voor meer informatie over volume-purchased iOS-apps, [volume-purchased iOS-apps beheren](/sccm/mdm/deploy-use/manage-volume-purchased-ios-apps).
+Désormais, vous pouvez également déployer et suivre les applications que vous avez achetées via le Programme d’achat en volume iOS pour l’éducation.
+Pour plus d’informations sur les applications achetées en volume, consultez [Gérer des applications iOS achetées en volume](/sccm/mdm/deploy-use/manage-volume-purchased-ios-apps).
 
-### <a name="support-for-multiple-volume-purchase-program-tokens"></a>Ondersteuning voor meerdere volume purchase program-tokens
+### <a name="support-for-multiple-volume-purchase-program-tokens"></a>Prise en charge de plusieurs jetons de programme d’achat en volume
 
-U kunt meerdere Apple volume purchase program-tokens nu koppelen met Configuration Manager.
-Zie voor meer informatie over volume-purchased iOS-apps, [volume-purchased iOS-apps beheren](/sccm/mdm/deploy-use/manage-volume-purchased-ios-apps).
+Vous pouvez maintenant associer plusieurs jetons de programme d’achat en volume Apple à Configuration Manager.
+Pour plus d’informations sur les applications achetées en volume, consultez [Gérer des applications iOS achetées en volume](/sccm/mdm/deploy-use/manage-volume-purchased-ios-apps).
 
-### <a name="support-for-line-of-business-apps-in-windows-store-for-business"></a>Ondersteuning voor LOB-apps in Windows Store voor bedrijven
+### <a name="support-for-line-of-business-apps-in-windows-store-for-business"></a>Prise en charge des applications métier dans le Windows Store pour Entreprises
 
-U kunt aangepaste LOB-apps vanuit de Windows Store voor bedrijven nu synchroniseren.
+Vous pouvez désormais synchroniser des applications métier personnalisées à partir du Windows Store pour Entreprises.
 
-### <a name="conditional-access-device-compliance-policy-improvements"></a>Voorwaardelijke toegang apparaat naleving beleid verbeteringen
+### <a name="conditional-access-device-compliance-policy-improvements"></a>Améliorations apportées aux stratégies de conformité des appareils pour l’accès conditionnel
 
-Een nieuw apparaat naleving beleidsregel is beschikbaar waarmee u toegang tot bedrijfsbronnen die ondersteuning bieden voor voorwaardelijke toegang, wanneer gebruikers apps die deel van een niet-compatibele lijst met apps uitmaken blokkeren. De niet-compatibele lijst met apps kan worden gedefinieerd door de beheerder bij het toevoegen van de nieuwe regel compatibele **Apps die niet kunnen worden geïnstalleerd**. Deze regel vereist dat de beheerder om in te voeren de **Appnaam**, wordt de **App-ID**, en de **App Publisher** (optioneel) wanneer een app toe te voegen aan de lijst met niet-compatibele. Deze instelling geldt alleen voor iOS en Android-apparaten.
+Une nouvelle règle de stratégie de conformité de l’appareil est disponible pour vous aider à bloquer l’accès aux ressources d’entreprise qui prennent en charge l’accès conditionnel, quand des utilisateurs utilisent des applications qui figurent dans une liste d’applications non conformes. La liste des applications non conformes peut être définie par l’administrateur lors de l’ajout de la nouvelle règle de conformité **Applications qui ne peuvent pas être installées**. Cette règle exige que l’administrateur entre le **Nom de l’application**, l’**ID de l’application** et l’**Éditeur de l’application**  (facultatif) lors de l’ajout d’une application à la liste des applications non conformes. Ce paramètre s’applique uniquement aux appareils iOS et Android.
 
-Dit helpt bovendien organisaties lekken van gegevens via niet-beveiligde apps te beperken en het verbruik van veel gegevens via bepaalde apps te voorkomen.
+Cela permet également aux organisations de réduire les fuites de données via des applications non sécurisées, et d’empêcher la consommation excessive de données par certaines applications.
 
-- Meer informatie [de werking van beleid voor apparaatcompatibiliteit](/sccm/mdm/deploy-use/device-compliance-policies).
-- Meer informatie [nalevingsbeleid voor apparaten maken](/sccm/mdm/deploy-use/create-compliance-policy).
+- Consultez cet article pour en savoir plus sur le [fonctionnement des stratégies de conformité des appareils](/sccm/mdm/deploy-use/device-compliance-policies).
+- Consultez cet article pour en savoir plus sur [la façon de créer des stratégies de conformité des appareils](/sccm/mdm/deploy-use/create-compliance-policy).
 
-### <a name="new-mobile-threat-defense-monitoring-tools"></a>Nieuwe mobiele Threat verdediging controlehulpprogramma 's
+### <a name="new-mobile-threat-defense-monitoring-tools"></a>Nouveaux outils de surveillance de protection contre les menaces mobiles
 
-Vanaf versie 1702, hebt u nieuwe manieren om de compatibiliteitsstatus met uw serviceprovider Mobile Threat verdediging te controleren.
+Depuis la version 1702, vous disposez de nouveaux moyens de surveiller l’état de conformité avec votre fournisseur de services de protection contre les menaces mobiles.
 
-- Meer informatie [Mobile Threat verdediging naleving controleren](https://docs.microsoft.com/sccm/mdm/deploy-use/monitor-mobile-threat-defense-compliance).
+- Découvrez [comment surveiller la conformité de la protection contre les menaces mobiles](https://docs.microsoft.com/sccm/mdm/deploy-use/monitor-mobile-threat-defense-compliance).
 
-## <a name="protect-devices"></a>Apparaten beveiligen
+## <a name="protect-devices"></a>Protéger les appareils
 
-### <a name="detect-outdated-antimalware-client-versions"></a>Verouderde antimalwareclients detecteren
-U kunt een waarschuwing om ervoor te zorgen Endpoint Protection-clients zijn niet verouderde vanaf versie 1702 kunt configureren. Zie voor meer informatie [waarschuwing voor verouderde malware client](/sccm/protect/deploy-use/endpoint-configure-alerts#detect-outdated-antimalware-client-versions).
+### <a name="detect-outdated-antimalware-client-versions"></a>Détecter les versions obsolètes des clients anti-programme malveillant
+Depuis la version 1702, vous pouvez configurer une alerte pour vous assurer que les clients Endpoint Protection ne sont pas obsolètes. Pour plus d’informations, consultez [Alerte pour le client anti-programme malveillant](/sccm/protect/deploy-use/endpoint-configure-alerts#detect-outdated-antimalware-client-versions).
 
-### <a name="device-health-attestation-updates"></a>Apparaatupdates health attestation
-Apparaat health attestation-service voor on-premises clients kunnen nu worden geconfigureerd en beheerd vanaf het beheerpunt. Zie voor meer informatie [Health Attestation](/sccm/core/servers/manage/health-attestation).
+### <a name="device-health-attestation-updates"></a>Mises à jour de l’attestation d’intégrité des appareils
+Le service d’attestation d’intégrité des appareils pour les clients locaux peut désormais être configuré et géré à partir du point de gestion. Pour plus d’informations, consultez [Attestation d’intégrité](/sccm/core/servers/manage/health-attestation).
 
-### <a name="certificate-profiles-for-windows-hello-for-business"></a>Certificaatprofielen voor Windows Hello voor bedrijven
+### <a name="certificate-profiles-for-windows-hello-for-business"></a>Profils de certificat pour Windows Hello Entreprise
 
-Als u van plan bent voor het opslaan van certificaatprofielen in het Windows Hello voor bedrijven-sleutelcontainer, en het profiel voor de smartcard voor aanmelding EKU gebruikt, moet u machtigingen voor de sleutel registratie om te controleren of dat het certificaat op de juiste wijze gevalideerd configureren.
-Zie voor meer informatie [Windows Hello voor bedrijven-instellingen](/sccm/protect/deploy-use/windows-hello-for-business-settings).
+Si vous envisagez de stocker des profils de certificat dans le conteneur de clés Windows Hello Entreprise et que le profil de certificat utilise une clé étendue pour l’ouverture de session avec carte à puce, vous devez configurer des autorisations pour inscrire cette clé et garantir que le certificat est validé correctement.
+Pour plus d’informations, consultez [Paramètres Windows Hello Entreprise](/sccm/protect/deploy-use/windows-hello-for-business-settings).
 
-### <a name="new-windows-hello-for-business-notification-for-end-users"></a>Nieuwe Windows Hello voor bedrijven kennisgeving voor eindgebruikers
-Een nieuwe Windows 10-melding informeert gebruikers dat ze extra acties voltooid Windows Hello voor bedrijven-instellingen (bijvoorbeeld het instellen van een PINCODE) moeten uitvoeren.
+### <a name="new-windows-hello-for-business-notification-for-end-users"></a>Nouvelle notification Windows Hello Entreprise pour les utilisateurs finaux
+Une nouvelle notification Windows 10 informe les utilisateurs finaux qu’ils doivent prendre des mesures supplémentaires pour terminer l’installation de Windows Hello Entreprise (par exemple, la configuration d’un code confidentiel).

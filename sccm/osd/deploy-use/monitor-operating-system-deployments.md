@@ -1,6 +1,6 @@
 ---
-title: Implementaties van besturingssystemen bewaken | Microsoft Docs
-description: De Configuration Manager-console biedt om u te helpen controleren besturingssysteem-implementatie-objecten, waarschuwingen, rapporten en verschillende statusindicatoren.
+title: "Surveiller les déploiements de système d’exploitation | Microsoft Docs"
+description: "Pour vous aider à surveiller les objets de déploiement de système d’exploitation, la console Configuration Manager fournit des alertes, des rapports et divers indicateurs d’état."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,80 +17,80 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 154c0a286e6b9ccedc7545eb010967ac00d35407
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="monitor-operating-system-deployments-in-system-center-configuration-manager"></a>Implementaties van besturingssystemen in System Center Configuration Manager controleren
+# <a name="monitor-operating-system-deployments-in-system-center-configuration-manager"></a>Surveiller les déploiements de système d’exploitation dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-De Configuration Manager-console biedt de volgende manieren om te controleren van besturingssysteem-implementatie-objecten.  
+La console Configuration Manager fournit les méthodes suivantes pour vous aider à surveiller vos objets de déploiement de système d’exploitation.  
 
 
-##  <a name="BKMK_OSDAlerts"></a> Waarschuwingen voor besturingssysteemimplementaties  
- U kunt een waarschuwing configureren in de instellingen voor takenreeksimplementaties om gebruikers met beheerdersrechten te waarschuwen wanneer compatibiliteitsniveaus voor de implementatie onder het geconfigureerde percentage uitkomen.  
+##  <a name="BKMK_OSDAlerts"></a> Alertes pour les déploiements de système d’exploitation  
+ Vous pouvez configurer une alerte dans les paramètres de déploiement de séquence de tâches pour avertir les utilisateurs administratifs quand les niveaux de conformité du déploiement sont inférieurs au pourcentage configuré.  
 
- Nadat u de instellingen voor waarschuwingen hebt geconfigureerd als de opgegeven voorwaarden wordt voldaan, wordt in Configuration Manager een waarschuwing genereert. U kunt waarschuwingen voor takenreeksimplementaties op de volgende locaties bekijken:  
+ Après avoir configuré les paramètres d’alerte, si les conditions spécifiées sont remplies, Configuration Manager génère une alerte. Vous pouvez consulter les alertes de déploiement de séquence de tâches aux emplacements suivants :  
 
-1.  U kunt recente waarschuwingen bekijken in het knooppunt **Besturingssystemen** in de werkruimte **Softwarebibliotheek** .  
+1.  Consultez les alertes récentes dans le nœud **Systèmes d’exploitation** dans l’espace de travail **Bibliothèque de logiciels** .  
 
-2.  U kunt de geconfigureerde waarschuwingen beheren in het knooppunt **Waarschuwingen** in de werkruimte **Controle** .  
+2.  Gérez les alertes configurées dans le nœud **Alertes** dans l'espace de travail **Surveillance** .  
 
-##  <a name="BKMK_TSDeployStatus"></a> Status van de takenreeksimplementatie  
- Nadat u een takenreeks hebt geïmplementeerd, kunt u de implementatiestatus controleren. Gebruik de volgende procedure om de implementatiestatus van een takenreeks te controleren.  
+##  <a name="BKMK_TSDeployStatus"></a> État du déploiement de séquence de tâches  
+ Après avoir déployé une séquence de tâches, vous pouvez surveiller l’état du déploiement. Pour surveiller l’état de déploiement d’une séquence de tâches, procédez comme suit.  
 
-#### <a name="to-monitor-deployment-status"></a>De implementatiestatus controleren  
+#### <a name="to-monitor-deployment-status"></a>Pour surveiller l'état d'un déploiement  
 
-1.  Klik in de Configuration Manager-console op **bewaking**.  
+1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
 
-2.  Klik in de werkruimte Controle op **Implementaties**.  
+2.  Dans l'espace de travail Surveillance, cliquez sur **Déploiements**.  
 
-3.  Klik op de takenreeks waarvoor u de implementatiestatus wilt controleren.  
+3.  Cliquez sur la séquence de tâches dont vous souhaitez surveiller l’état du déploiement.  
 
-4.  Klik op het tabblad **Starten** in de groep **Implementatie** op **Status weergeven**.  
+4.  Dans l'onglet **Accueil** , du groupe **Déploiement** , cliquez sur **Afficher l'état**.  
 
-##  <a name="BKMK_TSReports"></a> Rapporten voor besturingssysteemimplementaties  
- Er zijn veel vooraf gedefinieerde rapporten voor besturingssysteemimplementaties beschikbaar. Deze zijn ingedeeld in verscheidene categorieën en kunnen worden gebruikt voor het rapporteren van specifieke informatie over statusmigratie en takenreeksimplementaties. U kunt naast deze vooraf geconfigureerde rapporten ook aangepaste software-updaterapporten maken op basis van de behoeften van uw bedrijf. Zie voor meer informatie [bewerkingen en onderhoud voor rapportage](../../core/servers/manage/operations-and-maintenance-for-reporting.md).  
+##  <a name="BKMK_TSReports"></a> Rapports sur le déploiement du système d’exploitation  
+ De nombreux rapports de déploiement du système d’exploitation prédéfinis sont disponibles. Ils sont organisés en plusieurs catégories et peuvent être utilisés pour obtenir des informations spécifiques sur les déploiements de séquences de tâches et la migration d’état. En plus d'utiliser les rapports préconfigurés, vous pouvez également créer des rapports de mises à jour logicielles personnalisés selon les besoins de votre entreprise. Pour plus d’informations, consultez [Opérations et maintenance pour les rapports](../../core/servers/manage/operations-and-maintenance-for-reporting.md).  
 
-##  <a name="BKMK_MonitorContent"></a> Inhoud controleren  
- U kunt de inhoud in de Configuration Manager-console om te controleren van de status van alle pakkettypen in relatie tot de gekoppelde distributiepunten bewaken. Dit kan het volgende omvatten: de validatiestatus voor de inhoud in het pakket, de status van inhoud die is toegewezen aan een specifieke distributiepuntengroep, de status van inhoud die is toegewezen aan een distributiepunt en de status van optionele functies voor de afzonderlijke distributiepunten (inhoudvalidatie, PXE en multicast).  
+##  <a name="BKMK_MonitorContent"></a> Surveiller le contenu  
+ Vous pouvez surveiller le contenu dans la console Configuration Manager pour déterminer l’état de tous les types de package en rapport avec les points de distribution associés, notamment l'état de validation du contenu du package, l'état du contenu attribué à un groupe de points de distribution spécifique, l'état du contenu attribué à un point de distribution et l'état des fonctions facultatives de chaque point de distribution (validation du contenu, PXE et multidiffusion).  
 
-###  <a name="BKMK_ContentStatus"></a> Controle van de status van inhoud  
- Het knooppunt **Status van inhoud** in de werkruimte **Controle** biedt informatie over inhoudspakketten. U kunt algemene informatie over het pakket, de distributiestatus voor het pakket en gedetailleerde statusinformatie over het pakket weergeven. Gebruik de volgende procedure om de status van inhoud weer te geven.  
+###  <a name="BKMK_ContentStatus"></a> Surveillance de l’état du contenu  
+ Le nœud **État du contenu** dans l'espace de travail **Surveillance** fournit des informations sur les packages de contenu. Vous pouvez consulter les informations générales sur l'emballage, l'état de distribution pour le package et les informations d'état détaillées sur le package. Pour afficher l'état du contenu, procédez comme suit.  
 
-#### <a name="to-monitor-content-status"></a>De status van inhoud controleren  
+#### <a name="to-monitor-content-status"></a>Pour surveiller l'état du contenu  
 
-1.  Klik in de Configuration Manager-console op **bewaking**.  
+1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
 
-2.  Vouw in de werkruimte Controle het knooppunt **Distributiestatus**uit en klik vervolgens op **Inhoudsstatus**. De pakketten worden weergegeven.  
+2.  Dans l'espace de travail Surveillance, développez **État de distribution**, puis cliquez sur **État du contenu**. Les packages sont affichés.  
 
-3.  Selecteer het pakket waarvoor u gedetailleerde statusinformatie wilt weergeven.  
+3.  Sélectionnez le package pour lequel afficher des informations d'état détaillées.  
 
-4.  Klik op het tabblad **Start** op **Status weergeven**. De gedetailleerde statusinformatie voor het pakket wordt weergegeven.  
+4.  Dans l'onglet **Accueil** , cliquez sur **Afficher l'état**. Des informations d'état détaillées pour le package sont affichées.  
 
-###  <a name="BKMK_DPGroupStatus"></a> Status van distributiepuntengroep  
- Het knooppunt **Status van distributiepuntengroep** in de werkruimte **Controle** biedt informatie over distributiepuntengroepen. U kunt algemene informatie weergeven over de distributiepuntengroep, zoals de status van de distributiepuntengroep en het compatibiliteitspercentage, evenals gedetailleerde statusinformatie voor de distributiepuntengroep. Gebruik de volgende procedure om de status van een distributiepuntengroep weer te geven.  
+###  <a name="BKMK_DPGroupStatus"></a> État du groupe de points de distribution  
+ Le nœud **État du groupe de points de distribution** dans l'espace de travail **Surveillance** fournit des informations sur les groupes de points de distribution. Vous pouvez consulter les informations générales sur le groupe de points de distribution, notamment l'état du groupe de points de distribution et le degré de conformité, ainsi que les informations d'état détaillées pour le groupe de points de distribution. Pour afficher l'état du groupe de points de distribution, procédez comme suit.  
 
-#### <a name="to-monitor-distribution-point-group-status"></a>De status van een distributiepuntengroep bewaken  
+#### <a name="to-monitor-distribution-point-group-status"></a>Pour surveiller l'état du groupe de points de distribution  
 
-1.  Klik in de Configuration Manager-console op **bewaking**.  
+1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
 
-2.  Vouw in de werkruimte Controle het knooppunt **Distributiestatus**uit en klik vervolgens op **Status van distributiepuntengroep**. De distributiepuntengroepen worden weergegeven.  
+2.  Dans l'espace de travail Surveillance, développez **État de distribution**, puis cliquez sur **État du groupe de points de distribution**. Les groupes de points de distribution sont affichés.  
 
-3.  Selecteer de distributiepuntengroep waarvoor u gedetailleerde statusinformatie wilt weergeven.  
+3.  Sélectionnez le groupe de points de distribution pour lequel afficher des informations d'état détaillées.  
 
-4.  Klik op het tabblad **Start** op **Status weergeven**. Er wordt gedetailleerde statusinformatie voor de distributiepuntengroep weergegeven.  
+4.  Dans l'onglet **Accueil** , cliquez sur **Afficher l'état**. Des informations d'état détaillées pour le groupe de points de distribution sont affichées.  
 
-###  <a name="BKMK_DPConfigStatus"></a> Configuratiestatus van distributiepunt  
- Het knooppunt **Configuratiestatus van distributiepunt** in de werkruimte **Controle** biedt informatie over de distributiepuntengroep. U kunt weergeven welke kenmerken voor het distributiepunt zijn ingeschakeld, zoals PXE, multicast en validatie van inhoud. U kunt tevens gedetailleerde statusinformatie voor het distributiepunt weergeven. Gebruik de volgende procedure om de configuratiestatus van een distributiepuntengroep weer te geven.  
+###  <a name="BKMK_DPConfigStatus"></a> État de configuration du point de distribution  
+ Le nœud **État de configuration du point de distribution** dans l'espace de travail **Surveillance** fournit des informations sur le point de distribution. Vous pouvez examiner les attributs qui sont activés pour le point de distribution, par exemple, PXE, multidiffusion et validation du contenu. Vous pouvez également afficher des informations d'état détaillées pour le point de distribution. Pour afficher l'état de configuration du point de distribution, procédez comme suit.  
 
-#### <a name="to-monitor-distribution-point-configuration-status"></a>Bewaken van de configuratiestatus van distributiepunten  
+#### <a name="to-monitor-distribution-point-configuration-status"></a>Pour surveiller l'état de configuration du point de distribution  
 
-1.  Klik in de Configuration Manager-console op **bewaking**.  
+1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
 
-2.  Vouw in de werkruimte Bewaking **Distributiestatus**uit en klik vervolgens op **Configuratiestatus van distributiepunt**. De distributiepunten worden weergegeven.  
+2.  Dans l'espace de travail Surveillance, développez **État de distribution**, puis cliquez sur **État de configuration du point de distribution**. Les points de distribution sont affichés.  
 
-3.  Selecteer het distributiepunt waarvoor u de statusinformatie wilt weergeven.  
+3.  Sélectionnez le point de distribution pour lequel afficher des informations d'état du point de distribution.  
 
-4.  Klik op het tabblad **Details** in het resultatenvenster. De statusinformatie voor het distributiepunt wordt weergegeven.  
+4.  Dans le volet des résultats, cliquez sur l'onglet **Détails** . Des informations d'état pour le point de distribution sont affichées.  

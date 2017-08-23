@@ -1,6 +1,6 @@
 ---
-title: Grootte en schaal | Microsoft Docs
-description: Zoek het nummer van sitesysteemrollen en sites die u moet ondersteuning van de apparaten in uw omgeving voor System Center Configuration Manager.
+title: "Taille et échelle | Microsoft Docs"
+description: "Déterminez le nombre de rôles de système de site et de sites dont vous avez besoin pour prendre en charge les appareils dans votre environnement System Center Configuration Manager."
 ms.custom: na
 ms.date: 07/24/2017
 ms.prod: configuration-manager
@@ -16,179 +16,179 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: f539e2d282b56e56a9c58c773788325b27ea6b37
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="size-and-scale-numbers-for-system-center-configuration-manager"></a>Grootte en schaalgetallen voor System Center Configuration Manager
+# <a name="size-and-scale-numbers-for-system-center-configuration-manager"></a>Taille et échelle de System Center Configuration Manager en chiffres
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
-
-
-
-Elke System Center Configuration Manager-implementatie heeft een maximum aantal sites, sitesysteemrollen en apparaten dat kan worden ondersteund. Deze getallen, is afhankelijk van de hiërarchiestructuur van uw (welke typen en het aantal sites u) en de sitesysteemrollen die u implementeert.  De informatie in de volgende gebieden kunt u het aantal sitesysteemrollen en sites die u ondersteuning van de apparaten die u verwacht moet te beheren met uw omgeving te identificeren.
-
-Gebruik de informatie in dit onderwerp in combinatie met de informatie in de volgende artikelen:
--   [Aanbevolen hardware](../../../core/plan-design/configs/recommended-hardware.md)
--   [Ondersteunde besturingssystemen voor sitesysteemservers](../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md)  
--   [Ondersteunde besturingssystemen voor clients en apparaten](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md)
--   [Vereisten voor sites en sitesystemen](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-De volgende ondersteuning cijfers zijn gebaseerd op het gebruik van de aanbevolen hardware voor Configuration Manager en de standaardinstellingen voor alle beschikbare functies in de Configuration Manager. Wanneer u geen gebruik van de aanbevolen hardware of agressievere aangepaste instellingen (zoals actieve hardware of software-inventaris vaker dan de standaardwaarden van om de zeven dagen) gebruiken, wordt de prestaties van sitesystemen kan verminderen en voldoet niet aan de vermelde ondersteuningsniveaus.
 
-##  <a name="bkmk_SiteSystemScale"></a>Typen sites  
- **Centrale beheersite:**  
+Chaque déploiement de System Center Configuration Manager comporte un nombre maximal de sites, de rôles système de site et d’appareils qu’il peut prendre en charge. Ces nombres varient selon la structure hiérarchique (les types et nombres de sites que vous utilisez) et les rôles de système de site que vous déployez.  Les informations des zones suivantes peuvent vous aider à déterminer le nombre de rôles de système de site et de sites dont vous avez besoin pour prendre en charge les appareils que vous envisagez de gérer avec votre environnement.
 
--   Een centrale beheersite ondersteunt maximaal 25 onderliggende primaire sites.  
+Utilisez les informations de cette rubrique ainsi que celles contenues dans les articles suivants :
+-   [Matériel recommandé](../../../core/plan-design/configs/recommended-hardware.md)
+-   [Systèmes d’exploitation pris en charge pour les serveurs de système de site](../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md)  
+-   [Systèmes d’exploitation pris en charge pour les clients et appareils](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md)
+-   [Prérequis des sites et systèmes de site](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)
 
-**Primaire site:**  
 
--   Elke primaire site ondersteunt maximaal 250 secundaire sites.  
+Les numéros de support suivants sont basés sur l’utilisation du matériel recommandé pour Configuration Manager et les paramètres par défaut pour toutes les fonctionnalités disponibles de Configuration Manager. Si vous n’utilisez pas le matériel recommandé ou utilisez des paramètres personnalisés plus agressifs (par exemple, que vous exécutez l’inventaire matériel ou logiciel plus d’une fois tous les 7 jours, ce qui est la valeur par défaut), les performances des systèmes de site peuvent être réduites et ne pas atteindre les niveaux de support indiqués.
 
--   Het aantal secundaire sites per primaire site is gebaseerd op verbindingen permanente en betrouwbare verbinding wide area network (WAN). Voor locaties met minder dan 500 clients hebt, kunt u een distributiepunt in plaats van een secundaire site.  
+##  <a name="bkmk_SiteSystemScale"></a> Types de sites  
+ **Site d’administration centrale :**  
 
- Zie voor informatie over het aantal clients en apparaten dat een primaire site kan ondersteunen, [clientaantallen voor sites en hiërarchieën](#bkmk_clientnumbers) in dit onderwerp.  
+-   Un site d’administration centrale peut prendre en charge jusqu’à 25 sites principaux enfants.  
 
-**Secundaire site:**  
+**Site principal :**  
 
--   Secundaire sites ondersteunen geen onderliggende sites.  
+-   Chaque site principal prend en charge jusqu’à 250 sites secondaires.  
 
--   Een centrale beheersite ondersteunt maximaal 25 onderliggende primaire sites.  
+-   Le nombre de sites secondaires par site principal est basé sur des connexions réseau WAN continues et fiables. Pour les emplacements de moins de 500 clients, envisagez à un point de distribution au lieu d'un site secondaire.  
 
-**Application Catalog-websitepunt:**  
+ Pour plus d’informations sur le nombre de clients et d’appareils qu’un site principal peut prendre en charge, consultez [Nombres de clients pour les hiérarchies et les sites](#bkmk_clientnumbers) dans cette rubrique.  
 
--   U kunt meerdere exemplaren van de Application Catalog-websitepunt op primaire sites installeren.  
+**Site secondaire :**  
 
-    > [!TIP]  
-    >  Als een best practice, installeer het Application Catalog-websitepunt en Application Catalog-webservicepunt samen op hetzelfde sitesysteem wanneer deze services bieden aan clients die zich op het intranet.  
+-   Les sites secondaires ne prennent pas en charge les sites enfants.  
 
-    -   Plannen voor verbeterde prestaties voor de ondersteuning van maximaal 50.000 clients per exemplaar.  
+-   Un site d’administration centrale peut prendre en charge jusqu’à 25 sites principaux enfants.  
 
-    -   Elk exemplaar van deze sitesysteemrol ondersteunt het maximum aantal clients die worden ondersteund door de hiërarchie.  
+**Point du site web du catalogue des applications :**  
 
-## <a name="bkmk_roles"></a>Sitesysteemrollen    
-
-**Application Catalog-webservicepunt:**  
-
--   U kunt meerdere exemplaren van het Application Catalog-webservicepunt op primaire sites installeren.  
+-   Vous pouvez installer plusieurs instances du point de site Web du catalogue d'applications sur des sites principaux.  
 
     > [!TIP]  
-    >  Als een best practice, installeer het Application Catalog-websitepunt en Application Catalog-webservicepunt samen op hetzelfde sitesysteem wanneer deze services bieden aan clients die zich op het intranet.  
+    >  Comme bonne pratique, installez le point du site web du catalogue d'applications et le point de service web du catalogue d'applications sur le même système de site lorsque ces points fournissent le service aux clients Intranet.  
 
-    -   Plannen voor verbeterde prestaties voor de ondersteuning van maximaal 50.000 clients per exemplaar.  
+    -   Pour améliorer les performances, envisagez prendre en charge jusqu'à 50 000 clients par instance.  
 
-    -   Elk exemplaar van deze sitesysteemrol ondersteunt het maximum aantal clients die worden ondersteund door de hiërarchie.  
+    -   Chaque instance de ce rôle de système de site prend en charge le nombre maximal de clients pris en charge par la hiérarchie.  
 
-**Distributiepunt:**  
+## <a name="bkmk_roles"></a> Rôles système de site    
 
--   Distributiepunten per site:  
+**Point de service web du catalogue des applications :**  
 
-    -   Elke primaire en secundaire site ondersteunt maximaal 250 distributiepunten.  
+-   Vous pouvez installer plusieurs instances du point de service web du catalogue d'applications sur des sites principaux.  
 
-    -   Elke primaire en secundaire site ondersteunt maximaal 2.000 aanvullende distributiepunten die zijn geconfigureerd als pull-distributiepunten. **Bijvoorbeeld**, een enkele primaire site ondersteunt 2250 distributiepunten wanneer 2000 van deze distributiepunten als pull-distributiepunten zijn geconfigureerd.  
+    > [!TIP]  
+    >  Comme bonne pratique, installez le point du site web du catalogue d'applications et le point de service web du catalogue d'applications sur le même système de site lorsque ces points fournissent le service aux clients Intranet.  
 
-    -   Elk distributiepunt ondersteunt verbindingen van maximaal 4.000 clients.  
+    -   Pour améliorer les performances, envisagez prendre en charge jusqu'à 50 000 clients par instance.  
 
-    -   Een pull-distributiepunt fungeert als een client wanneer het toegang verkrijgt inhoud vanaf een brondistributiepunt tot.  
+    -   Chaque instance de ce rôle de système de site prend en charge le nombre maximal de clients pris en charge par la hiérarchie.  
 
--   Elke primaire site ondersteunt een gecombineerd totaal van maximaal 5.000 distributiepunten. Dit totaal bevat alle distributiepunten op de primaire site en alle distributiepunten die deel uitmaken van de primaire site onderliggende secundaire sites.  
+**Point de distribution :**  
 
--   Elk distributiepunt ondersteunt een gecombineerd totaal van maximaal 10.000 pakketten en toepassingen.  
+-   Points de distribution par site :  
+
+    -   Chaque site principal et chaque site secondaire prend en charge jusqu'à 250 points de distribution.  
+
+    -   Chaque site principal et secondaire prend en charge jusqu’à 2 000 points de distribution supplémentaires configurés comme points de distribution d’extraction. **Par exemple**, un même site principal prend en charge 2 250 points de distribution quand 2 000 d’entre eux sont configurés comme points de distribution d’extraction.  
+
+    -   Chaque point de distribution prend en charge jusqu'à 4 000 connexions de clients.  
+
+    -   Un point de distribution d’extraction agit comme un client quand il accède au contenu d’un point de distribution source.  
+
+-   Chaque site principal prend en charge un total combiné de 5 000 points de distribution maximum. Ce total inclut tous les points de distribution sur le site principal et tous les points de distribution qui appartiennent aux sites secondaires enfants du site principal.  
+
+-   Chaque point de distribution prend en charge un total combiné allant jusqu'à 10 000 packages et applications.  
 
 > [!WARNING]  
->  Het werkelijke aantal clients die ondersteuning voor één distributiepunt biedt, is afhankelijk van de snelheid van het netwerk en de hardwareconfiguratie van de distributiepuntcomputer.  
+>  Le nombre réel de clients qu’un point de distribution peut prendre en charge dépend de la vitesse du réseau et de la configuration matérielle de l’ordinateur du point de distribution.  
 >   
->  Het aantal pull-distributiepunten die ondersteuning voor één brondistributiepunt biedt is ook afhankelijk van de snelheid van het netwerk en de hardwareconfiguratie van de bron voor de distributiepuntcomputer. Maar dit nummer wordt ook beïnvloed door de hoeveelheid inhoud die u hebt geïmplementeerd. Dit komt doordat, in tegenstelling tot clients die doorgaans toegang inhoud op verschillende momenten tijdens een implementatie tot, alle pull-distributiepunten inhoud aanvragen tegelijk, en alle beschikbare inhoud, niet alleen de inhoud die van toepassing, is als een client zou kunnen aanvragen. Wanneer er te veel verwerking wordt geplaatst op een brondistributiepunt, kunnen er onverwachte vertragingen in het distribueren van de inhoud naar de verwachte distributiepunten in uw omgeving.  
+>  De la même façon, le nombre de points de distribution d’extraction qu’un point de distribution source peut prendre en charge dépend de la vitesse du réseau et de la configuration matérielle de l’ordinateur du point de distribution source. Mais ce nombre est également affecté par la quantité de contenu que vous avez déployé. En effet, contrairement aux clients qui accèdent généralement au contenu à des moments différents durant un déploiement, tous les points de distribution d’extraction demandent du contenu en même temps. Ils peuvent demander tout le contenu disponible et pas seulement le contenu qui leur est applicable, comme le ferait un client. Quand une trop grande charge de traitement est placée sur un point de distribution source, des retards imprévus peuvent se produire dans la distribution du contenu aux points de distribution attendus dans votre environnement.  
 
 
-**Terugvalstatuspunt:**  
+**Point d’état de secours :**  
 
--   Elk terugvalstatuspunt kan maximaal 100.000 clients ondersteunen.  
+-   Chaque point d'état de secours peut prendre en charge jusqu'à 100 000 clients.  
 
-**Beheerpunt:**  
+**Point de gestion :**  
 
--   Elke primaire site ondersteunt maximaal 15 beheerpunten.  
+-   Chaque site principal prend en charge jusqu’à 15 points de gestion.  
 
     > [!TIP]  
-    >  Installeer geen beheerpunten op servers die via een langzame verbinding van de primaire siteserver of van de Sitedatabaseserver zijn.  
+    >  N’installez pas de point de gestion sur des serveurs qui sont sur une liaison lente à partir du serveur de site principal ou du serveur de bases de données du site.  
 
--   Elke secundaire site ondersteunt één enkel beheerpunt dat moet worden geïnstalleerd op de secundaire siteserver.  
+-   Chaque site secondaire prend en charge un seul point de gestion qui doit être installé sur le serveur de site secondaire.  
 
- Zie voor informatie over het aantal clients en apparaten die ondersteuning voor een beheerpunt biedt, het [beheerpunten](#bkmk_mp) in dit onderwerp.  
+ Pour plus d’informations sur le nombre de clients et d’appareils qu’un point de gestion peut prendre en charge, consultez la section [Points de gestion](#bkmk_mp) de cette rubrique.  
 
-**Software-updatepunt:**  
+**Point de mise à jour logicielle :**  
 
--   Een software-updatepunt dat is geïnstalleerd op de siteserver kan tot 25.000 clients ondersteunen.  
+-   Un point de mise à jour logicielle installé sur le serveur de site peut prendre en charge jusqu'à 25 000 clients.  
 
--   Een software-updatepunt dat zich op afstand van de siteserver kan maximaal 150.000 clients ondersteunen wanneer de externe computer voldoet aan de vereisten van de Windows Server Update Services (WSUS) om dit aantal clients te ondersteunen.  
+-   Un point de mise à jour logicielle distant du serveur de site peut prendre en charge jusqu’à 150 000 clients quand l’ordinateur distant répond à la configuration requise de WSUS (Windows Server Update Services) consistant à prendre en charge ce nombre de clients.  
 
--   Configuration Manager biedt geen configureren van het software-updatepunten ondersteuning zoals Network Load Balancing (NLB)-clusters. U kunt echter de Configuration Manager SDK maximaal vier software-updatepunten op een NLB-cluster configureren.  
+-   Par défaut, Configuration Manager ne prend pas en charge la configuration de points de mise à jour logicielle comme clusters d’équilibrage de la charge réseau (NLB). Toutefois, vous pouvez utiliser le kit SDK Configuration Manager pour configurer jusqu’à quatre points de mise à jour logicielle sur un cluster NLB.  
 
-##  <a name="bkmk_clientnumbers"></a>Clientaantallen voor sites en hiërarchieën  
- Gebruik de volgende informatie om te bepalen hoeveel clients en welke typen clients u ondersteuning biedt voor op een site of in een hiërarchie.  
+##  <a name="bkmk_clientnumbers"></a> Nombres de clients pour les hiérarchies et les sites  
+ Utilisez les informations suivantes pour déterminer le nombre de clients et leurs types que vous pouvez prendre en charge sur un site ou dans une hiérarchie.  
 
-###  <a name="bkmk_cas"></a>Hiërarchie met een centrale beheersite  
-Een centrale beheersite ondersteunt een totaal aantal apparaten tot het aantal apparaten opgenomen voor de volgende drie groepen:  
+###  <a name="bkmk_cas"></a> Hiérarchie avec un site d’administration centrale  
+Un site d’administration centrale prend en charge un nombre total d’appareils pouvant atteindre le nombre d’appareils répertoriés pour les trois groupes suivants :  
 
--   700.000 desktops (computers waarop Windows, Linux en UNIX wordt uitgevoerd). Zie ook, ondersteuning voor [embedded-apparaten](#embedded).
+-   700 000 ordinateurs de bureau (exécutant Windows, Linux et UNIX). Consultez également la prise en charge des [appareils embarqués](#embedded).
 
--   25.000 apparaten met Mac en Windows CE 7.0  
+-   25 000 appareils exécutant Mac et Windows CE 7.0  
 
--   Een van de volgende, afhankelijk van hoe uw implementatie ondersteuning biedt voor beheer van mobiele apparaten (MDM):  
+-   L’un des nombres suivants, selon la manière dont votre déploiement prend en charge la gestion des appareils mobiles :  
 
-    -   100.000 apparaten die u beheert via on-premises MDM  
+    -   100 000 appareils que vous gérez à l’aide de la gestion MDM locale  
 
-    -   300.000 cloudapparaten  
+    -   300 000 appareils cloud  
 
- Bijvoorbeeld in een hiërarchie, kunt u ondersteunen 700.000 desktops, maximaal 25.000 Mac en Windows CE 7.0 en maximaal 300.000 cloudapparaten wanneer u Microsoft Intune integreert, voor een totaal 1.025.000 apparaten. Als u ondersteuning voor apparaten die worden beheerd door lokale MDM, is het totaal voor de hiërarchie 825.000 apparaten.  
+ Par exemple, dans une hiérarchie, vous pouvez prendre en charge 700 000 ordinateurs de bureau, jusqu’à 25 000 clients Mac et Windows CE 7.0, et jusqu’à 300 000 appareils cloud quand vous intégrez Microsoft Intune, soit un total de 1 025 000 appareils. Si vous prenez en charge des appareils gérés par la gestion MDM locale, la hiérarchie compte 825 000 appareils au total.  
 
 > [!IMPORTANT]  
->  In een hiërarchie waarbij de centrale beheersite een Standard-editie van SQL Server gebruikt, ondersteunt de hiërarchie maximaal 50.000 desktops en apparaten. De editie van SQL Server die wordt gebruikt op een zelfstandige primaire site beperken niet die site capaciteit voor maximaal het vermelde aantal clients ondersteunen.  
+>  Une hiérarchie où le site d’administration centrale utilise une édition Standard de SQL Server prend en charge un maximum de 50 000 ordinateurs de bureau et appareils. L’édition de SQL Server utilisée sur un site principal autonome ne limite pas la capacité du site consistant à prendre en charge au maximum le nombre indiqué de clients.  
 
 
-###  <a name="bkmk_chipri"></a>Onderliggende primaire site  
-Elke onderliggende primaire site in een hiërarchie met een centrale beheersite ondersteunt het volgende:  
+###  <a name="bkmk_chipri"></a> Site principal enfant  
+Chaque site principal enfant dans une hiérarchie avec un site d’administration centrale prend en charge les éléments suivants :  
 
--   150.000 totaal aantal clients en apparaten die niet beperkt tot een specifieke groep of type, zolang de ondersteuning wordt niet langer zijn dan het getal dat wordt ondersteund voor de hiërarchie. Zie ook, ondersteuning voor [embedded-apparaten](#embedded).
+-   Un total de 150 000 clients et appareils, non limités à un groupe ou à un type spécifiques, à condition que la prise en charge ne dépasse pas le nombre pris en charge par la hiérarchie. Consultez également la prise en charge des [appareils embarqués](#embedded).
 
-Bijvoorbeeld: een primaire site die ondersteuning biedt voor 25.000 computers waarop Mac en Windows CE 7.0 worden uitgevoerd (omdat dit de limiet voor een hiërarchie) kan vervolgens een extra 125,000 desktopcomputers ondersteunen. Hiermee wordt het totale aantal ondersteunde apparaten tot de onderliggende primaire site het ondersteunde maximum aantal 150.000.
+Par exemple, un site principal qui prend en charge 25 000 ordinateurs exécutant des clients Mac et Windows CE 7.0 (la limite d’une hiérarchie) peut prendre en charge 125 000 ordinateurs de bureau supplémentaires. Le nombre total d’appareils pris en charge atteint alors la limite maximale de 150 000 prise en charge par le site principal enfant.
 
-###  <a name="bkmk_pri"></a>Zelfstandige primaire site  
-Een zelfstandige primaire site ondersteunt het volgende aantal apparaten:  
+###  <a name="bkmk_pri"></a> Site principal autonome  
+Un site principal autonome prend en charge le nombre suivant d’appareils :  
 
--   175.000 totaal aantal clients en apparaten, waarvan maximaal:  
+-   Total de 175 000 clients et appareils, sans dépasser :  
 
-    -   150.000 desktops (computers waarop Windows, Linux en UNIX wordt uitgevoerd). Zie ook, ondersteuning voor [embedded-apparaten](#embedded).
+    -   150 000 ordinateurs de bureau (exécutant Windows, Linux et UNIX). Consultez également la prise en charge des [appareils embarqués](#embedded).
 
-    -   25.000 apparaten met Mac en Windows CE 7.0
+    -   25 000 appareils exécutant Mac et Windows CE 7.0
 
-    -   Een van de volgende, afhankelijk van hoe uw implementatie ondersteuning biedt voor beheer van mobiele apparaten:  
+    -   L’un des nombres d’éléments suivants, selon la manière dont votre déploiement prend en charge la gestion des appareils mobiles :  
 
-        -   50.000 apparaten die u beheert via on-premises MDM  
+        -   50 000 appareils que vous gérez à l’aide de la gestion MDM locale  
 
-        -   150.000 cloudapparaten  
+        -   150 000 appareils cloud  
 
 
-Een zelfstandige primaire site die ondersteuning biedt voor 150.000 desktops en 10.000 Mac of Windows CE 7.0 kan bijvoorbeeld slechts 15.000 extra apparaten ondersteunen. Deze apparaten kunnen bestaan uit cloud-gebaseerde of beheerde met behulp van de lokale MDM.  
+Par exemple, un site principal autonome prenant en charge 150 000 ordinateurs de bureau et 10 000 clients Mac ou Windows CE 7.0 ne peut prendre en charge que 15 000 appareils supplémentaires. Ces appareils peuvent être basés sur le cloud ou gérés à l’aide de la gestion MDM locale.  
 
-### <a name="embedded"></a>Primaire sites en Windows Embedded-apparaten
-Primaire sites ondersteunen Windows Embedded-apparaten waarvoor File-Based Write Filters (FBWF) ingeschakeld. Wanneer de ingesloten apparaten geen schrijffilters zijn ingeschakeld, kan een primaire site een aantal ingesloten apparaten tot maximaal het toegestane aantal apparaten ondersteunen voor die site. Van het totale aantal apparaten dat een primaire site ondersteunt maximaal 10.000 uit deze Windows Embedded-apparaten kan zijn wanneer deze apparaten zijn geconfigureerd voor de uitzonderingen die worden vermeld in de belangrijke opmerking gevonden in de [Planning voor clientimplementatie op Windows Embedded-apparaten](/sccm/core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices). Een primaire site ondersteunt slechts 3.000 Windows Embedded-apparaten waarvoor EWF is ingeschakeld en die niet zijn geconfigureerd voor de uitzonderingen.
+### <a name="embedded"></a>Sites principaux et appareils Windows Embedded
+Les sites principaux prennent en charge les appareils embarqués Windows Embedded où les filtres d'écriture basés sur des fichiers (FBWF) sont activés. Quand les appareils embarqués n’ont pas les filtres d'écriture activés, un site principal peut prendre en charge un nombre d'appareils embarqués pouvant atteindre le nombre d’appareils autorisés pour ce site. Sur le nombre total d’appareils qu'un site principal prend en charge, un maximum de 10 000 peuvent être des appareils Windows Embedded si ces appareils sont configurés pour les exceptions répertoriées dans la section Important que vous trouverez dans [Planification du déploiement de clients sur des appareils Windows Embedded dans System Center Configuration Manager](/sccm/core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices). Un site principal prend en charge seulement 3 000 appareils Windows Embedded où EWF est activé et qui ne sont pas configurés pour les exceptions.
 
-###  <a name="bkmk_sec"></a>Secundaire sites  
-Secundaire sites ondersteunen het volgende:  
+###  <a name="bkmk_sec"></a> Sites secondaires  
+Les sites secondaires prennent en charge les éléments suivants :  
 
--   15.000 desktops (computers waarop Windows, Linux en UNIX wordt uitgevoerd)  
+-   15 000 ordinateurs de bureau (exécutant Windows, Linux et UNIX)  
 
-###  <a name="bkmk_mp"></a>Beheerpunten  
-Elk beheerpunt kan het volgende aantal apparaten ondersteunen:  
+###  <a name="bkmk_mp"></a> Points de gestion  
+Chaque point de gestion peut prendre en charge le nombre suivant d’appareils :  
 
--   25.000 totaal aantal clients en apparaten, waarvan maximaal:  
+-   Total de 25 000 clients et appareils, sans dépasser :  
 
-    -   25.000 desktops (computers waarop Windows, Linux en UNIX wordt uitgevoerd)  
+    -   25 000 ordinateurs de bureau (exécutant Windows, Linux et UNIX)  
 
-    -   Een van de volgende (niet beide):  
+    -   L’un des nombres d’éléments suivants (pas les deux) :  
 
-        -   10.000 apparaten die worden beheerd door via on-premises MDM  
+        -   10 000 appareils que vous gérez à l’aide de la gestion MDM locale  
 
-        -   10.000 apparaten met Mac en Windows CE 7.0-clients
+        -   10 000 appareils exécutant des clients Mac et Windows CE 7.0

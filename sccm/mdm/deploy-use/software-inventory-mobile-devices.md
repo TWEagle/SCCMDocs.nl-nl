@@ -1,6 +1,6 @@
 ---
-title: Software-inventaris voor mobiele apparaten die zijn ingeschreven bij Microsoft Intune | Microsoft Docs
-description: Software-inventaris voor mobiele apparaten die zijn ingeschreven bij Microsoft Intune.
+title: "Inventaire logiciel des appareils mobiles inscrits auprès de Microsoft Intune | Microsoft Docs"
+description: "Inventaire logiciel des appareils mobiles inscrits auprès de Microsoft Intune."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,28 +17,28 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 2ed79d02535768de136947e4a5b63ad186d9a3cd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="software-inventory-for-mobile-devices-enrolled-with-microsoft-intune"></a>Software-inventarisatie voor mobiele apparaten die zijn geregistreerd bij Microsoft Intune
+# <a name="software-inventory-for-mobile-devices-enrolled-with-microsoft-intune"></a>Inventaire logiciel des appareils mobiles inscrits auprès de Microsoft Intune
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
- U kunt de inventaris voor geïnstalleerde apps op mobiele apparaten verzamelen. Welke apps worden geïnventariseerd, hangt ervan af of het apparaat in bedrijfseigendom of persoonlijk eigendom is. Alleen apps die zijn geïnventariseerd zijn voor persoonlijke apparaten, apps die worden beheerd door Microsoft Intune.  
+ Vous pouvez collecter un inventaire des applications installées sur des appareils mobiles. La liste des applications inventoriées varie selon que l'appareil appartient à l'entreprise ou à l'utilisateur. Pour les appareils personnels, les seules applications inventoriées sont celles qui sont gérées par Microsoft Intune.  
 
 > [!NOTE]  
->  Inventarisatie van de geïnstalleerde apps op mobiele apparaten worden verzameld als onderdeel van de [hardware-inventaris](mobile-device-hardware-inventory-hybrid.md) proces.  
+>  L’inventaire sur les applications installées sur les appareils mobiles est collecté dans le cadre du processus d’[inventaire matériel](mobile-device-hardware-inventory-hybrid.md).  
 
- Hier volgen de apps die zijn geïnventariseerd voor apparaten die persoonlijk eigendom of eigendom van het bedrijf.  
+ Voici les applications inventoriées pour les appareils personnels ou d’entreprise.  
 
-|Platform|Voor apparaten die persoonlijk eigendom zijn|Voor apparaten die bedrijfseigendom zijn|  
+|Plate-forme|Pour les appareils personnels|Pour les appareils d’entreprise|  
 |--------------|---------------------------------|--------------------------------|  
-|Windows 10 (zonder de Configuration Manager-client)|Alleen beheerde apps|Alleen beheerde apps|
-|Windows 8.1 (zonder de Configuration Manager-client)|Alleen beheerde apps|Alleen beheerde apps|  
-|Windows Phone 8|Alleen beheerde apps|Alleen beheerde apps|  
-|Windows RT|Alleen beheerde apps|Alleen beheerde apps|  
-|iOS|Alleen beheerde apps|Alle apps die op het apparaat zijn geïnstalleerd|  
-|Android|Alleen beheerde apps|Alle apps die op het apparaat zijn geïnstalleerd|  
+|Windows 10 (sans client Configuration Manager)|Uniquement les applications gérées|Uniquement les applications gérées|
+|Windows 8.1 (sans client Configuration Manager)|Uniquement les applications gérées|Uniquement les applications gérées|  
+|Windows Phone 8|Uniquement les applications gérées|Uniquement les applications gérées|  
+|Windows RT|Uniquement les applications gérées|Uniquement les applications gérées|  
+|iOS|Uniquement les applications gérées|Toutes les applications installées sur l’appareil|  
+|Android|Uniquement les applications gérées|Toutes les applications installées sur l’appareil|  
 
-Zie [Inleiding tot software-inventaris](../../core/clients/manage/inventory/introduction-to-software-inventory.md) en [het configureren van software-inventaris ](../../core/clients/manage/inventory/configure-software-inventory.md) voor gedetailleerde informatie over het gebruik van software-inventaris te verzamelen van bestandsgegevens op clientapparaten.
+Pour en savoir plus sur l’utilisation de l’inventaire logiciel pour collecter des informations sur les fichiers se trouvant sur les appareils des clients, voir [Présentation de l’inventaire logiciel](../../core/clients/manage/inventory/introduction-to-software-inventory.md) et [Comment configurer l’inventaire logiciel](../../core/clients/manage/inventory/configure-software-inventory.md).

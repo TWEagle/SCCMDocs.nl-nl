@@ -1,6 +1,6 @@
 ---
-title: Ondersteunde sitesysteemservers | Microsoft Docs
-description: Meer informatie over welke Windows-versies kunt u een System Center Configuration Manager-site of sitesysteemrol hosten.
+title: "Serveurs de système de site pris en charge | Microsoft Docs"
+description: "Déterminez les versions de Windows que vous pouvez utiliser pour héberger un site ou un rôle de système de site System Center Configuration Manager."
 ms.custom: na
 ms.date: 06/27/2017
 ms.prod: configuration-manager
@@ -16,299 +16,299 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: be635e4df79b57b6f650287fa3774d2c10613cee
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="supported-operating-systems-for-system-center-configuration-manager-site-system-servers"></a>Ondersteunde besturingssystemen voor System Center Configuration Manager-sitesysteemservers
+# <a name="supported-operating-systems-for-system-center-configuration-manager-site-system-servers"></a>Systèmes d’exploitation pris en charge pour les serveurs de système de site System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
-
-
-In dit artikel beschrijft de versies van Windows die u gebruiken kunt voor het hosten van een System Center Configuration Manager-site of sitesysteemrol.
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Gebruik de informatie in dit onderwerp samen met de informatie in de volgende artikelen:
--   [Aanbevolen hardware voor Configuration Manager](../../../core/plan-design/configs/recommended-hardware.md)
--   [Site- en site-systeemvereisten voor Configuration Manager](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)
--   [Grootte en schaalgetallen voor Configuration Manager](../../../core/plan-design/configs/size-and-scale-numbers.md)
+Cet article explique en détail les versions de Windows que vous pouvez utiliser pour héberger un site ou un rôle de système de site System Center Configuration Manager.
+
+
+Utilisez les informations de cette rubrique ainsi que celles contenues dans les articles suivants :
+-   [Matériel recommandé pour Configuration Manager](../../../core/plan-design/configs/recommended-hardware.md)
+-   [Prérequis des sites et systèmes de site pour Configuration Manager](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)
+-   [Taille et échelle de Configuration Manager en chiffres](../../../core/plan-design/configs/size-and-scale-numbers.md)
 
 
 
-## <a name="windows-server-2016-standard-and-datacenter"></a>WindowsServer 2016: Standaard en Datacenter
-Vanaf versie 1606 met de rollup hotfix van KB3186654 (of de basislijnversie van 1606, die werd gepubliceerd in oktober 2016) wordt dit besturingssysteem ondersteund voor het volgende:
+## <a name="windows-server-2016-standard-and-datacenter"></a>Windows Server 2016 : Standard et Datacenter
+À compter de la version 1606, avec le correctif cumulatif KB3186654 (ou la version de base de référence 1606 publiée en octobre 2016), ce système d’exploitation est pris en charge pour les éléments suivants :
 
-**Siteservers:**  
+**Serveurs de site :**  
 
--   Centrale beheersite  
+-   Site d'administration centrale  
 
--   Primaire site  
+-   Site principal  
 
--   Secundaire site  
+-   Site secondaire  
 
-**Sitesysteemservers:**  
+**Serveurs de système de site :**  
 
--   Application Catalog-webservicepunt  
+-   Point de service Web du catalogue des applications  
 
--   Application Catalog-websitepunt  
+-   Point du site web du catalogue des applications  
 
--   Asset Intelligence-synchronisatiepunt  
+-   Point de synchronisation Asset Intelligence  
 
--   Certificaatregistratiepunt  
+-   Point d'enregistrement de certificat  
 
--   Distributiepunt  
+-   Point de distribution  
 
-     Distributiepunten bieden ondersteuning voor diverse configuraties die elk verschillende vereisten hebben. Deze configuraties ondersteunen installatie in sommige gevallen niet alleen op servers, maar op clientbesturingssystemen worden geïnstalleerd. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+     Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
--   Endpoint Protection-punt  
+-   Point Endpoint Protection  
 
--   Inschrijvingspunt  
+-   Point d'inscription  
 
--   Proxypunt voor inschrijving  
+-   Point proxy d'inscription  
 
--   Terugvalstatuspunt  
+-   Point d’état de secours  
 
--   Beheerpunt
+-   Point de gestion
 
--   Reporting Services-punt  
+-   Point de Reporting Services  
 
--   Serviceverbindingspunt  
+-   Point de connexion de service  
 
--   Sitedatabaseserver  
+-   Serveur de bases de données du site  
 
-     Sitedatabaseservers worden niet ondersteund op een alleen-lezen domeincontroller (RODC). Zie [You may encounter problems when installing SQL Server on a domain controller (U kunt problemen ervaren wanneer u SQL Server installeert op een domeincontroller)](http://go.microsoft.com/fwlink/p/?LinkId=264856) in de Microsoft Knowledge Base voor meer informatie. Bovendien worden secundaire siteservers niet ondersteund op domeincontrollers.  
-
--   SMS_Provider  
-
--   Software-updatepunt  
-
--   Statusmigratiepunt
-
-## <a name="windows-server-2012-r2-x64-standard-and-datacenter"></a>Windows Server 2012 R2 (x 64): Standaard en Datacenter  
-**Siteservers:**  
-
--   Centrale beheersite  
-
--   Primaire site  
-
--   Secundaire site  
-
-**Sitesysteemservers:**  
-
--   Application Catalog-webservicepunt  
-
--   Application Catalog-websitepunt  
-
--   Asset Intelligence-synchronisatiepunt  
-
--   Certificaatregistratiepunt  
-
--   Distributiepunt  
-
-     Distributiepunten bieden ondersteuning voor diverse configuraties die elk verschillende vereisten hebben. Deze configuraties ondersteunen installatie in sommige gevallen niet alleen op servers, maar op clientbesturingssystemen worden geïnstalleerd. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
-
--   Endpoint Protection-punt  
-
--   Inschrijvingspunt  
-
--   Proxypunt voor inschrijving  
-
--   Terugvalstatuspunt  
-
--   Beheerpunt
-
--   Reporting Services-punt  
-
--   Serviceverbindingspunt  
-
--   Sitedatabaseserver  
-
-     Sitedatabaseservers worden niet ondersteund op een alleen-lezen domeincontroller (RODC). Zie [You may encounter problems when installing SQL Server on a domain controller (U kunt problemen ervaren wanneer u SQL Server installeert op een domeincontroller)](http://go.microsoft.com/fwlink/p/?LinkId=264856) in de Microsoft Knowledge Base voor meer informatie. Bovendien worden secundaire siteservers niet ondersteund op domeincontrollers.  
+     Les serveurs de bases de données du site ne sont pas pris en charge sur un contrôleur de domaine en lecture seule (RODC). Pour plus d'informations, voir [Vous pouvez rencontrer des problèmes lors de l'installation de SQL Server sur un contrôleur de domaine](http://go.microsoft.com/fwlink/p/?LinkId=264856) dans la Base de connaissances Microsoft. En outre, les serveurs de site secondaire ne sont pris en charge sur aucun contrôleur de domaine.  
 
 -   SMS_Provider  
 
--   Software-updatepunt  
+-   Point de mise à jour logicielle  
 
--   Statusmigratiepunt  
+-   Point de migration d'état
 
-## <a name="windows-server-2012-x64-standard-and-datacenter"></a>WindowsServer 2012 (x 64): Standaard en Datacenter  
-**Siteservers:**  
+## <a name="windows-server-2012-r2-x64-standard-and-datacenter"></a>Windows Server 2012 R2 (x64) : Standard et Datacenter  
+**Serveurs de site :**  
 
--   Centrale beheersite  
+-   Site d'administration centrale  
 
--   Primaire site  
+-   Site principal  
 
--   Secundaire site  
+-   Site secondaire  
 
-**Sitesysteemservers:**  
+**Serveurs de système de site :**  
 
--   Application Catalog-webservicepunt  
+-   Point de service Web du catalogue des applications  
 
--   Application Catalog-websitepunt  
+-   Point du site web du catalogue des applications  
 
--   Asset Intelligence-synchronisatiepunt  
+-   Point de synchronisation Asset Intelligence  
 
--   Certificaatregistratiepunt  
+-   Point d'enregistrement de certificat  
 
--   Distributiepunt  
+-   Point de distribution  
 
-     Distributiepunten bieden ondersteuning voor diverse configuraties die elk verschillende vereisten hebben. Deze configuraties ondersteunen installatie in sommige gevallen niet alleen op servers, maar op clientbesturingssystemen worden geïnstalleerd. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+     Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
--   Endpoint Protection-punt  
+-   Point Endpoint Protection  
 
--   Inschrijvingspunt  
+-   Point d'inscription  
 
--   Proxypunt voor inschrijving  
+-   Point proxy d'inscription  
 
--   Terugvalstatuspunt  
+-   Point d’état de secours  
 
--   Beheerpunt
+-   Point de gestion
 
--   Reporting Services-punt  
+-   Point de Reporting Services  
 
--   Serviceverbindingspunt  
+-   Point de connexion de service  
 
--   Sitedatabaseserver  
+-   Serveur de bases de données du site  
 
-     Sitedatabaseservers worden niet ondersteund op een alleen-lezen domeincontroller (RODC). Zie [You may encounter problems when installing SQL Server on a domain controller (U kunt problemen ervaren wanneer u SQL Server installeert op een domeincontroller)](http://go.microsoft.com/fwlink/p/?LinkId=264856) in de Microsoft Knowledge Base voor meer informatie. Bovendien worden secundaire siteservers niet ondersteund op domeincontrollers.  
-
--   SMS_Provider  
-
--   Software-updatepunt  
-
--   Statusmigratiepunt  
-
-## <a name="windows-server-2008-r2-with-sp1-x64-standard-enterprise-and-datacenter"></a>Windows Server 2008 R2 met SP1 (x 64): Standard, Enterprise en Datacenter  
- Windows Server 2008 R2 is nu uitgebreide ondersteuning en niet langer in het algemeen worden ondersteund, zoals beschreven in [Microsoft Support Lifecycle](https://support.microsoft.com/lifecycle). Zie voor meer informatie over toekomstige ondersteuning voor deze besturingssystemen als sitesysteemservers met Configuration Manager [verwijderd en afgeschafte functies voor System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
-
- Met ingang van Configuration Manager versie 1702 kan dit besturingssysteem wordt niet ondersteund voor siteservers of de meeste sitesysteemrollen, maar is zichtbaar voor de sitesysteemrol distributiepunt ondersteunde (inclusief pull-distributiepunten en voor PXE en multicast).
-
- Versies vóór 1702 nog steeds ondersteuning voor het gebruik ervan voor de volgende.
-
-
-**Siteservers:**  
-
--   Centrale beheersite  
-
--   Primaire site  
-
--   Secundaire site  
-
-**Sitesysteemservers:**  
-
--   Application Catalog-webservicepunt  
-
--   Application Catalog-websitepunt  
-
--   Asset Intelligence-synchronisatiepunt  
-
--   Certificaatregistratiepunt  
-
--   Distributiepunt  
-
-     Distributiepunten bieden ondersteuning voor diverse configuraties die elk verschillende vereisten hebben. Deze configuraties ondersteunen installatie in sommige gevallen niet alleen op servers, maar op clientbesturingssystemen worden geïnstalleerd. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
-
--   Endpoint Protection-punt  
-
--   Inschrijvingspunt  
-
--   Proxypunt voor inschrijving  
-
--   Terugvalstatuspunt  
-
--   Beheerpunt
-
--   Reporting Services-punt  
-
--   Serviceverbindingspunt  
-
--   Sitedatabaseserver  
-
-     Sitedatabaseservers worden niet ondersteund op een alleen-lezen domeincontroller (RODC). Zie [You may encounter problems when installing SQL Server on a domain controller (U kunt problemen ervaren wanneer u SQL Server installeert op een domeincontroller)](http://go.microsoft.com/fwlink/p/?LinkId=264856) in de Microsoft Knowledge Base voor meer informatie. Bovendien worden secundaire siteservers niet ondersteund op domeincontrollers.  
+     Les serveurs de bases de données du site ne sont pas pris en charge sur un contrôleur de domaine en lecture seule (RODC). Pour plus d'informations, voir [Vous pouvez rencontrer des problèmes lors de l'installation de SQL Server sur un contrôleur de domaine](http://go.microsoft.com/fwlink/p/?LinkId=264856) dans la Base de connaissances Microsoft. En outre, les serveurs de site secondaire ne sont pris en charge sur aucun contrôleur de domaine.  
 
 -   SMS_Provider  
 
--   Software-updatepunt  
+-   Point de mise à jour logicielle  
 
--   Statusmigratiepunt  
+-   Point de migration d'état  
 
-## <a name="windows-server-2008-with-sp2-x86-x64-standard-enterprise-and-datacenter"></a>WindowsServer 2008 met SP2 (x 86, x 64): Standard, Enterprise en Datacenter  
- Windows Server 2008 is nu uitgebreide ondersteuning en niet langer in het algemeen worden ondersteund, zoals beschreven in [Microsoft Support Lifecycle](https://support.microsoft.com/lifecycle). Zie voor meer informatie over toekomstige ondersteuning voor deze besturingssystemen als sitesysteemservers met Configuration Manager [verwijderd en afgeschafte functies voor System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+## <a name="windows-server-2012-x64-standard-and-datacenter"></a>Windows Server 2012 R2 (x64) : Standard et Datacenter  
+**Serveurs de site :**  
 
-Dit besturingssysteem wordt niet ondersteund voor siteservers of sitesysteemrollen met uitzondering van het distributiepunt en pull-distributiepunt. U kunt blijven gebruiken van dit besturingssysteem als een distributiepunt totdat afschaffing van deze ondersteuning wordt aangekondigd of de periode voor uitgebreide ondersteuning van dit besturingssysteem is verstreken. Zie voor meer informatie [installatie van System Center Configuration Manager CB en LTSB mislukt op Windows Server 2008](https://support.microsoft.com/help/4015095).
+-   Site d'administration centrale  
 
-**Sitesysteemservers:**  
--   Distributiepunt  
+-   Site principal  
 
-    -   Distributiepunten voor dit besturingssysteem bieden geen ondersteuning voor Multicast.  
+-   Site secondaire  
 
-    -   Distributiepunten in dit besturingssysteem worden ondersteund voor PXE, maar bieden geen ondersteuning voor het opstarten van het netwerk van clientcomputers in EFI-modus. Clientcomputers met BIOS- of EFI-opstarten in de legacy-modus worden ondersteund.  
+**Serveurs de système de site :**  
 
-    -   Distributiepunten bieden ondersteuning voor diverse configuraties die elk verschillende vereisten hebben. Deze configuraties ondersteunen installatie in sommige gevallen niet alleen op servers, maar op clientbesturingssystemen worden geïnstalleerd. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+-   Point de service Web du catalogue des applications  
 
+-   Point du site web du catalogue des applications  
 
+-   Point de synchronisation Asset Intelligence  
 
-## <a name="windows-10-x86-x64-pro-and-enterprise"></a>Windows 10 (x86, x64): Pro en Enterprise  
-**Sitesysteemservers:**  
+-   Point d'enregistrement de certificat  
 
--   Distributiepunt  
+-   Point de distribution  
 
-    -   Distributiepunten voor dit besturingssysteem worden niet ondersteund voor PXE.  
+     Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
-    -   Distributiepunten voor deze besturingssysteemversie bieden geen ondersteuning voor Multicast.  
+-   Point Endpoint Protection  
 
-    -   Distributiepunten bieden ondersteuning voor diverse configuraties die elk verschillende vereisten hebben. Deze configuraties ondersteunen installatie in sommige gevallen niet alleen op servers, maar op clientbesturingssystemen worden geïnstalleerd. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+-   Point d'inscription  
 
-## <a name="windows-81-x86-x64-professional-and-enterprise"></a>Windows 8.1 (x86, x64): Professional en Enterprise  
-**Sitesysteemservers:**  
+-   Point proxy d'inscription  
 
--   Distributiepunt  
+-   Point d’état de secours  
 
-    -   Distributiepunten voor dit besturingssysteem worden niet ondersteund voor PXE.  
+-   Point de gestion
 
-    -   Distributiepunten voor deze besturingssysteemversie bieden geen ondersteuning voor Multicast.  
+-   Point de Reporting Services  
 
-    -   Distributiepunten bieden ondersteuning voor diverse configuraties die elk verschillende vereisten hebben. In sommige gevallen kan deze configuratie ondersteuning installatie niet alleen op servers, maar op clientbesturingssystemen worden geïnstalleerd. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+-   Point de connexion de service  
 
-## <a name="windows-8-x86-x64-professional-and-enterprise"></a>Windows 8 (x86, x64): Professional en Enterprise
-**Sitesysteemservers:**  
+-   Serveur de bases de données du site  
 
--   Distributiepunt  
+     Les serveurs de bases de données du site ne sont pas pris en charge sur un contrôleur de domaine en lecture seule (RODC). Pour plus d'informations, voir [Vous pouvez rencontrer des problèmes lors de l'installation de SQL Server sur un contrôleur de domaine](http://go.microsoft.com/fwlink/p/?LinkId=264856) dans la Base de connaissances Microsoft. En outre, les serveurs de site secondaire ne sont pris en charge sur aucun contrôleur de domaine.  
 
-    -   Distributiepunten voor dit besturingssysteem worden niet ondersteund voor PXE.  
+-   SMS_Provider  
 
-    -   Distributiepunten voor deze besturingssysteemversie bieden geen ondersteuning voor Multicast.  
+-   Point de mise à jour logicielle  
 
-    -   Distributiepunten bieden ondersteuning voor diverse configuraties die elk verschillende vereisten hebben. Deze configuraties ondersteunen installatie in sommige gevallen niet alleen op servers, maar op clientbesturingssystemen worden geïnstalleerd. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+-   Point de migration d'état  
 
-## <a name="windows-7-with-sp1-x86-x64-professional-enterprise-and-ultimate"></a>Windows 7 met SP1 (x 86, x 64): Professional, Enterprise en Ultimate  
-**Sitesysteemservers:**  
+## <a name="windows-server-2008-r2-with-sp1-x64-standard-enterprise-and-datacenter"></a>Windows Server 2008 R2 avec SP1 (x64) : Standard, Enterprise et Datacenter  
+ Windows Server 2008 R2 bénéficie désormais du support étendu au lieu du support standard, comme indiqué dans la [Politique de support Microsoft](https://support.microsoft.com/lifecycle). Pour plus d’informations sur le support à venir de ces systèmes d’exploitation utilisés comme serveurs de système de site avec Configuration Manager, consultez [Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
 
--   Distributiepunt  
+ Depuis Configuration Manager version 1702, ce système d’exploitation n’est pas pris en charge pour les serveurs de site ou la plupart des rôles de système de site, mais il continue d’être pris en charge pour le rôle de système de site de point de distribution (dont les points de distribution d’extraction, ainsi que pour PXE et la multidiffusion).
 
-    -   Distributiepunten voor dit besturingssysteem worden niet ondersteund voor PXE.  
-
-    -   Distributiepunten voor deze besturingssysteemversie bieden geen ondersteuning voor Multicast.  
-
-    -   Distributiepunten bieden ondersteuning voor diverse configuraties die elk verschillende vereisten hebben. Deze configuraties ondersteunen installatie in sommige gevallen niet alleen op servers, maar op clientbesturingssystemen worden geïnstalleerd. Zie voor meer informatie over de opties die beschikbaar voor distributiepunten zijn [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+ Les versions antérieures à 1702 continuent de prendre en charge son utilisation pour les éléments suivants.
 
 
-## <a name="the-server-core-installation-of-windows-server-2016"></a>De server core-installatie van Windows Server 2016
-Vanaf versie 1606 met de rollup hotfix van KB3186654 (of de basislijnversie van 1606, die werd gepubliceerd in oktober 2016) dit besturingssysteem wordt ondersteund voor gebruik als een distributiepunt punt met de volgende beperkingen:  
-  -   Alleen de x64-bits versie wordt ondersteund.
-  -   Distributiepunten op dit besturingssysteem bieden geen ondersteuning voor PXE of Multicast.  
+**Serveurs de site :**  
+
+-   Site d'administration centrale  
+
+-   Site principal  
+
+-   Site secondaire  
+
+**Serveurs de système de site :**  
+
+-   Point de service Web du catalogue des applications  
+
+-   Point du site web du catalogue des applications  
+
+-   Point de synchronisation Asset Intelligence  
+
+-   Point d'enregistrement de certificat  
+
+-   Point de distribution  
+
+     Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+
+-   Point Endpoint Protection  
+
+-   Point d'inscription  
+
+-   Point proxy d'inscription  
+
+-   Point d’état de secours  
+
+-   Point de gestion
+
+-   Point de Reporting Services  
+
+-   Point de connexion de service  
+
+-   Serveur de bases de données du site  
+
+     Les serveurs de bases de données du site ne sont pas pris en charge sur un contrôleur de domaine en lecture seule (RODC). Pour plus d'informations, voir [Vous pouvez rencontrer des problèmes lors de l'installation de SQL Server sur un contrôleur de domaine](http://go.microsoft.com/fwlink/p/?LinkId=264856) dans la Base de connaissances Microsoft. En outre, les serveurs de site secondaire ne sont pris en charge sur aucun contrôleur de domaine.  
+
+-   SMS_Provider  
+
+-   Point de mise à jour logicielle  
+
+-   Point de migration d'état  
+
+## <a name="windows-server-2008-with-sp2-x86-x64-standard-enterprise-and-datacenter"></a>Windows Server 2008 avec SP2 (x86, x64) : Standard, Enterprise et Datacenter  
+ Windows Server 2008 bénéficie désormais du support étendu au lieu du support standard, comme indiqué dans la [Politique de support Microsoft](https://support.microsoft.com/lifecycle). Pour plus d’informations sur le support à venir de ces systèmes d’exploitation utilisés comme serveurs de système de site avec Configuration Manager, consultez [Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+
+Ce système d’exploitation n’est pas pris en charge pour les serveurs de site ou les rôles de système de site, à l’exception du point de distribution et du point de distribution d’extraction. Vous pouvez continuer à utiliser ce système d’exploitation comme point de distribution jusqu’à l’annonce de la dépréciation de ce support ou jusqu’à l’expiration du support étendu de ce système d’exploitation. Pour plus d’informations, consultez [Échec de l’installation de System Center Configuration Manager CB et LTSB sur Windows Server 2008](https://support.microsoft.com/help/4015095).
+
+**Serveurs de système de site :**  
+-   Point de distribution  
+
+    -   Les points de distribution sur ce système d’exploitation ne prennent pas en charge la multidiffusion.  
+
+    -   Les points de distribution sur ce système d’exploitation sont pris en charge pour PXE, mais ne prennent pas en charge le démarrage réseau des ordinateurs clients en mode EFI. Les ordinateurs clients avec un démarrage BIOS ou EFI en mode hérité sont pris en charge.  
+
+    -   Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 
-## <a name="the-server-core-installation-of-windows-server-2012-r2"></a>De Server Core-installatie van Windows Server 2012 R2  
- Naast de eerdere besturingssystemen die worden vermeld, wordt de server core-installatie van Windows Server 2012 R2 ondersteund voor gebruik als distributiepunt met de volgende beperkingen:  
 
--   Alleen de x64-bits versie wordt ondersteund.
+## <a name="windows-10-x86-x64-pro-and-enterprise"></a>Windows 10 (x86, x64) : Professionnel et Entreprise  
+**Serveurs de système de site :**  
 
--   Distributiepunten op dit besturingssysteem bieden geen ondersteuning voor PXE of Multicast.  
+-   Point de distribution  
 
-## <a name="the-server-core-installation-of-windows-server-2012"></a>De Server Core-installatie van Windows Server 2012  
- Naast de eerdere besturingssystemen die worden vermeld, wordt ook de server core-installatie van Windows Server 2012 ondersteund voor gebruik als een distributiepunt punt met de volgende beperkingen:  
+    -   Les points de distribution sur ce système d’exploitation ne sont pas pris en charge pour PXE.  
 
--   Alleen de 64-bits versie wordt ondersteund.  
+    -   Les points de distribution sur cette version du système d’exploitation ne prennent pas en charge la multidiffusion.  
 
--   Distributiepunten op dit besturingssysteem bieden geen ondersteuning voor PXE of Multicast.
+    -   Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+
+## <a name="windows-81-x86-x64-professional-and-enterprise"></a>Windows 8.1 (x86, x64) : Professionnel et Entreprise  
+**Serveurs de système de site :**  
+
+-   Point de distribution  
+
+    -   Les points de distribution sur ce système d’exploitation ne sont pas pris en charge pour PXE.  
+
+    -   Les points de distribution sur cette version du système d’exploitation ne prennent pas en charge la multidiffusion.  
+
+    -   Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+
+## <a name="windows-8-x86-x64-professional-and-enterprise"></a>Windows 8 (x86, x64) : Professionnel et Entreprise
+**Serveurs de système de site :**  
+
+-   Point de distribution  
+
+    -   Les points de distribution sur ce système d’exploitation ne sont pas pris en charge pour PXE.  
+
+    -   Les points de distribution sur cette version du système d’exploitation ne prennent pas en charge la multidiffusion.  
+
+    -   Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+
+## <a name="windows-7-with-sp1-x86-x64-professional-enterprise-and-ultimate"></a>Windows 7 avec SP1 (x86, x64) : Professionnel, Entreprise et Édition Intégrale  
+**Serveurs de système de site :**  
+
+-   Point de distribution  
+
+    -   Les points de distribution sur ce système d’exploitation ne sont pas pris en charge pour PXE.  
+
+    -   Les points de distribution sur cette version du système d’exploitation ne prennent pas en charge la multidiffusion.  
+
+    -   Les points de distribution prennent en charge plusieurs configurations différentes ayant chacune des exigences différentes. Dans certains cas, ces configurations prennent en charge l’installation sur des serveurs, mais aussi sur des systèmes d’exploitation clients. Pour plus d’informations sur les options disponibles pour les points de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+
+
+## <a name="the-server-core-installation-of-windows-server-2016"></a>Installation minimale de Windows Server 2016
+À compter de la version 1606, avec le correctif cumulatif KB3186654 (ou la version de base de référence 1606 publiée en octobre 2016), ce système d’exploitation est pris en charge comme point de distribution avec les restrictions suivantes :  
+  -   Seule la version 64 bits est prise en charge.
+  -   Les points de distribution sur ce système d’exploitation ne prennent pas en charge PXE ou la multidiffusion.  
+
+
+## <a name="the-server-core-installation-of-windows-server-2012-r2"></a>Installation minimale de Windows Server 2012 R2  
+ Outre les systèmes d’exploitation antérieurs indiqués, l’installation minimale de Windows Server 2012 R2 est prise en charge pour une utilisation comme point de distribution avec les limitations suivantes :  
+
+-   Seule la version 64 bits est prise en charge.
+
+-   Les points de distribution sur ce système d’exploitation ne prennent pas en charge PXE ou la multidiffusion.  
+
+## <a name="the-server-core-installation-of-windows-server-2012"></a>Installation minimale de Windows Server 2012  
+ Outre les systèmes d’exploitation antérieurs indiqués, l’installation minimale de Windows Server 2012 est également prise en charge pour une utilisation comme point de distribution avec les limitations suivantes :  
+
+-   Seule la version 64 bits est prise en charge.  
+
+-   Les points de distribution sur ce système d’exploitation ne prennent pas en charge PXE ou la multidiffusion.

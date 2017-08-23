@@ -1,6 +1,6 @@
 ---
-title: Software-updates handmatig implementeren | Microsoft Docs
-description: Voor de implementatie updates handmatig updates selecteren in de Configuration Manager-console en handmatig implementeren, of -updates toevoegen aan een updategroep en de groep implementeren.
+title: "Déployer manuellement des mises à jour logicielles | Documents Microsoft"
+description: "Pour déployer manuellement des mises à jour logicielles, sélectionnez les mises à jour dans la console Configuration Manager et déployez-les manuellement, ou ajoutez les mises à jour à un groupe de mises à jour et déployez ce groupe."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,69 +13,69 @@ ms.technology: configmgr-sum
 ms.assetid: 57184274-5fea-4d79-a2b4-22e08ed26daf
 ms.openlocfilehash: 2a0d5f12b99689749833c109d4fa399f99451d8a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="BKMK_ManualDeploy"></a> Software-updates handmatig implementeren  
+#  <a name="BKMK_ManualDeploy"></a> Déployer manuellement des mises à jour logicielles  
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
- Een handmatige software-update-implementatie is het proces van het selecteren van software-updates in de Configuration Manager-console en het handmatig starten van het implementatieproces. Of u kunt geselecteerde software-updates toevoegen aan een updategroep en de updategroep vervolgens handmatig implementeren. Gewoonlijk gebruikt u handmatige implementatie om uw clientapparaten up-to-date te krijgen met vereiste software-updates voordat u ADR's maakt die lopende maandelijkse software-update-implementaties zullen beheren. U zult ook een handmatige methode gebruiken om buiten-bandsoftware-updates te implementeren. Als u hulp nodig hebt om te bepalen welke implementatie methode is geschikt is voor u, raadpleegt u [software-updates implementeren](deploy-software-updates.md).
+ Le déploiement manuel des mises à jour logicielles consiste à sélectionner des mises à jour logicielles dans la console Configuration Manager et à lancer manuellement le processus de déploiement. Ou bien, vous pouvez ajouter des mises à jour logicielles sélectionnées à un groupe de mises à jour, puis déployer manuellement ce groupe. Avant de créer des règles ADR chargées de gérer en continu les déploiements mensuels de mises à jour logicielles, il est probable que vous aurez recours à un déploiement manuel pour mettre à jour vos appareils clients avec les mises à jour logicielles requises. Vous pourrez également utiliser une méthode manuelle pour déployer des mises à jour logicielles hors bande. Si vous avez besoin d’aide pour déterminer la méthode de déploiement qui vous convient, consultez [Déployer des mises à jour logicielles](deploy-software-updates.md).
 
- De volgende secties behandelen de stappen voor het software-updates handmatig implementeren.  
+ Les sections suivantes décrivent les étapes à effectuer pour déployer manuellement des mises à jour logicielles.  
 
-##  <a name="BKMK_1SearchCriteria"></a>Stap 1: Geef zoekcriteria voor software-updates  
- Er worden mogelijk duizenden software-updates weergegeven in de Configuration Manager-console. De eerste stap in de werkstroom voor het handmatig implementeren van software-updates is het identificeren van de software-updates die u wilt implementeren. U zou bijvoorbeeld criteria kunnen opgeven die alle software-updates ophalen die vereist zijn op meer dan 50 clientapparaten en die een software-updateclassificatie **Beveiliging** of **Kritiek** hebben.  
+##  <a name="BKMK_1SearchCriteria"></a> Étape 1 : spécifier les critères de recherche des mises à jour logicielles  
+ Des milliers de mises à jour logicielles peuvent potentiellement s’afficher dans la console Configuration Manager. La première étape du flux de travail relatif au déploiement manuel de mises à jour logicielles consiste à identifier les mises à jour logicielles que vous souhaitez déployer. Par exemple, vous pourriez indiquer des critères permettant d'extraire toutes les mises à jour logicielles requises sur plus de 50 appareils clients et dont la classification est **Sécurité** ou **Critique** .  
 
 > [!IMPORTANT]  
->  Het maximum aantal software-updates dat in een enkele software-update-implementatie kan worden opgenomen, bedraagt 1000.  
+>  Le nombre maximal de mises à jour logicielles pouvant être incluses dans un déploiement unique s'élève à 1 000.  
 
-#### <a name="to-specify-search-criteria-for-software-updates"></a>Zoekcriteria voor software-updates geven  
+#### <a name="to-specify-search-criteria-for-software-updates"></a>Pour spécifier des critères de recherche pour les mises à jour logicielles  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Vouw in de werkruimte Softwarebibliotheek het knooppunt **Software-updates**uit en klik op **Alle software-updates**. De gesynchroniseerde software-updates worden weergegeven.  
+2.  Dans l'espace de travail Bibliothèque de logiciels, développez **Mises à jour logicielles**et cliquez sur **Toutes les mises à jour logicielles**. Les mises à jour logicielles synchronisées sont affichées.  
 
     > [!NOTE]  
-    >  Op de **alle Software-Updates** Configuration Manager-knooppunt geeft alleen software-updates met een **Kritiek** en **beveiliging** classificatie en in de afgelopen 30 dagen zijn uitgebracht.  
+    >  Dans le nœud **Toutes les mises à jour logicielles**, Configuration Manager affiche uniquement les mises à jour logicielles classées selon les critères **Critique** et **Sécurité** qui ont été publiées au cours des 30 derniers jours.  
 
-3.  Filter in het zoekvenster om de software-updates te identificeren die u nodig hebt met behulp van een of beide van de volgende stappen:  
+3.  Dans le volet de recherche, appliquez un filtre pour identifier les mises à jour logicielles dont vous avez besoin en suivant l'une des étapes suivantes ou les deux :  
 
-    -   Typ in het zoekvenster een zoekstring die de software-updates zal filteren. Typ bijvoorbeeld de artikel-id of bulletin-id voor een specifieke software-update, of geef een string in die in de titel voor verschillende software-updates zou voorkomen.  
+    -   Dans la zone de texte Rechercher, tapez une chaîne de recherche qui permettra de filtrer les mises à jour logicielles. Par exemple, tapez l'ID de l'article ou du bulletin d'une mise à jour logicielle spécifique, ou entrez une chaîne susceptible d'apparaître dans le titre de plusieurs mises à jour logicielles.  
 
-    -   Klik op **Criteria toevoegen**, selecteer de criteria die u wilt gebruiken om software-updates te filteren, klik op **Toevoegen**en geef dan de waarden op voor de criteria.  
+    -   Cliquez sur **Ajouter des critères**, sélectionnez les critères que vous souhaitez utiliser pour filtrer les mises à jour logicielles, cliquez sur **Ajouter**, puis indiquez les valeurs pour les critères.  
 
-4.  Klik op **Zoeken** om de software-updates te filteren.  
+4.  Cliquez sur **Rechercher** pour filtrer les mises à jour logicielles.  
 
     > [!TIP]  
-    >  U hebt de optie de filtercriteria op te slaan op het tabblad **Zoeken** en in de groep **Opslaan** .  
+    >  Vous avez la possibilité d'enregistrer les critères de filtre sur l'onglet **Rechercher** et dans le groupe **Enregistrer** .  
 
-##  <a name="BKMK_2UpdateGroup"></a>Stap 2: Maken van een software-updategroep die de software-updates bevat  
- Software-updategroepen bieden u een doeltreffende methode om software-updates te organiseren die worden voorbereid voor implementatie. U kunt handmatig een software-updates aan een software-updategroep of Configuration Manager kunnen softwareupdates automatisch toevoegen aan een nieuwe of bestaande software-updategroep met behulp van een ADR toevoegen. Gebruik de volgende procedures om software-updates handmatig toe te voegen aan een nieuwe software-updategroep.  
+##  <a name="BKMK_2UpdateGroup"></a> Étape 2 : créer un groupe de mises à jour logicielles contenant les mises à jour logicielles  
+ Les groupes de mises à jour logicielles permettent d'organiser efficacement les mises à jour logicielles en préparation à des fins de déploiement. Vous pouvez ajouter manuellement des mises à jour logicielles à un groupe de mises à jour logicielles, ou définir une règle ADR pour que Configuration Manager ajoute automatiquement les mises à jour logicielles à un groupe de mises à jour logicielles nouveau ou existant. Pour ajouter manuellement des mises à jour logicielles à un nouveau groupe de mises à jour logicielles, procédez comme suit.  
 
-#### <a name="to-manually-add-software-updates-to-a-new-software-update-group"></a>Software-updates handmatig toevoegen aan een nieuwe software-updategroep  
+#### <a name="to-manually-add-software-updates-to-a-new-software-update-group"></a>Pour ajouter manuellement des mises à jour logicielles à un nouveau groupe de mises à jour logicielles  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Klik in de werkruimte Softwarebibliotheek op **Software-updates**.  
+2.  Dans l'espace de travail Bibliothèque de logiciels, cliquez sur **Mises à jour logicielles**.  
 
-3.  Selecteer de software-updates die aan de nieuwe software-updategroep moeten worden toegevoegd.  
+3.  Sélectionnez les mises à jour logicielles à ajouter au nouveau groupe de mises à jour logicielles.  
 
-4.  Klik op het tabblad **Start** in de groep **Update** op **Software-updategroep maken**.  
+4.  Dans l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Créer un groupe de mises à jour logicielles**.  
 
-5.  Geef de naam voor de software-updategroep en geef optioneel een beschrijving. Gebruik een naam en beschrijving die voldoende informatie geven aan u om te bepalen welk type software-updates er in de software-updategroep zitten. Als u wilt doorgaan, klikt u op **Maken**.  
+5.  Spécifiez le nom du groupe de mises à jour logicielles et indiquez éventuellement une description. Utilisez un nom et une description suffisamment détaillés pour vous permettre de déterminer quel type de mises à jour logicielles se trouve dans le groupe de mises à jour logicielles. Pour continuer, cliquez sur **Créer**.  
 
-6.  Klik op het knooppunt **Software-updategroepen** om de nieuwe software-updategroep te tonen.  
+6.  Cliquez sur le nœud **Groupes de mises à jour logicielles** pour afficher le nouveau groupe de mises à jour logicielles.  
 
-7.  Selecteer de software-updategroep en klik op het tabblad **Start** in de groep **Update** op **Leden tonen** om een lijst van de software-updates te tonen die in de groep zijn opgenomen.  
+7.  Sélectionnez le groupe de mises à jour logicielles et, sous l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Afficher les membres** pour afficher la liste des mises à jour logicielles incluses dans le groupe.  
 
-##  <a name="BKMK_3DownloadContent"></a>Stap 3: De inhoud voor de software-updategroep downloaden  
- Voordat u de software-updates implementeert, kunt u optioneel de inhoud voor de software-updates downloaden die in de software-updategroep zijn opgenomen. U kunt ervoor kiezen dit te doen zodat u kunt controleren of de inhoud beschikbaar is op de distributiepunten voordat u de software-updates implementeert. Dit zal u helpen enige onverwachte problemen met de inhoudsbibliotheek te vermijden. U kunt deze stap overslaan en de inhoud zal worden gedownload en gekopieerd naar de distributiepunten als deel van het implementatieproces. Gebruik de volgende procedure om de inhoud voor software-updates in de software-updategroep te downloaden.  
+##  <a name="BKMK_3DownloadContent"></a> Étape 3 : télécharger le contenu pour le groupe de mises à jour logicielles  
+ Éventuellement, avant de déployer les mises à jour logicielles, vous pouvez télécharger le contenu de celles qui sont incluses dans le groupe de mises à jour logicielles. Vous pouvez choisir de procéder ainsi afin de vérifier que le contenu est disponible sur les points de distribution avant de déployer les mises à jour logicielles. Cela vous permet d'éviter des problèmes inattendus de remise de contenu. Vous pouvez ignorer cette étape et le contenu sera téléchargé et copié sur les points de distribution dans le cadre du processus de déploiement. Pour télécharger le contenu pour les mises à jour logicielles dans le groupe de mises à jour logicielles, procédez comme suit.  
 
 
 
-#### <a name="to-download-content-for-the-software-update-group"></a>Inhoud voor de software-updategroep downloaden
+#### <a name="to-download-content-for-the-software-update-group"></a>Pour télécharger le contenu pour le groupe de mises à jour logicielles
 [!INCLUDE[downloadupdates](..\includes\downloadupdates.md)]
 <!--- 1.  In the Configuration Manager console, click **Software Library**.  
 
@@ -148,167 +148,167 @@ ms.lasthandoff: 08/07/2017
 
 11. On the Completion page, verify that the software updates were successfully downloaded, and then click **Close**. --->
 
-#### <a name="to-monitor-content-status"></a>De status van inhoud controleren
-1. Voor het bewaken van de status van inhoud voor de software-updates, klikt u op **bewaking** in de Configuration Manager-console.  
+#### <a name="to-monitor-content-status"></a>Pour surveiller l'état du contenu
+1. Pour surveiller l’état du contenu des mises à jour logicielles, cliquez sur **Surveillance** dans la console Configuration Manager.  
 
-2. Vouw in de werkruimte Controle het knooppunt **Distributiestatus**uit en klik vervolgens op **Inhoudsstatus**.  
+2. Dans l'espace de travail Surveillance, développez **État de distribution**, puis cliquez sur **État du contenu**.  
 
-3. Selecteer het software-updatepakket dat u eerder voor het downloaden van software-updates hebt geïdentificeerd in de software-updategroep.  
+3. Sélectionnez le package de mises à jour logicielles que vous avez précédemment identifié pour télécharger les mises à jour logicielles dans le groupe de mises à jour logicielles.  
 
-4. Klik op het tabblad **Start** in de groep **Inhoud** op **Status weergeven**.  
+4. Sous l'onglet **Accueil** , dans le groupe **Contenu** , cliquez sur **Afficher l'état**.  
 
-##  <a name="BKMK_4DeployUpdateGroup"></a>Stap 4: De software-updategroep implementeren  
- Nadat u hebt bepaald welke software-updates u wilt implementeren en u deze software-updates aan een software-updategroep hebt toegevoegd, kunt u de software-updates in deze software-updategroep handmatig implementeren. Gebruik de volgende procedure om de software-updates in een software-updategroep handmatig te implementeren.  
+##  <a name="BKMK_4DeployUpdateGroup"></a> Étape 4 : déployer le groupe de mises à jour logicielles  
+ Après avoir déterminé quelles mises à jour logicielles vous voulez déployer et après avoir ajouté ces mises à jour logicielles à un groupe de mises à jour logicielles, vous pouvez déployer manuellement les mises à jour logicielles dans le groupe de mises à jour logicielles. Pour déployer manuellement les mises à jour logicielles dans un groupe de mises à jour logicielles, procédez comme suit.  
 
-#### <a name="to-manually-deploy-the-software-updates-in-a-software-update-group"></a>De software-updates in een software-updategroep handmatig implementeren  
+#### <a name="to-manually-deploy-the-software-updates-in-a-software-update-group"></a>Pour déployer manuellement les mises à jour logicielles dans un groupe de mises à jour logicielles  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Vouw in de werkruimte Softwarebibliotheek het knooppunt **Software-updates**uit en klik op **Software-updategroepen**.  
+2.  Dans l'espace de travail Bibliothèque de logiciels, développez **Mises à jour logicielles**et cliquez sur **Groupes de mises à jour logicielles**.  
 
-3.  Selecteer de software-updategroep die u wilt implementeren.  
+3.  Sélectionnez le groupe de mises à jour logicielles que vous souhaitez déployer.  
 
-4.  Klik op het tabblad **Start** in de groep **Implementatie** op **Implementeren**. De **wizard Software-updates implementeren** wordt geopend.  
+4.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Déployer**. L' **Assistant Déploiement des mises à jour logicielles** s'ouvre.  
 
-5.  Configureer de volgende instellingen op de pagina Algemeen:  
+5.  Sur la page Général, configurez les paramètres suivants :  
 
-    -   **Naam**: Geef de naam voor de implementatie. De implementatie moet een unieke naam zijn die het doel van de implementatie beschrijft en deze onderscheidt van andere implementaties in de Configuration Manager-site hebben. Configuration Manager biedt standaard automatisch een naam voor de implementatie in de volgende indeling: **Microsoft-Software-Updates -** <*datum*><*tijd*>  
+    -   **Nom**: indiquez le nom du déploiement. Le déploiement doit porter un nom unique qui décrit son objectif et le différencie des autres déploiements dans le site Configuration Manager. Par défaut, Configuration Manager fournit automatiquement un nom pour le déploiement au format suivant : **Mises à jour logicielles Microsoft -** <*date*><*heure*>  
 
-    -   **Beschrijving**: Geef een beschrijving voor de implementatie. De beschrijving biedt een overzicht van de implementatie en eventuele andere relevante informatie die helpt om te identificeren en te onderscheiden van de implementatie van andere implementaties in Configuration Manager-site. Het beschrijvingsveld is optioneel en kent een limiet van 256 tekens. Het veld is standaard leeg.  
+    -   **Description :**spécifiez la description du déploiement. La description fournit une vue d’ensemble du déploiement et toute autre information pertinente permettant d’identifier et de différencier le déploiement des autres déploiements dans le site Configuration Manager. Le champ de description facultatif est limité à 256 caractères et est vierge par défaut.  
 
-    -   **Software Update/Software-Updategroep**: Controleer of de weergegeven software-updategroep of software-update juist is.  
+    -   **Mise à jour logicielle/Groupe de mises à jour logicielles**: vérifiez que le groupe de mises à jour logicielles ou la mise à jour logicielle qui s’affiche est correct.  
 
-    -   **Implementatiesjabloon selecteren**: Geef op of een eerder opgeslagen implementatiesjabloon moet worden toegepast. U kunt een implementatiesjabloon zo configureren dat deze meerdere algemene eigenschappen voor software-update-implementatie bevat en de sjabloon vervolgens toepassen wanneer u daaropvolgende software-updates implementeert om consistentie met soortgelijke implementaties te garanderen en tijd te besparen.  
+    -   **Sélectionner un modèle de déploiement**: indiquez si un modèle de déploiement enregistré précédemment doit être appliqué. Vous pouvez configurer un modèle de déploiement de sorte qu'il contienne plusieurs propriétés de déploiement de mises à jour logicielles communes, puis l'utiliser lorsque vous déployez les mises à jour logicielles ultérieures afin d'assurer une cohérence entre des déploiements semblables et de gagner du temps.  
 
-    -   **Verzameling**: Geef de verzameling voor de implementatie, indien van toepassing. Leden van de verzameling ontvangen de software-updates die in de implementatie zijn gedefinieerd.  
+    -   **Regroupement**: indique le regroupement du déploiement, le cas échéant. Les membres du regroupement reçoivent les mises à jour logicielles définies dans le déploiement.  
 
-6.  Configureer de volgende instellingen op de pagina Implementatie-instellingen:  
+6.  Sur la page Paramètres de déploiement, configurez les paramètres suivants :  
 
-    -   **Type implementatie**: Geef het implementatietype voor de implementatie van de software-update. Selecteer **Vereist** om een verplichte software-update-implementatie te maken waarin de software-updates voor een configureerde installatiedeadline automatisch op de clients worden geïnstalleerd. Selecteer **Beschikbaar** om een optionele software-update-implementatie te maken die voor gebruikers beschikbaar is in Software Center.  
+    -   **Type de déploiement**: indique le type de déploiement pour le déploiement des mises à jour logicielles. Sélectionnez **Obligatoire** pour créer un déploiement de mises à jour logicielles obligatoire où les mises à jour logicielles sont installées automatiquement sur les clients selon une échéance d'installation configurée. Sélectionnez **Disponible** pour créer un déploiement de mises à jour logicielles facultatives que les utilisateurs peuvent installer à partir du Centre logiciel.  
 
         > [!IMPORTANT]  
-        >  Nadat u de software update-implementatie hebt gemaakt, kan het type implementatie niet meer worden gewijzigd.  
+        >  Après avoir créé le déploiement de mises à jour logicielles, vous ne pourrez pas modifier ultérieurement le type de déploiement.  
 
         > [!NOTE]  
-        >  Een software-updategroep die wordt geïmplementeerd als **Vereist** , wordt gedownload op de achtergrond waarbij BITS-instellingen worden gehandhaafd, indien geconfigureerd.  
-        > Software-updategroepen die worden geïmplementeerd als **Beschikbaar** , worden echter gedownload op de voorgrond waarbij BITS-instellingen worden genegeerd.  
+        >  Un groupe de mises à jour logicielles déployé avec l’option **Obligatoire** est téléchargé en arrière-plan et respecte les paramètres BITS, s’ils sont configurés.  
+        > Toutefois, les groupes de mises à jour logicielles déployés avec l’option **Disponible** sont téléchargés au premier plan et ignore les paramètres BITS.  
 
-    -   **Wake-on-LAN gebruiken om clients voor vereiste implementaties te laten ontwaken**: Geef op of Wake On LAN tegen de deadline voor het verzenden van ontwaakpakketten naar computers waarvoor een of meer software-updates in de implementatie. Computers die zich op het tijdstip van de installatiedeadline in de slaapstandmodus bevinden, worden uit deze stand gehaald, zodat de installatie van de software-update kan worden gestart. Clients die zich in de slaapstandmodus bevinden en geen software-updates nodig hebben, worden niet gestart. Deze instelling is standaard uitgeschakeld en is alleen beschikbaar wanneer **Type implementatie** is ingesteld op **Vereist**.  
+    -   **Utiliser Wake-on-LAN pour réveiller les clients pour les déploiements requis**: indiquez si l’éveil par appel réseau (Wake On LAN) doit être activé à l’échéance pour envoyer des paquets de mise en éveil aux ordinateurs qui nécessitent une ou plusieurs mises à jour logicielles du déploiement. Tous les ordinateurs en mode veille à l'échéance de l'installation sont mis en éveil afin que l'installation des mises à jour logicielles puisse démarrer. Les clients en mode veille qui ne nécessitent pas les mises à jour logicielles incluses dans le déploiement ne sont pas démarrés. Par défaut, ce paramètre n'est pas activé et il est disponible uniquement lorsque le **Type de déploiement** est défini sur **Obligatoire**.  
 
         > [!WARNING]  
-        >  Voordat u deze optie kunt gebruiken, moeten computers en netwerken zijn geconfigureerd voor Wake On LAN.  
+        >  Pour que vous puissiez utiliser cette option, les ordinateurs et les réseaux doivent être configurés pour utiliser l'éveil par appel réseau.  
 
-    -   **Detailniveau**: Geef het detailniveau voor de statusberichten die zijn gerapporteerd door clientcomputers.  
+    -   **Niveau de détail**: indiquez le niveau de détail pour les messages d’état qui sont signalés par les ordinateurs clients.  
 
-7.  Configureer de volgende instellingen op de pagina Planning:  
+7.  Sur la page Planification, configurez les paramètres suivants :  
 
-    -   **Evaluatie van planning**: Geef op of de beschikbare tijd en de tijdstippen voor de installatiedeadline worden geëvalueerd op basis van UTC of de lokale tijd van de computer waarop de Configuration Manager-console wordt uitgevoerd.  
-
-        > [!NOTE]  
-        >  Als u lokale tijd selecteert en selecteer vervolgens **zo snel mogelijk** voor de **tijd Software beschikbaar** of **installatiedeadline**, de huidige tijd op de computer die de Configuration Manager-console wordt gebruikt om te evalueren wanneer updates beschikbaar zijn of wanneer ze worden geïnstalleerd op een client wordt uitgevoerd. Als de client zich in een andere tijdzone bevindt, worden deze acties uitgevoerd wanneer de tijd van de client de evaluatietijd heeft bereikt.  
-
-    -   **Tijd software beschikbaar**: Selecteer een van de volgende instellingen om op te geven wanneer de software-updates beschikbaar zijn voor clients:  
-
-        -   **Zo spoedig mogelijk**: Selecteer deze instelling om de software-updates in de implementatie beschikbaar voor clients zo snel mogelijk. Wanneer de implementatie wordt gemaakt, wordt het clientbeleid bijgewerkt en worden de clients via hun volgende pollingcyclus voor het clientbeleid in kennis gesteld van de implementatie, waarna de software-updates beschikbaar zijn voor installatie.  
-
-        -   **Specifiek tijdstip**: Selecteer deze instelling om de software-updates in de implementatie beschikbaar voor clients op een specifieke datum en tijd. Wanneer de implementatie wordt gemaakt, wordt het clientbeleid bijgewerkt en worden de clients via hun volgende pollingcyclus voor het clientbeleid in kennis gesteld van de implementatie. De software-updates in de implementatie zijn echter pas na de opgegeven datum en het opgegeven tijdstip beschikbaar voor installatie.  
-
-    -   **Installatiedeadline**: Selecteer een van de volgende instellingen om op te geven van de installatiedeadline voor de software-updates in de implementatie.  
+    -   **Calendrier d’évaluation** : indiquez si la durée disponible et la date d’échéance de l’installation sont évaluées à l’heure UTC ou à l’heure locale de l’ordinateur exécutant la console Configuration Manager.  
 
         > [!NOTE]  
-        >  U kunt de instelling voor de installatiedeadline alleen configureren wanneer **Type implementatie** op de pagina Implementatie-instellingen is ingesteld op **Vereist** .  
+        >  Si vous sélectionnez l’heure locale, puis **Dès que possible** pour le **Temps disponible du logiciel** ou **Échéance d’installation**, l’heure actuelle sur l’ordinateur exécutant la console Configuration Manager est utilisée pour évaluer quand les mises à jour sont disponibles ou quand elles sont installées sur un client. Si le client est dans un autre fuseau horaire, ces actions se produisent quand l’heure du client atteint l’heure de l’évaluation.  
 
-        -   **Zo spoedig mogelijk**: Selecteer deze instelling om de software-updates in de implementatie zo spoedig mogelijk automatisch worden geïnstalleerd.  
+    -   **Temps disponible du logiciel**: sélectionnez l’un des paramètres suivants pour spécifier le moment où les mises à jour logicielles seront disponibles pour les clients :  
 
-        -   **Specifiek tijdstip**: Selecteer deze instelling om de software-updates in de implementatie op een specifieke datum en tijd automatisch worden geïnstalleerd.  
+        -   **Dès que possible**: sélectionnez ce paramètre pour permettre aux clients d’accéder dès que possible aux mises à jour logicielles incluses dans le déploiement. Lors de la création du déploiement, la stratégie client est mise à jour, les clients sont informés du déploiement au prochain cycle d'interrogation de leur stratégie client, puis les mises à jour logicielles sont mises à disposition en vue de leur installation.  
+
+        -   **Heure spécifique**: sélectionnez ce paramètre pour permettre aux clients d’accéder aux mises à jour logicielles incluses dans le déploiement à une date et une heure spécifiques. Lorsque le déploiement est créé, la stratégie client est mise à jour et les clients sont informés au prochain cycle d'interrogation de leur stratégie client. Toutefois, les mises à jour logicielles incluses dans le déploiement ne sont pas disponibles à l'installation avant la date et l'heure spécifiées.  
+
+    -   **Échéance d’installation**: sélectionnez l’un des paramètres suivants pour spécifier l’échéance d’installation des mises à jour logicielles incluses dans le déploiement.  
 
         > [!NOTE]  
-        >  Het daadwerkelijke tijdstip van de installatiedeadline is het opgegeven deadlinetijdstip plus een willekeurige hoeveelheid tijd die maximaal twee uur bedraagt. Hierdoor wordt de mogelijke invloed op alle clientcomputers in de doelverzameling waarop de software-updates in de implementatie gelijktijdig worden geïnstalleerd, gereduceerd.  
+        >  Vous pouvez configurer le paramètre relatif à l'échéance d'installation uniquement lorsque **Type de déploiement** est défini sur **Obligatoire** sur la page Paramètres de déploiement.  
+
+        -   **Dès que possible**: sélectionnez ce paramètre pour installer automatiquement les mises à jour logicielles incluses dans le déploiement dès que possible.  
+
+        -   **Heure spécifique**: sélectionnez ce paramètre pour installer automatiquement les mises à jour logicielles incluses dans le déploiement à une date et une heure spécifiques.  
+
+        > [!NOTE]  
+        >  L'heure d'échéance de l'installation réelle est l'heure spécifique que vous configurez plus un laps de temps aléatoire pouvant atteindre 2 heures. Elle permet de réduire l'impact lié à l'installation simultanée, par tous les ordinateurs clients du regroupement de destination, des mises à jour logicielles incluses dans le déploiement.  
         >   
-        >  U kunt de **Computeragent** -clientinstelling **Willekeurig toepassen van deadline uitschakelen** configureren om de willekeurige vertraging voor de installatie van de vereiste software-updates uit te schakelen. Zie [Computeragent](../../core/clients/deploy/about-client-settings.md#computer-agent) voor meer informatie.  
+        >  Vous pouvez configurer le paramètre client **Agent ordinateur** , **Désactiver la randomisation des échéances** , pour désactiver le délai de randomisation de l’installation des mises à jour logicielles requises. Pour plus d’informations, voir [Computer Agent](../../core/clients/deploy/about-client-settings.md#computer-agent).  
 
-8.  Configureer de volgende instellingen op de pagina Gebruikerservaring:  
+8.  Sur la page Expérience utilisateur, configurez les paramètres suivants :  
 
-    -   **Meldingen voor gebruikers**: Geef op of meldingen van de software-updates weergeven in Software Center op de clientcomputer op de geconfigureerde **tijd Software beschikbaar** en of meldingen voor gebruikers weergegeven op de clientcomputers. Wanneer **Type implementatie** op de pagina Implementatie-instellingen is ingesteld op **Beschikbaar** , kunt u **Verbergen in Software Center en alle meldingen verbergen**niet selecteren.  
+    -   **Notifications à l’utilisateur**: indiquez si vous souhaitez afficher les notifications des mises à jour logicielles dans le Centre logiciel sur l’ordinateur client selon la valeur **Temps disponible du logiciel** configuré et si les notifications à l’utilisateur doivent s’afficher sur les ordinateurs clients. Lorsque **Type de déploiement** est défini sur **Disponible** sur la page Paramètres de déploiement, vous ne pouvez pas sélectionner **Masquer dans le Centre logiciel et toutes les notifications**.  
 
-    -   **Deadlinegedrag**: * alleen beschikbaar wanneer **Type implementatie** * is ingesteld op **vereist** *op de pagina implementatie-instellingen.*   
-    Geef het gedrag op dat moet worden vertoond als de deadline voor de implementatie van de software-update wordt bereikt. Geef op of de software-updates in de implementatie moeten worden geïnstalleerd. Geef ook op of het systeem na het installeren van software-updates opnieuw moet worden opgestart, ongeacht het geconfigureerde onderhoudsvenster. Zie voor meer informatie over onderhoudsvensters [het gebruik van onderhoudsvensters](../../core/clients/manage/collections/use-maintenance-windows.md).  
+    -   **Comportement à l’échéance** : *Disponible uniquement quand **Type de déploiement** *est défini sur **Obligatoire** *dans la page Paramètres de déploiement.*   
+    spécifier le comportement qui doit se produire lorsque l'échéance est atteinte pour le déploiement des mises à jour logicielles. Indiquez si vous souhaitez installer les mises à jour logicielles incluses dans le déploiement. Spécifiez également si un redémarrage du système doit être effectué après l'installation des mises à jour logicielles, quelle que soit la fenêtre de maintenance configurée. Pour plus d’informations sur les fenêtres de maintenance, consultez [Guide pratique pour utiliser les fenêtres de maintenance](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-    -   **Gedrag voor opnieuw opstarten apparaat**: * alleen beschikbaar wanneer **Type implementatie** * is ingesteld op **vereist** *op de pagina implementatie-instellingen.*    
-    Geef op of het onderdrukken van opnieuw opstarten van servers en werkstations nadat software-updates zijn geïnstalleerd en opnieuw opstarten is vereist om de installatie te voltooien.  
+    -   **Comportement de redémarrage de l’appareil** : *Disponible uniquement quand **Type de déploiement** *est défini sur **Obligatoire** *dans la page Paramètres de déploiement.*    
+    indiquer si le redémarrage du système sur les serveurs et stations de travail doit être supprimé une fois les mises à jour logicielles installées et si un redémarrage du système est nécessaire pour terminer l'installation.  
 
         > [!IMPORTANT]  
-        >  Het onderdrukken van het opnieuw opstarten van het systeem kan nuttig zijn in serveromgevingen of in gevallen waarin u wilt dat de computers die de software-updates installeren, niet standaard opnieuw worden opgestart. Dit kan er echter toe leiden dat computers zich in een onbeveiligde toestand bevinden. Het toestaan van afgedwongen opnieuw opstarten garandeert onmiddellijke voltooiing van de installatie van software-updates.
+        >  La suppression des redémarrages du système peut s'avérer utile dans les environnements de serveurs ou lorsque vous ne souhaitez pas que les ordinateurs qui installent les mises à jour logicielles redémarrent par défaut. Toutefois, elle peut laisser les ordinateurs dans un état non sécurisé, alors que l'autorisation d'un redémarrage forcé contribue à garantir l'exécution immédiate de l'installation des mises à jour logicielles.
 
-    -   **Schrijffilters voor Windows Embedded-apparaten**: Wanneer u software-updates op Windows Embedded-apparaten waarvoor schrijffilters ingeschakeld implementeren zijn, kunt u opgeven om de software-update op een tijdelijke overlay en de wijzigingen later installeren of de wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster. Wanneer u wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster, moet er opnieuw worden opgestart, zodat de wijzigingen behouden blijven op het apparaat.  
+    -   **Traitement des filtres d’écriture pour les appareils Windows Embedded**: quand vous déployez des mises à jour logicielles sur des appareils Windows Embedded pour lesquels le filtre d’écriture est activé, vous pouvez choisir d’installer la mise à jour logicielle sur le segment de recouvrement temporaire et valider les modifications ultérieurement ou à l’échéance de l’installation ou bien pendant une fenêtre de maintenance. Lorsque vous validez des modifications à l'échéance de l'installation ou au cours d'une fenêtre de maintenance, un redémarrage est requis et les modifications sont conservées sur l'appareil.  
 
         > [!NOTE]  
-        >  Wanneer u een software-update implementeert op een Windows Embedded-apparaat, moet u ervoor zorgen dat het apparaat lid is van een verzameling met een geconfigureerd onderhoudsvenster.  
+        >  Lorsque vous déployez une mise à jour logicielle sur un appareil Windows Embedded, assurez-vous que l'appareil fait partie des membres d'un regroupement pour lequel une fenêtre de maintenance a été configurée.  
 
-    - **Implementatiegedrag voor nieuwe evaluatie bij het opnieuw opstarten van software-updates**: Vanaf Configuration Manager versie 1606, selecteer deze instelling om software-updates implementaties configureren zodat clients op een nalevingsscan voor software-updates onmiddellijk nadat een client software installeert-updates en opnieuw gestart. Hierdoor kan de client controleren op aanvullende beschikbare software-updates nadat de client opnieuw is opgestart, en deze installeren (en zorgen voor naleving) tijdens datzelfde onderhoudsvenster.
+    - **Comportement de réévaluation du déploiement des mises à jour logicielles après le redémarrage** : à compter de Configuration Manager version 1606, sélectionnez ce paramètre pour configurer les déploiements de mises à jour logicielles de façon à ce que les clients exécutent une analyse de conformité des mises à jour logicielles immédiatement après avoir installé celles-ci et redémarré. Cela permet au client de vérifier la disponibilité de mises à jour logicielles supplémentaires devenues applicables après le redémarrage, puis de les installer (et devenir ainsi conforme) au cours d’une même fenêtre de maintenance.
 
-9. Configureer op de pagina waarschuwingen hoe Configuration Manager en System Center Operations Manager waarschuwingen voor deze implementatie genereren moeten. U kunt de waarschuwingen alleen configureren wanneer **Type implementatie** op de pagina Implementatie-instellingen is ingesteld op **Vereist** .  
-
-    > [!NOTE]  
-    >  U kunt recente waarschuwingen met betrekking tot software-updates weergegeven in het knooppunt **Software-updates** in de werkruimte **Softwarebibliotheek** .  
-
-10. Configureer de volgende instellingen op de pagina Downloadinstellingen:  
-
-    - Geef op of de client de software-updates moet downloaden en installeren wanneer een client is verbonden met een langzaam netwerk of wanneer deze gebruikmaakt van een locatie terugvalinhoudlocatie.  
-
-    - Geef op of de client de software-updates moet downloaden en installeren vanaf een terugvaldistributiepunt wanneer de inhoud voor de software-updates niet beschikbaar is op een voorkeursdistributiepunt.  
-
-    - **Toestaan dat clients inhoud te delen met andere clients in hetzelfde subnet**: Geef op of het gebruik van BranchCache voor inhouddownloads inschakelen. Zie voor meer informatie over BranchCache [basisconcepten voor inhoudsbeheer](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
-
-    - **Als software-updates niet beschikbaar is op het distributiepunt in de huidige, neighbor of site groepen, inhoud downloaden van Microsoft Updates**: Selecteer deze instelling clients die zijn verbonden met het intranet software-updates voor downloaden vanaf Microsoft Update als software-updates niet beschikbaar zijn op distributiepunten hebben. Clients op Internet gaat altijd u naar Microsoft Update voor de inhoud van software-updates.
-
-    - Geef op of clients mogen downloaden na een installatiedeadline wanneer deze internetverbindingen met een datalimiet gebruiken. Internetproviders brengen soms de hoeveelheid gegevens die u verzendt en ontvangt in rekening wanneer u gebruikmaakt van een internetverbinding naar gebruik.  
+9. Sur la page Alertes, configurez la manière dont Configuration Manager et System Center Operations Manager génèreront des alertes pour ce déploiement. Vous pouvez configurer des alertes uniquement lorsque **Type de déploiement** est défini sur **Obligatoire** sur la page Paramètres de déploiement.  
 
     > [!NOTE]  
-    >  Clients vragen de inhoudlocatie aan bij het beheerpunt voor de software-updates in een implementatie. Het downloadgedrag is afhankelijk van hoe u het distributiepunt, het implementatiepakket en de instellingen op deze pagina hebt geconfigureerd. Zie [Scenario's voor de locatie van inhoudsbronnen](../../core/plan-design/hierarchy/content-source-location-scenarios.md) voor meer informatie.  
+    >  Vous pouvez consulter les récentes alertes de mises à jour logicielles à partir du nœud **Mises à jour logicielles** dans l'espace de travail **Bibliothèque de logiciels** .  
 
-11. Als u hebt uitgevoerd [stap 3: De inhoud voor de software-updategroep downloaden](#BKMK_3DownloadContent), worden de pagina's implementatiepakket, distributiepunten en taal selecteren niet weergegeven en kunt u doorgaan met stap 15 van de wizard.  
+10. Sur la page Paramètres de téléchargement, configurez les paramètres suivants :  
+
+    - Indiquez si le client va télécharger et installer les mises à jour logicielles quand il est connecté à un réseau lent ou utilise un emplacement de secours pour le contenu.  
+
+    - Indiquez si le client doit télécharger et installer les mises à jour logicielles à partir d'un point de distribution de secours quand le contenu pour les mises à jour logicielles n'est pas disponible sur un point de distribution préféré.  
+
+    - **Autoriser les clients à partager du contenu avec d’autres clients sur le même sous-réseau**: indiquez si vous souhaitez activer l’utilisation de BranchCache pour les téléchargements du contenu. Pour plus d’informations sur BranchCache, consultez [Concepts fondamentaux de la gestion de contenu](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
+
+    - **Si les mises à jour logicielles ne sont pas disponibles sur le point de distribution de groupes actuels, voisins ou de site, téléchargez le contenu à partir de Microsoft Updates** : sélectionnez ce paramètre afin que les clients connectés à l’intranet téléchargent les mises à jour logicielles depuis Microsoft Update si les mises à jour logicielles ne sont pas disponibles sur les points de distribution. Les clients Internet peuvent toujours accéder à Microsoft Update pour obtenir le contenu des mises à jour logicielles.
+
+    - Indiquez si les clients peuvent procéder au téléchargement une fois l’échéance de l’installation dépassée dans le cas où ils utilisent des connexions Internet facturées à l’usage. Les fournisseurs Internet facturent parfois en fonction de la quantité de données que vous envoyez et recevez lorsque vous utilisez une connexion Internet facturée à l'usage.  
+
+    > [!NOTE]  
+    >  Les clients demandent l'emplacement du contenu à partir d'un point de gestion pour les mises à jour logicielles dans un déploiement. Le comportement de téléchargement dépend de la manière dont vous avez configuré le point de distribution, le package de déploiement et les paramètres sur cette page. Pour plus d'informations, voir [Content source location scenarios](../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
+
+11. Si vous avez effectué l' [Étape 3 : télécharger le contenu pour le groupe de mises à jour logicielles](#BKMK_3DownloadContent), les pages Package de déploiement, Points de distribution et Sélection de la langue ne sont pas affichées et vous pouvez passer à l'étape 15 de l'Assistant.  
 
     > [!IMPORTANT]  
-    >  Software-updates die eerder naar de inhoudsbibliotheek op de siteserver zijn gedownload, worden niet opnieuw gedownload. Dit geldt ook wanneer u een nieuw implementatiepakket voor de software-updates maakt. Als alle software-updates al eerder zijn gedownload, slaat de wizard de pagina **Taal selecteren** (stap 15) over.  
+    >  Les mises à jour logicielles qui ont été téléchargées précédemment dans la bibliothèque de contenu sur le serveur de site ne sont pas téléchargées à nouveau. Cela est vrai même lorsque vous créez un package de déploiement pour les mises à jour logicielles. Si toutes les mises à jour logicielles ont déjà été téléchargées auparavant, l'Assistant passe à la page **Sélection de la langue** (étape 15).  
 
-12. Selecteer op de pagina Implementatiepakket een bestaand implementatiepakket of configureer de volgende instellingen voor het opgeven van een nieuw implementatiepakket:  
+12. Sur la page Package de déploiement, sélectionnez un package de déploiement existant ou configurez les paramètres suivants pour spécifier un nouveau package de déploiement :  
 
-    1.  **Naam**: Geef de naam van het implementatiepakket. Dit moet een unieke naam zijn die de pakketinhoud beschrijft. Er kunnen maximaal 50 tekens worden ingevoerd.  
+    1.  **Nom** : spécifiez le nom du package de déploiement. Celui-ci doit être un nom unique qui décrit le contenu du package. Il est limité à 50 caractères.  
 
-    2.  **Beschrijving**: Geef een beschrijving die informatie over het implementatiepakket biedt. De beschrijving mag niet langer zijn dan 127 tekens.  
+    2.  **Description**: spécifiez une description qui fournit des informations sur le package de déploiement. La description est limitée à 127 caractères.  
 
-    3.  **Pakketbron**: Geef de locatie van de bronbestanden van de software-update.  Typ een netwerkpad voor de bronlocatie, zoals **\\\\server\sharenaam\pad**, of klik op **Bladeren** en ga naar de netwerklocatie. U moet een gedeelde map maken voor de bronbestanden van het installatiepakket voordat u doorgaat naar de volgende pagina.  
+    3.  **Source du package**: spécifiez l’emplacement des fichiers sources des mises à jour logicielles.  Tapez un chemin réseau pour l’emplacement source, par exemple **\\\serveur\nom_partage\chemin**ou cliquez sur **Parcourir** pour trouver l’emplacement réseau. Vous devez créer le dossier partagé pour les fichiers sources du package de déploiement avant de passer à la page suivante.  
 
         > [!NOTE]  
-        >  De bronlocatie van het installatiepakket die u opgeeft, mag niet door een ander software-installatiepakket worden gebruikt.  
+        >  L'emplacement source du package de déploiement que vous spécifiez ne peut pas être utilisé par un autre package de déploiement de logiciel.  
 
         > [!IMPORTANT]  
-        >  Het computeraccount van de SMS-provider en de gebruiker die de wizard uitvoert voor het downloaden van de software-updates, moeten over NTFS-machtigingen voor **schrijven** op de downloadlocatie beschikken. U moet de toegang tot de downloadlocatie zorgvuldig beperken om het risico op kwaadwillenden die met bronbestanden van de software-update knoeien, te reduceren.  
+        >  Le compte d'ordinateur du fournisseur SMS et l'utilisateur qui exécute l'Assistant Téléchargement des mises à jour logicielles nécessitent des autorisations NTFS en **Écriture** sur l'emplacement de téléchargement. Vous devez soigneusement limiter l'accès à l'emplacement de téléchargement pour éviter que des personnes malintentionnées ne falsifient les fichiers sources des mises à jour logicielles.  
 
         > [!IMPORTANT]  
-        >  U kunt de pakketbronlocatie in de eigenschappen van het installatiepakket wijzigen nadat Configuration Manager het implementatiepakket maakt. Als u dit doet, moet u echter eerst de inhoud van de oorspronkelijke pakketbron kopiëren naar de nieuwe pakketbronlocatie.  
+        >  Une fois que le package de déploiement a été créé par Configuration Manager, vous pouvez modifier l’emplacement source du package de déploiement dans les propriétés du package. Mais le cas échéant, vous devez d'abord copier le contenu à partir de la source du package d'origine vers le nouvel emplacement source du package.  
 
-    4.  **Prioriteit voor verzenden**: Geef de prioriteit voor verzenden voor het implementatiepakket. Configuration Manager gebruikt de prioriteit voor verzenden voor het implementatiepakket wanneer het pakket naar distributiepunten wordt verzonden. Installatiepakketten worden in volgorde van prioriteit verzonden: Hoog, Gemiddeld of laag. Pakketten met een identieke prioriteit worden verzonden in de volgorde waarin deze zijn gemaakt. Als er geen achterstand is, wordt het pakket onmiddellijk verwerkt, ongeacht de prioriteit van het pakket.  
+    4.  **Priorité d’expédition**: spécifiez la priorité d’envoi pour le package de déploiement. Configuration Manager utilise la priorité d’expédition du package de déploiement quand il envoie le package aux points de distribution. Les packages de déploiement sont envoyés par ordre de priorité : Haute, Moyenne ou Faible. Les packages disposant de priorités identiques sont transmis dans l'ordre dans lequel ils ont été créés. En l'absence de backlog, le package est immédiatement traité quelle que soit sa priorité.  
 
-13. Geef op de pagina Distributiepunten de distributiepunten of distributiepuntgroepen op die als host zullen fungeren voor de software-updatebestanden. Zie [Configuraties van het distributiepunt](../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs) voor meer informatie over distributiepunten.  
+13. Sur la page Points de distribution, spécifiez les points de distribution ou les groupes de points de distribution qui vont héberger les fichiers de mise à jour logicielle. Pour plus d’informations sur les points de distribution, consultez [Configurations des points de distribution](../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs).  
 
-14. Geef op de pagina Downloadlocatie op of de software-updatebestanden moeten worden gedownload vanaf internet of vanaf uw lokale netwerk. Configureer de volgende instellingen:  
+14. Sur la page Emplacement de téléchargement, indiquez si les fichiers de mise à jour logicielle doivent être téléchargés à partir d'Internet ou de votre réseau local. Configurez les paramètres suivants :  
 
-    -   **Software-updates downloaden vanaf Internet**: Selecteer deze instelling om de software-updates downloaden vanaf een opgegeven locatie op Internet. Deze instelling is standaard ingeschakeld.  
+    -   **Télécharger les mises à jour logicielles depuis Internet**: sélectionnez ce paramètre pour télécharger les mises à jour logicielles à partir d’un emplacement spécifié sur Internet. Ce paramètre est activé par défaut.  
 
-    -   **Software-updates downloaden vanaf een locatie op het lokale netwerk**: Selecteer deze instelling om de softwareupdates downloaden vanaf een lokale map of een gedeelde netwerkmap. Deze instelling is nuttig wanneer de computer waarop de wizard wordt uitgevoerd, geen toegang tot internet heeft. De software-updates kunnen voorlopig worden gedownload vanaf een computer met internettoegang en worden opgeslagen op een locatie op het lokale netwerk voor daaropvolgende toegang voor installatiedoeleinden.  
+    -   **Télécharger les mises à jour logicielles à partir d’un emplacement sur le réseau local**: sélectionnez ce paramètre pour télécharger les mises à jour logicielles à partir d’un dossier local ou d’un dossier réseau partagé. Ce paramètre s'avère utile lorsque l'ordinateur exécutant l'Assistant ne dispose d'aucun accès à Internet. Les mises à jour logicielles peuvent être préalablement téléchargées à partir de n'importe quel ordinateur qui a accès à Internet, puis stockées à un emplacement sur le réseau local à des fins d'accès ultérieur pour l'installation.  
 
-15. Selecteer de talen waarvoor de geselecteerde software-updates worden gedownload op de pagina Taal selecteren. De software-updates worden alleen gedownload als deze beschikbaar zijn in de geselecteerde talen. Software-updates die niet aan een specifieke taal zijn gebonden, worden altijd gedownload. De wizard selecteert standaard de talen die u hebt geconfigureerd in de eigenschappen van het software-updatepunt. Er moet ten minste één taal worden geselecteerd voordat u doorgaat naar de volgende pagina. Wanneer u alleen talen selecteert die niet door een software-update worden ondersteund, mislukt het downloaden van de software-update.  
+15. Sur la page Sélection de la langue, sélectionnez les langues pour lesquelles les mises à jour logicielles sélectionnées sont téléchargées. Les mises à jour logicielles sont téléchargées uniquement si elles sont disponibles dans les langues sélectionnées. Les mises à jour logicielles qui ne sont spécifiques à aucune langue sont toujours téléchargées. Par défaut, l'Assistant sélectionne les langues que vous avez configurées dans les propriétés du point de mise à jour logicielle. Au moins une langue doit être sélectionnée avant de passer à la page suivante. Quand vous sélectionnez uniquement des langues qui ne sont pas prises en charge par une mise à jour logicielle, le téléchargement échoue pour cette mise à jour logicielle.  
 
-16. Controleer de instellingen op de pagina Overzicht. Klik, als u de instellingen wilt opslaan naar een implementatiesjabloon, op **Opslaan als sjabloon**, voer een naam in, selecteer de instellingen die u in de sjabloon wilt opnemen en klik op **Opslaan**. Als u een geconfigureerde instelling wilt wijzigen, klikt u op de gekoppelde wizardpagina en wijzigt u de instelling.  
+16. Sur la page Résumé, passez en revue les paramètres. Pour enregistrer les paramètres dans un modèle de déploiement, cliquez sur **Enregistrer comme modèle**, entrez un nom et sélectionnez les paramètres à inclure dans le modèle, puis cliquez sur **Enregistrer**. Pour modifier un paramètre configuré, cliquez sur la page de l'Assistant associée et modifiez le paramètre.  
 
     > [!WARNING]  
-    >  De sjabloonnaam mag alfanumerieke ASCII-tekens en de tekens **\\** (backslash) en **‘** (apostrof) bevatten.  
+    >  Le nom du modèle peut comporter des caractères ASCII alphanumériques ainsi que les caractères **\\** (barre oblique inverse) ou **‘** (guillemet-apostrophe).  
 
-17. Klik op **Volgende** om de software-update te implementeren.  
+17. Cliquez sur **Suivant** pour déployer la mise à jour logicielle.  
 
- Nadat u de wizard hebt voltooid, heeft Configuration Manager downloadt de software-updates aan de Inhoudsbibliotheek op de siteserver, distribueert de software-updates naar de geconfigureerde distributiepunten en implementeert vervolgens de software updategroep voor clients in de doelverzameling. Zie [Implementatieproces voor software-updates](../understand/software-updates-introduction.md#BKMK_DeploymentProcess) voor meer informatie over het implementatieproces.
+ Quand vous avez terminé l’Assistant, Configuration Manager télécharge les mises à jour logicielles dans la bibliothèque de contenu sur le serveur de site, distribue les mises à jour logicielles aux points de distribution configurés, puis déploie le groupe de mises à jour logicielles sur les clients du regroupement cible. Pour plus d’informations sur le processus de déploiement, consultez [Software update deployment process](../understand/software-updates-introduction.md#BKMK_DeploymentProcess).
 
-## <a name="next-steps"></a>Volgende stappen
-[Software-updates controleren](monitor-software-updates.md)
+## <a name="next-steps"></a>Étapes suivantes
+[Surveiller les mises à jour logicielles](monitor-software-updates.md)

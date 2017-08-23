@@ -1,6 +1,6 @@
 ---
-title: Setup-verwijzing | Microsoft Docs
-description: "Bekijk deze verwijzing zodat u kunt voorbereiden voor het installeren van een Configuration Manager-site of hiërarchie."
+title: "Informations de référence sur le programme d’installation | Microsoft Docs"
+description: "Prenez connaissance de ces informations de référence pour mieux préparer l’installation d’un site ou d’une hiérarchie Configuration Manager."
 ms.custom: na
 ms.date: 4/18/2017
 ms.prod: configuration-manager
@@ -16,62 +16,62 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 739461a6cca0fd67431093524c1e8158afd80d0f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="reference-for-system-center-configuration-manager-setup"></a>Documentatie voor de installatie van System Center Configuration Manager
+# <a name="reference-for-system-center-configuration-manager-setup"></a>Informations de référence sur le programme d’installation de System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Setup van System Center Configuration Manager bevat koppelingen naar diverse onderwerpen die worden beschreven in de volgende secties. De informatie die hier voorgesteld kunt u voorbereiden voor het installeren van een Configuration Manager-site of hiërarchie, en kunt u zich voorbereiden voor een aantal beslissingen die u tijdens de installatie moet nemen.  
+Le programme d’installation de System Center Configuration Manager fournit des liens vers plusieurs rubriques détaillées dans les sections suivantes. Les informations présentées ici peuvent vous aider à préparer l’installation d’un site ou d’une hiérarchie Configuration Manager, et à prendre certaines décisions relatives à l’installation.  
 
 
-##  <a name="bkmk_start"></a> Voordat u begint  
-Voordat u nieuwe Configuration Manager-sites installeert, zorg er dan voor dat u hebt gecontroleerd dat de volgende informatie waarmee de fase voor het ontwerp van een geslaagde implementatie instellen:  
+##  <a name="bkmk_start"></a> Avant de commencer  
+Avant d’installer de nouveaux sites Configuration Manager, veillez à passer en revue les informations suivantes. Celles-ci peuvent vous aider à mettre en œuvre une conception de déploiement réussie :  
 
--   [Basisprincipes van System Center Configuration Manager](../../../../core/understand/fundamentals.md)  
--   [System Center Configuration Manager-infrastructuur plannen](../../../plan-design/network/configure-firewalls-ports-domains.md)  
--   [Voorbereiden voor het installeren van System Center Configuration Manager-sites](prepare-to-install-sites.md)  
+-   [Principes de base de System Center Configuration Manager](../../../../core/understand/fundamentals.md)  
+-   [Planifier l’infrastructure System Center Configuration Manager](../../../plan-design/network/configure-firewalls-ports-domains.md)  
+-   [Préparer l’installation de sites System Center Configuration Manager](prepare-to-install-sites.md)  
 
-##  <a name="bkmk_assess"></a> De gereedheid van de server beoordelen  
-Voordat u de installatie van een nieuwe site begint, zorg ervoor dat de siteserver en de externe sitesysteemservers die u wilt gebruiken voor de site (bijvoorbeeld: de server die als host fungeert voor de sitedatabase) voldoen aan alle vereiste configuraties. Deze onderwerpen in de Documentatiebibliotheek kunnen helpen:  
+##  <a name="bkmk_assess"></a> Évaluer la préparation du serveur  
+Avant de commencer l’installation d’un nouveau site, vérifiez que le serveur de site et les serveurs de système de site distant que vous envisagez d’utiliser pour le site (par exemple, le serveur qui héberge la base de données) respectent tous les prérequis. Les rubriques suivantes de la bibliothèque de documentation peuvent vous aider :  
 
--   [Ondersteunde configuraties voor System Center Configuration Manager](../../../../core/plan-design/configs/supported-configurations.md)  
--   [Vereistencontrole](prerequisite-checker.md)  
+-   [Configurations prises en charge pour System Center Configuration Manager](../../../../core/plan-design/configs/supported-configurations.md)  
+-   [Outil de vérification de la configuration requise](prerequisite-checker.md)  
 
-##  <a name="bkmk_Addclients"></a> Clients voor aanvullende besturingssystemen  
-U kunt clientsoftware downloaden voor Configuration Manager uit het Microsoft Download Center voor de volgende besturingssystemen:  
+##  <a name="bkmk_Addclients"></a> Clients pour d’autres systèmes d’exploitation  
+Vous pouvez télécharger le logiciel client pour Configuration Manager à partir du Centre de téléchargement Microsoft pour les systèmes d’exploitation suivants :  
 
 -   Mac (Apple)  
 -   UNIX  
 -   Linux  
 
-Gebruik de volgende koppelingen voor het downloaden van clients voor de versie van Configuration Manager u gebruikt:  
+Utilisez les liens suivants pour télécharger des clients pour la version de Configuration Manager que vous utilisez :  
 
--   Zie [Microsoft System Center Configuration Manager - Clients voor aanvullende besturingssystemen](http://www.microsoft.com/download/details.aspx?id=47719)  
+-   Consultez [Microsoft System Center Configuration Manager - Clients pour systèmes d’exploitation supplémentaires](http://www.microsoft.com/download/details.aspx?id=47719)  
 
-##  <a name="bkmk_usage"></a> Gebruiksgegevensniveaus en instellingen  
-Wanneer u uw eerste System Center Configuration Manager-site installeert, Configuration Manager installeert en configureert automatisch een nieuwe sitesysteemrol de **serviceaansluitpunt**, op de siteserver. Het service connection point heeft deze standaardinstellingen:  
+##  <a name="bkmk_usage"></a> Paramètres et niveaux de données d’utilisation  
+Quand vous installez votre premier site System Center Configuration Manager, Configuration Manager installe et configure automatiquement un nouveau rôle de système de site, appelé **point de connexion de service**, sur le serveur de site. Les paramètres par défaut du point de connexion de service sont les suivants :  
 
--   **Online** modus (de offlinemodus ook beschikbaar is)  
--   **Verbeterde** verzameling gegevensniveau (twee andere gegevensverzamelingsniveaus, basis en volledig zijn ook beschikbaar)  
+-   Mode **En ligne** (un mode hors connexion est également disponible)  
+-   Niveau **Étendu** de collecte de données (deux autres niveaux de collecte de données, De base et Total, sont disponibles)  
 
-Wanneer de service connection point-sitesysteemrol online is, kan Microsoft automatisch diagnostische gegevens en gebruiksgegevens informatie verzamelen via Internet. Met de gegevens die worden verzameld kunnen we:  
+Quand le rôle de système de site du point de connexion de service est en ligne, Microsoft peut collecter automatiquement des informations d’utilisation et de diagnostic sur Internet. Les informations collectées nous aident à effectuer les tâches suivantes :  
 
--   Problemen vaststellen en oplossen  
--   Onze producten en de service verbeteren  
--   Updates herkennen voor Configuration Manager die betrekking hebben op de versie van Configuration Manager die u gebruikt  
+-   Identifier et résoudre les problèmes  
+-   Améliorer nos produits et services  
+-   identifier les mises à jour pour Configuration Manager applicables à la version de Configuration Manager que vous utilisez.  
 
-### <a name="levels-of-data-collection"></a>Niveaus van gegevensverzameling  
-Verzamelen van gegevens, bevat deze drie niveaus:
+### <a name="levels-of-data-collection"></a>Niveaux de collecte de données  
+La collecte de données comprend les trois niveaux suivants :
 
--   **Basic** bevat gegevens over de installatie en upgrade, zoals het aantal sites en Configuration Manager-functies zijn ingeschakeld. Er is geen persoonsgegevens verzonden.  
+-   **De base** : comprend des données sur l’installation et la mise à niveau, comme le nombre de sites et les fonctionnalités de Configuration Manager qui sont activées. Aucune information personnelle n’est transmise.  
 
--   **Verbeterde** bevat de gegevens uit de niveau instelling basis én er worden gegevens over de hiërarchie verzonden, hoe elke functie wordt gebruikt (frequentie en duur) en verbeterde diagnostische informatie zoals de geheugenstatus van uw server wanneer er een systeem- of app-crash plaatsvindt. Er wordt geen persoonlijk herleidbare informatie verzonden.  
+-   **Étendu** : comprend les données du paramètre de niveau De base et transmet des données relatives à la hiérarchie, à la façon dont chaque fonctionnalité est utilisée (fréquence et durée), ainsi que des informations de diagnostics améliorées telles que l’état de la mémoire de votre serveur quand un blocage du système ou d’une application se produit. Aucune information personnelle n’est transmise.  
 
--   **Volledige** bevat de gegevens in de instellingen basis en uitgebreid, en ook verzendt geavanceerde diagnostische informatie, zoals systeembestanden en momentopnamen van het geheugen. Deze optie kan persoonlijke gegevens bevatten, maar die informatie niet gebruikt om te identificeren of contact met u, of naar doel reclame naar u.  
+-   **Total** : comprend les données des paramètres De base et Étendu, et envoie également des informations de diagnostics avancées telles que des fichiers système et des instantanés de la mémoire. Cette option peut inclure des informations personnelles, mais nous n’utilisons pas ces informations pour vous identifier, vous contacter ou vous envoyer du contenu publicitaire.  
 
-Zie voor meer informatie, waaronder de vermelding van de gegevens die op elk niveau worden verzameld [diagnostische gegevens en gebruiksgegevens voor System Center Configuration Manager](../../../../core/plan-design/diagnostics/diagnostics-and-usage-data.md).  
+Pour plus d’informations, notamment sur la divulgation des informations collectées par chaque niveau, consultez [Données d’utilisation et de diagnostic pour System Center Configuration Manager](../../../../core/plan-design/diagnostics/diagnostics-and-usage-data.md).  
 
-Als u wilt de System Center Configuration Manager privacyverklaring online weergeven, gaat u naar [http://go.microsoft.com/fwlink/?LinkID=626527](http://go.microsoft.com/fwlink/?LinkID=626527).
+Pour afficher la déclaration de confidentialité System Center Configuration Manager en ligne, accédez à [http://go.microsoft.com/fwlink/?LinkID=626527](http://go.microsoft.com/fwlink/?LinkID=626527).

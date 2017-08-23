@@ -1,6 +1,6 @@
 ---
-title: Beheren van takenreeksen om taken te automatiseren | Microsoft Docs
-description: U kunt maken, bewerken, implementeren, importeren en exporteren van takenreeksen om ze in uw System Center Configuration Manager-omgeving te beheren.
+title: "Gérer les séquences de tâches pour automatiser des tâches | Microsoft Docs"
+description: "Vous pouvez créer, modifier, déployer, importer et exporter des séquences de tâches pour les gérer dans votre environnement System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/24/2017
 ms.prod: configuration-manager
@@ -16,456 +16,456 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 2f3d66362c49d28a52d7f9c535eb0b3b4cc4eaf7
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-task-sequences-to-automate-tasks-in-system-center-configuration-manager"></a>Takenreeksen beheren om taken te automatiseren in System Center Configuration Manager
+# <a name="manage-task-sequences-to-automate-tasks-in-system-center-configuration-manager"></a>Gérer les séquences de tâches pour automatiser des tâches dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Gebruik takenreeksen stappen in uw omgeving voor System Center Configuration Manager automatiseren. Met deze stappen kunt u een installatiekopie van een besturingssysteem implementeren, een installatiekopie van een besturingssysteem samenstellen en vastleggen uit een aantal installatiebestanden van het besturingssysteem, en gebruikersstatusinformatie vastleggen en herstellen. Takenreeksen bevinden zich in de Configuration Manager-console op **softwarebibliotheek** > **besturingssystemen** > **Takenreeks**. De **Takenreeks** knooppunt, inclusief de submappen die u maakt, wordt gerepliceerd over de Configuration Manager-hiërarchie. Zie voor informatie over het plannen, [planningsoverwegingen voor het automatiseren van taken](../plan-design/planning-considerations-for-automating-tasks.md).  
+Utilisez des séquences de tâches pour automatiser des étapes dans votre environnement System Center Configuration Manager. Ces étapes peuvent déployer une image du système d’exploitation sur un ordinateur de destination, créer et capturer une image du système d’exploitation à partir d’un ensemble de fichiers d’installation de système d’exploitation, et capturer et restaurer des informations d’état utilisateur. Les séquences de tâches sont affichées dans la console Configuration Manager, dans **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquence de tâches**. Le nœud **Séquence de tâches**, contenant les sous-dossiers que vous créez, est répliqué dans toute la hiérarchie Configuration Manager. Pour plus d’informations sur la planification, consultez [Considérations relatives à la planification de l’automatisation des tâches](../plan-design/planning-considerations-for-automating-tasks.md).  
 
- Gebruik de volgende secties om takenreeksen te beheren.
+ Aidez-vous des informations des sections suivantes pour gérer vos séquences de tâches.
 
-##  <a name="BKMK_CreateTaskSequence"></a> Takenreeksen maken  
- Maak takenreeksen via de wizard Takenreeks maken. Met deze wizard kunt u de volgende typen takenreeksen maken:  
+##  <a name="BKMK_CreateTaskSequence"></a> Créer des séquences de tâches  
+ Créez des séquences de tâches à l'aide de l'Assistant Création d'une séquence de tâches. Cet Assistant peut créer les types de séquences de tâches suivants :  
 
-|Takenreekstype|Meer informatie|  
+|Type de séquence de tâches|Plus d'informations|  
 |------------------------|----------------------|  
-|[Takenreeks voor het installeren van een besturingssysteem](create-a-task-sequence-to-install-an-operating-system.md)|Met dit type takenreeks maakt u de stappen voor het installeren van een besturingssysteem, alsmede de optie voor het migreren van gebruikersgegevens, het opnemen van software-updates en het installeren van toepassingen.|  
-|[De takenreeks om een besturingssysteem te upgraden](create-a-task-sequence-to-upgrade-an-operating-system.md)|Met dit type takenreeks maakt u de stappen voor het installeren van een besturingssysteem, alsmede de optie voor het opnemen van software-updates en het installeren van toepassingen.|  
-|[Takenreeks voor het vastleggen van een besturingssysteem](create-a-task-sequence-to-capture-an-operating-system.md)|Met dit type takenreeks maakt u de stappen voor het bouwen en vastleggen van een besturingssysteem van een referentiecomputer. U kunt software-updates opnemen en toepassingen installeren op de referentiecomputer voordat de installatiekopie wordt vastgelegd.|  
-|[Takenreeks voor het vastleggen en herstellen van gebruikersstatus](create-a-task-sequence-to-capture-and-restore-user-state.md)|Deze takenreeks bevat de stappen waarmee u een bestaande takenreeks kunt toevoegen om de gegevens van de gebruikersstatus vast te leggen en te herstellen.|  
-|[Takenreeks voor het beheren van virtuele harde schijven](use-a-task-sequence-to-manage-virtual-hard-disks.md)|Dit takenreekstype bevat de stappen voor het maken van een VHD, waaronder om een besturingssysteem en toepassingen die u naar System Center Virtual Machine Manager (VMM) vanuit de Configuration Manager-console publiceren kunt te installeren.|  
-|[Aangepaste takenreeks](create-a-custom-task-sequence.md)|Dit type takenreeks voegt geen stappen aan de takenreeks toe. U moet de takenreeks bewerken en stappen aan de takenreeks toevoegen nadat deze is gemaakt.|  
+|[Séquence de tâches pour installer un système d’exploitation](create-a-task-sequence-to-install-an-operating-system.md)|Ce type de séquence de tâches crée les étapes nécessaires pour installer un système d’exploitation, ainsi que l’option pour migrer des données utilisateur, inclure des mises à jour logicielles et installer des applications.|  
+|[Séquence de tâches pour mettre à niveau un système d’exploitation](create-a-task-sequence-to-upgrade-an-operating-system.md)|Ce type de séquence de tâches crée les étapes nécessaires pour mettre à niveau un système d’exploitation, ainsi que l’option pour inclure des mises à jour logicielles et installer des applications.|  
+|[Séquence de tâches pour capturer un système d’exploitation](create-a-task-sequence-to-capture-an-operating-system.md)|Ce type de séquence de tâches crée les étapes nécessaires pour générer et capturer un système d’exploitation à partir d’un ordinateur de référence. Vous pouvez inclure des mises à jour logicielles et installer des applications sur l’ordinateur de référence avant que l’image ne soit capturée.|  
+|[Séquence de tâches pour capturer et restaurer l’état utilisateur](create-a-task-sequence-to-capture-and-restore-user-state.md)|Cette séquence de tâches fournit les étapes à ajouter à une séquence de tâches pour capturer et restaurer des données d’état utilisateur.|  
+|[Séquence de tâches pour gérer des disques durs virtuels](use-a-task-sequence-to-manage-virtual-hard-disks.md)|Ce type de séquence de tâches contient les étapes pour créer un disque dur virtuel, notamment pour installer un système d’exploitation et des applications que vous pouvez publier dans System Center Virtual Machine Manager (VMM) à partir de la console Configuration Manager.|  
+|[Séquence de tâches personnalisée](create-a-custom-task-sequence.md)|Ce type de séquence de tâches n’ajoute aucune étape à la séquence de tâches. Vous devez modifier la séquence de tâches et ajouter des étapes à la séquence de tâches après sa création.|  
 
-## <a name="return-to-previous-page-when-a-task-sequence-fails"></a>Terug naar vorige pagina wanneer een takenreeks mislukt
-Vanaf Configuration Manager versie 1702, kunt u terugkeren naar een vorige pagina als u een takenreeks uitvoert en er een fout is. Vóór deze versie moest u de takenreeks opnieuw opstarten als er een fout is opgetreden. U kunt bijvoorbeeld de **vorige** knop in de volgende scenario's:
+## <a name="return-to-previous-page-when-a-task-sequence-fails"></a>Revenir à la page précédente en cas d’échec d’une séquence de tâches
+À partir de Configuration Manager version 1702, vous pouvez revenir à une page précédente quand vous exécutez une séquence de tâches qui échoue. Avant cette version, vous deviez redémarrer la séquence de tâches en cas d’échec. Par exemple, vous pouvez utiliser le bouton **Précédent** dans les scénarios suivants :
 
-- Wanneer een computer wordt opgestart in Windows PE, wordt het dialoogvenster taak sequence bootstrap mogelijk weer voordat de takenreeks beschikbaar is. Wanneer u in dit scenario op Volgende klikt, wordt de laatste pagina van de takenreeks weergegeven met een bericht dat er geen takenreeksen beschikbaar zijn. Nu kunt u **vorige** opnieuw zoeken naar beschikbare takenreeksen. U kunt dit proces herhalen totdat de takenreeks beschikbaar is.
-- Wanneer u een takenreeks uitvoert, maar de afhankelijke inhoud pakketten nog niet beschikbaar zijn op distributiepunten zijn, mislukt de takenreeks wordt uitgevoerd. U kunt nu de ontbrekende inhoud distribueren (indien deze nog niet is gedistribueerd) of wacht totdat de inhoud beschikbaar zijn op distributiepunten en klik op **vorige** het zoeken van de reeks taak opnieuw naar de inhoud hebben.
+- Quand un ordinateur démarre dans Windows PE, la boîte de dialogue d’amorçage de la séquence de tâches peut s’afficher avant que la séquence de tâches ne soit disponible. Quand vous cliquez sur Suivant dans ce scénario, la dernière page de la séquence de tâches s’affiche avec un message indiquant qu’aucune séquence de tâches n’est disponible. À présent, vous pouvez cliquer sur **Précédent** pour relancer la recherche des séquences de tâches disponibles. Vous pouvez répéter ce processus jusqu’à ce que la séquence de tâches soit disponible.
+- Quand vous exécutez une séquence de tâches, mais que les packages de contenu dépendants ne sont pas encore disponibles sur les points de distribution, la séquence de tâches échoue. Vous pouvez désormais distribuer le contenu manquant (s’il ne l’a pas encore été) ou attendre qu’il soit disponible sur les points de distribution, puis cliquer sur **Précédent** pour que la séquence de tâches recherche une nouvelle fois le contenu.
 
-##  <a name="BKMK_ModifyTaskSequence"></a> Een takenreeks bewerken  
- U kunt een takenreeks wijzigen door takenreeksstappen toe te voegen of te verwijderen, door takenreeksgroepen toe te voegen of te verwijderen, of door het veranderen van de volgorde van de stappen. Gebruik de volgende procedure om een bestaande takenreeks te wijzigen.  
+##  <a name="BKMK_ModifyTaskSequence"></a> Modifier une séquence de tâches  
+ Vous pouvez modifier une séquence de tâches en ajoutant ou en supprimant des étapes ou des groupes de séquence de tâches, ou bien en modifiant l'ordre des étapes. Pour modifier une séquence de tâches existante, procédez comme suit.  
 
 > [!IMPORTANT]  
->  Als u een takenreeks bewerkt die werd gemaakt met de wizard Takenreeks maken, kan de naam van de stap de bewerking of het type ervan zijn. U kunt bijvoorbeeld zien dat een stap met de naam 'Partitieschijf 0', de actie voor een stap van het type is [schijf formatteren en partitioneren](../understand/task-sequence-steps.md#BKMK_FormatandPartitionDisk). Alle takenreeksstappen worden gedocumenteerd volgens hun type, niet door de naam van de stap die wordt weergegeven in de Editor.  
+>  Lorsque vous modifiez une séquence de tâches qui avait été créée à l'aide de l'Assistant Création d'une séquence de tâches, le nom de l'étape peut être l'action de l'étape ou le type de l'étape. Par exemple, vous pouvez voir une étape appelée « Partitionner le disque 0 », qui désigne l’action d’une étape de type [Formater et partitionner le disque](../understand/task-sequence-steps.md#BKMK_FormatandPartitionDisk). Toutes les étapes de séquence de tâches sont documentées par leur type, pas nécessairement par le nom de l'étape qui est affichée dans l'éditeur.  
 
-#### <a name="to-edit-a-task-sequence"></a>Een takenreeks bewerken  
+#### <a name="to-edit-a-task-sequence"></a>Pour modifier une séquence de tâches  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Takenreeksen**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-3.  Selecteer in de lijst **Takenreeks** de takenreeks die u wilt bewerken.  
+3.  Dans la liste **Séquence de tâches** , sélectionnez la séquence de tâches que vous souhaitez modifier.  
 
-4.  Klik in de groep **Takenreeks** in het tabblad **Start** op **Bewerken**en klik vervolgens op een van de volgende bewerkingen:  
+4.  Sous l'onglet **Accueil** , dans le groupe **Séquence de tâches** , cliquez sur **Modifier**, puis effectuez l'une des opérations suivantes :  
 
-    -   Als u een takenreeksstap wilt toevoegen, klikt u op **Toevoegen**, selecteert u het type stap en klikt u vervolgens op de takenreeksstap die u wilt toevoegen. Als u bijvoorbeeld de stap voor het uitvoeren van de opdrachtregel wilt toevoegen, klikt u op **Toevoegen**, selecteert u **Algemeen**en klikt u vervolgens op **Opdrachtregel uitvoeren**.  
+    -   Pour ajouter une étape de séquence de tâches, cliquez sur **Ajouter**, sélectionnez le type d'étape, puis cliquez sur la séquence de tâches à ajouter. Par exemple, pour ajouter l'étape Exécuter la ligne de commande, cliquez sur **Ajouter**, sélectionnez **Général**, puis cliquez sur **Exécuter la ligne de commande**.  
 
-         Zie de tabel die volgt op deze procedure voor een lijst met alle takenreeksstappen en hun type.  
+         Pour obtenir une liste de toutes les étapes de séquence de tâches et leur type, consultez le tableau qui suit cette procédure.  
 
-    -   Klik op **Toevoegen**en klik op **Nieuwe groep**om een groep aan de takenreeks toe te voegen. Nadat u een groep toevoegt, kunt u stappen eraan toevoegen.  
+    -   Pour ajouter un groupe à la séquence de tâches, cliquez sur **Ajouter**, puis cliquez sur **Nouveau groupe**. Après avoir ajouté un groupe, vous pouvez ajouter des étapes au groupe.  
 
-    -   Ga als volgt te werk om de volgorde van de stappen en groepen in de takenreeks te wijzigen: selecteer de stap of groep waarvan u de volgorde wilt wijzigen en gebruik de pictogrammen **Item omhoog verplaatsen** of **Item omlaag verplaatsen** . U kunt slechts één stap of groep op hetzelfde moment verplaatsen.  
+    -   Pour modifier l'ordre des étapes et des groupes de la séquence de tâches, sélectionnez l'étape ou le groupe que vous souhaitez réorganiser, puis utilisez les icônes **Déplacer l'élément vers le haut** ou **Déplacer l'élément vers le bas** . Vous pouvez déplacer une seule étape ou un seul groupe à la fois.  
 
-    -   Selecteer een stap of groep en klik op **Verwijderen**als u een stap of groep wilt verwijderen.  
+    -   Pour supprimer une étape ou un groupe, sélectionnez l'étape ou le groupe, puis cliquez sur **Supprimer**.  
 
-5.  Klik op **OK** om de wijzigingen op te slaan.  
+5.  Cliquez sur **OK** pour enregistrer les modifications.  
 
- Zie voor een lijst van de beschikbare takenreeksstappen [Takenreeksstappen](../understand/task-sequence-steps.md).  
+ Pour obtenir une liste des étapes de séquence de tâches disponibles, consultez [Étapes de séquence de tâches](../understand/task-sequence-steps.md).  
 
-## <a name="configure-software-center-properties"></a>Eigenschappen van Software Center configureren
-Gebruik de volgende procedure om de gegevens voor de takenreeks weergegeven in Software Center te configureren. Deze gegevens zijn alleen ter informatie.  
-1. Ga in de Configuration Manager-console naar **softwarebibliotheek** > **besturingssystemen** > **Takenreeksen**.
-2. Selecteer de takenreeks bewerken en klik op **eigenschappen**.
-3. Op de **algemene** tabblad en de volgende instellingen voor Software Center zijn beschikbaar:
-  - **Opnieuw opstarten vereist**: Kan de gebruiker weet of opnieuw opstarten vereist tijdens de installatie is.
-  - **Grootte (MB) downloaden**: Hiermee geeft u op hoeveel megabytes wordt weergegeven in Software Center voor de takenreeks.  
-  - **Geschatte uitvoeringstijd (minuten)**: Hiermee geeft u dat de geschatte tijd in minuten die wordt weergegeven in Software Center voor de takenreeks wordt uitgevoerd.
+## <a name="configure-software-center-properties"></a>Configurer les propriétés du Centre logiciel
+Appliquez la procédure suivante pour configurer les détails de la séquence de tâches affichés dans le Centre logiciel. Ces détails sont fournis uniquement à titre d’informations.  
+1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquences de tâches**.
+2. Sélectionnez la séquence de tâches à modifier, puis cliquez sur **Propriétés**.
+3. Sous l’onglet **Général**, les paramètres suivants du Centre logiciel sont disponibles :
+  - **Redémarrage requis** : indique à l’utilisateur si un redémarrage est nécessaire lors de l’installation.
+  - **Taille du téléchargement (Mo)** : spécifie le nombre de mégaoctets affichés dans le Centre logiciel pour la séquence de tâches.  
+  - **Durée d’exécution estimée (minutes)** : spécifie la durée d’exécution estimée, en minutes, affichée dans le Centre logiciel pour la séquence de tâches.
 
-## <a name="configure-advanced-task-sequence-settings"></a>Geavanceerde taak reeks instellingen configureren
-Gebruik de volgende procedure om de gegevens voor de takenreeks weergegeven in Software Center te configureren. Deze gegevens zijn alleen ter informatie.  
-1. Ga in de Configuration Manager-console naar **softwarebibliotheek** > **besturingssystemen** > **Takenreeksen**.
-2. Selecteer de takenreeks bewerken en klik op **eigenschappen**.
-3. Op de **Geavanceerd** tabblad en de volgende instellingen zijn beschikbaar:
+## <a name="configure-advanced-task-sequence-settings"></a>Configurer des paramètres de séquence de tâches avancés
+Appliquez la procédure suivante pour configurer les détails de la séquence de tâches affichés dans le Centre logiciel. Ces détails sont fournis uniquement à titre d’informations.  
+1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquences de tâches**.
+2. Sélectionnez la séquence de tâches à modifier, puis cliquez sur **Propriétés**.
+3. L’onglet **Avancé** contient les paramètres suivants :
 
-    - **Eerst een ander programma uitvoeren**    
-    Schakel dit selectievakje in om uit te voeren op een ander programma (in een ander pakket) voordat de takenreeks wordt uitgevoerd. Standaard is dit selectievakje niet geselecteerd. Het programma dat u opgeeft om uit te voeren eerst hoeft niet te worden afzonderlijk aangekondigd.
+    - **Exécuter un autre programme en premier**    
+    Cochez cette case pour exécuter un autre programme (dans un autre package) avant la séquence de tâches. Par défaut, cette case à cocher est désactivée. Le programme dont vous spécifiez l'exécution préalable n'a pas besoin d'être publié séparément.
 
         > [!IMPORTANT]     
-        Deze instelling geldt alleen voor takenreeksen die in het volledige besturingssysteem worden uitgevoerd. Configuration Manager negeert deze instelling als de takenreeks wordt gestart via PXE of opstartmedia.
+        Ce paramètre s'applique uniquement aux séquences de tâches qui s'exécutent dans le système d'exploitation complet. Configuration Manager ignore ce paramètre si la séquence de tâches est démarrée à l’aide de l’environnement PXE ou d’un média de démarrage.
 
-    - **Pakket**     
-        Wanneer u selecteert **rst een ander programma**Typ of blader naar het pakket met het programma dat moet worden uitgevoerd voordat deze takenreeks.
+    - **Package**     
+        Si vous activez l'option **Exécuter un autre programme en premier**, entrez ou recherchez le package contenant le programme qui doit s'exécuter avant cette séquence de tâches.
 
-    - **Programma**     
-    Wanneer u selecteert **rst een ander programma**, selecteer het programma dat moet worden uitgevoerd vóór deze takenreeks van de **programma** vervolgkeuzelijst.
+    - **Programme**     
+    Si vous activez l'option **Exécuter un autre programme en premier**, sélectionnez le programme qui doit s'exécuter avant cette séquence de tâches dans la liste déroulante **Programme**.
 
         > [!NOTE]    
-        > Als het geselecteerde programma niet uitgevoerd op een client, wordt de takenreeks niet uitgevoerd. Als het geselecteerde programma voltooid wordt, wordt deze niet uitgevoerd, zelfs als de takenreeks opnieuw op dezelfde client wordt uitgevoerd.
+        > Si l'exécution du programme sélectionné échoue sur un client, la séquence de tâches ne sera pas exécutée. Si l'exécution du programme sélectionné aboutit, il ne sera pas réexécuté, même si la séquence de tâches est exécutée de nouveau sur le même client.
  
-    - **Deze takenreeks uitschakelen op computers waarop deze is geïmplementeerd**    
-    Als u deze optie selecteert, worden alle implementaties die deze takenreeks bevatten tijdelijk uitgeschakeld. De takenreeks wordt verwijderd uit de lijst met beschikbare advertenties uitgevoerd en wordt niet uitgevoerd totdat deze is opnieuw worden ingeschakeld. Deze optie is standaard uitgeschakeld.
+    - **Désactiver cette séquence de tâches sur les ordinateurs sur lesquels elle est publiée**    
+    Si vous sélectionnez cette option, tous les déploiements qui contiennent cette séquence de tâches sont temporairement désactivés. La séquence de tâches est supprimée de la liste des publications à exécuter, et elle sera réexécutée uniquement lorsqu'elle aura été réactivée. Par défaut, cette option est désactivée.
 
-    - **Maximale toegestane uitvoeringstijd**    
-    Hiermee geeft u de maximale tijd (in minuten) die wordt verwacht dat de takenreeks wordt uitgevoerd op de doelcomputer. U moet een geheel getal gelijk is aan of groter zijn dan nul. Deze waarde is standaard ingesteld op 120 minuten.
+    - **Durée maximale d'exécution allouée**    
+    Indique la durée maximale (en minutes) d'exécution de la séquence de tâches sur l'ordinateur de destination. Vous devez utiliser un nombre entier égal ou supérieur à zéro. Par défaut, cette valeur est définie à 120 minutes.
 
         > [!IMPORTANT]    
-        > Als u onderhoudsvensters voor de verzameling waarop deze takenreeks wordt uitgevoerd gebruikt, een conflict optreden als de **maximale toegestane uitvoeringstijd** langer is dan het geplande onderhoudsvenster. Als de maximum uitvoeringstijd is ingesteld op **0**, de takenreeks wordt gestart tijdens het onderhoudsvenster en verder worden uitgevoerd tot het voltooid of mislukt is nadat het onderhoudsvenster is gesloten. Als gevolg hiervan takenreeksen met een maximum uitvoeringstijd is ingesteld op **0** voorbij het einde van de onderhoudsvensters mogelijk uitgevoerd. Als u de maximale uitvoeringstijd voor een bepaalde periode is ingesteld (dat wil zeggen, niet is ingesteld op **0**) die langer is dan de lengte van welk beschikbaar onderhoudsvenster en vervolgens de takenreeks wordt niet uitgevoerd. Zie voor meer informatie [het gebruik van onderhoudsvensters](/sccm/core/clients/manage/collections/use-maintenance-windows).
+        > Si vous utilisez des fenêtres de maintenance pour le regroupement sur lequel cette séquence de tâches est exécutée, un conflit peut survenir si la **Durée maximale d'exécution allouée** est supérieure à la fenêtre de maintenance programmée. Si la durée d'exécution maximale est définie sur **0**, la séquence de tâches démarre pendant la fenêtre de maintenance et continue son exécution jusqu'à ce qu'elle ait terminé ou échoué après la fermeture de la fenêtre de maintenance. En conséquence, les séquences de tâches dont la durée d'exécution maximale est définie sur **0** peuvent s'exécuter après la fin de leurs fenêtres de maintenance. Si vous définissez la durée d'exécution maximale sur une période donnée (c’est-à-dire autre que **0**) qui dépasse la durée de toute fenêtre de maintenance disponible, cette séquence de tâches n'est pas exécutée. Pour plus d’informations, consultez [Guide pratique pour utiliser les fenêtres de maintenance](/sccm/core/clients/manage/collections/use-maintenance-windows).
  
-        Als de waarde is ingesteld als **0**, Configuration Manager beoordeelt de maximale toegestane uitvoeringstijd als **12** uur (720 minuten) voor de voortgang controleren. Echter, de takenreeks wordt gestart zolang de duur van het aftellen niet langer zijn dan de waarde van onderhoud-venster.
+        Si la valeur définie est **0**, Configuration Manager fixe la durée d’exécution maximale autorisée à **12** heures (720 minutes) pour suivre la progression. Toutefois, la séquence de tâches démarre tant que la durée du compte à rebours ne dépasse pas la valeur de la fenêtre de maintenance.
 
     > [!NOTE]    
-    > Als de maximum uitvoeringstijd is bereikt, stopt Configuration Manager de takenreeks als deze is ingesteld op uitvoeren met beheerdersrechten en de gebruikers toestaan om te communiceren met deze instelling wordt niet is ingeschakeld. Als de takenreeks zelf niet is gestopt, stopt de bewaking van de takenreeks na de maximaal toegestane uitvoeringstijd Configuration Manager is bereikt. 
+    > Si cette durée maximale est atteinte, Configuration Manager arrête la séquence de tâches s'il est configuré pour s'exécuter avec les droits d'administration et si le paramètre Autoriser les utilisateurs à interagir avec ce programme n'est pas activé. Si la séquence de tâches ne s’arrête pas d’elle-même, Configuration Manager cesse de la surveiller dès que la durée d’exécution maximale autorisée est atteinte. 
 
-    - **Een opstartinstallatiekopie gebruiken**   
-        Schakel deze optie in de geselecteerde opstartinstallatiekopie gebruiken wanneer de takenreeks wordt uitgevoerd. 
+    - **Utiliser une image de démarrage**   
+        Activez cette option pour utiliser l'image de démarrage sélectionnée lors de l'exécution de la séquence de tâches. 
 
-        Klik op **Bladeren** naar een andere opstartinstallatiekopie selecteren. Schakel deze optie voor het gebruik van de geselecteerde opstartinstallatiekopie uitschakelen wanneer de takenreeks wordt uitgevoerd.
+        Cliquez sur **Parcourir** pour sélectionner une autre image de démarrage. Désactivez cette option pour désactiver l’utilisation de l’image de démarrage sélectionnée lors de l’exécution de la séquence de tâches.
 
-    - **Deze takenreeks kan worden uitgevoerd op elk platform**     
-        Als u deze optie selecteert, wordt Configuration Manager het platformtype van de doelcomputer niet gecontroleerd wanneer de takenreeks wordt geïmplementeerd. Deze optie is standaard geselecteerd.
+    - **Cette séquence de tâches peut être exécutée sur toute plateforme**     
+        Si vous sélectionnez cette option, Configuration Manager ne vérifie pas le type de plateforme de l'ordinateur de destination lors du déploiement de la séquence de tâches. Cette option est activée par défaut.
 
-    - **Deze takenreeks kan alleen worden uitgevoerd op de gespecificeerde clientplatforms**    
-        Deze optie geeft u de processors, besturingssystemen en servicepacks die deze takenreeks kan worden uitgevoerd. Wanneer u deze optie selecteert, moet u ten minste één platform ook geselecteerd in de lijst. Er is geen platforms zijn standaard ingeschakeld. Configuration Manager gebruikt deze informatie wanneer is evalueert welke doelcomputers in een verzameling ontvangen de geïmplementeerde takenreeks.
+    - **Cette séquence de tâches peut être exécutée uniquement sur les plates-formes clientes spécifiées**    
+        Cette option spécifie les processeurs, les systèmes d'exploitation et les Service Packs sur lesquels cette séquence de tâches peut s'exécuter. Lorsque vous sélectionnez cette option, au moins une plateforme doit être sélectionnée dans la liste. Par défaut, aucune plate-forme n'est sélectionnée. Configuration Manager utilise ces informations pour identifier les ordinateurs de destination d'un regroupement qui reçoivent la séquence de tâches déployée.
 
         > [!NOTE]    
-        > Wanneer een takenreeks wordt uitgevoerd vanaf opstartmedia of door PXE-opstartbewerking, deze optie wordt genegeerd en de takenreeks wordt uitgevoerd alsof de optie **dit programma kan worden uitgevoerd op elk platform** is geselecteerd.
+        > Lorsqu'une séquence de tâches est exécutée à partir d'un support de démarrage ou via un démarrage PXE, cette option est ignorée et la séquence de tâches ne s'exécutera que lorsque l'option **Ce programme peut être exécuté sur n'importe quelle plateforme** sera activée.
 
-## <a name="configure-high-impact-task-sequence-settings"></a>Hoge impact taak reeks instellingen configureren
-Vanaf Configuration Manager versie 1702, kunt u een takenreeks als hoge impact en aanpassen van de berichten die gebruikers ontvangen wanneer ze de takenreeks worden uitgevoerd.
+## <a name="configure-high-impact-task-sequence-settings"></a>Configurer des paramètres de séquence de tâches à fort impact
+À partir de Configuration Manager version 1702, vous pouvez définir une séquence de tâches à fort impact et personnaliser les messages envoyés aux utilisateurs lorsqu’ils exécutent la séquence de tâches.
 
-### <a name="set-a-task-sequence-as-a-high-impact-task-sequence"></a>Een takenreeks ingesteld als een takenreeks met hoge impact
-Gebruik de volgende procedure in te stellen van een takenreeks als hoge impact.
+### <a name="set-a-task-sequence-as-a-high-impact-task-sequence"></a>Définir une séquence de tâches comme séquence de tâches à fort impact
+Appliquez la procédure suivante pour définir une séquence de tâches à fort impact.
 > [!NOTE]    
-> Elke takenreeks die voldoet aan bepaalde voorwaarden wordt automatisch gedefinieerd als hoge impact. Zie voor meer informatie [beheren van implementaties met een hoog risico](http://docs.microsoft.com/sccm/protect/understand/settings-to-manage-high-risk-deployments).
+> Toute séquence de tâches qui remplit certaines conditions est définie automatiquement comme séquence à fort impact. Pour plus d’informations, consultez [Paramètres pour gérer les déploiements à haut risque pour System Center Configuration Manager](http://docs.microsoft.com/sccm/protect/understand/settings-to-manage-high-risk-deployments).
 
-1. Ga in de Configuration Manager-console naar **softwarebibliotheek** > **besturingssystemen** > **Takenreeksen**.
-2. Selecteer de takenreeks bewerken en klik op **eigenschappen**.
-3. Op de **gebruikersmelding** tabblad **dit is een grote impact takenreeks**.
+1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquences de tâches**.
+2. Sélectionnez la séquence de tâches à modifier, puis cliquez sur **Propriétés**.
+3. Sous l’onglet **Notification utilisateur**, sélectionnez **Il s’agit d’une séquence de tâches avec un impact élevé**.
 
-### <a name="create-a-custom-notification-for-high-risk-deployments"></a>Een aangepaste melding voor implementaties met een hoog risico maken
-Gebruik de volgende procedure voor het maken van een aangepaste melding voor implementaties met hoge impact.
-1. Ga in de Configuration Manager-console naar **softwarebibliotheek** > **besturingssystemen** > **Takenreeksen**.
-2. Selecteer de takenreeks bewerken en klik op **eigenschappen**.
-3. Op de **gebruikersmelding** tabblad **u aangepaste tekst**.
+### <a name="create-a-custom-notification-for-high-risk-deployments"></a>Créer une notification personnalisée pour les déploiements à haut risque
+Utilisez la procédure suivante pour créer une notification personnalisée pour les déploiements à fort impact.
+1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquences de tâches**.
+2. Sélectionnez la séquence de tâches à modifier, puis cliquez sur **Propriétés**.
+3. Sous l’onglet **Notification utilisateur**, sélectionnez **Utiliser du texte personnalisé**.
 >  [!NOTE]    
->  U kunt alleen de berichttekst gebruiker instellen wanneer de **dit is een grote impact takenreeks** is geselecteerd.
+>  Vous pouvez définir le texte de notification utilisateur uniquement quand **Il s’agit d’une séquence de tâches avec un impact élevé** est sélectionné.
 
-4. Configureer de volgende instellingen (maximaal 255 tekens bestaan voor elk tekstvak):
+4. Configurez les paramètres suivants (maximum 255 caractères pour chaque zone de texte) :
 
-  **Gebruiker melding kopregel**: Hiermee geeft u de blauwe tekst die wordt weergegeven op de melding voor gebruikers van Software Center. Bijvoorbeeld, in de gebruikersmelding standaard bevat in deze sectie ongeveer 'Bevestigen voor het bijwerken van het besturingssysteem op deze computer'.
+  **Texte du titre de la notification utilisateur** : spécifie le texte en bleu qui s’affiche sur la notification utilisateur du Centre logiciel. Par exemple, dans la notification utilisateur par défaut, cette section contient quelque chose comme « Confirmez que vous voulez mettre à niveau le système d’exploitation sur cet ordinateur ».
 
-  **Gebruiker melding berichttekst**: Er zijn drie tekstvakken waarmee de hoofdtekst van de aangepaste melding. Alle tekstvakken vereisen dat u tekst toevoegen.
-  - 1e tekstvak: Hiermee geeft u de hoofdtekst van tekst, meestal met instructies voor de gebruiker. In de gebruikersmelding standaard bevat in deze sectie bijvoorbeeld iets zoals 'besturingssysteem upgraden tijd kost en de computer enkele keren opnieuw opstarten.'
-  - tekstvak voor 2e: Hiermee geeft u de vetgedrukte onder de hoofdtekst. In de gebruikersmelding standaard bevat in deze sectie bijvoorbeeld iets zoals 'deze in-place upgrade wordt het nieuwe besturingssysteem geïnstalleerd en worden uw apps, gegevens en instellingen automatisch gemigreerd.'
-  - tekstvak voor 3e: Hiermee geeft u de laatste regel van de tekst onder de vetgedrukte. Bijvoorbeeld, in de gebruikersmelding standaard in deze sectie bevat dat lijkt op ' Klik op installeren om te beginnen. Klik anders op Annuleren."   
+  **Texte du message de la notification utilisateur** : trois zones de texte fournissent le corps de la notification personnalisée. Toutes les zones de texte nécessitent la saisie d’un texte.
+  - Première zone de texte : spécifie le corps principal du texte, contenant généralement des instructions destinées à l’utilisateur. Par exemple, dans la notification utilisateur par défaut, cette section contient quelque chose comme « La mise à niveau du système d’exploitation peut prendre un certain temps et entraîner plusieurs redémarrages de votre ordinateur ».
+  - Deuxième zone de texte : spécifie le texte en gras dans le corps principal du texte. Par exemple, dans la notification utilisateur par défaut, cette section contient quelque chose comme « Cette mise à niveau sur place installe le nouveau système d’exploitation et migre automatiquement vos applications, vos données et vos paramètres ».
+  - Troisième zone de texte : spécifie la dernière ligne de texte sous le texte en gras. Par exemple, dans la notification utilisateur par défaut, cette section contient quelque chose comme « Cliquez sur Installer pour commencer. Sinon, cliquez sur Annuler. ».   
     
-Stel dat u de volgende aangepaste melding in de eigenschappen configureren.
+Supposons que vous configurez la notification personnalisée suivante dans les propriétés.
 
-![Aangepaste melding voor een takenreeks](..\media\user-notification.png)
+![Notification personnalisée pour une séquence de tâches](..\media\user-notification.png)
 
-Het volgende bericht wordt weergegeven wanneer de eindgebruiker opent de installatie van Software Center.
+Le message de notification suivant s’affiche quand l’utilisateur final ouvre l’installation à partir du Centre logiciel.
 
-![Aangepaste melding voor een takenreeks](..\media\user-notification-enduser.png)
+![Notification personnalisée pour une séquence de tâches](..\media\user-notification-enduser.png)
 
 
-##  <a name="BKMK_DistributeTS"></a> Inhoud distribueren waarnaar wordt verwezen door een specifieke takenreeks  
- Voordat clients een takenreeks uitvoeren die naar inhoud verwijst, moet u deze inhoud distribueren naar distributiepunten. U kunt op elk gewenst moment de takenreeks selecteren en de bijbehorende inhoud distribueren om een nieuwe lijst met referentiepakketten voor distributie te bouwen. Als u wijzigingen aanbrengt in de takenreeks met bijgewerkte inhoud, moet u de inhoud herverdelen voordat deze beschikbaar is voor clients. Gebruik de volgende procedure om de inhoud te distribueren waarnaar een takenreeks verwijst.  
+##  <a name="BKMK_DistributeTS"></a> Distribuer du contenu référencé par une séquence de tâches  
+ Avant que les clients exécutent une séquence de tâches qui référence du contenu, vous devez distribuer ce contenu aux points de distribution. À tout moment, vous pouvez sélectionner la séquence de tâches et distribuer son contenu pour créer une nouvelle liste de packages de référence pour la distribution. Si vous apportez des modifications à la séquence de tâches avec du contenu mis à jour, vous devez redistribuer le contenu avant de le mettre à la disposition des clients. Pour distribuer le contenu qui est référencé par une séquence de tâches, procédez comme suit.  
 
-#### <a name="to-distribute-referenced-content-to-distribution-points"></a>Inhoud waarnaar wordt verwezen, distribueren naar distributiepunten  
+#### <a name="to-distribute-referenced-content-to-distribution-points"></a>Pour distribuer le contenu référencé sur des points de distribution  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Takenreeksen**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-3.  Selecteer in de lijst **Takenreeks** de takenreeks die u wilt distribueren.  
+3.  Dans la liste **Séquence de tâches** , sélectionnez la séquence de tâches que vous souhaitez distribuer.  
 
-4.  Klik op het tabblad **Start** in de groep **Implementatie** op **Inhoud distribueren** om de wizard Inhoud distribueren te starten.  
+4.  Sous l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Distribuer du contenu** pour démarrer l'Assistant Distribuer du contenu.  
 
-5.  Controleer op de pagina **Algemeen** of de juiste takenreeks is geselecteerd voor distributie en klik vervolgens op **Volgende**.  
+5.  Sur la page **Général** , vérifiez que la séquence de tâches correcte est sélectionnée pour la distribution, puis cliquez sur **Suivant**.  
 
-6.  Controleer de te distribueren inhoud op de pagina **Inhoud** , zoals een installatiekopie waarnaar de takenreeks verwijst, en klik vervolgens op **Volgende**.  
+6.  Sur la page **Contenu** , vérifiez le contenu à distribuer, tel que l'image de démarrage référencée par la séquence de tâches, puis cliquez sur **Suivant**.  
 
-7.  Geef op de pagina **Doel van inhoud** de verzamelingen, het distributiepunt of de doelpuntgroep op waarnaar u de takenreeksinhoud wilt distribueren en klik vervolgens op **Volgende**.  
+7.  Sur la page **Destination du contenu** , spécifiez les regroupements, le point de distribution ou le groupe de points de destination où vous souhaitez distribuer le contenu de séquence de tâches, puis cliquez sur **Suivant**.  
 
     > [!IMPORTANT]  
-    >  Als de takenreeks die u hebt geselecteerd, verwijst naar inhoud die al is gedistribueerd naar een specifiek distributiepunt, wordt dat distributiepunt niet vermeld in de wizard.  
+    >  Si la séquence de tâches que vous avez sélectionnée référence du contenu qui est déjà distribué sur un point de distribution spécifique, ce point de distribution n'est pas répertorié par l'Assistant.  
 
-8.  Voltooi de wizard.  
+8.  Effectuez toutes les étapes de l'Assistant.  
 
- U kunt de inhoud voorbereiden waarnaar in de takenreeks wordt verwezen. Configuration Manager maakt een gecomprimeerd, voorbereid inhoudsbestand dat de bestanden, gekoppelde afhankelijkheden, en gekoppelde metagegevens bevat voor de inhoud die u selecteert. U kunt vervolgens de inhoud handmatig importeren via een siteserver, secundaire site of distributiepunt. Zie voor meer informatie over het voorbereiden van inhoudsbestanden [inhoud voorbereiden](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkprestagea-use-prestaged-content).  
+ Vous pouvez préparer le contenu référencé dans la séquence de tâches. Configuration Manager crée un fichier de contenu compressé et préparé qui contient les fichiers, les dépendances associées et les métadonnées associées pour le contenu que vous sélectionnez. Vous pouvez ensuite importer manuellement le contenu au niveau d'un serveur de site, d'un site secondaire ou d'un point de distribution. Pour plus d’informations sur la façon de préparer des fichiers de contenu, consultez [Préparer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkprestagea-use-prestaged-content).  
 
-##  <a name="BKMK_DeployTS"></a> Een takenreeks implementeren  
- Gebruik de volgende procedure om een takenreeks te implementeren voor de computers in een verzameling.  
+##  <a name="BKMK_DeployTS"></a> Déployer une séquence de tâches  
+ Pour déployer une séquence de tâches sur les ordinateurs d'un regroupement, procédez comme suit.  
 
 > [!WARNING]  
->  U kunt het gedrag voor de implementatie van takenreeksen met een hoge risico beheren. Een implementatie met een hoog risico is een implementatie die automatisch wordt geïnstalleerd en de potentie heeft om ongewenste resultaten te veroorzaken. Een takenreeks met het doel **Vereist** en die een besturingssysteem implementeert, wordt beschouwd als een implementatie met een hoog risico. Zie voor meer informatie [instellingen voor het beheren van implementaties met een hoog risico](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+>  Vous pouvez gérer le comportement des déploiements de séquences de tâches à haut risque. Un déploiement à haut risque est un déploiement qui est installé automatiquement et qui est susceptible d'entraîner des résultats indésirables. Par exemple, une séquence de tâches avec comme objectif **Obligatoire** qui déploie un système d'exploitation est considérée comme un déploiement à haut risque. Pour plus d’informations, consultez [Paramètres de gestion des déploiements à haut risque](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
 
 > [!NOTE]  
->  De statusberichten voor de takenreeksimplementatie worden wel weergegeven in het venster Bericht op een primaire site, maar niet op een centrale beheersite.  
+>  Les messages d'état pour le déploiement d'une séquence de tâches sont affichés dans la fenêtre Message sur un site principal, mais ils ne sont pas affichés sur un site d'administration centrale.  
 
-#### <a name="to-deploy-a-task-sequence"></a>Een takenreeks implementeren  
+#### <a name="to-deploy-a-task-sequence"></a>Pour déployer une séquence de tâches  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Takenreeksen**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-3.  Selecteer in de lijst **Takenreeks** de takenreeks die u wilt implementeren.  
+3.  Dans la liste **Séquence de tâches** , sélectionnez la séquence de tâches que vous voulez déployer.  
 
-4.  Klik op het tabblad **Start** in de groep **Implementatie** op **Implementeren**.  
+4.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Déployer**.  
 
     > [!NOTE]  
-    >  Als **Implementeren** niet beschikbaar is, beschikt de takenreeks over een ongeldige verwijzing.  Corrigeer de verwijzing en probeer vervolgens opnieuw of u de takenreeks kunt implementeren.  
+    >  Si **Déployer** n'est pas disponible, la séquence de tâches a une référence qui n'est pas valide.  Corrigez la référence, puis tentez de déployer à nouveau la séquence de tâches.  
 
-5.  Geef op de pagina **Algemeen** de volgende informatie op en klik op **Volgende**.  
+5.  Sur la page **Général** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
 
-    -   **Takenreeks**: Geef de takenreeks die u wilt implementeren. In dit vak wordt standaard de takenreeks weergegeven die u hebt geselecteerd.  
+    -   **Séquence de tâches**: Spécifiez la séquence de tâches que vous souhaitez déployer. Par défaut, cette zone affiche la séquence de tâches que vous avez sélectionnée.  
 
-    -   **Verzameling**: Geef de verzameling die de computers bevat waarop de takenreeks wordt uitgevoerd.  
+    -   **Regroupement**: Spécifiez le regroupement contenant les ordinateurs qui exécuteront la séquence de tâches.  
 
-         Implementeer geen takenreeksen die besturingssystemen installeren naar ongeschikte verzamelingen, zoals de verzameling **Alle systemen** . Zorg ervoor dat de verzameling die u selecteert alleen de computers bevat waarop u de takenreeks wilt uitvoeren.  
-
-        > [!NOTE]  
-        >  Wanneer u een implementatie met hoog risico, zoals een besturingssysteem implementeert de **verzameling selecteren** venster geeft alleen de aangepaste verzamelingen die voldoen aan de implementatie van de verificatie-instellingen die zijn geconfigureerd in de site eigenschappen. Implementaties met een hoog risico zijn altijd beperkt tot aangepaste verzamelingen, verzamelingen die u zelf maakt en de ingebouwde verzameling **Onbekende computers** . Wanneer u een implementatie met een hoog risico maakt, kunt u geen ingebouwde verzameling selecteren, zoals **Alle systemen**. Schakel het selectievakje **lid zamelingen verbergen groter is dan de minimale configuratiegrootte** voor een overzicht van alle aangepaste verzamelingen die minder clients dan het geconfigureerde maximum bevatten. Zie voor meer informatie [instellingen voor het beheren van implementaties met een hoog risico](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
-        >   
-        >  De instellingen voor het verifiëren van de implementatie zijn gebaseerd op het huidige lidmaatschap van de verzameling. Nadat u een takenreeks hebt geïmplementeerd, wordt het lidmaatschap van de verzameling niet opnieuw geëvalueerd voor de instellingen van de implementatie met een hoog risico.  
-        >   
-        >  Bijvoorbeeld, Stel dat u **standaardgrootte** en 100 en de **maximumgrootte** tot en met 1000. Wanneer u een implementatie met een hoog risico maakt, worden in het venster **Verzameling selecteren** alleen verzamelingen weergegeven die minder dan 100 clients bevatten. Als u het selectievakje de **lid zamelingen verbergen groter is dan de minimale configuratiegrootte** uitschakelt, het venster verzamelingen weergegeven die minder dan 1000 clients bevatten.  
-        >   
-        >  Wanneer u een verzameling met een siterol selecteert, geldt het volgende:  
-        >   
-        >  -   Als de verzameling een sitesysteemserver bevat en u in de instellingen voor het verifiëren van de implementatie opgeeft dat verzamelingen met sitesysteemservers moeten worden geblokkeerd, wordt er een fout weergegeven en kunt u niet doorgaan.  
-        > -   Als de verzameling een sitesysteemserver bevat en u in de instellingen voor het verifiëren van de implementatie opgeeft dat u moet worden gewaarschuwd als verzamelingen sitesysteemservers bevatten, de verzameling de standaardgrootte overschrijdt of als de verzameling een server bevat, wordt er in de wizard Software implementeren een waarschuwing voor een hoog risico weergegeven. U moet akkoord gaan met het maken van een implementatie met een hoog risico en er wordt een controlestatusbericht gegenereerd.  
-
-    -   **Commentaren (optioneel)**: Geef aanvullende informatie die deze implementatie van de takenreeks beschrijft.  
-
-6.  Geef op de pagina **Implementatie-instellingen** de volgende informatie op en klik vervolgens op **Volgende**.  
-
-    -   **Doel**: Kies een van de volgende opties in de vervolgkeuzelijst:  
-
-        -   **Beschikbare**: Als de takenreeks wordt geïmplementeerd voor een gebruiker, wordt de gebruiker wordt de gepubliceerde takenreeks weergegeven in de Application Catalog en kan deze op aanvraag opvragen. Als de takenreeks wordt geïmplementeerd voor een apparaat, wordt deze weergegeven in Software Center en kan de gebruiker deze op aanvraag installeren.  
-
-        -   **Vereist**: De takenreeks wordt automatisch geïmplementeerd volgens de geconfigureerde planning. Een gebruiker kan de implementatiestatus van de takenreeks (als deze niet is verborgen) bijhouden en de takenreeks installeren via Software Center voordat de deadline wordt bereikt.  
-
-    -   **Automatisch implementeren volgens schema of een gebruiker is aangemeld of niet**: Deze optie is niet beschikbaar wanneer u een takenreeks implementeert.  
-
-    -   **Verzenden van ontwaakpakketten**: Als het implementatiedoel is ingesteld op **vereist** en deze optie is geselecteerd, wordt een ontwaakpakket verzonden naar computers voordat de implementatie wordt geïnstalleerd om de computer uit de slaapstand deadline van de installatie te halen. Voordat u deze optie kunt gebruiken, moeten computers en netwerken zijn geconfigureerd voor Wake On LAN.  
-
-    -   **Laat clients toe op een internetverbinding naar gebruik om inhoud te downloaden na de installatiedeadline, waarvoor extra kosten in rekening kan worden**: Wanneer u een takenreeks die een toepassing installeert, maar implementeert geen besturingssysteem hebt, kunt u opgeven of wilt toestaan dat clients inhoud downloaden na een installatiedeadline wanneer ze internetverbindingen. Internetproviders brengen soms de hoeveelheid gegevens die u verzendt en ontvangt in rekening wanneer u gebruikmaakt van een internetverbinding naar gebruik.  
+         Ne déployez pas de séquences de tâches qui installent des systèmes d'exploitation sur des regroupements inappropriés, tels que le regroupement **Tous les systèmes** . N'oubliez pas que le regroupement que vous sélectionnez contient uniquement les ordinateurs que vous souhaitez voir exécuter la séquence de tâches.  
 
         > [!NOTE]  
-        >  Hoewel het gebruik van internetverbindingen met een datalimiet mogelijk kan worden toegepast voor takenreeksen die geen besturingssystemen implementeren, wordt dit niet ondersteund.  
+        >  Quand vous effectuez un déploiement à haut risque, par exemple un système d’exploitation, la fenêtre **Sélectionner un regroupement** affiche uniquement les regroupements personnalisés satisfaisant aux paramètres de vérification de déploiement configurés dans les propriétés du site. Les déploiements à haut risque sont toujours limités aux regroupements personnalisés, aux regroupements que vous créez et au regroupement **Ordinateurs inconnus** intégré. Quand vous créez un déploiement à haut risque, vous ne pouvez pas sélectionner un regroupement intégré tel que **Tous les systèmes**. Désactivez le paramètre **Masquer les regroupements avec un nombre de membres supérieur à la configuration de la taille minimale du site** pour afficher tous les regroupements personnalisés qui contiennent moins de clients que la taille maximale configurée. Pour plus d’informations, consultez [Paramètres de gestion des déploiements à haut risque](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+        >   
+        >  Les paramètres de vérification de déploiement sont basés sur l'appartenance actuelle du regroupement. Une fois que vous avez déployé la séquence de tâches, l'appartenance du regroupement n'est pas réévaluée pour les paramètres de déploiement à haut risque.  
+        >   
+        >  Supposons que vous affectez la valeur 100 à **Taille par défaut** et la valeur 1000 à **Taille maximale**. Quand vous créez un déploiement à haut risque, la fenêtre **Sélectionner un regroupement** affiche uniquement les regroupements qui contiennent moins de 100 clients. Si vous désactivez le paramètre **Masquer les regroupements avec un nombre de membres supérieur à la configuration de la taille minimale du site**, la fenêtre affiche les regroupements qui contiennent moins de 1 000 clients.  
+        >   
+        >  Quand vous sélectionnez un regroupement qui contient un rôle de site, ce qui suit s'applique :  
+        >   
+        >  -   Si le regroupement contient un serveur de système de site et que dans les paramètres de vérification de déploiement vous choisissez de bloquer les regroupements contenant des serveurs de système de site, une erreur se produit et vous ne pouvez pas continuer.  
+        > -   Si le regroupement contient un serveur de système de site et que dans les paramètres de vérification de déploiement vous choisissez d'afficher un avertissement dans le cas où des regroupements contiennent des serveurs de système de site, si  le regroupement dépasse la valeur de taille par défaut, ou si le regroupement contient un serveur, l'Assistant Déploiement logiciel affiche un avertissement de risque élevé. Vous devez accepter de créer un déploiement à risque élevé et un message d'état d'audit est créé.  
 
-    -   **Goedkeuring door beheerder vereisen als gebruikers deze toepassing aanvragen**: Deze optie is niet beschikbaar wanneer u een takenreeks implementeert.  
+    -   **Commentaires (facultatif) :**spécifiez des informations supplémentaires qui décrivent ce déploiement de la séquence de tâches.  
 
-    -   **Toegankelijk maken voor de volgende**: Opgeven of de takenreeks beschikbaar is voor Configuration Manager-clients, media of PXE.  
+6.  Sur la page **Paramètres de déploiement** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+
+    -   **Objet**: dans la liste déroulante, choisissez l’une des options suivantes :  
+
+        -   **Disponible**: si la séquence de tâches est déployée auprès d’un utilisateur, celui-ci peut voir la séquence de tâches publiée dans le catalogue des applications et il peut la demander. Si la séquence de tâches est déployée sur un appareil, l'utilisateur peut la voir dans le Centre logiciel et l'installer à la demande.  
+
+        -   **Obligatoire**: la séquence de tâches est déployée automatiquement, d’après le calendrier configuré. Un utilisateur peut toutefois suivre l'état du déploiement de la séquence de tâches (s'il n'est pas masqué) et installer cette séquence de tâches avant l'échéance, à l'aide du Centre logiciel.  
+
+    -   **Déployer automatiquement selon le calendrier avec ou sans connexion de l’utilisateur**: cette option n’est pas disponible quand vous déployez une séquence de tâches.  
+
+    -   **Envoyer des paquets de mise en éveil**: si l’objet du déploiement est défini sur **Obligatoire** et que cette option est sélectionnée, un paquet de mise en éveil est envoyé aux ordinateurs avant l’installation du déploiement, pour sortir les ordinateurs de la veille à l’échéance de l’installation. Pour que vous puissiez utiliser cette option, les ordinateurs et les réseaux doivent être configurés pour utiliser l'éveil par appel réseau.  
+
+    -   **Autoriser les clients avec une connexion Internet facturée à l’usage à télécharger le contenu une fois l’échéance d’installation atteinte, ce qui peut entraîner des frais supplémentaires**: quand votre séquence de tâches installe une application mais ne déploie pas de système d’exploitation, vous pouvez spécifier s’il faut autoriser les clients à télécharger du contenu après l’échéance d’installation quand ils utilisent des connexions Internet facturées à l’usage. Les fournisseurs Internet facturent parfois en fonction de la quantité de données que vous envoyez et recevez lorsque vous utilisez une connexion Internet facturée à l'usage.  
+
+        > [!NOTE]  
+        >  L'utilisation d'une connexion Internet facturée à l'usage pourrait fonctionner avec les séquences de tâches qui ne déploient pas de système d'exploitation, mais cette possibilité n'est pas prise en charge.  
+
+    -   **Exiger l’approbation de l’administrateur si des utilisateurs demandent cette application**: cette option n’est pas disponible quand vous déployez une séquence de tâches.  
+
+    -   **Rendre disponible aux éléments suivants** : spécifiez si la séquence de tâches est disponible pour les clients Configuration Manager, les médias ou les environnements PXE.  
 
         > [!IMPORTANT]  
-        >  Gebruik de instelling **Alleen media en PXE (verborgen)** voor geautomatiseerde implementaties van takenreeksen. Selecteer **Implementatie van besturingssysteem zonder toezicht toestaan** en stel de variabele SMSTSPreferredAdvertID in als onderdeel van de media als u de computer automatisch naar de implementatie wilt opstarten zonder tussenkomst van de gebruiker. Zie voor meer informatie over takenreeksvariabelen [ingebouwde variabelen voor takenreeksen](../understand/task-sequence-built-in-variables.md)  
+        >  Utilisez le paramètre **Média et environnement PXE uniquement (masqué)** pour les déploiements de séquence de tâches automatisés. Sélectionnez **Autoriser le déploiement du système d'exploitation de manière autonome** et définissez la variable SMSTSPreferredAdvertID à inclure dans le média, de sorte que l'ordinateur démarre automatiquement le déploiement sans l'intervention de l'utilisateur. Pour plus d’informations sur les variables de séquence de tâches, consultez [Variables intégrées de séquence de tâches](../understand/task-sequence-built-in-variables.md)  
 
-7.  Geef op de pagina **Planning** de volgende informatie op en klik vervolgens op **Volgende**.  
+7.  Sur la page **Planification** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
 
     > [!IMPORTANT]  
-    >  Wanneer een Windows PE-client wordt gestart vanaf PXE- of opstartmedium, evalueert de client geen implementatieschema's (starten, verlopen of deadlinetijden). Alleen schema's configureren in implementaties van clients die vanuit het volledige Windows-besturingssysteem starten. Overweeg het gebruik van andere methoden, zoals onderhoudvensters, waarmee reeksen actieve taken worden beheerd die geïmplementeerd zijn op clients die starten vanaf Windows PE.  
+    >  Quand un client Windows PE démarre à partir du média de démarrage ou de l'environnement PXE, il n'évalue pas les plannings de déploiement (heures de démarrage ou d'expiration ou échéance). Vous ne devez configurer des plannings de déploiements que sur les clients qui démarrent à partir du système d'exploitation Windows complet. Appliquez d'autres méthodes, telles que des fenêtres de maintenance, pour contrôler les séquences de tâches actives déployées sur les clients qui démarrent à partir de Windows PE.  
 
-    -   **Plannen wanneer deze implementatie beschikbaar zal worden**: Geef de datum en tijd waarop de takenreeks beschikbaar is voor uitvoeren op de doelcomputer. Wanneer u het selectievakje **UTC** inschakelt, zorgt deze instelling ervoor dat de takenreeks voor meerdere doelcomputers tegelijk beschikbaar is in plaats van op verschillende tijdstippen, op basis van de lokale tijd op de doelcomputers.  
+    -   **Planifier la disponibilité de ce déploiement**: spécifiez la date et l’heure auxquelles la séquence de tâches est disponible pour s’exécuter sur l’ordinateur de destination. Lorsque vous activez la case à cocher **UTC** , ce paramètre s'assure que la séquence de tâches est disponible pour plusieurs ordinateurs de destination en même temps plutôt qu'à des heures différentes, en fonction de l'heure locale sur les ordinateurs de destination.  
 
-         Als de begintijdstip eerder is dan het vereiste tijdstip, downloadt de client de takenreeks op het begintijdstip dat u opgeeft.  
+         Si l'heure de début est antérieure à l'heure requise, le client télécharge la séquence de tâches à l'heure de début que vous spécifiez.  
 
-    -   **Plannen wanneer deze implementatie zal verlopen**: Geef de datum en tijd waarop de takenreeks verloopt op de doelcomputer. Wanneer u het selectievakje **UTC** inschakelt, zorgt deze instelling ervoor dat de takenreeks op meerdere doelcomputers tegelijk verloopt is in plaats van op verschillende tijdstippen, op basis van de lokale tijd op de doelcomputers.  
+    -   **Planifier la disponibilité de ce déploiement**: spécifiez la date et l’heure d’expiration de la séquence de tâches sur l’ordinateur de destination. Lorsque vous activez la case à cocher **UTC** , ce paramètre s'assure que la séquence de tâches expire sur plusieurs ordinateurs de destination en même temps plutôt qu'à des heures différentes, en fonction de l'heure locale sur les ordinateurs de destination.  
 
-    -   **Toewijzingsplanning**: Geef op wanneer de vereiste takenreeks wordt uitgevoerd op de doelcomputer. U kunt meerdere planningen toevoegen.  
+    -   **Calendrier d’attribution**: spécifiez quand la séquence de tâches requise est exécutée sur l’ordinateur de destination. Vous pouvez ajouter plusieurs calendriers.  
 
-         U kunt de datum en het tijdstip opgeven waarop de planning begint, of taken wekelijks, maandelijks of op basis van een aangepast interval moeten worden uitgevoerd en of de takenreeks moet worden uitgevoerd na een gebeurtenis, zoals het aanmelden of afmelden van de computer.  
+         Vous pouvez spécifier la date et l'heure auxquelles le calendrier démarre, si la séquence de tâches s'exécute toutes les semaines, tous les mois ou à un intervalle personnalisé, et si la séquence de tâches s'exécute après un événement tel qu'une ouverture ou une fermeture de session sur l'ordinateur.  
 
         > [!NOTE]  
-        >  Als u plant een begintijd voor een vereiste takenreeks dat eerder is dan de datum en tijd waarop de takenreeks beschikbaar is, downloadt de Configuration Manager-client de takenreeks op het geplande begintijdstip, ondanks dat de takenreeks wordt uitgevoerd op een eerder tijdstip beschikbaar is.  
+        >  Si vous planifiez une heure de début pour une séquence de tâches requise antérieure à la date et à l’heure auxquelles la séquence de tâches est disponible, le client Configuration Manager télécharge la séquence de tâches à l’heure de début planifiée, même si elle est disponible plus tôt.  
 
-    -   **Gedrag voor opnieuw uitvoeren**: Geef op wanneer de takenreeks opnieuw wordt uitgevoerd. U kunt een van de volgende opties opgeven.  
+    -   **Comportement de réexécution**: spécifiez quand la séquence de tâches est réexécutée. Vous pouvez spécifier l'une des options suivantes.  
 
-        -   **Geïmplementeerd programma nooit opnieuw uitvoeren**: De takenreeks wordt niet opnieuw uitgevoerd op de client als de takenreeks al eerder is uitgevoerd op de client. De takenreeks wordt niet opnieuw uitgevoerd, zelfs als deze is mislukt of als de takenreeksbestanden zijn gewijzigd.  
+        -   **Ne jamais exécuter à nouveau un programme déployé**: la séquence de tâches n’est pas réexécutée sur le client si elle a été précédemment exécutée sur le client. La séquence de tâches ne se réexécute pas même si elle a échoué à l'origine ou si les fichiers de séquence de tâches ont été modifiés.  
 
-        -   **Programma altijd opnieuw uitvoeren**: De takenreeks wordt altijd opnieuw uitgevoerd op de client wanneer de implementatie is gepland, zelfs als de takenreeks al eerder met succes uitgevoerd. Deze instelling is bijzonder nuttig wanneer u herhaalde implementaties gebruikt waarbij de takenreeks regelmatig wordt bijgewerkt.  
+        -   **Toujours exécuter à nouveau le programme**: la séquence de tâches est toujours réexécutée sur le client quand le déploiement est planifié, même si elle a été exécutée avec succès précédemment. Ce paramètre est particulièrement utile lorsque vous utilisez des déploiements périodiques dans lesquels la séquence de tâches est mise régulièrement à jour.  
 
             > [!IMPORTANT]  
-            >  Hoewel deze optie standaard is ingesteld, is deze niet van invloed, totdat u een vereiste implementatie toewijst. Beschikbare implementaties kunnen door een gebruiker altijd opnieuw worden uitgevoerd.  
+            >  Même si cette option est définie par défaut, elle n'a aucun effet tant que vous n'attribuez pas un déploiement requis. Des déploiements disponibles peuvent toujours être réexécutés par un utilisateur.  
 
-        -   **Opnieuw uitvoeren als de vorige poging is mislukt**: De takenreeks wordt opnieuw uitgevoerd wanneer de implementatie alleen is gepland als de takenreeks uitvoeren eerder is mislukt. Deze taak is bijzonder nuttig voor vereiste implementaties, zodat automatisch opnieuw wordt geprobeerd om deze uit te voeren op basis van de toegewezen planning als de laatste poging tot uitvoeren is mislukt.  
+        -   **Exécuter à nouveau en cas d’échec de la tentative précédente**: la séquence de tâches est réexécutée quand le déploiement est planifié uniquement si son exécution a échoué précédemment. Ce paramètre est particulièrement utile pour les déploiements requis afin qu'ils réessaient automatiquement de s'exécuter conformément au calendrier d'attribution si la dernière tentative d'exécution a échoué.  
 
-        -   Opnieuw uitvoeren als de vorige poging is gelukt: De takenreeks wordt alleen opnieuw uitgevoerd als deze eerder is uitgevoerd op de client. Deze instelling is bijzonder nuttig wanneer u herhaalde implementaties gebruikt waarbij de takenreeks regelmatig wordt bijgewerkt en waarbij het voor elke update vereist is dat de vorige update is geïnstalleerd.  
-
-        > [!NOTE]  
-        >  Omdat een gebruiker een beschikbare takenreeksimplementatie opnieuw kan uitvoeren, moet u; voordat u een beschikbare takenreeks implementeert in een productomgeving, ervoor zorgen dat u zorgvuldig beoordeelt wat er gebeurt als een gebruiker de takenreeks meerdere keren uitvoert.  
-
-8.  Geef op de pagina **Gebruikerservaring** de volgende informatie op en klik op **Volgende**.  
-
-    -   **Toestaan dat gebruikers het programma onafhankelijk van toewijzingen uit te voeren**: Geef op of de gebruiker kan een vereiste takenreeks onafhankelijk van de implementatietoewijzingen uitvoeren.  
-
-    -   **Voortgang van Takenreeks weergeven**: Geef aan of Configuration Manager-client de voortgang van de takenreeks weergeeft.  
-
-    -   **Software-installatie**: Geef op of de gebruiker is toegestaan voor het installeren van software buiten een geconfigureerd onderhoudsvenster na de geplande tijd.  
-
-    -   **Systeem opnieuw opstarten (indien nodig om de installatie te voltooien)**: Geef op of de gebruiker mag de computer opnieuw opstarten na een software-installatie buiten een geconfigureerd onderhoudsvenster na de toegewezen periode.  
-
-    -   **Takenreeks mag worden uitgevoerd voor de client op Internet**: Geef op of de takenreeks mag worden uitgevoerd op een client met Internet die door Configuration Manager is gedetecteerd op Internet. Bewerkingen waarbij er software wordt geïnstalleerd, zoals een besturingssysteem, worden bij het gebruik van deze instelling niet ondersteund. Gebruik deze optie alleen voor algemene op scripts gebaseerde takenreeksen die bewerkingen uitvoeren onder het standaardbesturingssysteem.  
-
-9. Geef op de pagina **Waarschuwingen** de waarschuwingsinstelling die u wilt voor de implementatie van deze takenreeks en klik vervolgens op **Volgende**.  
-
-10. Geef op de pagina **Distributiepunten** de volgende informatie op en klik vervolgens op **Volgende**.  
-
-    -   **Implementatieopties**: Geef een van de volgende opties:  
+        -   Exécuter à nouveau en cas de réussite de la tentative précédente : la séquence de tâches est réexécutée uniquement si elle a déjà été exécutée correctement sur le client. Ce paramètre est utile lorsque vous utilisez des déploiements périodiques dans lesquels la séquence de tâches est mise régulièrement à jour, et chaque mise à jour requiert que la précédente mise à jour soit installée avec succès.  
 
         > [!NOTE]  
-        >  Wanneer u multicast gebruikt voor het implementeren van een besturingssysteem moet de inhoud, voordat deze nodig is of voor het uitvoeren van de takenreeks, worden gedownload naar de doelcomputers.  
+        >  Comme un utilisateur peut réexécuter un déploiement de séquence de tâches disponible, avant de déployer une séquence de tâches disponible dans un environnement produit, assurez-vous d'évaluer et de tester scrupuleusement ce qui se passe si un utilisateur réexécute la séquence de tâches plusieurs fois.  
 
-        -   Geef op dat clients inhoud wanneer dat voor de takenreeks nodig is, vanaf het distributiepunt downloaden naar de doelcomputer.  
+8.  Sur la page **Expérience utilisateur** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
 
-        -   Geef op dat de clients alle inhoud vanaf het distributiepunt naar de doelcomputer downloaden voordat de takenreeks wordt uitgevoerd. Deze optie wordt niet weergegeven als u hebt opgegeven dat de takenreeks beschikbaar is voor PXE- en opstartmedia-implementaties (zie de pagina **Implementatie-instellingen** ).  
+    -   **Autoriser les utilisateurs à exécuter le programme indépendamment des attributions**: spécifiez si l’utilisateur est autorisé à exécuter une séquence de tâches obligatoire indépendamment des attributions de déploiement.  
 
-        -   Geef op dat clients de inhoud uitvoeren vanaf het distributiepunt. Deze optie is alleen beschikbaar wanneer alle pakketten die aan de takenreeks zijn gekoppeld, zijn ingeschakeld voor het gebruik van een pakketshare op het distributiepunt. Zie het tabblad **Gegevenstoegang** in de **eigenschappen** van de afzonderlijke pakketten voor informatie over het inschakelen van inhoud voor het gebruik van een pakketshare.  
+    -   **Afficher la progression de la séquence de tâches** : spécifiez si le client Configuration Manager affiche la progression de la séquence de tâches.  
 
-    -   **Een extern distributiepunt gebruiken wanneer geen lokaal distributiepunt beschikbaar is,**: Specificeer of clients distributiepunten die zich op trage en onbetrouwbare netwerken voor het downloaden van de inhoud die is door de takenreeks vereist kunnen gebruiken.  
+    -   **Installation du logiciel**: spécifiez si l’utilisateur est autorisé à installer le logiciel en dehors de fenêtres de maintenance configurées après l’heure planifiée.  
 
-11. Voltooi de wizard.  
+    -   **Redémarrage du système (si nécessaire pour terminer l’installation)**: spécifiez si l’utilisateur est autorisé à redémarrer l’ordinateur après une installation de logiciel en dehors d’une fenêtre de maintenance configurée après l’heure d’attribution.  
 
-##  <a name="BKMK_ExportImport"></a> Takenreeksen exporteren en importeren  
- U kunt takenreeksen exporteren en importeren met en zonder hun bijbehorende objecten, zoals een installatiekopie van een besturingssysteem, een opstartinstallatiekopie, een clientagentpakket, een stuurprogrammapakket en toepassingen met afhankelijkheden.  
+    -   **Autoriser la séquence de tâches à s’exécuter pour le client sur Internet** : spécifiez si la séquence de tâches est autorisée à s’exécuter sur un client basé sur Internet que Configuration Manager a détecté comme étant sur Internet. Les opérations qui installent le logiciel, tel qu'un système d'exploitation, ne sont pas prises en charge avec ce paramètre. Utilisez cette option uniquement pour les séquences de tâches basées sur des scripts génériques qui effectuent des opérations dans le système d'exploitation standard.  
 
- Houd rekening met het volgende als u takenreeksen exporteert en importeert.  
+9. Sur la page **Alertes** , spécifiez les paramètres d'alerte que vous souhaitez pour ce déploiement de séquence de tâches, puis cliquez sur **Suivant**.  
 
--   Wachtwoorden die in de takenreeks zijn opgeslagen, worden niet geëxporteerd. Als u een takenreeks exporteert en importeert die wachtwoorden bevat, moet u de geïmporteerde takenreeks bewerken en moet u opnieuw wachtwoorden opgeven. Zorg ervoor dat u wachtwoorden opgeeft voor [lid worden van domein of werkgroep](../understand/task-sequence-steps.md#BKMK_JoinDomainorWorkgroup), [netwerkmap verbinding](../understand/task-sequence-steps.md#BKMK_ConnectToNetworkFolder), en [opdrachtregel uitvoeren](../understand/task-sequence-steps.md#BKMK_RunCommandLine) acties.  
+10. Sur la page **Points de distribution** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
 
-- Tijdens het exporteren van een takenreeks met de **Dynanmic variabelen instellen** stap geen waarden worden geëxporteerd voor variabelen die zijn geconfigureerd met de **geheime waarde** instelling. Nadat u de takenreeks hebt geïmporteerd, moet u de waarden voor deze variabelen opnieuw invoeren.
+    -   **Options de déploiement**: spécifiez l’une des options suivantes :  
 
--   Het is een aanbevolen procedure om takenreeksen via de centrale beheersite te importeren wanneer u meerdere primaire sites hebt.  
+        > [!NOTE]  
+        >  Lorsque vous utilisez la multidiffusion pour déployer un système d'exploitation, le contenu doit être téléchargé sur les ordinateurs de destination soit lorsque la séquence en a besoin, soit avant l'exécution de la séquence de tâches.  
 
- Gebruik de volgende procedures voor het exporteren en importeren van een takenreeks.  
+        -   Demandez à ce que les clients téléchargent le contenu du point de distribution vers l'ordinateur de destination au moment où la séquence de tâches en a besoin.  
 
-#### <a name="to-export-task-sequences"></a>Takenreeksen exporteren  
+        -   Demandez à ce que les clients téléchargent l'intégralité du contenu du point de distribution vers l'ordinateur de destination avant l'exécution de la séquence de tâches. Cette option ne s'affiche pas si vous avez indiqué que la séquence de tâches est disponible dans l'environnement PXE et dans les déploiements de média de démarrage (voir la page **Paramètres de déploiement** ).  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+        -   Demandez à ce que les clients exécutent le contenu à partir du point de distribution. Cette option est disponible uniquement lorsque tous les packages associés à la séquence de tâches sont configurés pour utiliser un partage de package sur le point de distribution. Pour que le contenu utilise un partage de package, consultez l'onglet **Accès aux données** dans les **Propriétés** de chaque package.  
 
-2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Takenreeksen**.  
+    -   **Quand aucun point de distribution local n’est disponible, utiliser un point de distribution distant**: spécifiez si les clients peuvent utiliser les points de distribution qui se trouvent sur des réseaux lents et peu fiables pour télécharger le contenu exigé par la séquence de tâches.  
 
-3.  Selecteer in de lijst **Takenreeks** de takenreeks die u wilt exporteren. Als u meer dan één takenreeks selecteert, worden de takenreeksen opgeslagen in één exportbestand.  
+11. Effectuez toutes les étapes de l'Assistant.  
 
-4.  Klik op tabblad **Start** in de groep **Takenreeks** op **Exporteren** om de wizard Takenreeks exporteren te starten.  
+##  <a name="BKMK_ExportImport"></a> Exporter et importer des séquences de tâches  
+ Vous pouvez exporter et importer des séquences de tâches avec ou sans leurs objets liés, tels qu'une image du système d'exploitation, une image de démarrage, un package de l'agent du client, un package de pilotes et des applications qui ont des dépendances.  
 
-5.  Stel op de pagina **Algemeen** de volgende instellingen in en klik op **Volgende**.  
+ Considérez les éléments suivants lorsque vous exportez et importez des séquences de tâches.  
 
-    -   Geef in het vak **Bestand** de locatie en de naam van het exportbestand op. Als u de bestandsnaam rechtstreeks invoert, moet u de extensie (.zip) opnemen in de bestandsnaam. Als u naar het exportbestand bladert, wordt de extensie door de wizard automatisch aan deze bestandsnaam toegevoegd.  
+-   Les mots de passe stockés dans la séquence de tâches ne sont pas exportés. Si vous exportez et importez une séquence de tâches qui contient des mots de passe, vous devez modifier la séquence de tâches importée et spécifier de nouveau les mots de passe. Veillez à spécifier des mots de passe pour les actions [Joindre le domaine ou le groupe de travail](../understand/task-sequence-steps.md#BKMK_JoinDomainorWorkgroup), [Connexion à un dossier réseau](../understand/task-sequence-steps.md#BKMK_ConnectToNetworkFolder)et [Exécuter la ligne de commande](../understand/task-sequence-steps.md#BKMK_RunCommandLine).  
 
-    -   Schakel het selectievakje **Alle afhankelijkheden van takenreeksen exporteren** uit als u de afhankelijkheden van de takenreeks niet wilt exporteren. De wizard scant standaard op alle bijbehorende objecten en exporteert deze met de takenreeks. Dit geldt ook voor eventuele afhankelijkheden voor toepassingen.  
+- Quand vous exportez une séquence de tâches avec l’étape **Définir des variables dynamiques**, aucune valeur n’est exportée pour les variables qui sont configurées avec le paramètre **Valeur secrète**. Vous devez entrer de nouveau les valeurs pour ces variables après avoir importé la séquence de tâches.
 
-    -   Schakel het selectievakje **Alle inhoud voor de geselecteerde takenreeksen en afhankelijkheden exporteren** uit als u de inhoud uit het bronpakket niet naar de exportlocatie wilt kopiëren. Als dit selectievakje is ingeschakeld, gebruikt de wizard Takenreeks importeren het importpad als de nieuwe pakketbronlocatie.  
+-   Quand vous avez plusieurs sites principaux, nous vous recommandons d'importer des séquences de tâches sur le site d'administration centrale.  
 
-    -   Voeg in het vak **Opmerkingen beheerder** een beschrijving toe van de takenreeksen die moeten worden geëxporteerd.  
+ Utilisez les procédures suivantes pour exporter et importer une séquence de tâches.  
 
-6.  Voltooi de wizard.  
+#### <a name="to-export-task-sequences"></a>Pour exporter des séquences de tâches  
 
- De wizard maakt de volgende uitvoerbestanden:  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
--   Als u geen inhoud exporteert: een ZIP-bestand.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
--   Als u inhoud exporteert: een ZIP-bestand en een map met de naam *export*_files, waarbij *export* de naam is van het ZIP-bestand dat de geëxporteerde inhoud bevat.  
+3.  Dans la liste **Séquence de tâches** , sélectionnez les séquences de tâches que vous voulez exporter. Si vous sélectionnez plusieurs séquences de tâches, elles sont stockées dans un seul fichier d'exportation.  
 
- Zorg ervoor dat, als u inhoud opneemt wanneer u een takenreeks exporteert, u het ZIP-bestand en de map *export*_files kopieert; anders kunt u niet importeren.  
+4.  Dans l'onglet **Accueil** , dans le groupe **Séquence de tâches** , cliquez sur **Exporter** pour démarrer l'Assistant Exportation de séquence de tâches.  
 
-#### <a name="to-import-task-sequences"></a>Takenreeksen importeren  
+5.  Sur la page **Général** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+    -   Dans la zone **Fichier** , spécifiez l'emplacement et le nom du fichier d'exportation. Si vous entrez directement le nom de fichier, veillez à inclure l'extension .zip au nom du fichier. Si vous indiquez l'emplacement du fichier d'exportation, l'Assistant ajoute automatiquement cette extension de fichier.  
 
-2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Takenreeksen**.  
+    -   Désactivez la case à cocher **Exporter toutes les dépendances de séquences de tâches** si vous ne voulez pas exporter les dépendances de séquences de tâches. Par défaut, l'Assistant analyse tous les objets liés et les exporte avec la séquence de tâches. Cela inclut toutes les dépendances des applications.  
 
-3.  Klik op het tabblad **Start** in de groep **Maken** op **Takenreeks importeren** om de wizard Takenreeks importeren te starten.  
+    -   Désactivez la case à cocher **Exporter tout le contenu pour les séquences de tâches et dépendances sélectionnées** si vous ne voulez pas copier le contenu de la source du package vers l'emplacement d'exportation. Si cette case à cocher est activée, l'Assistant Importation de séquence de tâches utilise le chemin d'importation comme nouvel emplacement de la source du package.  
 
-4.  Specificeer op de pagina **Algemeen** het geëxporteerde ZIP-bestand en klik daarna op **Volgende**.  
+    -   Dans la zone **Commentaires de l'administrateur** , ajoutez une description des séquences de tâches à exporter.  
 
-5.  Selecteer op de pagina **Bestandsinhoud** de actie die u nodig hebt voor elk object dat u importeert. Deze pagina bevat alle objecten die Configuration Manager worden geïmporteerd.  
+6.  Effectuez toutes les étapes de l'Assistant.  
 
-    -   Selecteer **Nieuw**, als het object nog nooit is geïmporteerd.  
+ L'Assistant crée les fichiers de sortie suivants :  
 
-    -   Selecteer een van de volgende acties, als het object al eerder is geïmporteerd:  
+-   Si vous n'exportez pas de contenu : un fichier .zip.  
 
-        -   **Dubbele negeren** (standaard): Deze actie wordt het object niet geïmporteerd. In plaats daarvan koppelt de wizard het bestaande object aan de takenreeks.  
+-   Si vous exportez du contenu : un fichier .zip et un dossier nommé *exportation*_files, où *exportation* est le nom du fichier .zip qui contient le contenu exporté.  
 
-        -   **Overschrijven**: Deze actie wordt het bestaande object overschreven door het geïmporteerde object. Voor toepassingen kunt u een revisie toevoegen om de bestaande toepassing bij te werken of een nieuwe toepassing te maken.  
+ Si vous incluez le contenu lorsque vous exportez une séquence de tâches, veillez à copier le fichier .zip et le dossier *exportation*_files, ou l'importation échouera.  
 
-6.  Voltooi de wizard.  
+#### <a name="to-import-task-sequences"></a>Pour importer des séquences de tâches  
 
- Wanneer u de takenreeks hebt geïmporteerd, bewerkt u de takenreeks zo, dat deze wachtwoorden opgeeft die geldig waren in de oorspronkelijke takenreeks. Uit veiligheidsoverwegingen zijn wachtwoorden niet geëxporteerd.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-##  <a name="BKMK_CreateTSVariables"></a> Takenreeksvariabelen voor computers en verzamelingen maken  
-U kunt takenreeksvariabelen definiëren voor computers en verzamelingen. Naar variabelen die voor een computer zijn gedefinieerd, wordt verwezen als computertakenreeksvariabelen. Naar variabelen die voor een verzameling zijn gedefinieerd, wordt verwezen als verzamelingtakenreeksvariabelen. Bij een conflict gaan computervariabelen boven verzamelingsvariabelen. Dit wil zeggen dat takenreeksvariabelen die aan een specifieke computer zijn toegewezen automatisch een hogere prioriteit hebben dan variabelen die aan de verzameling zijn toegewezen waartoe de computer behoort.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-Als bijvoorbeeld verzameling ABC een variabele krijgt toegewezen en computer XYZ, die lid is van verzameling ABC, een variabele met dezelfde naam krijgt toegewezen, heeft de aan computer XYZ toegewezen variabele een hogere prioriteit dan de aan verzameling ABC toegewezen variabele.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Importer une séquence de tâches** pour démarrer l'Assistant Importation de séquence de tâches.  
 
-U kunt computer- en per-verzameling verzamelingsvariabelen verbergen, zodat ze niet zichtbaar in de Configuration Manager-console. Als u deze variabelen niet meer verborgen wilt houden, moet u deze verwijderen en opnieuw definiëren, zonder de optie te selecteren om deze te verbergen. Wanneer u de optie gebruikt **deze waarde niet weergeven in de Configuration Manager-console**, de waarde van de variabele niet wordt weergegeven in de console, maar kan nog steeds worden gebruikt door de takenreeks wanneer deze wordt uitgevoerd.  
+4.  Sur la page **Général** , spécifiez le fichier .zip exporté, puis cliquez sur **Suivant**.  
+
+5.  Sur la page **Contenu du fichier** , sélectionnez l'action dont vous avez besoin pour chaque objet que vous importez. Cette page affiche tous les objets que Configuration Manager doit importer.  
+
+    -   Si l'objet n'a jamais été importé, sélectionnez **Créer nouveau**.  
+
+    -   Si l'objet a été importé précédemment, sélectionnez l'une des actions suivantes :  
+
+        -   **Ignorer le doublon** (par défaut) : cette action n’importe pas l’objet. Au lieu de cela, l'Assistant lie l'objet existant à la séquence de tâches.  
+
+        -   **Remplacer**: cette action remplace l’objet existant par l’objet importé. Pour les applications, vous pouvez ajouter une révision pour mettre à jour l'application existante ou créer une nouvelle application.  
+
+6.  Effectuez toutes les étapes de l'Assistant.  
+
+ Après avoir importé la séquence de tâches, modifiez-la pour spécifier les mots de passe qui se trouvaient dans la séquence de tâches d'origine. Pour des raisons de sécurité, les mots de passe ne sont pas exportés.  
+
+##  <a name="BKMK_CreateTSVariables"></a> Créer des variables de séquence de tâches pour les ordinateurs et les regroupements  
+Vous pouvez définir des variables de séquence de tâches personnalisées pour des ordinateurs et des regroupements. Les variables qui sont définies pour un ordinateur sont appelées variables de séquence de tâches par ordinateur. Les variables définies pour un regroupement sont appelées variables de séquence de tâches par regroupement. S'il existe un conflit, les variables par ordinateur ont préséance sur les variables par regroupement. Cela signifie que les variables de séquence de tâches attribuées à un ordinateur spécifique disposent automatiquement d'une priorité plus importante que celles attribuées au regroupement contenant l'ordinateur.  
+
+Par exemple, si une variable est attribuée au regroupement ABC et qu'une variable avec le même nom est attribuée à l'ordinateur XYZ, qui est un membre du regroupement ABC, la variable attribuée à l'ordinateur XYZ reçoit une priorité plus élevée que celle attribuée au regroupement ABC.  
+
+Vous pouvez masquer les variables par ordinateur et par regroupement pour qu’elles ne soient pas visibles dans la console Configuration Manager. Si vous ne souhaitez plus que ces variables soient masquées, vous devez les supprimer et les redéfinir sans sélectionner l'option pour les masquer. Quand vous utilisez l'option **Ne pas afficher cette valeur dans la console Configuration Manager**, la valeur de la variable n'est pas affichée dans la console, mais elle peut encore être utilisée par la séquence de tâches lors de son exécution.  
 
 > [!WARNING]    
-> De **deze waarde niet weergeven in de Configuration Manager-console** instelling geldt voor de Configuration Manager-console, maar de waarden voor de variabelen nog steeds worden weergegeven in het logboekbestand van taak sequence (SMSTS. LOGBOEK). 
+> Le paramètre **Ne pas afficher cette valeur dans la console Configuration Manager** s’applique à la console Configuration Manager, mais les valeurs des variables sont toujours affichées dans le fichier journal de la séquence de tâches (SMSTS.LOG). 
 
-U kunt per computer variabelen op een primaire site of op een centrale beheersite beheren. Configuration Manager biedt geen ondersteuning voor meer dan 1000 toegewezen variabelen voor een computer.  
+Vous pouvez gérer les variables par ordinateur sur un site principal ou sur un site d'administration centrale. Configuration Manager ne prend pas en charge plus de 1 000 variables attribuées pour un même ordinateur.  
 
 > [!IMPORTANT]  
->  Wanneer u verzamelingsvariabelen gebruikt voor takenreeksen, dient u het volgende te bedenken:  
+>  Lorsque vous utilisez des variables par regroupement pour des séquences de tâches, considérez les éléments suivants :  
 >   
-> - Omdat wijzigingen in verzamelingen altijd door de gehele hiërarchie heen worden gerepliceerd, zijn door u aangebrachte wijzigingen in verzamelingvariabelen niet alleen van toepassing op leden van de huidige site, maar op alle leden van de verzameling door de gehele hiërarchie heen.  
-> - Wanneer u een verzameling verwijdert, wordt door deze actie tevens de takenreeksvariabelen verwijderd die voor de verzameling zijn geconfigureerd.  
+> - Comme les modifications apportées aux regroupements sont toujours répliquées dans toute la hiérarchie, toutes les modifications que vous apportez à des variables de regroupement ne seront pas appliquées uniquement au site actuel, mais à tous les membres du regroupement dans toute la hiérarchie.  
+> - Lorsque vous supprimez un regroupement, cette action supprime également les variables de séquence de tâches qui sont configurées pour le regroupement.  
 
- U kunt met behulp van de volgende procedures takenreeksvariabelen maken voor een computer of verzameling.  
+ Utilisez les procédures suivantes pour créer des variables de séquence de tâches pour un ordinateur ou un regroupement.  
 
-#### <a name="to-create-task-sequence-variables-for-a-computer"></a>Takenreeksvariabelen voor een computer maken  
+#### <a name="to-create-task-sequence-variables-for-a-computer"></a>Pour créer des variables de séquence de tâches pour un ordinateur  
 
-1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Vouw in de werkruimte **Activa en naleving** de verzameling uit waartoe de computer behoort waaraan u de variabele wilt toevoegen.  
+2.  Dans l'espace de travail **Ressources et Conformité** , développez le regroupement qui contient l'ordinateur que vous souhaitez ajouter la variable.  
 
-3.  Selecteer de computer en klik op **Eigenschappen**.  
+3.  Sélectionnez l'ordinateur, puis cliquez sur **Propriétés**.  
 
-4.  Klik in het dialoogvenster **Eigenschappen** op het tabblad **Variabelen** .  
+4.  Dans la boîte de dialogue **Propriétés** , cliquez sur l'onglet **Variables** .  
 
-5.  Voor elke variabele die u wilt maken, klikt u op de **nieuw** pictogram in de **< nieuw\> variabele** dialoogvenster en geef de naam en de waarde van de takenreeksvariabele. Schakel de **deze waarde niet weergeven in de Configuration Manager-console** selectievakje in als u de verzamelingsvariabelen verbergen wilt, zodat ze niet zichtbaar in de Configuration Manager-console.  
+5.  Pour chaque variable à créer, cliquez sur l’icône **Nouveau** dans la boîte de dialogue **<Nouvelle\>Variable**, et spécifiez le nom et la valeur de la variable de séquence de tâches. Décochez la case **Ne pas afficher cette valeur dans la console Configuration Manager** si vous voulez masquer les variables pour qu’elles ne soient pas visibles dans la console Configuration Manager.  
 
-6.  Wanneer u alle variabelen aan de computer hebt toegevoegd, klikt u op **OK**.  
+6.  Après avoir ajouté toutes les variables à l'ordinateur, cliquez sur **OK**.  
 
-#### <a name="to-create-task-sequence-variables-for-a-collection"></a>Takenreeksvariabelen voor een verzameling maken  
+#### <a name="to-create-task-sequence-variables-for-a-collection"></a>Pour créer des variables de séquence de tâches pour un regroupement  
 
-1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Selecteer in de werkruimte **Activa en naleving** de verzameling waaraan u de variabele wilt toevoegen en klik op **Eigenschappen**.  
+2.  Dans l'espace de travail **Ressources et Conformité** , sélectionnez le regroupement auquel vous voulez ajouter la variable, puis cliquez sur **Propriétés**.  
 
-3.  Klik in het dialoogvenster **Eigenschappen** op het tabblad **Verzamelingsvariabelen** .  
+3.  Dans la boîte de dialogue **Propriétés** , cliquez sur l'onglet **Variables du regroupement** .  
 
-4.  Voor elke variabele die u wilt maken, klikt u op de **nieuw** pictogram In de **< nieuw\> variabele** dialoogvenster en geef de naam en de waarde van de takenreeksvariabele. Schakel de **deze waarde niet weergeven in de Configuration Manager-console** selectievakje in als u de verzamelingsvariabelen verbergen wilt, zodat ze niet zichtbaar in de Configuration Manager-console.  
+4.  Pour chaque variable à créer, cliquez sur l’icône **Nouveau** dans la boîte de dialogue **<Nouvelle\>Variable**, et spécifiez le nom et la valeur de la variable de séquence de tâches. Décochez la case **Ne pas afficher cette valeur dans la console Configuration Manager** si vous voulez masquer les variables pour qu’elles ne soient pas visibles dans la console Configuration Manager.  
 
-5.  Geef eventueel de prioriteit voor Configuration Manager moet worden gebruikt wanneer de takenreeksvariabelen worden beoordeeld.  
+5.  Si vous le souhaitez, spécifiez la priorité que Configuration Manager doit utiliser quand les variables de séquence de tâches sont évaluées.  
 
-6.  Wanneer u alle variabelen aan de verzameling hebt toegevoegd, klikt u op **OK**.  
+6.  Après avoir ajouté toutes les variables au regroupement, cliquez sur **OK**.  
 
-##  <a name="BKMK_AdditionalActionsTS"></a> Aanvullende acties voor het beheren van takenreeksen  
- U kunt takenreeksen beheren door middel van extra acties wanneer u een takenreeks selecteert.  
+##  <a name="BKMK_AdditionalActionsTS"></a> Actions supplémentaires pour gérer des séquences de tâches  
+ Vous pouvez gérer des séquences de tâches en utilisant des actions supplémentaires lorsque vous sélectionnez une séquence de tâches.  
 
-#### <a name="to-select-a-task-sequence-to-manage"></a>Een takenreeks selecteren die u wilt beheren  
+#### <a name="to-select-a-task-sequence-to-manage"></a>Pour sélectionner une séquence de tâches à gérer  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Vouw in de werkruimte **Softwarebibliotheek** **Besturingssystemen** uit en klik daarna op **Takenreeksen**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation** , puis cliquez sur **Séquences de tâches**.  
 
-3.  Selecteer in de lijst **Takenreeks** de takenreeks die u wilt beheren, en selecteer daarna een van de beschikbare opties.  
+3.  Dans la liste **Séquence de tâches** , sélectionnez la séquence de tâches que vous voulez gérer et sélectionnez l'une des options disponibles.  
 
- Gebruik de volgende tabel voor meer informatie over enkele extra acties om takenreeksen te beheren.  
+ Pour plus d'informations sur certaines des actions supplémentaires afin de gérer des séquences de tâches, utilisez le tableau suivant.  
 
-|Actie|Beschrijving|  
+|Action|Description|  
 |------------|-----------------|  
-|**Kopiëren**|Hiermee wordt een kopie gemaakt van de geselecteerde takenreeks. Mogelijk vindt u deze actie handig wanneer u een nieuwe takenreeks wilt maken die is gebaseerd op een bestaande takenreeks.<br /><br /> Wanneer u een kopie maakt van een takenreeks in een map, wordt de kopie in die map vermeld tot u het takenreeksknooppunt vernieuwt.  Na het vernieuwen, wordt de kopie weergegeven in de hoofdmap.|  
-|**Uitschakelen**|Hiermee wordt de takenreeks uitgeschakeld, zodat deze niet op computers kan worden uitgevoerd. Uitgeschakelde takenreeksen kunnen op computers worden geïmplementeerd, maar wordt niet uitgevoerd zolang deze zijn uitgeschakeld.|  
-|**Inschakelen**|Hiermee wordt de takenreeks ingeschakeld, zodat deze kan worden uitgevoerd. U hoeft een geïmplementeerde takenreeks na inschakeling niet opnieuw te implementeren.|  
-|**Voorbereid inhoudsbestand maken**|Hiermee wordt de wizard Voorbereid inhoudsbestand maken gestart om de inhoud van de takenreeks voor te bereiden. Zie voor meer informatie over het maken van een voorbereid inhoudsbestand [inhoud voorbereiden](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkprestagea-use-prestaged-content).|  
-|**Verplaatsen**|Hiermee wordt de geselecteerde takenreeks verplaatst naar een andere map.|  
+|**Copier**|Effectue une copie de la séquence de tâches sélectionnée. Cette action peut vous être utile lorsque vous voulez créer une nouvelle séquence de tâches basée sur une séquence de tâches existante.<br /><br /> Lorsque vous faites une copie d'une séquence de tâches dans un dossier, la copie est répertoriée dans ce dossier jusqu'à ce que vous actualisiez le nœud de séquence de tâches.  Après l'actualisation, la copie s'affiche dans le dossier racine.|  
+|**Désactiver**|Désactive la séquence de tâches afin qu'elle ne puisse pas s'exécuter sur des ordinateurs. Des séquences de tâches désactivées peuvent être déployées sur des ordinateurs, mais les ordinateurs n'exécutent pas la séquence de tâches tant qu'elle n'est pas activée.|  
+|**Activer**|Active la séquence de tâches afin qu'elle puisse être exécutée. Il est inutile de redéployer une séquence de tâches déployée une fois qu'elle est activée.|  
+|**Créer un fichier de contenu préparé**|Démarre l'Assistant Création du fichier de contenu préparé pour préparer le contenu de séquence de tâches. Pour plus d’informations sur la création d’un fichier de contenu préparé, consultez [Préparer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkprestagea-use-prestaged-content).|  
+|**Déplacer**|Déplace la séquence de tâches sélectionnée vers un autre dossier.|  
 
-## <a name="next-steps"></a>Volgende stappen
-[Scenario's voor het implementeren van enterprise-besturingssystemen](scenarios-to-deploy-enterprise-operating-systems.md)
+## <a name="next-steps"></a>Étapes suivantes
+[Scénarios de déploiement de systèmes d’exploitation d’entreprise](scenarios-to-deploy-enterprise-operating-systems.md)

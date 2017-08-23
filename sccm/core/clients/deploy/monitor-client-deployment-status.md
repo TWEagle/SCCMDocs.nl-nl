@@ -1,6 +1,6 @@
 ---
-title: Clientimplementatiestatus controleren | Microsoft Docs
-description: Clientimplementatiestatus in System Center Configuration Manager controleren.
+title: "Surveiller l’état de déploiement des clients | Microsoft Docs"
+description: "Surveillez l’état de déploiement des clients dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,48 +17,48 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 3d9d02d8c56aea17e563112f92173c2b56781da6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-monitor-client-deployment-status-in-system-center-configuration-manager"></a>De clientimplementatiestatus controleren in System Center Configuration Manager
+# <a name="how-to-monitor-client-deployment-status-in-system-center-configuration-manager"></a>Guide pratique pour surveiller l’état de déploiement des clients dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Het kost tijd om clients te implementeren op uw site en sommige installaties lukken de eerste keer niet direct. De System Center Configuration Manager-console biedt een manier gaten te houden op clientimplementaties in een verzameling door de status van de clientimplementatie in realtime rapportage.  
+Le déploiement de clients sur votre site prend du temps et certaines installations ne réussissent pas dès la première fois. La console System Center Configuration Manager permet de garder un œil sur les déploiements de clients au sein d’un regroupement en signalant l’état de déploiement des clients en temps réel.  
 
 > [!NOTE]  
->  De beste en meest betrouwbare manier om te controleren van clientimplementatie is met de Configuration Manager-console (zoals beschreven in dit artikel). De sectie **Clientstatus** van de werkruimte **Bewaking** in de console bevat nauwkeurige en realtime informatie over de clientimplementatiestatus. U kunt clientimplementaties ook met andere hulpprogramma’s bewaken, zoals Server Manager in Windows Server of System Center Operations Manager; mogelijk ontvangt u dan ook waarschuwingen over normale clientinstallatieactiviteiten. Omdat het clientinstallatieprogramma (CCMSetup.exe) anders wordt uitgevoerd in verschillende omgevingen, kan het zijn dat er onrechtmatig waarschuwingen worden gegeven die geen goed beeld vormen van de daadwerkelijke status van clientimplementaties.  
+>  Le moyen le plus efficace et le plus fiable de surveiller le déploiement des clients est d’utiliser la console Configuration Manager (comme décrit dans cet article). La section **État du client** de l’espace de travail **Analyse** dans la console indique l’état du déploiement des clients avec précision et en temps réel. Vous pouvez surveiller les déploiements de client avec d’autres outils, tels le Gestionnaire de serveur dans Windows Server ou System Center Operations Manager, mais vous risquez de recevoir des alarmes en relation avec l’activité normale d’installation de clients. En raison de la façon dont le programme d’installation client (CCMSetup.exe) s’exécute dans différents environnements, ces autres outils peuvent générer de faux avertissements ou alarmes ne reflétant pas fidèlement l’état de déploiement des clients.  
 
- In de werkruimte **Bewaking** van de console kunt u de volgende statussen bewaken van clientimplementaties die plaatsvinden binnen een verzameling die u opgeeft:  
+ Dans l’espace de travail **Analyse** de la console, vous pouvez surveiller les états suivants des déploiements de clients se produisant à l’intérieur d’un regroupement que vous spécifiez :  
 
--   Compliant  
+-   conformité  
 
--   Wordt uitgevoerd  
+-   En cours  
 
--   Niet compatibel  
+-   Non conforme  
 
--   Mislukt  
+-   Échec  
 
--   Onbekend  
+-   Inconnu  
 
- Configuration Manager rapporteert over implementaties van productieclients of pre-productieclients. De Configuration Manager-console biedt ook een overzicht van clientimplementaties die gedurende een bepaalde periode zijn mislukt zodat u kunt bepalen of de acties die u onderneemt om problemen met implementaties op te lossen, het aantal geslaagde implementaties na verloop van tijd verbetert.  
+ Configuration Manager génère des rapports sur les déploiements de clients en production ou en pré-production. La console Configuration Manager fournit également un graphique illustrant les déploiements de clients ayant échoué au cours d’une période donnée, pour vous aider à déterminer si les actions que vous exécutez pour résoudre les problèmes de déploiements améliorent le taux de réussite des déploiements au fil du temps.  
 
-## <a name="to-monitor-client-deployments"></a>Clientimplementaties bewaken  
+## <a name="to-monitor-client-deployments"></a>Pour analyser les déploiements de clients  
 
--   Klik in de Configuration Manager-console op **bewaking** > **clientstatus**.  
+-   Dans la console Configuration Manager, cliquez sur **Surveillance** > **État du client**.  
 
--   Klik op **Productieclientimplementatie** of **Pre-productieclientimplementatie**, afhankelijk van de versie van de client die u wilt bewaken.  
+-   Cliquez sur **Déploiement des clients en production** ou **Déploiement des clients en préproduction**, selon la version du client que vous souhaitez analyser.  
 
--   Bekijk de overzichten van de clientimplementatiestatussen en van het aantal mislukte clientimplementaties.  
+-   Consulter les graphiques d’état du déploiement des clients et d’échec de déploiement des clients.  
 
--   Als u het bereik van het rapport wijzigen wilt, klikt u op **bladeren...**  en kies een andere verzameling.  
+-   Si vous souhaitez modifier l’étendue du rapport, cliquez sur **Parcourir...**, puis choisissez un autre regroupement.  
 
- Zie voor meer informatie over pre-productieclient implementaties, [clientupgrades testen in pre-productieverzameling in System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).
+ Pour en savoir plus sur les déploiements de clients en préproduction, consultez [Comment tester les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).
 
  > [!NOTE]
- > De status van de implementatie op computers die als host fungeert voor sitesysteemrollen in een pre-productieverzameling kan worden gerapporteerd als **niet compatibel** zelfs wanneer de client is geïmplementeerd. Wanneer u promoveert naar productie, wordt de status van de implementatie correct gerapporteerd.   
+ > L’état du déploiement sur les ordinateurs hébergeant des rôles de système de site dans un regroupement de préproduction peut être signalé comme **Non conforme**, même quand le client a été correctement déployé. Lors de la promotion du client en production, l’état du déploiement est correctement signalé.   
 
- Zie [Clients controleren in System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md) voor informatie over het bewaken van de status van geïmplementeerde clients.  
+ Pour analyser l’état des clients déployés, consultez [Comment surveiller les clients dans System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md)  
 
- Configuration Manager-rapporten kunt u meer informatie over de status van clients in uw site vinden. Zie [Rapportage in System Center Configuration Manager](../../../core/servers/manage/reporting.md) voor meer informatie over het uitvoeren van rapporten.  
+ Vous pouvez utiliser des rapports Configuration Manager pour obtenir un complément d’informations sur l’état des clients de votre site. Pour plus d’informations sur la façon d’exécuter des rapports, consultez [Génération de rapports dans System Center Configuration Manager](../../../core/servers/manage/reporting.md).  

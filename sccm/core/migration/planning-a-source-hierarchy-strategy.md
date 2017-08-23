@@ -1,6 +1,6 @@
 ---
-title: "Bron van een strategie voor bronhiërarchie | Microsoft Docs"
-description: "Een bronhiërarchie configureren en verzamelen van gegevens van een bronsite voordat u een migratietaak voor System Center Configuration Manager configureren."
+title: "Stratégie de hiérarchie source | Microsoft Docs"
+description: "Configurez une hiérarchie source et collectez les données d’un site source avant de configurer une tâche de migration System Center Configuration Manager."
 ms.custom: na
 ms.date: 1/3/2017
 ms.prod: configuration-manager
@@ -17,92 +17,92 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 0619de32f859f512ee1c9f5a9c83ef8d04a256ca
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-a-source-hierarchy-strategy-in-system-center-configuration-manager"></a>Een strategie voor een bronhiërarchie in System Center Configuration Manager plannen
+# <a name="plan-a-source-hierarchy-strategy-in-system-center-configuration-manager"></a>Planifier une stratégie de hiérarchie source dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Voordat u een migratietaak in uw omgeving voor System Center Configuration Manager instelt, moet u een bronhiërarchie configureren en gegevens uit minstens één bronsite in die hiërarchie verzamelen. Gebruik de volgende secties om te plannen voor de configuratie van bronhiërarchieën, bronsites configureren en te bepalen hoe Configuration Manager haalt informatie op van de bronsites in de bronhiërarchie. 
+Avant de configurer une tâche de migration dans votre environnement System Center Configuration Manager, vous devez configurer une hiérarchie source et collecter des données depuis au moins un site source de cette hiérarchie. Servez-vous des sections suivantes pour planifier la configuration de hiérarchies sources et de sites sources, ainsi que pour déterminer la manière dont Configuration Manager collecte les informations à partir des sites sources de la hiérarchie source. 
 
-##  <a name="BKMK_Source_Hierarchies"></a> Bronhiërarchieën  
-Een bronhiërarchie is een Configuration Manager-hiërarchie die gegevens bevat die u wilt migreren. Wanneer u migratie instellen en een bronhiërarchie opgeven, geeft u de site op het hoogste niveau van de bronhiërarchie. Deze site wordt ook een bronsite genoemd. Extra sites waaruit u gegevens in de bronhiërarchie kunt migreren worden ook bronsites genoemd.  
+##  <a name="BKMK_Source_Hierarchies"></a> Hiérarchies sources  
+Une hiérarchie source est une hiérarchie Configuration Manager qui contient les données à migrer. Quand vous configurez la migration et spécifiez une hiérarchie source, vous spécifiez le site de niveau supérieur de cette hiérarchie. Ce site est également appelé un site source. Les sites supplémentaires à partir desquels vous pouvez migrer des données dans la hiérarchie source sont également appelés des sites source.  
 
--   Wanneer u een migratietaak ingesteld om gegevens te migreren vanuit een Configuration Manager 2007-bronhiërarchie, configureert u het voor het migreren van gegevens uit een of meer specifieke bronsites in de bronhiërarchie.  
+-   Quand vous configurez une tâche de migration pour migrer des données à partir d’une hiérarchie source Configuration Manager 2007, vous la configurez pour migrer les données d’un ou plusieurs sites sources spécifiques de la hiérarchie source.  
 
--   Wanneer u een migratietaak instellen om gegevens te migreren vanuit een bronhiërarchie waarop System Center 2012 Configuration Manager of hoger, u hoeft alleen te geven op het hoogste niveau.  
+-   Quand vous configurez une tâche de migration pour migrer les données d’une hiérarchie source qui exécute System Center 2012 Configuration Manager ou version ultérieure, vous devez uniquement spécifier le site de niveau supérieur.  
 
-U kunt slechts één bronhiërarchie tegelijk instellen.  
+Vous pouvez configurer une seule hiérarchie source à la fois.  
 
--   Als u een nieuwe bronhiërarchie hebt ingesteld, wordt die hiërarchie automatisch de huidige bronhiërarchie de eerdere bronhiërarchie vervangen.  
+-   Si vous configurez une nouvelle hiérarchie source, cette hiérarchie devient automatiquement la hiérarchie source actuelle et remplace la hiérarchie source précédente.  
 
--   Bij het instellen van een bronhiërarchie, moet u Geef de bovenste site van de bronhiërarchie en referenties voor Configuration Manager gebruiken om te koppelen aan de SMS-Provider en sitedatabase van die bronsite opgeven.  
+-   Quand vous configurez une hiérarchie source, vous devez spécifier son site de niveau supérieur, ainsi que les informations d’identification nécessaires à Configuration Manager pour se connecter au fournisseur SMS et à la base de données du site source.  
 
--   Configuration Manager gebruikt deze referenties om gegevens te verzamelen over de objecten en distributiepunten van de bronsite.  
+-   Configuration Manager utilise ces informations d’identification pour collecter des données et récupérer des informations sur les objets et les points de distribution à partir du site source.  
 
--   Als onderdeel van het proces voor gegevensverzameling worden onderliggende sites in de bronhiërarchie geïdentificeerd.  
+-   Dans le cadre du processus de collecte des données, les sites enfants de la hiérarchie source sont identifiés.  
 
--   Als de bronhiërarchie een Configuration Manager 2007-hiërarchie is, kunt u die aanvullende sites als bronsites met aparte referenties voor elke bronsite instellen.  
+-   Si la hiérarchie source est une hiérarchie Configuration Manager 2007, vous pouvez configurer ces sites supplémentaires comme sites sources, avec des informations d’identification distinctes pour chaque site source.  
 
-Hoewel u meerdere bronhiërarchieën achter elkaar instellen kunt, is migratie actief voor slechts één bronhiërarchie tegelijk.  
+Même si vous pouvez configurer plusieurs hiérarchies sources successivement, la migration est active pour une seule hiérarchie source à la fois.  
 
--   Als u een aanvullende bronhiërarchie instellen voordat u de migratie van de huidige bronhiërarchie voltooit, wordt Configuration Manager alle actieve migratietaken geannuleerd en worden geplande migratietaken voor de huidige bronhiërarchie.  
+-   Si vous configurez une hiérarchie source supplémentaire avant d’effectuer la migration à partir de la hiérarchie source actuelle, Configuration Manager annule les tâches de migration actives et reporte les tâches de migration planifiées pour la hiérarchie source actuelle.  
 
--   De meest recent geconfigureerde bronhiërarchie wordt vervolgens de huidige bronhiërarchie en de oorspronkelijke bronhiërarchie is nu niet actief.  
+-   La nouvelle hiérarchie source configurée devient alors la hiérarchie source actuelle, et la hiérarchie source d’origine devient inactive.  
 
--   U kunt vervolgens instellen verbindingsreferenties, aanvullende bronsites en migratietaken voor de nieuwe bronhiërarchie.  
+-   Vous pouvez ensuite configurer les informations d’identification de connexion, les sites sources supplémentaires et les tâches de migration pour la nouvelle hiérarchie source.  
 
-Als u een inactieve bronhiërarchie wilt herstellen en niet eerder hebt gebruikt **migratiegegevens**, kunt u de eerder geconfigureerde migratietaken voor die bronhiërarchie weergeven. Voordat u de migratie vanuit die hiërarchie kunt voortzetten, moet u de referenties opnieuw configureren om verbinding te maken met de betreffende bronsites in de hiërarchie. Plan vervolgens de migratietaken opnieuw die niet zijn voltooid.  
+Si vous restaurez une hiérarchie source inactive et que vous n’avez pas utilisé **Nettoyer les données de migration** précédemment, vous pouvez afficher les tâches de migration configurées pour cette hiérarchie source. Cependant, avant de pouvoir continuer la migration à partir de cette hiérarchie, vous devez reconfigurer les informations d'identification pour vous connecter à chaque site source applicable et replanifier les tâches de migration qui n'ont pas été terminées.  
 
 > [!CAUTION]  
->  Als u gegevens uit meerdere bronhiërarchieën wilt migreren, moet elke aanvullende bronhiërarchie een unieke verzameling sitecodes bevatten.  
+>  Si vous migrez des données à partir de plusieurs hiérarchies source, chaque hiérarchie source supplémentaire doit contenir un ensemble unique de codes de site.  
 
-Zie voor meer informatie over het configureren van een bronhiërarchie [bronhiërarchieën en bronsites voor migratie naar System Center Configuration Manager configureren](../../core/migration/configuring-source-hierarchies-and-source-sites-for-migration.md)  
+Pour plus d’informations sur la configuration d’une hiérarchie source, consultez [Configuration des hiérarchies sources et des sites sources pour la migration vers System Center Configuration Manager](../../core/migration/configuring-source-hierarchies-and-source-sites-for-migration.md)  
 
-##  <a name="BKMK_Source_Sites"></a> Bronsites  
- Bronsites zijn de sites in de bronhiërarchie met de gegevens die u wilt migreren. De site op het hoogste niveau van de bronhiërarchie is altijd de eerste bronsite. Wanneer tijdens de migratie gegevens uit de eerste bronsite van een nieuwe bronhiërarchie worden verzameld, wordt er informatie over aanvullende sites in die hiërarchie gedetecteerd.  
+##  <a name="BKMK_Source_Sites"></a> Sites source  
+ Les sites source sont des sites dans la hiérarchie source qui contiennent des données à migrer. Le site de niveau supérieur de la hiérarchie source est toujours le premier site source. Lorsque la migration collecte des données à partir du premier site source d'une nouvelle hiérarchie source, elle découvre des informations à propos des sites supplémentaires dans cette hiérarchie.  
 
- Welke acties u na het verzamelen van gegevens voor de oorspronkelijke bronsite kunt uitvoeren, is afhankelijk van de productversie van de bronhiërarchie.  
+ À la fin de la collecte de données du site source initial, les actions suivantes que vous effectuez dépendent de la version du produit de la hiérarchie source.  
 
-### <a name="source-sites-that-run-configuration-manager-2007-sp2"></a>Bronsites waarop Configuration Manager 2007 SP2 wordt uitgevoerd  
- Nadat gegevens zijn verzameld vanaf de oorspronkelijke bronsite van de Configuration Manager 2007 SP2-hiërarchie, hoeft u geen aanvullende bronsites instellen voordat u migratietaken maakt. Echter, voordat u gegevens van aanvullende sites migreren kunt, moet u aanvullende sites als bronsites instellen en System Center Configuration Manager gegevens worden verzameld van deze sites.  
+### <a name="source-sites-that-run-configuration-manager-2007-sp2"></a>Sites sources exécutant Configuration Manager 2007 SP2  
+ Une fois les données collectées à partir du site source initial de la hiérarchie Configuration Manager 2007 SP2, vous n’avez pas à configurer de sites sources supplémentaires pour créer des tâches de migration. Toutefois, pour pouvoir migrer les données à partir de sites supplémentaires, vous devez configurer les sites supplémentaires comme des sites sources, et System Center Configuration Manager doit collecter les données à partir de ces sites.  
 
- Om gegevens te verzamelen van aanvullende sites, instelt u afzonderlijk elke site als een bronsite. Hiervoor moet u de referenties voor System Center Configuration Manager verbinding maken met de SMS-Provider en sitedatabase van elke bronsite opgeven. Nadat u de referenties voor een bronsite hebt ingesteld, wordt het gegevensverzamelingsproces voor die site begint.  
+ Pour collecter des données à partir de sites supplémentaires, vous devez configurer individuellement chaque site comme un site source. Vous devez définir les informations d’identification pour la connexion de System Center Configuration Manager au fournisseur SMS et à la base de données de site de chaque site source. Après avoir configuré les informations d’identification d’un site source, le processus de collecte de données commence pour ce site.  
 
- Wanneer u aanvullende bronsites in een Configuration Manager 2007 SP2-bronhiërarchie instelt, moet u instellen bronsites vanaf de bovenkant omlaag, wat betekent dat u de onderste laag sites op de laatste instellen. U kunt bronsites in een vertakking van de hiërarchie op elk gewenst moment configureren, maar moet u een site als een bronsite instellen voordat u een van de onderliggende sites als bronsites instellen.  
-
-> [!NOTE]  
->  Alleen primaire sites in een Configuration Manager 2007 SP2-hiërarchie worden ondersteund voor migratie.  
-
-### <a name="source-sites-that-run-system-center-2012-configuration-manager-or-later"></a>Bronsites waarop System Center 2012 Configuration Manager of hoger  
- Nadat gegevens zijn verzameld vanaf de oorspronkelijke bronsite van de System Center 2012 Configuration Manager of hoger hiërarchie, hoeft u geen aanvullende bronsites in die bronhiërarchie instellen. Dit komt doordat in tegenstelling tot Configuration Manager 2007, deze versies van Configuration Manager een gedeelde database gebruikt en de gedeelde database kunt u identificeren en vervolgens migreren alle beschikbare objecten van de oorspronkelijke bronsite.  
-
- Wanneer u de toegangsaccounts ingesteld om gegevens te verzamelen, moet u mogelijk verlenen de **SMS-Provider voor Bronsiteaccount** toegang tot meerdere computers in de bronhiërarchie. Dit kan nodig zijn wanneer de bronsite meerdere exemplaren van de SMS-provider ondersteunt, elk op een andere computer. Wanneer wordt begonnen met het verzamelen van gegevens, neemt de site op het hoogste niveau van de doelhiërarchie contact op met de site op het hoogste niveau in de bronhiërarchie om de locaties van de SMS-provider voor die site te identificeren. Alleen het eerste exemplaar van de SMS-provider wordt geïdentificeerd. Als het proces voor gegevensverzameling geen toegang tot de SMS-provider op de geïdentificeerde locatie krijgt, mislukt het proces en wordt er geen verbinding gemaakt met andere computers waarop een exemplaar van de SMS-provider voor die site wordt uitgevoerd.  
-
-##  <a name="BKMK_Data_Gathering"></a> Gegevens verzamelen  
- Onmiddellijk nadat u een bronhiërarchie opgeven, van referenties voor elke extra bronsite in een bronhiërarchie instellen of de distributiepunten voor een bronsite deelt, wordt Configuration Manager begint met het verzamelen van gegevens van de bronsite.  
-
- Het proces voor gegevensverzameling wordt vervolgens herhaald op basis van een eenvoudig schema om ervoor te zorgen dat eventuele wijzigingen in de bronsite worden gesynchroniseerd. Standaard wordt het proces elke vier uur herhaald. U kunt het schema voor deze cyclus wijzigen door het bewerken van de **eigenschappen** van de bronsite. Het oorspronkelijke gegevensverzamelingsproces moeten alle objecten in de Configuration Manager-database en kan lang duren om te voltooien. Omdat tijdens volgende processen voor gegevensverzameling alleen wijzigingen in de gegevens worden geïdentificeerd, nemen deze minder tijd in beslag.  
-
- De site op het hoogste niveau in de doelhiërarchie maakt verbinding met de SMS-provider en de sitedatabase van de bronsite om een lijst met objecten en distributiepunten op te halen. Voor deze verbindingen worden de toegangsaccounts van de bronsite gebruikt. Zie voor meer informatie over vereiste configuraties voor het verzamelen van gegevens [vereisten voor migratie in System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md).  
-
- U kunt starten en stoppen van het proces voor gegevensverzameling met behulp van **gegevens nu verzamelen** en **geen gegevens meer verzamelen** in de Configuration Manager-console.  
-
- Nadat u hebt gebruikt **geen gegevens meer verzamelen** voor een bronsite om welke reden, moet u referenties voor de site configureren voordat u gegevens van die site opnieuw verzamelen kunt. Totdat u de bronsite opnieuw hebt geconfigureerd, kan Configuration Manager niet identificeren nieuwe objecten of wijzigingen in eerder gemigreerde objecten op die site.  
+ Quand vous configurez des sites sources supplémentaires dans une hiérarchie source Configuration Manager 2007 SP2, vous devez configurer les sites sources du haut vers le bas, ce qui signifie que vous configurez les sites de niveau inférieur en dernier. Vous pouvez configurer des sites sources dans une branche de la hiérarchie à tout moment, mais vous devez configurer un site comme site source pour pouvoir configurer ses sites enfants comme sites sources.  
 
 > [!NOTE]  
->  Voordat u een zelfstandige primaire site naar een hiërarchie met een centrale beheersite uitbreiden, moet u alle gegevens verzamelen stoppen. U kunt opnieuw configureren nadat de site-uitbreiding is voltooid voor gegevensverzameling.  
+>  Seuls les sites principaux d’une hiérarchie Configuration Manager 2007 SP2 sont pris en charge pour la migration.  
 
-### <a name="gather-data-now"></a>Gegevens nu verzamelen  
- Wanneer het oorspronkelijke gegevensverzamelingsproces voor een site is voltooid, wordt dit proces herhaald om objecten te identificeren die zijn bijgewerkt sinds de laatste gegevensverzamelingscyclus. U kunt ook de **gegevens nu verzamelen** actie in de Configuration Manager-console om te het proces direct te starten en de starttijd van de volgende cyclus opnieuw instellen.  
+### <a name="source-sites-that-run-system-center-2012-configuration-manager-or-later"></a>Sites sources exécutant System Center 2012 Configuration Manager ou version ultérieure  
+ Une fois les données collectées à partir du site source initial de la hiérarchie System Center 2012 Configuration Manager ou version ultérieure, vous n’avez pas à configurer de sites sources supplémentaires dans cette hiérarchie source. En effet, contrairement à Configuration Manager 2007, ces versions de Configuration Manager utilisent une base de données partagée qui vous permet d’identifier, puis de migrer tous les objets disponibles à partir du site source initial.  
 
- Wanneer een proces voor gegevensverzameling is voltooid voor een bronsite, kunt u de distributiepunten delen vanaf de bronsite en migratietaken zo configureren dat gegevens via de site worden gemigreerd. Het verzamelen van gegevens is een herhalend proces voor migratie en wordt herhaald totdat u de bronhiërarchie wijzigt of **geen gegevens meer verzamelen** naar einde van het gegevensverzamelingsproces voor die site.  
+ Quand vous configurez les comptes d’accès pour collecter des données, vous devez peut-être accorder l’accès **Compte fournisseur SMS du site source** à plusieurs ordinateurs de la hiérarchie source. Cela peut être nécessaire lorsque le site source prend en charge plusieurs instances du fournisseur SMS, chacune sur un ordinateur différent. Lorsque la collecte des données commence, le site de niveau supérieur de la hiérarchie de destination contacte le site de niveau supérieur de la hiérarchie source pour identifier les emplacements du fournisseur SMS de ce site. Seule la première instance du fournisseur SMS est identifiée. Si le processus de collecte des données ne peut pas accéder au fournisseur SMS à l'emplacement identifié, le processus échoue et ne tente pas de se connecter à d'autres ordinateurs qui exécutent une instance du fournisseur SMS pour le site.  
 
-### <a name="stop-gathering-data"></a>Geen gegevens meer verzamelen  
- U kunt **geen gegevens meer verzamelen** naar einde van het proces voor gegevensverzameling voor een bronsite als u niet langer wilt dat Configuration Manager om nieuwe of gewijzigde objecten van die site te identificeren. Deze actie voorkomt ook dat Configuration Manager aan clients in de doelhiërarchie gedeelde distributiepunten van de bron aanbiedt als inhoudslocaties voor de inhoud die u hebt gemigreerd.  
+##  <a name="BKMK_Data_Gathering"></a> Collecte des données  
+ Dès que vous avez spécifié une hiérarchie source, configuré les informations d’identification de chaque site source supplémentaire dans une hiérarchie source ou partagé les points de distribution d’un site source, Configuration Manager commence à collecter des données à partir du site source.  
 
- U moet uitvoeren om te stoppen met het verzamelen van gegevens van elke bronsite, **geen gegevens meer verzamelen** op de onderste laag bronsites en vervolgens Herhaal het proces op elke bovenliggende site. De site op het hoogste niveau van de bronhiërarchie moet de laatste site zijn waarop u de gegevensverzameling beëindigt. U moet de gegevensverzameling voor elke onderliggende site beëindigen voordat u deze actie uitvoert voor een bovenliggende site. U kunt de gegevensverzameling alleen beëindigen wanneer u klaar bent om het migratieproces te voltooien.  
+ La collecte de données se répète ensuite selon une planification simple pour maintenir la synchronisation avec les modifications apportées aux données dans le site source. Par défaut, le processus se répète toutes les quatre heures. Vous pouvez modifier la planification du cycle en modifiant les **Propriétés** du site source. Le processus de collecte de données initial doit vérifier tous les objets de la base de données Configuration Manager, ce qui peut prendre un certain temps. Les processus de collecte de données suivants identifient uniquement les modifications apportées aux données et ils s'exécutent plus rapidement.  
 
- Nadat u stopt met het verzamelen van gegevens voor een bronsite, eerder verzamelde gegevens over objecten en verzamelingen van die site beschikbaar blijven voor gebruik bij het instellen van nieuwe migratietaken. Echter geen nieuwe objecten of verzamelingen niet wordt weergegeven en ziet u de wijzigingen die zijn aangebracht aan bestaande objecten. Als u de bronsite opnieuw configureert en weer begint met het verzamelen van gegevens, worden de status en andere gegevens over eerder gemigreerde objecten weergegeven.  
+ Pour collecter des données, le site de niveau supérieur dans la hiérarchie de destination se connecte au fournisseur SMS et à la base de données du site source pour récupérer une liste d'objets et les points de distribution. Ces connexions utilisent les comptes d'accès de site source. Pour plus d’informations sur les configurations nécessaires pour la collecte des données, consultez [Prérequis de la migration dans System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md).  
+
+ Vous pouvez démarrer et arrêter le processus de collecte des données à l’aide de **Collecter les données maintenant** et **Arrêter la collecte de données** dans la console Configuration Manager.  
+
+ Une fois que vous avez utilisé **Arrêter la collecte de données** pour un site source pour une raison quelconque, vous devez reconfigurer les informations d’identification du site pour pouvoir collecter à nouveau les données de ce site. Configuration Manager ne peut pas identifier les nouveaux objets ni les modifications apportées aux objets migrés tant que vous ne reconfigurez pas le site source.  
+
+> [!NOTE]  
+>  Avant de développer un site principal autonome dans une hiérarchie avec un site d’administration centrale, vous devez arrêter toutes les collectes des données. Vous pouvez reconfigurer la collecte des données quand le développement du site est terminé.  
+
+### <a name="gather-data-now"></a>Collecter les données maintenant  
+ Après l'exécution du processus initial de collecte des données d'un site, le processus se répète pour identifier les objets mis à jour depuis le dernier cycle de collecte des données. Vous pouvez également utiliser l’action **Collecter les données maintenant** dans la console Configuration Manager pour démarrer immédiatement le processus et réinitialiser l’heure de début du cycle suivant.  
+
+ Lorsqu'un processus de collecte de données aboutit pour un site source, vous pouvez partager les points de distribution à partir du site source et configurer des tâches de migration pour migrer les données depuis le site. La collecte des données est un processus répétitif pour la migration et il se poursuit jusqu’à ce que vous changiez la hiérarchie source ou utilisiez **Arrêter la collecte de données** pour mettre fin au processus de collecte des données du site.  
+
+### <a name="stop-gathering-data"></a>Arrêter la collecte de données  
+ Vous pouvez utiliser **Arrêter la collecte de données** pour mettre fin à la collecte des données d’un site source quand vous ne souhaitez plus que Configuration Manager identifie les objets nouveaux et modifiés du site. Cette action empêche également Configuration Manager de proposer aux clients de la hiérarchie de destination des points de distribution partagés de la source en tant qu’emplacements pour le contenu que vous avez migré.  
+
+ Pour arrêter la collecte des données de chaque site source, vous devez exécuter **Arrêter la collecte de données** sur les sites sources de niveau inférieur, puis répéter le processus sur chaque site parent. Le site de niveau supérieur de la hiérarchie source doit être le dernier site sur lequel vous arrêtez la collecte des données. Vous devez arrêter la collecte des données sur chaque site enfant avant d'effectuer cette action sur un site parent. En règle générale, vous arrêtez la collecte de données uniquement lorsque vous êtes prêt à exécuter le processus de migration.  
+
+ Quand vous arrêtez la collecte des données d’un site source, les informations collectées précédemment sur les objets et les regroupements du site peuvent toujours être utilisées quand vous configurez de nouvelles tâches de migration. Toutefois, vous ne voyez pas les nouveaux objets ou regroupements, ni les modifications apportées aux objets existants. Si vous reconfigurez le site source et recommencez à collecter les données, vous voyez les informations et l'état des objets précédemment migrés.  

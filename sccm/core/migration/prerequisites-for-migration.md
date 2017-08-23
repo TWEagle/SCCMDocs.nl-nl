@@ -1,6 +1,6 @@
 ---
-title: Vereisten voor migratie | Microsoft Docs
-description: Inzicht in de ondersteunde versies van Configuration Manager, ondersteunde bronsite talen en vereiste configuraties voor migratie.
+title: "Prérequis de la migration | Microsoft Docs"
+description: Prenez connaissance des versions prises en charge de Configuration Manager, des langues de site source prises en charge et des configurations requises pour la migration.
 ms.custom: na
 ms.date: 3/7/2017
 ms.prod: configuration-manager
@@ -17,111 +17,111 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: cd90f5462ac4bb4c0a2021e6d5dde65161b9c5f6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prerequisites-for-migration-in-system-center-configuration-manager"></a>Vereisten voor migratie in System Center Configuration Manager
+# <a name="prerequisites-for-migration-in-system-center-configuration-manager"></a>Prérequis de la migration dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Als u wilt migreren vanaf een ondersteunde bronhiërarchie, moet u toegang hebben tot elke toepasselijke bronsite voor Configuration Manager-en de machtigingen in de System Center Configuration Manager-doelsite configureren en uitvoeren van migratiebewerkingen beschikken.  
+Pour migrer à partir d’une hiérarchie source prise en charge, vous devez avoir accès à chaque site source Configuration Manager applicable et aux autorisations dans le site de destination System Center Configuration Manager pour configurer et exécuter des opérations de migration.  
 
- Gebruik de informatie in de volgende secties om te begrijpen van de versies van Configuration Manager die worden ondersteund voor migratie, plus de vereiste configuraties.  
+ Pour mieux comprendre les versions de Configuration Manager prises en charge pour la migration et les configurations requises, aidez-vous des informations figurant dans les sections suivantes.  
 
--   [Versies van Configuration Manager die worden ondersteund voor migratie](#BKMK_SupportedMigrationVersions)  
+-   [Versions de Configuration Manager prises en charge pour la migration](#BKMK_SupportedMigrationVersions)  
 
--   [Bronsitetalen die worden ondersteund voor migratie](#BKMK_SorceSiteLanguage)  
+-   [Langues de site source prises en charge pour la migration](#BKMK_SorceSiteLanguage)  
 
--   [Vereiste configuraties voor migratie](#BKMK_Required_Configurations)  
+-   [Configurations requises pour la migration](#BKMK_Required_Configurations)  
 
-##  <a name="BKMK_SupportedMigrationVersions"></a> Versies van Configuration Manager die worden ondersteund voor migratie  
- U kunt gegevens migreren vanaf een bronhiërarchie waarop een van de volgende versies van Configuration Manager wordt uitgevoerd:  
+##  <a name="BKMK_SupportedMigrationVersions"></a> Versions de Configuration Manager prises en charge pour la migration  
+ Vous pouvez migrer des données à partir d’une hiérarchie source qui exécute une des versions suivantes de Configuration Manager :  
 
--   Configuration Manager 2007 SP2 (omwille van de migratie van Configuration Manager 2007 R2 of R3 op de bronsite zijn geen overweging. Zolang de bron site uitvoert SP2 kunnen sites met de R2- of R3-invoegtoepassing ondersteund voor migratie naar System Center Configuration Manager).  
+-   Configuration Manager 2007 SP2 (Pour la migration, il importe peu que le site source dispose de Configuration Manager 2007 R2 ou R3. Tant que le site source exécute SP2, les sites dotés du module complémentaire R2 ou R3 sont pris en charge pour la migration vers System Center Configuration Manager).  
 
--   System Center 2012 Configuration Manager SP2 of System Center 2012 R2 Configuration Manager SP1.  
+-   System Center 2012 Configuration Manager SP2 ou System Center 2012 R2 Configuration Manager SP1  
 
     > [!TIP]  
-    >  Naast de migratie kunt u een in-place upgrade van sites met System Center 2012 Configuration Manager naar System Center Configuration Manager.  
+    >  En plus de la migration, vous pouvez utiliser une mise à niveau sur place des sites exécutant System Center 2012 Configuration Manager vers System Center Configuration Manager.  
 
--   Een System Center Configuration Manager-hiërarchie met dezelfde of een lagere versie van System Center Configuration Manager.  
+-   Une hiérarchie System Center Configuration Manager présentant une version identique ou inférieure à celle de System Center Configuration Manager.  
 
-  Als u een doelhiërarchie met System Center Configuration Manager 1606 hebt, kunt u migratie gebruiken om gegevens te kopiëren uit een bronhiërarchie waarop versie 1606 of 1602 wordt uitgevoerd. U kan echter niet gegevens migreren vanaf een bronhiërarchie waarop 1610 wordt uitgevoerd.  
+  Par exemple, si vous disposez d’une hiérarchie de destination qui exécute System Center Configuration Manager version 1606, vous pouvez utiliser la migration pour copier des données à partir d’une hiérarchie source qui exécute la version 1606 ou 1602. Toutefois, vous ne pouvez pas migrer des données depuis une hiérarchie source exécutant la version 1610.  
 
 
-##  <a name="BKMK_SorceSiteLanguage"></a> Bronsitetalen die worden ondersteund voor migratie  
- Wanneer u gegevens tussen hiërarchieën van Configuration Manager migreert, wordt de gegevens opgeslagen in de doelhiërarchie in de taalneutrale indeling voor System Center Configuration Manager. Omdat Configuration Manager2007 gegevens niet in een taalneutrale indeling opslaat, moet het migratieproces objecten converteren naar deze indeling tijdens de migratie van Configuration Manager 2007. Daarom worden alleen Configuration Manager 2007-bronsites die zijn geïnstalleerd met de volgende talen ondersteund voor migratie:  
+##  <a name="BKMK_SorceSiteLanguage"></a> Langues de site source prises en charge pour la migration  
+ Quand vous migrez des données entre hiérarchies Configuration Manager, celles-ci sont stockées dans la hiérarchie de destination dans un format indépendant de la langue pour System Center Configuration Manager. Étant donné que Configuration Manager 2007 ne stocke pas les données dans un format indépendant de la langue, le processus de migration doit convertir les objets dans ce format pendant la migration depuis Configuration Manager 2007. Par conséquent, seuls les sites sources Configuration Manager 2007 installés avec les langues suivantes sont pris en charge pour la migration :  
 
--   Engels  
+-   Anglais  
 
--   Frans  
+-   Français  
 
--   German  
+-   Allemand  
 
--   Japans  
+-   Japonais  
 
--   Korean  
+-   Coréen  
 
--   Russisch  
+-   Russe  
 
--   Vereenvoudigd Chinees  
+-   Chinois simplifié  
 
--   Traditioneel Chinees  
+-   Chinois traditionnel  
 
-Wanneer u gegevens van een System Center 2012 Configuration Manager of System Center Configuration Manager-hiërarchie migreert, zijn er geen beperkingen bronsite taal. Objecten in de database van de bronsite hebben al een taalneutrale indeling.  
+Quand vous migrez des données à partir d’une hiérarchie System Center 2012 Configuration Manager ou System Center Configuration Manager, il n’existe aucune limitation de langue du site source. Les objets dans la base de données du site source sont déjà dans un format indépendant de la langue.  
 
-##  <a name="BKMK_Required_Configurations"></a> Vereiste configuraties voor migratie  
-Verderop staan de vereiste configuraties voor het gebruik van migratie en migratiebewerkingen:  
+##  <a name="BKMK_Required_Configurations"></a> Configurations requises pour la migration  
+Voici les configurations requises pour utiliser la migration et les opérations de migration :  
 
--   **Als u wilt configureren, uitvoeren en migratie bewaken in de Configuration Manager-console:**  
+-   **Pour configurer, exécuter et surveiller la migration dans la console Configuration Manager :**  
 
-     Op de doelsite moet aan uw account de op rollen gebaseerde beheerbeveiligingsrol van **Infrastructuurbeheerder**worden toegewezen. Met deze beveiligingsrol worden machtigingen verleend om alle migratiebewerkingen te beheren, inclusief maken van migratietaken, opruimen, bewaken en de actie om distributiepunten te delen en bij te werken.  
+     Dans le site de destination, le rôle de sécurité d'administration **Administrateur d'infrastructure**doit être affecté à votre compte. Ce rôle de sécurité accorde des autorisations pour gérer toutes les opérations de migration, notamment la création de tâches de migration, le nettoyage, la surveillance ainsi que le partage et la mise à niveau de points de distribution.  
 
--   **Gegevens verzamelen:**  
+-   **Collecte des données :**  
 
-     Om ervoor te zorgen dat de doelsite gegevens kan verzamelen, moet u de volgende twee toegangaccounts op de bronsite configureren voor gebruik met elke bronsite:  
+     Pour permettre au site de destination de collecter des données, vous devez configurer les deux comptes d'accès de site source suivants pour l'utilisation avec chaque site source :  
 
-    -   **Bronsiteaccount:** Dit account wordt gebruikt voor toegang tot de SMS-Provider van de bronsite.  
+    -   **Compte de site source** : ce compte est utilisé pour accéder au fournisseur SMS du site source.  
 
-        -   Voor een bronsite Configuration Manager2007 SP2 deze account vereist **lezen** machtiging voor alle bronsiteobjecten.  
+        -   Pour un site source Configuration Manager 2007 SP2, ce compte nécessite une autorisation **Lecture** sur tous les objets du site source.  
 
-        -   Voor een bronsite System Center 2012 Configuration Manager of System Center Configuration Manager deze account vereist **lezen** machtiging voor alle bronsiteobjecten, u verleent deze machtiging aan het account met behulp van op rollen gebaseerd beheer. Zie [De basisprincipes van beheer op basis van rollen voor System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md) voor meer informatie over beveiligingsbereiken en beheer op basis van rollen.  
+        -   Pour un site source System Center 2012 Configuration Manager ou System Center Configuration Manager, ce compte requiert une autorisation **Lecture** sur tous les objets du site source. Pour accorder cette autorisation au compte, vous utilisez l’administration basée sur des rôles. Pour plus d’informations sur l’utilisation de l’administration basée sur des rôles, consultez [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 
-    -   **Bronsitedatabaseaccount:** Dit account wordt gebruikt voor toegang tot de SQL Server-database van de bronsite en vereist **Connect**, **Execute**, en **Selecteer** machtigingen voor de database van de bronsite.  
+    -   **Compte de base de données de site source** : ce compte permet d’accéder à la base de données SQL Server du site source, et nécessite des autorisations **Connect**, **Execute**et **Select** sur la base de données du site source.  
 
-    U kunt deze accounts configureren wanneer u een nieuwe bronhiërarchie of het verzamelen van gegevens voor een aanvullende bronsite configureert, of wanneer u de referenties voor een bronsite opnieuw configureert. Deze accounts kunnen gebruikmaken van een domeingebruikersaccount of u kunt het computeraccount van de site op het hoogste niveau van de doelhiërarchie opgeven.  
+    Vous pouvez configurer ces comptes lorsque vous configurez une nouvelle hiérarchie source, la collecte de données d'un site source supplémentaire ou lorsque vous reconfigurez les informations d'identification d'un site source. Ces comptes peuvent utiliser un compte d'utilisateur de domaine, ou vous pouvez définir le compte d'ordinateur du site de niveau supérieur de la hiérarchie de destination.  
 
     > [!IMPORTANT]  
-    >  Als u het computeraccount van de Configuration Manager voor een van beide toegang gebruikt, ervoor zorgen dat dit account lid is van de beveiligingsgroep **DCOM-gebruikers** in het domein waar de bronsite zich bevindt.  
+    >  Si vous utilisez le compte d’ordinateur Configuration Manager pour l’un des comptes d’accès, vérifiez que ce compte est membre du groupe de sécurité **Utilisateurs du modèle COM distribué** dans le domaine du site source.  
 
-    Wanneer u gegevens verzamelt, worden de volgende netwerkprotocollen en -poorten gebruikt:  
+    Lorsque vous collectez des données, les protocoles réseau suivants sont utilisés :  
 
     -   NetBIOS/SMB - 445 (TCP)  
 
     -   RPC (WMI) - 135 (TCP)  
 
-    -   SQL Server - De TCP-poorten die worden gebruikt door de databases van zowel de bron- als de doelsite.  
+    -   SQL Server : les ports TCP utilisés par les bases de données de site source et de destination.  
 
--   **Software-updates migreren:**  
+-   **Migrer des mises à jour logicielles :**  
 
-     Voordat u software-updates migreert, moet u de doelhiërarchie configureren met een software-updatepunt. Zie [De migratie van software-updates plannen](../../core/migration/planning-for-the-migration-of-objects.md#Plan_migrate_Software_updates) voor meer informatie.  
+     Avant de migrer des mises à jour logicielles, vous devez configurer votre hiérarchie de destination avec un point de mise à jour logicielle. Pour plus d’informations, consultez [Planification de la migration des mises à jour logicielles](../../core/migration/planning-for-the-migration-of-objects.md#Plan_migrate_Software_updates).  
 
--   **Distributiepunten delen:**  
+-   **Partager des points de distribution :**  
 
-     Als u distributiepunten van een bronsite correct wilt delen, moet minstens één primaire site of de centrale beheersite in de doelhiërarchie dezelfde poortnummers voor clientaanvragen gebruiken als de bronsite. Zie [Clientcommunicatiepoorten in System Center Configuration Manager configureren](../../core/clients/deploy/configure-client-communication-ports.md) voor meer informatie over clientaanvraagpoorten.  
+     Pour partager des points de distribution depuis un site source, au moins un site principal ou le site d'administration centrale dans la hiérarchie de destination doit utiliser les mêmes numéros de port pour les demandes des clients que le site source. Pour plus d’informations sur les ports pour les demandes des clients, consultez [Comment configurer les ports de communication des clients dans System Center Configuration Manager](../../core/clients/deploy/configure-client-communication-ports.md)  
 
-     Voor elke bronsite worden alleen de distributiepunten gedeeld die zijn geïnstalleerd op sitesysteemservers die zijn geconfigureerd met een FQDN.  
+     Pour chaque site source, uniquement les points de distribution installés sur les serveurs système de site qui sont configurés avec un nom de domaine complet sont partagés.  
 
-     Daarnaast voor het delen van een distributiepunt van een bronsite System Center 2012 Configuration Manager of System Center Configuration Manager de **Bronsiteaccount** (die toegang heeft tot de SMS-Provider voor de bronsiteserver), moet hebben **wijzigen** machtigingen voor de **Site** object op de bronsite. U verleent deze machtiging aan het account door gebruik te maken van beheer op basis van rollen. Zie [De basisprincipes van beheer op basis van rollen voor System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md) voor meer informatie over beveiligingsbereiken en beheer op basis van rollen.  
+     En outre, pour partager un point de distribution depuis un site source System Center 2012 Configuration Manager ou System Center Configuration Manager, le **compte de site source** (qui accède au fournisseur SMS du serveur de site source) doit disposer de l’autorisation **Modifier** sur l’objet **Site** sur le site source. Vous accordez cette autorisation au compte à l'aide de l'administration basée sur les rôles. Pour plus d’informations sur l’utilisation de l’administration basée sur des rôles, consultez [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 
 
--   **Distributiepunten bijwerken of opnieuw toewijzen:**  
+-   **Mettre à niveau ou réaffecter des points de distribution :**  
 
-     Het **Toegangsaccount voor de bronsite** dat is geconfigureerd om gegevens te verzamelen vanaf de SMS-provider van de bronsite, moet beschikken over de volgende machtigingen:  
+     Le **compte d'accès de site source** configuré pour collecter des données depuis le fournisseur SMS du site source doit disposer des autorisations suivantes :  
 
-    -   Upgrade van een distributiepunt configuratie Manager2007 moet het account vereist **lezen**, **Execute**, en **verwijderen** machtigingen voor de **Site** klasse op de siteserver van Configuration Manager2007 te verwijderen uit de bronsite configuratie Manager2007 het distributiepunt.  
+    -   Pour mettre à niveau un point de distribution Configuration Manager 2007, le compte requiert des autorisations **Lecture**, **Exécuter** et **Supprimer** sur la classe **Site** sur le serveur de site Configuration Manager 2007 pour pouvoir supprimer correctement le point de distribution du site source Configuration Manager 2007.  
 
-    -   Als u wilt een System Center 2012 Configuration Manager of System Center Configuration Manager-distributiepunt opnieuw toewijst, moet het account beschikken over **wijzigen** machtiging voor de **Site** object op de bronsite. U verleent deze machtiging aan het account door gebruik te maken van beheer op basis van rollen. Zie [De basisprincipes van beheer op basis van rollen voor System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md) voor meer informatie over beveiligingsbereiken en beheer op basis van rollen.  
+    -   Pour réattribuer un point de distribution System Center 2012 Configuration Manager ou System Center Configuration Manager, le compte doit avoir l’autorisation **Modifier** sur l’objet **Site** sur le site source. Vous accordez cette autorisation au compte à l'aide de l'administration basée sur les rôles. Pour plus d’informations sur l’utilisation de l’administration basée sur des rôles, consultez [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 
-     Als u een distributiepunt correct wilt bijwerken of toewijzen aan een nieuwe hiërarchie, moeten de poorten die zijn geconfigureerd voor clientaanvragen op de site waar het distributiepunt in de bronhiërarchie wordt beheerd, overeenkomen met de poorten die zijn geconfigureerd voor clientaanvragen op de doelsite waar het distributiepunt wordt beheerd. Zie [Clientcommunicatiepoorten in System Center Configuration Manager configureren](../../core/clients/deploy/configure-client-communication-ports.md) voor meer informatie over clientaanvraagpoorten.  
+     Pour mettre à niveau un point de distribution ou le réaffecter à une nouvelle hiérarchie, les ports qui sont configurés pour les demandes clients sur le site qui gère le point de distribution dans la hiérarchie source doivent correspondre aux ports qui sont configurés pour les demandes client sur le site de destination qui gérera le point de distribution. Pour plus d’informations sur les ports pour les demandes des clients, consultez [Comment configurer les ports de communication des clients dans System Center Configuration Manager](../../core/clients/deploy/configure-client-communication-ports.md).  

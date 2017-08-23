@@ -17,14 +17,14 @@ manager: angrobe
 robots: noindex,nofollow
 ms.openlocfilehash: 10fb029b4e3f9d3386df616a1a238674443d2c76
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
 # <a name="system-center-configuration-manager"></a>System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Welkom bij Microsoft System Center Configuration Manager. Gebruik Configuration Manager om uw IT-services effectiever te maken met veilige en schaalbare software-implementatie, beheer van compatibiliteitsinstellingen en uitgebreid activabeheer waaronder servers, desktops en mobiele apparatuur.  
+Bienvenue dans Microsoft System Center Configuration Manager. Utilisez Configuration Manager pour offrir des services informatiques plus efficaces via le déploiement de logiciels sécurisés et évolutifs, la gestion des paramètres de conformité et une meilleure administration des serveurs, des ordinateurs de bureau et des appareils mobiles.  
 
- De meest recente inhoud voor deze versie van Configuration Manager is online beschikbaar op de volgende locatie vinden: [Online documentatie voor System Center Configuration Manager](https://go.microsoft.com/fwlink/?LinkID=533344)
+ Recherchez le contenu en ligne le plus récent pour cette version de Configuration à l’adresse suivante : [Documentation en ligne de System Center Configuration Manager](https://go.microsoft.com/fwlink/?LinkID=533344)

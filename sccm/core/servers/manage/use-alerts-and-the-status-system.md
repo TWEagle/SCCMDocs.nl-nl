@@ -1,6 +1,6 @@
 ---
-title: Waarschuwingen en het statussysteem | Microsoft Docs
-description: Configureer waarschuwingen en het statussysteem gebruiken om te blijven op de hoogte over de status van de Configuration Manager-implementatie.
+title: "Alertes et système d’état | Microsoft Docs"
+description: "Configurez des alertes et utilisez le système d’état pour rester informé de l’état de votre déploiement de Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,296 +16,296 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: ed692bdea055775890535d2666f09ba5f5c7c4e1
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-alerts-and-the-status-system-for-system-center-configuration-manager"></a>Waarschuwingen en het statussysteem voor System Center Configuration Manager gebruiken
+# <a name="use-alerts-and-the-status-system-for-system-center-configuration-manager"></a>Utiliser des alertes et le système d’état pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Waarschuwingen configureren en gebruiken van het ingebouwde statussysteem om te blijven over de status van uw implementatie van System Center Configuration Manager op de hoogte.  
+Configurez des alertes et utilisez le système d’état intégré pour rester informé de l’état de votre déploiement de System Center Configuration Manager.  
 
 
-##  <a name="bkmk_Status"></a> Statussysteem  
- Alle primaire site-onderdelen genereren statusberichten die feedback geven over de bewerkingen voor de site en hiërarchie.    Met deze informatie blijft u op de hoogte van de status van de verschillende siteprocessen. U kunt het waarschuwingssysteem zodanig instellen dat ruis voor bekende problemen wordt genegeerd terwijl de vroege zichtbaarheid van andere problemen die mogelijk uw aandacht vereisen wordt vergroot.  
+##  <a name="bkmk_Status"></a> Système d’état  
+ Tous les composants de site principaux génèrent des messages d’état qui fournissent des commentaires sur les opérations de site et de hiérarchie.    Cette information peut vous tenir informé de l’intégrité des différents processus de site. Vous pouvez régler le système d’alerte pour ignorer le bruit concernant les problèmes connus tout en permettant une visibilité anticipée d’autres problèmes susceptibles de nécessiter votre attention.  
 
- Standaard werkt de Configuration Manager-statussysteem zonder configuratie met instellingen die geschikt voor de meeste omgevingen zijn. U kunt echter het volgende configureren:  
+ Par défaut, le système d’état de Configuration Manager fonctionne sans configuration en utilisant les paramètres qui conviennent à la plupart des environnements. Toutefois, vous pouvez configurer les éléments suivants :  
 
--   **Statusoverzichten:** U kunt de statuswijziging van overzichten op elke site om te bepalen van de frequentie van statusberichten die een statusindicatorwijziging genereren voor de volgende vier overzichten bewerken:  
+-   **Outils de synthèse d’état :** vous pouvez modifier les outils de synthèse d’état sur chaque site pour contrôler la fréquence des messages d’état qui génèrent un changement d’indicateur d’état pour les quatre outils de synthèse suivants :  
 
-    -   Samenvattingsprogramma voor implementatie van toepassing  
+    -   Outil de synthèse du déploiement d'application  
 
-    -   Samenvattingsprogramma voor statistieken van toepassing  
+    -   Outil de synthèse des statistiques d'application  
 
-    -   Statussamenvattingsprogramma onderdelen  
+    -   Outil de synthèse d'état des composants  
 
-    -   Samenvattingsprogramma van het sitesysteem  
+    -   Outil de synthèse d'état du système de site  
 
--   **Statusfilterregels:** U kunt nieuwe statusfilterregels maken, de prioriteit van regels wijzigen, uitschakelen of regels inschakelen en ongebruikte regels op elke site te verwijderen.  
+-   **Règles de filtre d’état :** vous pouvez créer des règles de filtre d’état, modifier la priorité des règles, activer ou désactiver des règles, ainsi que supprimer des règles non utilisées sur chaque site.  
 
     > [!NOTE]  
-    >  Statusfilterregels bieden geen ondersteuning voor het gebruik van omgevingsvariabelen om externe opdrachten uit te voeren.  
+    >  Les règles de filtre d'état ne prennent pas en charge l'utilisation de variables d'environnement pour exécuter des commandes externes.  
 
--   **Statusrapportage:** U kunt de server en client rapportage te wijzigen hoe statusberichten worden gerapporteerd aan het statussysteem van Configuration Manager en opgeven waarnaar statusberichten moeten worden verzonden.  
+-   **Rapport d’état :** vous pouvez configurer le rapport des composants client et serveur pour modifier la façon dont les messages d’état sont signalées dans un rapport au système d’état de Configuration Manager et spécifier où les messages d’état sont envoyés.  
 
     > [!WARNING]  
-    >  Omdat de standaardinstellingen voor rapportage geschikt zijn voor de meeste omgevingen, kunt u deze het beste alleen wijzigen als u hier een goede reden voor hebt. Wanneer u verhoogt verwerkt het niveau van de status door ervoor te kiezen aan rapport dat details van status van alle kunt u de hoeveelheid statusberichten te verhogen die verhoogt de verwerkingsbelasting op de Configuration Manager-site. Als u het statusrapportageniveau verlaagt, beperkt u mogelijk het nut van de statusoverzichten.  
+    >  Étant donné que les paramètres de rapport par défaut conviennent à la plupart des environnements, ils doivent être modifiés avec précaution. Lorsque vous augmentez le niveau du rapport d'état en choisissant de rapporter tous les détails d'état, vous pouvez augmenter la quantité de messages d'état à traiter, ce qui accroît la charge de traitement sur le site Configuration Manager. À l'inverse, une diminution du niveau du rapport d'état peut limiter l'utilité des outils de synthèse d'état.  
 
-Omdat in het statussysteem afzonderlijke configuraties voor elke site worden gehanteerd, moet u elke site afzonderlijk bewerken.  
+Étant donné que le système d’état tient à jour des configurations distinctes pour chaque site, vous devez modifier chaque site individuellement.  
 
-###  <a name="bkmk_configstatus"></a> Procedures voor het configureren van het statussysteem  
+###  <a name="bkmk_configstatus"></a> Procédures de configuration du système d’état  
 
-##### <a name="to-configure-status-summarizers"></a>Statusoverzichten configureren  
+##### <a name="to-configure-status-summarizers"></a>Pour configurer des outils de synthèse d'état  
 
-1.  Navigeer in de Configuration Manager-console naar **beheer** > **siteconfiguratie** >**Sites**, en selecteer vervolgens de site waarvoor u wilt configureren van het statussysteem.  
+1.  Dans la console Configuration Manager, accédez à **Administration** > **Configuration du site** >**Sites**, puis sélectionnez le site dont vous voulez configurer le système d’état.  
 
-2.  Klik op het tabblad **Start** in de groep **Instellingen** op **Statusoverzichten**.  
+2.  Dans l'onglet **Accueil** , dans le groupe **Paramètres** , cliquez sur **Outils de synthèse d'état**.  
 
-3.  Selecteer in het dialoogvenster **Statusoverzichten** het statusoverzicht dat u wilt configureren en klik vervolgens op **Bewerken** om de eigenschappen voor dat overzicht te openen. Als u het samenvattingsprogramma voor de implementatie of de statistieken van de toepassing wilt bewerken wilt, gaat u verder met stap 5. Als u de onderdeelstatus wilt bewerken, gaat u verder met stap 6. Als u de sitesysteemstatus wilt bewerken wilt, gaat u verder met stap 7.  
+3.  Dans la boîte de dialogue **Outils de synthèse d'état** , sélectionnez l'outil de synthèse d'état que vous souhaitez configurer, puis cliquez sur **Modifier** pour ouvrir les propriétés de cet outil de synthèse. Si vous modifiez l'outil de synthèse du déploiement d'application ou des statistiques d'application, passez à l'étape 5. Si vous modifiez l'outil de synthèse d'état des composants, passez à l'étape 6. Si vous modifiez l'outil de synthèse d'état du système de site, passez à l'étape 7.  
 
-4.  Voer de volgende stappen uit nadat u de eigenschappenpagina voor Samenvattingsprogramma voor implementatie van toepassing of Samenvattingsprogramma voor statistieken van toepassing hebt geopend:  
+4.  Utilisez les étapes suivantes après avoir ouvert la page de propriétés de l'outil de synthèse du déploiement d'application ou l'outil de synthèse des statistiques d'application :  
 
-    1.  Configureer de samenvattingsintervallen op het tabblad **Algemeen** van de eigenschappenpagina en klik op **OK** om de eigenschappenpagina te sluiten.  
+    1.  Dans l'onglet **Général** de la page de propriétés des outils de synthèse, configurez les intervalles de synthèse, puis cliquez sur **OK** pour fermer la page de propriétés.  
 
-    2.  Klik op **OK** om het dialoogvenster **Statusoverzichten** te sluiten en deze procedure te voltooien.  
+    2.  Cliquez sur **OK** pour fermer la boîte de dialogue **Outils de synthèse d'état** et terminez cette procédure.  
 
-5.  Voer de volgende stappen uit nadat u de eigenschappenpagina voor Samenvattingsprogramma van onderdeelstatus hebt uitgevoerd:  
+5.  Utilisez les étapes suivantes après avoir ouvert la page de propriétés de l'outil de synthèse d'état des composants :  
 
-    1.  Op de **algemene** tabblad van de eigenschappenpagina van de waarden voor replicatie en drempelperiode configureren.  
+    1.  Dans l'onglet **Général** de la page de propriétés des outils de synthèse, configurez les valeurs de réplication et de période seuil.  
 
-    2.  Selecteer op het tabblad **Drempels** het **berichttype** dat u wilt configureren en klik op de naam van een onderdeel in de lijst **Drempels** .  
+    2.  Dans l'onglet **Seuils** , sélectionnez le **Type de Message** que vous souhaitez configurer, puis cliquez sur le nom d'un composant dans la liste **Seuils** .  
 
-    3.  Bewerk de waarden voor waarschuwingen en kritieke drempelwaarden in het dialoogvenster **Eigenschappen van drempelwaarde voor status** en klik vervolgens op **OK**.  
+    3.  Dans la boîte de dialogue **Propriétés du seuil de l'état** , modifiez les valeurs de seuil d'avertissement et critique, puis cliquez sur **OK**.  
 
-    4.  Herhaal zo nodig stap 6.b en 6.c, en klik vervolgens op **OK** om de eigenschappenpagina te sluiten.  
+    4.  Répétez les étapes 6.b et 6.c au besoin et, lorsque vous avez terminé, cliquez sur **OK** pour fermer les propriétés de l'outil de synthèse.  
 
-    5.  Klik op **OK** om het dialoogvenster **Statusoverzichten** te sluiten en deze procedure te voltooien.  
+    5.  Cliquez sur **OK** pour fermer la boîte de dialogue **Outils de synthèse d'état** et terminez cette procédure.  
 
-6.  Voer de volgende stappen uit nadat u de eigenschappenpagina voor Samenvattingsprogramma van het sitesysteem hebt uitgevoerd:  
+6.  Utilisez les étapes suivantes après avoir ouvert les pages des propriétés de l'outil de synthèse d'état du système de site :  
 
-    1.  Op de **algemene** tabblad van de eigenschappenpagina van de replicatie- en planningswaarden configureren.  
+    1.  Dans l'onglet **Général** de la page de propriétés des outils de synthèse, configurez les valeurs de réplication et de planification.  
 
-    2.  Geef op het tabblad **Drempels** waarden voor **Standaard drempelwaarden** op voor de weergaven van kritieke en waarschuwingsstatussen.  
+    2.  Dans l'onglet **Seuils** , spécifiez des valeurs pour les **Seuils par défaut** afin de configurer des seuils par défaut pour les affichages d'état critique et d'avertissement.  
 
-    3.  Als u de waarden voor specifieke **opslagobjecten**wilt bewerken, selecteert u het object in de lijst **Specifieke drempelwaarden** en klikt u op de knop **Eigenschappen** om de waarschuwings- en kritieke drempelwaarden voor opslagobjecten te openen en te bewerken. Klik op **OK** om de eigenschappen voor opslagobjecten te sluiten.  
+    3.  Pour modifier les valeurs des **Objets de stockage**spécifiques, cliquez sur l'objet dans la liste **Seuils spécifiques** et cliquez sur le bouton **Propriétés** pour pouvoir accéder et modifier les seuils critique et d'avertissement des objets de stockage. Cliquez sur **OK** pour fermer les propriétés des objets de stockage.  
 
-    4.  Als u een nieuw opslagobject wilt maken, klikt u op de knop **Object maken** en geeft u de waarden voor het opslagobject op. Klik op **OK** om de eigenschappen voor het object te sluiten.  
+    4.  Pour créer un nouvel objet de stockage, cliquez sur le bouton **Créer un objet** et spécifiez les valeurs des objets de stockage. Cliquez sur **OK** pour fermer les propriétés de l'objet.  
 
-    5.  Als u een opslagobject wilt verwijderen, selecteert u het object en klikt u op de knop **Verwijderen** .  
+    5.  Pour supprimer un objet de stockage, sélectionnez l'objet, puis cliquez sur le bouton **Supprimer** .  
 
-    6.  Herhaal stap 7.b tot en met 7.e indien nodig. Klik vervolgens op **OK** om de overzichtseigenschappen te sluiten.  
+    6.  Répétez les étapes 7.b à 7.e si besoin. Lorsque vous avez terminé, cliquez sur **OK** pour fermer les propriétés de l'outil de synthèse.  
 
-    7.  Klik op **OK** om het dialoogvenster **Statusoverzichten** te sluiten en deze procedure te voltooien.  
+    7.  Cliquez sur **OK** pour fermer la boîte de dialogue **Outils de synthèse d'état** et terminez cette procédure.  
 
-##### <a name="to-create-a-status-filter-rule"></a>Een statusfilterregel maken  
+##### <a name="to-create-a-status-filter-rule"></a>Pour créer une règle de filtre d'état  
 
-1.  Navigeer in de Configuration Manager-console naar **beheer** > **siteconfiguratie** >**Sites**, en selecteer vervolgens de site waar u het statussysteem configureren.  
+1.  Dans la console Configuration Manager, accédez à **Administration** > **Configuration du site** >**Sites**, puis sélectionnez le site pour lequel vous voulez configurer le système d’état.  
 
-2.  Klik op het tabblad **Start** in de groep **Instellingen** op **Statusfilterregels**. Het dialoogvenster **Statusfilterregels** wordt geopend.  
+2.  Dans l'onglet **Accueil** , dans le groupe **Paramètres** , cliquez sur **Règles de filtre d'état**. La boîte de dialogue **Règles de filtre d'état** s'ouvre.  
 
-3.  Klik op **Maken**.  
+3.  Cliquez sur **Créer**.  
 
-4.  Op de pagina **Algemeen**van de wizard **Statusfilterregel maken** geeft u een naam op voor de nieuwe statusfilterregel en configureert u regelcriteria voor overeenkomende berichten. Vervolgens klikt u op **Volgende**.  
+4.  Sur la page **Général**de l' **Assistant Création de règle de filtre d'état** , spécifiez un nom pour la nouvelle règle de filtre d'état et un critère de correspondance des messages pour la règle, puis cliquez sur **Suivant**.  
 
-5.  Op de pagina **Acties** geeft u op welke acties moeten worden uitgevoerd wanneer een statusbericht overeenkomt met de filterregel. Klik vervolgens op **Volgende**.  
+5.  Sur la page **Actions** , spécifiez les actions à entreprendre lorsqu'un message d'état correspond à la règle de filtre, puis cliquez sur **Suivant**.  
 
-6.  Bekijk de details voor de nieuwe regel op de pagina **Samenvatting** en voltooi vervolgens de wizard.  
+6.  Sur la page **Résumé** , consultez les détails de la nouvelle règle, puis terminez l'Assistant.  
 
     > [!NOTE]  
-    >  Configuration Manager vereist alleen dat de nieuwe statusfilterregel een naam heeft. Als de regel is gemaakt, maar u geen criteria opgeeft om statusberichten te verwerken, heeft de statusfilterregel geen effect. Dankzij dit gedrag kunt u regels maken en organiseren voordat u de statusfiltercriteria voor elke regel configureert.  
+    >  Configuration Manager exige uniquement que la nouvelle règle de filtre d'état ait un nom. Si la règle est créée, mais que vous ne spécifiez pas de critère pour traiter les messages d'état, la règle de filtre d'état n'aura aucun effet. Cela vous permet de créer et d'organiser des règles avant de configurer les critères de filtre d'état pour chaque règle.  
 
-##### <a name="to-modify-or-delete-a-status-filter-rule"></a>Een statusfilterregel wijzigen of verwijderen  
+##### <a name="to-modify-or-delete-a-status-filter-rule"></a>Pour modifier ou supprimer une règle de filtre d'état  
 
-1.  Navigeer in de Configuration Manager-console naar **beheer** > **siteconfiguratie** >**Sites**, en selecteer vervolgens de site waar u het statussysteem configureren.  
+1.  Dans la console Configuration Manager, accédez à **Administration** > **Configuration du site** >**Sites**, puis sélectionnez le site pour lequel vous voulez configurer le système d’état.  
 
-2.  Klik op het tabblad **Start** in de groep **Instellingen** op **Statusfilterregels**.  
+2.  Dans l'onglet **Accueil** , dans le groupe **Paramètres** , cliquez sur **Règles de filtre d'état**.  
 
-3.  Selecteer de regel die u wilt wijzigen in het dialoogvenster **Statusfilterregels** en voer vervolgens een van de volgende acties uit:  
+3.  Dans la boîte de dialogue **Règles de filtre d'état** , sélectionnez la règle que vous souhaitez modifier puis effectuez l'une des actions suivantes :  
 
-    -   Klik op **Prioriteit verhogen** of **Prioriteit verlagen** om de verwerkingsvolgorde van de statusfilterregel te wijzigen. Selecteer vervolgens nog een actie of ga naar stap 8 van deze procedure om deze taak te voltooien.  
+    -   Cliquez sur **Augmenter la priorité** ou **Diminuer la priorité** pour modifier l'ordre de traitement de la règle de filtre d'état. Puis sélectionnez une autre action ou passez à l'étape 8 de cette procédure pour terminer cette tâche.  
 
-    -   Klik op **Uitschakelen** of **Inschakelen** om de status van de regel te wijzigen. Wanneer u de status van de regel hebt gewijzigd, selecteert u nog een actie of gaat u naar stap 8 van deze procedure om deze taak te voltooien.  
+    -   Cliquez sur **Désactiver** ou **Activer** pour modifier l'état de la règle. Après avoir modifié l'état de la règle, sélectionnez une autre action ou passez à l'étape 8 de cette procédure pour terminer cette tâche.  
 
-    -   Klik op **Verwijderen** als u de statusfilterregel van deze site wilt verwijderen en klik vervolgens op **Ja** om de actie te bevestigen. Wanneer u een regel hebt verwijderd, selecteert u nog een actie of gaat u naar stap 8 van deze procedure om deze taak te voltooien.  
+    -   Cliquez sur **Supprimer** si vous souhaitez supprimer la règle de filtre d'état de ce site, puis cliquez sur **Oui** pour confirmer l'action. Après avoir supprimé une règle, sélectionnez une autre action ou passez à l'étape 8 de cette procédure pour terminer cette tâche.  
 
-    -   Klik op **Bewerken** als u de criteria voor de statusberichtregel wilt wijzigen en ga verder met stap 5 van deze procedure.  
+    -   Cliquez sur **Modifier** si vous souhaitez modifier les critères de la règle de message d'état et passez à l'étape 5 de cette procédure.  
 
-4.  Wijzig de regel en criteria voor overeenkomende berichten op het tabblad **Algemeen** van het eigenschappenvenster voor statusfilterregels.  
+4.  Sur l'onglet **Général** de la boîte de dialogue Propriétés de la règle de filtre d'état, modifiez la règle et les critères de correspondance des messages.  
 
-5.  Op de pagina **Acties** wijzigt u welke acties moeten worden uitgevoerd wanneer een statusbericht overeenkomt met de filterregel.  
+5.  Cliquez sur l'onglet **Actions** , modifiez les actions à entreprendre lorsqu'un message d'état correspond à la règle de filtre.  
 
-6.  Klik op **OK** om de wijzigingen op te slaan.  
+6.  Cliquez sur **OK** pour enregistrer les modifications.  
 
-7.  Klik op **OK** om het dialoogvenster **Statusfilterregels** te sluiten.  
+7.  Cliquez sur **OK** pour fermer la boîte de dialogue **Règles de filtre d'état** .  
 
-##### <a name="to-configure-status-reporting"></a>Statusrapportage configureren  
+##### <a name="to-configure-status-reporting"></a>Pour configurer un rapport d'état  
 
-1.  Navigeer in de Configuration Manager-console naar **beheer** > **siteconfiguratie** > **Sites**, en selecteer vervolgens de site waar u het statussysteem configureren.  
+1.  Dans la console Configuration Manager, accédez à **Administration** > **Configuration du site** > **Sites**, puis sélectionnez le site pour lequel vous voulez configurer le système d’état.  
 
-2.  Klik op het tabblad **Start** in de groep **Instellingen** op **Siteonderdelen configureren**en selecteer **Statusrapportage**.  
+2.  Dans l'onglet **Accueil** , dans le groupe **Paramètres** , cliquez sur **Configurer les composants de site**, puis sélectionnez **Rapport d'état**.  
 
-3.  Geef in het dialoogvenster **Eigenschappen van onderdeel voor statusrapportage** op welke server- en clientstatusberichten u wilt rapporteren of vastleggen:  
+3.  Dans la boîte de dialogue **Propriétés du composant de rapport d'état** , spécifiez les messages d'état de composant serveur et client que vous souhaitez signaler ou journaliser :  
 
-    1.  Configureer **rapport** om statusberichten te verzenden naar de Configuration Manager-statusberichtsysteem.  
+    1.  Configurez **Rapport** pour envoyer des messages d'état au système de messages d'état de Configuration Manager.  
 
-    2.  Configureer **Logboek** om het type en de ernst van statusberichten naar het Windows-gebeurtenislogboek te schrijven.  
+    2.  Configurez **Journal** pour écrire le type et la gravité des messages d'état dans le journal des événements Windows.  
 
-4.  Klik op **OK**.  
+4.  Cliquez sur **OK**.  
 
-###  <a name="BKMK_MonitorSystemStatus"></a> Het statussysteem van Configuration Manager controleren  
- **Systeemstatus** in Configuration Manager biedt een overzicht van de algemene bewerkingen van sites en siteserverbewerkingen van uw hiërarchie. Hij kan operationele problemen onthullen voor sitesysteemservers of -onderdelen en kunt u de systeemstatus controleren specifieke details voor verschillende Configuration Manager-bewerkingen. U bewaakt systeemstatus vanaf het **systeemstatus** knooppunt van de **bewaking** werkruimte in de Configuration Manager-console.  
+###  <a name="BKMK_MonitorSystemStatus"></a> Surveiller l’état du système de Configuration Manager  
+ L’**état du système** dans Configuration Manager fournit une vue d’ensemble des opérations générales de sites et des opérations de serveur de site de votre hiérarchie. Il peut révéler des problèmes de fonctionnement des serveurs de système de site ou des composants, et vous pouvez utiliser l'état du système pour consulter des détails spécifiques pour différentes opérations de Configuration Manager. Vous surveillez l'état du système à partir du nœud **État du système** de l'espace de travail **Surveillance** dans la console Configuration Manager.  
 
- De meeste sitesysteemrollen van Configuration Manager en -onderdelen genereren statusberichten. Gegevens van statusberichten worden in elk operationeel logboek van de onderdelen geregistreerd, maar worden ook verzonden naar de sitedatabase waar ze samengevat worden en getoond in een algemene rollup van elk onderdeel of van status van sitesystemen. Deze rollups van statusberichten leveren gegevensdetails voor standaardbewerkingen en -waarschuwingen en foutdetails. U kunt de drempels configureren waarbij waarschuwingen of fouten worden getriggerd en het systeem fijn bewerken om ervoor te zorgen dat rollup-informatie bekende problemen, die niet relevant zijn voor u, negeert, terwijl ze de aandacht vestigt op actuele problemen op servers of voor bewerkingen op onderdelen die u eventueel verder wenst te onderzoeken.  
+ La plupart des composants et rôles de système de site Configuration Manager génèrent des messages d'état. Les détails des messages d'état sont consignés dans chaque journal opérationnel des composants, mais ils sont également soumis à la base de données de site lorsqu'ils sont résumés et présentés dans un cumul général de l'intégrité de chaque composant ou des systèmes de site. Ces cumuls de messages d'état fournissent des informations détaillées pour les opérations et avertissements réguliers ainsi que pour les détails de l'erreur. Vous pouvez configurer les seuils auxquels les avertissements ou les erreurs sont déclenchés et ajuster le système afin de vous assurer que les informations relatives au cumul ignorent les problèmes connus qui ne vous concernent pas tout en attirant votre attention sur les problèmes réels des serveurs ou sur les opérations liées aux composants que vous souhaitez peut-être examiner.  
 
- Systeemstatus wordt gerepliceerd naar andere sites in een hiërarchie als sitegegevens, niet als globale gegevens. Dit betekent dat u enkel de status voor de site waarnaar uw Configuration Manager-console verbinding maakt en alle onderliggende sites onder die site kunt zien. Overweeg daarom om uw Configuration Manager-console verbinden met het hoogste niveau van uw hiërarchie wanneer u systeemstatus raadpleegt.  
+ L'état du système est répliqué vers d'autres sites dans une hiérarchie en tant que données de site, pas en tant que données globales. Cela signifie que vous ne pouvez voir que l'état du site auquel votre console Configuration Manager se connecte, et les sites enfants de ce site. Ainsi, envisagez de connecter votre console Configuration Manager sur le site de niveau supérieur de votre hiérarchie lorsque vous affichez l'état du système.  
 
- Gebruik de volgende tabel om de verschillende systeemstatusweergaves te identificeren en om te bepalen wanneer elk van die weergaves dient gebruikt te worden.  
+ Utilisez le tableau suivant pour identifier les différents affichages de l'état du système et les situations dans lesquelles les utiliser.  
 
-|Knooppunt|Meer informatie|  
+|Nœud|Plus d'informations|  
 |----------|----------------------|  
-|Sitestatus|Gebruik dit knooppunt om een rollup te zien van de status van elk sitesysteem om de status van elke sitesysteemserver te controleren. Sitesysteemstatus is bepaald door drempels die u configureert voor elke site in het **Samenvattingsprogramma van het sitesysteem**.<br /><br /> U kunt statusberichten zien voor elk sitesysteem, drempels instellen voor statusberichten en de werking van de onderdelen op sitesystemen beheren door gebruik te maken van **Configuration Manager Service Manager**.|  
-|Onderdeelstatus|Gebruik dit knooppunt om een rollup van de status van elk onderdeel van de Configuration Manager om te controleren van de operationele status van het onderdeel weer te geven. Onderdeelstatus is bepaald door drempels die u configureert voor elke site in het **Samenvattingsprogramma van het sitesysteem**.<br /><br /> U kunt statusberichten zien voor elk onderdeel, drempels instellen voor statusberichten en de werking van de onderdelen beheren door gebruik te maken van **Configuration Manager Service Manager**.|  
-|Conflicterende records|Gebruik dit knooppunt om statusberichten over clients te raadplegen die eventueel conflicterende records hebben.<br /><br /> Configuration Manager gebruikt de hardware-ID om clients te identificeren die mogelijk zijn gedupliceerd en u te waarschuwen voor conflicterende records. Bijvoorbeeld, als u een computer opnieuw moet installeren, de hardware-ID op dezelfde wijze worden, maar de GUID die Configuration Manager gebruikt kan veranderd zijn.|  
-|Statusberichtquery 's|Gebruik dit knooppunt om de statusberichten te bevragen op specifieke gebeurtenissen en gerelateerde details. U kunt statusberichtquery's gebruiken om de statusberichten te vinden die gerelateerd zijn aan specifieke gebeurtenissen.<br /><br /> U kunt vaak query's voor statusberichten te identificeren wanneer een specifiek onderdeel, bewerking of Configuration Manager-object is gewijzigd en het account dat is gebruikt om de wijziging te maken. U kunt bijvoorbeeld de ingebouwde query voor **Verzamelingen, gemaakt, gewijzigd en gewist** uitvoeren om te bepalen wanneer een specifieke verzameling werd gemaakt, en de gebruikersaccount te identificeren die werd gebruikt om de verzameling te maken.|  
+|État du site|Ce nœud permet d'afficher une synthèse de l'état de chaque système de site pour consulter l'intégrité de chaque serveur de système de site. L'intégrité d'un système de site est déterminée par des seuils que vous configurez pour chaque site dans l' **Outil de synthèse d'état du système de site**.<br /><br /> Vous pouvez afficher les messages d'état de chaque système de site, définir des seuils pour les messages d'état et gérer le fonctionnement des composants sur des systèmes de site à l'aide du **Gestionnaire de service de Configuration Manager**.|  
+|État du composant|Utilisez ce nœud pour afficher une synthèse de l'état de chaque composant de Configuration Manager pour vérifier son bon fonctionnement. L'intégrité d'un composant est déterminée par les seuils que vous configurez pour chaque site dans l' **Outil de synthèse d'état des composants**.<br /><br /> Vous pouvez afficher les messages d'état pour chaque composant, définir des seuils pour les messages d'état et gérer le fonctionnement des composants à l'aide du **Gestionnaire de service de Configuration Manager**.|  
+|Enregistrements en conflit|Utilisez ce nœud pour afficher les messages d'état de clients qui peuvent présenter des conflits de rapports.<br /><br /> Configuration Manager utilise l'ID du matériel pour tenter d'identifier les éventuels clients dupliqués et vous signale les enregistrements en conflit. Par exemple, si vous devez réinstaller un ordinateur, il est possible que l'ID du matériel soit le même, mais que le GUID utilisé par Configuration Manager soit différent.|  
+|Requêtes sur les messages d'état|Utilisez ce nœud pour demander des messages d'état d'événements spécifiques ou des informations liées. Vous pouvez utiliser les requêtes de messages d'état pour trouver des messages d'état liés à des événements spécifiques.<br /><br /> Il est possible d'utiliser fréquemment des requêtes de messages d'état pour identifier quand un composant, une opération ou un objet Configuration Manager spécifique a été modifié ainsi que le compte utilisé pour effectuer cette modification. Par exemple, vous pouvez exécuter la requête intégrée pour les **Regroupements créés, modifiés ou supprimés** afin d'identifier quand un regroupement a été créé et le compte utilisateur utilisé pour créer ce regroupement.|  
 
-####  <a name="bkmk_managestatus"></a> De sitestatus en onderdeelstatus beheren  
- Gebruik de volgende informatie om de site- en onderdeelstatus te beheren:  
+####  <a name="bkmk_managestatus"></a> Gérer l’état du site et l’état des composants  
+ Utilisez les informations suivantes pour gérer l'état du site et l'état du composant :  
 
--   Zie [Procedures voor het configureren van het statussysteem](#bkmk_configstatus)om drempels te configureren voor het statussysteem.  
+-   Pour configurer des seuils pour le système d'état, voir [Procédures de configuration du système d’état](#bkmk_configstatus).  
 
--   Voor het beheren van afzonderlijke onderdelen in Configuration Manager gebruikt de **Configuration Manager-servicebeheer**.  
+-   Pour gérer les composants individuels dans Configuration Manager, utilisez le **Gestionnaire de service de Configuration Manager**.  
 
-####  <a name="bkmk_view"></a> Statusberichten weergeven  
- U kunt de statusberichten zien voor afzonderlijke sitesysteemservers en -onderdelen.  
+####  <a name="bkmk_view"></a> Afficher les messages d’état  
+ Vous pouvez afficher les messages d'état des serveurs de système de site et des composants individuels.  
 
- Selecteer een specifieke sitesysteemserver of specifiek onderdeel voor statusberichten weergeven in de Configuration Manager-console, en klik vervolgens op **Toon berichten**. Wanneer u berichten ziet, kunt u selecteren om specifieke berichttypes te zien of berichten van een bepaalde tijdsperiode, en kunt u de resultaten filteren op basis van de statusberichtgegevens.  
+ Pour consulter des messages d'état dans la console Configuration Manager, sélectionnez un serveur de système de site ou un composant spécifique, puis cliquez sur **Afficher les messages**. Lorsque vous consultez des messages, vous pouvez choisir d'afficher des types de message spécifiques ou des messages d'une période indiquée. Vous pouvez également filtrer les résultats en fonction des détails du message d'état.  
 
-##  <a name="bkmk_Alerts"></a> Waarschuwingen  
- Configuration Manager-waarschuwingen worden gegenereerd door bepaalde bewerkingen, wanneer een specifieke situatie voordoet.  
+##  <a name="bkmk_Alerts"></a> Alertes  
+ Les alertes Configuration Manager sont générées par certaines opérations quand une condition spécifique se produit.  
 
--   Waarschuwingen worden doorgaans gegenereerd wanneer er een fout optreedt die u moet oplossen.  
+-   Les alertes sont habituellement générées quand une erreur que vous devez résoudre se produit  
 
--   Meldingen kunnen worden gegenereerd om u te waarschuwen dat er sprake is van een probleem, zodat u de situatie kunt blijven bewaken.  
+-   Les alertes peuvent être générées pour vous avertir qu’une condition a été détectée afin que vous puissiez continuer à surveiller la situation.  
 
--   Bepaalde waarschuwingen kunt u zelf configureren, zoals waarschuwingen voor de status van Endpoint Protection en de client, terwijl andere waarschuwingen automatisch worden geconfigureerd.  
+-   Certaines alertes que vous configurez, telles que les alertes concernant l’état de Endpoint Protection et du client, tandis que les autres alertes sont configurées automatiquement  
 
--   U kunt abonnementen op waarschuwingen configureren, zodat de details vervolgens via e-mail kunnen worden verzonden en u beter op de hoogte bent van belangrijke problemen.  
+-   Vous pouvez configurer des abonnements aux alertes qui peuvent ensuite envoyer des détails par courrier électronique, ce qui permet une plus grande sensibilisation aux problèmes clés  
 
- Gebruik de volgende tabel voor meer informatie over het configureren van waarschuwingen en waarschuwingsabonnementen in Configuration Manager:  
+ Utilisez le tableau suivant pour rechercher des informations sur la façon de configurer des alertes et des abonnements aux alertes dans Configuration Manager :  
 
 
-|Actie|Meer informatie|  
+|Action|Informations complémentaires|  
 |------------|----------------------|  
-|Endpoint Protection-waarschuwingen voor een verzameling configureren|Zie **het configureren van waarschuwingen voor Endpoint Protection in Configuration Manager** in [Endpoint Protection configureren in System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md)|  
-|Clientstatuswaarschuwingen voor een verzameling configureren|Zie [clientstatus configureren in System Center Configuration Manager](../../../core/clients/deploy/configure-client-status.md).|  
-|Configuration Manager-waarschuwingen beheren|Zie de sectie [Management tasks for alerts](#BKMK_Manage) in dit onderwerp.|  
-|E-mailabonnementen op waarschuwingen configureren|Zie de sectie [Management tasks for alerts](#BKMK_Manage) in dit onderwerp.|  
-|Waarschuwingen controleren|Zie de sectie [Waarschuwingen controleren](#BKMK_MonitorAlerts)|  
+|Configurer des alertes Endpoint Protection pour un regroupement|Voir **Comment configurer des alertes pour Endpoint Protection dans Configuration Manager** dans [Configuration de Endpoint Protection dans System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md).|  
+|Configurer des alertes d’état du client pour un regroupement|Voir [Guide pratique pour configurer l’état du client dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-status.md).|  
+|Gérer les alertes Configuration Manager|Consultez la section [Management tasks for alerts](#BKMK_Manage) de cette rubrique.|  
+|Configurer les abonnements par courrier électronique aux alertes|Consultez la section [Management tasks for alerts](#BKMK_Manage) de cette rubrique.|  
+|Surveiller les alertes|Consultez la section [Surveiller les alertes](#BKMK_MonitorAlerts)|  
 
 ###  <a name="BKMK_Manage"></a> Management tasks for alerts  
 
-##### <a name="to-manage-general-alerts"></a>Algemene waarschuwingen beheren  
+##### <a name="to-manage-general-alerts"></a>Pour gérer les alertes générales  
 
-1.  Navigeer in de Configuration Manager-console naar **bewaking** > **waarschuwingen**, en selecteer vervolgens een beheertaak.  
+1.  Dans la console Configuration Manager, accédez à **Surveillance** > **Alertes**, puis sélectionnez une tâche de gestion.  
 
-  Gebruik de volgende tabel voor meer informatie over de beheertaken waarvoor u mogelijk meer uitleg nodigt hebt voordat u ze selecteert.  
+  Utilisez le tableau suivant pour obtenir plus d'informations sur les tâches de gestion qui pourraient nécessiter certaines informations avant de les sélectionner.  
 
-|Beheertaak|Details|  
+|Tâche de gestion|Détails|  
     |---------------------|-------------|  
-    |**Configureerer**|Hiermee opent u de  *&lt;naam van waarschuwing*\>**eigenschappen** in het dialoogvenster waarin u de naam, de ernst en de drempelwaarden voor de geselecteerde waarschuwing kunt wijzigen. Als u de ernst van de waarschuwing wijzigt, deze configuratie is van invloed op hoe de waarschuwingen worden weergegeven in de Configuration Manager-console.|  
-    |**Opmerking bewerken**|Voer een opmerking voor de geselecteerde waarschuwingen in. Deze opmerkingen worden weergeven met de waarschuwing in de Configuration Manager-console.|  
-    |**Uitstellen**|De bewaking van de waarschuwing wordt onderbroken tot de opgegeven datum is bereikt. Op dat moment wordt de status van de waarschuwing bijgewerkt.<br /><br /> U kunt een waarschuwing alleen uitstellen wanneer deze is ingeschakeld.|  
-    |**Abonnement maken**|Hiermee opent u het dialoogvenster **Nieuw abonnement** , waarin u een e-mailabonnement op de geselecteerde waarschuwing kunt maken.|  
+    |**Configurer**|Ouvre la boîte de dialogue *Propriétés de* **&lt;nom de l’alerte\>**où vous pouvez modifier le nom, la gravité et les seuils de l’alerte sélectionnée. Si vous modifiez la gravité de l’alerte, cette configuration affecte la façon dont les alertes sont affichées dans la console Configuration Manager.|  
+    |**Modifier les commentaires**|Entrez un commentaire pour les alertes sélectionnées. Ces commentaires s’affichent avec l’alerte dans la console Configuration Manager.|  
+    |**Reporter**|Suspend la surveillance de l’alerte jusqu’à la date spécifiée. À ce moment-là, l’état de l’alerte est mis à jour.<br /><br /> Vous pouvez reporter une alerte uniquement quand celle-ci est active.|  
+    |**Créer un abonnement**|Ouvre la boîte de dialogue **Nouvel abonnement** où vous pouvez créer un abonnement par courrier électronique à l’alerte sélectionnée.|  
 
-##### <a name="to-configure-endpoint-protection-alerts-for-a-collection"></a>Endpoint Protection-waarschuwingen voor een verzameling configureren  
+##### <a name="to-configure-endpoint-protection-alerts-for-a-collection"></a>Pour configurer des alertes Endpoint Protection pour un regroupement  
 
-1.  in behandeling  
+1.  en attente  
 
-##### <a name="to-configure-client-status-alerts-for-a-collection"></a>Een clientstatuswaarschuwing voor een verzameling configureren  
+##### <a name="to-configure-client-status-alerts-for-a-collection"></a>Pour configurer des alertes d’état du client pour un regroupement  
 
-1.  Klik in de Configuration Manager-console op **activa en naleving** >   **Apparaatverzamelingen**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** >   **Regroupements d’appareils**.  
 
-2.  Selecteer in de lijst **Apparaatverzamelingen** de verzameling waarvoor u waarschuwingen wilt configureren en klik vervolgens op het tabblad **Start** in de groep **Eigenschappen** op **Eigenschappen**.  
-
-    > [!NOTE]  
-    >  U kunt geen waarschuwingen voor gebruikersverzamelingen configureren.  
-
-3.  Op de **waarschuwingen** tabblad van de  *&lt;verzamelingsnaam*\>**eigenschappen** in het dialoogvenster, klikt u op **toevoegen**.  
+2.  Dans la liste **Regroupements de périphériques** , sélectionnez le regroupement pour lequel vous souhaitez configurer des alertes, puis cliquez sur **Propriétés** dans l'onglet **Accueil** , du groupe **Propriétés**.  
 
     > [!NOTE]  
-    >  Het tabblad **Waarschuwingen** is alleen zichtbaar als aan de beveiligingsrol waaraan u gekoppeld bent machtigingen voor waarschuwingen zijn toegewezen.  
+    >  Vous ne pouvez pas configurer d'alertes pour les regroupements d'utilisateurs.  
 
-4.  Geef in het dialoogvenster **Nieuwe verzamelingmeldingen toevoegen** op welke meldingen moeten worden gegenereerd wanneer clientstatuswaarden onder een bepaalde drempelwaarde vallen en klik vervolgens op **OK**.  
-
-5.  Selecteer elke clientstatuswaarschuwing in de lijst **Voorwaarden** van het tabblad **Waarschuwingen** en geef vervolgens de volgende gegevens op.  
-
-    -   **Naam melding** : Accepteer de standaardnaam of voer een nieuwe naam voor de waarschuwing.  
-
-    -   **Ernst melding** - Selecteer in de vervolgkeuzelijst de ernst die moet worden weergegeven in de Configuration Manager-console.  
-
-    -   **Waarschuwing activeren** -Geef het drempelwaardepercentage voor de waarschuwing.  
-
-6.  Klik op **OK** sluiten de  *&lt;verzamelingsnaam*\>**eigenschappen** in het dialoogvenster.  
-
-##### <a name="to-configure-email-notification-for-alerts"></a>E-mailmeldingen voor waarschuwingen configureren  
-
-1.  Navigeer in de Configuration Manager-console naar **bewaking** > **waarschuwingen** > **abonnementen**.  
-
-2.  Klik op **E-mailmeldingen configureren** in het tabblad **Start** in de groep **Maken**.  
-
-3.  Geef in het dialoogvenster **Eigenschappen van onderdeel voor e-mailmeldingen** de volgende informatie op:  
-
-    -   **E-mailmeldingen voor waarschuwingen inschakelen**: Schakel dit selectievakje in zodat de Configuration Manager een SMTP-server gebruiken om te verzenden van e-mailwaarschuwingen.  
-
-    -   **FQDN of IP-adres van de SMTP-server voor verzenden van e-mailwaarschuwingen**: Geef de volledig gekwalificeerde domeinnaam (FQDN) of IP-adres en de SMTP-poort voor de e-mailserver die u wilt gebruiken voor deze waarschuwingen.  
-
-    -   **SMTP-Serververbindingsaccount**: Geef de verificatiemethode voor Configuration Manager gebruiken om verbinding van de e-mailserver te.  
-
-    -   **Adres van afzender voor e-mailwaarschuwingen**: Geef het e-mailadres waarmee e-mailwaarschuwingen worden verzonden.  
-
-    -   **SMTP-Server testen**: Verzendt een testbericht naar het e-mailadres dat is opgegeven in **adres van afzender voor e-mailwaarschuwingen**.  
-
-4.  Klik op **OK** om de instellingen op te slaan en het dialoogvenster **Eigenschappen van onderdeel voor e-mailinstellingen** te sluiten.  
-
-##### <a name="to-subscribe-to-email-alerts"></a>Abonneren op e-mailwaarschuwingen  
-
-1.  Navigeer in de Configuration Manager-console naar **bewaking** > **waarschuwingen**.  
-
-2.  Selecteer een waarschuwing en klik op het tabblad **Start** in de groep **Abonnement** vervolgens op **Abonnement maken**.  
-
-3.  Geef in het dialoogvenster **Nieuw abonnement** de volgende informatie op:  
-
-    -   **Naam**: Voer een unieke naam voor het e-abonnement. U kunt maximaal 255 tekens gebruiken.  
-
-    -   **E-mailadres**: Voer het e-mailadressen die u wilt dat de waarschuwing verzonden naar. U kunt meerdere e-mailadressen opgeven door deze te scheiden met een puntkomma (;).  
-
-    -   **Taal e-mail**: Geef de taal voor het e-mailbericht in de lijst.  
-
-4.  Klik op **OK** om het dialoogvenster **Nieuw abonnement** te sluiten en het e-mailabonnement te maken.  
+3.  Sous l'onglet **Alertes** de la boîte de dialogue **Propriétés de** *&lt;Nom du regroupement*\>, cliquez sur **Ajouter**.  
 
     > [!NOTE]  
-    >  U kunt in de werkruimte **Bewaking** abonnementen verwijderen en bewerken wanneer u het knooppunt **Waarschuwingen** uitvouwt en vervolgens op het knooppunt **Abonnementen** klikt.  
+    >  L'onglet **Alertes** n'est visible que si le rôle de sécurité auquel vous êtes associé dispose d'autorisations pour les alertes.  
 
-###  <a name="BKMK_MonitorAlerts"></a> Waarschuwingen controleren  
- U kunt meldingen zien in het knooppunt **Meldingen** van de werkruimte **Controle** . Waarschuwingen hebben één van de volgende statussen:  
+4.  Dans la boîte de dialogue **Ajouter de nouvelles alertes de regroupement** , choisissez les alertes que vous souhaitez générer lorsque les seuils d'état du client passent sous une valeur spécifique, puis cliquez sur **OK**.  
 
--   **Nooit geactiveerd**: De voorwaarde van de waarschuwing niet voldaan.  
+5.  Dans la liste **Conditions** de l'onglet **Alertes** , sélectionnez chaque alerte relative à l'état du client, puis spécifiez les informations suivantes.  
 
--   **Actieve**: De voorwaarde van de waarschuwing wordt voldaan.  
+    -   **Nom d’alerte** – Acceptez le nom par défaut ou entrez un nouveau nom pour l’alerte.  
 
--   **Geannuleerd**: De voorwaarde van een actieve waarschuwing wordt niet meer voldaan. Deze toestand geeft aan dat de conditie die de melding veroorzaakte, nu opgelost is.  
+    -   **Gravité d’alerte** – Dans la liste déroulante, choisissez la gravité d’alerte qui sera affichée dans la console Configuration Manager.  
 
--   **Uitgesteld**: Een gebruiker met beheerdersrechten heeft Configuration Manager voor het evalueren van de status van de waarschuwing op een later tijdstip geconfigureerd.  
+    -   **Déclencher l'alerte** : spécifiez le pourcentage seuil pour l'alerte.  
 
--   **Uitgeschakelde**: De waarschuwing is uitgeschakeld door een gebruiker met beheerdersrechten. Wanneer een melding in deze staat, wordt Configuration Manager de waarschuwing niet bijgewerkt zelfs als de status van de waarschuwing wordt gewijzigd.  
+6.  Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de** *&lt;Nom du regroupement*\>.  
 
- U kunt één van de volgende acties ondernemen wanneer Configuration Manager een waarschuwing genereert:  
+##### <a name="to-configure-email-notification-for-alerts"></a>Pour configurer une notification par courrier électronique pour les alertes  
 
--   De conditie oplossen die de melding veroorzaakte. U lost bijvoorbeeld een netwerk- of configuratieprobleem op dat de melding genereerde. Nadat Configuration Manager heeft gedetecteerd dat het probleem niet meer bestaat, wordt de waarschuwing status verandert in **annuleren**.  
+1.  Dans la console Configuration Manager, accédez à **Analyse** > **Alertes**  > **Inscriptions**.  
 
--   Indien de melding een bekende kwestie is, kunt u de melding uitstellen gedurende een bepaalde tijdsperiode. Configuration Manager-de waarschuwing op dat moment updates naar de huidige status.  
+2.  Sous l'onglet **Accueil** , du groupe **Créer** , cliquez sur **Configurer la notification par courrier électronique**.  
 
-     U kunt een melding alleen uitstellen als ze actief is.  
+3.  Dans la boîte de dialogue **Propriétés du composant de notification de courrier électronique** , définissez ce qui suit :  
 
--   U kunt de **Commentaar** van een melding bewerken zodat andere gebruikers met beheerdersrechten kunnen zien dat u zich bewust bent van de melding. In de commentaar kunt u bijvoorbeeld aangeven hoe de conditie op te lossen, informatie leveren over de huidige toestand van de conditie of uitleggen waarom u de melding uitstelde.  
+    -   **Activer les notifications par courrier électronique pour les alertes** : cochez cette case pour permettre à Configuration Manager d’utiliser un serveur SMTP pour envoyer des alertes par e-mail.  
+
+    -   **Nom de domaine complet ou adresse IP du serveur SMTP pour envoyer des alertes par courrier électronique**: entrez le nom de domaine complet (FQDN) ou l’adresse IP et le port SMTP du serveur de messagerie à utiliser pour ces alertes.  
+
+    -   **Compte de connexion au serveur SMTP** : spécifiez la méthode d’authentification que Configuration Manager doit utiliser pour se connecter au serveur de messagerie.  
+
+    -   **Adresse de l’expéditeur pour les alertes de courrier électronique**: spécifiez l’adresse électronique à partir de laquelle les courriers électroniques d’alerte sont envoyés.  
+
+    -   **Tester le serveur SMTP**: envoie un courrier électronique de test à l’adresse électronique spécifiée dans **Adresse de l’expéditeur pour les alertes de courrier électronique**.  
+
+4.  Cliquez sur **OK** pour enregistrer les paramètres et fermer la boîte de dialogue des **Propriétés du composant de notification de courrier électronique** .  
+
+##### <a name="to-subscribe-to-email-alerts"></a>Pour vous abonner aux alertes par courrier électronique  
+
+1.  Dans la console Configuration Manager, accédez à **Analyse** > **Alertes** .  
+
+2.  Sélectionnez une alerte, puis sous l’onglet **Accueil** , dans le groupe **Abonnement** , cliquez sur **Créer un abonnement**.  
+
+3.  Dans la boîte de dialogue **Nouvel abonnement** , spécifiez les éléments suivants :  
+
+    -   **Nom**: entrez le nom permettant d’identifier l’abonnement par courrier électronique. Vous pouvez entrer jusqu'à 255 caractères.  
+
+    -   **Adresse de messagerie**: entrez les adresses de messagerie de destination de l’alerte. Vous pouvez séparer plusieurs adresses de messagerie par un point-virgule.  
+
+    -   **Langue de messagerie**: dans la liste, spécifiez la langue du courrier électronique.  
+
+4.  Cliquez sur **OK** pour fermer la boîte de dialogue **Nouvel abonnement** et créer l'abonnement par courrier électronique.  
+
+    > [!NOTE]  
+    >  Vous pouvez supprimer et modifier les abonnements dans l'espace de travail **Surveillance** lorsque vous développez le nœud **Alertes** , puis cliquez sur le nœud **Abonnements** .  
+
+###  <a name="BKMK_MonitorAlerts"></a> Surveiller les alertes  
+ Vous pouvez consulter les alertes dans le nœud **Alertes** de l'espace de travail **Surveillance** . Les alertes présentent l'un des états d'alerte suivants :  
+
+-   **Jamais déclenché**: la condition de l’alerte n’a pas été remplie.  
+
+-   **Actif**: la condition de l’alerte est remplie.  
+
+-   **Annulé**: la condition d’une alerte active n’est plus remplie. Cet état indique que la condition qui a entraîné l'alerte est maintenant résolue.  
+
+-   **Reporté à plus tard** : un utilisateur administratif a configuré Configuration Manager pour évaluer l’état de l’alerte ultérieurement.  
+
+-   **Désactivé**: l’alerte a été désactivée par un utilisateur administratif. Lorsqu'une alerte présente cet état, Configuration Manager ne la met pas à jour même si l'état de l'alerte change.  
+
+ Vous pouvez effectuer l'une des actions suivantes lorsque Configuration Manager génère une alerte :  
+
+-   Corrigez la condition qui a généré l'alerte, par exemple, corrigez un problème réseau ou un problème de configuration qui a généré l'alerte. Une fois que Configuration Manager a détecté que le problème n'existe plus, l'état de l'alerte passe à **Annuler**.  
+
+-   Si l'alerte est un problème connu, vous pouvez reporter l'alerte pendant une durée spécifique. À ce moment, Configuration Manager met à jour l'alerte à son état actuel.  
+
+     Vous pouvez reporter une alerte uniquement lorsque celle-ci est active.  
+
+-   Vous pouvez modifier le **Commentaire** d'une alerte afin d'informer les autres utilisateurs administratifs que cette alerte est surveillée. Par exemple, dans le commentaire, vous pouvez identifier comment résoudre la condition, fournir des informations sur l'état actuel de la condition ou expliquer la raison du report de l'alerte.  

@@ -1,6 +1,6 @@
 ---
-title: Configuratie-items maken | Microsoft Docs
-description: Configuraties maken en implementeren op apparaten die worden beheerd door System Center Configuration Manager zowel geregistreerd bij Microsoft Intune.
+title: "Guide pratique pour créer des éléments de configuration | Microsoft Docs"
+description: "Créez et déployez des configurations sur des appareils qui sont à la fois gérés par System Center Configuration Manager et inscrits auprès de Microsoft Intune."
 ms.custom: na
 ms.date: 03/28/2017
 ms.prod: configuration-manager
@@ -17,18 +17,18 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: cddf549f017792add1b17b722bf51769060520b7
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-configuration-items-in-system-center-configuration-manager"></a>Configuratie-items maken in System Center Configuration Manager
+# <a name="how-to-create-configuration-items-in-system-center-configuration-manager"></a>Comment créer des éléments de configuration dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Instellingen voor naleving in System Center Configuration Manager kunt u configuraties maken en implementeren voor apparaten die worden beheerd door Configuration Manager en apparaten die zijn ingeschreven bij Microsoft Intune.  
+Les paramètres de compatibilité dans System Center Configuration Manager vous permettent de créer et de déployer des configurations sur les appareils qui sont gérés par Configuration Manager et les appareils qui ont été inscrits auprès de Microsoft Intune.  
 
-## <a name="in-this-section"></a>In deze sectie  
+## <a name="in-this-section"></a>Dans cette section  
 
--   [Configuratie-items voor apparaten die worden beheerd met de System Center Configuration Manager-client](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md)  
+-   [Éléments de configuration pour les appareils gérés avec le client System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md)  
 
--   [Configuratie-items voor apparaten die worden beheerd met Intune](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)  
+-   [Éléments de configuration pour les appareils gérés avec Microsoft Intune](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)  

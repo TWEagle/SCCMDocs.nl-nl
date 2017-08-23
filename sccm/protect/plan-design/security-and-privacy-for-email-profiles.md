@@ -1,6 +1,6 @@
 ---
-title: E-mailprofiel beveiliging en privacy | Microsoft Docs
-description: Meer informatie over de beveiliging aanbevolen procedures voor het beheren van e-mailprofielen voor apparaten in System Center Configuration Manager.
+title: "Sécurité et confidentialité des profils de messagerie | Microsoft Docs"
+description: "Découvrez les bonnes pratiques en matière de sécurité pour la gestion des profils de messagerie des appareils dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/28/2016
 ms.prod: configuration-manager
@@ -17,22 +17,22 @@ ms.author: nbigman
 manager: angrobe
 ms.openlocfilehash: 17707f931a4fa58b225ce14f04c2a19648585bc4
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-email-profiles-in-system-center-configuration-manager"></a>Beveiliging en privacy voor e-mailprofielen in System Center Configuration Manager
+# <a name="security-and-privacy-for-email-profiles-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour les profils de messagerie dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-## <a name="security-best-practices-for-email-profiles"></a>Aanbevolen beveiligingsprocedures voor e-mailprofielen  
- Gebruik de volgende aanbevolen beveiligingsprocedures wanneer u e-mailprofielen beheert voor apparaten.  
+## <a name="security-best-practices-for-email-profiles"></a>Bonnes pratiques de sécurité pour les profils de messagerie  
+ Utilisez les bonnes pratiques de sécurité suivantes quand vous gérez les profils de messagerie sur les appareils.  
 
-|Aanbevolen beveiligingsprocedure|Meer informatie|  
+|Bonnes pratiques de sécurité|Plus d'informations|  
 |----------------------------|----------------------|  
-|Kies indien mogelijk altijd de veiligste opties die door uw e-mailinfrastructuur en de clientbesturingssystemen worden ondersteund.|E-mailprofielen bieden een handige methode om e-mailinstellingen die uw apparaten al ondersteunen, centraal te distribueren en te beheren. Configuration Manager voegt geen e-mailfunctionaliteit.<br /><br /> Bepaal, implementeer en volg alle beveiligingsprocedures die zijn aanbevolen voor uw apparaten en e-mailinfrastructuur.|  
+|Dans la mesure du possible, choisissez les options les plus sécurisées prises en charge par votre infrastructure de messagerie et les systèmes d'exploitation client.|Les profils de messagerie fournissent une méthode pratique pour distribuer et gérer des paramètres de messagerie que vos appareils prennent déjà en charge de manière centralisée. Configuration Manager n’ajoute pas de fonctionnalité de messagerie.<br /><br /> Identifiez, implémentez et appliquez les bonnes pratiques de sécurité recommandées pour vos appareils et votre infrastructure de messagerie.|  
 
-## <a name="privacy-information-for-email-profiles"></a>Privacy-informatie voor e-mailprofielen  
- Apparaten kunnen standaard geen e-mailprofielen evalueren. Bovendien moet u de e-mailprofielen configureren en vervolgens implementeren voor gebruikers.  
+## <a name="privacy-information-for-email-profiles"></a>Informations sur la confidentialité des profils de messagerie  
+ Par défaut, les appareils n'évaluent pas les profils de messagerie. Par ailleurs, vous devez configurer les profils de messagerie, puis les déployer pour des utilisateurs.  
 
- Voordat u e-mailprofielen configureert, moet u goed nadenken over uw privacyvereisten.  
+ Avant de configurer les profils de messagerie, tenez compte de vos exigences en matière de confidentialité.  

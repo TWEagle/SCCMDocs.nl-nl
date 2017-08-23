@@ -1,6 +1,6 @@
 ---
-title: Mobiele Threat verdediging | System Center Configuration Manager
-description: Toegang tot bedrijfsbronnen op basis van het apparaat, netwerk- en risico's met behulp van Configuration Manager en Intune Mobile Threat verdediging partners beperken
+title: "Protection contre les menaces mobiles | System Center Configuration Manager"
+description: "Limitez l’accès aux ressources d’entreprise en fonction des risques liés aux applications, aux réseaux et aux appareils en utilisant Configuration Manager et les partenaires de protection contre les menaces mobiles Intune."
 ms.custom: na
 ms.date: 03/02/2017
 ms.prod: configuration-manager
@@ -16,39 +16,39 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 298d879638a2d20d421b19752cb5f20f6725df14
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="intune-mobile-threat-defense-connectors-in-configuration-manager"></a>Intune Mobile Threat verdediging connectors in Configuration Manager
+# <a name="intune-mobile-threat-defense-connectors-in-configuration-manager"></a>Connecteurs de protection contre les menaces mobiles Intune dans Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-De [hybride MDM-implementatie (SCCM met Intune)](https://docs.microsoft.com/en-us/sccm/mdm/understand/choose-between-standalone-intune-and-hybrid-mobile-device-management) en de integratie tussen Intune en de partners Mobile Threat verdediging bieden u de mogelijkheid de toegang tot bedrijfsbronnen en gegevens op basis van het apparaat risico-evaluatie.
+Grâce au [déploiement de la gestion des appareils mobiles hybride (SCCM avec Intune)](https://docs.microsoft.com/en-us/sccm/mdm/understand/choose-between-standalone-intune-and-hybrid-mobile-device-management) et à l’intégration entre Intune et les partenaires de protection contre les menaces, vous pouvez contrôler l’accès aux ressources et aux données d’entreprise en fonction de l’évaluation des risques.
 
-Intune Mobile Threat verdediging connectors kunnen u gebruikmaken van de leverancier van uw gekozen Mobile Threat verdediging als een bron van informatie voor uw nalevingsbeleid en de regels voor voorwaardelijke toegang. Dit kunnen IT-beheerders een beschermingslaag toevoegen aan hun bedrijfsbronnen zoals Exchange en Sharepoint, speciaal van verdacht mobiele apparaten.
+Les connecteurs de protection contre les menaces mobiles Intune vous permettent d’utiliser votre fournisseur de protection contre les menaces mobiles en tant que source d’informations en matière de règles d’accès conditionnelles et de stratégies de conformité. Ainsi, les administrateurs informatiques peuvent ajouter une couche de protection aux ressources d’entreprise telles que Microsoft Exchange et Sharepoint, tout particulièrement en cas de corruption d’appareils mobiles.
 
-## <a name="what-problem-does-this-solve"></a>Welk probleem opgelost.
+## <a name="what-problem-does-this-solve"></a>Quel problème cette fonctionnalité résout-elle ?
 
-Er moeten bedrijven gevoelige gegevens beveiligen tegen opkomende bedreigingen, met inbegrip van fysieke, op basis van een app en netwerk gebaseerde bedreigingen, evenals besturingssysteem beveiligingsproblemen.
-Bedrijven zijn in het verleden hebben proactieve wanneer pc's beveiligen tegen een aanval, terwijl het mobiele apparaten gaan niet bewaakte en niet-beveiligde. Mobiele platforms hebt geïntegreerde beveiliging zoals app isolatie en gerenommeerde consumer app stores, maar deze platforms blijven kwetsbaar voor geavanceerde aanvallen. Vandaag de dag meer werknemers apparaten gebruiken voor het werk en toegang tot gevoelige informatie nodig. Apparaten moeten worden beschermd tegen steeds meer geavanceerde aanvallen.
+Les entreprises doivent protéger leurs données sensibles contre diverses menaces émergentes, notamment les menaces ciblant le matériel, les applications et le réseau ainsi que les vulnérabilités du système d’exploitation.
+Historiquement, les entreprises ont été proactives en matière de protection des PC contre les attaques, alors que les appareils mobiles ne sont toujours pas contrôlés et protégés. Les plateformes mobiles offrent maintenant une protection intégrée, grâce à l’isolation d’application et à la vérification des applications des App Store, entre autres, mais elles restent vulnérables aux attaques sophistiquées. Aujourd’hui, de plus en plus d’employés utilisent des appareils dans le cadre de leur travail, et ont besoin d’accéder à des informations sensibles. Or, les appareils doivent être protégés contre des attaques de plus en plus sophistiquées.
 
-## <a name="how-the-intune-mobile-threat-defense-connectors-work"></a>Hoe de Intune Mobile Threat Defense-connectors werken?
+## <a name="how-the-intune-mobile-threat-defense-connectors-work"></a>Fonctionnement des connecteurs de protection contre les menaces mobiles Intune
 
-De connector beschermt bedrijfsbronnen te maken van een kanaal van communicatie tussen Intune en de leverancier van uw gekozen Mobile Threat verdediging. Intune Mobile Threat verdediging partners bieden intuïtieve, eenvoudig te implementeren van toepassingen voor mobiele apparaten die actief scannen en analyseren van informatie over de bedreiging te delen met Intune, voor een rapport of afdwinging doeleinden. Bijvoorbeeld, als een verbonden app voor Mobile Threat verdediging aan de leverancier Mobile Threat verdediging rapporteert dat een telefoon op uw netwerk momenteel is verbonden met een netwerk dat kwetsbaar voor Man in the-Middle-aanvallen is, deze informatie wordt gedeeld met en gecategoriseerd voor een juiste risiconiveau (laag/gemiddeld/hoog –) die vervolgens kan worden vergeleken met de geconfigureerde risico niveau rechten in Intune om te bepalen als toegang tot bepaalde bronnen van uw keuze worden ingetrokken wanneer het apparaat is geknoeid.
+Ce type de connecteur protège les ressources de l’entreprise en créant un canal de communication entre Intune et votre fournisseur de protection contre les menaces mobiles. Les partenaires de protection contre les menaces mobiles Intune proposent des applications intuitives et faciles à déployer sur les appareils mobiles. Ces applications analysent de manière active les informations sur les menaces à partager avec Intune, à des fins d’application ou de création de rapports. Par exemple, si une application de protection contre les menaces mobiles qui est connectée envoie des rapports au fournisseur de cette application indiquant qu’un téléphone est actuellement connecté à un réseau vulnérable aux attaques de l’intercepteur, il partage cette information et lui affecte un niveau de risque approprié (faible, moyen ou élevé). Cette information peut ensuite être comparée avec le niveau de risque accepté qui est configuré pour vos systèmes dans Intune, afin de déterminer si l’accès à certaines ressources doit être supprimé tant que l’appareil est infecté.
 
-## <a name="sample-scenarios"></a>Voorbeeldscenario 's
+## <a name="sample-scenarios"></a>Exemples de scénarios
 
-Wanneer een apparaat wordt beschouwd als geïnfecteerd door de mobiele Threat Defense-oplossing:
+La solution de protection contre les menaces mobiles considère un appareil comme infecté :
 
 ![](http://i.imgur.com/Li1WUOU.png)
 
-Wanneer het apparaat is hersteld, wordt toegang verleend:
+L’accès est accordé lorsque la menace est supprimée sur l’appareil :
 
 ![](http://i.imgur.com/VCIwpdz.png)
 
-## <a name="mobile-threat-defense-partners"></a>Mobile Threat Defense-partners
+## <a name="mobile-threat-defense-partners"></a>Partenaires de protection contre les menaces mobiles
 
-Meer informatie over het beveiligen van toegang tot bedrijfsbronnen op basis van apparaat-, netwerk- en toepassing risico's met:
+Découvrez comment protéger l’accès aux ressources d’entreprise en fonction des risques liés aux applications, aux réseaux et aux appareils avec :
 
 - [Lookout](https://docs.microsoft.com/sccm/protect/deploy-use/lookout-mobile-threat-defense-in-configuration-manager)

@@ -1,5 +1,5 @@
 ---
-title: Reporting | Microsoft Docs
+title: Rapports | Microsoft Docs
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,25 +16,25 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: cebc48180144ae0d711ff09d16be7c37ec237cfa
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="reporting-in-system-center-configuration-manager"></a>Rapportage in System Center Configuration Manager
+# <a name="reporting-in-system-center-configuration-manager"></a>Rapports dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Rapportage in System Center Configuration Manager biedt een set hulpprogramma's en resources waarmee u de Geavanceerde rapportagemogelijkheden van Microsoft SQL Server Reporting Services in de Configuration Manager-console gebruiken.  
+Les rapports dans System Center Configuration Manager fournissent un ensemble d'outils et de ressources vous permettant d'utiliser les fonctions de rapport avancées de Microsoft SQL Server Reporting Services dans la console Configuration Manager.  
 
-## <a name="reporting-topics"></a>Onderwerpen over rapportage  
- De volgende onderwerpen bevatten informatie over het beheren van rapportage in Configuration Manager:  
+## <a name="reporting-topics"></a>Rubriques relatives aux rapports  
+ Les rubriques suivantes vous aident à gérer les rapports dans Configuration Manager :  
 
--   [Inleiding op rapportage](introduction-to-reporting.md)  
+-   [Présentation des rapports](introduction-to-reporting.md)  
 
--   [Rapportage plannen](planning-for-reporting.md)  
+-   [Planification des rapports](planning-for-reporting.md)  
 
--   [Rapportage configureren](configuring-reporting.md)  
+-   [Configurer les rapports](configuring-reporting.md)  
 
--   [Bewerkingen en onderhoud voor rapportage](operations-and-maintenance-for-reporting.md)  
+-   [Opérations et maintenance pour les rapports](operations-and-maintenance-for-reporting.md)  
 
--   [Beveiliging en privacy voor rapportages](security-and-privacy-for-reporting.md)  
+-   [Sécurité et confidentialité pour les rapports](security-and-privacy-for-reporting.md)  

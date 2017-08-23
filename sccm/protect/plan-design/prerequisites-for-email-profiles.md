@@ -1,6 +1,6 @@
 ---
-title: Vereisten voor e-mailprofielen | Microsoft Docs
-description: Meer informatie over e-mailprofielen in System Center Configuration Manager en de bijbehorende afhankelijkheden zowel extern als binnen het product.
+title: "Conditions préalables pour les profils de messagerie | Microsoft Docs"
+description: "Découvrez les profils de messagerie dans System Center Configuration Manager et leurs dépendances externes et internes au produit."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,25 +17,25 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: 451317db1d7aab888c03d1a099b9ce25311e06d0
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="email-profile-prerequisites"></a>E-mailprofiel vereisten
+# <a name="email-profile-prerequisites"></a>Conditions préalables pour les profils de messagerie
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-E-mailprofielen in System Center Configuration Manager hebben zowel extern als binnen het product afhankelijkheden.  
+Les profils de messagerie dans System Center Configuration Manager ont des dépendances à la fois externes et internes au produit.  
 
-## <a name="configuration-manager-dependencies"></a>Configuration Manager-afhankelijkheden  
+## <a name="configuration-manager-dependencies"></a>Dépendances de Configuration Manager  
 
-|Afhankelijkheid|Meer informatie|  
+|Dépendance|Plus d'informations|  
 |----------------|----------------------|  
-|Er moeten specifieke beveiligingsmachtigingen worden verleend om e-mailprofielen te beheren|U hebt de volgende beveiligingsmachtigingen nodig voor het beheren van toegangsinstellingen voor bedrijfsbronnen, zoals e-mailprofielen:<br /><br /> -Om te bekijken en beheren van waarschuwingen en rapporten voor e-mailprofielen: **Maak**, **verwijderen**, **wijzigen**, **rapport wijzigen**, **lezen**, en **rapport uitvoeren** machtigingen voor de **waarschuwingen** object.<br /><br /> -Te maken en beheren van certificaatprofielen: **Auteursbeleid**, **rapport wijzigen**, **lezen** en **rapport uitvoeren** machtigingen voor de **Certificaatprofiel** object.<br /><br /> -Voor het e-mailprofielimplementaties beheren: **Configuratiebeleid toepassen**, **waarschuwing voor wijzigen clientstatus**, **lezen**, en **Resource lezen** machtigingen voor de **verzameling** object.<br /><br /> -Voor alle configuratiebeleidsregels beheren: **Maak**, **verwijderen**, **wijzigen**, **lezen** en **beveiligingsbereik instellen** machtigingen voor de **configuratiebeleid** object.<br /><br /> -Query's worden uitgevoerd die zijn gerelateerd aan het e-mailprofielen: **Lees** machtiging voor de **Query** object.<br /><br /> -E-mailprofielen om informatie te bekijken in de System Center Configuration Manager-console: **Lees** machtiging voor de **Site** object.<br /><br /> -Voor de statusberichten voor e-mailprofielen weergeven: **Lees** machtiging voor de **statusberichten** object.<br /><br /> -Te maken en beheren van e-mailprofielen: **Auteursbeleid**, **rapport wijzigen**, **lezen**, en **rapport uitvoeren** machtigingen voor de **profiel communicatie-inrichting** object.<br /><br /> De **toegang tot bedrijfsbronnen** beveiligingsrol bevat deze machtigingen die vereist zijn voor het beheren van e-mailprofielen in System Center Configuration Manager. Zie [Beveiliging configureren in System Center Configuration Manager](../../core/plan-design/security/configure-security.md) voor meer informatie.|  
-|Kenmerk mail in Active Directory|Als u wilt genereren de gebruikers e-mailadres in een e-mailprofiel met behulp van het primaire SMTP-adres van de gebruiker, detectie van System Center Configuration Manager-gebruiker moet worden geconfigureerd voor het detecteren van de **mail** kenmerk uit Active Directory (dit is standaard geconfigureerd).|  
+|Des autorisations de sécurité spécifiques doivent avoir été accordées pour gérer les profils de messagerie.|Vous devez disposer des autorisations de sécurité suivantes pour gérer les paramètres d'accès aux ressources entreprise, telles que les profils de messagerie :<br /><br /> - Pour afficher et gérer les alertes et les rapports pour les profils de messagerie : autorisations **Créer**, **Supprimer**, **Modifier**, **Modifier le rapport**, **Lecture** et **Exécuter le rapport** pour l’objet **Alertes**.<br /><br /> - Pour créer et gérer des profils de certificat : autorisations **Créer une stratégie**, **Modifier le rapport**, **Lecture** et **Exécuter le rapport** pour l’objet **Profil de certificat**.<br /><br /> Pour gérer les déploiements de profils de messagerie : autorisations **Déployer des stratégies de configuration**, **Modifier l’alerte relative à l’état du client**, **Lecture** et **Lire la ressource** pour l’objet **Regroupement**.<br /><br /> - Pour gérer toutes les stratégies de configuration : autorisations **Créer**, **Supprimer**, **Modifier**, **Lecture** et **Définir l’étendue de sécurité** pour l’objet **Stratégie de configuration**.<br /><br /> - Pour exécuter des requêtes liées aux profils de messagerie : autorisation **Lecture** pour l’objet **Requête**.<br /><br /> - Pour afficher les informations sur les profils de messagerie dans la console System Center Configuration Manager : autorisation **Lecture** pour l’objet **Site**.<br /><br /> - Pour afficher les messages d’état pour les profils de messagerie : autorisation **Lecture** pour l’objet **Messages d’état**.<br /><br /> - Pour créer et gérer des profils de messagerie : autorisations **Créer une stratégie**, **Modifier le rapport**, **Lecture** et **Exécuter le rapport** pour l’objet **Profil de préparation des communications**.<br /><br /> Le rôle de sécurité **Gestionnaire d’accès aux ressources de l’entreprise** intègre les autorisations permettant de gérer les profils de messagerie dans System Center Configuration Manager. Pour plus d’informations, consultez [Configurer la sécurité dans System Center Configuration Manager](../../core/plan-design/security/configure-security.md).|  
+|Attribut de messagerie dans Active Directory|Si vous souhaitez générer l’adresse email des utilisateurs dans un profil de messagerie en utilisant l’adresse SMTP principale de l’utilisateur, la découverte d’utilisateur System Center Configuration Manager doit être configurée pour détecter l’attribut **mail** à partir d’Active Directory (ceci est configuré par défaut).|  
 
-## <a name="external-dependencies"></a>Externe afhankelijkheden  
+## <a name="external-dependencies"></a>Dépendances externes  
 
-|Afhankelijkheid|Meer informatie|  
+|Dépendance|Plus d'informations|  
 |----------------|----------------------|  
-|Kenmerk mail in Active Directory|Als u wilt genereren op de gebruikers e-mailadres in een e-mailprofiel met behulp van het primaire SMTP-adres van de gebruiker, moet dit adres aanwezig de **mail** kenmerk in Active Directory.<br /><br /> Raadpleeg de Windows Server-documentatie voor meer informatie.|
+|Attribut de messagerie dans Active Directory|Si vous souhaitez générer l’adresse email des utilisateurs dans un profil de messagerie à l’aide de l’adresse SMTP principale de l’utilisateur, cette adresse doit exister dans l’attribut **mail** dans Active Directory.<br /><br /> Pour plus d'informations, consultez la documentation de Windows Server.|

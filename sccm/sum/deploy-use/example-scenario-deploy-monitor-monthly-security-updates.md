@@ -1,6 +1,6 @@
 ---
-title: Voorbeeldscenario voor het implementeren en bewaken van beveiligingsupdates | Microsoft Docs
-description: Gebruik dit voorbeeldscenario van het software-updates in Configuration Manager gebruiken om te implementeren en software-updates voor Microsoft maandelijkse releases beveiliging controleren.
+title: "Exemple de scénario pour le déploiement et la surveillance des mises à jour logicielles de sécurité | Microsoft Docs"
+description: "Suivez cet exemple de scénario pour découvrir comment utiliser les mises à jour logicielles dans Configuration Manager pour déployer et surveiller les mises à jour logicielles de sécurité mensuelles publiées par Microsoft."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,80 +13,80 @@ ms.service:
 ms.assetid: c32f757a-02da-43f2-b055-5cfd097d8c43
 ms.openlocfilehash: 0e6e2b3a9455bb6eda437eb1325aaaadb3d83420
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="example-scenario-for-using-system-center-configuration-manager-to-deploy-and-monitor-the-security-software-updates-released-monthly-by-microsoft"></a>Voorbeeldscenario voor het gebruik van System Center Configuration Manager implementeren en controleren van de updates van beveiligingssoftware per maand door Microsoft
+# <a name="example-scenario-for-using-system-center-configuration-manager-to-deploy-and-monitor-the-security-software-updates-released-monthly-by-microsoft"></a>Exemple de scénario d’utilisation de System Center Configuration Manager pour le déploiement et la surveillance des mises à jour logicielles de sécurité publiées chaque mois par Microsoft
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Dit onderwerp bevat een voorbeeldscenario voor hoe u software-updates in System Center Configuration Manager kunt implementeren en controleren van de beveiligingsupdates die elke maand door Microsoft worden uitgegeven.  
+Cette rubrique présente un exemple de scénario qui montre comment utiliser les mises à jour logicielles dans System Center Configuration Manager pour déployer et surveiller les mises à jour logicielles de sécurité publiées chaque mois par Microsoft.  
 
- In dit scenario is Jeroen de Configuration Manager-beheerder bij Woodgrove Bank. Hij moet een implementatiestrategie voor software-updates maken met de volgende voorwaarden en vereisten:  
+ Dans ce scénario, John est l’administrateur de Configuration Manager à la Woodgrove Bank. Il doit créer une stratégie de déploiement de mises à jour logicielles respectant les conditions et les spécifications suivantes :  
 
--   Actieve implementatie van software-updates vindt plaats één week nadat Microsoft de beveiligingsupdates publiceert op de tweede dinsdag van elke maand, de welbekende 'patchdinsdag'.  
+-   Un déploiement actif de mises à jour logicielles doit avoir lieu une semaine après la publication par Microsoft des mises à jour logicielles de sécurité, le deuxième mardi de chaque mois. Cet événement est souvent désigné par l'expression « Patch Tuesday ».  
 
--   Software-updates worden gedownload en voorbereid op distributiepunten. Vervolgens wordt een implementatie getest op een subset met clients voordat Jeroen de software-updates volledig implementeert in zijn productieomgeving.  
+-   Les mises à jour logicielles sont téléchargées et répliquées sur les points de distribution. Un déploiement est ensuite testé sur un sous-ensemble de clients, avant que John ne déploie entièrement les mises à jour logicielles dans son environnement de production.  
 
--   Jeroen moet de naleving van de software-updates kunnen bewaken op maand of op jaar.  
+-   John doit pouvoir surveiller la compatibilité des mises à jour logicielles par mois ou par année.  
 
- In dit scenario wordt aangenomen dat de infrastructuur van het software-updatepunt al is geïmplementeerd. Gebruik de volgende informatie plannen en configureren van software-updates in Configuration Manager.  
+ Dans ce scénario, nous supposons que l'infrastructure du point de mise à jour logicielle a déjà été mise en œuvre. Utilisez les informations ci-dessous pour planifier et configurer les mises à jour logicielles dans Configuration Manager.  
 
-|Proces|Verwijzing|  
+|Processus|Référence|  
 |-------------|---------------|  
-|De belangrijkste concepten voor software-updates doornemen.|[Inleiding tot software-updates](../understand/software-updates-introduction.md)|  
-|Software-updates plannen. Met deze informatie kunt u rekening houden met capaciteitsoverwegingen, de infrastructuur van het software-updatepunt, de installatie van het software-updatepunt, synchronisatie-instellingen en clientinstellingen voor software-updates bij het maken van een planning.|[Software-updates plannen](../plan-design/plan-for-software-updates.md)|  
-|Software-updates configureren. Met deze informatie kunt u software-updatepunten in uw hiërarchie installeren en configureren, en kunt u software-updates configureren en synchroniseren.<br /><br /> In dit scenario is configureert Jeroen de synchronisatieplanning voor software-updates om te worden uitgevoerd op de tweede woensdag van elke maand om ervoor te zorgen dat hij de meest recente beveiligingsupdates van Microsoft haalt.|[Software-updates synchroniseren](../get-started/synchronize-software-updates.md)|  
+|Passez en revue les concepts clés liés aux mises à jour logicielles.|[Présentation des mises à jour logicielles](../understand/software-updates-introduction.md)|  
+|Planifiez les mises à jour logicielles. Ces informations vous aident à déterminer l'infrastructure de point de mise à jour logicielle et à planifier les besoins en capacité, l'installation du point de mise à jour logicielle, les paramètres de synchronisation et les paramètres des clients pour les mises à jour logicielles.|[Planifier les mises à jour logicielles](../plan-design/plan-for-software-updates.md)|  
+|Configurez les mises à jour logicielles. Ces informations vous aident à installer et à configurer les points de mise à jour logicielle de votre hiérarchie, et facilitent également la configuration et la synchronisation des mises à jour logicielles.<br /><br /> Dans ce scénario, John planifie les synchronisations des mises à jour logicielles pour qu’elles aient lieu le deuxième mercredi de chaque mois. Il s’assure ainsi de toujours récupérer les dernières mises à jour logicielles de sécurité auprès de Microsoft.|[Synchroniser les mises à jour logicielles](../get-started/synchronize-software-updates.md)|  
 
- De volgende secties in dit onderwerp bevatten voorbeelden van stappen om te implementeren en controleren van de updates van Configuration Manager in uw organisatie.
+ Les sections suivantes de cette rubrique présentent des exemples d’étapes à suivre pour déployer et surveiller les mises à jour logicielles de sécurité dans Configuration Manager au sein de votre organisation.
 
-##  <a name="BKMK_Step1"></a>Stap 1: Een software-updategroep voor jaarlijkse naleving maken  
- Jeroen maakt een software-updategroep die hij gebruiken kan voor het bewaken van naleving voor alle beveiligingsupdates die hij in 2016 uitgeeft. Hij voert de stappen in de volgende tabel uit.  
+##  <a name="BKMK_Step1"></a> Étape 1 : Créer un groupe de mises à jour logicielles pour la compatibilité annuelle  
+ John crée un groupe de mises à jour logicielles, qu’il va ensuite utiliser pour surveiller la compatibilité de toutes les mises à jour logicielles de sécurité déployées en 2016. Il suit la procédure décrite dans le tableau ci-dessous.  
 
-|Proces|Verwijzing|  
+|Processus|Référence|  
 |-------------|---------------|  
-|Van de **alle Software-Updates** knooppunt in de Configuration Manager-console John voegt criteria om alleen beveiligingsupdates die zijn uitgegeven of aangepast in het jaar 2015 weer te geven die voldoen aan de volgende criteria:<br /><br /><ul><li>**Criteria**: Datum van publicatie- of revisiedatum</li><li>**Voorwaarde**: is groter dan of gelijk aan een specifieke datum<br />**Waarde**: 1/1/2015</li><li>**Criteria**: Updateclassificatie<br />**Waarde**: Beveiligingsupdates</li><li>**Criteria**: Verlopen <br />**Waarde**: Nee</li></ul>|Geen aanvullende informatie|
-|Jeroen voegt alle gefilterde software-updates toe aan een nieuwe software-updategroep met de volgende vereisten:<br /><br /><ul><li>**Naam**: Nalevingsgroep - Microsoft-beveiligingsupdates 2015-Updates</li><li>**Beschrijving**: Software-updates|[Software-updates toevoegen aan een updategroep](add-software-updates-to-an-update-group.md)|  
+|Dans le nœud **Toutes les mises à jour logicielles** de la console Configuration Manager, John ajoute des critères pour afficher uniquement les mises à jour logicielles de sécurité ayant été publiées ou révisées en 2015 et respectant les critères suivants :<br /><br /><ul><li>**Critère**: Date de publication ou de révision</li><li>**Condition**: est supérieure ou égale à une date spécifique<br />**Valeur**: 01/01/2015</li><li>**Critères**: Classification des mises à jour<br />**Valeur**: Mises à jour de sécurité</li><li>**Critère**: Expiré <br />**Valeur**: Non</li></ul>|Aucune information supplémentaire|
+|John ajoute toutes les mises à jour logicielles ainsi filtrées à un nouveau groupe de mises à jour logicielles respectant les spécifications suivantes :<br /><br /><ul><li>**Nom**: Groupe de compatibilité - Mises à jour de sécurité Microsoft 2015</li><li>**Description**: Mises à jour logicielles|[Ajouter des mises à jour logicielles à un groupe de mises à jour](add-software-updates-to-an-update-group.md)|  
 
-##  <a name="BKMK_Step2"></a>Stap 2: Een regel voor automatische implementatie maken voor de huidige maand  
- Jeroen maakt een regel voor automatische implementatie voor de beveiligingsupdates die door Microsoft worden uitgegeven voor de huidige maand. Hij voert de stappen in de volgende tabel uit.  
+##  <a name="BKMK_Step2"></a> Étape 2 : Créer une règle de déploiement automatique pour le mois actuel  
+ John crée une règle de déploiement automatique pour les mises à jour logicielles de sécurité publiées par Microsoft pour le mois en cours. Il suit la procédure décrite dans le tableau ci-dessous.  
 
-|Proces|Verwijzing|  
+|Processus|Référence|  
 |-------------|---------------|  
-|Jeroen maakt een regel voor automatische implementatie met de volgende vereisten:<br /><br /><ol><li>Op het tabblad **Algemeen** configureert Jeroen het volgende:<br /> <ul><li>Hiermee geeft u **maandelijkse beveiligingsupdates** voor de naam.</li><li>Selecteert een testverzameling met beperkte clients.</li><li>Hiermee selecteert u **maken van een nieuwe Software-Updategroep**.</li><li>Hiermee wordt gecontroleerd of **de implementatie inschakelen nadat deze regel is uitgevoerd** niet is ingeschakeld.</li></ul></li><li>Op het tabblad **Implementatie-instellingen** selecteert Jeroen de standaardinstellingen.</li><li>Op de **Software-Updates** pagina Jeroen configureert de volgende eigenschapfilters en zoekcriteria:<br /><ul><li>Publicatie- of revisiedatum **Afgelopen maand**.</li><li>Updateclassificatie **Beveiligingsupdates**.</li></ul></li><li>Op de **evaluatie** pagina Jeroen in dat de regel wilt uitvoeren op een planning voor de **tweede donderdag** van elke **maand**. Hij controleert ook of of zijn Synchronisatieplanning is ingesteld op uitvoeren op de **tweede woensdag** van elke **maand**.</li><li>Jeroen gebruikt de standaardinstellingen op de pagina's Implementatieplanning, Gebruikerservaring, Meldingen en Instellingen voor downloaden.</li><li>Op de **implementatiepakket** pagina John Hiermee geeft u een nieuw implementatiepakket.</li><li>Jeroen gebruikt de standaardinstellingen op de pagina's Downloadlocatie en Taal selecteren.</li></ol>|[Software-updates automatisch implementeren](automatically-deploy-software-updates.md)|  
+|John crée une règle de déploiement automatique respectant les spécifications suivantes :<br /><br /><ol><li>Sous l'onglet **Général** , John effectue la configuration suivante :<br /> <ul><li>Spécifie **Mises à jour de sécurité mensuelles** comme nom.</li><li>Sélectionne un regroupement de tests contenant un petit nombre de clients.</li><li>Sélectionne **Créer un groupe de mises à jour logicielles**.</li><li>Vérifie que l’option **Activer le déploiement après l’exécution de cette règle** n’est pas sélectionnée.</li></ul></li><li>Sous l'onglet **Paramètres de déploiement** , John sélectionne les paramètres par défaut.</li><li>Dans la page **Mises à jour logicielles**, John configure les filtres de propriétés et les critères de recherche suivants :<br /><ul><li>Date de publication ou de révision : **Dernier mois**.</li><li>Classification des mises à jour : **Mises à jour de sécurité**.</li></ul></li><li>Dans la page **Évaluation**, John configure la règle pour qu’elle soit exécutée à intervalle régulier, le **deuxième mardi** de **chaque mois**. John vérifie également que les synchronisations sont planifiées pour s’exécuter le **deuxième mercredi** de chaque **mois**.</li><li>John conserve les paramètres par défaut des pages Calendrier de déploiement, Expérience utilisateur, Alertes et Paramètres de téléchargement.</li><li>Dans la page **Package de déploiement**, John spécifie un nouveau package de déploiement.</li><li>Sur les pages Emplacement de téléchargement et Sélection de la langue, John conserve les paramètres par défaut.</li></ol>|[Déployer automatiquement des mises à jour logicielles](automatically-deploy-software-updates.md)|  
 
-##  <a name="BKMK_Step3"></a>Stap 3: Controleer of software-updates zijn gereed om te implementeren  
- Op de tweede donderdag van elke maand controleert Jeroen of de software-updates gereed zijn voor implementatie. Hij voert de volgende stap.  
+##  <a name="BKMK_Step3"></a> Étape 3 : Vérifier que les mises à jour logicielles sont prêtes à être déployées  
+ Le deuxième jeudi de chaque mois, John vérifie que les mises à jour logicielles sont prêtes à être déployées. Il effectue l’étape suivante.  
 
-|Proces|Verwijzing|  
+|Processus|Référence|  
 |-------------|---------------|  
-|Jeroen controleert of de synchronisatie van software-updates correct is voltooid.|[Synchronisatiestatus van software-updates](monitor-software-updates.md#BKMK_SUSyncStatus)|  
+|John vérifie que la synchronisation des mises à jour logicielles s'est bien déroulée.|[État de synchronisation des mises à jour logicielles](monitor-software-updates.md#BKMK_SUSyncStatus)|  
 
-##  <a name="BKMK_Step4"></a>Stap 4: De software-updategroep implementeren  
- Nadat Jeroen heeft gecontroleerd of de software-updates gereed zijn voor implementatie, implementeert hij ze. Hij voert de stappen in de volgende tabel uit.  
+##  <a name="BKMK_Step4"></a> Étape 4 : déployer le groupe de mises à jour logicielles  
+ Une fois qu'il a vérifié que les mises à jour logicielles sont prêtes à être déployées, John les déploie. Il suit la procédure décrite dans le tableau ci-dessous.  
 
-|Proces|Verwijzing|  
+|Processus|Référence|  
 |-------------|---------------|  
-|Jeroen maakt twee testimplementaties voor de nieuwe software-updategroep. Hij overweegt de volgende omgevingen voor elke implementatie:<br /><br /> **Testimplementatie werkstation**: Jeroen overweegt het volgende voor de testimplementatie werkstation:<br /><br /><ul><li>Geeft een implementatieverzameling op die een subset met werkstationclients om te controleren of de implementatie bevat.</li><li>Hiermee configureert u de implementatie-instellingen die geschikt voor de werkstationclients in zijn omgeving zijn.</li></ul><br />**Testimplementatie server**: Jeroen overweegt het volgende voor de testimplementatie op servers:<br /><br /><ul><li>Geeft een implementatieverzameling op die een subset met serverclients om te controleren of de implementatie bevat.</li><li>Hiermee configureert u de implementatie-instellingen die geschikt voor de serverclients in zijn omgeving zijn.</li></ul>|[Software-updates implementeren](deploy-software-updates.md)|  
-|Jeroen controleert of de testimplementaties correct zijn uitgevoerd.|[Implementatiestatus van software-updates](monitor-software-updates.md#BKMK_SUDeployStatus)|  
-|Jeroen werkt de twee implementaties bij met nieuwe verzamelingen die zijn productiewerkstations en -servers bevatten.|Geen aanvullende informatie|  
+|John crée deux déploiements de test pour le nouveau groupe de mises à jour logicielles. Pour chaque déploiement, il envisage les environnements suivants :<br /><br /> **Déploiement de test des stations de travail**: pour le déploiement de test des stations de travail, John effectue les opérations suivantes :<br /><br /><ul><li>Spécifie un regroupement de déploiements qui contient un sous-ensemble de clients de station de travail, en vue de vérifier le déploiement.</li><li>Configure les paramètres de déploiement appropriés pour les clients de station de travail de son environnement.</li></ul><br />**Déploiement de test des serveurs**: pour le déploiement de test des serveurs, John effectue les opérations suivantes :<br /><br /><ul><li>Spécifie un regroupement de déploiements qui contient un sous-ensemble de clients de serveur, en vue de vérifier le déploiement.</li><li>Configure les paramètres de déploiement appropriés pour les clients de serveur de son environnement.</li></ul>|[Déployer des mises à jour logicielles](deploy-software-updates.md)|  
+|John vérifie que les déploiements de test ont été correctement déployés.|[État de déploiement des mises à jour logicielles](monitor-software-updates.md#BKMK_SUDeployStatus)|  
+|John met à jour les deux déploiements en utilisant les nouveaux regroupements contenant ses stations de travail et ses serveurs de production.|Aucune information supplémentaire|  
 
-##  <a name="BKMK_Step5"></a>Stap 5: Naleving bewaken voor geïmplementeerde software-updates  
- Jeroen bewaakt de naleving van zijn software-update-implementaties. Hij voert de stap in de volgende tabel uit.  
+##  <a name="BKMK_Step5"></a> Étape 5 : Surveiller la compatibilité des mises à jour logicielles déployées  
+ John surveille la compatibilité de ses déploiements de mises à jour logicielles. Il suit la procédure décrite dans le tableau ci-dessous.  
 
-|Proces|Verwijzing|  
+|Processus|Référence|  
 |-------------|---------------|  
-|Jeroen bewaakt de implementatiestatus van software-updates in de Configuration Manager-console en controleert de software-implementatie-updaterapporten beschikbaar zijn via de console.|[Software-updates in System Center Configuration Manager controleren](../../sum/deploy-use/monitor-software-updates.md)|  
+|John surveille l’état du déploiement des mises à jour logicielles dans la console Configuration Manager et examine les rapports de déploiement de mises à jour logicielles accessibles via la console.|[Surveiller les mises à jour logicielles dans System Center Configuration Manager](../../sum/deploy-use/monitor-software-updates.md)|  
 
-##  <a name="BKMK_Step6"></a>Stap 6: Maandelijkse softwareupdates toevoegen aan de groep voor jaarlijkse updates  
- Jeroen voegt de software-updates uit de groep voor maandelijkse software-updates toe aan de groep voor jaarlijkse software-updates. Hij voert de stap in de volgende tabel uit.  
+##  <a name="BKMK_Step6"></a> Étape 6 : Ajouter les mises à jour logicielles mensuelles au groupe de mises à jour annuel  
+ John ajoute les mises à jour logicielles du groupe de mises à jour logicielles mensuel au groupe de mises à jour logicielles annuel. Il suit la procédure décrite dans le tableau ci-dessous.  
 
-|Proces|Verwijzing|  
+|Processus|Référence|  
 |-------------|---------------|  
-|Jeroen selecteert de software-updates in de groep met maandelijkse software-updates en voegt ze toe aan de groep met software-updates die hij heeft gemaakt voor jaarlijkse naleving. Hij houdt de naleving van software-updates bij en maakt diverse rapporten voor zijn beheeractiviteiten.|[Software-updates toevoegen aan een geïmplementeerde updategroep](add-software-updates-to-an-update-group.md)|  
+|John sélectionne les mises à jour logicielles dans le groupe de mises à jour logicielles mensuel et ajoute les mises à jour logicielles au groupe de mises à jour logicielles qu'il a créé pour la compatibilité annuelle. Il effectue un suivi de la compatibilité des mises à jour logicielles et crée différents rapports à des fins de gestion.|[Ajouter des mises à jour logicielles à un groupe de mises à jour déployé](add-software-updates-to-an-update-group.md)|  
 
-Jeroen heeft zijn maandelijkse implementatie voor beveiligingsupdates correct voltooid. Hij blijft de naleving van software-updates bewaken en rapporteren om te waarborgen dat de clients in zijn omgeving binnen acceptabele nalevingsniveaus vallen.  
+John a procédé correctement au déploiement mensuel des mises à jour logicielles de sécurité. Il continue de surveiller la compatibilité des mises à jour logicielles et de créer les rapports correspondants, pour vérifier que les clients de son environnement respectent les niveaux de compatibilité définis.  
 
-##  <a name="BKMK_MonthlyProcess"></a>Terugkerend maandelijks proces voor het implementeren van software-updates  
- Na de eerste maand dat Jeroen software-updates implementeert, voert hij stap drie tot en met zes uit om de maandelijkse beveiligingsupdates van Microsoft te implementeren.  
+##  <a name="BKMK_MonthlyProcess"></a> Processus périodique mensuel de déploiement des mises à jour logicielles  
+ À partir du deuxième mois de déploiement des mises à jour logicielles, John suit les étapes trois à six, afin de déployer les mises à jour logicielles de sécurité publiées chaque mois par Microsoft.  

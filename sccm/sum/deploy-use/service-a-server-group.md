@@ -1,6 +1,6 @@
 ---
-title: Een servergroep onderhouden | Microsoft Docs
-description: De System Center Configuration Manager-console biedt waarschuwingen en statussen voor het bewaken van updates en naleving.
+title: "Maintenance d’un groupe de serveurs | Documents Microsoft"
+description: "La console System Center Configuration Manager fournit des alertes et des états pour surveiller les mises à jour et la compatibilité."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,50 +13,50 @@ ms.technology: configmgr-sum
 ms.assetid: 304a83ea-0f72-437d-9688-2e6e0c7526dd
 ms.openlocfilehash: ae09a02dd5d67113b9a7e2ce146c844efa4caf55
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
 >[!IMPORTANT]
->Dit is een voorlopige versie-functie beschikbaar zijn in de Configuration Manager versie 1606 en versie 1610. Functies van evaluatieversies zijn opgenomen in het product voor vroege testdoeleinden in een productieomgeving, maar mogen niet worden beschouwd als gereed voor productie. U moet deze functie voor beschikbaar wilt inschakelen. Zie [Use pre-release features from updates](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease) (Functies van evaluatieversies gebruiken) voor meer informatie.
+>Il s’agit d’une fonctionnalité préliminaire disponible dans Configuration Manager version 1606 et version 1610. Des fonctionnalités en préversion sont incluses dans le produit à des fins de test anticipé en environnement de production, mais ne doivent pas être considérées comme prêtes pour une utilisation en production. Vous devez activer cette fonctionnalité pour qu’elle soit disponible. Pour plus d’informations, consultez [Utiliser des fonctionnalités de préversions de mises à jour](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
 
 
-# <a name="service-a-server-group"></a>Een servergroep onderhouden
+# <a name="service-a-server-group"></a>Maintenance de groupe de serveurs
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-U start in System Center Configuration Manager versie 1606, kunt u instellingen servergroep voor een verzameling om te bepalen hoeveel, welk percentage of in welke volgorde computers in de verzameling de software-updates worden geïnstalleerd. U kunt ook PowerShell-scripts voor vóór en na de implementatie om aangepaste acties worden uitgevoerd.
+À partir de System Center Configuration Manager version 1606, vous pouvez configurer les paramètres de groupe de serveurs pour un regroupement, afin de définir le nombre, le pourcentage ou l’ordre des ordinateurs du regroupement qui installeront les mises à jour logicielles. Vous pouvez également configurer des scripts PowerShell de prédéploiement et de post-déploiement pour exécuter des actions personnalisées.
 
-Wanneer u software-updates op een verzameling met groep-instellingen die zijn geconfigureerd implementeert, wordt Configuration Manager bepaalt hoeveel computers in de verzameling de software-updates op elk moment kunt installeren en hetzelfde aantal vergrendelingen van servergroepimplementaties beschikbaar stelt. Alleen computers die implementatie vergrendelen wordt installatie software-update gestart. Wanneer een implementatievergrendeling beschikbaar is, een computer opgehaald van de implementatievergrendeling, installeert de software-updates, en vervolgens de vergrendeling implementatie wanneer de installatie van de software-updates is voltooid. De implementatievergrendeling wordt vervolgens beschikbaar voor andere computers. Als een computer kan geen vergrendeling van een implementatie, kunt u handmatig alle server vergrendelingen van servergroepimplementaties voor de verzameling vrijgeven.
+Lorsque vous déployez des mises à jour logicielles dans un regroupement dont les paramètres de groupe de serveurs sont configurés, Configuration Manager détermine le nombre d’ordinateurs du regroupement qui peuvent installer les mises à jour logicielles à un moment donné quelconque et met à disposition le même nombre de verrous de déploiement. Seuls les ordinateurs qui obtiennent un verrou de déploiement commenceront l’installation des mises à jour logicielles. Lorsqu’un verrou de déploiement est disponible, un ordinateur obtient le verrou de déploiement, installe les mises à jour logicielles, puis libère le verrou de déploiement lorsque l’installation des mises à jour logicielles se termine correctement. Ensuite, le verrou de déploiement devient disponible pour d’autres ordinateurs. Si un ordinateur ne parvient pas à libérer un verrou de déploiement, vous pouvez libérer manuellement tous les verrous de déploiement de groupe de serveurs pour le regroupement.
 
 >[!IMPORTANT]
->Alle computers in de verzameling moet worden toegewezen aan dezelfde site.
+>Tous les ordinateurs du regroupement doivent être affectés au même site.
 
-#### <a name="to-create-a-collection-for-a-server-group"></a>Een verzameling van een servergroep maken  
-De instellingen van de server zijn geconfigureerd in de eigenschappen voor een apparatenverzameling. Als u wilt een servergroep onderhouden, moeten alle leden in de verzameling worden toegewezen aan dezelfde site. Gebruik de volgende stappen uit een verzameling maken en configureren van instellingen voor de server:
-1.  [Maak een apparaatverzameling](../../core/clients/manage/collections/create-collections.md) die de computers in de servergroep bevat.  
+#### <a name="to-create-a-collection-for-a-server-group"></a>Pour créer un regroupement pour un groupe de serveurs  
+Les paramètres du groupe de serveurs sont configurés dans les propriétés d’un regroupement d’appareils. Pour effectuer la maintenance d’un groupe de serveurs, tous les membres du regroupement doivent être affectés au même site. Utilisez les étapes suivantes pour créer un regroupement et configurer les paramètres du groupe de serveurs :
+1.  [Créez un regroupement d’appareils](../../core/clients/manage/collections/create-collections.md) contenant les ordinateurs du groupe de serveurs.  
 
-2.  In de **activa en naleving** werkruimte, klikt u op **Apparaatverzamelingen**, met de rechtermuisknop op de verzameling waartoe de computers in de servergroep en klik vervolgens op **eigenschappen**.  
+2.  Dans l’espace de travail **Ressources et Conformité**, cliquez sur **Regroupements d’appareils**, cliquez avec le bouton droit sur le regroupement qui contient les ordinateurs du groupe de serveurs, puis cliquez sur **Propriétés**.  
 
-3.  Op de **algemene** tabblad **alle apparaten zijn onderdeel van de servergroep met dezelfde**, en klik vervolgens op **instellingen**.  
+3.  Sous l’onglet **Général**, sélectionnez **Tous les appareils font partie du même groupe de serveurs**, puis cliquez sur **Paramètres**.  
 
-4.  Op de **instellingen servergroep** pagina, geeft u een van de volgende instellingen:  
+4.  Dans la page **Paramètres de groupe de serveurs**, spécifiez l’un des paramètres suivants :  
 
-    -   **Toestaan dat een percentage van de machines tegelijk wordt bijgewerkt**: Hiermee geeft u op dat alleen een bepaald percentage van clients op elk gewenst moment worden bijgewerkt. Als bijvoorbeeld de verzameling 10 clients heeft en de verzameling is geconfigureerd voor het bijwerken van 30% bedraagt van clients op hetzelfde moment wordt alleen 3 clients software-updates op elk moment installeren.  
+    -   **Autorisez un pourcentage des machines à être mises à jour en même temps** : Spécifie que seul un certain pourcentage de clients sont mis à jour à un moment quelconque. Si, par exemple, le regroupement compte 10 clients, et qu’il est configuré pour mettre à jour 30 % des clients en même temps, seuls 3 clients installeront les mises à jour logicielles à un moment donné quelconque.  
 
-    -   **Toestaan dat een aantal machines tegelijk wordt bijgewerkt**: Hiermee geeft u op dat alleen een bepaald aantal clients op elk gewenst moment worden bijgewerkt.  
+    -   **Autorisez un nombre de machines à être mises à jour en même temps** : Spécifie que seul un certain nombre de clients sont mis à jour à un moment quelconque.  
 
-    -   **Geef de reeks onderhoud**: Geeft aan dat de clients in de verzameling wordt bijgewerkt één op een tijdstip in de volgorde die u configureert. Een client wordt alleen software-updates installeren nadat de installatie van de software-updates van de client wordt dan deze in de lijst is voltooid.  
+    -   **Spécifier la séquence de maintenance** : Spécifie que les clients du regroupement seront mis à jour l’un après l’autre, dans l’ordre que vous configurez. Un client installe les mises à jour logicielles après seulement que le client qui le précède dans la liste a terminé l’installation de ses mises à jour logicielles.  
 
-5.  Geef op of een script vóór implementatie (knooppuntcorrectie) of een script ná implementatie (knooppunthervatting) wilt gebruiken.  
+5.  Indiquez s’il convient d’utiliser un script de prédéploiement (drainage de nœud) ou un script de post-déploiement (relance de nœud).  
 
     > [!WARNING]
-    > Aangepaste scripts niet zijn ondertekend door Microsoft. Het is uw verantwoordelijkheid om de integriteit van deze scripts te behouden.
+    > Les scripts personnalisés ne sont pas signés par Microsoft. Il vous incombe de préserver l’intégrité de ces scripts.
 
     > [!TIP]  
-    > Hier volgen voorbeelden die u gebruiken kunt bij het testen voorafgaand aan de implementatie en na de implementatie scripts die de huidige tijd naar een tekstbestand schrijven:  
+    > Voici des exemples que vous pouvez utiliser dans des tests de scripts de prédéploiement et de post-déploiement qui enregistrent l’heure actuelle dans un fichier texte :  
     >   
-    >  **Voorafgaand aan de implementatie**  
+    >  **Prédéploiement**  
     >   
     >  `#Start`  
     >   
@@ -66,7 +66,7 @@ De instellingen van de server zijn geconfigureerd in de eigenschappen voor een a
     >   
     >  `Out-File C:\temp\start.txt`  
     >   
-    >  **Na de implementatie**  
+    >  **Post-déploiement**  
     >   
     >  `#End`  
     >   
@@ -76,15 +76,15 @@ De instellingen van de server zijn geconfigureerd in de eigenschappen voor een a
     >   
     >  `Out-File C:\temp\end.txt`  
 
-## <a name="deploy-software-updates-to-the-server-group-and-monitor-status"></a>Software-updates implementeren voor de groep en de monitor status van de server  
-U implementeren software-updates aan de verzameling van de groep server met behulp van de normale implementatie-proces. Nadat u de software-updates implementeert, kunt u de implementatie van software-update in de Configuration Manager-console kunt bewaken.
-1.  [Software-updates implementeren](manually-deploy-software-updates.md) aan de verzameling van de groep server.   
+## <a name="deploy-software-updates-to-the-server-group-and-monitor-status"></a>Déployer des mises à jour logicielles dans le groupe de serveurs et surveiller leur état  
+Vous déployez des mises à jour logicielles dans le regroupement de groupe de serveurs à l’aide du processus de déploiement standard. Après avoir déployé les mises à jour logicielles, vous pouvez surveiller le déploiement des mises à jour logicielles dans la console Configuration Manager.
+1.  [Déployez les mises à jour logicielles](manually-deploy-software-updates.md) sur le regroupement du groupe de serveurs.   
 
-2.  [De implementatie van de software-update controleren](monitor-software-updates.md). Naast de standaard monitoring-weergaven voor software-updates implementatie, de **wachten vergrendeling** status wordt weergegeven wanneer een client wacht op zijn beurt de softwareupdates te installeren. U kunt het bestand updatesdeployment.log voor meer informatie kunt bekijken.
+2.  [Surveillez le déploiement des mises à jour logicielles](monitor-software-updates.md). Outre les affichages d’analyse standard pour le déploiement de mises à jour logicielles, l’état **En attente d’un verrou** est affiché lorsqu’un client attend son tour pour installer les mises à jour logicielles. Vous pouvez passer en revue le fichier UpdatesDeployment.log pour obtenir plus d’informations.
 
 
-## <a name="clear-the-deployment-locks-for-computers-in-a-server-group"></a>De implementatievergrendeling voor computers in een servergroep gewist  
-Wanneer een computer, mislukt de vergrendeling van een implementatie, kunt u handmatig alle server vergrendelingen van servergroepimplementaties voor de verzameling vrijgeven. Vergrendelingen wissen wanneer een implementatie is vastgelopen met het bijwerken van computers in de verzameling en er zijn computers die nog niet compatibel zijn.  
-1.  In de **activa en naleving** werkruimte, klikt u op **Apparaatverzamelingen**, en klik op de verzameling om vergrendelingen van servergroepimplementaties wissen.  
+## <a name="clear-the-deployment-locks-for-computers-in-a-server-group"></a>Désactivez les verrous de déploiement pour les ordinateurs d’un groupe de serveurs  
+Quand un ordinateur ne parvient pas à libérer un verrou de déploiement, vous pouvez libérer manuellement tous les verrous de déploiement de groupe de serveurs du regroupement. Désactivez les verrous uniquement lorsqu’un déploiement est bloqué lors de la mise à jour des ordinateurs du regroupement et que des ordinateurs ne sont toujours pas compatibles.  
+1.  Dans l’espace de travail **Ressources et Conformité**, cliquez sur **Regroupements d’appareils**, puis cliquez sur le regroupement pour désactiver les verrous de déploiement.  
 
-2.  Op de **Start** tabblad, in de **implementatie** groep, klikt u op **wissen Server groep implementatie vergrendeld**. Wanneer clients installatie van de software-updates is mislukt en worden zo wordt voorkomen dat andere clients hun software-updates installeren, kunnen de implementatievergrendeling handmatig worden gewist.  
+2.  Sous l’onglet **Accueil**, dans le groupe **Déploiement**, cliquez sur **Supprimer les verrous de déploiement du groupe de serveurs**. Quand des clients ne parviennent pas à installer les mises à jour logicielles et empêchent les autres clients d’installer leurs mises à jour logicielles, les verrous de déploiement peuvent être désactivés manuellement.  

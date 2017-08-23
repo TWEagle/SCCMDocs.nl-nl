@@ -1,6 +1,6 @@
 ---
-title: Setup Downloader | Microsoft Docs
-description: Meer informatie over deze zelfstandige toepassing die is ontworpen om te controleren of dat uw site-installatie wordt de huidige versies van belangrijke installatiebestanden gebruikt.
+title: "Téléchargeur d’installation | Microsoft Docs"
+description: "Découvrez les fonctions de cette application autonome, qui a été conçue pour vérifier que votre installation de site utilise les dernières actuelles des fichiers d’installation clés."
 ms.custom: na
 ms.date: 3/1/2017
 ms.prod: configuration-manager
@@ -16,80 +16,80 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: b72148ecc16141843178cbd220fe021fab8be992
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="setup-downloader-for-system-center-configuration-manager"></a>Setup Downloader voor System Center Configuration Manager
+# <a name="setup-downloader-for-system-center-configuration-manager"></a>Téléchargeur d’installation pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Voordat u Setup wilt installeren of upgraden van een System Center Configuration Manager-site uitvoert, kunt u de toepassing Setup Downloader zelfstandige versie van de versie van Configuration Manager die u installeren wilt voor het downloaden van bijgewerkte installatiebestanden.  
+Avant d’exécuter le programme d’installation pour installer ou mettre à niveau un site System Center Configuration Manager, vous pouvez utiliser l’application autonome Téléchargeur d’installation correspondant à la version de Configuration Manager que vous souhaitez installer pour télécharger les fichiers d’installation mis à jour.  
 
-Bijgewerkte installatiebestanden zorgt ervoor dat uw site-installatie huidige versies van belangrijke installatiebestanden gebruikt. In oveview:   
--   Wanneer u Setup Downloader gebruikt om bestanden voorafgaand aan de installatie te downloaden, geeft u een map voor de bestanden bevatten.  
--   Het account dat u kunt Setup Downloader uitvoeren moet hebben **volledig beheer** machtigingen naar de downloadmap.  
--   Wanneer u Setup uitvoert om te installeren of upgraden van een site, kunt u rechtstreeks voor gebruik van deze lokale kopie van bestanden die u eerder hebt gedownload. Dit voorkomt dat Setup formulier dat verbinding maakt met Microsoft wanneer u de site-installatie of upgrade start.  
--   U kunt dezelfde lokale kopie van setup-bestanden gebruiken voor volgende site-installaties of -upgrades.  
+L’utilisation des fichiers d’installation mis à jour garantit que votre installation de site utilise les dernières versions des fichiers d’installation clés. En résumé :   
+-   Quand vous utilisez le téléchargeur d’installation pour télécharger des fichiers avant de démarrer le programme d’installation, vous devez spécifier le dossier qui contiendra les fichiers.  
+-   Le compte que vous utilisez pour exécuter le téléchargeur d’installation doit avoir des autorisations **Contrôle intégral** sur le dossier de téléchargement.  
+-   Quand vous exécutez le programme d’installation pour installer ou mettre à niveau un site, vous pouvez lui demander d’utiliser cette copie locale des fichiers téléchargés précédemment. Cela évite au programme d’installation de devoir se connecter à Microsoft au démarrage de l’installation ou de la mise à niveau du site.  
+-   Vous pouvez utiliser la même copie locale des fichiers d’installation pour des installations ou mises à niveau de sites ultérieures.  
 
-De volgende typen bestanden worden gedownload door Setup Downloader:  
--   Vereiste herdistribueerbare bestanden  
--   Taalpakketten  
--   De meest recente productupdates voor Setup  
+Le téléchargeur d’installation télécharge les types de fichiers suivants :  
+-   Fichiers redistribuables requis  
+-   Modules linguistiques  
+-   Dernières mises à jour de produit pour le programme d’installation  
 
-U hebt twee opties om Setup Downloader uit te voeren:
-- Voer de toepassing met de gebruikersinterface
-- Voor de toepassing uitvoeren vanaf een opdrachtprompt opdrachtregelopties
+Vous avez deux options pour exécuter le téléchargeur d’installation :
+- Exécuter l’application avec l’interface utilisateur
+- Pour les options de ligne de commande, exécuter l’application à l’invite de commandes
 
 
-## <a name="run-setup-downloader-with-the-user-interface"></a>Setup Downloader uitvoeren met de gebruikersinterface  
+## <a name="run-setup-downloader-with-the-user-interface"></a>Exécuter le téléchargeur d’installation avec l’interface utilisateur  
 
-1.  Open Windows Verkenner op een computer die toegang tot Internet heeft, en Ga naar  **&lt;ConfigMgrInstallationMedia\>\SMSSETUP\BIN\X64**.  
+1.  Sur un ordinateur disposant d’un accès Internet, ouvrez l’Explorateur Windows et accédez à **&lt;support_installation_Configuration_Manager\>\SMSSETUP\BIN\X64**.  
 
-2.  Om Setup Downloader openen, dubbelklikt u op **Setupdl.exe**.   
+2.  Double cliquez sur **Setupdl.exe** pour ouvrir le téléchargeur d’installation.   
 
-3. Geef het pad voor de map waarin de bijgewerkte installatiebestanden hosten en klik vervolgens op **downloaden**. Setup Downloader controleert de bestanden die zich momenteel in de downloadmap. Deze downloadt alleen de bestanden die ontbreken of nieuwer is dan de bestaande bestanden. Setup Downloader maakt submappen voor gedownloade talen en andere vereiste submappen.  
+3. Spécifiez le chemin du dossier où seront hébergés les fichiers d’installation mis à jour, puis cliquez sur **Télécharger**. Le téléchargeur d’installation vérifie les fichiers qui figurent dans le dossier de téléchargement. Il télécharge uniquement les fichiers manquants ou plus récents que les fichiers existants. Le téléchargeur d’installation crée des sous-dossiers pour les langues téléchargées et d’autres sous-dossiers requis.  
 
-4.  De downloadresultaten bekijken, opent u de **ConfigMgrSetup.log** bestand in de hoofdmap van station C.  .  
+4.  Pour passer en revue les résultats du téléchargement, ouvrez le fichier **ConfigMgrSetup.log** situé dans le répertoire racine du lecteur C.  
 
-## <a name="run-setup-downloader-from-a-command-prompt"></a>Setup Downloader uitvoeren vanaf een opdrachtprompt  
+## <a name="run-setup-downloader-from-a-command-prompt"></a>Exécuter le téléchargeur d’installation à partir d’une invite de commandes  
 
-1.  In een opdrachtpromptvenster, Ga naar  **&lt;* Configuration Manager-installatiemedia*\>\SMSSETUP\BIN\X64**.   
+1.  Dans une fenêtre d’invite de commandes, accédez à **&lt;*support d’installation de Configuration Manager*\>\SMSSETUP\BIN\X64**.   
 
-2.  Uitvoeren als u wilt openen Setup Downloader, **Setupdl.exe**.
+2.  Exécutez **Setupdl.exe** pour ouvrir le téléchargeur d’installation.
 
-    U kunt de volgende opdrachtregelopties met **Setupdl.exe**:   
+    Vous pouvez utiliser les options de ligne de commande suivantes avec **Setupdl.exe** :   
 
-    -   **/ CONTROLEREN**: Gebruik deze optie om te controleren of de bestanden in de downloadmap, waaronder taalbestanden. Raadpleeg het bestand ConfigMgrSetup.log in de hoofdmap van station C voor een lijst met bestanden die verouderd zijn. Er worden geen bestanden worden gedownload wanneer u deze optie gebruikt.  
+    -   **/VERIFY**: utilisez cette option pour vérifier les fichiers dans le dossier de téléchargement, notamment les fichiers de langues. Examinez la liste des fichiers obsolètes dans le fichier ConfigMgrSetup.log situé dans le répertoire racine du lecteur C. Aucun fichier n'est téléchargé lorsque vous utilisez cette option.  
 
-    -   **/ VERIFYLANG**: Gebruik deze optie om te controleren of de taalbestanden in de downloadmap. Raadpleeg het bestand ConfigMgrSetup.log in de hoofdmap van station C voor een lijst met taalbestanden die verouderd zijn.
+    -   **/VERIFYLANG**: utilisez cette option pour vérifier les fichiers de langues dans le dossier de téléchargement. Examinez la liste des fichiers de langue obsolètes dans le fichier ConfigMgrSetup.log situé dans le répertoire racine du lecteur C.
 
-    -   **/ LANG**: Gebruik deze optie om alleen de taalbestanden naar de downloadmap te downloaden.  
+    -   **/LANG**: utilisez cette option pour télécharger uniquement les fichiers de langues dans le dossier de téléchargement.  
 
-    -   **/ NOUI**: Gebruik deze optie om Setup Downloader starten zonder de gebruikersinterface weer te geven. Als u deze optie gebruikt, moet u de **downloadpad** als onderdeel van de opdracht bij de opdrachtprompt.  
+    -   **/NOUI**: utilisez cette option pour démarrer le téléchargeur d’installation sans afficher l’interface utilisateur. Quand vous utilisez cette option, vous devez spécifier le **chemin de téléchargement** dans le cadre de la commande, à l’invite de commandes.  
 
-    -   **&lt;DownloadPath\>**: U kunt het pad naar de downloadmap automatisch starten van de verificatie of downloadproces opgeven. U moet het downloadpad opgeven wanneer u de **/noui** optie. Als u geen downloadpad opgeeft, moet u het pad opgeven wanneer Setup Downloader wordt geopend. Setup Downloader maakt de map als deze niet bestaat.  
+    -   **&lt;chemin_téléchargement\>**: vous pouvez spécifier le chemin du dossier de téléchargement pour démarrer automatiquement la vérification ou le processus de téléchargement. Vous devez spécifier le chemin de téléchargement quand vous utilisez l’option **/NOUI**. Si vous ne spécifiez pas un chemin de téléchargement, vous devez le faire à l’ouverture du téléchargeur d’installation. Le téléchargeur d’installation crée le dossier si celui-ci n’existe pas.  
 
-    Voorbeeldopdrachten:
+    Exemples de commandes :
 
-    -   **setupd &lt;DownloadPath\>**  
+    -   **setupd &lt;chemin_téléchargement\>**  
 
-        -   Setup Downloader start, controleert de bestanden in de opgegeven downloadmap en downloadt alleen de bestanden die ontbreken of die nieuwere versies dan de bestaande bestanden.     
+        -   Le téléchargeur d’installation démarre, vérifie les fichiers dans le dossier de téléchargement spécifié, puis télécharge uniquement les fichiers manquants ou présentant des versions plus récentes que les fichiers existants.     
 
-    -   **setupdl / /VERIFY &lt;DownloadPath\>**  
+    -   **setupdl /VERIFY &lt;chemin_téléchargement\>**  
 
-        -   Setup Downloader Start en controleert de bestanden in de opgegeven downloadmap.  
+        -   Le téléchargeur d'installation démarre, puis vérifie les fichiers dans le dossier de téléchargement spécifié.  
 
-    -   **setupdl / / noui &lt;DownloadPath\>**  
+    -   **setupdl /NOUI &lt;chemin_téléchargement\>**  
 
-        -   Setup Downloader start, controleert de bestanden in de opgegeven downloadmap en downloadt alleen de bestanden die ontbreken of nieuwer is dan de bestaande bestanden.  
+        -   Le téléchargeur d’installation démarre, vérifie les fichiers dans le dossier de téléchargement spécifié, puis télécharge uniquement les fichiers manquants ou plus récents que les fichiers existants.  
 
-    -   **setupdl / lang &lt;DownloadPath\>**  
+    -   **setupdl /LANG &lt;chemin_téléchargement\>**  
 
-        -   Setup Downloader start, controleert de taalbestanden in de opgegeven downloadmap en downloadt alleen de taalbestanden die ontbreken of nieuwer is dan de bestaande bestanden.  
+        -   Le téléchargeur d’installation démarre, vérifie les fichiers de langue dans le dossier de téléchargement spécifié, puis télécharge uniquement les fichiers de langue manquants ou plus récents que les fichiers existants.  
 
-    -   **setupdl / /VERIFY**  
+    -   **setupdl /VERIFY**  
 
-        -   Setup Downloader wordt gestart en vervolgens moet u het pad naar de downloadmap opgeven. Als u klikt vervolgens **controleren**, verifieert het Downloadprogramma de bestanden in de downloadmap.  
+        -   Le téléchargeur d'installation démarre, et vous devez alors spécifier le chemin d'accès vers le dossier de téléchargement. Ensuite, une fois que vous avez cliqué sur **Vérifier**, le téléchargeur d’installation vérifie les fichiers dans le dossier de téléchargement.  
 
-3.  De downloadresultaten bekijken, opent u de **ConfigMgrSetup.log** bestand in de hoofdmap van station C.
+3.  Pour passer en revue les résultats du téléchargement, ouvrez le fichier **ConfigMgrSetup.log** situé dans le répertoire racine du lecteur C.

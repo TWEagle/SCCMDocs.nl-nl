@@ -1,6 +1,6 @@
 ---
-title: Health attestation | Microsoft Docs
-description: Meer informatie over de functionaliteit Health Attestation van apparaten die kunnen worden weergegeven in de Configuration Manager-console.
+title: "Attestation d’intégrité | Microsoft Docs"
+description: "Découvrez les fonctionnalités d’attestation d’intégrité de l’appareil disponibles dans la console Configuration Manager."
 ms.custom: na
 ms.date: 03/27/2017
 ms.prod: configuration-manager
@@ -16,67 +16,67 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 54b3433a002b8ef29059bab04458138348f95d66
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="health-attestation-for-system-center-configuration-manager"></a>Health Attestation voor System Center Configuration Manager
+# <a name="health-attestation-for-system-center-configuration-manager"></a>Attestation d’intégrité pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Beheerders kunnen de status van[ Windows 10 Health Attestation](https://technet.microsoft.com/library/mt592023.aspx) van apparaten bekijken in de Configuration Manager-console.  Met Health Attestation van apparaten kan de beheerder ervoor zorgen dat clientcomputers over de volgende betrouwbare configuraties van BIOS, TPM en opstartsoftware beschikken:  
+Les administrateurs peuvent consulter l’état de l’[attestation d’intégrité des appareils Windows 10](https://technet.microsoft.com/library/mt592023.aspx) dans la console Configuration Manager.  L’attestation de l’intégrité des appareils permet à l’administrateur de s’assurer que les configurations dignes de confiance suivantes de BIOS, de module de plateforme sécurisée (TPM) et de logiciel de démarrage sont activées sur les ordinateurs clients :  
 
--   Early Launch Antimalware: Early Launch Antimalware (ELAM) beschermt uw computer wanneer deze wordt gestart en voordat de stuurprogramma's van derden worden geïnitialiseerd. [ELAM inschakelen](https://gallery.technet.microsoft.com/How-to-turn-on-Early-84552ec5)  
--   BitLocker: Windows BitLocker-stationsversleuteling is software waarmee u alle gegevens kunt versleutelen die zijn opgeslagen op het Windows-besturingssysteemvolume.  [Het inschakelen van BitLocker](https://gallery.technet.microsoft.com/How-to-turn-on-BitLocker-34294d3d)  
--   Beveiligd opstarten: beveiligd opstarten is een standaard die is ontwikkeld door leden van de pc-industrie om ervoor te zorgen dat uw pc opstart met alleen de software die wordt vertrouwd door de fabrikant van de computer. [Meer informatie over beveiligd opstarten](https://technet.microsoft.com/library/hh824987.aspx)  
--   Code-integriteit: code-integriteit is een functie die de beveiliging van het besturingssysteem verbetert door de integriteit van een stuurprogramma of systeembestand te valideren elke keer wanneer dit in het geheugen wordt geladen. [Meer informatie over code-integriteit](https://technet.microsoft.com/library/dd348642.aspx)  
+-   Logiciel anti-programme malveillant à lancement anticipé - Un logiciel anti-programme malveillant à lancement anticipé (ELAM) protège votre ordinateur au démarrage et avant l’initialisation de pilotes tiers. [Comment activer le logiciel anti-programme malveillant à lancement anticipé (ELAM)](https://gallery.technet.microsoft.com/How-to-turn-on-Early-84552ec5)  
+-   BitLocker - Le chiffrement de lecteur BitLocker Windows est un logiciel qui vous permet de chiffrer toutes les données stockées sur le volume hébergeant le système d’exploitation Windows.  [Comment activer BitLocker](https://gallery.technet.microsoft.com/How-to-turn-on-BitLocker-34294d3d)  
+-   Démarrage sécurisé - Le démarrage sécurisé est une norme de sécurité développée par des membres du secteur de la fabrication de PC pour s’assurer que votre ordinateur démarre en utilisant uniquement des logiciels approuvés par le fabricant de l’ordinateur. [En savoir plus sur le démarrage sécurisé](https://technet.microsoft.com/library/hh824987.aspx)  
+-   Intégrité du code - L’intégrité du code est une fonctionnalité qui améliore la sécurité du système d’exploitation en validant l’intégrité d’un fichier de pilote ou système chaque fois qu’il est chargé en mémoire. [En savoir plus sur l’intégrité du code](https://technet.microsoft.com/library/dd348642.aspx)  
 
-Deze functionaliteit is beschikbaar voor pc's en on-premises bronnen die worden beheerd door Configuration Manager en mobiele apparaten die met behulp van Microsoft Intune worden beheerd. Beheerders kunnen opgeven of rapportage plaatsvindt via de cloud of on-premises infrastructuur. Een on-premises health attestation van apparaten controleren schakelt-beheerder om te controleren van de client-pc's zonder internettoegang.
+Cette fonctionnalité est disponible pour les PC et les ressources locales gérés par Configuration Manager et les appareils mobiles gérés avec Microsoft Intune. Les administrateurs peuvent spécifier si le signalement s’effectue par le biais du cloud ou de l’infrastructure locale. La surveillance locale de l’attestation d’intégrité des appareils permet à l’administrateur de surveiller les ordinateurs clients sans accès Internet.
 
-## <a name="enable-health-attestation"></a>Statusverklaringen inschakelen
+## <a name="enable-health-attestation"></a>Activer l’attestation d’intégrité
 
- **Vereisten:**  
+ **Configuration requise :**  
 
--   Clientapparaten met Windows 10 versie 1607 of Windows Server 2016-versie 1607 met [Health Attestation van apparaten is ingeschakeld](https://technet.microsoft.com/windows-server-docs/security/device-health-attestation)
--    TPM 1.2 of TPM 2 ingeschakeld apparaten
--   Communicatie tussen de clientagent voor Configuration Manager-en has.spserv.microsoft.com (poort 443) Health Attestation-service (cloud management) of met health attestation-functionaliteit apparaatbeheerpunt (op locatie)
+-   Appareils clients sous Windows 10 version 1607 ou Windows Server 2016 1607 avec [attestation d’intégrité d’appareil activée](https://technet.microsoft.com/windows-server-docs/security/device-health-attestation)
+-    Appareils TPM 1.2 ou TPM 2 compatibles
+-   Communication entre l’agent du client Configuration Manager et le service d’attestation d’intégrité has.spserv.microsoft.com (port 443) (gestion du cloud) ou avec le point de gestion avec attestation d’intégrité d’appareil (local) activée
 
-### <a name="how-to-enable-health-attestation-service-communication-on-configuration-manager-client-computers"></a>Health Attestation-servicecommunicatie inschakelen op Configuration Manager-clientcomputers
+### <a name="how-to-enable-health-attestation-service-communication-on-configuration-manager-client-computers"></a>Comment activer la communication avec le service d’attestation d’intégrité sur des ordinateurs clients Configuration Manager
 
-Gebruik deze procedure apparaat health attestation bewaking voor apparaten die verbinding met het internet maken wilt inschakelen.
+Utilisez cette procédure pour activer la surveillance de l’attestation d’intégrité des appareils qui se connectent à internet.
 
-1.  Kies in de Configuration Manager-console **Beheer** > **Overzicht** > **Clientinstellingen**.  Kies het tabblad voor **Computeragent** -instellingen.  
-2.  Selecteer in het dialoogvenster **Standaardinstellingen** de optie **Computeragent** en schuif vervolgens omlaag naar **Communicatie met de Health Attestation-service inschakelen**  
-3.  Stel de optie **Communicatie met de Health Attestation-Service inschakelen** in op **Ja**en klik vervolgens op **OK**.  
-4. Gericht zijn op verzamelingen van apparaten die Apparaatstatus rapporteren moeten.
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Vue d’ensemble** > **Paramètres client**.  Sélectionnez l’onglet des paramètres de l’ **Agent ordinateur** .  
+2.  Dans la boîte de dialogue **Paramètres par défaut** , sélectionnez **Agent ordinateur** , puis accédez à **Activer la communication avec le service d’attestation d’intégrité**.  
+3.  Affectez la valeur **Oui** à **Activer la communication avec le service d’attestation d’intégrité**, puis cliquez sur **OK**.  
+4. Ciblez les regroupements d’appareils qui doivent signaler l’intégrité des appareils.
 
-### <a name="how-to-enable-on-premises-health-attestation-service-communication-on-configuration-manager-client-computers"></a>On-premises Health Attestation-servicecommunicatie inschakelen op Configuration Manager-clientcomputers
-Gebruik deze procedure apparaat health attestation bewaking voor on-premises apparaten die geen verbinding met het internet maken wilt inschakelen.
+### <a name="how-to-enable-on-premises-health-attestation-service-communication-on-configuration-manager-client-computers"></a>Comment activer la communication avec le service d’attestation d’intégrité local sur des ordinateurs clients Configuration Manager
+Utilisez cette procédure pour activer la surveillance de l’attestation d’intégrité des appareils en local qui ne se connectent pas à internet.
 
-Beginnen met Configuration Manager 1702, worden het lokale apparaat health attestation service-URL geconfigureerd op het beheerpunt om clientapparaten zonder toegang tot internet te ondersteunen.
+À partir de Configuration Manager 1702, l’URL du service d’attestation d’intégrité des appareils en local peut être configurée sur le point de gestion pour prendre en charge les appareils clients sans accès à Internet.
 
-1. Navigeer in de Configuration Manager-console **beheer** > **overzicht** > **siteconfiguratie** > **Sites**.
-2. Met de rechtermuisknop op de primaire of secundaire site met het beheerpunt dat ondersteuning voor clients health attestation van lokale apparaten en selecteer **Siteonderdelen configureren** > **beheerpunt**. De **eigenschappen van Beheerpuntonderdeel** pagina wordt geopend.
-3. Op de **geavanceerde opties** tabblad **toevoegen** en geef een geldige lokale apparaat health attestation-service-URL. U kunt meerdere URL's toevoegen. Als meerdere lokale URL's zijn opgegeven, kunnen clients de volledige set ontvangen en willekeurig kiezen die wordt gebruikt.
-4.  Kies in de Configuration Manager-console **Beheer** > **Overzicht** > **Clientinstellingen**.  Kies het tabblad voor **Computeragent** -instellingen.  
-5.  In de **standaardinstellingen** dialoogvenster, **Computeragent** en schuif vervolgens omlaag naar **on-premises gebruiken statusservice Attestaion**, en ingesteld op **Ja**.
-6. Gericht zijn op verzamelingen van apparaten die moeten rapporteren Apparaatstatus met de clientagentinstellingen statusverklaringen apparaat inschakelen.
+1. Dans la console Configuration Manager, accédez à **Administration** > **Vue d’ensemble** > **Configuration du site** > **Sites**.
+2. Cliquez avec le bouton droit sur le site principal ou secondaire avec le point de gestion qui prend en charge des clients d’attestation d’intégrité d’appareils en local, puis sélectionnez **Configurer des composants de site** > **Point de gestion**. La page **Propriétés du composant du point de gestion** s’ouvre.
+3. Dans l’onglet **Options avancées**, sélectionnez **Ajouter** et spécifiez une URL de service d’attestation d’intégrité des appareils en local. Vous pouvez ajouter plusieurs URL. Si plusieurs URL locales sont spécifiées, les clients reçoivent le jeu complet et choisissent de façon aléatoire celle à utiliser.
+4.  Dans la console Configuration Manager, choisissez **Administration** > **Vue d’ensemble** > **Paramètres client**.  Sélectionnez l’onglet des paramètres de l’ **Agent ordinateur** .  
+5.  Dans la boîte de dialogue **Paramètres par défaut**, sélectionnez **Agent ordinateur**, faites défiler jusqu’à **Utiliser le service d’attestation d’intégrité des appareils en local**, puis sélectionnez **Oui**.
+6. Ciblez les regroupements d’appareils qui doivent signaler l’intégrité d’appareil avec les paramètres de l’agent client pour activer les rapports d’attestation d’intégrité des appareils.
 
-U kunt ook **bewerken** of **verwijderen** apparaat health attestation-service-URL's.
+Vous pouvez également **modifier** ou **supprimer** les URL du service d’attestation d’intégrité des appareils.
 
 > [!NOTE]
-> Als u gebruikt health attestation van apparaten voordat u een upgrade naar wordt Configuration Manager 1702, de lokale URL's opgegeven in de clientagentinstellingen vooraf ingevuld in de beheerpunteigenschappen tijdens de upgrade. Lokale clients blijven gebruikt u de URL die is opgegeven in de clientagentinstellingen totdat ze zijn bijgewerkt. Deze wordt vervolgens overschakelen naar een van de URL die is opgegeven op het beheerpunt.
+> Si vous avez utilisé l’attestation d’intégrité des appareils avant la mise à niveau vers Configuration Manager 1702, les URL locales spécifiées dans les paramètres de l’agent du client sont prérempliées dans les propriétés du point de gestion au cours de la mise à niveau. Les clients locaux continueront d’utiliser l’URL spécifiée dans les paramètres de l’agent client jusqu'à ce qu’ils soient mis à niveau. Ils basculeront ensuite vers une URL spécifiée sur le point de gestion.
 
-## <a name="monitor-device-health-attestation"></a>Health attestation van apparaten controleren
+## <a name="monitor-device-health-attestation"></a>Surveiller l’attestation d’intégrité de l’appareil Windows
 
-1.  Als u de Health Attestation van apparaten wilt weergeven, doet u het volgende: ga in de Configuration Manager-console naar de werkruimte **Bewaking** , klik op het knooppunt **Beveiliging** en klik vervolgens op **Health Attestation**.  
-2.  Health Attestation van apparaten wordt weergegeven.  
+1.  Pour afficher l’attestation d’intégrité de l’appareil, dans la console Configuration Manager, accédez à l’espace de travail **Surveillance** , cliquez sur le nœud **Sécurité** , puis sur **Attestation d’intégrité**.  
+2.  L’attestation d’intégrité de l’appareil s’affiche.  
 
-In Configuration Manager Health Attestation van apparaten wordt het volgende weergegeven:  
+L’attestation d’intégrité des appareils Configuration Manager affiche les informations suivantes :  
 
--   **Status Health Attestation** : geeft het aantal apparaten weer met een compatibele, niet-compatibele, onjuiste of onbekende status  
--   **Health Attestation-apparaatrapportage** : geeft het aantal apparaten weer waarvan de Health Attestation-status is gerapporteerd  
--   **Niet-compatibele apparaten op clienttype** : geeft het aantal mobiele apparaten en computers weer die niet compatibel zijn  
--   **Instellingen voor bovenste ontbrekende Health Attestation** : geeft het aantal apparaten weer waarvan de Health Attestation-instelling ontbreekt, weergegeven per instelling
+-   **État d’attestation d’intégrité** : indique la répartition des appareils en état conforme, non conforme, d’erreur ou inconnu.  
+-   **Appareils signalant une attestation d’intégrité** : indique le pourcentage d’appareils signalant l’état d’attestation d’intégrité.  
+-   **Appareils non conformes par type de client** : indique la répartition des appareils mobiles et ordinateurs non conformes.  
+-   **Principaux paramètres manquants de l’attestation d’intégrité** : indique le nombre d’appareils auxquels un paramètre d’attestation d’intégrité manque, répertoriés par paramètre manquant.
 
-Status van de client Health Attestation van apparaten kan worden gebruikt voor het definiëren van regels voor voorwaardelijke toegang in nalevingsbeleid voor apparaten die worden beheerd door Configuration Manager met Microsoft Intune. Zie [Beleidsregels voor naleving beheren in System Center Configuration Manager](/sccm/protect/deploy-use/device-compliance-policies) voor informatie.  
+L’état de l’attestation d’intégrité de l’appareil client permet de définir des règles d’accès conditionnel dans des stratégies de conformité pour les appareils gérés par Configuration Manager avec Microsoft Intune. Pour plus d’informations, consultez [Gérer les stratégies de conformité d’appareils dans System Center Configuration Manager](/sccm/protect/deploy-use/device-compliance-policies).  

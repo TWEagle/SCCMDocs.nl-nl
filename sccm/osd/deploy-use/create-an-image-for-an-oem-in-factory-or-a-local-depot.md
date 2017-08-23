@@ -1,6 +1,6 @@
 ---
-title: Een installatiekopie voor een OEM in de fabriek of een lokaal depot maken | Microsoft Docs
-description: Implementaties met voorbereide media gebruiken voor het netwerkverkeer te verminderen terwijl u een besturingssysteem implementeren op een computer die niet volledig is ingericht.
+title: "Créer une image pour un fabricant OEM en usine ou un dépôt local | Microsoft Docs"
+description: "Procédez à des déploiements de médias préparés pour réduire le trafic réseau pendant le déploiement d’un système d’exploitation sur un ordinateur qui n’est pas entièrement approvisionné."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,41 +16,41 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 07aba04fb1b845e389a5f75b115d536136c1569c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-an-image-for-an-oem-in-factory-or-a-local-depot-with-system-center-configuration-manager"></a>Een installatiekopie voor een OEM in de fabriek of een lokaal depot maken met System Center Configuration Manager
+# <a name="create-an-image-for-an-oem-in-factory-or-a-local-depot-with-system-center-configuration-manager"></a>Créer une image pour un fabricant OEM en usine ou un dépôt avec System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Implementaties met voorbereide media in System Center Configuration Manager kunnen u een besturingssysteem implementeren op een computer die niet volledig is ingericht. De voorbereide media staat een Windows Imaging Format (WIM)-bestand dat kan worden geïnstalleerd op een bare-metal computer door de fabrikant (OEM) of in een zakelijk voorbereidingscentrum dat niet is verbonden met de Configuration Manager-omgeving. Een hash-controle wordt later in de Configuration Manager-omgeving, de computer is gestart met behulp van de door de media verstrekte opstartinstallatiekopie uitgevoerd op de voorbereide media om te controleren of deze geldig is en vervolgens de computer verbinding maakt met het sitebeheerpunt voor beschikbare takenreeksen waarmee het downloadproces voltooien.
+Les déploiements de médias préparés dans System Center Configuration Manager permettent de déployer un système d’exploitation sur un ordinateur qui n’est pas entièrement approvisionné. Un média préparé est un fichier WIM (Windows Imaging Format) qui peut être installé sur un ordinateur nu par le fabricant (OEM) ou dans un centre de reclassement d’entreprise qui n’est pas connecté à l’environnement Configuration Manager. Par la suite, dans l’environnement Configuration Manager, l’ordinateur commence par utiliser l’image de démarrage fournie par le média, un contrôle de hachage est effectué sur le média préparé pour vérifier qu’il est valide, puis l’ordinateur se connecte au point de gestion de site pour les séquences de tâches disponibles qui terminent le processus de téléchargement.
 
 
-Deze implementatiemethode kan het netwerkverkeer verminderen omdat de opstartinstallatiekopie en de installatiekopie van het besturingssysteem zich al op de doelcomputer bevinden. U kunt toepassingen, pakketten en stuurprogrammapakketten opgeven die in de voorbereide media moeten worden opgenomen. Nadat het besturingssysteem is geïnstalleerd op de computer, wordt de lokale takenreekscache eerst gecontroleerd op toepassingen, pakketten en stuurprogrammapakketten, en als de inhoud niet kan worden gevonden of is gewijzigd, wordt de inhoud gedownload vanaf een distributiepunt dat is geconfigureerd in de voorbereide media, en vervolgens geïnstalleerd.  
+Cette méthode de déploiement peut réduire le trafic réseau car l'image de démarrage et l'image du système d'exploitation sont déjà sur l'ordinateur de destination. Vous pouvez spécifier les applications, les packages et les packages de pilotes à inclure dans le média préparé. Une fois le système d’exploitation installé sur l’ordinateur, le cache de séquence de tâches local est vérifié en premier à la recherche d’applications, de packages ou de packages de pilotes, et si le contenu est introuvable ou a été modifié, il est téléchargé à partir d’un point de distribution configuré dans le média préparé, puis installé.  
 
- U kunt voorbereide media gebruiken in de volgende implementatiescenario's van besturingssysteem:  
+ Vous pouvez utiliser un média préparé dans les scénarios de déploiement de système d’exploitation suivants :  
 
--   [Een nieuwe versie van Windows op een nieuwe computer (bare-metal) installeren](install-new-windows-version-new-computer-bare-metal.md)  
+-   [Installation d’une nouvelle version de Windows sur un nouvel ordinateur (système nu)](install-new-windows-version-new-computer-bare-metal.md)  
 
--   [Een bestaande computer vervangen en de instellingen overzetten](replace-an-existing-computer-and-transfer-settings.md)  
+-   [Remplacement d’un ordinateur existant et transfert des paramètres](replace-an-existing-computer-and-transfer-settings.md)  
 
- Voer de stappen in een van de implementatiescenario’s voor besturingssystemen en gebruik de volgende secties om de voorbereide media voor te bereiden en te maken.  
+ Effectuez les étapes de l’un des scénarios de déploiement de système d’exploitation, puis utilisez les sections suivantes pour vous préparer et créer le média préparé.  
 
-## <a name="configure-deployment-settings"></a>Implementatie-instellingen configureren  
- Als u het implementatieproces voor een besturingssysteem wilt starten vanaf vooraf geplaatste media, moet u de implementatie configureren om het besturingssysteem beschikbaar te stellen voor media. U kunt dit configureren op de pagina **Implementatie-instellingen** van de wizard Software implementeren of op het tabblad **Implementatie-instellingen** in de eigenschappen voor de implementatie.  Configureer een van de volgende waarden voor de instelling **Toegankelijk maken voor de volgende** :  
+## <a name="configure-deployment-settings"></a>Configurer les paramètres de déploiement  
+ Quand vous utilisez un média préparé pour démarrer le processus de déploiement de système d’exploitation, vous devez configurer le déploiement pour rendre le système d’exploitation accessible au média. Vous pouvez configurer cela dans la page **Paramètres de déploiement** de l’Assistant Déploiement logiciel ou sous l’onglet **Paramètres de déploiement** dans les propriétés du déploiement.  Pour le paramètre **Rendre disponible aux éléments suivants** , sélectionnez l’une des options suivantes :  
 
--   **Configuration Manager-clients, media en PXE**  
+-   **Clients, média et environnement PXE Configuration Manager**  
 
--   **Alleen media en PXE**  
+-   **Média et environnement PXE uniquement**  
 
--   **Alleen media en PXE (verborgen)**  
+-   **Média et environnement PXE uniquement (masqué)**  
 
-## <a name="create-the-prestaged-media"></a>Voorbereide media maken  
- Maak de voorbereide media die naar de OEM of uw lokale depot moet worden verzonden. Zie [Voorbereide media maken met System Center Configuration Manager](create-prestaged-media.md) voor meer informatie.  
+## <a name="create-the-prestaged-media"></a>Créer le média préparé  
+ Créez le fichier de média préparé à envoyer à l’OEM ou à votre dépôt local. Pour plus d'informations, voir [Create prestaged media with System Center Configuration Manager](create-prestaged-media.md).  
 
-## <a name="send-the-prestaged-media-file-to-the-oem-or-local-depot"></a>Het voorbereide mediabestand naar de OEM of het lokale depot verzenden  
- Verzend de media naar de OEM of uw lokale depot om de computers voor te bereiden. Het voorbereide mediabestand wordt toegepast op een geformatteerde vaste schijf op de computer.  
+## <a name="send-the-prestaged-media-file-to-the-oem-or-local-depot"></a>Envoyer le fichier de média préparé à l’OEM ou au dépôt local  
+ Envoyez le média à l’OEM ou à votre dépôt local pour préparer les ordinateurs. Le fichier de média préparé est appliqué à un disque dur formaté sur l’ordinateur.  
 
-## <a name="start-the-computer-to-install-the-operating-system"></a>Start de computer om het besturingssysteem te installeren  
- Het voorbereide mediabestand wordt toegepast op alle computers. Zodra de computer voor het eerst wordt gestart, start het installatieproces van het besturingssysteem.  
+## <a name="start-the-computer-to-install-the-operating-system"></a>Démarrer l’ordinateur pour installer le système d’exploitation  
+ Le fichier de média préparé est appliqué aux ordinateurs. Quand l’ordinateur est démarré pour la première fois, le processus d’installation de système d’exploitation démarre.  

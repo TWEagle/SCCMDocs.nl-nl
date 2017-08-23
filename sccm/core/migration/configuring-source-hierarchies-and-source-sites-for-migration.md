@@ -1,6 +1,6 @@
 ---
-title: "Bronhiërarchieën voor migratie | Microsoft Docs"
-description: "Een bronhiërarchie en bronsites configureren zodat u gegevens naar uw System Center Configuration Manager-omgeving migreren kunt."
+title: "Hiérarchies sources de migration | Microsoft Docs"
+description: "Configurez une hiérarchie source et des sites sources pour permettre la migration de données vers votre environnement System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
@@ -17,89 +17,89 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 80c43ab93ee5a2de6bf8d7993dfd46f0005d2df8
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-source-hierarchies-and-source-sites-for-migration-to-system-center-configuration-manager"></a>Bronhiërarchieën en bronsites voor migratie naar System Center Configuration Manager configureren
+# <a name="configure-source-hierarchies-and-source-sites-for-migration-to-system-center-configuration-manager"></a>Configurer des hiérarchies sources et des sites sources pour la migration vers System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Om de migratie van gegevens naar uw System Center Configuration Manager-omgeving, moet u een ondersteunde bronhiërarchie van Configuration Manager en een of meer bronsites in die hiërarchie die gegevens bevatten die u wilt migreren.  
+Pour permettre la migration de données vers votre environnement System Center Configuration Manager, vous devez configurer une hiérarchie source Configuration Manager prise en charge et, dans cette hiérarchie, configurer un ou plusieurs sites sources contenant les données à migrer.  
 
 > [!NOTE]  
->  Migratiebewerkingen worden uitgevoerd op het hoogste niveau in de doelhiërarchie. Als u migratie configureert wanneer u een Configuration Manager-console die is verbonden met een primaire onderliggende site gebruikt, moet u voldoende tijd uittrekken om de configuratie te repliceren naar de centrale beheersite, start, en status worden vervolgens gerepliceerd naar de primaire site waarmee u verbonden bent.  
+>  Les opérations de migration sont exécutées sur le site de niveau supérieur de la hiérarchie de destination. Si vous configurez la migration à partir d’une console Configuration Manager connectée à un site enfant principal, vous devez donner le temps à la configuration de se répliquer vers le site d’administration centrale, de démarrer, puis de répliquer l’état vers le site principal auquel vous êtes connecté.  
 
- Gebruik de informatie en procedures in de volgende secties Specificeer de bronhiërarchie en aanvullende bronsites toevoegen. Nadat u deze procedures hebt voltooid, kunt u migratietaken maken en starten om gegevens te migreren van de bronhiërarchie naar de doelhiërarchie.  
+ Pour spécifier la hiérarchie source et ajouter d’autres sites sources, aidez-vous des informations et des procédures figurant dans les sections suivantes. Au terme de ces procédures, vous pouvez créer des tâches de migration et commencer à migrer les données de la hiérarchie source vers la hiérarchie de destination.  
 
--   [Een bronhiërarchie voor migratie opgeven](#BKBM_ConfigSrcHierarchy)  
+-   [Spécifier une hiérarchie source pour la migration](#BKBM_ConfigSrcHierarchy)  
 
--   [Aanvullende bronsites van de bronhiërarchie bepalen](#BKBM_ConfigSrcSites)  
+-   [Identifier des sites sources supplémentaires dans la hiérarchie source](#BKBM_ConfigSrcSites)  
 
-##  <a name="BKBM_ConfigSrcHierarchy"></a>Een bronhiërarchie voor migratie opgeven  
- Om gegevens te migreren naar uw doelhiërarchie, moet u een ondersteunde bronhiërarchie met de gegevens die u wilt migreren. Het hoogste niveau van die hiërarchie wordt standaard een bronsite van de bronhiërarchie. Als u van een Configuration Manager 2007-hiërarchie migreert, kunt u automatisch instellen om aanvullende bronsites voor migratie nadat gegevens zijn verzameld vanaf de oorspronkelijke bronsite. Als u van een System Center 2012 Configuration Manager of System Center Configuration Manager-hiërarchie migreert, hoeft u geen aanvullende bronsites instellen voor het migreren van gegevens van de bronhiërarchie. Dit komt doordat in deze versies van Configuration Manager gebruikt een gedeelde database die beschikbaar is op het hoogste niveau van de bronhiërarchie. De gedeelde database bevat alle informatie die u kunt migreren.  
+##  <a name="BKBM_ConfigSrcHierarchy"></a> Spécifier une hiérarchie source pour la migration  
+ Pour migrer les données vers votre hiérarchie de destination, vous devez spécifier une hiérarchie source prise en charge qui présente les données à migrer. Par défaut, le site de niveau supérieur de cette hiérarchie devient un site source de la hiérarchie source. Si vous effectuez la migration à partir d’une hiérarchie Configuration Manager 2007, vous pouvez configurer des sites sources supplémentaires pour la migration après avoir collecté les données du site source initial. Si vous effectuez la migration à partir d’une hiérarchie System Center 2012 Configuration Manager ou System Center Configuration Manager, vous n’avez pas besoin de configurer des sites sources supplémentaires pour migrer les données de la hiérarchie source. Ceci est dû au fait que ces versions de Configuration Manager utilisent une base de données partagée qui est disponible sur le site de niveau supérieur dans la hiérarchie source. La base de données partagée présente toutes les informations que vous pouvez migrer.  
 
- Gebruik de volgende procedures om op te geven van een bronhiërarchie voor migratie en aanvullende bronsites in een Configuration Manager 2007-hiërarchie te identificeren.  
+ Utilisez les procédures suivantes pour spécifier une hiérarchie source pour la migration et pour identifier des sites sources supplémentaires dans une hiérarchie Configuration Manager 2007.  
 
- Deze procedure uitvoert met een Configuration Manager-console die is verbonden met de doelhiërarchie:  
+ Exécutez cette procédure dans une console Configuration Manager qui est connectée à la hiérarchie de destination :  
 
-### <a name="to-configure-a-source-hierarchy"></a>Een bronhiërarchie configureren   
+### <a name="to-configure-a-source-hierarchy"></a>Pour configurer une hiérarchie source   
 
-1.  Klik op **Beheer**in de Configuration Manager-console.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-2.  Vouw **Migratie** uit in de werkruimte **Beheer**en klik vervolgens op **Bronhiërarchie**.  
+2.  Dans l'espace de travail **Administration** , développez **Migration**, puis cliquez sur **Hiérarchie source**.  
 
-3.  Op de **Start** tabblad, in de **migratie** groep, klikt u op **bronhiërarchie opgeven**.  
+3.  Sous l'onglet **Accueil** , dans le groupe **Migration** , cliquez sur **Spécifier la hiérarchie source**.  
 
-4.  In de **bronhiërarchie opgeven** in het dialoogvenster voor **bronhiërarchie**, selecteer **nieuwe bronhiërarchie**.  
+4.  Dans la boîte de dialogue **Spécifier une hiérarchie source** , pour **Hiérarchie source**, sélectionnez **Nouvelle hiérarchie source**.  
 
-5.  Voor **Top-level Configuration Manager-siteserver**, geef de naam of IP-adres van het hoogste niveau van een ondersteunde bronhiërarchie.  
+5.  Dans **Serveur de site Configuration Manager de niveau supérieur**, entrez le nom ou l’adresse IP du site de niveau supérieur d’une hiérarchie source prise en charge.  
 
-6.  Geef de bronaccounts voor toegang tot die de volgende machtigingen hebben:  
+6.  Spécifiez les comptes d'accès au site source qui disposent des autorisations suivantes :  
 
-    -   Bronsiteaccount: **Lees** machtiging voor de SMS-Provider voor de opgegeven site op het hoogste niveau in de bronhiërarchie. Delen van distributiepunten en upgrades vereisen **wijzigen** en **verwijderen** machtigingen voor de site in de bronhiërarchie.
+    -   Compte du site source : Autorisation **Lecture** pour le fournisseur SMS du site de niveau supérieur spécifié dans la hiérarchie source. Les mises à niveau et le partage des points de distribution nécessitent les autorisations **Modifier** et **Supprimer** sur le site dans la hiérarchie source.
 
-    -   Bronsitedatabaseaccount: **Lees** en **Execute** machtiging voor de SQL Server-database voor de opgegeven site op het hoogste niveau in de bronhiërarchie.  
+    -   Compte de base de données du site source : Autorisation **Lecture** et **Exécution** sur la base de données SQL Server du site de niveau supérieur spécifié dans la hiérarchie source.  
 
-     Als u het gebruik van het computeraccount opgeeft, wordt in Configuration Manager maakt gebruik van het computeraccount van het hoogste niveau van de doelhiërarchie. Zorg ervoor dat dit account lid van de beveiligingsgroep is voor deze optie **DCOM-gebruikers** in het domein waarin het hoogste niveau van de bronhiërarchie zich bevindt.  
+     Si vous spécifiez l’utilisation du compte d’ordinateur, Configuration Manager utilise le compte d’ordinateur du site de niveau supérieur de la hiérarchie de destination. Pour cette option, assurez-vous que ce compte est membre du groupe de sécurité **Utilisateurs du modèle COM distribué** dans le domaine où réside le site de niveau supérieur de la hiérarchie source.  
 
-7.  Als u wilt delen van distributiepunten tussen de bron- en Doelhiërarchieën, selecteer de **inschakelen voor de bronsiteserver deling van distributiepunt** selectievakje. Als u niet op dit moment delen van distributiepunten inschakelt, kunt u doen zodat door de referenties van de bronsite te bewerken nadat gegevens verzamelen is voltooid.  
+7.  Pour partager des points de distribution entre des hiérarchies source et de destination, activez la case à cocher **Activer le partage du point de distribution pour ce serveur de site source** . Si vous n’activez pas le partage des points de distribution maintenant, vous pouvez le faire en modifiant les informations d’identification du site source à la fin de la collecte des données.  
 
-8.  Klik op **OK** om de configuratie op te slaan. Hiermee opent u de **Status gegevensverzameling** in het dialoogvenster en start het automatisch verzamelen van gegevens.  
+8.  Cliquez sur **OK** pour enregistrer la configuration. La boîte de dialogue **État de la collecte de données** s'ouvre, et la collecte de données démarre automatiquement.  
 
-9. Wanneer gegevens zijn verzameld, klikt u op **sluiten** sluiten de **Status gegevensverzameling** dialoogvenster en de configuratie te voltooien.  
+9. À la fin de la collecte des données, cliquez sur **Fermer** pour fermer la boîte de dialogue **État de la collecte de données** et terminer la configuration.  
 
-##  <a name="BKBM_ConfigSrcSites"></a>Aanvullende bronsites van de bronhiërarchie bepalen  
- Wanneer u een ondersteunde bronhiërarchie configureert, wordt het hoogste niveau van die hiërarchie automatisch geconfigureerd als een bronsite en gegevens automatisch verzameld vanaf die site. De volgende actie die u wilt uitvoeren, is afhankelijk van de versie van Configuration Manager die wordt uitgevoerd door de bronhiërarchie:  
+##  <a name="BKBM_ConfigSrcSites"></a> Identifier des sites sources supplémentaires dans la hiérarchie source  
+ Lorsque vous configurez une hiérarchie source prise en charge, le site de niveau supérieur de cette hiérarchie est automatiquement configuré comme un site source, et les données sont collectées à partir de celui-ci. L’action suivante à effectuer dépend de la version de Configuration Manager qui est exécutée par la hiérarchie source :  
 
--   Voor een Configuration Manager 2007-bronhiërarchie, kunt u beginnen met migratie van die oorspronkelijke bronsite of Stel aanvullende bronsites van de bronhiërarchie nadat het verzamelen van gegevens is voltooid voor de oorspronkelijke bronsite. Om gegevens te migreren die alleen beschikbaar op een onderliggende site, Stel u aanvullende bronsites voor een Configuration Manager 2007-hiërarchie. U kunt bijvoorbeeld aanvullende bronsites voor het verzamelen van gegevens over inhoud die u migreren wilt als deze wordt gemaakt op een onderliggende site in de bronhiërarchie en niet beschikbaar op de bovenste site van de bronhiërarchie is configureren.  
+-   S’il s’agit d’une hiérarchie source Configuration Manager 2007, vous pouvez commencer la migration à partir de ce site source initial ou configurer des sites sources supplémentaires dans la hiérarchie source à la fin de la collecte des données du site source initial. Pour migrer des données qui sont disponibles uniquement sur un site enfant, configurez des sites sources supplémentaires dans une hiérarchie Configuration Manager 2007. Par exemple, vous pouvez configurer des sites sources supplémentaires pour collecter des données relatives au contenu que vous souhaitez migrer quand il est créé sur un site enfant de la hiérarchie source et qu’il n’est pas disponible sur le site de niveau supérieur dans la hiérarchie source.  
 
--   Voor een System Center 2012 Configuration Manager of System Center Configuration Manager-bronhiërarchie hoeft u geen aanvullende bronsites te configureren. Dit komt doordat in deze versies van Configuration Manager gebruikt een gedeelde database die beschikbaar is op het hoogste niveau van de bronhiërarchie. De gedeelde database bevat alle informatie die u vanaf alle sites in die bronhiërarchie migreren kunt. Hierdoor worden de gegevens die u kunt migreren beschikbaar vanaf de site op het hoogste niveau van de bronhiërarchie.  
+-   Dans le cas d’une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager, vous n’avez pas besoin de configurer de sites sources supplémentaires. Ceci est dû au fait que ces versions de Configuration Manager utilisent une base de données partagée qui est disponible sur le site de niveau supérieur dans la hiérarchie source. La base de données partagée présente toutes les informations que vous pouvez migrer à partir de tous les sites dans cette hiérarchie source. Les données que vous pouvez migrer sont donc disponibles à partir du site de niveau supérieur de la hiérarchie source.  
 
-Wanneer u aanvullende bronsites voor een Configuration Manager 2007-bronhiërarchie configureert, moet u aanvullende bronsites vanaf de bovenkant van de bronhiërarchie naar de onderkant configureren. Voordat u een van de onderliggende sites als bronsites configureren, moet u een bovenliggende site configureren als een bronsite.  
+Quand vous configurez des sites sources supplémentaires dans une hiérarchie source Configuration Manager 2007, vous devez les configurer du haut de la hiérarchie source vers le bas. Vous devez configurer un site parent comme site source pour pouvoir configurer ses sites enfant comme sites source.  
 
-Gebruik de volgende procedure als u aanvullende bronsites configureren voor Configuration Manager 2007-bronhiërarchieën:  
+Effectuez la procédure suivante pour configurer des sites sources supplémentaires dans une hiérarchie source Configuration Manager 2007 :  
 
-### <a name="to-identify-additional-source-sites-in-the-source-hierarchy"></a>Aanvullende bronsites in de bronhiërarchie identificeren 
+### <a name="to-identify-additional-source-sites-in-the-source-hierarchy"></a>Pour identifier des sites sources supplémentaires dans la hiérarchie source 
 
-1.  Klik op **Beheer**in de Configuration Manager-console.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-2.  Vouw **Migratie** uit in de werkruimte **Beheer**en klik vervolgens op **Bronhiërarchie**.  
+2.  Dans l'espace de travail **Administration** , développez **Migration**, puis cliquez sur **Hiérarchie source**.  
 
-3.  Kies de site die u wilt configureren als een bronsite.  
+3.  Choisissez le site à configurer comme site source.  
 
-4.  Klik op het tabblad **Start** in de groep **Bronsite** op **Configureren**.  
+4.  Dans l' onglet **Accueil** , dans le groupe **Site source** , cliquez sur **Configurer**.  
 
-5.  In de **Bronsitereferenties** in het dialoogvenster voor de toegangsaccounts bron accounts opgeven die de volgende machtigingen hebben:  
+5.  Dans la boîte de dialogue **Informations d'identification du site source** , pour des comptes d'accès de site source, définissez les comptes qui disposent des autorisations suivantes :  
 
-    -   Bronsiteaccount: **Lees** machtiging voor de SMS-Provider voor de opgegeven site op het hoogste niveau in de bronhiërarchie. Delen van distributiepunten en upgrades vereisen **wijzigen** en **verwijderen** machtigingen voor de site in de bronhiërarchie.  
+    -   Compte du site source : Autorisation **Lecture** pour le fournisseur SMS du site de niveau supérieur spécifié dans la hiérarchie source. Les mises à niveau et le partage des points de distribution nécessitent les autorisations **Modifier** et **Supprimer** sur le site dans la hiérarchie source.  
 
-    -   Bronsitedatabaseaccount: **Lees** en **Execute** machtiging voor de SQL Server-database voor de opgegeven site op het hoogste niveau in de bronhiërarchie.  
+    -   Compte de base de données du site source : Autorisation **Lecture** et **Exécution** sur la base de données SQL Server du site de niveau supérieur spécifié dans la hiérarchie source.  
 
-    Als u het gebruik van het computeraccount opgeeft, wordt in Configuration Manager maakt gebruik van het computeraccount van het hoogste niveau van de doelhiërarchie. Zorg ervoor dat dit account lid van de beveiligingsgroep is voor deze optie **DCOM-gebruikers** in het domein waarin het hoogste niveau van de bronhiërarchie zich bevindt.  
+    Si vous spécifiez l’utilisation du compte d’ordinateur, Configuration Manager utilise le compte d’ordinateur du site de niveau supérieur de la hiérarchie de destination. Pour cette option, assurez-vous que ce compte est membre du groupe de sécurité **Utilisateurs du modèle COM distribué** dans le domaine où réside le site de niveau supérieur de la hiérarchie source.  
 
-6.  Als u wilt delen van distributiepunten tussen de bron- en Doelhiërarchieën, selecteer de **inschakelen voor de bronsiteserver deling van distributiepunt** selectievakje. Als u niet op dit moment delen van distributiepunten inschakelt, kunt u doen zodat door de referenties voor de bronsite te bewerken nadat gegevens verzamelen is voltooid.  
+6.  Pour partager des points de distribution entre des hiérarchies source et de destination, activez la case à cocher **Activer le partage du point de distribution pour ce serveur de site source** . Si vous n’activez pas le partage des points de distribution maintenant, vous pouvez le faire en modifiant les informations d’identification du site source à la fin de la collecte des données.  
 
-7. Klik op **OK** om de configuratie op te slaan. Hiermee opent u de **Status gegevensverzameling** in het dialoogvenster en start het automatisch verzamelen van gegevens.  
+7. Cliquez sur **OK** pour enregistrer la configuration. La boîte de dialogue **État de la collecte de données** s'ouvre, et la collecte de données démarre automatiquement.  
 
-8.  Wanneer gegevens zijn verzameld, klikt u op **sluiten** om de configuratie te voltooien.  
+8.  À la fin de la collecte des données, cliquez sur **Fermer** pour terminer la configuration.  

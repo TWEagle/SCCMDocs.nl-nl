@@ -1,6 +1,6 @@
 ---
-title: Configuratie-items maken voor beheerde client Windows 10 - Configuration Manager | Microsoft Docs
-description: Gebruik het configuratie-item voor System Center Configuration Manager Windows 10 om instellingen voor Windows 10-computers die worden beheerd door Configuration Manager-client te beheren.
+title: "Créer des éléments de configuration pour un appareil Windows 10 géré par un client - Configuration Manager | Microsoft Docs"
+description: "Utilisez l’élément de configuration System Center Configuration Manager Windows 10 pour gérer les paramètres des ordinateurs Windows 10 gérés par le client Configuration Manager."
 ms.custom: na
 ms.date: 03/28/2017
 ms.prod: configuration-manager
@@ -17,123 +17,123 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: e0a42a1d4706ab29617f3b6f8960ece27672908b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-configuration-items-for-windows-10-devices-managed-with-the-system-center-configuration-manager-client"></a>Het maken van configuratie-items voor Windows 10-apparaten die worden beheerd door System Center Configuration Manager-Client
-De System Center Configuration Manager gebruiken **Windows 10** configuratie-item voor het beheren van instellingen voor Windows 10-computers die worden beheerd door Configuration Manager-client.  
+# <a name="how-to-create-configuration-items-for-windows-10-devices-managed-with-the-system-center-configuration-manager-client"></a>Comment créer des éléments de configuration pour des périphériques Windows 10 gérés avec le client System Center Configuration Manager
+Utilisez l’élément de configuration System Center Configuration Manager **Windows 10** pour gérer les paramètres des ordinateurs Windows 10 gérés par le client Configuration Manager.  
   
 > [!IMPORTANT]  
->  In deze release, als u hebt gemaakt een **wachtwoord** instellen als onderdeel van een configuratie-item van het type **Windows 10** (voor een apparaat beheerd met de Configuration Manager-client), klikt u vervolgens als de instelling niet bestaat nog of is niet geconfigureerd op het Windows 10-apparaat, het wordt ten onrechte geëvalueerd als compliant.  
+>  Dans cette version, si vous avez créé un paramètre **Mot de passe** pour un élément de configuration de type **Windows 10** (pour un appareil géré avec le client Configuration Manager), il est évalué à tort comme étant compatible si le paramètre n’existe pas déjà ou s’il n’a pas été configuré sur l’appareil Windows 10.  
 >   
->  Wanneer u een instelling voor deze apparaten maakt, kunt u er als tijdelijke oplossing voor zorgen dat **Niet-compliante instellingen herstellen** is geselecteerd op de pagina's met instellingen van de wizard Configuratie-item maken. Wanneer u een configuratiebasislijn met een Windows 10-configuratie-item met wachtwoordinstellingen implementeert, selecteert u **Regels die niet compliant zijn herstellen, waar ondersteund** in het dialoogvenster Configuratiebasislijnen implementeren. Met deze tijdelijke oplossing wordt de instelling bewaakt en zo nodig hersteld. Na het herstellen wordt de instelling correct gerapporteerd als **Compatibel** (tenzij er een probleem is opgetreden; in dat geval wordt de instelling gerapporteerd als **Fout**).  
+>  Pour résoudre ce problème, quand vous créez un paramètre pour ces périphériques, assurez-vous de sélectionner **Résoudre les paramètres non compatibles** dans les pages de paramètres de l’Assistant Création d’élément de configuration. De plus, quand vous déployez une base de référence de configuration contenant un élément de configuration Windows 10 qui inclue des paramètres de mot de passe, sélectionnez **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** dans la boîte de dialogue Déployer des lignes de base de configuration. En utilisant cette solution de contournement, le paramètre est analysé et corrigé s’il n’est pas compatible. Après la correction, le paramètre est correctement signalé comme **Compatible** (sauf si un problème est rencontré, auquel cas une **Erreur**est signalée).  
   
-### <a name="to-create-a-windows-10-configuration-item"></a>Een Windows 10-configuratie-item maken  
+### <a name="to-create-a-windows-10-configuration-item"></a>Pour créer un élément de configuration Windows 10  
   
-1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
   
-2.  Vouw in de werkruimte **Activa en naleving** het gedeelte **Instellingen voor naleving**uit en klik vervolgens op **Configuratie-items**.  
+2.  Dans l'espace de travail **Biens et conformité** , développez **Paramètres de compatibilité**, puis cliquez sur **Éléments de configuration**.  
   
-3.  Klik op het tabblad **Start** in de groep **Maken** op **Configuratie-item maken**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un élément de configuration**.  
   
-4.  Geef op de pagina **Algemeen** van de wizard **Configuratie-item maken**een naam en een optionele beschrijving voor het configuratie-item op.  
+4.  Dans la page **Général** page de l’ **Assistant Création d’élément de configuration**, spécifiez un nom et éventuellement une description pour l’élément de configuration.  
   
-5.  Selecteer onder **Geef het type configuratie-item op dat u wilt maken**de optie **Windows 10**.  
+5.  Sous **Spécifier le type d’élément de configuration que vous voulez créer**, sélectionnez **Windows 10**.  
   
-6.  Klik op **categorieën** als u categorieën maakt en toewijst om te zoeken en filteren van configuratie-items in de Configuration Manager-console.  
+6.  Cliquez sur **Catégories** si vous créez et attribuez des catégories pour faciliter la recherche et le filtrage des éléments de configuration dans la console Configuration Manager.  
   
-7.  Selecteer op de pagina **Ondersteunde platforms** van de wizard de specifieke Windows 10-platforms die het configuratie-item evalueren.  
+7.  Dans la page **Plateformes prises en charge** de l’Assistant, sélectionnez les plateformes Windows 10 spécifiques qui évaluent l’élément de configuration.  
   
-8.  Op de pagina **Apparaatinstellingen** van de wizard selecteert u de instellingengroep die u wilt configureren. Zie [Windows 10 configuration item settings reference](#BKMK_Ref) in dit onderwerp voor meer informatie en klik vervolgens op **Volgende**.  
-  
-    > [!TIP]  
-    >  Als de gewenste instelling niet wordt weergegeven, schakelt u het selectievakje **Extra instellingen configureren die niet zijn opgenomen in de standaardinstellingsgroepen**in.  
-  
-9. Op elke instellingenpagina configureert u de instellingen die u nodig hebt en geeft u aan of u deze wilt corrigeren wanneer ze niet compliant zijn op apparaten (wanneer dit wordt ondersteund).  
-  
-10. U kunt voor elke instellingengroep ook de ernst configureren die wordt gerapporteerd als wordt geconstateerd dat een configuratie-item niet compliant is:  
-  
-    -   **Geen** -apparaten die niet voldoen aan deze compliantieregel niet rapporteren ernst voor Configuration Manager-rapporten.  
-  
-    -   **Informatie** -apparaten die niet voldoen aan deze compliantieregel fouternst van **informatie** voor Configuration Manager-rapporten.  
-  
-    -   **Waarschuwing** -apparaten die niet voldoen aan deze compliantieregel fouternst van **waarschuwing** voor Configuration Manager-rapporten.  
-  
-    -   **Kritieke** -apparaten die niet voldoen aan deze compliantieregel fouternst van **kritieke** voor Configuration Manager-rapporten.  
-  
-    -   **Kritiek met gebeurtenis** -apparaten die niet voldoen aan deze compliantieregel fouternst van **kritieke** voor Configuration Manager-rapporten. Dit ernstniveau wordt ook vastgelegd als een Windows-gebeurtenis in het logboek voor toepassingsgebeurtenissen.  
-  
-11. Op de pagina **Platformtoepasbaarheid** van de wizard controleert u alle instellingen die niet compatibel zijn met de ondersteunde platforms die u eerder hebt geselecteerd. U kunt teruggaan en deze instellingen verwijderen of u kunt doorgaan.  
+8.  Dans la page **Paramètres de périphérique** de l’Assistant, sélectionnez le groupe de paramètres à configurer. Consultez [Windows 10 configuration item settings reference](#BKMK_Ref) dans cette rubrique pour plus d’informations, puis cliquez sur **Suivant**.  
   
     > [!TIP]  
-    >  Niet-ondersteunde instellingen worden niet beoordeeld op compliantie.  
+    >  Si le paramètre souhaité n’est pas répertorié, cochez la case **Configurer d’autres paramètres qui ne se trouvent pas dans les groupes de paramètres par défaut**.  
   
-12. Voltooi de wizard.  
+9. Dans chaque page de paramètres, configurez les paramètres dont vous avez besoin et indiquez si vous voulez les corriger quand ils ne sont pas conformes sur des périphériques (quand cela est pris en charge).  
   
- U kunt het nieuwe configuratie-item weergeven in het knooppunt **Configuratie-items** van de werkruimte **Activa en naleving** .  
+10. Pour chaque groupe de paramètres, vous pouvez également configurer la gravité signalée quand un élément de configuration n’est pas conforme :  
   
-##  <a name="windows-10-configuration-item-settings-reference"></a>Naslaginformatie voor Windows 10-configuratie-item  
+    -   **Aucun** : les appareils qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec pour les rapports Configuration Manager.  
   
-### <a name="password"></a>Wachtwoord  
+    -   **Informations** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations** pour les rapports Configuration Manager.  
   
-|Instelling|Details|  
+    -   **Avertissement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement** pour les rapports Configuration Manager.  
+  
+    -   **Critique** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.  
+  
+    -   **Critique avec événement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est également enregistré comme événement Windows dans le journal des événements des applications.  
+  
+11. Dans la page **Condition d’application de la plateforme** de l’Assistant, passez en revue tous les paramètres qui ne sont pas compatibles avec les plateformes prises en charge que vous avez sélectionnées précédemment. Vous pouvez revenir sur ces paramètres et les supprimer, ou vous pouvez continuer.  
+  
+    > [!TIP]  
+    >  La conformité des paramètres non pris en charge n’est pas évaluée.  
+  
+12. Effectuez toutes les étapes de l'Assistant.  
+  
+ Vous pouvez afficher le nouvel élément de configuration dans le nœud **Éléments de configuration** de l’espace de travail **Ressources et conformité** .  
+  
+##  <a name="windows-10-configuration-item-settings-reference"></a>Informations de référence sur les paramètres d’élément de configuration Windows 10  
+  
+### <a name="password"></a>Mot de passe  
+  
+|Paramètre|Détails|  
 |-------------|-------------|  
-|**Wachtwoordinstellingen vereisen op mobiele apparaten**|Hiermee vereist u een wachtwoord op ondersteunde apparaten.|  
-|**Minimale wachtwoordlengte (tekens)**|Het minimum aantal tekens voor het wachtwoord.|  
-|**Wachtwoordverlooptijd in dagen**|Het aantal dagen voordat het wachtwoord moet worden gewijzigd.|  
-|**Aantal onthouden wachtwoorden**|Hiermee voorkomt u dat eerder gebruikte wachtwoorden opnieuw worden gebruikt.|  
-|**Aantal mislukte aanmeldingspogingen voordat het apparaat wordt gewist**|Hiermee worden de gegevens op het apparaat gewist als het aanmelden dit aantal keren mislukt.|  
-|**Niet-actieve periode waarna apparaat wordt vergrendeld**|Hier geeft u op hoeveel minuten het apparaat inactief moet zijn voordat het automatisch wordt vergrendeld.|  
-|**Wachtwoordcomplexiteit**|Hiermee kunt u opgeven of u een pincode, zoals '1234', wilt gebruiken of dat er een sterk wachtwoord moet worden opgegeven.|
-|**Aantal complexe tekens vereist in wachtwoord ingesteld**|Als u hebt geselecteerd een **sterke** wachtwoorden en gebruik deze instelling voor het configureren van het aantal complexe tekens vereist. Voor een sterk wachtwoord; dit moet worden ingesteld op ten minste **3** wat betekent dat zowel letters en cijfers zijn vereist. Selecteer **4** als u wilt afdwingen van een wachtwoord dat ook speciale tekens bevatten zoals vereist **(% $**.<br>(Alleen Windows 10)  |
+|**Exiger des paramètres de mot de passe sur les appareils**|Exigez un mot de passe sur les appareils pris en charge.|  
+|**Longueur minimale du mot de passe (caractères)**|Longueur minimale du mot de passe en caractères.|  
+|**Expiration du mot de passe en jours**|Nombre de jours avant de devoir modifier le mot de passe.|  
+|**Nombre de mots de passe mémorisés**|Empêche la réutilisation des mots de passe précédents.|  
+|**Nombre d’échecs de tentative de connexion avant la réinitialisation du périphérique**|Réinitialise le périphérique si la connexion échoue ce nombre de fois.|  
+|**Durée d’inactivité avant le verrouillage de l’appareil**|Indique le nombre de minutes pendant lequel le périphérique doit être inactif avant d’être automatiquement bloqué.|  
+|**Complexité du mot de passe**|Choisissez si vous pouvez spécifier un code confidentiel tel que « 1234 » ou si vous devez fournir un mot de passe fort.|
+|**Nombre de jeux de caractères complexes requis dans le mot de passe**|Si vous avez sélectionné un mot de passe **Fort**, utilisez ce paramètre pour configurer le nombre de jeux de caractères complexes requis. Pour un mot de passe fort, ce paramètre doit avoir au moins la valeur **3**, ce qui signifie qu’il doit comporter à la fois des chiffres et des lettres. Sélectionnez **4** si vous souhaitez exiger un mot de passe qui contienne des caractères spéciaux comme **(% $**.<br>(Windows 10 uniquement)  |
   
-###  <a name="device"></a>Apparaat  
+###  <a name="device"></a>Appareil  
   
-|Naam van de instelling|Details|  
+|Nom du paramètre|Détails|  
 |------------------|-------------|  
-|**Bluetooth**|Staat het gebruik van de Bluetooth-functie op het apparaat toe.|  
+|**BlueTooth**|Permet l’utilisation de la fonctionnalité Bluetooth sur le périphérique.|  
   
 ### <a name="cloud"></a>Cloud  
   
-|Naam van de instelling|Details|  
+|Nom du paramètre|Détails|  
 |------------------|-------------|  
-|**Synchronisatie van instellingen**|De synchronisatie van instellingen tussen apparaten toestaan.|  
-|**Synchronisatie van referenties**|De synchronisatie van referenties tussen apparaten toestaan.|  
-|**Synchronisatie van instellingen via verbindingen met een datalimiet**|Toestaan dat instellingen worden gesynchroniseerd wanneer er voor de internetverbinding een datalimiet geldt.|  
+|**Synchronisation des paramètres**|Permet la synchronisation des paramètres entre les appareils.|  
+|**Synchronisation des informations d'identification**|Permet la synchronisation des informations d'identification entre les appareils.|  
+|**Synchronisation des paramètres via des connexions limitées**|Autorisez la synchronisation des paramètres quand la connexion Internet est mesurée.|  
   
-### <a name="roaming"></a>Roaming  
+### <a name="roaming"></a>Itinérant  
   
-|Naam van de instelling|Details|  
+|Nom du paramètre|Détails|  
 |------------------|-------------|  
-|**Gegevensroaming**|Roaming tussen netwerken toestaan tijdens het ophalen van gegevens.|  
+|**Itinérance des données**|Autorisez l'itinérance entre réseaux lors de l'accès aux données.|  
   
-### <a name="encryption"></a>Versleuteling  
+### <a name="encryption"></a>Chiffrement  
   
-|Naam van de instelling|Details|  
+|Nom du paramètre|Détails|  
 |------------------|-------------|  
-|**Bestandsversleuteling op apparaat**|Vereist dat bestanden op het apparaat zijn versleuteld.|  
+|**Chiffrement de fichiers sur le périphérique**|Exige que les fichiers soient chiffrés sur le périphérique.|  
   
-### <a name="system-security"></a>Systeembeveiliging  
+### <a name="system-security"></a>Sécurité système  
   
-|Naam van de instelling|Details|  
+|Nom du paramètre|Détails|  
 |------------------|-------------|  
-|**Gebruikersaccountbeheer**|Hiermee configureert u hoe Windows Gebruikersaccountbeheer werkt op het apparaat.<br />U kunt het bijvoorbeeld uitschakelen of het niveau instellen waarbij u een melding moet ontvangen.|  
-|**Netwerkfirewall**|Schakelt de Windows-firewall in of uit.|  
-|**SmartScreen**|Schakel Windows SmartScreen in of uit.|  
-|**Virusbeveiliging**|Hiermee vereist u dat antivirussoftware wordt geïnstalleerd en geconfigureerd.|  
-|**Handtekeningen voor virusbeveiliging zijn bijgewerkt**|Vereist dat de handtekeningbestanden voor de antivirussoftware op het apparaat moeten up-to-date te houden.|  
+|**Contrôle de compte d'utilisateur**|Configure le fonctionnement du contrôle de compte d’utilisateur Windows sur le périphérique.<br />Par exemple, vous pouvez le désactiver ou définir le niveau auquel vous êtes notifié.|  
+|**Pare-feu réseau**|Active ou désactive le pare-feu Windows.|  
+|**SmartScreen**|Activez ou désactivez Windows SmartScreen.|  
+|**Protection antivirus**|Exige l’installation et la configuration du logiciel antivirus.|  
+|**Les signatures de la protection antivirus sont à jour**|Exige que les fichiers de signature du logiciel antivirus de l’appareil soient à jour.|  
   
-### <a name="windows-information-protection-wip"></a>Windows-gegevensbeveiliging (OHW)
+### <a name="windows-information-protection-wip"></a>Protection des informations Windows (WIP)
 
-Met de toename van apparaten in de onderneming die het eigendom zijn van werknemers, is ook het risico toegenomen op het onbedoeld lekken van gegevens via apps en services, zoals e-mail, sociale media en de openbare cloud, die zich buiten de invloedssfeer van de onderneming bevinden. Bijvoorbeeld in het geval dat een werknemer de laatste nieuwe afbeeldingen van een technologieproject via zijn of haar persoonlijk e-mailaccount verstuurt, productinformatie in een tweet kopieert en plakt, of een voorlopig verkooprapport in de openbare cloudopslag opslaat.
+Avec l’augmentation du nombre d’appareils appartenant aux employés au sein de l’entreprise, il existe un risque accru de fuites accidentelles de données via les applications et les services, tels que le courrier électronique, les réseaux sociaux et le cloud public, qui sont en dehors du contrôle de l’entreprise. C’est par exemple le cas quand un employé envoie les dernières photos de conception à partir de son compte de messagerie personnel, quand il copie et colle des informations sur des produits dans un tweet ou quand il enregistre un rapport des ventes en cours dans son stockage cloud public.
 
-Windows Information Protection (voorheen ondernemingsgegevensbescherming) helpt te beschermen tegen deze potentiële gegevenslekken zonder dat de gebruikerservaring van werknemers Hierdoor wordt beïnvloed. OHW helpt ook bij het beveiligen van zakelijke apps en gegevens tegen onbedoelde gegevenslekken op apparaten die eigendom zijn van enterprise- en persoonlijke apparaten die werknemers meenemen naar het werk zonder wijzigingen aan uw omgeving of andere apps.
+La Protection des informations Windows (anciennement, Enterprise Data Protection) vous protège contre ces fuites de données potentielles sans interférer avec l’expérience de l’employé. WIP contribue aussi à protéger les données et les applications d’entreprise contre les fuites accidentelles de données sur les appareils d’entreprise et les appareils personnels que les employés apportent sur leur lieu de travail, sans exiger de modifications au niveau de votre environnement ou d’autres applications.
 
- Configuration Manager Windows Information Protection-configuratie-items beheren de lijst met apps die zijn beveiligd door OHW, bedrijfsnetwerklocaties, beveiligingsniveau en de versleutelingsinstellingen.
+ Les éléments de configuration WIP de Configuration Manager permettent de gérer la liste des applications protégées par WIP, les emplacements réseau de l’entreprise, le niveau de protection et les paramètres de chiffrement.
   
 
-Zie voor meer informatie over het configureren van Windows Information protection met Configuration Manager [uw Ondernemingsgegevens beveiligen met Windows-beveiliging (OHW)](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip).
+Pour plus d’informations sur la Protection des informations Windows avec Configuration Manager, consultez [Protéger vos données d’entreprise à l’aide de la Protection des informations Windows (WIP)](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip).
   
-## <a name="see-also"></a>Zie ook  
- [Configuratie-items voor apparaten die worden beheerd met de System Center Configuration Manager-client](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md)
+## <a name="see-also"></a>Voir aussi  
+ [Éléments de configuration pour les appareils gérés avec le client System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md)

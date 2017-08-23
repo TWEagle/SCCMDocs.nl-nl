@@ -1,110 +1,106 @@
 ---
-title: PXE gebruiken om Windows te implementeren via het netwerk | Microsoft Docs
-description: "Gebruik PXE geïnitieerde besturingssysteemimplementaties te vernieuwen besturingssysteem van een computer of een nieuwe versie van Windows op een nieuwe computer installeren."
+title: "Utiliser PXE pour déployer Windows sur le réseau | Documents Microsoft"
+description: "Utilisez des déploiements de système d’exploitation établis par PXE pour actualiser le système d’exploitation d’un ordinateur ou installer une nouvelle version de Windows sur un nouvel ordinateur."
 ms.custom: na
 ms.date: 06/15/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
-ms.technology:
-- configmgr-osd
+ms.technology: configmgr-osd
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: da5f8b61-2386-4530-ad54-1a5c51911f07
-caps.latest.revision: 19
-caps.handback.revision: 0
+caps.latest.revision: "19"
+caps.handback.revision: "0"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: f4c46bfab9b40b29654f4e883817a5508ab25b74
 ms.openlocfilehash: b88ab3799027c78a8c605e934b247097b31e1d21
-ms.contentlocale: nl-nl
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-pxe-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>PXE gebruiken om Windows via het netwerk te implementeren met System Center Configuration Manager
+# <a name="use-pxe-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Utiliser PXE pour déployer Windows sur le réseau avec System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-De van de Preboot-uitvoeringsomgeving (PXE) gestart implementaties van besturingssystemen in System Center Configuration Manager laat client computers aanvragen en implementeren van besturingssystemen via het netwerk. In dit implementatiescenario verzendt u de installatiekopie van het besturingssysteem en de x86- en x64 Windows PE-opstartinstallatiekopieën naar een distributiepunt dat is geconfigureerd om PXE-opstartaanvragen te accepteren.
+L’environnement PXE (Preboot Execution Environment) a lancé les déploiements de système d’exploitation établis par PXE dans System Center Configuration Manager permettent aux ordinateurs clients de demander des systèmes d’exploitation et de les déployer sur le réseau. Dans ce scénario de déploiement, vous envoyez l’image du système d’exploitation et une image de démarrage Windows PE x86 et x64 à un point de distribution configuré pour accepter les demandes de démarrage PXE.
 
 > [!NOTE]  
->  Bij het maken van een besturingssysteemimplementatie die doelen alleen x64 BIOS-computers, zowel de x64 opstartinstallatiekopie x86 als de opstartinstallatiekopie moet beschikbaar zijn op het distributiepunt.
+>  Quand vous créez un déploiement de système d’exploitation qui cible seulement des ordinateurs avec un BIOS x64, les deux images de démarrage x64 et x86 doivent être disponibles sur le point de distribution.
 
-U kunt besturingssysteemimplementaties die worden uitgevoerd met PXE gebruiken bij de volgende implementatiescenario’s voor besturingssystemen:
+Vous pouvez utiliser des déploiements de système d’exploitations établis par PXE dans les scénarios de déploiement de système d’exploitation suivants :
 
--   [Een bestaande computer vernieuwen met een nieuwe versie van Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)  
+-   [Actualiser un ordinateur existant avec une nouvelle version de Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)  
 
--   [Een nieuwe versie van Windows op een nieuwe computer (bare-metal) installeren](install-new-windows-version-new-computer-bare-metal.md)  
+-   [Installer une nouvelle version de Windows sur un nouvel ordinateur (système nu)](install-new-windows-version-new-computer-bare-metal.md)  
 
-Voer de stappen in een van de implementatiescenario's voor besturingssystemen en gebruik vervolgens de volgende secties om voor te bereiden voor PXE-geïnitieerde implementaties.
+Effectuez les étapes de l’un des scénarios de déploiement de système d’exploitation, puis utilisez les sections suivantes pour préparer les déploiements établis par PXE.
 
-##  <a name="BKMK_Configure"></a> Ten minste één bestaand distributiepunt configureren voor de acceptatie van PXE-aanvragen
-Gebruiken om besturingssystemen te implementeren op clients die PXE-opstartaanvragen maken, een of meer distributiepunten die zijn geconfigureerd om te reageren op de PXE-opstartaanvragen. Zie voor de stappen in te schakelen van PXE voor een distributiepunt [distributiepunten configureren voor de acceptatie van PXE-aanvragen](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_PXEDistributionPoint).
+##  <a name="BKMK_Configure"></a> Configurer au moins un point de distribution qui peut répondre aux demandes PXE
+Pour déployer des systèmes d'exploitation sur des clients qui effectuent des requêtes de démarrage PXE, utilisez un ou plusieurs points de distribution qui sont configurés pour répondre aux requêtes de démarrage PXE. Pour savoir comment activer PXE sur un point de distribution, voir [Configuration de points de distribution pour accepter des requêtes PXE](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_PXEDistributionPoint).
 
-## <a name="prepare-a-pxe-enabled-boot-image"></a>Een opstartinstallatiekopie die geschikt is voor gebruik met PXE voorbereiden
-Als u PXE wilt gebruiken voor het implementeren van besturingssystemen, moet u een x86- en x64-opstartinstallatiekopie die geschikt zijn voor gebruik met PXE hebben gedistribueerd naar een of meer distributiepunten met PXE-functionaliteit. U kunt als volgt PXE inschakelen voor een opstartinstallatiekopie en deze distribueren naar distributiepunten:
+## <a name="prepare-a-pxe-enabled-boot-image"></a>Préparer une image de démarrage compatible PXE
+Pour utiliser PXE pour déployer un système d’exploitation, vous avez besoin d’images de démarrage compatibles PXE x86 et x64 qui sont distribuées à un ou plusieurs points de distribution compatibles PXE. Utilisez les informations pour activer PXE sur une image de démarrage et distribuez l’image de démarrage sur des points de distribution :
 
--   Als u PXE voor een opstartinstallatiekopie selecteert **deze opstartinstallatiekopie implementeren vanaf het distributiepunt met PXE-functionaliteit** van de **gegevensbron** tabblad in de eigenschappen van de opstartinstallatiekopie.
+-   Pour activer PXE sur une image de démarrage, sélectionnez **Déployer cette image de démarrage depuis le point de distribution PXE** sous l’onglet **Source de données** dans les propriétés de l’image de démarrage.
 
--   Als u de eigenschappen voor de opstartinstallatiekopie wijzigt, moet opnieuw de opstartinstallatiekopie naar distributiepunten distribueren. Zie voor meer informatie [inhoud distribueren](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).
+-   Si vous modifiez les propriétés de l’image de démarrage, redistribuez-la sur les points de distribution. Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).
 
-##  <a name="BKMK_PXEExclusionList"></a> Een uitsluitingslijst voor PXE-implementaties maken
-Wanneer u besturingssystemen met PXE implementeert, kunt u een uitsluitingslijst maken op elk distributiepunt. De MAC-adressen toevoegen aan de uitsluitingslijst van de computers die u wilt dat het distributiepunt te negeren. Genoemde computers ontvangt geen de takenreeksen voor besturingssysteemimplementaties die Configuration Manager voor PXE-implementaties gebruikt.
+##  <a name="BKMK_PXEExclusionList"></a> Créer une liste d’exclusion pour les déploiements PXE
+Si vous utilisez PXE pour déployer des systèmes d’exploitation, vous pouvez créer des listes d’exclusion sur chaque point de distribution. Ajoutez les adresses MAC à la liste d’exclusion des ordinateurs qui doivent être ignorés par le point de distribution. Les ordinateurs répertoriés ne recevront pas les séquences de tâches de déploiement que Configuration Manager utilise pour le déploiement PXE.
 
-#### <a name="to-create-the-exclusion-list"></a>De uitsluitingslijst maken
+#### <a name="to-create-the-exclusion-list"></a>Pour créer la liste d'exclusion
 
-1.  Maak een tekstbestand op het distributiepunt met PXE-functionaliteit. Geef dit tekstbestand bijvoorbeeld de naam **pxeExceptions.txt**.
+1.  Créez un fichier texte sur le point de distribution qui est activé pour PXE. Par exemple, nommez ce fichier texte **pxeExceptions.txt**.
 
-2.  Gebruik een teksteditor zoals Kladblok, en voeg de MAC-adressen van de computers moeten worden genegeerd door het distributiepunt met PXE-functionaliteit. Scheid de MAC-adressen met een dubbele punt van elkaar en geef elk adres op een aparte regel op. Bijvoorbeeld: `01:23:45:67:89:ab`
+2.  Utilisez un éditeur de texte brut, tel que le bloc-notes, et ajoutez les adresses MAC des ordinateurs qui doivent être ignorés par le point de distribution compatible PXE. Séparez les valeurs des adresses MAC par un signe deux-points et entrez chaque adresse sur une ligne distincte. Exemple : `01:23:45:67:89:ab`.
 
-3.  Bewaar het tekstbestand op de sitesysteemserver voor het distributiepunt met PXE-functionaliteit. Het tekstbestand dat kan worden opgeslagen op een willekeurige locatie op de server.
+3.  Enregistrez le fichier texte sur le serveur de système de site du point de distribution compatible PXE. Le fichier texte peut être enregistré dans n'importe quel emplacement sur le serveur.
 
-4.  Bewerk het register van het distributiepunt PXE-functionaliteit maken een **MACIgnoreListFile** registersleutel. De string-waarde van het volledige pad voor het tekstbestand op de sitesysteemserver PXE-ingeschakelde distributiepunt toevoegen. Gebruik het volgende registerpad:
+4.  Modifiez le registre du point de distribution compatible PXE pour créer une clé de registre **MACIgnoreListFile**. Ajoutez la valeur de chaîne du chemin complet pour le fichier texte sur le serveur de système de site du point de distribution compatible PXE. Utilisez les chemins d'accès au Registre suivants :
 
      **HKLM\Software\Microsoft\SMS\DP**  
 
     > [!WARNING]  
-    >  Als u de Register-Editor onjuist gebruikt, kunt u ernstige problemen waarvoor u het besturingssysteem opnieuw installeren kan veroorzaken. Microsoft biedt geen garantie dat u problemen kunt oplossen die veroorzaakt worden door onjuist gebruik van de Registry Editor. Gebruik de Registry Editor op eigen risico.
+    >  Une utilisation incorrecte de l'Éditeur du Registre peut éventuellement provoquer de graves problèmes, lesquels nécessitent parfois la réinstallation complète du système d'exploitation. Microsoft ne garantit pas la résolution des erreurs résultant d'une utilisation incorrecte de l'Éditeur du Registre. Les opérations exécutées dans l'Éditeur du Registre le sont à vos propres risques.
 
-     Het is niet nodig om de server opnieuw te starten nadat u deze wijziging hebt aangebracht aan het register.
+     Il est inutile de redémarrer le serveur après avoir effectué cette modification au niveau du Registre.
 
-##  <a name="BKMK_RamDiskTFTP"></a>RamDisk TFTP-blokgrootte en venstergrootte
-U kunt de RamDisk TFTP-blokgrootte en begin in Configuration Manager versie 1606, de grootte van het venster voor distributiepunten met PXE-functionaliteit aanpassen. Als u uw netwerk hebt aangepast, kan dit ertoe leiden dat het downloaden van de opstartinstallatiekopie mislukt met een time-outfout omdat het blok of het venster te groot is. Met RamDisk TFTP-blok- en venstergrootteaanpassing kunt u het TFTP-verkeer optimaliseren als u PXE gebruikt om te voldoen aan uw specifieke netwerkvereisten. De aangepaste instellingen in uw omgeving om te bepalen van de meest efficiënte manier testen. Zie voor meer informatie [de RamDisk TFTP-blokgrootte en venstergrootte op distributiepunten met PXE-functionaliteit aanpassen](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_RamDiskTFTP).
+##  <a name="BKMK_RamDiskTFTP"></a>Taille de bloc et de fenêtre RamDisk TFTP
+Vous pouvez personnaliser la taille de bloc TFTP RamDisk et, à compter de Configuration Manager version 1606, la taille de fenêtre pour les points de distribution compatibles PXE. Si vous avez personnalisé votre réseau, cela peut occasionner un échec de téléchargement de l’image de démarrage avec une erreur de délai d’attente résultant d’une taille excessive de bloc ou de fenêtre. La personnalisation des tailles de bloc et de fenêtre TFTP RamDisk permet d’optimiser le trafic TFTP lors de l’utilisation de PXE en réponse à des besoins réseau spécifiques. Testez les paramètres personnalisés dans votre environnement pour déterminer la méthode la plus efficace. Pour plus d’informations, voir [Personnalisation des tailles de bloc et de fenêtre TFTP RamDisk pour les points de distribution compatibles PXE](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_RamDiskTFTP).
 
-## <a name="configure-deployment-settings"></a>Implementatie-instellingen configureren
-Als u gebruik wilt maken van een besturingssysteemimplementatie die met PXE wordt uitgevoerd, moet u de implementatie zo configureren dat het besturingssysteem beschikbaar wordt gesteld voor PXE-opstartaanvragen. U kunt beschikbare besturingssystemen configureren op de **implementatie-instellingen** pagina van de Wizard Software implementeren of de **implementatie-instellingen** tabblad in de eigenschappen voor de implementatie. Configureer een van de volgende waarden voor de instelling **Toegankelijk maken voor de volgende** :
+## <a name="configure-deployment-settings"></a>Configurer les paramètres de déploiement
+Pour utiliser un déploiement de système de d’exploitation initié par PXE, vous devez configurer le déploiement pour rendre le système d’exploitation accessible aux demandes de démarrage PXE. Vous pouvez configurer les systèmes d’exploitation disponibles dans la page **Paramètres de déploiement** de l’Assistant Déploiement logiciel ou sous l’onglet **Paramètres de déploiement** dans les propriétés du déploiement. Pour le paramètre **Rendre disponible aux éléments suivants** , sélectionnez l’une des options suivantes :
 
--   Configuration Manager-clients, media en PXE
+-   Clients, média et environnement PXE Configuration Manager
 
--   Alleen media en PXE
+-   Média et environnement PXE uniquement
 
--   Alleen media en PXE (verborgen)
+-   Média et environnement PXE uniquement (masqué)
 
-##  <a name="BKMK_Deploy"></a> De takenreeks implementeren
-Implementeer het besturingssysteem in een doelverzameling. Zie [Een takenreeks implementeren](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS) voor meer informatie. Wanneer u besturingssystemen met PXE implementeert, kunt u configureren of de implementatie vereist of beschikbaar is.
+##  <a name="BKMK_Deploy"></a> Déployer la séquence de tâches
+Déployez le système d’exploitation dans un regroupement cible. Pour plus d'informations, voir [Déployer une séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS). Quand vous déployez des systèmes d’exploitation à l’aide de PXE, vous pouvez configurer si le déploiement est obligatoire ou disponible.
 
--   **Vereiste implementatie**: Implementaties gebruik PXE zonder tussenkomst van de gebruiker vereist. De gebruiker niet mogelijk voor het overslaan van de PXE-opstart. Als de gebruiker de PXE-opstart annuleert voordat het distributiepunt reageert, won't u het besturingssysteem geïmplementeerd.
+-   **Déploiement obligatoire**: les déploiements obligatoires utilisent PXE et ne nécessitent aucune intervention de l’utilisateur. L'utilisateur ne pourra pas contourner le démarrage PXE. Toutefois, si l'utilisateur annule le démarrage PXE avant que le point de distribution réponde, le système d'exploitation ne sera pas déployé.
 
--   **Beschikbare implementatie**: Beschikbare implementaties vereisen dat de gebruiker aanwezig op de doelcomputer is zodat ze op de F12-toets om de PXE-opstartproces voort te kunnen drukken. Als de gebruiker niet aanwezig is om op F12 te drukken, wordt de computer opgestart met het huidige besturingssysteem of vanaf het volgende beschikbare opstartapparaat.
+-   **Déploiement disponible**: les déploiements disponibles nécessitent l’intervention de l’utilisateur sur l’ordinateur de destination. L’utilisateur doit appuyer sur la touche F12 pour poursuivre le processus de démarrage PXE. Si cette touche F12 n'est pas actionnée, l'ordinateur démarrera soit avec le système d'exploitation actuel, soit à partir du périphérique de démarrage suivant disponible.
 
-U kunt een vereiste PXE-implementatie opnieuw implementeren door de status van de laatste PXE-implementatie toegewezen aan een Configuration Manager-verzameling of computer te wissen. Deze actie wordt de status van die implementatie opnieuw ingesteld en de meest recente vereiste implementaties wordt opnieuw geïnstalleerd.
+Vous pouvez redéployer un déploiement PXE requis en désactivant l'état du dernier déploiement PXE affecté à un ordinateur ou à un regroupement Configuration Manager. Cette action réinitialise l'état de ce déploiement et installe de nouveau les déploiements requis les plus récents.
 
 > [!IMPORTANT]
-> Het PXE-protocol is niet veilig. Zorg dat de PXE-server en de PXE-client zich op een fysiek beveiligd netwerk (bijvoorbeeld in een datacentrum) bevinden om onbevoegde toegang tot uw site te voorkomen.
+> Le protocole PXE n'est pas sécurisé. Assurez-vous que le serveur PXE et le client PXE se trouvent sur un réseau sécurisé physiquement, tel qu'un centre de données, afin d'éviter l'accès non autorisé à votre site.
 
-##  <a name="how-is-the-boot-image-selected-for-clients-booting-with-pxe"></a>Hoe wordt de opstartinstallatiekopie geselecteerd voor clients met PXE wordt opgestart?
-Wanneer een client met PXE wordt opgestart, biedt Configuration Manager de client aan een opstartinstallatiekopie te gebruiken. Vanaf Configuration Manager versie 1606, Configuration Manager maakt gebruik van een opstartinstallatiekopie met een overeenkomst exact architectuur. Als u een opstartinstallatiekopie met de exacte architectuur niet beschikbaar is, wordt in Configuration Manager een opstartinstallatiekopie met een compatibele architectuur gebruikt. De volgende lijst bevat informatie over hoe een opstartinstallatiekopie voor opstarten met PXE-clients wordt geselecteerd.
-1. Configuration Manager zoekt in de sitedatabase voor de systeem-record die overeenkomt met de MAC-adres of SMBIOS van de client die probeert op te starten.  
+##  <a name="how-is-the-boot-image-selected-for-clients-booting-with-pxe"></a>Comment l’image de démarrage est-elle sélectionnée pour les clients qui démarrent avec PXE ?
+Lorsqu’un client démarre avec PXE, Configuration Manager lui fournit une image de démarrage à utiliser. Depuis Configuration Manager version 1606, Configuration Manager utilise une image de démarrage avec correspondance exacte d’architecture. Si une image de démarrage avec correspondance exacte d’architecture n’est pas disponible, Configuration Manager utilise une image de démarrage avec une architecture compatible. La liste ci-dessous indique de quelle manière une image de démarrage est sélectionnée pour les clients qui démarrent avec PXE.
+1. Configuration Manager recherche dans la base de données du site l’enregistrement système qui correspond à l’adresse MAC ou au SMBIOS du client qui essaie de démarrer.  
 
     > [!NOTE]
-    > Als een computer die is toegewezen aan een site met PXE voor een andere site opstart, het beleid niet zichtbaar voor de computer. Bijvoorbeeld, als een client al aan een site toegewezen is, het beheerpunt en distributiepunt voor site B niet mogelijk toegang hebben tot de beleidsregels van site A. De client niet het geval is dat PXE wordt opgestart.
+    > Si un ordinateur qui est affecté à un site démarre via PXE pour un site différent, les stratégies ne sont pas visibles pour l’ordinateur. Par exemple, si un client est déjà affecté au site A, le point de gestion et le point de distribution sur le site B ne peuvent pas accéder aux stratégies à partir du site A. Le client ne peut pas démarrer via PXE.
 
-2. Configuration Manager zoekt naar takenreeksen die zijn geïmplementeerd voor de systeem-record gevonden in stap 1.
+2. Configuration Manager recherche les séquences de tâches qui sont déployées sur l’enregistrement système trouvé à l’étape 1.
 
-3. In de lijst met takenreeksen gevonden in stap 2, zoekt Configuration Manager naar een installatiekopie die overeenkomt met de architectuur van de client die probeert op te starten. Als een opstartinstallatiekopie met dezelfde architectuur wordt gevonden, wordt die installatiekopie wordt gebruikt.
+3. Dans la liste des séquences de tâches trouvées à l’étape 2, Configuration Manager recherche une image de démarrage qui correspond à l’architecture du client qui tente de démarrer. Si une image de démarrage est trouvée avec la même architecture, celle-ci est utilisée.
 
-4. Als u een opstartinstallatiekopie is niet gevonden met dezelfde architectuur, zoekt de Configuration Manager een opstartinstallatiekopie die compatibel is met de architectuur van de client. Het lijkt erop in de lijst met takenreeksen gevonden in stap 2. Bijvoorbeeld, is een 64-bits-client compatibel met 32-bits en 64-bits installatiekopieën. Een 32-bits-client is compatibel met alleen 32-bits installatiekopieën. Een UEFI-client is compatibel met alleen 64-bits installatiekopieën.
-
+4. Si une image de démarrage n’est pas trouvée avec la même architecture, Configuration Manager recherche une image de démarrage qui soit compatible avec l’architecture du client. Il recherche dans la liste des séquences de tâches trouvées à l’étape 2. Par exemple, un client 64 bits est compatible avec des images de démarrage 32 bits et 64 bits. Un client 32 bits est compatible uniquement avec des images de démarrage 32 bits. Un client UEFI est compatible uniquement avec des images de démarrage 64 bits.

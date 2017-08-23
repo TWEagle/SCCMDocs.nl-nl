@@ -1,6 +1,6 @@
 ---
-title: Een takenreeks maken voor niet - besturingssysteemimplementaties | Microsoft Docs
-description: Takenreeksen maken die niet zijn gerelateerd aan het implementeren van besturingssystemen, zoals software distribueren, stuurprogramma's bijwerken, status van gebruikers, enzovoort bewerken.
+title: "Créer une séquence de tâches pour des déploiements autres que des déploiements de systèmes d’exploitation | Microsoft Docs"
+description: "Créez des séquences de tâches qui ne sont pas liées au déploiement de systèmes d’exploitation, telles que la distribution de logiciels, la mise à jour de pilotes, la modification des états utilisateur, etc."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,41 +16,41 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: b4b04907f2cd48d81e864e46ca47c14a0b98a9f7
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-a-task-sequence-for-non-operating-system-deployments-with-system-center-configuration-manager"></a>Een takenreeks maken voor niet - besturingssysteemimplementaties met System Center Configuration Manager
+# <a name="create-a-task-sequence-for-non-operating-system-deployments-with-system-center-configuration-manager"></a>Créer une séquence de tâches pour des déploiements autres que des déploiements de systèmes d’exploitation dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Takenreeksen in System Center Configuration Manager worden gebruikt voor een verscheidenheid aan taken in uw omgeving te automatiseren. Deze taken zijn voornamelijk ontworpen en getest voor het implementeren van besturingssystemen.  Configuration Manager beschikt over vele andere functies die u moeten de primaire technologie die u voor scenario's, zoals gebruikt [toepassingsinstallatie](../../apps/understand/introduction-to-application-management.md), [installatie van software-updates](../../sum/understand/software-updates-introduction.md), [configuratie instelling](../../compliance/understand/ensure-device-compliance.md), of aangepaste automatisering. Er zijn andere Microsoft System Center-automatiseringstechnologieën, zoals [Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) en [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx) , die ook moeten worden overwogen.  
+Dans System Center Configuration Manager, les séquences de tâches permettent d’automatiser diverses tâches au sein de votre environnement. Ces tâches visent essentiellement à déployer des systèmes d’exploitation et sont testées à cet effet.  Configuration Manager offre bien d’autres fonctionnalités, des technologies essentielles à utiliser dans certains scénarios, comme l’[installation d’applications](../../apps/understand/introduction-to-application-management.md), l’[installation de mises à jour logicielles](../../sum/understand/software-updates-introduction.md), la [configuration de paramètres](../../compliance/understand/ensure-device-compliance.md) ou l’automatisation personnalisée. Vous devez aussi considérer d’autres technologies d’automatisation Microsoft System Center, notamment [Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) et [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx) .  
 
-De kracht van takenreeksen ligt in hun flexibiliteit en hoe u ze kunt gebruiken voor het configureren van clientinstellingen, software te distribueren, stuurprogramma's bijwerken, status van de gebruiker te bewerken en onafhankelijk van de besturingssysteemimplementatie andere taken uitvoeren. U kunt een aangepaste takenreeks maken om elk gewenst aantal taken toe te voegen. Het gebruik van aangepaste takenreeksen voor niet - besturingssysteemimplementaties wordt ondersteund in Configuration Manager. Echter, als een resultaten van de reeks taak in ongewenste of inconsistente resultaten bekijkt manieren voor het vereenvoudigen van de bewerking. U kunt dit doen met behulp van eenvoudiger stappen, de acties verdelen over meerdere takenreeksen, of door een gefaseerde benadering voor het maken en testen van de takenreeks wordt uitgevoerd.
+Le principal intérêt des séquences de tâches réside dans leur flexibilité et dans la façon dont vous pouvez les utiliser pour configurer les paramètres des clients, distribuer les logiciels, mettre à jour les pilotes, modifier les états utilisateur et effectuer d’autres tâches indépendantes du déploiement de systèmes d’exploitation. Vous pouvez créer une séquence de tâches personnalisée pour ajouter un nombre quelconque de tâches. L’utilisation de séquences de tâches personnalisées pour un déploiement autre que celui d’un système d’exploitation est prise en charge dans Configuration Manager. Toutefois, si une séquence de tâches entraîne des résultats incohérents ou indésirables, essayez de simplifier l’opération. Pour cela, vous pouvez suivre des étapes plus simples, en répartissant les actions entre plusieurs séquences de tâches, ou en adoptant une approche par étapes pour la création et le test de séquences de tâches.
 
- De volgende stappen uit worden voor gebruik in een aangepaste takenreeks voor implementatie van niet-besturingssystemen ondersteund:  
+ Les étapes suivantes peuvent être utilisées dans une séquence personnalisée de tâches de déploiement, autre qu’un déploiement de système d’exploitation :  
 
--   [Gereedheid controleren](../understand/task-sequence-steps.md#BKMK_CheckReadiness)  
+-   [Vérifier la préparation](../understand/task-sequence-steps.md#BKMK_CheckReadiness)  
 
--   [Verbinding maken met netwerkmap](../understand/task-sequence-steps.md#BKMK_ConnectToNetworkFolder)  
+-   [Se connecter à un dossier réseau](../understand/task-sequence-steps.md#BKMK_ConnectToNetworkFolder)  
 
--   [Pakketinhoud downloaden](../understand/task-sequence-steps.md#BKMK_DownloadPackageContent)  
+-   [Télécharger le contenu du package](../understand/task-sequence-steps.md#BKMK_DownloadPackageContent)  
 
--   [Toepassing installeren](../understand/task-sequence-steps.md#BKMK_InstallApplication)  
+-   [Installer l’application](../understand/task-sequence-steps.md#BKMK_InstallApplication)  
 
--   [Pakket installeren](../understand/task-sequence-steps.md#BKMK_InstallPackage)  
+-   [Installer le package](../understand/task-sequence-steps.md#BKMK_InstallPackage)  
 
--   [Software-Updates installeren](../understand/task-sequence-steps.md#BKMK_InstallSoftwareUpdates)  
+-   [Installer les mises à jour logicielles](../understand/task-sequence-steps.md#BKMK_InstallSoftwareUpdates)  
 
--   [Computer opnieuw opstarten](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer)  
+-   [Redémarrer l’ordinateur](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer)  
 
--   [Opdrachtregel uitvoeren](../understand/task-sequence-steps.md#BKMK_RunCommandLine)  
+-   [Exécuter la ligne de commande](../understand/task-sequence-steps.md#BKMK_RunCommandLine)  
 
--   [PowerShell-Script uitvoeren](../understand/task-sequence-steps.md#BKMK_RunPowerShellScript)  
+-   [Exécuter le script PowerShell](../understand/task-sequence-steps.md#BKMK_RunPowerShellScript)  
 
--   [Dynamische variabelen instellen](../understand/task-sequence-steps.md#BKMK_SetDynamicVariables)  
+-   [Définir des variables dynamiques](../understand/task-sequence-steps.md#BKMK_SetDynamicVariables)  
 
--   [Takenreeksvariabele instellen](../understand/task-sequence-steps.md#BKMK_SetTaskSequenceVariable)  
+-   [Définir la variable de séquence de tâches](../understand/task-sequence-steps.md#BKMK_SetTaskSequenceVariable)  
 
-## <a name="next-steps"></a>Volgende stappen
-[De takenreeks implementeren](manage-task-sequences-to-automate-tasks.md#a-namebkmkdeploytsa-deploy-a-task-sequence)
+## <a name="next-steps"></a>Étapes suivantes
+[Déployer la séquence de tâches](manage-task-sequences-to-automate-tasks.md#a-namebkmkdeploytsa-deploy-a-task-sequence)

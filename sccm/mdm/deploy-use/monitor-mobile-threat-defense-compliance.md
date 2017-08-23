@@ -1,6 +1,6 @@
 ---
-title: Mobile Threat verdediging naleving bewaken | System Center Configuration Manager
-description: De status van naleving partner Mobile Threat verdediging vanuit de console van Configuration manager controleren
+title: "Surveiller la conformité de la protection contre les menaces mobiles | System Center Configuration Manager"
+description: "Surveiller l’état de conformité du partenaire de protection contre les menaces mobiles à partir de la console Configuration manager"
 ms.custom: na
 ms.date: 03/21/2017
 ms.prod: configuration-manager
@@ -16,59 +16,59 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 8edf83a0f761dfc16274ce49c3aa2b878c7fe6cd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="monitor-mobile-threat-defense-compliance"></a>**Mobile Threat Defense-naleving bewaken**
+# <a name="monitor-mobile-threat-defense-compliance"></a>**Surveiller la conformité de la protection contre les menaces mobiles**
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-## <a name="to-monitor-the-overall-compliance-status"></a>De algehele status van naleving bewaken
+## <a name="to-monitor-the-overall-compliance-status"></a>Pour surveiller l’état de conformité général
 
-De status van de verdediging mobiele threat bewaken:
+Pour surveiller l’état de la protection contre les menaces mobiles :
 
-1.  Klik in de Configuration Manager-console op **bewaking** werkruimte.
+1.  Dans la console Configuration Manager, cliquez sur l’espace de travail **Surveillance**.
 
-2.  In de **bewaking** werkruimte, klik op de **beveiliging** knooppunt.
+2.  Dans l'espace de travail **Surveillance**, cliquez sur le nœud **Sécurité**.
 
-U kunt een samenvatting van de compatibiliteitsstatus met verschillende threat niveaus, die wordt weergegeven in een visual diagram kunt zien. U kunt klikken op de afzonderlijke secties van de grafieken voor meer informatie, zoals: 
+Vous pouvez afficher un résumé de l’état de conformité avec différents niveaux de menace, affiché dans un format graphique. Vous pouvez cliquer sur des sections individuelles des graphiques pour afficher plus d’informations, par exemple : 
 
-- Het aantal apparaten die rapporteren als niet-compatibel per platform
-- Eventuele fouten met betrekking tot de compatibiliteitsstatus van het apparaat
+- Le nombre d’appareils déclarés non conformes par plate-forme
+- Les erreurs liées à l’état de conformité de l’appareil
 
 ![](http://i.imgur.com/bmPsiWk.png)
 
-## <a name="to-monitor-the-individual-compliance-status"></a>De status van afzonderlijke naleving bewaken
+## <a name="to-monitor-the-individual-compliance-status"></a>Pour surveiller l’état de conformité individuel
 
-U ziet ook de status van afzonderlijke apparaten:
+Vous pouvez également afficher l’état de chaque appareil :
 
-1.  Klik in de Configuration Manager-console op **activa en naleving** werkruimte.
+1.  Dans la console Configuration Manager, cliquez sur l’espace de travail **Actifs et conformité**.
 
-2.  Klik op **apparaten**.
+2.  Cliquez sur **Appareils**.
 
 > [!TIP] 
-> U kunt toevoegen de **threat apparaatcompatibiliteit** en de **apparaat risiconiveau** kolommen om de status te bekijken. Deze kolommen worden niet standaard weergegeven.
+> Vous pouvez ajouter les colonnes **État de conformité de l’appareil** et **Niveau de menace pour l’appareil** pour afficher l’état. Par défaut, ces colonnes ne sont pas affichées.
 
-## <a name="device-threat-protection-tab"></a>Device Threat Protection-tabblad
+## <a name="device-threat-protection-tab"></a>Onglet Protection contre les menaces sur les appareils
 
-Bovendien op de **apparaten** scherm, u kunt specifieke apparaten selecteren en vervolgens klikt u op de **Device Threat Protection** tabblad dat meer informatie over de compatibiliteitsstatus van het apparaat biedt. Vinden onder de kolombeschrijvingen en hun waarden verwacht bij het analyseren van de compatibiliteitsstatus van het apparaat.
+En outre, sur l’écran **Appareils**, vous pouvez sélectionner des appareils spécifiques, puis cliquer sur l’onglet **Protection contre les menaces sur les appareils** qui fournit plus de détails sur l’état de conformité de l’appareil. Vous trouverez ci-dessous les descriptions des colonnes et leurs valeurs attendues pour vous aider à analyser l’état de conformité de l’appareil.
 
 > [!IMPORTANT] 
-> Het tabblad Device Threat Protection alleen weergegeven als een mobiel apparaat is het geselecteerde apparaat.
+> L’onglet Protection contre les menaces de l’appareil s’affiche uniquement si l’appareil sélectionné est un appareil mobile.
 
-|Kolomnaam|Standaard zichtbaar|Beschrijving| 
+|Nom de la colonne|Visible par défaut|Description| 
 |-|-|-|
-|**Beschrijving**| Ja | Gegevens over de bedreiging geleverd door de mobiele Threat Defense-partner. |
-|**Laatst bijgewerkt**| Ja | De partner Mobile Threat verdediging verzonden voor het laatst bijgewerkt details over de bedreiging voor Intune. |
-|**Threat ernst**| Ja | Ernst van de Threat is de definitie voor een afzonderlijke dreiging op basis van de configuratie van de beheerder in de console van de partner Mobile Threat verdediging. Er is een van de drie waarden: **Lage**, **gemiddeld** of **hoog** |
-|**Status van de Threat**| Ja | De huidige status van de dreiging op het apparaat. Mogelijke statussen: **Actieve**, **opgelost** of **genegeerd:** Hiermee wordt aangegeven dat de gebruiker de dreiging op hun apparaat genegeerd, maar het gevaar nog steeds aanwezig is. |
-|**Threat type**| Ja | Mobile Threat verdediging partner type threat. Mogelijke waarden: **App**, **bestand** of **OS** |
-|**AAD-Account-ID**| Nee | De unieke id van de Azure Active Directory. |
-|**Classificatie**| Ja | Mobile Threat verdediging partner classificatie van bedreiging wordt opgegeven. Mogelijke waarden: **Basis-factor, Riskware, Adware, Chargeware, DataLeak, Trojaanse paarden, Worm, Virus, misbruik, achterdeur Bot, AppDropper, ClickFraud, Spam, Spyware, SurveillanceWare, beveiligingsprobleem, onbekend, Jailbrake, connectiviteit, TollFraud, SideloadedApp hoofdmap** |
-|**Apparaat-ID**| Nee | De Azure Active Directory-object-ID voor de werkplek toegevoegd apparaat met informatie. |
-|**Bedreigings-ID**| Nee | Mobile Threat verdediging partner unieke id voor de bedreiging gegenereerd. De Bedreigings-ID wordt gebruikt voor het bijhouden van resolutie. |
-|**URL van de Threat**| Nee | Wanneer aanwezig is, wordt de URL van de Threat koppelingen naar de mobiele Threat Defense-partner management console-weergave van deze specifieke bedreiging opnieuw. |
+|**Description**| Oui | Plus d’informations sur les menaces fournies par le partenaire de protection contre les menaces mobiles. |
+|**Heure de la dernière mise à jour**| Oui | Dernière fois où le partenaire de protection contre les menaces mobiles a envoyé des détails mis à jour sur la menace à Intune. |
+|**Gravité de la menace**| Oui | La gravité de la menace est la définition d’une menace individuelle en fonction de la configuration de l’administrateur dans la console du partenaire de protection contre les menaces mobiles. Trois valeurs sont possibles : **Faible**, **Moyenne** ou **Élevée** |
+|**État de la menace**| Oui | L’état actuel de la menace sur l’appareil. États possibles : **Actif**, **Résolu** ou **Ignoré :** indique que l’utilisateur a ignoré la menace sur son appareil, mais que la menace est toujours présente. |
+|**Type de menace**| Oui | Type de menace pour le partenaire de protection contre les menaces mobiles. Valeurs possibles : **Application**, **Fichier** ou **OS** |
+|**ID de compte AAD**| Non | L’identificateur unique Azure Active Directory. |
+|**Classification**| Oui | Classification des menaces fourni par le partenaire de protection contre les menaces mobiles. Valeurs possibles : **Root Enabler, Riskware, Adware, Chargeware, DataLeak, Trojan, Worm, Virus, Exploit, Backdoor, Bot, AppDropper, ClickFraud, Spam, Spyware, SurveillanceWare, Vulnerability, Unknown, Root Jailbrake, Connectivity, TollFraud, SideloadedApp** |
+|**ID d’appareil**| Non | L’ID d’objet Azure Active Directory qui représente l’appareil associé à un espace de travail avec des informations sur les menaces. |
+|**ID de la menace**| Non | Identificateur unique de la menace généré par le partenaire de protection contre les menaces mobiles. L’ID de la menace est utilisé pour le suivi de la résolution. |
+|**URL de la menace**| Non | Lorsqu’elle est présente, l’URL de la menace pointe vers la vue de cette menace spécifique sur la console de gestion du partenaire de protection contre les menaces mobiles. |
 
 > [!TIP] 
-> Zorg ervoor dat u het inschakelen van de kolommen die geen **standaard zichtbaar** voor meer informatie over de status van de naleving Mobile Threat verdediging voor uw apparaten.
+> Veillez à activer les colonnes qui ne sont pas **visibles par défaut** pour plus de détails sur l’état de conformité de la protection contre les menaces mobiles pour vos appareils.

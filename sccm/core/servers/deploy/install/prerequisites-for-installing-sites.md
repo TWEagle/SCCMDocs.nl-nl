@@ -1,6 +1,6 @@
 ---
-title: Vereisten voor de sites | Microsoft Docs
-description: Meer informatie over vereisten voor het installeren van de verschillende typen van System Center Configuration Manager-sites.
+title: "Prérequis pour les sites | Microsoft Docs"
+description: "Découvrez les prérequis liés à l’installation des différents types de sites System Center Configuration Manager."
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
@@ -16,114 +16,114 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: d46a8b66ace45d25da9d86f2e91b19ae1d6875ab
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prerequisites-for-installing-system-center-configuration-manager-sites"></a>Vereisten voor het installeren van System Center Configuration Manager-sites
+# <a name="prerequisites-for-installing-system-center-configuration-manager-sites"></a>Prérequis à l’installation de sites System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Voordat u begint met een site-installatie, is het een goed idee om meer informatie over de vereisten voor het installeren van de verschillende typen van System Center Configuration Manager-sites.
+Avant de commencer une installation de site, il est préférable d’en savoir plus sur les prérequis pour l’installation de différents types de sites System Center Configuration Manager.
 
-## <a name="primary-sites-and-the-central-administration-site"></a>Primaire sites en de centrale beheersite
-De volgende vereisten zijn van toepassing op een centrale beheersite als de eerste site van een hiërarchie installeert, installeer een zelfstandige primaire site of een onderliggende primaire site installeren. Als u een centrale beheersite als onderdeel van een hiërarchie-uitbreiding installeert, Zie [uitbreiden een zelfstandige primaire site](../../../../core/servers/deploy/install/prerequisites-for-installing-sites.md#bkmk_expand) in dit onderwerp.
+## <a name="primary-sites-and-the-central-administration-site"></a>Sites principaux et site d’administration centrale
+Les prérequis suivants s’appliquent à l’installation d’un site d’administration centrale en tant que premier site d’une hiérarchie, à l’installation d’un site principal autonome ou à l’installation d’un site principal enfant. Si vous installez un site d’administration centrale dans le cadre d’une extension de hiérarchie, consultez [Extension d’un site principal autonome](../../../../core/servers/deploy/install/prerequisites-for-installing-sites.md#bkmk_expand) dans cette rubrique.
 
-###  <a name="bkmk_PrereqPri"></a>Vereisten voor het installeren van een primaire site of een centrale beheersite  
+###  <a name="bkmk_PrereqPri"></a> Prérequis pour l’installation d’un site principal ou d’un site d’administration centrale  
 
--   Het gebruikersaccount dat de site installeert, moet de volgende rechten hebben:  
+-   Le compte d’utilisateur qui installe le site doit disposer des droits suivants :  
 
-    -   **Beheerder** op de siteservercomputer  
-    -   **Beheerder** op elke computer die fungeert als host voor de **sitedatabase** of een exemplaar van de **SMS-Provider** voor de site  
-    -   **Sysadmin** op het exemplaar van SQL Server die als host fungeert voor de sitedatabase  
-
-        > [!IMPORTANT]  
-        >  Als Setup is voltooid, moeten zowel het gebruikersaccount waarmee Setup wordt uitgevoerd als het computeraccount van de siteserver sysadmin-rechten voor SQL Server behouden. Verwijder de sysadmin-rechten niet van deze accounts.  
-
--   Als u een primaire site installeert, moet u de volgende aanvullende rechten:  
-    -  **Beheerder** op extra computers waarop u het initiële beheerpunt en distributiepunt wilt installeren, en als dat niet op de siteserver  
-
--   Als u een nieuwe onderliggende primaire site onder een centrale beheersite installeert, moet u de volgende aanvullende rechten:  
-
-    -   **Beheerder** op de computer die als host fungeert voor de centrale beheersite  
-
-    -   Op rollen gebaseerde beheerrechten beschikken in Configuration Manager die equivalent aan de beveiligingsrol van zijn **infrastructuurbeheerder** of **volledige beheerder**  
-
--   U moet de juiste installatiemedia (bronbestanden) gebruiken en voer Setup uit vanaf die locatie. Zie voor meer informatie over de juiste bronbestanden gebruiken voor het installeren van verschillende typen sites [opties voor het installeren van verschillende typen sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md#bkmk_options) in de [voorbereiden voor het installeren van sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md) onderwerp.
-
--   De siteservercomputer moet toegang hebben tot de bijgewerkte installatiebestanden van Microsoft, in een van de volgende manieren:
-    -  Voordat u de installatie begint, kunt u downloaden en sla een kopie van deze bestanden op uw lokale netwerk met behulp van [Setup Downloader](../../../../core/servers/deploy/install/setup-downloader.md).
-    -  Als een lokale kopie van deze bestand is niet beschikbaar, de siteserver moet toegang tot Internet hebben, zodat deze tijdens de installatie van deze bestanden kan downloaden van Microsoft.
-
-- Voordat u een zelfstandige primaire site met een site system serviceverbindingspuntrol geïnstalleerd uitbreiden kunt, moet u het serviceverbindingspunt verwijderen. Slechts één exemplaar van deze rol toegestaan in een hiërarchie en dit is alleen toegestaan op de bovenste site van de hiërarchie. U hebt de mogelijkheid om opnieuw te installeren van de functie tijdens de installatie van de centrale beheersite.
-- De siteserver en de sitedatabasecomputers moeten voldoen aan alle vereiste configuraties. Voordat u Setup start, kunt u [handmatig Prerequisite Checker uitvoeren](../../../../core/servers/deploy/install/prerequisite-checker.md) vaststellen en oplossen van problemen.  
-
-
-### <a name="bkmk_expand"></a>Vereisten voor een zelfstandige primaire site uitbreiden
-Een zelfstandige primaire site moet de volgende vereisten voldoen voordat u deze naar een hiërarchie met een centrale beheersite uitbreiden kunt:
-
--   **U moet de nieuwe installatie van centrale beheersite met media vanaf een CD installeren. Meest recente map (die de bronbestanden bevat) die overeenkomt met de versie van de zelfstandige primaire site**
-
- Zorg ervoor dat een overeenkomst is versie, de bronbestanden gebruiken die is gevonden in de [CD. Meest recente map](/sccm/core/servers/manage/the-cd.latest-folder) op de zelfstandige primaire site.
-
- Zie voor meer informatie over de juiste bronbestanden gebruiken voor het installeren van verschillende sites, [opties voor het installeren van verschillende typen sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md#bkmk_options) in de [voorbereiden voor het installeren van sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md) onderwerp.
-
-
--   **De zelfstandige primaire site kan niet worden geconfigureerd om gegevens te migreren van een andere Configuration Manager-hiërarchie**  
-
-     U moet actieve migratie naar de zelfstandige primaire site stoppen uit andere hiërarchieën van Configuration Manager en alle configuraties voor migratie verwijderen. Dit omvat migratiejobs die niet hebt voltooid, het verzamelen van gegevens en de configuratie van de actieve bronhiërarchie.  
-
-     Dit is nodig omdat mirgratiebewerkingen worden uitgevoerd door de bovenste site van de hiërarchie en de configuraties voor migratie niet worden overgedragen naar de centrale beheersite wanneer u een zelfstandige primaire site uitbreidt.  
-
-     Nadat u de zelfstandige primaire site uitbreiden als u de configuratie van de migratie op de primaire site, voert de centrale beheersite de migratiegerelateerde bewerkingen. Zie voor meer informatie over het configureren van de migratie [bronhiërarchieën en bronsites voor migratie naar System Center Configuration Manager configureren](../../../../core/migration/configuring-source-hierarchies-and-source-sites-for-migration.md).  
-
--   **Het computeraccount van de computer die als host voor de nieuwe centrale beheersite fungeert moet een lid van de gebruikersgroep op de standa enige primaire site**  
-
-     Om te kunnen uitbreiden van de zelfstandige primaire site, het computeraccount van de nieuwe centrale beheersite moet hebben **beheerder** rechten op de zelfstandige primaire site. Dit is enkel vereist tijdens site-uitbreiding. Het account kan worden verwijderd uit de gebruikersgroep op de primaire site als site-uitbreiding is voltooid.  
-
--   **Het gebruikersaccount dat wordt uitgevoerd voor het installeren van de nieuwe centrale beheersite moet op rollen gebaseerde beheerrechten hebben op de zelfstandige primaire site**  
-
-     Als u wilt een centrale beheersite installeren als onderdeel van een site-uitbreiding, moet het gebruikersaccount dat wordt uitgevoerd voor het installeren van de centrale beheersite worden gedefinieerd in op rollen gebaseerd beheer op de zelfstandige primaire site als hetzij een **volledige beheerder** of een **infrastructuurbeheerder**.  
-
--   **U moet de volgende sitesysteemrollen van de zelfstandige primaire site verwijderen voordat u de site kunt uitbreiden:**  
-
-    -   Asset Intelligence-synchronisatiepunt  
-    -   Endpoint Protection-punt  
-    -   Serviceverbindingspunt  
-
-   Deze sitesysteemrollen worden alleen ondersteund op de bovenste site van de hiërarchie. Daarom moet u deze sitesysteemrollen verwijderen voordat u de zelfstandige primaire site uitbreidt. Nadat u de site hebt uitgebreid, kunt u deze sitesysteemrollen op de centrale beheersite installeren.  
-
-    Alle andere sitesysteemrollen kunnen geïnstalleerd blijven op de primaire site.  
-
--   **De poort voor de SQL Server Service Broker (SSB) tussen de zelfstandige primaire site en de computer die de centrale beheersite zal installeren moet openen**  
-
-     Configuration Manager vereist om te kunnen repliceren van gegevens tussen een centrale beheersite en een primaire site, een open poort tussen de twee sites voor SSB te gebruiken. Wanneer u een centrale beheersite installeert en een zelfstandige primaire site uitbreidt, controleert de vereistencontrole niet of de poort die u voor de SSB opgeeft geopend op de primaire site is.  
-
-**Bekende problemen wanneer u Azure-services hebt geconfigureerd:**  
-Wanneer u een van de volgende Azure-services met Configuration Manager gebruiken en u wilt uitbreiden van een site, moet u verwijderen en vervolgens opnieuw de verbinding met die service maken na het uitbreiden van de site.
-
-Services:  
--       [Operations Manager-Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite) (OMS)
--       [Gereedheid voor upgrade](/sccm/core/clients/manage/upgrade/upgrade-analytics)
--       [Windows Store voor bedrijven](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)
-
-Gebruik de volgende stappen uit om dit probleem te verhelpen:
- 1.    In de Configuration Manager-console door de Azure service vanuit het knooppunt Azure-services te verwijderen.
- 2.    Verwijder de Tenant die is gekoppeld aan de service van het knooppunt Azure Active Directory-Tenants in de Azure-portal.  Hiermee verwijdert u ook de Azure AD-web-app die is gekoppeld aan de service.  
- 3.   Configureer opnieuw de verbinding met de Azure-service voor gebruik met Configuration Manager.
-
-
-## <a name="bkmk_secondary"></a>Secundaire sites
-Hier volgen de vereisten voor het installeren van secundaire sites:
--   Moet de beheerder die de installatie van de secundaire site in de Configuration Manager-console configureert op rollen gebaseerde beheerrechten beschikken die gelijk aan de beveiligingsrol zijn hebben **infrastructuurbeheerder** of **volledige beheerder**.  
--   Het computeraccount van de bovenliggende primaire site moet een **beheerder** op de secundaire siteservercomputer.  
--   Wanneer de secundaire site maakt gebruik van een eerder geïnstalleerd exemplaar van SQL Server voor het hosten van de secundaire sitedatabase:  
-
-    -   De **computeraccount** van de bovenliggende primaire site moet hebben **sysadmin** rechten voor het exemplaar van SQL Server op de secundaire siteservercomputer.  
-
-    -   De **lokaal systeem** account van de secundaire siteservercomputer moet beschikken over **sysadmin** rechten voor het exemplaar van SQL Server op de secundaire siteservercomputer.  
+    -   **Administrateur** sur l’ordinateur serveur de site  
+    -   **Administrateur** sur chaque ordinateur devant héberger la **base de données du site** ou une instance du **Fournisseur SMS** pour le site  
+    -   **Sysadmin** sur l’instance de SQL Server qui héberge la base de données du site  
 
         > [!IMPORTANT]  
-        >  Wanneer Setup is voltooid, moeten beide accounts sysadmin-rechten voor SQL Server behouden. Verwijder de sysadmin-rechten niet van deze accounts.  
+        >  Une fois l’installation terminée, le compte d’utilisateur qui exécute le programme d’installation et le compte d’ordinateur du serveur de site doivent tous deux conserver des droits d’administrateur système sur SQL Server. Ne supprimez pas les droits d’administrateur système de ces comptes.  
 
--   De secundaire siteservercomputer moet voldoen aan alle vereiste configuraties, waaronder SQL Server en de standaardsitesysteemrollen van het beheerpunt en distributiepunt.  
+-   Si vous installez un site principal, vous devez disposer des droits supplémentaires suivants :  
+    -  **Administrateur** sur les autres ordinateurs où vous allez installer le point de gestion initial et le point de distribution (s’il n’est pas sur le serveur de site)  
+
+-   Si vous installez un nouveau site principal enfant sous un site d’administration centrale, vous devez disposer des droits supplémentaires suivants :  
+
+    -   **Administrateur** sur l’ordinateur hébergeant le site d’administration centrale  
+
+    -   Droits d’administration basée sur des rôles dans Configuration Manager, qui équivalent au rôle de sécurité **Administrateur d’infrastructure** ou **Administrateur complet**  
+
+-   Vous devez utiliser le support d’installation correct (fichiers sources) et exécuter le programme d’installation à partir de cet emplacement. Pour plus d’informations sur les fichiers sources adéquats à utiliser pour installer différents types de sites, consultez [Options d’installation des différents types de sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md#bkmk_options) dans la rubrique [Préparer l’installation des sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md).
+
+-   L’ordinateur serveur de site doit avoir accès aux fichiers d’installation mis à jour de Microsoft de l’une des manières suivantes :
+    -  Avant de commencer l’installation, vous pouvez télécharger et stocker une copie de ces fichiers sur votre réseau local à l’aide du [Téléchargeur d’installation](../../../../core/servers/deploy/install/setup-downloader.md).
+    -  Si une copie locale de ces fichiers n’est pas disponible, le serveur de site doit avoir accès à Internet pour pouvoir télécharger ces fichiers à partir de Microsoft lors de l’installation.
+
+- Pour pouvoir étendre un site principal autonome ayant un rôle de système de site Point de connexion de service installé, vous devez désinstaller le point de connexion de service. Une seule instance de ce rôle est autorisée dans une hiérarchie, et uniquement sur le site de niveau supérieur de la hiérarchie. Vous avez la possibilité de réinstaller le rôle lors de l’installation du site d’administration centrale.
+- Le serveur de site et les ordinateurs de base de données du site doivent présenter toutes les configurations prévues dans les conditions préalables. Avant de démarrer le programme d’installation, vous pouvez [exécuter manuellement l’Outil de vérification des prérequis](../../../../core/servers/deploy/install/prerequisite-checker.md) pour identifier et résoudre les problèmes.  
+
+
+### <a name="bkmk_expand"></a> Configuration requise pour développer un site principal autonome
+Un site principal autonome doit remplir les conditions préalables suivantes pour pouvoir être étendu dans une hiérarchie constituée d'un site d'administration centrale :
+
+-   **Vous devez installer le nouveau site d’administration centrale à l’aide du support d’un dossier CD.Latest (qui contient les fichiers sources) qui correspond à la version du site principal autonome**
+
+ Pour garantir la correspondance de la version, utilisez les fichiers sources figurant dans le [dossier CD.Latest](/sccm/core/servers/manage/the-cd.latest-folder) sur le site principal autonome.
+
+ Pour plus d’informations sur les fichiers sources adéquats à utiliser pour installer différents sites, consultez [Options d’installation des différents types de sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md#bkmk_options) dans la rubrique [Préparer l’installation des sites](../../../../core/servers/deploy/install/prepare-to-install-sites.md).
+
+
+-   **Le site principal autonome ne peut pas être configuré pour faire migrer les données d’une autre hiérarchie Configuration Manager**  
+
+     Vous devez arrêter la migration active vers le site principal autonome à partir d’autres hiérarchies Configuration Manager, puis supprimer toutes les configurations pour la migration. Sont incluses les tâches de migration qui ne sont pas terminées, la collecte des données et la configuration de la hiérarchie source active.  
+
+     En effet, les opérations de migration sont effectuées par le site de niveau supérieur de la hiérarchie et les configurations à faire migrer ne sont pas transférées au site d’administration centrale quand vous étendez un site principal autonome.  
+
+     Après avoir étendu le site principal autonome, si vous reconfigurez la migration sur le site principal, le site d’administration centrale assure les opérations liées à la migration. Pour plus d’informations sur la configuration de la migration, consultez [Configurer des hiérarchies sources et des sites sources pour la migration vers System Center Configuration Manager](../../../../core/migration/configuring-source-hierarchies-and-source-sites-for-migration.md).  
+
+-   **Le compte de l’ordinateur appelé à héberger le nouveau site d’administration centrale doit être membre du groupe d’utilisateurs Administrateurs sur le site principal autonome**  
+
+     Pour étendre correctement le site principal autonome, le compte d’ordinateur du nouveau site d’administration centrale doit détenir des droits d’**Administrateur** sur le site principal autonome. Ceci est nécessaire uniquement durant l’extension de site. Vous pouvez supprimer le compte du groupe d’utilisateurs sur le site principal après l’extension du site.  
+
+-   **Le compte d’utilisateur qui exécute le programme d’installation pour installer le nouveau site d’administration centrale doit avoir des droits d’administration basée sur les rôles au niveau du site principal autonome**  
+
+     Pour installer un site d’administration centrale dans le cadre d’une extension de site, le compte d’utilisateur qui exécute le programme d’installation pour installer le site d’administration centrale doit être défini dans l’administration basée sur les rôles sur le site principal autonome en tant qu’**Administrateur complet** ou **Administrateur d’infrastructure**.  
+
+-   **Pour pouvoir étendre le site, vous devez désinstaller les rôles système de site suivants du site principal autonome :**  
+
+    -   Point de synchronisation Asset Intelligence  
+    -   Point Endpoint Protection  
+    -   Point de connexion de service  
+
+   Ces rôles de système de site sont pris en charge uniquement sur le site de niveau supérieur de la hiérarchie. Par conséquent, vous devez désinstaller ces rôles système de site avant d’étendre le site principal autonome. Une fois le site étendu, vous pouvez réinstaller ces rôles de système de site sur le site d'administration centrale.  
+
+    Tous les autres rôles de système de site peuvent rester installés sur le site principal.  
+
+-   **Le port pour SQL Server Service Broker (SSB) doit être ouvert entre le site principal autonome et l’ordinateur qui va installer le site d’administration centrale**  
+
+     Pour répliquer correctement des données entre un site d’administration centrale et un site principal, Configuration Manager exige un port ouvert entre les deux sites, qui sera utilisé par SSB. Quand vous installez un site d’administration centrale et que vous étendez un site principal autonome, la vérification des prérequis ne contrôle pas si le port que vous spécifiez pour SSB est ouvert sur le site principal.  
+
+**Problèmes connus quand vous configurez les services Azure :**  
+Lorsque vous utilisez l’un des services Azure suivants avec Configuration Manager et que vous prévoyez de développer un site, vous devez supprimer et recréer la connexion à ce service après avoir développé le site.
+
+Services :  
+-       [Operations Manager Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite)   (OMS)
+-       [Upgrade Readiness](/sccm/core/clients/manage/upgrade/upgrade-analytics)
+-       [Windows Store pour Entreprises](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)
+
+Pour résoudre ce problème, procédez comme suit :
+ 1.    Dans la console Configuration Manager, supprimez le service Azure du nœud des services Azure.
+ 2.    Dans le portail Azure, supprimez du nœud Locataires Azure Active Directory le locataire qui est associé au service.  Cette opération supprime l’application web Azure AD qui est associée au service.  
+ 3.   Reconfigurez la connexion au service Azure pour l’utiliser avec Configuration Manager.
+
+
+## <a name="bkmk_secondary"></a> Sites secondaires
+Voici les prérequis à l’installation des sites secondaires :
+-   L’administrateur qui configure l’installation du site secondaire dans la console Configuration Manager doit avoir des droits d’administration basée sur des rôles qui équivalent au rôle de sécurité **Administrateur d’infrastructure** ou **Administrateur complet**.  
+-   Le compte d’ordinateur du site principal parent doit être **Administrateur** sur l’ordinateur serveur du site secondaire.  
+-   Lorsque le site secondaire utilise une instance précédemment installée de SQL Server pour héberger la base de données du site secondaire :  
+
+    -   Le **compte d’ordinateur** du site principal parent doit disposer des droits d’administrateur système ( **sysadmin** ) sur l’instance de SQL Server exécutée sur l’ordinateur serveur de site secondaire.  
+
+    -   Le compte **Système local** de l’ordinateur serveur de site secondaire doit disposer des droits d’administrateur système ( **sysadmin** ) sur l’instance de SQL Server exécutée sur cet ordinateur.  
+
+        > [!IMPORTANT]  
+        >  Une fois l’installation terminée, les deux comptes doivent conserver les droits d’administrateur système (sysadmin) sur SQL Server. Ne supprimez pas les droits d’administrateur système de ces comptes.  
+
+-   L’ordinateur serveur de site secondaire doit présenter toutes les configurations requises, ce qui inclut SQL Server et les rôles de système de site par défaut du point de gestion et du point de distribution.  

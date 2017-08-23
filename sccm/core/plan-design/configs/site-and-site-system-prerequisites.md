@@ -1,6 +1,6 @@
 ---
-title: Site-vereisten | Microsoft Docs
-description: Informatie over het configureren van een Windows-computer als een sitesysteemserver voor System Center Configuration Manager.
+title: "Prérequis des sites | Microsoft Docs"
+description: "Découvrez comment configurer un ordinateur Windows comme serveur de système de site System Center Configuration Manager."
 ms.custom: na
 ms.date: 1/17/2017
 ms.prod: configuration-manager
@@ -16,784 +16,784 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 0b1d2d619d6cdaf36cc22ef461ea1505b5cacc41
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="site-and-site-system-prerequisites-for-system-center-configuration-manager"></a>Site- en site-systeemvereisten voor System Center Configuration Manager
+# <a name="site-and-site-system-prerequisites-for-system-center-configuration-manager"></a>Prérequis des sites et systèmes de site pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
-
-
- Op basis van Windows-computers vereisen specifieke configuraties ter ondersteuning van hun gebruik als System Center Configuration Manager-sitesysteemservers.  
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
- Voor sommige producten, zoals Windows Server Update Services (WSUS) voor de software-updatepunt, moet u verwijzen naar de productdocumentatie om te bepalen van aanvullende vereisten en beperkingen voor het gebruik van dat product. Alleen configuraties die rechtstreeks van toepassing voor gebruik met Configuration Manager zijn hier opgenomen.   
+ Les ordinateurs Windows nécessitent des configurations spécifiques pour pouvoir être utilisés comme serveurs de système de site System Center Configuration Manager.  
+
+
+ Dans certains cas, par exemple Windows Server Update Services (WSUS) pour le point de mise à jour logicielle, vous devez vous référer à la documentation du produit pour connaître les prérequis et limitations supplémentaires liés à son utilisation. Cet article porte uniquement sur les configurations qui s’appliquent directement à l’utilisation de Configuration Manager.   
 
 > [!NOTE]  
->  In januari 2016 is ondersteuning voor .NET Framework 4.0, 4.5 en 4.5.1 verlopen. Zie [Veelgestelde vragen over Microsoft .NET Framework Support Lifecycle-beleid](https://support.microsoft.com/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update) op support.microsoft.com voor meer informatie.  
+>  Depuis janvier 2016, le support n’est plus assuré pour .NET Framework 4.0, 4.5 et 4.5.1. Pour plus d’informations, consultez [Forum Aux Questions sur la politique de support - Microsoft .NET Framework](https://support.microsoft.com/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update) à l’adresse support.microsoft.com.  
 
-## <a name="bkmk_generalprerewq"></a>Algemene site server-vereisten en beperkingen
-**De volgende van toepassing op alle sitesysteemservers:**
+## <a name="bkmk_generalprerewq"></a> Configuration requise et limitations générales du serveur de site
+**Ce qui suit s’applique à tous les serveurs de système de site :**
 
--   Elke sitesysteemserver moet een 64-bits besturingssysteem gebruiken. De enige uitzondering hierop is de site distributiepuntrol, die u op een 32-bits besturingssystemen installeren kunt.  
+-   Chaque serveur de système de site doit utiliser un système d’exploitation 64 bits. La seule exception est le rôle de système de site du point de distribution, que vous pouvez installer sur certains systèmes d’exploitation 32 bits.  
 
--   Sitesystemen worden niet ondersteund op de Server Core-installaties van een besturingssysteem. Een uitzondering hierop is dat Server Core-installaties worden ondersteund voor de site distributiepuntrol, zonder PXE of multicast-ondersteuning.  
+-   Les systèmes de site ne sont pas pris en charge sur des installations minimales pour les systèmes d’exploitation suivants : Une exception à cette règle est que les installations minimales sont prises en charge pour le rôle de système de site du point de distribution, sans prise en charge de PXE ou de la multidiffusion.  
 
--   Nadat een sitesysteemserver is geïnstalleerd, wordt het niet ondersteund als u wilt wijzigen:  
+-   Une fois que vous avez installé un serveur de système de site, vous ne pouvez plus modifier les éléments suivants :  
 
-    -   De domeinnaam van het domein waarin de sitesysteemcomputer zich bevindt (ook wel een **domein rename**).  
+    -   Le nom du domaine où se trouve l’ordinateur du système de site (également appelé **changement de nom de domaine**).  
 
-    -   Het domeinlidmaatschap van de computer.  
+    -   L’appartenance de l’ordinateur au domaine.  
 
-    -   De naam van de computer.  
+    -   Nom de l’ordinateur.  
 
-  Als u deze wijzigen moet, moet u eerst de sitesysteemrol van de computer verwijderen en de functie vervolgens opnieuw installeren nadat de wijziging aangebracht is. Als dit invloed heeft op de siteservercomputer, moet u de site verwijderen en vervolgens de site opnieuw installeren nadat de wijziging aangebracht is.  
+  Si vous devez modifier ces éléments, vous devez d’abord supprimer le rôle système de site sur l’ordinateur, puis réinstaller les rôles une fois la modification effectuée. Si ceci a une incidence sur l'ordinateur du serveur de site, vous devez désinstaller le site, puis le réinstaller une fois la modification effectuée.  
 
--   Sitesysteemrollen worden niet ondersteund op een exemplaar van een Windows Server-cluster. De enige uitzondering hierop is de Sitedatabaseserver.  
+-   Les rôles de système de site ne sont pas pris en charge sur une instance de cluster Windows Server. La seule exception est le serveur de base de données de site.  
 
--   Dit wordt niet ondersteund voor het wijzigen van het opstarttype of 'Aanmelden als' instellingen voor elke Configuration Manager-service. Als u dit doet, kunt u belangrijke services niet correct uitgevoerd.  
+-   Vous ne pouvez pas modifier le type de démarrage ou les paramètres d’ouverture de session pour un service Configuration Manager. Si vous le faites, vous risquez d’empêcher des services clés de s’exécuter correctement.  
 
-##  <a name="bkmk_2012Prereq"></a>Vereisten voor Windows Server 2012 en latere besturingssystemen  
-###  <a name="bkmk_2012sspreq"></a>Siteserver: centrale beheersite en primaire site  
-  **Windows Server-functies en onderdelen:**  
+##  <a name="bkmk_2012Prereq"></a> Conditions préalables pour les systèmes d’exploitation Windows Server 2012 et versions ultérieures  
+###  <a name="bkmk_2012sspreq"></a> Serveur de site : site d’administration centrale et site principal  
+  **Rôles et fonctionnalités Windows Server :**  
 
--   .NET framework 3.5 SP1 (of hoger)  
+-   .NET Framework 3.5 SP1 (ou version ultérieure)  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
--   Externe differentiële compressie  
+-   Compression différentielle à distance  
 
-**Windows ADK:**  
+**Windows ADK :**  
 
--   Voordat u installeren of upgraden van een centrale beheersite of primaire site, moet u de versie van Windows Assessment and Deployment Kit (ADK) die de versie van Configuration Manager u installeren of upgraden naar vereist.  
+-   Avant d’installer ou de mettre à niveau un site d’administration centrale ou un site principal, vous devez installer la version du Kit de déploiement et d’évaluation Windows (ADK) nécessaire pour la version de Configuration Manager que vous installez ou vers laquelle vous effectuez une mise à niveau.  
 
-    -   De 1511-versie van Configuration Manager vereist de versie Windows 10 RTM (10.0.10240) van Windows ADK.  
+    -   La version 1511 de Configuration Manager nécessite la version Windows 10 RTM (10.0.10240) de Windows ADK.  
 
--   Zie voor meer informatie over deze vereiste [vereisten voor de infrastructuur voor besturingssysteemimplementatie](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
+-   Pour plus d’informations sur cette configuration requise, consultez [Configuration requise de l’infrastructure pour le déploiement de système d’exploitation](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
 
-**Visual C++ Redistributable:**  
+**Redistribuable Visual C++ :**  
 
--   Configuration Manager installeert het herdistribueerbare pakket voor Microsoft Visual C++ 2013 op elke computer die een siteserver wordt geïnstalleerd.  
+-   Configuration Manager installe Microsoft Visual C++ 2013 Redistributable Package sur chaque ordinateur sur lequel est installé un serveur de site.  
 
--   Centrale beheersites en primaire sites moeten de x86- en x64 versies van het betreffende herdistribueerbare bestand.  
+-   Les sites d'administration centrale et les sites principaux requièrent à la fois les versions x86 et x64 du fichier redistribuable applicable.  
 
-###  <a name="bkmk_2012secpreq"></a>Siteserver: secundaire site  
-**Windows Server-functies en onderdelen:**  
+###  <a name="bkmk_2012secpreq"></a> Serveur de site : site secondaire  
+**Rôles et fonctionnalités Windows Server :**  
 
--   .NET framework 3.5 SP1 (of hoger)  
+-   .NET Framework 3.5 SP1 (ou version ultérieure)  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
--   Externe differentiële compressie  
+-   Compression différentielle à distance  
 
-**Visual C++ Redistributable:**  
+**Redistribuable Visual C++ :**  
 
--   Configuration Manager installeert het herdistribueerbare pakket voor Microsoft Visual C++ 2013 op elke computer die een siteserver wordt geïnstalleerd.  
+-   Configuration Manager installe Microsoft Visual C++ 2013 Redistributable Package sur chaque ordinateur sur lequel est installé un serveur de site.  
 
--   Secundaire sites is alleen de x64 vereist versie.  
+-   Les sites secondaires requièrent seulement la version x64.  
 
-**Standaardsitesysteemrollen:**  
+**Rôles de système de site par défaut :**  
 
--   Een secundaire site installeert standaard een **beheerpunt** en een **distributiepunt**.  
+-   Par défaut, un site secondaire installe un **point de gestion** et un **point de distribution**.  
 
--   Zorg ervoor dat de secundaire siteserver voldoet aan de vereisten voor deze sitesysteemrollen.  
+-   Assurez-vous que le serveur de site secondaire remplit les conditions préalables pour ces rôles de système de site.  
 
-###  <a name="bkmk_2012dbpreq"></a>Database-server  
-**Remote Registry-service:**  
+###  <a name="bkmk_2012dbpreq"></a> Serveur de base de données  
+**Service d’accès à distance au Registre :**  
 
--   U moet de Remote Registry-service op de computer die als voor de sitedatabase host fungeert inschakelen tijdens de installatie van de Configuration Manager-site.  
+-   Durant l’installation du site Configuration Manager, vous devez activer le service d’accès à distance au Registre sur l’ordinateur qui hébergera la base de données du site.  
 
-**SQL Server:**  
+**SQL Server :**  
 
--   Voordat u een centrale beheersite of primaire site installeert, moet u een ondersteunde versie van SQL Server voor het hosten van de sitedatabase installeren.  
+-   Avant d’installer un site d’administration centrale ou un site principal, vous devez installer une version prise en charge de SQL Server pour héberger la base de données du site.  
 
--   Voordat u een secundaire site installeert, kunt u een ondersteunde versie van SQL Server installeren.  
+-   Avant d’installer un site secondaire, vous pouvez installer une version prise en charge de SQL Server.  
 
--   Als u ervoor kiest om Configuration Manager SQL Server Express installeert als onderdeel van de secundaire site-installatie, zorg ervoor dat de computer voldoet aan de vereisten voor het uitvoeren van SQL Server Express.  
+-   Si vous souhaitez que Configuration Manager installe SQL Server Express en même temps que le site secondaire, vérifiez que l’ordinateur présente la configuration requise pour exécuter SQL Server Express.  
 
-###  <a name="bkmk_2012smsprovpreq"></a>Server SMS-Provider  
-**Windows ADK:**  
+###  <a name="bkmk_2012smsprovpreq"></a> Serveur de fournisseur SMS  
+**Windows ADK :**  
 
--   De computer waarop u een exemplaar van de SMS-Provider installeert, moet de vereiste versie van Windows ADK die de versie van Configuration Manager u installeren of upgraden naar nodig hebben.  
+-   L’ordinateur sur lequel vous installez une instance du fournisseur SMS doit disposer de la version de Windows ADK nécessaire à la version de Configuration Manager que vous installez ou vers laquelle vous effectuez une mise à niveau.  
 
-    -   De 1511-versie van Configuration Manager vereist de versie Windows 10 RTM (10.0.10240) van Windows ADK.  
+    -   La version 1511 de Configuration Manager nécessite la version Windows 10 RTM (10.0.10240) de Windows ADK.  
 
--   Zie voor meer informatie over deze vereiste [vereisten voor de infrastructuur voor besturingssysteemimplementatie](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
+-   Pour plus d’informations sur cette configuration requise, consultez [Configuration requise de l’infrastructure pour le déploiement de système d’exploitation](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
 
-###  <a name="bkmk_2012acwspreq"></a>Application Catalog-websitepunt  
-**Windows Server-functies en onderdelen:**  
+###  <a name="bkmk_2012acwspreq"></a> Point du site web du catalogue des applications  
+**Rôles et fonctionnalités Windows Server :**  
 
--   .NET framework 3.5 SP1 (of hoger)  
+-   .NET Framework 3.5 SP1 (ou version ultérieure)  
 
--   .NET framework 4.5.2:  
+-   .NET Framework 4.5.2 :  
 
     -   ASP.NET 4.5  
 
-**IIS-configuratie:**  
+**Configuration IIS :**  
 
--   Veelvoorkomende HTTP-functies:  
+-   Fonctionnalités HTTP communes :  
 
-    -   Standaarddocument  
+    -   Document par défaut  
 
-    -   Statische inhoud  
+    -   Contenu statique  
 
--   Toepassingsontwikkeling:  
+-   Développement d'applications :  
 
-    -   ASP.NET 3.5 (en automatisch geselecteerde opties)  
+    -   ASP.NET 3.5 (et les options sélectionnées automatiquement)  
 
-    -   ASP.NET 4.5 (en automatisch geselecteerde opties)  
+    -   ASP.NET 4.5 (et les options sélectionnées automatiquement)  
 
-    -   .NET-uitbreidbaarheid 3.5  
+    -   Extensibilité .NET 3.5  
 
-    -   .NET-uitbreidbaarheid 4.5  
+    -   Extensibilité .NET 4.5  
 
--   Beveiliging:  
+-   Sécurité :  
 
-    -   Windows-verificatie  
+    -   Authentification Windows  
 
--   Compatibiliteit met IIS 6-beheer:  
+-   Compatibilité avec la gestion IIS 6 :  
 
-    -   Compatibiliteit met IIS 6-metabase  
+    -   Compatibilité avec la métabase de données IIS 6  
 
-###  <a name="bkmk_2012ACwsitepreq"></a>Application Catalog-webservicepunt  
-**Windows Server-functies en onderdelen:**  
+###  <a name="bkmk_2012ACwsitepreq"></a> Point de service web du catalogue des applications  
+**Rôles et fonctionnalités Windows Server :**  
 
--   .NET framework 3.5 SP1 (of hoger)  
+-   .NET Framework 3.5 SP1 (ou version ultérieure)  
 
--   .NET framework 4.5.2:  
+-   .NET Framework 4.5.2 :  
 
-    -   ASP.NET 4.5:  
+    -   ASP.NET 4.5 :  
 
-        -   HTTP-activering (en automatisch geselecteerde opties)  
+        -   Activation de HTTP (et des options sélectionnées automatiquement)  
 
-**IIS-configuratie:**  
+**Configuration IIS :**  
 
--   Veelvoorkomende HTTP-functies:  
+-   Fonctionnalités HTTP communes :  
 
-    -   Standaarddocument  
+    -   Document par défaut  
 
--   Compatibiliteit met IIS 6-beheer:  
+-   Compatibilité avec la gestion IIS 6 :  
 
-    -   Compatibiliteit met IIS 6-metabase  
+    -   Compatibilité avec la métabase de données IIS 6  
 
--   Toepassingsontwikkeling:  
+-   Développement d'applications :  
 
-    -   ASP.NET 3.5 (en automatisch geselecteerde opties)  
+    -   ASP.NET 3.5 (et les options sélectionnées automatiquement)  
 
-    -   .NET-uitbreidbaarheid 3.5  
+    -   Extensibilité .NET 3.5  
 
-    -   ASP.NET 4.5 (en automatisch geselecteerde opties)  
+    -   ASP.NET 4.5 (et les options sélectionnées automatiquement)  
 
-    -   .NET-uitbreidbaarheid 4.5  
+    -   Extensibilité .NET 4.5  
 
-**Computergeheugen:**  
+**Mémoire de l’ordinateur :**  
 
--   De computer die als host fungeert voor deze sitesysteemrol moet minimaal 5% van het beschikbare geheugen van de computer gratis waarmee de sitesysteemrol voor het verwerken van aanvragen hebben.  
+-   L’ordinateur hébergeant ce rôle de système de site doit avoir au moins 5 % de mémoire disponible pour permettre au rôle de système de site de traiter les demandes.  
 
--   Wanneer deze sitesysteemrol CO-locaties met een andere sitesysteemrol met deze zelfde vereiste is, wordt deze geheugenvereiste voor de computer niet verhogen, maar blijft minimaal 5%.  
+-   Quand ce rôle de système de site coexiste avec un autre rôle de système de site qui a cette même exigence, la quantité de mémoire disponible requise pour l’ordinateur n’augmente pas, mais elle reste à un minimum de 5 %.  
 
-###  <a name="bkmk_2012AIpreq"></a>Asset Intelligence-synchronisatiepunt  
-**Windows Server-functies en onderdelen:**  
+###  <a name="bkmk_2012AIpreq"></a> Point de synchronisation Asset Intelligence  
+**Rôles et fonctionnalités Windows Server :**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-###  <a name="bkmk_2012crppreq"></a>Certificaatregistratiepunt  
-**Windows Server-functies en onderdelen:**  
+###  <a name="bkmk_2012crppreq"></a> Point d’enregistrement de certificat  
+**Rôles et fonctionnalités Windows Server :**  
 
--   .NET framework 4.5.2:  
+-   .NET Framework 4.5.2 :  
 
-    -   HTTP-activering  
+    -   Activation HTTP  
 
-**IIS-configuratie:**  
+**Configuration IIS :**  
 
--   Toepassingsontwikkeling:  
+-   Développement d'applications :  
 
-    -   ASP.NET 3.5 (en automatisch geselecteerde opties)  
+    -   ASP.NET 3.5 (et les options sélectionnées automatiquement)  
 
-    -   ASP.NET 4.5 (en automatisch geselecteerde opties)  
+    -   ASP.NET 4.5 (et les options sélectionnées automatiquement)  
 
--   Compatibiliteit met IIS 6-beheer:  
+-   Compatibilité avec la gestion IIS 6 :  
 
-    -   Compatibiliteit met IIS 6-metabase  
+    -   Compatibilité avec la métabase de données IIS 6  
 
-    -   Compatibiliteit met IIS 6 WMI  
+    -   Compatibilité WMI d'IIS 6  
 
-###  <a name="bkmk_2012dppreq"></a>Distributiepunt  
-**Windows Server-functies en onderdelen:**  
+###  <a name="bkmk_2012dppreq"></a> Point de distribution  
+**Rôles et fonctionnalités Windows Server :**  
 
--   Externe differentiële compressie  
+-   Compression différentielle à distance  
 
-**IIS-configuratie:**  
+**Configuration IIS :**  
 
--   Toepassingsontwikkeling:  
+-   Développement d'applications :  
 
-    -   ISAPI-extensies  
+    -   Extensions ISAPI  
 
--   Beveiliging:  
+-   Sécurité :  
 
-    -   Windows-verificatie  
+    -   Authentification Windows  
 
--   Compatibiliteit met IIS 6-beheer:  
+-   Compatibilité avec la gestion IIS 6 :  
 
-    -   Compatibiliteit met IIS 6-metabase  
+    -   Compatibilité avec la métabase de données IIS 6  
 
-    -   Compatibiliteit met IIS 6 WMI  
+    -   Compatibilité WMI d'IIS 6  
 
-**PowerShell:**  
+**PowerShell :**  
 
--   Op Windows Server 2012 of hoger, PowerShell 3.0 of 4.0 is vereist voordat u het distributiepunt installeert.  
+-   Sur Windows Server 2012 et les versions ultérieures, PowerShell 3.0 ou 4.0 est nécessaire pour pouvoir installer le point de distribution.  
 
-**Visual C++ Redistributable:**  
+**Redistribuable Visual C++ :**  
 
--   Configuration Manager installeert het herdistribueerbare pakket voor Microsoft Visual C++ 2013 op elke computer die als host fungeert voor een distributiepunt.  
+-   Configuration Manager installe Microsoft Visual C++ 2013 Redistributable Package sur chaque ordinateur hébergeant un point de distribution.  
 
--   De versie die is geïnstalleerd, is afhankelijk van de computer platform (x86 of x64).  
+-   La version installée dépend de la plateforme de l’ordinateur (x86 ou x64).  
 
-**Microsoft Azure:**  
+**Microsoft Azure :**  
 
--   U kunt een cloudservice in Microsoft Azure gebruiken om een distributiepunt te hosten.  
+-   Pour héberger un point de distribution, vous pouvez utiliser un service cloud dans Microsoft Azure.  
 
-**Ter ondersteuning van PXE of multicast:**  
+**Pour prendre en charge PXE ou la multidiffusion :**  
 
--   Installeer en configureer de Windows Deployment Services (WDS) Windows Server-rol.  
+-   Installez et configurez le rôle WDS (Windows Deployment Services) de Windows Server.  
 
     > [!NOTE]  
-    >  WDS automatisch geïnstalleerd en geconfigureerd wanneer u een distributiepunt configureert voor ondersteuning van PXE of multicast op een server waarop WindowsServer 2012 of later.  
+    >  WDS s’installe et se configure automatiquement quand vous configurez un point de distribution pour prendre en charge PXE ou la multidiffusion sur un serveur exécutant Windows Server 2012 ou une version ultérieure.  
 
 > [!NOTE]  
-> De sitesysteemrol distributiepunt vereist geen Background Intelligent Transfer Service (BITS). Wanneer BITS is geconfigureerd op de computer van het distributiepunt, wordt niet BITS op de distributiepuntcomputer gebruikt om het downloaden van inhoud door clients die gebruikmaken van BITS.  
+> Le rôle de système de site du point de distribution ne nécessite pas le service de transfert intelligent en arrière-plan (BITS). Quand BITS est configuré sur l’ordinateur du point de distribution, il n’est pas utilisé pour faciliter le téléchargement de contenu par les clients qui utilisent BITS.  
 
-###  <a name="bkmk_2012EPPpreq"></a>Endpoint Protection-punt  
-**Windows Server-functies en onderdelen:**  
+###  <a name="bkmk_2012EPPpreq"></a> Point Endpoint Protection  
+**Rôles et fonctionnalités Windows Server :**  
 
--   .NET framework 3.5 SP1 (of hoger)  
+-   .NET Framework 3.5 SP1 (ou version ultérieure)  
 
-###  <a name="bkmk_2012Enrollpreq"></a>Inschrijvingspunt  
-**Windows Server-functies en onderdelen:**  
+###  <a name="bkmk_2012Enrollpreq"></a> Point d’inscription  
+**Rôles et fonctionnalités Windows Server :**  
 
--   .NET framework 3.5 (of hoger)  
+-   .NET Framework 3.5 (ou version ultérieure).  
 
--   .NET framework 4.5.2:  
+-   .NET Framework 4.5.2 :  
 
-     Wanneer deze sitesysteemrol wordt geïnstalleerd, installeert Configuration Manager automatisch .NET Framework 4.5.2. Deze installatie kunt plaatsen van de server opnieuw opstarten status in behandeling. Wanneer opnieuw opstarten is in behandeling voor de .NET Framework, .NET-toepassingen mislukken pas nadat de server opnieuw is opgestart en de installatie is voltooid.  
+     Pendant l’installation de ce rôle de système de site, Configuration Manager installe automatiquement .NET Framework 4.5.2. Cette installation peut placer le serveur dans un état d’attente redémarrage. Quand un redémarrage est en attente pour .NET Framework, il est possible que les applications .NET ne puissent pas s’exécuter tant que le serveur n’a pas redémarré et que l’installation n’est pas terminée.  
 
-    -   HTTP-activering (en automatisch geselecteerde opties)  
+    -   Activation de HTTP (et des options sélectionnées automatiquement)  
 
     -   ASP.NET 4.5  
 
 
-**IIS-configuratie:**  
+**Configuration IIS :**  
 
--   Veelvoorkomende HTTP-functies:  
+-   Fonctionnalités HTTP communes :  
 
-    -   Standaarddocument  
+    -   Document par défaut  
 
--   Toepassingsontwikkeling:  
+-   Développement d'applications :  
 
-    -   ASP.NET 3.5 (en automatisch geselecteerde opties)  
+    -   ASP.NET 3.5 (et les options sélectionnées automatiquement)  
 
-    -   .NET-uitbreidbaarheid 3.5  
+    -   Extensibilité .NET 3.5  
 
-    -   ASP.NET 4.5 (en automatisch geselecteerde opties)  
+    -   ASP.NET 4.5 (et les options sélectionnées automatiquement)  
 
-    -   .NET-uitbreidbaarheid 4.5  
+    -   .NET Extensibility 4.5  
 
--   Compatibiliteit met IIS 6-beheer:  
+-   Compatibilité avec la gestion IIS 6 :  
 
-    -   Compatibiliteit met IIS 6-metabase  
+    -   Compatibilité avec la métabase de données IIS 6  
 
-**Computergeheugen:**  
+**Mémoire de l’ordinateur :**  
 
--   De computer die als host fungeert voor deze sitesysteemrol moet minimaal 5% van het beschikbare geheugen van de computer gratis waarmee de sitesysteemrol voor het verwerken van aanvragen hebben.  
+-   L’ordinateur hébergeant ce rôle de système de site doit avoir au moins 5 % de mémoire disponible pour permettre au rôle de système de site de traiter les demandes.  
 
--   Wanneer deze sitesysteemrol CO-locaties met een andere sitesysteemrol met deze zelfde vereiste is, wordt deze geheugenvereiste voor de computer niet verhogen, maar blijft minimaal 5%.  
+-   Quand ce rôle de système de site coexiste avec un autre rôle de système de site qui a cette même exigence, la quantité de mémoire disponible requise pour l’ordinateur n’augmente pas, mais elle reste à un minimum de 5 %.  
 
-###  <a name="bkmk_2012EnrollProxpreq"></a>Proxypunt voor inschrijving  
-**Windows Server-functies en onderdelen:**  
+###  <a name="bkmk_2012EnrollProxpreq"></a> Point proxy d’inscription  
+**Rôles et fonctionnalités Windows Server :**  
 
--   .NET framework 3.5 (of hoger)  
+-   .NET Framework 3.5 (ou version ultérieure).  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-     Wanneer deze sitesysteemrol wordt geïnstalleerd, installeert Configuration Manager automatisch .NET Framework 4.5.2. Deze installatie kunt plaatsen van de server opnieuw opstarten status in behandeling. Wanneer opnieuw opstarten is in behandeling voor de .NET Framework, .NET-toepassingen mislukken pas nadat de server opnieuw is opgestart en de installatie is voltooid.  
+     Pendant l’installation de ce rôle de système de site, Configuration Manager installe automatiquement .NET Framework 4.5.2. Cette installation peut placer le serveur dans un état d’attente redémarrage. Quand un redémarrage est en attente pour .NET Framework, il est possible que les applications .NET ne puissent pas s’exécuter tant que le serveur n’a pas redémarré et que l’installation n’est pas terminée.  
 
-**IIS-configuratie:**  
+**Configuration IIS :**  
 
--   Veelvoorkomende HTTP-functies:  
+-   Fonctionnalités HTTP communes :  
 
-    -   Standaarddocument  
+    -   Document par défaut  
 
-    -   Statische inhoud  
+    -   Contenu statique  
 
--   Toepassingsontwikkeling:  
+-   Développement d'applications :  
 
-    -   ASP.NET 3.5 (en automatisch geselecteerde opties)  
+    -   ASP.NET 3.5 (et les options sélectionnées automatiquement)  
 
-    -   ASP.NET 4.5 (en automatisch geselecteerde opties)  
+    -   ASP.NET 4.5 (et les options sélectionnées automatiquement)  
 
-    -   .NET-uitbreidbaarheid 3.5  
+    -   Extensibilité .NET 3.5  
 
-    -   .NET-uitbreidbaarheid 4.5  
+    -   Extensibilité .NET 4.5  
 
--   Beveiliging:  
+-   Sécurité :  
 
-    -   Windows-verificatie  
+    -   Authentification Windows  
 
--   Compatibiliteit met IIS 6-beheer:  
+-   Compatibilité avec la gestion IIS 6 :  
 
-    -   Compatibiliteit met IIS 6-metabase  
+    -   Compatibilité avec la métabase de données IIS 6  
 
-**Computergeheugen:**  
+**Mémoire de l’ordinateur :**  
 
--   De computer die als host fungeert voor deze sitesysteemrol moet minimaal 5% van het beschikbare geheugen van de computer gratis waarmee de sitesysteemrol voor het verwerken van aanvragen hebben.  
+-   L’ordinateur hébergeant ce rôle de système de site doit avoir au moins 5 % de mémoire disponible pour permettre au rôle de système de site de traiter les demandes.  
 
--   Wanneer deze sitesysteemrol CO-locaties met een andere sitesysteemrol met deze zelfde vereiste is, wordt deze geheugenvereiste voor de computer niet verhogen, maar blijft minimaal 5%.  
+-   Quand ce rôle de système de site coexiste avec un autre rôle de système de site qui a cette même exigence, la quantité de mémoire disponible requise pour l’ordinateur n’augmente pas, mais elle reste à un minimum de 5 %.  
 
-###  <a name="bkmk_2012FSPpreq"></a>Terugvalstatuspunt  
-De standaard IIS-configuratie is vereist bij de volgende toevoegingen:  
+###  <a name="bkmk_2012FSPpreq"></a> Point d’état de secours  
+La configuration IIS par défaut est nécessaire, avec les ajouts suivants :  
 
--   Compatibiliteit met IIS 6-beheer:  
+-   Compatibilité avec la gestion IIS 6 :  
 
-    -   Compatibiliteit met IIS 6-metabase  
+    -   Compatibilité avec la métabase de données IIS 6  
 
-###  <a name="bkmk_2012MPpreq"></a>Beheerpunt  
-**Windows Server-functies en onderdelen:**  
+###  <a name="bkmk_2012MPpreq"></a> Point de gestion  
+**Rôles et fonctionnalités Windows Server :**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
--   BITS-serveruitbreidingen (en automatisch geselecteerde opties) of Background Intelligent Transfer Services (BITS) (en automatisch geselecteerde opties)  
+-   Extensions du serveur BITS (et options sélectionnées automatiquement) ou services BITS (et options sélectionnées automatiquement)  
 
-**IIS-configuratie:**  
+**Configuration IIS :**  
 
--   Toepassingsontwikkeling:  
+-   Développement d'applications :  
 
-    -   ISAPI-extensies  
+    -   Extensions ISAPI  
 
--   Beveiliging:  
+-   Sécurité :  
 
-    -   Windows-verificatie  
+    -   Authentification Windows  
 
--   Compatibiliteit met IIS 6-beheer:  
+-   Compatibilité avec la gestion IIS 6 :  
 
-    -   Compatibiliteit met IIS 6-metabase  
+    -   Compatibilité avec la métabase de données IIS 6  
 
-    -   Compatibiliteit met IIS 6 WMI  
+    -   Compatibilité WMI d'IIS 6  
 
-###  <a name="bkmk_2012RSpoint"></a>Reporting services-punt  
-**Windows Server-functies en onderdelen:**  
+###  <a name="bkmk_2012RSpoint"></a> Point de Reporting Services  
+**Rôles et fonctionnalités Windows Server :**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-**SQL Server Reporting Services:**  
+**SQL Server Reporting Services :**  
 
--   U moet installeren en configureren van ten minste één exemplaar van SQL Server voor de ondersteuning van SQL Server Reporting Services voordat de installatie van het reporting services-punt.  
+-   Avant d’installer le point de Reporting Services, vous devez installer et configurer au moins une instance de SQL Server pour prendre en charge SQL Server Reporting Services.  
 
--   Het exemplaar dat u voor SQL Server Reporting Services gebruikt, mag hetzelfde exemplaar die u voor de sitedatabase gebruikt.  
+-   L’instance que vous utilisez pour SQL Server Reporting Services peut être la même que celle utilisée pour la base de données du site.  
 
--   Bovendien kan het exemplaar dat u gebruikt met andere System Center-producten worden gedeeld, zolang de System Center-producten geen beperkingen voor het delen van het exemplaar van SQL Server.  
+-   En outre, l’instance que vous utilisez peut être partagée avec d’autres produits System Center, dès lors que ceux-ci n’ont pas de restrictions pour le partage de l’instance de SQL Server.  
 
-###  <a name="bkmk_SCPpreq"></a>Serviceverbindingspunt  
-**Windows Server-functies en onderdelen:**  
+###  <a name="bkmk_SCPpreq"></a> Point de connexion de service  
+**Rôles et fonctionnalités Windows Server :**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-     Wanneer deze sitesysteemrol wordt geïnstalleerd, installeert Configuration Manager automatisch .NET Framework 4.5.2. Deze installatie kunt plaatsen van de server opnieuw opstarten status in behandeling. Wanneer opnieuw opstarten is in behandeling voor de .NET Framework, .NET-toepassingen mislukken pas nadat de server opnieuw is opgestart en de installatie is voltooid.  
+     Pendant l’installation de ce rôle de système de site, Configuration Manager installe automatiquement .NET Framework 4.5.2. Cette installation peut placer le serveur dans un état d’attente redémarrage. Quand un redémarrage est en attente pour .NET Framework, il est possible que les applications .NET ne puissent pas s’exécuter tant que le serveur n’a pas redémarré et que l’installation n’est pas terminée.  
 
-**Visual C++ Redistributable:**  
+**Redistribuable Visual C++ :**  
 
--   Configuration Manager installeert het herdistribueerbare pakket voor Microsoft Visual C++ 2013 op elke computer die als host fungeert voor een distributiepunt.  
+-   Configuration Manager installe Microsoft Visual C++ 2013 Redistributable Package sur chaque ordinateur hébergeant un point de distribution.  
 
--   De sitesysteemrol vereist de x64 versie.  
+-   Le rôle de système de site nécessite la version x64.  
 
-###  <a name="bkmk_2012SUPpreq"></a>Software-updatepunt  
-**Windows Server-functies en onderdelen:**  
+###  <a name="bkmk_2012SUPpreq"></a> Point de mise à jour logicielle  
+**Rôles et fonctionnalités Windows Server :**  
 
--   .NET framework 3.5 SP1 (of hoger)  
+-   .NET Framework 3.5 SP1 (ou version ultérieure)  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-De standaard IIS-configuratie is vereist.
+La configuration IIS par défaut est nécessaire.
 
-**Windows Server updateservices:**  
+**Windows Server Update Services :**  
 
--   Voordat u software-updatepunt installeert, moet u de Windows-serverrol Windows Server Update Services installeren op een computer.  
+-   Vous devez installer le rôle Windows Server Update Services (WSUS) de Windows Server sur un ordinateur avant d’installer un point de mise à jour logicielle.  
 
--   Zie [Software-updates plannen in System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md) voor meer informatie.  
+-   Pour plus d’informations, consultez [Planifier les mises à jour logicielles dans System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md).  
 
-### <a name="state-migration-point"></a>Statusmigratiepunt  
-De standaard IIS-configuratie is vereist.  
+### <a name="state-migration-point"></a>Point de migration d'état  
+La configuration IIS par défaut est nécessaire.  
 
-##  <a name="bkmk_2008"></a>Vereisten voor Windows Server 2008 R2 en WindowsServer 2008  
-Windows Server 2008 en Windows Server 2008 R2 zijn nu uitgebreide ondersteuning en zijn niet langer in het algemeen worden ondersteund, zoals beschreven in de [Microsoft Support Lifecycle](https://support.microsoft.com/lifecycle). Zie voor meer informatie over toekomstige ondersteuning voor deze besturingssystemen als sitesysteemservers met Configuration Manager [verwijderd en afgeschafte functies voor System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
+##  <a name="bkmk_2008"></a> Conditions préalables pour Windows Server 2008 R2 et Windows Server 2008  
+Windows Server 2008 et Windows Server 2008 R2 bénéficient désormais du support étendu au lieu du support standard, comme indiqué dans la [Politique de support Microsoft](https://support.microsoft.com/lifecycle). Pour plus d’informations sur la prise en charge à venir de ces systèmes d’exploitation utilisés comme serveurs de système de site avec Configuration Manager, consultez [Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager](../../../core/plan-design/changes/removed-and-deprecated-features.md).  
 
-**De volgende van toepassing op alle .NET Framework-vereisten:**  
+**Ce qui suit s’applique à toutes les conditions requises pour .NET Framework :**  
 
--   De volledige versie van .NET Framework installeren voordat u de sitesysteemrollen installeert. Zie bijvoorbeeld de [Microsoft .NET Framework 4 (zelfstandig installatieprogramma)](http://go.microsoft.com/fwlink/p/?LinkId=193048). .NET Framework 4 Client Profile is onvoldoende voor deze vereiste.  
+-   Installez la version complète de .NET Framework avant d’installer les rôles de système de site. Par exemple, consultez [Microsoft .NET Framework 4 (programme d’installation autonome)](http://go.microsoft.com/fwlink/p/?LinkId=193048). Le profil client .NET Framework 4 ne correspond pas à la configuration requise.  
 
-**De volgende van toepassing op alle activeringsvereisten van Windows Communication Foundation (WCF):**  
+**Ce qui suit s’applique à toutes les conditions requises pour l’activation de Windows Communication Foundation (WCF) :**  
 
--   U kunt de WCF-activering configureren als onderdeel van de functie .NET Framework Windows op de sitesysteemserver. Bijvoorbeeld in Windows Server 2008 R2 uitvoeren de **Wizard Functies toevoegen** aanvullende functies te installeren op de server. Op de **onderdelen selecteren** pagina uit, vouw **.NET Framework 3.5.1-onderdelen**, vouw **WCF-activering**, en schakel vervolgens de selectievakjes voor beide **HTTP-activering** en **niet-HTTP-activering** inschakelen van deze opties.  
+-   Vous pouvez configurer l’activation de WCF comme faisant partie de la fonctionnalité Windows du .NET Framework sur le serveur de système de site. Par exemple, sur Windows Server 2008 R2, exécutez l’**Assistant Ajout de fonctionnalités** pour installer des fonctionnalités supplémentaires sur le serveur. Dans la page **Sélectionner les fonctionnalités**, développez **Fonctionnalités de .NET Framework 3.5.1**, développez **Activation WCF**, puis cochez les cases **Activation HTTP** et **Activation non-HTTP** pour activer ces options.  
 
-###  <a name="bkmk_2008sspreq"></a>Siteserver: centrale beheersite en primaire site  
-**.NET framework:**  
+###  <a name="bkmk_2008sspreq"></a> Serveur de site : site d’administration centrale et site principal  
+**.NET Framework :**  
 
--   .NET framework 3.5 SP1 (of hoger)  
+-   .NET Framework 3.5 SP1 (ou version ultérieure)  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-**Windows-onderdeel:**  
+**Fonctionnalité Windows :**  
 
--   Externe differentiële compressie  
+-   Compression différentielle à distance  
 
-**Windows ADK:**  
+**Windows ADK :**  
 
--   Voordat u installeren of upgraden van een centrale beheersite of primaire site, moet u de versie van Windows ADK die de versie van Configuration Manager u installeren of upgraden naar vereist.  
+-   Avant d’installer ou de mettre à niveau un site d’administration centrale ou un site principal, vous devez installer la version de Windows ADK nécessaire pour la version de Configuration Manager que vous installez ou vers laquelle vous effectuez une mise à niveau.  
 
-    -   De 1511-versie van Configuration Manager vereist de versie Windows 10 RTM (10.0.10240) van Windows ADK.  
+    -   La version 1511 de Configuration Manager nécessite la version Windows 10 RTM (10.0.10240) de Windows ADK.  
 
--   Zie voor meer informatie over deze vereiste [vereisten voor de infrastructuur voor besturingssysteemimplementatie](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
+-   Pour plus d’informations sur cette configuration requise, consultez [Configuration requise de l’infrastructure pour le déploiement de système d’exploitation](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
 
-**Visual C++ Redistributable:**  
+**Redistribuable Visual C++ :**  
 
--   Configuration Manager installeert het herdistribueerbare pakket voor Microsoft Visual C++ 2013 op elke computer die een siteserver wordt geïnstalleerd.  
+-   Configuration Manager installe Microsoft Visual C++ 2013 Redistributable Package sur chaque ordinateur sur lequel est installé un serveur de site.  
 
--   Centrale beheersites en primaire sites moeten de x86- en x64 versies van het betreffende herdistribueerbare bestand.  
+-   Les sites d'administration centrale et les sites principaux requièrent à la fois les versions x86 et x64 du fichier redistribuable applicable.  
 
-###  <a name="bkmk_2008secpreq"></a>Siteserver: secundaire site  
-**.NET framework:**  
+###  <a name="bkmk_2008secpreq"></a> Serveur de site : site secondaire  
+**.NET Framework :**  
 
--   .NET framework 3.5 SP1 (of hoger)  
+-   .NET Framework 3.5 SP1 (ou version ultérieure)  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-**Visual C++ Redistributable:**  
+**Redistribuable Visual C++ :**  
 
--   Configuration Manager installeert het herdistribueerbare pakket voor Microsoft Visual C++ 2013 op elke computer die een siteserver wordt geïnstalleerd.  
+-   Configuration Manager installe Microsoft Visual C++ 2013 Redistributable Package sur chaque ordinateur sur lequel est installé un serveur de site.  
 
--   Secundaire sites is alleen de x64 vereist versie.  
+-   Les sites secondaires requièrent seulement la version x64.  
 
-**Standaardsitesysteemrollen:**  
+**Rôles de système de site par défaut :**  
 
--   Een secundaire site installeert standaard een **beheerpunt** en een **distributiepunt**.  
+-   Par défaut, un site secondaire installe un **point de gestion** et un **point de distribution**.  
 
--   Zorg ervoor dat de secundaire siteserver voldoet aan de vereisten voor deze sitesysteemrollen.  
+-   Assurez-vous que le serveur de site secondaire remplit les conditions préalables pour ces rôles de système de site.  
 
-###  <a name="bkmk_2008dbpreq"></a>Database-server  
-**Remote Registry-service:**  
+###  <a name="bkmk_2008dbpreq"></a> Serveur de base de données  
+**Service d’accès à distance au Registre :**  
 
--   U moet de Remote Registry-service op de computer die als voor de sitedatabase host fungeert inschakelen tijdens de installatie van de Configuration Manager-site.  
+-   Durant l’installation du site Configuration Manager, vous devez activer le service d’accès à distance au Registre sur l’ordinateur qui hébergera la base de données du site.  
 
-**SQL Server:**  
+**SQL Server :**  
 
--   Voordat u een centrale beheersite of primaire site installeert, moet u een ondersteunde versie van SQL Server voor het hosten van de sitedatabase installeren.  
+-   Avant d’installer un site d’administration centrale ou un site principal, vous devez installer une version prise en charge de SQL Server pour héberger la base de données du site.  
 
--   Voordat u een secundaire site installeert, kunt u een ondersteunde versie van SQL Server installeren.  
+-   Avant d’installer un site secondaire, vous pouvez installer une version prise en charge de SQL Server.  
 
--   Als u ervoor kiest om Configuration Manager SQL Server Express installeert als onderdeel van de secundaire site-installatie, zorg ervoor dat de computer voldoet aan de vereisten voor het uitvoeren van SQL Server Express.  
+-   Si vous souhaitez que Configuration Manager installe SQL Server Express en même temps que le site secondaire, vérifiez que l’ordinateur présente la configuration requise pour exécuter SQL Server Express.  
 
-###  <a name="bkmk_2008smsprovpreq"></a>Server SMS-Provider  
-**Windows ADK:**  
+###  <a name="bkmk_2008smsprovpreq"></a> Serveur de fournisseur SMS  
+**Windows ADK :**  
 
--   De computer waarop u een exemplaar van de SMS-Provider installeert, moet de vereiste versie van Windows ADK die de versie van Configuration Manager u installeren of upgraden naar nodig hebben.  
+-   L’ordinateur sur lequel vous installez une instance du fournisseur SMS doit disposer de la version de Windows ADK nécessaire à la version de Configuration Manager que vous installez ou vers laquelle vous effectuez une mise à niveau.  
 
-    -   De 1511-versie van Configuration Manager vereist de versie Windows 10 RTM (10.0.10240) van Windows ADK.  
+    -   La version 1511 de Configuration Manager nécessite la version Windows 10 RTM (10.0.10240) de Windows ADK.  
 
--   Zie voor meer informatie over deze vereiste [vereisten voor de infrastructuur voor besturingssysteemimplementatie](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
+-   Pour plus d’informations sur cette configuration requise, consultez [Configuration requise de l’infrastructure pour le déploiement de système d’exploitation](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
 
-###  <a name="bkmk_2008acwspreq"></a>Application Catalog-websitepunt  
-**.NET framework:**  
+###  <a name="bkmk_2008acwspreq"></a> Point du site web du catalogue des applications  
+**.NET Framework :**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-**IIS-configuratie:**
+**Configuration IIS :**
 
-De standaard IIS-configuratie is vereist bij de volgende toevoegingen:  
+La configuration IIS par défaut est nécessaire, avec les ajouts suivants :  
 
--   Veelvoorkomende HTTP-functies:  
+-   Fonctionnalités HTTP communes :  
 
-    -   Statische inhoud  
+    -   Contenu statique  
 
-    -   Standaarddocument  
+    -   Document par défaut  
 
--   Toepassingsontwikkeling:  
+-   Développement d'applications :  
 
-    -   ASP.NET (en automatisch geselecteerde opties)  
+    -   ASP.NET (et options sélectionnées automatiquement)  
 
-         In bepaalde situaties, bijvoorbeeld wanneer IIS wordt geïnstalleerd of opnieuw wordt geconfigureerd nadat .NET Framework versie 4.5.2 is geïnstalleerd, moet u ASP.NET versie 4.5 expliciet inschakelen. Voer bijvoorbeeld op een 64-bits computer met de .NET Framework versie 4.0.30319 de volgende opdracht: **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i-inschakelen**  
+         Dans certains scénarios, par exemple quand IIS est installé ou reconfiguré après l’installation de .NET Framework version 4.5.2, vous devez activer explicitement ASP.NET version 4.5. Par exemple, sur un ordinateur 64 bits exécutant .NET Framework version 4.0.30319, exécutez la commande suivante : **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i -enable**  
 
--   Beveiliging:  
+-   Sécurité :  
 
-    -   Windows-verificatie  
+    -   Authentification Windows  
 
--   Compatibiliteit met IIS 6-beheer:  
+-   Compatibilité avec la gestion IIS 6 :  
 
-    -   Compatibiliteit met IIS 6-metabase  
+    -   Compatibilité avec la métabase de données IIS 6  
 
-###  <a name="bkmk_2008ACwsitepreq"></a>Application Catalog-webservicepunt  
-**.NET framework:**  
+###  <a name="bkmk_2008ACwsitepreq"></a> Point de service web du catalogue des applications  
+**.NET Framework :**  
 
--   .NET framework 3.5 SP1 (of hoger)  
+-   .NET Framework 3.5 SP1 (ou version ultérieure)  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-**Activering van Windows Communication Foundation (WCF):**  
+**Activation de Windows Communication Foundation (WCF) :**  
 
--   HTTP-activering  
+-   Activation HTTP  
 
--   Niet-HTTP-activering  
+-   Activation non-HTTP  
 
-**IIS-configuratie:**
+**Configuration IIS :**
 
-De standaard IIS-configuratie is vereist bij de volgende toevoegingen:  
+La configuration IIS par défaut est nécessaire, avec les ajouts suivants :  
 
--   Toepassingsontwikkeling:  
+-   Développement d'applications :  
 
-    -   ASP.NET (en automatisch geselecteerde opties)  
+    -   ASP.NET (et options sélectionnées automatiquement)  
 
-         In bepaalde situaties, bijvoorbeeld wanneer IIS wordt geïnstalleerd of opnieuw wordt geconfigureerd nadat .NET Framework versie 4.5.2 is geïnstalleerd, moet u ASP.NET versie 4.5 expliciet inschakelen. Voer bijvoorbeeld op een 64-bits computer met de .NET Framework versie 4.0.30319 de volgende opdracht: **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i-inschakelen**  
+         Dans certains scénarios, par exemple quand IIS est installé ou reconfiguré après l’installation de .NET Framework version 4.5.2, vous devez activer explicitement ASP.NET version 4.5. Par exemple, sur un ordinateur 64 bits exécutant .NET Framework version 4.0.30319, exécutez la commande suivante : **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i -enable**  
 
--   Compatibiliteit met IIS 6-beheer:  
+-   Compatibilité avec la gestion IIS 6 :  
 
-    -   Compatibiliteit met IIS 6-metabase  
+    -   Compatibilité avec la métabase de données IIS 6  
 
-**Computergeheugen:**  
+**Mémoire de l’ordinateur :**  
 
--   De computer die als host fungeert voor deze sitesysteemrol moet minimaal 5% van het beschikbare geheugen van de computer gratis waarmee de sitesysteemrol voor het verwerken van aanvragen hebben.  
+-   L’ordinateur hébergeant ce rôle de système de site doit avoir au moins 5 % de mémoire disponible pour permettre au rôle de système de site de traiter les demandes.  
 
--   Wanneer deze sitesysteemrol CO-locaties met een andere sitesysteemrol met deze zelfde vereiste is, wordt deze geheugenvereiste voor de computer niet verhogen, maar blijft minimaal 5%.  
+-   Quand ce rôle de système de site coexiste avec un autre rôle de système de site qui a cette même exigence, la quantité de mémoire disponible requise pour l’ordinateur n’augmente pas, mais elle reste à un minimum de 5 %.  
 
-###  <a name="bkmk_2008AIpreq"></a>Asset Intelligence-synchronisatiepunt  
-**.NET framework:**  
+###  <a name="bkmk_2008AIpreq"></a> Point de synchronisation Asset Intelligence  
+**.NET Framework :**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-###  <a name="bkmk_2008crppreq"></a>Certificaatregistratiepunt  
-**.NET framework:**  
+###  <a name="bkmk_2008crppreq"></a> Point d’enregistrement de certificat  
+**.NET Framework :**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
--   HTTP-activering  
+-   Activation HTTP  
 
-**IIS-configuratie:**
+**Configuration IIS :**
 
-De standaard IIS-configuratie is vereist bij de volgende toevoegingen:  
+La configuration IIS par défaut est nécessaire, avec les ajouts suivants :  
 
--   Compatibiliteit met IIS 6-beheer:  
+-   Compatibilité avec la gestion IIS 6 :  
 
-    -   Compatibiliteit met IIS 6-metabase  
+    -   Compatibilité avec la métabase de données IIS 6  
 
-    -   Compatibiliteit met IIS 6 WMI  
+    -   Compatibilité WMI d'IIS 6  
 
-###  <a name="bkmk_2008dppreq"></a>Distributiepunt  
-**IIS-configuratie:**
+###  <a name="bkmk_2008dppreq"></a> Point de distribution  
+**Configuration IIS :**
 
-U kunt de standaard IIS-configuratie of een aangepaste configuratie gebruiken. Voor het gebruik van een aangepaste configuratie voor IIS, moet u de volgende opties voor IIS inschakelen:  
+Vous pouvez utiliser la configuration IIS par défaut ou une configuration personnalisée. Pour utiliser une configuration IIS personnalisée, vous devez activer les options suivantes pour IIS :  
 
--   Toepassingsontwikkeling:  
+-   Développement d'applications :  
 
-    -   ISAPI-extensies  
+    -   Extensions ISAPI  
 
--   Beveiliging:  
+-   Sécurité :  
 
-    -   Windows-verificatie  
+    -   Authentification Windows  
 
--   Compatibiliteit met IIS 6-beheer:  
+-   Compatibilité avec la gestion IIS 6 :  
 
-    -   Compatibiliteit met IIS 6-metabase  
+    -   Compatibilité avec la métabase de données IIS 6  
 
-    -   Compatibiliteit met IIS 6 WMI  
+    -   Compatibilité WMI d'IIS 6  
 
-Wanneer u een aangepaste configuratie voor IIS gebruikt, kunt u de opties die niet vereist, zoals de volgende verwijderen:  
+Quand vous utilisez une configuration IIS personnalisée, vous pouvez supprimer les options qui ne sont pas nécessaires, comme les suivantes :  
 
--   Veelvoorkomende HTTP-functies:  
+-   Fonctionnalités HTTP communes :  
 
-    -   HTTP-omleiding  
+    -   Redirection HTTP  
 
--   Scripts voor IIS-beheer en hulpprogramma 's  
+-   Scripts et outils de gestion IIS  
 
-**Windows-onderdeel:**  
+**Fonctionnalité Windows :**  
 
--   Externe differentiële compressie  
+-   Compression différentielle à distance  
 
-**Visual C++ Redistributable:**  
+**Redistribuable Visual C++ :**  
 
--   Configuration Manager installeert het herdistribueerbare pakket voor Microsoft Visual C++ 2013 op elke computer die als host fungeert voor een distributiepunt.  
+-   Configuration Manager installe Microsoft Visual C++ 2013 Redistributable Package sur chaque ordinateur hébergeant un point de distribution.  
 
--   De versie die is geïnstalleerd, is afhankelijk van de computer platform (x86 of x64).  
+-   La version installée dépend de la plateforme de l’ordinateur (x86 ou x64).  
 
-**Microsoft Azure:**  
+**Microsoft Azure :**  
 
--   U kunt een cloudservice in Azure gebruiken om een distributiepunt te hosten.  
+-   Pour héberger un point de distribution, vous pouvez utiliser un service cloud dans Azure.  
 
-**Ter ondersteuning van PXE of multicast:**  
+**Pour prendre en charge PXE ou la multidiffusion :**  
 
--   Installeer en configureer de Windows Deployment Services (WDS) Windows Server-rol.  
+-   Installez et configurez le rôle WDS (Windows Deployment Services) de Windows Server.  
 
     > [!NOTE]  
-    >  WDS automatisch geïnstalleerd en geconfigureerd wanneer u een distributiepunt configureert voor ondersteuning van PXE of multicast op een server waarop WindowsServer 2012 of later.  
+    >  WDS s’installe et se configure automatiquement quand vous configurez un point de distribution pour prendre en charge PXE ou la multidiffusion sur un serveur exécutant Windows Server 2012 ou une version ultérieure.  
 
 > [!NOTE]  
-> De sitesysteemrol distributiepunt vereist geen Background Intelligent Transfer Service (BITS). Wanneer BITS is geconfigureerd op de computer van het distributiepunt, wordt niet BITS op de distributiepuntcomputer gebruikt om het downloaden van inhoud door clients die gebruikmaken van BITS.  
+> Le rôle de système de site du point de distribution ne nécessite pas le service de transfert intelligent en arrière-plan (BITS). Quand BITS est configuré sur l’ordinateur du point de distribution, il n’est pas utilisé pour faciliter le téléchargement de contenu par les clients qui utilisent BITS.  
 
 
-###  <a name="bkmk_2008EPPpreq"></a>Endpoint Protection-punt  
-**.NET framework:**  
+###  <a name="bkmk_2008EPPpreq"></a> Point Endpoint Protection  
+**.NET Framework :**  
 
--   .NET framework 3.5 SP1 (of hoger)  
+-   .NET Framework 3.5 SP1 (ou version ultérieure)  
 
-###  <a name="bkmk_2008Enrollpreq"></a>Inschrijvingspunt  
-**.NET framework:**  
+###  <a name="bkmk_2008Enrollpreq"></a> Point d’inscription  
+**.NET Framework :**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-     Wanneer deze sitesysteemrol wordt geïnstalleerd, als de server nog niet over een ondersteunde versie van .NET Framework is geïnstalleerd, installeert Configuration Manager automatisch .NET Framework 4.5.2. Deze installatie kunt plaatsen van de server opnieuw opstarten status in behandeling. Wanneer opnieuw opstarten is in behandeling voor de .NET Framework, .NET-toepassingen mislukken pas nadat de server opnieuw is opgestart en de installatie is voltooid.  
+     Si, quand ce rôle de système de site est installé, aucune version prise en charge de .NET Framework n’est installée sur le serveur, Configuration Manager installe automatiquement .NET Framework 4.5.2. Cette installation peut placer le serveur dans un état d’attente redémarrage. Quand un redémarrage est en attente pour .NET Framework, il est possible que les applications .NET ne puissent pas s’exécuter tant que le serveur n’a pas redémarré et que l’installation n’est pas terminée.  
 
-**Activering van Windows Communication Foundation (WCF):**  
+**Activation de Windows Communication Foundation (WCF) :**  
 
--   HTTP-activering  
+-   Activation HTTP  
 
--   Niet-HTTP-activering  
+-   Activation non-HTTP  
 
-**IIS-configuratie:**
+**Configuration IIS :**
 
-De standaard IIS-configuratie is vereist bij de volgende toevoegingen:  
+La configuration IIS par défaut est nécessaire, avec les ajouts suivants :  
 
--   Toepassingsontwikkeling:  
+-   Développement d'applications :  
 
-    -   ASP.NET (en automatisch geselecteerde opties)  
+    -   ASP.NET (et options sélectionnées automatiquement)  
 
-         In bepaalde situaties, bijvoorbeeld wanneer IIS wordt geïnstalleerd of opnieuw wordt geconfigureerd nadat .NET Framework versie 4.5.2 is geïnstalleerd, moet u ASP.NET versie 4.5 expliciet inschakelen. Voer bijvoorbeeld op een 64-bits computer met de .NET Framework versie 4.0.30319 de volgende opdracht: **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i-inschakelen**  
+         Dans certains scénarios, par exemple quand IIS est installé ou reconfiguré après l’installation de .NET Framework version 4.5.2, vous devez activer explicitement ASP.NET version 4.5. Par exemple, sur un ordinateur 64 bits exécutant .NET Framework version 4.0.30319, exécutez la commande suivante : **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i -enable**  
 
-**Computergeheugen:**  
+**Mémoire de l’ordinateur :**  
 
--   De computer die als host fungeert voor deze sitesysteemrol moet minimaal 5% van het beschikbare geheugen van de computer gratis waarmee de sitesysteemrol voor het verwerken van aanvragen hebben.  
+-   L’ordinateur hébergeant ce rôle de système de site doit avoir au moins 5 % de mémoire disponible pour permettre au rôle de système de site de traiter les demandes.  
 
--   Wanneer deze sitesysteemrol CO-locaties met een andere sitesysteemrol met deze zelfde vereiste is, wordt deze geheugenvereiste voor de computer niet verhogen, maar blijft minimaal 5%.  
+-   Quand ce rôle de système de site coexiste avec un autre rôle de système de site qui a cette même exigence, la quantité de mémoire disponible requise pour l’ordinateur n’augmente pas, mais elle reste à un minimum de 5 %.  
 
-###  <a name="bkmk_2008EnrollProxpreq"></a>Proxypunt voor inschrijving  
-**.NET framework:**  
+###  <a name="bkmk_2008EnrollProxpreq"></a> Point proxy d’inscription  
+**.NET Framework :**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-     Wanneer deze sitesysteemrol wordt geïnstalleerd, als de server nog niet over een ondersteunde versie van .NET Framework is geïnstalleerd, installeert Configuration Manager automatisch .NET Framework 4.5.2. Deze installatie kunt plaatsen van de server opnieuw opstarten status in behandeling. Wanneer opnieuw opstarten is in behandeling voor de .NET Framework, .NET-toepassingen mislukken pas nadat de server opnieuw is opgestart en de installatie is voltooid.  
+     Si, quand ce rôle de système de site est installé, aucune version prise en charge de .NET Framework n’est installée sur le serveur, Configuration Manager installe automatiquement .NET Framework 4.5.2. Cette installation peut placer le serveur dans un état d’attente redémarrage. Quand un redémarrage est en attente pour .NET Framework, il est possible que les applications .NET ne puissent pas s’exécuter tant que le serveur n’a pas redémarré et que l’installation n’est pas terminée.  
 
-**Activering van Windows Communication Foundation (WCF):**  
+**Activation de Windows Communication Foundation (WCF) :**  
 
--   HTTP-activering  
+-   Activation HTTP  
 
--   Niet-HTTP-activering  
+-   Activation non-HTTP  
 
-**IIS-configuratie:**
+**Configuration IIS :**
 
-De standaard IIS-configuratie is vereist bij de volgende toevoegingen:  
+La configuration IIS par défaut est nécessaire, avec les ajouts suivants :  
 
--   Toepassingsontwikkeling:  
+-   Développement d'applications :  
 
-    -   ASP.NET (en automatisch geselecteerde opties)  
+    -   ASP.NET (et options sélectionnées automatiquement)  
 
-         In bepaalde situaties, bijvoorbeeld wanneer IIS wordt geïnstalleerd of opnieuw wordt geconfigureerd nadat .NET Framework versie 4.5.2 is geïnstalleerd, moet u ASP.NET versie 4.5 expliciet inschakelen. Voer bijvoorbeeld op een 64-bits computer met de .NET Framework versie 4.0.30319 de volgende opdracht: **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i-inschakelen**  
+         Dans certains scénarios, par exemple quand IIS est installé ou reconfiguré après l’installation de .NET Framework version 4.5.2, vous devez activer explicitement ASP.NET version 4.5. Par exemple, sur un ordinateur 64 bits exécutant .NET Framework version 4.0.30319, exécutez la commande suivante : **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i -enable**  
 
-**Computergeheugen:**  
+**Mémoire de l’ordinateur :**  
 
--   De computer die als host fungeert voor deze sitesysteemrol moet minimaal 5% van het beschikbare geheugen van de computer gratis waarmee de sitesysteemrol voor het verwerken van aanvragen hebben.  
+-   L’ordinateur hébergeant ce rôle de système de site doit avoir au moins 5 % de mémoire disponible pour permettre au rôle de système de site de traiter les demandes.  
 
--   Wanneer deze sitesysteemrol CO-locaties met een andere sitesysteemrol met deze zelfde vereiste is, wordt deze geheugenvereiste voor de computer niet verhogen, maar blijft minimaal 5%.  
+-   Quand ce rôle de système de site coexiste avec un autre rôle de système de site qui a cette même exigence, la quantité de mémoire disponible requise pour l’ordinateur n’augmente pas, mais elle reste à un minimum de 5 %.  
 
-###  <a name="bkmk_2008FSPpreq"></a>Terugvalstatuspunt  
-**IIS-configuratie:**
+###  <a name="bkmk_2008FSPpreq"></a> Point d’état de secours  
+**Configuration IIS :**
 
-De standaard IIS-configuratie is vereist bij de volgende toevoegingen:  
+La configuration IIS par défaut est nécessaire, avec les ajouts suivants :  
 
--   Compatibiliteit met IIS 6-beheer:  
+-   Compatibilité avec la gestion IIS 6 :  
 
-    -   Compatibiliteit met IIS 6-metabase  
+    -   Compatibilité avec la métabase de données IIS 6  
 
-###  <a name="bkmk_2008MPpreq"></a>Beheerpunt  
-**.NET framework:**  
+###  <a name="bkmk_2008MPpreq"></a> Point de gestion  
+**.NET Framework :**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-**IIS-configuratie:**
+**Configuration IIS :**
 
-U kunt de standaard IIS-configuratie of een aangepaste configuratie gebruiken. Elk beheerpunt dat u inschakelt voor de ondersteuning van mobiele apparaten is de aanvullende IIS-configuratie voor ASP.NET (en de bijbehorende automatisch geselecteerde opties) vereist.
+Vous pouvez utiliser la configuration IIS par défaut ou une configuration personnalisée. Chaque point de gestion que vous activez pour la prise en charge des appareils mobiles requiert une configuration d’IIS supplémentaire pour ASP.NET (et ses options sélectionnées automatiquement).
 
-In bepaalde situaties, bijvoorbeeld wanneer IIS wordt geïnstalleerd of opnieuw wordt geconfigureerd nadat .NET Framework versie 4.5.2 is geïnstalleerd, moet u ASP.NET versie 4.5 expliciet inschakelen. Voer bijvoorbeeld op een 64-bits computer met de .NET Framework versie 4.0.30319 de volgende opdracht: **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i-inschakelen**  
+Dans certains scénarios, par exemple quand IIS est installé ou reconfiguré après l’installation de .NET Framework version 4.5.2, vous devez activer explicitement ASP.NET version 4.5. Par exemple, sur un ordinateur 64 bits exécutant .NET Framework version 4.0.30319, exécutez la commande suivante : **%windir%\Microsoft.NET\Framework64\v4.0.30319\aspnet_regiis.exe -i -enable**  
 
 
-Voor het gebruik van een aangepaste configuratie voor IIS, moet u de volgende opties voor IIS inschakelen:  
+Pour utiliser une configuration IIS personnalisée, vous devez activer les options suivantes pour IIS :  
 
--   Toepassingsontwikkeling:  
+-   Développement d'applications :  
 
-    -   ISAPI-extensies  
+    -   Extensions ISAPI  
 
--   Beveiliging:  
+-   Sécurité :  
 
-    -   Windows-verificatie  
+    -   Authentification Windows  
 
--   Compatibiliteit met IIS 6-beheer:  
+-   Compatibilité avec la gestion IIS 6 :  
 
-    -   Compatibiliteit met IIS 6-metabase  
+    -   Compatibilité avec la métabase de données IIS 6  
 
-    -   Compatibiliteit met IIS 6 WMI  
+    -   Compatibilité WMI d'IIS 6  
 
 
-Wanneer u een aangepaste configuratie voor IIS gebruikt, kunt u de opties die niet vereist, zoals de volgende verwijderen:  
+Quand vous utilisez une configuration IIS personnalisée, vous pouvez supprimer les options qui ne sont pas nécessaires, comme les suivantes :  
 
--   Veelvoorkomende HTTP-functies:  
+-   Fonctionnalités HTTP communes :  
 
-    -   HTTP-omleiding  
+    -   Redirection HTTP  
 
--   Scripts voor IIS-beheer en hulpprogramma 's  
+-   Scripts et outils de gestion IIS  
 
-**Windows-onderdeel:**  
+**Fonctionnalité Windows :**  
 
--   BITS-serveruitbreidingen (en automatisch geselecteerde opties), of Background Intelligent Transfer Services (BITS) (en automatisch geselecteerde opties)  
+-   Extensions du serveur BITS (et options sélectionnées automatiquement) ou service de transfert intelligent en arrière-plan (BITS) (et options sélectionnées automatiquement)  
 
-###  <a name="bkmk_2008RSpoint"></a>Reporting services-punt  
-**.NET framework:**  
+###  <a name="bkmk_2008RSpoint"></a> Point de Reporting Services  
+**.NET Framework :**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-**SQL Server Reporting Services:**  
+**SQL Server Reporting Services :**  
 
--   U moet installeren en configureren van ten minste één exemplaar van SQL Server voor de ondersteuning van SQL Server Reporting Services voordat de installatie van het reporting services-punt.  
+-   Avant d’installer le point de Reporting Services, vous devez installer et configurer au moins une instance de SQL Server pour prendre en charge SQL Server Reporting Services.  
 
--   Het exemplaar dat u voor SQL Server Reporting Services gebruikt, mag hetzelfde exemplaar die u voor de sitedatabase gebruikt.  
+-   L’instance que vous utilisez pour SQL Server Reporting Services peut être la même que celle utilisée pour la base de données du site.  
 
--   Bovendien kan het exemplaar dat u gebruikt met andere System Center-producten worden gedeeld, zolang de System Center-producten geen beperkingen voor het delen van het exemplaar van SQL Server.  
+-   En outre, l’instance que vous utilisez peut être partagée avec d’autres produits System Center, dès lors que ceux-ci n’ont pas de restrictions pour le partage de l’instance de SQL Server.  
 
-###  <a name="bkmk_2008SCPpreq"></a>Serviceverbindingspunt  
-**.NET framework:**  
+###  <a name="bkmk_2008SCPpreq"></a> Point de connexion de service  
+**.NET Framework :**  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-     Wanneer deze sitesysteemrol wordt geïnstalleerd, als de server nog niet over een ondersteunde versie van .NET Framework is geïnstalleerd, installeert Configuration Manager automatisch .NET Framework 4.5.2. Deze installatie kunt plaatsen van de server opnieuw opstarten status in behandeling. Wanneer opnieuw opstarten is in behandeling voor de .NET Framework, .NET-toepassingen mislukken pas nadat de server opnieuw is opgestart en de installatie is voltooid.  
+     Si, quand ce rôle de système de site est installé, aucune version prise en charge de .NET Framework n’est installée sur le serveur, Configuration Manager installe automatiquement .NET Framework 4.5.2. Cette installation peut placer le serveur dans un état d’attente redémarrage. Quand un redémarrage est en attente pour .NET Framework, il est possible que les applications .NET ne puissent pas s’exécuter tant que le serveur n’a pas redémarré et que l’installation n’est pas terminée.  
 
-**Visual C++ Redistributable:**  
+**Redistribuable Visual C++ :**  
 
--   Configuration Manager installeert het herdistribueerbare pakket voor Microsoft Visual C++ 2013 op elke computer die als host fungeert voor een distributiepunt.  
+-   Configuration Manager installe Microsoft Visual C++ 2013 Redistributable Package sur chaque ordinateur hébergeant un point de distribution.  
 
--   De sitesysteemrol vereist de x64 versie.  
+-   Le rôle de système de site nécessite la version x64.  
 
-###  <a name="bkmk_2008SUPpreq"></a>Software-updatepunt  
-**.NET framework:**  
+###  <a name="bkmk_2008SUPpreq"></a> Point de mise à jour logicielle  
+**.NET Framework :**  
 
--   .NET framework 3.5 SP1 (of hoger)  
+-   .NET Framework 3.5 SP1 (ou version ultérieure)  
 
--   .NET framework 4.5.2  
+-   .NET Framework 4.5.2  
 
-**IIS-configuratie:**
+**Configuration IIS :**
 
-De standaard IIS-configuratie is vereist.  
+La configuration IIS par défaut est nécessaire.  
 
-**Windows Server updateservices:**  
+**Windows Server Update Services :**  
 
--   Voordat u software-updatepunt installeert, moet u de Windows-serverrol Windows Server Update Services installeren op een computer.  
+-   Vous devez installer le rôle Windows Server Update Services (WSUS) de Windows Server sur un ordinateur avant d’installer un point de mise à jour logicielle.  
 
--   Zie [Software-updates plannen in System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md) voor meer informatie.
+-   Pour plus d’informations, consultez [Planifier les mises à jour logicielles dans System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md).
 
-###  <a name="bkmk_2008SMPpreq"></a>Statusmigratiepunt  
-**IIS-configuratie:**
+###  <a name="bkmk_2008SMPpreq"></a> Point de migration d'état  
+**Configuration IIS :**
 
-De standaard IIS-configuratie is vereist.  
+La configuration IIS par défaut est nécessaire.  

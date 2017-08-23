@@ -1,6 +1,6 @@
 ---
-title: Software-inventaris beveiliging privacy | Microsoft Docs
-description: Beveiliging en privacy-informatie ophalen voor software-inventaris in System Center Configuration Manager.
+title: "Sécurité et confidentialité de l’inventaire logiciel | Microsoft Docs"
+description: "Obtenez des informations de sécurité et de confidentialité pour l’inventaire logiciel dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -17,45 +17,45 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 7652e46d2168e2de623fa8e6d5b8663701764244
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-software-inventory-in-system-center-configuration-manager"></a>Beveiliging en privacy voor software-inventaris in System Center Configuration Manager
+# <a name="security-and-privacy-for-software-inventory-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour l’inventaire logiciel dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Dit onderwerp bevat beveiligings- en privacy-informatie voor software-inventaris in System Center Configuration Manager.  
+Cette rubrique contient des informations de sécurité et de confidentialité pour l’inventaire logiciel dans System Center Configuration Manager.  
 
-##  <a name="BKMK_Security_HardwareInventory"></a> Aanbevolen beveiligingsprocedures voor software-inventaris  
- Gebruik de volgende aanbevolen beveiligingsprocedures voor wanneer u software-inventarisgegevens bij clients verzamelt:  
+##  <a name="BKMK_Security_HardwareInventory"></a> Meilleures pratiques de sécurité pour l’inventaire logiciel  
+ Utilisez les meilleures pratiques de sécurité suivantes lorsque vous recueillez des données d'inventaire logiciel à partir de clients :  
 
-|Aanbevolen beveiligingsprocedure|Meer informatie|  
+|Meilleure pratique de sécurité|Plus d'informations|  
 |----------------------------|----------------------|  
-|Inventarisgegevens ondertekenen en versleutelen|Wanneer clients via HTTPS communiceren met beheerpunten, worden alle gegevens die ze verzenden met behulp van SSL versleuteld. Wanneer clientcomputers echter op het intranet via HTTP met beheerpunten communiceren, kunnen clientinventarisgegevens en verzamelde bestanden niet-ondertekend en niet-versleuteld worden verzonden. Zorg ervoor dat de site zodanig is geconfigureerd dat ondertekening is vereist en versleuteling wordt gebruikt. Bovendien, als clients het SHA-256-algoritme kunnen ondersteunen, selecteer dan de optie die SHA-256 vereist.|  
-|Gebruik bestandsverzameling niet om essentiële bestanden of gevoelige gegevens te verzamelen|Configuration Manager software-inventaris gebruikt alle rechten van het lokale systeemaccount, dat de mogelijkheid voor het verzamelen van kopieën van essentiële systeembestanden, zoals het register of de beveiligingsaccountdatabase heeft. Wanneer deze bestanden beschikbaar zijn op de siteserver, kan iemand met het recht Bron lezen of het recht NTFS op de opgeslagen locatie de inhoud analyseren en mogelijk belangrijke informatie achterhalen over de client om vervolgens de beveiliging ervan in gevaar te brengen.|  
-|Beperk lokale beheerrechten op clientcomputers|Een gebruiker met lokale beheerdersrechten kan ongeldige gegevens als inventarisatie-informatie verzenden.|  
+|Signer et chiffrer les données d'inventaire|Lorsque les clients communiquent avec les points de gestion à l'aide du protocole HTTPS, toutes les données qu'ils envoient sont chiffrées à l'aide du protocole SSL. Toutefois, lorsque des ordinateurs clients utilisent le protocole HTTP pour communiquer avec des points de gestion sur l'intranet, les données d'inventaire client et les fichiers collectés peuvent être envoyés non signés et non chiffrés. Assurez-vous que le site est configuré pour exiger la signature et utiliser le chiffrement. En outre, si les clients peuvent prendre en charge l'algorithme SHA-256, sélectionnez l'option pour exiger SHA-256.|  
+|N'utilisez pas le regroupement de fichiers pour collecter des fichiers critiques ou des informations sensibles|L’inventaire logiciel Configuration Manager utilise tous les droits du compte LocalSystem, qui permet de recueillir des copies de fichiers système critiques, tels que le Registre ou la base de données du compte de sécurité. Lorsque ces fichiers sont disponibles sur le serveur de site, un individu disposant des droits Lire la ressource ou de droits NTFS sur l'emplacement de stockage du fichier pourrait en analyser le contenu et probablement découvrir des informations essentielles sur le client, ce qui permettrait de compromettre sa sécurité.|  
+|Restreindre les droits d'administrateur local sur les ordinateurs client|Un utilisateur disposant des droits d'administrateur local peut envoyer des données non valides comme informations d'inventaire.|  
 
-### <a name="security-issues-for-software-inventory"></a>Beveiligingsproblemen voor software-inventaris  
- Bij het verzamelen van inventaris komen potentiële beveiligingslekken naar voren. Kwaadwillende personen kunnen het volgende doen:  
+### <a name="security-issues-for-software-inventory"></a>Problèmes de sécurité pour l’inventaire logiciel  
+ La collecte d'inventaires engendre des vulnérabilités potentielles. Les intrus peuvent effectuer les opérations suivantes :  
 
--   Ongeldige gegevens verzenden, die door het beheerpunt worden geaccepteerd, zelfs wanneer de clientinstelling voor software-inventaris is uitgeschakeld en bestandsverzameling niet is ingeschakeld.  
+-   Envoyer des données non valides qui seront acceptées par le point de gestion, même lorsque le paramètre du client d'inventaire logiciel est désactivé et le regroupement de fichiers n'est pas activé.  
 
--   Uitzonderlijk grote hoeveelheden gegevens verzenden in een enkel bestand en in heel veel bestanden, wat kan leiden tot een denial-of-service.  
+-   Envoyer de trop grandes quantités de données dans un seul fichier et dans de nombreux fichiers, ce qui risque provoquer un déni de service.  
 
--   Toegang krijgen tot inventarisgegevens wanneer deze worden overgedragen naar Configuration Manager.  
+-   Accéder aux informations d’inventaire lors de leur transfert vers Configuration Manager.  
 
- Als gebruikers weten dat ze een verborgen bestand kunnen maken met de naam **Skpswi.dat** en dit in de hoofdmap op de harde schijf van een client kunnen plaatsen om dit uit te sluiten van software-inventaris, kunt u geen software-inventarisatiegegevens bij die computer verzamelen.  
+ Si les utilisateurs savent qu'ils peuvent créer un fichier masqué appelé **Skpswi.dat** et le placer à la racine du disque dur d'un client pour l'exclure de l'inventaire logiciel, vous ne pourrez pas recueillir de données d'inventaire logiciel à partir de cet ordinateur.  
 
- Omdat een gebruiker met lokale beheerdersbevoegdheden geen informatie als inventarisgegevens verzenden kan, dient u niet inventarisgegevens die worden verzameld door Configuration Manager niet als gezaghebbend.  
+ Dans la mesure où un utilisateur bénéficiant de privilèges d’administrateur local peut envoyer n’importe quelles informations comme données d’inventaire, ne considérez pas que les données d’inventaire collectées par Configuration Manager peuvent servir de référence.  
 
- Software-inventarisatie is standaard ingeschakeld als een clientinstelling.  
+ L'inventaire logiciel est activé par défaut comme un paramètre client.  
 
-##  <a name="BKMK_Privacy_HardwareInventory"></a> Privacy-informatie voor software-inventarisatie  
- Hardware-inventarisatie kunt u alle informatie die is opgeslagen in het register en in WMI op de Configuration Manager-clients op te halen. Met een software-inventarisatie kunt u alle bestanden van een bepaald type ontdekken of alle bestanden van een bepaald type bij clients verzamelen. Asset Intelligence verbetert de inventarisatiefuncties door hardware- en software-inventarisatie uit te breiden en nieuwe licentiebeheerfunctionaliteit toe te voegen.  
+##  <a name="BKMK_Privacy_HardwareInventory"></a> Informations de confidentialité pour l’inventaire logiciel  
+ L’inventaire matériel vous permet de récupérer toutes les informations stockées dans le Registre et dans WMI sur les clients Configuration Manager. L'inventaire logiciel vous permet de découvrir tous les fichiers d'un type donné ou de collecter tous les fichiers spécifiés à partir des clients. Asset Intelligence améliore les capacités de l'inventaire en étendant l'inventaire matériel et logiciel et en ajoutant la nouvelle fonctionnalité de gestion des licences.  
 
- Hardware-inventarisatie is standaard ingeschakeld als een clientinstelling en welke WMI-gegevens worden verzameld, wordt bepaald door de opties die u selecteert. Software-inventarisatie is standaard ingeschakeld, maar er worden standaard geen bestanden verzameld. Asset Intelligence-gegevensverzameling is automatisch ingeschakeld, maar u kunt selecteren welke hardware-inventarisrapportageklassen u wilt inschakelen.  
+ L'inventaire matériel est activé par défaut comme un paramètre client et les informations WMI recueillies sont déterminées par les options que vous sélectionnez. L'inventaire logiciel est activé par défaut, mais les fichiers ne sont pas recueillis par défaut. Le regroupement de données Asset Intelligence est automatiquement activé, bien que vous puissiez sélectionner les classes de rapport d'inventaire matériel à activer.  
 
- Er wordt geen inventarisinformatie naar Microsoft verzonden. Inventarisatie-informatie wordt opgeslagen in de Configuration Manager-database. Wanneer clients HTTPS gebruiken om verbinding te maken met beheerpunten, worden de inventarisatiegegevens die ze naar de site verzenden tijdens de overdracht versleuteld. Als clients HTTP gebruiken om verbinding te maken met beheerpunten, hebt u de mogelijkheid versleuteling voor het inventarisatieproces in te schakelen. De inventarisatiegegevens worden niet in een versleutelde indeling in de database opgeslagen. Informatie wordt bewaard in de database tot deze om de 90 dagen wordt verwijderd door de siteonderhoudstaak **Verouderde inventarisgeschiedenis verwijderen** of **Verouderde verzamelde bestanden verwijderen** . U kunt het verwijderingsinterval configureren.  
+ Les informations d'inventaire ne sont pas envoyées à Microsoft. Les informations d’inventaire sont stockées dans la base de données Configuration Manager. Lorsque les clients utilisent HTTPS pour se connecter à des points de gestion, les données d'inventaire qu'ils envoient au site sont chiffrées pendant le transfert. Si les clients utilisent le protocole HTTP pour se connecter à des points de gestion, vous pouvez activer le chiffrement d'inventaire. Les données d'inventaire ne sont pas stockées au format chiffré dans la base de données. Les informations sont conservées dans la base de données jusqu'à ce qu'elles soient supprimées par les tâches de maintenance du site **Supprimer les historiques d'inventaire anciens** ou **Supprimer les fichiers collectés anciens** tous les 90 jours. Vous pouvez configurer l'intervalle de suppression.  
 
- Bedenk wat uw privacyvereisten zijn voordat u hardware-inventarisatie, software-inventarisatie, het verzamelen van bestanden of het verzamelen van Asset Intelligence-gegevens configureert.  
+ Avant de configurer l'inventaire matériel, l'inventaire logiciel, le regroupement de fichiers ou la collecte de données Asset Intelligence, tenez compte de vos exigences en matière de confidentialité.  

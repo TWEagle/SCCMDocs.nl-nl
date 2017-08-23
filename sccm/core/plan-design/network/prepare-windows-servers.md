@@ -1,6 +1,6 @@
 ---
-title: Windows-Servers voorbereiden | Microsoft Docs
-description: Zorg ervoor dat een computer voldoet aan vereisten voor gebruik als een siteserver of een sitesysteemserver voor System Center Configuration Manager.
+title: "Préparer des serveurs Windows | Microsoft Docs"
+description: "Vérifiez qu’un ordinateur remplit les conditions préalables pour l’utiliser comme serveur de site ou serveur de système de site pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/14/2017
 ms.prod: configuration-manager
@@ -17,125 +17,125 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 9b97dedb5d2be0bd2e47260033e6e4361467dc4e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-windows-servers-to-support-system-center-configuration-manager"></a>Windows-servers voorbereiden voor de ondersteuning van System Center Configuration Manager
+# <a name="prepare-windows-servers-to-support-system-center-configuration-manager"></a>Préparer des serveurs Windows pour prendre en charge System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Voordat u een Windows-computer als een sitesysteemserver voor System Center Configuration Manager gebruiken kunt, de computer, moet voldoen aan de vereisten voor het beoogde gebruik als siteserver of sitesysteemserver.  
+Pour pouvoir l’utiliser comme serveur de site ou serveur de système de site pour System Center Configuration Manager, l’ordinateur doit remplir les conditions requises.  
 
--   Deze vereisten bevatten vaak een of meer Windows-onderdelen of rollen die worden ingeschakeld met behulp van de computers van Serverbeheer.  
+-   Ces conditions incluent souvent un ou plusieurs rôles ou fonctionnalités Windows, qui sont activés à l’aide du Gestionnaire de serveur des ordinateurs.  
 
--   De methode voor het inschakelen van Windows-onderdelen en -rollen verschilt per besturingssysteem, Raadpleeg de documentatie voor uw besturingssysteem voor gedetailleerde informatie over het instellen van het besturingssysteem die u gebruikt.  
+-   Étant donné que la méthode d’activation des rôles et fonctionnalités Windows varie selon les systèmes d’exploitation, consultez la documentation de votre système d’exploitation pour en savoir plus sur la configuration appropriée.  
 
-De informatie in dit artikel biedt een overzicht van de typen Windows-configuraties die vereist zijn ter ondersteuning van Configuration Manager-sitesystemen. Zie voor configuratiedetails voor specifieke sitesysteemrollen, [Site en site-systeemvereisten](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).
+Les informations contenues dans cet article offrent une vue d’ensemble des différents types de configurations Windows nécessaires à la prise en charge des systèmes de site Configuration Manager. Pour plus d’informations sur la configuration de certains rôles de système de site, consultez [Prérequis des sites et systèmes de site pour System Center Configuration Manager](/sccm/core/plan-design/configs/site-and-site-system-prerequisites).
 
-##  <a name="BKMK_WinFeatures"></a>Windows-onderdelen en functies  
- Wanneer u Windows-onderdelen en functies op een computer hebt ingesteld, hoeft u mogelijk opnieuw opstarten van de computer om deze configuratie te voltooien. Het is daarom een goed idee om te identificeren van computers die specifieke sitesysteemrollen hosten zullen voordat u een Configuration Manager-site of -sitesysteemserver installeert.
-### <a name="features"></a>Functies  
- De volgende Windows-onderdelen zijn vereist op bepaalde sitesysteemservers en moeten worden ingesteld voordat u een sitesysteemrol op die computer installeert.  
+##  <a name="BKMK_WinFeatures"></a> Rôles et fonctionnalités Windows  
+ Quand vous configurez des rôles et des fonctionnalités Windows sur un ordinateur, il se peut que vous deviez redémarrer l’ordinateur pour terminer la configuration. Il est donc judicieux d’identifier les ordinateurs qui hébergeront certains rôles de système de site avant d’installer un site ou un serveur de système de site Configuration Manager.
+### <a name="features"></a>Fonctionnalités  
+ Les fonctionnalités Windows suivantes sont nécessaires sur certains serveurs de système de site et doivent être configurées pour pouvoir installer un rôle de système de site sur cet ordinateur.  
 
--   **.NET framework**: Inclusief  
+-   **.NET Framework** : incluant  
 
     -   ASP.NET  
-    -   HTTP-activering  
-    -   Niet-HTTP-activering  
-    -   Windows Communication Foundation (WCF) Services  
+    -   Activation HTTP  
+    -   Activation non-HTTP  
+    -   Services WCF (Windows Communication Foundation)  
 
-    Verschillende sitesysteemrollen vereisen verschillende versies van .NET Framework.  
+    Différents rôles de système de site requièrent différentes versions de .NET Framework.  
 
-    Omdat de .NET Framework 4.0 of hoger is niet achterwaarts compatibel met het vervangen van 3.5 en eerdere versies, wanneer verschillende versies als vereist worden weergegeven, plant elke versie op dezelfde computer moet inschakelen.  
+    Comme Microsoft .NET Framework 4.0 et les versions ultérieures n’offrent pas de compatibilité descendante pour remplacer les versions 3.5 et antérieures, si différentes versions sont requises, vous devez prévoir d’activer chaque version sur le même ordinateur.  
 
--   **Background Intelligent Transfer Services (BITS)**: Beheerpunten vereisen BITS (en automatisch geselecteerde opties) voor communicatie met beheerde apparaten.  
+-   **Service de transfert intelligent en arrière-plan (BITS)** : les points de gestion ont besoin du service BITS (et des options sélectionnées automatiquement) pour prendre en charge la communication avec les appareils gérés.  
 
--   **BranchCache**: Distributiepunten kunnen worden ingesteld met BranchCache ter ondersteuning van clients die BranchCache gebruiken.  
+-   **BranchCache** : vous pouvez configurer les points de distribution avec BranchCache pour prendre en charge les clients qui utilisent cette fonctionnalité.  
 
--   **Gegevensontdubbeling**: Distributiepunten kunnen worden ingesteld met en profiteren van gegevensontdubbeling.  
+-   **Déduplication des données** : vous pouvez configurer les points de distribution avec la déduplication des données pour tirer parti de cette fonctionnalité.  
 
--   **Externe differentiële compressie (RDC)**: Elke computer die als host fungeert voor een siteserver of een distributiepunt is RDC vereist.   
-    RDC wordt gebruikt voor het genereren van handtekeningen van pakketten en voor het vergelijken van handtekeningen.  
+-   **Compression différentielle à distance (RDC)** : chaque ordinateur qui héberge un serveur de site ou un point de distribution a besoin de la compression différentielle à distance.   
+    Celle-ci est utilisée pour générer des signatures de package et effectuer des comparaisons de signatures.  
 
-### <a name="roles"></a>Rollen  
- De volgende Windows-rollen zijn vereist ter ondersteuning van specifieke functionaliteit, zoals software-updates en implementaties van besturingssystemen, terwijl IIS is vereist voor de meest voorkomende sitesysteemrollen.  
+### <a name="roles"></a>Rôles  
+ Les rôles Windows suivants sont requis pour prendre en charge des fonctionnalités spécifiques, telles que les mises à jour logicielles et les déploiements de système d’exploitation. IIS est requis par les principaux rôles de système de site.  
 
- -   **Registratieservice** (onder Active Directory certificaatservices):  Deze Windows-rol is een vereiste voor het gebruiken van Certificaatprofielen in Configuration Manager.  
+ -   **Service d’inscription de périphérique réseau** (sous Services de certificats Active Directory) : ce rôle Windows est requis pour pouvoir utiliser des profils de certificat dans Configuration Manager.  
 
- -   **Webserver (IIS)**: Inclusief:  
-    -   Veelvoorkomende HTTP-functies >  
-        -   HTTP-omleiding  
-    -   Toepassingsontwikkeling >  
-        -   .NET-uitbreidbaarheid  
+ -   **Serveur web (IIS)**, avec notamment :  
+    -   Fonctionnalités HTTP communes >  
+        -   Redirection HTTP  
+    -   Développement d’applications >  
+        -   Extensibilité .NET  
         -   ASP.NET  
-        -   ISAPI-extensies  
-        -   ISAPI-filters  
-    -   Beheerprogramma's >  
-        -   Compatibiliteit met IIS 6-beheer  
-        -   Compatibiliteit met IIS 6-metabase  
-        -   Compatibiliteit met IIS 6 Windows Management Instrumentation (WMI)  
-    -   Beveiliging >  
-        -   Filtering aanvragen  
-        -   Windows-verificatie  
+        -   Extensions ISAPI  
+        -   Filtres ISAPI  
+    -   Outils de gestion >  
+        -   IIS 6 Management Compatibility  
+        -   Compatibilité avec la métabase de données IIS 6  
+        -   Compatibilité avec IIS 6 Windows Management Instrumentation (WMI)  
+    -   Sécurité >  
+        -   Filtrage des demandes  
+        -   Authentification Windows  
 
- De volgende sitesysteemrollen zijn een of meer van de vermelde IIS-configuraties gebruiken:  
-    -   Application Catalog-webservicepunt  
-    -   Application Catalog-websitepunt  
-    -   Distributiepunt  
-    -   Inschrijvingspunt  
-    -   Proxypunt voor inschrijving  
-    -   Terugvalstatuspunt  
-    -   Beheerpunt  
-    -   Software-updatepunt  
-    -   Statusmigratiepunt     
+ Les rôles de système de site suivants utilisent une ou plusieurs des configurations IIS répertoriées :  
+    -   Point de service Web du catalogue des applications  
+    -   Point du site web du catalogue des applications  
+    -   Point de distribution  
+    -   Point d'inscription  
+    -   Point proxy d'inscription  
+    -   Point d’état de secours  
+    -   Point de gestion  
+    -   Point de mise à jour logicielle  
+    -   Point de migration d'état     
 
-    De minimumversie van IIS die is vereist, is de versie die wordt meegeleverd met het besturingssysteem van de siteserver.  
+    La version minimale d’IIS requise est la version fournie avec le système d’exploitation du serveur de site.  
 
-    Naast deze IIS-configuraties, moet u mogelijk instellen [IIS-Aanvraagfiltering voor distributiepunten](#BKMK_IISFiltering).  
+    En plus de ces configurations IIS, il se peut que vous deviez configurer le [Filtrage des demandes IIS pour les points de distribution](#BKMK_IISFiltering).  
 
--   **Windows Deployment Services**: Deze rol wordt gebruikt bij installatie besturingssysteem.  
--   **Windows Server updateservices**: Deze rol is vereist wanneer u software-updates gaat implementeren.  
+-   **Services de déploiement Windows** : ce rôle est utilisé pour le déploiement de système d’exploitation.  
+-   **Windows Server Update Services** : ce rôle est nécessaire pour le déploiement de mises à jour logicielles.  
 
-##  <a name="BKMK_IISFiltering"></a>IIS-Aanvraagfiltering voor distributiepunten  
- IIS gebruikt standaard Aanvraagfiltering om te blokkeren verschillende bestandsnaamextensies en maplocaties tegen toegang door HTTP of HTTPS-communicatie. Op een distributiepunt wordt hiermee voorkomen dat clients pakketten downloaden die extensies of maplocaties hebben geblokkeerd.  
+##  <a name="BKMK_IISFiltering"></a> Filtrage des demandes IIS pour les points de distribution  
+ Par défaut, IIS utilise le filtrage des demandes pour bloquer l’accès par HTTP ou HTTPS à plusieurs extensions de nom de fichier et emplacements de dossier. Sur un point de distribution, cela empêche les clients de télécharger des packages contenant des extensions ou des emplacements de dossier bloqués.  
 
- Wanneer de bronbestanden van uw pakket extensies die in IIS zijn geblokkeerd door uw configuratie van de Aanvraagfiltering, moet u instellen Aanvraagfiltering zodat ze. U doet dit door de [aanvraagfilteringsfunctie te bewerken](https://technet.microsoft.com/library/hh831621.aspx) in IIS-beheer op de distributiepuntcomputers.  
+ Si vos fichiers sources de package contiennent des extensions qui sont bloquées dans IIS par votre configuration de filtrage des demandes, vous devez les autoriser dans le filtrage des demandes. Pour cela, vous devez [configurer le filtrage des demandes](https://technet.microsoft.com/library/hh831621.aspx) dans le Gestionnaire des services IIS sur vos ordinateurs de point de distribution.  
 
- Bovendien worden de volgende bestandsnaamextensies door Configuration Manager gebruikt voor pakketten en toepassingen. Zorg ervoor dat de configuraties voor de Aanvraagfiltering volgende bestandsextensies niet blokkeren:  
+ Par ailleurs, Configuration Manager utilise les extensions de nom de fichier suivantes pour les packages et les applications. Vérifiez que vos configurations de filtrage des demandes ne bloquent pas les extensions de fichier suivantes :  
 
 -   .PCK  
 -   .PKG  
 -   .STA  
 -   .TAR  
 
-Bijvoorbeeld, de bronbestanden voor een software-implementatie mogelijk een map met de naam zijn **bin** of een bestand met de **.mdb** bestandsnaamextensie.  
+Par exemple, dans le cadre d’un déploiement logiciel, vous pouvez avoir des fichiers sources incluant un dossier nommé **bin** ou contenant un fichier avec l’extension **.mdb**.  
 
--   Blokkeert standaard de IIS-Aanvraagfiltering de toegang tot deze elementen (**bin** wordt geblokkeerd als een verborgen Segment en **.mdb** wordt geblokkeerd als een bestandsnaamextensie).  
+-   Par défaut, le filtrage des demandes IIS bloque l’accès à ces éléments (**bin** est bloqué en tant que segment masqué et **.mdb** est bloqué en tant qu’extension de nom de fichier).  
 
--   Wanneer u de standaardconfiguratie voor IIS gebruikt voor een distributiepunt, kunnen clients die gebruikmaken van BITS deze software-implementatie niet van het distributiepunt downloaden en geven zij aan dat ze op inhoud wachten.  
+-   Quand vous utilisez la configuration IIS par défaut sur un point de distribution, les clients qui utilisent BITS ne peuvent pas télécharger ce déploiement logiciel à partir du point de distribution et indiquent qu’ils attendent du contenu.  
 
--   Bewerken zodat de clients deze inhoud voor elk betreffend distributiepunt downloaden **Aanvraagfiltering** in IIS-beheer voor toegang tot de bestandsextensies en mappen die zich in de pakketten en toepassingen die u implementeert.  
+-   Pour permettre aux clients de télécharger ce contenu, sur chaque point de distribution applicable, modifiez l’option **Filtrage des demandes** dans le Gestionnaire des services IIS pour autoriser l’accès aux extensions de fichier et aux dossiers contenus dans les packages et applications que vous déployez.  
 
 > [!IMPORTANT]  
->  Wijzigingen in aanvraagfiltering kunnen de kwetsbaarheid van de computer verhogen.  
+>  Les modifications apportées au filtre de demande peuvent augmenter la surface exposée aux attaques de l’ordinateur.  
 >   
->  -   Wijzigingen die u op serverniveau aanbrengt gelden voor alle websites op de server.  
-> -   Wijzigingen die u in de afzonderlijke websites aanbrengt gelden alleen voor die website.  
+>  -   Les modifications apportées au niveau du serveur s’appliquent à tous les sites web sur le serveur.  
+> -   Les modifications apportées à un site web particulier s’appliquent uniquement à ce site web.  
 >   
->  De aanbevolen beveiligingsprocedure is het uitvoeren van Configuration Manager op een speciale webserver. Als u andere toepassingen op de webserver uitvoeren moet, gebruikt u een aangepaste website voor Configuration Manager. Zie [Websites voor sitesysteemservers in System Center Configuration Manager](../../../core/plan-design/network/websites-for-site-system-servers.md)voor informatie.  
+>  La bonne pratique à suivre sur le plan de la sécurité consiste à exécuter Configuration Manager sur un serveur web dédié. Si vous devez exécuter d’autres applications sur le serveur web, utilisez un site web personnalisé pour Configuration Manager. Pour plus d’informations, consultez [Sites web pour les serveurs de système de site dans System Center Configuration Manager](../../../core/plan-design/network/websites-for-site-system-servers.md).  
 
-## <a name="http-verbs"></a>HTTP-woorden
-**Beheerpunten:** Om ervoor te zorgen dat clients met een beheerpunt communiceren kunnen, op de beheerpuntserver dienen dat de volgende HTTP-termen zijn toegestaan:  
+## <a name="http-verbs"></a>Verbes HTTP
+**Points de gestion** : pour garantir une communication fonctionnelle entre les clients et un point de gestion, sur le serveur de point de gestion, vérifiez que les verbes HTTP suivants sont autorisés :  
  - GET
  - POST
  - CCM_POST
  - HEAD
  - PROPFIND
 
-**Distributiepunten:** Distributiepunten vereisen dat de volgende HTTP-termen als toegestaan:
+**Points de distribution** : les points de distribution exigent l’autorisation des verbes HTTP suivants :
  - GET
  - HEAD
  - PROPFIND
 
-Zie voor meer informatie over het configureren van Aanvraagfiltering [configureren in IIS-Aanvraagfiltering](https://technet.microsoft.com/library/hh831621.aspx#Verbs) op TechNet of gelijkaardige documentatie die geldt voor de versie van Windows Server die als host fungeert voor uw beheerpunt.
+Pour plus d’informations sur la configuration du filtrage des demandes, consultez [Configurer le filtrage des demandes dans IIS](https://technet.microsoft.com/library/hh831621.aspx#Verbs) sur TechNet ou une documentation similaire applicable à la version de Windows Server qui héberge votre point de gestion.

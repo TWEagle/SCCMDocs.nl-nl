@@ -1,6 +1,6 @@
 ---
-title: Mogelijkheden in Technical Preview 1611 Configuration Manager
-description: Meer informatie over functies die beschikbaar zijn in de Technical Preview voor System Center Configuration Manager, versie 1611.
+title: "Fonctionnalités de Technical Preview 1611 Configuration Manager"
+description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1611 pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 01/23/2017
 ms.reviewer: na
@@ -16,62 +16,62 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 5e77ebbfd3f3d573d903fe58024a22feb9884e4a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1611-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1611 voor System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1611-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1611 pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (Technical Preview)*
-
-
-
-Dit artikel bevat de functies die beschikbaar in de Technical Preview voor System Center Configuration Manager, versie 1611 zijn. U kunt deze versie om te werken en nieuwe mogelijkheden toevoegen aan uw Configuration Manager technical preview-site installeren. Controleer voordat u deze versie van de technical preview installeert, de inleidende informatie [Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md), om vertrouwd te raken met algemene vereisten en beperkingen voor het gebruik van een technical preview hoe bijwerken tussen versies en hoe u feedback over de functies in een technical preview.    
-
-**Bekende problemen in deze Technical Preview:**   
-- ***De status van vereisten***: Wanneer u versie 1611 installeert, worden de algehele status voor vereiste onderdelen mogelijk weergegeven omdat het is voltooid met waarschuwingen, maar niet wordt vermeld welke vereisten de waarschuwingen veroorzaakt. Dit kan zijn veroorzaakt door de volgende twee vereisten:
-  - Opties voor het SQL-Index maken-geheugen
-  - Controleert op een ondersteunde versie van SQL Server  
-
- Omdat dit alleen waarschuwingen zijn, kunnen ze worden genegeerd.
-
-- ***PowerShell***: Als u verbinding met Windows PowerShell uit de Configuration Manager-console, kunt u de volgende fout ontvangen: **Microsoft.ConfigurationManagement.PowerShell.Types.ps1xml niet digitaal is ondertekend**.  
-
-   U kunt dit probleem oplossen door het vervangen van bepaalde bestanden met ondertekende versies van versie 1610. Kopieer alle bestanden met de volgende extensies van de **&lt;installatiemap > \AdminConsole\bin\**  map in de installatie van versie 1610: **.psd1**, **.ps1xml**, en **.psm1**. Plak deze bestanden in de **&lt;installatiemap > \AdminConsole\bin\**  map in de installatie van Technical Preview 1611, wordt de 1611-versie van de bestanden overschreven.
+*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
 
 
-**Hier volgen nieuwe functies die u met deze versie kunt uitproberen.**  
 
-## <a name="pre-cache-content-for-available-deployments-and-task-sequences"></a>Vooraf cache-inhoud voor beschikbare implementaties en takenreeksen
-In deze technical preview voor beschikbare implementaties en takenreeksen, kunt u de functie vooraf cache gebruiken om clients alleen relevante inhoud downloaden voordat een gebruiker de inhoud installeert hebben.
+Cet article présente les fonctionnalités disponibles dans la version d’évaluation technique 1611 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager. Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
 
-Stel dat u wilt implementeren van een takenreeks Windows 10 in-place upgrade slechts een enkele takenreeks voor alle gebruikers wilt en meerdere architecturen en/of talen. In huidige vertakking, als u een beschikbare installatie maakt, en vervolgens klikt de gebruiker op **installeren** in Software Center, de inhoud gedownload op dat moment. Hiermee voegt u extra tijd voordat de installatie is gereed om te starten. U kunt ook in huidige vertakking wordt als u een beschikbare takenreeksimplementatie maakt alle inhoud waarnaar wordt verwezen in de takenreeks gedownload. Dit omvat het upgradepakket voor besturingssysteem voor alle talen en -architecturen. Als elk ongeveer 3 GB groot is, kan het downloadpakket behoorlijk groot zijn.
+**Problèmes connus dans cette version d’évaluation technique :**   
+- ***État des prérequis*** : Quand vous installez la version 1611, l’état global des prérequis peut indiquer une installation réussie avec des avertissements. Toutefois, les prérequis à l’origine des avertissements ne sont pas répertoriés. Cela peut être dû aux deux prérequis suivants :
+  - Options de création d’index en mémoire SQL
+  - Vérifications de la version de SQL Server prise en charge  
 
-De inhoud vooraf cachefunctie biedt u de optie voor het toestaan van de client alleen de inhoud te downloaden van toepassing als de implementatie wordt ontvangen. Daarom wanneer de gebruiker klikt op **installeren** in Software Center, de inhoud gereed is en de installatie begint snel omdat de inhoud op de lokale vaste schijf.
+ Comme il s’agit uniquement d’avertissements, vous pouvez les ignorer.
 
-### <a name="to-configure-the-pre-cache-feature"></a>De cachefunctie vooraf configureren
+- ***PowerShell*** : quand vous vous connectez à Windows PowerShell à partir de la console Configuration Manager, vous pouvez recevoir l’erreur suivante : **Microsoft.ConfigurationManagement.PowerShell.Types.ps1xml n’est pas signé numériquement**.  
 
-1. Upgradepakketten voor specifieke architecturen en talen voor besturingssysteem maken. Geef de architectuur en taal op de **gegevensbron** tabblad van het pakket. Gebruik de decimale conversie voor de taal (bijvoorbeeld 1033 is het decimaalteken voor Engels en 0x0409 is hetzelfde als hexadecimaal). Zie voor meer informatie [een takenreeks maken om een besturingssysteem te upgraden](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system).
-
-    De architectuur en taal-waarden worden gebruikt om te voldoen aan de taak sequence stap die u in de volgende stap om te bepalen maakt of het upgradepakket voor besturingssysteem vooraf moet worden opgeslagen.
-2. Maak een takenreeks met voorwaardelijke stappen voor de verschillende talen en -architecturen. U kunt bijvoorbeeld een stap als volgt maken voor de Engelse versie:
-
-    ![Eigenschappen van de pre-cache](media/precacheproperties2.png)
-
-    ![vooraf cacheopties](media/precacheoptions2.png)  
-
-3. De takenreeks implementeert. Voor de functie vooraf cache, het volgende configureren:
-    - Op de **algemene** tabblad **vooraf downloaden van inhoud voor deze takenreeks**.
-    - Op de **implementatie-instellingen** tabblad, configureer de takenreeks met de **beschikbaar** voor **doel**. Als u maakt een **vereist** implementatie van de pre-cache-functionaliteit werkt niet.
-    - Op de **planning** tabblad voor de **plannen wanneer deze implementatie beschikbaar zal zijn** instelt, kiest u een tijd in de toekomst waarmee clients voldoende tijd is voor de inhoud vooraf in cache voordat de implementatie beschikbaar wordt gesteld aan gebruikers. U kunt bijvoorbeeld instellen dat de beschikbare tijd worden drie uur in de toekomst genoeg tijd bieden om de inhoud vooraf in cache opgeslagen.  
-    - Op de **distributiepunten** tabblad, configureert de **implementatieopties** instellingen. Als de inhoud niet vooraf in cache op een client opgeslagen is voordat een gebruiker de installatie wordt gestart, worden deze instellingen gebruikt.
+   Vous pouvez résoudre ce problème en remplaçant certains fichiers par les versions signées de la version 1610. Copiez tous les fichiers avec les extensions suivantes qui figurent dans le dossier **&lt;répertoire d’installation>\AdminConsole\bin\** de l’installation de la version 1610 : **.psd1**, **.ps1xml** et **.psm1**. Collez-les dans le dossier **&lt;répertoire_installation>\AdminConsole\bin\** de l’installation de la version d’évaluation technique 1611, en remplaçant la version 1611 des fichiers.
 
 
-### <a name="user-experience"></a>Gebruikerservaring
-- Wanneer de client het implementatiebeleid ontvangt, wordt gestart om de inhoud vooraf in cache. Dit omvat alle inhoud waarnaar wordt verwezen (een andere typen) en alleen het upgradepakket voor besturingssysteem die overeenkomt met de client op basis van de voorwaarden die u in de takenreeks instelt.
-- Wanneer de implementatie wordt beschikbaar gesteld aan gebruikers (instellen op de **planning** tabblad van de implementatie), een melding weergegeven om gebruikers te informeren over de nieuwe implementatie en de implementatie zichtbaar in Software Center. De gebruiker kan gaat u naar Software Center en klikt u op **installeren** om de installatie te starten.
-- Als de inhoud niet volledig vooraf in cache opgeslagen is, wordt dit de instellingen gebruikt van de **Implementatieoptie** tabblad van de implementatie. U wordt aangeraden dat er voldoende tijd tussen wanneer de implementatie wordt gemaakt en het tijdstip waarop de implementatie beschikbaar voor gebruikers wordt wilt toestaan dat clients voldoende tijd is voor de inhoud vooraf in cache is.
+**Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
+
+## <a name="pre-cache-content-for-available-deployments-and-task-sequences"></a>Mettre préalablement en cache le contenu pour les déploiements et les séquences de tâches disponibles
+Cette version d’évaluation technique propose une fonctionnalité de mise en cache préalable des séquences de tâches et des déploiements disponibles. De cette façon, les clients téléchargent uniquement le contenu approprié avant toute installation de contenu par l’utilisateur.
+
+Supposons que vous souhaitiez déployer une séquence de tâches de mise à niveau sur place de Windows 10, que vous ne vouliez qu’une seule séquence de tâches pour tous les utilisateurs, et que vous ayez plusieurs architectures et/ou langues. Dans Current Branch, si vous créez un déploiement disponible et que l’utilisateur clique sur **Installer** dans le Centre logiciel, le contenu est téléchargé à ce moment-là. Ceci a pour effet de retarder la disponibilité de l’installation. Si vous choisissez de créer un déploiement de séquence de tâches disponible dans Current Branch, tout le contenu référencé dans la séquence de tâches est téléchargé (c’est-à-dire tous les packages de mise à niveau du système d’exploitation pour chaque langue et chaque architecture). Si chaque package fait environ 3 Go, le package de téléchargement peut être très volumineux.
+
+La fonctionnalité de mise en cache préalable du contenu permet au client de télécharger uniquement le contenu applicable dès qu’il reçoit le déploiement. Ainsi, quand l’utilisateur clique sur **Installer** dans le Centre logiciel, le contenu est prêt et l’installation démarre rapidement, car le contenu se trouve sur le disque dur local.
+
+### <a name="to-configure-the-pre-cache-feature"></a>Pour configurer la fonctionnalité de mise en cache préalable
+
+1. Créez des packages de mise à niveau du système d’exploitation pour des architectures et des langues spécifiques. Spécifiez l’architecture et la langue sous l’onglet **Source de données** du package. Pour la langue, utilisez la conversion décimale (par exemple, pour l’anglais, 1033 est l’identifiant décimal et 0x0409 l’identifiant hexadécimal). Pour plus d’informations, consultez [Créer une séquence de tâches pour mettre à niveau un système d’exploitation](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system).
+
+    Les valeurs de l’architecture et de la langue sont mises en correspondance avec les conditions de la séquence de tâches que vous allez créer à l’étape suivante pour déterminer si le package de mise à niveau du système d’exploitation doit être préalablement mis en cache.
+2. Créez une séquence de tâches avec des étapes conditionnelles pour les différentes langues et architectures. Par exemple, pour la version anglaise, vous pouvez créer une étape comme suit :
+
+    ![propriétés de mise en cache préalable](media/precacheproperties2.png)
+
+    ![options de mise en cache préalable](media/precacheoptions2.png)  
+
+3. déployer la séquence de tâches. Pour configurer la fonctionnalité de mise en cache préalable, configurez ce qui suit :
+    - Sous l’onglet **Général**, sélectionnez **Prétélécharger le contenu pour cette séquence de tâches**.
+    - Sous l’onglet **Paramètres de déploiement**, configurez la séquence de tâches avec **Disponible** comme **Objectif**. Si vous créez un déploiement **Exigé**, la fonctionnalité de mise en cache préalable ne fonctionne pas.
+    - Sous l’onglet **Planification**, pour le paramètre **Planifier la disponibilité de ce déploiement**, choisissez une heure future qui donne aux clients le temps de mettre préalablement en cache le contenu avant que le déploiement ne soit accessible aux utilisateurs. Par exemple, vous pouvez définir un délai de 3 heures pour allouer suffisamment de temps à la mise en cache préalable du contenu.  
+    - Sous l’onglet **Points de distribution**, configurez les paramètres **Options de déploiement**. Si le contenu n’est pas préalablement mis en cache sur un client avant le démarrage de l’installation, ces paramètres sont utilisés.
 
 
-## <a name="see-also"></a>Zie ook
-[Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md)
+### <a name="user-experience"></a>Expérience utilisateur
+- Quand le client reçoit la stratégie de déploiement, il commence la mise en cache préalable du contenu. Il s’agit du contenu référencé (tout autre type de package) et du package de mise à niveau du système d’exploitation correspondant au client (en fonction des conditions définies dans la séquence de tâches).
+- Une fois le déploiement accessible aux utilisateurs (paramètre défini sous l’onglet **Planification** du déploiement), une notification s’affiche pour informer les utilisateurs du nouveau déploiement. Le déploiement apparaît alors dans le Centre logiciel. L’utilisateur peut accéder au Centre logiciel et cliquer sur **Installer** pour démarrer l’installation.
+- Si tout le contenu n’est pas préalablement mis en cache, les paramètres spécifiés sous l’onglet **Option de déploiement** du déploiement sont utilisés. Nous vous recommandons de définir un délai suffisant entre la création du déploiement et l’heure à laquelle le déploiement est accessible aux utilisateurs pour que les client aient le temps de mettre préalablement en cache le contenu.
+
+
+## <a name="see-also"></a>Voir aussi
+[Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md)

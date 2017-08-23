@@ -1,6 +1,6 @@
 ---
-title: Toepassingen bewaken vanuit de System Center Configuration Manager-console | Microsoft Docs
-description: Controleer de implementatie van software, inclusief updates, compatibiliteitsinstellingen en toepassingen met behulp van de werkruimte bewaking in Configuration Manager.
+title: "Surveiller des applications à partir de la console System Center Configuration Manager | Microsoft Docs"
+description: "Surveillez le déploiement de logiciels, notamment des mises à jour, des paramètres de compatibilité et des applications à l’aide de l’espace de travail Surveillance dans Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,77 +16,77 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 42d21d10489bffe32b875384f8801686239a0ba4
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="monitor-applications-from-the-system-center-configuration-manager-console"></a>Toepassingen bewaken vanuit de System Center Configuration Manager-console
+# <a name="monitor-applications-from-the-system-center-configuration-manager-console"></a>Surveiller des applications à partir de la console System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-In System Center Configuration Manager kunt u de implementatie van alle software, inclusief software-updates, compatibiliteitsinstellingen, toepassingen, takenreeksen, en pakketten en programma's bewaken. U kunt implementaties bewaken met behulp van de **bewaking** werkruimte in de Configuration Manager-console of met behulp van rapporten.  
+System Center Configuration Manager permet de surveiller le déploiement de tous les logiciels : mises à jour logicielles, paramètres de compatibilité, applications, séquences de tâches, packages, programmes, etc. Vous pouvez surveiller les déploiements à l’aide de l’espace de travail **Surveillance** de la console Configuration Manager ou par le biais de rapports.  
 
- Toepassingen in Configuration Manager ondersteuning voor bewaking op basis van status, waardoor u bijhouden van de laatste implementatiestatus van toepassing voor gebruikers en apparaten. In deze statusberichten wordt informatie over afzonderlijke apparaten weergegeven. Als een toepassing wordt geïmplementeerd voor een verzameling gebruikers, kunt u de compatibiliteitsstatus van de implementatie en het implementatiedoel weergeven in de Configuration Manager-console.  
+ Les applications de Configuration Manager prennent en charge la surveillance basée sur l’état, laquelle vous permet de suivre le dernier état du déploiement des applications pour les utilisateurs et les appareils. Ces messages d'état affichent des informations concernant des périphériques individuels. Par exemple, si une application est déployée sur un regroupement d’utilisateurs, vous pouvez voir l’état de compatibilité du déploiement ainsi que son objet dans la console Configuration Manager.  
 
-## <a name="learn-about-compliance-states-in-system-center-configuration-manager"></a>Meer informatie over de nalevingsstatussen in System Center Configuration Manager
- De implementatiestatus van een toepassing heeft een van de volgende compatibiliteitsstatussen:  
+## <a name="learn-about-compliance-states-in-system-center-configuration-manager"></a>En savoir plus sur les états de compatibilité dans System Center Configuration Manager
+ L'état d'un déploiement d'application peut disposer de l'un des états de compatibilité suivants :  
 
--   **Geslaagd** – De implementatie van de toepassing is geslaagd of er is gebleken dat de toepassing al is geïnstalleerd.  
+-   **Opération réussie** : le déploiement d'application a réussi ou était déjà installé.  
 
--   **Wordt uitgevoerd** – De implementatie van de toepassing wordt uitgevoerd.  
+-   **En cours** : le déploiement d'application est en cours.  
 
--   **Onbekend** – De status van de toepassingsimplementatie kan niet worden bepaald. Deze status is niet van toepassing op implementaties met als doel **Beschikbaar**. Deze status wordt doorgaans weergegeven wanneer er nog geen statusberichten van de client zijn ontvangen.  
+-   **Inconnu** : l'état du déploiement d'application n'a pas pu être déterminé. Cet état ne concerne pas les déploiements dont l'objet est **Disponible**. Cet état s'affiche généralement lorsque les messages d'état émanant du client n'ont pas encore été reçus.  
 
--   **Niet voldaan aan vereisten** – De toepassing is niet geïmplementeerd omdat deze niet voldeed aan een afhankelijkheid of een vereisteregel, of omdat het besturingssysteem waarop het werd geïmplementeerd, niet van toepassing is.  
+-   **Config non satisfaite** : l'application n'a pas été déployée, car elle n'était pas conforme à une dépendance ou à une règle de spécification, ou car le système d'exploitation sur lequel elle a été déployée n'était pas concerné.  
 
--   **Fout** – De toepassing kon niet worden geïmplementeerd wegens een fout.  
+-   **Erreur** : le déploiement d'application a échoué à cause d'une erreur.  
 
-U kunt aanvullende informatie voor elke compatibiliteitsstatus, met inbegrip van subcategorieën binnen de compatibiliteitsstatus en het aantal gebruikers en apparaten in deze categorie weergeven. Zo bevat de compatibiliteitsstatus **Fout** bijvoorbeeld de volgende subcategorieën:  
+Vous pouvez consulter des informations supplémentaires pour chaque état de compatibilité, dont des sous-catégories de l’état de compatibilité ainsi que le nombre d’utilisateurs et d’appareils de cette catégorie. Par exemple, l'état de compatibilité **Erreur** comprend les sous-catégories suivantes :  
 
--   Fout bij het evalueren van de vereisten  
+-   Erreur lors de l'évaluation de la configuration requise  
 
--   Aan inhoud gerelateerde fouten  
+-   Erreurs liées au contenu  
 
--   Installatiefouten  
+-   Erreurs d'installation  
 
- Wanneer er meer dan één compatibiliteitsstatus van toepassing is op de implementatie van een toepassing, kunt u de geaggregeerde status zien die de laagste compatibiliteit aangeeft. Bijvoorbeeld:  
+ Lorsque plusieurs états de compatibilité s'appliquent à un déploiement d'application, vous pouvez consulter l'état de l'agrégat dont la compatibilité est la plus faible. Exemple :  
 
-    -   Als een gebruiker zich aanmeldt bij twee apparaten en de toepassing op één apparaat correct wordt geïnstalleerd maar niet kan worden geïnstalleerd op het tweede apparaat, wordt de geaggregeerde implementatiestatus van de toepassing voor die gebruiker weergegeven als **fout**.  
+    -   Si un utilisateur se connecte à deux appareils et que l’installation de l’application réussit sur un appareil, mais échoue sur le deuxième, l’état du déploiement de l’agrégat de l’application pour cet utilisateur a l’état **Erreur**.  
 
-    -   Als een toepassing wordt geïmplementeerd voor alle gebruikers die zich aanmeldt bij een computer, ontvangt u meerdere Implementatieresultaten voor die computer. Als een van de implementaties mislukt, wordt de geaggregeerde implementatiestatus voor de computer weergegeven als **Fout**.  
+    -   Si une application est déployée sur tous les utilisateurs se connectant à un ordinateur donné, vous recevez plusieurs résultats de déploiement pour cet ordinateur. Si l'un des déploiements échoue, l'état du déploiement de l'agrégat pour l'ordinateur est **Erreur**.  
 
-De implementatiestatus voor pakket- en programma-implementaties wordt niet geaggregeerd.  
+L'état du déploiement des packages et des programmes n'est pas agrégé.  
 
- Gebruik deze subcategorieën om snel eventuele belangrijke problemen met een toepassingsomgeving vast te stellen. U kunt ook aanvullende informatie weergeven over de apparaten die tot een bepaalde subcategorie van een nalevingsstatus behoren.  
+ Utilisez ces sous-catégories pour vous aider à identifier rapidement tous les problèmes importants d'un déploiement d'application. Vous pouvez aussi consulter des informations complémentaires sur les périphériques qui entrent dans une sous-catégorie d'un état de compatibilité.  
 
- Toepassingsbeheer in Configuration Manager bevat een aantal ingebouwde rapporten waarmee u informatie over toepassingen en implementaties kunt bewaken. Deze rapporten hebben de rapportcategorie **Softwaredistributie - Toepassingscontrole**.  
+ Dans Configuration Manager, la gestion des applications inclut plusieurs rapports intégrés qui vous permettent de surveiller des informations concernant les applications et les déploiements. Ces rapports affichent la catégorie de rapport **Distribution de logiciels – Surveillance des applications**.  
 
- Zie voor meer informatie over het configureren van rapportage in Configuration Manager [rapportage in System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+ Pour plus d’informations sur la configuration de la création de rapports dans Configuration Manager, consultez [Création de rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md).  
 
-## <a name="monitor-the-state-of-an-application-in-the-configuration-manager-console"></a>De status van een toepassing in de Configuration Manager-console bewaken  
+## <a name="monitor-the-state-of-an-application-in-the-configuration-manager-console"></a>Surveiller l’état d’une application dans la console Configuration Manager  
 
-1.  Kies in de Configuration Manager-console **bewaking** > **implementaties**.  
+1.  Dans la console Configuration Manager, choisissez **Surveillance** > **Déploiements**.  
 
-3.  Details van de implementatie bekijken voor elke conformiteitsstatus en de apparaten in deze staat, selecteert u een implementatie en klik vervolgens op de **Start** tabblad, in de **implementatie** groep, kiest u **Status weergeven** openen de **Implementatiestatus** deelvenster. In dit deelvenster kunt u de assets met elke nalevingsstatus weergeven. Kies een willekeurige asset om gedetailleerdere informatie over de implementatiestatus voor die asset weer te geven.  
+3.  Pour consulter les détails du déploiement pour chaque état de compatibilité et les appareils dans cet état, sélectionnez un déploiement puis, sous l’onglet **Accueil**, dans le groupe **Déploiement**, choisissez **Afficher l’état** pour ouvrir le volet **État du déploiement**. Dans ce volet, vous pouvez consulter les biens de chaque état de compatibilité. Choisissez un bien pour obtenir des informations plus détaillées sur son état de déploiement.  
 
     > [!NOTE]  
-    >  Er kunnen maximaal 20.000 items worden weergegeven in het deelvenster **Implementatiestatus** . Als u meer objecten bekijken wilt, kunt u de Configuration Manager-rapporten gebruiken om gegevens over de toepassingsstatus weer te geven.  
+    >  Le nombre d'éléments pouvant être affichés dans le volet **État du déploiement** est limité à 20 000. Si vous avez besoin de voir plus d’éléments, utilisez les rapports Configuration Manager pour afficher les données d’état.  
     >   
-    >  De status van implementatietypes wordt geaggregeerd in het deelvenster **Implementatiestatus** . Als u gedetailleerdere informatie over de implementatietypen wilt weergeven, gebruikt u het rapport **Fouten in toepassingsinfrastructuur** in de rapportcategorie **Softwaredistributie - Toepassingscontrole**.  
+    >  L'état des types de déploiement est agrégé dans le volet **État du déploiement** . Pour voir des informations plus détaillées sur les types de déploiement, utilisez le rapport **Erreurs d'infrastructure de l'application** appartenant à la catégorie de rapports **Distribution de logiciels - Surveillance des applications**.  
 
-4.  Als u wilt controleren algemene statusinformatie over de implementatie van een toepassing, selecteert u een implementatie en kies vervolgens de **samenvatting** tabblad de **geselecteerde implementatie** venster.  
+4.  Pour consulter des informations d’état général d’un déploiement d’application, sélectionnez un déploiement, puis choisissez l’onglet **Résumé** de la fenêtre **Déploiement sélectionné**.  
 
-5.  Om informatie te bekijken over het implementatietype voor toepassingen, selecteert u een implementatie en kies vervolgens de **implementatietypen** tabblad de **geselecteerde implementatie** venster.  
+5.  Pour consulter des informations sur le type de déploiement d’applications, sélectionnez un déploiement, puis choisissez l’onglet **Types de déploiement** de la fenêtre **Déploiement sélectionné**.  
 
-De informatie die wordt weergegeven in de **Implementatiestatus** deelvenster nadat u hebt gekozen **Status weergeven** live gegevens uit de Configuration Manager-database is. De informatie die wordt weergegeven in de **samenvatting** tabblad en de **implementatietypen** tabblad is samengevatte gegevens.
+Les informations affichées dans le volet **État du déploiement** après avoir choisi **Afficher l’état** sont des données transmises en temps réel depuis la base de données Configuration Manager. Les informations affichées sous les onglets **Résumé** et **Types de déploiement** sont des données résumées.
 
-Als de gegevens die wordt weergegeven in de **samenvatting** tabblad en de **implementatietypen** tabblad komt niet overeen met de gegevens die wordt weergegeven in de **Implementatiestatus** deelvenster kiezen **samenvatting uitvoeren** de gegevens op deze tabbladen bij te werken. U kunt de standaardsamenvattingsinterval voor toepassingsimplementaties als volgt configureren:  
+Si les données affichées sous les onglets **Résumé** et **Types de déploiement** ne correspondent pas à celles affichées dans le volet **État du déploiement**, choisissez **Exécuter le résumé** pour mettre à jour les données figurant sous ces onglets. Vous pouvez configurer la fréquence par défaut de la synthèse du déploiement d'applications en suivant cette procédure :  
 
-1. Kies in de Configuration Manager-console **beheer** > **siteconfiguratie** > **Sites**.
+1. Dans la console Configuration Manager, choisissez **Administration** > **Configuration du site** > **Sites**.
 
-2. Van de **Sites** , selecteert u de site die u wilt het samenvattingsinterval configureren en klik vervolgens op de **Start** tabblad, in de **instellingen** groep, kiest u **statusoverzichten**.
+2. Dans la liste **Sites**, sélectionnez le site dont vous souhaitez configurer l’intervalle de résumé puis, sous l’onglet **Accueil**, dans le groupe **Paramètres**, choisissez **Outils de synthèse d’état**.
 
-3. In de **statusoverzichten** dialoogvenster Kies **Samenvattingsprogramma voor implementatie van toepassing**, en kies vervolgens **bewerken**.  
+3. Dans la boîte de dialogue **Outils de synthèse d’état**, choisissez **Outil de synthèse du déploiement d’application**, puis **Modifier**.  
 
-4. In de **eigenschappen voor Samenvattingsprogramma voor implementatie van toepassing** in het dialoogvenster voor het configureren van de gewenste samenvattingsintervallen en kies vervolgens **OK**.  
+4. Dans la boîte de dialogue **Application Deployment Summarizer Properties** (Propriétés de l’outil de synthèse du déploiement d’application), configurez la fréquence de la synthèse, puis choisissez **OK**.  

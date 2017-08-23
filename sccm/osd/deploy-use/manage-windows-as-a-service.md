@@ -1,6 +1,6 @@
 ---
-title: Windows beheren als een Service - Configuration Manager | Microsoft Docs
-description: De status van Windows als een Service met Configuration Manager weergeven, onderhoudsplannen om implementatieringen te vormen maken en waarschuwingen weergeven wanneer Windows 10-clients het einde van ondersteuning naderen.
+title: "Gérer Windows as a Service (WaaS) - Configuration Manager | Microsoft Docs"
+description: "Affichez l’état de Windows as a Service à l’aide de Configuration Manager, créez des plans de maintenance pour former des anneaux de déploiement et affichez des alertes lorsque la fin du support est proche pour les clients Windows 10."
 ms.custom: na
 ms.date: 03/26/2017
 ms.prod: configuration-manager
@@ -16,266 +16,266 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 2c2c0f81736c1b00ea487ae1261803a8105bb5e4
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-windows-as-a-service-using-system-center-configuration-manager"></a>Windows als een service beheren met System Center Configuration Manager
+# <a name="manage-windows-as-a-service-using-system-center-configuration-manager"></a>Gérer Windows as a Service (WaaS) à l’aide de System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
-
-
- In System Center Configuration Manager, u kunt de status van Windows als een Service in uw omgeving weergeven, onderhoudsplannen om implementatieringen te vormen maken en zorg ervoor dat Windows 10 huidige vertakking systemen worden bijgewerkt wanneer er nieuwe builds worden vrijgegeven en waarschuwingen weergeven wanneer Windows 10-clients het einde van de ondersteuningsperiode voor hun build van Current Branch (CB) of Current Branch for Business (CBB) naderen.  
-
- Zie  [Windows 10-onderhoudsopties voor updates en upgrades](https://technet.microsoft.com/library/mt598226\(v=vs.85\).aspx)voor meer informatie over Windows 10-onderhoudsopties.  
-
- Gebruik de volgende secties voor het beheren van Windows als een service.
-
-##  <a name="BKMK_Prerequisites"></a> Vereisten  
- U kunt als volgt de gegevens in het Windows 10-onderhoudsdashboard weergeven:  
-
--   Windows 10-computers moeten Configuration Manager software-updates met Windows Server Update Services (WSUS) gebruiken voor het beheer van software-updates. Wanneer computers gebruikmaken van Windows Update for Business (of Windows Insiders) voor het beheer van software-updates, wordt de computer niet geëvalueerd in de Windows 10-onderhoudsplannen. Zie [Integratie met Windows Update voor bedrijven in Windows 10](../../sum/deploy-use/integrate-windows-update-for-business-windows-10.md) voor meer informatie.  
-
--   WSUS 4.0 met de [hotfix 3095113](https://support.microsoft.com/kb/3095113) moet zijn geïnstalleerd op de software-updatepunten en siteservers. Hiermee voegt u de software-updateclassificatie **Upgrades** toe. Zie voor meer informatie [vereisten voor software-updates](../../sum/plan-design/prerequisites-for-software-updates.md).  
-
--   WSUS 4.0 met de [hotfix 3159706](https://support.microsoft.com/kb/3159706) moet worden geïnstalleerd op uw software-updatepunten en siteservers om computers te upgraden naar Windows 10 Verjaardag Update, evenals voor subsequence versies. Er zijn handmatige stappen wordt beschreven in het ondersteuningsartikel die u uitvoeren moet om deze hotfix te installeren. Zie voor meer informatie de [Enterprise Mobility and Security-Blog](https://blogs.technet.microsoft.com/enterprisemobility/2016/08/05/update-your-configmgr-1606-sup-servers-to-deploy-the-windows-10-anniversary-update/).
-
--   Schakel heartbeat-detectie in. De gegevens die worden weergegeven in het Windows 10-onderhoudsdashboard worden gevonden door middel van detectie. Zie [Heartbeat-detectie configureren](../../core/servers/deploy/configure/configure-discovery-methods.md#a-namebkmkconfighbdisca-configure-heartbeat-discovery) voor meer informatie.  
-
-     De volgende vertakking- en buildgegevens voor Windows 10 worden gedetecteerd en opgeslagen in de volgende kenmerken:  
-
-    -   **Vertakkingsstatus van besturingssysteem**: Hiermee geeft u de vertakking van het besturingssysteem. Bijvoorbeeld: **0** CB = (geen upgrades niet uitstellen), **1** CBB = (uitstelt upgrades), **2** = Long Term Servicing Branch (LTSB)
-
-    -   **Besturingssysteem Build**: De build besturingssysteem opgegeven. Bijvoorbeeld: **10.0.10240** (RTM) of **10.0.10586** (versie 1511)  
-
--   Het serviceaansluitpunt moet zijn geïnstalleerd en geconfigureerd voor de modus **Permanente onlineverbinding** om de gegevens te bekijken op het Windows 10-onderhoudsdashboard. Wanneer u in de offlinemodus bevindt bent, wordt u op het dashboard niet zien totdat u Configuration Manager-onderhoudsupdates ontvangt.   
-     Zie voor meer informatie [over het service connection point](../../core/servers/deploy/configure/about-the-service-connection-point.md).  
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
--   Op de computer waarop de Configuration Manager-console moet Internet Explorer 9 of hoger worden geïnstalleerd.  
+ Dans System Center Configuration Manager, vous pouvez afficher l’état de Windows as a Service dans votre environnement, créer des plans de maintenance pour établir des anneaux de déploiement et vous assurer que vos systèmes Current Branch Windows 10 sont mis à jour avec les nouvelles builds publiées, mais aussi afficher des alertes à l’approche de l’expiration du support des builds de la branche CB (Current Branch) ou CBB (Current Branch for Business) pour les clients Windows 10.  
 
--   Software-updates moeten zijn geconfigureerd en gesynchroniseerd. U moet selecteren de **Upgrades** classificatie en software-updates synchroniseren voordat eventuele functie-upgrades voor Windows 10 beschikbaar in de Configuration Manager-console is. Zie voor meer informatie [voorbereiden voor software-updates management](../../sum/get-started/prepare-for-software-updates-management.md).  
+ Pour plus d’informations sur les options de maintenance de Windows 10, consultez  [Options de maintenance de Windows 10 pour les mises à jour et les mises à niveau](https://technet.microsoft.com/library/mt598226\(v=vs.85\).aspx).  
 
-##  <a name="BKMK_ServicingDashboard"></a> Windows 10-onderhoudsdashboard  
- In het Windows 10-onderhoudsdashboard vindt u onder andere informatie over Windows 10-computers in uw omgeving, actieve onderhoudsplannen en informatie over de compatibiliteit. Voor de weergave van de gegevens in het Windows 10-onderhoudsdashboard moet het serviceaansluitpunt zijn geïnstalleerd. Het dashboard bevat de volgende tegels:  
+ Aidez-vous des informations des sections suivantes pour gérer Windows as a Service.
 
--   **Tegel Windows 10-gebruik**:  Bevat een verdeling van openbare builds van Windows 10. Windows Insiders-builds worden vermeld als **Overig** , evenals de builds die nog niet bekend zijn bij uw site. Er worden door het serviceaansluitpunt metagegevens met informatie over de Windows-builds gedownload en deze gegevens worden vervolgens vergeleken met de detectiegegevens.  
+##  <a name="BKMK_Prerequisites"></a> Conditions préalables  
+ Pour afficher les données dans le tableau de bord de maintenance de Windows 10, vous devez procéder comme suit :  
 
--   **Tegel Windows 10-ringen**:  Bevat een verdeling van Windows 10 op vertakking en gereedheidsstatus. Het segment LTSB worden alle LTSB-versies (terwijl de eerste tegel de specifieke versie. Bijvoorbeeld, Windows 10 LTSB 2015. Het segment **Release Ready** komt overeen met CB en het segment **Business ready** met CBB.  
+-   Les ordinateurs Windows 10 doivent utiliser les mises à jour logicielles de Configuration Manager avec les services WSUS (Windows Server Update Services) pour la gestion des mises à jour logicielles. Quand un ordinateur utilise Windows Update for Business (ou Windows Insiders) pour la gestion des mises à jour logicielles, il n’est pas évalué dans les plans de maintenance de Windows 10. Pour plus d'informations, voir [Intégration avec Windows Update for Business dans Windows 10](../../sum/deploy-use/integrate-windows-update-for-business-windows-10.md).  
 
--   **Tegel Service-Plan maken**:   Biedt een snelle manier om een onderhoudsplan te maken. U specificeert de naam, de verzameling (alleen de tien grootste verzamelingen worden weergegeven, waarbij de kleinste het eerst wordt vermeld), het implementatiepakket (alleen de tien meest recent gewijzigde pakketten worden weergegeven) en de gereedheidsstatus. Voor de overige instellingen worden de standaardwaarden gebruikt. Klik op **Geavanceerde instellingen** om de wizard Onderhoudsplan maken te starten. In de wizard kunt u alle instellingen van het onderhoudsplan configureren.  
+-   WSUS 4.0 avec le [correctif logiciel 3095113](https://support.microsoft.com/kb/3095113) doit être installé sur les points de mise à jour logicielle et les serveurs de site. Ceci ajoute la classification des mises à jour logicielles **Mises à niveau** . Pour plus d’informations, consultez [Prérequis pour les mises à jour logicielles](../../sum/plan-design/prerequisites-for-software-updates.md).  
 
--   **Tegel verlopen**: Geeft het percentage van apparaten met een versie van Windows 10 die voorbij het einde van de levensduur. Configuration Manager bepaalt het percentage van de metagegevens die het serviceverbindingspunt gedownload en die met de detectiegegevens vergelijkt. Een build waarvan de levensduur is verstreken, ontvangt geen maandelijkse cumulatieve updates meer, zoals beveiligingsupdates. De computers in deze categorie moeten worden bijgewerkt naar de volgende buildversie. Configuration Manager rondt af naar boven op het dichtstbijzijnde gehele getal. Als u bijvoorbeeld over 10.000 computers beschikt waarvan slechts één met een verlopen build, wordt door de tegel 1% weergegeven.  
+-   WSUS 4.0 avec le [correctif logiciel 3159706](https://support.microsoft.com/kb/3159706) doit être installé sur les points de mise à jour logicielle et les serveurs de site pour mettre à niveau les ordinateurs avec la mise à jour anniversaire Windows 10 ou une version ultérieure. Pour installer ce correctif logiciel, vous devez effectuer manuellement certaines étapes, comme décrit dans l’article du support technique. Pour plus d’informations, consultez le [Blog de l’équipe Enterprise Mobility and Security](https://blogs.technet.microsoft.com/enterprisemobility/2016/08/05/update-your-configmgr-1606-sup-servers-to-deploy-the-windows-10-anniversary-update/).
 
--   **Tegel verloopt binnenkort**: Geeft het percentage van computers met een versie die in de buurt levensduur (binnen ongeveer vier maanden), vergelijkbaar met de **verlopen** tegel. Configuration Manager rondt af naar boven op het dichtstbijzijnde gehele getal.  
+-   Activez la découverte par pulsations d’inventaire. Les données affichées dans le tableau de bord de maintenance de Windows 10 sont trouvées à l’aide de la détection. Pour plus d’informations, consultez [Configurer la découverte par pulsations d’inventaire](../../core/servers/deploy/configure/configure-discovery-methods.md#a-namebkmkconfighbdisca-configure-heartbeat-discovery).  
 
--   **Tegel waarschuwingen**: Bevat actieve waarschuwingen.  
+     Les informations de branche et de build Windows 10 suivantes sont découvertes et stockées dans les attributs suivants :  
 
--   **Tegel controle van onderhoudsplannen**: Beeldscherm onderhoudsplannen die u hebt gemaakt en een grafiek zien van de compatibiliteit voor elk. U kunt zo snel zien wat de huidige status van de onderhoudsplanimplementaties is. Als een eerdere implementatiering voldoet aan de verwachtingen voor compatibiliteit, kunt u een later onderhoudsplan (implementatiering) selecteren en op **Nu implementeren** klikken in plaats van te wachten op de automatische activering van de onderhoudsplanregels.  
+    -   **Branche de disponibilité du système d’exploitation** : spécifie la branche du système d’exploitation. Par exemple, **0** = branche CB (ne pas différer les mises à niveau), **1** = branche CBB (différer les mises à niveau), **2** = branche LTSB (Long Term Servicing Branch)
 
--   De **tegel Windows 10-Builds**:  Weergave is een vaste afbeelding tijd regel waarmee u die een overzicht van het Windows 10-builds die momenteel zijn vrijgegeven en kunt u wanneer een algemeen beeld van builds verandert in verschillende statussen.  
+    -   **Build du système d’exploitation** : spécifie le numéro de build du système d’exploitation. Par exemple, **10.0.10240** (RTM) ou **10.0.10586** (version 1511)  
+
+-   Le point de connexion de service doit être installé et configuré pour le mode **En ligne, connexion permanente** pour afficher des données dans le tableau de bord de maintenance de Windows 10. En mode hors connexion, vous ne voyez pas les mises à jour des données dans le tableau de bord tant que vous n’avez pas obtenu les mises à jour de maintenance pour Configuration Manager.   
+     Pour plus d’informations, consultez [À propos du point de connexion de service](../../core/servers/deploy/configure/about-the-service-connection-point.md).  
+
+
+-   Internet Explorer 9 ou version ultérieure doit être installé sur l’ordinateur qui exécute la console Configuration Manager.  
+
+-   Les mises à jour logicielles doivent être configurées et synchronisées. Vous devez sélectionner la classification **Mises à niveau** et synchroniser les mises à jour logicielles pour que les mises à niveau de fonctionnalités Windows 10 soient disponibles dans la console Configuration Manager. Pour plus d’informations, consultez [Préparer la gestion des mises à jour logicielles](../../sum/get-started/prepare-for-software-updates-management.md).  
+
+##  <a name="BKMK_ServicingDashboard"></a> Tableau de bord de maintenance de Windows 10  
+ Le tableau de bord de maintenance de Windows 10 fournit des informations sur les ordinateurs Windows 10 de votre environnement, les plans de maintenance actifs, les informations de conformité et ainsi de suite. Les données du tableau de bord de maintenance de Windows 10 dépendent de l’installation du point de connexion de service. Le tableau de bord comporte les vignettes suivantes :  
+
+-   **Vignette Utilisation Windows 10**: fournit des informations détaillées sur les builds publiques de Windows 10. Les builds Windows Insiders sont répertoriées comme **autres** , de même que celles qui ne sont pas encore connues de votre site. Le point de connexion de service télécharge les métadonnées qui l’informent quant aux builds Windows, puis ces données sont comparées aux données de découverte.  
+
+-   **Vignette Boucles Windows 10**: fournit une vue détaillée de Windows 10 par branche et état de préparation. Le segment LTSB correspond à toutes les versions LTSB (tandis que la première vignette répartit les informations d’après les versions spécifiques. Par exemple, Windows 10 LTSB 2015. Le segment **Release Ready** correspond à CB et le segment **Business Ready** correspond à CBB.  
+
+-   **Vignette Créer un plan de maintenance**: permet de créer rapidement un plan de maintenance. Vous spécifiez le nom, le regroupement (seuls les 10 principaux regroupements sont affichés par taille, le plus petit en premier), le package de déploiement (seuls les 10 derniers packages modifiés sont affichés) et l’état de préparation. Des valeurs par défaut sont utilisées pour les autres paramètres. Cliquez sur **Paramètres avancés** pour démarrer l’Assistant Créer un plan de maintenance, dans lequel vous pouvez configurer tous les paramètres du plan de maintenance.  
+
+-   **Vignette Expiré**: affiche le pourcentage d’appareils qui utilisent une build de Windows 10 qui est au-delà de sa fin de vie. Configuration Manager détermine ce pourcentage à partir des métadonnées téléchargées par le point de connexion de service et le compare aux données de découverte. Une build qui est au-delà de sa fin de vie ne reçoit plus de mises à jour cumulatives mensuelles, qui comprennent des mises à jour de sécurité. Vous devez mettre à niveau les ordinateurs de cette catégorie vers la version de build suivante. Configuration Manager arrondit au nombre entier supérieur. Par exemple, si vous avez 10 000 ordinateurs et qu’un seul d’entre eux utilise une build qui a expiré, la vignette affiche 1 %.  
+
+-   **Vignette Expiration proche**: affiche le pourcentage d’ordinateurs qui utilisent une build qui est proche de sa fin de vie (dans les quatre mois qui précèdent, environ), de manière analogue à la vignette **Expiré** . Configuration Manager arrondit au nombre entier supérieur.  
+
+-   **Vignette Alertes**: affiche les alertes actives.  
+
+-   **Vignette Surveillance du plan de maintenance**: affiche les plans de maintenance que vous avez créés et un graphique de conformité pour chacun. Cela donne un aperçu rapide de l’état actuel des déploiements de plan de maintenance. Si une boucle de déploiement précédente répond à vos attentes en matière de conformité, vous pouvez sélectionner un plan de maintenance (boucle de déploiement) ultérieur et cliquer sur **Déployer maintenant** au lieu d’attendre que les règles du plan de maintenance soient déclenchées automatiquement.  
+
+-   **Vignette Builds Windows 10**: affiche une chronologie fixe qui fournit une vue d’ensemble des builds Windows 10 actuellement publiées, et donne une idée générale du moment où les builds passeront à différents états.  
 
 > [!IMPORTANT]  
->  De gegevens die in het Windows 10-onderhoudsdashboard worden weergegeven (zoals de ondersteuningslevenscyclus voor versies van Windows 10) dienen uw gemak en zijn alleen voor intern gebruik in uw bedrijf bestemd. U moet niet alleen afgaan op deze gegevens wanneer u de compatibiliteit van updates controleert. Controleer de juistheid van de gegevens die wordt weergegeven.  
+>  Les informations affichées dans le tableau de bord de maintenance de Windows 10 (telles que le cycle de vie de prise en charge des versions de Windows 10) sont fournies à des fins de commodité et destinées uniquement à une utilisation en interne dans votre société. Vous ne devez pas vous fier uniquement à ces informations pour confirmer la conformité des mises à jour. Veillez à vérifier l’exactitude des informations qui vous sont fournies.  
 
-## <a name="servicing-plan-workflow"></a>Werkstroom voor onderhoudsplannen  
- Windows 10-onderhoudsplannen in Configuration Manager zijn veel vergelijkbaar met regels voor automatische implementatie voor software-updates. U maakt een onderhoudsplan met de volgende criteria die Configuration Manager evalueert:  
+## <a name="servicing-plan-workflow"></a>Flux de travail de plan de maintenance  
+ Les plans de maintenance de Windows 10 dans Configuration Manager s’apparentent à des règles de déploiement automatique pour les mises à jour logicielles. Vous créez un plan de maintenance avec les critères suivants évalués par Configuration Manager :  
 
--   **Classificatie upgrades**: Alleen de updates die in de **Upgrades** classificatie worden geëvalueerd.  
+-   **Classification Mises à niveau**: seules les mises à jour figurant dans la classification **Mises à niveau** sont évaluées.  
 
--   **Gereedheidsstatus**: De gereedheidsstatus die is gedefinieerd in het onderhoudsplan wordt vergeleken met de gereedheidsstatus voor de upgrade. De metagegevens voor de upgrade worden opgehaald wanneer het serviceaansluitpunt controleert op updates.  
+-   **État de disponibilité**: l’état de disponibilité défini dans le plan de maintenance est comparé à celui pour la mise à niveau. Les métadonnées pour la mise à niveau sont récupérées quand le point de connexion de service recherche des mises à jour.  
 
--   **Uitsteltermijn**: Het aantal dagen dat u opgeeft voor **hoeveel dagen na de publicatie van een nieuwe upgrade door Microsoft wilt u dat moet worden gewacht voordat de implementatie in uw omgeving** in het onderhoudsplan. Configuration Manager beoordeelt of een upgrade opgenomen in de implementatie als de huidige datum na de releasedatum plus het aantal dagen valt.  
+-   **Report**: nombre de jours que vous spécifiez en réponse à la question **Combien de jours après la publication par Microsoft d’une nouvelle mise à niveau voulez-vous attendre avant un déploiement dans votre environnement ?** dans le plan de maintenance. Configuration Manager évalue s’il faut inclure une mise à niveau dans le déploiement si la date actuelle est postérieure à la date de publication plus le nombre de jours configuré.  
 
- Wanneer een upgrade voldoet aan de criteria, voegt het onderhoudsplan de upgrade toe aan het implementatiepakket, distribueert dit het pakket naar de distributiepunten en implementeert het de upgrade voor de verzameling op basis van de instellingen die u in het onderhoudsplan configureert.  U kunt de implementaties controleren in de tegel Controle van onderhoudsplannen in het Windows 10-onderhoudsdashboard. Zie voor meer informatie [software-updates controleren](../../sum/deploy-use/monitor-software-updates.md).  
+ Quand une mise à niveau répond aux critères, le plan de maintenance l’ajoute au package de déploiement, distribue le package aux points de distribution et déploie la mise à niveau vers le regroupement en fonction des paramètres que vous configurez dans le plan de maintenance.  Vous pouvez surveiller les déploiements dans la vignette Surveillance du plan de maintenance du tableau de bord Maintenance de Windows 10. Pour plus d’informations, consultez [Surveiller les mises à jour logicielles](../../sum/deploy-use/monitor-software-updates.md).  
 
-##  <a name="BKMK_ServicingPlan"></a> Windows 10-onderhoudsplan  
- Wanneer u Windows 10 CB implementeert, kunt u een of meer onderhoudsplannen maken voor het definiëren van de implementatieringen die u in uw omgeving wilt opnemen. U kunt deze vervolgens in het Windows 10-onderhoudsdashboard controleren.   
-Voor onderhoudsplannen wordt uitsluitend gebruikgemaakt van de software-updateclassificatie **Upgrades** , en niet van de cumulatieve updates voor Windows 10. Voor die updates moet u nog steeds een implementatie uitvoeren met de werkstroom voor software-updates.  Het gebruik voor de eindgebruiker bij een onderhoudsplan is hetzelfde als bij de software-updates, waaronder de instellingen die u in het onderhoudsplan configureert.  
-
-> [!NOTE]  
->  U kunt een takenreeks gebruiken om een upgrade voor elk Windows 10-build te implementeren, maar het vereist meer handmatig werk. U moet de bijgewerkte bronbestanden importeren als een upgradepakket voor besturingssystemen en vervolgens de takenreeks maken en implementeren voor de betreffende verzameling computers. Een takenreeks bevat echter aanvullende aangepaste opties, zoals de acties voorafgaand aan de implementatie en de acties na afloop van de implementatie.  
-
- U kunt een basisonderhoudsplan maken in het Windows 10 -onderhoudsdashboard. Nadat u de naam, de verzameling (alleen de tien grootste verzamelingen worden weergegeven door grootte, kleinste eerst), opgegeven implementatiepakket (alleen weergegeven die de tien meest recent pakketten gewijzigde zijn) en de gereedheid van de status, Configuration Manager het onderhoudsplan gemaakt met de standaardwaarden voor de overige instellingen. U kunt ook de wizard Onderhoudsplan maken starten om alle instellingen te configureren. U kunt aan de hand van de volgende procedure een onderhoudsplan maken met de wizard Onderhoudsplan maken.  
+##  <a name="BKMK_ServicingPlan"></a> Plan de maintenance de Windows 10  
+ Quand vous déployez Windows 10 CB, vous pouvez créer un ou plusieurs plans de maintenance pour définir les boucles de déploiement que vous souhaitez dans votre environnement, puis les surveiller dans le tableau de bord de maintenance de Windows 10.   
+Les plans de maintenance utilisent seulement la classification des mises à jour logicielles **Mises à niveau** et non pas les mises à jour cumulatives pour Windows 10. Pour ces mises à jour, vous devez toujours effectuer le déploiement à l’aide du flux de travail des mises à jour logicielles.  L’expérience de l’utilisateur final avec un plan de maintenance est la même qu’avec les mises à jour logicielles, y compris les paramètres que vous configurez dans le plan de maintenance.  
 
 > [!NOTE]  
->  Vanaf versie 1602 van Configuration Manager, kunt u het gedrag voor implementaties met een hoog risico beheren. Een implementatie met een hoog risico is een implementatie die automatisch wordt geïnstalleerd en de potentie heeft om ongewenste resultaten te veroorzaken. Een takenreeks met het doel **Vereist** en waarmee Windows 10 wordt geïmplementeerd, wordt beschouwd als een implementatie met een hoog risico. Zie voor meer informatie [instellingen voor het beheren van implementaties met een hoog risico](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+>  Vous pouvez utiliser une séquence de tâches pour déployer une mise à niveau pour chaque build de Windows 10, mais cela nécessite davantage d’opérations manuelles. Il vous faudrait importer les fichiers sources mis à jour en tant que package de mise à niveau du système d’exploitation, puis créer et déployer la séquence de tâches sur l’ensemble d’ordinateurs approprié. Toutefois, une séquence de tâches fournit des options personnalisées supplémentaires, telles que les actions de prédéploiement et de post-déploiement.  
 
-#### <a name="to-create-a-windows-10-servicing-plan"></a>Een Windows 10-onderhoudsplan maken  
+ Vous pouvez créer un plan de maintenance de base à partir du tableau de bord de maintenance de Windows 10. Une fois que vous avez spécifié le nom, le regroupement (seuls les 10 principaux regroupements sont affichés par taille, le plus petit en premier), le package de déploiement (seuls les 10 derniers packages modifiés sont affichés) et l’état de préparation, Configuration Manager crée le plan de maintenance avec des valeurs par défaut pour les autres paramètres. Vous pouvez également démarrer l’Assistant Créer un plan de maintenance pour configurer tous les paramètres. Pour créer un plan de maintenance à l’aide de l’Assistant Créer un plan de maintenance, appliquez la procédure suivante.  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+> [!NOTE]  
+>  À partir de Configuration Manager version 1602, vous pouvez gérer le comportement pour les déploiements à haut risque. Un déploiement à haut risque est un déploiement qui est installé automatiquement et qui est susceptible d'entraîner des résultats indésirables. Par exemple, une séquence de tâches ayant comme objectif **Obligatoire** qui déploie Windows 10 est considérée comme un déploiement à haut risque. Pour plus d’informations, consultez [Paramètres de gestion des déploiements à haut risque](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
 
-2.  Vouw in de werkruimte Softwarebibliotheek **Onderhoud voor Windows 10**uit en klik vervolgens op **Onderhoudsplannen**.  
+#### <a name="to-create-a-windows-10-servicing-plan"></a>Pour créer un plan de maintenance de Windows 10  
 
-3.  Klik op het tabblad **Start** in de groep **Maken** op **Onderhoudsplan maken**. De wizard Onderhoudsplan maken wordt geopend.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-4.  Configureer de volgende instellingen op de pagina **Algemeen** :  
+2.  Dans l’espace de travail Bibliothèque de logiciels, développez **Maintenance de Windows 10**, puis cliquez sur **Plans de maintenance**.  
 
-    -   **Naam**: Geef de naam voor het onderhoudsplan. De naam moet uniek zijn, het doel van de regel beschrijven en onderscheiden van andere gebruikers in de Configuration Manager-site.  
+3.  Sous l’onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un plan de maintenance**. L’Assistant Créer un plan de maintenance s’ouvre.  
 
-    -   **Beschrijving**: Geef een beschrijving voor het onderhoudsplan. De beschrijving moet bieden een overzicht van het onderhoudsplan en eventuele andere relevante informatie die helpt om te identificeren en te onderscheiden van het plan van andere implementaties in de Configuration Manager-site. Het beschrijvingsveld is optioneel en kent een limiet van 256 tekens. Het veld is standaard leeg.  
+4.  Sur la page **Général** , configurez les paramètres suivants :  
 
-5.  Configureer op de pagina Onderhoudsplan de volgende instellingen:  
+    -   **Nom**: spécifiez le nom du plan de maintenance. Le nom doit être unique, décrire clairement l’objectif de la règle et être identifiable parmi d’autres dans le site Configuration Manager.  
 
-    -   **Doelverzameling**: Hiermee geeft u de doelverzameling op die moet worden gebruikt voor het onderhoudsplan. Leden van de verzameling ontvangen de Windows 10-updates die in het onderhoudsplan zijn gedefinieerd.  
+    -   **Description**: spécifiez la description du plan de maintenance. La description doit fournir une vue d’ensemble du plan de maintenance et toute autre information pertinente permettant de l’identifier et de le différencier des autres plans dans le site Configuration Manager. Le champ de description facultatif est limité à 256 caractères et est vierge par défaut.  
+
+5.  Dans la page Plan de maintenance, configurez les paramètres suivants :  
+
+    -   **Regroupement cible**: spécifie le regroupement cible à utiliser pour le plan de maintenance. Les membres du regroupement reçoivent les mises à niveau de Windows 10 qui sont définies dans le plan de maintenance.  
 
         > [!NOTE]  
-        >  Vanaf versie 1602 van Configuration Manager, wanneer u een implementatie met hoog risico, zoals een onderhoudsplan, implementeert de **verzameling selecteren** venster geeft alleen de aangepaste verzamelingen die voldoen aan de implementatie van de verificatie-instellingen die zijn geconfigureerd in de site eigenschappen.
+        >  À partir de Configuration Manager version 1602, quand vous effectuez un déploiement à haut risque, comme un plan de maintenance, la fenêtre **Sélectionner un regroupement** affiche seulement les regroupements personnalisés qui satisfont aux paramètres de vérification de déploiement configurés dans les propriétés du site.
         >    
-        > Implementaties met een hoog risico zijn altijd beperkt tot aangepaste verzamelingen, verzamelingen die u zelf maakt en de ingebouwde verzameling **Onbekende computers** . Wanneer u een implementatie met een hoog risico maakt, kunt u geen ingebouwde verzameling selecteren, zoals **Alle systemen**. Schakel het selectievakje **lid zamelingen verbergen groter is dan de minimale configuratiegrootte** voor een overzicht van alle aangepaste verzamelingen die minder clients dan het geconfigureerde maximum bevatten. Zie voor meer informatie [instellingen voor het beheren van implementaties met een hoog risico](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+        > Les déploiements à haut risque sont toujours limités aux regroupements personnalisés, aux regroupements que vous créez et au regroupement **Ordinateurs inconnus** intégré. Quand vous créez un déploiement à haut risque, vous ne pouvez pas sélectionner un regroupement intégré tel que **Tous les systèmes**. Désactivez le paramètre **Masquer les regroupements avec un nombre de membres supérieur à la configuration de la taille minimale du site** pour afficher tous les regroupements personnalisés qui contiennent moins de clients que la taille maximale configurée. Pour plus d’informations, consultez [Paramètres de gestion des déploiements à haut risque](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
         >  
-        > De instellingen voor het verifiëren van de implementatie zijn gebaseerd op het huidige lidmaatschap van de verzameling. Nadat u een onderhoudsplan hebt geïmplementeerd, wordt het lidmaatschap van de verzameling niet opnieuw geëvalueerd voor de instellingen van de implementatie met een hoog risico.  
+        > Les paramètres de vérification de déploiement sont basés sur l'appartenance actuelle du regroupement. Une fois le plan de maintenance déployé, l’appartenance du regroupement n’est pas réévaluée pour les paramètres de déploiement à haut risque.  
         >  
-        > Bijvoorbeeld, Stel dat u **standaardgrootte** en 100 en de **maximumgrootte** tot en met 1000. Wanneer u een implementatie met een hoog risico maakt, worden in het venster **Verzameling selecteren** alleen verzamelingen weergegeven die minder dan 100 clients bevatten. Als u het selectievakje de **lid zamelingen verbergen groter is dan de minimale configuratiegrootte** uitschakelt, het venster verzamelingen weergegeven die minder dan 1000 clients bevatten.  
+        > Supposons que vous affectez la valeur 100 à **Taille par défaut** et la valeur 1000 à **Taille maximale**. Quand vous créez un déploiement à haut risque, la fenêtre **Sélectionner un regroupement** affiche uniquement les regroupements qui contiennent moins de 100 clients. Si vous désactivez le paramètre **Masquer les regroupements avec un nombre de membres supérieur à la configuration de la taille minimale du site**, la fenêtre affiche les regroupements qui contiennent moins de 1 000 clients.  
         >
-        > Wanneer u een verzameling met een siterol selecteert, geldt het volgende:    
+        > Quand vous sélectionnez un regroupement qui contient un rôle de site, ce qui suit s'applique :    
         >   
-        >    - Als de verzameling een sitesysteemserver bevat en u in de instellingen voor het verifiëren van de implementatie opgeeft dat verzamelingen met sitesysteemservers moeten worden geblokkeerd, wordt er een fout weergegeven en kunt u niet doorgaan.    
-        >    - Als de verzameling een sitesysteemserver bevat en u in de instellingen voor het verifiëren van de implementatie opgeeft dat u moet worden gewaarschuwd als verzamelingen sitesysteemservers bevatten, de verzameling de standaardgrootte overschrijdt of als de verzameling een server bevat, wordt er in de wizard Software implementeren een waarschuwing voor een hoog risico weergegeven. U moet akkoord gaan met het maken van een implementatie met een hoog risico en er wordt een controlestatusbericht gegenereerd.  
+        >    - Si le regroupement contient un serveur de système de site et que dans les paramètres de vérification de déploiement vous choisissez de bloquer les regroupements contenant des serveurs de système de site, une erreur se produit et vous ne pouvez pas continuer.    
+        >    - Si le regroupement contient un serveur de système de site et que dans les paramètres de vérification de déploiement vous choisissez d'afficher un avertissement dans le cas où des regroupements contiennent des serveurs de système de site, si  le regroupement dépasse la valeur de taille par défaut, ou si le regroupement contient un serveur, l'Assistant Déploiement logiciel affiche un avertissement de risque élevé. Vous devez accepter de créer un déploiement à risque élevé et un message d'état d'audit est créé.  
 
-6.  Configureer op de pagina Implementatiering de volgende instellingen:  
+6.  Dans la page Boucle de déploiement, configurez les paramètres suivants :  
 
-    -   **Geef de Windows-gereedheidsstatus waarop dit onderhoudsplan van toepassing moet zijn**: Selecteer vervolgens een van de volgende opties:  
+    -   **Spécifiez l’état de disponibilité Windows auquel ce plan de maintenance doit s’appliquer**: sélectionnez l’une des options suivantes :  
 
-        -   **Release Ready (Current Branch)**: Functie-updates zijn in het servicemodel CB beschikbaar zodra ze door Microsoft worden uitgegeven.
+        -   **Release Ready (Current Branch)** : dans le modèle de maintenance CB, les mises à jour des fonctionnalités sont disponibles dès leur publication par Microsoft.
 
-        -   **Bedrijfsgereed (huidige vertakking voor bedrijven)**: De CBB onderhoud vertakking wordt doorgaans gebruikt voor brede implementatie. Windows 10-clients in de servicing branch CBB ontvangen dezelfde build van Windows 10 die ook in de categorie CB servicing branch gebruikt, alleen op een later tijdstip.
+        -   **Business Ready (Current Branch for Business)** : la branche de maintenance CBB est généralement utilisée pour les déploiements à grande échelle. Les clients Windows 10 dans la branche de maintenance CBB reçoivent la même version de Windows 10 que ceux de la branche de maintenance CB, mais à un moment ultérieur.
 
-        Zie voor meer informatie over onderhoud vertakkingen en welke opties wordt aanbevolen voor u, [vertakkingen onderhoud](https://technet.microsoft.com/itpro/windows/manage/waas-overview#servicing-branches).
+        Pour plus d’informations sur les branches de maintenance et les options qui vous conviennent le mieux, consultez [Branches de maintenance](https://technet.microsoft.com/itpro/windows/manage/waas-overview#servicing-branches).
 
-    -   **Het aantal dagen dat u wilt wachten met het implementeren van een nieuwe upgrade nadat Microsoft die beschikbaar heeft gesteld**: Configuration Manager beoordeelt of een upgrade opgenomen in de implementatie als de huidige datum valt na de releasedatum plus het aantal dagen dat u voor deze instelling configureert.
+    -   **Combien de jours après la publication par Microsoft d’une nouvelle mise à niveau voulez-vous attendre avant un déploiement dans votre environnement** : Configuration Manager détermine s’il faut inclure une mise à niveau du déploiement si la date du jour est postérieure à la date de publication plus le nombre de jours que vous configurez pour ce paramètre.
 
-    -   Voorafgaand aan versie 1602 van Configuration Manager, klikt u op **Preview** om de Windows 10-updates die zijn gekoppeld aan de gereedheidsstatus weer te geven.  
+    -   Avec une version de Configuration Manager antérieure à la version 1602, cliquez sur **Aperçu** pour afficher les mises à jour de Windows 10 associées à l’état de disponibilité.  
 
-    Zie voor meer informatie [vertakkingen onderhoud](https://technet.microsoft.com/itpro/windows/manage/waas-overview#servicing-branches).
-7.  Configureer de zoekcriteria om te filteren op upgrades die worden toegevoegd aan het serviceplan vanaf versie 1602 van Configuration Manager is op de pagina Upgrades. Alleen de upgrades die voldoen aan de opgegeven criteria worden aan de gekoppelde implementatie toegevoegd.  
+    Pour plus d’informations, consultez [Branches de maintenance](https://technet.microsoft.com/itpro/windows/manage/waas-overview#servicing-branches).
+7.  À partir de la version 1602 de Configuration Manager, dans la page Mises à niveau, configurez les critères de recherche pour filtrer les mises à niveau qui seront ajoutées au plan de maintenance. Seules les mises à jour qui remplissent les critères spécifiés sont ajoutées au déploiement associé.  
 
-     Klik op **Voorbeeld** om de upgrades weer te geven die voldoen aan de opgegeven criteria.  
+     Cliquez sur **Aperçu** pour afficher les mises à niveau qui répondent aux critères spécifiés.  
 
-8.  Configureer de volgende instellingen op de pagina Implementatieplanning:  
+8.  Sur la page Calendrier de déploiement, configurez les paramètres suivants :  
 
-    -   **Evaluatie van planning**: Geef aan of Configuration Manager de beschikbare tijd en de tijdstippen voor de installatiedeadline evalueert op basis van UTC of van de lokale tijd van de computer waarop de Configuration Manager-console.  
+    -   **Calendrier d’évaluation** : indiquez si Configuration Manager évalue la durée disponible et la date d’échéance de l’installation à l’heure UTC ou à l’heure locale de l’ordinateur exécutant la console Configuration Manager.  
 
         > [!NOTE]  
-        >  Als u lokale tijd selecteert en selecteer vervolgens **zo snel mogelijk** voor de **tijd Software beschikbaar** of **installatiedeadline**, de huidige tijd op de computer die de Configuration Manager-console wordt gebruikt om te evalueren wanneer updates beschikbaar zijn of wanneer ze worden geïnstalleerd op een client wordt uitgevoerd. Als de client zich in een andere tijdzone bevindt, worden deze acties uitgevoerd wanneer de tijd van de client de evaluatietijd heeft bereikt.  
+        >  Si vous sélectionnez l’heure locale, puis **Dès que possible** pour le **Temps disponible du logiciel** ou **Échéance d’installation**, l’heure actuelle sur l’ordinateur exécutant la console Configuration Manager est utilisée pour évaluer quand les mises à jour sont disponibles ou quand elles sont installées sur un client. Si le client est dans un autre fuseau horaire, ces actions se produisent quand l’heure du client atteint l’heure de l’évaluation.  
 
-    -   **Tijd software beschikbaar**: Selecteer een van de volgende instellingen op te geven wanneer de software-updates beschikbaar voor clients zijn:  
+    -   **Temps disponible du logiciel**: sélectionnez l’un des paramètres suivants pour spécifier le moment où les mises à jour logicielles sont disponibles pour les clients :  
 
-        -   **Zo spoedig mogelijk**: Selecteer deze instelling om de softwareupdates die zijn opgenomen in de implementatie beschikbaar voor de clientcomputers zo snel mogelijk. Wanneer u de implementatie met deze instelling is ingeschakeld maakt, wordt in Configuration Manager het clientbeleid bijgewerkt. Clients detecteren de implementatie vervolgens gedurende de volgende pollingcyclus van het clientbeleid en kunnen de updates verkrijgen die beschikbaar zijn voor installatie.  
+        -   **Dès que possible**: sélectionnez ce paramètre pour permettre aux ordinateurs clients d’accéder dès que possible aux mises à jour logicielles incluses dans le déploiement. Quand vous créez le déploiement avec ce paramètre sélectionné, Configuration Manager met à jour la stratégie client. Ensuite, au prochain cycle d'interrogation de la stratégie client, les clients prennent connaissance du déploiement et peuvent obtenir les mises à jour disponibles à l'installation.  
 
-        -   **Specifiek tijdstip**: Selecteer deze instelling om de softwareupdates die zijn opgenomen in de implementatie op een specifieke datum en tijd beschikbaar is voor de clientcomputers. Wanneer u de implementatie met deze instelling is ingeschakeld maakt, wordt in Configuration Manager het clientbeleid bijgewerkt. Clients detecteren de implementatie vervolgens gedurende de volgende pollingcyclus van het clientbeleid. De software-updates in de implementatie zijn echter pas na de geconfigureerde datum en het geconfigureerde tijdstip beschikbaar voor installatie.  
+        -   **Heure spécifique**: sélectionnez ce paramètre pour permettre aux ordinateurs clients d’accéder aux mises à jour logicielles incluses dans le déploiement à une date et heure précises. Quand vous créez le déploiement avec ce paramètre activé, Configuration Manager met à jour la stratégie client. Ensuite, au prochain cycle d'interrogation de la stratégie client, les clients prennent connaissance du déploiement. Toutefois, les mises à jour logicielles incluses dans le déploiement ne sont pas disponibles à l'installation avant la date et l'heure configurées.  
 
-    -   **Installatiedeadline**: Selecteer een van de volgende instellingen om op te geven van de installatiedeadline voor de software-updates in de implementatie:  
+    -   **Échéance d’installation**: sélectionnez l’un des paramètres suivants pour spécifier l’échéance d’installation des mises à jour logicielles incluses dans le déploiement :  
 
-        -   **Zo spoedig mogelijk**: Selecteer deze instelling om de software-updates in de implementatie zo spoedig mogelijk automatisch worden geïnstalleerd.  
+        -   **Dès que possible**: sélectionnez ce paramètre pour installer automatiquement les mises à jour logicielles incluses dans le déploiement dès que possible.  
 
-        -   **Specifiek tijdstip**: Selecteer deze instelling om de software-updates in de implementatie op een specifieke datum en tijd automatisch worden geïnstalleerd. Configuration Manager bepaalt de deadline voor het installeren van software-updates door het geconfigureerde **specifiek tijdstip** interval voor de **tijd Software beschikbaar**.  
+        -   **Heure spécifique**: sélectionnez ce paramètre pour installer automatiquement les mises à jour logicielles incluses dans le déploiement à une date et une heure spécifiques. Configuration Manager détermine l’échéance d’installation des mises à jour logicielles en ajoutant l’intervalle **Heure spécifique** configuré au **Temps disponible du logiciel**.  
 
             > [!NOTE]  
-            >  Het daadwerkelijke tijdstip van de installatiedeadline is het weergegeven deadlinetijdstip plus een willekeurige hoeveelheid die maximaal twee uur is. Hierdoor worden de mogelijk gevolgen voorkomen wanneer de updates in de implementatie gelijktijdig op alle clientcomputers in de doelverzameling zouden worden geïnstalleerd.  
+            >  L'heure d'échéance de l'installation réelle est l'heure d'échéance affichée plus un laps de temps aléatoire pouvant atteindre 2 heures. Elle permet de réduire l’impact lié à l’installation simultanée, par tous les ordinateurs clients du regroupement de destination, des mises à jour incluses dans le déploiement.  
             >   
-            >  U kunt de **Computeragent** -clientinstelling **Willekeurig toepassen van deadline uitschakelen** configureren om de willekeurige installaties voor de vereiste updates uit te schakelen. Zie [Computeragent](../../core/clients/deploy/about-client-settings.md#computer-agent) voor meer informatie.  
+            >  Vous pouvez configurer le paramètre client **Agent ordinateur** , **Désactiver la randomisation des échéances** , pour désactiver le délai de randomisation de l’installation des mises à jour requises. Pour plus d’informations, voir [Computer Agent](../../core/clients/deploy/about-client-settings.md#computer-agent).  
 
-9. Configureer de volgende instellingen op de pagina Gebruikerservaring:  
+9. Sur la page Expérience utilisateur, configurez les paramètres suivants :  
 
-    -   **Meldingen voor gebruikers**: Geef op of meldingen van de updates weergeven in Software Center op de clientcomputer op de geconfigureerde **tijd Software beschikbaar** en of meldingen voor gebruikers weergegeven op de clientcomputers.  
+    -   **Notifications à l’utilisateur**: indiquez si vous souhaitez afficher les notifications des mises à jour dans le Centre logiciel sur l’ordinateur client d’après la valeur **Temps disponible du logiciel** configurée et si des notifications doivent s’afficher sur les ordinateurs clients.  
 
-    -   **Deadlinegedrag**: Geef het gedrag op dat moet worden vertoond als de deadline voor implementatie van de update wordt bereikt. Geef op of de updates in de implementatie moeten worden geïnstalleerd. Geef ook op of het systeem na het installeren van de updates opnieuw moet worden opgestart, ongeacht het geconfigureerde onderhoudsvenster. Zie voor meer informatie over onderhoudsvensters [het gebruik van onderhoudsvensters](../../core/clients/manage/collections/use-maintenance-windows.md).  
+    -   **Comportement à l’échéance**: spécifiez le comportement qui doit se produire quand l’échéance est atteinte pour le déploiement des mises à jour. Indiquez si vous souhaitez installer les mises à jour incluses dans le déploiement. Spécifiez également si un redémarrage du système doit être effectué après l’installation des mises à jour, quelle que soit la fenêtre de maintenance configurée. Pour plus d’informations sur les fenêtres de maintenance, consultez [Guide pratique pour utiliser les fenêtres de maintenance](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-    -   **Gedrag voor opnieuw opstarten apparaat**: Geef op of onderdrukken van opnieuw opstarten van servers en werkstations nadat updates zijn geïnstalleerd en opnieuw opstarten is vereist om de installatie te voltooien.  
+    -   **Comportement de redémarrage du périphérique**: indiquez si le redémarrage du système sur les serveurs et stations de travail doit être supprimé une fois les mises à jour installées, et si un redémarrage du système est nécessaire pour terminer l’installation.  
 
-    -   **Schrijffilters voor Windows Embedded-apparaten**: Wanneer u updates voor Windows Embedded-apparaten waarvoor schrijffilters ingeschakeld implementeert zijn, kunt u opgeven om de update installeren op een tijdelijke overlay en de wijzigingen later of de wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster. Wanneer u wijzigingen doorvoert tegen de installatiedeadline of tijdens een onderhoudsvenster, moet er opnieuw worden opgestart, zodat de wijzigingen behouden blijven op het apparaat.  
-
-        > [!NOTE]  
-        >  Wanneer u een update implementeert op een Windows Embedded-apparaat, moet u nagaan of het apparaat lid is van een verzameling met een geconfigureerd onderhoudsvenster.  
-
-10. Selecteer op de pagina Implementatiepakket een bestaand implementatiepakket of configureer de volgende instellingen voor het maken van een nieuw implementatiepakket:  
-
-    1.  **Naam**: Geef de naam van het implementatiepakket. Dit moet een unieke naam zijn die de pakketinhoud beschrijft. Er kunnen maximaal 50 tekens worden ingevoerd.  
-
-    2.  **Beschrijving**: Geef een beschrijving die informatie over het implementatiepakket biedt. De beschrijving mag niet langer zijn dan 127 tekens.  
-
-    3.  **Pakketbron**: Hiermee geeft u de locatie van de bronbestanden voor software-update.  Typ een netwerkpad voor de bronlocatie, zoals **\\\\server\sharenaam\pad**, of klik op **Bladeren** en ga naar de netwerklocatie. U moet een gedeelde map maken voor de bronbestanden van het installatiepakket voordat u doorgaat naar de volgende pagina.  
+    -   **Traitement des filtres d’écriture pour les appareils Windows Embedded**: quand vous déployez des mises à jour sur des appareils Windows Embedded pour lesquels le filtre d’écriture est activé, vous pouvez choisir d’installer la mise à jour sur le segment de recouvrement temporaire et valider les modifications ultérieurement ou à l’échéance de l’installation ou bien pendant une fenêtre de maintenance. Lorsque vous validez des modifications à l'échéance de l'installation ou au cours d'une fenêtre de maintenance, un redémarrage est requis et les modifications sont conservées sur l'appareil.  
 
         > [!NOTE]  
-        >  De bronlocatie van het installatiepakket die u opgeeft, mag niet door een ander software-installatiepakket worden gebruikt.  
+        >  Quand vous déployez une mise à jour sur un appareil Windows Embedded, assurez-vous que l’appareil fait partie des membres d’un regroupement pour lequel une fenêtre de maintenance a été configurée.  
+
+10. Sur la page Package de déploiement, sélectionnez un package de déploiement existant ou configurez les paramètres suivants pour créer un package de déploiement :  
+
+    1.  **Nom**: spécifiez le nom du package de déploiement. Celui-ci doit être un nom unique qui décrit le contenu du package. Il est limité à 50 caractères.  
+
+    2.  **Description**: spécifiez une description qui fournit des informations sur le package de déploiement. La description est limitée à 127 caractères.  
+
+    3.  **Source du package**: spécifie l’emplacement des fichiers sources des mises à jour logicielles.  Tapez un chemin réseau pour l’emplacement source, par exemple **\\\serveur\nom_partage\chemin**ou cliquez sur **Parcourir** pour rechercher l’emplacement réseau. Vous devez créer le dossier partagé pour les fichiers sources du package de déploiement avant de passer à la page suivante.  
+
+        > [!NOTE]  
+        >  L'emplacement source du package de déploiement que vous spécifiez ne peut pas être utilisé par un autre package de déploiement de logiciel.  
 
         > [!IMPORTANT]  
-        >  Het computeraccount van de SMS-provider en de gebruiker die de wizard uitvoert voor het downloaden van de software-updates, moeten over NTFS-machtigingen voor **schrijven** op de downloadlocatie beschikken. U moet de toegang tot de downloadlocatie zorgvuldig beperken om het risico op kwaadwillenden die met bronbestanden van de software-update knoeien, te reduceren.  
+        >  Le compte d'ordinateur du fournisseur SMS et l'utilisateur qui exécute l'Assistant Téléchargement des mises à jour logicielles nécessitent des autorisations NTFS en **Écriture** sur l'emplacement de téléchargement. Vous devez soigneusement limiter l'accès à l'emplacement de téléchargement pour éviter que des personnes malintentionnées ne falsifient les fichiers sources des mises à jour logicielles.  
 
         > [!IMPORTANT]  
-        >  U kunt de pakketbronlocatie in de eigenschappen van het installatiepakket wijzigen nadat Configuration Manager het implementatiepakket maakt. Als u dit doet, moet u echter eerst de inhoud van de oorspronkelijke pakketbron kopiëren naar de nieuwe pakketbronlocatie.  
+        >  Une fois que le package de déploiement a été créé par Configuration Manager, vous pouvez modifier l’emplacement source du package de déploiement dans les propriétés du package. Mais le cas échéant, vous devez d'abord copier le contenu à partir de la source du package d'origine vers le nouvel emplacement source du package.  
 
-    4.  **Prioriteit voor verzenden**: Geef de prioriteit voor verzenden voor het implementatiepakket. Configuration Manager gebruikt de prioriteit voor verzenden voor het implementatiepakket wanneer het pakket naar distributiepunten wordt verzonden. Installatiepakketten worden in volgorde van prioriteit verzonden: Hoog, Gemiddeld of laag. Pakketten met een identieke prioriteit worden verzonden in de volgorde waarin deze zijn gemaakt. Als er geen achterstand is, wordt het pakket onmiddellijk verwerkt, ongeacht de prioriteit van het pakket.  
+    4.  **Priorité d’expédition**: spécifiez la priorité d’envoi pour le package de déploiement. Configuration Manager utilise la priorité d’expédition du package de déploiement quand il envoie le package aux points de distribution. Les packages de déploiement sont envoyés par ordre de priorité : Haute, Moyenne ou Faible. Les packages disposant de priorités identiques sont transmis dans l'ordre dans lequel ils ont été créés. En l'absence de backlog, le package est immédiatement traité quelle que soit sa priorité.  
 
-11. Geef op de pagina Distributiepunten de distributiepunten of distributiepuntgroepen op die als host zullen fungeren voor de updatebestanden. Zie voor meer informatie over distributiepunten [een distributiepunt configureren](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_configs).
+11. Dans la page Points de distribution, spécifiez les points de distribution ou les groupes de points de distribution qui vont héberger les fichiers de mise à jour. Pour plus d’informations sur les points de distribution, consultez [Configurer un point de distribution](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#bkmk_configs).
 
     > [!NOTE]  
-    >  Deze pagina is alleen beschikbaar wanneer u een nieuw implementatiepakket voor software-updates maakt.  
+    >  Cette page est disponible uniquement lorsque vous créez un nouveau package de déploiement de mise à jour logicielle.  
 
-12. Geef op de pagina Downloadlocatie op of de updatebestanden moeten worden gedownload vanaf internet of vanaf uw lokale netwerk. Configureer de volgende instellingen:  
+12. Dans la page Emplacement de téléchargement, indiquez si les fichiers de mise à jour doivent être téléchargés à partir d’Internet ou de votre réseau local. Configurez les paramètres suivants :  
 
-    -   **Software-updates downloaden vanaf Internet**: Selecteer deze instelling om de updates downloaden vanaf een opgegeven locatie op Internet. Deze instelling is standaard ingeschakeld.  
+    -   **Télécharger les mises à jour logicielles depuis Internet**: sélectionnez ce paramètre pour télécharger les mises à jour à partir d’un emplacement spécifié sur Internet. Ce paramètre est activé par défaut.  
 
-    -   **Software-updates downloaden vanaf een locatie op het lokale netwerk**: Selecteer deze instelling om de updates downloaden vanaf een lokale map of gedeelde map. Deze instelling is nuttig wanneer de computer waarop de wizard wordt uitgevoerd, geen toegang tot internet heeft. Computers met internettoegang kunnen de updates in eerste instantie downloaden en deze opslaan op een locatie in het lokale netwerk die toegankelijk is vanaf de computer waarop de wizard wordt uitgevoerd.  
+    -   **Télécharger les mises à jour logicielles à partir d’un emplacement sur le réseau local**: sélectionnez ce paramètre pour télécharger les mises à jour à partir d’un répertoire local ou d’un dossier partagé. Ce paramètre s'avère utile lorsque l'ordinateur exécutant l'Assistant ne dispose d'aucun accès à Internet. N’importe quel ordinateur connecté à Internet peut préalablement télécharger les mises à jour et les stocker à un emplacement sur le réseau local qui est accessible à partir de l’ordinateur qui exécute l’Assistant.  
 
-13. Selecteer op de pagina Taal selecteren de talen waarvoor de geselecteerde updates worden gedownload. De updates worden alleen gedownload als deze beschikbaar zijn in de geselecteerde talen. Updates die niet aan een specifieke taal zijn gebonden, worden altijd gedownload. De wizard selecteert standaard de talen die u hebt geconfigureerd in de eigenschappen van het software-updatepunt. Er moet ten minste één taal worden geselecteerd voordat u doorgaat naar de volgende pagina. Wanneer u alleen talen selecteert die niet door een update worden ondersteund, mislukt het downloaden van de update.  
+13. Dans la page Sélection de la langue, sélectionnez les langues pour lesquelles les mises à jour sélectionnées sont téléchargées. Les mises à jour sont téléchargées uniquement si elles sont disponibles dans les langues sélectionnées. Les mises à jour qui ne sont propres à aucune langue sont toujours téléchargées. Par défaut, l'Assistant sélectionne les langues que vous avez configurées dans les propriétés du point de mise à jour logicielle. Au moins une langue doit être sélectionnée avant de passer à la page suivante. Quand vous sélectionnez uniquement des langues qui ne sont pas prises en charge par une mise à jour, le téléchargement échoue pour cette mise à jour.  
 
-14. Controleer op de overzichtspagina de instellingen en klik vervolgens op **Volgende** om het onderhoudsplan te maken.  
+14. Dans la page Résumé, examinez les paramètres et cliquez sur **Suivant** pour créer le plan de maintenance.  
 
- Nadat u de wizard hebt voltooid, wordt het onderhoudsplan uitgevoerd. Deze voegt de updates toe die voldoen aan de opgegeven criteria voor een software-updategroep, downloadt de updates naar de inhoudsbibliotheek op de siteserver, distribueert de updates naar de geconfigureerde distributiepunten en implementeert de software-updategroep voor clients in de doelverzameling.  
+ Une fois l’Assistant terminé, le plan de maintenance est exécuté. Il ajoute les mises à jour qui correspondent aux critères spécifiés à un groupe de mises à jour logicielles, télécharge les mises à jour dans la bibliothèque de contenu sur le serveur de site, distribue les mises à jour aux points de distribution configurés, puis déploie le groupe de mises à jour logicielles sur les clients du regroupement cible.  
 
-##  <a name="BKMK_ModifyServicingPlan"></a> Een onderhoudsplan wijzigen  
-Nadat u een basisonderhoudsplan van het Windows 10 maken-onderhoudsdashboard of moet u de instellingen voor een bestaand onderhoudsplan te wijzigen, kunt u naar de eigenschappen voor het onderhoudsplan gaan.
+##  <a name="BKMK_ModifyServicingPlan"></a> Modifier un plan de maintenance  
+Après avoir créé un plan de maintenance de base à partir du tableau de bord de maintenance de Windows 10, ou si vous devez modifier les paramètres d’un plan de maintenance existant, vous pouvez accéder à ses propriétés.
 
 > [!NOTE]
-> U kunt instellingen configureren in de eigenschappen voor het onderhoudsplan die niet beschikbaar in de wizard bij het maken van het onderhoudsplan. De wizard gebruikt de standaardinstellingen voor de instellingen voor het volgende:-instellingen, implementatie-instellingen en waarschuwingen te downloaden.  
+> Vous pouvez configurer des paramètres dans les propriétés du plan de maintenance qui ne sont pas disponibles dans l’Assistant quand vous créez le plan. L’Assistant utilise les valeurs par défaut pour les paramètres des éléments suivants : paramètres de téléchargement, paramètres de déploiement et alertes.  
 
-Gebruik de volgende procedure om de eigenschappen van een onderhoudsplan te wijzigen.  
+Pour modifier les propriétés d’un plan de maintenance, appliquez la procédure suivante.  
 
-#### <a name="to-modify-the-properties-of-a-servicing-plan"></a>De eigenschappen van een onderhoudsplan wijzigen  
+#### <a name="to-modify-the-properties-of-a-servicing-plan"></a>Pour modifier les propriétés d’un plan de maintenance  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Vouw in de werkruimte Softwarebibliotheek **Onderhoud voor Windows 10**uit, klik op **Onderhoudsplannen**en selecteer vervolgens het onderhoudsplan dat u wilt wijzigen.  
+2.  Dans l’espace de travail Bibliothèque de logiciels, développez **Maintenance de Windows 10**, cliquez sur **Plans de maintenance**, puis sélectionnez le plan de maintenance que vous souhaitez modifier.  
 
-3.  Klik op het tabblad **Start** op **Eigenschappen** om de eigenschappen van het geselecteerde onderhoudsplan weer te geven.
+3.  Sous l’onglet **Accueil** cliquez sur **Propriétés** pour ouvrir les propriétés du plan de maintenance sélectionné.
 
-    De volgende instellingen zijn beschikbaar in de servicing plan-eigenschappen die niet zijn geconfigureerd in de wizard:
+    Les paramètres suivants sont disponibles dans les propriétés du plan de maintenance qui n’ont pas été configurées dans l’Assistant :
 
-    **Implementatie-instellingen**: Configureer de volgende instellingen op het tabblad implementatie-instellingen:  
+    **Paramètres de déploiement** : dans la page Paramètres de déploiement, configurez les paramètres suivants :  
 
-    -   **Type implementatie**: Geef het implementatietype voor de implementatie van de software-update. Selecteer **Vereist** om een verplichte software-update-implementatie te maken waarin de software-updates voor een configureerde installatiedeadline automatisch op de clients worden geïnstalleerd. Selecteer **Beschikbaar** om een optionele software-update-implementatie te maken die voor gebruikers beschikbaar is in Software Center.  
+    -   **Type de déploiement**: indique le type de déploiement pour le déploiement des mises à jour logicielles. Sélectionnez **Obligatoire** pour créer un déploiement de mises à jour logicielles obligatoire où les mises à jour logicielles sont installées automatiquement sur les clients selon une échéance d'installation configurée. Sélectionnez **Disponible** pour créer un déploiement de mises à jour logicielles facultatives que les utilisateurs peuvent installer à partir du Centre logiciel.  
 
         > [!IMPORTANT]  
-        >  Nadat u de software update-implementatie hebt gemaakt, kan het type implementatie niet meer worden gewijzigd.  
+        >  Après avoir créé le déploiement de mises à jour logicielles, vous ne pourrez pas modifier ultérieurement le type de déploiement.  
 
         > [!NOTE]  
-        >  Een software-updategroep die wordt geïmplementeerd als **Vereist** , wordt gedownload op de achtergrond waarbij BITS-instellingen worden gehandhaafd, indien geconfigureerd.  
-        > Software-updategroepen die worden geïmplementeerd als **Beschikbaar** , worden echter gedownload op de voorgrond waarbij BITS-instellingen worden genegeerd.  
+        >  Un groupe de mises à jour logicielles déployé avec l’option **Obligatoire** est téléchargé en arrière-plan et respecte les paramètres BITS, s’ils sont configurés.  
+        > Toutefois, les groupes de mises à jour logicielles déployés avec l’option **Disponible** sont téléchargés au premier plan et ignore les paramètres BITS.  
 
-    -   **Wake-on-LAN gebruiken om clients voor vereiste implementaties te laten ontwaken**: Geef op of Wake On LAN tegen de deadline voor het verzenden van ontwaakpakketten naar computers waarvoor een of meer software-updates in de implementatie. Computers die zich op het tijdstip van de installatiedeadline in de slaapstandmodus bevinden, worden uit deze stand gehaald, zodat de installatie van de software-update kan worden gestart. Clients die zich in de slaapstandmodus bevinden en geen software-updates nodig hebben, worden niet gestart. Deze instelling is standaard uitgeschakeld en is alleen beschikbaar wanneer **Type implementatie** is ingesteld op **Vereist**.  
+    -   **Utiliser Wake-on-LAN pour réveiller les clients pour les déploiements requis**: indiquez si l’éveil par appel réseau (Wake On LAN) doit être activé à l’échéance pour envoyer des paquets de mise en éveil aux ordinateurs qui nécessitent une ou plusieurs mises à jour logicielles du déploiement. Tous les ordinateurs en mode veille à l'échéance de l'installation sont mis en éveil afin que l'installation des mises à jour logicielles puisse démarrer. Les clients en mode veille qui ne nécessitent pas les mises à jour logicielles incluses dans le déploiement ne sont pas démarrés. Par défaut, ce paramètre n'est pas activé et il est disponible uniquement lorsque le **Type de déploiement** est défini sur **Obligatoire**.  
 
         > [!WARNING]  
-        >  Voordat u deze optie kunt gebruiken, moeten computers en netwerken zijn geconfigureerd voor Wake On LAN.  
+        >  Pour que vous puissiez utiliser cette option, les ordinateurs et les réseaux doivent être configurés pour utiliser l'éveil par appel réseau.  
 
-    -   **Detailniveau**: Geef het detailniveau voor de statusberichten die zijn gerapporteerd door clientcomputers.  
+    -   **Niveau de détail**: indiquez le niveau de détail pour les messages d’état qui sont signalés par les ordinateurs clients.  
 
-    **Downloadinstellingen**: Configureer op het tabblad instellingen voor downloaden van de volgende instellingen:  
+    **Paramètres de téléchargement** : sous l’onglet Paramètres de téléchargement, configurez les paramètres suivants :  
 
-    - Geef op of de client de software-updates moet downloaden en installeren wanneer een client is verbonden met een langzaam netwerk of wanneer deze gebruikmaakt van een locatie terugvalinhoudlocatie.  
+    - Indiquez si le client va télécharger et installer les mises à jour logicielles quand il est connecté à un réseau lent ou utilise un emplacement de secours pour le contenu.  
 
-    - Geef op of de client de software-updates moet downloaden en installeren vanaf een terugvaldistributiepunt wanneer de inhoud voor de software-updates niet beschikbaar is op een voorkeursdistributiepunt.  
+    - Indiquez si le client doit télécharger et installer les mises à jour logicielles à partir d'un point de distribution de secours quand le contenu pour les mises à jour logicielles n'est pas disponible sur un point de distribution préféré.  
 
-    -   **Toestaan dat clients inhoud te delen met andere clients in hetzelfde subnet**: Geef op of het gebruik van BranchCache voor inhouddownloads inschakelen. Zie voor meer informatie over BranchCache [basisconcepten voor inhoudsbeheer](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
+    -   **Autoriser les clients à partager du contenu avec d’autres clients sur le même sous-réseau**: indiquez si vous souhaitez activer l’utilisation de BranchCache pour les téléchargements du contenu. Pour plus d’informations sur BranchCache, consultez [Concepts fondamentaux de la gestion de contenu](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#branchcache).  
 
-    -   Geef op of hebben clients downloaden van software-updates vanaf Microsoft Update als software-updates niet beschikbaar zijn op distributiepunten.
+    -   Indiquez si les clients doivent télécharger les mises à jour logicielles à partir de Microsoft Update si elles ne sont pas disponibles sur des points de distribution.
         > [!IMPORTANT]
-        > Gebruik deze instelling niet voor onderhoud van Windows 10-updates. Configuration Manager (ten minste tot en met versie 1610) mislukt het onderhoud van Windows 10-updates te downloaden vanaf Microsoft Update.
+        > N’utilisez pas ce paramètre pour les mises à jour de maintenance de Windows 10. Configuration Manager (au moins jusqu’à la version 1610) ne parviendra pas à télécharger les mises à jour de maintenance de Windows 10 à partir de Microsoft Update.
 
-    -   Geef op of clients mogen downloaden na een installatiedeadline wanneer deze internetverbindingen met een datalimiet gebruiken. Internetproviders brengen soms de hoeveelheid gegevens die u verzendt en ontvangt in rekening wanneer u gebruikmaakt van een internetverbinding naar gebruik.   
+    -   Indiquez si les clients peuvent procéder au téléchargement une fois l’échéance de l’installation dépassée dans le cas où ils utilisent des connexions Internet facturées à l’usage. Les fournisseurs Internet facturent parfois en fonction de la quantité de données que vous envoyez et recevez lorsque vous utilisez une connexion Internet facturée à l'usage.   
 
-    **Waarschuwingen**: Op het tabblad waarschuwingen configureren hoe Configuration Manager en System Center Operations Manager waarschuwingen voor deze implementatie genereren moeten. U kunt de waarschuwingen alleen configureren wanneer **Type implementatie** op de pagina Implementatie-instellingen is ingesteld op **Vereist** .  
+    **Alertes** : dans la page Alertes, configurez la manière dont Configuration Manager et System Center Operations Manager génèrent des alertes pour ce déploiement. Vous pouvez configurer des alertes uniquement lorsque **Type de déploiement** est défini sur **Obligatoire** sur la page Paramètres de déploiement.  
 
     > [!NOTE]  
-    >  U kunt recente waarschuwingen met betrekking tot software-updates weergegeven in het knooppunt **Software-updates** in de werkruimte **Softwarebibliotheek** .  
+    >  Vous pouvez consulter les récentes alertes de mises à jour logicielles à partir du nœud **Mises à jour logicielles** dans l'espace de travail **Bibliothèque de logiciels** .  

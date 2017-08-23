@@ -1,6 +1,6 @@
 ---
-title: PFX-certificaatprofielen maken door het importeren van certificaatdetails | Microsoft Docs
-description: Informatie over het PFX-bestanden in System Center Configuration Manager gebruiken voor het genereren van gebruikersspecifieke certificaten die ondersteuning van versleutelde gegevensuitwisseling.
+title: "Créer des profils de certificat PFX en important les détails du certificat | Microsoft Docs"
+description: "Découvrez comment utiliser des fichiers PFX dans System Center Configuration Manager pour générer des certificats spécifiques à l’utilisateur qui prennent en charge l’échange de données chiffrées."
 ms.custom: na
 ms.date: 04/04/2017
 ms.prod: configuration-manager
@@ -17,86 +17,86 @@ ms.author: alleonar
 manager: angrobe
 ms.openlocfilehash: c8346d04c7cd9761291824f5d30f09fab9acbcf9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-pfx-certificate-profiles-by-importing-certificate-details"></a>Het PFX-certificaatprofielen maken door het importeren van certificaatdetails
+# <a name="how-to-create-pfx-certificate-profiles-by-importing-certificate-details"></a>Guide pratique pour créer des profils de certificat PFX en important les détails du certificat
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Hier kunt u informatie over het maken van een certificaatprofiel door het importeren van de referenties van externe certificaten.  
+Vous allez découvrir ici comment créer un profil de certificat en important des informations d’identification à partir de certificats externes.  
 
-[Certificaatprofielen](../../protect/deploy-use/introduction-to-certificate-profiles.md) Geef algemene informatie over het maken en certificaatprofielen configureren. Dit onderwerp worden enkele specifieke informatie over certificaatprofielen die betrekking hebben op het PFX-certificaten.
+Les [profils de certificat](../../protect/deploy-use/introduction-to-certificate-profiles.md) fournissent des informations générales sur la création et la configuration des profils de certificat. Cette rubrique met en évidence des informations spécifiques sur les profils de certificat associés aux certificats PFX.
 
--  Configuration Manager tal van certificaatarchieven geschikt is voor verschillende apparaten en besturingssystemen.  Deze omvatten:
+-  Configuration Manager donne accès à divers magasins de certificats adaptés à différents appareils et systèmes d’exploitation.  À savoir :
 
- -   iOS en Mac OS/OS x
- -   Android- en Android for Work.
- -   Windows 10, met inbegrip van Windows 10 mobile.
+ -   iOS et MacOS/OSX
+ -   Android et Android for Work
+ -   Windows 10, notamment Windows 10 Mobile.
 
-Zie voor meer informatie, [profiel vereisten van het certificaat](../../protect/plan-design/prerequisites-for-certificate-profiles.md).
+Pour plus d’informations, consultez [Prérequis des profils de certificat](../../protect/plan-design/prerequisites-for-certificate-profiles.md).
 
-## <a name="pfx-certificate-profiles"></a>PFX-certificaatprofielen
-System Center Configuration Manager kunt u referenties van het computercertificaat importeren en vervolgens inrichten van bestanden van de personal information exchange (.pfx) op apparaten van gebruikers. PFX-bestanden kunnen worden gebruikt om gebruikersspecifieke certificaten te maken ter ondersteuning van versleutelde gegevensuitwisseling.
+## <a name="pfx-certificate-profiles"></a>Profils de certificat PFX
+System Center Configuration Manager vous permet d’importer des informations d’identification de certificats, puis d’approvisionner des fichiers d’échange d’informations personnelles (.pfx) sur les appareils des utilisateurs. Vous pouvez utiliser des fichiers PFX pour générer des certificats spécifiques à l'utilisateur pour prendre en charge l'échange de données chiffrées.
 
 > [!TIP]  
->  Een stapsgewijze beschrijving van dit proces is te vinden in [How to Create and Deploy PFX Certificate Profiles in Configuration Manager](http://blogs.technet.com/b/karanrustagi/archive/2015/09/01/how-to-create-and-deploy-pfx-certificate-profiles-in-configuration-manager.aspx)(Engelstalig).  
+>  Une procédure pas à pas décrivant ce processus est disponible dans [Comment créer et déployer des profils de certificat PFX dans Configuration Manager](http://blogs.technet.com/b/karanrustagi/archive/2015/09/01/how-to-create-and-deploy-pfx-certificate-profiles-in-configuration-manager.aspx).  
 
-## <a name="create-import-and-deploy-a-personal-information-exchange-pfx-certificate-profile"></a>Maken, importeren en een persoonlijke informatie Exchange (PFX)-certificaatprofiel implementeren  
+## <a name="create-import-and-deploy-a-personal-information-exchange-pfx-certificate-profile"></a>Créer, importer et déployer un profil de certificat PFX (Personal Information Exchange)  
 
-### <a name="get-started"></a>Aan de slag
+### <a name="get-started"></a>Bien démarrer
 
-1.  Klik in de System Center Configuration Manager-console op **activa en naleving**.  
-2.  Vouw in de werkruimte **Activa en naleving** het gedeelte **Instellingen voor naleving**uit, vouw vervolgens **Toegang tot bedrijfsbronnen**uit en klik op **Certificaatprofielen**.  
+1.  Dans la console System Center Configuration Manager, cliquez sur **Ressources et Conformité**.  
+2.  Dans l'espace de travail **Ressources et Conformité** , développez **Paramètres de compatibilité**, puis **Accès aux ressources de l'entreprise**, et cliquez sur **Profils de certificat**.  
 
-3.  Klik op **Certificaatprofiel maken** in het tabblad **Start** in de groep **Maken**.
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un profil de certificat**.
 
-4.  Geef op de pagina **Algemeen** van de wizard **Certificaatprofiel maken** de volgende informatie op:  
+4.  Dans la page **Général** de l'Assistant **Créer un profil de certificat** , spécifiez les informations suivantes :  
 
-    -   **Naam**: Geef een unieke naam voor het certificaatprofiel. U kunt maximaal 256 tekens gebruiken.  
+    -   **Nom**: entrez un nom unique pour le profil de certificat. Vous pouvez utiliser jusqu'à 256 caractères.  
 
-    -   **Beschrijving**: Geef een beschrijving met een van het certificaatprofiel en andere relevante informatie die helpt overzicht bij het identificeren ervan in de System Center Configuration Manager-console. U kunt maximaal 256 tekens gebruiken.  
+    -   **Description** : entrez une description qui donne un aperçu du profil de certificat et d’autres informations utiles pour identifier facilement ce profil dans la console System Center Configuration Manager. Vous pouvez utiliser jusqu'à 256 caractères.  
 
-    -   **Geef het type certificaatprofiel dat u wilt maken**: Kies een van de volgende opties voor PFX-certificaten:  
+    -   **Spécifiez le type de profil de certificat que vous voulez créer** : pour les certificats PFX, choisissez l’une des options suivantes :  
 
-        -   **Instellingen voor persoonlijke informatie Exchange PKCS #12 (PFX) - Import**: Maakt een certificaatprofiel door programmatisch importeren van gegevens van bestaande certificaten gebruiken.  
+        -   **Échange d’informations personnelles -- Paramètres PKCS #12 (PFX) -- Importation** : crée un profil de certificat en important des informations par programmation à partir de certificats existants.  
 
-        -   **Personal Information Exchange - PKCS #12 (PFX)-instellingen - maken**: Maakt een PFX-certificaatprofiel met referenties die worden geleverd door een certificeringsinstantie.  Zie voor meer informatie, [het maken van een certificeringsinstantie PFX-certificaatprofielen](../../mdm/deploy-use/create-pfx-certificate-profiles.md).
+        -   **Échange d’informations personnelles -- Paramètres PKCS #12 (PFX) -- Créer** : crée un profil de certificat PFX à l’aide des informations d’identification fournies par une autorité de certification.  Pour plus d’informations, consultez [Guide pratique pour créer des profils de certificat PFX à l’aide d’une autorité de certification](../../mdm/deploy-use/create-pfx-certificate-profiles.md).
 
 
-### <a name="create-a-pfx-certificate-profile-for-the-imported-credentials"></a>Een PFX-certificaatprofiel voor de geïmporteerde referenties maken
+### <a name="create-a-pfx-certificate-profile-for-the-imported-credentials"></a>Créer un profil de certificat PFX pour les informations d’identification importées
 
-Als u wilt importeren in een PFX-certificaat, kunt u de Configuration Manager-SDK gebruiken voor het implementeren van een script voor PFX maken. 
+Pour importer un certificat PFX, vous utilisez le SDK de Configuration Manager pour déployer un script de création de fichier PFX. 
 
-Geïmporteerde certificaten worden later ingeschreven apparaten geïmplementeerd.
+Les certificats importés sont plus tard déployés sur les appareils inscrits.
 
-1. Op de **PFX-certificaat** pagina van de **Wizard Certificaatprofiel maken**, waar het apparaat-sleutelarchiefprovider opgeven:
-    -   **Installeren op TPM (Trusted Platform Module) indien aanwezig**  
-    -   **Installeren op TPM (Trusted Platform Module), anders niet installeren** 
-    -   **Naar Windows Hello voor bedrijven, anders niet installeren** 
-    -   **Installeren op sleutelarchiefprovider van software** 
-2. Klik op **Volgende**. 
-3. Op de **ondersteunde Platforms** pagina van de wizard, de ondersteunde apparaatplatforms te kiezen en klik vervolgens op **volgende**.
+1. Dans la page **Certificat PFX** de l’**Assistant Création d’un profil de certificat**, spécifiez l’emplacement du fournisseur de stockage de clé d’appareil :
+    -   **Installer dans le module de plateforme sécurisée (TPM) s'il existe**  
+    -   **Installer dans le module de plateforme sécurisée (TPM) sinon mettre en échec** 
+    -   **Installer dans Windows Hello Entreprise, sinon mettre en échec** 
+    -   **Installer dans le fournisseur de stockage de la clé du logiciel** 
+2. Cliquez sur **Suivant**. 
+3. Dans la page **Plateformes prises en charge** de l’Assistant, choisissez les plateformes d’appareils prises en charge, puis cliquez sur **Suivant**.
 
-### <a name="finish-the-profile"></a>Het profiel voltooien
+### <a name="finish-the-profile"></a>Terminer le profil
 
-1.  Klik op **Volgende**, bekijk de pagina **Samenvatting** en sluit de wizard.  
-2.  Het certificaatprofiel met het PFX-bestand is nu beschikbaar via de werkruimte **Certificaatprofielen** . 
-3.  Voor het implementeren van het profiel de **activa en naleving** werkruimte open **instellingen voor naleving** > **toegang tot bedrijfsbronnen** > **Certificaatprofielen**, met de rechtermuisknop op het certificaat dat u wilt en klik vervolgens op **implementeren**. 
+1.  Cliquez sur **Suivant**, passez en revue la page **Résumé** , puis fermez l'Assistant.  
+2.  Le profil de certificat contenant le fichier PFX est désormais disponible à partir de l'espace de travail **Profils de certificat** . 
+3.  Pour déployer le profil, dans l’espace de travail **Ressources et conformité**, accédez à **Paramètres de compatibilité** > **Accès aux ressources de l’entreprise** > **Profils de certificat**, cliquez avec le bouton droit sur le certificat requis, puis cliquez sur **Déployer**. 
 
-### <a name="deploy-a-create-pfx-script"></a>Implementeren van een Script voor PFX maken
+### <a name="deploy-a-create-pfx-script"></a>Déployer un script de création de fichier PFX
 
-Gebruik de [Configuration Manager SDK](http://go.microsoft.com/fwlink/?LinkId=613525) voor het implementeren van een Script voor PFX maken. 
+Utilisez le [SDK Configuration Manager](http://go.microsoft.com/fwlink/?LinkId=613525) pour déployer un script de création de fichier PFX. 
 
-Het script voor PFX maken dat is toegevoegd in Configuration Manager 2012 SP2 voegt de klasse SMS_ClientPfxCertificate toe aan de SDK. Deze klasse omvat de volgende methoden:  
+Le script de création de fichier PFX ajouté dans Configuration Manager 2012 SP2 ajoute une classe SMS_ClientPfxCertificate au kit SDK. Cette classe comprend les méthodes suivantes :  
 
     -   `ImportForUser`  
 
     -   `DeleteForUser`  
 
-Het volgende voorbeeld importeert referenties in een PFX-certificaatprofiel.
+L’exemple suivant importe des informations d’identification dans un profil de certificat PFX.
 
 ``` powershell
     $EncryptedPfxBlob = "<blob>"  
@@ -114,16 +114,16 @@ Het volgende voorbeeld importeert referenties in een PFX-certificaatprofiel.
     $Resource = $WMIConnection.psbase.InvokeMethod("ImportForUser",$NewEntry,$null)  
 ```  
 
-Update de volgende scriptvariabelen voor het gebruik van dit voorbeeld:  
+Pour utiliser cet exemple, mettez à jour les variables de script suivantes :  
 
-   -   **BLOB**\-de PFX-blob base64-versleuteling  
-   -   **$Password** -het wachtwoord voor het PFX-bestand  
-   -   **$ProfileName** -de naam van het PFX-profiel  
-   -   **Computernaam** -naam van de hostcomputer   
+   -   **blob**\ : objet blob PFX chiffré en base64  
+   -   **$Password** : mot de passe pour le fichier PFX  
+   -   **$ProfileName** : nom du profil PFX  
+   -   **ComputerName** : nom de l’ordinateur hôte   
 
-## <a name="see-also"></a>Zie tevens
-[Maak een nieuw certificaatprofiel](../../protect/deploy-use/create-certificate-profiles.md) wordt u begeleid bij de Wizard Certificaatprofiel maken.
+## <a name="see-also"></a>Voir aussi
+La section [Créer un profil de certificat](../../protect/deploy-use/create-certificate-profiles.md) vous guide tout au long des étapes de l’Assistant Créer un profil de certificat.
 
-[Het PFX-certificaatprofielen maken door het importeren van certificaatdetails](../../mdm/deploy-use/create-pfx-certificate-profiles.md)
+[Guide pratique pour créer des profils de certificat PFX en important les détails du certificat](../../mdm/deploy-use/create-pfx-certificate-profiles.md)
 
-[Wi-Fi, VPN, e-mail en certificaatprofielen implementeren](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md) weergeven voor het implementeren van certificaatprofielen worden beschreven.
+[Déployer des profils dans System Center Configuration Manager](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md) décrit comment déployer des profils de certificat.

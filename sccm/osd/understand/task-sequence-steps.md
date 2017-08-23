@@ -1,6 +1,6 @@
 ---
-title: Takenreeksstappen - Configuration Manager | Microsoft Docs
-description: Meer informatie over de takenreeksstappen die u aan een takenreeks van Configuration Manager toevoegen kunt.
+title: "Étapes de séquence de tâches - Configuration Manager | Microsoft Docs"
+description: "Découvrez les différentes étapes de séquence de tâches que vous pouvez ajouter à une séquence de tâches Configuration Manager."
 ms.custom: na
 ms.date: 03/26/2017
 ms.prod: configuration-manager
@@ -17,1691 +17,1691 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: e0726febc4c36a26c5e067914734838bf2681e6c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Stappen voor takenreeksen in System Center Configuration Manager
+# <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Étapes de séquence de tâches dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-De volgende takenreeksstappen kunnen worden toegevoegd aan een takenreeks van Configuration Manager. Zie [Edit a task sequence](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence) (Een takenreeks bewerken) voor meer informatie over het bewerken van een takenreeks.  
+Vous trouverez ci-dessous les différentes étapes de séquence de tâches qui peuvent être ajoutées à une séquence de tâches Configuration Manager. Pour plus d’informations sur la modification d’une séquence de tâches, consultez [Modifier une séquence de tâches](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence).  
 
 
-##  <a name="BKMK_ApplyDataImage"></a>Takenreeksstap van gegevens gegevensinstallatiekopie toepassen  
- Gebruik de takenreeksstap **Gegevensinstallatiekopie toepassen** om de gegevensinstallatiekopie te kopiëren naar de opgegeven doelpartitie.  
+##  <a name="BKMK_ApplyDataImage"></a> Étape de séquence de tâches Appliquer l’image de données  
+ L'étape de séquence de tâches **Appliquer l'image de données** permet de copier l'image de données sur la partition de destination indiquée.  
 
- Deze stap kan alleen in Windows PE worden uitgevoerd. De taak kan niet worden uitgevoerd in een standaardbesturingssysteem. Zie voor meer informatie over de takenreeksvariabelen voor deze actie [Takenreeksacties](task-sequence-action-variables.md).  
+ Cette étape est exécutée uniquement sous Windows PE. Elle ne s'exécute pas dans un système d'exploitation standard. Pour plus d’informations sur les variables de séquence de tâches de cette action, consultez [Variables d’action de séquence de tâches](task-sequence-action-variables.md).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Installatiekopiepakket**  
- Geef het **Installatiekopiepakket** op dat wordt gebruikt door deze takenreeksstap door te klikken op **Bladeren**. Selecteer het pakket dat u wilt installeren in het dialoogvenster **Pakket selecteren**. De bijbehorende eigenschapsinformatie voor elk bestaand installatiekopiepakket wordt weergegeven onder aan het dialoogvenster **Pakket selecteren**. Gebruik de vervolgkeuzelijst om de **Installatiekopie** te selecteren die u wilt installeren via het geselecteerde **Installatiekopiepakket**.  
+ **Package d’images**  
+ Cliquez sur **Parcourir** pour préciser le **package d'images**que doit utiliser cette étape de la séquence de tâches. Sélectionnez le package à installer dans la boîte de dialogue **Sélectionner un package** . Les informations des propriétés associées à chaque package d'images s'affichent en bas de la boîte de dialogue **Sélectionner un package** . Utilisez la liste déroulante pour choisir l' **image** que vous souhaitez installer à partir du **package d'images**sélectionné.  
 
 > [!NOTE]  
->  Bij deze takenreeksactie wordt de installatiekopie beschouwd als een gegevensbestand en worden geen installatiestappen uitgevoerd om de installatiekopie op te starten als een besturingssysteem.  
+>  L'action de la séquence de tâches traite l'image en tant que fichier de données et n'effectue aucune configuration nécessaire pour le redémarrage de l'image en tant que système d'exploitation.  
 
- **Bestemming**  
- Hiermee geeft u een bestaande geformatteerde partitie en harde schijf, een specifieke logische stationsletter of de naam van een takenreeksvariabele met de logische stationsletter op.  
+ **Destination**  
+ Spécifie une partition formatée et un disque dur existants, une lettre de lecteur logique précise ou le nom d'une variable de séquence de tâches contenant la lettre de lecteur logique.  
 
--   **Volgende beschikbare partitie** -de volgende sequentiële partitie gebruiken die niet eerder is geselecteerd door de actie besturingssysteem toepassen of gegevensinstallatiekopie toepassen in deze takenreeks.  
+-   **Prochaine partition disponible** : utilisez la partition séquentielle suivante qui n’a pas été précédemment ciblée par une action Appliquer le système d’exploitation ou Appliquer l’image de données dans cette séquence de tâches.  
 
--   **Schijf en partitie opgeven** : Selecteer de **schijf** nummer (te beginnen met 0) en de **partitie** nummer (te beginnen met 1).  
+-   **Disque et partition spécifiques** : sélectionnez le numéro de **disque** (à partir de 0) et le numéro de **partition** (à partir de 1).  
 
--   **Logische stationsletter opgeven** -Geef de **stationsletter** die door Windows PE is toegewezen aan de partitie. Houd er rekening mee dat deze stationsletter kan afwijken van de stationsletter die door het zojuist geïmplementeerde besturingssysteem wordt toegewezen.  
+-   **Lettre de lecteur logique spécifique** : spécifiez la **lettre de lecteur** attribuée à la partition par Windows PE. Remarque : cette lettre de lecteur peur être différente de la lettre de lecteur que le système d'exploitation récemment déployé attribuera.  
 
--   **Logische stationsletter opgeslagen in een variabele** -Geef de takenreeksvariabele met de stationsletter die door Windows PE is toegewezen aan de partitie. Deze variabele wordt meestal ingesteld in de sectie Geavanceerd van het dialoogvenster **Partitie-eigenschappen** voor de takenreeksactie **Schijf formatteren en partitioneren**.  
+-   **Lettre de lecteur logique stockée dans une variable** : spécifiez la variable de séquence de tâches contenant la lettre de lecteur attribuée à la partition par Windows PE. Cette variable est généralement définie dans la section Avancé de la boîte de dialogue **Propriétés de la partition** pour l'action de séquence de tâches **Formater et partitionner le disque** .  
 
- **Alle inhoud op de partitie verwijderen alvorens de installatiekopie toe te passen**  
- Hiermee geeft u op dat alle bestanden op de doelpartitie worden verwijderd voordat de installatiekopie wordt geïnstalleerd. Door de inhoud van de partitie niet te verwijderen, kan deze stap worden gebruikt om aanvullende inhoud toe te passen op een eerder gebruikte partitie.  
+ **Supprimer l’intégralité du contenu de la partition avant d’appliquer l’image**  
+ Précise que tous les fichiers de la partition cible seront supprimés avant l'installation de l'image. Si vous ne supprimez pas le contenu de la partition, cette étape peut être utilisée pour appliquer le contenu supplémentaire à une partition précédemment ciblée.  
 
-##  <a name="BKMK_ApplyDriverPackage"></a>Stuurprogrammapakket toepassen  
- Gebruik de takenreeksactie **Stuurprogrammapakket toepassen** om alle stuurprogramma's in het stuurprogrammapakket te downloaden en te installeren op het Windows-besturingssysteem.
+##  <a name="BKMK_ApplyDriverPackage"></a> Appliquer le package de pilotes  
+ Utilisez l'étape de séquence de tâches **Appliquer le package de pilotes** pour télécharger tous les pilotes du package de pilotes et les installer sur le système d'exploitation Windows.
 
- Met de takenreeksstap **Stuurprogrammapakket toepassen** worden alle apparaatstuurprogramma's in een stuurprogrammapakket beschikbaar gemaakt voor gebruik door Windows. Deze stap kan worden toegevoegd aan een takenreeks tussen de stap **Besturingssysteem toepassen** en de stap **Windows en ConfigMgr installeren** om de stuurprogramma's in het stuurprogrammapakket beschikbaar te maken voor Windows. Normaal gesproken wordt de stap **Stuurprogrammapakket toepassen** geplaatst na de takenreeksstap **Stuurprogramma's automatisch toepassen**. De takenreeksstap **Stuurprogrammapakket toepassen** is ook nuttig bij scenario's met implementatie van zelfstandige media.  
+ L'étape de séquence de tâches **Appliquer le package de pilotes** rend disponibles tous les pilotes d'appareils d'un package de pilotes pour l'utilisation avec Windows. Vous pouvez ajouter cette étape à une séquence de tâches entre les étapes **Appliquer le système d'exploitation**  et **Configurer Windows et ConfigMgr** pour que les pilotes de périphérique du package de pilotes soient disponibles sous Windows. Généralement, l'étape **Appliquer le package de pilotes** est placée après l'étape de séquence de tâches **Appliquer automatiquement les pilotes** . L'étape de séquence de tâches **Appliquer le package de pilotes** est également utile avec des scénarios de déploiement de médias autonomes.  
 
- Zorg dat vergelijkbare apparaatstuurprogramma's in een stuurprogrammapakket zijn geplaatst en distribueer deze naar de juiste distributiepunten. Nadat deze zijn gedistribueerd kunnen Configuration Manager-clientcomputers ze installeren. U kunt bijvoorbeeld alle apparaatstuurprogramma's van een fabrikant in een stuurprogrammapakket plaatsen en het pakket vervolgens distribueren naar distributiepunten waar de stuurprogramma's voor de bijbehorende computers toegankelijk zijn.
+ Assurez-vous que les pilotes de périphérique identiques sont placés dans un package de pilotes et distribuez-les aux points de distribution appropriés. Une fois qu’ils sont distribués, les ordinateurs client Configuration Manager peuvent les installer. Par exemple, vous pouvez placer tous les pilotes de périphérique d'un fabricant dans un package de pilotes, puis distribuer le package aux points de distribution à un emplacement où les ordinateurs associés peuvent y accéder.
 
- Deze stap is nuttig voor zelfstandige media en voor beheerders die een specifieke set met stuurprogramma's willen installeren, inclusief stuurprogramma's voor apparaten die niet kunnen worden gedetecteerd tijdens een Plug en Play-scan (bijvoorbeeld netwerkprinters).  
+ Cette étape est utile pour les médias autonomes et pour les administrateurs souhaitant installer un ensemble spécifique de pilotes, y compris des pilotes d'appareils qu'une analyse Plug-and-Play ne détecte pas (par exemple les imprimantes réseau).  
 
- Deze takenreeksstap kan alleen in Windows PE worden uitgevoerd. De taak kan niet worden uitgevoerd in een standaardbesturingssysteem. Zie [Apply Driver Package Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_ApplyDriverPackage) (Variabelen voor de takenreeksactie van een stuurprogrammapakket toepassen) voor meer informatie over de takenreeksvariabelen voor deze actie.  
+ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle ne s'exécute pas dans un système d'exploitation standard. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Appliquer le package de pilotes](task-sequence-action-variables.md#BKMK_ApplyDriverPackage).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Stuurprogrammapakket**  
- Geef het stuurprogrammapakket met de benodigde apparaatstuurprogramma's op door te klikken op **Bladeren** en het dialoogvenster **Pakket selecteren** te openen. Geef een bestaand pakket op dat u beschikbaar wilt maken. De eigenschappen van het bijbehorende pakket worden aan de onderkant van het dialoogvenster weergegeven.  
+ **Package de pilotes**  
+ Spécifiez le package de pilotes qui contient les pilotes d'appareils nécessaires en cliquant sur **Parcourir** pour ouvrir la boîte de dialogue **Sélectionner un package** . Spécifiez un package existant à rendre disponible. Les propriétés du package associé s'affichent dans la partie inférieure de la boîte de dialogue.  
 
- **Selecteer het stuurprogramma voor massaopslag in het pakket dat moet worden geïnstalleerd vóór de installatie op besturingssystemen ouder dan Windows Vista.**  
- Geef eventuele apparaatstuurprogramma's voor massaopslag op die nodig zijn voor installaties op besturingssystemen ouder dan Windows Vista.  
+ **Sélectionner le pilote de stockage de masse au sein du package devant être installé avant la configuration sur les systèmes d’exploitation antérieurs à Windows Vista**  
+ Spécifiez les pilotes de stockage de masse nécessaires aux installations des systèmes d'exploitation antérieurs à Windows Vista.  
 
- **Stuurprogramma**  
- Selecteer het apparaatstuurprogrammabestand voor massaopslag dat moet worden geïnstalleerd vóór de installatie in implementaties van besturingssystemen ouder dan Windows Vista. De vervolgkeuzelijst wordt op basis van het opgegeven pakket gevuld.  
+ **Pilote**  
+ Sélectionnez le fichier du pilote de stockage de masse à installer avant la configuration des déploiements des systèmes d'exploitation antérieurs à Windows Vista. La liste déroulante est complétée à partir du package spécifié.  
 
- **Model**  
- Geef het voor opstarten essentiële apparaat op dat nodig is voor implementaties van besturingssystemen ouder dan Windows Vista.  
+ **Modèle**  
+ Spécifiez l'appareil critique au démarrage nécessaire aux déploiements des systèmes d'exploitation antérieurs à Windows Vista.  
 
- **Installatie zonder toezicht van niet-ondertekende stuurprogramma's uitvoeren op versie van Windows wanneer dit is toegestaan**  
- Selecteer deze optie om stuurprogramma's in Windows te installeren die niet zijn ondertekend op de referentiecomputer.  
+ **Effectuer une installation autonome des pilotes non signés sur les versions de Windows le permettant**  
+ Sélectionnez cette option pour autoriser Windows à installer les pilotes non signés sur l'ordinateur de référence.  
 
-##  <a name="BKMK_ApplyNetworkSettings"></a>Stap netwerkinstellingen toepassen  
- Gebruik de takenreeksstap **Netwerkinstellingen toepassen** om de netwerk- of werkgroepconfiguratie-informatie op te geven voor de doelcomputer. De opgegeven waarden worden opgeslagen in de juiste antwoordbestandsindeling voor gebruik door Windows Setup wanneer de takenreeksstap **Windows en ConfigMgr installeren** wordt uitgevoerd.  
+##  <a name="BKMK_ApplyNetworkSettings"></a> Étape Appliquer les paramètres réseau  
+ L'étape de séquence de tâches **Appliquer les paramètres réseau** permet de spécifier les informations de configuration du réseau ou du groupe de travail pour l'ordinateur de destination. Les valeurs spécifiées sont stockées au format approprié d'un fichier de réponses afin d'être utilisées par le programme d'installation Windows lors de l'exécution de l'étape de séquence de tâches **Configurer Windows et ConfigMgr** .  
 
- Deze takenreeksstap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Zie [Apply Network Settings Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_ApplyNetworkSettings) (Variabelen voor de takenreeksacties van netwerkinstellingen toepassen) voor meer informatie over de takenreeksvariabelen voor deze actie.  
+ Cette étape de séquence de tâches s'exécute dans un système d'exploitation standard ou Windows PE. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Appliquer les paramètres réseau](task-sequence-action-variables.md#BKMK_ApplyNetworkSettings).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Lid worden van een werkgroep**  
- Selecteer deze optie om de doelcomputer toe te voegen aan de opgegeven werkgroep. Voer de naam van de werkgroep in op de regel **Werkgroep**. Deze waarde kan worden genegeerd door de waarde die is opgenomen door de takenreeksstap **Netwerkinstellingen vastleggen**.  
+ **Joindre un groupe de travail**  
+ Sélectionnez cette option pour que l'ordinateur de destination fasse partie du groupe de travail spécifié. Entrez le nom du groupe de travail sur la ligne **Groupe de travail** . Cette valeur peut être remplacée par la valeur capturée par l'étape de séquence de tâches **Capturer les paramètres réseau** .  
 
- **Lid worden van een domein**  
- Selecteer deze optie om de doelcomputer toe te voegen aan het opgegeven domein. Geef het domein op of blader hiernaartoe, zoals *fabricam.com*. Geef een LDAP-pad (Lightweight Directory Access Protocol) op of blader hiernaartoe voor een organisatie-eenheid (dat wil zeggen LDAP//OU=computers, DC=Fabricam.com, C=com).  
+ **Joindre un domaine**  
+ Sélectionnez cette option pour que l'ordinateur de destination fasse partie du domaine spécifié. Spécifiez ou accédez au domaine, tel que *fabricam.com*. Spécifiez un chemin d’accès LDAP (Lightweight Directory Access Protocol) à une unité d’organisation ou accédez-y (par ex. LDAP//OU=computers, DC=Fabricam.com, C=com).  
 
- **Account**  
- Klik op **Instellen** om een account op te geven met de vereiste machtigingen om de computer lid te laten worden van het domein. In de **Windows-gebruikersaccount** in het dialoogvenster kunt u de gebruikersnaam met de volgende notatie invoeren: **Domein\gebruiker** .  
+ **Compte**  
+ Cliquez sur **Définir** pour spécifier un compte bénéficiant des autorisations nécessaires pour associer l'ordinateur au domaine. Dans la boîte de dialogue **Compte d’utilisateur Windows** , vous pouvez entrer le nom d’utilisateur au format suivant : **Domaine\Utilisateur** .  
 
- **Adapterinstellingen**  
- Netwerkconfiguraties opgeven voor elke netwerkadapter in de computer. Klik op **Nieuw** om het dialoogvenster **Netwerkinstellingen** te openen en geef vervolgens de netwerkinstellingen op. Als netwerkinstellingen zijn vastgelegd in een eerder exemplaar van de takenreeksstap **Netwerkinstellingen vastleggen**, worden de eerdere instellingen toegepast op de netwerkadapter en worden de opgegeven instellingen in deze stap niet toegepast. Als netwerkinstellingen niet eerder zijn vastgelegd, worden de opgegeven instellingen in de stap **Netwerkinstellingen toepassen** toegepast op netwerkadapters in volgorde van Windows-apparaatinventarisatie.  
+ **Paramètres de carte**  
+ Spécifiez les configurations réseau pour chaque carte réseau dans l'ordinateur. Cliquez sur **Nouveau** pour ouvrir la boîte de dialogue **Paramètres réseau** , puis spécifiez les paramètres réseau. Si les paramètres réseau ont été capturés dans une précédente étape de séquence de tâches **Capturer les paramètres réseau** , les paramètres précédents sont appliqués à la carte réseau et les paramètres spécifiés dans cette étape ne sont pas appliqués. Si les paramètres réseau n'ont pas été capturés au préalable, les paramètres spécifiés à l'étape **Appliquer les paramètres réseau** sont appliqués aux cartes réseau dans l'ordre d'énumération des appareils Windows.  
 
-##  <a name="BKMK_ApplyOperatingSystemImage"></a>Besturingssysteeminstallatiekopie toepassen  
- Gebruik de takenreeksstap **Besturingssysteeminstallatiekopie toepassen** om een besturingssysteem te installeren op de doelcomputer. Met deze takenreeksstap wordt een reeks acties uitgevoerd afhankelijk van of het besturingssysteem wordt geïnstalleerd via een besturingssysteeminstallatiekopie of een besturingssysteeminstallatiepakket.  
+##  <a name="BKMK_ApplyOperatingSystemImage"></a> Appliquer l’image du système d’exploitation  
+ Utilisez l'étape de séquence de tâches **Appliquer l'image du système d'exploitation** pour installer un système d'exploitation sur l'ordinateur de destination. Cette étape de séquence de tâches exécute un ensemble d'actions selon qu'elle utilise une image de système d'exploitation ou un package d'installation de système d'exploitation pour installer le système d'exploitation.  
 
- Met de stap **Besturingssysteeminstallatiekopie toepassen** worden de volgende acties uitgevoerd als een installatiekopie van het besturingssysteem wordt gebruikt.  
+ L'étape **Appliquer l'image du système d'exploitation** effectue les actions suivantes lorsqu'une image de système d'exploitation est utilisée.  
 
-1.  Hiermee verwijdert u alle inhoud op het betreffende volume, met uitzondering van de bestanden in de map die is opgegeven door de &#95; SMSTSUserStatePath takenreeksvariabele.  
+1.  Supprime tout le contenu sur le volume cible sauf les fichiers situés sous le dossier spécifié par la variable de séquence de tâches &#95;SMSTSUserStatePath.  
 
-2.  Hiermee wordt de inhoud van het opgegeven WIM-bestand uitgepakt naar de opgegeven doelpartitie.  
+2.  Extrait le contenu des fichiers .wim spécifiés sur la partition de destination indiquée.  
 
-3.  Hiermee wordt het antwoordbestand voorbereid:  
+3.  Prépare le fichier de réponses :  
 
-    1.  Hiermee maakt u een nieuw standaard Windows Setup-antwoordbestand (sysprep.inf of unattend.xml) voor het besturingssysteem dat wordt geïmplementeerd.  
+    1.  Crée un nouveau fichier de réponses par défaut du programme d'installation Windows (sysprep.inf ou unattend.xml) pour le système d'exploitation en cours de déploiement.  
 
-    2.  Hiermee worden alle waarden van het door de gebruiker opgegeven antwoordbestand samengevoegd.  
+    2.  Fusionne les valeurs figurant éventuellement dans le fichier réponse fourni par l'utilisateur.  
 
-4.  Hiermee worden Windows-opstartlaadprogramma's gekopieerd naar de actieve partitie.  
+4.  Copie les chargeurs de démarrage Windows dans la partition active.  
 
-5.  Hiermee wordt boot.ini of de Boot Configuration Database (BCD) ingesteld zodat deze naar het geïnstalleerde besturingssysteem verwijst.  
+5.  Configure boot.ini ou BCD (Boot Configuration Database) pour référencer le système d'exploitation nouvellement installé.  
 
- Met de stap **Besturingssysteeminstallatiekopie toepassen** worden de volgende acties uitgevoerd als een installatiekopiepakket van het besturingssysteem wordt gebruikt.  
+ L'étape **Appliquer l'image du système d'exploitation** effectue les actions suivantes lorsqu'un package d'installation de système d'exploitation est utilisé.  
 
-1.  Hiermee verwijdert u alle inhoud op het betreffende volume, met uitzondering van de bestanden in de map die is opgegeven door de &#95; SMSTSUserStatePath takenreeksvariabele.  
+1.  Supprime tout le contenu sur le volume cible sauf les fichiers situés sous le dossier spécifié par la variable de séquence de tâches &#95;SMSTSUserStatePath.  
 
-2.  Hiermee wordt het antwoordbestand voorbereid:  
+2.  Prépare le fichier de réponses :  
 
-    1.  Maakt een nieuw antwoordbestand met standaardwaarden gemaakt door Configuration Manager.  
+    1.  Crée un nouveau fichier de réponses contenant les valeurs standard produites par Configuration Manager.  
 
-    2.  Hiermee worden alle waarden van het door de gebruiker opgegeven antwoordbestand samengevoegd.  
+    2.  Fusionne les valeurs figurant éventuellement dans le fichier réponses fourni par l'utilisateur.  
 
 > [!NOTE]  
->  De werkelijke installatie van Windows wordt gestart door de takenreeksstap **Windows en ConfigMgr installeren**. Nadat de takenreeksactie **Besturingssysteem toepassen** is uitgevoerd, wordt de takenreeksvariabele OSDTargetSystemDrive ingesteld op de stationsletter van de partitie met de besturingssysteembestanden.  
+>  L'installation proprement dite de Windows est déclenchée par l'étape de séquence de tâches **Configurer Windows et ConfigMgr** . À l'issue de l'exécution de l'action de séquence de tâches **Appliquer le système d'exploitation** , la variable OSDTargetSystemDrive est réglée sur la lettre de lecteur de la partition contenant les fichiers de système d'exploitation.  
 
- Deze takenreeksstap kan alleen in Windows PE worden uitgevoerd. De taak kan niet worden uitgevoerd in een standaardbesturingssysteem. Zie [Apply Operating System Image Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_ApplyOperatingSystem) (Variabelen voor de takenreeksactie van een installatiekopie van besturingssysteem toepassen) voor meer informatie over de takenreeksvariabelen voor deze actie.  
+ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle ne s'exécute pas dans un système d'exploitation standard. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Appliquer l’image du système d’exploitation](task-sequence-action-variables.md#BKMK_ApplyOperatingSystem).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   **Rechtstreeks vanaf het distributiepunt toegang tot inhoud**:  
+-   **Accéder au contenu directement depuis le point de distribution**:  
 
-     Gebruik deze optie om op te geven of de takenreeks rechtstreeks vanuit het distributiepunt toegang heeft tot de installatiekopie van het besturingssysteem. Bijvoorbeeld: u kunt deze optie gebruiken bij het implementeren van besturingssystemen op ingesloten apparaten met beperkte opslagcapaciteit. Wanneer deze optie is geselecteerd, moet u ook de instellingen voor het delen van pakketten configureren op het tabblad **Gegevenstoegang** van de pakketeigenschappen.  
+     Utilisez cette option pour spécifier si vous souhaitez que la séquence de tâches accède à l'image du système d'exploitation directement depuis le point de distribution. Par exemple, vous pouvez utiliser cette option lorsque vous déployez des systèmes d'exploitation sur des appareils intégrés ayant une capacité de stockage limitée. Lorsque cette option est sélectionnée, vous devez également configurer les paramètres de partage du package sous l'onglet **Accès aux données** des propriétés du package.  
 
     > [!NOTE]  
-    >  Met deze instelling wordt de geconfigureerde implementatieoptie op de pagina **Distributiepunten** van de **Wizard Software implementeren** alleen genegeerd voor de opgegeven installatiekopie van het besturingssysteem in deze takenreeksstap en niet alle inhoud voor de hele takenreeks.  
+    >  Ce paramètre remplace l'option de déploiement configurée dans la page **Points de distribution** de l' **Assistant Déploiement logiciel** uniquement pour l'image de système d'exploitation spécifiée lors de cette étape, et non tout le contenu de l'ensemble de la séquence de tâches.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Besturingssysteem toepassen vanuit een vastgelegd beeld**  
- Hiermee wordt een installatiekopie van een besturingssysteem geïnstalleerd die eerder is vastgelegd. Klik op **Bladeren** om het dialoogvenster **Pakket selecteren** te openen en selecteer vervolgens het bestaande installatiekopiepakket dat u wilt installeren. Als meerdere afbeeldingen zijn gekoppeld aan het opgegeven **installatiekopiepakket**, gebruikt u de vervolgkeuzelijst om de bijbehorende installatiekopie op te geven die wordt gebruikt voor deze implementatie. U kunt basisinformatie over elke bestaande installatiekopie weergeven door te klikken op de installatiekopie.  
+ **Appliquer le système d’exploitation à partir d’une image capturée**  
+ Installer une image du système d'exploitation qui a été précédemment capturée. Cliquez sur **Parcourir** pour ouvrir la boîte de dialogue **Sélectionner un package** , puis sélectionnez le package d'image existant à installer. Si plusieurs images sont associées au **Package d'images**spécifié, utilisez la liste déroulante pour spécifier l'image associée utilisée pour ce déploiement. Vous pouvez afficher des informations de base sur chaque image existante en cliquant sur l'image en question.  
 
- **Installatiekopie van besturingssysteem toepassen vanuit een originele installatiebron**  
- Hiermee wordt een besturingssysteem geïnstalleerd met behulp van een oorspronkelijke installatiebron. Klik op **Bladeren** om het dialoogvenster **Een installatiepakket voor besturingssysteem selecteren** te openen en selecteer vervolgens het bestaande besturingssysteeminstallatiepakket dat u wilt gebruiken. U kunt basisinformatie over elke bestaande installatiekopiebron weergeven door te klikken op de installatiekopiebron. De bijbehorende eigenschappen van de installatiekopie worden weergegeven in het resultatenvenster onder in het dialoogvenster. Als er meerdere edities zijn gekoppeld aan het opgegeven pakket, gebruikt u de vervolgkeuzelijst om de gebruikte bijbehorende **Editie** op te geven.  
+ **Appliquer l’image du système d’exploitation à partir d’une source d’installation d’origine**  
+ Installe un système d'exploitation à l'aide d'une source d'installation d'origine. Cliquez sur **Parcourir** pour ouvrir la boîte de dialogue **Sélectionner un package d'installation de système d'exploitation** , puis sélectionnez le package d'installation du système d'exploitation existant à utiliser. Vous pouvez afficher des informations de base sur chaque source d'image existante en cliquant sur l'image source en question. Les propriétés de la source d'image associée s'affichent dans le volet des résultats dans la partie inférieure de la boîte de dialogue. Si plusieurs éditions sont associées au package spécifié, utilisez la liste déroulante pour spécifier l' **Édition** associée qui est utilisée.  
 
- **Installatie zonder toezicht of sysprep-antwoordbestand gebruiken voor aangepaste installatie**  
- Gebruik deze optie om een Windows Setup-antwoordbestand op te geven (**unattend.xml**, **unattend.txt** of **sysprep.inf**), afhankelijk van de besturingssysteemversie en de installatiemethode. Het opgegeven bestand kan de standaardconfiguratieopties bevatten die worden ondersteund voor Windows-antwoordbestanden. Bijvoorbeeld: u kunt hiermee de standaardstartpagina voor Internet Explorer opgeven. U moet het pakket opgeven dat het antwoordbestand bevat en u moet het bijbehorende pad naar het bestand in het pakket opgeven.  
+ **Utiliser un fichier de réponse Sysprep ou autonome pour une installation personnalisée**  
+ Utilisez cette option pour fournir un fichier de réponses d'installation Windows (**unattend.xml**, **unattend.txt**ou **sysprep.inf**) selon la version du système d'exploitation et la méthode d'installation. Le fichier que vous spécifiez peut inclure toutes les options de configuration standard prises en charge par les fichiers de réponse. Par exemple, vous pouvez l'utiliser pour spécifier la page d'accueil par défaut d'Internet Explorer. Vous devez spécifier le package qui comprend le fichier de réponses et le chemin d'accès associé au fichier dans le package.  
 
 > [!NOTE]  
->  Het opgegeven Windows Setup-antwoordbestand kan ingesloten takenreeksvariabelen bevatten in de notatie %*varnaam*%, waarbij varnaam de naam van de variabele is. De tekenreeksen %*varnaam*% worden vervangen door de werkelijke waarden van de variabelen in de takenreeksactie **Windows en ConfigMgr installeren**. Let echter op dat dergelijke ingesloten takenreeksvariabelen niet kunnen worden gebruikt in velden die alleen numeriek zijn in het antwoordbestand unattend.xml.  
+>  Le fichier de réponses d'installation Windows que vous fournissez peut contenir des variables de séquence de tâches incorporées au format %*varname*%, « varname » correspondant au nom de la variable. La chaîne %*varname*% sera remplacée par les valeurs réelles de la variable dans l'action de séquence de tâches **Configurer Windows et ConfigMgr** . Toutefois, notez qu'il n'est pas possible d'utiliser des variables de séquence de tâches incorporées dans les champs exclusivement numériques d'un fichier de réponses unattend.xml.  
 
- Als u geen Windows Setup-antwoordbestand opgeeft, wordt met deze takenreeksactie een antwoordbestand automatisch gegenereerd.  
+ Si vous n'indiquez pas de fichier de réponses d'installation Windows, cette action de séquence de tâches génère automatiquement un fichier de réponses.  
 
- **Bestemming**  
- Hiermee geeft u een bestaande geformatteerde partitie en harde schijf, een specifieke logische stationsletter of de naam van een takenreeksvariabele met de logische stationsletter op.  
+ **Destination**  
+ Spécifie une partition formatée et un disque dur existants, une lettre de lecteur logique précise ou le nom d'une variable de séquence de tâches contenant la lettre de lecteur logique.  
 
--   **Volgende beschikbare partitie** -de volgende sequentiële partitie gebruiken die niet eerder is geselecteerd door de actie besturingssysteem toepassen of gegevensinstallatiekopie toepassen in deze takenreeks.  
+-   **Prochaine partition disponible** : utilisez la partition séquentielle suivante qui n’a pas été précédemment ciblée par une action Appliquer le système d’exploitation ou Appliquer l’image de données dans cette séquence de tâches.  
 
--   **Schijf en partitie opgeven** : Selecteer de **schijf** nummer (te beginnen met 0) en de **partitie** nummer (te beginnen met 1).  
+-   **Disque et partition spécifiques** : sélectionnez le numéro de **disque** (à partir de 0) et le numéro de **partition** (à partir de 1).  
 
--   **Logische stationsletter opgeven** -Geef de **stationsletter** die door Windows PE is toegewezen aan de partitie. Houd er rekening mee dat deze stationsletter kan afwijken van de stationsletter die door het zojuist geïmplementeerde besturingssysteem wordt toegewezen.  
+-   **Lettre de lecteur logique spécifique** : spécifiez la **lettre de lecteur** attribuée à la partition par Windows PE. Remarque : cette lettre de lecteur peur être différente de la lettre de lecteur que le système d'exploitation récemment déployé attribuera.  
 
--   **Logische stationsletter opgeslagen in een variabele** -Geef de takenreeksvariabele met de stationsletter die door Windows PE is toegewezen aan de partitie. Deze variabele wordt meestal ingesteld in de sectie Geavanceerd van het dialoogvenster **Partitie-eigenschappen** voor de takenreeksactie **Schijf formatteren en partitioneren**.  
+-   **Lettre de lecteur logique stockée dans une variable** : spécifiez la variable de séquence de tâches contenant la lettre de lecteur attribuée à la partition par Windows PE. Cette variable est généralement définie dans la section Avancé de la boîte de dialogue **Propriétés de la partition** pour l'action de séquence de tâches **Formater et partitionner le disque** .  
 
-##  <a name="BKMK_ApplyWindowsSettings"></a>Windows-instellingen toepassen  
- Gebruik de takenreeksstap **Windows-instellingen toepassen** om de Windows-instellingen te configureren voor de doelcomputer. De opgegeven waarden worden opgeslagen in de juiste antwoordbestandsindeling voor gebruik door Windows Setup wanneer de takenreeksstap **Windows en ConfigMgr installeren** wordt uitgevoerd.  
+##  <a name="BKMK_ApplyWindowsSettings"></a> Appliquer les paramètres Windows  
+ Utilisez l'étape de séquence de tâches **Appliquer les paramètres Windows** pour configurer les paramètres Windows de l'ordinateur de destination. Les valeurs spécifiées sont stockées au format approprié d'un fichier de réponses afin d'être utilisées par le programme d'installation Windows lors de l'exécution de l'étape de séquence de tâches **Configurer Windows et ConfigMgr** .  
 
- Deze takenreeksstap kan alleen in Windows PE worden uitgevoerd. De taak kan niet worden uitgevoerd in een standaardbesturingssysteem. Zie [Apply Windows Settings Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_ApplyWindowsSettings) (Variabelen voor takenreeksacties van Windows-instellingen toepassen) voor meer informatie over de takenreeksvariabelen voor deze actie.  
+ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle ne s'exécute pas dans un système d'exploitation standard. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Appliquer les paramètres Windows](task-sequence-action-variables.md#BKMK_ApplyWindowsSettings).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft  
+ **Nom**  
+ Nom court, défini par l'utilisateur, qui décrit l'action effectuée dans cette étape  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Gebruikersnaam**  
- Geef de naam op van de geregistreerde gebruikersnaam die is gekoppeld aan de doelcomputer. Deze waarde kan worden genegeerd door de waarde die is opgenomen door de takenreeksactie **Windows-instellingen vastleggen**.  
+ **Nom d’utilisateur**  
+ Spécifiez le nom d'utilisateur inscrit qui est associé à l'ordinateur de destination. Cette valeur peut être remplacée par la valeur capturée par l'action de séquence de tâches **Capturer les paramètres Windows** .  
 
- **De naam van organisatie**  
- Geef de naam op van de geregistreerde organisatienaam die is gekoppeld aan de doelcomputer. Deze waarde kan worden genegeerd door de waarde die is opgenomen door de takenreeksactie **Windows-instellingen vastleggen**.  
+ **Nom de l’organisation**  
+ Spécifiez le nom de l'organisation inscrite qui est associé à l'ordinateur de destination. Cette valeur peut être remplacée par la valeur capturée par l'action de séquence de tâches **Capturer les paramètres Windows** .  
 
- **Productcode**  
- Geef de productcode op die wordt gebruikt voor de installatie van Windows op de doelcomputer.  
+ **Clé du produit**  
+ Spécifiez la clé du produit qui est utilisée pour l'installation de Windows sur l'ordinateur de destination.  
 
- **Server-licentieverlening**  
- Geef de serverlicentiemodus op. U kunt **Per server** of **Per gebruiker** selecteren als licentiemodus. Als u Per server selecteert als licentiemodus, moet u ook het maximumaantal toegestane verbindingen conform uw licentieovereenkomst opgeven. Selecteer **Niet opgeven** als de doelcomputer geen server is of als u de licentiemodus niet wilt opgeven.  
+ **Licence serveur**  
+ Spécifiez le mode de licence serveur. Vous pouvez sélectionner le mode **Par serveur** ou **Par utilisateur** . Si vous sélectionnez le mode de licence Par serveur, vous devrez également spécifier le nombre maximal de connexions autorisées selon les termes de votre contrat de licence. Sélectionnez **Ne pas spécifier** si l'ordinateur de destination n'est pas un serveur ou si vous ne souhaitez pas spécifier le mode de licence.  
 
- **Maximum aantal verbindingen**  
- Geef het maximumaantal beschikbare verbindingen voor deze computer op zoals vermeld in de gebruiksrechtovereenkomst.  
+ **Nombre maximal de connexions**  
+ Spécifiez le nombre maximal de connexions disponibles pour cet ordinateur comme spécifié dans votre accord de licence.  
 
- **Willekeurig wachtwoord genereren voor lokale beheerder en het account uitschakelen op alle ondersteunde platforms (aanbevolen)**  
- Selecteer deze optie om een lokaal beheerderswachtwoord willekeurig te genereren. Hierdoor wordt een lokaal beheerderswachtwoord gemaakt en wordt het account uitgeschakeld op ondersteunde platforms.  
+ **Générer de façon aléatoire le mot de passe de l’administrateur local et désactiver le compte sur toutes les plates-formes prises en charge (recommandé)**  
+ Sélectionnez cette option si vous souhaitez qu'un mot de passe d'administrateur local soit généré de façon aléatoire. Elle crée un mot de passe d'administrateur local et fait se désactiver le compte sur les plates-formes prises en charge.  
 
- **Het account inschakelen en lokaal beheerderswachtwoord instellen**  
- Selecteer deze optie om het lokale beheerdersaccount in te schakelen en het lokale beheerderswachtwoord te maken. Voer het wachtwoord in op de regel **Wachtwoord** en bevestig het wachtwoord op de regel **Wachtwoord bevestigen**.  
+ **Activer le compte et spécifier le mot de passe de l’administrateur local**  
+ Sélectionnez cette option pour activer le compte d'administrateur local et créer le mot de passe correspondant. Entrez le mot de passe dans la ligne **Mot de passe** et confirmez-le dans la ligne **Confirmer le mot de passe** .  
 
- **Tijdzone**  
- Geef de tijdzone op die u wilt configureren op de doelcomputer. Deze waarde kan worden genegeerd door de waarde die is opgenomen door de takenreeksstap **Windows-instellingen vastleggen**.  
+ **Fuseau horaire**  
+ Spécifiez le fuseau horaire à configurer sur l'ordinateur de destination. Cette valeur peut être remplacée par la valeur capturée par l'étape de séquence de tâches **Capturer les paramètres Windows** .  
 
-##  <a name="BKMK_AutoApplyDrivers"></a>Stuurprogramma's automatisch toepassen  
- Gebruik de takenreeksstap **Stuurprogramma's automatisch toepassen** om stuurprogramma's te zoeken en installeren als onderdeel van de implementatie van het besturingssysteem.  
+##  <a name="BKMK_AutoApplyDrivers"></a> Appliquer automatiquement les pilotes  
+ Utilisez l'étape de séquence de tâches **Appliquer automatiquement les pilotes** pour faire correspondre et installer des pilotes dans le cadre du déploiement du système d'exploitation.  
 
- Met de takenreeksactie **Stuurprogramma's automatisch toepassen** worden de volgende acties uitgevoerd:  
+ L'étape de séquence de tâches **Appliquer automatiquement les pilotes** effectue les actions suivantes :  
 
-1.  Hiermee wordt de hardware gescand en worden de Plug en Play-id's gezocht voor alle aanwezige apparaten in het systeem.  
+1.  Analyse le matériel et localise les ID Plug-and-Play de tous les appareils présents sur le système.  
 
-2.  Hiermee wordt de lijst met apparaten en hun Plug en Play-id's verzonden naar het beheerpunt. Met het beheerpunt wordt een lijst geretourneerd met compatibele stuurprogramma's van de stuurprogrammacatalogus voor elk apparaat. Het beheerpunt neemt alle stuurprogramma's in aanmerking, ongeacht het stuurprogrammapakket waartoe ze behoren. Alleen de stuurprogramma's die zijn gemarkeerd met de opgegeven stuurprogrammacategorie en de stuurprogramma's die niet zijn gemarkeerd als uitgeschakeld, worden in aanmerking genomen.  
+2.  Envoie la liste des appareils et leurs ID Plug-and-Play au point de gestion. Celui-ci retourne une liste de pilotes compatibles pour chaque périphérique provenant du catalogue de pilotes. Le point de gestion prend en compte tous les pilotes, quel que soit le package de pilotes dans lequel ils se trouvent. Seuls les pilotes correspondant à la catégorie de pilotes spécifiée et ceux qui ne sont pas marqués comme désactivés sont pris en compte.  
 
-3.  Voor elk apparaat kiest de client het beste stuurprogramma dat geschikt is voor het besturingssysteem waarop dit wordt geïmplementeerd en dat zich op een toegankelijk distributiepunt bevindt.  
+3.  Pour chaque périphérique, le client choisit le pilote le plus approprié au système d'exploitation sur lequel il est déployé et qui se trouve sur un point de distribution accessible.  
 
-4.  De geselecteerde stuurprogramma's worden gedownload vanaf een distributiepunt en voorgefaseerd op het doelbesturingssysteem.  
+4.  Le ou les pilotes sélectionnés sont téléchargés à partir d'un point de distribution et préparés sur le système d'exploitation cible.  
 
-    1.  Voor installatiekopieën worden de stuurprogramma's in het stuurprogramma-archief van het besturingssysteem geplaatst.  
+    1.  Pour les installations à base d’image, les pilotes sont placés dans le magasin de pilotes du système d’exploitation.  
 
-    2.  Voor installaties op basis van een installatie wordt Windows Setup geconfigureerd met waar de stuurprogramma's te vinden zijn.  
+    2.  Pour les installations basées sur la configuration, le programme d'installation Windows est configuré avec les informations permettant de localiser les pilotes.  
 
-5.  Wanneer de takenreeksactie **Windows en ConfigMgr installeren** wordt uitgevoerd en Windows wordt opgestart, worden de stuurprogramma's gezocht die door deze actie zijn voorgefaseerd.  
+5.  Lorsque l'action de séquence de tâches **Configurer Windows et ConfigMgr** s'exécute et que Windows démarre pour la première fois, il localise les pilotes préparés par cette action.  
 
 > [!IMPORTANT]
->  De **stuurprogramma's automatisch toepassen** takenreeksstap kan niet worden gebruikt met zelfstandige media omdat Windows Setup dan geen verbinding met de Configuration Manager-site.
+>  L’étape de séquence de tâches **Appliquer automatiquement les pilotes** ne peut pas être utilisée avec un média autonome, car le programme d’installation Windows ne disposera d’aucune connexion au site Configuration Manager.
 
-Deze takenreeksstap kan alleen in Windows PE worden uitgevoerd. De taak kan niet worden uitgevoerd in een standaardbesturingssysteem. Zie [Auto Apply Drivers Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_AutoApplyDrivers) (Variabelen voor de takenreeksactie van een stuurprogramma automatisch toepassen) voor meer informatie over de takenreeksvariabelen voor deze actie.  
+Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle ne s'exécute pas dans un système d'exploitation standard. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Appliquer automatiquement les pilotes](task-sequence-action-variables.md#BKMK_AutoApplyDrivers).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Installeer alleen de best overeenkomende compatibele stuurprogramma 's**  
- Hiermee geeft u aan dat met de takenreeksstap alleen het beste overeenkomende stuurprogramma voor elk gedetecteerd apparaat wordt geïnstalleerd.  
+ **Installer uniquement les pilotes compatibles les plus appropriés**  
+ Indique que l'étape de séquence de tâches installe uniquement le pilote le plus approprié pour chaque périphérique matériel détecté.  
 
- **Alle compatibele stuurprogramma's installeren**  
- Hiermee geeft u aan dat met de takenreeksstap alle compatibele stuurprogramma's voor elk gedetecteerd apparaat worden geïnstalleerd en kiest Windows Setup het beste stuurprogramma. Deze optie vereist meer netwerkbandbreedte en schijfruimte omdat hierbij meer stuurprogramma's worden gedownload, maar deze optie kan er wel toe leiden dat een beter stuurprogramma wordt geselecteerd.  
+ **Installer tous les pilotes compatibles**  
+ Indique que l'étape de séquence de tâches installe tous les pilotes compatibles pour chaque périphérique matériel détecté et autorise le programme d'installation Windows à choisir le meilleur pilote. Cette option utilise davantage de bande passante réseau et d'espace disque car elle télécharge davantage de pilotes, mais un meilleur pilote est éventuellement sélectionné.  
 
- **Stuurprogramma's uit alle categorieën overwegen**  
- Hiermee geeft u aan dat met de takenreeksactie in alle beschikbare stuurprogrammacategorieën wordt gezocht naar de juiste apparaatstuurprogramma's.  
+ **Considérer les pilotes de toutes les catégories**  
+ Indique que l'action de séquence de tâches recherche toutes les catégories de pilotes disponibles pour les pilotes d'appareils appropriés.  
 
- **Zoeken naar passende stuurprogramma's tot bepaalde categorieën beperken**  
- Hiermee geeft u aan dat met de takenreeksactie in opgegeven stuurprogrammacategorieën naar de juiste apparaatstuurprogramma's wordt gezocht.  
+ **Limiter la correspondance des pilotes aux pilotes des catégories sélectionnées uniquement**  
+ Indique que l'action de séquence de tâches recherche les pilotes de périphérique dans les catégories de pilote indiquées pour les pilotes d'appareils appropriés.  
 
- **Installatie zonder toezicht van niet-ondertekende stuurprogramma's op versies van Windows wanneer dit is toegestaan**  
- Hiermee kunnen met deze takenreeksactie niet-ondertekende apparaatstuurprogramma's van Windows worden geïnstalleerd.  
+ **Effectuer une installation autonome des pilotes non signés sur les versions de Windows le permettant**  
+ Autorise cette action de la séquence de tâches à installer des pilotes d'appareils Windows non signés.  
 
 > [!IMPORTANT]  
->  Deze optie is niet van toepassing op besturingssystemen waarin beleid voor stuurprogramma-ondertekening niet kan worden geconfigureerd.  
+>  Cette option ne s'applique pas aux systèmes d'exploitation sur lesquels la stratégie de signature de pilotes ne peut pas être configurée.  
 
-##  <a name="BKMK_CaptureNetworkSettings"></a>Netwerkinstellingen vastleggen  
- Gebruik de takenreeksstap **Netwerkinstellingen vastleggen** om Microsoft-netwerkinstellingen vast te leggen van de computer waarop de takenreeks wordt uitgevoerd. De instellingen worden opgeslagen in takenreeksvariabelen die de standaardinstellingen negeren die u configureert in de takenreeksstap **Netwerkinstellingen toepassen**.  
+##  <a name="BKMK_CaptureNetworkSettings"></a> Capturer les paramètres réseau  
+ L'étape de la séquence de tâches **Capturer les paramètres réseau** permet de capturer les paramètres réseau Microsoft de l'ordinateur exécutant la séquence de tâches. Les paramètres sont enregistrés dans des variables de séquence de tâches qui remplacent les paramètres par défaut que vous configurez à l'étape de séquence de tâches **Appliquer les paramètres réseau** .  
 
- Deze takenreeksstap kan alleen in een standaardbesturingssysteem worden uitgevoerd. De stap kan niet worden uitgevoerd in Windows PE. Zie [Capture Network Settings Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_CaptureNetworkSettings) (Variabelen voor takenreeksactie van netwerkinstellingen vastleggen) voor meer informatie over de takenreeksvariabelen voor deze actie.  
+ Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Capturer les paramètres réseau](task-sequence-action-variables.md#BKMK_CaptureNetworkSettings).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Hiermee geeft u een korte, door de gebruiker gedefinieerde naam op die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Spécifie un nom court défini par l'utilisateur qui décrit l'action entreprise à cette étape.  
 
- **Beschrijving**  
- Dit is meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Fournit davantage d'informations sur l'action effectuée à cette étape.  
 
- **Lidmaatschap van domein en werkgroep migreren**  
- Hiermee worden de lidmaatschapsgegevens van het domein en de werkgroep van de doelcomputer vastgelegd.  
+ **Migrer l’appartenance au groupe de travail ou au domaine**  
+ Capture les informations d'appartenance du domaine et du groupe de travail de l'ordinateur de destination.  
 
- **Netwerkadapterconfiguratie migreren**  
- Hiermee wordt de netwerkadapterconfiguratie van de doelcomputer vastgelegd. De vastgelegde informatie bevat de globale netwerkinstellingen, het aantal netwerkadapters en de netwerkinstellingen van elke adapter. Deze instellingen hebben betrekking op DNS, WINS, IP en poortfilters.  
+ **Migrer la configuration de la carte réseau**  
+ Capture la configuration de la carte réseau de l'ordinateur de destination. Les informations capturées sont constituées des paramètres réseau globaux, du nombre de cartes et des paramètres réseau associés à chaque carte. Les paramètres sont constitués de paramètres associés à DNS, WINS, IP et aux filtres de port.  
 
-##  <a name="BKMK_CaptureOperatingSystemImage"></a>Besturingssysteeminstallatiekopie vastleggen  
- Gebruik de takenreeksstap **Besturingssysteeminstallatiekopie vastleggen** om een of meer installatiekopieën van een referentiecomputer vast te leggen en op te slaan in een .wim-bestand op de opgegeven netwerkshare. Het besturingssysteem Wizard installatiekopie toevoegen kan vervolgens worden gebruikt te importeren. WIM-bestand naar Configuration Manager zodat deze kan worden gebruikt voor implementaties van besturingssystemen op basis van installatiekopieën.  
+##  <a name="BKMK_CaptureOperatingSystemImage"></a> Capturer l’image du système d’exploitation  
+ Utilisez l'étape de séquence de tâches **Capturer l'image du système d'exploitation** pour capturer une ou plusieurs images à partir d'un ordinateur de référence et les stocke dans un fichier .WIM sur le partage réseau spécifié. L’Assistant Ajout d’un package d’image de système d’exploitation peut ensuite être utilisé pour importer ce fichier .WIM dans Configuration Manager et ainsi permettre le déploiement de systèmes d’exploitation à base d’image.  
 
- Elk volume (station) op de referentiecomputer wordt vastgelegd als een afzonderlijke installatiekopie binnen het .wim-bestand. Als de computer waarnaar wordt verwezen meerdere volumes heeft, bevat het resulterende .wim-bestand een afzonderlijke installatiekopie voor elk volume. Alleen volumes die zijn geformatteerd als NTFS of FAT32 worden vastgelegd. Volumes met andere formatteringen en USB-volumes worden overgeslagen.  
+ Chaque volume (lecteur) sur l'ordinateur de référence est capturé en tant qu'image distincte dans le fichier .WIM. Si l'ordinateur référencé comporte des volumes multiples, le fichier .WIM obtenu contiendra une image distincte pour chaque volume. Seuls les volumes formatés au format NTFS ou FAT32 sont capturés. Les volumes d'un autre format et les volumes USB sont ignorés.  
 
- Het geïnstalleerde besturingssysteem op de referentiecomputer moet een versie van Windows die wordt ondersteund door Configuration Manager en moet met behulp van het hulpprogramma SysPrep zijn voorbereid. Het geïnstalleerde besturingssysteemvolume en het opstartvolume moeten hetzelfde volume zijn.  
+ Le système d’exploitation installé sur l’ordinateur de référence doit être une version de Windows prise en charge par Configuration Manager et doit avoir été préparé à l’aide de l’outil SysPrep. Le volume du système d'exploitation installé et le volume de démarrage doivent correspondre.  
 
- Bovendien moet u een Windows-account met schrijfmachtigingen invoeren voor de netwerkshare die u hebt geselecteerd.  
+ Vous devez également entrer un compte Windows qui dispose d'autorisations en écriture au partage réseau que vous avez sélectionné.  
 
- Deze takenreeksstap kan alleen in Windows PE worden uitgevoerd. De taak kan niet worden uitgevoerd in een standaardbesturingssysteem. Zie [Capture Operating System Image Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_CaptureOperatingSystemImage) (Variabelen voor de takenreeksactie van een installatiekopie van het besturingssysteem vastleggen) voor meer informatie over de takenreeksvariabelen voor deze actie.  
+ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle ne s'exécute pas dans un système d'exploitation standard. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Capturer l’image du système d’exploitation](task-sequence-action-variables.md#BKMK_CaptureOperatingSystemImage).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Doel**  
- Systeem bestandspad naar de locatie die Configuration Manager gebruikt bij het opslaan van de vastgelegde besturingssysteeminstallatiekopie.  
+ **Cible**  
+ Nom de chemin du système de fichiers menant à l’emplacement qu’utilise Configuration Manager pour stocker l’image de système d’exploitation capturée.  
 
- **Beschrijving**  
- Een optionele, door de gebruiker gedefinieerde beschrijving van de vastgelegde besturingssysteeminstallatiekopie die is opgeslagen in het .wim-bestand.  
+ **Description**  
+ Description facultative définie par l'utilisateur de l'image du système d'exploitation capturée qui est stockée dans le fichier WIM.  
 
- **Versie**  
- Een optioneel, door de gebruiker gedefinieerd versienummer om toe te wijzen aan de vastgelegde besturingssysteeminstallatiekopie. Deze waarde kan een combinatie van letters en cijfers zijn en wordt opgeslagen in het .wim-bestand.  
+ **Version**  
+ Numéro de version facultatif défini par l'utilisateur à attribuer à l'image du système d'exploitation capturée. Cette valeur peut représenter n'importe quelle combinaison de lettres et de chiffres et est stockée dans le fichier WIM.  
 
- **Gemaakt door**  
- De optionele naam van de gebruiker die de installatiekopie van het besturingssysteem heeft gemaakt, die is opgeslagen in het .wim-bestand.  
+ **Créé par**  
+ (facultatif) Nom de l'utilisateur qui a créé l'image du système d'exploitation et qui est stocké dans le fichier WIM.  
 
- **Account besturingssysteeminstallatiekopie vastleggen**  
- U moet het Windows-account invoeren dat machtigingen heeft voor de netwerkshare die u hebt opgegeven. Klik op **Instellen** om de naam van het Windows-account op te geven.  
+ **Compte Capturer l’image du système d’exploitation**  
+ Vous devez entrer le compte Windows qui dispose des droits d'accès au partage réseau que vous avez spécifié. Cliquez sur **Définir** pour indiquer le nom de ce compte Windows.  
 
-##  <a name="BKMK_CaptureUserState"></a>Gebruikersstatus vastleggen  
- Gebruik de takenreeksstap **Gebruikerstoestand vastleggen** om met het Hulpprogramma voor migratie van gebruikersstatus de gebruikersstatus en instellingen vast te leggen van de computer waarop de takenreeks wordt uitgevoerd. Deze takenreeksstap wordt gebruikt in combinatie met de takenreeksstap **Gebruikersstatus herstellen**. In USMT 3.0.1 en hoger wordt met deze optie altijd de USMT-Statusopslag versleuteld met een versleutelingssleutel die wordt gegenereerd en beheerd door Configuration Manager.  
+##  <a name="BKMK_CaptureUserState"></a> Capturer l’état utilisateur  
+ L'étape de la séquence de tâches **Capturer l'état utilisateur** permet d'utiliser l'outil de migration de l'état utilisateur (USMT) pour capturer l'état et les paramètres utilisateur de l'ordinateur exécutant la séquence de tâches. Cette étape de séquence de tâches est utilisée avec l'étape de séquence de tâches **Restaurer l'état utilisateur** . Dans USMT 3.0.1 et ultérieur, cette option chiffre toujours le magasin d’état USMT au moyen d’une clé de chiffrement générée et gérée par Configuration Manager.  
 
- Zie voor meer informatie over het beheren van de gebruikersstatus bij het implementeren van besturingssystemen, [Gebruikersstatus beheren](../get-started/manage-user-state.md).  
+ Pour plus d’informations sur la gestion de l’état utilisateur pendant le déploiement de systèmes d’exploitation, consultez [Gérer l’état utilisateur](../get-started/manage-user-state.md).  
 
- U kunt ook de **gebruikersstatus vastleggen** takenreeksstap met de **Statusopslag opvragen** en **Statusopslag vrijgeven** takenreeksstappen als u wilt de statusinstellingen opslaan in of herstellen uit een statusmigratiepunt punt in de Configuration Manager-site.  
+ Vous pouvez aussi utiliser l’étape de séquence de tâches **Capturer l’état utilisateur** avec les étapes de séquence de tâches **Demander le magasin d’état** et **Libérer le magasin d’état** si vous voulez enregistrer les paramètres d’état sur un point de migration d’état ou les restaurer à partir d’un point de migration d’état dans le site Configuration Manager.  
 
- De takenreeksstap **Gebruikerstoestand vastleggen** biedt controle over een beperkte subset van de meest gebruikte USMT-opties. Aanvullende opdrachtregelopties kunnen worden opgegeven met de takenreeksvariabele OSDMigrateAdditionalCaptureOptions.  
+ L'étape de séquence de tâches **Capturer l'état utilisateur** permet de contrôler un sous-ensemble des options USMT les plus couramment utilisées. D'autres options de ligne de commande peuvent être spécifiées au moyen de la variable de séquence de tâches OSDMigrateAdditionalCaptureOptions.  
 
- Deze takenreeksstap kan alleen in Windows PE worden uitgevoerd. De taak kan niet worden uitgevoerd in een standaardbesturingssysteem. Zie [Capture User State Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_CaptureUserState) (Variabelen voor de takenreeksactie van gebruikersstatus vastleggen) voor meer informatie over de takenreeksvariabelen voor deze actie.  
+ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle ne s'exécute pas dans un système d'exploitation standard. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Capturer l’état utilisateur](task-sequence-action-variables.md#BKMK_CaptureUserState).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Gebruiker pakket migratieprogramma gebruikersstatus**  
- Voer het Configuration Manager-pakket met de versie van USMT voor deze takenreeksstap te gebruiken bij het vastleggen van de gebruikersstatus en instellingen. Voor dit pakket is geen programma vereist. Wanneer de takenreeksstap wordt uitgevoerd, wordt de versie van USMT gebruikt in het pakket dat u opgeeft. Geef een pakket op met de 32-bits of x64-versie van USMT, afhankelijk van de architectuur van het besturingssysteem waarvan u de status vastlegt.  
+ **Package de l’outil de migration de l’état utilisateur**  
+ Entrez le package Configuration Manager qui contient la version de l’outil USMT pour cette étape de séquence de tâches pour l’utiliser pendant la capture des paramètres et de l’état utilisateur. Ce package ne requiert pas de programme. Lorsque l'étape de séquence de tâches est exécutée, la séquence de tâches utilise la version de l'outil de migration de l'état utilisateur du package que vous indiquez. Spécifiez un package contenant la version 32 bits ou x64 de USMT en fonction de l'architecture du système d'exploitation à partir duquel vous capturez l'état.  
 
- **Alle gebruikersprofielen vastleggen met standaardopties**  
- Selecteer deze optie alle gebruikersprofielinformatie te migreren. Deze optie is standaard geselecteerd.  
+ **Capturer tous les profils utilisateur présentant les options standard**  
+ Sélectionnez cette option pour migrer toutes les informations des profils utilisateur. Cette option est activée par défaut.  
 
- Als u deze optie selecteert, maar niet de optie gebruikersprofielen lokale computer in de takenreeksstap gebruikersstatus herstellen selecteert, wordt de takenreeks mislukt omdat Configuration Manager de nieuwe accounts niet kan migreren zonder wachtwoorden toewijzen. Als u daarnaast de wizard **Nieuwe takenreeks maken** gebruikt en een takenreeks maakt van het type **Bestaand installatiekopiepakket installeren**, wordt de resulterende takenreeks standaard gebruikt als Alle gebruikersprofielen vastleggen met standaardopties, maar wordt de optie Gebruikersprofielen lokale computer herstellen (d.w.z. niet-domeinaccounts) niet geselecteerd.  
+ Si vous sélectionnez cette option sans sélectionner l’option Restaurer les profils utilisateur de l’ordinateur local dans l’étape de séquence de tâches Restaurer l’état utilisateur, la séquence de tâches échouera, car Configuration Manager ne peut pas migrer les nouveaux comptes sans leur attribuer des mots de passe. De même, si vous faites appel à l'Assistant **Nouvelle séquence de tâches** et créez une séquence de tâches pour **Installer un package d'images existant**, la séquence de tâches obtenue prend par défaut la valeur Capturer tous les profils utilisateur présentant les options standard, mais ne sélectionne pas l'option Restaurer les profils utilisateur de l'ordinateur local (c.-à-d. des comptes qui sont pas des comptes de domaine).  
 
- Selecteer **Gebruikersprofielen lokale computer herstellen** en geef een wachtwoord op voor het account dat wordt gemigreerd. In een handmatig gemaakte takenreeks is deze instelling te vinden onder de stap Gebruikersstatus herstellen. In een takenreeks die is gemaakt door de wizard **Nieuwe takenreeks maken** is deze instelling te vinden op de wizardpagina voor de stap **Gebruikersbestanden en -instellingen herstellen**.  
+ Sélectionnez **Restaurer les profils utilisateur de l'ordinateur local** et spécifiez un mot de passe pour le compte à migrer. Dans une séquence de tâches qui a été manuellement créée, ce paramètre est disponible sous l'étape Restaurer l'état utilisateur. Dans une séquence de tâches créée à l'aide de l'Assistant **Nouvelle séquence de tâches** , ce paramètre est disponible sur la page de l'assistant d'étape **Restaurer les fichiers et paramètres utilisateur** .  
 
- Dit is niet van toepassing als u geen lokale gebruikersaccounts hebt.  
+ Si vous ne disposez d'aucun compte d'utilisateur local, ceci ne s'applique pas.  
 
- **Vastleggen van gebruikersprofielen aanpassen**  
- Selecteer deze optie om migratie van een aangepast profielbestand op te geven. Klik op **Bestanden** om de configuratiebestanden voor USMT te selecteren die u wilt gebruiken bij deze stap. U moet een aangepast .xml-bestand opgeven met de regels waarmee de te migreren gebruikersstatusbestanden worden gedefinieerd.  
+ **Personnaliser la façon dont les profils utilisateur sont capturés**  
+ Sélectionnez cette option pour indiquer une migration de fichiers de profils personnalisée. Cliquez sur **Fichiers** pour sélectionner les fichiers de configuration pour l'outil de migration de l'état utilisateur à utiliser avec cette étape. Vous devez indiquer un fichier .xml personnalisé contenant les règles qui définissent les fichiers de l'état utilisateur à migrer.  
 
- **Klik hier om configuratiebestanden te selecteren:**  
- Selecteer deze optie om de configuratiebestanden in het USMT-pakket te selecteren die u wilt gebruiken voor het vastleggen van gebruikersprofielen. Klik op de knop **Bestanden** om het dialoogvenster **Configuratiebestanden** te openen. Geef een configuratiebestand op door de naam van het bestand in te voeren op de regel **Bestandsnaam** en te klikken op de knop **Toevoegen**.  
+ **Cliquez ici pour sélectionner les fichiers de configuration :**  
+ Sélectionnez cette option pour sélectionner les fichiers de configuration dans le package USMT que vous souhaitez utiliser pour capturer les profils utilisateur. Cliquez sur le bouton **Fichiers** pour lancer la boîte de dialogue **Fichiers de configuration** . Pour indiquer un fichier de configuration, entrez son nom sur la ligne **Nom de fichier** , puis cliquez sur le bouton **Ajouter** .  
 
- **Uitgebreide logboekregistratie inschakelen**  
- Schakel deze optie in om meer gedetailleerde informatie in het logboekbestand te genereren. Bij het vastleggen van status wordt het logboek Scanstate.log gegenereerd en standaard opgeslagen in de logboekmap voor de takenreeks in de map \windows\system32\ccm\logs.  
+ **Activer la journalisation documentée**  
+ Activez cette option pour générer des informations de fichiers journaux plus détaillées. Lors de la capture de l'état, le fichier Scanstate.log est généré et stocké par défaut dans le dossier de journalisation de la séquence de tâches du dossier \windows\system32\ccm\logs .  
 
- **SKIP-bestanden met encrypted file system**  
- Schakel deze optie in als u het vastleggen wilt overslaan van bestanden die zijn versleuteld met Encrypted File System (EFS), met inbegrip van profielbestanden. Afhankelijk van het besturingssysteem en de USMT-versie zijn versleutelde bestanden mogelijk niet leesbaar na herstel. Zie de USMT-documentatie voor meer informatie.  
+ **Ignorer les fichiers utilisant le système de fichiers chiffrés (EFS)**  
+ Activez cette option si vous souhaitez ignorer la capture des fichiers chiffrés au moyen d'EFS (Encrypted File System, Système de fichiers chiffrés), y compris les fichiers de profils. Selon le système d'exploitation et la version d'USMT, les fichiers chiffrés peuvent ne pas être accessibles après la restauration. Pour plus d'informations, consultez la documentation d'USMT.  
 
- **Kopiëren door toegang tot bestandssysteem**  
- Schakel deze optie in om een van de volgende instellingen op te geven:  
+ **Copier en utilisant l’accès au système de fichiers**  
+ Activez cette option pour spécifier les paramètres suivants :  
 
--   **Doorgaan als sommige bestanden niet kunnen worden vastgelegd**: Schakel deze instelling om door te gaan van het migratieproces, zelfs als sommige bestanden kunnen niet worden vastgelegd. De takenreeksstap mislukt als een bestand niet kan worden vastgelegd terwijl deze optie is uitgeschakeld. Deze optie is standaard ingeschakeld.  
+-   **Continuer si certains fichiers ne peuvent pas être capturés**: activez ce paramètre pour continuer le processus de migration même si certains fichiers ne peuvent pas être capturés. Si vous désactivez cette option et qu'un fichier ne peut pas être capturé, l'étape de la séquence de tâches échouera. Cette option est activée par défaut.  
 
--   **Lokaal vastleggen met koppelingen in plaats van door bestanden te kopiëren**: Schakel deze instelling om vaste NTFS-koppelingen te leggen van bestanden.  
+-   **Capturer localement en utilisant les liens au lieu de copier les fichiers**: activez ce paramètre pour utiliser des liens physiques NTFS pour capturer les fichiers.  
 
-     Voor meer informatie over het migreren van gegevens met vaste koppelingen raadpleegt u [Hard-Link Migration Store](http://go.microsoft.com/fwlink/p/?LinkId=240222)  
+     Pour plus d'informations sur la migration de données à l'aide de liens directs, consultez [Magasin de migration de lien direct](http://go.microsoft.com/fwlink/p/?LinkId=240222)  
 
--   **Vastleggen in offline modus (alleen Windows PE)**: Schakel deze instelling om vast te leggen van de status van de gebruiker in Windows PE in plaats van het volledige besturingssysteem.  
+-   **Capturer en mode hors-ligne (Windows PE uniquement)**: activez ce paramètre pour capturer l’état utilisateur dans Windows PE au lieu du système d’exploitation complet.  
 
- **Vastleggen met Volume Copy Shadow service (VSS)**  
- Met deze optie kunt u bestanden vastleggen, zelfs als deze door een andere toepassing voor bewerking zijn vergrendeld.  
+ **Capturer en utilisant Volume Copy Shadow Service (VSS)**  
+ Cette option vous permet de capturer des fichiers même s’ils sont verrouillés pour modification par une autre application.  
 
-##  <a name="BKMK_CaptureWindowsSettings"></a>Windows-instellingen vastleggen  
- Gebruik de takenreeksstap **Windows-instellingen vastleggen** om de Windows-instellingen vast te leggen van de computer waarop de takenreeks wordt uitgevoerd. De instellingen worden opgeslagen in takenreeksvariabelen die de standaardinstellingen negeren die u configureert in de takenreeksstap **Windows-instellingen toepassen**.  
+##  <a name="BKMK_CaptureWindowsSettings"></a> Capturer les paramètres Windows  
+ Utilisez l'étape de la séquence de tâches **Capturer les paramètres Windows** pour capturer les paramètres Windows de l'ordinateur exécutant la séquence de tâches. Les paramètres sont enregistrés dans des variables de séquence de tâches qui remplacent les paramètres par défaut que vous configurez à l'étape de séquence de tâches **Appliquer les paramètres Windows** .  
 
- Deze takenreeksstap kan in Windows PE of een standaardbesturingssysteem worden uitgevoerd. Zie [Capture Windows Settings Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_CaptureWindowsSettings) (Variabelen voor takenreeksacties van Windows-instellingen vastleggen) voor meer informatie over de takenreeksvariabelen voor deze actie.  
+ Cette étape de séquence de tâches s'exécute dans Windows PE ou un système d'exploitation standard. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Capturer les paramètres Windows](task-sequence-action-variables.md#BKMK_CaptureWindowsSettings).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Computernaam migreren**  
- Selecteer deze optie om de NetBIOS-naam van de computer vast te leggen.  
+ **Migrer le nom de l’ordinateur**  
+ Sélectionnez cette option pour capturer le nom NetBIOS de l'ordinateur.  
 
- **Geregistreerde namen van gebruikers en organisaties migreren**  
- Selecteer deze optie om de geregistreerde namen van de gebruiker en organisatie vast te leggen van de computer.  
+ **Migrer les noms d’organisations et d’utilisateurs inscrits**  
+ Sélectionnez cette option pour capturer les noms de l'utilisateur enregistré et de l'organisation à partir de l'ordinateur.  
 
- **Tijdzone migreren**  
- Selecteer deze optie om de tijdzone-instelling op de computer vast te leggen.  
+ **Migrer le fuseau horaire**  
+ Sélectionnez cette option pour capturer le paramètre de fuseau horaire sur l'ordinateur.  
 
-##  <a name="BKMK_CheckReadiness"></a>Gereedheid controleren  
- Gebruik de takenreeksstap **Gereedheid controleren** om te controleren of de doelcomputer voldoet aan de opgegeven voorwaarden voor de implementatievereisten.  
+##  <a name="BKMK_CheckReadiness"></a> Vérifier la préparation  
+ Utilisez la séquence de tâches **Vérifier la préparation** pour vérifier que l'ordinateur cible remplit les conditions requises spécifiées pour le déploiement.  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap. Selecteer deze instelling niet voor deze stap, anders worden alleen de gereedheidscontroles vastgelegd en wordt de takenreeks niet gestopt in geval van een mislukte controle.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape. Pour cette étape, ne sélectionnez pas ce paramètre, sinon l'étape n'enregistre que les vérifications de préparation et la séquence de tâches ne s'arrête pas en cas d'échec d'une vérification.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Minimumgeheugen garanderen (MB)**  
- Selecteer deze instelling om te controleren of de geïnstalleerde hoeveelheid geheugen (in megabytes) op de doelcomputer voldoet aan of hoger is dan de opgegeven waarde. Deze instelling is standaard geselecteerd.  
+ **Garantir une mémoire minimum (Mo)**  
+ Sélectionnez ce paramètre pour vérifier que la quantité de mémoire, en mégaoctets, installée sur l'ordinateur cible atteint ou dépasse la taille spécifiée. Ce paramètre est activé par défaut.  
 
- **Minimale processorsnelheid garanderen (MHz)**  
- Selecteer deze instelling om te controleren of de snelheid (in megahertz) van de geïnstalleerde processor in de doelcomputer voldoet aan of hoger is dan de opgegeven waarde. Deze instelling is standaard geselecteerd.  
+ **Garantir une vitesse de processeur minimum (MHz)**  
+ Sélectionnez ce paramètre pour vérifier que la vitesse du processeur, en mégahertz (MHz), installée sur l'ordinateur cible atteint ou dépasse la taille spécifiée. Ce paramètre est activé par défaut.  
 
- **Zorg ervoor dat de minimale vrije schijfruimte (MB)**  
- Selecteer deze instelling om te controleren of de hoeveelheid vrije schijfruimte (in megabytes) op de doelcomputer voldoet aan of groter is dan de opgegeven waarde.  
+ **Garantir un espace disque libre minimum (Mo)**  
+ Sélectionnez ce paramètre pour vérifier que la quantité d'espace disque disponible, en mégaoctets, sur l'ordinateur cible atteint ou dépasse la taille spécifiée.  
 
- **Zorg ervoor dat de huidige OET worden vernieuwd**  
- Selecteer deze instelling om te controleren of het geïnstalleerde besturingssysteem op de doelcomputer voldoet aan de vereisten die u opgeeft. Deze instelling is standaard geselecteerd met de waarde **CLIENT**.  
+ **S’assurer que le SE à actualiser est**  
+ Sélectionnez ce paramètre pour vérifier que le système d'exploitation installé sur l'ordinateur cible remplit la condition que vous spécifiez. Par défaut, ce paramètre est sélectionné avec la valeur **CLIENT**.  
 
-##  <a name="BKMK_ConnectToNetworkFolder"></a>Verbinding maken met netwerkmap  
- Gebruik de takenreeksactie **Verbinding maken met netwerkmap** om een verbinding te maken met een gedeelde netwerkmap.  
+##  <a name="BKMK_ConnectToNetworkFolder"></a> Se connecter à un dossier réseau  
+ Utilisez l'action de la séquence de tâches **Connexion à un dossier réseau** pour établir une connexion avec un dossier réseau partagé.  
 
- Deze takenreeksstap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Zie [Connect to Network Folder Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_ConnecttoNetworkFolder) (Variabelen voor takenreeksacties voor verbinden met netwerkmap) voor meer informatie over de takenreeksvariabelen voor deze actie.  
+ Cette étape de séquence de tâches s'exécute dans un système d'exploitation standard ou Windows PE. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Se connecter à un dossier réseau](task-sequence-action-variables.md#BKMK_ConnecttoNetworkFolder).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
-##  <a name="BKMK_ConvertDisktoDynamic"></a>Schijf naar dynamische schijf converteren  
- Gebruik de takenreeksstap **Schijven naar dynamische schijven converteren** om een fysieke schijf van een basisschijftype naar een dynamisch schijftype te converteren.  
+##  <a name="BKMK_ConvertDisktoDynamic"></a> Convertir en disque dynamique  
+ Utilisez la séquence de tâches **Convertir en disque dynamique** pour convertir un disque physique de type standard en disque dynamique.  
 
- Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Zie [Convert Disk to Dynamic Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_ConvertDisk) (Variabelen voor takenreeksacties voor schijf naar dynamische schijf converteren) voor meer informatie over de takenreeksvariabelen voor deze actie.  
+ Cette étape s'exécute dans un système d'exploitation standard ou Windows PE. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Convertir en disque dynamique](task-sequence-action-variables.md#BKMK_ConvertDisk).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Schijfnummer**  
- Het fysieke schijfnummer van de schijf die wordt geconverteerd.  
+ **Numéro du disque**  
+ Numéro du disque physique à convertir.  
 
-##  <a name="BKMK_DisableBitLocker"></a>BitLocker uitschakelen  
- Gebruik de takenreeksstap **BitLocker uitschakelen** om de BitLocker-versleuteling uit te schakelen op het huidige besturingssysteemstation of op een specifiek station. Met deze actie blijven de sleutelbeveiligingen in niet-versleutelde tekst achter op de harde schijf, maar wordt de inhoud van het station niet ontsleuteld. Deze actie wordt vervolgens bijna onmiddellijk voltooid.  
+##  <a name="BKMK_DisableBitLocker"></a> Désactiver BitLocker  
+ Utilisez l'étape de la séquence de tâches **Désactiver BitLocker** pour désactiver le chiffrement BitLocker sur le disque du système d'exploitation actuel ou sur un lecteur spécifique. Cette action laisse les protecteurs de clé visibles en texte clair sur le disque dur, mais elle ne déchiffre pas le contenu du lecteur. En conséquence, cette action est terminée presque instantanément.  
 
 > [!NOTE]  
->  BitLocker-stationsversleuteling biedt versleuteling op laag niveau van de inhoud van een schijfvolume.  
+>  Le chiffrement de lecteur BitLocker propose un cryptage de bas niveau du contenu d'un volume de disque.  
 
- Als er meerdere stations zijn versleuteld, moet u BitLocker uitschakelen op alle gegevensstations voordat u BitLocker uitschakelt op het besturingssysteemstation.  
+ Si vous avez plusieurs lecteurs chiffrés, vous devez désactiver BitLocker sur chaque lecteur de données avant de désactiver BitLocker sur le lecteur du système d'exploitation.  
 
- Deze stap kan alleen in een standaardbesturingssysteem worden uitgevoerd. De stap kan niet worden uitgevoerd in Windows PE.  
+ Cette étape s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE.  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Hiermee geeft u een korte, door de gebruiker gedefinieerde naam op die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Spécifie un nom court défini par l'utilisateur qui décrit l'action entreprise à cette étape.  
 
- **Beschrijving**  
- Dit is meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Fournit davantage d'informations sur l'action effectuée à cette étape.  
 
- **Huidig besturingssysteemstation**  
- Hiermee wordt BitLocker uitgeschakeld op het huidige besturingssysteemstation.  
+ **Lecteur du système d’exploitation actuel**  
+ Désactive BitLocker sur le disque du système d'exploitation courant.  
 
- **Specifiek station**  
- Hiermee wordt BitLocker uitgeschakeld op een specifiek station. Gebruik de vervolgkeuzelijst om het station op te geven waarop BitLocker wordt uitgeschakeld.  
+ **Lecteur spécifique**  
+ Désactive BitLocker sur un disque spécifique. Dans la liste déroulante, sélectionnez le disque sur lequel BitLocker est désactivé.  
 
-##  <a name="BKMK_DownloadPackageContent"></a>Pakketinhoud downloaden  
- Gebruik de takenreeksstap **Pakketinhoud downloaden** om een van de volgende pakkettypen te downloaden:  
+##  <a name="BKMK_DownloadPackageContent"></a> Télécharger le contenu du package  
+ Utilisez l’étape de séquence de tâches **Télécharger le contenu du package** pour télécharger un des types de package suivants :  
 
--   Installatiekopieën van besturingssysteem  
+-   Images du système d'exploitation  
 
--   Upgradepakketten voor besturingssysteem  
+-   Packages de mise à niveau du système d’exploitation  
 
--   Driverpakketten  
+-   Packages de pilotes  
 
--   Pakketten  
+-   Packages  
 
- Deze stap werkt goed in een takenreeks om een besturingssysteem in de volgende scenario's te werken:  
+ Cette étape fonctionne bien dans une séquence de tâches pour mettre à niveau un système d’exploitation dans les scénarios suivants :  
 
--   Een enkele takenreeks gebruiken voor een upgrade die voor zowel x86- als x64-platforms werkt. Als u dit wilt doen, voegt u twee **Pakketinhoud downloaden**-stappen toe aan de groep **Upgrade voorbereiden** met de voorwaarden om de clientarchitectuur te detecteren en alleen het geschikte upgradepakket voor het besturingssystemen te downloaden. Configureer elke **Pakketinhoud downloaden**-stap zodanig dat dezelfde variabele wordt gebruikt, en gebruik de variabele voor het mediumpad in de stap **Besturingssysteem bijwerken**.  
+-   Pour utiliser une seule séquence de tâches de mise à niveau qui peut fonctionner avec les plateformes x86 et x64. Pour cela, incluez deux étapes **Télécharger le contenu du package** dans le groupe **Préparer pour la mise à niveau** avec des conditions pour détecter l’architecture du client et télécharger uniquement le package de mise à niveau de système d’exploitation approprié. Configurez chaque étape **Télécharger le contenu du package** pour utiliser la même variable et utilisez cette variable pour le chemin du support à l’étape **Mettre à niveau le système d’exploitation** .  
 
--   Als u een geschikt stuurprogrammapakket wilt downloaden, gebruikt u twee **Pakketinhoud downloaden**-stappen op voorwaarde dat het juiste hardwaretype wordt gedetecteerd voor elk stuurprogrammapakket. Configureer elke **Pakketinhoud downloaden**-stap zodanig dat dezelfde variabele wordt gebruikt, en gebruik de variabele voor de waarde **Tijdelijke inhoud** in de sectie met stuurprogramma's in de stap **Besturingssysteem bijwerken**.  
+-   Pour télécharger dynamiquement un package de pilotes applicable, utilisez deux étapes **Télécharger le contenu du package** avec des conditions pour détecter le type de matériel approprié pour chaque package de pilotes. Configurez chaque étape **Télécharger le contenu du package** pour utiliser la même variable et utilisez cette variable pour la valeur **Contenu intermédiaire** dans la section des pilotes à l’étape **Mettre à niveau le système d’exploitation** .  
 
 > [!NOTE]    
-> Wanneer u een takenreeks die de pakketinhoud downloaden stap bevat implementeert, schakel niet **alle inhoud lokaal downloaden voordat de takenreeks wordt gestart** voor **implementatieopties** op de **distributiepunten** pagina van de Wizard Software implementeren.  
+> Lorsque vous déployez une séquence de tâches contenant l’étape Télécharger le contenu du package, ne sélectionnez pas **Télécharger tout le contenu localement avant de démarrer la séquence de tâches** pour les **Options de déploiement** sur la page **Points de distribution** de l’assistant de déploiement de logiciels.  
 
-Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. De optie voor het pakket opslaan in de Configuration Manager-clientcache wordt echter niet ondersteund in WinPE.
+Cette étape s'exécute dans un système d'exploitation standard ou Windows PE. Toutefois, la possibilité d’enregistrer le package dans le cache du client Configuration Manager n’est pas prise en charge dans WinPE.
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Hiermee geeft u een korte, door de gebruiker gedefinieerde naam op die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Spécifie un nom court défini par l'utilisateur qui décrit l'action entreprise à cette étape.  
 
- **Beschrijving**  
- Dit is meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Fournit davantage d'informations sur l'action effectuée à cette étape.  
 
- Pictogram **Pakket selecteren**  
- Klik op het pictogram om het pakket te selecteren dat u wilt downloaden. Nadat u een pakket hebt geselecteerd, kunt u nog een keer op het pictogram klikken om een ander pakket te kiezen.  
+ Icône**Sélectionner un package**  
+ Cliquez sur l’icône pour sélectionner le package à télécharger. Après avoir sélectionné un package, vous pouvez cliquer une nouvelle fois sur l’icône pour choisir un autre package.  
 
- **De volgende locatie plaatsen**  
- U kunt het pakket op een van de volgende locaties opslaan:  
+ **Placez à l’emplacement suivant**  
+ Choisissez d’enregistrer le package à l’un des emplacements suivants :  
 
- -   **Werkmap voor takenreeksen**  
+ -   **Répertoire de travail de séquence de tâches**  
 
- -   **Configuration Manager-clientcache**: Deze optie kunt u de inhoud in de cache opslaan. Hierdoor kan de client als bron van een peer-cache voor andere peer-cacheclients fungeren. Zie voor meer informatie [voorbereiden Windows PE-peer-cache om WAN-verkeer te beperken](../get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md).  
+ -   **Cache du client Configuration Manager**: vous utilisez cette option pour stocker le contenu dans le cache du client. Cela permet au client de servir de source de cache homologue pour d’autres clients de cache homologue. Pour plus d’informations, consultez [Préparer la mise en cache d’homologue Windows PE pour réduire le trafic WAN](../get-started/prepare-windows-pe-peer-cache-to-reduce-wan-traffic.md).  
 
- -   **Aangepast pad**  
+ -   **Chemin personnalisé**  
 
- **Pad opslaan als een variabele**  
- U kunt het pad opslaan als een variabele die u in een andere takenreeksstap kunt gebruiken. Configuration Manager voegt een numeriek achtervoegsel aan de variabelenaam toe. Bijvoorbeeld, als u een variabele van % opgeven*mycontent*% als aangepaste variabele, is de hoofdmap waarin alle inhoud waarnaar wordt verwezen is opgeslagen (dit kan meerdere pakketten zijn). Wanneer u naar de variabele verwijst, wordt u een numeriek achtervoegsel toevoegen aan de variabele. Bijvoorbeeld: voor het eerste pakket u wordt verwijzen naar %*mycontent01*% variabele. Wanneer u naar de variabele in een Vervolgstappen, zoals besturingssysteem bijwerken verwijst, gebruikt u %*mycontent02*% of %*mycontent03*%, waarbij het nummer overeenkomt met de volgorde waarin het pakket wordt vermeld in de stap.  
+ **Enregistrez le chemin d’accès en tant que variable**  
+ Vous pouvez enregistrer le chemin en tant que variable que vous pouvez utiliser dans une autre étape de séquence de tâches. Configuration Manager ajoute un suffixe numérique au nom de la variable. Par exemple, si vous spécifiez une variable %*mon_contenu*% en tant que variable personnalisée, il s’agit de la racine du stockage de tout le contenu référencé (qui peut correspondre à plusieurs packages). Lorsque vous faites référence à la variable, vous ajoutez un suffixe numérique à la variable. Par exemple, pour le premier package, vous ferez référence à la variable %*mycontent01*%. Lorsque vous faites référence à la variable dans des étapes ultérieures, par exemple la mise à niveau du système d’exploitation, vous utiliseriez %*mycontent02*% ou %*mycontent03*% où le nombre correspond à l’ordre dans lequel le package est répertorié dans l’étape.  
 
- **Als het downloaden van een pakket mislukt, doorgaan met downloaden van andere pakketten in de lijst**  
- Hiermee wordt aangegeven dat wanneer het downloaden van het pakket mislukt, er wordt doorgegaan naar het volgende pakket in de lijst en wordt dat gedownload.  
+ **En cas d’échec de téléchargement d’un package, continuer le téléchargement des autres packages de la liste**  
+ Spécifie que si le téléchargement d’un package échoue, le package suivant dans la liste est sélectionné et son téléchargement démarré.  
 
-##  <a name="BKMK_EnableBitLocker"></a>BitLocker inschakelen  
- Gebruik de takenreeksstap **BitLocker inschakelen** om BitLocker-versleuteling in te schakelen op ten minste twee partities op de harde schijf. De eerste actieve partitie bevat de Windows-bootstrapcode. Een andere partitie bevat het besturingssysteem. De bootstrappartitie moet onversleuteld blijven.  
+##  <a name="BKMK_EnableBitLocker"></a> Activer BitLocker  
+ Utilisez l'étape de séquence de tâches **Activer BitLocker** pour activer le chiffrement BitLocker sur au moins deux partitions sur le disque dur. La première partition active contient le code d'amorçage Windows. Une autre partition contient le système d'exploitation. La partition d'amorçage ne doit pas être chiffrée.  
 
- Gebruik de takenreeksstap **BitLocker vooraf inrichten** om BitLocker in Windows PE in te schakelen op een station. Zie de sectie [BitLocker vooraf inrichten](#BKMK_PreProvisionBitLocker) in dit onderwerp voor meer informatie.  
+ Utilisez l'étape de séquence de tâches **Préconfigurer BitLocker** pour activer BitLocker sur un lecteur dans Windows PE. Pour plus d'informations, voir la section [Préconfigurer BitLocker](#BKMK_PreProvisionBitLocker) de cette rubrique.  
 
 > [!NOTE]  
->  BitLocker-stationsversleuteling biedt versleuteling op laag niveau van de inhoud van een schijfvolume.  
+>  Le chiffrement de lecteur BitLocker propose un cryptage de bas niveau du contenu d'un volume de disque.  
 
- De stap **BitLocker inschakelen** kan alleen in een standaardbesturingssysteem worden uitgevoerd. De stap kan niet worden uitgevoerd in Windows PE. Zie [Variabelen voor takenreeksacties van BitLocker inschakelen](task-sequence-action-variables.md#BKMK_EnableBitLocker) voor meer informatie over de takenreeksvariabelen voor deze actie.  
+ L'étape **Activer BitLocker** s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Activer BitLocker](task-sequence-action-variables.md#BKMK_EnableBitLocker).  
 
- Trusted Platform Module (Trusted) moet de volgende status hebben wanneer u **Alleen TPM**, **TPM en opstartsleutel op USB** of **TPM en pincode** opgeeft voordat u de stap **BitLocker inschakelen** kunt uitvoeren:  
+ Le Module de plateforme sécurisée (TPM) doit être à l'état suivant lorsque vous spécifiez **TPM uniquement**, **TPM et clé de démarrage sur USB** ou **TPM et code confidentiel**pour que vous puissiez effectuer l'étape **Activer BitLocker** :  
 
--   Ingeschakeld  
+-   Permis  
 
--   Geactiveerd  
+-   Activé  
 
--   Eigendom toegestaan  
+-   Propriété autorisée  
 
- Met de takenreeksstap kan elke resterende TPM-initialisatie worden voltooid omdat de resterende stappen geen fysieke aanwezigheid of herstarts vereisen. De resterende TPM-initialisatiestappen die transparant met **BitLocker inschakelen** (indien nodig) kunnen worden voltooid zijn als volgt:  
+ L'étape de la séquence de tâches peut terminer toute initialisation d'un module de plateforme sécurisée (TPM) restante, car les étapes restantes ne requièrent ni une présence physique ni des redémarrages de l'ordinateur. Les étapes d'initialisation d'un module de plate-forme sécurisée (TPM) restantes qui peuvent être terminées de manière transparente par **Activer BitLocker** (le cas échéant) incluent :  
 
--   Goedkeuringssleutelpaar maken  
+-   Créer une paire de clés de validité  
 
--   Eigenaarautorisatiewaarde en escrow maken voor Active Directory, dat moet zijn uitgebreid ter ondersteuning van deze waarde  
+-   Créer une valeur d'autorisation du propriétaire et la déposer dans Active Directory, qui doit avoir été développé afin de prendre en charge cette valeur.  
 
--   Eigenaar worden  
+-   Se définir comme propriétaire  
 
--   De opslaghoofdsleutel maken of opnieuw instellen als deze al aanwezig maar niet-compatibel is  
+-   Créer la clé racine de stockage ou la réinitialiser si elle existe déjà mais qu'elle est incompatible.  
 
- Als u wilt dat tijdens de stap **BitLocker inschakelen** wordt gewacht totdat de stationsversleuteling is voltooid voordat de volgende stap in de takenreeks wordt verwerkt, schakelt u het selectievakje **Wachten** in. Als u het selectievakje **Wachten** niet inschakelt, wordt de stationsversleuteling uitgevoerd op de achtergrond en wordt de takenreeks onmiddellijk uitgevoerd tot de volgende stap.  
+ Si vous voulez que l'étape **Activer BitLocker** soit mise en attente et qu'elle ait lieu après la fin du processus de chiffrement du disque et avant de passer à l'étape suivante de la séquence de tâches, activez la case à cocher **Attente** . Si vous n'activez pas la case à cocher **Attente** , le processus de chiffrement du disque est effectué en arrière-plan et l'exécution de la séquence de tâches passe immédiatement à l'étape suivante.  
 
- BitLocker kan worden gebruikt voor het versleutelen van meerdere stations op een computersysteem (zowel het besturingssysteemstation als gegevensstations). Voor het versleutelen van een gegevensstation moet het besturingssysteem al zijn versleuteld en moet de versleuteling zijn voltooid, omdat de sleutelbeveiligingen voor de gegevensstations worden opgeslagen op het besturingssysteemstation. Hierdoor moet u, als u het besturingssysteemstation en het gegevensstation tijdens hetzelfde proces versleutelt, de optie Wachten selecteren voor de stap waarmee BitLocker wordt ingeschakeld voor het besturingssysteemstation.  
+ BitLocker peut être utilisé pour chiffrer plusieurs lecteurs sur un système d'ordinateurs (système d'exploitation et lecteurs de données). Pour chiffrer un lecteur de données, le système d'exploitation doit déjà être chiffré et le processus de chiffrement doit être terminé, car les protecteurs de clé des lecteurs de données sont stockés sur le lecteur du système d'exploitation. Par conséquent, si vous chiffrez le lecteur du système d'exploitation et le lecteur de données lors du même processus, l'option d'attente doit être sélectionnée pour l'étape qui active BitLocker sur le lecteur du système d'exploitation.  
 
- Als de harde schijf al is versleuteld maar BitLocker is uitgeschakeld, wordt/worden met BitLocker inschakelen de sleutelbeveiliging(en) opnieuw ingeschakeld en vrijwel onmiddellijk voltooid. De harde schijf hoeft in dit geval niet nogmaals te worden versleuteld.  
+ Si le disque est déjà chiffré mais que BitLocker est désactivé, Activer BitLocker active de nouveau le ou les protecteurs des clés. Cette opération sera pratiquement immédiate. Dans ce cas, il n'est pas nécessaire de chiffrer de nouveau le disque.  
 
- Zie [Variabelen voor takenreeksacties van BitLocker inschakelen](task-sequence-action-variables.md#BKMK_EnableBitLocker) voor meer informatie over de takenreeksvariabelen voor deze actie.  
+ Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Activer BitLocker](task-sequence-action-variables.md#BKMK_EnableBitLocker).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Hiermee geeft u een beschrijvende naam op voor deze takenreeksstap.  
+ **Nom**  
+ Indique un nom descriptif pour cette étape de séquence de tâches.  
 
- **Beschrijving**  
- Hiermee kunt u optioneel een beschrijving invoeren voor deze takenreeksstap.  
+ **Description**  
+ Permet, si vous le souhaitez, d'entrer une description de cette étape de séquence de tâches.  
 
- **Kies het station om te versleutelen**  
- Hiermee geeft u het te versleutelen station op. Selecteer **Huidig besturingssysteemstation** om het huidige besturingssysteemstation te versleutelen en configureer vervolgens een van de volgende opties voor sleutelbeheer:  
+ **Lecteur à chiffrer**  
+ Indique le lecteur à chiffrer. Pour chiffrer le lecteur du système d'exploitation actuel, sélectionnez **Lecteur du système d'exploitation actuel** , puis configurez l'une des options suivantes de gestion des clés :  
 
--   **Alleen TPM**: Selecteer deze optie om alleen Trusted Platform Module (TPM) gebruiken.  
+-   **TPM uniquement**: sélectionnez cette option pour utiliser uniquement le module de plateforme sécurisée (TPM).  
 
--   **Opstartsleutel op USB alleen**: Selecteer deze optie om een opstartsleutel die is opgeslagen op een USB-flashstation te gebruiken. Wanneer u deze optie selecteert, wordt de normale opstartprocedure door BitLocker vergrendeld totdat een USB-apparaat met een BitLocker-opstartsleutel wordt aangesloten op de computer.  
+-   **Clé de démarrage sur USB uniquement**: sélectionnez cette option pour utiliser une clé de démarrage stockée sur une clé USB. Lorsque vous sélectionnez cette option, BitLocker verrouille le processus de démarrage normal jusqu'à ce qu'un périphérique USB contenant une clé de démarrage BitLocker soit connecté à l'ordinateur.  
 
--   **TPM en opstartsleutel op USB**: Selecteer deze optie om TPM en een opstartsleutel die is opgeslagen op een USB-flashstation te gebruiken. Wanneer u deze optie selecteert, wordt de normale opstartprocedure door BitLocker vergrendeld totdat een USB-apparaat met een BitLocker-opstartsleutel wordt aangesloten op de computer.  
+-   **TPM et clé de démarrage sur USB**: sélectionnez cette option pour utiliser le module TPM et une clé de démarrage stockée sur une clé USB. Lorsque vous sélectionnez cette option, BitLocker verrouille le processus de démarrage normal jusqu'à ce qu'un périphérique USB contenant une clé de démarrage BitLocker soit connecté à l'ordinateur.  
 
--   **TPM en PINCODE**:  Selecteer deze optie om TPM en pincode (PIN) te gebruiken. Wanneer u deze optie selecteert, wordt de normale opstartprocedure door BitLocker vergrendeld totdat de pincode is ingevoerd.  
+-   **TPM et code confidentiel**: sélectionnez cette option pour utiliser le module TPM et un numéro d’identification personnel (code confidentiel). Lorsque vous sélectionnez cette option, BitLocker verrouille le processus de démarrage normal jusqu'à ce que l'utilisateur fournisse le code confidentiel.  
 
- Selecteer **Specifiek station** om een specifiek gegevensstation (niet het besturingssysteemstation) te versleutelen en selecteer vervolgens het station in de lijst.  
+ Pour chiffrer un lecteur de données spécifique autre qu'un lecteur de système d'exploitation, sélectionnez **Lecteur spécifique**, puis sélectionnez le lecteur dans la liste.  
 
- **Kies waar de herstelsleutel moet worden gemaakt**  
- U kunt opgeven waar het herstelwachtwoord wordt gemaakt door **In Active Directory** te selecteren zodat het wachtwoord in Active Directory wordt bewaard. Als u deze optie selecteert, moet u Active Directory voor de site uitbreiden zodat de bijbehorende BitLocker-herstelgegevens worden opgeslagen. U kunt ervoor kiezen geen wachtwoord te maken door **Geen herstelsleutel maken** te selecteren. Het wordt echter aanbevolen een wachtwoord te maken.  
+ **Emplacement de création de la clé de récupération**  
+ Pour indiquer l'emplacement où est créé le mot de passe de récupération, sélectionnez **Dans Active Directory** pour déposer le mot de passe dans Active Directory. Si vous sélectionnez cette option, vous devez étendre Active Directory au site afin que les informations de récupération BitLocker associées soient enregistrées. Vous pouvez décider de ne pas créer de mot de passe en sélectionnant **Ne pas créer de clé de récupération**. Toutefois, la création d'un mot de passe est recommandée.  
 
- **Wacht totdat BitLocker het stationscoderingsproces op alle stations voordat de bewerking wordt voortgezet uitvoering van takenreeks voltooid**  
- Selecteer deze optie om de BitLocker-stationsversleuteling te voltooien voordat de volgende stap in de takenreeks wordt uitgevoerd. Als deze optie is geselecteerd, wordt het hele schijfvolume versleuteld voordat de gebruiker zich kan aanmelden op de computer.  
+ **Attendez que BitLocker termine le processus de chiffrement des lecteurs avant de poursuivre l’exécution de la séquence de tâches**  
+ Sélectionnez cette option pour exécuter le chiffrement de lecteur BitLocker avant d'exécuter la séquence de tâches suivante. Si elle est sélectionnée, le volume de disque entier est chiffré avant que l'utilisateur puisse se connecter à l'ordinateur.  
 
- De versleuteling kan uren duren wanneer een grote harde schijf wordt versleuteld. Als u deze optie niet selecteert, kan de takenreeks onmiddellijk worden voortgezet.  
+ Le processus de chiffrement peut prendre des heures dans le cas du chiffrement d'un disque dur de taille importante. Si vous ne sélectionnez pas cette option, la séquence de tâches débutera immédiatement.  
 
-##  <a name="BKMK_FormatandPartitionDisk"></a>Schijf formatteren en partitioneren  
- Gebruik de takenreeksstap **Schijf formatteren en partitioneren** om een opgegeven schijf op de doelcomputer te formatteren en partitioneren.  
+##  <a name="BKMK_FormatandPartitionDisk"></a> Formater et partitionner le disque  
+ Utilisez l'étape de la séquence de tâches **Formater et partitionner le disque** pour formater et partitionner un disque spécifié sur l'ordinateur de destination.  
 
 > [!IMPORTANT]  
->  Elke instelling die u voor deze takenreeksstap opgeeft geldt voor één opgegeven schijf. Als u een andere schijf op de doelcomputer wilt formatteren en partitioneren, moet u een extra exemplaar van de takenreeksstap **Schijf formatteren en partitioneren** toevoegen aan de takenreeks.  
+>  Chaque paramètre défini pour cette étape de la séquence de tâches s'applique à un seul disque spécifié. Pour formater et partitionner un autre disque sur l'ordinateur de destination, vous devez ajouter à la séquence de tâches une étape supplémentaire **Formater et partitionner le disque** .  
 
- Deze takenreeksstap kan alleen in Windows PE worden uitgevoerd. De taak kan niet worden uitgevoerd in een standaardbesturingssysteem. Zie [Format and Partition Disk Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_FormatPartitionDisk) (Variabelen voor takenreeksacties voor schijfformattering en -partitionering) voor meer informatie over de takenreeksvariabelen voor deze actie.  
+ Cette étape de séquence de tâches s'exécute uniquement dans Windows PE. Elle ne s'exécute pas dans un système d'exploitation standard. Pour plus d’informations sur les variables de séquence de tâches pour cette action, consultez [Variables d’action de séquence de tâches Formater et partitionner le disque](task-sequence-action-variables.md#BKMK_FormatPartitionDisk).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Schijfnummer**  
- Het fysieke schijfnummer van de schijf die wordt geformatteerd. Het nummer is gebaseerd op de rangschikking van Windows-schijfinventarisatie.  
+ **Numéro du disque**  
+ Numéro de disque physique à formater. Le numéro se base sur le classement d'énumération du disque Windows.  
 
- **Schijftype**  
- Het type van de schijf die wordt geformatteerd. Er zijn twee opties die u kunt selecteren in de vervolgkeuzelijst:  
+ **Type du disque**  
+ Le type du disque formaté. Deux options sont disponibles dans la liste déroulante :  
 
--   Standaard(MBR) - Master Boot Record.  
+-   Standard (MBR) – Secteur de démarrage principal.  
 
--   GPT - GUID-partitietabel  
+-   GPT – Table de partition GUID  
 
 > [!NOTE]  
->  Als u het schijftype wijzigt van **Standaard (MBR)** in **GPT** terwijl de partitie-indeling een uitgebreide partitie bevat, worden alle uitgebreide en logische partities verwijderd uit de indeling. U wordt gevraagd om deze actie te bevestigen voordat u het schijftype kunt wijzigen.  
+>  Si vous passez le type de disque de **Standard (MBR)** à **GPT**, et si la structure de la partition contient une partition étendue, toutes les partitions étendues et logiques seront supprimées de la structure. Un message vous invite à confirmer l'opération avant de valider le changement de type de disque.  
 
  **Volume**  
- Specifieke informatie over de partitie of het volume dat wordt gemaakt, met inbegrip van de volgende informatie:  
+ Informations spécifiques sur la partition ou le volume à créer, notamment :  
 
--   Naam  
+-   Nom  
 
--   Resterende schijfruimte  
+-   Espace disque restant  
 
- Klik op **Nieuw** om het dialoogvenster **Partitie-eigenschappen** te openen voor het maken van een nieuwe partitie. U kunt het partitietype en de grootte opgeven, en u kunt aangeven of de partitie een opstartpartitie is. Als u een bestaande partitie wilt wijzigen, klikt u op de te wijzigen partitie en klikt u vervolgens op de eigenschappenknop. Zie voor meer informatie over het configureren van hardeschijfpartities een van de volgende onderwerpen:  
+ Pour créer une partition, cliquez sur **Nouveau** pour ouvrir la boîte de dialogue **Propriétés de la partition** . Vous pouvez indiquer le type de partition et la taille, et préciser s'il s'agit d'une partition de démarrage. Pour modifier une partition existante, cliquez sur la partition à modifier puis sur le bouton Propriétés. Pour plus d'informations sur la façon de configurer des partitions de disque dur, consultez l'une des ressources suivantes :  
 
--   [UEFI/GPT gebaseerde vaste schijfpartities configureren](http://go.microsoft.com/fwlink/?LinkID=272104)  
+-   [Configurer des partitions de disque dur UEFI/GPT](http://go.microsoft.com/fwlink/?LinkID=272104)  
 
--   [BIOS/MBR-hardeschijfpartities configureren](http://go.microsoft.com/fwlink/?LinkId=272105)  
+-   [Configurer des partitions de disque dur BIOS/MBR](http://go.microsoft.com/fwlink/?LinkId=272105)  
 
- Als u een partitie wilt verwijderen, selecteert u de gewenste partitie en klikt u vervolgens op **Verwijderen**.  
+ Pour supprimer une partition, sélectionnez-la, puis cliquez sur **Supprimer**.  
 
-##  <a name="BKMK_InstallApplication"></a>Toepassing installeren  
- Gebruik de takenreeksstap **Toepassing installeren** om toepassingen te installeren als onderdeel van de takenreeks. Met deze stap kunt u een set toepassingen installeren die is gespecificeerd in de takenreeksstap of kunt u een set toepassingen installeren die is opgegeven via een dynamische lijst met takenreeksvariabelen. Als deze stap wordt uitgevoerd, begint de installatie van de toepassing onmiddellijk zonder te wachten op een polling-interval voor beleid.  
+##  <a name="BKMK_InstallApplication"></a> Installer l’application  
+ Utilisez l'étape de séquence de tâches **Installer l'application** pour installer des applications dans le cadre de la séquence de tâches. Cette étape peut installer un ensemble d'applications spécifiées par l'étape de séquence de tâches ou un ensemble d'applications spécifiées par une liste dynamique de variables de séquence de tâches. Lorsque cette étape est exécutée, l'installation de l'application commence immédiatement sans attendre un intervalle d'interrogation de stratégie.  
 
- De geïnstalleerde toepassingen moeten voldoen aan de volgende criteria:  
+ Les applications installées doivent répondre aux critères suivants :  
 
--   De toepassing moet een implementatietype van Windows Installer of Script Installer zijn. Implementatietypen voor Windows-app-pakket (appx-bestand) worden niet ondersteund.  
+-   L’application doit avoir un type de déploiement Windows Installer ou Programme d’installation de script. Les types de déploiement Package d’application Windows (fichier .appx) ne sont pas pris en charge.  
 
--   De software moet worden uitgevoerd onder het lokale systeemaccount en niet het gebruikersaccount.  
+-   Il doit être exécuté sous le compte système local et non le compte d'utilisateur.  
 
--   De toepassing mag geen interactie hebben met het bureaublad. Het programma moet stil of zonder toezicht worden uitgevoerd.  
+-   Il ne doit pas interagir avec le Bureau. Le programme doit s'exécuter en mode silencieux ou en mode sans assistance.  
 
--   De toepassing mag zelf geen herstart initiëren. De toepassing moet een herstart aanvragen via de standaardherstartcode, afsluitcode 3010. Hierdoor wordt ervoor gezorgd dat de herstart correct wordt afgehandeld tijdens de takenreeksstap. Als de toepassing afsluitcode 3010 retourneert, voert de onderliggende takenreeks-engine de herstart uit. Na het opnieuw opstarten wordt de takenreeks automatisch voortgezet.  
+-   Il ne doit pas lancer un redémarrage seul. L'application doit demander un redémarrage à l'aide du code de redémarrage standard 3010, qui est un code de sortie. Ceci garantit que la séquence de tâches gérera correctement le redémarrage. Si l'application renvoie un code de sortie 3010, le moteur de séquences de tâches sous-jacent effectue le redémarrage. Après le redémarrage, la séquence de tâches se poursuit automatiquement.  
 
- Wanneer de stap **Toepassing installeren** wordt uitgevoerd, controleert de toepassing de toepasbaarheid van de vereisteregels en de detectiemethode voor de implementatietypen van de toepassing. Op basis van de resultaten van deze controle installeert de toepassing het toepasselijke implementatietype. Als een implementatietype afhankelijkheden bevat, wordt het afhankelijke implementatietype geëvalueerd en geïnstalleerd als onderdeel van de stap voor toepassingsinstallatie. Toepassingsafhankelijkheden worden niet ondersteund voor zelfstandige media.  
+ Lorsque l'étape **Installer l'application** s'exécute, l'application vérifie l'applicabilité des règles de spécification et la méthode de détection sur les types de déploiement de l'application. Selon les résultats de cette vérification, l'application installe le type de déploiement applicable. Si un type de déploiement contient des dépendances, le type de déploiement dépendant est évalué et installé dans le cadre de l'étape Installer l'application. Les dépendances d'application ne sont pas prises en charge pour les médias autonomes.  
 
 > [!NOTE]  
->  Voor het installeren van een toepassing die een andere toepassing vervangt, moeten de inhoudsbestanden voor de vervangen toepassing beschikbaar zijn, omdat de takenreeksstap anders mislukt. Bijvoorbeeld: Microsoft Visio 2010 is geïnstalleerd in een client of in een vastgelegde installatiekopie. Wanneer de takenreeksstap Toepassing installeren wordt uitgevoerd voor het installeren van Microsoft Visio 2013, moeten de inhoudsbestanden voor Microsoft Visio 2010 (de vervangen toepassing) beschikbaar zijn op een distributiepunt, omdat de takenreeks anders mislukt. Met een client of vastgelegde installatiekopie zonder geïnstalleerde versie van Microsoft Visio wordt de installatie van Microsoft Visio 2013 voltooid zonder te controleren of de Microsoft Visio 2010-inhoudsbestanden zijn gecontroleerd.  
+>  Pour installer une application qui en remplace une autre, les fichiers de contenu de l'application remplacée doivent être disponibles, sinon l'étape échoue. Par exemple, Microsoft Visio 2010 est installé sur un client ou dans une image capturée. Lorsque l'étape de séquence de tâches Installer l'application est exécutée pour installer Microsoft Visio 2013, les fichiers de contenu de Microsoft Visio 2010 (l'application remplacée) doivent être disponibles sur un point de distribution, sinon la séquence de tâches échoue. Un client ou une image capturée sans Microsoft Visio installé terminera l'installation de Microsoft Visio 2013 sans vérifier la présence des fichiers de contenu de Microsoft Visio 2010.  
 
 > [!NOTE]
-> U kunt de SMSTSMPListRequestTimeoutEnabled en ingebouwde variabelen voor de SMSTSMPListRequestTimeout inschakelen en Specificeer hoeveel milliseconden lang een takenreeks wacht voordat het opnieuw probeert te installeren van een toepassing of software-updatebestanden nadat deze is mislukt voor het opvragen van de beheerpuntlijst van locatieservices. Zie voor meer informatie [Task sequence ingebouwde varliables](task-sequence-built-in-variables.md).
+> Vous pouvez utiliser les variables intégrées SMSTSMPListRequestTimeoutEnabled et SMSTSMPListRequestTimeout pour activer et spécifier le délai d’attente (en millisecondes) d’une séquence de tâche avant qu’elle tente à nouveau d’installer une application ou une mise à jour logicielle après l’échec de la récupération de la liste de points de gestion auprès des services de localisation. Pour plus d’informations, consultez [Variables intégrées de séquence de tâches](task-sequence-built-in-variables.md).
 
- Deze takenreeksstap kan alleen in een standaardbesturingssysteem worden uitgevoerd. De stap kan niet worden uitgevoerd in Windows PE.  
+ Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE.  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Geef op dat u deze stap opnieuw wilt uitvoeren als de computer onverwacht opnieuw wordt opgestart. U kunt ook opgeven hoe vaak u de stap na een herstart opnieuw wilt uitvoeren.  
+-   Indiquez qu'il faut réessayer cette étape si l'ordinateur redémarre de façon inattendue. Vous pouvez également spécifier le nombre de nouvelles tentatives après un redémarrage.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **De volgende toepassingen installeren**  
- Met deze instelling geeft u de toepassingen op die worden geïnstalleerd in de volgorde waarin ze worden opgegeven.  
+ **Installer les applications suivantes**  
+ Ce paramètre spécifie les applications installées dans l'ordre dans lequel elles sont spécifiées.  
 
- Configuration Manager filtert alle uitgeschakelde toepassingen en alle toepassingen met de volgende instellingen. Deze toepassingen worden niet weergegeven in het dialoogvenster **Selecteer de te installeren toepassing**.  
+ Configuration Manager éliminera toutes les applications désactivées ou les applications avec les paramètres suivants. Ces applications n'apparaissent pas dans la boîte de dialogue **Sélectionner l'application à installer** .  
 
--   Alleen als er een gebruiker is aangemeld  
+-   Uniquement quand un utilisateur a ouvert une session  
 
--   Uitvoeren met gebruikersrechten  
+-   Exécuter avec les droits utilisateur  
 
- **Toepassingen installeren volgens dynamische variabelenlijst**  
- Deze instelling geeft de basisnaam aan voor een set takenreeksvariabelen die zijn gedefinieerd voor een verzameling of voor een computer. Met deze variabelen worden de toepassingen opgegeven die voor die verzameling of computer worden geïnstalleerd. De naam van elke variabele bestaat uit de gemeenschappelijke basisnaam plus een numeriek achtervoegsel dat begint bij 01. De waarde voor elke variabele moet de naam van de toepassing en niets anders bevatten.  
+ **Installer les applications en fonction de la liste de variables dynamiques**  
+ Ce paramètre spécifie le nom de base d'un ensemble de variables de séquence de tâches qui sont définies pour un regroupement ou un ordinateur. Ces variables spécifient les applications qui seront installées pour ce regroupement ou cet ordinateur. Chaque nom de variable comprend son nom de base courant plus un suffixe numérique commençant par 01. La valeur de chaque variable doit contenir le nom de l'application et rien d'autre.  
 
- Voor toepassingen die worden geïnstalleerd met behulp van een dynamische variabelenlijst, moet de volgende instelling zijn ingeschakeld op de **algemene** tabblad van de toepassing **eigenschappen** in het dialoogvenster: **Toestaan dat deze toepassing wordt geïnstalleerd door de toepassing installeren voor de takenreeksactie in plaats van handmatig implementeren**  
+ Pour les applications à installer en utilisant une liste de variables dynamiques, le paramètre suivant doit être activé sous l’onglet **Général** de la boîte de dialogue **Propriétés** de l’application : **Autoriser cette application à être installée à partir de l’action de la séquence de tâches Installer l’application plutôt que de la déployer manuellement**.  
 
 > [!NOTE]  
->  U kunt toepassingen niet installeren met behulp van een dynamische variabelenlijst voor zelfstandige media-implementaties.  
+>  Vous ne pouvez pas installer d'applications à l'aide d'une liste de variables dynamiques pour les déploiements de média autonome.  
 
- Bijvoorbeeld: als u één toepassing wilt installeren met behulp van de takenreeksvariabele AA01, geeft u de volgende variabele op:  
+ Par exemple, pour installer une application unique à l'aide d'une variable de séquence de tâches nommée AA01, vous indiquez la variable suivante :  
 
-|Naam variabele|Waarde variabele|  
+|Nom de la variable :|Valeur de la variable|  
 |-------------------|--------------------|  
 |AA01|Microsoft Office|  
 
- Als u twee toepassingen wilt installeren, geeft u de volgende variabelen op:  
+ Pour installer deux applications, vous indiqueriez les variables suivantes :  
 
-|Naam variabele|Waarde variabele|  
+|Nom de la variable :|Valeur de la variable|  
 |-------------------|--------------------|  
 |AA01|Microsoft Lync|  
 |AA02|Microsoft Office|  
 
- De volgende voorwaarden zijn van invloed op wat wordt geïnstalleerd:  
+ Les conditions suivantes affectent ce qui est installé :  
 
--   Als de waarde van een variabele andere informatie bevat dan de naam van de toepassing, wordt de toepassing niet geïnstalleerd en wordt de takenreeks voortgezet.  
+-   Si la valeur d'une variable contient d'autres informations que le nom de l'application. Cette application n'est pas installée et la séquence de tâches continue.  
 
--   Als er geen variabele met de opgegeven basisnaam en het achtervoegsel '01' is gevonden, worden er geen toepassingen geïnstalleerd. Wanneer u selecteert **Doorgaan bij fout** op het tabblad Opties van de takenreeksstap de takenreeks verder wordt uitgevoerd wanneer een toepassing niet kan worden geïnstalleerd. Als u de instelling niet selecteert, mislukt de takenreeks en worden resterende toepassingen niet geïnstalleerd.  
+-   Si aucune variable avec le nom de base et le suffixe « 01 » spécifiés n'est détectée, aucune application n'est installée. Quand vous sélectionnez **Continuer en cas d’erreur** sous l’onglet Options de l’étape de séquence de tâches, la séquence de tâches se poursuit quand l’installation d’une application échoue. Lorsque le paramètre n'est pas sélectionné, la séquence de tâches échoue et n'installe pas les autres applications.  
 
- **Als een toepassing mislukt, doorgaan met installatie van andere toepassingen in de lijst**  
- Deze instelling geeft aan dat de stap wordt voorgezet als de installatie van een afzonderlijke toepassing mislukt. Als u deze instelling opgeeft, wordt de takenreeks voortgezet ongeacht eventuele installatiefouten die worden geretourneerd. Als u de instelling niet opgeeft, wordt de takenreeksstap onmiddellijk beëindigd wanneer een installatie mislukt.  
+ **Si l’installation d’une application échoue, continuer d’installer les autres applications de la liste**  
+ Ce paramètre spécifie que l'étape se poursuit si l'installation d'une application individuelle échoue. Si ce paramètre est spécifié, la séquence de tâches continue indépendamment des erreurs d'installation renvoyées. Si ce paramètre n'est pas spécifié et qu'une installation échoue, l'étape de séquence de tâches s'interrompt immédiatement.  
 
-##  <a name="BKMK_InstallDeploymentTools"></a>Implementatiehulpprogramma's installeren  
- Gebruik de **Implementatiegereedschappen installeren** takenreeksstap voor het installeren van de Configuration Manager-pakket dat de Sysprep-Ontwikkelingstools bevat.  
+##  <a name="BKMK_InstallDeploymentTools"></a> Installer les outils de déploiement  
+ Utilisez l’étape de séquence de tâches **Installer les outils de déploiement** pour installer le package Configuration Manager qui contient les outils de déploiement Sysprep.  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Sysprep-pakket**  
- Deze instelling geeft u de Configuration Manager-pakket met de Sysprep-implementatieprogramma's voor de volgende besturingssystemen:  
+ **Package Sysprep**  
+ Ce paramètre permet de spécifier le package Configuration Manager qui contient les outils de déploiement Sysprep pour les systèmes d’exploitation suivants :  
 
 -   Windows XP SP3  
 
--   Windows XP x64 SP2  
+-   Windows XP X64 SP2  
 
 -   Windows Server 2003 SP2  
 
-##  <a name="BKMK_InstallPackage"></a>Pakket installeren
+##  <a name="BKMK_InstallPackage"></a> Installer le package
 
- Gebruik de takenreeksstap **Pakket installeren** om software te installeren als onderdeel van de takenreeks. Als deze stap wordt uitgevoerd, begint de installatie onmiddellijk zonder te wachten op een polling-interval voor beleid.  
+ Utilisez l'étape de séquence de tâches **Installer le package** pour installer des logiciels dans le cadre de la séquence de tâches. Lorsque cette étape est exécutée, l'installation commence immédiatement sans attendre un intervalle d'interrogation de stratégie.  
 
- De te installeren software moet voldoen aan de volgende criteria:  
+ Le logiciel installé doit répondre aux critères suivants :  
 
--   De software moet worden uitgevoerd onder het lokale systeemaccount en niet het gebruikersaccount.  
+-   Il doit être exécuté sous le compte système local et non le compte d'utilisateur.  
 
--   De software mag geen interactie hebben met het bureaublad. Het programma moet stil of zonder toezicht worden uitgevoerd.  
+-   Il ne doit pas interagir avec le Bureau. Le programme doit s'exécuter en mode silencieux ou en mode sans assistance.  
 
--   De toepassing mag zelf geen herstart initiëren. De software moet een herstart aanvragen via de standaardherstartcode, afsluitcode 3010. Hierdoor wordt ervoor gezorgd dat de herstart correct wordt afgehandeld tijdens de takenreeksstap. Als de software afsluitcode 3010 retourneert, voert de onderliggende takenreeks-engine de herstart uit. Na het opnieuw opstarten wordt de takenreeks automatisch voortgezet.  
+-   Il ne doit pas lancer un redémarrage seul. Le logiciel doit demander un redémarrage à l'aide du code de redémarrage standard 3010, qui est un code de sortie. Ceci garantit que la séquence de tâches gérera correctement le redémarrage. Si le logiciel retourne un code de sortie 3010, le moteur de séquences de tâches sous-jacent effectue le redémarrage. La séquence de tâches continue automatiquement après celui-ci.  
 
- Programma's die gebruikmaken van de optie **Eerst een ander programma uitvoeren** voor het installeren van een afhankelijk programma worden niet ondersteund bij het implementeren van een besturingssysteem. Als **Eerst een ander programma uitvoeren** is ingeschakeld voor de software en het afhankelijke programma al is uitgevoerd op de doelcomputer, wordt het afhankelijke programma uitgevoerd en wordt de takenreeks voortgezet. Als het afhankelijke programma echter nog niet is uitgevoerd op de doelcomputer, mislukt de takenreeksstap.  
+ Les programmes qui utilisent l'option **Exécuter un autre programme en premier** pour installer un programme dépendant ne sont pas pris en charge lors du déploiement d'un système d'exploitation. Si l'option **Exécuter un autre programme en premier** est activée pour le logiciel et que le programme dépendant a déjà été exécuté sur l'ordinateur de destination, le programme dépendant sera exécuté et la séquence de tâches continuera. En revanche, si le programme dépendant n'a pas déjà été exécuté sur l'ordinateur de destination, l'étape de la séquence de tâches échouera.  
 
 > [!NOTE]  
->  De centrale beheersite beschikt niet over de benodigde beleidsregels voor clientconfiguratie om de agent voor softwaredistributie in te schakelen tijdens het uitvoeren van de takenreeks. Wanneer u op de centrale beheersite zelfstandige media maakt voor een takenreeks en de takenreeks de stap **Pakket installeren** bevat, wordt mogelijk de volgende fout weergegeven in het bestand CreateTsMedia.log:  
+>  Le site d'administration centrale ne dispose pas des stratégies de configuration de client requises pour activer l'agent de distribution logicielle au cours de l'exécution de la séquence de tâches. Lorsque vous créez un média autonome pour une séquence de tâches sur le site d'administration centrale et que la séquence de tâches contient une étape **Installer le package** , l'erreur suivante peut apparaître dans le fichier CreateTsMedia.log :  
 >   
 >  `"WMI method SMS_TaskSequencePackage.GetClientConfigPolicies failed (0x80041001)"`  
 >   
->  Bij zelfstandige media met de stap Pakket installeren moet u de zelfstandige media maken op een primaire site waarop de agent voor softwaredistributie is ingeschakeld, of moet u een stap **Opdrachtregel uitvoeren** toevoegen na de stap **Windows en ConfigMgr installeren** en voor de eerste stap **Pakket installeren**. Met de stap **Opdrachtregel uitvoeren** wordt een WMIC-opdracht uitgevoerd waarmee de agent voor softwaredistributie wordt ingeschakeld voordat de eerste stap Pakket installeren wordt uitgevoerd. U kunt de volgende opdracht gebruiken in de takenreeksstap **Opdrachtregel uitvoeren** :  
+>  Dans le cas de médias autonomes contenant une étape Installer le package, vous devez créer le média autonome sur un site principal sur lequel l'agent de distribution logicielle est activé ou insérer une étape **Exécuter la ligne de commande** entre l'étape **Configurer Windows et Configuration Manager** et la première étape **Installer le package** . L'étape **Exécuter la ligne de commande** exécute une commande de ligne de commande WMIC pour activer l'agent de distribution logicielle avant l'exécution de la première étape Installer le package. Vous pouvez utiliser la ligne de commande suivante dans l'étape **Exécuter la ligne de commande** de votre séquence de tâches :  
 >   
->  **Opdrachtregel**: **WMIC/namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName = "Enable SWDist", Enabled = "true", LockSettings = "TRUE", PolicySource = "local", PolicyVersion = "1.0", SiteSettingsKey = "1" / NOINTERACTIVE**  
+>  **Ligne de commande** : **WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName="Enable SWDist", Enabled="true", LockSettings="TRUE", PolicySource="local", PolicyVersion="1.0", SiteSettingsKey="1" /NOINTERACTIVE**  
 >   
->  Zie voor meer informatie over het maken van zelfstandige media [zelfstandige media maken](../deploy-use/create-stand-alone-media.md).  
+>  Pour plus d’informations sur la création d’un média autonome, consultez [Créer un média autonome](../deploy-use/create-stand-alone-media.md).  
 
- Deze takenreeksstap kan alleen in een standaardbesturingssysteem worden uitgevoerd. De stap kan niet worden uitgevoerd in Windows PE.  
+ Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE.  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Een enkel softwarepakket installeren**  
- Deze instelling geeft een Configuration Manager-softwarepakket. De stap wacht totdat de installatie is voltooid.  
+ **Installer un seul package logiciel**  
+ Ce paramètre permet de spécifier un package logiciel Configuration Manager. L'étape attend que l'installation soit terminée.  
 
- **Softwarepakketten installeren volgens dynamische variabelenlijst**  
- Deze instelling geeft de basisnaam aan voor een set takenreeksvariabelen die zijn gedefinieerd voor een verzameling of voor een computer. Met deze variabelen worden de pakketten opgegeven die voor die verzameling of computer worden geïnstalleerd. De naam van elke variabele bestaat uit de gemeenschappelijke basisnaam plus een numeriek achtervoegsel dat begint bij 001. De waarde voor elke variabele moet een pakket-id en de naam van de software bevatten en deze moeten zijn gescheiden door een dubbele punt.  
+ **Installer les packages logiciels en fonction de la liste de variables dynamiques**  
+ Ce paramètre spécifie le nom de base d'un ensemble de variables de séquence de tâches qui sont définies pour un regroupement ou un ordinateur. Ces variables spécifient les packages qui seront installés pour ce regroupement ou cet ordinateur. Chaque nom de variable comprend son nom de base courant plus un suffixe numérique commençant par 001. La valeur de chaque variable doit contenir un ID de package et le nom du logiciel séparés par deux-points.  
 
- Voor software die moet worden geïnstalleerd met behulp van een dynamische variabelenlijst, moet de volgende instelling zijn ingeschakeld op de **Geavanceerd** tabblad van het pakket **eigenschappen** in het dialoogvenster: **Toestaan dat dit programma wordt geïnstalleerd door de takenreeks pakket installeren zonder te worden geïmplementeerd**  
+ Pour les logiciels à installer en utilisant une liste de variables dynamiques, le paramètre suivant doit être activé sous l’onglet **Avancé** de la boîte de dialogue **Propriétés** du package : **Autoriser l’installation de ce programme depuis la séquence de tâches d’installation du package sans le déployer**.  
 
 > [!NOTE]  
->  U kunt softwarepakketten niet installeren met behulp van een dynamische variabelenlijst voor zelfstandige media-implementaties.  
+>  Vous ne pouvez pas installer de packages logiciels à l'aide d'une liste de variables dynamiques pour les déploiements de média autonome.  
 
- Bijvoorbeeld: als u één softwarepakket wilt installeren met behulp van de takenreeksvariabele AA001, geeft u de volgende variabele op:  
+ Par exemple, pour installer un package logiciel unique à l'aide d'une variable de séquence de tâches nommée AA001, vous indiquez la variable suivante :  
 
-|Naam variabele|Waarde variabele|  
+|Nom de la variable :|Valeur de la variable|  
 |-------------------|--------------------|  
 |AA001|CEN00054:Install|  
 
- Als u drie softwarepakketten wilt installeren, geeft u de volgende variabelen op:  
+ Pour installer trois packages logiciels, vous indiqueriez les variables suivantes :  
 
-|Naam variabele|Waarde variabele|  
+|Nom de la variable :|Valeur de la variable|  
 |-------------------|--------------------|  
 |AA001|CEN00054:Install|  
 |AA002|CEN00107:Install Silent|  
 |AA003|CEN00031:Install|  
 
- De volgende voorwaarden zijn van invloed op wat wordt geïnstalleerd:  
+ Les conditions suivantes affectent ce qui est installé :  
 
--   Als de waarde van een variabele niet met de juiste notatie is gemaakt of geen geldige toepassings-id en -naam aangeeft, mislukt de installatie van de software.  
+-   Si la valeur d'une variable n'est pas créée au format approprié ou n'indique pas un ID et un nom d'application valides, l'installation du logiciel échoue.  
 
--   Als de pakket-id kleine letters bevat, mislukt de installatie van de software.  
+-   Si l'ID de package contient des caractères en minuscules, l'installation de ce logiciel échoue.  
 
--   Als er geen variabelen met de opgegeven basisnaam en het achtervoegsel '001' zijn gevonden, worden er geen pakketten geïnstalleerd en wordt de takenreeks voortgezet.  
+-   Si aucune variable avec le nom de base et le suffixe « 001 » spécifiés n'est détectée, aucun package n'est installé et la séquence de tâches continue.  
 
- **Als de installatie van een softwarepakket mislukt, doorgaan met installatie van andere pakketten in de lijst**  
- Deze instelling geeft aan dat de stap wordt voorgezet als de installatie van een afzonderlijk softwarepakket mislukt. Als u deze instelling opgeeft, wordt de takenreeks voortgezet ongeacht eventuele installatiefouten die worden geretourneerd. Als u de instelling niet opgeeft, wordt de takenreeksstap onmiddellijk beëindigd wanneer een installatie mislukt.  
+ **Si l’installation d’un package logiciel échoue, continuer d’installer les autres packages de la liste**  
+ Ce paramètre spécifie que l'étape se poursuit si l'installation d'un package logiciel individuel échoue. Si ce paramètre est spécifié, la séquence de tâches continue indépendamment des erreurs d'installation renvoyées. Si ce paramètre n'est pas spécifié et qu'une installation échoue, l'étape de séquence de tâches s'interrompt immédiatement.  
 
-##  <a name="BKMK_InstallSoftwareUpdates"></a>Software-Updates installeren  
- Gebruik de takenreeksstap **Software-updates installeren** om software-updates te installeren op de doelcomputer. De doelcomputer wordt pas geëvalueerd voor toepasselijke software-updates als deze takenreeksstap wordt uitgevoerd. Op dat moment wordt de doelcomputer geëvalueerd voor software-updates zoals elke andere beheerd door Configuration Manager-client. Bij deze stap worden met name de software-updates geïnstalleerd die zijn gericht op verzamelingen waarvan de computer momenteel lid is.  
+##  <a name="BKMK_InstallSoftwareUpdates"></a> Installer les mises à jour logicielles  
+ L'étape de séquence de tâches **Installer les mises à jour logicielles** permet d'installer les mises à jour logicielles sur l'ordinateur de destination. L'ordinateur de destination n'est pas évalué pour déterminer les mises à jour logicielles applicables avant l'exécution de cette séquence de tâches. À ce stade, l’ordinateur de destination est évalué pour déterminer les mises à jour logicielles comme n’importe quel autre client géré par Configuration Manager. En particulier, cette étape n'installe que les mises à jour logicielles destinées aux regroupements dont l'ordinateur est actuellement membre.  
 >  [!IMPORTANT]
->Het is raadzaam dat u de nieuwste versie van Windows Update Agent veel betere prestaties installeert wanneer u de takenreeksstap voor het Software-Updates installeren.
->* Zie [Knowledge base-artikel 3161647](https://support.microsoft.com/kb/3161647) voor Windows 7.
->* Zie [Knowledge base-artikel 3163023](https://support.microsoft.com/kb/3163023) voor Windows 8.
+>Nous vous recommandons fortement d’installer la dernière version de l’Agent Windows Update pour obtenir de meilleures performances lors de l’utilisation de l’étape de séquence de tâches Installer les mises à jour logicielles.
+>* Pour Windows 7, consultez [l’article de la Base de connaissances 3161647](https://support.microsoft.com/kb/3161647).
+>* Pour Windows 8, consultez [l’article de la Base de connaissances 3163023](https://support.microsoft.com/kb/3163023).
 
- Deze takenreeksstap kan alleen in een standaardbesturingssysteem worden uitgevoerd. De stap kan niet worden uitgevoerd in Windows PE. Zie [Install Software Updates Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_InstallSoftwareUpdates) (Variabelen voor de takenreeksactie voor het installeren van software-updates) voor informatie over takenreeksvariabelen voor deze takenreeksactie.
+ Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE. Pour plus d'informations sur les variables de séquences de tâches de cette action de séquence de tâches, consultez [Variables d’action de séquence de tâches Installer les mises à jour logicielles](task-sequence-action-variables.md#BKMK_InstallSoftwareUpdates).
 
  > [!NOTE]
- > U kunt de SMSTSMPListRequestTimeoutEnabled en ingebouwde variabelen voor de SMSTSMPListRequestTimeout inschakelen en Specificeer hoeveel milliseconden lang een takenreeks wacht voordat het opnieuw probeert te installeren van een toepassing of software-updatebestanden nadat deze is mislukt voor het opvragen van de beheerpuntlijst van locatieservices. Zie voor meer informatie [Takenreeksvariabelen ingebouwde](task-sequence-built-in-variables.md).
+ > Vous pouvez utiliser les variables intégrées SMSTSMPListRequestTimeoutEnabled et SMSTSMPListRequestTimeout pour activer et spécifier le délai d’attente (en millisecondes) d’une séquence de tâche avant qu’elle tente à nouveau d’installer une application ou une mise à jour logicielle après l’échec de la récupération de la liste de points de gestion auprès des services de localisation. Pour plus d’informations, consultez [Variables intégrées de séquence de tâches](task-sequence-built-in-variables.md).
 
 > [!NOTE]
->U kunt deze takenreeks configureren op het tabblad Opties, zodat de stap opnieuw wordt uitgevoerd als de computer onverwacht opnieuw wordt opgestart. Bijvoorbeeld bij de installatie van een software-update waarbij de computer automatisch opnieuw wordt opgestart. U kunt de variabele SMSTSWaitForSecondReboot om op te geven hoe lang (in seconden) de takenreeks moet worden onderbroken nadat de computer opnieuw is opgestart bij het installeren van software-updates vanaf Configuration Manager 1602 kan configureren. Zie voor meer informatie [Takenreeksvariabelen ingebouwde](task-sequence-built-in-variables.md).
+>Sous l’onglet des options, vous pouvez configurer une nouvelle tentative de cette séquence de tâches si l’ordinateur redémarre de façon inattendue. Par exemple, une installation de mise à jour logicielle qui redémarre automatiquement l’ordinateur. À compter de Configuration Manager 1602, vous pouvez configurer la variable SMSTSWaitForSecondReboot pour spécifier le temps (en secondes) pendant lequel la séquence de tâches doit rester suspendue après le redémarrage de l’ordinateur lors de l’installation de mises à jour logicielles. Pour plus d’informations, consultez [Variables intégrées de séquence de tâches](task-sequence-built-in-variables.md).
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Geef op dat u deze stap opnieuw wilt uitvoeren als de computer onverwacht opnieuw wordt opgestart. U kunt ook opgeven hoe vaak u de stap na een herstart opnieuw wilt uitvoeren.  
+-   Indiquez qu'il faut réessayer cette étape si l'ordinateur redémarre de façon inattendue. Vous pouvez également spécifier le nombre de nouvelles tentatives après un redémarrage.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Vereist voor de installatie - alleen verplichte software-updates**  
- Selecteer deze optie voor het installeren van alle software-updates in Configuration Manager gemarkeerd als verplicht voor de doelcomputers die de takenreeks ontvangen. Voor vereiste software-updates gelden installatiedeadlines die door de beheerder zijn opgelegd.  
+ **Nécessaires pour l’installation – Mises à jour logicielles obligatoires seulement**  
+ Sélectionnez cette option pour installer toutes les mises à jour logicielles signalées dans Configuration Manager comme étant obligatoires pour les ordinateurs de destination qui reçoivent la séquence de tâches. Les mises à jour logicielles obligatoires possèdent des échéances d'installation définies par l'administrateur.  
 
- **Beschikbaar voor installatie - alle software-updates**  
- Selecteer deze optie voor het installeren van alle beschikbare software-updates die gericht is op de Configuration Manager-verzameling die de takenreeks ontvangt. Alle beschikbare software-updates worden geïnstalleerd op de doelcomputers.  
+ **Disponibles pour l’installation – Toutes les mises à jour logicielles**  
+ Sélectionnez cette option pour installer toutes les mises à jour logicielles disponibles ciblant le regroupement Configuration Manager appelé à recevoir la séquence de tâches. Toutes les mises à jour logicielles disponibles seront installées sur les ordinateurs de destination.  
 
- **Software-updates uit scanresultaten in het cachegeheugen evalueren**  
-Vanaf Configuration Manager versie 1606 hebt u de optie een volledige scan voor software-updates uit te voeren, in plaats van de scanresultaten in het cachegeheugen te gebruiken. De takenreeks maakt standaard gebruik van resultaten in het cachegeheugen. U kunt het selectievakje uitschakelen zodat de client verbinding maakt met het software-updatepunt voor het verwerken en downloaden van de nieuwste software-updatecatalogus. Deze optie kunt u kiezen wanneer u een takenreeks gebruikt voor het [vastleggen en opbouwen van een installatiekopie van een besturingssysteem](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md), waarbij u al van tevoren weet dat er een groot aantal software-updates moet plaatsvinden, met name veel updates die afhankelijkheden hebben (u moet X installeren voordat Y wordt weergegeven als beschikbaar). Wanneer u deze instelling wist en de takenreeks op een groot aantal clients implementeren, verbindt ze alle met de software-updatepunt op hetzelfde moment. Dit kan tot prestatieproblemen leiden bij het verwerken en downloaden van de catalogus. In de meeste gevallen kunt u het beste de standaardinstelling gebruiken.
+ **Évaluer les mises à jour logicielles à partir des résultats d’analyse en mémoire cache**  
+À compter de Configuration Manager version 1606, vous pouvez effectuer une analyse complète des mises à jour logicielles au lieu d’utiliser les résultats d’analyse en mémoire cache. Par défaut, la séquence de tâches utilise les résultats mis en cache. Vous pouvez décocher la case pour que le client se connecte au point de mise à jour logicielle pour traiter et télécharger le dernier catalogue de mises à jour logicielles. Vous pouvez sélectionnez cette option quand vous utilisez une séquence de tâches pour [capturer et créer une image de système d’exploitation](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md), où vous savez qu’il y aura un grand nombre de mises à jour logicielles, surtout si la plupart auront des dépendances (besoin d’installer X avant qu’Y n’apparaisse comme applicable). Quand vous désactivez ce paramètre et que vous déployez la séquence de tâches sur un grand nombre de clients, ils se connectent tous au point de mise à jour logicielle en même temps. Cela peut entraîner des problèmes de performances pendant le processus et le téléchargement du catalogue. Dans la plupart des cas, nous vous recommandons d’utiliser le paramètre par défaut.
 
-Er is een nieuwe takenreeksvariabele, SMSTSSoftwareUpdateScanTimeout, toegevoegd aan Configuration Manager versie 1606, waarmee u de time-out kunt instellen voor het scannen op software-updates gedurende de takenreeksstap voor het installeren van software-updates. De standaardwaarde is 30 minuten. Zie voor meer informatie [Takenreeksvariabelen ingebouwde](task-sequence-built-in-variables.md).
+Une nouvelle variable de séquence de tâches, SMSTSSoftwareUpdateScanTimeout, a été introduite dans Configuration Manager version 1606 pour vous permettre de contrôler le délai d’attente pour la recherche des mises à jour logicielles pendant l’étape Installer les mises à jour logicielles. La valeur par défaut est de 30 minutes. Pour plus d’informations, consultez [Variables intégrées de séquence de tâches](task-sequence-built-in-variables.md).
 
 
-##  <a name="BKMK_JoinDomainorWorkgroup"></a>Lid worden van domein of werkgroep  
- Gebruik de takenreeksstap **Lid maken van domein of werkgroep** om de doelcomputer toe te voegen aan een werkgroep of domein.  
+##  <a name="BKMK_JoinDomainorWorkgroup"></a> Joindre le domaine ou le groupe de travail  
+ L'étape de séquence de tâches **Joindre le domaine ou le groupe de travail** permet d'ajouter l'ordinateur de destination à un groupe de travail ou à un domaine.  
 
- Deze takenreeksstap kan alleen in een standaardbesturingssysteem worden uitgevoerd. De stap kan niet worden uitgevoerd in Windows PE. Zie [Join Domain or Workgroup Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_JoinDomainWorkgroup) (Variabelen voor de takenreeksactie voor het lid worden van domein of werkgroep) voor informatie over takenreeksvariabelen voor deze takenreeksactie.  
+ Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE. Pour plus d'informations sur les variables de séquences de tâches de cette action de séquence de tâches, consultez [Variables de l’action de séquence de tâches Joindre le domaine ou le groupe de travail](task-sequence-action-variables.md#BKMK_JoinDomainWorkgroup).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Lid worden van een werkgroep**  
- Selecteer deze optie om de doelcomputer toe te voegen aan de opgegeven werkgroep. Als de computer momenteel lid van een domein is terwijl deze optie is geselecteerd, wordt de computer opnieuw opgestart.  
+ **Joindre un groupe de travail**  
+ Sélectionnez cette option pour que l'ordinateur de destination fasse partie du groupe de travail spécifié. S'il est actuellement membre d'un domaine, la sélection de cette option le fera redémarrer.  
 
- **Lid worden van een domein**  
- Selecteer deze optie om de doelcomputer toe te voegen aan het opgegeven domein.  
+ **Joindre un domaine**  
+ Sélectionnez cette option pour que l'ordinateur de destination fasse partie du domaine spécifié.  
 
- Typ optioneel een organisatie-eenheid (OE) of blader ernaartoe in het opgegeven domein waarvan u de computer lid wilt maken. Als de computer momenteel lid is van een ander domein of een werkgroep, wordt hierdoor de computer opnieuw opgestart. Als de computer al lid is van een andere organisatie-eenheid, mag u in Active Directory Domain Services de organisatie-eenheid niet wijzigen en wordt deze instelling genegeerd.  
+ Facultatif : entrez ou accédez à une unité d'organisation du domaine spécifié pour que l'ordinateur s'y joigne. Si celui-ci est actuellement membre d'un autre domaine ou groupe de travail, cela le fera redémarrer. Si l'ordinateur est déjà membre d'une autre unité d'organisation, les services de domaine Active Directory ne vous permettent pas de modifier l'unité d'organisation et ce paramètre est ignoré.  
 
- **Voer het account dat gemachtigd is aan het domein**  
- Klik op **Instellen** om een account met wachtwoord in te voeren dat is gemachtigd om lid te worden van het domein. Het account moet worden opgegeven in de volgende notatie:  
+ **Entrez le compte autorisé à joindre le domaine**  
+ Cliquez sur **Définir** pour entrer un compte et un mot de passe ayant les autorisations pour joindre le domaine. Le compte doit être entré au format suivant :  
 
- *Domein\account*  
+ *Domaine\compte*  
 
-## <a name="BKMK_PrepareConfigMgrClientforCapture"></a>ConfigMgr-Client voorbereiden voor vastleggen  
-Gebruik de **ConfigMgr-Client voorbereiden voor vastleggen** stap voor het verwijderen van Configuration Manager-client of de client op de referentiecomputer deze voorbereiden voor vastleggen als onderdeel van de installatiekopieprocedure configureren.
+## <a name="BKMK_PrepareConfigMgrClientforCapture"></a> Préparer le client ConfigMgr pour capture  
+Utilisez l’étape **Préparer le client ConfigMgr pour capture** pour supprimer le client Configuration Manager ou configurer le client sur l’ordinateur de référence afin de le préparer pour la capture pendant le processus de création d’image.
 
-Vanaf Configuration Manager versie 1610, haalt de stap ConfigMgr-Client voorbereiden de Configuration Manager-client, in plaats van alleen het verwijderen van belangrijke gegevens. Wanneer de takenreeks wordt geïmplementeerd voor de vastgelegde besturingssysteeminstallatiekopie wordt deze elke keer dat een nieuwe Configuration Manager-client installeren.  
+À partir de Configuration Manager version 1610, l’étape de préparation du client ConfigMgr supprime complètement le client Configuration Manager, au lieu de supprimer uniquement des informations clés. Lorsque la séquence de tâches déploie l’image capturée du système d’exploitation, elle installe un nouveau client Configuration Manager chaque fois.  
 
-Voorafgaand aan de Configuration Manager versie 1610 voert deze stap uit de volgende taken:  
+Avant Configuration Manager version 1610, cette étape effectuait les tâches suivantes :  
 
--   Verwijdert de sectie met eigenschappen van de clientconfiguratie in het bestand smscfg.ini in de Windows-map. Deze eigenschappen zijn clientspecifieke informatie zoals de Configuration Manager-GUID en andere client-id.  
+-   Supprime du fichier smscfg.ini présent dans le répertoire Windows la section des propriétés de configuration du client. Celles-ci comprennent des informations spécifiques au client, par exemple le GUID Configuration Manager, ainsi que d’autres identificateurs clients.  
 
--   Verwijdert alle SMS of Configuration Manager-computercertificaten.  
+-   Supprime tous les certificats d’ordinateur SMS ou Configuration Manager.  
 
--   Hiermee verwijdert u de Configuration Manager-clientcache.  
+-   Supprime le cache du client Configuration Manager.  
 
--   Wist de toegewezen sitevariabele voor de Configuration Manager-client.  
+-   Efface la variable de site attribuée au client Configuration Manager.  
 
--   Hiermee verwijdert u alle lokale Configuration Manager-beleid.  
+-   Supprime toutes les stratégies Configuration Manager locales.  
 
--   Hiermee verwijdert u de vertrouwde basissleutel voor de Configuration Manager-client.  
+-   Supprime la clé racine approuvée du client Configuration Manager.  
 
- Deze takenreeksstap kan alleen in een standaardbesturingssysteem worden uitgevoerd. De stap kan niet worden uitgevoerd in Windows PE.  
+ Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE.  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
-##  <a name="BKMK_PrepareWindowsforCapture"></a>Windows voorbereiden voor vastleggen  
- Gebruik de takenreeksstap **Windows voorbereiden voor vastleggen** om de Sysprep-opties op te geven die worden gebruikt bij het vastleggen van een installatiekopie van een besturingssysteem op de referentiecomputer. Met deze takenreeksactie wordt Sysprep uitgevoerd en wordt vervolgens de computer opnieuw opgestart naar de opstartinstallatiekopie voor Windows PE die is opgegeven voor de takenreeks. Deze actie kan alleen worden voltooid als de referentiecomputer niet lid is van een domein.  
+##  <a name="BKMK_PrepareWindowsforCapture"></a> Préparer Windows pour capture  
+ Utilisez l'étape de séquence de tâches **Préparer Windows pour capture** pour spécifier les options Sysprep à utiliser lors de la capture d'une image de système d'exploitation sur l'ordinateur de référence. Cette action de séquence de tâches exécute Sysprep, puis redémarre l'ordinateur dans l'image de démarrage Windows PE spécifiée pour la séquence de tâches. L'ordinateur de référence ne doit pas être lié à un domaine pour que cette action s'effectue correctement.  
 
- Deze takenreeksstap kan alleen in een standaardbesturingssysteem worden uitgevoerd. De stap kan niet worden uitgevoerd in Windows PE. Zie [Prepare Windows for Capture Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_PrepareWindowsCapture) (Variabelen voor de takenreeksactie voor het voorbereiden van Windows op het vastleggen) voor informatie over takenreeksvariabelen voor deze takenreeksactie.  
+ Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE. Pour plus d'informations sur les variables de séquences de tâches de cette action de séquence de tâches, consultez [Variables d’action de séquence de tâches Préparer Windows pour capture](task-sequence-action-variables.md#BKMK_PrepareWindowsCapture).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Lijst van stuurprogramma's voor massaopslag automatisch samenstellen**  
- Selecteer deze optie om automatisch een lijst met stuurprogramma's voor massaopslag van de referentiecomputer te laten samenstellen door Sysprep. Met deze optie wordt de optie Build Mass Storage Drivers in het bestand sysprep.inf op de referentiecomputer ingeschakeld. Raadpleeg de documentatie van Sysprep voor meer informatie over deze instelling.  
+ **Créer automatiquement la liste des pilotes de stockage de masse**  
+ Sélectionnez cette option pour demander à Sysprep de générer automatiquement une liste de pilotes de stockage de masse à partir de l'ordinateur de référence. Cette option active l'option des pilotes de stockage de masse dans le fichier sysprep.inf sur l'ordinateur de référence. Pour plus d'informations à propos de ce paramètre, reportez-vous à la documentation de Sysprep.  
 
- **Activatiemarkering niet resetten**  
- Selecteer deze optie om te voorkomen dat Sysprep de markering voor productactivering opnieuw instelt.  
+ **Ne pas réinitialiser l’indicateur d’activation**  
+ Choisissez cette option pour empêcher Sysprep de réinitialiser l'indicateur d'activation du produit.  
 
-##  <a name="BKMK_PreProvisionBitLocker"></a>BitLocker vooraf inrichten  
- Gebruik de takenreeksstap **BitLocker vooraf inrichten** om BitLocker in Windows PE in te schakelen op een station. Alleen de gebruikte schijfruimte is versleuteld. De versleutelingstijd is daarom veel sneller. Pas de sleutelbeheeropties toe met behulp van de takenreeksstap [BitLocker inschakelen](#BKMK_EnableBitLocker) nadat het besturingssysteem is geïnstalleerd. Deze stap kan alleen in Windows PE worden uitgevoerd. De taak kan niet worden uitgevoerd in een standaardbesturingssysteem.  
+##  <a name="BKMK_PreProvisionBitLocker"></a> Préconfigurer BitLocker  
+ Utilisez l'étape de séquence de tâches **Préconfigurer BitLocker** pour activer BitLocker sur un lecteur dans Windows PE. Seul l'espace disque utilisé étant chiffré, l'opération de chiffrement est beaucoup plus rapide. Vous appliquez les options de gestion de clés à l'aide de l'étape de séquence de tâches [Activer BitLocker](#BKMK_EnableBitLocker) une fois le système d'exploitation installé. Cette étape est exécutée uniquement sous Windows PE. Elle ne s'exécute pas dans un système d'exploitation standard.  
 
 > [!IMPORTANT]  
->  Voor het vooraf inrichten van BitLocker moet u het besturingssysteem Windows 7 of hoger implementeren en moet TPM worden ondersteund en zijn ingeschakeld op de computer.  
+>  Pour préconfigurer BitLocker, vous devez déployer au minimum le système d'exploitation Windows 7 et le module de plateforme sécurisée doit être pris en charge et activé sur l'ordinateur.  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Geef een korte, door de gebruiker gedefinieerde naam op die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Spécifiez un nom court défini par l'utilisateur qui décrit l'action entreprise à cette étape.  
 
- **Beschrijving**  
- Geef meer gedetailleerde informatie op over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Spécifiez des informations détaillées sur l'action effectuée lors de cette étape.  
 
- **BitLocker toepassen op het opgegeven station**  
- Geef het station op waarvoor u BitLocker wilt inschakelen. Alleen de gebruikte ruimte op het station wordt versleuteld.  
+ **Appliquer BitLocker au lecteur spécifié**  
+ Spécifiez le lecteur pour lequel vous souhaitez activer BitLocker. Seul l'espace utilisé sur le lecteur est chiffré.  
 
- **Deze stap overslaan voor computers die geen tmp hebben of wanneer tmp niet is ingeschakeld**  
- Selecteer deze optie om de stationsversleuteling over te slaan wanneer de computerhardware TPM niet ondersteunt of wanneer TPM niet is ingeschakeld. Bijvoorbeeld: u kunt deze optie gebruiken als u een besturingssysteem in een virtuele machine implementeert.  
+ **Ignorer cette étape pour les ordinateurs n’ayant pas un module de plateforme sécurisée ou lorsque celui-ci n’est pas activé**  
+ Sélectionnez cette option pour ignorer le chiffrement de lecteur quand le matériel ne prend pas en charge le module de plateforme sécurisée ou quand celui-ci n'est pas activé. Par exemple, vous pouvez utiliser cette option lorsque vous déployez un système d'exploitation sur une machine virtuelle.  
 
-##  <a name="BKMK_ReleaseStateStore"></a>Statusopslag vrijgeven  
- Gebruik de takenreeksstap **Statusopslag vrijgeven** om aan het statusmigratiepunt te communiceren dat het vastleggen of vrijgeven is voltooid. Deze stap wordt gebruikt in combinatie met de takenreeksstappen **Statusopslag opvragen**, **Gebruikerstoestand vastleggen** en **Gebruikersstatus herstellen** om statusgegevens van gebruikers te migreren met behulp van een statusmigratiepunt en het Hulpprogramma voor migratie van gebruikersstatus.  
+##  <a name="BKMK_ReleaseStateStore"></a> Libérer le magasin d’état  
+ Utilisez l'étape de séquence de tâches **Libérer le magasin d'état** pour informer le point de migration d'état que l'opération de capture ou de restauration est terminée. Cette étape est utilisée avec les étapes de séquences de tâches **Demander le magasin d'état**, **Capturer l'état utilisateur**et **Restaurer l'état utilisateur** pour migrer les données sur l'état de l'utilisateur à l'aide d'un point de migration de l'état et de l'outil de migration de l'état utilisateur (USMT).  
 
- Zie voor meer informatie over het beheren van de gebruikersstatus bij het implementeren van besturingssystemen, [Gebruikersstatus beheren](../get-started/manage-user-state.md).  
+ Pour plus d’informations sur la gestion de l’état utilisateur pendant le déploiement de systèmes d’exploitation, consultez [Gérer l’état utilisateur](../get-started/manage-user-state.md).  
 
- Als u toegang tot een statusmigratiepunt hebt aangevraagd om de gebruikersstatus vast te leggen in de takenreeksstap **Statusopslag opvragen**, wordt met deze stap aan het statusmigratiepunt gecommuniceerd dat het vastleggen is voltooid en dat de statusgegevens van de gebruiker kunnen worden hersteld. Het statusmigratiepunt stelt de toegangsbeheermachtigingen voor de vastgelegde status in zodat deze alleen toegankelijk is (als alleen-lezen) door de herstellende computer.  
+ Si vous avez demandé l'accès à un point de migration d'état pour capturer l'état utilisateur dans l'étape de séquence de tâches **Demander le magasin d'état**  , cette étape informe le point de migration d'état que le processus de capture est terminé et que les données sur l'état utilisateur peuvent être restaurées. Le point de migration de l'état définit les autorisations de contrôle d'accès de l'état de capture pour qu'il ne soit accessible (en lecture seule) qu'à l'ordinateur de restauration.  
 
- Als u toegang tot een statusmigratiepunt hebt aangevraagd om gebruikersstatus te herstellen in de takenreeksstap **Statusopslag opvragen**, wordt met deze takenreeksstap aan het statusmigratiepunt gecommuniceerd dat het herstellen is voltooid. Op dit moment worden bewaarinstellingen die u hebt geconfigureerd voor het statusmigratiepunt geactiveerd.  
+ Si vous avez demandé l'accès à un point de migration de l'état pour restaurer l'état utilisateur dans l'étape de la séquence de tâches **Demander le magasin d'état** , cette étape informe le point de migration de l'état que le processus de restauration est terminé. À ce stade, les paramètres de conservation que vous avez définis pour le point de migration de l'état sont activés.  
 
 > [!IMPORTANT]  
->  Het wordt aanbevolen **Doorgaan bij fout** in te stellen voor elke takenreeksstap tussen de stap **Statusopslag opvragen** en de stap **Statusopslag vrijgeven**, zodat elke takenreeksactie **Statusopslag opvragen** een overeenkomende takenreeksactie **Statusopslag vrijgeven** heeft.  
+>  Une bonne pratique consiste à définir **Continuer en cas d'erreur** pour toutes les étapes de séquence de tâches situées entre les étapes **Demander le magasin d'état** et **Libérer le magasin d'état** afin que chaque action de séquence de tâches **Demander le magasin d'état** corresponde à une action de séquence de tâches **Libérer le magasin d'état** .  
 
- Deze takenreeksstap kan alleen in een standaardbesturingssysteem worden uitgevoerd. De stap kan niet worden uitgevoerd in Windows PE. Zie [Variabelen voor de takenreeksactie voor vrijgeven van de statusopslag](task-sequence-action-variables.md#BKMK_ReleaseStateStore) voor informatie over takenreeksvariabelen voor deze takenreeksactie.  
+ Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE. Pour plus d'informations sur les variables de séquences de tâches de cette action de séquence de tâches, consultez [Variables d’action de séquence de tâches Libérer le magasin d’état](task-sequence-action-variables.md#BKMK_ReleaseStateStore).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
-##  <a name="BKMK_RequestStateStore"></a>Statusopslag opvragen  
- Gebruik de takenreeksstap **Statusopslag opvragen** om toegang aan te vragen tot een statusmigratiepunt bij het vastleggen van de status van een computer of het herstellen van de status naar een computer.  
+##  <a name="BKMK_RequestStateStore"></a> Demander le magasin d’état  
+ L'étape de séquence de tâches **Demander le magasin d'état** permet de demander l'accès à un point de migration d'état lors de la capture ou de la restauration de l'état d'un ordinateur.  
 
- Zie voor meer informatie over het beheren van de gebruikersstatus bij het implementeren van besturingssystemen, [Gebruikersstatus beheren](../get-started/manage-user-state.md).  
+ Pour plus d’informations sur la gestion de l’état utilisateur pendant le déploiement de systèmes d’exploitation, consultez [Gérer l’état utilisateur](../get-started/manage-user-state.md).  
 
- U kunt de takenreeksstap **Statusopslag opvragen** gebruiken in combinatie met de takenreeksstappen **Statusopslag vrijgeven**, **Gebruikerstoestand vastleggen** en **Gebruikersstatus herstellen** om computerstatus te migreren met behulp van een statusmigratiepunt en het Hulpprogramma voor migratie van gebruikersstatus.  
+ Vous pouvez utiliser l'étape de séquence de tâches **Demander le magasin d'état** avec les étapes de séquences de tâches **Libérer le magasin d'état**, **Capturer l'état utilisateur**et **Restaurer l'état utilisateur** pour migrer l'état de l'ordinateur à l'aide d'un point de migration de l'état et de l'outil de migration de l'état utilisateur (User State Migration Tool, USMT).  
 
 > [!NOTE]  
->  Als u een nieuwe siterol voor een statusmigratie hebt ingesteld, kan het tot één uur duren voordat de rol beschikbaar is voor gebruikerstatusopslag. U kunt de beschikbaarheid van het statusmigratiepunt versnellen door een willekeurige eigenschap van het statusmigratiepunt aan te passen om een update van het sitebesturingsbestand te activeren.  
+>  Si vous venez d'établir un nouveau rôle de site de point de migration d'état (SMP), vous devez attendre jusqu'à une heure avant que celui-ci soit disponible pour le stockage de l'état utilisateur. Pour accélérer ce processus, vous pouvez ajuster un paramètre de propriété du point de migration d'état afin de déclencher une mise à jour du fichier de contrôle de site.  
 
- Deze takenreeksstap kan worden uitgevoerd in een standaardbesturingssysteem en in Windows PE voor offlinegebruik van het Hulpprogramma voor migratie van gebruikersstatus. Zie [Variabelen takenreeksactie Statusopslag opvragen](task-sequence-action-variables.md#BKMK_RequestState) voor informatie over de takenreeksvariabelen voor deze takenreeksactie.  
+ Cette étape de séquence de tâches s'exécute dans un système d'exploitation standard et dans Windows PE pour USMT en mode hors connexion. Pour plus d’informations sur les variables de séquence de tâches de cette action, consultez [Variables d’action de séquence de tâches Demander le magasin d’état](task-sequence-action-variables.md#BKMK_RequestState).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Status vastleggen vanaf de computer**  
- Hiermee zoekt u een statusmigratiepunt dat voldoet aan de minimumvereisten zoals geconfigureerd in de instellingen van het statusmigratiepunt (maximumaantal clients en minimale hoeveelheid vrije schijfruimte), maar er wordt niet gegarandeerd dat er voldoende ruimte beschikbaar is op het moment van de statusmigratie. Als u deze optie selecteert, wordt om toegang tot het statusmigratiepunt gevraagd om de gebruikersstatus en instellingen van een computer vast te leggen.  
+ **Capturer l’état à partir de l’ordinateur**  
+ Localise un point de migration d'état qui répond aux conditions de configuration minimale requise configurées dans les paramètres de point de migration d'état (nombre maximal de clients et espace disque disponible minimal) mais ne garantie pas la disponibilité de l'espace au moment de la migration. La sélection de cette option fera une demande d'accès à un point de migration d'état afin de capturer un état et des paramètres utilisateur sur un ordinateur cible.  
 
- Als de Configuration Manager-site meerdere statusmigratiepunten zijn ingeschakeld heeft, zoekt deze takenreeksstap een statusmigratiepunt met beschikbare schijfruimte beheerpunt van de site voor een lijst met statusmigratiepunten op te zoeken en vervolgens elk statusmigratiepunt te evalueren totdat er een wordt gevonden dat voldoet aan de minimumvereisten.  
+ Si plusieurs points de migration d’état sont activés sur le site Configuration Manager, cette étape de séquence de tâches permet de rechercher un point de migration d’état qui dispose d’espace disque en demandant au point de gestion du site une liste des points de migration d’état, puis en évaluant chaque point afin d’en trouver un qui réponde aux conditions de configuration minimale requise.  
 
- **Status herstellen vanaf een andere computer**  
- Selecteer deze optie om toegang tot een statusmigratiepunt aan te vragen om eerder vastgelegde gebruikersstatus en instellingen op een doelcomputer te herstellen.  
+ **Restaurer l’état à partir d’un autre ordinateur**  
+ Sélectionnez cette option si vous souhaitez accéder à un point de migration d'état pour restaurer un état et des paramètres utilisateur précédemment capturés sur un ordinateur de destination.  
 
- Als de Configuration Manager-site meerdere statusmigratiepunten heeft, zoekt deze takenreeksstap het statusmigratiepunt dat de computerstatus heeft die is opgeslagen voor de doelcomputer.  
+ Si le site Configuration Manager comporte plusieurs points de migration d’état, cette étape de séquence de tâches recherche le point de migration d’état sur lequel l’état de l’ordinateur de destination a été stocké.  
 
- **Aantal nieuwe pogingen**  
- Het aantal pogingen dat met deze takenreeksstap wordt uitgevoerd om een geschikt statusmigratiepunt te zoeken voordat de stap mislukt.  
+ **Nombre de tentatives**  
+ Nombre de fois que cette étape de séquence de tâches tente de rechercher un point de migration d'état approprié avant d'échouer.  
 
- **Wachttijd nieuwe poging (seconden)**  
- De hoeveelheid tijd in seconden dat de takenreeksstap moet wachten tussen nieuwe pogingen.  
+ **Délai de nouvelle tentative (en secondes)**  
+ Durée en secondes pendant laquelle l'étape de séquence de tâches attend entre chaque tentative.  
 
- **Als het computeraccount geen verbinding maken met Statusopslag, gebruikt u het netwerktoegangsaccount.**  
- Hiermee geeft u op dat de accountreferenties voor toegang van Configuration Manager netwerk verbinding maken met het statusmigratiepunt als de Configuration Manager-client geen toegang tot de Statusopslag van SMP via het computeraccount wordt gebruikt. Deze optie is minder veilig, omdat het netwerktoegangsaccount op andere computers kan worden gebruikt om uw opgeslagen status op te vragen. De optie is mogelijk wel vereist als de doelcomputer niet lid is van een domein.  
+ **Si le compte d’ordinateur ne parvient pas à se connecter au magasin d’état, utiliser le compte d’accès réseau.**  
+ Indique que les informations d’identification du compte d’accès réseau de Configuration Manager sont utilisées pour se connecter au point de migration d’état si le client Configuration Manager ne parvient pas à accéder au magasin d’état SMP via le compte d’ordinateur. Cette option est moins sécurisée car d'autres ordinateurs peuvent utiliser le compte d'accès réseau pour accéder à votre état stocké, mais elle peut s'avérer nécessaire si l'ordinateur de destination n'est pas lié à un domaine.  
 
-##  <a name="BKMK_RestartComputer"></a>Computer opnieuw opstarten  
- Gebruik de takenreeksstap **Computer opnieuw opstarten** om de computer waarop de takenreeks wordt uitgevoerd opnieuw op te starten. Na het opnieuw opstarten gaat de computer automatisch door met de volgende stap in de takenreeks.  
+##  <a name="BKMK_RestartComputer"></a> Redémarrer l’ordinateur  
+ L'étape de séquence de tâches **Redémarrer l'ordinateur** permet de redémarrer l'ordinateur exécutant la séquence de tâches. Ceci fait, l'ordinateur passe automatiquement à l'étape suivante dans la séquence.  
 
- Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Zie voor meer informatie over de takenreeksvariabelen voor deze takenreeksactie [opnieuw opstarten van computer takenreeksacties](task-sequence-action-variables.md#BKMK_RestartComputer).  
+ Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Pour plus d’informations sur les variables de séquence de tâches de cette action, consultez [Variables d’action de séquence de tâches Redémarrer l’ordinateur](task-sequence-action-variables.md#BKMK_RestartComputer).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **De opstartinstallatiekopie toegewezen aan deze takenreeks**  
- Selecteer deze optie voor de doelcomputer om de opstartinstallatiekopie te gebruiken die is toegewezen aan de takenreeks. De opstartinstallatiekopie wordt gebruikt voor het uitvoeren van volgende takenreeksstappen die worden uitgevoerd in Windows PE.  
+ **L’image de démarrage attribuée à cette séquence de tâches**  
+ Sélectionnez cette option pour que l'ordinateur de destination utilise l'image de démarrage qui est attribuée à la séquence de tâches. L'image de démarrage sera utilisée pour exécuter des étapes de séquence de tâches ultérieures qui sont exécutées dans Windows PE.  
 
- **Het momenteel geïnstalleerde standaardbesturingssysteem**  
- Selecteer deze optie voor de doelcomputer om deze opnieuw op te starten naar het geïnstalleerde besturingssysteem.  
+ **Le système d’exploitation par défaut installé actuellement**  
+ Sélectionnez cette option pour que l'ordinateur de destination redémarre sous le système d'exploitation installé.  
 
- **De gebruiker waarschuwen voordat opnieuw wordt opgestart**  
- Selecteer deze optie om een melding te tonen aan de gebruiker dat de doelcomputer opnieuw wordt opgestart. Deze optie is standaard geselecteerd.  
+ **Notifier l’utilisateur avant de redémarrer**  
+ Sélectionnez cette option pour afficher une notification indiquant à l'utilisateur que l'ordinateur de destination sera redémarré. Cette option est activée par défaut.  
 
- **Tekst van melding**  
- Geef een bericht op dat wordt getoond aan de gebruiker voordat de doelcomputer opnieuw wordt opgestart.  
+ **Message de notification**  
+ Entrez un message de notification qui s'affiche à l'attention de l'utilisateur avant le redémarrage de l'ordinateur de destination.  
 
- **Time-out voor weergave melding**  
- Geef de tijdsduur in seconden op dat een gebruiker krijgt voordat de doelcomputer opnieuw wordt opgestart. De standaardhoeveelheid tijd is zestig (60) seconden.  
+ **Délai d’affichage du message**  
+ Indiquez la durée en secondes dont dispose l'utilisateur avant le redémarrage de l'ordinateur de destination. Elle est de 60 (soixante) secondes par défaut.  
 
-##  <a name="BKMK_RestoreUserState"></a>Gebruikersstatus herstellen  
- Gebruik de takenreeksstap **Gebruikersstatus herstellen** om het Hulpprogramma voor migratie van gebruikersstatus te initiëren voor het herstellen van gebruikersstatus en instellingen op de doelcomputer. Deze takenreeksstap wordt gebruikt in combinatie met de takenreeksstap **Gebruikerstoestand vastleggen**.  
+##  <a name="BKMK_RestoreUserState"></a> Restaurer l’état utilisateur  
+ Utilisez l'étape de séquence de tâches **Restaurer l'état utilisateur** pour lancer l'outil de migration de l'état utilisateur (USMT) afin de restaurer l'état et les paramètres utilisateur sur l'ordinateur de destination. Cette étape de séquence de tâches est utilisée avec l'étape de séquence de tâches **Capturer l'état utilisateur** .  
 
- Zie voor meer informatie over het beheren van de gebruikersstatus bij het implementeren van besturingssystemen, [Gebruikersstatus beheren](../get-started/manage-user-state.md).  
+ Pour plus d’informations sur la gestion de l’état utilisateur pendant le déploiement de systèmes d’exploitation, consultez [Gérer l’état utilisateur](../get-started/manage-user-state.md).  
 
- U kunt ook de **gebruikersstatus herstellen** takenreeksstap met de **Statusopslag opvragen** en **Statusopslag vrijgeven** takenreeksstappen als u wilt de statusinstellingen opslaan in of herstellen uit een statusmigratiepunt punt in de Configuration Manager-site. In USMT 3.0 en hoger wordt met deze ontsleuteld optie altijd de USMT-Statusopslag met behulp van een versleutelingssleutel die wordt gegenereerd en beheerd door Configuration Manager.  
+ Vous pouvez aussi utiliser l’étape de séquence de tâches **Restaurer l’état utilisateur** avec les étapes de séquence de tâches **Demander le magasin d’état** et **Libérer le magasin d’état** si vous voulez enregistrer les paramètres d’état sur un point de migration d’état ou les restaurer à partir d’un point de migration d’état dans le site Configuration Manager. Dans USMT 3.0 et versions supérieures, cette option déchiffre toujours le magasin d’état USMT au moyen d’une clé de chiffrement générée et gérée par Configuration Manager.  
 
- De takenreeksstap **Gebruikersstatus herstellen** biedt controle over een beperkte subset van de meest gebruikte USMT-opties. Aanvullende opdrachtregelopties kunnen worden opgegeven met de takenreeksvariabele OSDMigrateAdditionalRestoreOptions.  
+ L'étape de séquence de tâches **Restaurer l'état utilisateur** permet de contrôler un sous-ensemble des options USMT les plus couramment utilisées. D'autres options de ligne de commande peuvent être spécifiées au moyen de la variable de séquence de tâches OSDMigrateAdditionalRestoreOptions.  
 
 > [!IMPORTANT]  
->  Als u de takenreeksstap **Gebruikersstatus herstellen** gebruikt voor een doel dat geen verband houdt met een implementatiescenario van een besturingssysteem, voegt u de takenreeksstap [Computer opnieuw opstarten](#BKMK_RestartComputer) onmiddellijk toe na de takenreeksstap **Gebruikersstatus herstellen**.  
+>  Si vous utilisez l’étape de séquence de tâches **Restaurer l’état utilisateur** dans un but non lié à un scénario de déploiement de système d’exploitation, ajoutez immédiatement l’étape de séquence de tâches [Redémarrage de l'ordinateur](#BKMK_RestartComputer) après l’étape de séquence de tâches **Restaurer l’état utilisateur** .  
 
- Deze takenreeksstap kan alleen in een standaardbesturingssysteem worden uitgevoerd. De stap kan niet worden uitgevoerd in Windows PE. Zie [Restore User State Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_RestoreUserState) (Variabelen voor de takenreeksactie voor het herstellen van de gebruikersstatus) voor informatie over de takenreeksvariabelen voor deze takenreeksactie.  
+ Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE. Pour plus d’informations sur les variables de séquence de tâches de cette action, consultez [Variables d’action de séquence de tâches Restaurer l’état utilisateur](task-sequence-action-variables.md#BKMK_RestoreUserState).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Hiermee geeft u een korte, door de gebruiker gedefinieerde naam op die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Spécifie un nom court défini par l'utilisateur qui décrit l'action entreprise à cette étape.  
 
- **Beschrijving**  
- Dit is meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Fournit des informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Gebruiker pakket migratieprogramma gebruikersstatus**  
- Voer het Configuration Manager-pakket met de versie van USMT voor deze stap moet worden gebruikt bij het herstellen van de gebruikersstatus en instellingen. Voor dit pakket is geen programma vereist. Wanneer de takenreeksstap wordt uitgevoerd, wordt de versie van USMT gebruikt in het pakket dat u opgeeft. Geef een pakket op met de 32-bits of x64-versie van USMT, afhankelijk van de architectuur van het besturingssysteem waarnaar u de status herstelt.  
+ **Package de l’outil de migration de l’état utilisateur**  
+ Entrez le package Configuration Manager qui contient la version de l’outil USMT pour cette étape afin de l’utiliser pendant la restauration des paramètres et de l’état utilisateur. Ce package ne requiert pas de programme. Lorsque l'étape de séquence de tâches est exécutée, la séquence de tâches utilise la version de l'outil de migration de l'état utilisateur du package que vous indiquez. Spécifiez un package contenant la version 32 bits ou x64 d'USMT en fonction de l'architecture du système d'exploitation vers lequel vous restaurez l'état.  
 
- **Alle vastgelegde gebruikersprofielen met standaardopties herstellen**  
- Hiermee worden de vastgelegde gebruikersprofielen hersteld met de standaardopties. Selecteer **Vastlegging gebruikersprofiel aanpassen** om de opties aan te passen die worden hersteld.  
+ **Restaurer tous les profils utilisateur capturés présentant des options standard**  
+ Restaure les profils utilisateur capturés qui présentent des options standard. Pour personnaliser les options à restaurer, sélectionnez **Personnaliser la façon dont les profils utilisateur sont capturés**.  
 
- **Herstellen van gebruikersprofielen aanpassen**  
- Hiermee kunt u de bestanden aanpassen die u wilt herstellen naar de doelcomputer. Klik op **Bestanden** om de configuratiebestanden in het USMT-pakket op te geven die u wilt gebruiken voor het herstellen van de gebruikersprofielen. Geef de naam van het bestand op in het vak **Bestandsnaam** en klik vervolgens op **Toevoegen** om een configuratiebestand toe te voegen. De gebruikte configuratiebestanden voor de bewerking worden vermeld in het deelvenster Bestanden. Het .xml-bestand dat u opgeeft definieert het gebruikersbestand dat wordt hersteld.  
+ **Personnaliser la restauration des profils utilisateur**  
+ Permet de personnaliser les fichiers à restaurer sur l'ordinateur de destination. Cliquez sur **Fichiers** pour spécifier les fichiers de configuration du package USMT à utiliser pour restaurer les profils utilisateur. Pour ajouter un fichier de configuration, entrez le nom du fichier dans le champ **Nom de fichier** , puis cliquez sur **Ajouter**. Les fichiers de configuration qui seront utilisés pour cette opération sont présentés dans le volet Fichiers. Le fichier .xml que vous spécifiez définit le fichier utilisateur à restaurer.  
 
- **Gebruikersprofielen lokale computer herstellen**  
- Hiermee worden de profielen van de lokale computergebruiker (d.w.z. niet domeingebruiker) hersteld. U moet nieuwe wachtwoorden toewijzen aan de herstelde lokale gebruikersaccounts, omdat de oorspronkelijke wachtwoorden voor lokale gebruikersaccounts niet kunnen worden gemigreerd. Voer het nieuwe wachtwoord in het vak **Wachtwoord** in en bevestig het wachtwoord in het vak **Wachtwoord bevestigen**.  
+ **Restaurer les profils utilisateur de l’ordinateur local**  
+ Restaure les profils utilisateur de l'ordinateur local (c.-à-d. les profils autre que les profils utilisateur de domaine). Vous devez attribuer de nouveaux mots de passe aux comptes d'utilisateurs locaux car les mots de passe d'origine des comptes d'utilisateurs locaux ne peuvent pas être migrés. Entrez le nouveau mot de passe dans le champ **Mot de passe** , puis confirmez le mot de passe dans le champ **Confirmer le mot de passe** .  
 
- **Doorgaan als sommige bestanden kunnen niet worden hersteld**  
- Hiermee wordt het herstellen van gebruikersstatus en instellingen voortgezet zelfs als bepaalde bestanden niet kunnen worden hersteld. Deze optie is standaard ingeschakeld. Als u deze optie uitschakelt terwijl er fouten zijn opgetreden tijdens het herstellen van bestanden, wordt de takenreeksstap onmiddellijk beëindigd met een fout en worden niet alle bestanden hersteld.  
+ **Continuer si certains fichiers ne peuvent pas être restaurés**  
+ Poursuit le processus de restauration de l'état utilisateur et des paramètres correspondants, même si certains fichiers ne peuvent pas être restaurés. Cette option est activée par défaut. Si vous la désactivez et que des erreurs surviennent lors de la restauration des fichiers, l'étape de la séquence de tâches s'interrompt immédiatement en erreur et tous les fichiers ne seront pas restaurés.  
 
- **Uitgebreide logboekregistratie inschakelen**  
- Schakel deze optie in om meer gedetailleerde informatie in het logboekbestand te genereren. Bij het herstellen van status wordt het logboek Loadstate.log gegenereerd en standaard opgeslagen in de logboekmap voor de takenreeks in de map \windows\system32\ccm\logs.  
+ **Activer la journalisation documentée**  
+ Activez cette option pour générer des informations de fichiers journaux plus détaillées. Lors de la restauration de l'état, le fichier Loadstate.log est généré et stocké par défaut dans le dossier de journalisation de la séquence de tâches du dossier \windows\system32\ccm\logs .  
 
-##  <a name="BKMK_RunCommandLine"></a>Opdrachtregel uitvoeren  
- Gebruik de takenreeksstap **Opdrachtregel uitvoeren** om een opgegeven opdrachtregel uit te voeren.  
+##  <a name="BKMK_RunCommandLine"></a> Exécuter la ligne de commande  
+ L'étape de séquence de tâches **Exécuter la ligne de commande** permet d'exécuter une ligne de commande spécifiée.  
 
- Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Zie [Run Command Line Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_RunCommand) (Variabelen voor de takenreeksactie voor het uitvoeren van de opdrachtregel) voor informatie over takenreeksvariabelen voor deze takenreeksactie.  
+ Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Pour plus d'informations sur les variables de séquences de tâches de cette action de séquence de tâches, consultez [Variables d’action de séquence de tâches Exécuter la ligne de commande](task-sequence-action-variables.md#BKMK_RunCommand).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Hiermee geeft u een korte, door de gebruiker gedefinieerde naam op die de uitgevoerde opdrachtregel beschrijft.  
+ **Nom**  
+ Spécifie un nom court, défini par l'utilisateur, qui décrit la ligne de commande exécutée.  
 
- **Beschrijving**  
- Hiermee geeft u meer gedetailleerde informatie op over de uitgevoerde opdrachtregel.  
+ **Description**  
+ Spécifie des informations plus détaillées sur la ligne de commande exécutée.  
 
- **Vanaf de opdrachtregel**  
- Hiermee geeft u de uitgevoerde opdrachtregel op. Dit veld is vereist. Inclusief bestandsnaamextensies wordt aanbevolen, bijvoorbeeld .vbs en .exe. Neem alle vereiste instellingenbestanden, opdrachtregelopties of schakelopties op.  
+ **Ligne de commande**  
+ Indique la ligne de commande exécutée. Ce champ doit obligatoirement être renseigné. Le fait d’inclure des extensions de noms de fichiers est une bonne pratique, par exemple, .vbs et .exe. Intégrez tous les fichiers de paramètres requis, les options des lignes de commande ou les commutateurs.  
 
- Als de bestandsnaam geen een bestandsnaamextensie is opgegeven, Configuration Manager probeert .com, .exe en. bat. Als de bestandsnaam een extensie is niet een uitvoerbaar bestand heeft, Configuration Manager wordt geprobeerd een lokale koppeling toe te passen. Als de opdrachtregel readme.gif is, begint Configuration Manager de toepassing die is opgegeven op de doelcomputer voor het openen van .gif-bestanden.  
+ Si le nom de fichier est spécifié sans extension, Configuration Manager essaie les extensions .com, .exe et .bat. Si le nom de fichier a une extension, mais qu’il ne s’agit pas d’un fichier exécutable, Configuration Manager essaie d’appliquer une association locale. Par exemple, si la ligne de commande est readme.gif, Configuration Manager démarre l’application spécifiée sur l’ordinateur de destination pour ouvrir les fichiers .gif.  
 
- Voorbeelden:  
+ Exemples :  
 
- **Setup.exe /a**  
+ **setup.exe /a**  
 
- **cmd.exe /c kopiëren Jan98.dat c:\sales\Jan98.dat**  
+ **cmd.exe /c copy Jan98.dat c:\sales\Jan98.dat**  
 
 > [!NOTE]  
->  Opdrachtregelacties, zoals uitvoeromleiding, pipes of copy, zoals in het voorgaande voorbeeld moeten worden voorafgegaan door de **cmd.exe /c** opdracht uit om te worden uitgevoerd.  
+>  Les actions de ligne de commande comme la redirection de la sortie, la canalisation ou la copie (voir exemple précédent) doivent être précédées de la commande **cmd.exe /c** pour s’exécuter correctement.  
 
- **64-bits bestandssysteemomleiding uitschakelen**  
- In een 64-bits besturingssysteem wordt het uitvoerbare bestand op de opdrachtregel standaard gezocht en uitgevoerd met behulp van de WOW64-bestandssysteemredirector, zodat 32-bits versies van uitvoerbare en .dll-bestanden van het besturingssysteem worden gevonden.  Als u deze optie selecteert, wordt het gebruik van de WOW64-bestandssysteemredirector uitgeschakeld, zodat de systeemeigen 64-bits versies van uitvoerbare en .dll-bestanden van het besturingssysteem kunnen worden gevonden.  Het selecteren van deze optie heeft geen effect wanneer u gebruikmaakt van een 32-bits besturingssysteem.  
+ **Désactiver la redirection du système de fichiers 64 bits**  
+ Par défaut, dans un système d'exploitation 64 bits, l'exécutable de la ligne de commande est localisé et exécuté au moyen d'un redirecteur de système de fichiers WOW64, ce qui permet de trouver les versions 32 bits des exécutables et les DLL du système d'exploitation.  La sélection de cette option désactive l'utilisation du redirecteur de système de fichiers WOW64, ce qui permet de trouver les versions natives 64 bits des exécutables et les DLL du système d'exploitation.  Cette option est sans effet dans un système d'exploitation 32 bits.  
 
- **Beginnen in**  
- Hiermee geeft u de uitvoerbare map op voor het programma, in maximaal 127 tekens. Deze map kan een absoluut pad op de doelcomputer betreffen of een relatief pad ten opzichte van de distributiepuntmap die het pakket bevat. Dit veld is optioneel.  
+ **Démarrer dans**  
+ Spécifie le dossier exécutable pour le programme, comprenant jusqu'à 127 caractères. Ce dossier peut être un chemin d'accès absolu sur l'ordinateur de destination ou un chemin d'accès relatif au dossier du point de distribution qui contient le package. Ce champ est facultatif.  
 
- Voorbeelden:  
+ Exemples :  
 
- **c:\OfficeXP**  
+ **c:\officexp**  
 
  **i386**  
 
 > [!NOTE]  
->  Met de knop **Bladeren** wordt op de lokale computer gezocht naar bestanden en mappen, zodat alles wat u op deze manier selecteert ook aanwezig moet zijn op de doelcomputer in dezelfde locatie en met dezelfde bestands- en mapnamen.  
+>  Le bouton **Parcourir** permet de rechercher des fichiers et des dossiers sur l'ordinateur local. Tous les éléments que vous sélectionnez de cette manière doivent également exister sur l'ordinateur de destination au même emplacement et avec les mêmes noms de fichiers et de dossiers.  
 
- **Pakket**  
- Wanneer u bestanden of programma's op de opdrachtregel die nog niet aanwezig op de doelcomputer opgeeft, selecteert u deze optie om op te geven van de Configuration Manager-pakket dat de betreffende bestanden bevat. Voor het pakket is geen programma vereist. Deze optie is niet vereist als de opgegeven bestanden op de doelcomputer bestaan.  
+ **Package**  
+ Quand, sur la ligne de commande, vous spécifiez des fichiers ou des programmes qui ne sont pas déjà présents sur l’ordinateur de destination, sélectionnez cette option pour spécifier le package Configuration Manager qui contient les fichiers appropriés. Le package n'exige pas de programme. Cette option n'est pas nécessaire si le fichier spécifié existe sur l'ordinateur de destination.  
 
- **Time-out**  
- Hiermee geeft u een waarde die hoe lang Configuration Manager aangeeft kan de opdrachtregel om uit te voeren. Deze waarde kan zijn van 1 minuut en 999 minuten liggen. De standaardwaarde is 15 minuten.  
+ **Délai**  
+ Permet de spécifier une valeur qui représente le délai d’exécution de la ligne de commande autorisé par Configuration Manager. Cette valeur est comprise entre 1 et 999 minutes. La valeur par défaut est 15 minutes.  
 
- Deze optie is standaard uitgeschakeld.  
+ Cette option est désactivée par défaut.  
 
 > [!IMPORTANT]  
->  Als u een waarde opgeeft die onvoldoende tijd biedt om de takenreeksstap Opdrachtregel uitvoeren te voltooien, mislukt de takenreeksstap en kan de gehele takenreeks mislukken afhankelijk van andere beheerinstellingen. Als de time-out is verlopen, beëindigt Configuration Manager het opdrachtregelproces.  
+>  Si vous entrez une durée insuffisante au bon déroulement de l'étape Exécuter la ligne de commande de la séquence de tâches, cette étape échoue et risque d'entraîner l'échec de toute la séquence de tâches, en fonction des autres paramètres de contrôle. Si le délai expire, Configuration Manager met un terme au processus en ligne de commande.  
 
- **Deze stap uitvoeren als de volgende account**  
- Hiermee geeft u aan dat de opdrachtregel als een ander Windows-gebruikersaccount dan het lokale systeemaccount wordt uitgevoerd.  
+ **Exécuter cette étape en tant que compte suivant**  
+ Spécifie que la ligne de commande est exécutée en tant que compte d'utilisateur Windows et non en tant que compte système local.  
 
 > [!NOTE]  
->  Wanneer u een ander account voor deze stap opgeeft en deze stap plaatsvindt na een installatiestap van het besturingssysteem, moet het account worden toegevoegd aan de computer voordat u eenvoudige scripts of opdrachten kunt uitvoeren. Ook moet het profiel voor het Windows-gebruikersaccount worden hersteld voor het uitvoeren van complexere programma's, zoals een MSI.  
+>  Quand vous spécifiez un autre compte pour cette étape et que celle-ci intervient après une étape d’installation du système d’exploitation, le compte doit être ajouté à l’ordinateur pour permettre l’exécution de scripts ou de commandes simples, et le profil du compte d’utilisateur Windows doit être restauré pour exécuter des programmes plus complexes, tels que des fichiers MSI.  
 
- **Account**  
- Hiermee geeft u het Windows-gebruikersaccount voor Uitvoeren als op voor de opdrachtregeltaak in de takenreeks die wordt uitgevoerd door deze actie. De opdrachtregel wordt uitgevoerd met de machtigingen van het opgegeven account. Klik op **Instellen** om het lokale gebruikersaccount of het domeinaccount op te geven.  
+ **Compte**  
+ Spécifie le compte d'utilisateur Windows Exécuter en tant que pour la ligne de commande de la séquence de tâches à exécuter par cette action. La ligne de commande s'exécute avec les autorisations du compte spécifié Cliquez sur **Définir** pour spécifier le compte de domaine ou le compte d'utilisateur local.  
 
 > [!IMPORTANT]  
->  Als de takenreeksactie **Opdrachtregel uitvoeren** met een gebruikersaccount wordt uitgevoerd in Windows PE, mislukt de actie omdat Windows PE niet lid kan zijn van een domein. De fout wordt geregistreerd in het bestand smsts.log.  
+>  Si une action de séquence de tâches **Exécuter la ligne de commande** spécifiant un compte d'utilisateur est exécutée dans Windows PE, elle échoue car ce dernier ne peut être associé à un domaine. L'échec est enregistré dans le fichier smsts.log.  
 
-##  <a name="BKMK_RunPowerShellScript"></a>PowerShell-Script uitvoeren  
- Gebruik de takenreeksstap **PowerShell-Script uitvoeren** om een opgegeven PowerShell-script uit te voeren.  
+##  <a name="BKMK_RunPowerShellScript"></a> Exécuter le script PowerShell  
+ Utilisez l'étape de séquence de tâches **Exécuter le script PowerShell** pour exécuter un script PowerShell spécifié.  
 
- Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Als u deze stap wilt uitvoeren in Windows PE, moet PowerShell zijn ingeschakeld in de opstartinstallatiekopie. U kunt Windows PowerShell (WinPE-PowerShell) inschakelen via het tabblad **Optionele onderdelen** in de eigenschappen van de opstartinstallatiekopie. Zie voor meer informatie over het wijzigen van een opstartinstallatiekopie [opstartinstallatiekopieën beheren](../get-started/manage-boot-images.md).  
+ Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Pour exécuter cette étape dans Windows PE, PowerShell doit être activé dans l'image de démarrage. Vous pouvez activer Windows PowerShell (WinPE-PowerShell) à partir de l'onglet **Composants facultatifs** dans les propriétés de l'image de démarrage. Pour plus d’informations sur la modification d’une image de démarrage, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
 
 > [!NOTE]  
->  PowerShell is standaard niet ingeschakeld op Windows Embedded-besturingssystemen.  
+>  PowerShell n'est pas activé par défaut sur les systèmes d'exploitation Windows Embedded.  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Hiermee geeft u een korte, door de gebruiker gedefinieerde naam op die de uitgevoerde opdrachtregel beschrijft.  
+ **Nom**  
+ Spécifie un nom court, défini par l'utilisateur, qui décrit la ligne de commande exécutée.  
 
- **Beschrijving**  
- Hiermee geeft u meer gedetailleerde informatie op over de uitgevoerde opdrachtregel.  
+ **Description**  
+ Spécifie des informations plus détaillées sur la ligne de commande exécutée.  
 
- **Pakket**  
- De Configuration Manager-pakket met het PowerShell-script opgeven. Eén pakket kan meerdere PowerShell-scripts bevatten.  
+ **Package**  
+ Indique le package Configuration Manager qui contient le script PowerShell. Un package peut contenir plusieurs scripts PowerShell.  
 
- **Scriptnaam**  
- Hiermee geeft u de naam van het uit te voeren PowerShell-script op. Dit veld is vereist.  
+ **Nom du script**  
+ Spécifie le nom du script PowerShell à exécuter. Ce champ doit obligatoirement être renseigné.  
 
- **Parameters**  
- Hiermee geeft u de parameters op die worden doorgegeven aan het Windows PowerShell-script. Configureer de parameters alsof u deze toevoegt aan het Windows PowerShell-script vanaf een opdrachtregel.  
-
-> [!IMPORTANT]  
->  Geef parameters op die worden gebruikt door het script, niet voor de Windows PowerShell-opdrachtregel.  
->   
->  Het volgende voorbeeld bevat geldige parameters:  
->   
->  **-Mijnparameter1 Mijnwaarde1-Mijnparameter2 Mijnwaarde2**  
->   
->  Het volgende voorbeeld bevat ongeldige parameters. De vette items zijn Windows PowerShell-opdrachtregelparameters (-nologo en -executionpolicy unrestricted) en worden niet gebruikt door het script.  
->   
->  **-nologo-executionpolicy unrestricted-File Mijnscript.ps1-Mijnparameter1 Mijnwaarde1-Mijnparameter2 Mijnwaarde2**  
-
- **PowerShell-uitvoeringsbeleid**  
- Met selectie van het PowerShell-uitvoeringsbeleid kunt u bepalen welke Windows PowerShell-scripts (indien van toepassing) kunnen worden uitgevoerd op de computer. Kies een van de volgende uitvoeringsbeleidsregels:  
-
--   **Alles ondertekend**: Alleen scripts die zijn ondertekend door een vertrouwde uitgever kunnen worden uitgevoerd.  
-
--   **Niet-gedefinieerde**: Er is geen uitvoeringsbeleid gedefinieerd. .  
-
--   **Bypass**: Alle configuratiebestanden laden en alle scripts uitvoeren. Als u een niet-ondertekend script uitvoert dat van internet is gedownload, wordt u niet om toestemming gevraagd voordat het script wordt uitgevoerd.  
+ **Paramètres**  
+ Spécifie les paramètres à passer au script Windows PowerShell. Configurez les paramètres comme si vous les ajoutiez au script Windows PowerShell à partir d'une ligne de commande.  
 
 > [!IMPORTANT]  
->  PowerShell 1.0 biedt geen ondersteuning voor de uitvoeringsbeleidsregels Undefined en Bypass.  
+>  Spécifiez les paramètres consommés par le script, et non pour la ligne de commande Windows PowerShell.  
+>   
+>  L'exemple suivant contient des paramètres valides :  
+>   
+>  **-MyParameter1 MyValue1 -MyParameter2 MyValue2**  
+>   
+>  L'exemple suivant contient des paramètres non valides. Les éléments en gras sont des paramètres de ligne de commande Windows PowerShell (-nologo et -executionpolicy unrestricted). Ils ne sont pas consommés par le script.  
+>   
+>  **-nologo-executionpolicy unrestricted-File MyScript.ps1 -MyParameter1 MyValue1 -MyParameter2 MyValue2**  
 
-##  <a name="BKMK_SetDynamicVariables"></a>Dynamische variabelen instellen  
- Gebruik de takenreeksstap **Dynamische variabelen instellen** om de volgende handelingen uit te voeren:  
+ **Stratégie d'exécution de PowerShell**  
+ L'option Stratégie d'exécution de PowerShell vous permet de déterminer les scripts Windows PowerShell (le cas échéant) qui pourront s'exécuter sur l'ordinateur. Choisissez l'une des stratégies d'exécution suivantes :  
 
-1.  Informatie verzamelen van de computer en de omgeving waarin de computer zich bevindt en vervolgens opgegeven takenreeksvariabelen instellen met de informatie.  
+-   **AllSigned**: seuls les scripts signés par un éditeur approuvé peuvent être exécutés.  
 
-2.  Gedefinieerde regels evalueren en takenreeksvariabelen instellen op basis van de variabelen en waarden die zijn geconfigureerd voor regels die in waar resulteren.  
+-   **Undefined**: aucune stratégie d’exécution n’est définie. .  
 
- De taakvolgorde stelt automatisch de volgende alleen-lezen takenreeksvariabelen in:  
+-   **Bypass**: charge tous les fichiers de configuration et exécute tous les scripts. Si vous exécutez un script non signé qui a été téléchargé depuis Internet, vous n'êtes pas invité à fournir d'autorisation avant son exécution.  
 
- -   &#95; SMSTSMake  
+> [!IMPORTANT]  
+>  PowerShell 1.0 ne prend pas en charge les stratégies d'exécution Non défini et Ignorer.  
 
- -   &#95; SMSTSModel  
+##  <a name="BKMK_SetDynamicVariables"></a> Définir des variables dynamiques  
+ Utilisez l'étape de séquence de tâches **Définir des variables dynamique** pour effectuer les opérations suivantes :  
 
- -   &#95; SMSTSMacAddresses  
+1.  Recueillir des informations à partir de l'ordinateur et de l'environnement où il réside, puis définir des variables de séquence de tâches spécifiées avec les informations.  
 
- -   &#95; SMSTSIPAddresses  
+2.  Évaluer les règles définies et définir des variables de séquence de tâches en fonction des variables et des valeurs configurées pour les règles avec la valeur true.  
 
- -   &#95; SMSTSSerialNumber  
+ La séquence de tâches définit automatiquement les variables de séquence de tâches en lecture seule suivantes :  
 
- -   &#95; SMSTSAssetTag  
+ -   &#95;SMSTSMake  
 
- -   &#95; SMSTSUUID  
+ -   &#95;SMSTSModel  
 
- Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Zie voor meer informatie over takenreeksvariabelen [Takenreeksacties](task-sequence-action-variables.md).  
+ -   &#95;SMSTSMacAddresses  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+ -   &#95;SMSTSIPAddresses  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ -   &#95;SMSTSSerialNumber  
 
--   De stap uitschakelen.  
+ -   &#95;SMSTSAssetTag  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+ -   &#95;SMSTSUUID  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+ Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Pour plus d’informations sur les variables de séquence de tâches, consultez [Variables d’action de séquence de tâches](task-sequence-action-variables.md).  
 
-**Naam**  
- Een korte, door de gebruiker gedefinieerde naam voor deze takenreeksstap.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
-**Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
-**Dynamische regels en variabelen**  
- Voor het instellen van een dynamische variabele voor gebruik in de takenreeks kunt u een regel toevoegen en vervolgens een waarde opgeven voor elke variabele die u voor de regel opgeeft, of kunt u een of meer in te stellen variabelen toevoegen zonder een regel toe te voegen. Wanneer u een regel toevoegt, kunt u kiezen uit de volgende regelcategorieën:  
+-   Désactiver l'étape.  
 
- -   **Computer**: Gebruik deze regelcategorie om waarden voor inventaristag, UUID, serienummer of mac-adres te beoordelen. U kunt meerdere waarden instellen en als een willekeurige waarde waar is, resulteert de regel in waar. Bijvoorbeeld: de volgende regel resulteert in waar als het serienummer 5892087 is, ongeacht of het MAC-adres gelijk is aan 26-78-13-5A-A4-22.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
+
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
+
+**Nom**  
+ Nom court défini par l'utilisateur pour cette étape de séquence de tâches.  
+
+**Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
+
+**Règles dynamiques et variables**  
+ Pour définir une variable dynamique à utiliser dans la séquence de tâches, vous pouvez ajouter une règle, puis spécifier une valeur pour chaque variable que vous spécifiez pour la règle ou ajouter une ou plusieurs variables à définir sans ajouter de règle. Lorsque vous ajoutez une règle, vous pouvez choisir parmi les catégories suivantes :  
+
+ -   **Ordinateur**: utilisez cette catégorie de règle pour évaluer des valeurs d’étiquette d’inventaire, d’UUID, de numéro de série ou d’adresse MAC. Vous pouvez définir plusieurs valeurs et si l'une d'elles est true, la règle est évaluée comme vraie. Par exemple, la règle suivante est évaluée comme vraie si le numéro de série est 5892087, que l'adresse MAC soit égale ou non à 26-78-13-5A-A4-22.  
 
      `IF Serial Number = 5892087 OR MAC address = 26-78-13-5A-A4-22 THEN`  
 
--   **Locatie**: Gebruik deze regelcategorie om waarden voor de standaardgateway te beoordelen.  
+-   **Emplacement**: utilisez cette catégorie de règle pour évaluer des valeurs de passerelle par défaut.  
 
--   **Merk en Model**: Gebruik deze regelcategorie om waarden voor het merk en model van een computer te beoordelen. Zowel het merk als het model moet resulteren in waar om de regel te laten resulteren in waar.   
+-   **Marque et modèle**: utilisez cette catégorie de règle pour évaluer les valeurs de marque et de modèle d’un ordinateur. La marque et le modèle doivent tous deux être évalués comme vrais pour que la règle soit évaluée comme vraie.   
 
-    U start in Configuration Manager versie 1610, kunt u een sterretje (*) en vraagtekens (**?**) als jokertekens, waarbij *** komt overeen met meerdere tekens en **?** komt overeen met een enkel teken. Bijvoorbeeld: de tekenreeks ' DELL * 900? ' komt overeen met ABC-DELL-9001 als DELL9009.
+    À partir de Configuration Manager version 1610, vous pouvez spécifier un astérisque (*****) et un point d’interrogation (**?**) comme caractères génériques, où ***** correspond à plusieurs caractères et **?** correspond à un caractère unique. Par exemple, la chaîne « DELL*900? » correspond à DELL-ABC-9001 et DELL9009.
 
--   **Takenreeksvariabele**: Gebruik deze regelcategorie om toe te voegen een takenreeksvariabele, voorwaarde en waarde om te evalueren. Deze regel resulteert in waar wanneer de ingestelde waarde voor de variabele voldoet aan de opgegeven voorwaarde.  
+-   **Variable de séquence de tâches**: utilisez cette catégorie de règle pour ajouter une variable de séquence de tâches, une condition et une valeur à évaluer. La règle est évaluée comme vraie quand la valeur définie pour la variable remplit la condition spécifiée.  
 
-U kunt een of meer variabelen opgeven die worden ingesteld voor een regel die resulteert in waar, of u kunt variabelen instellen zonder een regel te gebruiken. U kunt kiezen uit bestaande variabelen of u kunt een aangepaste variabele maken.  
+Vous pouvez spécifier une ou plusieurs variables qui seront définies pour une règle évaluée comme vraie ou définir des variables sans utiliser de règle. Vous pouvez sélectionner parmi des variables existantes ou créer une variable personnalisée.  
 
- -   **Bestaande takenreeksvariabelen**: Gebruik deze instelling om te selecteren van een of meer variabelen in een lijst met bestaande takenreeksvariabelen. Matrixvariabelen kunnen niet worden geselecteerd.  
+ -   **Variables de séquence de tâches existantes**: utilisez ce paramètre pour sélectionner une ou plusieurs variables dans la liste des variables de séquence de tâches existantes. Les variables tableau ne peuvent pas être sélectionnées.  
 
- -   **Aangepaste takenreeksvariabelen**: Gebruik deze instelling kunt u een aangepaste takenreeksvariabele te definiëren. U kunt ook een bestaande takenreeksvariabele opgeven. Dit is handig om een bestaande variabelenmatrix op te geven, zoals OSDAdapter, omdat variabelenmatrices niet voorkomen in de lijst met bestaande takenreeksvariabelen.  
+ -   **Variables de séquence de tâches personnalisées**: utilisez ce paramètre pour définir une variable de séquence de tâches personnalisée. Vous pouvez également spécifier une variable de séquence de tâches existante. Cela est utile pour spécifier un tableau de variables existant, tel qu'OSDAdapter, car les tableaux de variables ne figurent pas dans la liste des variables de séquence de tâches existantes.  
 
-Nadat u de variabelen voor een regel hebt geselecteerd, moet u een waarde opgeven voor elke variabele. De variabele wordt ingesteld op de opgegeven waarde wanneer de regel resulteert in waar. Voor elke variabele kunt u **Geheime waarde** selecteren om de waarde van de variabele te verbergen. Standaard worden de waarden van bepaalde bestaande variabelen verborgen, zoals de takenreeksvariabele OSDCaptureAccountPassword.  
+Après avoir sélectionné les variables pour une règle, vous devez fournir une valeur pour chaque variable. Lorsque la règle est évaluée comme vraie, la variable est définie à la valeur spécifiée. Pour chaque variable, vous pouvez sélectionner **Valeur secrète** pour masquer la valeur de la variable. Par défaut, certaines variables existantes (telles que la variable de séquence de tâches OSDCaptureAccountPassword) masquent les valeurs.  
 
 > [!IMPORTANT]  
->  Wanneer u een takenreeks importeert met de stap Dynamische variabelen instellen terwijl **Geheime waarde** is geselecteerd voor de waarde van de variabele, wordt de waarde verwijderd wanneer u de takenreeks importeert. Daardoor moet u de waarde voor de dynamische variabele opnieuw invoeren nadat u de takenreeks hebt geïmporteerd.  
+>  Quand vous importez une séquence de tâches lors de l'étape Définir des variables dynamiques et que l'option **Valeur secrète** est sélectionnée pour la valeur de la variable, la valeur est supprimée lorsque vous importez la séquence de tâches. Ainsi, vous devez réentrer la valeur de la variable dynamique après avoir importé la séquence de tâches.  
 
-##  <a name="BKMK_SetTaskSequenceVariable"></a>Takenreeksvariabele instellen  
-Gebruik de takenreeksstap **Takenreeksvariabele instellen** om de waarde in te stellen van een variabele die in de takenreeks wordt gebruikt.  
+##  <a name="BKMK_SetTaskSequenceVariable"></a> Définir la variable de séquence de tâches  
+Utilisez l'étape de séquence de tâches **Définir la variable de séquence de tâches** pour définir la valeur d'une variable qui est utilisée avec la séquence de tâches.  
 
-Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Takenreeksvariabelen worden gelezen door takenreeksacties en bepalen het gedrag van deze acties. Zie voor meer informatie over specifieke takenreeksvariabelen [Takenreeksacties](task-sequence-action-variables.md).  
+Cette étape peut être exécutée dans un système d'exploitation standard ou Windows PE. Les variables de séquence de tâches sont lues par les actions et en déterminent le comportement. Pour plus d’informations sur les variables de séquence de tâches spécifiques, consultez [Variables d’action de séquence de tâches](task-sequence-action-variables.md).  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam voor deze takenreeksstap.  
+ **Nom**  
+ Nom court défini par l'utilisateur pour cette étape de séquence de tâches.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Takenreeksvariabele**  
- Een door de gebruiker gedefinieerde naam voor de takenreeksvariabele.  
+ **Variable de séquence de tâches**  
+ Nom défini par l'utilisateur pour la variable de la séquence de tâches.  
 
- **Waarde**  
- De waarde die is gekoppeld aan de takenreeksvariabele. De waarde kan een andere takenreeksvariabele zijn met de syntaxis %<varname\>%.  
+ **Valeur**  
+ Valeur associée à la variable de la séquence de tâches. La valeur peut être une autre variable de séquence de tâches dans la syntaxe %<nom_variable\>%.  
 
-## <a name="hide-task-sequence-progress"></a>Voortgang van de takenreeks verbergen
+## <a name="hide-task-sequence-progress"></a>Masquer la progression de la séquence de tâches
 <!-- 1354291 -->
-U kunt bepalen wanneer voortgang van de takenreeks wordt weergegeven aan eindgebruikers met behulp van een nieuwe variabele met de release 1706. Gebruik in uw takenreeks de **Takenreeksvariabele instellen** stap voor het instellen van de waarde voor de **TSDisableProgressUI** variabele voortgang van de takenreeks weergeven of verbergen. U kunt de stap Takenreeksvariabele instellen meerdere keren in een takenreeks om de waarde voor de variabele te wijzigen. Hiermee kunt u de voortgang van de takenreeks in verschillende secties van de takenreeks weergeven of verbergen.
+Dans la version 1706, vous pouvez contrôler le moment auquel la progression de la séquence de tâches s’affiche pour les utilisateurs finaux à l’aide d’une nouvelle variable. Dans votre séquence de tâches, suivez l’étape **Définir une variable de séquence de tâches** pour définir la valeur de la variable **TSDisableProgressUI** pour masquer ou afficher la progression de la séquence de tâches. Vous pouvez suivre l’étape Définir une variable de séquence de tâches plusieurs fois dans une séquence de tâches pour modifier la valeur de la variable. Cela vous permet de masquer ou afficher la progression des séquences de tâches dans les différentes sections de la séquence de tâches.
 
- - **Voortgang van de takenreeks verbergen**  
-In de editor voor takenreeksen, gebruikt u de [Takenreeksvariabele instellen](#BKMK_SetTaskSequenceVariable) stap voor het instellen van de waarde van de **TSDisableProgressUI** variabele **True** voor het verbergen van de voortgang van de takenreeks.
+ - **Pour masquer la progression de la séquence de tâches**  
+Dans l’éditeur de séquences de tâches, suivez l’étape [Définir une variable de séquence de tâches](#BKMK_SetTaskSequenceVariable) pour définir la valeur de la variable **TSDisableProgressUI** sur **True** pour masquer la progression de la séquence de tâches.
 
- - **Voortgang van de takenreeks weergeven**  
-In de editor voor takenreeksen, gebruikt u de [Takenreeksvariabele instellen](#BKMK_SetTaskSequenceVariable) stap voor het instellen van de waarde van de **TSDisableProgressUI** variabele **False** om weer te geven van de voortgang van de takenreeks.
+ - **Pour afficher la progression de la séquence de tâches**  
+Dans l’éditeur de séquences de tâches, suivez l’étape [Définir une variable de séquence de tâches](#BKMK_SetTaskSequenceVariable) pour définir la valeur de la variable **TSDisableProgressUI** sur **False** pour afficher la progression de la séquence de tâches.
 
-##  <a name="BKMK_SetupWindowsandConfigMgr"></a>Windows en ConfigMgr installeren  
- Gebruik de takenreeksstap **Windows en ConfigMgr installeren** om de overgang van Windows PE naar het nieuwe besturingssysteem uit te voeren. Deze takenreeksstap is een vereist onderdeel van iedere besturingssysteemimplementatie. Deze Configuration Manager-client installeert in het nieuwe besturingssysteem en bereidt de takenreeks op uitvoering in het nieuwe besturingssysteem.  
+##  <a name="BKMK_SetupWindowsandConfigMgr"></a> Configurer Windows et ConfigMgr  
+ Utilisez l'étape de séquence de tâches **Configurer Windows et ConfigMgr** pour effectuer la transition de Windows PE vers le nouveau système d'exploitation. Cette étape de séquence de tâches est obligatoire dans tout déploiement de système d'exploitation, elle installe le client Configuration Manager dans le nouveau système d’exploitation et prépare la poursuite de l’exécution de la séquence de tâches dans le nouveau système d’exploitation.  
 
- Deze stap kan alleen in Windows PE worden uitgevoerd. De taak kan niet worden uitgevoerd in een standaardbesturingssysteem. Zie voor meer informatie over takenreeksvariabelen voor deze takenreeksactie [Windows en ConfigMgr installeren takenreeksacties](task-sequence-action-variables.md#BKMK_SetupWindows).  
+ Cette étape est exécutée uniquement sous Windows PE. Elle ne s'exécute pas dans un système d'exploitation standard. Pour plus d’informations sur les variables de séquence de tâches de cette action de séquence de tâches, consultez [Variables d’action de séquence de tâches Configurer Windows et ConfigMgr](task-sequence-action-variables.md#BKMK_SetupWindows).  
 
- De **Windows en ConfigMgr installeren** takenreeksactie sysprep.inf of unattend.xml directory variabelen, zoals % WINDIR % en % ProgramFiles %, vervangt door de Windows PE-installatiemap X:\Windows. Opgegeven takenreeksvariabelen met behulp van deze omgevingsvariabelen worden genegeerd.  
+ L’action de séquence de tâches **Configurer Windows et Configuration Manager** remplace les variables de répertoire de sysprep.inf ou unattend.xml, comme %WINDIR% et %ProgramFiles%, par le répertoire d’installation Windows°PE X:\Windows. Les variables de séquence de tâches spécifiées au moyen de ces variables d'environnement seront ignorées.  
 
- Gebruik deze takenreeksstap om de volgende handelingen uit te voeren:  
+ Utilisez cette étape de séquence de tâches pour effectuer les actions suivantes :  
 
-1.  Voorbereidingen: Windows PE  
+1.  Préliminaires : Windows PE  
 
-    1.  Voert takenreeksvariabelen in het bestand unattend.xml uit.  
+    1.  Effectue la substitution de variable de séquence de tâches dans le fichier unattend.xml.  
 
-    2.  Downloadt het pakket met de Configuration Manager-client en plaatst het in de geïmplementeerde installatiekopie.  
+    2.  Télécharge le package qui contient le client Configuration Manager et le place dans l’image déployée.  
 
-2.  Windows installeren  
+2.  Configuration de Windows  
 
-    1.  Installatie op basis van een installatiekopie.  
+    1.  Installation à base d'image.  
 
-        1.  Hiermee schakelt u de Configuration Manager-client in de installatiekopie (dat wil zeggen, wordt uitgeschakeld Autostart voor de Configuration Manager-client-service).  
+        1.  Désactive le client Configuration Manager dans l’image (autrement dit, le démarrage automatique est désactivé pour le service du client Configuration Manager).  
 
-        2.  Werkt het register in de geïmplementeerde installatiekopie bij zodat het geïmplementeerde besturingssysteem wordt gestart met dezelfde stationsletter als op de referentiecomputer.  
+        2.  Met à jour le Registre dans l'image déployée pour garantir que le système d'exploitation déployé démarre en utilisant la même lettre de lecteur que celle figurant sur l'ordinateur de référence.  
 
-        3.  Start opnieuw op naar het geïmplementeerde besturingssysteem.  
+        3.  Redémarre dans le système d'exploitation déployé.  
 
-        4.  Windows Mini-setup wordt uitgevoerd met behulp van het eerder opgegeven bestand sysprep.inf of unattend.xml, waarbij alle interactie door de eindgebruiker wordt onderdrukt. Opmerking: Als **netwerkinstellingen toepassen** opgegeven toevoegen aan een domein, bevindt die informatie zich in het bestand sysprep.inf of unattend.xml, en Windows Mini-Setup het domein.  
+        4.  La mini-installation de Windows s'exécute en utilisant le fichier sysprep.inf ou unattend.xml spécifié précédemment et dont toutes les interactions avec l'utilisateur sont supprimées. Remarque : si **Appliquer les paramètres réseau** indique qu’il faut joindre un domaine, cette information se trouve dans le fichier sysprep.inf ou unattend.xml et la mini-installation de Windows effectue la jonction.  
 
-    2.  Installatie op basis van setup.exe.  Voert Setup.exe uit, die de standaard Windows-installatieprocedure volgt:  
+    2.  Installation avec Setup.exe.  Exécute le fichier Setup.exe qui suit le processus d’installation de Windows classique :  
 
-        1.  Kopieert het installatiepakket voor het besturingssysteem dat is opgegeven in een eerdere takenreeks **Besturingssysteem toepassen** naar de harde schijf.  
+        1.  Copie le package d'installation du système d'exploitation spécifié dans une séquence de tâches **Appliquer le système d'exploitation** précédente sur le disque dur.  
 
-        2.  Start opnieuw op naar het nieuw geïmplementeerde besturingssysteem.  
+        2.  Redémarre dans le système d'exploitation qui vient d'être déployé.  
 
-        3.  Windows Mini-setup wordt uitgevoerd met behulp van het eerder opgegeven bestand sysprep.inf of unattend.xml, waarbij alle gebruikersinterface-instellingen worden onderdrukt. Opmerking: Als **netwerkinstellingen toepassen** opgegeven toevoegen aan een domein, bevindt die informatie zich in het bestand sysprep.inf of unattend.xml, en Windows Mini-Setup het domein.  
+        3.  La mini-installation de Windows s'exécute en utilisant le fichier sysprep.inf ou unattend.xml spécifié précédemment et dont tous les paramètres d'interface avec l'utilisateur sont supprimés. Remarque : si **Appliquer les paramètres réseau** indique qu’il faut joindre un domaine, cette information se trouve dans le fichier sysprep.inf ou unattend.xml et la mini-installation de Windows effectue la jonction.  
 
-3.  Instellen van de Configuration Manager-client  
+3.  Configurer le client Configuration Manager  
 
-    1.  Nadat Windows Mini-Setup is voltooid, wordt de takenreeks hervat met behulp van setupcomplete.cmd.  
+    1.  Une fois la mini-installation de Windows terminée, la séquence de tâches reprend à l’aide de setupcomplete.cmd.  
 
-    2.  Schakelt het lokale beheerdersaccount in of uit op basis van de geselecteerde optie in de stap **Windows-instellingen toepassen**.  
+    2.  Active ou désactive le compte d'administrateur local en fonction de l'option sélectionnée dans l'étape **Appliquer les paramètres Windows** .  
 
-    3.  Configuration Manager-client installeert met behulp van het eerder gedownloade pakket (1.b) en installatie-eigenschappen die zijn opgegeven in de Takenreekseditor. De client is geïnstalleerd in 'inrichtingsmodus' om te voorkomen dat nieuwe beleidsaanvragen worden verwerkt totdat de takenreeks is voltooid.  
+    3.  Installe le client Configuration Manager en utilisant le package précédemment téléchargé (1.b) et les propriétés d’installation spécifiées dans l’éditeur de séquence de tâches. Le client est installé en « mode de préparation » afin de l'empêcher de traiter les requêtes des nouvelles stratégies avant la fin de la séquence de tâches.  
 
-    4.  Wacht tot de client volledig operationeel is.  
+    4.  Attend que le client soit totalement opérationnel.  
 
-    5.  Als de computer wordt uitgevoerd in een omgeving waarin Network Access Protection is ingeschakeld, controleert de client op vereiste updates en installeert de client deze, zodat alle vereiste updates aanwezig zijn voordat de uitvoering van de takenreeks wordt hervat.  
+    5.  Si l'ordinateur fonctionne dans un environnement doté de la protection d'accès réseau, le client vérifie l'existence de mises à jour requises et les installe afin qu'elles soient toutes présentes avant que la séquence de tâches continue son exécution.  
 
-4.  De takenreeks wordt verder verwerkt bij de volgende stap.  
+4.  La séquence de tâches continue son exécution en passant à l'étape suivante.  
 
 > [!NOTE]  
->  De takenreeksactie **Windows en ConfigMgr installeren** is verantwoordelijk voor het uitvoeren van Groepsbeleid op de nieuw geïnstalleerde computer. Het groepsbeleid wordt toegepast nadat de takenreeks is voltooid.  
+>  L'action de séquence de tâches **Configurer Windows et ConfigMgr** est responsable de l'exécution de la stratégie de groupe sur l'ordinateur nouvellement installé. La stratégie de groupe est appliquée après la fin de la séquence de tâches.  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Selecteer deze optie niet als u wilt dat de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap. Als er een fout optreedt, mislukt de takenreeks, ongeacht of u deze instelling selecteert.  
+-   Ne sélectionnez pas l'option permettant de continuer la séquence de tâches si une erreur se produit pendant l'exécution de l'étape. Si une erreur se produit, la séquence de tâches échoue, que vous ayez sélectionné ou non ce paramètre.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Hiermee geeft u een korte, door de gebruiker gedefinieerde naam op die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Spécifie un nom court défini par l'utilisateur qui décrit l'action entreprise à cette étape.  
 
- **Beschrijving**  
- Hiermee geeft u aanvullende informatie op over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Spécifie des informations supplémentaires sur l'action effectuée à cette étape.  
 
- **Clientpakket**  
- Hiermee geeft u de Configuration Manager-clientinstallatiepakket dat door deze takenreeksstap wordt gebruikt. Klik op **Bladeren** en selecteer het clientinstallatiepakket dat u wilt gebruiken om de Configuration Manager-client te installeren.  
+ **Package client**  
+ Indique le package d’installation du client Configuration Manager qui sera utilisé par cette séquence de tâches. Cliquez sur **Parcourir** et sélectionnez le package d’installation du client que vous souhaitez utiliser pour installer le client Configuration Manager.  
 
- **Gebruik pre-productieclientpakket indien beschikbaar**  
- Hiermee wordt aangegeven dat als er een pre-productieclientpakket beschikbaar is, de takenreeksstap dit pakket gebruikt in plaats van het productieclientpakket. De pre-productieclient is meestal een nieuwere versie die wordt getest in de productieomgeving. Klik op **Bladeren** en selecteer het pre-productieclient-installatiepakket dat u wilt gebruiken om de Configuration Manager-client te installeren.  
+ **Utiliser le package client de préproduction quand il est disponible**  
+ Spécifie que, si un package client de préproduction est disponible, la séquence de tâches l’utilise à la place du package client de production. En règle générale, le client de préproduction est une version plus récente testée dans l’environnement de production. Cliquez sur **Parcourir** et sélectionnez le package d’installation du client de préproduction que vous souhaitez utiliser pour installer le client Configuration Manager.  
 
- **Installatie-eigenschappen**  
- Sitetoewijzing en de standaardconfiguratie worden automatisch opgegeven door de takenreeksactie. U kunt dit veld gebruiken om eventuele aanvullende installatie-eigenschappen op te geven die worden gebruikt bij installatie van de client. Als u meerdere installatie-eigenschappen wilt invoeren, scheidt u deze met een spatie.  
+ **Propriétés d’installation**  
+ L'attribution de site et la configuration par défaut sont automatiquement spécifiées par l'action de la séquence de tâches. Ce champ permet de spécifier les propriétés d'installation supplémentaires à utiliser lorsque vous installez le client. Pour entrer plusieurs propriétés d'installation, séparez-les par un espace.  
 
- U kunt opdrachtregelopties opgeven voor gebruik tijdens de clientinstallatie. U kunt bijvoorbeeld **/skipprereq: silverlight.exe** invoeren om aan CCMSetup.exe te communiceren dat de Microsoft Silverlight-vereiste niet moet worden geïnstalleerd. Zie voor meer informatie over beschikbare opdrachtregelopties voor CCMSetup.exe [over clientinstallatie-eigenschappen](../../core/clients/deploy/about-client-installation-properties.md).  
+ Vous pouvez spécifier des options de ligne de commande à utiliser lors de l'installation du client. Par exemple, vous pouvez entrer **/skipprereq: silverlight.exe** pour informer CCMSetup.exe de ne pas installer le composant requis Microsoft Silverlight. Pour plus d’informations sur les options de ligne de commande disponibles pour CCMSetup.exe, consultez [À propos des propriétés d’installation du client](../../core/clients/deploy/about-client-installation-properties.md).  
 
-##  <a name="BKMK_UpgradeOS"></a>Besturingssysteem bijwerken  
- Gebruik de takenreekstap **Besturingssysteem bijwerken** om een bestaand Windows 7-, Windows 8-, Windows 8.1- of Windows 10-besturingssysteem bij te werken naar Windows-10.  
+##  <a name="BKMK_UpgradeOS"></a> Mettre à niveau le système d’exploitation  
+ Utilisez l’étape de séquence de tâches **Mettre à niveau le système d’exploitation** pour mettre à niveau un système d’exploitation Windows 7, Windows 8, Windows 8.1 ou Windows 10 existant vers Windows 10.  
 
- Deze takenreeksstap kan alleen in een standaardbesturingssysteem worden uitgevoerd. De stap kan niet worden uitgevoerd in Windows PE.  
+ Cette étape de séquence de tâches s'exécute uniquement dans un système d'exploitation standard. Elle ne s'exécute pas dans Windows PE.  
 
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
+### <a name="details"></a>Détails  
+ Dans l'onglet **Propriétés** pour cette étape, vous pouvez configurer les paramètres décrits dans cette section.  
 
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
+ En outre, utilisez l'onglet **Options** pour effectuer les actions suivantes :  
 
--   De stap uitschakelen.  
+-   Désactiver l'étape.  
 
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
+-   Spécifier si la séquence de tâches continue en cas d'erreur pendant l'exécution de l'étape.  
 
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
+-   Spécifier des conditions qui doivent être remplies pour que l'étape s'exécute.  
 
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
+ **Nom**  
+ Nom court défini par l'utilisateur qui décrit l'action effectuée dans cette étape.  
 
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
+ **Description**  
+ Informations plus détaillées sur l'action effectuée dans cette étape.  
 
- **Upgradepakket**  
- Selecteer deze optie om het Windows 10-upgradepakket op te geven dat moet worden gebruikt voor de upgrade.  
+ **Package de mise à niveau**  
+ Sélectionnez cette option pour spécifier le package de mise à niveau de système d’exploitation Windows 10 à utiliser pour la mise à niveau.  
 
- **Bronpad**  
- Hiermee geeft u een lokaal pad of netwerkpad op naar het Windows-10-medium dat moet worden gebruikt (komt overeen met de opdrachtregeloptie /InstallFrom). U kunt ook een variabele opgeven, zoals %mycontentpath% of %DPC01%. Wanneer u een variabele voor het bronpad gebruikt, moet u deze eerder in de takenreeks opgeven. Als u bijvoorbeeld de stap [Pakketinhoud downloaden](#BKMK_DownloadPackageContent) in de takenreeks gebruikt, kunt u een variabele voor de locatie van het upgradepakket voor het besturingssysteem opgeven. Vervolgens gebruikt u deze variabele voor het bronpad voor deze stap.  
+ **Chemin source**  
+ Spécifie un chemin local ou réseau vers le support Windows 10 utilisé (correspond à l’option de ligne de commande /installFrom). Vous pouvez également spécifier une variable, comme %mycontentpath% ou %DPC01%. Quand vous utilisez une variable pour le chemin source, elle doit être spécifiée plus tôt dans la séquence de tâches. Par exemple, si vous utilisez l’étape [Télécharger le contenu du package](#BKMK_DownloadPackageContent) dans la séquence de tâches, vous pouvez spécifier une variable pour l’emplacement du package de mise à niveau du système d’exploitation. Ensuite, vous pouvez utiliser cette variable pour le chemin source de cette étape.  
 
- **Editie**  
- Geef de editie in het besturingssysteemmedium op dat moet worden gebruikt voor de upgrade.  
+ **Édition**  
+ Spécifiez l’édition au sein du support du système d’exploitation à utiliser pour la mise à niveau.  
 
- **Productcode**  
- Geef de productcode op om op het upgradeproces toe te passen  
+ **Clé du produit**  
+ Spécifier la clé de produit à appliquer au processus de mise à niveau  
 
- **Geef de volgende stuurprogramma-inhoud aan Windows Setup tijdens de upgrade**  
- Selecteer deze instelling om stuurprogramma's aan de doelcomputer toe te voegen tijdens het upgradeproces (komt overeen met de opdrachtregeloptie /InstallDriver). De stuurprogramma's moeten compatibel zijn met Windows 10. Geef een van de volgende mogelijkheden op:  
+ **Fournir le contenu du pilote suivant à l’installation de Windows pendant la mise à niveau**  
+ Sélectionnez ce paramètre pour ajouter des pilotes à l’ordinateur de destination pendant le processus de mise à niveau (correspond à l’option de ligne de commande /InstallDriver). Les pilotes doivent être compatibles avec Windows 10. Spécifiez l’une des options suivantes :  
 
--   **Stuurprogrammapakket**: Klik op **Bladeren** en selecteer een bestaand stuurprogrammapakket in de lijst.  
+-   **Package de pilotes** : cliquez sur **Parcourir** et sélectionnez un package de pilotes existant dans la liste.  
 
--   **Tijdelijke inhoud**:  Selecteer deze optie om de locatie voor het stuurprogrammapakket te geven. U kunt een lokale map, netwerkpad of een takenreeksvariabele opgeven. Wanneer u een variabele voor het bronpad gebruikt, moet u deze eerder in de takenreeks opgeven. Bijvoorbeeld door de stap [Pakketinhoud downloaden](task-sequence-steps.md#BKMK_DownloadPackageContent) te gebruiken.  
+-   **Contenu intermédiaire** : sélectionnez cette option pour spécifier l’emplacement du package de pilotes. Vous pouvez spécifier un dossier local, un chemin réseau ou une variable de séquence de tâches. Quand vous utilisez une variable pour le chemin source, elle doit être spécifiée plus tôt dans la séquence de tâches. Par exemple, en utilisant l’étape [Télécharger le contenu du package](task-sequence-steps.md#BKMK_DownloadPackageContent).  
 
- **Time-out (minuten)**  
- Hiermee geeft u het aantal minuten op dat Setup uit te voeren voordat Configuration Manager de takenreeksstap mislukt heeft.  
+ **Délai d’expiration (minutes)**  
+ Indique le nombre de minutes pendant lesquelles le programme d’installation doit s’exécuter avant que Configuration Manager fasse échouer l’étape de séquence de tâches.  
 
- **Windows-installatiecompatibiliteitsscan uitvoeren zonder de upgrade wordt gestart**  
- Hiermee geeft u aan dat de Windows-scan voor compatibiliteit moet worden uitgevoerd zonder het upgradeproces te starten (komt overeen met de opdrachtregeloptie /SCompat ScanOnly). Als u deze optie gebruikt, moet u nog steeds de gehele installatiebron implementeren. Setup retourneert een afsluitcode als resultaat van de scan. In de volgende tabel staan enkele veelvoorkomende afsluitcodes.  
+ **Effectuer une analyse de compatibilité d’installation de Windows sans démarrer la mise à niveau**  
+ Spécifie l’exécution de l’analyse de compatibilité de l’installation de Windows sans démarrer le processus de mise à niveau (correspond à l’option de ligne de commande /Compat ScanOnly). Vous devez quand même déployer toute la source de d’installation quand vous utilisez cette option. Le programme d’installation renvoie un code de sortie suite à l’analyse. Le tableau suivant indique certains des codes de sortie les plus courants.  
 
-|Afsluitcode|Details|  
+|Code de sortie|Détails|  
 |-|-|  
-|MOSETUP_E_COMPAT_SCANONLY (0xC1900210)|Geen compatibiliteitsproblemen (gelukt).|  
-|MOSETUP_E_COMPAT_INSTALLREQ_BLOCK (0xC1900208)|Compatibiliteitsproblemen waarop actie kan worden ondernomen.|  
-|MOSETUP_E_COMPAT_MIGCHOICE_BLOCK (0xC1900204)|Geselecteerde migratiekeuze is niet beschikbaar. Bijvoorbeeld een upgrade van Enterprise naar Professional.|  
-|MOSETUP_E_COMPAT_SYSREQ_BLOCK (0xC1900200)|Komt niet in aanmerking voor Windows 10.|  
-|MOSETUP_E_COMPAT_INSTALLDISKSPACE_BLOCK (0xC190020E)|Onvoldoende vrije schijfruimte.|  
+|MOSETUP_E_COMPAT_SCANONLY (0xC1900210)|Aucun problème de compatibilité (« réussite »).|  
+|MOSETUP_E_COMPAT_INSTALLREQ_BLOCK (0XC1900208)|Problèmes de compatibilité pouvant donner lieu à une action.|  
+|MOSETUP_E_COMPAT_MIGCHOICE_BLOCK (0xC1900204)|Le choix de migration sélectionné n’est pas disponible. Par exemple, une mise à niveau depuis Entreprise vers Professionnel.|  
+|MOSETUP_E_COMPAT_SYSREQ_BLOCK (0xC1900200)|Non éligible pour Windows 10.|  
+|MOSETUP_E_COMPAT_INSTALLDISKSPACE_BLOCK (0XC190020E)|Espace disque disponible insuffisant.|  
 
- Zie [Opdrachtregelopties voor Windows Setup](https://msdn.microsoft.com/library/windows/hardware/dn938368\(v=vs.85\).aspx) voor meer informatie over deze parameter  
+ Pour plus d’informations sur ce paramètre, consultez [Options de ligne de commande du programme d’installation de Windows](https://msdn.microsoft.com/library/windows/hardware/dn938368\(v=vs.85\).aspx).  
 
- **Verwijder compatibiliteitsberichten die kunnen worden genegeerd**  
- Geeft aan dat de installatie is voltooid en negeert alle compatibiliteitsberichten die kunnen worden genegeerd (komt overeen met de opdrachtregeloptie /Compat IgnoreWarning).  
+ **Ignorer les messages de compatibilité révocables**  
+ Spécifie que le programme d’installation a terminé l’installation, en ignorant tous les messages de compatibilité révocables (correspond à l’option de ligne de commande /Compat IgnoreWarning).  
 
- **Installatie van Windows dynamisch bijwerken met Windows Update**  
- Geeft aan of Setup dynamische updatebewerkingen uitvoert, zoals zoeken, downloaden en installeren van updates (komt overeen met de opdrachtregeloptie /DynamicUpdate). Deze instelling is niet compatibel is met Configuration Manager software-updates, maar kan worden ingeschakeld wanneer u updates verwerkt met behulp van WSUS (zelfstandig) of Windows Update.  
+ **Mettre à jour dynamiquement l’installation de Windows avec Windows Update**  
+ Spécifie si le programme d’installation effectue les opérations de mise à jour dynamique, comme la recherche, le téléchargement et l’installation des mises à jour (correspond à l’option de ligne de commande /DynamicUpdate). Ce paramètre n’est pas compatible avec les mises à jour logicielles Configuration Manager, mais il peut être activé quand vous gérez les mises à jour à l’aide de WSUS (autonome) ou Windows Update.  
 
- **Beleid negeren en standaard Microsoft Update gebruiken**: Selecteer deze instelling om het lokale beleid tijdelijk in negeren realtime dynamische updatebewerkingen uitvoert en de computer updates downloaden van Windows Update.  
+ **Remplacer la stratégie et utiliser Microsoft Update par défaut**: sélectionnez ce paramètre pour remplacer temporairement la stratégie locale, en temps réel, pour exécuter des opérations de mise à jour dynamique et permettre à l’ordinateur d’obtenir des mises à jour par le biais de Windows Update.  

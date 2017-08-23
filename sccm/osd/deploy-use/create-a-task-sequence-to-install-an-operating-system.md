@@ -1,6 +1,6 @@
 ---
-title: Maak een takenreeks om een besturingssysteem te installeren | Microsoft Docs
-description: Gebruik takenreeksen in System Center Configuration Manager automatisch te installeren installatiekopie van een besturingssysteem en andere inhoud op een doelcomputer.
+title: "Créer une séquence de tâches pour installer un système d’exploitation | Microsoft Docs"
+description: "Dans System Center Configuration Manager, utilisez des séquences de tâches pour installer automatiquement une image de système d’exploitation et d’autres contenus sur un ordinateur de destination."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,142 +16,142 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 41aa6cf69a746f0ab67d804f1ee0c70db05d65ee
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-a-task-sequence-to-install-an-operating-system-in-system-center-configuration-manager"></a>Een takenreeks maken voor het installeren van een besturingssysteem in System Center Configuration Manager
+# <a name="create-a-task-sequence-to-install-an-operating-system-in-system-center-configuration-manager"></a>Créer une séquence de tâches pour installer un système d’exploitation dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Gebruik takenreeksen in System Center Configuration Manager automatisch de installatiekopie van een besturingssysteem installeren op een doelcomputer. U maakt een takenreeks die verwijst naar de opstartinstallatiekopie die wordt gebruikt om de doelcomputer op te starten, de installatiekopie van het besturingssysteem dat u wilt installeren op de doelcomputer en andere bijkomende inhoud, zoals andere toepassingen of software-updates die u wilt installeren. Vervolgens implementeert u de takenreeks voor de verzameling die de doelcomputer bevat.  
+Dans System Center Configuration Manager, utilisez des séquences de tâches pour installer automatiquement une image de système d’exploitation sur un ordinateur de destination. Vous pouvez créer une séquence de tâches qui fasse référence à l’image de démarrage chargée de démarrer l’ordinateur de destination, à l’image du système d’exploitation que vous voulez installer sur l’ordinateur de destination et à tout autre contenu supplémentaire, par exemple les autres applications ou les mises à jour logicielles que vous voulez installer. Vous devez ensuite déployer la séquence de tâches sur le regroupement qui contient l’ordinateur de destination.  
 
-##  <a name="BKMK_InstallOS"></a> Een takenreeks maken voor het installeren van een besturingssysteem  
- Er zijn veel scenario's voor het implementeren van een besturingssysteem op computers in uw omgeving. In de meeste gevallen maakt u een takenreeks en selecteert u **Bestaand installatiekopiepakket installeren** in de Wizard Takenreeks maken om het besturingssysteem te installeren, gebruikersinstellingen te migreren, software-updates toe te passen en toepassingen te installeren. Voordat u een takenreeks maakt om een besturingssysteem te installeren, moet aan het volgende zijn voldaan:   
+##  <a name="BKMK_InstallOS"></a> Créer une séquence de tâches pour installer un système d’exploitation  
+ Il existe de nombreux scénarios pour déployer un système d’exploitation sur les ordinateurs de votre environnement. Dans la plupart des cas, vous créez une séquence de tâches et vous sélectionnez **Installer un package d’images existant** dans l’Assistant Création d’une séquence de tâches pour installer le système d’exploitation, migrer des paramètres utilisateur, appliquer des mises à jour logicielles et installer des applications. Avant de créer une séquence de tâches pour installer un système d’exploitation, les conditions suivantes doivent être remplies :   
 
--   **Vereist**  
+-   **Obligatoire**  
 
-    -   De [opstartinstallatiekopie](../get-started/manage-boot-images.md) moet beschikbaar zijn in de Configuration Manager-console.  
+    -   L’[image de démarrage](../get-started/manage-boot-images.md) doit être disponible dans la console Configuration Manager.  
 
-    -   Een [besturingssysteeminstallatiekopie](../get-started/manage-operating-system-images.md) moet beschikbaar zijn in de Configuration Manager-console.  
+    -   Une [image de système d’exploitation](../get-started/manage-operating-system-images.md) doit être disponible dans la console Configuration Manager.  
 
--   **Vereist (indien gebruikt)**  
+-   **Obligatoire (si utilisé)**  
 
-    -   [Software-updates](../../sum/get-started/synchronize-software-updates.md) moeten worden gesynchroniseerd in de Configuration Manager-console.  
+    -   Les [mises à jour logicielles](../../sum/get-started/synchronize-software-updates.md) doivent être synchronisées dans la console Configuration Manager.  
 
-    -   [Toepassingen](../../apps/deploy-use/create-applications.md) moet worden toegevoegd aan de Configuration Manager-console.  
+    -   Les [applications](../../apps/deploy-use/create-applications.md) doivent être ajoutées à la console Configuration Manager.  
 
-#### <a name="to-create-a-task-sequence-that-installs-an-operating-system"></a>Een takenreeks maken waarmee een besturingssysteem wordt geïnstalleerd  
+#### <a name="to-create-a-task-sequence-that-installs-an-operating-system"></a>Pour créer une séquence de tâches qui installe un système d’exploitation  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Takenreeksen**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-3.  Klik op **Takenreeks maken** in het tabblad **Start** , in de groep **Maken** om de wizard Takenreeks maken te starten.  
+3.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une séquence de tâches** pour démarrer l'Assistant Création d'une séquence de tâches.  
 
-4.  Klik op **Bestaand installatiekopiepakket installeren** op de pagina **Nieuwe takenreeks maken**en klik vervolgens op **Volgende**.  
+4.  Dans la page **Créer une séquence de tâches** , sélectionnez **Installer un package d'images existant**, puis cliquez sur **Suivant**.  
 
-5.  Configureer op de pagina **Takenreeksinformatie** de volgende instellingen en klik op **Volgende**.  
+5.  Sur la page **Informations sur la séquence de tâches** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
 
-    -   **Takenreeksnaam**: Geef een naam die de takenreeks identificeert.  
+    -   **Nom de la séquence de tâches**: spécifiez un nom qui identifie la séquence de tâches.  
 
-    -   **Beschrijving**: Geef een beschrijving van de taak die door de takenreeks wordt uitgevoerd.  
+    -   **Description**: spécifiez une description de la tâche qui est effectuée par la séquence de tâches.  
 
-    -   **Opstartinstallatiekopie**: Geef de opstartinstallatiekopie die het besturingssysteem wordt geïnstalleerd op de doelcomputer. De opstartinstallatiekopie bevat een versie van Windows PE waarmee het besturingssysteem en eventuele benodigde apparaatstuurprogramma's worden geïnstalleerd. Zie voor informatie [opstartinstallatiekopieën beheren](../get-started/manage-boot-images.md).  
-
-        > [!IMPORTANT]  
-        >  De architectuur van de opstartinstallatiekopie moet compatibel zijn met de hardware-architectuur van de doelcomputer.  
-
-6.  Geef op de pagina **Windows installeren** de volgende opties op en klik op **Volgende**.  
-
-    -   **Installatiekopiepakket**: Geef het pakket met de installatiekopie van het besturingssysteem te installeren. Zie voor meer informatie [installatiekopieën van besturingssystemen beheren](../get-started/manage-operating-system-images.md).  
-
-    -   **Afbeelding**: Als het installatiekopiepakket van het besturingssysteem meerdere installatiekopieën bevat, geeft u de index van de installatiekopie van het besturingssysteem te installeren.  
-
-    -   **Partitioneren en formatteren van de doelcomputer die het besturingssysteem installeert**: Geef op of u wilt dat de takenreeks voor het partitioneren en formatteren van de doelcomputer voordat het besturingssysteem is geïnstalleerd.  
-
-    -   **Productcode**: Geef de productcode voor het Windows-besturingssysteem te installeren. U kunt gecodeerde volumelicentiesleutels en standaardproductsleutels opgeven. Als u een niet-gecodeerde productcode gebruikt, moet elke groep van 5 tekens gescheiden worden door een streepje (-). Bijvoorbeeld: *XXXXX-XXXXX-XXXXX-XXXXX-XXXXX*  
-
-    -   **Serverlicentiemodus**: Geef op of de serverlicentie **Per seat**, **Per server**, of dat er geen licentie is opgegeven. Als de serverlicentie **Per server**is, geef dan ook het maximum aantal serververbindingen op.  
-
-    -   Geef op hoe het beheerdersaccount moet worden afgehandeld dat wordt gebruikt wanneer de installatiekopie van het besturingssysteem wordt geïmplementeerd.  
-
-        -   **Lokale beheerdersaccount uitschakelen**: Geef op of het lokale beheerdersaccount wordt uitgeschakeld wanneer de installatiekopie van het besturingssysteem is geïmplementeerd.  
-
-        -   **Gebruik altijd hetzelfde beheerderswachtwoord**: Geef op of hetzelfde wachtwoord wordt gebruikt voor het lokale beheerdersaccount op alle computers waarop de installatiekopie van het besturingssysteem wordt geïmplementeerd.  
-
-7.  Geef op de pagina **Netwerk configureren** de volgende opties op en klik op **Volgende**.  
-
-    -   **Lid worden van een werkgroep**: Geef op of de doelcomputer wordt toegevoegd aan een werkgroep.  
-
-    -   **Lid worden van een domein**: Geef op of de doelcomputer aan een domein toevoegen. Geef in **Domein**de naam op van het domein.  
+    -   **Images de démarrage**: spécifiez l'image de démarrage qui installe le système d'exploitation sur l'ordinateur de destination. L'image de démarrage contient une version de Windows PE qui est utilisée pour installer le système d'exploitation, ainsi que les pilotes d'appareil supplémentaires qui sont requis. Pour plus d’informations, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
 
         > [!IMPORTANT]  
-        >  U kunt bladeren om domeinen te zoeken in het lokaal forest, maar u moet de domeinnaam opgeven voor een extern forest.  
+        >  L'architecture de l'image de démarrage doit être compatible avec l'architecture matérielle de l'ordinateur de destination.  
 
-         U kunt ook een organisatie-eenheid (OE) opgeven. Dit is een optionele instelling die de LDAP X.500-DN-naam van de OE specificeert waarin het computeraccount moet worden aangemaakt als het nog niet bestaat.  
+6.  Sur la page **Installer Windows** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
 
-    -   **Account**: Geef de gebruikersnaam en wachtwoord voor het account met machtigingen die aan het opgegeven domein. Bijvoorbeeld: *domein\gebruiker* of *%variabele%*.  
+    -   **Package d'images**: spécifiez le package qui contient l'image du système d'exploitation à installer. Pour plus d’informations, consultez [Gérer les images de système d’exploitation](../get-started/manage-operating-system-images.md).  
+
+    -   **Image**: si le package d'images du système d'exploitation comporte plusieurs images, spécifiez l'index de l'image du système d'exploitation à installer.  
+
+    -   **Effectuez la partition et le formatage de l'ordinateur cible avant d'installer le système d'exploitation**: spécifiez si vous souhaitez que la séquence de tâches partitionne et formate l'ordinateur de destination avant que le système d'exploitation soit installé.  
+
+    -   **Clé du produit**: spécifiez la clé de produit pour le système d'exploitation Windows à installer. Vous pouvez spécifier des clés de licence en volume codées et des clés de produit standard. Si vous utilisez une clé de produit non codée, chaque groupe de 5 caractères doit être séparé par un tiret (-). Par exemple : *XXXXX-XXXXX-XXXXX-XXXXX-XXXXX*  
+
+    -   **Mode de licence serveur :**spécifiez que la licence serveur est **Par siège**, **Par serveur**ou qu’aucune licence n’est spécifiée. Si la licence serveur est **Par serveur**, spécifiez également le nombre maximal de connexions au serveur.  
+
+    -   Spécifiez comment gérer le compte administrateur qui est utilisé lors du déploiement de l'image du système d'exploitation.  
+
+        -   **Désactiver le compte administrateur local**: spécifiez si le compte administrateur local est désactivé lorsque l'image du système d'exploitation est déployée.  
+
+        -   **Toujours utiliser le même mot de passe administrateur**: spécifiez si le même mot de passe est utilisé pour le compte administrateur local sur tous les ordinateurs où l'image du système d'exploitation est déployée.  
+
+7.  Sur la page **Configurer le réseau** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
+
+    -   **Joindre un groupe de travail**: indiquez si vous souhaitez ajouter l'ordinateur de destination à un groupe de travail.  
+
+    -   **Joindre un domaine**: indiquez si vous souhaitez ajouter l'ordinateur de destination à un domaine. Dans **Domaine**, spécifiez le nom du domaine.  
 
         > [!IMPORTANT]  
-        >  U moet de toepasselijke domeinreferenties invoeren als u van plan bent om de domeininstellingen of de werkgroepinstellingen te migreren.  
+        >  Vous pouvez rechercher des domaines dans la forêt locale, mais vous devez spécifier le nom de domaine d'une forêt distante.  
 
-8.  Op de **Configuration Manager installeren** pagina, geeft u het clientpakket voor Configuration Manager om te installeren op de doelcomputer en klik vervolgens op **volgende**.  
+         Vous pouvez également spécifier une unité d'organisation (UO). Il s'agit d'un paramètre facultatif qui spécifie le nom unique LDAP X.500 de l'UO dans laquelle vous créez le compte d'ordinateur s'il n'existe pas déjà.  
 
-9. Geef op de pagina **Statusmigratie** de volgende informatie op en klik vervolgens op **Volgende**.  
+    -   **Compte**: spécifiez le nom d’utilisateur et le mot de passe du compte qui dispose des autorisations pour joindre le domaine spécifié. Par exemple : *domaine\utilisateur* ou *%variable%*.  
 
-    -   **Gebruikersinstellingen vastleggen**: Geef op of de takenreeks de gebruikersstatus vastlegt. Zie voor meer informatie over het vastleggen en herstellen van de gebruikersstatus [Gebruikersstatus beheren](../get-started/manage-user-state.md).  
+        > [!IMPORTANT]  
+        >  Vous devez entrer les informations d'identification de domaine appropriées si vous prévoyez de migrer les paramètres du domaine ou les paramètres du groupe de travail.  
 
-    -   **Netwerkinstellingen vastleggen**: Geef op of de takenreeks de netwerkinstellingen van de doelcomputer vastgelegd. U kunt, naast de netwerkadapterinstellingen, het lidmaatschap van het domein of de werkgroep vastleggen.  
+8.  Dans la page **Installer Configuration Manager**, spécifiez le package client Configuration Manager à installer sur l’ordinateur de destination, puis cliquez sur **Suivant**.  
 
-    -   **Microsoft Windows-instellingen vastleggen**:  Geef op of de takenreeks Windows-instellingen van de doelcomputer vastlegt voordat de installatiekopie van het besturingssysteem is geïnstalleerd. U kunt de computernaam, de naam van de geregistreerde gebruiker en organisatie en de instellingen van de tijdzone vastleggen.  
+9. Sur la page **Migration de l'état** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
 
-10. Geef op de pagina **Inclusief updates** op of de vereiste software-updates, alle software-updates of geen software-updates moeten worden geïnstalleerd. Klik vervolgens op **Volgende**. Als u opgeeft om softwareupdates te installeren, installeert Configuration Manager alleen die softwareupdates die zijn gericht op de verzamelingen waar de doelcomputer lid van is.  
+    -   **Capturer les paramètres utilisateur**: spécifiez si la séquence de tâches capture l'état utilisateur. Pour plus d’informations sur la capture et la restauration de l’état utilisateur, consultez [Gérer l’état utilisateur](../get-started/manage-user-state.md).  
 
-11. Geef op de pagina **Toepassingen installeren** de toepassingen op die moeten worden geïnstalleerd op de doelcomputer en klik op **Volgende**. Als u meerdere toepassingen opgeeft, kunt u opgeven dat de takenreeks wordt voortgezet als de installatie van een bepaalde toepassing mislukt.  
+    -   **Capturer les paramètres réseau**: spécifiez si la séquence de tâches capture les paramètres réseau de l'ordinateur de destination. Vous pouvez capturer l'appartenance du domaine ou du groupe de travail avec les paramètres de carte réseau.  
 
-12. Voltooi de wizard.  
+    -   **Capturer les paramètres Microsoft Windows**:  spécifiez si la séquence de tâches capture les paramètres Windows à partir de l'ordinateur de destination avant l'installation de l'image du système d'exploitation. Vous pouvez capturer le nom de l'ordinateur, les noms d'organisations et d'utilisateurs inscrits et les paramètres des fuseaux horaires.  
 
- U kunt nu de takenreeks implementeren voor een verzameling van computers.  Zie [Een takenreeks implementeren](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS) voor meer informatie.  
+10. Sur la page **Inclure les mises à jour** , spécifiez si vous souhaitez installer les mises à jour logicielles requises, toutes les mises à jour logicielles ou aucune mise à jour logicielle, puis cliquez sur **Suivant**. Si vous spécifiez l’installation des mises à jour logicielles, Configuration Manager installe uniquement les mises à jour logicielles ciblant les regroupements auxquels l’ordinateur de destination appartient.  
 
-##  <a name="BKMK_InstallExistingOSImageTSExample"></a> Voorbeeld van een takenreeks voor het installeren van een bestaande installatiekopie van een besturingssysteem  
- Gebruik de volgende tabel als richtlijn bij het maken van een takenreeks voor de implementatie van een besturingssysteem met een bestaande installatiekopie van het besturingssysteem. De tabel helpt u om de algemene volgorde te bepalen voor de takenreeksstappen en deze in te delen en te structureren in logische groepen. De takenreeks die u maakt, kan afwijken van dit voorbeeld en kan meer of minder takenreeksstappen en groepen bevatten.  
+11. Sur la page **Installer les applications** , spécifiez les applications à installer sur l'ordinateur de destination, puis cliquez sur **Suivant**. Si vous spécifiez plusieurs applications, vous pouvez également spécifier que la séquence de tâches continue si l'installation d'une application spécifique échoue.  
+
+12. Effectuez toutes les étapes de l'Assistant.  
+
+ Vous pouvez maintenant déployer la séquence de tâches dans un regroupement d’ordinateurs.  Pour plus d'informations, voir [Déployer une séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  
+
+##  <a name="BKMK_InstallExistingOSImageTSExample"></a> Exemple de séquence de tâches pour installer une image de système d’exploitation existante  
+ Utilisez le tableau suivant comme guide lorsque vous créez une séquence de tâches qui déploie un système d'exploitation à l'aide d'une image de système d'exploitation existante. Ce tableau vous aidera à définir la séquence générale des étapes de votre séquence de tâches. Il vous permettra également d'organiser et de structurer ces étapes en groupes logiques. La séquence de tâches que vous créez peut être différente de celle de cet exemple et elle peut contenir un nombre de groupes et d'étapes de séquence de tâches plus ou moins important.  
 
 > [!IMPORTANT]  
->  Gebruik altijd de wizard Takenreeks maken om deze takenreeks te maken.  
+>  Vous devez toujours utiliser l'Assistant Création d'une séquence de tâches pour créer cette séquence de tâches.  
 
- Als u de wizard Nieuwe takenreeks maken gebruikt om deze nieuwe takenreeks te maken, zijn enkele van de namen van de takenreeksstappen anders dan wanneer u ze handmatig toevoegt aan een bestaande takenreeks. In de volgende tabel worden de verschillen in naamgeving vermeld:  
+ Lorsque vous utilisez l'Assistant Création d'une séquence de tâches pour créer cette nouvelle séquence de tâches, certains noms d'étapes de séquence de tâches sont différents des noms indiqués dans le cadre d'un ajout manuel de ces étapes de séquence de tâches à une séquence de tâches existante. Le tableau suivant présente les différences de dénomination :  
 
-|Takenreeksstapnamen in de wizard Takenreeksstap maken|Gelijkwaardige naam van de stap in de Takenreekseditor|  
+|Nom de l'étape de séquence de tâches de l'Assistant Création d'une séquence de tâches|Nom équivalent de l'étape dans l'Éditeur de séquence de tâches|  
 |---------------------------------------------------------|-----------------------------------------------|  
-|Opslag gebruikersstatus aanvragen|Statusopslag opvragen|  
-|Gebruikersbestanden en -instellingen vastleggen|Gebruikersstatus vastleggen|  
-|Opslag gebruikersstatus vrijgeven|Statusopslag vrijgeven|  
-|Opnieuw opstarten in Windows PE|Opnieuw opstarten in Windows PE of harde schijf|  
-|Schijf 0 partitioneren|Schijf formatteren en partitioneren|  
-|Gebruikersbestanden en -instellingen herstellen|Gebruikersstatus herstellen|  
+|Demander le stockage de l'état utilisateur|Demander le magasin d'état|  
+|Capturer les paramètres et fichiers utilisateur|Capturer l'état utilisateur|  
+|Libérer le stockage de l'état utilisateur|Libérer le magasin d'état|  
+|Redémarrer dans Windows PE|Redémarrer sur Windows PE ou disque dur|  
+|Partitionner le disque 0|Formater et partitionner le disque|  
+|Restaurer les fichiers et paramètres utilisateur|Restaurer l'état utilisateur|  
 
-|Takenreeksgroep of -stap|Beschrijving|  
+|Groupe ou étape de séquence de tâches|Description|  
 |---------------------------------|-----------------|  
-|Bestanden en instellingen - vastleggen **(nieuwe Takenreeksgroep)**|Een takenreeksgroep maken. In een takenreeksgroep houdt u vergelijkbare takenreeksstappen bij elkaar voor betere ordening en foutcontrole.<br /><br /> Deze groep bevat de stappen die nodig zijn voor het vastleggen van bestanden en instellingen van het besturingssysteem van een referentiecomputer.|  
-|Windows-instellingen vastleggen|Gebruik deze takenreeksstap om de Microsoft Windows-instellingen op de referentiecomputer te identificeren die moeten worden vastgelegd. U kunt de computernaam, gebruikers- en organisatiegegevens en de instellingen voor de tijdzone vastleggen.|  
-|Netwerkinstellingen vastleggen|Gebruik deze takenreeksstap om de netwerkinstellingen van de referentiecomputer vast te leggen. U kunt naast de netwerkadapterinstellingen het lidmaatschap van de referentiecomputer van een domein of werkgroep vastleggen.|  
-|Vastleggen van gebruikersbestanden en -instellingen - **(nieuwe Takenreekssubgroep)**|Maak een takenreeksgroep binnen een takenreeksgroep. Deze subgroep bevat de stappen die nodig zijn voor het vastleggen van gegevens van de gebruikersstatus. Deze subgroep houdt op een soortgelijke manier als de eerste groep die u hebt toegevoegd, vergelijkbare takenreeksstappen bij elkaar voor een betere ordening en foutcontrole.|  
-|Opslag gebruikersstatus aanvragen|Gebruik deze takenreeksstap om toegang aan te vragen tot een statusmigratiepunt waar de gebruikersgegevens worden opgeslagen. U kunt deze takenreeksstap configureren om informatie over de gebruikersstatus vast te leggen of te herstellen.|  
-|Gebruikersbestanden en -instellingen vastleggen|Gebruik deze takenreeksstap User State Migration Tool (USMT) om vast te leggen van de gebruikersstatus en instellingen van de referentiecomputer die de takenreeks die is gekoppeld aan deze taakstap ontvangt. U kunt de standaardopties vastleggen of configureren welke opties u wilt vastleggen.|  
-|Opslag gebruikersstatus vrijgeven|Gebruik deze takenreeksstap om het statusmigratiepunt te informeren dat de vastleg- of herstelactie is voltooid.|  
-|Besturingssysteem installeren - **(nieuwe Takenreeksgroep)**|Maak een nieuwe takenreekssubgroep. Deze subgroep bevat de stappen die nodig zijn voor het installeren en configureren van de Windows PE-omgeving.|  
-|Opnieuw opstarten in Windows PE|In deze takenreeksstap geeft u de opties op voor het opnieuw opstarten van de doelcomputer die deze takenreeks ontvangt. Bij deze stap wordt een bericht voor de gebruiker weergegeven dat de computer opnieuw wordt opgestart zodat de installatie kan doorgaan.<br /><br /> Deze stap maakt gebruik van de alleen-lezen takenreeksvariabele **_SMSTSInWinPE** . Als de gekoppelde waarde gelijk is aan **false** , wordt de takenreeksstap voortgezet.|  
-|Schijf 0 partitioneren|Met deze takenreeksstap geeft u de acties op die nodig zijn om de harde schijf op de doelcomputer te formatteren. Het standaardnummer van de schijf is **0**.<br /><br /> Deze stap maakt gebruik van de alleen-lezen takenreeksvariabele **_SMSTSClientCache** . Deze stap wordt uitgevoerd als de Configuration Manager-clientcache niet bestaat.|  
-|Besturingssysteem toepassen|Met deze takenreeksstap installeert u de installatiekopie van het besturingssysteem op de doelcomputer. Deze stap geldt voor alle volume afbeeldingen in het WIM-bestand naar het overeenkomstige sequentiële schijfvolume op de doelcomputer na het eerste verwijderen van alle bestanden op dat volume (met uitzondering van Configuration Manager-specifieke besturingsbestanden). U kunt een **sysprep** -antwoordbestand opgeven en ook configureren welke schijfpartitie voor de installatie moet worden gebruikt.|  
-|Windows-instellingen toepassen|Met deze takenreeksstap configureert u de configuratiegegevens voor de Windows-instellingen voor de doelcomputer. De Windows-instellingen die u kunt toepassen zijn gebruikers- en organisatiegegevens, product- of licentiecodegegevens, de tijdzone en het wachtwoord voor de lokale beheerder.|  
-|Netwerkinstellingen toepassen|Met deze takenreeks geeft u de gegevens voor netwerk- of werkgroepconfiguratie op voor de doelcomputer. U kunt ook opgeven of de computer een DHCP-server gebruikt of u kunt de IP-adresgegevens statisch toewijzen.|  
-|Apparaatstuurprogramma's toepassen|Met deze takenreeksstap installeert u stuurprogramma's als onderdeel van de implementatie van een besturingssysteem. U kunt Windows Setup toestaan om in alle bestaande categorieën stuurprogramma's te zoeken door **stuurprogramma's uit alle categorieën overwegen** te selecteren of de stuurprogrammacategorieën waarin Windows Setup zoekt beperken door **Zoeken naar passende stuurprogramma's beperken tot bepaalde categorieën**te selecteren.<br /><br /> Deze stap maakt gebruik van de alleen-lezen takenreeksvariabele **_SMSTSMediaType** . Deze takenreeksstap wordt alleen uitgevoerd als de waarde van de variabele niet gelijk is aan **FullMedia**.|  
-|Stuurprogrammapakket toepassen|Gebruik deze takenreeksstap om alle apparaatstuurprogramma's in een stuurprogrammapakket beschikbaar te maken voor gebruik door Windows Setup.|  
-|Besturingssysteem installeren - **(nieuwe Takenreeksgroep)**|Maak een nieuwe takenreekssubgroep. Deze subgroep bevat de stappen die nodig zijn voor het instellen van het geïnstalleerde besturingssysteem.|  
-|Windows en ConfigMgr installeren|Gebruik deze takenreeksstap om de Configuration Manager-clientsoftware te installeren. Configuration Manager installeert en registreert de GUID van de Configuration Manager-client. U kunt de vereiste installatieparameters toewijzen in het venster **Installatie-eigenschappen** .|  
-|Updates installeren|Met deze takenreeksstap geeft u op hoe software-updates worden geïnstalleerd op de doelcomputer. De doelcomputer wordt pas geëvalueerd voor toepasselijke software-updates als deze takenreeksstap wordt uitgevoerd. Op dat moment wordt de doelcomputer geëvalueerd voor software-updates is vergelijkbaar met een andere beheerd door Configuration Manager-client.<br /><br /> Deze stap maakt gebruik van de alleen-lezen takenreeksvariabele **_SMSTSMediaType** . Deze takenreeksstap wordt alleen uitgevoerd als de waarde van de variabele niet gelijk is aan **FullMedia**.|  
-|Herstellen van gebruikersbestanden en -instellingen - **(nieuwe Takenreekssubgroep)**|Maak een nieuwe takenreekssubgroep. Deze subgroep bevat de stappen die nodig zijn voor de gebruikersbestanden en -instellingen herstellen.|  
-|Opslag gebruikersstatus aanvragen|Gebruik deze takenreeksstap om toegang aan te vragen tot een statusmigratiepunt waar de gebruikersgegevens worden opgeslagen.|  
-|Gebruikersbestanden en -instellingen herstellen|Gebruik deze takenreeksstap om te starten van de gebruiker State Migration Tool (USMT) voor het herstellen van gebruikersstatus en instellingen op een doelcomputer.|  
-|Opslag gebruikersstatus vrijgeven|Gebruik deze takenreeksstap om het statusmigratiepunt te informeren dat de gebruikersstatusgegevens niet langer nodig zijn.|  
+|Capturer les fichiers et les paramètres - **(Nouveau groupe de séquences de tâches)**|Créez un groupe de séquences de tâches. Un groupe de séquences de tâches regroupe des étapes de séquence de tâches similaires pour une meilleure organisation et un contrôle plus efficace des erreurs.<br /><br /> Ce groupe contient les étapes nécessaires pour capturer des fichiers et des paramètres à partir du système d'exploitation d'un ordinateur de référence.|  
+|Capturer les paramètres Windows|Utilisez cette étape de séquence de tâches pour identifier les paramètres Microsoft Windows pour capturer à partir de l'ordinateur de référence. Vous pouvez capturer le nom de l'ordinateur, les informations utilisateur et organisationnelles et les paramètres des fuseaux horaires.|  
+|Capturer les paramètres réseau|Utilisez cette étape de séquence de tâches pour capturer les paramètres réseau à partir de l'ordinateur de référence. Vous pouvez capturer l'appartenance au domaine ou au groupe de travail de l'ordinateur de référence et les informations du paramètre de la carte réseau.|  
+|Capturer les paramètres et fichiers utilisateur - **(Nouveau sous-groupe de séquences de tâches)**|Créez un groupe de séquences de tâches au sein d'un groupe de séquences de tâches. Ce sous-groupe contient les étapes nécessaires à la capture des données d'état utilisateur. Comme le groupe initial que vous avez ajouté, ce sous-groupe regroupe des étapes de séquence de tâches similaires pour une meilleure organisation et un contrôle plus efficace des erreurs.|  
+|Demander le stockage de l'état utilisateur|Utilisez cette étape de séquence de tâches pour demander l'accès à un point de migration d'état où sont stockées les données d'état utilisateur. Vous pouvez configurer cette étape de la séquence de tâches pour capturer ou restaurer les informations de l'état utilisateur.|  
+|Capturer les paramètres et fichiers utilisateur|Utilisez cette étape de séquence de tâches pour utiliser l'outil de migration de l'état utilisateur pour capturer l'état utilisateur et les paramètres à partir de l'ordinateur de référence qui recevra la séquence de tâches associée à cette étape de tâche. Vous pouvez capturer les options standard ou configurer les options à capturer.|  
+|Libérer le stockage de l'état utilisateur|Utilisez cette étape de séquence de tâches pour informer le point de migration d'état que l'opération de capture ou de restauration est terminée.|  
+|Installer le système d'exploitation - **(Nouveau groupe de séquences de tâches)**|Créez un autre sous-groupe de séquences de tâches. Ce sous-groupe contient les étapes nécessaires à l'installation et à la configuration de l'environnement Windows PE.|  
+|Redémarrer dans Windows PE|Utilisez cette étape de séquence de tâches pour spécifier les options de redémarrage pour l'ordinateur de destination qui reçoit cette séquence de tâches. Cette étape affichera un message destiné à l'utilisateur et lui indiquant que l'ordinateur sera redémarré afin de poursuivre l'installation.<br /><br /> Cette étape utilise la variable de séquence de tâches **_SMSTSInWinPE** en lecture seule. Si la valeur associée est **faux** , l'étape de séquence de tâches se poursuit.|  
+|Partitionner le disque 0|Cette étape de séquence de tâches détermine les actions nécessaires au formatage du disque dur sur l'ordinateur de destination. Le numéro de disque par défaut est **0**.<br /><br /> Cette étape utilise la variable de séquence de tâches **_SMSTSMediaType** en lecture seule. Elle sera exécutée en l’absence de mémoire cache du client Configuration Manager.|  
+|Appliquer le système d'exploitation|Utilisez cette étape pour installer l'image de système d'exploitation sur l'ordinateur de destination. Cette étape applique toutes les images de volume contenues dans le fichier WIM au volume de disque séquentiel correspondant sur l’ordinateur cible après avoir d’abord supprimé tous les fichiers sur ce volume (à l’exception des fichiers de contrôle propres à Configuration Manager). Vous pouvez spécifier un fichier de réponse **sysprep** et également configurer la partition de disque utilisée pour l'installation.|  
+|Appliquer les paramètres Windows|Utilisez cette étape de séquence de tâches pour configurer les informations de configuration des paramètres Windows pour l'ordinateur de destination. Les paramètres Windows que vous pouvez appliquer sont les informations utilisateur et organisationnelles, les informations principales sur le produit ou la clé de licence, les fuseaux horaires et le mot passe administrateur local.|  
+|Appliquer les paramètres réseau|Utilisez cette étape de séquence de tâches pour spécifier les informations de configuration du réseau ou du groupe de travail pour l'ordinateur de destination. Vous pouvez également indiquer si l'ordinateur utilise un serveur DHCP ou vous pouvez attribuer en mode statique les informations de l'adresse IP.|  
+|Appliquer les pilotes de périphériques|Utilisez cette étape de séquence de tâches pour installer des pilotes dans le cadre du déploiement de système d'exploitation. Vous pouvez autoriser le programme d'installation Windows à rechercher toutes les catégories de pilotes existantes en sélectionnant **Considérer les pilotes de toutes les catégories** . Vous pouvez également limiter les catégories de pilotes que le programme d'installation Windows doit rechercher en sélectionnant **Limiter la correspondance des pilotes aux pilotes des catégories sélectionnées uniquement**.<br /><br /> Cette étape utilise la variable de séquence de tâches **_SMSTSMediaType** en lecture seule. Cette étape de séquence de tâches s'exécute uniquement si la valeur de la variable n'est pas **FullMedia**.|  
+|Appliquer le package de pilotes|Utilisez cette étape de séquence de tâches pour que tous les pilotes de périphérique d'un package de pilotes puissent être utilisés par le programme d'installation de Windows.|  
+|Configurer le système d'exploitation - **(Nouveau groupe de séquences de tâches)**|Créez un autre sous-groupe de séquences de tâches. Ce sous-groupe contient les étapes nécessaires à la configuration du système d'exploitation.|  
+|Configurer Windows et ConfigMgr|Cette étape de séquence de tâches permet d’installer le logiciel client Configuration Manager. Configuration Manager installe et inscrit le GUID du client Configuration Manager. Vous pouvez définir les paramètres d'installation nécessaires à partir de la fenêtre **Propriétés d'installation** .|  
+|Installer les mises à jour|Utilisez cette étape de séquence de tâches pour spécifier la façon dont sont installées les mises à jour logicielles sur l'ordinateur de destination. L'ordinateur de destination n'est pas évalué pour déterminer les mises à jour logicielles applicables avant l'exécution de cette séquence de tâches. À ce stade, l’ordinateur de destination est évalué pour déterminer les mises à jour logicielles applicables comme n’importe quel autre client géré dans Configuration Manager.<br /><br /> Cette étape utilise la variable de séquence de tâches **_SMSTSMediaType** en lecture seule. Cette étape de séquence de tâches s'exécute uniquement si la valeur de la variable n'est pas **FullMedia**.|  
+|Restaurer les fichiers et paramètres utilisateur - **(Nouveau sous-groupe de la séquence de tâches)**|Créez un autre sous-groupe de séquences de tâches. Ce sous-groupe contient les étapes nécessaires à la restauration des fichiers utilisateur et des paramètres.|  
+|Demander le stockage de l'état utilisateur|Utilisez cette étape de séquence de tâches pour demander l'accès à un point de migration d'état où sont stockées les données d'état utilisateur.|  
+|Restaurer les fichiers et paramètres utilisateur|Utilisez cette étape de séquence de tâches pour lancer l'outil de migration de l'état utilisateur afin de restaurer les paramètres et l'état utilisateur sur un ordinateur de destination.|  
+|Libérer le stockage de l'état utilisateur|Utilisez cette étape de séquence de tâches pour informer le point de migration d’état que les données d’état d’utilisateur ne sont plus nécessaires.|  

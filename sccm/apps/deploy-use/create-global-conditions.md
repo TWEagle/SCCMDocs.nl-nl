@@ -1,6 +1,6 @@
 ---
-title: Globale voorwaarden maken | Microsoft Docs
-description: "Algemene voorwaarden om op te geven hoe een toepassing beschikbaar wordt gesteld en geïmplementeerd voor clientapparaten maken."
+title: "Créer des conditions globales | Microsoft Docs"
+description: "Créez des conditions globales pour spécifier la manière dont une application est fournie et déployée sur les appareils clients."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,198 +17,198 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 8a59a1769eec4cd6d78d7686a1d8008e832dd924
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-global-conditions-in-system-center-configuration-manager"></a>Globale voorwaarden maken in System Center Configuration Manager
+# <a name="how-to-create-global-conditions-in-system-center-configuration-manager"></a>Comment créer des conditions globales dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-In System Center Configuration Manager globale voorwaarden zijn regels die staan voor zakelijke of technische voorwaarden die u gebruiken kunt om op te geven hoe een toepassing beschikbaar wordt gesteld en geïmplementeerd voor clientapparaten. Globale voorwaarden worden geopend via de pagina **Vereisten** van de wizard Implementatietype maken.  
+Dans System Center Configuration Manager, les conditions globales sont des règles qui représentent des conditions commerciales ou techniques pouvant être utilisées pour spécifier la manière dont une application est fournie et déployée sur les appareils clients. Les conditions globales sont accessibles à la page **Spécifications** de l’Assistant Création d’un type de déploiement.  
 
 > [!NOTE]  
->  Globale voorwaarden alleen vanaf de site waar ze zijn gemaakt, kunt u bewerken.  
+>  Vous pouvez modifier les conditions globales uniquement à partir du site où elles ont été créées.  
 
- Gebruik de volgende procedures Configuration Manager globale voorwaarden maken.  
+ Utilisez les procédures suivantes pour créer des conditions globales Configuration Manager.  
 
-## <a name="provide-basic-information-about-the-global-condition"></a>Algemene gegevens over de globale voorwaarde opgeven  
- Verschillende soorten globale voorwaarden zijn beschikbaar. Verschillende opties zijn gekoppeld aan de verschillende typen globale voorwaarden. Wanneer u een specifiek globale voorwaardetype kiest selecteert, ziet u Configuration Manager de opties die van toepassing zijn op uw selectie.  
+## <a name="provide-basic-information-about-the-global-condition"></a>Fournir des informations de base sur la condition globale  
+ Différents types de conditions globales sont à votre disposition. À chacun de ces types sont associées des options spécifiques. Quand vous sélectionnez un type de condition globale spécifique, Configuration Manager affiche les options qui s’appliquent à votre sélection.  
 
-1.  Kies in de Configuration Manager-console **softwarebibliotheek** > **Toepassingsbeheer** > **globale voorwaarden**.  
+1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Conditions globales**.  
 
-3.  Op de **Start** tabblad, in de **maken** groep, kiest u **globale voorwaarde maken**.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer une condition globale**.  
 
-4.  Geef in het dialoogvenster **Globale voorwaarde maken** een naam op en een optionele beschrijving voor de globale voorwaarde.  
+4.  Dans la boîte de dialogue **Créer une condition globale** , indiquez le nom et la description facultative de la condition globale.  
 
-5.  In de **apparaattype** vervolgkeuzelijst Kies of de globale voorwaarde geldt voor een **Windows** computer of een **Windows Mobile** apparaat.  
+5.  Dans la liste déroulante **Type d’appareil**, choisissez si la condition globale est destinée à un ordinateur **Windows** ou un appareil **Windows Mobile**.  
 
-6.  Kies in het vervolgkeuzemenu **Voorwaardetype** een van de volgende opties:  
+6.  Dans la liste déroulante **Type de condition** , choisissez l'une des options suivantes :  
 
-    -   **Instelling** – Met deze optie kunt u controleren of er sprake is van een of meerdere items op clientapparaten. U kunt bijvoorbeeld controleren of een sleutelwaarde bestand, map of registersleutelwaarde op een clientapparaat bestaat.  
+    -   **Paramètre** : cette option vérifie l'existence d'un ou plusieurs éléments supplémentaires sur des périphériques clients. Vous pouvez, par exemple, vérifier l’existence d’un fichier, d’un dossier ou d’une clé de Registre sur un appareil client.  
 
-    -   **Expressie** – deze optie kunt u complexere regels instellen om te controleren of de voorwaarde is voldaan op clientapparaten. U kunt bijvoorbeeld controleren als het fysieke geheugen op een computer tussen 2 en 4 GB groot is of als een mobiel apparaat via een aanraakscherm verloopt invoer.  
+    -   **Expression** : Cette option vous permet de configurer des règles plus complexes pour vérifier que la condition est satisfaite sur des appareils clients. Par exemple, vous pouvez savoir si la mémoire physique d’un ordinateur est comprise entre 2 Go et 4 Go ou si un appareil mobile possède un écran tactile pour la saisie.  
 
-## <a name="set-up-rules-for-the-global-condition"></a>Instellen van regels voor de globale voorwaarde  
- De procedure voor het definiëren van de globale voorwaarde regels is verschillend, afhankelijk van het configureren van een instelling of een expressie. Gebruik hier de toepasselijke procedure voor het instellen van een instelling of een expressie voor de globale voorwaarde.  
+## <a name="set-up-rules-for-the-global-condition"></a>Configurer des règles pour la condition globale  
+ La procédure pour définir les règles d’une condition globale est différente selon que vous configurez un paramètre ou une expression. Utilisez la procédure adéquate ci-dessous pour configurer le paramètre ou l’expression d’une condition globale.  
 
-### <a name="to-set-up-a-setting-for-the-global-condition"></a>Voor het instellen van een instelling voor de globale voorwaarde  
+### <a name="to-set-up-a-setting-for-the-global-condition"></a>Pour configurer un paramètre pour la condition globale  
 
-1.  Kies in het vervolgkeuzemenu **Voorwaardetype** **Instelling**.  
+1.  Dans la liste déroulante **Type de condition** , choisissez **Paramètre**.  
 
-2.  Kies in het vervolgkeuzemenu **Instellingstype** het item dat u wilt gebruiken als de voorwaarde waarvoor u vereisten wilt controleren. De volgende Instellingstypen en configuraties zijn beschikbaar.  
+2.  Dans la liste déroulante **Type de paramètre** , choisissez l'élément que vous souhaitez utiliser comme condition à vérifier. Les configurations et types de paramètres suivants sont disponibles.  
 
-    -   **Active Directory-query**  
+    -   **Requête Active Directory**  
 
-        -   **LDAP-voorvoegsel** - Geef een geldig LDAP-voorvoegsel op in de Active Directory Domain Services-query om de compatibiliteit vast te stellen op clientcomputers. U kunt **LDAP://** of **GC://**gebruiken.  
+        -   **Préfixe LDAP** : désigne un préfixe LDAP valide pour la requête des services de domaine Active Directory afin d'évaluer la compatibilité sur les ordinateurs clients. Vous pouvez utiliser **LDAP://** ou **GC://**.  
 
-        -   **DN-naam (Distinguished Name)** -Geef de DN-naam van het Active Directory Domain Services-object dat wordt beoordeeld op naleving op clientcomputers.  
+        -   **Nom unique** : Spécifiez le nom unique de l’objet Services de domaine Active Directory dont la compatibilité doit être évaluée sur les ordinateurs clients.  
 
-        -   **Zoekfilter** - Geef een optionele LDAP-filter op om de resultaten van de Active Directory Domain Services-query te verfijnen om de compatibiliteit vast te stellen op clientcomputers.  
+        -   **Filtre de recherche** : indique le filtre LDAP facultatif permettant d'affiner les résultats de la requête Services de domaine Active Directory pour évaluer la compatibilité sur les ordinateurs clients.  
 
-        -   **Zoekbereik** - Geef het zoekbereik op in Active Directory Domain Services:  
+        -   **Zone de recherche** : indique la zone de recherche dans les services de domaine Active Directory :  
 
-            -   **Base** -query's alleen het opgegeven object.  
+            -   **Base** : Interroge uniquement l’objet spécifié.  
 
-            -   **Eén niveau** -deze optie wordt niet gebruikt in deze versie van Configuration Manager.  
+            -   **Un niveau** : cette option n’est pas utilisée dans cette version de Configuration Manager.  
 
-            -   **De substructuur** -query's van het opgegeven object en de volledige substructuur in de map.  
+            -   **Sous-arbre** : Interroge l’objet spécifié et son sous-arbre dans le répertoire.  
 
-        -   **Eigenschap** - Hier specificeert u de eigenschap van een Active Directory Domain Services-object dat wordt gebruikt om de compatibiliteit vast te stellen op clientcomputers.  
+        -   **Propriété** : désigne la propriété de l'objet Services de domaine Active Directory à utiliser pour évaluer la compatibilité sur les ordinateurs clients.  
 
-        -   **Query** -ziet u de LDAP-query die wordt samengesteld uit de invoer in **LDAP-voorvoegsel**, **DN-naam (Distinguished Name)**, **zoekfilter** indien opgegeven, en **eigenschap**. Deze query wordt gebruikt om de compatibiliteit vast te stellen op clientcomputers.  
+        -   **Requête** : Affiche la requête LDAP créée à partir des entrées figurant dans **Préfixe LDAP**, **Nom unique**, **Filtre de recherche** (s’il est défini) et **Propriété**. Cette requête sera utilisée pour évaluer la compatibilité des ordinateurs clients.  
 
     -   **Assembly**  
 
-        -   **Naam van assembly** - Hier geeft u de naam op van het assembly-object waarnaar u wilt zoeken. De naam mag niet hetzelfde zijn als elk ander assembly-object van hetzelfde type en de naam moet worden geregistreerd in de Global Assembly Cache. De assembly-naam mag maximaal 256 tekens bestaan.  
+        -   **Nom de l’assembly** : indique le nom de l’objet assembly à rechercher. Ce nom doit être différent des autres objets assembly de même type et doit être enregistré dans le GAC (Global Assembly Cache). Le nom de l’assembly ne doit pas contenir plus de 256 caractères.  
 
         > [!NOTE]  
-        >  Een assembly is een stuk code dat tussen toepassingen kan worden gedeeld. Assembly's kunnen de bestandsnaamextensie .dll of .exe hebben. De Global Assembly-cache is een map met de naam *%systemroot%\assembly* op clientcomputers waarin alle gedeelde assembly's zijn opgeslagen.  
+        >  Un assembly est un fragment de code qui peut être partagé entre plusieurs applications. Les assemblys peuvent avoir l’extension de nom de fichier .dll ou .exe. Le GAC (Global Assembly Cache) est un dossier présent sur les ordinateurs clients, qui porte le nom *%systemroot%\assembly* . Il contient l'ensemble des assemblys partagés.  
 
-    -   **Bestandssysteem**  
+    -   **Système de fichiers**  
 
-        -   **Type** – Selecteer in de vervolgkeuzelijst kiezen of u zoeken wilt naar een **bestand** of een **map**.  
+        -   **Type** : Dans la liste déroulante, indiquez si vous voulez rechercher un **fichier** ou un **dossier**.  
 
-        -   **Pad** - Geef het pad op naar het gespecificeerde bestand of de map op clientcomputers. U kunt in het pad systeemomgevingsvariabelen specificeren en de *%USERPROFILE%* -omgevingsvariabele.  
-
-            > [!NOTE]  
-            >  Als u de *%USERPROFILE%* -omgevingsvariabele gebruikt in het **Pad** of in de velden **Bestands- of mapnaam** , wordt in alle gebruikersprofielen op de clientcomputer gezocht. Dit kan leiden tot het vinden van meerdere exemplaren van het bestand of de map.  
-
-        -   **Bestands- of mapnaam** - Geef de naam op van het bestand of het mapobject waarnaar moet worden gezocht. U kunt in de bestands- of map naam systeemomgevingsvariabelen specificeren en de *%USERPROFILE%* -omgevingsvariabele. U kunt ook de * en? jokertekens in de bestandsnaam.  
+        -   **Chemin** : spécifie le chemin du fichier ou du dossier spécifié sur les ordinateurs clients. Vous pouvez spécifier des variables d'environnement système et la variable d'environnement *%USERPROFILE%* dans le chemin.  
 
             > [!NOTE]  
-            >  Als u een bestands- of mapnaam opgeeft en hierbij jokertekens gebruikt, kunt u een groot aantal resultaten krijgen. Dit kan leiden tot hoog bronnengebruik op de clientcomputer en veel netwerkverkeer wanneer resultaten rapporteren aan Configuration Manager.  
+            >  Si vous utilisez la variable d'environnement *%USERPROFILE%* dans les champs **Chemin d'accès** ou **Nom de fichier ou de dossier** , la recherche portera sur tous les profils utilisateur stockés sur l'ordinateur client. Dans ce cas, plusieurs instances du fichier ou du dossier peuvent être découvertes.  
 
-        -   **Inclusief submappen** – Schakel deze optie in als u in submappen wilt zoeken onder het opgegeven pad.  
-
-        -   **Dit bestand of deze map is gekoppeld aan een 64-bits toepassing** -kiezen of de 64-bits systeembestandslocatie (*% windir %*\system32) moet worden doorzocht naast de 32-bits systeembestandslocatie (*% windir %*\syswow64) op de Configuration Manager-clients die een 64-bits versie van Windows uitvoeren.  
+        -   **Nom de fichier ou de dossier** : spécifiez le nom de l'objet fichier ou dossier à rechercher. Vous pouvez spécifier des variables d'environnement système et la variable d'environnement *%USERPROFILE%* dans le nom de fichier ou de dossier. Vous pouvez également utiliser les caractères génériques * et ? dans le nom du fichier.  
 
             > [!NOTE]  
-            >  Als hetzelfde bestand of dezelfde map bestaat in zowel de 64-bits als de 32-bits systeembestandslocatie op dezelfde 64-bits computer, worden door de globale voorwaarde meerdere bestanden gevonden.  
+            >  Si vous spécifiez un nom de fichier ou de dossier et utilisez des caractères génériques, vous risquez de générer de nombreux résultats, ce qui peut entraîner une forte utilisation des ressources sur l’ordinateur client et une augmentation du trafic réseau lors de la transmission des résultats à Configuration Manager.  
 
-         Het instellingstype **Bestandssysteem** ondersteunt geen specificatie van een UNC-pad naar een netwerkshare in het veld **Pad** .  
+        -   **Inclure les sous-dossiers** : activez cette option si vous voulez également effectuer la recherche dans les sous-dossiers dans le chemin spécifié.  
 
-    -   **IIS Metabase**  
-
-        -   **Metabasepad** - Geef een geldig pad op naar de IIS Metabase.  
-
-        -   **Eigenschaps-id** - Geef de numerieke eigenschap op van de IIS Metabase-instelling.  
-
-    -   **Registersleutel**  
-
-        -   **Hive** – Selecteer in de vervolgkeuzelijst de registercomponent waarin u zoeken wilt kiezen.  
-
-        -   **Sleutel** - Specificeer de naam van de registersleutel waarnaar u wilt zoeken. De gebruikte indeling moet *sleutel\subsleutel*zijn.  
-
-        -   **Deze registersleutel is gekoppeld aan een 64-bits toepassing** - Hiermee geeft u op of de 64-bits registersleutels moeten worden doorzocht naast de 32-bits registersleutels op clients die worden uitgevoerd op een 64-bits versie van Windows.  
+        -   **Ce fichier ou dossier est associé à une application 64 bits** : indiquez si la recherche doit porter également sur l’emplacement de fichier système 64 bits (*%windir%*\system32) en plus de l’emplacement de fichier système 32 bits (*%windir%*\syswow64) sur les clients Configuration Manager qui exécutent une version 64 bits de Windows.  
 
             > [!NOTE]  
-            >  Als hetzelfde bestand of dezelfde map bestaat in zowel de 64-bits als de 32-bits systeembestandslocatie op dezelfde 64-bits computer, worden door de globale voorwaarde meerdere bestanden gevonden.  
+            >  Si le même fichier ou dossier existe dans les emplacements de système de fichiers 64 bits et 32 bits sur un même ordinateur 64 bits, la condition globale détecte plusieurs fichiers.  
 
-    -   **Registerwaarde**  
+         Le paramètre **Système de fichiers** ne permet pas de définir un chemin UNC de partage réseau dans le champ **Chemin d'accès** .  
 
-        -   **Component** - Selecteer in de vervolgkeuzelijst de registercomponent waarin u wilt zoeken.  
+    -   **Métabase IIS**  
 
-        -   **Sleutel** - Specificeer de naam van de registersleutel waarnaar u wilt zoeken. De gebruikte indeling moet *sleutel\subsleutel*zijn.  
+        -   **Chemin de la métabase** : spécifiez un chemin d'accès valide à la métabase IIS.  
 
-        -   **Waarde** – Specificeer de waarde die moet zijn opgenomen in de opgegeven registersleutel.  
+        -   **ID de propriété** : indique la propriété numérique du paramètre Métabase IIS.  
 
-        -   **Deze registersleutel is gekoppeld aan een 64-bits toepassing** - Hiermee geeft u op of de 64-bits registersleutels moeten worden doorzocht naast de 32-bits registersleutels op clients die worden uitgevoerd op een 64-bits versie van Windows.  
+    -   **Clé du Registre**  
+
+        -   **Ruche** : Dans la liste déroulante, sélectionnez la ruche du Registre dans laquelle vous voulez effectuer la recherche.  
+
+        -   **Clé** : indiquez le nom de clé de Registre à rechercher. Le format à utiliser doit être *clé\sous-clé.*  
+
+        -   **Cette clé de Registre est associée à une application 64 bits** : indique si la recherche doit porter sur les clés de Registre 64 bits en plus des clés de Registre 32 bits, sur les clients qui exécutent une version 64 bits de Windows.  
 
             > [!NOTE]  
-            >  Als hetzelfde bestand of dezelfde map bestaat in zowel de 64-bits als de 32-bits systeembestandslocatie op dezelfde 64-bits computer, worden door de globale voorwaarde meerdere bestanden gevonden.  
+            >  Si la même clé de Registre existe dans les emplacements de Registre 64 bits et 32 bits sur un même ordinateur 64 bits, les deux clés de Registre sont détectées par la condition globale.  
+
+    -   **Valeur de Registre**  
+
+        -   **Ruche** : dans la liste déroulante, sélectionnez la ruche du Registre dans laquelle vous voulez effectuer la recherche.  
+
+        -   **Clé** : indiquez le nom de clé de Registre à rechercher. Le format à utiliser doit être *clé\sous-clé.*  
+
+        -   **Valeur** : indiquez la valeur qui doit être contenue dans la clé de Registre spécifiée.  
+
+        -   **Cette clé de Registre est associée à une application 64 bits** : indique si la recherche doit porter sur les clés de Registre 64 bits en plus des clés de Registre 32 bits, sur les clients qui exécutent une version 64 bits de Windows.  
+
+            > [!NOTE]  
+            >  Si la même clé de Registre existe dans les emplacements de Registre 64 bits et 32 bits sur un même ordinateur 64 bits, les deux clés de Registre sont détectées par la condition globale.  
 
     -   **Script**  
 
-        -   **Detectiescript** – Kies **toevoegen** invoeren of blader naar het script te gebruiken. U kunt Windows PowerShell, VBScript of JScript-scripts gebruiken.  
+        -   **Script de découverte** : Choisissez **Ajouter** pour entrer ou rechercher le script à utiliser. Vous pouvez utiliser des scripts Windows PowerShell, VBScript ou JScript.  
 
-        -   **Scripts uitvoeren met behulp van de aangemelde gebruikersreferenties** – als u deze optie inschakelt, wordt het script uitgevoerd op clientcomputers met de referenties van de gebruiker die is aangemeld.  
+        -   **Exécuter des scripts avec les informations d’identification d’utilisateur dont la session est ouverte** : Si vous activez cette option, le script est exécuté sur les ordinateurs clients en utilisant les informations d’identification de l’utilisateur connecté.  
 
             > [!NOTE]  
-            >  De waarde die het script heeft geretourneerd wordt gebruikt om de compatibiliteit vast te stellen van de globale voorwaarde. Bijvoorbeeld, wanneer u VBScript gebruikt, kunt u de **WScript.Echo Result** opdracht naar de variabele waarde resultaat te retourneren naar de globale voorwaarde.  
+            >  La valeur renvoyée par le script sera utilisée pour évaluer la compatibilité de la condition globale. Par exemple, quand vous utilisez VBScript, vous pouvez utiliser la commande **WScript.Echo Result** pour retourner la valeur de la variable de résultat à la condition globale.  
             >   
-            >  Als uw script meerdere waarden retourneert, wordt deze waarden moeten zich op één regel en van elkaar gescheiden door puntkomma's. Als iedere waarde op een afzonderlijke regel staat, mislukt de evaluatie.  
+            >  Si votre script retourne plusieurs valeurs, celles-ci doivent être sur une seule ligne, séparées par un point-virgule. Si chaque valeur se trouve sur une ligne distincte, l’évaluation échoue.  
 
-    -   **SQL-query**  
+    -   **Requête SQL**  
 
-        -   **SQL Server-exemplaar** – Kies of u de SQL-query wilt uitvoeren op het standaardexemplaar, alle exemplaren of op de naam van een specifiek database-exemplaar.  
+        -   **Instance SQL Server** : indiquez si vous préférez que la requête SQL soit exécutée sur l'instance par défaut, sur toutes les instances ou sur le nom d'une instance de base de données spécifique.  
 
             > [!NOTE]  
-            >  De naam van het exemplaar moet verwijzen naar een lokaal exemplaar van de SQL Server. Gebruik een scriptinstelling om te verwijzen naar een geclusterd SQL server-exemplaar.  
+            >  Le nom de l'instance doit faire référence à une instance locale de SQL Server. Pour faire référence à une instance SQL Server en cluster, utilisez plutôt un paramètre de script.  
 
-        -   **Database** - Geef de naam op van de Microsoft SQL Server-database waarvoor u de SQL query wilt uitvoeren.  
+        -   **Base de données** : indiquez le nom de la base de données Microsoft SQL Server sur laquelle la requête SQL sera exécutée.  
 
-        -   **Kolom** - Geef de naam van de kolom op die door de Transact-SQL-instructie is geretourneerd om de compatibiliteit vast te stellen van de globale voorwaarde.  
+        -   **Colonne** : indiquez le nom de la colonne renvoyée par l'instruction Transact-SQL utilisée pour évaluer la compatibilité de la condition globale.  
 
-        -   **Transact-SQL-instructie** – Geef de volledige SQL-query op die u wilt gebruiken voor de globale voorwaarde. U kunt ook **openen** openen van een bestaande SQL-query.  
+        -   **Instruction Transact-SQL** : indiquez la requête SQL complète à utiliser pour la condition globale. Vous pouvez également choisir **Ouvrir** pour ouvrir une requête SQL existante.  
 
-    -   **WQL-query**  
+    -   **Requête WQL**  
 
-        -   **Naamruimte** - Specificeer de WMI-naamruimte die wordt gebruikt om een WQL-query samen te stellen waarvoor de compatibiliteit op clientcomputers wordt vastgesteld. De standaardwaarde is Root\cimv2.  
+        -   **Espace de noms** : indiquez l'espace de noms WMI qui sera utilisé pour créer une requête WQL dont la compatibilité sera évaluée sur les ordinateurs clients. La valeur par défaut est Root\cimv2.  
 
-        -   **Klasse** - Hier geeft u de WMI-klasse op die wordt gebruikt om een WQL-query samen te stellen waarvoor de compatibiliteit op clientcomputers wordt vastgesteld.  
+        -   **Classe** : indique la classe WMI qui sera utilisée pour créer une requête WQL dont la compatibilité sera évaluée sur les ordinateurs clients.  
 
-        -   **Eigenschap** - Hier geeft u de WMI-eigenschap op die wordt gebruikt om een WQL-query samen te stellen waarvoor de compatibiliteit op clientcomputers wordt vastgesteld.  
+        -   **Propriété** : indique la propriété WMI qui sera utilisée pour créer une requête WQL dont la compatibilité sera évaluée sur les ordinateurs clients.  
 
-        -   **WHERE-component van WQL-query** - U kunt het item **WHERE-component van WQL-query** gebruiken om een WHERE-component te specificeren die moet worden toegepast op de opgegeven naamruimte en de eigenschap op clientcomputers.  
+        -   **Clause WHERE de la requête WQL** : vous pouvez utiliser l'élément **Clause WHERE de la requête WQL** pour indiquer la clause WHERE à appliquer à l'espace de noms, à la classe et à la propriété spécifiés sur les ordinateurs clients.  
 
-    -   **XPath-query**  
+    -   **Requête XPath**  
 
-        -   **Pad** - Geef het pad op naar het XML-bestand op clientcomputers die worden gebruikt om compatibiliteit te beoordelen. Configuration Manager ondersteunt het gebruik van alle Windows-systeemomgevingsvariabelen en de *% USERPROFILE %* gebruikersvariabele in de padnaam.  
+        -   **Chemin** : spécifiez le chemin d'accès au fichier XML sur les ordinateurs clients qui seront utilisés pour évaluer la conformité. Configuration Manager prend en charge l’utilisation de toutes les variables d’environnement système Windows et de la variable utilisateur *%USERPROFILE%* dans le nom de chemin.  
 
-        -   **XML-bestandsnaam** -Geef de bestandsnaam met de XML-query moet worden gebruikt om naleving op clientcomputers te beoordelen.  
+        -   **Nom du fichier XML** : Spécifiez le nom du fichier contenant la requête XML à utiliser pour évaluer la conformité des ordinateurs clients.  
 
-        -   **Inclusief submappen** - Schakel deze optie in als u in submappen wilt zoeken onder het opgegeven pad.  
+        -   **Inclure les sous-dossiers** : activez cette option si vous voulez également rechercher dans tous les sous-dossiers sous le chemin spécifié.  
 
-        -   **Dit bestand is gekoppeld aan een 64-bits toepassing** -kiezen of de 64-bits systeembestandslocatie (*% windir %*\system32) moet worden doorzocht naast de 32-bits systeembestandslocatie (*% windir %*\syswow64) op de Configuration Manager-clients die een 64-bits versie van Windows uitvoeren.  
+        -   **Ce fichier est associé à une application 64 bits** : indiquez si la recherche doit porter également sur l’emplacement de fichier système 64 bits (*%windir%*\system32) en plus de l’emplacement de fichier système 32 bits (*%windir%*\syswow64) sur les clients Configuration Manager qui exécutent une version 64 bits de Windows.  
 
-        -   **XPath-query** - Geef een geldig volledige XML Path-taal (XPath)-query om de compatibiliteit op clientcomputers vast te stellen.  
+        -   **Requête XPath** : spécifiez une requête XPath (XML path language) complète et valide à utiliser pour évaluer la compatibilité des ordinateurs clients.  
 
-        -   **Naamruimten** - Hiermee opent u het dialoogvenster **XML-naamruimten** om naamruimten en voorvoegsels te identificeren voor gebruik tijdens de XPath-query.  
+        -   **Espaces de noms** : ouvre la boîte de dialogue **Espaces de noms XML** , qui permet d'identifier les espaces de noms et les préfixes à utiliser dans le cadre de la requête XPath.  
 
-3.  Kies in de vervolgkeuzelijst **Gegevenstype** de indeling waarin de gegevens worden geretourneerd door de voorwaarde voordat deze wordt gebruikt om vereisten te controleren.  
+3.  Dans la liste déroulante **Type de données** , choisissez le format auquel les données seront renvoyées par cette condition avant d'être utilisées pour vérifier les exigences.  
 
     > [!NOTE]  
-    >  De **gegevenstype** vervolgkeuzelijst wordt niet voor alle instellingstypes weergegeven.  
+    >  La liste déroulante **Type de données** n’est pas affichée pour tous les types de paramètre.  
 
-4.  Instellen van meer informatie over deze instelling onder de **Instellingstype** vervolgkeuzelijst. De items die u kunt instellen, varieert, afhankelijk van het Instellingstype dat u hebt geselecteerd.  
+4.  Configurez davantage de détails sur ce paramètre sous la liste déroulante **Type de paramètre** . Les éléments que vous pouvez configurer varient selon le type de paramètre que vous avez sélectionné.  
 
-5.  Kies **OK** de regel op te slaan en sluit de **globale voorwaarde maken** in het dialoogvenster.  
+5.  Choisissez **OK** pour enregistrer la règle et fermer la boîte de dialogue **Créer une condition globale**.  
 
-### <a name="set-up-an-expression-for-the-global-condition"></a>Instellen van een expressie voor de globale voorwaarde  
+### <a name="set-up-an-expression-for-the-global-condition"></a>Configurer une expression pour la condition globale  
 
-1.  Kies in de vervolgkeuzelijst **Voorwaardetype** **Instelling**.  
+1.  Dans la liste déroulante **Type de condition** , choisissez **Expression**.  
 
-2.  Kies **component toevoegen** openen de **component toevoegen** in het dialoogvenster.  
+2.  Choisissez **Ajouter une clause** pour ouvrir la boîte de dialogue **Ajouter une clause**.  
 
-3.  Selecteer in de vervolgkeuzelijst **Categorie selecteren** of deze expressie voor een apparaat of voor een gebruiker is bedoeld. U kunt ook **Aangepast** selecteren om een vooraf geconfigureerde globale voorwaarde te gebruiken.  
+3.  À l'aide de la liste déroulante **Sélectionnez une catégorie** , indiquez si cette expression s'applique à un périphérique ou à un utilisateur. Vous pouvez également sélectionner **Personnalisée** pour utiliser une condition globale configurée précédemment.  
 
-4.  Selecteer in de vervolgkeuzelijst **Selecteer een voorwaarde** de voorwaarde die moet worden gebruikt om vast te stellen of de gebruiker of het apparaat voldoet aan de regelvereisten. De inhoud van deze lijst varieert op basis van de geselecteerde categorie.  
+4.  Dans la liste déroulante **Sélectionner une condition** , sélectionnez la condition à utiliser pour évaluer si l'utilisateur ou le périphérique respecte les règles. Le contenu de cette liste varie en fonction de la catégorie sélectionnée.  
 
-5.  Selecteer in de vervolgkeuzelijst **Operator kiezen** de operator die wordt gebruikt om de geselecteerde voorwaarde te vergelijken met de opgegeven waarde om vast te stellen of de gebruiker of het apparaat aan de regelvereisten voldoet. De beschikbare operators variëren op basis van de geselecteerde voorwaarde.  
+5.  Dans la liste déroulante **Choisir un opérateur** , choisissez l'opérateur qui sera utilisé pour comparer la condition sélectionnée à la valeur spécifiée, afin d'évaluer si l'utilisateur ou le périphérique répond aux exigences des règles. Les opérateurs disponibles varient en fonction de la condition sélectionnée.  
 
-6.  Voer in het veld **Waarde** de waarden in die worden gebruikt met de geselecteerde voorwaarde en operator om vast te stellen of de gebruiker of het apparaat voldoet aan de regelvereisten. De beschikbare waarden variëren op basis van de geselecteerde voorwaarde en de geselecteerde operator.  
+6.  Dans le champ **Valeur** , spécifiez les valeurs qui seront utilisées avec la condition et l'opérateur sélectionnés pour évaluer si l'utilisateur ou le périphérique respecte les règles. Les valeurs disponibles varient en fonction de la condition et de l'opérateur sélectionnés.  
 
-7.  Kies **OK** de expressie opslaan en sluiten de **component toevoegen** in het dialoogvenster.  
+7.  Choisissez **OK** pour enregistrer l’expression et fermer la boîte de dialogue **Ajouter une clause**.  
 
-8.  Wanneer u klaar bent met het componenten toe te voegen aan de globale voorwaarde kiest **OK** sluiten de **globale voorwaarde maken** in het dialoogvenster en de globale voorwaarde op te slaan.  
+8.  Quand vous avez terminé d’ajouter des clauses à la condition globale, choisissez **OK** pour fermer la boîte de dialogue **Créer une condition globale** et enregistrer la condition globale.  

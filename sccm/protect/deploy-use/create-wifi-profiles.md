@@ -1,6 +1,6 @@
 ---
-title: Wi-Fi-profielen maken | Microsoft Docs
-description: Informatie over het gebruik van Wi-Fi-profielen in System Center Configuration Manager naar de instellingen voor draadloze netwerken implementeren voor gebruikers in uw organisatie.
+title: "Guide pratique pour créer des profils Wi-Fi | Microsoft Docs"
+description: "Découvrez comment utiliser des profils Wi-Fi dans System Center Configuration Manager pour déployer des paramètres de réseau sans fil pour les utilisateurs de votre organisation."
 ms.custom: na
 ms.date: 12/11/2016
 ms.prod: configuration-manager
@@ -17,112 +17,112 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: f1ae976899de1fd3efcbde0c7268f071a5d0218b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-wi-fi-profiles"></a>Wi-Fi-profielen maken
+# <a name="create-wi-fi-profiles"></a>Créer des profils Wi-Fi
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Gebruik Wi-Fi-profielen in System Center Configuration Manager naar de instellingen voor draadloze netwerken implementeren voor gebruikers in uw organisatie. Deze instellingen implementeert, maakt u het gemakkelijker voor uw gebruikers verbinding maken met Wi-Fi.  
+Utilisez des profils Wi-Fi dans System Center Configuration Manager pour déployer des paramètres de réseau sans fil pour les utilisateurs de votre organisation. En déployant ces paramètres, il est plus facile pour les utilisateurs de se connecter au Wi-Fi.  
 
- U hebt bijvoorbeeld een Wi-Fi-netwerk dat u verbinding maken wilt met alle iOS-apparaten inschakelen. Een Wi-Fi-profiel met de instellingen die nodig zijn om verbinding met het draadloze netwerk te maken. Vervolgens implementeert u het profiel voor alle gebruikers met iOS-apparaten in uw hiërarchie. Gebruikers van iOS-apparaten zien het bedrijfsnetwerk in de lijst met draadloze netwerken en kunnen direct verbinding maken met dit netwerk.  
+ Par exemple, vous avez un réseau Wi-Fi auquel vous voulez que tous les appareils iOS puissent se connecter. Créez un profil Wi-Fi contenant les paramètres nécessaires à la connexion au réseau sans fil. Déployez ensuite le profil pour tous les utilisateurs détenteurs d’appareils iOS dans votre hiérarchie. Les utilisateurs des appareils iOS voient le réseau de l'entreprise dans la liste des réseaux sans fil et peuvent immédiatement se connecter à ce réseau.  
 
- U kunt de volgende typen apparaten configureren met Wi-Fi-profielen:  
+ Vous pouvez configurer les types d'appareil suivants avec des profils Wi-Fi :  
 
--   Apparaten met Windows 8.1 32-bits  
+-   Appareils qui exécutent Windows 8.1 32 bits  
 
--   Apparaten met Windows 8.1 64-bits  
+-   Appareils qui exécutent Windows 8.1 64 bits  
 
--   Apparaten met Windows RT 8.1  
+-   Appareils qui exécutent Windows RT 8.1  
 
--   Apparaten met Windows 10 Desktop of Mobile  
+-   Appareils qui exécutent Windows 10 Desktop ou Mobile  
 
-[Wi-Fi-profielen voor mobiele apparaten maken](../../mdm/deploy-use/create-wifi-profiles.md) bevat informatie over het gebruik van Wi-Fi-profielen in Configuration Manager naar de instellingen voor draadloze netwerken implementeren voor gebruikers van mobiele apparaten. "
+La section relative à la [création de profils Wi-Fi pour les appareils mobiles](../../mdm/deploy-use/create-wifi-profiles.md) fournit des informations sur l’utilisation des profils Wi-Fi dans Configuration Manager, afin de déployer des paramètres de réseau sans fil pour les utilisateurs d’appareils mobiles.
 
 > [!IMPORTANT]  
->  Om profielen te implementeren naar Android, iOS, Windows Phone-en ingeschreven Windows 8.1 of hoger, moeten deze apparaten worden geregistreerd bij Microsoft Intune. Zie voor meer informatie over het registreren van uw apparaten [apparaten inschrijven voor beheer in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).  
+>  Pour déployer des profils sur des appareils Android, iOS, Windows Phone et sur des appareils Windows 8.1 ou version ultérieure inscrits, ces appareils doivent être inscrits dans Microsoft Intune. Pour plus d’informations sur la façon d’inscrire vos appareils, consultez [Inscrire des appareils pour la gestion dans Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).  
 
- Wanneer u een Wi-Fi-profiel maakt, kunt u een grote verscheidenheid aan beveiligingsinstellingen opnemen. Het gaat hierbij om certificaten voor servervalidatie en clientverificatie die gepusht met behulp van Configuration Manager-certificaatprofielen. Zie [Certificaatprofielen in System Center Configuration Manager](introduction-to-certificate-profiles.md) voor meer informatie over certificaatprofielen.  
+ Lorsque vous créez un profil Wi-Fi, vous pouvez inclure un large éventail de paramètres de sécurité. Ceux-ci incluent des certificats pour l’authentification de client et la validation de serveur qui ont été émis à l’aide des profils de certificat Configuration Manager. Pour plus d’informations sur les profils de certificat, consultez [Profils de certificat dans System Center Configuration Manager](introduction-to-certificate-profiles.md).  
 
-## <a name="create-a-wi-fi-profile"></a>Een Wi-Fi-profiel maken  
+## <a name="create-a-wi-fi-profile"></a>Créer un profil Wi-Fi  
 
-1.  Kies in de Configuration Manager-console **activa en naleving** > **instellingen voor naleving** >  **toegang tot bedrijfsbronnen** > **Wi-Fi-profielen**.  
+1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Paramètres de compatibilité** >  **Accès aux ressources de l’entreprise**  > **Profils Wi-Fi**.  
 
-3.  Op de **Start** tabblad, in de **maken** groep, kiest u **Wi-Fi-profiel maken**.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer un profil Wi-Fi**.  
 
-1.  Op de **algemene** pagina, voer een unieke naam en een beschrijving voor het Wi-Fi-profiel.  Als u de instellingen van een andere Wi-Fi-profiel gebruiken wilt, selecteert u **en bestaand Wi-Fi-profielitem uit een bestand importeren**.  
-
-    > [!IMPORTANT]  
-    >  Zorg ervoor dat het Wi-Fi-profiel dat u importeert geldige XML bevat voor een Wi-Fi-profiel. Configuration Manager valideert het profiel niet wanneer u het bestand importeert.  
-
-3.  In **niet-nageleefd ernst voor rapporten**, geef de ernst op die wordt gerapporteerd als het Wi-Fi-profiel niet compliant zijn op clientapparaten (bijvoorbeeld als de installatie van het profiel mislukt) is gevonden. U kunt kiezen uit de volgende beschikbaarheidsniveaus:  
-
-    -   **Geen**: Computers die niet voldoen aan deze compliantieregel wordt de ernst voor rapporten van Configuration Manager niet rapporteren.  
-
-    -   **Informatie**: Computers die niet voldoen aan deze compliantieregel fouternst van **informatie** voor Configuration Manager-rapporten.  
-
-    -   **Waarschuwing**: Computers die niet voldoen aan deze compliantieregel fouternst van **waarschuwing** voor Configuration Manager-rapporten.  
-
-    -   **Kritieke**: Computers die niet voldoen aan deze compliantieregel fouternst van **Kritiek** voor Configuration Manager-rapporten.  
-
-    -   **Kritiek met gebeurtenis**: Computers die niet voldoen aan deze compliantieregel fouternst van **Kritiek** voor Configuration Manager-rapporten. Dit ernstniveau wordt ook vastgelegd als een Windows-gebeurtenis in het logboek voor toepassingsgebeurtenissen.  
-
-1.  Op de **Wi-Fi-profiel** pagina Geef de naam op die apparaten wordt weergegeven als de netwerknaam.  
+1.  Dans la page **Général**, entrez un nom unique et une description pour le profil Wi-Fi.  Si vous souhaitez utiliser les paramètres d’un autre profil Wi-Fi, sélectionnez **Importer un élément de profil Wi-Fi existant à partir d’un fichier**.  
 
     > [!IMPORTANT]  
-    >  Configuration Manager biedt geen ondersteuning voor het gebruik van de apostrof (**â €˜**) of komma (**,**) tekens in het netwerk.  
+    >  Assurez-vous que le profil Wi-Fi que vous importez contient du code XML valide pour un profil Wi-Fi. Configuration Manager ne valide pas le profil lorsque vous importez le fichier.  
 
-2.  Geef de hoofdlettergevoelige **SSID**
-3.  Kies de andere toepasselijke opties voor netwerkconnectiviteit, met inbegrip van.   **Verbinding maken wanneer het netwerk de naam (SSID) niet uitzendt**als het is mogelijk dat de SSID is verborgen  
+3.  Dans **Gravité de non-compatibilité pour les rapports** spécifiez le niveau de gravité signalé en cas de non-compatibilité du profil Wi-Fi sur des appareils clients (par exemple, en cas d’échec de l’installation du profil). Les niveaux de gravité disponibles sont les suivants :  
 
-4.  Op de **Beveiligingsconfiguratie** pagina, selecteer het beveiligingsprotocol dat het draadloze netwerk of selecteer **geen verificatie (Open)** als het netwerk niet beveiligd is.
+    -   **Aucun**: les ordinateurs qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec pour les rapports Configuration Manager.  
+
+    -   **Informations**: les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations** pour les rapports Configuration Manager.  
+
+    -   **Avertissement**: les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement** pour les rapports Configuration Manager.  
+
+    -   **Critique**: les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.  
+
+    -   **Critique avec événement**: les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est également enregistré comme un événement Windows dans le journal des événements des applications.  
+
+1.  Dans la page **Profil Wi-Fi**, indiquez le nom qui sera affiché sur les appareils comme nom de réseau.  
+
     > [!IMPORTANT]  
-    >  Als u voor een Wi-Fi-profiel maakt op\-premises Mobile Device Management, de huidige vertakking van Configuration Manager ondersteunt alleen de volgende Wi-Fi-beveiligingsconfiguraties:  
+    >  Configuration Manager ne prend pas en charge l’utilisation des caractères apostrophe (**â€˜**) ni virgule (**,**) dans le nom du réseau.  
+
+2.  Spécifiez le **SSID** qui respecte la casse.
+3.  Choisissez les autres options de connectivité appropriées, notamment les suivantes.   **Se connecter quand le réseau ne diffuse pas son nom (SSID)**, s’il est possible que le SSID soit masqué  
+
+4.  Dans la page **Configuration de la sécurité**, sélectionnez le protocole de sécurité utilisé par le réseau sans fil ou sélectionnez **Aucune authentification (Open)** si le réseau n’est pas sécurisé.
+    > [!IMPORTANT]  
+    >  Si vous créez un profil Wi-Fi pour la gestion des appareils mobiles locale, la branche CB (Current Branch) de Configuration Manager prend uniquement en charge les configurations de sécurité Wi-Fi suivantes :  
     >   
-    >  Beveiligingstypen: **WPA2-Enterprise** of **WPA2-Personal**  
-    > Versleutelingstypen: **AES** of **TKIP**  
-    > EAP-typen: **Smartcard of ander certificaat** of **PEAP**  
+    >  Types de sécurité : **WPA2-Entreprise** ou **WPA2-Personnel**  
+    > Types de chiffrement : **AES** ou **TKIP**  
+    > Types EAP : **Carte à puce ou autre certificat** ou **PEAP**  
 
-    > Voor Android-apparaten, de beveiligingstypen **WPA-Personal**, **WPA2-Personal** en **WEP** worden niet ondersteund.  
+    > Pour les appareils Android, les types de sécurité **WPA - Personnel**, **WPA2 - Personnel** et **WEP** ne sont pas pris en charge.  
 
-2.  selecteer de versleutelingsmethode die wordt gebruikt door het draadloze netwerk.  
+2.  sélectionnez la méthode de chiffrement utilisée par le réseau sans fil.  
 
-3.  selecteer het EAP-type dat wordt gebruikt voor verificatie met het draadloze netwerk.  
+3.  sélectionnez le type EAP qui est utilisé pour l'authentification auprès du réseau sans fil.  
 
-     Alleen voor apparaten met Windows Phone: de EAP-typen **LEAP** en **EAP-FAST** worden niet ondersteund.  
+     Pour les appareils Windows Phone uniquement : les types EAP **LEAP** et **EAP-FAST** ne sont pas pris en charge.  
 
-4.  Klik op **Configureren** om meer eigenschappen voor het geselecteerde EAP-type op te geven. Deze optie is mogelijk niet beschikbaar voor alle geselecteerde EAP-typen.  
+4.  Cliquez sur **Configurer** pour spécifier les propriétés du type EAP sélectionné. Cette option peut ne pas être disponible pour certains types de protocoles EAP sélectionnés.  
 
     > [!IMPORTANT]  
-    >  Wanneer u op **Configureren** klikt, wordt er een Windows-dialoogvenster geopend. Daarom moet u ervoor zorgen dat het besturingssysteem van de computer die de Configuration Manager-console ondersteunt het geselecteerde EAP-type uitvoert.  
+    >  Lorsque vous cliquez sur **Configurer**, une boîte de dialogue Windows s'ouvre. Pour cette raison, vous devez vous assurer que le système d’exploitation de l’ordinateur qui exécute la console Configuration Manager prend en charge la configuration du type de protocole EAP sélectionné.  
     >   
-    >  Voor iOS-apparaten is het zo dat, als u een niet-EAP-methode kiest voor verificatie, MS-CHAP v2 wordt gebruikt voor de verbinding, ongeacht welke methode u dan wel kiest.  
+    >  Pour les appareils iOS, si vous avez choisi une méthode autre qu'EAP pour l'authentification, quelle que soit la méthode choisie, MS-CHAP v2 est utilisé pour la connexion.  
 
-5.  Als u gebruikersreferenties wilt opslaan zodat gebruikers deze niet bij elke aanmelding hoeven in te voeren, selecteert u **Gebruikersreferenties onthouden bij elke aanmelding**.  
+5.  Si vous souhaitez stocker les informations d’identification des utilisateurs pour qu’ils ne soient pas obligés de les entrer à chaque ouverture de session, sélectionnez **Conserver les informations d’identification de l’utilisateur à chaque ouverture de session**.  
 
-6. **Alleen voor iOS-apparaten:**  
- Configureer gegevens voor de certificaten die vereist zijn voor de Wi-Fi-verbinding. U moet het clientcertificaat en de naam van het certificaat van de vertrouwde server of het basiscertificaat als volgt configureren:  
+6. **Pour les appareils iOS uniquement:**  
+ configurez les informations pour tous les certificats qui sont requis pour la connexion Wi-Fi. Vous devez configurer le certificat client et le nom du certificat de serveur approuvé ou le certificat racine comme suit :  
 
-    -   **Vertrouwde servercertificaatnamen**: Als de server die het apparaat verbinding met maakt een certificaat voor serververificatie gebruikt om te bepalen van de server en het communicatiekanaal te beveiligen, voert u de naam of namen in die certificateâ€™ s onderwerpnaam of alternatieve onderwerpnaam. De naam of namen zijn doorgaans de FQDN-naam van de server. Als het servercertificaat bijvoorbeeld de algemene naam srv1.contoso.com in het certificaatonderwerp bevat, voert u **srv1.contoso.com** in. Als voor het servercertificaat meerdere namen zijn opgegeven als alternatieve onderwerpnaam, voert u al deze namen gescheiden door puntkomma's in.  
+    -   **Noms de certificat de serveur approuvé**: si le serveur auquel se connecte l’appareil utilise un certificat d’authentification de serveur pour identifier le serveur et sécuriser le canal de communication, entrez le ou les noms sous le nom d’objet de ce certificat ou l’autre nom d’objet de ce certificat. Le ou les noms sont généralement le nom de domaine complet du serveur. Par exemple, si le certificat de serveur est identifié par le nom commun srv1.contoso.com dans l'objet du certificat, entrez **srv1.contoso.com**. Si le certificat de serveur est identifié par plusieurs noms spécifiés dans l'autre nom d'objet, entrez chaque nom, séparé par un point-virgule.  
 
     > [!TIP]  
-    >  Als het door u geselecteerde clientcertificaat voor EAP of clientverificatie voor een iOS-apparaat wordt gebruikt voor verificatie voor een RADIUS-server (Remote Authentication Dial-In User Service), bijvoorbeeld als een server waarop Network Policy Server wordt uitgevoerd, moet u Alternatieve naam voor onderwerp instellen op Principalnaam van gebruiker.  
+    >  Si le certificat client sélectionné pour le protocole EAP ou pour l'authentification client d'un appareil iOS est utilisé à des fins d'authentification sur un serveur RADIUS, tel qu'un serveur exécutant NPS, l'autre nom de l'objet doit être défini sur le nom d'utilisateur principal.  
 
-    -   **Basiscertificaten voor servervalidatie selecteren**: Als de server die het apparaat verbinding met maakt een certificaat voor serververificatie dat het apparaat niet vertrouwt gebruikt, selecteert u het certificaatprofiel met het basiscertificaat voor het servercertificaat naar een certificaatvertrouwensketen te maken op het apparaat.  
+    -   **Sélectionner des certificats racines pour la validation du serveur**: si le serveur auquel se connecte l’appareil utilise un certificat d’authentification de serveur non approuvé par l’appareil, sélectionnez le profil de certificat qui contient le certificat racine pour le certificat de serveur pour créer une chaîne de certificats de confiance sur l’appareil.  
 
-    -   **Selecteer een clientcertificaat voor clientverificatie**: Als de server of het netwerkapparaat een clientcertificaat om het verbindende apparaat te verifiëren vereist, selecteert u het certificaatprofiel met het certificaat voor clientverificatie.  
+    -   **Sélectionner un certificat client pour l'authentification du client**: si le serveur ou l'appareil réseau requiert un certificat client pour authentifier l'appareil de connexion, sélectionnez le profil de certificat qui contient le certificat d'authentification du client.  
 
     > [!NOTE]  
-    >  Voordat u het basiscertificaat en clientcertificaat kunt selecteren, moet u deze als een certificaatprofiel configureren en implementeren. Zie [Certificaatprofielen in System Center Configuration Manager](introduction-to-certificate-profiles.md) voor meer informatie over certificaatprofielen.  
+    >  Pour pouvoir sélectionner le certificat racine et le certificat client, vous devez tout d'abord les configurer et les déployer comme un profil de certificat. Pour plus d’informations sur les profils de certificat, consultez [Profils de certificat dans System Center Configuration Manager](introduction-to-certificate-profiles.md).  
 
-7.  Op de **geavanceerde instellingen** pagina, geavanceerde instellingen voor het Wi-Fi-profiel, zoals de verificatiemodus, de opties voor eenmalige aanmelding en de naleving van de Federal Information Processing Standards opgeven. Raadpleeg de Windows-documentatie voor meer informatie over deze opties. Geavanceerde instellingen zijn mogelijk niet beschikbaar, of kunnen afwijken, afhankelijk van de opties die u hebt geselecteerd op de pagina **Beveiligingsconfiguratie** van de wizard.  
+7.  Dans la page **Paramètres avancés**, spécifiez des paramètres avancés pour le profil Wi-Fi, tels que le mode d’authentification, les options d’authentification unique et la conformité aux normes FIPS (Federal Information Processing Standards). Pour plus d’informations sur ces options, voir la documentation de Windows. Les paramètres avancés peuvent varier ou ne pas être disponibles selon les options sélectionnées sur la page **Configuration de la sécurité** de l'Assistant.  
 
-1.  Op de **Proxy-instellingen** pagina **proxy-instellingen voor dit Wi-Fi-profiel configureren** als uw draadloze netwerk gebruikmaakt van een proxyserver en geef vervolgens de configuratie-informatie.  
+1.  Dans la page **Paramètres proxy**, cochez la case **Configurer les paramètres du proxy pour ce profil Wi-Fi** si votre connexion sans fil utilise un serveur proxy, puis fournissez les informations de configuration.  
 
-2. Op de **ondersteunde Platforms** pagina, selecteert u de besturingssystemen waarop u wilt installeren van het Wi-Fi-profiel. U kunt ook op **Alles selecteren** klikken om het Wi-Fi-profiel te installeren op alle beschikbare besturingssystemen.  
+2. Dans la page **Plateformes prises en charge**, sélectionnez les systèmes d’exploitation dans lesquels vous voulez installer le profil Wi-Fi. Sinon, cliquez sur **Sélectionner tout** pour installer le profil Wi-Fi sur tous les systèmes d'exploitation disponibles.  
 
-### <a name="next-steps"></a>Volgende stappen
- Voor meer informatie over het implementeren van het Wi-Fi-profiel, zie [Wi-Fi-profielen implementeren in System Center Configuration Manager](deploy-wifi-vpn-email-cert-profiles.md).  
+### <a name="next-steps"></a>Étapes suivantes
+ Pour plus d’informations sur le déploiement du profil Wi-Fi, consultez [Comment déployer des profils Wi-Fi dans System Center Configuration Manager](deploy-wifi-vpn-email-cert-profiles.md).  

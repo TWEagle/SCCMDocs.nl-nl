@@ -1,6 +1,6 @@
 ---
-title: Vereisten voor verzamelingen | Microsoft Docs
-description: Vereisten voor het gebruik van verzamelingen in System Center Configuration Manager worden opgehaald.
+title: "Prérequis pour les regroupements | Microsoft Docs"
+description: "Prenez connaissance des conditions préalables à l’utilisation de regroupements dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -17,19 +17,19 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 41fc3eb20a7441939eb0dc80bc121c8f3ea322b2
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prerequisites-for-collections-in-system-center-configuration-manager"></a>Vereisten voor verzamelingen in System Center Configuration Manager
+# <a name="prerequisites-for-collections-in-system-center-configuration-manager"></a>Conditions préalables pour les regroupements dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Verzamelingen in System Center Configuration Manager bevatten alleen afhankelijkheden binnen het product.  
+Dans System Center Configuration Manager, les regroupements contiennent uniquement des dépendances à l’intérieur du produit.  
 
-## <a name="configuration-manager-dependencies"></a>Configuration Manager-afhankelijkheden  
+## <a name="configuration-manager-dependencies"></a>Dépendances de Configuration Manager  
 
-|Afhankelijkheid|Meer informatie|  
+|Dépendance|Plus d'informations|  
 |----------------|----------------------|  
-|Reporting Services-punt|De sitesysteemrol Reporting Services-punt moet zijn geïnstalleerd voordat u rapporten kunt uitvoeren voor verzamelingen. Zie [Rapportage in System Center Configuration Manager](../../../../core/servers/manage/reporting.md) voor meer informatie.|  
-|Er moeten specifieke beveiligingsmachtigingen zijn verleend om verzamelingen te beheren|U moet over de volgende beveiligingsmachtigingen beschikken om instellingen voor naleving te beheren:<br /><br /> -Te maken en beheren van verzamelingen: **Maak**, **verwijderen**, **wijzigen**, **map wijzigen**, **Object verplaatsen**, **lezen** en **Resource lezen** voor de **verzameling** Object.<br /><br /> -Om verzamelingsinstellingen te beheren: **Wijzig de instelling verzameling** voor de **verzameling** Object.<br /><br /> De machtiging **Map wijzigen** is vereist voor alle verzamelingsmappen, met inbegrip van de hoofdmap.|  
+|Point de Reporting Services|Le rôle de système de site du point de Reporting Services doit être installé pour pouvoir exécuter des rapports pour les regroupements. Pour plus d’informations, consultez [Génération de rapports dans System Center Configuration Manager](../../../../core/servers/manage/reporting.md).|  
+|Des autorisations de sécurité spécifiques doivent avoir été accordées pour gérer les regroupements|Vous devez disposer des autorisations de sécurité suivantes pour gérer les paramètres de compatibilité :<br /><br /> - Pour créer et gérer des regroupements : **Créer**, **Supprimer**, **Modifier**, **Modifier un dossier**, **Déplacer un objet**, **Lecture** et **Lire la ressource** pour l’objet **Regroupement**.<br /><br /> - Pour gérer les paramètres de regroupement : **Modifier les paramètres de regroupement** pour l’objet **Regroupement**.<br /><br /> L’autorisation **Modifier un dossier** est nécessaire pour tous les dossiers de regroupement, y compris le dossier racine.|  

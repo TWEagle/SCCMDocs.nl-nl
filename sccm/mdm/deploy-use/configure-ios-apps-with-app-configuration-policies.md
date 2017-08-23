@@ -1,6 +1,6 @@
 ---
-title: IOS-apps configureren met configuratiebeleid voor apps | Microsoft Docs
-description: Voorkomen configuratieproblemen op apparaten met iOS 8 of hoger door het app-configuratiebeleid implementeren voor gebruikers voordat ze apps uitvoeren.
+title: "Configurer des applications iOS avec des stratégies de configuration d’application | Microsoft Docs"
+description: "Évitez les problèmes de configuration sur les appareils exécutant iOS 8 ou version ultérieure en déployant des stratégies de configuration des applications sur les appareils avant que les utilisateurs exécutent les applications."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,60 +17,60 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 50aea2afaf34974ca92ac58b6569bff56403a9ab
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="apply-settings-to-ios-apps-with-app-configuration-policies-in-system-center-configuration-manager"></a>Instellingen toepassen op iOS-apps met configuratiebeleid voor apps in System Center Configuration Manager
+# <a name="apply-settings-to-ios-apps-with-app-configuration-policies-in-system-center-configuration-manager"></a>Appliquer des paramètres aux applications iOS à l’aide de stratégies de configuration d’application dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-U kunt app-configuratiebeleid in System Center Configuration Manager (Configuration Manager) voor het distribueren van de instellingen die mogelijk vereist zijn wanneer een gebruiker een app uitvoert. Een app kan bijvoorbeeld vereisen dat een gebruiker deze gegevens kunt opgeven:
-- Een aangepast poortnummer
-- Taalinstellingen
-- Beveiligingsinstellingen
-- Huisstijlinstellingen, zoals een bedrijfslogo
+Vous pouvez utiliser des stratégies de configuration des applications disponibles dans System Center Configuration Manager (Configuration Manager) pour distribuer les paramètres pouvant être nécessaires quand un utilisateur exécute une application. Par exemple, une application peut exiger qu’un utilisateur spécifie les détails suivants :
+- Un numéro de port personnalisé
+- Paramètres de langue
+- Paramètres de sécurité
+- Paramètres de personnalisation, comme le logo de l’entreprise
 
-Als de gebruiker de instellingen voert onjuist de last om op te lossen ze valt van uw helpdesk en app-implementatie traag is.
-Als u deze problemen te voorkomen, kunt u app-configuratiebeleid vereist om instellingen te implementeren voor gebruikers voordat ze de app worden uitgevoerd. De instellingen worden automatisch gekoppeld aan een gebruiker. De gebruiker hoeft niet te doen.
-Voor het gebruik van een app-configuratiebeleid in Configuration Manager, in plaats van het configuratiebeleid implementeren rechtstreeks aan gebruikers en apparaten, koppelt u een beleid aan een implementatietype wanneer u de app implementeert. De beleidsinstellingen worden toegepast als de app controleert ze (normaal gesproken de eerste keer de app wordt uitgevoerd).
+Si l’utilisateur entre les paramètres incorrectement, il est de la responsabilité du support technique de les corriger, ce qui ralentit le déploiement de l’application.
+Pour éviter ces problèmes, vous pouvez utiliser des stratégies de configuration d’application pour déployer les paramètres obligatoires sur les utilisateurs avant qu’ils n’exécutent l’application. Les paramètres sont automatiquement associés à un utilisateur. Aucune intervention de la part de l’utilisateur n’est nécessaire.
+Pour utiliser une stratégie de configuration d’application dans Configuration Manager au lieu de déployer les stratégies de configuration directement sur des utilisateurs et des appareils, associez une stratégie à un type de déploiement quand vous déployez l’application. Les paramètres de stratégie sont appliqués chaque fois que l’application les vérifie (en général, lors de sa première exécution).
 
-App-configuratiebeleidsregels zijn momenteel leverbaar alleen op apparaten met iOS 8 en hoger, en voor deze toepassingstypen:
+Les stratégies de configuration des applications ne sont actuellement disponibles que sur les appareils exécutant iOS 8 et versions ultérieures, et pour les types d’application suivants :
 
-- **App-pakket voor iOS (*IPA-bestand)**
-- **App-pakket voor iOS uit de App Store**
+- **package d’application pour iOS (*fichier .ipa)**
+- **Package d’application pour iOS de l’App Store**
 
-Zie voor meer informatie over app-installatietypen de [inleiding op Toepassingsbeheer](/sccm/apps/understand/introduction-to-application-management).
+Pour plus d’informations sur les types d’installation d’application, consultez [Introduction à la gestion des applications](/sccm/apps/understand/introduction-to-application-management).
 
-## <a name="create-an-app-configuration-policy"></a>Een app-configuratiebeleid maken
+## <a name="create-an-app-configuration-policy"></a>Créer une stratégie de configuration des applications
 
-1. Kies in de Configuration Manager-console **softwarebibliotheek** > **Toepassingsbeheer** > **Configuratiebeleidsregels**.
-2. Op de **Start** tabblad, in de **Configuratiebeleidsregels** groep, kiest u **nieuwe Toepassingsconfiguratiebeleid maken**.
-3. In de App Configuration Wizard beleid maken, op de **algemene** pagina, stelt u deze beleidsinformatie:
-  - **Naam**. Geef een unieke naam voor het beleid.
-  - **Beschrijving**. (Optioneel) U kunt een beschrijving toevoegen voor het identificeren van het beleid te vereenvoudigen.
-  - **Toegewezen categorieën voor het verbeteren van zoeken en filteren**. (Optioneel) Als u categorieën toewijzen aan het beleid wilt maken, kies **categorieën**. Categorieën gemakkelijker om te sorteren en objecten vinden in de Configuration Manager-console.
-4. Op de **iOS-beleid** pagina, kiest u het instellen van de configuratiegegevens voor beleid:
-  - **Geef de naam / waarde-paren**. U kunt deze optie gebruiken voor eigenschappenlijstbestanden die gebruik niet nesten.
+1. Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Stratégies de configuration des applications**.
+2. Sous l’onglet **Accueil**, dans le groupe **Stratégies de configuration des applications**, choisissez **Créer une stratégie de configuration d’applications**.
+3. Dans la page **Général** de l’Assistant Création d’une stratégie de configuration d’applications, définissez les informations de cette stratégie :
+  - **Nom**. Entrez un nom unique pour la stratégie.
+  - **Description**. (Facultatif) Pour identifier plus facilement la stratégie, vous pouvez ajouter une description.
+  - **Catégories attribuées pour améliorer la recherche et le filtrage**. (Facultatif) Pour créer et attribuer des catégories à la stratégie, choisissez **Catégories**. L’utilisation de catégories facilite le tri et la recherche d’éléments dans la console Configuration Manager.
+4. Dans la page **Stratégie iOS**, choisissez de quelle façon les informations sur la stratégie de configuration sont définies :
+  - **Spécifier des paires nom/valeur**. Vous pouvez utiliser cette option pour les fichiers de liste de propriétés simples sans imbrication.
 
-      *Een combinatie van naam en waarde opgeven*
-        1. Als u wilt een nieuwe set toevoegen, kiest u **nieuw**.
-        2. In de **naam/waarde-paar toevoegen** dialoogvenster geeft u het volgende:
-            - **Type**. Selecteer het type van de waarde die u wilt opgeven in de lijst.
-            - **Naam**. Voer de naam van de lijst met sleutel waarvan u wilt een waarde op te geven.
-            - **Waarde**. Voer de waarde die wordt toegepast op de sleutel die u hebt ingevoerd.
+      *Pour spécifier une paire nom/valeur*
+        1. Pour ajouter une nouvelle paire, choisissez **Nouveau**.
+        2. Dans la boîte de dialogue **Ajouter une paire nom/valeur**, spécifiez les éléments suivants :
+            - **Type**. Dans la liste, sélectionnez le type de valeur que vous souhaitez spécifier.
+            - **Nom**. Entrez le nom de la clé de liste de propriétés pour laquelle vous voulez spécifier une valeur.
+            - **Valeur**. Entrez la valeur à appliquer à la clé spécifiée.
 
-  - **Blader naar een eigenschappenlijstbestand**. Gebruik deze optie als u al een XML-bestand van de app-configuratie of voor complexere bestanden met nesten.
+  - **Accéder à un fichier de liste de propriétés**. Utilisez cette option si vous avez déjà un fichier XML de configuration d’applications, ou pour les fichiers de liste de propriétés plus complexes avec imbrication.
 
-    *Om te bladeren naar een eigenschappenlijstbestand*
+    *Pour accéder à un fichier de liste de propriétés*
 
-      1.  In de **App-configuratiebeleid** en voer de eigenschappenlijstgegevens voor het in de juiste XML-indeling.
+      1.  Dans le champ **Stratégie de configuration des applications**, entrez les informations de la liste de propriétés au format XML correct.
 
-      Zie voor meer informatie over XML-eigenschappenlijsten, [Understanding XML Property Lists](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/PropertyLists/UnderstandXMLPlist/UnderstandXMLPlist.html) in de iOS Developer-bibliotheek.
+      Pour en savoir plus sur les listes de propriétés XML, consultez [Understanding XML Property Lists](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/PropertyLists/UnderstandXMLPlist/UnderstandXMLPlist.html) (Présentation des listes de propriétés XML) sur le site iOS Developer Library.
 
-De indeling van de XML-eigenschappenlijst is afhankelijk van de app die u configureert. Neem contact op met de leverancier van de app voor meer informatie over de indeling moet worden gebruikt.
-Intune ondersteunt de volgende gegevenstypen in een eigenschappenlijst:
+Le format de la liste de propriétés XML varie en fonction de l’application que vous configurez. Pour connaître le format à utiliser, contactez le fournisseur de l’application.
+Intune prend en charge les types de données suivants dans une liste de propriétés :
             
             ```
             <integer>
@@ -80,8 +80,8 @@ Intune ondersteunt de volgende gegevenstypen in een eigenschappenlijst:
             <dict>
             <true /> or <false />
             ```
-Zie voor meer informatie over gegevenstypen [over eigenschappenlijsten](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/PropertyLists/AboutPropertyLists/AboutPropertyLists.html) in de iOS Developer-bibliotheek.
-Intune ondersteunt ook de volgende typen token in de lijst met eigenschappen:
+Pour plus d’informations sur les types de données, consultez [About Property Lists](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/PropertyLists/AboutPropertyLists/AboutPropertyLists.html) (À propos des listes de propriétés) sur le site iOS Developer Library.
+De plus, Intune prend en charge les types de jeton suivants dans la liste des propriétés :
             
             ```
             {{userprincipalname}} - (Example: John@contoso.com)
@@ -95,24 +95,24 @@ Intune ondersteunt ook de volgende typen token in de lijst met eigenschappen:
             {{serialnumberlast4digits}} - (Example: G5V2) for iOS devices
             ```
 
-De {{en}} tekens worden gebruikt door alleen tokentypen en mogen niet worden gebruikt voor andere doeleinden.
+Les caractères {{ et }} sont exclusivement utilisés par les types de jetons et ne doivent pas être utilisés à d’autres fins.
             
-5. Als u wilt importeren in een XML-bestand dat u eerder hebt gemaakt, kies **bestand selecteren**.
-6. Kies **volgende**. Als er fouten in de XML-code zijn, hebt u deze corrigeren voordat u doorgaat.
-7. Voltooi de stappen in de wizard.
+5. Pour importer un fichier XML créé précédemment, choisissez **Sélectionner le fichier**.
+6. Choisissez **Suivant**. Si le code XML contient des erreurs, vous devez le corriger avant de continuer.
+7. Terminez les étapes de l’Assistant.
 
-De nieuwe app-configuratiebeleid wordt weergegeven in de **softwarebibliotheek** werkruimte, in de **Configuratiebeleidsregels** knooppunt.
+La nouvelle stratégie de configuration des applications s’affiche dans le nœud **Stratégies de configuration des applications** de l’espace de travail **Bibliothèque de logiciels**.
 
-## <a name="associate-an-app-configuration-policy-with-a-configuration-manager-application"></a>Een app-configuratiebeleid aan een Configuration Manager-toepassing koppelen
+## <a name="associate-an-app-configuration-policy-with-a-configuration-manager-application"></a>Associer une stratégie de configuration des applications à une application de Configuration Manager
 
-Als u wilt een app-configuratiebeleid koppelen aan de implementatie van een iOS-app, implementeert u de toepassing normaal met behulp van de procedure in de [toepassingen implementeren](/sccm/apps/deploy-use/deploy-applications) onderwerp.
+Pour associer une stratégie de configuration des applications au déploiement d’une application iOS, déployez l’application comme vous le faites habituellement, en suivant la procédure décrite dans la rubrique [Déployer des applications](/sccm/apps/deploy-use/deploy-applications).
 
-In de Wizard Software implementeren op de **Configuratiebeleidsregels** pagina **nieuw**. In de **App-configuratiebeleid selecteren** dialoogvenster Kies een toepassingsimplementatietype en de app-configuratiebeleid die u wilt koppelen aan.
-Wanneer het implementatietype wordt geïnstalleerd, wordt de app-instellingen voor configuratiebeleid voor automatisch toegepast.
+Dans la page **Stratégies de configuration d’application** de l’Assistant Déploiement logiciel, choisissez **Nouveau**. Dans la boîte de dialogue **Sélectionner la stratégie de configuration des applications**, choisissez un type de déploiement d’application et la stratégie de configuration des applications à laquelle l’associer.
+Quand le type de déploiement est installé, les paramètres de la stratégie de configuration des applications sont automatiquement appliqués.
 
-## <a name="example-format-for-the-mobile-app-configuration-xml-file"></a>Voorbeeld van een indeling voor XML-configuratiebestand van de mobiele app
+## <a name="example-format-for-the-mobile-app-configuration-xml-file"></a>Exemple de format pour le fichier XML de configuration des applications mobiles
 
-Wanneer u een configuratiebestand voor de mobiele app maakt, kunt u deze indeling gebruiken om op te geven van een of meer van de volgende waarden:
+Quand vous créez un fichier de configuration des applications mobiles, vous pouvez utiliser ce format pour spécifier une ou plusieurs des valeurs suivantes :
 
 ```
 <dict>

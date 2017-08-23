@@ -1,6 +1,6 @@
 ---
-title: Implementatie van clientsoftware op Mac-computers voorbereiden | Microsoft Docs
-description: Configuratietaken voordat u Configuration Manager-client implementeert op Mac-computers.
+title: "Préparer le déploiement du logiciel client pour ordinateurs Mac | Documents Microsoft"
+description: "Tâches de configuration avant le déploiement du client Configuration Manager sur des ordinateurs Mac."
 ms.custom: na
 ms.date: 05/04/2017
 ms.prod: configuration-manager
@@ -16,178 +16,178 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: b3bb72f81812705b4654e268025074402e89a7cb
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-to-deploy-client-software-to-macs"></a>Implementatie van clientsoftware op Mac-computers voorbereiden
+# <a name="prepare-to-deploy-client-software-to-macs"></a>Préparer le déploiement du logiciel client pour ordinateurs Mac
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Volg deze stappen om ervoor te zorgen dat u nu [Configuration Manager-client implementeren op Mac-computers](/sccm/core/clients/deploy/deploy-clients-to-macs). 
+Procédez comme suit pour vérifier que vous êtes prêt à [déployer le client Configuration Manager sur les ordinateurs Mac](/sccm/core/clients/deploy/deploy-clients-to-macs). 
 
-## <a name="mac-prerequisites"></a>Vereisten voor Mac
+## <a name="mac-prerequisites"></a>Prérequis des ordinateurs Mac
 
-Het installatiepakket voor Mac-client wordt niet meegeleverd met de Configuration Manager-media. Download de **Clients voor aanvullende besturingssystemen** van de [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkID=525184).  
+Le package d’installation de client Mac n’est pas fourni avec le support d’installation de Configuration Manager. Téléchargez les **clients pour d’autres systèmes d’exploitation** à partir du [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkID=525184).  
 
-**Ondersteunde versies:**  
+**Versions prises en charge :**  
 
--   **Mac OS X 10.6** (sneeuw Leopard) 
+-   **Mac OS X 10.6** (Snow Leopard) 
 
--   **Mac OS X 10.7** (Lion) 
+-   **Mac OS X 10.7** (Lion) 
 
--   **Mac OS X 10.8** (Mountain Lion)
+-   **Mac OS X 10.8** (Mountain Lion)
 
--   **Mac OS X 10.9** (Mavericks)
+-   **Mac OS X 10.9** (Mavericks)
 
--   **Mac OS X 10.9** (Mavericks)  
+-   **Mac OS X 10.9** (Mavericks)  
 
--   **Mac OS X 10.10** (Yosemite)  
+-   **Mac OS X 10.10** (Yosemite)  
 
--   **Mac OS X 10.11** (El Capitan)  
+-   **Mac OS X 10.11** (El Capitan)  
 
--   **Mac OS X 10,12** (Mac OS Sierra)  
+-   **Mac OS X 10.12** (macOS Sierra)  
 
-## <a name="certificate-requirements"></a>Certificaatvereisten
-Vereist certificaten voor openbare-sleutelinfrastructuur (PKI) client installeren en beheren voor Mac-computers. PKI-certificaten beveiligen de communicatie tussen de Mac-computers en de Configuration Manager-site met behulp van wederzijdse verificatie en versleutelde gegevensoverdracht. Configuration Manager kunt aanvragen en installeren van een clientcertificaat voor gebruikers met behulp van Microsoft Certificate Services met een enterprise-certificeringsinstantie (CA) en de Configuration Manager inschrijving punt en de inschrijving proxy sitesysteemrollen. Of u kunt aanvragen en een computercertificaat installeren onafhankelijk van Configuration Manager als het certificaat voldoet aan de vereisten voor Configuration Manager.   
+## <a name="certificate-requirements"></a>Conditions de certificat
+L’installation et la gestion de clients pour les ordinateurs Mac nécessitent des certificats d’infrastructure à clé publique (PKI). Les certificats PKI permettent de sécuriser les communications entre les ordinateurs Mac et le site Configuration Manager grâce à une authentification mutuelle et des transferts de données chiffrés. Configuration Manager peut demander et installer un certificat client utilisateur à l’aide des services de certificat Microsoft avec une autorité de certification d’entreprise (CA) et les rôles de système de site du point d’inscription et du point proxy d’inscription de Configuration Manager. Vous pouvez également demander et installer un certificat d’ordinateur indépendamment de Configuration Manager si le certificat répond aux critères de Configuration Manager.   
   
-Configuration Manager Mac-clients voeren altijd certificaatintrekkingscontrole. U kunt deze functie niet uitschakelen.  
+Les clients Mac Configuration Manager procèdent toujours à une vérification de la révocation des certificats. Vous ne pouvez pas désactiver cette fonction.  
   
-Als Mac-clients de certificaatintrekkingsstatus voor een servercertificaat kunnen niet bevestigen, omdat ze de CRL niet kunnen vinden, is ze niet mogelijk om verbinding te maken met sitesystemen van Configuration Manager. In het bijzonder voor Mac-clients in een verschillend forest dan de uitgevende certificeringsinstantie, dient u uw CRL-ontwerp te controleren om ervoor te zorgen dat Mac-clients een CRL-distributiepunt (CDP) kunnen vinden en er een verbinding mee kunnen maken om een verbinding te maken met sitesysteemservers.  
+Si les clients Mac ne peuvent pas vérifier l’état de révocation du certificat d’un serveur du fait de leur incapacité à localiser la liste CRL, ils ne peuvent pas se connecter aux systèmes de site Configuration Manager. Vérifiez la conception de votre liste CRL pour être certain que les clients Mac (plus particulièrement ceux appartenant à une forêt différente de celle de l'autorité de certification émettrice) seront en mesure de localiser et de se connecter à un point de distribution de la liste CRL (CDP) pour la connexion des serveurs de système de site.  
 
-Voordat u Configuration Manager-client op een Mac-computer installeert, bepalen hoe u het clientcertificaat installeren:  
+Avant d’installer le client Configuration Manager sur un ordinateur Mac, choisissez le mode d’installation du certificat client :  
 
--   Gebruik Configuration Manager-inschrijving door de [CMEnroll-hulpprogramma](/sccm/core/clients/deploy/deploy-clients-to-macs#install-the-client-and-then-enroll-the-client-certificate-on-the-mac). Het inschrijvingsproces ondersteunt geen automatische certificaatsvernieuwing, daarom moet u Mac-computers opnieuw inschrijven voordat het geïnstalleerde certificaat verlopen is.  
+-   Utilisez l’inscription Configuration Manager à l’aide de l’[outil CMEnroll](/sccm/core/clients/deploy/deploy-clients-to-macs#install-the-client-and-then-enroll-the-client-certificate-on-the-mac). Le processus d'inscription ne prenant pas en charge le renouvellement automatique de certificats, vous devez réinscrire les ordinateurs Mac avant l'expiration du certificat installé.  
 
--   [Gebruik een certificaataanvraag en -installatiemethode die onafhankelijk is van Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-macs#use-a-certificate-request-and-installation-method-that-is-independent-from-configuration-manager).  
+-   [Utilisez une demande de certificat et une méthode d’installation indépendantes de Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-macs#use-a-certificate-request-and-installation-method-that-is-independent-from-configuration-manager).  
 
-Zie voor meer informatie over de certificaatsvereiste van de Mac-client en andere PKI-certificaten die vereist zijn ter ondersteuning van Mac-computers, [PKI-certificaatvereisten voor System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
+Pour plus d’informations sur le certificat client Mac requis et sur les autres certificats PKI nécessaires à la prise en charge des ordinateurs Mac, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
 
-Mac-clients worden automatisch toegewezen aan de Configuration Manager-site die ze beheert. Mac-clients worden als clients met alleen internetverbinding geïnstalleerd, zelfs als de communicatie beperkt is tot het intranet. Deze clientconfiguratie betekent dat ze zullen communiceren met de sitesysteemrollen (beheerpunten en distributiepunten) in hun toegewezen site wanneer u deze sitesysteemrollen configureert om clientverbindingen van het internet toe te staan. Mac-computers communiceren niet met sitesysteemrollen buiten hun toegewezen site.  
+Les clients Mac sont attribués automatiquement au site Configuration Manager qui les gère. Les clients Mac s'installent en tant que clients Internet uniquement, même si la communication est limitée à l'intranet. Cette configuration de client signifie qu'ils communiquent avec les rôles de système de site (points de gestion et points de distribution) sur le site qui leur est attribué si vous configurez ces rôles pour autoriser les connexions client depuis Internet. Les ordinateurs Mac ne communiquent pas avec les rôles de système de site extérieurs au site qui leur est attribué.  
 
 > [!IMPORTANT]  
->  De Configuration Manager Mac-client kan niet worden gebruikt om een beheerpunt dat is geconfigureerd voor gebruik met een [databasereplica](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
+>  Vous ne pouvez pas utiliser le client Mac Configuration Manager pour vous connecter à un point de gestion configuré pour utiliser un [réplica de base de données](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
 
 
-## <a name="deploy-a-web-server-certificate-to-site-system-servers"></a>Implementeer een Webservercertificaat op sitesysteemservers  
-Als deze sitesystemen niet hebt, implementeert u een Webservercertificaat op de computers waarvoor deze sitesysteemrollen:  
+## <a name="deploy-a-web-server-certificate-to-site-system-servers"></a>Déployer un certificat de serveur web sur des serveurs de système de site  
+Si ces systèmes de site n’en ont pas, déployez un certificat de serveur web sur les ordinateurs qui ont ces rôles de système de site :  
 
--   Beheerpunt  
+-   Point de gestion  
 
--   Distributiepunt  
+-   Point de distribution  
 
--   Inschrijvingspunt  
+-   Point d'inscription  
 
--   Proxypunt voor inschrijving  
+-   Point proxy d'inscription  
 
-Het webservercertificaat moet de internet-FQDN bevatten dat in de sitesysteemeigenschappen is opgegeven. De server heeft geen toegankelijk zijn vanaf Internet ter ondersteuning van Mac-computers. Als u geen clientbeheer via internet vereist, kunt u de intranet FQDN-waarde voor de internet-FQDN opgeven.  
+Le certificat de serveur Web doit contenir le nom de domaine Internet complet qui est spécifié dans les propriétés de système de site. Le serveur ne doit pas nécessairement être accessible sur Internet pour prendre en charge les ordinateurs Mac. Si vous n'exigez pas de gestion des clients basée sur Internet, vous pouvez spécifier la valeur du nom de domaine complet intranet pour le nom de domaine complet Internet.  
 
-Geeft het sitesysteem Internet-FQDN-waarde in het Webservercertificaat voor het beheerpunt, het distributiepunt en het proxypunt voor inschrijving. 
+Spécifiez la valeur du nom de domaine complet Internet du système de site dans le certificat de serveur web pour le point de gestion, le point de distribution et le point proxy d’inscription. 
 
-Zie voor een voorbeeldimplementatie die is gemaakt en dit Webservercertificaat wordt geïnstalleerd, de [het Webservercertificaat voor Sitesystemen die IIS uitvoeren implementeren](../../plan-design/network/example-deployment-of-pki-certificates.md#BKMK_webserver2008_cm2012).  
+Pour voir un exemple de déploiement qui crée et installe ce certificat de serveur web, consultez [Déploiement du certificat de serveur web pour les systèmes de site qui exécutent IIS](../../plan-design/network/example-deployment-of-pki-certificates.md#BKMK_webserver2008_cm2012).  
 
 
-## <a name="deploy-a-client-authentication-certificate-to-site-system-servers"></a>Implementeer een certificaat voor clientverificatie op sitesysteemservers  
- Als deze sitesystemen niet hebt, implementeert u een certificaat voor clientverificatie op de computers die deze sitesysteemrollen hosten:  
+## <a name="deploy-a-client-authentication-certificate-to-site-system-servers"></a>Déployer un certificat d’authentification client sur des serveurs de système de site  
+ Si ces systèmes de site n’en ont pas, déployez un certificat d’authentification client sur les ordinateurs qui hébergent les rôles de système de site suivants :  
 
--   Beheerpunt  
+-   Point de gestion  
 
--   Distributiepunt  
+-   Point de distribution  
 
- Zie voor een voorbeeldimplementatie die creëert en installeert het clientcertificaat voor beheerpunten, de [de Client-certificaat voor Windows-Computers implementeren](../../plan-design/network/example-deployment-of-pki-certificates.md#BKMK_client2008_cm2012)  
+ Pour obtenir un exemple de déploiement qui crée et installe le certificat client pour les points de gestion, consultez [Déploiement du certificat client pour les ordinateurs Windows](../../plan-design/network/example-deployment-of-pki-certificates.md#BKMK_client2008_cm2012).  
 
- Zie voor een voorbeeldimplementatie die creëert en installeert het clientcertificaat voor distributiepunten, de [het clientcertificaat voor distributiepunten implementeren](../../plan-design/network/example-deployment-of-pki-certificates.md#BKMK_clientdistributionpoint2008_cm2012).  
+ Pour obtenir un exemple de déploiement qui crée et installe le certificat client pour les points de distribution, consultez [Déploiement du certificat client pour les points de distribution](../../plan-design/network/example-deployment-of-pki-certificates.md#BKMK_clientdistributionpoint2008_cm2012).  
 
 >[!IMPORTANT]
->  Voor het implementeren van de client op apparaten met Mac OS Sierra, moet de onderwerpnaam van het certificaat zijn correct geconfigureerd, bijvoorbeeld met behulp van de FQDN van de beheerpuntserver.
+>  Pour déployer le client sur des appareils macOS Sierra, vous devez configurer correctement le nom du sujet du certificat de point de gestion, par exemple en utilisant le nom de domaine complet du serveur de point de gestion.
 
-## <a name="prepare-the-client-certificate-template-for-macs"></a>Bereid het clientcertificaatsjabloon voor Macs  
+## <a name="prepare-the-client-certificate-template-for-macs"></a>Préparer le modèle de certificat client pour les ordinateurs Mac  
 
- Het certificaatsjabloon moet de machtigingen **Lezen** en **Inschrijven** hebben voor de gebruikersaccount die het certificaat op de Mac-computer zal inschrijven.  
+ Le modèle de certificat doit disposer d'autorisations de **lecture** et d' **inscription** pour le compte d'utilisateur appelé à inscrire le certificat sur l'ordinateur Mac.  
 
- Zie [het clientcertificaat voor Mac-Computers implementeren](../../plan-design/network/example-deployment-of-pki-certificates.md#BKMK_MacClient_SP1).  
+ Consultez [Déploiement du certificat client pour les ordinateurs Mac](../../plan-design/network/example-deployment-of-pki-certificates.md#BKMK_MacClient_SP1).  
 
-## <a name="configure-the-management-point-and-distribution-point"></a>Configureer het beheerpunt en distributiepunt.  
- Configureer beheerpunten voor de volgende opties:  
+## <a name="configure-the-management-point-and-distribution-point"></a>Configurer le point de gestion et le point de distribution  
+ Configurez des points de gestion pour les options suivantes :  
 
 -   HTTPS  
 
--   Clientverbindingen via Internet toestaat. Deze configuratiewaarde is vereist voor het beheren van Mac-computers. Het betekent echter niet dat sitesysteemservers toegankelijk moeten zijn vanop het internet.  
+-   Autorisez les connexions client à partir d’Internet. Cette valeur de configuration est nécessaire pour gérer les ordinateurs Mac. Toutefois, cela ne signifie pas que les serveurs de système de site doivent être accessibles sur Internet.  
 
--   Laat mobiele apparaten en Mac-computers dit beheerpunt gebruiken  
+-   Autoriser les appareils mobiles et les ordinateurs Mac à utiliser ce point de gestion  
 
- Hoewel distributiepunten niet vereist om de client te installeren, moet u distributiepunten om clientverbindingen toestaat vanaf het Internet als u software implementeren op deze computers wilt nadat de client is geïnstalleerd.  
+ Même si les points de distribution ne sont pas indispensables à l’installation du client, vous devez en configurer pour permettre au client de se connecter à partir d’Internet si vous voulez déployer des logiciels sur ces ordinateurs après avoir installé le client.  
 
  
-### <a name="to-configure-management-points-and-distribution-points-to-support-macs"></a>Beheerpunten en distributiepunten ter ondersteuning van Macs configureren  
+### <a name="to-configure-management-points-and-distribution-points-to-support-macs"></a>Pour configurer les points de gestion et les points de distribution pour prendre en charge les ordinateurs Mac  
 
-Voordat u deze procedure start, moet u ervoor zorgen dat de sitesysteemserver die het beheerpunt en distributiepunt uitvoert, is geconfigureerd met een internet-FQDN. Als u deze servers clientbeheer op Internet niet wordt ondersteund, kunt u de intranet-FQDN opgeven als de Internet-FQDN-waarde. 
+Avant d'entamer cette procédure, assurez-vous que le serveur de système de site exécutant le point de gestion et le point de distribution est configuré avec un nom de domaine Internet complet. Si ces serveurs de système de site ne prennent pas en charge la gestion des clients sur Internet, vous pouvez spécifier le nom de domaine complet intranet comme valeur du nom de domaine complet Internet. 
 
-De sitesysteemrollen moeten zich in een primaire site.  
+Les rôles de système de site doivent se trouver dans un site principal.  
 
 
-1.  Kies in de Configuration Manager-console **beheer** > **siteconfiguratie** > **Servers en sitesysteemrollen**, en kies vervolgens de server met de juiste sitesysteemrollen.  
+1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration du site** > **Serveurs et rôles de système de site**, puis choisissez le serveur disposant des rôles de système de site appropriés.  
 
-3.  In het detailvenster met de rechtermuisknop op **beheerpunt**, kies **roleigenschappen**, en in de **Beheerpunteigenschappen** dialoogvenster deze opties configureren:  
+3.  Dans le volet des détails, cliquez avec le bouton droit sur **Point de gestion**, choisissez **Propriétés du rôle** et, dans la boîte de dialogue **Propriétés du point de gestion**, configurez les options suivantes:  
 
-    1.  Kies **HTTPS**.  
+    1.  Choisissez **HTTPS**.  
 
-    2.  Kies **clientbeheer alleen verbindingen toestaan** of **intranet en internetclient verbindingen toestaan**. Deze opties vereisen een Internet of een intranet-FQDN.  
+    2.  Choisissez **Autoriser les connexions au client Internet uniquement** ou **Autoriser les connexions au client Internet et intranet**. Ces options nécessitent un nom de domaine complet Internet ou intranet.  
 
-    3.  Kies **laat mobiele apparaten en Mac-computers dit beheerpunt te gebruiken**.  
+    3.  Choisissez **Autoriser les périphériques mobiles et les ordinateurs Mac à utiliser ce point de gestion**.  
 
-4.  In het detailvenster met de rechtermuisknop op **distributiepunt**, kies **roleigenschappen**, en in de **Distributiepunteigenschappen** dialoogvenster deze opties configureren:  
+4.  Dans le volet des détails, cliquez avec le bouton droit sur **Point de distribution**, choisissez **Propriétés du rôle**, puis dans la boîte de dialogue **Propriétés du point de distribution**, configurez les options suivantes :  
 
-    -   Kies **HTTPS**.  
+    -   Choisissez **HTTPS**.  
 
-    -   Kies **clientbeheer alleen verbindingen toestaan** of **intranet en internetclient verbindingen toestaan**. Deze opties vereisen een Internet of een intranet-FQDN.  
+    -   Choisissez **Autoriser les connexions au client Internet uniquement** ou **Autoriser les connexions au client Internet et intranet**. Ces options nécessitent un nom de domaine complet Internet ou intranet.  
 
-    -   Kies **certificaat importeren**, blader naar het geëxporteerde distribution point certificaatbestand en geef vervolgens het wachtwoord.  
+    -   Choisissez **Importer un certificat**, accédez au fichier du certificat de point de distribution client exporté, puis spécifiez le mot de passe.  
 
-5.  Herhaal stappen 2 t/m 4 voor alle beheerpunten en distributiepunten in primaire sites die u met Macs gebruiken wilt.  
+5.  Répétez les étapes 2 à 4 pour tous les points de gestion et les points de distribution des sites principaux que vous prévoyez d’utiliser avec des ordinateurs Mac.  
 
-## <a name="configure-the-enrollment-proxy-point-and-the-enrollment-point"></a>Configureer het inschrijvingsproxypunt en het registratiepunt  
- U moet deze beide sitesysteemrollen in dezelfde site installeren, maar u moet ze niet op dezelfde sitesysteemserver, of in hetzelfde Active Directory-forest installeren.  
+## <a name="configure-the-enrollment-proxy-point-and-the-enrollment-point"></a>Configurer le point proxy d’inscription et le point d’inscription  
+ Vous devez installer ces deux rôles de système de site sur le même site, mais il n'est pas nécessaire de les installer sur le même serveur de système de site ni sur la même forêt Active Directory.  
 
- Zie voor meer informatie over het plaatsen van sitesysteemrollen en overwegingen [sitesysteemrollen](../../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md#bkmk_planroles) in [plan maken voor sitesysteemservers en sitesysteemrollen voor System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md).  
+ Pour plus d’informations sur la sélection élective des rôles de système de site et sur les éléments à prendre en considération, consultez [Rôles de système de site](../../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md#bkmk_planroles) dans [Planifier des serveurs de système de site et des rôles système de site pour System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md).  
 
- Deze procedures configureren de sitesysteemrollen ter ondersteuning van Mac-computers.   
+ Ces procédures permettent de configurer les rôles de système de site pour prendre en charge les ordinateurs Mac.   
 
--   [Nieuwe sitesysteemserver](#new-site-system-server)  
+-   [Nouveau serveur de système de site](#new-site-system-server)  
 
--   [Bestaande sitesysteemserver](#existing-site-system-server)  
+-   [Serveur de système de site existant](#existing-site-system-server)  
 
-###  <a name="new-site-system-server"></a>Nieuwe sitesysteemserver  
+###  <a name="new-site-system-server"></a>Nouveau serveur de système de site  
 
-1.  Kies in de Configuration Manager-console **beheer** >  **siteconfiguratie** > **Servers en sitesysteemrollen**  
+1.  Dans la console Configuration Manager, choisissez **Administration** >  **Configuration du site** > **Serveurs et rôles de système de site**.  
 
-3.  Op de **Start** tabblad, in de **maken** groep, kiest u **Sitesysteemserver maken**.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer un serveur de système de site**.  
 
-4.  Op de **algemene** pagina, geeft u de algemene instellingen voor het sitesysteem.  Zorg ervoor dat u een waarde voor de Internet-FQDN opgeeft. Als de server is niet toegankelijk is vanaf het Internet, gebruikt u de intranet-FQDN.  
+4.  Dans la page **Général**, spécifiez les paramètres généraux du système de site.  Vérifiez que vous spécifiez une valeur pour le nom de domaine complet Internet. Si le serveur n’est pas accessible à partir d’Internet, utilisez le nom de domaine complet intranet.  
 
-5.  Op de **Systeemrolselectie** pagina **proxypunt voor inschrijving** en **inschrijvingspunt** uit de lijst met beschikbare rollen.  
+5.  Dans la page **Sélection du rôle système**, sélectionnez **Point proxy d’inscription** et **Point d’inscription** dans la liste des rôles disponibles.  
 
-6.  Op de **proxypunt voor inschrijving** pagina, controleert u de instellingen en breng de gewenste wijzigingen.  
+6.  Dans la page **Point proxy d’inscription**, vérifiez les paramètres et apportez les modifications nécessaires.  
 
-7.  Op de **instellingen voor Inschrijvingspunt** pagina, controleert u de instellingen en breng de gewenste wijzigingen. Voltooi de wizard.  
+7.  Dans la page **Paramètres du point d’inscription**, vérifiez les paramètres et apportez les modifications nécessaires. Ensuite, exécutez l’Assistant.  
 
-### <a name="existing-site-system-server"></a>Bestaande sitesysteemserver  
+### <a name="existing-site-system-server"></a>Serveur de système de site existant  
 
-1.  Kies in de Configuration Manager-console **beheer** >  **siteconfiguratie** > **Servers en sitesysteemrollen**, en kies vervolgens de server die u gebruiken wilt ter ondersteuning van Macs.  
+1.  Dans la console Configuration Manager, choisissez **Administration** >  **Configuration du site** > **Serveurs et rôles de système de site**, puis choisissez le serveur à utiliser pour prendre en charge les ordinateurs Mac.  
 
-3.  Op de **Start** tabblad, in de **maken** groep, kiest u **sitesysteemrollen toevoegen**.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Ajouter des rôles de système de site**.  
 
-4.  Configureer de algemene instellingen voor het sitesysteem op de pagina **Algemeen** en klik vervolgens op **Volgende**. Zorg ervoor dat u een waarde voor de Internet-FQDN opgeeft. Als de server is niet toegankelijk is vanaf het Internet, gebruikt u de intranet-FQDN.   
+4.  Sur la page **Général** , spécifiez les paramètres généraux du système de site, puis cliquez sur **Suivant**. Vérifiez que vous spécifiez une valeur pour le nom de domaine complet Internet. Si le serveur n’est pas accessible à partir d’Internet, utilisez le nom de domaine complet intranet.   
 
-5.  Op de **Systeemrolselectie** pagina **proxypunt voor inschrijving** en **inschrijvingspunt** uit de lijst met beschikbare rollen.  
+5.  Dans la page **Sélection du rôle système**, choisissez **Point proxy d’inscription** et **Point d’inscription** dans la liste des rôles disponibles.  
 
-6.  Op de **proxypunt voor inschrijving** pagina, controleert u de instellingen en breng de gewenste wijzigingen.  
+6.  Dans la page **Point proxy d’inscription**, vérifiez les paramètres et apportez les modifications nécessaires.  
 
-7.  Op de **instellingen voor Inschrijvingspunt** pagina, controleert u de instellingen en breng de gewenste wijzigingen. Voltooi de wizard.  
+7.  Dans la page **Paramètres du point d’inscription**, vérifiez les paramètres et apportez les modifications nécessaires. Ensuite, exécutez l’Assistant.  
 
-## <a name="install-the-reporting-services-point"></a>Installeer het reporting servicepunt  
- [Installeer het reporting servicepunt](../../../core/servers/manage/configuring-reporting.md) als u wilt uitvoeren van rapporten voor Macs.  
+## <a name="install-the-reporting-services-point"></a>Installez le point de Reporting Services.  
+ [Installez le point de Reporting Services](../../../core/servers/manage/configuring-reporting.md) si vous voulez exécuter des rapports pour les ordinateurs Mac.  
 
-### <a name="next-steps"></a>Volgende stappen
+### <a name="next-steps"></a>Étapes suivantes
 
-[Configuration Manager-client implementeren op Mac-computers](/sccm/core/clients/deploy/deploy-clients-to-macs).  
+[Déployez le client Configuration Manager sur des ordinateurs Mac](/sccm/core/clients/deploy/deploy-clients-to-macs).  

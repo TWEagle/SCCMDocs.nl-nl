@@ -1,6 +1,6 @@
 ---
-title: Ondersteunde configuraties | Microsoft Docs
-description: Belangrijkste configuraties te identificeren en vereisten zodat u plannen kunt, implementeren en onderhouden van een functionele implementatie van System Center Configuration Manager.
+title: Configurations prises en charge | Microsoft Docs
+description: "Identifiez les principales configurations et exigences liées à la planification, au déploiement et à la maintenance d’un déploiement de System Center Configuration Manager fonctionnel."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,57 +17,57 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: aad46e9ab893b9bb3e32d35c17b9678b3a265c99
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="supported-configurations-for-system-center-configuration-manager"></a>Ondersteunde configuraties voor System Center Configuration Manager
+# <a name="supported-configurations-for-system-center-configuration-manager"></a>Configurations prises en charge pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Als een on-premises-oplossing, System Center Configuration Manager maakt gebruik van uw servers, clients, netwerkconfiguraties en aanvullende producten, zoals Microsoft Intune, SQL Server en Azure.
+Comme solution locale, System Center Configuration Manager utilise vos serveurs, clients, configurations réseau et autres produits tels que Microsoft Intune, SQL Server et Azure.
 
-De informatie in dit document en de volgende onderwerpen is essentieel voor ondersteuning bij het identificeren van de belangrijkste configuraties, vereisten en beperkingen, zodat u plannen kunt, implementeren en onderhouden van een functionele implementatie van de Configuration Manager.  Deze informatie is specifiek voor de infrastructuur voor Configuration Manager-sites, hiërarchieën en beheerde apparaten.
+La présente rubrique et les rubriques suivantes fournissent des informations essentielles pour vous aider à déterminer les principales configurations, exigences et limitations à prendre en compte pour planifier, installer et gérer un déploiement de Configuration Manager pleinement opérationnel.  Ces informations sont propres à l’infrastructure des sites, hiérarchies et appareils gérés de Configuration Manager.
 
-Een Configuration Manager-functie of functionaliteit meer specifieke configuraties vereist, die informatie is opgenomen in de documentatie voor functiespecifieke als aanvulling op de algemene configuratiegegevens.  
+Quand une fonctionnalité Configuration Manager nécessite des configurations particulières, ces informations sont fournies dans la documentation de la fonctionnalité, venant ainsi compléter les informations de configuration plus générales.  
 
- De producten en technologieën die worden beschreven in de volgende onderwerpen worden ondersteund door Configuration Manager. Ze zijn opgenomen in deze inhoud betekent echter niet dat een uitbreiding van ondersteuning voor elk product levenscyclus van dat product afzonderlijke ondersteuning. Producten waarvan de levenscyclus van de ondersteuning worden niet ondersteund voor gebruik met Configuration Manager. Ga naar de website [Microsoft Support Lifecycle](http://go.microsoft.com/fwlink/p/?LinkId=208270) voor meer informatie over Microsoft Support-levenscycli.  
+ Les produits et les technologies qui sont décrits dans les rubriques suivantes sont pris en charge par Configuration Manager. Toutefois, leur inclusion dans ce contenu n’implique pas une extension de prise en charge des produits au-delà de leur cycle de vie individuel. L’utilisation de produits qui ont dépassé leur cycle de vie n’est pas prise en charge avec Configuration Manager. Pour plus d’informations sur les politiques de support Microsoft, consultez le site web [Politique de support Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=208270) .  
 
 > [!NOTE]  
->  Voor informatie over Microsoft support lifecycle-beleid, gaat u naar de website Microsoft Support Lifecycle ondersteunen Policy FAQ op [Microsoft Support Lifecycle Policy FAQ](http://go.microsoft.com/fwlink/p/?LinkId=31976).  
+>  Pour plus d’informations sur la politique de support Microsoft, consultez le site web [FAQ sur la politique de support Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=31976).  
 
- Bovendien producten en versies die niet worden weergegeven in de volgende onderwerpen worden niet ondersteund met System Center Configuration Manager tenzij deze is vermeld in de [Enterprise Mobility and Security-Blog](https://blogs.technet.microsoft.com/enterprisemobility/).  Tijd tot tijd voorafgegaan de inhoud op deze blog door een update aan voor deze instantie van documentatie.
+ De plus, les produits et versions de produits non répertoriés dans les rubriques suivantes ne sont pas pris en charge avec System Center Configuration Manager, sauf s’ils ont été annoncés dans le [blog Enterprise Mobility and Security](https://blogs.technet.microsoft.com/enterprisemobility/).  Parfois, le contenu de ce blog précède une mise à jour du corps de cette documentation.
 
 
--  [Grootte en schaalgetallen](../../../core/plan-design/configs/size-and-scale-numbers.md)  
-Meer informatie over het aantal sites, sitesysteemrollen per site, en de clients of de apparaten worden ondersteund in verschillende hiërarchieontwerpen voor Configuration Manager.
+-  [Taille et échelle en chiffres](../../../core/plan-design/configs/size-and-scale-numbers.md)  
+Découvrez combien de sites, de rôles de système de site par site et de clients ou d’appareils sont pris en charge dans les différentes conceptions de hiérarchie pour Configuration Manager.
 
--  [Vereisten voor sites en sitesystemen](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)  
-Meer informatie over configuraties die op een Windows Server vereist zijn ter ondersteuning van verschillende typen sites en sitesysteemrollen.
+-  [Prérequis des sites et systèmes de site](../../../core/plan-design/configs/site-and-site-system-prerequisites.md)  
+Découvrez les configurations requises sur un ordinateur Windows Server pour prendre en charge les différents types de site et rôles de système de site.
 
--  [Ondersteunde besturingssystemen voor sitesysteemservers](../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md)  
-Meer informatie over besturingssystemen die u kunt gebruiken als een siteserver of sitesysteemserver.
+-  [Systèmes d’exploitation pris en charge pour les serveurs de système de site](../../../core/plan-design/configs/supported-operating-systems-for-site-system-servers.md)  
+Découvrez quels systèmes d’exploitation vous pouvez utiliser comme serveur de site ou serveur de système de site.
 
--  [Ondersteunde besturingssystemen voor clients en apparaten](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md)  
-Meer informatie over besturingssystemen die u met Configuration Manager met inbegrip van Windows, Windows Embedded, Linux en UNIX, Mac en mobiele apparaten kunt beheren.
+-  [Systèmes d’exploitation pris en charge pour les clients et appareils](../../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md)  
+Découvrez quels systèmes d’exploitation vous pouvez gérer à l’aide de Configuration Manager, notamment Windows, Windows Embedded, Linux et UNIX, Mac, ainsi que les appareils mobiles.
 
--  [Ondersteunde besturingssystemen voor de console](../../../core/plan-design/configs/supported-operating-systems-consoles.md)  
-Meer informatie over welke besturingssystemen de Configuration Manager-console om te bieden van een toegangspunt voor het beheren van uw implementatie kan hosten.  
+-  [Systèmes d’exploitation pris en charge pour la console](../../../core/plan-design/configs/supported-operating-systems-consoles.md)  
+Découvrez quels systèmes d’exploitation peuvent héberger la console Configuration Manager pour fournir un point d’accès permettant de gérer votre déploiement.  
 
--  [Ondersteuning voor SQL Server-versies](../../../core/plan-design/configs/support-for-sql-server-versions.md)  
-Meer informatie over welke versies van SQL Server kunnen de sitedatabase en rapportagedatabase hosten, evenals over vereiste configuraties en optionele configuraties die u kunt gebruiken.
+-  [Prise en charge des versions de SQL Server](../../../core/plan-design/configs/support-for-sql-server-versions.md)  
+Découvrez quelles versions de SQL Server peuvent héberger la base de données de site et la base de données de création de rapports, et quelles configurations requises et facultatives vous pouvez utiliser.
 
--  [Opties voor hoge beschikbaarheid](../../../protect/understand/high-availability-options.md)  
-Meer informatie over de opties dat kunt u bij het ontwerpen van uw omgeving te helpen houden van een hoog niveau van de beschikbare service voor uw Configuration Manager-implementatie implementeren.
+-  [Options de haute disponibilité](../../../protect/understand/high-availability-options.md)  
+Découvrez les options que vous pouvez implémenter lors de la conception de votre environnement pour faciliter le maintien d’un haut niveau de service disponible pour votre déploiement Configuration Manager.
 
--  [Aanbevolen hardware](../../../core/plan-design/configs/recommended-hardware.md)  
-Meer informatie over richtlijnen die, kunt dat u de juiste hardware en configuraties voor het hosten van uw Configuration Manager-sites en belangrijke services identificeren.
+-  [Matériel recommandé](../../../core/plan-design/configs/recommended-hardware.md)  
+Découvrez des conseils pour vous aider à déterminer les configurations et le matériel appropriés pour héberger vos sites et principaux services Configuration Manager.
 
--  [Ondersteuning voor Active Directory-domeinen](../../../core/plan-design/configs/support-for-active-directory-domains.md)  
-Meer informatie over de ondersteunde configuraties uit Active Directory-domein dat Configuration Manager is vereist en ondersteunt.
+-  [Prise en charge des domaines Active Directory](../../../core/plan-design/configs/support-for-active-directory-domains.md)  
+Découvrez les configurations de domaine Active Directory prises en charge que Configuration Manager exige et prend en charge.
 
--  [Ondersteuning voor Windows-onderdelen en -netwerken](../../../core/plan-design/configs/support-for-windows-features-and-networks.md)  
-Meer informatie over ondersteunde Windows-technologieën (zoals BranchCache en Ontdubbeling van gegevens) en beperkingen voor hun gebruik met Configuration Manager.
+-  [Prise en charge des fonctionnalités et réseaux Windows](../../../core/plan-design/configs/support-for-windows-features-and-networks.md)  
+Découvrez les technologies Windows (telles que la déduplication de données et BranchCache) prises en charge dans Configuration Manager, ainsi que les limitations de leur utilisation.
 
--  [Ondersteuning voor virtualisatieomgevingen](../../../core/plan-design/configs/support-for-virtualization-environments.md)  
-Meer informatie over het gebruik van technologieën ondersteunde virtuele machines.
+-  [Prise en charge des environnements de virtualisation](../../../core/plan-design/configs/support-for-virtualization-environments.md)  
+Découvrez comment utiliser les technologies de machine virtuelle prises en charge.

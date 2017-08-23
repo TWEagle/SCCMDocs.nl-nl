@@ -1,81 +1,81 @@
-1.  Navigeer in de Configuration Manager-console naar **softwarebibliotheek** > **Software-Updates**.  
+1.  Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Mises à jour logicielles**.  
 
-2.  Gebruik een van de volgende methoden om de gewenste software-update te kiezen:  
+2.  Choisissez la mise à jour logicielle à télécharger selon l'une des méthodes suivantes :  
 
-    -   Selecteer een of meer software-updategroepen bij **Software-updategroepen**en klik vervolgens op het tabblad **Start** in de groep **Updategroep** op **Downloaden**.  
+    -   Sélectionnez un ou plusieurs groupes de mises à jour logicielles à partir de **Groupes de mises à jour logicielles**, puis sous l'onglet **Accueil** , dans le groupe **Groupe de mises à jour** , cliquez sur **Télécharger**.  
 
-    -   Selecteer een of meer software-updates bij **Alle software-updates**en klik vervolgens op het tabblad **Start** in de groep **Update** op **Downloaden**.  
+    -   Sélectionnez une ou plusieurs mises à jour logicielles à partir de **Toutes les mises à jour logicielles**, puis, sous l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Télécharger**.  
 
         > [!NOTE]  
-        >  Op de **alle Software-Updates** Configuration Manager-knooppunt geeft alleen software-updates met een **Kritiek** en **beveiliging** classificatie die in de afgelopen 30 dagen zijn uitgebracht.  
+        >  Dans le nœud **Toutes les mises à jour logicielles**, Configuration Manager affiche uniquement les mises à jour logicielles classées selon les critères **Critique** et **Sécurité** qui ont été publiées au cours des 30 derniers jours.  
 
         > [!TIP]  
-        >  Klik op **Criteria toevoegen** om de software-updates te filteren die in het knooppunt **Alle software-updates** worden weergegeven. Sla zoekcriteria die u vaak gebruikt op en beheer opgeslagen zoekopdrachten op het tabblad **Zoeken** .  
+        >  Cliquez sur **Ajouter des critères** pour filtrer les mises à jour logicielles qui sont affichées dans le nœud **Toutes les mises à jour logicielles** , enregistrez les critères de recherche que vous utilisez fréquemment, puis gérez les recherches enregistrées sur l'onglet **Rechercher** .  
 
-         De **wizard Software-updates downloaden** wordt geopend.  
+         L' **Assistant Téléchargement des mises à jour logicielles** s'ouvre.  
 
-3.  Configureer de volgende instellingen op de pagina **Implementatiepakket** :  
+3.  Sur la page **Package de déploiement** , configurez les paramètres suivants :  
 
-    1.  **Implementatiepakket selecteren**: Kies deze instelling om te selecteren van een bestaand implementatiepakket voor software-updates die in de implementatie.  
+    1.  **Sélectionner un package de déploiement**: choisissez ce paramètre pour sélectionner un package de déploiement existant pour les mises à jour logicielles incluses dans le déploiement.  
 
         > [!NOTE]  
-        >  Software-updates die al naar het geselecteerde implementatiepakket zijn gedownload, worden niet opnieuw gedownload.  
+        >  Les mises à jour logicielles qui ont déjà été téléchargées dans le package de déploiement sélectionné ne sont pas téléchargées à nouveau.  
 
-    2.  **Maak een nieuw implementatiepakket**: Selecteer deze instelling om een nieuw implementatiepakket voor software-updates die in de implementatie te maken. Configureer de volgende instellingen:  
+    2.  **Créer un package de déploiement**: sélectionnez ce paramètre pour créer un package de déploiement pour les mises à jour logicielles incluses dans le déploiement. Configurez les paramètres suivants :  
 
-        -   **Naam**: Hiermee geeft u de naam van het implementatiepakket. Dit moet een unieke naam zijn die de pakketinhoud kort beschrijft.  Er kunnen maximaal 50 tekens worden ingevoerd.  
+        -   **Nom**: spécifie le nom du package de déploiement. Le package doit porter un nom unique qui décrit brièvement son contenu.  Il est limité à 50 caractères.  
 
-        -   **Beschrijving**: Hiermee geeft u de beschrijving van het implementatiepakket. De pakketbeschrijving biedt informatie over de pakketinhoud en kan maximaal 127 tekens lang zijn.  
+        -   **Description**: spécifie la description du package de déploiement. La description du package fournit des informations sur le contenu du package et est limitée à 127 caractères.  
 
-        -   **Pakketbron**: Hiermee geeft u de locatie van de bronbestanden voor software-update. Typ een netwerkpad voor de bronlocatie, zoals **\\\\server\sharenaam\pad**, of klik op **Bladeren** en ga naar de netwerklocatie. U moet een gedeelde map maken voor de bronbestanden van het installatiepakket voordat u doorgaat naar de volgende pagina.  
+        -   **Source du package**: spécifie l’emplacement des fichiers sources des mises à jour logicielles. Tapez un chemin réseau pour l’emplacement source, par exemple **\\\serveur\nom_partage\chemin**ou cliquez sur **Parcourir** pour rechercher l’emplacement réseau. Vous devez créer le dossier partagé pour les fichiers sources du package de déploiement avant de passer à la page suivante.  
 
             > [!NOTE]  
-            >  De bronlocatie van het installatiepakket die u opgeeft, mag niet door een ander software-installatiepakket worden gebruikt.  
+            >  L'emplacement source du package de déploiement que vous spécifiez ne peut pas être utilisé par un autre package de déploiement de logiciel.  
 
             > [!IMPORTANT]  
-            >  Het computeraccount van de SMS-provider en de gebruiker die de wizard uitvoert voor het downloaden van de software-updates, moeten over NTFS-machtigingen voor **schrijven** op de downloadlocatie beschikken. U moet de toegang tot de downloadlocatie zorgvuldig beperken om het risico op kwaadwillenden die met bronbestanden van de software-update knoeien, te reduceren.  
+            >  Le compte d'ordinateur du fournisseur SMS et l'utilisateur qui exécute l'Assistant Téléchargement des mises à jour logicielles nécessitent des autorisations NTFS en **Écriture** sur l'emplacement de téléchargement. Vous devez soigneusement limiter l'accès à l'emplacement de téléchargement pour éviter que des personnes malintentionnées ne falsifient les fichiers sources des mises à jour logicielles.  
 
             > [!IMPORTANT]  
-            >  U kunt de pakketbronlocatie in de eigenschappen van het installatiepakket wijzigen nadat Configuration Manager het implementatiepakket maakt. Als u dit doet, moet u echter eerst de inhoud van de oorspronkelijke pakketbron kopiëren naar de nieuwe pakketbronlocatie.  
+            >  Une fois que le package de déploiement a été créé par Configuration Manager, vous pouvez modifier l’emplacement source du package de déploiement dans les propriétés du package. Mais le cas échéant, vous devez d'abord copier le contenu à partir de la source du package d'origine vers le nouvel emplacement source du package.  
 
-     Klik op **Volgende**.  
+     Cliquez sur **Suivant**.  
 
-4.  Op de **distributiepunten** pagina, geeft u de distributiepunten of distributiepuntgroepen die de software-updatebestanden te hosten en klik vervolgens op **volgende**. Zie [Configuraties van het distributiepunt](../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs) voor meer informatie over distributiepunten.  
+4.  Dans la page **Points de distribution**, spécifiez les points de distribution ou les groupes de points de distribution qui hébergent les fichiers de mises à jour logicielles, puis cliquez sur **Suivant**. Pour plus d’informations sur les points de distribution, consultez [Configurations des points de distribution](../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs).  
 
     > [!NOTE]  
-    >  Deze pagina is alleen beschikbaar wanneer u een nieuw implementatiepakket voor software-updates maakt.  
+    >  La page Points de distribution est disponible uniquement lorsque vous créez un package de déploiement de mises à jour logicielles.  
 
-6.  Op de **distributie-instellingen** pagina, geeft u de volgende instellingen:  
+6.  Dans la page **Paramètres de distribution**, spécifiez les paramètres suivants :  
 
-    -   **Distributieprioriteit**: Gebruik deze instelling geeft de distributieprioriteit voor het implementatiepakket. De distributieprioriteit is van toepassing wanneer het implementatiepakket naar distributiepunten op onderliggende sites wordt verzonden. Installatiepakketten worden in volgorde van prioriteit verzonden: **Hoge**, **gemiddeld**, of **laag**. Pakketten met een identieke prioriteit worden verzonden in de volgorde waarin deze zijn gemaakt. Als er geen achterstand is, wordt het pakket onmiddellijk verwerkt, ongeacht de prioriteit van het pakket. Pakketten worden standaard verzonden met de prioriteit **Gemiddeld** .  
+    -   **Priorité de distribution**: utilisez ce paramètre pour spécifier la priorité de distribution pour le package de déploiement. La priorité de distribution s'applique lorsque le package de déploiement est envoyé aux points de distribution sur les sites enfants. Les packages de déploiement sont envoyés par ordre de priorité : **Haute**, **Moyenne**ou **Faible**. Les packages disposant de priorités identiques sont transmis dans l'ordre dans lequel ils ont été créés. En l'absence de backlog, le package est immédiatement traité quelle que soit sa priorité. Par défaut, les packages sont transmis avec la priorité **Moyenne** .  
 
-    -   **Distribueer de inhoud voor dit pakket naar voorkeursdistributiepunten**: Gebruik deze instelling om in te schakelen inhoudsdistributie op aanvraag naar voorkeursdistributiepunten. Wanneer deze instelling is ingeschakeld, maakt het beheerpunt een trigger voor de distributiebeheerder om de inhoud naar alle voorkeursdistributiepunten te distribueren wanneer een client de inhoud van een pakket aanvraagt en de inhoud op geen van de voorkeursdistributiepunten beschikbaar is. Zie [Scenario's voor de locatie van inhoudsbronnen](../../core/plan-design/hierarchy/content-source-location-scenarios.md) voor meer informatie over voorkeursdistributiepunten en inhoud op aanvraag.  
+    -   **Distribuer le contenu pour ce package vers les points de distribution préférés**: utilisez ce paramètre pour activer la distribution de contenu à la demande vers des points de distribution préférés. Lorsque la distribution est activée, le point de gestion crée un déclencheur pour le gestionnaire de distribution afin de distribuer le contenu à tous les points de distribution préférés lorsqu'un client demande le contenu du package et que le contenu n'est disponible sur aucun point de distribution préféré. Pour plus d’informations sur les points de distribution préférés et sur le contenu à la demande, consultez [Content source location scenarios](../../core/plan-design/hierarchy/content-source-location-scenarios.md).  
 
-    -   **Instellingen voorbereid distributiepunt**: Gebruik deze instelling om op te geven hoe u wilt distribueren van inhoud naar voorbereide distributiepunten. Kies een van de volgende opties:  
+    -   **Paramètres du point de distribution préparé**: utilisez ce paramètre pour spécifier la manière dont vous voulez distribuer du contenu à des points de distribution préparés. Choisissez l'une des options suivantes :  
 
-        -   **Automatisch inhoud downloaden wanneer pakketten worden toegewezen aan distributiepunten**: Gebruik deze instelling negeert u de voorbereide instellingen en inhoud distribueert naar het distributiepunt.  
+        -   **Télécharger automatiquement du contenu lorsque des packages sont affectés à des points de distribution**: utilisez ce paramètre pour ignorer les paramètres de préparation et distribuer du contenu au point de distribution.  
 
-        -   **Alleen inhoudswijzigingen downloaden naar het distributiepunt**: Gebruik deze instelling om de initiële inhoud voor het distributiepunt voor te bereiden en vervolgens inhoudswijzigingen naar het distributiepunt distribueren.  
+        -   **Télécharger uniquement les modifications de contenu vers le point de distribution**: utilisez ce paramètre pour préparer le contenu initial sur le point de distribution, puis distribuer les modifications apportées au contenu au point de distribution.  
 
-        -   **De inhoud in dit pakket handmatig kopiëren naar het distributiepunt**: Gebruik deze instelling om inhoud op het distributiepunt altijd voor te bereiden. Dit is de standaardinstelling.  
+        -   **Copier manuellement le contenu de ce package vers le point de distribution**: utilisez ce paramètre pour toujours préparer le contenu sur le point de distribution. Il s'agit du paramètre par défaut.  
 
-         Zie [Vooraf geplaatste inhoud gebruiken](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_prestage) voor meer informatie over het vooraf plaatsen van inhoud op distributiepunten.  
+         Pour plus d’informations sur la préparation du contenu sur les points de distribution, consultez [Utiliser du contenu préparé](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_prestage).  
 
-     Klik op **Volgende**.  
+     Cliquez sur **Suivant**.  
 
-6.  Op de **downloadlocatie** pagina, geeft u de locatie die Configuration Manager gebruiken zal voor het downloaden van de bronbestanden voor software-update. Gebruik, indien nodig, de volgende opties:  
+6.  Dans la page **Emplacement de téléchargement**, spécifiez l’emplacement où Configuration Manager doit télécharger les fichiers sources des mises à jour logicielles. Si besoin, utilisez les options suivantes :  
 
-    -   **Software-updates downloaden vanaf Internet**: Selecteer deze instelling om de softwareupdates downloaden vanaf de locatie op Internet. Dit is de standaardinstelling.  
+    -   **Télécharger les mises à jour logicielles depuis Internet**: sélectionnez ce paramètre pour télécharger les mises à jour logicielles à partir de l’emplacement sur Internet. Il s'agit du paramètre par défaut.  
 
-    -   **Software-updates downloaden vanaf een locatie op het lokale netwerk**: Selecteer deze instelling om software-updates downloaden vanaf een lokale map of een gedeelde netwerkmap. Gebruik deze instelling wanneer de computer waarop de wizard wordt uitgevoerd, niet over internettoegang beschikt.  
+    -   **Télécharger les mises à jour logicielles à partir d’un emplacement sur le réseau local**: sélectionnez ce paramètre pour télécharger des mises à jour logicielles à partir d’un dossier local ou d’un dossier réseau partagé. Utilisez ce paramètre lorsque l'ordinateur exécutant l'assistant ne dispose d'aucune connexion à Internet.  
 
         > [!NOTE]  
-        >  Wanneer u deze instelling gebruikt, downloadt u de software-updates via een computer met internettoegang en vervolgens kopieert u de software-updates naar een locatie op het lokale netwerk die toegankelijk is vanaf de computer waarop de wizard wordt uitgevoerd.  
+        >  Lorsque vous utilisez ce paramètre, téléchargez les mises à jour logicielles à partir de n'importe quel ordinateur connecté à Internet, puis copiez les mises à jour logicielles sur le réseau local qui est accessible depuis l'ordinateur exécutant l'Assistant.  
 
-     Klik op **Volgende**.  
+     Cliquez sur **Suivant**.  
 
-7.  Op de **taalselectie** pagina, geeft u de talen waarvoor de geselecteerde software-updates moeten worden gedownload en klik vervolgens op **volgende**. Configuration Manager downloadt de software-updates alleen als ze beschikbaar in de geselecteerde talen zijn. Software-updates die niet aan een specifieke taal zijn gebonden, worden altijd gedownload.  
+7.  Dans la page **Sélection de la langue**, spécifiez les langues des mises à jour logicielles sélectionnées à télécharger, puis cliquez sur **Suivant**. Configuration Manager télécharge les mises à jour logicielles uniquement si elles sont disponibles dans les langues sélectionnées. Les mises à jour logicielles qui ne sont spécifiques à aucune langue sont toujours téléchargées.  
 
-8. Op de **samenvatting** pagina, Controleer de instellingen die u in de wizard hebt geselecteerd en klik vervolgens op **volgende** download de software-updates.  
+8. Dans la page **Résumé**, vérifiez les paramètres que vous avez sélectionnés dans l’Assistant, puis cliquez sur **Suivant** pour télécharger les mises à jour logicielles.  
 
-9. Op de **voltooiing** pagina, controleert u of de software-updates zijn gedownload, en klik vervolgens op **sluiten**.  
+9. Dans la page **Dernière étape**, vérifiez que les mises à jour logicielles ont été téléchargées avec succès, puis cliquez sur **Fermer**.  

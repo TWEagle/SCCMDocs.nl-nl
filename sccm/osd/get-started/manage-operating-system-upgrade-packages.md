@@ -1,6 +1,6 @@
 ---
-title: Upgradepakketten voor besturingssysteem beheren | Microsoft Docs
-description: Informatie over het beheren van upgradepakketten voor besturingssysteem in System Center Configuration Manager.
+title: "Gérer les packages de mise à niveau de système d’exploitation | Documents Microsoft"
+description: "Découvrez comment gérer des packages de mise à niveau de système d’exploitation dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/06/2016
 ms.prod: configuration-manager
@@ -17,77 +17,77 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 5fef04f26b12bced073332fd1f7b4e7c7bd7d398
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-operating-system-upgrade-packages-with-system-center-configuration-manager"></a>Upgradepakketten van het besturingssysteem beheren met System Center Configuration Manager
+# <a name="manage-operating-system-upgrade-packages-with-system-center-configuration-manager"></a>Gérer des packages de mise à niveau de système d’exploitation avec System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Een upgradepakket in System Center Configuration Manager bevat de bronbestanden voor installatie van Windows die worden gebruikt voor het upgraden van een bestaand besturingssysteem op een computer. Gebruik de volgende secties upgradepakketten voor besturingssysteem in Configuration Manager beheren.
+Dans System Center Configuration Manager, un package de mise à niveau contient les fichiers sources d’installation de Windows utilisés pour mettre à niveau un système d’exploitation existant sur un ordinateur. Aidez-vous des informations des sections suivantes pour gérer les packages de mise à niveau de système d’exploitation dans Configuration Manager.
 
-##  <a name="BKMK_AddOSUpgradePkgs"></a> Upgradepakketten voor het besturingssysteem toevoegen aan Configuration Manager  
- Voordat u een upgradepakket voor besturingssysteem gebruiken kunt, moet u het pakket toevoegen aan een Configuration Manager-site. Gebruik de volgende procedure om een upgradepakket voor het besturingssysteem toe te voegen aan een site.  
+##  <a name="BKMK_AddOSUpgradePkgs"></a> Ajouter des packages de mise à niveau de système d’exploitation à Configuration Manager  
+ Avant d’utiliser un package de mise à niveau de système d’exploitation, vous devez l’ajouter à un site Configuration Manager. Pour ajouter un package de mise à niveau de système d’exploitation à un site, procédez comme suit.  
 
-#### <a name="to-add-an-operating-system-upgrade-package"></a>Een upgradepakketten voor het besturingssysteem toevoegen  
+#### <a name="to-add-an-operating-system-upgrade-package"></a>Pour ajouter un package de mise à niveau de système d’exploitation  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Vouw in de werkruimte **Softwarebibliotheek** het knooppunt **Besturingssystemen**uit en klik vervolgens op **Upgradepakketten voor besturingssysteem**.  
+2.  Dans l’espace de travail **Bibliothèque de logiciels** , développez **Systèmes d’exploitation**, puis cliquez sur **Packages de mise à niveau du système d’exploitation**.  
 
-3.  Klik op het tabblad **Start** in de groep **Maken** op **Upgradepakket besturingssysteem toevoegen** om de wizard Upgradepakket besturingssysteem toevoegen te starten.  
+3.  Sous l’onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Ajouter un package de mise à niveau du système d’exploitation** pour démarrer l’Assistant Ajout d’un package de mise à niveau du système d’exploitation.  
 
-4.  Geef op de pagina **Gegevensbron** het netwerkpad op naar de installatiebronbestanden van het upgradepakket voor het besturingssysteem. Geef bijvoorbeeld de UNC **\\\server\pad** op voor de locatie waar de installatiebronbestanden zich bevinden.  
+4.  Dans la page **Source de données** , spécifiez le chemin d’accès réseau aux fichiers sources d’installation du package de mise à niveau de système d’exploitation. Par exemple, spécifiez le chemin UNC **\\\serveur\chemin** des fichiers sources d’installation.  
 
     > [!NOTE]  
-    >  De installatiebronbestanden bevatten Setup.exe en andere bestanden en mappen om het besturingssysteem te installeren.  
+    >  Les fichiers sources d’installation contiennent Setup.exe et d’autres fichiers et dossiers pour installer le système d’exploitation.  
 
     > [!IMPORTANT]  
-    >  Beperk de toegang tot de installatiebronbestanden om ongewenste manipulatie te voorkomen.  
+    >  Limiter l’accès aux fichiers sources d’installation pour empêcher toute falsification indésirable.  
 
-5.  Geef op de pagina **Algemeen** de volgende informatie op en klik op **Volgende**. Deze informatie is nuttig om een installatieprogramma te kunnen identificeren wanneer u meerdere installatieprogramma's voor besturingssystemen hebt.  
+5.  Sur la page **Général** , spécifiez les informations suivantes, puis cliquez sur **Suivant**. Cette information est utile à des fins d'identification lorsque vous avez plusieurs programmes d'installation de système d'exploitation.  
 
-    -   **Naam**: Geef de naam van het installatieprogramma van het besturingssysteem.  
+    -   **Nom**: Spécifiez le nom du programme d'installation de système d'exploitation.  
 
-    -   **Versie**: Geef de versie van het installatieprogramma van het besturingssysteem.  
+    -   **Version**: Spécifiez la version du programme d'installation de système d'exploitation.  
 
-    -   **Opmerking**: Geef een korte beschrijving van het installatieprogramma van het besturingssysteem.  
+    -   **Commentaire**: spécifiez une brève description du programme d'installation de système d'exploitation.  
 
-6.  Voltooi de wizard.  
+6.  Effectuez toutes les étapes de l'Assistant.  
 
- U kunt het installatieprogramma voor het besturingssysteem nu distribueren naar de distributiepunten die worden gebruikt door de takenreeksen van uw implementatie.  
+ Vous pouvez désormais distribuer le programme d'installation de système d'exploitation aux points de distribution auxquels vos séquences de tâches de déploiement accèdent.  
 
-##  <a name="BKMK_DistributeBootImages"></a> Installatiekopieën van het besturingssysteem naar een distributiepunt distribueren  
- Installatiekopieën van het besturingssysteem worden op dezelfde manier naar distributiepunten gedistribueerd als andere inhoud. In de meeste gevallen moet u het besturingssysteem naar ten minste één distributiepunt distribueren voordat u het besturingssysteem implementeert. Zie [Inhoud distribueren](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content) voor stappen om een installatiekopie van een besturingssysteem te distribueren.  
+##  <a name="BKMK_DistributeBootImages"></a> Distribuer des images de système d’exploitation à un point de distribution  
+ Les images de système d’exploitation sont distribuées aux points de distribution de la même façon que vous distribuez d’autre contenu. Dans la plupart des cas, vous devez distribuer l’image de système d’exploitation à au moins un point de distribution avant de déployer le système d’exploitation. Pour découvrir comment distribuer une image de système d’exploitation, consultez [Distribute content](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
 
-##  <a name="BKMK_OSUpgradePkgApplyUpdates"></a> Software-updates toepassen op een updatepakket van een besturingssysteem  
- Vanaf versie 1602 van Configuration Manager, kunt u nieuwe software-updates toepassen op de installatiekopie van het besturingssysteem in het upgradepakket van uw besturingssysteem. Voordat u kunt software-updates toepassen op een updatepakket hebt u hebben uw software-updates-infrastructuur, is gesynchroniseerd software-updates en de software-updates gedownload naar de Inhoudsbibliotheek op de siteserver. Zie voor meer informatie [software-updates implementeren](../../sum/deploy-use/deploy-software-updates.md).  
+##  <a name="BKMK_OSUpgradePkgApplyUpdates"></a> Appliquer des mises à jour logicielles à un package de mise à niveau du système d’exploitation  
+ À compter de Configuration Manager version 1602, vous pouvez appliquer les nouvelles mises à jour logicielles à l’image de système d’exploitation dans votre package de mise à niveau du système d’exploitation. Avant de pouvoir appliquer des mises à jour logicielles à un package de mise à niveau, votre infrastructure de mises à jour logicielles doit être en place, et vous devez avoir synchronisé les mises à jour logicielles et téléchargé les mises à jour logicielles dans la bibliothèque de contenu sur le serveur de site. Pour plus d’informations, consultez [Déployer des mises à jour logicielles](../../sum/deploy-use/deploy-software-updates.md).  
 
- U kunt toepasselijke software-updates volgens een opgegeven schema toepassen op een updatepakket. Het schema dat u opgeeft, Configuration Manager past de software-updates die u selecteert op het updatepakket van het besturingssysteem, en vervolgens wordt het bijgewerkte updatepakket naar distributiepunten optioneel gedistribueerd. Informatie over het updatepakket van het besturingssysteem wordt opgeslagen in de sitedatabase, inclusief de software-updates die tijdens het importeren zijn toegepast. Software-updates die op het updatepakket zijn toegepast sinds de kopie voor het eerst werd toegevoegd, worden ook opgeslagen in de sitedatabase. Wanneer u de wizard start om software-updates toe te passen op het updatepakket van het besturingssysteem, wordt er een lijst opgehaald met toepasselijke software-updates die nog niet zijn toegepast op het updatepakket. U kunt dan een selectie maken uit deze lijst. Configuration Manager kopieert de softwareupdates in de Inhoudsbibliotheek op de siteserver en past de software-updates op het updatepakket van het besturingssysteem.  
+ Vous pouvez appliquer les mises à jour logicielles appropriées à un package de mise à niveau selon une planification définie. Aux heures planifiées, Configuration Manager applique les mises à jour logicielles sélectionnées au package de mise à niveau du système d’exploitation puis, si vous le souhaitez, distribue le package de mise à niveau mis à jour aux points de distribution. Les informations sur le package de mise à niveau du système d’exploitation sont stockées dans la base de données du site, y compris les mises à jour logicielles qui ont été appliquées au moment de l’importation. Les mises à jour logicielles appliquées au package de mise à niveau depuis son ajout initial sont également stockées dans la base de données du site. Lorsque vous ouvrez l’Assistant pour appliquer des mises à jour logicielles au package de mise à niveau du système d’exploitation, l’Assistant récupère la liste des mises à jour logicielles applicables qui n’ont pas encore été appliquées au package de mise à niveau, pour vous permettre de les sélectionner. Configuration Manager copie les mises à jour logicielles de la bibliothèque de contenu sur le serveur de site, puis applique les mises à jour logicielles au package de mise à niveau du système d’exploitation.  
 
- Gebruik de volgende procedure om software-updates toe te passen op een updatepakket van een besturingssysteem.  
+ Pour appliquer des mises à jour logicielles à un package de mise à niveau du système d’exploitation, procédez comme suit.  
 
-#### <a name="to-apply-software-updates-to-an-operating-system-upgrade-package"></a>Software-updates toepassen op een updatepakket van een besturingssysteem  
+#### <a name="to-apply-software-updates-to-an-operating-system-upgrade-package"></a>Pour appliquer des mises à jour logicielles à un package de mise à niveau du système d’exploitation  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Vouw in de werkruimte **Softwarebibliotheek** het knooppunt **Besturingssystemen**uit en klik vervolgens op **Upgradepakketten voor besturingssysteem**.  
+2.  Dans l’espace de travail **Bibliothèque de logiciels** , développez **Systèmes d’exploitation**, puis cliquez sur **Packages de mise à niveau du système d’exploitation**.  
 
-3.  Selecteer het updatepakket waarop u software-updates wilt toepassen.  
+3.  Sélectionnez le package de mise à niveau du système d’exploitation auquel appliquer les mises à jour logicielles.  
 
-4.  Klik op het tabblad **Start** in de groep **Updatepakket van het besturingssysteem** op **Updates plannen** om de wizard te starten.  
+4.  Sous l’onglet **Accueil** , dans le groupe **Packages de mise à niveau du système d’exploitation** , cliquez sur **Planifier les mises à jour** pour démarrer l’Assistant.  
 
-5.  Selecteer op de pagina **Updates kiezen** de software-updates die moeten worden toegepast op de installatiekopie van het besturingssysteem en klik vervolgens op **Volgende**.  
+5.  Sur la page **Choisir des mises à jour** , sélectionnez les mises à jour logicielles à appliquer à l'image du sytème d'exploitation, puis cliquez sur **Suivant**.  
 
-6.  Geef, op de pagina **Schema instellen** , de volgende instellingen op, en klik vervolgens op **Volgende**.  
+6.  Sur la page **Définir le calendrier** , spécifiez les paramètres suivants, puis cliquez sur **Suivant**.  
 
-    1.  **Planning**: Geef de planning voor wanneer de software-updates worden toegepast op de installatiekopie van het besturingssysteem.  
+    1.  **Calendrier**: définissez le calendrier d’application des mises à jour logicielles à l’image du système d’exploitation.  
 
-    2.  **Doorgaan bij fout**:  Selecteer deze optie om door te gaan naar het software-updates toepassen op de installatiekopie, zelfs wanneer er een fout opgetreden.  
+    2.  **Continuer en cas d’erreur**: sélectionnez cette option pour continuer à appliquer les mises à jour logicielles à l’image même si une erreur survient.  
 
-    3.  **De installatiekopie distribueren naar distributiepunten**: Selecteer deze optie om de installatiekopie van het besturingssysteem op distributiepunten werken nadat de software-updates zijn toegepast.  
+    3.  **Distribuer l’image aux points de distribution**: sélectionnez cette option pour mettre à jour l’image du système d’exploitation sur les points de distribution après l’application des mises à jour logicielles.  
 
-7.  Verifieer de informatie op de pagina **Samenvatting** en klik vervolgens op **Volgende**.  
+7.  Vérifiez les informations figurant sur la page **Résumé** , puis cliquez sur **Suivant**.  
 
-8.  Verifieer op de pagina **Voltooiing** dat de software-updates met succes zijn toegepast op de installatiekopie van het besturingssysteem.  
+8.  Sur la page **Dernière étape** , vérifiez que les mises à jour logicielles ont été correctement appliquées à l'image de système d'exploitation.  

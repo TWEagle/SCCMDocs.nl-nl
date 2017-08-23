@@ -1,6 +1,6 @@
 ---
-title: Migratie voltooien | Microsoft Docs
-description: "Informatie over het voltooien van migratie naar een doelhiërarchie van System Center Configuration Manager nadat een bronhiërarchie niet meer gegevens is."
+title: Terminer la migration | Microsoft Docs
+description: "Découvrez comment terminer la migration vers une hiérarchie de destination System Center Configuration Manager une fois qu’une hiérarchie source ne contient plus de données."
 ms.custom: na
 ms.date: 1/12/2017
 ms.prod: configuration-manager
@@ -17,44 +17,44 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: eb1d2e320df02b26423ed4341d5bd1568b9444ad
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-to-complete-migration-in-system-center-configuration-manager"></a>Voltooiing van migratie in System Center Configuration Manager plannen
+# <a name="plan-to-complete-migration-in-system-center-configuration-manager"></a>Planifier la fin de la migration dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Met System Center Configuration Manager u het proces kunt voltooien van de migratie wanneer een bronhiërarchie niet langer gegevens bevat die u wilt migreren naar uw doelhiërarchie. Migratie is voltooid, bevat de volgende algemene stappen:  
+Avec System Center Configuration Manager, vous pouvez terminer le processus de migration quand une hiérarchie source ne contient plus de données à migrer vers votre hiérarchie de destination. Pour cela, suivez les étapes ci-dessous :  
 
--   Zorg ervoor dat gegevens die u nodig hebt zijn gemigreerd. Voordat u de migratie vanuit een bronhiërarchie voltooit, ervoor zorgen dat u hebt gemigreerd alle resources van de bronhiërarchie die u nodig in de doelhiërarchie hebt. Dit kunnen bijvoorbeeld gegevens en clients.  
+-   Vérifiez que les données dont vous avez besoin ont été migrées. Avant de terminer la migration à partir d'une hiérarchie source, vérifiez que vous avez bien migré toutes les ressources de la hiérarchie source dont vous pouvez avoir besoin dans la hiérarchie de destination. Pensez notamment aux données et aux clients.  
 
--   Verzamelen van gegevens van bronsites stoppen. Als u wilt migreren vanuit een bronhiërarchie hebt voltooid, moet u eerst het verzamelen van gegevens van bronsites stoppen.  
+-   Arrêtez la collecte des données des sites source. Pour pouvoir terminer la migration à partir d'une hiérarchie source, vous devez au préalable arrêter la collecte des données des sites source.  
 
--   Migratiegegevens opschoont. Nadat u stopt met het verzamelen van gegevens van alle bronsites in een bronhiërarchie, kunt u gegevens over de migratie en de bronhiërarchie kunt verwijderen uit de database van de doelhiërarchie.  
+-   Nettoyez les données de migration. Après avoir arrêté la collecte des données des sites source d'une hiérarchie source, vous pouvez supprimer de la base de données de la hiérarchie de destination les données relatives au processus de migration et à la hiérarchie source.  
 
--   Buiten gebruik stellen in de bronhiërarchie. Nadat u de migratie vanuit een bronhiërarchie voltooit en die hiërarchie is niet meer bronnen die u beheert, kunt u de sites in de bronhiërarchie buiten gebruik stellen en de bijbehorende infrastructuur uit uw omgeving verwijderen. Raadpleeg de documentatie voor die versie van Configuration Manager voor meer informatie over het buiten gebruik stellen van sites en bronhiërarchieën.  
+-   Retirez la hiérarchie source. Une fois que la migration à partir d’une hiérarchie source est terminée et que cette hiérarchie ne contient plus de ressources que vous gérez, vous pouvez retirer les sites de la hiérarchie source et supprimer l’infrastructure associée de votre environnement. Pour plus d’informations sur le retrait de sites et de hiérarchies sources, consultez la documentation de cette version de Configuration Manager.  
 
-Gebruik de volgende secties om te plannen voor het uitvoeren van de migratie vanuit een bronhiërarchie door te verzamelen van gegevens en ruimt migratiegegevens stoppen:  
+Pour planifier la fin d’une migration à partir d’une hiérarchie source en arrêtant la collecte de données et le nettoyage des données de migration, consultez les sections ci-dessous :  
 
--   [Wilt u gegevens verzamelen stoppen](#Plan_to_Stop_Data_Gath)  
+-   [Planifier l’arrêt de la collecte de données](#Plan_to_Stop_Data_Gath)  
 
--   [Opschonen van migratiegegevens plannen](#Plan_to_clean_up)  
+-   [Planifier le nettoyage des données de migration](#Plan_to_clean_up)  
 
-##  <a name="Plan_to_Stop_Data_Gath"></a>Wilt u gegevens verzamelen stoppen  
- Voordat u de migratie voltooit en van migratiegegevens opschonen, moet u stoppen met het verzamelen van gegevens van elke bronsite in de bronhiërarchie. U moet uitvoeren om te stoppen met het verzamelen van gegevens van elke bronsite, de **geen gegevens meer verzamelen** opdracht op de onderliggende bronsites en vervolgens het proces herhalen bij iedere bovenliggende site. De site op het hoogste niveau van de bronhiërarchie moet de laatste site zijn waarop u de gegevensverzameling beëindigt. Verzamelen van gegevens op elke onderliggende site voordat u deze opdracht uitvoert op een bovenliggende site, moet u stoppen. Normaal gesproken beëindigen u gegevensverzameling alleen wanneer u klaar bent voor het voltooien van het migratieproces.  
+##  <a name="Plan_to_Stop_Data_Gath"></a> Planifier l’arrêt de la collecte de données  
+ Avant de terminer la migration et de nettoyer les données de migration, vous devez arrêter la collecte des données de chaque site source dans la hiérarchie source. Pour arrêter la collecte de données de chaque site source, vous devez exécuter la commande **Arrêter la collecte de données** sur les sites source de niveau inférieur, puis répéter le processus au niveau de chaque site parent. Le site de niveau supérieur de la hiérarchie source doit être le dernier site sur lequel vous arrêtez la collecte des données. Vous devez arrêter la collecte de données sur chaque site enfant avant d'exécuter cette commande sur un site parent. En règle générale, vous arrêtez la collecte de données uniquement quand vous êtes prêt à terminer le processus de migration.  
 
- Nadat u stopt met het verzamelen van gegevens van een bronsite, zijn gedeelde distributiepunten van die site niet meer beschikbaar als inhoudslocaties voor clients in de doelhiërarchie. Zorg daarom dat alle gemigreerde inhoud waartoe de clients in de doelhiërarchie nodig toegang tot beschikbaar blijven hebben door een van de volgende opties:  
+ Lorsque vous arrêtez la collecte des données d'un site source, les points de distribution partagés de ce site ne sont plus disponibles en tant qu'emplacements de contenu pour les clients de la hiérarchie de destination. Par conséquent, vérifiez que le contenu migré dont les clients ont besoin dans la hiérarchie de destination reste bien disponible. Pour cela, utilisez l'une des méthodes suivantes :  
 
--   Distribueer de inhoud naar ten minste één distributiepunt in de doelhiërarchie.  
+-   Dans la hiérarchie de destination, distribuez le contenu à un point de distribution au moins.  
 
--   Voordat u stopt met het verzamelen van gegevens van een bronsite, upgraden of opnieuw toewijzen van gedeelde distributiepunten die vereiste inhoud hebben. Voor meer informatie over het upgraden of opnieuw toewijzen van distributiepunten gedeelde, Zie de betreffende gedeelten in [een migratiestrategie voor inhoudsimplementatie in System Center Configuration Manager plannen](../../core/migration/planning-a-content-deployment-migration-strategy.md).  
+-   Avant d'arrêter la collecte de données à partir d'un site source, mettez à niveau ou réaffectez les points de distribution partagés ayant le contenu requis. Pour plus d’informations sur la mise à niveau ou la réattribution de points de distribution partagés, consultez les sections correspondantes dans la rubrique [Planification d’une stratégie de migration de déploiement de contenu dans System Center Configuration Manager](../../core/migration/planning-a-content-deployment-migration-strategy.md).  
 
-Nadat u stopt met het verzamelen van gegevens van elke bronsite in de bronhiërarchie, kunt u de migratiegegevens opschoont. Totdat u migratiegegevens opruimt, blijft elke migratietaak die is uitgevoerd of die is gepland voor uitvoering toegankelijk in de Configuration Manager-console.  
+Après avoir arrêté la collecte de données à partir de chaque site source de la hiérarchie source, vous pouvez nettoyer les données de migration. Dans la console Configuration Manager, vous pouvez accéder à chaque tâche de migration qui a été exécutée ou qui est planifiée pour être exécutée, tant que vous n’avez pas nettoyé les données de migration.  
 
-Zie voor meer informatie over bronsites en het verzamelen van gegevens, [strategie in System Center Configuration Manager voor een bronhiërarchie plannen](../../core/migration/planning-a-source-hierarchy-strategy.md).  
+Pour plus d’informations sur les sites sources et la collecte de données, consultez [Planification d’une stratégie de hiérarchie source dans System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).  
 
-##  <a name="Plan_to_clean_up"></a>Opschonen van migratiegegevens plannen  
- De laatste stap vereist voor het voltooien van de migratie is migratiegegevens opschoont. U kunt de **migratiegegevens opruimen** opdracht nadat u het verzamelen van gegevens voor elke bronsite in de bronhiërarchie hebt gestopt. Met deze optionele actie worden gegevens over de huidige bronhiërarchie verwijderd uit de database van de doelhiërarchie.  
+##  <a name="Plan_to_clean_up"></a> Planifier le nettoyage des données de migration  
+ La dernière étape nécessaire pour terminer la migration consiste à nettoyer les données de migration. Vous pouvez utiliser la commande **Nettoyer les données de migration** après avoir arrêté la collecte des données pour chaque site source de la hiérarchie source. Cette action facultative supprime de la base de données de la hiérarchie de destination l'ensemble des données relatives à la hiérarchie source actuelle.  
 
- Wanneer u migratiegegevens opruimt, wordt de meeste gegevens over de migratie verwijderd uit de database van de doelhiërarchie. Details over gemigreerde objecten blijven echter behouden. Met deze details kunt u de **migratie** werkruimte opnieuw configureren van de bronhiërarchie die de gegevens die de migratie van die bronhiërarchie te hervatten bevat of als u wilt de objecten bekijken en site-eigendom van de eerder gemigreerde objecten is gemigreerd.  
+ Lors du nettoyage des données de migration, la plupart des données relatives à la migration sont supprimées de la base de données de la hiérarchie de destination. Cependant, les détails sur les objets migrés sont conservés. Grâce à ces détails, vous pouvez utiliser l’espace de travail **Migration** pour reconfigurer la hiérarchie source contenant les données migrées afin de reprendre la migration à partir de cette hiérarchie source, ou de passer en revue les objets et la propriété de site des objets précédemment migrés.  

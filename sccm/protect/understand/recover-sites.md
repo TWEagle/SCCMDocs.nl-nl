@@ -1,6 +1,6 @@
 ---
-title: Site recovery | Microsoft Docs
-description: Informatie over het herstellen van uw sites in System Center Configuration Manager.
+title: "Récupération de site | Microsoft Docs"
+description: "Découvrez comment récupérer vos sites dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 6/5/2017
 ms.prod: configuration-manager
@@ -16,228 +16,228 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 49eea15ea2888f8f93c33eb771c09147ba21529e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="recover-a-configuration-manager-site"></a>Een Configuration Manager-site herstellen
+#  <a name="recover-a-configuration-manager-site"></a>Récupération d'un site Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Een Configuration Manager uitvoeren siteherstel nadat een Configuration Manager-site is mislukt of gegevensverlies in de sitedatabase optreedt. Het herstellen en opnieuw synchroniseren van gegevens zijn de belangrijkste taken van een siteherstel en zijn nodig om een onderbreking van de bewerkingen te voorkomen.
+Lancez la récupération d'un site Configuration Manager à chaque défaillance d'un site Configuration Manager ou perte de données dans la base de données d'un site. La réparation et la resynchronisation des données constituent les principales tâches de récupération d'un site et elles sont nécessaires pour éviter l'interruption des opérations.
 
-De secties in dit onderwerp kunt u een Configuration Manager-site te herstellen. Zie het maken van een back-up [voor Configuration Manager back-](/sccm/protect/understand/backup-and-recovery).
+Les sections de cette rubrique peuvent vous aider à récupérer un site Configuration Manager. Pour créer une sauvegarde, consultez [Sauvegarde pour Configuration Manager](/sccm/protect/understand/backup-and-recovery).
 
-## <a name="considerations-before-recovering-a-site"></a>Overwegingen voor het herstellen van een site
-**U moet dezelfde versie en editie van SQL Server gebruiken:** Bijvoorbeeld: terugzetten van een database die is uitgevoerd op SQL Server 2014 naar SQL Server-2016is niet ondersteund. Op deze manier wordt terugzetten van een sitedatabase die is uitgevoerd op een Standard-editie van SQL Server 2016 naar een Enterprise-editie van SQL Server 2016 niet ondersteund.
--   SQL Server moet niet worden ingesteld op **modus voor één gebruiker**.
--   Controleer of de .MDF- en .LDF-bestanden geldig zijn. Wanneer u een site herstelt, is er geen controle voor de status van de bestanden die u wilt herstellen.
+## <a name="considerations-before-recovering-a-site"></a>Considérations à prendre en compte avant la récupération d’un site
+**Vous devez utiliser les mêmes version et édition de SQL Server :** par exemple, la restauration d’une base de données exécutée sur SQL Server 2014 vers SQL Server 2016 n’est pas prise en charge. De la même manière, il n’est pas possible de restaurer une base de données de site qui s’exécutait sur une édition Standard de SQL Server 2016 vers une édition Enterprise de SQL Server 2016.
+-   SQL Server ne doit pas être configuré en **mode mono-utilisateur**.
+-   Vérifiez que les fichiers .MDF et .LDF sont valides. Quand vous récupérez un site, l’état des fichiers que vous restaurez n’est pas vérifié.
 
-**Als u een SQL Server Always On-beschikbaarheidsgroep gebruikt om de sitedatabase te hosten:** De herstelplannen aanpassen zoals is beschreven [voorbereiden op het gebruik van SQL Server Always On](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database#changes-for-site-recovery).
+**Si vous utilisez un groupe de disponibilité SQL Server Always On pour héberger la base de données du site :** modifiez vos plans de récupération comme décrit dans la rubrique [Se préparer à utiliser SQL Server Always On](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database#changes-for-site-recovery).
 
-**Wanneer u Databasereplica's gebruikt:** Als u een sitedatabase herstelt die was geconfigureerd voor databasereplica's, moet u, voordat u de databasereplica's kunt gebruiken, elke databasereplica opnieuw configureren, waarbij zowel de publicaties als abonnementen opnieuw worden gemaakt.
+**Si vous utilisez des réplicas de base de données :** après avoir restauré une base de données de site configurée pour des réplicas de base de données et avant de pouvoir utiliser les réplicas de base de données, vous devez reconfigurer chaque réplica de base de données en recréant les publications et les abonnements.
 
-## <a name="determine-your-recovery-options"></a>Uw herstelopties bepalen
-Er zijn twee hoofdgebieden in overweging moet nemen voor de primaire siteserver van Configuration Manager en herstel van centrale beheersite; de **siteserver** en de **sitedatabase**.
-De volgende secties kunt u selecteert de beste opties voor uw herstelscenario.
+## <a name="determine-your-recovery-options"></a>Détermination de vos options de récupération
+Il existe deux zones principales à prendre en compte pour la récupération d'un site principal Configuration Manager et d'un site d'administration centrale : le **serveur de site** et la **base de données de site**.
+Les sections suivantes peuvent vous aider à sélectionner les meilleures options pour votre scénario de récupération.
 
 > [!NOTE]   
-> Wanneer wordt gedetecteerd dat een bestaande Configuration Manager-site op de server, kunt u een siteherstel starten, maar de herstelopties voor de siteserver zijn beperkt. Als u het installatieprogramma bijvoorbeeld uitvoert op een bestaande siteserver, wanneer u herstel kiest, kunt u de sitedatabaseserver herstellen, maar is de optie om de siteserver te herstellen uitgeschakeld.
+> Lorsque le programme d'installation détecte un site Configuration Manager existant sur le serveur, vous pouvez démarrer une récupération de site, mais les options de récupération pour le serveur de site sont limitées. Par exemple, si vous exécutez le programme d'installation sur un serveur de site existant, lorsque vous choisissez la récupération, vous pouvez récupérer le serveur de base de données de site mais l'option de récupération du serveur de site est désactivée.
 
-### <a name="site-server-recovery-options"></a>Opties voor herstel van de siteserver
-Het installatieprogramma starten vanaf een kopie van de **CD. Meest recente** map die u hebt gemaakt buiten de installatiemap van Configuration Manager.
--   Als u Configuration Manager Setup vanuit uitvoeren de **Start** menu op de siteserver de **een site herstellen** optie is niet beschikbaar.
--   Als u eventuele updates van de Configuration Manager-console geïnstalleerd voordat u uw back-up hebt gemaakt, kunt u de site niet opnieuw installeren met behulp van Setup uit vanaf installatiemedia of het pad voor de Configuration Manager-installatie.
+### <a name="site-server-recovery-options"></a>Options de récupération de serveur de site
+Démarrez le programme d’installation à partir d’une copie du dossier **CD.Latest** que vous avez créée en dehors du dossier d’installation de Configuration Manager.
+-   Si vous exécutez le programme d'installation de Configuration Manager à partir du menu **Démarrer** sur le serveur de site, l'option **Récupérer un site** n'est pas disponible.
+-   Si vous avez installé des mises à jour à partir de la console Configuration Manager avant d’effectuer votre sauvegarde, vous ne pouvez pas réinstaller correctement le site en utilisant le programme d’installation à partir du support d’installation ou du chemin d’installation de Configuration Manager.
 
-Selecteer vervolgens de **een site herstellen** optie. U hebt de volgende herstelopties voor de mislukte siteserver:
+Sélectionnez ensuite l’option **Récupérer un site** . Vous disposez des options de récupération suivantes pour le serveur de site défaillant :
 
--   **De siteserver met behulp van een bestaande back-up herstellen:** Gebruik deze optie wanneer er een back-up van de siteserver van Configuration Manager die op de siteserver is gemaakt als onderdeel van de **back-upserver van Site** onderhoudstaak vóór de sitefout. De site wordt opnieuw geïnstalleerd, en de site-instellingen worden geconfigureerd, op basis van de site waarvan een back-up was gemaakt.
--   **De siteserver opnieuw installeren:** Gebruik deze optie wanneer u een back-up van de siteserver niet hebt. De siteserver wordt opnieuw geïnstalleerd, en u moet de site-instellingen opgeven, net zoals u zou doen tijdens een eerste installatie.
-  -   U moet de dezelfde sitecode en Sitedatabasenaam die u hebt gebruikt toen de mislukte site is geïnstalleerd.
-  -   U kunt de site opnieuw installeren op een nieuwe computer die een nieuw besturingssysteem wordt uitgevoerd.
-  -   De computer moet dezelfde naam, FQDN van de oorspronkelijke siteserver gebruiken.   
+-   **Récupérer le serveur de site à l’aide d’une sauvegarde existante** : utilisez cette option si vous disposez d’une sauvegarde du serveur de site Configuration Manager qui a été créée sur le serveur de site dans le cadre de la tâche de maintenance de **sauvegarde du serveur de site** avant la défaillance du site. Le site est réinstallé et les paramètres du site sont configurés en fonction du site qui a été sauvegardé.
+-   **Réinstaller le serveur de site**: utilisez cette option si vous ne possédez pas de sauvegarde du serveur du site. Le serveur de site est réinstallé et vous devez spécifier les paramètres du site, comme vous le feriez lors d'une installation initiale.
+  -   Vous devez utiliser les mêmes code de site et nom de base de données de site que ceux que vous avez utilisés lors de l'installation initiale du site défaillant.
+  -   Vous pouvez réinstaller le site sur un nouvel ordinateur qui exécute un nouveau système d’exploitation.
+  -   L’ordinateur doit utiliser le même nom et le même nom de domaine complet que le serveur de site d’origine.   
 
-### <a name="site-database-recovery-options"></a>Opties voor herstel van de sitedatabase
-Wanneer u het installatieprogramma uitvoert, hebt u de volgende herstelopties voor de sitedatabase:
--   **De sitedatabase met behulp van een back-upset herstellen:** Gebruik deze optie wanneer er een back-up van de Configuration Manager-sitedatabase die is gemaakt als onderdeel van de **back-upserver van Site** onderhoudstaak uitgevoerd op de site voordat de sitedatabasefout zich voordeed. Wanneer u een hiërarchie hebt, worden de wijzigingen die zijn aangebracht aan de sitedatabase na de laatste back-up van de sitedatabase opgehaald uit de centrale beheersite voor een primaire site, of uit een primaire referentiesite voor een centrale beheersite. Wanneer u de sitedatabase voor een zelfstandige primaire site herstelt, gaan de sitewijzigingen na de laatste back-up verloren.
+### <a name="site-database-recovery-options"></a>Options de récupération de base de données de site
+Lorsque vous exécutez le programme d'installation, vous disposez des options de récupération suivantes pour la base de données de site :
+-   **Récupérer la base de données de site à l’aide d’un jeu de sauvegarde** : utilisez cette option si vous disposez d’une sauvegarde de la base de données de site Configuration Manager qui a été créée dans le cadre de la tâche de maintenance de **sauvegarde du serveur de site** exécutée sur le site avant la défaillance de la base de données de site. Lorsque vous possédez une hiérarchie, les modifications qui ont été effectuées au niveau de la base de données de site après la dernière sauvegarde de la base de données de site sont récupérées à partir du site d'administration centrale pour un site principal ou à partir d'un site principal de référence pour un site d'administration centrale. Lorsque vous récupérez la base de données de site pour un site principal autonome, vous perdez les modifications effectuées au niveau du site après la dernière sauvegarde.
 
-   Wanneer u de sitedatabase voor een site in een hiërarchie herstelt, is het herstelgedrag verschillend voor een centrale beheersite en primaire site, en wanneer de laatste back-up binnen of buiten de bewaarperiode voor het bijhouden van wijzigingen van de SQL Server ligt. Zie de rubriek [Herstelscenario's voor sitedatabase](##site-database-recovery-scenarios) in dit onderwerp voor meer informatie.
+   Lorsque vous récupérez la base de données de site pour un site d'une hiérarchie, le comportement de récupération est différent pour un site d'administration centrale et un site principal et lorsque la dernière sauvegarde se situe pendant ou en dehors de la période de rétention du suivi des modifications SQL Server. Pour plus d’informations, voir la section [Scénarios de récupération de base de données de site](##site-database-recovery-scenarios) de cette rubrique.
   > [!NOTE]   
-  > Het herstel mislukt als u ervoor kiest de sitedatabase te herstellen met behulp van een back-upset, maar de sitedatabase reeds bestaat.  
+  > La récupération échoue si vous choisissez de restaurer la base de données de site à l'aide d'un jeu de sauvegarde, alors que la base de données de site existe déjà.  
 
--   **Maak een nieuwe database voor deze site:** Gebruik deze optie wanneer u niet een back-up van de Configuration Manager-sitedatabase hebt. Wanneer u een hiërarchie hebt, wordt er een nieuwe sitedatabase gemaakt, en worden de gegevens hersteld met behulp van gerepliceerde gegevens van de centrale beheersite voor een primaire site, of een primaire referentiesite voor een centrale beheersite. Deze optie is niet beschikbaar wanneer u een zelfstandige primaire site of een centrale beheersite herstelt die geen primaire sites heeft.
+-   **Créer une nouvelle base de données pour ce site** : utilisez cette option si vous ne possédez pas de sauvegarde de la base de données de site Configuration Manager. Lorsque vous possédez une hiérarchie, une nouvelle base de données de site est créée et les données sont récupérées à l'aide des données répliquées depuis le site d'administration centrale pour un site principal ou depuis un site principal de référence pour un site d'administration centrale. Cette option n'est pas disponible lorsque vous récupérez un site principal autonome ou un site d'administration centrale qui ne possède pas de sites principaux.
 
--   **Gebruik een sitedatabase die handmatig is hersteld:** Gebruik deze optie wanneer u de Configuration Manager-sitedatabase al hebt hersteld, maar het herstelproces moet voltooien.
-    -   Configuration Manager kan de sitedatabase herstellen vanuit back-up onderhoudstaak van de Configuration Manager of vanuit een site-databaseback-up die u uitvoert door DPM of een ander proces. Nadat u de sitedatabase herstellen met behulp van een methode buiten Configuration Manager, moet u Setup uitvoert en selecteer deze optie om het herstel van de sitedatabase te voltooien.
+-   **Utiliser une base de données de site qui a été récupérée manuellement** : utilisez cette option quand vous avez déjà récupéré la base de données de site Configuration Manager mais que vous devez effectuer le processus de récupération.
+    -   Configuration Manager peut récupérer la base de données de site à partir de la tâche de maintenance de sauvegarde Configuration Manager ou à partir d'une sauvegarde de base de données de site que vous effectuez à l’aide de DPM ou d’autre processus. Après avoir restauré la base de données de site à l'aide d'une méthode en dehors de Configuration Manager, vous devez exécuter le programme d'installation et sélectionner cette option pour effectuer la récupération de la base de données de site.
 
     > [!NOTE]   
-    > Wanneer u DPM back-up van uw sitedatabase gebruikt, gebruikt u de DPM-procedures voor het herstellen van de sitedatabase naar een opgegeven locatie voordat u het herstelproces in Configuration Manager verderzet. Zie de [Documentatiebibliotheek voor de Data Protection Manager]() op TechNet Voor meer informatie over DPM.    
+    > Lorsque vous utilisez DPM pour sauvegarder votre base de données de site, appliquez les procédures DPM pour restaurer la base de données de site sur un emplacement défini avant de continuer le processus de restauration dans Configuration Manager. Pour plus d'informations sur DPM, voir [Bibliothèque de documentation de Data Protection Manager]() sur TechNet.    
 
-    -   Wanneer u een hiërarchie hebt, worden de wijzigingen die zijn aangebracht aan de sitedatabase na de laatste back-up van de sitedatabase opgehaald uit de centrale beheersite voor een primaire site, of uit een primaire referentiesite voor een centrale beheersite. Wanneer u de sitedatabase voor een zelfstandige primaire site herstelt, gaan de sitewijzigingen na de laatste back-up verloren.     
-
-
--   **Databaseherstel overslaan:** Gebruik deze optie wanneer er geen gegevensverlies is opgetreden op de Sitedatabaseserver van Configuration Manager. Deze optie is enkel geldig wanneer de sitedatabase zich op een andere computer bevindt dan de siteserver die u aan het herstellen bent.
-
-### <a name="sql-server-change-tracking-retention-period"></a>Bewaarperiode voor het bijhouden van wijzigingen van de SQL Server
-Het bijhouden van wijzigingen is ingeschakeld voor de sitedatabase in SQL Server. Wijzigingen bijhouden kunt Configuration Manager informatie opvragen over de wijzigingen die zijn aangebracht aan databasetabellen na een eerder punt in tijd. De bewaarperiode specificeert hoe lang informatie over het bijhouden van wijzigingen wordt bewaard. De sitedatabase is standaard geconfigureerd om een bewaarperiode van vijf dagen te hebben. Wanneer u een sitedatabase herstelt, vindt het herstelproces anders plaats als uw back-up binnen of buiten de bewaarperiode valt. Als er bijvoorbeeld een fout optreedt op de sitedatabaseserver, en uw laatste back-up is 7 dagen oud, dan valt het buiten de bewaarperiode.
-
-Zie voor meer informatie over SQL Server-bijhouden interne werking van de volgende blogs van het team van SQL Server: [Het bijhouden van opschoning - deel 1](https://blogs.msdn.microsoft.com/sql_server_team/change-tracking-cleanup-part-1/) en [Change Tracking opschoning - deel 2](https://blogs.msdn.microsoft.com/sql_server_team/change-tracking-cleanup-part-2).
-
-### <a name="reinitialization-of-site-or-global-data"></a>Herinitialisatie van de site of globale gegevens
-Het proces om site- of algemene gegevens opnieuw te initialiseren vervangt bestaande gegevens in de sitedatabase door gegevens uit een andere sitedatabase. Wanneer site ABC bijvoorbeeld gegevens opnieuw initialiseert van site XYR, dan vinden de volgende stappen plaats:
--   De gegevens worden van site XYZ naar site ABC gekopieerd.
--   De bestaande gegevens voor site XYZ worden verwijderd uit de sitedatabase op site ABC.
--   De gekopieerde gegevens van site XYZ worden opgenomen in de sitedatabase op site ABC.
-
-#### <a name="example-scenario-1"></a>Voorbeeldscenario 1
-**De primaire site initialiseert de algemene gegevens uit de centrale beheersite opnieuw:** Het herstelproces verwijdert de bestaande algemene gegevens voor de primaire site in de primaire sitedatabase en vervangt de gegevens door de algemene gegevens gekopieerd van de centrale beheersite.
-
-#### <a name="example-scenario-2"></a>Voorbeeldscenario 2
-**De centrale beheersite initialiseert de sitegegevens uit een primaire site opnieuw:** Het herstelproces verwijdert de bestaande sitegegevens voor die primaire site in de database van centrale beheersite en vervangt de gegevens door de sitegegevens die zijn gekopieerd uit de primaire site. De sitegegevens voor andere primaire sites blijven onveranderd.
-
-### <a name="site-database-recovery-scenarios"></a>Scenario's voor het herstel van een sitedatabase
-Nadat een sitedatabase is hersteld van een back-up, probeert de Configuration Manager de wijzigingen te herstellen in site- en algemene gegevens na de laatste databaseback-up. De volgende beschrijven de acties die begint met Configuration Manager nadat een sitedatabase is hersteld vanuit back-up.
-
-**De herstelde site is een centrale beheersite:**
--   **Back-up van database binnen de bewaarperiode voor het bijhouden van wijzigingen**
-    -   **Globale gegevens:** De wijzigingen in globale gegevens na de back-up worden gerepliceerd vanaf alle primaire sites.
-    -   **Sitegegevens:** De wijzigingen in sitegegevens na de back-up worden gerepliceerd vanaf alle primaire sites.
+    -   Lorsque vous possédez une hiérarchie, les modifications qui ont été effectuées au niveau de la base de données de site après la dernière sauvegarde de la base de données de site sont récupérées à partir du site d'administration centrale pour un site principal ou à partir d'un site principal de référence pour un site d'administration centrale. Lorsque vous récupérez la base de données de site pour un site principal autonome, vous perdez les modifications effectuées au niveau du site après la dernière sauvegarde.     
 
 
--   **Databaseback-up ouder is dan de bewaarperiode voor het bijhouden van wijzigingen**
-    -   **Globale gegevens:** De centrale beheersite initialiseert de algemene gegevens uit de primaire referentiesite opnieuw, indien u dit opgeeft. Dan initialiseren alle andere primaire sites de algemene gegevens uit de centrale beheersite opnieuw. Indien er geen referentiesite is opgegeven, initialiseren alle primaire sites de algemene gegevens uit de centrale beheersite opnieuw (de gegevens die waren hersteld op basis van de back-up).
-    -   **Sitegegevens:** De centrale beheersite initialiseert de sitegegevens van elke primaire site opnieuw.
+-   **Ignorer la récupération de base de données** : utilisez cette option quand aucune perte de données ne s’est produite sur le serveur de base de données de site Configuration Manager. Cette option est valide uniquement lorsque la base de données de site se trouve sur un ordinateur différent du serveur de site que vous récupérez.
+
+### <a name="sql-server-change-tracking-retention-period"></a>Période de rétention du suivi des modifications SQL Server
+Le suivi des modifications est activé pour la base de données de site dans SQL Server. Le suivi des modifications permet à Configuration Manager de demander des informations sur les modifications qui ont été apportées aux tables de base de données après un moment précis. La période de rétention spécifie la durée de conservation des informations de suivi des modifications. Par défaut, la période de rétention de la base de données de site est définie sur 5 jours. Lorsque vous récupérez une base de données de site, le processus de récupération se déroule différemment si votre sauvegarde a lieu pendant ou en dehors de la période de rétention. Par exemple, en cas d'échec de votre serveur de base de données de site, si votre dernière sauvegarde remonte à 7 jours, elle se situe en dehors de la période de rétention.
+
+Pour plus d’informations sur les éléments internes du suivi des modifications SQL Server, consultez les blogs de l’équipe SQL Server suivants : [Nettoyage du suivi des modifications - partie 1](https://blogs.msdn.microsoft.com/sql_server_team/change-tracking-cleanup-part-1/) et [Nettoyage du suivi des modifications - partie 2](https://blogs.msdn.microsoft.com/sql_server_team/change-tracking-cleanup-part-2).
+
+### <a name="reinitialization-of-site-or-global-data"></a>Réinitialisation de données d’un site ou de données globales
+Le processus de réinitialisation de site ou de données globales remplace les données existantes dans la base de données de site par les données d'une autre base de données de site. Par exemple, lorsque le site ABC réinitialise les données du site XYZ, les étapes suivantes se produisent :
+-   Les données sont copiées du site XYZ au site ABC.
+-   Les données existantes pour le site XYZ sont supprimées de la base de données de site sur le site ABC.
+-   Les données copiées à partir du site XYZ sont insérées dans la base de données de site du site ABC.
+
+#### <a name="example-scenario-1"></a>Exemple de scénario 1
+**Le site principal réinitialise les données globales à partir du site d’administration centrale**: le processus de récupération supprime les données globales existantes pour le site principal dans la base de données du site principal et remplace les données par les données globales copiées à partir du site d’administration centrale.
+
+#### <a name="example-scenario-2"></a>Exemple de scénario 2
+**Le site d’administration centrale réinitialise les données du site à partir d’un site principal**: le processus de récupération supprime les données de site existantes pour ce site principal dans la base de données du site d’administration centrale et remplace les données par les données de site copiées à partir du site principal. Les données de site d'autres sites principaux ne sont pas affectées.
+
+### <a name="site-database-recovery-scenarios"></a>Scénarios de récupération de base de données de site
+Suite à la restauration d'une base de données de site à partir d'une sauvegarde, Configuration Manager tente de restaurer les modifications effectuées au niveau du site et des données globales après la dernière sauvegarde de la base de données. Voici une description des actions que Configuration Manager démarre après la restauration d’une base de données de site à partir d’une sauvegarde.
+
+**Le site récupéré est un site d’administration centrale :**
+-   **Sauvegarde de base de données pendant la période de rétention du suivi des modifications**
+    -   **Données globales :** les modifications des données globales après la sauvegarde sont répliquées à partir de tous les sites principaux.
+    -   **Données de site :** les modifications des données du site après la sauvegarde sont répliquées à partir de tous les sites principaux.
 
 
-**De herstelde site is een primaire site:**
--   **Back-up van database binnen de bewaarperiode voor het bijhouden van wijzigingen**
-    -   **Globale gegevens:** De wijzigingen in globale gegevens na de back-up worden gerepliceerd uit de centrale beheersite.
-    -   **Sitegegevens:** De centrale beheersite initialiseert de sitegegevens uit de primaire site opnieuw. Wijzigingen na de back-up gaan verloren, maar de meeste gegevens worden opnieuw gegenereerd door clients die informatie naar de primaire site sturen.
+-   **Sauvegarde de base de données antérieure à la période de rétention du suivi des modifications**
+    -   **Données globales :** le site d’administration centrale réinitialise les données globales à partir du site principal de référence, si vous le spécifiez. Ensuite, tous les autres sites principaux réinitialisent les données globales à partir du site d'administration centrale. Si aucun site de référence n'est spécifié, tous les sites principaux réinitialisent les données globales à partir du site d'administration centrale (les données qui ont été restaurées à partir de la sauvegarde).
+    -   **Données de site :** le site d’administration centrale réinitialise les données de site à partir de chaque site principal.
 
 
--   **Databaseback-up ouder is dan de bewaarperiode voor het bijhouden van wijzigingen**
-    -   **Globale gegevens:** De primaire site initialiseert de algemene gegevens uit de centrale beheersite opnieuw.
-    -   **Sitegegevens:** De centrale beheersite initialiseert de sitegegevens uit de primaire site opnieuw. Wijzigingen na de back-up gaan verloren, maar de meeste gegevens worden opnieuw gegenereerd door clients die informatie naar de primaire site sturen.
+**Le site récupéré est un site principal :**
+-   **Sauvegarde de base de données pendant la période de rétention du suivi des modifications**
+    -   **Données globales :** les modifications apportées aux données globales après la sauvegarde sont répliquées à partir du site d’administration centrale.
+    -   **Données de site :** le site d’administration centrale réinitialise les données de site à partir du site principal. Les modifications après la sauvegarde sont perdues, mais la plupart des données sont régénérées par les clients qui envoient des informations au site principal.
 
-## <a name="site-recovery-procedures"></a>Procedures voor het herstellen van een site
-Gebruik een van de volgende procedures om u te helpen uw siteserver en sitedatabase te herstellen.
 
-### <a name="to-start-a-site-recovery-in-the-setup-wizard"></a>Een siteherstel in de Installatiewizard starten
-1.  Kopieer de [CD. Meest recente map](/sccm/core/servers/manage/the-cd.latest-folde) naar een locatie buiten de installatiemap van Configuration Manager.
-Via de kopie van de CD. Meest recente map, voer de installatiewizard van Configuration Manager.
+-   **Sauvegarde de base de données antérieure à la période de rétention du suivi des modifications**
+    -   **Données globales :** le site principal réinitialise les données globales à partir du site d’administration centrale.
+    -   **Données de site :** le site d’administration centrale réinitialise les données de site à partir du site principal. Les modifications après la sauvegarde sont perdues, mais la plupart des données sont régénérées par les clients qui envoient des informations au site principal.
 
-2.  Op de pagina **Aan de slag** selecteert u **Een site herstellen**en klikt u vervolgens op **Volgende**.
+## <a name="site-recovery-procedures"></a>Procédures de récupération de site
+Appliquez l'une des procédures suivantes pour récupérer votre serveur de site ainsi que la base de données du site.
 
-3.  Voltooi de wizard met behulp van de opties die geschikt zijn voor uw siteherstel.
+### <a name="to-start-a-site-recovery-in-the-setup-wizard"></a>Pour démarrer une récupération de site avec l'Assistant Installation
+1.  Copiez le [dossier CD.Latest](/sccm/core/servers/manage/the-cd.latest-folde) à un emplacement en dehors du dossier d’installation de Configuration Manager.
+À partir de la copie du dossier CD.Latest, exécutez l’Assistant Installation de Configuration Manager.
 
-  -   Tijdens het herstel identificeert het installatieprogramma de SQL Server Service Broker (SBB)-poort die wordt gebruikt door de SQL Server. Wijzig deze poortinstelling niet tijdens het herstel of de gegevensreplicatie zal niet goed werken nadat het herstel is voltooid.
+2.  Sur la page **Mise en route** , sélectionnez **Récupérer un site**, puis cliquez sur **Suivant**.
 
-  -   U kunt het oorspronkelijke of een nieuw pad wilt gebruiken voor de installatie van de Configuration Manager in de Wizard Setup opgeven.
+3.  Terminez l'Assistant en utilisant les options qui conviennent à la récupération de votre site.
 
-### <a name="to-start-an-unattended-site-recovery"></a>Het herstel van een site zonder toezicht starten
-  1.    Bereid het script voor de installatie zonder toezicht voor voor de opties die u nodig hebt voor het siteherstel.  Zie [script site zonder toezicht-bestand herstelsleutels](/sccm/protect/understand/unattended-site-recovery-script-file-keys).
+  -   Pendant la récupération, le programme d'installation identifie le port de SQL Server Service Broker (SSB) utilisé par SQL Server. Ne modifiez pas ce paramètre de port lors de la récupération, sinon, la réplication de données ne fonctionnera pas correctement une fois la récupération terminée.
 
-  2.    Setup van Configuration Manager uitvoeren met behulp van de opdracht **/script** optie. Bijvoorbeeld, als u uw installatie-initialisatiebestand ConfigMgrUnattend.ini met de naam en opgeslagen in de map C:\Temp van de computer waarop u Setup uitvoert, zou de opdracht zijn als volgt: **Setup/script C:\temp\ConfigMgrUnattend.ini**.
+  -   Vous pouvez spécifier le chemin d’origine ou un nouveau chemin à utiliser pour l’installation de Configuration Manager dans l’Assistant Installation.
+
+### <a name="to-start-an-unattended-site-recovery"></a>Pour démarrer une récupération de site en mode sans assistance
+  1.    Préparez le script d'installation sans assistance pour les options dont vous avez besoin pour la récupération du site.  Consultez [Clés du fichier de script de récupération de site sans assistance](/sccm/protect/understand/unattended-site-recovery-script-file-keys).
+
+  2.    Exécutez le programme d’installation de Configuration Manager en utilisant l’option de commande **/script**. Par exemple, si vous avez nommé le fichier d’initialisation de l’installation ConfigMgrUnattend.ini et que vous l’avez enregistré dans le répertoire C:\Temp de l’ordinateur sur lequel vous exécutez le programme d’installation, la commande est la suivante : **Setup /script C:\temp\ConfigMgrUnattend.ini**
 
   > [!NOTE]   
-  >  Nadat u een centrale beheersite hebt hersteld, is het mogelijk dat de replicatie van bepaalde sitegegevens die afkomstig zijn van onderliggende sites mislukt. Het kan hierbij gaan om de hardware-inventaris, software-inventaris en statusberichten.
+  >  Après la récupération d’un site d’administration centrale, l’établissement de la réplication de certaines données de site à partir des sites enfants peut échouer. Cela peut inclure l’inventaire matériel, l’inventaire logiciel et les messages d’état.
   >
-  >  Als dit het geval is, moet u **ConfigMgrDRSSiteQueue** opnieuw voor de databasereplicatie initialiseren.  Gebruiken om dit te doen **SQL Server Manager** de volgende query uitvoeren op de Configuration Manager sitedatabase op de centrale beheersite:
+  >  Si cela se produit, vous devez réinitialiser **ConfigMgrDRSSiteQueue** pour la réplication de base de données.  Pour ce faire, utilisez **SQL Server Manager** pour exécuter la requête suivante sur la base de données de site Configuration Manager sur le site d’administration centrale :
   >
-  >  **IF EXISTS (SELECTEER \* IN sys.service_queues WAARBIJ name = 'ConfigMgrDRSSiteQueue' EN is_receive_enabled = 0)**
+  >  **IF EXISTS (SELECT \* FROM sys.service_queues WHERE name = ’ConfigMgrDRSSiteQueue’ AND is_receive_enabled = 0)**
   >
   >  **ALTER QUEUE [dbo].[ConfigMgrDRSSiteQueue] WITH STATUS = ON**
 
 
-## <a name="post-recovery-tasks"></a>Taken na herstel
-Nadat u uw site hebt hersteld, zijn er verschillende taken na herstel die u moet overwegen voordat het herstel van uw site voltooid is. Gebruik de volgende secties voor hulp bij het voltooien van uw proces voor siteherstel.
+## <a name="post-recovery-tasks"></a>Tâches postérieures à la récupération
+Après avoir récupéré votre site, il existe plusieurs tâches à effectuer après la récupération, pour que celle-ci soit complète. Utilisez les sections suivantes pour vous aider à terminer le processus de récupération de site.
 
-### <a name="re-enter-user-account-passwords"></a>Wachtwoord voor gebruikersaccount opnieuw invoeren
-Na een siteserverherstel moeten wachtwoorden voor de gebruikersaccounts die voor de site zijn opgegeven, opnieuw worden ingevoerd omdat ze tijdens het herstel van de site opnieuw zijn ingesteld. De accounts zijn opgenomen op de pagina **Voltooid** van de installatiewizard nadat het herstel van de site is voltooid is en is opgeslagen naar C:\ConfigMgrPostRecoveryActions.html op de herstelde siteserver.
+### <a name="re-enter-user-account-passwords"></a>Entrer de nouveau des mots de passe du compte d'utilisateur
+Après une récupération de serveur de site, les mots de passe des comptes d'utilisateur spécifiés pour le site doivent être entrés de nouveau car ils sont réinitialisés par la restauration du site. Les comptes sont répertoriés sur la page **Terminé** de l'Assistant Installation après la récupération du site, et enregistrés dans C:\ConfigMgrPostRecoveryActions.html sur le serveur de site récupéré.
 
-#### <a name="to-re-enter-user-account-passwords-after-site-recovery"></a>Wachtwoorden van gebruikersaccounts opnieuw invoeren na het siteherstel
+#### <a name="to-re-enter-user-account-passwords-after-site-recovery"></a>Pour entrer de nouveau les mots de passe du compte d'utilisateur après la récupération du site
 
-1.  Open de Configuration Manager-console en maak verbinding met de herstelde site.
+1.  Ouvrez la console Configuration Manager et connectez-vous au site récupéré.
 
-2.  Klik op **Beheer**in de Configuration Manager-console.
+2.  Dans la console Configuration Manager, cliquez sur **Administration**.
 
-3.  Vouw in de werkruimte **Beheer** de optie **Beveiliging**uit en klik vervolgens op **Accounts**.
+3.  Dans l'espace de travail **Administration** , développez **Sécurité**, puis cliquez sur **Comptes**.
 
-4.  Voor elke account waarin u het wachtwoord opnieuw invoeren, doet u het volgende:
+4.  Pour chaque compte pour lequel vous entrez de nouveau le mot de passe, effectuez les opérations suivantes :
 
-    1.  Selecteer de account uit de lijst van accounts die waren geïdentificeerd na siteherstel. U kunt deze lijst vinden in C:\ConfigMgrPostRecoveryActions.html op de herstelde siteserver.
+    1.  Sélectionnez le compte dans la liste des comptes identifiés après la récupération du site. Vous trouverez cette liste dans C:\ConfigMgrPostRecoveryActions.html sur le serveur de site récupéré.
 
-    2.  Klik op **Eigenschappen** in het tabblad **Start** in de groep **Eigenschappen** om de accounteigenschappen te openen.
+    2.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés** pour ouvrir les propriétés du compte.
 
-    3.  Klik in het tabblad **Algemeen** op **Instellen**en voer vervolgens opnieuw de wachtwoorden voor het account in.
+    3.  Dans l'onglet **Général** , cliquez sur **Définir**et entrez de nouveau les mots de passe du compte.
 
-    4.  Klik op **Controleren**, selecteer de geschikte gegevensbron voor het geselecteerde gebruikersaccount en klik vervolgens op **Verbinding testen** om te controleren of het gebruikersaccount een verbinding kan maken met de gegevensbron.
+    4.  Cliquez sur **Vérifier**, sélectionnez la source de données appropriée pour le compte d'utilisateur sélectionné, puis cliquez sur **Tester la connexion** pour vérifier que le compte d'utilisateur peut se connecter à la source de données.
 
-    5.  Klik op **OK** om de wachtwoordwijzigingen op te slaan en klik vervolgens op **OK**.
+    5.  Cliquez sur **OK** pour enregistrer les modifications du mot de passe, puis cliquez sur **OK**.
 
-### <a name="re-enter-sideloading-keys"></a>Sideloading-codes opnieuw invoeren
-Wanneer een siteserver is hersteld, moet u de Windows-sideloading-codes opnieuw invoeren die voor de site zijn opgegeven, omdat deze tijdens het herstellen van de site gereset zijn. Nadat u de sideloading-codes, het aantal in opnieuw invoeren de **gebruikte activeringen** kolom voor Windows-sideloading-codes gereset in de Configuration Manager-console. Bijvoorbeeld, stel vóór de sitefout die u hebt een **totaal activeringen** aantal ingesteld op **100** en **gebruikte activeringen** loopt **90** voor het aantal codes dat door apparaten zijn gebruikt. Na het herstel van de site wordt in de kolom **Totaal activeringen** nog steeds **100**weergegeven, maar wordt in de kolom **Gebruikte activeringen** ten onrechte **0**weergegeven. Nadat echter 10 nieuwe apparaten een sideloading-code hebben gebruikt, blijven er geen sideloading-codes meer over en het volgende apparaat kan geen sideloading-code toepassen.
+### <a name="re-enter-sideloading-keys"></a>Entrer de nouveau les clés de chargement de version test
+Après une récupération de serveur de site, vous devez saisir à nouveau les clés de chargement de version test Windows spécifiées pour le site, car elles sont réinitialisées lors de la récupération de site. Une fois que vous avez de nouveau entré les clés de chargement de version test, la valeur de la colonne **Activations utilisées** pour les clés de chargement de version test Windows est réinitialisée dans la console Configuration Manager. Par exemple, avant la défaillance du site, la valeur du champ **Total activations** est définie sur **100** et **Activations utilisées** sur **90** pour le nombre de clés qui ont été utilisées par les appareils. Après la récupération du site, la colonne **Total activations** affiche toujours **100**, mais la colonne **Activations utilisées** affiche la valeur erronée de **0**. Cependant, une fois que 10 nouveaux appareils auront utilisé une clé de chargement de version test, il ne restera aucune clé de chargement de version test et l'appareil suivant ne parviendra pas à appliquer une clé de chargement de version test.
 
-### <a name="recreate-the-microsoft-intune-subscription"></a>Het Microsoft Intune-abonnement opnieuw maken
- Als u een Configuration Manager-siteserver herstelt nadat de site server-computer opnieuw installatiekopie gemaakt wordt, wordt de Microsoft Intune-abonnement niet hersteld. Nadat u een site herstelt, moet u uw abonnement opnieuw aansluiten.  Maak een nieuwe APN-aanvraag geen, maar in plaats daarvan de huidige geldig .pem-bestand dat is geüpload voor het laatst iOS-beheer is geconfigureerd of vernieuwd uploaden. Zie [Het Windows Intune-abonnement configureren](/sccm/mdm/deploy-use/configure-intune-subscription) voor meer informatie.
+### <a name="recreate-the-microsoft-intune-subscription"></a>Recréer l’abonnement Microsoft Intune
+ Si vous récupérez un serveur de site Configuration Manager après que l’ordinateur serveur de site a été ré-imagé, l’abonnement Microsoft Intune n’est pas restauré. Vous devez reconnecter l’abonnement après avoir récupéré le site.  Ne créez pas de demande APN. À la place, chargez le fichier .pem valide actuel qui a été chargé la dernière fois que la gestion iOS a été configurée ou renouvelée. Pour plus d’informations, consultez [Configuration de l’abonnement Microsoft Intune](/sccm/mdm/deploy-use/configure-intune-subscription).
 
-### <a name="configure-ssl-for-site-system-roles-that-use-iis"></a>SSL configureren voor sitesysteemrollen die gebruikmaken van IIS
-Wanneer u sitesystemen met IIS herstelt die vóór de fout voor HTTPS zijn geconfigureerd, moet u IIS opnieuw configureren voor het gebruik van het webservercertificaat.
+### <a name="configure-ssl-for-site-system-roles-that-use-iis"></a>Configurer SSL pour les rôles de système de site qui utilisent IIS
+Lorsque vous récupérez des systèmes de site qui exécutent IIS et qui ont été configurés pour le protocole HTTPS avant la panne, vous devez reconfigurer IIS pour utiliser le certificat de serveur Web.
 
-### <a name="reinstall-hotfixes-in-the-recovered-site-server"></a>Hotfixes opnieuw installeren op de herstelde siteserver
-Wanneer een site is hersteld, moet u de op de siteserver toegepaste hotfixes opnieuw installeren. Bekijk de lijst met eerder geïnstalleerde hotfixes op de **voltooid** pagina van de Wizard Setup na het siteherstel. Deze lijst wordt ook opgeslagen in **C:\ConfigMgrPostRecoveryActions.html** op de herstelde siteserver.
+### <a name="reinstall-hotfixes-in-the-recovered-site-server"></a>Réinstaller les correctifs sur le serveur de site récupéré
+Après la récupération d'un site, vous devez réinstaller tous les correctifs qui étaient appliqués au serveur de site. Consultez la liste des correctifs précédemment installés sur la page **Terminé** de l’Assistant Installation après la récupération d’un site. Cette liste est également enregistrée sous **C:\ConfigMgrPostRecoveryActions.html** sur le serveur de site récupéré.
 
-### <a name="recover-custom-reports-on-the-computer-running-reporting-services"></a>Aangepaste rapporten herstellen op een computer met Reporting Services
-Wanneer u aangepaste Reporting Services-rapporten hebt gemaakt en er een fout is opgetreden in Reporting Services, kunt u de rapporten herstellen wanneer u een back-up van de rapportserver hebt gemaakt. Zie [Backup and Restore Operations for a Reporting Services Installation](http://go.microsoft.com/fwlink/p/?LinkId=228724) (Back-up en herstelbewerkingen voor een Reporting Services-installatie) in SQL Server 2008 Books Online voor meer informatie over het herstellen van uw aangepaste rapporten in Reporting Services.
+### <a name="recover-custom-reports-on-the-computer-running-reporting-services"></a>Récupérer des rapports personnalisés sur l'ordinateur qui exécute Reporting Services
+Si vous avez créé des rapports de Reporting Services personnalisés, en cas de défaillance de Reporting Services, vous pouvez récupérer les rapports lorsque le serveur de rapports a été sauvegardé. Pour plus d'informations sur la restauration de vos rapports personnalisés dans Reporting Services, voir [Opérations de sauvegarde et de restauration pour une installation Reporting Services](http://go.microsoft.com/fwlink/p/?LinkId=228724) dans la documentation en ligne de SQL Server 2008.
 
-### <a name="recover-content-files"></a>Inhoudsbestanden herstellen
- De sitedatabase bevat informatie over de locatie waar de inhoudsbestanden op de siteserver zijn opgeslagen, maar er wordt geen back-up gemaakt van de inhoudsbestanden, noch worden deze hersteld als onderdeel van het back-up- en herstelproces. Als u inhoudsbestanden volledig wilt herstellen, moet u de inhoudsbibliotheek en pakketbronbestanden op de oorspronkelijke locatie herstellen. Er zijn verschillende methoden om uw inhoudsbestanden te herstellen, maar de eenvoudigste methode is dat u de bestanden vanuit een bestandssysteemback-up van de siteserver herstelt.
+### <a name="recover-content-files"></a>Récupérer des fichiers de contenu
+ La base de données du site contient des informations sur l'emplacement des fichiers de contenu sur le serveur de site, mais les fichiers de contenu ne sont pas sauvegardés ou restaurés lors du processus de sauvegarde et de récupération. Pour récupérer complètement les fichiers de contenu, vous devez restaurer la bibliothèque de contenu et les fichiers sources du package vers leur emplacement d'origine. Il existe plusieurs méthodes pour récupérer vos fichiers de contenu, mais la méthode la plus simple consiste à récupérer les fichiers à partir d'une sauvegarde du système de fichiers du serveur de site.
 
- Als u geen een bestandssysteemback-up van de pakketbronbestanden, moet u handmatig kopiëren of downloaden zoals u oorspronkelijk hebt gedaan toen u het pakket voor het eerst hebt gemaakt. U kunt de volgende query in SQL Server uitvoeren om de locatie van de pakketbron voor alle pakketten en toepassingen te vinden: `SELECT * FROM v_Package`. U kunt de locatie van de pakketbron vinden door de eerste drie tekens van de pakket-id te bekijken. Als de pakket-id bijvoorbeeld CEN00001 is, is de sitecode van de bronsite CEN. Wanneer u de pakketbronbestanden herstelt, moeten deze op dezelfde locatie worden hersteld waar deze zich vóór de fout bevonden.
+ Si vous ne disposez pas de sauvegarde du système de fichiers pour les fichiers sources du package, vous devez les copier ou les télécharger manuellement, comme vous l'avez fait lors de la création initiale du package. Vous pouvez exécuter la requête suivante dans SQL Server pour trouver l'emplacement source du package pour tous les packages et applications : `SELECT * FROM v_Package`. Vous pouvez identifier le site source du package en examinant les trois premiers caractères de l'ID de package. Par exemple, si l'ID de package est CEN00001, le code de site pour le site source est CEN. Lorsque vous restaurez les fichiers sources du package, ceux-ci doivent être restaurés vers le même emplacement que celui dans lequel ils se trouvaient avant la défaillance.
 
- Als u beschikt over een bestandssysteemback-up waarin zich geen inhoudsbibliotheek bevindt, hebt u de volgende herstelopties:
+ Si vous ne disposez pas d'une sauvegarde des systèmes de fichiers qui contient la bibliothèque de contenu, vous pouvez utiliser les options de restauration suivantes :
 
--   **Een voorbereid inhoudsbestand importeren**: Wanneer u een Configuration Manager-hiërarchie hebt, kunt u een voorbereid inhoudsbestand maken met alle pakketten en toepassingen van een andere locatie en importeer het voorbereide inhoudsbestand te herstellen van de Inhoudsbibliotheek op de siteserver.
+-   **Importer un fichier de contenu préparé** : quand vous disposez d’une hiérarchie Configuration Manager, vous pouvez créer un fichier de contenu préparé avec tous les packages et applications d’un autre emplacement, puis importer le fichier de contenu préparé pour récupérer la bibliothèque de contenu sur le serveur de site.
 
--   **Inhoud bijwerken**: Wanneer u de actie inhoud bijwerken voor een pakket of toepassing implementatietype start, wordt de inhoud van de pakketbron gekopieerd naar de Inhoudsbibliotheek. De pakketbronbestanden moeten beschikbaar zijn op de oorspronkelijke locatie om deze actie met succes te voltooien. U moet deze actie op elk pakket en elke toepassing uitvoeren.
+-   **Mettre à jour le contenu**: quand vous démarrez l’action de mise à jour de contenu pour un type de déploiement d’application ou de package, le contenu est copié de la source du package vers la bibliothèque de contenu. Les fichiers sources du package doivent être disponibles sur l'emplacement d'origine pour que cette action soit effectuée avec succès. Vous devez effectuer cette action pour chaque package et chaque application.
 
-### <a name="recover-custom-software-updates-on-the-computer-running-updates-publisher"></a>Aangepaste software-updates herstellen op een computer met Updates Publisher
-Wanneer u Updates Publisher-databasebestanden in uw back-upschema hebt opgenomen, kunt u de databases bij een storing op de computer waarop Updates Publisher wordt uitgevoerd herstellen. Zie [System Center Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkId=228726) in de System Center TechCenter Library voor meer informatie over Updates Publisher.
+### <a name="recover-custom-software-updates-on-the-computer-running-updates-publisher"></a>Récupérer les mises à jour logicielles personnalisées sur l'ordinateur qui exécute l'éditeur de mise à jour
+Lorsque vous avez inclus les fichiers de base de données de l’éditeur de mise à jour dans votre plan de sauvegarde, vous pouvez récupérer les bases de données en cas de panne de l'ordinateur sur lequel l’éditeur de mise à jour s'exécute. Pour plus d'informations sur l'éditeur de mise à jour, voir [Éditeur de mise à jour System Center 2011](http://go.microsoft.com/fwlink/p/?LinkId=228726) dans la bibliothèque TechCenter de System Center.
 
-Gebruik de volgende procedure om de Updates Publisher-database te herstellen.
+Utilisez la procédure suivante pour restaurer la base de données de l'éditeur de mise à jour.
 
-#### <a name="to-restore-the-updates-publisher-2011-database"></a>De Updates Publisher 2011-database herstellen
-1.  Installeer Updates Publisher op de herstelde computer.
+#### <a name="to-restore-the-updates-publisher-2011-database"></a>Pour restaurer la base de données de l'éditeur de mise à jour 2011
+1.  Réinstallez l’éditeur de mise à jour sur l’ordinateur récupéré.
 
-2.  Kopieer het databasebestand (Scupdb.sdf) van uw back-upbestemming %*USERPROFILE*%\AppData\Local\Microsoft\System Center Updates Publisher 2011\5.00.1727.0000\ op de computer waarop Updates Publisher wordt uitgevoerd.
+2.  Copiez le fichier de base de données (Scupdb.sdf) depuis la destination de sauvegarde vers %*USERPROFILE*%\AppData\Local\Microsoft\System Center Updates Publisher 2011\5.00.1727.0000\ sur l'ordinateur qui exécute l’éditeur de mise à jour.
 
-3.  Wanneer meer dan één gebruiker Updates Publisher op de computer wordt uitgevoerd, moet u elk databasebestand naar de locatie van de betreffende gebruikersprofiel kopiëren.
+3.  Lorsque plusieurs utilisateurs exécutent l’éditeur de mise à jour sur l'ordinateur, vous devez copier chaque fichier de base de données vers l'emplacement du profil de l'utilisateur approprié.
 
-### <a name="user-state-migration-data"></a>Migratiegegevens van de gebruikersstatus
-Als onderdeel van de sitesysteemeigenschappen van het statusmigratiepunt geeft u de mappen op waarop de migratiegegevens van de gebruikersstatus zijn opgeslagen. Wanneer u een server herstelt met een map waarop migratiegegevens van de gebruikersstatus zijn opgeslagen, moet u de migratiegegevens van de gebruikersstatus op de server handmatig herstellen in dezelfde mappen waarop de gegevens waren opgeslagen vóór de fout.
+### <a name="user-state-migration-data"></a>Données de migration de l'état utilisateur
+Dans le cadre des propriétés du système de site du point de migration d'état, vous pouvez spécifier les dossiers qui conservent les données de migration de l'état utilisateur. Après avoir récupéré un serveur disposant d'un dossier qui conserve les données de migration d'état utilisateur, vous devez restaurer manuellement les données de migration d'état utilisateur vers les emplacements qu'elles occupaient avant la panne.
 
-### <a name="regenerate-the-certificates-for-distribution-points"></a>De certificaten voor distributiepunten opnieuw genereren
-Wanneer u een site hebt hersteld, bevat het bestand distmgr.log mogelijk de volgende vermelding voor een of meer distributiepunten: **Kan bepaalde PFX-gegevens te ontsleutelen**. Deze vermelding geeft aan dat de certificaatgegevens van het distributiepunt niet door de site kunnen worden ontsleuteld. U lost dit op, moet u opnieuw genereren of het certificaat voor de betrokken distributiepunten opnieuw te importeren. Dit kan worden gedaan met de PowerShell-cmdlet [Set-CMDistributionPoint](https://technet.microsoft.com/library/jj821872\(v=sc.20\).aspx).
+### <a name="regenerate-the-certificates-for-distribution-points"></a>Régénérer les certificats pour les points de distribution
+Après la restauration d’un site, le fichier journal distmgr.log peut contenir l’entrée suivante pour un ou plusieurs points de distribution : **Échec de déchiffrage des données PFX du certificat**. Cette entrée indique le site ne peut pas déchiffrer les données de certificat du point de distribution. Pour résoudre ce problème, vous devez régénérer ou réimporter le certificat pour les points de distribution concernés. Ceci peut se faire en utilisant l’applet de commande PowerShell [Set-CMDistributionPoint](https://technet.microsoft.com/library/jj821872\(v=sc.20\).aspx).
 
-### <a name="update-certificates-used-for-cloud-based-distribution-points"></a>Voor clouddistributiepunten gebruikte certificaten bijwerken
- Configuration Manager vereist een beheercertificaat dat wordt gebruikt voor de siteserver naar de cloud-gebaseerd distributiepunt communicatie. Wanneer een site is hersteld, moet u de certificaten van clouddistributiepunten bijwerken.
+### <a name="update-certificates-used-for-cloud-based-distribution-points"></a>Mettre à jour les certificats utilisés pour les points de distribution cloud
+ Configuration Manager requiert un certificat de gestion pour la communication entre le serveur de site et le point de distribution cloud. Suite à la récupération d'un site, vous devez mettre à jour les certificats des points de distribution cloud.
 
-## <a name="recover-a-secondary-site"></a>Een secundaire site herstellen
- Configuration Manager biedt geen ondersteuning voor de back-up van de database op een secundaire site, maar wel ondersteuning voor herstel door de secundaire site opnieuw te installeren. Herstel van secundaire site is vereist wanneer een secundaire site van Configuration Manager is mislukt.
+## <a name="recover-a-secondary-site"></a>Récupération d'un site secondaire
+ Configuration Manager ne prend pas en charge la sauvegarde de la base de données sur un site secondaire, mais prend en charge la récupération en réinstallant le site secondaire. La récupération de site secondaire est requise dans le cas de défaillance d'un site secondaire Configuration Manager.
 
-### <a name="requirements-for-reinstalling-a-secondary-site"></a>Vereisten voor een secundaire site opnieuw te installeren
--   De computer moet voldoen aan alle vereisten van secundaire site en juist beveiligingscertificaat hebben geconfigureerd.
--   U moet hetzelfde installatiepad dat is gebruikt voor de uitgevallen site.
--   U moet een computer gebruiken met dezelfde configuratie als de defecte computer, zoals de bijbehorende FQDN, om de secundaire site te kunnen herstellen.
--   De computer moet dezelfde SQL Server-configuratie als de mislukte site hebben.
-  -   Tijdens het herstel van een secundaire site Configuration Manager heeft geen SQL Server Express installeren als deze nog niet is geïnstalleerd op de computer.
-  -   U moet dezelfde versie van SQL Server en hetzelfde exemplaar van SQL Server gebruiken die/dat u voor de database van de secundaire site hebt gebruikt vóór de fout.
+### <a name="requirements-for-reinstalling-a-secondary-site"></a>Configuration requise pour réinstaller un site secondaire
+-   L'ordinateur doit respecter toutes les conditions préalables de site secondaire et disposer des droits de sécurité appropriés configurés.
+-   Vous devez utiliser le même chemin d'installation qui a été utilisé pour le site en échec.
+-   Vous devez utiliser un ordinateur avec la même configuration que l'ordinateur en échec, par exemple, son nom de domaine complet, pour récupérer correctement le site secondaire.
+-   L’ordinateur doit avoir la même configuration SQL Server que le site défaillant.
+  -   Lors d'une restauration de site secondaire, Configuration Manager n'installe pas SQL Server Express s'il n'est pas déjà installé sur l'ordinateur.
+  -   Vous devez utiliser la même version de SQL Server et la même instance de SQL Server que vous avez utilisées pour la base de données de site secondaire avant la défaillance.
 
-### <a name="to-recover-a-secondary-site"></a>Een secundaire site te herstellen:
-Als u wilt herstellen op een secundaire site, gebruiken de **secundaire Site herstellen** actie van de **Sites** knooppunt in de Configuration Manager-console. In tegenstelling tot herstel voor een centraal beheer-site of de primaire site, wordt bij herstel voor een secundaire site geen back-upbestand gebruikt en worden in plaats daarvan de bestanden van de secundaire site opnieuw geïnstalleerd op de computer van de mislukte secundaire site. Nadat de site opnieuw geïnstalleerd, wordt de secundaire sitegegevens geherinitialiseerd met gegevens van de bovenliggende primaire site.
+### <a name="to-recover-a-secondary-site"></a>Pour récupérer un site secondaire :
+Pour récupérer un site secondaire, utilisez l'action **Récupérer le site secondaire** à partir du nœud **Site** dans la console Configuration Manager. Contrairement à la récupération d'un site d'administration centrale ou d'un site principal, la récupération d'un site secondaire n'utilise pas de fichier de sauvegarde, mais réinstalle plutôt les fichiers du site secondaire sur l'ordinateur du site secondaire ayant échoué. Une fois le site réinstallé, les données du site secondaire sont réinitialisées avec les données du site principal parent.
 
-Configuration Manager wordt tijdens het herstelproces wordt gecontroleerd of de Inhoudsbibliotheek zich op de secundaire sitecomputer bevindt en dat de betreffende inhoud beschikbaar is. De secundaire site maakt gebruik van de bestaande inhoudsbibliotheek als deze de juiste inhoud bevat. Anders moet u voor het herstellen van de inhoudsbibliotheek van een herstelde secundaire site de inhoud opnieuw distribueren of vooraf plaatsen op de herstelde site.
+Pendant le processus de récupération, Configuration Manager vérifie si la bibliothèque de contenu existe bien sur l'ordinateur du site secondaire et si le contenu approprié est disponible. Le site secondaire utilisera la bibliothèque de contenu existante, si elle contient le contenu approprié. Sinon, pour récupérer la bibliothèque de contenu d'un site secondaire récupéré, vous devez redistribuer ou prédéfinir le contenu sur ce site récupéré.
 
-Wanneer u een distributiepunt hebt dat zich niet op de secundaire site bevindt, hoeft u het distributiepunt tijdens het herstellen van de secundaire site niet opnieuw te installeren. Wanneer de secundaire site is hersteld, wordt de site automatisch gesynchroniseerd met het distributiepunt.
+Lorsque vous disposez d'un point de distribution qui ne se trouve pas sur le site secondaire, vous n'avez pas à réinstaller le point de distribution lors d'une restauration du site secondaire. Après la restauration du site secondaire, le site se synchronise automatiquement avec le point de distribution.
 
-U kunt de status van het herstel van secundaire site controleren via de **installatiestatus tonen** actie van de **Sites** knooppunt in de Configuration Manager-console.
+Vous pouvez vérifier l'état de la récupération du site secondaire à l'aide de l'action **Afficher l'état d'installation** dans le nœud **Sites** de la console Configuration Manager.

@@ -1,6 +1,6 @@
 ---
-title: Nieuw in System Center Configuration Manager versie 1602 | Microsoft Docs
-description: "Meer informatie over deze wijzigingen en nieuwe mogelijkheden die zijn geïntroduceerd in versie 1602 van System Center Configuration Manager."
+title: "Nouveau dans System Center Configuration Manager version 1602 | Microsoft Docs"
+description: "Obtenez des détails sur les modifications et les nouvelles fonctionnalités introduites dans la version 1602 de System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/30/2016
 ms.reviewer: na
@@ -17,72 +17,72 @@ manager: angrobe
 robots: noindex,nofollow
 ms.openlocfilehash: 9a548f43625a907173e7b967d26356bd80f1c5d9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="what39s-new-in-version-1602-of-system-center-configuration-manager"></a>Wat &#39; s is nieuw in versie 1602 van System Center Configuration Manager
+# <a name="what39s-new-in-version-1602-of-system-center-configuration-manager"></a>Nouveautés dans la version 1602 de System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-Update 1602 voor System Center Configuration Manager is alleen beschikbaar als een update in de console voor eerder geïnstalleerde sites waarop versie 1511 uitgevoerd. Versie 1511 is de eerste, basislijnversie die u gebruikt om nieuwe Configuration Manager-sites te installeren.  
+La mise à jour 1602 pour System Center Configuration Manager est disponible seulement sous la forme d’une mise à jour dans la console pour les sites précédemment installés qui exécutent la version 1511. La version 1511 est la version de référence initiale qui permet d’installer de nouveaux sites Configuration Manager.  
 
 
 > [!TIP]  
->  Meer informatie over:  
+>  Informations supplémentaires :  
 >   
->   -   [Nieuwe sites installeren](/sccm/core/servers/deploy/install) (met behulp van een basislijnversie zoals 1511)  
->   -   [Updates installeren op sites](/sccm/core/servers/manage/updates) (zoals update 1602)  
+>   -   [Installation de nouveaux sites](/sccm/core/servers/deploy/install) (à l’aide d’une version de référence telle que 1511)  
+>   -   [Installation de mises à jour sur les sites](/sccm/core/servers/manage/updates) (telles que la mise à jour 1602)  
 
- De volgende secties bevatten informatie over wijzigingen en nieuwe mogelijkheden die zijn geïntroduceerd in versie 1602 van Configuration Manager.  
+ Les sections suivantes fournissent des détails sur les modifications et les nouvelles fonctionnalités introduites dans la version 1602 de Configuration Manager.  
 
-## <a name="site-infrastructure"></a>Site-infrastructuur  
+## <a name="site-infrastructure"></a>Infrastructure de site  
 
-###  <a name="bkmk_UpgradeOS"></a>In-place upgrade van het besturingssysteem van siteservers waarop Windows Server 2008 R2 wordt uitgevoerd  
- Configuration Manager-sites waarop versie 1602 of hoger wordt uitgevoerd, ondersteunen de in-place upgrade van de site servers besturingssysteem van Windows Server 2008 R2 naar Windows Server 2012 R2.  
+###  <a name="bkmk_UpgradeOS"></a> Mettre à niveau sur place le système d’exploitation de serveurs de site exécutant Windows Server 2008 R2  
+ Les sites Configuration Manager exécutant la version 1602 ou ultérieure prennent en charge la mise à niveau sur place du système d’exploitation de serveurs de site de Windows Server 2008 R2 vers Windows Server 2012 R2.  
 
 > [!WARNING]  
->  Voordat u een naar Windows Server 2012 R2 upgrade, moet u WSUS 3.2 verwijderen van de server.  
+>  Avant de mettre à niveau vers Windows Server 2012 R2, vous devez désinstaller WSUS 3.2 du serveur.  
 >   
->  Voor informatie over deze kritieke stap, Zie de sectie 'New and changed functionality' in [overzicht van Windows Server Update Services](https://technet.microsoft.com/library/hh852345.aspx), in de documentatie van Windows Server.  
+>  Pour plus d’informations sur cette étape critique, consultez la section Fonctionnalités nouvelles et modifiées de [Vue d’ensemble des services WSUS (Windows Server Update Services)](https://technet.microsoft.com/library/hh852345.aspx) dans la documentation de Windows Server.  
 
- Gebruik de upgradeprocedures van Windows Server 2012 R2 voor het bijwerken van een server. U hoeft niet uitvoeren voor een Configuration Manager site server herstellen na de upgrade. Zie [Upgradeopties voor Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx) in de Windows Server-documentatie voor de upgradeprocedures.  
+ Pour mettre à niveau un serveur, utilisez les procédures de mise à niveau de Windows Server 2012 R2. Vous n’avez pas besoin d’effectuer une restauration du serveur de site Configuration Manager après la mise à niveau. Pour connaître les procédures de mise à niveau, consultez [Options de mise à niveau pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx) dans la documentation de Windows Server.  
 
-###  <a name="bkmk_AOAG"></a>SQL Server AlwaysOn-beschikbaarheidsgroepen  
- SQL Server AlwaysOn-beschikbaarheidsgroepen gebruiken als host van de sitedatabase op primaire sites en de centrale beheersite als oplossing voor hoge beschikbaarheid en herstel na noodgevallen.  
+###  <a name="bkmk_AOAG"></a> Groupes de disponibilité SQL Server AlwaysOn  
+ Utilisez des groupes de disponibilité SQL Server AlwaysOn pour héberger la base de données sur les sites principaux et le site d’administration centrale comme solution de haute disponibilité et de récupération d’urgence.  
 
- Zie voor meer informatie [SQL Server AlwaysOn voor een maximaal beschikbare sitedatabase voor System Center Configuration Manager](../../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).  
+ Pour plus d’informations, consultez [SQL Server AlwaysOn pour une base de données de site à haut niveau de disponibilité pour System Center Configuration Manager](../../../core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database.md).  
 
-## <a name="operating-system-deployment"></a>Implementatie van besturingssystemen  
+## <a name="operating-system-deployment"></a>Déploiement du système d'exploitation  
 
-### <a name="windows-10-servicing"></a>Onderhoud van Windows 10  
- De volgende verbeteringen voor onderhoud van Windows 10 zijn toegevoegd in versie 1602 van Configuration Manager:  
+### <a name="windows-10-servicing"></a>Maintenance de Windows 10  
+ Les améliorations suivantes pour la maintenance de Windows 10 ont été apportées à Configuration Manager version 1602 :  
 
--   Er zijn nieuwe filteropties beschikbaar voor onderhoudsplannen waarmee u kunt filteren op **taal**, **vereist**, en **titel**. Alleen de upgrades die voldoen aan de opgegeven criteria worden aan de gekoppelde implementatie toegevoegd.  
+-   De nouvelles options de filtre sont disponibles pour les plans de maintenance, qui vous permettent de filtrer les paramètres **Langue**, **Obligatoire** et **Titre**. Seules les mises à jour qui remplissent les critères spécifiés sont ajoutées au déploiement associé.  
 
--   Wanneer u selecteert de **Upgrades** synchronisatie van classificatie voor software-updates, wordt er een waarschuwing weergegeven. Deze waarschuwing laat u weten dat [hotfix 3095113](https://support.microsoft.com/kb/3095113) voor Windows Server Update Services (WSUS) 4.0 is vereist voordat u software-updates met succes kunt synchroniseren, en voor het onderhoud van Windows 10 goed te laten werken. Van het waarschuwingsbericht staan aangegeven, kunt u naar de bijbehorende knowledge base-artikel gaan.  
+-   Quand vous sélectionnez la classification **Mises à niveau** pour la synchronisation des mises à jour logicielles, un avertissement s’affiche. Cet avertissement vous indique que le [correctif 3095113](https://support.microsoft.com/kb/3095113) pour Windows Server Update Services (WSUS) 4.0 est nécessaire pour pouvoir synchroniser les mises à jour logicielles et pour que la maintenance de Windows 10 fonctionne correctement. À partir du message d’avertissement, vous pouvez accéder à l’article de la Base de connaissances associé.  
 
--   Beschikbare Windows upgrades 10 worden nu alleen weergegeven in de **onderhoud van Windows 10** \ **alle Windows 10-Updates** knooppunt van de Configuration Manager-console. Deze updates worden niet meer weergegeven de **Software-Updates** \ **alle Software-Updates** knooppunt van de console.  
+-   Les mises à niveau Windows 10 disponibles sont maintenant affichées uniquement dans le nœud **Maintenance de Windows 10** \ **Toutes les mises à jour Windows 10** de la console Configuration Manager. Ces mises à jour n’apparaissent plus dans le nœud **Mises à jour logicielles** \ **Toutes les mises à jour logicielles** de la console.  
 
--   Een onderhoudsplan wordt beschouwd als een implementatie met hoog risico en de **verzameling selecteren** venster geeft alleen de aangepaste verzamelingen die voldoen aan de implementatie van de verificatie-instellingen die zijn geconfigureerd in de site eigenschappen. Zie [Instellingen voor het beheren van implementaties met een hoog risico voor System Center Configuration Manager](../../../protect/understand/settings-to-manage-high-risk-deployments.md) voor meer informatie.  
+-   Un plan de maintenance est considéré comme un déploiement à haut risque et la fenêtre **Sélectionner un regroupement** affiche uniquement les regroupements personnalisés répondant aux paramètres de vérification de déploiement configurés dans les propriétés du site. Pour plus d’informations, voir [Paramètres de gestion de déploiements à haut risque pour System Center Configuration Manager](../../../protect/understand/settings-to-manage-high-risk-deployments.md).  
 
--   Gebruikers die een Windows 10-upgradepakket nu starten ontvangen een bericht dat ze hun besturingssysteem wordt bijgewerkt.  
+-   Les utilisateurs qui démarrent un package de mise à niveau de Windows 10 reçoivent maintenant un message indiquant qu’ils vont mettre à niveau leur système d’exploitation.  
 
-## <a name="application-management"></a>Toepassingsbeheer  
+## <a name="application-management"></a>Gestion des applications  
 
-### <a name="ios-app-configuration-policies"></a>Configuratiebeleidsregels voor IOS-apps  
- Configuration Manager-app-configuratiebeleid gebruiken voor het opgeven van instellingen die mogelijk vereist zijn wanneer de gebruiker een iOS-app uitvoert. Een app kan bijvoorbeeld vereisen dat de gebruiker om op te geven van een aangepast poortnummer, de taal, beveiligingsinstellingen en huisstijlinstellingen (zoals een bedrijfslogo). Als deze instellingen niet correct worden ingevoerd, kan dit de werkbelasting van uw helpdesk verhogen en ook de acceptatie van nieuwe apps vertragen.  
+### <a name="ios-app-configuration-policies"></a>Stratégies de configuration d’applications iOS  
+ Utilisez des stratégies de configuration d’applications Configuration Manager pour fournir des paramètres pouvant être requis si l’utilisateur exécute une application iOS. Par exemple, une application peut demander à l’utilisateur de spécifier un numéro de port personnalisé, une langue, des paramètres de sécurité ou des paramètres de marque (comme un logo d’entreprise). Si ces paramètres ne sont pas entrés correctement, non seulement la charge du support technique peut être alourdie, mais l’adoption de nouvelles applications est également ralentie.  
 
- Configuratiebeleid voor apps kunt u deze problemen voorkomen doordat u kunt deze instellingen implementeren voor gebruikers in een beleid voordat ze de app worden uitgevoerd. De instellingen worden vervolgens automatisch aangeleverd, en de gebruiker niet hoeft geen actie te ondernemen. Zie voor meer informatie [iOS-apps configureren met configuratiebeleid voor apps in System Center Configuration Manager](../../../apps/deploy-use/configure-ios-apps-with-app-configuration-policies.md).  
+ Les stratégies de configuration des applications peuvent vous aider à éliminer ces problèmes en vous permettant de déployer ces paramètres sur des utilisateurs dans une stratégie avant que ceux-ci exécutent l’application. Les paramètres sont ensuite fournis automatiquement, et l’utilisateur n’a aucune action à effectuer. Pour plus d’informations, consultez [Configurer des applications iOS avec des stratégies de configuration des applications dans System Center Configuration Manager](../../../apps/deploy-use/configure-ios-apps-with-app-configuration-policies.md).  
 
-### <a name="manage-volume-purchased-ios-apps"></a>iOS-apps beheren die zijn gekocht via het volume-aankoopprogramma  
- Configuration Manager kunt u apps die u hebt aangeschaft via het Apple Volume Purchase Program (VPP) implementeren en beheren. Configuration Manager importeert de licentiegegevens uit de appstore en bijgehouden hoeveel licenties u hebt gebruikt.  
+### <a name="manage-volume-purchased-ios-apps"></a>Gérer les applications iOS achetées en volume  
+ Configuration Manager peut vous aider à déployer et à gérer les applications que vous avez achetées en volume via le Programme d’achat en volume (VPP) Apple. Configuration Manager importe les informations de licence depuis le magasin d’applications et fait le suivi du nombre de licences que vous avez utilisées.  
 
- Zie voor meer informatie [volume-purchased iOS-apps met System Center Configuration Manager beheren](../../../apps/deploy-use/manage-volume-purchased-ios-apps.md).  
+ Pour plus d’informations, consultez [Gérer des applications iOS achetées en volume avec System Center Configuration Manager](../../../apps/deploy-use/manage-volume-purchased-ios-apps.md).  
 
-### <a name="automatic-creation-of-office-mobile-apps"></a>Automatische aanmaak van mobiele Office-apps  
- Wanneer u naar versie 1602 vanaf 1511 bijwerkt, maakt Configuration Manager automatisch de volgende mobiele Microsoft Office-apps voor Android en iOS:  
+### <a name="automatic-creation-of-office-mobile-apps"></a>Création automatique d’applications mobiles Office  
+ Quand vous mettez à jour la version 1511 vers la version 1602, Configuration Manager crée automatiquement les applications mobiles Microsoft Office suivantes pour Android et iOS :  
 
 -   Microsoft Word  
 
@@ -92,130 +92,130 @@ Update 1602 voor System Center Configuration Manager is alleen beschikbaar als e
 
 -   Microsoft OneDrive  
 
--   Microsoft OneNote (alleen iOS)  
+-   Microsoft OneNote (iOS uniquement)  
 
 -   Microsoft Outlook  
 
-U vindt deze apps in de **toepassingen** knooppunt van de Configuration Manager-console.  
+Vous trouverez ces applications dans le nœud **Applications** de la console Configuration Manager.  
 
- Zie voor meer informatie over het implementeren van toepassingen [toepassingen met System Center Configuration Manager implementeren](../../../apps/deploy-use/deploy-applications.md).  
+ Pour plus d’informations sur le déploiement d’applications, consultez [Déployer des applications avec System Center Configuration Manager](../../../apps/deploy-use/deploy-applications.md).  
 
-## <a name="software-updates"></a>Software-updates  
+## <a name="software-updates"></a>Mises à jour logicielles  
 
-### <a name="manage-office-365-client-updates"></a>Updates voor Office 365-clients beheren  
- System Center Configuration Manager heeft de mogelijkheid voor het beheren van updates voor Office 365-clients met behulp van de werkstroom voor software-update. Zie voor meer informatie [Office 365 ProPlus beheren met System Center Configuration Manager-updates](/sccm/sum/deploy-use/manage-office-365-proplus-updates).  
+### <a name="manage-office-365-client-updates"></a>Gérer les mises à jour de clients Office 365  
+ System Center Configuration Manager peut désormais gérer les mises à jour des clients Office 365 à l’aide du flux de travail de gestion des mises à jour logicielles. Pour plus d’informations, consultez [Gérer les mises à jour d’Office 365 ProPlus avec System Center Configuration Manager](/sccm/sum/deploy-use/manage-office-365-proplus-updates).  
 
-## <a name="compliance-settings"></a>Instellingen voor naleving  
+## <a name="compliance-settings"></a>Paramètres de compatibilité  
 
-### <a name="compliance-settings-for-devices-running-windows-10-team"></a>Instellingen voor naleving voor apparaten met Windows 10 Team  
- Nieuwe instellingen zijn toegevoegd aan de **Windows 8.1 en Windows 10** configuratie-item. Deze instellingen helpen u apparaten met Windows 10 Team, zoals Surface Hub-apparaten worden beheerd.  
+### <a name="compliance-settings-for-devices-running-windows-10-team"></a>Paramètres de conformité pour les appareils exécutant Windows 10 Collaboration  
+ De nouveaux paramètres ont été ajoutés à l’élément de configuration **Windows 8.1 et Windows 10**. Ces paramètres vous permettent de contrôler les appareils exécutant Windows 10 Collaboration, comme un appareil Surface Hub.  
 
- Zie voor meer informatie [het maken van configuratie-items voor Windows 8.1 en Windows 10-apparaten worden beheerd zonder de System Center Configuration Manager-client](../../../compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md).  
+ Pour plus de détails, consultez [Comment créer des éléments de configuration pour des appareils Windows 8.1 et Windows 10 gérés sans le client System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md).  
 
-### <a name="kiosk-mode-settings-for-android-samsung-knox-standard-devices"></a>Instellingen voor kioskmodus voor Android Samsung KNOX Standard-apparaten  
- Kioskmodus kunt u een apparaat vergrendelen zodat alleen bepaalde functies werken. Bijvoorbeeld, kunt u een apparaat slechts één beheerde app die u opgeeft uitvoert of u kunt de volumeknoppen op een apparaat uitschakelen. Deze instellingen kunnen worden gebruikt voor een demonstratiemodel van een apparaat of een apparaat dat is toegewezen aan slechts één functie, zoals een verkooppuntapparaat. In Configuration Manager kunt u nu instellingen voor kioskmodus voor Samsung KNOX Standard-apparaten opgeven.  
+### <a name="kiosk-mode-settings-for-android-samsung-knox-standard-devices"></a>Paramètres du mode plein écran pour les appareils Samsung KNOX Standard Android  
+ Le mode plein écran vous permet de verrouiller un appareil de façon à ce que seules certaines fonctionnalités soient activées. Par exemple, vous pouvez autoriser un appareil à exécuter seulement une application gérée que vous spécifiez ou vous pouvez désactiver les boutons de volume sur un appareil. Ces paramètres peuvent être utilisés pour un modèle de démonstration d’un appareil ou pour un appareil dédié à l’exécution d’une seule fonction, par exemple un appareil pour un point de vente. Dans Configuration Manager, vous pouvez désormais spécifier les paramètres du mode plein écran pour des appareils Samsung KNOX Standard.  
 
- Zie voor meer informatie [het maken van configuratie-items voor Android en Samsung KNOX Standard-apparaten worden beheerd zonder de System Center Configuration Manager-client](../../../compliance/deploy-use/create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client.md).  
+ Pour plus d’informations, consultez [Guide pratique pour créer des éléments de configuration pour des appareils Android et Samsung KNOX Standard gérés sans le client System Center Configuration Manager](../../../compliance/deploy-use/create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client.md).  
 
-## <a name="conditional-access"></a>Voorwaardelijke toegang  
+## <a name="conditional-access"></a>Accès conditionnel  
 
-### <a name="conditional-access-for-pcs-managed-by-system-center-configuration-manager"></a>Voorwaardelijke toegang voor pc's die worden beheerd door System Center Configuration Manager  
- Voor deze release voor voorwaardelijke toegang instellen voor een PC, de PC ofwel om te worden ingeschreven in Intune of had om te worden van een domein-PC. Vanaf update 1602 kunt wordt voorwaardelijke toegang voor pc's die worden beheerd door System Center Configuration manager ondersteund. Voor de pc's die worden beheerd door System Center Configuration Manager, kunt u toegang tot Exchange Online en SharePoint Online beperken tot apparaten die compatibel zijn met het nalevingsbeleid dat u instelt.  
+### <a name="conditional-access-for-pcs-managed-by-system-center-configuration-manager"></a>Accès conditionnel pour les PC gérés par System Center Configuration Manager  
+ Avant cette version, pour configurer un accès conditionnel pour un PC, celui-ci devait être inscrit dans Intune ou joint à un domaine. À partir de la mise à jour 1602, l’accès conditionnel pour les PC gérés par System Center Configuration manager est pris en charge. Pour les PC gérés par System Center Configuration Manager, vous pouvez restreindre l’accès à Exchange Online et à SharePoint Online aux seuls appareils conformes aux stratégies de conformité que vous définissez.  
 
- Zie voor meer informatie [toegang beheren tot O365-services voor pc's die worden beheerd door System Center Configuration Manager](../../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md).  
+ Pour plus d’informations, consultez [Gérer l’accès aux services O365 des PC gérés par System Center Configuration Manager](../../../protect/deploy-use/manage-access-to-o365-services-for-pcs-managed-by-sccm.md).  
 
-### <a name="restricting-access-based-on-the-health-of-devices"></a>Beperken van toegang op basis van de status van apparaten  
- U kunt nu toegang beperken tot e-mail en 0ffice 365-services op basis van de status van apparaten, zoals gemeld door de Health Attestation-Service. Daarnaast worden apparaten die worden beheerd door Intune opgenomen in de statusrapporten over apparaten.  
+### <a name="restricting-access-based-on-the-health-of-devices"></a>Restriction des accès en fonction de l’intégrité des appareils  
+ Vous pouvez désormais restreindre l’accès aux services de messagerie et Office 365 en fonction de l’intégrité des appareils, qui est indiquée par le service d’attestation d’intégrité. De plus, les périphériques gérés par Intune sont inclus dans les rapports d’intégrité des périphériques.  
 
- De Configuration Manager-console biedt een nieuwe regel voor naleving die u opgeven kunt of de apparaten moeten worden toegestaan of geblokkeerd toegang op basis van hun gezondheidsstatus. Zie voor meer informatie over Health Attestation-Service en hoe de status van apparaten in Intune wordt gerapporteerd [Health attestation voor System Center Configuration Manager](../../../core/servers/manage/health-attestation.md).  
+ La console Configuration Manager a une nouvelle règle de conformité qui vous permet de spécifier si l’accès doit être autorisé ou refusé aux appareils en fonction de leur état d’intégrité. Pour plus d’informations sur le service d’attestation d’intégrité et la manière dont l’intégrité des appareils est indiquée dans Intune, consultez [Attestation d’intégrité pour System Center Configuration Manager](../../../core/servers/manage/health-attestation.md).  
 
-### <a name="new-compliance-policy-rules"></a>Nieuwe beleidsregels voor naleving  
- Nieuwe beleidsregels voor naleving, zoals automatische updates en een wachtwoord vereisen voor het ontgrendelen van apparaten, zijn toegevoegd ter ondersteuning van striktere beveiligingsvereisten.
+### <a name="new-compliance-policy-rules"></a>Nouvelles règles de stratégie de conformité  
+ De nouvelles règles de stratégie de conformité, comme les mises à jour automatiques et les mots de passe nécessaires pour déverrouiller des appareils, ont été ajoutées pour mieux prendre en charge les exigences de sécurité.
 
- Zie voor meer informatie [nalevingsbeleid voor apparaten in System Center Configuration Manager](../../../protect/deploy-use/device-compliance-policies.md).  
+ Pour plus de détails, consultez [Gérer des stratégies de conformité d’appareils dans System Center Configuration Manager](../../../protect/deploy-use/device-compliance-policies.md).  
 
-### <a name="make-sure-enrolled-and-compliant-devices-always-have-access-to-exchange-on-premises"></a>Zorg ervoor dat ingeschreven en compatibele apparaten altijd toegang tot Exchange on-premises hebben  
- Als u de volgende optie inschakelt, mogen apparaten die zijn ingeschreven in Intune en voldoen aan het nalevingsbeleid toegang tot Exchange on-premises: **Standaardregel negeren - altijd toestaan geregistreerd bij Intune en compatibele apparaten toegang tot Exchange lokale:**. Deze regel is beschikbaar op de **pagina Algemeen** van de **Wizard voorwaardelijke toegang configureren beleid** voor Exchange on-premises.
+### <a name="make-sure-enrolled-and-compliant-devices-always-have-access-to-exchange-on-premises"></a>Vérifier que les appareils inscrits et conformes ont toujours accès à Exchange sur site  
+ Quand vous sélectionnez l’option **Remplacer la règle par défaut : toujours autoriser les appareils inscrits et conformes à Intune à accéder à Exchange sur site :**, les appareils inscrits dans Intune et qui sont conformes aux stratégies de conformité sont autorisés à accéder à Exchange sur site. Cette règle est disponible dans la page **Général** de l’**Assistant Configuration de la stratégie d’accès conditionnel** pour Exchange sur site.
 
- Deze regel wordt de standaardregel, wat dat betekent zelfs als u de standaardregel ingesteld op quarantaine of de toegang blokkeert, ingeschreven en compatibele apparaten nog steeds toegang tot Exchange worden on-premises genegeerd. Gebruik deze instelling als u wilt dat ingeschreven en compatibele apparaten altijd toegang hebben tot e-mail via Exchange on-premises.   
+ Cette règle remplace la règle par défaut, ce qui signifie que même si vous définissez la règle par défaut de façon à mettre en quarantaine ou à bloquer l’accès, les appareils inscrits et conformes peuvent néanmoins toujours accéder à Exchange sur site. Utilisez ce paramètre quand vous voulez que les périphériques inscrits et conformes aient toujours accès à la messagerie via Exchange sur site.   
 
- Zie voor de gedetailleerde walktrough [toegang tot e-mail beheren in System Center Configuration Manager](../../../protect/deploy-use/manage-email-access.md).  
+ Pour la procédure détaillée, consultez [Gérer l’accès à la messagerie dans System Center Configuration Manager](../../../protect/deploy-use/manage-email-access.md).  
 
-## <a name="client-management"></a>Clientbeheer  
+## <a name="client-management"></a>Gestion des clients  
 
-### <a name="client-online-status"></a>Onlinestatus van clients  
- Een nieuwe status voor clients is beschikbaar voor bewaking als een computer online is. Een computer wordt beschouwd als online als deze verbonden met de bijbehorende toegewezen beheerpunt. Om aan te geven dat de computer online is, verzendt de client ping-achtige berichten naar het beheerpunt. Als het beheerpunt een bericht na 5 minuten ontvangen heeft, wordt de client als offline beschouwd.  
+### <a name="client-online-status"></a>État de connexion du client  
+ Un nouvel état est disponible, qui permet aux clients de surveiller si un ordinateur est en ligne ou non. Un ordinateur est considéré comme étant en ligne s’il est connecté au point de gestion qui lui est affecté. Pour indiquer que l’ordinateur est en ligne, le client envoie des messages de type ping au point de gestion. Si le point de gestion n’a pas reçu de message après 5 minutes, le client est considéré comme étant hors connexion.  
 
- Zie voor meer informatie [clients in System Center Configuration Manager controleren](../../../core/clients/manage/monitor-clients.md).  
+ Pour plus de détails, consultez [Comment surveiller les clients dans System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md).  
 
-### <a name="refresh-pc-machine-and-user-policy-from-software-center"></a>PC-computer en de gebruiker beleid vanuit Software Center vernieuwen  
- Een nieuwe optie **Synchronisatiebeleid**, is toegevoegd aan de **opties** > **Computeronderhoud** pagina van het Software Center zorgt ervoor dat de PC vernieuwen van de Configuration Manager voor computer- en beleid.  
+### <a name="refresh-pc-machine-and-user-policy-from-software-center"></a>Actualiser la stratégie ordinateur et utilisateur du PC à partir du Centre logiciel  
+ Une nouvelle option, **Stratégie de synchronisation**, a été ajoutée à la page **Options** > **Maintenance de l’ordinateur** du Centre logiciel. Elle force le PC à actualiser sa stratégie ordinateur et utilisateur Configuration Manager.  
 
-### <a name="software-center-branding-changes"></a>Huisstijlwijzigingen voor software Center  
- U kunt de kleur, de naam van de organisatie en het pictogram die worden weergegeven in Software Center wijzigen. Deze instellingen worden toegepast volgens de volgende regels:  
+### <a name="software-center-branding-changes"></a>Modifications de la personnalisation du Centre logiciel  
+ Vous pouvez modifier la couleur, le nom d’organisation et l’icône qui apparaissent dans le Centre logiciel. Ces paramètres sont appliqués selon les règles suivantes :  
 
-- Als de siteserverrol van Application Catalog-website-punt is niet geïnstalleerd, wordt de Software Center de organisatienaam die is opgegeven bevat in de **Computeragent** clientinstelling aangeroepen **weergegeven organisatienaam in Software Center**.  
+- Si le rôle de serveur de site du point du site web du catalogue des applications n’est pas installé, le Centre logiciel affiche le nom d’organisation spécifié dans le paramètre client de l’**Agent ordinateur** appelé **Nom d’organisation affiché dans le Centre logiciel**.  
 
-- Als de siteserverrol van Application Catalog-website-punt is geïnstalleerd, worden Software Center de naam van de organisatie en de kleur die is opgegeven in de eigenschappen van de siteserverrol van Application Catalog-website-punt.  
+- Si le rôle de serveur site de point du site web du catalogue des applications est installé, le Centre logiciel affiche le nom d’organisation et la couleur spécifiés dans les propriétés du rôle de serveur de site du point du site web du catalogue des applications.  
 
-- Als een Microsoft Intune-abonnement is geconfigureerd en is verbonden met de Configuration Manager-omgeving, geeft Software Center de naam van de organisatie, kleur en bedrijfslogo opgegeven in de eigenschappen van de Intune-abonnement.  
+- Si un abonnement Microsoft Intune est configuré et connecté à l’environnement Configuration Manager, le Centre logiciel affiche le nom d’organisation, la couleur et le logo de l’entreprise spécifiés dans les propriétés de l’abonnement Intune.  
 
-### <a name="health-attestation"></a>Health Attestation  
- Beheerders kunnen de status van Windows 10 Apparaatstatusverklaring bekijken in de Configuration Manager-console. Dit is beschikbaar voor Configuration Manager, evenals de Configuration Manager met Microsoft Intune. Met Health Attestation van apparaten kan de beheerder ervoor zorgen dat clientcomputers over de volgende betrouwbare configuraties van BIOS, TPM en opstartsoftware beschikken:  
+### <a name="health-attestation"></a>Attestation d’intégrité  
+ Les administrateurs peuvent consulter l’état de l’attestation d’intégrité des appareils Windows 10 dans la console Configuration Manager. Ceci est disponible pour Configuration Manager ainsi que pour Configuration Manager avec Microsoft Intune. L’attestation de l’intégrité des appareils permet à l’administrateur de s’assurer que les configurations dignes de confiance suivantes de BIOS, de module de plateforme sécurisée (TPM) et de logiciel de démarrage sont activées sur les ordinateurs clients :  
 
--   Early launch antimalware  
+-   Logiciel anti-programme malveillant à lancement anticipé  
 
 -   BitLocker  
 
--   Beveiligd opstarten  
+-   Démarrage sécurisé  
 
--   Code-integriteit  
+-   Intégrité du code  
 
-Zie voor meer informatie [Health attestation voor System Center Configuration Manager](../../../core/servers/manage/health-attestation.md).  
+Pour plus d’informations, consultez [Attestation d’intégrité pour System Center Configuration Manager](../../../core/servers/manage/health-attestation.md).  
 
-### <a name="improvements-to-endpoint-protection-antimalware-settings"></a>Verbeteringen in Endpoint Protection antimalware-instellingen  
- 1602 wordt de volgende nieuwe instellingen in het antimalwarebeleid van Endpoint Protection voor Windows Defender toegevoegd:  
+### <a name="improvements-to-endpoint-protection-antimalware-settings"></a>Améliorations apportées aux paramètres d’anti-programme malveillant d’Endpoint Protection  
+ La mise à jour 1602 ajoute de nouveaux paramètres à la stratégie anti-programme malveillant d’Endpoint Protection pour Windows Defender :  
 
--   Realtime-beveiliging: Potentieel ongewenste toepassingen tijdens downloaden voorafgaand aan installatie geblokkeerd.  
+-   Protection en temps réel : bloquer les applications potentiellement indésirables au téléchargement et avant l’installation.  
 
--   Scaninstellingen: Toegewezen netwerkstations scannen tijdens een volledige scan.  
+-   Paramètres d’analyse : analyser les lecteurs réseau mappés lors d’une analyse complète.  
 
--   Automatische instellingen verzenden van voorbeeldbestanden:  
+-   Paramètres d’envoi automatique d’exemples de fichiers :  
 
-     De antimalware-engine aanvragen dat voorbeeldbestanden voor verdere analyse naar Microsoft worden verzonden. Standaard wordt altijd om bevestiging gevraagd voordat dergelijke voorbeeldbestanden worden verzonden. Beheerders kunnen nu de volgende instellingen beheren om dit gedrag te configureren:  
+     Le moteur du logiciel anti-programme malveillant peut demander à ce que des exemples de fichiers soient envoyés à Microsoft pour une analyse plus approfondie. Par défaut, il affiche toujours une invite avant d’envoyer ces exemples. Les administrateurs peuvent désormais gérer les paramètres suivants pour configurer ce comportement :  
 
-    -   Geavanceerd: Schakel automatisch verzenden van voorbeeldbestanden zodat Microsoft kan bepalen of bepaalde gedetecteerde items schadelijk zijn.  
+    -   Avancé : activer l’envoi automatique d’exemples de fichiers pour aider Microsoft à déterminer si certains éléments détectés sont malveillants.  
 
-    -   Geavanceerd: Toestaan dat gebruikers instellingen voor verzending van automatische voorbeeldbestanden wijzigen.  
+    -   Avancé : permettre aux utilisateurs de modifier les paramètres l’envoi automatique d’exemples de fichiers.  
 
-    Bovendien, in de sectie 'Uitsluitingsinstellingen' van antimalwarebeleid endpoint protection, de bestaande **bestanden en mappen uitsluiten** instelling nu kan apparaten kunnen worden uitgesloten.  
+    En outre, dans la section « Paramètres d’exclusions » de la stratégie de logiciel anti-programme malveillant d’Endpoint Protection, le paramètre **Exclure des fichiers et des dossiers** existant a été amélioré pour permettre les exclusions d’appareils.  
 
-Zie voor meer informatie [maken en implementeren van antimalwarebeleid voor Endpoint Protection in System Center Configuration Manager](../../../protect/deploy-use/endpoint-antimalware-policies.md).  
+Pour plus de détails, consultez [Comment créer et déployer des stratégies anti-programme malveillant pour Endpoint Protection dans System Center Configuration Manager](../../../protect/deploy-use/endpoint-antimalware-policies.md).  
 
-## <a name="mobile-device-management"></a>Beheer van mobiele apparaten  
+## <a name="mobile-device-management"></a>Gestion des appareils mobiles  
 
-### <a name="ios-activation-lock"></a>iOS-Activeringsvergrendeling  
- Configuration Manager kunt u iOS-Activeringsvergrendeling, een functie van de Zoek mijn iPhone-app voor iOS 7.1 en hoger apparaten beheren. Activeringsvergrendeling is automatisch ingeschakeld wanneer de app Zoek mijn iPhone op een apparaat wordt gebruikt. Nadat de vergrendeling is ingeschakeld, moeten de Apple ID en het wachtwoord van de gebruiker worden ingevoerd voordat een van de volgende handelingen kan worden verricht:  
+### <a name="ios-activation-lock"></a>Verrou d’activation iOS  
+ Configuration Manager peut vous aider à gérer le verrou d’activation iOS, fonctionnalité de l’application Rechercher mon iPhone pour les appareils iOS 7.1 et versions ultérieures. Le verrou d'activation est activé automatiquement quand l'application Rechercher mon iPhone est utilisée sur un appareil. Une fois qu’il est activé, l’ID et le mot de passe Apple de l’utilisateur doivent être entrés pour pouvoir :  
 
--   Zoek mijn iPhone uitschakelen.  
+-   Désactiver Rechercher mon iPhone.  
 
--   Het apparaat wissen.  
+-   Effacer l’appareil.  
 
--   Het apparaat opnieuw activeren.  
+-   Réactiver l’appareil.  
 
-Configuration Manager kunnen aanvragen van de status van de Activeringsvergrendeling van apparaten voor zowel en zonder supervisie waarop iOS 7.1 en hoger wordt uitgevoerd. Voor apparaten onder supervisie kan Configuration Manager de bypass-code van de Activeringsvergrendeling ophalen en direct aan het apparaat worden uitgegeven.  
+Configuration Manager peut demander l’état du verrou d’activation des appareils supervisés et non supervisés qui exécutent iOS 7.1 et versions ultérieures. Pour les appareils supervisés, Configuration Manager peut récupérer le code de contournement du verrou d’activation et l’envoyer directement à l’appareil.  
 
- Zie voor meer informatie [iOS-apparaten met Activeringsvergrendeling overslaan in System Center Configuration Manager-beschermen](/sccm/mdm/deploy-use/manage-ios-activation-lock).  
+ Pour plus de détails, consultez [Aider à protéger les appareils iOS avec le contournement du verrou d’activation dans System Center Configuration Manager](/sccm/mdm/deploy-use/manage-ios-activation-lock).  
 
-### <a name="monitor-terms-and-conditions-deployments"></a>Implementaties voor voorwaarden bewaken  
- U kunt voorwaarden en bepalingen implementaties controleren in de Configuration Manager-console.  
+### <a name="monitor-terms-and-conditions-deployments"></a>Contrôler les déploiements de conditions générales  
+ Vous pouvez surveiller les déploiements de conditions générales dans la console Configuration Manager.  
 
- Selecteer de implementatie voor voorwaarden in de lijst met implementaties. Het gedeelte overzicht ziet u de volgende statistische gegevens:  
+ Sélectionnez le déploiement des conditions générales dans la liste des déploiements. La zone récapitulative affiche les statistiques suivantes :  
 
--   **Compatibele**: Gebruikers hebben de nieuwste versie van de voorwaarden geaccepteerd.  
+-   **Conforme** : Les utilisateurs ont accepté la dernière version des conditions générales.  
 
--   **Fout**  
+-   **Erreur**  
 
--   **Niet-compatibele**: Gebruikers hebben geaccepteerd, een versie van de voorwaarden, maar niet de nieuwste versie.  
+-   **Non conforme** : Les utilisateurs ont accepté une version des conditions générales, mais pas la dernière version.  
 
--   **Onbekende**: Gebruikers hebben nooit geaccepteerd voor de voorwaarden en bepalingen, inclusief gebruikers met een geregistreerd apparaat.  
+-   **Inconnu** : Les utilisateurs n’ont jamais accepté les conditions générales, notamment celles sans un appareil inscrit.  

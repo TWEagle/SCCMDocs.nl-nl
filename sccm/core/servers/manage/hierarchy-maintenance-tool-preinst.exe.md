@@ -1,6 +1,6 @@
 ---
-title: "Tool hiërarchie-onderhoud | Microsoft Docs"
-description: Begrijpen wat de Hierarchy Maintenance Tool doet en waarom u deze kunt gebruiken. Bevat de verwijzing naar de opdrachtregelopties.
+title: "Outil Maintenance de la hiérarchie | Microsoft Docs"
+description: "Découvrez comment utiliser l’outil de maintenance hiérarchique, et en quoi il est utile. Inclut des informations techniques de référence sur les options de ligne de commande."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,109 +17,109 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: f3ddeaadfb1418aeeaacdca47768600c86b59083
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="hierarchy-maintenance-tool-preinstexe-for-system-center-configuration-manager"></a>De tool Hiërarchie-onderhoud (Preinst.exe) voor System Center Configuration Manager
+# <a name="hierarchy-maintenance-tool-preinstexe-for-system-center-configuration-manager"></a>Outil de maintenance hiérarchique (Preinst.exe) pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-De tool hiërarchie-onderhoud (Preinst.exe) geeft opdrachten door naar de System Center Configuration Manager hiërarchie Manager terwijl de Hiërarchiebeheerder-Services wordt uitgevoerd. Het hiërarchie-onderhoud-hulpprogramma wordt automatisch geïnstalleerd wanneer u een Configuration Manager-site installeert. U kunt Preinst.exe vinden in de \\ &lt; *SiteServerName*> \SMS_&lt;*SiteCode*\bin\X64\00000409 gedeelde map op de siteserver.  
+L’outil de maintenance hiérarchique (Preinst.exe) transfère des commandes au service Gestionnaire de hiérarchie de System Center Configuration Manager, si ce service est en cours d’exécution. Quand vous installez un site Configuration Manager, l’outil de maintenance hiérarchique est automatiquement installé. Preinst.exe se trouve dans le dossier partagé \\&lt;*nom_serveur_site*>\SMS_&lt;*code_site*\bin\X64\00000409 sur le serveur de site.  
 
- U kan het hiërarchieonderhoud-hulpprogramma gebruiken in de volgende scenario's:  
+ Vous pouvez utiliser l'outil de maintenance hiérarchique dans les cas suivants :  
 
--   Wanneer uitwisseling van een beveiligde sleutel vereist is, zijn er situaties waarin u handmatig de initiële uitwisseling van de openbare sleutel tussen sites moet uitvoeren. Zie [Handmatig uitwisselen van openbare sleutels tussen sites](#BKMK_ManuallyExchangeKeys) in dit onderwerp voor meer informatie.  
+-   Quand l'échange de clé sécurisé est requis, il existe des situations dans lesquelles vous devez effectuer manuellement l'échange initial de clé publique entre les sites. Pour plus d'informations, consultez [Échanger manuellement des clés publiques entre des sites](#BKMK_ManuallyExchangeKeys) dans cette rubrique.  
 
--   Om actieve jobs te verwijderen die voor een doelsite zijn die niet langer beschikbaar is.  
+-   Pour supprimer les tâches actives qui concernent un site de destination qui n'est plus disponible.  
 
--   Verwijderen van de Configuration Manager-console een siteserver wanneer u niet verwijderen van de site bent met Setup. Als u een Configuration Manager-site zonder eerst Setup uit te voeren voor het verwijderen van de site fysiek verwijdert, zal de informatie van de site nog bestaan in de database van de bovenliggende site en de bovenliggende site zal blijven proberen om te communiceren met de onderliggende site. U lost dit probleem, moet u het Hiërarchieonderhoud-hulpprogramma uitvoeren en de onderliggende site handmatig verwijderen uit de database van de bovenliggende site.  
+-   Pour supprimer un serveur de site de la console Configuration Manager quand vous ne pouvez pas désinstaller le site à l’aide du programme d’installation. Par exemple, si vous supprimez physiquement un site Configuration Manager sans exécuter d’abord le programme d’installation pour désinstaller le site, les informations du site sont conservées dans la base de données du site parent, lequel continuera d’essayer de communiquer avec le site enfant supprimé. Pour résoudre ce problème, vous devez exécuter l’outil de maintenance hiérarchique et supprimer manuellement le site enfant de la base de données du site parent.  
 
--   Alle services te stoppen Configuration Manager op een site zonder de services afzonderlijk te stoppen.  
+-   Pour arrêter simultanément tous les services Configuration Manager sur un site, et éviter ainsi d’avoir à les arrêter un à un.  
 
--   Wanneer u een site herstelt, kunt u de CHILDKEYS-optie gebruiken om de openbare sleutels te verdelen van meerdere onderliggende site naar de herstellende site.  
+-   Lorsque vous restaurez un site, vous pouvez utiliser l'option CHILDKEYS pour distribuer les clés publiques à partir de plusieurs sites enfants vers le site de récupération.  
 
-Om het hiërarchieonderhoud-hulpprogramma uit te voeren, moet de huidige gebruiker beheerderrechten hebben op de lokale computer. De gebruiker moet ook expliciet het sitebeheerderrecht hebben; het is niet voldoende dat de gebruiker dit recht erft door een lid te zijn van een groep die deze machtiging heeft.  
+Pour exécuter l'outil de maintenance hiérarchique, l'utilisateur doit disposer de privilèges d'administration sur l'ordinateur local. De plus, l'utilisateur doit disposer de façon explicite du droit de sécurité d'administration du site. Le fait d'hériter de ce droit par l'appartenance à un groupe qui dispose de ce droit n'est pas suffisant.  
 
-## <a name="hierarchy-maintenance-tool-command-line-options"></a>Opdrachtregelopties voor het hiërarchieonderhoud-hulpprogramma  
-Wanneer u het hiërarchieonderhoud-hulpprogramma gebruikt, moet u het lokaal uitvoeren op de centrale beheersite, de primaire site of de secundaire siteserver.  
+## <a name="hierarchy-maintenance-tool-command-line-options"></a>Options de ligne de commande de l'outil de maintenance hiérarchique  
+Lorsque vous utilisez l'outil de maintenance hiérarchique, vous devez l'exécuter localement sur le site d'administration centrale, le site principal ou le serveur de site secondaire.  
 
-Wanneer u het Hiërarchieonderhoud-hulpprogramma uitvoert, moet u de volgende syntaxis gebruiken: preinst.exe /&lt;optie\>. Hieronder vindt u de opdrachtregelopties.  
+Pour exécuter l’outil de maintenance hiérarchique, utilisez la syntaxe suivante : preinst.exe /&lt;option\>. Les options de ligne de commande sont les suivantes.  
 
- **/ DELJOB &lt;* SiteCode*> **-Gebruik deze optie op een site om te wissen van alle taken of opdrachten vanaf de huidige site tot de gespecificeerde doelsite.  
+ **/DELJOB &lt;*code_site*>** : utilisez cette option sur un site pour supprimer l’ensemble des travaux ou commandes entre le site actuel et le site de destination spécifié.  
 
- **/ DELSITE &lt;* ChildSiteCodeToRemove*> **-Gebruik deze optie op een bovenliggende site te verwijderen van de gegevens voor de onderliggende sites uit de sitedatabase van de bovenliggende site. U gebruikt deze optie typisch als een siteservercomputer buiten bedrijf gesteld wordt vóór u de site ervan verwijdert.  
-
-> [!NOTE]  
->  De /DELSITE-optie maakt de installatie van de site op de computer, opgegeven door de ChildSiteCodeToRemove-parameter, niet ongedaan. Deze optie verwijdert alleen de site-informatie uit de Configuration Manager-sitedatabase.  
-
-**/ DUMP &lt;* SiteCode*> **-Gebruik deze optie op de lokale siteserver om sitebeheerinstallatiekopieën te schrijven naar de hoofdmap van het station waarop de site is geïnstalleerd. U kunt een specifieke sitebeheerinstallatiekopie schrijven naar de map of naar alle sitebeheerbestanden in de hiërarchie schrijven.  
-
--   / DUMP &lt; *SiteCode*> schrijft de sitebeheerinstallatiekopie alleen voor de opgegeven site.  
-
--   /DUMP schrijft de sitebesturingsbestanden voor alle sites.  
-
-Een installatiekopie is een binaire voorstelling van het sitebeheerbestand, dat is opgeslagen in de Configuration Manager-sitedatabase. De gedumpte installatiekopie van het sitebeheerbestand is een som van de basisinstallatiekopie plus de hangende installatiekopieën van de verschillen.  
-
-Na het dumpen van een installatiekopie van het bestand met het hulpprogramma voor hiërarchie-onderhoud, de bestandsnaam is in de opmaak sitectrl_&lt;*SiteCode*> .ct0.  
-
-**/ STOPSITE** -Gebruik deze optie op de lokale siteserver om een afsluitcyclus voor de Configuration Manager Site Component Manager-service, die de site gedeeltelijk terugzet te initiëren. Wanneer deze afsluitcyclus uitgevoerd wordt, worden sommige Configuration Manager-services op een siteserver en zijn externe sitesystemen gestopt. Deze services zijn gemarkeerd voor opnieuw installeren. Tengevolge van deze afsluitcyclus, worden sommige wachtwoorden automatisch gewijzigd wanneer de services worden geïnstalleerd.  
+ **/DELSITE &lt;*code_site_enfant_à_supprimer*>** : utilisez cette option sur un site parent pour supprimer les données des sites enfants dans la base de données de site du site parent. En règle générale, cette option est utilisée si un ordinateur du serveur de site est désactivé avant de désinstaller le site à partir de celui-ci.  
 
 > [!NOTE]  
->  Indien u een registratie wilt zien van afsluiten, herinstallatie en wachtwoordwijzigingen voor beheer van siteonderdelen, schakel dan de logboekregistratie in voor dit onderdeel door deze opdrachtregeloptie te gebruiken.  
+>  L'option /DELSITE ne désinstalle pas le site sur l'ordinateur spécifié par le paramètre ChildSiteCodeToRemove. Cette option supprime uniquement les informations du site dans la base de données de site Configuration Manager.  
 
-Nadat de afsluitcyclus gestart is, loopt hij automatisch, waarbij hij niet-reagerende componenten of computers overslaat. Als de Beheer-van-siteonderdelen-service evenwel geen toegang kan krijgen tot een extern sitesysteem tijdens de afsluitcyclus, worden de onderdelen die zijn geïnstalleerd op het externe sitesysteem opnieuw geïnstalleerd wanneer de Beheer-van-de-siteonderdelen-service is gestart. Wanneer hij gestart is, probeert de Beheer-van-siteonderdelen-service herhaaldelijk de herinstallatie van alle services die gemarkeerd zijn voor herinstallatie, totdat hij erin slaagt.  
+**/DUMP &lt;*code_site*>** : utilisez cette option sur le serveur de site local pour écrire des images de contrôle de site dans le dossier racine du lecteur sur lequel le site est installé. Vous pouvez écrire une image de contrôle de site spécifique dans le dossier ou écrire tous les fichiers de contrôle de site de la hiérarchie.  
 
-U kunt de Beheer-van-siteonderdelen-service opnieuw starten door gebruik te maken van sitebeheer. Nadat hij opnieuw gestart is, worden alle beïnvloede services verwijderd, opnieuw geïnstalleerd en opnieuw opgestart. Nadat u de /STOPSITE-optie gebruikt om de afsluitcyclus te initiëren, kunt u de cycli voor herinstallatie niet vermijden nadat de Beheer-van-siteonderdelen-service opnieuw gestart is.  
+-   /DUMP &lt;*code_site*> écrit l’image de contrôle de site uniquement pour le site spécifié.  
 
-**/KEYFORPARENT**: gebruik deze optie op een site om de openbare sleutel van de site te distribueren naar een bovenliggende site.  
+-   /DUMP écrit les fichiers de contrôle de site pour tous les sites.  
 
-De/keyforparent-optie plaatst de openbare sleutel van de site in het bestand &lt; *SiteCode*>. Station met programmabestanden CT4 in de hoofdmap van het programma. Nadat u preinst.exe hebt uitgevoerd met deze optie, kopieert u handmatig de &lt; *SiteCode*>. CT4-bestand naar de map...\Inboxes\hman.box voor de bovenliggende site (niet hman.box\pubkey).  
+Une image est une représentation binaire du fichier de contrôle de site, stockée dans la base de données de site Configuration Manager. L'image du fichier de contrôle de site enregistrée représente la somme de l'image de base et des images delta en attente.  
 
-**/KEYFORCHILD**: gebruik deze optie op een site om de openbare sleutel van de site te verdelen naar een onderliggende site.  
+Une fois l’image du fichier de contrôle de site supprimée à l’aide de l’outil de maintenance hiérarchique, le nom du fichier est au format sitectrl_&lt;*code_site*>.ct0.  
 
-De/keyforparent-optie plaatst de openbare sleutel van de site in het bestand &lt; *SiteCode*>. Station met programmabestanden CT5 in de hoofdmap van het programma. Nadat u preinst.exe hebt uitgevoerd met deze optie, kopieert u handmatig de &lt; *SiteCode*>. CT5-bestand naar de map...\Inboxes\hman.box voor de onderliggende site (niet hman.box\pubkey).  
-
-**/CHILDKEYS**: u kunt deze optie gebruiken op de onderliggende sites van een site die u herstelt. Gebruik deze optie om publieke sleutels te verdelen van meerdere onderliggende sites naar de herstellende site.  
-
-De childkeys-optie plaatst de sleutel van de site waar u de optie uitvoert, en alle van de onderliggende sites van openbare sleutels in het bestand &lt; *SiteCode*>. CT6.  
-
-Nadat u preinst.exe hebt uitgevoerd met deze optie, kopieert u handmatig de &lt; *SiteCode*>. CT6-bestand naar de herstellende site...\Inboxes\hman.box map (niet hman.box\pubkey).  
-
-**/PARENTKEYS**: u kunt deze optie gebruiken op de bovenliggende sites van een site die u herstelt. Gebruik deze optie om publieke sleutels te verdelen van meerdere bovenliggende sites naar de herstellende site.  
-
-De parentkeys-optie plaatst de sleutel van de site waar u de optie uitvoert, en de sleutels van elke bovenliggende site van die site in het bestand &lt;SiteCode\>. CT7.  
-
-Nadat u preinst.exe hebt uitgevoerd met deze optie, kopieert u handmatig de &lt; *SiteCode*>. CT7-bestand naar de herstellende site...\Inboxes\hman.box map (niet hman.box\pubkey).  
-
-##  <a name="BKMK_ManuallyExchangeKeys"></a>Handmatig uitwisselen van openbare sleutels tussen Sites  
-Standaard de **verzoek om beveiligde sleuteluitwisseling** optie is ingeschakeld voor Configuration Manager-sites. Wanneer uitwisseling van een beveiligde sleutel vereist is, zijn er twee situaties waarin u handmatig de initiële uitwisseling van de openbare sleutel tussen sites moet uitvoeren:  
-
--   Indien het Active Directory-schema niet uitgebreid voor Configuration Manager  
-
--   Configuration Manager-sites die geen sitegegevens publiceren naar Active Directory  
-
-U kunt het hiërarchieonderhoud-hulpprogramma gebruiken om de openbare sleutels te exporteren voor elke site. Eenmaal ze geëxporteerd werden, moet u handmatig de sleutels tussen de sites uitwisselen.  
+**/STOPSITE** : utilisez cette option sur le serveur de site local pour lancer un cycle d’arrêt du service Gestionnaire de composant de site dans Configuration Manager, ce qui réinitialise partiellement le site. L’exécution de ce cycle d’arrêt entraîne l’arrêt de certains services Configuration Manager sur un serveur de site et ses systèmes de site distants. Ces services sont marqués en vue d'être réinstallés. À la suite de ce cycle d'arrêt, certains mots de passe sont automatiquement modifiés lorsque les services sont réinstallés.  
 
 > [!NOTE]  
->  Nadat de openbare sleutels handmatig zijn uitgewisseld, kunt u het logboekbestand **hman.log** controleren, dat siteconfiguratiewijzigingen registreert en sitegegevens publiceert naar Active Directory Domain Services, op de bovenliggende siteserver om te controleren of de primaire site de nieuwe openbare sleutel heeft verwerkt.  
+>  Si vous souhaitez enregistrer un arrêt, une réinstallation et un changement de mot de passe pour le Gestionnaire de composants de site, activez l'enregistrement de ce composant avant de vous servir de cette option de ligne de commande.  
 
-#### <a name="to-manually-transfer-the-child-site-public-key-to-the-parent-site"></a>Handmatig de openbare sleutel van de onderliggende site overdragen naar de bovenliggende site  
+Après le démarrage du cycle d'arrêt, il fonctionne automatiquement en ignorant les composants et les ordinateurs qui ne répondent pas. Toutefois, si le service Gestionnaire de composants de site ne peut pas accéder à un système de site distant pendant le cycle d'arrêt, les composants installés sur ce système de site sont réinstallés au prochain démarrage du Gestionnaire de composants de site. Lors de son redémarrage, le service Gestionnaire de composants de site tente plusieurs réinstallations de tous les services marqués en vue d'une réinstallation, jusqu'à ce qu'il réussisse.  
 
-1.  Zorg dat u bent aangemeld bij de onderliggende site, open een opdrachtregel en navigeer naar de locatie van **Preinst.exe**.  
+Vous pouvez redémarrer le service Gestionnaire de composants de site avec le Gestionnaire de services. Après son redémarrage, tous les services affectés sont désinstallés, réinstallés et redémarrés. Lorsque vous avez utilisé l'option /STOPSITE pour initialiser un cycle d'arrêt, vous ne pouvez pas éviter les cycles de réinstallation après le redémarrage du service Gestionnaire de composants de site.  
 
-2.  Typ het volgende als u wilt de openbare sleutel van de onderliggende site exporteren: **Preinst/keyforparent**  
+**/KEYFORPARENT** - Utilisez cette option sur un site pour distribuer la clé publique du site à un site parent.  
 
-3.  De/keyforparent-optie plaatst de openbare sleutel van de onderliggende site in de  **&lt;sitecode\>. CT4** bestand in de hoofdmap van het systeemstation.  
+L’option /KEYFORPARENT copie la clé publique du site dans le fichier &lt;*code_site*>.CT4 situé à la racine du lecteur des fichiers programme. Après avoir exécuté preinst.exe avec cette option, copiez manuellement le fichier &lt;*code_site*>.CT4 dans le dossier ...\Inboxes\hman.box (et non pas hman.box\pubkey) du site parent.  
 
-4.  Verplaats de  **&lt;sitecode\>. CT4** bestand naar de bovenliggende site  **&lt;installatiemap\>\inboxes\hman.box** map.  
+**/KEYFORCHILD** - Utilisez cette option sur un site pour distribuer la clé publique du site à un site enfant.  
 
-#### <a name="to-manually-transfer-the-parent-site-public-key-to-the-child-site"></a>Handmatig de openbare sleutel van de bovenliggende site overdragen naar de onderliggende site  
+L’option /KEYFORCHILD copie la clé publique du site dans le fichier &lt;*code_site*>.CT5 à la racine du lecteur des fichiers programme. Après avoir exécuté preinst.exe avec cette option, copiez manuellement le fichier &lt;*code_site*>.CT5 dans le dossier ...\Inboxes\hman.box (et non pas hman.box\pubkey) du site enfant.  
 
-1.  Zorg dat u bent aangemeld bij de bovenliggende site, open een opdrachtregel en navigeer naar de locatie van **Preinst.exe**.  
+**/CHILDKEYS** - Vous pouvez utiliser cette option sur les sites enfants d’un site que vous récupérez. Utilisez cette option pour distribuer les clés publiques de plusieurs sites enfants sur le site en cours de récupération.  
 
-2.  Typ het volgende om de openbare sleutel van de bovenliggende site te exporteren: **Preinst / keyforchild**.  
+L’option /CHILDKEYS copie la clé du site sur lequel vous exécutez l’option, et toutes les clés publiques des sites enfants de ce site, dans le fichier &lt;*code_site*>.CT6.  
 
-3.  De/keyforparent-optie plaatst de openbare sleutel van de bovenliggende site in de  **&lt;sitecode\>. CT5** bestand in de hoofdmap van het systeemstation.  
+Après avoir exécuté preinst.exe avec cette option, copiez manuellement le fichier &lt;*code_site*>.CT6 dans le dossier ...\Inboxes\hman.box (et non pas hman.box\pubkey) du site en cours de récupération.  
 
-4.  Verplaats de  **&lt;sitecode\>. CT5** van het bestand in de  **&lt;installatiemap\>\inboxes\hman.box** map op de onderliggende site.  
+**/PARENTKEYS** - Vous pouvez utiliser cette option sur le site parent d’un site que vous récupérez. Utilisez cette option pour distribuer les clés publiques de tous les sites parents sur le site en cours de récupération.  
+
+L’option /PARENTKEYS copie la clé du site sur lequel vous exécutez l’option, ainsi que les clés de chaque site parent situé au-dessus de ce site, dans le fichier &lt;code_site\>.CT7.  
+
+Après avoir exécuté preinst.exe avec cette option, copiez manuellement le fichier &lt;*code_site*>.CT7 dans le dossier ...\Inboxes\hman.box (et non pas hman.box\pubkey) du site en cours de récupération.  
+
+##  <a name="BKMK_ManuallyExchangeKeys"></a> Échanger manuellement des clés publiques entre des sites  
+Par défaut, l’option **Nécessite l’échange de clés sécurisées** est activée pour les sites Configuration Manager. Quand l'échange de clé sécurisé est requis, il existe deux situations dans lesquelles vous devez effectuer manuellement l'échange initial de clé entre les sites :  
+
+-   Le schéma Active Directory n’a pas été étendu pour Configuration Manager.  
+
+-   Les sites Configuration Manager ne publient pas de données de site dans Active Directory.  
+
+Vous pouvez utiliser l'outil de maintenance hiérarchique pour exporter les clés publiques pour chaque site. Une fois qu'elles ont été exportées, vous devez échanger manuellement les clés entre les sites.  
+
+> [!NOTE]  
+>  Après l'échange manuel des clés, vous pouvez consulter le fichier journal **hman.log** , qui enregistre les modifications de la configuration du site et la publication des informations du site vers les services de domaine Active Directory, sur le serveur du site parent pour vous assurer que le site principal a traité la nouvelle clé publique.  
+
+#### <a name="to-manually-transfer-the-child-site-public-key-to-the-parent-site"></a>Pour transférer manuellement la clé publique du site enfant vers le site parent  
+
+1.  Lorsque vous êtes connecté au site enfant, ouvrez une invite de commande et naviguez jusqu'à l'emplacement de **Preinst.exe**.  
+
+2.  Tapez la commande suivante pour exporter la clé publique du site enfant : **Preinst /keyforparent**  
+
+3.  L’option /keyforparent copie la clé publique du site enfant dans le fichier **&lt;code_site\>.CT4** situé à la racine du lecteur système.  
+
+4.  Déplacez le fichier **&lt;code_site\>.CT4** vers le dossier **&lt;répertoire_installation\>\inboxes\hman.box** du site parent.  
+
+#### <a name="to-manually-transfer-the-parent-site-public-key-to-the-child-site"></a>Pour transférer manuellement la clé publique du site parent vers le site enfant  
+
+1.  Lorsque vous êtes connecté au site parent, ouvrez une invite de commande et naviguez jusqu'à l'emplacement de **Preinst.exe**.  
+
+2.  Tapez la commande suivante pour exporter la clé publique du site parent : **Preinst /keyforchild**.  
+
+3.  L’option /keyforchild copie la clé publique du site parent dans le fichier **&lt;code_site\>.CT5** situé à la racine du lecteur système.  
+
+4.  Déplacez le fichier **&lt;code_site\>.CT5** vers le dossier **&lt;répertoire_installation\>\inboxes\hman.box** du site enfant.  

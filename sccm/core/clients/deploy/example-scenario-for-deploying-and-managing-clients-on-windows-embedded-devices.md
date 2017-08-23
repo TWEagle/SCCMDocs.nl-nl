@@ -1,6 +1,6 @@
 ---
-title: Voorbeeldscenario - Windows Embedded-clients implementeren | Microsoft Docs
-description: Zie een voorbeeldscenario voor het implementeren en beheren van System Center Configuration Manager-clients op Windows Embedded-apparaten.
+title: "Exemple de scénario : Déployer des clients Windows Embedded | Microsoft Docs"
+description: "Consultez un exemple de scénario de déploiement et de gestion de clients System Center Configuration Manager sur des appareils Windows Embedded."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,165 +16,165 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: c535bc62497b5ff0b60ca266c28630d890af3604
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="example-scenario-for-deploying-and-managing-system-center-configuration-manager-clients-on-windows-embedded-devices"></a>Voorbeeldscenario voor het implementeren en beheren van System Center Configuration Manager-clients op Windows Embedded-apparaten
+# <a name="example-scenario-for-deploying-and-managing-system-center-configuration-manager-clients-on-windows-embedded-devices"></a>Exemple de scénario de déploiement et de gestion de clients System Center Configuration Manager sur des appareils Windows Embedded
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Dit scenario wordt uitgelegd hoe u Windows Embedded write filter ingeschakeld kunt beheren apparaten met Configuration Manager.If uw ingesloten apparaten bieden geen ondersteuning voor schrijven van filters, functioneren zij als standaard Configuration Manager-clients en deze procedures zijn niet van toepassing.  
+Ce scénario montre comment vous pouvez gérer des appareils Windows Embedded activés pour les filtres d’écriture avec Configuration Manager. Si vos appareils incorporés ne prennent pas en charge les filtres d’écriture, ils se comportent comme des clients Configuration Manager standard et ces procédures ne s’appliquent pas.  
 
-Coho Vineyard & Winery opent een bezoekerscentrum en moet de kiosken met Windows Embedded om interactieve presentaties worden uitgevoerd. Het gebouw voor het nieuwe bezoekerscentrum is geen dicht bij de IT-afdeling de kiosken moeten extern worden beheerd. Naast de software die de presentaties uitvoert, moeten deze apparaten uitgevoerd nieuwste antimalwaresoftware om te voldoen aan het beveiligingsbeleid van het bedrijf. De moeten kiosken 7 dagen per week, zonder uitvaltijd terwijl het Bezoekerscentrum open is.  
+Coho Vineyard & Winery ouvre un centre d’accueil et a besoin de bornes qui utilisent Windows Embedded pour exécuter des présentations interactives. Le bâtiment du nouveau centre d’accueil n’étant pas proche du service informatique, les bornes doivent être gérées à distance. Outre le logiciel qui exécute les présentations, ces appareils doivent exécuter des logiciels anti-programmes malveillants actualisés pour se conformer aux stratégies de sécurité de l’entreprise. Les bornes doivent fonctionner 7 jours par semaine, sans interruption pendant les heures d’ouverture du centre d’accueil.  
 
- Coho wordt al uitgevoerd voor Configuration Manager om apparaten op hun netwerk te beheren. Configuration Manager is geconfigureerd dat Endpoint Protection wordt uitgevoerd en software-updates en toepassingen worden geïnstalleerd. Echter, omdat het IT-team heeft Windows Embedded-apparaten niet wordt beheerd, aNs, de Configuration Manager-beheerder, een proefprogramma om twee kiosken in de HAL ontvangst beheren.   
+ Coho utilise déjà Configuration Manager pour gérer les appareils de son réseau. Configuration Manager est configuré pour exécuter Endpoint Protection et pour installer les mises à jour logicielles et les applications. Toutefois, sachant que l’équipe informatique n’a jamais géré d’appareils Windows Embedded auparavant, Jane, administratrice de Configuration Manager, a mis en place un pilote pour gérer deux bornes situées dans le hall de réception.   
 
- Voor het beheren van de Windows Embedded-apparaten met write filter is ingeschakeld, voert ANS de volgende stappen voor het installeren van Configuration Manager-client, de client te beschermen via Endpoint Protection en de interactieve presentatiesoftware te installeren.  
+ Pour gérer ces appareils Windows Embedded à filtre d’écriture, Jane effectue les étapes suivantes pour installer le client Configuration Manager, le protéger à l’aide d’Endpoint Protection et installer le logiciel de présentation interactive.  
 
-1.  ANS leest hoe Windows Embedded-apparaten maakt gebruik van schrijven van filters en hoe Configuration Manager dit eenvoudiger kan maken door automatisch uit te schakelen en opnieuw inschakelen van de schrijver filters voor het persistent maken van een software-installatie.  
+1.  Jane s’informe de la manière dont les appareils Windows Embedded utilisent les filtres d’écriture, puis de la manière dont Configuration Manager peut simplifier cette utilisation en désactivant, puis en réactivant automatiquement ces filtres d’écriture, dans le but de conserver une installation logicielle.  
 
-     Zie voor meer informatie [Planning voor clientimplementatie op Windows Embedded-apparaten in System Center Configuration Manager](../../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md).  
+     Pour plus d’informations, consultez [Planification du déploiement de clients sur des appareils Windows Embedded dans System Center Configuration Manager](../../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md).  
 
-2.  Voordat ze de Configuration Manager-client hebt geïnstalleerd, maakt ANS een nieuwe query's gebaseerde apparaatverzameling voor de Windows Embedded-apparaten. Omdat het bedrijf standaardconventies voor namen gebruikt om hun computers te identificeren, kan ANS identificeren Windows Embedded-apparaten door de eerste zes letters van de computernaam: **WEMDVC**. Ze gebruikt de volgende WQL-query om deze verzameling te maken: **select SMS_R_System.NetbiosName from SMS_R_System where SMS_R_System.NetbiosName like "WEMDVC%"**  
+2.  Avant d’installer le client Configuration Manager, Jane crée un regroupement d’appareils basé sur une requête pour les appareils Windows Embedded. Comme l’entreprise utilise des formats d’attribution de noms standard pour identifier ses ordinateurs, Jane peut identifier les appareils Windows Embedded de façon univoque par les six premières lettres du nom de l’ordinateur : **WEMDVC**. Elle utilise la requête WQL suivante pour créer ce regroupement : **select SMS_R_System.NetbiosName from SMS_R_System where SMS_R_System.NetbiosName like "WEMDVC%"**  
 
-     Met deze verzameling kan ze de Windows Embedded-apparaten beheren met verschillende configuratieopties van de andere apparaten. Ze gebruikt deze verzameling om processen voor het opnieuw starten te beheren, Endpoint Protection te implementeren met clientinstellingen en de interactieve presentatietoepassing te implementeren.  
+     Ce regroupement lui permet de gérer les appareils Windows Embedded avec des options de configuration différentes des autres appareils. Elle utilise ce regroupement pour contrôler les redémarrages, déployer Endpoint Protection avec les paramètres du client et déployer l'application de présentation interactive.  
 
-     Zie [verzamelingen maken in System Center Configuration Manager](../../../core/clients/manage/collections/create-collections.md).  
+     Voir [Comment créer des regroupements dans System Center Configuration Manager](../../../core/clients/manage/collections/create-collections.md).  
 
-3.  Ans configureert de verzameling voor een onderhoudsvenster om er voor te zorgen dat opnieuw starten, dat nodig kan zijn voor de installatie van de presentatietoepassing en eventuele upgrades, niet wordt uitgevoerd tijdens openingstijden van het bezoekerscentrum. De openingstijden zijn van 09:00 tot 18:00 uur, maandag tot zondag. Ze configureert het onderhoudsvenster voor iedere dag, van 18:30 tot 06:00 uur.  
+3.  Jane configure le regroupement pendant une fenêtre de maintenance pour veiller à ce que les redémarrages nécessaires pour installer l'application de présentation et toutes les éventuelles mises à jour ne se produisent pas pendant les heures d'ouverture du centre d'accueil. Le centre est ouvert de 9h00 à 18h00, du lundi au dimanche. Elle configure la fenêtre de maintenance de sorte à ce qu'elle se produise tous les jours, de 18h30 à 6h00.  
 
-4.  Zie voor meer informatie [het gebruik van onderhoudsvensters in System Center Configuration Manager](../../../core/clients/manage/collections/use-maintenance-windows.md).  
+4.  Pour plus d’informations, consultez [Guide pratique pour utiliser les fenêtres de maintenance dans System Center Configuration Manager](../../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-5.  Ans configureert vervolgens een aangepaste apparaatclientinstelling om de Endpoint Protection-client te installeren door **Ja** te selecteren voor de volgende instellingen en implementeert dan de aangepaste apparaatclientinstelling op de verzameling Windows Embedded-apparaten:  
+5.  Jane configure ensuite un paramètre client personnalisé pour les appareils en vue d'installer le client Endpoint Protection en sélectionnant **Oui** pour les paramètres suivants, puis elle déploie ce paramètre client personnalisé sur le regroupement d’appareils Windows Embedded :  
 
-    -   **Endpoint Protection-client op clientcomputers installeren**  
+    -   **Installer le client Endpoint Protection sur les ordinateurs clients**  
 
-    -   **Voor Windows Embedded-apparaten met schrijffilters voert u de installatie van de Endpoint Protection-client door (computer moet opnieuw worden opgestart)**  
+    -   **Pour les appareils Windows Embedded munis de filtres d'écriture, valider l'installation du client Endpoint Protection (nécessite un redémarrage)**  
 
-    -   **Installatie van Endpoint Protection-client en herstart buiten onderhoudsvensters toestaan**  
+    -   **Autoriser l'installation et le redémarrage du client Endpoint Protection en dehors des fenêtres de maintenance**  
 
-     Wanneer de Configuration Manager-client is geïnstalleerd, worden deze instellingen de Endpoint Protection-client installeert en ervoor te zorgen dat deze wordt doorgevoerd in het besturingssysteem als onderdeel van de installatie, in plaats van alleen naar de overlay worden geschreven. Het beveiligingsbeleid van het bedrijf schrijft voor dat antimalwaresoftware altijd moet zijn geïnstalleerd en Ans wil niet het risico lopen dat de kiosken ook maar voor even onbeschermd blijven als ze opnieuw worden gestart.  
-
-    > [!NOTE]  
-    >  Het opstarten dat nodig is voor de installatie van de Endpoint Protection-client gebeurt eenmaal, en wel tijdens de installatieperiode voor de apparaten en voordat het bezoekerscentrum in bedrijf gaat. In tegenstelling tot de periodieke implementatie van toepassingen of updates van softwaredefinities worden de volgende keer dat de Endpoint Protection-client is geïnstalleerd op hetzelfde apparaat waarschijnlijk wanneer het bedrijf een upgrade naar de volgende versie van Configuration Manager uitvoert.  
-
-     Zie voor meer informatie [Endpoint Protection configureren in System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md).  
-
-6.  De configuratie-instellingen voor de client in plaats nu bereidt ANS de Configuration Manager-clients installeert. Voordat ze de clients kan installeren moet ze eerst de schrijffilter op de Windows Embedded-apparaten handmatig uitschakelen. Ze leest de OEM-documentatie bij de kiosken en volgt de instructies op om de schrijffilters uit te schakelen.  
-
-     ANS wijzigt de naam van het apparaat zodat het bedrijf standaard naamconventie indeling gebruikt en de client handmatig installeert door CCMSetup uitgevoerd met de volgende opdracht vanaf een toegewezen station met daarop de bronbestanden van de client: **/MP:mpserver.cohovineyardandwinery.com CCMSetup.exe SMSSITECODE = CO1**  
-
-     Met deze opdracht wordt de client geïnstalleerd en toegewezen aan het beheerpunt dat het intranet FQDN bevat van **mpserver.cohovineyardandwinery.com**en wordt de client toegewezen aan de primaire site die **CO1**wordt genoemd.  
-
-     Ans weet dat het altijd even duurt voordat clients zijn geïnstalleerd en hun status naar de site retourneren. Ze wacht dus voordat ze bevestigt dat de clients zijn geïnstalleerd, zijn toegewezen aan de site en als clients worden weergegeven in de verzameling die ze heeft gemaakt voor Windows Embedded-apparaten.  
-
-     Als extra bevestiging controleert de eigenschappen van Configuration Manager in het Configuratiescherm op de apparaten ze en vergelijkt ze met de standaard Windows-computers die worden beheerd door de site. Op het tabblad **Onderdelen** wordt bij de **Agent voor hardware-inventarisatie** **Ingeschakeld**weergegeven en op het tabblad **Acties** zijn 11 acties beschikbaar, waaronder **Evaluatiecyclus voor installatie van toepassingen** en **Verzamelfase zoekgegevens**.  
-
-     Wanneer Ans zeker weet dat de clients zijn geïnstalleerd, toegewezen en clientbeleid ontvangen van het beheerpunt, schakelt ze handmatig de schrijffilters in aan de hand van de OEM-instructies.  
-
-     Zie voor meer informatie:  
-
-    -   [Clients implementeren op Windows-computers in System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-windows-computers.md)  
-
-    -   [Clients toewijzen aan een site in System Center Configuration Manager](../../../core/clients/deploy/assign-clients-to-a-site.md)  
-
-7.  Nu dat de Configuration Manager-client is geïnstalleerd op Windows Embedded-apparaten, bevestigt ANS dat ze deze op dezelfde manier beheren kan als de standaard Windows-clients. Bijvoorbeeld, vanuit de Configuration Manager-console kan ze op afstand deze beheren met behulp van beheer op afstand, clientbeleid voor en hun eigenschappen en hardware-inventaris van client weergeven.  
-
-     Deze apparaten worden samengebracht in een Active Directory-domein, worden ze heeft geen handmatig goed te keuren als vertrouwde clients en bevestigt via de Configuration Manager-console dat ze zijn goedgekeurd.  
-
-     Zie [How to manage clients in System Center Configuration Manager](../../../core/clients/manage/manage-clients.md) (Clients beheren in System Center Configuration Manager) voor meer informatie.  
-
-8.  Voor de installatie van de interactieve presentatiesoftware voert Ans de **wizard Software implementeren** uit en configureert een verplichte toepassing. Op de pagina **Gebruikerservaring** van de wizard, in de rubriek **Verwerking van schrijffilters voor Windows Embedded-apparaten** , accepteert ze de standaardoptie voor het selecteren van **Wijzigingen doorvoeren bij deadline of tijdens onderhoud (opnieuw opstarten noodzakelijk)**.  
-
-     Ans behoudt deze standaardoptie voor schrijffilters om er zeker van te zijn dat de toepassing blijft draaien na opnieuw opstarten zodat deze altijd beschikbaar is voor de bezoekers die de kiosken gebruiken. Het dagelijkse onderhoudsvenster biedt een opslagperiode waarin het opstarten voor installaties en updates kan plaatsvinden.  
-
-     Ans implementeert de toepassing op de verzameling met Windows Embedded-apparaten.  
-
-     Zie [Toepassingen implementeren met System Center Configuration Manager](../../../apps/deploy-use/deploy-applications.md) voor meer informatie.  
-
-9. Voor de configuratie van definitie-updates voor Endpoint Protection, gebruikt Ans softwareupdates en voert de wizard Regel voor automatische implementatie maken uit. Ze selecteert het sjabloon **Definition-updates** om de wizard vooraf in te vullen met voor Endpoint Protection compatibele instellingen.  
-
-     Dit zijn onder andere de volgende instellingen op de pagina **Gebruikerservaring** :  
-
-    -   **Deadlinegedrag**: De **Software-installatie** selectievakje niet is ingeschakeld.  
-
-    -   **Schrijffilters voor Windows Embedded-apparaten**: De **wijzigingen doorvoeren bij deadline of tijdens onderhoud (opnieuw opstarten noodzakelijk)** selectievakje niet is ingeschakeld.  
-
-     Ans houdt deze standaardinstellingen. Met deze twee opties en deze configuratie kunnen alle software-updatedefinities voor Endpoint Protection overdag worden geïnstalleerd in de overlay en hoeven de installatie en het doorvoeren ervan niet te worden uitgesteld voor tijdens het onderhoudsvenster. Deze configuratie komt het beste overeen met het beveiligingsbeleid van het bedrijf voor computers om bijgewerkte antimalware te gebruiken.  
+     Quand le client Configuration Manager est installé, ces paramètres permettent d’installer le client Endpoint Protection et de garantir qu’il est maintenu dans le système d’exploitation pendant l’installation, au lieu d’être seulement écrit dans le segment de recouvrement. Les stratégies de sécurité de l'entreprise exigent une installation permanente du logiciel anti-programme malveillant et Jane ne veut pas prendre le risque de laisser les bornes sans protection même pendant un court instant alors qu'ils redémarrent.  
 
     > [!NOTE]  
-    >  In tegenstelling tot software-installaties voor toepassingen kunnen software-updatedefinities voor Endpoint Protection heel vaak gebeuren, zelfs meerdere keren per dag. Het gaat vaak om kleine bestanden. Voor dit soort beveiligingsimplementaties kan het vaak nuttig zijn altijd naar de overlay te installeren in plaats van te wachten op het onderhoudsvenster. Configuration Manager-client installeert opnieuw snel de definitie-updates voor software als het apparaat opnieuw wordt opgestart omdat deze actie een evaluatie-controle initieert en niet wacht totdat de geplande evaluatie.  
+    >  Les redémarrages requis pour installer le client Endpoint Protection ne se produisent qu'une seule fois, pendant la période d'installation des appareils et avant que le centre d'accueil ne soit opérationnel. À la différence du déploiement périodique d’applications ou de mises à jour de définitions logicielles, la prochaine installation du client Endpoint Protection sur le même appareil aura probablement lieu quand l’entreprise procédera à la mise à niveau vers la prochaine version de Configuration Manager.  
 
-     Ans selecteert de verzameling met Windows Embedded-apparaten voor de automatisch implementatieregel.  
+     Pour plus d’informations, consultez [Configuration d’Endpoint Protection dans System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md).  
 
-     Zie voor meer informatie.  
-                  Stap 3: Software-Updates voor het leveren van definitie-Updates aan clientcomputers in Configuration Manager configureren [Endpoint Protection configureren in System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md)  
+6.  Maintenant que les paramètres de configuration du client sont en place, Jane prépare l’installation des clients Configuration Manager. Avant de pouvoir installer les clients, elle doit désactiver manuellement le filtre d'écriture sur les appareils Windows Embedded. Elle lit la documentation du fabricant qui accompagne les bornes et suit les instructions pour désactiver les filtres d'écriture.  
 
-10. Ans besluit een onderhoudstaak te configureren die regelmatig alle wijzigingen doorvoert op de overlay. Deze taak is de ondersteuning van de implementatie van software-updatedefinities om het aantal updates te verminderen dat toeneemt en iedere keer wanneer het apparaat opnieuw wordt gestart opnieuw geïnstalleerd moet worden. Zij heeft ondervonden dat hierdoor de antimalware-programma's efficiënter worden uitgevoerd.  
+     Jane renomme l’appareil pour qu’il utilise le format d’attribution de noms standard de l’entreprise, puis elle installe le client manuellement en exécutant CCMSetup à l’aide de la commande suivante, à partir d’un lecteur mappé qui contient les fichiers sources du client : **CCMSetup.exe /MP:mpserver.cohovineyardandwinery.com SMSSITECODE=CO1**  
+
+     Cette commande permet d'installer le client, d'affecter le client au point de gestion dont le nom de domaine complet de l'intranet est **mpserver.cohovineyardandwinery.com**, puis d'affecter le client au site principal nommé **CO1**.  
+
+     Jane sait qu'il faut toujours un certain temps pour que les clients s'installent et renvoient leur état au site. Par conséquent, elle patiente avant de confirmer l'installation correcte des clients, leur affectation au site et leur affichage en tant que clients dans le regroupement qu'elle a créé pour les appareils Windows Embedded.  
+
+     Comme contrôle supplémentaire, elle vérifie les propriétés de Configuration Manager dans le Panneau de configuration sur les appareils et les compare aux ordinateurs Windows standard gérés par le site. Par exemple, sous l'onglet **Composants** , l'élément **Agent de l'inventaire matériel** affiche **Activé**et sous l'onglet **Actions** figurent 11 actions disponibles, notamment **Cycle d'évaluation du déploiement de l'application** et **Cycle de collecte de données de découverte**.  
+
+     Certaine que les clients sont correctement installés et affectés, et que le point de gestion leur envoie la stratégie client, Jane active ensuite manuellement les filtres d'écriture en suivant les instructions du fabricant.  
+
+     Pour plus d'informations, voir :  
+
+    -   [Guide pratique pour déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager](../../../core/clients/deploy/deploy-clients-to-windows-computers.md)  
+
+    -   [Guide pratique pour affecter des clients à un site dans System Center Configuration Manager](../../../core/clients/deploy/assign-clients-to-a-site.md)  
+
+7.  Maintenant que le client Configuration Manager est installé sur les appareils Windows Embedded, Jane vérifie qu’elle peut les gérer de la même manière que les clients Windows standard. Par exemple, à partir de la console Configuration Manager, elle peut les gérer à distance à l’aide du contrôle à distance, leur appliquer la stratégie et afficher les propriétés du client, ainsi que l’inventaire matériel.  
+
+     Comme ces appareils sont joints à un domaine Active Directory, elle n’a pas besoin de les confirmer manuellement en tant que clients approuvés ; pour cela, elle utilise la console Configuration Manager.  
+
+     Pour plus d'informations, voir [How to manage clients in System Center Configuration Manager](../../../core/clients/manage/manage-clients.md).  
+
+8.  Pour installer le logiciel de présentation interactive, Jane exécute l' **Assistant Déploiement logiciel** et configure une application requise. Sur la page **Expérience utilisateur** de l'Assistant, dans la section **Traitement des filtres d'écriture pour les appareils Windows Embedded** , elle accepte l'option par défaut qui sélectionne **Valider les changements à l'échéance ou pendant une fenêtre de maintenance (redémarrage requis)**.  
+
+     Jane garde cette option par défaut pour les filtres d'écriture pour garantir la conservation de l'application après un redémarrage, afin qu'elle soit toujours disponible pour les visiteurs qui utilisent les bornes. La fenêtre de maintenance quotidienne offre une période sans risque au cours de laquelle les redémarrages d'installation et les mises à jour peuvent se produire.  
+
+     Jane déploie l'application sur le regroupement d’appareils Windows Embedded.  
+
+     Pour plus d’informations, consultez [Comment déployer des applications avec System Center Configuration Manager](../../../apps/deploy-use/deploy-applications.md).  
+
+9. Pour configurer les mises à jour de définitions pour Endpoint Protection, Jane utilise des mises à jour logicielles et exécute l'Assistant Création d'une règle de déploiement automatique. Elle sélectionne le modèle **Mises à jour de définitions** pour préremplir l'Assistant avec les paramètres appropriés à Endpoint Protection.  
+
+     Ces paramètres incluent les éléments suivants sur la page **Expérience utilisateur** de l'Assistant :  
+
+    -   **Comportement à l’échéance**: la case **Installation du logiciel** n’est pas cochée.  
+
+    -   **Traitement des filtres d’écriture pour les appareils Windows Embedded**: la case **Valider les changements à l’échéance ou pendant une fenêtre de maintenance (redémarrage requis)** n’est pas cochée.  
+
+     Jane conserve ces paramètres par défaut. Associées à cette configuration, ces deux options permettent d'installer toutes les définitions de mises à jour logicielles pour Endpoint Protection dans le segment de recouvrement pendant la journée, sans attendre leur installation et leur validation au cours de la fenêtre de maintenance. Cette configuration respecte mieux la stratégie de sécurité de l'entreprise en ce qui concerne l'exécution par les ordinateurs d'une protection actualisée contre les programmes malveillants.  
 
     > [!NOTE]  
-    >  Deze software-updatedefinities zouden automatisch worden doorgevoerd naar de installatiekopie als de ingesloten apparaten een andere beheertaak uitvoerden voor het doorvoeren van de wijzigingen. Door de installatie van een nieuwe versie van de interactieve presentatiesoftware zouden bijvoorbeeld ook de wijzigingen voor software-updatedefinities worden doorgevoerd. Of door de installatie van standaardsoftware-updates iedere maand tijdens het onderhoudsvenster zouden ook de wijzigingen voor software-updatedefinities worden doorgevoerd. In dit scenario, waarin standaardsoftware-updates niet worden uitgevoerd en de interactieve presentatiesoftware naar alle waarschijnlijkheid niet vaak wordt bijgewerkt, kan het maanden duren voordat de software-definitieupdates automatisch worden doorgevoerd naar de installatiekopie.  
+    >  Contrairement aux installations logicielles des applications, les définitions de mises à jour logicielles pour Endpoint Protection peuvent se produire très fréquemment, voire même plusieurs fois par jour. Il s'agit souvent de petits fichiers. Pour ces types de déploiements liés à la sécurité, il s'avère souvent bénéfique de toujours procéder à l'installation dans le segment de recouvrement plutôt que d'attendre la fenêtre de maintenance. Le client Configuration Manager réinstalle rapidement les mises à jour de définitions logicielles si le l’appareil redémarre, car cette action lance un contrôle d’évaluation sans attendre la prochaine évaluation planifiée.  
 
-     Ans maakt eerst een aangepaste takenreeks zonder instellingen en met alleen de naam. Zij voert de wizard Takenreeks maken uit:  
+     Jane sélectionne le regroupement d’appareils Windows Embedded pour la règle de déploiement automatique.  
 
-    1.  Op de pagina **Nieuwe takenreeks maken** selecteert ze **Nieuwe aangepaste takenreeks maken**en klikt vervolgens op **Volgende**.  
+     Pour plus d'informations, voir  
+                  Étape 3 : configurer les mises à jour logicielles de Configuration Manager pour fournir des mises à jour de définitions aux ordinateurs clients dans [Configuration d’Endpoint Protection dans System Center Configuration Manager](../../../protect/deploy-use/configure-endpoint-protection.md)  
 
-    2.  Op de pagina **Takenreeksinformatie** voert ze **Maintenance task to commit changes on embedded devices** in voor de naam van de takenreeks en klikt vervolgens op **Volgende**.  
+10. Jane décide de configurer une tâche de maintenance qui valide régulièrement toutes les modifications apportées au segment de recouvrement. Cette tâche consiste à prendre en charge le déploiement des définitions de mises à jour logicielles, afin de réduire le nombre de mises à jour qui s'accumulent et doivent être à nouveau installées, chaque fois que l’appareil redémarre. Elle sait, par expérience, que cela permet aux logiciels anti-programmes malveillants de s'exécuter plus efficacement.  
 
-    3.  Op de pagina **Samenvatting** selecteert ze **Volgende**en voltooit de wizard.  
+    > [!NOTE]  
+    >  Ces définitions de mises à jour logicielles seraient automatiquement validées dans l'image si les appareils embarqués exécutaient une autre tâche de gestion prenant en charge la validation des modifications. Par exemple, l'installation d'une nouvelle version du logiciel de présentation interactive permettrait également de valider les modifications pour les définitions de mises à jour logicielles. Ou bien, l'installation mensuelle de mises à jour logicielles standard au cours de la fenêtre de maintenance permettrait également de valider les modifications pour les définitions de mises à jour logicielles. En revanche, dans ce scénario, où les mises à jour logicielles standard ne s'exécutent pas et le logiciel de présentation interactive a peu de chances d'être souvent mis à jour, des mois peuvent passer avant que les mises à jour de définitions logicielles ne soient automatiquement validées dans l'image.  
 
-     Ans implementeert vervolgens de aangepaste takenreeks op de verzameling met de Windows Embedded-apparaten en stelt de planning in op iedere maand uitvoeren. Ze schakelt het selectievakje **Wijzigingen doorvoeren bij deadline of tijdens onderhoud (opnieuw opstarten noodzakelijk)** in als onderdeel van de implementatie-instellingen om de wijzigingen na het opnieuw opstarten te behouden. Voor de configuratie van deze implementatie selecteert Ans de aangepaste takenreeks die ze zojuist heeft gemaakt en klikt vervolgens op het tabblad **Start** in de **Implementatie** -groep op **Implementeren** om de wizard Software implementeren te starten:  
+     Jane crée d'abord une séquence de tâches personnalisée sans autre paramètre que le nom. Elle exécute l'Assistant Création d'une séquence de tâches :  
 
-    1.  Op de pagina **Algemeen** selecteert ze de verzameling met de Windows Embedded-apparaten en klikt vervolgens op **Volgende**.  
+    1.  Sur la page **Créer une séquence de tâches** , sélectionnez **Créez une séquence de tâches personnalisée**, puis cliquez sur **Suivant**.  
 
-    2.  Op de pagina **Implementatie-instellingen** selecteert ze het **Doel** van **Vereist**en klikt vervolgens op **Volgende**.  
+    2.  Sur la page **Informations sur la séquence de tâches** , elle entre **Maintenance task to commit changes on embedded devices** pour le nom de la séquence de tâches, puis clique sur **Suivant**.  
 
-    3.  Op de pagina **Planning** klikt ze op **Nieuw** om een wekelijkse planning te specificeren tijdens het onderhoudsvenster en klikt vervolgens op **Volgende**.  
+    3.  Sur la page **Résumé** , elle sélectionne **Suivant**et termine l'Assistant.  
 
-    4.  Ze voltooit de wizard zonder verdere wijzigingen aan te brengen.  
+     Jane déploie ensuite cette séquence de tâches personnalisée sur le regroupement d’appareils Windows Embedded, puis elle configure la planification pour une exécution mensuelle. Dans le cadre des paramètres de déploiement, elle active la case à cocher **Valider les changements à l'échéance ou pendant une fenêtre de maintenance (redémarrage requis)** pour conserver les modifications après un redémarrage. Pour configurer ce déploiement, elle sélectionne la séquence de tâches personnalisée qu'elle vient de créer, puis sous l'onglet **Accueil** , dans le groupe **Déploiement** , elle clique sur **Déployer** pour démarrer l'Assistant Déploiement logiciel :  
 
-     Zie voor meer informatie.  
-                  [Takenreeksen beheren om te automatiseren in System Center Configuration Manager](../../../osd/deploy-use/manage-task-sequences-to-automate-tasks.md).  
+    1.  Sur la page **Général** , elle sélectionne le regroupement d’appareils Windows Embedded, puis elle clique sur **Suivant**.  
 
-11. Voor automatische uitvoering van de kiosken, schrijft Ans een script om de apparaten te configureren voor de volgende instellingen:  
+    2.  Sur la page **Paramètres de déploiement** , elle sélectionne **Obligatoire** pour l'option **Objet**, puis elle clique sur **Suivant**.  
 
-    -   Automatisch aanmelden met behulp van een gastaccount zonder wachtwoord.  
+    3.  Sur la page **Planification** , elle clique sur **Nouveau** pour spécifier une planification hebdomadaire au cours de la fenêtre de maintenance, puis elle clique sur **Suivant**.  
 
-    -   Voer de interactieve presentatiesoftware automatisch uit bij het opstarten.  
+    4.  Elle termine l'Assistant sans apporter d'autres modifications.  
 
-     Jane gebruikt pakketten en programma's om dit script te implementeren voor de in Windows ingesloten apparaatverzameling. Wanneer ze de wizard software implementeren uitvoert, selecteert ze opnieuw het selectievakje **Wijzigingen doorvoeren bij deadline of tijdens het onderhoud (vereist opnieuw opstarten)** om de wijzigingen vast te leggen na een opnieuw opstarten.  
+     Pour plus d'informations, voir  
+                  [Gérer les séquences de tâches pour automatiser des tâches dans System Center Configuration Manager](../../../osd/deploy-use/manage-task-sequences-to-automate-tasks.md).  
 
-     Zie [Pakketten en programma's in System Center Configuration Manager](../../../apps/deploy-use/packages-and-programs.md) voor meer informatie.  
+11. Pour que les bornes fonctionnent automatiquement, Jane écrit un script permettant de configurer les appareils comme suit :  
 
-12. De volgende ochtend controleert Jane de in Windows ingesloten apparaten. Ze bevestigt de volgende opties:  
+    -   Ouverture de session automatique via un compte invité sans mot de passe.  
 
-    -   De kiosk wordt automatisch aangemeld met de gastaccount.  
+    -   Exécution automatique du logiciel de présentation interactive au démarrage.  
 
-    -   De interactieve presentatiesoftware wordt uitgevoerd.  
+     Jane utilise des packages et des programmes pour déployer ce script sur le regroupement d’appareils Windows Embedded. Lors de l'exécution de l'Assistant Déploiement logiciel, elle active là encore la case à cocher **Valider les changements à l'échéance ou pendant une fenêtre de maintenance (redémarrage requis)** pour conserver les modifications après un redémarrage.  
 
-    -   De Endpoint Protection-client wordt geïnstalleerd en heeft de laatste software-update.  
+     Pour plus d’informations, consultez [Packages et programmes dans System Center Configuration Manager](../../../apps/deploy-use/packages-and-programs.md).  
 
-    -   Dat het apparaat opnieuw opstartte tijdens het onderhoudsvenster.  
+12. Le matin suivant, Jane contrôle les appareils Windows Embedded. Elle vérifie les éléments suivants :  
 
-     Zie voor meer informatie:  
+    -   La borne a ouvert automatiquement une session en utilisant le compte invité.  
 
-    -   [Endpoint Protection in System Center Configuration Manager controleren](../../../protect/deploy-use/monitor-endpoint-protection.md)  
+    -   Le logiciel de présentation interactive est en cours d'exécution.  
 
-    -   [Toepassingen bewaken met System Center Configuration Manager](/sccm/apps/deploy-use/monitor-applications-from-the-console)  
+    -   Le client Endpoint Protection est installé et dispose des dernières définitions de mises à jour logicielles.  
 
-13. Jane bewaakt de kiosken en rapporteert het succesvol beheer ervan aan haar manager. Als gevolg hiervan worden 20 kiosken besteld voor het bezoekerscentrum.  
+    -   L’appareil a bien redémarré au cours de la fenêtre de maintenance.  
 
-     Om te voorkomen dat de handmatige installatie van de Configuration Manager-client, die handmatig uit te schakelen en vervolgens het inschakelen van de schrijffilters vereist, zorgt Jane ervoor dat de bestelling een aangepaste installatiekopie die reeds de installatie en sitetoewijzing van Configuration Manager-client bevat bevat. Bovendien krijgen de apparaten een naam volgens het naamformaat van het bedrijf.  
+     Pour plus d'informations, voir :  
 
-     De kiosken worden geleverd aan het bezoekerscentrum een week voor het opent. Gedurende die tijd zijn de kiosken verbonden met het netwerk, alle apparaatbeheer ervoor is automatisch en er is geen lokale beheerder vereist. Jane bevestigt dat de kiosken werken zoals vereist:  
+    -   [Guide pratique pour surveiller Endpoint Protection dans System Center Configuration Manager](../../../protect/deploy-use/monitor-endpoint-protection.md)  
 
-    -   De clients op de kiosken vervolledigen sitetoewijzing en downloaden de vertrouwde basissleutel van Active Directory Domain Services.  
+    -   [Surveiller des applications avec System Center Configuration Manager](/sccm/apps/deploy-use/monitor-applications-from-the-console)  
 
-    -   De clients op de kiosken worden automatisch toegevoegd aan de in Windows ingesloten apparaatverzameling en geconfigureerd met het onderhoudsvenster.  
+13. Jane surveille les bornes et indique à son responsable que ces bornes sont correctement gérées. Ainsi, le centre d'accueil passe une commande de 20 bornes.  
 
-    -   De Endpoint Protection-client wordt geïnstalleerd en heeft de laatste software-update definities voor antimalware bescherming.  
+     Pour éviter de devoir installer manuellement le client Configuration Manager, ce qui nécessiterait de désactiver et d’activer manuellement les filtres d’écriture, Jane s’assure que la commande comprend une image personnalisée qui intègre déjà l’installation et l’affectation de site du client Configuration Manager. En outre, les noms des appareils sont attribués conformément au format choisi par la société.  
 
-    -   De interactieve presentatiesoftware is geïnstalleerd en draait automatisch, klaar voor gebruikers.  
+     Les bornes sont livrées au centre d'accueil une semaine après son ouverture. Pendant ce laps de temps, les bornes sont connectées au réseau. Toutes les opérations de gestion des appareils sont automatisées et aucun administrateur n'est requis localement. Jane vérifie que les bornes fonctionnent comme prévu :  
 
-14. Na de initiële installatie, kan opnieuw opstarten, wat vereist kan zijn voor updates, alleen gebeuren als het bezoekerscentrum gesloten is;  
+    -   Les clients installés sur les bornes réalisent une attribution de site et téléchargent la clé racine approuvée auprès des services de domaine Active Directory.  
+
+    -   Les clients installés sur les bornes sont ajoutés automatiquement au regroupement d’appareils Windows Embedded et leur fenêtre de maintenance est configurée.  
+
+    -   Le client Endpoint Protection est installé et dispose des dernières définitions de mises à jour logicielles, pour la protection contre les programmes malveillants.  
+
+    -   Le logiciel de présentation interactive est installé et s'exécute automatiquement. Il est entièrement prêt à l'emploi pour les visiteurs.  
+
+14. Au terme de cette configuration initiale, les redémarrages éventuellement nécessaires pour l'installation des mises à jour ont lieu seulement lorsque le centre d'accueil est fermé au public.  

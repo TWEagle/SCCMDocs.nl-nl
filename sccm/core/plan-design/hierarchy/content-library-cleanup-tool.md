@@ -1,6 +1,6 @@
 ---
-title: De Inhoudsbibliotheek opschoonprogramma | Microsoft Docs
-description: Gebruik het hulpprogramma Inhoudsbibliotheek opruimen zwevende inhoud niet meer gekoppeld aan een implementatie van System Center Configuration Manager te verwijderen.
+title: "Outil de nettoyage de la bibliothèque de contenu | Microsoft Docs"
+description: "Utilisez l’outil de nettoyage de la bibliothèque de contenu pour supprimer le contenu orphelin qui n’est plus associé à un déploiement de System Center Configuration Manager."
 ms.custom: na
 ms.date: 4/7/2017
 ms.reviewer: na
@@ -16,63 +16,63 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 76e6772bdd5cbd32d525e728f6ebc988b045da78
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="the-content-library-cleanup-tool-for-system-center-configuration-manager"></a>De Inhoudsbibliotheek opschoonprogramma voor System Center Configuration Manager
+# <a name="the-content-library-cleanup-tool-for-system-center-configuration-manager"></a>Outil de nettoyage de la bibliothèque de contenu pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
- Vanaf versie 1702, kunt u een opdrachtregel-hulpprogramma (**ContentLibraryCleanup.exe**) inhoud die niet meer is gekoppeld aan een pakket of toepassing van een distributiepunt te verwijderen (en gaat zweven inhoud). Dit hulpprogramma heet de Inhoudsbibliotheek opschoonprogramma en vervangt oudere versies van vergelijkbare hulpmiddelen uitgebracht voor afgelopen Configuration Manager-producten.  
+ À partir de la version 1702, vous pouvez utiliser un outil en ligne de commande (**ContentLibraryCleanup.exe**) pour supprimer le contenu qui n’est plus associé à un package ni une application à partir d’un point de distribution (contenu orphelin). Cet outil , nommé outil de nettoyage de la bibliothèque de contenu, remplace les anciennes versions des outils similaires distribuées pour les anciens produits Configuration Manager.  
 
-Het hulpprogramma is alleen van invloed op de inhoud op het distributiepunt dat u opgeeft wanneer u het hulpprogramma uitvoert. Inhoud van het hulpprogramma niet verwijderen uit de Inhoudsbibliotheek op de siteserver.
+L’outil affecte uniquement le contenu du point de distribution spécifié à l’exécution de l’outil. L’outil ne peut pas supprimer le contenu de la bibliothèque de contenu sur le serveur de site.
 
-U vindt **ContentLibraryCleanup.exe** in de *%CM_Installation_Path%\cd.latest\SMSSETUP\TOOLS\ContentLibraryCleanup\* map op de siteserver op een centrale beheersite of primaire site.
+Vous trouverez **ContentLibraryCleanup.exe** dans le dossier *%CM_Installation_Path%\cd.latest\SMSSETUP\TOOLS\ContentLibraryCleanup\* sur le serveur du site d’administration centrale ou du site principal.
 
-## <a name="requirements"></a>Vereisten  
- Het hulpprogramma kan alleen worden uitgevoerd voor één distributiepunt tegelijk.  
- - Het kunt rechtstreeks op de computer die als host fungeert voor het distributiepunt dat u wilt opruimen of extern vanaf een andere server uitvoeren.
- - Het gebruikersaccount dat het hulpprogramma uitvoert, moet direct op rollen gebaseerd beheer-machtigingen die gelijk aan een volledige beheerder op de Configuration Manager-hiërarchie zijn hebben. De tool werkt niet wanneer het account ontvangt deze machtigingen als lid van een Windows-beveiligingsgroep die de volledige beheerdersrechten heeft.
+## <a name="requirements"></a>spécifications  
+ L’outil ne peut s’exécuter que sur un seul point de distribution à la fois.  
+ - Il peut s’exécuter directement sur l’ordinateur qui héberge le point de distribution à nettoyer, ou à distance à partir d’un autre serveur.
+ - Le compte d’utilisateur qui exécute l’outil doit avoir directement des autorisations d’administration basée sur des rôles qui correspondent à un administrateur complet dans la hiérarchie Configuration Manager. L’outil ne fonctionne pas quand le compte reçoit ces autorisations comme membre d’un groupe de sécurité Windows qui dispose des autorisations d’administrateur complet.
 
-## <a name="modes-of-operation"></a>Bedrijfsmodi
-U kunt het hulpprogramma uitvoeren in de volgende twee modi. We raden u het hulpprogramma uitvoeren in *wat-als* zodat u de resultaten bekijken kunt voordat u het hulpprogramma uitvoeren in de modus *verwijderen modus*:
-  1.    **Wat-als de modus**:   
-      Als u niet geeft de **/verwijderen** switch, en het hulpprogramma wordt uitgevoerd in de modus wat-als de inhoud die worden verwijderd van het distributiepunt identificeert.
-   - Wanneer in deze modus wordt uitgevoerd verwijderd het hulpprogramma geen aanwezige gegevens.
-   - Informatie over de inhoud die worden verwijderd is geschreven naar het logboekbestand van de hulpprogramma's en u niet gevraagd om elke mogelijke verwijdering te bevestigen.  
+## <a name="modes-of-operation"></a>Modes opératoires
+Vous pouvez exécuter l’outil dans les deux modes suivants. Nous vous recommandons d’exécuter l’outil en mode *Simulation* afin de pouvoir consulter les résultats avant d’exécuter l’outil en *mode Suppression* :
+  1.    **Mode de simulation** :   
+      Si vous ne spécifiez pas le commutateur **/delete**, l’outil s’exécute en mode de simulation et identifie le contenu qui serait supprimé à partir du point de distribution.
+   - Dans ce mode, l’outil ne supprime aucune donnée.
+   - Les informations sur le contenu qui serait supprimé sont écrites dans le fichier journal de l’outil, et vous n’êtes pas invité à confirmer chaque suppression potentielle.  
       </br>   
 
-  2. **De modus verwijderen**:   
-    Wanneer u het hulpprogramma uitvoert met de **/verwijderen** switch, het hulpprogramma wordt uitgevoerd in de modus verwijderen.
+  2. **Mode Suppression** :   
+    Quand vous exécutez l’outil avec le commutateur **/delete**, l’outil s’exécute en mode de suppression.
 
-     - Wanneer in deze modus wordt uitgevoerd, kan zwevende inhoud die is gevonden op het opgegeven distributiepunt worden verwijderd uit de Inhoudsbibliotheek het distributiepunt.
-     -  Voordat u een bestand te verwijderen, moet u bevestigen dat het bestand moet worden verwijderd.  U kunt selecteren, **Y** Ja, **N** voor Nee, of **Ja op Alles** verdere aanwijzingen overslaan en alle zwevende inhoud verwijderen.  
+     - Dans ce mode, le contenu orphelin qui se trouve sur le point de distribution spécifié peut être supprimé de la bibliothèque de contenu du point de distribution.
+     -  Avant de supprimer chaque fichier, vous devez confirmer que le fichier doit être supprimé.  Vous pouvez sélectionner **Y** pour oui, **N** pour non, ou **Oui pour tout** pour ignorer les autres invites et supprimer tout le contenu orphelin.  
      </br>
 
-Wanneer het hulpprogramma wordt uitgevoerd in de modus, wordt automatisch een logboekbestand gemaakt met een naam met de modus voor die het hulpprogramma wordt uitgevoerd in de naam van het distributiepunt en de datum en tijd van de bewerking. Het logboekbestand wordt automatisch geopend wanneer het hulpprogramma is voltooid.
+Quand l’outil s’exécute dans l’un de ces modes, il crée automatiquement un journal avec un nom qui inclut le mode d’exécution de l’outil, le nom du point de distribution et la date et l’heure de l’opération. Le fichier journal s’ouvre automatiquement quand l’exécution de l’outil est terminée.
 
-Standaard wordt het logboekbestand geschreven naar de map temp van het gebruikersaccount dat het hulpprogramma uitgevoerd op de computer waarop het hulpprogramma wordt uitgevoerd. U kunt de **/log** overschakelen naar het logboekbestand omleiden naar een andere locatie, met inbegrip van een netwerkshare.
+Par défaut, le fichier journal est écrit dans le dossier temporaire du compte d’utilisateur qui exécute l’outil, sur le même ordinateur. Vous pouvez utiliser le commutateur **/log** pour rediriger le fichier journal vers un autre emplacement, y compris un partage réseau.
 
 
-## <a name="run-the-tool"></a>Het hulpprogramma uitvoeren
-Het hulpprogramma uitvoert:
-1. Open een beheeropdrachtprompt naar een map met **ContentLibraryCleanup.exe**.  
-2. Geef vervolgens een opdrachtregel met de vereiste opdrachtregelparameters en schakelopties die u wilt gebruiken.
+## <a name="run-the-tool"></a>Exécution de l'outil
+Pour exécuter l’outil :
+1. Ouvrez une invite de commandes d’administration dans un dossier qui contient **ContentLibraryCleanup.exe**.  
+2. Entrez ensuite une ligne de commande qui inclut les commutateurs de ligne de commande obligatoires ainsi que les commutateurs facultatifs que vous souhaitez utiliser.
 
-**Bekende probleem** wanneer het hulpprogramma wordt uitgevoerd, een fout als volgt kan worden geretourneerd wanneer een pakket of de implementatie is mislukt of uitgevoerd wordt:
--  *System.InvalidOperationException: Deze Inhoudsbibliotheek kan niet worden opgeschoond nu omdat pakket <packageID> niet volledig is geïnstalleerd.*
+**Problème connu** : lorsque l’outil s’exécute, une erreur de ce type peut être renvoyée si un package ou un déploiement, quel qu’il soit, a échoué ou est en cours :
+-  *System.InvalidOperationException: This content library cannot be cleaned up right now because package <packageID> is not fully installed.*
 
-**Tijdelijke oplossing:** Geen. Het hulpprogramma kan geen betrouwbare zwevende bestanden bepalen wanneer inhoud uitgevoerd wordt of is mislukt om te implementeren. Daarom kunt het hulpprogramma niet u tot de inhoud opschonen totdat dit probleem opgelost is.
+**Solution de contournement :** aucune. L’outil ne peut pas identifier de façon fiable les fichiers orphelins lorsque du contenu est en cours de déploiement ou n’a pas pu être déployé. Par conséquent, l’outil ne vous autorisera pas à nettoyer le contenu tant que ce problème ne sera pas résolu.
 
-### <a name="command-line-switches"></a>Opdrachtregelopties  
-De volgende opdrachtregelopties kunnen worden gebruikt in een willekeurige volgorde.   
+### <a name="command-line-switches"></a>Commutateurs de ligne de commande  
+Les commutateurs de ligne de commande suivants peuvent être utilisés dans n’importe quel ordre.   
 
-|Switch|Details|
+|Commutateur|Détails|
 |---------|-------|
-|**/ Delete**  |**Optioneel** </br> Gebruik deze switch als u inhoud wilt verwijderen uit het distributiepunt. U wordt gevraagd voordat inhoud wordt verwijderd. </br></br> Wanneer deze switch niet gebruikt wordt, registreert het hulpprogramma resultaten over welke inhoud wordt verwijderd, maar verwijdert niet de inhoud van het distributiepunt. </br></br> Voorbeeld: ***/ Delete ContentLibraryCleanup.exe /dp server1.contoso.com*** |
-| **/q**       |**Optioneel** </br> Het hulpprogramma door deze switch wordt uitgevoerd in de stille modus onderdrukt alle vragen (zoals de aanwijzingen voor het verwijderen van inhoud) en het logboekbestand niet automatisch geopend. </br></br> Voorbeeld: ***ContentLibraryCleanup.exe /q /dp server1.contoso.com*** |
-| **/dp &lt;distribution point FQDN >**  | **Vereist** </br> Geef de volledig gekwalificeerde domeinnaam (FQDN) van het distributiepunt dat u wilt opruimen. </br></br> Voorbeeld:  ***ContentLibraryCleanup.exe /dp server1.contoso.com***|
-| **/PS &lt;primaire site FQDN >**       | **Optionele** bij het opschonen van de inhoud van een distributiepunt op een primaire site.</br>**Vereist** bij het opschonen van de inhoud van een distributiepunt op een secundaire site. </br></br>Het hulpprogramma verbinding met de bovenliggende primaire site query's uitvoeren op basis van SMS-provider. Deze query's kunt het hulpprogramma kunt u bepalen welke inhoud moet op het distributiepunt zodat deze kan herkennen de inhoud die is zwevend en kan worden verwijderd. Deze verbinding naar de bovenliggende primaire site moet worden gemaakt voor distributiepunten op een secundaire site, omdat de vereiste gegevens rechtstreeks vanuit de secundaire site niet beschikbaar zijn.</br></br> Geef de FQDN van de primaire site die deel uitmaakt van het distributiepunt naar of van de bovenliggende primaire bovenliggende wanneer het distributiepunt zich op een secundaire site. </br></br> Voorbeeld: ***ContentLibraryCleanup.exe /dp server1.contoso.com /ps siteserver1.contoso.com*** |
-| **/sc &lt;primaire sitecode >**  | **Optionele** bij het opschonen van de inhoud van een distributiepunt op een primaire site.</br>**Vereist** bij het opschonen van de inhoud van een distributiepunt op een secundaire site. </br></br> Geef de sitecode van de primaire site die het distributiepunt bij of van de bovenliggende primaire site wanneer het distributiepunt zich op een secundaire site.</br></br> Voorbeeld: ***ContentLibraryCleanup.exe /dp server1.contoso.com /sc ABC*** |
-| **/ log<log file directory>**       |**Optioneel** </br> Geef de locatie waar het hulpprogramma voor het logboekbestand geschreven. Dit kan een lokaal station of een netwerkshare.</br></br> Wanneer deze switch niet gebruikt wordt, wordt het logboekbestand geplaatst in de map temp van de gebruiker op de computer waarop het hulpprogramma wordt uitgevoerd.</br></br> Voorbeeld van de lokale schijf: ***ContentLibraryCleanup.exe /dp server1.contoso.com/log C:\Users\Administrator\Desktop*** </br></br>Voorbeeld van een netwerkshare bevinden: ***/ Log ContentLibraryCleanup.exe /dp server1.contoso.com \\ &lt;delen >\&lt; map >***|
+|**/delete**  |**Facultatif** </br> Utilisez ce commutateur quand vous souhaitez supprimer le contenu à partir du point de distribution. Vous êtes invité à confirmer que le contenu doit être supprimé. </br></br> Quand ce commutateur n’est pas utilisé, l’outil enregistre les résultats sur le contenu qui serait supprimé, mais ne supprime pas de contenu du point de distribution. </br></br> Exemple : ***ContentLibraryCleanup.exe /dp server1.contoso.com /delete*** |
+| **/q**       |**Facultatif** </br> Ce commutateur exécute l’outil dans un mode silencieux qui supprime toutes les invites (telles que les invites pour supprimer du contenu), et n’ouvre pas automatiquement le fichier journal. </br></br> Exemple : ***ContentLibraryCleanup.exe /q /dp server1.contoso.com*** |
+| **/dp &lt;nom de domaine complet du point de distribution>**  | **Obligatoire** </br> Spécifiez le nom de domaine complet du point de distribution que vous souhaitez nettoyer. </br></br> Exemple : ***ContentLibraryCleanup.exe /dp server1.contoso.com***|
+| **/ps &lt;nom de domaine complet du site principal>**       | **Facultatif** lors du nettoyage du contenu à partir d’un point de distribution sur un site principal.</br>**Obligatoire** lors du nettoyage du contenu à partir d’un point de distribution sur un site secondaire. </br></br>L’outil se connecte au site parent principal pour exécuter des requêtes sur SMS_Provider. Ces requêtes permettent à l’outil de déterminer le contenu qui doit être sur le point de distribution, afin de pouvoir identifier le contenu qui est orphelin et peut être supprimé. Cette connexion au site parent principal doit être établie pour les points de distribution sur un site secondaire, car les détails nécessaires ne sont pas accessibles directement à partir du site secondaire.</br></br> Spécifiez le nom de domaine complet du site principal auquel le point de distribution appartient, ou du site principal parent quand le point de distribution est sur un site secondaire. </br></br> Exemple : ***ContentLibraryCleanup.exe /dp server1.contoso.com /ps siteserver1.contoso.com*** |
+| **/sc &lt;code du site principal>**  | **Facultatif** lors du nettoyage du contenu à partir d’un point de distribution sur un site principal.</br>**Obligatoire** lors du nettoyage du contenu à partir d’un point de distribution sur un site secondaire. </br></br> Spécifiez le code du site principal auquel le point de distribution appartient, ou du site principal parent quand le point de distribution est sur un site secondaire.</br></br> Exemple : ***ContentLibraryCleanup.exe /dp server1.contoso.com /sc ABC*** |
+| **/log <log file directory>**       |**Facultatif** </br> Spécifiez l’emplacement d’écriture du fichier journal par l’outil. Il peut s’agir d’un lecteur local ou d’un emplacement sur un partage réseau.</br></br> Lorsque ce commutateur n’est pas utilisé, le fichier journal est placé dans le dossier temporaire de l’utilisateur, sur l’ordinateur où s’exécute l’outil.</br></br> Exemple de lecteur local : ***ContentLibraryCleanup.exe /dp server1.contoso.com /log C:\Users\Administrator\Desktop*** </br></br>Exemple de partage réseau : ***ContentLibraryCleanup.exe /dp server1.contoso.com /log \\&lt;partage>\&lt;dossier>***|

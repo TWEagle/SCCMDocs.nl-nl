@@ -1,6 +1,6 @@
 ---
-title: Gebruik multicast om Windows via het netwerk implementeren | Microsoft Docs
-description: Gebruik van multicast in uw omgeving voor System Center Configuration Manager zodat meerdere computers kunnen tegelijkertijd de installatiekopie van het besturingssysteem downloaden.
+title: "Utiliser la multidiffusion pour déployer Windows sur le réseau | Microsoft Docs"
+description: "Utilisez la multidiffusion dans votre environnement System Center Configuration Manager afin que plusieurs ordinateurs puissent télécharger simultanément l’image du système d’exploitation."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,29 +16,29 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 55266696aa7340fddda3a57ff90e20222ff665a5
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-multicast-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Multicast gebruiken om Windows te implementeren via het netwerk met System Center Configuration Manager
+# <a name="use-multicast-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Utiliser la multidiffusion pour déployer Windows sur le réseau avec System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Multicast is een methode voor netwerkoptimalisatie die u kunt gebruiken in uw System Center Configuration Manager-omgeving waar meerdere clients zich waarschijnlijk dezelfde installatiekopie van het besturingssysteem downloaden op hetzelfde moment. Wanneer multicast wordt gebruikt, kunnen meerdere computers tegelijkertijd de installatiekopie van het besturingssysteem downloaden, aangezien deze door het distributiepunt wordt aangeboden via multicasting. Het distributiepunt verzendt dus geen kopie van de gegevens via een aparte verbinding naar elke client.  
+La multidiffusion est une méthode d'optimisation réseau que vous pouvez utiliser dans votre environnement System Center Configuration Manager où plusieurs clients sont susceptibles de télécharger simultanément la même image du système d'exploitation. En cas d'utilisation de la multidiffusion, plusieurs ordinateurs téléchargent simultanément l'image de système d'exploitation lorsqu'elle est multidiffusée par le point de distribution, plutôt que de faire en sorte que le point de distribution envoie une copie des données à chaque client à l'aide d'une connexion distincte.  
 
- U kunt besturingssystemen via het netwerk implementeren met behulp van multicast in de volgende implementatiescenario's voor besturingssystemen:  
+ Vous pouvez déployer des systèmes d’exploitation sur le réseau en utilisant la multidiffusion dans les scénarios de déploiement de système d’exploitation suivants :  
 
--   [Een bestaande computer vernieuwen met een nieuwe versie van Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)  
+-   [Actualiser un ordinateur existant avec une nouvelle version de Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)  
 
--   [Een nieuwe versie van Windows op een nieuwe computer (bare-metal) installeren](install-new-windows-version-new-computer-bare-metal.md)  
+-   [Installer une nouvelle version de Windows sur un nouvel ordinateur (système nu)](install-new-windows-version-new-computer-bare-metal.md)  
 
- Voer de stappen in een van de implementatiescenario’s voor besturingssystemen uit en gebruik de volgende secties om multicast te ondersteunen.  
+ Effectuez les étapes de l’un des scénarios de déploiement de système d’exploitation, puis consultez les sections suivantes pour savoir comment prendre en charge la multidiffusion.  
 
-##  <a name="BKMK_Configure"></a> Een distributiepunt configureren voor de ondersteuning van multicast  
- Als u multicast wilt gebruiken om het besturingssysteem te implementeren, moet u een distributiepunt configureren voor de ondersteuning van multicast. Zie voor meer informatie [configureren ter ondersteuning van multicast-distributiepunten](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_DPMulticast).  
+##  <a name="BKMK_Configure"></a> Configurer un point de distribution pour prendre en charge la multidiffusion  
+ Pour utiliser la multidiffusion pendant le déploiement de systèmes d’exploitation, vous devez configurer un point de distribution pour prendre en charge la multidiffusion. Pour plus d'informations, voir [Configurer des points de distribution pour prendre en charge la multidiffusion](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_DPMulticast).  
 
-## <a name="prepare-an-operating-system-image-for-multicast-deployments"></a>De installatiekopie van een besturingssysteem voorbereiden voor multicast-implementaties  
- Voor het configureren van het installatiekopiepakket van het besturingssysteem voor multicast-ondersteuning, Zie [de installatiekopie van het besturingssysteem voorbereiden voor multicast-implementaties](../get-started/manage-operating-system-images.md#BKMK_OSImageMulticast).  
+## <a name="prepare-an-operating-system-image-for-multicast-deployments"></a>Préparer une image de système d’exploitation pour les déploiements en multidiffusion  
+ Pour configurer le package d’images du système d’exploitation dans l’optique d’une prise en charge de la multidiffusion, voir [Préparer l’image du système d’exploitation pour les déploiements en multidiffusion](../get-started/manage-operating-system-images.md#BKMK_OSImageMulticast).  
 
-##  <a name="BKMK_Deploy"></a> De takenreeks implementeren  
- Implementeer het besturingssysteem in een doelverzameling. Zie [Een takenreeks implementeren](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS) voor meer informatie.  
+##  <a name="BKMK_Deploy"></a> Déployer la séquence de tâches  
+ Déployez le système d’exploitation dans un regroupement cible. Pour plus d'informations, voir [Déployer une séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  

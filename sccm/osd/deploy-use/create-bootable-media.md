@@ -1,6 +1,6 @@
 ---
-title: Maken van opstartbare media - Configuration Manager | Microsoft Docs
-description: Opstartbare media in Configuration Manager kunt u eenvoudig een nieuwe versie van Windows installeren of de instellingen van een computer en de overdracht vervangen.
+title: "Créer un média de démarrage - Configuration Manager | Microsoft Docs"
+description: "Un média de démarrage dans Configuration Manager facilite l’installation d’une nouvelle version de Windows ou le remplacement d’un ordinateur et le transfert de paramètres."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -17,140 +17,140 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 9032698fa12bf453041ea06bf330d3b4687c2a97
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-bootable-media-with-system-center-configuration-manager"></a>Opstartbare media maken met System Center Configuration Manager
+# <a name="create-bootable-media-with-system-center-configuration-manager"></a>Créer un média de démarrage avec System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Opstartbare media in Configuration Manager bevat de opstartinstallatiekopie, optionele prestart-opdrachten en bijbehorende bestanden en Configuration Manager-bestanden. Gebruik voorgefaseerde media voor de volgende implementatiescenario'voor besturingssystemen:  
+Un média de démarrage dans Configuration Manager contient l’image de démarrage, des commandes de prédémarrage facultatives et leurs fichiers associés, ainsi que les fichiers de Configuration Manager. Utilisez un média préparé pour les scénarios de déploiement de système d’exploitation suivants :  
 
--   [Een nieuwe versie van Windows op een nieuwe computer (bare-metal) installeren](install-new-windows-version-new-computer-bare-metal.md)  
+-   [Installer une nouvelle version de Windows sur un nouvel ordinateur (système nu)](install-new-windows-version-new-computer-bare-metal.md)  
 
--   [Een bestaande computer vervangen en de instellingen overzetten](replace-an-existing-computer-and-transfer-settings.md)  
+-   [Remplacement d’un ordinateur existant et transfert des paramètres](replace-an-existing-computer-and-transfer-settings.md)  
 
-##  <a name="BKMK_CreateBootableMedia"></a> Opstartbare media maken  
- Wanneer u de opstartbare media opstart, wordt de doelcomputer gestart en maakt deze verbinding met het netwerk. Vervolgens worden de opgegeven takenreeks, de installatiekopie van het besturingssysteem en alle andere vereiste inhoud opgehaald van het netwerk. Omdat de takenreeks zich niet op de media bevindt, kunt u de takenreeks of de inhoud wijzigen zonder dat u de media opnieuw hoeft te maken. De pakketten op opstartbare media zijn niet versleuteld. U moet de gepaste beveiligingsmaatregelen nemen, zoals een wachtwoord instellen voor de media, om ervoor te zorgen dat de pakketinhoud beveiligd is tegen onbevoegde gebruikers.  
+##  <a name="BKMK_CreateBootableMedia"></a> Créer un média de démarrage  
+ Quand vous démarrez sur le média de démarrage, l’ordinateur de destination démarre, se connecte au réseau, puis récupère la séquence de tâches, l’image du système d’exploitation et tout autre contenu nécessaire à partir du réseau. Étant donné que la séquence de tâches ne se trouve pas sur le média, vous pouvez modifier la séquence de tâches ou le contenu sans avoir à recréer le média. Les packages sur le média de démarrage ne sont pas chiffrés. Vous devez prendre les mesures de sécurité appropriées, telles que l’ajout d’un mot de passe au média, afin de garantir que le contenu du package est protégé contre les utilisateurs non autorisés.  
 
- Voordat u opstartbare media maakt met de wizard Takenreeksmedia maken, moet u ervoor zorgen dat aan de volgende voorwaarden wordt voldaan:  
+ Avant de créer un média de démarrage à l’aide de l’Assistant Création d’un média de séquence de tâches, vérifiez que toutes les conditions suivantes sont remplies :  
 
-|Taak|Beschrijving|  
+|Tâche|Description|  
 |----------|-----------------|  
-|Opstartinstallatiekopie|Overweeg het volgende met betrekking tot de opstartinstallatiekopie die u in de takenreeks gebruikt om het besturingssysteem te implementeren:<br /><br /> -De architectuur van de opstartinstallatiekopie moet geschikt is voor de architectuur van de doelcomputer. Op een x64-doelcomputer kan een x86- of x64-opstartinstallatiekopie worden opgestart en uitgevoerd. Op een x86-doelcomputer kan echter alleen een x86-opstartinstallatiekopie worden opgestart en uitgevoerd.<br />-Zorg ervoor dat de installatiekopie de netwerk- en mass storage stuurprogramma's die zijn vereist bevat voor het inrichten van de doelcomputer.|  
-|Een takenreeks maken om een besturingssysteem te implementeren|Als onderdeel van de opstartbare media moet u de takenreeks voor de implementatie van het besturingssysteem opgeven. Zie voor de stappen voor het maken van een nieuwe takenreeks [een takenreeks maken om een besturingssysteem te installeren](../deploy-use/create-a-task-sequence-to-install-an-operating-system.md).|  
-|Alle aan de takenreeks gekoppeld inhoud distribueren|U moet alle inhoud die door de takenreeks is vereist naar ten minste één distributiepunt distribueren. Dit omvat de opstartinstallatiekopie en andere bijbehorende prestart-bestanden. De wizard haalt de informatie op van het distributiepunt wanneer het de opstartbare media maakt. U moet over het toegangsrecht **Lezen** beschikken voor de inhoudsbibliotheek op het distributiepunt.  Zie voor meer informatie [over de Inhoudsbibliotheek](../../core/plan-design/hierarchy/the-content-library.md).|  
-|Het verwisselbare USB-station voorbereiden|Voor een verwisselbaar USB-station:<br /><br /> Wanneer u een verwisselbaar USB-station wilt gebruiken, moet het USB-station zijn aangesloten op de computer waarop de wizard wordt uitgevoerd. Daarnaast moet het USB-station door Windows gedetecteerd kunnen worden als een verwisselbaar apparaat. De wizard schrijft rechtstreeks naar het USB-station wanneer deze het medium maakt. Zelfstandige media maakt gebruik van een FAT32-bestandssysteem. U kunt geen zelfstandige media maken op een USB-flashstation waarvan de inhoud een bestand bevat dat groter is dan 4 GB.|  
-|Een uitvoermap maken|Voor een cd/dvd-set:<br /><br /> Voordat u de wizard Takenreeksmedia maken uitvoert voor het maken van media voor een cd- of dvd-set, moet u een map maken voor de uitvoerbestanden die door de wizard worden gemaakt. Media die worden gemaakt voor een cd- of dvdset worden als .iso-bestanden direct naar de map geschreven.|  
+|Image de démarrage|Prenez en considération les éléments suivants relatifs à l’image de démarrage que vous utiliserez dans la séquence de tâches pour déployer le système d’exploitation :<br /><br /> -   L’architecture de l’image de démarrage doit être adaptée à l’architecture de l’ordinateur de destination. Par exemple, un ordinateur de destination x64 peut démarrer et exécuter une image de démarrage x86 ou x64. Toutefois, un ordinateur de destination x86 peut démarrer et exécuter uniquement une image de démarrage x86.<br />-   Assurez-vous que l’image de démarrage contient les pilotes de stockage de masse et de réseau qui sont requis pour provisionner l’ordinateur de destination.|  
+|Créer une séquence de tâches pour déployer le système d’exploitation|Dans le cadre du média de démarrage, vous devez spécifier la séquence de tâches destinée à déployer le système d’exploitation. Pour connaître les étapes permettant de créer une séquence de tâches, consultez [Créer une séquence de tâches pour installer un système d’exploitation](../deploy-use/create-a-task-sequence-to-install-an-operating-system.md).|  
+|Distribuer tout le contenu associé à la séquence de tâches|Vous devez distribuer tout le contenu exigé par la séquence de tâches à au moins un point de distribution. Sont inclus l’image de démarrage et les autres fichiers de prédémarrage associés. L’Assistant collecte les informations à partir du point de distribution quand il crée le média de démarrage. Vous devez disposer de droits d’accès en **Lecture** à la bibliothèque de contenu sur ce point de distribution.  Pour plus d’informations, consultez [À propos de la bibliothèque de contenu](../../core/plan-design/hierarchy/the-content-library.md).|  
+|Préparer le lecteur USB amovible|Pour un lecteur USB amovible :<br /><br /> Si vous envisagez d’utiliser un lecteur USB amovible, ce dernier doit être connecté à l’ordinateur sur lequel est exécuté l’Assistant et il doit être détectable par Windows en tant que périphérique amovible. L’Assistant écrit directement sur le lecteur USB quand il crée le média. Le média autonome utilise un système de fichiers FAT32. Vous ne pouvez pas créer de média autonome sur un disque mémoire flash USB dont le contenu inclut un fichier d'une taille supérieure à 4 Go.|  
+|Créer un dossier de sortie|Pour un ensemble de CD/DVD :<br /><br /> Avant d'exécuter l'Assistant Création d'un média de séquence de tâches afin de créer un média pour un ensemble de CD ou DVD, vous devez créer un dossier pour les fichiers de sortie créés par l'Assistant. Le média créé pour un ensemble de CD ou DVD est écrit sous forme de fichiers .iso directement dans le dossier.|  
 
- De volgende procedure gebruiken om opstartbare media te maken.  
+ Pour créer un média de démarrage, procédez comme suit.  
 
-### <a name="to-create-bootable-media"></a>Opstartbare media maken  
+### <a name="to-create-bootable-media"></a>Pour créer un média de démarrage  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Takenreeksen**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-3.  Klik op het tabblad **Start** in de groep **Maken** op **Takenreeksmedia maken** om de wizard Takenreeksmedia maken te starten.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un média de séquence de tâches** pour démarrer l'Assistant Création d'un média de séquence de tâches.  
 
-4.  Geef op de pagina **Mediatype selecteren** de volgende opties op en klik op **Volgende**.  
+4.  Sur la page **Sélectionner le type de média** , spécifiez les options suivantes, puis cliquez sur **Suivant**.  
 
-    -   Selecteer **opstartbare media**.  
+    -   Sélectionnez **Média de démarrage**.  
 
-    -   Selecteer optioneel, indien u wenst toe te staan dat het besturingssysteem geïmplementeerd wordt zonder tussenkomst van de gebruiker, de optie **Implementatie van het besturingssysteem zonder toezicht toestaan**.  
+    -   Éventuellement, si vous souhaitez uniquement autoriser le déploiement du système d'exploitation sans intervention de l'utilisateur, sélectionnez **Autoriser le déploiement du système d'exploitation de manière autonome**.  
 
         > [!IMPORTANT]  
-        >  Wanneer u deze optie selecteert, wordt de gebruiker niet gevraagd naar informatie over netwerkconfiguratie of naar optionele takenreeksen. De gebruiker wordt wel nog steeds gevraagd om een wachtwoord als de media hiervoor is geconfigureerd.  
+        >  Lorsque vous sélectionnez cette option, l'utilisateur n'est pas invité à fournir des informations de configuration réseau ou des séquences de tâches facultatives. Toutefois, l'utilisateur est toujours invité à fournir un mot de passe si le média est configuré avec la protection par mot de passe.  
 
-5.  Geef op de pagina **Mediabeheer** één van de volgende opties op en klik dan op **Volgende**.  
+5.  Sur la page **Gestion du média** , spécifiez les options suivantes, puis cliquez sur **Suivant**.  
 
-    -   Selecteer **Dynamische media** als u wilt toestaan dat een beheerpunt media omleidt naar een ander beheerpunt op basis van de clientlocatie binnen de sitegrenzen.  
+    -   Sélectionnez **Média dynamique** si vous souhaitez autoriser un point de gestion à rediriger le média vers un autre point de gestion, basé sur l'emplacement du client dans les limites du site.  
 
-    -   Selecteer **Op site gebaseerde media** als u wilt dat de media alleen contact maken met het opgegeven beheerpunt.  
+    -   Sélectionnez **Média basé sur le site** si vous souhaitez que le média contacte uniquement le point de gestion spécifié.  
 
-6.  Geef op de pagina **Mediumtype** op of het medium een flashstation of een cd/dvd-set is en klik vervolgens om het volgende te configureren:  
+6.  Dans la page **Type de média** , spécifiez si le média est un disque mémoire flash ou un ensemble de CD/DVD, puis cliquez pour configurer les éléments suivants :  
 
     > [!IMPORTANT]  
-    >  Zelfstandige media maakt gebruik van een FAT32-bestandssysteem. U kunt geen zelfstandige media maken op een USB-flashstation waarvan de inhoud een bestand bevat dat groter is dan 4 GB.  
+    >  Le média autonome utilise un système de fichiers FAT32. Vous ne pouvez pas créer de média autonome sur un disque mémoire flash USB dont le contenu inclut un fichier d'une taille supérieure à 4 Go.  
 
-    -   Als u **USB-flashstation**selecteert, moet u het station opgeven waarop u de inhoud wilt opslaan.  
+    -   Si vous sélectionnez **Périphérique flash USB**, spécifiez le lecteur sur lequel stocker le contenu.  
 
-    -   Indien u **cd-/dvdset selecteert**, geef dan de capaciteit van de media en de naam en het pad van de uitvoerbestanden op. De wizard schrijft de uitvoerbestanden naar deze locatie. Bijvoorbeeld:  **\\\servername\folder\outputfile.iso**  
+    -   Si vous sélectionnez **Ensemble CD/DVD**, spécifiez la capacité du média et le nom et le chemin d'accès des fichiers de sortie. L'Assistant écrit les fichiers de sortie à cet emplacement. Par exemple : **\\\nom_serveur\dossier\fichier_sortie.iso**  
 
-         Als de capaciteit van de media te klein is om alle inhoud op te slaan, worden er meerdere bestanden gemaakt en moet u de inhoud op meerdere cd's of dvd's opslaan. Als meerdere media nodig zijn, wordt een volgnummer toegevoegd aan de naam van ieder uitvoerbestand dat wordt gemaakt van Configuration Manager. Bovendien, als u een toepassing tezamen met het besturingssysteem implementeert en de toepassing is te voor één media groot, slaat Configuration Manager de toepassing over verschillende media. Wanneer de zelfstandige media wordt uitgevoerd, wordt Configuration Manager de gebruiker naar de volgende media waar de toepassing wordt opgeslagen.  
-
-        > [!IMPORTANT]  
-        >  Als u een bestaande .iso-afbeelding selecteert, verwijdert de wizard voor het maken van takenreeksmedia die afbeelding uit het station of de share wanneer u doorgaat naar de volgende pagina van de wizard. De bestaande installatiekopie wordt gewist, zelfs als u de wizard annuleert.  
-
-     Klik op **Volgende**.  
-
-7.  Geef op de pagina **Beveiliging** de volgende opties op en klik dan op **Volgende**.  
-
-    -   Selecteer de **Schakel onbekende computerondersteuning** selectievakje in zodat de media een besturingssysteem implementeren op een computer die niet wordt beheerd door Configuration Manager. Er is geen record van deze computers in de Configuration Manager-database.  
-
-         Onbekende computers omvatten het volgende:  
-
-        -   Een computer waarop de Configuration Manager-client niet is geïnstalleerd  
-
-        -   Een computer die is niet geïmporteerd in Configuration Manager  
-
-        -   Een computer die door Configuration Manager niet is gedetecteerd  
-
-    -   Selecteer het selectievakje **Bescherm de media met een wachtwoord** en voer een sterk wachtwoord in om de media te helpen te beschermen tegen onbevoegde toegang. Wanneer u een wachtwoord opgeeft, moet de gebruiker dat wachtwoord leveren om de opstartbare media te gebruiken.  
+         Si la capacité du média est insuffisante pour stocker l’ensemble du contenu, plusieurs fichiers sont créés et vous devez stocker le contenu sur plusieurs CD ou DVD. Quand plusieurs médias sont nécessaires, Configuration Manager ajoute un numéro de séquence au nom de chaque fichier de sortie qu’il crée. De plus, si vous déployez une application en même temps que le système d’exploitation et que cette application ne peut pas tenir sur un seul média, Configuration Manager stocke l’application sur plusieurs médias. Quand le média autonome est exécuté, Configuration Manager invite l’utilisateur à insérer le média suivant sur lequel l’application est stockée.  
 
         > [!IMPORTANT]  
-        >  Wijs, als een best practice op vlak van beveiliging, altijd een wachtwoord toe om te helpen de opstartbare media te beschermen.  
+        >  Si vous sélectionnez une image .iso existante, l'Assistant Média de séquence de tâches supprime cette image du lecteur ou du partage dès lors que vous passez à la page suivante de l'Assistant. L'image existante est supprimée même si vous annulez ensuite l'Assistant.  
 
-    -   Selecteer **Zelfondertekend certificaat maken**voor HTTP-communicatie en geef vervolgens de begin- en verloopdatum voor het certificaat op.  
+     Cliquez sur **Suivant**.  
 
-    -   Selecteer **PKI-certificaat importeren**voor HTTPS-communicatie en geef vervolgens het certificaat op dat moet worden geïmporteerd met het bijbehorende wachtwoord.  
+7.  Sur la page **Sécurité** , spécifiez les options suivantes, puis cliquez sur **Suivant**.  
 
-         Zie voor meer informatie over dit clientcertificaat dat wordt gebruikt voor opstartinstallatiekopieën [PKI-certificaatvereisten](../../core/plan-design/network/pki-certificate-requirements.md).  
+    -   Cochez la case **Activer la prise en charge d’ordinateur inconnu** pour autoriser le média à déployer un système d’exploitation sur un ordinateur qui n’est pas géré par Configuration Manager. Il n’existe aucun enregistrement de ces ordinateurs dans la base de données Configuration Manager.  
 
-    -   **Affiniteit van gebruikersapparaat**: Ter ondersteuning van de gebruiker gericht beheer in Configuration Manager, moet u opgeven hoe u wilt dat de media gebruikers koppelen aan de doelcomputer. Zie voor meer informatie over hoe gebruikersapparaataffiniteit ondersteuning biedt voor implementatie van besturingssystemen, [gebruikers koppelen aan een doelcomputer](../get-started/associate-users-with-a-destination-computer.md).  
+         Les ordinateurs inconnus sont les suivants :  
 
-        -   Stel **Affiniteit tussen gebruikers en apparaten toestaan met automatische goedkeuring** in als u wilt dat de media gebruikers automatisch koppelen aan de doelcomputer. Deze functionaliteit is gebaseerd op de acties van de takenreeks waardoor het besturingssysteem wordt geïmplementeerd. In dit scenario brengt de takenreeks een relatie tot stand tussen de opgegeven gebruikers en de doelcomputer wanneer deze het besturingssysteem op de doelcomputer implementeert.  
+        -   Un ordinateur sur lequel le client Configuration Manager n’est pas installé  
 
-        -   Stel **Affiniteit tussen gebruikers en apparaten toestaan in afwachting van goedkeuring door beheerder** in als u wilt dat de media gebruikers aan de doelcomputer koppelen nadat er goedkeuring is verleend. Deze functionaliteit is gebaseerd op het bereik van de takenreeks waardoor het besturingssysteem wordt geïmplementeerd.  In dit scenario brengt de takenreeks een relatie tot stand tussen de opgegeven gebruikers en de doelcomputer, maar wordt er gewacht op goedkeuring van een gebruiker met beheerderrechten voordat het besturingssysteem wordt geïmplementeerd.  
+        -   Un ordinateur qui n’est pas importé dans Configuration Manager  
 
-        -   Stel **Geen affiniteit tussen gebruikers en apparaten toestaan** in als niet wilt dat de media gebruikers aan de doelcomputer koppelen. In dit scenario koppelt de takenreeks geen gebruikers aan de doelcomputer wanneer dit het besturingssysteem implementeert.  
+        -   Un ordinateur qui n’est pas détecté par Configuration Manager.  
 
-8.  Geef op de pagina **Opstartinstallatiekopie** de volgende opties op en klik vervolgens op **Volgende**.  
+    -   Activez la case à cocher **Protéger le média à l'aide d'un mot de passe** et entrez un mot de passe fort pour protéger le média contre les accès non autorisés. Lorsque vous spécifiez un mot de passe, l'utilisateur doit fournir ce mot de passe pour utiliser le média de démarrage.  
+
+        > [!IMPORTANT]  
+        >  Une bonne pratique de sécurité consiste à toujours attribuer un mot de passe pour contribuer à protéger les médias de démarrage.  
+
+    -   Pour les communications HTTP, sélectionnez **Créer un certificat de média auto-signé**, puis spécifiez les dates de début et d'expiration du certificat.  
+
+    -   Pour les communications HTTPS, sélectionnez **Importer un certificat PKI**, puis spécifiez le certificat à importer et son mot de passe.  
+
+         Pour plus d’informations sur ce certificat client utilisé pour les images de démarrage, consultez [Configuration requise des certificats PKI](../../core/plan-design/network/pki-certificate-requirements.md).  
+
+    -   **Affinité entre appareil et utilisateur** : pour prendre en charge la gestion centrée sur l’utilisateur dans Configuration Manager, spécifiez la manière dont vous voulez que le média associe des utilisateurs à l’ordinateur de destination. Pour plus d’informations sur la prise en charge de l’affinité entre utilisateur et appareil par le déploiement de systèmes d’exploitation, consultez [Associer des utilisateurs à un ordinateur de destination](../get-started/associate-users-with-a-destination-computer.md).  
+
+        -   Spécifiez **Autoriser une affinité entre périphérique et utilisateur avec approbation automatique** si vous voulez que le média associe automatiquement des utilisateurs à l'ordinateur de destination. Cette fonctionnalité est basée sur les actions de la séquence de tâches qui déploie le système d'exploitation. Dans ce scénario, la séquence de tâches crée une relation entre les utilisateurs spécifiés et l'ordinateur de destination lorsqu'elle déploie le système d'exploitation sur l'ordinateur de destination.  
+
+        -   Spécifiez **Autoriser une affinité entre périphérique et utilisateur en attente de l'approbation de l'administrateur** si vous souhaitez que le média associe des utilisateurs à l'ordinateur de destination une fois l'approbation accordée. Cette fonctionnalité est basée sur l'étendue de la séquence de tâches qui déploie le système d'exploitation.  Dans ce scénario, la séquence de tâches crée une relation entre les utilisateurs spécifiés et l'ordinateur de destination, mais attend l'approbation d'un utilisateur administratif avant le déploiement du système d'exploitation.  
+
+        -   Spécifiez **Ne pas autoriser d'affinité entre périphérique et utilisateur** si vous ne souhaitez pas que le média associe des utilisateurs à l'ordinateur de destination. Dans ce scénario, la séquence de tâches n'associe pas d'utilisateurs à l'ordinateur de destination lorsqu'elle déploie le système d'exploitation.  
+
+8.  Sur la page **Image de démarrage** , spécifiez les options suivantes et cliquez sur **Suivant**.  
 
     > [!IMPORTANT]  
-    >  De architectuur van de opstartinstallatiekopie die wordt gedistribueerd moet toepasselijk zijn voor de architectuur van de doelcomputer. Op een x64-doelcomputer kan een x86- of x64-opstartinstallatiekopie worden opgestart en uitgevoerd. Op een x86-doelcomputer kan echter alleen een x86-opstartinstallatiekopie worden opgestart en uitgevoerd.  
+    >  L'architecture de l'image de démarrage qui est distribuée doit être adaptée à l'architecture de l'ordinateur de destination. Par exemple, un ordinateur de destination x64 peut démarrer et exécuter une image de démarrage x86 ou x64. Toutefois, un ordinateur de destination x86 peut démarrer et exécuter uniquement une image de démarrage x86.  
 
-    -   Geef in het vakje **Opstartinstallatiekopie** de opstartinstallatiekopie op om de doelcomputer op te starten.  
+    -   Dans la zone **Image de démarrage** , spécifiez l'image de démarrage pour démarrer l'ordinateur de destination.  
 
-    -   Geef in het vak **Distributiepunt** het distributiepunt op waar de installatiekopie is opgeslagen. De wizard haalt de opstartinstallatiekopie op van het distributiepunt en schrijft deze naar de media.  
+    -   Dans la zone **Point de distribution** , spécifiez le point de distribution où réside l'image de démarrage. L'Assistant extrait l'image de démarrage à partir du point de distribution et l'écrit sur le média.  
 
         > [!NOTE]  
-        >  U moet over het toegangsrecht **Lezen** beschikken voor de inhoudsbibliotheek op het distributiepunt.  
+        >  Vous devez disposer de droits d’accès en **Lecture** à la bibliothèque de contenu sur le point de distribution.  
 
-    -   Als u site-gebaseerde opstartbare media op de pagina **Mediabeheer** van de wizard maakt, geeft u in het vak **Beheerpunt** een beheerpunt op van een primaire site.  
+    -   Si vous créez un média de démarrage basé sur le site dans la page **Gestion du média** de l’Assistant, spécifiez un point de gestion à partir d’un site principal dans la zone **Point de gestion** .  
 
-    -   Als u dynamische opstartbare media maakt op de pagina **Mediabeheer** van de wizard, geeft u in **Gekoppelde beheerpunten**de beheerpunten van de primaire site die moeten worden gebruikt en een prioriteitsvolgorde voor de eerste communicatie op.  
+    -   Si vous créez un média de démarrage dynamique dans la page **Gestion du média** de l’Assistant, spécifiez les points de gestion de site principal à utiliser et un ordre de priorité pour les communications initiales dans **Points de gestion associés**.  
 
-9. Geef op de pagina **Aanpassing** de volgende opties op en klik dan op **Volgende**.  
+9. Sur la page **Personnalisation** , spécifiez les options suivantes et cliquez sur **Suivant**.  
 
-    -   Geef de variabelen op die de takenreeks gebruikt voor het implementeren van het besturingssyteem.  
+    -   Spécifiez les variables que la séquence de tâches utilise pour déployer le système d'exploitation.  
 
-    -   Geef eventuele prestart-opdrachten op die u wilt uitvoeren voordat de takenreeks wordt uitgevoerd. Prestart-opdrachten bestaan uit een script of een uitvoerbaar bestand dat kan communiceren met de gebruiker in Windows PE voordat de takenreeks wordt uitgevoerd om het besturingssysteem te installeren. Zie voor meer informatie [Prestart-opdrachten voor takenreeksmedia](../understand/prestart-commands-for-task-sequence-media.md).  
+    -   Spécifiez les commandes de prédémarrage que vous voulez exécuter avant l'exécution de la séquence de tâches. Les commandes de prédémarrage sont un script ou un exécutable qui peut interagir avec l'utilisateur dans Windows PE avant que la séquence de tâches s'exécute pour installer le système d'exploitation. Pour plus d’informations, consultez [Commandes de prédémarrage pour les médias de séquence de tâches](../understand/prestart-commands-for-task-sequence-media.md).  
 
         > [!TIP]  
-        >  Tijdens het maken van taak de media schrijft de takenreeks de pakket-ID en prestart-opdrachtregel, inclusief de waarde voor eventuele takenreeksvariabelen, naar het logboekbestand CreateTSMedia.log op de computer waarop de Configuration Manager-console. U kunt dit logboekbestand controleren om de waarde voor de takenreeksvariabelen te verifiëren.  
+        >  Lors de la création du média de séquence de tâches, la séquence de tâches écrit l’ID du package et la ligne de commande de prédémarrage, y compris la valeur des variables de la séquence de tâches, dans le fichier journal CreateTSMedia.log sur l’ordinateur qui exécute la console Configuration Manager. Vous pouvez consulter ce fichier journal pour vérifier la valeur des variables de séquence de tâches.  
 
-         Selecteer optioneel het selectievakje **Bestand voor de prestart opdracht** om vereiste bestanden op te nemen voor de prestart-opdracht.  
+         Si vous le souhaitez, activez la case à cocher **Fichiers pour la commande de prédémarrage** pour inclure tous les fichiers requis pour la commande de prédémarrage.  
 
-10. Voltooi de wizard.  
+10. Effectuez toutes les étapes de l'Assistant.  
 
-## <a name="create-bootable-media-on-a-usb-drive-from-a-network-share"></a>Opstartbare media maken op een USB-station vanaf een netwerkshare
-De informatie in deze sectie helpt u opstartbare media maken op een USB-flashstation, wanneer het flash-station is niet verbonden met de computer waarop de Configuration Manager-console wordt uitgevoerd. De opstartbare media maken op het USB-station, kunt u boot takenreeksmedia maken, ISO koppelen en de bestanden van de ISO overbrengen naar het USB-station.
+## <a name="create-bootable-media-on-a-usb-drive-from-a-network-share"></a>Créer un média de démarrage sur un lecteur USB à partir d’un partage réseau
+Les informations fournies dans cette section indiquent comment créer un média de démarrage sur un lecteur flash USB qui n’est pas connecté à l’ordinateur exécutant la console Configuration Manager. Pour créer le média de démarrage sur le lecteur USB, vous pouvez créer le média de démarrage de séquence de tâches, monter l’image ISO, puis transférer les fichiers de l’image ISO sur le lecteur USB.
 
-1. [Het opstarten van de takenreeksmedia maken](#to-create-task-boobable-media). Op de **mediatype** pagina **CD/DVD-set**. De wizard schrijft de uitvoerbestanden naar de locatie die u opgeeft. Bijvoorbeeld:  **\\\servername\folder\outputfile.iso**.  
-2. Bereid het verwisselbare USB-station. Het station moet worden geformatteerd, leeg en opstartbaar.
-3. De ISO koppelen vanuit de sharelocatie en de bestanden van de ISO overbrengen naar het USB-station.
+1. [Créez le média de démarrage de séquence de tâches](#to-create-task-boobable-media). Dans la page **Type de média**, sélectionnez **Ensemble CD/DVD**. L’Assistant écrit les fichiers de sortie à l’emplacement que vous spécifiez. Par exemple : **\\\nom_serveur\dossier\fichier_sortie.iso**.  
+2. Préparez le lecteur USB amovible. Le lecteur doit être formaté, vide et démarrable.
+3. Montez l’image ISO à partir de l’emplacement du partage, puis transférez les fichiers de l’image ISO sur le lecteur USB.
 
-## <a name="next-steps"></a>Volgende stappen  
-[Opstartbare media gebruiken om Windows te implementeren via het netwerk](use-bootable-media-to-deploy-windows-over-the-network.md)  
+## <a name="next-steps"></a>Étapes suivantes  
+[Utiliser un média de démarrage pour déployer Windows sur le réseau](use-bootable-media-to-deploy-windows-over-the-network.md)  

@@ -1,6 +1,6 @@
 ---
-title: Beveiliging en privacy voor software-updates | Microsoft Docs
-description: Volg deze best practices voor beveiliging voor software-updates en meer informatie over hoe Configuration Manager privacy-informatie verwerkt.
+title: "Sécurité et confidentialité pour les mises à jour logicielles | Microsoft Docs"
+description: "Adoptez ces bonnes pratiques pour la sécurité des mises à jour logicielles et découvrez comment Configuration Manager gère les informations de confidentialité."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,59 +13,59 @@ ms.technology: configmgr-sum
 ms.assetid: 41d6d5d8-ba84-4efb-b105-4d1eed239824
 ms.openlocfilehash: 4b4f045138abc14b6e93b3b990c5f3a8b4f2f952
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-software-updates-in-system-center-configuration-manager"></a>Beveiliging en privacy voor software-updates in System Center Configuration Manager
+# <a name="security-and-privacy-for-software-updates-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour les mises à jour logicielles dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Dit onderwerp bevat beveiligings- en privacy-informatie voor software-updates in System Center Configuration Manager.  
+Cette rubrique contient des informations de sécurité et de confidentialité pour les mises à jour logicielles dans System Center Configuration Manager.  
 
-##  <a name="BKMK_Security_HardwareInventory"></a> Aanbevolen beveiligingsprocedures voor software-updates  
- Gebruik de volgende aanbevolen beveiligingsprocedures wanneer u software-updates implementeert op clients:  
+##  <a name="BKMK_Security_HardwareInventory"></a> Bonnes pratiques concernant les mises à jour logicielles  
+ Utilisez ces meilleures pratiques de sécurité lorsque vous déployez des mises à jour logicielles vers des clients :  
 
--   Zorg dat u de standaardmachtigingen voor software-updatepakketten niet wijzigt.  
+-   Ne modifiez pas les autorisations par défaut des packages de mises à jour logicielles.  
 
-     Software-updatepakketten worden standaard zodanig ingesteld dat beheerders **Volledig beheer** hebben en gebruikers de toegang **Lezen** hebben. Als u deze machtigingen wijzigt, kunnen kwaadwillende personen hierdoor mogelijk software-updates toevoegen of verwijderen.  
+     Par défaut, les packages de mises à jour logicielles sont définis pour permettre aux administrateurs d'avoir un **Contrôle intégral** et aux utilisateurs d'avoir un accès en **Lecture** . La modification de ces autorisations pourrait permettre à un attaquant d'ajouter, de retirer ou de supprimer des mises à jour logicielles.  
 
--   Beheer de toegang tot de downloadlocatie voor software-updates.  
+-   Contrôlez l'accès à l'emplacement de téléchargement des mises à jour logicielles.  
 
-     De computeraccounts voor de SMS-provider, de siteserver en de gebruiker met beheerdersrechten die de software-updates daadwerkelijk downloadt naar de downloadlocatie, hebben de toegang **Schrijven** nodig voor de downloadlocatie. Beperk de toegang tot de downloadlocatie om het risico te beperken dat kwaadwillende personen knoeien met de bronbestanden van software-updates op de downloadlocatie.  
+     Les comptes d'ordinateur pour le fournisseur SMS, le serveur de site et l'utilisateur administratif qui téléchargeront les mises à jour logicielles vers l'emplacement de téléchargement doivent avoir un accès en **Écriture** à cet emplacement. Limitez l'accès à l'emplacement de téléchargement pour éviter que des personnes malveillantes ne falsifient les fichiers sources des mises à jour logicielles.  
 
-     Als u bovendien een UNC-share gebruikt voor de downloadlocatie, beveiligt u het netwerkkanaal door IPsec of SMB-ondertekening te gebruiken om te voorkomen dat er wordt geknoeid met de bronbestanden van software-updates wanneer deze via het netwerk worden overgedragen.  
+     En outre, si vous utilisez un partage UNC pour l'emplacement de téléchargement, sécurisez le canal réseau à l'aide d'une signature IPsec ou SMB pour éviter la falsification des fichiers sources des mises à jour logicielles lorsqu'ils sont transférés sur le réseau.  
 
--   Gebruik UTC om implementatietijden te evalueren.  
+-   Utilisez le temps universel coordonné (UTC) pour évaluer les temps de déploiement.  
 
-     Als u de lokale tijd gebruikt in plaats van UTC, kunnen gebruikers mogelijk de installatie van software-updates vertragen door de tijdzone op hun computers te wijzigen.  
+     Si vous utilisez l'heure locale au lieu de l'heure UTC, les utilisateurs pourraient retarder l'installation des mises à jour logicielles en changeant le fuseau horaire sur leurs ordinateurs.  
 
--   Schakel SSL op Windows Server Update Services (WSUS) in en volg de aanbevolen procedures om WSUS te beveiligen.  
+-   Activez SSL sur WSUS, puis suivez les meilleures pratiques pour la sécurisation de Windows Server Update Services (WSUS).  
 
-     Bepaal en volg de aanbevolen beveiligingsprocedures voor de versie van WSUS die u met Configuration Manager gebruiken.  
+     Identifiez et adoptez les bonnes pratiques de sécurité pour la version de WSUS que vous utilisez avec Configuration Manager.  
 
     > [!IMPORTANT]  
-    >  Als u het software-updatepunt zodanig configureert dat SSL-communicatie voor de WSUS-server wordt ingeschakeld, moet u virtuele roots voor SSL configureren op de WSUS-server.  
+    >  Si vous configurez le point de mise à jour logicielle pour activer les communications SSL pour le serveur WSUS, vous devez configurer SSL pour les racines virtuelles sur le serveur WSUS.  
 
--   Schakel CRL-controle in.  
+-   Activez la vérification de la liste de révocation de certificats.  
 
-     Configuration Manager controleert standaard niet de certificaatintrekkingslijst (CRL) om te controleren of de handtekening van software-updates voordat ze worden geïmplementeerd op computers. Door de CRL te raadplegen elke keer dat er een certificaat wordt gebruikt, bent u beter beschermd tegen het gebruik van een ingetrokken certificaat. Hierdoor ontstaat echter ook een vertraging in de verbinding en vinden er extra verwerkingsactiviteiten plaats op de computer die de CRL-controle uitvoert.  
+     Par défaut, Configuration Manager ne consulte pas la liste de révocation de certificats (CRL) pour vérifier la signature des mises à jour logicielles avant de les déployer sur les ordinateurs. La vérification de la liste de révocation de certificats à chaque utilisation d'un certificat est une sécurité supplémentaire qui permet de ne pas utiliser de certificat révoqué. Toutefois, elle implique un délai de connexion et un traitement supplémentaire sur l'ordinateur qui l'effectue.  
 
-     Voor meer informatie over het inschakelen van CRL-controle voor software-updates, Zie [het inschakelen van CRL-controle voor software-updates in System Center Configuration Manager](../get-started/manage-settings-for-software-updates.md#crl-checking-for-software-updates).  
+     Pour plus d’informations sur l’activation de la vérification de la liste de révocation des certificats pour les mises à jour logicielles, consultez [Guide pratique pour activer la vérification de la liste de révocation de certificats pour les mises à jour logicielles dans System Center Configuration Manager](../get-started/manage-settings-for-software-updates.md#crl-checking-for-software-updates).  
 
--   Configureer WSUS voor het gebruik van een aangepaste website.  
+-   Configurez WSUS pour utiliser un site Web personnalisé.  
 
-     Wanneer u WSUS installeert op het software-updatepunt, kunt u kiezen of u de bestaande standaardwebsite van IIS wilt gebruiken of een aangepaste WSUS-website wilt maken. Maak een aangepaste website voor WSUS, zodat de WSUS-services in een speciale virtuele website in plaats van dezelfde website die wordt gebruikt door de andere Configuration Manager-sitesystemen of andere toepassingen delen door IIS worden gehost.  
+     Lorsque vous installez WSUS sur le point de mise à jour logicielle, vous avez la possibilité d'utiliser le site Web IIS par défaut existant ou créer un site Web WSUS personnalisé. Créez un site Web personnalisé pour WSUS de sorte que les services Internet hébergent les services WSUS dans un site Web virtuel dédié plutôt que de partager le même site Web que celui utilisé par les autres systèmes de site Configuration Manager ou d'autres applications.  
 
-     Zie voor meer informatie [WSUS configureren voor gebruik van een aangepaste website](plan-for-software-updates.md#BKMK_CustomWebSite).  
+     Pour plus d’informations, consultez [Configurer WSUS pour utiliser un site web personnalisé](plan-for-software-updates.md#BKMK_CustomWebSite).  
 
-##  <a name="BKMK_Privacy_HardwareInventory"></a>Privacy-informatie voor software-updates  
- Bij software-updates worden uw clientcomputers gescand om te bepalen welke updates u nodig hebt. Vervolgens wordt die informatie teruggestuurd naar de sitedatabase. Tijdens het software-updates wordt kan Configuration Manager informatie verzenden tussen clients en servers die de computer en het aanmeldingsaccount identificeren.  
+##  <a name="BKMK_Privacy_HardwareInventory"></a> Informations de confidentialité pour les mises à jour logicielles  
+ Les mises à jour logicielles analysent vos ordinateurs clients pour connaître les mises à jour requises et renvoient les informations à la base de données de site. Pendant le processus de mise à jour logicielle, Configuration Manager peut faire circuler, entre les clients et les serveurs, des informations qui permettent d’identifier les comptes d’ordinateur et d’ouverture de session.  
 
- Configuration Manager houdt de statusinformatie over de software-implementatieproces. Statusinformatie wordt niet versleuteld tijdens de overdracht of opslag. Statusinformatie wordt opgeslagen in de Configuration Manager-database en wordt deze verwijderd door de onderhoudstaken van de database. Er wordt geen statusinformatie verzonden naar Microsoft.  
+ Configuration Manager gère les informations d’état relatives au processus de déploiement de logiciels. Les informations d'état ne sont pas chiffrées au cours de la transmission ou du stockage. Les informations d’état sont stockées dans la base de données Configuration Manager et sont supprimées par les tâches de maintenance de la base de données. Aucune information d'état n'est renvoyée à Microsoft.  
 
- Het gebruik van Configuration Manager software-updates voor het installeren van software-updates op clientcomputers mogelijk onderworpen aan softwarelicentievoorwaarden voor die updates dat is gescheiden van de gebruiksrechtovereenkomst voor System Center Configuration Manager. Controleer altijd of u akkoord gaat met de licentievoorwaarden voor Software voordat u de software-updates installeert met behulp van Configuration Manager.  
+ L’utilisation des mises à jour logicielles Configuration Manager pour installer les mises à jour logicielles sur les ordinateurs clients peut être soumise à un contrat de licence indépendant du contrat de licence logiciel de System Center Configuration Manager. Consultez et acceptez toujours les termes du contrat de licence logicielle pour pouvoir installer les mises à jour logicielles à l’aide de Configuration Manager.  
 
- Configuration Manager software-updates niet standaard geïmplementeerd en vereist verschillende configuratiestappen voordat gegevens worden verzameld.  
+ Configuration Manager n’implémente pas les mises à jour logicielles par défaut et requiert plusieurs étapes de configuration avant de collecter les informations.  
 
- Voordat u software-updates configureert, moet u nadenken over uw privacyvereisten.  
+ Avant de configurer les mises à jour logicielles, réfléchissez à vos besoins en matière de confidentialité.  

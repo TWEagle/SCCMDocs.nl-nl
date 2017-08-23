@@ -1,6 +1,6 @@
 ---
-title: Update-catalogussen beheren | Microsoft Docs
-description: Software-update-catalogussen beheren voor System Center Updates Publisher
+title: "Gérer des catalogues de mises à jour | Microsoft Docs"
+description: "Gérer des catalogues de mises à jour logicielles pour l’éditeur de mise à jour System Center"
 ms.custom: na
 ms.date: 4/29/2017
 ms.prod: configuration-manager
@@ -17,89 +17,89 @@ manager: angrobe
 robots: NOINDEX, NOFOLLOW
 ms.openlocfilehash: 7451d699e0e5e146b0538a57deca595188d113bf
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-software-update-catalogs-in-updates-publisher"></a>Software-update catalogussen in Updates Publisher beheren
+# <a name="manage-software-update-catalogs-in-updates-publisher"></a>Gérer des catalogues de mises à jour logicielles dans l’éditeur de mise à jour
 
-*Van toepassing op: System Center Updates Publisher*
+*S’applique à : l'éditeur de mise à jour System Center*
 
-Gebruik de **catalogussen** **werkruimte** voor het beheren van software-update catalogussen. Dit omvat nieuwe catalogussen, bestaande catalogus-abonnementen beheren en informatie over de updates te importeren uit een catalogus naar de opslagplaats voor Updates Publisher toe te voegen.
+Utilisez l’**espace de travail** **Catalogues** pour gérer les catalogues de mises à jour logicielles. Cela inclut l’ajout de nouveaux catalogues, la gestion d’abonnements à des catalogues existants et l’importation d’informations sur les mises à jour d’un catalogue vers le référentiel de l’éditeur de mise à jour.
 
-Software-update catalogussen bevatten informatie over verwante updates die zijn gemaakt door organisaties dan Microsoft. Andere organisaties kunnen uw eigen organisatie en de software van derden leveranciers die hun catalogussen hebt geregistreerd bij Microsoft. Geregistreerde catalogi van softwareleveranciers heten *catalogussen partner*. Catalogussen die u maakt en die niet zijn geregistreerd bij Microsoft, worden genoemd *gebruiker* catalogussen.
+Les catalogues de mises à jour logicielles contiennent des informations sur les mises à jour créées par des organisations autres que Microsoft. Ces autres organisations incluent votre propre organisation et les fournisseurs de logiciels tiers qui ont inscrit leurs catalogues auprès de Microsoft. Les catalogues inscrits par des fournisseurs de logiciels sont appelés *catalogues partenaires*. Les catalogues que vous créez et qui ne sont pas inscrits auprès de Microsoft sont appelés catalogues *utilisateur*.
 
-## <a name="add-software-update-catalogs"></a>Software-update catalogi toevoegen
-Voordat u de updates die deze bevat kunt beheren, moet u een update-catalogus toevoegen in Updates Publisher. Wanneer u een catalogus met Updates Publisher toevoegt:
--   Maakt een abonnement op die catalogus, zodat u kunt op updates voor deze catalogus controleren.
--   De catalogus toegevoegd aan een lijst aan in de **mijn Software-Update catalogussen** venster van de **catalogussen werkruimte**.  
+## <a name="add-software-update-catalogs"></a>Ajouter des catalogues de mises à jour logicielles
+Vous devez ajouter un catalogue de mises à jour à l’éditeur de mise à jour avant de pouvoir gérer les mises à jour qu’il contient. Lorsque vous ajoutez un catalogue, l’éditeur de mise à jour :
+-   Crée un abonnement à ce catalogue afin de pouvoir vérifier les mises à jour de ce catalogue.
+-   Ajoute le catalogue à une liste dans la fenêtre **Mes catalogues de mises à jour logiciels** de l**’espace de travail Catalogues**.  
 
-Informatie over elke geabonneerde catalogus is beschikbaar in de console. Informatie bevat de download-URL of locatie, de naam van het bedrijf of organisatie die de catalogus hebt gemaakt en wanneer deze het laatst ingevoerd of gewijzigd.
+Vous trouverez dans la console des informations sur chaque catalogue auquel vous êtes abonné. Ces Informations incluent l’URL ou l’emplacement de téléchargement, le nom de la société ou de l’organisation qui a créé le catalogue, et la date de la dernière importation ou modification.
 
-Updates Publisher kan automatisch Controleer uw abonnementen voor wijzigingen telkens wanneer die deze wordt gestart. Dit is geconfigureerd als een [geavanceerde optie](/sccm/sum/tools/updates-publisher-options#advanced). Wanneer geconfigureerd, verwijst de download-URL of locatie-informatie voor het abonnement en waarschuwingen u wanneer er wijzigingen in de catalogus die zijn aangebracht sinds de laatste keer dat u deze hebt geïmporteerd in de opslagplaats naar in Updates Publisher.
+À chaque démarrage, l’éditeur de mise à jour peut vérifier automatiquement les modifications apportées aux abonnements. Ce paramètre est configuré comme une [option avancée](/sccm/sum/tools/updates-publisher-options#advanced). Dans ce cas, l’éditeur de mise à jour référence les informations concernant l’URL ou l’emplacement de téléchargement pour l’abonnement et vous alerte lorsque des modifications ont été apportées au catalogue depuis la dernière fois que vous l’avez importé dans le référentiel.
 
-Handmatig om te controleren of bijwerken van de catalogus, selecteert u de catalogus van de **Mijn catalogi van Software-Update** lijst en kies vervolgens **vernieuwen** vanuit het lint.
+Pour rechercher manuellement une mise à jour de catalogue, sélectionnez le catalogue dans la liste **Mes catalogues de mises à jour logicielles**, puis choisissez **Actualiser** dans le ruban.
 
-Naast de catalogussen toe te voegen en informatie over geabonneerde catalogussen weergeven, kunt u:
--  **Bewerken** informatie voor *gebruiker* catalogussen.
--  **Verwijder** (verwijderen) een catalogus van Updates Publisher.
--  **Importeren** updates van een catalogus in de opslagplaats voor Updates Publisher. Wanneer u updates hebt geïmporteerd, kunt u alle updates die in die catalogus importeren. Vervolgens kunt u de updates bekijken in de werkruimte Updates waar u kunt selecteren en updates publiceren naar de updateserver.
+Outre l’ajout de catalogues et l’affichage des informations sur les catalogues auxquels vous êtes abonné, vous pouvez :
+-  **Modifier** les informations concernant les catalogues *utilisateur*.
+-  **Supprimer** un catalogue de l’éditeur de mise à jour.
+-  **Importer** des mises à jour d’un catalogue vers le référentiel de l’éditeur de mise à jour. Lorsque vous importez des mises à jour, vous importez toutes les mises à jour contenues dans ce catalogue. Vous pouvez ensuite afficher les mises à jour dans l’espace de travail Mises à jour, où vous pouvez ensuite sélectionner et publier des mises à jour vers le serveur de mise à jour.
 
 > [!NOTE]   
-> Verwijderen van een catalogus van Updates Publisher resulteert in de updates in die catalogus wordt verwijderd van uw opslagplaats. Dit heeft geen invloed op de updates die u op de updateserver hebt gepubliceerd. Als updates wilt verwijderen van uw server bijwerken die niet langer in de opslagplaats, Zie [zonder software-updates verlopen](/sccm/sum/tools/updates-publisher-options#expire-unreferenced-software-updates).
+> La suppression d’un catalogue de l’éditeur de mise en jour entraîne la suppression des mises à jour de ce catalogue de votre référentiel. Cela n’affecte pas les mises à jour que vous avez publiées sur votre serveur de mise à jour. Pour supprimer de votre serveur de mise à jour des mises à jour qui ne figurent plus dans votre référentiel, consultez la rubrique [Faire expirer des mises à jour logicielles non référencées](/sccm/sum/tools/updates-publisher-options#expire-unreferenced-software-updates).
 
-## <a name="manage-update-catalogs"></a>Update-catalogussen beheren
-Vindt u de lijst catalogussen die u hebt geïmporteerd in de **mijn Software-Update catalogussen** venster van de **catalogussen werkruimte**. Vanuit deze werkruimte kunt u het volgende doen:
+## <a name="manage-update-catalogs"></a>Gérer des catalogues de mises à jour
+Vous pouvez afficher la liste des catalogues que vous avez importés dans la fenêtre **Mes catalogues de mises à jour logiciels** de l**’espace de travail Catalogues**. À partir de cet espace de travail, vous pouvez :
 
--   **Een partner-catalogus toevoegen:** Gebruik een van de volgende nieuwe partner catalogussen vinden:
+-   **Ajouter un catalogue partenaire :** utilisez l’une des opérations suivantes pour rechercher des catalogues partenaires :
 
-    -   Ga in de console naar **werkruimte Updates** > **overzicht**. In de **aan de slag** venster kiezen **Partner Software-Updates catalogussen toevoegen**.
+    -   Dans la console, accédez à l**’espace de travail Mises à jour** > **Vue d’ensemble**. Dans la fenêtre **Prise en main**, choisissez **Ajouter des catalogues de mises à jour logicielles partenaires**.
 
-    -   Ga in de console naar **catalogussen werkruimte** > **mijn catalogussen**. Kies vervolgens vanuit het lint **catalogussen toevoegen**.
+    -   Dans la console, accédez à l**’espace de travail Catalogues** > **Mes catalogues**. Puis, dans le ruban, choisissez **Ajouter des catalogues**.
 
--   **Een Gebruikerscatalogus toevoegen:** Ga in de console naar **catalogussen werkruimte** > **mijn catalogussen**. Kies vervolgens vanuit het lint **catalogussen toevoegen**. Naast de locatie van het CAB-bestand, moet u een Publisher, naam en beschrijving voor het identificeren van de catalogus.
+-   **Ajouter un catalogue utilisateur :** dans la console, accédez à l**’espace de travail Catalogues** > **Mes catalogues**. Puis, dans le ruban, choisissez **Ajouter des catalogues**. Outre l’emplacement du fichier .cab, vous devez spécifier un éditeur, un nom et une description pour identifier le catalogue.
 
 
--   **Controleren op updates voor catalogussen:** Selecteer een of meer catalogussen en kies vervolgens **vernieuwen** vanuit het lint.
+-   **Rechercher les mises à jour des catalogues :** sélectionnez un ou plusieurs catalogues, puis choisissez **Actualiser** dans le ruban.
 
--   **Een Gebruikerscatalogus bewerken:** Selecteer een *gebruiker* catalogus en kies vervolgens **bewerken** vanuit het lint. U kunt de gebruiker gedefinieerde eigenschappen wijzigen.
+-   **Modifier un catalogue utilisateur :** sélectionnez un catalogue *utilisateur*, puis choisissez **Modifier** dans le ruban. Vous pouvez ensuite modifier les propriétés définies par l’utilisateur.
 
--   **Catalogi verwijderen:** Selecteer een of meer catalogussen en kies vervolgens **verwijderen** vanuit het lint. Hiermee verwijdert u de catalogus, uw abonnement en de updates uit die catalogi van uw opslagplaats Updates Publisher.
+-   **Supprimer des catalogues :** sélectionnez un ou plusieurs catalogues, puis choisissez **Supprimer** dans le ruban. Cette opération supprime le catalogue, votre abonnement et les mises à jour de ces catalogues du référentiel de votre éditeur de mise à jour.
 
--   **Updates van een catalogus toevoegen aan uw opslagplaats**: Kies **importeren** vanuit het lint op start de **Import Catalog** wizard. Zie voor meer infomration [-updates importeren](#import-updates)
+-   **Ajouter des mises à jour d’un catalogue à votre référentiel**: choisissez **Importer** dans le ruban pour démarrer l’Assistant **Importation de catalogue**. Pour plus d’informations, consultez la rubrique [Importer des mises à jour](#import-updates)
 
-## <a name="import-updates"></a>Updates importeren
-Wanneer u een catalogus importeert, voegt Manager Updates de updates vanaf die catalogus naar de opslagplaats voor Updates Publisher. Nadat updates hebt geïmporteerd, kunt u ze kunt publiceren naar de updateserver zodat ze beschikbaar zijn op beheerde apparaten.
+## <a name="import-updates"></a>Importer des mises à jour
+Lorsque vous importez un catalogue, Updates Manager ajoute les mises à jour de ce catalogue vers le référentiel de l’éditeur de mise à jour. Une fois les mises à jour importées, vous pouvez les publier sur votre serveur de mise à jour pour les mettre à disposition des appareils gérés.
 
-### <a name="to-import-updates"></a>Om updates te importeren
-1.  Starten de **Import Catalog** wizard kiezen **importeren** vanuit het lint in een van de volgende werkruimtes:
+### <a name="to-import-updates"></a>Pour importer des mises à jour
+1.  Pour démarrer l’Assistant **Importation de catalogue**, choisissez **Importer** dans le ruban des espaces de travail suivants :
 
-    -   Catalogussen werkruimte
+    -   Espace de travail Catalogues
 
-    -   Werkruimte updates
+    -   Espace de travail Mises à jour
 
-2.  Op de **importtype** pagina, selecteert u een of meer catalogussen die u hebt toegevoegd in Updates Publisher of geef een pad naar een catalogus u nog niet hebt toegevoegd als een abonnement. Gekozen **volgende** wilt weergeven van de samenvatting en als u klaar bent, kiest u **volgende** importeren te beginnen.
+2.  Sur la page **Type d’importation**, sélectionnez un ou plusieurs catalogues que vous avez ajoutés à l’éditeur de mise à jour, ou spécifiez un chemin d’accès à un catalogue que vous n’avez pas encore ajouté comme abonnement. Choisissez **Suivant** pour afficher l’écran de résumé puis, lorsque vous êtes prêt, cliquez sur **Suivant** pour démarrer l’importation.
 
-3.  Op de **beveiligingswaarschuwing-validatie catalogus** venster, bekijk het certificaat van de catalogus, en als u klaar bent, hebt geselecteerd **accepteren** om de updates te importeren.
+3.  Dans la fenêtre **Avertissement de sécurité : validation du catalogue**, examinez le certificat du catalogue puis, lorsque vous êtes prêt, choisissez **Accepter** pour importer les mises à jour.
 
     > [!CAUTION]    
-    > Updates alleen van uitgevers die u vertrouwt accepteren. Software-updates van uitgevers die geen vertrouwde kunnen toebrengen clientcomputers bij het scannen op updates.
+    > Acceptez uniquement les mises à jour d’éditeurs de confiance. Les mises à jour logicielles provenant d’éditeurs qui n’ont pas été approuvés peuvent endommager les ordinateurs clients lors de la recherche de mises à jour.
 
-    >  Als u een uitgever niet langer vertrouwt, verwijdert u deze uitgever uit de lijst met vertrouwde uitgevers. Voor meer informatie over catalogussen worden geaccepteerd, klikt u **Vertel Me meer** in de **beveiligingswaarschuwing-validatie catalogus** in het dialoogvenster.
+    >  Si vous n’approuvez plus un éditeur, supprimez-le de la liste des éditeurs approuvés. Pour plus d’informations sur l’acceptation de catalogues, cliquez sur **En savoir plus** dans la boîte de dialogue **Avertissement de sécurité : validation du catalogue**.
 
-    Als u altijd accepteren catalogi van een uitgever kiest, die uitgever is toegevoegd aan de [lijst met vertrouwde uitgevers](/sccm/sum/tools/updates-publisher-options#trusted-publishers). U kunt bekijken en bewerken van deze lijst als een optie voor Updates Publisher.
+    Si vous souhaitez toujours accepter les catalogues provenant d’un éditeur, cet éditeur est ajouté à la [liste des éditeurs approuvés](/sccm/sum/tools/updates-publisher-options#trusted-publishers). Vous pouvez consulter et modifier cette liste comme une option de l’éditeur de mise à jour.
 
-4.  Slaat het importeren van een update importeren wanneer de update al in de opslagplaats is en een van de volgende van toepassing is:
+4.  L’importation ignore les mises à jour qui figurent déjà dans le référentiel et si l’une des opérations suivantes est vraie :
 
-    -   De update is ongewijzigd ten opzichte van de laatste keer dat deze is geïmporteerd.
+    -   La mise à jour n’a pas été modifiée depuis qu’elle a été importée.
 
-    -   De update is bewerkt en een nieuwe digitale hash. Het bewerken van een update wordt voorkomen dat een nieuwe update wordt de oorspronkelijke overschreven, aangezien dit wijzigingen die u hebt geïmplementeerd wilt overschrijven.
+    -   La mise à jour a été modifiée et contient un nouveau hachage numérique. La modification d’une mise à jour empêche le remplacement d’une nouvelle mise à jour car cela entraînerait la suppression des modifications que vous auriez déployées.
 
-5.  Op de **bevestiging** pagina bekijkt u de resultaten importeren.
+5.  Sur la page **Confirmation**, examinez les résultats de l’importation.
 
-6.  Klik op **sluiten** om de wizard te voltooien. U kunt nu de updates voor deze catalogus weergeven in de werkruimte Updates.
+6.  Cliquez sur **Fermer** pour terminer l’Assistant. Vous pouvez désormais afficher les mises à jour de ce catalogue dans l’espace de travail Mises à jour.
 
-## <a name="next-steps"></a>Volgende stappen
-Wanneer u updates hebt geïmporteerd, wordt er algemene acties omvatten:
--   [Updates beheren](/sccm/sum/tools/manage-updates-with-updates-publisher) om te bundelen, toewijzen en deze update-server te implementeren.
--   [Maken van regels voor toepasselijkheid](/sccm/sum/tools/updates-publisher-applicability-rules) om te bepalen wanneer updates implementeert voor de updateserver.
+## <a name="next-steps"></a>Étapes suivantes
+Après avoir importé les mises à jour, les actions courantes sont les suivantes :
+-   [Gérer les mises à jour](/sccm/sum/tools/manage-updates-with-updates-publisher) pour les regrouper, les affecter et les déployer sur votre serveur de mise à jour.
+-   [Créer des règles de mise en application](/sccm/sum/tools/updates-publisher-applicability-rules) pour mieux déterminer le moment où les mises à jour sont déployées sur le serveur de mise à jour.

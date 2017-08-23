@@ -1,6 +1,6 @@
 ---
-title: Site-rol systeemopties | Microsoft Docs
-description: Raadpleeg dit artikel voor meer informatie over Configuration Manager-sitesysteemrollen die niet noodzakelijkerwijs spreken voor zich.
+title: "Options des rôles de système de site | Microsoft Docs"
+description: "Pour plus d’informations sur les rôles de système de site Configuration Manager qui ne sont pas nécessairement explicites, consultez cet article."
 ms.custom: na
 ms.date: 2/8/2017
 ms.prod: configuration-manager
@@ -16,139 +16,139 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: b4db5d86cc0ed020ed176feb2e8f1f9dc51a2280
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configuration-options-for-site-system-roles-for-system-center-configuration-manager"></a>Configuratie-opties voor sitesysteemrollen voor System Center Configuration Manager
+# <a name="configuration-options-for-site-system-roles-for-system-center-configuration-manager"></a>Options de configuration pour les rôles de système de site pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-De meeste configuratieopties voor System Center Configuration Manager-sitesysteemrollen behoeven geen uitleg of worden beschreven in de wizard of dialoogvensters over gegeven wanneer u ze configureren. De volgende secties worden de sitesysteemrollen waarvan u de instellingen kunnen bijkomende informatie vereisen.  
+La plupart des options de configuration pour les rôles de système de site System Center Configuration Manager sont explicites ou décrites dans l’Assistant ou des boîtes de dialogue lors de la configuration. Les sections suivantes expliquent les rôles de système de site dont les paramètres peuvent nécessiter des informations supplémentaires.  
 
-##  <a name="BKMK_ApplicationCatalog_Website"></a>Application Catalog-websitepunt  
- Zie voor meer informatie over het instellen van de Application Catalog-websitepunt voor de Application Catalog [plannen en configureren van Toepassingsbeheer in System Center Configuration Manager](../../../../apps/plan-design/plan-for-and-configure-application-management.md).  
+##  <a name="BKMK_ApplicationCatalog_Website"></a> Point du site web du catalogue des applications  
+ Pour plus d’informations sur la procédure de configuration du point du site web du catalogue des applications, consultez [Planifier et configurer la gestion des applications dans System Center Configuration Manager](../../../../apps/plan-design/plan-for-and-configure-application-management.md).  
 
- **Clientverbindingen**  
+ **Connexions client**  
 
- Selecteer **HTTPS** om te gebruiken de meer beveiligde instelling en om te controleren of clients via het Internet verbinden. Deze optie vereist een PKI-certificaat op de server voor serververificatie naar clients en voor het versleutelen van gegevens via Secure Socket Layer (SSL). Zie voor meer informatie over de certificaatvereisten [PKI-certificaatvereisten voor System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
+ Sélectionnez **HTTPS** pour utiliser le paramètre de connexion le plus sécurisé et pour vérifier si les clients se connectent à partir d’Internet. Cette option nécessite un certificat PKI sur le serveur pour l'authentification du serveur sur les clients et pour le chiffrement des données sur le protocole SSL (Secure Socket Layer). Pour en savoir plus sur la configuration requise pour les certificats, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
 
- Zie voor een Voorbeeldimplementatie van het servercertificaat en informatie over het configureren van in Internet Information Services (IIS), de *het Webservercertificaat voor Sitesystemen die IIS uitvoeren implementeren* in sectie [voorbeeld van stapsgewijze implementatie van de PKI-certificaten voor System Center Configuration Manager: Windows Server 2008-certificeringsinstantie](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
+ Pour obtenir un exemple de déploiement du certificat de serveur et des informations sur la manière de le configurer dans Internet Information Services (IIS), consultez la section *Déploiement du certificat de serveur Web pour les systèmes de site qui exécutent IIS* dans la rubrique [Exemple détaillé de déploiement des certificats PKI pour Configuration Manager : Autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
- **Application Catalog-website toevoegen aan zone met vertrouwde sites**  
+ **Ajouter le site web du catalogue des applications à la zone de sites de confiance**  
 
- Dit bericht geeft de waarde in de standaard clientinstellingen of de **Application Catalog-website toevoegen aan de zone Vertrouwde sites in Internet Explorer** client-instelling is momenteel ingesteld op **True** of **False**. Als u aangepaste clientinstellingen gebruikt deze instelling wilt configureren, moet u deze waarde zelf controleren.  
+ Ce message affiche la valeur dans les paramètres du client par défaut, que le paramètre client **Ajouter le site Web du catalogue des applications dans la zone Sites approuvés d’Internet Explorer** ait la valeur **True** ou **False**. Si vous avez utilisé des paramètres client personnalisés pour configurer ce paramètre, vous devez vérifier cette valeur vous-même.  
 
- Als dit sitesysteem is ingesteld voor een volledig gekwalificeerde domeinnaam (FQDN) en de website niet in de zone Vertrouwde sites in Internet Explorer is, worden gebruikers om referenties gevraagd wanneer ze verbinding met de Application Catalog maken.  
+ Si ce système de site est configuré pour un nom de domaine complet et si le site web ne se trouve pas dans la zone de sites approuvés dans Internet Explorer, les utilisateurs sont invités à entrer leurs informations d’identification quand ils se connectent au catalogue d’applications.  
 
- **De naam van organisatie**  
+ **Nom de l’organisation**  
 
- Voer de naam die gebruikers zien in de Application Catalog. Deze huismerkgegevens helpen gebruikers deze website als een vertrouwde bron te identificeren.  
+ Entrez le nom que voient les utilisateurs dans le catalogue d’applications. Ces informations personnalisées aident les utilisateurs à identifier ce site web comme une source approuvée.  
 
-##  <a name="BKMK_ApplicationCatalog_WebService"></a>Application Catalog-webservicepunt  
- Zie voor meer informatie over het instellen van het Application Catalog-webservicepunt voor de Application Catalog [plannen en configureren van Toepassingsbeheer in System Center Configuration Manager](../../../../apps/plan-design/plan-for-and-configure-application-management.md).  
+##  <a name="BKMK_ApplicationCatalog_WebService"></a> Point de service web du catalogue des applications  
+ Pour plus d’informations sur la procédure de configuration du point de service web du catalogue des applications, consultez [Planifier et configurer la gestion des applications dans System Center Configuration Manager](../../../../apps/plan-design/plan-for-and-configure-application-management.md).  
 
  **HTTPS**  
 
- Selecteer **HTTPS** om te verifiëren van de Application Catalog-website verwijst naar dit Application Catalog-webservicepunt.  Deze optie vereist een PKI-certificaat op servers met de Application Catalog-websitepunt voor server-verificatie en versleuteling van gegevens via SSL. Zie voor meer informatie over de certificaatvereisten [PKI-certificaatvereisten voor System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
+ Sélectionnez **HTTPS** pour authentifier les points de site Web du catalogue d'applications vers ce point de service Web du catalogue des applications.  Cette option nécessite un certificat PKI sur les serveurs qui exécutent le point de site web du catalogue d’applications pour l’authentification du serveur et le chiffrement des données sur le protocole SSL. Pour en savoir plus sur la configuration requise pour les certificats, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
 
- Zie voor een Voorbeeldimplementatie van het servercertificaat en informatie over het configureren van IIS, de *het Webservercertificaat voor Sitesystemen die IIS uitvoeren implementeren* in sectie [voorbeeld van stapsgewijze implementatie van de PKI-certificaten voor System Center Configuration Manager: Windows Server 2008-certificeringsinstantie](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
+ Pour obtenir un exemple de déploiement du certificat de serveur et des informations sur la manière de le configurer dans IIS, consultez la section *Déploiement du certificat de serveur Web pour les systèmes de site qui exécutent IIS* dans la rubrique [Exemple détaillé de déploiement des certificats PKI pour Configuration Manager : Autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
-##  <a name="BKMK_CertificateRegistrationPoint"></a>Certificaatregistratiepunt  
- Zie voor meer informatie over het instellen van het certificaatregistratiepunt [Inleiding tot certificaatprofielen](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
+##  <a name="BKMK_CertificateRegistrationPoint"></a> Point d’enregistrement de certificat  
+ Pour en savoir plus sur la configuration du point d’enregistrement de certificat, consultez [Présentation des profils de certificat](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
 
-##  <a name="BKMK_Distribution_Point"></a>Distributiepunt  
- Zie voor meer informatie over het instellen van het distributiepunt voor inhoudimplementatie [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+##  <a name="BKMK_Distribution_Point"></a> Point de distribution  
+ Pour en savoir plus sur la configuration du point de distribution pour le déploiement de contenu, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
- Zie voor meer informatie over het instellen van het distributiepunt voor PXE-implementaties, [PXE gebruiken om Windows te implementeren via het netwerk met System Center Configuration Manager](../../../../osd/deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
+ Pour en savoir plus sur la configuration du point de distribution pour les déploiements PXE, consultez [Utiliser PXE pour déployer Windows sur le réseau avec System Center Configuration Manager](../../../../osd/deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
- Zie voor informatie over het instellen van het distributiepunt voor multicast-implementaties, [multicast gebruiken om Windows te implementeren via het netwerk met System Center Configuration Manager](../../../../osd/deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
+ Pour en savoir plus sur la configuration du point de distribution pour les déploiements de multidiffusion, consultez [Utiliser la multidiffusion pour déployer Windows sur le réseau avec System Center Configuration Manager](../../../../osd/deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
 
- **Installeer en Configureer IIS indien vereist door Configuration Manager**  
- Selecteer deze optie om Configuration Manager installeren en instellen van IIS op het sitesysteem als deze nog niet is geïnstalleerd. IIS moet worden geïnstalleerd op alle distributiepunten en moet u deze instelling om door te gaan in de wizard.  
+ **Installer et configurer IIS si requis par Configuration Manager**  
+ Sélectionnez cette option pour permettre à Configuration Manager d’installer et de configurer IIS sur le système de site s’il n’est pas déjà installé. IIS doit être installé sur tous les points de distribution, et vous devez sélectionner ce paramètre pour continuer dans l'Assistant.  
 
- **Installatieaccount sitesysteem**  
- Voor distributiepunten die zijn geïnstalleerd op een siteserver bevindt, wordt het computeraccount van de siteserver ondersteund voor gebruik als de Account voor de installatie van de Site.  
+ **Compte d’installation du système de site**  
+ Pour les points de distribution qui sont installés sur un serveur de site, seul le compte d'ordinateur du serveur du site est pris en charge pour être utilisé comme compte d'installation de système de site.  
 
- **Een zelfondertekend certificaat maken of importeren van een PKI-certificaat**  
- Dit certificaat heeft twee doeleinden:  
+ **Créer un certificat auto-signé ou importer un certificat client PKI**  
+ Ce certificat a deux objectifs :  
 
-1.  Hiermee verifieert het distributiepunt naar een beheerpunt voordat het distributiepunt statusberichten verzendt.  
+1.  Il authentifie le point de distribution à un point de gestion avant que le point de distribution n'envoie des messages d'état.  
 
-2.  Wanneer **PXE-ondersteuning inschakelen voor clients** is geselecteerd, wordt het certificaat verzonden naar computers die een PXE-opstartbewerking uitvoeren, zodat ze verbinding met een beheerpunt tijdens de implementatie van het besturingssysteem maken kunnen.  
+2.  Quand l’option **Activer la prise en charge PXE pour les clients** est sélectionnée, le certificat est envoyé aux ordinateurs qui effectuent un démarrage PXE pour qu’ils puissent se connecter à un point de gestion pendant le déploiement du système d’exploitation.  
 
-Wanneer uw beheerpunten in de site zijn ingesteld voor HTTP, maakt u een zelfondertekend certificaat. Wanneer uw beheerpunten zijn ingesteld voor HTTPS, moet u een PKI-clientcertificaat importeren.  
+Quand tous vos points de gestion du site sont configurés pour le protocole HTTP, créez un certificat auto-signé. Quand vos points de gestion sont configurés pour le protocole HTTPS, importez un certificat client PKI.  
 
-Blader naar een bestand Public Key Cryptography Standard #12 (PKCS #12) met een PKI-certificaat met de volgende vereisten voor Configuration Manager voor het importeren van het certificaat:  
+Pour importer le certificat, accédez à un fichier PKCS #12 (Public Key Cryptography Standard #12) qui contient un certificat PKI avec les spécifications suivantes pour Configuration Manager :  
 
--   Bedoelde gebruik moet clientverificatie omvatten.  
+-   L'utilisation prévue doit inclure l'authentification du client.  
 
--   De persoonlijke sleutel moet worden ingesteld om te worden geëxporteerd.  
+-   La clé privée doit être configurée pour l’exportation.  
 
-Er zijn geen specifieke vereisten voor de naam certificaatonderwerp of SAN Subject Alternative Name () en u kunt hetzelfde certificaat gebruiken voor meerdere distributiepunten.  
+Il n'existe aucune exigence particulière pour le Nom d'objet ou l'Autre nom de l'objet du certificat, et vous pouvez utiliser le même certificat pour plusieurs points de distribution.  
 
-Zie voor meer informatie over de certificaatvereisten [PKI-certificaatvereisten voor System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md). Zie voor een Voorbeeldimplementatie van dit certificaat, de *het clientcertificaat voor distributiepunten implementeren* in sectie [voorbeeld van stapsgewijze implementatie van de PKI-certificaten voor System Center Configuration Manager: Windows Server 2008-certificeringsinstantie](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
+Pour en savoir plus sur la configuration requise pour les certificats, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md). Pour obtenir un exemple de déploiement de ce certificat, consultez la section *Déploiement du certificat client pour les points de distribution* de la rubrique [Exemple détaillé de déploiement des certificats PKI pour Configuration Manager : Autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
-**Dit distributiepunt inschakelen voor voorbereide inhoud**  
-Schakel dit selectievakje in om het distributiepunt inschakelen voor voorbereide inhoud. Wanneer dit selectievakje is ingeschakeld, kunt u distributiegedrag instellen wanneer u inhoud distribueert. U kunt kiezen of u inhoud op het distributiepunt altijd voor te bereiden, initiële inhoud voor het pakket voor te bereiden, maar het normale inhouddistributieproces voor updates voor inhoud gebruiken, of altijd het normale inhouddistributieproces te voor de inhoud van het pakket gebruiken.  
+**Activer ce point de distribution pour le contenu préparé**  
+Cochez cette case pour activer le point de distribution pour le contenu préparé. Quand cette case est cochée, vous pouvez configurer le comportement de distribution durant la distribution du contenu. Vous pouvez choisir de toujours préparer le contenu sur le point de distribution, de préparer le contenu initial pour le package mais d’utiliser le processus de distribution de contenu normal pour les mises à jour du contenu, ou de toujours utiliser le processus de distribution de contenu normal pour le contenu du package.  
 
-**Grensgroepen**  
- U kunt grensgroepen naar een distributiepunt koppelen. Tijdens inhoudsimplementatie moeten clients zich in een grensgroep die is gekoppeld aan het distributiepunt te gebruiken als bronlocatie voor inhoud.
- - **Voorafgaand aan versie 1610**, kunt u controleren de **terugvalbronlocatie voor inhoud toestaan** selectievakje in als clients buiten deze grensgroepen terug te vallen en het distributiepunt gebruiken als bronlocatie voor inhoud, wanneer er geen andere distributiepunten beschikbaar zijn.
- - **Vanaf versie 1610**, u kunt niet meer configureren **terugvalbronlocatie voor inhoud toestaan**.  In plaats daarvan u relaties tussen grensgroepen die wanneer een client kunt beginnen controleren met zoeken aanvullende grensgroepen voor geldige inhoudsbron locaties hebt ingesteld.
+**Groupes de limites**  
+ Vous pouvez associer des groupes de limites à un point de distribution. Lors d'un déploiement de contenu, les clients doivent se trouver dans un groupe de limites associé au point de distribution pour l'utiliser comme emplacement source pour le contenu.
+ - **Avant la version 1610**, vous pouviez cocher la case **Autoriser un emplacement source de secours pour le contenu** pour permettre aux clients situés en dehors de ces groupes de limites de revenir et d’utiliser le point de distribution comme emplacement source pour le contenu quand aucun autre point de distribution n’est disponible.
+ - **À partir de la version 1610**, vous ne pouvez plus configurer l’option **Autoriser un emplacement source de secours pour le contenu**.  Au lieu de cela, vous configurez des relations entre les groupes de limites qui vérifient quand un client peut commencer à rechercher des emplacements sources pour le contenu valides dans d’autres groupes de limites.
 
-##  <a name="BKMK_Enrollment_Point"></a>Inschrijvingspunt  
-Inschrijvingspunten worden gebruikt voor het installeren van Mac-computers en apparaten die u met on-premises-beheer voor mobiele apparaten beheert inschrijven. Zie voor meer informatie de volgende onderwerpen:  
+##  <a name="BKMK_Enrollment_Point"></a> Point d’inscription  
+Les points d’inscription sont utilisés pour installer les ordinateurs Mac et inscrire les appareils que vous gérez avec la gestion des appareils mobiles locale. Pour plus d'informations, consultez :  
 
--   [Clients implementeren op Mac-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-macs.md)  
+-   [Guide pratique pour déployer des clients sur des ordinateurs Mac dans System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-macs.md)  
 
--   [Hoe gebruikers apparaten inschrijven met On-premises Mobile Device Management in System Center Configuration Manager](../../../../mdm/deploy-use/user-enroll-devices-on-premises-mdm.md)  
+-   [Comment les utilisateurs inscrivent des appareils avec la gestion des appareils mobiles locale dans System Center Configuration Manager](../../../../mdm/deploy-use/user-enroll-devices-on-premises-mdm.md)  
 
-**Toegestane verbindingen**  
- De HTTPS-instelling wordt automatisch geselecteerd en vereist een PKI-certificaat op de server voor serververificatie naar het proxypunt voor inschrijving, de server te verifiëren bij de out-of-band-servicepunt en de codering van gegevens via SSL. Zie voor meer informatie over de certificaatvereisten [PKI-certificaatvereisten voor System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
+**Connexions autorisées**  
+ Ce paramètre HTTPS est sélectionné automatiquement et nécessite un certificat PKI sur le serveur pour l’authentification du serveur sur le point proxy d’inscription, l’authentification du serveur sur le point de service hors bande, ainsi que le chiffrement des données sur SSL. Pour en savoir plus sur la configuration requise pour les certificats, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
 
- Zie voor een Voorbeeldimplementatie van het servercertificaat en informatie over het configureren van IIS, de *het Webservercertificaat voor Sitesystemen die IIS uitvoeren implementeren* in sectie [voorbeeld van stapsgewijze implementatie van de PKI-certificaten voor System Center Configuration Manager: Windows Server 2008-certificeringsinstantie](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
+ Pour obtenir un exemple de déploiement du certificat de serveur et des informations sur la manière de le configurer dans IIS, consultez la section *Déploiement du certificat de serveur Web pour les systèmes de site qui exécutent IIS* dans la rubrique [Exemple détaillé de déploiement des certificats PKI pour Configuration Manager : Autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
-##  <a name="BKMK_Enrollment_Proxy_Point"></a>Proxypunt voor inschrijving  
-Zie voor meer informatie over het instellen van een proxypunt voor inschrijving voor mobiele apparaten, [hoe gebruikers apparaten inschrijven met On-premises Mobile Device Management in System Center Configuration Manager](../../../../mdm/deploy-use/user-enroll-devices-on-premises-mdm.md).  
+##  <a name="BKMK_Enrollment_Proxy_Point"></a> Point proxy d’inscription  
+Pour en savoir plus sur la configuration d’un point proxy d’inscription pour les appareils mobiles, consultez [Comment les utilisateurs inscrivent des appareils avec la gestion des appareils mobiles locale dans System Center Configuration Manager](../../../../mdm/deploy-use/user-enroll-devices-on-premises-mdm.md).  
 
-**Clientverbindingen**  
- De HTTPS-instelling wordt automatisch geselecteerd en vereist een PKI-certificaat op de server voor serververificatie naar mobiele apparaten en Mac-computers die zijn ingeschreven door Configuration Manager en voor het versleutelen van gegevens via Secure Sockets Layer (SSL). Zie voor meer informatie over de certificaatvereisten [PKI-certificaatvereisten voor System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
+**Connexions client**  
+ Le paramètre HTTPS est sélectionné automatiquement. Il nécessite un certificat PKI sur le serveur pour l’authentification du serveur sur les appareils mobiles et les ordinateurs Mac inscrits par Configuration Manager, ainsi que pour le chiffrement des données avec SSL (Secure Sockets Layer). Pour en savoir plus sur la configuration requise pour les certificats, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
 
- Zie voor een Voorbeeldimplementatie van het servercertificaat en informatie over het configureren van IIS, de *het Webservercertificaat voor Sitesystemen die IIS uitvoeren implementeren* in sectie [voorbeeld van stapsgewijze implementatie van de PKI-certificaten voor System Center Configuration Manager: Windows Server 2008-certificeringsinstantie](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
+ Pour obtenir un exemple de déploiement du certificat de serveur et des informations sur la manière de le configurer dans IIS, consultez la section *Déploiement du certificat de serveur Web pour les systèmes de site qui exécutent IIS* dans la rubrique [Exemple détaillé de déploiement des certificats PKI pour Configuration Manager : Autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
-##  <a name="BKMK_Fallback_Status_Point"></a>Terugvalstatuspunt  
-**Aantal statusberichten** en **vertragingsinterval (in seconden)**  
-Hoewel de standaardinstellingen voor deze opties (10.000 statusberichten en 3600 seconden voor het vertragingsinterval) voldoende zijn voor de meeste omstandigheden, moet u wellicht wijzigen wanneer beide volgende voorwaarden waar zijn:  
+##  <a name="BKMK_Fallback_Status_Point"></a> Point d’état de secours  
+**Nombre de messages d'état** et **Intervalle d'accélération (en secondes)**  
+Bien que les paramètres par défaut pour ces options (10 000 messages d'état et 3 600 secondes pour l'intervalle d'accélération) suffisent dans la plupart des cas, vous pouvez être amené à les modifier lorsque les deux conditions suivantes sont vraies :  
 
--   Het terugvalstatuspunt accepteert alleen verbindingen met het intranet.  
+-   Le point d'état de secours accepte les connexions uniquement à partir de l'intranet.  
 
--   U gebruikt het terugvalstatuspunt tijdens een clientimplementatierollout voor veel computers.  
+-   Vous utilisez le point d'état de secours pendant un déploiement du client pour de nombreux ordinateurs.  
 
-In dit scenario kan een continue stroom van statusberichten een achterstand van statusberichten die ervoor zorgt hoge centrale verwerkingseenheid (CPU) gebruik op de siteserver voor een langere periode dat maken. Bovendien kan er geen actuele informatie over de clientimplementatie in de Configuration Manager-console en in de clientimplementatierapporten.  
+Dans ce scénario, un flux continu de messages d’état peut créer un retard des messages d’état susceptible d’entraîner une utilisation élevée du processeur sur le serveur de site pendant une période prolongée. En outre, vous risquez de ne pas voir les informations récentes sur le déploiement du client dans la console Configuration Manager et dans les rapports de déploiement du client.  
 
-Deze instellingen voor terugvalstatuspunt zijn ontworpen om in te stellen voor statusberichten die zijn gegenereerd tijdens de clientimplementatie van de. De instellingen zijn niet ontworpen om te worden ingesteld voor problemen met clientcommunicatie, zoals wanneer clients op het Internet geen verbinding met de Internet-gebaseerd beheerpunt bevindt maken. Omdat het terugvalstatuspunt kan niet van toepassing zijn deze instellingen alleen op de statusberichten die zijn gegenereerd tijdens de clientimplementatie van de, configureer deze instellingen als het terugvalstatuspunt verbindingen van Internet aanvaardt.  
+Ces paramètres de point d’état de secours visent à être configurés pour les messages d’état générés durant le déploiement du client. Ils ne sont pas destinés à être configurés pour les problèmes de communication que peuvent rencontrer les clients, notamment lorsque ceux-ci se trouvent sur Internet et qu’ils ne parviennent pas à se connecter à leur point de gestion Internet. Comme le point d'état de secours ne peut pas appliquer ces paramètres aux seuls messages d'état générés lors du déploiement du client, ne configurez pas ces paramètres lorsque le point d'état de secours accepte les connexions en provenance d'Internet.  
 
-Elke computer die met succes de System Center 2012 Configuration Manager-client installeert verzendt de volgende vier statusberichten naar het terugvalstatuspunt:  
+Chaque ordinateur qui installe correctement le client System Center 2012 Configuration Manager envoie les quatre messages d’état ci-dessous au point d’état de secours :  
 
--   Clientimplementatie is gestart  
+-   Démarrage du déploiement du client  
 
--   Clientimplementatie is voltooid  
+-   Déploiement du client réussi  
 
--   Clienttoewijzing is gestart  
+-   Démarrage de l'attribution du client  
 
--   Clienttoewijzing is voltooid  
+-   Attribution du client réussie  
 
-Computers die niet kan worden geïnstalleerd of dat de Configuration Manager-client toewijzen, verzenden bijkomende statusberichten.  
+Les ordinateurs qui ne peuvent pas être installés ou qui affectent le client Configuration Manager envoient des messages d’état supplémentaires.  
 
-Bijvoorbeeld, als u de Configuration Manager-client naar 20.000 gebruikers implementeert, kan de implementatie 80.000 statusberichten verzenden naar het terugvalstatuspunt. Omdat de standaard beperkingsconfiguratie kunt 10.000 statusberichten worden verzonden naar het terugvalstatuspunt elke 3600 seconden (1 uur), kunnen de statusberichten worden achterstallige op het terugvalstatuspunt. U moet ook overwegen de beschikbare netwerkbandbreedte tussen het terugvalstatuspunt en de siteserver en de processorsnelheid van de siteserver veel statusberichten te verwerken.  
+Par exemple, si vous déployez le client Configuration Manager sur 20 000 ordinateurs, le déploiement peut envoyer 80 000 messages d’état au point d’état de secours. La configuration d’accélération par défaut permet l’envoi d’un maximum de 10 000 messages d’état au point d’état de secours toutes les 3,600 secondes (1 heure), c’est pourquoi les messages d’état peuvent être retardés sur le point d’état de secours. Vous devez également prendre en compte la largeur de bande réseau disponible entre le point d’état de secours et le serveur de site, ainsi que la capacité du serveur de site à traiter de nombreux messages d’état.  
 
-U kunt een verhoging van het aantal statusberichten en een afname in de vertragingsinterval ter voorkoming van deze problemen.  
+Pour éviter ces problèmes, envisagez d’augmenter le nombre de messages d’état et de diminuer l’intervalle d’accélération.  
 
-Reset de beperkingswaarden voor het terugvalstatuspunt als een van de volgende voorwaarden is voldaan:  
+Réinitialisez les valeurs d'accélération pour le point d'état de secours si l'une des conditions suivantes est vraie :  
 
--   U berekenen dat de huidige beperkingswaarden hoger dan nodig om te verwerken statusberichten van het terugvalstatuspunt zijn.  
+-   Les valeurs d'accélération actuelles sont supérieures aux valeurs requises pour traiter les messages d'état à partir du point d'état de secours.  
 
--   U vindt dat de huidige beperkingsinstellingen een hoog CPU-gebruik op de siteserver.  
+-   Vous trouvez que les paramètres d'accélération actuels entraînent une utilisation élevée du processeur sur le serveur de site.  
 
-Wijzig de instellingen voor de instellingen voor terugvalstatuspunt versnelling niet tenzij u de gevolgen. Bijvoorbeeld, als u de beperkingsinstellingen hoog verhoogt, verhogen het CPU-gebruik op de siteserver, dit vertraagt alle sitebewerkingen.  
+Ne modifiez pas les paramètres d'accélération du point d'état de secours avant d'en avoir mesuré les conséquences. Par exemple, lorsque vous augmentez les paramètres d'accélération jusqu'à ce qu'ils atteignent un niveau élevé, l'utilisation du processeur sur le serveur de site peut devenir élevée, ce qui ralentit tout le fonctionnement du site.  

@@ -1,6 +1,6 @@
 ---
-title: Configureer classificaties en producten voor synchronisatie | Microsoft Docs
-description: Volg deze stappen voor het configureren van classificaties en producten voor synchronisatie in de Configuration Manager-console.
+title: "Configurer les classifications et les produits à synchroniser | Microsoft Docs"
+description: "Suivez ces étapes pour configurer les classifications et les produits à synchroniser dans la console Configuration Manager."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,58 +13,58 @@ ms.technology: configmgr-sum
 ms.assetid: 5ddde4e6-d553-4182-b752-6bc8b4a26745
 ms.openlocfilehash: 2da61e6e06850b36543b9fd41bd9a7d2368006fb
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="configure-classifications-and-products-to-synchronize"></a>Configureer classificaties en producten voor synchronisatie  
+#  <a name="configure-classifications-and-products-to-synchronize"></a>Configurer les classifications et les produits à synchroniser  
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
 > [!NOTE]  
->  Volg de procedure in deze sectie enkel op de site op het hoogste niveau.  
+>  Utilisez la procédure de cette section uniquement sur le site de niveau supérieur.  
 
- Metagegevens van software-updates opgehaald tijdens het synchronisatieproces in Configuration Manager, op basis van de instellingen die u in de eigenschappen van Software-updatepunt opgeeft. Na het synchroniseren van software-updates voor de eerste keer, of wanneer nieuwe producten en classificaties worden vrijgegeven, moet u Ga naar eigenschappen van de nieuwe items selecteren. Volg de volgende procedure om classificaties en producten te configureren die moeten worden gesynchroniseerd.  
+ Les métadonnées des mises à jour logicielles sont récupérées au cours du processus de synchronisation dans Configuration Manager selon les paramètres que vous spécifiez dans les propriétés du composant du point de mise à jour logicielle. Une fois que vous avez synchronisé les mises à jour logicielles pour la première fois, ou lorsque de nouveaux produits et classifications sont disponibles, vous devez accéder aux propriétés pour sélectionner les nouveaux éléments. Pour configurer des classifications et des produits à synchroniser, procédez comme suit.  
 
-#### <a name="to-configure-classifications-and-products-to-synchronize"></a>Classificaties en producten configureren die moeten worden gesynchroniseerd  
+#### <a name="to-configure-classifications-and-products-to-synchronize"></a>Pour configurer des classifications et des produits à synchroniser  
 
-1.  In de **Configuration Manager** console, gaat u naar **beheer** > **siteconfiguratie** > **Sites**.
+1.  Dans la console **Configuration Manager**, accédez à **Administration** > **Configuration de site** > **Sites**.
 
-2. Selecteer de centrale beheersite of de zelfstandige primaire site.  
+2. Sélectionnez le site d’administration centrale ou le site principal autonome.  
 
-3.  Klik op het tabblad **Start** in de groep **Instellingen** op **Sitecomponenten configureren**en klik op **Software-updatepunt**.
+3.  Sur l'onglet **Accueil** dans le groupe **Paramètres** , cliquez sur **Configurer les composants de site**, puis cliquez sur **Point de mise à jour logicielle**.
 
-4.  Geef op het tabblad **Classificaties** de software-updateclassificaties waarvoor u software-updates wilt synchroniseren.  
+4.  Sous l'onglet **Classifications** , spécifiez les classifications de mise à jour logicielle pour lesquelles vous souhaitez synchroniser les mises à jour logicielles.  
 
     > [!NOTE]  
-    >  Elke software-update wordt gedefinieerd met een updateclassificatie die helpt de verschillende types updates te organiseren. Tijdens het synchronisatieproces worden de metagegevens van de software-updates voor de opgegeven classificaties gesynchroniseerd. Configuration Manager biedt de mogelijkheid om te synchroniseren van software-updates met de volgende updateclassificaties:  
+    >  Chaque mise à jour logicielle fait partie d'une classification particulière qui permet d'organiser les différents types de mises à jour. Pendant le processus de synchronisation, les métadonnées des mises à jour logicielles pour les classifications spécifiées sont synchronisées. Configuration Manager vous permet de synchroniser les mises à jour logicielles avec les classifications de mise à jour suivantes :  
     >   
-    > - **Essentiële Updates**: Geeft een ruim vrijgegeven update voor een specifiek probleem die zijn gericht op een kritieke fout niet gerelateerd.  
-    > - **Definitie-Updates**: Hiermee geeft u een update aan voor antivirus- of andere definitiebestanden.  
-    > - **Functiepakketten**: Geeft nieuwe productfuncties die zijn gedistribueerd buiten een productrelease en die gewoonlijk zijn opgenomen in de volgende productrelease.  
-    > - **Beveiligingsupdates**: Hiermee geeft u een grote schaal uitgebrachte update aan voor een productspecifiek en beveiligingsgerelateerd probleem.  
-    > - **Servicepacks**: Hiermee geeft u een volledige reeks van hotfixes die op een toepassing worden toegepast. Deze hotfixes omvatten beveiligingsupdates, essentiële updates, software-updates, enzovoort.  
-    > - **Hulpprogramma's voor**: Hiermee geeft u een hulpprogramma of onderdeel dat u een of meer taken kunt voltooien.  
-    > - **Updatepakketten**: Hiermee geeft u een volledige reeks van hotfixes die samen zijn verpakt voor een gemakkelijke implementatie. Deze hotfixes omvatten beveiligingsupdates, essentiële updates, enzovoort. Een updatepakket gaat in het algemeen over een specifiek gebied, zoals beveiliging of een productcomponent.  
-    > - **Updates**: Hiermee geeft u een update aan voor een toepassing of bestand dat momenteel is geïnstalleerd.  
-    > - **Upgrade**: Hiermee geeft u een upgrade voor Windows 10-functies en functionaliteit. De software-updatepunten en de sites moeten uitvoeren een minimum van WSUS 4.0 met de [hotfix 3095113](https://support.microsoft.com/kb/3095113) ophalen van de **Upgrade** classificatie.    
+    > - **Mises à jour critiques** : spécifie des mises à jour distribuées en grand nombre, répondant à un problème spécifique qui concerne un bogue critique non lié à la sécurité.  
+    > - **Mises à jour de définitions** : spécifie des mises à jour pour des virus ou d’autres fichiers de définition.  
+    > - **Feature Packs** : spécifie de nouvelles fonctionnalités de produit, distribuées en dehors d’une version de produit et incluses généralement dans la version complète suivante du produit.  
+    > - **Mises à jour de sécurité** : spécifie des mises à jour distribuées en grand nombre, répondant à un problème de sécurité spécifique à un produit.  
+    > - **Service Packs** : spécifie des ensembles cumulés de correctifs rattachés à une application. Ces correctifs sont notamment des mises à jour de sécurité, des mises à jour critiques, des mises à jour logicielles, etc.  
+    > - **Outils** : spécifie des utilitaires ou des fonctionnalités permettant d’effectuer une ou plusieurs tâches.  
+    > - **Correctifs cumulatifs** : spécifie des ensembles cumulés de correctifs, assemblés pour faciliter leur déploiement. Ces correctifs peuvent comprendre des mises à jour de sécurité, des mises à jour critiques, des mises à jour, etc. Les correctifs cumulatifs concernent généralement un domaine particulier, tel que la sécurité ou un composant de produit.  
+    > - **Mises à jour** : spécifie des mises à jour d’une application ou d’un fichier déjà installé.  
+    > - **Mises à niveau** : spécifie des mises à niveau de fonctions et fonctionnalités Windows 10. Vos sites et points de mise à jour logicielle doivent exécuter au moins WSUS 4.0 avec le [correctif 3095113](https://support.microsoft.com/kb/3095113) pour obtenir la classification de **mise à niveau**.    
     >       
 
     > [!NOTE]    
-    > Vanaf Configuration Manager versie 1706, u kunt ook selecteren de **opnemen Microsoft Surface stuurprogramma's en firmware-updates** selectievakje in om te synchroniseren van de Microsoft Surface stuurprogramma's. Alle software-updatepunten moeten Windows Server 2016 om te synchroniseren met succes Surface stuurprogramma's worden uitgevoerd.     
+    > À compter de Configuration Manager version 1706, vous pouvez également cocher la case **Inclure les mises à jour du microprogramme et des pilotes Microsoft Surface** pour synchroniser les pilotes Microsoft Surface. Tous les points de mise à jour logicielle doivent exécuter Windows Server 2016 pour synchroniser correctement les pilotes Surface.     
     >    
-    > Dit is een functie van de voorlopige versie. Functies van evaluatieversies zijn opgenomen in het product voor vroege testdoeleinden in een productieomgeving, maar mogen niet worden beschouwd als gereed voor productie. U moet deze functie voor beschikbaar wilt inschakelen. Zie [Use pre-release features from updates](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease) (Functies van evaluatieversies gebruiken) voor meer informatie.
+    > Cette fonctionnalité est en version préliminaire. Des fonctionnalités en préversion sont incluses dans le produit à des fins de test anticipé en environnement de production, mais ne doivent pas être considérées comme prêtes pour une utilisation en production. Vous devez activer cette fonctionnalité pour qu’elle soit disponible. Pour plus d’informations, consultez [Utiliser des fonctionnalités de préversions de mises à jour](https://docs.microsoft.com/sccm/core/servers/manage/install-in-console-updates#bkmk_prerelease).
 
-5.  Geef op het tabblad **Producten** de producten op waarvoor u software-updates wilt synchroniseren, en klik vervolgens op **Sluiten**.  
+5.  Sous l'onglet **Produits** , spécifiez les produits pour lesquels vous souhaitez synchroniser les mises à jour logicielles, puis cliquez sur **Fermer**.  
 
     > [!NOTE]  
-    >  De metagegevens voor elke software-update definiëren de producten waarvoor de update van toepassing is. Een product is een specifieke editie van een besturingssysteem of toepassing, zoals Windows Server 2012. Een productfamilie is het basisbesturingssysteem of de basistoepassing waarvan de afzonderlijke producten zijn afgeleid. Een voorbeeld van een productfamilie is Windows, waarvan Windows Server 2012 een lid is. U kunt een productfamilie of individuele producten binnen een productfamilie opgeven. Hoe meer producten u selecteert, hoe langer het duurt om software-updates te synchroniseren.  
+    >  Les métadonnées de chaque mise à jour logicielle définissent les produits auxquels elles s'appliquent. Un produit est une édition spécifique d’un système d’exploitation ou d’une application (par exemple, Windows Server 2012). Une famille de produits est le système de d'exploitation ou l'application de base d'où sont issus les produits individuels. Par exemple, Windows est une famille de produits dont Windows Server 2012 fait partie. Vous pouvez spécifier une famille de produits ou des produits distincts au sein d'une famille de produits. Plus le nombre de produits que vous sélectionnez est important, plus la durée de synchronisation des mises à jour logicielles sera longue.  
     >   
-    >  Wanneer software-updates van toepassing op meerdere producten zijn, en ten minste één van de producten was geselecteerd voor synchronisatie, zullen alle producten weergegeven in de Configuration Manager-console zelfs als sommige producten niet werden geselecteerd. Als Windows Server 2012 is het enige besturingssysteem die u hebt geselecteerd, en als een software-update van toepassing op Windows 8 en Windows Server 2012, wordt bijvoorbeeld beide producten weergegeven in de Configuration Manager-console.  
+    >  Quand des mises à jour logicielles s’appliquent à plusieurs produits et qu’au moins un de ces produits a été sélectionné pour une synchronisation, tous les autres produits apparaissent dans la console Configuration Manager, même s’ils n’ont pas été sélectionnés. Par exemple, si Windows Server 2012 est le seul système d’exploitation que vous avez sélectionné et qu’une mise à jour logicielle s’applique à Windows 8 et à Windows Server 2012, ces deux produits apparaîtront dans la console Configuration Manager.  
 
     > [!IMPORTANT]  
-    >  Configuration Manager slaat een lijst van producten en productfamilies op waaruit u kunt kiezen wanneer u eerst installeert de software-updatepunt. Producten en productfamilies die zijn vrijgegeven nadat Configuration Manager is uitgebracht mogelijk niet beschikbaar om te selecteren tot u de synchronisatie van software-updates, die de lijst van beschikbare prdoucten en productfamilies waaruit u kunt updates voltooid.  
+    >  Configuration Manager stocke une liste de produits et de familles de produits que vous pouvez choisir quand vous installez le point de mise à jour logicielle pour la première fois. Tant que les mises à jour logicielles ne sont pas effectuées, les produits et familles de produits publiés après la publication de Configuration Manager risquent de ne pas pouvoir être sélectionnés. La synchronisation permet de mettre à jour la liste des produits et des familles de produits pouvant être sélectionnés.  
 
-## <a name="next-steps"></a>Volgende stappen
-Start de synchronisatie van software-updates voor het ophalen van software-updates op basis van de nieuwe criteria. Zie voor meer informatie [software-updates synchroniseren](synchronize-software-updates.md).
+## <a name="next-steps"></a>Étapes suivantes
+Démarrez la synchronisation des mises à jour logicielles pour récupérer les mises à jour logicielles en fonction des nouveaux critères. Pour plus d’informations, consultez [Synchroniser les mises à jour logicielles](synchronize-software-updates.md).

@@ -1,6 +1,6 @@
 ---
-title: Affiniteit tussen gebruikers en voor hybride beheerde apparaten in Configuration Manager | Microsoft Docs
-description: Affiniteit van gebruiker configureren voor beheerde apparaten in Configuration Manager.
+title: "Affinité utilisateur pour les appareils gérés hybrides dans Configuration Manager | Microsoft Docs"
+description: "Configurez l’affinité utilisateur pour les appareils gérés dans Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.reviewer: na
@@ -16,40 +16,40 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: d039792a88b9e7704f37718a88f841dd9216d1b1
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="user-affinity-for-hybrid-managed-devices-in-configuration-manager"></a>Affiniteit tussen gebruikers en voor hybride beheerde apparaten in Configuration Manager
+# <a name="user-affinity-for-hybrid-managed-devices-in-configuration-manager"></a>Affinité utilisateur pour les appareils gérés hybrides dans Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Wanneer u profielen voor apparaten in Bedrijfseigendom configureert, kan de beheerder opgeven of de beheerde apparaten kunnen hebben *gebruikersaffiniteit* die een specifieke gebruiker identificeert met het apparaat.  
+Quand vous configurez des profils pour des appareils d’entreprise, l’administrateur peut spécifier si les appareils gérés peuvent avoir une *affinité utilisateur* qui identifie un utilisateur spécifique avec l’appareil.  
 
-##  <a name="BKMK_iOSCP"></a>Beheerde apparaten met gebruikersaffiniteit  
- Op apparaten die zijn geconfigureerd met **user affinity** kan de bedrijfsportal-app worden geïnstalleerd en uitgevoerd om apps te downloaden en apparaten te beheren. Nadat gebruikers hun apparaten hebben ontvangen, moeten zij een aantal extra stappen uitvoeren om Configuratieassistent te voltooien en de bedrijfsportal-app te installeren.  
+##  <a name="BKMK_iOSCP"></a> Appareils gérés avec une affinité utilisateur  
+ Des appareils configurés avec une **affinité utilisateur** peuvent installer et exécuter l’application Portail d’entreprise pour télécharger des applications et gérer des appareils. Lorsque les utilisateurs reçoivent leurs appareils, ils doivent effectuer un certain nombre d’étapes supplémentaires pour achever l’exécution de l’Assistant Installation et installer l’application Portail d’entreprise.  
 
-#### <a name="how-to-enroll-ios-devices-with-user-affinity"></a>Het inschrijven van iOS-apparaten met affiniteit tussen gebruikers  
+#### <a name="how-to-enroll-ios-devices-with-user-affinity"></a>Comment inscrire des appareils iOS avec une affinité utilisateur  
 
-1.  Wanneer gebruikers hun nieuwe apparaten eerst inschakelen, wordt ze gevraagd de Configuratieassistent te voltooien. Het inschrijvingsprofiel kunt naar diens referenties vragen tijdens de installatie opgeven. Gebruikers moeten de referenties (dat wil zeggen de unieke naam of de UPN) die zijn gekoppeld aan het Intune-abonnement gebruiken.  
+1.  Quand les utilisateurs mettent sous tension leurs nouveaux appareils pour la première fois, ils sont invités à exécuter l’Assistant Configuration. Le profil d’inscription peut spécifier de demander des informations d’identification lors de la configuration. Les utilisateurs doivent utiliser les informations d’identification (c’est-à-dire le nom d’utilisateur principal, ou UPN) associées à leur abonnement dans Intune.  
 
-2.  Tijdens de installatie kunnen gebruikers ook worden gevraagd om een Apple-ID. Een Apple-ID moet worden opgegeven voordat het apparaat de bedrijfsportal installeren kunt. Gebruikers kunnen een Apple-ID opgeven nadat setup voltooid uit de iOS is **instellingen** menu.  
+2.  Pendant la configuration, les utilisateurs peuvent également être invités à fournir un ID Apple. Un ID Apple doit être fourni avant que l’appareil puisse installer le portail d’entreprise. Les utilisateurs peuvent fournir un ID Apple une fois la configuration terminée, à partir du menu **Paramètres** d’iOS.  
 
-3.  Nadat setup is voltooid, het iOS-apparaat moet installeren de app bedrijfsportal uit de App Store, bijvoorbeeld [bedrijfsportal-app](https://itunes.apple.com/us/app/id719171358).  
+3.  Une fois la configuration terminée, l’appareil iOS doit installer l’application Portail d’entreprise à partir de l’App Store ; par exemple, [Application Portail d’entreprise](https://itunes.apple.com/us/app/id719171358).  
 
-4.  De gebruiker kan zich nu aanmelden bij de bedrijfsportal met de UPN die is gebruikt bij het instellen van het apparaat.  
+4.  L’utilisateur peut désormais se connecter au portail d’entreprise avec l’UPN utilisé lors de la configuration de l’appareil.  
 
-5.  Na het aanmelden, wordt de gebruiker gevraagd het apparaat te registreren. De eerste stap is het **identificeren van het apparaat**. De app geeft een lijst met iOS-apparaten die zakelijke ingeschreven en zijn toegewezen aan de eindgebruiker Intune-account. Kies het desbetreffende apparaat.  
+5.  Une fois connecté, l’utilisateur est invité à inscrire son appareil. La première étape consiste à **identifier l’appareil**. L’application présente la liste des appareils iOS inscrits par l’entreprise et affectés au compte Intune de l’utilisateur final. Choisissez l’appareil approprié.  
 
-     Als dit apparaat nog niet voor het bedrijf is ingeschreven, selecteert u 'nieuw apparaat' om door te gaan met de standaardinschrijving.  
+     Si cet appareil n’est pas encore inscrit par l’entreprise, sélectionnez « Nouveau périphérique » pour poursuivre le flux d’inscription standard.  
 
-6.  Op het volgende scherm moet de gebruiker het serienummer van het nieuwe apparaat bevestigen. De gebruiker kan op de koppeling Bevestig het serienummer tikken om de app Instellingen te starten, waarmee het serienummer wordt geverifieerd. De gebruiker moet vervolgens de laatste 4 tekens van het serienummer invoeren in de bedrijfsportal-app.  
+6.  Sur l’écran suivant, l’utilisateur doit confirmer le numéro de série du nouvel appareil. L’utilisateur peut appuyer sur le lien « Confirmez le numéro de série » pour lancer l’application Paramètres afin de vérifier le numéro de série. L’utilisateur doit ensuite entrer les 4 derniers caractères du numéro de série dans l’application Portail d’entreprise.  
 
-     Met deze stap wordt gecontroleerd of het apparaat het bedrijfsapparaat is dat is ingeschreven in Intune. Als het serienummer op het apparaat niet overeenkomt, is het verkeerde apparaat geselecteerd. Ga terug naar het vorige scherm en selecteer een ander apparaat.  
+     Cette étape vérifie que l’appareil est l’appareil d’entreprise inscrit dans Intune. Si le numéro de série de l’appareil ne correspond pas, l’appareil sélectionné est incorrect. Revenez à l’écran précédent et sélectionnez un autre appareil.  
 
-7.  Wanneer het serienummer is geverifieerd, wordt de bedrijfsportal-app omgeleid naar de bedrijfsportal-website voor inschrijving te voltooien en vervolgens vraagt de gebruiker om terug te keren naar de app.  
+7.  Une fois le numéro de série vérifié, l’application Portail d’entreprise redirige l’utilisateur vers le site web Portail d’entreprise pour finaliser l’inscription, puis l’invite à retourner à l’application.  
 
-8.  De inschrijving is nu voltooid. U kunt dit apparaat nu gebruiken met de volledige set mogelijkheden.  
+8.  L’inscription est alors terminée. Vous pouvez désormais utiliser cet appareil avec toutes les fonctionnalités.  
 
-##  <a name="BKMK_noUA"></a>Beheerde apparaten zonder gebruikersaffiniteit  
- Op apparaten die zijn geconfigureerd met **no user affinity** bieden geen ondersteuning voor de bedrijfsportal. Installeer de app niet op deze apparaten. De bedrijfsportal is bedoeld voor gebruikers met zakelijke referenties die toegang tot persoonlijke bedrijfsresources (bijvoorbeeld e-mail) nodig hebben. Apparaten die zijn ingeschreven **zonder gebruikersaffiniteit** zijn niet bedoeld voor gebruik met een specifieke gebruikersaanmelding. Kiosks, verkooppunten (POS) of gedeelde hulpmiddelen zijn typische gebruiksvoorbeelden van apparaten die zonder gebruikersaffiniteit worden ingeschreven. Als gebruikersaffiniteit vereist is, moet **Gebruikersaffiniteit** in het inschrijvingsprofiel van het apparaat zijn geselecteerd voordat het apparaat wordt ingeschreven. Als u wilt wijzigen van de status van de affiniteit op een apparaat, moet u buiten gebruik stellen en het apparaat opnieuw inschrijven.
+##  <a name="BKMK_noUA"></a> Appareils gérés sans affinité utilisateur  
+ Des appareils configurés avec **Pas d’affinité utilisateur** ne prennent pas en charge le Portail d’entreprise et ne doivent pas installer l’application. Le Portail d’entreprise est conçu pour les utilisateurs détenteurs d’informations d’identification d’entreprise, qui ont besoin d’accéder à des ressources d’entreprise personnalisées (par exemple, au courrier électronique). Les appareils inscrits avec **Pas d’affinité utilisateur** ne sont pas destinés à un utilisateur dédié. Une borne, un point de vente (PDV) ou un appareil de démonstration partagé sont des exemples caractéristiques d’utilisation d’appareils inscrits sans aucune affinité utilisateur. Si une affinité utilisateur est requise, vérifiez qu’une **affinité utilisateur** est sélectionnée pour le profil d’inscription de l’appareil avant d’inscrire celui-ci. Pour modifier l’état d’affinité sur un appareil, vous devez le mettre hors service, puis le réinscrire.

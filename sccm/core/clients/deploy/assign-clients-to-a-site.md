@@ -1,6 +1,6 @@
 ---
-title: Clients toewijzen aan een site | Microsoft Docs
-description: Clients toewijzen aan een site in System Center Configuration Manager.
+title: "Affecter des clients à un site | Microsoft Docs"
+description: "Affecter des clients à un site dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,149 +16,149 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: a0ccd453fbe346c239eb6e37bc3ed557487b1e27
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-assign-clients-to-a-site-in-system-center-configuration-manager"></a>Clients toewijzen aan een site in System Center Configuration Manager
+# <a name="how-to-assign-clients-to-a-site-in-system-center-configuration-manager"></a>Comment affecter des clients à un site dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Nadat een System Center Configuration Manager-client is geïnstalleerd, deze moet worden toegevoegd aan een primaire site van Configuration Manager voordat u hem kunt beheren. De site die een client lid heet de *toegewezen site*. Clients kunnen niet worden toegewezen aan een centrale beheersite of aan een secundaire site.  
+Une fois un client System Center Configuration Manager installé, il doit rejoindre un site principal Configuration Manager avant de pouvoir être géré. Le site qu’un client rejoint est appelé le *site attribué*. Les clients ne peuvent pas être attribués à un site d'administration centrale ou à un site secondaire.  
 
-Het toewijzingsproces treedt op nadat de client is geïnstalleerd en bepaalt welke site de clientcomputer wordt beheert. U kunt ofwel rechtstreeks de client toewijzen aan een site of kunt u automatische sitetoewijzing geval zoekt de client automatisch een geschikte site op basis van de actuele netwerklocatie of een fallback-site die is geconfigureerd voor de hiërarchie.
+Le processus d’attribution se produit une fois le client installé et détermine le site qui gère l’ordinateur client. Vous avez le choix entre une attribution directe à un site et une attribution automatique de site. Dans ce cas, le client trouve automatiquement un site approprié, en fonction de son emplacement réseau actuel, ou un site de secours qui a été configuré pour la hiérarchie.
 
-Wanneer u de client voor mobiele apparaten tijdens de registratie van de Configuration Manager installeert, wordt het apparaat altijd automatisch toegewezen aan een site. Wanneer u de client op een computer installeert, kunt u kiezen of de client toewijzen aan een site of niet. De client blijft niet-beheerd totdat de sitetoewijzing is voltooid als de client is geïnstalleerd, maar niet toegewezen.  
+Quand vous installez le client d’appareil mobile lors de l’inscription de Configuration Manager, l’appareil est toujours attribué automatiquement à un site. Quand vous installez le client sur un ordinateur, vous pouvez choisir d’attribuer ou non le client à un site. Toutefois, lorsque le client est installé mais pas attribué, client n'est pas géré tant que l'attribution de site n'a pas été menée à bien.  
  
 
 > [!NOTE]  
->  Wijs clients altijd toe aan sites met dezelfde versie van Configuration Manager. Vermijd een Configuration Manager-client met een nieuwere versie toewijst aan een site met een oudere versie.   Indien nodig werkt u de primaire site naar dezelfde versie van Configuration Manager die u voor de clients gebruikt.  
+>  Attribuez toujours des clients à des sites exécutant la même version de Configuration Manager. Évitez d’attribuer un client Configuration Manager d’une version plus récente à un site d’une version antérieure.   Si nécessaire, mettez à jour le site principal vers la même version de Configuration Manager que vous utilisez pour les clients.  
 
-Nadat de client aan een site is toegewezen, blijft deze toegewezen aan die site, zelfs als de client zijn IP-adres verandert en naar een andere site roamt. Alleen een beheerder kan handmatig de client toewijzen aan een andere site of de clienttoewijzing verwijderen.  
+Une fois le client attribué à un site, il y reste associé même dans les cas où il modifie son adresse IP ou se déplace vers un autre site. Seul un administrateur peut attribuer manuellement le client à un autre site ou supprimer l’attribution du client.  
 
 > [!WARNING]  
->  Een uitzondering op een client die blijft toegewezen aan een site, geldt voor als u de client op een Windows Embedded-apparaat toewijst als de schrijffilters zijn ingeschakeld. Als u schrijffilters niet eerst uitschakelt voordat u de client toewijst, keert de sitetoewijzingsstatus van de client terug naar de oorspronkelijke status wanneer het apparaat de volgende keer opnieuw wordt opgestart.  
+>  Le client ne reste pas attribué à un site si vous attribuez ce client sur un appareil Windows Embedded et que les filtres d'écriture sont activés, ce qui constitue une exception. Si vous ne désactivez pas les filtres d'écriture avant d'attribuer le client, celui-ci retrouve son état d'attribution de site initial au prochain redémarrage de l’appareil.  
 >   
->  Als de client bijvoorbeeld geconfigureerd is voor automatische sitetoewijzing, wordt er tijdens het opstarten een nieuwe toewijzing uitgevoerd en is het mogelijk dat de client aan een andere site wordt toegewezen. Als de client is niet geconfigureerd voor automatische sitetoewijzing maar handmatige sitetoewijzing vereist, moet u handmatig opnieuw toewijzen de client na het opstarten voordat u deze client opnieuw beheren kunt met Configuration Manager.  
+>  Par exemple, si le client est configuré pour l'attribution automatique de site, il fera l'objet d'une réattribution au démarrage et pourra être attribué à un site différent. Si le client n'est pas configuré pour l'attribution automatique de site, mais qu'il nécessite une attribution de site manuelle, vous devez le réattribuer manuellement après le démarrage pour pouvoir le gérer à nouveau à l'aide de Configuration Manager.  
 >   
->  U kunt dit gedrag vermijden door de schrijffilters uit te schakelen voordat u de client op ingesloten apparaten toewijst. Nadat u hebt geverifieerd dat de sitetoewijzing is geslaagd, schakelt u de schrijffilters opnieuw in.  
+>  Pour éviter ce comportement, désactivez les filtres d'écriture avant d'attribuer le client sur des appareils embarqués, puis activez-les après avoir vérifié que l'attribution de site a abouti.  
 
-Als de clienttoewijzing is mislukt, wordt de clientsoftware blijft geïnstalleerd, maar wordt niet beheerd. Een client wordt als niet-beheerd beschouwd als deze geïnstalleerd is, maar niet is toegewezen aan een site, of als deze aan een site is toegewezen, maar niet kan communiceren met een beheerpunt.  
+En cas d’échec de l’attribution du client, le logiciel client reste installé, mais il n’est pas géré. Un client est considéré non géré lorsqu'il est installé mais pas attribué à un site ou lorsqu'il est attribué à un site, mais ne peut pas communiquer avec un point de gestion.  
 
-##  <a name="using-manual-site-assignment-for-computers"></a>Handmatige sitetoewijzing gebruiken voor computers  
- U kunt clientcomputers handmatig toewijzen aan een site aan de hand van de volgende twee methoden:  
+##  <a name="using-manual-site-assignment-for-computers"></a>Utilisation de l'attribution manuelle de site pour les ordinateurs  
+ Vous pouvez attribuer des ordinateurs clients à un site manuellement en employant l'une des deux méthodes suivantes :  
 
--   Gebruik een clientinstallatie-eigenschap die de sitecode specificeert.  
+-   Utilisez une propriété d'installation du client qui spécifie le code de site.  
 
--   Geef de sitecode op in het Configuratiescherm, in **Configuration Manager**.  
-
-> [!NOTE]  
->  Als u een clientcomputer handmatig aan een Configuration Manager-sitecode die niet bestaat toewijst, wordt de sitetoewijzing mislukt.   
-
-##  <a name="BKMK_AutomaticAssignment"></a> Automatische sitetoewijzing gebruiken voor computers  
- Automatische sitetoewijzing kan zich voordoen tijdens clientimplementatie of wanneer u klikt op **Site zoeken** in het tabblad **Geavanceerd** van de **Eigenschappen van Configuration Manager** in het Configuratiescherm. De Configuration Manager-client vergelijkt zijn eigen netwerklocatie met de grenzen die zijn geconfigureerd in de Configuration Manager-hiërarchie. Als de netwerklocatie van de client binnen een grensgroep valt die voor sitetoewijzing is ingeschakeld, of als de hiërarchie voor een terugvalsite is geconfigureerd, wordt de client automatisch toegewezen naar die site zonder dat u een sitecode moet opgeven.  
-
- U kunt grenzen configureren door een of meer van de volgende opties te gebruiken:  
-
--   IP-subnet  
-
--   Active Directory-site  
-
--   IPv6-voorvoegsel  
-
--   IP-adresbereik  
+-   Dans le panneau de configuration, dans **Configuration Manager**, indiquez le code de site.  
 
 > [!NOTE]  
->  Als een Configuration Manager-client meerdere netwerkadapters heeft en daarom meerdere IP-adressen heeft, wordt het IP-adres gebruikt een client om sitetoewijzing te evalueren willekeurig toegewezen.  
+>  Si vous attribuez manuellement un ordinateur client à un code de site Configuration Manager qui n'existe pas, l'attribution de site échoue.   
 
- Zie [Sitegrenzen en grensgroepen definiëren voor System Center Configuration Manager](../../../core/servers/deploy/configure/define-site-boundaries-and-boundary-groups.md) voor informatie over het configureren van grensgroepen voor sitetoewijzing en het configureren van een terugvalsite voor automatische sitetoewijzing.  
+##  <a name="BKMK_AutomaticAssignment"></a> Utilisation de l'attribution automatique de site pour les ordinateurs  
+ L'attribution automatique de site peut se produire lors du déploiement du client ou lorsque vous cliquez sur **Rechercher un site** sous l'onglet **Avancé** des **Propriétés du Configuration Manager** dans le panneau de configuration. Le client Configuration Manager compare son propre emplacement réseau avec les limites qui sont configurées dans la hiérarchie Configuration Manager. Lorsque l'emplacement réseau du client se situe dans un groupe de limites qui est activé pour l'attribution de site ou lorsque la hiérarchie est configurée pour un site de secours, le client est automatiquement affecté à ce site sans que vous deviez spécifier un code de site.  
 
- Configuration Manager-clients die automatische sitetoewijzing gebruiken proberen te vinden die zijn gepubliceerd naar Active Directory Domain Services. Als dit mislukt (bijvoorbeeld het Active Directory-schema is niet uitgebreid voor Configuration Manager of de clients werkgroepcomputers zijn), kunnen clients informatie over de grensgroep ophalen uit een beheerpunt.  
+ Vous pouvez configurer des limites à l'aide de l'un ou de plusieurs des éléments suivants :  
 
- U kunt een beheerpunt opgeven voor clientcomputers voor gebruik wanneer ze worden geïnstalleerd. Clients kunnen ook een beheerpunt zoeken door gebruik te maken van DNS-publishing of WINS.  
+-   Sous-réseau IP  
 
- Als de client geen site kan vinden die is gekoppeld met een grensgroep die de netwerklocatie ervan bevat en als de hiërarchie geen terugvalsite heeft, zal de client elke 10 minuten opnieuw zoeken totdat deze kan worden toegewezen aan een site.  
+-   Site Active Directory  
 
- Configuration Manager-clientcomputers kunnen niet automatisch worden toegewezen aan een site als een van de volgende van toepassing, en vervolgens zij moeten handmatig worden toegewezen:  
+-   Préfixe IP v6  
 
--   Ze zijn momenteel toegewezen aan een site.  
-
--   Ze zijn verbonden met het internet of geconfigureerd als clients met alleen internetverbinding.  
-
--   Hun netwerklocatie valt niet binnen één van de geconfigureerde grensgroepen in de Configuration Manager-hiërarchie en er is geen terugvalsite voor de hiërarchie.  
-
-##  <a name="completing-site-assignment-by-checking-site-compatibility"></a>Sitetoewijzing voltooien door het controleren van de sitecompatibiliteit  
- Nadat een client zijn toegewezen site heeft gevonden, wordt de versie en het besturingssysteem van de client gecontroleerd om ervoor te zorgen dat een Configuration Manager-site kan beheren. Configuration Manager beheren niet bijvoorbeeld Configuration Manager 2007-clients, System Center 2012 Configuration Manager-clients of clients waarop Windows 2000.  
-
- Sitetoewijzing mislukt als u een client toewijst waar Windows 2000 wordt uitgevoerd met een Configuration Manager-site. Wanneer u een Configuration Manager 2007-client of een System Center 2012 Configuration Manager-client toewijst aan een site voor Configuration Manager (huidige vertakking), wel sitetoewijzing automatische Clientupgrade ondersteunen. Echter, totdat de oudere generatie clients worden bijgewerkt naar een client Configuration Manager (huidige vertakking), niet Configuration Manager deze client beheren door clientinstellingen, toepassingen of software-updates.  
+-   Plage d'adresses IP  
 
 > [!NOTE]  
->  U moet automatische Clientupgrade voor de hiërarchie configureren ter ondersteuning van de sitetoewijzing van een Configuration Manager 2007 of een System Center 2012 Configuration Manager-client aan een site voor Configuration Manager (huidige vertakking). Zie [How to upgrade clients for Windows computers in System Center Configuration Manager](../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md) (Clients voor Windows-computers bijwerken in System Center Configuration Manager) voor meer informatie.  
+>  Si un client Configuration Manager a plusieurs cartes réseau et donc plusieurs adresses IP, l’adresse IP utilisée pour évaluer l’attribution de site client est attribuée de façon aléatoire.  
 
-Configuration Manager controleert ook dat u de client Configuration Manager (huidige vertakking) hebt toegewezen aan een site die wordt ondersteund. De volgende scenario's kunnen optreden tijdens de migratie van eerdere versies van Configuration Manager.  
+ Pour plus d’informations sur la configuration de groupes de limites pour l’attribution de site et sur la configuration d’un site de secours pour l’attribution automatique de site, consultez [Définir des limites de site et les groupes de limites pour System Center Configuration Manager](../../../core/servers/deploy/configure/define-site-boundaries-and-boundary-groups.md).  
 
--   Scenario: U hebt Automatische sitetoewijzing gebruikt en uw grenzen overlappen met die zijn gedefinieerd in een eerdere versie van Configuration Manager.  
+ Les clients Configuration Manager qui utilisent l'attribution automatique de site tentent de trouver les groupes de limites qui sont publiés dans les services de domaine Active Directory. En cas d’échec (par exemple, le schéma Active Directory n’est pas étendu pour Configuration Manager ou les clients sont des ordinateurs de groupes de travail), les clients peuvent obtenir les informations sur les groupes de limites à partir d’un point de gestion.  
 
-     In dit geval probeert de client automatisch een Configuration Manager (huidige vertakking)-site te vinden.  
+ Vous pouvez spécifier un point de gestion pour les ordinateurs clients lorsqu'ils sont installés, ou les clients peuvent localiser un point de gestion à l'aide de la publication DNS ou WINS.  
 
-     Controleert de client eerst Active Directory Domain Services en als er een Configuration Manager (huidige vertakking)-site die is gepubliceerd, sitetoewijzing is voltooid. Als dit mislukt (bijvoorbeeld de Configuration Manager site niet is gepubliceerd of de computer een werkgroep-client is), controleert de client vervolgens voor site-informatie van de bijbehorende toegewezen beheerpunt.  
+ Si le client ne trouve pas de site associé à un groupe de limites qui contient son emplacement réseau et que la hiérarchie ne dispose pas d'un site de secours, le client essaie de nouveau toutes les 10 minutes jusqu'à ce qu'il puisse être attribué à un site.  
+
+ Les ordinateurs clients Configuration Manager ne peuvent pas être attribués automatiquement à un site si l’un des scénarios suivants s’applique et doivent être attribués manuellement :  
+
+-   Ils sont actuellement attribués à un site.  
+
+-   Ils se trouvent sur Internet ou sont configurés comme des clients Internet uniquement.  
+
+-   Leur emplacement réseau ne tombe pas dans l'un des groupes de limites configurés dans la hiérarchie de Configuration Manager et il n'existe aucun site de secours pour la hiérarchie.  
+
+##  <a name="completing-site-assignment-by-checking-site-compatibility"></a>Fin de l'attribution de site par la vérification de la compatibilité du site  
+ Dès lors qu'un client a trouvé le site auquel il est attribué, la version et le système d'exploitation du client sont vérifiés pour s'assurer qu'un site Configuration Manager peut le gérer. Par exemple, Configuration Manager ne peut pas gérer les clients Configuration Manager 2007, System Center 2012 Configuration Manager ou les clients qui exécutent Windows 2000.  
+
+ L’attribution de site échoue si vous attribuez un client Windows 2000 à un site Configuration Manager. Quand vous attribuez un client Configuration Manager 2007 ou un client System Center 2012 Configuration Manager à un site Configuration Manager (Current Branch), l’attribution de site parvient à prendre en charge la mise à niveau automatique du client. Toutefois, tant qu’un client de génération antérieure n’est pas mis à niveau vers un client Configuration Manager (Current Branch), Configuration Manager ne peut pas gérer ce client en utilisant des paramètres, applications ou mises à jour logicielles du client.  
+
+> [!NOTE]  
+>  Pour prendre en charge l’attribution de site d’un site Configuration Manager 2007 ou d’un client System Center 2012 Configuration Manager à un site Configuration Manager (Current Branch), vous devez configurer la mise à niveau automatique des clients pour la hiérarchie. Pour plus d’informations, consultez [Comment mettre à niveau les clients pour les ordinateurs Windows dans System Center Configuration Manager](../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
+
+Configuration Manager vérifie également que vous avez attribué le client Configuration Manager (Current Branch) à un site qui le prend en charge. Les scénarios suivants peuvent se produire durant une migration à partir de versions précédentes de Configuration Manager.  
+
+-   Scénario : Vous avez utilisé une attribution automatique de site et vos limites chevauchent celles définies dans une version précédente de Configuration Manager.  
+
+     Dans ce cas, le client essaie automatiquement de trouver un site Configuration Manager (Current Branch).  
+
+     Le client vérifie d’abord les services de domaine Active Directory et, s’il trouve un site Configuration Manager (Current Branch) publié, l’attribution de site réussit. En cas d’échec (par exemple le site Configuration Manager n’est pas publié ou l’ordinateur est un client de groupe de travail), le client recherche les informations de site sur le point de gestion qui lui est attribué.  
 
     > [!NOTE]  
-    >  U kunt een beheerpunt naar de client tijdens de clientinstallatie toewijzen met behulp van de Client.msi-eigenschap **SMSMP =&lt;servernaam >**.  
+    >  Vous pouvez attribuer un point de gestion au client lors de l’installation de celui-ci en utilisant la propriété Client.msi **SMSMP=&lt;nom_serveur**.  
 
-     De sitetoewijzing mislukt als deze twee methoden mislukken. In dat geval moet u de client handmatig toewijzen.  
+     Si ces deux méthodes échouent, l'attribution de site échoue et vous devez attribuer le client manuellement.  
 
--   Scenario: U hebt de Configuration Manager (huidige vertakking)-client toegewezen met behulp van een specifieke sitecode in plaats van automatische sitetoewijzing en per ongeluk een sitecode opgegeven voor een versie van Configuration Manager ouder is dan System Center 2012 R2 Configuration Manager.  
+-   Scénario : Vous avez attribué le client Configuration Manager (Current Branch) en utilisant un code de site spécifique au lieu d’utiliser l’attribution automatique de site, et spécifié par erreur un code de site pour une version de Configuration Manager antérieure à System Center 2012 R2 Configuration Manager.  
 
-     In dit geval mislukt de sitetoewijzing en u moet de site voor Configuration Manager (huidige vertakking)-client handmatig opnieuw toewijzen.  
+     Dans ce cas, l’attribution de site échoue et vous devez réattribuer manuellement le client à un site Configuration Manager (Current Branch).  
 
- Voor de controle van de sitecompatibiliteit gelden de volgende voorwaarden:  
+ La vérification de la compatibilité du site requiert l'une des conditions suivantes :  
 
--   De client heeft toegang tot site-informatie die naar Active Directory Domain Services is gepubliceerd.  
+-   Le client peut accéder aux informations de site publiées dans les services de domaine Active Directory.  
 
--   De client kan communiceren met een beheerpunt in de site.  
+-   Le client peut communiquer avec un point de gestion du site.  
 
- Als de controle van de sitecompatibiliteit niet met succes voltooid, wordt de sitetoewijzing mislukt en de client blijft niet-beheerd totdat de controle van de sitecompatibiliteit opnieuw uitgevoerd en is geslaagd.  
+ Si la vérification de la compatibilité du site échoue avant la fin de l’opération, l’attribution de site échoue et le client reste non géré, jusqu’à ce que la vérification de la compatibilité du site se termine sans problème lors de l’exécution suivante.  
 
- De uitzondering op het uitvoeren van de controle van de sitecompatibiliteit doet zich voor wanneer een client voor een beheerpunt op internet is geconfigureerd. In dit geval wordt er geen controle van de sitecompatibiliteit uitgevoerd. Als u clients toewijst aan een site die sitesystemen op internet bevat en u geeft een beheerpunt op internet op, zorg er dan voor dat u de client aan de juiste site toewijst. Als u deze per ongeluk aan een Configuration Manager 2007-site, een System Center 2012 Configuration Manager-site toewijst, of aan een Configuration Manager-site die geen sitesysteemrollen op basis van het Internet, is de client worden niet-beheerd.  
+ La seule exception à cette vérification de la compatibilité du site survient lorsqu'un client est configuré pour un point de gestion Internet. Dans ce cas, aucune vérification de la compatibilité du site n’est effectuée. Si vous attribuez des clients à un site qui contient des systèmes de site Internet et que vous spécifiez un point de gestion Internet, assurez-vous d'attribuer le client au site approprié. Si vous attribuez le client à un site Configuration Manager 2007, un site System Center 2012 Configuration Manager ou un site Configuration Manager qui n’a pas de rôle de système de site basé sur Internet, le client n’est pas géré.  
 
-##  <a name="locating-management-points"></a>Zoeken naar beheerpunten  
- Nadat een client is toegewezen aan een site, zoekt deze een beheerpunt in de site.  
+##  <a name="locating-management-points"></a>Localisation de points de gestion  
+ Une fois qu'un client est correctement attribué à un site, il localise un point de gestion dans le site.  
 
- Clientcomputers downloaden een lijst met beheerpunten die ze verbinding in de site maken kunnen. Dat gebeurt telkens als de client opnieuw is opgestart, of elke 25 uur, of als de client een netwerkwijziging detecteert, bijvoorbeeld als de computer de verbinding verbreekt en opnieuw verbinding maken met het netwerk of het een nieuw IP-adres ontvangt. De lijst omvat beheerpunten op het intranet en of ze clientverbindingen via HTTP of HTTPS accepteren. De clientcomputer verbindt met het opgegeven beheerpunt op internet om een lijst met beheerpunten te downloaden als de clientcomputer is verbonden met het internet en de client nog geen lijst met beheerpunten heeft. Als de client een lijst beheerpunten heeft voor de toegewezen site, wordt er één geselecteerd om verbinding mee te maken:  
+ Les ordinateurs clients téléchargent la liste des points de gestion auxquels ils peuvent se connecter dans le site. Cette opération se produit à chaque redémarrage du client, c’est-à-dire toutes les 25 heures, ou quand le client détecte un changement sur le réseau (par exemple, déconnexion et reconnexion de l’ordinateur sur le réseau ou attribution d’une nouvelle adresse IP). La liste répertorie les points de gestion présents sur l'intranet et indique s'ils acceptent les connexions client via HTTP ou HTTPS. Lorsque l'ordinateur client est sur Internet et qu'il ne dispose pas encore d'une liste de points de gestion, il se connecte au point de gestion Internet spécifié pour obtenir une liste de points de gestion. Lorsque le client dispose d'une liste de points de gestion pour son site attribué, il en sélectionne un auquel se connecter :  
 
--   De client geeft de voorkeur aan HTTPS-beheerpunten boven HTTP-beheerpunten als de client is verbonden met het intranet en een geldig PKI-certificaat heeft dat het kan gebruiken. Vervolgens zoekt de client het dichtstbijzijnde beheerpunt op basis van het forest-lidmaatschap.  
+-   Lorsque le client se trouve sur l'intranet et qu'il possède un certificat PKI valide qu'il peut utiliser, il choisit les points de gestion HTTPS avant les points de gestion HTTP. Il localise ensuite le point de gestion le plus proche, en fonction de son appartenance à une forêt.  
 
--   Wanneer de client zich op Internet, kiest het willekeurig een van de Internet-gebaseerd beheerpunt punten.  
+-   Quand le client se trouve sur Internet, il choisit de façon aléatoire l’un des points de gestion basés sur Internet.  
 
-Mobiel apparaat-clients die zijn ingeschreven door Configuration Manager alleen verbinding maken met één beheerpunt in hun toegewezen site en nooit verbinding maken met beheerpunten in secundaire sites. Deze clients verbinden altijd via HTTPS en het beheerpunt moet worden geconfigureerd om clientverbindingen via het internet te accepteren. Wanneer er meer dan één beheerpunt voor clients van mobiele apparaten in de primaire site, kiest Configuration Manager willekeurig een van deze beheerpunten tijdens het toewijzingsproces de mobiele apparaatclient blijft hetzelfde beheerpunt gebruiken.  
+Les clients d'appareil mobile inscrits par Configuration Manager se connectent à un seul point de gestion du site auquel ils sont attribués et ne se connectent jamais aux points de gestion de sites secondaires. Ces clients se connectent toujours via HTTPS et le point de gestion doit être configuré pour accepter les connexions client sur Internet. Quand le site principal propose plusieurs points de gestion pour les clients d’appareil mobile, Configuration Manager en choisit un de façon aléatoire pendant l’attribution et le client d’appareil mobile continue d’utiliser le même point de gestion.  
 
-De client is een beheerde client als deze clientbeleid heeft gedownload van een beheerpunt in de site.  
+Une fois que le client a téléchargé la stratégie du client depuis un point de gestion du site, il devient un client géré.  
 
-##  <a name="downloading-site-settings"></a>Site-instellingen downloaden  
- Nadat de sitetoewijzing is voltooid en de client een beheerpunt heeft gevonden, downloadt een clientcomputer die Active Directory Domain Services voor de controle van de sitecompatibiliteit gebruikt, clientgerelateerde site-instellingen voor de toegewezen site. Deze instellingen omvatten de selectiecriteria van het clientcertificaat, of er een certificaatintrekkingslijst wordt gebruikt, en de door de client aangevraagde poortnummers. De client blijft deze instellingen periodiek controleren.  
+##  <a name="downloading-site-settings"></a>Téléchargement des paramètres du site  
+ Une fois que le site est attribué et que le client a trouvé un point de gestion, un ordinateur client utilisant les services de domaine Active Directory pour la vérification de sa compatibilité avec le site télécharge les paramètres client du site auquel il est attribué. Ces paramètres incluent les critères de sélection de certificat du client, s'il faut utiliser une liste de révocation de certificat et les numéros de port de demande de client. Le client continue de vérifier régulièrement ces paramètres.  
 
- Als clientcomputers geen site-instellingen kunnen verkrijgen van Active Directory Domain Services, downloaden ze deze van hun beheerpunt. Clientcomputers kunnen de site-instellingen ook verkrijgen wanneer ze met clientpush worden geïnstalleerd, of u handmatig opgeven kunt met behulp van CCMSetup.exe en de clientinstallatie-eigenschappen. Zie [Over de eigenschappen van clientinstallatie in System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md) voor meer informatie over de eigenschappen van een clientinstallatie.  
+ Lorsque les ordinateurs clients ne peuvent pas obtenir les paramètres du site auprès des services de domaine Active Directory, ils les téléchargent à partir de leur point de gestion. Les ordinateurs clients peuvent également obtenir les paramètres du site quand ils sont installés à l’aide de l’installation Push du client, ou vous pouvez les spécifier manuellement à l’aide de CCMSetup.exe et des propriétés d’installation du client. Pour plus d’informations sur les propriétés d’installation du client, consultez [À propos des propriétés d’installation du client dans System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
 
-##  <a name="downloading-client-settings"></a>Clientinstellingen downloaden  
- Alle clients downloaden het standaard clientinstellingenbeleid en elk ander aangepast clientinstellingenbeleid dat van toepassing is. Software Center is afhankelijk van dit clientconfiguratiebeleid voor Windows-computers en gebruikers zullen een melding ontvangen dat Software Center niet kan worden uitgevoerd totdat deze configuratie-informatie is gedownload. Afhankelijk van de geconfigureerde clientinstellingen kan het initiële downloaden van de clientinstellingen enige tijd duren. Sommige clientbeheertaken kunnen mogelijk niet worden uitgevoerd totdat dit proces is voltooid.  
+##  <a name="downloading-client-settings"></a>Téléchargement des paramètres du client  
+ Tous les clients téléchargent la stratégie de paramètres client par défaut, ainsi que toute stratégie de paramètres client personnalisée. Le Centre logiciel repose sur ces stratégies de configuration du client pour les ordinateurs Windows et informe les utilisateurs que le Centre logiciel ne peut pas fonctionner correctement tant que ces informations de configuration ne sont pas téléchargées. En fonction des paramètres client configurés, le téléchargement initial des paramètres client peut prendre un certain temps et certaines tâches de gestion risquent de ne pas s'exécuter tant que ce processus n'est pas terminé.  
 
-##  <a name="verifying-site-assignment"></a>Sitetoewijzing controleren  
- U kunt site-toewijzing geslaagd verifiëren door een van de volgende methoden:  
+##  <a name="verifying-site-assignment"></a>Vérification de l'attribution de site  
+ Vous pouvez vérifier que l’attribution de site a abouti en employant l’une des méthodes suivantes :  
 
--   Voor clients op Windows-computers, Configuration Manager gebruiken in het Configuratiescherm en controleer of dat de sitecode juist wordt weergegeven op de **Site** tabblad.  
+-   Pour les clients sur ordinateurs Windows, utilisez Configuration Manager dans le Panneau de configuration et vérifiez que le code de site est correctement affiché sous l'onglet **Site**.  
 
--   Voor clientcomputers in de **activa en naleving** werkruimte > **apparaten** knooppunt, Controleer of de computer bevat **Ja** voor de **Client** kolom en de juiste primaire site code van de **sitecode** kolom.  
+-   Pour les ordinateurs clients, dans l’espace de travail **Actifs et Conformité** > nœud **Appareils**, vérifiez que l’ordinateur affiche **Oui** pour la colonne **Client** et le code de site principal correct pour la colonne **Code de site**.  
 
--   Voor mobiele apparaatclients kunt u in de werkruimte **Activa en naleving** via de verzameling **Alle mobiele apparaten** controleren of voor het mobiele apparaat **Ja** in de kolom **Client** wordt weergegeven en of de juiste code van de primaire site wordt weergegeven in de kolom **Sitecode** .  
+-   Pour les clients d'appareil mobile, dans l'espace de travail **Ressources et compatibilité** , utilisez le nœud **Tous les périphériques mobiles** pour vérifier que l'appareil mobile affiche **Oui** pour la colonne **Client** et le code de site principal correct pour la colonne **Code de site** .  
 
--   Gebruik de rapporten voor de clienttoewijzing en de inschrijving van mobiele apparaten.  
+-   Utilisez les rapports pour l'attribution de client et l'inscription d'appareil mobile.  
 
--   Voor clientcomputers gebruikt u het bestand LocationServices.log op de client.  
+-   Pour les ordinateurs clients, utilisez le fichier LocationServices.log sur le client.  
 
-##  <a name="roaming-to-other-sites"></a>Roaming naar andere sites  
- Wanneer clientcomputers op het intranet aan een primaire site worden toegewezen maar binnen een grensgroep vallen die voor een andere site is geconfigureerd vanwege een gewijzigde netwerklocatie, hebben deze naar een andere site gezworven. Wanneer deze site een secundaire site is van de hun toegewezen site, kunnen clients met behulp van een beheerpunt in de secundaire site clientbeleid downloaden en clientgegevens uploaden, waardoor wordt voorkomen dat deze gegevens via een mogelijk traag netwerk worden verzonden. Als deze clients echter tot binnen de grenzen zwerven van een andere primaire site of een secundaire site die geen onderliggende site is van de aan hen toegewezen site, gebruiken deze clients altijd een beheerpunt in de aan hen toegewezen site om clientbeleid te downloaden en gegevens naar hun site te uploaden.  
+##  <a name="roaming-to-other-sites"></a>Itinérance vers d'autres sites  
+ Lorsque des ordinateurs clients de l'intranet sont attribués à un site principal, mais que leur emplacement réseau change au profit d'un groupe de limites configuré pour un autre site, ils ont été déplacés vers un autre site (itinérance). Lorsque ce site est un site secondaire du site auquel ils sont attribués, les clients peuvent utiliser un point de gestion du site secondaire pour télécharger la stratégie client et les données client, ce qui évite l'envoi de ces données via un réseau potentiellement lent. Toutefois, si ces clients itinérants sont déplacés dans les limites d'un autre site principal ou d'un site secondaire qui n'est pas un site enfant du site auquel ils sont attribués, ces clients utilisent toujours un point de gestion du site auquel ils sont attribués pour télécharger la stratégie client et les données vers leur site.  
 
- Deze naar andere sites (alle primaire en secundaire sites) zwervende clientcomputers kunnen altijd gebruik maken van beheerpunten in andere sites voor verzoeken om de locatie van inhoud. Beheerpunten in de actuele site kunnen clients een lijst met distributiepunten geven die over de inhoud beschikken waarom clients verzoeken.  
+ Ces ordinateurs clients itinérants qui sont déplacés vers d'autres sites (tous les sites principaux et tous les sites secondaires) peuvent toujours utiliser les points de gestion d'autres sites pour les demandes d'emplacement du contenu. Les points de gestion du site actuel peuvent fournir aux clients une liste des points de distribution qui disposent du contenu demandé par les clients.  
 
- Voor clientcomputers die zijn geconfigureerd voor clientbeheer alleen op Internet en voor mobiele apparaten en Mac-computers die zijn ingeschreven door Configuration Manager, worden deze clients alleen communiceren met beheerpunten in hun toegewezen site. Deze clients communiceren nooit met beheerpunten in secundaire sites of andere primaire sites.  
+ Pour les ordinateurs clients configurés pour être gérés uniquement par le biais d’Internet et pour les appareils mobiles et les ordinateurs Mac inscrits par Configuration Manager, ces clients communiquent uniquement avec les points de gestion du site auxquels ils sont attribués. Ces clients ne communiquent jamais avec les points de gestion de sites secondaires ou d'autres sites principaux.  

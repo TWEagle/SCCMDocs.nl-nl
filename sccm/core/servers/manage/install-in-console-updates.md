@@ -1,6 +1,6 @@
 ---
-title: Updates binnen de console | Microsoft Docs
-description: System Center Configuration Manager worden gesynchroniseerd met de Microsoft cloud ophalen van updates die u vanuit de console installeren kunt.
+title: "Mises à jour dans la console | Microsoft Docs"
+description: "System Center Configuration Manager se synchronise avec le cloud Microsoft pour obtenir les mises à jour que vous pouvez installer dans la console."
 ms.custom: na
 ms.date: 06/13/2017
 ms.prod: configuration-manager
@@ -16,371 +16,371 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 2bbc8935bee306ed0bc312cc43b8f5374a8df7ff
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Updates binnen de console installeren voor System Center Configuration Manager
+# <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Installation de mises à jour dans la console pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager worden gesynchroniseerd met de Microsoft-cloudservice om updates te downloaden. Vervolgens kunt u deze updates van de Configuration Manager-console installeren.
+System Center Configuration Manager se synchronise avec le service cloud Microsoft pour obtenir les mises à jour. Vous pouvez installer ces mises à jour à partir de la console Configuration Manager.
 
-## <a name="get-available-updates"></a>Beschikbare updates downloaden
-Alleen de updates die van toepassing zijn op uw infrastructuur en versie, worden gedownload en beschikbaar gesteld voor uw hiërarchie. Deze synchronisatie kan automatisch of handmatig, afhankelijk van hoe u het serviceverbindingspunt voor uw hiërarchie configureert zijn:
+## <a name="get-available-updates"></a>Obtenir les mises à jour disponibles
+Seules les mises à jour qui s’appliquent à votre infrastructure et à votre version sont téléchargées et mises à disposition dans votre hiérarchie. Cette synchronisation peut être automatique ou manuelle, selon la manière dont vous configurez le point de connexion de service pour votre hiérarchie :
 
--   In **onlinemodus**maakt het serviceverbindingspunt automatisch verbinding met de Microsoft-cloudservice en worden toepasselijke updates gedownload.  
+-   En **mode en ligne**, le point de connexion de service se connecte automatiquement au service cloud Microsoft et télécharge les mises à jour applicables.  
 
-     Standaard controleert Configuration Manager op nieuwe updates elke 24 uur. U kunt ook controleren op updates direct door te kiezen **controleren op Updates** in de **beheer** > **Updates en onderhoud** knooppunt van de Configuration Manager-console. (Voorafgaand aan versie 1702, wordt dit knooppunt is onder **beheer** > **Cloudservices**.)
+     Par défaut, Configuration Manager vérifie la disponibilité de nouvelles mises à jour toutes les 24 heures. Vous pouvez également rechercher des mises à jour immédiatement en choisissant **Rechercher les mises à jour** dans le nœud **Administration** > **Mises à jour et maintenance** de la console Configuration Manager. (Avant la version 1702, ce nœud se trouvait sous **Administration** > **Services de cloud**.)
 
--   In **offlinemodus**, het serviceverbindingspunt geen verbinding met de Microsoft-cloudservice. Om te downloaden en vervolgens importeren van beschikbare updates [het hulpprogramma voor serviceverbindingen gebruiken voor System Center Configuration Manager](../../../core/servers/manage/use-the-service-connection-tool.md).  
+-   En **mode hors connexion**, le point de connexion de service ne se connecte pas au service cloud Microsoft. Pour télécharger puis importer les mises à jour disponibles, [utilisez l’outil de connexion de service pour System Center Configuration Manager](../../../core/servers/manage/use-the-service-connection-tool.md).  
 
 > [!NOTE]  
->   U kunt de out-of-band fixes naar de console importeren. Gebruik hiervoor de [hulpprogramma registratie bijwerken](/sccm/core/servers/manage/use-the-update-registration-tool-to-import-hotfixes). Deze oplossingen out-of-band vormen een aanvulling op de updates die u krijgt wanneer u met de Microsoft Cloud-service synchroniseren.
+>   Vous pouvez importer des correctifs hors bande dans votre console. Pour cela, utilisez l’[outil Inscription de la mise à jour](/sccm/core/servers/manage/use-the-update-registration-tool-to-import-hotfixes). Ces correctifs hors bande complètent les mises à jour que vous obtenez lors de la synchronisation avec le service Microsoft Cloud.
 
 
-Nadat de updates worden gesynchroniseerd, kunt u deze bekijken in de Configuration Manager-console door te gaan naar de **beheer** > **Updates en onderhoud** knooppunt:  
+Une fois les mises à jour synchronisées, vous pouvez les afficher dans la console Configuration Manager en accédant au nœud **Administration** > **Mises à jour et maintenance** :  
 
--   Updates die u niet hebt geïnstalleerd, worden weergegeven als **Beschikbaar**.
+-   Les mises à jour que vous n’avez pas installées apparaissent **Disponibles**.
 
--   Updates die u wel hebt geïnstalleerd, worden weergegeven als **Geïnstalleerd**.  Alleen de laatst geïnstalleerde update weergegeven. U kunt de **geschiedenis** knop in het lint weergeven van eerder geïnstalleerde updates.
-
-
-
-Voordat u het serviceverbindingspunt configureert, begrijpt en plannen voor de aanvullende mogelijkheden ervan. De volgende doeleinden gebruiken kunnen invloed hebben op hoe het configureren van deze sitesysteemrol:  
-
--   Het serviceverbindingspunt wordt gebruikt voor het uploaden van gebruiksgegevens over uw site. Deze informatie helpt de Microsoft-cloudservice bij het identificeren van de updates die beschikbaar zijn voor de huidige versie van uw infrastructuur. Zie voor meer informatie [diagnostische gegevens en gebruiksgegevens voor System Center Configuration Manager](../../../core/plan-design/diagnostics/diagnostics-and-usage-data.md).  
-
--   Het serviceverbindingspunt wordt gebruikt voor het beheren van apparaten met Microsoft Intune en het gebruik van beheer van mobiele apparaten op de lokale Configuration Manager. Zie voor meer informatie [hybride mobile device management (MDM) met System Center Configuration Manager en Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md).  
-
-Om beter te begrijpen wat gebeurt er wanneer updates worden gedownload, Zie:  
-
--   [Stroomdiagram: updates downloaden voor System Center Configuration Manager](../../../core/servers/manage/download-updates-flowchart.md)
-
--   [Stroomdiagram - Update-replicatie voor System Center Configuration Manager](../../../core/servers/manage/update-replication-flowchart.md)  
-
-## <a name="assign-permissions-to-view-and-manage-updates-and-features"></a>Machtigingen toewijzen aan weergeven en beheren van updates en functies
-Als updates wilt weergeven in de console, moet een gebruiker een beveiligingsrol Rolgebaseerd beheer met de klasse security hebben **updatepakketten**. Deze klasse verleent toegang tot het weergeven en beheren van updates in de Configuration Manager-console.    
-
-**Informatie over de klasse Pakketten bijwerken:**  
-Standaard maakt **Pakketten bijwerken** (SMS_CM_Updatepackages) deel uit van de volgende ingebouwde beveiligingsrollen met de onderstaande machtigingen:
- -  **Volledige beheerder** met de machtigingen **Wijzigen** en **Lezen** :
-    -   Een gebruiker met deze beveiligingsrol en toegang tot de **alle** beveiligingsbereik kunt weergeven en installeren van updates. De gebruiker kan ook functies inschakelen tijdens de installatie en afzonderlijke functies inschakelen nadat de update is geïnstalleerd.
-    - Een gebruiker met deze beveiligingsrol en toegang tot de **standaard** beveiligingsbereik kunt weergeven en installeren van updates. De gebruiker kan ook functies inschakelen tijdens de installatie en functies bekijken nadat een update is geïnstalleerd. Maar deze gebruiker niet de functies inschakelen nadat de update is geïnstalleerd.
-
-- **Alleen-lezenanalist** met **lees** machtigingen:
-  -  Een gebruiker met deze beveiligingsrol en toegang tot de **standaard** bereik kan updates weergeven maar ze niet zijn geïnstalleerd. Deze gebruiker kan ook functies bekijken nadat een update is geïnstalleerd, maar ze niet inschakelen.
-
-**Machtigingen die vereist zijn voor updates en onderhoud:**   
-  - Gebruik een account dat is toegewezen aan een beveiligingsrol die de klasse **Pakketten bijwerken** met beide machtigingen **Wijzigen** en **Lezen** omvat.
-  - Het account moet worden toegewezen aan het bereik **Standaard** .
-
-**Machtigingen voor alleen updates weergeven**:
-  - Gebruik een account dat is toegewezen aan een beveiligingsrol die de klasse **Pakketten bijwerken** met alleen de machtiging **Lezen** omvat.
-  - Het account moet worden toegewezen aan het bereik **Standaard** .
-
-**Machtigingen vereist voor het inschakelen van functies nadat updates zijn geïnstalleerd:**
-  -  Gebruik een account dat is toegewezen aan een beveiligingsrol die de klasse **Pakketten bijwerken** met beide machtigingen **Wijzigen** en **Lezen** omvat.
-  -  Het account moet worden toegewezen aan het bereik **Alles** .
+-   Les mises à jour que vous avez installées apparaissent **Installées**.  Seule la mise à jour installée le plus récemment s’affiche. Vous pouvez choisir le bouton **Historique** sur le ruban pour afficher les mises à jour installées précédemment.
 
 
 
-##  <a name="bkmk_beforeinstall"></a> Voordat u een update binnen de console installeert  
- Bekijk de volgende stappen uit voordat u een update van de Configuration Manager-console installeert.  
+Avant de configurer le point de connexion de service, vous devez comprendre et planifier ses utilisations supplémentaires. Les utilisations suivantes peuvent affecter la façon dont vous configurez ce rôle de système de site :  
 
-###  <a name="bkmk_step1"></a>Stap 1: Bekijk de controlelijst voor bijwerken  
-Controleer de betreffende controlelijst voor bijwerken acties moet uitvoeren voordat u de update start:
+-   Le point de connexion de service est utilisé pour charger les informations d’utilisation relatives à votre site. Ces informations permettent au service cloud de Microsoft d’identifier les mises à jour disponibles pour la version actuelle de votre infrastructure. Pour plus d’informations, consultez [Données d’utilisation et de diagnostic pour System Center Configuration Manager](../../../core/plan-design/diagnostics/diagnostics-and-usage-data.md).  
 
-- Bijwerken naar 1606: Zie [controlelijst voor het installeren van update 1606](../../../core/servers/manage/checklist-for-installing-update-1606.md).  
+-   Le point de connexion de service permet de gérer des appareils avec Microsoft Intune et à l’aide de la fonctionnalité de gestion des appareils mobiles locale de Configuration Manager. Pour plus d’informations, consultez [Gestion des appareils mobiles (MDM) hybride avec System Center Configuration Manager et Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md).  
 
-- Bijwerken van beide 1606 naar 1610: Zie [controlelijst voor het installeren van update 1610](../../../core/servers/manage/checklist-for-installing-update-1610.md).  
+Pour mieux comprendre ce qui se passe quand des mises à jour sont téléchargées, consultez :  
 
-- Bijwerken van 1606 of 1610 naar 1702: Zie [controlelijst voor het installeren van update 1702](../../../core/servers/manage/checklist-for-installing-update-1702.md).
+-   [Organigramme - Téléchargement des mises à jour pour System Center Configuration Manager](../../../core/servers/manage/download-updates-flowchart.md)
+
+-   [Organigramme - Réplication des mises à jour pour System Center Configuration Manager](../../../core/servers/manage/update-replication-flowchart.md)  
+
+## <a name="assign-permissions-to-view-and-manage-updates-and-features"></a>Attribuer les autorisations d’afficher et de gérer les mises à jour et les fonctionnalités
+Pour qu’un utilisateur puisse afficher les mises à jour dans la console, un rôle de sécurité d’administration incluant la classe de sécurité **Packages de mise à jour** doit lui être attribué. Cette classe accorde l’autorisation d’afficher et de gérer les mises à jour dans la console Configuration Manager.    
+
+**À propos de la classe Packages de mise à jour :**  
+Par défaut, **Packages de mise à jour** (SMS_CM_Updatepackages) fait partie des rôles de sécurité intégrés suivants avec les autorisations répertoriées :
+ -  **Administrateur complet** avec autorisations **Modifier** et **Lecture** :
+    -   Un utilisateur disposant de ce rôle de sécurité et de l’accès à l’étendue de sécurité **Tout** peut afficher et installer les mises à jour. L’utilisateur peut également activer des fonctionnalités pendant l’installation et activer des fonctionnalités individuelles une fois la mise à jour installée.
+    - Un utilisateur disposant de ce rôle de sécurité et de l’accès à l’étendue de sécurité **Par défaut** peut afficher et installer les mises à jour. L’utilisateur peut également activer des fonctionnalités pendant l’installation et afficher des fonctionnalités une fois la mise à jour installée. En revanche, cet utilisateur ne peut pas activer les fonctionnalités après l’installation de la mise à jour.
+
+- **Analyste en lecture seule** avec autorisations **Lecture** :
+  -  Un utilisateur disposant de ce rôle de sécurité et de l’accès à l’étendue **Par défaut** peut afficher les mises à jour mais pas les installer. Il peut également afficher les fonctionnalités après l’installation d’une mise à jour mais pas les activer.
+
+**Autorisations requises pour les mises à jour et la maintenance :**   
+  - Utilisez un compte affecté à un rôle de sécurité qui comprend la classe **Packages de mise à jour** avec les autorisations **Modifier** et **Lecture** .
+  - L’étendue **Par défaut** doit être affectée au compte.
+
+**Autorisations pour uniquement afficher les mises à jour** :
+  - Utilisez un compte affecté à un rôle de sécurité qui comprend la classe **Packages de mise à jour** avec uniquement l’autorisation **Lecture** .
+  - L’étendue **Par défaut** doit être affectée au compte.
+
+**Autorisations requises pour activer des fonctionnalités après l’installation de mises à jour :**
+  -  Utilisez un compte affecté à un rôle de sécurité qui comprend la classe **Packages de mise à jour** avec les autorisations **Modifier** et **Lecture** .
+  -  L’étendue **Tout** doit être affectée au compte.
+
+
+
+##  <a name="bkmk_beforeinstall"></a> Avant d’installer une mise à jour dans la console  
+ Passez en revue les étapes suivantes avant d’installer une mise à jour à partir de la console Configuration Manager.  
+
+###  <a name="bkmk_step1"></a> Étape 1 : consulter la liste de contrôle de mise à jour  
+Passez en revue la liste de contrôle de mise à jour applicable pour connaître les actions à entreprendre avant de lancer la mise à jour :
+
+- Mise à jour vers la version 1606 : consultez [Liste de contrôle pour l’installation de la mise à jour 1606](../../../core/servers/manage/checklist-for-installing-update-1606.md).  
+
+- Mise à jour de la version 1606 vers la version 1610 : consultez [Liste de contrôle pour l’installation de la mise à jour 1610](../../../core/servers/manage/checklist-for-installing-update-1610.md).  
+
+- Mise à jour de la version 1606 ou 1610 vers la version 1702 : consultez [Liste de contrôle pour l’installation de la mise à jour 1702](../../../core/servers/manage/checklist-for-installing-update-1702.md).
 
 <!-- Removed as update guidance 6/6/2017. The Test DB Upgrade details are no longer recommended nor required. They live on in a new topic for customers who still want to use them. -->
 
-###  <a name="step-2-run-the-prerequisite-checker-before-installing-an-update"></a>Stap 2: De prerequisite checker uitvoeren voordat u een update installeert  
-Het wordt aangeraden de controle op vereisten voor een update uit te voeren voordat u deze update installeert. Als u de prerequisite checker uitvoert voordat u een update installeert:  
+###  <a name="step-2-run-the-prerequisite-checker-before-installing-an-update"></a>Étape 2 : exécuter l’Outil de vérification des prérequis avant d’installer une mise à jour  
+Avant d’installer une mise à jour, envisagez d’exécuter la vérification des prérequis pour cette mise à jour. Si vous effectuez cette vérification avant d’installer une mise à jour :  
 
--   De updatebestanden worden gerepliceerd naar andere sites voordat u de update installeert.  
+-   Les fichiers de mise à jour sont répliqués vers d’autres sites avant l’installation de la mise à jour.  
 
--   De controle op vereisten automatisch opnieuw uitgevoerd wanneer u ervoor kiest om de update te installeren.  
+-   La vérification des prérequis est automatiquement réexécutée lorsque vous choisissez d’installer la mise à jour.  
 
-Later, wanneer u de update installeert, kunt u de update voor het negeren van waarschuwingen voor vereisten configureren.  
+Par la suite, lorsque vous installez la mise à jour, vous pouvez configurer la mise à jour de manière à ignorer les avertissements relatifs à la vérification des prérequis.  
 
-#### <a name="to-run-the-prerequisite-checker-before-installing-an-update"></a>De controle van vereisten uitvoeren voordat u een update installeert  
+#### <a name="to-run-the-prerequisite-checker-before-installing-an-update"></a>Pour exécuter l’Outil de vérification des prérequis avant d’installer une mise à jour  
 
-1.  Ga in de Configuration Manager-console naar **beheer** > **Updates en onderhoud**.   
+1.  Dans la console Configuration Manager, accédez à **Administration** > **Mises à jour et maintenance**.   
 
-2.  Klik met de rechtermuisknop op het updatepakket dat u wilt de controle op vereisten uitvoeren.  
+2.  Cliquez avec le bouton droit sur le package de mise à jour pour lequel vous souhaitez exécuter la vérification des prérequis.  
 
-3.  Kies **Controle van vereisten uitvoeren**.  
+3.  Choisissez **Exécuter la vérification de la condition préalable**.  
 
-     Wanneer u de controle op vereisten uitvoert, wordt inhoud voor de update gerepliceerd naar onderliggende sites.  U kunt het bestand distmgr.log weergeven op de site om te controleren of de inhoud wordt gerepliceerd.  
+     Lorsque vous exécutez la vérification des prérequis, le contenu de la mise à jour est répliqué sur des sites enfants.  Vous pouvez consulter le fichier distmgr.log sur le serveur du site pour vérifier que le contenu est répliqué correctement.  
 
-4.  Om weer te geven de resultaten van de controle, in de Configuration Manager-console gaat u naar **bewaking** > **Updates en onderhoudsstatus** en zoekt u de status van de vereisten. U kunt ook het bestand ConfigMgrPrereq.log op de siteserver bekijken voor meer informatie.  
-
-
-
-##  <a name="bkmk_install"></a> Updates binnen de console installeren  
- Wanneer u gereed om te installeren vanuit de Configuration Manager-console updates bent, begint u met de bovenste site van uw hiërarchie. Dit is de centrale beheersite of een zelfstandige primaire site.  
-
- Het is raadzaam dat u de update installeert buiten kantooruren voor elke site om te voorkomen dat de gevolgen van zakelijke activiteiten. Dit is omdat de update-installatie kan onder andere acties zoals Siteonderdelen en sitesysteemrollen opnieuw te installeren.  
-
--   De update wordt automatisch gestart op onderliggende primaire sites nadat de installatie van de update is voltooid op de centrale beheersite. Dit is de standaardinstelling en aanbevolen proces. U kunt echter [Service van windows voor siteservers](/sccm/core/servers/manage/service-windows) om te bepalen wanneer een primaire site updates installeert.  
-
--   Secundaire sites uit binnen de Configuration Manager-console handmatig bijwerken nadat de update van de bovenliggende primaire site voltooid is. Het automatisch bijwerken van secundaire siteservers wordt niet ondersteund.  
-
--   Wanneer u een Configuration Manager-console gebruikt nadat de site is bijgewerkt, wordt u gevraagd de console bij te werken.  
-
--  Nadat de siteserver wordt installatie van een update is voltooid, worden alle toepasselijke sitesysteemrollen automatisch bijgewerkt.  Hoewel alleen is bedoeld voor distributiepunten. Wanneer u een update installeert, alle distributiepunten niet opnieuw te installeren en om bij te werken op hetzelfde moment offline gaan. In plaats daarvan gebruikt de siteserver van de site-instellingen voor het distribueren van inhoud voor het distribueren van de update op een subset van distributiepunten op een tijdstip. Het resultaat is dat alleen bepaalde distributiepunten gaan offline om de update te installeren. Distributiepunten die niet begonnen met het bijwerken of dat de update hebt uitgevoerd, blijven online en kunnen leveren van inhoud aan clients.
-
-
-###  <a name="bkmk_overview"></a> Overzicht van de installatie van een update binnen de console  
-**1. Wanneer de update-installatie wordt gestart**  
-De wizard Updates wordt weergegeven waarin u een lijst ziet van de productgebieden waarop de update van toepassing is.  
-
--   Op de pagina **Algemeen** van de wizard kunt u **Waarschuwingen voor vereiste onderdelen**configureren.  
-      -   De installatie van de update wordt altijd gestopt als een fout optreedt in de vereisten. Fouten oplossen voordat u kunt de installatie van update opnieuw. Zie [De installatie van een mislukte update opnieuw uitvoeren](#bkmk_retry) voor meer informatie.  
-
-    -   Waarschuwingen voor vereisten kunnen ook de installatie van updates stoppen. Waarschuwingen oplossen voordat u de installatie van de update opnieuw uitvoeren. Zie voor meer informatie [installatie van een mislukte update opnieuw uitvoeren](#bkmk_retry).  
-    -   De optie **waarschuwingen voor vereisten negeren en deze update installeren ongeacht ontbrekende vereisten** stelt u een voorwaarde voor de installatie van de update die waarschuwingen voor vereisten worden genegeerd. Hiermee wordt de update-installatie om door te gaan. Als u deze optie niet selecteert, wordt de installatie van de update gestopt wanneer een waarschuwing is opgetreden. Tenzij u eerder controle van vereisten en vaste waarschuwingen voor vereisten voor een site hebt uitgevoerd, raden we niet gebruik van deze optie.  
-
-      In zowel de **beheer** en **bewaking** werkruimten, het knooppunt Updates en onderhoud omvat een knop in het lint genaamd **waarschuwingen over vereisten negeren**. Deze knop is alleen beschikbaar wanneer u een updatepakket mislukt om de installatie als gevolg van waarschuwingen voor vereisten te voltooien. Bijvoorbeeld, u een update installeert zonder de optie voor het negeren van waarschuwingen voor vereisten (van de wizard Updates). Installatie van de update stopt met een status van de vereiste Waarschuwing maar zonder fouten. U kunt later **waarschuwingen over vereisten negeren** vanuit het lint voor het activeren van een automatische voortzetting van de installatie van deze update waarbij waarschuwingen voor vereisten worden genegeerd. Als u deze optie gebruikt, wordt de installatie van de update automatisch voortgezet na een paar minuten.
+4.  Pour afficher les résultats de la vérification, dans la console Configuration Manager, accédez à **Surveillance** > **État des mises à jour et de la maintenance**, puis recherchez l’état du prérequis. Vous pouvez également consulter le fichier ConfigMgrPrereq.log sur le serveur du site pour plus de détails.  
 
 
 
--   Wanneer een update van toepassing op Configuration Manager-client, krijgt u de optie voor het testen van de clientupdate met een beperkte set clients. Zie voor meer informatie [clientupgrades testen in pre-productieverzameling in System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).  
+##  <a name="bkmk_install"></a> Installation de mises à jour dans la console  
+ Quand vous êtes prêt à installer des mises à jour à partir de la console Configuration Manager, commencez par le site de niveau supérieur de votre hiérarchie. Il s’agit soit du site d’administration centrale, soit d’un site principal autonome.  
 
-**2. Tijdens de installatie van updates**  
-Als onderdeel van de update-installatie Configuration Manager:  
+ Nous vous recommandons d’installer la mise à jour en dehors des heures de bureau normales pour chaque site afin de minimiser l’impact sur les opérations commerciales. En effet, l’installation de la mise à jour peut inclure des actions telles que la réinstallation des composants de site et des rôles de système de site.  
 
--   Opnieuw installeren beïnvloede onderdelen, zoals sitesysteemrollen of de Configuration Manager-console.  
+-   Les sites principaux enfants démarrent la mise à jour automatiquement après que le site d’administration centrale a installé la mise à jour. Il s’agit du processus par défaut et recommandé. Vous pouvez cependant utiliser des [fenêtres de maintenance pour les serveurs de site](/sccm/core/servers/manage/service-windows) pour contrôler à quel moment le site principal installe les mises à jour.  
 
--   Updates voor clients op basis van de selecties die u hebt gemaakt voor de clientproef en voor beheert [automatische clientupgrades](https://technet.microsoft.com/library/mt627885.aspx).  
+-   Après la mise à jour du site principal parent, mettez à jour manuellement les sites secondaires à partir de la console Configuration Manager. La mise à jour automatique des serveurs de sites secondaires n’est pas prise en charge.  
 
--   Wordt niet opnieuw opgestart sitesysteemservers als onderdeel van de update tenzij .NET is geïnstalleerd als onderdeel van een vereiste voor sitesysteemrollen.  
+-   Quand vous utilisez une console Configuration Manager, vous êtes invité à mettre à jour la console après la mise à jour du site.  
+
+-  Après avoir mené à bien l’installation d’une mise à jour, le serveur de site met automatiquement à jour tous les rôles de système de site applicables.  Le seul inconvénient concerne les points de distribution. Lors de l’installation d’une mise à jour, tous les points de distribution ne sont pas réinstallés et mis hors connexion pour être mis à jour simultanément. Au lieu de cela, le serveur de site utilise les paramètres de distribution de contenu du site pour distribuer la mise à jour à un sous-ensemble de points de distribution à la fois. Résultat : seuls certains points de distribution passent en mode hors connexion pour l’installation de la mise à jour. Les points de distribution dont la mise à jour n’a pas commencé ou est terminée restent en ligne et peuvent fournir du contenu aux clients.
+
+
+###  <a name="bkmk_overview"></a> Vue d’ensemble de l’installation d’une mise à jour dans la console  
+**1. Au démarrage de l’installation de la mise à jour**  
+L’Assistant Mises à jour affiche la liste des zones de produit auxquelles s’applique la mise à jour.  
+
+-   Dans la page **Général** de l’Assistant, vous pouvez configurer les **Avertissements relatifs à la configuration requise**.  
+      -   Les erreurs de configuration requise bloquent toujours l’installation de la mise à jour. Corrigez les erreurs avant de réessayer d’installer correctement la mise à jour. Pour plus d’informations, consultez [Nouvelle tentative d’installation d’une mise à jour ayant échoué](#bkmk_retry) .  
+
+    -   Des avertissements de configuration requise peuvent également bloquer l’installation de la mise à jour. Corrigez les avertissements avant de réessayer d’installer la mise à jour. Pour plus d’informations, consultez [Nouvelle tentative d’installation d’une mise à jour ayant échoué](#bkmk_retry).  
+    -   L’option **Ignorer les avertissements relatifs aux conditions requises et installer cette mise à jour sans tenir compte des manquements à la configuration requise** définit une condition pour l’installation de la mise à jour qui ignore les avertissements relatifs aux prérequis. Cela permet de poursuivre l’installation de la mise à jour. Si vous ne sélectionnez pas cette option, l’installation de la mise à jour s’arrête en cas d’avertissement. Si vous n’avez pas exécuté la vérification des prérequis et corrigé les avertissements relatifs aux prérequis pour un site, nous vous déconseillons d’utiliser cette option.  
+
+      Dans les espaces de travail **Administration** et **Surveillance**, le nœud Mises à jour et maintenance affiche un bouton **Ignorer les avertissements de configuration requise** sur le ruban. Ce bouton devient disponible quand l’installation d’un package de mise à jour n’arrive pas à terme en raison d’avertissements de vérification des prérequis. Par exemple, vous installez une mise à jour sans utiliser l’option pour ignorer les avertissements de configuration requise (à partir de l’Assistant Mises à jour). L’installation de la mise à jour s’interrompt, avec un état d’avertissement de configuration requise, mais sans erreur. Vous pouvez plus tard choisir d’**ignorer les avertissements de configuration requise** dans le ruban pour poursuivre automatiquement l’installation de cette mise à jour en ignorant les avertissements de configuration requise. Quand vous utilisez cette option, l’installation de la mise à jour se poursuit automatiquement après quelques minutes.
+
+
+
+-   Quand une mise à jour s’applique au client Configuration Manager, une option vous est proposée pour tester la mise à jour du client avec un ensemble limité de clients. Pour plus d’informations, consultez [Guide pratique pour tester les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).  
+
+**2. Pendant l’installation de la mise à jour**  
+Au cours de l’installation de la mise à jour, Configuration Manager :  
+
+-   réinstalle tous les composants concernés, comme les rôles de système de site ou la console Configuration Manager ;  
+
+-   gère les mises à jour des clients en fonction des sélections que vous avez effectuées pour le test du client et pour les [mises à niveau automatiques du client](https://technet.microsoft.com/library/mt627885.aspx) ;  
+
+-   n’a pas besoin de redémarrer les serveurs de système de site dans le cadre de la mise à jour, à moins que .NET soit installé en raison d’un prérequis lié aux rôles de système de site.  
 
 > [!TIP]  
->  Wanneer updates worden geïnstalleerd, wordt ook de CD in Configuration Manager bijgewerkt. Meest recente map. Deze map wordt gebruikt tijdens het herstel van een site.  
+>  Lors de l’installation des mises à jour, Configuration Manager met aussi à jour le dossier CD.Latest. Ce dossier est utilisé pendant la récupération d’un site.  
 
-**3. De voortgang van de updates bewaken tijdens de installatie van**  
-U kunt de voortgang als volgt bewaken:  
+**3. Surveiller l’état d’avancement de l’installation de mises à jour**  
+Pour surveiller l’état d’avancement, procédez comme suit :  
 
--   In de Configuration Manager-console: **Beheer** > **Updates en onderhoud** knooppunt. Dit knooppunt geeft de installatiestatus weer voor alle updatepakketten.
+-   Dans la console Configuration Manager : nœud **Administration** > **Mises à jour et maintenance**. Ce nœud affiche l’état d’installation de tous les packages de mise à jour.
 
 
--   In de Configuration Manager-console: **Bewaking** > **overzicht** > **Updates en onderhoudsstatus** knooppunt. Dit knooppunt geeft de installatiestatus van de updatepakket dat momenteel wordt geïnstalleerd.  
+-   Dans la console Configuration Manager, accédez au nœud **Administration** > **Vue d’ensemble** > **Mises à jour et maintenance**. Ce nœud affiche l’état d’installation uniquement du package de mise à jour en cours d’installation.  
 
-    Installeren van het updatepakket is onderverdeeld naar de volgende fasen voor bewaking gemakkelijker te maken. Aanvullende gegevens bevatten voor elke fase, welke logboekbestand voor meer informatie weergeven:  
-    -   **Download** (deze fase geldt alleen voor de bovenste site waarop de service connection-site is geïnstalleerd.)   
+    L’installation du pack de mise à jour est décomposée selon les phases suivantes pour faciliter la surveillance. Pour chaque phase, des détails supplémentaires indiquent le fichier journal à consulter pour obtenir plus d’informations :  
+    -   **Téléchargement** (cette phase s’applique uniquement au site de niveau supérieur où est installé le site du point de connexion de service.)   
 
-    -   **Replicatie**   
+    -   **Réplication**   
 
-    -   **Controle van vereisten**   
+    -   **Vérification des prérequis**   
 
-    -   **Installatie**    
+    -   **Installation**    
 
-    -   **Na de installatie** ([taken na de installatie](#post-installation-tasks) beschikbaar zijn te beginnen met versie 1610.)  
+    -   **Après l’installation** (les [tâches post-installation](#post-installation-tasks) ont été introduites avec la version 1610.)  
 
--   U vindt de **CMUpdate.log** bestanden per  **&lt;ConfigMgr_Installation_Directory > \Logs**  
+-   Vous pouvez consulter le fichier **CMUpdate.log** dans **&lt;<Répertoire_Installation_ConfiMgr>\Logs**  
 
-**4. Wanneer de update-installatie is voltooid**  
-Nadat de installatie van de update voor de eerste site is voltooid:  
+**4. Après l’installation de la mise à jour**  
+Une fois l’installation de la mise à jour sur le premier site terminée :  
 
--   Onderliggende primaire sites de update automatisch geïnstalleerd. Er is geen verdere actie vereist.  
+-   Les sites principaux enfants installent automatiquement la mise à jour. Aucune action supplémentaire n’est requise.  
 
--   Secundaire sites moeten handmatig worden bijgewerkt vanuit de Configuration Manager-console.
+-   Les sites secondaires doivent être mis à jour manuellement dans la console Configuration Manager.
 > [!TIP]
-> Hoewel de versie van een secundaire site niet wordt weergegeven in de console, kunt u de Configuration Manager-SDK gebruiken om te bevestigen dat de versie van een site. Zie [SMS_Site Server WMI-klasse](https://technet.microsoft.com/library/hh442832(CMSDK.16).aspx).
+> Bien que la version d’un site secondaire n’apparaisse pas dans la console, vous pouvez utiliser le Kit de développement logiciel (SDK) Configuration Manager pour vérifier la version d’un site. Voir [SMS_Site Server WMI Class](https://technet.microsoft.com/library/hh442832(CMSDK.16).aspx) (Classe WMI serveur SMS_Site).
 
 
--   Uw hiërarchie draait in een modus van gemengde versies totdat alle sites in uw hiërarchie zijn bijgewerkt naar de nieuwe versie. Zie [Interoperabiliteit tussen verschillende versies van System Center Configuration Manager](../../../core/plan-design/hierarchy/interoperability-between-different-versions.md) voor meer informatie.  
+-   Tant que tous les sites de votre hiérarchie n’ont pas été mis à jour vers la nouvelle version, la hiérarchie fonctionne en mode mixte de versions. Pour plus d'informations, voir [Interopérabilité entre les différentes versions de System Center Configuration Manager](../../../core/plan-design/hierarchy/interoperability-between-different-versions.md).  
 
-**5.   Configuration Manager-consoles bijwerken**  
-Nadat een centrale beheersite of primaire site is bijgewerkt, moet ook elke Configuration Manager-console die verbinding met die site maakt bijwerken. U wordt gevraagd een console bijwerken:  
+**5.   Mettre à jour des consoles Configuration Manager**  
+Dès lors qu’un site d’administration centrale ou un site principal est mis à jour, chaque console Configuration Manager qui se connecte à ce site doit aussi être mise à jour. Vous êtes invité à mettre à jour une console dans les cas suivants :  
 
--   Wanneer u de console opent.  
+-   lorsque vous ouvrez la console ;  
 
--   Wanneer u gaat naar een nieuw knooppunt in een geopende console.  
+-   lorsque vous accédez à un nouveau nœud dans une console ouverte.  
 
-U wordt aangeraden de update onmiddellijk te installeren.  
+Nous vous recommandons d’installer la mise à jour immédiatement.  
 
-Nadat de update van de console is voltooid, kunt u controleren of de versie van de console en site correct zijn. Ga naar **over System Center Configuration Manager** op de linkerbovenhoek van de console.  
+Une fois la mise à niveau de la console terminée, vous pouvez vérifier que les versions de la console et du site sont correctes. Accédez à **À propos de System Center Configuration Manager** en haut à gauche de la console.  
 
-###  <a name="bkmk_toptier"></a> De installatie van de update op de bovenste site starten  
-Op de bovenste site van uw hiërarchie, in de Configuration Manager-console gaat u naar **beheer** > **Updates en onderhoud**, selecteer een **beschikbaar** bijwerken en klik vervolgens op **updatepakket installeren**.  
+###  <a name="bkmk_toptier"></a> Pour démarrer l’installation de la mise à jour sur le site de niveau supérieur  
+Sur le site de niveau supérieur de votre hiérarchie, dans la console Configuration Manager, accédez à **Administration** > **Mises à jour et maintenance**, sélectionnez une mise à jour **Disponible**, puis cliquez sur **Installer le package de mise à jour**.  
 
-###  <a name="bkmk_secondary"></a> De installatie van de update op een secundaire site starten  
-Nadat een secundaire site bovenliggende primaire site is bijgewerkt, kunt u de secundaire site vanuit de Configuration Manager-console bijwerken.  Hiervoor gebruikt u de **Wizard Upgrade van secundaire Site**.  
+###  <a name="bkmk_secondary"></a> Pour démarrer l’installation de la mise à jour sur un site secondaire  
+Après la mise à jour du site principal parent d’un site secondaire, vous pouvez mettre à jour ce dernier à partir de la console Configuration Manager.  Pour ce faire, vous utilisez l’ **Assistant Mise à niveau d’un site secondaire**.  
 
-1.  Ga in de Configuration Manager-console naar **beheer** > **siteconfiguratie** > **Sites**, selecteer de site die u wilt bijwerken, en klik vervolgens op de startpagina tabblad, in de **Site** groep, kiest u **Upgrade**.  
+1.  Dans la console Configuration Manager, accédez à **Administration** > **Configuration du site** > **Sites**, sélectionnez le site à mettre à jour, puis, sous l’onglet Accueil, dans le groupe **Site**, choisissez **Mettre à niveau**.  
 
-2.  Klik op **Ja** om de update van de secundaire site te starten.  
+2.  Cliquez sur **Oui** pour démarrer la mise à jour du site secondaire.  
 
-Selecteer de secundaire siteserver voor het controleren van de installatie van de update op een secundaire site. Klik op de **Start** tabblad, in de **Site** groep, kiest u **installatiestatus tonen**. U kunt ook de kolom **Versie** toevoegen aan de console-weergave, zodat u de versie van elke secundaire site kunt bekijken.  
+Pour surveiller l’installation de la mise à jour sur un site secondaire, sélectionnez le serveur de site secondaire. Ensuite, sous l’onglet **Accueil**, dans le groupe **Site**, choisissez **Afficher l’état d’installation**. Vous pouvez également ajouter la colonne **Version** à l’affichage de la console pour voir la version de chaque site secondaire.  
 
-Na een secundaire site is updates, als de status in de console niet worden vernieuwd of de update is mislukt stelt, gebruikt u de **installatie opnieuw uitvoeren** optie. Deze optie de update voor een secundaire site die heeft de update is geïnstalleerd, maar zorgt ervoor dat de console bijwerken van de status niet opnieuw worden geïnstalleerd.
+À l’issue de la mise à jour d’un site secondaire, si l’état dans la console ne s’actualise pas ou laisse supposer que la mise à jour a échoué, utilisez l’option **Réessayer l’installation**. Cette option ne réinstalle pas la mise à jour sur un site secondaire qui a correctement installé la mise à jour ; elle force la console à mettre à jour l’état.
 
-### <a name="post-installation-tasks"></a>Taken na de installatie
-Vanaf versie 1610, kunt u informatie over de taken na de installatie weergeven.
+### <a name="post-installation-tasks"></a>Tâches post-installation
+Depuis la version 1610, vous pouvez afficher des informations sur les tâches post-installation.
 
-Wanneer een site een update is geïnstalleerd, zijn er verschillende taken die pas beginnen kunnen nadat de update-installatie op de siteserver is voltooid. Hier volgt een lijst van de taken na de installatie die essentieel voor de site-en hiërarchie zijn. Omdat ze essentieel zijn, worden ze actief bewaakt. Aanvullende taken die niet rechtstreeks worden bewaakt, bevatten de installatie van sitesysteemrollen. Selecteer om te geven de status van de taken kritieke na de installatie, **na de installatie** taak bij de bewaking van de installatie van de update voor een site.
+Lorsqu’un site installe une mise à jour, plusieurs tâches ne peuvent pas démarrer tant que la mise à jour n’est pas installée sur le serveur de site. Voici une liste des tâches post-installation essentielles aux opérations de site et de hiérarchie. Ces tâches étant critiques, elles sont activement surveillées. D’autres tâches ne sont pas directement surveillées, par exemple la réinstallation de rôles de système de site. Pour afficher l’état des tâches post-installation critiques, sélectionnez une tâche **post-installation** lorsque vous surveillez l’installation de la mise à jour d’un site.
 
-Niet alle taken voltooid onmiddellijk. Sommige taken start niet totdat de installatie van de update is voltooid voor elke site. Nieuwe functionaliteit die u verwacht kan daarom worden uitgesteld totdat deze taken worden voltooid. Bijvoorbeeld, omdat de nieuwe functies inschakelen start niet totdat alle sites update-installatie voltooien, nieuwe functies mogelijk niet meer zichtbaar gedurende een bepaalde periode.
+Toutes les tâches ne se terminent pas immédiatement. Certaines tâches ne démarrent pas tant que chaque site n’a pas terminé l’installation de la mise à jour. Les nouvelles fonctionnalités que vous souhaitez utiliser peuvent donc être retardées en attendant la fin de ces tâches. Par exemple, étant donné que l’activation des nouvelles fonctionnalités ne démarre pas tant que tous les sites ont terminé l’installation de la mise à jour, ces nouvelles fonctionnalités peuvent ne pas être visibles pendant un certain temps.
 
-De taken na de installatie zijn onder andere:
+Les tâches post-installation incluent :
 
--   **SMS Executive-service installeren**
-  -   Kritieke service die wordt uitgevoerd op de siteserver.
-  -   Opnieuw installeren van deze service moet snel worden voltooid.
-
-
--   **SMS_DATABASE_NOTIFICATION_MONITOR onderdeel installeren**
-  -   Kritieke site onderdeel thread van SMS Executive-service.
-  -   Opnieuw installeren van deze service moet snel worden voltooid.
+-   **Installation du service SMS_EXECUTIVE**
+  -   Service critique qui s’exécute sur le serveur de site.
+  -   La réinstallation de ce service devrait s’exécuter rapidement.
 
 
--   **SMS_HIERARCHY_MANAGER onderdeel installeren**
-  -   Kritieke site-component die wordt uitgevoerd op de siteserver.
-  -   Verantwoordelijk voor het opnieuw installeren van sitesysteemrollen op sitesysteemservers.  De status van afzonderlijke site system rol herinstallatie weergegeven niet.
-  -   Opnieuw installeren van deze service moet snel worden voltooid.
+-   **Installation du composant SMS_DATABASE_NOTIFICATION_MONITOR**
+  -   Thread de composant de site critique du service SMS_EXECUTIVE.
+  -   La réinstallation de ce service devrait s’exécuter rapidement.
 
 
--   **SMS_REPLICATION_CONFIGURATION_MONITOR onderdeel installeren**
-  -   Kritieke site-component die wordt uitgevoerd op de siteserver.
-  -   Opnieuw installeren van deze service moet snel worden voltooid.
+-   **Installation du composant SMS_HIERARCHY_MANAGER**
+  -   Composant de site critique qui s’exécute sur le serveur de site.
+  -   Responsable de la réinstallation des rôles de système de site sur les serveurs de système de site.  L’état de la réinstallation d’un rôle de système de site individuel n’apparaît pas.
+  -   La réinstallation de ce service devrait s’exécuter rapidement.
 
 
--   **SMS_POLICY_PROVIDER onderdeel installeren**
-  -   Kritieke siteonderdeel dat alleen op primaire sites werkt.
-  -   Opnieuw installeren van deze service moet snel worden voltooid.
+-   **Installation du composant SMS_REPLICATION_CONFIGURATION_MONITOR**
+  -   Composant de site critique qui s’exécute sur le serveur de site.
+  -   La réinstallation de ce service devrait s’exécuter rapidement.
 
 
--   **Replicatie-initialisatie bewaking**   
-  -   Hiermee worden weergegeven op alleen de centrale beheersite en de onderliggende primaire sites.
-  -   Afhankelijk van de SMS_REPLICATION_CONFIGURATION_MONITOR.
-  -   Snel moet worden voltooid.
+-   **Installation du composant SMS_POLICY_PROVIDER**
+  -   Composant de site critique qui s’exécute uniquement sur les sites principaux.
+  -   La réinstallation de ce service devrait s’exécuter rapidement.
 
 
--   **Het bijwerken van Configuration Manager-Client preproductie-pakket**    
-  -   U ziet nu zelfs wanneer client preproductie (ook wel clientproef genoemd) niet is ingeschakeld voor gebruik.
-  -   Start niet totdat alle sites in de hiërarchie klaar bent met het installeren van de update.
+-   **Surveillance de l’initialisation de la réplication**   
+  -   Cette tâche s’affiche uniquement sur le site d’administration centrale et sur les sites principaux enfants.
+  -   Dépend de SMS_REPLICATION_CONFIGURATION_MONITOR.
+  -   Devrait s’exécuter rapidement.
 
 
--   **Client-map op de siteserver wordt bijgewerkt**
-  -   Dit wordt niet weergegeven als u de client in een preproductieverzameling gebruiken.  
-  -   Snel moet worden voltooid.
+-   **Mise à jour du package de préproduction du client Configuration Manager**    
+  -   S’affiche même lorsque client de préproduction (également appelé pilotage du client) n’est pas activé pour être utilisé.
+  -   Ne commence pas tant que tous les sites dans la hiérarchie n’ont pas terminé l’installation de la mise à jour.
 
 
--   **Bijwerken van Configuration Manager-clientpakket**
-  -   Dit wordt niet weergegeven als u de client in een preproductieverzameling gebruiken.  
-  -   Is voltooid nadat de update voor alle sites installeren.  
+-   **Mise à jour du dossier du client sur le serveur de site**
+  -   Ne s’affiche pas si vous utilisez le client en préproduction.  
+  -   Devrait s’exécuter rapidement.
 
 
--   **Functies inschakelen**
-  -   U ziet nu alleen op de bovenste site van de hiërarchie.
-  -   Start niet totdat alle sites in de hiërarchie klaar bent met het installeren van de update.
-  -   Afzonderlijke functies worden niet weergegeven.
+-   **Mise à jour du package du client Configuration Manager**
+  -   Ne s’affiche pas si vous utilisez le client en préproduction.  
+  -   Se termine uniquement une fois que tous les sites ont installé la mise à jour.  
 
 
-##  <a name="bkmk_retry"></a> De installatie van een mislukte update opnieuw uitvoeren  
-Wanneer een update niet kan worden geïnstalleerd, bekijkt u de feedback in de console om oplossingen voor waarschuwingen en fouten te identificeren. U kunt ook het bestand ConfigMgrPrereq.log op de siteserver bekijken voor meer informatie. Voordat u de installatie van een update opnieuw uitvoert, moet u moet fouten oplossen en los waarschuwingen.  
+-   **Activation des fonctionnalités**
+  -   S’affiche uniquement sur le site de niveau supérieur de la hiérarchie.
+  -   Ne commence pas tant que tous les sites dans la hiérarchie n’ont pas terminé l’installation de la mise à jour.
+  -   Les fonctionnalités individuelles ne sont pas affichées.
+
+
+##  <a name="bkmk_retry"></a> Nouvelle tentative d’installation d’une mise à jour ayant échoué  
+Quand l’installation d’une mise à jour échoue, passez en revue les commentaires dans la console pour identifier les résolutions possibles des avertissements et des erreurs. Vous pouvez également consulter le fichier ConfigMgrPrereq.log sur le serveur du site pour plus de détails. Avant de réessayer l’installation d’une mise à jour, vous devez corriger les erreurs et il est recommandé de corriger aussi les avertissements.  
 
 > [!TIP]  
-> Als een update heeft problemen bij het downloaden of repliceren, kunt u de [update opnieuw instellen van hulpprogramma](/sccm/core/servers/manage/update-reset-tool). Dit hulpprogramma is beschikbaar via de sites waarop versie 1706 uitgevoerd of hoger. 
+> Si une mise à jour a des problèmes lors du téléchargement ou de réplication, vous pouvez utiliser la [outil de réinitialisation de mise à jour](/sccm/core/servers/manage/update-reset-tool). Cet outil est disponible à partir de sites qui exécutent la version 1706 ou version ultérieure. 
 
-Wanneer u klaar bent voor de installatie van een update opnieuw uitvoeren, selecteert u de mislukte update en kies vervolgens een optie die van toepassing. De werking van de update-installatie opnieuw proberen, is afhankelijk van het knooppunt waar u het opnieuw starten en de nieuwe pogingen-optie die u gebruikt.  
+Quand vous êtes prêt à réessayer l’installation d’une mise à jour, sélectionnez la mise à jour ayant échoué, puis choisissez une option applicable. Le comportement de nouvelle tentative d’installation de mise à jour dépend du nœud où vous lancez la nouvelle tentative et de l’option de nouvelle tentative que vous utilisez.  
 
-1.  **De installatie voor de hiërarchie opnieuw uitvoeren:**  
-U kunt de installatie van een update voor de gehele hiërarchie opnieuw uitvoeren wanneer deze update een van de volgende statussen heeft:  
+1.  **Réessayer l’installation pour la hiérarchie :**  
+Vous pouvez réessayer l’installation d’une mise à jour pour l’ensemble de la hiérarchie lorsque cette mise à jour est dans l’un des états suivants :  
 
-    -   Controle van vereisten is voltooid met een of meer waarschuwingen en de optie voor het negeren van waarschuwingen voor vereisten is niet ingesteld in de Wizard Update. (De waarde van de update voor **waarschuwingen voor vereisten negeren** in de **Updates en onderhoud** knooppunt **Nee**.)   
-    -   De vereiste is mislukt    
-    -   De installatie is mislukt
-    -   De replicatie van de inhoud naar de site is mislukt   
+    -   La vérification des prérequis a généré un ou plusieurs avertissements, et l’option permettant d’ignorer les avertissements de vérification des prérequis n’a pas été activée dans l’Assistant Mise à jour. (La valeur de mise à jour pour **Ignorer l’avertissement de condition préalable** dans le nœud **Mises à jour et maintenance** est **Non**.)   
+    -   La vérification des prérequis a échoué.    
+    -   L’installation a échoué.
+    -   La réplication du contenu sur le site a échoué.   
 
-    Ga naar **beheer** > **Updates en onderhoud**, selecteer de update en kies vervolgens een van de volgende opties:  
+    Accédez à **Administration** > **Mises à jour et maintenance**, sélectionnez la mise à jour, puis choisissez l’une des options suivantes :  
 
-    -   **Probeer** - tijdens het uitvoeren van **probeer** vanuit dit knooppunt, installatie van de update opnieuw gestart en worden waarschuwingen over vereisten automatisch genegeerd. Inhoud voor de update ook opnieuw gerepliceerd als replicatie eerder is mislukt.
-    - **Waarschuwingen over vereisten negeren** -vanaf versie 1606, als de installatie van de update stopt vanwege een waarschuwing, u kunt vervolgens **waarschuwingen over vereisten negeren**. Met deze actie gaat de installatie van de update verder (na enkele minuten) en wordt de optie gebruikt voor het negeren van waarschuwingen voor vereisten.   
+    -   **Nouvelle tentative** : quand vous exécutez **Nouvelle tentative** à partir de ce nœud, l’installation de la mise à jour redémarre et ignore automatiquement les avertissements relatifs aux prérequis. Le contenu pour la mise à jour est uniquement répliqué si la réplication a échoué précédemment.
+    - **Ignorer les avertissements de configuration requise** : à compter de la version 1606, si l’installation de la mise à jour s’arrête en raison d’un avertissement, vous pouvez choisir **Ignorer les avertissements de configuration requise**. Cette action permet à l’installation de la mise à jour de continuer (après quelques minutes) et utilise l’option pour ignorer les avertissements de configuration requise.   
 
-2.  **De installatie voor de site opnieuw uitvoeren:**  
- U kunt de installatie van een update voor een specifieke site opnieuw uitvoeren wanneer deze update een van de volgende statussen heeft:  
+2.  **Réessayer l’installation pour le site :**  
+ Vous pouvez réessayer l’installation d’une mise à jour sur un site spécifique lorsque cette mise à jour est dans l’un des états suivants :  
 
-    -   Controle van vereisten is voltooid met een of meer waarschuwingen en optie voor het negeren van waarschuwingen voor vereisten is niet ingesteld in de Wizard Update. (De waarden van de updates voor **waarschuwingen voor vereisten negeren** in het knooppunt Updates en onderhoud is **Nee**.)  
-    -   De vereiste is mislukt    
-    -   De installatie is mislukt    
+    -   La vérification des prérequis a généré un ou plusieurs avertissements, et l’option permettant d’ignorer les avertissements de vérification des prérequis n’a pas été activée dans l’Assistant Mise à jour. (La valeur de mise à jour pour **Ignorer l’avertissement de condition préalable** dans le nœud Mises à jour et maintenance est **Non**.)  
+    -   La vérification des prérequis a échoué.    
+    -   L’installation a échoué.    
 
-    Ga naar **bewaking** > **overzicht** > **Status siteonderhoud**, selecteer de update en klik vervolgens op een van de volgende opties:
+    Accédez à **Surveillance** > **Vue d’ensemble** > **État de la maintenance de site**, sélectionnez la mise à jour, puis cliquez sur l’une des options suivantes :
 
-       - **Probeer** - tijdens het uitvoeren van **probeer** vanuit dit knooppunt, u de installatie van de update alleen voor die site opnieuw starten. In tegenstelling tot uitgevoerd **probeer** van de **Updates en onderhoud** knooppunt, deze opnieuw worden waarschuwingen voor vereisten niet genegeerd.
-       -    **Waarschuwingen over vereisten negeren** -vanaf versie 1606, als de update stopt vanwege een waarschuwing wilt installeren, klikt u vervolgens op **waarschuwingen over vereisten negeren**. Met deze actie gaat de installatie van de update verder (na enkele minuten) en wordt de optie gebruikt voor het negeren van waarschuwingen voor vereisten.
+       - **Nouvelle tentative** : quand vous exécutez **Nouvelle tentative** à partir de ce nœud, vous redémarrez l’installation de la mise à jour uniquement sur ce site. Contrairement à l’exécution de **Nouvelle tentative** à partir du nœud **Mises à jour et maintenance**, cette nouvelle tentative n’ignore pas les avertissements relatifs aux prérequis.
+       -    **Ignorer les avertissements de configuration requise** : à compter de la version 1606, si l’installation de la mise à jour s’arrête en raison d’un avertissement, vous pouvez cliquer sur **Ignorer les avertissements de configuration requise**. Cette action permet à l’installation de la mise à jour de continuer (après quelques minutes) et utilise l’option pour ignorer les avertissements de prérequis.
 
-##  <a name="bkmk_after"></a> Nadat een op site een update is geïnstalleerd  
-Gebruik de volgende controlelijst om uit te voeren algemene taken en configuraties die zijn aangebracht nadat een site is bijgewerkt.   
+##  <a name="bkmk_after"></a> Après l’installation d’une mise à jour sur un site  
+Utilisez la liste de vérification suivante pour effectuer les tâches courantes et les configurations nécessaires après la mise à jour d’un site.   
 
-**Controleer of site-naar-site-replicatie actief:** Ga naar de volgende locaties weergeven van de status en ervoor te zorgen dat de replicatie is actief in de Configuration Manager-console:  
+**Vérifier que la réplication de site à site est active :** dans la console Configuration Manager, accédez aux emplacements suivants pour consulter l’état et vérifier que la réplication est active :  
 
--   **Bewaking** > **Overzicht** > **Sitehiërarchie**  
+-   **Surveillance** > **Vue d’ensemble** > **Hiérarchie de site**  
 
--   **Bewaking** > **Overzicht** > **Databasereplicatie**  
+-   **Surveillance** > **Vue d’ensemble** > **Réplication de base de données**  
 
-Zie voor meer informatie [hiërarchie- en replicatie-infrastructuur bewaken in System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md) en [over de Replication Link Analyzer](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_RLA).  
+Pour plus d’informations, consultez [Surveiller l’infrastructure de la hiérarchie et de la réplication dans System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md) et [À propos de l’analyseur de lien de réplication](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_RLA).  
 
- **Bevestig dat siteservers en externe sitesysteemservers opnieuw zijn opgestart (indien nodig):** Controleer uw site-infrastructuur en zorg ervoor dat toepasselijke siteservers en sitesysteemservers zijn opnieuw gestart. Siteservers opnieuw normaal gesproken alleen wanneer de Configuration Manager .NET als een vereiste voor een sitesysteemrol installeert.  
+ **Vérifier que les serveurs de site et les serveurs de système de site distants ont redémarré (si nécessaire) :** examinez l’infrastructure de votre site et vérifiez que les serveurs de site et serveurs de système de site appropriés ont redémarré correctement. En règle générale, les serveurs de site redémarrent uniquement quand Configuration Manager installe .NET en tant que prérequis pour un rôle de système de site.  
 
- **Zelfstandige Configuration Manager-consoles bijwerken:** Zorg ervoor dat alle externe Configuration Manager-consoles bijwerken naar dezelfde versie. U wordt gevraagd een console bij te werken wanneer:  
+ **Mettre à jour les consoles Configuration Manager autonomes :** vérifiez que toutes les consoles Configuration Manager distantes ont été mises à jour vers la même version. Vous êtes invité à mettre à jour la console dans les cas suivants :  
 
--   Gaat u naar een nieuw knooppunt in de console.  
+-   lorsque vous accédez à un nouveau nœud dans la console ;  
 
--   U opent de console.
+-   lorsque vous ouvrez la console.
 
-**Databasereplica's voor beheerpunten op primaire sites opnieuw configureren:** Als u Databasereplica's voor beheerpunten op primaire sites gebruikt, moet u de Databasereplica's verwijderen voordat u de site bijwerkt. Nadat u een primaire site hebt bijgewerkt, configureert u de databasereplica voor beheerpunten opnieuw. Zie [Databasereplica's voor beheerpunten voor System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md) voor meer informatie.  
+**Reconfigurer les réplicas de base de données pour les points de gestion sur les sites principaux :** si vous utilisez des réplicas de base de données pour les points de gestion sur les sites principaux, vous devez désinstaller les réplicas de base de données avant de mettre à jour le site. Après avoir mis à niveau un site principal, reconfigurez le réplica de base de données pour les points de gestion. Pour plus d’informations, consultez [Réplicas de base de données pour les points de gestion de System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
 
-**Configureer alle databaseonderhoudstaken die u uitgeschakeld hebt vóór de update opnieuw:** Als u de database [onderhoudstaken](../../../core/servers/manage/maintenance-tasks.md) op een site voordat u de update installeert, moet u deze taken op de site opnieuw configureren. Gebruik dezelfde instellingen die ingesteld vóór de update waren.  
+**Reconfigurer les tâches de maintenance de base de données désactivées avant la mise à jour :** si vous avez désactivé les [tâches de maintenance](../../../core/servers/manage/maintenance-tasks.md) sur un site avant d’installer la mise à jour, reconfigurez ces tâches sur le site. Utilisez les mêmes paramètres qui étaient en vigueur avant la mise à jour.  
 
-**Clients bijwerken:** Zie voor informatie [clients voor Windows-computers in System Center Configuration Manager bijwerken](../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
+**Mettre à niveau les clients :** pour plus d’informations, consultez [Guide pratique pour mettre à niveau les clients pour les ordinateurs Windows dans System Center Configuration Manager](../../../core/clients/manage/upgrade/upgrade-clients-for-windows-computers.md).  
 
-**Aanvullende configuraties:** Bekijk de wijzigingen aangebracht voordat u de update gestart en herstel vervolgens die configuraties op uw sites en hiërarchie.  
+**Configurations supplémentaires :** examinez les modifications que vous avez apportées avant de commencer la mise à jour, puis restaurez ces configurations sur vos sites et votre hiérarchie.  
 
-##  <a name="bkmk_options"></a> Optionele functies van updates inschakelen  
-Wanneer een update een of meer optionele functies bevat, hebt u de mogelijkheid om in te schakelen die functies in uw hiërarchie.  U kunt functies inschakelen wanneer de update is geïnstalleerd, of u kunt later terugkeren naar de console en de optionele functies inschakelen.
+##  <a name="bkmk_options"></a> Activation de fonctionnalités facultatives de mises à jour  
+Lorsqu’une mise à jour inclut une ou plusieurs fonctionnalités facultatives, vous avez la possibilité d’activer celles-ci dans votre hiérarchie.  Vous pouvez activer les fonctionnalités au moment de l’installation de la mise à jour ou revenir à la console ultérieurement pour activer les fonctionnalités facultatives.
 
-Als u wilt weergeven van beschikbare functies en hun status, in de console gaat u naar **beheer** > **Updates en onderhoud** > **functies**.
+Pour afficher les fonctionnalités disponibles et leur état, dans la console, accédez à **Administration** > **Mises à jour et maintenance** > **Fonctionnalités**.
 
-Wanneer een functie niet optioneel is, deze wordt automatisch geïnstalleerd en niet wordt weergegeven in de **functies** knooppunt.  
-
-
-Wanneer u een nieuwe functie of het onderdeel van de voorlopige versie inschakelt, moet de Configuration Manager-hiërarchie manager (HMAN) de wijziging verwerken voordat deze functie beschikbaar wordt. Verwerking van de wijziging is vaak onmiddellijke, maar duurt maximaal 30 minuten duren, afhankelijk van de HMAN verwerkingscyclus. Nadat de wijziging wordt verwerkt, moet u de console opnieuw opstarten voordat u de nieuwe gebruikersinterface die betrekking hebben op deze functie kunt weergeven.
+Quand une fonctionnalité n’est pas facultative, elle est installée automatiquement et n’apparaît pas dans le nœud **Fonctionnalités**.  
 
 
-##  <a name="bkmk_prerelease"></a> Functies van voorlopige versies van updates gebruiken
-Functies van evaluatieversies zijn opgenomen in de huidige vertakking voor vroege testdoeleinden in een productieomgeving. U kunt deze functies gebruiken in uw productieomgeving, maar ze worden niet beschouwd als productie gereed. Meer informatie over [functies van evaluatieversies](/sccm/core/servers/manage/pre-release-features), met inbegrip van hoe u kunt ze inschakelen in uw omgeving.             
+Quand vous activez une nouvelle fonctionnalité ou une fonctionnalité en préversion, le Gestionnaire de hiérarchie de Configuration Manager (HMAN) doit traiter le changement avant que cette fonctionnalité ne soit disponible. Le traitement du changement est souvent immédiat, mais il peut prendre jusqu’à 30 minutes en fonction du cycle de traitement HMAN. Une fois le changement traité, vous devez redémarrer la console pour voir la nouvelle interface utilisateur associée à cette fonctionnalité.
 
 
-## <a name="known-issues"></a>Bekende problemen
+##  <a name="bkmk_prerelease"></a> Utiliser des fonctionnalités de préversions de mises à jour
+Les fonctionnalités de préversion sont incluses dans la branche Current Branch à des fins de test préalable dans un environnement de production. Vous pouvez utiliser ces fonctionnalités dans un environnement de production, mais elles ne doivent pas être considérées comme prêtes pour la production. Pour en savoir plus sur les fonctionnalités de préversion, y compris sur la façon de les activer dans votre environnement, consultez [Fonctionnalités de préversion](/sccm/core/servers/manage/pre-release-features).             
 
-###  <a name="bkmk_faq"></a>Waarom zie ik bepaalde updates niet in mijn console?  
- Als u kunt een specifieke update niet in de console na een synchronisatie met de Microsoft-cloudservice vinden, is dit mogelijk doordat:  
 
--   Voor de update is een configuratie vereist die niet wordt gebruikt in uw infrastructuur of uw huidige versie van het product voorziet niet in een vereiste voor het ontvangen van de update.  
+## <a name="known-issues"></a>Problèmes connus
 
-     Als u van mening bent dat u de vereiste configuraties en -vereisten voor een ontbrekende update hebt, moet u controleren of uw serviceverbindingspunt in de onlinemodus bevindt. Gebruik vervolgens de **controleren op Updates** optie in de **Updates en onderhoud** knooppunt om af te dwingen een controle.  Als u zich in de offlinemodus bevindt, moet u het hulpprogramma voor serviceverbindingen gebruiken om handmatig te synchroniseren met de Microsoft-cloudservice.  
+###  <a name="bkmk_faq"></a> Pourquoi certaines mises à jour ne s’affichent pas dans ma console ?  
+ Si vous ne trouvez pas une mise à jour spécifique dans votre console après une synchronisation réussie avec le service cloud Microsoft, les causes possibles sont les suivantes :  
 
--   Uw account beschikt niet over de juiste op rollen gebaseerd beheer-machtigingen voor het weergeven van updates in de Configuration Manager-console.
+-   La mise à jour requiert une configuration que votre infrastructure n’utilise pas, ou votre version actuelle du produit ne remplit pas une condition préalable pour la réception de la mise à jour.  
 
-    Zie [Machtigingen voor het weergeven en beheren van updates en functies](../../../core/servers/manage/install-in-console-updates.md#assign-permissions-to-view-and-manage-updates-and-features) in dit onderwerp voor informatie over vereiste machtigingen voor het weergeven van updates en het inschakelen van functies vanuit de console.
+     Si vous pensez que vous disposez des configurations requises et prérequis pour une mise à jour manquante, vérifiez que votre point de connexion de service est en mode en ligne. Ensuite, utilisez l’option **Rechercher les mises à jour** dans le nœud **Mises à jour et maintenance** pour forcer la vérification.  Si vous êtes en mode hors connexion, vous devez recourir à l’outil de connexion au service pour synchroniser manuellement le service cloud.  
 
-### <a name="why-do-i-see-two-updates-for-version-1610"></a>Waarom zie ik twee updates voor versie 1610?
-Wanneer u updates in de console bekijkt, ziet u mogelijk twee updates 1610 versie installeren. Deze updates hebben verschillende datums. Beide weergegeven wanneer een van de volgende voorwaarden voldaan wordt:   
--   U hebt een oudere versie (zoals 1606) geïnstalleerd nadat versie 1610 beschikbaar zijn geworden
+-   Votre compte ne dispose pas des autorisations d’administration basée sur des rôles appropriées pour afficher les mises à jour dans la console Configuration Manager.
 
--   Uw hiërarchie versie 1511 of 1602 wordt uitgevoerd en u niet kunnen downloaden versie 1606 zijn
+    Pour plus d’informations sur les autorisations requises pour afficher les mises à jour et activer les fonctionnalités à partir de la console, consultez [Autorisations de gérer les mises à jour](../../../core/servers/manage/install-in-console-updates.md#assign-permissions-to-view-and-manage-updates-and-features) dans cette rubrique.
 
-Er zijn twee update releases voor versie 1610 omdat deze update is opnieuw uitgebracht na enkele kleine wijzigingen in sommige binaire bestand zijn aangebracht. Deze wijzigingen hebben geen invloed op de functionaliteit van Configuration Manager of de update.
+### <a name="why-do-i-see-two-updates-for-version-1610"></a>Pourquoi deux mises à jour sont-elles proposées pour la version 1610 ?
+Il peut arriver que deux mises à jour vers la version 1610 soient répertoriées dans la console. Les mises à jour ont des dates différentes. Ces deux mises à jour s’affichent lorsqu’une des conditions suivantes est vraie :   
+-   Après la publication de la version 1610, vous avez installé une version antérieure (par exemple, la version 1606).
 
-Wanneer beide updates beschikbaar in de console zijn, wordt u aangeraden dat u de update installeren op de meest recente datum. Echter, omdat beide updates dezelfde functionaliteit bieden als u een van beide al hebt geïnstalleerd niet hoeft u verdere actie te ondernemen.
--   Als u eerder de oudere update hebt geïnstalleerd, hoeft u niet de update te installeren met de nieuwere datum. Echter als u de nieuwere update na het installeren van de eerste update installeert, wordt de betreffende binaire bestanden bijgewerkt. Er zijn geen extra wijziging optreedt, en zijn geen verdere actie te ondernemen nodig.
+-   Votre hiérarchie exécute la version 1511 ou 1602 et vous n’avez pas pu télécharger la version 1606
 
--   Als u de nieuwste update eerder is geïnstalleerd en installeer vervolgens de update op de oudere datum, is geen verdere actie nodig. Dit komt doordat de nieuwere binaire bestanden die u al hebt geïnstalleerd niet worden overschreven door de dezelfde binaire bestanden van de oorspronkelijke update.
+Il existe deux mises à jour vers la version 1610, car des modifications mineures ont été apportées à certains binaires de fichier après la publication de la première mise à jour. Ces modifications n’affectent pas les fonctionnalités de Configuration Manager ni la mise à jour.
+
+Si les deux mises à jour sont disponibles dans la console, nous vous recommandons d’installer la plus récente. Toutefois, étant donné que les mises à jour offrent les mêmes fonctionnalités, aucune action de votre part n’est nécessaire si vous avez déjà installé l’une d’entre elles.
+-   Si vous avez installé l’ancienne mise à jour, il est inutile d’installer la mise à jour plus récente. Toutefois, si vous installez la nouvelle mise à jour après avoir installé la première mise à jour, les fichiers binaires en question seront mis à jour. Aucune modification supplémentaire ne se produit, et aucune action supplémentaire de votre part n’est nécessaire.
+
+-   Si vous avez installé la dernière mise à jour et que vous installez ensuite l’ancienne, aucune action supplémentaire n’est nécessaire. Cela est dû au fait que les derniers binaires qui sont déjà installés ne sont pas remplacés par les mêmes binaires de la mise à jour d’origine.

@@ -1,6 +1,6 @@
 ---
-title: Software-inventaris weergeven | Microsoft Docs | Resource Explorer
-description: Resource Explorer gebruiken om software-inventaris in System Center Configuration Manager weer te geven.
+title: "Afficher l’inventaire logiciel | Microsoft Docs | Explorateur de ressources"
+description: "Utilisez l’Explorateur de ressources pour afficher l’inventaire logiciel dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -17,38 +17,38 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: b76bcf65c61b0a2690a468d375ac95b1334d5298
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-use-resource-explorer-to-view-software-inventory-in-system-center-configuration-manager"></a>Resource Explorer gebruiken om software-inventaris in System Center Configuration Manager weer te geven
+# <a name="how-to-use-resource-explorer-to-view-software-inventory-in-system-center-configuration-manager"></a>Comment utiliser l’Explorateur de ressources pour afficher l’inventaire logiciel dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Gebruik Resource Explorer in System Center Configuration Manager voor informatie over software-inventaris die is verzameld van computers in uw hiërarchie.  
+Utilisez l’Explorateur de ressources de System Center Configuration Manager pour afficher des informations sur l’inventaire logiciel collecté auprès des ordinateurs de votre hiérarchie.  
 
 > [!NOTE]  
->  Resource Explorer wordt inventarisgegevens weer tot er een software-inventarisatiefase is uitgevoerd op de client.  
+>  L’Explorateur de ressources n’affiche pas de données d’inventaire tant qu’un cycle d’inventaire logiciel n’a pas été exécuté sur le client.  
 
- Resource Explorer biedt de volgende software-inventarisatie-informatie:  
+ L’Explorateur de ressources fournit les informations d’inventaire matériel et logiciel suivantes :  
 
--   **Software**:  
+-   **Logiciels** :  
 
-    -   **Bestanden verzameld** -bestanden die zijn verzameld tijdens het software-inventaris.  
+    -   **Fichiers collectés** : fichiers collectés lors de l’inventaire logiciel.  
 
-    -   **Bestandsgegevens** -bestanden die zijn geïnventariseerd tijdens software-inventarisatie die niet gekoppeld aan een specifiek product of de fabrikant zijn.  
+    -   **Détails du fichier** : fichiers qui ont été inventoriés pendant l’inventaire logiciel, et qui ne sont pas associés à un produit ou un fabricant spécifique.  
 
-    -   **Vorige Softwarescan** -datum en tijd van de laatste software-inventaris en bestandsverzameling voor de clientcomputer.  
+    -   **Dernière analyse logicielle** : date et heure de la dernière collecte d’inventaire logiciel et de fichiers pour l’ordinateur client.  
 
-    -   **Productgegevens** -softwareproducten die door de software-inventarisatie zijn geïnventariseerd, gegroepeerd op fabrikant.  
+    -   **Détails du produit** : produits logiciels qui ont été inventoriés par l’inventaire logiciel, regroupés par fabricant.  
 
-## <a name="to-run-resource-explorer-from-the-configuration-manager-console"></a>Resource Explorer uitvoeren vanaf de Configuration Manager-console  
+## <a name="to-run-resource-explorer-from-the-configuration-manager-console"></a>Pour exécuter l'Explorateur de ressources à partir de la console Configuration Manager  
 
-1.  Kies in de Configuration Manager-console **activa en naleving**
+1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité**.
 
-2.  In de **activa en naleving** werkruimte, kiest u **apparaten** of open een verzameling die apparaten weergeeft.  
+2.  Dans l’espace de travail **Ressources et Conformité**, cliquez sur **Appareils** ou ouvrez un regroupement qui affiche des appareils.  
 
-3.  Kies de computer met de inventaris die u wilt weergeven en klikt u op de **Start** tabblad > **apparaten** groep, kiest u **Start** > **Resource Explorer**.
+3.  Choisissez l’ordinateur contenant l’inventaire que vous voulez afficher puis, sous l’onglet **Accueil**, dans le groupe **Appareils**, choisissez **Démarrer** > **Explorateur de ressources**.
 
-4.  U kunt met de rechtermuisknop op een item in het rechterdeelvenster van het Resource Explorer-venster en kies **eigenschappen** om weer te geven informatie over de verzamelde inventaris in een beter leesbare indeling.  
+4.  Vous pouvez cliquer avec le bouton droit sur un élément dans le volet droit de la fenêtre Explorateur de ressources, puis choisir **Propriétés** pour visualiser les informations d’inventaire collectées dans un format plus lisible.  
  

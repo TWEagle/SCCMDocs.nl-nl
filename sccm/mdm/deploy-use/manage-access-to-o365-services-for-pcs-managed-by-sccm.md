@@ -1,6 +1,6 @@
 ---
-title: Toegang beheren tot O365-services voor beheerde pc's | Microsoft Docs
-description: Informatie over het configureren van voorwaardelijke toegang voor pc's die worden beheerd door System Center Configuration Manager.
+title: "Gérer l’accès aux services O365 pour les PC gérés | Microsoft Docs"
+description: "Découvrez comment configurer l’accès conditionnel pour les PC gérés par System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,126 +16,126 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: aede531a0406c3d30c9cca957896e002ed22ae51
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-access-to-o365-services-for-pcs-managed-by-system-center-configuration-manager"></a>Toegang beheren tot O365-services voor pc’s die worden beheerd door System Center Configuration Manager
+# <a name="manage-access-to-o365-services-for-pcs-managed-by-system-center-configuration-manager"></a>Gérer l’accès aux services O365 pour les PC gérés par System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Vanaf versie 1602 van Configuration Manager, kunt u voorwaardelijke toegang configureren voor pc's die worden beheerd door System Center Configuration Manager.  
+À compter de la version 1602 de Configuration Manager, vous pouvez configurer l’accès conditionnel pour les PC gérés par System Center Configuration Manager.  
 
 > [!IMPORTANT]  
-> Dit is een voorlopige versie-functie beschikbaar zijn in de update 1602, update 1606 en update 1610. Functies van evaluatieversies zijn opgenomen in het product voor vroege testdoeleinden in een productieomgeving, maar mogen niet worden beschouwd als gereed voor productie. Zie [Use pre-release features from updates](../../core/servers/manage/install-in-console-updates.md#bkmk_prerelease) (Functies van evaluatieversies gebruiken) voor meer informatie.
-> - Nadat u update 1602 installeert, wordt het onderdeeltype weergegeven als ondanks dat deze voorlopige versie is vrijgegeven.
-> - Als u vervolgens een update van 1602 naar 1606, blijft de functie type worden weergegeven als vrijgegeven zelfs via deze voorlopige versie.
-> - Als u rechtstreeks naar 1606 van versie 1511 bijwerken, wordt het functietype weergegeven als de voorlopige versie.
+> Il s’agit d’une fonctionnalité en préversion disponible dans les mises à jour 1602, 1606 et 1610. Des fonctionnalités en préversion sont incluses dans le produit à des fins de test anticipé en environnement de production, mais ne doivent pas être considérées comme prêtes pour une utilisation en production. Pour plus d’informations, consultez [Utiliser des fonctionnalités de préversions de mises à jour](../../core/servers/manage/install-in-console-updates.md#bkmk_prerelease).
+> - Après avoir installé la mise à jour 1602, le type de fonctionnalité s’affiche comme commercialisé même s’il s’agit d’une préversion.
+> - Si vous mettez ensuite à jour la version 1602 vers la version 1606, le type de fonctionnalité s’affiche comme commercialisé même s’il reste en préversion.
+> - Si vous mettez à jour la version 1511 directement vers la version 1606, le type de fonctionnalité s’affiche en tant que préversion.
 
-Zie [Toegang tot services beheren in System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md) als u informatie zoekt over het configureren van voorwaardelijke toegang voor apparaten die zijn ingeschreven en worden beheerd door Intune, of pc's die zijn lid zijn van een domein en niet worden beoordeeld op naleving.
+Si vous recherchez des informations sur la façon de configurer l’accès conditionnel pour des appareils inscrits et gérés par Intune, ou des PC joints au domaine et non évalués sur le plan de la compatibilité, consultez [Gérer l’accès aux services dans System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md).
 
-## <a name="supported-services"></a>Ondersteunde services  
+## <a name="supported-services"></a>Services pris en charge  
 
 -   Exchange Online
 -   SharePoint Online
 
-## <a name="supported-pcs"></a>Ondersteunde pc’s  
+## <a name="supported-pcs"></a>PC pris en charge  
 
 -   Windows 7
--   Windows 8.1
+-   Windows 8.1
 -   Windows 10
 
-## <a name="supported-windows-servers"></a>Ondersteunde Windows-Servers
+## <a name="supported-windows-servers"></a>Serveurs Windows pris en charge
 
 -   2008 R2
 -   2012
--   2012 R2
+-   2012 R2
 -   2016
 
     > [!IMPORTANT]
-    > Voor Windows-Servers die mogelijk zijn er meerdere gebruikers tegelijk aangemeld, moeten hetzelfde beleid voor voorwaardelijke toegang worden geïmplementeerd op alle gebruikers aangemeld.
+    > Pour les serveurs Windows auxquels plusieurs utilisateurs peuvent être connectés simultanément, les mêmes stratégies d’accès conditionnel doivent être déployées pour tous les utilisateurs connectés.
 
-## <a name="configure-conditional-access"></a>Voorwaardelijke toegang configureren  
- Als u voorwaardelijke toegang wilt instellen, moet u eerst een nalevingsbeleid maken en beleid voor voorwaardelijke toegang configureren. Wanneer u beleidsregels voor voorwaardelijke toegang instelt voor pc's, kunt u vereisen dat pc's compatibel zijn met het nalevingsbeleid om toegang te krijgen tot Exchange Online en SharePoint Online-services.  
+## <a name="configure-conditional-access"></a>Configurer un accès conditionnel  
+ Pour configurer un accès conditionnel, vous devez créer une stratégie de conformité, puis configurer une stratégie d’accès conditionnel. Lorsque vous configurez des stratégies d’accès conditionnel pour des PC, vous pouvez exiger que ceux-ci soient conformes à la stratégie de conformité pour pouvoir accéder aux services Exchange Online et SharePoint Online.  
 
-### <a name="prerequisites"></a>Vereisten  
+### <a name="prerequisites"></a>Conditions préalables  
 
--   AD FS-synchronisatie en een O365-abonnement. Het abonnement O365 wordt gebruikt voor het instellen van Exchange Online en SharePoint Online.  
+-   Synchronisation d’ADFS et abonnement O365. L’abonnement O365 est nécessaire pour configurer Exchange Online et SharePoint Online.  
 
--   Een Microsoft Intune-abonnement. Het Microsoft Intune-abonnement moet worden geconfigureerd in de Configuration Manager-console. Het Intune-abonnement wordt gebruikt om de relay-apparaat compatibiliteitsstatus aan Azure Active Directory en voor de gebruiker-licentieverlening.  
+-   Abonnement Microsoft Intune L’abonnement Microsoft Intune doit être configuré dans la console Configuration Manager. L’abonnement Intune sert à transférer l’état de conformité des appareils à Azure Active Directory et à accorder les licences d’utilisateur.  
 
- De pc’s moeten aan de volgende vereisten voldoen:  
+ Les PC doivent répondre aux exigences suivantes :  
 
--   [Vereisten](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1) voor automatische apparaatregistratie bij Azure Active Directory  
+-   [Conditions préalables](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1) pour l’inscription automatique auprès d’Azure Active Directory.  
 
-     U kunt pc's Azure AD registreren via het nalevingsbeleid.  
+     Vous pouvez inscrire des PC auprès d’Azure AD via la stratégie de conformité.  
 
-    -   Voor Windows 8.1- en Windows 10-pc’s kunt u een Active Directory-groepsbeleid gebruiken om uw apparaten automatisch te registreren bij Azure AD.  
+    -   Pour des PC Windows 8.1 et Windows 10, vous pouvez utiliser une stratégie de groupe Active Directory pour configurer vos appareils de façon à ce qu’ils s’inscrivent automatiquement auprès d’Azure AD.  
 
-    -   o   Voor Windows 7-pc's moet u via System Center Configuration Manager het softwarepakket voor apparaatregistratie implementeren op uw Windows 7-pc. De [automatische apparaatregistratie met Azure Active Directory for Windows Domain-Joined apparaten](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1) onderwerp bevat meer informatie.  
+    -   o   Pour des PC Windows 7, vous devez déployer le package logiciel d’inscription de l’appareil sur le PC par le biais de System Center Configuration Manager. Pour plus de détails, consultez[Inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
 
--   Gebruik van Office 2013 of Office 2016 is vereist en moderne verificatie moet zijn [ingeschakeld](https://support.office.com/en-US/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a).  
+-   Les PC doivent utiliser Office 2013 ou Office 2016 avec l’authentification moderne [activée](https://support.office.com/en-US/article/Using-Office-365-modern-authentication-with-Office-clients-776c0036-66fd-41cb-8928-5495c0f9168a).  
 
- De stappen die hieronder worden beschreven, zijn van toepassing voor zowel Exchange Online als SharePoint Online  
+ Les étapes décrites ci-dessous s’appliquent tant à Exchange Online qu’à SharePoint Online.  
 
-### <a name="step-1-configure-compliance-policy"></a>Stap 1. Nalevingsbeleid configureren  
- Maak in de Configuration Manager-Console een nalevingsbeleid met de volgende regels:  
+### <a name="step-1-configure-compliance-policy"></a>Étape 1. Configurer une stratégie de conformité  
+ Dans la console Configuration Manager, créez une stratégie de conformité avec les règles suivantes :  
 
--   Registratie in Azure Active Directory vereisen: Deze regel controleert u of het apparaat van de gebruiker lid is van werk plaats naar Azure AD en als dat niet het geval is, wordt het apparaat automatisch geregistreerd bij Azure AD. Automatische inschrijving wordt alleen ondersteund op Windows 8.1. Implementeer een MSI-bestand om automatische inschrijving voor Windows 7-pc's uit te voeren. Zie [Aan de slag met Azure Active Directory-apparaatregistratie](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1)voor meer informatie.  
+-   Exiger l’inscription dans Azure Active Directory : cette règle vérifie si l’appareil de l’utilisateur a fait l’objet d’une jonction d’espace de travail à Azure AD. Si ce n’est pas le cas, l’appareil est automatiquement inscrit dans Azure AD. L’inscription automatique est prise en charge seulement sur Windows 8.1. Pour les PC Windows 7, déployez un fichier MSI pour effectuer l’inscription automatique. Pour plus d’informations, consultez [Inscription automatique auprès d’Azure Active Directory d’appareils Windows joints à un domaine](https://azure.microsoft.com/en-us/documentation/articles/active-directory-conditional-access-automatic-device-registration/?rnd=1).  
 
--   **Alle vereiste updates zijn geïnstalleerd met een deadline die ouder zijn dan een bepaald aantal dagen:** Deze regel controleert u of apparaat van de gebruiker alle vereiste updates (opgegeven in de regel vereiste automatische updates) binnen de deadline en respijtperiode door u opgegeven is, en eventuele vereiste updates die nog niet automatisch worden geïnstalleerd.  
+-   **Toutes les mises à jour requises installées avec une échéance supérieure à X jours :** cette règle vérifie si l’appareil de l’utilisateur a toutes les mises à jour obligatoires (spécifiées dans la règle Mises à jour automatiques requises) dans le délai et la période de grâce que vous avez spécifiés. Elle installe automatiquement toutes les mises à jour obligatoires en attente.  
 
--   **BitLocker-stationsversleuteling vereisen:** Dit is een controleert u of het primaire station (bijvoorbeeld C:\\) op het apparaat BitLocker versleuteld. Als Bitlocker-versleuteling niet is ingeschakeld op het primaire station, wordt de toegang tot e-mail en SharePoint-services geblokkeerd.  
+-   **Exiger le chiffrement de lecteur BitLocker :** cette règle vérifie si le lecteur principal (par exemple C:\\) de l’appareil est chiffré avec BitLocker. Si le chiffrement BitLocker n’est pas activé sur le lecteur principal, l’accès de l’appareil aux services de messagerie et SharePoint est bloqué.  
 
--   **Antimalware vereisen:** Dit is een controleert u of de antimalwaresoftware (System Center Endpoint Protection of alleen Windows Defender) is ingeschakeld en worden uitgevoerd. Indien dit niet is ingeschakeld, wordt de toegang tot e-mail en SharePoint-services geblokkeerd.  
+-   **Exiger un logiciel anti-programme malveillant :** Cette règle vérifie si le logiciel anti-programme malveillant (System Center Endpoint Protection ou Windows Defender uniquement) est activé et en cours d’exécution. S’il n’est pas activé, l’accès aux services de messagerie et SharePoint est bloqué.  
 
-### <a name="step-2-evaluate-the-effect-of-conditional-access"></a>Stap 2. Het effect van voorwaardelijke toegang evalueren  
- Voer het rapport voor naleving van voorwaardelijke toegang uit. Dit vindt u in de sectie bewaking onder rapporten > compatibiliteit en instellingen beheren. Hiermee wordt de status van naleving voor alle apparaten weergegeven.  Voor apparaten die worden gerapporteerd als niet-compatibel, wordt de toegang tot Exchange Online en SharePoint Online geblokkeerd.  
+### <a name="step-2-evaluate-the-effect-of-conditional-access"></a>Étape 2. Évaluer l’incidence de l’accès conditionnel  
+ Exécutez le rapport de conformité de l’accès conditionnel. Il figure dans la section Analyse, sous Rapports > Gestion de la conformité et des paramètres. Cette opération affiche l’état de conformité de tous les appareils.  L’accès à Exchange Online et à SharePoint Online d’appareils signalés comme non conformes est bloqué.  
 
- ![CA&#95;naleving&#95;rapport](media/CA_compliance_report.png)  
+ ![Rapport CA &#95;conformité&#95;](media/CA_compliance_report.png)  
 
-### <a name="configure-active-directory-security-groups"></a>Active Directory-beveiligingsgroepen configureren  
- U richt de beleidsregels voor voorwaardelijke toegang op gebruikersgroepen, afhankelijk van de soorten beleid. Deze groepen bevatten de gebruikers die deel uitmaken van de doelgroep, of op wie het beleid juist niet van toepassing is. Wanneer een gebruiker deel uitmaakt van de doelgroep voor het beleid, moet elk apparaat dat wordt gebruikt, compatibel zijn om toegang te kunnen krijgen tot de service.  
+### <a name="configure-active-directory-security-groups"></a>Configurer les groupes de sécurité Active Directory  
+ Les stratégies d’accès conditionnel ciblent des groupes d’utilisateurs en fonction des types de stratégies. Ces groupes contiennent les utilisateurs qui seront ciblés par la stratégie ou exemptés de celle-ci. Quand un utilisateur est ciblé par une stratégie, chaque appareil qu’il utilise doit être conforme à celle-ci pour pouvoir accéder au service.  
 
- Active Directory-beveiligingsgebruikersgroepen Deze groepen moeten worden gesynchroniseerd naar Azure Active Directory. U kunt deze groepen ook configureren in het Office 365-beheercentrum of in de Intune-accountportal.  
+ Groupes d’utilisateurs de sécurité Active Directory. Ces groupes d’utilisateurs doivent être synchronisés sur Azure Active Directory. Vous pouvez configurer ces groupes vie le Centre d’administration Office 365 ou le Portail du compte Microsoft Intune.  
 
- U kunt twee soorten groepen opgeven in elk beleid. :  
+ Vous pouvez spécifier deux types de groupes dans chaque stratégie. :  
 
--   **Doelgroepen** -gebruikersgroepen waarop het beleid wordt toegepast. Dezelfde groep moet worden gebruikt voor naleving en beleid voor voorwaardelijke toegang.  
+-   **Groupes ciblés** : groupes d’utilisateurs auxquels la stratégie est appliquée. Le même groupe doit être utilisé pour satisfaire aux exigences de conformité et à la stratégie d’accès conditionnel.  
 
--   **Uitgesloten groepen** -gebruikersgroepen die uitgesloten van het beleid (optioneel zijn)  
-    Als een gebruiker zich in beide groepen bevindt, wordt het beleid niet op de gebruiker toegepast.  
+-   **Groupes exemptés :** groupes d’utilisateurs exempts de la stratégie (facultatif)  
+    Si un utilisateur se trouve dans les deux, il est exempté de la stratégie.  
 
-     Alleen de doelgroepen van het beleid voor voorwaardelijke toegang worden geëvalueerd.  
+     Seuls les groupes ciblés par la stratégie d’accès conditionnel sont évalués.  
 
-### <a name="step-3--create-a-conditional-access-policy-for-exchange-online-and-sharepoint-online"></a>Stap 3.  Maak een beleid voor voorwaardelijke toegang tot Exchange Online en SharePoint Online.  
+### <a name="step-3--create-a-conditional-access-policy-for-exchange-online-and-sharepoint-online"></a>Étape 3.  Créer une stratégie d’accès conditionnel pour Exchange Online et SharePoint Online  
 
-1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Selecteer **Beleid voor voorwaardelijke toegang inschakelen voor Exchange Online**als u een beleid voor Exchange Online wilt maken.  
+2.  Pour créer une stratégie pour Exchange Online, sélectionnez **Activer la stratégie d’accès conditionnel pour Exchange Online**.  
 
-     Selecteer **Beleid voor voorwaardelijke toegang inschakelen voor Exchange Online**als u een beleid voor SharePoint Online wilt maken.  
+     Pour créer une stratégie pour SharePoint Online, sélectionnez **Activer la stratégie d’accès conditionnel pour SharePoint Online**.  
 
-3.  Ga naar het tabblad **Start** en klik in de groep **Koppelingen** op **Voorwaardelijk toegangsbeleid configureren in de Intune-console**. Mogelijk moet u de gebruikersnaam en het wachtwoord opgeven van het account dat wordt gebruikt om Configuration Manager verbinding te laten maken met Intune.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Liens**, cliquez sur **Configurer la stratégie d’accès conditionnel dans la console Intune**. Il se peut que vous deviez fournir le nom d’utilisateur et le mot de passe du compte utilisé pour connecter Configuration Manager à Intune.  
 
-     De Intune-beheerconsole wordt geopend.  
+     La console d’administration Intune s’ouvre.  
 
-4.  Voor Exchange Online in de Microsoft Intune-beheerconsole, klikt u op **beleid > voorwaardelijke toegang > Exchange Online-beleid**.  
+4.  Pour Exchange Online, dans la console d’administration Microsoft Intune, cliquez sur **Stratégie > Accès conditionnel > Stratégie Exchange Online**.  
 
-     SharePoint Online in de Microsoft Intune-beheerconsole, klikt u op **beleid > voorwaardelijke toegang > SharePoint Online-beleid**.  
+     Pour SharePoint Online, dans la console d’administration Microsoft Intune, cliquez sur **Stratégie > Accès conditionnel > Stratégie SharePoint Online**.  
 
-5.  Stel de vereiste voor Windows-pc’s in op de optie**Apparaten moeten voldoen aan dit beleid**.  
+5.  Définissez la configuration requise du PC Windows sur l’option**Les appareils doivent être conformes**.  
 
-6.  Klik onder **Doelgroepen**op **Wijzigen** om de Active Directory-beveiligingsgroepen te selecteren waarop het beleid van toepassing moet zijn.  
+6.  Sous **Groupes ciblés**, cliquez sur **Modifier** pour sélectionner les groupes de sécurité Active Directory auxquels la stratégie sera appliquée.  
 
     > [!NOTE]  
-    >  De dezelfde beveiligingsgroep van de gebruiker moet worden gebruikt voor het implementeren van compliancy beleid en de doelgroep voor beleid voor voorwaardelijke toegang.  
+    >  Le même groupe d’utilisateurs de sécurité doit être utilisé pour déployer la stratégie de conformité et le groupe ciblé pour la stratégie d’accès conditionnel.  
 
-     Klik desgewenst onder **Uitgesloten groepen**op **Wijzigen** om de Active Directory-beveiligingsgroepen te selecteren waarop dit beleid niet van toepassing is.  
+     Sous **Groupes exemptés**, vous pouvez éventuellement cliquez sur **Modifier** pour sélectionner les groupes de sécurité Azure Active Directory exempts de cette stratégie.  
 
-7.  Klik op **Opslaan** om het beleid te maken en op te slaan  
+7.  Cliquez sur **Enregistrer** pour créer et enregistrer la stratégie.  
 
- Eindgebruikers die zijn geblokkeerd vanwege niet-compatibele wordt compatibiliteitsinformatie weergeven in de System Center Configuration Manager Software Center en een nieuwe evaluatie van het beleid wordt gestart wanneer de nalevingsproblemen zijn hersteld.  
+ Les utilisateurs finaux bloqués en raison d’un défaut de conformité peuvent consulter les informations relatives à la conformité dans le Centre logiciel System Center Configuration Manager et lancer une nouvelle évaluation de la stratégie une fois les problèmes de conformité résolus.  
 
 <!---
 ##  <a name="bkmk_KnownIssues"></a> Known issues  
@@ -147,7 +147,7 @@ Zie [Toegang tot services beheren in System Center Configuration Manager](../../
 
 -   Windows 10 users may see multiple access failures when trying to reach O365 and/or SharePoint online resources. Note that conditional access is not fully supported for Windows 10.  
 --->
-## <a name="see-also"></a>Zie tevens
+## <a name="see-also"></a>Voir aussi
 
-- [Beveiligen van gegevens en site-infrastructuur met System Center Configuration Manager](../../protect/understand/protect-data-and-site-infrastructure.md)
-- [Voorwaardelijke toegang oplossen flow-chart voor Configuration Manager](https://gallery.technet.microsoft.com/Conditional-access-fd747c1a?redir=0)
+- [Protéger les données et l’infrastructure des sites avec System Center Configuration Manager](../../protect/understand/protect-data-and-site-infrastructure.md)
+- [Organigramme de résolution des problèmes d’accès conditionnel pour Configuration Manager](https://gallery.technet.microsoft.com/Conditional-access-fd747c1a?redir=0)

@@ -1,6 +1,6 @@
 ---
-title: Instellingen voor software-updates beheren | Microsoft Docs
-description: Meer informatie over de clientinstellingen die geschikt voor software-updates op uw site zijn na de installatie van de software-updatepunt.
+title: "Gérer les paramètres des mises à jour logicielles | Microsoft Docs"
+description: "Découvrez les paramètres client adaptés aux mises à jour logicielles sur votre site après avoir installé le point de mise à jour logicielle."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,126 +13,126 @@ ms.technology: configmgr-sum
 ms.assetid: 0d484c1a-e903-4bff-9e9b-e452c62e38a8
 ms.openlocfilehash: fe4a8f56e0b554e206bcc4503a0268dc761ded81
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="BKMK_ManageSUSettings"></a>Instellingen voor software-updates beheren  
+#  <a name="BKMK_ManageSUSettings"></a> Gérer les paramètres des mises à jour logicielles  
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Na het synchroniseren van software-updates in Configuration Manager, configureren en controleer de instellingen in de volgende secties.
+Après avoir synchronisé les mises à jour logicielles dans Configuration Manager, configurez et vérifiez les paramètres décrits dans les sections suivantes.
 
-##  <a name="BKMK_ClientSettings"></a> Clientinstellingen voor software-updates  
-Wanneer u het software-updatepunt installeert, worden standaard software-updates ingeschakeld op clients en hebben de instellingen op de pagina **Software-updates** in de clientinstellingen de standaardwaarden. De clientinstellingen gehele site worden gebruikt en invloed hebben op wanneer software-updates worden gescand op naleving en hoe en wanneer software-updates zijn geïnstalleerd op clientcomputers. Voordat u software-updates implementeert, controleert u of de clientinstellingen voor software-updates op uw site.  
+##  <a name="BKMK_ClientSettings"></a> Paramètres client pour les mises à jour logicielles  
+Après avoir installé le point de mise à jour logicielle, les mises à jour logicielles sont activées sur les clients par défaut, et les paramètres client figurant dans la page **Mises à jour logicielles** affichent les valeurs par défaut. Les paramètres client s’appliquent au site tout entier et déterminent à quel moment la conformité des mises à jour logicielles est analysée et quand et comment les mises à jour logicielles sont installées sur les ordinateurs clients. Avant de déployer des mises à jour logicielles, vérifiez que les paramètres client conviennent pour des mises à jour logicielles sur votre site.  
 
 > [!IMPORTANT]  
->  De instelling **Software-updates op clients inschakelen** wordt standaard ingeschakeld. Als u deze instelling wist, verwijdert Configuration Manager de bestaande implementatiebeleiden van de client.  
+>  Le paramètre **Activer les mises à jour logicielles sur les clients** est activé par défaut. Si vous désactivez ce paramètre, Configuration Manager supprime les stratégies de déploiement existantes du client.  
 
-Zie voor meer informatie over het configureren van clientinstellingen [het configureren van clientinstellingen](../../core/clients/deploy/configure-client-settings.md).  
+Pour plus d’informations sur la configuration des paramètres client, consultez [Guide pratique pour configurer les paramètres client dans Configuration Manager](../../core/clients/deploy/configure-client-settings.md).  
 
-Zie voor meer informatie over de clientinstellingen [over clientinstellingen](../../core/clients/deploy/about-client-settings.md).  
+Pour plus d’informations sur les paramètres client, consultez [À propos des paramètres client dans Configuration Manager](../../core/clients/deploy/about-client-settings.md).  
 
-##  <a name="BKMK_GroupPolicy"></a> Groepsbeleidinstellingen voor software-updates  
-Er zijn specifieke door Windows Update Agent (WUA) gebruikte groepsbeleidinstellingen op clientcomputers om verbinding te maken met WSUS die op het software-updatespunt wordt gebruikt. U kunt met deze groepsbeleidinstellingen ook de naleving van software-updates scannen en automatisch de software-updates en WUA bijwerken.
+##  <a name="BKMK_GroupPolicy"></a> Paramètres de stratégie de groupe pour les mises à jour logicielles  
+L’Agent Windows Update (WUA) utilise des paramètres de stratégie de groupe spécifiques sur les ordinateurs clients pour se connecter au serveur WSUS qui s’exécute sur le point de mise à jour logicielle. Ces paramètres de stratégie de groupe servent aussi à analyser la conformité des mises à jour logicielles et à mettre à jour automatiquement les mises à jour logicielles et l’Agent WUA.
 
-### <a name="specify-intranet-microsoft-update-service-location-local-policy"></a>Lokaal beleid voor Locatie van Microsoft-updateservice in intranet  
-Wanneer er een software-updatepunt voor een site is gemaakt, ontvangen clients een machinebeleid dat de servernaam van het software-updatepunt verstrekt en het lokale beleid **Locatie van Microsoft-updateservice in intranet opgeven** op de computer configureert. De WUA haalt de in de instelling **De updateservice in intranet instellen voor het detecteren van updates** opgegeven servernaam op, waarna deze verbinding maakt met deze server wanneer de scan voor compatibiliteit van software-updates wordt uitgevoerd. Wanneer het domeinbeleid voor de instelling **Locatie van Microsoft-updateservice in intranet** wordt gemaakt, wordt het lokale beleid overschreven en maakt de WUA mogelijk verbinding met een andere server dan die van het software-updatepunt. Wanneer dit gebeurt, scant de client mogelijk voor compatibiliteit van software-updates op basis van andere producten, classificaties en talen. Daarom dient u het Active Directory-beleid voor clientcomputers niet te configureren.  
+### <a name="specify-intranet-microsoft-update-service-location-local-policy"></a>Spécifier la stratégie locale d’emplacement intranet du service Microsoft Update  
+Lorsque vous créez le point de mise à jour logicielle pour un site, les clients reçoivent une stratégie ordinateur qui précise le nom du serveur du point de mise à jour logicielle et configure la stratégie locale **Spécifier l'emplacement Intranet du service de mise à jour Microsoft** sur l'ordinateur. L'Agent Windows Update (WUA) extrait le nom du serveur qui est spécifié dans le paramètre **Configurer le service intranet de mise à jour pour la détection des mises à jour** , puis se connecte à ce serveur au moment d'évaluer la conformité des mises à jour logicielles. Quand vous créez une stratégie de domaine pour le paramètre **Spécifier l’emplacement intranet du service de mise à jour Microsoft** , elle remplace la stratégie locale et il est possible que l’Agent WUA se connecte à un autre serveur que le point de mise à jour logicielle. Si cela se produit, le client peut analyser la conformité des mises à jour logicielles d'après différents produits, classifications et langues. Par conséquent, vous ne devez pas configurer la stratégie Active Directory pour les ordinateurs clients.  
 
-### <a name="allow-signed-content-from-intranet-microsoft-update-service-location-group-policy"></a>Ondertekende inhoud vanaf de locatie van de Microsoft-updateservice op een intranet toestaan  
-U moet de groepsbeleidinstelling **Ondertekende inhoud toestaan van groepsbeleid voor locatie van Microsoft-updateservice in intranet** inschakelen voordat de WUA computers gaat scannen op software-updates die door System Center Updates Publisher zijn gemaakt en gepubliceerd. Wanneer de beleidinstelling is ingeschakeld, accepteert WUA via een intranetlocatie ontvangen software-updates, als de software-updates zijn ondertekend in het certificaatarchief **Vertrouwde uitgevers** op de lokale computer. Zie de [documentatiebibliotheek van Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkId=232476)voor meer informatie over de voor Updates Publisher 2011 vereiste groepsbeleidinstellingen.  
+### <a name="allow-signed-content-from-intranet-microsoft-update-service-location-group-policy"></a>Autoriser le contenu signé à partir de la stratégie de groupe d’emplacement intranet du service Microsoft Update  
+Pour que l'agent WUA installé sur les ordinateurs recherche les mises à jour logicielles créées et publiées à l'aide de l'éditeur de mise à jour System Center, vous devez activer le paramètre de stratégie de groupe **Autoriser les contenus signés provenant d'un emplacement intranet du service de Mise à jour Microsoft** . Une fois le paramètre de stratégie activé, WUA accepte les mises à jour logicielles reçues via un emplacement Intranet, à condition qu'elles soient signées dans le magasin de certificats **Éditeurs approuvés** de l'ordinateur local. Pour plus d'informations sur les paramètres de stratégie de groupe requis pour l'éditeur de mise à jour, voir [Updates Publisher 2011 Documentation Library (Bibliothèque de documentation Updates Publisher 2011)](http://go.microsoft.com/fwlink/p/?LinkId=232476).  
 
-### <a name="automatic-updates-configuration"></a>Automatische updates configureren  
-Met automatische updates kunt u beveiligingsupdates en andere belangrijke downloads ontvangen op clientcomputers. Automatische updates wordt geconfigureerd via de groepsbeleidinstelling **Automatische updates configureren** of via het configuratiescherm op de lokale computer. Wanneer Automatische updates is ingeschakeld, ontvangen clientcomputers updatemeldingen en downloaden en installeren de clientcomputers de vereiste updates, afhankelijk van de geconfigureerde instellingen, Wanneer Automatische updates tegelijk met software-updates wordt gebruikt, geeft elke clientcomputer mogelijk meldingspictogrammen en pop-upweergavemeldingen weer voor dezelfde update. Wanneer opnieuw opstarten is vereist, geeft elke clientcomputer mogelijk een dialoogvenster voor opnieuw opstarten weer voor dezelfde update.  
+### <a name="automatic-updates-configuration"></a>Configuration des mises à jour automatiques  
+Le service Mises à jour automatiques permet de recevoir des mises à jour de sécurité et d'autres éléments téléchargés sur des ordinateurs clients. Ce service peut être configuré par le biais du paramètre de stratégie de groupe **Configuration du service Mises à jour automatiques** ou par le biais du Panneau de configuration de l'ordinateur local. Lorsque le service Mises à jour automatiques est activé, les ordinateurs clients reçoivent des notifications de mise à jour, et ils téléchargent et installent les mises à jour requises, en fonction des paramètres configurés. Si le service Mises à jour automatiques est utilisé conjointement avec des mises à jour logicielles, chaque ordinateur client peut afficher des icônes de notification et des notifications contextuelles pour la même mise à jour. En outre, si un redémarrage est nécessaire, chaque ordinateur client peut afficher une boîte de dialogue de redémarrage pour la même mise à jour.  
 
-### <a name="self-update"></a>Automatische update  
-Wanneer automatische updates is ingeschakeld op clientcomputers, voert de WUA een automatische update uit wanneer een nieuwere versie beschikbaar komt of wanneer er problemen zijn met een WUA-component. Wanneer Automatische updates niet is geconfigureerd of is uitgeschakeld en clientcomputers een eerdere versie van de WUA hebben, moeten de clientcomputers het WUA-installatiebestand uitvoeren.  
+### <a name="self-update"></a>Mise à jour automatique  
+Lorsque le service Mises à jour automatiques est activé sur les ordinateurs clients, l'agent WUA procède à une mise à jour automatique dès qu'une nouvelle version est disponible ou si des problèmes liés à un composant WUA surviennent. Lorsque le service Mises à jour automatiques n'est pas configuré ou est désactivé, et que les ordinateurs clients disposent d'une version antérieure de WUA, ces derniers doivent exécuter le fichier d'installation de WUA.  
 
-## <a name="software-updates-properties"></a>Eigenschappen van software-updates
-De eigenschappen van software-updates bieden informatie over software-updates en gekoppelde inhoud. U kunt deze eigenschappen ook gebruiken om instellingen voor software-updates te configureren. Wanneer u de eigenschappen voor meerdere software-updates opent, worden alleen de tabbladen **Maximale uitvoeringstijd** en **Aangepaste ernst** weergegeven.   
+## <a name="software-updates-properties"></a>Propriétés des mises à jour logicielles
+Les propriétés de mise à jour logicielle fournissent des informations sur les mises à jour logicielles et leur contenu associé. Vous pouvez également utiliser ces propriétés pour configurer les paramètres des mises à jour logicielles. Lorsque vous ouvrez les propriétés de plusieurs mises à jour logicielles, seuls les onglets **Durée maximale d'exécution** et **Gravité personnalisée** s'affichent.   
 
-Gebruik de volgende procedure om eigenschappen van software-updates te openen.  
+Pour ouvrir les propriétés de mise à jour logicielle, procédez comme suit.  
 
-#### <a name="to-open-software-update-properties"></a>Eigenschappen van software-updates openen  
+#### <a name="to-open-software-update-properties"></a>Pour ouvrir les propriétés de mise à jour logicielle  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
-2.  Vouw in de werkruimte Softwarebibliotheek het knooppunt **Software-updates**uit en klik op **Alle software-updates**.  
-3.  Selecteer een of meer software-updates en klik vervolgens op het tabblad **Start** in de groep **Eigenschappen** op **Eigenschappen** .  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+2.  Dans l'espace de travail Bibliothèque de logiciels, développez **Mises à jour logicielles**et cliquez sur **Toutes les mises à jour logicielles**.  
+3.  Sélectionnez une ou plusieurs mises à jour logicielles, puis, sous l'onglet **Accueil** , cliquez sur **Propriétés** dans le groupe **Propriétés** .  
 
    > [!NOTE]  
-   >  Op de **alle Software-Updates** knooppunt, Configuration Manager bevat de software-updates met een **Kritiek** en **beveiliging** classificatie en die in de afgelopen 30 dagen zijn uitgebracht.  
+   >  Dans le nœud **Toutes les mises à jour logicielles**, Configuration Manager affiche uniquement les mises à jour logicielles classées selon les critères **Critique** et **Sécurité** qui ont été publiées au cours des 30 derniers jours.  
 
-###  <a name="BKMK_SoftwareUpdatesInformation"></a> Informatie over software-updates weergeven  
-U kunt in de eigenschappen van software-updates gedetailleerde informatie over een software-update controleren. De gedetailleerde informatie wordt niet weergegeven wanneer u meer dan één software-update selecteert. In de volgende secties is de informatie beschreven die beschikbaar is voor de geselecteerde software-update.  
+###  <a name="BKMK_SoftwareUpdatesInformation"></a> Consulter les informations relatives aux mises à jour logicielles  
+Dans les propriétés de mise à jour logicielle, vous pouvez consulter des informations détaillées sur une mise à jour logicielle. Les informations détaillées ne sont pas affichées lorsque vous sélectionnez plusieurs mises à jour logicielles. Les sections suivantes décrivent les informations disponibles pour une mise à jour logicielle sélectionnée.  
 
-####  <a name="BKMK_SoftwareUpdateDetails"></a> Details over software-updates  
-Op het tabblad met **updatedetails** wordt de volgende overzichtsinformatie over de geselecteerde software-update weergegeven:  
+####  <a name="BKMK_SoftwareUpdateDetails"></a> Détails des mises à jour logicielles  
+Sous l'onglet **Détails de la mise à jour** , vous pouvez consulter les informations récapitulatives suivantes relatives à la mise à jour logicielle sélectionnée :  
 
-- **Bulletin-ID**: Hiermee geeft u de bulletin-ID die aan beveiligingsupdates is gekoppeld. U kunt gegevens over het beveiligingsbulletin vinden door op de bulletin-id te zoeken op de webpagina [Microsoft Security Bulletin](http://go.microsoft.com/fwlink/p/?LinkId=58313) (Microsoft-beveiligingsbulletin).  
+- **ID du bulletin**: indique l’ID du bulletin associé aux mises à jour logicielles de sécurité. Vous trouverez des détails sur le bulletin de sécurité en effectuant une recherche sur l'ID du bulletin sur la page Web [Recherche des bulletins de sécurité de Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=58313) .  
 
-- **Artikel-ID**: Hiermee geeft u de artikel-ID voor de software-update. Het artikel waarnaar wordt verwezen biedt gedetailleerde informatie over de software-update en het probleem dat de software-update corrigeert of verbetert.  
+- **Article ID**: indique l’ID de l’article pour la mise à jour logicielle. L'article référencé fournit des informations détaillées sur la mise à jour logicielle et le problème qu'elle corrige ou améliore.  
 
-- **Revisiedatum**: Geeft de datum waarop de software-update voor het laatst is gewijzigd.  
+- **Date de révision**: indique la date à laquelle la mise à jour logicielle a été modifiée pour la dernière fois.  
 
-- **Maximale ernstclassificatie**: Hiermee geeft u de leverancier gedefinieerde ernstbeoordeling voor de software-update.  
+- **Taux de gravité maximal**: indique le taux de gravité défini par le fournisseur pour la mise à jour logicielle.  
 
-- **Beschrijving**: Biedt een overzicht van welke toestand de software-update corrigeert of verbetert.  
+- **Description**: fournit une vue d’ensemble de la condition que la mise à jour logicielle corrige ou améliore.  
 
-- **Toepasselijke talen**: Hier worden de talen waarvoor de software-update van toepassing.  
+- **Langues applicables**: indique les langues pour lesquelles la mise à jour logicielle est applicable.  
 
-- **Betrokken producten**: Hier worden de producten waarvoor de software-update van toepassing.  
+- **Produits affectés**: indique les produits pour lesquels la mise à jour logicielle est applicable.  
 
-####  <a name="BKMK_ContentInformation"></a> Informatie over inhoud  
-Op het tabblad **Informatie over inhoud** wordt de volgende informatie weergegeven over de inhoud die aan de geselecteerde software-update is gekoppeld:  
+####  <a name="BKMK_ContentInformation"></a> Informations de contenu  
+Sous l'onglet **Informations de contenu** , consultez les informations suivantes sur le contenu associé à la mise à jour logicielle sélectionnée :  
 
--   **ID van inhoud**: Hiermee geeft u de inhoud-ID voor de software-update.  
+-   **ID du contenu**: indique l’ID du contenu pour la mise à jour logicielle.  
 
--   **Gedownload**: Geeft aan of Configuration Manager de bestanden voor de software-update is gedownload.  
+-   **Téléchargé** : indique si Configuration Manager a téléchargé les fichiers de la mise à jour logicielle.  
 
--   **Taal**: Hiermee geeft u de talen voor de software-update.  
+-   **Langue**: indique les langues de la mise à jour logicielle.  
 
--   **Bronpad**: Hiermee geeft u het pad naar de bronbestanden voor software-update.  
+-   **Chemin source**: indique le chemin des fichiers sources de la mise à jour logicielle.  
 
--   **Grootte (MB)**: Geeft de grootte van de bronbestanden van de software-update.  
+-   **Taille (Mo)**: indique la taille des fichiers sources de la mise à jour logicielle.  
 
-####  <a name="BKMK_CustomBundleInformation"></a> Aangepaste bundelgegevens  
-Op het tabblad **Aangepaste bundelgegevens** wordt informatie over aangepaste bundels voor de software-update weergegeven. Wanneer de geselecteerde software-update gebundelde software-updates bevat die in het software-updatebestand zijn opgenomen, worden deze weergegeven in de sectie **Bundelgegevens** . Op dit tabblad worden geen gebundelde software-updates weergegeven die worden weergegeven op het tabblad **Informatie over inhoud** , zoals updatebestanden voor verschillende talen.  
+####  <a name="BKMK_CustomBundleInformation"></a> Informations sur le groupement personnalisé  
+Dans l'onglet **Informations sur le groupement personnalisé** , consultez les informations sur le groupement personnalisé pour la mise à jour logicielle. Lorsque la mise à jour logicielle sélectionnée contient des mises à jour logicielles regroupées situées dans le fichier de mise à jour logicielle, celles-ci sont affichées dans la section **Informations sur le groupement** . Cet onglet n'affiche pas les mises à jour logicielles groupées qui apparaissent sous l'onglet **Informations de contenu** , notamment les fichiers de mise à jour des différentes langues.  
 
-####  <a name="BKMK_SupersedenceInformation"></a> Vervangingsinformatie  
-Op het tabblad **Vervangingsinformatie** wordt vervangingsinformatie weergegeven die op de software-update van toepassing is:  
+####  <a name="BKMK_SupersedenceInformation"></a> Informations de remplacement  
+Sous l'onglet **Informations de remplacement** , vous pouvez voir les informations suivantes sur le remplacement de la mise à jour logicielle :  
 
-- **Deze update is vervangen door de volgende updates**: Hiermee geeft u de software-updates die deze update, dit betekent vervangen dat de vermelde updates nieuwer zijn. In de meeste gevallen implementeert u een van de software-updates die de software-update vervangt. De software-updates die in de lijst worden weergegeven, bevatten hyperlinks naar webpagina's met meer informatie over de software-updates. Wanneer deze update niet wordt vervangen, wordt de waarde **Geen** weergegeven.  
+- **Cette mise à jour a été remplacée par les mises à jour suivantes**: indique les mises à jour logicielles qui remplacent cette mise à jour, ce qui signifie que les mises à jour répertoriées sont plus récentes. Dans la plupart des cas, vous allez déployer l'une des mises à jour logicielles qui remplace la mise à jour logicielle. Les mises à jour logicielles qui sont répertoriées dans la liste contiennent des liens hypertexte vers des pages Web qui fournissent davantage d'informations sur les mises à jour logicielles. Lorsque cette mise à jour n'est pas remplacée, l'option **Aucune** s'affiche.  
 
-- **Deze update vervangt de volgende updates**: Hiermee geeft u de software-updates die worden vervangen door deze software-update, wat betekent dat deze software-update nieuwer is. In de meeste gevallen implementeert u deze software-update om de software-updates te vervangen. De software-updates die in de lijst worden weergegeven, bevatten hyperlinks naar webpagina's met meer informatie over de software-updates. Wanneer deze update geen enkele andere update vervang, wordt de waarde **Geen** weergegeven.  
+- **Cette mise à jour remplace les mises à jour suivantes**: spécifie les mises à jour logicielles remplacées par cette mise à jour logicielle, ce qui signifie que cette mise à jour logicielle est plus récente. Dans la plupart des cas, vous allez déployer cette mise à jour logicielle pour qu'elle se substitue aux mises à jour logicielles remplacées. Les mises à jour logicielles qui sont répertoriées dans la liste contiennent des liens hypertexte vers des pages Web qui fournissent davantage d'informations sur les mises à jour logicielles. Lorsque cette mise à jour n'en remplace aucune autre, **Aucun** s'affiche.  
 
-###  <a name="BKMK_SoftwareUpdatesSettings"></a> Instellingen voor software-updates configureren  
-In de eigenschappen kunt u instellingen configureren voor een of meer software-updates. U kunt de meeste instellingen voor software-updates alleen configureren op de centrale beheersite of een zelfstandige primaire site. De volgende secties helpen u om instellingen voor software-updates te configureren.  
+###  <a name="BKMK_SoftwareUpdatesSettings"></a> Configurer les paramètres de mise à jour logicielle  
+Dans les propriétés, vous pouvez configurer les paramètres d'une ou plusieurs mises à jour logicielles. Vous pouvez configurer la plupart des paramètres des mises à jour logicielles uniquement au niveau du site d'administration centrale ou du site principal autonome. Aidez-vous des sections suivantes pour configurer les paramètres des mises à jour logicielles.  
 
-####  <a name="BKMK_SetMaxRunTime"></a> De maximale uitvoeringstijd instellen  
-Stel op het tabblad **Maximale uitvoeringstijd** de maximale hoeveelheid tijd in die aan een software-update wordt toegewezen om op clientcomputers te worden voltooid. Als de update langer dan de maximale runtime-waarde duurt, wordt Configuration Manager een statusbericht gemaakt en stopt het bewaken van de implementatie voor de installatie van de software-updates. U kunt deze instelling alleen configureren op de centrale beheersite of een zelfstandige primaire site.  
+####  <a name="BKMK_SetMaxRunTime"></a> Définir la durée maximale d’exécution  
+Sous l'onglet **Durée maximale d'exécution** , définissez la durée maximale dont dispose une mise à jour logicielle pour s'exécuter sur des ordinateurs clients. Si la mise à jour prend plus de temps que la durée maximale d’exécution, Configuration Manager crée un message d’état et cesse de surveiller le déploiement de l’installation des mises à jour logicielles. Vous pouvez configurer ce paramètre uniquement sur le site d'administration centrale ou un site principal autonome.  
 
-Configuration Manager gebruikt deze instelling ook om te bepalen of de installatie van de software-update binnen het geconfigureerde onderhoudsvenster initiëren. Als de waarde voor de maximale uitvoeringsduur groter is dan de hoeveelheid resterende tijd binnen het onderhoudsvenster, wordt de installatie van software-updates uitgesteld tot het volgende onderhoudsvenster. Wanneer er meerdere software-updates moeten worden geïnstalleerd op een clientcomputer met een geconfigureerd onderhoudsvenster (tijdsbestek), wordt de software-update met de geringste maximale uitvoeringsduur als eerste geïnstalleerd . Vervolgens wordt de software-update met de volgende geringste maximale uitvoeringsduur geïnstalleerd, enzovoort. Voordat elke software-update wordt geïnstalleerd, controleert de client of het beschikbare onderhoudsvenster voldoende tijd biedt voor het installeren van de software-update. Nadat het installeren van de software-update is gestart; wordt de installatie zelfs voortgezet als deze zich verder uitstrekt dan het einde van het onderhoudsvenster. Zie [Onderhoudsvensters gebruiken in System Center Configuration Manager](../../core/clients/manage/collections/use-maintenance-windows.md) voor meer informatie over onderhoudsvensters.  
+Configuration Manager utilise aussi ce paramètre pour déterminer s’il est nécessaire de lancer l’installation des mises à jour logicielles au cours d’une fenêtre de maintenance configurée. Si la durée maximale d'exécution est supérieure au temps restant défini dans la fenêtre de maintenance, l'installation des mises à jour logicielles est reportée jusqu'au démarrage de la fenêtre de maintenance suivante. Si plusieurs mises à jour logicielles doivent être installées sur un ordinateur client via une fenêtre de maintenance configurée (plage de temps), la mise à jour logicielle dont la durée d'exécution maximale est la plus courte sera tout d'abord installée, suivie de celle présentant la durée la plus courte suivante, et ainsi de suite. Avant d'installer chaque mise à jour logicielle, le client vérifie que la fenêtre de maintenance disponible est suffisante pour permettre l'installation de la mise à jour logicielle. Après le début de l'installation d'une mise à jour logicielle, celle-ci se poursuit même si elle n'est pas terminée avant la fermeture de la fenêtre de maintenance. Pour plus d’informations sur les fenêtres de maintenance, consultez [Comment utiliser les fenêtres de maintenance dans System Center Configuration Manager](../../core/clients/manage/collections/use-maintenance-windows.md).  
 
-U kunt op het tabblad **Maximale uitvoeringstijd** de volgende instellingen weergeven en configureren:  
+Sous l'onglet **Durée maximale d'exécution** , vous pouvez afficher et configurer les paramètres suivants :  
 
-- **Maximale uitvoeringstijd**: Hiermee geeft u het maximale aantal minuten die is toegewezen voor de installatie van een software-update te voltooien voordat de installatie niet langer wordt gecontroleerd door Configuration Manager. Deze instelling wordt gebruikt om te bepalen of er voldoende beschikbare tijd resteert om de update voor het einde van een onderhoudsvenster te installeren. De standaardinstelling is 60 minuten voor servicepacks. De standaardwaarde is 10 minuten voor andere software-update-typen als u een nieuwe installatie van Configuration Manager versie 1511 of hoger en 5 minuten bij de upgrade van een eerdere versie heeft. Waarden kunnen uiteenlopen van 5 tot 9999 minuten.  
+- **Durée maximale d’exécution** : indique le nombre maximal de minutes dont dispose le processus d’installation de mises à jour logicielles avant que l’installation ne soit plus contrôlée par Configuration Manager. Ce paramètre permet également de déterminer s'il reste suffisamment de temps disponible pour installer la mise à jour avant la fin de la fenêtre de maintenance. Le paramètre par défaut est de 60 minutes pour les Service Packs. Pour les autres types de mises à jour logicielles, la valeur par défaut est 10 minutes si vous avez effectué une nouvelle installation de Configuration Manager version 1511 ou ultérieure, et 5 minutes si vous avez effectué une mise à niveau depuis une version précédente. La plage des valeurs est comprise entre 5 et 9999 minutes.  
 
 > [!IMPORTANT]  
->  Zorg ervoor dat u een kleinere waarde voor de maximale uitvoeringstijd instelt dan er voor de duur van het onderhoudsvenster is geconfigureerd. Anders wordt de installatie van de software-update nooit gestart.  
+>  Veillez à affecter à la durée maximale d'exécution une valeur inférieure à la durée de la fenêtre de maintenance configurée. Sinon, l'installation des mises à jour logicielles n'est jamais lancée.  
 
-####  <a name="BKMK_SetCustomSeverity"></a> Aangepaste ernst instellen  
-In de eigenschappen voor een software-update kunt u het tabblad **Aangepaste ernst** gebruiken om waarden voor aangepaste ernst voor de software-updates te configureren. Dit kan noodzakelijk zijn als de vooraf gedefinieerde ernstwaarden niet voldoen aan uw behoeften. De aangepaste waarden staan in de **aangepaste ernst** kolom in de Configuration Manager-console. U kunt de software-updates sorteren volgens de gedefinieerde waarden voor aangepaste ernst en u kunt ook query's en rapporten maken die op deze waarden kunnen worden gefilterd. U kunt deze instelling enkel configureren op de centrale beheersite of zelfstandige primaire site.  
+####  <a name="BKMK_SetCustomSeverity"></a> Définir la gravité personnalisée  
+Dans les propriétés d'une mise à jour logicielle, vous pouvez utiliser l'onglet **Gravité personnalisée** pour configurer des valeurs de gravité personnalisée pour les mises à jour logicielles. Cela peut s'avérer nécessaire si les valeurs de gravité prédéfinies ne répondent pas à vos besoins. Les valeurs personnalisées sont répertoriées dans la colonne **Gravité personnalisée** de la console Configuration Manager. Vous pouvez trier les mises à jour logicielles selon les valeurs de gravité personnalisée définies ou créer des requêtes et des rapports capables de filtrer ces valeurs. Vous pouvez configurer ce paramètre uniquement sur le site d'administration centrale ou le site principal autonome.  
 
-U kunt de volgende instellingen configureren op het tabblad **Aangepaste ernst** .  
+Vous pouvez configurer les paramètres suivants sous l'onglet **Gravité personnalisée** .  
 
-- **Aangepaste ernst**: Hiermee stelt u een waarde voor aangepaste ernst voor de software-updates. Selecteer **Kritiek**, **Belangrijk**, **Gemiddeld**of **Laag** uit de lijst. De waarde voor aangepaste ernst is standaard leeg.
+- **Gravité personnalisée**: définit une valeur de gravité personnalisée pour les mises à jour logicielles. Sélectionnez **Critique**, **Important**, **Modéré**ou **Faible** dans la liste. Par défaut, la valeur de la gravité personnalisée n'est pas renseignée.
 
-## <a name="crl-checking-for-software-updates"></a>CRL-controle voor software-updates
-Standaard wordt de certificaatintrekkingslijst (CRL) niet gecontroleerd bij het verifiëren van de handtekening van software-updates van System Center Configuration Manager. Door de CRL te raadplegen elke keer dat er een certificaat wordt gebruikt, bent u beter beschermd tegen het gebruik van een ingetrokken certificaat. Hierdoor ontstaat echter ook een vertraging in de verbinding en vinden er extra verwerkingsactiviteiten plaats op de computer die de CRL-controle uitvoert.  
+## <a name="crl-checking-for-software-updates"></a>Vérification de la liste de révocation de certificats pour les mises à jour logicielles
+Par défaut, la liste de révocation de certificats n’est pas contrôlée pendant la vérification de la signature des mises à jour logicielles System Center Configuration Manager. La vérification de la liste de révocation de certificats à chaque utilisation d'un certificat est une sécurité supplémentaire qui permet de ne pas utiliser de certificat révoqué. Toutefois, elle implique un délai de connexion et un traitement supplémentaire sur l'ordinateur qui l'effectue.  
 
-Als u gebruikt, moet CRL-controle zijn ingeschakeld op de Configuration Manager-consoles waarop software-updates worden verwerkt.  
+Si vous l’utilisez, la vérification de la liste de révocation de certificats doit être activée sur les consoles Configuration Manager qui traitent les mises à jour logicielles.  
 
-#### <a name="to-enable-crl-checking"></a>Controle van certificaatintrekkingslijst inschakelen  
-Op de computer voor het uitvoeren van de CRL-controle van de product-DVD, kunt u het volgende uitvoeren via een opdrachtprompt: **\SMSSETUP\BIN\X64\\**<*taal*>**\UpdDwnldCfg.exe /checkrevocation**.  
+#### <a name="to-enable-crl-checking"></a>Pour activer la vérification de la liste de révocation de certificats  
+Sur l’ordinateur effectuant la vérification de la liste de révocation de certificats, à partir du DVD du produit, exécutez la commande suivante à partir d’une invite de commandes : **\SMSSETUP\BIN\X64\\**<*langue*>**\UpdDwnldCfg.exe/checkrevocation**.  
 
-Bijvoorbeeld voor Engels (V.S.) uitvoeren **\SMSSETUP\BIN\X64\00000409\UpdDwnldCfg.exe /checkrevocation**  
+Par exemple, pour l’anglais (US), exécutez **\SMSSETUP\BIN\X64\00000409\UpdDwnldCfg.exe /checkrevocation**  

@@ -1,6 +1,6 @@
 ---
-title: Apps beveiligen met mobile application management-beleid | Microsoft Docs
-description: De functionaliteit aanpassen van apps die u implementeert zodat deze voldoet aan uw bedrijf nalevings- en beveiligingsbeleid.
+title: "Protéger des applications à l’aide de stratégies de gestion des applications mobiles | Microsoft Docs"
+description: "Modifiez les fonctionnalités des applications que vous déployez pour qu’elles respectent les stratégies de sécurité et de conformité de votre entreprise."
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,163 +17,163 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 50c137f159b0ef631f7173b8eec190182ce41cee
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="protect-apps-using-mobile-application-management-policies-in-system-center-configuration-manager"></a>Apps in System Center Configuration Manager beveiligen met Mobile Application Management-beleid
+# <a name="protect-apps-using-mobile-application-management-policies-in-system-center-configuration-manager"></a>Protéger des applications à l’aide de stratégies de gestion des applications mobiles dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-System Center Configuration Manager application management-beleid kunnen u de functionaliteit aanpassen van apps die u implementeert om ervoor te zorgen dat ze in overeenstemming met uw bedrijf apparaatcompatibiliteit en beveiligingsbeleid. U kunt bijvoorbeeld knippen, kopiëren en plakken binnen een beperkte app beperken of een app configureren zodat alle URL's binnen een beheerde browser openen. Ondersteuning voor beleid voor het beheer van apps:  
+Les stratégies de gestion des applications System Center Configuration Manager vous permettent de modifier les fonctionnalités des applications que vous déployez pour qu’elles respectent les stratégies de conformité et de sécurité de votre entreprise. Par exemple, vous pouvez restreindre les opérations Couper, Copier et Coller au sein d’une application limitée, ou configurer une application pour ouvrir toutes les URL dans Managed Browser. Les stratégies de gestion des applications prennent en charge :  
 
--   Apparaten met Android 4 en hoger  
+-   les appareils qui exécutent Android 4 et versions ultérieures ;  
 
--   Apparaten met iOS 7 en hoger  
+-   appareils qui exécutent iOS 7 et versions ultérieures.  
 
-U kunt ook mobile Application management-beleid gebruiken om apps op apparaten die niet worden beheerd door Intune te beveiligen. Met deze nieuwe mogelijkheid kunt u mam-beleid toepassen op apps die verbinding met Office 365-services maken. Dit wordt niet ondersteund voor apps die verbinding met on-premises Exchange of SharePoint maken.  
+Vous pouvez également utiliser des stratégies de gestion des applications mobiles pour protéger des applications sur des appareils non gérés par Intune. Grâce à cette nouvelle fonctionnalité, vous pouvez appliquer des stratégies de gestion des applications mobiles aux applications se connectant aux services Office 365. Ces stratégies ne sont pas prises en charge pour les applications qui se connectent à Exchange ou SharePoint au niveau local.  
 
-Voor het gebruik van deze nieuwe mogelijkheid, moet u de Azure preview portal gebruiken. De volgende onderwerpen kunnen u op weg helpen:  
--   [Aan de slag met beleid voor Mobile App Management in Azure Portal](https://technet.microsoft.com/library/mt627830.aspx)  
--   [Beleid voor Mobile App Management maken en implementeren met Microsoft Intune](https://technet.microsoft.com/library/mt627829.aspx)  
+Pour utiliser cette nouvelle fonctionnalité, vous devez utiliser le portail Azure en version préliminaire. Les rubriques suivantes peuvent vous aider dans la prise en main :  
+-   [Prise en main des stratégies de gestion des applications mobiles dans le portail Azure](https://technet.microsoft.com/library/mt627830.aspx)  
+-   [Créer et déployer des stratégies de gestion des applications mobiles à l’aide de Microsoft Intune](https://technet.microsoft.com/library/mt627829.aspx)  
 
- U kunt een beleid voor toepassingsbeheer niet implementeren rechtstreeks u doen met configuratie-items en basislijnen in Configuration Manager. In plaats daarvan koppelt u het beleid aan het toepassingsimplementatietype dat u wilt beperken. Wanneer het implementatietype van de app is geïmplementeerd en geïnstalleerd op apparaten, de instellingen die u opgeeft te laten treden.  
+ Contrairement aux éléments de configuration et aux bases de référence dans Configuration Manager, vous ne déployez pas une stratégie de gestion des applications directement. Au lieu de cela, vous associez la stratégie au type de déploiement d’application que vous voulez restreindre. Quand le type de déploiement d’application est déployé et installé sur les appareils, les paramètres que vous spécifiez prennent effet.  
 
-Als beperkingen wilt toepassen op een app, moet de app gebruikmaken van de Microsoft Intune App Software Development Kit (SDK). Er zijn twee methoden voor het verkrijgen van dit type app:  
+Pour appliquer des restrictions à une application, celle-ci doit intégrer le Kit de développement logiciel (SDK) d’application Microsoft Intune. Il existe deux méthodes pour obtenir ce type d'application :  
 
--   **Een door beleid beheerde app gebruiken** (Android en iOS): Deze apps hebben de ingebouwde App SDK. Om dit type app toe te voegen, geeft u een koppeling op naar de app uit een app store zoals iTunes store of Google Play. Er is geen verdere verwerking vereist voor dit type app. Zie [Beheerde apps voor Microsoft Intune-beleid voor het beheer van mobiele toepassingen](https://technet.microsoft.com/library/dn708489.aspx) voor een lijst met door beleid beheerde apps die beschikbaar zijn voor iOS- en Android-apparaten.  
+-   **Utiliser une application gérée par une stratégie** (Android et iOS) : ces applications intègrent le SDK d’application. Pour ajouter ce type d'application, spécifiez un lien vers l'application à partir d'un magasin d'applications tel que l'iTunes Store ou Google Play. Aucun traitement supplémentaire n'est nécessaire pour ce type d'application. Pour obtenir une liste des applications gérées par une stratégie qui sont disponibles pour les appareils iOS et Android, consultez [Applications gérées pour les stratégies de gestion des applications mobiles Microsoft Intune](https://technet.microsoft.com/library/dn708489.aspx).  
 
--   **Een 'verpakte' app gebruiken** (Android en iOS): Deze apps opnieuw zijn verpakt met de App-SDK met behulp van de **Microsoft Intune App Wrapping Tool**. Dit hulpprogramma wordt meestal gebruikt voor het verwerken van bedrijfsapps die intern zijn gemaakt. Het kan niet worden gebruikt voor het verwerken van apps die zijn gedownload uit de app store. Zie de volgende artikelen voor meer informatie:
-    - [IOS-apps voorbereiden voor mobile application management met Microsoft Intune App Wrapping Tool](https://technet.microsoft.com/library/dn878028.aspx)
+-   **Utiliser une application « encapsulée »** (Android et iOS) : applications repackagées pour inclure le SDK d’application à l’aide de l’**outil de création de package de restrictions d’application Microsoft Intune**. On utilise généralement cet outil pour traiter les applications d'entreprise qui ont été créées en interne. Vous ne pouvez pas l'utiliser pour traiter les applications qui ont été téléchargées à partir du magasin d'applications. Pour plus d’informations, consultez les articles suivants :
+    - [Préparer des applications iOS pour la gestion des applications mobiles avec l’outil de création de package de restrictions d’application Microsoft Intune](https://technet.microsoft.com/library/dn878028.aspx)
 
-    - [Android-apps voorbereiden voor mobile application management met Microsoft Intune App Wrapping Tool](https://technet.microsoft.com/library/mt147413.aspx)  
+    - [Préparer des applications Android pour la gestion des applications mobiles avec l’outil de création de package de restrictions d’application Microsoft Intune](https://technet.microsoft.com/library/mt147413.aspx)  
 
-## <a name="create-and-deploy-an-app-with-a-mobile-application-management-policy"></a>Een app maken en implementeren met Mobile Application Management-beleid  
+## <a name="create-and-deploy-an-app-with-a-mobile-application-management-policy"></a>Créer et déployer une application avec une stratégie de gestion des applications mobiles  
 
-##  <a name="step-1-obtain-the-link-to-a-policy-managed-app-or-create-a-wrapped-app"></a>Stap 1: De koppeling naar een door beleid beheerde app verkrijgen of een verpakte app maken  
+##  <a name="step-1-obtain-the-link-to-a-policy-managed-app-or-create-a-wrapped-app"></a>Étape 1 : Obtenir le lien vers une application gérée par une stratégie ou créer une application encapsulée  
 
--   **Haal een koppeling naar een door beleid beheerde app**: Zoek uit de appstore, en noteer de URL van het beleid beheerde app die u wilt implementeren.  
+-   **Pour obtenir un lien vers une application gérée par une stratégie** : à partir du magasin d’applications, recherchez et notez l’URL de l’application gérée par une stratégie que vous souhaitez déployer.  
 
-     De URL van de app Microsoft Word voor iPad is bijvoorbeeld **https://itunes.apple.com/us/app/microsoft-word-for-ipad/id586447913?mt=8**  
+     Par exemple, l’URL de l’application Microsoft Word pour iPad est **https://itunes.apple.com/us/app/microsoft-word-for-ipad/id586447913?mt=8**  
 
--   **Een verpakte app maken**: Gebruik de informatie in de onderwerpen [iOS-apps voorbereiden voor mobile application management met Microsoft Intune App Wrapping Tool](https://technet.microsoft.com/library/dn878028.aspx) en [Android-apps voorbereiden voor mobile application management met Microsoft Intune App Wrapping Tool](https://technet.microsoft.com/library/mt147413.aspx) een verpakte app maken.  
+-   **Pour créer une application encapsulée** : utilisez les informations fournies dans les rubriques [Préparer des applications iOS pour la gestion des applications mobiles avec l’outil de création de package de restrictions d’application Microsoft Intune](https://technet.microsoft.com/library/dn878028.aspx) et [Préparer des applications Android pour la gestion des applications mobiles avec l’outil de création de package de restrictions d’application Microsoft Intune](https://technet.microsoft.com/library/mt147413.aspx) pour créer une application encapsulée.  
 
-     Het hulpprogramma maakt een verwerkte app en een daaraan gekoppeld manifestbestand. U kunt deze bestanden gebruiken bij het maken van een Configuration Manager-toepassing die de app bevat.  
+     L'outil crée une application traitée et un fichier manifeste associé. Vous utilisez ces fichiers quand vous créez une application Configuration Manager contenant l’application.  
 
-##  <a name="step-2-create-a-configuration-manager-application-that-contains-an-app"></a>Stap 2: Een Configuration Manager-toepassing waarin een app maken  
- De procedure voor het maken van de Configuration Manager-toepassing verschilt, afhankelijk van of u gebruikmaakt van een door beleid beheerde app (externe koppeling) of een app die is gemaakt met behulp van de Microsoft Intune App Wrapping Tool voor iOS (App-pakket voor iOS). Gebruik een van de volgende procedures om de Configuration Manager-toepassing maken.  
+##  <a name="step-2-create-a-configuration-manager-application-that-contains-an-app"></a>Étape 2 : créer une application Configuration Manager qui contient une application  
+ La procédure de création de l’application Configuration Manager diffère selon que vous utilisez une application gérée par une stratégie (lien externe) ou une application qui a été créée avec l’outil de création de package de restrictions d’application Microsoft Intune pour iOS (package d’application pour iOS). Utilisez l’une des procédures suivantes pour créer l’application Configuration Manager.  
 
-1.  Kies in de Configuration Manager-console **softwarebibliotheek** > **Toepassingsbeheer** > **toepassingen**.  
+1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Applications**.  
 
-3.  In de **Start** tabblad, in de **maken** groep, kiest u **toepassing maken** openen de **toepassing maken** Wizard.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer une application** pour ouvrir l’Assistant **Création d’une application**.  
 
-4.  Selecteer op de pagina **Algemeen** de optie **Automatisch informatie over deze toepassing detecteren uit installatiebestanden**.  
+4.  Sous l'onglet **Général** , sélectionnez **Détecter automatiquement les informations de cette application à partir des fichiers d'installation**.  
 
-5.  Selecteer **App-pakket voor iOS \*IPA-bestand) in de vervolgkeuzelijst **Type****.  
+5.  Dans la liste déroulante **Type**, sélectionnez **Package d’application pour iOS (\*fichier *.ipa)**.  
 
-6.  Kies **Bladeren** selecteren van het app-pakket dat u wilt importeren, en kies vervolgens **volgende**.  
+6.  Choisissez **Parcourir** pour sélectionner le package d’application à importer, puis **Suivant**.  
 
-7.  Voer op de pagina **Algemene informatie** de beschrijvende tekst en categorie-informatie in die u voor gebruikers wilt weergeven op de bedrijfsportal.  
+7.  Sur la page **Informations générales** , entrez le texte descriptif et les informations de catégorie que vous souhaitez montrer aux utilisateurs sur le portail d'entreprise.  
 
-8.  Voltooi de wizard.  
+8.  Effectuez toutes les étapes de l'Assistant.  
 
- De nieuwe toepassing wordt weergegeven in het knooppunt **Toepassingen** van de werkruimte **Softwarebibliotheek** .  
+ La nouvelle application s'affiche dans le nœud **Applications** de l'espace de travail **Bibliothèque de logiciels** .  
 
-### <a name="create-an-application-that-contains-a-link-to-a-policy-managed-app"></a>Maken van een toepassing met een koppeling naar een door beleid beheerde app  
+### <a name="create-an-application-that-contains-a-link-to-a-policy-managed-app"></a>Créer une application contenant un lien vers une application gérée par une stratégie  
 
-1.  Kies in de Configuration Manager-console **softwarebibliotheek** > **Toepassingsbeheer** > **toepassingen**.  
+1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Applications**.  
 
-3.  In de **Start** tabblad, in de **maken** groep, kiest u **toepassing maken** openen de **toepassing maken** Wizard.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer une application** pour ouvrir l’Assistant **Création d’une application**.  
 
-4.  Selecteer op de pagina **Algemeen** de optie **Automatisch informatie over deze toepassing detecteren uit installatiebestanden**.  
+4.  Sous l'onglet **Général** , sélectionnez **Détecter automatiquement les informations de cette application à partir des fichiers d'installation**.  
 
-5.  Selecteer in de vervolgkeuzelijst **Type** een van de volgende opties:  
+5.  Dans la liste déroulante **Type** , sélectionnez l'un des éléments suivants :  
 
-    -   Voor iOS: **App-pakket voor iOS uit de App Store**  
+    -   Pour iOS : **Package d’application pour iOS dans l’App Store**  
 
-    -   Voor Android: **App-pakket voor Android in Google Play**  
+    -   Pour Android : **Package d’application pour Android sur Google Play**  
 
-6.  Voer de URL voor de app (uit stap 1) en kies vervolgens **volgende**.  
+6.  Entrez l’URL de l’application (obtenue à l’étape 1), puis choisissez **Suivant**.  
 
-7.  Voer op de pagina **Algemene informatie** de beschrijvende tekst en categorie-informatie in die u voor gebruikers wilt weergeven op de bedrijfsportal.  
+7.  Sur la page **Informations générales** , entrez le texte descriptif et les informations de catégorie que vous souhaitez montrer aux utilisateurs sur le portail d'entreprise.  
 
-8.  Voltooi de wizard.  
+8.  Effectuez toutes les étapes de l'Assistant.  
 
- De nieuwe toepassing wordt weergegeven in het knooppunt **Toepassingen** van de werkruimte **Softwarebibliotheek** .  
+ La nouvelle application s'affiche dans le nœud **Applications** de l'espace de travail **Bibliothèque de logiciels** .  
 
-##  <a name="step-3-create-an-application-management-policy"></a>Stap 3: Een beleid voor toepassingsbeheer maken  
- Maak vervolgens een beleid voor toepassingsbeheer dat u aan de toepassing koppelt. U kunt een algemeen beleid of Managed Browser-beleid maken.  
+##  <a name="step-3-create-an-application-management-policy"></a>Étape 3 : créer une stratégie de gestion d’application  
+ Ensuite, créez une stratégie de gestion d’application que vous associez à l’application. Vous pouvez créer une stratégie générale ou Managed Browser.  
 
-1)  Kies in de Configuration Manager-console **softwarebibliotheek** > **Toepassingsbeheer** > **Application Management-beleid**.  
+1)  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Stratégies de gestion d’application**.  
 
-2)  In de **Start** tabblad, in de **maken** groep, kiest u **beleid voor toepassingsbeheer maken**.  
+2)  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer une stratégie de gestion d’application**.  
 
-3)  Op de **algemene** pagina, voer de naam en beschrijving voor het beleid en kies vervolgens **volgende**.  
+3)  Dans la page **Général**, entrez le nom et la description de la stratégie, puis choisissez **Suivant**.  
 
-4)  Op de **beleidstype** pagina, selecteer het platform en beleidstype voor dit beleid en kies vervolgens **volgende**. U kunt uit de volgende beleidstypen kiezen:  
+4)  Dans la page **Type de stratégie**, sélectionnez la plateforme et le type de cette stratégie, puis choisissez **Suivant**. Les types de stratégies suivants sont disponibles :  
 
--   **Algemene**: Het beleidstype algemeen kunt u de functionaliteit van apps die u implementeert om ervoor te zorgen dat ze in overeenstemming met uw bedrijf nalevings- en beveiligingsbeleid wijzigen. U kunt bijvoorbeeld bewerkingen zoals knippen, kopiëren en plakken binnen een beperkte app beperken.  
+-   **Général** : le type de stratégie Général permet de modifier les fonctionnalités des applications que vous déployez pour les adapter aux stratégies de sécurité et de conformité de votre entreprise. Par exemple, vous pouvez limiter les opérations Couper, Copier et Coller dans une application restreinte.  
 
--   **Managed Browser**: De Managed Browser-beleid kunt u beslissen of u wilt toestaan of blokkeren van de beheerde browser een lijst met URL's opent. Met het beleidstype Managed Browser kunt u de functionaliteit van de Intune Managed Browser-app wijzigen. Dit is een browser waarmee u de acties die gebruikers kunnen uitvoeren, kunt beheren, met inbegrip van de websites die ze kunnen bezoeken en de manier waarop koppelingen naar inhoud in de browser worden geopend. Meer informatie over de  [Intune Managed Browser-app voor iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) en de [Intune Managed Browser-app voor Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser&hl=en).
+-   **Managed Browser** : la stratégie Managed Browser vous permet d’indiquer s’il faut autoriser Managed Browser à ouvrir une liste d’URL ou l’en empêcher. Le type de stratégie Managed Browser vous permet de modifier les fonctionnalités de l'application Intune Managed Browser. Il s'agit d'un navigateur web qui vous permet de gérer les actions que les utilisateurs peuvent effectuer, y compris les sites qu'ils peuvent visiter et le mode d'ouverture des liens vers du contenu dans le navigateur. En savoir plus sur l’  [application Intune Managed Browser pour iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) et [l’application Intune Managed Browser pour Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser&hl=en).
 
-5)  Op de **iOS-beleid** of **Android-beleid** pagina, configureer de volgende waarden zoals vereist en kies vervolgens **volgende**. De opties kunnen variëren, afhankelijk van het apparaattype waarvoor u het beleid configureert.  
+5)  Dans la page **Stratégie iOS** ou **Stratégie Android**, configurez les valeurs suivantes selon les besoins, puis choisissez **Suivant**. Les options peuvent différer selon le type d'appareil pour lequel vous configurez la stratégie.  
 
-|Waarde|Meer informatie|  
+|Valeur|Plus d'informations|  
 |-----------|----------------------|  
-|**Webinhoud beperken en weergeven in een bedrijfsbeheerde browser**|Hiermee kunt alle koppelingen in de app wordt geopend in de Managed Browser. Deze optie werkt alleen als u deze app hebt geïmplementeerd op apparaten.|  
-|**Back-ups van Android verhinderen** of **Back-ups van iTunes en iCloud verhinderen**|Hiermee worden back-ups van gegevens uit de app uitgeschakeld.|  
-|**App mag gegevens overdragen naar ander apps**|Hiermee geeft u de apps aan waarnaar deze app gegevens kan verzenden. U kunt kiezen om geen gegevensoverdracht naar Apps, alleen overdracht naar andere beperkte apps toestaat, toe te staan of overdracht naar alle Apps.<br /><br /> Om bij iOS-apparaten documentoverdracht tussen beheerde en onbeheerde apps te voorkomen, moet u ook een beveiligingsbeleid voor mobiele apparaten configureren en implementeren, waarmee de instelling **Beheerde documenten toestaan in andere onbeheerde apps**wordt uitgeschakeld.<br /><br /> Als u selecteert alleen overdracht naar andere beperkte apps toestaat, worden de Intune PDF- en afbeeldingsviewers (indien geïmplementeerd) gebruikt om inhoud van de verschillende typen te openen.|  
-|**App mag gegevens ontvangen van andere apps**|Hiermee geeft u de apps op waarvan deze app gegevens mag ontvangen. U kunt kiezen om geen gegevensoverdracht vanuit alle Apps toe te staan dat overdracht vanaf andere beperkte apps toe te staan of overdracht vanaf alle Apps.|  
-|**Opslaan als verhinderen**|Hiermee schakelt u het gebruik van de **OpslaanAls** optie in elke app die gebruikmaakt van dit beleid.|  
-|**Knippen, kopiëren en plakken met andere apps beperken**|Hiermee geeft u op hoe knip-, kopieer- en plakbewerkingen kunnen worden gebruikt met de app. U kunt kiezen uit:<br /><br /> **Geblokkeerd** – mag geen knip-, kopieer- en plakbewerkingen tussen deze app en andere apps.<br /><br /> **Beleid beheerde Apps** – Hiermee kunt u knippen, kopiëren en plakken tussen alleen deze app en andere beperkte apps.<br /><br /> **Beleid beheerde Apps met plakken In** – maakt het mogelijk gegevens dat is geknipt of gekopieerd uit deze app worden geplakt in andere beperkte apps. Hiermee kunt gegevens die worden geknipt of gekopieerd uit alle apps in deze app worden geplakt.<br /><br /> **Elke App** : geen beperkingen aan knip-, kopieer- en plakbewerkingen naar of vanuit deze app.|  
-|**Eenvoudige pincode vereist voor toegang**|De gebruiker een pincode die zij opgeven voor het gebruik van deze app vereist. De gebruiker wordt gevraagd om in te stellen dat dit de eerste keer dat de app uitvoert.|  
-|**Aantal pogingen voordat pincode opnieuw wordt ingesteld**|Hiermee geeft u het aantal invoerpogingen PINCODE die kunnen worden uitgevoerd voordat de gebruiker de PINCODE opnieuw moet instellen.|  
-|**Bedrijfsreferenties vereisen voor toegang**|Vereist dat gebruikers hun zakelijke gegevens aanmelden invoeren moeten voordat ze toegang heeft tot de app.|  
-|**Apparaatcompatibiliteit met bedrijfsbeleid vereisen voor toegang**|Kan de app moet worden gebruikt wanneer het apparaat niet opengebroken is of geroot.|  
-|**Toegangsvereisten opnieuw controleren na (minuten)**|Hiermee geeft u de tijdsperiode op waarna de toegangsvereisten voor de app opnieuw worden gecontroleerd nadat de app wordt gestart (in de **time-out** veld).<br /><br /> In de **Offline respijtperiode** veld als het apparaat offline is, geeft u de tijdsperiode op waarna de toegangsvereisten voor de app opnieuw worden gecontroleerd.|  
-|**Appgegevens versleutelen**|Hiermee geeft u op dat alle gegevens die is gekoppeld aan deze app worden versleuteld, met inbegrip van gegevens die extern, zoals gegevens die zijn opgeslagen op de SD-kaarten zijn opgeslagen.<br /><br /> **Versleuteling voor iOS**<br /><br /> Voor apps die gekoppeld aan een mobile application management-beleid van Configuration Manager zijn, worden de gegevens versleuteld in rust met behulp van versleuteling op apparaatniveau die wordt geleverd door het besturingssysteem. Dit wordt ingeschakeld via apparaatpincodebeleid dat moet worden ingesteld door de IT-beheerder. Als een PINCODE vereist is, wordt de gegevens versleuteld volgens de instellingen in het mobile application management-beleid. Zoals vermeld in de Apple-documentatie [de modules die worden gebruikt door iOS 7 zijn FIPS 140-2 gecertificeerd](http://support.apple.com/en-us/HT202739).<br /><br /> **Versleuteling voor Android**<br /><br /> Voor apps die gekoppeld aan een mobile application management-beleid van Configuration Manager zijn, wordt versleuteling geleverd door Microsoft. Gegevens worden synchroon versleuteld tijdens bestands-I/O-bewerkingen overeenkomstig de instelling in het Mobile Application Management-beleid. Beheerde apps op Android gebruiken AES-128-versleuteling in CBC-modus waarbij de cryptografiebibliotheken van het platform worden gebruikt. De versleutelingsmethode is niet gecertificeerd volgens FIPS 140-2. Inhoud in de apparaatopslag wordt altijd versleuteld.|  
-    |**Schermafbeelding blokkeren** (alleen Android-apparaten)|Hiermee wordt opgegeven dat de schermafbeeldingsmogelijkheden van het apparaat zijn geblokkeerd bij gebruik van deze app.|  
+|**Afficher le contenu web uniquement dans Managed Browser**|Autorise l’ouverture de tous les liens de l’application dans Managed Browser. Pour que cette option fonctionne, vous devez avoir déployé cette application sur des appareils.|  
+|**Interdire les sauvegardes Android** ou **Interdire les sauvegardes iTunes et iCloud**|Désactive la sauvegarde de toutes les informations à partir de l'application.|  
+|**Autoriser l'application à transférer des données vers d'autres applications**|Spécifie les applications auxquelles cette application peut envoyer des données. Vous pouvez choisir de n’autoriser le transfert de données vers aucune application, d’autoriser le transfert vers d’autres applications restreintes ou d’autoriser le transfert vers toute application.<br /><br /> Pour les appareils iOS, pour empêcher le transfert de documents entre les applications gérées et non gérées, vous devez aussi configurer et déployer une stratégie de sécurité d'appareil mobile qui désactive le paramètre **Autoriser les documents gérés dans d'autres applications non gérées**.<br /><br /> Si vous choisissez d’autoriser uniquement le transfert vers d’autres applications restreintes, les visionneuses d’images et PDF Intune (si elles sont déployées) sont utilisées pour ouvrir le contenu des types respectifs.|  
+|**Autoriser l'application à recevoir des données d'autres applications**|Spécifie les applications à partir desquelles cette application peut recevoir des données. Vous pouvez choisir de n’autoriser le transfert de données à partir d’aucune application, d’autoriser le transfert uniquement à partir d’autres applications restreintes, ou d’autoriser le transfert à partir de toute application.|  
+|**Interdire « Enregistrer sous »**|Désactive l’utilisation de l’option **Enregistrer sous** dans toute application qui utilise cette stratégie.|  
+|**Restreindre les opérations couper, copier et coller avec d'autres applications**|Spécifie comment les opérations couper, copier et coller peuvent être utilisées avec l'application. Choisissez parmi :<br /><br /> **Bloqué** : n’autorise pas les opérations couper, copier et coller entre cette application et d’autres applications.<br /><br /> **Applications gérées par la stratégie** : autorise les opérations couper, copier et coller entre cette application uniquement et d’autres applications restreintes.<br /><br /> **Applications gérées par la stratégie avec Coller dans** : autorise le collage de données coupées ou copiées à partir de cette application uniquement dans d’autres applications restreintes. Autorise le collage dans cette application de données coupées ou copiées à partir de n’importe quelle application.<br /><br /> **N’importe quelle application** : aucune restriction pour les opérations couper, copier et coller vers ou à partir de cette application.|  
+|**Demander un code confidentiel simple pour l'accès**|Oblige l’utilisateur à entrer un code confidentiel qu’il spécifie pour utiliser cette application. L’utilisateur est invité à définir ce code la première fois qu’il exécute l’application.|  
+|**Nombre de tentatives avant réinitialisation du code confidentiel**|Spécifie le nombre de tentatives dont dispose l’utilisateur pour taper le code confidentiel avant d’être obligé de réinitialiser le code confidentiel.|  
+|**Exiger des informations d'identification d'entreprise pour l'accès**|Exige que l’utilisateur entre ses informations de connexion d’entreprise pour accéder à l’application.|  
+|**Exiger la conformité à la stratégie d'entreprise pour l'accès**|Autorise l’utilisation de l’application uniquement si l’appareil n’est pas jailbroken ou rooté.|  
+|**Revérifier les exigences d'accès après (minutes)**|Indique le délai au bout duquel les conditions d’accès pour l’application sont revérifiées après son démarrage (dans le champ **Délai**).<br /><br /> Dans le champ **Période de grâce hors connexion**, si l’appareil est hors connexion, spécifie le délai au bout duquel les conditions d’accès pour l’application sont revérifiées.|  
+|**Chiffrer les données de l'application**|Spécifie que toutes les données associées à cette application sont chiffrées, notamment les données stockées en externe, comme les données stockées sur des cartes SD.<br /><br /> **Chiffrement pour iOS**<br /><br /> Pour les applications associées à une stratégie de gestion des applications mobiles Configuration Manager, les données sont chiffrées au repos à l’aide du chiffrement au niveau de l’appareil fourni par le système d’exploitation. Cette option est activée par le biais de la stratégie de code confidentiel d’appareil qui doit être définie par l’administrateur informatique. Quand un code confidentiel est nécessaire, les données sont chiffrées selon les paramètres de la stratégie de gestion des applications mobiles. Comme indiqué dans la documentation Apple, [les modules utilisés par iOS 7 sont certifiés FIPS 140-2](http://support.apple.com/en-us/HT202739).<br /><br /> **Chiffrement pour Android**<br /><br /> Pour les applications associées à une stratégie de gestion des applications mobiles Configuration Manager, le chiffrement est fourni par Microsoft. Les données sont chiffrées de manière synchrone durant les opérations d'E/S de fichier conformément au paramètre indiqué dans la stratégie de gestion des applications mobiles. Les applications gérées sur Android utilisent le chiffrement AES-128 en mode CBC, avec utilisation des bibliothèques de chiffrement de plateforme. La méthode de chiffrement n'est pas certifiée FIPS 140-2. Le contenu figurant sur le stockage de l’appareil est toujours chiffré.|  
+    |**Bloquer la capture d'écran** (appareils Android uniquement)|Spécifie que les fonctionnalités de capture d'écran de l'appareil sont bloquées lors de l'utilisation de cette application.|  
 
-6)  Op de **Managed Browser** pagina, selecteert u of de beheerde browser mag alleen URL's openen in de lijst of de beheerde browser openen van URL's in de lijst en kies vervolgens **volgende**.  
-Zie voor meer informatie [internettoegang beheren met beheerde-browserbeleid](manage-internet-access-using-managed-browser-policies.md).  
+6)  Dans la page **Managed Browser**, indiquez si Managed Browser est autorisé à ouvrir uniquement les URL figurant dans la liste ou si vous souhaitez l’empêcher d’ouvrir les URL figurant dans la liste, puis choisissez **Suivant**.  
+Pour plus d’informations, consultez [Gérer l’accès à Internet à l’aide de stratégies Managed Browser](manage-internet-access-using-managed-browser-policies.md).  
 
-7)  Voltooi de wizard.  
+7)  Effectuez toutes les étapes de l'Assistant.  
 
- Het nieuwe beleid wordt weergegeven in het knooppunt **Beleid voor toepassingsbeheer** van de werkruimte **Softwarebibliotheek** .  
+ La nouvelle stratégie s'affiche dans le nœud **Stratégies de gestion d'application** de l'espace de travail **Bibliothèque de logiciels** .  
 
-##  <a name="step-4-associate-the-application-management-policy-with-a-deployment-type"></a>Stap 4: Beleid voor toepassingsbeheer koppelen aan een implementatietype  
+##  <a name="step-4-associate-the-application-management-policy-with-a-deployment-type"></a>Étape 4 : associer la stratégie de gestion d’application à un type de déploiement  
 
- Wanneer een implementatietype is gemaakt voor een app waarvoor beleid voor toepassingsbeheer is vereist, wordt Configuration Manager herkent dit en krijgt u een app management-beleid te koppelen. U moet de beheerde browser zowel een algemeen beleid als Managed Browser beleid koppelen. Zie voor meer informatie [toepassingen maken](create-applications.md).  
-
-> [!IMPORTANT]  
->  Als de toepassing al is geïmplementeerd, mislukt de implementatie van het nieuwe implementatietype totdat deze koppeling wordt gemaakt. U kunt op het tabblad **Toepassingsbeheer** de koppeling aanbrengen in **Eigenschappen** voor de toepassing.  
+ Quand un type de déploiement est créé pour une application qui nécessite une stratégie de gestion des applications, Configuration Manager vous invite à associer une stratégie de gestion des applications. Pour Managed Browser, vous devez associer une stratégie Général et une stratégie Managed Browser. Pour plus d’informations, consultez [Créer des applications](create-applications.md).  
 
 > [!IMPORTANT]  
->  Voor apparaten met besturingssystemen ouder dan iOS 7.1, worden de bijbehorende beleid worden niet verwijderd wanneer de app wordt verwijderd.  
+>  Si l’application est déjà déployée, le déploiement du nouveau type de déploiement échoue tant que cette association n’est pas effectuée. Vous pouvez créer l'association dans les **Propriétés** de l'application, sous l'onglet **Gestion des applications** .  
+
+> [!IMPORTANT]  
+>  Pour les appareils qui exécutent des systèmes d’exploitation antérieurs à iOS 7.1, les stratégies associées ne sont pas supprimées quand l’application est désinstallée.  
 >   
->  Als het apparaat wordt uitgeschreven uit Configuration Manager, het beleid niet verwijderd uit de apps. Apps waarop beleid werd toegepast, behouden de beleidsinstellingen zelfs nadat de app is verwijderd en opnieuw geïnstalleerd.  
+>  Si l’inscription de l’appareil dans Configuration Manager est annulée, les stratégies ne sont pas supprimées des applications. Les applications pour lesquelles des stratégies étaient appliquées conservent les paramètres de stratégie après la désinstallation et la réinstallation de l’application.  
 
-##  <a name="step-5-monitor-the-app-deployment"></a>Stap 5: Controleer de implementatie van de app  
- Zodra u hebt gemaakt en een app die is gekoppeld aan een mobile application management-beleid hebt geïmplementeerd, kunt u de app bewaken en eventuele beleidsconflicten oplossen.  
+##  <a name="step-5-monitor-the-app-deployment"></a>Étape 5 : surveiller le déploiement de l’application  
+ Une fois que vous avez créé et déployé une application associée à une stratégie de gestion des applications mobiles, vous pouvez analyser l’application et résoudre les éventuels conflits de stratégie.  
 
-1.  Kies in de Configuration Manager-console **softwarebibliotheek** > **overzicht** > **implementaties**.  
+1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Vue d’ensemble** > **Déploiements**.  
 
-3.  Selecteer de implementatie die u hebt gemaakt. Klik op de **Start** Kies **eigenschappen**.  
+3.  Sélectionnez le déploiement que vous avez créé. Sous l’onglet **Accueil**, choisissez **Propriétés**.  
 
-4.  In het detailvenster voor de implementatie onder **verwante objecten**, kies **Application Management-beleid**.  
+4.  Dans le volet de détails du déploiement, sous **Objets associés**, choisissez **Stratégies de gestion d’application**.  
 
- Zie voor meer informatie over het bewaken van toepassingen [toepassingen bewaken](/sccm/apps/deploy-use/monitor-applications-from-the-console).  
+ Pour plus d’informations sur la surveillance des applications, consultez [Surveiller des applications](/sccm/apps/deploy-use/monitor-applications-from-the-console).  
 
-##  <a name="learn-how-policy-conflicts-are-resolved"></a>Meer informatie over hoe beleidsconflicten worden opgelost  
- Wanneer er een conflict met mobile application management-beleid op de eerste implementatie voor de gebruiker of apparaat, wordt de specifieke instelling-waarde die in conflict is verwijderd uit het beleid dat is geïmplementeerd voor de app. Vervolgens gebruikt de app een ingebouwde conflictwaarde.  
+##  <a name="learn-how-policy-conflicts-are-resolved"></a>Découvrir comment les conflits de stratégie sont résolus  
+ En cas de conflit de stratégie de gestion des applications mobiles lors du premier déploiement vers l’utilisateur ou l’appareil, la valeur de paramètre spécifique en conflit est supprimée de la stratégie déployée sur l’application. L’application utilise ensuite une valeur de conflit intégrée.  
 
- Wanneer er een conflict met mobile Application management-beleid bij latere implementaties naar de app of gebruiker, de specifieke instelling-waarde die in conflict is niet bijgewerkt op de mam-beleid dat is geïmplementeerd voor de app en de app gebruikt de bestaande waarde voor die instelling.  
+ En cas de conflit de stratégie de gestion des applications mobiles lors de déploiements ultérieurs vers l’application ou l’utilisateur, la valeur de paramètre spécifique en conflit n’est pas mise à jour sur la stratégie de gestion des applications mobiles déployée vers l’application et celle-ci utilise la valeur existante pour ce paramètre.  
 
- In gevallen waarin het apparaat of de gebruiker twee conflicterende sets beleidsregels ontvangt, is het volgende van toepassing:  
+ Dans les cas où l'appareil ou l'utilisateur reçoit deux stratégies en conflit, le comportement suivant s'applique :  
 
--   Als op het apparaat nog een beleid is geïmplementeerd, worden de bestaande beleidsinstellingen niet overschreven.  
+-   Si une stratégie a été déployée sur l’appareil, les paramètres de stratégie existants ne sont pas remplacés.  
 
--   Als er geen beleid is al is geïmplementeerd op het apparaat en twee conflicterende instellingen zijn geïmplementeerd, is de standaardinstelling die ingebouwd in het apparaat wordt gebruikt.  
+-   Si aucune stratégie n’a encore été déployée sur l’appareil et que deux paramètres en conflit sont déployés, le paramètre par défaut intégré à l’appareil est utilisé.  
 
-##  <a name="see-a-list-of-available-policy-managed-apps"></a>Een lijst met beschikbare door beleid beheerde apps  
- Zie voor een lijst met door beleid beheerde apps die beschikbaar zijn voor iOS en Android-apparaten [Microsoft Intune-toepassingspartners](https://www.microsoft.com/cloud-platform/microsoft-intune-partners).  
+##  <a name="see-a-list-of-available-policy-managed-apps"></a>Afficher la liste des applications gérées par la stratégie disponibles  
+ Pour obtenir la liste des applications gérées par une stratégie disponibles pour les appareils iOS et Android, consultez [Partenaires d’application Microsoft Intune](https://www.microsoft.com/cloud-platform/microsoft-intune-partners).  

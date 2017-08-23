@@ -1,6 +1,6 @@
 ---
-title: Mogelijkheden in Technical Preview 1702 Configuration Manager
-description: Meer informatie over functies die beschikbaar zijn in de Technical Preview voor System Center Configuration Manager, versie 1702.
+title: "Fonctionnalités de Technical Preview 1702 Configuration Manager"
+description: "Découvrez les fonctionnalités disponibles dans la version Technical Preview 1702 pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 02/24/2017
 ms.prod: configuration-manager
@@ -16,343 +16,343 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 3bdbcd1a3c64a1d50f2f6219b2a5e17d60979864
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1702-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1702 voor System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1702-for-system-center-configuration-manager"></a>Fonctionnalités de Technical Preview 1702 pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (Technical Preview)*
+*S’applique à : System Center Configuration Manager (Technical Preview)*
 
-Dit artikel bevat de functies die beschikbaar in de Technical Preview voor System Center Configuration Manager, versie 1702 zijn. U kunt deze versie om te werken en nieuwe mogelijkheden toevoegen aan uw Configuration Manager technical preview-site installeren. Controleer voordat u deze versie van de technical preview installeert, de inleidende informatie [Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md), om vertrouwd te raken met algemene vereisten en beperkingen voor het gebruik van een technical preview hoe bijwerken tussen versies en hoe u feedback over de functies in een technical preview.    
-
-
-**Hier volgen nieuwe functies die u met deze versie kunt uitproberen.**  
-
-##  <a name="send-feedback-from-the-configuration-manager-console"></a>Feedback verzenden vanuit de Configuration Manager-console
-
-Deze preview introduceert nieuwe opties voor klantenfeedback in de Configuration Manager-console. De opties voor klantenfeedback kunt u feedback rechtstreeks naar het ontwikkelingsteam via de website van de Configuration Manager UserVoice-feedback verzenden.  
-
->U vindt de **Feedback** optie:
--  In het lint, aan de linkerkant van het tabblad Start van elk knooppunt.  
-   ![Lint](./media/feedback-home.png)
-
--  Wanneer u met de rechtermuisknop op een object in de console.   
-    ![De optie kopiëren en klik op](./media/feedback-option.png)   
-
-Kiezen **Feedback** uw browser naar de website van de Configuration Manager UserVoice feedback op https://configurationmanager.uservoice.com/forums/300492-ideas wordt geopend.
-##  <a name="changes-for-updates-and-servicing"></a>Wijzigingen voor Updates en onderhoud
-De volgende zijn geïntroduceerd in dit voorbeeld.
-
-**Eenvoudiger update keuzes**  
-De volgende keer dat uw infrastructuur in aanmerking komt voor twee of meer updates, wordt alleen de meest recente update gedownload. Bijvoorbeeld, als uw huidige siteversie is twee of meer ouder is dan de meest recente versie die beschikbaar is, is deze meest recente updateversie automatisch wordt gedownload.  
-
-U hebt de optie voor het downloaden en installeren van de andere beschikbare updates, zelfs wanneer ze niet de meest recente versie. Echter, ontvangt u een waarschuwing dat de update is vervangen door een nieuwere versie. Voor het downloaden van een update die *beschikbaar voor Download*, selecteert u de update in de console en klik vervolgens op **downloaden**.
-
-**Verbeterde het opruimen van de oudere updates**   
-We hebben een automatische opschoning-functie die de overbodige downloads uit de map 'EasySetupPayload' op uw siteserver verwijdert toegevoegd.  
+Cet article présente les fonctionnalités qui sont disponibles dans la version Technical Preview 1702 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager. Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
 
 
-## <a name="peer-cache-improvements"></a>Verbeteringen voor peer-Cache
-Vanaf deze release, weigert een peer-cache-broncomputer een aanvraag voor inhoud wanneer de peer-cache-bron-computer voldoet aan een van de volgende voorwaarden:  
- -  In de modus voor laag accuvermogen is.
- -  CPU-belasting groter is dan 80% op het moment dat de inhoud wordt aangevraagd.
- -  Schijf-i/o heeft een *AvgDiskQueueLength* die groter is dan 10.
- -  Er zijn niet meer beschikbaar zijn verbindingen met de computer.   
+**Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
 
-U kunt deze instellingen configureren via de clientklasse agent-configuratie voor de functie voor peer-source (*SMS_WinPEPeerCacheConfig*) wanneer u System Center Configuration Manager SDK gebruiken.
+##  <a name="send-feedback-from-the-configuration-manager-console"></a>Envoyer des commentaires à partir de la console Configuration Manager
 
-Als de computer een aanvraag voor de inhoud afwijst, blijft de aanvragende computer te zoeken naar inhoud formulier alternatieve bronnen in de groep met beschikbare inhoudsbron locaties.   
+Cet aperçu présente de nouvelles options pour les commentaires dans la console Configuration Manager. Les options de commentaires vous permettent d’envoyer vos commentaires directement à l’équipe de développement, par le biais du site web de commentaires Configuration Manager UserVoice.  
 
-## <a name="azurediscovery"></a>Azure Active Directory Domain Services gebruiken voor het beheren van apparaten, gebruikers en groepen
+>L’option **Commentaires** est accessible :
+-  Dans le ruban, à l’extrême gauche de l’onglet Accueil de chaque nœud.  
+   ![Ruban](./media/feedback-home.png)
 
-Met deze technical preview versie die u kunt apparaten beheren die zijn gekoppeld aan een Azure Active Directory (AD) Domain-Services worden beheerd domein. U kunt ook apparaten, gebruikers en groepen in het domein detecteren met verschillende detectiemethoden van Configuration Manager.
+-  Quand vous cliquez avec le bouton droit sur n’importe quel objet dans la console.   
+    ![Option de clic droit](./media/feedback-option.png)   
 
-De technical preview-site-infrastructuur, clients en het domein van Azure AD Domain Services moeten allemaal in Azure uitvoeren.
+Un clic sur **Commentaires** affiche le site de commentaires Configuration Manager UserVoice dans votre navigateur, à l’adresse https://configurationmanager.uservoice.com/forums/300492-ideas.
+##  <a name="changes-for-updates-and-servicing"></a>Modifications pour les mises à jour et la maintenance
+Les éléments suivants sont une nouveauté dans cette préversion.
 
+**Choix de mise à jour plus simples**  
+Si votre infrastructure est en droit de recevoir plusieurs mises à jour, seule la dernière mise à jour est téléchargée. Par exemple, si le numéro de version actuel de votre site est inférieur de deux ou plus à la version la plus récente disponible, seule cette dernière version de mise à jour est téléchargée automatiquement.  
 
-### <a name="set-up-configuration-manager-to-use-azure-ad"></a>Stel Configuration Manager in Azure AD gebruiken
-Voor het gebruik van Azure AD met Configuration Manager, hebt u het volgende nodig:
--   Azure-abonnement.
--   Azure AD Domain Services (DS).
--   Een Configuration Manager-site die wordt uitgevoerd op een virtuele machine van Azure die is gekoppeld aan uw Azure AD.
--   Configuration Manager-clients die worden uitgevoerd in dezelfde Azure AD-omgeving.
+Vous pouvez télécharger et installer les autres mises à jour disponibles, même quand il ne s’agit pas de la version la plus récente. Toutefois, vous recevrez un message d’avertissement indiquant que la mise à jour a été remplacée par une version plus récente. Pour télécharger une mise à jour qui est *Disponible en téléchargement*, sélectionnez la mise à jour dans la console, puis cliquez sur **Télécharger**.
 
-Voor het configureren van Azure AD Domain Services, Zie [aan de slag met Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
-
-### <a name="discover-resources"></a>Detecteren van bronnen
-Nadat u Configuration Manager instellen om uit te voeren in Azure AD, kunt u de volgende Active Directory-detectiemethoden gebruiken om te zoeken, Azure AD voor resources:  
-- Active Directory-systeemdetectie
-- Detectie Active Directory-gebruiker
-- Active Directory-groepdetectie  
-
-Voor elke methode die u gebruikt, bewerkt u de LDAP-query om te zoeken naar de organisatie-eenheid van Azure AD-structuren in plaats van de containers die specifiek voor de lokale Active Directory zijn. Hiervoor moet u de query voor het zoeken naar uw Active Directory in uw Azure-abonnement wordt omgeleid.  
-
-De volgende voorbeelden gebruikt een Azure AD van *contoso.onmicrosoft.com*:
- - **Detectie-systemen**   
-Azure AD worden opgeslagen voor apparaten onder de **AADDC Computers** organisatie-eenheid.  Het volgende configureren:  
-  - *LDAP://OU=AADDC Computers, DC = contoso, DC = onmicrosoft gebruikt, DC = com*  
+**Nettoyage amélioré des anciennes mises à jour**   
+Nous avons ajouté une fonction de nettoyage automatique qui supprime les téléchargements inutiles du dossier « EasySetupPayload » sur votre serveur de site.  
 
 
-- **Detectie van gebruikers** AAD slaat gebruikers onder de **AADDC gebruikers** organisatie-eenheid.  Het volgende configureren:
-  - *LDAP://OU=AADDC gebruikers, DC = contoso, DC = onmicrosoft gebruikt, DC = com*
+## <a name="peer-cache-improvements"></a>Améliorations de Cache d’homologue
+À compter de cette version, un ordinateur source de cache d’homologue rejette une demande de contenu quand il remplit l’une des conditions suivantes :  
+ -  Il est en mode de batterie faible.
+ -  La charge de l’UC dépasse 80 % au moment où le contenu est demandé.
+ -  Les E/S disque ont une valeur *AvgDiskQueueLength* supérieure à 10.
+ -  Il n’y a plus de connexion disponible vers l’ordinateur.   
+
+Vous pouvez configurer ces paramètres à l’aide de la classe de configuration de l’agent client pour la fonctionnalité de source d’homologue (*SMS_WinPEPeerCacheConfig*) quand vous utilisez le SDK System Center Configuration Manager.
+
+Quand l’ordinateur rejette une demande de contenu, l’ordinateur demandeur continue à rechercher le contenu à partir d’autres sources dans son pool d’emplacements de sources de contenu disponibles.   
+
+## <a name="azurediscovery"></a> Utiliser les services de domaine Azure Active Directory pour gérer des appareils, des utilisateurs et des groupes
+
+Avec cette préversion technique, vous pouvez gérer des appareils qui sont joints à un domaine géré par les services de domaine Azure Active Directory (AD). Vous pouvez également découvrir des appareils, des utilisateurs et des groupes dans ce domaine par le biais de différentes méthodes de découverte dans Configuration Manager.
+
+L’infrastructure de site, les clients et le domaine des Services de domaine Azure Active Directory qui exécutent la préversion technique doivent tous s’exécuter dans Azure.
 
 
-- **Detectie-groepen**  
-Azure AD beschikt niet over een organisatie-eenheid die groepen opslaat. In plaats daarvan de dezelfde algemene structuur gebruiken als het systeem of gebruiker query's en configureren van de LDAP-query om te verwijzen naar de organisatie-eenheid waarin de groepen die dat u wilt detecteren.
+### <a name="set-up-configuration-manager-to-use-azure-ad"></a>Configurer Configuration Manager pour utiliser Azure AD
+Pour utiliser Azure AD avec Configuration Manager, vous avez besoin des éléments suivants :
+-   Un abonnement Azure
+-   Azure AD avec les services de domaine
+-   Un site Configuration Manager qui s’exécute sur une machine virtuelle Azure jointe à votre domaine Azure AD.
+-   Des clients Configuration Manager qui s’exécutent dans le même environnement Azure AD.
 
-Zie de volgende onderwerpen voor meer informatie over Azure AD:  
- - [Azure Active Directory Domain Services](https://azure.microsoft.com/en-us/services/active-directory-ds) op azure.microsoft.com.
- - [Active Directory Domain Services-documentatie](https://docs.microsoft.com/azure/active-directory-domain-services) op docs.microsoft.com.
+Pour configurer les services de domaine Azure Active Directory, consultez [Prise en main des services de domaine Azure AD](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
-## <a name="conditional-access-device-compliance-policy-improvements"></a>Voorwaardelijke toegang apparaat naleving beleid verbeteringen
+### <a name="discover-resources"></a>Découvrir les ressources
+Après avoir configuré Configuration Manager pour qu’il s’exécute dans Azure AD, vous pouvez appliquer les méthodes de découverte Active Directory suivantes pour rechercher des ressources dans Azure AD :  
+- Découverte de systèmes Active Directory
+- Découverte d'utilisateurs Active Directory
+- Découverte de groupes Active Directory  
 
-Een nieuw apparaat naleving beleidsregel is beschikbaar waarmee u toegang tot bedrijfsbronnen die ondersteuning bieden voor voorwaardelijke toegang, wanneer gebruikers apps die deel van een niet-compatibele lijst met apps uitmaken blokkeren. De niet-compatibele lijst met apps kan worden gedefinieerd door de beheerder bij het toevoegen van de nieuwe regel compatibele **Apps die niet kunnen worden geïnstalleerd**. Deze regel vereist dat de beheerder om in te voeren de **Appnaam**, wordt de **App-ID**, en de **App Publisher** (optioneel) wanneer een app toe te voegen aan de lijst met niet-compatibele. Deze instelling geldt alleen voor iOS en Android-apparaten.
+Pour chaque méthode utilisée, modifiez la requête LDAP pour rechercher dans les structures d’unités d’organisation Azure Active Directory plutôt que dans les conteneurs typiques d’un annuaire Active Directory local. Vous devez pour cela diriger la requête pour qu’elle effectue des recherches dans votre annuaire Active Directory dans votre abonnement Azure.  
 
-Dit helpt bovendien organisaties lekken van gegevens via niet-beveiligde apps te beperken en het verbruik van veel gegevens via bepaalde apps te voorkomen.
+Les exemples suivants utilisent un annuaire Azure AD nommé *contoso.onmicrosoft.com* :
+ - **Découverte de systèmes**   
+Azure AD stocke les appareils sous l’unité d’organisation **AADDC Computers**.  Configurez ce qui suit :  
+  - *LDAP://OU=AADDC Computers,DC=contoso,DC=onmicrosoft,DC=com*  
 
-- Meer informatie [de werking van beleid voor apparaatcompatibiliteit](https://docs.microsoft.com/sccm/protect/deploy-use/device-compliance-policies).
-- Meer informatie [nalevingsbeleid voor apparaten maken](https://docs.microsoft.com/sccm/protect/deploy-use/create-compliance-policy).
 
-### <a name="try-it-out"></a>Try it out in
+- **Découverte d’utilisateurs** AAD stocke les utilisateurs sous l’unité d’organisation **AADDC Users**.  Configurez ce qui suit :
+  - *LDAP://OU=AADDC Users,DC= contoso,DC=onmicrosoft,DC=com*
 
-**Scenario:** Identificeren van apps die mogelijk veroorzaakt door lekken van gegevens door zakelijke gegevens buiten uw bedrijf te verzenden of die veel gegevens verbruik, vervolgens veroorzaken [maken van een nalevingsbeleid voor apparaten van voorwaardelijke toegang](https://docs.microsoft.com/sccm/protect/deploy-use/create-compliance-policy) waarmee deze apps in de lijst met niet-compatibele Apps worden toegevoegd. Dit wordt toegang tot bedrijfsbronnen die ondersteuning bieden voor voorwaardelijke toegang tot de geblokkeerde app door de gebruiker verwijderen kunt geblokkeerd.
 
-## <a name="antimalware-client-version-alert"></a>Waarschuwing voor Antimalware client versie
-Met deze preview-versie biedt, Configuration Manager Endpoint Protection vanaf een waarschuwing als meer dan 20% (standaard) van beheerde clients met een verlopen versie van de antimalware-client (dat wil zeggen Windows Defender of Endpoint Protection-client).
+- **Découverte de groupes**  
+Azure AD n’a pas d’unité d’organisation qui stocke des groupes. Au lieu de cela, utilisez la même structure générale que les requêtes Système ou Utilisateur, et configurez la requête LDAP pour qu’elle pointe vers l’unité d’organisation qui contient les groupes que vous souhaitez découvrir.
 
-### <a name="try-it-out"></a>Try it out in
-Zorg ervoor dat Endpoint Protection is ingeschakeld op alle desktop- en -clients met behulp van beleid voor client-instellingen. U kunt nu weergeven **Antimalware-clientversie** en **Status van Endpoint Protection-implementatie** door te gaan **activa en naleving** > **overzicht** > **apparaten** > **alle bureaubladen en Clients bedienen**. Bekijken om te controleren of een waarschuwing, **waarschuwingen** in de **bewaking** werkruimte. Als meer dan 20% van beheerde clients een verlopen versie van de antimalware-software, de versie van de Antimalware-client is verouderd waarschuwing wordt weergegeven. Deze waarschuwing niet wordt weergegeven op de **bewaking** > **overzicht** tabblad. Voor het bijwerken van verlopen antimalware-clients, moet u software-updates inschakelen voor anti-malware-clients.
+Pour plus d’informations sur Azure AD, consultez les articles suivants :  
+ - [Services de domaine Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory-ds) sur azure.microsoft.com.
+ - [Documentation des Services de domaine Active Directory](https://docs.microsoft.com/azure/active-directory-domain-services) sur docs.microsoft.com.
 
-Als u wilt configureren voor het percentage waarmee de waarschuwing wordt gegenereerd, vouw **bewaking** > **waarschuwingen** > **alle waarschuwingen**, dubbelklikt u op **Antimalware clients verouderd** en wijzig de **waarschuwing activeren als percentage van de beheerde clients met een verouderde versie van de antimalware-client is meer dan** optie.
+## <a name="conditional-access-device-compliance-policy-improvements"></a>Améliorations apportées aux stratégies de conformité des appareils pour l’accès conditionnel
 
-## <a name="compliance-assessment-for-windows-update-for-business-updates"></a>Nalevingsbeoordeling voor Windows Update voor bedrijven-updates
-U kunt nu een regel voor naleving beleid update voor een Windows Update for Business assessment resultaat opnemen als onderdeel van de evaluatie van voorwaardelijke toegang configureren.
+Une nouvelle règle de stratégie de conformité de l’appareil est disponible pour vous aider à bloquer l’accès aux ressources d’entreprise qui prennent en charge l’accès conditionnel, quand des utilisateurs utilisent des applications qui figurent dans une liste d’applications non conformes. La liste des applications non conformes peut être définie par l’administrateur lors de l’ajout de la nouvelle règle de conformité **Applications qui ne peuvent pas être installées**. Cette règle exige que l’administrateur entre le **Nom de l’application**, l’**ID de l’application** et l’**Éditeur de l’application**  (facultatif) lors de l’ajout d’une application à la liste des applications non conformes. Ce paramètre s’applique uniquement aux appareils iOS et Android.
+
+Cela permet également aux organisations de réduire les fuites de données via des applications non sécurisées, et d’empêcher la consommation excessive de données par certaines applications.
+
+- Consultez cet article pour en savoir plus sur le [fonctionnement des stratégies de conformité des appareils](https://docs.microsoft.com/sccm/protect/deploy-use/device-compliance-policies).
+- Consultez cet article pour en savoir plus sur [la façon de créer des stratégies de conformité des appareils](https://docs.microsoft.com/sccm/protect/deploy-use/create-compliance-policy).
+
+### <a name="try-it-out"></a>Essayez
+
+**Scénario :** Identifier les applications susceptibles de provoquer des fuites de données en envoyant des données d’entreprise hors de l’entreprise, ou les applications qui provoquent une consommation excessive de données, puis [créer une stratégie de conformité de l’appareil avec accès conditionnel](https://docs.microsoft.com/sccm/protect/deploy-use/create-compliance-policy) qui ajoute ces applications à la liste des applications non conformes. Cela bloquera l’accès aux ressources d’entreprise qui prennent en charge l’accès conditionnel, jusqu’à ce que l’utilisateur puisse supprimer l’application bloquée.
+
+## <a name="antimalware-client-version-alert"></a>Alerte de version du client de logiciel anti-programme malveillant
+À compter de cette préversion, Configuration Manager Endpoint Protection fournit une alerte si plus de 20 % (par défaut) des clients gérés utilisent une version du client de logiciel anti-programme malveillant (par exemple Windows Defender ou Endpoint Protection client) qui a expiré.
+
+### <a name="try-it-out"></a>Essayez
+Vérifiez qu’Endpoint Protection est activé sur tous les clients de bureau et serveur à l’aide de la stratégie de paramètres client. Vous pouvez maintenant afficher **Version du client de logiciel anti-programme malveillant** et **État du déploiement d’Endpoint Protection** en accédant à **Actifs et Conformité** > **Vue d’ensemble** > **Appareils** > **Tous les clients bureau et serveur**. Pour vérifier une alerte, affichez **Alertes** dans l’espace de travail **Surveillance**. Si plus de 20 % des clients gérés exécutent une version de logiciel anti-programme malveillant ayant expiré, l’alerte « La version du client de logiciel anti-programme malveillant est obsolète » s’affiche. Cette alerte n’apparaît pas sous l’onglet **Surveillance** > **Vue d’ensemble**. Pour mettre à jour les clients de logiciel anti-programme malveillant ayant expiré, activez les mises à jour logicielles pour les clients de logiciel anti-programme malveillant.
+
+Pour configurer le pourcentage auquel l’alerte est générée, développez **Surveillance** > **Alertes** > **Toutes les alertes**, double-cliquez sur **Clients de logiciel anti-programme malveillant obsolètes** et modifiez l’option **Générez une alerte si le pourcentage de clients gérés avec une version obsolète du client de logiciel anti-programme malveillant est supérieur à**.
+
+## <a name="compliance-assessment-for-windows-update-for-business-updates"></a>Évaluation de la conformité des mises à jour Windows Update for Business
+Vous pouvez désormais configurer une règle de mise à jour de stratégie de conformité pour inclure un résultat d’évaluation Windows Update for Business dans le cadre de l’évaluation de l’accès conditionnel.
 > [!IMPORTANT]
-> U moet Windows 10 Insider Preview-versie 15019 of hoger met beoordeling van compatibiliteit voor Windows Update voor bedrijven-updates hebben.
+> Vous devez avoir Windows 10 Insider Preview Build 15019 ou version ultérieure pour pouvoir utiliser l’évaluation de la conformité pour les mises à jour Windows Update for Business.
 
-### <a name="allow-windows-update-for-business-to-manage-windows-10-updates"></a>Windows Update voor bedrijven voor het beheren van Windows 10-updates toestaan
-Gebruik de volgende procedure voor het configureren van de clientagentinstelling voor expliciet toestaan Windows Update voor bedrijven voor het beheren van Windows 10-updates voor het verzamelen van assessment compatibiliteitsinformatie voor Windows Update voor bedrijven-updates.
-1. Ga in de Configuration Manager-console naar **Beheer** > **Clientinstellingen**.
-2. In de eigenschappen voor instellingen van de client, gaat u naar **Software-Updates**, en selecteer **Ja** voor de **beheren van Windows 10-updates met Windows Update voor bedrijven** instelling.
+### <a name="allow-windows-update-for-business-to-manage-windows-10-updates"></a>Autoriser Windows Update for Business à gérer les mises à jour de Windows 10
+Pour recueillir des informations d’évaluation de conformité pour les mises à jour Windows Update for Business, appliquez la procédure suivante pour configurer le paramètre d’agent client pour autoriser explicitement Windows Update for Business à gérer les mises à jour de Windows 10.
+1. Dans la console Configuration Manager, accédez à **Administration** > **Paramètres client**.
+2. Dans les propriétés des paramètres client, accédez à **Mises à jour logicielles**, puis sélectionnez **Oui** pour le paramètre **Gérer les mises à jour de Windows 10 avec Windows Update for Business**.
 
-### <a name="create-a-compliance-policy-for-windows-update-for-business-assessment"></a>Een nalevingsbeleid maken voor Windows Update voor bedrijven-evaluatie
-1. Ga in de Configuration Manager-console naar **activa en naleving** > **instellingen voor naleving** > **nalevingsbeleid**.
-2. Klik op **nalevingsbeleid maken** of Selecteer een bestaand nalevingsbeleid te wijzigen.
-3. Geef een naam en beschrijving, Selecteer op de pagina Algemeen **nalevingsegels voor apparaten die worden beheerd door Configuration Manager-client**, instellen van de ernst van niet-naleving voor rapportage en klikt u op **volgende**.
-4. Selecteer op de pagina ondersteunde Platforms **Windows 10**, en klik vervolgens op **volgende**.
-5. Klik op de pagina regels **nieuw...** , en vervolgens voor **voorwaarde** kiezen **vereisen Windows Update voor bedrijven naleving**. De **waarde** is automatisch ingesteld op **True**.
+### <a name="create-a-compliance-policy-for-windows-update-for-business-assessment"></a>Créer une stratégie de conformité pour l’évaluation Windows Update for Business
+1. Dans la console Configuration Manager, accédez à **Actifs et Conformité** > **Paramètres de conformité** > **Stratégies de conformité**.
+2. Cliquez sur **Créer une stratégie de conformité** ou sélectionnez une stratégie de conformité existante à modifier.
+3. Dans la page Général, entrez un nom et une description, sélectionnez **Règles de conformité pour les appareils gérés avec le client Configuration Manager**, définissez la gravité de non-conformité pour les rapports, puis cliquez sur **Suivant**.
+4. Dans la page Plateformes prises en charge, sélectionnez **Windows 10**, puis cliquez sur **Suivant**.
+5. Dans la page Règles, cliquez sur **Nouveau** puis, comme **Condition**, choisissez **Exiger la conformité Windows Update for Business**. Le paramètre **Valeur** prend automatiquement la valeur **True**.
 
-Het nieuwe beleid wordt weergegeven in het knooppunt **Nalevingsbeleid** van de werkruimte **Activa en naleving** .
+La nouvelle stratégie s'affiche sous le nœud **Stratégies de conformité** de l'espace de travail **Actifs et Conformité** .
 
-### <a name="deploy-a-compliance-policy"></a>Een nalevingsbeleid implementeren
-1. Ga in de Configuration Manager-console naar **activa en naleving** > **instellingen voor naleving**, en klik vervolgens op **nalevingsbeleid**.
-2. Klik op het tabblad **Start** in de groep **Implementatie** op **Implementeren**.
-3. Klik in het dialoogvenster **Nalevingsbeleid implementeren** op **Bladeren** om de gebruikersverzameling te selecteren waarvoor het beleid moet worden geïmplementeerd.
-   Verder kunt u opties selecteren om waarschuwingen te genereren als het beleid niet compatibel is en ook om het schema te configureren waarmee dit beleid wordt beoordeeld op naleving.
-4. Wanneer u klaar bent, klikt u op **OK**.
+### <a name="deploy-a-compliance-policy"></a>Déployer une stratégie de conformité
+1. Dans la console Configuration Manager, accédez à **Actifs et Conformité** > **Paramètres de conformité**, puis cliquez sur **Stratégies de conformité**.
+2. Sous l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Déployer**.
+3. Dans la boîte de dialogue **Déployer une stratégie de conformité** , cliquez sur **Parcourir** pour sélectionner le regroupement d'utilisateurs pour lesquels déployer la stratégie.
+   En outre, vous pouvez sélectionner des options pour générer des alertes quand la stratégie n'est pas conforme et configurer le calendrier selon lequel cette stratégie sera évaluée pour la conformité.
+4. Une fois terminé, cliquez sur **OK**.
 
-### <a name="monitor-the-compliance-policy"></a>Het nalevingsbeleid bewaken
-Nadat u het nalevingsbeleid hebt gemaakt, kunt u de nalevingsresultaten in Configuration Manager-console kunt bewaken. Zie voor meer informatie [het nalevingsbeleid bewaken](https://docs.microsoft.com/en-us/sccm/protect/deploy-use/create-compliance-policy#monitor-the-compliance-policy).
+### <a name="monitor-the-compliance-policy"></a>Analyser la stratégie de conformité
+Après avoir créé la stratégie de conformité, vous pouvez surveiller les résultats de conformité dans la console Configuration Manager. Pour plus d’informations, consultez [Surveiller la stratégie de conformité](https://docs.microsoft.com/en-us/sccm/protect/deploy-use/create-compliance-policy#monitor-the-compliance-policy).
 
 
-## <a name="improvements-to-software-center-settings-and-notification-messages-for-high-impact-task-sequences"></a>Verbeteringen aan Software Center-instellingen en meldingen voor hoge impact takenreeksen
-Deze versie bevat de volgende verbeteringen aangebracht in de instellingen van Software Center en meldingen voor implementatie met hoge impact takenreeksen:
+## <a name="improvements-to-software-center-settings-and-notification-messages-for-high-impact-task-sequences"></a>Améliorations apportées aux paramètres du Centre logiciel et aux messages de notification pour les séquences de tâches à fort impact
+Cette version inclut les améliorations suivantes des paramètres du Centre logiciel et des messages de notification pour les séquences de tâches de déploiement à fort impact :
 
-- In de eigenschappen voor de takenreeks wordt uitgevoerd, kunt u nu een takenreeks wordt uitgevoerd, niet het besturingssysteemstation takenreeksen, waaronder als een implementatie met hoog risico configureren. Elke takenreeks die voldoet aan bepaalde voorwaarden wordt automatisch gedefinieerd als hoge impact. Zie voor meer informatie [beheren van implementaties met een hoog risico](http://docs.microsoft.com/sccm/protect/understand/settings-to-manage-high-risk-deployments).
-- In de eigenschappen voor de takenreeks wordt uitgevoerd, kunt u het meldingsbericht standaard gebruiken of maken van uw eigen aangepaste Meldingsbericht voor implementaties met hoge impact.
-- In de eigenschappen voor de takenreeks wordt uitgevoerd, kunt u Software Center-eigenschappen, waaronder een herstart vereist is, Controleer de grootte van het downloadpakket van de takenreeks en de geschatte tijd worden uitgevoerd.
-- Het standaardbericht implementatie met hoge impact voor in-place upgrades nu statussen uw apps, gegevens en instellingen automatisch gemigreerd. Voorheen het standaardbericht voor de installatie van een besturingssysteem wordt aangegeven dat alle apps, gegevens en instellingen zouden verloren gaan, die is niet true zijn voor een in-place upgrade.
+- Dans les propriétés de la séquence de tâches, vous pouvez maintenant configurer n’importe quelle séquence de tâches, notamment celles non liées au système d’exploitation, comme déploiement à haut risque. Toute séquence de tâches qui remplit certaines conditions est définie automatiquement comme séquence à fort impact. Pour plus d’informations, consultez [Paramètres pour gérer les déploiements à haut risque pour System Center Configuration Manager](http://docs.microsoft.com/sccm/protect/understand/settings-to-manage-high-risk-deployments).
+- Dans les propriétés de la séquence de tâches, vous pouvez choisir d’utiliser le message de notification par défaut ou créer votre propre message de notification personnalisé pour les déploiements à fort impact.
+- Dans les propriétés de la séquence de tâches, vous pouvez configurer les propriétés du Centre logiciel, notamment exiger un redémarrage ou définir la taille de téléchargement de la séquence de tâches et la durée d’exécution estimée.
+- Le message de déploiement à fort impact par défaut pour les mises à niveau sur place signale désormais que vos applications, vos données et vos paramètres sont migrés automatiquement. Auparavant, le message par défaut pour toute installation de système d’exploitation indiquait que tous les paramètres, les données et les applications seraient perdues, ce qui était faux pour une mise à niveau sur place.
 
-### <a name="set-a-task-sequence-as-a-high-impact-task-sequence"></a>Een takenreeks ingesteld als een takenreeks met hoge impact
-Gebruik de volgende procedure in te stellen van een takenreeks als hoge impact.
+### <a name="set-a-task-sequence-as-a-high-impact-task-sequence"></a>Définir une séquence de tâches comme séquence de tâches à fort impact
+Appliquez la procédure suivante pour définir une séquence de tâches à fort impact.
 > [!NOTE]
-> Elke takenreeks die voldoet aan bepaalde voorwaarden wordt automatisch gedefinieerd als hoge impact. Zie voor meer informatie [beheren van implementaties met een hoog risico](http://docs.microsoft.com/sccm/protect/understand/settings-to-manage-high-risk-deployments).
+> Toute séquence de tâches qui remplit certaines conditions est définie automatiquement comme séquence à fort impact. Pour plus d’informations, consultez [Paramètres pour gérer les déploiements à haut risque pour System Center Configuration Manager](http://docs.microsoft.com/sccm/protect/understand/settings-to-manage-high-risk-deployments).
 
-1. Ga in de Configuration Manager-console naar **softwarebibliotheek** > **besturingssystemen** > **Takenreeksen**.
-2. Selecteer de takenreeks bewerken en klik op **eigenschappen**.
-3. Op de **gebruikersmelding** tabblad **dit is een grote impact takenreeks**.
+1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquences de tâches**.
+2. Sélectionnez la séquence de tâches à modifier, puis cliquez sur **Propriétés**.
+3. Sous l’onglet **Notification utilisateur**, sélectionnez **Il s’agit d’une séquence de tâches avec un impact élevé**.
 
-### <a name="create-a-custom-notification-for-high-risk-deployments"></a>Een aangepaste melding voor implementaties met een hoog risico maken
-1. Ga in de Configuration Manager-console naar **softwarebibliotheek** > **besturingssystemen** > **Takenreeksen**.
-2. Selecteer de takenreeks bewerken en klik op **eigenschappen**.
-3. Op de **gebruikersmelding** tabblad **u aangepaste tekst**.
+### <a name="create-a-custom-notification-for-high-risk-deployments"></a>Créer une notification personnalisée pour les déploiements à haut risque
+1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquences de tâches**.
+2. Sélectionnez la séquence de tâches à modifier, puis cliquez sur **Propriétés**.
+3. Sous l’onglet **Notification utilisateur**, sélectionnez **Utiliser du texte personnalisé**.
 >  [!NOTE]
->  U kunt alleen de berichttekst gebruiker instellen wanneer de **dit is een grote impact takenreeks** is geselecteerd.
+>  Vous pouvez définir le texte de notification utilisateur uniquement quand **Il s’agit d’une séquence de tâches avec un impact élevé** est sélectionné.
 
-4. Configureer de volgende instellingen (maximaal 255 tekens bestaan voor elk tekstvak):
+4. Configurez les paramètres suivants (maximum 255 caractères pour chaque zone de texte) :
 
-   **Gebruiker melding kopregel**: Hiermee geeft u de blauwe tekst die wordt weergegeven op de melding voor gebruikers van Software Center. Bijvoorbeeld, in de gebruikersmelding standaard bevat in deze sectie ongeveer 'Bevestigen voor het bijwerken van het besturingssysteem op deze computer'.
+   **Texte du titre de la notification utilisateur** : spécifie le texte en bleu qui s’affiche sur la notification utilisateur du Centre logiciel. Par exemple, dans la notification utilisateur par défaut, cette section contient quelque chose comme « Confirmez que vous voulez mettre à niveau le système d’exploitation sur cet ordinateur ».
 
-   **Gebruiker melding berichttekst**: Er zijn drie tekstvakken waarmee de hoofdtekst van de aangepaste melding.
-   - 1e tekstvak: Hiermee geeft u de hoofdtekst van tekst, meestal met instructies voor de gebruiker. In de gebruikersmelding standaard bevat in deze sectie bijvoorbeeld iets zoals 'besturingssysteem upgraden tijd kost en de computer enkele keren opnieuw opstarten.'
-   - tekstvak voor 2e: Hiermee geeft u de vetgedrukte onder de hoofdtekst. In de gebruikersmelding standaard bevat in deze sectie bijvoorbeeld iets zoals 'deze in-place upgrade wordt het nieuwe besturingssysteem geïnstalleerd en worden uw apps, gegevens en instellingen automatisch gemigreerd.'
-   - tekstvak voor 3e: Hiermee geeft u de laatste regel van de tekst onder de vetgedrukte. Bijvoorbeeld, in de gebruikersmelding standaard in deze sectie bevat dat lijkt op ' Klik op installeren om te beginnen. Klik anders op Annuleren."   
+   **Texte du message de la notification utilisateur** : trois zones de texte fournissent le corps de la notification personnalisée.
+   - Première zone de texte : spécifie le corps principal du texte, contenant généralement des instructions destinées à l’utilisateur. Par exemple, dans la notification utilisateur par défaut, cette section contient quelque chose comme « La mise à niveau du système d’exploitation peut prendre un certain temps et entraîner plusieurs redémarrages de votre ordinateur ».
+   - Deuxième zone de texte : spécifie le texte en gras dans le corps principal du texte. Par exemple, dans la notification utilisateur par défaut, cette section contient quelque chose comme « Cette mise à niveau sur place installe le nouveau système d’exploitation et migre automatiquement vos applications, vos données et vos paramètres ».
+   - Troisième zone de texte : spécifie la dernière ligne de texte sous le texte en gras. Par exemple, dans la notification utilisateur par défaut, cette section contient quelque chose comme « Cliquez sur Installer pour commencer. Sinon, cliquez sur Annuler. ».   
 
-   Stel dat u de volgende aangepaste melding in de eigenschappen configureren.
+   Supposons que vous configurez la notification personnalisée suivante dans les propriétés.
 
-   ![Aangepaste melding voor een takenreeks](.\media\user-notification.png)
+   ![Notification personnalisée pour une séquence de tâches](.\media\user-notification.png)
 
-   Het volgende bericht wordt weergegeven wanneer de eindgebruiker opent de installatie van Software Center.
+   Le message de notification suivant s’affiche quand l’utilisateur final ouvre l’installation à partir du Centre logiciel.
 
-   ![Aangepaste melding voor een takenreeks](.\media\user-notification-enduser.png)
+   ![Notification personnalisée pour une séquence de tâches](.\media\user-notification-enduser.png)
 
-### <a name="configure-software-center-properties"></a>Eigenschappen van Software Center configureren
-Gebruik de volgende procedure om de gegevens voor de takenreeks weergegeven in Software Center te configureren. Deze gegevens zijn alleen ter informatie.  
-1. Ga in de Configuration Manager-console naar **softwarebibliotheek** > **besturingssystemen** > **Takenreeksen**.
-2. Selecteer de takenreeks bewerken en klik op **eigenschappen**.
-3. Op de **algemene** tabblad en de volgende instellingen voor Software Center zijn beschikbaar:
-  - **Opnieuw opstarten vereist**: Kan de gebruiker weet of opnieuw opstarten vereist tijdens de installatie is.
-  - **Grootte (MB) downloaden**: Hiermee geeft u op hoeveel megabytes wordt weergegeven in Software Center voor de takenreeks.  
-  - **Geschatte uitvoeringstijd (minuten)**: Hiermee geeft u dat de geschatte tijd in minuten die wordt weergegeven in Software Center voor de takenreeks wordt uitgevoerd.
-
-
-## <a name="check-for-running-executable-files-before-installing-an-application"></a>Controleer voor het uitvoeren van uitvoerbare bestanden voordat u een toepassing installeert
-
-In de  *<deployment type name>*  **eigenschappen** in het dialoogvenster van een implementatietype op het tabblad gedrag installeren, u kunt nu een opgeven van meer uitvoerbare bestanden die als actief is, wordt de installatie van het implementatietype blokkeren. De gebruiker moet de lopende uitvoerbaar bestand sluiten (of het automatisch kan worden gesloten voor implementaties met als doel vereist) voordat de implementatie van het type kan worden geïnstalleerd.
-
-### <a name="try-it-out"></a>Uitproberen.
-
-1.  Kies in de eigenschappen van een implementatietype voor de Configuration Manager, de **gedrag installeren** tabblad.
-2.  Kies **toevoegen** toevoegen van een of meer uitvoerbaar bestandsnamen die u wilt controleren. U kunt ook een weergavenaam om het gemakkelijker voor gebruikers om te identificeren van toepassingen in de lijst toevoegen.
-3.  Als de implementatie doel vereist, in de wizard software implementeren desgewenst kunt u **automatisch sluit alle actieve uitvoerbare bestanden die u hebt opgegeven op het tabblad voor het gedrag van installatie van het dialoogvenster voor eigenschappen van implementatie type**.
-
-Als de toepassing is geïmplementeerd als **beschikbaar**, en een eindgebruiker probeert een toepassing te installeren, wordt hij gevraagd om te sluiten van alle actieve uitvoerbare bestanden opgegeven voordat ze de installatie kunnen voortzetten.
-
-Als de toepassing is geïmplementeerd als **vereist**, en de optie **automatisch sluit alle actieve uitvoerbare bestanden die u hebt opgegeven op het tabblad voor het gedrag van installatie van het dialoogvenster voor eigenschappen van implementatie type** is geselecteerd, zien ze een dialoogvenster waarin ze worden geïnformeerd dat uitvoerbare bestanden die u hebt opgegeven automatisch worden gesloten wanneer de deadline van de installatie van de toepassing is bereikt. U kunt plannen dat deze dialoogvensters in **clientinstellingen** > **Computeragent**. Als u niet dat de eindgebruiker deze berichten te zien wilt, selecteert u **verbergen in Software Center en alle meldingen verbergen** op de **gebruikerservaring** tabblad van de implementatie-eigenschappen.
-
-Als de toepassing is geïmplementeerd als **vereist** en de optie **automatisch sluit alle actieve uitvoerbare bestanden die u hebt opgegeven op het tabblad voor het gedrag van installatie van het dialoogvenster voor eigenschappen van implementatie type** niet is ingeschakeld, mislukt de installatie van de app als een of meer van de opgegeven toepassingen worden uitgevoerd.
-
-## <a name="create-pfx-certificates-with-s-mime-support"></a>PFX-certificaten te maken met MIME-S-ondersteuning
-
-U kunt nu een PFX-certificaatprofiel dat S/MIME ondersteunt maken en naar gebruikers implementeren.  Dit certificaat kan vervolgens worden gebruikt voor S/MIME-versleuteling en ontsleuteling op apparaten die de gebruiker is ingeschreven.
-
-Bovendien kunt u nu meerdere certificeringsinstanties (CA's) op meerdere sitesysteemrollen voor Certificaatregistratiepunt opgeven en vervolgens welke aanvragen CA's verwerkt toewijzen als onderdeel van het certificaatprofiel.
-
-U kunt voor iOS-apparaten koppelen van een profiel voor een PFX-certificaat moet een e-mailprofiel en S/MIME-versleuteling inschakelen.  Dit vervolgens S/MIME kan in de systeemeigen e-mailclient op iOS en koppelt u het juiste S/MIME-versleutelingscertificaat aan.
-
-Zie voor meer informatie over certificaten in Configuration Manager [Inleiding tot certificaatprofielen in System Center Configuration Manager]( https://docs.microsoft.com/sccm/protect/deploy-use/introduction-to-certificate-profiles).
+### <a name="configure-software-center-properties"></a>Configurer les propriétés du Centre logiciel
+Appliquez la procédure suivante pour configurer les détails de la séquence de tâches affichés dans le Centre logiciel. Ces détails sont fournis uniquement à titre d’informations.  
+1. Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Systèmes d’exploitation** > **Séquences de tâches**.
+2. Sélectionnez la séquence de tâches à modifier, puis cliquez sur **Propriétés**.
+3. Sous l’onglet **Général**, les paramètres suivants du Centre logiciel sont disponibles :
+  - **Redémarrage requis** : indique à l’utilisateur si un redémarrage est nécessaire lors de l’installation.
+  - **Taille du téléchargement (Mo)** : spécifie le nombre de mégaoctets affichés dans le Centre logiciel pour la séquence de tâches.  
+  - **Durée d’exécution estimée (minutes)** : spécifie la durée d’exécution estimée, en minutes, affichée dans le Centre logiciel pour la séquence de tâches.
 
 
-## <a name="new-compliance-settings-for-ios-devices"></a>Nieuwe instellingen voor naleving voor iOS-apparaten
+## <a name="check-for-running-executable-files-before-installing-an-application"></a>Vérifier si des fichiers exécutables sont en cours d’exécution avant d’installer une application
 
-Nieuwe instellingen die kunt u in uw configuratie-items voor iOS-apparaten toegevoegd. Dit zijn de instellingen die eerder beschikbaar waren in Microsoft Intune in een zelfstandige configuratie en zijn nu beschikbaar wanneer u Intune met Configuration Manager. Als u hulp nodig met een van deze instellingen, Zie [instellingen voor iOS-beleid in Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/ios-policy-settings-in-microsoft-intune).
+Dans la boîte de dialogue *<deployment type name>* **Propriétés** d’un type de déploiement, sous l’onglet Comportement à l’installation, vous pouvez désormais spécifier un ou plusieurs fichiers exécutables qui, s’ils sont en cours d’exécution, bloqueront l’installation du type de déploiement. L’utilisateur doit fermer le fichier exécutable en cours d’exécution (ou il peut être fermé automatiquement pour les déploiements dont l’objet est défini sur Obligatoire) pour que le type de déploiement puisse être installé.
 
-- **Gegevens synchroniseren vanuit beheerde apps met iCloud**
-- **Voortzetten van activiteiten op een ander apparaat via Handoff**
-- **iCloud foto's delen**
-- **iCloud afbeeldingsbibliotheek**
-- **Nieuwe enterprise app auteurs vertrouwen**
-- **Kan de gebruiker om inhoud te downloaden uit de Ibooks store als Erotisch gemarkeerd,'** (alleen in supervisiemodus)
-- **Force gekoppeld kijkt naar Apple pols detectie gebruiken**
-- **Wachtwoord voor aanvragen voor uitgaande AirPlay**
-- **Wijzigen van accountinstellingen** (alleen in supervisiemodus)
-- **Wijzigingen in de app-instellingen voor het gebruik van mobiel dataverkeer** (alleen in supervisiemodus)
-- **Wissen van alle inhoud en instellingen** (alleen in supervisiemodus)
-- **Configureert u beperkingen op apparaat** (alleen in supervisiemodus)
-- **Gebruik een host om te bepalen met welke apparaten een iOS-apparaat kunt koppelen aan** (alleen in supervisiemodus)
-- **Installeren van configuratieprofielen en -certificaten** (alleen in supervisiemodus)
-- **Apparaat naam wijziging** (alleen in supervisiemodus)
-- **Wijziging van de wachtwoordcode** (alleen in supervisiemodus)
-- **Koppelen van Apple Watch** (alleen in supervisiemodus)
-- **Melding wijziging** (alleen in supervisiemodus)
-- **Achtergrond wijziging** (alleen in supervisiemodus)
-- **Verzending van diagnostische gegevens wijziging** (alleen in supervisiemodus)
-- **Wijziging van de Bluetooth-** (alleen in supervisiemodus)
-- **AirDrop** (alleen in supervisiemodus)
-- **Gebruik van Siri op door gebruikers gegenereerde query-inhoud op Internet** (alleen in supervisiemodus)
-- **Siri taalgebruik filter** (alleen in supervisiemodus)
-- **Retourneren van resultaten op Internet in zoekopdrachten met Spotlight** (alleen in supervisiemodus)
-- **Word opzoeken** (alleen in supervisiemodus)
-- **Voorspeld toetsenborden** (alleen in supervisiemodus)
-- **Automatische correcties** (alleen in supervisiemodus)
-- **Toetsenbord spellingcontrole** (alleen in supervisiemodus)
-- **Sneltoetsen** (alleen in supervisiemodus)
+### <a name="try-it-out"></a>Essayez.
+
+1.  Dans les propriétés d’un type de déploiement Configuration Manager, choisissez l’onglet **Comportement à l’installation**.
+2.  Choisissez **Ajouter** pour ajouter un ou plusieurs noms de fichiers exécutables à vérifier. Vous pouvez également ajouter un nom d’affichage pour que les utilisateurs puissent identifier plus facilement les applications dans la liste.
+3.  Si l’objet du déploiement sera Obligatoire, dans l’Assistant Déploiement logiciel, vous pouvez éventuellement choisir de **Fermer automatiquement les fichiers exécutables en cours d’exécution que vous avez spécifiés sous l’onglet de comportement à l’installation de la boîte de dialogue des propriétés du type de déploiement**.
+
+Si l’application a été déployée en tant que **Disponible** et qu’un utilisateur final tente d’installer une application, il est invité à fermer les fichiers exécutables en cours d’exécution que vous avez spécifiés avant de poursuivre l’installation.
+
+Si l’application a été déployée en tant que **Obligatoire** et que l’option **Fermer automatiquement les fichiers exécutables en cours d’exécution que vous avez spécifiés sous l’onglet de comportement à l’installation de la boîte de dialogue des propriétés du type de déploiement** est sélectionnée, une boîte de dialogue signale à l’utilisateur que les fichiers exécutables que vous avez spécifiés seront fermés automatiquement quand l’installation de l’application arrivera à échéance. Vous pouvez planifier ces boîtes de dialogue dans **Paramètres client** > **Agent ordinateur**. Si vous ne souhaitez pas que l’utilisateur final voit ces messages, sélectionnez **Masquer dans le Centre logiciel et toutes les notifications** sous l’onglet **Expérience utilisateur** des propriétés du déploiement.
+
+Si l’application a été déployée en tant que **Obligatoire** et que l’option **Fermer automatiquement les fichiers exécutables en cours d’exécution que vous avez spécifiés sous l’onglet de comportement à l’installation de la boîte de dialogue des propriétés du type de déploiement** n’est pas sélectionnée, l’installation de l’application échoue si une ou plusieurs des applications spécifiées sont en cours d’exécution.
+
+## <a name="create-pfx-certificates-with-s-mime-support"></a>Créer des certificats PFX avec prise en charge S/MIME
+
+Vous pouvez maintenant créer un profil de certificat PFX qui prend en charge S/MIME, et le déployer sur les utilisateurs.  Ce certificat peut ensuite être utilisé pour le chiffrement et le déchiffrement S/MIME sur tous les appareils que l’utilisateur a inscrits.
+
+En outre, vous pouvez maintenant spécifier plusieurs autorités de certification sur plusieurs rôles de système de site de Point d’enregistrement de certificat, et affecter ensuite les autorités de certification qui traitent les demandes dans le cadre du profil de certificat.
+
+Pour les appareils iOS, vous pouvez associer un profil de certificat PFX à un profil de messagerie et activer le chiffrement S/MIME.  Cela active S/MIME dans le client de messagerie natif sur iOS, et lui associe le certificat de chiffrement S/MIME correct.
+
+Pour plus d’informations sur les certificats dans Configuration Manager, consultez [Présentation des profils de certificat dans System Center Configuration Manager]( https://docs.microsoft.com/sccm/protect/deploy-use/introduction-to-certificate-profiles).
+
+
+## <a name="new-compliance-settings-for-ios-devices"></a>Nouveaux paramètres de conformité des appareils iOS
+
+Nous avons ajouté de nouveaux paramètres, que vous pouvez utiliser dans les éléments de configuration de vos appareils iOS. Il s’agit de paramètres qui existaient précédemment dans Microsoft Intune dans une configuration autonome et qui sont maintenant disponibles quand vous utilisez Intune avec Configuration Manager. Si vous avez besoin d’aide avec l’un de ces paramètres, consultez [Paramètres de la stratégie d’iOS dans Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/ios-policy-settings-in-microsoft-intune).
+
+- **Synchroniser les données des applications gérées dans iCloud**
+- **Handoff pour continuer les activités sur un autre appareil**
+- **Partage de photos iCloud**
+- **Photothèque iCloud**
+- **Faire confiance aux nouveaux créateurs d’applications d’entreprise**
+- **Autoriser l’utilisateur à télécharger du contenu indiqué comme étant de la « Littérature érotique » à partir de l’iBooks Store** (mode supervisé uniquement)
+- **Obliger les Apple Watch jumelées à utiliser la fonctionnalité Wrist Detect**
+- **Mot de passe pour les demandes sortantes AirPlay**
+- **Modifier les paramètres de compte** (mode supervisé uniquement)
+- **Modifications des paramètres d’utilisation des données mobiles des applications** (mode supervisé uniquement)
+- **Effacer tout le contenu et les paramètres** (mode supervisé uniquement)
+- **Configurer des restrictions sur l’appareil** (mode supervisé uniquement)
+- **Utiliser le jumelage d’hôtes pour contrôler les appareils avec lesquels un appareil iOS peut être jumelé** (mode supervisé uniquement)
+- **Installer des profils de configuration et des certificats** (mode supervisé uniquement)
+- **Modification du nom d’appareil** (mode supervisé uniquement)
+- **Modification du code secret** (mode supervisé uniquement)
+- **Jumelage de l’Apple Watch** (mode supervisé uniquement)
+- **Modification des paramètres de notification** (mode supervisé uniquement)
+- **Modification du papier peint** (mode supervisé uniquement)
+- **Modification des paramètres d’envoi des diagnostics** (mode supervisé uniquement)
+- **Modification de Bluetooth** (mode supervisé uniquement)
+- **AirDrop** (mode supervisé uniquement)
+- **Utiliser Siri pour interroger le contenu généré par l’utilisateur à partir d’Internet** (mode supervisé uniquement)
+- **Filtre de vulgarité de Siri** (mode supervisé uniquement)
+- **Retourner les résultats d’Internet dans la recherche Spotlight** (mode supervisé uniquement)
+- **Recherche de définition de mot** (mode supervisé uniquement)
+- **Claviers prédictifs** (mode supervisé uniquement)
+- **Correction automatique** (mode supervisé uniquement)
+- **Vérification orthographique au clavier** (mode supervisé uniquement)
+- **Raccourcis clavier** (mode supervisé uniquement)
 <!--- - **Enterprise app trust settings modification** --->
-- **Installeren van apps met Apple Configurator en alleen iTunes** (alleen in supervisiemodus)
-- **Automatische app downloads** (alleen in supervisiemodus)
-- **Wijzigingen aanbrengen in de instellingen van de app Zoek vrienden** (alleen in supervisiemodus)
-- **Toegang tot de iBooks store** (alleen in supervisiemodus)
-- **App berichten** (alleen in supervisiemodus)
-- **Podcasts** (alleen in supervisiemodus)
-- **Apple muziek** (alleen in supervisiemodus)
-- **iTunes Radio** (alleen in supervisiemodus)
-- **Apple nieuws** (alleen in supervisiemodus)
-- **Game Center** (alleen in supervisiemodus)
-- **AirDrop behandelen als een niet-beheerde doel**
+- **Installation d’applications à l’aide d’Apple Configurator et iTunes uniquement** (mode supervisé uniquement)
+- **Téléchargements d’application automatiques** (mode supervisé uniquement)
+- **Modifier les paramètres de l’application Localiser mes amis** (mode supervisé uniquement)
+- **Accès à l’iBooks Store** (mode supervisé uniquement)
+- **Application Messages** (mode supervisé uniquement)
+- **Podcasts** (mode supervisé uniquement)
+- **Apple Music** (mode supervisé uniquement)
+- **iTunes Radio** (mode supervisé uniquement)
+- **Apple News** (mode supervisé uniquement)
+- **Centre de jeux** (mode supervisé uniquement)
+- **Traiter AirDrop comme une destination non gérée**
 
-## <a name="android-for-work-support"></a>Android voor Work-ondersteuning
+## <a name="android-for-work-support"></a>Prise en charge d’Android for Work
 
-Vanaf Technical Preview-versie 1702, kunt u een Google-account binden aan uw hybride MDM-tenant. Hierdoor kunt u het volgende doen:
+À compter de la version Technical Preview 1702, vous pouvez lier un compte Google à votre client de gestion des appareils mobiles hybride. Cela vous permet d’effectuer les opérations suivantes :
 
-- Inschrijven [Android-apparaten ondersteund](https://support.google.com/work/android/answer/6174145?hl=en&ref_topic=6151012) als Android for Work werkprofielen aanmaken op de ingeschreven apparaten
-- Goedkeuren van apps in de Play voor werk store, deze te synchroniseren met de Configuration Manager-console en vervolgens implementeren voor apparaten werkprofielen
-- Maken en implementeren van configuratie-items werk profiel en het wachtwoord alleen instellingen voor deze apparaten configureren
-- Maken en implementeren van naleving beleidsitems en brontoegangsprofielen voor Android voor werk apparaten als u al voor Android-apparaten
-- Selectief wissen op Android voor werk apparaten uitvoeren
+- Inscrire des [appareils Android pris en charge](https://support.google.com/work/android/answer/6174145?hl=en&ref_topic=6151012) comme Android for Work, et créer des profils professionnels sur ces appareils inscrits
+- Approuver des applications dans le magasin Play for Work, les synchroniser avec la console Configuration Manager, puis les déployer sur les profils professionnels des appareils
+- Créer et déployer des éléments de configuration pour configurer des paramètres de mot de passe et de profil professionnel pour les appareils
+- Créer et déployer des éléments de stratégie de conformité et des profils d’accès aux ressources pour Android pour les appareils Android for Work comme vous le faites déjà pour les appareils Android
+- Effectuer une réinitialisation sélective sur des appareils Android for Work
 
-Wanneer u een apparaat inschrijft omdat Android for Work een work-profiel op het apparaat welke Intune maakt kunnen beheren. Deze work-profiel bestaat naast elkaar met het persoonlijk profiel op het Android-apparaat. Gebruikers kunnen eenvoudig schakelen tussen de werkzaamheden profiel apps en apps persoonlijk profiel. U kunt items in het persoonlijk profiel niet beheren. Persoonlijke apps en gegevens blijven zonder begeleiding. Configuration Manager heeft volledig beheer over de work-profiel en de inhoud ervan en van het apparaat kunt verwijderen.
+Quand vous inscrivez un appareil comme Android for Work, cela crée un profil professionnel sur l’appareil qu’Intune peut gérer. Ce profil professionnel existe côte à côte avec le profil personnel sur l’appareil Android. Les utilisateurs peuvent facilement basculer entre les applications de profil professionnel et les applications de profil personnel. Vous ne pouvez pas gérer les éléments dans le profil personnel. Les données et les applications personnelles restent non gérées. Configuration Manager a un contrôle total sur le profil professionnel et son contenu, et peut le supprimer de l’appareil.
 
-Android for Work is een afzonderlijke platform van Android en moet u om te bepalen welke vorm van management om te gebruiken voor Android-apparaten die ondersteuning bieden voor werkprofielen.
+Android for Work est une plateforme distincte d’Android, et vous devrez choisir la forme de gestion à utiliser pour les appareils Android qui prennent en charge les profils professionnels.
 
-### <a name="try-it-out"></a>Probeer het nu!
-De volgende secties beschrijven Android voor Work-beheer.
+### <a name="try-it-out"></a>Essayez !
+Les sections suivantes décrivent la gestion Android for Work.
 
-#### <a name="enable-android-for-work-management"></a>Android voor Work-beheer inschakelen
-1. Maakt een Google-account op https://accounts.google.com/SignUp als uw Android wilt gebruiken voor werk beheeraccount die gekoppeld aan alle Android voor werk beheertaken voor Intune-tenant worden. Dit kan een Google-account gedeeld door de beheerders die voor het beheren van Android-apparaten zijn. Dit is het Google-account die uw organisatie te beheren en publiceren van apps in de Play voor Work-console gebruikt. U gebruikt deze account voor het goedkeuren van apps in de Play voor werk store, dus bijhouden van de accountnaam en het wachtwoord.
-2. Android-registratie inschakelen door de binding van het Google-account voor de Intune-tenant in Configuration Manager worden beheerd:
-  1. Ga naar **beheer** > **overzicht** > **Cloudservices** > **Microsoft Intune-abonnementen** en selecteer uw Intune-abonnement.
-  2. Klik in het lint op **Platforms configureren** > **Android** en zorg ervoor dat **Android-inschrijving inschakelen** is ingeschakeld.
-  3. Klik in het lint op **Platforms configureren** > **Android for Work**.
-  4. Klik in het dialoogvenster **Android configureren voor werk in de Intune-console**. De Intune-console wordt geopend in uw webbrowser.
-  5. Gebruik de referenties van uw Intune-beheerder zich aanmelden bij de Intune-portal.
-  6. Klik op **configureren** Android van Google Play voor werk website openen.
-  7. Op Google-aanmeldingspagina, geef de referenties van de Google-account uit stap 1 en geef vervolgens de gegevens van uw bedrijf.
-3. Wanneer u naar de Intune-portal terugkeert, Android for Work is ingeschakeld en hebt u drie Inschrijvingsopties voor Android voor werk apparaten:
-  - **Alle apparaten beheren als Android** - (uitgeschakeld) alle Android-apparaten, inclusief apparaten die ondersteuning bieden voor Android voor werk, zal het worden ingeschreven als conventionele Android-apparaten
-  - **Ondersteunde apparaten beheren als Android for Work** - (ingeschakeld) alle apparaten die ondersteuning bieden voor Android for Work als Android voor werk apparaten zijn ingeschreven. Een Android-apparaat dat biedt geen ondersteuning voor Android for Work is als een conventionele Android-apparaat ingeschreven.
-  - **Ondersteunde apparaten voor gebruikers die alleen in deze groepen beheren als Android for Work** -(Testing) kunt u Android doel voor werkstroombeheer voor een beperkt aantal gebruikers. Alleen leden van de geselecteerde groepen die een apparaat inschrijft dat biedt ondersteuning voor Android for Work worden geregistreerd als Android voor Work-apparaten. Alle andere gebruikers worden als Android-apparaten geregistreerd.
+#### <a name="enable-android-for-work-management"></a>Activer la gestion Android for Work
+1. Créez un compte Google sur https://accounts.google.com/SignUp à utiliser comme compte d’administrateur Android for Work. Ce compte sera associé à toutes les tâches de gestion Android for Work pour ce client Intune. Ce compte Google peut être partagé par les administrateurs qui gèrent des appareils Android. Il s’agit du compte Google utilisé par votre organisation pour gérer et publier des applications dans la console Play for Work. Vous utiliserez ce compte pour approuver les applications dans le magasin Play for Work. Veillez donc à prendre note du nom du compte et du mot de passe.
+2. Activez l’inscription Android en liant le compte Google au client Intune géré dans Configuration Manager :
+  1. Accédez à **Administration** > **Vue d’ensemble** > **Services Cloud** > **Abonnements Microsoft Intune** et sélectionnez votre abonnement Intune.
+  2. Dans le ruban, cliquez sur **Configurer des plateformes** > **Android** et vérifiez que l’option **Activer l’inscription Android** est activée.
+  3. Dans le ruban, cliquez sur **Configurer des plateformes** > **Android for Work**.
+  4. Dans la boîte de dialogue, cliquez sur **Configurer Android for Work dans la console Intune**. La console Intune s’ouvre dans votre navigateur web.
+  5. Utilisez vos informations d’identification d’administrateur Intune pour vous connecter au portail Intune.
+  6. Cliquez sur **Configurer** pour ouvrir le site web Android for Work de Google Play.
+  7. Dans la page de connexion de Google, entrez les informations d’identification du compte Google de l’étape 1, puis fournissez les informations relatives à votre société.
+3. Quand vous revenez au portail Intune, Android for Work est activé et vous avez trois options d’inscription pour les appareils Android for Work :
+  - **Gérer tous les appareils comme Android** - (Désactivé) Tous les appareils Android, notamment ceux qui prennent en charge Android for Work, sont inscrits comme appareils Android conventionnels.
+  - **Gérer les appareils pris en charge comme Android for Work** - (Activé) Tous les appareils qui prennent en charge Android for Work sont inscrits comme appareils Android for Work. Tout appareil Android qui ne prend pas en charge Android for Work est inscrit comme appareil Android conventionnel.
+  - **Gérer les appareils pris en charge pour les utilisateurs uniquement dans ces groupes comme Android for Work** - (Test) Vous permet de cibler la gestion Android for Work à un ensemble limité d’utilisateurs. Seuls les membres des groupes sélectionnés qui inscrivent un appareil qui prend en charge Android for Work sont inscrits comme appareils Android for Work. Tous les autres sont inscrits comme appareils Android.
   
 > [!NOTE]
-> Een bekend probleem dat voorkomt dat de **beheren ondersteunde apparaten voor gebruikers die alleen in deze groepen als Android for Work** optie niet werkt zoals verwacht. Apparaten van gebruikers in de opgegeven Azure AD-groepen als Android in plaats van Android for Work zal inschrijven. Als u wilt testen op Android for Work, moet u de **alle ondersteunde apparaten beheren als Android for Work**.
+> Un problème connu empêche le bon fonctionnement de l’option **Gérer les appareils pris en charge pour les utilisateurs uniquement dans ces groupes comme Android for Work**. Les appareils des utilisateurs dans les groupes Azure AD spécifiés sont inscrits en tant qu’appareils Android et non en tant qu’appareils Android for Work. Pour tester Android for Work, vous devez utiliser **Gérer les appareils pris en charge comme Android for Work**.
 
 
-  Om in te schakelen Android voor de inschrijving van het werk, moet u een van de opties onder twee. De **beheren ondersteunde apparaten voor gebruikers die alleen in deze groepen als Android for Work** optie vereist dat u hebt Azure Active Directory-beveiligingsgroepen instellen.
+  Pour activer l’inscription Android for Work, vous devez choisir la deuxième ou la troisième option. L’option **Gérer les appareils pris en charge pour les utilisateurs uniquement dans ces groupes comme Android for Work** exige que vous configuriez d’abord des groupes de sécurité Azure Active Directory.
 
-Ziet u de accountnaam en de naam van de organisatie in de Intune-portal als de binding voltooid is. op dat moment kunt u beide browsers sluiten.
+Vous verrez le nom du compte et le nom de l’organisation dans le portail Intune une fois la liaison établie. À ce stade, vous pouvez fermer les deux navigateurs.
 
-#### <a name="approve-and-deploy-android-for-work-apps"></a>Goedkeuren en implementeren van Android voor bedrijfs-apps
-Volg deze stappen apps in de Play voor werk store goedkeuren en implementeren voor beheerde Android voor werk apparaten ze naar de Configuration Manager-console synchroniseren. Voor apps op het werk gebruikersprofielen implementeert, moet u voor het goedkeuren van de apps in de Play voor werk en vervolgens de apps met de Configuration Manager-console te synchroniseren.
+#### <a name="approve-and-deploy-android-for-work-apps"></a>Approuver et déployer des applications Android for Work
+Effectuez les étapes suivantes pour approuver des applications dans le magasin Play for Work, les synchroniser avec la console Configuration Manager et les déployer sur des appareils Android for Work gérés. Pour déployer des applications sur les profils professionnels des utilisateurs, vous devez approuver les applications dans Play for Work, puis les synchroniser avec la console Configuration Manager.
 
-1. Open een browser en Ga naar: https://play.google.com/work.
-2. Meld u aan met het Google-admin-account afhankelijk van uw Intune-tenant.
-3. Apps die u wilt implementeren in uw omgeving en klik op Bladeren **goedkeuren** voor elk van deze.
-4. Ga in de Configuration Manager-console naar **beheerder** > **overzicht** > **Cloudservices** > **Android for Work** en klik op **Sync**.
-5. Wacht tot maximaal 10 minuten om apps te synchroniseren en ga vervolgens **softwarebibliotheek** > **overzicht** > **Toepassingsbeheer** > **licentiegegevens voor Store-Apps**.
-6. Klik op een app die vanuit Play for Work zijn gesynchroniseerd en klik vervolgens op **toepassing maken**.
-7. Voltooi de wizard en klikt u op **sluiten**.
-8. Ga naar **softwarebibliotheek** > **overzicht** > **Toepassingsbeheer** > **toepassingen**, selecteert u een Android voor zakelijke apps en gewoon implementeren.
+1. Ouvrez un navigateur et accédez à https://play.google.com/work.
+2. Connectez-vous à l’aide du compte d’administrateur Google que vous avez lié à votre client Intune.
+3. Recherchez les applications que vous souhaitez déployer dans votre environnement et cliquez sur **Approuver** pour chacune d’elles.
+4. Dans la console Configuration Manager, accédez à **Administrateur** > **Vue d’ensemble** > **Services Cloud** > **Android for Work** et cliquez sur **Synchroniser**.
+5. Patientez jusqu’à 10 minutes que les applications soient synchronisées, puis accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Gestion des applications** > **Informations de licence pour les applications du Store**.
+6. Cliquez sur une application synchronisée à partir de Play for Work, puis cliquez sur **Créer une application**.
+7. Terminez l’Assistant, puis cliquez sur **Fermer**.
+8. Accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Gestion des applications** > **Applications**, sélectionnez une application Android for Work et déployez-la normalement.
 
-Als u wilt synchroniseren Play voor zakelijke apps met Configuration Manager, moet u ten minste één app in de Play voor werk website goedkeuren.
+Pour synchroniser des applications Play for Work avec Configuration Manager, vous devez approuver au moins une application sur le site web Play for Work.
 
-#### <a name="enroll-an-android-for-work-device"></a>Een Android voor Work-apparaat inschrijven
-Hoe het inschrijven van Android voor werk apparaten is vergelijkbaar met inschrijving voor Android. Downloaden en uitvoeren van de bedrijfsportal-app voor Android op je mobiele apparaat. U wordt gevraagd een werk-profiel maken als onderdeel van het registratieproces.  Zodra de work-profiel is gemaakt, moet u overschakelen naar de beheerde versie van de bedrijfsportal. De beheerde bedrijfsportal is gemarkeerd met een klein oranje werkmap in de rechterbenedenhoek.
+#### <a name="enroll-an-android-for-work-device"></a>Inscrire un appareil Android for Work
+L’inscription des appareils Android for Work est similaire à celles des appareils Android. Téléchargez et exécutez l’application Portail d’entreprise pour Android sur votre appareil mobile. Vous serez invité à créer un profil professionnel dans le cadre du processus d’inscription.  Une fois le profil professionnel créé, vous devez basculer vers la version gérée du portail d’entreprise. Le portail d’entreprise géré est marqué d’un petit porte-documents orange dans le coin inférieur droit.
 
-#### <a name="create-and-deploy-a-configuration-item"></a>Maken en implementeren van een configuratie-item
-Android for Work heeft twee instellingsgroepen voor configuratie-items:
-- Wachtwoord
-- Work-profiel
+#### <a name="create-and-deploy-a-configuration-item"></a>Créer et déployer un élément de configuration
+Android for Work a deux groupes de paramètres pour les éléments de configuration :
+- Mot de passe
+- Profil professionnel
 
-U kunt inhoud delen tussen de werkzaamheden profielen, evenals de volgende configuratie-items op apparaten met Android 6 of hoger configureren:
-- Het gedrag voor apps voor specifieke machtigingen gevraagd
-- Hiermee wordt aangegeven of meldingen voor toepassingen binnen het profiel werk zijn zichtbaar op het vergrendelingsscherm
+Vous pouvez configurer le partage de contenu entre les profils professionnels, ainsi que les éléments de configuration suivants sur les appareils exécutant Android 6 ou version ultérieure :
+- Le comportement des applications qui demandent des autorisations spécifiques
+- Si les notifications pour les applications dans le profil professionnel sont visibles dans l’écran de verrouillage
 
-Probeer een configuratie-item via de standaard werkstroom maakt, kiest u **Android for Work** op de **algemene** pagina en configureer instellingen voor elk van de instellingsgroepen voor het configuratie-item toevoegen aan een basislijn en gewoon implementeren. Deze instellingen worden alleen op apparaten die worden ingeschreven als Android voor werk, en niet de geregistreerd als Android toegepast.
+Pour essayer cela, créez un élément de configuration par l’intermédiaire du flux de travail standard, choisissez **Android for Work** dans la page **Général** et configurez les paramètres pour chacun des groupes de paramètres, en ajoutant l’élément de configuration à une base de référence et en procédant au déploiement normalement. Ces paramètres s’appliqueront uniquement aux appareils inscrits comme Android for Work, et pas à ceux inscrits comme Android.
 
-#### <a name="perform-selective-wipe"></a>U selectief wissen
-Apparaten die zijn geregistreerd als Android for Work alleen selectief kan worden gewist omdat u alleen de work-profiel beheren. Dit voorkomt dat het persoonlijk profiel wordt gewist. Uitvoeren van een selectief wissen op een Android voor werk apparaat verwijdert u het profiel voor werk, met inbegrip van alle apps en gegevens, en het apparaat wordt uitgeschreven.
+#### <a name="perform-selective-wipe"></a>Effectuer une réinitialisation sélective
+Les appareils inscrits comme Android for Work peuvent uniquement être réinitialisés de manière sélective, car vous gérez uniquement le profil professionnel. Cela empêche que le profil personnel ne soit réinitialisé. La réinitialisation sélective sur un appareil Android for Work supprime le profil professionnel, notamment toutes les applications et données, et désinscrit l’appareil.
 
-Voor het selectief wissen van een Android voor Work-apparaat, gebruikt u de normale [selectief gewist](https://docs.microsoft.com/sccm/mdm/deploy-use/wipe-lock-reset-devices#selective-wipe) in de Configuration Manager-console.
+Pour effectuer une réinitialisation sélective d’un appareil Android for Work, appliquez le [processus de réinitialisation sélective](https://docs.microsoft.com/sccm/mdm/deploy-use/wipe-lock-reset-devices#selective-wipe) normal dans la console Configuration Manager.
 
-#### <a name="known-issues-for-android-for-work"></a>Bekende problemen voor Android for Work.
-**Synchronisatie configureren ze te plannen in Android voor werk e-mailprofielen oorzaken mislukt voor het implementeren van** een van de opties in de ConfigMgr-UI voor Android voor werk-e-mailprofielen is 'Schema'. Hierdoor kan de beheerder een planning voor het synchroniseren van e-mail en andere gegevens van de account e-mailbericht naar de mobiele apparaten, die dit wordt geïmplementeerd voor configureren op andere platforms. Echter, werkt niet voor Android voor werk-e-mailprofielen en als u een optie dan 'Niet geconfigureerd' kiest, wordt het profiel niet worden geïmplementeerd voor alle apparaten.
+#### <a name="known-issues-for-android-for-work"></a>Problèmes connus liés à Android for Work
+**Échec du déploiement des profils e-mail Android for Work à la suite de la configuration d’une planification de la synchronisation** L’interface utilisateur de Configuration Manager pour les profils e-mail Android for Work comprend une option « Planification ». Sur d’autres plateformes, cette option permet à l’administrateur de configurer une planification pour synchroniser les e-mails et les autres données de comptes e-mail avec les appareils mobiles ciblés par le déploiement. Toutefois, cette option ne fonctionne pas pour les profils e-mail Android for Work. Si vous sélectionnez une option autre que « Non configuré », tout déploiement du profil sur un appareil échoue.

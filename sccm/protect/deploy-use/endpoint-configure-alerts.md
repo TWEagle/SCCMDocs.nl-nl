@@ -1,6 +1,6 @@
 ---
-title: Endpoint Protection-waarschuwingen configureren | Microsoft Docs
-description: Informatie over het configureren van Endpoint Protection-waarschuwingen in System Center Configuration Manager.
+title: Configurer les alertes Endpoint Protection | Microsoft Docs
+description: "Découvrez comment configurer les alertes Endpoint Protection dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 03/23/2017
 ms.prod: configuration-manager
@@ -16,86 +16,86 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 7f4329b289b606dee5bf31aad8207de52667229f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="configure-alerts-for-endpoint-protection-in-configuration-manager"></a>Waarschuwingen voor Endpoint Protection in Configuration Manager configureren
+#  <a name="configure-alerts-for-endpoint-protection-in-configuration-manager"></a>Configurer des alertes pour Endpoint Protection dans Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
- U kunt Endpoint Protection-waarschuwingen configureren in Microsoft System Center Configuration Manager aan gebruikers met beheerdersrechten waarschuwen wanneer specifieke gebeurtenissen, zoals een malware-infectie in uw hiërarchie plaatsvinden. Meldingen worden weergeven in het dashboard Endpoint Protection in Configuration Manager-console in de **waarschuwingen** knooppunt van de **bewaking** werkruimte of kunnen worden verzonden naar de opgegeven gebruikers.
+ Vous pouvez configurer des alertes Endpoint Protection dans Microsoft System Center Configuration Manager pour avertir les utilisateurs administratifs quand des événements spécifiques, comme une infection par un logiciel malveillant, se produisent dans votre hiérarchie. Les notifications s’affichent dans le tableau de bord Endpoint Protection, dans la console Configuration Manager, dans le nœud **Alertes** de l’espace de travail **Surveillance**. Elles peuvent aussi être envoyées par e-mail à des utilisateurs spécifiés.
 
- Gebruik de volgende stappen en de aanvullende procedures in dit onderwerp om waarschuwingen te configureren voor Endpoint Protection in Configuration Manager.
+ Utilisez les étapes suivantes et les procédures supplémentaires de cette rubrique pour configurer des alertes pour Endpoint Protection dans Configuration Manager.
 
 > [!IMPORTANT]
->  U moet hebben de **beveiliging afdwingen** machtiging voor verzamelingen voor het configureren van Endpoint Protection-waarschuwingen.
+>  Vous devez disposer de l’autorisation **Appliquer la sécurité** pour les regroupements pour pouvoir configurer des alertes Endpoint Protection.
 
-## <a name="steps-to-configure-alerts-for-endpoint-protection-in-configuration-manager"></a>Stappen voor het configureren van waarschuwingen voor Endpoint Protection in Configuration Manager
+## <a name="steps-to-configure-alerts-for-endpoint-protection-in-configuration-manager"></a>Étapes de configuration des alertes pour Endpoint Protection dans Configuration Manager
 
-1.  Klik op **Activa en naleving**op de Configuration Manager-console.
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.
 
-2.  Klik op **Apparaatverzamelingen** in de werkruimte **Activa en naleving**.
+2.  Dans l'espace de travail **Ressources et Conformité** , cliquez sur **Regroupements d’appareils**.
 
-3.  Selecteer in de lijst **Apparaatverzamelingen** de verzameling waarvoor u waarschuwingen wilt configureren en klik vervolgens op het tabblad **Start** in de groep **Eigenschappen** op **Eigenschappen**.
-
-    > [!NOTE]
-    >  U kunt geen waarschuwingen voor gebruikersverzamelingen configureren.
-
-4.  Op de **waarschuwingen** tabblad van de *< verzamelingsnaam\>***eigenschappen** dialoogvenster, **deze verzameling weergeven op het dashboard Endpoint Protection** als u details wilt bekijken over de anti-malwarebewerkingen voor deze verzameling in de **bewaking** werkruimte van de Configuration Manager-console.
+3.  Dans la liste **Regroupements d’appareils** , sélectionnez le regroupement pour lequel vous voulez configurer des alertes, puis cliquez sur **Propriétés** dans le groupe **Propriétés** sous l’onglet **Accueil**.
 
     > [!NOTE]
-    >  Deze optie is niet beschikbaar voor de verzameling **Alle systemen** .
+    >  Vous ne pouvez pas configurer d'alertes pour les regroupements d'utilisateurs.
 
-5.  Op de **waarschuwingen** tabblad van de *< verzamelingsnaam\>***eigenschappen** in het dialoogvenster, klikt u op **toevoegen**.
+4.  Sous l’onglet **Alertes** de la boîte de dialogue *Propriétés de***<Nom du regroupement\>**, sélectionnez **Afficher ce regroupement dans le tableau de bord Endpoint Protection** si vous voulez afficher des détails sur les opérations anti-programme malveillant pour ce regroupement dans l’espace de travail **Surveillance** de la console Configuration Manager.
 
-6.  In de **nieuwe Verzamelingmeldingen toevoegen** het dialoogvenster de **een waarschuwing gegenereerd wanneer deze voorwaarden van toepassing** sectie, selecteert u de gewenste Configuration Manager worden gegenereerd wanneer de opgegeven Endpoint Protection-gebeurtenissen optreden en klik vervolgens op waarschuwingen **OK**.
+    > [!NOTE]
+    >  Cette option n'est pas disponible pour le regroupement **Tous les systèmes** .
 
-7.  In de **voorwaarden** lijst met de **waarschuwingen** tabblad, selecteert u elke waarschuwing van Endpoint Protection en geef vervolgens de volgende gegevens:
+5.  Sous l’onglet **Alertes** de la boîte de dialogue *Propriétés de***<Nom du regroupement\>**, cliquez sur **Ajouter**.
 
-    -   **Naam melding** : Accepteer de standaardnaam of voer een nieuwe naam voor de waarschuwing.
+6.  Dans la section **Générer une alerte lorsque ces conditions s’appliquent** de la boîte de dialogue **Ajouter de nouvelles alertes de regroupement**, sélectionnez les alertes que doit générer Configuration Manager lorsque les événements Endpoint Protection spécifiés se produisent, puis cliquez sur **OK**.
 
-    -   **Ernst melding** - In de lijst, selecteert u het waarschuwingsniveau moet worden weergegeven in de Configuration Manager-console.
+7.  Dans la liste  **Conditions** de l’onglet **Alertes**, sélectionnez chaque alerte Endpoint Protection, puis spécifiez ce qui suit :
 
-8.  Afhankelijk van de waarschuwing die u selecteert, geef de volgende aanvullende informatie:
+    -   **Nom d’alerte** : acceptez le nom par défaut ou entrez un nouveau nom pour l’alerte.
 
-    -   **Detectie van malware** -deze waarschuwing wordt gegenereerd als er malware wordt gedetecteerd op elke computer in de verzameling die u controleert. De **drempelwaarde voor de malwaredetectie** Hiermee geeft u de malwaredetectieniveaus aan deze waarschuwing wordt gegenereerd:
+    -   **Gravité d’alerte** : dans la liste, sélectionnez le niveau d’alerte à afficher dans la console Configuration Manager.
 
-        -   **Hoge - alle detecties** -de waarschuwing wordt gegenereerd wanneer er een of meer computers in de opgegeven verzameling waarop eventueel malware is gedetecteerd, ongeacht welke actie nodig is de Endpoint Protection-client.
+8.  Selon l’alerte que vous sélectionnez, spécifiez les informations supplémentaires suivantes :
 
-        -   **Gemiddeld: gedetecteerd, in behandeling zijnde actie** - de waarschuwing wordt gegenereerd wanneer er een of meer computers in de opgegeven verzameling waarop malware wordt gedetecteerd en moet u handmatig de malware verwijderen.
+    -   **Détection d’un programme malveillant** : cette alerte est générée si un logiciel malveillant est détecté sur un ordinateur du regroupement que vous surveillez. Le **seuil de détection des programmes malveillants** indique les niveaux de détection auxquels cette alerte est générée :
 
-        -   **Laag: gedetecteerd, nog steeds actief** -de waarschuwing wordt gegenereerd wanneer er een of meer computers in de opgegeven verzameling malware wordt gedetecteerd en nog steeds actief is.
+        -   **Haute - Toutes les détections** : l’alerte est générée quand un programme malveillant est détecté sur un ou plusieurs ordinateurs du regroupement spécifié, quelle que soit l’action qu’exécute le client Endpoint Protection.
 
-    -   **Uitbraak van malware** -deze waarschuwing wordt gegenereerd als de opgegeven malware wordt aangetroffen op een opgegeven percentage van computers in de verzameling die u controleert.
+        -   **Moyenne - Détectée, action en attente** : l’alerte est générée quand un programme malveillant est détecté sur un ou plusieurs ordinateurs du regroupement spécifié, et que vous devez le supprimer manuellement.
 
-        -   **Percentage van computers waarop malware is gedetecteerd** -de waarschuwing wordt gegenereerd wanneer het percentage van computers met schadelijke software die is gedetecteerd in de verzameling die u opgeeft voor het percentage overschrijdt. Geef een percentage van **1** tot en met **99**op.
+        -   **Faible - Détectée, toujours active** : l’alerte est générée quand un programme malveillant est détecté sur un ou plusieurs ordinateurs du regroupement spécifié, et qu’il est toujours actif.
+
+    -   **Apparition d’un programme malveillant** : cette alerte est générée si un programme malveillant spécifié est détecté sur un pourcentage donné d’ordinateurs du regroupement que vous surveillez.
+
+        -   **Pourcentage d’ordinateurs sur lesquels un programme malveillant a été détecté** : l’alerte est générée quand le pourcentage d’ordinateurs avec un programme malveillant détecté dans le regroupement est supérieur au pourcentage que vous spécifiez. Spécifiez un pourcentage compris entre **1** et **99**.
 
             > [!NOTE]
-            >  Waarde voor het percentage is gebaseerd op het aantal computers in de verzameling, maar worden uitgesloten van computers waarop geen Configuration Manager-client is geïnstalleerd. Het percentage betreft computers waarop nog geen de Endpoint Protection-client is geïnstalleerd.
+            >  La valeur du pourcentage est basée sur le nombre d’ordinateurs du regroupement, mais exclut les ordinateurs sur lesquels aucun client Configuration Manager n’est installé. Il inclut les ordinateurs sur lesquels le client Endpoint Protection n’est pas encore installé.
 
-    -   **Herhaalde detectie van malware** -deze waarschuwing wordt gegenereerd als specifieke malware meer dan een opgegeven aantal keren gedurende een opgegeven aantal uren op de computers in de verzameling die u controleert wordt gedetecteerd. Geef de volgende gegevens op om deze waarschuwing te configureren:
+    -   **Détection de logiciel malveillant répétée** : cette alerte est générée si un logiciel malveillant spécifique est détecté un nombre spécifié de fois sur un nombre spécifié d’heures sur les ordinateurs du regroupement que vous surveillez. Spécifiez les informations suivantes pour configurer cette alerte :
 
-        -   **Aantal keer dat de malware is gedetecteerd:** de waarschuwing wordt gegenereerd wanneer dezelfde malware meer dan het opgegeven aantal keren op computers in de verzameling wordt gedetecteerd. Geef een getal op van **2** tot en met **32**.
+        -   **Nombre de fois où un programme malveillant a été détecté :** l’alerte est générée quand le nombre de détections d’un même programme malveillant sur les ordinateurs du regroupement est supérieur au nombre d’occurrences spécifié. Spécifiez un nombre compris entre **2** et **32**.
 
-        -   **Interval voor detectie (uren):** Geef het detectie-interval (in uren) in het aantal malwaredetecties moet plaatsvinden. Geef een getal op van **1** tot en met **168**.
+        -   **Intervalle de détection (heures) :** spécifiez l’intervalle de détection (en heures) au cours duquel le nombre de détections de programme malveillant doit être exécuté. Spécifiez un nombre compris entre **1** et **168**.
 
-    -   **Meervoudige malwaredetectie** : deze waarschuwing wordt gegenereerd als meer dan een opgegeven aantal malwaretypen wordt gedetecteerd gedurende een opgegeven aantal uren op computers in de verzameling die u controleert. Geef de volgende gegevens op om deze waarschuwing te configureren:
+    -   **Détection de plusieurs logiciels malveillants** : cette alerte est générée si le nombre de types de programmes malveillants détectés pendant un nombre d’heures donné sur les ordinateurs du regroupement que vous surveillez est supérieur au nombre défini. Spécifiez les informations suivantes pour configurer cette alerte :
 
-        -   **Het aantal malwaretypen gedetecteerd:** De waarschuwing wordt gegenereerd wanneer het opgegeven aantal verschillende malwaretypen op computers in de verzameling worden gedetecteerd. Geef een getal op van **2** tot en met **32**.
+        -   **Nombre de types de programmes malveillants détectés :** l’alerte est générée quand le nombre spécifié de types différents de programmes malveillants sur les ordinateurs du regroupement est détecté. Spécifiez un nombre compris entre **2** et **32**.
 
-        -   **Interval voor detectie (uren):** Geef het detectie-interval, in uren, waarin het aantal malwaredetecties moet plaatsvinden. Geef een getal op van **1** tot en met **168**.
+        -   **Intervalle de détection (heures) :** spécifiez l’intervalle de détection, en heures, au cours duquel le nombre de détections de programme malveillant doit être exécuté. Spécifiez un nombre compris entre **1** et **168**.
 
-9. Klik op **OK** sluiten de *< verzamelingsnaam\>***eigenschappen** in het dialoogvenster.  
+9. Cliquez sur **OK** pour fermer la boîte de dialogue *Propriétés de***<Nom du regroupement\>**.  
 
-## <a name="alert-for-outdated-malware-client"></a>Waarschuwing voor verouderde malware-client
+## <a name="alert-for-outdated-malware-client"></a>Alerte pour les clients contre les programmes malveillants obsolètes
 
-U kunt een waarschuwing om ervoor te zorgen Endpoint Protection-clients zijn niet verouderde vanaf Configuration Manager versie 1702 kunt configureren. U kunt nu weergeven **Antimalware-clientversie** en **Status van Endpoint Protection-implementatie** door te gaan **activa en naleving** > **overzicht** > **apparaten** > **alle bureaubladen en Clients bedienen**. Bekijken om te controleren of een waarschuwing, **waarschuwingen** in de **bewaking** werkruimte. Als meer dan 20% van beheerde clients een verlopen versie van de antimalware-software, de versie van de Antimalware-client is verouderd waarschuwing wordt weergegeven. Deze waarschuwing niet wordt weergegeven op de **bewaking** > **overzicht** tabblad. Voor het bijwerken van verlopen antimalware-clients, moet u software-updates inschakelen voor anti-malware-clients.
+Depuis la version 1702 de Configuration Manager, vous pouvez configurer une alerte pour vous assurer que les clients Endpoint Protection ne sont pas obsolètes. Vous pouvez maintenant afficher **Version du client de logiciel anti-programme malveillant** et **État du déploiement d’Endpoint Protection** en accédant à **Actifs et Conformité** > **Vue d’ensemble** > **Appareils** > **Tous les clients bureau et serveur**. Pour vérifier une alerte, affichez **Alertes** dans l’espace de travail **Surveillance**. Si plus de 20 % des clients gérés exécutent une version de logiciel anti-programme malveillant ayant expiré, l’alerte « La version du client de logiciel anti-programme malveillant est obsolète » s’affiche. Cette alerte n’apparaît pas sous l’onglet **Surveillance** > **Vue d’ensemble**. Pour mettre à jour les clients de logiciel anti-programme malveillant ayant expiré, activez les mises à jour logicielles pour les clients de logiciel anti-programme malveillant.
 
-Als u wilt configureren voor het percentage waarmee de waarschuwing wordt gegenereerd, vouw **bewaking** > **waarschuwingen** > **alle waarschuwingen**, dubbelklikt u op **Antimalware clients verouderd** en wijzig de **waarschuwing activeren als percentage van de beheerde clients met een verouderde versie van de antimalware-client is meer dan** optie.
-
-> [!div class="button"]
-[Volgende stap >](endpoint-definition-updates.md)
+Pour configurer le pourcentage auquel l’alerte est générée, développez **Surveillance** > **Alertes** > **Toutes les alertes**, double-cliquez sur **Clients de logiciel anti-programme malveillant obsolètes** et modifiez l’option **Générez une alerte si le pourcentage de clients gérés avec une version obsolète du client de logiciel anti-programme malveillant est supérieur à**.
 
 > [!div class="button"]
-[Terug >](endpoint-protection-site-role.md)
+[Étape suivante >](endpoint-definition-updates.md)
+
+> [!div class="button"]
+[Retour >](endpoint-protection-site-role.md)

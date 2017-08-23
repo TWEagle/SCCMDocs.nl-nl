@@ -1,6 +1,6 @@
 ---
-title: Aanbevolen procedures voor verzamelingen | Microsoft Docs
-description: Aanbevolen procedures voor verzamelingen in System Center Configuration Manager worden opgehaald.
+title: Bonnes pratiques pour les regroupements | Microsoft Docs
+description: Obtenir les bonnes pratiques pour les regroupements dans System Center Configuration Manager.
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -17,26 +17,26 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: fd62af3910c0745e0f1105417701b894e10cbbac
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="best-practices-for-collections-in-system-center-configuration-manager"></a>Aanbevolen procedures voor verzamelingen in System Center Configuration Manager
+# <a name="best-practices-for-collections-in-system-center-configuration-manager"></a>Pratiques recommandées pour les regroupements dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Gebruik de volgende aanbevolen procedures voor verzamelingen in System Center Configuration Manager.  
+Utilisez les bonnes pratiques suivantes pour les regroupements dans System Center Configuration Manager.  
 
-## <a name="do-not-use-incremental-updates-for-a-large-number-of-collections"></a>Gebruik geen incrementele updates voor een groot aantal verzamelingen  
- Als u de optie **Incrementele updates gebruiken voor deze verzameling** activeert, kan deze configuratie beoordelingsvertragingen veroorzaken wanneer u deze voor veel verzamelingen inschakelt. De drempelwaarde is ongeveer 200 verzamelingen in uw hiërarchie. Het exacte aantal is afhankelijk van de volgende factoren:  
+## <a name="do-not-use-incremental-updates-for-a-large-number-of-collections"></a>N'utilisez pas de mises à jour incrémentielles pour un grand nombre de regroupements.  
+ Lorsque vous activez l'option **Utiliser des mises à jour incrémentielles pour ce regroupement** , cette configuration peut entraîner des retards d'évaluation si vous l'activez pour de nombreux regroupements. Le seuil s’élève à environ 200 regroupements dans votre hiérarchie. Le nombre exact dépend des facteurs suivants :  
 
--   Het totale aantal verzamelingen  
+-   Nombre total de regroupements  
 
--   De frequentie van nieuwe resources die worden toegevoegd en gewijzigd in de hiërarchie  
+-   Fréquence d'ajout et de modification de ressources dans la hiérarchie  
 
--   Het aantal clients in uw hiërarchie  
+-   Nombre de clients dans la hiérarchie  
 
--   De complexiteit van de lidmaatschapsregels voor de verzamelingen in uw hiërarchie  
+-   Complexité des règles d'appartenance de regroupement dans la hiérarchie  
 
-## <a name="make-sure-that-maintenance-windows-are-large-enough-to-deploy-critical-software-updates"></a>Zorg ervoor dat de onderhoudsvensters groot genoeg zijn om kritieke software-updates te implementeren  
- U kunt de onderhoudsvensters voor apparaatverzamelingen om de tijdstippen dat Configuration Manager software op deze apparaten installeren kunt te beperken. Als u het onderhoudsvenster te klein configureert, is het mogelijk dat de client kritieke software-updates niet kan installeren. Dit maakt de client kwetsbaar voor de aanval die wordt verholpen door de software-update.  
+## <a name="make-sure-that-maintenance-windows-are-large-enough-to-deploy-critical-software-updates"></a>Assurez-vous que les fenêtres de maintenance sont assez grandes pour déployer des mises à jour logicielles critiques  
+ Vous pouvez configurer des fenêtres de maintenance pour les regroupements d'appareils afin de limiter les périodes où Configuration Manager peut installer des logiciels sur ces appareils. Si vous configurez une fenêtre de maintenance trop petite, le client peut ne pas installer les mises à jour logicielles critiques et se retrouver vulnérable à l'attaque qui aurait été contrée par la mise à jour logicielle.  

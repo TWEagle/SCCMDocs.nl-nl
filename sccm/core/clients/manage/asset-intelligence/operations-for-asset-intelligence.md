@@ -1,6 +1,6 @@
 ---
-title: Gebruik van Asset Intelligence | Microsoft Docs
-description: Algemene taken voor Asset Intelligence in System Center Configuration Manager
+title: Utiliser Asset Intelligence | Microsoft Docs
+description: "Effectuez les tâches courantes Asset Intelligence dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -17,321 +17,321 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 17168e26f13340847928f6e3623115cd4b55997b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-use-asset-intelligence-in-system-center-configuration-manager"></a>Het gebruik van Asset Intelligence in System Center Configuration Manager
+# <a name="how-to-use-asset-intelligence-in-system-center-configuration-manager"></a>Guide pratique pour utiliser Asset Intelligence dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Dit onderwerp bevat informatie over het beheren van typische Asset Intelligence-taken in uw System Center Configuration Manager-hiërarchie:  
+Cette rubrique contient des informations destinées à vous aider à gérer les tâches courantes Asset Intelligence dans votre hiérarchie System Center Configuration Manager :  
 
-##  <a name="BKMK_ViewInformation"></a> Asset Intelligence-informatie weergeven  
- U kunt Asset Intelligence-informatie weergeven op de **Asset Intelligence** -startpagina en in Asset Intelligence-rapporten.  
+##  <a name="BKMK_ViewInformation"></a> Afficher les informations Asset Intelligence  
+ Vous pouvez afficher les informations Asset Intelligence sur la page d'accueil **Asset Intelligence** et dans les rapports Asset Intelligence.  
 
-###  <a name="BKMK_AssetIntelligenceHomePage"></a> Asset Intelligence-startpagina  
- De **Asset Intelligence** -startpagina geeft een overzichtsdashboard voor Asset Intelligence-catalogusinformatie. Op de startpagina kunt u informatie over catalogussynchronisatie en de status van geïnventariseerde software bekijken. De **Asset Intelligence** -startpagina is onderverdeeld in de volgende secties:  
+###  <a name="BKMK_AssetIntelligenceHomePage"></a> Page d’accueil d’Asset Intelligence  
+ La page d'accueil d' **Asset Intelligence** contient un tableau de bord récapitulant les informations du catalogue Asset Intelligence. Sur la page d'accueil, vous pouvez visualiser des informations sur la synchronisation du catalogue et l'état des logiciels inventoriés. La page d'accueil d' **Asset Intelligence** comporte les sections suivantes :  
 
--   **Synchronisatie catalogus**: Bevat informatie over of Asset Intelligence is ingeschakeld, de huidige status van het Asset Intelligence-synchronisatiepunt, de synchronisatieplanning, of de klantlicentieverklaring is geïmporteerd, wanneer de status voor het laatst is bijgewerkt en de tijd voor de volgende geplande update en het aantal wijzigingen dat is opgetreden nadat het sitesysteem van het Asset Intelligence-synchronisatie is geïnstalleerd.  
+-   **Synchronisation de catalogue**: indique si Asset Intelligence est activé, l’état du point de synchronisation Asset Intelligence, la planification de la synchronisation, si la déclaration de licence du client est importée, la date/heure de la dernière mise à jour de l’état et de la prochaine mise à jour planifiée et le nombre de modifications effectuées après l’installation du système de site du point de synchronisation Asset Intelligence.  
 
     > [!NOTE]  
-    >  De sectie Synchronisatie catalogus van de **Asset Intelligence** -startpagina wordt alleen weergegeven als de sitesysteemrol Asset Intelligence-synchronisatiepunt is geïnstalleerd.  
+    >  La section de synchronisation du catalogue Asset Intelligence de la page d'accueil **Asset Intelligence** s'affiche uniquement si un rôle de système de site du point de synchronisation Asset Intelligence a été installé.  
 
--   **Status geïnventariseerde Software**: Bevat het aantal en het percentage van geïnventariseerde software, softwarecategorieën en softwarefamilies die zijn geïdentificeerd door Microsoft, geïdentificeerd door een gebruiker met beheerdersrechten in afwachting van online identificatie of niet-geïdentificeerd en niet in afwachting. De informatie in tabelindeling bevat het aantal voor elke softwaretoepassing, terwijl de informatie in de grafiek het percentage voor elke softwaretoepassing toont.  
+-   **État des logiciels inventoriés**: indique le nombre et le pourcentage de logiciels, catégories de logiciels et familles de logiciels inventoriés qui sont identifiés par Microsoft, identifiés par un utilisateur administratif, en attente d’identification en ligne ou non identifiés et pas en attente. Les informations affichées dans un tableau indiquent le nombre pour chacun des éléments, tandis que les informations affichées dans le graphique indiquent le pourcentage de chacun des éléments.  
 
- Gebruik de volgende procedure om Asset Intelligence-informatie weer te geven op de **Asset Intelligence** -startpagina.  
+ Utilisez la procédure suivante pour afficher les informations Asset Intelligence sur la page d'accueil **Asset Intelligence** .  
 
-##### <a name="to-view-asset-intelligence-information-on-the-asset-intelligence-home-page"></a>Asset Intelligence-informatie weergeven op de Asset Intelligence-startpagina  
+##### <a name="to-view-asset-intelligence-information-on-the-asset-intelligence-home-page"></a>Pour afficher les informations Asset Intelligence sur la page d'accueil Asset Intelligence  
 
-1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Klik in de werkruimte **Activa en naleving** op **Asset Intelligence**. De Asset Intelligence-rapporten worden weergegeven.  
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**. Les rapports Asset Intelligence s'affichent.  
 
-###  <a name="BKMK_AssetIntelligenceReports"></a> Asset Intelligence-rapporten  
- Er zijn meer dan 60 Asset Intelligence-rapporten waarin de informatie wordt weergegeven die met Asset Intelligence is verzameld. Veel van deze rapporten bevatten koppelingen naar meer gedetailleerde rapporten, waarin u kunt zoeken naar algemene informatie en vervolgens gedetailleerdere informatie kunt weergeven. De Asset Intelligence-rapporten bevinden zich in de Configuration Manager-console in de **bewaking** werkruimte onder de **rapportage** knooppunt. De rapporten bevatten informatie over de hardware, licentiebeheer en software. Zie voor meer informatie over rapporten in Configuration Manager [rapportage in System Center Configuration Manager](../../../../core/servers/manage/reporting.md).  
+###  <a name="BKMK_AssetIntelligenceReports"></a> Rapports Asset Intelligence  
+ Il existe plus de 60 rapports Asset Intelligence qui affichent les informations collectées par Asset Intelligence. La plupart de ces rapports renvoient vers des rapports plus spécifiques qui permettent de rechercher des informations générales et d'accéder à des informations plus détaillées. Les rapports Asset Intelligence se trouvent dans la console Configuration Manager, dans l’espace de travail **Surveillance**, sous le nœud **Rapports**. Les rapports fournissent des informations sur les matériels, la gestion des licences et les logiciels. Pour plus d’informations sur les rapports Configuration Manager, consultez [Génération de rapports dans System Center Configuration Manager](../../../../core/servers/manage/reporting.md).  
 
 > [!NOTE]  
->  De nauwkeurigheid van het aantal geïnstalleerde softwaretitels en de licentie-informatie in Asset Intelligence rapporten kan afwijken van het werkelijke aantal geïnstalleerde softwaretitels of gebruikte licenties in de omgeving vanwege de complexe afhankelijkheden en beperkingen bij het inventariseren van softwarelicentie-informatie voor softwaretitels die zijn geïnstalleerd in een bedrijfsomgeving. Asset Intelligence-rapporten mogen niet worden gebruikt als de enige bron voor het bepalen van de naleving van gekochte softwarelicenties.  
+>  L'exactitude des nombres de titres de logiciels et des informations de licence affichés dans les rapports Asset Intelligence peut varier par rapport au nombre réel de titres de logiciels installés ou de licences utilisées dans l'environnement. Ceci est dû aux dépendances complexes et aux limitations propres à l'inventaire des informations de licences logicielles pour les titres de logiciels installés dans les environnements d'entreprise. N'utilisez pas uniquement Asset Intelligence pour déterminer la conformité des licences logicielles achetées.  
 
- Gebruik de volgende procedure om Asset Intelligence-informatie weer te geven met behulp van de Asset Intelligence-rapporten.  
+ Utilisez la procédure suivante pour afficher les informations Asset Intelligence en utilisant les rapports Asset Intelligence.  
 
-##### <a name="to-view-collected-asset-intelligence-information-by-using-asset-intelligence-reports"></a>Asset Intelligence-informatie weergeven met behulp van Asset Intelligence-rapporten  
+##### <a name="to-view-collected-asset-intelligence-information-by-using-asset-intelligence-reports"></a>Pour afficher les informations Asset Intelligence collectées en utilisant les rapports Asset Intelligence  
 
-1.  Klik in de Configuration Manager-console op **bewaking**.  
+1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
 
-2.  Vouw in de werkruimte **Bewaking** het gedeelte **Rapportage**uit, vouw **Rapporten**uit en klik op **Asset Intelligence**. De Asset Intelligence-rapporten worden weergegeven.  
+2.  Dans l'espace de travail **Surveillance** , développez **Rapports**et **Rapports**, puis cliquez sur **Asset Intelligence**. Les rapports Asset Intelligence s'affichent.  
 
     > [!WARNING]  
-    >  Als er geen rapportmappen bestaan onder het knooppunt **Rapporten** , controleert u of u rapportage hebt geconfigureerd. Zie voor meer informatie [rapportage in System Center Configuration Manager configureren](../../../../core/servers/manage/configuring-reporting.md).  
+    >  Si aucun dossier de rapport n'existe sous le noeud **Rapports** , vérifiez que vous avez configuré la création de rapports. Pour plus d’informations, consultez [Configuration de la génération de rapports dans System Center Configuration Manager](../../../../core/servers/manage/configuring-reporting.md).  
 
-3.  Selecteer het Asset Intelligence-rapport dat u wilt uitvoeren en klik vervolgens op het tabblad **Start** in de groep **Rapportgroep** op **Uitvoeren**.  
+3.  Sélectionnez le rapport Asset Intelligence à exécuter, puis dans l'onglet **Accueil** , dans le groupe **Groupe de rapports** , cliquez sur **Exécuter**.  
 
-##  <a name="BKMK_SynchronizeTheCatalog"></a> De Asset Intelligence-catalogus synchroniseren  
- U kunt de lokale Asset Intelligence-catalogus synchroniseren met System Center Online om de meest recente categorisatie van softwaretitels op te halen. Wanneer u handmatig synchronisatie van de catalogus met System Center Online aanvraagt, kan het 15 minuten of langer duren voordat de synchronisatie met System Center Online is voltooid. Configuration Manager-updates de **laatste geslaagde Update** instellen op de **Asset Intelligence** introductiepagina te gaan met de huidige tijd wanneer synchronisatie met succes is voltooid.  
+##  <a name="BKMK_SynchronizeTheCatalog"></a> Synchroniser le catalogue Asset Intelligence  
+ Vous pouvez synchroniser le catalogue local Asset Intelligence avec System Center Online pour récupérer la dernière catégorisation de titres de logiciels. Quand vous demandez manuellement la synchronisation du catalogue avec System Center Online, l’achèvement du processus de synchronisation avec System Center Online peut prendre 15 minutes ou plus. Configuration Manager met à jour le paramètre **Dernière mise à jour réussie** dans la page d’accueil d’**Asset Intelligence** avec l’heure à laquelle la synchronisation se termine.  
 
 > [!NOTE]  
->  Eerst moet de sitesysteemrol Asset Intelligence-synchronisatiepunt zijn geïnstalleerd voordat u de procedures gebruikt. Zie voor meer informatie over het installeren van een Asset Intelligence-synchronisatiepunt [Asset Intelligence configureren in System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
+>  Pour pouvoir utiliser les procédures, vous devez installer préalablement un rôle de système de site de point de synchronisation Asset Intelligence. Pour plus d’informations sur l’installation d’un point de synchronisation Asset Intelligence, consultez [Configuration d’Asset Intelligence dans System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
 
- Gebruik de volgende procedure om een synchronisateplanning voor de Asset Intelligence-catalogus te maken.  
+ Utilisez la procédure suivante pour créer une planification de synchronisation pour le catalogue Asset Intelligence.  
 
-#### <a name="to-create-a-synchronization-schedule-for-the-asset-intelligence-catalog"></a>Een synchronisateplanning voor de Asset Intelligence-catalogus maken  
+#### <a name="to-create-a-synchronization-schedule-for-the-asset-intelligence-catalog"></a>Pour créer une planification de synchronisation pour le catalogue Asset Intelligence  
 
-1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Klik in de werkruimte **Activa en naleving** op **Asset Intelligence**.  
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**.  
 
-3.  Op het tabblad **Start** , in de groep **Maken** , klikt u op **Synchroniseren**en klikt u vervolgens op **Synchronisatie plannen**.  
+3.  Sur l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Synchroniser**, puis sur **Planifier la synchronisation**.  
 
-4.  In het dialoogvenster **Planning Asset Intelligence-synchronisatiepunt** selecteert u **Synchronisatie volgens een planning inschakelen**en configureert u vervolgens een eenvoudige of aangepaste planning.  
+4.  Dans la boîte de dialogue **Planification de point de synchronisation Asset Intelligence** , sélectionnez **Activer la synchronisation dans un calendrier**, puis définissez une planification simple ou personnalisée.  
 
-5.  Klik op **OK** om de wijzigingen op te slaan.  
+5.  Cliquez sur **OK** pour enregistrer les modifications.  
 
     > [!NOTE]  
-    >  Zie voor informatie over de synchronisatieplannen, met inbegrip van de volgende geplande synchronisatie, het knooppunt **Asset Intelligence** in de werkruimte **Activa en naleving** op de site van het hoogste niveau in de hiërarchie.  
+    >  Pour plus d’informations sur la planification de la synchronisation, y compris la prochaine synchronisation planifiée, consultez le nœud **Asset Intelligence** dans l’espace de travail **Ressources et Conformité** sur le site de niveau supérieur de la hiérarchie.  
 
- Gebruik de volgende procedure om de Asset Intelligence-catalogus handmatig te synchroniseren.  
+ Utilisez la procédure suivante pour synchroniser manuellement le catalogue Asset Intelligence.  
 
 > [!WARNING]  
->  System Center Online accepteert slechts één handmatig synchronisatieverzoek per periode van 12 uur.  
+>  System Center Online n'accepte qu'une seule demande de synchronisation manuelle sur une période de 12 heures.  
 
-###  <a name="BKMK_ManuallySynchronizeCatalog"></a> De Asset Intelligence-catalogus handmatig synchroniseren  
+###  <a name="BKMK_ManuallySynchronizeCatalog"></a> Pour synchroniser manuellement le catalogue Asset Intelligence  
 
-1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Klik in de werkruimte **Activa en naleving** op **Asset Intelligence**.  
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**.  
 
-3.  Op het tabblad **Start** , in de groep **Maken** , klikt u op **Synchroniseren**, klikt u op **Asset Intelligence-catalogus synchroniseren**en klikt u vervolgens op **OK**.  
+3.  Sur l'onglet **Accueil** , dans le groupe **Créer** , cliquez successivement sur **Synchroniser**, **Synchroniser le catalogue Asset Intelligence**et **OK**.  
 
-##  <a name="BKMK_CustomizeCatalog"></a> De Asset Intelligence-catalogus aanpassen  
- De categorisatie-informatie voor de Asset Intelligence-catalogus die is ontvangen van System Center Online wordt opgeslagen in de sitedatabase met alleen-lezen machtigingen en kan niet worden gewijzigd of verwijderd. U kunt wel aangepaste catalogusgegevens over softwarecategorieën, softwarefamilies, softwarelabels en hardwarevereisten maken, wijzigen of verwijderen. Vervolgens kunt u aangepaste categorisatie-informatie gebruiken in plaats van de informatie die door System Center Online is geleverd voor bestaande of door de gebruiker gedefinieerde softwaretitels. Wanneer u categorisatie-informatie wijzigt of toevoegt, wordt deze beschouwd als door de gebruiker gedefinieerd. Door de gebruiker gedefinieerde categorisatie-informatie wordt opgeslagen in andere databasetabellen dan gevalideerde catalogusinformatie.  
+##  <a name="BKMK_CustomizeCatalog"></a> Personnaliser le catalogue Asset Intelligence  
+ Les informations de catégorisation du catalogue Asset Intelligence envoyées par System Center Online sont stockées en lecture seule dans la base de données de site et elles ne peuvent donc pas être modifiées, ni supprimées. Toutefois, vous pouvez créer, modifier et supprimer des catégories de logiciels, des familles de logiciels, des légendes logicielles et des informations de configuration matérielle personnalisées dans le catalogue. Ensuite, vous pouvez utiliser les informations de catégorisation personnalisées à la place des informations fournies par System Center Online pour les informations de titres de logiciels définies par l'utilisateur ou existantes. Lorsque vous modifiez ou ajoutez des informations de catégorisation, les informations du catalogue sont considérées avoir été définies par l'utilisateur. Les informations de catégorisation définies par l'utilisateur ne sont pas stockées dans les mêmes tables de base de données que les informations validées du catalogue.  
 
-###  <a name="BKMK_SoftwareCategories"></a> Softwarecategorieën  
- Asset Intelligence-softwarecategorieën worden gebruikt om geïnventariseerde softwaretitels breed te categoriseren en worden ook gebruikt als groeperingen op hoog niveau van bepaalde softwarefamilies. Een mogelijke softwarecategorie is bijvoorbeeld energiebedrijven en een softwarefamilie binnen deze softwarecategorie kan olie en gas of hydro-elektrisch zijn. Veel softwarecategorieën zijn vooraf gedefinieerd in de Asset Intelligence-catalogus en u kunt aanvullende door de gebruiker gedefinieerde categorieën maken om geïnventariseerde software maken verder te definiëren. De validatiestatus voor alle vooraf gedefinieerde softwarecategorieën is altijd **Gevalideerd**, terwijl de status van gegevens van aangepaste softwarecategorieën toegevoegd aan de Asset Intelligence-catalogus **Door de gebruiker gedefinieerd**is.  
+###  <a name="BKMK_SoftwareCategories"></a> Catégories de logiciels  
+ Les catégories de logiciels Asset Intelligence sont utilisées pour catégoriser de façon large les titres de logiciels inventoriés et pour les regroupements généraux de familles de logiciels plus spécifiques. Par exemple, « Société d'énergie » peut correspondre à une catégorie de logiciels, et « Pétrole », « Gaz » ou « Hydroélectrique » peuvent correspondre à des familles de logiciels dans cette catégorie. La plupart des catégories de logiciels sont prédéfinies dans le catalogue Asset Intelligence et des catégories définies par l'utilisateur peuvent être créées pour définir plus précisément les logiciels inventoriés. L'état de validation de toutes les catégories de logiciels prédéfinies est toujours **Validé**, alors que les informations de catégories de logiciels personnalisées ajoutées au catalogue Asset Intelligence ont l'état **Défini par l'utilisateur**  
 
- Gebruik de volgende procedure voor het maken van een door de gebruiker gedefinieerde softwarecategorie.  
+ Utilisez la procédure suivante pour créer une catégorie de logiciels définie par l'utilisateur.  
 
-##### <a name="to-create-a-user-defined-software-category"></a>Een door de gebruiker gedefinieerde softwarecategorie maken  
+##### <a name="to-create-a-user-defined-software-category"></a>Pour créer une catégorie de logiciels définie par l'utilisateur  
 
-1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Klik in de werkruimte **Activa en naleving** op **Asset Intelligence**en klik vervolgens op **Catalogus**.  
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**, puis sur **Catalogue**.  
 
-3.  Op het tabblad **Start** in de groep **Maken** klikt u op **Softwarecategorie maken**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une catégorie logicielle**.  
 
-4.  Op de pagina **Algemeen** voert u een naam in voor de nieuwe softwarecategorie en geeft u desgewenst een beschrijving op.  
-
-    > [!NOTE]  
-    >  De validatiestatus voor alle nieuwe aangepaste softwarecategorieën is altijd ingesteld op **Door de gebruiker gedefinieerd**.  
-
-     Klik op **Volgende**.  
-
-5.  Controleer op de pagina **Samenvatting** de instellingen en klik vervolgens op **Volgende**.  
-
-6.  Klik op de pagina **Voltooiing** op **Sluiten** om de wizard af te sluiten.  
-
-###  <a name="BKMK_SoftwareFamilies"></a> Softwarefamilies  
- Asset Intelligence-softwarefamilies worden gebruikt om geïnventariseerde softwaretitels binnen softwarecategorieën verder te definiëren. Een mogelijke softwarecategorie is bijvoorbeeld energiebedrijven en een softwarefamilie binnen deze softwarecategorie kan olie en gas of hydro-elektrisch zijn. Veel softwarefamilies zijn vooraf gedefinieerd in de Asset Intelligence-catalogus en u kunt aanvullende door de gebruiker gedefinieerde families maken om geïnventariseerde software maken te definiëren. De validatiestatus voor alle vooraf gedefinieerde softwarefamilies is altijd **Gevalideerd**, terwijl de status van gegevens van aangepaste softwarefamilies toegevoegd aan de Asset Intelligence-catalogus **Door de gebruiker gedefinieerd**is.  
-
- Gebruik de volgende procedure voor het maken van een door de gebruiker gedefinieerde softwarefamilie.  
-
-##### <a name="to-create-a-user-defined-software-family"></a>Een door de gebruiker gedefinieerde softwarefamilie maken  
-
-1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
-
-2.  Klik in de werkruimte **Activa en naleving** op **Asset Intelligence**en klik vervolgens op **Catalogus**.  
-
-3.  Op het tabblad **Start** in de groep **Maken** klikt u op **Softwarefamilie maken**.  
-
-4.  Op de pagina **Algemeen** voert u een naam in voor de nieuwe softwarefamilie en geeft u desgewenst een beschrijving op.  
+4.  Sur la page **Général** , entrez le nom de la nouvelle catégorie de logiciels et, éventuellement, une description.  
 
     > [!NOTE]  
-    >  De validatiestatus voor alle nieuwe aangepaste softwarefamilies is altijd ingesteld op **Door de gebruiker gedefinieerd**.  
+    >  L'état de validation de toutes les nouvelles catégories personnalisées de logiciels est toujours **Défini par l'utilisateur**.  
 
-5.  Controleer op de pagina **Samenvatting** de instellingen en klik vervolgens op **Volgende**.  
+     Cliquez sur **Suivant**.  
 
-6.  Klik op de pagina **Voltooiing** op **Sluiten** om de wizard af te sluiten.  
+5.  Sur la page **Résumé** , vérifiez les paramètres, puis cliquez sur **Suivant**.  
 
-###  <a name="BKMK_SoftwareLabels"></a> Softwarelabels  
- Met aangepaste Asset Intelligence-softwarelabels kunt u filters maken die u kunt gebruiken om softwaretitels te groeperen en te bekijken met behulp van Asset Intelligence-rapporten. U kunt bijvoorbeeld het softwarelabel 'shareware' maken, koppelen aan een aantal toepassingen en vervolgens een rapport uitvoeren dat alle titels met het softwarelabel shareware bevat. De validatiestatus is **Door de gebruiker gedefinieerd** voor alle aangepaste softwarelabels die u toevoegt aan de Asset Intelligence-catalogus.  
+6.  Sur la page **Dernière étape** , cliquez sur **Fermer** pour quitter l'Assistant.  
 
- Gebruik de volgende procedure om een aangepast, door de gebruiker gedefinieerd label te maken.  
+###  <a name="BKMK_SoftwareFamilies"></a> Familles de logiciels  
+ Les familles de logiciels Asset Intelligence permettent de définir plus précisément les titres de logiciels dans les catégories de logiciels. Par exemple, « Société d'énergie » peut correspondre à une catégorie de logiciels, et « Pétrole », « Gaz » ou « Hydroélectrique » peuvent correspondre à des familles de logiciels dans cette catégorie. La plupart des familles de logiciels sont prédéfinies dans le catalogue Asset Intelligence et des familles additionnelles définies par l'utilisateur peuvent être créées pour définir les logiciels inventoriés. L'état de validation de toutes les familles de logiciels prédéfinies est toujours **Validé**, alors que les informations de familles de logiciels personnalisées ajoutées au catalogue Asset Intelligence ont l'état **Défini par l'utilisateur**  
 
-##### <a name="to-create-a-user-defined-software-label"></a>Een door de gebruiker gedefinieerd softwarelabel maken  
+ Utilisez la procédure suivante pour créer une famille de logiciels définie par l'utilisateur.  
 
-1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
+##### <a name="to-create-a-user-defined-software-family"></a>Pour créer une famille de logiciels définie par l'utilisateur  
 
-2.  Klik in de werkruimte **Activa en naleving** op **Asset Intelligence**en klik vervolgens op **Catalogus**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-3.  Op het tabblad **Start** in de groep **Maken** klikt u op **Softwarelabel maken**.  
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**, puis sur **Catalogue**.  
 
-4.  Op de pagina **Algemeen** voert u een naam in voor de nieuwe softwarefamilie en geeft u desgewenst een beschrijving op.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une famille logicielle**.  
+
+4.  Sur la page **Général** , entrez le nom de la nouvelle famille de logiciels et, éventuellement, une description.  
 
     > [!NOTE]  
-    >  De validatiestatus voor alle nieuwe aangepaste softwarelabels is altijd ingesteld op **Door de gebruiker gedefinieerd**.  
+    >  L'état de validation de toutes les nouvelles familles personnalisées de logiciels est toujours **Défini par l'utilisateur**.  
 
-5.  Controleer op de pagina **Samenvatting** de instellingen en klik vervolgens op **Volgende**.  
+5.  Sur la page **Résumé** , vérifiez les paramètres, puis cliquez sur **Suivant**.  
 
-6.  Klik op de pagina **Voltooiing** op **Sluiten** om de wizard af te sluiten.  
+6.  Sur la page **Dernière étape** , cliquez sur **Fermer** pour quitter l'Assistant.  
 
-###  <a name="BKMK_HardwareRequirements"></a> Hardwarevereisten  
- Aan de hand van informatie over hardwarevereisten kunt u verifiëren dat computers voldoen aan de hardwarevereisten voor softwaretitels voordat ze worden geselecteerd voor software-implementaties. Veel hardwarevereisten zijn vooraf gedefinieerd in de Asset Intelligence-catalogus en u kunt nieuwe door de gebruiker gedefinieerde hardwarevereistegegevens maken om te voldoen aan aangepaste vereisten. De validatiestatus voor alle vooraf gedefinieerde hardwarevereisten is altijd **Gevalideerd**, terwijl de status van gegevens van aangepaste hardwarevereisten toegevoegd aan de Asset Intelligence-catalogus **Door de gebruiker gedefinieerd**is.  
+###  <a name="BKMK_SoftwareLabels"></a> Légendes logicielles  
+ Les légendes logicielles personnalisées Asset Intelligence permettent de créer des filtres que vous pouvez utiliser pour regrouper les titres de logiciels et les afficher en utilisant des rapports Asset Intelligence. Par exemple, vous pouvez créer une légende logicielle appelée « logiciel à contribution volontaire », l'associer à un certain nombre d'applications, puis exécuter un rapport pour afficher tous les titres ayant la légende logicelle « logiciel à contribution volontaire ». L'état de validation est **Défini par l'utilisateur** pour toutes les légendes logicielles personnalisées que vous ajoutez au catalogue Asset Intelligence.  
+
+ Utilisez la procédure suivante pour créer une légende personnalisée définie par l'utilisateur.  
+
+##### <a name="to-create-a-user-defined-software-label"></a>Pour créer une légende logicielle définie par l'utilisateur  
+
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
+
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**, puis sur **Catalogue**.  
+
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une légende logicielle**.  
+
+4.  Sur la page **Général** , entrez le nom de la nouvelle famille de logiciels et, éventuellement, une description.  
+
+    > [!NOTE]  
+    >  L'état de validation de toutes les nouvelles légendes logicielles personnalisées est toujours **Défini par l'utilisateur**.  
+
+5.  Sur la page **Résumé** , vérifiez les paramètres, puis cliquez sur **Suivant**.  
+
+6.  Sur la page **Dernière étape** , cliquez sur **Fermer** pour quitter l'Assistant.  
+
+###  <a name="BKMK_HardwareRequirements"></a> Configuration matérielle requise  
+ Les informations de configuration matérielle requise permettent de vérifier que les ordinateurs répondent à la configuration matérielle requise pour les titres de logiciels avant d'y déployer les logiciels. La plupart des configurations matérielles requises sont prédéfinies dans le catalogue Asset Intelligence et vous pouvez créer des informations de configuration matérielle définies par l'utilisateur pour répondre à des besoins spécifiques. L'état de validation de toutes les configurations matérielles requises prédéfinies est toujours **Validé**, tandis que celui des informations de configuration matérielle requise définies par l'utilisateur ajoutées au catalogue Asset Intelligence est **Défini par l'utilisateur**.  
 
 > [!IMPORTANT]  
->  De weergegeven hardwarevereisten in de Configuration Manager-console worden opgehaald uit de Asset Intelligence-catalogus op de lokale computer en niet zijn gebaseerd op informatie over geïnventariseerde softwaretitels van System Center 2012 Configuration Manager-clients. Informatie over hardwarevereisten wordt niet bijgewerkt tijdens de synchronisatie met System Center Online. U kunt door de gebruiker gedefinieerde hardwarevereisten maken voor geïnventariseerde software die geen bijbehorende hardwarevereisten heeft.  
+>  Les informations de configuration matérielle requise figurant dans la console Configuration Manager sont tirées du catalogue Asset Intelligence sur l’ordinateur local et ne reposent pas sur les informations de titres de logiciels inventoriés sur les clients System Center 2012 Configuration Manager. Les informations de configuration matérielle requise ne sont pas mises à jour au cours de la synchronisation avec System Center Online. Vous pouvez créer une configuration matérielle requise définie par l'utilisateur pour le logiciel inventorié n'ayant pas de configuration matérielle.  
 
- Gebruik de volgende procedure om een door de gebruiker gedefinieerde vereiste te maken.  
+ Utilisez la procédure suivante pour créer une configuration matérielle requise définie par l'utilisateur.  
 
-##### <a name="to-create-a-user-defined-hardware-requirements"></a>Door de gebruiker gedefinieerde hardwarevereisten maken  
+##### <a name="to-create-a-user-defined-hardware-requirements"></a>Pour créer une configuration matérielle requise définie par l'utilisateur  
 
-1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Klik in de werkruimte **Activa en naleving** op **Asset Intelligence**en klik vervolgens op **Hardwarevereisten**.  
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**, puis sur **Configuration matérielle requise**.  
 
-3.  Klik op het tabblad **Start** in de groep **Maken** op **Hardwarevereisten maken**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer la configuration matérielle requise**.  
 
-4.  Voer op de pagina **Algemeen** de volgende informatie in:  
+4.  Sur la page **Général** , spécifiez les informations suivantes :  
 
-    1.  **Softwaretitel**: Hiermee geeft u de softwaretitel waarvoor de hardwarevereisten gekoppeld zijn. De softwaretitel mag nog niet bestaan in de Asset Intelligence-catalogus.  
+    1.  **Nom du logiciel**: spécifie le nom du logiciel auquel la configuration matérielle requise est associée. Le titre du logiciel ne peut pas exister déjà dans le catalogue Asset Intelligence.  
 
-    2.  **Validatiestatus**: Toont de validatiestatus als **door de gebruiker gedefinieerde** voor de hardwarevereisten voldoet. U kunt deze instelling niet wijzigen.  
+    2.  **État de validation**: indique l’état de validation, tel que **Défini par l’utilisateur** , de la configuration matérielle requise. Vous ne pouvez pas modifier ce paramètre.  
 
-    3.  **Minimale CPU (MHz)**: Hiermee geeft u de minimale processorsnelheid, in megahertz (MHz), vereist voor de softwaretitel.  
+    3.  **Vitesse min. du processeur (MHz)**: spécifie la vitesse minimale du processeur, en mégahertz (MHz), nécessaire au logiciel.  
 
-    4.  **Minimale hoeveelheid RAM (KB)**: Hiermee geeft u de minimale hoeveelheid RAM, in kilobytes (KB), die vereist is voor de softwaretitel.  
+    4.  **Mémoire RAM minimum (Ko)**: spécifie la quantité de mémoire vive minimale en kilo-octets (Ko) nécessaire au logiciel.  
 
-    5.  **Minimale schijfruimte (KB)**: Hiermee geeft u de minimale vrije schijfruimte, in KB, die vereist zijn voor de softwaretitel.  
+    5.  **Espace disque minimum (Ko)**: spécifie l’espace disque libre minimal en Ko nécessaire au logiciel.  
 
-    6.  **Minimale schijfgrootte (KB)**: Hiermee geeft u de grootte van de minimale harde schijf, in KB, die vereist zijn voor de softwaretitel.  
+    6.  **Taille minimale du disque (Ko)**: spécifie l’espace disque libre minimal en Ko nécessaire au logiciel.  
 
-     Klik op **Volgende**.  
+     Cliquez sur **Suivant**.  
 
-5.  Controleer op de pagina **Samenvatting** de instellingen en klik vervolgens op **Volgende**.  
+5.  Sur la page **Résumé** , vérifiez les paramètres, puis cliquez sur **Suivant**.  
 
-6.  Klik op de pagina **Voltooiing** op **Sluiten** om de wizard af te sluiten.  
+6.  Sur la page **Dernière étape** , cliquez sur **Fermer** pour quitter l'Assistant.  
 
-###  <a name="BKMK_ModifyCategorization"></a> Categorisatie-informatie voor geïnventariseerde software wijzigen  
- Vooraf gedefinieerde software in de Asset Intelligence-catalogus is geconfigureerd met specifieke categorisatie-informatie, zoals productnaam, leverancier, softwarecategorie en softwarefamilie. Wanneer de vooraf gedefinieerde categoriesatie-informatie niet aan uw wensen voldoet, kunt u de informatie wijzigen in de eigenschappen van de softwaretitel. Wanneer u categorisatie-informatie voor vooraf gedefinieerde software wijzigt, wordt de validatiestatus voor de software gewijzigd van **Gevalideerd** in **Door de gebruiker gedefinieerd**.  
+###  <a name="BKMK_ModifyCategorization"></a> Modifier les informations de catégorisation des logiciels inventoriés  
+ Le logiciel prédéfini dans le catalogue Asset Intelligence est configuré avec des informations de catégorisation spécifiques, telles que le nom du produit, le fournisseur, la catégorie du logiciel et la famille du logiciel. Lorsque les informations de catégorisation prédéfinies ne répondent pas à vos besoins, vous pouvez modifier les informations dans les propriétés du titre du logiciel. Lorsque vous modifiez les informations de catégorisation des logiciels prédéfinis, l'état de validation **Validé** des modifications de logiciels devient **Défini par l'utilisateur**.  
 
 > [!IMPORTANT]  
->  De categorisatie-informatie kan alleen worden gewijzigd op de site van het hoogste niveau.  
+>  Les informations de catégorisation peuvent être uniquement modifiées sur le site de niveau supérieur.  
 
- Gebruik de volgende procedure om categorisatie-informatie voor geïnventariseerde software te wijzigen.  
+ Utilisez la procédure suivante pour modifier les informations de catégorisation des logiciels inventoriés.  
 
-##### <a name="to-modify-the-categorizations-for-software-titles"></a>De categorisaties voor softwaretitels wijzigen  
+##### <a name="to-modify-the-categorizations-for-software-titles"></a>Pour modifier les catégorisations des titres de logiciels  
 
-1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Klik in de werkruimte **Activa en naleving** op **Asset Intelligence**en klik vervolgens op **Geïnventariseerde software**.  
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**, puis sur **Logiciels inventoriés**.  
 
-3.  Selecteer een of meerdere softwaretitels waarvoor u de categorisaties wilt wijzigen.  
+3.  Sélectionnez le ou les titres de logiciels dont vous voulez modifier les catégorisations.  
 
-4.  Klik op **Eigenschappen** in het tabblad **Start** , in de groep **Eigenschappen**.  
+4.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 
-5.  Op het tabblad **Algemeen** kunt u de volgende categorisatie-informatie wijzigen:  
+5.  Sur l'onglet **Général** , vous pouvez modifier les informations de catégorisation suivantes :  
 
-    -   **Productnaam**: Hiermee geeft u de naam van de geïnventariseerde softwaretitel.  
+    -   **Nom du produit**: spécifie le nom du logiciel inventorié.  
 
-    -   **Leverancier**: Geeft de naam van de leverancier die de geïnventariseerde softwaretitel heeft ontwikkeld.  
+    -   **Fournisseur**: spécifie le nom du fournisseur qui a développé le logiciel inventorié.  
 
-    -   **Categorie**: Hiermee geeft u de softwarecategorie die momenteel is toegewezen aan de geïnventariseerde softwaretitel.  
+    -   **Catégorie**: spécifie la catégorie de logiciels actuellement affectée au logiciel inventorié.  
 
-    -   **Familie**: Hiermee geeft u de softwarefamilie die momenteel is toegewezen aan de geïnventariseerde softwaretitel.  
+    -   **Famille**: spécifie la famille de logiciels actuellement affectée au logiciel inventorié.  
 
-6.  Klik op **OK** om de wijzigingen op te slaan.  
+6.  Cliquez sur **OK** pour enregistrer les modifications.  
 
- Gebruik de volgende procedure om software terug te zetten naar de oorspronkelijke categorisatie-informatie.  
+ Utilisez la procédure suivante pour restaurer les informations de catégorisation d'origine d'un logiciel.  
 
-### <a name="revert-categorization-information-to-original-settings-for-software"></a>Categorisatie-informatie terugzetten naar de oorspronkelijke software-instellingen  
- Configuration Manager slaat de categorisatie-informatie van System Center Online in de database. De informatie kan niet worden verwijderd. Nadat de informatie is gewijzigd, kunt u deze terugzetten naar de System Center Online-categorisatie. Geïnventariseerde software die niet in de Asset Intelligence-catalogus voorkomt kan ook worden teruggezet naar de oorspronkelijke instellingen.  
+### <a name="revert-categorization-information-to-original-settings-for-software"></a>Restaurer les paramètres d’origine des informations de catégorisation des logiciels  
+ Configuration Manager stocke les informations de catégorisation obtenues de System Center Online dans la base de données. Les informations ne peuvent pas être supprimées. Une fois les informations modifiées, vous pouvez restaurer les informations de catégorisation System Center Online. Vous pouvez également restaurer les paramètres d'origine des logiciels inventoriés qui ne figurent pas dans le catalogue Asset Intelligence.  
 
- Gebruik de volgende procedure om categorisatie-informatie terug te zetten naar de oorspronkelijke instellingen.  
+ Utilisez la procédure suivante pour restaurer les paramètres d'origine des informations de catégorisation.  
 
-##### <a name="to-revert-categorization-information-to-original-settings"></a>Categorisatie-informatie terugzetten naar de oorspronkelijke instellingen  
+##### <a name="to-revert-categorization-information-to-original-settings"></a>Pour restaurer les paramètres d'origine des informations de catégorisation  
 
-1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Klik in de werkruimte **Activa en naleving** op **Asset Intelligence**en klik vervolgens op **Geïnventariseerde software**.  
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**, puis sur **Logiciels inventoriés**.  
 
-3.  Selecteer een of meerdere softwaretitels die u wilt terugzetten naar de oorspronkelijke instellingen. Alleen software met de status **Door de gebruiker gedefinieerd** kan worden teruggezet.  
+3.  Sélectionnez le ou les titres de logiciels dont vous voulez restaurer les paramètres d'origine. Seuls les logiciels ayant l'état **Défini par l'utilisateur** peuvent faire l'objet d'une restauration.  
 
     > [!TIP]  
-    >  Klik op de kolom **Status** om software te sorteren op validatiestatus. Via sorteren kunt u alle software op validatiestatus bekijken en kunt u snel meerdere items selecteren die u wilt terugzetten naar de oorspronkelijke instellingen.  
+    >  Cliquez sur la colonne **État** pour trier selon l'état de validation. Le tri vous permet de voir tous les logiciels en fonction de leur état de validation et de sélectionner rapidement plusieurs éléments pour rétablir les paramètres d'origine.  
 
-4.  Klik op het tabblad **Start** in de groep **Product** op **Terugzetten**.  
+4.  Dans l'onglet **Accueil** , dans le groupe **Produit** , cliquez sur **Restaurer**.  
 
-5.  Klik op **Ja** om de software terug te zetten naar de oorspronkelijke categorisatie-informatie.  
+5.  Cliquez sur **Oui** pour restaurer les informations de catégorisation d'origine du logiciel.  
 
-6.  Wanneer u categorisatie-informatie terugzet voor software die in de Asset Intelligence-catalogus voorkomt, wordt de validatiestatus gewijzigd van **Door de gebruiker gedefinieerd** in **Gevalideerd**. Wanneer u software terugzet die niet in de catalogus voorkomt, wordt de validatiestatus gewijzigd van **Door de gebruiker gedefinieerd** in **Niet-gecategoriseerd**.  
+6.  Lorsque vous restaurez les informations de catégorisation d'un logiciel qui se trouve dans le catalogue Asset Intelligence, l'état de validation passe de **Défini par l'utilisateur** à **Validé**. Lorsque vous restaurez un logiciel qui n'est pas dans le catalogue, l'état de validation passe de **Défini par l'utilisateur** à **Sans catégorie**.  
 
-##  <a name="BKMK_RequestCatalogUpdate"></a> Een catalogusupdate voor niet-gecategoriseerde softwaretitels aanvragen  
- Informatie over niet-gecategoriseerde softwaretitels kan worden verstuurd naar System Center Online voor onderzoek en categorisatie. Nadat een niet-gecategoriseerde softwaretitel is verzonden en ten minste 4 categorisatie-aanvragen voor dezelfde softwaretitel zijn ingediend door klanten, identificeren en categoriseren onderzoekers de softwaretitel en maken vervolgens de categorisatie-informatie vann de softwaretitel beschikbaar voor alle klanten die van de System Center Online-service gebruikmaken. Microsoft geeft de hoogste prioriteit aan softwaretitels die de meeste aanvragen voor categorisatie hebben. Aangepaste software en Line-Of-Business-toepassingen krijgen waarschijnlijk geen categorie. Als best practice kunt u deze softwaretitels beter niet voor categorisatie naar Microsoft verzenden.  
+##  <a name="BKMK_RequestCatalogUpdate"></a> Demander une mise à jour du catalogue pour les logiciels sans catégorie  
+ Les informations sur les noms de logiciels sans catégorie peuvent être soumises à System Center Online afin d'être examinées et catégorisées. Une fois qu'un logiciel sans catégorie est soumis et s'il existe au moins 4 demandes de catégorisation de la part de clients pour le même logiciel, les fonctions de recherche identifient, classent, puis mettent les informations de catégorisation des logiciels à la disposition de tous les clients qui utilisent le service System Center Online. Microsoft donne la priorité la plus élevée aux logiciels qui possèdent le plus de requêtes de catégorisation. Les logiciels personnalisés et les applications métier sont peu susceptibles de recevoir une catégorie, et nous vous conseillons de ne pas envoyer ces logiciels à Microsoft pour catégorisation.  
 
- Wanneer informatie over een softwaretitel wordt ingediend bij System Center Online voor categorisatie, gelden de volgende voorwaarden:  
+ Lorsque des informations sur les noms de logiciels sont soumises à System Center Online pour catégorisation, les conditions suivantes s'appliquent :  
 
--   Alleen basisinformatie over de softwaretitel wordt verzonden naar System Center Online en de te categoriseren informatie over de softwaretitel kan gecontroleerd vóór het indienen.  
+-   Seules les informations de base sur les noms de logiciels sont transmises à System Center Online, et elles peuvent être vérifiées avant leur soumission.  
 
--   Informatie over softwarelicenties wordt nooit verzonden.  
+-   Aucune information de licence de logiciel n'est transmise.  
 
--   Een softwaretitel die is geüpload wordt openbaar beschikbaar als onderdeel van de System Center Online-catalogus en kan worden gedownload door andere klanten.  
+-   Les noms de logiciels téléchargés sont ouvertement publiés dans le catalogue de System Center Online et peuvent être téléchargés par d'autres clients.  
 
--   De bron van de softwaretitel wordt niet opgeslagen in de System Center Online-catalogus. Toepassingstitels met vertrouwelijke of bedrijfseigen gegevens moeten niet worden verzonden voor categorisatie door System Center Online.  
+-   La source du nom du logiciel n'est pas stockée dans le catalogue de System Center Online. Toutefois, il est recommandé de ne pas soumettre à System Center Online des noms d'applications contenant des informations propriétaires ou confidentielles.  
 
 > [!NOTE]  
->  Zie voor meer informatie over privacygegevens van Asset Intelligence [beveiliging en privacy voor Asset Intelligence in System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/security-and-privacy-for-asset-intelligence.md).  
+>  Pour en savoir plus sur les informations de confidentialité Asset Intelligence, consultez [Sécurité et confidentialité pour Asset Intelligence dans System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/security-and-privacy-for-asset-intelligence.md).  
 
- Gebruik de volgende procedure om categorisatie van softwaretitels voor de Asset Intelligence-catalogus aan te vragen bij System Center Online.  
+ Procédez comme suit pour demander à System Center Online la catégorisation d'un nom de logiciel du catalogue Asset Intelligence.  
 
-#### <a name="to-request-a-catalog-update-for-uncategorized-software-titles"></a>Een catalogusupdate voor niet-gecategoriseerde softwaretitels aanvragen  
+#### <a name="to-request-a-catalog-update-for-uncategorized-software-titles"></a>Pour demander une mise à jour du catalogue pour les logiciels sans catégorie  
 
-1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Klik in de werkruimte **Activa en naleving** op **Asset Intelligence**en klik vervolgens op **Geïnventariseerde software**.  
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**, puis sur **Logiciels inventoriés**.  
 
-3.  Selecteer een of meerdere productnamen die voor categorisatie naar System Center Online worden verzonden. Alleen niet-gecategoriseerde geïnventariseerde softwaretitels kunnen worden verstuurd naar System Center Online voor categorisatie. Als een geïnventariseerde softwaretitel is gecategoriseerd door een beheerder, wat resulteert in een door de gebruiker gedefinieerde status, moet u met de rechtermuisknop op de geïnventariseerde softwaretitel klikken en vervolgens klikken op **Terugzetten** om de softwaretitel terug te zetten naar de status **Niet-gecategoriseerd** voordat deze kan worden verstuurd naar System Center Online voor categorisatie.  
+3.  Sélectionnez un ou plusieurs noms de produits à soumettre à System Center Online pour catégorisation. Seuls les noms de logiciels inventoriés sans catégorie peuvent être soumis. Si un logiciel inventorié a été catégorisé par un administrateur, entraînant un état défini par l'utilisateur, vous devez cliquer dessus avec le bouton droit, puis cliquer sur **Restaurer** pour rétablir le logiciel dans l'état **Sans catégorie** avant qu'il puisse être soumis à System Center Online pour catégorisation.  
 
     > [!NOTE]  
-    >  Configuration Manager kan maximaal 100 softwaretitels voor categorisatie tegelijk verwerken. Als u meer dan 100 softwaretitels selecteert, worden alleen de eerste 100 softwaretitels verwerkt. U moet de resterende softwaretitels voor categorisatie selecteren in batches van minder dan 100.  
+    >  Configuration Manager peut traiter jusqu’à 100 titres de logiciels à la fois pour catégorisation. Si vous sélectionnez plus de 100 logiciels, seuls les 100 premiers logiciels seront traités. Vous devez sélectionner les logiciels restants pour catégorisation par lots de moins de 100.  
 
     > [!TIP]  
-    >  Klik op de kolom **Status** om software te sorteren op validatiestatus. Hiermee kunt u alle niet-gecategoriseerde productnamen zien en snel meerdere items selecteren die u wilt indienen voor categorisatie.  
+    >  Cliquez sur la colonne **État** pour trier selon l'état de validation. Cela vous permet de voir tous les noms de produit sans catégorie et de sélectionner rapidement plusieurs éléments à soumettre pour catégorisation.  
 
-4.  Klik op het tabblad **Start** in de groep **Product** op **Verzoek tot bijwerken van catalogus**.  
+4.  Dans l'onglet **Accueil** , dans le groupe **Produit** , cliquez sur **Demander une mise à jour du catalogue**.  
 
-5.  Lees het System Center Online-privacybericht over het indienen voor categorisatie. Klik op **Details** om de informatie weer te geven die wordt verzonden naar System Center Online.  
+5.  Consultez le message de confidentialité de soumission de catégorisation de System Center Online. Cliquez sur **Détails** pour afficher les informations qui seront envoyées à System Center Online.  
 
-6.  Selecteer **Ik heb deze melding gelezen en begrepen**en klik vervolgens op **OK** zodat de geselecteerde softwaretitels kunnen worden verzonden voor categorisatie.  
+6.  Sélectionnez **J'ai bien lu et compris ce message**, puis cliquez sur **OK** pour autoriser les logiciels sélectionnés à être soumis à la catégorisation.  
 
-7.  Controleer of de status van de geïnventariseerde softwareproductnamen die bij System Center Online zijn ingediend voor categorisatie is gewijzigd van **Niet-gecategoriseerd** in **In behandeling**.  
+7.  Vérifiez que l'état des noms de produits logiciels inventoriés soumis à System Center Online pour catégorisation est passé de **Sans catégorie** à **En attente**.  
 
     > [!NOTE]  
-    >  Software die wordt verzonden naar System Center Online voor categorisatie heeft de validatiestatus **In behandeling** op een centrale beheersite en wordt weergegeven met de validatiestatus **Niet-gecategoriseerd** op onderliggende primaire sites.  
+    >  L'état de validation du logiciel soumis à System Center Online pour catégorisation est **En attente** sur un site d'administration centrale mais sur les sites principaux enfant, l'état de validation affiché pour ces éléments continue d'être **Sans catégorie** .  
 
-##  <a name="BKMK_ResolveSoftwareDetails"></a> Conflicten met softwaredetails oplossen  
- Nadat bijgewerkte details van softwarecategorisatie zijn ontvangen van System Center Online die conflicteren met bestaande softwaredetails, kunt u kiezen hoe u het conflict wilt oplossen. Software met een actueel conflict heeft de validatiestatus **Bijwerkbaar**. Nadat een conflict met softwaredetails is opgelost, wordt de informatie van softwarecategorisatie bewaard in de Asset Intelligence-catalogus overeenkomstig de instelling die u opgeeft. Een conflict met softwaredetails doet zich niet voor voor dezelfde softwarecategorisatiewaarde tenzij de System Center Online waarde wijzigt nadat het conflict is opgelost.  
+##  <a name="BKMK_ResolveSoftwareDetails"></a> Résoudre les conflits de détails de logiciel  
+ Suite à la réception par System Center Online de détails de catégorisation de logiciels nouvellement mis à jour et qui entrent en conflit avec des informations détaillées de logiciels existants, vous pouvez choisir la manière dont le conflit sera résolu. L'état de validation d'un logiciel en conflit est **Peut être mis à jour**. Après la résolution d'un conflit de détails de logiciel, les informations de catégorisation de logiciels sont conservées dans le catalogue Asset Intelligence en fonction des paramètres que vous avez définis. Un conflit de détails de logiciel ne peut pas se produire plusieurs fois pour la même valeur de catégorisation de logiciels à moins que la valeur System Center Online soit modifiée après la résolution du conflit.  
 
- Gebruik de volgende procedure om een conflict met softwaredetails op te lossen.  
+ Procédez comme suit pour résoudre un conflit de détails de logiciel.  
 
-#### <a name="to-resolve-a-software-details-conflict"></a>Een conflict met softwaredetails oplossen  
+#### <a name="to-resolve-a-software-details-conflict"></a>Pour résoudre un conflit de détails de logiciel  
 
-1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
 
-2.  Klik in de werkruimte **Activa en naleving** op **Asset Intelligence**en klik vervolgens op **Geïnventariseerde software**.  
+2.  Dans l'espace de travail **Biens et conformité** , cliquez sur **Asset Intelligence**, puis sur **Logiciels inventoriés**.  
 
-3.  Controleer de kolom **Status** op softwaretitels met de status **Bijwerkbaar** .  
+3.  Passez en revue la colonne **État** pour les logiciels dont l'état est **Peut être mis à jour** .  
 
-4.  Selecteer de softwaretitel waarvoor u een conflict moet oplossen en klik vervolgens op het tabblad **Start** , in de groep **Product** en klik op **Conflict oplossen**.  
+4.  Sélectionnez le logiciel pour lequel vous devez résoudre un conflit, puis sur l'onglet **Accueil** , dans le groupe **Produit** , puis cliquez sur **Résoudre le conflit**.  
 
-5.  Controleer de volgende informatie:  
+5.  Passez en revue les informations suivantes :  
 
-    -   **Lokale waarde**: Hiermee geeft u de bestaande informatie over softwarecategorisatie in de Asset Intelligence-catalogus die in conflict is met nieuwere System Center Online-details voor softwarecategorisatie.  
+    -   **Valeur locale**: spécifie les informations existantes de catégorisation de logiciels dans le catalogue Asset Intelligence qui entrent en conflit avec les détails de catégorisation de logiciels System Center Online plus récents.  
 
-    -   **Gedownloade waarde**: Hiermee geeft u de nieuwe System Center Online softwarecategorisatie-informatie voor de conflicterende Asset Intelligence-catalogus over softwarecategorisatie.  
+    -   **Valeur téléchargée**: spécifie les nouvelles informations de catégorisation de logiciels System Center Online pour les informations de catégorisation de logiciels en conflit dans le catalogue Asset Intelligence.  
 
-6.  Selecteer een van de volgende instellingen om het conflict met softwaredetails op te lossen:  
+6.  Sélectionnez l'un des paramètres suivants pour résoudre le conflit de détails du logiciel :  
 
-    -   **Wijzig de lokaal bewerkte catalogusinformatiewaarde niet**: Wordt het conflict met softwaredetails opgelost met behoud van de bestaande Asset Intelligence-catalogus softwarecategorisatie-informatie. Wanneer u deze instelling selecteert, wordt de status van de softwaretitel veranderd van **Bijwerkbaar** in **Door de gebruiker gedefinieerd**.  
+    -   **Ne changez pas la valeur des informations de catalogue modifiées localement**: résout le conflit de détails de logiciel en conservant les informations existantes de catégorisation de logiciels du catalogue Asset Intelligence. Lorsque vous sélectionnez ce paramètre, l'état du logiciel passe de **Peut être mis à jour** à **Défini par l'utilisateur**.  
 
-    -   **De lokaal bewerkte catalogusinformatiewaarde overschrijven met de gedownloade System Center Online waarde**: Wordt het conflict met softwaredetails opgelost door de bestaande Asset Intelligence-catalogusinformatie van softwarecategorisatie overschrijven met nieuw verkregen informatie van System Center Online. Wanneer u deze instelling selecteert, wordt de status van de softwaretitel veranderd van **Bijwerkbaar** in **Gevalideerd**.  
+    -   **Remplacez la valeur des informations de catalogue modifiées localement par la valeur System Center Online téléchargée**: résout le conflit de détails de logiciel en remplaçant les informations existantes de catégorisation de logiciels du catalogue Asset Intelligence par les nouvelles informations obtenues depuis System Center Online. Lorsque vous sélectionnez ce paramètre, l'état du logiciel passe de **Peut être mis à jour** à **Validé**.  
 
-     Klik op **OK** om de conflictoplossing op te slaan.  
+     Cliquez sur **OK** pour enregistrer la résolution du conflit.  

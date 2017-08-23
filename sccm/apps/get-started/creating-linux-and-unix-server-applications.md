@@ -1,6 +1,6 @@
 ---
-title: Linux en UNIX-servertoepassingen maken | Microsoft Docs
-description: Zie welke overwegingen u moet rekening account wanneer u maken en implementeren van toepassingen voor Linux en Unix-apparaten.
+title: "Créer des applications serveur Linux et UNIX | Documents Microsoft"
+description: "Examinez les éléments à prendre en compte quand vous créez et déployez des applications pour appareils Linux et Unix."
 ms.custom: na
 ms.date: 04/13/2017
 ms.prod: configuration-manager
@@ -16,150 +16,150 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 72ebd8bd29b5ecdd817631e447291c04f49d9808
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-linux-and-unix-server-applications-with-system-center-configuration-manager"></a>Maken van Linux en UNIX-servertoepassingen met System Center Configuration Manager
+# <a name="create-linux-and-unix-server-applications-with-system-center-configuration-manager"></a>Créer des applications serveur Linux et UNIX avec System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Rekening houden met de volgende overwegingen wanneer u toepassingen maakt en implementeert voor computers waarop Linux en UNIX wordt uitgevoerd.  
+Prenez en compte les points suivants quand vous créez et déployez des applications pour des ordinateurs qui exécutent Linux et UNIX.  
 
-## <a name="general-considerations"></a>Algemene overwegingen  
- De Configuration Manager-client voor Linux en UNIX ondersteunt **software-implementaties die pakketten en programma's gebruiken**. U kunt geen Configuration Manager op computers met Linux en UNIX-toepassingen implementeren.  
+## <a name="general-considerations"></a>Éléments généraux à prendre en compte  
+ Le client Configuration Manager pour Linux et UNIX prend en charge les **déploiements logiciels qui utilisent des packages et des programmes**. Vous ne pouvez pas déployer d’applications Configuration Manager sur des ordinateurs exécutant Linux et UNIX.  
 
- De mogelijkheden van de software-implementatie voor Linux en UNIX:  
+ Le déploiement de logiciels Linux et UNIX inclut les possibilités suivantes :  
 
--   De installatie van de software voor Linux en UNIX-servers, waaronder de volgende:  
+-   l’installation de logiciels pour des serveurs Linux et UNIX, notamment :  
 
-    -   Nieuwe software-implementatie  
+    -   un déploiement de nouveaux logiciels ;  
 
-    -   Software-updates voor programma's die zich al op een computer  
+    -   des mises à jour logicielles pour les programmes qui sont déjà installés sur un ordinateur ;  
 
-    -   Patches voor besturingssysteem  
+    -   des correctifs de système d'exploitation.  
 
--   Systeemeigen Linux en UNIX-opdrachten en scripts die zich bevinden op Linux en UNIX-servers  
+-   des commandes Linux et UNIX natives, et des scripts situés sur des serveurs Linux et UNIX  
 
--   Implementaties die beperkt tot de besturingssystemen zijn die u opgeeft wanneer u de programma-optie selecteert **alleen op gespecificeerde clientplatforms**
+-   des déploiements qui sont limités aux systèmes d’exploitation que vous spécifiez en sélectionnant l’option de programme **Uniquement sur les plateformes clientes spécifiées**
 
--   Onderhoudsvensters om te bepalen wanneer software wordt geïnstalleerd
+-   les fenêtres de maintenance pour contrôler à quel moment le logiciel s’installe
 
--   Statusberichten voor implementatie voor het bewaken van implementaties  
+-   les messages d’état de déploiement pour contrôler les déploiements  
 
--   De optie voor de client versnelling netwerkgebruik wanneer deze software wordt gedownload van een distributiepunt  
+-   l’option permettant au client d’accélérer l’utilisation du réseau quand il télécharge des logiciels à partir d’un point de distribution  
 
-### <a name="differences-between-deploying-to-linux-and-unix-computers-and-deploying-to-windows-devices"></a>Verschillen tussen op Linux en UNIX-computers implementeren en te implementeren op Windows-apparaten
-De belangrijkste verschillen tussen het implementeren van pakketten en programma's op Linux en UNIX-computers en het implementeren van pakketten en programma's op Windows-apparaten zijn als volgt:  
+### <a name="differences-between-deploying-to-linux-and-unix-computers-and-deploying-to-windows-devices"></a>Différences entre le déploiement sur des ordinateurs Linux et UNIX et le déploiement sur des appareils Windows
+Les principales différences entre le déploiement de packages et de programmes sur des ordinateurs Linux et UNIX et le déploiement de packages et de programmes sur des appareils Windows sont les suivantes :  
 
-|Configuration|Details|  
+|Configuration|Détails|  
 |-------------------|-------------|  
-|Enkel configuraties gebruiken die zijn bedoeld voor computers en configuraties die bedoeld zijn voor gebruikers niet gebruiken.|Configuration Manager-client voor Linux en UNIX biedt geen ondersteuning voor configuraties die bedoeld zijn voor gebruikers.|  
-|Software van het distributiepunt downloaden en uitvoeren van de programma's uit de lokale clientcache-programma's configureren.|Configuration Manager-client voor Linux en UNIX biedt geen ondersteuning voor software van het distributiepunt. In plaats daarvan moet u de software te downloaden naar de client en vervolgens geïnstalleerd.<br /><br /> Nadat de client voor Linux en UNIX software heeft geïnstalleerd, wordt deze software standaard van de clientcache verwijderd. Pakketten die geconfigureerd zijn met **Inhoud in de clientcache behouden** worden niettemin niet verwijderd van de client en blijven in de clientcache nadat de software is geïnstalleerd.<br /><br /> Configuraties voor de clientcache worden niet door de client voor Linux en UNIX ondersteund en de maximale grootte van de clientcache is enkel beperkt door de vrije schijfruimte op de clientcomputer.|  
-|Het netwerktoegangsaccount voor distributiepunttoegang configureren|Linux-en UNIX-computers zijn ontworpen als werkgroepcomputers. Voor toegang tot pakketten van het distributiepunt in de Configuration Manager site server-domein, moet u het netwerktoegangsaccount voor de site configureren. U moet dit account opgeven als een componenteigenschap voor softwaredistributie en het account configureren voordat u software implementeert.<br /><br /> U kunt op elke site meerdere netwerktoegangsaccounts configureren. De client voor Linux en UNIX kan elk van de accounts die u configureert als een netwerktoegangsaccount gebruiken.<br /><br /> Zie [Siteonderdelen voor System Center Configuration Manager](../../core/servers/deploy/configure/site-components.md) voor meer informatie.|  
+|Utilisez uniquement des configurations destinées aux ordinateurs et non aux utilisateurs.|Le client Configuration Manager pour Linux et UNIX ne prend pas en charge les configurations destinées aux utilisateurs.|  
+|Configurez les programmes de sorte qu’ils téléchargent les logiciels à partir du point de distribution et exécutez les programmes à partir du cache du client local.|Le client Configuration Manager pour Linux et UNIX ne prend pas en charge l’exécution de logiciels à partir du point de distribution. Vous devez configurer les logiciels de sorte qu’ils soient téléchargés sur le client, puis installés.<br /><br /> Par défaut, une fois que le client pour Linux et UNIX a installé un logiciel, celui-ci est supprimé de la mémoire cache du client. Toutefois, les packages configurés avec l'option **Conserver le contenu dans la mémoire cache du client** ne sont pas supprimés du client et restent dans sa mémoire cache une fois le logiciel installé.<br /><br /> Le client pour Linux et UNIX ne prend pas en charge les configurations de la mémoire cache du client, et la taille maximale de celle-ci est seulement limitée par l'espace disque disponible sur l'ordinateur client.|  
+|Configurez le compte d'accès réseau pour l'accès au point de distribution.|Les ordinateurs Linux et UNIX sont conçus pour être des ordinateurs de groupe de travail. Pour accéder aux packages à partir du point de distribution dans le domaine du serveur de site Configuration Manager, vous devez configurer le compte d’accès réseau pour le site. Vous devez spécifier ce compte en tant que propriété de composant de distribution de logiciels et configurer le compte avant de déployer des logiciels.<br /><br /> Vous pouvez configurer plusieurs comptes d'accès réseau sur chaque site. Le client pour Linux et UNIX peut utiliser chacun des comptes que vous configurez comme un compte d'accès réseau.<br /><br /> Pour plus d'informations, voir [Site components for System Center Configuration Manager](../../core/servers/deploy/configure/site-components.md).|  
 
- U kunt pakketten en programma's implementeren naar verzamelingen die enkel Linux- of UNIX-clients bevatten of u kunt deze implementeren naar verzamelingen met een mengeling van clienttypen, zoals de **Verzameling Alle systemen**. Niet-Linux- en niet-UNIX-clients niet echter de software- of mislukte geïnstalleerd.  
+ Vous pouvez déployer des packages et des programmes vers des regroupements qui contiennent uniquement des clients Linux ou UNIX ou vers des regroupements qui contiennent une combinaison de types de client, tels que le **regroupement Tous les systèmes**. Toutefois, les clients non-Linux et non-UNIX n’installent pas les logiciels ou ne font pas état de l’échec.  
 
- Wanneer de Configuration Manager-client voor Linux en UNIX ontvangt en een implementatie wordt uitgevoerd, worden statusberichten gegenereerd. U kunt deze statusberichten weergeven in de Configuration Manager-console of met behulp van rapporten om de implementatiestatus te controleren.  
+ Quand le client Configuration Manager pour Linux et UNIX reçoit et exécute un déploiement, il génère des messages d’état. Vous pouvez afficher ces messages d’état dans la console Configuration Manager ou en utilisant des rapports destinés à surveiller l’état du déploiement.  
 
- Zie voor meer informatie over het gebruik van pakketten en programma's [pakketten en programma's](../../apps/deploy-use/packages-and-programs.md).  
+ Pour plus d’informations sur l’utilisation de packages et de programmes, consultez [Packages et programmes](../../apps/deploy-use/packages-and-programs.md).  
 
-##  <a name="configure-packages-programs-and-deployments-for-linux-and-unix-servers"></a>Pakketten, programma's en implementaties voor Linux en UNIX-servers configureren  
- U kunt maken en implementeren van pakketten en programma's met behulp van de standaardopties zijn beschikbaar in de Configuration Manager-console. Unieke configuraties zijn niet vereist voor de client.  
+##  <a name="configure-packages-programs-and-deployments-for-linux-and-unix-servers"></a>Configurer des packages, programmes et déploiements pour les serveurs UNIX et Linux  
+ Vous pouvez créer et déployer des packages et des programmes en utilisant les options par défaut disponibles dans la console Configuration Manager. Le client n'impose pas de configurations uniques.  
 
- Gebruik de informatie in de volgende secties zowel om pakketten en programma's als implementaties te configureren.  
+ Pour configurer les packages, les programmes et les déploiements, aidez-vous des informations figurant dans les sections suivantes.  
 
-### <a name="packages-and-programs"></a>Pakketten en programma's  
- Gebruik voor het maken van een pakket en programma voor een Linux- of UNIX-server de **Wizard pakket maken en programma** uit de Configuration Manager-console. De meest pakketten en programma-instellingen worden door de client voor Linux en UNIX ondersteund. Diverse instellingen worden echter niet ondersteund. Als u een pakket en programma maakt en configureert, houdt u rekening met het volgende:  
+### <a name="packages-and-programs"></a>Packages et programmes  
+ Pour créer un package et un programme pour un serveur Linux ou UNIX, utilisez l’**Assistant Création d’un package et d’un programme** à partir de la console Configuration Manager. Le client pour Linux et UNIX prend en charge la plupart des paramètres de package et de programme. Toutefois, certains ne sont pas pris en charge. Lorsque vous créez ou configurez un package et un programme, tenez compte des points suivants :  
 
--   De bestandstypen die worden ondersteund door de doelcomputers bevatten.  
+-   Incluez les types de fichiers pris en charge par les ordinateurs de destination.  
 
--   Definieer de opdrachtregels die geschikt voor gebruik op de doelcomputer zijn.  
+-   Définissez les lignes de commande qu’il est approprié d’utiliser sur l’ordinateur de destination.  
 
--   Houd er rekening mee dat de instellingen die interacties uitvoeren met gebruikers niet worden ondersteund.  
+-   Gardez à l’esprit que les paramètres qui interagissent avec les utilisateurs ne sont pas pris en charge.  
 
-De volgende tabel bevat de eigenschappen voor pakketten en programma's die niet worden ondersteund:  
+Le tableau suivant répertorie les propriétés pour packages et programmes qui ne sont pas prises en charge :  
 
-|Pakket- en programma-eigenschap|Gedrag|Meer informatie|  
+|Propriété de package et de programme|Comportement|Plus d'informations|  
 |----------------------------------|--------------|----------------------|  
-|Instellingen van pakketshare:<br /><br /> -Alle opties|Er is een fout gegenereerd en de software-installatie mislukt|De client biedt geen ondersteuning voor deze configuratie. De client moet in plaats hiervan de software downloaden met behulp van HTTP of HTTPS en vervolgens de opdrachtregel vanuit de lokale cache uitvoeren.|  
-|Instellingen van pakketupdate:<br /><br /> -Gebruikers ontkoppelt van distributiepunten|Instellingen worden genegeerd|De client biedt geen ondersteuning voor deze configuratie.|  
-|Implementatie-instellingen van besturingssysteem:<br /><br /> -Alle opties|Instellingen worden genegeerd|De client biedt geen ondersteuning voor deze configuratie.|  
-|Rapportage:<br /><br /> -Gebruik pakketeigenschappen voor status-MIF-koppeling<br /><br /> -Deze velden voor status-MIF-koppeling gebruiken|Instellingen worden genegeerd|Het gebruik van status-MIF-bestanden wordt niet door de client ondersteund.|  
-|**Uitvoeren**:<br /><br /> -Alle opties|Instellingen worden genegeerd|De client voert altijd pakketten uit zonder gebruikersinterface.<br /><br /> De client negeert alle configuratie-opties voor het uitvoeren.|  
-|Na het uitvoeren:<br /><br />-Start de computer opnieuw configuration Manager<br /><br /> -Programma bepaalt opnieuw opstarten<br /><br /> -Configuration Manager zich de gebruiker afmeldt|Er is een fout gegenereerd en de software-installatie mislukt|Het systeem start opnieuw op en gebruikerspecifieke instellingen worden niet ondersteund.<br /><br /> Als een andere instelling dan de instelling **Geen actie vereist** in gebruik is, wordt er door de client een fout gegeneerd en wordt de software-installatie voortgezet, maar geen actie ondernomen.|  
-|Het programma kan worden uitgevoerd:<br /><br /> -Alleen als een gebruiker is aangemeld|Er is een fout gegenereerd en de software-installatie mislukt|Gebruikersspecifieke instellingen worden niet ondersteund.<br /><br /> Als deze optie geconfigureerd is, wordt er door de client een fout gegeneerd en mislukt de software-installatie.<br /><br /> Andere opties worden genegeerd en de software-installatie wordt voortgezet.|  
-|Uitvoermodus:<br /><br /> -Uitvoeren met gebruikersrechten|Instellingen worden genegeerd|Gebruikersspecifieke instellingen worden niet ondersteund.<br /><br /> De client ondersteunt echter de configuratie uitvoeren met beheerdersrechten.<br /><br /> Wanneer u opgeeft **uitvoeren met beheerdersrechten**, Configuration Manager-client zijn hoofdreferenties.<br /><br /> Deze instelling genereert geen fout of logboekvermelding. De software-installatie mislukt echter als de client een fout op wanneer de vereiste configuratie van genereert **programma kan worden uitgevoerd** = **alleen wanneer een gebruiker is aangemeld**.|  
-|Gebruikers toestaan om te zien en gebruiken met de programma-installatie|Instellingen worden genegeerd|Gebruikersspecifieke instellingen worden niet ondersteund.<br /><br /> Deze configuratie wordt genegeerd en de software-installatie wordt voortgezet.|  
-|Stationsmodus:<br /><br /> -Alle opties|Instellingen worden genegeerd|Deze instelling wordt niet ondersteund want de inhoud wordt altijd naar de client gedownload en lokaal uitgevoerd.|  
-|Eerst een ander programma uitvoeren|Er is een fout gegenereerd en de software-installatie mislukt|Recursieve programma-installatie wordt niet ondersteund.<br /><br /> Als een programma geconfigureerd is om eerst een ander programma uit te voeren, mislukt de software-installatie en wordt de andere programma-installatie niet gestart.|  
-|Wanneer dit programma wordt toegewezen aan een computer:<br /><br /> -Eenmaal uitvoeren voor elke gebruiker die zich aanmeldt|Instellingen worden genegeerd|Gebruikersspecifieke instellingen worden niet ondersteund.<br /><br /> De client ondersteunt echter de configuratie met één keer voor de computer.<br /><br /> Deze instelling genereert geen fout of logboekvermelding omdat een fout en logboekvermelding al werden gemaakt voor de vereiste configuratie van **Het programma kan worden uitgevoerd** = **Alleen als er een gebruiker is aangemeld**-client voor Linux en UNIX ondersteund.|  
-|Programmakennisgevingen onderdrukken|Instellingen worden genegeerd|Een gebruikersinterface wordt niet door de client geïmplementeerd.<br /><br /> Als deze configuratie is geselecteerd, wordt dit genegeerd en wordt de software-installatie voortgezet.|  
-|Dit programma op computers waarop dit wordt geïmplementeerd uitschakelen|Instellingen worden genegeerd|Deze instelling wordt niet ondersteund en heeft geen invloed op de software-installatie.|  
-|Toestaan dat dit programma wordt geïnstalleerd door de takenreeks pakket installeren zonder te worden geïmplementeerd||Takenreeksen worden niet door de client ondersteund.<br /><br /> Deze instelling wordt niet ondersteund en heeft geen invloed op de software-installatie.|  
-|Windows Installer:<br /><br /> -Alle opties|Instellingen worden genegeerd|Windows Installer-bestanden of instellingen worden niet door de client ondersteund.|  
-|Onderhoudsmodus OpsMgr:<br /><br /> -Alle opties|Instellingen worden genegeerd|De client biedt geen ondersteuning voor deze configuratie.|  
+|Paramètres de partage de package :<br /><br /> - Toutes les options|Une erreur est générée et l’installation du logiciel échoue.|Le client ne prend pas en charge cette configuration. Au lieu de cela, le client doit télécharger le logiciel à l'aide du protocole HTTP ou HTTPS, puis exécuter la ligne de commande à partir de sa mémoire cache locale.|  
+|Paramètres de mise à jour de package :<br /><br /> - Déconnecter les utilisateurs des points de distribution|Les paramètres sont ignorés.|Le client ne prend pas en charge cette configuration.|  
+|Paramètres de déploiement du système d'exploitation :<br /><br /> - Toutes les options|Les paramètres sont ignorés.|Le client ne prend pas en charge cette configuration.|  
+|Rapports :<br /><br /> - Utiliser prop. package pr. corresp. fichiers MIF d’état<br /><br /> - Utiliser ces champs pour la correspondance des fichiers MIF d’état|Les paramètres sont ignorés.|Le client ne prend pas en charge l'utilisation de fichiers MIF d'état.|  
+|**Exécuter**:<br /><br /> - Toutes les options|Les paramètres sont ignorés.|Le client exécute toujours les packages sans aucune interface utilisateur.<br /><br /> Le client ignore toutes les options de configuration de l'exécution.|  
+|Après l'exécution :<br /><br />- Configuration Manager redémarre l’ordinateur<br /><br /> - Le programme contrôle le redémarrage<br /><br /> - Configuration Manager déconnecte l’utilisateur|Une erreur est générée et l’installation du logiciel échoue.|Le paramètre de redémarrage du système et les paramètres spécifiques à l’utilisateur ne sont pas pris en charge.<br /><br /> Lorsque le paramètre utilisé n'est pas **Aucune action requise** , le client génère une erreur et poursuit l'installation du logiciel, sans qu'aucune action ne soit effectuée.|  
+|Le programme peut s'exécuter :<br /><br /> - Uniquement quand un utilisateur est connecté|Une erreur est générée et l’installation du logiciel échoue.|Les paramètres spécifiques à l’utilisateur ne sont pas pris en charge.<br /><br /> Lorsque cette option est configurée, le client génère une erreur et fait échouer l'installation du logiciel.<br /><br /> Les autres options sont ignorées et l'installation du logiciel se poursuit.|  
+|Mode d'exécution :<br /><br /> - Exécuter avec les droits d’utilisateur|Les paramètres sont ignorés.|Les paramètres spécifiques à l’utilisateur ne sont pas pris en charge.<br /><br /> Toutefois, le client prend en charge l’exécution de la configuration avec des droits d’administration.<br /><br /> Quand vous spécifiez **Exécuter avec les droits d’administration**, le client Configuration Manager utilise ses informations d’identification racines.<br /><br /> Ce paramètre ne génère pas d'erreur ni d'entrée de journal. En revanche, l’installation du logiciel échoue quand le client génère une erreur pour la configuration requise **Le programme peut s’exécuter** = **Uniquement lorsqu’un utilisateur est connecté**.|  
+|Permettre aux utilisateurs d’afficher et d’interagir avec l’installation du programme|Les paramètres sont ignorés.|Les paramètres spécifiques à l’utilisateur ne sont pas pris en charge.<br /><br /> Cette configuration est ignorée et l'installation du logiciel se poursuit.|  
+|Mode lecteur :<br /><br /> - Toutes les options|Les paramètres sont ignorés.|Ce paramètre n'est pas pris en charge, car le contenu est toujours téléchargé sur le client et exécuté localement.|  
+|Exécuter un autre programme en premier|Une erreur est générée et l’installation du logiciel échoue.|L'installation récursive de programmes n'est pas prise en charge.<br /><br /> Lorsqu'un programme est configuré pour exécuter préalablement un autre programme, l'installation du logiciel échoue et l'installation de l'autre programme ne démarre pas.|  
+|Lorsque ce programme est attribué à un ordinateur :<br /><br /> - Exécuter une fois pour chaque utilisateur qui se connecte|Les paramètres sont ignorés.|Les paramètres spécifiques à l’utilisateur ne sont pas pris en charge.<br /><br /> Toutefois, le client prend en charge l’exécution de la configuration une fois pour l’ordinateur.<br /><br /> Ce paramètre ne génère pas d'erreur ni d'entrée de journal, car il en a déjà été créée pour la configuration requise de **Le programme peut s'exécuter** = **Uniquement quand un utilisateur a ouvert une session**.|  
+|Supprimer les notifications de programmes|Les paramètres sont ignorés.|Le client n'implémente pas d'interface utilisateur.<br /><br /> Lorsque cette configuration est sélectionnée, elle est ignorée et l'installation du logiciel se poursuit.|  
+|Désactiver ce programme sur les ordinateurs sur lesquels il est déployé|Les paramètres sont ignorés.|Ce paramètre n'est pas pris en charge et n'a pas d'incidence sur l'installation du logiciel.|  
+|Autoriser l'installation de ce programme depuis la séquence de tâches d'installation du package sans le déployer||Le client ne prend pas en charge les séquences de tâches.<br /><br /> Ce paramètre n'est pas pris en charge et n'a pas d'incidence sur l'installation du logiciel.|  
+|Windows Installer :<br /><br /> - Toutes les options|Les paramètres sont ignorés.|Le client ne prend pas en charge les fichiers ni les paramètres Windows Installer.|  
+|Mode de maintenance OpsMgr :<br /><br /> - Toutes les options|Les paramètres sont ignorés.|Le client ne prend pas en charge cette configuration.|  
 
-### <a name="deploy-software-to-a-linux-or-unix-server"></a>Software implementeren naar een Linux- of UNIX-server
- Om software te implementeren naar een Linux- of UNIX-server met behulp van een pakket en programma, kunt u de **Wizard Software implementeren** uit de Configuration Manager-console. De meeste implementatie-instellingen worden ondersteund door de client voor Linux en UNIX. Diverse instellingen worden echter niet ondersteund. Wanneer u software implementeert, het volgende overwegen:  
+### <a name="deploy-software-to-a-linux-or-unix-server"></a>Déployer un logiciel sur un serveur Linux ou UNIX
+ Pour déployer un logiciel sur un serveur Linux ou UNIX à l’aide d’un package et d’un programme, vous pouvez utiliser l’**Assistant Déploiement logiciel** de la console Configuration Manager. Le client pour Linux et UNIX prend en charge la plupart des paramètres de déploiement. Cela n’est toutefois pas le cas pour certains paramètres. Lors du déploiement d’un logiciel, tenez compte des points suivants :  
 
--   U moet het pakket voorzien van minstens één distributiepunt dat is gekoppeld aan een grensgroep die is geconfigureerd voor locatie van inhoud.  
+-   Vous devez préparer le package sur au moins un point de distribution associé à un groupe de limites configuré pour l'emplacement du contenu.  
 
--   De client voor Linux en UNIX die deze implementatie ontvangt moet toegang kunnen krijgen tot dit distributiepunt vanaf zijn netwerklocatie.  
+-   Le client pour Linux et UNIX qui reçoit ce déploiement doit être en mesure d’accéder à ce point de distribution à partir de son emplacement réseau.  
 
--   De client voor Linux en UNIX downloadt het pakket van het distributiepunt en voert het programma uit op de lokale computer.  
+-   Le client pour Linux et UNIX télécharge le package à partir du point de distribution et exécute le programme sur l'ordinateur local.  
 
--   De client voor Linux en UNIX kan geen pakketten downloaden van gedeelde mappen. Deze downloadt pakketten van IIS-ingeschakelde distributiepunten die ondersteuning bieden voor HTTP of HTTPS.  
+-   Le client pour Linux et UNIX ne peut pas télécharger de packages à partir de dossiers partagés. Il télécharge les packages à partir de points de distribution compatibles IIS qui prennent en charge le protocole HTTP ou HTTPS.  
 
- De volgende tabel somt eigenschappen voor implementaties op die niet worden ondersteund:  
+ Le tableau suivant répertorie les propriétés destinées aux déploiements non prises en charge :  
 
-|Implementatie-eigenschap|Gedrag|Meer informatie|  
+|Propriété de déploiement|Comportement|Plus d'informations|  
 |-------------------------|--------------|----------------------|  
-|Implementatie-instellingen – doel:<br /><br /> -Beschikbaar<br /><br /> -Vereist|Instellingen worden genegeerd|Gebruikersspecifieke instellingen worden niet ondersteund.<br /><br /> De instelling **Vereist**wordt niettemin door de client ondersteund. Dit dwingt de geplande installatietijd af maar er wordt geen handmatige installatie ondersteund die voor dit geplande tijdstip zou vallen.|  
-|Ontwaakpakketten verzenden|Instellingen worden genegeerd|De client biedt geen ondersteuning voor deze configuratie.|  
-|Toewijzingsplanning:<br /><br /> -aanmelding<br /><br /> -en afmelden|Er is een fout gegenereerd en de software-installatie mislukt|Gebruikersspecifieke instellingen worden niet ondersteund.<br /><br /> De instelling **Zo snel mogelijk**wordt niettemin door de client ondersteund.|  
-|Instellingen voor meldingen:<br /><br /> -Gebruikers het programma onafhankelijk van toewijzingen uit te voeren|Instellingen worden genegeerd|Een gebruikersinterface wordt niet door de client geïmplementeerd.|  
-|Als de geplande toegewezen tijd bereikt wordt, toestaan dat de volgende activiteiten worden uitgevoerd buiten het onderhoudsvenster:<br /><br /> -Systeem opnieuw opstarten (indien nodig om de installatie te voltooien)|Er wordt een fout gegenereerd|Het opnieuw opstarten van het systeem wordt niet door de client ondersteund.|  
-|Implementatieoptie voor netwerken voor snelle (LAN-) netwerken:<br /><br /> -Programma uitvoeren vanaf distributiepunt|Er is een fout gegenereerd en de software-installatie mislukt|De software kan niet door de client worden uitgevoerd vanaf het distributiepunt en in plaats hiervan moet het programma worden gedownload voordat het kan worden uitgevoerd.|  
-|Implementatieoptie voor een langzame of onbetrouwbare netwerkgrens of een terugvalbronlocatie voor inhoud:<br /><br /> -Clients inhoud te delen met andere clients in hetzelfde subnet toestaan|Instellingen worden genegeerd|Gedeelde inhoud tussen peers wordt niet door de client ondersteund.|  
+|Paramètres de déploiement – objet :<br /><br /> - Disponible<br /><br /> - Obligatoire|Les paramètres sont ignorés.|Les paramètres spécifiques à l’utilisateur ne sont pas pris en charge.<br /><br /> Toutefois, le client prend en charge le paramètre **Obligatoire**, qui applique l'heure d'installation planifiée, mais toute installation manuelle avant cette heure planifiée n'est pas prise en charge.|  
+|Envoyer des paquets de mise en éveil|Les paramètres sont ignorés.|Le client ne prend pas en charge cette configuration.|  
+|Calendrier d'attribution :<br /><br /> - ouverture de session<br /><br /> - fermeture de session|Une erreur est générée et l’installation du logiciel échoue.|Les paramètres spécifiques à l’utilisateur ne sont pas pris en charge.<br /><br /> Toutefois, le client prend en charge le paramètre **Dès que possible**.|  
+|Paramètres de notification :<br /><br /> - Autoriser les utilisateurs à exécuter le programme indépendamment des attributions|Les paramètres sont ignorés.|Le client n'implémente pas d'interface utilisateur.|  
+|Lorsque l'heure d'attribution planifiée est atteinte, autorisez l'exécution des activités suivantes en dehors de la fenêtre de maintenance :<br /><br /> - Redémarrage du système (si nécessaire pour terminer l’installation)|Une erreur est générée.|Le client ne prend pas en charge un redémarrage du système.|  
+|Option de déploiement pour les réseaux (LAN) rapides :<br /><br /> - Exécuter le programme à partir du point de distribution|Une erreur est générée et l’installation du logiciel échoue.|Le client ne peut pas exécuter le logiciel à partir du point de distribution et doit au lieu de cela télécharger le programme avant de pouvoir l'exécuter.|  
+|Option de déploiement pour une limite réseau lente ou non fiable ou un emplacement source de secours pour le contenu :<br /><br /> - Autoriser les clients à partager du contenu avec d’autres clients sur le même sous-réseau|Les paramètres sont ignorés.|Le client ne prend pas en charge le partage de contenu entre homologues.|  
 
- Zie voor meer informatie over Inhoudslocatie [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+ Pour plus d’informations sur l’emplacement du contenu, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
- Zie voor meer informatie over het maken van een implementatie [toepassingen implementeren](../../apps/deploy-use/deploy-applications.md).  
+ Pour plus d’informations sur la création d’un déploiement, consultez [Déployer des applications](../../apps/deploy-use/deploy-applications.md).  
 
-##  <a name="manage-network-bandwidth-for-software-downloads-from-distribution-points"></a>Netwerkbandbreedte beheren voor softwaredownloads van distributiepunten  
- De client voor Linux en UNIX ondersteunt netwerkbandbreedteregelingen wanneer deze software van een distributiepunt wordt gedownload.  
+##  <a name="manage-network-bandwidth-for-software-downloads-from-distribution-points"></a>Gérer la bande passante réseau pour les téléchargements de logiciels à partir de points de distribution  
+ Le client Linux et UNIX prend en charge les contrôles de bande passante réseau quand il télécharge des logiciels à partir d’un point de distribution.  
 
- De client gebruikt de Background Intelligent Transfer (BITS)-instellingen die u als clientinstellingen in Configuration Manager configureert, maar implementeert geen BITS. De client controleert in de plaats daarvoor de HTTP-aanvraag chunkgrootte en de inter-chunk vertraging voor de softwaredownload om het gebruik van de netwerkbandbreedte te bewerken.  
+ Le client utilise les paramètres de service de transfert intelligent en arrière-plan (BITS) que vous configurez comme paramètres du client dans Configuration Manager, mais il n’implémente pas BITS. Au lieu de cela, pour accélérer l'utilisation de la bande passante réseau, le client contrôle la taille du bloc de la demande HTTP et le délai intra-bloc pour le téléchargement de logiciels.  
 
- U kunt de clientinstellingen voor **Background Intelligent Transfer** configureren en vervolgens de instellingen op de clientcomputer toepassen om een client te configureren om netwerkbandbreedteregelingen te gebruiken. Om bandbreedteregelingen te gebruiken, de client moet clientinstellingen ontvangen voor **Background Intelligent Transfer** met de volgende instellingen geconfigureerd als **Ja**:  
+ Pour configurer l'utilisation des contrôles de bande passante réseau par un client, configurez les paramètres clients pour **Transfert intelligent en arrière-plan** , puis appliquez les paramètres à l'ordinateur client. Pour utiliser les contrôles de bande passante, le client doit recevoir des paramètres du client pour **Transfert intelligent en arrière-plan** avec les paramètres suivants configurés sur **Oui** :  
 
--   **Beperk de maximale netwerkbandbreedte voor BITS-overdrachten op de achtergrond**  
+-   **Limiter la bande passante réseau maximale pour les transferts BITS en arrière-plan**  
 
- De volgende configuraties voor de Background Intelligent Transfer worden door de client ondersteund:  
+ Le client prend en charge les configurations suivantes pour le Transfert intelligent en arrière-plan :  
 
-    -   **Begintijd beperkingsvenster**  
+    -   **Heure de début de la fenêtre de limitation**  
 
-    -   **Eindtijd beperkingsvenster**  
+    -   **Heure de fin de la fenêtre de limitation**  
 
-    -   **Maximale overdrachtssnelheid tijdens het beperkingsvenster (Kbps)**  
+    -   **Taux de transfert maximal dans la fenêtre de limitation (Kbit/s)**  
 
-    -   **Maximale overdrachtssnelheid buiten het beperkingsvenster (Kbps)**  
+    -   **Taux de transfert maximal en dehors de la fenêtre de limitation (Kbit/s)**  
 
-De volgende configuratie voor Background Intelligent Transfer wordt niet ondersteund en wordt genegeerd door de client voor Linux en UNIX:  
+La configuration suivante pour le Transfert intelligent en arrière-plan n'est pas prise en charge et est ignorée par le client pour Linux et UNIX :  
 
--   **BITS-downloads buiten het beperkingsvenster toestaan**  
+-   **Autoriser les téléchargements BITS en dehors de la fenêtre de limitation**  
 
- Als het downloaden van software naar de client van een distributiepunt wordt onderbroken, wordt in de client voor Linux en UNIX de download niet hervatten. In plaats daarvan wordt het downloaden van het volledige softwarepakket gestart.  
+ Si le téléchargement de logiciels vers le client à partir d’un point de distribution est interrompu, le client pour Linux et UNIX ne reprend pas le téléchargement. Au lieu de cela, il redémarre le téléchargement de l’ensemble du package logiciel.  
 
-##  <a name="configure-operations-for-software-deployments"></a>Bewerkingen voor software-implementaties configureren  
- Op dezelfde manier naar de Windows-client detecteert Configuration Manager-client voor Linux en UNIX nieuwe software-implementaties bij het vragen naar en naar nieuw beleid zoekt. De frequentie waarmee de client zoekt naar nieuw beleid is afhankelijk van de clientinstellingen. U kunt onderhoudsvensters configureren om te controleren wanneer software-implementaties plaatsvinden.  
+##  <a name="configure-operations-for-software-deployments"></a>Configurer des opérations pour les déploiements de logiciels  
+ À l’instar du client Windows, le client Configuration Manager pour Linux et UNIX détecte les nouveaux déploiements de logiciels en sondant et recherchant une nouvelle stratégie. La fréquence à laquelle le client recherche une nouvelle stratégie dépend de ses paramètres. Vous pouvez configurer les fenêtres de maintenance de façon à contrôler à quels moments les déploiements de logiciels se produisent.  
 
- U kunt software-implementaties configureren naar Linux- en UNIX-servers met behulp van pakketeigenschappen, programma-eigenschappen en implementatie-eigenschappen.  
+ Vous pouvez configurer les déploiements de logiciels sur les serveurs Linux et UNIX à partir des propriétés de package, de programme et de déploiement.  
 
- Wanneer de clients beleid voor een implementatie ontvangt, wordt een statusbericht verzonden. Deze eveneens verzonden statusberichten wanneer deze wordt gestart met de installatie van software en wanneer de installatie is voltooid of mislukt.  
+ Lorsque le client reçoit la stratégie d'un déploiement, il envoie un message d'état. De même, il envoie des messages d’état quand il démarre l’installation d’un logiciel et que l’installation se termine ou échoue.  
 
- Programma's voor software-implementaties worden uitgevoerd met de waarop de Configuration Manager-client voor Linux en UNIX wordt uitgevoerd met hoofdreferenties. De afsluitcode van de programma-opdracht wordt gebruikt om slagen of mislukken te bepalen. Een afsluitcode 0 (nul) wordt beschouwd als geslaagd. Bovendien worden de **stdout** (standaarduitvoerstroom) en **stderr** (standaardfoutstroom) gekopieerd naar het logbestand wanneer het logboekniveau ingesteld wordt op INFO of TRACE.  
+ Dans le cadre des déploiements logiciels, les programmes s’exécutent avec les informations d’identification racines avec lesquelles le client Configuration Manager pour Linux et UNIX s’exécute. Le code de sortie de la commande du programme permet de déterminer la réussite ou l'échec de l'opération. Le code de sortie 0 (zéro) est considéré comme un succès. Par ailleurs, le flux de sortie standard (**stdout**) et le flux d'erreurs standard (**stderr**) sont copiés dans le fichier journal lorsque le niveau de journal est défini sur INFO ou TRACE.  
 
 > [!TIP]  
->  Als de software die u wilt implementeren zich bevindt op een Network File System (NFS)-share waartoe de Linux- of UNIX-server toegang heeft, hebt u geen distributiepunt nodig om het pakket te downloaden. Als u in plaats hiervan het pakket maakt, select u het selectievakje voor **Dit pakket bevat bronbestanden**niet. Als u het programma configureert, geeft u de geschikte opdrachtregel op voor rechtstreekse toegang van het pakket tot het NFS-koppelpunt.  
+>  Si le logiciel que vous voulez déployer est situé sur un partage NFS (Network File System) accessible au serveur Linux ou UNIX, vous n'avez pas besoin d'utiliser de point de distribution pour télécharger le package. En revanche, au moment de créer le package, n'activez pas la case à cocher **Ce package contient des fichiers sources**. Ensuite, lors de la configuration du programme, spécifiez la ligne de commande appropriée pour accéder directement au package sur le point de montage NFS.  

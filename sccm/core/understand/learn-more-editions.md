@@ -1,6 +1,6 @@
 ---
-title: Meer informatie over licentieverlening en vertakkingen | Microsoft Docs
-description: Gebruik dit onderwerp voor meer informatie over de licentievereisten voor de beschikbare installatieopties met de release van oktober 2016 van System Center Configuration Manager, waaronder de huidige vertakking versie 1606, Long-Term Servicing Branch (LTSB) en evaluatie-installatie van de huidige vertakking.
+title: En savoir plus sur les licences et les branches | Microsoft Docs
+description: "Utilisez cette rubrique pour en savoir plus sur les licences requises pour les options d’installation disponibles avec la version d’octobre 2016 de System Center Configuration Manager, qui incluent Current Branch version 1606, Long-Term Servicing Branch (LTSB) et l’installation d’évaluation de Current Branch."
 ms.custom: na
 ms.date: 10/12/2016
 ms.prod: configuration-manager
@@ -17,98 +17,98 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 90e16b316872cb370c9c2e645f46ac12afab7107
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="licensing-and-branches-for-system-center-configuration-manager"></a>Licenties en vertakkingen voor System Center Configuration Manager
+# <a name="licensing-and-branches-for-system-center-configuration-manager"></a>Licences et branches pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking), (op lange termijn onderhoud vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch), (Long-Term Servicing Branch)*
 
-Gebruik dit onderwerp voor meer informatie over de licentievereisten voor de beschikbare installatieopties met de release van oktober 2016 van System Center Configuration Manager versie 1606. Deze opties voor de installatie zijn de huidige vertakking versie 1606 Long-Term Servicing Branch (LTSB) en de evaluatie-installatie van de huidige vertakking versie 1606.
+Utilisez cette rubrique pour en savoir plus sur les conditions de licence pour les options d’installation disponibles avec la version Release d’octobre 2016 de System Center Configuration Manager version 1606. Ces options d’installation incluent Current Branch version 1606, Long-Term Servicing Branch (LTSB) et l’installation d’évaluation de Current Branch version 1606.
 
-**Licentieverlening overzicht:**   
-Klanten met actieve Software Assurance (SA) op System Center Configuration Manager-licenties of een equivalente abonnementsrechten vanaf 1 oktober 2016 gemachtigd de release van oktober 2016 versie 1606 van System Center Configuration Manager te gebruiken. Klanten met rechten naar System Center Configuration Manager op of na 1 oktober 2016 vindt u twee opties onder licentie na de installatie: Huidige vertakking en op lange termijn Servicing Branch (LTSB).
-
-
-**Licentieverlening details:**  
-[Volledige bepalingen en voorwaarden voor de producten die u hebt gekocht via Microsoft Volume Licensing-programma's vindt u hier](http://go.microsoft.com/fwlink/?LinkId=800052).
+**Vue d’ensemble des licences :**   
+Les clients dotés d’un contrat Software Assurance (SA) sur les licences de System Center Configuration Manager ou dotés de droits d’abonnement équivalents à compter du 1er octobre 2016 ont le droit d’utiliser la version 1606 d’octobre 2016 de System Center Configuration Manager. Les clients dotés de droits pour System Center Configuration Manager au 1er octobre 2016 ou après se voient proposer deux options de licence lors de l’installation : CB (Current Branch) et LTSB (Long-Term Servicing Branch).
 
 
-## <a name="system-center-configuration-manager-licensed-branches"></a>System Center Configuration Manager in licentie gegeven vertakkingen  
-In dit onderwerp verwijst naar de Software Assurance-overeenkomst (of gelijkwaardige abonnementsrechten), die de Microsoft gebruiksrechtovereenkomst die verleent rechten voor het installeren en gebruiken van Configuration Manager.
+**Spécificités des licences :**  
+[Les conditions générales des produits que vous achetez par le biais des programmes de licence en volume Microsoft se trouvent ici](http://go.microsoft.com/fwlink/?LinkId=800052).
 
 
-|Filialen|Licentieverlening|Details|
+## <a name="system-center-configuration-manager-licensed-branches"></a>Branches sous licence de System Center Configuration Manager  
+Cette rubrique fait référence au contrat Software Assurance (ou à des droits d’abonnement équivalents) qui correspond aux contrats de licence Microsoft qui octroient des droits d’installation et d’utilisation de Configuration Manager.
+
+
+|Branche|Licences|Détails|
 |----------------|---------------------|--------------------|
-|Huidige vertakking | Vereist een actieve Software Assurance-overeenkomst (of equivalente rechten) naar Configuration Manager. </br></br> Zie [Software Assurance en de huidige vertakking](#software-assurance-and-the-current-Branch) in dit onderwerp.| Ondersteund voor gebruik in productieomgevingen die wilt ontvangen van regelmatige kwaliteit en functie-updates van Microsoft. </br></br> De vertakking geeft toegang tot alle functies en verbeteringen. </br></br> Elke update versie wordt ondersteund voor één (1) jaar na de release, op welke datum u naar een nieuwere versie van wordt nog steeds bijwerken moet [ondersteuning](/sccm/core/servers/manage/current-branch-versions-supported).|
-|Op lange termijn Servicing Branch (LTSB)| Vereist een huidige Software Assurance-overeenkomst met Microsoft op het moment van release (1e oktober 2016) </br></br> Zie [Software Assurance en het LTSB](#software-assurance-and-the-ltsb) in dit onderwerp. | Ondersteund voor gebruik in productieomgevingen. Bedoeld voor gebruik door klanten waarmee hebben dat hun Software Assurance (SA) of een equivalente abonnementen rechten aan Configuration Manager verlopen na oktober 1e 2016. </br></br> De vertakking is beperkt in vergelijking met de huidige vertakking. </br></br> Essentiële updates voor Configuration Manager beschikbaar worden gesteld op de vertakking, maar er zijn geen nieuwe functies beschikbaar worden gesteld. |
-|Evaluatie-installatie van de huidige vertakking| Vereist geen een Software Assurance-overeenkomst met Microsoft. | [Evaluatie-installaties](https://www.microsoft.com/en-us/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection) zijn altijd de huidige vertakking en kan worden gebruikt voor 180 dagen. </br></br> De evaluatie-installatie kan worden bijgewerkt naar een volledige installatie van de huidige vertakking. U kunt een evaluatie-installatie niet upgraden naar de vertakking Long-Term onderhoud.|
+|Current Branch | Requiert un contrat Software Assurance actif (ou des droits équivalents) pour Configuration Manager. </br></br> Consultez [Software Assurance et Current Branch](#software-assurance-and-the-current-Branch) dans cette rubrique.| Prise en charge dans les environnements de production qui veulent recevoir des mises à jour de fonctionnalités et qualitatives régulières de Microsoft. </br></br> Cette branche donne accès à l’utilisation de toutes les fonctionnalités et améliorations. </br></br> Chaque mise à jour de version est prise en charge pendant un (1) an après sa publication, date à laquelle vous devez effectuer une mise à jour vers une version plus récente toujours [prise en charge](/sccm/core/servers/manage/current-branch-versions-supported).|
+|Long-Term Servicing Branch (LTSB)| Requiert un contrat Software Assurance actif avec Microsoft au moment de la publication (1er octobre 2016). </br></br> Consultez [Software Assurance et LTSB](#software-assurance-and-the-ltsb) dans cette rubrique. | Prise en charge dans les environnements de production. Utilisation prévue pour les clients qui ont laissé leur contrat Software Assurance (SA) ou leurs droits d’abonnement équivalents pour Configuration Manager expirer après le 1er octobre 2016. </br></br> Cette branche est limitée par rapport à Current Branch. </br></br> Les mises à jour de sécurité critiques pour Configuration Manager sont disponibles pour cette branche, mais aucune nouvelle fonctionnalité n’est disponible. |
+|Installation d’évaluation de Current Branch| Ne requiert pas de contrat Software Assurance avec Microsoft. | Une [installation d’évaluation](https://www.microsoft.com/en-us/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection) correspond toujours à Current Branch et est utilisable pendant 180 jours. </br></br> L’installation d’évaluation peut être mise à niveau vers une installation complète de Current Branch. Vous ne pouvez pas mettre à niveau une installation d’évaluation vers Long-Term Servicing Branch.|
 
-Naast de huidige vertakking, LTSB en evaluatie-installatie van de huidige vertakking een [technische Preview van System Center Configuration Manager](https://www.microsoft.com/en-us/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection-technical-preview) is ook beschikbaar. Dit is een beperkte build van Configuration Manager die kunt u nieuwe functies die kunnen worden toegevoegd aan de huidige vertakking in een toekomstige update uit te proberen. U kunt de Technical Preview met andere media dan de gelicentieerde versies installeren. Zie voor meer informatie de documentatie voor de [Technical Preview](/sccm/core/get-started/technical-preview).
-
-
-## <a name="licensed-branches"></a>Gelicentieerde vertakkingen
-Klanten met actieve Software Assurance (SA) op System Center Configuration Manager-licenties of een equivalente abonnementsrechten vanaf 1 oktober 2016 gemachtigd de release van oktober 2016 versie 1606 van System Center Configuration Manager te gebruiken. Klanten met rechten naar System Center Configuration Manager versie 1606 op of na 1 oktober 2016 vindt u twee opties onder licentie na de installatie:
--   **Huidige vertakking**
--   **Op lange termijn Servicing Branch (LTSB)**
+En plus de Current Branch, LTSB et l’installation d’évaluation de Current Branch, une [préversion technique de System Center Configuration Manager](https://www.microsoft.com/en-us/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection-technical-preview) est également disponible. Il s’agit d’une build limitée de Configuration Manager qui vous permet d’essayer de nouvelles fonctionnalités susceptibles d’être ajoutées à Current Branch dans une prochaine mise à jour. Vous installez la préversion technique à l’aide d’un autre support que celui des versions sous licence. Pour plus d’informations, consultez la documentation de la [préversion technique](/sccm/core/get-started/technical-preview).
 
 
-Zie de tabel in de vorige sectie voor meer informatie.
+## <a name="licensed-branches"></a>Branches sous licence
+Les clients dotés d’un contrat Software Assurance (SA) sur les licences de System Center Configuration Manager ou dotés de droits d’abonnement équivalents à compter du 1er octobre 2016 ont le droit d’utiliser la version 1606 d’octobre 2016 de System Center Configuration Manager. Les clients dotés de droits sur System Center Configuration Manager version 1606 à la date du ou après le 1er octobre 2016 se voient proposer deux options de licence lors de l’installation :
+-   **Current Branch**
+-   **Long-Term Servicing Branch (LTSB)**
 
 
-## <a name="software-assurance-agreements-and-system-center-configuration-manager"></a>Software Assurance-overeenkomsten en System Center Configuration Manager
-De status van Software Assurance op uw licenties voor System Center Configuration Manager of een equivalente abonnementsrechten op of na 1 oktober 2016 bepaalt de vertakking die u kunt installeren en gebruiken.
+Consultez le tableau de la section précédente pour plus d’informations.
 
 
-### <a name="software-assurance-and-the-current-branch"></a>Software Assurance en de huidige vertakking
-Rechten voor het gebruik van System Center Configuration Manager Current Branch kunnen worden geleverd door:
--  **System Center:** Klanten met actieve SA op System Center Standard of Datacenter-licenties kunnen installeren en gebruiken van de optie huidige vertakking van System Center Configuration Manager.
-
--  **System Center Configuration Manager:** Klanten met actieve SA op System Center Configuration Manager-licenties, of gelijkwaardig abonnementsrechten kunnen installeren en gebruiken van de optie huidige vertakking van System Center Configuration Manager.
-
-Als u op of na 1 oktober 2016 actieve SA voor System Center Configuration Manager-licenties (of gelijkwaardige abonnementsrechten) hebt:
-- U kunt installeren en gebruiken van de huidige vertakking.
-- Als u SA of abonnement vervalt toestaat, moet u de huidige vertakking verwijderen.
-
-### <a name="software-assurance-and-the-ltsb"></a>Software Assurance en het LTSB
- Als u een actieve SA voor System Center Configuration Manager-licenties (of gelijkwaardige abonnementsrechten) op of na 1 oktober 2016 hebt:
- - U kunt installeren en gebruiken van de LTSB. Klanten die hun SA of abonnement vervalt, staan of permanente rechten naar System Center Configuration Manager hebben kunnen installeren de versie van System Center Configuration Manager LTSB die is bijgewerkt op het moment van vervalt.
-
-LTSB is gebaseerd op de huidige vertakking versie 1606 en heeft de volgende beperkingen:
-  - Er is geen ondersteuning voor het converteren van een huidige vertakking naar de LTSB. Als u momenteel een Current Branch-site hebt, moet u de LTSB installeren als een nieuwe site.  
-
-  - LTSB biedt geen ondersteuning voor de mogelijkheden van de huidige vertakking. Beperkingen zijn aangegeven in [Inleiding tot de vertakking Long-Term onderhoud](introduction-to-the-ltsb.md) en de bijbehorende gerelateerde documentatie. Deze beperkingen bevatten een beperkte onderdeel instelt, beperkt upgrade-opties en een afzonderlijke levenscyclus voor ondersteuning.  
+## <a name="software-assurance-agreements-and-system-center-configuration-manager"></a>Contrats Software Assurance et System Center Configuration Manager
+L’état du contrat Software Assurance sur vos licences System Center Configuration Manager ou vos droits d’abonnement équivalents, à la date du 1er octobre 2016 ou après cette date, déterminent la branche que vous pouvez installer et utiliser.
 
 
-### <a name="software-assurance-expiration-date"></a>Software Assurance-vervaldatum
-U begint met de oktober 2016-release van de basislijnmedia versie 1606 voor System Center Configuration Manager, kunt u de vervaldatum van uw Software Assurance overeenkomst opgeven. De **Software Assurance vervaldatum** is een optionele waarde die u als een handige herinnering opgeven kunt tijdens het uitvoeren van de installatie van Configuration Manager of later uit binnen de Configuration Manager console.
+### <a name="software-assurance-and-the-current-branch"></a>Software Assurance et Current Branch
+Des droits d’utilisation sur System Center Configuration Manager Current Branch peuvent être octroyés par :
+-  **System Center :** les clients dotés d’un contrat SA actif sur des licences System Center Standard ou Datacenter peuvent installer et utiliser l’option Current Branch de System Center Configuration Manager.
+
+-  **System Center Configuration Manager :** les clients dotés d’un contrat SA actif sur des licences System Center Configuration Manager, ou dotés de droits d’abonnement équivalents, peuvent installer et utiliser l’option Current Branch de System Center Configuration Manager.
+
+Si vous disposez d’un contrat SA actif sur des licences System Center Configuration Manager (ou des droits d’abonnement équivalents) à la date du ou après le 1er octobre 2016 :
+- Vous pouvez installer et utiliser Current Branch.
+- Si vous laissez votre contrat SA ou votre abonnement expirer, vous devez désinstaller Current Branch.
+
+### <a name="software-assurance-and-the-ltsb"></a>Software Assurance et LTSB
+ Si vous disposez d’un contrat SA actif sur des licences System Center Configuration Manager (ou des droits d’abonnement équivalents) à la date du ou après le 1er octobre 2016 :
+ - Vous pouvez installer et utiliser LTSB. Les clients dotés de droits perpétuels sur System Center Configuration Manager, ou qui laissent leur contrat SA ou leur abonnement expirer, peuvent installer la version LTSB de System Center Configuration Manager qui est en vigueur au moment de l’expiration.
+
+LTSB est basé sur Current Branch version 1606 et présente les limitations suivantes :
+  - Il n’existe aucune prise en charge pour passer de Current Branch à LTSB. Si vous disposez actuellement d’un site Current Branch, vous devez installer LTSB en tant que nouveau site.  
+
+  - LTSB ne prend pas en charge toutes les fonctionnalités de Current Branch. Les limitations sont décrites dans [Présentation de Long-Term Servicing Branch](introduction-to-the-ltsb.md) et la documentation connexe. Ces limitations incluent un ensemble limité de fonctionnalités, des options de mise à niveau limitées et un cycle de vie du support produit distinct.  
+
+
+### <a name="software-assurance-expiration-date"></a>Date d’expiration de Software Assurance
+À partir de la version d’octobre 2016 du support de la base de référence de la version 1606 de System Center Configuration Manager, vous pouvez spécifier la date d’expiration de votre contrat Software Assurance. La **date d’expiration de Software Assurance** est une valeur facultative que vous pouvez spécifier à titre de rappel pratique quand vous exécutez le programme d’installation de Configuration Manager ou ultérieurement à partir de la console Configuration Manager.
 
 >  [!NOTE]   
->  Microsoft komt niet overeen voor de vervaldatum die u opgeeft en deze datum niet wordt gebruikt voor het valideren van licenties.  In plaats daarvan kunt u deze als een herinnering van de vervaldatum. Dit is nuttig omdat Configuration Manager periodiek controleert op nieuwe software-updates die worden aangeboden online zijn en de status van uw Software Assurance-licentie worden actueel zijn moet om in aanmerking voor het gebruik van deze aanvullende updates.    
+>  Microsoft ne valide pas la date d’expiration spécifiée et ne l’utilise pas pour la validation de la licence.  Vous pouvez ainsi l’utiliser en guise de rappel de votre date d’expiration. Ce rappel est pratique, car Configuration Manager vérifie régulièrement les nouvelles mises à jour logicielles proposées en ligne, et l’état de votre licence Software Assurance doit être actualisé pour être autorisé à utiliser ces mises à jour supplémentaires.    
 
-**Geef de datum op:**
-- Wanneer u Setup vanaf de System Center Configuration Manager versie 1606 basislijnmedia uitvoert, kunt u de waarde op de **productcode** pagina van de wizard Setup.
+**Pour spécifier la date :**
+- Quand vous exécutez le programme d’installation à partir du support de base de référence de System Center Configuration Manager version 1606, vous pouvez spécifier cette valeur dans la page **Clé de produit** de l’Assistant Installation.
 
-- In de Configuration Manager-console in **eigenschappen van hiërarchie-instellingen**, kunt u de waarde op de **Licensing** tabblad.
+- Dans la console Configuration Manager, dans **Propriétés des paramètres de hiérarchie**, vous pouvez également spécifier cette valeur sous l’onglet **Licences**.
 
-Zie voor meer informatie over Software Assurance-licentieverlening en de huidige vertakking van System Center Configuration Manager [licenties en vertakkingen voor System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
+Pour plus d’informations sur la licence Software Assurance et la branche Current Branch de System Center Configuration Manager, consultez [Licences et branches pour System Center Configuration Manager](/sccm/core/understand/learn-more-editions).
 
 
-## <a name="resources-for-licensing-information"></a>Bronnen voor licentiegegevens
-Gebruik de volgende koppelingen voor meer informatie over het product licentiegegevens.
+## <a name="resources-for-licensing-information"></a>Ressources pour les informations de licence
+Utilisez les liens suivants pour en savoir plus sur les licences de produit.
 
-**Microsoft Volume Licensing Service Center (VLSC) koppelingen:**
-- Overzicht van VLSC: [https://www.microsoft.com/en-us/Licensing/existing-customer/vlsc-training-and-resources.aspx](https://www.microsoft.com/en-us/Licensing/existing-customer/vlsc-training-and-resources.aspx).
+**Liens du Centre de gestion des licences en volume Microsoft (VLSC) :**
+- Vue d’ensemble du VLSC : [https://www.microsoft.com/fr-fr/Licensing/existing-customer/vlsc-training-and-resources.aspx](https://www.microsoft.com/en-us/Licensing/existing-customer/vlsc-training-and-resources.aspx).
 
-- Microsoft Volume Licensing-Product voorwaarden: [http://go.microsoft.com/fwlink/?LinkId=800052](http://go.microsoft.com/fwlink/?LinkId=800052).
+- Conditions générales des produits de licence en volume Microsoft : [http://go.microsoft.com/fwlink/?LinkId=800052](http://go.microsoft.com/fwlink/?LinkId=800052).
 
-- Klanten met een volumelicentie krijg een overzicht van de licenties worden hier: [https://www.microsoft.com/Licensing/servicecenter/default.aspx](https://www.microsoft.com/Licensing/servicecenter/default.aspx).  
-  Ga naar de **licenties** , en klik op **licenties overzicht** voor een overzicht van licenties.
+- Les clients disposant de licences en volume peuvent obtenir un résumé de leurs licences ici :  [https://www.microsoft.com/Licensing/servicecenter/default.aspx](https://www.microsoft.com/Licensing/servicecenter/default.aspx).  
+  Accédez au menu **Licences**, puis cliquez sur **Résumé des licences** pour obtenir une vue d’ensemble des licences.
 
-**VLSC video's:**
-- Training van video's over de werking van VLSC: m[https://www.microsoft.com/en-us/Licensing/existing-customer/vlsc-training-and-resources.aspx#tab=2](https://www.microsoft.com/en-us/Licensing/existing-customer/vlsc-training-and-resources.aspx#tab=2).
+**Vidéos VLSC :**
+- Vidéos de formation sur le fonctionnement de VLSC : [https://www.microsoft.com/en-us/Licensing/existing-customer/vlsc-training-and-resources.aspx#tab=2](https://www.microsoft.com/en-us/Licensing/existing-customer/vlsc-training-and-resources.aspx#tab=2).
 
-- Waar u het opzoeken van uw actieve Software Assurance-overeenkomst (vanaf ongeveer 43 seconden): [https://www.microsoft.com/showcase/video.aspx?uuid=fe1846cb-1d26-49fc-b064-57b25dcc31a0](https://www.microsoft.com/showcase/video.aspx?uuid=fe1846cb-1d26-49fc-b064-57b25dcc31a0).
+- Où trouver votre contrat Software Assurance actif (démarrage dans 43 secondes environ) : [https://www.microsoft.com/showcase/video.aspx?uuid=fe1846cb-1d26-49fc-b064-57b25dcc31a0](https://www.microsoft.com/showcase/video.aspx?uuid=fe1846cb-1d26-49fc-b064-57b25dcc31a0).
 
-- Het ophalen van machtigingen voor VLSC: [https://www.microsoft.com/showcase/video.aspx?uuid=ac4ed1ca-d0a9-43cd-89fa-74ccb555dec4](https://www.microsoft.com/showcase/video.aspx?uuid=ac4ed1ca-d0a9-43cd-89fa-74ccb555dec4).  U kunt delegeren VLSC lezen en schrijfmachtigingen naar andere mensen in uw organisatie.
+- Guide pratique pour obtenir des autorisations pour VLSC : [https://www.microsoft.com/showcase/video.aspx?uuid=ac4ed1ca-d0a9-43cd-89fa-74ccb555dec4](https://www.microsoft.com/showcase/video.aspx?uuid=ac4ed1ca-d0a9-43cd-89fa-74ccb555dec4).  Vous pouvez déléguer des autorisations de lecture et d’écriture VLSC à d’autres personnes de votre organisation.

@@ -1,6 +1,6 @@
 ---
-title: Clients blokkeren | Microsoft Docs
-description: Clienttoegang blokkeren voor systeembeveiliging met behulp van System Center Configuration Manager.
+title: Blocage des clients | Microsoft Docs
+description: "Bloquez l’accès client pour la sécurité du système à l’aide de System Center Configuration Manager."
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,57 +16,57 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 3e323ab90ec4cc274581e19065fd7d81c0c11c35
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="determine-whether-to-block-clients-in-system-center-configuration-manager"></a>Bepalen of clients worden geblokkeerd in System Center Configuration Manager
+# <a name="determine-whether-to-block-clients-in-system-center-configuration-manager"></a>Déterminer si des clients doivent être bloqués dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Als een clientcomputer of client mobiel apparaat niet langer vertrouwd is, kunt u de client in de System Center 2012 Configuration Manager-console blokkeren. Geblokkeerde clients worden geweigerd door de Configuration Manager-infrastructuur zodat ze niet kunnen met sitesystemen om te downloaden communiceren, inventarisgegevens te uploaden of of statusberichten te verzenden.  
+Si un ordinateur client ou un appareil mobile client n’est plus approuvé, vous pouvez bloquer ce client dans la console System Center 2012 Configuration Manager. L’infrastructure Configuration Manager rejette les clients bloqués afin qu’ils ne puissent pas communiquer avec les systèmes de site pour télécharger la stratégie, charger les données d’inventaire ou envoyer des messages d’état.  
 
- U moet een client blokkeren en zijn blokkering opheffen van zijn toegewezen site, liever dan van een secundaire site of een centrale beheersite.  
+ Vous devez bloquer et débloquer les clients depuis leur site attribué plutôt que depuis un site secondaire ou un site d'administration centrale.  
 
 > [!IMPORTANT]  
->  Hoewel blokkeren in Configuration Manager helpen kan bij de beveiliging van de Configuration Manager-site, moet u niet vertrouwen op deze functie om te voorkomen dat de site niet-vertrouwde computers of mobiele apparaten wanneer u clients toestaat te communiceren met sitesystemen via HTTP, omdat een geblokkeerde client de site met een nieuw zelfondertekend certificaat en hardware-ID. opnieuw zou kan vervoegen Gebruik daarentegen de blokkeringsfunctie om verloren of verdachte opstartmedia te blokkeren die u gebruikt om besturingssystemen te implementeren en wanneer sitesystemen HTTPS-clientverbindingen aanvaarden.  
+>  Le blocage dans Configuration Manager aide à sécuriser le site Configuration Manager, mais ne vous fiez pas à cette fonctionnalité pour protéger le site contre les ordinateurs ou les appareils mobiles non approuvés si vous autorisez les clients à communiquer avec les systèmes du site à l’aide de HTTP, car un client bloqué peut de nouveau joindre le site avec un nouveau certificat auto-signé et un nouvel ID matériel. À la place, utilisez la fonctionnalité de blocage pour bloquer les supports de démarrage perdus ou non fiables, que vous utilisez pour déployer les systèmes d'exploitation, et lorsque les systèmes de site acceptent les connexions client HTTPS.  
 
- Clients die toegang hebben tot de site door gebruik te maken van het ISV Proxy-certificaat kunnen niet geblokkeerd worden. Zie voor meer informatie over het ISV Proxy-certificaat, de System Center Configuration Manager Software Development Kit (SDK).  
+ Les clients accédant au site à l'aide du certificat proxy ISV ne peuvent pas être bloqués. Pour plus d’informations sur le certificat de proxy ISV, consultez le kit SDK de System Center Configuration Manager.  
 
- Indien uw sitesystemen HTTPS-clientverbindingen aanvaarden en uw openbare-sleutelinfrastructuur (PKI) een certificaatintrekkingslijst (CRL) ondersteunt, beschouw dan altijd certificaatintrekking als uw eerstelijnsverdediging tegen eventueel verdachte certificaten. Blokkeren van clients in Configuration Manager is een tweede verdediging om uw hiërarchie te beschermen.  
+ Si vos systèmes de site acceptent les connexions client HTTPS et que votre infrastructure de clé publique (PKI) prend en charge une liste de révocation de certificats, envisagez toujours de définir la révocation de certificat comme première ligne de défense contre les certificats potentiellement compromis. Le blocage des clients dans Configuration Manager fournit une seconde ligne de défense pour protéger votre hiérarchie.  
 
-##  <a name="BKMK_Block_vs_CRL"></a> Overwegingen voor het blokkeren van clients  
+##  <a name="BKMK_Block_vs_CRL"></a> Éléments à prendre en considération pour le blocage des clients  
 
--   Deze optie is beschikbaar voor HTTP- en HTTPS-clientverbindingen, maar biedt beperkte beveiliging als clients verbinding maken met sitesystemen met HTTP.  
+-   Cette option est disponible pour les connexions client HTTP et HTTPS, mais sa sécurité est limitée lorsque les clients se connectent à des systèmes de site en utilisant le protocole HTTP.  
 
--   Configuration Manager gebruikers met beheerdersrechten hebben de bevoegdheid om een client te blokkeren en de actie wordt uitgevoerd in de Configuration Manager-console.  
+-   Les utilisateurs administratifs de Configuration Manager ont l’autorité nécessaire pour bloquer un client et cette action est entreprise dans la console Configuration Manager.  
 
--   Clientcommunicatie is uit de hiërarchie van Configuration Manager alleen geweigerd.  
-
-    > [!NOTE]  
-    >  Dezelfde client zou kunnen registreren met een andere Configuration Manager-hiërarchie.  
-
--   De client wordt onmiddellijk geblokkeerd vanuit de Configuration Manager-site.  
-
--   Helpt sitesystemen te beschermen tegen eventueel verdachte computers en mobiele apparaten.  
-
-## <a name="considerations-for-using-certificate-revocation"></a>Overwegingen voor het intrekken van certificaten  
-
--   De optie is beschikbaar voor HTTPS-verbindingen van Windows-clients als de openbare-sleutelinfrastructuur een certificaatintrekkingslijst (CRL) ondersteunt.  
-
-     Mac-clients voeren altijd een CRL-controle uit en deze functionaliteit kan niet worden uitgeschakeld.  
-
-     Hoewel mobiele apparaat-clients geen certificaatintrekkinglijsten gebruiken om de certificaten voor sitesystemen te controleren, kunnen u hun certificaten ingetrokken en gecontroleerd door Configuration Manager.  
-
--   Beheerders van openbare-sleutelinfrastructuur hebben de bevoegdheid voor het intrekken van een certificaat en de actie wordt uitgevoerd buiten de Configuration Manager-console.  
-
--   Clientcommunicatie kan geweigerd worden van elke computer of elk mobiel apparaat dat dit clientcertificaat vereist.  
-
--   Er is waarschijnlijk een vertraging tussen een certificaat intrekken en sitesystemen die de gewijzigde certificaatintrekkingslijst (CRL) downloaden.  
-
--   Voor vele PKI-implementaties kan deze vertraging een dag of meer bedragen. In Active Directory Certificate Services bijvoorbeeld is de standaard termijnafloop één week voor een volledige CRM en één dag voor een delta-CRL.  
-
--   Helpt sitesystemen en clients te beschermen tegen eventueel verdachte computers en mobiele apparaten.  
+-   La communication client est rejetée uniquement à partir de la hiérarchie Configuration Manager.  
 
     > [!NOTE]  
-    >  U kunt sitesystemen die IIS uitvoeren verder beschermen tegen onbekende clients door een certificaatvertrouwenslijst (CTL) te configureren in IIS.  
+    >  Le même client peut s’inscrire auprès d’une autre hiérarchie Configuration Manager.  
+
+-   Le client est immédiatement bloqué hors du site Configuration Manager.  
+
+-   Permet de protéger les systèmes de site des ordinateurs et des appareils mobiles potentiellement compromis.  
+
+## <a name="considerations-for-using-certificate-revocation"></a>Éléments à prendre en considération pour l’utilisation de la révocation de certificats  
+
+-   Cette option est disponible pour les connexions HTTPS des clients Windows si l’infrastructure à clé publique prend en charge une liste de révocation de certificats (CRL).  
+
+     Les clients Mac contrôlent systématiquement la liste de révocation de certificats, et cette fonctionnalité ne peut pas être désactivée.  
+
+     Même si les clients d’appareils mobiles n’utilisent pas de listes de révocation de certificats pour vérifier les certificats des systèmes de site, leurs certificats peuvent être révoqués et vérifiés par Configuration Manager.  
+
+-   Les administrateurs de l’infrastructure de clé publique ont l’autorité nécessaire pour révoquer un certificat et cette action est entreprise hors de la console Configuration Manager.  
+
+-   Les communications client peuvent être rejetées à partir de tout ordinateur ou appareil mobile nécessitant ce certificat de client.  
+
+-   Il y aura probablement un délai entre la révocation d'un certificat et le téléchargement par les systèmes de site de la liste de révocation de certificats (CRL) modifiée.  
+
+-   Pour de nombreux déploiements PKI, ce délai peut être d'un ou de plusieurs jours. Par exemple, dans les services de certificats Active Directory, la période d'expiration par défaut est d'une semaine pour une liste de révocation de certificats complète et d'un jour pour une liste de révocation de certificats delta.  
+
+-   Permet de protéger les systèmes de site et les clients contre des ordinateurs et des appareils mobiles potentiellement compromis.  
+
+    > [!NOTE]  
+    >  Il est possible d'améliorer la protection des systèmes de site qui exécutent IIS contre des clients inconnus en configurant une liste de certificats de confiance (CTL) dans IIS.  

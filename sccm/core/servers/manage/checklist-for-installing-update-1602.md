@@ -1,6 +1,6 @@
 ---
-title: Controlelijst voor 1602 | Microsoft Docs
-description: Meer informatie over acties moet uitvoeren voordat het bijwerken van System Center Configuration Manager versie 1511 naar versie 1602.
+title: "Liste de contrôle pour 1602 | Microsoft Docs"
+description: "Découvrez les actions à entreprendre avant d’effectuer la mise à jour de System Center Configuration Manager version 1511 vers la version 1602."
 ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
@@ -17,122 +17,122 @@ manager: angrobe
 robots: NOINDEX, NOFOLLOW
 ms.openlocfilehash: 3e0de56b7a592b105e6a61b3d6654b1d0142584d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="checklist-for-installing-update-1602-for-system-center-configuration-manager"></a>Controlelijst voor het installeren van update 1602 voor System Center Configuration Manager
+# <a name="checklist-for-installing-update-1602-for-system-center-configuration-manager"></a>Liste de contrôle pour l’installation de la mise à jour 1602 pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Lees voordat van System Center Configuration Manager versie 1511 naar versie 1602 bijwerken, de volgende informatie en Controlelijst voor acties moet uitvoeren voordat u de update start.  
+Avant de mettre à jour System Center Configuration Manager version 1511 vers la version 1602, passez en revue les informations et la liste de contrôle suivantes pour connaître les mesures à prendre avant de commencer la mise à jour.  
 
- **Over het installeren van update 1602:**  
+ **À propos de l’installation de la mise à jour 1602 :**  
 
- Update 1602 kan alleen op de site op het hoogste niveau van uw hiërarchie worden opgegeven. Dit betekent dat u de installatie starten vanuit uw centrale beheersite als er een of vanuit uw zelfstandige primaire site.  
+ Vous ne pouvez installer la mise à jour 1602 que sur le site de niveau supérieur de votre hiérarchie. Cela signifie que vous lancez l’installation à partir de votre site d’administration centrale si en avez un, ou à partir de votre site principal autonome.  
 
--   Onderliggende primaire sites de update automatisch geïnstalleerd als de centrale beheersite is voltooid met het installeren van de update. U kunt onderhoudsvensters om te bepalen wanneer een site updates installeert. Vanaf de release van update 1602 kunt onderhoudsvensters zijn gewijzigd *windows service*. Zie voor meer informatie [servicewindows voor siteservers Service](/sccm/core/servers/manage/service-windows).  
+-   Les sites principaux enfants installent automatiquement la mise à jour après que le site d’administration centrale a fini de l’installer. Vous pouvez utiliser des fenêtres de maintenance pour contrôler à quel moment le site installe les mises à jour. Depuis la publication de la mise à jour 1602, les fenêtres de maintenance sont nommées *fenêtres de service*. Pour plus d’informations, consultez [Fenêtres de maintenance pour les serveurs de site](/sccm/core/servers/manage/service-windows).  
 
--   U moet secundaire sites uit binnen de Configuration Manager-console handmatig bijwerken nadat de primaire bovenliggende site is voltooid met het installeren van de update. Automatische updates van secundaire siteservers worden niet ondersteund.  
+-   Une fois que le site parent principal a installé la mise à jour, vous devez mettre à jour manuellement les sites secondaires à partir de la console Configuration Manager. Les mise à jour automatiques des serveurs de sites secondaires ne sont pas prises en charge.  
 
-Wanneer de siteserver wordt geïnstalleerd voor de update, sitesysteemrollen die zijn geïnstalleerd op de siteserver en toepassingen die zijn geïnstalleerd op externe computers automatisch bijgewerkt. Voordat u de update installeert, Controleer daarom elke sitesysteemserver voldoet aan de nieuwe vereisten voor bewerkingen met de nieuwe versie van de update.  
+Quand le serveur de site installe la mise à jour, les rôles de système de site installés sur le serveur de site et sur des ordinateurs distants sont automatiquement mis à jour. Par conséquent, avant d’installer la mise à jour, vérifiez que chaque serveur de système de site remplit les nouveaux prérequis pour les opérations avec la nouvelle version de mise à jour.  
 
-De eerste keer dat u een Configuration Manager-console gebruikt nadat de update is voltooid, wordt u gevraagd om bij te werken die console. Om dit te doen, moet u setup van Configuration Manager uitvoeren op de computer die als host fungeert voor de console en kies de optie de console bij te werken. U kunt installeren van de update naar de console beter niet uitstellen.  
+La première fois que vous utilisez une console Configuration Manager à l’issue de la mise à jour, vous êtes invité à mettre à jour cette console. Pour cela, vous devez exécuter le programme d’installation de Configuration Manager sur l’ordinateur hébergeant la console, puis choisir l’option de mise à jour de la console. Nous vous recommandons de ne pas retarder l’installation de la mise à jour sur la console.  
 
- **Controlelijst:**  
+ **Liste de contrôle :**  
 
- **Zorg ervoor dat alle sites een ondersteunde versie van System Center Configuration Manager wordt uitgevoerd:**  Elke siteserver in de hiërarchie moet System Center Configuration Manager versie 1511 voordat u de installatie van update 1602 kunt gaan uitvoeren.  
+ **Vérifiez que tous les sites exécutent une version prise en charge de System Center Configuration Manager** : chaque serveur de site dans la hiérarchie doit exécuter System Center Configuration Manager version 1511 avant le démarrage de l’installation de la mise à jour 1602.  
 
- **Microsoft .NET-versies revisie geïnstalleerd op sitesysteemservers:** Wanneer een site update 1602 installeert, installeert Configuration Manager automatisch .NET Framework 4.5.2 op elke computer die als host fungeert voor een van de volgende sitesysteemrollen (als .NET Framework 4.5 of hoger nog niet is geïnstalleerd):  
+ **Examinez les versions installées de Microsoft .NET sur les serveurs de système de site** : quand un site installe la mise à jour 1602, Configuration Manager installe automatiquement le .NET Framework 4.5.2 sur chaque ordinateur hébergeant un des rôles de système de site suivants (si le .NET Framework 4.5 ou ultérieur n’est pas déjà installé) :  
 
--   Proxypunt voor inschrijving  
+-   Point proxy d'inscription  
 
--   Inschrijvingspunt  
+-   Point d'inscription  
 
--   Beheerpunt  
+-   Point de gestion  
 
--   Serviceverbindingspunt  
+-   Point de connexion de service  
 
-Deze installatie kunt u de sitesysteemserver in een opnieuw opstarten in behandeling zijnde status en fouten rapporteren bij Configuration Manager component statusviewer plaatsen. Bovendien kunnen .NET-toepassingen op de server willekeurige fouten optreden, totdat de server opnieuw is gestart.  
+Cette installation peut mettre le serveur de système de site en état d’attente de redémarrage, et signaler des erreurs sur l’Afficheur des messages d’état du composant Configuration Manager. En outre, des applications .NET sur le serveur peuvent présenter des défaillances aléatoires jusqu’au redémarrage du serveur.  
 
- Zie voor meer informatie [Site and site system prerequisites](../../../core/plan-design/configs/site-and-site-system-prerequisites.md) (Vereisten voor sites en sitesystemen).  
+ Pour plus d’informations, consultez [Prérequis des sites et systèmes de site](../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
 
- **Bekijk de site en hiërarchiestatus en controleer of er geen onopgeloste problemen zijn:** Voordat u een site bijwerkt, moet u alle operationele problemen voor de siteserver, de Sitedatabaseserver en de sitesysteemrollen die zijn geïnstalleerd op externe computers oplossen. De update van een site kan mislukken door bestaande operationele problemen.  
+ **Examinez l’état du site et de la hiérarchie, et vérifiez l’absence de tout problème non résolu :** avant de mettre à jour un site, résolvez tous les problèmes opérationnels pour le serveur de site, le serveur de bases de données du site et les rôles de système de site installés sur des ordinateurs distants. Une mise à niveau de site peut échouer en raison de l’existence de problèmes opérationnels.  
 
-Zie [Waarschuwingen en het statussysteem voor System Center Configuration Manager gebruiken](../../../core/servers/manage/use-alerts-and-the-status-system.md) voor meer informatie.  
+Pour plus d'informations, voir [Utiliser des alertes et le système d’état pour System Center Configuration Manager](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
 
- **Bestands- en databasereplicatie tussen sites controleren:**  Zorg ervoor dat bestand en databasereplicatie tussen sites operationeel en actueel is. Vertragingen of achterstanden in een kunnen voorkomen dat een smooth, geslaagde update.    
+ **Examinez la réplication des fichiers et données entre sites :**  vérifiez que la réplication des fichiers et bases de données entre les sites est opérationnelle et active. Des retards ou backlogs dans ces domaines peuvent perturber ou empêcher la mise à jour.    
 
-Voor databasereplicatie kunt u Replication Link Analyzer gebruiken om u te helpen bij het oplossen van problemen voordat u de update start.    
+Pour la réplication de la base de données, vous pouvez utiliser l’Analyseur de lien de réplication pour faciliter la résolution des problèmes avant de commencer la mise à jour.    
 
- Zie voor meer informatie [over de Replication Link Analyzer](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_RLA) in de [hiërarchie- en replicatie-infrastructuur bewaken in System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md) onderwerp.  
+ Pour plus d’informations, consultez [À propos de l’analyseur de lien de réplication](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_RLA) dans la rubrique [Surveiller l’infrastructure de la hiérarchie et de la réplication dans System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md).  
 
- **Installeer alle toepasselijke kritieke updates voor besturingssystemen op computers die als host fungeren voor de site, de Sitedatabaseserver en externe sitesysteemrollen:** Voordat u een update voor Configuration Manager installeert, installeert u alle kritieke updates voor elk toepasselijk sitesysteem. Als een update die u installeert, vereist dat de computer opnieuw wordt opgestart, start de desbetreffende computers dan opnieuw op voordat u de upgrade start.  
+ **Installez toutes les mises à jour critiques applicables pour les systèmes d’exploitation sur les ordinateurs hébergeant le site, le serveur de base de données du site et les rôles de système de site distants :** avant d’installer une mise à jour pour Configuration Manager, installez toutes les mises à jour critiques pour chaque système de site concerné. Si vous installez une mise à jour qui nécessite un redémarrage, redémarrez les ordinateurs concernés avant d'entreprendre la mise à jour.  
 
- **Databasereplica's voor beheerpunten op primaire sites uitschakelen:** Configuration Manager kan niet met succes bijwerken voor een primaire site die een databasereplica voor beheerpunten ingeschakeld heeft. Schakel databasereplicatie uit voordat u:  
+ **Désactivez les réplicas de base de données pour les points de gestion sur les sites principaux :** Configuration Manager ne peut pas mettre à jour correctement un site principal ayant un réplica de base de données activé pour des points de gestion. Désactivez la réplication de base de données avant de :  
 
--   Maak een back-up van de sitedatabase om de database-upgrade te testen.  
+-   Créer une sauvegarde de la base de données pour tester la mise à niveau de base de données.  
 
--   Een update voor Configuration Manager installeert.  
+-   Installer une mise à jour pour Configuration Manager.  
 
-Zie voor meer informatie [Databasereplica's voor beheerpunten voor System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
+Pour plus d’informations, consultez [Réplicas de base de données pour les points de gestion de System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
 
- **Software-updatepunten met NLB's opnieuw configureren:** Configuration Manager kan een site die gebruikmaakt van een Network Load Balancing (NLB) cluster host software-updatepunten niet bijwerken.  Als u NLB-clusters voor software-updatepunten gebruikt, moet u Windows PowerShell gebruiken om te verwijderen van het NLB-cluster.    
+ **Reconfigurez les points de mise à jour logicielle qui utilisent des équilibrages de la charge réseau :** Configuration Manager ne peut pas mettre à jour un site utilisant un cluster d’équilibrage de la charge réseau (NLB) pour héberger des points de mise à jour logicielle.  Si vous utilisez des clusters NLB pour les points de mise à jour logicielle, utilisez Windows PowerShell pour supprimer le cluster NLB.    
 
- Zie [Software-updates plannen in System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md) voor meer informatie.  
+ Pour plus d’informations, consultez [Planifier les mises à jour logicielles dans System Center Configuration Manager](../../../sum/plan-design/plan-for-software-updates.md).  
 
- **Alle siteonderhoudstaken op elke site uitschakelen voor de duur van de installatie van de update op die site:** Voordat u updates installeert, schakel alle siteonderhoudstaken die mogelijk worden uitgevoerd tijdens de tijd die het updateproces actief is. Deze taken bevatten (maar niet beperkt) in het volgende:  
+ **Désactivez toutes les tâches de maintenance de site sur chaque site pendant la durée de l’installation de la mise à jour sur celui-ci** : avant d’installer des mises à jour, désactivez toute tâche de maintenance de site susceptible de s’exécuter pendant que le processus de mise à jour est actif. Parmi ces tâches, citons les suivantes :  
 
--   Back-upserver van site  
+-   Serveur de site de sauvegarde  
 
--   Verouderde clientbewerkingen verwijderen  
+-   Supprimer les anciennes opérations du client  
 
--   Verouderde detectiegegevens verwijderen  
+-   Supprimer les données de découverte anciennes  
 
-Wanneer een onderhoudstaak van de sitedatabase wordt uitgevoerd tijdens de installatie van updates, kan de installatie van de update mislukken. Voordat u een taak uitschakelt, registreert u het schema van de taak zodat u de configuratie ervan kunt herstellen nadat de update is geïnstalleerd.  
+Si une tâche de maintenance de base de données du site s’exécute pendant l’installation de la mise à jour, celle-ci peut échouer. Avant de désactiver une tâche, enregistrez sa planification afin de pouvoir restaurer sa configuration une fois la mise à jour installée.  
 
- Zie voor meer informatie [onderhoudstaken voor System Center Configuration Manager](../../../core/servers/manage/maintenance-tasks.md) en [verwijzing voor het onderhoud van taken voor System Center Configuration Manager](../../../core/servers/manage/reference-for-maintenance-tasks.md).  
+ Pour plus d’informations, consultez [Tâches de maintenance pour System Center Configuration Manager](../../../core/servers/manage/maintenance-tasks.md) et [Référence des tâches de maintenance pour System Center Configuration Manager](../../../core/servers/manage/reference-for-maintenance-tasks.md).  
 
- **Maak een back-up van de sitedatabase op de centrale beheersite en primaire sites:** Voordat u een site bijwerkt, back-up van de sitedatabase om ervoor te zorgen dat er een goede back-up voor herstel na noodgevallen.   
+ **Créez une sauvegarde de la base de données du site d’administration centrale et des sites principaux** : avant de mettre à jour un site, sauvegardez sa base de données pour être certain de disposer d’une sauvegarde correcte utilisable en cas de récupération d’urgence.   
 
-Zie voor meer informatie [back-up en herstel voor System Center Configuration Manager](../../../protect/understand/backup-and-recovery.md).  
+Pour plus d’informations, consultez [Sauvegarde et récupération pour System Center Configuration Manager](../../../protect/understand/backup-and-recovery.md).  
 
- **Back-up van een aangepast bestand Configuration.mof:** Als u een aangepast bestand Configuration.mof gebruikt voor het definiëren van gegevensklassen die u met hardware-inventaris gebruikt, maakt u een back-up van dit bestand voordat u de site bijwerkt. Nadat de update, dit bestand te herstellen naar de site van uw versie 1602. Wanneer u een site bijwerkt, wordt het huidige bestand overschreven met de oorspronkelijke (standaard) versie van het bestand. Zie voor meer informatie over het gebruik van dit bestand [hardware-inventarisatie in System Center Configuration Manager uitbreiden](../../../core/clients/manage/inventory/extend-hardware-inventory.md).  
+ **Sauvegardez un fichier Configuration.mof personnalisé** : si vous utilisez un fichier Configuration.mof personnalisé pour définir les classes de données que vous utilisez avec l’inventaire matériel, créez une sauvegarde de ce fichier avant de mettre à jour le site. Après la mise à jour, restaurez ce fichier sur votre site version 1602. Durant la mise à jour d’un site, le fichier actuel est remplacé par sa version d’origine (par défaut). Pour plus d’informations sur l’utilisation de ce fichier, consultez [Guide pratique pour étendre l’inventaire matériel dans System Center Configuration Manager](../../../core/clients/manage/inventory/extend-hardware-inventory.md).  
 
- **Test de upgrade van de database op een kopie van de recentste site-databasebackup:** Voordat u een System Center Configuration Manager-centrale beheersite of primaire site bijwerkt, test u de site-database-upgradeproces op een kopie van de sitedatabase.  
+ **Testez la mise à niveau de la base de données sur une copie de la dernière sauvegarde de la base de données du site :** avant de mettre à jour un site d’administration centrale ou un site principal System Center Configuration Manager, testez le processus de mise à niveau de la base de données du site sur une copie de celle-ci.  
 
--   Omdat wanneer u een site bijwerkt, de sitedatabase kan worden gewijzigd, moet u het upgradeproces sitedatabase testen.  
+-   Vous devez tester le processus de mise à niveau de base de données de site, car la base de données peut être modifiée quand vous mettez à niveau un site.  
 
--   Hoewel een testdatabase-upgrade niet vereist is, kan dit problemen voor de upgrade identificeren voordat deze de productiedatabase beïnvloeden.  
+-   Bien que le test de mise à niveau ne soit pas obligatoire, il peut identifier des problèmes liés à la mise à niveau avant que votre base de données de production ne soit affectée.  
 
--   Een mislukte upgrade van de sitedatabase kan leiden tot een onbruikbare sitedatabase, waardoor u mogelijk een site recovery moet uitvoeren om de functionaliteit te herstellen.  
+-   Un échec de mise à niveau de base de données de site peut rendre votre base de données de site inutilisable, et une récupération de site peut s'avérer nécessaire pour rétablir les fonctionnalités.  
 
--   Hoewel de sitedatabase wordt gedeeld tussen sites in een hiërarchie, plan een test van de database op elke toepasselijke site vóór de upgrade van die site.  
+-   Bien que la base de données de site soit partagée entre sites d'une même hiérarchie, prévoyez de tester la base de données sur chacun des sites concernés avant de procéder à leur mise à niveau.  
 
--   Als u Databasereplica's voor beheerpunten op een primaire site gebruikt, schakel u replicatie uit voordat u de back-up van de sitedatabase maakt.  
+-   Si vous utilisez des réplicas de base de données pour les points de gestion d'un site principal, désactivez la réplication avant de créer la sauvegarde de la base de données de site.  
 
-Configuration Manager biedt geen ondersteuning voor de back-up van secundaire sites en ook ondersteuning voor de testupgrade van een secundaire sitedatabase.   
-Voer een testdatabase-upgrade niet op de productie-sitedatabase. Dit leidt tot een update van de sitedatabase en kan tot gevolg hebben dat uw site onbruikbaar wordt. Zie voor meer informatie [stap 2: De upgrade database testen voordat u een update installeert](/sccm/core/servers/manage/install-in-console-updates#bkmk_step2) van **voordat u een update in de console installeert**.  
+Configuration Manager ne prend en charge ni la sauvegarde des sites secondaires ni la mise à niveau de test d’une base de données de site secondaire.   
+N’exécutez pas une mise à niveau de base de données sur la base de données du site de production. Cette opération met à jour la base de données du site et pourrait rendre celui-ci inutilisable. Pour plus d’informations, consultez la section [Étape 2 : tester la mise à niveau de base de données avant d’installer une mise à jour](/sccm/core/servers/manage/install-in-console-updates#bkmk_step2) dans la rubrique **Avant d’installer une mise à jour dans la console**.  
 
- **Clientproef plannen:** Wanneer u een update die de client wordt bijgewerkt installeert, kunt u die nieuwe clientupdate testen in een testomgeving voordat deze worden geïmplementeerd en alle actieve clients worden bijgewerkt.   
+ **Planifiez un test du client** : quand vous installez une mise à jour qui affecte le client, vous pouvez la tester en mode préproduction avant de procéder au déploiement et à la mise à niveau de tous vos clients actifs.   
 
- Als u wilt profiteren van deze optie, moet u uw site ter ondersteuning van automatische upgrades voor preproductie voordat u de installatie van de update configureren. Zie voor meer informatie [Upgrade clients in System Center Configuration Manager](../../../core/clients/manage/upgrade/upgrade-clients.md) (Clients bijwerken in System Center Configuration Manager) en   
-[Clientupgrades testen in pre-productieverzameling in System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).  
+ Pour tirer parti de cette option, vous devez configurer votre site pour qu’il prenne en charge les mises à niveau automatiques pour la préproduction avant de commencer l’installation de la mise à jour. Pour plus d’informations, consultez [Mettre à niveau les clients dans System Center Configuration Manager](../../../core/clients/manage/upgrade/upgrade-clients.md) et   
+[Guide pratique pour tester les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager](../../../core/clients/manage/upgrade/test-client-upgrades.md).  
 
- **Plan voor het gebruik van onderhoudsvensters om te bepalen wanneer siteservers updates installeren:** U kunt de onderhoudsvensters gebruiken voor het definiëren van een bepaalde periode gedurende welke updates naar de siteserver kunnen worden geïnstalleerd. Hiermee kunt u bepalen wanneer de sites in uw hiërarchie de update installeren.   
+ **Planifiez l’utilisation de fenêtres de maintenance pour contrôler le moment où les serveurs de site installent les mises à jour** : vous pouvez utiliser les fenêtres de maintenance pour définir une période au cours de laquelle des mises à jour peuvent être installées sur le serveur de site. Cela peut vous aider à contrôler le moment où les sites au sein de votre hiérarchie installent la mise à jour.   
 
-Vanaf de release van update 1602 kunt onderhoudsvensters zijn gewijzigd *windows service*. Zie voor meer informatie [servicewindows voor siteservers Service](/sccm/core/servers/manage/service-windows).  
+Depuis la publication de la mise à jour 1602, les fenêtres de maintenance sont nommées *fenêtres de service*. Pour plus d’informations, consultez [Fenêtres de maintenance pour les serveurs de site](/sccm/core/servers/manage/service-windows).  
 
- **Setup prerequisite checker uitvoeren:**  Voordat u update 1602 installeert, kunt u de prerequisite checker onafhankelijk van de update-installatie uitvoeren. Wanneer u de update op de site installeert, wordt prerequisite checker opnieuw uitgevoerd.  
+ **Exécutez l’outil de vérification des prérequis à l’installation** : avant d’installer la mise à jour 1602, vous pouvez exécuter l’outil de vérification des prérequis indépendamment de l’installation de la mise à jour. Quand vous installez la mise à jour sur le site, l’outil de vérification des prérequis s’exécute à nouveau.  
 
-Zie voor meer informatie **stap 3: De prerequisite checker uitvoeren voordat u een update installeert** in de [Updates voor System Center Configuration Manager](../../../core/servers/manage/updates.md) onderwerp.  
+Pour plus d’informations, consultez **Étape 3 : exécuter l’Outil de vérification des conditions préalables avant d’installer une mise à jour** dans la rubrique [Mises à jour pour System Center Configuration Manager](../../../core/servers/manage/updates.md).  
 
 > [!IMPORTANT]  
->  Wanneer de prerequisite checker wordt uitgevoerd als onderdeel van de installatie van een update of onafhankelijk, werkt het proces enkele bronbestanden product die worden gebruikt voor siteonderhoudstaken. Daarom dat na het uitvoeren van de prerequisite checker maar voordat de update 1602 installeren als u wilt uitvoeren van een siteonderhoudstaak uitvoeren **Setupwfe.exe** (het installatieprogramma van Configuration Manager) vanaf de CD. Meest recente map op de siteserver.  
+>  Quand l’outil de vérification des prérequis s’exécute indépendamment ou dans le cadre de l’installation d’une mise à jour, le processus met à jour certains fichiers sources du produit qui sont utilisés pour les tâches de maintenance de site. Par conséquent, après l’exécution de l’outil de vérification des prérequis, mais avant l’installation de la mise à jour 1602, si vous devez effectuer une tâche de maintenance de site, exécutez **Setupwfe.exe** (programme d’installation de Configuration Manager) à partir du dossier CD.Latest sur le serveur du site.  
 
- **Sites bijwerken:** U bent nu klaar om de installatie van de update voor uw hiërarchie. Het is raadzaam dat u installeren, de update buiten kantooruren voor elke site wilt wanneer het installatieproces van de update en de bijbehorende acties voor het installeren van de Siteonderdelen en sitesysteemrollen minimale invloed heeft op uw zakelijke activiteiten.
+ **Mettez à jour les sites :** vous êtes maintenant prêt à commencer l’installation de la mise à jour pour votre hiérarchie. Nous vous recommandons de planifier l’installation de la mise à jour en dehors des heures de bureau normales pour chaque site, quand le processus d’installation de la mise à jour et ses actions pour réinstaller les composants du site et les rôles de système de site auront le moins d’effet sur les opérations de votre entreprise.
 
-Zie [Updates voor System Center Configuration Manager](../../../core/servers/manage/updates.md) voor meer informatie.  
+Pour plus d’informations, consultez [Mises à jour pour System Center Configuration Manager](../../../core/servers/manage/updates.md).  
 
-## <a name="see-also"></a>Zie tevens  
- [Updates voor System Center Configuration Manager](../../../core/servers/manage/updates.md)
+## <a name="see-also"></a>Voir aussi  
+ [Mises à jour pour System Center Configuration Manager](../../../core/servers/manage/updates.md)

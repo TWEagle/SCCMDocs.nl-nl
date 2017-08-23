@@ -1,6 +1,6 @@
 ---
-title: Vereisten voor de infrastructuur voor besturingssysteemimplementatie | Microsoft Docs
-description: Zorg ervoor dat u externe afhankelijkheden en afhankelijkheden product weten voordat u System Center 2012 Configuration Manager voor de implementatie van besturingssystemen gebruiken.
+title: "Configuration requise de l’infrastructure pour le déploiement de système d’exploitation | Microsoft Docs"
+description: "Prenez connaissance de toutes les dépendances externes et internes au produit avant d’utiliser System Center 2012 Configuration Manager pour le déploiement de système d’exploitation."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,228 +16,228 @@ ms.author: mabrigg
 manager: angrobe
 ms.openlocfilehash: 167e639cdb9995fd743787cc9fbf364ec70f6ed9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="infrastructure-requirements-for-operating-system-deployment-in-system-center-configuration-manager"></a>Vereisten voor de infrastructuur voor besturingssysteemimplementatie in System Center Configuration Manager
+# <a name="infrastructure-requirements-for-operating-system-deployment-in-system-center-configuration-manager"></a>Configuration requise de l’infrastructure pour le déploiement de système d’exploitation dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Besturingssysteemimplementatie in System Center 2012 Configuration Manager heeft externe afhankelijkheden en afhankelijkheden binnen het product. Gebruik de volgende secties als leidraad bij het voorbereiden van de besturingssysteemimplementatie.  
+Le déploiement de système d’exploitation dans System Center 2012 Configuration Manager présente des dépendances externes et internes au produit. Utilisez les sections suivantes pour vous aider à préparer le déploiement de système d’exploitation.  
 
-##  <a name="BKMK_ExternalDependencies"></a> Afhankelijkheden extern aan Configuration Manager  
- Hieronder vindt u informatie over externe hulpprogramma's, installatie-kits en besturingssystemen die vereist zijn voor het implementeren van besturingssystemen in Configuration Manager.  
+##  <a name="BKMK_ExternalDependencies"></a> Dépendances externes à Configuration Manager  
+ Vous trouverez ci-dessous des informations sur les outils externes, les kits d’installation et les systèmes d’exploitation nécessaires au déploiement des systèmes d’exploitation dans Configuration Manager.  
 
-### <a name="windows-adk-for-windows-10"></a>Windows ADK voor Windows 10  
- Windows ADK is een verzameling van hulpprogramma's die de configuratie en implementatie ondersteunen van Windows besturingssystemen. Configuration Manager gebruikt Windows ADK voor Windows-installaties te automatiseren, Windows installatiekopieën vast te leggen, gebruikersprofielen en gegevens te migreren, enzovoort.  
+### <a name="windows-adk-for-windows-10"></a>Windows ADK pour Windows 10  
+ Windows ADK regroupe des outils et des documents permettant de configurer et de déployer des systèmes d'exploitation Windows. Configuration Manager utilise Windows ADK pour automatiser les installations de Windows, capturer des images Windows, migrer des données et profils utilisateur, et effectuer diverses autres opérations.  
 
- De volgende functies van Windows ADK moeten geïnstalleerd server op locatie van het hoogste niveau van de hiärarchie, op de siteserver van elke primaire site in de hiërarchie en op de SMS Provider sitesysteemserver:  
+ Les composants suivants de Windows ADK doivent être installés sur le serveur de site du site de niveau supérieur de la hiérarchie, sur le serveur de site de chaque site principal de la hiérarchie et sur le serveur de système de site du fournisseur SMS :  
 
--   Hulpprogramma voor migratie van gebruikersstatus (USMT) <sup>1</sup>  
+-   Outil de migration de l'état utilisateur (USMT) <sup>1</sup>  
 
--   Windows-hulpprogramma's  
+-   Outils de déploiement Windows  
 
--   Windows Voorinstallatieomgeving (Windows PE)
+-   Environnement de préinstallation Windows (Windows PE)
 
-Zie voor een lijst van de versies van Windows 10 ADK die u met verschillende versies van Configuration Manager gebruiken kunt [ondersteuning voor Windows 10 als een client](https://docs.microsoft.com/en-us/sccm/core/plan-design/configs/support-for-windows-10#windows-10-adk).
+Pour obtenir la liste des versions du Windows 10 ADK que vous pouvez utiliser avec différentes versions de Configuration Manager, consultez [Prise en charge de Windows 10 comme client](https://docs.microsoft.com/en-us/sccm/core/plan-design/configs/support-for-windows-10#windows-10-adk).
 
- <sup>1</sup> USMT is niet vereist op de SMS Provider sitesysteemserver.  
+ <sup>1</sup> USMT n'est pas requis sur le serveur de système de site du fournisseur SMS.  
 
 > [!NOTE]  
->  U moet handmatig de Windows ADK installeren op elke computer die een centrale beheersite of primaire site hosten zal voordat u de Configuration Manager-site installeert.  
+>  Avant d’installer le site Configuration Manager, vous devez installer manuellement Windows ADK sur tous les ordinateurs qui hébergeront un serveur de site d’administration centrale ou un serveur de site principal.  
 
- Zie voor meer informatie:  
+ Pour plus d'informations, voir :  
 
--   [Windows ADK voor Windows 10-scenario's voor IT-professionals](https://technet.microsoft.com/library/mt280162\(v=vs.85\).aspx)  
+-   [Windows ADK pour les scénarios Windows 10 pour les informaticiens](https://technet.microsoft.com/library/mt280162\(v=vs.85\).aspx)  
 
--   [Download Windows ADK voor Windows 10](https://msdn.microsoft.com/windows/hardware/dn913721.aspx#adkwin10)  
+-   [Télécharger le kit Windows ADK pour Windows 10](https://msdn.microsoft.com/windows/hardware/dn913721.aspx#adkwin10)  
 
--   [Ondersteuning voor Windows 10](/sccm/core/plan-design/configs/support-for-windows-10)  
+-   [Prise en charge pour Windows 10](/sccm/core/plan-design/configs/support-for-windows-10)  
 
 
-### <a name="user-state-migration-tool-usmt"></a>Hulpprogramma voor migratie van gebruikersstatus (USMT)  
- Configuration Manager gebruikt een USMT-pakket dat de USMT 10-bronbestanden voor het vastleggen en herstellen van status van de gebruiker als onderdeel van uw implementatie van besturingssystemen bevat. Setup van Configuration Manager op het hoogste niveau maakt automatisch het USMT-pakket. Met USMT 10 kunt u de gebruikersstatus registreren in Windows 7, Windows 8, Windows 8.1 en Windows 10. USMT 10 wordt gedistribueerd in Windows Assessment and Deployment Kit (Windows ADK) voor Windows 10.  
+### <a name="user-state-migration-tool-usmt"></a>Outil de migration de l'état utilisateur (USMT)  
+ Configuration Manager utilise un package USMT qui contient les fichiers sources USMT 10 pour capturer et restaurer l’état utilisateur dans le cadre du déploiement de votre système d’exploitation. Quand le programme d’installation de Configuration Manager est exécuté sur le site de niveau supérieur, il crée automatiquement le package USMT. USMT 10 peut capturer l’état utilisateur auprès de Windows 7, Windows 8, Windows 8.1 et Windows 10. USMT 10 est distribué dans le Kit de déploiement et d’évaluation Windows (Windows ADK) pour Windows 10.  
 
- Zie voor meer informatie:  
+ Pour plus d'informations, voir :  
 
--   [Algemene migratiescenario's voor USMT 10](https://technet.microsoft.com/library/mt299169\(v=vs.85\).aspx)  
+-   [Scénarios de migration courants pour USMT 10](https://technet.microsoft.com/library/mt299169\(v=vs.85\).aspx)  
 
--   [De gebruikersstatus beheren](../get-started/manage-user-state.md)  
+-   [Gérer l’état utilisateur](../get-started/manage-user-state.md)  
 
 ### <a name="windows-pe"></a>Windows PE  
- Windows PE wordt gebruikt om een computer met een installatiekopie op te starten. Dit is een Windows-besturingssysteem met beperkte diensten dat wordt gebruikt tijdens voorinstallatie en implementatie van Windows-besturingssystemen. Hieronder vindt u de versie van Configuration Manager en de ondersteunde versie van Windows ADK, de Windows PE-versie die op waarop de opstartinstallatiekopie is gebaseerd die kan worden aangepast via de Configuration Manager-console en de Windows PE-versies waarop de opstartinstallatiekopie is gebaseerd die u kunt aanpassen met behulp van DISM en vervolgens de installatiekopie aan de opgegeven versie van Configuration Manager toevoegen.  
+ Windows PE est utilisé pour les images de démarrage pour démarrer un ordinateur. C’est un système d’exploitation Windows offrant des services limités, qui est utilisé au cours de la pré-installation et du déploiement de systèmes d’exploitation Windows. Vous trouverez ci-dessous des informations sur la version de Configuration Manager, la version prise en charge de Windows ADK, la version de Windows PE sur laquelle l’image de démarrage est basée et qui peut être personnalisée à partir de la console Configuration Manager, ainsi que les versions de Windows PE sur lesquelles l’image de démarrage est basée et que vous pouvez personnaliser à l’aide de DISM avant d’ajouter l’image à la version spécifiée de Configuration Manager.  
 
-#### <a name="configuration-manager-version-1511"></a>Configuration Manager versie 1511  
- Hieronder vindt u de ondersteunde versie van Windows ADK, de Windows PE-versie die op waarop de opstartinstallatiekopie is gebaseerd die kan worden aangepast via de Configuration Manager-console en de Windows PE-versies waarop de opstartinstallatiekopie is gebaseerd, u kunt aanpassen met behulp van DISM en vervolgens de installatiekopie toevoegen aan Configuration Manager.  
+#### <a name="configuration-manager-version-1511"></a>Configuration Manager version 1511  
+ Vous trouverez ci-dessous des informations sur la version prise en charge de Windows ADK, la version de Windows PE sur laquelle l’image de démarrage est basée et qui peut être personnalisée à partir de la console Configuration Manager, ainsi que les versions de Windows PE sur lesquelles l’image de démarrage est basée et que vous pouvez personnaliser à l’aide de DISM avant d’ajouter l’image à Configuration Manager.  
 
--   **Windows ADK-versie**  
+-   **Version de Windows ADK**  
 
-     Windows ADK voor Windows 10  
+     Windows ADK pour Windows 10  
 
--   **Windows PE-versies voor installatiekopieën die aanpasbaar zijn via de Configuration Manager-console**  
+-   **Versions de Windows PE pour les images de démarrage personnalisables à partir de la console Configuration Manager**  
 
      Windows PE 10  
 
--   **Ondersteunde Windows PE-versies voor installatiekopieën die niet aanpasbaar zijn via de Configuration Manager-console**  
+-   **Versions prises en charge de Windows PE pour les images de démarrage non personnalisables à partir de la console Configuration Manager**  
 
-     Windows PE 3.1<sup>1</sup> en Windows PE 5  
+     Windows PE 3.1<sup>1</sup> et Windows PE 5  
 
-     <sup>1</sup> u kunt alleen een opstartinstallatiekopie toevoegen aan Configuration Manager wanneer deze is gebaseerd op Windows PE 3.1. Installeer Windows AIK Supplement voor Windows 7 SP1 om een upgrade van Windows AIK voor Windows 7 (gebaseerd op Windows PE 3) naar Windows AIK Supplement voor Windows 7 SP1 (gebaseerd op Windows PE 3.1) uit te voeren. U kunt Windows AIK Supplement voor Windows 7 SP1 downloaden via het [Microsoft Downloadcentrum](http://www.microsoft.com/download/details.aspx?id=5188).  
+     <sup>1</sup> Vous pouvez ajouter une image de démarrage à Configuration Manager uniquement si elle est basée sur Windows PE 3.1. Installez le supplément Windows AIK pour Windows 7 SP1 pour mettre à niveau Windows AIK pour Windows 7 (basé sur Windows PE 3) avec le supplément Windows AIK pour Windows 7 SP1 (basé sur Windows PE 3.1). Vous pouvez télécharger le supplément Windows AIK pour Windows 7 SP1 depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
 
-     Bijvoorbeeld, wanneer u Configuration Manager hebt, kunt u opstartinstallatiekopieën uit Windows ADK voor Windows 10 (gebaseerd op Windows PE 10) aanpassen via de Configuration Manager-console. Hoewel installatiekopieën die zijn gebaseerd op Windows PE 5 wel worden wel ondersteund, moet u ze aanpassen op een andere computer en moet u die versie van DISM gebruiken die is geïnstalleerd met Windows ADK voor Windows 8. Vervolgens kunt u de installatiekopie toevoegen aan de Configuration Manager-console. Voor meer informatie over de stappen voor het aanpassen van een installatiekopie (toevoegen van optionele componenten en stuurprogramma's), inschakelen van opdrachtondersteuning aan de opstartinstallatiekopie, de installatiekopie toevoegen aan de Configuration Manager-console en distributiepunten bijwerken met de installatiekopie, Zie [opstartinstallatiekopieën aanpassen](../get-started/customize-boot-images.md). Zie [Opstartinstallatiekopieën beheren met System Center Configuration Manager](../get-started/manage-boot-images.md) voor meer informatie over opstartinstallatiekopieën.  
+     Par exemple, si vous utilisez Configuration Manager, vous pouvez personnaliser les images de démarrage de Windows ADK pour Windows 10 (basées sur Windows PE 10) depuis la console Configuration Manager. Toutefois, si les images de démarrage basées sur Windows PE 5 sont prises en charge, vous devez les personnaliser depuis un autre ordinateur et utiliser la version de DISM installée avec Windows ADK pour Windows 8. Ensuite, vous pouvez ajouter l’image de démarrage à la console Configuration Manager. Pour plus d’informations sur la procédure à suivre pour personnaliser une image de démarrage (ajouter des composants et pilotes facultatifs), activer la prise en charge des commandes pour l’image de démarrage, ajouter l’image de démarrage à la console Configuration Manager et mettre à jour les points de distribution avec l’image de démarrage, consultez [Personnaliser les images de démarrage](../get-started/customize-boot-images.md). Pour plus d’informations sur les images de démarrage, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
 
 ### <a name="windows-server-update-services-wsus"></a>Windows Server Update Services (WSUS)  
-U moet de volgende WSUS 4.0-hotfixes installeren:
-  - [Hotfix 3095113](https://support.microsoft.com/kb/3095113) is nodig voor onderhoud van Windows 10 waarbij de infrastructuur voor software-updates wordt gebruikt voor het ophalen van upgrades voor Windows 10-onderdelen. Wanneer u WSUS 3.2 hebt, moet u takenreeksen gebruiken om bij te werken naar Windows 10. Zie voor meer informatie [Windows beheren als een service](../deploy-use/manage-windows-as-a-service.md).  
-  - [Hotfix 3159706](https://support.microsoft.com/kb/3159706) is nodig om Windows 10-onderhoudsdashboard om een upgrade van computers voor de Update voor Windows 10 verjaardag, evenals voor subsequence versies te gebruiken. Er zijn handmatige stappen wordt beschreven in het ondersteuningsartikel die u uitvoeren moet om deze hotfix te installeren. Zie voor meer informatie [Windows beheren als een service](../deploy-use/manage-windows-as-a-service.md).
+Vous devez installer les correctifs logiciels WSUS 4.0 suivants :
+  - [Hotfix 3095113](https://support.microsoft.com/kb/3095113) est nécessaire pour la maintenance de Windows 10, qui utilise l’infrastructure des mises à jour logicielles pour obtenir les mises à niveau des fonctionnalités de Windows 10. Si vous avez WSUS 3.2, vous devez utiliser des séquences de tâches pour mettre à niveau Windows 10. Pour plus d’informations, consultez [Gérer WaaS (Windows as a Service)](../deploy-use/manage-windows-as-a-service.md).  
+  - Le [correctif logiciel 3159706](https://support.microsoft.com/kb/3159706) est nécessaire si vous souhaitez utiliser la fonctionnalité de maintenance de Windows 10 pour mettre à niveau des ordinateurs avec la mise à jour anniversaire Windows 10 ou une version ultérieure. Pour installer ce correctif logiciel, vous devez effectuer manuellement certaines étapes, comme décrit dans l’article du support technique. Pour plus d’informations, consultez [Gérer WaaS (Windows as a Service)](../deploy-use/manage-windows-as-a-service.md).
 
 
-### <a name="internet-information-services-iis-on-the-site-system-servers"></a>IIS (Internet Information Services) op de sitesysteemservers  
- IIS is vereist voor het distributiepunt, het statusmigratiepunt en het beheerpunt. Zie voor meer informatie over deze vereiste [Site en site-systeemvereisten](../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
+### <a name="internet-information-services-iis-on-the-site-system-servers"></a>Internet Information Services (IIS) sur les serveurs de système de site  
+ IIS est requis pour le point de distribution, le point de migration d’état et le point de gestion. Pour plus d’informations sur cette spécification, consultez [Prérequis des sites et systèmes de site](../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
 
-### <a name="windows-deployment-services-wds"></a>Windows Deployment Services (WDS)  
- WDS is nodig voor PXE-implementaties wanneer u multicast gebruikt om de bandbreedte in uw implementaties te optimaliseren en voor de offline-installatie van afbeeldingen. Als de provider is geïnstalleerd op een externe server, moet u WDS installeren op de siteserver en de externe provider. Zie [Windows Deployment Services](#BKMK_WDS) in dit onderwerp voor meer informatie.  
+### <a name="windows-deployment-services-wds"></a>Services de déploiement Windows (WDS)  
+ WDS est nécessaire pour les déploiements PXE, quand vous utilisez la multidiffusion pour optimiser la bande passante dans vos déploiements, et pour la maintenance hors connexion des images. Si le fournisseur est installé sur un serveur distant, vous devez installer WDS sur le serveur de site et le fournisseur distant. Pour plus d’informations, consultez [Services de déploiement Windows](#BKMK_WDS) dans cette rubrique.  
 
-### <a name="dynamic-host-configuration-protocol-dhcp"></a>Dynamic Host Configuration Protocol (DHCP)  
- DHCP is vereist voor PXE-implementaties. U moet een werkende DHCP-server hebben met een actieve host om besturingssystemen te implementeren door gebruik te maken van PXE. Zie voor meer informatie over PXE-implementaties [PXE gebruiken om Windows te implementeren via het netwerk](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
+### <a name="dynamic-host-configuration-protocol-dhcp"></a>DHCP (Dynamic Host Configuration Protocol)  
+ DHCP est obligatoire dans le cadre des déploiements PXE. Pour pouvoir déployer des systèmes d'exploitation à l'aide de PXE, vous devez disposer d'un serveur DHCP fonctionnant correctement et disposant d'un hôte actif. Pour plus d’informations sur les déploiements PXE, consultez [Utiliser PXE pour déployer Windows sur le réseau](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
-### <a name="supported-operating-systems-and-hard-disk-configurations"></a>Ondersteunde besturingssystemen en vaste-schijfconfiguraties  
- Zie voor meer informatie over de versies van besturingssystemen en vaste-schijfconfiguraties die door Configuration Manager worden ondersteund wanneer u besturingssystemen implementeert [besturingssystemen ondersteund](#BKMK_SupportedOS) en [ondersteunde schijfconfiguraties](#BKMK_SupportedDiskConfig).  
+### <a name="supported-operating-systems-and-hard-disk-configurations"></a>Systèmes d'exploitation et configurations de disque dur pris en charge  
+ Pour plus d’informations sur les versions des systèmes d’exploitation et les configurations de disque dur prises en charge par Configuration Manager quand vous déployez des systèmes d’exploitation, consultez [Systèmes d’exploitation pris en charge](#BKMK_SupportedOS) et [Configurations de disque dur prises en charge](#BKMK_SupportedDiskConfig).  
 
-### <a name="windows-device-drivers"></a>Windows-apparaatstuurprogramma 's  
- Windows apparaatstuurprogramma's kunnen gebruikt worden wanneer u het besturingssysteem installeert op de doelcomputer en wanneer u Windows PE uitvoert door een opstartinstallatiekopie te gebruiken. Zie voor meer informatie over apparaatstuurprogramma's [stuurprogramma's beheren](../get-started/manage-drivers.md).  
+### <a name="windows-device-drivers"></a>Pilotes de périphérique Windows  
+ Des pilotes de périphérique Windows peuvent être utilisés lorsque vous installez le système d'exploitation sur l'ordinateur de destination et lorsque vous exécutez Windows PE à partir d'une image de démarrage. Pour plus d’informations sur les pilotes de périphérique, consultez [Gérer les pilotes](../get-started/manage-drivers.md).  
 
-##  <a name="BKMK_InternalDependencies"></a> Configuration Manager-afhankelijkheden  
- Hieronder vindt u informatie over Configuration Manager-besturingssysteem vereisten voor implementatie.  
+##  <a name="BKMK_InternalDependencies"></a> Dépendances de Configuration Manager  
+ Vous trouverez ci-dessous des informations sur la configuration requise pour le déploiement de système d’exploitation dans Configuration Manager.  
 
-### <a name="operating-system-image"></a>Installatiekopie van besturingssysteem  
- Installatiekopieën van besturingssystemen in Configuration Manager worden opgeslagen met de WIM-bestandsindeling (Windows Imaging). Ze omvatten een gecomprimeerde verzameling referentiebestanden en -mappen die zijn vereist om een besturingssysteem correct te installeren en te configureren op een computer. Zie voor meer informatie [installatiekopieën van besturingssystemen beheren](../get-started/manage-operating-system-images.md).  
+### <a name="operating-system-image"></a>Image du système d'exploitation  
+ Les images de système d’exploitation dans Configuration Manager sont stockées au format de fichier WIM (Windows Imaging Format) et représentent un regroupement compressé de fichiers et de dossiers de référence nécessaires pour installer et configurer avec succès un système d’exploitation sur un ordinateur. Pour plus d’informations, consultez [Gérer les images de système d’exploitation](../get-started/manage-operating-system-images.md).  
 
-### <a name="driver-catalog"></a>Stuurprogrammacatalogus  
- Voor het implementeren van een stuurprogramma, moet u het apparaatstuurprogramma importeren, inschakelen en beschikbaar maken op een distributiepunt dat de Configuration Manager-client toegang kan hebben. Zie voor meer informatie over de stuurprogrammacatalogus [stuurprogramma's beheren](../get-started/manage-drivers.md).  
+### <a name="driver-catalog"></a>Catalogue de pilotes  
+ Pour déployer un pilote de périphérique, vous devez importer le pilote de périphérique, l’activer et le rendre disponible sur un point de distribution auquel le client Configuration Manager a accès. Pour plus d’informations sur le catalogue de pilotes, consultez [Gérer les pilotes](../get-started/manage-drivers.md).  
 
-### <a name="management-point"></a>Beheerpunt  
- Via beheerpunten wordt informatie overgedragen tussen clientcomputers en de Configuration Manager-site. De client gebruikt een beheerpunt om takenreeksen uit te voeren die vereist zijn om de implementatie van het besturingssysteem te vervolledigen.  
+### <a name="management-point"></a>Point de gestion  
+ Les points de gestion transfèrent des informations entre les ordinateurs clients et le site Configuration Manager. Le client utilise un point de gestion pour exécuter les séquences de tâches qui sont nécessaires pour terminer le déploiement de systèmes d'exploitation.  
 
- Zie voor meer informatie over takenreeksen [planningsoverwegingen voor het automatiseren van taken](planning-considerations-for-automating-tasks.md).  
+ Pour plus d’informations sur les séquences de tâches, consultez [Considérations relatives à la planification de l’automatisation des tâches](planning-considerations-for-automating-tasks.md).  
 
-### <a name="distribution-point"></a>Distributiepunt  
- Distributiepunten worden in de meeste implementaties gebruikt om de gegevens op te slaan die gebruikt worden om een besturingssysteem te implementeren, zoals de installatiekopie van een besturingssysteem of van stuurprogrammapakketten. Takenreeksen halen typisch gegevens van een distributiepunt om het besturingssysteem te implementeren.  
+### <a name="distribution-point"></a>Point de distribution  
+ Des points de distribution sont utilisés dans la plupart des déploiements pour stocker les données qui sont utilisées pour déployer un système d'exploitation, telles que les packages d'images du système d'exploitation ou de pilotes de périphérique. En général, les séquences de tâches récupèrent des données à partir d'un point de distribution pour déployer le système d'exploitation.  
 
- Zie voor meer informatie over het installeren van distributiepunten en beheren van inhoud [inhoud en infrastructuur beheren](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+ Pour plus d’informations sur l’installation de points de distribution et sur la gestion de contenu, consultez [Gérer le contenu et l’infrastructure de contenu](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
-### <a name="pxe-enabled-distribution-point"></a>Distributiepunt met PXE-functionaliteit  
- Om PXE-geïnitieerde implementaties te implementeren, moet u een distributiepunt configureren zodat het PXE-verzoeken van clients aanvaardt. Zie voor meer informatie over het configureren van het distributiepunt [een distributiepunt configureren](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#pxe).  
+### <a name="pxe-enabled-distribution-point"></a>Point de distribution PXE  
+ Pour déployer des déploiements initiés par PXE, vous devez configurer un point de distribution pour accepter les demandes PXE des clients. Pour plus d’informations sur la configuration du point de distribution, consultez [Configurer un point de distribution](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#pxe).  
 
-### <a name="multicast-enabled-distribution-point"></a>Multicast-distributiepunt  
- Om uw implementaties van besturingssystemen te optimaliseren door multicast te gebruiken, moet u een distributiepunt configureren zodat het multicast kan ondersteunen. Zie voor meer informatie over het configureren van het distributiepunt [een distributiepunt configureren](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#multicast).   
+### <a name="multicast-enabled-distribution-point"></a>Point de distribution multidiffusion  
+ Pour optimiser vos déploiements de système d'exploitation en utilisant la multidiffusion, vous devez configurer un point de distribution pour prendre en charge la multidiffusion. Pour plus d’informations sur la configuration du point de distribution, consultez [Configurer un point de distribution](/sccm/core/servers/deploy/configure/install-and-configure-distribution-points#multicast).   
 
-### <a name="state-migration-point"></a>Statusmigratiepunt  
- Wanneer u gegevens over de gebruikersstatus opneemt en herstelt voor gelijktijdige implementaties en voor het vernieuwen van implementaties, moet u een statusmigratiepunt configureren om gebruikersgegevens op te slaan op een andere computer.  
+### <a name="state-migration-point"></a>Point de migration d'état  
+ Lorsque vous capturez et restaurez des données d'état utilisateur pour les déploiements côte à côte et d'actualisation, vous devez configurer un point de migration d'état pour stocker les données d'état utilisateur sur un autre ordinateur.  
 
- Zie [Statusmigratiepunt](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints) voor meer informatie over hoe het configureren van een statusmigratiepunt.  
+ Pour plus d’informations sur la configuration du point de migration d’état, consultez [Point de migration d’état](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
 
- Zie voor meer informatie over het vastleggen en herstellen van gebruikersstatus [Gebruikersstatus beheren](../get-started/manage-user-state.md).  
+ Pour plus d’informations sur la capture et la restauration de l’état utilisateur, consultez [Gérer l’état utilisateur](../get-started/manage-user-state.md).  
 
-### <a name="service-connection-point"></a>Serviceverbindingspunt  
- Als u WaaS (Windows as a Service) gebruikt om Windows 10 Current Branch te implementeren, moet het serviceaansluitpunt zijn geïnstalleerd. Zie voor meer informatie [Windows beheren als een service](../deploy-use/manage-windows-as-a-service.md).  
+### <a name="service-connection-point"></a>point de connexion de service  
+ Quand vous utilisez Waas (Windows as a Service) pour déployer la CB (Current Branch) de Windows 10, vous devez disposer du point de connexion de service installé. Pour plus d’informations, consultez [Gérer WaaS (Windows as a Service)](../deploy-use/manage-windows-as-a-service.md).  
 
-### <a name="reporting-services-point"></a>Reporting Services-punt  
- Voor het gebruik van Configuration Manager-rapporten voor implementaties van besturingssystemen, moet u installeren en configureren van een reporting services-punt. Zie voor meer informatie [rapportage](../../core/servers/manage/reporting.md).  
+### <a name="reporting-services-point"></a>Point de Reporting Services  
+ Pour utiliser des rapports Configuration Manager pour les déploiements de système d’exploitation, vous devez installer et configurer un point de Reporting Services. Pour plus d’informations, consultez [Création de rapports](../../core/servers/manage/reporting.md).  
 
-### <a name="security-permissions-for-operating-system-deployments"></a>Machtigingen voor implementaties van besturingssystemen  
- De beveiligingsrol voor **Beheerder besturingssysteemimplementatie** is een ingebouwde rol die niet kan worden gewijzigd. U kunt evenwel de rol kopiëren, wijzigingen maken en dan deze wijzigingen opslaan als een nieuwe aangepaste beveiligingsrol. Hier zijn enkele machtigingen die rechtstreeks van toepassing zijn op besturingssysteemimplementaties:  
+### <a name="security-permissions-for-operating-system-deployments"></a>Autorisations de sécurité pour les déploiements de système d'exploitation  
+ Le rôle de sécurité **Gestionnaire de déploiement de systèmes d'exploitation** est un rôle prédéfini qui ne peut pas être modifié. Toutefois, vous pouvez copier le rôle, y apporter des modifications et les enregistrer sous un nouveau rôle de sécurité personnalisé. Voici quelques-unes des autorisations qui s'appliquent directement aux déploiements de système d'exploitation :  
 
--   **Installatiekopiepakket**: Maken, verwijderen, wijzigen, map wijzigen, Object verplaatsen, lezen, beveiligingsbereik instellen  
+-   **Package d’images de démarrage**: Créer, Supprimer, Modifier, Modifier un dossier, Déplacer un objet, Lire, Définir l’étendue de sécurité  
 
--   **Apparaatstuurprogramma's**: Maken, verwijderen, wijzigen, map wijzigen, rapport wijzigen, Object verplaatsen, lezen, rapport uitvoeren  
+-   **Pilotes de périphériques**: Créer, Supprimer, Modifier, Modifier un dossier, Modifier le rapport, Déplacer un objet, Lire, Exécuter le rapport  
 
--   **Stuurprogrammapakket**: Maken, verwijderen, wijzigen, map wijzigen, Object verplaatsen, lezen, beveiligingsbereik instellen  
+-   **Package de pilotes**: Créer, Supprimer, Modifier, Modifier un dossier, Déplacer un objet, Lire, Définir l’étendue de sécurité  
 
--   **Installatiekopie van besturingssysteem**: Maken, verwijderen, wijzigen, map wijzigen, Object verplaatsen, lezen, beveiligingsbereik instellen  
+-   **Image de système d’exploitation**: Créer, Supprimer, Modifier, Modifier un dossier, Déplacer un objet, Lire, Définir l’étendue de sécurité  
 
--   **Besturingssysteeminstallatiepakket**: Maken, verwijderen, wijzigen, map wijzigen, Object verplaatsen, lezen, beveiligingsbereik instellen  
+-   **Package d’installation de système d’exploitation**: Créer, Supprimer, Modifier, Modifier un dossier, Déplacer un objet, Lire, Définir l’étendue de sécurité  
 
--   **Taakvolgordepakket**: Maken, het maken van de taak Takenreeksmedia, verwijderen, wijzigen, map wijzigen, rapport wijzigen, Object verplaatsen, lezen, rapport uitvoeren, Veiligheidsbereik instellen  
+-   **Package de séquences de tâches**: Créer, Créer un média de séquence de tâches, Supprimer, Modifier, Modifier un dossier, Modifier le rapport, Déplacer un objet, Lire, Exécuter le rapport, Définir l’étendue de sécurité  
 
- Zie [Aangepaste beveiligingsrollen maken](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_CreateSecRole) voor meer informatie over aangepaste beveiligingsrollen.  
+ Pour plus d’informations sur les rôles de sécurité personnalisés, consultez [Créer des rôles de sécurité personnalisés](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_CreateSecRole).  
 
-### <a name="security-scopes-for-operating-system-deployments"></a>Beveiligingsbereiken voor implementaties van besturingssystemen  
- Gebruik veiligheidsbereiken om gebruikers met beheerdersrechten te voorzien van toegang tot te beveiligen objecten die gebruikt worden in implementaties van besturingssystemen, zoals kopieën van besturingssystemen en installatiekopieën, stuurprogrammapakketten en takenreekspakketten. Zie [Beveiligingsbereiken](../../core/understand/fundamentals-of-role-based-administration.md#bkmk_PlanScope) voor meer informatie.  
+### <a name="security-scopes-for-operating-system-deployments"></a>Étendues de sécurité pour les déploiements de système d'exploitation  
+ Utilisez des étendues de sécurité pour permettre aux utilisateurs administratifs d'accéder aux objets sécurisables utilisés dans les déploiements de système d'exploitation, tels que des images du système d'exploitation et de démarrage, des packages de pilotes et des packages de séquences de tâches. Pour plus d’informations, consultez [Sécurité et audit](../../core/understand/fundamentals-of-role-based-administration.md#bkmk_PlanScope).  
 
-##  <a name="BKMK_WDS"></a> Windows Deployment Services  
- Windows Deployment Services (WDS) moeten geïnstalleerd zijn op dezelfde server als de distributiepunten die u configureert om PXE of multicast te ondersteunen. WDS is opgenomen in het besturingssysteem van de server. Voor PXE-implementaties is WDS de service die het opstarten van PXE uitvoert. Wanneer het distributiepunt is geïnstalleerd en ingeschakeld is voor PXE, installeert Configuration Manager een provider in WDS, die de WDS PXE-opstartfuncties gebruikt.  
+##  <a name="BKMK_WDS"></a> Services de déploiement Windows  
+ Les Services de déploiement Windows (WDS) doivent être installés sur le même serveur que les points de distribution que vous configurez pour prendre en charge PXE ou la multidiffusion. WDS est inclus dans le système d’exploitation du serveur. Pour les déploiements PXE, WDS est le service qui effectue le démarrage PXE. Lorsque le point de distribution est installé et activé pour PXE, Configuration Manager installe un fournisseur dans WDS qui utilise les fonctions de démarrage PXE de WDS.  
 
 > [!NOTE]  
->  Als de server opnieuw opstarten moet, wordt de installatie van WDS kan mislukken. 
+>  Si le serveur nécessite un redémarrage, l’installation de WDS peut échouer. 
 
- Andere WDS-configuraties die moeten worden beschouwd zijn onder meer de volgende:  
+ Parmi les autres configurations WDS qui doivent être prises en compte, citons :  
 
--   De WDS-installatie op de server vereist dat de beheerder lid is van de lokale groep beheerders.  
+-   Pour installer WDS sur le serveur, l'administrateur doit être membre du groupe Administrateurs local.  
 
--   De WDS-server moet lid zijn van een Active Directory-domein of een domeinbeheerder voor een Active Directory-domein. Alle Windows-domein- en forestconfiguraties ondersteunen WDS.  
+-   Le serveur WDS doit être membre d'un domaine Active Directory ou contrôleur de domaine d'un domaine Active Directory. Toutes les configurations de forêts et de domaines Windows prennent en charge WDS.  
 
--   Als de provider is geïnstalleerd op een externe server, moet u WDS installeren op de siteserver en de externe provider.  
+-   Si le fournisseur est installé sur un serveur distant, vous devez installer WDS sur le serveur de site et le fournisseur distant.  
 
-###  <a name="BKMK_WDSandDHCP"></a> Overwegingen wanneer u WDS en DHCP op dezelfde server uitvoert  
- Houd rekening met de volgende configuratiekwesties als u van plan bent het distributiepunt te hosten op een server waarop ook DHCP wordt uitgevoerd.  
+###  <a name="BKMK_WDSandDHCP"></a> Considérations quand vous avez WDS et DHCP sur le même serveur  
+ Tenez compte des problèmes de configuration suivants si vous envisagez de faire cohabiter le point de distribution sur un serveur exécutant DHCP.  
 
--   U moet beschikken over een werkende DHCP-server met een actief bereik. Windows Deployment Services maakt gebruik van PXE, waarvoor een DHCP-server vereist is.  
+-   Vous devez disposer d'un serveur DHCP opérationnel avec une étendue active. Les Services de déploiement Windows utilisent PXE, qui nécessite un serveur DHCP.  
 
--   Voor DHCP en Windows Deployment Services moet poortnummer 67 worden gebruikt. Als u voor Windows Deployment Services en DHCP dezelfde host gebruikt, kunt u DHCP of het distributiepunt dat is geconfigureerd voor PXE, verplaatsen naar een aparte server. U kunt ook de volgende procedure gebruiken om de Windows Deployment Services-server te configureren zodat deze luistert op een andere poort.  
+-   Le serveur DHCP et les Services de déploiement Windows utilisent tous deux le port numéro 67. Si vous hébergez à la fois les Services de déploiement Windows et un serveur DHCP, vous pouvez déplacer sur un autre serveur le serveur DHCP ou le point de distribution configuré pour PXE. Vous pouvez également suivre la procédure ci-dessous pour configurer le serveur des Services de déploiement Windows en vue d'écouter un autre port.  
 
-    #### <a name="to-configure-the-windows-deployment-services-server-to-listen-on-a-different-port"></a>De Windows Deployment Services-server configureren zodat deze luistert op een andere poort  
+    #### <a name="to-configure-the-windows-deployment-services-server-to-listen-on-a-different-port"></a>Pour configurer le serveur des Services de déploiement Windows en vue d'écouter un autre port  
 
-    1.  Wijzig de volgende registersleutel:  
+    1.  Modifiez la clé de registre suivante :  
 
          **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WDSServer\Providers\WDSPXE**  
 
-    2.  De registerwaarde instellen op: **UseDHCPPorts = 0**  
+    2.  Définissez la valeur de Registre à : **UseDHCPPorts = 0**  
 
-    3.  Voer de volgende opdracht uit op de server om de nieuwe configuratie van kracht te laten worden:  
+    3.  Pour que la nouvelle configuration prenne effet, exécutez la commande suivante sur le serveur :  
 
          `WDSUTIL /Set-Server /UseDHCPPorts:No /DHCPOption60:Yes`  
 
--   Een DNS-server is vereist voor het uitvoeren van Windows Deployment Services.  
+-   Un serveur DNS est requis pour exécuter les Services de déploiement Windows.  
 
--   De volgende UDP-poorten moeten geopend zijn op de Windows Deployment Services-server.  
+-   Les ports UDP suivants doivent être ouverts sur le serveur des Services de déploiement Windows.  
 
-    -   Poort 67 (DHCP)  
+    -   Port 67 (DHCP)  
 
-    -   Poort 69 (TFTP)  
+    -   Port 69 (TFTP)  
 
-    -   Poort 4011 (PXE)  
+    -   Port 4011 (PXE)  
 
     > [!NOTE]  
-    >  Als DHCP-verificatie vereist is op de server, moet DHCP-clientpoort 68 bovendien geopend zijn op de server.  
+    >  En outre, si une autorisation DHCP est requise sur le serveur, vous devez ouvrir sur le serveur le port 68 du client DHCP.  
 
-##  <a name="BKMK_SupportedOS"></a> Ondersteunde besturingssystemen  
- Alle Windows-besturingssystemen vermeld als ondersteunde clientbesturingssystemen in [ondersteunde besturingssystemen voor clients en apparaten](../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md) worden ondersteund voor implementaties van besturingssystemen.  
+##  <a name="BKMK_SupportedOS"></a> Systèmes d’exploitation pris en charge  
+ Tous les systèmes d’exploitation Windows répertoriés comme systèmes d’exploitation clients pris en charge dans [Systèmes d’exploitation pris en charge pour les clients et appareils](../../core/plan-design/configs/supported-operating-systems-for-clients-and-devices.md) sont pris en charge pour les déploiements de système d’exploitation.  
 
-##  <a name="BKMK_SupportedDiskConfig"></a> Ondersteunde schijfconfiguraties  
- De configuratiecombinaties van harde schijf op referentie- en doelcomputers die worden ondersteund voor besturingssysteemimplementatie van Configuration Manager worden weergegeven in de volgende tabel.  
+##  <a name="BKMK_SupportedDiskConfig"></a> Configurations de disque prises en charge  
+ Le tableau suivant présente les combinaisons de configurations de disque dur sur les ordinateurs de référence et de destination qui sont prises en charge pour le déploiement de système d’exploitation dans Configuration Manager.  
 
-|Harde-schijfconfiguratie van referentiecomputer|Harde-schijfconfiguratie van doelcomputer|  
+|Configuration de disque dur de l'ordinateur de référence|Configuration de disque dur de l'ordinateur de destination|  
 |------------------------------------------------|--------------------------------------------------|  
-|Standaardschijf|Standaardschijf|  
-|Eenvoudig volume op een dynamische schijf|Eenvoudig volume op een dynamische schijf|  
+|Disque de base|Disque de base|  
+|Volume simple sur un disque dynamique|Volume simple sur un disque dynamique|  
 
- Configuration Manager ondersteunt het vastleggen van een besturingssysteeminstallatiekopie alleen vanaf computers die zijn geconfigureerd met eenvoudige volumes. Er wordt geen ondersteuning geboden voor de volgende harde-schijfconfiguraties:  
+ Configuration Manager prend en charge la capture d’une image de système d’exploitation uniquement sur les ordinateurs configurés avec des volumes simples. Il n'existe pas de prise en charge pour les configurations de disque dur suivantes :  
 
--   Spanned volumes  
+-   Volumes fractionnés  
 
--   Striped volumes (RAID 0)  
+-   Volumes agrégés par bandes (RAID 0)  
 
--   Gespiegelde volumes (RAID-1)  
+-   Volumes en miroir (RAID 1)  
 
--   Pariteitsvolumes (RAID-5)  
+-   Volumes de parité (RAID 5)  
 
- De volgende tabel ziet een aanvullende harde-schijfconfiguratie op de bron- en doelcomputers die niet wordt ondersteund bij installatie van Configuration Manager-besturingssysteem.  
+ Le tableau suivant présente une configuration de disque dur supplémentaire sur les ordinateurs de référence et de destination qui n’est pas prise en charge avec le déploiement de système d’exploitation dans Configuration Manager.  
 
-|Harde-schijfconfiguratie van referentiecomputer|Harde-schijfconfiguratie van doelcomputer|  
+|Configuration de disque dur de l'ordinateur de référence|Configuration de disque dur de l'ordinateur de destination|  
 |------------------------------------------------|--------------------------------------------------|  
-|Standaardschijf|Dynamische schijf|  
+|Disque de base|Disque dynamique|  
 
-## <a name="next-steps"></a>Volgende stappen
-[Implementatie van het besturingssysteem voorbereiden](../get-started/prepare-for-operating-system-deployment.md)
+## <a name="next-steps"></a>Étapes suivantes
+[Préparer un déploiement de système d’exploitation](../get-started/prepare-for-operating-system-deployment.md)

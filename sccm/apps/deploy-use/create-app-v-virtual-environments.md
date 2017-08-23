@@ -1,6 +1,6 @@
 ---
-title: App-V virtuele omgevingen maken | Microsoft Docs
-description: Virtuele omgevingen maken met Microsoft Application Virtualization zodat apps gegevens met elkaar kunnen delen.
+title: "Créer des environnements virtuels App-V | Microsoft Docs"
+description: "Créez des environnements virtuels avec Microsoft Application Virtualization pour permettre aux applications de partager des données entre elles."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,44 +17,44 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 377ed9732fb16b062f53e78504aea394acdb7462
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-app-v-virtual-environments-in-system-center-configuration-manager"></a>App-V virtuele omgevingen maken in System Center Configuration Manager
+# <a name="create-app-v-virtual-environments-in-system-center-configuration-manager"></a>Créer des environnements virtuels App-V dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-In een Microsoft Application Virtualization (App-V) kunnen het delen van virtuele omgeving zijn geïmplementeerd in System Center Configuration Manager (Configuration Manager), virtuele toepassingen hetzelfde bestandssysteem en register op de client Windows-pc's. In tegenstelling tot virtuele standaardtoepassingen, kunnen deze toepassingen gegevens met elkaar delen. Virtuele omgevingen zijn gemaakt of gewijzigd op de client-pc's wanneer de toepassing wordt geïnstalleerd of wanneer clients vervolgens hun geïnstalleerde toepassingen evalueren. U kunt deze toepassingen zodanig rangschikken dat wanneer meerdere toepassingen proberen een bestandssysteem of registerwaarde te wijzigen, de toepassing met het hoogste rangnummer prioriteit krijgt.  
+Dans un environnement virtuel Microsoft Application Virtualization (App-V) dans System Center Configuration Manager (Configuration Manager), les applications virtuelles déployées peuvent partager le même système de fichiers et le même Registre sur les PC Windows clients. Contrairement aux applications virtuelles conventionnelles, ces applications peuvent partager des données entre elles. Les environnements virtuels sont créés ou modifiés sur les PC clients pendant l’installation de l’application ou ultérieurement quand les clients évaluent les applications installées. Vous pouvez contrôler ces applications de telle sorte que lorsque plusieurs applications essaient de modifier un système de fichiers ou une valeur de Registre, l'application d'ordre le plus élevé est prioritaire.  
 
 > [!IMPORTANT]  
->  Vertrouw niet op de App-V virtuele omgevingen bescherming, zoals bieden tegen schadelijke software.  
+>  Ne vous appuyez pas sur des environnements virtuels App-V pour assurer une protection, notamment contre les programmes malveillants.  
 
- Gebruik de volgende procedure voor het maken van een virtuele omgeving van App-V in Configuration Manager.  
+ Suivez la procédure ci-dessous pour créer un environnement virtuel App-V dans Configuration Manager.  
 
-## <a name="create-an-app-v-virtual-environment"></a>Maak een virtuele omgeving van App-V  
+## <a name="create-an-app-v-virtual-environment"></a>Créer un environnement virtuel App-V  
 
-1.  Kies in de Configuration Manager-console **softwarebibliotheek** > **Toepassingsbeheer** > **virtuele omgevingen van App-V**.  
+1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Environnements virtuels App-V**.  
 
-3.  Op de **Start** tabblad, in de **maken** groep, kiest u **virtuele omgeving maken**.  
+3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer un environnement virtuel**.  
 
-4.  In de **virtuele omgeving maken** dialoogvenster en voer de volgende informatie:  
+4.  Dans la boîte de dialogue **Créer un environnement virtuel**, entrez les informations suivantes :  
 
-    -   **Naam**.  Geef een unieke naam voor de virtuele omgeving (maximaal 128 tekens).  
+    -   **Nom**.  Entrez un nom unique pour l’environnement virtuel (128 caractères maximum).  
 
-    -   **Beschrijving**. (Optioneel) Voer een beschrijving voor de virtuele omgeving.  
+    -   **Description**. (Facultatif) Entrez une description de l’environnement virtuel.  
 
-5.  Als u wilt een nieuw implementatietype toevoegen aan de virtuele omgeving, kies **toevoegen**. U moet minstens één implementatietype toevoegen.  
+5.  Pour ajouter un nouveau type de déploiement à l’environnement virtuel, choisissez **Ajouter**. Vous devez ajouter au moins un type de déploiement.  
 
-6.  In de **toepassingen toevoegen** dialoogvenster geeft u een **groepsnaam** (maximaal 128 tekens). U gebruikt deze naam om te verwijzen naar de groep van toepassingen die u aan de virtuele omgeving toevoegt.  
+6.  Dans la boîte de dialogue **Ajouter des applications**, spécifiez un **Nom de groupe** (128 caractères maximum). Vous utiliserez ce nom pour faire référence au groupe d’applications que vous ajoutez à l’environnement virtuel.  
 
-7.  Kies **toevoegen**, selecteert u de App-V 5-toepassingen en implementatietypen die u wilt toevoegen aan de groep en kies vervolgens **OK**.  
+7.  Choisissez **Ajouter**, sélectionnez les applications App-V 5 et les types de déploiement à ajouter au groupe, puis choisissez **OK**.  
 
-8.  In de **toepassingen toevoegen** in het dialoogvenster kunt u **rangnummer verhogen** of **rangnummer** om in te stellen van de toepassing die prioriteit krijgt als meerdere toepassingen proberen instellingen van bestandssysteem of het register in dezelfde virtuele omgeving te wijzigen.  
+8.  Dans la boîte de dialogue **Ajouter des applications**, vous pouvez sélectionner **Ordre croissant** ou **Ordre décroissant** pour définir quelle application est prioritaire dans le cas où plusieurs applications essaient de modifier le système de fichiers ou les paramètres de Registre dans le même environnement virtuel.  
 
-9. Terugkeren naar de **virtuele omgeving maken** dialoogvenster Kies **OK**.  
+9. Pour revenir à la boîte de dialogue **Créer un environnement virtuel**, choisissez **OK**.  
 
-10. Wanneer u klaar bent met het toevoegen van groepen kiezen **OK** voor het maken van de virtuele omgeving. De nieuwe virtuele omgeving wordt weergegeven in de **virtuele omgevingen van App-V** knooppunt van de Configuration Manager-console. U kunt de status van uw virtuele omgevingen bewaken met behulp van de Status van virtuele omgeving App-V-rapport.  
+10. Une fois que vous avez terminé d’ajouter des groupes, choisissez **OK** pour créer l’environnement virtuel. Le nouvel environnement virtuel apparaît dans le nœud **Environnements virtuels App-V** de la console Configuration Manager. Vous pouvez surveiller l’état de vos environnements virtuels grâce au rapport État de l’environnement virtuel App-V.  
 
     > [!NOTE]  
-    >  De virtuele omgeving wordt toegevoegd of gewijzigd op de client-pc's wanneer de toepassing wordt geïnstalleerd of wanneer de client geïnstalleerde toepassingen daarna worden geëvalueerd.  
+    >  L’environnement virtuel est ajouté ou modifié sur les PC clients pendant l’installation de l’application ou ultérieurement quand le client évalue les applications installées.  

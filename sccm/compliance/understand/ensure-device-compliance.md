@@ -1,6 +1,6 @@
 ---
-title: De apparaatcompatibiliteit garanderen | Microsoft Docs
-description: De configuratie en compatibiliteit van apparaten in uw organisatie beheren via System Center Configuration Manager.
+title: "Garantir la conformité des appareils | Microsoft Docs"
+description: "Gérez la configuration et la conformité des appareils de votre organisation à l’aide de System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,57 +16,57 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: f7ecfe550d2e28579ea873442b2a68dc1c7c5483
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="ensure-device-compliance-with-system-center-configuration-manager"></a>De apparaatcompatibiliteit garanderen met System Center Configuration Manager
+# <a name="ensure-device-compliance-with-system-center-configuration-manager"></a>Garantir la conformité des appareils avec System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Instellingen voor naleving in System Center Configuration Manager biedt u de hulpprogramma's en bronnen die u nodig hebt voor het beheren van de configuratie en compatibiliteit van apparaten in uw organisatie. Hiermee kunt u de volgende zakelijke vereisten ondersteunen:  
+Les paramètres de compatibilité dans System Center Configuration Manager vous donnent les outils et ressources nécessaires pour gérer la configuration et la conformité des appareils de votre organisation. Cela vous permet de prendre en charge les exigences de l’entreprise suivantes :  
 
--   De configuratie van Windows-pc's, Mac-computers, servers en mobiele apparaten die u beheert vergelijken met de aanbevolen configuraties die u maakt of van andere leveranciers ontvangt  
+-   Comparer la configuration des PC Windows, des ordinateurs Mac, des serveurs et des appareils mobiles que vous gérez avec les configurations recommandées que vous créez ou que vous obtenez d’autres fournisseurs  
 
--   Niet-geautoriseerde apparaatconfiguraties identificeren  
+-   Identifier les configurations d’appareil non autorisées  
 
--   Naleving van de regelgeving en interne beveiligingsbeleidsregels rapporteren  
+-   Signaler la conformité avec les stratégies réglementaires et les stratégies de sécurité internes  
 
--   Beveiligingsproblemen identificeren  
+-   Identifier les failles de sécurité  
 
--   De helpdesk voorzien van de informatie voor het detecteren van mogelijke oorzaken van gerapporteerde incidenten en problemen door niet-compatibele configuraties te identificeren  
+-   Fournir au personnel du support technique les informations permettant de détecter les causes probables des incidents et problèmes signalés en identifiant les configurations non conformes  
 
--   Bepaalde niet-compatibele instellingen op mobiele apparaten automatisch oplossen  
+-   Corriger automatiquement certains paramètres non conformes sur les appareils mobiles  
 
--   Compatibiliteitsproblemen oplossen door het implementeren van toepassingen, pakketten en programma's of scripts in een verzameling die automatisch wordt ingevuld met apparaten die aangeven dat ze niet compatibel  
+-   Corriger la non-conformité en déployant des applications, des packages et des programmes ou bien des scripts dans un regroupement automatiquement rempli par des appareils qui indiquent leur non-conformité  
 
 
-## <a name="get-started"></a>Aan de slag  
- Leer de basisbeginselen van nalevingsinstellingen en de taken die u ermee kunt uitvoeren.  
+## <a name="get-started"></a>Prise en main  
+ Découvrez les principes de base des paramètres de compatibilité et les tâches associées que vous pouvez effectuer.  
 
- [Aan de slag met instellingen voor naleving](../../compliance/get-started/get-started-with-compliance-settings.md)  
+ [Bien démarrer avec les paramètres de compatibilité](../../compliance/get-started/get-started-with-compliance-settings.md)  
 
-## <a name="plan-and-design"></a>Plannen en ontwerpen  
- Voordat u met de nalevingsinstellingen aan de slag gaat, controleert u of u de vereiste items voor dit onderwerp hebt geïnstalleerd.  
+## <a name="plan-and-design"></a>Planifier et concevoir  
+ Avant de commencer à manipuler les paramètres de compatibilité, assurez-vous d’avoir implémenté les conditions préalables que vous trouverez dans cette rubrique.  
 
- [Plannen en configureren van instellingen voor naleving](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md)  
+ [Planifier et configurer les paramètres de compatibilité](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md)  
 
-## <a name="common-tasks"></a>Algemene taken  
- In deze sectie vindt u enkele algemene scenario's waarmee u informatie over het gebruik van instellingen voor naleving in Configuration Manager.  
+## <a name="common-tasks"></a>Tâches courantes  
+ Cette section décrit quelques scénarios courants qui vous aideront à vous familiariser avec l’utilisation des paramètres de compatibilité dans Configuration Manager.  
 
- [Algemene taken voor het beheren van de naleving](../../compliance/plan-design/common-tasks-for-managing-compliance.md)  
+ [Tâches courantes de gestion de la conformité](../../compliance/plan-design/common-tasks-for-managing-compliance.md)  
 
-## <a name="remote-connection-profiles"></a>Profielen voor externe verbindingen  
- Met dit type configuratie-item kunt u de computers van uw gebruikers configureren voor een externe verbinding met werkcomputers wanneer ze niet verbonden zijn met het domein of als hun pc is verbonden via internet.  
+## <a name="remote-connection-profiles"></a>Profils de connexion à distance  
+ Ce type d’élément de configuration vous permet de configurer les PC de vos utilisateurs de sorte qu’ils se connectent à distance aux ordinateurs professionnels quand ils ne sont pas connectés au domaine ou si leurs ordinateurs personnels sont connectés via Internet.  
 
- [Profielen voor externe verbindingen maken](/sccm/compliance/deploy-use/create-remote-connection-profiles)  
+ [Créer des profils de connexion à distance](/sccm/compliance/deploy-use/create-remote-connection-profiles)  
 
-## <a name="user-data-and-profiles"></a>Gebruikersgegevens en -profielen  
- Het configuratie-itemtype bevat instellingen waarmee wordt bepaald hoe gebruikers in uw hiërarchie mapomleidingen, offlinebestanden en roamingprofielen beheren op computers met Windows 8 en later.  
+## <a name="user-data-and-profiles"></a>Données et profils utilisateur  
+ Ce type d’élément de configuration contient des paramètres qui peuvent gérer la redirection des dossiers, les fichiers hors connexion et les profils itinérants sur les ordinateurs qui exécutent Windows 8 et versions ultérieures pour les utilisateurs de votre hiérarchie.  
 
- [Configuratie-item voor gebruikersgegevens en -profielen maken](/sccm/compliance/deploy-use/create-user-data-and-profiles-configuration-items)  
+ [Créer des éléments de configuration des données et profils utilisateur](/sccm/compliance/deploy-use/create-user-data-and-profiles-configuration-items)  
 
-## <a name="windows-edition-upgrade-policy"></a>Windows-editie-Upgradebeleid  
- Met het beleid voor editie-upgrades kunt u Windows 10-apparaten automatisch bijwerken naar een nieuwere versie. U kunt een productcode opgeven om desktopversies van Windows 10 bij te werken. Voor het bijwerken van apparaten met Windows 10 Mobile en Windows 10 Holographic kunt u een licentiebestand gebruiken.  
+## <a name="windows-edition-upgrade-policy"></a>Stratégie de mise à niveau d’édition Windows  
+ La stratégie de mise à niveau d’édition vous permet de mettre automatiquement à niveau les appareils Windows 10 vers une version plus récente. Vous pouvez spécifier une clé de produit pour mettre à niveau les versions de Windows 10 Desktop ou un fichier de licence qui permet de mettre à niveau les appareils exécutant Windows 10 Mobile et Windows 10 Holographique.  
 
- [Windows-apparaten upgraden met het beleid voor editie-upgrades](/sccm/compliance/deploy-use/upgrade-windows-version)  
+ [Mettre à niveau des appareils Windows avec la stratégie de mise à niveau d’édition](/sccm/compliance/deploy-use/upgrade-windows-version)  

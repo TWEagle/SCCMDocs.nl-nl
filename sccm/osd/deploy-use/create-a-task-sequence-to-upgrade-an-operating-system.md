@@ -1,6 +1,6 @@
 ---
-title: Maak een takenreeks om een besturingssysteem te upgraden | Microsoft Docs
-description: Takenreeksen in System Center Configuration Manager kunnen een besturingssysteem automatisch een upgrade van Windows 7 of hoger naar Windows 10.
+title: "Créer une séquence de tâches pour mettre à niveau un système d’exploitation | Microsoft Docs"
+description: "Dans System Center Configuration Manager, les séquences de tâches permettent de mettre automatiquement à niveau un système d’exploitation Windows 7 ou version ultérieure vers Windows 10."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,116 +16,116 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 4a3c69edc85a4ea7501510b6b3f12c72ad3a24ff
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-a-task-sequence-to-upgrade-an-operating-system-in-system-center-configuration-manager"></a>Maak een takenreeks om een besturingssysteem in System Center Configuration Manager te upgraden
+# <a name="create-a-task-sequence-to-upgrade-an-operating-system-in-system-center-configuration-manager"></a>Créer une séquence de tâches pour mettre à niveau un système d’exploitation dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Gebruik takenreeksen in System Center Configuration Manager automatisch bijwerken van een besturingssysteem van Windows 7 of hoger naar Windows 10 of Windows Server 2012 of later naar Windows Server 2016 op een doelcomputer. Maken van een takenreeks die verwijst naar de installatiekopie van het besturingssysteem die u wilt installeren op de doelcomputer en andere bijkomende inhoud, zoals toepassingen of software-updates die u wilt installeren. De takenreeks om een besturingssysteem te upgraden maakt deel uit van de [Windows upgraden naar de nieuwste versie](upgrade-windows-to-the-latest-version.md) scenario.  
+Dans System Center Configuration Manager, les séquences de tâches permettent de mettre automatiquement à niveau un système d’exploitation Windows 7 ou version ultérieure vers Windows 10, ou Windows Server 2012 ou version ultérieure vers Windows Server 2016, sur un ordinateur de destination. Vous créez une séquence de tâches qui fait référence à l’image de système d’exploitation que vous souhaitez installer sur l’ordinateur de destination et tout autre contenu supplémentaire, tel que des applications ou des mises à jour logicielles que vous souhaitez installer. La séquence de tâches de mise à niveau d’un système d’exploitation fait partie intégrante du scénario [Effectuer une mise à niveau de Windows vers la dernière version](upgrade-windows-to-the-latest-version.md).  
 
-##  <a name="BKMK_UpgradeOS"></a>Maak een takenreeks om een besturingssysteem te upgraden  
- Als u wilt het besturingssysteem op computers een upgrade uitvoert, kunt u een takenreeks maken en selecteren **Upgrade van een besturingssysteem vanaf upgradepakket** in de Wizard Takenreeks maken. De wizard voegt de stappen voor het upgraden van het besturingssysteem, software-updates toepassen en toepassingen installeren. Voordat u de takenreeks maakt, moet het volgende zijn voldaan:    
+##  <a name="BKMK_UpgradeOS"></a> Créer une séquence de tâches pour mettre à niveau un système d’exploitation  
+ Pour mettre à niveau le système d’exploitation sur des ordinateurs, vous pouvez créer une séquence de tâches et sélectionner **Mettre à niveau un système d’exploitation à partir du package de mise à niveau** dans l’Assistant Création d’une séquence de tâches. L’Assistant ajoute les étapes permettant de mettre à niveau le système d’exploitation, d’appliquer des mises à jour logicielles et d’installer des applications. Avant de créer la séquence de tâches, vous devez vous assurer que les conditions suivantes sont remplies :    
 
--   **Vereist**  
+-   **Obligatoire**  
 
-     - De [upgradepakket voor besturingssysteem](../get-started/manage-operating-system-upgrade-packages.md) moet beschikbaar zijn in de Configuration Manager-console.
-     - Wanneer u een naar Windows Server 2016 upgrade, moet u de **dismissable compatibiliteit die kunnen worden genegeerd** instelling in de takenreeksstap besturingssysteem bijwerken of de upgrade mislukt.
+     - Le [package de mise à niveau du système d’exploitation](../get-started/manage-operating-system-upgrade-packages.md) doit être disponible dans la console Configuration Manager.
+     - Lorsque vous mettez à niveau vers Windows Server 2016, vous devez sélectionner le paramètre **Ignore any dismissable compatibility messages** (Ignorer les messages de compatibilité révocables) lors de l’étape de la séquence de tâches Mettre à niveau le système d’exploitation ou la mise à niveau échoue.
 
--   **Vereist (indien gebruikt)**  
+-   **Obligatoire (si utilisé)**  
 
-    -   [Software-updates](../../sum/get-started/synchronize-software-updates.md) moeten worden gesynchroniseerd in de Configuration Manager-console.  
+    -   Les [mises à jour logicielles](../../sum/get-started/synchronize-software-updates.md) doivent être synchronisées dans la console Configuration Manager.  
 
-    -   [Toepassingen](../../apps/deploy-use/create-applications.md) moet worden toegevoegd aan de Configuration Manager-console.  
+    -   Les [applications](../../apps/deploy-use/create-applications.md) doivent être ajoutées à la console Configuration Manager.  
 
-#### <a name="to-create-a-task-sequence-that-upgrades-an-operating-system"></a>Maken van een takenreeks die een besturingssysteem wordt bijgewerkt  
+#### <a name="to-create-a-task-sequence-that-upgrades-an-operating-system"></a>Pour créer une séquence de tâches qui met à niveau un système d’exploitation  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Takenreeksen**.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
 
-3.  Klik op **Takenreeks maken** in het tabblad **Start** , in de groep **Maken** om de wizard Takenreeks maken te starten.  
+3.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une séquence de tâches** pour démarrer l'Assistant Création d'une séquence de tâches.  
 
-4.  Op de **een nieuwe Takenreeks maken** pagina, klikt u op **Upgrade van een besturingssysteem vanaf upgradepakket**, en klik vervolgens op **volgende**.  
+4.  Dans la page **Créer une séquence de tâches** , sélectionnez **Mettre à niveau un système d’exploitation à partir du package de mise à niveau**, puis cliquez sur **Suivant**.  
 
-5.  Configureer op de pagina **Takenreeksinformatie** de volgende instellingen en klik op **Volgende**.  
+5.  Sur la page **Informations sur la séquence de tâches** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
 
-    -   **Takenreeksnaam**: Geef een naam die de takenreeks identificeert.  
+    -   **Nom de la séquence de tâches**: spécifiez un nom qui identifie la séquence de tâches.  
 
-    -   **Beschrijving**: Geef een beschrijving van de taak die door de takenreeks wordt uitgevoerd.  
+    -   **Description**: spécifiez une description de la tâche qui est effectuée par la séquence de tâches.  
 
-6.  Op de **werk het besturingssysteem Windows** pagina, geef de volgende instellingen en klik vervolgens op **volgende**.  
+6.  Dans la page **Mettre à niveau le système d’exploitation Windows** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
 
-    -   **Upgradepakket**: Geef het upgradepakket dat het bijwerken van de besturingssysteembestanden bevat. U kunt controleren of u het juiste upgradepakket hebt geselecteerd door te kijken naar de informatie in de **eigenschappen** deelvenster. Zie voor meer informatie [upgradepakketten voor besturingssysteem beheren](../get-started/manage-operating-system-upgrade-packages.md).  
+    -   **Mettre à niveau le package**: spécifiez le package de mise à niveau qui contient les fichiers sources de mise à niveau du système d’exploitation. Vous pouvez vérifier que vous avez sélectionné le bon package de mise à niveau en examinant les informations contenues dans le volet **Propriétés** . Pour plus d’informations, consultez [Gérer les packages de mise à niveau de système d’exploitation](../get-started/manage-operating-system-upgrade-packages.md).  
 
-    -   **Editie-index**: Als er meerdere editie-indexen van besturingssysteem in het pakket beschikbaar zijn, selecteert u de gewenste editie-index. Standaard wordt het eerste item geselecteerd.  
+    -   **Index d’édition**: si plusieurs index d’édition de système d’exploitation sont disponibles dans le package, sélectionnez l’index d’édition souhaité. Par défaut, le premier élément est sélectionné.  
 
-    -   **Productcode**: Geef de productcode voor het Windows-besturingssysteem te installeren. U kunt gecodeerde volumelicentiesleutels en standaardproductsleutels opgeven. Als u een niet-gecodeerde productcode gebruikt, moet elke groep van vijf tekens worden gescheiden door een streepje (-). Bijvoorbeeld: *XXXXX-XXXXX-XXXXX-XXXXX-XXXXX*. Wanneer de upgrade voor een volumelicentie-editie is, is de productcode niet vereist. Een productcode hoeft u alleen wanneer de upgrade voor een verkoopeditie van Windows is.  
+    -   **Clé du produit**: spécifiez la clé de produit pour le système d’exploitation Windows à installer. Vous pouvez spécifier des clés de licence en volume codées et des clés de produit standard. Si vous utilisez une clé de produit non codée, chaque groupe de cinq caractères doit être séparé par un tiret (-). Par exemple : *XXXXX-XXXXX-XXXXX-XXXXX-XXXXX*. Quand la mise à niveau concerne une édition de licence en volume, la clé de produit n’est pas requise. Vous avez besoin d’une clé de produit seulement quand la mise à niveau concerne une édition commerciale de Windows.  
 
-    -   **Negeer eventuele berichten dismissable compatibiliteit**: Selecteer deze instelling als u naar Windows Server 2016 upgraden wilt. Als u deze instelling niet selecteert, mislukt de takenreeks worden uitgevoerd omdat Windows Setup wacht tot de gebruiker op **bevestigen** in een dialoogvenster Windows-app-compatibiliteit.   
+    -   **Ignore any dismissable compatibility messages** (Ignorer les messages de compatibilité révocables) : sélectionnez ce paramètre si vous effectuez la mise à niveau vers Windows Server 2016. Si vous ne sélectionnez pas ce paramètre, l’exécution de la séquence de tâches échoue car le programme d’installation de Windows attend que l’utilisateur clique sur **Confirmer** dans la boîte de dialogue de compatibilité d’une application Windows.   
 
-7.  Geef op de pagina **Inclusief updates** op of de vereiste software-updates, alle software-updates of geen software-updates moeten worden geïnstalleerd. Klik vervolgens op **Volgende**. Als u opgeeft om softwareupdates te installeren, installeert Configuration Manager alleen die softwareupdates die zijn gericht op de verzamelingen waar de doelcomputer lid van is.  
+7.  Sur la page **Inclure les mises à jour** , spécifiez si vous souhaitez installer les mises à jour logicielles requises, toutes les mises à jour logicielles ou aucune mise à jour logicielle, puis cliquez sur **Suivant**. Si vous spécifiez l’installation des mises à jour logicielles, Configuration Manager installe uniquement les mises à jour logicielles ciblant les regroupements auxquels l’ordinateur de destination appartient.  
 
-8.  Geef op de pagina **Toepassingen installeren** de toepassingen op die moeten worden geïnstalleerd op de doelcomputer en klik op **Volgende**. Als u meerdere toepassingen opgeeft, kunt u opgeven dat de takenreeks wordt voortgezet als de installatie van een bepaalde toepassing mislukt.  
+8.  Sur la page **Installer les applications** , spécifiez les applications à installer sur l'ordinateur de destination, puis cliquez sur **Suivant**. Si vous spécifiez plusieurs applications, vous pouvez également spécifier que la séquence de tâches continue si l'installation d'une application spécifique échoue.  
 
-9. Voltooi de wizard.  
+9. Effectuez toutes les étapes de l'Assistant.  
 
 
 
-## <a name="configure-pre-cache-content"></a>Inhoud van de pre-cache configureren
-Vanaf versie 1702, voor beschikbare implementaties van takenreeksen, kunt u de functie vooraf cache gebruiken om clients alleen relevante inhoud downloaden voordat een gebruiker de inhoud installeert hebben.
+## <a name="configure-pre-cache-content"></a>Configurer la mise en cache préalable du contenu
+À partir de la version 1702, vous pouvez choisir d’utiliser la fonctionnalité de mise en cache préalable pour les déploiements disponibles des séquences de tâches. Ainsi, les clients téléchargent uniquement le contenu approprié avant toute installation de contenu par l’utilisateur.
 > [!TIP]  
-> De vooraf cache is geïntroduceerd in versie 1702, is een functie van de voorlopige versie. Als u wilt inschakelen, Zie [functies van evaluatieversies van updates gebruiken](/sccm/core/servers/manage/pre-release-features).
+> La mise en cache préalable, introduite avec la version 1702, est en version préliminaire. Pour savoir comment l’activer, consultez [Utiliser des fonctionnalités de préversion des mises à jour](/sccm/core/servers/manage/pre-release-features).
 
-Stel dat u wilt implementeren van een takenreeks Windows 10 in-place upgrade slechts een enkele takenreeks voor alle gebruikers wilt en meerdere architecturen en/of talen. Voorafgaand aan versie 1702, als u een beschikbare installatie maakt, en vervolgens klikt de gebruiker op **installeren** in Software Center, de inhoud gedownload op dat moment. Hiermee voegt u extra tijd voordat de installatie is gereed om te starten. Ook wordt alle inhoud waarnaar wordt verwezen in de takenreeks gedownload. Dit omvat het upgradepakket voor besturingssysteem voor alle talen en -architecturen. Als elk ongeveer drie GB groot, kan het downloadpakket behoorlijk groot zijn.
+Supposons que vous souhaitiez déployer une séquence de tâches de mise à niveau sur place de Windows 10, que vous ne vouliez qu’une seule séquence de tâches pour tous les utilisateurs, et que vous ayez plusieurs architectures et/ou langues. Avant la version 1702, si vous créez un déploiement disponible et que l’utilisateur clique sur **Installer** dans le Centre logiciel, le contenu est téléchargé à ce moment-là. Ceci a pour effet de retarder la disponibilité de l’installation. Par ailleurs, tout le contenu référencé dans la séquence de tâches est téléchargé. (c’est-à-dire tous les packages de mise à niveau du système d’exploitation pour chaque langue et chaque architecture). Si chaque package fait environ 3 Go, le package de téléchargement peut être très volumineux.
 
-Vooraf cache-inhoud biedt u de optie voor het toestaan van de client alleen de inhoud te downloaden van toepassing als de implementatie wordt ontvangen. Daarom wanneer de gebruiker klikt op **installeren** in Software Center, de inhoud gereed is en de installatie begint snel omdat de inhoud op de lokale vaste schijf.
+La mise en cache préalable du contenu permet au client de télécharger uniquement le contenu applicable dès qu’il reçoit le déploiement. Ainsi, quand l’utilisateur clique sur **Installer** dans le Centre logiciel, le contenu est prêt et l’installation démarre rapidement, car le contenu se trouve sur le disque dur local.
 
-### <a name="to-configure-the-pre-cache-feature"></a>De cachefunctie vooraf configureren
+### <a name="to-configure-the-pre-cache-feature"></a>Pour configurer la fonctionnalité de mise en cache préalable
 
-1. Upgradepakketten voor specifieke architecturen en talen voor besturingssysteem maken. Geef de architectuur en taal op de **gegevensbron** tabblad van het pakket. Gebruik de decimale conversie voor de taal (bijvoorbeeld 1033 is het decimaalteken voor Engels en 0x0409 is hetzelfde als hexadecimaal). Zie voor meer informatie [een takenreeks maken om een besturingssysteem te upgraden](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system).
+1. Créez des packages de mise à niveau du système d’exploitation pour des architectures et des langues spécifiques. Spécifiez l’architecture et la langue sous l’onglet **Source de données** du package. Pour la langue, utilisez la conversion décimale (par exemple, pour l’anglais, 1033 est l’identifiant décimal et 0x0409 l’identifiant hexadécimal). Pour plus d’informations, consultez [Créer une séquence de tâches pour mettre à niveau un système d’exploitation](/sccm/osd/deploy-use/create-a-task-sequence-to-upgrade-an-operating-system).
 
-    De architectuur en taal-waarden worden gebruikt om te voldoen aan de taak sequence stap die u in de volgende stap om te bepalen maakt of het upgradepakket voor besturingssysteem vooraf moet worden opgeslagen.
-2. Maak een takenreeks met voorwaardelijke stappen voor de verschillende talen en -architecturen. U kunt bijvoorbeeld een stap als volgt maken voor de Engelse versie:
+    Les valeurs de l’architecture et de la langue sont mises en correspondance avec les conditions de la séquence de tâches que vous créez à l’étape suivante pour déterminer si le package de mise à niveau du système d’exploitation doit être préalablement mis en cache.
+2. Créez une séquence de tâches avec des étapes conditionnelles pour les différentes langues et architectures. Par exemple, pour la version anglaise, vous pouvez créer une étape comme suit :
 
-    ![Eigenschappen van de pre-cache](../media/precacheproperties2.png)
+    ![propriétés de mise en cache préalable](../media/precacheproperties2.png)
 
-    ![vooraf cacheopties](../media/precacheoptions2.png)  
+    ![options de mise en cache préalable](../media/precacheoptions2.png)  
 
-3. De takenreeks implementeert. Voor de functie vooraf cache, het volgende configureren:
-    - Op de **algemene** tabblad **vooraf downloaden van inhoud voor deze takenreeks**.
-    - Op de **implementatie-instellingen** tabblad, configureer de takenreeks met de **beschikbaar** voor **doel**. Als u maakt een **vereist** implementatie van de pre-cache-functionaliteit werkt niet.
-    - Op de **planning** tabblad voor de **plannen wanneer deze implementatie beschikbaar zal zijn** instelt, kiest u een tijd in de toekomst waarmee clients voldoende tijd is voor de inhoud vooraf in cache voordat de implementatie beschikbaar wordt gesteld aan gebruikers. U kunt bijvoorbeeld instellen dat de beschikbare tijd worden drie uur in de toekomst genoeg tijd bieden om de inhoud vooraf in cache opgeslagen.  
-    - Op de **distributiepunten** tabblad, configureert de **implementatieopties** instellingen. Als de inhoud niet vooraf in cache op een client opgeslagen is voordat een gebruiker de installatie wordt gestart, worden deze instellingen gebruikt.
-
-
-### <a name="user-experience"></a>Gebruikerservaring
-- Wanneer de client het implementatiebeleid ontvangt, wordt gestart om de inhoud vooraf in cache. Dit omvat alle inhoud waarnaar wordt verwezen (een andere typen) en alleen het upgradepakket voor besturingssysteem die overeenkomt met de client op basis van de voorwaarden die u in de takenreeks instelt.
-- Wanneer de implementatie wordt beschikbaar gesteld aan gebruikers (instellen op de **planning** tabblad van de implementatie), een melding weergegeven om gebruikers te informeren over de nieuwe implementatie en de implementatie zichtbaar in Software Center. De gebruiker kan gaat u naar Software Center en klikt u op **installeren** om de installatie te starten.
-- Als de inhoud niet volledig vooraf in cache opgeslagen is, wordt dit de instellingen gebruikt van de **Implementatieoptie** tabblad van de implementatie. U wordt aangeraden dat er voldoende tijd tussen wanneer de implementatie wordt gemaakt en het tijdstip waarop de implementatie beschikbaar voor gebruikers wordt wilt toestaan dat clients voldoende tijd is voor de inhoud vooraf in cache is.
+3. déployer la séquence de tâches. Pour configurer la fonctionnalité de mise en cache préalable, configurez ce qui suit :
+    - Sous l’onglet **Général**, sélectionnez **Prétélécharger le contenu pour cette séquence de tâches**.
+    - Sous l’onglet **Paramètres de déploiement**, configurez la séquence de tâches avec **Disponible** comme **Objectif**. Si vous créez un déploiement **Exigé**, la fonctionnalité de mise en cache préalable ne fonctionne pas.
+    - Sous l’onglet **Planification**, pour le paramètre **Planifier la disponibilité de ce déploiement**, choisissez une heure future qui donne aux clients le temps de mettre préalablement en cache le contenu avant que le déploiement ne soit accessible aux utilisateurs. Par exemple, vous pouvez définir un délai de 3 heures pour allouer suffisamment de temps à la mise en cache préalable du contenu.  
+    - Sous l’onglet **Points de distribution**, configurez les paramètres **Options de déploiement**. Si le contenu n’est pas préalablement mis en cache sur un client avant le démarrage de l’installation, ces paramètres sont utilisés.
 
 
+### <a name="user-experience"></a>Expérience utilisateur
+- Quand le client reçoit la stratégie de déploiement, il commence la mise en cache préalable du contenu. Il s’agit du contenu référencé (tout autre type de package) et du package de mise à niveau du système d’exploitation correspondant au client (en fonction des conditions définies dans la séquence de tâches).
+- Une fois le déploiement accessible aux utilisateurs (paramètre défini sous l’onglet **Planification** du déploiement), une notification s’affiche pour informer les utilisateurs du nouveau déploiement. Le déploiement apparaît alors dans le Centre logiciel. L’utilisateur peut accéder au Centre logiciel et cliquer sur **Installer** pour démarrer l’installation.
+- Si tout le contenu n’est pas préalablement mis en cache, les paramètres spécifiés sous l’onglet **Option de déploiement** du déploiement sont utilisés. Nous vous recommandons de définir un délai suffisant entre la création du déploiement et l’heure à laquelle le déploiement est accessible aux utilisateurs pour que les client aient le temps de mettre préalablement en cache le contenu.
 
-## <a name="download-package-content-task-sequence-step"></a>Takenreeksstap pakketinhoud downloaden  
- De [pakketinhoud downloaden](../understand/task-sequence-steps.md#BKMK_DownloadPackageContent) stap kan worden gebruikt voordat de **besturingssysteem bijwerken** stap in de volgende scenario's:  
 
--   U een takenreeks voor het één upgrade die x86- en x64-platforms werkt. Als u dit wilt doen, voegt u twee **Pakketinhoud downloaden**-stappen toe aan de groep **Upgrade voorbereiden** met de voorwaarden om de clientarchitectuur te detecteren en alleen het geschikte upgradepakket voor het besturingssystemen te downloaden. Configureer elke **Pakketinhoud downloaden**-stap zodanig dat dezelfde variabele wordt gebruikt, en gebruik de variabele voor het mediumpad in de stap **Besturingssysteem bijwerken**.  
 
--   Als u een geschikt stuurprogrammapakket wilt downloaden, gebruikt u twee **Pakketinhoud downloaden**-stappen op voorwaarde dat het juiste hardwaretype wordt gedetecteerd voor elk stuurprogrammapakket. Configureer elke **Pakketinhoud downloaden**-stap zodanig dat dezelfde variabele wordt gebruikt, en gebruik de variabele voor de waarde **Tijdelijke inhoud** in de sectie met stuurprogramma's in de stap **Besturingssysteem bijwerken**.  
+## <a name="download-package-content-task-sequence-step"></a>Étape de séquence de tâches Télécharger le contenu du package  
+ Vous pouvez exécuter l’étape [Télécharger le contenu du package](../understand/task-sequence-steps.md#BKMK_DownloadPackageContent) avant l’étape **Mettre à niveau le système d’exploitation** dans les scénarios suivants :  
+
+-   Vous utilisez une seule séquence de tâches de mise à niveau qui peut fonctionner avec les plateformes x86 et x64. Pour cela, incluez deux étapes **Télécharger le contenu du package** dans le groupe **Préparer pour la mise à niveau** avec des conditions pour détecter l’architecture du client et télécharger uniquement le package de mise à niveau de système d’exploitation approprié. Configurez chaque étape **Télécharger le contenu du package** pour utiliser la même variable et utilisez cette variable pour le chemin du support à l’étape **Mettre à niveau le système d’exploitation** .  
+
+-   Pour télécharger dynamiquement un package de pilotes applicable, utilisez deux étapes **Télécharger le contenu du package** avec des conditions pour détecter le type de matériel approprié pour chaque package de pilotes. Configurez chaque étape **Télécharger le contenu du package** pour utiliser la même variable et utilisez cette variable pour la valeur **Contenu intermédiaire** dans la section des pilotes à l’étape **Mettre à niveau le système d’exploitation** .  
 
    > [!NOTE]
-   > Wanneer er meer dan één pakket, wordt een numeriek achtervoegsel aan de variabelenaam in Configuration Manager toegevoegd. Bijvoorbeeld, als u een variabele van % mycontent % als aangepaste variabele opgeeft, is dit de hoofdmap waarin alle inhoud waarnaar wordt verwezen is opgeslagen (dit kan meerdere pakketten zijn). Wanneer u in een vervolgstap naar de variabele verwijst, zoals Besturingssysteem bijwerken, wordt deze met een numeriek achtervoegsel gebruikt. In dit voorbeeld % mycontent01% of % mycontent02%, waarbij het nummer overeenkomt met de volgorde waarin het pakket in deze stap wordt vermeld.
+   > Quand il existe plusieurs packages, Configuration Manager ajoute un suffixe numérique au nom de la variable. Par exemple, si vous spécifiez une variable %mon_contenu% en tant que variable personnalisée, il s’agit de la racine de l’emplacement de stockage de l’ensemble du contenu référencé (qui peut correspondre à plusieurs packages). Quand vous faites référence à la variable dans une étape de sous-séquence, comme Mettre à niveau le système d’exploitation, elle est utilisée avec un suffixe numérique. Dans cet exemple, le numéro dans %mon_contenu01% ou %mon_contenu02% correspond à l’ordre d’apparition du package dans cette étape.
 
-## <a name="optional-post-processing-task-sequence-steps"></a>Optionele na verwerking takenreeksstappen  
- Nadat u de takenreeks hebt gemaakt, kunt u aanvullende stappen toevoegen voor het verwijderen van toepassingen met bekende compatibiliteitsproblemen, of u kunt toevoegen na verwerking acties uit te voeren nadat de computer opnieuw is opgestart en de upgrade naar Windows 10 geslaagd is. Deze aanvullende stappen toevoegen in de groep na verwerking van de takenreeks.  
+## <a name="optional-post-processing-task-sequence-steps"></a>Étapes de séquence de tâches post-traitement facultatives  
+ Une fois la séquence de tâches créée, vous pouvez ajouter des étapes supplémentaires pour désinstaller des applications présentant des problèmes de compatibilité connus, ou ajouter des actions de post-traitement à exécuter une fois que l’ordinateur a redémarré et que la mise à niveau vers Windows 10 a réussi. Ajoutez ces étapes supplémentaires dans le groupe Post-traitement de la séquence de tâches.  
 
 > [!NOTE]  
->  Omdat deze takenreeks niet lineair is, er bepaalde voorwaarden voor stappen die invloed kunnen hebben op de resultaten van de takenreeks, afhankelijk van of deze de clientcomputer met succes wordt bijgewerkt of dat er terugdraaien van de clientcomputer naar de oorspronkelijke besturingssysteemversie.  
+>  Cette séquence de tâches n’étant pas linéaire, des conditions applicables à certaines étapes peuvent affecter les résultats de la séquence de tâches, selon que la mise à niveau de l’ordinateur client a réussi ou qu’elle a échoué et que la version initiale du système d’exploitation a été restaurée sur l’ordinateur client.  
 
-## <a name="optional-rollback-task-sequence-steps"></a>Terugdraaien van de optionele takenreeksstappen  
- Wanneer er iets mis met het upgradeproces gaat nadat de computer opnieuw is opgestart, Setup wordt de upgrade terugdraaien naar het vorige besturingssysteem en de takenreeks wordt verder met de stappen in de groep terugdraaien. Nadat u de takenreeks hebt gemaakt, kunt u optionele stappen toevoegen aan de groep terugdraaien.  
+## <a name="optional-rollback-task-sequence-steps"></a>Étapes de séquence de tâches de restauration facultatives  
+ En cas de problème durant le processus de mise à niveau après le redémarrage de l’ordinateur, le programme d’installation annule la mise à niveau et restaure le système d’exploitation précédent, et la séquence de tâches se poursuit avec les étapes du groupe Restauration. Après avoir créé la séquence de tâches, vous pouvez ajouter des étapes facultatives au groupe Restauration.  
 
-## <a name="folder-and-files-removed-after-computer-restart"></a>Map en bestanden verwijderd nadat de computer opnieuw opstarten  
- Wanneer de takenreeks een besturingssysteem upgraden naar Windows 10 en alle overige stappen in de takenreeks zijn voltooid, worden de scripts na verwerking en terugdraaien niet verwijderd totdat de computer opnieuw is opgestart.  Deze scriptbestanden bevatten geen gevoelige informatie.  
+## <a name="folder-and-files-removed-after-computer-restart"></a>Dossier et fichiers supprimés après le redémarrage de l’ordinateur  
+ À la fin de la séquence de tâches de mise à niveau d’un système d’exploitation vers Windows 10 et toutes les autres étapes de la séquence de tâches, les scripts de post-traitement et de restauration ne sont pas supprimés tant que l’ordinateur n’a pas redémarré.  Ces fichiers de script ne contiennent pas d’informations sensibles.  

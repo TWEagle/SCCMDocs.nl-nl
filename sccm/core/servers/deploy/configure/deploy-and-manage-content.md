@@ -1,6 +1,6 @@
 ---
-title: Inhoud implementeren | Microsoft Docs
-description: Nadat u distributiepunten voor System Center Configuration Manager installeren, moet u hier is hoe u kunt beginnen met het implementeren van inhoud op deze.
+title: "Déployer du contenu | Microsoft Docs"
+description: "Après avoir installé des points de distribution pour System Center Configuration Manager, voici comment commencer à y déployer du contenu."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,500 +16,500 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 36b08285ef78d0acb9ba9c44abe2d57e311d44b3
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="deploy-and-manage-content-for-system-center-configuration-manager"></a>Implementeren en beheren van inhoud voor System Center Configuration Manager
+# <a name="deploy-and-manage-content-for-system-center-configuration-manager"></a>Déployer et gérer du contenu pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Nadat u distributiepunten voor System Center Configuration Manager installeert, kunt u beginnen om inhoud te distribueren toe. Normaal gesproken inhoud overdraagt naar distributiepunten via het netwerk, maar andere opties inhoud naar de distributiepunten op te halen bestaat. Nadat de inhoud overdraagt naar een distributiepunt, kunt u bijwerken, distribueren, verwijderen en valideren van die inhoud op distributiepunten.  
+Après avoir installé des points de distribution pour System Center Configuration Manager, vous pouvez commencer à y déployer du contenu. En règle générale, le contenu est transféré aux points de distribution via le réseau, mais il existe d’autres options pour placer du contenu aux points de distribution. Une fois le contenu transféré vers un point de distribution, vous pouvez mettre à jour, redistribuer, supprimer et valider ce contenu sur les points de distribution.  
 
-##  <a name="bkmk_distribute"></a>Inhoud distribueren  
- Normaal gesproken distribueren u inhoud naar distributiepunten zodat deze beschikbaar zijn voor clientcomputers. (De uitzondering hierop is wanneer u inhoudsdistributie op aanvraag voor een specifieke implementatie.)  Wanneer u inhoud distribueert, wordt Configuration Manager slaat de inhoudsbestanden in een pakket en distribueert het pakket naar het distributiepunt. Typen inhoud die u distribueren kunt, zijn onder andere:  
+##  <a name="bkmk_distribute"></a> Distribuer du contenu  
+ En règle générale, vous distribuez du contenu sur des points de distribution pour le rendre accessible aux ordinateurs clients. (Ceci ne s’applique pas si vous utilisez la distribution de contenu à la demande pour un déploiement spécifique.)  Quand vous distribuez du contenu, Configuration Manager stocke les fichiers de contenu dans un package, puis distribue ce package sur le point de distribution. Les types de contenu que vous pouvez distribuer incluent les suivants :  
 
--   Toepassingsimplementatietypen  
+-   Types de déploiement d’application  
 
--   Pakketten  
+-   Packages  
 
--   Implementatiepakketten  
+-   Packages de déploiement  
 
--   Driverpakketten  
+-   Packages de pilotes  
 
--   Installatiekopieën van besturingssysteem  
+-   Images du système d'exploitation  
 
--   Installatieprogramma's van besturingssysteem  
+-   Programmes d’installation de système d’exploitation  
 
--   Installatiekopieën  
+-   Images de démarrage  
 
--   Takenreeksen  
+-   Séquences de tâches  
 
-Wanneer u een pakket maakt dat bronbestanden, zoals een toepassing implementatie type of implementatiepakket bevat, wordt de site waarop het pakket wordt gemaakt de site-eigenaar voor de pakketinhoudsbron. Configuration Manager kopieert de bronbestanden van het bronbestandspad dat u opgeeft voor het object naar de Inhoudsbibliotheek op de siteserver die eigenaar is van de pakketinhoudsbron.  Configuration Manager wordt vervolgens de gegevens gerepliceerd naar extra sites. (Zie [de Inhoudsbibliotheek](../../../../core/plan-design/hierarchy/the-content-library.md) voor meer informatie hierover.)  
+Quand vous créez un package qui contient des fichiers sources, tels qu'un type de déploiement d'application ou un package de déploiement, le site sur lequel le package est créé devient le site propriétaire de la source de contenu du package. Configuration Manager copie les fichiers sources à partir du chemin de fichier source spécifié pour l’objet vers la bibliothèque de contenu située sur le serveur de site propriétaire de la source de contenu du package.  Ensuite, Configuration Manager réplique les informations vers les sites supplémentaires. (Pour plus d’informations à ce sujet, consultez [Bibliothèque de contenu](../../../../core/plan-design/hierarchy/the-content-library.md).)  
 
-Gebruik de volgende procedure om inhoud naar distributiepunten te distribueren.  
+Pour distribuer du contenu vers les points de distribution, procédez comme suit.  
 
-#### <a name="to-distribute-content-on-distribution-points"></a>Inhoud op distributiepunten distribueren  
+#### <a name="to-distribute-content-on-distribution-points"></a>Pour distribuer du contenu vers les points de distribution  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  In de **softwarebibliotheek** werkruimte, selecteer een van de volgende stappen voor het type inhoud dat u wilt distribueren:  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , sélectionnez l'une des étapes suivantes pour le type de contenu que vous souhaitez distribuer :  
 
-    -   **Toepassingen**: Vouw **Toepassingsbeheer** > **toepassingen**, en selecteer vervolgens de toepassingen die u wilt distribueren.  
+    -   **Applications** : Développez **Gestion d’applications** > **Applications**, puis sélectionnez les applications à distribuer.  
 
-    -   **Pakketten**: Vouw **Toepassingsbeheer** >  **pakketten**, en selecteer vervolgens de pakketten die u wilt distribueren.  
+    -   **Packages** : Développez **Gestion d’applications** >  **Packages**, puis sélectionnez les packages à distribuer.  
 
-    -   **Implementatiepakketten**: Vouw **Software-Updates** >  **implementatiepakketten**, en selecteer vervolgens de implementatiepakketten die u wilt distribueren.  
+    -   **Packages de déploiement** : Développez **Mises à jour logicielles** >  **Packages de déploiement**, puis sélectionnez les packages de déploiement à distribuer.  
 
-    -   **Stuurprogrammapakketten**: Vouw **besturingssystemen** >  **stuurprogrammapakketten**, en selecteer vervolgens de stuurprogrammapakketten die u wilt distribueren.  
+    -   **Packages de pilotes** : Développez **Systèmes d’exploitation** >  **Packages de pilotes**, puis sélectionnez les packages de pilotes à distribuer.  
 
-    -   **Installatiekopieën van besturingssystemen**: Vouw **besturingssystemen** >  **installatiekopieën van besturingssystemen**, en selecteer vervolgens de installatiekopieën van besturingssystemen die u wilt distribueren.  
+    -   **Images de système d’exploitation** : Développez **Systèmes d’exploitation** >  **Images du système d’exploitation**, puis sélectionnez les images de système d’exploitation à distribuer.  
 
-    -   **Installatieprogramma's besturingssystemen**: Vouw **besturingssystemen** > **installatieprogramma's besturingssystemen**, en selecteer vervolgens de installatieprogramma's voor besturingssystemen die u wilt distribueren.  
+    -   **Programmes de système d’exploitation** : Développez **Systèmes d’exploitation** > **Programmes d’installation de système d’exploitation**, puis sélectionnez les programmes d’installation de système d’exploitation à distribuer.  
 
-    -   **Opstartinstallatiekopieën**: Vouw **besturingssystemen** >  **opstartinstallatiekopieën**, en selecteer vervolgens de opstartinstallatiekopieën die u wilt distribueren.  
+    -   **Images de démarrage** : Développez **Systèmes d’exploitation** >  **Images de démarrage**, puis sélectionnez les images de démarrage à distribuer.  
 
-    -   **Takenreeksen**: Vouw **besturingssystemen** >  **Takenreeksen**, en selecteer vervolgens de takenreeks die u wilt distribueren. Hoewel takenreeksen geen inhoud bevatten, zijn deze gekoppeld aan inhoudsafhankelijkheden die worden gedistribueerd.  
-
-        > [!NOTE]  
-        >  Als u de takenreeks wijzigt, moet u de inhoud opnieuw distribueren.  
-
-3.  Klik op het tabblad **Start** in de groep **Implementatie** op **Inhoud distribueren**. De Wizard inhoud distribueren wordt geopend.  
-
-4.  Op de **algemene** pagina, Controleer of de vermelde inhoud de inhoud die u wilt distribueren, kies of u wilt dat Configuration Manager detecteert die zijn gekoppeld aan de geselecteerde inhoud en voeg de afhankelijkheden toe aan de distributie en klik vervolgens op **volgende**.  
-
-    > [!NOTE]  
-    >  U hebt de optie voor het configureren van de **gekoppelde inhoud afhankelijkheden detecteren en toevoegen aan deze distributie** instelling alleen voor het inhoudstype van de toepassing. Configuration Manager wordt automatisch geconfigureerd voor deze instelling voor takenreeksen en kan niet worden gewijzigd.  
-
-5.  Op de **inhoud** tabblad als weergegeven, Controleer of de vermelde inhoud de inhoud die u wilt distribueren en klik vervolgens op **volgende**.  
-
-    > [!NOTE]  
-    >  De **inhoud** pagina wordt alleen weergegeven als de **gekoppelde inhoud afhankelijkheden detecteren en toevoegen aan deze distributie** instelling is geselecteerd op de **algemene** pagina van de wizard.  
-
-6.  Op de **doel van inhoud** pagina, klikt u op **toevoegen**, kies een van de volgende handelingen uit en volg de bijbehorende stappen:  
-
-    -   **Verzamelingen**: Selecteer **Gebruikersverzamelingen** of **Apparaatverzamelingen**, klik op de verzameling die is gekoppeld aan een of meer distributiepuntengroepen en klik vervolgens op **OK**.  
+    -   **Séquences de tâches** : Développez **Systèmes d’exploitation** >  **Séquences de tâches**, puis sélectionnez la séquence de tâches à distribuer. Les séquences de tâches ne contiennent pas de contenu, mais elles comportent des dépendances de contenu associées qui sont distribuées.  
 
         > [!NOTE]  
-        >  Alleen de verzamelingen die gekoppeld aan een distributiepuntgroep zijn worden weergegeven. Zie voor meer informatie over het koppelen van verzamelingen aan distributiepuntgroepen [distributiepuntgroepen beheren](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_manage) in de [installeren en configureren van distributiepunten voor System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md) onderwerp.  
+        >  Si vous modifiez la séquence de tâches, vous devez redistribuer le contenu.  
 
-    -   **Distributiepunt**: Selecteer een bestaand distributiepunt en klik vervolgens op **OK**. Distributiepunten die eerder inhoud hebben ontvangen, worden niet weergegeven.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Distribuer du contenu**. L'Assistant Distribuer du contenu s'ouvre.  
 
-    -   **Distributiepuntengroep**: Selecteer een bestaande distributiepuntgroep en klik vervolgens op **OK**. Distributiepuntgroepen die eerder inhoud hebben ontvangen, worden niet weergegeven.  
-
-    Wanneer u klaar bent met het toevoegen van doelen van inhoud, klikt u op **volgende**.  
-
-7.  Op de **samenvatting** controleert u de instellingen voor de distributie voordat u doorgaat. Als u wilt de inhoud naar de geselecteerde doelen te distribueren, klikt u op **volgende**.  
-
-8.  De **voortgang** pagina geeft de voortgang van de distributie.  
-
-9. De **bevestiging** pagina geeft aan of de inhoud aan de punten is toegewezen. Om te bewaken de distributie van inhoud, Zie [inhoud die u hebt gedistribueerd met System Center Configuration Manager controleren](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
-
-##  <a name="bkmk_prestage"></a>Gebruik voorbereide inhoud  
- U kunt de inhoudsbestanden voor toepassingen en pakkettypen voorbereiden:  
-
--   In de Configuration Manager-console, selecteert u de inhoud die u nodig hebt en gebruik vervolgens de **maken Wizard voorbereid inhoudsbestand** voor het maken van een gecomprimeerd, voorbereid inhoudsbestand dat de bestanden en gekoppelde metagegevens voor de inhoud die u hebt geselecteerd bevat.  
-
--   U kunt vervolgens de inhoud op een siteserver, secundaire site handmatig importeren of distributiepunt.  
-
--   Wanneer u het voorbereide inhoudsbestand op een siteserver importeert, worden de inhoudsbestanden toegevoegd aan de Inhoudsbibliotheek op de siteserver en vervolgens geregistreerd in de site server-database.  
-
--   Wanneer u het voorbereide inhoudsbestand op een distributiepunt importeert, worden de inhoudsbestanden worden toegevoegd aan de Inhoudsbibliotheek op het distributiepunt en een statusbericht verzonden naar de siteserver die de site informeert dat de inhoud beschikbaar op het distributiepunt is.  
-
-**Beperkingen en overwegingen voor vooraf geplaatste inhoud:**  
-
--   **Wanneer het distributiepunt zich bevindt op de siteserver**, moet u het distributiepunt voor vooraf geplaatste inhoud niet inschakelen. Gebruik in plaats daarvan de procedure in [het voorbereiden van inhoud op een distributiepunt op een siteserver](#bkmk_dpsiteserver).  
-
--   **Wanneer het distributiepunt is geconfigureerd als een pull-distributiepunt**, moet u het distributiepunt voor vooraf geplaatste inhoud niet inschakelen. De configuratie voor voorbereide inhoud voor een distributiepunt vervangt de pull-distributiepuntconfiguratie. Een pull-distributiepunt dat is geconfigureerd voor voorbereide inhoud heeft geen pull-inhoud van brondistributiepunt en ontvangt geen inhoud van de siteserver.  
-
--   **De Inhoudsbibliotheek moet worden gemaakt op het distributiepunt voordat u kunt inhoud vooraf op het distributiepunt**. Inhoud distribueren via het netwerk ten minste één keer voordat u inhoud vooraf op het distributiepunt.  
-
--   **Wanneer u inhoud voorbereid voor een pakket met een lang pakketbronpad** (bijvoorbeeld meer dan 140 tekens), het opdrachtregelprogramma Extract Content mogelijk niet de inhoud voor dit pakket naar de Inhoudsbibliotheek uit te pakken.  
-
-Zie voor meer informatie over het voorbereiden van inhoudsbestanden *vooraf geplaatste inhoud* in de [beheren van netwerkbandbreedte voor inhoudsbeheer](/sccm/core/plan-design/hierarchy/manage-network-bandwidth) onderwerp.  
-
-Gebruik de volgende secties om inhoud voor te bereiden.  
-
-###  <a name="BKMK_CreatePrestagedContentFile"></a>Stap 1: Een voorbereid inhoudsbestand maken  
- U kunt een gecomprimeerd, voorbereid inhoudsbestand dat de bestanden en gekoppelde metagegevens voor de inhoud die u in de Configuration Manager-console selecteert bevat. Gebruik de volgende procedure voor het maken van een voorbereid inhoudsbestand.  
-
-##### <a name="to-create-a-prestaged-content-file"></a>Een voorbereid inhoudsbestand maken  
-
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
-
-2.  In de **softwarebibliotheek** werkruimte, selecteer een van de volgende stappen voor het type inhoud dat u wilt voorbereiden:  
-
-    -   **Toepassingen**: Vouw **Toepassingsbeheer**, klikt u op **toepassingen**, en selecteer vervolgens de toepassingen die u wilt voorbereiden.  
-
-    -   **Pakketten**: Vouw **Toepassingsbeheer**, klikt u op **pakketten**, en selecteer vervolgens de pakketten die u wilt voorbereiden.  
-
-    -   **Stuurprogrammapakketten**: Vouw **besturingssystemen**, klikt u op **stuurprogrammapakketten**, en selecteer vervolgens de stuurprogrammapakketten die u wilt voorbereiden.  
-
-    -   **Installatiekopieën van besturingssystemen**: Vouw **besturingssystemen**, klikt u op **installatiekopieën van besturingssystemen**, en selecteer vervolgens de installatiekopieën van besturingssystemen die u wilt voorbereiden.  
-
-    -   **Installatieprogramma's besturingssystemen**: Vouw **besturingssystemen**, klikt u op **installatieprogramma's besturingssystemen**, en selecteer vervolgens de installatieprogramma's voor besturingssystemen die u wilt voorbereiden.  
-
-    -   **Opstartinstallatiekopieën**: Vouw **besturingssystemen**, klikt u op **opstartinstallatiekopieën**, en selecteer vervolgens de opstartinstallatiekopieën die u wilt voorbereiden.  
-
-    -   **Takenreeksen**: Vouw **besturingssystemen**, klikt u op **Takenreeksen**, en selecteer vervolgens de takenreeks die u wilt voorbereiden.  
-
-3.  Op de **Start** tabblad, in de **implementatie** groep, klikt u op **voorbereid inhoudsbestand maken**. Het maken van Wizard voorbereid inhoudsbestand wordt geopend.  
+4.  Sur la page **Général**, vérifiez que le contenu affiché correspond bien au contenu que vous voulez distribuer, indiquez si vous voulez que Configuration Manager détecte les dépendances de contenu associées au contenu sélectionné et ajoutez les dépendances à la distribution avant de cliquer sur **Suivant**.  
 
     > [!NOTE]  
-    >  **Voor toepassingen:** Op de **Start** tabblad, in de **toepassing** groep, klikt u op **voorbereid inhoudsbestand maken**.  
+    >  Vous pouvez configurer le paramètre **Détecter les dépendances de contenu associées et les ajouter à cette distribution** pour le type de contenu d'application uniquement. Configuration Manager configure automatiquement ce paramètre pour les séquences de tâches et il ne peut pas être modifié.  
+
+5.  Dans l'onglet **Contenu** , s'il s'affiche, vérifiez que le contenu répertorié correspond au contenu que vous voulez distribuer, puis cliquez sur **Suivant**.  
+
+    > [!NOTE]  
+    >  La page **Contenu** s'affiche uniquement lorsque le paramètre **Détecter les dépendances de contenu associées et les ajouter à cette distribution** est sélectionné sur la page **Général** de l'Assistant.  
+
+6.  Sur la page **Destination du contenu** , cliquez sur **Ajouter**, choisissez l'une des opérations suivantes, puis suivez l'étape associée :  
+
+    -   **Regroupements**: sélectionnez **Regroupements d'utilisateurs** ou **Regroupements d'appareils**, cliquez sur le regroupement associé à un ou plusieurs groupes de points de distribution, puis sur **OK**.  
+
+        > [!NOTE]  
+        >  Seuls les regroupements qui sont associés à un groupe de points de distribution sont affichés. Pour plus d’informations sur l’association des regroupements et des groupes de points de distribution, consultez [Gérer les groupes de points de distribution](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_manage) dans la rubrique [Installer et configurer des points de distribution pour System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md).  
+
+    -   **Point de distribution**: sélectionnez un point de distribution existant, puis cliquez sur **OK**. Les points de distribution ayant précédemment reçu le contenu ne sont pas affichés.  
+
+    -   **Groupe de points de distribution**: sélectionnez un groupe de points de distribution existant, puis cliquez sur **OK**. Les groupes de points de distribution ayant précédemment reçu le contenu ne sont pas affichés.  
+
+    Lorsque vous avez terminé d'ajouter des destinations de contenu, cliquez sur **Suivant**.  
+
+7.  Sur la page **Résumé** , vérifiez les paramètres de la distribution avant de continuer. Pour distribuer le contenu vers les destinations sélectionnées, cliquez sur **Suivant**.  
+
+8.  La page **Progression** affiche la progression de la distribution.  
+
+9. La page **Confirmation** affiche si le contenu a été bien attribué avec succès aux points de distribution. Pour surveiller la distribution de contenu, consultez [Surveiller le contenu que vous avez distribué avec System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
+
+##  <a name="bkmk_prestage"></a> Utiliser le contenu préparé  
+ Vous pouvez préparer des fichiers de contenu pour les applications et les types de packages :  
+
+-   Dans la console Configuration Manager, vous sélectionnez le contenu dont vous avez besoin, puis utilisez l’**Assistant Création du fichier de contenu préparé** pour créer un fichier de contenu préparé compressé qui contient les fichiers et les métadonnées associées pour le contenu que vous avez sélectionné.  
+
+-   Vous pouvez ensuite importer manuellement le contenu au niveau d'un serveur de site, d'un site secondaire ou d'un point de distribution.  
+
+-   Lorsque vous importez le fichier de contenu préparé sur un serveur de site, les fichiers de contenu sont ajoutés à la bibliothèque de contenu sur le serveur de site, puis enregistrés dans la base de données du serveur de site.  
+
+-   Lorsque vous importez le fichier de contenu préparé sur un point de distribution, les fichiers de contenu sont ajoutés à la bibliothèque de contenu sur le point de distribution, et un message d'état est envoyé au serveur de site qui informe le site que le contenu est disponible sur le point de distribution.  
+
+**Limitations et éléments à prendre en compte pour le contenu préparé :**  
+
+-   **Si le point de distribution est situé sur le serveur de site**, n’activez pas le point de distribution pour le contenu préparé. Au lieu de cela, procédez comme indiqué dans [Guide pratique pour préparer du contenu sur un point de distribution situé sur un serveur de site](#bkmk_dpsiteserver).  
+
+-   **Si le point de distribution est configuré en tant que point de distribution d’extraction**, n’activez pas le point de distribution pour le contenu préparé. La configuration de contenu préparé pour un point de distribution se substitue à la configuration du point de distribution d'extraction. Un point de distribution d'extraction configuré pour du contenu préparé n'extrait pas de contenu auprès d'un point de distribution source et ne reçoit pas de contenu du serveur de site.  
+
+-   **Vous devez créer la bibliothèque de contenu sur le point de distribution avant de préparer le contenu pour ce point de distribution**. Distribuez le contenu sur le réseau au moins une fois avant de préparer le contenu vers le point de distribution.  
+
+-   **Lorsque vous préparez du contenu pour un package dont le chemin source est particulièrement long** (plus de 140 caractères, par exemple), l’outil en ligne de commande d’extraction de contenu risque de ne pas réussir à extraire le contenu de ce package vers la bibliothèque de contenu.  
+
+Pour plus d’informations sur le moment propice à la préparation des fichiers de contenu, consultez *Contenu préparé* dans la rubrique [Gérer la bande passante du réseau pour la gestion de contenu](/sccm/core/plan-design/hierarchy/manage-network-bandwidth).  
+
+Utilisez les sections suivantes pour préparer du contenu.  
+
+###  <a name="BKMK_CreatePrestagedContentFile"></a> Étape 1 : Créer un fichier de contenu préparé  
+ Vous pouvez créer un fichier de contenu préparé et compressé qui contient les fichiers et les métadonnées associées pour le contenu que vous sélectionnez dans la console Configuration Manager. Pour créer un fichier de contenu préparé, procédez comme suit.  
+
+##### <a name="to-create-a-prestaged-content-file"></a>Pour créer un fichier de contenu préparé  
+
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , sélectionnez l'une des étapes suivantes pour le type de contenu que vous souhaitez préparer :  
+
+    -   **Applications**: développez **Gestion d'applications**, cliquez sur **Applications**, puis sélectionnez les applications que vous souhaitez préparer.  
+
+    -   **Packages**: développez **Gestion d'applications**, cliquez sur **Packages**, puis sélectionnez les packages que vous souhaitez préparer.  
+
+    -   **Packages de pilotes**: développez **Systèmes d'exploitation**, cliquez sur **Packages de pilotes**, puis sélectionnez les packages de pilotes que vous souhaitez préparer.  
+
+    -   **Images du système d'exploitation**: développez **Systèmes d'exploitation**, cliquez sur **Images du système d'exploitation**, puis sélectionnez les images du système d'exploitation que vous souhaitez préparer.  
+
+    -   **Programmes d'installation de système d'exploitation**: développez **Systèmes d'exploitation**, cliquez sur **Programmes d'installation de système d'exploitation**, puis sélectionnez les programmes d'installation de système d'exploitation que vous souhaitez préparer.  
+
+    -   **Images de démarrage**: développez **Systèmes d'exploitation**, cliquez sur **Images de démarrage**, puis sélectionnez les images de démarrage que vous souhaitez préparer.  
+
+    -   **Séquences de tâches**: Développez **Systèmes d'exploitation**, cliquez sur **Séquences de tâches**, puis sélectionnez les séquences de tâches que vous souhaitez préparer.  
+
+3.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Créer un fichier de contenu préparé**. L'Assistant Création du fichier de contenu préparé s'ouvre.  
+
+    > [!NOTE]  
+    >  **Pour les applications :** Sous l’onglet **Accueil**, dans le groupe **Application**, cliquez sur **Créer un fichier de contenu préparé**.  
     >   
-    >  **Voor pakketten:** Op de **Start** tabblad, in de &lt; *PackageName*> groep, klikt u op **voorbereid inhoudsbestand maken**.  
+    >  **Pour les packages :** Sous l’onglet **Accueil**, dans le groupe &lt;*nom_package*>, cliquez sur **Créer un fichier de contenu préparé**.  
 
-4.  Op de **algemene** pagina, klikt u op **Bladeren**, kies de locatie voor het voorbereide inhoudsbestand, Geef een naam voor het bestand en klik vervolgens op **opslaan**. U kunt dit voorbereide inhoudsbestand op primaire siteservers, secundaire siteservers of distributiepunten gebruiken om de inhoud en metagegevens te importeren.  
+4.  Sur la page **Général** , cliquez sur **Parcourir**, choisissez l'emplacement pour le fichier de contenu préparé, spécifiez un nom pour le fichier, puis cliquez sur **Enregistrer**. Vous utilisez ce fichier de contenu préparé sur des serveurs de site principaux, des serveurs de site secondaires ou des points de distribution afin d'importer le contenu et les métadonnées.  
 
-5.  Selecteer voor toepassingen **alle afhankelijkheden exporteren** wilt laten Configuration Manager detecteren en toevoegen van de afhankelijkheden die zijn gekoppeld aan de toepassing voor het voorbereide inhoudsbestand. Deze instelling is standaard geselecteerd.  
+5.  Pour les applications, sélectionnez **Exporter toutes les dépendances** afin que Configuration Manager détecte et ajoute les dépendances associées à l’application au fichier de contenu préparé. Ce paramètre est activé par défaut.  
 
-6.  In **beheerderopmerkingen**, voer optionele opmerkingen in over het voorbereide inhoudsbestand en klik vervolgens op **volgende**.  
+6.  Dans **Commentaires de l'administrateur**, saisissez des commentaires facultatifs concernant le fichier de contenu préparé, puis cliquez sur **Suivant**.  
 
-7.  Op de **inhoud** pagina, Controleer of de vermelde inhoud de inhoud die u wilt toevoegen aan het voorbereide inhoudsbestand en klik vervolgens op **volgende**.  
+7.  Sur la page **Contenu** , vérifiez que le contenu répertorié correspond au contenu que vous souhaitez ajouter au fichier de contenu préparé, puis cliquez sur **Suivant**.  
 
-8.  Op de **inhoudslocaties** pagina, geeft u de distributiepunten van waaruit de inhoudsbestanden voor het voorbereide inhoudsbestand wilt ophalen. U kunt meer dan één distributiepunt de inhoud op te halen. De distributiepunten worden weergegeven in de sectie inhoudslocaties. De **inhoud** kolom wordt weergegeven hoeveel van de geselecteerde pakketten of toepassingen beschikbaar zijn op elk distributiepunt. Configuration Manager begint met het eerste distributiepunt in de lijst om op te halen van de geselecteerde inhoud en gaat vervolgens omlaag in de lijst om op te halen van de resterende inhoud vereist is voor het voorbereide inhoudsbestand. Klik op **omhoog** of **omlaag** om de prioriteitsvolgorde van de distributiepunten te wijzigen. Als de distributiepunten in de lijst niet alle geselecteerde inhoud bevatten, moet u distributiepunten toevoegen aan de lijst die de inhoud bevatten of de wizard af te sluiten, de inhoud naar ten minste één distributiepunt distribueren en vervolgens de wizard opnieuw.  
+8.  Sur la page **Emplacements du contenu** , spécifiez les points de distribution à partir desquels vous souhaitez récupérer les fichiers de contenu pour le fichier de contenu préparé. Vous pouvez sélectionner plusieurs points de distribution pour récupérer le contenu. Les points de distribution sont répertoriés dans la section Emplacements du contenu. La colonne **Contenu** affiche le nombre de packages ou applications sélectionnés disponibles sur chaque point de distribution. Configuration Manager commence par le premier point de distribution de la liste pour récupérer le contenu sélectionné, puis descend dans la liste afin de récupérer le contenu restant requis pour le fichier de contenu préparé. Cliquez sur **Monter** ou **Descendre** pour modifier l'ordre de priorité des points de distribution. Si les points de distribution de la liste ne contiennent pas tout le contenu sélectionné, vous devez ajouter des points de distribution à la liste contenant le contenu ou fermer l'Assistant, distribuer le contenu à un point de distribution au moins, puis redémarrer l'Assistant.  
 
-9. Op de **samenvatting** pagina, om de details te bevestigen. U kunt teruggaan naar vorige pagina's en wijzigingen aanbrengen. Klik op **volgende** om het voorbereide inhoudsbestand te maken.  
+9. Sur la page **Résumé** , vérifiez les détails. Vous pouvez revenir aux pages précédentes et apporter des modifications. Cliquez sur **Suivant** pour créer le fichier de contenu préparé.  
 
-10. De **voortgang** pagina wordt weergegeven voor de inhoud die aan het voorbereide inhoudsbestand wordt toegevoegd.  
+10. La page **Progression** affiche le contenu qui est ajouté au fichier de contenu préparé.  
 
-11. Op de **voltooiing** pagina, Controleer of het voorbereide inhoudsbestand is gemaakt en klik vervolgens op **sluiten**.  
+11. Sur la page **Dernière étape** , vérifiez que le fichier de contenu préparé a été créé correctement, puis cliquez sur **Fermer**.  
 
-###  <a name="BKMK_AssignContentToDistributionPoint"></a>Stap 2: De inhoud toewijzen aan distributiepunten  
- Nadat u het inhoudsbestand vooraf, moet u de inhoud toewijzen aan distributiepunten.  
+###  <a name="BKMK_AssignContentToDistributionPoint"></a> Étape 2 : Affecter le contenu aux points de distribution  
+ Après avoir préparé le fichier de contenu, attribuez le contenu aux points de distribution.  
 
 > [!NOTE]  
->  Wanneer u een voorbereid inhoudsbestand gebruikt voor het herstellen van de Inhoudsbibliotheek op een siteserver en niet hoeft te voorbereiden van de bestanden op een distributiepunt, kunt u deze procedure overslaan.  
+>  Si vous utilisez un fichier de contenu préparé pour récupérer la bibliothèque de contenu sur un serveur de site et n'êtes pas obligé de préparer les fichiers de contenu sur un point de distribution, vous pouvez ignorer cette procédure.  
 
- Gebruik de volgende procedure om toe te wijzen de inhoud van het voorbereide inhoudsbestand naar distributiepunten.  
+ Pour affecter le contenu du fichier de contenu préparé aux points de distribution, procédez comme suit.  
 
 > [!IMPORTANT]  
->  Controleer of dat de distributiepunten die u wilt voorbereiden, zijn geconfigureerd als voorbereide distributiepunten of dat de inhoud via het netwerk naar de distributiepunten wordt gedistribueerd.  
+>  Vérifiez que les points de distribution que vous souhaitez préparer sont configurés comme des points de distribution préparés ou que le contenu est distribué aux points de distribution via le réseau.  
 
-##### <a name="to-assign-the-content-to-distribution-points"></a>De inhoud toewijzen aan distributiepunten  
+##### <a name="to-assign-the-content-to-distribution-points"></a>Pour affecter le contenu aux points de distribution  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  In de **softwarebibliotheek** werkruimte, selecteer een van de volgende voor het type inhoud dat u hebt geselecteerd stappen bij het maken van het voorbereide inhoudsbestand:  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , sélectionnez l'une des étapes suivantes pour le type de contenu que vous avez sélectionné lorsque vous avez créé le fichier de contenu préparé :  
 
-    -   **Toepassingen**: Vouw **Toepassingsbeheer**, klikt u op **toepassingen**, en selecteer vervolgens de toepassingen die u hebt voorbereid.  
+    -   **Applications**: développez **Gestion d'applications**, cliquez sur **Applications**, puis sélectionnez les applications que vous avez préparées.  
 
-    -   **Pakketten**: Vouw **Toepassingsbeheer**, klikt u op **pakketten**, en selecteer vervolgens de pakketten die u hebt voorbereid.  
+    -   **Packages**: développez **Gestion d'applications**, cliquez sur **Packages**, puis sélectionnez les Packages que vous avez préparés.  
 
-    -   **Implementatiepakketten**: Vouw **Software-Updates**, klikt u op **implementatiepakketten**, en selecteer vervolgens de implementatiepakketten die u hebt voorbereid.  
+    -   **Packages de déploiement**: développez **Mises à jour logicielles**, cliquez sur **Packages de déploiement**, puis sélectionnez les packages de déploiement que vous avez préparés.  
 
-    -   **Stuurprogrammapakketten**: Vouw **besturingssystemen**, klikt u op **stuurprogrammapakketten**, en selecteer vervolgens de stuurprogrammapakketten die u hebt voorbereid.  
+    -   **Packages de pilotes**: développez **Systèmes d'exploitation**, cliquez sur **Packages de pilotes**, puis sélectionnez les packages de pilotes que vous avez préparés.  
 
-    -   **Installatiekopieën van besturingssystemen**: Vouw **besturingssystemen**, klikt u op **installatiekopieën van besturingssystemen**, en selecteer vervolgens de installatiekopieën van besturingssystemen die u hebt voorbereid.  
+    -   **Images du système d'exploitation**: développez **Systèmes d'exploitation**, cliquez sur **Images du système d'exploitation**, puis sélectionnez les images du système d'exploitation que vous avez préparées.  
 
-    -   **Installatieprogramma's besturingssystemen**: Vouw **besturingssystemen**, klikt u op **installatieprogramma's besturingssystemen**, en selecteer vervolgens de installatieprogramma's voor besturingssystemen die u hebt voorbereid.  
+    -   **Programmes d'installation de système d'exploitation**: développez **Systèmes d'exploitation**, cliquez sur **Programmes d'installation de système d'exploitation**, puis sélectionnez les programmes d'installation de système d'exploitation que vous avez préparés.  
 
-    -   **Opstartinstallatiekopieën**: Vouw **besturingssystemen**, klikt u op **opstartinstallatiekopieën**, en selecteer vervolgens de opstartinstallatiekopieën die u hebt voorbereid.  
+    -   **Images de démarrage**: développez **Systèmes d'exploitation**, cliquez sur **Images de démarrage**, puis sélectionnez les images de démarrage que vous avez préparées.  
 
-3.  Klik op het tabblad **Start** in de groep **Implementatie** op **Inhoud distribueren**. De Wizard inhoud distribueren wordt geopend.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Distribuer du contenu**. L'Assistant Distribuer du contenu s'ouvre.  
 
-4.  Op de **algemene** pagina, Controleer of de vermelde inhoud de inhoud die u hebt voorbereid, kies of u wilt dat Configuration Manager detecteert die zijn gekoppeld aan de geselecteerde inhoud en voeg de afhankelijkheden toe aan de distributie en klik vervolgens op **volgende**.  
-
-    > [!NOTE]  
-    >  U hebt de optie voor het configureren van de **gekoppelde inhoud afhankelijkheden detecteren en toevoegen aan deze distributie** instelling alleen voor het inhoudstype van de toepassing. Configuration Manager wordt automatisch geconfigureerd voor deze instelling voor takenreeksen en kan niet worden gewijzigd.  
-
-5.  Op de **inhoud** pagina, indien weergegeven, Controleer of de vermelde inhoud de inhoud die u wilt distribueren en klik vervolgens op **volgende**.  
+4.  Sur la page **Général** , vérifiez que le contenu affiché correspond bien au contenu que vous avez préparé, indiquez si vous voulez que Configuration Manager détecte les dépendances de contenu associées au contenu sélectionné et ajoutez les dépendances à la distribution avant de cliquer sur **Suivant**.  
 
     > [!NOTE]  
-    >  De **inhoud** pagina wordt alleen weergegeven als de **gekoppelde inhoud afhankelijkheden detecteren en toevoegen aan deze distributie** instelling is geselecteerd op de **algemene** pagina van de wizard.  
+    >  Vous pouvez configurer le paramètre **Détecter les dépendances de contenu associées et les ajouter à cette distribution** pour le type de contenu d'application uniquement. Configuration Manager configure automatiquement ce paramètre pour les séquences de tâches et il ne peut pas être modifié.  
 
-6.  Op de **doel van inhoud** pagina, klikt u op **toevoegen**, kies een van de volgende mogelijkheden van de te voorbereiden distributiepunten en volg de bijbehorende stap:  
+5.  Sur la page **Contenu** , si elle s'affiche, vérifiez que le contenu répertorié correspond au contenu que vous voulez distribuer, puis cliquez sur **Suivant**.  
 
-    -   **Verzamelingen**: Selecteer **Gebruikersverzamelingen** of **Apparaatverzamelingen**, klik op de verzameling die is gekoppeld aan een of meer distributiepuntengroepen en klik vervolgens op **OK**.  
+    > [!NOTE]  
+    >  La page **Contenu** s'affiche uniquement lorsque le paramètre **Détecter les dépendances de contenu associées et les ajouter à cette distribution** est sélectionné sur la page **Général** de l'Assistant.  
+
+6.  Sur la page **Destination du contenu** , cliquez sur **Ajouter**, choisissez l'une des opérations suivantes qui inclut les points de distribution à préinstaller, puis suivez l'étape associée :  
+
+    -   **Regroupements**: sélectionnez **Regroupements d'utilisateurs** ou **Regroupements d'appareils**, cliquez sur le regroupement associé à un ou plusieurs groupes de points de distribution, puis sur **OK**.  
 
         > [!NOTE]  
-        >  Alleen de verzamelingen die gekoppeld aan een distributiepuntgroep zijn worden weergegeven.  Zie voor meer informatie [distributiepuntgroepen beheren](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_manage) in de [installeren en configureren van distributiepunten voor System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md) onderwerp.  
+        >  Seuls les regroupements qui sont associés à un groupe de points de distribution sont affichés.  Pour plus d’informations, consultez [Gérer les groupes de points de distribution](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_manage) dans la rubrique [Installer et configurer des points de distribution pour System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md).  
 
-    -   **Distributiepunt**: Selecteer een bestaand distributiepunt en klik vervolgens op **OK**. Distributiepunten die eerder inhoud hebben ontvangen, worden niet weergegeven.  
+    -   **Point de distribution**: sélectionnez un point de distribution existant, puis cliquez sur **OK**. Les points de distribution ayant précédemment reçu le contenu ne sont pas affichés.  
 
-    -   **Distributiepuntengroep**: Selecteer een bestaande distributiepuntgroep en klik vervolgens op **OK**. Distributiepuntgroepen die eerder inhoud hebben ontvangen, worden niet weergegeven.  
+    -   **Groupe de points de distribution**: sélectionnez un groupe de points de distribution existant, puis cliquez sur **OK**. Les groupes de points de distribution ayant précédemment reçu le contenu ne sont pas affichés.  
 
-    Wanneer u klaar bent met het toevoegen van doelen van inhoud, klikt u op **volgende**.  
+    Lorsque vous avez terminé d'ajouter des destinations de contenu, cliquez sur **Suivant**.  
 
-7.  Op de **samenvatting** controleert u de instellingen voor de distributie voordat u doorgaat. Als u wilt de inhoud naar de geselecteerde doelen te distribueren, klikt u op **volgende**.  
+7.  Sur la page **Résumé** , vérifiez les paramètres de la distribution avant de continuer. Pour distribuer le contenu vers les destinations sélectionnées, cliquez sur **Suivant**.  
 
-8.  De **voortgang** pagina geeft de voortgang van de distributie.  
+8.  La page **Progression** affiche la progression de la distribution.  
 
-9. De **bevestiging** pagina weergegeven of de inhoud naar de distributiepunten is toegewezen. Om te bewaken de distributie van inhoud, Zie [inhoud die u hebt gedistribueerd met System Center Configuration Manager controleren](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
+9. La page **Confirmation** affiche si le contenu a été bien attribué avec succès aux points de distribution. Pour surveiller la distribution de contenu, consultez [Surveiller le contenu que vous avez distribué avec System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
 
-###  <a name="BKMK_ExportContentFromPrestagedContentFile"></a>Stap 3: De inhoud van het voorbereide inhoudsbestand uitpakken  
- Nadat u het voorbereide inhoudsbestand te maken en de inhoud aan distributiepunten toewijzen, kunt u de inhoudsbestanden naar de Inhoudsbibliotheek op een siteserver of distributiepunt uitpakken. Normaal gesproken u het voorbereide inhoudsbestand hebt gekopieerd naar een draagbaar station, zoals een USB-station, of inhoud medium, zoals een DVD hebt gebrand en is deze beschikbaar op de locatie van de siteserver of distributiepunt dat de inhoud is vereist.  
+###  <a name="BKMK_ExportContentFromPrestagedContentFile"></a> Étape 3 : Extraire le contenu du fichier de contenu préparé  
+ Une fois que vous avez créé le fichier de contenu préparé et que vous avez attribué le contenu aux points de distribution, vous pouvez extraire les fichiers de contenu vers la bibliothèque de contenu d'un serveur de site ou d'un point de distribution. Généralement, vous avez copié le fichier de contenu préparé vers un lecteur portable, tel qu’un lecteur USB, ou gravé le contenu sur un support, tel qu’un DVD, puis vous l’avez mis à disposition à l’emplacement du serveur de site ou du point de distribution qui demande le contenu.  
 
- Gebruik de volgende procedure de inhoudsbestanden handmatig van het voorbereide inhoudsbestand exporteren met behulp van het opdrachtregelprogramma Extract Content.  
+ Pour exporter manuellement les fichiers de contenu à partir du fichier de contenu préparé à l'aide de l'outil de ligne de commande Extraire le contenu, procédez comme suit.  
 
 > [!IMPORTANT]  
->  Wanneer u het opdrachtregelprogramma uitpakken van inhoud uitvoert, worden in het hulpprogramma een tijdelijk bestand maakt het voorbereide inhoudsbestand wordt gemaakt. Vervolgens het bestand wordt gekopieerd naar de doelmap en het tijdelijke bestand is verwijderd. U moet voldoende schijfruimte voor dit tijdelijke bestand of het proces is mislukt. Het tijdelijke bestand is gemaakt in de volgende locatie:  
+>  Lorsque vous exécutez l'outil d'extraction de contenu en ligne de commande, l'outil crée un fichier temporaire lors de la création du fichier de contenu préparé. Le fichier est ensuite copié dans le dossier de destination, puis supprimé. Vous devez disposer de suffisamment d'espace disque pour stocker ce fichier temporaire. Sinon, le processus échoue. Le fichier temporaire est créé à l'emplacement suivant :  
 >   
->  -   Het tijdelijke bestand wordt gemaakt in dezelfde map die u als doelmap voor het voorbereide inhoudsbestand opgeeft.  
+>  -   Le fichier temporaire est créé dans le même dossier que celui spécifié comme dossier de destination du fichier de contenu préparé.  
 
 > [!IMPORTANT]  
->  De gebruiker die het opdrachtregelprogramma voor het uitpakken van inhoud uitvoert moet beschikken over **beheerder** rechten op de computer van waaruit u de vooraf geplaatste inhoud wordt uitgepakt.  
+>  L’utilisateur qui exécute l’outil en ligne de commande d’extraction de contenu doit disposer de droits d’**administrateur** sur l’ordinateur à partir duquel vous extrayez le contenu préparé.  
 
-##### <a name="to-extract-the-content-files-from-the-prestaged-content-file"></a>De inhoudsbestanden ophalen uit het voorbereide inhoudsbestand  
+##### <a name="to-extract-the-content-files-from-the-prestaged-content-file"></a>Pour extraire les fichiers de contenu du fichier de contenu préparé  
 
-1.  Kopieer het voorbereide inhoudsbestand naar de computer van waaruit u wilt ophalen van de inhoud.  
+1.  Copiez le fichier de contenu préparé à l'ordinateur à partir duquel vous souhaitez extraire le contenu.  
 
-2.  Kopieer het opdrachtregelprogramma Extract Content van &lt; *ConfigMgrInstallationPath*> \bin\\&lt;*platform*> op de computer van waaruit u wilt ophalen van het voorbereide inhoudsbestand.  
+2.  Copiez l’outil en ligne de commande d’extraction de contenu depuis &lt;*chemin_installation_Configuration_Manager*>\bin\\&lt;*plateforme*> sur l’ordinateur à partir duquel vous souhaitez extraire le fichier de contenu préparé.  
 
-3.  Open de opdrachtprompt en navigeer naar de locatie van het voorbereide inhoudsbestand en het hulpprogramma voor uitpakken van inhoud.  
+3.  Ouvrez l'invite de commandes et accédez à l'emplacement du dossier du fichier de contenu préparé et l'outil Extraire le contenu.  
 
     > [!NOTE]  
-    >  U kunt een uitpakken of meer voorbereide inhoudsbestanden op een siteserver, secundaire siteserver of distributiepunt.  
+    >  Vous pouvez extraire un ou plusieurs fichiers de contenu préparé sur un serveur de site, un serveur de site secondaire ou un point de distribution.  
 
-4.  Type **extractcontent/p:**&lt;*PrestagedFileLocation*>**\\**&lt;*PrestagedFileName*> **/S** één bestand importeren.  
+4.  Tapez **extractcontent /P:**&lt;*emplacement_fichier_préparé*>**\\**&lt;*nom_fichier_préparé*> **/S** pour importer un seul fichier.  
 
-     Type **extractcontent/p:**&lt;*PrestagedFileLocation*> **/S** voor het importeren van alle voorbereide bestanden in de opgegeven map.  
+     Tapez **extractcontent /P:**&lt;*emplacement_fichier_préparé*> **/S** pour importer tous les fichiers préparés dans le dossier spécifié.  
 
-     Typ bijvoorbeeld **extractcontent /P:D:\PrestagedFiles\MyPrestagedFile.pkgx /S** waar `D:\PrestagedFiles\` is de PrestagedFileLocation `MyPrestagedFile.pkgx` de voorbereide bestandsnaam en `/S` informeert Configuration Manager om op te halen, alleen de inhoudsbestanden die nieuwer zijn dan wat er op het distributiepunt.  
+     Par exemple, tapez **extractcontent /P:D:\PrestagedFiles\MyPrestagedFile.pkgx /S** où `D:\PrestagedFiles\` est l’emplacement du fichier préparé, `MyPrestagedFile.pkgx` est le nom du fichier préparé et `/S` informe Configuration Manager d’extraire uniquement les fichiers de contenu qui sont plus récents que ce qui se trouve actuellement sur le point de distribution.  
 
-     Wanneer u het voorbereide inhoudsbestand op een siteserver uitpakt, de inhoudsbestanden worden toegevoegd aan de Inhoudsbibliotheek op de siteserver en vervolgens de beschikbaarheid van de inhoud is geregistreerd in de site server-database. Wanneer u het voorbereide inhoudsbestand op een distributiepunt exporteert, worden de inhoudsbestanden toegevoegd aan de Inhoudsbibliotheek op het distributiepunt, het distributiepunt verzendt een statusbericht naar de bovenliggende primaire siteserver en vervolgens de beschikbaarheid van de inhoud geregistreerd in de sitedatabase.  
+     Lorsque vous extrayez le fichier de contenu préparé sur un serveur de site, les fichiers de contenu sont ajoutés à la bibliothèque de contenu sur le serveur de site, puis la disponibilité du contenu est enregistrée dans la base de données du serveur de site. Lorsque vous exportez le fichier de contenu préparé sur un point de distribution, les fichiers de contenu sont ajoutés à la bibliothèque de contenu sur le point de distribution, ce dernier envoie un message d'état au serveur de site principal parent, puis la disponibilité du contenu est enregistrée dans la base de données du site.  
 
     > [!IMPORTANT]  
-    >  In het volgende scenario, moet u de inhoud die u hebt opgehaald uit een voorbereid inhoudsbestand wanneer de inhoud wordt bijgewerkt naar een nieuwe versie bijwerken:  
+    >  Dans le scénario suivant, vous devez mettre à jour le contenu que vous avez extrait à partir d'un fichier de contenu préparé lorsque le contenu est mis à jour vers une nouvelle version :  
     >   
-    >  1.  U maakt een voorbereid inhoudsbestand voor versie 1 van een pakket.  
-    >  2.  U werkt de bronbestanden voor het pakket versie 2.  
-    >  3.  U uitpakken het voorbereide inhoudsbestand (versie 1 van het pakket) op een distributiepunt.  
+    >  1.  Vous créez un fichier de contenu préparé pour la version 1 d'un package.  
+    >  2.  Vous mettez à jour les fichiers sources pour le package avec la version 2.  
+    >  3.  Vous extrayez le fichier de contenu préparé (version 1 du package) sur un point de distribution.  
     >   
-    > Het Pakketversie 2 naar het distributiepunt niet automatisch wordt verzonden door Configuration Manager. U moet een nieuw voorbereid inhoudsbestand dat de nieuwe bestandsversie bevat maken en vervolgens uitpakken van de inhoud, bijwerken van het distributiepunt voor het distribueren van de bestanden die zijn gewijzigd of alle bestanden in het pakket opnieuw distribueren.  
+    > Configuration Manager ne distribue pas automatiquement le package version 2 vers le point de distribution. Vous devez créer un nouveau fichier de contenu préparé contenant la nouvelle version du fichier, puis extraire le contenu, mettre à jour le point de distribution pour distribuer les fichiers qui ont été modifiés ou redistribuer tous les fichiers du package.  
 
-###  <a name="bkmk_dpsiteserver"></a>Het voorbereiden van inhoud op een distributiepunt op een siteserver  
- Wanneer een distributiepunt op een siteserver is geïnstalleerd, moet u de volgende procedure om inhoud met succes voor te bereiden. Dit is omdat de inhoudsbestanden al in de Inhoudsbibliotheek.  
+###  <a name="bkmk_dpsiteserver"></a> Guide pratique pour préparer du contenu sur un point de distribution situé sur un serveur de site  
+ Lorsqu'un point de distribution est installé sur un serveur de site, vous devez suivre la procédure suivante pour préparer correctement le contenu. Cela est dû au fait que les fichiers de contenu se trouvent déjà dans la bibliothèque de contenu.  
 
- Wanneer het distributiepunt niet is ingeschakeld voor voorbereide inhoud of wanneer het distributiepunt bevindt zich niet op een siteserver bevindt, ziet de [vooraf geplaatste inhoud gebruiken](#bkmk_prestage) in dit onderwerp.  
+ Lorsqu’un point de distribution n’est pas activé pour préparer le contenu ou lorsque le point de distribution ne se trouve pas sur un serveur de site, consultez la section [Utilisation de contenu préparé](#bkmk_prestage) dans cette rubrique.  
 
-##### <a name="to-prestage-content-on-distribution-points-located-on-a-site-server"></a>Voorbereiden van inhoud op distributiepunten die zich bevinden op een siteserver  
+##### <a name="to-prestage-content-on-distribution-points-located-on-a-site-server"></a>Pour préparer du contenu sur des points de distribution situés sur un serveur de site  
 
-1.  Gebruik de volgende stappen uit om te controleren of het distributiepunt niet is ingeschakeld voor voorbereide inhoud.  
+1.  Utilisez les étapes suivantes pour vérifier que le point de distribution n'est pas activé pour le contenu préparé.  
 
-    1.  Klik op **Beheer**in de Configuration Manager-console.  
+    1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-    2.  In de **beheer** werkruimte, klikt u op **distributiepunten**, en selecteer vervolgens het distributiepunt dat zich op de siteserver bevindt.  
+    2.  Dans l'espace de travail **Administration** , cliquez sur **Points de distribution**et sélectionnez le point de distribution situé sur le serveur de site.  
 
-    3.  Klik op **Eigenschappen** in het tabblad **Start** , in de groep **Eigenschappen**.  
+    3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 
-    4.  Op de **algemene** tabblad, Controleer de **dit distributiepunt inschakelen voor voorbereide inhoud** selectievakje niet is ingeschakeld.  
+    4.  Dans l'onglet **Général** , vérifiez que la case **Activer ce point de distribution pour le contenu préparé** est décochée.  
 
-2.  Het voorbereide inhoudsbestand te maken met behulp van de [stap 1: Een voorbereid inhoudsbestand maken](#BKMK_CreatePrestagedContentFile) in dit onderwerp.  
+2.  Créez le fichier de contenu préparé en suivant la section [Étape 1 : Créer un fichier de contenu préparé](#BKMK_CreatePrestagedContentFile) dans cette rubrique.  
 
-3.  De inhoud toewijzen aan het distributiepunt met behulp van de [stap 2: De inhoud toewijzen aan distributiepunten](#BKMK_AssignContentToDistributionPoint) in dit onderwerp.  
+3.  Affectez le contenu au point de distribution en suivant la section [Étape 2 : Affecter le contenu aux points de distribution](#BKMK_AssignContentToDistributionPoint) dans cette rubrique.  
 
-4.  Op de siteserver, moet u de inhoud van het voorbereide inhoudsbestand uitpakken met behulp van de [stap 3: De inhoud van het voorbereide inhoudsbestand uitpakken](#BKMK_ExportContentFromPrestagedContentFile) in dit onderwerp.  
+4.  Sur le serveur de site, extrayez le contenu du fichier de contenu préparé en suivant la section [Étape 3 : Extraire le contenu du fichier de contenu préparé](#BKMK_ExportContentFromPrestagedContentFile) dans cette rubrique.  
 
     > [!NOTE]  
-    >  Wanneer het distributiepunt op een secundaire site is, wacht u minstens 10 minuten en vervolgens met behulp van een Configuration Manager-console die is verbonden met de bovenliggende primaire site, de inhoud toewijzen aan het distributiepunt op de secundaire site.  
+    >  Lorsque le point de distribution est situé sur un site secondaire, patientez au moins 10 minutes, puis utilisez une console Configuration Manager connectée au site principal parent pour affecter le contenu au point de distribution sur le site secondaire.  
 
-##  <a name="bkmk_manage"></a>Beheren van de inhoud die u hebt gedistribueerd  
- U hebt de volgende opties voor het beheren van inhoud:  
- - [Inhoud bijwerken](#update-content)
- - [Inhoud opnieuw distribueren](#redistribute-content)
- - [Inhoud verwijderen](#remove-content)
- - [inhoud valideren](#validate-content)
+##  <a name="bkmk_manage"></a> Gérer le contenu que vous avez distribué  
+ Vous disposez des options suivantes pour gérer le contenu :  
+ - [Mettre à jour le contenu](#update-content)
+ - [Redistribuer le contenu](#redistribute-content)
+ - [Supprimer le contenu](#remove-content)
+ - [Valider le contenu](#validate-content)
 
-### <a name="update-content"></a>Inhoud bijwerken
-Wanneer de locatie van het bronbestand voor een implementatie wordt bijgewerkt door het toevoegen van nieuwe bestanden of bestaande bestanden te vervangen met een nieuwere versie, kunt u de inhoudsbestanden op distributiepunten bijwerken met behulp van de **distributiepunten bijwerken** of **inhoud bijwerken** actie:  
--   De inhoudsbestanden van het bronbestandspad gekopieerd naar de Inhoudsbibliotheek op de site die de pakketinhoudsbron bezit  
--   De pakketversie wordt stapsgewijs verhoogd  
--   Elk exemplaar van de Inhoudsbibliotheek op siteservers en op distributiepunten verwijst updates met alleen de bestanden die zijn gewijzigd  
+### <a name="update-content"></a>Mettre à jour le contenu
+Si l’emplacement du fichier source d’un déploiement est mis à jour par l’ajout de nouveaux fichiers ou le remplacement de fichiers existants par d’autres plus récents, vous pouvez mettre à jour les fichiers de contenu sur les points de distribution à l’aide de l’action **Mettre à jour les points de distribution** ou **Mettre à jour le contenu** :  
+-   Les fichiers de contenu sont copiés du chemin source vers la bibliothèque de contenu sur le site propriétaire de la source du contenu du package.  
+-   La version du package est incrémentée.  
+-   Chaque instance de la bibliothèque de contenu sur les serveurs de site et sur les points de distribution est mise à jour uniquement avec les fichiers qui ont été modifiés.  
 
 > [!WARNING]  
->  De pakketversie voor toepassingen is altijd 1. Wanneer u de inhoud voor een toepassingsimplementatietype bijwerkt, maakt Configuration Manager een nieuwe inhouds-ID voor het implementatietype en verwijst het pakket naar de nieuwe inhouds-ID.  
+>  La version du package pour les applications est toujours 1. Quand vous mettez à jour le contenu pour un type de déploiement d’application, Configuration Manager crée un ID de contenu pour le type de déploiement, et le package fait référence à ce nouvel ID de contenu.  
 
-#### <a name="to-update-content-on-distribution-points"></a>Inhoud op distributiepunten bijwerken  
+#### <a name="to-update-content-on-distribution-points"></a>Pour mettre à jour du contenu sur les points de distribution  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  In de **softwarebibliotheek** werkruimte, selecteer een van de volgende stappen voor het type inhoud dat u wilt distribueren:  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , sélectionnez l'une des étapes suivantes pour le type de contenu que vous souhaitez distribuer :  
 
-    -   **Toepassingen**: Vouw **Toepassingsbeheer** > **toepassingen**, en selecteer vervolgens de toepassingen die u wilt distribueren. Klik op de **implementatietypen** tabblad en selecteer vervolgens het implementatietype dat u wilt bijwerken.  
+    -   **Applications** : Développez **Gestion d’applications** > **Applications**, puis sélectionnez les applications à distribuer. Cliquez sur l'onglet **Types de déploiement** , puis sélectionnez le type de déploiement à mettre à jour.  
 
-    -   **Pakketten**: Vouw **Toepassingsbeheer** > **pakketten**, en selecteer vervolgens de pakketten die u wilt bijwerken.  
+    -   **Packages** : Développez **Gestion d’applications** > **Packages**, puis sélectionnez les packages à mettre à jour.  
 
-    -   **Implementatiepakketten**: Vouw **Software-Updates** > **implementatiepakketten**, en selecteer vervolgens de implementatiepakketten die u wilt bijwerken.  
+    -   **Packages de déploiement** : Développez **Mises à jour logicielles** > **Packages de déploiement**, puis sélectionnez les packages de déploiement à mettre à jour.  
 
-    -   **Stuurprogrammapakketten**: Vouw **besturingssystemen** > **stuurprogrammapakketten**, en selecteer vervolgens de stuurprogrammapakketten die u wilt bijwerken.  
+    -   **Packages de pilotes** : Développez **Systèmes d’exploitation** > **Packages de pilotes**, puis sélectionnez les packages de pilotes à mettre à jour.  
 
-    -   **Installatiekopieën van besturingssystemen**: Vouw **besturingssystemen** > **installatiekopieën van besturingssystemen**, en selecteer vervolgens de installatiekopieën van besturingssystemen die u wilt bijwerken.  
+    -   **Images de système d’exploitation** : Développez **Systèmes d’exploitation** > **Images du système d’exploitation**, puis sélectionnez les images de système d’exploitation à mettre à jour.  
 
-    -   **Installatieprogramma's besturingssystemen**: Vouw **besturingssystemen** > **installatieprogramma's besturingssystemen**, en selecteer vervolgens de installatieprogramma's voor besturingssystemen die u wilt bijwerken.  
+    -   **Programmes de système d’exploitation** : Développez **Systèmes d’exploitation** > **Programmes d’installation de système d’exploitation**, puis sélectionnez les programmes d’installation de système d’exploitation à mettre à jour.  
 
-    -   **Opstartinstallatiekopieën**: Vouw **besturingssystemen** >  **opstartinstallatiekopieën**, en selecteer vervolgens de opstartinstallatiekopieën die u wilt bijwerken.  
+    -   **Images de démarrage** : Développez **Systèmes d’exploitation** >  **Images de démarrage**, puis sélectionnez les images de démarrage à mettre à jour.  
 
-3.  Op de **Start** tabblad, in de **implementatie** groep, klikt u op **distributiepunten bijwerken**, en klik vervolgens op **OK** om te bevestigen dat u wilt de inhoud bijwerken.  
-
-    > [!NOTE]  
-    >  Inhoud voor toepassingen wilt bijwerken, klikt u op de **implementatietypen** tabblad, met de rechtermuisknop op het implementatietype, klik op **inhoud bijwerken**, en klik vervolgens op **OK** om te bevestigen dat u wilt vernieuwen van de inhoud.  
+3.  Dans l'onglet **Accueil** , cliquez sur le groupe **Déploiement** , cliquez sur **Mettre à jour les points de distribution**, puis cliquez sur **OK** pour confirmer la mise à jour du contenu.  
 
     > [!NOTE]  
-    >  Wanneer u inhoud voor opstartinstallatiekopieën bijwerkt, wordt de Wizard distributiepunten beheren geopend. Lees de informatie op de **samenvatting** pagina en voltooi de wizard voor het bijwerken van de inhoud.  
+    >  Pour mettre à jour le contenu pour les applications, cliquez sur l'onglet **Types de déploiement** , cliquez avec le bouton droit sur le type de déploiement, cliquez sur **Mettre à jour le contenu**, puis cliquez sur **OK** pour confirmer l'actualisation du contenu.  
 
-### <a name="redistribute-content"></a>Inhoud opnieuw distribueren
-U kunt een pakket alle wilt kopiëren van de inhoudsbestanden in het pakket naar distributiepunten opnieuw distribueren of distributie, wijst u groepen en waardoor de bestaande bestanden overschrijven.  
+    > [!NOTE]  
+    >  Lorsque vous mettez à jour du contenu pour les images de démarrage, l'Assistant Gestion des points de distribution s'ouvre. Vérifiez les informations sur la **Résumé** , puis effectuez toutes les étapes de l'Assistant pour mettre à jour le contenu.  
 
- Deze bewerking gebruiken om inhoudsbestanden in het pakket herstellen of inhoud opnieuw te verzenden wanneer de initiële distributie mislukt. U kunt een pakket vanuit opnieuw distribueren:  
+### <a name="redistribute-content"></a>Redistribuer le contenu
+Vous pouvez redistribuer un package pour copier tous les fichiers de contenu dans le package vers des points de distribution ou des groupes de points de distribution, et remplacer les fichiers existants.  
 
--   Eigenschappen van pakket  
--   Eigenschappen van het distributiepunt  
--   Eigenschappen van distributiepuntgroepen.  
+ Utilisez cette option pour réparer les fichiers de contenu dans le package ou pour renvoyer le contenu après un échec de la distribution initiale. Vous pouvez redistribuer un package à partir des propriétés suivantes :  
+
+-   Propriétés du package  
+-   Propriétés du point de distribution  
+-   Propriétés du groupe de points de distribution  
 
 
-#### <a name="to-redistribute-content-from-package-properties"></a>Inhoud van de eigenschappen van pakket opnieuw distribueren  
+#### <a name="to-redistribute-content-from-package-properties"></a>Pour redistribuer du contenu à partir des propriétés de package  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  In de **softwarebibliotheek** werkruimte, selecteer een van de volgende stappen voor het type inhoud dat u wilt distribueren:  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , sélectionnez l'une des étapes suivantes pour le type de contenu que vous souhaitez distribuer :  
 
-    -   **Toepassingen**: Vouw **Toepassingsbeheer** >  **toepassingen**, en selecteer vervolgens de toepassing die u wilt distribueren.  
+    -   **Applications** : Développez **Gestion d’applications** >  **Applications**, puis sélectionnez l’application à redistribuer.  
 
-    -   **Pakketten**: Vouw **Toepassingsbeheer** > **pakketten**, en selecteer vervolgens het pakket dat u wilt distribueren.  
+    -   **Packages** : Développez **Gestion d’applications** > **Packages**, puis sélectionnez le package à redistribuer.  
 
-    -   **Implementatiepakketten**: Vouw **Software-Updates** >  **implementatiepakketten**, en selecteer vervolgens het implementatiepakket dat u wilt distribueren.  
+    -   **Packages de déploiement** : Développez **Mises à jour logicielles** >  **Packages de déploiement**, puis sélectionnez le package de déploiement à redistribuer.  
 
-    -   **Stuurprogrammapakketten**: Vouw **besturingssystemen** > **stuurprogrammapakketten**, en selecteer vervolgens het stuurprogrammapakket dat u wilt distribueren.  
+    -   **Packages de pilotes** : Développez **Systèmes d’exploitation** > **Packages de pilotes**, puis sélectionnez le package de pilote à redistribuer.  
 
-    -   **Installatiekopieën van besturingssystemen**: Vouw **besturingssystemen** > **installatiekopieën van besturingssystemen**, en selecteer vervolgens de installatiekopie van het besturingssysteem die u wilt distribueren.  
+    -   **Images de système d’exploitation** : Développez **Systèmes d’exploitation** > **Images du système d’exploitation**, puis sélectionnez l’image du système d’exploitation à redistribuer.  
 
-    -   **Installatieprogramma's besturingssystemen**: Vouw **besturingssystemen** > **installatieprogramma's besturingssystemen**, en selecteer vervolgens het installatieprogramma van het besturingssysteem dat u wilt distribueren.  
+    -   **Programmes de système d’exploitation** : Développez **Systèmes d’exploitation** > **Programmes d’installation de système d’exploitation**, puis sélectionnez le programme d’installation de système d’exploitation à redistribuer.  
 
-    -   **Opstartinstallatiekopieën**: Vouw **besturingssystemen** >  **opstartinstallatiekopieën**, en selecteer vervolgens de opstartinstallatiekopie die u wilt distribueren.  
+    -   **Images de démarrage** : Développez **Systèmes d’exploitation** >  **Images de démarrage**, puis sélectionnez l’image de démarrage à redistribuer.  
 
-3.  Klik op **Eigenschappen** in het tabblad **Start** , in de groep **Eigenschappen**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 
-4.  Klik op de **inhoudslocaties** tabblad, selecteert u het distributiepunt of distributiepuntgroep waarin u wilt distribueren van inhoud, klik op **distribueren**, en klik vervolgens op **OK**.  
+4.  Cliquez sur l'onglet **Emplacements du contenu** , sélectionnez le point de distribution ou le groupe de points de distribution dans lequel vous souhaitez redistribuer le contenu, cliquez sur **Redistribuer**, puis cliquez sur **OK**.  
 
-#### <a name="to-redistribute-content-from-distribution-point-properties"></a>Inhoud van de eigenschappen van het distributiepunt opnieuw distribueren  
+#### <a name="to-redistribute-content-from-distribution-point-properties"></a>Pour redistribuer du contenu à partir des propriétés de package de point de distribution  
 
-1.  Klik op **Beheer**in de Configuration Manager-console.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-2.  In de **beheer** werkruimte, klikt u op **distributiepunten**, en selecteer vervolgens het distributiepunt waarin u inhoud wilt distribueren.  
+2.  Dans l'espace de travail **Administration** , cliquez sur **Points de distribution**, puis sélectionnez le point de distribution dans lequel vous souhaitez redistribuer du contenu.  
 
-3.  Klik op **Eigenschappen** in het tabblad **Start** , in de groep **Eigenschappen**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 
-4.  Klik op de **inhoud** tabblad, selecteer de inhoud opnieuw wilt distribueren, klik op **distribueren**, en klik vervolgens op **OK**.  
+4.  Cliquez sur l'onglet **Contenu** , sélectionnez le contenu à redistribuer, cliquez sur **Redistribuer**, puis cliquez sur **OK**.  
 
-#### <a name="to-redistribute-content-from-distribution-point-group-properties"></a>Inhoud van de eigenschappen van de distributiepuntengroep opnieuw distribueren  
+#### <a name="to-redistribute-content-from-distribution-point-group-properties"></a>Pour redistribuer du contenu des propriétés du groupe de points de distribution  
 
-1.  Klik op **Beheer**in de Configuration Manager-console.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-2.  In de **beheer** werkruimte, klikt u op **Distributiepuntengroepen**, en selecteer vervolgens de distributiepuntgroep waarin u inhoud wilt distribueren.  
+2.  Dans l'espace de travail **Administration** , cliquez sur **Groupes de points de distribution**, puis sélectionnez le groupe de points de distribution dont vous souhaitez redistribuer du contenu.  
 
-3.  Klik op **Eigenschappen** in het tabblad **Start** , in de groep **Eigenschappen**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 
-4.  Klik op de **inhoud** tabblad, selecteer de inhoud opnieuw wilt distribueren, klik op **distribueren**, en klik vervolgens op **OK**.  
+4.  Cliquez sur l'onglet **Contenu** , sélectionnez le contenu à redistribuer, cliquez sur **Redistribuer**, puis cliquez sur **OK**.  
 
     > [!IMPORTANT]  
-    >  De inhoud van het pakket wordt gedistribueerd naar alle distributiepunten in de distributiepuntengroep.  
+    >  Le contenu du package est redistribué à tous les points de distribution du groupe de points de distribution.  
 
 
-#### <a name="use-the-sdk-to-force-replication-of-content"></a>De SDK gebruiken voor het afdwingen van replicatie van inhoud
-U kunt de **RetryContentReplication** klassenmethode Windows Management Instrumentation (WMI) uit de Configuration Manager-SDK om af te dwingen Distribution Manager om inhoud te kopiëren van de bronlocatie naar de Inhoudsbibliotheek.  
+#### <a name="use-the-sdk-to-force-replication-of-content"></a>Utiliser le SDK pour forcer la réplication de contenu
+Vous pouvez utiliser la méthode de classe WMI (Windows Management Instrumentation) **RetryContentReplication** à partir du SDK Configuration Manager pour forcer le gestionnaire de distribution à copier le contenu de l’emplacement source vers la bibliothèque de contenu.  
 
-Deze methode alleen gebruiken voor het afdwingen van replicatie wanneer u inhoud opnieuw distribueren moet nadat er problemen met normale replicatie van de inhoud zijn (meestal bevestigd door het gebruik van het knooppunt controle van de console).   
+Utilisez uniquement cette méthode pour forcer la réplication quand vous devez redistribuer le contenu après avoir rencontré des problèmes lors de la réplication normale de contenu (généralement validée à l’aide du nœud Surveillance de la console).   
 
-Zie voor meer informatie over deze optie SDK [RetryContentReplication methode in klasse SMS_CM_UpdatePackages](https://msdn.microsoft.com/library/mt762092(CMSDK.16).aspx) op MSDN. Microsoft.com.
+Pour plus d’informations sur cette option SDK, consultez [RetryContentReplication Method in Class SMS_CM_UpdatePackages](https://msdn.microsoft.com/library/mt762092(CMSDK.16).aspx) (Méthode RetryContentReplication dans la classe SMS_CM_UpdatePackages) sur MSDN.Microsoft.com.
 
-### <a name="remove-content"></a>Inhoud verwijderen
-Wanneer u inhoud niet langer op uw distributiepunten vereist, kunt u de inhoudsbestanden op het distributiepunt.  
+### <a name="remove-content"></a>Supprimer le contenu
+Si vous n'avez plus besoin de contenu sur vos points de distribution, vous pouvez supprimer les fichiers de contenu sur le point de distribution.  
 
--   Eigenschappen van pakket  
--   Eigenschappen van het distributiepunt  
--   Eigenschappen van distributiepuntgroepen.  
+-   Propriétés du package  
+-   Propriétés du point de distribution  
+-   Propriétés du groupe de points de distribution  
 
-Wanneer de inhoud gekoppeld aan een ander pakket dat naar hetzelfde distributiepunt is gedistribueerd is, niet kunt u de inhoud verwijderen.  
+Cependant, si le contenu est associé à un autre package qui a été distribué au même point de distribution, vous ne pouvez pas le supprimer.  
 
-#### <a name="to-remove-package-content-files-from-distribution-points"></a>Inhoudsbestanden van pakket verwijderen uit distributiepunten  
+#### <a name="to-remove-package-content-files-from-distribution-points"></a>Pour supprimer les fichiers de contenu de package de points de distribution  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-2.  In de **softwarebibliotheek** werkruimte, selecteer een van de volgende stappen voor het type inhoud dat u wilt verwijderen:  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , sélectionnez l'une de ces étapes pour le type de contenu que vous souhaitez supprimer :  
 
-    -   **Toepassingen**: Vouw **Toepassingsbeheer** > **toepassingen**, en selecteer vervolgens de toepassing die u wilt verwijderen.  
+    -   **Applications** : Développez **Gestion d’applications** > **Applications**, puis sélectionnez l’application à supprimer.  
 
-    -   **Pakketten**: Vouw **Toepassingsbeheer** > **pakketten**, en selecteer vervolgens het pakket dat u wilt verwijderen.  
+    -   **Packages** : Développez **Gestion d’applications** > **Packages**, puis sélectionnez le package à supprimer.  
 
-    -   **Implementatiepakketten**: Vouw **Software-Updates** > **implementatiepakketten**, en selecteer vervolgens het implementatiepakket dat u wilt verwijderen.  
+    -   **Packages de déploiement** : Développez **Mises à jour logicielles** > **Packages de déploiement**, puis sélectionnez le package de déploiement à supprimer.  
 
-    -   **Stuurprogrammapakketten**: Vouw **besturingssystemen** > **stuurprogrammapakketten**, en selecteer vervolgens het stuurprogrammapakket dat u wilt verwijderen.  
+    -   **Packages de pilotes** : Développez **Systèmes d’exploitation** > **Packages de pilotes**, puis sélectionnez le package de pilotes à supprimer.  
 
-    -   **Installatiekopieën van besturingssystemen**: Vouw **besturingssystemen** > **installatiekopieën van besturingssystemen**, en selecteer vervolgens de installatiekopie van het besturingssysteem die u wilt verwijderen.  
+    -   **Images de système d’exploitation** : Développez **Systèmes d’exploitation** > **Images du système d’exploitation**, puis sélectionnez l’image du système d’exploitation à supprimer.  
 
-    -   **Installatieprogramma's besturingssystemen**: Vouw **besturingssystemen** > **installatieprogramma's besturingssystemen**, en selecteer vervolgens het installatieprogramma van het besturingssysteem dat u wilt verwijderen.  
+    -   **Programmes de système d’exploitation** : Développez **Systèmes d’exploitation** > **Programmes d’installation de système d’exploitation**, puis sélectionnez le programme d’installation de système d’exploitation à supprimer.  
 
-    -   **Opstartinstallatiekopieën**: Vouw **besturingssystemen** > **opstartinstallatiekopieën**, en selecteer vervolgens de opstartinstallatiekopie die u wilt verwijderen.  
+    -   **Images de démarrage** : Développez **Systèmes d’exploitation** > **Images de démarrage**, puis sélectionnez l’image de démarrage à supprimer.  
 
-3.  Klik op **Eigenschappen** in het tabblad **Start** , in de groep **Eigenschappen**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 
-4.  Klik op de **inhoudslocaties** tabblad, selecteert u het distributiepunt of distributiepuntgroep waaruit u wilt verwijderen van de inhoud, klikt u op **verwijderen**, en klik vervolgens op **OK**.  
+4.  Cliquez sur l'onglet **Emplacements du contenu** , sélectionnez le point de distribution ou le groupe de points de distribution à partir duquel vous souhaitez supprimer le contenu, cliquez sur **Supprimer**, puis cliquez sur **OK**.  
 
-#### <a name="to-remove-package-content-from-distribution-point-properties"></a>Pakketinhoud verwijderen uit de eigenschappen van distributiepunt  
+#### <a name="to-remove-package-content-from-distribution-point-properties"></a>Pour supprimer le contenu du package des propriétés du point de distribution  
 
-1.  Klik op **Beheer**in de Configuration Manager-console.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-2.  In de **beheer** werkruimte, klikt u op **distributiepunten**, en selecteer vervolgens het distributiepunt waarop u wilt verwijderen van de inhoud.  
+2.  Dans l'espace de travail **Administration** , cliquez sur **Points de distribution**, puis sélectionnez le point de distribution dans lequel vous souhaitez supprimer le contenu.  
 
-3.  Klik op **Eigenschappen** in het tabblad **Start** , in de groep **Eigenschappen**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 
-4.  Klik op de **inhoud** tabblad, selecteer de inhoud wilt verwijderen, klikt u op **verwijderen**, en klik vervolgens op **OK**.  
+4.  Cliquez sur l'onglet **Contenu** , sélectionnez le contenu à supprimer, cliquez sur **Supprimer**, puis cliquez sur **OK**.  
 
-#### <a name="to-remove-content-from-distribution-point-group-properties"></a>Inhoud uit eigenschappen van distributiepuntgroepen te verwijderen  
+#### <a name="to-remove-content-from-distribution-point-group-properties"></a>Pour supprimer du contenu des propriétés du groupe de points de distribution  
 
-1.  Klik op **Beheer**in de Configuration Manager-console.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-2.  In de **beheer** werkruimte, klikt u op **Distributiepuntengroepen**, en selecteer vervolgens de distributiepuntgroep waarin u inhoud wilt verwijderen.  
+2.  Dans l'espace de travail **Administration** , cliquez sur **Groupes de points de distribution**, puis sélectionnez le groupe de points de distribution dans lequel vous souhaitez supprimer du contenu.  
 
-3.  Klik op **Eigenschappen** in het tabblad **Start** , in de groep **Eigenschappen**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 
-4.  Klik op de **inhoud** tabblad, selecteer de inhoud wilt verwijderen, klikt u op **verwijderen**, en klik vervolgens op **OK**.  
-
-
-### <a name="validate-content"></a>Inhoud valideren
-Het inhoudsvalidatieproces controleert de integriteit van inhoudsbestanden op distributiepunten. U inhoudsvalidatie op basis van een planning inschakelt of u kunt de validatie van de inhoud van de eigenschappen van distributiepunten en pakketten handmatig starten.  
-
- Wanneer de inhoudsvalidatie start, Configuration Manager controleert of de inhoudsbestanden op distributiepunten en als de bestandshash niet verwacht voor de bestanden op het distributiepunt wordt, Configuration Manager een statusbericht dat u kunt bekijken gemaakt in de **bewaking** werkruimte.  
-
- Zie voor meer informatie over het configureren van de planning voor inhoudsvalidatie [configuraties van het distributiepunt](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs) in de [installeren en configureren van distributiepunten voor System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md) onderwerp.  
+4.  Cliquez sur l'onglet **Contenu** , sélectionnez le contenu à supprimer, cliquez sur **Supprimer**, puis cliquez sur **OK**.  
 
 
-#### <a name="to-initiate-content-validation-for-all-content-on-a-distribution-point"></a>Validatie van inhoud voor alle inhoud op een distributiepunt starten  
+### <a name="validate-content"></a>Valider le contenu
+Le processus de validation du contenu vérifie l'intégrité des fichiers de contenu sur les points de distribution. Vous pouvez activer la validation du contenu selon une planification, ou vous pouvez démarrer manuellement la validation du contenu à partir des propriétés des points de distribution et des packages.  
 
-1.  Klik op **Beheer**in de Configuration Manager-console.  
+ Lors du démarrage du processus de validation du contenu, Configuration Manager vérifie les fichiers de contenu sur les points de distribution et si le hachage du fichier est inattendu pour les fichiers du point de distribution, Configuration Manager crée un message d’état que vous pouvez consulter dans l’espace de travail **Surveillance**.  
 
-2.  In de **beheer** werkruimte, klikt u op **distributiepunten**, en selecteer vervolgens het distributiepunt waarin u inhoud wilt valideren.  
+ Pour plus d’informations sur la configuration de la planification de la validation du contenu, consultez [Configurations des points de distribution](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md#bkmk_configs) dans la rubrique [Installer et configurer des points de distribution pour System Center Configuration Manager](../../../../core/servers/deploy/configure/install-and-configure-distribution-points.md).  
 
-3.  Klik op **Eigenschappen** in het tabblad **Start** , in de groep **Eigenschappen**.  
 
-4.  Op de **inhoud** tabblad, selecteert u het pakket waarin u wilt valideren van de inhoud, klikt u op **valideren**, klikt u op **OK**, en klik vervolgens op **OK**. Het inhoudsvalidatieproces wordt geïnitieerd voor het pakket op het distributiepunt.  
+#### <a name="to-initiate-content-validation-for-all-content-on-a-distribution-point"></a>Pour initier la validation du contenu de tout le contenu d'un point de distribution  
 
-5.  De resultaten van het inhoudvalidatieproces weergeven in de **bewaking** werkruimte Vouw **distributiestatus**, en klik op de **inhoudsstatus** knooppunt. De inhoud van ieder pakkettype (bijvoorbeeld, toepassing, Software-updatepakket en installatiekopie) wordt weergegeven. Zie voor meer informatie over het controleren van inhoudstatussen [inhoud die u hebt gedistribueerd met System Center Configuration Manager controleren](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
+1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-#### <a name="to-initiate-content-validation-for-a-package"></a>Validatie van inhoud voor een pakket initiëren  
+2.  Dans l'espace de travail **Administration** , cliquez sur **Points de distribution**, puis sélectionnez le point de distribution dont vous voulez valider le contenu.  
 
-1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
 
-2.  In de **softwarebibliotheek** werkruimte, selecteer een van de volgende stappen voor het type inhoud dat u wilt valideren:  
+4.  Dans l'onglet **Accueil** , sélectionnez le package dans lequel vous souhaitez valider le contenu, cliquez sur **Valider**, sur **OK**, puis de nouveau sur **OK**. Le processus de validation du contenu démarre pour le package sur le point de distribution.  
 
-    -   **Toepassingen**: Vouw **Toepassingsbeheer** > **toepassingen**, en selecteer vervolgens de toepassing die u wilt valideren.  
+5.  Pour afficher les résultats du processus de validation du contenu, dans l'espace de travail **Surveillance** , développez **État de distribution**, puis cliquez sur le nœud **État du contenu** . Le contenu de chaque type de package (par exemple, application, package de mises à jour logicielles et image de démarrage) s'affiche. Pour plus d’informations sur la surveillance de l’état du contenu, consultez [Surveiller le contenu que vous avez distribué avec System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
 
-    -   **Pakketten**: Vouw **Toepassingsbeheer** > **pakketten**, en selecteer vervolgens het pakket dat u wilt valideren.  
+#### <a name="to-initiate-content-validation-for-a-package"></a>Pour initier la validation du contenu d'un package  
 
-    -   **Implementatiepakketten**: Vouw **Software-Updates** > **implementatiepakketten**, en selecteer vervolgens het implementatiepakket dat u wilt valideren.  
+1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
 
-    -   **Stuurprogrammapakketten**: Vouw **besturingssystemen** > **stuurprogrammapakketten**, en selecteer vervolgens het stuurprogrammapakket dat u wilt valideren.  
+2.  Dans l'espace de travail **Bibliothèque de logiciels** , sélectionnez l'une de ces étapes pour le type de contenu que vous souhaitez valider :  
 
-    -   **Installatiekopieën van besturingssystemen**: Vouw **besturingssystemen** > **installatiekopieën van besturingssystemen**, en selecteer vervolgens de installatiekopie van het besturingssysteem die u wilt valideren.  
+    -   **Applications** : Développez **Gestion d’applications** > **Applications**, puis sélectionnez l’application à valider.  
 
-    -   **Installatieprogramma's besturingssystemen**: Vouw **besturingssystemen** >  **installatieprogramma's besturingssystemen**, en selecteer vervolgens het installatieprogramma van het besturingssysteem dat u wilt valideren.  
+    -   **Packages** : Développez **Gestion d’applications** > **Packages**, puis sélectionnez le package à valider.  
 
-    -   **Opstartinstallatiekopieën**: Vouw **besturingssystemen** > **opstartinstallatiekopieën**, en selecteer vervolgens de opstartinstallatiekopie die u wilt voorbereiden.  
+    -   **Packages de déploiement** : Développez **Mises à jour logicielles** > **Packages de déploiement**, puis sélectionnez le package de déploiement à valider.  
 
-3.  Klik op **Eigenschappen** in het tabblad **Start** , in de groep **Eigenschappen**.  
+    -   **Packages de pilotes** : Développez **Systèmes d’exploitation** > **Packages de pilotes**, puis sélectionnez le package de pilotes à valider.  
 
-4.  Op de **inhoudslocaties** tabblad, selecteert u het distributiepunt of distributiepuntgroep waarin u de inhoud, klikt u op valideren **valideren**, klikt u op **OK**, en klik vervolgens op **OK**. Het inhoudvalidatieproces wordt gestart voor de inhoud op het geselecteerde distributiepunt of distributiepuntengroep.  
+    -   **Images de système d’exploitation** : Développez **Systèmes d’exploitation** > **Images du système d’exploitation**, puis sélectionnez l’image du système d’exploitation à valider.  
 
-5.  De resultaten van het inhoudvalidatieproces weergeven in de **bewaking** werkruimte Vouw **distributiestatus**, en klik op de **inhoudsstatus** knooppunt. De inhoud van ieder pakkettype (bijvoorbeeld, toepassing, Software-updatepakket en installatiekopie) wordt weergegeven. Zie voor meer informatie over het controleren van inhoudstatussen [inhoud die u hebt gedistribueerd met System Center Configuration Manager controleren](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  
+    -   **Programmes de système d’exploitation** : Développez **Systèmes d’exploitation** >  **Programmes d’installation de système d’exploitation**, puis sélectionnez le programme d’installation de système d’exploitation à valider.  
+
+    -   **Images de démarrage** : Développez **Systèmes d’exploitation** > **Images de démarrage**, puis sélectionnez l’image de démarrage à préparer.  
+
+3.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
+
+4.  Dans l'onglet **Emplacements du contenu** , sélectionnez le point de distribution ou le groupe de points de distribution dans lequel vous souhaitez valider le contenu, cliquez sur **Valider**, sur **OK**, puis de nouveau sur **OK**. Le processus de validation du contenu démarre pour le contenu situé sur le point de distribution ou le groupe de points de distribution sélectionné.  
+
+5.  Pour afficher les résultats du processus de validation du contenu, dans l'espace de travail **Surveillance** , développez **État de distribution**, puis cliquez sur le nœud **État du contenu** . Le contenu de chaque type de package (par exemple, application, package de mises à jour logicielles et image de démarrage) s'affiche. Pour plus d’informations sur la surveillance de l’état du contenu, consultez [Surveiller le contenu que vous avez distribué avec System Center Configuration Manager](../../../../core/servers/deploy/configure/monitor-content-you-have-distributed.md).  

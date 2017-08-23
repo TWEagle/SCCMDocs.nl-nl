@@ -1,6 +1,6 @@
 ---
-title: 'Stroomdiagram: updates downloaden | Microsoft Docs'
-description: Zie het proces waarmee een site met een online serviceaansluitpunt updates binnen de console downloadt.
+title: "Organigramme - Télécharger des mises à jour | Microsoft Docs"
+description: "Découvrez le processus par lequel un site doté d’un point de connexion de service en ligne télécharge les mises à jour dans la console."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,14 +16,14 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: cd2ef0f0d694937b760d514c2a6a24973810a2b2
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="flowchart---download-updates-for-system-center-configuration-manager"></a>Stroomdiagram: updates downloaden voor System Center Configuration Manager
+# <a name="flowchart---download-updates-for-system-center-configuration-manager"></a>Organigramme - Téléchargement des mises à jour pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Deze gegevensstroom geeft het proces waarmee een site met een online serviceaansluitpunt updates binnen de console downloadt.  
+Ce flux de données affiche le processus par lequel un site avec un point de connexion de service en ligne télécharge les mises à jour dans la console.  
 
- ![Stroomdiagram: updates downloaden](media/Flowchart---Download-updates.png)  
+ ![Organigramme - Téléchargement des mises à jour](media/Flowchart---Download-updates.png)  

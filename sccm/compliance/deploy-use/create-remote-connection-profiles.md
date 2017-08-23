@@ -1,6 +1,6 @@
 ---
-title: Maken van profielen voor externe verbindingen | Microsoft Docs
-description: Gebruik profielen voor externe verbindingen van System Center Configuration Manager om uw gebruikers op afstand verbinding met werkcomputers.
+title: "Créer des profils de connexion à distance | Microsoft Docs"
+description: "Utilisez les profils de connexion à distance System Center Configuration Manager pour permettre aux utilisateurs de se connecter à distance aux ordinateurs de travail."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,167 +17,167 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 72fc94c6449649656a7e8b81659c2b5cc2551107
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="remote-connection-profiles-in-system-center-configuration-manager"></a>Profielen voor externe verbindingen in System Center Configuration Manager
+# <a name="remote-connection-profiles-in-system-center-configuration-manager"></a>Profils de connexion à distance dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Gebruik System Center Configuration Manager externe verbindingsprofielen kunnen uw gebruikers op afstand verbinding met werkcomputers wanneer ze niet zijn verbonden met het domein of als hun persoonlijke computers zijn verbonden via Internet.  
+Utilisez les profils de connexion à distance System Center Configuration Manager pour permettre aux utilisateurs de se connecter à distance aux ordinateurs de travail quand ils ne sont pas connectés au domaine ou si leurs ordinateurs personnels sont connectés à Internet.  
 
- Gebruikers kunnen verbinding maken met hun werk-pc vanaf de volgende typen apparaten:  
+ Les utilisateurs peuvent se connecter à leur ordinateur professionnel à partir des types d'appareils suivants :  
 
--   Computers met Microsoft Windows  
+-   Ordinateurs qui exécutent Microsoft Windows  
 
--   Apparaten met iOS  
+-   Appareils qui exécutent iOS  
 
--   Apparaten met Android  
+-   Appareils qui exécutent Android  
 
-Profielen voor externe verbindingen kunnen u instellingen voor verbinding met extern bureaublad implementeren voor gebruikers in uw Configuration Manager-hiërarchie. Gebruikers kunnen vervolgens de bedrijfsportal gebruiken om via het externe bureaublad toegang te krijgen tot een van hun primaire werkcomputers, op basis van de instellingen voor Verbinding met extern bureaublad van de bedrijfsportal.  
+Les profils de connexion à distance vous permettent de déployer des paramètres de connexion Bureau à distance sur les utilisateurs dans votre hiérarchie Configuration Manager. Les utilisateurs peuvent ensuite utiliser le portail d'entreprise pour accéder à leurs ordinateurs professionnels principaux via le Bureau à distance en utilisant les paramètres de connexion Bureau à distance fournis par le portail d'entreprise.  
 
-Microsoft Intune is vereist als u wilt dat gebruikers via de bedrijfsportal verbinding maken met hun werkcomputers. Als u Intune niet gebruikt, kunnen gebruikers de gegevens van het profiel voor externe verbindingen nog steeds gebruiken om via een VPN-verbinding met hun werkcomputers te maken met Extern bureaublad.  
-
-> [!IMPORTANT]  
->  Wanneer u instellingen van profiel voor externe verbindingen opgeeft via de Configuration Manager-console, worden de instellingen opgeslagen in het lokale beleid van de clientcomputer. Deze instellingen overschrijven mogelijk de instellingen voor Extern bureaublad die zijn geconfigureerd door een andere toepassing. Bovendien, als u Windows-groepsbeleid gebruiken voor het configureren van instellingen voor extern bureaublad, de instellingen die zijn opgegeven in het groepsbeleid overschrijven die zijn geconfigureerd met behulp van Configuration Manager.  
-
- Tijdens de installatie van Configuration Manager, een nieuwe beveiligingsgroep **Remote PC Connect**, wordt gemaakt. Deze groep wordt gevuld wanneer u een profiel voor externe verbindingen implementeert dat de primaire gebruikers bevat van de computer waarop u het profiel implementeert. Hoewel een lokale beheerder gebruikersnamen kan toevoegen aan deze groep, worden deze verwijderd bij de volgende compatibiliteitsevaluatie van geïmplementeerde profielen voor externe verbindingen.  
-
- Als u handmatig een gebruiker toevoegt aan deze groep, kan de gebruiker externe verbindingen initiëren, maar de verbindingsgegevens worden niet gepubliceerd in de bedrijfsportal.  
-
- Als u handmatig uit de groep een gebruiker die is toegevoegd door Configuration Manager verwijderen, Configuration Manager worden automatisch hersteld door deze wijziging door de gebruiker toe te voegen als het profiel voor externe verbindingen is het volgende terug op compatibiliteit geëvalueerd.  
+Microsoft Intune est nécessaire si vous voulez que les utilisateurs se connectent à leurs PC de travail via le portail d’entreprise. Si vous n’utilisez pas Intune, les utilisateurs peuvent toujours utiliser les informations du profil de connexion à distance pour se connecter à leurs PC de travail à l’aide du Bureau à distance via une connexion VPN.  
 
 > [!IMPORTANT]  
->  Als de affiniteitsrelatie tussen een gebruiker en apparaat (bijvoorbeeld, de computer waarmee een gebruiker verbinding maakt niet meer een primair apparaat van de gebruiker, Configuration Manager wordt uitgeschakeld in het profiel voor externe verbindingen en Windows Firewall-instellingen verandert om te voorkomen dat de verbindingen met de computer.  
+>  Quand vous indiquez des paramètres de profil de connexion à distance à l’aide de la console Configuration Manager, ils sont stockés dans la stratégie locale de l’ordinateur client. Ces paramètres risquent donc de remplacer les paramètres du Bureau à distance configurés par une autre application. En outre, si vous utilisez la stratégie de groupe Windows pour configurer les paramètres du Bureau à distance, les paramètres spécifiés dans la stratégie de groupe remplacent ceux configurés à l’aide de Configuration Manager.  
 
-## <a name="prerequisites"></a>Vereisten  
+ Quand vous installez Configuration Manager, un groupe de sécurité, **Connexion de PC à distance**, est créé. Ce groupe est renseigné lorsque vous déployez un profil de connexion à distance qui inclut les principaux utilisateurs de l'ordinateur sur lequel vous déployez le profil. Bien qu'un administrateur local puisse ajouter des noms d'utilisateur à ce groupe, ces utilisateurs sont retirés du groupe lors de l'évaluation de la compatibilité des profils de connexion à distance déployés.  
 
-### <a name="external-dependencies"></a>Externe afhankelijkheden  
+ Si vous ajoutez manuellement un utilisateur à ce groupe, l'utilisateur peut initier des connexions à distance, mais les informations de connexion ne seront pas publiées dans le portail d'entreprise.  
 
-|Afhankelijkheid|Meer informatie|  
+ Si vous supprimez manuellement du groupe un utilisateur qui a été ajouté par Configuration Manager, Configuration Manager corrige automatiquement ce changement en rajoutant l’utilisateur lors de la prochaine évaluation de la compatibilité du profil de connexion à distance.  
+
+> [!IMPORTANT]  
+>  Si la relation d’affinité entre utilisateur et appareil change (par exemple, l’ordinateur auquel se connecte un utilisateur n’est plus un appareil principal de l’utilisateur), Configuration Manager désactive le profil de connexion à distance et les paramètres du Pare-feu Windows pour empêcher les connexions à l’ordinateur.  
+
+## <a name="prerequisites"></a>Conditions préalables  
+
+### <a name="external-dependencies"></a>Dépendances externes  
+
+|Dépendance|Informations complémentaires|  
 |----------------|----------------------|  
-|Extern bureaublad-gatewayserver|Indien u gebruikers wilt inschakelen op het internet van buitenaf het bedrijfsdomein, moet u Extern bureaublad-gatewayserver installeren en configureren.<br /><br /> Indien Extern bureaublad of instellingen voor Terminal Services beheerd zijn door een andere toepassing of groepsbeleidinstellingen, kan het zijn dat externe verbindingsprofielen niet juist werken. Wanneer u externe verbindingsprofielen vanuit de Configuration Manager-console implementeert, worden zijn instellingen opgeslagen in het lokale beleid van de clientcomputer. Deze instellingen kunnen de instellingen van het extern bureaublad, die geconfigureerd zijn door een andere toepassing, overschrijven. Bijkomend, als u instellingen voor Groepsbeleid gebruikt om extern bureaublad-instellingen te configureren, overschrijven de instellingen die zijn opgegeven in de instellingen voor Groepsbeleid de instellingen die zijn geconfigureerd door Configuration Manager.<br /><br /> Voor meer informatie over hoe Extern bureaublad-gatewayserver te installeren en te configureren, zie de Windows Server-documentatie.|  
-|Indien clientcomputers een op een host gebaseerde firewall uitvoeren, moeten ze het Mstsc.exe-programma inschakelen.|Wanneer u een extern verbindingsprofiel configureert, moet u de instelling **Windows Firewall-uitzondering toestaan voor verbindingen in Windows-domeinen en particuliere netwerken** inschakelen. Wanneer deze instelling is ingeschakeld, wordt Windows Firewall zodat het Mstsc.exe-programma automatisch geconfigureerd door Configuration Manager. Indien evenwel clientcomputers een andere, op een host gebaseerde, firewall uitvoeren, moet u handmatig deze firewall-afhankelijkheid configureren.<br /><br /> Met de groepsbeleidinstellingen voor het configureren van Windows Firewall kunt u de configuratie die u instelt in Configuration Manager overschrijven. Indien u groepsbeleid gebruikt om Windows Firewall te configureren, let er dan op dat groepsbeleidinstellingen het Mstsc.exe-programma niet blokkeren.|  
+|Serveur de passerelle Bureau à distance.|Si vous souhaitez autoriser les utilisateurs à se connecter en dehors du domaine de la société, sur Internet, vous devez installer et configurer un serveur de passerelle Bureau à distance.<br /><br /> Si les paramètres Bureau à distance ou services Terminal Server sont gérés par une autre application ou les paramètres de stratégie de groupe, les profils de connexion à distance risquent de ne pas fonctionner correctement. Quand vous déployez des profils de connexion à distance à partir de la console Configuration Manager, ses paramètres sont stockés dans la stratégie locale de l’ordinateur client. Ces paramètres risquent donc de remplacer les paramètres du Bureau à distance configurés par une autre application. En outre, si vous utilisez les paramètres de stratégie de groupe pour configurer les paramètres du Bureau à distance, les paramètres spécifiés dans la stratégie de groupe remplacent ceux configurés par Configuration Manager.<br /><br /> Pour plus d'informations sur la procédure d'installation et de configuration d'un serveur de passerelle Bureau à distance, consultez la documentation Windows Server.|  
+|Si les ordinateurs clients exécutent un pare-feu basé sur l'hôte, il doit autoriser le programme Mstsc.exe.|Lorsque vous configurez un profil de connexion à distance, vous devez activer le paramètre **Autoriser l'exception de pare-feu Windows pour les connexions sur les domaines Windows et sur les réseaux privés** . Quand ce paramètre est activé, Configuration Manager configure automatiquement le Pare-feu Windows pour autoriser le programme Mstsc.exe. Toutefois, si les ordinateurs clients exécutent un autre pare-feu basé sur l'hôte, vous devez configurer manuellement cette dépendance de pare-feu.<br /><br /> Les paramètres de stratégie de groupe pour configurer le Pare-feu Windows peuvent remplacer la configuration définie dans Configuration Manager. Si vous utilisez stratégie de groupe pour configurer le pare-feu Windows, assurez-vous que les paramètres de stratégie de groupe ne bloquent pas le programme Mstsc.exe.|  
 
-### <a name="configuration-manager-dependencies"></a>Configuration Manager-afhankelijkheden  
+### <a name="configuration-manager-dependencies"></a>Dépendances de Configuration Manager  
 
-|Afhankelijkheid|Meer informatie|  
+|Dépendance|Plus d'informations|  
 |----------------|----------------------|  
-|Configuration Manager moet worden verbonden met Microsoft Intune (ook wel een hybride configuratie genoemd).|Zie voor meer informatie over het aansluiten van Configuration Manager op Microsoft Intune mobiele apparaten beheren met Configuration Manager en Microsoft Intune.|  
-|Om een gebruiker te laten verbinding maken met een bedrijfscomputer, moet deze computer een primair apparaat zijn van de gebruiker.|Zie voor meer informatie over gebruikersapparaataffiniteit [gebruikers en apparaten koppelen met affiniteit tussen gebruikers en apparaten](/sccm/apps/deploy-use/link-users-and-devices-with-user-device-affinity).|  
-|Specifieke beveiligingsmachtigingen moeten toegestaan zijn om externe verbindingsprofielen te beheren.|De beveiligingsrol **Beheerder van instellingen voor naleving** bevat de machtigingen die zijn vereist voor het beheren van externe verbindingsprofielen. Zie voor meer informatie. <br />[Beheer op basis van rollen configureren](/sccm/core/servers/deploy/configure/configure-role-based-administration).|  
+|Configuration Manager doit être connecté à Microsoft Intune (« configuration hybride »).|Pour plus d’informations sur la connexion de Configuration Manager à Microsoft Intune, consultez Gérer les appareils mobiles avec Configuration Manager et Microsoft Intune.|  
+|Pour qu'un utilisateur se connecte à un ordinateur professionnel sur le réseau de l'entreprise, cet ordinateur doit être un appareil principal de l'utilisateur.|Pour plus d’informations sur l’affinité entre utilisateur et appareil, consultez [Lier des utilisateurs et des appareils avec l’affinité entre utilisateur et appareil](/sccm/apps/deploy-use/link-users-and-devices-with-user-device-affinity).|  
+|Des autorisations de sécurité spécifiques doivent avoir été accordées pour gérer les profils de connexion à distance.|Le rôle de sécurité **Gestionnaire de paramètres de compatibilité** inclut les autorisations nécessaires pour gérer les profils de connexion à distance. Pour plus d'informations, voir <br />[Configurer l’administration basée sur des rôles](/sccm/core/servers/deploy/configure/configure-role-based-administration).|  
 
-## <a name="security-and-privacy-considerations-for-remote-connection-profiles"></a>Overwegingen voor beveiliging en privacy voor profielen voor externe verbindingen  
+## <a name="security-and-privacy-considerations-for-remote-connection-profiles"></a>Considérations relatives à la sécurité et à la confidentialité pour les profils de connexion à distance  
 
-### <a name="security-considerations"></a>Beveiligingsoverwegingen  
+### <a name="security-considerations"></a>Considérations relatives à la sécurité  
 
-|Aanbevolen beveiligingsprocedure|Meer informatie|  
+|Meilleure pratique de sécurité|Informations complémentaires|  
 |----------------------------|----------------------|  
-|Geef handmatig de gebruikersaffiniteit met apparaat op in plaats van gebruikers toe te staan hun primaire apparaat te identificeren. Zorg daarnaast dat op gebruik gebaseerde configuratie niet is ingeschakeld.|Specificeer altijd handmatig de gebruikersaffiniteit van het apparaat, omdat u **Alle primaire gebruikers van de werkcomputer in staat stellen extern verbinding te maken** moet inschakelen vóór u een extern verbindingsprofiel kunt implementeren. Beschouw de informatie die verzameld wordt van gebruikers of van het apparaat niet als gezaghebbend. Indien u externe verbindingsprofielen implementeert en een vertrouwde gebruiker met beheerrechten geen gebruikersaffiniteit apparaat opgeeft, kunnen niet-bevoegde gebruikers hogere bevoegdheden krijgen en dan in staat zijn om met computers te verbinden.<br /><br /> Als u op gebruik gebaseerde configuratie inschakelt toch, wordt deze informatie verzameld via statusmeldingen waarvoor Configuration Manager geen beveiliging voorziet. Gebruik, om te helpen deze bedreiging af te zwakken, Server Message Block (SMB) ondertekening of Internet protocolbeveiliging (IPsec) tussen clientcomputers en het beheerpunt.|  
-|Beperk lokale beheerrechten op de siteservercomputer.|Een gebruiker met lokale beheerdersrechten op de siteserver kan handmatig leden toevoegen aan de Remote PC Connect beveiligingsgroep die Configuration Manager automatisch maakt en onderhoudt. Dit kan een verhoging van bevoegdheden veroorzaken omdat leden die toegevoegd worden tot deze groep Extern bureaubladmachtigingen krijgen.|  
+|Spécifiez manuellement l'affinité entre utilisateur et appareil au lieu de permettre aux utilisateurs d'identifier leur appareil principal. En outre, n'activez pas la configuration basée sur l'utilisation.|Étant donné que vous devez activer **Autoriser tous les utilisateurs principaux de l'ordinateur professionnel à se connecter à distance** avant de pouvoir déployer un profil de connexion à distance, spécifiez toujours manuellement l'affinité entre utilisateur et appareil. Ne considérez pas les informations collectées à partir d'utilisateurs ou de l'appareil comme faisant autorité. Si vous déployez des profils de connexion à distance alors que l'affinité entre utilisateur et appareil n'est pas spécifiée par un utilisateur administratif approuvé, des utilisateurs non autorisés peuvent recevoir des privilèges élevés et être en mesure de se connecter à distance aux ordinateurs.<br /><br /> Si vous autorisez la configuration basée sur l’utilisation, ces informations sont collectées à l’aide de messages d’état non sécurisés par Configuration Manager. Pour réduire l'étendue de cette menace, utilisez la signature SMB (Server Message Block) ou IPsec (Internet Protocol security) entre les ordinateurs clients et le point de gestion.|  
+|Limiter les droits d'administrateur local sur l'ordinateur du serveur de site.|Un utilisateur disposant de droits d’administrateur local sur le serveur de site peut ajouter manuellement des membres au groupe de sécurité Connexion de PC à distance, qui est créé et géré automatiquement par Configuration Manager. Cela peut provoquer une élévation des privilèges dans la mesure où les membres qui sont ajoutés à ce groupe bénéficient d'autorisations Bureau à distance.|  
 
-### <a name="privacy-considerations"></a>Privacyoverwegingen  
+### <a name="privacy-considerations"></a>Considérations relatives à la confidentialité  
 
--   Indien een gebruiker een verbinding initieert naar een computer van het bedrijfsportaal, wordt een bestand met een .rdp- of .wsrdp-extensie gedownload, die de apparaatsnaam en de naam van de gatewayserver van het extern bureaublad bevat, die vereist is om de sessie met het extern bureaublad te initiëren. De bestandsextensie hangt af van het besturingssysteem van het apparaat. De Windows 7- en Windows 8-besturingssystemen maken gebruik van bijvoorbeeld een .rdp-bestand en Windows 8.1 maakt gebruik van een .wsrdp-bestand.  
+-   Si un utilisateur établit une connexion vers un ordinateur professionnel à partir du portail d'entreprise, un fichier comportant l'extension .rdp ou .wsrdp est téléchargé. Il contient le nom de l'appareil et le nom du serveur de passerelle Bureau à distance qui est requis pour ouvrir la session Bureau à distance. L'extension de fichier varie selon le système d'exploitation de l'appareil. Par exemple, les systèmes d’exploitation Windows 7 et Windows 8 utilisent un fichier .rdp, et Windows 8.1 utilise un fichier .wsrdp.  
 
--   De gebruiker kan kiezen om het .rdp-bestand te openen of op te slaan. Indien de gebruiker kiest om het .rdp-bestand te openen, kan het bestand worden opgeslagen in de cache voor de webbrowser, afhankelijk van de retentie-instellingen die geconfigureerd zijn voor de browser. Indien de gebruiker kiest om het bestand te bewaren, wordt het bestand niet opgeslagen in de browser-cache. Het bestand wordt opgeslagen, tenzij de gebruiker het handmatig verwijdert.  
+-   L'utilisateur peut choisir d'ouvrir ou d'enregistrer le fichier .rdp. Si l'utilisateur choisit d'ouvrir le fichier .rdp, celui-ci peut être stocké dans le cache du navigateur Web, selon les paramètres de rétention configurés pour le navigateur. Si l'utilisateur choisit d'enregistrer le fichier, le fichier n'est pas stocké dans le cache du navigateur. Le fichier est enregistré jusqu'à ce que l'utilisateur le supprime manuellement.  
 
--   Het bestand .wsrdp wordt gedownload en automatisch lokaal opgeslagen. Dit bestand wordt overschreven de volgende keer dat de gebruiker een sessie met een extern bureaublad uitvoert.  
+-   Le fichier .wsrdp est téléchargé et automatiquement enregistré localement. La prochaine fois que l'utilisateur exécutera une session Bureau à distance, le fichier sera écrasé.  
 
--   Hou rekening met uw privacy-vereisten, voordat u profielen voor externe verbindingen configureert.  
+-   Avant de configurer les profils de connexion à distance, analysez vos besoins en matière de confidentialité.  
 
 
-## <a name="create-a-remote-connection-profile"></a>Een profiel voor externe verbinding maken
+## <a name="create-a-remote-connection-profile"></a>Créer un profil de connexion à distance
 
-1.  Klik in de Configuration Manager-console op **activa en naleving** > **instellingen voor naleving** > **profielen voor externe verbinding**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Profils de connexion à distance**.  
 
-3.  Klik op het tabblad **Start** in de groep **Maken** op **Profiel voor externe verbinding maken**.  
+3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un profil de connexion à distance**.  
 
-4.  Geef op de pagina **Algemeen** van de **Wizard Profiel voor externe verbinding maken**een naam en optionele beschrijving van maximaal 256 tekens op voor elk profiel.  
+4.  Dans la page **Général** de l’ **Assistant Créer un profil de connexion à distance**, spécifiez un nom et une description éventuelle pour le profil en utilisant un maximum de 256 caractères pour chaque élément.  
 
-5.  Op de **profiel** instellingenpagina van de volgende instellingen opgeven voor het profiel voor externe verbindingen:  
+5.  Dans la page **Paramètres de profil**, spécifiez les paramètres suivants pour le profil de connexion à distance :  
 
-    -   **Volledige naam en poort van de Extern bureaublad-gatewayserver (optioneel):** : geef de naam op van de Extern bureaublad-gatewayserver die moet worden gebruikt voor verbindingen.  
+    -   **Nom complet et port du serveur de passerelle Bureau à distance (facultatif)** : spécifiez le nom du serveur de passerelle Bureau à distance à utiliser pour les connexions.  
 
         > [!NOTE]  
-        >  Configuration Manager biedt geen ondersteuning voor een geïnternationaliseerde domeinnaam moet worden gebruikt om op te geven van een server in dit vak.  
+        >  Configuration Manager ne gère pas l’utilisation d’un nom de domaine internationalisé pour spécifier un serveur dans cette zone.  
         >   
-        >  De servernaam mag niet langer zijn dan 256 tekens en mag bestaan uit hoofdletters, kleine letters, numerieke tekens en de tekens **–** en **_** , die met punten worden gescheiden.  
+        >  Le nom du serveur ne peut pas dépasser 256 caractères et peut contenir des caractères majuscules, des caractères minuscules, des caractères numériques et les caractères **–** et **_** , séparés par des points.  
 
-    -   **Alleen verbindingen toestaan vanaf computers waarop Extern bureaublad wordt uitgevoerd met verificatie op netwerkniveau**  
+    -   **Autoriser des connexions uniquement sur les ordinateurs qui exécutent le Bureau à distance avec authentification au niveau du réseau**  
 
-6.  Selecteer **Ingeschakeld** of **Uitgeschakeld** voor elk van de volgende verbindingsinstellingen:  
+6.  Sélectionnez **Activé** ou **Désactivé** pour chacun des paramètres de connexion suivants :  
 
-    -   **Externe verbindingen met werkcomputers toestaan**  
+    -   **Autoriser les connexions à distance aux ordinateurs professionnels**  
 
-    -   **Alle primaire gebruikers van de werkcomputer toestaan om extern verbinding te maken**  
+    -   **Autoriser tous les utilisateurs principaux de l'ordinateur professionnel à se connecter à distance**  
 
-    -   **Windows Firewall-uitzondering toestaan voor verbindingen in Windows-domeinen en in particuliere netwerken**  
+    -   **Autoriser l'exception du Pare-feu Windows pour les connexions sur des domaines Windows et sur des réseaux privés**  
 
     > [!IMPORTANT]  
-    >  Alle drie de instellingen moeten hetzelfde zijn voordat u kunt doorgaan met de volgende pagina van de wizard.  
+    >  Ces trois paramètres doivent être les mêmes pour pouvoir continuer l'Assistant.  
 
-7.  Op de **samenvatting** pagina, controleert u de acties worden ondernomen en voltooi de wizard.  
+7.  Dans la page **Résumé**, passez en revue les actions à exécuter, puis terminez l’Assistant.  
 
- Het nieuwe profiel voor externe verbinding wordt weergegeven in het knooppunt **Profielen voor externe verbinding** van de werkruimte **Activa en naleving** .  
+ Le nouveau profil de connexion à distance figure dans le nœud **Profils de connexion distance** dans l'espace de travail **Ressources et Conformité** .  
 
-Een profiel voor externe verbinding implementeren  
+Déployer un profil de connexion à distance  
 
-1.  Klik in de Configuration Manager-console op **activa en naleving** > **instellingen voor naleving** > **profielen voor externe verbinding**.  
+1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Profils de connexion à distance**.  
 
-3.  Selecteer in de lijst **Profielen voor externe verbinding** het profiel voor externe verbinding dat u wilt implementeren en klik vervolgens op het tabblad **Start** in de groep **Implementatie** op **Implementeren**.  
+3.  Dans la liste **Profils de connexion à distance** , sélectionnez le profil de connexion à distance que vous souhaitez déployer, puis, dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Déployer**.  
 
-4.  Geef de volgende informatie op in het dialoogvenster **Profiel voor externe verbinding implementeren** :  
+4.  Dans la boîte de dialogue **Déployer le profil de connexion à distance** , spécifiez les éléments suivants :  
 
-    -   **Verzameling** - Klik op **Bladeren** om de apparaatverzameling te selecteren waar u het profiel voor externe verbinding wilt implementeren.  
+    -   **Regroupement** : cliquez sur **Parcourir** pour sélectionner le regroupement de périphériques sur lequel vous souhaitez déployer le profil de connexion à distance.  
 
-    -   **Herstellen, waar ondersteund** -Schakel deze optie in het profiel voor externe verbinding automatisch herstellen wanneer blijkt dat het niet compatibel is op een apparaat, bijvoorbeeld wanneer het is niet aanwezig is.  
+    -   **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** : activez cette option pour résoudre automatiquement le profil de connexion à distance quand il n’est pas compatible sur un appareil (par exemple, s’il n’est pas présent).  
 
-    -   **Herstel toestaan buiten het onderhoudsvenster** - als een onderhoudsvenster is geconfigureerd voor de verzameling waarnaar u het profiel voor externe verbinding implementeert, schakel deze optie om Configuration Manager oplossen van het profiel voor externe verbindingen buiten het onderhoudsvenster. Zie voor meer informatie over onderhoudsvensters [het gebruik van onderhoudsvensters](/sccm/core/clients/manage/collections/use-maintenance-windows).  
+    -   **Autoriser les corrections en dehors de la fenêtre de maintenance** : si une fenêtre de maintenance a été configurée pour le regroupement sur lequel vous déployez le profil de connexion à distance, activez cette option pour permettre à Configuration Manager de résoudre le profil de connexion à distance en dehors de la fenêtre de maintenance. Pour plus d’informations sur les fenêtres de maintenance, consultez [Comment utiliser les fenêtres de maintenance](/sccm/core/clients/manage/collections/use-maintenance-windows).  
 
-    -   **Waarschuwing genereren** - Schakel deze optie in om een waarschuwing te configureren die wordt gegenereerd als de compatibiliteit van een profiel voor externe verbinding op een opgegeven datum en tijd minder is dan een opgegeven percentage. U kunt tevens opgeven of u een melding naar System Center Operations Manager wilt verzenden.  
+    -   **Générer une alerte** : activez cette option pour configurer une alerte qui est générée si la compatibilité du profil de connexion à distance est inférieure à un pourcentage spécifié par une date et une heure spécifiques. Vous pouvez également spécifier si vous souhaitez qu'une alerte soit envoyée à System Center Operations Manager.  
 
-    -   **Specificeer de compliantie-evaluatieplanning voor deze configuratiebasislijn** : geef de planning op waarmee het geïmplementeerde profiel voor externe verbindingen wordt beoordeeld op apparaten. U kunt een eenvoudige of een aangepaste planning opgeven.  
+    -   **Spécifier le calendrier d’évaluation de la compatibilité pour cette ligne de base de configuration** : spécifiez le calendrier selon lequel le profil de connexion à distance déployé est évalué sur les appareils. Il peut s'agir d'un calendrier simple ou d'un calendrier personnalisé.  
 
     > [!TIP]  
-    >  Als een apparaat wordt verwijderd uit een verzameling waarnaar een profiel voor externe verbinding is geïmplementeerd, worden de instellingen van het profiel voor externe verbinding uitgeschakeld op het apparaat. Dit proces kan echter alleen correct plaatsvinden als u al minstens één configuratie-item of configuratiebasislijn hebt geïmplementeerd die een configuratie-item van uw site bevat.  
+    >  Si un périphérique quitte un regroupement sur lequel un profil de connexion à distance a été déployé, les paramètres du profil de connexion à distance sont désactivés sur le périphérique. Toutefois, pour que cela s'effectue correctement, vous devez déjà avoir déployé au moins un élément de configuration ou une ligne de base de configuration contenant un élément de configuration de votre site.  
     >   
-    >  Het profiel wordt beoordeeld door apparaten wanneer de gebruiker zich aanmeldt.  
+    >  Le profil est évalué par les appareils quand l’utilisateur se connecte.  
     >   
-    >  Als twee profielen voor externe verbindingen worden geïmplementeerd in dezelfde apparaatverzameling, waarbij in het ene profiel **Regels die niet compliant zijn herstellen, waar ondersteund** is ingeschakeld en in het andere profiel dezelfde optie is uitgeschakeld, en de twee profielen voor externe verbindingen verschillende verbindingsinstellingen bevatten, overschrijft het profiel waarin de optie is uitgeschakeld, mogelijk de instellingen in het andere profiel. Dit type implementatie van een verbinding met extern profiel wordt niet ondersteund door Configuration Manager.  
+    >  Supposons deux profils de connexion à distance déployés sur le même regroupement d’appareils. Dans l’un des profils, l’option **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** est cochée et dans l’autre, cette même option n’est pas cochée. De plus, les deux profils de connexion à distance contiennent des paramètres de connexion différents. Dans ce cas, le profil dans lequel l’option n’est pas cochée peut remplacer les paramètres de l’autre profil. Ce type de déploiement de profil de connexion à distance n’est pas pris en charge par Configuration Manager.  
 
-5.  Klik op **OK** om het dialoogvenster **Profiel voor externe verbinding implementeren** te sluiten en de implementatie uit te voeren.  
+5.  Cliquez sur **OK** pour fermer la boîte de dialogue **Déployer le profil de connexion à distance** et pour créer le déploiement.  
 
-## <a name="monitor-a-remote-connection-profile"></a>Een profiel voor externe verbindingen bewaken  
+## <a name="monitor-a-remote-connection-profile"></a>Surveiller un profil de connexion à distance  
 
-### <a name="view-compliance-results-in-the-configuration-manager-console"></a>Nalevingsresultaten weergeven in de Configuration Manager-console  
+### <a name="view-compliance-results-in-the-configuration-manager-console"></a>Afficher les résultats de compatibilité dans la console Configuration Manager  
 
-1.  Klik in de Configuration Manager-console op **bewaking** > **implementaties**.  
+1.  Dans la console Configuration Manager, cliquez sur **Surveillance** > **Déploiements**.  
 
-3.  Selecteer in de lijst **Implementaties** de implementatie van het profiel voor externe verbindingen waarvoor u compatibiliteitsinformatie wilt bekijken.  
+3.  Dans la liste **Déploiements** , sélectionnez le déploiement du profil de connexion à distance dont vous souhaitez vérifier les informations de compatibilité.  
 
-4.  U kunt samenvattingsgegevens over de compatibiliteit van de implementatie van het profiel voor externe verbindingen bekijken op de hoofdpagina. Als u meer gedetailleerde gegevens wilt weergeven, selecteert u de implementatie van het profiel voor externe verbindingen en klikt u op het tabblad **Start** in de groep **Implementatie** op **Status weergeven** om de pagina **Implementatiestatus** te openen.  
+4.  Vous pouvez consulter un résumé des informations relatives à la compatibilité du déploiement du profil de connexion à distance sur la page principale. Pour afficher des informations plus détaillées, sélectionnez le déploiement du profil de connexion à distance puis, dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Afficher l'état** pour ouvrir la page **État du déploiement** .  
 
-     De pagina **Implementatiestatus** bevat de volgende tabbladen:  
+     La page **État du déploiement** contient les onglets suivants :  
 
-    -   **Compatibel:** Geeft de naleving van het profiel voor externe verbindingen op basis van het aantal activa dat is beïnvloed. U kunt op een regel dubbelklikken om een tijdelijk knooppunt te maken onder het knooppunt **Gebruikers** in de werkruimte **Activa en naleving** . Dit knooppunt bevat alle apparaten die compatibel zijn met het profiel voor externe verbindingen. In het deelvenster **Activumgegevens** worden daarnaast de apparaten weergegeven die compatibel zijn met dit profiel. Dubbelklik op een apparaat in de lijst om extra informatie weer te geven.  
+    -   **Compatible :** affiche la compatibilité du profil de connexion à distance en fonction du nombre de biens affectés. Vous pouvez double-cliquer sur une règle pour créer un nœud temporaire sous le nœud **Utilisateurs** de l'espace de travail **Ressources et Conformité** . Ce nœud contient tous les périphériques qui sont compatibles avec le profil de connexion à distance. Le volet **Détails du bien** affiche également les périphériques compatibles avec ce profil. Double-cliquez sur un périphérique de la liste pour afficher des informations supplémentaires.  
 
         > [!IMPORTANT]  
-        >  Een profiel voor externe verbindingen wordt niet geëvalueerd als het niet van toepassing is op een clientapparaat. Het wordt in dat geval echter wel geretourneerd als compatibel.  
+        >  Un profil de connexion à distance n'est pas évalué s'il n'est pas applicable sur un périphérique client. Toutefois, il est retourné comme conforme.  
 
-    -   **Fout:** Geeft een lijst met alle fouten voor de implementatie van het geselecteerde verbinding met extern-profiel op basis van het aantal activa dat is beïnvloed. U kunt dubbelklikken op een regel om een tijdelijk knooppunt te maken onder het knooppunt **Gebruikers** van de werkruimte **Activa en naleving** . Dit knooppunt bevat alle apparaten waarvoor fouten zijn gegenereerd met dit profiel. Wanneer u een apparaat selecteert, worden in het deelvenster **Activumgegevens** de apparaten weergegeven waarop het geselecteerde probleem van invloed is. Dubbelklik op een apparaat in de lijst om extra informatie over het probleem weer te geven.  
+    -   **Erreur :** affiche la liste de toutes les erreurs pour le déploiement du profil de connexion à distance sélectionné en fonction du nombre de biens affectés. Vous pouvez double-cliquer sur une règle pour créer un nœud temporaire sous le nœud **Utilisateurs** de l'espace de travail **Ressources et Conformité** . Ce nœud contient tous les périphériques qui ont généré des erreurs avec ce profil. Lorsque vous sélectionnez un périphérique, le volet **Détails du bien** affiche les périphériques qui sont concernés par le problème sélectionné. Double-cliquez sur un périphérique de la liste pour afficher des informations supplémentaires sur le problème.  
 
-    -   **Niet-compatibele:** Geeft een lijst met alle niet-compatibele regels binnen het profiel voor externe verbindingen op basis van het aantal activa dat is beïnvloed. U kunt dubbelklikken op een regel om een tijdelijk knooppunt te maken onder het knooppunt **Gebruikers** van de werkruimte **Activa en naleving** . Dit knooppunt bevat alle apparaten die niet compatibel zijn met dit profiel. Wanneer u een apparaat selecteert, worden in het deelvenster **Activumgegevens** de apparaten weergegeven waarop het geselecteerde probleem van invloed is. Dubbelklik op een apparaat in de lijst om extra informatie over het probleem weer te geven.  
+    -   **Non compatible :** affiche la liste de toutes les règles non compatibles au sein du profil de connexion à distance en fonction du nombre de biens affectés. Vous pouvez double-cliquer sur une règle pour créer un nœud temporaire sous le nœud **Utilisateurs** de l'espace de travail **Ressources et Conformité** . Ce nœud contient tous les périphériques qui ne sont pas compatibles avec ce profil. Lorsque vous sélectionnez un périphérique, le volet **Détails du bien** affiche les périphériques qui sont concernés par le problème sélectionné. Double-cliquez sur un périphérique de la liste pour afficher des informations supplémentaires sur le problème.  
 
-    -   **Onbekend:** Geeft een lijst van alle apparaten waarop geen compatibiliteitsstatus is gerapporteerd voor de geselecteerde implementatie externe verbindingen profiel, samen met de huidige clientstatus van apparaten.  
+    -   **Inconnu :** affiche la liste de tous les appareils qui n’ont pas signalé de compatibilité pour le déploiement du profil de connexion à distance sélectionné, avec l’état du client actuel des appareils.  
 
-5.  Op de pagina **Implementatiestatus** kunt u gedetailleerde informatie over de compatibiliteit van het geïmplementeerde profiel voor externe verbindingen weergeven. Een tijdelijk knooppunt wordt gemaakt onder het knooppunt **Implementaties** waarmee u deze informatie snel kunt terugvinden.  
+5.  Sur la page **État du déploiement** , vous pouvez consulter des informations détaillées sur la compatibilité du profil de connexion à distance déployé. Un nœud temporaire est créé sous le nœud **Déploiements** qui vous aide à retrouver rapidement ces informations.  
 
-### <a name="view-compliance-results-with-reports"></a>Nalevingsresultaten weergeven met rapporten  
- Configuration Manager bevat ingebouwde rapporten die u gebruiken kunt om gegevens over profielen voor externe verbindingen te controleren. Deze rapporten hebben de rapportcategorie van **Compatibiliteit en instellingen beheren**.  
+### <a name="view-compliance-results-with-reports"></a>Afficher les résultats de compatibilité avec les rapports  
+ Configuration Manager inclut des rapports intégrés que vous pouvez utiliser pour surveiller les informations sur les profils de connexion à distance. La catégorie de ces rapports est **Gestion de la conformité et des paramètres**.  
 
 > [!IMPORTANT]  
->  U moet een jokerteken (%) gebruiken wanneer u de parameters **Apparaatfilter** en **Gebruikersfilter** gebruikt in de rapporten voor compatibiliteitsinstellingen.  
+>  Vous devez utiliser un caractère générique (%) lorsque vous utilisez les paramètres **Filtre de périphérique** et **Filtre d'utilisateur** dans les rapports des paramètres de compatibilité.  
 
- Zie voor meer informatie over het configureren van rapportage in Configuration Manager [rapportage in System Center Configuration Manager](/sccm/core/servers/manage/reporting).  
+ Pour plus d’informations sur la configuration de la génération de rapports dans Configuration Manager, consultez [Génération de rapports dans System Center Configuration Manager](/sccm/core/servers/manage/reporting).  

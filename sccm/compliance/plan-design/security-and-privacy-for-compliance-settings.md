@@ -1,6 +1,6 @@
 ---
-title: Beveiliging en privacy voor compatibiliteitsinstellingen | Microsoft Docs
-description: Meer informatie over de beveiliging aanbevolen procedures voor instellingen voor naleving in System Center Configuration Manager.
+title: "Sécurité et confidentialité des paramètres de compatibilité | Microsoft Docs"
+description: "En savoir plus sur les bonnes pratiques en matière de sécurité pour les paramètres de compatibilité dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,27 +17,27 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: e7dc554ffcd23978eed44819b525f6cc239b2135
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-compliance-settings-in-system-center-configuration-manager"></a>Beveiliging en privacy voor compatibiliteitsinstellingen in System Center Configuration Manager
+# <a name="security-and-privacy-for-compliance-settings-in-system-center-configuration-manager"></a>Sécurité et confidentialité des paramètres de compatibilité dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
-## <a name="security-best-practices-for-compliance-settings"></a>Aanbevolen beveiligingsprocedures voor nalevingsinstellingen  
+## <a name="security-best-practices-for-compliance-settings"></a>Meilleures pratiques de sécurité pour les paramètres de compatibilité  
 
-|Aanbevolen beveiligingsprocedure|Meer informatie|  
+|Meilleure pratique de sécurité|Plus d'informations|  
 |----------------------------|----------------------|  
-|Bewaak gevoelige gegevens niet.|Als u wilt voorkomen dat mogelijk gevoelige gegevens openbaar worden gemaakt, moet u configuratie-items niet zo configureren dat deze gegevens worden bewaakt.|  
-|Configureer geen compatibiliteitsregels die gegevens gebruiken die door eindgebruikers kunnen worden gewijzigd.|Als u een nalevingsregel maakt op basis van gegevens die gebruikers kunnen wijzigen, zoals registerinstellingen voor configuratieopties, zijn de nalevingsresultaten niet betrouwbaar.|  
-|Importeer Microsoft System Center-configuratiepakketten en andere configuratiegegevens alleen uit externe bronnen als deze beschikken over een geldige digitale handtekening van een vertrouwde uitgever.|Gepubliceerde configuratiegegevens kunnen digitaal worden ondertekend zodat u de uitgiftebron kunt verifiëren en er zeker van kunt zijn dat er niet is geknoeid met de gegevens. Als de verificatiecontrole van de digitale handtekening mislukt, ontvangt u een waarschuwing en wordt u gevraagd of u wilt doorgaan met importeren. Importeer geen niet-ondertekende gegevens als de bron en de integriteit van de gegevens niet kunnen worden geverifieerd.|  
-|Toegangsbeheer implementeren om referentiecomputers te beveiligen.|Wanneer een gebruiker met beheerdersrechten een register- of bestandssysteeminstelling wil configureren door te bladeren naar een referentiecomputer, moet u ervoor zorgen dat er niet is geknoeid met de referentiecomputer.|  
-|Beveilig het communicatiekanaal wanneer u naar een referentiecomputer bladert.|Gebruiken om te voorkomen dat knoeien met gegevens wanneer deze via het netwerk wordt overgedragen, Internet Protocol security (IPsec) of server message block (SMB) tussen de computer waarop de Configuration Manager-console en de referentiecomputer.|  
-|Beperk en bewaak de gebruikers met beheerdersrechten die de rol van beheerder van nalevingsinstellingen krijgen|Gebruikers met beheerdersrechten die de rol **Beheerder van instellingen voor naleving** krijgen, kunnen configuratie-items voor alle apparaten en gebruikers in de hiërarchie implementeren. Configuratie-items kunnen zeer krachtig zijn en kunnen bijvoorbeeld scripts en registerconfiguraties bevatten.|  
+|Ne surveillez pas les données sensibles.|Afin d'éviter la divulgation d'informations, ne configurez pas les éléments de configuration pour surveiller les informations potentiellement sensibles.|  
+|Ne configurez pas les règles de compatibilité qui utilisent des données pouvant être modifiées par les utilisateurs finaux.|Si vous créez une règle de compatibilité en fonction des données que les utilisateurs peuvent modifier, telles que les paramètres de Registre pour les choix de configuration, les résultats ne sont pas fiables.|  
+|Importez des packs de configuration Microsoft System Center et d’autres données de configuration à partir de sources externes uniquement s’ils possèdent une signature numérique valide d’un éditeur approuvé.|Les données de configuration publiées peuvent être signées de façon numérique. Vous pouvez ainsi vérifier la source de publication et vous assurer que les données n’ont pas été falsifiées. Si la vérification de la signature numérique échoue, vous en êtes averti et le système vous invite également à poursuivre l’importation. N'importez pas les données non signées si vous ne pouvez pas vérifier leur source et leur intégrité.|  
+|Mettez en œuvre des contrôles d'accès pour protéger les ordinateurs de référence.|Assurez-vous que, quand un utilisateur administratif configure un paramètre de Registre ou de système de fichiers en naviguant vers un ordinateur de référence, cet ordinateur n’avait pas été compromis.|  
+|Sécurisez le canal de communication lorsque vous naviguez vers un ordinateur de référence.|Pour empêcher la falsification des données quand elles sont transférées sur le réseau, utilisez la sécurité du protocole Internet (IPsec) ou le bloc de message serveur (SMB) entre l’ordinateur qui exécute la console Configuration Manager et l’ordinateur de référence.|  
+|Veillez à restreindre et surveiller les utilisateurs administratifs auxquels le rôle de sécurité basé sur le rôle Gestionnaire de paramètres de compatibilité a été accordé.|Les utilisateurs administratifs auxquels le rôle **Gestionnaire de paramètres de compatibilité** a été accordé peuvent déployer des éléments de configuration vers tous les périphériques et tous les utilisateurs de la hiérarchie. Les éléments de configuration peuvent être très puissants et inclure, par exemple, des scripts et la reconfiguration du Registre.|  
 
-## <a name="privacy-information-for-compliance-settings"></a>Privacygegevens voor nalevingsinstellingen  
- U kunt nalevingsinstellingen gebruiken om te evalueren of uw clientapparaten compliant zijn met configuratie-items die u in configuratiebasislijnen implementeert. Sommige instellingen kunnen automatisch worden hersteld als deze niet compliant zijn. De compatibiliteitsinformatie wordt door het beheerpunt naar de siteserver verzonden en opgeslagen in de sitedatabase. De informatie wordt versleuteld wanneer apparaten deze naar het beheerpunt verzenden, maar deze wordt niet in een versleutelde indeling opgeslagen in de sitedatabase. Informatie wordt bewaard in de database en wordt na negentig dagen verwijderd door de siteonderhoudstaak **Verouderde gegevens van Configuration Manager verwijderen** . U kunt het verwijderingsinterval configureren. Er wordt geen compatibiliteitsinformatie naar Microsoft verzonden.  
+## <a name="privacy-information-for-compliance-settings"></a>Informations de confidentialité pour les paramètres de compatibilité  
+ Vous pouvez utiliser les paramètres de compatibilité pour évaluer si vos périphériques client sont compatibles avec les éléments de configuration que vous déployez dans les lignes de base de configuration. Certains paramètres peuvent être corrigés automatiquement s'ils ne sont pas compatibles. Les informations de compatibilité sont transmises au serveur de site par le point de gestion et stockées dans la base de données de site. Les informations sont chiffrées lorsque les périphériques les envoient au point de gestion mais ne sont pas stockées au format chiffré dans la base de données de site. Les informations sont conservées dans la base de données jusqu'à ce que la tâche de maintenance de site **Supprimer les données de gestion de configuration anciennes** les supprime tous les 90 jours. Vous pouvez configurer l'intervalle de suppression. Les informations de compatibilité ne sont pas transmises à Microsoft.  
 
- Standaard worden nalevingsinstellingen niet door apparaten geëvalueerd. Bovendien moet u de configuratie-items en configuratiebasislijnen configureren en vervolgens implementeren voor apparaten.  
+ Par défaut, les périphériques n’évaluent pas les paramètres de compatibilité. En outre, vous devez configurer les éléments de configuration et les lignes de base de configuration, puis les déployer vers les périphériques.  

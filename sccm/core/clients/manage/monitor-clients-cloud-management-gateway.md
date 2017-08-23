@@ -1,5 +1,5 @@
 ---
-title: Monitor cloud management gateway - Configuratiebeheer | Microsoft Docs
+title: Surveiller la passerelle de gestion cloud - Configuration Manager | Microsoft Docs
 description: 
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -10,42 +10,42 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: daa0790995dc13ec2c78ae2d98a9eb38c0bcf8ae
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="monitor-cloud-management-gateway-in-configuration-manager"></a>Monitor management cloudgateway in Configuration Manager
+# <a name="monitor-cloud-management-gateway-in-configuration-manager"></a>Surveiller la passerelle de gestion cloud dans Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Vanaf versie 1610, nadat de cloud management gateway-service wordt uitgevoerd en de clients verbinding via dit maken, kunt u bewaken clients en netwerkverkeer om ervoor te zorgen dat u weet hoe de service wordt uitgevoerd.
+Depuis la version 1610, une fois que le service de passerelle de gestion cloud est en cours d’exécution et que les clients se connectent par son intermédiaire, vous pouvez surveiller le trafic réseau et les clients pour vérifier que le service fonctionne comme vous pensez qu’il fonctionne.
 
-## <a name="monitor-clients"></a>Monitor voor clients
+## <a name="monitor-clients"></a>Surveiller les clients
 
-Clients die zijn verbonden via de cloud management gateway-service wordt weergegeven in de Configuration Manager-console dezelfde manier lokale clients doen. Zie voor meer informatie [clients controleren](monitor-clients.md).
+Les clients connectés via le service de passerelle de gestion cloud s’affichent dans la console Configuration Manager de la même façon que les clients locaux. Pour plus d’informations, consultez [Guide pratique pour surveiller des clients](monitor-clients.md).
 
-## <a name="monitor-traffic-in-the-console"></a>Verkeer van de monitor in de console
+## <a name="monitor-traffic-in-the-console"></a>Surveiller le trafic dans la console
 
-U kunt verkeer op cloud management gateway met de Configuration Manager-console controleren:
+Vous pouvez surveiller le trafic sur la passerelle de gestion cloud à l’aide de la console Configuration Manager :
 
-1. Ga naar **beheer > Cloudservices > Management Gateway Cloud**.
+1. Accédez à **Administration > Services cloud > Passerelle de gestion cloud**.
 
-2. Selecteer de cloud management gateway-service in het lijstdeelvenster.
+2. Sélectionnez le service de passerelle de gestion cloud dans le volet Liste.
 
-3. De verkeersinformatie in het deelvenster met details voor de rol cloud management gateway-verbinding en de sitesysteemrollen waarmee die deze verbinding met maakt weergeven.
+3. Affichez les informations de trafic dans le volet Détails pour le rôle de connexion de passerelle de gestion cloud et les rôles de système de site auxquels il se connecte.
 
-## <a name="set-up-outbound-traffic-alerts"></a>Uitgaand verkeer waarschuwingen instellen
+## <a name="set-up-outbound-traffic-alerts"></a>Configurer des alertes de trafic sortant
 
-Waarschuwingen voor uitgaand verkeer kunt u weten wanneer verkeer een drempelwaarde van 14 dagen (2 weken) nadert. Krijgt u de optie voor het instellen van verkeer waarschuwingen bij het maken van de cloud management gateway-service. Als u het gedeelte overgeslagen, kunt u nog steeds de waarschuwingen instellen nadat de service wordt uitgevoerd. En u kunt ook de instellingen voor meldingen op elk gewenst moment aanpassen.
+Les alertes de trafic sortant vous permettent de savoir quand le trafic est proche d’un niveau de seuil de 14 jours (2 semaines). Vous avez la possibilité de configurer des alertes de trafic quand vous créez le service de passerelle de gestion cloud. Si vous avez ignoré cette partie, vous pouvez toujours configurer les alertes une fois que le service est en cours d’exécution. Vous pouvez également régler les paramètres d’alerte à tout moment.
 
-1. Ga naar **beheer > Cloudservices > Management Gateway Cloud**.
+1. Accédez à **Administration > Services cloud > Passerelle de gestion cloud**.
 
-2. Met de rechtermuisknop op de cloud management gateway-service in het lijstdeelvenster en kies **eigenschappen**.
+2. Cliquez avec le bouton droit sur le service de passerelle de gestion cloud dans le volet Liste, puis choisissez **Propriétés**.
 
-3. Klik op het tabblad waarschuwingen en kiest op (of uitschakelen) de drempel en de waarschuwingen. Geef vervolgens de 14 dagen drempelwaarde (in GB) en het percentage van de drempelwaarde voor het verhogen van de verschillende waarschuwingsniveaus.
+3. Cliquez sur l’onglet Alertes, puis choisissez d’activer (ou de désactiver) le seuil et les alertes. Spécifiez ensuite le seuil de 14 jours (en Go) et les pourcentages du seuil pour déclencher les différents niveaux d’alerte.
 
-4. Klik op **OK** wanneer u klaar bent.
+4. Cliquez sur **OK** quand vous avez terminé.
 
-## <a name="monitor-logs"></a>Logboeken van de monitor
+## <a name="monitor-logs"></a>Surveiller les journaux
 
-De cloud management gateway-service genereert vermeldingen in een aantal logboekbestanden. Zie voor meer informatie [logboeken Configuration Manager](/sccm/core/plan-design/hierarchy/log-files).
+Le service de passerelle de gestion cloud génère des entrées dans plusieurs fichiers journaux. Pour plus d’informations, consultez [Fichiers journaux dans System Center Configuration Manager](/sccm/core/plan-design/hierarchy/log-files).

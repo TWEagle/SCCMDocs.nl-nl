@@ -1,6 +1,6 @@
 ---
-title: Upgrade uitvoeren voor clients | Microsoft Docs
-description: Clients op Windows-computers in System Center Configuration Manager upgraden.
+title: "Mettre à niveau les clients | Microsoft Docs"
+description: "Mettez à niveau les clients sur des ordinateurs Windows dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 05/04/2017
 ms.prod: configuration-manager
@@ -17,86 +17,86 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 98b8c92e4dad3cef1ed3701b9c0f9111eb9941ea
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-upgrade-clients-for-windows-computers-in-system-center-configuration-manager"></a>Clients voor Windows-computers bijwerken in System Center Configuration Manager
+# <a name="how-to-upgrade-clients-for-windows-computers-in-system-center-configuration-manager"></a>Comment mettre à niveau les clients pour les ordinateurs Windows dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-U kunt de client op Windows-computers met clientinstallatiemethoden of de functies voor automatische Clientupgrade in Configuration Manager bijwerken. De volgende clientinstallatiemethoden zijn geldige manieren om de clientsoftware op Windows-computers bij te werken:  
+Pour mettre à niveau le client sur des ordinateurs Windows, vous pouvez utiliser les méthodes d’installation de clients ou les fonctionnalités de mise à niveau automatique de clients de Configuration Manager. Les méthodes d’installation de clients présentées ci-dessous sont tout à fait indiquées pour mettre à niveau des logiciels clients sur les ordinateurs Windows :  
 
--   Installatie van Groepsbeleid  
+-   Installation via la stratégie de groupe  
 
--   Aanmeldingscriptinstallatie  
+-   Installation via un script d'ouverture de session  
 
--   Handmatige installatie  
+-   Installation manuelle  
 
--   Upgrade-installatie  
+-   Installation de type mise à niveau  
 
- Als u geïnteresseerd bent in het bijwerken van de client met een clientinstallatiemethode, meer informatie over het gebruik van deze methoden [clients implementeren op Windows-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).
+ Si vous voulez mettre à niveau le client en employant l’une des méthodes d’installation de clients, vous trouverez plus d’informations sur l’utilisation de ces méthodes dans [Comment déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md).
 
- Vanaf versie 1610, kunt u clients uitsluiten van wordt bijgewerkt door te geven van een groep voor uitsluiting. Zie voor meer informatie [upgraden clients voor Windows-computers uitsluiten](exclude-clients-windows.md).  
+ À partir de la version 1610, vous pouvez empêcher la mise à niveau de clients en spécifiant un groupe d’exclusion. Pour plus d’informations, consultez [Guide pratique pour empêcher la mise à niveau de clients sur les ordinateurs Windows](exclude-clients-windows.md).  
 
 
 > [!TIP]  
->  Als u een upgrade van uw serverinfrastructuur uitvoert vanaf een eerdere versie van Configuration Manager \(zoals Configuration Manager 2007 of System Center 2012 Configuration Manager\), wordt u aangeraden de serverupgrades, inclusief alle updates van Current Branch, uit te voeren voordat u een upgrade uitvoert van de Configuration Manager-clients.   De nieuwste update van Current Branch bevat de meest recente versie van de client, zodat u de clientupgrades het best kunt uitvoeren nadat u alle Configuration Manager-updates hebt geïnstalleerd die u wilt gebruiken.
+>  Si vous mettez à niveau votre infrastructure de serveur à partir d’une version précédente de Configuration Manager \(comme Configuration Manager 2007 ou System Center 2012 Configuration Manager\), nous vous recommandons d’effectuer les mises à niveau du serveur, dont l’installation de toutes les mises à jour de Current Branch, avant la mise à niveau des clients.   La dernière mise à jour de Current Branch contenant la dernière version du client, il est préférable d’effectuer les mises à niveau des clients après avoir installé toutes les mises à jour de Configuration Manager que vous souhaitez utiliser.
 
 > [!NOTE]
-> Als u van plan bent om de site opnieuw toewijzen voor de clients tijdens de upgrade, kunt u de nieuwe site met de client.msi-eigenschap SMSSITECODE opgeven. Als u automatisch voor de SMSSITECODE gebruikt, moet u ook opgeven SITEREASSIGN = TRUE om toe te staan van automatische site opnieuw toewijzen plaatsvindt tijdens de upgrade. Zie voor meer informatie [SMSSITECODE](../../deploy/about-client-installation-properties.md#smssitecode).
+> Si vous voulez réattribuer le site pour les clients pendant la mise à niveau, vous pouvez spécifier le nouveau site à l’aide de la propriété SMSSITECODE client.msi. Si vous utilisez AUTO pour SMSSITECODE, vous devez également spécifier SITEREASSIGN=TRUE pour autoriser la réattribution automatique du site pendant la mise à niveau. Pour plus d’informations, consultez [SMSSITECODE](../../deploy/about-client-installation-properties.md#smssitecode).
 
-## <a name="use-automatic-client-upgrade"></a>Automatische clientupgrade gebruiken  
- U kunt ook de Configuration Manager om de clientsoftware automatisch wordt bijgewerkt naar de meest recente clientversie van de Configuration Manager-als Configuration Manager identificeert die een client die is aan de Configuration Manager-hiërarchie toegewezen lager dan de versie die wordt gebruikt in de hiërarchie is configureren. Dit scenario omvat het bijwerken van de client naar de nieuwste versie bij toewijzing aan een Configuration Manager-site.  
+## <a name="use-automatic-client-upgrade"></a>Utiliser la mise à niveau automatique du client  
+ Vous pouvez également configurer Configuration Manager pour mettre automatiquement à niveau le logiciel client vers la dernière version du client Configuration Manager quand Configuration Manager détecte qu’un client affecté à la hiérarchie Configuration Manager est antérieur à la version utilisée dans la hiérarchie. Ce scénario inclut la mise à niveau du client vers la dernière version quand il essaie de s’affecter à un site Configuration Manager.  
 
- Een client kan automatisch worden bijgewerkt in de volgende scenario's:  
+ Un client peut être mis automatiquement à niveau dans les scénarios suivants :  
 
--   De clientversie is lager dan de versie die in de hiërarchie wordt gebruikt.  
+-   La version du client est inférieure à la version utilisée dans la hiérarchie.  
 
--   Op de client op de centrale beheersite is een taalpakket geïnstalleerd en de bestaande client heeft dit niet.  
+-   Le client du site d'administration centrale dispose d'un module linguistique, mais pas le client existant.  
 
--   Een vereiste voor een client in de hiërarchie heeft een verschillende versie dan de op de client geïnstalleerde.  
+-   La hiérarchie impose une version différente de celle installée sur le client.  
 
--   Een of meer clientinstallatiebestanden hebben een verschillende versie.  
-
-> [!NOTE]  
->  U kunt het rapport uitvoeren **telling van Configuration Manager-clients op clientversies** in de rapportmap **Site - clientinformatie** voor het identificeren van de verschillende versies van Configuration Manager-client in uw hiërarchie.  
-
- Configuration Manager maakt een upgradepakket voor het standaard dat automatisch wordt verzonden naar alle distributiepunten in de hiërarchie. Als u wijzigingen in het clientpakket op de centrale beheersite aanbrengt, bijvoorbeeld een clienttaalpakket toevoegen Configuration Manager automatisch updates van het pakket en distribueert het naar alle distributiepunten in de hiërarchie. Als de automatische clientupgrade is ingeschakeld, zal het nieuwe clienttaalpakket automatisch op elke client worden geïnstalleerd.  
+-   Un ou plusieurs fichiers d'installation du client sont d'une version différente.  
 
 > [!NOTE]  
->  Configuration Manager de clientupgrade wordt niet automatisch verzenden pakket naar Configuration Manager cloud-gebaseerde distributiepunten.  
+>  Vous pouvez exécuter le rapport **Nombre de clients de Configuration Manager par versions de client** dans le dossier du rapport **Site - Informations client** pour identifier les différentes versions du client Configuration Manager dans votre hiérarchie.  
 
- Het is raadzaam dat u automatische clientupgrades tussen uw hiërarchie inschakelen. Hiermee voorkomt u dat uw clients bijgewerkt met een minimale administratieve overhead.  
+ Configuration Manager crée un package de mise à niveau par défaut qui est automatiquement envoyé à tous les points de distribution de la hiérarchie. Si vous apportez des modifications au package du client sur le site d’administration centrale, par exemple, en ajoutant un module linguistique client, Configuration Manager met automatiquement à jour le package et le distribue à tous les points de distribution de la hiérarchie. Si la mise à niveau automatique des clients est activée, chaque client installe automatiquement le nouveau module linguistique client.  
 
- De volgende procedure gebruiken om automatische clientupgrade te configureren. Automatische clientupgrade moet op een centrale beheersite worden geconfigureerd en deze configuratie is van toepassing op alle clients in de hiërarchie.  
+> [!NOTE]  
+>  Configuration Manager n’envoie pas automatiquement le package de mise à niveau du client aux points de distribution cloud Configuration Manager.  
 
-### <a name="to-configure-automatic-client-upgrades"></a>Automatische clientupgrades configureren  
+ Nous vous recommandons d’activer les mises à niveau automatiques des clients dans votre hiérarchie. De cette façon, vos clients sont mis à jour avec une surcharge administrative minimale.  
 
-1.  Klik op **Beheer**in de Configuration Manager-console.  
+ Utilisez la procédure suivante pour configurer la mise à niveau automatique des clients. La mise à niveau automatique des clients doit être configurée sur un site d'administration centrale. Cette configuration s'applique alors à tous les clients de votre hiérarchie.  
 
-2.  Vouw **Siteconfiguratie** uit in de werkruimte **Beheer**en klik vervolgens op **Sites**.  
+### <a name="to-configure-automatic-client-upgrades"></a>Pour configurer les mises à niveau automatiques du client  
 
-3.  Klik op **Hiërarchie-instellingen** op het tabblad **Start** , in de groep **Sites**.  
+1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-4.  Controleer op het tabblad **Clientupgrade** van het dialoogvenster **Eigenschappen van hiërarchie-instellingen** de versie en datum van de productieclient en zorg ervoor dat dit de versie is die u wilt gebruiken voor het bijwerken van Windows-computers.  Als niet de verwachte clientversie wordt weergegeven, moet u het niveau van de pre-productieclient mogelijk verhogen naar productie. Zie voor meer informatie [clientupgrades testen in pre-productieverzameling in System Center Configuration Manager](../../../../core/clients/manage/upgrade/test-client-upgrades.md).  
+2.  Dans l'espace de travail **Administration** , développez **Configuration du site**, puis cliquez sur **Sites**.  
 
-5.  Klik op **Upgrade uitvoeren voor alle clients in de hiërarchie met gebruik van productieversie van client** en klik in het bevestigingsdialoogvenster op **OK** .  
+3.  Dans l'onglet **Accueil** , dans le groupe **Sites** , cliquez sur **Paramètres de hiérarchie**.  
 
-6.  Als u niet wilt dat clientupgrades worden toegepast op servers, klikt u op **Geen upgrade op servers uitvoeren**.  
+4.  Sous l’onglet **Mise à niveau des clients** de la boîte de dialogue **Propriétés des paramètres de hiérarchie** , examinez la version et la date du client de production et vérifiez qu’il s’agit bien de la version que vous voulez utiliser pour mettre à niveau les ordinateurs Windows.  Si ce n’est pas la version du client que vous attendiez, vous serez peut-être amené à promouvoir le client de préproduction en production. Pour plus d’informations, consultez [Guide pratique pour tester les mises à niveau du client dans un regroupement de préproduction dans System Center Configuration Manager](../../../../core/clients/manage/upgrade/test-client-upgrades.md).  
 
-7.  Geef het aantal dagen op waarin computers de client moeten upgraden na het ontvangen van het clientbeleid. De client wordt bijgewerkt aan een random interval binnen dit aantal dagen. Dit voorkomt dat scenario's met een groot aantal clientcomputers gelijktijdig worden bijgewerkt.
+5.  Cliquez sur **Mettre à niveau tous les clients de la hiérarchie en utilisant un client de production** et sur **OK** dans la boîte de dialogue de confirmation.  
+
+6.  Si vous ne voulez pas que les mises à niveau du client s’appliquent aux serveurs, cliquez sur **Ne pas mettre à niveau les serveurs**.  
+
+7.  Spécifiez le délai (en jours) dont disposent les ordinateurs pour mettre à niveau le client après avoir reçu la stratégie client. Le client sera mis à niveau dans un intervalle aléatoire, compris dans ce délai. Cela évite les scénarios où un grand nombre d'ordinateurs clients est mis à niveau simultanément.
 
     > [!NOTE]
-    > Een computer moet worden uitgevoerd om de upgrade van de client. Als een computer wordt niet uitgevoerd als deze is gepland voor het ontvangen van de upgrade, wordt de upgrade wordt niet uitgevoerd. In plaats daarvan wanneer de computer opnieuw wordt opgestart, nog een upgrade is gepland voor een willekeurige tijd binnen het aantal dagen toegestaan. Als dit gebeurt nadat het aantal dagen om bij te werken is verlopen, wordt de upgrade worden gepland om te worden uitgevoerd op een willekeurig tijdstip binnen 24 uur nadat de computer opnieuw is opgestart.
+    > Un ordinateur doit être en cours d’exécution pour mettre à niveau le client. Si un ordinateur n’est pas en cours d’exécution au moment où la réception de la mise à niveau est planifiée, cette dernière n’a pas lieu. En revanche, dès que l’ordinateur est redémarré, une autre mise à niveau est planifiée à un moment aléatoire pendant le nombre de jours autorisé. Si le redémarrage se produit alors que le délai de la mise à niveau a expiré, celle-ci est planifiée pour se produire à une heure aléatoire dans un délai de 24 heures après le redémarrage de l’ordinateur.
     >     
-    > Vanwege dit gedrag computers die regelmatig worden afgesloten aan het einde van de werkdag kunnen duren voordat een langer dan verwacht als het willekeurig geplande tijd voor de upgrade niet binnen de normale werkuren bijwerken.
+    > En raison de ce comportement, les ordinateurs régulièrement arrêtés en fin de journée de travail risquent d’avoir besoin de plus de temps que prévu pour se mettre à niveau si l’heure de mise à niveau planifiée de façon aléatoire ne tombe pas dans les heures de travail.
 
-7. Vanaf versie 1610, als u uitsluiten van clients wordt bijgewerkt wilt, klikt u op **uitsluiten opgegeven clients upgrade** en geef de verzameling moeten worden uitgesloten.
+7. À compter de la version 1610, si vous ne voulez pas que des clients soient mis à niveau, cliquez sur **Exclure les clients spécifiés de la mise à niveau** et spécifiez le regroupement à exclure.
 
-8.  Als u de clientinstallatiepakketten wilt kopiëren naar distributiepunten die geschikt zijn voor voorbereide inhoud, klikt u op **Clientinstallatiepakketten automatisch distribueren naar distributiepunten die zijn ingeschakeld voor voorbereide inhoud**.  
+8.  Si vous souhaitez que le package d’installation du client soit copié sur des points de distribution activés pour le contenu préparé, cliquez sur **Distribuer automatiquement le package d’installation du client aux points de distribution activés pour le contenu préparé**.  
 
-9. Klik op **OK** om de instellingen op te slaan en het dialoogvenster **Eigenschappen van hiërarchie-instellingen** te sluiten. Clients ontvangen deze instellingen wanneer ze de volgende keer het beleid downloaden.
+9. Cliquez sur **OK** pour enregistrer les paramètres et fermer la boîte de dialogue **Propriétés des paramètres de hiérarchie** . Les clients recevront ces paramètres lors de leur prochain téléchargement de la stratégie.
 
 >[!NOTE]
->Clientupgrades voldoen aan de Configuration Manager-onderhoudsvensters die u hebt geconfigureerd.
+>Les mises à niveau des clients respectent les fenêtres de maintenance Configuration Manager configurées.

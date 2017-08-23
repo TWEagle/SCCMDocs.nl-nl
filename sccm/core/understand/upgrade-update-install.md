@@ -1,6 +1,6 @@
 ---
-title: Over upgrade-, update- en installatie | Microsoft Docs
-description: Meer informatie over het verschil tussen de voorwaarden Install-, Update- en Upgrade, bij het beheren van Configuration Manager-infrastructuur.
+title: "À propos de la mise à niveau, de la mise à jour et de l’installation | Microsoft Docs"
+description: "Découvrez la différence entre les termes Installation, Mise à jour et Mise à niveau, lors de la gestion de l’infrastructure Configuration Manager."
 ms.custom: na
 ms.date: 1/11/2017
 ms.prod: configuration-manager
@@ -17,41 +17,41 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 6bd6cd7ea3c41fa1d70e17a1290c9f1f74cc9e37
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="about-upgrade-update-and-install-for-site-and-hierarchy-infrastructure"></a>Over upgrade, bijwerken en voor de site en hiërarchie-infrastructuur installeren
+# <a name="about-upgrade-update-and-install-for-site-and-hierarchy-infrastructure"></a>À propos de la mise à niveau, de la mise à jour et de l’installation pour l’infrastructure de site et de hiérarchie
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
-
-
-Bij het beheren van System Center Configuration Manager-site en hiërarchie-infrastructuur, de voorwaarden *upgrade*, *bijwerken*, en *installeren* worden gebruikt voor het beschrijven van drie afzonderlijke concepten.
-
-## <a name="upgrade"></a>Upgrade
-*Upgrade* of *in-place upgrade*, wordt gebruikt bij het converteren van uw Configuration Manager 2012-site of hiërarchie naar een System Center Configuration Manager wordt uitgevoerd.
-Wanneer u naar System Center Configuration Manager System Center 2012 Configuration Manager bijwerkt, blijft dezelfde servers gebruiken voor het hosten van uw sites en siteservers en u uw bestaande gegevens en configuraties voor Configuration Manager behouden.  Dit verschilt van [migratie](/sccm/core/migration/migrate-data-between-hierarchies) dit is een manier om uw configuraties en gegevens over beheerde apparaten behouden tijdens het gebruik van nieuwe System Center Configuration Manager-sites naar nieuwe hardware is geïnstalleerd.
-
-Zie voor meer informatie [upgraden naar System Center Configuration Manager](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager).
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
 
+Lors de la gestion de l’infrastructure de site et de hiérarchie de System Center Configuration Manager, les termes *mise à niveau*, *mise à jour* et *installation* sont utilisés pour décrire trois concepts distincts.
 
-## <a name="update"></a>bijwerken
-*Update* wordt gebruikt voor het installeren van updates in de console voor System Center Configuration Manager en voor out-of-band-updates die zijn updates die van kunnen niet worden bezorgd binnen de Configuration Manager-console. Updates in de console kunnen de versie van uw site van de huidige vertakking (of Technical Preview-site) wijzigen zodat deze een hogere versie wordt uitgevoerd. Bijvoorbeeld, u als uw site versie 1606 wordt uitgevoerd, kunt u een update voor versie 1610 installeren. Updates kunnen oplossingen voor een bekend probleem ook installeren zonder te wijzigen van de versie van de sites.      
+## <a name="upgrade"></a>Mettre à niveau
+La *mise à niveau* ou *mise à niveau en place* est utilisée lors de la conversion de votre site ou hiérarchie Configuration Manager 2012 vers un site ou une hiérarchie qui exécute System Center Configuration Manager.
+Lorsque vous mettez à niveau System Center 2012 Configuration Manager vers System Center Configuration Manager, vous continuez à utiliser les mêmes serveurs pour héberger vos sites et serveurs de site, et vous conservez vos données et configurations existantes pour Configuration Manager.  Cela est différent de la [migration](/sccm/core/migration/migrate-data-between-hierarchies) qui est une façon de conserver vos configurations et données concernant les périphériques gérés tout en utilisant de nouveaux sites System Center Configuration Manager installés sur du nouveau matériel.
 
-Normaal gesproken toevoegen updates beveiligingsproblemen, kwaliteitsverbetering en nieuwe functies aan uw bestaande implementatie. Als u de vertakking Technical Preview gebruikt, kunt een update een nieuwere versie van de Technical Preview installeren.
--   U kiezen wanneer de update in de console installeren vanaf de bovenste site van uw hiërarchie.
-- U kunt de updates die beschikbaar is vanuit de console installeren. Bijvoorbeeld, als uw site versie 1602 wordt uitgevoerd en 1606 zowel 1610 worden aangeboden, moet u versie 1610 installeren omdat elke versie bevat de functies die voor het eerst werden beschikbaar gesteld in eerder uitgebrachte versies.
-- Nadat de installatie op de bovenste site van een nieuwe update is voltooid, wordt het proces om bij te werken automatisch starten door onderliggende primaire sites. U kunt echter instellen [Servicewindows](/sccm/core/servers/manage/install-in-console-updates#a-namebkmkservicewindowa-service-windows-for-site-servers) om te bepalen van de timing van updates.
-- Secundaire sites Installeer updates niet automatisch. In plaats daarvan, start u handmatig de update uit in de Configuration Manager-console.
-
-Zie voor meer [Updates voor System Center Configuration Manager](/sccm/core/servers/manage/updates), en [Technical Preview voor System Center Configuration Manager](/sccm/core/get-started/technical-preview).
+Pour plus d’informations, consultez [Mettre à niveau vers System Center Configuration Manager](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager).
 
 
 
-## <a name="install"></a>Installeren
-*Installeer* is gebruikt bij een nieuwe Configuration Manager-hiërarchie helemaal zelf maken of extra sites toevoegt aan een bestaande hiërarchie.  
+## <a name="update"></a>Mise à jour
+La *mise à jour* est utilisée pour l’installation de mises à jour dans la console pour System Center Configuration Manager et pour les mises à jour hors bande qui sont des mises à jour qui ne peuvent pas être fournies à partir de la console Configuration Manager. Les mises à jour dans la console peuvent modifier la version de votre site Current Branch (ou site Technical Preview) afin qu’il exécute une version ultérieure. Par exemple, si votre site exécute la version 1606, vous pouvez installer une mise à jour pour la version 1610. Les mises à jour peuvent également installer des correctifs pour un problème connu, sans modifier la version des sites.      
 
-De locatie van setup.exe en de bijbehorende bronbestanden die u gebruikt wanneer u een nieuwe primaire site of centrale beheersite installeert, zijn afhankelijk van uw installatiescenario.
+En règle générale, les mises à jour ajoutent des correctifs de sécurité, apportent une amélioration de la qualité et de nouvelles fonctionnalités à votre déploiement existant. Si vous utilisez la branche Technical Preview, une mise à jour peut installer une version plus récente de Technical Preview.
+-   Vous choisissez quand installer la mise à jour dans la console, en commençant par le site de niveau supérieur dans votre hiérarchie.
+- Vous pouvez installer toute mise à jour disponible à partir de la console. Par exemple, si votre site exécute la version 1602 et que les versions 1606 et 1610 sont proposées, envisagez d’installer la version 1610, car chaque version inclut les fonctionnalités qui ont été mises à disposition dans les versions précédentes.
+- Une fois l’installation d’une nouvelle mise à jour terminée sur votre site de niveau supérieur, les sites principaux enfants démarrent automatiquement le processus de mise à jour. Toutefois, vous pouvez définir des [fenêtres de maintenance](/sccm/core/servers/manage/install-in-console-updates#a-namebkmkservicewindowa-service-windows-for-site-servers) pour contrôler la planification des mises à jour.
+- Les sites secondaires n’installent pas automatiquement les mises à jour. Vous devez démarrer manuellement la mise à jour à partir de la console Configuration Manager.
 
-Zie voor meer [voorbereiden voor het installeren van sites](/sccm/core/servers/deploy/install/prepare-to-install-sites).
+Pour plus d’informations, consultez [Mises à jour pour System Center Configuration Manager](/sccm/core/servers/manage/updates) et [Technical Preview pour System Center Configuration Manager](/sccm/core/get-started/technical-preview).
+
+
+
+## <a name="install"></a>Installez
+*L’installation* est utilisée lors de la création d’une nouvelle hiérarchie Configuration Manager ou l’ajout de sites supplémentaires à une hiérarchie existante.  
+
+Lorsque vous installez un nouveau site principal ou un site d’administration centrale, l’emplacement de setup.exe et de ses fichiers source associés que vous utilisez dépend de votre scénario d’installation.
+
+Pour plus d’informations, consultez [Préparer l’installation des sites](/sccm/core/servers/deploy/install/prepare-to-install-sites).

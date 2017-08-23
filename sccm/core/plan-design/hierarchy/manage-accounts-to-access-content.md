@@ -1,6 +1,6 @@
 ---
-title: Accounts voor toegang tot inhoud in System Center Configuration Manager | Microsoft Docs
-description: Meer informatie over de accounts waar clients toegang krijgen inhoud van de System Center Configuration Manager tot.
+title: "Comptes pour accéder au contenu dans System Center Configuration Manager | Microsoft Docs"
+description: "En savoir plus sur les comptes où les clients accèdent au contenu System Center Configuration Manager."
 ms.custom: na
 ms.date: 2/6/2017
 ms.reviewer: na
@@ -16,106 +16,106 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 0e982d08d54af39b13f553fc531a200f921e94a6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-accounts-to-access-content-in-system-center-configuration-manager"></a>Accounts voor toegang tot inhoud in System Center Configuration Manager beheren
+# <a name="manage-accounts-to-access-content-in-system-center-configuration-manager"></a>Gérer les comptes pour accéder au contenu dans System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Overweeg hoe clients toegang tot die inhoud van distributiepunten voordat het implementeren van inhoud in System Center Configuration Manager. Dit artikel worden de volgende accounts voor dit doel gebruikt:
+Avant de déployer du contenu dans System Center Configuration Manager, déterminez de quelle façon les clients accèderont à ce contenu à partir des points de distribution. Cet article décrit les comptes suivants utilisés à cette fin :
 
--   **Netwerktoegangsaccount**. Verbinding maken met een distributiepunt en toegang tot inhoud door clients gebruikt. Clients proberen standaard eerst hun computeraccount.
+-   **Compte d’accès réseau**. Utilisé par les clients pour se connecter à un point de distribution et accéder au contenu. Par défaut, les clients essaient d’abord d’utiliser leur compte d’ordinateur.
 
-     Dit account wordt ook gebruikt door pull-distributiepunten om inhoud te verkrijgen van een brondistributiepunt in een extern forest.  
+     Ce compte est également utilisé par les points de distribution d’extraction pour obtenir le contenu d’un point de distribution source dans une forêt distante.  
 
--   **Pakkettoegangsaccount**. Standaard Configuration Manager verleent toegang tot inhoud op een distributiepunt op de ingebouwde accounts met de naam **gebruikers** en **beheerders**. U kunt instellen wanneer er aanvullende machtigingen om toegang te beperken.  
+-   **Compte d’accès au package**. Par défaut, Configuration Manager octroie aux comptes intégrés appelés **Utilisateurs** et **Administrateurs** l’accès au contenu d’un point de distribution. Vous pouvez configurer des autorisations supplémentaires pour limiter l’accès.  
 
--   **Multicastverbindingsaccount**. Gebruikt voor implementaties van besturingssystemen.  
+-   **Compte de connexion multidiffusion**. Utilisé pour les déploiements de système d’exploitation.  
 
-##  <a name="bkmk_NAA"></a>Netwerktoegangsaccount  
- Clientcomputers gebruiken het netwerktoegangsaccount wanneer ze hun lokale computeraccount niet kunnen gebruiken voor toegang tot inhoud op distributiepunten. Dit is bijvoorbeeld van toepassing op werkgroepclients en computers uit niet-vertrouwde domeinen. Dit account kan ook worden gebruikt tijdens het implementeren van besturingssystemen wanneer de computer die het besturingssysteem installeert nog niet over een computeraccount voor het domein beschikt.  
+##  <a name="bkmk_NAA"></a> Compte d’accès réseau  
+ Les ordinateurs clients utilisent le compte d’accès réseau quand ils ne peuvent pas utiliser leur compte d’ordinateur local pour accéder au contenu sur les points de distribution. Par exemple, cela s'applique aux clients du groupe de travail et aux ordinateurs de domaines non approuvés. Ce compte peut également être utilisé pendant le déploiement du système d'exploitation si l'ordinateur qui installe le système d'exploitation ne possède pas encore de compte d'ordinateur sur le domaine.  
 
--   Clients gebruiken het netwerktoegangsaccount alleen voor het openen van bronnen op het netwerk.  
+-   Les clients utilisent le compte d'accès réseau uniquement pour accéder aux ressources du réseau.  
 
--   U kunt op elke primaire site meerdere accounts voor gebruik als een netwerktoegangsaccount instellen.  
+-   Sur chaque site principal, vous pouvez configurer plusieurs comptes à utiliser comme compte d’accès réseau.  
 
--   Clients proberen eerst toegang tot inhoud op een distributiepunt met hun *computername*$-account. Als dit account is mislukt, probeert clients een netwerktoegangsaccount gebruiken. Clients blijven proberen om te gebruiken het netwerktoegangsaccount, zelfs als deze eerder is mislukt.  
+-   Les clients tentent d’abord d’accéder au contenu sur un point de distribution à l’aide de leur compte *nom_ordinateur*$. Si l’accès avec ce compte n’est pas possible, ils tentent alors d’utiliser un compte d’accès réseau. Les clients continuent d’essayer d’utiliser le compte d’accès réseau, même en cas d’échec antérieur.  
 
-### <a name="permissions"></a>Machtigingen
-Verleen aan deze account de minimaal vereiste machtigingen voor toegang tot de software voor de inhoud die de client vereist.  
+### <a name="permissions"></a>Autorisations
+Accordez les autorisations minimales appropriées à ce compte, pour qu'il puisse accéder au logiciel pour le contenu que nécessite le client.  
 
--   De account moet beschikken over de **toegang tot deze computer vanaf het netwerk** rechts op het distributiepunt.  
+-   Le compte doit avoir le droit **Accéder à cet ordinateur à partir du réseau** sur le point de distribution.  
 
--   Maak de account in elk domein dat de benodigde toegang tot bronnen biedt. Het netwerktoegangsaccount moet altijd een domeinnaam omvatten. Pass Through-beveiliging wordt niet ondersteund voor dit account. Als u over distributiepunten in meerdere domeinen beschikt, maakt u het account in een vertrouwd domein.  
+-   Créez le compte dans n'importe quel domaine fournissant l'accès nécessaire aux ressources. Le compte d'accès réseau doit toujours inclure un nom de domaine. La sécurité directe n’est pas prise en charge pour ce compte. Si vous disposez de points de distribution dans plusieurs domaines, créez le compte dans un domaine approuvé.  
 
 > [!TIP]  
->  Wijzig het wachtwoord van een bestaand netwerktoegangsaccount niet om vergrendeling te voorkomen. In plaats daarvan een nieuw account maken en instellen van het nieuwe account in Configuration Manager. Wanneer er voldoende tijd is verstreken waarbinnen alle clients de nieuwe accountgegevens hebben ontvangen, verwijder de oude account uit de gedeelde netwerkmappen en het account verwijderen.  
+>  Pour éviter les verrouillages de compte, ne modifiez pas le mot de passe d'un compte d'accès réseau existant. Au lieu de cela, créez un compte et configurez le nouveau compte dans Configuration Manager. Après un délai suffisant pendant lequel tous les clients ont reçu les informations du nouveau compte, supprimez l’ancien compte des dossiers partagés du réseau et supprimez le compte.  
 
 > [!IMPORTANT]  
->  Ken deze account geen interactieve rechten aan te melden.  
+>  N’accordez pas à ce compte des autorisations d’ouverture de session interactive.  
 >   
->  Aan dit account mag niet de machtiging worden toegekend om computers lid te maken van het domein. Gebruik het domeinlidmaatschapsaccount van de takenreekseditor als u tijdens een takenreeks computers lid moet maken van een domein.  
+>  N'accordez pas à ce compte le droit de joindre les ordinateurs au domaine. Si vous devez joindre les ordinateurs au domaine au cours d'une séquence de tâches, utilisez le compte de jonction de domaine de l'Éditeur de séquence de tâches.  
 
-### <a name="to-configure-the-network-access-account"></a>Het netwerktoegangsaccount configureren  
+### <a name="to-configure-the-network-access-account"></a>Pour configurer le compte d'accès réseau  
 
-1.  Kies in de Configuration Manager-console **beheer** >   **siteconfiguratie** >  **Sites**, en selecteer vervolgens de site.  
+1.  Dans la console Configuration Manager, choisissez **Administration** >   **Configuration du site** >  **Sites**, puis sélectionnez le site.  
 
-2.  Op de **instellingen** groep, kiest u **Siteonderdelen configureren** > **softwaredistributie**.  
+2.  Dans le groupe **Paramètres**, choisissez **Configurer les composants de site** > **Distribution de logiciels**.  
 
-3.  Kies de **netwerktoegangsaccount** tabblad. Instellen van een of meer accounts en kies vervolgens **OK**.  
+3.  Choisissez l’onglet **Compte d’accès réseau**. Configurez un ou plusieurs comptes, puis choisissez **OK**.  
 
-##  <a name="bkmk_Paa"></a>Pakkettoegangsaccounts  
- Pakkettoegangsaccounts kunt u NTFS-bestandssysteemmachtigingen om op te geven van de gebruikers en gebruikersgroepen die toegang pakketinhoud op distributiepunten tot instellen. Standaard Configuration Manager alleen toegang verleend aan de algemene **gebruikers** en **beheerders** accounts. U kunt echter toegang voor clientcomputers beheren via aanvullende Windows-accounts of groepen. Mobiele apparaten niet de Pakkettoegangsaccounts niet gebruiken omdat deze apparaten pakketinhoud altijd anoniem halen.  
+##  <a name="bkmk_Paa"></a> Comptes d’accès aux packages  
+ Les comptes d’accès au package vous permettent de définir des autorisations NTFS pour spécifier les utilisateurs et les groupes d’utilisateurs qui peuvent accéder à un contenu de package sur des points de distribution. Par défaut, Configuration Manager n’accorde cet accès qu’aux comptes génériques **Utilisateurs** et **Administrateurs**. Vous pouvez cependant contrôler l’accès pour les ordinateurs clients à l’aide d’autres comptes ou groupes Windows. Les appareils mobiles n’utilisent pas les comptes d’accès au package, car ces appareils récupèrent toujours le contenu du package de façon anonyme.  
 
- Standaard wanneer Configuration Manager de inhoudsbestanden in een pakket naar een distributiepunt kopieert, kent het **lezen** toegang tot de lokale **gebruikers** groep en **volledig beheer** aan de lokale **beheerders** groep. De werkelijke machtigingen die vereist zijn, is afhankelijk van het pakket. Als er sprake is van clients in werkgroepen of in niet-vertrouwde forests, kunnen deze clients het netwerktoegangsaccount gebruiken voor toegang tot de pakketinhoud. Controleer of het netwerktoegangsaccount machtigingen voor het pakket heeft met behulp van de gedefinieerde Pakkettoegangsaccounts.  
+ Par défaut, quand Configuration Manager copie les fichiers de contenu d’un package sur un point de distribution, il accorde un accès en **Lecture** au groupe **Utilisateurs** local et un **Contrôle intégral** au groupe **Administrateurs** local. Les autorisations requises dépendent du package. Si vous avez des clients dans des groupes de travail ou dans des forêts non approuvées, ceux-ci utiliseront le compte d'accès réseau pour accéder au contenu du package. Assurez-vous que le compte d'accès réseau bénéficie d'autorisations sur le package à l'aide des comptes d'accès au package définis.  
 
- Gebruik accounts in een domein dat toegang heeft tot de distributiepunten. Als u het account maakt of aanpast nadat het pakket is gemaakt, moet u het pakket opnieuw distribueren. Bijwerken van het pakket, wordt de machtigingen voor NTFS-bestandssysteem op het pakket niet gewijzigd.  
+ Utilisez des comptes dans un domaine susceptible d'accéder aux points de distribution. Si vous créez ou modifiez le compte une fois le package créé, vous devez redistribuer le package. La mise à jour du package ne modifie pas les autorisations de système de fichiers NTFS sur le package.  
 
- U hoeft niet de netwerktoegangsaccount toevoegen als een Pakkettoegangsaccount omdat het lidmaatschap van de **gebruikers** groep automatisch toegevoegd. Als u het pakkettoegangsaccount uitsluitend tot het netwerktoegangsaccount beperkt, blijven clients toegang houden tot het pakket.  
+ Il est inutile d'ajouter le compte d'accès réseau comme un compte d'accès au package, car l'appartenance au groupe **Utilisateurs** l'ajoute automatiquement. Le fait de restreindre le compte d'accès au package au compte d'accès réseau uniquement n'empêche pas les clients d'accéder au package.  
 
-### <a name="to-manage-access-accounts"></a>Toegangsaccounts wilt beheren  
+### <a name="to-manage-access-accounts"></a>Pour gérer les comptes d'accès  
 
-1.  Kies in de Configuration Manager-console **softwarebibliotheek**.  
+1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels**.  
 
-2.  In de **softwarebibliotheek** werkruimte, het type inhoud waarvoor u toegangsaccounts wilt beheren wilt bepalen en volg de stappen:  
+2.  Dans l’espace de travail **Bibliothèque de logiciels**, déterminez le type de contenu dont vous souhaitez gérer les comptes d’accès et suivez les étapes indiquées :  
 
-    -   **Toepassingen**: Vouw **Toepassingsbeheer**, kies **toepassingen**, en selecteer vervolgens de toepassingen waarvoor u toegangsaccounts wilt beheren.  
+    -   **Applications** : développez **Gestion d’applications**, choisissez **Applications**, puis sélectionnez les applications dont vous souhaitez gérer les comptes d’accès.  
 
-    -   **Pakketten**: Vouw **Toepassingsbeheer**, kies **pakketten**, en selecteer vervolgens de pakketten waarvoor u toegangsaccounts wilt beheren.  
+    -   **Packages** : développez **Gestion d’applications**, choisissez **Packages**, puis sélectionnez les packages dont vous souhaitez gérer les comptes d’accès.  
 
-    -   **Implementatiepakketten**: Vouw **Software-Updates**, kies **implementatiepakketten**, en selecteer vervolgens de implementatiepakketten waarvoor u toegangsaccounts wilt beheren.  
+    -   **Packages de déploiement** : développez **Mises à jour logicielles**, choisissez **Packages de déploiement**, puis sélectionnez les packages de déploiement dont vous souhaitez gérer les comptes d’accès.  
 
-    -   **Stuurprogrammapakketten**: Vouw **besturingssystemen**, kies **stuurprogrammapakketten**, en selecteer vervolgens de stuurprogrammapakketten waarvoor u toegangsaccounts wilt beheren.  
+    -   **Packages de pilotes** : développez **Systèmes d’exploitation**, choisissez **Packages de pilotes**, puis sélectionnez les packages de pilotes dont vous souhaitez gérer les comptes d’accès.  
 
-    -   **Installatiekopieën van besturingssystemen**: Vouw **besturingssystemen**, kies **installatiekopieën van besturingssystemen**, en selecteer vervolgens de installatiekopieën van besturingssystemen waarvoor u toegangsaccounts wilt beheren.  
+    -   **Images du système d’exploitation** : développez **Systèmes d’exploitation**, choisissez **Images du système d’exploitation**, puis sélectionnez les images du système d’exploitation dont vous souhaitez gérer les comptes d’accès.  
 
-    -   **Installatieprogramma's besturingssystemen**: Vouw **besturingssystemen**, kies **installatieprogramma's besturingssystemen**, en selecteer vervolgens de installatieprogramma's van het besturingssysteem waarvoor u toegangsaccounts wilt beheren.  
+    -   **Programmes d’installation de système d’exploitation** : développez **Systèmes d’exploitation**, choisissez **Programmes d’installation de système d’exploitation**, puis sélectionnez les programmes d’installation de système d’exploitation dont vous souhaitez gérer les comptes d’accès.  
 
-    -   **Opstartinstallatiekopieën**: Vouw **besturingssystemen**, kies **opstartinstallatiekopieën**, en selecteer vervolgens de opstartinstallatiekopieën waarvoor u toegangsaccounts wilt beheren.  
+    -   **Images de démarrage** : développez **Systèmes d’exploitation**, choisissez **Images de démarrage**, puis sélectionnez les images de démarrage dont vous souhaitez gérer les comptes d’accès.  
 
-3.  Met de rechtermuisknop op het geselecteerde object en kies vervolgens **toegangsaccounts beheren**.  
+3.  Cliquez avec le bouton droit sur l’objet sélectionné, puis choisissez **Gérer des comptes d’accès**.  
 
-4.  In de **Account toevoegen** dialoogvenster Geef het accounttype op waaraan toegang tot de inhoud wordt verleend en geef vervolgens de toegangsrechten die zijn gekoppeld aan het account.  
+4.  Dans la boîte de dialogue **Ajouter un compte**, spécifiez le type du compte auquel les droits d’accès au contenu seront accordés, puis indiquez les droits d’accès associés au compte.  
 
     > [!NOTE]  
-    >  Wanneer u een gebruikersnaam voor het account toevoegt en Configuration Manager vindt u zowel een lokaal gebruikersaccount en een domeingebruikersaccount met die naam, stelt de Configuration Manager toegangsrechten voor het domeingebruikersaccount.  
+    >  Quand vous ajoutez un nom d’utilisateur au compte et que Configuration Manager trouve un compte d’utilisateur local et un compte d’utilisateur de domaine portant ce nom, Configuration Manager définit les droits d’accès du compte d’utilisateur de domaine.  
 
-##  <a name="bkmk_multi"></a>Multicastverbindingsaccount  
- De Multicastverbindingsaccount wordt gebruikt door distributiepunten die zijn ingesteld voor multicast om informatie te lezen uit de sitedatabase.  
+##  <a name="bkmk_multi"></a> Compte de connexion multidiffusion  
+ Le compte de connexion multidiffusion est utilisé par des points de distribution qui sont configurés pour la multidiffusion pour lire les informations de la base de données de site.  
 
--   U geeft een account te gebruiken bij het instellen van Configuration Manager-databaseverbindingen voor multicast.  
+-   Vous spécifiez un compte à utiliser quand vous configurez des connexions de base de données Configuration Manager pour la multidiffusion.  
 
--   Standaard het computeraccount van het distributiepunt wordt gebruikt, maar u kunt een gebruikersaccount in plaats daarvan instellen.  
+-   Le compte d’ordinateur du point de distribution est utilisé par défaut, mais vous pouvez configurer un compte d’utilisateur à la place.  
 
--   U moet een gebruikersaccount opgeven wanneer de sitedatabase zich in een niet-vertrouwd forest bevindt.  
+-   Chaque fois que la base de données de site est dans une forêt non approuvée, vous devez spécifier un compte d'utilisateur.  
 
--   Het account moet hebben **lezen** machtigingen voor de sitedatabase.  
+-   Le compte doit avoir des autorisations **d’accès en lecture** à la base de données de site.  
 
-Als uw datacentrum bijvoorbeeld een perimeternetwerk heeft in een ander forest dan de siteserver en sitedatabase, kunt u dit account gebruiken om de multicastinformatie uit de sitedatabase te lezen.
+Par exemple, si votre centre de données dispose d'un réseau de périmètre dans une forêt autre que celle du serveur de site et de la base de données du site, vous pouvez utiliser ce compte pour lire les informations sur la multidiffusion à partir de la base de données du site.
 
-Als u dit account maakt, maakt u dit als een beperkte rechten, lokaal account op de computer waarop Microsoft SQL Server uitvoert.  
+Si vous créez ce compte, créez-le en tant que compte local doté de droits limités sur l’ordinateur qui exécute Microsoft SQL Server.  
 
 > [!IMPORTANT]  
->  Ken deze account geen interactieve rechten aan te melden.  
+>  N’accordez pas à ce compte des autorisations d’ouverture de session interactive.  

@@ -1,6 +1,6 @@
 ---
-title: Eigenschappen van clientinstallatie in Active Directory Domain Services | Microsoft Docs
-description: Clientinstallatie-eigenschappen gepubliceerd op Active Directory Domain Services in System Center Configuration Manager gebruiken.
+title: "Propriétés d’installation du client dans les services de domaine Active Directory | Microsoft Docs"
+description: "Utilisez les propriétés d’installation du client publiées dans les services de domaine Active Directory dans System Center Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,111 +17,111 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 744bc3792a02f13d3cf940cd1a4f2fd8749ee2f4
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="about-client-installation-properties-published-to-active-directory-domain-services"></a>Over clientinstallatie-eigenschappen gepubliceerd op Active Directory Domain Services
+# <a name="about-client-installation-properties-published-to-active-directory-domain-services"></a>À propos de la publication des propriétés d’installation du client sur les services de domaine Active Directory
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Wanneer u het Active Directory-schema voor System Center Configuration Manager uitbreiden en de site is gepubliceerd naar Active Directory Domain Services, worden veel clientinstallatie-eigenschappen gepubliceerd op Active Directory Domain Services. Als een computer deze clientinstallatie-eigenschappen localiseren kan, kan hij ze gebruiken tijdens de clientimplementatie van de Configuration Manager.  
+Quand vous étendez le schéma Active Directory pour System Center Configuration Manager et que le site est publié dans les services de domaine Active Directory, de nombreuses propriétés d’installation du client sont publiées dans les services de domaine Active Directory. Si un ordinateur peut localiser ces propriétés d'installation du client, il peut les utiliser au cours du déploiement du client Configuration Manager.  
 
- De voordelen van het gebruik van Active Directory Domain Services om eigenschappen van clientinstallatie te publiceren omvatten het volgende:  
+ Les avantages de l'utilisation des services de domaine Active Directory pour publier les propriétés d'installation du client sont les suivants :  
 
--   Software-update op basis van een punt clientinstallaties en Groepsbeleid-clientinstallaties vereisen geen setup-parameters worden ingesteld op elke computer.  
+-   Les installations du client basées sur des points de mise à jour logicielle et sur une stratégie de groupe ne nécessitent pas la configuration de paramètres d’installation sur chaque ordinateur.  
 
--   Omdat deze informatie automatisch gegenereerd wordt, wordt het risico van menselijke fout, gekoppeld met het handmatig invoeren van installatie-eigenschappen, geëlimineerd.  
-
-> [!NOTE]  
->  Zie voor meer informatie over het uitbreiden van het Active Directory-schema voor Configuration Manager en het publiceren van een site [Schema-uitbreidingen voor System Center Configuration Manager](../../plan-design/network/schema-extensions.md).  
-
-## <a name="client-installation-properties-published-to-active-directory-domain-services"></a>Clientinstallatie-eigenschappen gepubliceerd naar Active Directory Domain Services  
-Hier volgt een lijst met clientinstallatie-eigenschappen. Zie voor meer informatie over elk item onderstaande [over eigenschappen van clientinstallatie in System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
-
--   De sitecode van de Configuration Manager-site.  
-
--   Het server handtekeningcertificaat van de siteserver.  
-
--   De vertrouwde basissleutel.  
-
--   De client-communicatiepoorten voor HTTP en HTTPS.  
-
--   Het terugvalstatuspunt. Als de site meerdere terugvalstatuspunten heeft, worden alleen de eerste regel die is geïnstalleerd is gepubliceerd naar Active Directory Domain Services.  
-
--   Een instelling om aan te geven dat de client moet communiceren door enkel HTTPS te gebruiken.  
-
--   Instellingen voor PKI-certificaten:  
-
-   -   Of u moet een PKI-clientcertificaat gebruiken.  
-
-   -   De selectiecriteria voor certificaatselectie. Dit kan nodig zijn, omdat de client heeft meer dan één geldig PKI-certificaat kan worden gebruikt voor Configuration Manager.  
-
-   -   Een instelling om te bepalen welk certificaat dient gebruikt te worden als de client meerdere geldige certificaten heeft na het proces van certificaatselectie.  
-
-   -   De lijst van uitgevers van certificaten die een lijst bevat van vertrouwde CA basiscertificaten.  
-
--   Client.msi installatie-eigenschappen die gespecificeerd zijn in het tabblad **Client** van het dialoogvenster **Clientpushinstallatie-eigenschappen** .
-
-Clientinstallatie (CCMSetup) gebruikt de eigenschappen die worden gepubliceerd naar Active Directory Domain Services alleen als er geen andere eigenschappen zijn opgegeven met behulp van een van de volgende:  
-
--   De handmatige installatiemethode (Zie verderop in dit artikel)
-
--   De Groepsbeleid-installatiemethode (Zie verderop in dit artikel)
+-   Ces informations étant générées automatiquement, le risque d'erreur humaine propre à la saisie manuelle des propriétés d'installation est éliminé.  
 
 > [!NOTE]  
->  De eigenschappen van clientinstallatie worden gebruikt om de client te installeren. Deze eigenschappen kunnen worden overschreven door nieuwe instellingen vanuit zijn toegewezen site nadat de client is geïnstalleerd en correct is toegewezen aan een Configuration Manager-site.  
+>  Pour plus d’informations sur la façon d’étendre le schéma Active Directory pour Configuration Manager et de publier un site, consultez [Extensions de schéma pour System Center Configuration Manager](../../plan-design/network/schema-extensions.md).  
 
- Gebruik de informatie in de volgende secties om te bepalen welke Configuration Manager-clientinstallatiemethoden Active Directory Domain Services gebruiken om op te halen client installatie-eigenschappen.  
+## <a name="client-installation-properties-published-to-active-directory-domain-services"></a>Propriétés d’installation du client publiées dans les services de domaine Active Directory  
+Voici une liste de propriétés d’installation du client. Pour plus d’informations sur chaque élément répertorié ci-dessous, consultez [À propos des propriétés d’installation du client dans System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
 
-## <a name="client-push-installation"></a>Clientpushinstallatie  
- Clientpushinstallatie gebruikt geen Active Directory Domain Services om installatie-eigenschappen te verkrijgen.  
+-   Code de site Configuration Manager.  
 
- In plaats daarvan kunt u eigenschappen van clientinstallatie in de **Client** tabblad van de **Clientpushinstallatie-eigenschappen** in het dialoogvenster. Deze opties en client-gerelateerde site-instellingen worden opgeslagen in een bestand dat de client leest tijdens clientinstallatie.  
+-   Certificat de signature du serveur de site.  
+
+-   Clé racine approuvée.  
+
+-   Ports de communication client pour HTTP et HTTPS.  
+
+-   Point d'état de secours. Si le site a plusieurs points d’état de secours, seul le premier qui a été installé est publié dans les services de domaine Active Directory.  
+
+-   Un paramètre pour indiquer que le client doit communiquer à l'aide de HTTPS uniquement.  
+
+-   Paramètres relatifs aux certificats PKI :  
+
+   -   Si vous souhaitez utiliser un certificat PKI du client.  
+
+   -   Critères de sélection des certificats. Ceci peut être nécessaire dans le cas où le client a plusieurs certificats PKI valides qui peuvent être utilisés pour Configuration Manager.  
+
+   -   Un paramètre pour déterminer le certificat à utiliser si le client possède plusieurs certificats valides après le processus de sélection de certificat.  
+
+   -   Liste d'émetteurs de certificats qui contient une liste de certificats d'autorité de certification racine de confiance.  
+
+-   Propriétés d'installation client.msi qui sont définies sous l'onglet **Client** de la boîte de dialogue **Propriétés de l'installation poussée du client** .
+
+L’installation du client (CCMSetup) utilise les propriétés publiées dans les services de domaine Active Directory seulement si aucune autre propriété n’est spécifiée selon une des méthodes suivantes :  
+
+-   La méthode d’installation manuelle (décrite plus loin dans cet article).
+
+-   La méthode d’installation via la stratégie de groupe (décrite plus loin dans cet article).
 
 > [!NOTE]  
->  U moet geen CCMSetup-eigenschappen opgeven voor clientpushinstallatie, of het terugvalstatuspunt, of de vertrouwde basissleutel in het tabblad **Client** . Deze instellingen worden automatisch aan clients geleverd wanneer ze worden geïnstalleerd door gebruik te maken van clientpushinstallatie.  
+>  Les propriétés d’installation du client sont utilisées pour installer le client. Ces propriétés peuvent être remplacées par de nouveaux paramètres provenant du site qui lui a été affecté une fois que le client est installé et qu’il a été affecté à un site Configuration Manager.  
 
- Alle eigenschappen die u opgeeft in de **Client** tabblad worden gepubliceerd naar Active Directory Domain Services als de site is gepubliceerd naar Active Directory Domain Services. Deze instellingen worden gelezen door clientinstallaties waar CCMSetup uitgevoerd wordt zonder installatie-eigenschappen.  
+ Utilisez les informations données dans les sections suivantes pour déterminer quelle méthode d’installation du client Configuration Manager utilise les services de domaine Active Directory pour obtenir les propriétés d’installation du client.  
 
-## <a name="software-update-point-based-installation"></a>Installatie op basis van software-updatepunten  
- De installatiemethode op basis van software-updatepunten ondersteunt niet de toevoeging van installatie-eigenschappen aan de CCMSetup-opdrachtregel.  
+## <a name="client-push-installation"></a>Installation poussée du client  
+ L'installation poussée du client n'utilise pas les services de domaine Active Directory pour accéder aux propriétés d'installation.  
 
- Indien er geen opdrachtregels werden ingesteld op de clientcomputer door gebruik te maken van groepsbeleid, zoekt CCMSetup op Active Directory Services naar installatie-eigenschappen.  
+ Au lieu de cela, vous pouvez spécifier les propriétés d’installation du client dans l’onglet **Client** de la boîte de dialogue **Propriétés de l’installation push du client**. Ces options et paramètres de site liés aux clients sont stockés dans un fichier que le client lit pendant l'installation du client.  
 
-## <a name="group-policy-installation"></a>Installatie van Groepsbeleid  
- De groepsbeleid-installatiemethode ondersteunt niet de toevoeging van installatie-eigenschappen aan de CCMSetup-opdrachtregel.  
+> [!NOTE]  
+>  Vous n'avez pas à spécifier de propriétés CCMSetup pour l'installation poussée du client, ni de point d'état de secours ou la clé racine de confiance dans l'onglet **Client** . Ces paramètres sont automatiquement fournis aux clients, lorsqu'ils sont installés par l'installation poussée du client.  
 
- Indien er geen opdrachtregels werden ingesteld op de clientcomputer, zoekt CCMSetup op Active Directory Services naar installatie-eigenschappen.  
+ Toutes les propriétés que vous spécifiez dans l’onglet **Client** sont publiées dans les services de domaine Active Directory si le site y est publié. Ces paramètres sont lus par les installations du client où CCMSetup est exécuté sans propriété d'installation.  
 
-## <a name="manual-installation"></a>Handmatige installatie  
- CCMSetup zoekt onder de volgende omstandigheden in Active Directory Domain Services naar installatie-eigenschappen:  
+## <a name="software-update-point-based-installation"></a>Installation basée sur un point de mise à jour logicielle  
+ La méthode d'installation basée sur un point de mise à jour logicielle ne prend pas en charge l'ajout de propriétés d'installation supplémentaires sur la ligne de commande CCMSetup.  
 
--   Er zijn na de opdracht CCMSetup.exe geen eigenschappen vanaf de opdrachtregel opgegeven.  
+ Si aucune propriété de ligne de commande n'a été configurée sur l'ordinateur client utilisant la stratégie de groupe, CCMSetup recherche des propriétés d'installation dans les services de domaine Active Directory.  
 
--   De computer is niet via Groepsbeleid ingericht met installatie-eigenschappen.  
+## <a name="group-policy-installation"></a>Installation via la stratégie de groupe  
+ La méthode d'installation via la stratégie de groupe ne prend pas en charge l'ajout de propriétés d'installation sur la ligne de commande CCMSetup.  
 
-## <a name="logon-script-installation"></a>Aanmeldingscriptinstallatie  
- CCMSetup zoekt onder de volgende omstandigheden in Active Directory Domain Services naar installatie-eigenschappen:  
+ Si aucune propriété de ligne de commande n'a été configurée sur l'ordinateur client, CCMSetup recherche des propriétés d'installation dans les services de domaine Active Directory.  
 
--   Er zijn na de opdracht CCMSetup.exe geen eigenschappen vanaf de opdrachtregel opgegeven.  
+## <a name="manual-installation"></a>Installation manuelle  
+ CCMSetup recherche des propriétés d'installation dans les services de domaine Active Directory dans les circonstances suivantes :  
 
--   De computer is niet via Groepsbeleid ingericht met installatie-eigenschappen.  
+-   Lorsqu'aucune propriété de ligne de commande n'est spécifiée à la suite de la commande CCMSetup.exe.  
 
-## <a name="software-distribution-installation"></a>Installatie van softwaredistributie  
- CCMSetup zoekt onder de volgende omstandigheden in Active Directory Domain Services naar installatie-eigenschappen:  
+-   Lorsque l'ordinateur n'a pas été configuré avec des propriétés d'installation à l'aide de la stratégie de groupe.  
 
--   Er zijn na de opdracht CCMSetup.exe geen eigenschappen vanaf de opdrachtregel opgegeven.  
+## <a name="logon-script-installation"></a>Installation via un script d'ouverture de session  
+ CCMSetup recherche des propriétés d'installation dans les services de domaine Active Directory dans les circonstances suivantes :  
 
--   De computer is niet via Groepsbeleid ingericht met installatie-eigenschappen.  
+-   Lorsqu'aucune propriété de ligne de commande n'est spécifiée à la suite de la commande CCMSetup.exe.  
 
-## <a name="installations-for-clients-that-cannot-access-active-directory-domain-services"></a>Installaties voor clients die geen toegang Active Directory Domain Services tot  
-Deze clientcomputers niet lezen of toegang tot de gepubliceerde installatie-eigenschappen van Active Directory Domain Services.
+-   Lorsque l'ordinateur n'a pas été configuré avec des propriétés d'installation à l'aide de la stratégie de groupe.  
 
- Deze clients zijn onder andere:  
+## <a name="software-distribution-installation"></a>Installation via la distribution de logiciels  
+ CCMSetup recherche des propriétés d'installation dans les services de domaine Active Directory dans les circonstances suivantes :  
 
--   Computers in werkgroepen.  
+-   Lorsqu'aucune propriété de ligne de commande n'est spécifiée à la suite de la commande CCMSetup.exe.  
 
--   Clients die zijn toegewezen aan een Configuration Manager-site die niet is gepubliceerd op Active Directory Domain Services.  
+-   Lorsque l'ordinateur n'a pas été configuré avec des propriétés d'installation à l'aide de la stratégie de groupe.  
 
--   Clients die zijn geïnstalleerd als ze zich op Internet.  
+## <a name="installations-for-clients-that-cannot-access-active-directory-domain-services"></a>Installations pour les clients qui ne peuvent pas accéder aux services de domaine Active Directory  
+Ces ordinateurs clients ne peuvent pas lire ou accéder aux propriétés d’installation publiées à partir des services de domaine Active Directory.
+
+ Ces clients incluent les suivants :  
+
+-   Ordinateurs d'un groupe de travail.  
+
+-   Clients affectés à un site Configuration Manager qui n’est pas publié dans les services de domaine Active Directory.  
+
+-   Clients installés quand ils sont sur Internet.  

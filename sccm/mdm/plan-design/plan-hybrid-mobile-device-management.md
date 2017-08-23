@@ -1,6 +1,6 @@
 ---
-title: Plannen voor hybride MDM | Microsoft Docs
-description: Plan voor hybride mobile device management met System Center Configuration Manager en Microsoft Intune.
+title: Planifier la gestion des appareils mobiles hybride | Microsoft Docs
+description: Planifiez la gestion hybride des appareils mobiles avec System Center Configuration Manager et Microsoft Intune.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,22 +17,22 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 814fb545dae35c582146450c316446c21191002f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-hybrid-mobile-device-management-mdm-with-system-center-configuration-manager-and-microsoft-intune"></a>Plan voor hybride mobile device management (MDM) met System Center Configuration Manager en Microsoft Intune
+# <a name="plan-for-hybrid-mobile-device-management-mdm-with-system-center-configuration-manager-and-microsoft-intune"></a>Planifier une gestion hybride des appareils mobiles avec System Center Configuration Manager et Microsoft Intune
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-U kunt slechts één beheeroplossing voor de mobile device management-instantie voor het beheren van uw mobiele apparaten. Voordat u deze instelling die u moet [kiezen tussen Microsoft Intune standalone en hybride beheer van mobiele apparaten met Configuration Manager](../understand/choose-between-standalone-intune-and-hybrid-mobile-device-management.md).
+Vous pouvez utiliser une seule solution de gestion, l’autorité de gestion des appareils mobiles, pour gérer vos appareils mobiles. Avant de sélectionner ce paramètre, vous devez [choisir entre la version autonome de Microsoft Intune et une gestion hybride des appareils mobiles avec Configuration Manager](../understand/choose-between-standalone-intune-and-hybrid-mobile-device-management.md).
 
-Bovendien de [Intune-implementatie plannen, ontwerpen en implementatiehandleiding](https://docs.microsoft.com/en-us/intune/plan-design/introduction) biedt een grote hoeveelheid informatie over het proces van het ontwikkelen van een implementatieplan voor het maken van een ontwerp voorbereiden op Intune, en een productie-implementatie uitvoeren.
+En outre, le [guide de planification, de conception et d’implémentation du déploiement Intune](https://docs.microsoft.com/en-us/intune/plan-design/introduction) est une source d’informations fiable sur le processus de développement d’un plan de déploiement, de création d’une conception, d’intégration de Microsoft Intune et d’exécution d’un déploiement de production.
 
-- [Ondersteunde Platforms voor apparaten](supported-device-platforms-for-hybrid.md) toont de platforms voor mobiele apparaten die worden ondersteund door Configuration Manager, met Microsoft Intune.
+- La page [Plateformes prises en charge](supported-device-platforms-for-hybrid.md) affiche la liste des plateformes d’appareils mobiles prises en charge par Configuration Manager via Microsoft Intune.
 
-- [Registratiemethoden voor apparaten](device-enrollment-methods.md) bevat informatie over het inschrijven van apparaten in Bedrijfseigendom en gebruiker eigenaar en de ondersteunde mogelijkheden.
+- La section relative aux [méthodes d’inscription des appareils](device-enrollment-methods.md) fournit des informations sur l’inscription d’appareils appartenant à des utilisateurs et des entreprises, ainsi que des fonctionnalités prises en charge.
 
 
-### <a name="next-steps"></a>Volgende stappen
- [Hybride MDM instellen](../deploy-use/setup-hybrid-mdm.md)
+### <a name="next-steps"></a>Étapes suivantes
+ [Configurer une gestion hybride des appareils mobiles](../deploy-use/setup-hybrid-mdm.md)

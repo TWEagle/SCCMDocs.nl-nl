@@ -1,6 +1,6 @@
 ---
-title: Aangepaste databasebestandslocaties | Microsoft Docs
-description: Informatie over het opgeven van aangepaste locaties voor SQL Server-databasebestanden.
+title: "Emplacements des fichiers de base de données personnalisés | Microsoft Docs"
+description: "Découvrez comment spécifier des emplacements personnalisés pour des fichiers de base de données SQL Server."
 ms.custom: na
 ms.date: 10/06/2016
 ms.reviewer: na
@@ -16,29 +16,29 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: cfac2c03c1b71b40c68d8acd5fbd96c5e98caaa9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="custom-locations-for-system-center-configuration-manager-site-database-files"></a>Aangepaste locaties voor System Center Configuration Manager site-databasebestanden
+# <a name="custom-locations-for-system-center-configuration-manager-site-database-files"></a>Emplacements personnalisés pour les fichiers de base de données du site System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
- System Center Configuration Manager ondersteunt aangepaste locaties voor SQL Server-databasebestanden.  
+ System Center Configuration Manager prend en charge les emplacements personnalisés pour les fichiers de base de données SQL Server.  
 
 > [!NOTE]  
->  De optie voor het opgeven van niet-standaard bestandslocaties is niet beschikbaar wanneer u een SQL Server-cluster gebruikt.  
+>  Cette possibilité de spécifier des emplacements de fichiers autres que les emplacements par défaut n'est pas disponible quand vous utilisez un cluster SQL Server.  
 
- **Tijdens de installatie** van een nieuwe primaire site of centrale beheersite, kunt u:  
+ **Durant l’installation** d’un nouveau site principal ou d’un site d’administration centrale, vous pouvez :  
 
--   **Geef niet-standaard bestandslocaties voor de sitedatabase**: Setup van Configuration Manager maakt vervolgens de sitedatabase met behulp van deze locaties.  
+-   **Spécifier des emplacements de fichiers autres que ceux par défaut pour la base de données du site** : le programme d’installation de Configuration Manager crée alors la base de données du site en utilisant ces emplacements.  
 
--   **Geef het gebruik van een vooraf gemaakte SQL Server-database die gebruikmaakt van aangepaste bestandslocaties**:  Setup van Configuration Manager gebruikt vervolgens die vooraf gemaakte database en de vooraf geconfigureerde bestandslocaties.  
+-   **Spécifier l’utilisation d’une base de données SQL Server déjà créée qui utilise des emplacements de fichiers personnalisés** : le programme d’installation de Configuration Manager utilise alors cette base de données déjà créée et ses emplacements de fichiers préconfigurés.  
 
-**Na de installatie**, kunt u de locatie van de sitedatabasebestanden wijzigen. Hiervoor moet u de site stoppen en de bestandslocatie in SQL Server bewerken:  
+**Après l’installation**, vous pouvez modifier l’emplacement des fichiers de base de données du site. Pour ce faire, vous devez arrêter le site et modifier l’emplacement du fichier dans SQL Server :  
 
--   Stop op de siteserver van Configuration Manager de **SMS_Executive** service.  
+-   Sur le serveur de site Configuration Manager, arrêtez le service **SMS_Executive**.  
 
--   Gebruik de documentatie voor uw versie van SQL Server voor meer informatie over het verplaatsen van een gebruikersdatabase. Bijvoorbeeld, als u SQL Server 2014 gebruikt, Zie [gebruikersdatabases verplaatsen](https://technet.microsoft.com/library/ms345483\(v=sql.120\).aspx) op TechNet.  
+-   Utilisez la documentation de votre version de SQL Server pour savoir comment déplacer une base de données utilisateur. Par exemple, si vous utilisez SQL Server 2014, consultez [Déplacer des bases de données utilisateur](https://technet.microsoft.com/library/ms345483\(v=sql.120\).aspx) sur TechNet.  
 
--   Nadat u het databasebestand verplaatst hebt voltooid, start opnieuw op de **SMS_Executive** service op de siteserver van Configuration Manager.  
+-   Après avoir déplacé le fichier de base de données, redémarrez le service **SMS_Executive** sur le serveur de site Configuration Manager.  

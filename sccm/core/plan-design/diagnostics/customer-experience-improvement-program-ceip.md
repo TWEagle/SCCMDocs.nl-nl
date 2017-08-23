@@ -1,6 +1,6 @@
 ---
-title: PROGRAMMA VOOR KWALITEITSVERBETERING | Microsoft Docs
-description: Meer informatie over de instellingen van het programma voor kwaliteitsverbetering voor System Center Configuration Manager.
+title: "Programme d’amélioration des services | Microsoft Docs"
+description: "Découvrez les paramètres du Programme d’amélioration des services pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
@@ -16,20 +16,20 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: dddb6d960269a0d7655597cd9a1ccb31b382853c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="customer-experience-improvement-program-ceip-for-system-center-configuration-manager"></a>Customer Experience Improvement Program (CEIP) voor System Center Configuration Manager
+# <a name="customer-experience-improvement-program-ceip-for-system-center-configuration-manager"></a>Programme d’amélioration des services (CEIP) pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
-Tijdens de installatie van de System Center Configuration Manager-console kunt u kiezen voor deelname aan het **Customer Experience Improvement Program** (CEIP). Het programma voor kwaliteitsverbetering is weliswaar standaard uitgeschakeld, maar als dit eerder was ingeschakeld, blijft het ingeschakeld.  
+Lors de l’installation de la console System Center Configuration Manager, vous pouvez choisir de participer au **Programme d’amélioration de l’expérience utilisateur** (CEIP). Ce programme est désactivé par défaut, mais s’il a été activé auparavant, il reste activé.  
 
--   CEIP is gescheiden van [Diagnostische gegevens en gebruiksgegevens voor System Center Configuration Manager](../../../core/plan-design/diagnostics/diagnostics-and-usage-data.md).  
+-   Le programme CEIP est distinct des [Données d’utilisation et de diagnostic pour System Center Configuration Manager](../../../core/plan-design/diagnostics/diagnostics-and-usage-data.md).  
 
--   Programma voor Kwaliteitsverbetering geldt per console en verzamelt gegevens zoals het aantal keren dat elk element in de gebruikersinterface is ingeschakeld.  
+-   Le programme d’amélioration de l’expérience utilisateur se rapporte à la console et collecte des données comme le nombre de fois que chaque élément est sélectionné dans l’interface utilisateur.  
 
--   Lees de [Privacyverklaring voor het Programma voor verbetering van de gebruikerservaring van Microsoft](https://www.microsoft.com/products/ceip/en-us/privacypolicy.mspx) online.  
+-   Consultez la [déclaration de confidentialité du programme d’amélioration de l’expérience utilisateur](https://www.microsoft.com/products/ceip/en-us/privacypolicy.mspx) en ligne.  
 
-U kunt de instellingen van het programma voor Kwaliteitsverbetering per console-installatie wijzigen. Ga naar de console backstage-tabblad (de tab linksboven met de vervolgkeuzepijl) in de console en selecteer **Customer Experience Improvement Program** om de instellingen wijzigen.  
+Vous pouvez modifier les paramètres du programme d’amélioration de l’expérience utilisateur pour chaque installation de la console. Dans la console, accédez à l’onglet Backstage des consoles (onglet supérieur gauche avec la flèche déroulante) et sélectionnez **Programme d’amélioration de l’expérience utilisateur** pour modifier les paramètres.  

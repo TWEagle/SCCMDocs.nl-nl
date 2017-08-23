@@ -1,6 +1,6 @@
 ---
-title: Synchronisatie van software-updates beheren | Microsoft Docs
-description: Volg deze stappen om synchronisatie van software-updates plannen, handmatig starten van synchronisatie van software-updates en synchronisatie van software-updates controleren.
+title: "Gérer la synchronisation des mises à jour logicielles | Microsoft Docs"
+description: "Exécutez ces étapes pour planifier, démarrer manuellement et surveiller la synchronisation des mises à jour logicielles."
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,66 +13,66 @@ ms.technology: configmgr-sum
 ms.assetid: ea8698c4-9df5-4cf5-8b62-ab93115b4769
 ms.openlocfilehash: e68170a16a6a908e035247ed9c0f3cc6cdbe1983
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="BKMK_SUMSync"></a> Software-updates synchroniseren
+#  <a name="BKMK_SUMSync"></a> Synchroniser les mises à jour logicielles
 
-*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
+*S’applique à : System Center Configuration Manager (Current Branch)*
 
- Synchronisatie van software-updates in Configuration Manager is het proces van het ophalen van de metagegevens van de software-update die voldoet aan de criteria die u configureert. Dit omvat specifieke producten, classificaties en talen. De software-updatepunt op de centrale beheersite of op een zelfstandige primaire site haalt meestal de metagegevens van Microsoft Update. Vervolgens wordt de site op het hoogste niveau een synchronisatieaanvraag verzenden naar andere sites. Wanneer een site de synchronisatieaanvraag van de bovenliggende site ontvangt, de software-updatepunt voor de site metagegevens van software-updates opgehaald uit de upstream [synchronisatiebron](../plan-design/plan-for-software-updates.md#BKMK_SyncSource). Zie voor meer informatie over het synchronisatieproces voor software-update [synchronisatie van Software-updates](../understand/software-updates-introduction.md#BKMK_Synchronization).
+ La synchronisation des mises à jour logicielles dans Configuration Manager consiste à récupérer les métadonnées des mises à jour logicielles correspondant aux critères que vous configurez, comme les produits, les classifications et les langues. En règle générale, les métadonnées sont récupérées par le point de mise à jour logicielle du site d’administration centrale ou d’un site principal autonome auprès de Microsoft Update. Ensuite, le site de niveau supérieur envoie une demande de synchronisation aux autres sites. Quand un site reçoit la demande de synchronisation du site parent, le point de mise à jour logicielle du site récupère les métadonnées des mises à jour logicielles à partir de sa [source de synchronisation](../plan-design/plan-for-software-updates.md#BKMK_SyncSource) en amont. Pour plus d’informations sur la synchronisation des mises à jour logicielles, consultez [Synchronisation des mises à jour logicielles](../understand/software-updates-introduction.md#BKMK_Synchronization).
 
-U configureren software-updatesynchronisaties worden uitgevoerd volgens een schema in de eigenschappen voor de software-updatepunt op het hoogste niveau. Nadat u de synchronisatieplanning hebt ingesteld, hoeft u dit doorgaans niet te wijzigen als onderdeel van het normale gebruik. U kunt wanneer dat nodig is echter handmatig een software-updatesynchronisatie starten.
+Vous configurez la synchronisation des mises à jour logicielles de sorte qu’elle s’exécute selon une planification dans les propriétés du point de mise à jour logicielle sur le site de niveau supérieur. Après avoir configuré le calendrier de synchronisation, vous ne modifiez généralement pas le calendrier dans le cadre des opérations normales. Toutefois, vous pouvez lancer manuellement la synchronisation des mises à jour logicielles au besoin.
 
   > [!NOTE]  
-  >  Software-updatepunten moeten worden verbonden met de bijbehorende stroomopwaartse synchronisatiebron gebruikt om softwareupdates te synchroniseren. Wanneer de verbinding van een software-updatepunt met de synchronisatiebron stroomopwaarts ervan is verbroken, kunt u de export- en importmethode gebruiken om software-updates te synchroniseren. Zie de sectie [Software-updates synchroniseren vanaf een niet-verbonden software-updatepunt](synchronize-software-updates-disconnected.md) voor meer informatie.  
+  >  Les points de mise à jour logicielle doivent être connectés à leur source de synchronisation en amont pour synchroniser les mises à jour logicielles. Quand un point de mise à jour logicielle est déconnecté de sa source de synchronisation en amont, vous pouvez utiliser la méthode d'exportation et importation pour synchroniser les mises à jour logicielles. Pour plus d’informations, consultez [Synchroniser les mises à jour logicielles à partir d’un point de mise à jour logicielle déconnecté](synchronize-software-updates-disconnected.md).  
 
-## <a name="schedule-software-updates-synchronization"></a>Synchronisatie van software-updates plannen
-Wanneer u een planning voor synchronisatie van software-updates configureert, de site op het hoogste software-updatepunt wordt synchronisatie gestart met Microsoft Update op de geplande datum en tijd. De aangepaste planning kunt u softwareupdates te synchroniseren op een datum en tijd wanneer de aanvragen van de WSUS-server, siteserver en netwerk laag zijn. U kunt bijvoorbeeld de planning instellen zodat de software-updates zijn gesynchroniseerd per week om 02.00 uur. Tijdens de geplande synchronisatie worden alle wijzigingen die sinds de laatste synchronisatie in de metagegevens van de software-updates zijn aangebracht, ingevoegd in de sitedatabase. Dit omvat nieuwe metagegevens van software-updates of metagegevens die zijn gewijzigd, verwijderd of nu zijn verlopen.
+## <a name="schedule-software-updates-synchronization"></a>Planifier la synchronisation des mises à jour logicielles
+Quand vous configurez une planification pour la synchronisation des mises à jour logicielles, le point de mise à jour logicielle de niveau supérieur lance la synchronisation auprès de Microsoft Update à la date et à l’heure prévues. La planification personnalisée vous permet de synchroniser les mises à jour logicielles à une date et une heure où les demandes du serveur WSUS, du serveur de site et du réseau sont faibles. Par exemple, vous pouvez définir une planification qui prévoie une synchronisation des mises à jour logicielles toutes les semaines à 2h00. Pendant la synchronisation planifiée, toutes les modifications apportées aux métadonnées de mise à jour logicielle depuis la dernière synchronisation planifiée sont insérées dans la base de données de site. Cela inclut les nouvelles métadonnées de mise à jour logicielle ou les métadonnées qui ont été modifiées, supprimées ou qui sont désormais expirées.
 
-Gebruik de volgende procedures op de site op het hoogste niveau de synchronisatie van software-updates plannen.  
+Utilisez les procédures suivantes sur le site de niveau supérieur pour planifier la synchronisation des mises à jour logicielles.  
 
-#### <a name="to-schedule-software-updates-synchronization"></a>Synchronisatie van software-updates plannen  
+#### <a name="to-schedule-software-updates-synchronization"></a>Pour planifier la synchronisation des mises à jour logicielles  
 
-  1.  Klik op **Beheer**in de Configuration Manager-console.  
+  1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
 
-  2.  Vouw **Siteconfiguratie**uit in de beheerwerkruimte en klik vervolgens op **Sites**.  
+  2.  Dans l'espace de travail Administration, développez **Configuration du site**, puis cliquez sur **Sites**.  
 
-  3.  Klik in het resultatenvenster op de centrale beheersite of de zelfstandige primaire site.  
+  3.  Dans le volet des résultats, cliquez sur le site d'administration centrale ou le site principal autonome.  
 
-  4.  Vouw op het tabblad **Start** in de groep **Instellingen** het knooppunt **Siteonderdelen configureren**uit en klik op **Software-updatepunt**.  
+  4.  Sur l'onglet **Accueil** dans le groupe **Paramètres** , développez **Configurer les composants de site**, puis cliquez sur **Point de mise à jour logicielle**.  
 
-  5.  Selecteer in het dialoogvenster Eigenschappen van Software-updatepuntcomponenten **Synchronisatie op een planning inschakelen**en geef vervolgens de synchronisatieplanning op.  
+  5.  Dans la boîte de dialogue Propriétés du composant du point de mise à jour logicielle, sélectionnez **Activer la synchronisation dans un calendrier**, puis spécifiez le calendrier de synchronisation.  
 
-## <a name="manually-start-software-updates-synchronization"></a>Synchronisatie van software-updates handmatig starten
-U kunt handmatig starten synchronisatie van software-updates op het hoogste niveau in de Configuration Manager-console van de **alle Software-Updates** knooppunt in de **softwarebibliotheek** werkruimte.  
+## <a name="manually-start-software-updates-synchronization"></a>Démarrer manuellement la synchronisation des mises à jour logicielles
+Vous pouvez lancer manuellement la synchronisation des mises à jour logicielles sur le site de niveau supérieur dans la console Configuration Manager à partir du nœud **Toutes les mises à jour logicielles** dans l’espace de travail **Bibliothèque de logiciels**.  
 
-Gebruik de volgende procedures op de site op het hoogste niveau voor de synchronisatie van software-updates handmatig starten.  
+Utilisez les procédures suivantes sur le site de niveau supérieur pour lancer manuellement la synchronisation des mises à jour logicielles.  
 
-#### <a name="to-manually-start-software-updates-synchronization"></a>Synchronisatie handmatig starten van software-updates  
+#### <a name="to-manually-start-software-updates-synchronization"></a>Pour démarrer manuellement la synchronisation des mises à jour logicielles  
 
-  1.  Klik in de Configuration Manager-console die is verbonden met de centrale beheersite of zelfstandige primaire site op **softwarebibliotheek**.  
+  1.  Dans la console Configuration Manager, qui est connectée au site d’administration centrale ou au site principal autonome, cliquez sur **Bibliothèque de logiciels**.  
 
-  2.  Vouw **Software-updates** uit in de Softwarebibliotheekwerkruimte en klik vervolgens op **Alle software-updates** of **Software-updategroepen**.  
+  2.  Dans l'espace de travail Bibliothèque de logiciels, développez **Mises à jour logicielles** , puis cliquez sur **Toutes les mises à jour logicielles** ou **Groupes de mises à jour logicielles**.  
 
-  3.  Klik op het tabblad **Start** in de groep **Maken** op **Software-updates synchroniseren**. Klik op **Ja** in het dialoogvenster om te bevestigen dat u het synchronisatieproces wilt starten.  
+  3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Synchroniser les mises à jour logicielles**. Cliquez sur **Oui** dans la boîte de dialogue pour confirmer le lancement du processus de synchronisation.  
 
-   Nadat u het synchronisatieproces op het software-updatepunt hebt gestart, kunt u het synchronisatieproces uit de Configuration Manager-console voor alle software-updatepunten in uw hiërarchie bewaken. Gebruik de volgende procedure om het synchronisatieproces van de software-updates te controleren.  
+   Une fois que vous avez lancé le processus de synchronisation sur le point de mise à jour logicielle, vous pouvez surveiller le processus de synchronisation à partir de la console Configuration Manager pour tous les points de mise à jour logicielle de votre hiérarchie. Pour surveiller le processus de synchronisation des mises à jour logicielles, procédez comme suit.  
 
 
-## <a name="monitor-software-updates-synchronization"></a>Synchronisatie van software-updates bewaken
-Nadat u het synchronisatieproces hebt gestart, kunt u de Configuration Manager-console kunt gebruiken voor het bewaken van het proces voor alle software-updatepunten in uw hiërarchie. Gebruik de volgende procedure om het synchronisatieproces voor software-updates te controleren. Zie voor meer informatie over het controleren van de software-updates, waaronder het synchronisatieproces [software-updates controleren](../deploy-use/monitor-software-updates.md).
+## <a name="monitor-software-updates-synchronization"></a>Surveiller la synchronisation des mises à jour logicielles
+Après avoir lancé le processus de synchronisation, vous pouvez le surveiller à partir de la console Configuration Manager pour tous les points de mise à jour logicielle de votre hiérarchie. Pour surveiller le processus de synchronisation des mises à jour logicielles, procédez comme suit. Pour plus d’informations sur la surveillance des mises à jour logicielles, notamment du processus de synchronisation, consultez [Surveiller les mises à jour logicielles](../deploy-use/monitor-software-updates.md).
 
-#### <a name="to-monitor-the-software-updates-synchronization-process"></a>Het synchronisatieproces voor software-updates controleren  
+#### <a name="to-monitor-the-software-updates-synchronization-process"></a>Pour surveiller le processus de synchronisation des mises à jour logicielles  
 
-  1.  Klik in de Configuration Manager-console op **bewaking**.  
+  1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
 
-  2.  Klik in de werkruimte **Bewaking** op **Synchronisatiestatus van software-updatepunten**.  
+  2.  Dans l'espace de travail **Surveillance** , cliquez sur **État de la synchronisation du point de mise à jour logicielle**.  
 
-    De software-updatepunten in uw Configuration Manager-hiërarchie worden weergegeven in het deelvenster met resultaten. In deze weergave kunt u de synchronisatiestatus van alle software-updatepunten controleren. Wanneer u meer gedetailleerde informatie over het synchronisatieproces wenst, kunt u het bestand wsyncmgr.log bekijken. Dit bestand bevindt zich op de volgende locatie: <*ConfigMgrInstallationPath*>\logboeken op elke siteserver.  
+    Les points de mise à jour logicielle de votre hiérarchie Configuration Manager sont affichés dans le volet résultats. Dans cette vue, vous pouvez surveiller l'état de synchronisation pour tous les points de mise à jour logicielle. Si vous souhaitez des informations plus détaillées sur le processus de synchronisation, vous pouvez examiner le fichier wsyncmgr.log qui se trouve dans le dossier <*chemin_installation_ConfigMgr*>\Logs sur chaque serveur de site.  
 
-## <a name="next-steps"></a>Volgende stappen
-Nadat u software-updates voor het eerst synchroniseert, of nadat er nieuwe classificaties of producten beschikbaar zijn, u moet [de nieuwe classificaties en producten configureren](configure-classifications-and-products.md) softwareupdates te synchroniseren met de nieuwe criteria.
+## <a name="next-steps"></a>Étapes suivantes
+À l’issue de la première synchronisation de mises à jour logicielles ou après la mise à disposition de nouvelles classifications ou de nouveaux produits, vous devez [configurer les nouvelles classifications et les nouveaux produits](configure-classifications-and-products.md) pour synchroniser les mises à jour logicielles avec les nouveaux critères.
 
-Na het synchroniseren van software-updates met de criteria die u nodig hebt, [instellingen beheren voor software-updates](manage-settings-for-software-updates.md).  
+Après avoir synchronisé les mises à jour logicielles avec les critères dont vous avez besoin, [gérez les paramètres des mises à jour logicielles](manage-settings-for-software-updates.md).  

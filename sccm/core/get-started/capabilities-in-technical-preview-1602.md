@@ -1,6 +1,6 @@
 ---
-title: Mogelijkheden in Technical Preview 1602 Configuration Manager
-description: Meer informatie over functies die beschikbaar zijn in de Technical Preview voor System Center Configuration Manager, versie 1602.
+title: "Fonctionnalités de Technical Preview 1602 Configuration Manager"
+description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1602 pour System Center Configuration Manager."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -17,45 +17,45 @@ manager: angrobe
 robots: noindex,nofollow
 ms.openlocfilehash: 2354f885aaf69683004ad78f0e1978e78fee9145
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: MT
-ms.contentlocale: nl-NL
+ms.translationtype: HT
+ms.contentlocale: fr-FR
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1602-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1602 voor System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1602-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1602 pour System Center Configuration Manager
 
-*Van toepassing op: System Center Configuration Manager (Technical Preview)*
+*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
 
-Dit artikel bevat de functies die beschikbaar in de Technical Preview voor System Center Configuration Manager, versie 1602 zijn. U kunt deze versie om te werken en nieuwe mogelijkheden toevoegen aan uw Configuration Manager technical preview-site installeren. Controleer voordat u deze versie van de technical preview installeert, de inleidende informatie [Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md), om vertrouwd te raken met algemene vereisten en beperkingen voor het gebruik van een technical preview hoe bijwerken tussen versies en hoe u feedback over de functies in een technical preview.  
+Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1602 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique Configuration Manager. Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
 
- Hier volgen nieuwe functies die u met deze versie kunt uitproberen.  
+ Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.  
 
-##  <a name="BKMK_MDM"></a>Verbeteringen in mobile device management  
+##  <a name="BKMK_MDM"></a> Améliorations apportées à la gestion des appareils mobiles  
 
-### <a name="ios-activation-lock"></a>iOS-Activeringsvergrendeling  
- System Center Configuration Manager kan u helpen bij het beheer van de activeringsvergrendeling voor iOS, een onderdeel van de app Zoek mijn iPhone voor apparaten met iOS 7.1 en hoger. Activeringsvergrendeling is automatisch ingeschakeld wanneer de app Zoek mijn iPhone op een apparaat wordt gebruikt. Nadat de vergrendeling is ingeschakeld, moeten de Apple ID en het wachtwoord van de gebruiker worden ingevoerd voordat een van de volgende handelingen kan worden verricht:  
+### <a name="ios-activation-lock"></a>Verrou d’activation iOS  
+ System Center Configuration Manager peut vous aider à gérer le verrou d’activation iOS, fonctionnalité de l’application Rechercher mon iPhone pour les appareils iOS 7.1 et versions ultérieures. Le verrou d'activation est activé automatiquement quand l'application Rechercher mon iPhone est utilisée sur un appareil. Une fois qu’il est activé, l’ID et le mot de passe Apple de l’utilisateur doivent être entrés pour pouvoir :  
 
--   Zoek mijn iPhone uitschakelen  
+-   Désactiver Rechercher mon iPhone  
 
--   Het apparaat wissen  
+-   Effacer l'appareil  
 
--   Het apparaat opnieuw activeren  
+-   Réactiver l'appareil  
 
- Configuration Manager kunnen aanvragen van de status van de Activeringsvergrendeling van apparaten voor zowel en zonder supervisie waarop iOS 7.1 en hoger wordt uitgevoerd. Voor apparaten onder supervisie kan met Intune de bypass-code van de activeringsvergrendeling worden opgehaald direct aan het apparaat worden uitgegeven.  
+ Configuration Manager peut demander l’état du verrou d’activation des appareils supervisés et non supervisés qui exécutent iOS 7.1 et versions ultérieures. Pour les appareils supervisés, Intune peut récupérer le code de contournement du verrou d’activation et l’émettre directement à l’appareil.  
 
- Zie voor meer informatie [iOS-apparaten met Activeringsvergrendeling overslaan voor Configuration Manager-beschermen](/sccm/mdm/deploy-use/manage-ios-activation-lock)  
+ Pour plus d’informations, consultez [Aider à protéger les appareils iOS avec le contournement du verrou d’activation pour Configuration Manager](/sccm/mdm/deploy-use/manage-ios-activation-lock)  
 
-##  <a name="BKMK_SC1601"></a>Verbeteringen aan Software Center in versie 1602  
+##  <a name="BKMK_SC1601"></a> Améliorations apportées au Centre logiciel dans la version 1602  
 
-### <a name="refresh-pc-machine-and-user-policy-from-software-center"></a>PC-computer en de gebruiker beleid vanuit Software Center vernieuwen  
- Een nieuwe optie **Synchronisatiebeleid** is toegevoegd aan de **opties** > **Computeronderhoud** pagina van het Software Center zorgt ervoor dat de PC vernieuwen van de Configuration Manager voor computer- en beleid.  
+### <a name="refresh-pc-machine-and-user-policy-from-software-center"></a>Actualiser la stratégie ordinateur et utilisateur du PC à partir du Centre logiciel  
+ Une nouvelle option, **Stratégie de synchronisation**, a été ajoutée à la page **Options** > **Maintenance de l’ordinateur** du Centre logiciel. Elle force le PC à actualiser sa stratégie ordinateur et utilisateur Configuration Manager.  
 
-##  <a name="BKMK_Win10Servicing"></a>Verbeteringen in onderhoud van Windows 10  
- In de Technical Preview 1602 hebben we de volgende verbeteringen voor onderhoud van Windows 10 toegevoegd:  
+##  <a name="BKMK_Win10Servicing"></a> Améliorations apportées à la maintenance de Windows 10  
+ Dans Technical Preview 1602, nous avons ajouté les améliorations suivantes à la Maintenance de Windows 10 :  
 
--   Nieuwe filteropties voor onderhoudsplannen.  U kunt nu filteren op **taal**, **vereist**, en **titel**. Alleen de upgrades die voldoen aan de opgegeven criteria worden aan de gekoppelde implementatie toegevoegd.  
+-   Nouvelles options de filtre pour les plans de maintenance.  Vous pouvez désormais filtrer par **Langue**, **Obligatoire** et **Titre**. Seules les mises à jour qui remplissent les critères spécifiés sont ajoutées au déploiement associé.  
 
--   Wanneer u selecteert de **Upgrades** synchronisatie van classificatie voor software-updates, wordt er een waarschuwingsdialoogvenster weergegeven als u wilt laten u weten dat WSUS [hotfix 3095113](https://support.microsoft.com/kb/3095113) is vereist voor het synchroniseren van software-updates en voor het onderhoud van Windows 10 goed te laten werken.  In het dialoogvenster kunt u naar de knowledge base-artikel voor de hotfix gaan.  
+-   Quand vous sélectionnez la classification **Mises à niveau** pour la synchronisation des mises à jour logicielles, une boîte de dialogue d’avertissement s’affiche pour vous informer que le [correctif 3095113](https://support.microsoft.com/kb/3095113) WSUS est nécessaire pour synchroniser correctement les mises à jour logicielles et pour que la maintenance de Windows 10 fonctionne correctement.  À partir de la boîte de dialogue, vous pouvez accéder à l’article de la Base de connaissances pour obtenir le correctif logiciel.  
 
--   Beschikbare Windows upgrades 10 worden nu alleen weergegeven in de **onderhoud van Windows 10** \ **alle Windows 10-Updates** knooppunt van de Configuration Manager-console. Deze updates worden niet meer weergegeven de **Software-Updates** \ **alle Software-Updates** knooppunt.  
+-   Les mises à niveau Windows 10 disponibles sont maintenant affichées uniquement dans le nœud **Maintenance de Windows 10** \ **Toutes les mises à jour Windows 10** de la console Configuration Manager. Ces mises à jour n’apparaissent plus dans le nœud **Mises à jour logicielles** \ **Toutes les mises à jour logicielles**.  
 
--   Eindgebruikers die een Windows 10-upgradepakket starten wordt gevraagd een dialoogvenster waarmee ze weten dat ze hun besturingssysteem wordt bijgewerkt.  
+-   Les utilisateurs finaux qui démarrent un package de mise à niveau Windows 10 sont informés qu’ils vont mettre à niveau leur système d’exploitation.  
