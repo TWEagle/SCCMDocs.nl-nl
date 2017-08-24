@@ -1,6 +1,6 @@
 ---
-title: "Inventaire logiciel | Microsoft Docs"
-description: "Obtenez une présentation de l’inventaire logiciel dans System Center Configuration Manager."
+title: Software-inventaris | Microsoft Docs
+description: Maak kennis met software-inventaris in System Center Configuration Manager.
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -17,30 +17,30 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 969f2d28649853ddc95860fe72597d6d2c9a94e9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-software-inventory-in-system-center-configuration-manager"></a>Présentation de l’inventaire logiciel dans System Center Configuration Manager
+# <a name="introduction-to-software-inventory-in-system-center-configuration-manager"></a>Inleiding tot software-inventaris in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Utilisez l’inventaire logiciel pour collecter des informations sur les fichiers présents sur les appareils clients. L’inventaire logiciel peut aussi collecter des fichiers auprès des appareils clients et les stocker sur le serveur de site. L’inventaire logiciel est collecté quand vous choisissez le paramètre **Activer l’inventaire logiciel sur les clients** dans les paramètres du client, où vous pouvez aussi planifier l’opération.  
+Software-inventaris gebruiken voor het verzamelen van informatie over bestanden op clientapparaten. Software-inventaris kan ook bestanden bij clientapparaten verzamelen en op te slaan op de siteserver. Software-inventaris worden verzameld wanneer u ervoor kiest de **software-inventaris inschakelen op clients** instellen in de clientinstellingen, waarin u kunt ook plannen de bewerking.  
 
-Une fois que l’inventaire logiciel est activé et que les clients exécutent un cycle d’inventaire logiciel, le client envoie les informations à un point de gestion dans le site du client. Le point de gestion transfère ensuite les informations d’inventaire au serveur de site Configuration Manager, qui les stocke dans la base de données du site.   
+Nadat de software-inventarisatie is ingeschakeld en de clients een software-inventarisatiefase uitvoert, verzendt de client de informatie naar een beheerpunt in de site van de client. Het beheerpunt stuurt vervolgens de informatie over de inventaris naar de siteserver van Configuration Manager, die de gegevens in de sitedatabase opslaat.   
 
- Voici comment afficher les données de l’inventaire logiciel :  
+ Hier volgen manieren om de software-inventarisatiegegevens weer te geven:  
 
--   [Créez des requêtes](../../../../core/servers/manage/queries-technical-reference.md) qui retournent les appareils avec des fichiers spécifiés.   
+-   [Query's maken](../../../../core/servers/manage/queries-technical-reference.md) die apparaten retourneren met de opgegeven bestanden.   
 
--   Créez des [regroupements basés sur une requête](../../../../core/clients/manage/collections/introduction-to-collections.md) qui incluent les appareils avec des fichiers spécifiés.   
+-   Maak [query's gebaseerde verzamelingen](../../../../core/clients/manage/collections/introduction-to-collections.md) die apparaten met de opgegeven bestanden bevatten.   
 
--   [Exécutez des rapports](../../../../core/servers/manage/reporting.md) qui fournissent des détails sur les fichiers présents sur les appareils.
+-   [Rapporten uitvoeren](../../../../core/servers/manage/reporting.md) die vindt u informatie over bestanden op apparaten.
 
--   Utiliser l’[Explorateur de ressources](../../../../core/clients/manage/inventory/use-resource-explorer-to-view-software-inventory.md) pour examiner les informations détaillées sur les fichiers qui ont été inventoriés et collectés sur les appareils clients.   
+-   Gebruik [Resource Explorer](../../../../core/clients/manage/inventory/use-resource-explorer-to-view-software-inventory.md) om gedetailleerde informatie over de bestanden die zijn geïnventariseerd en verzameld van clientapparaten.   
 
- Quand un inventaire logiciel s’exécute sur un appareil client, le premier rapport d’inventaire est un inventaire complet. Les rapports d’inventaire suivants contiennent seulement des informations d’inventaire différentielles. Le serveur de site traite les informations différentielles selon l’ordre dans lequel il les reçoit. S’il manque des informations différentielles pour un client, le serveur de site rejette les informations différentielles suivantes et indique au client d’exécuter un inventaire complet.  
+ Wanneer software-inventaris op een clientapparaat wordt uitgevoerd, is het eerste rapport een volledige inventarisatie. Daaropvolgende rapporten bevatten alleen gewijzigde inventarisgegevens. De siteserver verwerkt delta-gegevens in de volgorde ontvangen. Als delta-informatie voor een client ontbreekt, wordt de siteserver afgewezen verdere gegevens over gewijzigde en instrueert de client een volledige inventarisatie uitvoeren.  
 
- Configuration Manager peut détecter les ordinateurs à double démarrage, mais retourne uniquement les informations d’inventaire du système d’exploitation qui était actif au moment de l’inventaire.  
+ Configuration Manager kan dual-boot-computers detecteren maar retourneert alleen inventarisatiegegevens van het besturingssysteem dat op het moment van de inventarisatie actief was.  
 
-**Appareils mobiles :** pour en savoir plus sur la collecte de l’inventaire des applications installées sur les appareils mobiles, voir [Inventaire logiciel des appareils mobiles inscrits auprès de Microsoft Intune](../../../../mdm/deploy-use/software-inventory-mobile-devices.md).
+**Mobiele apparaten:** Zie [software-inventaris voor mobiele apparaten die zijn ingeschreven bij Microsoft Intune](../../../../mdm/deploy-use/software-inventory-mobile-devices.md) voor meer informatie over het verzamelen van inventarisgegevens voor geïnstalleerde apps op mobiele apparaten.

@@ -1,6 +1,6 @@
 ---
-title: "Configurer l’inventaire matériel | Microsoft Docs | appareils mobiles"
-description: "Configurez l’inventaire matériel pour les appareils mobiles inscrits par Microsoft Intune et System Center Configuration Manager."
+title: Hardware-inventaris configureren | Microsoft Docs | mobiele apparaten
+description: Hardware-inventaris voor mobiele apparaten die zijn geregistreerd door Microsoft Intune en System Center Configuration Manager configureren.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,124 +16,124 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: 7ab9042a525e07b8e3107479cedeec6b99f7bc86
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-hardware-inventory-for-mobile-devices-enrolled-by-microsoft-intune-and-system-center-configuration-manager"></a>Comment configurer l’inventaire matériel pour les appareils mobiles inscrits par Microsoft Intune et System Center Configuration Manager
+# <a name="how-to-configure-hardware-inventory-for-mobile-devices-enrolled-by-microsoft-intune-and-system-center-configuration-manager"></a>Het configureren van hardware-inventaris voor mobiele apparaten die zijn geregistreerd door Microsoft Intune en System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Dans Configuration Manager, vous pouvez collecter l’inventaire matériel sur des appareils iOS, Android et Windows à l’aide du connecteur Microsoft Intune. Pour plus d’informations sur la manière de configurer l’inventaire matériel, consultez [Guide pratique pour étendre l’inventaire matériel dans System Center Configuration Manager](../../core/clients/manage/inventory/extend-hardware-inventory.md).  
+In Configuration Manager kunt u de hardware-inventaris verzamelen op iOS, Android en Windows apparaten via de Microsoft Intune-connector. Zie voor meer informatie over het configureren van hardware-inventaris [hardware-inventarisatie in System Center Configuration Manager uitbreiden](../../core/clients/manage/inventory/extend-hardware-inventory.md).  
 
- Pour plus d’informations sur la façon d’inscrire des appareils dans Microsoft Intune, consultez [Gérer les appareils mobiles avec Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).  
+ Zie voor meer informatie over het inschrijven van apparaten in Microsoft Intune [mobiele apparaten beheren met Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).  
 
-## <a name="hardware-inventory-for-mobile-devices"></a>Inventaire matériel pour les appareils mobiles  
- Les tableaux suivants répertorient les classes d’inventaire disponibles pour l’inventaire matériel sur les plateformes mobiles couramment utilisées.  
+## <a name="hardware-inventory-for-mobile-devices"></a>Hardware-inventarisatie voor mobiele apparaten  
+ De volgende tabellen worden de beschikbare inventarisklassen voor hardware-inventaris voor veelgebruikte mobiele platforms.  
 
  **iOS**  
 
-|Classe d'inventaire matériel|iOS|  
+|Hardware-inventarisklasse|iOS|  
 |------------------------------|---------|  
-|Nom|Device_ComputerSystem.DeviceName|  
-|ID d'appareil unique|Device_ComputerSystem.UDID|  
-|Numéro de série|Device_ComputerSystem.SerialNumber|  
-|Adresse de messagerie|Device_Email.OwnerEmailAddress|  
-|Type de système d'exploitation|Non applicable|  
-|Version du système d'exploitation|Device_OSInformation.OSVersion|  
-|Version de build|Non applicable|  
-|Version majeure du Service Pack|Non applicable|  
-|Version mineure du Service Pack|Non applicable|  
-|Langue du système d'exploitation|Non applicable|  
-|Espace de stockage total|Device_Memory.DeviceCapacity|  
-|Espace de stockage libre|Device_Memory.AvailableDeviceCapacity|  
+|Naam|Device_ComputerSystem.DeviceName|  
+|Unieke apparaat-ID|Device_ComputerSystem.UDID|  
+|Serienummer|Device_ComputerSystem.SerialNumber|  
+|E-mailadres|Device_Email.OwnerEmailAddress|  
+|Type besturingssysteem|Niet van toepassing|  
+|Versie van besturingssysteem|Device_OSInformation.OSVersion|  
+|Buildversie|Niet van toepassing|  
+|Primaire versie van servicepack|Niet van toepassing|  
+|Secundaire versie van servicepack|Niet van toepassing|  
+|Taal van besturingssysteem|Niet van toepassing|  
+|Totale opslagruimte|Device_Memory.DeviceCapacity|  
+|Beschikbare opslagruimte|Device_Memory.AvailableDeviceCapacity|  
 |IMEI (International Mobile Equipment Identity)|Device_ComputerSystem.IMEI|  
 |MEID (Mobile Equipment Identifier)|Device_ComputerSystem.MEID|  
-|Fabricant|Non applicable|  
-|Modèle|ModelName|  
-|Numéro de téléphone<sup>1</sup>|Device_ComputerSystem.PhoneNumber|  
-|Opérateur de l'abonné|Device_ComputerSystem.SubscriberCarrierNetwork|  
-|Technologie cellulaire|Device_ComputerSystem.CellularTechnology|  
-|Adresse MAC du réseau Wi-Fi|Device_WLAN.WiFiMAC|  
+|Fabrikant|Niet van toepassing|  
+|Model|ModelName|  
+|Telefoonnummer<sup>1</sup>|Device_ComputerSystem.PhoneNumber|  
+|Provider van abonnee|Device_ComputerSystem.SubscriberCarrierNetwork|  
+|Mobiele telefoontechnologie|Device_ComputerSystem.CellularTechnology|  
+|MAC-adres Wi-Fi|Device_WLAN.WiFiMAC|  
 
  **Android**  
 
 > [!NOTE]  
->  **REMARQUE :** les classes d’inventaire Android sont disponibles lors de l’utilisation de l’application Portail d’entreprise Android.  
+>  **OPMERKING:** Android-inventarisklassen zijn beschikbaar wanneer de Android-bedrijfsportal-app.  
 
-|Classe d'inventaire matériel|Android|  
+|Hardware-inventarisklasse|Android|  
 |------------------------------|-------------|  
-|Nom|Non applicable|  
-|ID d'appareil unique|Non applicable|  
-|Numéro de série|Device_ComputerSystem.SerialNumber|  
-|Adresse de messagerie|Non applicable|  
-|Type de système d'exploitation|Device_OSInformation.Platform|  
-|Version du système d'exploitation|Device_OSInformation.Version|  
-|Version de build|Non applicable|  
-|Version majeure du Service Pack|Non applicable|  
-|Version mineure du Service Pack|Non applicable|  
-|Langue du système d'exploitation|Non applicable|  
-|Espace de stockage total|Device_Memory.StorageTotal|  
-|Espace de stockage libre|Device_Memory.StorageFree|  
+|Naam|Niet van toepassing|  
+|Unieke apparaat-ID|Niet van toepassing|  
+|Serienummer|Device_ComputerSystem.SerialNumber|  
+|E-mailadres|Niet van toepassing|  
+|Type besturingssysteem|Device_OSInformation.platform|  
+|Versie van besturingssysteem|Device_OSInformation.Version|  
+|Buildversie|Niet van toepassing|  
+|Primaire versie van servicepack|Niet van toepassing|  
+|Secundaire versie van servicepack|Niet van toepassing|  
+|Taal van besturingssysteem|Niet van toepassing|  
+|Totale opslagruimte|Device_Memory.StorageTotal|  
+|Beschikbare opslagruimte|Device_Memory.StorageFree|  
 |IMEI (International Mobile Equipment Identity)|Device_ComputerSystem.IMEI|  
-|MEID (Mobile Equipment Identifier)|Non applicable|  
-|Fabricant|Device_Info.Manufacturer|  
-|Modèle|Device_Info.Model|  
-|Numéro de téléphone<sup>1</sup>|Device_ComputerSystem.PhoneNumber|  
-|Opérateur de l'abonné|Device_ComputerSystem.SubscriberCarrierNetwork|  
-|Technologie cellulaire|Device_ComputerSystem.CellularTechnology|  
-|Adresse MAC du réseau Wi-Fi|Device_WLAN.WiFiMAC|  
+|MEID (Mobile Equipment Identifier)|Niet van toepassing|  
+|Fabrikant|Device_Info.Manufacturer|  
+|Model|Device_Info.Model|  
+|Telefoonnummer<sup>1</sup>|Device_ComputerSystem.PhoneNumber|  
+|Provider van abonnee|Device_ComputerSystem.SubscriberCarrierNetwork|  
+|Mobiele telefoontechnologie|Device_ComputerSystem.CellularTechnology|  
+|MAC-adres Wi-Fi|Device_WLAN.WiFiMAC|  
 
- **Windows Phone 8/8.1**  
+ **Windows Phone 8/8.1**  
 
-|Classe d'inventaire matériel|Windows Phone 8 et Windows Phone 8.1|  
+|Hardware-inventarisklasse|Windows Phone 8 en Windows Phone 8.1|  
 |------------------------------|-------------------------------------------|  
-|Nom|Device_ComputerSystem.DeviceName|  
-|ID d'appareil unique|Device_ComputerSystem.DeviceClientID|  
-|Numéro de série|Non applicable|  
-|Adresse de messagerie|Device_Email.OwnerEmailAddress|  
-|Type de système d'exploitation|Device_OSInformation.Platform|  
-|Version du système d'exploitation|Device_ComputerSystem.SoftwareVersion|  
-|Version de build|Non applicable|  
-|Version majeure du Service Pack|Non applicable|  
-|Version mineure du Service Pack|Non applicable|  
-|Langue du système d'exploitation|Device_OSInformation.Language|  
-|Espace de stockage total|Non applicable|  
-|Espace de stockage libre|Non applicable|  
-|IMEI (International Mobile Equipment Identity)|Non applicable|  
-|MEID (Mobile Equipment Identifier)|Non applicable|  
-|Fabricant|Device_ComputerSystem.DeviceManufacturer|  
-|Modèle|Device_ComputerSystem.DeviceModel|  
-|Numéro de téléphone<sup>1</sup>|Non applicable|  
-|Opérateur de l'abonné|Non applicable|  
-|Technologie cellulaire|Non applicable|  
-|Adresse MAC du réseau Wi-Fi|Non applicable|  
+|Naam|Device_ComputerSystem.DeviceName|  
+|Unieke apparaat-ID|Device_ComputerSystem.DeviceClientID|  
+|Serienummer|Niet van toepassing|  
+|E-mailadres|Device_Email.OwnerEmailAddress|  
+|Type besturingssysteem|Device_OSInformation.platform|  
+|Versie van besturingssysteem|Device_ComputerSystem.SoftwareVersion|  
+|Buildversie|Niet van toepassing|  
+|Primaire versie van servicepack|Niet van toepassing|  
+|Secundaire versie van servicepack|Niet van toepassing|  
+|Taal van besturingssysteem|Device_OSInformation.Language|  
+|Totale opslagruimte|Niet van toepassing|  
+|Beschikbare opslagruimte|Niet van toepassing|  
+|IMEI (International Mobile Equipment Identity)|Niet van toepassing|  
+|MEID (Mobile Equipment Identifier)|Niet van toepassing|  
+|Fabrikant|Device_ComputerSystem.DeviceManufacturer|  
+|Model|Device_ComputerSystem.DeviceModel|  
+|Telefoonnummer<sup>1</sup>|Niet van toepassing|  
+|Provider van abonnee|Niet van toepassing|  
+|Mobiele telefoontechnologie|Niet van toepassing|  
+|MAC-adres Wi-Fi|Niet van toepassing|  
 
  **Windows RT**  
 
-|Classe d'inventaire matériel|Windows RT|  
+|Hardware-inventarisklasse|Windows RT|  
 |------------------------------|----------------|  
-|Nom|Device_ComputerSystem.DeviceName|  
-|ID d'appareil unique|Device_ComputerSystem.DeviceName|  
-|Numéro de série|Non applicable|  
-|Adresse de messagerie|Device_Email.OwnerEmailAddress|  
-|Type de système d'exploitation|CCM_OperatingSystem .SystemType|  
-|Version du système d'exploitation|Win32_OperatingSystem.version|  
-|Version de build|Win32_OperatingSystem.BuildNumber|  
-|Version majeure du Service Pack|Win32_OperatingSystem.ServicePackMajorVersion|  
-|Version mineure du Service Pack|Win32_OperatingSystem.ServicePackMinorVersion|  
-|Langue du système d'exploitation|Non applicable|  
-|Espace de stockage total|Win32_PhysicalMemory.Capacity|  
-|Espace de stockage libre|Win32_OperatingSystem.FreePhysicalMemory|  
-|IMEI (International Mobile Equipment Identity)|Non applicable|  
-|MEID (Mobile Equipment Identifier)|Non applicable|  
-|Fabricant|Win32_ComputerSystem.Manufacturer|  
-|Modèle|Win32_ComputerSystem.Model|  
-|Numéro de téléphone<sup>1</sup>|Non applicable|  
-|Opérateur de l'abonné|Non applicable|  
-|Technologie cellulaire|Non applicable|  
-|Adresse MAC du réseau Wi-Fi|Win32_NetworkAdapter.MACAddress|  
+|Naam|Device_ComputerSystem.DeviceName|  
+|Unieke apparaat-ID|Device_ComputerSystem.DeviceName|  
+|Serienummer|Niet van toepassing|  
+|E-mailadres|Device_Email.OwnerEmailAddress|  
+|Type besturingssysteem|CCM_OperatingSystem.SystemType|  
+|Versie van besturingssysteem|Win32_OperatingSystem.Version|  
+|Buildversie|Win32_OperatingSystem.BuildNumber|  
+|Primaire versie van servicepack|Win32_OperatingSystem.ServicePackMajorVersion|  
+|Secundaire versie van servicepack|Win32_OperatingSystem.ServicePackMinorVersion|  
+|Taal van besturingssysteem|Niet van toepassing|  
+|Totale opslagruimte|Win32_PhysicalMemory.Capacity|  
+|Beschikbare opslagruimte|Win32_OperatingSystem.FreePhysicalMemory|  
+|IMEI (International Mobile Equipment Identity)|Niet van toepassing|  
+|MEID (Mobile Equipment Identifier)|Niet van toepassing|  
+|Fabrikant|Win32_ComputerSystem.Manufacturer|  
+|Model|Win32_ComputerSystem.Model|  
+|Telefoonnummer<sup>1</sup>|Niet van toepassing|  
+|Provider van abonnee|Niet van toepassing|  
+|Mobiele telefoontechnologie|Niet van toepassing|  
+|MAC-adres Wi-Fi|Win32_NetworkAdapter.MACAddress|  
 
- <sup>1</sup> Le numéro de téléphone est masqué par des * sauf les 4 derniers chiffres.  
+ <sup>1</sup> Het telefoonnummer wordt gemaskeerd met * met uitzondering van de laatste 4 cijfers.  
 
- Pour que l’inventaire recueille le numéro de téléphone, une carte SIM doit être insérée dans l’appareil et un numéro de téléphone mis en service par l’opérateur de cette carte SIM.  
+ Het telefoonnummer kan alleen door de inventaris worden verzameld als er een SIM-kaart in het apparaat is geplaatst en er door de provider een telefoonnummer aan die SIM-kaart is gekoppeld.  

@@ -1,6 +1,6 @@
 ---
-title: "Inventaire matériel | Microsoft Docs | Linux et UNIX "
-description: "Découvrez comment utiliser l’inventaire matériel pour Linux et UNIX dans System Center Configuration Manager."
+title: 'Hardware-inventaris | Microsoft Docs | Linux, UNIX '
+description: Meer informatie over hoe hardware-inventaris voor Linux en UNIX in System Center Configuration Manager gebruiken.
 ms.custom: na
 ms.date: 02/22/2017
 ms.prod: configuration-manager
@@ -16,37 +16,37 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: b6776fbe0cfca23244d767cffd554a2ef4567a2d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="hardware-inventory-for-linux-and-unix-in-system-center-configuration-manager"></a>Inventaire matériel pour Linux et UNIX dans System Center Configuration Manager
+# <a name="hardware-inventory-for-linux-and-unix-in-system-center-configuration-manager"></a>Hardware-inventaris voor Linux en UNIX in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Le client System Center Configuration Manager pour Linux et UNIX prend en charge l’inventaire matériel. Une fois l’inventaire matériel effectué, vous pouvez l’afficher dans l’Explorateur de ressources ou dans les rapports Configuration Manager, et utiliser ces informations pour créer des requêtes et des regroupements qui permettent d’effectuer les opérations suivantes :  
+De System Center Configuration Manager-client voor Linux en UNIX ondersteunt hardware-inventaris. Nadat het verzamelen van hardware-inventaris kunt u inventaris weergeven in de resource explorer of Configuration Manager-rapporten uitvoeren en deze informatie gebruiken om het maken van query's en verzamelingen die u de volgende bewerkingen:  
 
--   Déploiement logiciel  
+-   Software-implementatie  
 
--   Application de fenêtres de maintenance  
+-   Onderhoudsvensters afdwingen  
 
--   Déploiement de paramètres client personnalisés  
+-   Aangepaste clientinstellingen implementeren  
 
- L’inventaire matériel pour les serveurs Linux et UNIX utilise un serveur CIM (Common Information Model) basé sur des normes. Le serveur CIM s’exécute en tant que service logiciel (ou démon) et fournit une infrastructure de gestion basée sur des normes DMTF (Distributed Management Task Force). Il fournit des fonctionnalités semblables aux fonctionnalités CIM de l’infrastructure de gestion Windows (WMI, Windows Management Infrastructure) disponibles sur les ordinateurs Windows.  
+ Voor hardware-inventaris voor Linux en UNIX-servers wordt een op standaarden gebaseerde CIM-server (Common Information Model) gebruikt. De CIM-server wordt uitgevoerd als een softwareservice (of daemon) en biedt een infrastructuur die is gebaseerd op standaarden voor DMTF (Distributed Management Task Force). De CIM-server biedt functionaliteit die vergelijkbaar is met de CIM-mogelijkheden van WMI (Windows Management Infrastructure) die beschikbaar zijn op Windows-computers.  
 
- À partir de la mise à jour cumulative 1, le client pour Linux et UNIX utilise l’ **omiserver** version 1.0.6 open source de l’ **Open Group**. (Avant la mise à jour cumulative 1, le client utilisait **nanowbem** comme serveur CIM).  
+ Vanaf cumulatieve update 1 gebruikt de client voor Linux en UNIX versie 1.0.6 van de open source **omniserver** van de **Open Groep**. (Voor cumulatieve update 1 gebruikte de client **nanowbem** als CIM-server).  
 
- Le serveur CIM est installé dans le cadre de l’installation du client pour Linux et UNIX. Le client pour Linux et UNIX communique directement avec le serveur CIM. Il n’utilise pas l’interface WS-MAN du serveur CIM. Le port WS-MAN sur le serveur CIM est désactivé lors de l’installation du client. Microsoft a développé le serveur CIM désormais disponible en tant qu’open source par l’intermédiaire du projet OMI (Open Management infrastructure). Pour plus d’informations sur le projet OMI, consultez le site web [The Open Group](http://go.microsoft.com/fwlink/p/?LinkId=262317) .  
+ De CIM-server wordt geïnstalleerd als onderdeel van de client voor Linux en UNIX. De client voor Linux en UNIX communiceert rechtstreeks met de CIM-server en maakt geen gebruik van de WS-MAN-interface van de CIM-server. De WS-MAN-poort op de CIM-server wordt uitgeschakeld als de client wordt geïnstalleerd. Microsoft ontwikkelde de CIM-server die nu als open source beschikbaar is via het OMI-project (Open Management Infrastructure). Zie de website [The Open Group](http://go.microsoft.com/fwlink/p/?LinkId=262317) over het Open Management Infrastructure Project voor meer informatie.  
 
- L’inventaire matériel sur les serveurs Linux et UNIX fonctionne en mappant les classes et les propriétés WMI Win32 existantes aux classes et propriétés équivalentes des serveurs Linux et UNIX. Ce mappage un-à-un des classes et des propriétés permet d’intégrer l’inventaire matériel Linux et UNIX à Configuration Manager. Les données d’inventaire des serveurs Linux et UNIX sont affichées avec l’inventaire des ordinateurs Windows dans la console et les rapports Configuration Manager. Vous bénéficiez ainsi d’une expérience de gestion cohérente et hétérogène.  
+ Hardware-inventaris op Linux- en UNIX-servers werkt via het toewijzen van bestaande Win32 WMI-klassen en eigenschappen aan gelijkwaardige klassen en eigenschappen voor Linux- en UNIX-servers. Deze-op-een toewijzing van klassen en eigenschappen kunt de Linux- en UNIX hardware-inventaris te integreren met Configuration Manager. Inventarisgegevens van Linux en UNIX-servers worden weergegeven samen met de inventaris van Windows-computers in de Configuration Manager-console en rapporten. Dit biedt een consistente heterogene beheerervaring.  
 
 > [!TIP]  
->  Vous pouvez utiliser la valeur **Caption** pour la classe **Operating System** pour identifier différents systèmes d’exploitation Linux et UNIX dans les requêtes et les regroupements.  
+>  U kunt de waarde **Bijschrift** voor de klasse **Besturingssysteem** gebruiken voor het identificeren van verschillende Linux- en UNIX-besturingssystemen in query's en verzamelingen.  
 
-##  <a name="BKMK_ConfigHardwareforLnU"></a> Configuration de l’inventaire matériel pour les serveurs Linux et UNIX  
- Vous pouvez utiliser les paramètres client par défaut ou créer des paramètres d’appareil client personnalisés pour configurer l’inventaire matériel. Quand vous utilisez des paramètres d’appareil client personnalisés, vous pouvez configurer les classes et les propriétés que vous souhaitez collecter uniquement à partir de vos serveurs Linux et UNIX. Vous pouvez également spécifier des planifications personnalisées pour la collecte d’inventaires delta et complets à partir de vos serveurs Linux et UNIX.  
+##  <a name="BKMK_ConfigHardwareforLnU"></a> Hardware-inventaris voor Linux- en UNIX-servers configureren  
+ U kunt de standaardclientinstellingen gebruiken of aangepaste clientapparaatinstellingen maken om de hardware-inventaris te configureren. Wanneer u aangepaste clientinstellingen voor apparaten gebruikt, kunt u de klassen en eigenschappen configureren die u alleen van alleen uw Linux- en UNIX-servers wilt verzamelen. U kunt ook aangepaste schema's opgeven wanneer u de volledige inventaris en delta-inventaris van uw Linux- en UNIX-servers wilt verzamelen.  
 
- Le client pour Linux et UNIX prend en charge les classes d’inventaire matériel suivantes disponibles sur les serveurs Linux et UNIX :  
+ De client voor Linux en UNIX ondersteunt de volgende hardware-inventarisklassen die beschikbaar op Linux- en UNIX-servers:  
 
 -   Win32_BIOS  
 
@@ -72,54 +72,54 @@ Le client System Center Configuration Manager pour Linux et UNIX prend en charge
 
 -   SMS_Processor  
 
- Les propriétés de ces classes d’inventaire ne sont pas toutes activées pour les ordinateurs Linux et UNIX dans Configuration Manager.  
+ Niet alle eigenschappen voor deze inventarisklassen zijn ingeschakeld voor Linux en UNIX-computers in Configuration Manager.  
 
-##  <a name="BKMK_OperationsforHardwareforLnU"></a> Opérations d’inventaire matériel  
- Une fois la collecte de l’inventaire matériel sur vos serveurs Linux et UNIX terminée, vous pouvez afficher et utiliser ces informations comme s’il s’agissait d’autres ordinateurs, et effectuer les opérations suivantes :  
+##  <a name="BKMK_OperationsforHardwareforLnU"></a> Bewerkingen voor hardware-inventaris  
+ Nadat u de hardware-inventaris van uw Linux- en UNIX-servers hebt verzameld, kunt u deze informatie op dezelfde manier bekijken en gebruiken als de inventaris die u verzamelt van andere computers:  
 
--   Utiliser l’Explorateur de ressources pour afficher des informations détaillées sur l’inventaire matériel collecté à partir de serveurs Linux et UNIX  
+-   Gebruik Resource Explorer om gedetailleerde informatie weer te geven over de hardware-inventaris die wordt verzameld van Linux- en UNIX-servers.  
 
--   Créer des requêtes basées sur des configurations matérielles spécifiques  
+-   Query's op basis van specifieke hardwareconfiguraties maken  
 
--   Créer des regroupements basés sur des requêtes qui reposent sur des configurations matérielles spécifiques  
+-   Op query’s gebaseerde verzamelingen maken die zijn gebaseerd op specifieke hardwareconfiguraties  
 
--   Exécuter des rapports qui affichent des détails spécifiques sur les configurations matérielles  
+-   Rapporten met specifieke details over hardwareconfiguraties uitvoeren  
 
- L’inventaire matériel sur un serveur Linux ou UNIX s’exécute conformément au calendrier que vous configurez dans les paramètres client. Par défaut, l’inventaire est exécuté tous les sept jours. Le client pour Linux et UNIX prend en charge les cycles d’inventaire complet et les cycles d’inventaire delta.  
+ Hardware-inventaris op een Linux- of UNIX-server wordt uitgevoerd volgens de planning die u in de clientinstellingen configureert. Dit is standaard elke zeven dagen. De client voor Linux en UNIX ondersteunt zowel volledige inventarisatiecycli als delta-inventarisatiecycli.  
 
- Vous pouvez également forcer le client sur un serveur Linux ou UNIX à exécuter immédiatement l’inventaire matériel. Pour exécuter l’inventaire matériel sur un client, utilisez des informations d’identification **racines** pour exécuter la commande suivante pour démarrer un cycle d’inventaire matériel : **/opt/microsoft/configmgr/bin/ccmexec -rs hinv**  
+ Ook kunt u de client op een Linux- of UNIX-server dwingen onmiddellijk hardware-inventaris uit te voeren. Gebruik voor het uitvoeren van de hardware-inventaris op een client **hoofdreferenties** om de volgende opdracht uit te voeren en een hardware-inventariscyclus te starten: **/opt/microsoft/configmgr/bin/ccmexec -rs hinv**  
 
- Les actions d’inventaire matériel sont entrées dans le fichier journal du client, **scxcm.log**.  
+ Acties voor hardware-inventaris worden ingevoerd in het logboekbestand van de client, **scxcm.log**.  
 
-##  <a name="BKMK_CustomHINVforLinux"></a> Comment utiliser l’infrastructure OMI pour créer un inventaire matériel personnalisé  
- Le client pour Linux et UNIX prend en charge l’inventaire matériel personnalisé que vous pouvez créer à l’aide de l’infrastructure OMI. Pour ce faire, vous devez procédez comme suit :  
+##  <a name="BKMK_CustomHINVforLinux"></a> Open Management Infrastructure gebruiken om aangepaste een hardware-inventaris te maken  
+ De client voor Linux en UNIX ondersteunt aangepaste hardware-inventaris die u kunt maken met behulp van de Open Management Infrastructure (OMI). Volg hiervoor de volgende stappen:  
 
-1.  Créer un fournisseur d’inventaire personnalisé à l’aide de la source OMI  
+1.  Een aangepaste inventarisprovider maken met de OMI-bron  
 
-2.  Configurer les ordinateurs pour qu’ils utilisent le nouveau fournisseur pour les rapports d’inventaire  
+2.  Computers configureren voor het gebruik van de nieuwe provider voor inventarisrapportage  
 
-3.  Activer Configuration Manager pour prendre en charge le nouveau fournisseur  
+3.  Configuration Manager voor de ondersteuning van de nieuwe provider inschakelen  
 
-###  <a name="BKMK_LinuxProvider"></a> Créer un fournisseur d’inventaire matériel personnalisé pour les ordinateurs Linux et UNIX :  
- Pour créer un fournisseur d’inventaire matériel personnalisé pour le client Configuration Manager pour Linux et UNIX, utilisez **OMI Source - v.1.0.6** et suivez les instructions du guide de démarrage OMI. Ce processus comprend la création d’un fichier MOF (Managed Object Format) qui définit le schéma du nouveau fournisseur. Plus tard, vous importez le fichier MOF dans Configuration Manager pour activer la prise en charge de la nouvelle classe d’inventaire personnalisée.  
+###  <a name="BKMK_LinuxProvider"></a> Een aangepaste hardware-inventarisprovider maken voor Linux- en UNIX-computers.  
+ Gebruik voor het maken van een aangepaste hardware-inventarisprovider voor Configuration Manager-client voor Linux en UNIX **OMI Source - v.1.0.6** en volg de instructies uit de introductiehandleiding. Met dit proces maakt u een Managed Object Format-bestand waarmee u het schema van de nieuwe provider definieert. Later importeert u het MOF-bestand naar Configuration Manager ondersteuning van de nieuwe aangepaste inventarisklasse inschakelen.  
 
- Vous pouvez télécharger OMI Source - v.1.0.6 et le Guide de prise en main OMI à partir du site web [The Open Group](http://go.microsoft.com/fwlink/p/?LinkId=262317) . Ces téléchargements se trouvent sous l’onglet **Documents** de la page web suivante sur le site web OpenGroup.org : [Open Management Infrastructure (OMI)](http://go.microsoft.com/fwlink/p/?LinkId=286805).  
+ U kunt de OMI Source - v.1.0.6 en de introductiehandleiding voor OMI downloaden van de website [The Open Group](http://go.microsoft.com/fwlink/p/?LinkId=262317) . U vindt deze downloads op de **documenten** op de volgende webpagina op de website opengroup.org tabblad: [Open Management Infrastructure (OMI)](http://go.microsoft.com/fwlink/p/?LinkId=286805).  
 
-###  <a name="BKMK_AddProvidertoLinux"></a> Configurer chaque ordinateur qui exécute Linux ou UNIX avec le fournisseur d’inventaire matériel personnalisé :  
- Après avoir créé un fournisseur d’inventaire personnalisé, vous devez copier puis inscrire le fichier de bibliothèque du fournisseur sur chaque ordinateur dont vous souhaitez recueillir l’inventaire.  
+###  <a name="BKMK_AddProvidertoLinux"></a> Configureer elke computer met Linux of UNIX met de aangepaste hardware-inventarisprovider:  
+ Nadat u een aangepaste inventarisprovider hebt gemaakt, moet u het providerbibliotheekbestand kopiëren naar en registreren op elke computer waarvan u de inventaris wilt verzamelen.  
 
-1.  Copiez la bibliothèque du fournisseur sur chaque ordinateur Linux et UNIX dont vous souhaitez recueillir l’inventaire. Le nom de la bibliothèque du fournisseur ressemble à ceci : **XYZ_MyProvider.so**  
+1.  Kopieer de providerbibliotheek naar elke Linux- en UNIX-computer waarvan u de inventaris wilt verzamelen. De naam van de providerbibliotheek lijkt op het volgende: **XYZ_MyProvider.so**  
 
-2.  Ensuite, sur chaque ordinateur Linux et UNIX, inscrivez la bibliothèque du fournisseur auprès du serveur OMI. Le serveur OMI s’installe sur l’ordinateur quand vous installez le client Configuration Manager pour Linux et UNIX, mais vous devez inscrire manuellement les fournisseurs personnalisés. Exécutez la ligne de commande suivante pour inscrire le fournisseur : **/opt/microsoft/omi/bin/omireg XYZ_MyProvider.so**  
+2.  Registreer vervolgens de providerbibliotheek op elke Linux- en UNIX-computer bij de OMI-server. De OMI-server geïnstalleerd op de computer wanneer u de Configuration Manager-client voor Linux en UNIX installeert, maar u moet aangepaste providers handmatig registreren. Gebruik de volgende opdrachtregel voor het registreren van de provider: **/opt/microsoft/omi/bin/omireg XYZ_MyProvider.so**  
 
-3.  Une fois le nouveau fournisseur inscrit, testez-le à l’aide de l’outil **omicli** . L’outil **omicli** s’installe sur chaque ordinateur Linux et UNIX quand vous installez le client Configuration Manager pour Linux et UNIX. Par exemple, **XYZ_MyProvider** étant le nom du fournisseur que vous avez créé, exécutez la commande suivante sur l’ordinateur : **/opt/microsoft/omi/bin/omicli ei root/cimv2 XYZ_MyProvider**  
+3.  Nadat u de nieuwe provider hebt geregistreerd, test u de provider met behulp van het **omicli** -hulpprogramma. De **omicli** hulpprogramma is geïnstalleerd op elke Linux- en UNIX-computer wanneer u de Configuration Manager-client voor Linux en UNIX installeert. Voorbeeld: als **XYZ_MyProvider** de naam is van de provider die u hebt gemaakt, voert u de volgende opdracht op de computer: **/opt/microsoft/omi/bin/omicli ei root/cimv2 XYZ_MyProvider**  
 
-     Pour plus d’informations sur **omicli** et sur la façon de tester les fournisseurs personnalisés, consultez le Guide de prise en main OMI.  
+     voor informatie over **omicli** het testen van aangepaste providers.  
 
 > [!TIP]  
->  Utilisez la distribution de logiciels pour déployer les fournisseurs personnalisés et pour les inscrire sur chaque ordinateur client Linux et UNIX.  
+>  Gebruik softwaredistributie om de aangepaste providers te implementeren en om aangepaste providers op elke Linux- en UNIX-clientcomputer te registreren.  
 
-###  <a name="BKMK_AddLinuxProvidertoCM"></a> Activer la nouvelle classe d’inventaire dans Configuration Manager :  
- Pour que Configuration Manager puisse créer un rapport d’inventaire avec les données fournies par le nouveau fournisseur sur les ordinateurs Linux et UNIX, vous devez importer le fichier MOF qui définit le schéma de votre fournisseur personnalisé.  
+###  <a name="BKMK_AddLinuxProvidertoCM"></a> Schakel de nieuwe inventarisklasse in Configuration Manager in:  
+ Voordat u met Configuration Manager rapporten kunt maken over de inventaris die door de nieuwe provider op Linux- en UNIX-computers wordt gerapporteerd, moet u het Managed Object Format-bestand importeren waarin u het schema van uw aangepaste provider hebt gedefinieerd.  
 
- Pour importer un fichier MOF personnalisé dans Configuration Manager, consultez [Guide pratique pour configurer l’inventaire matériel dans System Center Configuration Manager](../../../../core/clients/manage/inventory/configure-hardware-inventory.md).  
+ Als u wilt importeren van een aangepaste MOF-bestand in Configuration Manager, Zie [hardware-inventaris configureren in System Center Configuration Manager](../../../../core/clients/manage/inventory/configure-hardware-inventory.md).  

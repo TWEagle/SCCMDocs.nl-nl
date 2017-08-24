@@ -1,6 +1,6 @@
 ---
-title: "Prérequis pour la création de rapports | Microsoft Docs"
-description: "Comprenez les diverses dépendances qui ont un impact sur l’utilisation des rapports dans System Center Configuration Manager."
+title: Vereisten voor rapportage | Microsoft Docs
+description: Inzicht in verschillende afhankelijkheden die van invloed zijn op uw gebruik van rapportage in System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,48 +17,48 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 2e624eb2ea061a4eb7d92365410fada335640224
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prerequisites-for-reporting-in-system-center-configuration-manager"></a>Configuration requise pour la création de rapports dans System Center Configuration Manager
+# <a name="prerequisites-for-reporting-in-system-center-configuration-manager"></a>Vereisten voor rapportage in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-La création de rapports dans System Center Configuration Manager comporte des dépendances externes et des dépendances au sein du produit.  
+Rapportage in System Center Configuration Manager heeft externe afhankelijkheden en afhankelijkheden binnen het product.  
 
-## <a name="dependencies-external-to-configuration-manager"></a>Dépendances externes à Configuration Manager  
- Le tableau suivant répertorie les dépendances externes pour la création de rapports.  
+## <a name="dependencies-external-to-configuration-manager"></a>Afhankelijkheden extern aan Configuration Manager  
+ De volgende tabel bevat de externe afhankelijkheden voor rapportage.  
 
-|Configuration requise|Plus d'informations|  
+|Vereiste|Meer informatie|  
 |------------------|----------------------|  
-|SQL Server Reporting Services|Pour pouvoir utiliser des rapports dans Configuration Manager, vous devez installer et configurer SQL Server Reporting Services.<br /><br /> Pour plus d'informations sur la planification et le déploiement de Reporting Services dans votre environnement, reportez-vous à la section [Reporting Services](http://go.microsoft.com/fwlink/p/?LinkId=212032) de la documentation en ligne de SQL Server 2008.|  
-|Dépendances de rôle de système de site pour les ordinateurs qui exécutent le point de Reporting Services.|[Configurations prises en charge pour System Center Configuration Manager](../../../core/plan-design/configs/supported-configurations.md)|  
+|SQL Server Reporting Services|Voordat u de rapportage in Configuration Manager gebruiken kunt, moet u het installeren en configureren van SQL Server Reporting Services.<br /><br /> Voor informatie over planning en implementering van Reporting Services in uw omgeving, zie de sectie [Reporting Services](http://go.microsoft.com/fwlink/p/?LinkId=212032) in de SQL Server 2008 boeken online.|  
+|Sitesysteemrolafhankelijkheden voor de computers die het Reporting Services-punt uitvoeren.|[Ondersteunde configuraties voor System Center Configuration Manager](../../../core/plan-design/configs/supported-configurations.md)|  
 
-## <a name="dependencies-internal-to-configuration-manager"></a>Dépendances internes à Configuration Manager  
- Le tableau suivant répertorie les dépendances pour la création de rapports dans Configuration Manager.  
+## <a name="dependencies-internal-to-configuration-manager"></a>Afhankelijkheden intern aan Configuration Manager  
+ De volgende tabel bevat de afhankelijkheden voor rapportage in Configuration Manager.  
 
-|Configuration requise|Plus d'informations|  
+|Vereiste|Meer informatie|  
 |------------------|----------------------|  
-|Point de Reporting Services|Vous devez configurer le rôle système de site du point de Reporting Services pour pouvoir utiliser la création de rapports dans Configuration Manager. Pour plus d’informations sur l’installation et la configuration d’un point Reporting Services, consultez [Configuration de la création de rapports dans Configuration Manager](../../../core/servers/manage/configuring-reporting.md).|  
+|Reporting Services-punt|Het reporting services sitesysteemrol moet worden geconfigureerd voordat u rapportage in Configuration Manager kunt gebruiken. Voor meer informatie over het installeren en configureren van een reporting services-punt, Zie [rapportage in System Center Configuration Manager configureren](../../../core/servers/manage/configuring-reporting.md).|  
 
-## <a name="supported-sql-server-versions-for-the-reporting-services-point"></a>Versions de SQL Server prises en charge par le point de Reporting Services  
- La base de données Reporting Services peut être installée sur l'instance par défaut ou sur une instance nommée d'une installation 64 bits de SQL Server. L'instance SQL Server peut se trouver au même emplacement que le serveur du système de site ou sur un ordinateur distant.  
+## <a name="supported-sql-server-versions-for-the-reporting-services-point"></a>Ondersteunde SQL Server-versies voor het Reporting Services-punt  
+ De Reporting Services-database kan geïnstalleerd worden op ofwel een standaard exemplaar of een exemplaar met naam van een 64-bit SQL Server. Het SQL Server exemplaar kan in hetzelfde volume geplaatst worden als de sitesysteemserver, of op een externe computer.  
 
- Le tableau ci-dessous indique quelles versions de SQL Server sont prises en charge par le point de Reporting Services.  
+ De volgende tabel geeft een lijst van de SQL Server-versies die ondersteund worden door het Reporting Services-punt.  
 
-|Version SQL Server|Point de Reporting Services|  
+|SQL Server-versie|Reporting Services-punt|  
 |------------------------|------------------------------|  
-|SQL Server 2008 SP2 avec au minimum la mise à jour cumulative 9<br /><br /> -   Standard<br />-   Enterprise<br />-   Datacenter|Oui|  
-|SQL Server 2008 SP3 avec au minimum la mise à jour cumulative 4<br /><br /> -   Standard<br />-   Enterprise<br />-   Datacenter|Oui|  
-|SQL Server 2008 R2 avec SP1 et au minimum la mise à jour cumulative 6<br /><br /> -   Standard<br />-   Enterprise<br />-   Datacenter|Oui|  
-|SQL Server 2008 R2 avec SP2<br /><br /> -   Standard<br />-   Enterprise<br />-   Datacenter|Oui|  
-|SQL Server Express 2008 R2 avec SP1 et au minimum la mise à jour cumulative 4|Non pris en charge|  
-|SQL Server Express 2008 R2 avec SP2|Non pris en charge|  
-|SQL Server 2012 avec au minimum la mise à jour cumulative 2<br /><br /> -   Standard<br />-   Enterprise|Oui|  
-|SQL Server 2012 avec SP1 et aucune mise à jour cumulative minimum<br /><br /> -   Standard<br />-   Enterprise|Oui|  
-|SQL Server 2014<br /><br /> -   Standard<br />-   Enterprise|Oui|
-|SQL Server 2016<br /><br /> -   Standard<br />-   Enterprise|Oui|
-|SQL Server 2016 avec SP1<br /><br /> -   Standard<br />-   Enterprise|Oui|
-## <a name="next-steps"></a>Étapes suivantes
-[Opérations et maintenance pour les rapports](operations-and-maintenance-for-reporting.md)
+|SQL Server 2008 SP2 met een minimum van cumulatieve update 9<br /><br /> -Standaard<br />-Enterprise<br />-Datacenter|Ja|  
+|SQL Server 2008 SP3 met een minimum van cumulatieve update 4<br /><br /> -Standaard<br />-Enterprise<br />-Datacenter|Ja|  
+|SQL Server 2008 R2 met SP1 en met een minimale cumulatieve update 6<br /><br /> -Standaard<br />-Enterprise<br />-Datacenter|Ja|  
+|SQL Server 2008 R2 met SP2<br /><br /> -Standaard<br />-Enterprise<br />-Datacenter|Ja|  
+|SQL Server Express 2008 R2 met SP1 en met een minimale cumulatieve update 4|Niet ondersteund|  
+|SQL Server Express 2008 R2 met SP2|Niet ondersteund|  
+|SQL Server 2012 R2 en met een minimale cumulatieve update 2<br /><br /> -Standaard<br />-Enterprise|Ja|  
+|SQL Server 2012 met SP1 en geen minimale cumulatieve update<br /><br /> -Standaard<br />-Enterprise|Ja|  
+|SQL Server 2014<br /><br /> -Standaard<br />-Enterprise|Ja|
+|SQL Server 2016<br /><br /> -Standaard<br />-Enterprise|Ja|
+|SQL Server 2016 met SP1<br /><br /> -Standaard<br />-Enterprise|Ja|
+## <a name="next-steps"></a>Volgende stappen
+[Bewerkingen en onderhoud voor rapportage](operations-and-maintenance-for-reporting.md)

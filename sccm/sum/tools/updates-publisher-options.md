@@ -1,6 +1,6 @@
 ---
-title: Configurer les options | Microsoft Docs
-description: "Configurer les options afin d’utiliser l’éditeur de mise à jour System Center"
+title: Opties configureren | Microsoft Docs
+description: Opties voor het gebruik van System Center Updates Publisher configureren
 ms.custom: na
 ms.date: 4/29/2017
 ms.prod: configuration-manager
@@ -17,136 +17,136 @@ manager: angrobe
 robots: NOINDEX, NOFOLLOW
 ms.openlocfilehash: b66ed0a5e1c87d8c82853da86e3d55b0e2c043bb
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-options-for-updates-publisher"></a>Configurer les options pour l’éditeur de mise à jour
+# <a name="configure-options-for-updates-publisher"></a>Opties voor Updates Publisher configureren
 
-*S’applique à : l'éditeur de mise à jour System Center*
+*Van toepassing op: System Center Updates Publisher*
 
-Vérifiez et configurez les options et les paramètres associés qui affectent le fonctionnement de l’éditeur de mise à jour.
+Bekijk en configureer de opties en gerelateerde instellingen die invloed hebben op de werking van Updates Publisher.
 
-Pour accéder aux options de l’éditeur de mise à jour, dans le coin supérieur gauche de la console, cliquez sur **Éditeur de mise à jour** onglet **Propriétés**, puis choisissez **Options**.
+Voor toegang tot de opties voor Updates Publisher, in de linkerbovenhoek van de console, klikt u op de **Updates Publisher** **eigenschappen** tabblad en kies vervolgens **opties**.
 
-![Options](media/properties1.png)   
+![Opties](media/properties1.png)   
 
 
-Les options sont réparties comme suit :
+Opties zijn onderverdeeld in het volgende:
 
--   Serveur de mise à jour
--   Serveur ConfigMgr
--   Paramètres proxy
--   Éditeurs approuvés
--   Avancé
--   Mises à jour
--   Journalisation
+-   Server bijwerken
+-   Configuration Manager-Server
+-   Proxy-instellingen
+-   Vertrouwde uitgevers
+-   Geavanceerde
+-   Updates
+-   Logboekregistratie
 
-## <a name="update-server"></a>Serveur de mise à jour
-Vous devez configurer l’éditeur de mise à jour pour fonctionner avec un serveur de mise à jour comme Windows Server Update Services (WSUS) avant de pouvoir [publier des mises à jour](/sccm/sum/tools/manage-updates-with-updates-publisher#publish-updates-and-bundles). Cela inclut la spécification du serveur, les méthodes pour se connecter à ce serveur lorsqu’il est distant de la console, et un certificat à utiliser pour signer numériquement les mises à jour que vous publiez.
+## <a name="update-server"></a>Server bijwerken
+Moet u de Updates Publisher werken met updateserver zoals Windows Server Update Services (WSUS) voordat u kunt configureren [updates publiceren](/sccm/sum/tools/manage-updates-with-updates-publisher#publish-updates-and-bundles). Dit omvat opgeven van de server, methoden om verbinding met die server wanneer het zich op afstand vanuit de console en een certificaat wilt gebruiken om digitaal te ondertekenen-updates te publiceren.
 
--   **Configurez un serveur de mise à jour**. Lorsque vous configurez un serveur de mise à jour, sélectionnez le serveur WSUS de niveau supérieur (serveur de mise à jour) dans votre hiérarchie Configuration Manager afin que tous les sites enfants aient accès aux mises à jour que vous publiez.
+-   **Configureer een updateserver**. Wanneer u een updateserver configureert, selecteert u de site op het hoogste WSUS-server (updateserver) in uw Configuration Manager-hiërarchie zodat alle onderliggende sites hebben toegang tot de updates die u publiceert.
 
-  Si votre serveur de mise à jour est distant du serveur de votre éditeur de mise à jour, spécifiez le nom de domaine complet (FQDN) du serveur, et indiquez si vous vous connectez par SSL. Si vous vous connectez par SSL, le port par défaut passe de 8530 à 8531. Assurez-vous que le port que vous définissez correspond au port en cours d’utilisation par votre serveur de mise à jour.
+  Als uw updateserver externe van uw server Updates Publisher is, geeft u de volledig gekwalificeerde domeinnaam (FQDN) van de server, en als u verbinding met SSL maken. Wanneer u verbinding met SSL maakt, verandert de standaardpoort 8530 in 8531. Zorg ervoor dat de poort die u instelt overeenkomt met wat wordt gebruikt door de updateserver.
 
     > [!TIP]  
-    > Si vous ne configurez aucun serveur de mise à jour, vous pouvez quand même utiliser l’éditeur de mise à jour pour créer des mises à jour logicielles.
+    > Als een server niet is geconfigureerd, kunt u nog steeds Updates Publisher gebruiken om software-updates.
 
--   **Configurez le certificat de signature**. Vous devez configurer un serveur de mise à jour et vous y connecter avant de pouvoir configurer le certificat de signature.
+-   **Het handtekeningcertificaat configureren**. U moet configureren en verbinding maken met een server bijwerken voordat u het handtekeningcertificaat kunt configureren.
 
-    L’éditeur de mise à jour utilise le certificat de signature pour signer les mises à jour logicielles publiées sur le serveur de mise à jour. La publication échoue si le certificat numérique n’est pas disponible dans le magasin de certificats du serveur de mise à jour ou sur l’ordinateur qui exécute l’éditeur de mise à jour.
+    Het handtekeningcertificaat updates Publisher gebruikt voor het ondertekenen van de software-updates die zijn gepubliceerd naar de updateserver. Publicatie mislukt als het digitale certificaat is niet beschikbaar in het certificaatarchief van de update-server of de computer waarop Updates Publisher wordt uitgevoerd.
 
-    Pour plus d’informations sur l’ajout du certificat au magasin de certificats, consultez la rubrique [Certificats et sécurité de l’éditeur de mise à jour](/sccm/sum/tools/updates-publisher-security).
+    Zie voor meer informatie over het toevoegen van het certificaat in het certificaatarchief [certificaten en beveiliging voor Updates Publisher](/sccm/sum/tools/updates-publisher-security).
 
-    Si un certificat numérique n’est pas automatiquement détecté pour le serveur de mise à jour, choisissez l’une des options suivantes :
+    Als een digitaal certificaat niet automatisch wordt gedetecteerd voor de update-server, een van de volgende opties kiezen:
 
-    -   **Parcourir** : l’option Parcourir n’est disponible que si le serveur de mise à jour est installé sur le serveur sur lequel vous exécutez la console. Une fois que vous sélectionnez un certificat, vous devez choisir l’option **Créer** pour ajouter un certificat au magasin de certificats WSUS sur le serveur de mise à jour. Vous devez entrer le mot de passe du fichier **.pfx** pour les certificats que vous sélectionnez à l’aide de cette méthode.
+    -   **Blader**: Bladeren is alleen beschikbaar wanneer de update-server is geïnstalleerd op de server waarop u de console uitvoert. Nadat u een certificaat selecteren moet u **maken** dat certificaat toevoegen aan de WSUS-certificaatarchief op de updateserver. Moet u de **.pfx** Bestandswachtwoord voor de certificaten die u door deze methode selecteert.
 
-    -   **Créer :** utilisez cette option pour créer un nouveau certificat. Cette option ajoute également le certificat au magasin de certificats WSUS sur le serveur de mise à jour.
+    -   **Maken:** Gebruik deze optie om een nieuw certificaat maken. Hiermee wordt het certificaat ook toegevoegd aan de WSUS-certificaatarchief op de updateserver.
 
-    **Si vous créez votre propre certificat de signature**, configurez les éléments suivants :
+    **Als u uw eigen handtekeningcertificaat maakt**, configureert u het volgende:
 
-    -   Activez l’option **Autoriser l’exportation de la clé privée**.
+    -   Schakel de **persoonlijke sleutel exporteerbaar** optie.
 
-    -   Définissez **Utilisation de la clé** sur Signature numérique.
+    -   Stel **sleutelgebruik** aan digitale handtekening.
 
-    -   Définissez **Taille de clé minimale** sur une valeur égale ou supérieure à 2 048 bits.
+    -   Stel **minimale sleutelgrootte** op een waarde die gelijk is aan of groter is dan 2048 bits.
 
-    Utilisez l’option **Supprimer** pour supprimer un certificat du magasin de certificats WSUS. Cette option est disponible si le serveur de mise à jour est local dans la console de l’éditeur de mise à jour que vous utilisez, ou si vous avez utilisé **SSL** pour vous connecter à un serveur de mise à jour à distance.
+    Gebruik de **verwijderen** optie voor het verwijderen van een certificaat uit het certificaatarchief van WSUS. Deze optie is beschikbaar wanneer de updateserver is lokaal op de Updates Publisher-console die u gebruikt, of wanneer u gebruikt **SSL** verbinding maken met een externe update-server.
 
-## <a name="configmgr-server"></a>Serveur ConfigMgr
-Choisissez ces options lorsque vous utilisez Configuration Manager avec l’éditeur de mise à jour.
+## <a name="configmgr-server"></a>Configuration Manager-Server
+Gebruik deze opties wanneer u Configuration Manager met Updates Publisher gebruikt.
 
--   **Spécifier le serveur Configuration Manager :** après avoir activé la prise en charge pour Configuration Manager, spécifiez l’emplacement du serveur de site de niveau supérieur dans votre hiérarchie Configuration Manager. Si ce serveur est éloigné de l’installation de l’éditeur de mise à jour, spécifiez le nom de domaine complet du serveur de site. Choisissez **Tester la connexion** pour vérifier que vous pouvez vous connecter au serveur de site.
+-   **Geef de Configuration Manager-server:** Nadat u ondersteuning voor Configuration Manager hebt ingeschakeld, geef de locatie van de bovenste siteserver van Configuration Manager-hiërarchie. Als deze server extern van de installatie van Updates Publisher is, geeft u de FQDN-naam van de siteserver. Kies **testverbinding** om te controleren of u verbinding kunt maken met de siteserver.
 
--   **Configurer des seuils :** les seuils sont utilisés lorsque vous publiez des mises à jour avec un type de publication automatique. Les valeurs de seuil vous aident à déterminer le moment où tout le contenu d’une mise à jour est publié au lieu des métadonnées uniquement. Pour en savoir plus de types de publication, consultez la rubrique [Affecter des mises à jour à une publication](/sccm/sum/tools/manage-updates-with-updates-publisher#assign-updates-and-bundles-to-a-publication)
+-   **Drempels configureren:** Drempelwaarden worden gebruikt wanneer u updates met een publicatietype van automatische publiceert. De drempelwaarden te bepalen wanneer de volledige inhoud voor een update in plaats van alleen de metagegevens wordt gepubliceerd. Zie voor meer meer publicatietypen [updates toewijzen aan een publicatie](/sccm/sum/tools/manage-updates-with-updates-publisher#assign-updates-and-bundles-to-a-publication)
 
-    Vous pouvez utiliser l’un des seuils suivants ou les deux :
+    U kunt een of beide van de volgende drempelwaarden:
 
-    -   **Seuil du nombre de clients demandé :** définit le nombre de clients qui doivent demander une mise à jour avant que l’éditeur de mise à jour puisse automatiquement publier tout le contenu de cette mise à jour. Tant que le nombre spécifié de clients n’a pas demandé la mise à jour, seules les métadonnées des mises à jour sont publiées.
+    -   **Client-drempelwaarde voor aantal aangevraagd:** Hiermee definieert u hoeveel clients moeten een update aanvragen voordat de volledige set van inhoud voor deze update automatisch van Updates Publisher publiceren kan. Totdat het opgegeven aantal clients de update aanvraagt, wordt alleen de metagegevens van de updates gepubliceerd.
 
-    -   **Seuil de taille source du package (Mo) :** empêche la publication automatique des mises à jour qui dépassent la taille que vous spécifiez. Si la taille des mises à jour dépasse cette valeur, seules les métadonnées sont publiées. Si les mises à jour sont inférieures à la taille spécifiée, tout leur contenu peut être publié.
+    -   **Pakket bron drempelwaarde voor databasegrootte (MB):** Dit voorkomt dat automatische publicatie van updates die groter is dan de grootte die u opgeeft. Als de grootte van de updates deze waarde overschrijdt, wordt alleen de metagegevens is gepubliceerd. Updates die kleiner is dan de opgegeven grootte hun volledige inhoud die wordt gepubliceerd hebben kan.
 
-## <a name="proxy-settings"></a>Paramètres proxy
-L’éditeur de mise à jour utilise les paramètres proxy lorsque vous importez des catalogues de logiciels à partir d’Internet ou publiez des mises à jour sur Internet.
+## <a name="proxy-settings"></a>Proxy-instellingen
+Updates Publisher gebruikt de proxy-instellingen wanneer u software catalogussen vanaf Internet importeren of updates op Internet publiceren.
 
--   Spécifiez le nom de domaine complet ou l’adresse IP d’un serveur proxy. IPv4 et IPv6 sont pris en charge.
+-   De FQDN of IP-adres van een proxyserver opgeven. IPv4 en IPv6 worden ondersteund.
 
--   Si le serveur proxy authentifie les utilisateurs pour l’accès à Internet, vous devez spécifier le nom Windows. Le nom principal universel (UPN) n’est pas pris en charge.
+-   Als de proxyserver verificatie van gebruikers voor toegang tot Internet, moet u de Windows-naam opgeven. Een universele principle name (UPN) wordt niet ondersteund.
 
-## <a name="trusted-publishers"></a>Éditeurs approuvés
-Lorsque vous importez un catalogue de mises à jour, la source de ce catalogue (basée sur son certificat) est ajoutée comme éditeur approuvé. De même, lorsque vous publiez une mise à jour, la source du certificat des mises à jour est ajoutée comme éditeur approuvé.
+## <a name="trusted-publishers"></a>Vertrouwde uitgevers
+Als u een update-catalogus, de bron van die catalogus (op basis van het certificaat), importeert wordt toegevoegd als een vertrouwde uitgever. Wanneer u een update publiceert, wordt de bron van het certificaat updates op deze manier toegevoegd als een vertrouwde uitgever.
 
-Vous pouvez afficher les détails du certificat pour chaque éditeur et supprimer un éditeur de la liste des éditeurs approuvés.
+U kunt details van certificaat voor elke uitgever weergeven en verwijderen van een uitgever uit de lijst met vertrouwde uitgevers.
 
-Le contenu provenant d’éditeurs qui n’ont pas été approuvés peut endommager les ordinateurs clients lorsque le client recherche des mises à jour. Vous devriez uniquement accepter les mises à jour d’éditeurs de confiance.
+Inhoud van uitgevers die geen vertrouwde kan toebrengen clientcomputers wanneer de client naar updates zoekt. U moet accepteren alleen inhoud van uitgevers die u vertrouwt.
 
-## <a name="advanced"></a>Avancé
-Les options avancées incluent ce qui suit :
+## <a name="advanced"></a>Geavanceerde
+Geavanceerde opties omvatten het volgende:
 
--   **Emplacement du référentiel :** affichez et modifiez l’emplacement du fichier de base de données, **scupdb.sdf**. Ce fichier représente le référentiel de l’éditeur de mise à jour.
+-   **Locatie van de opslagplaats:** Weergeven en wijzigen van de locatie van het databasebestand **scupdb.sdf**. Dit bestand is de opslagplaats voor Updates Publisher.
 
--   **Horodateur :** si cette option est activée, un horodatage est ajouté aux mises à jour que vous signez, indiquant la date de leur signature. Une mise à jour signée alors que le certificat était valide peut être utilisée après expiration de ce certificat de signature. Par défaut, les mises à jour logicielles ne peuvent pas être déployées après expiration de leur certificat de signature.
+-   **Tijdstempel:** Wanneer ingeschakeld, is een tijdstempel toegevoegd aan updates u zich aanmeldt, waarmee wordt aangegeven wanneer het is ondertekend. Een update die is ondertekend, terwijl een certificaat geldig is kan worden gebruikt na het verstrijken van dat certificaat voor ondertekening. Standaard kunnen niet software-updates worden geïmplementeerd nadat het certificaat voor ondertekening is verlopen.
 
--   **Rechercher les mises à jour des catalogues auxquels vous êtes abonné :** chaque fois que l’éditeur de mise à jour démarre, il peut vérifier automatiquement les mises à jour des catalogues auxquels vous êtes abonné. Lorsqu’une mise à jour du catalogue est trouvée, les détails sont fournis en tant qu**’alertes récentes** dans la fenêtre **Vue d’ensemble** de l**’espace de travail Mises à jour**.
+-   **Controleren op updates voor geabonneerde catalogussen:** Elke keer Updates Publisher wordt gestart, kunnen automatisch wordt gecontroleerd op updates voor catalogussen waarop u bent geabonneerd. Wanneer een catalogusupdate is gevonden, details zijn beschikbaar als **recente waarschuwingen** in de **overzicht** venster van de **werkruimte Updates**.
 
--   **Révocation de certificat :** choisissez cette option pour activer des vérifications de révocation de certificat.
+-   **Intrekken van certificaten:** Selecteer deze optie om in te schakelen intrekkingscontroles certificaat.
 
--   **Publication source locale :** l’éditeur de mise à jour peut utiliser une copie locale d’une mise à jour que vous publiez avant de télécharger cette mise à jour à partir d’Internet. L’emplacement doit être un dossier sur l’ordinateur qui exécute l’éditeur de mise à jour. Par défaut, cet emplacement est **Mes documents\LocalSourcePublishing.** Utilisez cet emplacement même si vous avez déjà téléchargé une ou plusieurs mises à jour, ou si vous avez modifié une mise à jour que vous souhaitez déployer.
+-   **Publicatie van de lokale bron:** Updates Publisher kunt een lokale kopie van een update die u publiceren wilt voordat deze update downloaden vanaf Internet. De locatie moet een map op de computer waarop Updates Publisher wordt uitgevoerd. Deze locatie is standaard **mijn Documents\LocalSourcePublishing.** Gebruik deze optie als u eerder hebt gedownload van een of meer updates of aangebrachte wijzigingen in een update die u wilt implementeren.
 
--   **Assistant Nettoyage des mises à jour logicielles :** démarrez l’Assistant Nettoyage des mises à jour. L’Assistant fait expirer les mises à jour qui figurent sur le serveur de mise à jour mais pas dans le référentiel de l’éditeur de mise à jour. Consultez la page [Faire expirer les mises à jour non référencées](#expire-unreferenced-software-updates) pour plus de détails.
+-   **Wizard Software-Updates opschonen:** Start de wizard updates opruimen. De wizard verloopt updates die op de updateserver maar niet in de opslagplaats voor Updates Publisher. Zie [zonder updates verlopen](#expire-unreferenced-software-updates) voor meer informatie.
 
-## <a name="updates"></a>Mises à jour
- L’éditeur de mise à jour peut automatiquement rechercher les nouvelles mises à jour chaque fois qu’il s’ouvre. Vous pouvez aussi choisir de recevoir des builds de version préliminaire de l’éditeur de mise à jour.
+## <a name="updates"></a>Updates
+ Updates Publisher kunt automatisch controleren op nieuwe updates elke keer dat deze wordt geopend. U kunt ook kiezen voor het ontvangen van de preview-versies van Updates Publisher.
 
-Pour rechercher manuellement les mises à jour, dans la console de l’éditeur de mise à jour, cliquez sur ![Propriétés](media/properties2.png)  
-pour ouvrir les **propriétés de l’éditeur de mise à jour**, puis choisissez **Rechercher les mises à jour**.
+Handmatig controleren op updates in de Updates Publisher-console klikt u op op ![eigenschappen](media/properties2.png)  
+openen van de **eigenschappen van de Updates Publisher**, en kies vervolgens **controleren op updates**.
 
-Lorsque l’éditeur de mise à jour détecte une nouvelle mise à jour, il affiche la fenêtre **Mise à jour disponible** et vous pouvez alors choisir d’installer cette mise à jour. Si vous choisissez de ne pas installer la mise à jour, vous serez invité à l’installer la prochaine fois que vous ouvrez la console.
+Nadat de Updates Publisher vindt een nieuwe update, geeft de **bijwerken beschikbaar** venster en vervolgens kunt u het te installeren. Als u wilt dat de update niet geïnstalleerd, wordt deze de volgende keer dat u de console opent aangeboden.
 
-## <a name="logging"></a>Journalisation
-L’éditeur de mise à jour enregistre les informations de base sur l’éditeur de mise à jour **&lt;*sous*&gt;\Windows\Temp\UpdatesPublisher.log**.
+## <a name="logging"></a>Logboekregistratie
+Updates Publisher logboeken basisinformatie over Updates Publisher  **&lt;* pad*&gt;\Windows\Temp\UpdatesPublisher.log**.
 
-Utilisez le bloc-notes ou **CMTrace** pour afficher le journal. CMTrace est l’outil de fichier journal de Configuration Manager, qui se trouve dans le dossier **\SMSSetup\Tools** du support source Configuration Manager.
+Gebruik Kladblok of **CMTrace** om het logboek weer te geven. CMTrace wordt het hulpprogramma Configuration Manager log-bestand en kunt u vinden in de **\SMSSetup\Tools** map van de Configuration Manager-bronmedia.
 
-Vous pouvez modifier la taille du journal et son niveau de détail.
+U kunt de grootte van het logboek en de mate van detail wijzigen.
 
-Lorsque vous activez la journalisation de la base de données, les informations concernant les requêtes exécutées sur la base de données de l’éditeur de mise à jour sont incluses. La journalisation de la base de données peut entraîner une dégradation des performances de l’ordinateur de l’éditeur de mise à jour.
+Wanneer u database logboekregistratie inschakelt, wordt informatie over de query's die worden uitgevoerd voor de database Updates Publisher zijn opgenomen. Gebruik van databaselogboekregistratie kan leiden tot verminderde prestaties van de computer Updates Publisher.
 
-Pour afficher le fichier journal, cliquez dans la console sur ![Propriétés](media/properties2.png) pour ouvrir les **propriétés de l’éditeur de mise à jour**, puis choisissez **Afficher le fichier journal**.
+U kunt het logboekbestand in de console op op ![eigenschappen](media/properties2.png) openen de **eigenschappen van de Updates Publisher**, en kies vervolgens **logboekbestand weergeven**.
 
-## <a name="expire-unreferenced-software-updates"></a>Faire expirer les mises à jour logicielles non référencées
-Vous pouvez exécuter l**’Assistant Nettoyage des mises à jour logicielles** pour faire expirer les mises à jour situées sur votre serveur de mise à jour mais pas dans le référentiel de l’éditeur de mise à jour. Cette procédure avertit Configuration Manager, qui supprime alors ces mises à jour de tous les futurs déploiements.
+## <a name="expire-unreferenced-software-updates"></a>Niet-gebruikte software-updates verlopen
+U kunt uitvoeren de **opschonen-Wizard voor Software-Update** verlopen updates die op uw server bijwerken, maar niet in de opslagplaats voor Updates Publisher. Deze Configuration Manager die deze updates uit alle toekomstige implementaties verwijdert op de hoogte.
 
-L’opération consistant à faire expirer une mise à jour ne peut pas être annulée. Effectuez uniquement cette tâche si vous êtes sûr que les mises à jour logicielles que vous sélectionnez ne sont plus requises par votre organisation.
+De handeling verloopt een update kan niet ongedaan worden gemaakt. Deze taak alleen uitvoeren als u zeker weet dat de software-updates die u selecteert niet langer voor uw organisatie vereist zijn.
 
-### <a name="to-remove-expired-software-updates"></a>Pour supprimer des mises à jour logicielles expirées
-1.  Dans la console de l’éditeur de mise à jour, cliquez sur ![Propriétés](media/properties2.png) pour ouvrir les **propriétés de l’éditeur de mise à jour**, puis choisissez **Options**.
+### <a name="to-remove-expired-software-updates"></a>Verlopen software-updates verwijderen
+1.  Klik in de Updates Publisher-console op ![eigenschappen](media/properties2.png) openen de **eigenschappen van de Updates Publisher**, en kies vervolgens **opties**.
 
-2.  Choisissez **Avancé**, puis sous **Assistant Nettoyage des mises à jour logicielles,** choisissez **Démarrer**.
+2.  Kies **Geavanceerd**, en klik vervolgens onder **schone Wizard voor de Software-Update,** kiezen **Start**.
 
-3.  Sélectionnez les mises à jour logicielles vous souhaitez faire expirer, puis choisissez **Suivant**.
+3.  Selecteer de software-updates die u wilt laten verlopen, en kies vervolgens **volgende**.
 
-4.  Après avoir vérifié vos sélections, choisissez **Suivant** pour accepter les sélections et faire expirer les mises à jour.
+4.  Bekijk uw selecties hebt gekozen **volgende** te accepteren van de selecties en deze updates te laten verlopen.
 
-5.  Une fois l’Assistant terminé, choisissez **Fermer** pour terminer l’Assistant.
+5.  Nadat de wizard is voltooid, kiest u **sluiten** om de wizard te voltooien.

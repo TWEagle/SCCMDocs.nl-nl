@@ -1,6 +1,6 @@
 ---
-title: "Créer des applications Windows Phone | Documents Microsoft"
-description: "Examinez les éléments à prendre en compte quand vous créez et déployez des applications pour des appareils Windows Phone."
+title: Windows Phone-toepassingen maken | Microsoft Docs
+description: Zie welke overwegingen u moet rekening account wanneer u maken en implementeren van toepassingen voor Windows Phone-apparaten.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,50 +16,50 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 6cbf2389a72c0c384ef8e84a1755ac77b64bfc6d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-windows-phone-applications-with-system-center-configuration-manager"></a>Créer des applications Windows Phone à l’aide de System Center Configuration Manager
+# <a name="create-windows-phone-applications-with-system-center-configuration-manager"></a>Windows Phone-toepassingen maken met System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Une application System Center Configuration Manager inclut un ou plusieurs types de déploiement, qui comprennent les fichiers d’installation et informations nécessaires pour déployer le logiciel sur un appareil. Le type de déploiement contient également des règles spécifiant à quel moment et selon quelle méthode le logiciel est déployé.  
+Een System Center Configuration Manager-toepassing heeft een of meer implementatietypen waaruit de installatiebestanden en informatie die nodig zijn voor het implementeren van software op een apparaat. Een implementatietype heeft ook regels die specificeren hoe en wanneer de software wordt geïmplementeerd.  
 
- Vous pouvez créer des applications à l'aide des méthodes suivantes :  
+ U kunt toepassingen maken met behulp van de volgende methoden:  
 
--   Créer automatiquement les types d'application et de déploiement en lisant les fichiers d'installation de l'application.  
+-   De toepassing en implementatietype-typen automatisch maken door te lezen van de installatiebestanden van de toepassing.  
 
--   Créer manuellement l'application, puis ajouter des types de déploiement ultérieurement.  
+-   U kunt de toepassing handmatig maken en deze op een later tijdstip aan implementatietypen toevoegen.  
 
--   Importer une application à partir d’un fichier.  
+-   Een toepassing importeren uit een bestand.  
 
-Pour connaître les étapes requises pour créer des types de déploiement et applications Configuration Manager, voir [Démarrer l’Assistant Création d’une application](../../apps/deploy-use/create-applications.md#start-the-create-application-wizard). De plus, gardez à l’esprit les considérations suivantes lorsque vous créez et déployez des applications pour des appareils Windows Phone.  
+Zie [Start de wizard toepassing maken](../../apps/deploy-use/create-applications.md#start-the-create-application-wizard) voor de stappen die nodig zijn voor de Configuration Manager-toepassingen maken en implementatietypen. Houd er ook de volgende aandachtspunten in rekening wanneer u maken en implementeren van toepassingen voor Windows Phone-apparaten.  
 
-## <a name="general-considerations"></a>Éléments généraux à prendre en compte  
- Configuration Manager prend en charge le déploiement des types de fichiers d’application suivants :  
+## <a name="general-considerations"></a>Algemene overwegingen  
+ Configuration Manager ondersteunt de volgende typen van de app-bestanden implementeren:  
 
-|Type d'appareil|Types de fichiers pris en charge|  
+|Apparaattype|Ondersteunde bestandstypen|  
 |-----------------|---------------------|  
 |Windows Phone 8|.xap|  
-|Windows Phone 8.1|.xap, .appx, .appxbundle|
-|Windows 10 Mobile|.xap, .appx, .appxbundle|
+|Windows Phone 8,1|.xap, .appx, .appxbundle|
+|Windows 10 Mobile|.xap, .appx, .appxbundle|
 
- Les actions de déploiement suivantes sont prises en charge :  
+ De volgende implementatieacties worden ondersteund:  
 
-|Type d'appareil|Actions prises en charge|  
+|Apparaattype|Ondersteunde bewerkingen|  
 |-----------------|-----------------------|  
-|Windows Phone 8, Windows Phone 8.1 et Windows 10 Mobile|Disponible, Obligatoire, Désinstaller|  
+|Windows Phone 8, Windows Phone 8.1 en Windows 10 Mobile|Beschikbaar is, vereist, verwijderen|  
 
-## <a name="steps-to-deploy-the-latest-windows-phone-company-portal-app-with-supersedence"></a>Étapes de déploiement de la dernière version de l’application de portail d’entreprise Windows Phone avec remplacement  
- Le tableau suivant présente la procédure, des détails et des informations complémentaires pour créer et déployer la dernière version de l'application de portail d'entreprise Windows Phone 8.  
+## <a name="steps-to-deploy-the-latest-windows-phone-company-portal-app-with-supersedence"></a>Stappen voor het implementeren van de meest recente Windows Phone-bedrijfsportal-app met vervanging  
+ De volgende tabel bevat de stappen, details en meer informatie voor het maken en implementeren van de nieuwste Windows Phone 8-bedrijfsportal-app.  
 
-|Étape|Plus d'informations|  
+|Stap|Meer informatie|  
 |----------|----------------------|  
-|**Étape 1 :** obtenir la dernière application de portail d’entreprise.|Téléchargez l' [application du portail d'entreprise Windows Phone 8](http://go.microsoft.com/fwlink/?LinkId=268440).|  
-|**Étape 2 :** signer l’application de portail d’entreprise avec votre certificat Symantec.|Pour plus d’informations sur la façon de signer l’application de portail d’entreprise, consultez [Configurer la gestion des appareils Windows Phone et Windows 10 Mobile hybrides avec System Center Configuration Manager et Microsoft Intune](../../mdm/deploy-use/enroll-hybrid-windows.md).|  
-|**Étape 3 :** Créer une application avec la version la plus récente de l’application de portail d’entreprise et spécifier une relation de remplacement.|Pour plus d’informations, consultez [Créer des applications](../../apps/deploy-use/create-applications.md) et [Réviser et remplacer des applications](../../apps/deploy-use/revise-and-supersede-applications.md).|  
-|**Étape 4 :** ajouter l’application à l’Assistant Créer un abonnement Windows Intune.|Pour plus d’informations, consultez [Configurer la gestion des appareils Windows Phone et Windows 10 Mobile hybrides avec System Center Configuration Manager et Microsoft Intune](../../mdm/deploy-use/enroll-hybrid-windows.md).|  
-|**Étape 5 :** supprimer le déploiement qui est automatiquement créé lorsque vous avez ajouté l’application de portail d’entreprise à l’Assistant Créer un abonnement Microsoft Intune.|L’abonnement Microsoft Intune a créé un déploiement automatique de cette application, car ce déploiement ne prendra pas en charge le remplacement.|  
-|**Étape 6 :** Créer un déploiement de l’application. Dans la page **Paramètres de déploiement** de l’**Assistant Déploiement logiciel**, cochez la case **Mettre automatiquement à niveau toutes les versions remplacées de cette application**.|Créez un nouveau déploiement avec le remplacement à l'aide de l'application que vous avez créée avec la relation de remplacement.|  
-|**Étape 7 (facultative) :** Par défaut, les applications de remplacement s’installent sur les appareils au bout de sept jours. Pour déployer l’application de portail d’entreprise plus tôt sur les appareils inscrits auparavant, définissez le paramètre **Planifier la réévaluation des déploiements** sur une valeur inférieure.<br /><br /> Si vous affectez à cette valeur une valeur inférieure à la valeur par défaut, cela peut affecter négativement les performances de votre réseau et des ordinateurs clients.|Aucune information supplémentaire.|  
+|**Stap 1:** Download de meest recente bedrijfsportal-app.|Download de [Windows Intune-bedrijfsportal voor Windows Phone](http://go.microsoft.com/fwlink/?LinkId=268440).|  
+|**Stap 2:** Meld u aan de bedrijfsportal-app met uw Symantec-certificaat.|Zie voor meer informatie over het ondertekenen van de bedrijfsportal-app [Windows Phone en Windows 10 Mobile hybride Apparaatbeheer met System Center Configuration Manager en Microsoft Intune instellen](../../mdm/deploy-use/enroll-hybrid-windows.md).|  
+|**Stap 3:** Maak een nieuwe toepassing met de nieuwste versie van de bedrijfsportal-app en geef een vervangingsrelatie.|Zie voor meer informatie [toepassingen maken](../../apps/deploy-use/create-applications.md) en [herzien en vervangen van toepassingen](../../apps/deploy-use/revise-and-supersede-applications.md).|  
+|**Stap 4:** De toepassing toevoegen aan de Wizard Microsoft Intune-abonnement.|Zie voor meer informatie [Windows Phone en Windows 10 Mobile hybride Apparaatbeheer met System Center Configuration Manager en Microsoft Intune instellen](../../mdm/deploy-use/enroll-hybrid-windows.md).|  
+|**Stap 5:** Verwijder de implementatie die automatisch wordt gemaakt wanneer u de bedrijfsportal-app toegevoegd aan de Wizard Microsoft Intune-abonnement.|De Microsoft Intune-abonnement maakte een automatische implementatie van deze app omdat deze implementatie geen vervanging ondersteunt.|  
+|**Stap 6:** Maak een nieuwe implementatie van de toepassing. Op de **implementatie-instellingen** pagina van de **Wizard Software implementeren**, Controleer **automatisch upgraden een vervangen versies van deze toepassing**.|Maak een nieuwe implementatie met vervanging door gebruik te maken van de toepassing die u maakte met de vervangingsrelatie.|  
+|**Stap 7 (optioneel):** Standaard de vervangende apps installeren na 7 dagen op apparaten. Voor het implementeren van het bedrijf bedrijfsportal-app sneller op eerder geregistreerde apparaten, wijzigt u de **nieuwe evaluatie voor implementaties plannen** instellen op een lagere waarde.<br /><br /> Als u deze waarde op een lagere waarde dan de standaardwaarde instelt, kan dit de prestaties van uw netwerk en clientcomputers negatief beïnvloeden.|Geen aanvullende informatie.|  

@@ -1,6 +1,6 @@
 ---
-title: "Fonctionnalités de Technical Preview 1603 Configuration Manager"
-description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1603 pour System Center Configuration Manager."
+title: Mogelijkheden in Technical Preview 1603 Configuration Manager
+description: Meer informatie over functies die beschikbaar zijn in de Technical Preview voor System Center Configuration Manager, versie 1603.
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -17,78 +17,78 @@ manager: angrobe
 robots: noindex,nofollow
 ms.openlocfilehash: dee2b4ce042bb4a434bb019e17a6b16e2807945c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1603-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1603 pour System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1603-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1603 voor System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*Van toepassing op: System Center Configuration Manager (Technical Preview)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1603 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique de Configuration Manager. Ou bien, lorsque vous utilisez System Center Technical Preview 5, cette version s’installe comme une version de référence de la version d’évaluation technique de System Center Configuration Manager. Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
+Dit artikel bevat de functies die beschikbaar in de Technical Preview voor System Center Configuration Manager, versie 1603 zijn. U kunt deze versie om te werken en nieuwe mogelijkheden toevoegen aan uw Configuration Manager technical preview-site installeren. U kunt ook wanneer u System Center Technical Preview 5 gebruikt, deze versie wordt geïnstalleerd als een basislijnversie van de System Center Configuration Manager Technical Preview. Controleer voordat u deze versie van de technical preview installeert, de inleidende informatie [Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md), om vertrouwd te raken met algemene vereisten en beperkingen voor het gebruik van een technical preview hoe bijwerken tussen versies en hoe u feedback over de functies in een technical preview.  
 
- **Problèmes connus relatifs à cette version d’évaluation technique :**  
+ **Bekende problemen voor deze Technical Preview:**  
 
--   Cette version inclut des mises à jour de fonctionnalités publiées précédemment, mais n’en introduit pas de nouvelles. Par conséquent, la page Fonctionnalités de l’Assistant Mise à jour est vide si vous avez précédemment opéré une mise à niveau vers la version 1602 et activé toutes les fonctionnalités incluses dans celle-ci.  
+-   Deze release bevat updates voor eerder uitgebrachte functies, maar wordt geen nieuwe functies. De pagina functies van de Wizard Update worden daarom leeg als u eerder hebt geüpgraded naar 1602 en alle van de functies van 1602 is ingeschakeld.  
 
--   Une fois que votre serveur opère une mise à jour vers Technical Preview 1603, les clients ne peuvent pas utiliser les fonctionnalités de contrôle à distance tant qu’ils n’ont pas eux aussi procédé à la mise à jour vers la version 1603.  
+-   Nadat uw siteserver is bijgewerkt naar Technical Preview 1603, kunnen clients geen functies van beheer op afstand gebruiken totdat ze ook naar versie 1603 bijwerken.  
 
- **Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
+ **Hier volgen nieuwe functies die u met deze versie kunt uitproberen.**  
 
-##  <a name="BKMK_SC1603"></a> Améliorations apportées au Centre logiciel  
+##  <a name="BKMK_SC1603"></a>Verbeteringen aan Software Center  
 
-### <a name="new-tiled-view-for-apps"></a>Nouvel affichage en mode Mosaïque pour les applications  
- Les utilisateurs finaux ont désormais le choix entre une liste d’applications ou un affichage en mode Mosaïque des applications sous l’onglet **Applications** du Centre logiciel.  
+### <a name="new-tiled-view-for-apps"></a>Nieuwe tegelweergave voor apps  
+ Eindgebruikers kunnen nu kiezen tussen een lijst met apps of een weergave met tegels van apps in de **toepassingen** tabblad van het Software Center.  
 
-### <a name="select-multiple-updates-in-software-center"></a>Sélection de plusieurs mises à jour dans le Centre logiciel  
- Sous l’onglet **Mises à jour** du Centre logiciel, vous pouvez désormais sélectionner plusieurs mises à jour ou sélectionner **Tout mettre à jour** pour commencer à installer plusieurs mises à jour simultanément.  
+### <a name="select-multiple-updates-in-software-center"></a>Meerdere updates selecteren in Software Center  
+ In de **Updates** tabblad van het Software Center, u kunt nu meerdere updates selecteren of selecteer **Alles bijwerken** om te beginnen met meerdere updates tegelijk installeren.  
 
-##  <a name="BKMK_RC1603"></a> Améliorations apportées au contrôle à distance  
+##  <a name="BKMK_RC1603"></a>Verbeteringen aan beheer op afstand  
 
-### <a name="limit-shared-clipboard-access-in-a-remote-control-session"></a>Limitation de l’accès au Presse-papiers partagé dans une session de contrôle à distance  
- Vous pouvez désormais activer le nouveau paramètre du client pour les outils à distance, **Inviter l’utilisateur à accorder une autorisation de transfert de fichier de Presse-papiers partagé**, pour limiter l’accès au Presse-papiers partagé dans une session de contrôle à distance.  
+### <a name="limit-shared-clipboard-access-in-a-remote-control-session"></a>Toegang tot gedeeld Klembord beperken tijdens een sessie voor beheer op afstand  
+ U kunt nu de nieuwe externe hulpprogramma's clientinstelling inschakelen **gebruiker vragen naar machtiging voor het gedeelde Klembord overdracht** om toegang te beperken tot het gedeelde Klembord in een sessie voor beheer op afstand.  
 
- Quand ce paramètre est activé, l’utilisateur final qui partage une session à distance doit accorder au spectateur qui visionne la session l’autorisation de transférer des fichiers de celle-ci sur son ordinateur local via le Presse-papiers partagé.  
+ Wanneer dit is ingeschakeld, moet de gebruiker die een externe sessie deelt machtigingen voor de viewer van die sessie voordat de viewer bestanden vanuit de sessie naar de lokale computer via het gedeelde Klembord overdragen kan verlenen.  
 
- Cela ajoute une couche de protection pour l’utilisateur final car, précédemment, si le spectateur recevait le contrôle total de l’ordinateur de l’utilisateur final, il était en mesure d’utiliser le Presse-papiers partagé pour transférer des fichiers de la session sur son ordinateur local d’une manière totalement transparente pour l’utilisateur final.  
+ Hiermee wordt een laag van beveiliging voor de eindgebruiker toegevoegd als voorheen als de viewer volledige controle van de eindgebruiker computer had gekregen, ze zou kunnen gebruiken het gedeelde Klembord bestanden van de sessie overbrengen naar de lokale computer op een manier die volledig transparant voor de eindgebruiker was.  
 
-##  <a name="BKMK_RamDiskTFTP"></a> Personnalisation des tailles de bloc et de fenêtre TFTP RamDisk pour les points de distribution compatibles PXE  
- Dans Technical Preview 1603, vous pouvez personnaliser les tailles de bloc et de fenêtre TFTP RamDisk pour les points de distribution compatibles PXE. Si vous avez personnalisé votre réseau, cela peut occasionner un échec de téléchargement de l’image de démarrage avec une erreur de délai d’attente résultant d’une taille excessive de bloc ou de fenêtre. La personnalisation des tailles de bloc et de fenêtre TFTP RamDisk permet d’optimiser le trafic TFTP lors de l’utilisation de PXE en réponse à des besoins réseau spécifiques.   
-Vous devez tester les paramètres personnalisés dans votre environnement pour déterminer la configuration la plus efficace.  
+##  <a name="BKMK_RamDiskTFTP"></a> De RamDisk TFTP-blokgrootte en de -venstergrootte aanpassen op het distributiepunt met PXE-functionaliteit  
+ U kunt in de Technical Preview 1603 de RamDisk TFTP-blokgrootte en venstergrootte voor distributiepunten met PXE-functionaliteit aanpassen. Als u uw netwerk hebt aangepast, kan dit ertoe leiden dat het downloaden van de opstartinstallatiekopie mislukt met een time-outfout omdat het blok of het venster te groot is. Met RamDisk TFTP-blok- en venstergrootteaanpassing kunt u het TFTP-verkeer optimaliseren als u PXE gebruikt om te voldoen aan uw specifieke netwerkvereisten.   
+U moet de aangepaste instellingen in uw omgeving testen om te bepalen het meest efficiënt is.  
 
--   **Taille de bloc TFTP**: la taille de bloc est la taille des paquets de données que le serveur envoie au client qui télécharge le fichier (comme indiqué dans RFC 2347). Plus la taille de bloc est importante, moins le serveur envoie de paquets. Il y a donc moins de délais d’aller et retour entre le serveur et le client. Toutefois, une taille de bloc importante entraîne une fragmentation des paquets, incompatible avec la plupart des implémentations du client PXE.  
+-   **TFTP-blokgrootte**: De blokgrootte is de grootte van de gegevenspakketten die door de server worden verzonden naar de client die het bestand downloadt (zoals beschreven in RFC 2347). Met een groter blok kan de server minder pakketten verzenden, waardoor er minder trajectvertraging optreedt tussen de server en de client. Met grotere blokken kan er echter sprake zijn van gefragmenteerde pakketten, waar de meeste PXE-clientimplementaties geen ondersteuning voor bieden.  
 
--   **Taille de fenêtre TFTP**: le protocole TFTP nécessite le renvoi d’un paquet d’accusé de réception (ACK) pour chaque bloc de données envoyé. Le serveur n’envoie pas le bloc suivant dans la séquence tant qu’il n’a pas reçu le paquet ACK pour le bloc précédent. Le fenêtrage TFTP est une fonctionnalité des Services de déploiement Windows qui permet de définir le nombre de blocs de données nécessaires pour le remplissage d’une fenêtre. Le serveur envoie les blocs de données dos à dos jusqu’à ce que la fenêtre soit remplie, et le client renvoie un paquet ACK. L’augmentation de cette taille de fenêtre réduit le nombre de délais d’aller et retour entre le client et le serveur, et raccourcit le temps global nécessaire au téléchargement d’une image de démarrage.  
+-   **TFTP-venstergrootte**: TFTP vereist een pakket bevestigingen (ACK) voor elk gegevensblok dat wordt verzonden. De server verzendt het volgende blok in de reeks pas wanneer het ACK-pakket van het vorige blok is ontvangen. TFTP-vensterbewerking is een functie in Windows Deployment Services waarmee u kunt instellen hoeveel gegevensblokken er in een venster passen. De server verzendt de gegevensblokken achter elkaar door tot het venster is gevuld. Daarna verzendt de client een ACK-pakket. Als u het venster vergroot, treedt er minder trajectvertraging op tussen de client en de server en is er minder tijd nodig om een opstartinstallatiekopie te downloaden.  
 
-### <a name="try-it-out"></a>Essayez !  
- Essayez d’accomplir les tâches suivantes, puis utilisez les informations relatives à l’envoi de commentaires au début de cette rubrique pour nous faire savoir comment cela a fonctionné :  
+### <a name="try-it-out"></a>Probeer het nu!  
+ Voer de volgende taken uitvoeren en vervolgens met de feedbackinformatie boven aan dit onderwerp laat ons weten hoe het is gegaan:  
 
--   Je peux personnaliser la taille de fenêtre TFTP RamDisk pour le point de distribution compatible PXE.  
+-   Ik kan de RamDisk TFTP-venstergrootte op het distributiepunt met PXE-functionaliteit aanpassen.  
 
--   Je peux personnaliser la taille de bloc TFTP RamDisk pour le point de distribution compatible PXE.  
+-   Ik kan de RamDisk TFTP-blokgrootte op het distributiepunt met PXE-functionaliteit aanpassen.  
 
-### <a name="to-modify-the-ramdisk-tftp-window-size"></a>Pour modifier la taille de fenêtre TFTP RamDisk  
+### <a name="to-modify-the-ramdisk-tftp-window-size"></a>De grootte van het RamDisk TFTP-venster wijzigen  
 
--   Ajoutez la clé de Registre suivante aux points de distribution compatibles PXE pour personnaliser la taille de fenêtre TFTP RamDisk :  
+-   Voeg de volgende registersleutel toe aan de distributiepunten met PXE-functionaliteit om de RamDisk TFTP-venstergrootte aan te passen:  
 
-     **Emplacement**: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\DP  
-    Nom : RamDiskTFTPWindowSize  
-
-     **Type**: REG_DWORD  
-
-     **Valeur**: &lt;taille de fenêtre personnalisée\>  
-
- La valeur par défaut est 1 (1 bloc de données remplit la fenêtre).  
-
-### <a name="to-modify-the-ramdisk-tftp-block-size"></a>Pour modifier la taille de bloc TFTP RamDisk  
-
--   Ajoutez la clé de Registre suivante aux points de distribution compatibles PXE pour personnaliser la taille de fenêtre TFTP RamDisk :  
-
-     **Emplacement**: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\DP  
-    Nom : RamDiskTFTPBlockSize  
+     **Locatie**: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\DP  
+    Naam: RamDiskTFTPWindowSize  
 
      **Type**: REG_DWORD  
 
-     **Valeur** : &lt;taille de bloc personnalisée\>  
+     **Waarde**: &lt;aangepaste venstergrootte\>  
 
- La valeur par défaut est 4096 (4k).  
+ De standaardwaarde is 1 (het venster bestaat uit één gegevensblok)  
+
+### <a name="to-modify-the-ramdisk-tftp-block-size"></a>De grootte van het RamDisk TFTP-blok wijzigen  
+
+-   Voeg de volgende registersleutel toe aan de distributiepunten met PXE-functionaliteit om de RamDisk TFTP-venstergrootte aan te passen:  
+
+     **Locatie**: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\DP  
+    Naam: RamDiskTFTPBlockSize  
+
+     **Type**: REG_DWORD  
+
+     **Waarde**: &lt;aangepaste blokgrootte\>  
+
+ De standaardwaarde is 4096 (4k).  

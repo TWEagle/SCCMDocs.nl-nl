@@ -1,6 +1,6 @@
 ---
-title: "Données de diagnostic pour 1602 | Microsoft Docs"
-description: "En savoir plus sur les niveaux de données de diagnostic et d’utilisation collectés par System Center Configuration Manager version 1602."
+title: Diagnostische gegevens voor 1602 | Microsoft Docs
+description: Meer informatie over de niveaus van diagnostische gegevens en gebruiksgegevens die door System Center Configuration Manager versie 1602 worden verzameld.
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
@@ -35,282 +35,282 @@ translation.priority.ht:
 - zh-tw
 ms.openlocfilehash: 3e50327678d29fa2c1fed4ac0fd63738e65776cb
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="levels-of-diagnostic-usage-data-collection-for-version-1602-of-system-center-configuration-manager"></a>Niveaux de la collecte de données des données de diagnostic et d’utilisation pour la version 1602 de System Center Configuration Manager
+# <a name="levels-of-diagnostic-usage-data-collection-for-version-1602-of-system-center-configuration-manager"></a>Niveaus van diagnostische gebruiksgegevens verzamelen van gegevens voor versie 1602 van System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-System Center Configuration Manager version 1602 collecte trois niveaux de données d’utilisation et de diagnostic : **De base**, **Étendu** et **Complet**. Par défaut, cette fonctionnalité est définie sur le niveau Étendu. Les sections suivantes fournissent des détails supplémentaires sur les données collectées à chaque niveau.
+System Center Configuration Manager versie 1602 verzamelt drie niveaus van diagnostische gegevens en gebruiksgegevens: **Basic**, **verbeterde**, en **volledige**. Deze functie is standaard ingesteld op het niveau Uitgebreid. De volgende secties bieden aanvullende details over de gegevens die elk niveau worden verzameld.
 
-Les modifications par rapport aux versions précédentes sont indiquées par ***[Nouveau]*** ou ***[Mis à jour]***.
+Wijzigingen van vorige versies worden vermeld met ***[Nieuw]*** of ***[bijgewerkt]***.
 
 > [!IMPORTANT]
->  Configuration Manager ne collecte pas les codes de sites, noms de sites, adresses IP, noms d’utilisateur ou d’ordinateur, adresses physiques ni adresses e-mail aux niveaux De base et Étendu. Toute collecte de ces informations au niveau Complet n’est pas intentionnelle : elles peuvent être incluses dans des informations de diagnostic avancées comme des fichiers journaux ou des instantanés de la mémoire. Microsoft n’utilisera pas ces informations pour vous identifier ou vous contacter, ni à des fins publicitaires.
+>  Configuration Manager verzamelt geen sitecodes, namen van sites, IP-adressen, gebruikersnamen, computernamen, fysieke adressen of e-mailadressen op het niveau basis of uitgebreid. Een verzameling van deze informatie op het niveau volledig is niet doelgericht, dat wil zeggen, mogelijk opgenomen in de geavanceerde diagnostische gegevens, zoals logboekbestanden of momentopnamen van het geheugen. Microsoft gebruikt deze gegevens niet voor u te identificeren, contact met u of reclame ontwikkelen.
 
-##  <a name="bkmk_change"></a> Modification du niveau
- Les administrateurs qui disposent d’une étendue administrative basée sur des rôles incluant les autorisations **Modification** sur la classe d’objets **Site** peuvent modifier le niveau des données collectées dans les paramètres des données de diagnostic et d’utilisation de la console Configuration Manager.
+##  <a name="bkmk_change"></a> Niveau wijzigen
+ Beheerders met een op rollen gebaseerd administratief bereik dat omvat **wijzigen** machtigingen voor de **Site** objectklasse het niveau van de verzamelde gegevens in de instellingen voor diagnostische gegevens en gebruiksgegevens in de Configuration Manager-console kunt wijzigen.
 
 
-  Pour cela, dans la console, accédez à l’onglet Backstage (onglet supérieur gauche avec flèche déroulante), sélectionnez **Données d’utilisation**, puis le niveau de données à utiliser.  
+  Hiertoe klikt u in de console, Ga naar het backstage-tabblad (de tab linksboven met de vervolgkeuzepijl), selecteer **gebruiksgegevens**, en selecteer vervolgens het niveau van de gegevens die u wilt gebruiken.  
 
-##  <a name="bkmk_level1"></a> Niveau 1 - De base
- Le niveau De base comprend les données relatives à votre hiérarchie, qui sont nécessaires pour aider à améliorer votre expérience d’installation ou de mise à niveau, ainsi que des données pour aider à identifier les mises à jour Configuration Manager qui s’appliquent à votre hiérarchie.
+##  <a name="bkmk_level1"></a> Niveau 1 - Basis
+ Het niveau basis omvat gegevens over uw hiërarchie, de gegevens die vereist zijn om u te helpen verbeteren van de installatie of upgrade-ervaring en gegevens die u helpt te bepalen van de Configuration Manager-updates die van toepassing zijn op uw hiërarchie.
 
- À compter de System Center Configuration Manager version 1602, ce niveau inclut les éléments suivants :
+ U begint met System Center Configuration Manager versie 1602, omvat dit niveau het volgende:
 
 
- -   Informations d’installation :
-    - Build, type d’installation, modules linguistiques, fonctionnalités que vous avez activées  
+ -   Installatie-informatie:
+    - Bouwen, installeert u type, taalpakketten, functies die u hebt ingeschakeld  
 
-    - ***[Mis à jour]*** État et erreurs du déploiement du package de mise à jour, progression du téléchargement, et erreurs au niveau des conditions préalables     
+    - ***[Bijgewerkt] *** Pack Implementatiestatus en fouten, download uitgevoerd en fouten in de vereisten bijwerken     
 
-    - ***[Nouveau]*** Version du script après mise à niveau
+    - ***[Nieuw] *** Versie van na de upgrade-script
 
-    - ***[Nouveau]*** Utilisation de l’anneau rapide de mise à jour
+    - ***[Nieuw] *** Gebruik van de update snelle-ring
 
--   Métriques de performances de base de données (informations sur le traitement de la réplication, procédures stockées SQL Server les plus utilisées par processeur et utilisation des disques)
+-   Databaseprestatiegegevens (replicatie verwerken van gegevens, bovenste procedures voor het SQL Server opgeslagen door de processor en het schijfgebruik)
 
--   Configuration de base de données simple (processeurs, configuration du cluster et configuration des vues distribuées)
+-   Elementaire databaseconfiguratie (processors, clusterconfiguratie en configuratie van gedistribueerde weergaven)
 
--   Schéma de base de données Configuration Manager (hachage de toutes les définitions d’objet)
+-   Configuration Manager-databaseschema (hash van alle objectdefinities)
 
--   Nombre de versions du client Configuration Manager et de versions du système d’exploitation
+-   Telling van Configuration Manager-clientversies en besturingssysteemversies
 
--   Nombre de systèmes d’exploitation des appareils gérés et stratégies définies par le connecteur Exchange
+-   Telling van besturingssystemen voor beheerde apparaten en beleidsregels die zijn ingesteld door de Exchange-Connector
 
--   Nombre de paramètres régionaux et de langues du client
+-   Aantal clienttalen en landinstellingen
 
--   Nombre d’appareils Windows 10 par branche et build
+-   Aantal Windows 10-apparaten per branch en build
 
--   Données de la hiérarchie des sites Configuration Manager de base (liste des sites, type, version, état, nombre de clients et fuseau horaire)
+-   Configuration Manager site hiërarchie basisgegevens (sitelijst, type, versie, status, aantal clients en tijdzone)
 
--   Informations de serveur de système de site de base (rôles de système de site utilisés, état SSL et Internet, système d’exploitation, processeurs, ordinateur physique ou machine virtuelle)
+-   Basic serverinformatie sitesysteem (gebruikte sitesysteemrollen, Internet- en SSL-status, besturingssysteem, processors, en fysieke of virtuele machine)
 
--   Statistiques de découverte d’utilisateurs de base (nombre de découvertes d’utilisateurs et tailles minimale/maximale/moyenne de groupe)
+-   Elementaire statistieken over gebruikersdetectie (gebruiker detectie telling en het minimale/maximale/gemiddelde groepsgrootten)
 
--   Informations Endpoint Protection de base (versions du client de logiciel anti-programme malveillant)
+-   Elementaire informatie over Endpoint protection (antimalwareclients)
 
--   Nombres de types d’application et de déploiement de base (nombre total d’applications, nombre total d’applications avec plusieurs types de déploiement, nombre total d’applications avec des dépendances, nombre total d’applications remplacées, nombre de technologies de déploiement en cours d’utilisation)
+-   Het type standaard toepassing en implementatietype telt (totaalaantal apps, totaalaantal apps met meerdere implementatietypen, totaalaantal apps met afhankelijkheden, totaalaantal vervangen apps en het aantal implementatietechnologieën dat in gebruik)
 
--   Nombre de déploiements de systèmes d’exploitation de base (images)
+-   Basic-besturingssysteem-implementatie (OSD) telt (installatiekopieën)
 
--   Types de point de distribution et de point de gestion, et informations de configuration de base (protégés, préparés, PXE, de multidiffusion, d’état SSL, points de distribution pairs/d’extraction, compatibles MDM, compatibles SSL, etc.)
+-   Distributiepunt- en beheerpunttypen en basisinformatie over de configuratie (beveiligd, voorbereid, PXE, multicast, SSL-status, pull/peer-distributiepunten, MDM-functionaliteit, SSL is ingeschakeld, enz.)
 
--   Statistiques de télémétrie (à l’exécution, runtime et erreurs)
+-   Telemetriestatistieken (wanneer uitgevoerd, runtime en fouten)
 
-- ***[Nouveau]*** Niveau de télémétrie configuré, mode (en ligne ou hors connexion) et configuration de la mise à jour rapide
+- ***[Nieuw] *** Geconfigureerd telemetrie niveau, modus (online of offline) en snelle update-configuratie
 
-- ***[Nouveau]*** Utilisation de la découverte du réseau (activée ou désactivée)
-- ***[Nouveau]*** Console d’administration :
+- ***[Nieuw] *** Gebruik van netwerkdetectie (ingeschakeld of uitgeschakeld)
+- ***[Nieuw] *** -Beheerconsole:
 
-    -  Statistiques sur les connexions de la console (version, langue, SKU et architecture du système d’exploitation, mémoire système, nombre de processeurs logiques, ID du site de connexion, versions .NET installées et modules linguistiques de la console)
+    -  Statistieken over consoleverbindingen (opeating besturingssysteemversie, taal, SKU en architectuur, het systeemgeheugen aantal logische processors, site-ID, de geïnstalleerde versies van .NET en taalpakketten console verbinden)
 
-##  <a name="bkmk_level2"></a> Niveau 2 – Étendu
-Le niveau Étendu est configuré par défaut après l’installation. Ce niveau comprend les données collectées au niveau De base, ainsi que les données propres aux fonctionnalités (fréquence et durée d’utilisation), les paramètres du client Configuration Manager (nom du composant, état et paramètres tels que les intervalles d’interrogation) et les informations de base sur les mises à jour logicielles.
+##  <a name="bkmk_level2"></a> Niveau 2 - Uitgebreid
+Het niveau uitgebreid is de standaardinstelling nadat setup is voltooid. Dit niveau bevat gegevens die worden verzameld in het niveau basis, onderdeelspecifieke gegevens (frequentie en duur van gebruik), Configuration Manager-clientinstellingen (onderdeelnaam, status en bepaalde instellingen zoals polling-intervallen) en basisgegevens over software-updates.
 
-Ce niveau est recommandé, car il fournit à Microsoft les données minimales requises pour apporter des améliorations utiles dans les futures versions des produits et services. Ce niveau ne collecte pas les noms des objets (sites, utilisateurs, ordinateur ou objets), les informations sur les objets relatifs à la sécurité ni les vulnérabilités telles que le nombre de systèmes qui nécessitent des mises à jour logicielles.
+Dit niveau wordt aanbevolen omdat u Microsoft de minimumhoeveelheid gegevens die vereist zijn biedt om nuttige verbeteringen in toekomstige versies van producten en services. Dit niveau niet verzamelen objectnamen (sites, gebruikers, computer of objecten), details over beveiliging gerelateerde objecten of over beveiligingsproblemen zoals het aantal systemen waarvoor software-updates.
 
-À compter de System Center Configuration Manager version 1602, ce niveau inclut les éléments suivants :
+U begint met System Center Configuration Manager versie 1602, omvat dit niveau het volgende:
 
--   **Gestion des applications :**
+-   **Toepassingsbeheer:**
 
-  -   ***[Mis à jour]*** Informations de base d’utilisation/de ciblage pour les types de déploiement utilisés au sein de l’organisation (ciblé utilisateur ou appareil, nécessaire ou disponible et applications universelles)  
+  -   ***[Bijgewerkt] *** Over basic gebruik/targeting voor implementatietypen die worden gebruikt binnen de organisatie (gebruiker versus apparaat, vereist versus beschikbaar en universele apps)  
 
-  -  ***[Mis à jour]*** Informations de déploiement d’application (installation/désinstallation, approbation requise, interaction utilisateur activée/désactivée, dépendance et remplacement)  
+  -  ***[Bijgewerkt] *** Informatie over de implementatie van de toepassing (installeren/verwijderen, vereist goedkeuring, gebruikersinteractie ingeschakeld/uitgeschakeld, afhankelijkheid en vervangingsimplementatie)  
 
-  -   Statistiques de demande d’application disponibles  
+  -   Statistieken over beschikbare toepassingsaanvragen  
 
-  -   Nombre de packages par type  
+  -   Aantal pakketten per type  
 
-  -   Nombre d’applicabilités de l’application par système d’exploitation  
+  -   Aantal van toepassing zijnde toepassingen per besturingssysteem  
 
-  -   Nombre de déploiements de package/programme  
+  -   Aantal pakket/programma-implementaties  
 
-  -   Nombre d’environnements App-V et propriétés de déploiement  
+  -   Aantal App-V-omgevingen en implementatie-eigenschappen  
 
-  -   Nombre de licences d’application Windows 10 concédées  
+  -   Aantal toepassingen met een Windows 10-licentie  
 
-  -   ***[Mis à jour]*** Nombre minimal/maximal/moyen de déploiements d’applications par utilisateur/appareil par période
+  -   ***[Bijgewerkt] *** Minimaal/maximaal/gemiddeld aantal toepassingsimplementaties per gebruiker/apparaat gedurende een periode
 
-  -   Type et durée de fenêtre de maintenance  
+  -   Type onderhoudsvenster en duur  
 
-  -  ***[Nouveau]*** Statistiques de taille et de complexité des stratégies d’applications
+  -  ***[Nieuw] *** Beleid omvang en complexiteit statistieken
 
--   **Client :**
+-   **Client:**
 
-    -   Liste/nombre d’agents clients activés
+    -   Lijst met en aantal ingeschakelde clientagents
 
-    -   Nombre d’installations de client à partir de chaque type d’emplacement source
+    -   Aantal clientinstallaties vanaf elk bronlocatietype
 
-    -   Nombre d’échecs d’installation de client
+    -   Aantal mislukte clientinstallaties
 
--   **Paramètres de compatibilité :**
+-   **Compatibiliteitsinstellingen:**
 
-    -   Nombre d’éléments de configuration par type
+    -   Aantal configuratie-items per type
 
-    -   Informations de la ligne de base de configuration de base (nombre, nombre de déploiements et nombre de références)
+    -   Basislijninformatie over basisconfiguratie (aantal, aantal implementaties en aantal verwijzingen)
 
-    -   Nombre de déploiements qui font référence à des paramètres intégrés (la valeur du paramètre n’est pas capturée)
+    -   Aantal implementaties die verwijzen naar ingebouwde instellingen (waarde van de instelling wordt niet vastgelegd)
 
-    -   Nombre de règles et de déploiements qui sont créés pour les paramètres personnalisés
+    -   Aantal regels en implementaties die zijn gemaakt voor de aangepaste instellingen
 
-    -   ***[Mis à jour]*** Nombre de modèles Simple Certificate Enrollment Protocol, VPN, Wi-Fi, de certificat (.pfx) et de stratégie de conformité déployés   
+    -   ***[Bijgewerkt] *** Aantal geïmplementeerde sjablonen voor Simple Certificate Enrollment Protocol, VPN, Wi-Fi-, certificaat (.pfx) en nalevingsbeleid   
 
-    -  ***[Nouveau]*** Nombre de déploiements de certificat Simple Certificate Enrollment Protocol (SCEP), VPN, Wi-Fi, certificat (.pfx) et stratégie de conformité par plateforme
+    -  ***[Nieuw] *** Telling van Simple Certificate Enrollment Protocol (SCEP)-certificaat, VPN, Wi-Fi, certificaat (.pfx) en nalevingsbeleid implementaties per platform
 
--   **Contenu :**
+-   **Inhoud:**
 
-    -   Nombre de limites par type
+    -   Aantal grenzen per type
 
-    -   Informations sur les groupes de limites (nombre de limites et de systèmes de site qui sont attribués à chaque groupe de limites)
+    -   Informatie over de grensgroep (aantal grenzen en sitesystemen die zijn toegewezen aan elke grensgroep)
 
-    -   Informations sur les groupes de points de distribution (nombre de packages et de points de distribution qui sont attribués à chaque groupe de points de distribution)
+    -   Informatie over punt distributie (aantal pakketten en distributiepunten die zijn toegewezen aan elke distributiepuntengroep)
 
-    -   Informations sur la configuration des points de distribution (utilisation de BranchCache et surveillance des points de distribution)
+    -   Distribution point configuratiegegevens (gebruik van vertakkingscache en bewaking van distribution point)
 
-    -   Informations sur la configuration du gestionnaire de distribution (threads, délai de nouvelle tentative, nombre de nouvelles tentatives et paramètres de point de distribution d’extraction)
+    -   Distribution Manager configuratie-informatie (threads, vertraging, aantal nieuwe pogingen, en pull-distributiepuntinstellingen)
 
--   **Endpoint Protection :**
+-   **Endpoint Protection:**
 
-    -   Utilisation des stratégies du Pare-feu Windows et de logiciel anti-programme malveillant Endpoint Protection (nombre de stratégies uniques attribuées au groupe)<br /><br />Cela ne comprend pas les informations sur les paramètres inclus dans la stratégie.
+    -   Endpoint Protection tegen schadelijke software en het gebruik van Windows Firewall-beleid (aantal unieke beleidsregels die zijn toegewezen aan de groep)<br /><br />Dit omvat geen informatie over de instellingen die zijn opgenomen in het beleid.
 
-    -   Erreurs de déploiement Endpoint Protection (nombre de codes d’erreur de déploiement de stratégie Endpoint Protection)
+    -   Endpoint Protection-implementatiefouten (aantal foutcodes voor Endpoint Protection-beleid)
 
-    -   Nombre de regroupements sélectionnés pour être affichés dans le tableau de bord Endpoint Protection
+    -   Aantal verzamelingen die zijn geselecteerd worden weergegeven in de endpoint protection-dashboard
 
-    -   Nombre d’alertes configurées pour la fonctionnalité Endpoint Protection
+    -   Aantal waarschuwingen die zijn geconfigureerd voor de functie Endpoint Protection
 
--   **Gestion des applications mobiles (MAM) :**
+-   **Mobile Application Management (MAM):**
 
-    -   Nombre d’applications métier et d’applications Office compatibles GAM, et stratégies par système d’exploitation
+    -   Aantal MAM geschikte Office-toepassingen, line-of-business-toepassingen en -beleid door het besturingssysteem
 
-    -   Nombre de déploiements de stratégie/application MAM
+    -   Aantal MAM-toepassings/beleidsimplementaties
 
-    -   Nombre de règles créées par paramètre GAM
+    -   Aantal regels dat per MAM-instelling worden gemaakt
 
--   **Gestion des appareils mobiles (MDM) :**
+-   **Mobile Device Management (MDM):**
 
-    -   Nombre de commandes (verrouiller, réinitialiser, mettre hors service) d’actions d’appareil mobile émises
+    -   Aantal uitgegeven acties voor mobiele apparaten: vergrendelen, pincode plaatst, wissen en buiten gebruik stellen opdrachten
 
-    -   Nombre d’appareils mobiles gérés par Configuration Manager et Microsoft Intune, et méthode d’inscription (en bloc ou basée sur l’utilisateur)
+    -   Telling van mobiele apparaten die worden beheerd door Configuration Manager en Microsoft Intune en hoe ze zijn geregistreerd (massaal of op basis van gebruikers)
 
-    -   Statistiques et calendrier d’interrogation des appareils mobiles pour la vérification dans la durée des appareils mobiles
+    -   Mobiele apparaten polling-planning en statistieken voor de duur van inchecken mobiele apparaten
 
-    -   Nombre de stratégies d’appareil mobile
+    -   Aantal beleidsregels voor mobiele apparaten
 
-    -   Nombre d’utilisateurs qui ont plusieurs appareils mobiles inscrits
+    -   Telling van gebruikers met meerdere ingeschreven mobiele apparaten
 
--   **Dépannage de Microsoft Intune :**
+-   **Microsoft Intune voor probleemoplossing:**
 
-    -   Nombre et taille des messages d’état, de statut, d’inventaire, RDR, DDR, UDX, d’état de locataire, POL, LOG, de certificat, CRP, de resynchronisation, CFD, RDO, BEX, ISM et de conformité qui sont téléchargés à partir de Microsoft Intune
+    -   Aantal en grootte van status, status, inventaris, RDR, DDR, UDX, Tenant staat, POL, LOG, Cert, CRP, Resync, CFD, RDO, BEX, ISM en naleving berichten die worden gedownload van Microsoft Intune
 
-    -   Nombre et taille des messages d’actions d’appareil (réinitialiser, mettre hors service, verrouiller), de télémétrie et de données qui sont répliqués vers Microsoft Intune
+    -   Aantal en grootte van apparaatacties (wissen, buiten gebruik stellen, vergrendelen), Telemetrie en gegevensberichten die zijn gerepliceerd naar Microsoft Intune
 
-    -   Statistiques de synchronisation utilisateur complète et différentielle pour Microsoft Intune
+    -   Volledige statistieken en deltastatistieken over Gebruikerssynchronisatie voor Microsoft Intune
 
--   **Gestion des appareils mobiles (MDM) locale :**
+-   **Lokaal Mobile Device Management (MDM)**
 
-    -   Statistiques de réussite/échec de déploiement pour les déploiements d’applications de gestion MDM locale
+    -   Statistieken over geslaagde/mislukte lokale MDM-toepassingsimplementaties
 
-    -   Nombre de profils et de packages d’inscription en bloc Windows 10
+    -   Aantal Windows 10-bulkregistratiepakketten en -profielen
 
--   **Déploiement du système d’exploitation :**
+-   **Implementatie van besturingssysteem:**
 
-    -   Nombre d’images de démarrage, de pilotes, de packages de pilotes, de points de distribution en multidiffusion, de points de distribution compatibles PXE et de séquences de tâches
+    -   Aantal opstartinstallatiekopieën, stuurprogramma's, stuurprogrammapakketten, distributiepunten met ingeschakelde multicast, distributiepunten voor PXE-functionaliteit en takenreeksen
 
--   **Mises à jour logicielles :**
+-   **Software-updates:**
 
-    -   Nombre total/moyen de regroupements comportant des déploiements de mises à jour logicielles et nombre maximal/moyen de mises à jour déployées
+    -   Totaalaantal/gemiddeld aantal verzamelingen met software-update-implementaties en het maximale/gemiddelde aantal geïmplementeerde updates
 
-    -   Nombre de règles de déploiement automatique qui sont liées à la synchronisation
+    -   Aantal regels voor automatische implementatie die zijn gekoppeld aan synchronisatie
 
-    -   Nombre de règles de déploiement automatique qui créent de nouvelles mises à jour ou ajoutent des mises à jour à un groupe existant
+    -   Aantal regels voor automatische implementatie waarmee nieuwe updates worden gemaakt of waarmee updates worden toegevoegd aan een bestaande groep
 
-    -   Différentiels de disponibilité et d’échéance qui sont utilisés dans les règles de déploiement automatique
+    -   Beschikbaar- en deadlinedelta's die worden gebruikt in regels voor automatische implementatie
 
-    -   Nombre moyen et maximal d’attributions par mise à jour
+    -   Gemiddeld en maximumaantal toewijzingen per update
 
-    -   Nombre de mises à jour créées et déployées avec System Center Update Publisher
+    -   Telling van updates die zijn gemaakt en geïmplementeerd met System Center Update Publisher
 
-    -   Nombre de groupes et d’attributions de mises à jour
+    -   Aantal updategroepen en toewijzingen
 
-    -   Nombre de packages de mises à jour et nombre maximal/minimal/moyen de points de distribution qui sont ciblés par les packages
+    -   Aantal updatepakketten en de minimale/maximale/gemiddelde aantal distributiepunten die zijn gericht aan pakketten
 
-    -   Nombre de groupes de mises à jour et nombre minimal/maximal/moyen de mises à jour par groupe
+    -   Aantal updategroepen en minimaal/maximaal/gemiddeld aantal updates per groep
 
-    -   Nombre de mises à jour et pourcentage de mises à jour qui sont déployées, expirées, remplacées, téléchargées et qui contiennent des CLUF
+    -   Aantal updates en het percentage van de updates die zijn geïmplementeerd, verlopen, vervangen, gedownload en bevatten of een gebruiksrechtovereenkomst
 
-    -   Codes d’erreur d’analyse des mises à jour et nombre d’ordinateurs
+    -   Foutcodes voor updatescans en het aantal computers
 
-    -   Calendriers d’analyse et d’évaluation des mises à jour client
+    -   Evaluatie van client-updates en scanplanningen
 
-    -   Planification de la synchronisation du point de mise à jour logicielle
+    -   Synchronisatieplanning voor software-updatepunten
 
-    -   Nombre de règles de déploiement automatique avec plusieurs déploiements
+    -   Aantal regels voor automatische implementatie met meerdere implementaties
 
-    -   Configurations qui sont utilisées pour les plans de maintenance actifs de Windows 10
+    -   Configuraties die worden gebruikt voor actieve Windows 10-onderhoudsplannen
 
-    -   Versions de contenu du tableau de bord Windows 10
+    -   Versies van Windows 10-dashboardinhoud
 
-    -   Nombre de clients Windows 10 qui utilisent Windows Update for Business
+    -   Aantal Windows 10-clients die gebruikmaken van Windows Update voor bedrijven
 
-    -   Statistiques d’application de correctifs logiciels au cluster
+    -   Statistieken over clusterpatching
 
-    -   Nombre de mises à jour Office 365 déployées
+    -   Aantal geïmplementeerde Office 365-updates
 
-    -   ***[Nouveau]*** Classifications qui sont synchronisées par le point de mise à jour logicielle
+    -   ***[Nieuw] *** Classificaties die worden gesynchroniseerd met de Software-updatepunt
 
--   **Données de performances/SQL :**
+-   **SQL/prestatiegegevens:**
 
-    -   Nombre des plus grandes tables de base de données
+    -   Aantal van de grootste databasetabellen
 
-    -   Informations sur les réplicas SQL Always-On
+    -   Informatie over SQL Always-On-replica
 
-    -   Nombre de regroupements par type
+    -   Aantal verzamelingen per type
 
-    -   ***[Mis à jour]*** Statistiques d’évaluation des regroupements (temps de requête, nombre de regroupements attribués et non attribués, nombres par type, substitution d’ID et utilisation des règles)
+    -   ***[Bijgewerkt] *** Verzameling evaluatie-statistieken (query tijd, toegewezen en niet-toegewezen aantallen geteld met type, de overschakeling van de ID en het gebruik van de regel)
 
-    - ***[Nouveau]*** Période de rétention du suivi des modifications SQL
+    - ***[Nieuw] *** Bewaarperiode voor bijhouden van SQL
 
--   ***[Nouveau]*** Mises à jour du site
+-   ***[Nieuw] Site is bijgewerkt:***
 
-    - ***[Nouveau]*** Versions des correctifs logiciels Configuration Manager installés
+    - ***[Nieuw] *** Versies van geïnstalleerde hotfixes voor Configuration Manager
 
-##  <a name="bkmk_level3"></a> Niveau 3 – Complet
-Le niveau Complet inclut toutes les données des niveaux De base et Étendu. Il inclut également des informations supplémentaires sur Endpoint Protection, les pourcentages de compatibilité des mises à jour et les informations de mise à jour logicielle. Ce niveau peut également inclure des informations de diagnostic avancées telles que des fichiers système et des instantanés de la mémoire, qui peuvent inclure des informations personnelles qui existaient dans la mémoire ou les fichiers journaux au moment de la capture.
+##  <a name="bkmk_level3"></a> Niveau 3 - Volledig
+Het niveau volledig omvat alle gegevens in de niveaus basis en uitgebreid. Het omvat ook aanvullende informatie over Endpoint Protection, percentages van updatenaleving en informatie over software-updates. Dit niveau kan ook geavanceerde diagnostische gegevens, zoals systeembestanden en momentopnamen van het geheugen, die mogelijk persoonlijke gegevens bevatten die in het geheugen of logboekbestanden op het moment van vastleggen voorkomen bevatten.
 
-À compter de System Center Configuration Manager version 1602, ce niveau inclut les éléments suivants :
+U begint met System Center Configuration Manager versie 1602, omvat dit niveau het volgende:
 
--   Statistiques d’évaluation et d’actualisation des regroupements
+-   Evaluatie van verzamelingen en vernieuwingsstatistieken
 
--   Récapitulatif de l’intégrité Endpoint Protection (y compris le nombre de clients protégés, présentant un risque, inconnus et non pris en charge)
+-   Samenvatting van Endpoint Protection-status (waaronder het aantal beveiligde clients, risicoclients, onbekende clients en niet-ondersteunde clients)
 
--   Configuration de la stratégie Endpoint Protection
+-   Endpoint Protection-beleidsconfiguratie
 
--   Informations de déploiement de mise à jour logicielle (pourcentage de déploiements ciblés avec le client ou l’heure UTC, suppression du démarrage nécessaire, facultative ou en mode silencieux)
+-   Informatie over de implementatie van de software-update (percentage van implementaties dat met client versus UTC-tijd, vereist optioneel versus stil en opnieuw opstarten onderdrukken)
 
--   Compatibilité globale des déploiements de mise à jour logicielle
+-   Algemene naleving van software-update-implementaties
 
--   Informations sur le calendrier d’évaluation de règle de déploiement automatique
+-   Informatie over de evaluatieplanning voor regels voor automatische implementatie
 
--   Nombre de clients avec des stratégies de protection d’accès réseau
+-   Aantal clients dat beveiliging netwerktoegangsbeleid hebben
 
--   Nombres et codes d’erreur de déploiement de mise à jour logicielle
+-   Aantal fouten en foutcodes voor software-update-implementaties
 
--   Nombre minimal/maximal/moyen de clients inactifs dans les regroupements de déploiements de mise à jour logicielle
+-   Minimaal/maximaal/gemiddeld aantal inactieve clients in verzamelingen voor software-update-implementaties
 
--   Nombre de groupes avec des mises à jour logicielles expirées
+-   Telling van groepen die zijn verlopen software-updates
 
--   Nombre minimal/maximal/moyen de mises à jour logicielles par package
+-   Minimaal/maximaal/gemiddeld aantal software-updates per pakket
 
--   Pourcentages de réussite d’analyse des mises à jour logicielles
+-   Percentage van geslaagde software-updatescans
 
--   Nombre minimal/maximal/moyen d’heures depuis la dernière analyse des mises à jour logicielles
+-   Minimaal/maximaal/gemiddeld aantal uren sinds de vorige software-updatescan
 
--   ***[Nouveau]*** Produits des mises à jour logicielles synchronisés par le point de mise à jour logicielle
--   ***[Nouveau]*** Paramètres de compatibilité : détails de configuration des modèles SCEP, VPN, Wi-Fi et stratégie de conformité
+-   ***[Nieuw] *** Update softwareproducten gesynchroniseerd door Software-updatepunt
+-   ***[Nieuw] *** Instellingen voor naleving: SCEP-, VPN-, Wi-Fi- en nalevingsbeleid configuratiedetails voor sjabloon
 
--   ***[Nouveau]*** Type de stratégies d’accès conditionnel EAS (bloquer ou mettre en quarantaine) pour les périphériques gérés par Intune
+-   ***[Nieuw] *** Type van EAS beleidsregels voor voorwaardelijke toegang (blokkeren of in quarantaine) voor de Intune-beheerde apparaten

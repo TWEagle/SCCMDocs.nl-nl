@@ -1,6 +1,6 @@
 ---
-title: "Sécurité et confidentialité pour les rapports | Microsoft Docs"
-description: "Découvrez les bonnes pratiques de sécurité et de confidentialité lorsque vous utilisez les fonctionnalités de création de rapports dans Configuration Manager."
+title: Beveiliging en privacy voor rapportages | Microsoft Docs
+description: Begrijpen best practices voor beveiliging en privacy wanneer u van de rapportagefunctionaliteit in Configuration Manager gebruikmaakt.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,16 +17,16 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 50ef8b761533bfdd5e8d23abc7791beb4c7d0b11
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-reporting-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour les rapports dans System Center Configuration Manager
+# <a name="security-and-privacy-for-reporting-in-system-center-configuration-manager"></a>Beveiliging en privacy voor rapportage in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Cette rubrique contient les bonnes pratiques de sécurité et les informations de confidentialité pour la création de rapports dans System Center Configuration Manager.  
+Dit onderwerp bevat aanbevolen beveiligingsprocedures en privacy-informatie voor rapportage in System Center Configuration Manager.  
 
- Les rapports Configuration Manager affichent des informations recueillies lors d’opérations standard de gestion de Configuration Manager. Par exemple, vous pouvez afficher un rapport d'informations ayant été collectées à partir de la découverte ou de l'inventaire. Les rapports peuvent également contenir des informations sur l'état actuel pour les opérations de gestion de client, telles que le déploiement de logiciels et la vérification de la conformité.  
+ Configuration Manager-rapporten geven informatie weer die worden verzameld tijdens standaardbewerkingen voor Configuration Manager-beheer. U kunt bijvoorbeeld een rapport van informatie weergeven die werd verzameld vanuit detectie of inventaris. Rapporten kunnen ook de huidige statusinformatie bevatten voor clientbeheeroperaties, zoals implementeren van software en controleren op naleving.  
 
- Pour plus d’informations sur les bonnes pratiques de sécurité et les informations de confidentialité pour les opérations Configuration Manager susceptibles de générer des données pouvant être affichées dans des rapports, consultez [Bonnes pratiques de sécurité et informations de confidentialité de System Center Configuration Manager](../../plan-design/security/security-best-practices-and-privacy-information.md).  
+ Zie voor meer informatie over aanbevolen beveiligingsprocedures en privacy-informatie voor Configuration Manager-bewerkingen die kunnen gegevens genereren die kunnen worden weergegeven in rapporten [best practices voor beveiliging en privacy-informatie voor System Center Configuration Manager](../../plan-design/security/security-best-practices-and-privacy-information.md).  

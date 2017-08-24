@@ -1,6 +1,6 @@
 ---
-title: Planifier le fournisseur SMS | Microsoft Docs
-description: "Découvrez comment le fournisseur SMS vous permet de gérer System Center Configuration Manager."
+title: De SMS-Provider plannen | Microsoft Docs
+description: Meer informatie over hoe de SMS-Provider helpt u bij het beheren van System Center Configuration Manager.
 ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
@@ -16,186 +16,186 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 547dc39d5659c7c2e6f1ca670caddc127dbf22c4
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-the-sms-provider-for-system-center-configuration-manager"></a>Planifier le fournisseur SMS pour System Center Configuration Manager
+# <a name="plan-for-the-sms-provider-for-system-center-configuration-manager"></a>Plannen voor de SMS-provider voor System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Pour gérer System Center Configuration Manager, vous devez utiliser une console Configuration Manager qui se connecte à une instance du **fournisseur SMS**. Par défaut, un fournisseur SMS est installé sur le serveur de site durant l’installation d’un site d’administration centrale ou d’un site principal. 
-
-
-##  <a name="BKMK_PlanSMSProv"></a> À propos du fournisseur SMS  
- Le fournisseur SMS est un fournisseur WMI (Windows Management Instrumentation) qui affecte un accès en **lecture** et en **écriture** à la base de données Configuration Manager d’un site :  
-
--   Chaque site d’administration centrale et site principal doit posséder au moins un fournisseur SMS. Vous pouvez installer d’autres fournisseurs en fonction des besoins.  
--   Le groupe de sécurité **Administrateurs SMS** fournit l’accès au fournisseur SMS. Configuration Manager crée automatiquement ce groupe sur le serveur de site et sur chaque ordinateur sur lequel vous installez une instance du fournisseur SMS.  
-
--   Les sites secondaires ne prennent pas en charge le fournisseur SMS.  
+Voor het beheren van System Center Configuration Manager, gebruikt u een Configuration Manager-console die verbinding met een exemplaar van maakt de **SMS-Provider**. Standaard een SMS-Provider wordt geïnstalleerd op de siteserver wanneer u een centrale beheersite of primaire site installeert. 
 
 
-Les utilisateurs administratifs de Configuration Manager utilisent un fournisseur SMS pour accéder aux informations stockées dans la base de données. Pour ce faire, les administrateurs peuvent utiliser la console Configuration Manager, l’Explorateur de ressources, des outils et des scripts personnalisés. Le fournisseur SMS n’interagit pas avec les clients Configuration Manager. Quand une console Configuration Manager se connecte à un site, la console Configuration Manager interroge le service WMI sur le serveur de site pour localiser une instance du fournisseur SMS à utiliser.  
+##  <a name="BKMK_PlanSMSProv"></a> Over de SMS-provider  
+ De SMS-Provider is een Windows Management Instrumentation (WMI)-provider die wordt toegewezen **lezen** en **schrijven** toegang tot de Configuration Manager-database op een site:  
 
- Le fournisseur SMS contribue à l’application de la sécurité de Configuration Manager. Il retourne uniquement les informations que l’utilisateur administratif qui exécute la console Configuration Manager est autorisé à afficher.  
+-   Elke centrale beheersite of primaire site moet ten minste één SMS-provider bevatten. U kunt indien nodig aanvullende providers installeren.  
+-   De **SMS Admins** beveiligingsgroep biedt toegang tot de SMS-Provider. Deze groep Configuration Manager automatisch gemaakt op de siteserver en op elke computer waarop u een exemplaar van de SMS-Provider installeert.  
+
+-   Secundaire sites bieden geen ondersteuning voor de SMS-provider.  
+
+
+Gebruikers met beheerdersrechten Configuration Manager gebruiken voor toegang tot informatie die is opgeslagen in de database een SMS-Provider. Om dit te doen, kunnen beheerders de Configuration Manager-console, Resourceverkenner, hulpprogramma's en aangepaste scripts gebruiken. De SMS-Provider communiceert niet met Configuration Manager-clients. Wanneer een Configuration Manager-console verbinding met een site maakt, wordt in de Configuration Manager-console WMI zoekt op de siteserver om te bepalen welke instantie van de SMS-Provider te gebruiken.  
+
+ De SMS-Provider helpt Configuration Manager-beveiliging afdwingen. De methode retourneert alleen de informatie die de gebruiker met beheerdersrechten die de Configuration Manager-console wordt uitgevoerd is gemachtigd om te bekijken.  
 
 > [!IMPORTANT]  
->  Quand chaque ordinateur qui héberge un fournisseur SMS pour un site est hors connexion, les consoles Configuration Manager ne peuvent pas se connecter à la base de données de ce site.  
+>  Wanneer iedere computer met een SMS-Provider voor een site offline is, wordt Configuration Manager-consoles kunnen geen verbinding met de database van die site.  
 
- Pour plus d’informations sur la façon de gérer le fournisseur SMS, consultez [Gérer le fournisseur SMS](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ManageSMSprovider) dans [Modifier votre infrastructure System Center Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md).  
+ Voor meer informatie over het beheren van de SMS-provider, zie [De SMS-provider beheren](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ManageSMSprovider) [Uw infrastructuur van System Center Configuration Manager aanpassen](../../../core/servers/manage/modify-your-infrastructure.md).  
 
-## <a name="prerequisites-to-install-the-sms-provider"></a>Prérequis à l’installation du fournisseur SMS  
+## <a name="prerequisites-to-install-the-sms-provider"></a>Vereisten voor het installeren van de SMS-Provider  
 
- Pour prendre en charge le fournisseur SMS :  
+ De SMS-provider ondersteunen:  
 
--   L’ordinateur doit être dans un domaine qui entretient une relation d’approbation bidirectionnelle avec le serveur de site et les systèmes de site de base de données du site.  
+-   De computer moet zich in een domein met een tweerichtingsvertrouwensrelatie heeft met de siteserver en de sitedatabasesystemen.  
 
--   L'ordinateur ne peut pas disposer d'un rôle de système de site à partir d'un autre site.  
+-   De computer mag geen sitesysteemrol van een andere site gebruiken.  
 
--   L'ordinateur ne peut pas disposer d'un fournisseur SMS à partir de n'importe quel site.  
+-   De computer mag geen SMS-provider van een willekeurige site gebruiken.  
 
--   L'ordinateur doit exécuter un système d'exploitation pris en charge pour un serveur de site.  
+-   Op de computer moet een besturingssysteem worden uitgevoerd dat wordt ondersteund voor een siteserver.  
 
--   L’ordinateur doit disposer d’au moins 650 Mo d’espace disque libre pour prendre en charge les composants du kit de déploiement automatisé Windows (Windows ADK) qui sont installés avec le fournisseur SMS. Pour plus d’informations sur le kit Windows ADK et sur le fournisseur SMS, consultez [Configuration de déploiement de système d’exploitation requise pour le fournisseur SMS](#BKMK_WAIKforSMSProv) dans cette rubrique.  
+-   De computer moet ten minste 650 MB aan vrije schijfruimte voor de Windows Automated Deployment Kit (Windows ADK)-onderdelen die zijn geïnstalleerd met de SMS-Provider hebben. Zie de sectie [Windows Automated Installation Kit-vereisten voor de SMS-provider](#BKMK_WAIKforSMSProv) in dit onderwerp voor meer informatie over Windows AIK en de SMS-provider.  
 
-##  <a name="bkmk_location"></a> Emplacements des fournisseurs SMS  
- Quand vous installez un site, le premier fournisseur SMS du site est installé automatiquement. Vous pouvez spécifier l'un des emplacements suivants pris en charge pour le fournisseur SMS :  
+##  <a name="bkmk_location"></a> Locaties van de SMS-provider  
+ Als u een site installeert, installeert u automatisch de eerste SMS-Provider voor de site. U kunt elk van de volgende ondersteunde locaties opgeven voor de SMS-provider:  
 
--   L'ordinateur de serveur de site  
+-   De siteservercomputer  
 
--   L'ordinateur de base de données du site  
+-   De sitedatabasecomputer  
 
--   Un ordinateur de classe serveur qui ne possède pas de fournisseur SMS, ou un rôle de système de site à partir d'un autre site  
-
-
-Pour afficher les emplacements de chaque fournisseur SMS installé sur un site, sélectionnez l’onglet **Général** de la boîte de dialogue **Propriétés** du site.  
-
- Chaque fournisseur SMS prend en charge des connexions simultanées à partir de plusieurs demandes. Les seules limites sur ces connexions sont le nombre de connexions au serveur qui sont disponibles sur l'ordinateur du fournisseur SMS et les ressources disponibles sur l'ordinateur du fournisseur SMS pour répondre aux demandes de connexion.  
-
- Après avoir installé un site, vous pouvez procéder à nouveau à l'installation sur le serveur de site pour modifier l'emplacement d'un fournisseur SMS existant ou pour installer d'autres fournisseurs SMS sur ce site. Vous pouvez installer un seul fournisseur SMS sur un ordinateur et un ordinateur ne peut pas installer un fournisseur SMS à partir de plusieurs sites.  
-
- Utilisez la section suivante pour identifier les avantages et inconvénients liés à l’installation d’un fournisseur SMS sur chaque emplacement pris en charge :  
-
- **Serveur de site Configuration Manager**  
-
--   **Avantages :**  
-
-    -   Le fournisseur SMS n'utilise pas les ressources système de l'ordinateur de base de données du site.  
-
-    -   Cet emplacement peut fournir de meilleures performances qu'un fournisseur SMS situé sur un ordinateur autre que le serveur de site ou l'ordinateur de base de données du site.  
-
--   **Inconvénients :**  
-
-    -   Le fournisseur SMS utilise des ressources réseau et système qui pourraient être dédiées aux opérations du serveur de site.  
+-   Een servercomputer waarop geen SMS-Provider of een sitesysteemrol van een andere site  
 
 
-**SQL Server qui héberge la base de données du site**  
+Als u wilt weergeven in de locaties van elke SMS-Provider die is geïnstalleerd op een site, selecteer de **algemene** tabblad van de site **eigenschappen** in het dialoogvenster.  
 
--   **Avantages :**  
+ Elke SMS-provider ondersteunt gelijktijdige verbindingen met betrekking tot meerdere aanvragen. De enige beperkingen met betrekking tot deze verbindingen zijn het aantal serververbindingen dat beschikbaar is op de SMS-providercomputer en de beschikbare bronnen op de SMS-providercomputer voor het afhandelen van de verbindingsaanvragen.  
 
-    -   Le fournisseur SMS n'utilise pas les ressources du système de site sur le serveur de site.  
+ Nadat de site is geïnstalleerd, kunt u Setup opnieuw uitvoeren op de siteserver om de locatie van een bestaande SMS-provider te wijzigen of om aanvullende SMS-providers te installeren voor de desbetreffende site. U kunt slechts één SMS-provider installeren op een computer en het is niet mogelijk om SMS-providers van meer dan één site op een computer te installeren.  
 
-    -   Parmi les trois emplacements, cet emplacement peut fournir les meilleures performances, si des ressources serveur suffisantes sont disponibles.  
+ Gebruik de volgende informatie om de voordelen en nadelen te identificeren van het installeren van een SMS-provider op elke ondersteunde locatie:  
 
--   **Inconvénients :**  
+ **Configuration Manager-siteserver**  
 
-    -   Le fournisseur SMS utilise des ressources réseau et système qui pourraient être dédiées aux opérations de la base de données de site.  
+-   **Voordelen:**  
 
-    -   Quand la base de données du site est hébergée sur une instance en cluster de SQL Server, vous ne pouvez pas utiliser cet emplacement.  
+    -   De SMS-provider gebruikt geen systeembronnen op de sitedatabasecomputer.  
 
+    -   Deze locatie is in staat om betere prestaties te bieden dan een SMS-provider op een andere computer dan de siteserver of sitedatabasecomputer.  
 
-**Ordinateur autre que le serveur de site ou l'ordinateur de base de données du site**  
+-   **Nadelen:**  
 
--   **Avantages :**  
-
-    -   Le fournisseur SMS n'utilise pas le serveur de site ou les ressources informatiques de base de données du site.  
-
-    -   Ce type d'emplacement vous permet de déployer d'autres fournisseurs SMS afin de fournir une haute disponibilité pour les connexions.  
-
--   **Inconvénients :**  
-
-    -   Les performances du fournisseur SMS peuvent être réduites en raison de l’augmentation de l’activité réseau nécessaire à sa coordination avec le serveur de site et l’ordinateur de base de données du site.  
-
-    -   L’ordinateur de la base de données du site et tous les ordinateurs sur lesquels la console Configuration Manager est installée doivent toujours pouvoir accéder à ce serveur.  
-
-    -   Cet emplacement peut utiliser les ressources système qui, dans le cas contraire, seraient dédiées à d'autres services.  
-
-##  <a name="BKMK_SMSProvLanguages"></a> À propos des langues du fournisseur SMS  
- Le fournisseur SMS fonctionne indépendamment de la langue d'affichage de l'ordinateur sur lequel il est installé.  
-
- Quand un utilisateur administratif ou un processus Configuration Manager sollicite des données à l’aide du fournisseur SMS, ce dernier tente de retourner les données dans un format correspondant à la langue du système d’exploitation de l’ordinateur émetteur de la requête.
-
-La méthode utilisée pour tenter de déterminer la langue est indirecte. Le fournisseur SMS ne traduit pas les informations d'une langue à l'autre. À la place, quand les données sont retournées pour être affichées dans la console Configuration Manager, leur langue d’affichage varie en fonction de la source de l’objet et du type de stockage.  
-
- Lorsque les données d'un objet sont stockées dans la base de données, les langues qui seront disponibles dépendent des éléments suivants :  
-
--   Les objets créés par Configuration Manager sont stockés dans la base de données via la prise en charge de plusieurs langues. L'objet est stocké à l'aide des langues qui sont configurées sur le site sur lequel l'objet est créé lorsque vous procédez à l'installation. Ces objets sont affichés dans la console Configuration Manager dans la langue d’affichage de l’ordinateur qui émet la requête, quand cette langue est disponible pour l’objet. Si l'objet ne peut pas être affiché dans la langue d'affichage de l'ordinateur qui émet la demande, il est affiché dans la langue par défaut, à savoir l'anglais.  
-
--   Les objets créés par un utilisateur administratif sont stockés dans la base de données à l'aide de la langue utilisée pour créer l'objet. Ces objets s’affichent dans la console Configuration Manager dans la même langue. Ils ne peuvent pas être traduits par le fournisseur SMS et ne possèdent pas plusieurs options de langue.  
-
-##  <a name="BKMK_MultiSMSProv"></a> Utiliser plusieurs fournisseurs SMS  
- Après l'installation d'un site, vous pouvez installer des fournisseurs SMS supplémentaires pour ce site. Pour installer des fournisseurs SMS supplémentaires, exécutez le programme d’installation de Configuration Manager sur le serveur de site. Envisagez l'installation de fournisseurs SMS supplémentaires lorsque l'une des affirmations suivantes est vraie :  
-
--   Un grand nombre d’utilisateurs administratifs exécutent une console Configuration Manager et se connectent à un site en même temps.  
-
--   Vous comptez utiliser le SDK Configuration Manager, ou d’autres produits, qui peuvent générer des appels fréquents au fournisseur SMS.  
-
--   Vous voulez garantir une haute disponibilité pour le fournisseur SMS.  
+    -   De SMS-provider gebruikt systeem- en netwerkbronnen die kunnen worden toegekend voor siteserverbewerkingen.  
 
 
-Quand plusieurs fournisseurs SMS sont installés sur un site et qu’une demande de connexion est effectuée, le site attribue de façon aléatoire à chaque nouvelle demande de connexion l’utilisation d’un fournisseur SMS installé. Vous ne pouvez pas spécifier l'emplacement du fournisseur SMS à utiliser avec une session de connexion spécifique.  
+**Het SQL Server-exemplaar dat als host voor de sitedatabase fungeert**  
 
-> [!NOTE]  
->  Tenez compte des avantages et des inconvénients de chaque emplacement du fournisseur SMS. Trouvez un équilibre entre ces considérations et le fait que vous ne pouvez pas contrôler le fournisseur SMS qui est utilisé pour chaque nouvelle connexion.  
+-   **Voordelen:**  
 
-Par exemple, quand vous connectez une console Configuration Manager à un site pour la première fois, la connexion interroge le service WMI sur le serveur de site pour identifier l’instance du fournisseur SMS à utiliser. Cette instance spécifique du fournisseur SMS reste utilisée par la console Configuration Manager jusqu’à la fin de sa session. Si la session prend fin car l’ordinateur du fournisseur SMS n’est plus disponible sur le réseau, quand vous reconnectez la console Configuration Manager, le site répète simplement la tâche d’identification d’une instance du fournisseur SMS à laquelle se connecter. Il est possible que le même ordinateur du fournisseur SMS non disponible soit attribué. Si cela se produit, vous pouvez tenter de reconnecter la console Configuration Manager jusqu’à ce qu’un ordinateur du fournisseur SMS disponible soit affecté.  
+    -   De SMS-provider gebruikt geen sitesysteembronnen op de siteserver.  
 
-##  <a name="BKMK_AboutSMSAdmins"></a> À propos du groupe Administrateurs SMS  
- Le groupe Administrateurs SMS permet de fournir aux utilisateurs administratifs l'accès au fournisseur SMS. Le groupe est créé automatiquement sur le serveur de site au moment de l'installation du site, et sur chaque ordinateur qui installe un fournisseur SMS. Informations supplémentaires concernant le groupe Administrateurs SMS :  
+    -   Deze locatie kan de beste prestaties bieden van de drie locaties wanneer er voldoende serverbronnen beschikbaar zijn.  
 
--   Lorsque l'ordinateur est un serveur membre, le groupe Administrateurs SMS est créé en tant que groupe local.  
+-   **Nadelen:**  
 
--   Lorsque l'ordinateur est un contrôleur de domaine, le groupe Administrateurs SMS est créé en tant que groupe de domaine local.  
+    -   De SMS-provider gebruikt systeem- en netwerkbronnen die kunnen worden toegekend voor sitedatabasebewerkingen.  
 
--   Lorsque le fournisseur SMS est désinstallé d'un ordinateur, le groupe Administrateurs SMS n'est pas supprimé de l'ordinateur.  
+    -   Wanneer de sitedatabase wordt gehost op een geclusterd exemplaar van SQL Server, kunt u deze locatie niet gebruiken.  
 
 
-Avant qu'un utilisateur puisse établir une connexion correcte à un fournisseur SMS, son compte d'utilisateur doit être un membre du groupe Administrateurs SMS. Chaque utilisateur administratif que vous configurez dans la console Configuration Manager est automatiquement ajouté au groupe Administrateurs SMS sur chaque serveur de site et chaque ordinateur du fournisseur SMS de la hiérarchie. Quand vous supprimez un utilisateur administratif de la console Configuration Manager, cet utilisateur est supprimé du groupe Administrateurs SMS sur chaque serveur de site et chaque ordinateur du fournisseur SMS de la hiérarchie.  
+**Een andere computer dan de siteserver of sitedatabasecomputer**  
 
-Une fois la connexion au fournisseur SMS réussie, l’administration basée sur des rôles permet de déterminer les ressources Configuration Manager auxquelles cet utilisateur peut accéder ou qu’il peut gérer.  
+-   **Voordelen:**  
 
-Vous pouvez afficher et configurer les autorisations et les droits du groupe Administrateurs SMS à l'aide du composant logiciel enfichable MMC Contrôle WMI. Par défaut, **Tout le monde** dispose des autorisations **Méthodes d'exécution**, **Écriture fournisseur**et **Activer le compte** . Une fois connecté au fournisseur SMS, l’utilisateur se voit accorder l’accès aux données dans la base de données du site en fonction des droits de sécurité d’administration basée sur des rôles définis dans la console Configuration Manager. Les autorisations **Activer le compte**  et **Appel à distance autorisé** sont accordées explicitement au groupe Administrateurs SMS dans l’espace de noms **Root\SMS**.  
+    -   De SMS-provider maakt geen gebruikt van de siteserver of bronnen van de sitedatabasecomputer.  
+
+    -   Het type locatie stelt u in staat om aanvullende SMS-providers te implementeren om een hoge beschikbaarheid voor verbindingen te bieden.  
+
+-   **Nadelen:**  
+
+    -   De prestaties van de SMS-Provider kan worden verkleind vanwege de extra netwerk-activiteit die is vereist voor coördinatie met de siteserver en de sitedatabasecomputer.  
+
+    -   Deze server moet altijd toegankelijk zijn met de databasecomputer, en op alle computers met de Configuration Manager-console die is geïnstalleerd.  
+
+    -   Deze locatie kan systeembronnen gebruiken die anders aan andere services worden toegekend.  
+
+##  <a name="BKMK_SMSProvLanguages"></a>Over de talen van de SMS-Provider  
+ De SMS-provider werkt onafhankelijk van de weergavetaal van de computer waarop deze is geïnstalleerd.  
+
+ Wanneer een gebruiker met beheerdersrechten of Configuration Manager-proces aanvragen gegevens met behulp van de SMS-Provider, de SMS-Provider probeert deze gegevens te retourneren in een indeling die overeenkomt met de taal van het besturingssysteem van de aanvragende computer.
+
+De manier wordt geprobeerd te overeenkomt met de taal is enigszins indirecte. De SMS-provider vertaalt geen informatie van de ene taal in een andere taal. In plaats daarvan wanneer gegevens worden geretourneerd voor weergave in de Configuration Manager-console, afhankelijk de weergavetaal van de gegevens van de bron van het object en het type opslag.  
+
+ Wanneer gegevens voor een object in de database worden opgeslagen, is welke talen beschikbaar zijn, afhankelijk van het volgende:  
+
+-   Objecten die door Configuration Manager gemaakt worden opgeslagen in de database met behulp van ondersteuning voor meerdere talen. Het object wordt opgeslagen door gebruik te maken van de talen die worden geconfigureerd op de site waarop het object wordt gemaakt wanneer u Setup uitvoert. Deze objecten worden weergegeven in de Configuration Manager-console in de weergavetaal van de aanvragende computer wanneer die taal beschikbaar voor het object is. Als het object niet kan worden weergegeven in de weergavetaal van de aanvragende computer, wordt dit weergegeven in de standaardtaal, Engels.  
+
+-   Objecten die door een beheergebruiker worden gemaakt, worden opgeslagen in de database in de taal die is gebruikt om het object te maken. Deze objecten weergegeven in de Configuration Manager-console in deze zelfde taal. Deze kunnen niet worden vertaald door de SMS-Provider en hebben geen opties voor meerdere talen.  
+
+##  <a name="BKMK_MultiSMSProv"></a> Meerdere SMS-providers gebruiken  
+ Nadat het installeren van een site is voltooid, kunt u aanvullende SMS-providers voor de site installeren. Voor het installeren van extra SMS-Providers Setup van Configuration Manager op de siteserver worden uitgevoerd. Overweeg om aanvullende SMS-providers te installeren wanneer er sprake is van een of meer van de volgende omstandigheden:  
+
+-   Hebt u veel administratieve gebruikers die bij het uitvoeren van een Configuration Manager-console en maak verbinding met een site op hetzelfde moment.  
+
+-   U gebruikt de Configuration Manager-SDK of andere producten, waardoor er mogelijk sprake van regelmatige aanroepen naar de SMS-Provider.  
+
+-   U wilt een hoge beschikbaarheid voor de SMS-provider garanderen.  
+
+
+Als meerdere SMS-Providers zijn geïnstalleerd op een site en een verbindingsaanvraag wordt verzonden, wordt elke nieuwe verbindingsaanvraag gebruik van een geïnstalleerde SMS-Provider willekeurig toegewezen door de site. Het is niet mogelijk om de SMS-providerlocatie op te geven die voor een specifieke verbindingssessie moet worden gebruikt.  
 
 > [!NOTE]  
->  Chaque utilisateur administratif qui utilise une console Configuration Manager distante doit avoir des autorisations DCOM d’activation à distance à la fois sur le serveur de site et sur l’ordinateur du fournisseur SMS. Même si ces droits peuvent être accordés à des utilisateurs ou des groupes, il est conseillé de les accorder au groupe Administrateurs SMS pour simplifier l’administration. Pour plus d'informations, consultez la section [Configurer les autorisations DCOM pour les consoles Configuration Manager distantes](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ConfigDCOMforRemoteConsole) dans la rubrique [Modifier votre infrastructure System Center Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md).  
+>  U kunt de voordelen en nadelen van elke locatie van de SMS-Provider. Saldo daarbij rekening met de informatie dat u welke SMS-Provider kan niet bepalen voor elke nieuwe verbinding wordt gebruikt.  
+
+Bijvoorbeeld, als u een Configuration Manager-console voor het eerst verbinding met een site, de verbinding een query WMI op de siteserver om te identificeren van een exemplaar van de SMS-Provider die de console kan gebruiken. Deze specifieke instantie van de SMS-Provider blijft in gebruik door de Configuration Manager-console totdat u de Configuration Manager consolesessie wordt beëindigd. Als de sessie eindigt omdat de SMS-providercomputer niet meer beschikbaar is op het netwerk wanneer u de Configuration Manager-console opnieuw verbinding maakt, wordt de taak van de identiteit van een exemplaar van de SMS-Provider verbinding maken met gewoon herhaald in de site. Mogelijk wordt deze toegewezen aan dezelfde SMS-providercomputer die niet beschikbaar is. Als dit het geval is, kunt u proberen opnieuw verbinding maken met de Configuration Manager-console totdat er een beschikbare SMS-providercomputer wordt toegewezen.  
+
+##  <a name="BKMK_AboutSMSAdmins"></a> Over de groep SMS Admins  
+ U kunt de SMS Admins-groep gebruiken om beheergebruikers toegang tot de SMS-provider te bieden. De groep wordt automatisch op de siteserver gemaakt wanneer de site wordt geïnstalleerd en op elke computer waarop een SMS-provider wordt geïnstalleerd. Hier volgt aanvullende informatie over de SMS Admins-groep:  
+
+-   Wanneer de computer een lidserver is, wordt de SMS Admins-groep gemaakt als een lokale groep.  
+
+-   Wanneer de computer een domeincontroller is, wordt de SMS Admins-groep gemaakt als een lokale groep van het domein.  
+
+-   Wanneer de SMS-provider van een computer wordt verwijderd, blijft de SMS Admins-groep op de computer staan.  
 
 
-##  <a name="BKMK_SMSProvNamespace"></a> À propos de l’espace de noms du fournisseur SMS  
-La structure du fournisseur SMS est définie par le schéma WMI. Les espaces de noms du schéma décrivent l’emplacement des données Configuration Manager dans le schéma du fournisseur SMS. Le tableau ci-dessous contient certains des espaces de noms communs utilisés par le fournisseur SMS.  
+Een gebruiker kan pas een verbinding met een SMS-provider tot stand brengen, als het gebruikersaccount van deze gebruiker lid is van de SMS Admins-groep. Elke gebruiker met beheerdersrechten die u in de Configuration Manager-console configureert wordt automatisch toegevoegd aan de SMS Admins-groep op elke siteserver en op elke computer van de SMS-Provider in de hiërarchie. Wanneer u een gebruiker met beheerdersrechten uit de Configuration Manager-console verwijdert, wordt die gebruiker verwijderd uit de SMS Admins-groep op elke siteserver en op elke computer van de SMS-Provider in de hiërarchie.  
 
-|Espace de noms|Description|  
+Nadat een gebruiker verbinding met de SMS-Provider maakt, op rollen gebaseerd beheer bepaald welke Configuration Manager resources die gebruiker toegang of beheren.  
+
+U kunt bekijken en SMS Admins-groepsrechten en machtigingen configureren met behulp van de WMI Control MMC-module. Standaard beschikt **Iedereen** over de machtigingen **Methoden uitvoeren**, **Schrijftoegang tot providerobjecten**en **Account inschakelen** . Nadat een gebruiker verbinding met de SMS-Provider, kan die gebruiker toegang tot gegevens in de sitedatabase, op basis van hun op rollen gebaseerde beheerbeveiligingsrechten zoals gedefinieerd in de Configuration Manager-console is verleend. De SMS Admins-groep worden nadrukkelijk de machtigingen **Account inschakelen** en **extern activeren** machtigingen voor de **Root\SMS** naamruimte.  
+
+> [!NOTE]  
+>  Elke gebruiker met beheerdersrechten die gebruik maakt van een externe Configuration Manager-console vereist Remote Activation DCOM-machtigingen op de siteservercomputer en op de computer van de SMS-Provider. Hoewel u deze rechten aan een gebruiker of groep op te geven kunt, is het een goed idee te kennen aan de groep SMS Admins te vereenvoudigen. Zie voor meer informatie de sectie [DCOM-machtigingen configureren voor externe Configuration Manager-consoles](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ConfigDCOMforRemoteConsole) in het onderwerp [Uw infrastructuur van System Center Configuration Manager aanpassen](../../../core/servers/manage/modify-your-infrastructure.md).  
+
+
+##  <a name="BKMK_SMSProvNamespace"></a>Over de naamruimte van de SMS-Provider  
+De structuur van de SMS-provider wordt gedefinieerd via het WMI-schema. Schemanaamruimten beschrijven de locatie van Configuration Manager-gegevens binnen het SMS-providerschema. De volgende tabel bevat enkele van de algemene naamruimten die door de SMS-provider worden gebruikt.  
+
+|Naamruimte|Beschrijving|  
 |---------------|-----------------|  
-|Root\SMS\site_*&lt;code de site\>*|Fournisseur SMS, qui est utilisé de façon intensive par la console Configuration Manager, l’Explorateur de ressources, les outils Configuration Manager et les scripts.|  
-|Root\SMS\SMS_ProviderLocation|Emplacement des ordinateurs du fournisseur SMS pour un site.|  
-|Root\CIMv2|Emplacement inventorié pour des informations d’espaces de noms WMI au cours de l’inventaire matériel et logiciel.|  
-|Root\CCM|Stratégies de configuration et données du client Configuration Manager.|  
-|root\CIMv2\SMS|Emplacement des classes de rapports d’inventaire collectées par l’Agent du client d’inventaire. Ces paramètres compilés par des clients au cours de l’évaluation des stratégies de l’ordinateur sont basés sur la configuration des paramètres du client de l’ordinateur.|  
+|Root\SMS\site_*&lt;sitecode\>*|De SMS-Provider, die grote schaal wordt gebruikt door de Configuration Manager-console, Resource Explorer, Configuration Manager-hulpprogramma's en scripts.|  
+|Root\SMS\SMS_ProviderLocation|De locatie van de SMS-Provider-computers voor een site.|  
+|Root\CIMv2|De locatie voor WMI-naamruimte informatie tijdens de hardware en software-inventarisatie zijn geïnventariseerd.|  
+|Wordt teruggedraaid|Configuration Manager-clientconfiguratiebeleid en -clientgegevens.|  
+|root\CIMv2\SMS|De locatie van inventarisrapportageklassen die zijn verzameld door de inventarisclientagent. Deze instellingen worden gecompileerd door clients tijdens de evaluatie van het beleid en zijn gebaseerd op de configuratie van de client-instellingen voor de computer.|  
 
-##  <a name="BKMK_WAIKforSMSProv"></a> Exigences liées au déploiement de système d’exploitation pour le fournisseur SMS  
-L’ordinateur sur lequel vous installez une instance du fournisseur SMS doit disposer de la version du Windows ADK exigée par la version de Configuration Manager que vous utilisez.  
+##  <a name="BKMK_WAIKforSMSProv"></a>Vereisten voor besturingssysteemimplementatie voor de SMS-Provider  
+De computer waarop u een exemplaar van de SMS-Provider installeert, moet de vereiste versie van Windows ADK die de versie van Configuration Manager, u moet hebben.  
 
- -   Par exemple, la version 1511 de Configuration Manager exige la version Windows 10 RTM (10.0.10240) du Windows ADK.  
+ -   Bijvoorbeeld, vereist versie 1511 van Configuration Manager dat de versie Windows 10 RTM (10.0.10240) van Windows ADK.  
 
- -   Pour plus d’informations sur cette configuration requise, consultez [Configuration requise de l’infrastructure pour le déploiement de système d’exploitation](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
+ -   Zie voor meer informatie over deze vereiste [vereisten voor de infrastructuur voor besturingssysteemimplementatie](/sccm/osd/plan-design/infrastructure-requirements-for-operating-system-deployment).  
 
-Quand vous gérez des déploiements de système d’exploitation, le Windows ADK permet au fournisseur SMS d’effectuer diverses tâches, notamment :  
+Als u implementaties van besturingssystemen beheert, kunnen de Windows ADK de SMS-Provider verschillende taken uitvoeren, zoals:  
 
--   Afficher les informations du fichier WIM.  
+-   Details WIM-bestand weergeven.  
 
--   Ajouter des fichiers de pilote aux images de démarrage existantes.  
+-   Stuurprogrammabestanden toevoegen aan bestaande opstartinstallatiekopieën.  
 
--   Créer des fichiers .ISO de démarrage.  
+-   Voor opstarten maken. ISO-bestanden.  
 
 
-L’installation du kit Windows ADK peut nécessiter jusqu’à 650 Mo d’espace disque libre sur chaque ordinateur où le fournisseur SMS est installé. Cet espace disque élevé est nécessaire pour permettre à Configuration Manager d’installer les images de démarrage Windows PE.  
+De installatie van Windows ADK kan tot 650 MB vrije schijfruimte vereisen op elke computer waarop de SMS-provider wordt geïnstalleerd. Deze hoge eisen voor schijfruimte is nodig voor Configuration Manager voor het installeren van de Windows PE-opstartinstallatiekopieën.  

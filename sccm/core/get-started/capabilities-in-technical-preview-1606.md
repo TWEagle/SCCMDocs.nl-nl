@@ -1,6 +1,6 @@
 ---
-title: "Fonctionnalités de Technical Preview 1606 Configuration Manager"
-description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique 1606 pour System Center Configuration Manager."
+title: Mogelijkheden in Technical Preview 1606 Configuration Manager
+description: Meer informatie over functies die beschikbaar zijn in de Technical Preview voor System Center Configuration Manager versie 1606.
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -16,251 +16,251 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 08747ca981f6697e2bd621afe5df0e3bd06b332d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1606-for-system-center-configuration-manager"></a>Fonctionnalités de la version d’évaluation technique 1606 pour System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1606-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1606 voor System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*Van toepassing op: System Center Configuration Manager (Technical Preview)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique 1606 pour System Center Configuration Manager. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique de Configuration Manager.      Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
+Dit artikel bevat de functies die beschikbaar in de Technical Preview voor System Center Configuration Manager versie 1606 zijn. U kunt deze versie om te werken en nieuwe mogelijkheden toevoegen aan uw Configuration Manager technical preview-site installeren.      Controleer voordat u deze versie van de technical preview installeert, de inleidende informatie [Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md), om vertrouwd te raken met algemene vereisten en beperkingen voor het gebruik van een technical preview hoe bijwerken tussen versies en hoe u feedback over de functies in een technical preview.    
 
-**Problèmes connus dans cette version d’évaluation technique :**  
-*  Lorsque vous mettez à jour la version d’évaluation technique 1604 vers la version 1605, puis vers la version 1606, la mise à jour peut échouer et une erreur similaire à la suivante est enregistrée dans le fichier **cmupdate.log** :
+**Bekende problemen in deze Technical Preview:**  
+*  Wanneer u een van Technical Preview 1604-1605 en vervolgens naar versie 1606 update, de update mislukken en een vergelijkbaar met de volgende fout vastgelegd in de **cmupdate.log**:
 
        ERROR: Failed to execute SQL Server command:  ~ ~-- Create site boundary group ~IF  dbo.fnIsCasOrStandalonePrimary() = 1 ~BEGIN ~   PRINT N'Create site boundary group during upgrade' ~   EXEC dbo.spBuildDefaultBoundaryGroups @UserName = N'SYSTEM' ~END          
 
-    Si cela se produit, dans le nœud **Mises à jour et maintenance**, cliquez sur **Rechercher les mises à jour**, puis **réessayez** l’installation de la mise à jour.
+    Als dit gebeurt, in de **Updates en onderhoud** knooppunt Klik **controleren op updates**, en vervolgens **probeer** installatie van de update.
     ***
 
-**Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
+**Hier volgen nieuwe functies die u met deze versie kunt uitproberen.**  
 
-## <a name="dmp_category"></a> Classer automatiquement des appareils dans des regroupements
-Vous pouvez créer des catégories d’appareils pour classer automatiquement les appareils dans des regroupements d’appareils quand vous utilisez Configuration Manager avec Microsoft Intune. Les utilisateurs sont alors invités à choisir une catégorie d’appareils quand ils inscrivent un appareil dans Intune. Vous pouvez en outre modifier la catégorie d’un appareil à partir de la console Configuration Manager.
+## <a name="dmp_category"></a>Apparaten automatisch categoriseren in verzamelingen
+U kunt apparaatcategorieën dat kunnen worden gebruikt voor apparaten worden automatisch op apparaatverzamelingen plaatsen wanneer u van Configuration Manager met Microsoft Intune gebruikmaakt kunt maken. Gebruikers hoeven vervolgens een apparaatcategorie kiezen wanneer ze een apparaat bij Intune inschrijven. Bovendien kunt u de categorie van een apparaat wijzigen vanuit de Configuration Manager-console.
 
-**Important :** Cette fonctionnalité est opérationnelle avec la version de **juin 2016** de Microsoft Intune. Vérifiez que vous avez effectué la mise à jour vers cette version avant d’essayer ces procédures.
+**Belangrijk:** Deze mogelijkheid werkt met de **juni 2016** versie van Microsoft Intune. Zorg ervoor dat u hebt bijgewerkt naar deze versie voordat u deze procedures.
 
-### <a name="try-it-out"></a>Essayez !
+### <a name="try-it-out"></a>Probeer het nu!
 
-### <a name="create-a-set-of-device-categories"></a>Créer un ensemble de catégories d’appareils
-1.  Dans l’espace de travail **Ressources et Conformité** de la console Configuration Manager, développez **Vue d’ensemble**, puis cliquez sur **Regroupements d’appareils**.
-2.  Sous l’onglet **Accueil**, dans le groupe **Catégories**, cliquez sur **Gérer les catégories d’appareils**.
-3.  Dans la boîte de dialogue **Gérer les catégories d’appareils**, vous pouvez créer, modifier ou supprimer des catégories. Essayez de créer une nouvelle catégorie.
+### <a name="create-a-set-of-device-categories"></a>Maken van een reeks apparaatcategorieën
+1.  In de **activa en naleving** werkruimte van de Configuration Manager-console, vouw **overzicht**, klikt u vervolgens op **Apparaatverzamelingen**.
+2.  Op de **Start** tabblad, in de **categorieën** groep, klikt u op **apparaatcategorieën beheren**.
+3.  In de **apparaatcategorieën beheren** in het dialoogvenster maken, bewerken of verwijderen van categorieën. Probeer een nieuwe categorie te maken.
 
-### <a name="associate-a-collection-with-a-device-category"></a>Associer un regroupement à une catégorie d’appareils
-Quand vous associez un regroupement à une catégorie d’appareils, tous les appareils de la catégorie que vous spécifiez sont ajoutés à ce regroupement.
-1.  Dans la boîte de dialogue **Propriétés** d’un regroupement d’appareils, cliquez sur **Ajouter une règle** > **Règle de catégorie d’appareils**.
-2.  Dans la boîte de dialogue **Créer une règle d’adhésion de catégorie d’appareils**, sélectionnez la catégorie à appliquer à tous les appareils du regroupement.
-3.  Fermez la boîte de dialogue **Créer une règle d’adhésion de catégorie d’appareils** et celle des propriétés du regroupement.
+### <a name="associate-a-collection-with-a-device-category"></a>Een verzameling koppelen aan een apparaatcategorie
+Als u een verzameling met een apparaatcategorie koppelt, worden alle apparaten in de categorie die u opgeeft worden toegevoegd aan deze verzameling.
+1.  In de **eigenschappen** dialoogvenster voor een apparaatverzameling, klikt u op **regel toevoegen** > **apparaat categorie regel**.
+2.  In de **apparaat categorie lidmaatschapsregel maken** dialoogvenster Selecteer de categorie die wordt toegepast op alle apparaten in de verzameling.
+3.  Sluit de **apparaat categorie lidmaatschapsregel maken** in het dialoogvenster en het dialoogvenster Eigenschappen van verzameling.
 
-### <a name="change-the-category-of-a-device"></a>Changer la catégorie d’un appareil
-1.  Dans l’espace de travail **Ressources et Conformité** de la console Configuration Manager, développez **Vue d’ensemble**, puis cliquez sur **Appareils**.
-2.  Sélectionnez un appareil dans la liste **Appareils** et, sous l’onglet **Accueil**, dans le groupe **Appareil**, cliquez sur **Changer la catégorie**.
-3.  Dans la boîte de dialogue **Modifier la catégorie d’appareils**, choisissez la catégorie à appliquer à cet appareil, puis cliquez sur **OK**.
+### <a name="change-the-category-of-a-device"></a>De categorie van een apparaat wijzigen
+1.  In de **activa en naleving** werkruimte van de Configuration Manager-console, vouw **overzicht**, klikt u vervolgens op **apparaten**.
+2.  Selecteer een apparaat van de **apparaten** lijst en klikt u op de **Start** tabblad, in de **apparaat** groep, klikt u op **Wijzigingscategorie**.
+3.  In de **apparaatcategorie bewerken** dialoogvenster vak, kiest u de categorie die van toepassing op dit apparaat en klik vervolgens op **OK**.
 
-## <a name="dmp_grace"></a> Période de grâce de mise en œuvre des déploiements d’applications et de mises à jour logicielles obligatoires
+## <a name="dmp_grace"></a>Respijtperiode afdwingen voor vereiste toepassingen en software-update-implementaties
 
-Dans certains cas, vous pouvez accorder plus de temps aux utilisateurs pour installer les mises à jour logicielles ou les déploiements d’applications obligatoires au-delà des échéances que vous avez configurées. Cela est généralement nécessaire lorsqu’un ordinateur a été éteint pendant une période de temps prolongée et qu’il doit installer un grand nombre de déploiements d’applications ou de mises à jour.
-Par exemple, si un utilisateur final vient de rentrer de congés, il peut être amené à patienter longtemps pendant l’installation des déploiements d’applications en retard.
-Pour résoudre ce problème, vous pouvez désormais définir une période de grâce de mise en œuvre en déployant des paramètres du client Configuration Manager sur un regroupement.
+In sommige gevallen kunt u gebruikers meer tijd te geven tot implementaties van toepassingen installeren die zijn vereist of software-updates buiten een deadlines die u hebt geconfigureerd. Dit kan doorgaans zijn vereist wanneer een computer gedurende langere tijd is uitgeschakeld en moet voor het installeren van een groot aantal toepassing of update-implementaties.
+Als een eindgebruiker is alleen van vakantie geretourneerd, moeten ze mogelijk lang wachten terwijl als achterstallig toepassing implementaties zijn geïnstalleerd.
+U kunt nu een respijtperiode afdwingen door Configuration Manager-clientinstellingen implementeren naar een verzameling om dit probleem op te lossen definiëren.
 
-### <a name="try-it-out"></a>Essayez !
+### <a name="try-it-out"></a>Probeer het nu!
 
-Pour configurer la période de grâce, procédez comme suit :
+Voor het configureren van de respijtperiode is, moet u de volgende acties uitvoeren:
 
-1.  Dans la page **Agent ordinateur** des paramètres du client, configurez la nouvelle propriété **Période de grâce pour la mise en œuvre après l’échéance du déploiement (en heures)** avec une valeur comprise entre **1** et **120** heures.
-2.  Dans un nouveau déploiement d’application requis, ou dans les propriétés d’un déploiement existant, dans la page **Planification**, cochez la case **Différer la mise en œuvre de ce déploiement selon les préférences de l’utilisateur, dans la limite de la période de grâce définie dans les paramètres client**.
-Tous les déploiements pour lesquels cette case à cocher est activée et qui sont destinés à des appareils sur lesquels vous avez également déployé le paramètre du client utiliseront la période de grâce de mise en œuvre.
+1.  Op de **Computeragent** pagina configureren van clientinstellingen, de nieuwe eigenschap **respijtperiode voor afdwingen na de implementatie (uren) deadline** met een waarde tussen **1** en **120** uur.
+2.  In een nieuwe implementatie van de vereiste toepassing of in de eigenschappen van een bestaande implementatie op de **planning** pagina, selecteert u het selectievakje **afdwingen van deze implementatie op basis van gebruikersvoorkeuren uitstellen**, tot de respijtperiode die in de clientinstellingen is gedefinieerd.
+Alle implementaties die dit selectievakje ingeschakeld hebben en die gericht zijn op apparaten die u ook de client-instelling geïmplementeerd gebruikt de respijtperiode voor afdwinging.
 
-Si vous configurez une période de grâce de mise en œuvre et cochez la case, une fois que l’échéance d’installation d’application est atteinte, l’application est installée dans la première fenêtre non professionnelle que l’utilisateur a configurée jusqu’à cette période de grâce. Toutefois, l’utilisateur peut toujours ouvrir le Centre logiciel et installer l’application à tout moment, s’il le souhaite. Une fois que la période de grâce a expiré, le comportement de mise en œuvre redevient normal pour les déploiements en retard.
-Des options similaires ont été ajoutées dans l’Assistant de déploiement de mises à jour logicielles, dans l’Assistant des règles de déploiement automatique et dans les pages de propriétés.
+Als u een respijtperiode afdwingen configureren en schakel het selectievakje in als de deadline van de installatie van de toepassing is bereikt, wordt deze geïnstalleerd in het eerste niet-zakelijk venster die de gebruiker tot die respijtperiode geconfigureerd. De gebruiker kan echter nog steeds openen van Software Center en de toepassing op elk gewenst moment die ze willen installeren. Nadat de respijtperiode is verlopen, hersteld afdwinging normaal gedrag voor implementaties van achterstallige.
+Soortgelijke opties zijn toegevoegd aan de wizard voor implementatie van software-updates, de wizard regels automatische implementatie en eigenschappenpagina's.
 
-##  <a name="dmp_devg"></a>Utilisation de Configuration Manager comme programme d’installation géré avec Device Guard
+##  <a name="dmp_devg"></a>Configuration Manager gebruiken als een beheerd installatieprogramma met Device Guard
 
-Device Guard est une fonctionnalité de Windows 10 qui utilise des fonctionnalités matérielles et logicielles pour contrôler de manière stricte ce qui est autorisé à s’exécuter sur l’appareil.
+Device Guard is een Windows 10-functie die gebruikmaakt van hardware en software-onderdelen strikt bepalen wat mag worden uitgevoerd op het apparaat.
 
-Vous pouvez lire une présentation détaillée de ce que fait Device Guard et de la manière dont il fonctionne dans [cet article Technet](https://technet.microsoft.com/itpro/windows/whats-new/device-guard-overview).
+U kunt een gedetailleerd overzicht van wat Device Guard doet en hoe het werkt op lezen [dit Technet-artikel](https://technet.microsoft.com/itpro/windows/whats-new/device-guard-overview).
 
-Dans cette version, Configuration Manager peut interagir avec Device Guard et [Windows AppLocker](https://technet.microsoft.com/library/dd723678(v=ws.10).aspx) afin que les fichiers exécutables et DLL qui sont déployés avec Configuration Manager soient automatiquement approuvés quand ils proviennent d’un programme d’installation géré. Cela signifie que ces fichiers seront autorisés à s’exécuter sur l’appareil cible, alors que d’autres logiciels ne pourront pas s’exécuter, sauf s’ils sont explicitement autorisés à le faire par d’autres règles AppLocker.  
+In deze release Configuration Manager kunnen samenwerken met Device Guard en [Windows AppLocker](https://technet.microsoft.com/library/dd723678(v=ws.10).aspx) zodat uitvoerbaar bestand en dll-bestanden die zijn geïmplementeerd met Configuration Manager automatisch vertrouwde zijn als ze afkomstig van een beheerd installatieprogramma zijn, wat betekent dat ze mag worden uitgevoerd op het doelapparaat en andere software niet mag worden uitgevoerd, tenzij expliciet mag worden uitgevoerd door andere AppLocker-regels.  
 
-Actuellement, cette fonctionnalité n’est pas configurable à partir de la console Configuration Manager. Configurer cette stratégie vous oblige à configurer une clé de Registre sur chaque client et à configurer les services Windows sur le client.
-Une fois cette opération effectuée, configurez le fichier de stratégie AppLocker. Après avoir configuré le fichier de stratégie, vous pouvez le déployer sur un appareil client compatible quelconque.
-
-
-Comme toutes les stratégies AppLocker, les stratégies avec des règles de programme d’installation géré peuvent s’exécuter dans deux modes :
-
-- Mode audit : Rien n’empêche les applications de s’exécuter, mais toutes les applications qui auraient été bloquées sont signalées dans un fichier journal (cette opération sera prise en charge dans une version ultérieure de Configuration Manager).
-- Mise en œuvre activée : Les applications sont bloquées et ne peuvent pas s’exécuter.
-
-Des informations complémentaires sur l’utilisation de Device Guard avec Configuration Manager sont disponibles dans le blog [Enterprise Mobility and Security Blog](https://blogs.technet.microsoft.com/enterprisemobility/2016/06/20/configmgr-as-a-managed-installer-with-win10).
-
-Articles complémentaires :
-
-- [Présentation de Device Guard](https://technet.microsoft.com/itpro/windows/keep-secure/introduction-to-device-guard-virtualization-based-security-and-code-integrity-policies)
-- [Compatibilité et certification de Device Guard](https://technet.microsoft.com/itpro/windows/keep-secure/device-guard-certification-and-compliance)
-- [Guide de déploiement de Device Guard](https://technet.microsoft.com/itpro/windows/keep-secure/device-guard-deployment-guide)
-
- ##  <a name="dmp_onprem"></a> Points de gestion d’appareils multiples pour la gestion des appareils mobiles locale  
- Avec la version d’évaluation technique 1606, la gestion des appareils mobiles (MDM) locale prend en charge une nouvelle fonctionnalité de la mise à jour anniversaire de Windows 10, qui configure automatiquement un appareil inscrit pour bénéficier de plusieurs points de gestion d’appareil disponibles. Cette fonctionnalité permet à l’appareil de basculer vers un autre point de gestion d’appareil quand celui qu’il utilise normalement n’est pas disponible. Cette fonctionnalité fonctionne uniquement pour les PC dotés de la mise à jour anniversaire de Windows 10.  
-
-### <a name="try-it-out"></a>Essayez !  
-
-1.  Installez plusieurs points de gestion d’appareil dans votre hiérarchie.  
-
-2.  Inscrivez un appareil doté de la mise à jour anniversaire de Windows 10 pour la gestion des appareils mobiles locale.  
-
-Pour plus d’informations sur la façon de préparer votre site et d’inscrire des appareils pour la gestion des appareils mobiles locale, consultez [Gérer des appareils mobiles avec une infrastructure locale dans System Center Configuration Manager](../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
-
-## <a name="cloud_proxy"></a>Service proxy cloud pour la gestion des clients sur Internet
-
-Le service proxy cloud fournit un moyen simple de gérer les clients Configuration Manager sur Internet. Ce service, qui est déployé sur Microsoft Azure et requiert un abonnement Azure, se connecte à votre infrastructure Configuration Manager locale à l’aide d’un nouveau rôle nommé Point du connecteur de proxy cloud. Après son déploiement et sa configuration, les clients peuvent accéder aux rôles de système de site Configuration Manager locaux, qu’ils soient connectés au réseau privé interne ou à Internet.
-
-Vous utilisez la console Configuration Manager pour déployer le service sur Azure, ajouter le rôle de point du connecteur de proxy cloud et configurer les rôles de système de site pour autoriser le trafic du proxy cloud. Le service proxy cloud ne prend en charge actuellement que les rôles de point de gestion, de point de distribution et de point de mise à jour logicielle.
-
-Les certificats clients et les certificats Secure Socket Layer (SSL) sont requis pour authentifier les ordinateurs et chiffrer les communications entre les différents niveaux du service. En règle générale, les ordinateurs clients reçoivent un certificat client via la mise en œuvre d’une stratégie de groupe. Pour chiffrer le trafic entre les clients et le serveur de système de site hébergeant les rôles, vous devez créer un certificat SSL personnalisé à partir de l’autorité de certification. En plus de ces deux types de certificats, vous devez également configurer un certificat de gestion sur Azure, permettant à Configuration Manager de déployer le service proxy cloud.  
-
-### <a name="requirements-for-cloud-proxy-service-in-tp-1606"></a>Configuration requise pour le service proxy cloud dans la version d’évaluation technique 1606
-- Les ordinateurs clients et le serveur de système de site doivent exécuter le point du connecteur de proxy cloud.
-- Certificats SSL personnalisés provenant de l’autorité de certification interne : utilisés pour chiffrer la communication en provenance des ordinateurs clients et authentifier l’identité du service proxy cloud.
-- Abonnement Azure pour les services cloud.
-- Certificat de gestion Azure : utilisé pour authentifier Configuration Manager auprès d’Azure.
-
-### <a name="limitations-of-cloud-proxy-service-in-tp-1606"></a>Limitations du service proxy cloud dans la version d’évaluation technique 1606
-
-- Prend en charge uniquement les rôles de point de gestion, de point de distribution et de point de mise à jour logicielle.
-- Les stratégies utilisateur ne sont pas prises en charge.
-- Ne peut pas être utilisé avec la [gestion des appareils mobiles locale](../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md) dans Configuration Manager.
-- Pris en charge uniquement sur la plateforme de cloud public d’Azure.
+Deze mogelijkheid is momenteel niet worden geconfigureerd vanuit de Configuration Manager-console. Om het beleid te configureren, moet u een registersleutel configureren op elke client en Windows-services configureren op de client.
+Zodra dit is gebeurd, configureert u het bestand met beleidsregel van AppLocker. Nadat u het beleidsbestand dat u hebt geconfigureerd, kunt u deze kunt implementeren op apparaten compatibele client.
 
 
-### <a name="try-it-out"></a>Essayez !
+Net als alle AppLocker-beleidsregels kunnen beleidsregels met beheerd installatieprogramma regels uitvoeren in twee modi:
 
-Le processus de déploiement du service proxy cloud inclut les étapes suivantes :
+- De controlemodus – toepassingen zijn opmerking niet worden uitgevoerd, maar alle toepassingen die zijn geblokkeerd worden gerapporteerd in een logboekbestand (dit wordt ondersteund in een latere versie van Configuration Manager).
+- Afdwinging ingeschakeld – toepassingen zijn geblokkeerd.
 
-1. Créez et émettez un certificat SSL personnalisé pour le service proxy cloud.
-1. Exportez la racine du certificat client.
-2. Chargez le certificat de gestion dans Azure.
-3. Configurez le service proxy cloud dans la console Configuration Manager.
-4. Configurez le site principal pour utiliser l’authentification de certificat client.
-5. Ajoutez le point du connecteur de proxy cloud à votre site.
-6. Configurez les rôles de système de site pour accepter le trafic du proxy cloud.
+Meer informatie over het gebruik van Device Guard met Configuration Manager vindt u op de [Enterprise Mobility and Security blog](https://blogs.technet.microsoft.com/enterprisemobility/2016/06/20/configmgr-as-a-managed-installer-with-win10).
 
-Les sections suivantes fournissent plus d’informations sur ces étapes.
+Lees hier meer over:
 
-#### <a name="create-a-custom-ssl-certificate"></a>Créer un certificat SSL personnalisé
+- [Device Guard Inleiding](https://technet.microsoft.com/itpro/windows/keep-secure/introduction-to-device-guard-virtualization-based-security-and-code-integrity-policies)
+- [Device Guard certificering en naleving](https://technet.microsoft.com/itpro/windows/keep-secure/device-guard-certification-and-compliance)
+- [Implementatiehandleiding voor Device Guard](https://technet.microsoft.com/itpro/windows/keep-secure/device-guard-deployment-guide)
 
-Vous pouvez créer un certificat SSL personnalisé pour le service proxy cloud de la même façon que vous le feriez pour un point de distribution basé sur le cloud. Suivez les instructions pour le [déploiement du certificat de service pour les points de distribution cloud](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_clouddp2008_cm2012), mais procédez différemment pour ce qui suit :
+ ##  <a name="dmp_onprem"></a>Meerdere apparaatbeheerpunten voor On-premises Mobile Device Management  
+ Met Technical Preview-1606 op\-premises Mobile Device Management (MDM) biedt ondersteuning voor een nieuwe functie in Windows 10 Verjaardag Update die u automatisch een ingeschreven apparaat configureert om meer dan één Apparaatbeheer wijst beschikbaar voor gebruik. Deze mogelijkheid staat toe dat het apparaat terugvallen op een ander apparaatbeheerpunt bij een die normale wordt gebruikt, niet beschikbaar is. Deze functie werkt alleen voor pc's met Windows 10 Verjaardag Update is geïnstalleerd.  
 
-* Lorsque vous configurez le nouveau modèle de certificat, accordez les autorisations **Lecture** et **Inscription** au groupe de sécurité que vous configurez pour les serveurs Configuration Manager.
+### <a name="try-it-out"></a>Probeer het nu!  
 
-#### <a name="export-the-client-certificates-root"></a>Exporter la racine du certificat client
+1.  Meer dan één beheerpunt voor apparaten in uw hiërarchie installeren.  
 
-Le moyen le plus simple pour exporter la racine des certificats clients utilisés sur le réseau consiste à ouvrir un certificat client sur l’une des machines jointes au domaine qui en possède un, et de le copier.
+2.  Een apparaat met Windows 10 Verjaardag Update voor inschrijven op\-premises Mobile Device Management.  
+
+Voor informatie over het voorbereiden van uw site en het inschrijven van apparaten voor op\-premises Mobile Device Management, Zie [mobiele apparaten beheren met on-premises infrastructuur in System Center Configuration Manager](../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
+
+## <a name="cloud_proxy"></a>Cloudproxyservice voor het beheren van clients op het Internet
+
+Cloudproxyservice biedt een eenvoudige manier voor het beheren van Configuration Manager-clients op Internet. De service, die wordt geïmplementeerd voor Microsoft Azure en een Azure-abonnement is vereist, maakt verbinding met uw on-premises Configuration Manager-infrastructuur met behulp van een nieuwe rol met de naam van de cloudproxyconnectorpunt. Zodra het is volledig geïmplementeerd en geconfigureerd, worden clients toegang kunnen krijgen tot lokale sitesysteemrollen van Configuration Manager ongeacht of ze zijn verbonden met het interne particuliere netwerk of op het Internet.
+
+U kunt de Configuration Manager-console de service implementeren in Azure, rol van het cloud-proxy connector toevoegen en configureren van sitesysteemrollen voor cloud-proxy-verkeer. Cloudproxyservice ondersteunt momenteel alleen het beheerpunt, het distributiepunt en de software-update-punt rollen.
+
+Clientcertificaten en Secure Socket Layer (SSL)-certificaten zijn vereist voor het verifiëren van computers en het versleutelen van communicatie tussen de verschillende lagen van de service. Clientcomputers ontvangen meestal een certificaat via Groepsbeleid worden afgedwongen. Voor het versleutelen van het verkeer tussen clients en de sitesysteemserver die als host fungeert voor de functies die u wilt maken van een aangepaste SSL-certificaat van de CA. Naast deze twee typen certificaten, nodig u ook instellen een beheercertificaat in Azure waarmee Configuration Manager Cloudproxyservice implementeren.  
+
+### <a name="requirements-for-cloud-proxy-service-in-tp-1606"></a>Vereisten voor Cloudproxyservice in TP 1606
+- Clientcomputers en de sitesysteemserver met de cloud-proxy connector punt.
+- Aangepaste SSL-certificaten van de interne CA - gebruikt voor het versleutelen van communicatie van de clientcomputers en de identiteit van Cloudproxyservice verifiëren.
+- Azure-abonnement voor cloudservices.
+- Azure-beheercertificaat - gebruikt voor het verifiëren van Configuration Manager met Azure.
+
+### <a name="limitations-of-cloud-proxy-service-in-tp-1606"></a>Beperkingen van Cloudproxyservice in TP 1606
+
+- Ondersteunt alleen het beheerpunt, het distributiepunt en de software-update-punt rollen.
+- Gebruikersbeleid worden niet ondersteund.
+- Kan niet worden gebruikt met [On-premises Mobile Device Management](../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md) in Configuration Manager.
+- Alleen ondersteund op de Azure openbare cloud-platform.
+
+
+### <a name="try-it-out"></a>Probeer het nu!
+
+Het proces voor het implementeren van Cloudproxyservice omvat de volgende stappen uit:
+
+1. Maken en uitgeven van een aangepaste SSL-certificaat voor Cloudproxyservice.
+1. Hoofdmap van het clientcertificaat exporteren.
+2. Het management-certificaat uploaden naar Azure.
+3. Cloudproxyservice instellen in de Configuration Manager-console.
+4. Configureer de primaire site voor het gebruik van verificatie van clientcertificaten.
+5. De cloudproxyconnectorpunt toevoegen aan uw site.
+6. Configureer de sitesysteemrollen voor het accepteren van verkeer van de cloud-proxy.
+
+De volgende secties bevatten meer informatie voor het uitvoeren van deze stappen.
+
+#### <a name="create-a-custom-ssl-certificate"></a>Een aangepaste SSL-certificaat maken
+
+U kunt een aangepaste SSL-certificaat voor Cloudproxyservice maken op dezelfde manier als die u dit voor een cloud-gebaseerd distributiepunt doen zou. Volg de instructies voor [het servicecertificaat voor Cloud-gebaseerde distributiepunten implementeren](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_clouddp2008_cm2012) maar anders de volgende dingen doen:
+
+* Bij het instellen van de nieuwe certificaatsjabloon, geven **lezen** en **inschrijven** machtigingen aan de beveiligingsgroep die u hebt ingesteld voor Configuration Manager-servers.
+
+#### <a name="export-the-client-certificates-root"></a>Hoofdmap van het clientcertificaat exporteren
+
+De gemakkelijkste manier om te exporteren, de hoofdmap van de clientcertificaten gebruikt op het netwerk, opent u een certificaat op een van de domein-machines met een en dit te kopiëren.
 
 >[!NOTE]
->Des certificats clients sont requis sur chaque ordinateur que vous voulez gérer avec le service proxy cloud et sur le serveur de système de site qui héberge le point du connecteur de proxy cloud. Si vous devez ajouter un certificat client à l’une quelconque de ces machines, consultez [Déploiement du certificat client pour les ordinateurs Windows](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_clouddp2008_cm2012).
+>Clientcertificaten zijn vereist op elke computer die u wilt beheren met Cloudproxyservice en op de sitesysteemserver die als host fungeert voor de cloudproxyconnector wordt gehost. Als u moet een certificaat toevoegen aan een van deze apparaten, Zie [implementeren van de Client-certificaat voor Windows-Computers](/sccm/core/plan-design/network/example-deployment-of-pki-certificates#BKMK_clouddp2008_cm2012).
 
-1. Dans la fenêtre Exécuter, tapez **mmc** et appuyez sur Entrée.
-2. Dans le menu Fichier de la console de gestion, cliquez sur **Ajouter/Supprimer un composant logiciel enfichable**.
-3. Dans la boîte de dialogue Ajouter ou supprimer des composants logiciels enfichables, cliquez sur **Certificats**, sur **Ajouter >**, sur **Compte d’ordinateur**, sur **Suivant**, sur **Ordinateur local**, puis sur **Terminer**. Cliquez sur **OK** pour fermer la boîte de dialogue.
-4. Accédez à **Certificats > Personnel > Certificats**.
-5. Double-cliquez sur le certificat pour l’authentification du client sur l’ordinateur, cliquez sur l’onglet Chemin d’accès de certification et double-cliquez sur l’autorité racine (en haut du chemin d’accès).
-6.  Cliquez sur l’onglet Détails, puis cliquez sur **Copier dans un fichier**.
-7. Terminez l’Assistant Exportation de certificat en utilisant le format de certificat par défaut. Notez le nom et l’emplacement du certificat racine que vous créez. Vous en aurez besoin pour configurer le service proxy cloud dans une étape ultérieure.
+1. Typ in het venster uitvoeren **mmc** en drukt u op terug.
+2. Klik in het menu bestand in de beheerconsole **module toevoegen/verwijderen...** .
+3. Klik in het dialoogvenster Add of Remove-modules op **certificaten**, klikt u op **toevoegen >**, klikt u op **computeraccount**, klikt u op **volgende**, klikt u op **lokale computer**, en klik vervolgens op **voltooien**. Klik op **OK** om het dialoogvenster te sluiten.
+4. Ga naar **certificaten > persoonlijke > Certificaten**.
+5. Dubbelklik op het certificaat voor clientverificatie op de computer, klikt u op het tabblad certificeringspad en dubbelklikt u op de basiscertificeringsinstantie (aan de bovenkant van het pad).
+6.  Klik op het tabblad met Details en klikt u op **kopiëren naar bestand...** .
+7. Voltooi de Wizard Certificaat exporteren met behulp van de standaardindeling van het certificaat. Controleer de naam en locatie van het basiscertificaat dat u maakt. U hebt deze Cloudproxyservice in een later stadium te configureren.
 
-#### <a name="upload-the-management-certificate-to-azure"></a>Charger le certificat de gestion dans Azure
+#### <a name="upload-the-management-certificate-to-azure"></a>Het management-certificaat uploaden naar Azure
 
-Un certificat de gestion Azure est requis pour que Configuration Manager puisse accéder à l’API Azure et configurer le service proxy cloud. Pour plus d’informations et des instructions sur la manière de charger un certificat de gestion, consultez les articles suivants dans la documentation Azure :
-- [Vue d’ensemble des certificats pour Azure Cloud Services](https://azure.microsoft.com/documentation/articles/cloud-services-certs-create/)
-- [Téléchargement d’un certificat de gestion API dans Azure Management](https://azure.microsoft.com/documentation/articles/azure-api-management-certs/).
+Een Azure-beheercertificaat is vereist voor Configuration Manager voor toegang tot de Azure-API en Cloudproxyservice configureren. Zie de volgende artikelen in de Azure-documentatie voor meer informatie en instructies voor het uploaden van een beheercertificaat:
+- [Certificaten voor Azure Cloud Services-overzicht](https://azure.microsoft.com/documentation/articles/cloud-services-certs-create/)
+- [Een Azure Management API Management-certificaat uploaden](https://azure.microsoft.com/documentation/articles/azure-api-management-certs/).
 
-Veillez à copier l’ID d’abonnement associé au certificat de gestion. Vous en aurez besoin pour configurer le service proxy cloud dans la console Configuration Manager.
+Zorg ervoor dat de abonnements-ID die is gekoppeld aan het beheercertificaat te kopiëren. U hebt deze voor het configureren van Cloudproxyservice in de Configuration Manager-console.
 
-#### <a name="set-up-cloud-proxy-service"></a>Configurer le service proxy cloud
+#### <a name="set-up-cloud-proxy-service"></a>Cloudproxyservice instellen
 
-1. Ouvrez la console Configuration Manager, puis accédez à **Administration > Services cloud > Service proxy cloud**.
-2. Cliquez sur **Créer un service proxy cloud**.
-3. Dans l’Assistant Création d’un service proxy cloud, entrez votre ID d’abonnement Azure (copié à partir du portail de gestion Azure), cliquez sur Parcourir et sélectionnez le fichier de certificat que vous avez chargé comme certificat de gestion Azure. Cliquez sur **Suivant**. Attendez quelques instants que la console se connecte à Azure.
-4. Remplissez les détails supplémentaires dans l’Assistant :
-    - Spécifiez la clé privée (fichier .pfx) que vous avez exportée à partir du certificat SSL personnalisé.
-    - Spécifiez le certificat racine exporté à partir du certificat client.
-    - Spécifiez le même nom de domaine complet de service que vous avez utilisé lorsque vous avez créé le nouveau modèle de certificat.
-    - Décochez la case à côté de **Vérifier la révocation des certificats clients** (sauf si vous publiez publiquement les informations de votre liste de révocation de certificats).
-    - Cliquez sur **Suivant** lorsque vous avez terminé.
-5. Vérifiez les paramètres et cliquez sur **Suivant**. Configuration Manager commence à configurer le service. Une fois que l’Assistant a terminé, vous pouvez cliquer sur **Fermer**, mais il faudra entre 5 et 15 minutes pour configurer complètement le service dans Azure. Vérifiez la colonne **État** du service proxy cloud nouvellement configuré pour déterminer quand le service est prêt.
+1. Ga in de Configuration Manager-console naar **beheer > Cloudservices > Cloudproxyservice**.
+2. Klik op **Cloudproxyservice maken**.
+3. In de Wizard Cloud maken Proxy-Service, Voer uw Azure-abonnement-ID (overgenomen van de Azure-beheerportal), klik op Bladeren en selecteer het certificaatbestand dat u gebruikt voor het uploaden als een Azure-beheercertificaat. Klik op **Volgende**. Wacht enige tijd voor de console verbinding maken met Azure.
+4. Vul in de aanvullende informatie in de wizard:
+    - Geef de persoonlijke sleutel (PFX-bestand) die u hebt geëxporteerd uit het aangepaste certificaat voor SSL.
+    - Geef het basiscertificaat is geëxporteerd uit het clientcertificaat.
+    - Geef de servicenaam dezelfde FQDN-naam die u hebt gebruikt toen u de nieuwe certificaatsjabloon gemaakt.
+    - Schakel het selectievakje naast **certificaatintrekking Client controleren** (tenzij u uw CRL-gegevens openbaar publiceert).
+    - Klik op **volgende** wanneer u klaar bent.
+5. Controleer de instellingen en klik op **volgende**. Configuration Manager start instellen van de service. Wanneer de wizard is voltooid, klikt u op **sluiten**, maar het duurt tussen 5 tot 15 minuten voor het inrichten van de service volledig in Azure. Controleer de **Status** kolom voor de nieuwe installatie Cloudproxyservice om te bepalen wanneer de service is klaar.
 
-#### <a name="configure-primary-site-for-client-certification-authentication"></a>Configurer le site principal pour l’authentification de certification de client
+#### <a name="configure-primary-site-for-client-certification-authentication"></a>Primaire site voor clientverificatie certificeringsinstantie configureren
 
-1. Dans la console Configuration Manager, accédez à **Administration > Configuration du site > Sites**.
-2. Sélectionnez le site principal pour les clients que vous souhaitez gérer via le service proxy cloud, puis cliquez sur **Propriétés**.
-3. Sous l’onglet Communications des ordinateurs clients de la feuille de propriétés du site principal, cochez la case à côté de **Utiliser le certificat client PKI (fonctionnalité d’authentification du client) lorsqu’il est disponible**.
-4. Veillez à décocher la case à côté de **Les clients vérifient la liste de révocation des certificats (CRL) pour les systèmes de site**. Cette option serait nécessaire seulement si vous publiiez publiquement votre liste de révocation de certificats.
-5. Cliquez sur **OK**.
+1. Ga in de Configuration Manager-console naar **beheer > siteconfiguratie > Sites**.
+2. Selecteer de primaire site voor de clients die u wilt beheren via Cloudproxyservice en klikt u op **eigenschappen**.
+3. Op het tabblad clientcommunicatie voor de Computer van het eigenschappenvenster van de primaire site, schakel het selectievakje in naast **gebruik PKI-clientcertificaat (clientverificatie) indien beschikbaar**.
+4. Zorg ervoor dat u het selectievakje naast **Clients controleren de certificaatintrekkingslijst (CRL) voor sitesystemen**. Deze optie alleen zijn vereist als u uw CRL openbaar zijn publiceren.
+5. Klik op **OK**.
 
-#### <a name="add-the-cloud-proxy-connector-point"></a>Ajouter le point du connecteur de proxy cloud
+#### <a name="add-the-cloud-proxy-connector-point"></a>De cloudproxyconnectorpunt toevoegen
 
-Le point du connecteur de proxy cloud est un nouveau rôle de système de site permettant de communiquer avec le service proxy cloud. Pour ajouter le point du connecteur de proxy cloud, suivez les instructions de la rubrique [Ajouter des rôles de système de site pour System Center Configuration Manager](../../core/servers/deploy/configure/add-site-system-roles.md).
+De cloudproxyconnectorpunt is een nieuwe sitesysteemrol voor communicatie met Cloudproxyservice. Volg de instructies in als u wilt toevoegen de cloudproxyconnectorpunt, [sitesysteemrollen voor System Center Configuration Manager toevoegen](../../core/servers/deploy/configure/add-site-system-roles.md).
 
-#### <a name="configure-roles-for-cloud-proxy-traffic"></a>Configurer des rôles pour le trafic du proxy cloud
+#### <a name="configure-roles-for-cloud-proxy-traffic"></a>Rollen voor verkeer van de cloud-proxy configureren
 
-La dernière étape de la configuration du service proxy cloud consiste à configurer les rôles de système de site pour qu’ils acceptent le trafic du proxy cloud. Pour la version d’évaluation technique 1606, seuls les rôles de point de gestion, de point de distribution et de point de mise à jour logicielle sont pris en charge pour le service proxy cloud. Vous devez configurer chaque rôle séparément.
+De laatste stap bij het instellen van Cloudproxyservice is voor het configureren van de sitesysteemrollen voor het accepteren van verkeer van de cloud-proxy. Voor technische Preview 1606 is worden alleen van toepassing op het beheerpunt, distributiepunt en software-update-punt functies ondersteund voor Cloudproxyservice. U moet elke rol afzonderlijk configureren.
 
-1. Dans la console Configuration Manager, accédez à **Administration > Configuration du site > Serveurs et rôles de système de site**.
-2. Cliquez sur le serveur de système de site pour le rôle que vous souhaitez configurer pour le trafic du proxy cloud.
-3. Cliquez sur le rôle, puis sur **Propriétés**.
-4. Dans la feuille de propriétés du rôle, sous Connexions client, choisissez **HTTPS**, cochez la case à côté de **Autoriser le trafic du proxy cloud de Configuration Manager**, puis cliquez sur **OK**. Répétez ces étapes pour les autres rôles.
+1. Ga in de Configuration Manager-console naar **beheer > siteconfiguratie > Servers en sitesysteemrollen**.
+2. Klik op de sitesysteemserver voor de rol die u wilt configureren voor verkeer van de cloud-proxy.
+3. Klik op de rol en klik vervolgens op **eigenschappen**.
+4. Kies in het eigenschappenvenster rol onder-clientverbindingen, **HTTPS**, schakel het selectievakje in naast **proxyservice van Configuration Manager Cloud toestaan verkeer**, en klik vervolgens op **OK**. Herhaal deze stappen voor de overige rollen.
 
-#### <a name="check-status-on-a-client-on-the-internet"></a>Vérifier l’état d’un client sur Internet
+#### <a name="check-status-on-a-client-on-the-internet"></a>Controleer de status op een client op Internet
 
-Une fois que le service et les rôles ont été entièrement configurés, les clients internes obtiennent l’emplacement du service proxy cloud à la prochaine demande d’emplacement. Les clients avec les informations d’emplacement mises à jour peuvent alors communiquer avec Configuration Manager sur Internet. Le cycle d’interrogation pour les demandes d’emplacement est de 24 heures. Si vous ne souhaitez pas attendre la demande d’emplacement normalement planifiée, vous pouvez forcer la demande en redémarrant le service hôte de l’agent SMS (ccmexec.exe) sur l’ordinateur.
+Nadat de service en -rollen zijn volledig geconfigureerd, ontvangt de interne clients de locatie van Cloudproxyservice bij de volgende locatie-aanvraag. Clients met informatie over de bijgewerkte locatie kunnen vervolgens met Configuration Manager op het Internet communiceren. De polling-cyclus voor verzoeken om de locatie is om de 24 uur. Als u niet wilt wachten tot de aanvraag normaal geplande locatie, dwingt u de aanvraag door de SMS Agent Host-service (ccmexec.exe) op de computer opnieuw te starten.
 
-Une fois que les clients possèdent les nouvelles informations d’emplacement pour le service proxy cloud, essayez de vérifier l’état des clients qui ne sont plus sur le réseau privé interne, mais qui ont accès à Internet. Vous pouvez également surveiller le trafic sur le service proxy cloud en accédant à **Administration > Services cloud > Service proxy cloud**, en sélectionnant le service dans le volet Liste et en consultant les informations de trafic dans le volet d’informations.   
+Nadat clients de nieuwe locatie-informatie voor Cloudproxyservice hebben, Controleer de status van clients die niet langer in het interne particuliere netwerk, maar hebben toegang tot Internet. U kunt ook verkeer op Cloudproxyservice controleren door te gaan naar **beheer > Cloudservices > Cloudproxyservice**, de service in het lijstdeelvenster selecteren en gegevens weergeven in het detaildeelvenster.   
 
-## <a name="manage_o365"></a>Gérer l’agent Office 365 Client dans Configuration Manager  
+## <a name="manage_o365"></a>De Office 365-clientagent in Configuration Manager beheren  
 
-À partir de la version d’évaluation technique 1606, vous pouvez utiliser un paramètre de l’agent client Configuration Manager, à la place d’une stratégie de groupe, pour permettre aux clients Office 365 de recevoir des mises à jour à partir de Configuration Manager. Après avoir configuré ce paramètre et déployé les mises à jour Office 365, l’agent client Configuration Manager communique avec l’agent Office 365 Client pour télécharger les mises à jour Office 365 à partir d’un point de distribution et les installer. Configuration Manager effectue également l’inventaire du paramètre de l’agent client.
+Vanaf Technical Preview 1606, kunt u een Configuration Manager clientagentinstelling, in plaats van Groepsbeleid, zodat Office 365-clients om updates te ontvangen van Configuration Manager gebruiken. Nadat u deze instelling configureren en implementeren van updates voor Office 365, wordt de clientagent voor Configuration Manager-communiceert met de Office 365-clientagent voor Office 365-updates vanaf een distributiepunt downloaden en te installeren. Configuration Manager ook inventarisatie van de clientagent instellen.
 
-Pour plus d’informations, consultez [Gérer les mises à jour Office 365 ProPlus](https://technet.microsoft.com/library/mt741983.aspx).
+Zie voor meer informatie [beheren van Office 365 ProPlus-updates](https://technet.microsoft.com/library/mt741983.aspx).
 
-### <a name="set-the-configuration-manager-client-setting-to-manage-the-office-365-client-agent"></a>Définir le paramètre du client Configuration Manager pour gérer l’agent Office 365 Client
-1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Vue d’ensemble** > **Paramètres client**.
-2. Ouvrez les paramètres d’appareil appropriés pour activer l’agent client. Pour plus d’informations sur les paramètres par défaut et personnalisés du client, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md).
-3. Cliquez sur **Mises à jour logicielles** et sélectionnez **Oui** pour le paramètre **Activer la gestion de l’agent Office 365 Client**.  
-
-
-## <a name="osdpreservedriveletter"></a>La variable de séquence de tâches OSDPreserveDriveLetter est dépréciée
-La variable de séquence de tâches OSDPreverveDriveLetter détermine si la séquence de tâches utilise ou non la lettre de lecteur capturée dans le fichier WIM d’image de système d’exploitation au moment où vous appliquez cette image à un ordinateur de destination.
-- Cette variable de séquence de tâches est déconseillée à partir de la version d’évaluation technique 1606.
-
-Lors d’un déploiement de système d’exploitation, par défaut, le programme d’installation Windows détermine désormais la meilleure lettre de lecteur à utiliser (généralement C:). Si vous souhaitez spécifier un autre lecteur à utiliser, vous pouvez modifier l’emplacement dans l’étape de séquence de tâches Appliquer le système d’exploitation. Accédez au paramètre **Sélectionnez l’emplacement où vous souhaitez appliquer ce système d’exploitation**, sélectionnez **Lettre de lecteur logique spécifique**, puis choisissez le lecteur que vous souhaitez utiliser. Il doit y avoir un lecteur affecté à la lettre que vous sélectionnez sur l’ordinateur de destination. 
-
-## <a name="updatesandservicing"></a>Modifications pour le nœud Mises à jour et maintenance
-Dans la version d’évaluation technique 1606, plusieurs modifications ont été introduites qui s’appliquent aux mises à jour et à la maintenance dans la console Configuration Manager :
-- **Changement de nom du nœud :**
-
-    Dans l’espace de travail **Surveillance**, le nœud **État de maintenance du site** a été renommé en **État des mises à jour et de la maintenance**.
-- **État de l’installation plus détaillé :**
-
-    Quand vous affichez l’état de l’installation d’une mise à jour pour un site, la console affiche maintenant les détails pour chacune des actions suivantes :
-    - **Téléchargement** (Cela s’applique uniquement au site de niveau supérieur où est installé le rôle de système de site de point de connexion de service)
-    - **Réplication**
-    - **Vérification des prérequis**
-    - **Installation**
-
-  De plus, des informations plus détaillées sont maintenant fournies pour chaque étape, notamment le fichier journal que vous pouvez consulter pour obtenir plus d’informations.  
--   **Nouvelle option pour retenter l’installation après l’échec de la vérification des prérequis :**
-
-    Dans les espaces de travail **Administration** et **Surveillance**, le nœud **Mises à jour et maintenance** affiche le nouveau bouton **Ignorer les avertissements de configuration requise** sur le ruban.
-
-    Quand vous installez des mises à jour sans utiliser l’option Ignorer les avertissements de configuration requise (à partir de l’Assistant Mises à jour) et que l’installation des mises à jour s’arrête avec un état **Avertissement de configuration requise**, vous pouvez maintenant sélectionner le bouton **Ignorer les avertissements de configuration requise** dans le ruban pour ignorer les avertissements et continuer automatiquement l’installation des mises à jour.  
+### <a name="set-the-configuration-manager-client-setting-to-manage-the-office-365-client-agent"></a>De Configuration Manager-client instellen voor het beheren van de Office 365-clientagent instellen
+1.  Klik in de Configuration Manager-console op **beheer** > **overzicht** > **clientinstellingen**.
+2. Open de juiste apparaatstuurprogramma-instellingen voor de clientagent. Zie voor meer informatie over standaard en aangepaste clientinstellingen [het configureren van clientinstellingen in System Center Configuration Manager](../../core/clients/deploy/configure-client-settings.md).
+3. Klik op **Software-Updates** en selecteer **Ja** voor de **beheer van de Office 365-Clientagent inschakelen** instelling.  
 
 
+## <a name="osdpreservedriveletter"></a>De takenreeksvariabele OSDPreserveDriveLetter is afgeschaft.
+De takenreeksvariabele OSDPreserveDriveLetter bepaalt of de takenreeks de stationsletter, vastgelegd in het WIM-bestand van het besturingssysteem, wanneer die installatiekopie wordt toegepast op een doelcomputer gebruikt.
+- Deze takenreeksvariabele is afgeschaft in Technical Preview 1606.
 
-- **Vue plus claire des mises à jour :**
+Tijdens de implementatie van een besturingssysteem bepaalt standaard Windows Setup nu de beste stationsletter te gebruiken (meestal C:). Als u opgeven van een ander station moet worden gebruikt wilt, kunt u de locatie van de takenreeksstap besturingssysteem toepassen. Ga naar de **selecteert u de locatie waar u wilt toepassen van dit besturingssysteem** optie **logische stationsletter opgeven**, en kies het station dat u wilt gebruiken. Er moet een station dat is toegewezen met de letter die u op de doelcomputer kiest. 
 
-    Quand vous affichez le nœud **Mises à jour et maintenance**, vous voyez maintenant uniquement la dernière mise à jour que vous avez installée, ainsi que les nouvelles mises à jour prêtes à être installées. Pour afficher les mises à jour précédemment installées, cliquez sur le nouveau bouton **Historique** dans le ruban.  
+## <a name="updatesandservicing"></a>Wijzigingen voor het knooppunt Updates en onderhoud
+Technische Preview-versie 1606 enkele wijzigingen zijn uitgevoerd die betrekking hebben op Updates en onderhoud in de Configuration Manager-console:
+- **Wijziging van knooppunt:**
 
--   **Option renommée pour la pré-production :**
+    In de **bewaking** werkruimte de **Site Servicing status** knooppunt is gewijzigd in **Updates en onderhoudsstatus**.
+- **Meer installatiestatus:**
 
-    Dans le nœud Mises à jour et maintenance, le bouton qui était appelé **Options du client** a été renommé **Promouvoir le client de préproduction**.
+    Wanneer u de installatiestatus van de update voor een site bekijkt, geeft de console nu afzonderlijke details voor de volgende acties:
+    - **Download** (dit geldt alleen voor de bovenste site waarop de service connection point-sitesysteemrol is geïnstalleerd)
+    - **Replicatie**
+    - **Controle van vereisten**
+    - **Installatie**
+
+  Bovendien is nu meer gedetailleerde informatie voor elke stap, zoals in het logboekbestand dat die u kunt bekijken voor meer informatie.  
+-   **Nieuwe optie om opnieuw te proberen de vereiste fouten:**
+
+    In zowel de **beheer** en **bewaking** werkruimten, de **Updates en onderhoud** knooppunt bevat een nieuwe knop in het lint genaamd **waarschuwingen over vereisten negeren**.
+
+    Wanneer u updates installeert zonder de optie voor het negeren van waarschuwingen voor vereisten (van in de Wizard Updates), en dat de installatie van de update met de melding van stopt **waarschuwingen voor vereisten**, kunt u selecteren **waarschuwingen over vereisten negeren** vanuit het lint voor het activeren van een automatische voortzetting van die update-installatie die de waarschuwingen voor vereisten worden genegeerd.  
+
+
+
+- **Schonere weergave van updates:**
+
+    Wanneer u bekijkt de **Updates en onderhoud** knooppunt nu ziet u alleen de laatst geïnstalleerde update en er nieuwe updates die beschikbaar zijn voor u installeren. U kunt eerder geïnstalleerde updates u op de nieuwe **geschiedenis** knop die wordt weergegeven in het lint.  
+
+-   **Nieuwe naam optie voor preproductie:**
+
+    In het knooppunt Updates en onderhoud, de knop Wat is de naam **clientopties** is nu gewijzigd in **promoveren pre-Productieclient**.

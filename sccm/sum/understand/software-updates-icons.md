@@ -1,6 +1,6 @@
 ---
-title: "Icônes utilisées pour les mises à jour logicielles | Microsoft Docs"
-description: "La console Configuration Manager contient des icônes qui indiquent un état pour la mise à jour ou le groupe de mises à jour logicielles synchronisés."
+title: Gebruikte pictogrammen voor software-updates | Microsoft Docs
+description: De Configuration Manager-console bevat pictogrammen die wijzen op een status voor de gesynchroniseerde update of software-updategroep.
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,113 +13,113 @@ ms.technology: configmgr-sum
 ms.assetid: 63c5ef72-5715-4d86-85a2-71beba469fab
 ms.openlocfilehash: 04c5ccc53263b2672096b564695a636bfb28d952
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="icons-used-for-software-updates-in-system-center-configuration-manager"></a>Icônes utilisées pour les mises à jour logicielles dans System Center Configuration Manager
+# <a name="icons-used-for-software-updates-in-system-center-configuration-manager"></a>Gebruikte pictogrammen voor software-updates in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Les mises à jour logicielles synchronisées sont affichées dans la console Configuration Manager, où la première colonne de chaque mise à jour logicielle contient une icône indiquant un état spécifique. Les groupes de mises à jour logicielles sont également représentés par une icône qui fournit des informations sur l’état des mises à jour logicielles contenues dans chaque groupe. Cette section fournit des informations sur les icônes des mises à jour logicielles et sur la signification de chaque icône.  
+Gesynchroniseerde software-updates worden weergegeven in de Configuration Manager-console en de eerste kolom voor elke software-update bevat een pictogram dat een specifieke status aangeeft. Software-updategroepen worden ook weergegeven met een pictogram dat informatie verschaft over de status van de software-updates in de groep. Deze sectie bevat informatie over de software-updatepictogrammen en de betekenis van elk pictogram.  
 
-## <a name="icons-for-software-updates"></a>Icônes des mises à jour logicielles  
- Les mises à jour logicielles synchronisées sont représentées par une des icônes suivantes.  
+## <a name="icons-for-software-updates"></a>Pictogrammen voor software-updates  
+ Gesynchroniseerde software-updates worden aangeduid met een van de volgende pictogrammen.  
 
-### <a name="normal-icon"></a>Icône Normale  
- ![icône](../media/Normal.jpg "Icône Normale") L’icône avec la flèche verte représente une mise à jour logicielle normale.  
+### <a name="normal-icon"></a>Pictogram Normaal  
+ ![pictogram](../media/Normal.jpg "pictogram normaal") het pictogram met de groene pijl duidt op een normale software-update.  
 
- **Description :**  
+ **Beschrijving:**  
 
- Les mises à jour normales ont été synchronisées et sont disponibles pour le déploiement logiciel.  
+ Normale software-updates zijn gesynchroniseerd en zijn beschikbaar voor software-implementatie.  
 
- **Problèmes liés au fonctionnement :**  
+ **Operationele problemen:**  
 
- Il n'existe aucun problème opérationnel.  
+ Er zijn geen operationele problemen.  
 
-### <a name="expired-icon"></a>Icône Expiré  
- ![icône](../media/Expired.jpg "Icône Expiré") L’icône avec un X noir représente une mise à jour logicielle qui a expiré. Vous pouvez également identifier les mises à jour logicielles qui ont expiré en consultant la colonne **Expiré** de la mise à jour logicielle lors de l’affichage de cette dernière dans la console Configuration Manager.  
+### <a name="expired-icon"></a>Pictogram Verlopen  
+ ![pictogram](../media/Expired.jpg "verlopen pictogram") het pictogram met de zwarte X duidt op een verlopen software-update. U kunt verlopen software-updates ook identificeren door de **verlopen** kolom voor de software-update wanneer deze wordt weergegeven in de Configuration Manager-console.  
 
- **Description :**  
+ **Beschrijving:**  
 
- Les mises à jour logicielles expirées pouvaient auparavant être déployées sur des ordinateurs clients, mais après l’expiration d’une mise à jour logicielle, aucun nouveau déploiement ne peut plus être créé pour les mises à jour logicielles. Les mises à jour logicielles qui ont expiré sont supprimées des déploiements actifs et ne sont plus mises à la disposition des clients.  
+ Verlopen software-updates konden voorheen worden geïmplementeerd op clientcomputers, maar zodra een software-update is verlopen, kunnen er geen nieuwe implementaties meer worden gemaakt voor de software-updates. Verlopen software-updates in actieve implementaties worden verwijderd en wordt niet langer beschikbaar gesteld aan clients.  
 
- **Problèmes liés au fonctionnement :**  
+ **Operationele problemen:**  
 
- Il n'existe aucun problème opérationnel.
+ Er zijn geen operationele problemen.
 
-### <a name="superseded-icon"></a>Icône Remplacée  
- ![icône](../media/Superseded.jpg "Icône Remplacée") L’icône avec une étoile jaune représente une mise à jour logicielle remplacée. Vous pouvez également identifier les mises à jour logicielles remplacées dans la colonne **Remplacée** de la mise à jour logicielle affichée dans la console Configuration Manager.  
+### <a name="superseded-icon"></a>Pictogram Vervangen  
+ ![pictogram](../media/Superseded.jpg "vervangen pictogram") het pictogram met de gele ster duidt op een vervangen software-update. U kunt vervangen software-updates ook identificeren door de **vervangen** kolom voor de software-update wanneer deze wordt weergegeven in de Configuration Manager-console.  
 
- **Description :**  
+ **Beschrijving:**  
 
- Les mises à jour logicielles remplacées ont été remplacées par des versions plus récentes de la mise à jour logicielle. En règle générale, une mise à jour logicielle qui en remplace une autre effectue une ou plusieurs des opérations suivantes :  
+ Vervangen software-updates zijn vervangen door de nieuwere versies van de software-update. Een software-update die een andere software-update vervangt, heeft doorgaans de volgende kenmerken:  
 
--   Elle optimise, améliore ou s’ajoute au correctif fourni par une ou plusieurs mises à jour logicielles précédemment publiées.  
+-   Bevordert, verbetert of voegt iets toe aan de oplossing die werd geleverd door een of meer eerder uitgebrachte software-updates.  
 
--   Elle améliore l’efficacité de son package de fichiers de mise à jour logicielle, que les clients installent si la mise à jour logicielle est approuvée pour l’installation. Par exemple, la mise à jour logicielle remplacée peut contenir des fichiers qui ne sont plus pertinents pour le correctif ou pour les systèmes d’exploitation récemment pris en charge par la nouvelle mise à jour logicielle. Ces fichiers ne sont donc pas inclus dans le package de fichiers de la mise à jour logicielle de remplacement.  
+-   Verbetert de efficiëntie van het bestandspakket van de software-update, dat clients installeren wanneer de software-update is goedgekeurd voor installatie. Bijvoorbeeld, de vervangen software-update kan bestanden bevatten die niet langer relevant zijn voor de fix of voor de besturingssystemen die nu door de nieuwe software-update worden ondersteund. Die bestanden worden daarom niet opgenomen in het vervangende bestandspakket van de software-update.  
 
--   Met à jour les versions les plus récentes d'un produit, c'est-à-dire, ne s'applique plus aux anciennes versions ou configurations d'un produit. Les mises à jour logicielles peuvent également remplacer d’autres mises à jour logicielles si des modifications ont été apportées pour étendre la prise en charge des langues. Par exemple, une révision récente d’une mise à jour de produit pour Microsoft Office peut supprimer la prise en charge d’un système d’exploitation antérieur, mais ajouter une prise en charge de langues supplémentaires dans la version de mise à jour logicielle initiale.  
+-   Werkt nieuwere versies van een product bij, of met andere woorden, is niet langer van toepassing op oudere versies of configuraties van een product. Software-updates kunnen ook andere software-updates vervangen als er wijzigingen zijn aangebracht om de taalondersteuning uit te breiden. Bijvoorbeeld, een latere revisie van een productupdate voor Microsoft Office kan de ondersteuning voor een ouder besturingssysteem verwijderen, maar kan aanvullende ondersteuning voor nieuwe talen aan de initiële release van de software-update toevoegen.  
 
- Sous l’onglet Règles de remplacement dans Propriétés du composant du point de mise à jour logicielle, vous pouvez indiquer de quelle façon les mises à jour logicielles remplacées doivent être gérées. Pour plus d'informations, voir [Supersedence rules](../plan-design/plan-for-software-updates.md#BKMK_SupersedenceRules).  
+ Op het tabblad Vervangingsregels van het dialoogvenster Eigenschappen van software-updatepuntcomponent, kunt u aangeven hoe u vervangen software-updates wilt beheren. Voor meer informatie, zie [Vervangingsregels](../plan-design/plan-for-software-updates.md#BKMK_SupersedenceRules).  
 
- **Problèmes liés au fonctionnement :**  
+ **Operationele problemen:**  
 
- Quand cela est possible, déployez la mise à jour logicielle de remplacement sur les ordinateurs clients au lieu de la mise à jour logicielle remplacée. Vous pouvez afficher une liste des mises à jour logicielles qui remplacent la mise à jour logicielle, sous l’onglet **Informations de remplacement** dans les propriétés de mise à jour logicielle.  
+ Indien mogelijk moet u in plaats van de vervangen software-update de vervangende software-update implementeren op clientcomputers. U kunt op het tabblad **Vervangingsinformatie** in de eigenschappen van de software-update een lijst weergeven van de software-updates die de software-update vervangen.  
 
-### <a name="invalid-icon"></a>Icône Non valide  
- ![icône](../media/Invalid.jpg "Icône Non valide") L’icône avec un X rouge représente une mise à jour logicielle non valide.  
+### <a name="invalid-icon"></a>Pictogram Ongeldig  
+ ![pictogram](../media/Invalid.jpg "pictogram ongeldig") het pictogram met de rode X duidt op een ongeldige software-update.  
 
- **Description :**  
+ **Beschrijving:**  
 
- Les mises à jour logicielles non valides font partie d’un déploiement actif, mais, pour une raison quelconque, le contenu (fichiers de mise à jour logicielle) n’est pas disponible. Voici les scénarios susceptibles de générer cet état :  
+ Ongeldige software-updates bevinden zich in een actieve implementatie, maar om de een of andere reden is de inhoud (software-updatebestanden) niet beschikbaar. Hier volgen enkele scenario's waarin deze status kan zich voordoen:  
 
--   Vous avez déployé la mise à jour logicielle, mais le fichier de mise à jour logicielle a été supprimé du package de déploiement et n’est plus disponible.  
+-   U kunt de software-update implementeren, maar het software-updatebestand wordt verwijderd uit het implementatiepakket en is niet meer beschikbaar.  
 
--   Vous avez créé un déploiement de mise à jour logicielle sur un site, et l’objet de déploiement a été répliqué sur un site enfant, mais le package de déploiement n’a pas été répliqué sur le site enfant.  
+-   U maakt een implementatie van een software-update op een site en het implementatieobject wordt gerepliceerd naar een onderliggende site, maar het implementatiepakket wordt niet goed naar de onderliggende site gerepliceerd.  
 
- **Problèmes liés au fonctionnement :**  
+ **Operationele problemen:**  
 
- Si le contenu d’une mise à jour logicielle est manquant, les clients ne peuvent pas installer la mise à jour logicielle tant que ce contenu n’est pas disponible sur un point de distribution. Vous pouvez redistribuer le contenu aux points de distribution à l’aide de l’action **Redistribuer** . Quand le contenu d’une mise à jour logicielle est manquant dans un déploiement créé sur un site parent, vous devez répliquer ou redistribuer la mise à jour logicielle sur le site enfant. Pour plus d’informations sur la redistribution de contenu, consultez [Gérer le contenu que vous avez distribué](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_manage).  
+ Als de inhoud voor een software-update ontbreekt, kunnen clients de software-update niet installeren totdat de inhoud beschikbaar is op een distributiepunt. U kunt de inhoud opnieuw naar distributiepunten distribueren met behulp van de actie **Opnieuw distribueren** . Als er inhoud ontbreekt voor een software-update in een implementatie die is gemaakt op een bovenliggende site, moet de software-update worden gerepliceerd of opnieuw worden gedistribueerd naar de onderliggende site. Zie voor meer informatie over de herdistributie van inhoud, [beheren van de inhoud die u hebt gedistribueerd](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_manage).  
 
-### <a name="metadata-only-icon"></a>Icône Métadonnées uniquement
- ![icône](../media/MetadataOnly.png "Icône Métadonnées uniquement") L’icône avec une flèche bleue représente une mise à jour logicielle de métadonnées uniquement.
+### <a name="metadata-only-icon"></a>Pictogram Alleen metagegevens
+ ![pictogram](../media/MetadataOnly.png "pictogram alleen metagegevens") het pictogram met de blauwe pijl duidt op een alleen-metagegevens van software-update.
 
- **Description :**  
+ **Beschrijving:**  
 
- Les mises à jour logicielles de métadonnées uniquement sont disponibles dans la console Configuration Manager pour la création de rapports. Vous ne pouvez pas déployer ni télécharger des mises à jour logicielles de métadonnées uniquement, car aucun fichier de mise à jour logicielle n’est associé avec les métadonnées des mises à jour logicielles.  
+ Alleen uit metagegevens bestaande software-updates zijn beschikbaar in de Configuration Manager-console voor rapportage. U kunt geen software-updates implementeren of downloaden die alleen metagegevens bevatten, omdat er geen software-updatebestand is gekoppeld aan de metagegevens van de software-updates.  
 
- **Problèmes liés au fonctionnement :**  
+ **Operationele problemen:**  
 
- Les mises à jour logicielles de métadonnées uniquement sont disponibles pour la création de rapports, mais ne sont pas destinées au déploiement de mises à jour logicielles.  
+ Software-updates met alleen metagegevens zijn beschikbaar voor rapportagedoeleinden en zijn niet bedoeld voor de implementatie van software-updates.  
 
-## <a name="icons-for-software-update-groups"></a>Icônes des groupes de mises à jour logicielles  
- Les groupes de mises à jour logicielles sont représentés par une des icônes suivantes.  
+## <a name="icons-for-software-update-groups"></a>Pictogrammen voor software-updategroepen  
+ Software-updategroepen worden aangeduid met een van de volgende pictogrammen.  
 
-### <a name="normal-icon"></a>Icône Normale  
- ![icône](../media/Normal.jpg "Icône Normale") L’icône avec une flèche verte représente un groupe de mises à jour logicielles qui contient uniquement des mises à jour logicielles normales.  
+### <a name="normal-icon"></a>Pictogram Normaal  
+ ![pictogram](../media/Normal.jpg "pictogram normaal") het pictogram met de groene pijl duidt op een software-updategroep die alleen normale software-updates bevat.  
 
- **Problèmes liés au fonctionnement :**  
+ **Operationele problemen:**  
 
- Il n'existe aucun problème opérationnel.  
+ Er zijn geen operationele problemen.  
 
-### <a name="expired-icon"></a>Icône Expiré  
- ![icône](../media/Expired.jpg "Icône Expiré")L’icône avec un X noir représente un groupe de mises à jour logicielles qui contient une ou plusieurs mises à jour logicielles qui ont expiré.  
+### <a name="expired-icon"></a>Pictogram Verlopen  
+ ![pictogram](../media/Expired.jpg "verlopen pictogram") het pictogram met de zwarte X duidt op een software-updategroep die een of meer verlopen software-updates bevat.  
 
- **Problèmes liés au fonctionnement :**  
+ **Operationele problemen:**  
 
- Quand cela est possible, supprimez ou remplacez les mises à jour logicielles expirées dans le groupe de mises à jour logicielles.  
+ Indien mogelijk moeten de verlopen software-updates in de software-updategroep worden verwijderd of vervangen.  
 
-### <a name="superseded-icon"></a>Icône Remplacée  
- ![icône](../media/Superseded.jpg "Icône Remplacée") L’icône avec une étoile jaune représente un groupe de mises à jour logicielles qui contient une ou plusieurs mises à jour logicielles remplacées.  
+### <a name="superseded-icon"></a>Pictogram Vervangen  
+ ![pictogram](../media/Superseded.jpg "vervangen pictogram") het pictogram met de gele ster duidt op een software-updategroep die een bevat of meer vervangen software-updates.  
 
- **Problèmes liés au fonctionnement :**  
+ **Operationele problemen:**  
 
- Quand cela est possible, remplacez la mise à jour logicielle remplacée dans le groupe de mises à jour logicielles par la mise à jour logicielle de remplacement.  
+ Indien mogelijk moet de vervangen software-update in de software-updategroep worden vervangen door de vervangende software-update.  
 
-### <a name="invalid-icon"></a>Icône Non valide  
- ![icône](../media/Invalid.jpg "Icône Non valide") L’icône avec un X rouge représente un groupe de mises à jour logicielles qui contient une ou plusieurs mises à jour logicielles non valides.  
+### <a name="invalid-icon"></a>Pictogram Ongeldig  
+ ![pictogram](../media/Invalid.jpg "pictogram ongeldig") het pictogram met de rode X duidt op een software-updategroep die een of meer ongeldige software-updates bevat.  
 
- **Problèmes liés au fonctionnement :**  
+ **Operationele problemen:**  
 
- Si le contenu d’une mise à jour logicielle est manquant, les clients ne peuvent pas installer la mise à jour logicielle tant que ce contenu n’est pas disponible sur un point de distribution. Vous pouvez redistribuer le contenu aux points de distribution à l’aide de l’action **Redistribuer** . Quand le contenu d’une mise à jour logicielle est manquant dans un déploiement créé sur un site parent, vous devez répliquer ou redistribuer la mise à jour logicielle sur le site enfant. Pour plus d’informations sur la redistribution de contenu, consultez [Gérer le contenu que vous avez distribué](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_manage).  
+ Als de inhoud voor een software-update ontbreekt, kunnen clients de software-update niet installeren totdat de inhoud beschikbaar is op een distributiepunt. U kunt de inhoud opnieuw naar distributiepunten distribueren met behulp van de actie **Opnieuw distribueren** . Als er inhoud ontbreekt voor een software-update in een implementatie die is gemaakt op een bovenliggende site, moet de software-update worden gerepliceerd of opnieuw worden gedistribueerd naar de onderliggende site. Zie voor meer informatie over de herdistributie van inhoud, [beheren van de inhoud die u hebt gedistribueerd](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_manage).  

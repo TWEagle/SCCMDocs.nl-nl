@@ -1,6 +1,6 @@
 ---
-title: "Fonctionnalités de Technical Preview 1512 Configuration Manager"
-description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique de System Center Configuration Manager, version 1512."
+title: Mogelijkheden in Technical Preview 1512 Configuration Manager
+description: Meer informatie over functies die beschikbaar zijn in de Technical Preview voor System Center Configuration Manager, versie 1512.
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -17,77 +17,77 @@ manager: angrobe
 robots: noindex,nofollow
 ms.openlocfilehash: 5cf8d54fbaa98a75ac2a875a23a43b1d3e5be0dd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1512-for-system-center-configuration-manager"></a>Fonctionnalités dans la version d’évaluation technique 1512 de System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1512-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1512 voor System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
+*Van toepassing op: System Center Configuration Manager (Technical Preview)*
 
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique de System Center Configuration Manager, version 1512. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique de Configuration Manager. Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.  
+Dit artikel bevat de functies die beschikbaar in de Technical Preview voor System Center Configuration Manager, versie 1512 zijn. U kunt deze versie om te werken en nieuwe mogelijkheden toevoegen aan uw Configuration Manager technical preview-site installeren. Controleer voordat u deze versie van de technical preview installeert, de inleidende informatie [Technical Preview voor System Center Configuration Manager](technical-preview.md), om vertrouwd te raken met algemene vereisten en beperkingen voor het gebruik van een technical preview hoe bijwerken tussen versies en hoe u feedback over de functies in een technical preview.  
 
- Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.  
+ Hier volgen nieuwe functies die u met deze versie kunt uitproberen.  
 
-##  <a name="bkmk_devicehealth"></a> Attestation de l’intégrité des appareils  
- À partir de la version d’évaluation technique 1512, les administrateurs peuvent afficher l’état de l’attestation de l’intégrité des appareils Windows 10 dans la console Configuration Manager.  Cette fonctionnalité est disponible pour Configuration Manager et Configuration Manager avec Microsoft Intune. L’attestation de l’intégrité des appareils permet à l’administrateur de s’assurer que les ordinateurs clients ont des configurations de BIOS, de Module de plateforme sécurisée (TPM) et de logiciel de démarrage dignes de confiance. Pour prendre en charge l’attestation de l’intégrité des appareils, les appareils clients doivent exécuter Windows 10 avec le Module de plateforme sécurisée (TPM) 2 activé. L’attestation de l’intégrité des appareils affiche le nombre d’appareils activés pour chacun des éléments suivants :  
+##  <a name="bkmk_devicehealth"></a> Health Attestation van apparaten  
+ Vanaf Technical Preview 1512 kunnen bekijken beheerders de status van Windows 10 Health Attestation van apparaten in de Configuration Manager-console.  Deze functionaliteit is beschikbaar voor Configuration Manager en Configuration Manager met Microsoft Intune. Health attestation van apparaten kan de beheerder zorgen dat clientcomputers over betrouwbare configuraties van BIOS, TPM en opstartsoftware van softwareconfiguraties. Ter ondersteuning van health attestation van apparaten, moeten op clientapparaten Win10 met TPM 2 ingeschakeld worden uitgevoerd. Health attestation van apparaten wordt het aantal apparaten dat is ingeschakeld voor elk van de volgende weergegeven:  
 
--   Logiciel anti-programme malveillant à lancement anticipé  
+-   Early launch antimalware  
 
 -   BitLocker  
 
--   Démarrage sécurisé  
+-   Beveiligd opstarten  
 
--   Intégrité du code  
+-   Code-integriteit  
 
-La console affiche également les principaux paramètres d’attestation de l’intégrité manquants avec le nombre d’appareils.  
+De console worden ook de bovenste ontbrekende instellingenvoor health attestation met het aantal apparaten weergegeven.  
 
-Pour afficher l’attestation d’intégrité de l’appareil, dans la console Configuration Manager, accédez à l’espace de travail **Surveillance**, cliquez sur le nœud **Sécurité**, puis cliquez sur **Attestation d’intégrité**.  
+Om de weergave voor de health attestation van apparaten bekijken, in de Configuration Manager-console gaat u naar de **bewaking** werkruimte van Klik **beveiliging** knooppunt en klik vervolgens op **Health Attestation**.  
 
-##  <a name="bkmk_viewterms"></a> Surveillance des conditions générales dans la console  
-À compter de la version d’évaluation technique 1512, quand vous intégrez Configuration Manager avec Microsoft Intune, vous pouvez utiliser la console Configuration Manager pour afficher la liste des utilisateurs qui ont accepté les conditions générales configurées par votre service informatique et la liste de ceux qui ne les ont pas acceptées.  
+##  <a name="bkmk_viewterms"></a>In de console voor voorwaarden bewaken  
+Vanaf Technical Preview 1512, wanneer u Configuration Manager met Microsoft Intune integreert, kunt u de Configuration Manager-console om weer te geven welke gebruikers de voorwaarden en bepalingen die zijn geconfigureerd door uw IT-afdeling hebben geaccepteerd en welke gebruikers niet hebben.  
 
-**Pour afficher des informations de synthèse :**  
+**Samenvattingsinformatie weergeven:**  
 
--   Dans la console Configuration Manager, accédez à **Surveillance** > **Vue d’ensemble** > **Déploiements** et sélectionnez le déploiement de conditions générales que vous souhaitez afficher.  
+-   Ga in de Configuration Manager-console naar **bewaking** > **overzicht** > **implementaties** en selecteer de voorwaarden en bepalingen implementatie die u wilt weergeven.  
 
-**Pour afficher des informations détaillées :**  
+**Gedetailleerde gegevens bekijken:**  
 
-1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité** > **Vue d’ensemble** > **Paramètres de compatibilité** > **Conditions générales**, puis sélectionnez les conditions générales à afficher.  
+1.  Ga in de Configuration Manager-console naar **activa en naleving** > **overzicht** > **instellingen voor naleving** > **voorwaarden en bepalingen**, en selecteer vervolgens de voorwaarden die u wilt weergeven.  
 
-2.  En bas de la console, sélectionnez l’onglet **Déploiements**, sélectionnez le déploiement, puis cliquez sur **Afficher l’état**.  
+2.  Aan de onderkant van de console, selecteert u de **implementaties** tabblad, selecteert u de implementatie en klik vervolgens op **Status weergeven.**  
 
-##  <a name="bkmk_EPpolicy"></a> Améliorations apportées aux paramètres de stratégie Endpoint Protection  
-Dans Technical Preview 1512, nous avons ajouté les nouveaux paramètres de stratégie de logiciel anti-programme malveillant Endpoint Protection suivants :  
+##  <a name="bkmk_EPpolicy"></a>Verbeteringen in Endpoint Protection-beleidsinstellingen  
+In de 1512 Technical Preview hebben we de volgende nieuwe instellingen in het antimalwarebeleid van Endpoint Protection toegevoegd:  
 
--   Protection en temps réel : **Bloquer les applications potentiellement indésirables au téléchargement et avant l’installation**  
+-   Realtime-beveiliging: **Potentieel ongewenste toepassingen blokkeren tijdens downloaden en voorafgaand aan installatie**  
 
-    -   Les applications potentiellement indésirables (PUA, Potential Unwanted Applications) sont une classification de menaces basée sur la réputation et l’identification pilotée par les recherches. En règle générale, il s’agit de programmes d’installation de logiciels indésirables ou de leurs applications groupées.  
+    -   Potentieel ongewenste toepassingen (PUA’s) is een bedreigingsclassificatie op basis van reputatie en op onderzoek gebaseerde identificatie. Meestal betreft dit partijen die ongewenste toepassingen bundelen of hun gebundelde toepassingen.  
 
-    -   Le paramètre de stratégie de protection est activé par défaut (il a la valeur « Oui »). Quand il est activé, ce paramètre bloque les applications potentiellement indésirables au moment du téléchargement et de l’installation. Toutefois, vous pouvez exclure certains fichiers ou dossiers pour répondre aux besoins spécifiques de votre environnement.  
+    -   De instelling voor beveiliging is standaard ingeschakeld (ingesteld op "Ja"). Wanneer deze optie is ingeschakeld, worden PUA’s geblokkeerd tijdens downloaden en installeren. U kunt echter specifieke bestanden of mappen om te voldoen aan de specifieke behoeften van uw omgeving uitsluiten.  
 
--   Paramètres d’analyse : **Analyser les lecteurs réseau mappés lors d’une analyse complète**  
+-   Scaninstellingen: **Toegewezen netwerkstations scannen bij uitvoeren van een volledige scan**  
 
-    -   Ce paramètre offre à l’administrateur une granularité plus élevée et lui permet d’effectuer des analyses à la demande de fichiers réseau sans risquer de toujours analyser des lecteurs réseau mappés lors d’une analyse complète planifiée.  
+    -   Deze instelling biedt meer verfijning voor de beheerder om toe te staan scans op aanvraag van netwerkbestanden zonder het risico altijd worden gescand toegewezen netwerkstations tijdens een geplande volledige scan.  
 
-    -   Pour pouvoir configurer le paramètre **Analyser les fichiers réseau**, vous devez d’abord l’activer.  
+    -   De instelling **netwerkbestanden scannen** moet eerst worden ingeschakeld ('Ja') voor deze instelling kunt configureren.  
 
-    -   Par défaut, ce paramètre est désactivé, ce qui signifie que l’analyse complète n’accède pas aux lecteurs réseau mappés.  
+    -   Standaard is deze instelling 'Nee' zin dat een volledige scan geen toegang krijgen toegewezen netwerkstations tot.  
 
--   Paramètres d’envoi automatique d’exemples de fichiers :  
+-   Verzending van instellingen voor automatisch voorbeeldbestanden:  
 
-     Le moteur du logiciel anti-programme malveillant peut demander à ce que des exemples de fichiers soient envoyés à Microsoft pour une analyse plus approfondie. Par défaut, il affiche toujours une invite avant d’envoyer ces exemples. Les administrateurs peuvent désormais gérer les paramètres suivants pour configurer ce comportement :  
+     De antimalware-engine aanvragen dat voorbeeldbestanden voor verdere analyse naar Microsoft worden verzonden. Standaard wordt altijd om bevestiging gevraagd voordat dergelijke voorbeeldbestanden worden verzonden. Beheerders kunnen nu de volgende instellingen beheren om dit gedrag te configureren:  
 
-    -   Avancé : **Activer l’envoi automatique de fichier d’exemple pour aider Microsoft à déterminer si certains éléments détectés sont malveillants** : affectez à ce paramètre la valeur « Oui » pour activer l’envoi automatique d’exemple de fichier. Par défaut, ce paramètre a la valeur « Non », ce qui signifie que l’envoi automatique d’exemple de fichier est désactivé et que les utilisateurs sont invités à donner leur accord avant l’envoi des fichiers.   (Ce paramètre a été introduit pour la première fois dans System Center 2012 R2 Configuration Manager SP1.)  
+    -   Geavanceerd: **Schakel automatisch verzenden van voorbeeldbestanden zodat Microsoft kan bepalen of bepaalde gedetecteerde items kwaadaardig zijn**:  Deze instelling op 'Ja' om in te schakelen automatisch verzenden van voorbeeldbestanden wijzigen. Deze instelling is standaard Nee"Dit betekent dat automatisch verzenden van voorbeeldbestanden is uitgeschakeld en wordt gebruikers gevraagd voordat voorbeeldbestanden worden verzonden.   (Deze instelling is geïntroduceerd in System Center 2012 R2 Configuration Manager SP1)  
 
-    -   Avancé : **Autoriser les utilisateurs à modifier les paramètres d’envoi automatique du fichier d’exemple** : ce paramètre détermine si un utilisateur disposant de droits d’administrateur local sur un appareil peut modifier le paramètre d’envoi automatique du fichier d’exemple dans l’interface du client. Par défaut, ce paramètre a la valeur « Non », ce qui signifie que les paramètres ne peuvent être modifiés que dans la console Configuration Manager, et les administrateurs locaux d’un appareil ne peuvent pas modifier cette configuration.  
+    -   Geavanceerd: **Toestaan dat gebruikers instellingen automatisch verzenden van voorbeeldbestanden wijzigen**: Deze instelling bepaalt of een gebruiker met lokale beheerdersrechten op een apparaat de automatische instelling verzenden van voorbeeldbestanden in de clientinterface kan wijzigen. Deze instelling is standaard Nee"Dit betekent dat de instellingen kunnen alleen worden gewijzigd in de Configuration Manager-console en lokale beheerders op een apparaat deze configuratie niet wijzigen.  
 
-         L’exemple suivant montre le paramètre Windows Defender dans Windows 10 défini par l’administrateur comme activé, l’utilisateur n’étant pas autorisé à le modifier :  
+         Hieronder ziet u bijvoorbeeld de Windows Defender-instelling in Windows 10 door de beheerder ingestelde ingeschakeld en de gebruiker is niet toegestaan om deze te wijzigen:  
 
-         ![TechRef&#95;WinDefender](../../core/get-started/media/TechRef_WinDefender.png "TechRef_WinDefender")  
+         ![TechRef &#95; WinDefender](../../core/get-started/media/TechRef_WinDefender.png "TechRef_WinDefender")  
 
-    En outre, le paramètre **Exclure des fichiers et des dossiers** existant dans la section « Paramètres d’exclusions » de la stratégie de logiciel anti-programme malveillant d’Endpoint Protection a été amélioré pour autoriser les exclusions d’appareils. Par exemple, vous pouvez maintenant spécifier l’exclusion suivante : **\device\mvfs** (pour Multiversion File System). La stratégie ne valide pas le chemin de l’appareil. La stratégie Endpoint Protection est fournie au moteur anti-programme malveillant sur le client qui doit pouvoir interpréter la chaîne de l’appareil.  
+    Bovendien de bestaande **bestanden en mappen uitsluiten** instellen in de sectie 'Uitsluitingsinstellingen' antimalwarebeleid van endpoint protection verbeterd zodat apparaten kunnen worden uitgesloten. U kunt nu bijvoorbeeld het volgende opgeven als een uitsluiting: **\device\mvfs** (voor Multiversion-bestandssysteem). Het pad naar de; wordt niet gevalideerd door het beleid het endpoint protection-beleid wordt geleverd aan de antimalware-engine op de client moet kunnen interpreteren van de tekenreeks van het apparaat.  
 
-**Configuration requise pour l’utilisation de stratégies Endpoint Protection :**  
+**Vereisten voor het gebruik van Endpoint Protection-beleid:**  
 
-Pour pouvoir utiliser des stratégies Endpoint Protection, vous devez d’abord installer et gérer le client Endpoint Protection à l’aide des paramètres client Endpoint Protection. Cette opération s’effectue à l’aide du client System Center Endpoint Protection pour Windows 7, Windows 8, Windows 8.1 ou de Windows Defender managé pour Windows 10. Consultez [Endpoint Protection dans System Center Configuration Manager](../../protect/deploy-use/endpoint-protection.md).  
+Voordat u Endpoint Protection-beleid kunt gebruiken moet u het installeren en beheren van de Endpoint Protection-client met behulp van de instellingen van de Endpoint Protection-client. Dit wordt gedaan met behulp van de System Center Endpoint Protection-client voor Windows 7, Windows 8, Windows 8.1 of beheerde Windows Defender voor Windows 10. Zie [Endpoint Protection in System Center Configuration Manager](../../protect/deploy-use/endpoint-protection.md).  

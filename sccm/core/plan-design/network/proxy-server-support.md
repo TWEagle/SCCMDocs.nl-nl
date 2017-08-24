@@ -1,6 +1,6 @@
 ---
-title: Prise en charge du serveur proxy | Microsoft Docs
-description: "En savoir plus sur la prise en charge de System Center Configuration Manager pour les serveurs proxy utilisés par les clients et les serveurs de système de site."
+title: Ondersteuning voor proxyserver | Microsoft Docs
+description: Meer informatie over System Center Configuration Manager-ondersteuning voor proxyservers die gebruikmaken van sitesysteemservers en clients.
 ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
@@ -17,70 +17,70 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: dc36be47310d2c2178c974a2b503d0b5f9f6e2ec
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="proxy-server-support-in-system-center-configuration-manager"></a>Prise en charge du serveur proxy dans System Center Configuration Manager
+# <a name="proxy-server-support-in-system-center-configuration-manager"></a>Ondersteuning voor proxyserver in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Les clients aussi bien que les serveurs de système de site System Center Configuration Manager peuvent utiliser un serveur proxy.  
+Zowel System Center Configuration Manager-sitesysteemservers en clients kunnen een proxyserver gebruiken.  
 
-## <a name="site-system-servers"></a>Serveurs de système de site  
-Quand les rôles de système de site doivent se connecter à Internet, vous pouvez les configurer pour qu’ils utilisent un serveur proxy.  
+## <a name="site-system-servers"></a>Sitesysteemservers  
+Wanneer sitesysteemrollen verbinding moeten maken met Internet, kunt u ze voor het gebruik van een proxyserver configureren.  
 
--   Un ordinateur qui héberge un serveur de système de site prend en charge une configuration de serveur proxy unique partagée par tous les rôles de système de site sur ce même ordinateur. Si vous avez besoin de serveurs proxy distincts pour les différents rôles ou les différentes instances d’un rôle, vous devez placer ces rôles sur des serveurs de système de site distincts.  
+-   Een computer die als host fungeert voor een sitesysteemserver ondersteunt een enkele proxyserverconfiguratie die wordt gedeeld door alle sitesysteemrollen op dezelfde computer weer. Als u verschillende proxyservers voor verschillende rollen of verschillende exemplaren van een rol nodig, moet u deze rollen op afzonderlijke sitesysteemservers plaatsen.  
 
--   Quand vous configurez de nouveaux paramètres de serveur proxy pour un serveur de système de site qui possède déjà une configuration de serveur proxy, la configuration d’origine est remplacée.  
+-   Wanneer u nieuwe proxyserverinstellingen voor een sitesysteemserver waarop al een proxyserverconfiguratie configureert, wordt de oorspronkelijke configuratie overschreven.  
 
--   Les connexions au serveur proxy utilisent le compte **Système** de l’ordinateur qui héberge le rôle de système de site.  
+-   Verbindingen met de proxy maken gebruik van het account **Systeem** van de computer die als host fungeert voor de sitesysteemrol.  
 
-Les rôles de système de site suivants se connectent à Internet et peuvent nécessiter un serveur proxy.  À une exception près, les rôles de système de site qui peuvent utiliser un proxy le font sans aucune configuration supplémentaire. Cette exception concerne le point de mise à jour logicielle. La liste suivante contient des informations sur les configurations supplémentaires exigées par un point de mise à jour logicielle :  
+De volgende sitesysteemrollen verbinding met Internet en mogelijk een proxyserver nodig.  Met één uitzondering, sitesysteemrollen die u een proxy kunnen gebruiken, doen dit zonder aanvullende configuratie. De uitzondering hierop is het software-updatepunt. De volgende lijst bevat informatie over de aanvullende configuraties die een software-updatepunt vereist:  
 
-**Point de synchronisation Asset Intelligence** : ce rôle de système de site se connecte à Microsoft et utilise une configuration de serveur proxy sur l’ordinateur hébergeant le point de synchronisation Asset Intelligence.  
+**Asset Intelligence-synchronisatiepunt** -deze sitesysteemrol maakt verbinding met Microsoft en gebruikt een proxyserverconfiguratie op de computer die als host fungeert voor de Asset Intelligence-synchronisatiepunt.  
 
-**Point de distribution cloud** : pour configurer un serveur proxy pour un point de distribution cloud, configurez le proxy sur le site principal qui gère le point de distribution cloud.  
+**Cloud-gebaseerde distributiepunt** - voor het instellen van een proxyserver voor een cloud-gebaseerd distributiepunt, het instellen van de proxy op de primaire site die het cloud-gebaseerde distributiepunt beheert.  
 
-Pour cette configuration, le serveur de site principal :  
+Voor deze configuratie moet de primaire siteserver:  
 
--   doit pouvoir se connecter à Microsoft Azure pour configurer le contenu, le surveiller et le distribuer au point de distribution ;  
+-   Moet verbinding maken met Microsoft Azure instellen, bewaken en distribueren van inhoud naar het distributiepunt.  
 
--   utilise le compte Système de cet ordinateur pour établir la connexion ;  
+-   Maakt gebruik van het systeemaccount van de computer de verbinding te maken.  
 
--   utilise le navigateur web par défaut de cet ordinateur.  
+-   Standaardwebbrowser van de computer.  
 
-Vous ne pouvez pas configurer un serveur proxy sur le point de distribution cloud dans Microsoft Azure.  
+U kunt een proxyserver op de cloud-gebaseerde distributiepunt in de Microsoft Azure niet instellen.  
 
-**Point de connexion cloud** : ce rôle de système de site se connecte au service cloud de Configuration Manager pour télécharger des mises à jour de version de Configuration Manager, et utilise un serveur proxy configuré sur l’ordinateur hébergeant le point de connexion de service.  
+**Cloudverbindingspunt** -deze sitesysteemrol maakt verbinding met de cloudservice van Configuration Manager versie-updates te downloaden voor Configuration Manager en maakt gebruik van een proxyserver die geconfigureerd op de computer die als host fungeert voor het serviceverbindingspunt wordt gehost.  
 
-**Connecteur du serveur Exchange Server** : ce rôle de système de site se connecte à un serveur Exchange Server et utilise une configuration de serveur proxy sur l’ordinateur hébergeant le connecteur Exchange Server.  
+**Exchange Server-connector** -deze sitesysteemrol maakt verbinding met een Exchange-Server en gebruikt een proxyserverconfiguratie op de computer die als host fungeert voor de Exchange Server-connector.  
 
-**Point de connexion de service** : ce rôle de système de site se connecte à Microsoft Intune et utilise une configuration de serveur proxy sur l’ordinateur hébergeant le point de connexion de service.  
+**Serviceaansluitpunt** -deze sitesysteemrol maakt verbinding met Microsoft Intune en gebruikt een proxyserverconfiguratie op de computer die als host fungeert voor het serviceverbindingspunt wordt gehost.  
 
-**Point de mise à jour logicielle** : ce rôle de système de site peut utiliser le proxy quand il se connecte à Microsoft Update pour télécharger des correctifs et synchroniser les informations sur les mises à jour. Les points de mise à jour logicielle utilisent un proxy uniquement pour les options suivantes, quand vous activez cette option au moment de la configuration du point de mise à jour logicielle :  
+**Software-updatepunt** - deze sitesysteemrol kan de proxy gebruiken bij het verbinden met Microsoft Update om patches te downloaden en informatie over updates te synchroniseren. Als u deze optie inschakelt, bij het instellen van de software-updatepunt, software-updatepunten een proxy gebruikt alleen voor de volgende opties:  
 
--   **Utiliser un serveur proxy lors de la synchronisation des mises à jour logicielles**  
+-   **Gebruik een proxyserver bij het synchroniseren van software-updates**  
 
--   **Utiliser un serveur proxy lors du téléchargement du contenu avec des règles de déploiement automatiques** (Bien que disponible, ce paramètre n’est pas utilisé par les points de mise à jour logicielle sur des sites secondaires).  
+-   **Een proxyserver gebruiken wanneer inhoud wordt gedownload via automatische implementatieregels** (beschikbaar voor gebruik, deze instelling wordt niet gebruikt door software-updatepunten op secundaire sites.)  
 
-Configurez les paramètres du serveur proxy dans la page Point de mise à jour logicielle actif de l’Assistant Ajout des rôles de système de site ou sous l’onglet **Général** des **Propriétés du composant du point de mise à jour logicielle**.  
+Configureer de proxyserverinstellingen op de pagina actief Software-updatepunt van de wizard sitesysteemrollen toevoegen of op de **algemene** tabblad **eigenschappen van Software-Update**.  
 
--   Les paramètres du serveur proxy sont associés uniquement au point de mise à jour logicielle au niveau du site.  
+-   De proxyserverinstellingen zijn alleen gekoppeld met het software-updatepunt op de site.  
 
--   Les options de serveur proxy sont disponibles uniquement quand un serveur proxy est déjà configuré pour le serveur de système de site qui héberge le point de mise à jour logicielle.  
+-   Proxyserveropties zijn alleen beschikbaar wanneer een proxyserver is al ingesteld voor de sitesysteemserver die als host fungeert voor de software-updatepunt.  
 
 > [!NOTE]  
->  Par défaut, le compte **Système** pour le serveur sur lequel une règle de déploiement automatique a été créée est utilisé pour se connecter à Internet et télécharger les mises à jour logicielles lors de l’exécution des règles de déploiement automatique.  
+>  Standaard wordt het account **Systeem** voor de server waarop een automatische implementatieregel is gemaakt, gebruikt om verbinding te maken met internet en software-updates te downloaden wanneer de automatische implementatieregels worden uitgevoerd.  
 >   
->  Si ce compte n’a pas accès à Internet, les mises à jour logicielles ne peuvent pas être téléchargées et l’entrée suivante est consignée dans le fichier ruleengine.log : **Échec du téléchargement de la mise à jour sur Internet. Erreur = 12007.**  
+>  Wanneer dit account geen toegang het Internet tot, software-updates niet worden gedownload en de volgende vermelding wordt vastgelegd in het logboekbestand ruleengine.log opgeslagen: **De update downloaden van internet is mislukt. Fout = 12007.**  
 
-#### <a name="to-set-up-the-proxy-server-for-a-site-system-server"></a>Pour configurer le serveur proxy d’un serveur de système de site  
+#### <a name="to-set-up-the-proxy-server-for-a-site-system-server"></a>Voor het instellen van de proxyserver voor een sitesysteemserver  
 
-1.  Dans la console Configuration Manager, choisissez **Administration**, développez **Configuration du site**, puis choisissez **Serveurs et rôles de système de site**.  
+1.  Kies in de Configuration Manager-console **beheer**, vouw **siteconfiguratie**, en kies vervolgens **Servers en sitesysteemrollen**.  
 
-2.  Sélectionnez le serveur de système de site à modifier, puis dans le volet d’informations, cliquez avec le bouton droit sur **Système de site**, puis choisissez **Propriétés**.  
+2.  Kies de sitesysteemserver die u wilt bewerken in de details van het deelvenster met de rechtermuisknop op **sitesysteem**, en kies vervolgens **eigenschappen**.  
 
-3.  Dans Propriétés du système de site, sélectionnez l’onglet **Proxy**, puis configurez les paramètres de proxy de ce serveur de site principal.  
+3.  Selecteer in de eigenschappen van sitesysteem het **Proxy** tabblad en vervolgens de proxy-instellingen voor deze primaire siteserver instellen.  
 
-4.  Cliquez sur **OK** pour enregistrer la nouvelle configuration de serveur proxy.  
+4.  Kies **OK** om op te slaan van de nieuwe proxyserverconfiguratie serverconfiguratie.  

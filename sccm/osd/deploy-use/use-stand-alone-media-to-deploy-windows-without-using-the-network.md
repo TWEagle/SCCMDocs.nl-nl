@@ -1,6 +1,6 @@
 ---
-title: "Utiliser un média autonome pour déployer Windows sans utiliser le réseau | Microsoft Docs"
-description: "Utilisez un média autonome dans Configuration Manager pour déployer des systèmes d’exploitation lorsque la bande passante est limitée ou comme option pour actualiser, installer ou mettre à niveau des ordinateurs."
+title: Zelfstandige media gebruiken om Windows te implementeren zonder gebruik van het netwerk | Microsoft Docs
+description: Gebruik zelfstandige media in Configuration Manager voor het implementeren van besturingssystemen, waarbij de bandbreedte beperkt wordt of als een optie voor het vernieuwen, te installeren of bijwerken van computers.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,65 +16,65 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 30ae794381c6894e11b21a8167d0af60463c5279
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-stand-alone-media-to-deploy-windows-without-using-the-network-in-system-center-configuration-manager"></a>Utiliser un média autonome pour déployer Windows sans utiliser le réseau dans System Center Configuration Manager
+# <a name="use-stand-alone-media-to-deploy-windows-without-using-the-network-in-system-center-configuration-manager"></a>Zelfstandige media gebruiken om Windows te implementeren zonder gebruik van het netwerk in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Dans System Center Configuration Manager, un média autonome contient tout ce qui est nécessaire pour permettre le déploiement d’un système d’exploitation sur un ordinateur. Cela comprend l’image de démarrage, l’image du système d’exploitation et la séquence de tâches permettant d’installer le système d’exploitation, c’est-à-dire les applications, les pilotes, etc. Les déploiements de médias autonomes vous permettent de déployer des systèmes d'exploitation dans les conditions suivantes :  
+Zelfstandige media in System Center Configuration Manager bevat alles wat vereist is om een besturingssysteem op een computer te implementeren. Dit omvat de opstartinstallatiekopie, de installatiekopie van het besturingssysteem en de takenreeks voor het installeren van het besturingssysteem, met inbegrip van toepassingen en stuurprogramma's, enzovoort. Met implementaties met zelfstandige media kunt u besturingssystemen implementeren in volgende situaties:  
 
--   dans les environnements où il n'est pas pratique de copier une image du système d'exploitation ou d'autres packages volumineux sur le réseau ;  
+-   In omgevingen waar het niet praktisch is om een installatiekopie van een besturingssysteem of andere grote pakketten over het netwerk te kopiëren.  
 
--   dans les environnements sans connectivité réseau ou avec une connectivité réseau avec une faible bande passante.  
+-   In omgevingen zonder netwerkverbinding of de met lage netwerkbandbreedte.  
 
-Vous pouvez utiliser un média autonome dans les scénarios de déploiement de système d’exploitation suivants :  
+U kunt voor de volgende scenario's voor besturingssysteemimplementaties zelfstandige media gebruiken:  
 
--   [Actualiser un ordinateur existant avec une nouvelle version de Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)  
+-   [Een bestaande computer vernieuwen met een nieuwe versie van Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)  
 
--   [Installer une nouvelle version de Windows sur un nouvel ordinateur (système nu)](install-new-windows-version-new-computer-bare-metal.md)  
+-   [Een nieuwe versie van Windows op een nieuwe computer (bare-metal) installeren](install-new-windows-version-new-computer-bare-metal.md)  
 
--   [Effectuer une mise à niveau de Windows vers la dernière version](upgrade-windows-to-the-latest-version.md)  
+-   [Windows bijwerken naar de laatste versie](upgrade-windows-to-the-latest-version.md)  
 
- Exécutez les étapes de l’un des scénarios de déploiement de système d’exploitation, puis préparez et créez le média autonome en vous aidant des indications fournies dans les sections suivantes.  
+ Voer de stappen in een van de implementatiescenario’s voor besturingssystemen en gebruik de volgende secties om de zelfstandige media voor te bereiden en te maken.  
 
-## <a name="task-sequence-actions-not-supported-when-using-stand-alone-media"></a>Actions de séquence de tâches non prises en charge lors de l’utilisation d’un média autonome  
- Si vous avez effectué les étapes de l’un des scénarios de déploiement de système d’exploitation pris en charge, la séquence de tâches permettant de déployer ou mettre à niveau le système d’exploitation a été créée et tout le contenu associé a été distribué à un point de distribution. Quand vous utilisez un média autonome, voici les actions qui ne sont pas prises en charge dans la séquence de tâches :  
+## <a name="task-sequence-actions-not-supported-when-using-stand-alone-media"></a>Takenreeksacties die niet worden ondersteund bij het gebruik van zelfstandige media  
+ Als u de stappen in een van de ondersteunde scenario's voor besturingssysteemimplementaties, de te implementeren takenreeks of upgrade hebt voltooid, is het besturingssysteem gemaakt en alle bijbehorende inhoud gedistribueerd naar een distributiepunt. Wanneer u zelfstandig media gebruikt, worden de volgende acties in de takenreeks niet ondersteund:  
 
--   Étape Appliquer automatiquement les pilotes dans la séquence de tâches. L’application automatique des pilotes de périphérique présents dans le catalogue de pilotes n’est pas prise en charge, mais vous pouvez choisir l’étape Appliquer le package de pilotes pour mettre à la disposition du programme d’installation de Windows un ensemble de pilotes spécifique.  
+-   De stap Stuurprogramma's automatisch toepassen in de takenreeks. Automatische toepassing van apparaatstuurprogramma's uit de stuurprogrammacatalogus wordt niet ondersteund, maar u kunt de stap Stuurprogramma's automatisch toepassen kiezen om een specifieke reeks stuurprogramma's beschikbaar te maken voor Windows Setup.  
 
--   Installation de mises à jour logicielles.  
+-   Installatie van software-updates.  
 
--   Installation du logiciel avant le déploiement du système d’exploitation.  
+-   Software installeren voordat het besturingssysteem wordt geïmplementeerd.  
 
--   Association d'utilisateurs à l'ordinateur de destination pour prendre en charge l'affinité entre appareil et utilisateur.  
+-   Koppelen van gebruikers aan de doelcomputer ter ondersteuning van de gebruikersaffiniteit van apparaten.  
 
--   Le package dynamique s'installe via la tâche Installer les packages.  
+-   Dynamische pakket wordt geïnstalleerd via de taak Pakketten installeren.  
 
--   L'application dynamique s'installe via la tâche Installer l'application.  
+-   Dynamische toepassing wordt geïnstalleerd via de toepassing Taak installeren.  
 
 > [!NOTE]  
->  Si votre séquence de tâches servant à déployer un système d’exploitation comprend l’étape [Installer le package](../understand/task-sequence-steps.md#BKMK_InstallPackage) et que vous créez le média autonome sur un site d’administration centrale, une erreur peut se produire. Le site d'administration centrale ne dispose pas des stratégies de configuration de client requises pour activer l'agent de distribution logicielle au cours de l'exécution de la séquence de tâches. L’erreur suivante peut apparaître dans le fichier CreateTsMedia.log :  
+>  Als uw takenreeks voor het implementeren van een besturingssysteem bevat de [pakket installeren](../understand/task-sequence-steps.md#BKMK_InstallPackage) stap en u de zelfstandige media maken op een centrale beheersite, een fout optreden. De centrale beheersite beschikt niet over de benodigde beleidsregels voor clientconfiguratie om de agent voor softwaredistributie in te schakelen tijdens het uitvoeren van de takenreeks. Mogelijk wordt de volgende fout in het bestand CreateTsMedia.log weergegeven:  
 >   
 >  `"WMI method SMS_TaskSequencePackage.GetClientConfigPolicies failed (0x80041001)"`
 >   
->  Dans le cas d’un média autonome qui comprend une étape **Installer le package**, vous devez créer le média autonome sur un site principal sur lequel l’agent de distribution logicielle est activé ou ajoutez une étape [Exécuter la ligne de commande](../understand/task-sequence-steps.md#BKMK_RunCommandLine) après l’étape [Configurer Windows et ConfigMgr](../understand/task-sequence-steps.md#BKMK_SetupWindowsandConfigMgr) et avant la première étape **Installer le package** de la séquence de tâches. L'étape **Exécuter la ligne de commande** exécute une commande de ligne de commande WMIC pour activer l'agent de distribution logicielle avant l'exécution de la première étape Installer le package. Vous pouvez utiliser la ligne de commande suivante dans l'étape **Exécuter la ligne de commande** de votre séquence de tâches :  
+>  Voor zelfstandige media met een **pakket installeren** stap heeft, moet u de zelfstandige media maken op een primaire site die de agent voor softwaredistributie is ingeschakeld of Voeg een [opdrachtregel uitvoeren](../understand/task-sequence-steps.md#BKMK_RunCommandLine) stap na de [Windows en ConfigMgr installeren](../understand/task-sequence-steps.md#BKMK_SetupWindowsandConfigMgr) stap en voor de eerste **pakket installeren** stap in de takenreeks wordt uitgevoerd. Met de stap **Opdrachtregel uitvoeren** wordt een WMIC-opdracht uitgevoerd waarmee de agent voor softwaredistributie wordt ingeschakeld voordat de eerste stap Pakket installeren wordt uitgevoerd. U kunt de volgende opdracht gebruiken in de takenreeksstap **Opdrachtregel uitvoeren** :  
 >   
->  **Ligne de commande** : **WMIC /namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName="Enable SWDist", Enabled="true", LockSettings="TRUE", PolicySource="local", PolicyVersion="1.0", SiteSettingsKey="1" /NOINTERACTIVE**  
+>  **Opdrachtregel**: **WMIC/namespace:\\\root\ccm\policy\machine\requestedconfig path ccm_SoftwareDistributionClientConfig CREATE ComponentName = "Enable SWDist", Enabled = "true", LockSettings = "TRUE", PolicySource = "local", PolicyVersion = "1.0", SiteSettingsKey = "1" / NOINTERACTIVE**  
 
-## <a name="configure-deployment-settings"></a>Configurer les paramètres de déploiement  
- Quand vous utilisez un média autonome pour lancer le processus de déploiement de système d’exploitation, vous devez configurer le déploiement pour rendre le système d’exploitation accessible au média. Vous pouvez configurer cela dans la page **Paramètres de déploiement** de l’Assistant Déploiement logiciel ou sous l’onglet **Paramètres de déploiement** dans les propriétés du déploiement.  Pour le paramètre **Rendre disponible aux éléments suivants** , sélectionnez l’une des options suivantes :  
+## <a name="configure-deployment-settings"></a>Implementatie-instellingen configureren  
+ Als u het implementatieproces voor een besturingssysteem wilt starten vanaf zelfstandige media, moet u de implementatie configureren om het besturingssysteem beschikbaar te stellen voor media. U kunt dit configureren op de pagina **Implementatie-instellingen** van de wizard Software implementeren of op het tabblad **Implementatie-instellingen** in de eigenschappen voor de implementatie.  Configureer een van de volgende waarden voor de instelling **Toegankelijk maken voor de volgende** :  
 
--   **Clients, média et environnement PXE Configuration Manager**  
+-   **Configuration Manager-clients, media en PXE**  
 
--   **Média et environnement PXE uniquement**  
+-   **Alleen media en PXE**  
 
--   **Média et environnement PXE uniquement (masqué)**  
+-   **Alleen media en PXE (verborgen)**  
 
-## <a name="create-the-stand-alone-media"></a>Créer le média autonome  
- Vous pouvez préciser si le média autonome est un disque mémoire flash USB ou un ensemble de CD/DVD. L’ordinateur qui démarre le média doit prendre en charge l’option que vous choisissez comme lecteur de démarrage. Pour plus d’informations, voir [Créer un média autonome](create-stand-alone-media.md).  
+## <a name="create-the-stand-alone-media"></a>Zelfstandige media maken  
+ U kunt opgeven of de zelfstandige media een USB-flashstation of een cd/dvd-set is. De optie die u als opstartbaar station kiest, moet worden ondersteund door de computer waarop de media worden gestart. Zie voor meer informatie [zelfstandige media maken](create-stand-alone-media.md).  
 
-## <a name="install-the-operating-system-from-stand-alone-media"></a>Installer le système d’exploitation à partir d’un média autonome  
- Insérez le média autonome dans un lecteur de démarrage sur l’ordinateur, puis mettez-le sous tension pour installer le système d’exploitation.  
+## <a name="install-the-operating-system-from-stand-alone-media"></a>Het besturingssysteem installeren vanaf zelfstandige media  
+ Plaats de zelfstandige media in een opstartbaar station op de computer en schakel deze vervolgens in om het besturingssysteem te installeren.  

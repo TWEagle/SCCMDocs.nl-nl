@@ -1,6 +1,6 @@
 ---
-title: Emplacement source de contenu | Microsoft Docs
-description: "Découvrez comment utiliser les paramètres System Center Configuration Manager qui permettent aux clients d’obtenir du contenu sur un réseau lent."
+title: De locatie van inhoud | Microsoft Docs
+description: Meer informatie over de System Center Configuration Manager-instellingen die inschakelen voor clients om inhoud te zoeken op een traag netwerk.
 ms.custom: na
 ms.date: 1/3/2017
 ms.reviewer: na
@@ -16,240 +16,240 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: a823458dc3b891b1c32d1cb44a96e8cafd376ed5
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="content-source-location-scenarios-in-system-center-configuration-manager"></a>Scénarios d’emplacement source du contenu dans System Center Configuration Manager
+# <a name="content-source-location-scenarios-in-system-center-configuration-manager"></a>Inhoudsbron locatie scenario's in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Dans les versions de System Center Configuration Manager antérieures à 1610, vous pouvez utiliser une combinaison de différents paramètres pour définir de quelle manière et à quel emplacement les clients peuvent obtenir du contenu sur un réseau lent. Les combinaisons possibles déterminent l’emplacement du contenu utilisé par les clients, et si les clients peuvent utiliser un emplacement de secours quand la source de contenu préférée n’est pas disponible.  
+System Center Configuration Manager ondersteund voorafgaand aan versie 1610, verschillende instellingen die definiëren hoe en waar clients inhoud vinden wanneer ze op een traag netwerk worden gecombineerd. De mogelijke combinaties van invloed zijn op de locatie van inhoud clients worden gebruikt en of ze met succes een terugvallocatie wanneer een voorkeursbron kunnen gebruiken voor inhoud is niet beschikbaar.  
 
 > [!IMPORTANT]  
-> **Si vos sites exécutent la version 1511, 1602 ou 1606**, les informations contenues dans cette rubrique s’appliquent à votre infrastructure. Consultez également [Groupes de limites pour les versions 1511, 1602 et 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606) pour des informations spécifiques des groupes de limites avec ces versions de Configuration Manager.
+> **Als uw sites versie 1511 of 1602 1606 uitgevoerd**, de informatie in dit onderwerp is van toepassing op uw infrastructuur. Zie ook [grensgroepen voor versies 1511,1602 en 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606) voor informatie die specifiek is voor grensgroepen met deze versies van Configuration Manager.
 >
-> **Si vos sites exécutent la version 1610 ou ultérieure**, utilisez les informations contenues dans [Définir des limites de site et des groupes de limites pour System Center Configuration Manager](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups) pour comprendre comment vos clients trouvent des points de distribution avec du contenu disponible.
+> **Als uw sites versie wordt uitgevoerd 1610 of hoger**, gebruik de informatie in [sitegrenzen en grensgroepen definiëren voor System Center Configuration Manager](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups) om te begrijpen hoe uw clients distributiepunten waarvoor beschikbare inhoud te vinden.
 
 
 
 
 
-**Les trois paramètres suivants définissent le comportement quand des clients demandent du contenu :**
+**De volgende drie instellingen bepalen het gedrag wanneer clients inhoud opvragen:**
 
--  **Autoriser un emplacement source de secours pour le contenu** (activé ou non activé) : Vous pouvez activer cette option sous l’onglet **Groupes de limites** d’un point de distribution. Elle permet au client d’utiliser un point de distribution configuré comme emplacement de secours quand le contenu n’est pas disponible sur un point de distribution préféré.  
+-  **Terugvalbronlocatie voor inhoud toestaan** (ingeschakeld of niet is ingeschakeld): Dit is een optie die u kunt inschakelen op de **Grensgroepen** tabblad van een distributiepunt. Hierdoor kan de client een distributiepunt dat geconfigureerd als terugvallocatie wanneer inhoud niet beschikbaar is op een voorkeursdistributiepunt.  
 
- - **Comportement du déploiement pour la vitesse de connexion du réseau** : chaque déploiement est configuré avec l’un des comportements suivants à utiliser quand la connexion au point de distribution est lente :  
+ - **Implementatiegedrag voor netwerkverbindingssnelheid**: Elke implementatie is geconfigureerd met een van de volgende gedragingen wanneer de verbinding met het distributiepunt traag is:  
 
-    -   **Télécharger le contenu à partir du point de distribution et l’exécuter localement**  
+    -   **Inhoud downloaden vanaf het distributiepunt en lokaal uitvoeren**  
 
-    -   **Ne pas télécharger de contenu** : Cette option est utilisée uniquement quand un client utilise un emplacement de secours pour obtenir du contenu.  
+    -   **Inhoud niet downloaden**: Deze optie wordt alleen gebruikt wanneer een client een terugvallocatie gebruikt om inhoud te verkrijgen.  
 
-    La vitesse de connexion pour un point de distribution est configurée sous l’onglet **Références** d’un groupe de limites, et est propre à celui-ci.  
+    De verbindingssnelheid voor een distributiepunt is geconfigureerd op de **verwijzingen** tabblad van een grensgroep, en specifiek is voor de grensgroep.  
 
- -  **Distribution de package à la demande** (vers les points de distribution préférés) : Cette option est activée quand vous sélectionnez l’option **Distribuer le contenu pour ce package vers les points de distribution préférés** sous l’onglet **Paramètres de distribution** des propriétés d’un package ou d’une application. Quand cette option est activée, elle indique à Configuration Manager de copier automatiquement le contenu vers un point de distribution préféré n’ayant pas encore le contenu après qu’un client a demandé celui-ci à un point de distribution.  
+ -  **Pakketdistributie op aanvraag** (naar voorkeursdistributiepunten): Dit is ingeschakeld wanneer u de optie **Distribueer de inhoud voor dit pakket naar voorkeursdistributiepunten** op de **distributie-instellingen** tabblad van de eigenschappen van een pakket of toepassing. Wanneer dit is ingeschakeld, is deze optie zorgt ervoor dat Configuration Manager automatisch de inhoud kopieert naar een voorkeursdistributiepunt dat nog niet over de inhoud nadat een client die inhoud bij dat distributiepunt aanvraagt.  
 
 
- **Les conditions préalables suivantes s’appliquent à tous les scénarios :**
+ **De volgende vereisten zijn van toepassing op alle scenario's:**
 
 
--   Le contenu est disponible sur un point de distribution de secours.  
+-   Inhoud is beschikbaar op een terugvaldistributiepunt.  
 
--   Les points de distribution sont en ligne et accessibles.  
+-   Distributiepunten zijn online en toegankelijk is  
 
 
-## <a name="scenario-1"></a>Scénario 1  
- S’applique lorsque les configurations suivantes existent :  
+## <a name="scenario-1"></a>Scenario 1  
+ Van toepassing wanneer de volgende configuraties bestaan:  
 
--   **Le contenu est disponible sur un point de distribution préféré**  
+-   **Inhoud is beschikbaar op een voorkeursdistributiepunt.**  
 
--   **Autoriser les actions de secours** : non activé  
+-   **Terugval toestaan**: Niet ingeschakeld  
 
--   **Comportement du déploiement pour un réseau lent** : n’importe quelle configuration  
+-   **Implementatiegedrag voor een traag netwerk**: Een willekeurige configuratie  
 
 
-**Détails :** (La configuration de la distribution de package à la demande ne s’applique pas dans ce scénario.)  
+**Details:** (De configuratie voor pakketdistributie op aanvraag is niet relevant is in dit scenario.)  
 
-1.  Le client envoie une requête de contenu au point de gestion.  
+1.  De client zendt een inhoudsaanvraag naar het beheerpunt.  
 
-2.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés comprenant du contenu.  
+2.  Een inhoudlocatielijst wordt geretourneerd naar de client vanaf het beheerpunt met de voorkeursdistributiepunten die de inhoud bevatten.  
 
-3.  Le client télécharge le contenu à partir d'un point de distribution préféré sur la liste.  
+3.  De client downloadt de inhoud van een voorkeursdistributiepunt in de lijst.  
 
-## <a name="scenario-2"></a>Scénario 2  
- Les configurations suivantes existent :  
+## <a name="scenario-2"></a>Scenario 2  
+ De volgende configuraties bestaan:  
 
--   **Le contenu est disponible sur un point de distribution préféré**  
+-   **Inhoud is beschikbaar op een voorkeursdistributiepunt.**  
 
--   **Autoriser les actions de secours** : activé  
+-   **Terugval toestaan**: Ingeschakeld  
 
--   **Comportement du déploiement pour un réseau lent** : ne pas télécharger de contenu  
+-   **Implementatiegedrag voor een traag netwerk**: Inhoud niet downloaden  
 
 
-**Détails :** (La configuration de la distribution de package à la demande ne s’applique pas dans ce scénario.)  
+**Details:** (De configuratie voor pakketdistributie op aanvraag is niet relevant is in dit scenario.)  
 
-1.  Le client envoie une requête de contenu au point de gestion. Le client inclut un indicateur avec la demande indiquant que les points de distribution de secours sont autorisés.  
+1.  De client zendt een inhoudsaanvraag naar het beheerpunt. De client neemt een markering op in de aanvraag die aangeeft dat terugvaldistributiepunten zijn toegestaan.  
 
-2.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés et les points de distribution de secours comprenant du contenu.  
+2.  Een inhoudlocatielijst wordt geretourneerd naar de client vanaf het beheerpunt met de voorkeursdistributiepunten en de terugvaldistributiepunten die de inhoud bevatten.  
 
-3.  Le client télécharge le contenu à partir d'un point de distribution préféré sur la liste.  
+3.  De client downloadt de inhoud van een voorkeursdistributiepunt in de lijst.  
 
-## <a name="scenario-3"></a>Scénario 3  
- Les configurations suivantes existent :  
+## <a name="scenario-3"></a>Scenario 3  
+ De volgende configuraties bestaan:  
 
--   **Le contenu est disponible sur un point de distribution préféré**  
+-   **Inhoud is beschikbaar op een voorkeursdistributiepunt.**  
 
--   **Autoriser les actions de secours** : activé  
+-   **Terugval toestaan**: Ingeschakeld  
 
--   **Comportement du déploiement pour un réseau lent** : télécharger et installer le contenu  
+-   **Implementatiegedrag voor een traag netwerk**: Inhoud downloaden en installeren  
 
 
-**Détails :** (La configuration de la distribution de package à la demande ne s’applique pas dans ce scénario.)  
+**Details:** (De configuratie voor pakketdistributie op aanvraag is niet relevant is in dit scenario.)  
 
-1.  Le client envoie une requête de contenu au point de gestion. Le client inclut un indicateur avec la demande indiquant que les points de distribution de secours sont autorisés.  
+1.  De client zendt een inhoudsaanvraag naar het beheerpunt. De client neemt een markering op in de aanvraag die aangeeft dat terugvaldistributiepunten zijn toegestaan.  
 
-2.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés et les points de distribution de secours comprenant du contenu.  
+2.  Een inhoudlocatielijst wordt geretourneerd naar de client vanaf het beheerpunt met de voorkeursdistributiepunten en de terugvaldistributiepunten die de inhoud bevatten.  
 
-3.  Le client télécharge le contenu à partir d'un point de distribution préféré sur la liste.  
+3.  De client downloadt de inhoud van een voorkeursdistributiepunt in de lijst.  
 
-## <a name="scenario-4"></a>Scénario 4  
- Les configurations suivantes existent :  
+## <a name="scenario-4"></a>Scenario 4  
+ De volgende configuraties bestaan:  
 
--   **Le contenu n’est pas disponible sur un point de distribution préféré**  
+-   **Inhoud is niet beschikbaar op een voorkeursdistributiepunt.**  
 
--   **Distribuer le contenu pour ce package vers les points de distribution préférés** : non activé  
+-   **Distribueer de inhoud voor dit pakket naar voorkeursdistributiepunten** is niet ingeschakeld  
 
--   **Autoriser les actions de secours** : non activé  
+-   **Terugval toestaan**: Niet ingeschakeld  
 
--   **Comportement du déploiement pour un réseau lent** : n’importe quelle configuration  
+-   **Implementatiegedrag voor een traag netwerk**: Een willekeurige configuratie  
 
 
-**Détails :**  
+**Details:**  
 
-1.  Le client envoie une requête de contenu au point de gestion.  
+1.  De client zendt een inhoudsaanvraag naar het beheerpunt.  
 
-2.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés comprenant du contenu. Il n'y a aucun point de distribution préféré dans la liste.  
+2.  Een inhoudlocatielijst wordt geretourneerd naar de client vanaf het beheerpunt met de voorkeursdistributiepunten die de inhoud bevatten. Er zijn geen voorkeursdistributiepunten in de lijst.  
 
-3.  Le client échoue et affiche le message **Contenu indisponible** , puis passe en mode de nouvelle tentative. Une nouvelle requête de contenu est lancée toutes les heures.  
+3.  De client mislukt met het bericht **inhoud is niet beschikbaar** en probeert het opnieuw. Een nieuwe inhoudsaanvraag wordt elk uur gestart.  
 
-## <a name="scenario-5"></a>Scénario 5  
- Les configurations suivantes existent :  
+## <a name="scenario-5"></a>Scenario 5  
+ De volgende configuraties bestaan:  
 
--   **Le contenu n’est pas disponible sur un point de distribution préféré**  
+-   **Inhoud is niet beschikbaar op een voorkeursdistributiepunt.**  
 
--   **Distribuer le contenu pour ce package vers les points de distribution préférés** : non activé  
+-   **Distribueer de inhoud voor dit pakket naar voorkeursdistributiepunten** is niet ingeschakeld  
 
--   **Autoriser les actions de secours** : activé  
+-   **Terugval toestaan**: Ingeschakeld  
 
--   **Comportement du déploiement pour un réseau lent** : ne pas télécharger de contenu  
+-   **Implementatiegedrag voor een traag netwerk**: Inhoud niet downloaden  
 
 
-**Détails :**  
+**Details:**  
 
-1.  Le client envoie une requête de contenu au point de gestion. Le client inclut un indicateur avec la demande indiquant que les points de distribution de secours sont autorisés.  
+1.  De client zendt een inhoudsaanvraag naar het beheerpunt. De client neemt een markering op in de aanvraag die aangeeft dat terugvaldistributiepunten zijn toegestaan.  
 
-2.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés et les points de distribution de secours comprenant du contenu. Si aucun point de distribution préféré n'intègre le contenu, il figure dans au moins un point de distribution de secours.  
+2.  Een inhoudlocatielijst wordt geretourneerd naar de client vanaf het beheerpunt met de voorkeursdistributiepunten en de terugvaldistributiepunten die de inhoud bevatten. Er zijn geen voorkeursdistributiepunten die de inhoud bevatten, maar minstens één terugvaldistributiepunt heeft de inhoud.  
 
-3.  Le contenu n’est pas téléchargé, car la propriété de déploiement appliquée quand le client utilise un point de distribution de secours est définie sur **Ne pas télécharger de contenu** (option utilisée quand des clients ont recours à un autre point de distribution pour obtenir le contenu). Le client échoue et affiche le message **Contenu indisponible** , puis passe en mode de nouvelle tentative. Le client envoie une nouvelle requête de contenu toutes les heures.  
+3.  De inhoud wordt niet gedownload omdat de implementatie-eigenschap voor de client het gebruik van een terugvaldistributiepunt is ingesteld op **inhoud niet downloaden** (die wordt gebruikt wanneer clients terugvallen op het ophalen van inhoud). De client mislukt met het bericht **inhoud is niet beschikbaar** en probeert het opnieuw. De client maakt een nieuwe inhoudsaanvraag elk uur.  
 
-## <a name="scenario-6"></a>Scénario 6  
- Les configurations suivantes existent :  
+## <a name="scenario-6"></a>Scenario 6  
+ De volgende configuraties bestaan:  
 
--   **Le contenu n’est pas disponible sur un point de distribution préféré**  
+-   **Inhoud is niet beschikbaar op een voorkeursdistributiepunt.**  
 
--   **Distribuer le contenu pour ce package vers les points de distribution préférés** : non activé  
+-   **Distribueer de inhoud voor dit pakket naar voorkeursdistributiepunten** is niet ingeschakeld  
 
--   **Autoriser les actions de secours** : activé  
+-   **Terugval toestaan**: Ingeschakeld  
 
--   **Comportement du déploiement pour un réseau lent** : télécharger et installer le contenu  
+-   **Implementatiegedrag voor een traag netwerk**: Inhoud downloaden en installeren  
 
 
-**Détails :**  
+**Details:**  
 
-1.  Le client envoie une requête de contenu au point de gestion. Le client inclut un indicateur avec la requête indiquant que les points de distribution de secours sont activés.  
+1.  De client zendt een inhoudsaanvraag naar het beheerpunt. De client neemt een markering op in de aanvraag die aangeeft dat terugvaldistributiepunten zijn ingeschakeld.  
 
-2.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés et les points de distribution de secours comprenant du contenu. Si aucun point de distribution préféré n'intègre le contenu, il figure dans au moins un point de distribution de secours.  
+2.  Een inhoudlocatielijst wordt geretourneerd naar de client vanaf het beheerpunt met de voorkeursdistributiepunten en de terugvaldistributiepunten die de inhoud bevatten. Er zijn geen voorkeursdistributiepunten die de inhoud bevatten, maar minstens één terugvaldistributiepunt heeft de inhoud.  
 
-3.  Le contenu est téléchargé depuis un point de distribution de secours de la liste, car la propriété de déploiement appliquée lorsque le client utilise un point de distribution de secours est définie sur **Télécharger et installer le contenu**.  
+3.  De inhoud wordt gedownload van een terugvaldistributiepunt op de lijst omdat de implementatie-eigenschap voor de client het gebruik van een terugvaldistributiepunt is ingesteld op **downloaden en installeren van de inhoud**.  
 
-## <a name="scenario-7"></a>Scénario 7  
- Les configurations suivantes existent :  
+## <a name="scenario-7"></a>Scenario 7  
+ De volgende configuraties bestaan:  
 
--   **Le contenu n’est pas disponible sur un point de distribution préféré**  
+-   **Inhoud is niet beschikbaar op een voorkeursdistributiepunt.**  
 
--   **Distribuer le contenu pour ce package vers les points de distribution préférés** : activé  
+-   **Distribueer de inhoud voor dit pakket naar voorkeursdistributiepunten** is ingeschakeld  
 
--   **Autoriser les actions de secours** : non activé  
+-   **Terugval toestaan**: Niet ingeschakeld  
 
--   **Comportement du déploiement pour un réseau lent** : n’importe quelle configuration  
+-   **Implementatiegedrag voor een traag netwerk**: Een willekeurige configuratie  
 
 
-**Détails :**  
+**Details:**  
 
-1.  Le client envoie une requête de contenu au point de gestion.  
+1.  De client zendt een inhoudsaanvraag naar het beheerpunt.  
 
-2.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés comprenant du contenu. Aucun point de distribution préféré n'a le contenu.  
+2.  Een inhoudlocatielijst wordt geretourneerd naar de client vanaf het beheerpunt met de voorkeursdistributiepunten die de inhoud bevatten. Er zijn geen voorkeursdistributiepunten die de inhoud bevatten.  
 
-3.  Le client échoue et affiche le message **Contenu indisponible** , puis passe en mode de nouvelle tentative. Une nouvelle requête de contenu est lancée toutes les heures.  
+3.  De client mislukt met het bericht **inhoud is niet beschikbaar** en probeert het opnieuw. Een nieuwe inhoudsaanvraag wordt elk uur uitgevoerd.  
 
-4.  Le point de gestion crée un déclencheur afin que le Gestionnaire de distribution distribue le contenu à tous les points de distribution préférés pour le client ayant lancé la requête de contenu.  
+4.  Het beheerpunt maakt een trigger voor de Distribution Manager de inhoud te distribueren naar alle voorkeursdistributiepunten voor de client die de aanvraag heeft ingediend inhoud.  
 
-5.  Le Gestionnaire de distribution distribue le contenu à tous les points de distribution préférés. Dans la plupart des cas, le contenu est correctement distribué aux points de distribution préférés dans l’heure.  
+5.  Distribution Manager distribueert de inhoud naar alle voorkeursdistributiepunten. In de meeste gevallen de inhoud wordt gedistribueerd naar de voorkeursdistributiepunten binnen een uur.  
 
-6.  Une nouvelle demande de contenu est adressée par le client au point de gestion.  
+6.  Een nieuwe inhoudsaanvraag wordt door de client naar het beheerpunt gestart.  
 
-7.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés comprenant du contenu. Le client télécharge le contenu à partir d'un point de distribution préféré sur la liste.  
+7.  Een inhoudlocatielijst wordt geretourneerd naar de client vanaf het beheerpunt met de voorkeursdistributiepunten die de inhoud bevatten. De client downloadt de inhoud van een voorkeursdistributiepunt in de lijst.  
 
-## <a name="scenario-8"></a>Scénario 8  
- Les configurations suivantes existent :  
+## <a name="scenario-8"></a>Scenario 8  
+ De volgende configuraties bestaan:  
 
--   **Le contenu n’est pas disponible sur un point de distribution préféré**  
+-   **Inhoud is niet beschikbaar op een voorkeursdistributiepunt.**  
 
--   **Distribuer le contenu pour ce package vers les points de distribution préférés** : activé  
+-   **Distribueer de inhoud voor dit pakket naar voorkeursdistributiepunten** is ingeschakeld  
 
--   **Autoriser les actions de secours** : activé  
+-   **Terugval toestaan**: Ingeschakeld  
 
--   **Comportement du déploiement pour un réseau lent** : ne pas télécharger de contenu  
+-   **Implementatiegedrag voor een traag netwerk**: Inhoud niet downloaden  
 
 
-**Détails :**  
+**Details:**  
 
-1.  Le client envoie une requête de contenu au point de gestion. Le client inclut un indicateur avec la demande indiquant que les points de distribution de secours sont autorisés.  
+1.  De client zendt een inhoudsaanvraag naar het beheerpunt. De client neemt een markering op in de aanvraag die aangeeft dat terugvaldistributiepunten zijn toegestaan.  
 
-2.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés et les points de distribution de secours comprenant du contenu. Si aucun point de distribution préféré n'intègre le contenu, il figure dans au moins un point de distribution de secours.  
+2.  Een inhoudlocatielijst wordt geretourneerd naar de client vanaf het beheerpunt met de voorkeursdistributiepunten en de terugvaldistributiepunten die de inhoud bevatten. Er zijn geen voorkeursdistributiepunten die de inhoud bevatten, maar minstens één terugvaldistributiepunt heeft de inhoud.  
 
-3.  Le contenu n'est pas téléchargé, car la propriété de déploiement appliquée lorsque le client utilise un point de distribution de secours est définie sur **Ne pas télécharger**. Le client échoue et affiche le message **Contenu indisponible** , puis passe en mode de nouvelle tentative. Le client envoie une nouvelle requête de contenu toutes les heures.  
+3.  De inhoud wordt niet gedownload omdat de implementatie-eigenschap voor de client het gebruik van een terugvaldistributiepunt is ingesteld op **niet downloaden**. De client mislukt met het bericht **inhoud is niet beschikbaar** en probeert het opnieuw. De client maakt een nieuwe inhoudsaanvraag elk uur.  
 
-4.  Le point de gestion crée un déclencheur afin que le Gestionnaire de distribution distribue le contenu à tous les points de distribution préférés pour le client ayant lancé la requête de contenu.  
+4.  Het beheerpunt maakt een trigger voor de Distribution Manager de inhoud te distribueren naar alle voorkeursdistributiepunten voor de client die de aanvraag heeft ingediend inhoud.  
 
-5.  Le Gestionnaire de distribution distribue le contenu à tous les points de distribution préférés. Dans la plupart des cas, le contenu est correctement distribué aux points de distribution préférés dans l’heure.  
+5.  Distribution Manager distribueert de inhoud naar alle voorkeursdistributiepunten. In de meeste gevallen de inhoud wordt gedistribueerd naar de voorkeursdistributiepunten binnen een uur.  
 
-6.  Une nouvelle demande de contenu est adressée par le client au point de gestion.  
+6.  Een nieuwe inhoudsaanvraag wordt door de client naar het beheerpunt gestart.  
 
-7.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés comprenant du contenu.  
+7.  Een inhoudlocatielijst wordt geretourneerd naar de client vanaf het beheerpunt met de voorkeursdistributiepunten die de inhoud bevatten.  
 
-8.  Le client télécharge le contenu à partir d'un point de distribution préféré sur la liste.  
+8.  De client downloadt de inhoud van een voorkeursdistributiepunt in de lijst.  
 
-## <a name="scenario-9"></a>Scénario 9  
- Les configurations suivantes existent :  
+## <a name="scenario-9"></a>Scenario 9  
+ De volgende configuraties bestaan:  
 
--   **Le contenu n’est pas disponible sur un point de distribution préféré**  
+-   **Inhoud is niet beschikbaar op een voorkeursdistributiepunt.**  
 
--   **Distribuer le contenu pour ce package vers les points de distribution préférés** : activé  
+-   **Distribueer de inhoud voor dit pakket naar voorkeursdistributiepunten** is ingeschakeld  
 
--   **Autoriser les actions de secours** : activé  
+-   **Terugval toestaan**: Ingeschakeld  
 
--   **Comportement du déploiement pour un réseau lent** : télécharger et installer le contenu  
+-   **Implementatiegedrag voor een traag netwerk**: Inhoud downloaden en installeren  
 
 
-**Détails :**  
+**Details:**  
 
-1.  Le client envoie une requête de contenu au point de gestion. Le client inclut un indicateur avec la demande indiquant que les points de distribution de secours sont autorisés.  
+1.  De client zendt een inhoudsaanvraag naar het beheerpunt. De client neemt een markering op in de aanvraag die aangeeft dat terugvaldistributiepunten zijn toegestaan.  
 
-2.  Le point de gestion envoie une liste d'emplacements de contenu au client avec les points de distribution préférés et les points de distribution de secours comprenant du contenu. Si aucun point de distribution préféré n'intègre le contenu, il figure dans au moins un point de distribution de secours.  
+2.  Een inhoudlocatielijst wordt geretourneerd naar de client vanaf het beheerpunt met de voorkeursdistributiepunten en de terugvaldistributiepunten die de inhoud bevatten. Er zijn geen voorkeursdistributiepunten die de inhoud bevatten, maar minstens één terugvaldistributiepunt heeft de inhoud.  
 
-3.  Le contenu est téléchargé depuis un point de distribution de secours de la liste, car la propriété de déploiement appliquée lorsque le client utilise un point de distribution de secours est définie sur **Télécharger et installer le contenu**. Ce paramètre de déploiement permet à un client qui doit utiliser un emplacement de contenu de secours d’obtenir le contenu à partir de cet emplacement.  
+3.  De inhoud wordt gedownload van een terugvaldistributiepunt op de lijst omdat de implementatie-eigenschap voor de client het gebruik van een terugvaldistributiepunt is ingesteld op **downloaden en installeren van de inhoud**. Deze implementatie-instelling kan een client die een locatie terugvalinhoudlocatie gebruiken moet om op te halen van de inhoud van die locatie.  
 
-4.  Le point de gestion crée un déclencheur afin que le Gestionnaire de distribution distribue le contenu à tous les points de distribution préférés pour le client ayant lancé la requête de contenu.  
+4.  Het beheerpunt maakt een trigger voor de Distribution Manager de inhoud te distribueren naar alle voorkeursdistributiepunten voor de client die de aanvraag heeft ingediend inhoud.  
 
-5.  Le Gestionnaire de distribution distribue le contenu à tous les points de distribution préférés, ce qui permet à des clients supplémentaires d’obtenir le contenu sans utiliser de point de distribution de secours.  
+5.  Distribution Manager distribueert de inhoud naar alle voorkeursdistributiepunten, waardoor meer clients inhoud kunnen verkrijgen zonder een terugvaldistributiepunt.  

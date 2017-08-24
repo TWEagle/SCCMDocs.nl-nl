@@ -1,6 +1,6 @@
 ---
-title: "Sécurité et confidentialité pour la gestion de l’alimentation | Microsoft Docs"
-description: "Obtenir des informations de sécurité et de confidentialité pour la gestion de l’alimentation dans System Center Configuration Manager."
+title: Beveiliging en privacy voor energiebeheer | Microsoft Docs
+description: Beveiliging en privacy-informatie ophalen voor energiebeheer in System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,22 +17,22 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 94d5418c364c318dba92dc9f9066f54d1130aa34
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-power-management-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour la gestion de l’alimentation dans System Center Configuration Manager
+# <a name="security-and-privacy-for-power-management-in-system-center-configuration-manager"></a>Beveiliging en privacy voor energiebeheer in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Cette section contient des informations de sécurité et de confidentialité pour la gestion de l’alimentation dans System Center Configuration Manager.  
+Deze sectie bevat informatie over de beveiliging en privacy voor energiebeheer in System Center Configuration Manager.  
 
-## <a name="security-best-practices-for-power-management"></a>Meilleures pratiques de sécurité pour la gestion de l’alimentation  
- Il n'existe aucune meilleure pratique liée à la sécurité pour la gestion de l'alimentation.  
+## <a name="security-best-practices-for-power-management"></a>Aanbevolen beveiligingsprocedures voor energiebeheer  
+ Er zijn geen aanbevolen beveiligingsprocedures voor energiebeheer.  
 
-## <a name="privacy-information-for-power-management"></a>Informations de confidentialité pour la gestion de l’alimentation  
- La gestion de l’alimentation utilise des fonctionnalités intégrées à Windows pour surveiller la consommation d’énergie et appliquer des paramètres d’alimentation à des ordinateurs pendant les heures de bureau et les heures creuses. Configuration Manager collecte des informations sur la consommation d’énergie auprès des ordinateurs, incluant des données sur périodes d’utilisation des ordinateurs par les utilisateurs. Bien que Configuration Manager surveille la consommation d’énergie pour un regroupement plutôt que pour chaque ordinateur, un regroupement peut contenir un seul ordinateur. La gestion de l'alimentation n'est pas activée par défaut et doit être configurée par un administrateur.  
+## <a name="privacy-information-for-power-management"></a>Privacyinformatie voor energiebeheer  
+ Energiebeheer maakt gebruik van functies die zijn ingebouwd in Windows om tijdens en buiten kantooruren energieverbruik te controleren en energie-instellingen toe te passen op computers. Configuration Manager verzamelt informatie over energiegebruik van computers, waaronder gegevens over wanneer een gebruiker een computer wordt gebruikt. Een verzameling kan Configuration Manager controleert stroomverbruik voor een verzameling in plaats van voor elke computer, slechts één computer bevatten. Energiebeheer is standaard niet ingeschakeld en moet worden geconfigureerd door een beheerder.  
 
- Les informations sur la consommation d’énergie sont stockées dans la base de données Configuration Manager et ne sont pas envoyées à Microsoft. Les informations détaillées sont conservées dans la base de données pendant 31 jours et les informations résumées sont conservées pendant 13 mois. Vous ne pouvez pas configurer l'intervalle de suppression.  
+ De informatie over energiegebruik wordt opgeslagen in de Configuration Manager-database en wordt niet naar Microsoft verzonden. Gedetailleerde informatie wordt 31 dagen in de database bewaard en een samenvatting van de gegevens wordt 13 maanden bewaard. U kunt de verwijderingstermijn niet configureren.  
 
- Avant de configurer la gestion de l'alimentation, pensez à vos besoins en matière de confidentialité.  
+ Voordat u energiebeheer configureert, moet u rekening houden met uw privacyvereisten.  

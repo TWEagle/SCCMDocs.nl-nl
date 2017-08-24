@@ -1,6 +1,6 @@
 ---
-title: "Bibliothèque de contenu | Microsoft Docs"
-description: "Découvrez la bibliothèque de contenu qu’utilise System Center Configuration Manager pour réduire la taille globale du contenu distribué."
+title: De Inhoudsbibliotheek | Microsoft Docs
+description: Meer informatie over de Inhoudsbibliotheek die System Center Configuration Manager gebruikt om te beperken van de totale grootte van gedistribueerde inhoud.
 ms.custom: na
 ms.date: 2/14/2017
 ms.reviewer: na
@@ -16,51 +16,51 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 0fa9f431c00476d71b2b08f92f914d76636d1a27
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="the-content-library-in-system-center-configuration-manager"></a>Bibliothèque de contenu System Center Configuration Manager
+# <a name="the-content-library-in-system-center-configuration-manager"></a>De Inhoudsbibliotheek in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-La bibliothèque de contenu est l’emplacement de stockage SIS (Single-Instance Store) utilisé par Configuration Manager pour réduire la taille globale de l’ensemble du contenu que vous distribuez. Elle stocke tous les fichiers de contenu des mises à jour logicielles, des applications, des déploiements de système d’exploitation, etc.
+De Inhoudsbibliotheek is een single instance store van inhoud die System Center Configuration Manager gebruikt om te beperken van de totale grootte van alle inhoud die u distribueert. De Inhoudsbibliotheek slaat alle inhoudsbestanden voor software-updates, toepassingen en implementaties van besturingssystemen.
 
- - Une copie de la bibliothèque de contenu est automatiquement créée et gérée sur chaque **serveur de site** et chaque **point de distribution**.
+ - Een kopie van de Inhoudsbibliotheek automatisch wordt gemaakt en beheerd op elk **siteserver** en op elk **distributiepunt**.
 
- - Avant de télécharger les fichiers de contenu vers le serveur de site ou de copier les fichiers sur les points de distribution, Configuration Manager vérifie si chaque fichier de contenu se trouve déjà dans la bibliothèque de contenu.
- - Si le fichier de contenu est disponible, Configuration Manager ne le copie pas et associe le fichier de contenu existant à l’application ou au package.
+ - Voordat Configuration Manager inhoudsbestanden naar de siteserver downloadt of de bestanden naar distributiepunten kopieert, Configuration Manager gecontroleerd of elk inhoudsbestand al in de Inhoudsbibliotheek.
+ - Als het inhoudsbestand beschikbaar is, wordt Configuration Manager heeft het bestand niet kopiëren en in plaats daarvan koppelt het bestaande inhoudsbestand aan de toepassing of het pakket.
 
-Sur les ordinateurs sur lesquels vous installez un point de distribution, vous pouvez configurer les éléments suivants :
+Op computers waarop u een distributiepunt installeert, kunt u het volgende configureren:
 
-- un ou plusieurs lecteurs de disque sur lesquels vous voulez créer la bibliothèque de contenu ;
-- une priorité pour chaque lecteur que vous utilisez.
+- Een of meer schijfstations waarop u wilt maken van de Inhoudsbibliotheek.
+- Een prioriteit voor elk station dat u gebruikt.
 
-Lorsque Configuration Manager copie des fichiers de contenu, il les copie sur le lecteur ayant la plus haute priorité, sauf si ce lecteur dispose d’une quantité d’espace libre inférieure à la quantité minimale spécifiée.
-- Vous configurez les paramètres de lecteur lors de l'installation du point de distribution.
-- Vous ne pouvez pas configurer les paramètres de lecteur dans les propriétés du point de distribution, une fois l’installation terminée.
+Wanneer de Configuration Manager inhoudsbestanden kopieert, kopieert deze naar het station met de hoogste prioriteit, totdat dat station minder is dan de minimale hoeveelheid vrije ruimte die u opgeeft.
+- U configureert de stationinstellingen tijdens installatie van het distributiepunt.
+- U kunt de Stationsinstellingen in de eigenschappen van het distributiepunt niet configureren nadat de installatie is voltooid.
 
 
-Pour plus d’informations sur la configuration des paramètres de lecteur pour le point de distribution, consultez [Gérer le contenu et l’infrastructure de contenu pour System Center Configuration Manager](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
+Zie voor meer informatie over het configureren van de Stationsinstellingen voor het distributiepunt [inhoud en infrastructuur voor System Center Configuration Manager beheren](../../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md).  
 
 
 >  [!IMPORTANT]  
->  Pour déplacer la bibliothèque de contenu vers un autre emplacement sur un point de distribution après l’installation, utilisez l’**outil Content Library Transfer** dans la boîte à outils de System Center 2012 R2 Configuration Manager. Vous pouvez télécharger les outils depuis le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=279566).  
+>  Als u de Inhoudsbibliotheek naar een andere locatie op een distributiepunt na de installatie, gebruikt u de **Content Library Transfer tool** in System Center 2012 R2 Configuration Manager Toolkit. U kunt de werkset downloaden via de [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=279566).  
 
-## <a name="about-the-content-library-on-the-central-administration-site"></a>À propos de la bibliothèque de contenu sur le site d’administration centrale  
- Par défaut, Configuration Manager crée une bibliothèque de contenu sur le site d’administration centrale, lors de l’installation du site. La bibliothèque de contenu est placée sur le lecteur du serveur de site possédant l'espace disponible le plus important. Comme vous ne pouvez pas installer un point de distribution sur le site d’administration centrale, vous ne pouvez pas attribuer une priorité aux lecteurs à utiliser pour la bibliothèque de contenu. Comme la bibliothèque de contenu sur d'autres serveurs de site ou sur des points de distribution, lorsque le lecteur contenant la bibliothèque de contenu n'a plus d'espace disponible, la bibliothèque de contenu s'étend sur le lecteur disponible suivant.  
+## <a name="about-the-content-library-on-the-central-administration-site"></a>De Inhoudsbibliotheek op de centrale beheersite  
+ Configuration Manager maakt standaard een Inhoudsbibliotheek op de centrale beheersite wanneer de site is geïnstalleerd. De Inhoudsbibliotheek bevindt zich op het station van de siteserver die de meeste vrije schijfruimte heeft. Omdat u niet een distributiepunt op de centrale beheersite installeren, kunt u de stations voor gebruik door de Inhoudsbibliotheek kan geen prioriteit geven. Net als bij de Inhoudsbibliotheek op andere siteservers en op distributiepunten, wanneer het station dat de Inhoudsbibliotheek bevat beschikbare schijfruimte onvoldoende, de Inhoudsbibliotheek automatisch omvat naar het volgende beschikbare station.  
 
- Configuration Manager utilise la bibliothèque de contenu sur le site d’administration centrale dans les scénarios suivants :  
+ Configuration Manager gebruikt de Inhoudsbibliotheek op de centrale beheersite in de volgende scenario's:  
 
--   Lorsque vous créez un contenu sur le site d’administration centrale.  
+-   Wanneer u inhoud maakt op de centrale beheersite.  
 
--   Lorsque vous migrez le contenu depuis un autre site Configuration Manager et désignez le site d’administration centrale comme site de gestion du contenu.  
+-   Wanneer u inhoud migreert van een andere Configuration Manager-site en de centrale beheersite toewijst als de site die die inhoud beheert.  
 
 > [!NOTE]  
->  Lorsque vous créez un contenu sur un site principal, puis le distribuez à un autre site principal ou à un site secondaire sous un autre site principal, le site d'administration centrale stocke temporairement ce contenu dans la boîte de réception du planificateur sur le site d'administration centrale, sans toutefois ajouter ce contenu à sa bibliothèque de contenu.  
+>  Wanneer u inhoud op een primaire site maakt en vervolgens naar een andere primaire site of een secundaire site onder een andere primaire site distribueert, de centrale beheersite tijdelijk die inhoud opslaat in de plannerinbox opslaat op de centrale beheersite, maar wordt deze inhoud niet toegevoegd aan de Inhoudsbibliotheek.  
 
- Utilisez les options suivantes pour gérer la bibliothèque de contenu sur le site d'administration centrale :  
+ Gebruik de volgende opties voor het beheren van de Inhoudsbibliotheek op de centrale beheersite:  
 
--   Pour empêcher l’installation de la bibliothèque de contenu sur un lecteur spécifique, créez un fichier vide nommé **no_sms_on_drive.sms** et copiez-le dans le dossier racine du lecteur avant la création de la bibliothèque de contenu.  
+-   Om te voorkomen dat de Inhoudsbibliotheek op een specifiek station wordt geïnstalleerd, maakt u een leeg bestand met de naam **no_sms_on_drive.sms**, en vervolgens naar de hoofdmap van het station te kopiëren voordat de Inhoudsbibliotheek wordt gemaakt.  
 
--   Une fois la bibliothèque de contenu créée, utilisez l’**outil Content Library Transfer** de la boîte à outils System Center 2012 R2 Configuration Manager pour gérer l’emplacement de la bibliothèque de contenu. Vous pouvez télécharger les outils depuis le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=279566).  
+-   Nadat de Inhoudsbibliotheek is gemaakt, gebruikt u **Content Library Transfer tool** van de System Center 2012 R2 Configuration Manager Toolkit om de locatie van de Inhoudsbibliotheek te beheren. U kunt de werkset downloaden via de [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=279566).  

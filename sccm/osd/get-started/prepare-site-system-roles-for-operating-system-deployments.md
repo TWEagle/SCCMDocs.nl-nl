@@ -1,6 +1,6 @@
 ---
-title: "Préparer les rôles de système de site pour les déploiements de système d’exploitation | Microsoft Docs"
-description: "Configurez les rôles de système de site avant de déployer des systèmes d’exploitation dans System Center Configuration Manager."
+title: Sitesysteemrollen voor besturingssysteemimplementaties voorbereiden | Microsoft Docs
+description: De sitesysteemrollen configureren voordat u besturingssystemen in System Center Configuration Manager implementeert.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,204 +17,204 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 11c0f169afebdb071fefb5ce300fd1ae3481a94f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-site-system-roles-for-operating-system-deployments-with-system-center-configuration-manager"></a>Préparer les rôles de système de site pour les déploiements de système d’exploitation avec System Center Configuration Manager
+# <a name="prepare-site-system-roles-for-operating-system-deployments-with-system-center-configuration-manager"></a>Sitesysteemrollen voorbereiden voor besturingssysteemimplementaties met System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Pour déployer des systèmes d’exploitation dans System Center Configuration Manager, vous devez d’abord préparer les rôles de système de site suivants qui appellent des configurations et des considérations spécifiques.
+Om besturingssystemen te implementeren in System Center Configuration Manager, moet u eerst voorbereiden de volgende site sitesysteemrollen die specifieke configuraties en overwegingen vereisen.
 
-##  <a name="BKMK_DistributionPoints"></a> Points de distribution  
- Le rôle de système de site du point de distribution contient des fichiers sources que les clients peuvent télécharger, notamment le contenu de l’application, les mises à jour logicielles, les images du système d’exploitation et les images de démarrage. Vous pouvez contrôler la distribution du contenu à l'aide de la bande passante, de la limitation et des options de planification.  
+##  <a name="BKMK_DistributionPoints"></a> Distributiepunten  
+ De distributiepuntrol van het sitesysteem bevat bronbestanden die clients kunnen downloaden, zoals toepassingsinhoud, software, updates, installatiekopieën van besturingssystemen en opstartinstallatiekopieën. U kunt inhoudsdistributie regelen met behulp van bandbreedte, bandbreedtebeperking en planningsopties.  
 
- Il est important d’avoir suffisamment de points de distribution pour prendre en charge le déploiement de systèmes d’exploitation sur des ordinateurs. Il est également déterminant de planifier le placement de ces points de distribution dans votre hiérarchie. Vous trouverez la plupart de ces informations de planification dans [Gérer le contenu et l’infrastructure de contenu](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md). Toutefois, d’autres éléments doivent être pris en compte lors de la planification de points de distribution spécifiques au déploiement de systèmes d’exploitation.  
+ Het is belangrijk dat u over voldoende distributiepunten beschikt ter ondersteuning van de implementatie van besturingssystemen op computers. Daarnaast is het belangrijk dat u de plaatsing van deze distributiepunten in uw hiërarchie plant. U vindt de meeste van deze planningsinformatie in [inhoud en infrastructuur beheren](../../core/servers/deploy/configure/manage-content-and-content-infrastructure.md). Er zijn echter enkele aanvullende planningsoverwegingen voor distributiepunten die specifiek zijn voor de besturingssysteemimplementaties.  
 
-###  <a name="BKMK_AdditionalPlanning"></a> Considérations de planification supplémentaires concernant les points de distribution  
- Tenez compte des points supplémentaires suivants dans le cadre de la planification de points de distribution :  
+###  <a name="BKMK_AdditionalPlanning"></a> Aanvullende planningsoverwegingen voor distributiepunten  
+ Hieronder volgen enkele aanvullende planningsoverwegingen voor distributiepunten:  
 
--   **Comment empêcher les déploiements de systèmes d’exploitation indésirables ?**  
+-   **Hoe voorkom ik ongewenste besturingssysteemimplementaties?**  
 
-     Configuration Manager ne fait pas la distinction entre les serveurs de site et les autres ordinateurs de destination d’un regroupement. Si vous déployez une séquence de tâches obligatoire sur un regroupement qui contient un serveur de site, le serveur de site exécute la séquence de tâches de la même manière que les autres ordinateurs du regroupement exécutent la séquence de tâches. Vérifiez que votre déploiement de système d’exploitation utilise un regroupement qui contient les clients devant exécuter le déploiement.  
+     Configuration Manager geen onderscheid tussen siteservers andere doelcomputers in een verzameling. Als u een vereiste takenreeks implementeert in een verzameling die een siteserver bevat, voert de siteserver de takenreeks op dezelfde manier uit als elke andere computer in de verzameling dat doet. Zorg ervoor dat uw besturingssysteemimplementatie een verzameling gebruikt die de clients bevat waarvoor u de implementatie wilt uitvoeren.  
 
-     Vous pouvez gérer le comportement des déploiements de séquences de tâches à haut risque. Un déploiement à haut risque, qui est installé automatiquement sur un client, est susceptible d’entraîner des résultats indésirables. Il s’agit par exemple d’une séquence de tâches ayant l’objectif Obligatoire qui déploie un système d’exploitation. Pour réduire le risque lié à un déploiement à haut risque indésirable, vous pouvez configurer des paramètres de vérification de déploiement. Pour plus d’informations, consultez [Paramètres de gestion des déploiements à haut risque](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
+     U kunt het gedrag voor de implementatie van takenreeksen met een hoge risico beheren. Een implementatie met een hoog risico wordt automatisch op een client geïnstalleerd en heeft de potentie om ongewenste resultaten te veroorzaken. Bijvoorbeeld een takenreeks met het doel Vereist en die een besturingssysteem implementeert. Als u het risico van een implementatie met een ongewenst hoog risico wilt voorkomen, kunt u de instellingen voor de implementatieverificatie configureren: Zie voor meer informatie [instellingen voor het beheren van implementaties met een hoog risico](../../protect/understand/settings-to-manage-high-risk-deployments.md).  
 
--   **Combien d’ordinateurs peuvent recevoir simultanément une image de système d’exploitation à partir d’un point de distribution unique ?**  
+-   **Hoeveel computers kunnen een installatiekopie van een besturingssysteem tegelijkertijd van één distributiepunt ontvangen?**  
 
-     Pour estimer le nombre de points de distribution dont vous avez besoin, vous devez prendre en compte la vitesse de traitement et l’E/S disque du point de distribution, la bande passante disponible sur le réseau et les effets de la taille du package d’images sur ces ressources. Par exemple, sur un réseau Ethernet de 100 mégaoctets (Mo), le nombre maximal d'ordinateurs capables de traiter un package d'images de 4 gigaoctets (Go) en une heure est de 11 si vous ne tenez pas compte des autres facteurs de ressources de serveur.  
+     Voor een schatting van het aantal distributiepunten dat u nodig hebt, moet u rekening houden met de verwerkingssnelheid en schijf-I/O van het distributiepunt, de beschikbare bandbreedte op het netwerk en het effect dat de grootte van het installatiekopiepakket op deze bronnen heeft. Voorbeeld: op een Ethernet-netwerk van 100 MB is het maximale aantal computers dat in één uur een installatiekopiepakket van 4 GB kan verwerken, 11 computers als u geen rekening houdt met andere factoren voor serverbronnen.  
 
      `100 Megabits/sec = 12.5 Megabytes/sec = 750 Megabytes/min = 45 Gigabytes/hour = 11 images @ 4GB per image.`  
 
-     Si vous devez déployer un système d’exploitation sur un nombre spécifique d’ordinateurs dans un délai spécifique, distribuez l’image sur un nombre approprié de points de distribution.  
+     Als u binnen een specifiek tijdsbestek een besturingsysteem naar een specifiek aantal computers moet uitvoeren, distribueert u de installatiekopie naar een toepasselijk aantal distributiepunten.  
 
--   **Puis-je déployer un système d’exploitation sur un point de distribution ?**  
+-   **Kan ik een besturingssysteem implementeren op een distributiepunt?**  
 
-     Vous pouvez déployer un système d’exploitation sur un point de distribution, mais l’image du système d’exploitation doit être reçue à partir d’un autre point de distribution.  
+     U kunt een besturingssysteem implementeren op een distributiepunt, maar de installatiekopie van het besturingssysteem moet worden ontvangen van een ander distributiepunt.  
 
-###  <a name="BKMK_PXEDistributionPoint"></a> Configuration de points de distribution pour accepter des requêtes PXE  
- Pour déployer des systèmes d’exploitation sur des clients Configuration Manager qui effectuent des demandes de démarrage PXE, vous devez configurer un ou plusieurs points de distribution pour accepter les demandes PXE. Une fois le point de distribution configuré, il répond à la demande de démarrage PXE et détermine l’action de déploiement appropriée à prendre.
+###  <a name="BKMK_PXEDistributionPoint"></a> Distributiepunten configureren voor de acceptatie van PXE-aanvragen  
+ Voor het implementeren van besturingssystemen aan Configuration Manager-clients die PXE-opstartaanvragen maken, moet u een of meer distributiepunten om PXE-aanvragen te accepteren. Zodra het distributiepunt is geconfigureerd, kan het reageren op de PXE-opstartaanvraag en bepalen welke implementatieacties moeten worden ondernomen.
 
 > [!IMPORTANT]  
->  [Windows Deployment Services](../plan-design/infrastructure-requirements-for-operating-system-deployment.md#BKMK_WDS) doit être installé sur tous les points de distribution compatibles PXE.  
+>  [Windows Deployment Service](../plan-design/infrastructure-requirements-for-operating-system-deployment.md#BKMK_WDS) moet worden geïnstalleerd op alle distributiepunten met PXE-functionaliteit.  
 
- Utilisez la procédure suivante pour modifier un point de distribution existant afin qu'il puisse accepter les requêtes PXE. Pour plus d’informations sur la façon d’installer un nouveau point de distribution, consultez [Install or modify a distribution point](../../core/servers/deploy/configure/install-and-configure-distribution-points.md).  
+ Gebruik de volgende procedure om een bestaand distributiepunt te wijzigen zodat het PXE-aanvragen kan accepteren. Zie [Een distributiepunt installeren of wijzigen](../../core/servers/deploy/configure/install-and-configure-distribution-points.md) voor meer informatie over het installeren van nieuwe distributiepunten.  
 
-#### <a name="to-modify-an-existing-distribution-point-to-accept-pxe-requests"></a>Pour modifier un point de distribution existant afin d'accepter les requêtes PXE  
+#### <a name="to-modify-an-existing-distribution-point-to-accept-pxe-requests"></a>Een bestaand distributiepunt wijzigen voor de acceptatie van PXE-aanvragen  
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration**, développez **Vue d’ensemble**, puis cliquez sur **Points de distribution**.  
+1.  Klik in de Configuration Manager-console op **beheer**, vouw **overzicht** en klik op **distributiepunten**.  
 
-2.  Sélectionnez le point de distribution à configurer et, sur l’onglet **Accueil** du groupe **Propriétés** , cliquez sur **Propriétés**.  
+2.  Selecteer het distributiepunt dat u wilt configureren en klik in de groep **Eigenschappen** van het tabblad **Start** op de optie **Eigenschappen**.  
 
-3.  Sur la page des propriétés pour le point de distribution, cliquez sur l'onglet **PXE** . et sélectionnez **Activer la prise en charge PXE pour les clients** pour activer PXE sur ce point de distribution.  
+3.  Ga op de eigenschappenpagina van het distributiepunt naar het tabblad **PXE** en selecteer **PXE-ondersteuning voor clients inschakelen** om PXE op dit distributiepunt in te schakelen.  
 
-4.  Cliquez sur **Oui** dans la boîte de dialogue **Consulter les ports requis pour PXE** pour confirmer que vous souhaitez activer PXE. Configuration Manager configure automatiquement les ports par défaut sur un Pare-feu Windows. Vous devez configurer manuellement les ports si vous utilisez un autre pare-feu.  
+4.  Klik in het dialoogvenster **Vereiste poorten voor PXE controleren** op **Ja** om te bevestigen dat u PXE wilt inschakelen. Configuration Manager configureert automatisch de standaardpoorten op een Windows-firewall. Als u een andere firewall gebruikt, moet u de poorten handmatig configureren.  
 
     > [!NOTE]  
-    >  Si WDS et DHCP sont installés sur le même serveur, vous devez configurer WDS pour écouter sur un port différent (étant donné que DHCP écoute sur le même port). Pour plus d’informations, consultez [Considérations quand vous avez WDS et DHCP sur le même serveur](../plan-design/infrastructure-requirements-for-operating-system-deployment.md#BKMK_WDSandDHCP).  
+    >  Als WDS en DHCP zijn geïnstalleerd op dezelfde server, moet u WDS configureren om op een andere poort te luisteren (aangezien DHCP op dezelfde poort luistert). Zie [Overwegingen wanneer u WDS en DHCP op dezelfde server uitvoert](../plan-design/infrastructure-requirements-for-operating-system-deployment.md#BKMK_WDSandDHCP) voor meer informatie.  
 
-5.  Sélectionnez **Autoriser ce point de distribution à répondre aux requêtes PXE entrantes** pour que WDS réponde aux demandes de service PXE entrantes. Vous pouvez utiliser ce paramètre pour activer et désactiver le service sans supprimer la fonctionnalité PXE du point de distribution.  
+5.  Selecteer **Dit distributiepunt toestaan te reageren op binnenkomende PXE-aanvragen** om WDS in te schakelen, zodat er wordt gereageerd op binnenkomende PXE-serviceaanvragen. Met dit selectievakje kunt u de service in- en uitschakelen zonder de PXE-functionaliteit van het distributiepunt te verwijderen.  
 
-6.  Pour déployer des systèmes d’exploitation sur des ordinateurs qui ne sont pas gérés par Configuration Manager, sélectionnez  **Activer la prise en charge d’ordinateur inconnu**.  
+6.  Selecteer **Schakel onbekende computerondersteuning** om besturingssystemen te implementeren op computers die niet worden beheerd door Configuration Manager.  
 
-7.  Sélectionnez **Exiger un mot de passe lorsque les ordinateurs utilisent PXE**, puis indiquez un mot de passe fort pour renforcer la sécurité de votre déploiement PXE.  
+7.  Schakel **Een wachtwoord verplicht stellen wanneer computers PXE gebruiken**in en geef een sterk wachtwoord op om uw PXE-implementaties extra te beveiligen.  
 
-8.  In the **Affinité entre périphérique et utilisateur** , indiquez de quelle façon vous souhaitez que le point de distribution associe des utilisateurs à l’ordinateur de destination pour les déploiements PXE.  
+8.  Kies in de lijst **Affiniteit van gebruikersapparaat** hoe het distributiepunt gebruikers moet koppelen aan de doelcomputer voor PXE-implementaties.  
 
-    -   Sélectionnez **Ne pas utiliser d’affinité entre périphérique et utilisateur** pour ne pas associer les utilisateurs à l’ordinateur de destination.  
+    -   Schakel **Geen gebruikersaffiniteit apparaat gebruiken** in als u geen gebruikers wilt koppelen aan de doelcomputer.  
 
-    -   Sélectionnez **Autoriser l'affinité entre périphérique et utilisateur avec l'approbation manuelle** pour attendre l'approbation d'un utilisateur administratif avant que les utilisateurs soient associés à l'ordinateur de destination.  
+    -   Selecteer **Gebruikersaffiniteit apparaat met handmatige goedkeuring toestaan** als u wilt wachten op goedkeuring van een gebruiker met beheerdersrechten voordat gebruikers aan de doelcomputer worden gekoppeld.  
 
-    -   Sélectionnez **Autoriser l'affinité entre périphérique et utilisateur avec l'approbation automatique** pour associer automatiquement les utilisateurs à l'ordinateur de destination sans attendre l'approbation.  
+    -   Selecteer **Gebruikersaffiniteit apparaat met automatische goedkeuring toestaan** als u gebruikers automatisch wilt koppelen aan de doelcomputer zonder op goedkeuring te wachten.  
 
-     Pour plus d’informations, consultez [Associer des utilisateurs à un ordinateur de destination](../get-started/associate-users-with-a-destination-computer.md).  
+     Zie voor meer informatie [gebruikers koppelen aan een doelcomputer](../get-started/associate-users-with-a-destination-computer.md).  
 
-9. Spécifiez que le point de distribution répond aux requêtes PXE à partir de toutes les interfaces réseau ou d'interfaces réseau spécifiques. Si vous voulez que le point de distribution réponde à des interfaces réseau spécifiques, vous devez fournir l’adresse MAC pour chaque interface réseau.  
+9. Geef op dat het distributiepunt reageert op PXE-aanvragen van alle netwerkinterfaces of van specifieke netwerkinterfaces. Als u wilt dat het distributiepunt op specifieke netwerkinterfaces reageert, geeft u het MAC-adres voor elke netwerkinterface op.  
 
-10. Indiquez, en secondes, le délai d'attente du point de distribution à l'issue duquel il répond aux requêtes des ordinateurs lorsque plusieurs points de distribution PXE sont utilisés.  
+10. Geef in seconden op hoe lang de vertraging is voordat het distributiepunt reageert op computeraanvragen wanneer er meerdere distributiepunten met PXE-functionaliteit worden gebruikt.  
 
-11. Cliquez sur **OK** pour mettre à jour les propriétés du point de distribution.  
+11. Klik op **OK** om de eigenschappen van het distributiepunt bij te werken.  
 
-###  <a name="BKMK_RamDiskTFTP"></a> Personnalisation des tailles de bloc et de fenêtre TFTP RamDisk pour les points de distribution compatibles PXE  
-Vous pouvez personnaliser la taille de bloc TFTP RamDisk et, à compter de Configuration Manager version 1606, la taille de fenêtre pour les points de distribution compatibles PXE. Si vous avez personnalisé votre réseau, cela peut occasionner un échec de téléchargement de l’image de démarrage avec une erreur de délai d’attente résultant d’une taille excessive de bloc ou de fenêtre. La personnalisation des tailles de bloc et de fenêtre TFTP RamDisk permet d’optimiser le trafic TFTP lors de l’utilisation de PXE en réponse à des besoins réseau spécifiques.   
-Vous devez tester les paramètres personnalisés dans votre environnement pour déterminer la configuration la plus efficace.  
+###  <a name="BKMK_RamDiskTFTP"></a> De RamDisk TFTP-blokgrootte en de -venstergrootte aanpassen op het distributiepunt met PXE-functionaliteit  
+U kunt de RamDisk TFTP-blokgrootte en begin in Configuration Manager versie 1606, de grootte van het venster voor distributiepunten met PXE-functionaliteit aanpassen. Als u uw netwerk hebt aangepast, kan dit ertoe leiden dat het downloaden van de opstartinstallatiekopie mislukt met een time-outfout omdat het blok of het venster te groot is. Met RamDisk TFTP-blok- en venstergrootteaanpassing kunt u het TFTP-verkeer optimaliseren als u PXE gebruikt om te voldoen aan uw specifieke netwerkvereisten.   
+U moet de aangepaste instellingen in uw omgeving testen om te bepalen het meest efficiënt is.  
 
--   **Taille de bloc TFTP**: la taille de bloc est la taille des paquets de données que le serveur envoie au client qui télécharge le fichier (comme indiqué dans RFC 2347). Plus la taille de bloc est importante, moins le serveur envoie de paquets. Il y a donc moins de délais d’aller et retour entre le serveur et le client. Toutefois, une taille de bloc importante entraîne une fragmentation des paquets, incompatible avec la plupart des implémentations du client PXE.  
+-   **TFTP-blokgrootte**: De blokgrootte is de grootte van de gegevenspakketten die door de server worden verzonden naar de client die het bestand downloadt (zoals beschreven in RFC 2347). Met een groter blok kan de server minder pakketten verzenden, waardoor er minder trajectvertraging optreedt tussen de server en de client. Met grotere blokken kan er echter sprake zijn van gefragmenteerde pakketten, waar de meeste PXE-clientimplementaties geen ondersteuning voor bieden.  
 
--   **Taille de fenêtre TFTP**: le protocole TFTP nécessite le renvoi d’un paquet d’accusé de réception (ACK) pour chaque bloc de données envoyé. Le serveur n’envoie pas le bloc suivant dans la séquence tant qu’il n’a pas reçu le paquet ACK pour le bloc précédent. Le fenêtrage TFTP est une fonctionnalité des Services de déploiement Windows qui permet de définir le nombre de blocs de données nécessaires pour le remplissage d’une fenêtre. Le serveur envoie les blocs de données dos à dos jusqu’à ce que la fenêtre soit remplie, et le client renvoie un paquet ACK. L’augmentation de cette taille de fenêtre réduit le nombre de délais d’aller et retour entre le client et le serveur, et raccourcit le temps global nécessaire au téléchargement d’une image de démarrage.  
+-   **TFTP-venstergrootte**: TFTP vereist een pakket bevestigingen (ACK) voor elk gegevensblok dat wordt verzonden. De server verzendt het volgende blok in de reeks pas wanneer het ACK-pakket van het vorige blok is ontvangen. TFTP-vensterbewerking is een functie in Windows Deployment Services waarmee u kunt instellen hoeveel gegevensblokken er in een venster passen. De server verzendt de gegevensblokken achter elkaar door tot het venster is gevuld. Daarna verzendt de client een ACK-pakket. Als u het venster vergroot, treedt er minder trajectvertraging op tussen de client en de server en is er minder tijd nodig om een opstartinstallatiekopie te downloaden.  
 
 
-#### <a name="to-modify-the-ramdisk-tftp-window-size"></a>Pour modifier la taille de fenêtre TFTP RamDisk  
+#### <a name="to-modify-the-ramdisk-tftp-window-size"></a>De grootte van het RamDisk TFTP-venster wijzigen  
 
--   Ajoutez la clé de Registre suivante aux points de distribution compatibles PXE pour personnaliser la taille de fenêtre TFTP RamDisk :  
+-   Voeg de volgende registersleutel toe aan de distributiepunten met PXE-functionaliteit om de RamDisk TFTP-venstergrootte aan te passen:  
 
-     **Emplacement**: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\DP  
-    Nom : RamDiskTFTPWindowSize  
-
-     **Type**: REG_DWORD  
-
-     **Valeur** : &lt;taille de fenêtre personnalisée>  
-
- La valeur par défaut est 1 (1 bloc de données remplit la fenêtre).  
-
-#### <a name="to-modify-the-ramdisk-tftp-block-size"></a>Pour modifier la taille de bloc TFTP RamDisk  
-
--   Ajoutez la clé de Registre suivante aux points de distribution compatibles PXE pour personnaliser la taille de fenêtre TFTP RamDisk :  
-
-     **Emplacement**: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\DP  
-    Nom : RamDiskTFTPBlockSize  
+     **Locatie**: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\DP  
+    Naam: RamDiskTFTPWindowSize  
 
      **Type**: REG_DWORD  
 
-     **Valeur** : &lt;taille de bloc personnalisée>  
+     **Waarde**: &lt;aangepaste venstergrootte >  
 
- La valeur par défaut est 4096 (4k).  
+ De standaardwaarde is 1 (het venster bestaat uit één gegevensblok)  
+
+#### <a name="to-modify-the-ramdisk-tftp-block-size"></a>De grootte van het RamDisk TFTP-blok wijzigen  
+
+-   Voeg de volgende registersleutel toe aan de distributiepunten met PXE-functionaliteit om de RamDisk TFTP-venstergrootte aan te passen:  
+
+     **Locatie**: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SMS\DP  
+    Naam: RamDiskTFTPBlockSize  
+
+     **Type**: REG_DWORD  
+
+     **Waarde**: &lt;aangepaste blokgrootte >  
+
+ De standaardwaarde is 4096 (4k).  
 
 
-###  <a name="BKMK_DPMulticast"></a> Configurer des points de distribution pour prendre en charge la multidiffusion  
- La multidiffusion est une méthode d’optimisation réseau que vous pouvez utiliser sur des points de distribution quand plusieurs clients sont susceptibles de télécharger la même image de système d’exploitation simultanément. En cas d’utilisation de la multidiffusion, plusieurs ordinateurs peuvent télécharger simultanément l’image de système d’exploitation quand elle est multidiffusée par le point de distribution, plutôt que de faire en sorte que le point de distribution envoie une copie des données à chaque client à l’aide d’une connexion distincte. Vous devez configurer au moins un point de distribution pour prendre en charge la multidiffusion. Pour plus d’informations, consultez [Utiliser la multidiffusion pour déployer Windows sur le réseau](../deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
+###  <a name="BKMK_DPMulticast"></a> Distributiepunten configureren voor de ondersteuning van multicast  
+ Multicast is een methode voor netwerkoptimalisatie die u op distributiepunten kunt gebruiken wanneer de kans bestaat dat meerdere clients tegelijkertijd dezelfde installatiekopie van een besturingssysteem downloaden. Wanneer multicast wordt gebruikt, kunnen meerdere computers tegelijkertijd de installatiekopie van het besturingssysteem downloaden, aangezien deze door het distributiepunt wordt aangeboden via multicasting. Het distributiepunt verzendt dus geen kopie van de gegevens via een aparte verbinding naar elke client. U moet ten minste één distributiepunt configureren als u multicast wilt ondersteunen. Zie voor meer informatie [multicast gebruiken om Windows te implementeren via het netwerk](../deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
 
- Avant de déployer le système d'exploitation, vous devez configurer un point de distribution pour prendre en charge la multidiffusion. Pour modifier un point de distribution existant afin de prendre en charge la multidiffusion, procédez comme suit. Pour plus d’informations sur l’installation d’un nouveau point de distribution, consultez [Install and configure distribution points](../../core/servers/deploy/configure/install-and-configure-distribution-points.md) (Installer et modifier des points de distribution).
+ Voordat u het besturingssysteem implementeert, moet u een distributiepunt configureren voor de ondersteuning van multicast. Gebruik de volgende procedure om een bestaand distributiepunt te wijzigen voor de ondersteuning van multicast. Zie voor meer informatie over het installeren van een nieuw distributiepunt [installeren en configureren van distributiepunten](../../core/servers/deploy/configure/install-and-configure-distribution-points.md).
 
-#### <a name="to-enable-multicast-for-a-distribution-point"></a>Pour activer la multidiffusion pour un point de distribution  
+#### <a name="to-enable-multicast-for-a-distribution-point"></a>Multicast inschakelen voor een distributiepunt  
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
+1.  Klik op **Beheer**in de Configuration Manager-console.  
 
-2.  Dans l'espace de travail **Administration** , développez **Vue d'ensemble**, puis sélectionnez le nœud **Points de distribution** .  
+2.  Vouw in de werkruimte **Beheer** **Overzicht**uit en selecteer het knooppunt **Distributiepunten** .  
 
-3.  Sélectionnez le point de distribution que vous souhaitez utiliser pour procéder à la multidiffusion de l'image du système d'exploitation.  
+3.  Selecteer het distributiepunt dat u wilt gebruiken voor multicasting van de installatiekopie van het besturingssysteem.  
 
-4.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
+4.  Klik in de groep **Eigenschappen** van het tabblad **Start** op **Eigenschappen**.  
 
-5.  Sélectionnez l'onglet **Multidiffusion** et configurez les options suivantes :  
+5.  Selecteer het tabblad **Multicast** en configureer de volgende opties:  
 
-    -   **Activer la multidiffusion**: vous devez sélectionner cette option pour que le point de distribution prenne en charge la multidiffusion.  
+    -   **Multicast inschakelen**: U moet deze optie selecteren voor het distributiepunt voor multicast-ondersteuning.  
 
-    -   **Compte de connexion multidiffusion**: spécifiez un compte pour vous connecter à la base de données de site.  
+    -   **Multicastverbindingsaccount**: Geef een account verbinding maken met de sitedatabase.  
 
-    -   **Paramètres de l’adresse de multidiffusion**: spécifiez les adresses IP pour envoyer des données vers les ordinateurs de destination. Par défaut; l'adresse IP est fournie par un serveur DCHP chargé de distribuer des adresses de multidiffusion. Selon l'environnement réseau, vous pouvez spécifier une plage d'adresses IP entre 239.0.0.0 et 239.255.255.255.  
+    -   **Multicastadresinstellingen**: Geef het IP-adressen om gegevens te verzenden naar de doelcomputers. Standaard wordt het IP-adres verkregen van een DHCP-server die is ingeschakeld voor het distribueren van multicastadressen. Afhankelijk van de netwerkomgeving, kunt een reeks IP-adressen opgeven tussen 239.0.0.0 en 239.255.255.255.  
 
         > [!IMPORTANT]  
-        >  Ces adresses IP doivent être accessibles par les ordinateurs de destination qui demandent l'image du système d'exploitation. Cela signifie que les routeurs et pare-feu entre l'ordinateur de destination et le serveur de site doivent être configurés pour autoriser le trafic de multidiffusion.  
+        >  Deze IP-adressen moeten toegankelijk zijn voor de doelcomputers die de installatiekopie van het besturingssysteem aanvragen. Dit betekent dat routers en firewalls tussen de doelcomputer en de siteserver zodanig moeten worden geconfigureerd dat multicast-verkeer is toegestaan.  
 
-    -   **Étendue du port UDP**: Spécifiez la plage de ports UDP pour envoyer des données aux ordinateurs de destination.  
+    -   **UDP-poortbereik**: Geef het UDP-poortbereik op om gegevens te verzenden naar de doelcomputers.  
 
         > [!IMPORTANT]  
-        >  Ces ports doivent être accessibles par les ordinateurs de destination qui demandent l'image du système d'exploitation. Cela signifie que les routeurs et pare-feu entre l'ordinateur de destination et le serveur de site doivent être configurés pour autoriser le trafic de multidiffusion.  
+        >  Deze poorten moeten toegankelijk zijn voor de doelcomputers die de installatiekopie van het besturingssysteem aanvragen. Dit betekent dat routers en firewalls tussen de doelcomputer en de siteserver zodanig moeten worden geconfigureerd dat multicast-verkeer is toegestaan.  
 
-    -   **Multidiffusion planifiée activée** : indiquez comment Configuration Manager contrôle le lancement du déploiement des systèmes d’exploitation sur les ordinateurs de destination. Cliquez sur **Multidiffusion planifiée activée**, puis sélectionnez les options suivantes.  
+    -   **Geplande multicast inschakelen**: Geef op hoe Configuration Manager bepaalt wanneer kan ik besturingssystemen implementeren op doelcomputers. Klik op **Geplande multicast inschakelen**en selecteer de volgende opties.  
 
-         Dans la zone **Délai de démarrage de session**, indiquez le temps de réponse en minutes de Configuration Manager à la première demande de déploiement.  
+         In de **startvertraging van sessie** Geef het aantal minuten dat Configuration Manager voordat wacht het reageert op de eerste implementatieaanvraag.  
 
-         Dans la zone **Taille minimale de la session**, indiquez le nombre de demandes qui doivent être reçues avant que Configuration Manager commence à déployer le système d’exploitation.  
+         In de **minimale sessiegrootte** Geef op hoeveel aanvragen er moeten worden ontvangen voordat Configuration Manager begint met de implementatie van het besturingssysteem.  
 
-    -   **Taux de transfert**: Sélectionnez la vitesse de transfert pour télécharger des données sur les ordinateurs de destination.  
+    -   **Overdrachtssnelheid**: Selecteer de overdrachtssnelheid om gegevens te downloaden naar de doelcomputers.  
 
-    -   **Nombre maximum de clients**: Spécifiez le nombre maximal d'ordinateurs de destination qui peuvent télécharger le système d'exploitation à partir de ce point de distribution.  
+    -   **Maximum aantal clients**: Geef het maximum aantal doelcomputers op dat het besturingssysteem vanaf dit distributiepunt kan downloaden.  
 
-6.  Cliquez sur **OK**.  
+6.  Klik op **OK**.  
 
-##  <a name="BKMK_StateMigrationPoints"></a> Point de migration d'état  
- Le point de migration d'état stocke les données d'état utilisateur qui sont capturées sur un seul ordinateur puis restaurées sur un autre ordinateur. Toutefois, quand vous capturez des paramètres utilisateur pour un déploiement de système d’exploitation sur le même ordinateur, comme un déploiement où vous actualisez le système d’exploitation sur l’ordinateur de destination, vous pouvez choisir de stocker les données sur le même ordinateur à l’aide de liens physiques ou d’utiliser un point de migration d’état. Pour certains déploiements d’ordinateur, quand vous créez le magasin d’état, Configuration Manager crée automatiquement une association entre le magasin d’état et l’ordinateur de destination. Au moment de planifier le point de migration d'état, tenez compte des facteurs suivants :  
+##  <a name="BKMK_StateMigrationPoints"></a> Statusmigratiepunt  
+ Op het statusmigratiepunt worden gebruikersstatusgegevens opgeslagen die op de ene computer worden vastgelegd en vervolgens op een andere computer worden hersteld. Wanneer u echter gebruikersinstellingen voor een besturingssysteemimplementatie op dezelfde computer vastlegt, zoals een implementatie waarbij u het besturingssysteem op de doelcomputer vernieuwt, kunt u ervoor kiezen om de gegevens op dezelfde computer op te slaan via vaste koppelingen of om een statusmigratiepunt te gebruiken. Bij bepaalde computerimplementaties wanneer u het gegevensarchief maakt maakt Configuration Manager automatisch een koppeling tussen het statusarchief en de doelcomputer. Wanneer u het statusmigratiepunt plant, moet u rekening houden met de volgende factoren.  
 
-### <a name="user-state-size"></a>Taille de l’état utilisateur  
- La taille de l'état utilisateur affecte directement le stockage sur disque sur le point de migration d'état, ainsi que les performances réseau au cours de la migration. Réfléchissez à la taille de l'état utilisateur et au nombre d'ordinateurs à migrer. Pensez également aux paramètres à migrer à partir de l'ordinateur. Par exemple, si le dossier **Mes documents** est déjà sauvegardé sur un serveur, peut-être n’avez-vous pas besoin de le migrer dans le cadre du déploiement d’image. Évitez les migrations inutiles afin de réduire la taille globale de l'état utilisateur et diminuer les effets que cela aurait autrement sur les performances réseau et le stockage sur disque sur le point de migration d'état.  
+### <a name="user-state-size"></a>Grootte van de gebruikersstatus  
+ De grootte van de gebruikersstatus is direct van invloed op de schijfopslag op het statusmigratiepunt en de netwerkprestaties tijdens de migratie. Houd rekening met de grootte van de gebruikersstatus en het aantal computers dat moet worden gemigreerd. Houd ook rekening met de instellingen die vanaf de computer moeten worden gemigreerd. Als er bijvoorbeeld al een back-up van **Mijn documenten** is gemaakt op een server, hoeft u deze wellicht niet te migreren als onderdeel van de implementatie van de installatiekopie. Door onnodige migraties te voorkomen, kan de totale grootte van de gebruikersstatus kleiner blijven en neemt het effect af dat de status anders zou hebben op de netwerkprestaties en schijfopslag op het statusmigratiepunt.  
 
-### <a name="user-state-migration-tool"></a>Outil de migration de l'état utilisateur  
- Pour capturer et restaurer l'état utilisateur pendant le déploiement des systèmes d'exploitation, vous devez utiliser un package de l'outil de migration de l'état utilisateur (USMT) qui pointe vers les fichiers sources USMT. Configuration Manager crée automatiquement ce package dans la console Configuration Manager dans **Bibliothèque de logiciels** > **Gestion des applications** > **Packages**. Configuration Manager utilise USMT 10.0, qui est distribué dans le Kit de déploiement et d’évaluation Windows (Windows ADK), pour capturer l’état utilisateur d’un système d’exploitation et le restaurer sur un autre système d’exploitation.  
+### <a name="user-state-migration-tool"></a>Hulpprogramma voor migratie van gebruikersstatus  
+ Als u de gebruikersstatus wilt vastleggen en herstellen tijdens de implementatie van de besturingssystemen, moet u een USMT-pakket (User State Migration Tool, hulpprogramma voor migratie van gebruikersstatus) gebruiken dat verwijst naar de USMT-bronbestanden. Configuration Manager maakt automatisch dit pakket in de Configuration Manager-console in **softwarebibliotheek** > **Toepassingsbeheer** > **pakketten**. Configuration Manager gebruikt USMT 10.0, dat wordt gedistribueerd in de Windows Assessment and Deployment Kit (Windows ADK), de status van de gebruiker van een besturingssysteem vastleggen en vervolgens te herstellen op een ander besturingssysteem.  
 
- Pour obtenir une description de différents scénarios de migration pour USMT 10.0, consultez [Scénarios de migration courants](https://technet.microsoft.com/library/mt299169\(v=vs.85\).aspx).  
+ Zie [Common Migration Scenarios](https://technet.microsoft.com/library/mt299169\(v=vs.85\).aspx)(Algemene migratiescenario's) voor een beschrijving van verschillende migratiescenario's voor USMT 10.0.  
 
-### <a name="retention-policy"></a>Stratégie de rétention  
- Lors de la configuration du point de migration d'état, vous pouvez spécifier la durée de conservation des données d'état utilisateur stockées sur ce point. La durée de conservation des données sur le point de migration d'état dépend de deux éléments :  
+### <a name="retention-policy"></a>Bewaarbeleid  
+ Wanneer u het statusmigratiepunt configureert, kunt u opgeven hoe lang de gebruikersstatusgegevens moeten worden bewaard die op het punt worden opgeslagen. Hoe lang de gegevens op het statusmigratiepunt moeten worden bewaard, is afhankelijk van twee afwegingen:  
 
--   L'effet que les données stockées ont sur le stockage sur disque.  
+-   Het effect dat de opgeslagen gegevens hebben op de schijfopslag.  
 
--   La nécessité potentielle de conserver les données pendant un certain temps dans le cas où vous devez migrer à nouveau les données.  
+-   Het mogelijke vereiste dat de gegevens bepaalde tijd moeten worden bewaard voor het geval dat u de gegevens nogmaals moet migreren.  
 
- La migration de l’état se produit en deux phases : la capture des données et la restauration des données. Quand vous capturez des données, les données d’état utilisateur sont collectées et enregistrées sur le point de migration d’état. Lorsque vous restaurez les données, les données d'état utilisateur sont récupérées depuis le point de migration d'état et écrites sur l'ordinateur de destination, puis l'étape de séquence de tâches **Libérer le magasin d'état** libère les données stockées. Lorsque les données sont libérées, le minuteur de rétention démarre. Si vous choisissez de supprimer immédiatement les données migrées, les données d'état utilisateur sont supprimées dès qu'elles sont publiées. Si vous choisissez de conserver les données pendant un certain temps, les données seront supprimées une fois cette période écoulée, après la publication des données d'état. Plus la période de rétention définie est longue, plus l'espace disque dont vous pouvez avoir besoin est grand.  
+ Statusmigratie vindt plaats in twee fasen: Vastleggen van gegevens en de gegevens herstelt. Wanneer u de gegevens vastlegt, worden de gebruikersstatusgegevens verzameld en opgeslagen op het statusmigratiepunt. Wanneer u de gegevens herstelt, worden de gebruikersstatusgegevens van het statusmigratiepunt opgehaald en naar de doelcomputer geschreven. Met de stap **Statusopslag vrijgeven** uit de takenreeks worden de opgeslagen gegevens vervolgens vrijgegeven. Wanneer de gegevens worden vrijgegeven, wordt de bewaartimer gestart. Als u de optie selecteert om gemigreerde gegevens onmiddellijk te verwijderen, worden de gebruikersstatusgegevens verwijderd zodra ze zijn vrijgegeven. Als u de optie selecteert om de gegevens gedurende een bepaalde periode te behouden, worden de gegevens verwijderd zodra die periode is verstreken nadat de statusgegevens zijn vrijgegeven. Hoe langer u de bewaarperiode instelt, hoe meer schijfruimte u waarschijnlijk nodig hebt.  
 
-### <a name="select-drive-to-store-user-state-migration-data"></a>Sélectionner le disque pour stocker les données de migration d’état utilisateur  
- Lorsque vous configurez le point de migration d'état, vous devez spécifier le lecteur sur le serveur pour stocker les données de migration d'état utilisateur. Vous sélectionnez un lecteur à partir d'une liste de lecteurs fixe. Toutefois, certains de ces lecteurs peuvent représenter des lecteurs non inscriptibles, tels que le lecteur de CD, ou un lecteur de partage non réseau. De plus, certaines lettres de lecteur peuvent ne pas être mappées vers des lecteurs sur l'ordinateur. Lorsque vous configurez le point de migration d'état, vous devez spécifier un lecteur partagé, accessible en écriture.  
+### <a name="select-drive-to-store-user-state-migration-data"></a>Het station selecteren waarop u de migratiegegevens voor de gebruikersstatus wilt opslaan  
+ Wanneer u het statusmigratiepunt configureert, moet u het station op de server opgeven waarop de migratiegegevens voor de gebruikersstatus moeten worden opgeslagen. U kiest een station uit een vaste lijst met stations. Sommige van deze stations stellen mogelijk echter niet-schrijfbare stations voor, zoals het cd-station of een station dat niet tot de netwerkshare behoort. Bovendien zijn sommige stationsletters mogelijk niet toegewezen aan een station op de computer. U moet een schrijfbaar, gedeeld station opgeven wanneer u het statusmigratiepunt configureert.  
 
-### <a name="configure-a-state-migration-point"></a>Configuration d'un point de migration d'état  
- Vous pouvez utiliser les méthodes suivantes afin de configurer un point de migration d'état pour stocker les données d'état utilisateur :  
+### <a name="configure-a-state-migration-point"></a>Een statusmigratiepunt configureren  
+ U kunt de volgende methoden gebruiken om een statusmigratiepunt te configureren om de gebruikersstatusgegevens op te slaan:  
 
--   Utilisez l' **Assistant Création d'un serveur de système de site** pour créer un nouveau serveur de système de site pour le point de migration d'état.  
+-   Gebruik de **wizard Sitesysteemserver maken** om een nieuwe sitesysteemserver te maken voor het statusmigratiepunt.  
 
--   Utilisez l' **Assistant Ajout des rôles de système de site** pour ajouter un point de migration d'état à un serveur existant.  
+-   Gebruik de **wizard Sitesysteemrollen toevoegen** om een statusmigratiepunt toe te voegen aan een bestaande server.  
 
- Lorsque vous utilisez ces Assistants, vous êtes invité à fournir les informations suivantes pour le point de migration d'état :  
+ Als u deze wizards gebruikt, wordt u gevraagd om de volgende informatie op te geven voor het statusmigratiepunt:  
 
--   Les dossiers pour stocker les données d'état utilisateur.  
+-   De mappen voor het opslaan van de gebruikersstatusgegevens.  
 
--   Le nombre maximal de clients pouvant stocker des données sur le point de migration d'état.  
+-   Het maximum aantal clients die gegevens op het statusmigratiepunt kunnen opslaan.  
 
--   L'espace libre minimum pour le point de migration d'état pour stocker les données d'état utilisateur.  
+-   De minimale hoeveelheid vrije schijfruimte voor het statusmigratiepunt om gebruikersstatusgegevens op te slaan.  
 
--   La stratégie de suppression du rôle. Vous pouvez spécifier que les données d'état utilisateur sont supprimées immédiatement après leur restauration sur un ordinateur, ou après un nombre de jours spécifique après la restauration des données utilisateur sur un ordinateur.  
+-   Het verwijderingsbeleid voor de rol. U kunt opgeven dat de gebruikersstatusgegevens onmiddellijk worden verwijderd nadat ze op een computer zijn hersteld, of na een specifiek aantal dagen nadat de gebruikersgegevens op een computer worden hersteld.  
 
--   Si le point de migration d’état répond uniquement aux demandes de restauration des données d’état utilisateur. Lorsque vous activez cette option, vous ne pouvez pas utiliser le point de migration d'état pour stocker les données d'état utilisateur.  
+-   Of het statusmigratiepunt alleen moet reageren op aanvragen om gebruikersstatusgegevens terug te zetten. Wanneer u deze optie inschakelt, kunt het statusmigratiepunt niet gebruiken om de gebruikersstatusgegevens op te slaan.  
 
- Pour connaître les étapes à suivre pour installer un rôle de système de site, consultez [Ajouter des rôles de système de site](../../core/servers/deploy/configure/add-site-system-roles.md).  
+ Zie voor de stappen voor het installeren van een sitesysteemrol [sitesysteemrollen toevoegen](../../core/servers/deploy/configure/add-site-system-roles.md).  

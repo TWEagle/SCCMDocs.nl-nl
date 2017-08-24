@@ -1,6 +1,6 @@
 ---
-title: Inscrire en bloc des appareils | Microsoft Docs | Gestion des appareils mobiles locale
-description: "Inscrivez en bloc des appareils de manière automatisée avec la gestion des appareils mobiles locale dans System Center Configuration Manager."
+title: Apparaten bulksgewijs inschrijven | Microsoft Docs | On-premises MDM
+description: Apparaten bulksgewijs inschrijven in een automatische manier met On-premises Mobile Device Management in System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,150 +17,150 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: be9596537e9c80a6d78aa0685d33382bfd242afe
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-bulk-enroll-devices-with-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Comment inscrire en bloc des appareils avec la gestion des appareils mobiles (MDM) locale dans System Center Configuration Manager
+# <a name="how-to-bulk-enroll-devices-with-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Het bulksgewijs inschrijven van apparaten met On-premises Mobile Device Management in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
-L’inscription en bloc dans la gestion des appareils mobiles locale dans System Center Configuration Manager est un mécanisme d’inscription d’appareils plus automatisé que l’inscription d’utilisateur, qui nécessite que les utilisateurs entrent leurs informations d’identification pour inscrire l’appareil.  L’inscription en bloc utilise un package d’inscription pour authentifier l’appareil lors de l’inscription. Le package (un fichier .ppkg) contient un profil de certificat et éventuellement un profil Wi-Fi si l’appareil a besoin d’une connectivité intranet pour prendre en charge l’inscription.  
+Bulkinschrijving in System Center Configuration Manager On-premises Mobile Device Management is een meer geautomatiseerde manier voor het inschrijven van apparaten, in vergelijking met gebruikersregistratie, waarvoor gebruikers hun referenties voor het inschrijven van het apparaat in te voeren.  Voor bulkinschrijving wordt gebruikgemaakt van een inschrijvingspakket om het apparaat tijdens de inschrijving te verifiëren. Het pakket (een PPKG-bestand) bevat een certificaatprofiel en optioneel een Wi-Fi-profiel als het apparaat een intranetverbinding voor de inschrijving nodig heeft.  
 
 > [!NOTE]  
->  Dans la gestion des appareils mobiles locale, la version Current Branch de Configuration Manager prend en charge l’inscription des appareils exécutant les systèmes d’exploitation suivants :  
+>  De huidige vertakking van Configuration Manager ondersteunt de inschrijving in On-premises Mobile Device Management voor apparaten met de volgende besturingssystemen:  
 >   
-> -  Windows 10 Entreprise  
-> -   Windows 10 Professionnel  
-> -   Windows 10 Collaboration  
+> -  Windows 10 Enterprise  
+> -   Windows 10 Pro  
+> -   Windows 10 Team  
 > -   Windows 10 Mobile  
-> -   Windows 10 Mobile Entreprise
-> -   Windows 10 IoT Entreprise   
+> -   Windows 10 Mobile Enterprise
+> -   Windows 10 IoT Enterprise   
 
-Les tâches suivantes expliquent comment inscrire en bloc des ordinateurs et des appareils pour la gestion des appareils mobiles locale :  
+De volgende taken wordt uitgelegd hoe u bulksgewijs inschrijven computers en apparaten voor op\-premises Mobile Device Management:  
 
--   [Créer un profil de certificat](#bkmk_createCert)  
+-   [Een certificaatprofiel maken](#bkmk_createCert)  
 
--   [Créer un profil Wi-Fi](#CreateWifi)  
+-   [Een Wi-Fi-profiel maken](#CreateWifi)  
 
--   [Créer un profil d’inscription](#bkmk_createEnroll)  
+-   [Inschrijvingsprofielen maken](#bkmk_createEnroll)  
 
--   [Créer un fichier de package d’inscription (ppkg)](#bkmk_createPpkg)  
+-   [Een inschrijvingspakketbestand (PPKG) maken](#bkmk_createPpkg)  
 
--   [Utiliser le package pour l’inscription en bloc d’un appareil](#bkmk_getPpkg)  
+-   [Een pakket gebruiken om een apparaat bulksgewijs in te schrijven](#bkmk_getPpkg)  
 
--   [Vérifier l’inscription d’un appareil](#bkmk_verifyEnroll)  
+-   [De registratie van het apparaat controleren](#bkmk_verifyEnroll)  
 
-##  <a name="bkmk_createCert"></a> Créer un profil de certificat  
- Le composant principal du package d’inscription est un profil de certificat, qui est utilisé pour configurer automatiquement un certificat racine approuvé sur l’appareil à inscrire.  Ce certificat racine est obligatoire pour la fiabilité des communications entre les appareils et les rôles de système de site nécessaires pour la gestion des appareils mobiles locale. Sans le certificat racine, l’appareil ne serait pas approuvé lors des connexions HTTPS entre lui-même et les serveurs hébergeant les rôles de système de site de point d’inscription, point proxy d’inscription, point de distribution et point de gestion des appareils.  
+##  <a name="bkmk_createCert"></a> Een certificaatprofiel maken  
+ Het belangrijkste onderdeel van het inschrijvingspakket is een certificaatprofiel, dat wordt gebruikt om automatisch een vertrouwd basiscertificaat in te richten op het apparaat dat wordt ingeschreven.  Dit basiscertificaat is vereist voor vertrouwde communicatie tussen de apparaten en de sitesysteemrollen op die nodig zijn voor\-premises Mobile Device Management. Zonder het basiscertificaat wordt het apparaat niet vertrouwd in HTTPS-verbindingen tussen het apparaat en de servers waarop het inschrijvingspunt, het proxypunt voor inschrijving, het distributiepunt en de sitesysteemrollen van het apparaatbeheerpunt worden gehost.  
 
- Pendant la préparation du système pour la gestion des appareils mobiles locale, vous exportez un certificat racine que vous pouvez utiliser dans le profil de certificat du package d’inscription. Pour obtenir des instructions sur la façon d’obtenir le certificat racine approuvé, consultez [Exporter le certificat avec la même racine que le certificat de serveur web](../../mdm/get-started/set-up-certificates-on-premises-mdm.md#bkmk_exportCert).  
+ Als onderdeel van het systeem voor het voorbereiden op\-premises Mobile Device Management kunt u een basiscertificaat dat u in het inschrijvingspakket certificaatprofiel gebruiken kunt exporteren. Zie voor instructies over het verkrijgen van het vertrouwde basiscertificaat [exporteren van het certificaat met dezelfde basis als het webservercertificaat](../../mdm/get-started/set-up-certificates-on-premises-mdm.md#bkmk_exportCert).  
 
- Utilisez le certificat racine exporté pour créer un profil de certificat. Pour obtenir des instructions, consultez [Comment créer des profils de certificat dans System Center Configuration Manager](../../protect/deploy-use/create-certificate-profiles.md).  
+ Gebruikt het geëxporteerde basiscertificaat om een certificaatprofiel te maken. Zie voor instructies [het maken van certificaatprofielen in System Center Configuration Manager](../../protect/deploy-use/create-certificate-profiles.md).  
 
-##  <a name="CreateWifi"></a> Créer un profil Wi-Fi  
- L’autre composant du package utilisé pour l’inscription en bloc est un profil Wi-Fi. Certains appareils peuvent ne pas disposer de la connectivité réseau nécessaire pour prendre en charge l’inscription jusqu’à ce que les paramètres réseau soient configurés. Le fait d’inclure un profil Wi-Fi dans le package d’inscription fournit un moyen d’établir une connectivité réseau pour l’appareil.  
+##  <a name="CreateWifi"></a> Een Wi-Fi-profiel maken  
+ Het andere onderdeel van het pakket voor bulkinschrijving is een Wi-Fi-profiel. Sommige apparaten beschikken mogelijk niet over de netwerkverbinding die nodig is voor de inschrijving totdat de netwerkinstellingen zijn ingericht. Door een Wi-Fi-profiel op te nemen in het inschrijvingspakket biedt u een manier om een netwerkverbinding voor het apparaat tot stand te brengen.  
 
- Pour créer un profil Wi-Fi dans Configuration Manager, suivez les instructions fournies dans [Comment créer des profils Wi-Fi dans System Center Configuration Manager](../../protect/deploy-use/create-wifi-profiles.md).  
+ Volg de instructies in voor het maken van een Wi-Fi-profiel in Configuration Manager, [Wi-Fi-profielen maken in System Center Configuration Manager](../../protect/deploy-use/create-wifi-profiles.md).  
 
 > [!IMPORTANT]  
->Gardez à l’esprit les deux problèmes suivants quand vous créez un profil Wi-Fi pour l’inscription en bloc :
+>Houd rekening met de volgende twee problemen bij het maken van een Wi-Fi-profiel voor bulkinschrijving:
 >
-> - La branche CB (Current Branch) de Configuration Manager prend uniquement en charge les configurations de sécurité Wi-Fi suivantes pour la gestion des appareils mobiles locale :  
+> - De huidige vertakking van Configuration Manager ondersteunt alleen de volgende Wi-Fi-beveiligingsconfiguraties voor op\-premises Mobile Device Management:  
 >   
->   - Types de sécurité : **WPA2-Entreprise** ou **WPA2-Personnel**  
->   - Types de chiffrement : **AES** ou **TKIP**  
->   - Types EAP : **Carte à puce ou autre certificat** ou **PEAP**  
+>   - Beveiligingstypen: **WPA2-Enterprise** of **WPA2-Personal**  
+>   - Versleutelingstypen: **AES** of **TKIP**  
+>   - EAP-typen: **Smartcard of ander certificaat** of **PEAP**  
 >
 >
-> - Bien que Configuration Manager dispose d’un paramètre pour les informations du serveur proxy dans le profil Wi-Fi, il ne configure pas le serveur proxy quand l’appareil est inscrit. Si vous devez configurer un serveur proxy avec vos appareils inscrits, vous pouvez déployer les paramètres à l’aide des éléments de configuration une fois que les appareils sont inscrits ou créer le deuxième package à l’aide du Concepteur de configuration et d’acquisition d’images Windows pour un déploiement à côté du package d’inscription en bloc.
+> - Hoewel Configuration Manager een instelling voor proxyservergegevens in het Wi-Fi-profiel heeft, configureert deze niet de proxy wanneer het apparaat is ingeschreven. Als u een proxyserver instellen met de ingeschreven apparaten moet, kunt u de instellingen met behulp van configuratie-items als apparaten zijn ingeschreven of maken van het tweede pakket implementeren aan zijkant het pakket voor bulksgewijs inschrijven met de installatiekopie van Windows en Configuration Designer (ICD) implementeren.
 
-##  <a name="bkmk_createEnroll"></a> Créer un profil d’inscription  
- Le profil d’inscription vous permet de spécifier les paramètres nécessaires à l’inscription des appareils, notamment un profil de certificat qui configure de manière dynamique un certificat racine approuvé sur l’appareil et un profil Wi-Fi qui configure les paramètres réseau si nécessaire.  
+##  <a name="bkmk_createEnroll"></a> Inschrijvingsprofielen maken  
+ Met het inschrijvingsprofiel kunt u de vereiste instellingen voor het inschrijven van apparaten opgeven, met inbegrip van een certificaatprofiel, waarmee op dynamische wijze een vertrouwd basiscertificaat voor het apparaat wordt ingericht, en een Wi-Fi-profiel, dat indien nodig de netwerkinstellingen inricht.  
 
- Avant de créer un profil d’inscription, veillez à créer un profil de certificat et un profil Wi-Fi (si nécessaire). Pour plus d'informations, consultez [Créer un profil de certificat](#bkmk_createCert) et [Créer un profil Wi-Fi](#CreateWifi)  
+ Voordat u een inschrijvingsprofiel maakt, moet u ervoor zorgen dat u een certificaat- en Wi-Fi-profiel (indien nodig) hebt gemaakt. Zie [Een certificaatprofiel maken](#bkmk_createCert) en [Een Wi-Fi-profiel maken](#CreateWifi)voor meer informatie.  
 
-#### <a name="to-create-an-enrollment-profile"></a>Pour créer un profil d’inscription  
+#### <a name="to-create-an-enrollment-profile"></a>Een inschrijvingsprofiel maken:  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** >**Vue d’ensemble** >**Tous les appareils de l’entreprise** >**Windows** >**Profils d’inscription**.  
+1.  Klik in de Configuration Manager-console op **activa en naleving** >**overzicht** >**alle apparaten in Bedrijfseigendom** >**Windows** >**Inschrijvingsprofielen**.  
 
-2.  Cliquez avec le bouton droit sur **Profil d’inscription** , puis cliquez sur **Créer un profil**.  
+2.  Klik met de rechtermuisknop op **Inschrijvingsprofiel** en klik vervolgens op **Profiel maken**.  
 
-3.  Dans l’Assistant Création d’un profil d’inscription, entrez un nom pour le profil, vérifiez que **Local** est sélectionné pour **Autorité de gestion**, puis cliquez sur **Suivant**.  
+3.  Voer in de wizard Inschrijvingsprofiel maken een naam in voor het profiel, zorg ervoor dat **On-premises** is geselecteerd voor **Instantie voor beheer**en klik vervolgens op **Volgende**.  
 
-4.  Sélectionnez le code de site, puis cliquez sur **Suivant**.  
+4.  Selecteer de sitecode en klik op **Volgende**.  
 
-5.  Sélectionnez **Intranet uniquement**, sélectionnez les points proxy d’inscription que l’appareil utilise pour lancer le processus d’inscription, puis cliquez sur **Suivant**.  
+5.  Selecteer **Alleen intranet**, selecteer de proxypunten voor inschrijving die het apparaat gebruikt om het inschrijvingsproces te starten en klik vervolgens op **Volgende**.  
 
-6.  Sélectionnez le profil de certificat contenant le certificat racine approuvé (il s’agit du profil que vous avez créé dans [Create a certificate profile](#bkmk_createCert)), puis cliquez sur **Suivant**.  
+6.  Selecteer het certificaatprofiel met het vertrouwde basiscertificaat (dit is het profiel dat u hebt gemaakt in [Create a certificate profile](#bkmk_createCert)) en klik op **Volgende**.  
 
-7.  Sélectionnez le profil Wi-Fi contenant les paramètres réseau nécessaires pour que les appareils se connectent à l’intranet (il s’agit du profil que vous avez créé dans [Create a Wi-Fi profile](#CreateWifi)), puis cliquez sur **Suivant**.  
+7.  Selecteer het Wi-Fi-profiel met de vereiste instellingen voor apparaten om verbinding maken met het intranet (dit is het profiel dat u hebt gemaakt in [Create a Wi-Fi profile](#CreateWifi)) en klik op **Volgende**.  
 
     > [!NOTE]  
-    >  Si vous n’utilisez pas de profil Wi-Fi pour votre package d’inscription, ignorez cette étape.  
+    >  Als u geen Wi-Fi-profiel gebruikt voor uw inschrijvingspakket, moet u deze stap overslaan.  
 
-8.  Vérifiez les paramètres du profil d’inscription, puis cliquez sur **Suivant**. Cliquez sur **Fermer** pour quitter l'Assistant.  
+8.  Bevestig de instellingen voor het inschrijvingsprofiel en klikt u op **volgende**. Klik op **Sluiten** om de wizard af te sluiten.  
 
-##  <a name="bkmk_createPpkg"></a> Créer un fichier de package d’inscription (ppkg)  
- Le package d’inscription est le fichier que vous utilisez pour inscrire en bloc des appareils pour la gestion des appareils mobiles locale.  Ce fichier doit être créé avec Configuration Manager. Vous pouvez créer des types de packages similaires à l’aide du Concepteur de configuration et d’acquisition d’images Windows, mais seuls les packages que vous créez dans Configuration Manager peuvent être utilisés pour inscrire des appareils pour la gestion des appareils mobiles locale du début à la fin. Les packages créés avec Windows ICD peuvent uniquement fournir le nom d’utilisateur principal (UPN) nécessaire à l’inscription. Ils ne peuvent pas exécuter le processus d’inscription proprement dit.  
+##  <a name="bkmk_createPpkg"></a> Een inschrijvingspakketbestand (PPKG) maken  
+ Het inschrijvingspakket is het bestand dat u bulksgewijs-apparaten inschrijven voor op\-premises Mobile Device Management.  Dit bestand moet worden gemaakt met Configuration Manager. U kunt vergelijkbare typen pakketten maken met Windows Image en Configuration Designer (ICD), maar alleen pakketten die u in Configuration Manager maakt kunnen worden gebruikt om apparaten te registreren voor op\-premises Mobile Device Management van begin tot eind. Pakketten die zijn gemaakt met Windows ICD leveren alleen de UPN (User Principal Name) die nodig is voor inschrijving, maar voeren het daadwerkelijk inschrijvingsproces niet uit.  
 
- Le processus de création du package d’inscription exige l’utilisation du Kit de déploiement et d’évaluation Windows (Windows ADK) pour Windows 10.  Sur le serveur exécutant la console Configuration Manager, vérifiez que la version 1511 de Windows ADK est installée. Pour plus d’informations, consultez la section ADK dans [Télécharger le kit Windows ADK](https://msdn.microsoft.com/windows/hardware/dn913721.aspx)  
+ Het proces voor het maken van het inschrijvingspakket vereist Windows Assessment and Deployment Toolkit (ADK) voor Windows 10.  Op de server waarop de Configuration Manager-console wordt uitgevoerd, moet u versie 1511 van Windows ADK is geïnstalleerd. Zie de ADK-sectie van [Download kits and tools for Windows 10](https://msdn.microsoft.com/windows/hardware/dn913721.aspx)(Kits en hulpprogramma's downloaden voor Windows 10) voor meer informatie.  
 
 > [!TIP]  
->  Si vous supprimez un package d’inscription de la console Configuration Manager, il ne peut pas être utilisé pour inscrire des appareils. Vous pouvez utiliser la suppression de package comme moyen de gérer les packages que vous ne souhaitez plus utiliser pour l’inscription en bloc des appareils.  
+>  Als u een inschrijvingspakket uit de Configuration Manager-console verwijdert, wordt deze niet gebruikt om apparaten te registreren. U kunt het pakket verwijderen als manier om pakketten te beheren die u niet meer wilt gebruiken voor het bulksgewijs inschrijven van apparaten.  
 
-#### <a name="to-create-an-enrollment-package-ppkg-file"></a>Pour créer un fichier de package d’inscription (ppkg)  
+#### <a name="to-create-an-enrollment-package-ppkg-file"></a>Een inschrijvingspakketbestand (Ppkg) maken  
 
-1.  Cliquez avec le bouton droit sur le profil que vous venez de créer (dans [Créer un profil d’inscription](#bkmk_createEnroll), cliquez sur **Exporter**).  
+1.  Klik met de rechtermuisknop op het profiel dat u zojuist hebt gemaakt (in [Inschrijvingsprofielen maken](#bkmk_createEnroll)en klik op **Exporteren**.  
 
-2.  Cliquez sur **Parcourir**, recherchez un emplacement où vous souhaitez enregistrer le fichier .ppkg, entrez un nom pour le package, puis cliquez sur **Enregistrer**.  
+2.  Klik op **Bladeren**, ga naar de locatie waar u het ppkg-bestand wilt opslaan, voer een naam voor het pakket in en klik vervolgens op **Opslaan**.  
 
-3.  Si vous souhaitez protéger le package avec un mot de passe, cochez la case à côté de **Chiffrer le package**, puis cliquez sur **Exporter** et patientez environ 10 secondes que l’exportation se termine.  
+3.  Als u het pakket wilt beveiligen met een wachtwoord, schakelt u het selectievakje naast **Pakket versleutelen Package**in en klikt u op **Exporteren** . Wacht vervolgens ongeveerd tien seconden totdat de export is voltooid.  
 
     > [!NOTE]  
-    >  Si vous avez chiffré le package, Configuration Manager fournit un message contenant le mot de passe déchiffré. Veillez à enregistrer les informations de mot de passe, car vous en aurez besoin pour approvisionner le package sur les appareils.  
+    >  Als u het pakket hebt versleuteld, biedt Configuration Manager een bericht met het versleutelde wachtwoord. Zorg ervoor dat u de wachtwoordgegevens opslaat. Deze hebt u namelijk nodig om het pakket op apparaten in te richten.  
 
-4.  Cliquez sur **OK**.  
+4.  Klik op **OK**.  
 
-##  <a name="bkmk_getPpkg"></a> Utiliser le package pour l’inscription en bloc d’un appareil  
- Vous pouvez utiliser le package pour inscrire des appareils avant ou après que l’appareil a été approvisionné par le biais du processus OOBE (Out-Of-Box experience).   Le package d’inscription peut également être inclus dans le cadre d’un package d’approvisionnement d’un fabricant d’ordinateurs OEM.  
+##  <a name="bkmk_getPpkg"></a> Een pakket gebruiken om een apparaat bulksgewijs in te schrijven  
+ U kunt een pakket gebruiken om apparaten in te schrijven voordat of nadat het apparaat is ingericht via het OOBE-proces (Out-Of-Box Experience).   Het inschrijvingspakket kan ook worden opgenomen als onderdeel van het inrichtingspakket van de OEM(Original Equipment Manufacturer).  
 
- Le package doit être physiquement remis à l’appareil pour qu’il l’utilise pour l’inscription en bloc. Vous pouvez remettre le package d’inscription à l’appareil de différentes manières en fonction de vos besoins, notamment :  
+ Het pakket moet fysiek aan het apparaat wordt geleverd om het te kunnen gebruiken voor een bulkinschrijving. U kunt het inschrijvingspakket afhankelijk van uw behoeften op verschillende manieren aan het apparaat leveren:  
 
--   Copier à partir du système de fichiers  
+-   Kopiëren van het bestandssysteem  
 
--   Joindre à un e-mail  
+-   Als bijlage bij een e-mail  
 
--   Copier via une connexion Communication en champ proche (NFC)  
+-   Kopiëren via een NFC-verbinding (Near Field Communication)  
 
--   Copier à partir d’une carte mémoire  
+-   Kopiëren van geheugenkaart  
 
--   Scanner le code-barres  
+-   Streepjescode scannen  
 
--   Copier à partir d’un appareil attaché  
+-   Kopiëren van een aangesloten apparaat  
 
--   Inclure dans un package d’approvisionnement OEM  
+-   Opnemen in het OEM-inrichtingspakket  
 
-#### <a name="to-bulk-enroll-a-device"></a>Pour inscrire en bloc un appareil  
+#### <a name="to-bulk-enroll-a-device"></a>Een apparaat bulksgewijs inschrijven:  
 
-1.  Sur l’appareil à inscrire, recherchez le package d’inscription (à l’aide de l’Explorateur de fichiers) et double-cliquez sur le fichier .ppkg.  
+1.  Zoek het inschrijvingspakket (met de Verkenner) op het apparaat dat moet worden ingeschreven en dubbelklik op het PPKG-bestand.  
 
-2.  Cliquez sur **Oui** en réponse au message de Contrôle de compte d’utilisateur.  
+2.  Klik op **Ja** in het bericht van Gebruikersaccountbeheer.  
 
-3.  Dans la boîte de dialogue vous demandant si le package provient d’une source fiable, cliquez sur **Oui, l’ajouter**.  
+3.  In het dialoogvenster waarin u wordt gevraagd of het pakket afkomstig van een bron u is vertrouwt, klikt u op **Ja, voegt u deze**.  
 
-     Le processus d’inscription démarre et prend environ cinq minutes.  
+     Het registratieproces wordt gestart en duur ongeveer vijf minuten.  
 
-4.  Ouvrez **Paramètres**.  
+4.  Open **instellingen**.  
 
-5.  Cliquez sur  **Comptes** > **Accès professionnel**. Une fois l’inscription terminée, un compte apparaît sous **CompanyApps**.  
+5.  Klik op  **Accounts** > **Toegang via het werknetwerk**. Als de registratie is geslaagd, ziet u een account onder **CompanyApps**  
 
-6.  Cliquez sur le compte, puis sur **Synchroniser** pour démarrer la gestion avec Configuration Manager.  
+6.  Klik op het account en klik vervolgens op **Sync**, Hiermee start u het beheer met Configuration Manager.  
 
-##  <a name="bkmk_verifyEnroll"></a> Vérifier l’inscription d’un appareil  
- Vous pouvez vérifier que les appareils ont été inscrits correctement dans la console Configuration Manager.  
+##  <a name="bkmk_verifyEnroll"></a> De registratie van het apparaat controleren  
+ U kunt controleren dat apparaten zijn geregistreerd in de Configuration Manager-console.  
 
--   Démarrez la console Configuration Manager.  
+-   Start de Configuration Manager-console.  
 
--   Cliquez sur **Ressources et Conformité** > **Vue d’ensemble** > **Appareils**. L’appareil inscrit apparaît dans la liste.  
+-   Klik op **Activa en naleving** > **Overzicht** > **Apparaten**. Het geregistreerde apparaat wordt weergegeven in de lijst.  

@@ -1,6 +1,6 @@
 ---
-title: "Certificats et sécurité | Microsoft Docs"
-description: "Gérer les certificats et la sécurité pour l’éditeur de mise à jour System Center"
+title: Certificaten en beveiliging | Microsoft Docs
+description: Certificaten en beveiliging beheren voor System Center Updates Publisher
 ms.custom: na
 ms.date: 4/29/2017
 ms.prod: configuration-manager
@@ -17,85 +17,85 @@ manager: angrobe
 robots: NOINDEX, NOFOLLOW
 ms.openlocfilehash: c43af95a539a9284e4e49822b284783e02f9fa21
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-certificates-and-security-for-updates-publisher"></a>Gérer les certificats et la sécurité pour l’éditeur de mise à jour
+# <a name="manage-certificates-and-security-for-updates-publisher"></a>Beheren van certificaten en beveiliging voor Updates Publisher
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Les procédures suivantes peuvent vous aider à configurer le magasin de certificats sur le serveur de mise à jour, à configurer un certificat d’auto-signature sur l’ordinateur client, et à configurer la stratégie de groupe pour permettre à l’Agent Windows Update sur les ordinateurs de rechercher les mises à jour publiées.
+De volgende procedures kunt u het certificaatarchief op de updateserver configureren, het configureren van een zelf-ondertekend certificaat op de clientcomputer en gepubliceerd voor het configureren van het groepsbeleid zodat de Windows Update Agent op computers om te scannen op updates.
 
-## <a name="configure-the-certificate-store-on-the-update-server"></a>Configurer le magasin de certificats sur le serveur de mise à jour
- L’éditeur de mise à jour utilise un certificat numérique pour signer les mises à jour dans les catalogues qu'il publie. Pour pouvoir publier un catalogue sur le serveur de mise à jour, ce certificat doit figurer dans le magasin de certificats sur le serveur de mise à jour et dans le magasin de certificats de l’ordinateur de l’éditeur de mise à jour si cet ordinateur est éloigné du serveur de mise à jour.
+## <a name="configure-the-certificate-store-on-the-update-server"></a>Het certificaatarchief op de updateserver configureren
+ Een digitaal certificaat updates Publisher gebruikt voor het ondertekenen van de updates in de catalogus die wordt gepubliceerd. Voordat een catalogus kan worden gepubliceerd naar de updateserver, moet dat certificaat in het certificaatarchief op de updateserver en in het certificaatarchief van de computer Updates Publisher als de computer extern van de update-server.
 
-La procédure suivante est une des méthodes possibles pour ajouter le certificat au magasin de certificats sur le serveur de mise à jour.
+De volgende procedure is een van de verschillende manieren het certificaat in het certificaatarchief op de updateserver toevoegen.
 
-### <a name="to-configure-the-certificate-store"></a>Pour configurer le magasin de certificats
-1.  Sur un ordinateur disposant à la fois d’un accès à l’ordinateur de l’éditeur de mise à jour et au serveur de mise à jour, cliquez sur **Démarrer**, cliquez sur **Exécuter**, tapez **MMC** dans la zone de texte, puis cliquez sur **OK** pour ouvrir la console MMC (Microsoft Management Console).
+### <a name="to-configure-the-certificate-store"></a>Het certificaatarchief configureren
+1.  Klik op een computer die toegang zowel de computer Updates Publisher en de update-server tot, **Start**, klikt u op **uitvoeren**, type **MMC** in het tekstvak en klik vervolgens op **OK** Microsoft Management Console (MMC) openen.
 
-2.  Cliquez sur **Fichier**, sur **Ajouter/supprimer un composant logiciel enfichable**, **Ajouter**, **Certificats**, **Ajouter**, sélectionnez **Compte de l’ordinateur**, puis cliquez sur **Suivant**.
+2.  Klik op **bestand**, klikt u op **module toevoegen/verwijderen**, klikt u op **toevoegen**, klikt u op **certificaten**, klikt u op **toevoegen**, selecteer **computeraccount**, en klik vervolgens op **volgende**.
 
-3.  Sélectionnez **Un autre ordinateur**, saisissez le nom du serveur de mise à jour ou cliquez sur **Parcourir** pour rechercher l’ordinateur du serveur de mise à jour, cliquez sur **Terminer**, sur **Fermer** puis sur **OK**.
+3.  Selecteer **een andere computer**, typ de naam van de update-server of klik op **Bladeren** voor de update server-computer, klikt u **voltooien**, klikt u op **sluiten**, en klik vervolgens op **OK**.
 
-4.  Développez **Certificats (*nom du serveur de mise à jour*)**, **WSUS**, puis cliquez sur **Certificats**.
+4.  Vouw  **certificaten (*update servernaam*) **, vouw **WSUS**, en klik vervolgens op **certificaten**.
 
-5.  Dans le volet des résultats, cliquez avec le bouton droit sur le certificat souhaité, sélectionnez **Toutes les tâches**, puis cliquez sur **Exporter**.
+5.  In het deelvenster met resultaten met de rechtermuisknop op het gewenste certificaat, klikt u op **alle taken**, en klik vervolgens op **exporteren**.
 
-6.  Dans l’Assistant Exportation de certificat, utilisez les paramètres par défaut pour créer un fichier d’exportation avec le nom et l’emplacement spécifiés dans l’Assistant. Ce fichier doit être disponible pour le serveur de mise à jour avant de passer à l’étape suivante.
+6.  Gebruik de standaardinstellingen voor het maken van een exportbestand met de naam en locatie die is opgegeven in de wizard in de Wizard Certificaat exporteren. Dit bestand moet beschikbaar zijn voor de update-server voordat u doorgaat met de volgende stap.
 
-7.  Cliquez avec le bouton droit sur **Éditeurs approuvés**, sélectionnez **Toutes les tâches**, puis cliquez sur **Importer**. Terminez l’Assistant Importation de certificat en utilisant le fichier exporté à l’étape 6.
+7.  Met de rechtermuisknop op **vertrouwde uitgevers**, klikt u op **alle taken**, en klik vervolgens op **importeren**. Voltooi de Wizard Certificaat importeren met behulp van het geëxporteerde bestand uit stap 6.
 
-8.  Si vous utilisez un certificat auto-signé, par exemple des **éditeurs WSUS auto-signés**, cliquez avec le bouton droit sur **Autorités de certification racines de confiance**, sélectionnez **Toutes les tâches**, puis cliquez sur **Importer**. Terminez l’Assistant Importation de certificat en utilisant le fichier exporté à l’étape 6.
+8.  Als u een zelfondertekend certificaat gebruikt, zoals **WSUS Publishers Self-signed**, met de rechtermuisknop op **Trusted Root Certification Authorities**, klikt u op **alle taken**, en klik vervolgens op **importeren**. Voltooi de Wizard Certificaat importeren met behulp van het geëxporteerde bestand uit stap 6.
 
-9.  Cliquez avec le bouton droit sur **Certificats (*nom du serveur de mise à jour*)**, sélectionnez **Se connecter à un autre ordinateur**, entrez le nom d’ordinateur de l’éditeur de mise à jour, puis cliquez sur **OK**.
+9.  Met de rechtermuisknop op  **certificaten (*update servernaam*) **, klikt u op **verbinding maken met een andere computer**, voer de computernaam voor de computer Updates Publisher en op **OK**.
 
-10. Si l’éditeur de mise à jour est éloigné du serveur de mise à jour, répétez les étapes 7 à 9 pour importer le certificat dans le magasin de certificats sur l’ordinateur de l’éditeur de mise à jour.
+10. Als Updates Publisher extern van de update-server is, herhaalt u stap 7 tot en met 9 voor het importeren van het certificaat naar het certificaatarchief op de computer Updates Publisher.
 
 
 
-## <a name="configure-a-self-signing-certificate-on-client-computers"></a>Configurer un certificat d’auto-signature sur les ordinateurs clients
-Sur les ordinateurs clients, l’Agent Windows Update (WUA) recherchera les mises à jour à partir du catalogue. Ce processus ne pourra pas installer les mises à jour si l’agent est incapable de localiser ce certificat numérique dans le magasin des éditeurs approuvés sur l’ordinateur local. Si un certificat auto-signé a été utilisé pour la publication du catalogue de mises à jour, comme des **éditeurs WSUS auto-signés**, le certificat doit également se trouver dans le magasin de certificats des autorités de certification racine approuvées, sur l'ordinateur local, afin que l’agent puisse vérifier la validité du certificat.
+## <a name="configure-a-self-signing-certificate-on-client-computers"></a>Een zelf-ondertekend certificaat configureren op clientcomputers
+Op clientcomputers scant de Windows Update Agent (WUA) voor de updates van de catalogus. Dit proces mislukt om updates te installeren wanneer de agent dat digitale certificaat niet in het archief met vertrouwde uitgevers op de lokale computer vinden kan. Als een zelfondertekend certificaat is gebruikt voor het publiceren van de updates catalogus zoals **WSUS Publishers Self-signed**, moet het certificaat ook in het certificaatarchief van vertrouwde basiscertificeringsinstanties op de lokale computer zodat de agent kan controleren of de geldigheid van het certificaat.
 
-Vous pouvez utiliser une des méthodes disponibles pour configurer des certificats sur les ordinateurs clients, notamment la stratégie de groupe et l**’Assistant Importation de certificat**, ou à l’aide de l’outil Certutil et de la distribution de logiciels.
+U kunt een van de verschillende methoden gebruiken voor het configureren van certificaten op clientcomputers, zoals het gebruik van Groepsbeleid en de **Wizard Certificaat importeren** of met behulp van de Certutil-hulpprogramma en softwaredistributie.
 
-Voici un exemple montrant comment configurer le certificat de signature sur les ordinateurs clients.
+Het volgende is opgegeven als een voorbeeld van het handtekeningcertificaat configureren op clientcomputers.
 
-### <a name="to-configure-a-self-signing-certificate-on-client-computers"></a>Pour configurer un certificat d’auto-signature sur les ordinateurs clients
-1.  Sur un ordinateur disposant d’un accès au serveur de mise à jour, cliquez sur **Démarrer**, cliquez sur **Exécuter**, tapez **MMC** dans la zone de texte, puis cliquez sur **OK** pour ouvrir la console MMC (Microsoft Management Console).
+### <a name="to-configure-a-self-signing-certificate-on-client-computers"></a>Een zelf-ondertekende certificaat configureren op clientcomputers
+1.  Klik op een computer met toegang tot de updateserver **Start**, klikt u op **uitvoeren**, type **MMC** in het tekstvak en klik vervolgens op **OK** Microsoft Management Console (MMC) openen.
 
-2.  Cliquez sur **Fichier**, sur **Ajouter/supprimer un composant logiciel enfichable**, **Ajouter**, **Certificats**, **Ajouter**, sélectionnez **Compte de l’ordinateur**, puis cliquez sur **Suivant**.
+2.  Klik op **bestand**, klikt u op **module toevoegen/verwijderen**, klikt u op **toevoegen**, klikt u op **certificaten**, klikt u op **toevoegen**, selecteer **computeraccount**, en klik vervolgens op **volgende**.
 
-3.  Sélectionnez **Un autre ordinateur**, saisissez le nom du serveur de mise à jour ou cliquez sur **Parcourir** pour rechercher l’ordinateur du serveur de mise à jour, cliquez sur **Terminer**, sur **Fermer** puis sur **OK**.
+3.  Selecteer **een andere computer**, typ de naam van de update-server of klik op **Bladeren** voor de update server-computer, klikt u **voltooien**, klikt u op **sluiten**, en klik vervolgens op **OK**.
 
-4.  Développez **Certificats (*nom du serveur de mise à jour*)**, **WSUS**, puis cliquez sur **Certificats**.
+4.  Vouw  **certificaten (*update servernaam*) **, vouw **WSUS**, en klik vervolgens op **certificaten**.
 
-5.  Cliquez avec le bouton droit sur le certificat dans le volet des résultats, sélectionnez **Toutes les tâches**, puis cliquez sur **Exporter**. Terminez l**’Assistant Exportation de certificat**, utilisez les paramètres par défaut pour créer un fichier de certificat d’exportation avec le nom et l’emplacement spécifiés dans l’Assistant.
+5.  Met de rechtermuisknop op het certificaat in het deelvenster met resultaten, klikt u op **alle taken**, en klik vervolgens op **exporteren**. Voltooi de **Wizard Certificaat exporteren** met de standaardinstellingen voor het maken van een exportbestand van het certificaat met de naam en locatie die is opgegeven in de wizard.
 
-6.  À l’aide de l’une des méthodes suivantes, ajoutez le certificat utilisé pour signer le catalogue de mises à jour sur chaque ordinateur client qui utilisera WUA pour rechercher les mises à jour dans le catalogue. Ajoutez le certificat sur l’ordinateur client comme suit :
+6.  Gebruik een van de volgende methoden om het certificaat dat wordt gebruikt voor het ondertekenen van de updatecatalogus naar elke clientcomputer die WUA gebruiken om te scannen voor de updates in de catalogus toevoegen. Het certificaat op de clientcomputer als volgt toevoegen:
 
-    -   Pour les certificats auto-signés : ajoutez le certificat aux magasins de certificats **Autorités de certification racines de confiance** et **Éditeurs approuvés**.
+    -   Voor zelf-ondertekende certificaten: Het certificaat toevoegen aan de **Trusted Root Certification Authorities** en **vertrouwde uitgevers** certificaatarchieven.
 
-    -   Pour les certificats émis par une autorité de certification (CA) : ajoutez le certificat au magasin de certificats **Éditeurs approuvés**.
+    -   Voor de certificeringsinstantie (CA) van uitgegeven certificaten: Het certificaat toevoegen aan de **vertrouwde uitgevers** certificaatarchief.
 
     > [!NOTE]
-    > WUA vérifie également si le paramètre **Autoriser le contenu signé de la stratégie de groupe d'emplacement des services de mise à jour Microsoft sur l'intranet** est activé sur l'ordinateur local. Ce paramètre de stratégie doit être activé pour que WUA analyse les mises à jour qui ont été créées et publiées à l'aide de l'éditeur de mises à jour. Pour plus d’informations sur l’activation de ce paramètre Stratégie de groupe, consultez [Guide pratique pour configurer la stratégie de groupe sur les ordinateurs clients] (https://technet.microsoft.com/library/bb530967.aspx(d=robot).
+    > De WUA controleert ook of de **ondertekende inhoud toestaan in de locatie van Microsoft update intranet** instelling voor Groepsbeleid is ingeschakeld op de lokale computer. Deze beleidsinstelling moet worden ingeschakeld voor WUA om te scannen naar de updates die zijn gemaakt en gepubliceerd met Updates Publisher. Zie voor meer informatie over het inschakelen van deze groepsbeleidsinstelling [het configureren van het groepsbeleid op clientcomputers] (https://technet.microsoft.com/library/bb530967.aspx(d=robot).
 
 
 
-## <a name="configuring-group-policy-to-allow-wua-on-computers-to-scan-for-published-updates"></a>Configuration de la stratégie de groupe pour autoriser WUA à rechercher sur les ordinateurs les mises à jour publiées
-Avant que l'Agent Windows Update (WUA) recherche sur les ordinateurs les mises à jour logicielles qui ont été créées et publiées à l'aide de l'éditeur de mise à jour, un paramètre de stratégie doit être activé pour autoriser le contenu signé de l'emplacement intranet du service de mise à jour Microsoft. Lorsque vous activez le paramètre de stratégie, l'Agent Windows Update (WUA) accepte les mises à jour reçues via un emplacement intranet si les mises à jour apparaissent signées dans le magasin de certificats **Éditeurs approuvés** sur l'ordinateur local. Il existe plusieurs méthodes pour configurer la stratégie de groupe sur les ordinateurs dans l’environnement.
+## <a name="configuring-group-policy-to-allow-wua-on-computers-to-scan-for-published-updates"></a>Groepsbeleid WUA toestaan op computers die u wilt zoeken naar gepubliceerde updates configureren
+Voordat de Windows Update Agent (WUA) op computers op updates die zijn gemaakt en gepubliceerd met Updates Publisher scannen gaat, moet u een beleidsinstelling ingeschakeld om toe te staan ondertekende inhoud van een intranetlocatie Microsoft update-service. Als de beleidsinstelling is ingeschakeld, accepteert WUA via een intranetlocatie ontvangen als de updates zijn ondertekend in updates de **vertrouwde uitgevers** certificaatarchief op de lokale computer. Er zijn verschillende methoden voor het configureren van Groepsbeleid op computers in de omgeving.
 
-Pour les ordinateurs qui ne figurent pas sur le domaine, un paramètre de clé de registre peut être configuré afin d’autoriser le contenu signé de l'emplacement intranet du service de mise à jour Microsoft.
+Voor computers die zich niet in het domein, kunt u een registersleutelinstelling geconfigureerd waarmee ondertekende inhoud van de locatie van Microsoft-updateservice in intranet.
 
-Les procédures suivantes fournissent les étapes de base permettant de configurer la stratégie de groupe pour les ordinateurs du domaine, ainsi qu’une valeur de clé de registre sur les ordinateurs qui ne figurent pas sur le domaine.
+De volgende procedures bevatten de basisstappen die kunnen worden gebruikt om Groepsbeleid te configureren voor computers in het domein en een registersleutelwaarde op computers die zich niet op het domein.
 
-### <a name="to-configure-group-policy-to-allow-wua-to-scan-for-published-updates"></a>Pour configurer la stratégie de groupe afin d’autoriser l’Agent Windows Update (WUA) à rechercher les mises à jour publiées
-1.  Ouvrez le composant logiciel enfichable de la console MMC pour l’éditeur d’objet de la stratégie de groupe avec un utilisateur disposant des droits de sécurité appropriés pour configurer la stratégie de groupe.
+### <a name="to-configure-group-policy-to-allow-wua-to-scan-for-published-updates"></a>Gepubliceerd voor het configureren van Groepsbeleid om toe te staan WUA om te scannen op updates
+1.  Open de module Group Policy Object Editor Microsoft Management Console (MMC) met een gebruiker met de juiste beveiligingsrechten om Groepsbeleid te configureren.
 
-2.  Cliquez sur **Parcourir** et sélectionnez le domaine, l’unité d’organisation ou les objets stratégie de groupe liés au site où la stratégie de groupe configurée sera déployée sur les ordinateurs clients souhaités. Cliquez sur **OK**, **Terminer**, **Fermer**, puis sur **OK**.
+2.  Klik op **Bladeren** en selecteer het domein, organisatie-eenheid of GPO's die zijn gekoppeld aan de site waar het geconfigureerde Groepsbeleid worden doorgegeven aan de gewenste clientcomputers. Klik op **OK**, klikt u op **voltooien**, klikt u op **sluiten**, en klik vervolgens op **OK**.
 
-3.  Développez le paramètre de sécurité sélectionnée dans l’arborescence de la console, développez **Configuration ordinateur**, **Modèles d'administration**, **Composants Windows**, puis cliquez sur **Windows Update**.
+3.  Vouw de geselecteerde instelling in de consolestructuur uit, vouw **Computerconfiguratie**, vouw **Beheersjablonen**, vouw **Windows-onderdelen**, en klik vervolgens op **Windows Update**.
 
-4.  Dans le volet des résultats, cliquez avec le bouton droit sur **Autoriser le contenu signé de l'emplacement intranet du service de mise à jour Microsoft**, sélectionnez **Propriétés**, **Activé**, puis cliquez sur **OK**.
+4.  In het deelvenster met resultaten met de rechtermuisknop op **ondertekende inhoud toestaan in de locatie van Microsoft update intranet**, klikt u op **eigenschappen**, klikt u op **ingeschakeld**, en klik vervolgens op **OK**.

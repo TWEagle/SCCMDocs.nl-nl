@@ -1,6 +1,6 @@
 ---
-title: Gestion des appareils mobiles locale | Microsoft Docs
-description: "Découvrez comment utiliser la gestion des appareils mobiles locale, une méthode de gestion d’appareils disponible dans System Center Configuration Manager."
+title: On-premises Mobile Device Management (MDM) | Microsoft Docs
+description: Meer informatie over On-premises Mobile Device Management, een oplossing voor Apparaatbeheer in System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,36 +16,36 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 7b96c4d4d87aa150eacc5d7d20710f5d2199e48a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="on-premises-mobile-device-management-mdm-in-system-center-configuration-manager"></a>Gestion des appareils mobiles (MDM) locale dans System Center Configuration Manager
+# <a name="on-premises-mobile-device-management-mdm-in-system-center-configuration-manager"></a>On-premises Mobile Device Management (MDM) in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-La gestion des appareils mobiles (MDM) locale est une solution de gestion d’appareils disponible dans System Center Configuration Manager. Elle s’appuie sur les fonctionnalités de gestion intégrées aux systèmes d’exploitation des appareils (basées sur la norme de gestion d’appareils mobiles OMA DM) quand la gestion et la maintenance des appareils s’effectue via l’infrastructure Configuration Manager d’une entreprise. La gestion d’appareils mobiles locale a besoin de Microsoft Intune pour configurer les fonctions de gestion, mais uniquement pour les abonnements (et parfois pour envoyer des notifications aux appareils leur demandant de s’enregistrer quand des stratégies sont modifiées). Par contre, elle n’en a pas besoin pour gérer les appareils ni pour stocker les données les concernant.  
+System Center Configuration Manager op\-premises Mobile Device Management is een oplossing voor Apparaatbeheer die afhankelijk van de ingebouwde beheermogelijkheden van besturingssystemen van apparaten (op basis van de standaard Open Mobile Alliance Device Management of OMA DM is) tijdens het gebruik van een onderneming Configuration Manager-infrastructuur te beheren en onderhouden van de apparaten. Op\-premises Mobile Device Management is vereist voor Microsoft Intune voor het instellen van de mogelijkheid tot beheer, maar alleen nodig voor het abonnement (en op tijdstippen om u te helpen kennis van apparaten in te checken op beleidswijzigingen), maar dit niet wordt gebruikt voor het beheren van apparaten of gegevens over te slaan.  
 
- ![Concept de la gestion locale](media/On-premises-conceptual.png)  
+ ![Op\-premises conceptuele](media/On-premises-conceptual.png)  
 
- La gestion d’appareils mobiles locale diffère de Microsoft Intune qui, tout en s’appuyant aussi sur les fonctionnalités OMA DM intégrées, fournit toutes les fonctions de gestion via des services cloud.  La gestion d’appareils mobiles locale se distingue aussi de la solution de gestion basée sur le client classique de Configuration Manager, car même si elle s’appuie sur une infrastructure d’entreprise analogue, elle n’utilise pas de logiciels clients installés séparément sur les ordinateurs et appareils qu’elle gère.  
+ Op\-premises Mobile Device Management verschilt van de Microsoft Intune, die ook is afhankelijk van ingebouwde OMA DM-mogelijkheden, maar alle beheerfuncties worden geleverd via cloudservices.  Op\-premises Mobile Device Management verschilt ook van de client-gebaseerde beheeroplossing traditioneel door Configuration Manager worden aangeboden in dat is afhankelijk van soortgelijke ondernemingsinfrastructuur, maar niet afzonderlijk gebruikt clientsoftware hebt geïnstalleerd op de computers en apparaten beheert.  
 
- Le tableau ci-dessous indique les avantages et les inconvénients de la gestion d’appareils mobiles locale par rapport à la gestion classique basée sur le client :  
+ De volgende tabel bevat de voordelen en nadelen van op\-premises Mobile Device Management in vergelijking met traditionele op clients gebaseerde beheer:  
 
-|Avantages|Inconvénients|  
+|Voordelen|Nadelen|  
 |----------------|-------------------|  
-|**Une infrastructure simplifiée** : nécessite moins de rôles système de site.<br /><br /> **Une maintenance plus facile** : dans la mesure où les fonctionnalités de gestion sont intégrées au système d’exploitation des appareils, le recours aux nouvelles versions du logiciel client n’est pas obligatoire quand de nouvelles fonctionnalités de gestion sont introduites dans le système Configuration Manager.<br /><br /> **Local** : la gestion et les données sont conservées en local.|**Moins de fonctionnalités de gestion de clients** : absence d’orchestration, de contrôle de logiciel, d’intégration tierce, de séquencement de tâches ou de prise en charge du Centre logiciel.<br /><br /> **Prise en charge d’appareils limitée** : actuellement, la gestion d’appareils mobiles locale est disponible uniquement pour les appareils exécutant Windows 10 et Windows 10 Mobile.|  
+|**Vereenvoudigde infrastructuur** : minder sitesysteemrollen vereist.<br /><br /> **Gemakkelijker te onderhouden** -omdat de beheerfunctionaliteit is ingebouwd in het besturingssysteem van het apparaat, nieuwe versies van de clientsoftware zijn niet vereist als de nieuwe functies in de Configuration Manager-systeem binnenkomen.<br /><br /> **On-premises** : alle beheertaken worden on-premises uitgevoerd en alle gegevens worden on-premises bewaard.|**Minder clientbeheerfunctionaliteit** : geen orchestration, softwaremeter, integratie van derden, takenreeksen of Software Center-ondersteuning.<br /><br /> **Beperkte Apparaatondersteuning** - momenteel aanwezig is op\-premises Mobile Device Management biedt alleen ondersteuning voor apparaten met Windows 10 en Windows 10 Mobile.|  
 
- Les rubriques suivantes contiennent des informations utiles pour planifier, préparer et inscrire des appareils pour la gestion d’appareils mobiles locale :  
+ De volgende onderwerpen bevatten informatie die u kunt gebruiken om te plannen, voorbereiden en -apparaten inschrijven voor op\-premises Mobile Device Management:  
 
--   [Planifier la gestion des appareils mobiles locale dans System Center Configuration Manager](../plan-design/plan-on-premises-mdm.md)  
+-   [On-premises Mobile Device Management in System Center Configuration Manager plannen](../plan-design/plan-on-premises-mdm.md)  
 
-     Découvrez les points à prendre en compte pour configurer l’infrastructure Configuration Manager et planifier l’inscription des appareils pour la gestion d’appareils mobiles locale.  
+     Meer informatie over wat u moet overwegen bij het instellen van de Configuration Manager-infrastructuur en planning voor apparaatinschrijving in op\-premises Mobile Device Management.  
 
--   [Étapes de préparation pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../get-started/preparation-steps-for-on-premises-mdm.md)  
+-   [Voorbereidingsstappen voor On-premises Mobile Device Management in System Center Configuration Manager](../get-started/preparation-steps-for-on-premises-mdm.md)  
 
-     Découvrez comment préparer le système Configuration Manager pour la gestion d’appareils mobiles locale, notamment comment configurer l’abonnement à Microsoft Intune, configurer des certificats, installer des rôles de système de site et configurer l’inscription des appareils.  
+     Meer informatie over het gebruiksklaar maken van het systeem Configuration Manager op\-premises Mobile Device Management door de Microsoft Intune-abonnement in te stellen, certificaten in te stellen, sitesysteemrollen installeren en instellen van apparaatinschrijving.  
 
--   [Inscrire des appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../deploy-use/enroll-devices-on-premises-mdm.md)  
+-   [Apparaten inschrijven voor On-premises Mobile Device Management in System Center Configuration Manager](../deploy-use/enroll-devices-on-premises-mdm.md)  
 
-     Découvrez comment se produit l’inscription, comment les utilisateurs peuvent inscrire leurs propres appareils et comment inscrire des appareils en bloc avec un package d’inscription.  
+     Meer informatie over hoe inschrijving plaatsvindt, hoe gebruikers hun eigen apparaten kunnen inschrijven en hoe apparaten met een inschrijvingspakket bulksgewijs kunnen worden ingeschreven.  

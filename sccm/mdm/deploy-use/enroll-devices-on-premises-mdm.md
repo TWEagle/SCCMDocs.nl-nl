@@ -1,6 +1,6 @@
 ---
-title: "Inscrire des appareils | Microsoft Docs"
-description: "Découvrez les méthodes permettant d’inscrire des appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager."
+title: Apparaten registreren | Microsoft Docs
+description: Meer informatie over methoden om apparaten te registreren voor On-premises Mobile Device Management in System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,29 +16,29 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 4abaef35969ef1a5340ae8ca8aa5699cd3942642
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="enroll-devices-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Inscrire des appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager
+# <a name="enroll-devices-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Apparaten inschrijven voor On-premises Mobile Device Management in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Pour gérer des ordinateurs et des appareils avec la fonctionnalité de gestion des appareils mobiles locale de System Center Configuration Manager, les appareils doivent être inscrits pour permettre à Configuration Manager de communiquer avec eux pour les tâches de gestion. Configuration Manager propose deux méthodes pour inscrire les appareils :  
+De apparaten moeten worden ingeschreven zodat dat Configuration Manager met de apparaten voor beheertaken communiceren kan voor het beheren van computers en apparaten met System Center Configuration Manager On-premises Mobile Device Management. Configuration Manager biedt twee methoden voor het inschrijven van apparaten:  
 
--   **Inscription utilisateur** : avec cette méthode, les utilisateurs lancent le processus d’inscription sur leurs appareils. Pour que l’inscription utilisateur aboutisse, un certificat racine approuvé doit être installé sur l’appareil et l’utilisateur doit être configuré pour l’inscription par Configuration Manager.  Pour inscrire un appareil, l’utilisateur fournit simplement des informations d’identification professionnelles et l’appareil est inscrit pour être géré.  
+-   **Gebruikersregistratie** : bij deze methode initiëren de gebruikers zelf het inschrijvingsproces op hun apparaten. Voor gebruikersregistratie lukken, moet het apparaat een vertrouwd basiscertificaat dat is geïnstalleerd, en de gebruiker moet voor inschrijving zijn ingericht door Configuration Manager.  Voor het inschrijven van het apparaat geeft de gebruiker gewoon werkreferenties op, waarna het apparaat voor beheer kan worden ingeschreven.  
 
-     Pour plus d’informations, consultez [Comment les utilisateurs inscrivent des appareils avec la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/deploy-use/user-enroll-devices-on-premises-mdm.md).  
+     Zie voor meer informatie [hoe gebruikers apparaten inschrijven met On-premises Mobile Device Management in System Center Configuration Manager](../../mdm/deploy-use/user-enroll-devices-on-premises-mdm.md)  
 
--   **Inscription en bloc** : avec cette méthode, l’utilisateur de l’appareil n’a pas besoin de lancer l’inscription. Au lieu de cela, un package d’inscription en bloc est créé dans Configuration Manager puis placé sur l’appareil et ouvert. Lors de son ouverture, le package fournit les informations nécessaires pour inscrire l’appareil.  
+-   **Bulkinschrijving** : bij deze methode hoeft de gebruiker de inschrijving van het apparaat niet zelf te initiëren. In plaats daarvan is een bulkinschrijvingspakket gemaakt in Configuration Manager op het apparaat worden geplaatst en geopend. Bij het openen biedt het pakket de benodigde informatie om het apparaat in te schrijven.  
 
-     Pour plus d’informations, consultez [Guide pratique pour inscrire en bloc des appareils avec la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/deploy-use/bulk-enroll-devices-on-premises-mdm.md).  
+     Zie voor meer informatie [het bulksgewijs inschrijven van apparaten met On-premises Mobile Device Management in System Center Configuration Manager](../../mdm/deploy-use/bulk-enroll-devices-on-premises-mdm.md)  
 
  > [!NOTE]  
->  Dans la gestion des appareils mobiles locale, la version Current Branch de Configuration Manager prend en charge l’inscription des appareils exécutant les systèmes d’exploitation suivants :  
+>  De huidige vertakking van Configuration Manager ondersteunt de inschrijving in On-premises Mobile Device Management voor apparaten met de volgende besturingssystemen:  
 >   
->  -   Windows 10 Entreprise  
-> -   Windows 10 Professionnel  
-> -   Windows 10 Collaboration 
+>  -   Windows 10 Enterprise  
+> -   Windows 10 Pro  
+> -   Windows 10 Team 
 > -   Windows 10 Mobile  
-> -   Windows 10 Mobile Entreprise   
+> -   Windows 10 Mobile Enterprise   

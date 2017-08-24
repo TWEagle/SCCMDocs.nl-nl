@@ -1,6 +1,6 @@
 ---
-title: "Gérer les clients sur Internet - Configuration Manager | Microsoft Docs"
-description: "Découvrez la gestion de clients avec la passerelle de gestion cloud et la gestion du client basée sur Internet de Configuration Manager."
+title: Clients op het Internet - Configuration Manager beheren | Microsoft Docs
+description: Meer informatie over het beheren van clients met cloud management gateway en clientbeheer op Internet gebaseerde in Configuration Manager.
 ms.date: 04/23/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-client
@@ -10,62 +10,62 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 1b6752be448e1062c97a3225db4fa8af9f4832a6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-clients-on-the-internet-with-configuration-manager"></a>Gérer les clients sur Internet avec Configuration Manager
+# <a name="manage-clients-on-the-internet-with-configuration-manager"></a>Clients op het Internet met Configuration Manager beheren
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-En général, dans Configuration Manager, la plupart des ordinateurs et serveurs gérés se trouvent physiquement sur le même réseau d’entreprise ou privé interne que les serveurs de système de site qui exécutent des fonctions de gestion. Toutefois, vous pouvez gérer les ordinateurs clients en dehors de votre réseau d’entreprise s’ils sont connectés à Internet sans obliger les clients à se connecter via des réseaux privés virtuels pour atteindre les serveurs de système de site.
+In Configuration Manager de meeste computers en servers die worden beheerd zijn meestal fysiek op hetzelfde interne persoonlijke of zakelijke netwerk als de sitesysteemservers die beheerfuncties uitvoeren. U kunt echter clientcomputers buiten uw bedrijfsnetwerk beheren als ze zijn verbonden met Internet zonder dat de clients verbinding maken via virtuele particuliere netwerken systeemservers van de site bereiken.
 
-Configuration Manager fournit deux façons de gérer les clients connectés à Internet :
+Configuration Manager biedt twee manieren om verbonden met Internet-clients te beheren:
 
--   Passerelle de gestion cloud
+-   Beheergateway cloud
 
--   Gestion des clients basés sur Internet
+-   Clientbeheer via internet
 
-## <a name="cloud-management-gateway"></a>Passerelle de gestion cloud
+## <a name="cloud-management-gateway"></a>Beheergateway cloud
 
-Depuis la version 1610, Configuration Manager présente la passerelle de gestion cloud. Cette nouvelle méthode fournit un moyen de gérer les clients Internet en combinant un service cloud déployé sur Microsoft Azure et un nouveau rôle de système de site qui communique avec ce service. Les clients utilisent ensuite le service pour communiquer avec Configuration Manager.
+Vanaf versie 1610, introduceert Configuration Manager cloud management gateway. Deze nieuwe methode biedt een manier voor het beheren van clients op Internet met een combinatie van een cloudservice die is geïmplementeerd voor Microsoft Azure en een nieuwe sitesysteemrol die met die service communiceert. De service clients vervolgens gebruiken om te communiceren met Configuration Manager.
 
-Avantages :
+Voordelen:
 
--   Aucun investissement n’est nécessaire pour l’infrastructure supplémentaire.
+-   Er zijn geen extra infrastructuur investeringen vereist.
 
--   L’infrastructure locale n’est pas exposée sur Internet.
+-   Maakt de on-premises infrastructuur met het Internet niet beschikbaar.
 
--   Les machines virtuelles du cloud qui exécutent le service sont entièrement gérées par Azure et ne nécessitent aucune maintenance.
+-   Cloud virtuele machines die worden uitgevoerd van de service volledig door Azure worden beheerd en geen onderhoud nodig.
 
--   Installation et configuration faciles dans la console Configuration Manager.
+-   Eenvoudig instellen en geconfigureerd in de Configuration Manager-console.
 
-Inconvénients :
+Nadelen:
 
--   Coût de l’abonnement au cloud.
+-   Kosten voor een cloud.
 
--   Données de gestion envoyées via le service cloud.
+-   Beheergegevens via cloudservice verzonden.
 
-Pour plus d’informations, consultez [Planifier la passerelle de gestion cloud](plan-cloud-management-gateway.md).
+Zie voor meer informatie [plannen voor cloud-beheergateway](plan-cloud-management-gateway.md).
 
-## <a name="internet-based-client-management"></a>Gestion des clients basés sur Internet
+## <a name="internet-based-client-management"></a>Clientbeheer via internet
 
-Cette méthode s’appuie sur les serveurs de système de site Internet avec lesquels les clients communiquent à des fins de gestion. Elle nécessite que les clients et serveurs de système de site soient configurés pour une gestion basée sur Internet.
+Deze methode is gebaseerd op Internet gerichte sitesysteemservers waarop clients voor beheerdoeleinden communiceren. Deze methode is vereist voor clients en sitesysteemservers worden geconfigureerd voor Internet-gebaseerd beheerpunt.
 
-Avantages :
+Voordelen:
 
--   Aucune dépendance du service cloud.
+-   Er is geen cloud service-afhankelijkheid.
 
--   Aucun coût supplémentaire associé à un abonnement au cloud.
+-   Kan zonder extra kosten die zijn gekoppeld aan een cloud-abonnement.
 
--   Contrôle total des serveurs et rôles assurant le service.
+-   Volledig beheer van servers en functies die de service levert.
 
-Inconvénients :
+Nadelen:
 
--   Un investissement est nécessaire pour l’infrastructure supplémentaire.
+-   Vereist extra infrastructuur investering.
 
--   Frais généraux et coût opérationnel de l’infrastructure supplémentaire.
+-   Overhead en operationele kosten van extra infrastructuur.
 
--   L’infrastructure doit être exposée sur Internet.
+-   Infrastructuur moet worden blootgesteld aan Internet.
 
-Pour plus d’informations, consultez [Planifier la gestion des clients basés sur Internet](plan-internet-based-client-management.md).
+Zie voor meer informatie [plannen voor clientbeheer op Internet](plan-internet-based-client-management.md).

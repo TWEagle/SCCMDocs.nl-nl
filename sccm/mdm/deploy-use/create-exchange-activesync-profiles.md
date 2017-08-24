@@ -1,6 +1,6 @@
 ---
-title: "Créer des profils de messagerie Exchange ActiveSync | Microsoft Docs"
-description: "Découvrez comment créer et configurer des profils de messagerie dans System Center Configuration Manager qui fonctionnent avec Microsoft Intune."
+title: Exchange ActiveSync-e-mailprofielen | Microsoft Docs
+description: Informatie over het maken en configureren van e-mailprofielen in System Center Configuration Manager die werken met Microsoft Intune.
 ms.custom: na
 ms.date: 07/28/2017
 ms.prod: configuration-manager
@@ -17,161 +17,161 @@ ms.author: alleonar
 manager: angrobe
 ms.openlocfilehash: 7434c98f2217cf63fdcd250b91e772de72daaea9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="exchange-activesync-email-profiles-in-system-center-configuration-manager"></a>Profils de messagerie Exchange ActiveSync dans System Center Configuration Manager
+# <a name="exchange-activesync-email-profiles-in-system-center-configuration-manager"></a>Exchange ActiveSync-e-mailprofielen in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Avec Microsoft Intune et Exchange ActiveSync, vous pouvez configurer des appareils avec des profils de messagerie et des restrictions. Cela permet à vos utilisateurs d’accéder à la messagerie d’entreprise sur leurs appareils avec une installation minimale requise de leur part.  
+U kunt apparaten met e-mailprofielen en beperkingen instellen met behulp van Microsoft Intune en Exchange ActiveSync. Hiermee kunt uw gebruikers toegang tot bedrijfse-mail op hun apparaten met minimale instelling zelf.  
 
- Vous pouvez configurer les types d'appareils suivants avec des profils de messagerie :  
+ U kunt de volgende typen apparaten configureren met e-mailprofielen:  
 
 - Windows 10
-- Windows Phone 8.1
+- Windows Phone 8,1
 - Windows Phone 8.0
-- iPhone exécutant iOS 5, iOS 6, iOS 7 et iOS 8  
-- iPad exécutant iOS 5, iOS 6, iOS 7 et iOS 8  
-- Samsung KNOX Standard 4 et versions ultérieures
+- iPhones met iOS 5, iOS 6, iOS 7 en iOS 8  
+- iPads met iOS 5, iOS 6, iOS 7 en iOS 8  
+- Samsung KNOX Standard (4 en hoger)
 - Android for Work
 
-Pour déployer des profils de messagerie sur des appareils, vous devez inscrire ces derniers dans Intune. Pour plus d'informations sur la façon d'inscrire vos appareils, consultez [Gérer les appareils mobiles avec Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx).
+E-mailprofielen implementeren op apparaten, moet u de apparaten in Intune inschrijven. Zie [Mobiele apparaten beheren met Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx)voor meer informatie over het inschrijven van uw apparaten.
 
 > [!NOTE]
-> Intune propose deux profils de messagerie Android for Work, un pour chacune des applications de messagerie Gmail et Nine Work. Ces applications sont disponibles dans Google Play Store et prennent en charge les connexions à Exchange. Pour activer la connectivité de la messagerie, déployez l’une de ces applications de messagerie sur les appareils de vos utilisateurs, puis créez et déployez le profil approprié. Les applications de messagerie telles que Nine Work peuvent être payantes. Si vous avez des questions, consultez les détails de la licence de l’application ou contactez le fabricant de l’application.
+> Intune biedt twee Android voor zakelijke e-mailprofielen, één voor de Gmail e-mail-app en de negen werk e-mail-app. Deze apps zijn beschikbaar in de Google Play Store en ondersteuning van verbindingen met Exchange. Schakel de e-connectiviteit door een van deze e-mail-apps implementeren op de apparaten van gebruikers, en maken en implementeren van het juiste profiel. E-mail-apps zoals negen werk is mogelijk niet beschikbaar. Bekijk de app de licentiegegevens of neem contact op met de app bedrijf met vragen.
 
- En plus de configurer un compte de messagerie sur l’appareil, vous pouvez configurer des paramètres de synchronisation pour les contacts, les calendriers et les tâches.  
+ Naast het configureren van een e-mailaccount op het apparaat, kunt u de synchronisatie-instellingen voor contactpersonen, agenda en taken configureren.  
 
- Lorsque vous créez un profil de messagerie, vous pouvez inclure un large éventail de paramètres de sécurité. Ces paramètres incluent des certificats pour l’identité, le chiffrement et la signature configurés à l’aide de profils de certificat System Center Configuration Manager. Pour plus d’informations sur les profils de certificat, consultez [Profils de certificat dans System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles.md).    
+ Wanneer u een e-mailprofiel maakt, kunt u een groot aantal beveiligingsinstellingen opnemen. Deze instellingen omvatten certificaten voor identiteit, versleuteling en ondertekening, die zijn ingesteld met behulp van System Center Configuration Manager-certificaatprofielen. Zie [Certificaatprofielen in System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles.md) voor meer informatie over certificaatprofielen.    
 
-## <a name="create-an-exchange-activesync-email-profile"></a>Créer un profil de messagerie Exchange ActiveSync  
+## <a name="create-an-exchange-activesync-email-profile"></a>Een e-mailprofiel voor Exchange ActiveSync maken  
 
-Pour créer un profil, vous pouvez utiliser l’Assistant Création d’un profil de messagerie Exchange ActiveSync. 
+Als u wilt een profiel maakt, moet u de Wizard Exchange ActiveSync maken e-mailprofiel gebruiken. 
 
-1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité**.  
+1.  Kies in de Configuration Manager-console **activa en naleving**.  
 
-2.  Dans l’espace de travail **Ressources et Conformité**, développez **Paramètres de conformité**, puis **Accès aux ressources de l’entreprise** et choisissez **Profils de messagerie**.  
+2.  In de **activa en naleving** werkruimte Vouw **instellingen voor naleving**, vouw **toegang tot bedrijfsbronnen**, en kies vervolgens **e-mailprofielen**.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, cliquez sur **Créer un profil d’e-mail Exchange ActiveSync** pour lancer l’Assistant.
+3.  Op de **Start** tabblad, in de **maken** groep, kiest u **Exchange ActiveSync e-mailprofiel maken** om de wizard te starten.
 
-4.  Sur la page **Général** de l’Assistant, configurez les éléments suivants :
+4.  Op de **algemene** pagina van de wizard configureert u het volgende:
 
-    - **Nom**. Fournissez un nom descriptif pour le profil de messagerie.
+    - **Naam**. Geef een beschrijvende naam voor het e-mailprofiel.
 
-    - **Description**. Si vous le souhaitez, entrez une description du profil de messagerie pour en faciliter l’identification dans la console Configuration Manager.
+    - **Beschrijving**. Geef eventueel een beschrijving voor het e-mailprofiel waarmee u deze kunt herkennen in de Configuration Manager-console.
 
-    - **Ce profil de messagerie est pour Android for Work**. Choisissez cette option si vous déployez ce profil de messagerie uniquement sur des appareils Android for Work. Si vous cochez cette case, la page **Plateformes prises en charge** de l’Assistant ne s’affiche pas. Seuls les profils de messagerie Android for Work sont configurés.
+    - **Dit e-mailprofiel voor Android for Work is**. Selecteer deze optie als u dit e-mailprofiel op alleen Android voor werk apparaten wilt implementeren. Als u dit selectievakje inschakelt, de **ondersteunde Platforms** pagina van de wizard niet wordt weergegeven. Alleen Android voor werk-e-mailprofielen zijn geconfigureerd.
 
-4.  Sur la page **Exchange ActiveSync** de l’Assistant, spécifiez les informations suivantes :  
+4.  Op de **Exchange ActiveSync** pagina van de wizard, geeft u de volgende informatie:  
 
-    -   **Hôte Exchange ActiveSync**. Spécifiez le nom d’hôte de l’instance Exchange Server d’entreprise qui héberge les services Exchange ActiveSync.  
+    -   **Exchange ActiveSync-host**. Geef de hostnaam van uw bedrijf Exchange-server die als host fungeert voor Exchange ActiveSync-services.  
 
-    -   **Nom du compte**. Spécifiez le nom complet du compte de messagerie, tel qu’il apparaît aux utilisateurs sur leurs appareils.  
+    -   **Accountnaam**. Geef de weergavenaam voor het e-mailaccount, zoals deze wordt weergegeven aan gebruikers op hun apparaten.  
 
-    -   **Nom d’utilisateur du compte**. Sélectionnez le mode de configuration du nom d’utilisateur du compte de messagerie sur les appareils clients. Vous pouvez sélectionner l’une des options suivantes dans la liste déroulante :  
+    -   **Gebruikersnaam voor account**. Kies hoe de gebruikersnaam van de e-mailadres op clientapparaten wordt geconfigureerd. U kunt een van de volgende opties kiezen uit de vervolgkeuzelijst:  
 
-        -   **Nom principal de l’utilisateur**. Utilisez le nom principal complet de l’utilisateur pour la connexion à Exchange.  
+        -   **Principalnaam van gebruiker**. Gebruik de volledige principal-naam aan te melden bij Exchange.  
 
-        -   **Nom du compte**. Utilisez le nom complet du compte utilisateur à partir d’Active Directory.
+        -   **AccountName**. Gebruik de naam van de volledige gebruikersaccount uit Active Directory.
 
-        -   **Adresse SMTP principale**. Utilisez l’adresse SMTP principale de l’utilisateur pour la connexion à Exchange.  
+        -   **Primair SMTP-adres**. Gebruik het primaire SMTP-adres van de gebruiker zich aanmeldt bij Exchange.  
 
-    -   **Adresse de messagerie**. Sélectionnez la façon dont l’adresse de messagerie de l’utilisateur est générée sur chaque appareil client. Vous pouvez sélectionner l’une des options suivantes dans la liste déroulante :  
+    -   **E-mailadres**. Kies hoe het e-mailadres voor de gebruiker op elk clientapparaat wordt gegenereerd. U kunt een van de volgende opties kiezen uit de vervolgkeuzelijst:  
 
-        -   **Adresse SMTP principale**. Utilisez l’adresse SMTP principale de l’utilisateur pour la connexion à Exchange.  
+        -   **Primair SMTP-adres**. Gebruik het primaire SMTP-adres van de gebruiker zich aanmeldt bij Exchange.  
 
-        -   **Nom principal de l’utilisateur**. Utilisez le nom principal complet de l'utilisateur comme adresse de messagerie.  
+        -   **Principalnaam van gebruiker**. Gebruik de volledige principal-naam als e-mailadres.  
 
-    -   **Domaine du compte**. Choisissez l'une des options suivantes :  
+    -   **Accountdomein**. Kies een van de volgende opties:  
 
-        -   **Obtenir à partir d'Active Directory**  
+        -   **Ophalen van Active Directory**  
 
-        -   **Personnalisé**  
+        -   **Aangepast**  
 
-         Ce champ s’applique uniquement si **sAMAccountName** est sélectionné dans la liste déroulante **Nom d’utilisateur du compte** .  
+         Dit veld is van toepassing als **sAMAccountName** is geselecteerd in de **gebruikersnaam voor Account** vervolgkeuzelijst.  
 
-    -   **Méthode d’authentification**. choisissez l'une des méthodes d'authentification suivantes à utiliser pour authentifier la connexion à Exchange ActiveSync :  
+    -   **Verificatiemethode**. Kies een van de volgende verificatiemethoden die worden gebruikt voor het verifiëren van de verbinding met Exchange ActiveSync:  
 
-        -   **Certificats**. Un certificat d’identité est utilisé pour authentifier la connexion Exchange ActiveSync.  
+        -   **Certificaten**. Een identiteitscertificaat wordt gebruikt om de Exchange ActiveSync-verbinding te verifiëren.  
 
-        -   **Nom d’utilisateur et mot de passe**. L’utilisateur de l’appareil doit fournir un mot de passe pour se connecter à Exchange ActiveSync. (Le nom d’utilisateur est configuré en tant que partie du profil de messagerie).  
+        -   **Gebruikersnaam en wachtwoord**. Gebruiker van het apparaat moet een wachtwoord verbinding maken met Exchange ActiveSync opgeven. (De gebruikersnaam is geconfigureerd als onderdeel van het e-mailprofiel).  
 
-    -   **Certificat d’identité**. Cliquez sur **Sélectionner**, puis choisissez un certificat à utiliser pour l'identité.  
+    -   **Identiteitscertificaat**. Kies **Selecteer** en kies vervolgens een certificaat voor identiteit.  
 
-         Les certificats d’identité doivent être des certificats SCEP ; vous ne pouvez pas utiliser un certificat PFX.  Pour plus d’informations, consultez [Profils de certificat dans System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
+         Certificaten voor identiteit moet SCEP-certificaten; u kunt een PFX-certificaat niet gebruiken.  Zie voor meer informatie, [Certificaatprofielen in System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
 
-         Cette option est disponible uniquement si vous avez sélectionné **Certificats** sous **Méthode d’authentification**.  
+         Deze optie is alleen beschikbaar als u hebt gekozen **certificaten** onder **verificatiemethode**.  
 
-    -   **Utiliser S/MIME**. Envoyez des messages électroniques en utilisant le chiffrement S/MIME. Cette option s'applique aux appareils iOS uniquement. Choisissez parmi les options suivantes :
+    -   **S/MIME gebruiken**. Uitgaande e-mail met S/MIME-codering verzenden. Deze optie is alleen van toepassing op iOS-apparaten. Kies uit de volgende opties:
 
-        -   **Certificats de signature**.  Choisissez **Sélectionner**, puis un profil de certificat à utiliser pour le chiffrement.  
+        -   **Handtekeningcertificaten**.  Kies **Selecteer** en kies vervolgens het profiel voor een certificaat voor versleuteling.  
 
-            Le profil peut être un certificat SCEP ou PFX.  Toutefois, si la signature et le chiffrement sont tous deux utilisés, vous devez sélectionner des profils de certificat PFX pour *à la fois* la signature et le chiffrement.
+            Het profiel is een SCEP- of PFX-certificaat.  Als zowel ondertekening als versleuteling worden gebruikt, moet u echter PFX-certificaatprofielen voor selecteren *beide* ondertekening en versleuteling.
 
-        -   **Certificats de chiffrement**. Cliquez sur **Sélectionner**, puis choisissez un certificat à utiliser pour le chiffrement. Vous pouvez uniquement sélectionner un certificat PFX pour l’utiliser en tant que certificat de chiffrement.
+        -   **Certificaten voor bestandsversleuteling**. Kies **Selecteer** en kies vervolgens een certificaat wilt gebruiken voor versleuteling. U kunt alleen een PFX-certificaat te gebruiken als een versleutelingscertificaat.
 
-        -   Pour chiffrer tous les e-mails sur les appareils iOS, cochez la case **Exiger le chiffrement**.    
+        -   Inschakelen voor het versleutelen van alle e-mailberichten op iOS-apparaten moet de **versleuteling vereisen** selectievakje.    
 
-         Vous ne pouvez choisir des profils de certificat à ce stade que si vous les avez déjà créés.  Pour plus d’informations, consultez [Profils de certificat dans System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
+         Voordat u hier kunt kiezen, moet u certiciate profielen maken.  Zie voor meer informatie, [Certificaatprofielen in System Center Configuration Manager](/sccm/protect/deploy-use/introduction-to-certificate-profiles).  
 
-## <a name="configure-synchronization-settings-for-the-exchange-activesync-email-profile"></a>Configurer les paramètres de synchronisation du profil de messagerie Exchange ActiveSync  
+## <a name="configure-synchronization-settings-for-the-exchange-activesync-email-profile"></a>Synchronisatie-instellingen voor het e-mailprofiel voor Exchange ActiveSync configureren  
 
-Dans la page **Configurer les paramètres de synchronisation** de l'Assistant Création d'un profil de messagerie Exchange ActiveSync, indiquez les informations suivantes :  
+Geef op de pagina **Synchronisatie-instellingen configureren** van de wizard E-mailprofiel voor Exchange ActiveSync maken de volgende informatie op:  
 
--   **Planification**. Sélectionnez la planification selon laquelle les appareils vont synchroniser les données à partir d’Exchange Server. Cette option s'applique uniquement aux appareils Windows Phone. Choisissez parmi :  
+-   **Planning**. Kies het schema waarmee apparaten u gegevens van de Exchange-server synchroniseert. Deze optie is alleen van toepassing op Windows Phone-apparaten. U kunt kiezen uit:  
 
-    -   **Non configuré**. Aucun calendrier de synchronisation n’est appliqué. Cela permet aux utilisateurs de configurer leur propre calendrier de synchronisation.  
+    -   **Niet geconfigureerd**. Een Synchronisatieplanning wordt niet afgedwongen. Hiermee kunnen gebruikers hun eigen Synchronisatieplanning configureren.  
 
-    -   **À la réception de messages**. Les données telles que les messages électroniques et les éléments de calendrier sont automatiquement synchronisées à la réception.  
+    -   **Als berichten binnenkomen**. Gegevens, zoals e-mailberichten en agenda-items worden automatisch gesynchroniseerd wanneer ze binnenkomen.  
 
-    -   **15 minutes**. Les données telles que les messages électroniques et les éléments de calendrier sont automatiquement synchronisées toutes les 15 minutes.  
+    -   **15 minuten**. Gegevens, zoals e-mailberichten en agenda-items worden automatisch gesynchroniseerd om de 15 minuten.  
 
-    -   **30 minutes**. Les données telles que les messages électroniques et les éléments de calendrier sont automatiquement synchronisées toutes les 30 minutes.  
+    -   **30 minuten**. Gegevens, zoals e-mailberichten en agenda-items worden automatisch gesynchroniseerd elke 30 minuten.  
 
-    -   **60 minutes**. Les données telles que les messages électroniques et les éléments de calendrier sont automatiquement synchronisées toutes les 60 minutes.  
+    -   **60 minuten**. Gegevens, zoals e-mailberichten en agenda-items worden automatisch gesynchroniseerd om de 60 minuten.  
 
-    -   **Manuel**. L’utilisateur de l’appareil doit lancer la synchronisation manuellement.  
+    -   **Handmatige**. Gebruiker van het apparaat moet synchronisatie handmatig starten.  
 
--   **Nombre de jours de courrier électronique à synchroniser**. Dans la liste déroulante, sélectionnez le nombre de jours de courrier électronique que vous souhaitez synchroniser. Choisissez l'une des valeurs suivantes :  
+-   **Aantal dagen aan e-mail synchroniseren**. Kies in de vervolgkeuzelijst het aantal dagen aan e-mail dat u wilt synchroniseren. Kies een van de volgende waarden:  
 
-    -   **Non configuré**. Le paramètre n’est pas appliqué. Cela permet aux utilisateurs de configurer la quantité de courrier électronique téléchargé sur leur appareil.  
+    -   **Niet geconfigureerd**. De instelling wordt niet afgedwongen. Hiermee kunt gebruikers instellen hoeveel e-mailberichten naar het apparaat wordt gedownload.  
 
-    -   **Illimité**. Synchronisez tous les messages disponibles.  
+    -   **Onbeperkte**. Alle beschikbare e-mail synchroniseren.  
 
-    -   **1 jour**  
+    -   **1 dag**  
 
-    -   **3 jours**  
+    -   **3 dagen**  
 
-    -   **1 semaine**  
+    -   **1 week**  
 
-    -   **2 semaines**  
+    -   **2 weken**  
 
-    -   **1 mois**  
+    -   **1 maand**  
 
--   **Autoriser le déplacement des messages vers d’autres comptes de messagerie**. Choisissez cette option pour autoriser les utilisateurs à déplacer des messages électroniques entre différents comptes qu’ils ont configurés sur leur appareil. Cette option s'applique aux appareils iOS uniquement.  
+-   **Toestaan dat berichten worden verplaatst naar andere e-mailaccounts**. Selecteer deze optie om gebruikers e-mailberichten verplaatsen tussen verschillende accounts die zijn geconfigureerd op hun apparaat te laten. Deze optie is alleen van toepassing op iOS-apparaten.  
 
--   **Autoriser l’envoi de courrier depuis des applications tierces**. Sélectionnez cette option pour autoriser les utilisateurs à envoyer du courrier électronique à partir de certaines applications de messagerie tierces non définies par défaut. Cette option s'applique aux appareils iOS uniquement.  
+-   **Toestaan dat e-mails worden verzonden vanuit toepassingen van derden**. Selecteer deze optie om gebruikers e-mail verzenden vanuit bepaalde niet-standaard van derden e-mailtoepassingen te laten. Deze optie is alleen van toepassing op iOS-apparaten.  
 
--   **Synchroniser les adresses de messagerie récemment utilisées**. Sélectionnez cette option pour synchroniser la liste des adresses de messagerie récemment utilisées sur l’appareil. Cette option s'applique aux appareils iOS uniquement.  
+-   **Recent gebruikte e-mailadressen synchroniseren**. Kies deze optie voor het synchroniseren van de lijst met e-mailadressen die recent zijn gebruikt op het apparaat. Deze optie is alleen van toepassing op iOS-apparaten.  
 
--   **Utiliser SSL**. Sélectionnez cette option pour utiliser une communication SSL (Secure Sockets Layer) pour l’envoi et la réception des messages électroniques et pour communiquer avec le serveur Exchange.  
+-   **SSL gebruiken**. Selecteer deze optie voor het gebruik van Secure Sockets Layer (SSL)-communicatie voor het verzenden van e-mailberichten, ontvangen van e-mailberichten en communicatie met de Exchange-server.  
 
--   **Type de contenu à synchroniser**. Sélectionnez les types de contenu à synchroniser avec des appareils. Cette option s'applique uniquement aux appareils Windows Phone. Choisissez parmi :  
+-   **Inhoudtype voor synchronisatie**. Kies het type inhoud dat u wilt synchroniseren met apparaten. Deze optie is alleen van toepassing op Windows Phone-apparaten. U kunt kiezen uit:  
 
-    -   **Courrier électronique**  
+    -   **E-mail**  
 
-    -   **Contacts**  
+    -   **Contactpersonen**  
 
-    -   **Calendrier**  
+    -   **Kalender**  
 
-    -   **Tâches**  
+    -   **Taken**  
 
-## <a name="specify-supported-platforms-for-the-exchange-activesync-email-profile"></a>Spécifiez les plateformes prises en charge pour le profil de messagerie Exchange ActiveSync.  
+## <a name="specify-supported-platforms-for-the-exchange-activesync-email-profile"></a>Ondersteunde platforms voor het e-mailprofiel voor Exchange ActiveSync opgeven  
 
-1.  Dans la page **Plateformes prises en charge** de l’Assistant Création d’un profil de messagerie Exchange ActiveSync, choisissez les systèmes d’exploitation sur lesquels le profil de messagerie Exchange ActiveSync va être installé. Vous pouvez également choisir **Sélectionner tout** pour installer le profil de messagerie sur tous les systèmes d'exploitation disponibles.  
+1.  Op de **ondersteunde Platforms** pagina van de Exchange ActiveSync E-mail Wizard profiel maken, kies de besturingssystemen waarop het e-mailprofiel wordt geïnstalleerd. Of kies **Alles selecteren** voor het installeren van het e-mailprofiel op alle beschikbare besturingssystemen.  
 
-2.  Fermez l'Assistant.
+2.  Sluit de wizard af.
 
-Pour plus d’informations sur le déploiement des profils de messagerie Exchange ActiveSync, consultez [Guide pratique pour déployer des profils dans System Center Configuration Manager](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md).  
+Zie voor meer informatie over het implementeren van de Exchange ActiveSync-e-mailprofielen [profielen in System Center Configuration Manager implementeren](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md).  

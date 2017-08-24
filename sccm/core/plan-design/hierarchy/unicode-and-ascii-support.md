@@ -1,6 +1,6 @@
 ---
-title: Prise en charge Unicode et ASCII | Microsoft Docs
-description: "Découvrez la prise en charge des caractères ASCII et Unicode dans les objets System Center Configuration Manager."
+title: Unicode en ASCII-ondersteuning | Microsoft Docs
+description: Meer informatie over ondersteuning voor Unicode en ASCII-tekens in System Center Configuration Manager-objecten.
 ms.custom: na
 ms.date: 3/1/2017
 ms.prod: configuration-manager
@@ -17,129 +17,129 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 18f1c64c1f27001a0fdfbab4236d09a5bc279272
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="unicode-and-ascii-support-in-system-center-configuration-manager"></a>Prise en charge Unicode et ASCII dans System Center Configuration Manager
+# <a name="unicode-and-ascii-support-in-system-center-configuration-manager"></a>Ondersteuning voor Unicode en ASCII in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-System Center Configuration Manager crée la plupart des objets à l’aide de caractères Unicode. Cependant, plusieurs objets prennent en charge uniquement des caractères ASCII ou disposent d'autres limitations.  
+System Center Configuration Manager maakt de meeste objecten door Unicode-tekens. Echter verscheidene objecten ondersteunen alleen ASCII-tekens of hebben andere beperkingen.  
 
- Les sections suivantes répertorient les objets qui ne doivent utiliser que les caractères du jeu de caractères ASCII, ou qui ont des limitations supplémentaires.  
+ De volgende secties worden de objecten die tekens bevatten uit de ASCII-tekenset alleen moet gebruiken, of die aanvullende beperkingen hebben.  
 
--   [Objets qui utilisent des caractères ASCII](#BKMK_ASCIIchar)  
+-   [Objecten die gebruikmaken van ASCII-tekens](#BKMK_ASCIIchar)  
 
--   [Limitations supplémentaires](#BKMK_OtherCharLimitations)  
+-   [Aanvullende beperkingen](#BKMK_OtherCharLimitations)  
 
--   [Objets Configuration Manager non localisés](#BKMK_LangNonLocalize)  
+-   [Configuration Manager-objecten die niet zijn gelokaliseerd](#BKMK_LangNonLocalize)  
 
-##  <a name="BKMK_ASCIIchar"></a> Objets qui utilisent des caractères ASCII  
- Configuration Manager prend en charge le jeu de caractères ASCII uniquement lorsque vous créez les objets suivants :  
+##  <a name="BKMK_ASCIIchar"></a>Objecten die gebruikmaken van ASCII-tekens  
+ Configuration Manager ondersteunt de ASCII-tekenset alleen wanneer u de volgende objecten maakt:  
 
--   Code de site  
+-   Sitecode  
 
--   Tous les noms des ordinateurs serveurs du système de site  
+-   Alle sitegegevens computernamen van siteserversystemen  
 
--   Les comptes de Configuration Manager suivants :  
-
-    > [!NOTE]  
-    >  Ces comptes prennent en charge les caractères ASCII et RUS sur un site qui s’exécute en russe.  
-
-    -   Compte d’installation Push du client  
-
-    -   Compte de publication de la référence d'état d'intégrité  
-
-    -   Compte d'interrogation de référence d'état d'intégrité  
-
-    -   Compte de connexion à la base de données du point de gestion  
-
-    -   Compte d'accès réseau  
-
-    -   Compte d'accès au package  
-
-    -   Compte expéditeur standard  
-
-    -   Compte d’installation du système de site  
-
-    -   Compte de connexion de point de mise à jour logicielle  
-
-    -   Compte du serveur proxy du point de mise à jour logicielle  
+-   De volgende Configuration Manager-accounts:  
 
     > [!NOTE]  
-    >  Les comptes que vous spécifiez pour l'administration basée sur des rôles prennent en charge Unicode.  
+    >  Deze accounts ondersteunen ASCII-tekens en RUS-tekens op een site die wordt uitgevoerd in Russisch.  
+
+    -   Clientpushinstallatie-account  
+
+    -   Status publicatieaccount Health  
+
+    -   Opvraagaccount Health-statusreferentie  
+
+    -   Beheerpunt-databaseverbindingsaccount  
+
+    -   Netwerktoegangsaccount  
+
+    -   Pakkettoegangsaccount  
+
+    -   Standaardafzenderaccount  
+
+    -   Installatieaccount sitesysteem  
+
+    -   Verbindingsaccount software-updatepunt  
+
+    -   Proxyserveraccount voor software-update-punt  
+
+    > [!NOTE]  
+    >  De accounts die u voor op rollen gebaseerd beheer opgeeft ondersteunen Unicode.  
     >   
-    >  Le compte du point de Reporting Services prend en charge Unicode, à l’exception des caractères RUS.  
+    >  Reporting Services-punt account ondersteunt Unicode, met uitzondering van RUS-tekens.  
 
--   Nom de domaine complet (FQDN) pour les serveurs de site et les systèmes de site  
+-   Volledig gekwalificeerde domeinnaam (FQDN) voor siteservers en sitesystemen  
 
--   Chemin d'installation de Configuration Manager  
+-   Installatiepad voor Configuration Manager  
 
--   Noms d'instance SQL Server  
+-   Namen van SQL Server-exemplaar  
 
--   Le chemin d'accès pour les rôles de système de site suivants :  
+-   Het pad voor de volgende sitesysteemrollen:  
 
-    -   Point de service Web du catalogue des applications  
+    -   Application Catalog-webservicepunt  
 
-    -   Point du site web du catalogue des applications  
+    -   Application Catalog-websitepunt  
 
-    -   Point d'inscription  
+    -   Inschrijvingspunt  
 
-    -   Point proxy d'inscription  
+    -   Proxypunt voor inschrijving  
 
-    -   Point de Reporting Services  
+    -   Reporting Services-punt  
 
-    -   Point de migration d'état  
+    -   Statusmigratiepunt  
 
--   Chemin d'accès pour les dossiers suivants :  
+-   Het pad voor de volgende mappen:  
 
-    -   Le dossier qui stocke les données de migration d'état du client  
+    -   De map waarop migratiegegevens van de status van de opgeslagen  
 
-    -   Le dossier qui contient les rapports Configuration Manager  
+    -   De map waarin de Configuration Manager-rapporten  
 
-    -   Le dossier qui stocke la sauvegarde de Configuration Manager  
+    -   De map waarin de Configuration Manager back-up wordt opgeslagen  
 
-    -   Le dossier qui stocke les fichiers sources d’installation pour la configuration de site  
+    -   De map waarin de installatiebronbestanden voor de installatie van de site wordt opgeslagen  
 
-    -   Le dossier qui stocke les téléchargements requis par le programme d’installation  
+    -   De map met de vereiste downloads voor gebruik door setup  
 
--   Le chemin d'accès pour les objets suivants :  
+-   Het pad voor de volgende objecten:  
 
-    -   Site Web IIS  
+    -   IIS-website  
 
-    -   Chemin d'installation de l'application virtuelle  
+    -   Installatiepad van virtuele toepassing  
 
-    -   Nom de l'application virtuelle  
+    -   De naam van de virtuele toepassing  
 
--   Les objets suivants pour AMT et la gestion hors bande :  
+-   De volgende objecten voor AMT- en out-of-band beheer:  
 
-    -   Le nom de domaine complet de l'ordinateur basé sur AMT  
+    -   De FQDN-naam van de AMT-gebaseerde computer  
 
-    -   Le nom d'ordinateur de l'ordinateur basé sur AMT  
+    -   De naam van de AMT-gebaseerde computer  
 
-    -   Le nom NetBIOS du domaine  
+    -   De NetBIOS-domeinnaam  
 
-    -   Le nom du profil sans fil et SSID  
+    -   De naam van het draadloze profiel en SSID  
 
-    -   Le nom de l'autorité de certification racine de confiance  
+    -   Naam van de vertrouwde basis-CA  
 
-    -   Le nom de l'autorité de certification (CA) et les noms de modèle  
+    -   De naam van de certificeringsinstantie (CA) en sjabloonnamen  
 
-    -   Le nom de fichier et le chemin du fichier image de redirection IDE  
+    -   De bestandsnaam en het pad voor het installatiekopiebestand voor IDE-omleiding  
 
-    -   Le contenu du stockage de données AMT  
+    -   De inhoud van de AMT-gegevensopslag  
 
--   Les noms des fichiers ISO des supports de démarrage  
+-   ISO-bestandsnamen voor opstartmedia  
 
-##  <a name="BKMK_OtherCharLimitations"></a> Limitations supplémentaires  
- Voici les limitations supplémentaires pour les versions de langue et les jeux de caractères pris en charge :  
+##  <a name="BKMK_OtherCharLimitations"></a>Aanvullende beperkingen  
+ Hieronder vindt aanvullende beperkingen voor ondersteunde tekensets en taalversies beschreven:  
 
--   Configuration Manager ne prend pas en charge la modification des paramètres régionaux de l’ordinateur serveur de site.  
+-   Configuration Manager biedt geen ondersteuning voor het wijzigen van de landinstellingen van de siteservercomputer.  
 
--   Une autorité de certification (CA) d'entreprise ne gère pas les noms des ordinateurs clients qui utilisent des jeux de caractères codés sur deux octets (DBCS). Les noms d'ordinateur client que vous pouvez utiliser sont limités par la limitation PKI du jeu de caractères IA5. En outre, Configuration Manager ne prend pas en charge les noms d’autorité de certification ou les valeurs de nom d’objet qui utilisent un jeu de caractères DBCS.  
+-   Een enterprise-certificeringsinstantie (CA) biedt geen ondersteuning voor namen van clientcomputers die gebruikmaken van DBCS-tekensets (DBCS). De namen van clientcomputers die u kunt gebruiken, worden beperkt door de PKI-beperking van de IA5-tekenset. Configuration Manager biedt bovendien geen ondersteuning CA-namen waarden of onderwerpnamen die gebruikmaken van tekensets met dubbele BYTES.  
 
-##  <a name="BKMK_LangNonLocalize"></a> Objets Configuration Manager non localisés  
- La base de données Configuration Manager prend en charge le format Unicode pour la plupart des objets qu’elle stocke, et lorsque cela est possible, elle affiche ces informations dans la langue du système d’exploitation correspondant aux paramètres régionaux d’un ordinateur. Pour que l’interface client ou la console Configuration Manager affichent des informations dans la langue du système d’exploitation de l’ordinateur, les paramètres régionaux de l’ordinateur doivent correspondre à la langue du client ou du serveur que vous installez sur un site.  
+##  <a name="BKMK_LangNonLocalize"></a>Configuration Manager-objecten die niet zijn gelokaliseerd  
+ De Configuration Manager-database ondersteunt Unicode voor de meeste objecten die hierin worden opgeslagen en indien mogelijk wordt er informatie weergegeven in de besturingssysteemtaal die overeenkomt met de landinstellingen van de computer. De landinstellingen van de computer moet overeenkomen met een client- of servertaal die u op een site installeert voor de clientinterface of Configuration Manager-console informatie weergeven in de besturingssysteemtaal van de computer.  
 
- Toutefois, plusieurs objets Configuration Manager ne prennent pas en charge le format Unicode et ils sont stockés dans la base de données à l’aide du jeu de caractères ASCII, ou bien les langues supplémentaires sont limitées. Ces informations s'affichent toujours à l'aide du jeu de caractères ASCII défini ou dans la langue utilisée lors de la création de l'objet.  
+ Echter verschillende Configuration Manager-objecten ondersteunen geen Unicode, en ze worden opgeslagen in de database op basis van ASCII of er gelden aanvullende taalbeperkingen. Deze informatie wordt altijd weergegeven met behulp van de ASCII-tekenset of in de taal die werd gebruikt toen het object is gemaakt.  

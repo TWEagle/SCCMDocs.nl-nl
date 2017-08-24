@@ -1,6 +1,6 @@
 ---
-title: "Notions de base des sites et des hiérarchies | Microsoft Docs"
-description: "Obtenez des informations de base sur les sites et les hiérarchies System Center Configuration Manager."
+title: "Grondbeginselen van sites en hiërarchieën | Microsoft Docs"
+description: "Algemene informatie over System Center Configuration Manager-sites en hiërarchieën worden opgehaald."
 ms.custom: na
 ms.date: 12/30/2016
 ms.prod: configuration-manager
@@ -16,58 +16,58 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: f13f38be2a19ab8a1ead246e5272515dd0570984
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="fundamentals-of-sites-and-hierarchies-for-system-center-configuration-manager"></a>Notions de base des sites et des hiérarchies pour System Center Configuration Manager
+# <a name="fundamentals-of-sites-and-hierarchies-for-system-center-configuration-manager"></a>De grondbeginselen van sites en hiërarchieën voor System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Un déploiement de System Center Configuration Manager doit être installé dans un domaine Active Directory. La base de ce déploiement inclut un ou plusieurs sites Configuration Manager qui forment une hiérarchie de sites. Qu’il s’agisse d’un site unique ou d’une hiérarchie à plusieurs sites, le type et l’emplacement des sites que vous installez permettent de faire monter en puissance (développer) votre déploiement si nécessaire et d’offrir des services clés aux appareils et utilisateurs gérés.
+Een System Center Configuration Manager-implementatie moet worden geïnstalleerd in een Active Directory-domein. De basis van deze implementatie bevat een of meer Configuration Manager-sites die een hiërarchie van sites vormen. Voor een hiërarchie die uit een enkele site bestaat en voor een hiërarchie die uit meerdere sites bestaat, geldt dat het type en de locatie van sites die u installeert, u de mogelijkheid bieden om uw implementatie indien nodig omhoog te schalen (uit te breiden) en om belangrijke services te leveren aan beheerde gebruikers en apparaten.
 
-## <a name="hierarchies-of-sites"></a>Hiérarchies de sites
-Quand vous installez System Center Configuration Manager pour la première fois, le premier site Configuration Manager que vous installez détermine l’étendue de votre hiérarchie. Le premier site Configuration Manager constitue la base à partir de laquelle vous allez gérer les appareils et les utilisateurs dans votre entreprise. Ce premier site doit être un site d’administration centrale ou un site principal autonome.  
+## <a name="hierarchies-of-sites"></a>Sitehiërarchieën
+Wanneer u System Center Configuration Manager voor het eerst installeert, wordt de eerste site van Configuration Manager die u installeert het bereik van uw hiërarchie. De eerste site van Configuration Manager vormt de basis van waaruit u apparaten en gebruikers in uw onderneming beheert. Deze eerste site moet een centrale beheersite of een zelfstandige primaire site.  
 
- Un *site d’administration centrale* convient aux déploiements à grande échelle. Il fournit un point d’administration centrale et offre la flexibilité nécessaire pour prendre en charge les appareils distribués dans une infrastructure réseau globale. Après avoir installé un site d’administration centrale, vous devez installer un ou plusieurs sites principaux comme sites enfants. Cette configuration est requise du fait qu’un site d’administration centrale ne prend pas directement en charge la gestion des appareils, ce qui est la fonction d’un site principal. Un site d’administration centrale peut prendre en charge plusieurs sites principaux enfants. Les sites principaux enfants permettent de gérer directement des appareils, mais aussi de contrôler la bande passante réseau quand vos appareils gérés ne se trouvent pas tous au même emplacement géographique.  
+ Een *centrale beheersite* is geschikt voor grootschalige implementaties, biedt een centraal punt voor beheer en biedt de flexibiliteit om apparaten die zijn verdeeld over een globale netwerkinfrastructuur te ondersteunen. Nadat u een centrale beheersite installeert, moet u een of meer primaire sites installeren als onderliggende sites. Deze configuratie is nodig omdat een centrale beheersite ondersteunt geen beheer van apparaten, waarop de functie van een primaire site. Een centrale beheersite ondersteunt meerdere onderliggende primaire sites. De onderliggende primaire sites worden gebruikt voor apparaten rechtstreeks beheert, en om netwerkbandbreedte te controleren wanneer de beheerde apparaten zijn in verschillende geografische locaties.  
 
- Un *site principal autonome* convient pour des déploiements plus petits et permet de gérer des appareils sans devoir installer des sites supplémentaires. Un site principal autonome peut limiter la taille de votre déploiement, mais il prend en charge un scénario d’extension ultérieure de votre hiérarchie par l’installation d’un nouveau site d’administration centrale. Dans ce scénario d’extension du site, votre site principal autonome devient un site principal enfant, et vous pouvez installer des sites principaux enfants supplémentaires sous votre nouveau site d’administration centrale. Vous pouvez alors étendre votre déploiement initial dans la perspective d’une croissance future de votre entreprise.  
+ Een *zelfstandige primaire site* is geschikt voor kleinere implementaties en kan worden gebruikt voor het beheren van apparaten zonder aanvullende sites installeren. Hoewel een zelfstandige primaire site de grootte van uw implementatie beperkt, biedt ondersteuning voor een scenario waarin u uw hiërarchie op een later tijdstip uitbreiden door het installeren van een nieuwe centrale beheersite. Met dit scenario voor site-uitbreiding, wordt uw zelfstandige primaire site een onderliggende primaire site en kunt u extra onderliggende primaire sites onder de nieuwe centrale beheersite installeren. Vervolgens kunt u uw initiële implementatie voor toekomstige groei van uw bedrijf uitbreiden.  
 
 > [!TIP]  
->  Un site principal autonome et un site principal enfant sont en fait du même type : il s’agit de sites principaux. La différence de nom est basée sur la relation de hiérarchie qui est créée quand vous utilisez également un site d’administration centrale. Cette relation de hiérarchie peut également limiter l’installation de certains rôles système de site qui étendent les fonctionnalités de Configuration Manager. Cette limitation est due au fait que certains rôles de système de site peuvent uniquement être installés sur le site de niveau supérieur de la hiérarchie, un site d’administration centrale ou un site principal autonome.  
+>  Een zelfstandige primaire site en een onderliggende primaire site zijn in feite hetzelfde type site: een primaire site. Het naamsverschil is gebaseerd op de hiërarchische relatie die wordt gemaakt wanneer u ook een centrale beheersite gebruikt. Deze hiërarchische relatie kan ook de installatie van bepaalde sitesysteemrollen die een uitbreiding van Configuration Manager-functionaliteit beperkt. Deze beperking van rollen treedt op omdat bepaalde sitesysteemrollen kunnen alleen worden geïnstalleerd op de bovenste site van de hiërarchie een centrale beheersite of een zelfstandige primaire site.  
 
- Après avoir installé votre premier site, vous pouvez installer des sites supplémentaires. Si votre premier site est un site d’administration centrale, vous pouvez installer un ou plusieurs sites principaux enfants. Après avoir installé un site principal (autonome ou principal de l’enfant), vous pouvez installer un ou plusieurs sites secondaires.  
+ Nadat u uw eerste site hebt geïnstalleerd, kunt u aanvullende sites installeren. Als uw eerste site een centrale beheersite is, kunt u een of meer onderliggende primaire sites installeren. Nadat u een primaire site (een zelfstandige of onderliggende primaire) hebt geïnstalleerd, kunt u een of meer secundaire sites installeren.  
 
- Un *site secondaire* peut uniquement être installé en tant que site enfant sous un site principal. Ce type de site étend la portée d’un site principal à la gestion de périphériques situés dans des emplacements où la connexion réseau au site principal est lente. Même si un site secondaire étend le site principal, le site principal gère l’ensemble des clients. Le site secondaire assure la prise en charge des appareils de l’emplacement distant. Pour cela, il comprime les informations que vous envoyez (déployez) aux clients et celles que ces clients renvoient au site, et gère leur transfert sur votre réseau.  
+ Een *secundaire site* kan alleen worden geïnstalleerd als een onderliggende site onder een primaire site. Dit type site kan het bereik van een primaire site uitbreiden voor het beheer van apparaten op locaties die een trage netwerkverbinding hebben met de primaire site. Hoewel een secundaire site een uitbreiding de primaire site vormt, wordt de primaire site beheert alle clients. De secundaire site biedt ondersteuning voor apparaten in de externe locatie. Deze biedt ondersteuning door te comprimeren en vervolgens de overdracht van gegevens te beheren via het netwerk die u verzendt (implementeert) naar clients, en die clients terug naar de site.  
 
- Les schémas suivants offrent des exemples d'architecture de site.  
+ De volgende diagrammen geven voorbeelden van siteontwerpen weer.  
 
- ![Exemples de hiérarchie](media/Hierarchy_examples.png)  
+ ![Voorbeelden van de hiërarchie](media/Hierarchy_examples.png)  
 
- Pour plus d'informations, consultez les rubriques suivantes :  
+ Zie de volgende onderwerpen voor meer informatie:  
 
--   [Présentation de System Center Configuration Manager](../../core/understand/introduction.md)  
+-   [Inleiding op System Center Configuration Manager](../../core/understand/introduction.md)  
 
--   [Concevoir une hiérarchie de sites pour System Center Configuration Manager](../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md)  
+-   [Een sitehiërarchie ontwerpen voor System Center Configuration Manager](../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md)  
 
--   [Installer des sites System Center Configuration Manager](/sccm/core/servers/deploy/install/installing-sites)  
+-   [System Center Configuration Manager-sites installeren](/sccm/core/servers/deploy/install/installing-sites)  
 
-## <a name="site-system-servers-and-site-system-roles"></a>Serveurs de système de site et rôles de système de site  
- Chaque site Configuration Manager installe des *rôles de système de site* qui prennent en charge les opérations de gestion. Les rôles suivants sont installés par défaut quand vous installez un site :
+## <a name="site-system-servers-and-site-system-roles"></a>Sitesysteemservers en sitesysteemrollen  
+ Elke Configuration Manager-site installeert *sitesysteemrollen* die beheerbewerkingen ondersteunen. De volgende rollen worden standaard geïnstalleerd wanneer u een site installeert:
 
--   Le rôle serveur de site est affecté à l’ordinateur sur lequel vous installez le site.
+-   De siteserverrol is toegewezen aan de computer waarop u de site installeert.
 
--   Le rôle serveur de base de données de site est affecté à l’ordinateur SQL Server qui héberge la base de données du site.
+-   De sitedatabaseserverrol is toegewezen aan de SQL Server die als host fungeert voor de sitedatabase.
 
-Les autres rôles de système de site sont facultatifs. Utilisez-les uniquement si vous souhaitez utiliser des fonctionnalités qui sont actives dans ces rôles de système de site. Tout ordinateur hébergeant un rôle système de site est considéré comme un serveur de système de site.  
+Andere sitesysteemrollen zijn optioneel en worden alleen gebruikt wanneer u wilt gebruiken van de functionaliteit die actief is in een sitesysteemrol. Elke computer die als host fungeert voor een sitesysteemrol wordt een sitesysteemserver genoemd.  
 
- Pour un déploiement plus petit de Configuration Manager, vous pouvez initialement exécuter tous vos rôles de système de site directement sur l’ordinateur du serveur de site. Ensuite, à mesure que votre environnement géré et vos besoins augmentent, vous pouvez installer des serveurs de système de site supplémentaires pour héberger des rôles de système de site supplémentaires. Cela vous permet d’optimiser le site en fournissant des services à davantage d’appareils.  
+ Voor een kleinere implementatie van Configuration Manager, kunt u in eerste instantie uitvoeren alle van uw site sitesysteemrollen rechtstreeks op de siteservercomputer. Naarmate uw beheerde omgeving en behoeften groeien, kunt u extra sitesysteemservers installeren met de extra sitesysteemrollen host om de efficiëntie van de site in de levering van services aan meer apparaten te verbeteren.  
 
- Pour plus d’informations sur les différents rôles de système de site, consultez [Rôles de système de site](../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md#bkmk_planroles) dans [Planifier des serveurs de système de site et des rôles de système de site pour System Center Configuration Manager](../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md).
+ Zie voor meer informatie over de verschillende sitesysteemrollen [sitesysteemrollen](../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md#bkmk_planroles) in [plan maken voor sitesysteemservers en sitesysteemrollen voor System Center Configuration Manager](../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md).
 
-## <a name="publishing-site-information-to-active-directory-domain-services"></a>Publication d’informations de site vers les services de domaine Active Directory  
- Pour simplifier la gestion de Configuration Manager, vous pouvez étendre le schéma Active Directory pour qu’il prenne en charge les informations utilisées par Configuration Manager, puis faire en sorte que les sites publient leurs informations clés sur les services de domaine Active Directory (AD DS). Les ordinateurs que vous souhaitez gérer peuvent ensuite récupérer en toute sécurité les informations relatives au site à partir de la source approuvée d’AD DS. Les informations que les clients peuvent récupérer identifient les sites disponibles, les serveurs de système de site et les services que ces serveurs fournissent.  
+## <a name="publishing-site-information-to-active-directory-domain-services"></a>Sitegegevens publiceren naar Active Directory Domain Services  
+ Om beheer te vereenvoudigen van Configuration Manager, kunt u het Active Directory-schema voor ondersteuning van gegevens die worden gebruikt door Configuration Manager uitbreiden en vervolgens sites de belangrijkste informatie publiceren naar Active Directory Domain Services (AD DS). De computers die u wilt beheren kunnen vervolgens veilig site-gerelateerde informatie ophalen van de vertrouwde bron van AD DS. De informatie die clients kunnen ophalen identificeert de beschikbare sites, sitesysteemservers en services die deze sitesysteemservers bieden.  
 
- *L’extension du schéma Active Directory* n’est effectuée qu’une fois pour chaque forêt, au choix avant ou après l’installation de Configuration Manager.   Quand vous étendez le schéma, vous devez créer un conteneur Active Directory nommé System Management dans chaque domaine. Le conteneur fournit un site Configuration Manager qui publie les données dont les clients ont besoin. Pour plus d’informations, consultez [Préparer Active Directory pour la publication de site](../../core/plan-design/network/extend-the-active-directory-schema.md).  
+ *Het Active Directory-schema uitbreiden* wordt slechts één keer voor elke forest uitgevoerd en kan plaatsvinden vóór of na het installeren van Configuration Manager.   Wanneer u het schema uitbreidt, moet u een nieuwe Active Directory-container Systeembeheer in elk domein met de naam maken. De container bevat een Configuration Manager-site die gegevens publiceert voor clients om te zoeken. Zie voor meer informatie [Active Directory voorbereiden voor het publiceren van site](../../core/plan-design/network/extend-the-active-directory-schema.md).  
 
- La *publication des données du site* renforce la sécurité de votre hiérarchie Configuration Manager et réduit la surcharge administrative, mais elle est facultative pour les fonctionnalités de base de Configuration Manager.  
+ *Sitegegevens publiceren* verbetert de beveiliging van uw Configuration Manager-hiërarchie en vermindert de administratieve overhead, maar is niet vereist voor de basisfunctionaliteit van Configuration Manager.  

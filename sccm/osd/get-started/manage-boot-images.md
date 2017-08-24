@@ -1,6 +1,6 @@
 ---
-title: "Gérer les images de démarrage - Configuration Manager | Microsoft Docs"
-description: "Découvrez comment utiliser Configuration Manager pour gérer les images de démarrage Windows PE que vous utilisez pendant un déploiement de système d’exploitation."
+title: "Opstartinstallatiekopieën - Configuration Manager beheren | Microsoft Docs"
+description: "In Configuration Manager, informatie over het beheren van de Windows PE-opstartinstallatiekopieën die u tijdens de implementatie van een besturingssysteem gebruiken."
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -17,254 +17,254 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: cc678c1133b1944f55bcad309cf9ede9f0660b57
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-boot-images-with-system-center-configuration-manager"></a>Gérer les images de démarrage avec System Center Configuration Manager
+# <a name="manage-boot-images-with-system-center-configuration-manager"></a>Opstartinstallatiekopieën beheren met System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Une image de démarrage dans Configuration Manager est une image [Windows PE (WinPE)](https://msdn.microsoft.com/library/windows/hardware/dn938389%28v=vs.85%29.aspx) utilisée pendant un déploiement de système d’exploitation. Les images de démarrage servent à démarrer un ordinateur dans WinPE, qui est un système d’exploitation minimal avec des composants et des services limités qui préparent l’ordinateur de destination pour l’installation de Windows.  Aidez-vous des informations des sections suivantes pour gérer les images de démarrage.
+Een opstartinstallatiekopie in Configuration Manager is een [Windows PE (WinPE)](https://msdn.microsoft.com/library/windows/hardware/dn938389%28v=vs.85%29.aspx) afbeelding die wordt gebruikt tijdens de implementatie van een besturingssysteem. Opstartinstallatiekopieën worden gebruikt om een computer op te starten in WinPE. Dit is een minimaal besturingssysteem met beperkte onderdelen en services dat de doelcomputer voorbereidt voor een Windows-installatie.  Gebruik de volgende secties voor het beheren van opstartinstallatiekopieën.
 
-## <a name="BKMK_BootImageDefault"></a> Images de démarrage par défaut
-Configuration Manager fournit deux images de démarrage par défaut : une pour la prise en charge des plateformes x86 et une autre pour la prise en charge des plateformes x64. Ces images sont stockées dans le dossier \\\\*nom_serveur*>\SMS_<*code_site*>\osd\boot\\<*x64*> ou <*i386*>. Les images de démarrage par défaut sont mises à jour ou régénérées selon l’action que vous effectuez.
+## <a name="BKMK_BootImageDefault"></a>Standaardopstartinstallatiekopieën
+Configuration Manager biedt twee standaardopstartinstallatiekopieën: Één ter ondersteuning van x86-platformen en één ter ondersteuning van x64 platforms. Deze installatiekopieën worden opgeslagen: \\ \\ *servername*> \SMS_ <*sitecode*> \osd\boot\\<*x64*> of <*i386*>. De standaardopstartinstallatiekopieën worden bijgewerkt of opnieuw worden gegenereerd, afhankelijk van de actie die u wilt uitvoeren.
 
-Considérez ce qui suit pour toutes les actions décrites dans les sections suivantes :
-- Les objets de pilotes de source doivent être valides, notamment les fichiers sources des pilotes. Sinon, les pilotes ne sont pas ajoutés aux images de démarrage sur le site.
-- Les images de démarrage non basées sur les images de démarrage par défaut, même si elles utilisent la même version de Windows ADK, ne sont pas modifiées.
-- Vous devez redistribuer les images de démarrage modifiées aux points de distribution.
-- Vous devez recréer tous les médias qui utilisent les images de démarrage modifiées.
-- Si vous ne souhaitez pas que vos images de démarrage personnalisées/par défaut soient automatiquement mises à jour, ne les stockez pas à l’emplacement par défaut.
+Overweeg het volgende voor elk van de acties beschreven in de volgende secties:
+- De bronobjecten van het stuurprogramma moeten geldig zijn, inclusief de bronbestanden van het stuurprogramma of de stuurprogramma's wordt niet toegevoegd aan de opstartinstallatiekopieën op de site zijn.
+- Installatiekopieën die niet zijn gebaseerd op de standaardopstartinstallatiekopieën, zelfs als ze dezelfde Windows PE-versie gebruiken worden niet gewijzigd.
+- U moet de gewijzigde opstartinstallatiekopieën naar distributiepunten opnieuw distribueren.
+- U moet alle media die gebruikmaakt van de aangepaste opstartinstallatiekopieën opnieuw maken.
+- Als u niet dat uw aangepaste/standaard opstartinstallatiekopieën automatisch bijgewerkt wilt, u deze niet opslaan in de standaardlocatie.
 
 > [!NOTE]
-> L’outil Journal de suivi de Configuration Manager est ajouté à toutes les images de démarrage que vous ajoutez à la **bibliothèque de logiciels**. Quand vous êtes dans Windows PE, vous pouvez démarrer l’outil Journal de suivi de Configuration Manager en tapant **CMTrace** à partir d’une invite de commandes.  
+> Het hulpprogramma Configuration Manager Trace Log wordt toegevoegd aan alle opstartinstallatiekopieën die u toevoegt aan de **softwarebibliotheek**. Wanneer u zich in Windows PE, kunt u het hulpprogramma Configuration Manager Trace Log beginnen door te typen **CMTrace** vanaf een opdrachtprompt.  
 
-### <a name="use-updates-and-servicing-to-install-the-latest-version-of-configuration-manager"></a>Utiliser les mises à jour et la maintenance pour installer la dernière version de Configuration Manager
-À compter de la version 1702, quand vous mettez à niveau la version du Windows ADK et que vous utilisez les mises à jour et la maintenance pour installer la dernière version de Configuration Manager, Configuration Manager régénère les images de démarrage par défaut. Ceci inclut la nouvelle version de Windows PE du Windows ADK mis à jour, la nouvelle version du client Configuration Manager, les pilotes, les personnalisations, etc. Les images de démarrage personnalisées ne sont pas modifiées.
+### <a name="use-updates-and-servicing-to-install-the-latest-version-of-configuration-manager"></a>Updates en onderhoud voor het installeren van de meest recente versie van Configuration Manager gebruiken
+Vanaf versie 1702, wanneer u de Windows ADK-versie bijwerken en vervolgens met updates en onderhoud voor het installeren van de meest recente versie van Configuration Manager, Configuration Manager genereert de standaardopstartinstallatiekopieën. Dit omvat het nieuwe venster PE-versie van de bijgewerkte Windows ADK, de nieuwe versie van de Configuration Manager-client, stuurprogramma's, aanpassingen, enzovoort. Aangepaste opstartinstallatiekopieën worden niet gewijzigd.
 
-Avant la version 1702, Configuration Manager mettait à jour l’image de démarrage existante (boot.wim) avec les composants du client, les pilotes, les personnalisations, etc. Toutefois, il n’utilisait pas la dernière version de Windows PE du Windows ADK. Vous deviez modifier manuellement l’image de démarrage pour utiliser la nouvelle version du Windows ADK.
+Voorafgaand aan versie 1702, Configuration Manager de bestaande installatiekopie (boot.wim) bijgewerkt met de clientonderdelen, de stuurprogramma's, de aanpassingen, enz. maar maakt geen gebruik van de meest recente Windows PE-versie van Windows ADK. De opstartinstallatiekopie voor het gebruik van de nieuwe versie van Windows ADK, moet u handmatig wijzigen.
 
-### <a name="upgrade-from-configuration-manager-2012-to-configuration-manager-current-branch-cb"></a>Mettre à niveau Configuration Manager 2012 vers Configuration Manager Current Branch (CB)
-Quand vous mettez à niveau Configuration Manager 2012 vers Configuration Manager CB par le biais du processus d’installation, Configuration Manager regénère les images de démarrage par défaut. Ceci inclut la nouvelle version de Windows PE du Windows ADK mis à jour et la nouvelle version du client Configuration Manager. Toutes les personnalisations restent inchangées. Les images de démarrage personnalisées ne sont pas modifiées.
+### <a name="upgrade-from-configuration-manager-2012-to-configuration-manager-current-branch-cb"></a>Upgrade van Configuration Manager 2012 naar Configuration Manager Current Branch (CB)
+Wanneer u Configuration Manager 2012 met Configuration Manager CB met behulp van het installatieproces bijwerkt, wordt de standaardopstartinstallatiekopieën opnieuw gegenereerd Configuration Manager. Dit omvat het nieuwe venster PE-versie van de bijgewerkte Windows ADK, de nieuwe versie van de Configuration Manager-client, en alle aanpassingen blijven ongewijzigd. Aangepaste opstartinstallatiekopieën worden niet gewijzigd.
 
-### <a name="update-distribution-points-with-the-boot-image"></a>Mettre à jour les points de distribution avec l’image de démarrage
-Quand vous utilisez l’action **Mettre à jour les points de distribution** à partir du nœud **Images de démarrage** dans la console Configuration Manager, Configuration Manager met à jour les images de démarrage par défaut avec les composants du client, les pilotes, les personnalisations, etc.    
+### <a name="update-distribution-points-with-the-boot-image"></a>Bijwerken van distributiepunten met de installatiekopie
+Wanneer u gebruikt de **distributiepunten bijwerken** actie van de **opstartinstallatiekopieën** knooppunt in de Configuration Manager-console Configuration Manager de standaardopstartinstallatiekopieën bijgewerkt met de clientonderdelen, de stuurprogramma's, de aanpassingen, enzovoort.    
 
-À compter de Configuration Manager version 1706, vous pouvez choisir de recharger la dernière version de Windows PE (à partir du répertoire d’installation de Windows ADK) dans l’image de démarrage. La page **Général** de l’Assistant Mettre à jour les points de distribution fournit des informations sur la version de Windows ADK installée sur le serveur du site, la version de Windows ADK à partir de laquelle Windows PE a été utilisé dans l’image de démarrage, et la version du client Configuration Manager. Vous pouvez utiliser ces informations pour vous aider à décider s’il faut recharger l’image de démarrage. En outre, une nouvelle colonne (**Version du client**) a été ajoutée lorsque vous affichez des images de démarrage dans le nœud **Images de démarrage** et vous indique la version du client Configuration Manager utilisée par chaque image de démarrage.    
+Vanaf Configuration Manager versie 1706, kunt u de nieuwste versie van Windows PE (van de installatiemap van Windows ADK) in de opstartinstallatiekopie opnieuw laden. De **algemene** pagina van de wizard distributiepunten bijwerken bevat informatie over de Windows ADK-versie die is geïnstalleerd op de siteserver, de Windows ADK-versie waarin Windows PE wordt gebruikt in de opstartinstallatiekopie en de versie van Configuration Manager-client. U kunt deze informatie gebruiken om te beslissen of u wilt de opstartinstallatiekopie opnieuw laden. Ook een nieuwe kolom (**clientversie**) is toegevoegd wanneer u opstartinstallatiekopieën in de **opstartinstallatiekopieën** knooppunt zodat u weet welke versie van Configuration Manager-client elke opstartinstallatiekopie wordt gebruikt.    
 
-Les images de démarrage personnalisées ne sont pas modifiées.
+Aangepaste opstartinstallatiekopieën worden niet gewijzigd.
 
-##  <a name="BKMK_BootImageCustom"></a> Personnaliser une image de démarrage  
- Vous pouvez personnaliser ou [modifier une image de démarrage](#BKMK_ModifyBootImages) depuis la console Configuration Manager si cette image est basée sur une version de Windows PE de la version prise en charge de Windows ADK. Quand un site est mis à niveau avec une nouvelle version et qu’une nouvelle version de Windows ADK est installée, les images de démarrage personnalisées (ne figurant pas dans l’emplacement d’image de démarrage par défaut) ne sont pas mises à jour avec la nouvelle version de Windows ADK. Dans ce cas, vous ne pouvez plus personnaliser les images de démarrage dans la console Configuration Manager. En revanche, elles continuent à fonctionner comme avant la mise à niveau.  
+##  <a name="BKMK_BootImageCustom"></a>Een opstartinstallatiekopie aanpassen  
+ U kunt een opstartinstallatiekopie aanpassen of [een opstartinstallatiekopie wijzigen](#BKMK_ModifyBootImages), vanuit de Configuration Manager-console wanneer deze is gebaseerd op een Windows PE-versie van de ondersteunde versie van Windows ADK. Wanneer een site is bijgewerkt met een nieuwe versie en een nieuwe versie van Windows ADK is geïnstalleerd, worden aangepaste opstartinstallatiekopieën (die zich niet op de standaardlocatie voor opstartinstallatiekopieën bevinden) niet bijgewerkt met de nieuwe versie van Windows ADK. Wanneer dit gebeurt, kunt u zich niet langer de opstartinstallatiekopieën in de Configuration Manager-console aanpassen. Ze blijven echter werken zoals voor de upgrade.  
 
- Quand une image de démarrage est basée sur une autre version de Windows ADK installée sur un site, vous devez personnaliser les images de démarrage à l’aide d’une autre méthode, par exemple en vous servant de l’outil de ligne de commande Gestion et maintenance des images de déploiement (DISM) intégré dans Windows AIK et Windows ADK. Pour plus d’informations, consultez [Personnaliser les images de démarrage](customize-boot-images.md).  
+ Wanneer een opstartinstallatiekopie is gebaseerd op een andere versie van Windows ADK die op de site is geïnstalleerd, moet u de opstartinstallatiekopieën aanpassen met een andere methode, zoals de Deployment Image Servicing and Management (DISM) opdrachtregeltool welke deel uitmaakt van Windows AIK en Windows ADK. Zie voor meer informatie [opstartinstallatiekopieën aanpassen](customize-boot-images.md).  
 
-##  <a name="BKMK_AddBootImages"></a> Ajouter une image de démarrage  
+##  <a name="BKMK_AddBootImages"></a>Een opstartinstallatiekopie toevoegen  
 
- Au moment de l’installation du site, Configuration Manager ajoute automatiquement des images de démarrage qui sont basées sur une version de WinPE de la version prise en charge de Windows ADK. Dans certaines versions de Configuration Manager, vous pouvez ajouter des images de démarrage basées sur une version de WinPE différente de la version prise en charge de Windows ADK.  Une erreur se produit si vous essayez d’ajouter une image de démarrage qui contient une version non prise en charge de WinPE.  
+ Tijdens site-installatie voegt Configuration Manager automatisch opstartinstallatiekopieën die zijn gebaseerd op een WinPE-versie van de ondersteunde versie van Windows ADK. Afhankelijk van de versie van Configuration Manager, is het mogelijk om toe te voegen op basis van een andere WinPE-versie van de ondersteunde versie van Windows ADK-opstartinstallatiekopieën.  Er treedt een fout op wanneer u een opstartinstallatiekopie probeert toe te voegen die een niet-ondersteunde versie van WinPE bevat.  
 
- Vous trouverez ci-dessous des informations sur la version prise en charge de Windows ADK, la version de Windows PE sur laquelle l’image de démarrage est basée et qui peut être personnalisée à partir de la console Configuration Manager, ainsi que les versions de Windows PE sur lesquelles l’image de démarrage est basée et que vous pouvez personnaliser à l’aide de DISM avant d’ajouter l’image à Configuration Manager.  
+ Hieronder vindt u de ondersteunde versie van Windows ADK, de Windows PE-versie die op waarop de opstartinstallatiekopie is gebaseerd die kan worden aangepast via de Configuration Manager-console en de Windows PE-versies waarop de opstartinstallatiekopie is gebaseerd, u kunt aanpassen met behulp van DISM en vervolgens de installatiekopie toevoegen aan Configuration Manager.  
 
--   **Version de Windows ADK**  
+-   **Windows ADK-versie**  
 
-     Windows ADK pour Windows 10  
+     Windows ADK voor Windows 10  
 
--   **Versions de Windows PE pour les images de démarrage personnalisables à partir de la console Configuration Manager**  
+-   **Windows PE-versies voor installatiekopieën die aanpasbaar zijn via de Configuration Manager-console**  
 
      Windows PE 10  
 
--   **Versions prises en charge de Windows PE pour les images de démarrage non personnalisables à partir de la console Configuration Manager**  
+-   **Ondersteunde Windows PE-versies voor installatiekopieën die niet aanpasbaar zijn via de Configuration Manager-console**  
 
-     Windows PE 3.1<sup>1</sup> et Windows PE 5  
+     Windows PE 3.1<sup>1</sup> en Windows PE 5  
 
-     <sup>1</sup> Vous pouvez ajouter une image de démarrage à Configuration Manager uniquement si elle est basée sur Windows PE 3.1. Installez le supplément Windows AIK pour Windows 7 SP1 pour mettre à niveau Windows AIK pour Windows 7 (basé sur Windows PE 3) avec le supplément Windows AIK pour Windows 7 SP1 (basé sur Windows PE 3.1). Vous pouvez télécharger le supplément Windows AIK pour Windows 7 SP1 depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
+     <sup>1</sup> u kunt alleen een opstartinstallatiekopie toevoegen aan Configuration Manager wanneer deze is gebaseerd op Windows PE 3.1. Installeer Windows AIK Supplement voor Windows 7 SP1 om een upgrade van Windows AIK voor Windows 7 (gebaseerd op Windows PE 3) naar Windows AIK Supplement voor Windows 7 SP1 (gebaseerd op Windows PE 3.1) uit te voeren. U kunt Windows AIK Supplement voor Windows 7 SP1 downloaden via het [Microsoft Downloadcentrum](http://www.microsoft.com/download/details.aspx?id=5188).  
 
-     Par exemple, si vous utilisez Configuration Manager, vous pouvez personnaliser les images de démarrage de Windows ADK pour Windows 10 (basées sur Windows PE 10) depuis la console Configuration Manager. Toutefois, si les images de démarrage basées sur Windows PE 5 sont prises en charge, vous devez les personnaliser depuis un autre ordinateur et utiliser la version de DISM installée avec Windows ADK pour Windows 8. Ensuite, vous pouvez ajouter l’image de démarrage à la console Configuration Manager. Pour plus d’informations sur la procédure à suivre pour personnaliser une image de démarrage (ajouter des composants et pilotes facultatifs), activer la prise en charge des commandes pour l’image de démarrage, ajouter l’image de démarrage à la console Configuration Manager et mettre à jour les points de distribution avec l’image de démarrage, consultez [Personnaliser les images de démarrage](customize-boot-images.md).
+     Bijvoorbeeld, wanneer u Configuration Manager hebt, kunt u opstartinstallatiekopieën uit Windows ADK voor Windows 10 (gebaseerd op Windows PE 10) aanpassen via de Configuration Manager-console. Hoewel installatiekopieën die zijn gebaseerd op Windows PE 5 wel worden wel ondersteund, moet u ze aanpassen op een andere computer en moet u die versie van DISM gebruiken die is geïnstalleerd met Windows ADK voor Windows 8. Vervolgens kunt u de installatiekopie toevoegen aan de Configuration Manager-console. Voor meer informatie over de stappen voor het aanpassen van een installatiekopie (toevoegen van optionele componenten en stuurprogramma's), inschakelen van opdrachtondersteuning aan de opstartinstallatiekopie, de installatiekopie toevoegen aan de Configuration Manager-console en distributiepunten bijwerken met de installatiekopie, Zie [opstartinstallatiekopieën aanpassen](customize-boot-images.md).
 
- Pour ajouter une image de démarrage manuellement, procédez comme suit.  
+ Gebruik de volgende procedure om handmatig een opstartinstallatiekopie toe te voegen.  
 
-#### <a name="to-add-a-boot-image"></a>Pour ajouter une image de démarrage  
+#### <a name="to-add-a-boot-image"></a>Een opstartinstallatiekopie toevoegen  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Images de démarrage**.  
+2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek** en klik vervolgens op **Installatiekopieën**.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Ajouter une image de démarrage** pour démarrer l'Assistant Ajout d'une image de démarrage.  
+3.  Klik op **Installatiekopie toevoegen** in het tabblad **Start** in de groep **Maken** om de wizard Installatiekopie toevoegen te starten.  
 
-4.  Sur la page **Source de données** , spécifiez les options suivantes et cliquez sur **Suivant**.  
+4.  Geef op de pagina **Gegevensbron** de volgende opties op en klik op **Volgende**.  
 
-    -   Dans la zone **Chemin d'accès** , indiquez le chemin d'accès au fichier WIM de l'image de démarrage.  
+    -   Geef in het vakje **Pad** het pad op naar het WIM-bestand van de opstartinstallatiekopie.  
 
-         Le chemin d'accès spécifié doit être un chemin d'accès réseau valide au format UNC. Exemple : \\\\<*nom_serveur*\\<*nom_partage*>\\<*nom_image_démarrage*>.wim.  
+         Het opgegeven pad moet een geldig netwerkpad zijn in UNC-indeling. For example: \\\\<*servername*\\<*sharename*>\\<*bootimagename*>.wim.  
 
-    -   Sélectionnez l'image de démarrage dans la liste déroulante **Image de démarrage** . Si le fichier WIM contient plusieurs images de démarrage, sélectionnez l’image appropriée.  
+    -   Selecteer de installatiekopie in de vervolgkeuzelijst **Installatiekopie**. Als het WIM-bestand meerdere installatiekopieën bevat, selecteert u de juiste installatiekopie.  
 
-5.  Dans la page **Général**  , spécifiez les options suivantes et cliquez sur **Suivant**.  
+5.  Geef op de pagina **Algemeen** de volgende opties op en klik vervolgens op **Volgende**.  
 
-    -   Dans la zone **Nom** , spécifiez un nom unique pour l'image de démarrage.  
+    -   Geef in het venster **Naam** een unieke naam op voor de installatiekopie.  
 
-    -   Dans la zone **Version** , spécifiez un numéro de version pour l'image de démarrage.  
+    -   Geef in het venster **Versie** een uniek versienummer op voor de installatiekopie.  
 
-    -   Dans la zone **Commentaire** , spécifiez une description sommaire de l'utilisation de l'image de démarrage.  
+    -   Geef in het veld **Opmerking** een korte beschrijving van hoe de installatiekopie wordt gebruikt.  
 
-6.  Effectuez toutes les étapes de l'Assistant.  
+6.  Voltooi de wizard.  
 
- L’image de démarrage est maintenant répertoriée dans le nœud **Image de démarrage** de la console Configuration Manager. Toutefois, avant de pouvoir utiliser l'image de démarrage pour déployer un système d'exploitation, vous devez la distribuer sur des points de distribution, des groupes de points de distribution ou des regroupements associés à des groupes de points de distribution.  
-
-> [!NOTE]  
->  Quand vous sélectionnez le nœud **Image de démarrage** dans la console Configuration Manager, la colonne **Taille (Ko)** affiche la taille décompressée de chaque image de démarrage. Toutefois, quand Configuration Manager envoie une image de démarrage via le réseau, il envoie en fait une copie compressée de l’image, qui est généralement beaucoup plus petite que la taille indiquée dans la colonne **Taille (Ko)**.  
-
-##  <a name="BKMK_DistributeBootImages"></a> Distribuer des images de démarrage à un point de distribution  
- Les images de démarrage sont distribuées aux points de distribution de la même façon que vous distribuez d'autre contenu. Dans la plupart des cas, vous devez distribuer l’image de démarrage à au moins un point de distribution avant de déployer un système d’exploitation et de créer des médias.  
+ De opstartinstallatiekopie is nu opgenomen in de **opstartinstallatiekopie** knooppunt van de Configuration Manager-console. Vóór u evenwel de opstartinstallatiekopie kunt gebruiken om een besturingssysteem te implementeren, moet u de opstartinstallatiekopie verdelen naar distributiepuntgroepen of naar verzamelingen die gekoppeld zijn met distributiepuntgroepen.  
 
 > [!NOTE]  
->  Pour utiliser PXE pour déployer un système d’exploitation, considérez les éléments suivants avant de distribuer l’image de démarrage :  
+>  Wanneer u selecteert de **opstartinstallatiekopie** knooppunt in de Configuration Manager-console de **grootte (KB)** kolom ziet u de gecomprimeerde grootte voor elke opstartinstallatiekopie. Echter als Configuration Manager stuurt een opstartinstallatiekopie via het netwerk, zendt het een gecomprimeerde kopie van de installatiekopie, die typisch veel kleiner is dan de grootte die worden vermeld in de **grootte (KB)** kolom.  
+
+##  <a name="BKMK_DistributeBootImages"></a>Opstartinstallatiekopieën naar een distributiepunt distribueren  
+ Opstartinstallatiekopieën worden op dezelfde manier naar distributiepunten gedistribueerd als bij het distribueren van andere inhoud. In de meeste gevallen moet u de opstartinstallatiekopie naar ten minste één distributiepunt distribueren voordat u een besturingssysteem implementeert en voordat u media maakt.  
+
+> [!NOTE]  
+>  Als u PXE voor de implementatie van een besturingssysteem wilt gebruiken, moet u, voordat u de opstartinstallatiekopie distribueert, rekening houden met het volgende:  
 >   
->  -   Le point de distribution doit être configuré pour accepter les demandes PXE.  
-> -   Vous devez distribuer une image de démarrage PXE x86 et une image de démarrage PXE x64 à au moins un point de distribution PXE.  
-> -   Configuration Manager distribue les images de démarrage vers le dossier **RemoteInstall** du point de distribution compatible PXE.  
+>  -   Het distributiepunt moet worden geconfigureerd om PXE-aanvragen te accepteren.  
+> -   U moet zowel een x86- als x64-opstartinstallatiekopie met PXE-functionaliteit naar ten minste één distributiepunt met PXE-functionaliteit distribueren.  
+> -   Configuration Manager distribueert de opstartinstallatiekopieën naar de **RemoteInstall** map op het distributiepunt met PXE-functionaliteit.  
 >   
->  Pour plus d’informations sur l’utilisation de PXE pour déployer des systèmes d’exploitation, consultez [Utiliser PXE pour déployer Windows sur le réseau](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
+>  Zie voor meer informatie over het implementeren van besturingssystemen met PXE [PXE gebruiken om Windows te implementeren via het netwerk](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
- Pour découvrir comment distribuer une image de démarrage, consultez [Distribute content](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_distribute).  
+ Zie [Distribute content](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_distribute) (Inhoud distribueren) voor de stappen voor het distribueren van een opstartinstallatiekopie.  
 
-##  <a name="BKMK_ModifyBootImages"></a> Modifier une image de démarrage  
- Vous pouvez ajouter des pilotes de périphérique à l’image de démarrage, en supprimer de celle-ci ou modifier les propriétés associées à l’image. Les pilotes de périphérique que vous ajoutez ou supprimez peuvent inclure des pilotes de périphérique de stockage de masse ou de cartes réseau. Quand vous modifiez des images de démarrage, tenez compte des facteurs suivants :  
+##  <a name="BKMK_ModifyBootImages"></a>Een opstartinstallatiekopie wijzigen  
+ U kunt apparaatstuurprogramma aan de installatiekopie toevoegen of verwijderen of de eigenschappen bewerken die aan de opstartinstallatiekopie zijn gekoppeld. De door u toegevoegde of verwijderde apparaatstuurprogramma's kunnen stuurprogramma's voor netwerkadapters of massaopslag zijn. Houd rekening met de volgende factoren wanneer u opstartinstallatiekopieën wijzigt:  
 
--   Vous devez importer et activer les pilotes de périphérique dans le catalogue de pilotes de périphérique avant de les ajouter à l’image de démarrage.  
+-   U moet de apparaatstuurprogramma's importeren en inschakelen in de catalogus voor apparaatstuurprogramma voordat u ze kunt toevoegen aan de opstartinstallatiekopie.  
 
--   Quand vous modifiez une image de démarrage, cette image ne modifie aucun des packages associés auxquels l’image de démarrage fait référence.  
+-   Wanneer u een opstartinstallatiekopie wijzigt, wijzigt de opstartinstallatiekopie geen van de gekoppelde pakketten waarnaar de opstartinstallatiekopie verwijst.  
 
--   Après avoir modifié une image de démarrage, vous devez la **mettre à jour** sur les points de distribution où elle se trouve déjà afin que la version la plus récente de l’image de démarrage soit disponible. Pour plus d’informations, voir [Manage content you have distributed](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_manage).  
+-   Nadat u een opstartinstallatiekopie hebt gewijzigd, moet u de distributiepunten **bijwerken** die een versie van de opstartinstallatiekopie bevatten, zodat de meest recente versie van de opstartinstallatiekopie beschikbaar is. Zie [Manage content you have distributed](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_manage) (Inhoud beheren die u hebt gedistribueerd) voor meer informatie.  
 
- Utilisez la procédure suivante pour modifier une image de démarrage.  
+ Gebruik de volgende procedure om een opstartinstallatiekopie te wijzigen.  
 
-#### <a name="to-modify-the-properties-of-a-boot-image"></a>Pour modifier les propriétés d'une image de démarrage  
+#### <a name="to-modify-the-properties-of-a-boot-image"></a>De eigenschappen van een opstartinstallatiekopie wijzigen  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Images de démarrage**.  
+2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek** en klik vervolgens op **Installatiekopieën**.  
 
-3.  Sélectionnez l'image de démarrage à modifier.  
+3.  Selecteer de opstartinstallatiekopie die u wilt wijzigen.  
 
-4.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés** pour ouvrir la boîte de dialogue **Propriétés** de l'image de démarrage.  
+4.  Klik op **Eigenschappen** op het tabblad **Start** in de groep **Eigenschappen**, om het dialoogvenster **Eigenschappen** voor de opstartinstallatiekopie te openen.  
 
-5.  Définissez les paramètres suivants pour modifier le comportement de l'image de démarrage :  
+5.  Stel één van de volgende instellingen in om het gedrag van de opstartinstallatiekopie te wijzigen:  
 
-    -   Dans l'onglet **Images** , si vous avez modifié les propriétés de l'image de démarrage à l'aide d'un outil externe, cliquez sur **Recharger**.  
+    -   Klik op **Opnieuw laden** op het tabblad **Installatiekopieën**, indien u de eigenschappen van de opstartinstallatiekopie hebt gewijzigd door gebruik te maken van een extern hulpprogramma.  
 
-    -   Sous l’onglet **Pilotes** , ajoutez les pilotes de périphérique Windows nécessaires pour démarrer WinPE. Lorsque vous ajoutez des pilotes de périphérique, considérez les éléments suivants :  
+    -   Voeg op het tabblad **Stuurprogramma's** de Windows-apparaatstuurprogramma's toe, die vereist zijn om WinPE op te starten. Overweeg het volgende wanneer u apparaatstuurprogramma's toevoegt:  
 
-        -   Sélectionnez **Masquer les pilotes qui ne correspondent pas à l’architecture de l’image de démarrage** pour afficher uniquement les pilotes de l’architecture de l’image de démarrage. L'architecture est basée sur l'architecture signalée dans le fichier .INF du fabricant.  
+        -   Selecteer **stuurprogramma's die niet overeenkomen met de architectuur van de installatiekopie verbergen** om alleen stuurprogramma's voor de architectuur van de opstartinstallatiekopie weer te geven. De architectuur is gebaseerd op de architectuur die wordt vermeld in de .INF van de fabrikant.  
 
-        -   Sélectionnez **Masquer les pilotes hors classe de stockage ou réseau (pour les images de démarrage)** pour n’afficher que les pilotes réseau et de stockage, et masquer les autres pilotes qui ne sont généralement pas nécessaires pour les images de démarrage, tels que les pilotes vidéo ou les pilotes de modem.  
+        -   Selecteer **Stuurprogramma’s buiten een opslag- of netwerkklasse verbergen (voor installatiekopieën)** om alleen opslag- en netwerkstations weer te geven en andere stuurprogramma's die doorgaans niet nodig zijn voor installatiekopieën, zoals een video- of modemstuurprogramma, te verbergen.  
 
-        -   Sélectionnez **Masquer les pilotes qui ne sont pas signés numériquement** pour masquer les pilotes qui ne sont pas signés numériquement.  
+        -   Selecteer **Stuurprogramma's die niet digitaal zijn ondertekend verbergen** om stuurprogramma's die niet digitaal zijn ondertekend, te verbergen.  
 
-        -   Nous vous conseillons de n’ajouter que des cartes réseau et des pilotes de stockage de masse à l’image de démarrage sauf s’il existe des exigences pour que d’autres pilotes fassent partie de WinPE.  
+        -   Voeg als best practice uitsluitend NIC-stuurprogramma's en stuurprogramma's voor massaopslag aan de opstartinstallatiekopie toe, tenzij er vereisten zijn dat andere stuurprogramma's deel uitmaken van WinPE.  
 
-        -   Dans la mesure où WinPE est déjà fourni avec de nombreux pilotes intégrés, ajoutez uniquement les cartes réseau et les pilotes de stockage de masse qui ne sont pas fournis par WinPE.  
+        -   Aangezien WinPE een groot aantal ingebouwde stuurprogramma's bevat, kunt u het beste uitsluitend NIC-stuurprogramma's en stuurprogramma's voor massaopslag toevoegen die niet door WinPE worden geleverd.  
 
-        -   Assurez-vous que les pilotes que vous ajoutez à l’image de démarrage correspondent à l’architecture de l’image de démarrage.  
+        -   Zorg ervoor dat de stuurprogramma's die u toevoegt aan de opstartinstallatiekopie overeenkomen met de architectuur van de opstartinstallatiekopie.  
 
         > [!NOTE]  
-        >  Vous devez importer les pilotes de périphérique dans le catalogue de pilotes avant de les ajouter à une image de démarrage. Pour plus d’informations sur l’importation de pilotes de périphérique, consultez [Gérer les pilotes](manage-drivers.md).  
+        >  U moet apparaatstuurprogramma's importeren in de stuurprogrammacatalogies, vóór u ze toevoegt aan de opstartinstallatiekopie. Zie voor meer informatie over het importeren van apparaatstuurprogramma's [stuurprogramma's beheren](manage-drivers.md).  
 
-    -   Dans l'onglet **Personnalisation** , sélectionnez l'un des paramètres suivants :  
+    -   Selecteer op het tabblad **Aanpassen** één van de volgende instellingen:  
 
-        -   Activez la case à cocher **Activer une commande de prédémarrage** pour spécifier une commande à exécuter avant l'exécution de la séquence de tâches. Lorsque des commandes de prédémarrage sont activées, vous pouvez spécifier la ligne de commande exécutée, si des fichiers de support sont requis pour exécuter la commande et l'emplacement source de ces fichiers de support.  
+        -   Selecteer het selectievakje **Schakel prestart-opdrachten** om een uit te voeren opdracht op te geven vóór de takenreeks wordt uitgevoerd. Wanneer prestart-opdrachten ingeschakeld zijn, kunt u de opdrachtregel opgeven die uitgevoerd wordt, opgeven of er ondersteuningsbestanden nodig zijn om de opdracht uit te voeren en de bronlocatie van deze ondersteuningsbestanden.  
 
             > [!WARNING]  
-            >  Vous devez ajouter **cmd /c** au début de la ligne de commande. Si vous ne spécifiez pas **cmd /c**, la commande ne se ferme pas après son exécution. Le déploiement continue à attendre que l’exécution de la commande s’achève, et ne démarre aucune autre commande ou action configurées.  
+            >  U moet **cmd /c** toevoegen aan het begin van de opdrachtregel. Als u geen **cmd /c** opgeeft, wordt de opdracht niet afgesloten nadat deze is uitgevoerd. De implementatie blijft wachten tot de opdracht is voltooid en er worden geen andere geconfigureerde opdrachten of acties gestart.  
 
             > [!TIP]  
-            >  Lors de la création du média de séquence de tâches, la séquence de tâches écrit l’ID du package et la ligne de commande de prédémarrage, y compris la valeur des variables de la séquence de tâches, dans le fichier journal CreateTSMedia.log sur l’ordinateur qui exécute la console Configuration Manager. Vous pouvez consulter ce fichier journal pour vérifier la valeur des variables de séquence de tâches.  
+            >  Tijdens het maken van taak de media schrijft de takenreeks de pakket-ID en prestart-opdrachtregel, inclusief de waarde voor eventuele takenreeksvariabelen, naar het logboekbestand CreateTSMedia.log op de computer waarop de Configuration Manager-console. U kunt dit logboekbestand controleren om de waarde voor de takenreeksvariabelen te verifiëren.  
 
-        -   Définissez les paramètres **Arrière-plan Windows PE** pour spécifier si vous souhaitez utiliser l’arrière-plan de WinPE par défaut ou un arrière-plan personnalisé.  
+        -   Stel bij **Windows PE-achtergrond** in of u de standaardachtergrond van WindowsPE of een aangepaste achtergrond wilt gebruiken.  
 
-        -   Sélectionnez **Activer la prise en charge des commandes (test uniquement)** pour ouvrir une invite de commande à l’aide de la touche **F8** durant le déploiement de l’image de démarrage. Ceci est utile pour la résolution des problèmes alors que vous testez votre déploiement. Il n'est pas conseillé d'utiliser ce paramètre dans un déploiement de production.  
+        -   Schakel het selectievakje **Opdrachtondersteuning inschakelen (alleen testen)** in om tijdens het implementeren van de opstartinstallatiekopie een opdrachtprompt met toets **F8** te openen. Dit is nuttig voor de probleemoplossing als u uw implementatie test. Het gebruik van deze instelling in een productie-implementatie wordt niet aanbevolen.  
 
-        -   Configurez l’espace de travail de l’image Windows PE, qui correspond au stockage temporaire (disque RAM) utilisé par WinPE. Par exemple, quand une application est exécutée dans WinPE et doit écrire des fichiers temporaires, WinPE redirige les fichiers vers l’espace de travail en mémoire afin de simuler la présence d’un disque dur. Par défaut, WinPE alloue 32 mégaoctets (Mo) de mémoire inscriptible.  
+        -   Configureer de Windows PE-scratchruimte, die door Windows PE wordt gebruikt als tijdelijke opslag (RAM-station). Wanneer er bijvoorbeeld een toepassing wordt uitgevoerd in WinPE en er tijdelijke bestanden moet worden geschreven, stuurt WindPE de bestanden naar de scratchruimte in het geheugen om de aanwezigheid van een harde schijf te simuleren. Standaard wijst WinPE 32 megabytes (MB) aan beschrijfbaar geheugen toe.  
 
-    -   Dans l'onglet **Source de données** , mettez à jour les paramètres suivants :  
+    -   Update één van de volgende instellingen op het tabblad **Gegevensbron**:  
 
-        -   Définissez **Chemin d’accès à l’image** et **Index d’images** pour modifier le fichier source de l’image de démarrage.  
+        -   Stel **Pad voor installatiekopie** en **Installatiekopie-index** in om het bronbestand van de opstartinstallatiekopie te wijzigen.  
 
-        -   Sélectionnez **Mettre à jour les points de distribution soumis à un calendrier** pour créer un calendrier durant la mise à jour de l’image de démarrage.  
+        -   Selecteer **Distributiepunten bijwerken op basis van een planning** om een planning te maken voor wanneer de opstartinstallatiekopie is bijgewerkt.  
 
-        -   Sélectionnez **Conserver le contenu dans la mémoire cache du client** si vous ne voulez pas que le contenu de ce package expire dans la mémoire cache du client pour faire de la place pour d’autre contenu.  
+        -   Selecteer **Inhoud in clientcache permanent behouden** als u niet wilt dat de inhoud van dit pakket uit de clientcache wordt verwijderd om ruimte te maken voor andere inhoud.  
 
-        -   Sélectionnez **Activer la réplication différentielle binaire** pour spécifier que seuls les fichiers modifiés sont distribués pendant la mise à jour du package d’images de démarrage sur le point de distribution. Ce paramètre réduit le trafic réseau entre les sites, particulièrement pour les packages d'images de démarrage volumineux présentant peu de modifications.  
+        -   Selecteer **Binaire differentiële replicatie inschakelen** om te aan te geven dat alleen gewijzigde bestanden worden gedistribueerd wanneer het pakket met de opstartinstallatiekopie op het distributiepunt is bijgewerkt. Deze instelling minimaliseert het netwerkverkeer tussen sites, in het bijzonder wanneer het opstartinstallatiekopie-pakket groot is en de wijzigingen relatief gering zijn.  
 
-        -   Si l’image de démarrage est utilisée dans un déploiement compatible PXE, sélectionnez **Déployer cette image de démarrage depuis le point de distribution PXE**.  
-
-            > [!NOTE]  
-            >  Pour plus d’informations, consultez [Utiliser PXE pour déployer Windows sur le réseau](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
-
-    -   Dans l'onglet **Accès aux données** , sélectionnez l'un des paramètres suivants :  
-
-        -   Définissez les **Paramètres de partage de package** si vous voulez que les clients installent le contenu dans ce package à partir du réseau.  
-
-        -   Définissez les **Paramètres de mise à jour de package** pour spécifier de quelle manière Configuration Manager déconnecte les utilisateurs du point de distribution. Il est possible que Configuration Manager ne puisse pas mettre à jour l’image de démarrage quand des utilisateurs sont connectés au point de distribution.  
-
-    -   Dans l'onglet **Paramètres de distribution** , sélectionnez l'un des paramètres suivants :  
-
-        -   Dans la liste **Priorité de distribution**, spécifiez le niveau de priorité que vous voulez que Configuration Manager utilise quand plusieurs packages sont distribués vers le même point de distribution.  
-
-        -   Sélectionnez **Distribuer le contenu pour ce package vers les points de distribution préférés** si vous voulez activer la distribution de contenu à la demande vers des points de distribution préférés. Lorsque ce paramètre est activé, le point de gestion distribue le contenu à tous les points de distribution préférés lorsqu'un client demande le contenu pour le package et que le contenu n'est disponible sur aucun point de distribution préféré.  
-
-        -   Définissez les **Paramètres du point de distribution préparé** pour spécifier la manière dont l'image de démarrage doit être distribuée vers les points de distribution activés pour le contenu préparé.  
+        -   Selecteer **Deze opstartinstallatiekopie implementeren vanaf het PXE-distibutiepunt** als de opstartinstallatiekopie wordt gebruikt in een implementatie met PXE-functionaliteit.  
 
             > [!NOTE]  
-            >  Pour plus d’informations sur le contenu préparé, consultez [Prestage content](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_prestage).  
+            >  Zie voor meer informatie [PXE gebruiken om Windows te implementeren via het netwerk](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
-    -   Dans l'onglet **Emplacements du contenu** , sélectionnez le point de distribution ou le groupe de points de distribution et effectuez l'une des actions suivantes :  
+    -   Selecteer één van de volgende instellingen op het tabblad **Gegevenstoegang**:  
 
-        -   Cliquez sur **Redistribuer** pour distribuer à nouveau l'image de démarrage vers le point de distribution ou le groupe de points de distribution sélectionné.  
+        -   Stel de **Instellingen van pakketshare** in als u wenst dat clients de inhoud in dit pakket installeren vanuit het netwerk.  
 
-        -   Cliquez sur **Valider** pour vérifier l'intégrité du package d'images de démarrage sur le point de distribution ou le groupe de points de distribution sélectionné.  
+        -   Stel de **pakket update-instellingen** om op te geven hoe Configuration Manager gebruikers ontkoppelt van het distributiepunt. Configuration Manager kan het zijn de opstartinstallatiekopie bijwerken wanneer gebruikers gekoppeld zijn aan het distributiepunt.  
 
-    -   Sous l’onglet **Composants facultatifs**, spécifiez les composants à ajouter à Windows PE pour être utilisés avec Configuration Manager. Pour plus d’informations sur les composants facultatifs disponibles, consultez [WinPE : Ajouter des packages (informations de référence sur les composants facultatifs)](https://msdn.microsoft.com/library/windows/hardware/dn938382\(v=vs.85\).aspx).  
+    -   Selecteer één van de volgende instellingen op het tabblad **Distributie-instellingen**:  
 
-    -   Dans l'onglet **Sécurité** , sélectionnez un utilisateur administratif et modifiez les opérations qu'il peut effectuer.  
+        -   In de **distributieprioriteit** lijst, geeft u het prioriteitsniveau op dat u wilt dat Configuration Manager moet worden gebruikt wanneer meerdere pakketten worden gedistribueerd naar hetzelfde distributiepunt.  
 
-6.  Après avoir configuré les propriétés, cliquez sur **OK**.  
+        -   Selecteer **De inhoud voor dit pakket distribueren naar voorkeursdistributiepunten** als u inhouddistributie op aanvraag naar voorkeursdistributiepunten wilt inschakelen. Wanneer deze instelling ingeschakeld is, distribueert het beheerpunt de inhoud naar alle voorkeurdistributiepunten wanneer een client de inhoud voor het pakket opvraagt en de inhoud niet beschikbaar is op om het even welk voorkeursdistributiepunt.  
 
-##  <a name="BKMK_BootImagePXE"></a> Configurer une image de démarrage pour un déploiement à partir d’un point de distribution PXE  
- Avant de pouvoir utiliser une image de démarrage pour un déploiement de système d’exploitation PXE, vous devez configurer l’image de démarrage pour un déploiement à partir d’un point de distribution PXE.  
+        -   Stel de **Instellingen voorbereid distributiepunt** in om op te geven hoe u wilt de opstartinstallatiekopie gedistribueerd zien naar distributiepunten die ingeschakeld zijn voor voorbereide inhoud.  
 
-#### <a name="to-configure-a-boot-image-to-deploy-from-a-pxe-enabled-distribution-point"></a>Pour configurer une image de démarrage pour un déploiement à partir d’un point de distribution PXE  
+            > [!NOTE]  
+            >  Zie [Prestage content](/sccm/core/servers/deploy/configure/deploy-and-manage-content#bkmk_prestage) (Voorbereide inhoud) voor meer informatie over voorbereide inhoud.  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+    -   Selecteer, op het tabblad **Content Locations**, het distributiepunt of distributiepuntgroep en voer één van de volgende acties uit:  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Images de démarrage**.  
+        -   Klik op **Herverdelen** om de opstartinstallatiekopie opnieuw te distribueren naar het geselecteerde distributiepunt of distributiepuntgroep.  
 
-3.  Sélectionnez l'image de démarrage à modifier.  
+        -   Klik op **Valideer** om de integriteit te controleren van het opstartinstallatiekopiepakket op het geselecteerde distributiepunt of de geselecteerde distributiepuntgroep.  
 
-4.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés** pour ouvrir la boîte de dialogue **Propriétés** de l'image de démarrage.  
+    -   Op de **optionele onderdelen** tabblad, geeft u de onderdelen die zijn toegevoegd aan Windows PE voor gebruik met Configuration Manager. Zie voor meer informatie over beschikbare optionele onderdelen [WinPE: Pakketten (Optional Components Reference) toevoegen](https://msdn.microsoft.com/library/windows/hardware/dn938382\(v=vs.85\).aspx).  
 
-5.  Sous l’onglet **Source de données** , sélectionnez **Déployer cette image de démarrage depuis le point de distribution PXE**.  
+    -   Selecteer op het tabblad **Beveiliging** een gebruiker met beheerdersrechten en wijzig de operaties die ze kunnen uitvoeren.  
+
+6.  Klik op **OK** nadat u de eigenschappen hebt geconfigureerd.  
+
+##  <a name="BKMK_BootImagePXE"></a>Een opstartinstallatiekopie implementeren vanaf een distributiepunt met PXE-functionaliteit configureren  
+ Voordat u een opstartinstallatiekopie voor de implementatie van een PXE-besturingssysteem kunt gebruiken, moet u de opstartinstallatiekopie configureren voor een implementatie vanaf een distributiepunt met PXE-functionaliteit.  
+
+#### <a name="to-configure-a-boot-image-to-deploy-from-a-pxe-enabled-distribution-point"></a>Een opstartinstallatiekopie configureren voor de implementatie vanaf een distributiepunt met PXE-functionaliteit  
+
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+
+2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek** en klik vervolgens op **Installatiekopieën**.  
+
+3.  Selecteer de opstartinstallatiekopie die u wilt wijzigen.  
+
+4.  Klik op **Eigenschappen** op het tabblad **Start** in de groep **Eigenschappen**, om het dialoogvenster **Eigenschappen** voor de opstartinstallatiekopie te openen.  
+
+5.  Selecteer op het tabblad **Gegevensbron** de optie **Deze opstartinstallatiekopie implementeren vanaf het PXE-distributiepunt**.  
 
     > [!NOTE]  
-    >  Pour plus d’informations, consultez [Utiliser PXE pour déployer Windows sur le réseau](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
+    >  Zie voor meer informatie [PXE gebruiken om Windows te implementeren via het netwerk](../deploy-use/use-pxe-to-deploy-windows-over-the-network.md).  
 
-6.  Après avoir configuré les propriétés, cliquez sur **OK**.  
+6.  Klik op **OK** nadat u de eigenschappen hebt geconfigureerd.  
 
-##  <a name="BKMK_BootImageLanguage"></a> Configurer plusieurs langues pour le déploiement d’images de démarrage  
- Les images de démarrage sont indépendantes de la langue. Vous pouvez ainsi utiliser une image de démarrage qui affichera le texte de la séquence de tâches en plusieurs langues en mode WinPE, à condition d’inclure la prise en charge des langues adéquates dans les composants facultatifs Windows PE et de définir la variable de séquence de tâches appropriée pour indiquer la langue à afficher. La langue du système d’exploitation que vous déployez est indépendante de la langue affichée en mode WinPE, quelle que soit la version de Configuration Manager utilisée. La langue présentée à l'utilisateur est déterminée comme suit :  
+##  <a name="BKMK_BootImageLanguage"></a>Meerdere talen configureren voor implementatie van de opstartinstallatiekopie  
+ Opstartinstallatiekopieën zijn taalonafhankelijk. Hierdoor kunt u één opstartinstallatiekopie gebruiken die de tekst van de takenreeks in meerdere talen weergeeft wanneer WinPE wordt gebruikt, als u de toepasselijke taalondersteuning uit optionele onderdelen van WinPE opneemt en de toepasselijke takenreeksvariabele zo instelt, dat deze aangeeft welke taal kan worden weergegeven. De taal van het besturingssysteem die u implementeert, is onafhankelijk van de taal die wordt weergegeven in WinPE, ongeacht de versie van Configuration Manager. De aan de gebruiker weergegeven taal wordt als volgt bepaald:  
 
--   Quand un utilisateur exécute la séquence de tâches à partir d’un système d’exploitation existant, Configuration Manager utilise automatiquement la langue configurée pour l’utilisateur. Quand la séquence de tâches est exécutée automatiquement à une échéance de déploiement obligatoire, Configuration Manager utilise la langue du système d’exploitation.  
+-   Wanneer een gebruiker de takenreeks wordt uitgevoerd vanuit een bestaand besturingssysteem wordt uitgevoerd, gebruikt Configuration Manager automatisch de taal die is geconfigureerd voor de gebruiker. Wanneer de takenreeks automatisch wordt uitgevoerd als gevolg van een verplichte implementatiedeadline, wordt in Configuration Manager maakt gebruik van de taal van het besturingssysteem.  
 
--   Dans le cas des déploiements de système d'exploitation qui utilisent PXE ou un média, vous pouvez définir la valeur de l'ID de langue dans la variable SMSTSLanguageFolder, dans le cadre d'une commande de prédémarrage. Quand l’ordinateur démarre dans WinPE, les messages sont affichés dans la langue que vous avez spécifiée dans la variable. En cas d’erreur durant l’accès au fichier de ressources de langue figurant dans le dossier spécifié ou si la variable n’est pas définie, les messages sont affichés dans la langue de WinPE.  
+-   U kunt voor implementaties van besturingssystemen die PXE of media gebruiken de id-waarde van de taal instellen in de variabele SMSTSLanguageFolder als onderdeel van een prestart-opdracht. Wanneer de computer wordt opgestart in WinPE, worden berichten weergegeven in de taal die u hebt opgegeven in de variabele. Als er een fout optreedt bij het openen van het bronbestand voor de taal in de opgegeven map of als u de variabele niet instelt, worden berichten in de WinPE-taal weergegeven.  
 
     > [!NOTE]  
-    >  Quand le média est protégé par un mot de passe, le texte qui invite l’utilisateur à entrer le mot de passe est toujours affiché dans la langue de WinPE.  
+    >  Wanneer de media met een wachtwoord zijn beschermd, wordt de tekst waarin de gebruiker naar het wachtwoord wordt gevraagd, altijd weergegeven in de WinPE-taal.  
 
- Pour définir la langue de WinPE pour les déploiements PXE ou les déploiements de système d’exploitation établis par un média, suivez la procédure ci-dessous.  
+ Gebruik de volgende procedure om de WinPE-taal in te stellen voor met PXE of media geïnitieerde besturingssysteemimplementaties.  
 
-#### <a name="to-set-the-windows-pe-language-for-a-pxe-or-media-initiated-operating-system-deployment"></a>Pour définir la langue de Windows PE pour un déploiement PXE ou un déploiement de système d'exploitation établi par un média  
+#### <a name="to-set-the-windows-pe-language-for-a-pxe-or-media-initiated-operating-system-deployment"></a>De Windows PE-taal instellen voor implementaties van door PXE of media geactiveerde besturingssystemen  
 
-1.  Avant de mettre à jour l'image de démarrage, vérifiez que le fichier de ressources de la séquence de tâche appropriée (tsres.dll) se trouve bien dans le dossier de langue correspondant sur le serveur de site. Par exemple, le fichier de ressources anglais se trouve à l’emplacement suivant : <*dossier_installation_ConfigMgr*> \OSD\bin\x64\00000409\tsres.dll.  
+1.  Controleer of het toepasselijke bronbestand (tsres.dll) voor de takenreeks zich in de betreffende taalmap op de siteserver bevindt, voordat u de opstartinstallatiekopie bijwerkt. Het Engels bronbestand bevindt zich bijvoorbeeld op de volgende locatie:  <*ConfigMgrInstallationFolder*>\OSD\bin\x64\00000409\tsres.dll.  
 
-2.  Dans le cadre de votre commande de prédémarrage, affectez l'ID de langue approprié à la variable d'environnement SMSTSLanguageFolder. Vous devez spécifier l'ID de langue au format décimal, et non hexadécimal. Par exemple, pour configurer l'ID de langue sur l'anglais, vous devez spécifier la valeur décimale 1033 au lieu de la valeur hexadécimale 00000409 utilisée comme nom de dossier.  
+2.  Als onderdeel van uw prestart-opdracht stelt u de variabele voor de SMSTSLanguageFolder-omgeving in op de juiste taal-id. De taal-id moet worden opgegeven met decimale tekens en geen hexadecimale tekens. Als u bijvoorbeeld de taal-id op Engels wilt instellen, zou u een decimale waarde 1033 moeten opgeven in plaats van de hexadecimale waarde 00000409 die wordt gebruikt voor de mapnaam.  

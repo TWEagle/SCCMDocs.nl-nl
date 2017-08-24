@@ -1,6 +1,6 @@
 ---
-title: "Gérer des appareils mobiles | Microsoft Docs"
-description: "Découvrez comment gérer des appareils mobiles à l’aide du connecteur Exchange Server dans System Center Configuration Manager."
+title: Mobiele apparaten beheren | Microsoft Docs
+description: Mobiele apparaten beheren met behulp van de Exchange Server-connector in System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,64 +16,64 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 44958bc35586f5e57ab3fb59681bfb018d2bd5da
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-mobile-devices-with-system-center-configuration-manager-and-exchange"></a>Gérer des appareils mobiles à l’aide de System Center Configuration Manager et d’Exchange
+# <a name="manage-mobile-devices-with-system-center-configuration-manager-and-exchange"></a>Mobiele apparaten beheren met System Center Configuration Manager en Exchange
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Utilisez le connecteur Exchange Server dans System Center Configuration Manager pour gérer les appareils mobiles qui se connectent à Exchange Server (en local ou en ligne) en utilisant le protocole Microsoft Exchange ActiveSync, mais que vous ne pouvez pas inscrire à l’aide de Configuration Manager. Vous pouvez configurer les fonctionnalités de gestion des appareils mobiles d’Exchange, telles que la réinitialisation à distance de l’appareil et le contrôle des paramètres de plusieurs serveurs Exchange, dans la console Configuration Manager.  
+Exchange Server-connector gebruiken in System Center Configuration Manager als u wilt beheren van mobiele apparaten die verbinding met Exchange Server maken (lokaal of online) via het Microsoft Exchange ActiveSync-protocol en u ze niet kunt registreren met Configuration Manager. U kunt Exchange functies voor mobiele apparaten, zoals het wissen van het externe apparaat en instellingen voor meerdere Exchange-servers, vanuit de Configuration Manager-console configureren.  
 
- ![configmgr&#45;avec&#45;exchange](../../mdm/deploy-use/media/configmgr-with-exchange.png "configmgr-avec-exchange")  
+ ![Configuration Manager &#45; met &#45; exchange](../../mdm/deploy-use/media/configmgr-with-exchange.png "Configuration Manager met exchange")  
 
- Quand vous gérez des appareils mobiles à l’aide du connecteur Exchange Server, le client Configuration Manager n’est pas installé sur les appareils mobiles. Certaines fonctions de gestion sont donc limitées. Par exemple, vous ne pouvez pas installer un logiciel sur ces périphériques ou les configurer à l'aide d'éléments de configuration. Pour plus d’informations sur les différentes fonctionnalités de gestion d’appareils mobiles que vous pouvez utiliser avec Configuration Manager, consultez [Choisir une solution de gestion d’appareils pour System Center Configuration Manager](../../core/plan-design/choose-a-device-management-solution.md).  
+ Wanneer u mobiele apparaten beheren met behulp van de Exchange Server-connector, wordt dit Configuration Manager-client niet geïnstalleerd op de mobiele apparaten. Sommige beheerfuncties zijn daarom beperkt. U kunt bijvoorbeeld geen software installeren op deze apparaten of configuratie-items gebruiken om deze apparaten te configureren. Zie voor meer informatie over de verschillende beheermogelijkheden die u met Configuration Manager voor mobiele apparaten gebruiken kunt, [een oplossing voor Apparaatbeheer kiezen voor System Center Configuration Manager](../../core/plan-design/choose-a-device-management-solution.md).  
 
 > [!IMPORTANT]  
->  Avant d’installer le connecteur Exchange Server, vérifiez que Configuration Manager prend bien en charge la version de Microsoft Exchange que vous utilisez. Pour plus d’informations, consultez la section « Connecteur Exchange Server » dans [Systèmes d’exploitation pris en charge pour les sites et les clients pour System Center Configuration Manager](/sccm/core/plan-design/configs/supported-operating-systems-for-site-system-servers).  
+>  Voordat u de Exchange Server-connector installeert, moet u nagaan of Configuration Manager ondersteunt de versie van Microsoft Exchange die u gebruikt. Zie voor meer informatie 'Exchange Server-connector' in [ondersteunde besturingssystemen voor sites en clients voor System Center Configuration Manager](/sccm/core/plan-design/configs/supported-operating-systems-for-site-system-servers).  
 
- Quand vous utilisez le connecteur Exchange Server, vous pouvez gérer les appareils mobiles avec les paramètres que vous configurez dans Configuration Manager au lieu des stratégies de boîte aux lettres Exchange ActiveSync par défaut. Définissez les paramètres à utiliser dans les paramètres des groupes suivants : **Général**, **Mot de passe**, **Gestion de la messagerie**, **Sécurité**et **Application**. Par exemple, dans le paramètre du groupe **Mot de passe** , vous pouvez indiquer que les appareils mobiles requièrent un mot de passe, la longueur minimale du mot de passe, la complexité du mot de passe, et si la récupération de mot de passe est autorisée.  
+ Wanneer u de Exchange Server-connector gebruikt, kunnen de mobiele apparaten worden beheerd door de instellingen die u in Configuration Manager configureren in plaats van dat wordt beheerd door de standaardbeleidsregels voor Exchange ActiveSync-postvak. Definieer de instellingen die u wilt gebruiken in de volgende instellingen: **Algemene**, **wachtwoord**, **e-mailbeheer**, **beveiliging**, en **toepassing**. U kunt bijvoorbeeld in de groepsinstelling **Wachtwoord** configureren of mobiele apparaten een wachtwoord nodig hebben, de minimale wachtwoordlengte, wachtwoordcomplexiteit en of wachtwoordherstel is toegestaan.  
 
- Si vous configurez au moins un paramètre dans le groupe, Configuration Manager gère tous les paramètres dans le groupe pour les appareils mobiles. Si vous ne configurez pas de paramètre dans un groupe, Exchange Server continue à gérer les appareils mobiles pour ces paramètres. Les stratégies de boîte aux lettres Exchange ActiveSync configurées sur Exchange Server et attribuées aux utilisateurs continueront à être appliquées.  
+ Wanneer u ten minste één instelling in de groep configureert, wordt in Configuration Manager alle instellingen in de groep voor mobiele apparaten beheert. Als u geen instellingen in een groep configureert, blijft Exchange de mobiele apparaten voor die instellingen beheren. Al het beleid voor Exchange ActiveSync-postvakken dat wordt geconfigureerd op de Exchange Server en wordt toegewezen aan gebruikers is nog steeds van toepassing.  
 
- Vous pouvez également configurer le connecteur Exchange Server pour gérer les règles d'accès Exchange et autoriser, bloquer ou mettre en quarantaine des appareils mobiles. Vous pouvez réinitialiser à distance des appareils mobiles à partir de la console Configuration Manager. Les utilisateurs peuvent le faire pour leurs appareils mobiles à partir du catalogue d’applications.  
+ U kunt de Exchange Server-connector ook configureren om de toegangsregels voor Exchange te beheren en mobiele apparaten toe te staan, te blokkeren of in quarantaine te plaatsen. U kunt mobiele apparaten op afstand wissen via de Configuration Manager-console en gebruikers kunnen hun mobiele apparaten op afstand wissen via de Application Catalog.  
 
- L’appareil mobile d’un utilisateur s’affiche automatiquement dans le catalogue d’applications s’il est géré par le connecteur Exchange Server et si Exchange Server est installé en local. Si vous configurez le connecteur Exchange Server pour Microsoft Exchange Online, vous devez configurer manuellement l’affinité entre utilisateur et appareil pour que l’appareil mobile de l’utilisateur s’affiche dans le catalogue d’applications. Pour plus d’informations sur la configuration manuelle de l’affinité entre utilisateur et appareil, consultez [Lier des utilisateurs et des appareils avec l’affinité entre utilisateur et appareil dans System Center Configuration Manager](../../apps/deploy-use/link-users-and-devices-with-user-device-affinity.md).  
+ Het mobiele apparaat van een gebruiker automatisch in de Toepassingscatalogus wordt weergegeven wanneer de Exchange Server-connector wordt beheerd en de Exchange-Server lokaal is. Wanneer u de Exchange Server-connector voor Microsoft Exchange Online configureert, moet u handmatig gebruikersapparaataffiniteit voor mobiele apparaten van de gebruiker worden weergegeven in de Application Catalog te configureren. Zie voor meer informatie over het handmatig configureren van affiniteit van gebruikersapparaat [gebruikers en apparaten koppelen met affiniteit tussen gebruikers en apparaten in System Center Configuration Manager](../../apps/deploy-use/link-users-and-devices-with-user-device-affinity.md).  
 
 > [!TIP]  
->  Si vous gérez un appareil mobile à l’aide du connecteur Exchange Server et que cet appareil est transféré à un autre utilisateur, supprimez l’appareil mobile de la console Configuration Manager pour permettre au nouveau propriétaire de l’appareil mobile de configurer son compte Exchange sur cet appareil mobile transféré.  
+>  Als u een mobiel apparaat beheert via de Exchange Server-connector en het mobiele apparaat wordt overgedragen aan een andere gebruiker, moet u het mobiele apparaat uit de Configuration Manager-console verwijderen voordat de nieuwe eigenaar van het mobiele apparaat, configureert u zijn of haar Exchange-account op dit mobiele apparaat overgedragen.  
 
-## <a name="required-security-permissions"></a>Autorisations de sécurité requises  
- Vous devez disposer des autorisations de sécurité suivantes pour configurer le connecteur Exchange Server :  
+## <a name="required-security-permissions"></a>Vereiste beveiligingsrechten  
+ U moet beschikken over de volgende beveiligingsrechten om de Exchange Server-connector te configureren:  
 
--   Pour ajouter, modifier et supprimer le connecteur Exchange Server : autorisation **Modifier** pour l’objet **Site** .  
+-   Als u wilt toevoegen, wijzigen en verwijderen van de Exchange Server-connector: **Wijzig** machtiging voor de **Site** object.  
 
--   Pour configurer les paramètres des appareils mobiles : autorisation **Modifier la stratégie du connecteur** pour l’objet **Site** .  
+-   Instellingen voor mobiele apparaten configureren: **ModifyConnectorPolicy** machtiging voor de **Site** object.  
 
- Le rôle de sécurité **Administrateur complet** comprend les autorisations requises pour configurer le connecteur Exchange Server.  
+ De beveiligingsrol **Volledige beheerder** bevat de vereiste machtigingen om de Exchange Server-connector te configureren.  
 
- Vous devez disposer des autorisations de sécurité suivantes pour gérer des appareils mobiles :  
+ U moet over de volgende beveiligingsmachtigingen beschikken om mobiele apparaten te beheren:  
 
--   Pour réinitialiser un appareil mobile : **Supprimer la ressource** pour l’objet **Collection** .  
+-   Wissen van een mobiel apparaat: **Bron verwijderen** voor de **verzameling** object.  
 
--   Pour annuler une commande de réinitialisation : **Modifier la ressource** pour l’objet **Collection** .  
+-   Een wisopdracht annuleren: **Wijzig bron** voor de **verzameling** object.  
 
--   Pour autoriser et bloquer des appareils mobiles : **Modifier la ressource** pour l’objet **Collection** .  
+-   Toestaan en blokkeren van mobiele apparaten: **Wijzig bron** voor de **verzameling** object.  
 
- Le rôle de sécurité **Administrateur d'opérations** comprend les autorisations nécessaires pour la gestion des appareils mobiles à l'aide du connecteur Exchange Server.  
+ De beveiligingsrol **Bewerkingenbeheerder** bevat de vereiste machtigingen om mobiele apparaten te beheren met de Exchange Server-connector.  
 
- Pour plus d’informations sur la configuration des autorisations de sécurité, consultez [Configurer l’administration basée sur des rôles pour System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
+ Zie voor meer informatie over het configureren van beveiligingsmachtigingen [beheer op basis van rollen voor System Center Configuration Manager configureren](../../core/servers/deploy/configure/configure-role-based-administration.md).  
 
-## <a name="installing-and-configuring-an-exchange-server-connector"></a>Installation et configuration d'un connecteur Exchange Server  
- Utilisez la procédure suivante pour installer et configurer un connecteur du serveur Exchange Server afin de gérer des appareils mobiles. Configuration Manager prend en charge un seul connecteur dans une organisation Exchange. Après avoir effectué ces étapes, vous pouvez surveiller les appareils mobiles trouvés et gérés par le connecteur en consultant les regroupements contenant des appareils mobiles et les rapports les concernant.  
+## <a name="installing-and-configuring-an-exchange-server-connector"></a>Installeren en configureren van een Exchange Server-Connector  
+ Gebruik de volgende procedure om een Exchange Server-connector te installeren en te configureren om mobiele apparaten te beheren. Configuration Manager ondersteunt slechts één connector binnen een Exchange-organisatie. Na voltooiing van deze stappen kunt u de mobiele apparaten volgen die door de connector worden gevonden en beheerd wanneer u de verzamelingen bekijkt die mobiele apparaten weergeven en door gebruik van de rapporten voor mobiele apparaten.  
 
 > [!NOTE]  
->  Configuration Manager génère des noms pour les appareils mobiles qu’il trouve, au format *Nom d’utilisateur*_*Type d’appareil*. Si un utilisateur a plusieurs appareils mobiles du même type, Configuration Manager les affiche tous sous le même nom dans la console et les rapports.  
+>  Configuration Manager genereert namen voor de mobiele apparaten die worden gevonden in de indeling *gebruikersnaam*_*DeviceType*. Als een gebruiker meer dan één mobiel apparaat heeft van hetzelfde apparaattype heeft, wordt dezelfde naam voor deze mobiele apparaten in de Configuration Manager weergeeft in de console en in rapporten.  
 
-#### <a name="to-install-and-configure-an-exchange-server-connector"></a>Pour installer et configurer un connecteur Exchange Server  
+#### <a name="to-install-and-configure-an-exchange-server-connector"></a>Installeren en configureren van een Exchange Server-connector  
 
-1.  Décidez quel compte se connectera au serveur d'accès au client Exchange pour gérer les appareils mobiles. Le compte peut être le compte d'ordinateur du serveur de site ou un compte d'utilisateur Windows. Configurez ensuite ce compte pour exécuter les applets de commande Exchange Server suivantes :  
+1.  Besluit welk account u wilt verbinden met de Exchange Client Access-server om mobiele apparaten te beheren. Het account kan een computeraccount van de siteserver zijn of een Windows-gebruikersaccount. Configureer vervolgens dit account voor uitvoering van de volgende Exchange Server-cmdlets:  
 
     -   **Clear-ActiveSyncDevice**  
 
@@ -87,9 +87,9 @@ Utilisez le connecteur Exchange Server dans System Center Configuration Manager 
 
     -   **Get-ActiveSyncOrganizationSettings**  
 
-    -   **Get-ExchangeServer**  
+    -   **Get-Exchange**  
 
-    -   **Get-Recipient**  
+    -   **Get-ontvanger**  
 
     -   **Set-ADServerSettings**  
 
@@ -99,38 +99,38 @@ Utilisez le connecteur Exchange Server dans System Center Configuration Manager 
 
     -   **Set-CASMailbox**  
 
-    -   **New-ActiveSyncDeviceAccessRule**  
+    -   **Nieuwe ActiveSyncDeviceAccessRule**  
 
-    -   **New-ActiveSyncMailboxPolicy**  
+    -   **Nieuwe ActiveSyncMailboxPolicy**  
 
     -   **Remove-ActiveSyncDevice**  
 
     > [!NOTE]  
-    >  Les rôles de gestion Exchange Server suivants comprennent les applets de commande suivantes : Gestion des destinataires, Gestion de l’organisation en affichage seul et Gestion du serveur. Pour plus d'informations sur les groupes de rôles de gestion dans Microsoft Exchange Server 2010, consultez [Présentation des groupes de rôles de gestion](http://go.microsoft.com/fwlink/p/?LinkId=212914).  
+    >  De volgende Exchange Server-beheerrollen bevatten deze cmdlets: Recipient Management, View-Only Organization Management en Serverbeheer. Zie [Understanding Management Role Groups (Uitleg van beheerrolgroepen)](http://go.microsoft.com/fwlink/p/?LinkId=212914)voor meer informatie over beheerrolgroepen in Microsoft Exchange Server 2010.  
 
     > [!TIP]  
-    >  Si vous essayez d'installer ou d'utiliser le connecteur Exchange Server sans les applets de commande requises, une erreur est consignée dans le message `Invoking cmdlet <cmdlet> failed` dans le fichier journal EasDisc.log de l'ordinateur du serveur de site.  
+    >  Als u de Exchange Server-connector probeert te installeren of te gebruiken zonder de vereiste cmdlets, ziet u de foutmelding `Invoking cmdlet <cmdlet> failed` in het EasDisc.log-bestand op de siteservercomputer.  
 
-2.  Dans la console Configuration Manager, cliquez sur **Administration**.  
+2.  Klik op **Beheer**in de Configuration Manager-console.  
 
-3.  Dans l'espace de travail **Administration** , développez **Configuration de la hiérarchie**, puis cliquez sur **Connecteurs du serveur Exchange Server**.  
+3.  Vouw in de werkruimte **Beheer** **Hiërarchieconfiguratie**uit en klik vervolgens op **Exchange Server-connectors**.  
 
-4.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Ajouter le serveur Exchange Server**.  
+4.  Klik op **Exchange Server toevoegen** in het tabblad **Start** in de groep **Maken**.  
 
-5.  Effectuez toutes les étapes de l'Assistant Ajout d'un serveur Exchange Server :  
+5.  Voltooi de wizard Exchange Server toevoegen:  
 
-    -   Si vous utilisez une instance locale d'Exchange Server et spécifiez un serveur d'accès au client, vous pouvez spécifier un serveur unique ou un groupe de serveurs d'accès au client pour chaque site Active Directory. Si le serveur ou groupe de serveurs est hors connexion, Configuration Manager tente de trouver un serveur d’accès au client à utiliser. S’il n’en trouve pas, Configuration Manager utilise à la place un serveur de boîtes aux lettres pour établir une connexion à un serveur d’accès au client. Les nouvelles tentatives sont enregistrées en tant qu'avertissements dans le fichier EasDisc.log sur l'ordinateur du serveur de site. Par exemple, recherchez `Failed to open runspace for site <site_name>`.  
+    -   Als u een lokaal Exchange Server-exemplaar gebruikt en een Client Access Server specificeert, kunt u een enkele server of een Client Access Server-matrix specificeren voor iedere Active Directory-site. Als de server of matrix offline is, probeert de Configuration Manager voor het detecteren van een Client Access Server te gebruiken. Als dat mislukt, valt Configuration Manager terug op het gebruik van een postvakserver verbinding te maken met een Client Access Server. Nieuwe pogingen worden geregistreerd als waarschuwingen in het EasDisc.log-bestand op de siteservercomputer. Bijvoorbeeld zoeken naar `Failed to open runspace for site <site_name>`.  
 
-    -   Pour le compte du connecteur Exchange Server, spécifiez le compte que vous avez configuré à l'étape 1.  
+    -   Specificeer voor het Exchange Server Connector-account het account dat u hebt geconfigureerd in stap 1.  
 
-    -   Si vous inscrivez également des appareils mobiles à l’aide de Configuration Manager, activez l’option **Gestion des appareils mobiles externes** pour vous assurer que ces appareils mobiles recevront encore les e-mails d’Exchange après leur inscription par Configuration Manager.  
+    -   Als u ook mobiele apparaten registreert met behulp van Configuration Manager, schakelt u de optie **beheer op afstand mobiele apparaten** om ervoor te zorgen dat deze mobiele apparaten e-mails ontvangen van Exchange blijven nadat Configuration Manager ze heeft geregistreerd.  
 
-    -   Dans la page **Compte** de l’Assistant, vous pouvez configurer le compte utilisé pour envoyer des notifications par e-mail aux clients qui sont bloqués par l’accès conditionnel de Configuration Manager. Le compte que vous spécifiez doit avoir une boîte aux lettres valide sur le serveur Exchange.  
+    -   Op de **Account** pagina van de wizard kunt u het account dat wordt gebruikt voor het e-mailmeldingen te verzenden naar clients die zijn geblokkeerd door voorwaardelijke toegang van Configuration Manager configureren. Het account dat u opgeeft, moet een geldig postvak op de Exchange-server hebben.  
 
-         Pour plus d’informations, consultez [Gérer l’accès aux services dans System Center Configuration Manager](../../protect/deploy-use/manage-access-to-services.md).  
+         Zie voor meer informatie [toegang tot services in System Center Configuration Manager beheren](../../protect/deploy-use/manage-access-to-services.md).  
 
-6.  Vous pouvez vérifier l'installation du connecteur Exchange Server à l'aide de messages d'état et en passant en revue les fichiers journaux :  
+6.  U kunt de installatie van de Exchange Server-connector controleren door statusberichten te gebruiken en de logboekbestanden te controleren:  
 
-    -   Pour vérifier que le Gestionnaire de composants de site a bien installé le connecteur Exchange Server, recherchez l'ID de l'état **1015** pour le composant **SMS_EXCHANGE_CONNECTOR** . Si Configuration Manager ne peut pas installer correctement le connecteur (parce que l’ordinateur du serveur d’accès au client spécifié est hors connexion, par exemple), Configuration Manager effectue une nouvelle tentative d’installation toutes les 60 minutes jusqu’à ce que l’opération réussisse ou que vous supprimiez le connecteur Exchange Server.  
+    -   Om te bevestigen dat Site Component Manager de Exchange Server-connector heeft geïnstalleerd, zoekt u naar de status-id **1015** voor het **SMS_EXCHANGE_CONNECTOR** -onderdeel. Als Configuration Manager kan niet de connector installeren (bijvoorbeeld omdat de opgegeven Client Access Server-computer offline is), Configuration Manager probeert opnieuw, voor de installatie om de 60 minuten totdat de installatie is geslaagd of u de Exchange Server-connector verwijderen.  
 
-    -   Sur l'ordinateur du serveur de site, recherchez le fichier SiteComp.log, puis dans le fichier journal, recherchez `Component SMS_EXCHANGE_CONNECTOR flagged for installation`. Quand l'installation s'effectue correctement, elle est enregistrée avec le texte suivant : `STATMSG: ID=1015`.  
+    -   Zoek op de siteservercomputer naar het SiteComp.log-bestand en zoek vervolgens in het logboekbestand naar `Component SMS_EXCHANGE_CONNECTOR flagged for installation`. Een geslaagde installatie word vervolgens geregistreerd met de volgende tekst: `STATMSG: ID=1015`.  

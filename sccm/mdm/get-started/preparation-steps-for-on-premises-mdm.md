@@ -1,6 +1,6 @@
 ---
-title: "Étapes de préparation | Microsoft Docs"
-description: "Préparez-vous à gérer les appareils avec la fonctionnalité de gestion des appareils mobiles locale de System Center Configuration Manager."
+title: Voorbereidende stappen | Microsoft Docs
+description: Voorbereiden voor het beheren van apparaten met On-premises Mobile Device Management in System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,30 +16,30 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 85bdadaaaeed9a42cfa5165d2b9f0f3ef434dc03
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="preparation-steps-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Étapes de préparation pour la gestion des appareils mobiles locale dans System Center Configuration Manager
+# <a name="preparation-steps-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Voorbereidingsstappen voor on-premises Mobile Device Management in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Gérer les appareils à l’aide de la fonctionnalité de gestion des appareils mobiles locale de System Center Configuration Manager exige que l’infrastructure Configuration Manager soit configurée de telle sorte que les rôles de système de site requis (point proxy d’inscription, point d’inscription, point de gestion d’appareil et point de distribution) puissent communiquer avec les appareils mobiles à gérer sur un canal fiable.  
+Apparaten beheren met System Center Configuration Manager op\-premises Mobile Device Management is vereist voor de Configuration Manager-infrastructuur worden ingesteld zodat de vereiste sitesysteemrollen (proxypunt voor inschrijving, inschrijvingspunt, apparaatbeheerpunt en distributiepunt) via een vertrouwd kanaal kunnen communiceren met de mobiele apparaten worden beheerd.  
 
- Les tâches principales suivantes sont nécessaires à la préparation du système Configuration Manager à la gestion des appareils mobiles locale :  
+ De volgende taken op hoog niveau zijn nodig voor het voorbereiden van de Configuration Manager-systeem voor op\-premises Mobile Device Management:  
 
--   [Configurer un abonnement Microsoft Intune pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/get-started/set-up-intune-subscription-on-premises-mdm.md)  
+-   [Een Microsoft Intune-abonnement instellen voor On-premises Mobile Device Management in System Center Configuration Manager](../../mdm/get-started/set-up-intune-subscription-on-premises-mdm.md)  
 
-     Dans cette tâche, vous vous inscrivez à Microsoft Intune et ajoutez ensuite l’abonnement à Configuration Manager via la console Configuration Manager. Cette étape est nécessaire uniquement pour la licence. Intune n’est utilisé ni pour gérer les appareils ni pour stocker les informations de gestion. La coordination et la gestion des appareils est entièrement assurée dans votre entreprise à l’aide de l’infrastructure Configuration Manager locale.  
+     Aanmelden voor Microsoft Intune in deze taak en voeg vervolgens het abonnement naar Configuration Manager via de Configuration Manager-console. Deze stap is uitsluitend vereist voor licentieverlening. Intune wordt niet gebruikt voor de apparaten te beheren of beheergegevens worden opgeslagen. Alle coördinatie en beheer van apparaten is met uw bedrijfsorganisatie met behulp van de on-premises Configuration Manager-infrastructuur.  
 
--   [Installer des rôles de système de site pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/get-started/install-site-system-roles-for-on-premises-mdm.md)  
+-   [Sitesysteemrollen installeren voor On-premises Mobile Device Management in System Center Configuration Manager](../../mdm/get-started/install-site-system-roles-for-on-premises-mdm.md)  
 
-     Dans cette tâche, vous installez et configurez les rôles de système de site nécessaires à la gestion des appareils avec l’infrastructure Configuration Manager locale. La fonctionnalité de gestion des appareils mobiles locale exige au minimum les rôles de système de site Point proxy d’inscription, Point d’inscription, Point de gestion d’appareil et Point de distribution.  
+     In deze taak installeren en configureren van de sitesysteemrollen die zijn vereist voor het beheren van apparaten met on-premises Configuration Manager-infrastructuur. Op\-premises Mobile Device Management minimaal vereist het proxypunt voor inschrijving, inschrijvingspunt, apparaatbeheerpunt en distributiepunt sitesysteemrollen.  
 
--   [Configurer des certificats pour les communications approuvées pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/get-started/set-up-certificates-on-premises-mdm.md)  
+-   [Certificaten voor vertrouwde communicatie voor On-premises Mobile Device Management in System Center Configuration Manager instellen](../../mdm/get-started/set-up-certificates-on-premises-mdm.md)  
 
-     Dans cette tâche, vous configurez l’infrastructure Configuration Manager locale pour autoriser les communications fiables (HTTPS) entre les appareils gérés et les serveurs hébergeant les rôles de système de site requis.  
+     In deze taak configureert u de on-premises Configuration Manager-infrastructuur zodat vertrouwde communicatie (HTTPS) tussen beheerde apparaten en de servers die als host fungeert voor de vereiste sitesysteemrollen.  
 
--   [Configurer l’inscription d’appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/get-started/set-up-device-enrollment-on-premises-mdm.md)  
+-   [Registratie van apparaten instellen voor On-premises Mobile Device Management in System Center Configuration Manager](../../mdm/get-started/set-up-device-enrollment-on-premises-mdm.md)  
 
-     Dans cette tâche, vous autorisez les utilisateurs à inscrire des ordinateurs et des appareils, et vous installez le certificat racine approuvé sur les appareils (en général, ceux qui ne sont pas membres du domaine) pour autoriser les connexions HTTPS aux serveurs de système de site.  
+     In deze taak verleent u toestemming aan gebruikers om computers en apparaten te registreren en installeert u het vertrouwde basiscertificaat op apparaten (meestal apparaten die geen lid zijn van het domein) om HTTPS-verbindingen met de sitesysteemservers toe te staan.  

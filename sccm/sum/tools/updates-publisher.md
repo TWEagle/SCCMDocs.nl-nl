@@ -1,6 +1,6 @@
 ---
-title: "Éditeur de mise à jour | Microsoft Docs"
-description: "Utiliser l’éditeur de mise à jour Center Updates pour gérer les mises à jour personnalisées"
+title: Updates Publisher | Microsoft Docs
+description: System Center Updates Publisher gebruiken voor het beheren van aangepaste updates
 ms.custom: na
 ms.date: 4/29/2017
 ms.prod: configuration-manager
@@ -17,50 +17,50 @@ manager: angrobe
 robots: NOINDEX, NOFOLLOW
 ms.openlocfilehash: f4951c204b32da58174b94a539b380c278fa9756
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="system-center-updates-publisher"></a>Éditeur de mise à jour Systems Center
+# <a name="system-center-updates-publisher"></a>System Center Updates Publisher
 
-*S’applique à : l'éditeur de mise à jour System Center*
+*Van toepassing op: System Center Updates Publisher*
 
-L’éditeur de mise à jour System Center est un outil autonome qui permet à des éditeurs de logiciels indépendants ou des développeurs d’applications métier de gérer les mises à jour personnalisées. Cela inclut les mises à jour qui comportent des dépendances, comme les pilotes et les offres groupées de mises à jour.
+System Center Updates Publisher (Updates Publisher) is een zelfstandig hulpprogramma dat kan onafhankelijke softwareleveranciers of line-of-business-toepassingsontwikkelaars om aangepaste updates te beheren. Dit omvat de updates die afhankelijkheden, zoals stuurprogramma's en updatebundels hebben.
 
-À l’aide de l’éditeur de mise à jour, vous pouvez :
+Met Updates Publisher, kunt u het volgende doen:
 
--   Importer des mises à jour à partir de catalogues externes (catalogues de mises à jour non-Microsoft).
--   Modifier des définitions de mise à jour, y compris la mise en application, et les métadonnées de déploiement.
--   Exporter les mises à jour vers des catalogues externes.
--   Publier les mises à jour sur un serveur de mise à jour.
+-   Updates importeren uit externe catalogi (niet-Microsoft update-catalogus).
+-   Updatedefinities inclusief toepasselijkheid en de metagegevens voor de implementatie wijzigen.
+-   Updates naar externe catalogi exporteren.
+-   Updates aan een updateserver publiceren.
 
-Une fois que vous publiez des mises à jour sur un serveur de mise à jour, vous pouvez ensuite utiliser System Center Configuration Manager pour détecter et déployer ces mises à jour sur vos appareils gérés.
+Nadat u updates naar een updateserver publiceert, kunt u vervolgens System Center Configuration Manager gebruiken om te detecteren en implementeren die updates op uw beheerde apparaten.
 
 > [!TIP]  
-> La version précédente, [System Center Updates Publisher 2011](http://go.microsoft.com/fwlink/?LinkId=848111), reste prise en charge. Cette version mise à jour conserve les mêmes fonctionnalités, mais elle prend en charge d’autres systèmes d’exploitation, de nouvelles fonctionnalités pour simplifier certaines tâches, et propose une nouvelle interface utilisateur.
+> De vorige versie [System Center Updates Publisher 2011](http://go.microsoft.com/fwlink/?LinkId=848111), blijft in de ondersteuning. Deze bijgewerkte versie behoudt dezelfde functionaliteit, maar biedt ondersteuning voor aanvullende besturingssystemen, nieuwe functies voor het vereenvoudigen van sommige taken, en heeft een bijgewerkte gebruiker-interface.
 
-## <a name="workspaces"></a>Espaces de travail
-Lorsque vous ouvrez l’éditeur de mise à jour, il affiche par défaut le nœud Vue d’ensemble de l*’espace de travail Mises à jour.*
+## <a name="workspaces"></a>Werkruimten
+Wanneer u Updates Publisher opent, wordt standaard naar het knooppunt overzicht van de *werkruimte Updates.*
 
-![Console de l’éditeur de mise à jour](media/console1.png)   
-
-
-L’éditeur de mise à jour comporte quatre espaces de travail qui facilitent son utilisation.
+![Updates Publisher-console](media/console1.png)   
 
 
-**Espace de travail Mises à jour :** utilisez cet espace de travail pour [créer](/sccm/sum/tools/create-updates-with-updates-publisher) et [gérer](/sccm/sum/tools/manage-updates-with-updates-publisher) les mises à jour logicielles et les offres groupées de mises à jour. Cela inclut l’affectation de mises à jour et d’offres groupées à une publication, ainsi que la publication et l’exportation vers le référentiel d’un autre éditeur de mise à jour.
-
-**Espace de travail Publications :** c’est ici que vous [gérez vos publications](/sccm/sum/tools/updates-publisher-publications). Une publication est un groupe de mises à jour que vous créez pour simplifier l’exportation et la publication des mises à jour.
-
-La gestion des publications inclut la publication des mises à jour sur un serveur afin que vos clients puissent les trouver et les installer, l’exportation de mises à jour et d’offres groupées à utiliser par d’autres installations de l’éditeur de mise à jour, ou la modification du contenu ou des détails d’une publication.
+Updates Publisher heeft vier werkruimten om te ordenen.
 
 
+**De werkruimte updates:** Gebruik deze werkruimte naar [maken](/sccm/sum/tools/create-updates-with-updates-publisher) en [beheren](/sccm/sum/tools/manage-updates-with-updates-publisher) software-updates en updatebundels. Dit omvat updates toe te wijzen en verzamelt voor een publicatie, publiceren en te exporteren naar een andere Updates Publisher-opslagplaats.
 
-**Espace de travail Règles :** c’est ici que vous [gérez les règles de mise en application](/sccm/sum/tools/updates-publisher-applicability-rules) qui peuvent être enregistrées puis utilisées avec les mises à jour que vous déployez. Il existe deux types de règles:
+**Publicaties-werkruimte:** Dit is wanneer u [publicaties beheren](/sccm/sum/tools/updates-publisher-publications). Een publicatie is de groep van updates die u maakt om de uitvoer en publiceren van de updates te vereenvoudigen.
 
--   Règles installables : ces règles permettent de déterminer si un client doit installer une mise à jour.
--   Règles installées : ces règles vérifient si une mise à jour est déjà installée.
+Het beheren van publicaties bevat publishing updates naar een server zodat uw clients kunnen vinden en installeren, updates en bundels voor gebruik door andere installaties van Updates Publisher exporteren of het wijzigen van de inhoud van of de details van een publicatie.
 
-**Espace de travail Catalogues :** utilisez cet espace de travail pour ajouter cet espace de travail et [gérer les catalogues de mises à jour logicielles](/sccm/sum/tools/updates-publisher-catalogs). Cela inclut l’importation des mises à jour logicielles de ces catalogues vers le référentiel de l’éditeur de mise à jour.
-## <a name="first-steps"></a>Premières étapes
-Pour commencer, [installez](/sccm/sum/tools/install-updates-publisher) puis [configurez les options](/sccm/sum/tools/updates-publisher-options) de l’éditeur de mise à jour.
+
+
+**Regels-werkruimte:** Hier is wanneer u [regels voor toepasselijkheid beheren](/sccm/sum/tools/updates-publisher-applicability-rules) die kunnen worden opgeslagen en vervolgens worden gebruikt met updates die u implementeert. Er zijn twee typen regels:
+
+-   Installeerbare regels – deze regels kunnen u bepalen als een client moet een update installeren.
+-   De geïnstalleerde regels – deze regels controleren of een update al is geïnstalleerd.
+
+**Catalogussen-werkruimte:** Gebruik deze werkruimte om toe te voegen en [software-update-catalogussen beheren](/sccm/sum/tools/updates-publisher-catalogs). Dit omvat het importeren van software-updates uit die catalogi naar de opslagplaats voor Updates Publisher.
+## <a name="first-steps"></a>Eerste stappen
+Aan de slag eerst [installeren](/sccm/sum/tools/install-updates-publisher), en vervolgens [opties configureren](/sccm/sum/tools/updates-publisher-options) voor Updates Publisher.

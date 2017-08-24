@@ -1,6 +1,6 @@
 ---
-title: "Ressources d’installation de sites | Microsoft Docs"
-description: "Consultez une liste de rubriques d’aide sur l’installation de System Center Configuration Manager ou l’ajout de sites à votre hiérarchie."
+title: Site-installatie resources | Microsoft Docs
+description: "Bekijk een lijst met onderwerpen die u helpen bij het installeren van System Center Configuration Manager of sites toevoegen aan uw hiërarchie."
 ms.custom: na
 ms.date: 1/3/2017
 ms.prod: configuration-manager
@@ -17,36 +17,36 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 75511c744d7d2bae960273c845ce68f06a82b697
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="resources-for-installing-system-center-configuration-manager-sites"></a>Ressources d’installation de sites System Center Configuration Manager
+# <a name="resources-for-installing-system-center-configuration-manager-sites"></a>Bronnen voor het installeren van System Center Configuration Manager-sites
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Les rubriques suivantes peuvent vous aider à installer System Center Configuration Manager ou à ajouter des sites à votre hiérarchie Configuration Manager existante.
+De volgende onderwerpen kunt u System Center Configuration Manager installeren of sites toevoegen aan uw bestaande Configuration Manager-hiërarchie.
 
-- [Préparer l’installation des sites](prepare-to-install-sites.md)
+- [De installatie van sites voorbereiden](prepare-to-install-sites.md)
 
-  Cette rubrique contient des informations essentielles destinées à vous aider à installer un site dans une hiérarchie nouvelle ou existante. Elle indique notamment les cas où vous devez utiliser d’autres fichiers sources que ceux par défaut, les limitations qui s’appliquent à tous les sites, et les actions facultatives que vous pouvez effectuer pour simplifier l’installation de plusieurs sites.
+  In dit onderwerp biedt essentiële informatie kunt u een site naar een nieuwe of bestaande hiërarchie te installeren. Informatie bevat niet-standaard bron kiezen bestanden beperkingen die gelden voor alle sites en over acties die u kunt ondernemen om u te helpen bij het installeren van meer dan één site om taken te vereenvoudigen.
 
-- [Conditions préalables à l’installation d’un site](prerequisites-for-installing-sites.md)
+- [Vereisten voor het installeren van sites](prerequisites-for-installing-sites.md)
 
-  Découvrez quels sont les droits d’utilisateur et les autorisations que votre compte doit avoir pour installer un site, et quelles sont les conditions préalables à vérifier pour chaque type de site que vous pouvez installer.
+  Meer informatie over de rechten en machtigingen voor die uw account hebben moet voor het installeren van een site en over gerelateerde vereisten voor elk type site dat u kunt installeren.
 
-- [Installer des sites à l’aide de l’Assistant Installation](use-the-setup-wizard-to-install-sites.md)
+- [Sites installeren met de Wizard Setup](use-the-setup-wizard-to-install-sites.md)
 
-  Cette rubrique vous guide tout au long de l’Assistant Installation de site. Il fournit des détails sur des options qui peuvent ne pas être suffisamment claires dans l’interface utilisateur de l’Assistant.  
+  In dit onderwerp leert u de installatiewizard van de site. Het biedt details over de opties die onduidelijk in de gebruikersinterface van de wizard zijn mogelijk.  
 
-- [Installer des sites à l’aide d’une ligne de commande et d’un script](use-a-command-line-to-install-sites.md)
+- [Sites installeren met een opdrachtregel en het script](use-a-command-line-to-install-sites.md)
 
-  Découvrez comment obtenir un script d’installation de site et comment l’utiliser pour installer un site sans assistance.
+  Lees hoe u een site-script voor installatie en het gebruik ervan voor de site zonder toezicht wordt geïnstalleerd.
 
-- [Installer la console Configuration Manager](install-consoles.md)
+- [De Configuration Manager-console installeren](install-consoles.md)
 
-  Cette rubrique offre des conseils sur la façon d’installer la console Configuration Manager sur un ordinateur sur lequel vous n’installez pas de site.
+  In dit onderwerp bevat richtlijnen voor het installeren van de Configuration Manager-console op een computer waarop u niet een site installeert.
 
-- [Mettre à niveau une installation d’évaluation vers une installation complète](upgrade-an-evaluation-install-to-a-full-install.md)
+- [Een evaluatie-installatie bijwerken naar een volledige installatie](upgrade-an-evaluation-install-to-a-full-install.md)
 
-  Lisez cette rubrique quand vous êtes prêt à mettre à niveau votre site d’évaluation vers un site Configuration Manager sous licence complète.
+  Lees dit onderwerp als u klaar bent om uw evaluatiesite upgraden naar een volledig gelicentieerde Configuration Manager-site.

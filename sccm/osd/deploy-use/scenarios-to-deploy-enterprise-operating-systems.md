@@ -1,6 +1,6 @@
 ---
-title: "Scénarios pour déployer des systèmes d’exploitation d’entreprise | Microsoft Docs"
-description: "En savoir plus sur différents scénarios de déploiement de systèmes d’exploitation d’entreprise avec System Center Configuration Manager."
+title: Scenario's voor het implementeren van enterprise-besturingssystemen | Microsoft Docs
+description: Meer informatie over de verschillende scenario's voor het implementeren van enterprise-besturingssystemen met System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,50 +16,50 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: b1bea8b1b890f7c96a432835d28ad840a9b6873d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="scenarios-to-deploy-enterprise-operating-systems-with-system-center-configuration-manager"></a>Scénarios pour déployer des systèmes d’exploitation d’entreprise avec System Center Configuration Manager
+# <a name="scenarios-to-deploy-enterprise-operating-systems-with-system-center-configuration-manager"></a>Scenario’s voor het implementeren van enterprise-besturingssystemen met System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Les scénarios de déploiement de système d’exploitation suivants sont disponibles dans System Center Configuration Manager :  
+Er zijn na de besturingssysteem implementatiescenario's zijn beschikbaar in System Center Configuration Manager:  
 
--   [Mettre à niveau Windows vers la dernière version](upgrade-windows-to-the-latest-version.md) : ce scénario met à niveau le système d’exploitation sur les ordinateurs qui exécutent actuellement Windows 7, Windows 8, Windows 8.1 ou Windows 10. Le processus de mise à niveau conserve les applications, les paramètres et les données utilisateur sur l’ordinateur. Il n’existe aucune dépendance externe, telle que Windows ADK, et ce processus est plus rapide et plus fiable que les déploiements de système d’exploitation traditionnels.  
+-   [Windows upgraden naar de nieuwste versie](upgrade-windows-to-the-latest-version.md): Dit scenario wordt het besturingssysteem op computers met Windows 7, Windows 8, Windows 8.1 of Windows 10 bijgewerkt. Bij deze upgrade blijven de toepassingen, instellingen en gebruikersgegevens op de computer behouden Er zijn geen externe afhankelijkheden, zoals Windows ADK. Bovendien verloopt dit proces sneller en biedt het meer flexibiliteit dan de traditionele besturingssysteemimplementaties.  
 
--   [Actualiser un ordinateur existant avec une nouvelle version de Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md) : ce scénario partitionne et formate (efface) un ordinateur existant, et installe un nouveau système d’exploitation sur l’ordinateur. Vous pouvez migrer les données et paramètres utilisateur une fois le système d’exploitation installé.  
+-   [Een bestaande computer vernieuwen met een nieuwe versie van Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md): Dit scenario partities ingedeeld en geformatteerd (gewist) een bestaande computer en een nieuw besturingssysteem installeert op de computer. U kunt de instellingen en gebruikersgegevens migreren nadat het besturingssysteem is geïnstalleerd.  
 
--   [Installer une nouvelle version de Windows sur un nouvel ordinateur (nu)](install-new-windows-version-new-computer-bare-metal.md) : ce scénario installe un système d’exploitation sur un nouvel ordinateur. Il s’agit d’une nouvelle installation du système d’exploitation. Elle n’inclut pas de paramètres ou de migration des données utilisateur.  
+-   [Een nieuwe versie van Windows installeren op een nieuwe computer (bare-metal)](install-new-windows-version-new-computer-bare-metal.md): Dit scenario wordt een besturingssysteem op een nieuwe computer geïnstalleerd. Dit is een nieuwe installatie van het besturingssysteem en het omvat geen migratie van instellingen of gebruikersgegevens.  
 
--   [Remplacer un ordinateur existant et transférer les paramètres](replace-an-existing-computer-and-transfer-settings.md) : ce scénario installe un système d’exploitation sur un nouvel ordinateur. Si vous le souhaitez, vous pouvez migrer des données et des paramètres utilisateur de l’ancien ordinateur vers le nouvel ordinateur.  
+-   [Een bestaande computer vervangen en de instellingen overzetten](replace-an-existing-computer-and-transfer-settings.md): Dit scenario wordt een besturingssysteem op een nieuwe computer geïnstalleerd. U kunt eventueel instellingen en gebruikersgegevens van de oude computer naar de nieuwe computer migreren.  
 
-## <a name="things-to-consider-before-you-deploy-operating-system-images"></a>Éléments à prendre en compte avant de déployer des images de système d’exploitation  
- Vous devez prendre en compte certains éléments avant de déployer un système d’exploitation.  
+## <a name="things-to-consider-before-you-deploy-operating-system-images"></a>Zaken die u moet overwegen voordat u installatiekopieën van besturingssystemen implementeert  
+ U moet een aantal zaken overwegen voordat u een besturingssysteem implementeert.  
 
-### <a name="operating-system-image-size"></a>Taille de l'image du système d'exploitation  
- La taille de l'image d'un système d'exploitation peut être très grande. Par exemple, la taille de l'image de Windows 7 est de 3 gigaoctets (Go) au minimum. La taille de l'image et le nombre d'ordinateurs sur lesquels vous déployez simultanément le système d'exploitation affecte les performances du réseau et la bande passante disponible. Veillez à tester les performances du réseau pour mieux mesurer les effets du déploiement de l'image et le temps nécessaire pour terminer le déploiement. Les activités Configuration Manager qui affectent les performances du réseau incluent la distribution de l'image à un point de distribution, la distribution de l'image d'un site vers un autre et le téléchargement de l'image sur le client Configuration Manager.  
+### <a name="operating-system-image-size"></a>Grootte van de installatiekopie van het besturingssysteem  
+ De omvang van een installatiekopie van een besturingssysteem kan behoorlijk groot zijn. De grootte van de installatiekopie voor Windows 7 is bijvoorbeeld drie gigabyte (GB) of meer. De grootte van de installatiekopie en het aantal computers waarop u tegelijkertijd het besturingssysteem implementeert, beïnvloedt de netwerkprestatie en de beschikbare bandbreedte. Test zeker de netwerkprestatie om beter te meten wat de impact is die de implementatie van de installatiekopie heeft en de tijd die nodig is om de implementatie te vervolledigen. Configuration Manager-activiteiten die invloed hebben op prestaties van het netwerk, omvatten de distributie van een installatiekopie naar een distributiepunt, het overbrengen van de installatiekopie van de ene site naar een andere en het downloaden van de installatiekopie naar de Configuration Manager-client.  
 
- Veillez également à prévoir un espace disque suffisant sur les points de distribution qui hébergent les images du système d'exploitation.  
+ Wees er ook zeker van dat u voldoende schrijfruimte voorziet op de distributiepunten die de installatiekopieën van de besturingssystemen hosten.  
 
-### <a name="client-cache-size"></a>Taille de cache du client  
- Lorsque les clients Configuration Manager téléchargent du contenu, ils utilisent automatiquement le protocole BITS (Background Intelligent Transfer Service), s'il est disponible. Lorsque vous déployez une séquence de tâches qui installe un système d'exploitation, vous pouvez définir une option sur le déploiement pour que les clients Configuration Manager téléchargent l'image complète dans un cache local avant d'exécuter la séquence de tâches.  
+### <a name="client-cache-size"></a>Clientcachegrootte  
+ Wanneer Configuration Manager-clients inhoud downloaden, gebruiken ze automatisch Background Intelligent Transfer Service (BITS) als deze beschikbaar is. Wanneer u een takenreeks die u een besturingssysteem installeert implementeert, kunt u een optie op de implementatie instellen zodat de Configuration Manager-clients de volledige installatiekopie downloaden naar een lokale cache vóór de takenreeks wordt uitgevoerd.  
 
- En général, quand un client Configuration Manager doit télécharger une image de système d’exploitation (ou tout autre package), mais que l’espace est insuffisant dans le cache, le client vérifie les autres packages du cache pour déterminer si la suppression de tout ou partie des anciens packages permettra de libérer un espace disque suffisant pour placer l’image. Si la suppression des packages ne permet pas de libérer suffisamment d’espace disque, le client ne télécharge pas l’image et le déploiement échoue. Cela peut se produire si le cache comporte un package important configuré pour rester dans le cache. Si la suppression des packages permet de libérer suffisamment d’espace disque dans le cache, le client les supprime, puis télécharge l’image dans le cache.  
+ In het algemeen als een Configuration Manager-client een installatiekopie van het besturingssysteem (of een ander pakket) moet downloaden, maar er onvoldoende ruimte in de cache is, controleert de client de andere pakketten in de cache om te bepalen of het wissen van één of alle van de oudste pakketten voldoende ruimte voor de installatiekopie kan worden vrijgemaakt. Als er met het verwijderen van pakketten onvoldoende schijfruimte wordt vrijgemaakt, wordt de installatiekopie niet door de client gedownload en mislukt de implementatie. Dit kan gebeuren als het cachegeheugen een groot pakket bevat die zodanig is geconfigureerd dat deze in het cachegeheugen blijft behouden. Als er met het verwijderen van pakketten voldoende geheugen wordt vrijgemaakt in de cache, worden ze verwijderd en downloadt de client de installatiekopie naar het cachegeheugen.  
 
- La taille du cache par défaut sur les clients Configuration Manager n'est peut-être pas suffisante pour la plupart des déploiements d'image de système d'exploitation. Si vous planifiez de télécharger l'image complète dans le cache du client, vous devez régler la taille du cache du client Configuration Manager sur les ordinateurs de destination pour qu'il puisse héberger la taille de l'image déployée.  
+ De standaardcachegrootte op Configuration Manager-clients mogelijk niet groot genoeg zijn voor de meeste implementaties van installatiekopieën van besturingssysteem. Als u van plan bent de volledige installatiekopie downloaden naar de clientcache, moet u de cachegrootte van de Configuration Manager-client op de doelcomputers om de grootte van de installatiekopie die u implementeert onder te wijzigen.  
 
- Pour plus d'informations, voir [Configure the Client Cache for Configuration Manager Clients](../../core/clients/manage/manage-clients.md#BKMK_ClientCache).  
+ Zie [De clientcache configureren voor Configuration Manager-clients](../../core/clients/manage/manage-clients.md#BKMK_ClientCache) voor meer informatie.  
 
-## <a name="task-sequence-deployments"></a>Déploiements de séquences de tâches  
- La séquence de tâches que vous créez peut déployer l'image du système d'exploitation sur un ordinateur client Configuration Manager selon l'une des manières suivantes :  
+## <a name="task-sequence-deployments"></a>Implementaties van takenreeksen  
+ De takenreeks die u kunt de installatiekopie van het besturingssysteem op een Configuration Manager-clientcomputer implementeren in een van de volgende manieren:  
 
--   Téléchargez d'abord l'image et son contenu dans le cache du client Configuration Manager à partir d'un point de distribution, puis installez-le.  
+-   Download de installatiekopie en haar inhoud eerst naar de Configuration Manager-clientcache van een distributiepunt en installeer deze vervolgens.  
 
--   Installez immédiatement l'image et son contenu à partir du point de distribution.  
+-   Installeer de installatiekopie en haar inhoud onmiddellijk vanaf het distributiepunt.  
 
--   Installer l'image et son contenu comme requis à partir du point de distribution  
+-   Installeer de installatiekopie en haar inhoud zoals vereist is vanaf het distributiepunt.  
 
- Par défaut, lorsque vous créez le déploiement pour la séquence de tâches, l'image est d'abord téléchargée dans le cache du client Configuration Manager, puis installée. Si vous choisissez de télécharger l’image dans le cache du client Configuration Manager avant de l’exécuter, et si la séquence de tâches contient une étape de repartitionnement du disque dur, cette étape de repartitionnement échoue car le partitionnement du disque dur efface le contenu du cache du client Configuration Manager. Si la séquence de tâches doit repartitionner le disque dur, vous devez exécuter l'installation de l'image depuis le point de distribution à l'aide de l'option **Exécuter le programme à partir du point de distribution**  quand vous déployez la séquence de tâches.  
+ Standaard bij het maken van de implementatie voor de takenreeks is de installatiekopie van het eerst gedownload naar de Configuration Manager-clientcache en dan geïnstalleerd. Als u de installatiekopie te downloaden naar de Configuration Manager-clientcache vóór u de installatiekopie uitvoert en de takenreeks bevat een stap om de harde schijf te partitioneren selecteert, de stap opnieuw partitioneren mislukt omdat de vaste schijf partitioneren wist u de inhoud van de Configuration Manager-clientcache. Indien de takenreeks de harde schijf moet partitioneren, moet u de installatie van de installatiekopie uitvoeren vanaf het distributiepunt door de optie **Programma uitvoeren vanaf het distributiepunt**  te gebruiken wanneer u de takenreeks implementeert.  
 
- Pour plus d'informations, voir [Déployer une séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  
+ Zie [Een takenreeks implementeren](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS) voor meer informatie.  

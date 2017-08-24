@@ -1,6 +1,6 @@
 ---
-title: "Configurer la découverte | Microsoft Docs"
-description: "Configurez les méthodes de découverte à exécuter sur un site Configuration Manager pour rechercher les ressources que vous pouvez gérer à partir de votre infrastructure réseau et d’Active Directory."
+title: Detectie configureren | Microsoft Docs
+description: Configureer detectiemethoden worden uitgevoerd op een Configuration Manager-site zoeken naar bronnen die u vanaf uw netwerkinfrastructuur en Active Directory beheren kunt.
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
@@ -16,451 +16,451 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 34a539ceaea6b070f81a28d2c0a9ce388e26cfeb
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-discovery-methods-for-system-center-configuration-manager"></a>Configurer les méthodes de découverte pour System Center Configuration Manager
+# <a name="configure-discovery-methods-for-system-center-configuration-manager"></a>Detectiemethoden configureren voor System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
-Vous configurez les méthodes de découverte à exécuter sur un site System Center Configuration Manager pour rechercher les ressources que vous pouvez gérer à partir de votre infrastructure réseau et d’Active Directory. Pour cela, vous devez activer et configurer chaque méthode à utiliser pour explorer votre environnement. (Vous pouvez aussi désactiver une méthode en suivant la même procédure que pour l’activer.)  La découverte par pulsations d’inventaire et la découverte de serveur constituent les seules exceptions :  
+U configureren detectiemethoden worden uitgevoerd op een System Center Configuration Manager-site zoeken naar bronnen die u van uw netwerkinfrastructuur en Active Directory beheren kunt. Hiervoor moet u inschakelen en vervolgens elke methode die u wilt gebruiken om te zoeken van uw omgeving te configureren. (U kunt ook een methode uitschakelen met behulp van dezelfde procedure die u gebruikt deze in te schakelen.)  De enige uitzondering hierop zijn Heartbeat-detectie en serverdetectie:  
 
--   Par défaut, la découverte par pulsations d’inventaire est déjà activée quand vous installez un site principal Configuration Manager et est configurée pour s’exécuter selon une planification de base. Il est recommandé de maintenir activée la découverte par pulsations d’inventaire, car cette méthode garantit que les enregistrements de données de découverte (DDR) des appareils sont à jour. Pour plus d’informations sur la découverte par pulsations d’inventaire, consultez [Découverte par pulsations d’inventaire](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutHeartbeat).  
+-   Standaard is Heartbeat-detectie al ingeschakeld wanneer u een primaire site van Configuration Manager hebt geïnstalleerd en geconfigureerd voor uitvoering op een eenvoudige planning. Het is een goed idee om Houd Heartbeat-detectie ingeschakeld omdat Hiermee zorgt u ervoor dat de detectiegegevensrecords (DDR's) voor apparaten up-to-date zijn. Zie voor meer informatie over Heartbeat-detectie [over Heartbeat-detectie](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutHeartbeat).  
 
--   La découverte de serveur est une méthode automatique qui recherche les ordinateurs que vous utilisez comme systèmes de site. Elle n’est ni configurable ni désactivable.  
+-   Serverdetectie is een automatische detectiemethode waarmee wordt gezocht naar computers die u als sitesystemen gebruikt. Configureren of niet uitschakelen.  
 
-**Pour activer une méthode de découverte configurable :**  
+**Een configureerbare detectiemethode inschakelen:**  
  > [!NOTE]  
- > Les informations suivantes ne s’appliquent pas à la découverte des utilisateurs Azure Active Directory. Consultez plutôt [Configurer la découverte des utilisateurs Azure AD](#azureaadisc) plus loin dans cette rubrique.
+ > De volgende informatie is niet van toepassing op Azure Active Directory-Gebruikersdetectie. In plaats daarvan Zie [configureren Azure AD-Gebruikersdetectie](#azureaadisc) verderop in dit onderwerp.
 
-1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie**, puis **Méthodes de découverte**.  
+1.  Kies in de Configuration Manager-console **beheer** > **Hiërarchieconfiguratie**, en kies vervolgens **detectiemethoden**.  
 
-2.  Sélectionnez la méthode de découverte pour le site sur lequel vous voulez activer la découverte.  
+2.  Selecteer de detectiemethode voor de site waar u detectie wilt inschakelen.  
 
-3.  Dans l’onglet **Accueil** puis dans le groupe **Propriétés**, choisissez **Propriétés**. Ensuite, dans l’onglet **Général**, activez la case à cocher **Enable&lt;discovery method (Activer méthode de découverte)\>**.  
+3.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**, en klik vervolgens op de **algemene** tabblad, Controleer de **inschakelen&lt;detectiemethode\>**  vak.  
 
-     Si cette case à cocher est déjà activée, vous pouvez la désélectionner pour désactiver la méthode de découverte.  
+     Als dit selectievakje al is ingeschakeld, kunt u de detectiemethode uitschakelen door het selectievakje uitschakelt.  
 
-4.  Choisissez **OK** pour enregistrer la configuration.  
+4.  Kies **OK** aan de configuratie op te slaan.  
 
 
-##  <a name="BKMK_ConfigADForestDisc"></a> Configurer la découverte de forêts Active Directory  
-Pour finaliser la configuration de la découverte des forêts Active Directory, vous devez configurer des paramètres dans deux emplacements :  
+##  <a name="BKMK_ConfigADForestDisc"></a>Detectie van Active Directory-Forest configureren  
+Voor het voltooien van de configuratie van detectie van Active Directory-Forest, moet u instellingen configureren op twee locaties:  
 
--   Dans le nœud **Méthodes de découverte**, vous pouvez :
+-   In de **detectiemethoden** knooppunt, kunt u:
 
-    - Activer cette méthode de découverte.
-    - Définir un calendrier d’interrogation.
-    - Indiquez si la découverte doit créer automatiquement des limites pour les sites Active Directory et les sous-réseaux qui sont découverts.  
+    - Deze detectiemethode inschakelen.
+    - Een polling-planning instellen.
+    - Selecteren of detectie automatisch grenzen maakt voor de Active Directory-sites en subnetten die het detecteert.  
 
--   Dans le nœud **Forêts Active Directory**, vous pouvez :
+-   In de **Active Directory-Forests** knooppunt, kunt u:
 
-    - Ajouter les forêts à découvrir.
-    - Activer la découverte des sites et sous-réseaux Active Directory dans cette forêt.
-    - Configurer les paramètres permettant aux sites Configuration Manager de publier leurs informations de site dans la forêt.
-    - Attribuer un compte à utiliser comme compte de forêt Active Directory pour chaque forêt.  
+    - Forests toevoegen die u wilt detecteren.
+    - Schakel detectie van Active Directory-sites en subnetten in het forest.
+    - Instellingen configureren die Configuration Manager-sites hun sitegegevens publiceren naar het forest inschakelen.
+    - Een account gebruikt als de Active Directory-Forestaccount voor elke forest toewijzen.  
 
-Utilisez les procédures suivantes pour activer la découverte de forêts Active Directory et configurer chaque forêt à utiliser avec la découverte de forêts Active Directory.  
+Gebruik de volgende procedures in Active Directory-Forestdetectie inschakelen en configureren van afzonderlijke forests voor gebruik met Active Directory Forest Discovery.  
 
-#### <a name="to-enable-active-directory-forest-discovery"></a>Pour activer la découverte de forêts Active Directory  
+#### <a name="to-enable-active-directory-forest-discovery"></a>Active Directory-Forestdetectie inschakelen  
 
-1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie**, puis **Méthodes de découverte**.  
+1.  Kies in de Configuration Manager-console **beheer** > **Hiërarchieconfiguratie**, en kies vervolgens **detectiemethoden**.  
 
-2.  Sélectionnez la méthode Découverte de forêts Active Directory pour le site sur lequel vous voulez configurer la découverte.  
+2.  Selecteer de Active Directory Forest Discovery-methode voor de site waar u detectie wilt configureren.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+3.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
 
-4.  Dans l’onglet **Général**, activez la case à cocher pour activer la découverte. Vous pouvez aussi configurer la découverte maintenant et l’activer ultérieurement.  
+4.  Op de **algemene** tabblad, het selectievakje voor het inschakelen van detectie. Of u nu detectie configureren en vervolgens weer detectie later inschakelen.  
 
-5.  Spécifiez les options nécessaires pour créer des limites de site des emplacements découverts.  
+5.  Geef opties op het maken van sitegrenzen voor gedetecteerde locaties.  
 
-6.  Spécifiez une planification du moment d'exécution de la découverte.  
+6.  Geef een planning voor wanneer detectie wordt uitgevoerd.  
 
-7.  Après avoir terminé la configuration de la découverte de forêts Active Directory pour ce site, choisissez **OK** pour enregistrer la configuration.  
+7.  Wanneer u klaar bent met de configuratie van Active Directory-Forestdetectie voor deze site, kiezen **OK** aan de configuratie op te slaan.  
 
-#### <a name="to-configure-a-forest-for-active-directory-forest-discovery"></a>Pour configurer une forêt pour la découverte de forêts Active Directory  
+#### <a name="to-configure-a-forest-for-active-directory-forest-discovery"></a>Een forest voor Active Directory-Forestdetectie configureren  
 
-1.  Dans l’espace de travail **Administration**, choisissez **Forêts Active Directory**. Si la découverte de forêts Active Directory a été exécutée précédemment, vous pouvez voir chaque forêt découverte dans le volet des résultats. La forêt locale et toutes les forêts approuvées sont découvertes lorsque la Découverte de forêts Active Directory s'exécute. Seules les forêts non approuvées doivent être ajoutées manuellement.  
+1.  In de **beheer** werkruimte, kiest u **Active Directory-Forests**. Als Active Directory-forestdetectie eerder is uitgevoerd, ziet u iedere gedetecteerde forest in het resultatenvenster. De lokale forest en vertrouwde forests worden gedetecteerd wanneer Active Directory-forestdetectie wordt uitgevoerd. U kunt niet-vertrouwde forests alleen handmatig toevoegen.  
 
-    -   Pour configurer une forêt déjà découverte, sélectionnez-la dans le volet de résultats. Ensuite, dans l’onglet **Accueil** et dans le groupe **Propriétés**, choisissez **Propriétés** pour ouvrir les propriétés de la forêt. Passez à l'étape 3.  
+    -   Voor het configureren van een eerder gedetecteerd forest, selecteert u het forest in het deelvenster met resultaten. Klik op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen** om de foresteigenschappen te openen. Ga door met stap 3.  
 
-    -   Pour configurer une nouvelle forêt non répertoriée, dans l’onglet **Accueil** et dans le groupe **Créer**, choisissez **Ajouter une forêt** pour ouvrir la boîte de dialogue **Ajouter une forêt**. Passez à l'étape 3.  
+    -   Voor het configureren van een nieuw forest dat niet wordt vermeld, op de **Start** tabblad, in de **maken** groep, kiest u **Forest toevoegen** openen de **Forests toevoegen** in het dialoogvenster. Ga door met stap 3.  
 
-2.  Dans l’onglet **Général**, finalisez la configuration de forêt que vous souhaitez découvrir et spécifiez le **Compte de forêt Active Directory**.  
-
-    > [!NOTE]  
-    >  La découverte de forêts Active Directory requiert un compte global pour découvrir et publier les forêts non approuvées. Si vous n’utilisez pas le compte d’ordinateur du serveur de site, vous ne pouvez sélectionner qu’un compte global.  
-
-3.  Si vous prévoyez d’autoriser des sites à publier des données de site dans cette forêt, dans l’onglet **Publication**, terminez la configuration de la publication dans cette forêt.  
+2.  Op de **algemene** tabblad, einddatum configuraties voor de forest die u wilt detecteren en geeft de **Active Directory-Forestaccount**.  
 
     > [!NOTE]  
-    >  Si vous autorisez les sites à publier dans une forêt, vous devez étendre le schéma Active Directory de cette forêt à Configuration Manager. Le compte de forêt Active Directory doit avoir des autorisations Contrôle total sur le conteneur système dans cette forêt.  
+    >  Voor Active Directory-forestdetectie is een globaal account nodig om niet-vertrouwde forests te detecteren en ernaar te publiceren. Als u het computeraccount van de siteserver niet gebruikt, kunt u alleen een globaal account selecteren.  
 
-4.  Lorsque vous terminez la configuration de cette forêt à utiliser avec la Découverte de forêts Active Directory, choisissez **OK** pour enregistrer la configuration.  
+3.  Als u van plan bent om sites sitegegevens naar dit forest te publiceren op de **Publishing** tabblad, einddatum configuraties voor publicatie naar dit forest.  
 
-##  <a name="BKMK_ConfigADDiscGeneral"></a> Configurer la découverte Active Directory pour les ordinateurs, les utilisateurs ou les groupes  
- Utilisez les informations des sections suivantes pour configurer la découverte des ordinateurs, des utilisateurs ou des groupes. Vous allez utiliser les méthodes de découverte suivantes :  
+    > [!NOTE]  
+    >  Als u toestaat dat sites publiceren naar een forest, moet u het Active Directory-schema van dit forest uitbreiden voor Configuration Manager. De Active Directory-Forestaccount moet machtigingen voor volledig beheer voor de systeemcontainer in dat forest hebben.  
 
--   Découverte de groupes Active Directory  
+4.  Wanneer u klaar bent met de configuratie van deze forest voor Active Directory Forest Discovery kiezen **OK** aan de configuratie op te slaan.  
 
--   Découverte de systèmes Active Directory  
+##  <a name="BKMK_ConfigADDiscGeneral"></a>Detectie van Active Directory voor computers, gebruikers of groepen configureren  
+ Gebruik de informatie in de volgende secties voor het configureren van detectie van computers, gebruikers of groepen. U hebt deze detectiemethoden gebruiken:  
 
--   Découverte d’utilisateurs Active Directory  
+-   Active Directory-groepdetectie  
+
+-   Active Directory-systeemdetectie  
+
+-   Detectie Active Directory-gebruiker  
 
 > [!NOTE]  
->  Les informations dans cette section ne s'appliquent pas à la découverte de forêts Active Directory.  
+>  De informatie in deze sectie geldt niet voor de detectie van Active Directory-Forest.  
 
- Bien qu’indépendantes, ces méthodes de découverte partagent des options similaires. Pour plus d’informations sur ces options de configuration, consultez [Options partagées pour la découverte des groupes, systèmes et utilisateurs](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_shared).  
+ Hoewel elk van deze detectiemethoden onafhankelijk van de andere, delen ze wel soortgelijke opties. Zie voor meer informatie over deze configuratieopties [gedeeld opties voor de detectie van groep-, systeem- en gebruiker](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_shared).  
 
 > [!WARNING]  
->  Le processus d'interrogation Active Directory par chacune de ces méthodes de découverte peut entraîner un trafic réseau important. Pensez à planifier l'exécution de chaque méthode de découverte à des moments où ce trafic ne risque pas de nuire à l'usage commercial de votre réseau.  
+>  Polling van Active Directory door elk van deze detectiemethoden kan significant netwerkverkeer genereren. U kunt de planning van elke detectiemethode om uit te voeren op een tijdstip waarop dit netwerkverkeer geen belemmering zakelijke gebruik van uw netwerk.  
 
-#### <a name="to-configure-active-directory-group-discovery"></a>Pour configurer la découverte de groupes Active Directory  
+#### <a name="to-configure-active-directory-group-discovery"></a>Detectie van Active Directory-groepen configureren  
 
-1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie**, puis **Méthodes de découverte**.  
+1.  Kies in de Configuration Manager-console **beheer** > **Hiërarchieconfiguratie**, en kies vervolgens **detectiemethoden**.  
 
-2.  Sélectionnez la méthode **Découverte de groupes Active Directory** pour le site sur lequel vous voulez configurer la découverte.  
+2.  Kies de **Active Directory Group Discovery** methode voor de site waar u detectie wilt configureren.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+3.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
 
-4.  Dans l’onglet **Général**, activez la case à cocher pour activer la découverte. Vous pouvez aussi configurer la découverte maintenant et l’activer ultérieurement.  
+4.  Op de **algemene** tabblad, het selectievakje voor het inschakelen van detectie. Of u nu detectie configureren en vervolgens weer detectie later inschakelen.  
 
-5.  Choisissez **Ajouter** pour configurer une étendue de découverte, sélectionnez **Groupes** ou **Emplacement**, puis terminez les configurations suivantes dans la boîte de dialogue **Ajouter des groupes** ou **Ajouter un emplacement Active Directory** :  
+5.  Kies **toevoegen** om een detectiebereik configureert, kiest u **groepen** of **locatie**, en voltooit u de volgende configuraties in de **groepen toevoegen** of **Active Directory-locatie toevoegen** in het dialoogvenster:  
 
-    1.  Spécifiez un **Nom** pour cette étendue de découverte.  
+    1.  Geef een **naam** voor dit detectiebereik.  
 
-    2.  Spécifiez un **Domaine Active Directory** ou un **Emplacement** à rechercher :  
+    2.  Geef een **Active Directory-domein** of **locatie** om te zoeken:  
 
-        -   Si vous avez choisi **Groupes**, spécifiez un ou plusieurs groupes Active Directory à découvrir.  
+        -   Als u hebt gekozen **groepen**, geeft u een of meer Active Directory-groepen moeten worden gedetecteerd.  
 
-        -   Si vous avez choisi **Emplacement**, spécifiez un conteneur Active Directory comme emplacement à découvrir. Vous pouvez également activer une recherche récursive des conteneurs enfants Active Directory pour cet emplacement.  
+        -   Als u hebt gekozen **locatie**, een Active Directory-container opgeven als locatie moeten worden gedetecteerd. U kunt ook een recursieve zoekopdracht van onderliggende Active Directory-containers voor deze locatie inschakelen.  
 
-    3.  Spécifiez le **Compte de découverte de groupes Active Directory** utilisé pour rechercher cette étendue de découverte.  
+    3.  Geef de **Detectieaccount Active Directory-groepen** die wordt gebruikt om dit detectiebereik te zoeken.  
 
-    4.  Choisissez **OK** pour enregistrer la configuration de l’étendue de découverte.  
+    4.  Kies **OK** om op te slaan van de configuratie van het detectiebereik.  
 
-6.  Répétez l'étape 6 pour chaque étendue de découverte supplémentaire à définir.  
+6.  Herhaal stap 6 voor ieder extra detectiebereik dat u wilt definiëren.  
 
-7.  Dans l'onglet **Calendrier d'interrogation** , configurez le calendrier d'interrogation de découverte complet et la découverte delta.  
+7.  Op de **Polling-planning** tabblad, het configureren van de volledige detectiepolling-planning en deltadetectie.  
 
-8.  Le cas échéant, dans l’onglet **Option**, vous pouvez configurer des options pour filtrer ou exclure les enregistrements d’ordinateur obsolètes de la découverte et découvrir les membres des groupes de distribution.  
+8.  Klik desgewenst op de **optie** tabblad kunt u opties wilt filteren of uitsluiten van verouderde computerrecords van detectie en het lidmaatschap van distributiegroepen te detecteren.  
 
     > [!NOTE]  
-    >  Par défaut, le processus de découverte de groupes Active Directory ne découvre que l'appartenance aux groupes de sécurité.  
+    >  Detectie van Active Directory-groepen detecteert standaard alleen het lidmaatschap van beveiligingsgroepen.  
 
-9. Après avoir terminé la configuration de la découverte des groupes Active Directory, choisissez **OK** pour enregistrer la configuration.  
+9. Wanneer u klaar bent met het configureren van detectie van Active Directory-groepen voor deze site, kiezen **OK** aan de configuratie op te slaan.  
 
-#### <a name="to-configure-active-directory-system-discovery"></a>Pour configurer la découverte de systèmes Active Directory  
+#### <a name="to-configure-active-directory-system-discovery"></a>Voor het configureren van Active Directory-Systeemdetectie  
 
-1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie**, puis **Méthodes de découverte**.  
+1.  Kies in de Configuration Manager-console **beheer** > **Hiërarchieconfiguratie**, en kies vervolgens **detectiemethoden**.  
 
-2.  Sélectionnez la méthode pour le site sur lequel vous voulez configurer la découverte.  
+2.  Selecteer de methode voor de site waar u detectie wilt configureren.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+3.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
 
-4.  Dans l’onglet **Général**, activez la case à cocher pour activer la découverte. Vous pouvez aussi configurer la découverte maintenant et l’activer ultérieurement.  
+4.  Op de **algemene** tabblad, het selectievakje voor het inschakelen van detectie. Of u nu detectie configureren en vervolgens weer detectie later inschakelen.  
 
-5.  Choisissez l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif) pour spécifier un nouveau conteneur Active Directory. Dans la boîte de dialogue **Conteneur Active Directory**, finalisez les configurations suivantes :  
+5.  Kies de **nieuw** pictogram ![pictogram Nieuw](media/Disc_new_Icon.gif) om op te geven van een nieuwe Active Directory-container. In de **Active Directory-Container** dialoogvenster vak, einddatum van de volgende configuraties:  
 
-    1.  Spécifiez un ou plusieurs emplacements à rechercher.  
+    1.  Geef een of meer zoeklocaties op.  
 
-    2.  Pour chaque emplacement, spécifiez les options qui modifient le comportement de la recherche.  
+    2.  Geef de opties die het zoekgedrag wijzigen voor elke locatie.  
 
-    3.  Pour chaque emplacement, spécifiez le compte à utiliser en tant que **Compte de découverte Active Directory**.  
+    3.  Geef voor elke locatie het account wilt gebruiken als de **Detectieaccount Active Directory**.  
 
         > [!TIP]  
-        >  Pour chaque emplacement spécifié, vous pouvez configurer un ensemble d'options de découverte et un compte de découverte Active Directory unique.  
+        >  U kunt een set van detectieopties en een uniek Active Directory Discovery-Account configureren voor elke locatie die u opgeeft.  
 
-    4.  Choisissez **OK** pour enregistrer la configuration du conteneur Active Directory.  
+    4.  Kies **OK** om op te slaan van de configuratie van de Active Directory-container.  
 
-6.  Dans l'onglet **Calendrier d'interrogation** , configurez le calendrier d'interrogation de découverte complet et la découverte delta.  
+6.  Op de **Polling-planning** tabblad, het configureren van de volledige detectiepolling-planning en deltadetectie.  
 
-7.  Le cas échéant, dans l'onglet **Attributs Active Directory** , vous pouvez configurer des attributs Active Directory supplémentaires pour les ordinateurs à découvrir. Les attributs d'objets par défaut sont également répertoriés.  
+7.  Klik desgewenst op de **Active Directory-attributen** tabblad kunt u extra kenmerken voor Active Directory voor computers die u wilt detecteren. De standaard-objectkenmerken worden ook vermeld.  
 
-8.  Le cas échéant, dans l’onglet **Option**, vous pouvez configurer des options pour filtrer ou exclure les enregistrements d’ordinateur obsolètes de la découverte.  
+8.  Klik desgewenst op de **optie** tabblad kunt u opties voor het filteren of uitsluiten van verouderde computerrecords van detectie.  
 
-9. Après avoir terminé la configuration de la découverte de systèmes Active Directory pour ce site, choisissez **OK** pour enregistrer la configuration.  
+9. Wanneer u klaar bent met het configureren van detectie van Active Directory-systemen voor deze site, kiezen **OK** aan de configuratie op te slaan.  
 
-#### <a name="to-configure-active-directory-user-discovery"></a>Pour configurer la découverte d'utilisateurs Active Directory  
+#### <a name="to-configure-active-directory-user-discovery"></a>Voor het configureren van detectie van Active Directory-gebruikers  
 
-1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie**, puis **Méthodes de découverte**.  
+1.  Kies in de Configuration Manager-console **beheer** > **Hiërarchieconfiguratie**, en kies vervolgens **detectiemethoden**.  
 
-2.  Choisissez la méthode **Découverte d’utilisateurs Active Directory** pour le site sur lequel vous voulez configurer la découverte.  
+2.  Kies de **Active Directory-Gebruikersdetectie** methode voor de site waar u detectie wilt configureren.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+3.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
 
-4.  Dans l’onglet **Général**, activez la case à cocher pour activer la découverte. Vous pouvez aussi configurer la découverte maintenant et l’activer ultérieurement.  
+4.  Op de **algemene** tabblad, het selectievakje voor het inschakelen van detectie. Of u nu detectie configureren en vervolgens weer detectie later inschakelen.  
 
-5.  Choisissez l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif) pour spécifier un nouveau conteneur Active Directory. Dans la boîte de dialogue **Conteneur Active Directory**, finalisez les configurations suivantes :  
+5.  Kies de **nieuw** pictogram ![pictogram Nieuw](media/Disc_new_Icon.gif) om op te geven van een nieuwe Active Directory-container. In de **Active Directory-Container** dialoogvenster vak, einddatum van de volgende configuraties:  
 
-    1.  Spécifiez un ou plusieurs emplacements à rechercher.  
+    1.  Geef een of meer zoeklocaties op.  
 
-    2.  Pour chaque emplacement, spécifiez les options qui modifient le comportement de la recherche.  
+    2.  Geef de opties die het zoekgedrag wijzigen voor elke locatie.  
 
-    3.  Pour chaque emplacement, spécifiez le compte à utiliser en tant que **Compte de découverte Active Directory**.  
+    3.  Geef voor elke locatie het account wilt gebruiken als de **Detectieaccount Active Directory**.  
 
         > [!NOTE]  
-        >  Pour chaque emplacement spécifié, vous pouvez configurer un ensemble d'options de découverte et un compte de découverte Active Directory uniques.  
+        >  U kunt een unieke set van detectieopties en een uniek Active Directory Discovery-Account configureren voor elke locatie die u opgeeft.  
 
-    4.  Choisissez **OK** pour enregistrer la configuration du conteneur Active Directory.  
+    4.  Kies **OK** om op te slaan van de configuratie van de Active Directory-container.  
 
-6.  Dans l'onglet **Calendrier d'interrogation** , configurez le calendrier d'interrogation de découverte complet et la découverte delta.  
+6.  Op de **Polling-planning** tabblad, het configureren van de volledige detectiepolling-planning en deltadetectie.  
 
-7.  Le cas échéant, dans l'onglet **Attributs Active Directory** , vous pouvez configurer des attributs Active Directory supplémentaires pour les ordinateurs à découvrir. Les attributs d'objets par défaut sont également répertoriés.  
+7.  Klik desgewenst op de **Active Directory-attributen** tabblad kunt u extra kenmerken voor Active Directory voor computers die u wilt detecteren. De standaard-objectkenmerken worden ook vermeld.  
 
-8.  Après avoir terminé la configuration de la découverte d’utilisateurs Active Directory, choisissez **OK** pour enregistrer la configuration.  
+8.  Wanneer u klaar bent met het configureren van detectie van Active Directory-gebruikers voor deze site, kiezen **OK** aan de configuratie op te slaan.  
 
-## <a name="azureaadisc"></a> Configurer la découverte des utilisateurs Azure AD
-Depuis la version 1706, vous pouvez configurer la découverte des utilisateurs Azure Active Directory quand vous connectez Configuration Manager à votre [abonnement Azure et à Azure Active Directory](/sccm/core/servers/deploy/configure/azure-services-wizard).
+## <a name="azureaadisc"></a>Azure AD-Gebruikersdetectie configureren
+Vanaf versie 1706, kunt u Azure Active Directory-Gebruikersdetectie configureren wanneer u verbinding maakt met Configuration Manager uw [Azure-abonnement en Azure Active Directory](/sccm/core/servers/deploy/configure/azure-services-wizard).
 
-La découverte des utilisateurs Azure AD est configurée dans le cadre de la *gestion cloud*. La procédure à suivre est détaillée dans [Créer l’application web Azure à utiliser avec Configuration Manager](/sccm/core/servers/deploy/configure/Azure-services-wizard#webapp) dans la rubrique *Configurer les services Azure à utiliser avec Configuration Manager*.
-
-
+Azure AD-Gebruikersdetectie wordt geconfigureerd als onderdeel van *Cloudbeheer*. De procedure om dit te doen, wordt besproken in [maken van de Azure-web-app voor gebruik met Configuration Manager](/sccm/core/servers/deploy/configure/Azure-services-wizard#webapp) in het onderwerp *configureren van Azure services voor gebruik met Configuration Manager*.
 
 
-##  <a name="BKMK_ConfigHBDisc"></a> Configurer la découverte par pulsations d’inventaire  
- Par défaut, la découverte par pulsations d’inventaire est activée au moment où vous installez un site principal Configuration Manager. Par conséquent, il vous suffit de configurer la fréquence selon laquelle les clients envoient l’enregistrement des données de la découverte par pulsations d’inventaire au point de gestion, si vous ne voulez pas utiliser la valeur par défaut (tous les sept jours).  
 
-> [!NOTE]  
->  Si la tâche d'installation poussée du client et la tâche de maintenance de site pour **Remettre à zéro l'indicateur d'installation** sont activées sur le même site, définissez la planification de la découverte par pulsations d'inventaire à une valeur inférieure à la **Période de redécouverte client** de la tâche de maintenance de site **Remettre à zéro l'indicateur d'installation** . Pour plus d’informations sur les tâches de maintenance de site, consultez [Tâches de maintenance pour System Center Configuration Manager](../../../../core/servers/manage/maintenance-tasks.md).  
 
-#### <a name="to-configure-the-heartbeat-discovery-schedule"></a>Pour configurer la planification de découverte par pulsations d'inventaire  
-
-1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie**, puis **Méthodes de découverte**.  
-
-2.  Sélectionnez **Découverte par pulsations d’inventaire** pour le site sur lequel vous souhaitez exécuter la découverte par pulsations d’inventaire.  
-
-3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
-
-4.  Configurez la fréquence de l’envoi d’un enregistrement de données de découverte par pulsations d’inventaire par les clients, puis choisissez **OK** pour enregistrer la configuration.  
-
-##  <a name="BKMK_ConfigNetworkDisc"></a> Configurer la découverte du réseau  
- Utilisez les informations dans les sections suivantes pour configurer la découverte du réseau.  
-
-###  <a name="BKMK_AboutConfigNetworkDisc"></a> À propos de la configuration de la découverte du réseau  
- Avant de configurer la découverte du réseau, vous devez comprendre les points suivants :  
-
--   Niveaux disponibles de découverte du réseau  
-
--   Options disponibles de découverte du réseau  
-
--   Limitation de la découverte du réseau sur le réseau  
-
-Pour plus d’informations, consultez la section [Découverte du réseau](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutNetwork).  
-
- Les sections suivantes fournissent des informations sur les configurations courantes pour la découverte du réseau. Vous pouvez configurer une ou plusieurs de ces configurations pour l'utilisation pendant la même exécution de la découverte. Si vous utilisez plusieurs configurations, vous devez tenir compte des interactions pouvant affecter les résultats de la découverte.  
-
- Vous pouvez, par exemple, vouloir découvrir tous les appareils SNMP (Simple Network Management Protocol) qui utilisent un nom de communauté SNMP spécifique. De plus, vous pouvez désactiver la découverte sur un sous-réseau spécifique pour la même exécution de la découverte. Lors de l'exécution de la découverte, la découverte du réseau ne découvre pas les périphériques SNMP avec le nom de communauté spécifié sur le sous-réseau que vous avez désactivé.  
-
-####  <a name="BKMK_DetermineNetTopology"></a> Déterminer la topologie de votre réseau  
- La découverte pour la topologie uniquement vous permet de mapper votre réseau. Ce type de découverte ne découvre pas les clients potentiels. La découverte du réseau pour la topologie uniquement s'appuie sur SNMP.  
-
- Lors du mappage de la topologie de votre réseau, vous devez configurer le **Nombre maximal de sauts** dans l’onglet **SNMP** de la boîte de dialogue **Propriétés de la découverte du réseau**. Quelques sauts permettent de contrôler la bande passante du réseau utilisée lors de l'exécution de la découverte. À mesure que vous découvrez votre réseau, vous pouvez augmenter le nombre de sauts pour mieux comprendre la topologie de votre réseau.  
-
- Une fois que vous avez compris la topologie de votre réseau, vous pouvez configurer des propriétés supplémentaires permettant à la découverte du réseau de découvrir des clients potentiels et leurs systèmes d'exploitation, pendant que vous utilisez les configurations disponibles pour limiter le nombre de segments réseau que la découverte du réseau peut rechercher.  
-
-####  <a name="BKMK_LimitBySubnet"></a> Limiter les recherches en utilisant des sous-réseaux  
- Vous pouvez configurer la découverte du réseau pour rechercher des sous-réseaux spécifiques au cours d'une opération de découverte. Par défaut, la découverte du réseau recherche le sous-réseau du serveur qui exécute la découverte. Tous les sous-réseaux supplémentaires que vous configurez et activez ne s’appliquent qu’aux options de recherche SNMP et DHCP (Dynamic Host Configuration Protocol). Lorsque la découverte du réseau recherche les domaines, elle n'est pas limitée par les configurations des sous-réseaux.  
-
- Si vous spécifiez un ou plusieurs sous-réseaux dans l'onglet **Sous-réseaux** de la boîte de dialogue **Propriétés de la découverte du réseau** , la recherche s'applique uniquement aux sous-réseaux marqués **Activé** .  
-
- Lorsque vous désactivez un sous-réseau, il est exclu de la découverte, et les conditions suivantes s'appliquent :  
-
--   Les requêtes SNMP ne s’exécutent pas sur le sous-réseau.  
-
--   Les serveurs DHCP ne renvoient pas une liste des ressources situées sur le sous-réseau.  
-
--   Les requêtes basées sur le domaine peuvent découvrir des ressources situées sur le sous-réseau.  
-
-####  <a name="BKMK_SearchByDomain"></a> Rechercher dans un domaine spécifique  
- La découverte du réseau peut être configurée pour rechercher dans un domaine spécifique ou dans plusieurs domaines au cours d'une opération de découverte. Par défaut, la découverte du réseau recherche dans le domaine local du serveur qui exécute la découverte.  
-
- Si vous spécifiez un ou plusieurs domaines sous l'onglet **Domaines** de la boîte de dialogue **Propriétés de la découverte du réseau**, la recherche s'applique uniquement aux domaines marqués **Activé**.  
-
- Lorsque vous désactivez un domaine, il est exclu de la découverte, et les conditions suivantes s'appliquent :  
-
--   La découverte du réseau n’interroge pas les contrôleurs de domaine situés dans ce domaine.  
-
--   Les requêtes SNMP s’exécutent sur les sous-réseaux du domaine.  
-
--   Les serveurs DHCP renvoient toujours une liste des ressources situées dans le domaine.  
-
-####  <a name="BKMK_LimitBySNMPname"></a> Limiter les recherches en utilisant des noms de communautés SNMP  
- La découverte du réseau peut être configurée pour rechercher une communauté SNMP spécifique ou plusieurs communautés au cours d'une opération de découverte. Par défaut, le nom de communauté dit **Public** est configuré pour l'utilisation.  
-
- La fonction de découverte du réseau utilise des noms de communautés pour accéder à des routeurs qui constituent des périphériques SNMP. Un routeur permet d'informer le service de découverte du réseau sur les autres routeurs et les sous-réseaux liés au premier routeur.  
+##  <a name="BKMK_ConfigHBDisc"></a>Heartbeat-detectie configureren  
+ Heartbeat-detectie is standaard ingeschakeld wanneer u een primaire site van Configuration Manager installeert. Hierdoor hoeft u alleen te configureren van de planning voor hoe vaak clients verzenden de Heartbeat-detectie-gegevens naar een beheerpunt opnemen wanneer u niet wilt dat de standaard elke zeven dagen.  
 
 > [!NOTE]  
->  Les noms de communautés SNMP sont semblables aux mots de passe. Le service de découverte du réseau peut uniquement obtenir des informations d'un périphérique SNMP pour lequel vous avez spécifié un nom de communauté. Chaque périphérique SNMP peut disposer de son propre nom de communauté mais souvent, plusieurs périphériques partagent le même nom de communauté. En outre, la plupart des périphériques SNMP disposent d'un nom de communauté par défaut dit **Public**. Toutefois, certaines organisations suppriment le nom de communauté **Public** de leurs appareils pour des raisons de sécurité.  
+>  Als zowel client-pushinstallatie en de siteonderhoudstaak voor **Installatievlag** zijn ingeschakeld op dezelfde site, zet u de planning voor Heartbeat-detectie op korter dan de **periode Herdetectie Client** van de **Installatievlag** siteonderhoudstaak. Zie voor meer informatie over siteonderhoudstaken [onderhoudstaken voor System Center Configuration Manager](../../../../core/servers/manage/maintenance-tasks.md).  
 
- Si plusieurs communautés SNMP s’affichent dans l’onglet **SNMP** de la boîte de dialogue **Propriétés de la découverte du réseau**, les recherches effectuées par la découverte du réseau s’effectuent dans l’ordre d’affichage des communautés. Afin de réduire l'impact sur le trafic réseau généré par les tentatives de contact avec un périphérique en utilisant différents noms, assurez-vous que les noms les plus fréquemment utilisés sont en haut de la liste.  
+#### <a name="to-configure-the-heartbeat-discovery-schedule"></a>De planning voor Heartbeat-detectie configureren  
+
+1.  Kies in de Configuration Manager-console **beheer** > **Hiërarchieconfiguratie**, en kies vervolgens **detectiemethoden**.  
+
+2.  Kies **Heartbeat-detectie** voor de site waar u Heartbeat-detectie configureren.  
+
+3.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
+
+4.  Configureer de frequentie waarmee clients Heartbeat-gegevensdetectierecord verzenden, en kies vervolgens **OK** aan de configuratie op te slaan.  
+
+##  <a name="BKMK_ConfigNetworkDisc"></a>Netwerkdetectie configureren  
+ Gebruik de informatie in de volgende secties voor hulp bij het configureren van netwerkdetectie.  
+
+###  <a name="BKMK_AboutConfigNetworkDisc"></a>Over het configureren van netwerkdetectie  
+ Voordat u netwerkdetectie configureert, moet u het volgende weten:  
+
+-   Beschikbare niveaus van netwerkdetectie  
+
+-   Beschikbare opties voor netwerkdetectie  
+
+-   Beperken van netwerkdetectie op het netwerk  
+
+Zie voor meer informatie [over netwerkdetectie](../../../../core/servers/deploy/configure/about-discovery-methods.md#bkmk_aboutNetwork).  
+
+ De volgende secties bevatten informatie over algemene configuraties voor netwerkdetectie. U kunt een of meer van deze configuraties voor gebruik tijdens dezelfde detectierun uitvoeren. Als u meerdere configuraties gebruikt, moet u plannen voor de interactie die de detectieresultaten kunnen beïnvloeden.  
+
+ U wilt bijvoorbeeld alle Simple Network Management Protocol (SNMP)-apparaten die gebruikmaken van een specifieke SNMP-communitynaam te detecteren. U kunt bovendien detectie op een specifiek subnet uitschakelen voor de dezelfde detectierun. Wanneer detectie wordt uitgevoerd, detecteert netwerkdetectie geen SNMP-apparaten met de opgegeven communitynaam op het subnet dat u hebt uitgeschakeld.  
+
+####  <a name="BKMK_DetermineNetTopology"></a>Uw netwerktopologie bepalen  
+ Alleen-topologie detectie kunt u uw netwerk worden toegewezen. Dit type detectie detecteert geen potentiële clients. De topologie-alleen voor netwerkdetectie is afhankelijk van SNMP.  
+
+ Wanneer u uw netwerktopologie toegewezen bent, moet u de **Maximum aantal hops** op de **SNMP** tabblad de **netwerkdetectie-eigenschappen** in het dialoogvenster. Met slechts enkele hops kunnen helpen bij het beheren van de netwerkbandbreedte die wordt gebruikt wanneer detectie wordt uitgevoerd. Als u meer van uw netwerk ontdekt, kunt u het aantal hops opvoeren beter inzicht te krijgen van uw netwerktopologie om verhogen.  
+
+ Nadat u uw netwerktopologie begrijpt, kunt u extra eigenschappen voor netwerkdetectie voor het detecteren van mogelijke clients en hun besturingssystemen, terwijl u beschikbare configuraties gebruikt voor het beperken van de netwerksegmenten dat netwerkdetectie kan zoeken.  
+
+####  <a name="BKMK_LimitBySubnet"></a>Zoekopdrachten beperken met subnetten  
+ U kunt netwerkdetectie configureren om te zoeken naar specifieke subnetten tijdens een detectierun. Netwerkdetectie doorzoekt standaard het subnet van de server die detectie uitvoert. Eventuele extra subnetten die u configureert en inschakelt alleen van toepassing op SNMP en Dynamic Host Configuration Protocol (DHCP) zoekopties. Wanneer netwerkdetectie domeinen zoekt, wordt het niet beperkt door subnetconfiguraties.  
+
+ Als u een of meer subnetten opgeeft op de **subnetten** tabblad de **netwerkdetectie-eigenschappen** in het dialoogvenster alleen de subnetten die zijn gemarkeerd als **ingeschakeld** worden doorzocht.  
+
+ Wanneer u een subnet uitschakelt, wordt het uitgesloten van detectie en gelden de volgende voorwaarden:  
+
+-   SNMP-query's niet uitgevoerd op het subnet.  
+
+-   DHCP-servers reageren niet met een lijst met bronnen die zich op het subnet.  
+
+-   Domain-query's kunnen bronnen detecteren die zich op het subnet bevinden.  
+
+####  <a name="BKMK_SearchByDomain"></a>Zoeken in een specifiek domein  
+ U kunt netwerkdetectie configureren om te zoeken in een specifiek domein of set van domeinen tijdens het uitvoeren van een detectie. Netwerkdetectie doorzoekt standaard het lokale domein van de server die detectie uitvoert.  
+
+ Als u een of meer domeinen specificeert op het **domeinen** tabblad de **netwerkdetectie-eigenschappen** in het dialoogvenster alleen de domeinen die zijn gemarkeerd als **ingeschakeld** worden doorzocht.  
+
+ Wanneer u een domein uitschakelt, wordt het uitgesloten van detectie en gelden de volgende voorwaarden:  
+
+-   Netwerkdetectie voert geen query's domeincontrollers in dat domein.  
+
+-   SNMP-query's kunnen nog steeds uitgevoerd op subnetten in het domein.  
+
+-   DHCP-servers kunnen nog steeds antwoorden met een lijst met bronnen in het domein.  
+
+####  <a name="BKMK_LimitBySNMPname"></a>Zoekopdrachten beperken door SNMP-communitynamen te gebruiken  
+ U configureren netwerkdetectie om te zoeken in een specifieke SNMP-community of set van communities tijdens het uitvoeren van een detectie. Standaard wordt de communitynaam van **openbare** is geconfigureerd voor gebruik.  
+
+ Netwerkdetectie gebruikt communitynamen om toegang tot routers die SNMP-apparaten te krijgen. Een router kan netwerkdetectie voorzien met informatie over andere routers en subnetten die zijn gekoppeld aan de eerste router.  
 
 > [!NOTE]  
->  Outre le nom de communauté SNMP, vous pouvez spécifier l’adresse IP ou le nom pouvant être résolu d’un périphérique SNMP. Pour ce faire, utilisez l’onglet **Périphériques SNMP** de la boîte de dialogue **Propriétés de la découverte du réseau**.  
+>  SNMP-communitynamen lijken op wachtwoorden. Netwerkdetectie kan enkel informatie krijgen van een SNMP-apparaat waarvoor u een communitynaam hebt opgegeven. Elk SNMP-apparaat kan zijn eigen communitynaam hebben, maar dikwijls wordt dezelfde comunitynaam gedeeld tussen verschillende apparaten. Bovendien hebben de meeste SNMP-apparaten een standaardcommunitynaam **openbare**. Sommige organisaties wissen, maar de **openbare** communitynaam vanaf hun apparaten veiligheidsoverwegingen.  
 
-####  <a name="BKMK_SearchByDHCP"></a> Rechercher sur un serveur DHCP spécifique  
- La découverte du réseau peut être configurée pour utiliser un serveur DHCP spécifique ou plusieurs serveurs en vue de découvrir des clients DHCP au cours d'une opération de découverte.  
-
- La découverte du réseau recherche sur chaque serveur DHCP que vous spécifiez sous l'onglet **DHCP** de la boîte de dialogue **Propriétés de la découverte du réseau**. Si le serveur qui exécute la découverte loue son adresse IP à un serveur DHCP, vous pouvez configurer la découverte pour qu’elle effectue la recherche sur ce serveur DHCP en activant la case à cocher **Inclure le serveur DHCP pour lequel le serveur de site est configuré**.  
+ Als meerdere SNMP-communities worden weergegeven op de **SNMP** tabblad de **netwerkdetectie-eigenschappen** in het dialoogvenster zoekt netwerkdetectie ze in de volgorde waarin ze worden weergegeven. Om te helpen het netwerkverkeer dat wordt gegenereerd door pogingen om contact met een apparaat met behulp van verschillende namen te minimaliseren, zorg ervoor dat de meest gebruikte namen aan de bovenkant van de lijst.  
 
 > [!NOTE]  
->  Pour configurer avec succès un serveur DHCP dans la découverte du réseau, votre environnement doit prendre en charge IPv4. Vous ne pouvez pas configurer la découverte du réseau de sorte qu'elle utilise un serveur DHCP dans un environnement IPv6 natif.  
+>  Naast het gebruik van de SNMP-communitynaam, kunt u het IP-adres of herleidbare naam van een specifiek SNMP-apparaat. U dit doen op de **SNMP-apparaten** tabblad de **netwerkdetectie-eigenschappen** in het dialoogvenster.  
 
-###  <a name="BKMK_HowToConfigNetDisc"></a> Guide pratique pour configurer la découverte du réseau  
- Procédez comme suit pour d'abord découvrir uniquement la topologie de votre réseau, puis configurer la découverte du réseau afin de découvrir des clients potentiels à l'aide de l'une ou de plusieurs options disponibles de découverte du réseau.  
+####  <a name="BKMK_SearchByDHCP"></a>Een specifieke DHCP-server zoeken  
+ U kunt netwerkdetectie voor het gebruik van een specifieke DHCP-server of meerdere servers voor het detecteren van DHCP-clients tijdens de uitvoering van een detectie configureren.  
 
-##### <a name="to-determine-your-network-topology"></a>Pour déterminer la topologie de votre réseau  
+ Netwerkdetectie doorzoekt elke DHCP-server die u opgeeft op de **DHCP** tabblad de **netwerkdetectie-eigenschappen** in het dialoogvenster. Als de server die detectie uitvoert zijn IP-adres van een DHCP-server huurt, u kunt detectie configureren zodat deze DHCP-server zoeken door het controleren van de **de DHCP-server opnemen waarvoor de siteserver is geconfigureerd voor gebruik** vak.  
 
-1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie**, puis **Méthodes de découverte**.  
+> [!NOTE]  
+>  Als u wilt configureren met succes een DHCP-server in netwerkdetectie, moet uw omgeving IPv4 ondersteunen. U kunt netwerkdetectie voor het gebruik van een DHCP-server in een systeemeigen IPv6-netwerkomgeving niet configureren.  
 
-2.  Choisissez **Découverte du réseau** pour le site sur lequel vous souhaitez exécuter la découverte du réseau.  
+###  <a name="BKMK_HowToConfigNetDisc"></a>Het configureren van netwerkdetectie  
+ Gebruik de volgende procedures om eerst enkel uw netwerktopologie te detecteren en configureer dan netwerkdetectie voor het detecteren van mogelijke clients met behulp van een of meer van de beschikbare opties voor netwerkdetectie.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+##### <a name="to-determine-your-network-topology"></a>Uw netwerktopologie bepalen  
 
-    -   Dans l’onglet **Général**, activez la case à cocher **Activer la découverte du réseau**, puis choisissez **Topologie** dans **Type de découverte**.  
+1.  Kies in de Configuration Manager-console **beheer** > **Hiërarchieconfiguratie**, en kies vervolgens **detectiemethoden**.  
 
-    -   Dans l’onglet **Sous-réseaux**, activez la case à cocher **Rechercher les sous-réseaux locaux**.  
+2.  Kies **netwerkdetectie** voor de site waar u netwerkdetectie wilt uitvoeren.  
+
+3.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
+
+    -   Op de **algemene** tabblad, Controleer de **Netwerkdetectie inschakelen** vak in en kies vervolgens **topologie** van de **Type detectie** opties.  
+
+    -   Op de **subnetten** tabblad, Controleer de **lokale subnetten doorzoeken** vak.  
 
         > [!TIP]  
-        >  Si vous connaissez les sous-réseaux qui constituent votre réseau, vous pouvez désactiver la case **Rechercher les sous-réseaux locaux** et utiliser l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif) pour ajouter les sous-réseaux qui doivent faire l’objet de la recherche. Pour les réseaux de grande taille, il est souvent préférable d'effectuer la recherche uniquement dans un ou deux sous-réseaux à la fois, afin de minimiser l'utilisation de la bande passante du réseau.  
+        >  Als u welke subnetten deel uitmaken van uw netwerk weet, schakelt u de **lokale subnetten doorzoeken** vak en gebruik de **nieuw** pictogram ![pictogram Nieuw](media/Disc_new_Icon.gif) toevoegen de specifieke subnetten die u wilt zoeken. Voor grote netwerken is het verstandig om te zoeken slechts één of twee subnetten tegelijk om het gebruik van netwerkbandbreedte te minimaliseren.  
 
-    -   Dans l’onglet **Domaines**, activez la case à cocher **Rechercher dans le domaine local**.  
+    -   Op de **domeinen** tabblad, Controleer de **lokale domeinen doorzoeken** vak.  
 
-    -   Dans l'onglet **SNMP** , utilisez la liste déroulante **Nombre maximal de sauts** pour déterminer le nombre de sauts de routeur que la découverte du réseau doit effectuer lors du mappage de votre topologie.  
+    -   Op de **SNMP** tabblad, gebruikt u de **Maximum aantal hops** vervolgkeuzelijst om te specificeren hoeveel routerhops Netwerkdetectie kan duren in kaart brengen van uw topologie.  
 
         > [!TIP]  
-        >  Lorsque vous mappez la topologie de votre réseau pour la première fois, configurez quelques sauts de routeur pour réduire l'utilisation de la bande passante du réseau.  
+        >  Wanneer u eerst uw netwerktopologie toewijst, configureert u slechts enkele routerhops om het gebruik van netwerkbandbreedte te minimaliseren.  
 
-4.  Dans l’onglet **Calendrier**, choisissez l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif) pour définir le calendrier d’exécution de la découverte du réseau.  
-
-    > [!NOTE]  
-    >  Vous ne pouvez pas attribuer une configuration de découverte différente à des planifications de découverte du réseau distinctes. La découverte du réseau utilise la configuration de découverte en cours à chaque exécution.  
-
-5.  Choisissez **OK** pour accepter la configuration. La découverte du réseau s'exécute à l'heure planifiée.  
-
-##### <a name="to-configure-network-discovery"></a>Pour configurer la découverte du réseau  
-
-1.  Dans la console Configuration Manager, choisissez **Administration** > **Configuration de la hiérarchie**, puis **Méthodes de découverte**.  
-
-2.  Choisissez **Découverte du réseau** pour le site sur lequel vous souhaitez exécuter la découverte du réseau.  
-
-3.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
-
-4.  Dans l’onglet **Général**, activez la case à cocher **Activer la découverte du réseau**, puis sélectionnez le type de découverte à exécuter dans **Type de découverte**.  
-
-5.  Pour configurer la découverte afin de rechercher les sous-réseaux, cliquez sur l’onglet **Sous-réseaux**, puis configurez une ou plusieurs des options suivantes :  
-
-    -   Pour lancer la découverte sur les sous-réseaux locaux de l’ordinateur exécutant la découverte, activez la case à cocher **Rechercher les sous-réseaux locaux**.  
-
-    -   Pour rechercher un sous-réseau spécifique, celui-ci doit figurer dans la liste **Sous-réseaux à rechercher** et son paramètre **Rechercher** doit avoir pour valeur **Activé** :  
-
-        1.  Si le sous-réseau ne figure pas dans la liste, choisissez l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif). Dans la boîte de dialogue **Nouvelle attribution de sous-réseau**, renseignez les champs **Sous-réseau** et **Masque**, puis choisissez **OK**. Par défaut, un nouveau sous-réseau est activé pour la recherche.  
-
-        2.  Pour modifier la valeur **Rechercher** d’un sous-réseau figurant dans la liste, sélectionnez-le, puis choisissez l’icône **Basculer** afin de remplacer la valeur **Désactivé** par la valeur **Activé** (ou inversement).  
-
-6.  Pour configurer la découverte et rechercher les domaines, cliquez sur l’onglet **Domaines**, puis configurez une ou plusieurs des options suivantes :  
-
-    -   Pour lancer la découverte sur le domaine de l’ordinateur exécutant la découverte, activez la case à cocher **Rechercher dans le domaine local**.  
-
-    -   Pour rechercher un domaine spécifique, vérifiez que celui-ci figure dans la liste **Domaines** et que son paramètre **Rechercher** a pour valeur **Activé** :  
-
-        1.  Si le domaine ne figure pas dans la liste, choisissez l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif). Dans la boîte de dialogue **Propriétés de domaine**, renseignez le champ **Domaine**, puis choisissez **OK**. Par défaut, un nouveau domaine est activé pour la recherche.  
-
-        2.  Pour modifier la valeur **Rechercher** d’un domaine figurant dans la liste, sélectionnez le domaine, puis choisissez l’icône **Basculer** afin de remplacer la valeur **Désactivé** par la valeur **Activé** (ou inversement).  
-
-7.  Pour configurer la découverte afin de rechercher des noms de communautés SNMP, choisissez l’onglet **SNMP**, puis configurez une ou plusieurs des options suivantes :  
-
-    -   Pour ajouter un nom de communauté SNMP dans la liste **Noms de communautés SNMP**, choisissez l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif). Dans la boîte de dialogue **Nouveau nom de communauté SNMP**, indiquez le **Nom** de la communauté SNMP, puis choisissez **OK**.  
-
-    -   Pour supprimer un nom de communauté SNMP, sélectionnez-le, puis choisissez l’icône **Supprimer** ![Icône Supprimer](media/Disc_delete_Icon.gif).  
-
-    -   Pour modifier l’ordre de recherche des noms de communautés SNMP, sélectionnez un nom de communauté, puis choisissez l’icône **Déplacer l’élément vers le haut** ![Icône Déplacer l’élément vers le haut](media/Disc_moveUp_Icon.gif) ou **Déplacer l’élément vers le bas** ![Icône Déplacer l’élément vers le bas](media/Disc_moveDown_Icon.gif). Lors de l'exécution de la découverte, la recherche des noms de communauté est effectuée dans un ordre de haut en bas. Gardez à l’esprit les points suivants.
-
-        > [!NOTE]  
-        >  Le service de découverte du réseau utilise les noms des communautés SNMP pour accéder à des routeurs correspondant à des périphériques SNMP. Un routeur permet d'informer le service de découverte du réseau sur les autres routeurs et les sous-réseaux liés au premier routeur.  
-
-        -   Les noms de communautés SNMP sont semblables aux mots de passe.  
-
-        -   Le service de découverte du réseau peut uniquement obtenir des informations d'un périphérique SNMP pour lequel vous avez spécifié un nom de communauté.  
-
-        -   Chaque périphérique SNMP peut disposer de son propre nom de communauté mais souvent, plusieurs périphériques partagent le même nom de communauté.  
-
-        -   La plupart des périphériques SNMP ont un nom de communauté par défaut, qui est **Public**. Vous pouvez l’utiliser si vous n’en connaissez pas d’autres. Toutefois, certaines organisations suppriment le nom de communauté **Public** de leurs périphériques pour des raisons de sécurité.  
-
-8.  Pour configurer le nombre maximal de sauts de routeur pour les recherches SNMP, choisissez l’onglet **SNMP**, puis sélectionnez le nombre maximal de sauts dans la liste déroulante **Nombre maximal de sauts**.  
-
-9. Pour configurer un périphérique SNMP, choisissez l’onglet **Périphériques SNMP**. Si le périphérique ne figure pas dans la liste, choisissez l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif). Dans la boîte de dialogue **Nouvelle unité SNMP**, tapez l’adresse IP ou le nom du périphérique SNMP, puis choisissez **OK**.  
+4.  Op de **planning** tabblad, kiest u de **nieuw** pictogram ![pictogram Nieuw](media/Disc_new_Icon.gif) het instellen van een planning voor het uitvoeren van netwerkdetectie.  
 
     > [!NOTE]  
-    >  Si vous spécifiez un nom de périphérique, Configuration Manager doit pouvoir résoudre le nom NetBIOS en adresse IP.  
+    >  U kunt een andere detectieconfiguratie te scheiden netwerkdetectieplannings niet toewijzen. Elke keer dat netwerkdetectie wordt uitgevoerd, gebruikt het de huidige detectieconfiguratie.  
 
-10. Pour configurer la découverte afin d’interroger certains serveurs DHCP de clients DHCP, choisissez l’onglet **DHCP**, puis configurez une ou plusieurs des options suivantes :  
+5.  Kies **OK** om de configuraties te aanvaarden. Netwerkdetectie wordt uitgevoerd op het geplande tijdstip.  
 
-    -   Pour interroger le serveur DHCP sur l’ordinateur exécutant la découverte, activez la case à cocher **Always use the site server’s DHCP server (Toujours utiliser le serveur DHCP du serveur de site)**.  
+##### <a name="to-configure-network-discovery"></a>Netwerkdetectie configureren  
+
+1.  Kies in de Configuration Manager-console **beheer** > **Hiërarchieconfiguratie**, en kies vervolgens **detectiemethoden**.  
+
+2.  Kies **netwerkdetectie** voor de site waar u netwerkdetectie wilt uitvoeren.  
+
+3.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
+
+4.  Op de **algemene** tabblad, Controleer de **Netwerkdetectie inschakelen** vak en selecteer vervolgens het type detectie dat u uitvoeren wilt van de **Type detectie** opties.  
+
+5.  Om detectie te configureren om te zoeken naar subnetten, kies de **subnetten** tabblad en configureer vervolgens een of meer van de volgende opties:  
+
+    -   Detectie op subnetten die lokaal op de computer die detectie uitvoert zijn uitgevoerd, Controleer de **lokale subnetten doorzoeken** vak.  
+
+    -   Om te zoeken naar een specifiek subnet, zorg ervoor dat het subnet is opgenomen in **te doorzoeken subnetten** en heeft een **Search** waarde van **ingeschakeld**:  
+
+        1.  Als het subnet niet wordt weergegeven, selecteert u de **nieuw** pictogram ![pictogram Nieuw](media/Disc_new_Icon.gif). In de **nieuwe Subnettoewijzing** dialoogvenster en voer de **Subnet** en **masker** informatie en kies vervolgens **OK**. Een nieuw subnet is standaard ingeschakeld voor de zoekopdracht.  
+
+        2.  Wijzigen van de **zoeken** waarde voor een subnet in de lijst, selecteert u het subnet en kies vervolgens de **in-of uitschakelen** pictogram overschakelen van de waarde tussen **uitgeschakeld** en **ingeschakeld**.  
+
+6.  Om detectie te configureren om te zoeken naar domeinen, kies de **domeinen** tabblad en configureer vervolgens een of meer van de volgende opties:  
+
+    -   Detectie uitgevoerd op het domein van de computer die detectie uitvoert, Controleer de **lokale domeinen doorzoeken** vak.  
+
+    -   Om te zoeken naar een specifiek domein, zorg ervoor dat het domein is opgenomen in **domeinen** en heeft een **Search** waarde van **ingeschakeld**:  
+
+        1.  Als het domein niet wordt weergegeven, selecteert u de **nieuw** pictogram ![pictogram Nieuw](media/Disc_new_Icon.gif). In de **Domeineigenschappen** dialoogvenster en voer de **domein** informatie en kies vervolgens **OK**. Een nieuw domein is standaard ingeschakeld voor de zoekopdracht.  
+
+        2.  Wijzigen van de **zoeken** waarde voor een domein in de lijst, selecteert u het domein en kies vervolgens de **wisselknop** pictogram overschakelen van de waarde tussen **uitgeschakeld** en **ingeschakeld**.  
+
+7.  Om detectie te configureren om te zoeken naar specifieke SNMP-communitynamen voor SNMP-apparaten, kies de **SNMP** tabblad en configureer vervolgens een of meer van de volgende opties:  
+
+    -   Een SNMP-communitynaam toevoegen aan de lijst met **SNMP-communitynamen**, kies de **nieuw** pictogram ![pictogram Nieuw](media/Disc_new_Icon.gif). In de **nieuwe SNMP-communitynaam** dialoogvenster geeft u de **naam** van de SNMP-community en kies vervolgens **OK**.  
+
+    -   Als u wilt verwijderen van een SNMP-communitynaam, selecteert u de communitynaam en kies vervolgens de **verwijderen** pictogram ![pictogram verwijderen](media/Disc_delete_Icon.gif).  
+
+    -   Als u wilt de zoekvolgorde van SNMP-communitynamen aanpassen, selecteert u een communitynaam en kies vervolgens de **Item omhoog verplaatsen** pictogram ![pictogram verplaatsen](media/Disc_moveUp_Icon.gif) of de **Item omlaag verplaatsen** pictogram ![pictogram verplaatsen](media/Disc_moveDown_Icon.gif). Wanneer detectie wordt uitgevoerd, worden communitynamen in een boven-naar-beneden volgorde doorzocht. Denk aan de volgende punten.
 
         > [!NOTE]  
-        >  Pour utiliser cette option, le serveur doit louer son adresse IP à un serveur DHCP, et il ne peut pas utiliser une adresse IP statique.  
+        >  Netwerkdetectie gebruikt SNMP-communitynamen toegang te krijgen tot routers die SNMP-apparaten. Een router kan netwerkdetectie informeren over andere routers en subnetten die verbonden zijn met de eerste router.  
 
-    -   Pour interroger un serveur DHCP spécifique, choisissez l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif). Dans la boîte de dialogue **Nouveau serveur DHCP**, entrez l’adresse IP ou le nom du serveur DHCP, puis choisissez **OK**.  
+        -   SNMP-communitynamen lijken op wachtwoorden.  
 
-        > [!NOTE]  
-        >  Si vous spécifiez un nom de serveur, Configuration Manager doit pouvoir résoudre le nom NetBIOS en adresse IP.  
+        -   Netwerkdetectie kan enkel informatie krijgen van een SNMP-apparaat waarvoor u een communitynaam hebt opgegeven.  
 
-11. Pour configurer à quel moment la découverte s’exécute, cliquez sur l’onglet **Calendrier**, puis choisissez l’icône **Nouveau** ![Icône Nouveau](media/Disc_new_Icon.gif) afin de définir le calendrier d’exécution de la découverte du réseau.  
+        -   Elk SNMP-apparaat kan zijn eigen communitynaam hebben, maar dikwijls wordt dezelfde comunitynaam gedeeld tussen verschillende apparaten.  
 
-     Vous pouvez configurer plusieurs calendriers récurrents et plusieurs calendriers non récurrents.  
+        -   De meeste SNMP-apparaten hebben een standaardnaam **openbare**. U kunt deze instelling gebruiken als u geen andere communitynamen kent. Sommige organisaties wissen evenwel de **openbare** communitynaam vanaf hun apparaten veiligheidsoverwegingen.  
+
+8.  Voor het configureren van het maximum aantal router-hops voor gebruik door SNMP-opzoekingen, kies de **SNMP** tabblad en selecteer vervolgens het aantal hops van de **Maximum aantal hops** vervolgkeuzelijst.  
+
+9. Voor het configureren van een SNMP-apparaat, kies de **SNMP-apparaten** tabblad. Als het apparaat niet weergegeven wordt, selecteert u de **nieuw** pictogram ![pictogram Nieuw](media/Disc_new_Icon.gif). In de **nieuwe SNMP-apparaat** in het dialoogvenster Geef de IP-adres of het apparaat de naam van het SNMP-apparaat en kies vervolgens **OK**.  
 
     > [!NOTE]  
-    >  Si plusieurs calendriers s’affichent dans l’onglet **Calendrier**, tous exécutent la découverte du réseau à l’heure indiquée. Cela s'applique également aux planifications périodiques.  
+    >  Als u een apparaatsnaam opgeeft, wordt Configuration Manager moet de NetBIOS-naam omzetten in een IP-adres.  
 
-12. Choisissez **OK** pour enregistrer vos configurations.  
+10. Om detectie te configureren om te doorzoeken op specifieke DHCP-servers DHCP-clients, kies de **DHCP** tabblad en configureer vervolgens een of meer van de volgende opties:  
 
-###  <a name="BKMK_HowToVerifyNetDisc"></a> Guide pratique pour vérifier que la découverte du réseau est terminée  
- La durée d’exécution de la découverte du réseau peut varier selon plusieurs facteurs, dont un ou plusieurs des points suivants :  
+    -   Als u wilt zoeken op de DHCP-server op de computer die detectie uitvoert, Controleer de **gebruik altijd de DHCP-server van de siteserver** vak.  
 
--   Taille de votre réseau  
+        > [!NOTE]  
+        >  Om deze optie gebruikt, is de server moet het IP-adres van een DHCP-server van de lease, en een statisch IP-adres niet gebruiken.  
 
--   Topologie de votre réseau  
+    -   Om te vragen een specifieke DHCP-server, kies de **nieuw** pictogram ![pictogram Nieuw](media/Disc_new_Icon.gif). In de **nieuwe DHCP-Server** in het dialoogvenster Geef het IP-adres of de servernaam van de DHCP-server en kies vervolgens **OK**.  
 
--   Nombre maximal de sauts configurés pour la recherche de routeurs sur le réseau  
+        > [!NOTE]  
+        >  Als u een servernaam opgeeft, wordt Configuration Manager moet de NetBIOS-naam omzetten in een IP-adres.  
 
--   Type de découverte en cours d'exécution  
+11. Als u wilt configureren wanneer detectie wordt uitgevoerd, kies de **planning** tabblad en kies vervolgens de **nieuw** pictogram ![pictogram Nieuw](media/Disc_new_Icon.gif) het instellen van een planning voor het uitvoeren van netwerkdetectie.  
 
-La découverte du réseau ne génère pas de message d'alerte signalant qu'elle est terminée, vous devez donc le vérifier à l'aide de la procédure suivante.  
+     U kunt meerdere recurrente plannings- en meerdere plannings zonder recurrentie configureren.  
 
-##### <a name="to-verify-that-network-discovery-has-finished"></a>Pour vérifier qu'une découverte du réseau est terminée  
+    > [!NOTE]  
+    >  Als meerdere planningen worden weergegeven op de **planning** tabblad op hetzelfde moment, resulteren alle plannings in een uitvoering van Netwerkdetectie zoals ze geconfigureerd is op het tijdstip aangegeven in de planning. Dit geldt ook voor terugkerende schema's.  
 
-1.  Dans la console Configuration Manager, choisissez **Surveillance**.  
+12. Kies **OK** uw configuraties op te slaan.  
 
-2.  Dans l’espace de travail **Surveillance**, développez **État du système**, puis choisissez **Requêtes sur les messages d’état**.  
+###  <a name="BKMK_HowToVerifyNetDisc"></a>Controleren of de netwerkdetectie is voltooid  
+ De tijd die netwerkdetectie nodig heeft om te voltooien kan variëren afhankelijk van een verscheidenheid aan factoren. Deze factoren kunnen bevatten een of meer van de volgende opties:  
 
-3.  Choisissez **All Status Messages (Tous les messages d’état)**.  
+-   De grootte van uw netwerk  
 
-4.  Dans l’onglet **Accueil** puis dans le groupe **Requêtes sur les messages d’état**, choisissez **Afficher les messages**.  
+-   De topologie van uw netwerk  
 
-5.  Dans la liste déroulante **Sélectionner la date et l’heure**, sélectionnez une valeur indiquant depuis combien de temps a démarré la découverte, puis choisissez **OK** pour ouvrir la boîte de dialogue **Afficheur des messages d’état de Configuration Manager**.  
+-   Het maximum aantal hops dat geconfigureerd is om routers te vinden in het netwerk  
+
+-   Het type detectie dat wordt uitgevoerd  
+
+Omdat netwerkdetectie geen berichten om u te waarschuwen wanneer detectie is voltooid maakt, kunt u de volgende procedure om te controleren wanneer detectie is voltooid.  
+
+##### <a name="to-verify-that-network-discovery-has-finished"></a>Om te controleren of de netwerkdetectie is voltooid  
+
+1.  Kies in de Configuration Manager-console **bewaking**.  
+
+2.  In de **bewaking** werkruimte Vouw **systeemstatus**, en kies vervolgens **Statusopdrachten**.  
+
+3.  Kies **alle statusberichten**.  
+
+4.  Op de **Start** tabblad, in de **Statusopdrachten** groep, kiest u **Toon berichten**.  
+
+5.  In de **datum en tijd selecteren** vervolgkeuzelijst, selecteer een waarde die bevat hoe lang gelden de detectie is gestart, en kies vervolgens **OK** openen de **Configuration Manager Status Message Viewer**.  
 
     > [!TIP]  
-    >  Vous pouvez également utiliser l'option **Spécifier la date et l'heure** pour sélectionner la date et l'heure auxquelles vous avez exécuté la découverte. Cette option s'avère utile si vous avez exécuté une découverte du réseau à une date donnée et que vous voulez récupérer uniquement les messages ayant été générés à cette date.  
+    >  U kunt ook de **datum en tijd opgeven** optie voor het selecteren van een gegeven datum en tijd die u detectie uitvoerde. Deze optie is nuttig wanneer u netwerkdetectie uitvoerde op een gegeven datum en berichten wilt extraheren van enkel deze datum.  
 
-6.  Pour valider que la découverte du réseau est terminée, recherchez un message d'état contenant les détails suivants :  
+6.  Om te valideren dat netwerkdetectie is voltooid, zoeken naar een statusbericht dat de volgende gegevens:  
 
-    -   ID de message : **502**  
+    -   Bericht-ID: **502**  
 
-    -   Composant : **SMS_NETWORK_DISCOVERY**  
+    -   Onderdeel: **SMS_NETWORK_DISCOVERY**  
 
-    -   Description : **Ce composant s'est arrêté.**  
+    -   Beschrijving: **Dit onderdeel is gestopt**  
 
-    Si ce message d'état ne s'affiche pas, la découverte de réseau n'est pas terminée.  
+    Als dit statusbericht niet aanwezig is, heeft niet de netwerkdetectie voltooid.  
 
-7.  Pour valider le moment de démarrage de la découverte du réseau, recherchez un message d'état contenant les détails suivants :  
+7.  Om te valideren dat netwerkdetectie gestart, zoekt u een statusbericht dat de volgende gegevens:  
 
-    -   ID de message : **500**  
+    -   Bericht-ID: **500**  
 
-    -   Composant : **SMS_NETWORK_DISCOVERY**  
+    -   Onderdeel: **SMS_NETWORK_DISCOVERY**  
 
-    -   Description : **Ce composant a démarré.**  
+    -   Beschrijving: **Dit onderdeel is gestart**  
 
-    Ces informations vérifient que la découverte du réseau a démarré. Si ces informations ne s'affichent pas, replanifiez une découverte du réseau.  
+    Deze informatie wordt gecontroleerd of netwerkdetectie wordt gestart. Als deze informatie niet aanwezig is, plan dan netwerkdetectie.  

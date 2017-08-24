@@ -1,5 +1,5 @@
 ---
-title: Documentation en ligne | Microsoft Docs
+title: Online documentatie | Microsoft Docs
 ms.custom: na
 ms.date: 10/06/2016
 ms.reviewer: na
@@ -16,88 +16,88 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 73bb5d4236469746102fd4893c53f20aaee122d5
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="online-documentation-for-system-center-configuration-manager"></a>Documentation en ligne de System Center Configuration Manager
+# <a name="online-documentation-for-system-center-configuration-manager"></a>Online documentatie voor System Center Configuration Manager
 
 
-Bienvenue dans la bibliothèque de documentation de System Center Configuration Manager.  
-Recherchez la bibliothèque de documentation pour la version du produit que vous utilisez :  
+Welkom bij de documentatiebibliotheek voor System Center Configuration Manager.  
+Zoek de documentatiebibliotheek voor de productversie die u gebruikt:  
 
-## <a name="system-center-configuration-manager-current-branch"></a>System Center Configuration Manager (branche actuelle)  
-**Documentation en ligne :** vous pouvez afficher la documentation en ligne pour la branche actuelle de System Center Configuration Manager sur TechNet :  
+## <a name="system-center-configuration-manager-current-branch"></a>System Center Configuration Manager (Current Branch)  
+**Online documentatie:** U kunt de online documentatie voor de huidige vertakking van System Center Configuration Manager op TechNet bekijken:  
 
--   [Présentation de System Center Configuration Manager](https://technet.microsoft.com/library/mt622715.aspx)  
+-   [Inleiding op System Center Configuration Manager](https://technet.microsoft.com/library/mt622715.aspx)  
 
--   [Se préparer pour System Center Configuration Manager](https://technet.microsoft.com/library/mt608540.aspx)  
+-   [Bereid u voor op het gebruiken van System Center Configuration Manager](https://technet.microsoft.com/library/mt608540.aspx)  
 
--   [Prise en main de System Center Configuration Manager](https://technet.microsoft.com/library/mt608544.aspx)  
+-   [Aan de slag met System Center Configuration Manager](https://technet.microsoft.com/library/mt608544.aspx)  
 
--   [Gérer des systèmes d’exploitation d’entreprise à l’aide de System Center Configuration Manager](https://technet.microsoft.com/library/mt627933.aspx)  
+-   [Enterprise-besturingssystemen beheren met System Center Configuration Manager](https://technet.microsoft.com/library/mt627933.aspx)  
 
--   [Déployer et gérer des applications avec System Center Configuration Manager](https://technet.microsoft.com/library/mt627959.aspx)  
+-   [Toepassingen implementeren en beheren met System Center Configuration Manager](https://technet.microsoft.com/library/mt627959.aspx)  
 
--   [Déployer et gérer des mises à jour logicielles avec System Center Configuration Manager](https://technet.microsoft.com/library/mt634340.aspx)  
+-   [Software-updates implementeren en beheren met System Center Configuration Manager](https://technet.microsoft.com/library/mt634340.aspx)  
 
--   [Garantir la conformité des appareils avec System Center Configuration Manager](https://technet.microsoft.com/library/mt595717.aspx)  
+-   [De apparaatcompatibiliteit garanderen met System Center Configuration Manager](https://technet.microsoft.com/library/mt595717.aspx)  
 
--   [Protéger les données et l’infrastructure des sites avec System Center Configuration Manager](https://technet.microsoft.com/library/mt613161.aspx)  
+-   [Gegevens en site-infrastructuur beveiligen met System Center Configuration Manager](https://technet.microsoft.com/library/mt613161.aspx)  
 
--   [Surveiller et tenir à jour System Center Configuration Manager](https://technet.microsoft.com/library/mt612855.aspx)  
+-   [System Center Configuration Manager controleren en onderhouden](https://technet.microsoft.com/library/mt612855.aspx)  
 
--   [Sécurité et confidentialité pour System Center Configuration Manager](https://technet.microsoft.com/library/mt622694.aspx)  
+-   [Beveiliging en privacy voor System Center Configuration Manager](https://technet.microsoft.com/library/mt622694.aspx)  
 
-**Notes de publication :** les notes de publication contiennent des informations non disponibles dans la documentation du produit, mais qui peuvent être nécessaires pour installer et utiliser correctement System Center Configuration Manager. Consultez [Notes de publication de System Center Configuration Manager](https://technet.microsoft.com/library/mt592024.aspx)  
+**Release-opmerkingen:** De releaseopmerkingen bevatten informatie die is niet beschikbaar in de productdocumentatie en die nodig zijn om de installatie en het gebruik van System Center Configuration Manager. Zie [releaseopmerkingen voor System Center Configuration Manager](https://technet.microsoft.com/library/mt592024.aspx)  
 
-**Trouver de l’aide :** consultez [Trouver de l’aide pour l’utilisation de System Center Configuration Manager](https://technet.microsoft.com/library/mt628521.aspx) :  
+**Hulp zoeken:** Zie [hulp zoeken voor het gebruik van System Center Configuration Manager](https://technet.microsoft.com/library/mt628521.aspx):  
 
-**Accessibilité :** consultez [Fonctionnalités d’accessibilité pour la console Configuration Manager](https://technet.microsoft.com/library/mt628521.aspx)  
+**Toegankelijkheid:** Zie [toegankelijkheidsfuncties voor Configuration Manager-console](https://technet.microsoft.com/library/mt628521.aspx)  
 
 
 ## <a name="system-center-configuration-manager-technical-preview"></a>System Center Configuration Manager Technical Preview  
-**Documentation en ligne :** vous pouvez afficher la documentation en ligne dans les guides suivants sur TechNet :  
+**Online documentatie:** U kunt de online documentatie bekijken in de volgende TechNet-handleidingen:  
 
  [System Center Configuration Manager Technical Preview](https://go.microsoft.com/fwlink/p/?LinkId=534001)  
 
-**Notes de publication :** les notes de publication pour cette version Technical Preview sont incluses dans la documentation principale pour cette version et elles sont présentées en ligne avec les informations pour chaque fonctionnalité.  
+**Release-opmerkingen:** Releaseopmerkingen voor deze technical preview zijn opgenomen in de basisdocumentatie voor deze release en worden inline voorgesteld met de informatie voor elk onderdeel.  
 
-**Accessibilité :** les informations d’accessibilité pour cette version Technical Preview sont inchangées depuis System Center 2012 Configuration Manager. Consultez [Accessibility Features of Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=258586)pour obtenir des informations sur les fonctionnalités, produits et services qui rendent Configuration Manager plus accessible aux personnes en situation de handicap.  
+**Toegankelijkheid:** Toegankelijkheidsinformatie voor deze technical preview is ongewijzigd ten opzichte van System Center 2012 Configuration Manager. Zie [Accessibility Features of Configuration Manager (Toegankelijkheidsfuncties van Configuration Manager)](http://go.microsoft.com/fwlink/p/?LinkId=258586)voor informatie over de functies, producten en services die Configuration Manager beter toegankelijk maken voor gebruikers met een handicap.  
 
-## <a name="system-center-2012-configuration-manager"></a>System Center 2012 Configuration Manager  
-**Documentation en ligne :** pour les éléments suivants :  
+## <a name="system-center-2012-configuration-manager"></a>System Center 2012 Configuration Manager  
+**Online documentatie:** voor het volgende:  
 
--   System Center 2012 Configuration Manager sans Service Pack, SP1 et SP2  
+-   System Center 2012 Configuration Manager zonder servicepack, SP1 en SP2  
 
--   System Center 2012 R2 Configuration Manager sans Service Pack et SP1  
+-   System Center 2012 R2 Configuration Manager zonder servicepack en SP1  
 
-vous pouvez afficher la documentation en ligne dans les guides suivants sur TechNet :  
+u kunt de online documentatie bekijken in de volgende TechNet-handleidingen:  
 
--   [Prise en main de System Center 2012 Configuration Manager](https://go.microsoft.com/fwlink/p/?LinkId=210632)  
+-   [Getting Started with System Center 2012 Configuration Manager (Aan de slag met System Center 2012 Configuration Manager) (Aan de slag met System Center 2012 Configuration Manager)](https://go.microsoft.com/fwlink/p/?LinkId=210632)  
 
--   [Administration de site pour System Center 2012 Configuration Manager](https://go.microsoft.com/fwlink/p/?LinkId=210636)  
+-   [Sitebeheer voor System Center 2012 Configuration Manager](https://go.microsoft.com/fwlink/p/?LinkId=210636)  
 
--   [Migration des hiérarchies dans System Center 2012 Configuration Manager](https://go.microsoft.com/fwlink/p/?LinkId=210645)  
+-   [Migrating Hierarchies in System Center 2012 Configuration Manager (Hiërarchieën migreren in System Center 2012 Configuration Manager) (Hiërarchieën migreren in System Center 2012 Configuration Manager)](https://go.microsoft.com/fwlink/p/?LinkId=210645)  
 
--   [Déploiement de clients pour System Center 2012 Configuration Manager](https://go.microsoft.com/fwlink/p/?LinkId=210638)  
+-   [Deploying Clients for System Center 2012 Configuration Manager (Clients implementeren voor System Center 2012 Configuration Manager) (Clients implementeren voor System Center 2012 Configuration Manager)](https://go.microsoft.com/fwlink/p/?LinkId=210638)  
 
--   [Gestion des appareils mobiles avec Microsoft Intune et Configuration Manager](https://go.microsoft.com/fwlink/?LinkId=529959)  
+-   [Managing Mobile Devices with Microsoft Intune and Configuration Manager (Mobiele apparaten beheren met Microsoft Intune en Configuration Manager) (Mobiele apparaten beheren met Microsoft Intune en Configuration Manager)](https://go.microsoft.com/fwlink/?LinkId=529959)  
 
--   [Déploiement de logiciels et de systèmes d’exploitation dans System Center 2012 Configuration Manager](https://go.microsoft.com/fwlink/p/?LinkId=210635)  
+-   [Software en besturingssystemen implementeren in System Center 2012 Configuration Manager](https://go.microsoft.com/fwlink/p/?LinkId=210635)  
 
--   [Ressources et conformité dans System Center 2012 Configuration Manager](https://go.microsoft.com/fwlink/p/?LinkId=210639)  
+-   [Activa en naleving in System Center 2012 Configuration Manager](https://go.microsoft.com/fwlink/p/?LinkId=210639)  
 
--   [Sécurité et confidentialité dans System Center 2012 Configuration Manager](https://go.microsoft.com/fwlink/p/?LinkId=210640)  
+-   [Security and Privacy in System Center 2012 Configuration Manager (Beveiliging en privacy in System Center 2012 Configuration Manager) (Beveiliging en privacy in System Center 2012 Configuration Manager)](https://go.microsoft.com/fwlink/p/?LinkId=210640)  
 
--   [Scénarios et solutions pour System Center 2012 Configuration Manager](https://go.microsoft.com/fwlink/p/?LinkId=290889)  
+-   [Scenarios and Solutions Using System Center 2012 Configuration Manager (Scenario's en oplossingen waarvoor wordt gebruikgemaakt van Solutions Using System Center 2012 Configuration Manager) (Scenario's en oplossingen waarvoor wordt gebruikgemaakt van Solutions Using System Center 2012 Configuration Manager)](https://go.microsoft.com/fwlink/p/?LinkId=290889)  
 
- **Notes de publication et publications techniques :** les notes de publication et les publications techniques complètent les guides de Configuration Manager. Les notes de publication contiennent des informations non disponibles dans la documentation du produit, mais nécessaires pour installer Configuration manager avec succès. Les publications techniques contiennent des informations supplémentaires pour Configuration Manager.  
+ **Releaseopmerkingen en technische publicaties:** De releaseopmerkingen en technische publicaties vormen een aanvulling op de handleidingen bij Configuration Manager. De releaseopmerkingen bevatten informatie die niet beschikbaar is in de productdocumentatie en die nodig is om Configuration Manager te installeren. Technische publicaties bevatten aanvullende informatie ter ondersteuning van Configuration Manager.  
 
--   [Notes de publication de System Center 2012 Configuration Manager](http://go.microsoft.com/fwlink/?LinkId=529437)  
+-   [Releaseopmerkingen voor System Center 2012 Configuration Manager](http://go.microsoft.com/fwlink/?LinkId=529437)  
 
--   [Publications techniques pour System Center 2012 Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=261032)  
+-   [Technische publicaties voor System Center 2012 Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=261032)  
 
-**Accessibilité :** consultez la rubrique en ligne [Accessibility Features of Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=258586)pour obtenir des informations sur les fonctionnalités, produits et services qui rendent Configuration Manager plus accessible aux personnes en situation de handicap.  
+**Toegankelijkheid:** Zie het online onderwerp [toegankelijkheid functies van Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=258586), voor informatie over de functies, producten en services die Configuration Manager beter toegankelijk voor mensen met beperkingen.  
 
-**Documentation téléchargeable :** vous pouvez télécharger une [copie de cette documentation technique à partir du Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=253643). Utilisez la bibliothèque TechNet en ligne pour obtenir les informations les plus récentes.
+**Downloadbare documentatie:** U kunt downloaden via een [kopie van deze technische documentatie van het Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=253643). Gebruik de online TechNet-bibliotheek voor de meest actuele informatie.

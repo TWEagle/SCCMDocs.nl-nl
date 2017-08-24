@@ -1,6 +1,6 @@
 ---
-title: Choisir une solution de gestion des appareils - Configuration Manager | Microsoft Docs
-description: "Découvrez les solutions offertes par System Center Configuration Manager pour la gestion des PC, des serveurs et des appareils."
+title: Kies een oplossing voor Apparaatbeheer - Configuration Manager | Microsoft Docs
+description: Meer informatie over de oplossingen die System Center Configuration Manager biedt voor het beheren van pc's, servers en apparaten.
 ms.custom: na
 ms.date: 12/08/2016
 ms.prod: configuration-manager
@@ -17,78 +17,78 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: 9989ea1bf4cb74a6286ebae9de7614ed622de5b6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="choose-a-device-management-solution-for-system-center-configuration-manager"></a>Choisir une solution de gestion d’appareils pour System Center Configuration Manager
+# <a name="choose-a-device-management-solution-for-system-center-configuration-manager"></a>Een oplossing voor apparaatbeheer kiezen voor System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-System Center Configuration Manager (également appelé ConfgMgr or SCCM) offre différentes solutions pour la gestion des PC, des serveurs et des appareils. Choisissez la solution qui vous convient, en fonction des plateformes d’appareils que vous devez gérer et des fonctionnalités de gestion dont vous avez besoin.  
-
-
-##  <a name="overview-of-device-management-solutions"></a>Vue d’ensemble des solutions de gestion d’appareils  
- Cet article aborde quatre solutions de gestion des appareils : l’application cliente Configuration Manager, l’infrastructure Configuration Manager locale, Microsoft Intune et Exchange. Il est suivi de deux tableaux qui permettent de comparer les solutions de gestion : un tableau basé sur les [plateformes d’appareils prises en charge](#compare-device-management-solutions-based-on-supported-mobile-device-platforms) et un tableau basé sur les [fonctionnalités de gestion](#compare-mobile-device-management-solutions-based-on-management-functionality).
+System Center Configuration Manager (ook wel bekend als ConfgMgr of SCCM) biedt verschillende oplossingen voor het beheren van pc's, servers en apparaten. U kunt de oplossing die geschikt is voor u, op basis van de apparaatplatforms die u wilt beheren en de beheerfunctionaliteit die u nodig hebt.  
 
 
-###  <a name="manage-devices-with-the-configuration-manager-client"></a>Gérer les appareils avec le client Configuration Manager  
+##  <a name="overview-of-device-management-solutions"></a>Overzicht van oplossingen voor Apparaatbeheer  
+ In dit artikel bevat informatie over de vier oplossingen voor het beheer van apparaten: de Configuration Manager-clienttoepassing, on-premises Configuration Manager-infrastructuur, Microsoft Intune en Exchange. Het artikel wordt afgesloten met twee tabellen die de oplossingen voor beheer, gebaseerd op een vergelijken [ondersteunde platforms voor mobiele apparaten](#compare-device-management-solutions-based-on-supported-mobile-device-platforms), en een op basis van [beheerfunctionaliteit](#compare-mobile-device-management-solutions-based-on-management-functionality).
 
-Cette option, qui nécessite l’installation de l’application cliente Configuration Manager sur les appareils, offre la gamme de fonctionnalités la plus étendue pour gérer les PC, les serveurs et les autres appareils de votre environnement. Pour plus d’informations, consultez [Méthodes d’installation du client dans System Center Configuration Manager](/sccm/core/clients/deploy/plan/client-installation-methods).  
 
-###  <a name="manage-devices-with-on-premises-configuration-manager-infrastructure"></a>Gérer les appareils mobiles avec une infrastructure Configuration Manager locale  
+###  <a name="manage-devices-with-the-configuration-manager-client"></a>Apparaten beheren met Configuration Manager-client  
 
-Cette option utilise les fonctionnalités de gestion des appareils intégrées aux systèmes d’exploitation de certaines plateformes d’appareils. Bien qu’elle ne soit pas aussi complète que la gestion basée sur le client, la gestion locale des appareils mobiles fournit une approche de gestion plus légère en faisant appel aux ressources Configuration Manager locales pour atteindre et gérer les appareils. Notez que cette option n’est pour l’instant prise en charge que sur les PC Windows 10 et sur les appareils Windows 10 Mobile.  
+Deze optie, die de installatie van de Configuration Manager-clienttoepassing op de apparaten vereist, biedt de meeste functies voor het beheren van pc's, servers en andere apparaten in uw omgeving. Zie voor meer informatie [clientinstallatiemethoden in System Center Configuration Manager](/sccm/core/clients/deploy/plan/client-installation-methods).  
 
-Pour plus d’informations, consultez [Gérer des appareils mobiles avec une infrastructure locale dans System Center Configuration Manager](../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
+###  <a name="manage-devices-with-on-premises-configuration-manager-infrastructure"></a>Apparaten beheren met on-premises Configuration Manager-infrastructuur  
 
-###  <a name="manage-devices-with-microsoft-intune-hybrid"></a>Gérer les appareils avec Microsoft Intune (hybride)  
+Deze optie worden de beheermogelijkheden voor apparaten is ingebouwd in de besturingssystemen van bepaalde apparaatplatforms gebruikt. Terwijl niet beperkter als de Clientgebaseerde beheermethode, biedt on-premises-beheer voor mobiele apparaten een minder strikte benadering van beheer met behulp van de lokale Configuration Manager-bronnen te bereiken en te beheren van apparaten. Houd er rekening mee dat deze optie wordt momenteel alleen ondersteund voor Windows 10-computers en Windows 10 Mobile-apparaten.  
 
-Cette option utilise Microsoft Intune pour inscrire et gérer les appareils au lieu d’utiliser les ressources locales Configuration Manager. Même si Intune gère les appareils, vous accédez à vos tâches de gestion dans la console Configuration Manager. Cette option prend en charge tous les principaux systèmes d’exploitation pour appareils mobiles, notamment Windows 10 Mobile, Windows Phone, iOS et Android. Elle permet également de gérer les ordinateurs Windows 8.1 et Windows 10 de votre organisation.  
+Zie voor meer informatie [mobiele apparaten beheren met on-premises infrastructuur in System Center Configuration Manager](../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
 
-Pour plus d’informations, consultez [Gestion des appareils mobiles (MDM) hybride avec System Center Configuration Manager et Microsoft Intune](../../mdm/understand/hybrid-mobile-device-management.md).  
+###  <a name="manage-devices-with-microsoft-intune-hybrid"></a>Apparaten beheren met Microsoft Intune (hybride)  
 
-###  <a name="manage-devices-with-microsoft-exchange"></a>Gérer les appareils avec Microsoft Exchange  
+Deze optie maakt gebruik van Microsoft Intune inschrijven en beheren van apparaten, in plaats van lokale bronnen van Configuration Manager. Hoewel de apparaten worden beheerd door Intune, opent u de beheertaken in de Configuration Manager-console. Deze optie ondersteunt alle belangrijke besturingssystemen mobiele apparaten, waaronder Windows 10 Mobile, Windows Phone, iOS, Mac OS X en Android. Daarnaast kunt u met deze optie Windows 8.1- en Windows 10-computers in uw organisatie beheren.  
 
-Cette option utilise le connecteur du serveur Exchange Server pour connecter plusieurs serveurs Exchange à Configuration Manager. Cela centralise la gestion des appareils en mesure de se connecter à Exchange ActiveSync. Vous pouvez configurer les fonctionnalités de gestion des appareils mobiles d’Exchange, telles que la réinitialisation à distance et le contrôle des paramètres de plusieurs serveurs Exchange, dans la console Configuration Manager.  
+Zie [Hybride Mobile Device Management (MDM) met System Center Configuration Manager en Microsoft Intune](../../mdm/understand/hybrid-mobile-device-management.md) voor meer informatie.  
 
-Pour plus d’informations, consultez [Gérer les appareils mobiles avec System Center Configuration Manager et Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
+###  <a name="manage-devices-with-microsoft-exchange"></a>Apparaten beheren met Microsoft Exchange  
 
-Vous pouvez utiliser ces solutions de gestion des appareils par elles-mêmes ou les combiner entre elles. Par exemple, vous pouvez utiliser l’approche de la gestion basée sur le client pour gérer les ordinateurs et les serveurs de votre organisation, et utiliser aussi Intune pour gérer les appareils mobiles. En combinant les méthodes de cette façon, vous pouvez couvrir tous vos besoins en matière de gestion d’appareils à partir de la console Configuration Manager.  
+Deze optie wordt de Exchange Server-connector voor het verbinding maken met meerdere Exchange-servers naar Configuration Manager. Dit centraliseert het beheer van apparaten die verbinding met Exchange ActiveSync maken kunnen. U kunt Exchange functies voor mobiele apparaten, zoals het wissen van het externe apparaat en de instellingen voor meerdere Exchange-servers, vanuit de Configuration Manager-console configureren.  
 
-## <a name="compare-device-management-solutions-based-on-supported-mobile-device-platforms"></a>Comparer les solutions de gestion des appareils en fonction des plateformes d’appareils mobiles prises en charge  
+Zie [Mobiele apparaten beheren met System Center Configuration Manager en Exchange](../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md) voor meer informatie.  
 
-|Plate-forme|Avec le client Configuration Manager|Configuration Manager avec Microsoft Intune (hybride)|Gestion locale des appareils mobiles|Configuration Manager avec Exchange|  
+U kunt deze oplossingen voor Apparaatbeheer zelfstandig of in combinatie met elkaar. U kunt bijvoorbeeld de aanpak van clients gebaseerde beheer gebruiken voor het beheren van computers en servers in uw organisatie en Intune ook gebruiken om mobiele apparaten te beheren. Door combineren benaderingen op deze manier, kunt u al uw behoeften voor het beheer van apparaat uit de Configuration Manager-console uitgelegd.  
+
+## <a name="compare-device-management-solutions-based-on-supported-mobile-device-platforms"></a>Oplossingen voor Apparaatbeheer op basis van de ondersteunde mobiele platforms vergelijken  
+
+|Platform|Met de Configuration Manager-client|Configuration Manager met Microsoft Intune (hybride)|Op\-premises beheer van mobiele apparaten|Configuration Manager met Exchange|  
 |--------------|-------------------------------------------|-------------------------------------------------------------------|-------------------------------|-----------------------------------------|  
-|Android||Oui||Oui|  
-|iOS||Oui||Oui|  
-|Mac OS X|Oui|||Oui|  
-|UNIX/Linux|Oui|||Oui|  
-|Windows 10|Oui|Oui|Oui|Oui|  
-|Windows 10 Mobile||Oui|Oui|Oui|  
-|Windows (versions précédentes)|Oui|Oui||Oui|  
-|Windows CE|Oui (avec le client hérité de l’appareil mobile)|||Oui|  
-|Windows Embedded|Oui||||  
-|Windows Phone||Oui||Oui|  
-|Windows Server|Oui|||Oui|  
+|Android||Ja||Ja|  
+|iOS||Ja||Ja|  
+|Mac OS X|Ja|||Ja|  
+|UNIX/Linux|Ja|||Ja|  
+|Windows 10|Ja|Ja|Ja|Ja|  
+|Windows 10 Mobile||Ja|Ja|Ja|  
+|Windows (vorige versies)|Ja|Ja||Ja|  
+|Windows CE|Ja (met oudere client van mobiel apparaat)|||Ja|  
+|Windows Embedded|Ja||||  
+|Windows Phone||Ja||Ja|  
+|Windows Server|Ja|||Ja|  
 
- Pour obtenir la liste complète des plateformes prises en charge, consultez [Systèmes d’exploitation pris en charge pour les clients et les appareils pour System Center Configuration Manager](configs\supported-operating-systems-for-clients-and-devices.md).
+ Zie voor een volledige lijst met ondersteunde platforms [ondersteunde besturingssystemen voor clients en apparaten voor System Center Configuration Manager](configs\supported-operating-systems-for-clients-and-devices.md).
 
-##  <a name="bkmk_comp2"></a> Comparer les solutions de gestion des appareils mobiles en fonction des fonctionnalités de gestion  
+##  <a name="bkmk_comp2"></a> Oplossingen voor het beheren van mobiele apparaten vergelijken op basis van de beheerfunctionaliteit  
 
-|Fonctionnalité de gestion|Avec le client Configuration Manager|Configuration Manager avec Microsoft Intune (hybride)|Gestion locale des appareils mobiles|Configuration Manager avec Exchange|  
+|Beheerfunctionaliteit|Met de Configuration Manager-client|Configuration Manager met Microsoft Intune (hybride)|Op\-premises beheer van mobiele apparaten|Configuration Manager met Exchange|  
 |------------------------------|-------------------------------------------|-------------------------------------------------------------------|-------------------------------|-----------------------------------------|  
-|Sécurité de l’infrastructure à clé publique (PKI) entre l’appareil mobile et Configuration Manager (utilise l’authentification mutuelle et SSL pour le chiffrement des transferts de données)|Oui|Oui|Oui||  
-|Installation du client|Oui||||  
-|Prise en charge via Internet|Oui||||  
-|découverte,|Oui|||Oui|  
-|Inventaire matériel|Oui|Oui|Oui|Oui|  
-|Inventaire logiciel|Oui|||Oui|  
-|Paramètres|Oui|Oui|Oui|Oui|  
-|Déploiement logiciel|Oui|Oui|Oui||  
-|Surveillance avec point d’état de secours|Oui||||  
-|Connexions aux points de gestion|Oui||Oui||  
-|Connexions aux points de distribution|Oui||Oui||  
-|Blocage à partir de Configuration Manager|Oui|Oui|Oui||  
-|Mise en quarantaine et blocage à partir d’Exchange Server (et Configuration Manager)||||Oui|  
-|Réinitialisation à distance| |Oui|Oui|Oui|  
+|Beveiliging van de public key infrastructure (PKI) tussen het mobiele apparaat en Configuration Manager (maakt gebruik van wederzijdse verificatie en SSL voor het versleutelen van gegevensoverdracht)|Ja|Ja|Ja||  
+|Clientinstallatie|Ja||||  
+|Ondersteuning via Internet|Ja||||  
+|Detectie|Ja|||Ja|  
+|Hardware-inventaris|Ja|Ja|Ja|Ja|  
+|Software-inventaris|Ja|||Ja|  
+|Instellingen|Ja|Ja|Ja|Ja|  
+|Software-implementatie|Ja|Ja|Ja||  
+|Bewaking met terugvalstatuspunt|Ja||||  
+|Verbindingen met beheerpunten|Ja||Ja||  
+|Verbindingen met distributiepunten|Ja||Ja||  
+|Blok van Configuration Manager|Ja|Ja|Ja||  
+|In quarantaine plaatsen en blokkeren vanuit Exchange Server (en Configuration Manager)||||Ja|  
+|Wissen op afstand| |Ja|Ja|Ja|  

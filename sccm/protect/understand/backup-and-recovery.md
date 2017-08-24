@@ -1,6 +1,6 @@
 ---
-title: Sauvegarder des sites | Microsoft Docs
-description: "Découvrez comment sauvegarder vos sites en cas défaillance ou de perte de données dans System Center Configuration Manager."
+title: Back-up van sites | Microsoft Docs
+description: Informatie over het back-up van uw sites voordat de gebeurtenis van storing of gegevensverlies in System Center Configuration Manager.
 ms.custom: na
 ms.date: 6/5/2017
 ms.prod: configuration-manager
@@ -16,192 +16,192 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 7deb00d4b67eabf3238907b337a9d0367c3d99cc
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="back-up-a-configuration-manager-site"></a>Sauvegarde d'un site Configuration Manager
+# <a name="back-up-a-configuration-manager-site"></a>Back-up van een Configuration Manager-site
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Préparez les approches de sauvegarde et de récupération pour éviter la perte de données. Pour les sites Configuration Manager, une approche de sauvegarde et de récupération peut vous permettre de récupérer des sites et des hiérarchies plus rapidement avec une moindre perte de données.  
+Bereid de back-up en herstel benaderingen om gegevensverlies te voorkomen. Voor Configuration Manager-sites kunt een back-up en herstel benadering u voor het herstellen van sites en hiërarchieën sneller en met de minimaal verlies van gegevens.  
 
-Les sections de cette rubrique peuvent vous aider à sauvegarder vos sites. Pour récupérer un site, consultez [Récupération pour Configuration Manager](/sccm/protect/understand/recover-sites).  
+De secties in dit onderwerp kunt u back-up van uw sites. Zie voor een site herstelt, [herstel voor Configuration Manager](/sccm/protect/understand/recover-sites).  
 
-## <a name="considerations-before-creating-a-backup"></a>Éléments à prendre en considération avant de créer une sauvegarde  
--   **Si vous utilisez un groupe de disponibilité SQL Server Always On pour héberger la base de données du site :** modifiez vos plans de sauvegarde et de récupération comme décrit dans la rubrique [Se préparer à utiliser SQL Server Always On](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database#changes-for-site-backup).
+## <a name="considerations-before-creating-a-backup"></a>Overwegingen voor het maken van een back-up  
+-   **Als u een SQL Server Always On-beschikbaarheidsgroep gebruikt om de sitedatabase te hosten:** Uw back-up- en herstelplannen aanpassen zoals is beschreven [voorbereiden op het gebruik van SQL Server Always On](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database#changes-for-site-backup).
 
--   Configuration Manager peut récupérer la base de données de site à partir de la tâche de maintenance de sauvegarde Configuration Manager ou à partir d'une sauvegarde de base de données de site que vous avez créée avec un autre processus.   
+-   Configuration Manager kan de sitedatabase herstellen vanuit back-up onderhoudstaak van de Configuration Manager of vanuit een site-databaseback-up die u met een ander proces maakt.   
 
-    Par exemple, vous pouvez restaurer la base de données de site à partir d'une sauvegarde créée dans le cadre du plan de maintenance de Microsoft SQL Server. Vous pouvez également utiliser une sauvegarde créée à l’aide de la rubrique Utilisation de Data Protection Manager pour sauvegarder votre base de données de site (DPM).
+    U kunt bijvoorbeeld de sitedatabase herstellen vanuit een back-up die is gemaakt als onderdeel van een Microsoft SQL Server-onderhoudsplan. U kunt ook een back-up die is gemaakt door Data Protection Manager gebruiken voor back-up van uw sitedatabase (DPM) gebruiken.
 
-####  <a name="using-data-protection-manager-to-back-up-your-site-database"></a>Utilisation de Data Protection Manager pour sauvegarder votre base de données de site
-Vous pouvez utiliser System Center 2012 Data Protection Manager (DPM) pour sauvegarder votre base de données de site.
+####  <a name="using-data-protection-manager-to-back-up-your-site-database"></a>Data Protection Manager gebruiken om een back-up te maken van uw sitedatabase
+U kunt System Center 2012 Data Protection Manager (DPM) gebruiken om een back-up te maken van uw sitedatabase.
 
-Vous devez créer un nouveau groupe de protection dans DPM pour l'ordinateur de base de données de site. Sur la page **Sélectionner les membres du groupe** de l'Assistant Création d'un nouveau groupe de protection, sélectionnez le service Enregistreur SMS dans la liste des sources de données, puis sélectionnez la base de données de site comme membre approprié. Pour plus d'informations sur l'utilisation de DPM pour sauvegarder votre base de données de site, voir [Bibliothèque de documentation de Data Protection Manager](http://go.microsoft.com/fwlink/?LinkId=272772) sur TechNet.  
+U moet een nieuwe beveiligingsgroep maken in DPM voor de computer van de sitedatabase. Selecteer op de pagina **Groepsleden selecteren** van de wizard Nieuwe beveiligingsgroep maken de SMS Writer-service van de gegevensbronlijst en selecteer vervolgens de sitedatabase als een geschikt lid. Zie de [Documentatiebibliotheek voor Data Protection Manager](http://go.microsoft.com/fwlink/?LinkId=272772) op TechNet voor meer informatie over het gebruik van DPM om een back-up van uw sitedatabase te maken.  
 
 > [!IMPORTANT]  
->  Configuration Manager ne prend pas en charge la sauvegarde DPM pour un cluster SQL Server qui utilise une instance nommée, mais il prend en charge la sauvegarde DPM sur un cluster SQL Server qui utilise l'instance par défaut de SQL Server.  
+>  Configuration Manager biedt geen ondersteuning voor DPM terug voor een SQL servercluster dat een benoemd exemplaar gebruikt, maar biedt ondersteuning voor DPM een back-up in een SQL Server-cluster dat gebruik maakt van het standaardexemplaar van SQL Server.  
 
- Après la restauration de la base de données de site, suivez les étapes décrites dans le processus d'installation pour récupérer le site. Sélectionnez l'option de récupération **Utiliser une base de données de site qui a été récupérée manuellement** pour utiliser la base de données de site que vous avez récupérée avec Data Protection Manager.  
+ Volg na herstel van de sitedatabase de stappen in Setup om de site te herstellen. Selecteer de **gebruik een sitedatabase die handmatig is hersteld** hersteloptie voor het gebruik van de sitedatabase die u hebt hersteld met Data Protection Manager.  
 
-## <a name="backup-maintenance-task"></a>Tâche de maintenance de sauvegarde
-Il est possible d'automatiser la sauvegarde des sites Configuration Manager en planifiant une tâche de maintenance de sauvegarde du serveur de site prédéfinie. Cette tâche :
+## <a name="backup-maintenance-task"></a>Back-uponderhoudstaak
+U kunt back-up voor Configuration Manager-sites automatiseren door het plannen van de vooraf gedefinieerde onderhoudstaak voor back-upserver van Site. Deze taak:
 
--   s’exécute selon un calendrier ;
--   sauvegarde la base de données du site ;
--   sauvegarde des clés de Registre spécifiques ;
--   sauvegarde des dossiers et fichiers spécifiques ;
--   sauvegarde le [dossier CD.Latest](/sccm/core/servers/manage/the-cd.latest-folder)   
+-   Volgens een planning wordt uitgevoerd
+-   Een back-up maakt van de sitedatabase
+-   Een back-up maakt van specifieke registersleutels
+-   Een back-up maakt van specifieke mappen en bestanden
+-   Back-ups van de [CD. Meest recente map](/sccm/core/servers/manage/the-cd.latest-folder)   
 
-Planifiez l’exécution de la tâche de sauvegarde de site par défaut au minimum tous les cinq jours. La raison en est que Configuration Manager utilise une période de 5 jours comme *Période de rétention du suivi des modifications SQL Server*.  (Consultez la section [Période de rétention du suivi des modifications SQL Server](/sccm/protect/understand/recover-sites#bkmk_SQLretention) dans la rubrique Récupérer des sites.)
+Plan om de standaardback-uptaak voor de site minimaal elke vijf dagen uit te voeren. Dit is omdat Configuration Manager gebruikt een *bewaarperiode voor bijhouden van SQL Server* van 5 dagen.  (Zie [bewaarperiode voor bijhouden van SQL Server](/sccm/protect/understand/recover-sites#bkmk_SQLretention) in het onderwerp van de sites herstellen.)
 
-Pour simplifier le processus de sauvegarde, vous pouvez créer un fichier **AfterBackup.bat** pour accomplir automatiquement des actions postérieures à la sauvegarde une fois la tâche de maintenance de sauvegarde correctement exécutée. Le fichier AfterBackup.bat est généralement utilisé pour archiver l'instantané de sauvegarde à un emplacement sécurisé. Vous pouvez également utiliser le fichier AfterBackup.bat pour copier des fichiers vers votre dossier de sauvegarde et démarrer d'autres tâches de sauvegarde supplémentaires.  
+Als u wilt het back-upproces vereenvoudigen, kunt u een **AfterBackup.bat** bestand automatisch uit te voeren na de back-up nadat de onderhoudstaak back-up wordt uitgevoerd. Het AfterBackup.bat-bestand wordt meestal gebruikt om de momentopname van de back-up naar een veilige locatie. U kunt het AfterBackup.bat-bestand ook gebruiken om te kopiëren van bestanden naar uw back-upmap en andere, aanvullende back-uptaken te beginnen.  
 
-Vous pouvez sauvegarder un site d'administration centrale et un site principal, mais il n'existe pas de prise en charge de la sauvegarde des sites secondaires ou des serveurs de système de site.
+U kunt een back-up maken van een centrale beheersite en primaire site, maar niet van secundaire sites of sitesysteemservers.
 
-Quand le service de sauvegarde de Configuration Manager est en cours d’exécution, il suit les instructions définies dans le fichier de contrôle de sauvegarde (**&lt;dossier_installation_ConfigMgr\>\Inboxes\Smsbkup.box\Smsbkup.ctl**). Vous pouvez apporter des modifications à ce fichier de contrôle de la sauvegarde afin de changer le comportement du service de sauvegarde.  
+Wanneer de Backup-service van Configuration Manager wordt uitgevoerd, de instructies gevolgd die gedefinieerd in het back-upcontrolebestand (**&lt;ConfigMgrInstallationFolder\>\Inboxes\Smsbkup.box\Smsbkup.ctl**). U kunt het back-upcontrolebestand aanpassen om het gedrag van de back-upservice te wijzigen.  
 
-Les informations sur l’état de la sauvegarde du site sont enregistrées dans le fichier **Smsbkup.log** . Ce fichier est créé dans le dossier de destination spécifié dans les propriétés de la tâche de maintenance de sauvegarde du serveur de site.  
+Informatie voor siteback-upstatus wordt geschreven naar het bestand **Smsbkup.log** . Het bestand wordt gemaakt in de doelmap die u specificeert in de eigenschappen van de onderhoudstaak van de back-upserver van site.  
 
-#### <a name="to-enable-the-site-backup-maintenance-task"></a>Pour activer la tâche de maintenance de sauvegarde de site  
+#### <a name="to-enable-the-site-backup-maintenance-task"></a>De onderhoudstaak van de back-upserver van site inschakelen  
 
-1.  Dans la console Configuration Manager, ouvrez **Administration** > **Configuration de site** > **Sites**.  
+1.  Open in de Configuration Manager-console **beheer** > **siteconfiguratie** > **Sites**.  
 
-2.  Sélectionnez le site dans lequel vous souhaitez activer la tâche de maintenance de sauvegarde de site.  
+2.  Selecteer de site waarin u de onderhoudstaak van de back-upserver van site wilt inschakelen.  
 
-3.  Dans l'onglet **Accueil**, dans le groupe **Paramètres**, cliquez sur **Tâches de maintenance de site**.  
+3.  Op de **Start** tabblad, in de **instellingen** groep, kiest u **Siteonderhoudstaken**.  
 
-4.  Choisissez **Serveur de site de sauvegarde**  >  **Modifier**.  
+4.  Kies **back-upserver van Site**  >  **bewerken**.  
 
-5.  Choisissez **Activer cette tâche** > **Définir les chemins** pour spécifier la destination de la sauvegarde. Les options suivantes sont disponibles :  
+5.  Kies **deze taak inschakelen** > **paden instellen** om de back-updoelmap te specificeren. U hebt de volgende opties:  
 
     > [!IMPORTANT]  
-    >  Pour empêcher la falsification des fichiers de sauvegarde, stockez les fichiers dans un emplacement sécurisé. Le chemin de sauvegarde vers un lecteur local est le plus sûr pour pouvoir définir des autorisations de système de fichiers NTFS sur le dossier. Quelle que soit l'option que vous sélectionnez, Configuration Manager ne chiffre pas les données de sauvegarde stockées dans le chemin de sauvegarde.  
+    >  Sla ter voorkoming van knoeien met de back-upbestanden deze op een veilige locatie op. Het veiligste back-uppad is naar een lokaal station zodat u machtigingen voor NTFS-bestandssysteem op de map instellen kunt. Configuration Manager wordt niet gecodeerd voor de back-upgegevens die in de back-uppad zijn opgeslagen.  
 
-    -   **Lecteur local sur le serveur de site pour les données de site et la base de données**: spécifie que les fichiers de sauvegarde pour le site et la base de données de site sont stockés dans le chemin spécifié sur le disque local du serveur de site. Vous devez créer le dossier local avant d'exécuter la tâche de sauvegarde. Le compte système local sur le serveur de site doit disposer des autorisations de système de fichiers NTFS en **écriture** sur le dossier local pour la sauvegarde de serveur de site. Le compte système local sur l'ordinateur qui exécute SQL Server doit disposer des autorisations NTFS en **écriture** sur le dossier pour la sauvegarde de base de données de site.  
+    -   **Lokaal station op siteserver voor sitegegevens en database**: Hiermee geeft u op dat de back-upbestanden voor de site en sitedatabase zijn opgeslagen in het opgegeven pad op de lokale vaste schijf van de siteserver. U moet de lokale map maken voordat de back-uptaak wordt uitgevoerd. Het lokale systeemaccount op de siteserver moet **schrijf** machtigingen hebben voor het NTFS-bestandssysteem naar de lokale map voor de back-up van de siteserver. Het lokale systeemaccount op de computer waarop de SQL Server wordt uitgevoerd, moet **schrijf** machtigingen hebben voor NTFS naar de map voor de back-up van de sitedatabase.  
 
-    -   **Chemin d’accès réseau (nom UNC) aux données de site et à la base de données**: spécifie que les fichiers de sauvegarde pour le site et la base de données de site sont stockés dans le chemin UNC spécifié. Vous devez créer le partage avant l'exécuter la tâche de sauvegarde. Le compte d'ordinateur du serveur de site et le compte d'ordinateur de SQL Server, si SQL server est installé sur un autre ordinateur, doivent disposer des autorisations NTFS en **écriture** et de partage sur le dossier réseau partagé.  
+    -   **Netwerkpad (UNC-naam) voor sitegegevens en database**: Hiermee geeft u op dat de back-upbestanden voor de site en sitedatabase zijn opgeslagen in het opgegeven UNC-pad. U moet de share maken voordat de back-uptaak wordt uitgevoerd. Het computeraccount van de siteserver en het computeraccount van de SQL Server moeten, als SQL Server is geïnstalleerd op een andere computer, beschikken over **schrijf** machtigingen voor NTFS en deelmachtigingen naar de gedeelde netwerkmap.  
 
-    -   **Lecteurs locaux sur le serveur de site et SQL Server**: spécifie que les fichiers de sauvegarde pour le site sont stockés dans le chemin spécifié sur le disque local du serveur de site, et les fichiers de sauvegarde pour la base de données de site sont stockés sur le chemin spécifié sur le disque local du serveur de base de données de site. Vous devez créer les dossiers locaux avant d'exécuter la tâche de sauvegarde. Le compte d'ordinateur du serveur de site doit disposer des autorisations NTFS en **écriture** sur le dossier créé sur le serveur de site. Le compte d'ordinateur de SQL Server doit disposer des autorisations NTFS en **écriture** sur le dossier créé sur le serveur de base de données de site. Cette option est disponible uniquement lorsque la base de données de site n'est pas installée sur le serveur de site.  
+    -   **Lokale stations op siteserver en SQL Server**: Hiermee geeft u op dat de back-upbestanden voor de site worden opgeslagen in het opgegeven pad op de lokale schijf van de siteserver en de back-upbestanden voor de sitedatabase zijn opgeslagen in het opgegeven pad op het lokale station van de Sitedatabaseserver. U moet de lokale mappen maken voordat de back-uptaak wordt uitgevoerd. Het computeraccount van de siteserver moet **schrijf** machtigingen hebben voor NTFS naar de map die u maakt op de siteserver. Het computeraccount van de SQL Server moet **schrijf** machtigingen hebben voor NTFS naar de map die u maakt op de sitedatabaseserver. U kunt deze optie alleen gebruiken wanneer de sitedatabase niet is geïnstalleerd op de siteserver.  
 
     > [!NOTE]  
-    >   L'option d'accès à la destination de sauvegarde n'est disponible que lorsque vous spécifiez le chemin UNC de la destination de sauvegarde.
+    >   U kunt de optie om te bladeren naar de back-updoelmap alleen gebruiken wanneer u het UNC-pad opgeeft van de back-updoelmap.
 
-    > Le nom de dossier ou le nom de partage utilisé pour la destination de sauvegarde ne prend pas en charge les caractères Unicode.  
+    > De voor de back-updoelmap gebruikte map- of sharenaam ondersteunt niet het gebruik van Unicode-tekens.  
 
-6.  Configurez une planification pour la tâche de sauvegarde de site. Comme bonne pratique, considérez une planification de sauvegarde en dehors des heures de travail. Si vous disposez d'une hiérarchie, pensez à une planification qui s'exécute au moins deux fois par semaine pour assurer une conservation maximale des données en cas de défaillance du site.  
+6.  Configureer een planning voor de back-uptaak van de site. De aanbevolen planning voor het uitvoeren van een back-up is buiten werkuren. Als u een hiërarchie hebt, overweeg dan een planning die ten minste tweemaal per week wordt uitgevoerd voor maximale gegevensretentie in het geval van het uitvallen van een site.  
 
-    Lorsque vous exécutez la console Configuration Manager sur le même serveur de site que vous configurez pour la sauvegarde, la tâche de maintenance de sauvegarde du serveur de site utilise l'heure locale pour la planification. Lorsque vous exécutez la console Configuration Manager à partir d'un ordinateur distant du site que vous configurez pour la sauvegarde, la tâche de maintenance de sauvegarde du serveur de site utilise le temps universel coordonné (UTC) pour la planification.  
+    Wanneer u de Configuration Manager-console op dezelfde siteserver die u configureert voor back-up uitvoert, gebruikt de onderhoudstaak back-upserver van Site de lokale tijd voor de planning. Wanneer de Configuration Manager-console wordt uitgevoerd vanaf een computer die extern zijn van de site die u voor back-up configureert, gebruikt de onderhoudstaak back-upserver van Site UTC voor de planning.  
 
-7.  Indiquez si vous souhaitez créer une alerte en cas d'échec de la tâche de sauvegarde de site, cliquez sur **OK**, puis cliquez de nouveau sur **OK**. Lorsqu'il est sélectionné, Configuration Manager crée une alerte critique pour l'échec de sauvegarde, que vous pouvez consulter dans le nœud **Alertes** de l'espace de travail **Surveillance**.  
+7.  Kies of u wilt maken van een waarschuwing als de site back-uptaak mislukt, klikt u op **OK**, en klik vervolgens op **OK**. Wanneer u selecteert, Configuration Manager maakt een kritieke waarschuwing voor de back-upfouten die u kunt bekijken in de **waarschuwingen** knooppunt in de **bewaking** werkruimte.  
 
- Ensuite, vérifiez que la tâche de maintenance de sauvegarde du serveur de site est en cours d’exécution afin de vous assurer que les sauvegardes sont créées.  
+ Controleer vervolgens of de onderhoudstaak Backup siteserver wordt uitgevoerd, om ervoor te zorgen dat back-ups worden gemaakt.  
 
-#### <a name="to-verify-that-the-backup-site-server-maintenance-task-is-running"></a>Pour vérifier que la tâche de maintenance de sauvegarde du serveur de site est en cours d’exécution  
-Vérifiez que la tâche de maintenance de sauvegarde de site est en cours d’exécution en examinant les éléments suivants :  
+#### <a name="to-verify-that-the-backup-site-server-maintenance-task-is-running"></a>Om te controleren of de onderhoudstaak Backup siteserver wordt uitgevoerd  
+Controleren of de onderhoudstaak van de siteback-up wordt uitgevoerd door het nagaan van het volgende:  
 
--   Vérifiez l'horodatage sur les fichiers dans le dossier de destination de sauvegarde qui a été créé par la tâche. Vérifiez que l'horodatage a été mis à jour avec l'heure de la dernière exécution de la tâche.  
+-   Controleer de tijdstempel op de bestanden in de back-updoelmap die de taak gemaakt. Controleer of de tijdstempel is bijgewerkt met een tijd die overeenkomt met de tijd wanneer de taak voor het laatst is gepland om uit te voeren.  
 
--   Dans le nœud **État du composant** de l'espace de travail **Surveillance** , consultez les messages d'état pour SMS_SITE_BACKUP. Lorsque la sauvegarde de site est terminée, le message ID 5035 s'affiche, indiquant que la sauvegarde de site a été effectuée sans erreurs.  
+-   Controleer in het knooppunt **Onderdeelstatus** in de werkruimte **Bewaking** de statusberichten voor SMS_SITE_BACKUP. Als de siteback-up correct is voltooid, ziet u het bericht ID 5035 dat aangeeft dat de siteback-up zonder fouten is voltooid.  
 
--   Lorsque la tâche de maintenance de sauvegarde du serveur de site est configurée pour créer une alerte en cas d'échec de la sauvegarde, vous pouvez vérifier les échecs de sauvegarde dans le nœud **Alertes** de l'espace de travail **Surveillance** .  
+-   Als de onderhoudstaak van de back-upserver van de site is ingesteld op het genereren van een waarschuwing als de back-up mislukt, kunt u het knooppunt **Waarschuwingen** in de werkruimte **Bewaking** controleren op mislukte back-ups.  
 
--   Dans &lt;*dossier_installation_ConfigMgr*>\Logs, recherchez les avertissements et les erreurs dans le fichier smsbkup.log. Une fois la sauvegarde de site terminée, `Backup completed` s'affiche avec un horodateur et un ID de message `STATMSG: ID=5035`.  
+-   In &lt; *ConfigMgrInstallationFolder*> \Logs, Controleer het bestand Smsbkup.log op waarschuwingen en fouten. Als de siteback-up correct is voltooid, ziet u `Backup completed` met een tijdstempel en bericht-id `STATMSG: ID=5035`.  
 
     > [!TIP]  
-    >  Lorsque la tâche de maintenance de la sauvegarde échoue, vous pouvez redémarrer la tâche de sauvegarde en arrêtant, puis en redémarrant le service SMS_SITE_BACKUP.  
+    >  Als de onderhoudstaak van de back-up mislukt, kunt u de back-uptaak opnieuw starten door de SMS_SITE_BACKUP-service te stoppen en opnieuw te starten.  
 
-## <a name="archive-the-backup-snapshot"></a>Archiver l'instantané de sauvegarde  
-La première fois que la tâche de maintenance de sauvegarde du serveur de site est exécutée, elle génère un instantané de sauvegarde que vous pouvez utiliser pour récupérer votre serveur de site en cas de défaillance. Lorsque la tâche de sauvegarde est réexécutée au cours des cycles suivants, un nouvel instantané de sauvegarde est créé et remplace l'instantané précédent. Ainsi, le site n'a qu'un seul instantané de sauvegarde, et vous n'avez aucun moyen de récupérer un instantané de sauvegarde antérieur.  
+## <a name="archive-the-backup-snapshot"></a>De back-upmomentopname archiveren  
+De eerste keer dat de onderhoudstaak van de back-upserver van site wordt uitgevoerd, wordt een momentopname gemaakt van de back-up die u kunt gebruiken om uw siteserver te herstellen in het geval van een storing. Wanneer de back-uptaak opnieuw wordt uitgevoerd in latere runs, wordt een nieuwe momentopname gemaakt van de back-up die de vorige momentopname overschrijft. De site heeft daarom slechts één back-upmomentopname en u kunt eerdere momentopnames niet herstellen.  
 
-Il est également recommandé d'effectuer plusieurs archives d'instantanés de sauvegarde pour les raisons suivantes :  
+Het wordt om de volgende redenen aanbevolen meerdere archieven van de back-upmomentopname te bewaren:  
 
--   Il arrive souvent que le média de sauvegarde soit défectueux, égaré ou ne contienne qu'une partie de la sauvegarde. La récupération d'un site principal autonome défaillant à partir d'une sauvegarde ancienne est un moindre mal. Pour un serveur de site dans une hiérarchie, la sauvegarde doit être dans la période de rétention des modifications de suivi de SQL Server, ou bien la sauvegarde n'est pas requise.  
+-   Het is gebruikelijk voor back-upmedia een fout optreedt, ze foutief worden geplaatst of bevatten alleen een gedeeltelijke back-up. Een mislukte zelfstandige primaire site op basis van een oudere back-up herstellen is beter dan deze zonder back-up te herstellen. Voor een siteserver in een hiërarchie moet de back-up in de bewaarperiode voor het bijhouden van wijzigingen van de SQL Server liggen, of de back-up is niet vereist.  
 
--   La corruption des données sur un site peut passer inaperçue pendant plusieurs cycles de sauvegarde. Vous devrez peut-être utiliser un instantané de sauvegarde antérieur à la corruption du site. Cela s'applique à un site primaire autonome et aux sites dans une hiérarchie où la sauvegarde se trouve dans la période de rétention des modifications de suivi de SQL Server.  
+-   Een beschadiging in de site kan gedurende verschillende back-upcycli ongedetecteerd blijven. Mogelijk moet een back-upmomentopname uit voor de site beschadigd geraakte gebruiken. Dit geldt voor een zelfstandige primaire site en naar sites in een hiërarchie waar de back-up in de SQL-Server bijhouden bewaarperiode.  
 
--   Le site ne dispose peut-être d'aucun instantané de sauvegarde si, par exemple, la tâche de maintenance de sauvegarde du serveur de site échoue. Comme la tâche de sauvegarde supprime l'instantané de sauvegarde précédent avant de démarrer la sauvegarde des données en cours, aucun instantané de sauvegarde valide ne sera disponible.  
+-   De site heeft mogelijk helemaal geen back-upmomentopname, als de onderhoudstaak van de Back-upserver van site bijvoorbeeld is mislukt. Omdat de back-uptaak de vorige back-upmomentopname verwijdert voordat het een back-up begint te maken van de huidige gegevens, zal er geen geldige back-upmomentopname zijn.  
 
-## <a name="using-the-afterbackupbat-file"></a>Utilisation du fichier AfterBackup.bat  
-Après avoir sauvegardé le site, la tâche de sauvegarde du serveur de site tente automatiquement d'exécuter un fichier nommé AfterBackup.bat. Vous devez créer manuellement le fichier AfterBackup.bat dans &lt;*dossier_installation_ConfigMgr*>\Inboxes\Smsbkup. Si un fichier AfterBackup.bat existe et est stocké dans le dossier approprié, il est exécuté automatiquement à l'issue de l'exécution de la tâche de sauvegarde.
+## <a name="using-the-afterbackupbat-file"></a>Het bestand AfterBackup.bat gebruiken  
+Na een back-up van de site gemaakt te hebben, probeert de taak Back-upserver van site automatisch een bestand uit te voeren dat AfterBackup.bat heet. U moet het AfterBackup.bat-bestand in handmatig maken &lt; *ConfigMgrInstallationFolder*> \Inboxes\Smsbkup. Als er een AfterBackup.bat-bestand bestaat en in de juiste map is opgeslagen, wordt automatisch uitgevoerd nadat de back-uptaak is voltooid.
 
-Le fichier AfterBackup.bat permet d'archiver l'instantané de sauvegarde à la fin de chaque opération de sauvegarde, et d'effectuer automatiquement d'autres tâches postérieures à la sauvegarde, qui ne font pas partie de la tâche de maintenance de sauvegarde du serveur de site. Le fichier AfterBackup.bat intègre les opérations d'archivage et de sauvegarde, permettant ainsi d'archiver chaque nouvel instantané de sauvegarde.
+Het AfterBackup.bat-bestand laat u de back-upmomentopname archiveren aan het einde van elke back-upbewerking, en voert automatisch andere post-back-uptaken uit die geen deel uitmaken van de onderhoudstaak Back-upserver van site. Het AfterBackup.bat-bestand integreert het archief en de back-upbewerkingen, waardoor elke nieuwe back-upmomentopname wordt gearchiveerd.
 
-Lorsque le fichier AfterBackup.bat n'est pas présent, la tâche de sauvegarde l'ignore sans effet sur l'opération de sauvegarde. Pour vérifier que la tâche de sauvegarde de site a exécuté avec succès le fichier AfterBackup.bat, consultez le nœud **État du composant** dans l'espace de travail **Surveillance** et vérifiez les messages d'état pour SMS_SITE_BACKUP. Lorsque la tâche démarre avec succès le fichier de commande AfterBackup.bat, le message ID 5040 s'affiche.  
+Wanneer het AfterBackup.bat-bestand niet aanwezig is, slaat de back-uptaak het over zonder dat het een invloed heeft op de back-upbewerking. Zie het knooppunt **Onderdeelstatus** in de werkruimte **Bewaking** en bekijk de statusberichten voor SMS_SITE_BACKUP om te controleren of de back-uptaak van de site het bestand AfterBackup.bat heeft uitgevoerd. Wanneer de taak het AfterBackup.bat-opdrachtbestand heeft gestart, ziet u de boodschap ID 5040.  
 
 > [!TIP]  
->  Pour créer le fichier AfterBackup.bat afin d'archiver vos fichiers de sauvegarde de serveur de site, vous devez utiliser un outil de commande de copie, tel que [Robocopy](http://go.microsoft.com/fwlink/p/?LinkId=228408), dans le fichier de commandes. Par exemple, vous pouvez créer le fichier AfterBackup.bat et, sur la première ligne, ajouter une instruction similaire à la suivante : `Robocopy E:\ConfigMgr_Backup \\ServerName\ShareName\ConfigMgr_Backup /MIR`  
+>  Voor het maken van het AfterBackup.bat-bestand voor het archiveren van back-upbestanden van de siteserver, moet u een kopieeropdrachthulpprogramma zoals [Robocopy](http://go.microsoft.com/fwlink/p/?LinkId=228408), in de batch-bestand. Bijvoorbeeld, u kunt het AfterBackup.bat-bestand maken en op de eerste lijn zou u ongeveer als volgt:`Robocopy E:\ConfigMgr_Backup \\ServerName\ShareName\ConfigMgr_Backup /MIR`  
 
- Même si le but premier du fichier AfterBackup.bat est d'archiver des instantanés de sauvegarde, vous pouvez créer un fichier AfterBackup.bat pour exécuter d'autres tâches à la fin de chaque opération de sauvegarde.  
+ Hoewel het beoogde gebruik van het bestand AfterBackup.bat het archiveren van back-upmomentopnamen is, kunt u het bestand AfterBackup.bat aanmaken om extra taken uit te voeren aan het einde van elke back-upbewerking.  
 
-##  <a name="supplemental-backup-tasks"></a>Tâches de sauvegarde supplémentaires  
-La tâche de maintenance de sauvegarde du serveur de site fournit un instantané de sauvegarde pour les fichiers de serveur de site et la base de données de site, mais il existe certains autres éléments non sauvegardés que vous devez considérer lorsque vous créez votre stratégie de sauvegarde. Utilisez les sections suivantes pour définir votre stratégie de sauvegarde Configuration Manager.  
+##  <a name="supplemental-backup-tasks"></a>Aanvullende back-uptaken  
+De onderhoudstaak Back-upserver van site biedt een back-upmomentopname voor de siteserverbestanden en sitedatabase, maar er zijn andere items waarvan geen back-up is gemaakt die u moet overwegen wanneer u uw back-upstrategie bepaalt. Gebruik de volgende secties voor hulp bij het voltooien van uw Configuration Manager back-upstrategie.  
 
-### <a name="back-up-custom-reporting-services-reports"></a>Sauvegarde des rapports Reporting Services personnalisés  
-Lorsque vous avez modifié des rapports Reporting Services personnalisés prédéfinis ou créés, la création d'une sauvegarde pour les fichiers de base de données de serveur du rapport est une partie importante de votre stratégie de sauvegarde. La sauvegarde du serveur de rapports doit inclure une sauvegarde des fichiers sources pour les rapports et les modèles, des clés de cryptage, des assemblys ou des extensions personnalisés, des fichiers de configuration, des vues SQL Server personnalisées, des procédures stockées personnalisées, etc.  
+### <a name="back-up-custom-reporting-services-reports"></a>Back-up maken van aangepaste rapporten van Reporting Services  
+Wanneer u vooraf bepaalde of gemaakte aangepaste rappoten voor Reporting Services hebt gewijzigd, is het maken van een back-up voor de databasebestanden van de rapportserver een belangrijk onderdeel van uw back-upstrategie. De back-up van de rapportserver moet een back-up van de bronbestanden omvatten voor rapporten en modellen, versleutelingssleutels, aangepaste assembly's of extensies, configuratiebestanden, aangepaste SQL Server-weergaven in aangepaste rapporten, aangepaste opgeslagen procedures, enzovoort.  
 
 > [!IMPORTANT]  
->  Quand Configuration Manager est mis à niveau vers une version plus récente, les rapports prédéfinis peuvent être remplacés par de nouveaux rapports. Si vous modifiez un rapport prédéfini, sauvegardez le rapport avant d’effectuer la mise à jour, puis restaurez-le dans Reporting Services.  
+>  Wanneer de Configuration Manager-updates naar een nieuwere versie, worden de vooraf gedefinieerde rapporten mogelijk overschreven door nieuwe rapporten. Als u een vooraf gedefinieerd rapport wijzigt, back-up van het rapport en vervolgens herstellen in Reporting Services.  
 
- Pour plus d’informations sur la sauvegarde de vos rapports personnalisés dans Reporting Services, consultez [Opérations de sauvegarde et de restauration pour Reporting Services](https://technet.microsoft.com/library/ms155814\(v=sql.120\).aspx) dans la documentation en ligne de SQL Server 2014.  
+ Zie [Backup and Restore Operations for a Reporting Services Installation (Back-up- en terugzetbewerkingen voor een installatie van Reporting Services)](https://technet.microsoft.com/library/ms155814\(v=sql.120\).aspx) in de SQL Server 2014 Books Online voor meer informatie over het maken van back-ups van uw aangepaste rapporten in Reporting Services.  
 
-### <a name="back-up-content-files"></a>Sauvegarder des fichiers de contenu  
-La bibliothèque de contenu dans Configuration Manager correspond à l'emplacement dans lequel sont enregistrés tous les fichiers de contenu pour le déploiement des mises à jour logicielles, des applications, du système d'exploitation, etc. La bibliothèque de contenu se trouve sur le serveur de site et sur chaque point de distribution. La tâche de maintenance de sauvegarde du serveur de site n'inclut pas une sauvegarde de la bibliothèque de contenu ou des fichiers sources du package. Lors de la défaillance d'un serveur de site, les informations sur les fichiers de la bibliothèque de contenu sont restaurées vers la base de données de site, mais vous devez restaurer la bibliothèque de contenu et les fichiers sources des packages sur le serveur de site.  
+### <a name="back-up-content-files"></a>Back-up van inhoudsbestanden  
+De Inhoudsbibliotheek in Configuration Manager is de locatie waar alle inhoudsbestanden worden opgeslagen voor software-updates, toepassingen en implementatie van besturingssystemen. De Inhoudsbibliotheek bevindt zich op de siteserver en op elk distributiepunt. De onderhoudstaak Back-upserver van site omvat geen back-up voor de inhoudsbibliotheek of de pakketbronbestanden. Wanneer er een fout optreedt op een siteserver wordt de informatie over de inhoudsbibliotheek teruggezet op de sitedatabase, maar moet u de inhoudsbibliotheek en pakketbronbestanden op de siteserver terugzetten.  
 
--   **Bibliothèque de contenu**: la bibliothèque de contenu doit être restaurée avant que vous puissiez redistribuer le contenu vers des points de distribution. Lorsque vous démarrez la redistribution du contenu, Configuration Manager copie les fichiers depuis la bibliothèque de contenu sur le serveur de site vers les points de distribution. La bibliothèque de contenu pour le serveur de site se trouve dans le dossier SCCMContentLib, qui est généralement situé sur le lecteur qui dispose de la plus grande quantité d'espace libre au moment de l'installation du site.  
+-   **Inhoudsbibliotheek**: De Inhoudsbibliotheek moet worden hersteld voordat u inhoud opnieuw naar distributiepunten distribueren kunt. Wanneer u de herdistributie van inhoud start, kopieert Configuration Manager de bestanden van de Inhoudsbibliotheek op de siteserver naar de distributiepunten. De Inhoudsbibliotheek voor de siteserver is in de map SCCMContentLib, die meestal zich bevindt op het station met de meeste vrije schijfruimte op het tijdstip waarop de site is geïnstalleerd.  
 
--   **Fichiers sources d’un package**: les fichiers sources d’un package doivent être restaurés avant que vous puissiez mettre à jour le contenu sur des points de distribution. Lorsque vous démarrez la mise à jour d'un contenu, Configuration Manager copie les fichiers nouveaux ou modifiés depuis la source du package vers la bibliothèque de contenu, qui à son tour copie les fichiers vers des points de distribution associés. Vous pouvez exécuter la requête suivante dans SQL Server pour trouver l'emplacement source du package pour tous les packages et applications : `SELECT * FROM v_Package`. Vous pouvez identifier le site source du package en examinant les trois premiers caractères de l'ID de package. Par exemple, si l'ID de package est CEN00001, le code de site pour le site source est CEN. Lorsque vous restaurez les fichiers sources du package, ceux-ci doivent être restaurés vers le même emplacement que celui dans lequel ils se trouvaient avant la défaillance.  
+-   **Pakketbronbestanden**: De pakketbronbestanden moeten worden hersteld voordat u inhoud op distributiepunten kunt bijwerken. Wanneer u een update van inhoud start, Configuration Manager worden nieuwe of gewijzigde bestanden gekopieerd van de pakketbron naar de Inhoudsbibliotheek, die in Schakel exemplaren bestanden voor de gekoppelde distributiepunten verwijst. U kunt de volgende query in SQL Server uitvoeren om de locatie van de pakketbron voor alle pakketten en toepassingen te vinden: `SELECT * FROM v_Package`. U kunt de locatie van de pakketbron vinden door de eerste drie tekens van de pakket-id te bekijken. Als de pakket-id bijvoorbeeld CEN00001 is, is de sitecode van de bronsite CEN. Wanneer u de pakketbronbestanden herstelt, moeten u deze op dezelfde locatie waar ze vóór de fout was hersteld.  
 
- Vérifiez que vous incluez à la fois la bibliothèque de contenu et les emplacements sources du package dans la sauvegarde de votre système de fichiers pour le serveur de site.  
+ Controleer dat u zowel de inhoudsbibliotheek als pakketbronlocaties in de back-up van uw bestandssysteem voor de siteserver opneemt.  
 
-### <a name="back-up-custom-software-updates"></a>Sauvegarder les mises à jour logicielles personnalisées  
- System Center Updates Publisher 2011 est un outil autonome qui vous permet de publier des mises à jour logicielles personnalisées vers Windows Server Update Services (WSUS), de synchroniser les mises à jour logicielles vers Configuration Manager, d’évaluer la compatibilité des mises à jour logicielles et de déployer des mises à jour logicielles personnalisées sur des clients. L’éditeur de mise à jour utilise une base de données locale pour son espace de stockage des mises à jour logicielles. Quand vous utilisez l’éditeur de mise à jour pour gérer les mises à jour logicielles personnalisées, déterminez si vous devez inclure la base de données de l’éditeur de mise à jour dans votre plan de sauvegarde. Pour plus d'informations sur l'éditeur de mise à jour, voir [Éditeur de mise à jour System Center 2011](http://go.microsoft.com/fwlink/p/?LinkId=228726) dans la bibliothèque TechCenter de System Center.  
+### <a name="back-up-custom-software-updates"></a>Back-up maken van aangepaste software-updates  
+ System Center Updates Publisher 2011 is een zelfstandig hulpprogramma waarmee u aangepaste software-updates publiceren naar Windows Server Update Services (WSUS), synchroniseren van de software-updates voor Configuration Manager, compatibiliteit van software-updates vaststelt en de aangepaste software-updates implementeren op clients. Updates Publisher gebruikt een lokale database voor de software-update opslagplaats. Wanneer u Updates Publisher gebruikt om aangepaste software-updates te beheren, moet u bepalen of u de Updates Publisher-database in uw back-upplan moet opnemen. Zie [System Center Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkId=228726) in de System Center TechCenter Library voor meer informatie over Updates Publisher.  
 
- Utilisez la procédure suivante pour sauvegarder la base de données de l'éditeur de mise à jour.  
+ Gebruik de volgende procedure back-up van de Updates Publisher-database.  
 
-#### <a name="to-back-up-the-updates-publisher-2011-database"></a>Pour sauvegarder la base de données de l'éditeur de mise à jour 2011  
+#### <a name="to-back-up-the-updates-publisher-2011-database"></a>Een back-up maken van de Updates Publisher 2011-database  
 
-1.  Sur l’ordinateur qui exécute l’éditeur de mise à jour, accédez au fichier de base de données de l’éditeur de mise à jour (Scupdb.sdf) dans %*USERPROFILE*%\AppData\Local\Microsoft\System Center Updates Publisher 2011\5.00.1727.0000\\\. Il existe un fichier de base de données différent pour chaque utilisateur qui exécute l’éditeur de mise à jour.  
+1.  Op de computer waarop Updates Publisher wordt uitgevoerd, bladert u naar de Updates Publisher-databasebestand (Scupdb.sdf) in %*USERPROFILE*%\AppData\Local\Microsoft\System Center Updates Publisher 2011\5.00.1727.0000\\\. Er is een verschillend databasebestand voor elke gebruiker waarop Updates Publisher wordt uitgevoerd.  
 
-2.  Copiez le fichier de base de données vers votre destination de sauvegarde. Par exemple, si votre destination de sauvegarde est E:\ConfigMgr_Backup, vous pouvez copier le fichier de base de données de l’éditeur de mise à jour vers E:\ConfigMgr_Backup\SCUP2011.  
+2.  Kopieer het databasebestand naar uw back-upbestemming. Als uw back-upbestemming E:\ConfigMgr_Backup is, kunt u het databasebestand Updates Publisher kopiëren naar E:\ConfigMgr_Backup\SCUP2011.  
 
     > [!TIP]  
-    >  Lorsqu'il existe plusieurs fichiers de base de données sur un ordinateur, envisagez de stocker le fichier dans un sous-dossier qui indique le profil utilisateur associé au fichier de base de données. Par exemple, vous pourriez avoir un seul fichier de base de données dans E:\ConfigMgr_Backup\SCUP2011\User1 et un autre fichier de base de données dans E:\ConfigMgr_Backup\SCUP2011\User2.  
+    >  Wanneer er meer dan één databasebestand op een computer, overweeg dan het bestand opslaan in een submap die aangeeft het gebruikersprofiel die zijn gekoppeld aan het databasebestand dat. U zou bijvoorbeeld één databasebestand kunnen hebben in E:\ConfigMgr_Backup\SCUP2011\User1 en een ander databasebestand in E:\ConfigMgr_Backup\SCUP2011\User2.  
 
-## <a name="user-state-migration-data"></a>Données de migration de l'état utilisateur  
-Vous pouvez utiliser des séquences de tâches Configuration Manager pour capturer et restaurer les données d’état utilisateur dans les scénarios de déploiement de système d’exploitation où vous souhaitez conserver l’état utilisateur du système d’exploitation actuel. Les dossiers qui stockent les données d'état utilisateur sont répertoriés dans les propriétés du point de migration d'état. Ces données de migration d'état utilisateur ne sont pas sauvegardées dans le cadre de la tâche de maintenance de sauvegarde du serveur de site. Dans le cadre de votre plan de sauvegarde, vous devez sauvegarder manuellement les dossiers que vous spécifiez pour stocker les données de migration d'état utilisateur.   
+## <a name="user-state-migration-data"></a>Migratiegegevens van de gebruikersstatus  
+U kunt takenreeksen Configuration Manager vastleggen en herstellen van de gebruikersstatusgegevens in implementatiescenario's van besturingssysteem waar u wilt bewaren van de gebruikersstatus van het huidige besturingssysteem. De mappen waarin de gegevens met betrekking tot de gebruikersstatus zijn opgeslagen, staan in de eigenschappen voor het statusmigratiepunt. Van deze migratiegegevens van de gebruikersstatus wordt geen back-up gemaakt als onderdeel van de onderhoudstaak Back-upserver van site. Als deel van uw back-upplan moet u handmatig een back-up maken van de mappen die u specificeert om de migratiegegevens van de gebruikersstatus op te slaan.   
 
-### <a name="to-determine-the-folders-used-to-store-user-state-migration-data"></a>Pour déterminer les dossiers utilisés pour stocker les données de migration d'état utilisateur  
+### <a name="to-determine-the-folders-used-to-store-user-state-migration-data"></a>De mappen bepalen die worden gebruikt om migratiegegevens van de gebruikersstatus op te slaan  
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
+1.  Klik op **Beheer**in de Configuration Manager-console.  
 
-2.  Dans l'espace de travail **Administration** , développez **Configuration du site**, puis choisissez **Serveurs et rôles de système de site**.  
+2.  In de **beheer** werkruimte Vouw **siteconfiguratie**, en kies **Servers en sitesysteemrollen**.  
 
-3.  Sélectionnez le système de site qui héberge le rôle de migration d'état, puis choisissez **Point de migration de l'état** dans **Rôles de système de site**.  
-
-
-4.  Dans l'onglet **Rôle du site** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.  
-5.  Les dossiers qui stockent les données de migration d'état utilisateur sont répertoriés dans la section **Détails du dossier** de l'onglet **Général** .  
+3.  Selecteer het sitesysteem dat de statusmigratierol host, en kies **Statusmigratiepunt** in **sitesysteemrollen**.  
 
 
+4.  Klik op het tabblad **Siterol** in de groep **Eigenschappen** op **Eigenschappen**.  
+5.  De mappen waar de migratiegegevens van de gebruikersstatus worden opgeslagen, staan in de sectie **Mapdetails** op het tabblad **Algemeen** .  
 
-## <a name="about-the-sms-writer-service"></a>À propos du service Enregistreur SMS  
-L'Enregistreur SMS est un service qui interagit avec le service de cliché instantané du volume (VSS, Volume Shadow copy Service) pendant le processus de sauvegarde. Le service Enregistreur SMS doit être en cours d'exécution pour mener à bien la sauvegarde de site Configuration Manager.  
 
-### <a name="purpose"></a>Fonction  
-L'Enregistreur SMS s'enregistre auprès du service VSS et établit une liaison à ses interfaces et événements. Lorsque le service VSS diffuse des événements, ou s'il envoie une notification spécifique à l'Enregistreur SMS, ce dernier répond à la notification et entreprend les mesures appropriées. L’Enregistreur SMS lit le fichier de contrôle de sauvegarde (smsbkup.ctl), situé dans &lt;*chemin_installation_ConfigMgr*>\inboxes\smsbkup.box, puis détermine les fichiers et les données à sauvegarder. L'Enregistreur SMS génère des métadonnées, consistant de différents composants, en se basant sur ces informations ainsi que sur des données spécifiques à partir de la clé de Registre SMS et des sous-clés. Il envoie les métadonnées vers le service VSS lorsqu'elles sont demandées. Le service VSS envoie ensuite les métadonnées à l'application faisant la demande ; le Gestionnaire de sauvegarde Configuration Manager. sélectionne les données à sauvegarder et les envoie à l'Enregistreur SMS via le service VSS. L'Enregistreur SMS prend les mesures appropriées pour préparer la sauvegarde. Plus tard, lorsque le service VSS est prêt à prendre l'instantané, il envoie un événement ; l'Enregistreur SMS arrête tous les services Configuration Manager et s'assure que toutes les activités Configuration Manager sont figées pendant la création de l'instantané. Une fois le processus d'instantané terminé, l'Enregistreur SMS redémarre les services et les activités.  
 
-Le service Enregistreur SMS est installé automatiquement. Il doit être en cours d'exécution lorsque l'application VSS demande une sauvegarde ou une restauration.  
+## <a name="about-the-sms-writer-service"></a>Over de SMS Writer-service  
+De SMS Writer is een service die communiceert met de VSS (Volume Shadow Copy Service) tijdens het back-upproces. De SMS Writer-service moet worden uitgevoerd voor de Configuration Manager-site-back maximaal met succes voltooid.  
 
-### <a name="writer-id"></a>ID du rédacteur  
-L’ID d’enregistreur pour l’Enregistreur SMS est le suivant : 03ba67dd-dc6d-4729-a038-251f7018463b.  
+### <a name="purpose"></a>Doel  
+SMS Writer registreert bij de VSS-service en wordt gekoppeld aan de betreffende interfaces en gebeurtenissen. Wanneer VSS gebeurtenissen uitzendt, of specifieke berichten naar de SMS Writer verstuurt, reageert de SMS Writer op het bericht en neemt de nodige actie. De SMS Writer leest het back-upcontrolebestand (smsbkup.ctl) zich in de &lt; *ConfigMgr-installatiepad*> \inboxes\smsbkup.box en bepaalt welke bestanden en gegevens die u wilt back-up worden gemaakt. De SMS Writer bouwt metadata die uit verscheidene onderdelen bestaan, gebaseerd op deze informatie en op specifieke gegevens van de SMS-registersleutel en subsleutels. De writer stuurt de metagegevens naar VSS wanneer deze wordt aangevraagd. VSS verzendt de metadata vervolgens naar de aanvragende toepassing; Manager van Configuration Manager back-up. Backup Manager selecteer de gegevens waarvan een back-up wordt gemaakt en verzendt deze gegevens naar de SMS Writer via VSS. De SMS Writer neemt de nodige stappen om de back-up voor te bereiden. Later, wanneer VSS klaar is om een momentopname te is, verzendt hij een gebeurtenis, de SMS Writer stopt alle Configuration Manager-services en zorgt ervoor dat de Configuration Manager-activiteiten worden bevroren onder de momentopname wordt gemaakt. Na voltooiing van de momentopname start de SMS Writer services en activiteiten opnieuw op.  
 
-### <a name="permissions"></a>Autorisations  
-Le service Enregistreur SMS doit s'exécuter sous le compte système local.  
+De SMS Writer-service wordt automatisch geïnstalleerd. De service moet actief zijn wanneer de VSS-toepassing een back-up of herstel aanvraagt.  
 
-### <a name="volume-shadow-copy-service"></a>Service de cliché instantané du volume  
-Le service de cliché instantané du volume (VSS) est un ensemble d'API COM qui implémente une structure permettant de réaliser des sauvegardes de volumes en même temps que les applications sur un système continuent d'écrire dans les volumes. Le service VSS fournit une interface cohérente pour la coordination entre les applications de l'utilisateur qui mettent à jour des données sur le disque (le service Enregistreur SMS) et celles qui sauvegardent des applications (le service Gestionnaire de sauvegarde). Pour plus d'informations, consultez la rubrique [Volume Shadow Copy Service (Service de cliché instantané du volume)](http://go.microsoft.com/fwlink/p/?LinkId=241968) dans Windows Server TechCenter.  
+### <a name="writer-id"></a>Schrijver-id  
+De schrijver-ID voor de SMS Writer is: 03ba67dd-dc6d-4729-a038-251f7018463b.  
 
-## <a name="next-steps"></a>Étapes suivantes
-Après avoir créé une sauvegarde, exercez-vous à [récupérer un site](/sccm/protect/understand/recover-sites) avec cette sauvegarde. Cela vous aidera à vous familiariser avec le processus de récupération avant d’y recourir en cas de besoin et à confirmer que la sauvegarde créée correspond à son usage prévu.  
+### <a name="permissions"></a>Machtigingen  
+De SMS Writer-service moet onder het lokale systeemaccount worden uitgevoerd.  
+
+### <a name="volume-shadow-copy-service"></a>Volume Shadow Copy-service  
+De VSS is een set van COM API's die een kader implementeert voor het maken van volume back-ups terwijl toepassingen op het systeem doorgaan met het schrijven naar de volumes. De VSS biedt een consistente interface die coördinatie toestaat tussen toepassingen die gegevens op schijf bijwerken (de SMS Writer-service) en toepassingen die back-ups maken van toepassingen (de Backup Manager-service). Zie voor meer informatie de [Volume Shadow Copy Service](http://go.microsoft.com/fwlink/p/?LinkId=241968) onderwerp in het Windows Server TechCenter.  
+
+## <a name="next-steps"></a>Volgende stappen
+Nadat u een back-up hebt gemaakt, in de praktijk [site recovery](/sccm/protect/understand/recover-sites) met back-up. Hiermee kunt u meer vertrouwd raken met het herstelproces voordat u moet erop vertrouwen en kan helpen bij het bevestigen van de back-up is voltooid voor het beoogde doel.  

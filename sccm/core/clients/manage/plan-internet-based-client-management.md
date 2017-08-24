@@ -1,6 +1,6 @@
 ---
-title: "Gestion des clients basée sur Internet | Microsoft Docs"
-description: "Créez un plan de gestion des clients Internet dans System Center Configuration Manager."
+title: Internet-gebaseerd clientbeheer | Microsoft Docs
+description: Maak een plan voor het beheren van clients op Internet in System Center Configuration Manager.
 ms.custom: na
 ms.date: 05/16/2017
 ms.prod: configuration-manager
@@ -17,136 +17,136 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 90c30bfb22735f73422f1547301552bf42022bb9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-internet-based-client-management-in-system-center-configuration-manager"></a>Planifier la gestion des clients basée sur Internet dans System Center Configuration Manager
+# <a name="plan-for-internet-based-client-management-in-system-center-configuration-manager"></a>Plan voor Internet-gebaseerd clientbeheer in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-La gestion des clients basée sur Internet (ou IBCM, Internet-Based Client Management) vous permet de gérer les clients System Center Configuration Manager quand ils ne sont pas connectés à votre réseau d’entreprise, mais qu’ils disposent d’une connexion Internet standard. Cette configuration offre plusieurs avantages, notamment la réduction des coûts, car il n'est plus nécessaire d'utiliser des réseaux privés virtuels (VPN) et la possibilité de déployer les mises à jour logicielles au moment opportun.  
+Clientbeheer via Internet management (ook wel aangeduid als IBCM) kunt die u beheren met System Center Configuration Manager-clients wanneer ze niet zijn verbonden met uw bedrijf maar u beschikt over een standaardinternetverbinding. Deze regeling heeft verschillende voordelen, met inbegrip van verlaagde kosten want virtuele particuliere netwerken (VPN's) moeten niet worden uitgevoerd en software-updates kunnen tijdig worden geïmplementeerd.  
 
- En raison des exigences de sécurité plus élevées liées à la gestion des ordinateurs clients sur un réseau public, la gestion de clients basés sur Internet nécessite que les clients et les serveurs de système de site auxquels les clients se connectent utilisent des certificats PKI. Cela garantit l'authentification des connexions par une autorité indépendante et le chiffrement des données vers et depuis ces systèmes de site à l'aide du protocole SSL (Secure Sockets Layer).  
+ Wegens de hogere beveiligingsvereisten voor het beheren van clientcomputers op een openbaar netwerk, is voor clientbeheer via internet het gebruik van PKI-certificaten vereist voor clients en sitesysteemservers waarmee de clients zijn verbonden. Dit zorgt dat de verbindingen worden geverifieerd door een onafhankelijke instantie en dat de gegevens naar en van deze sitesystemen zijn versleuteld met Secure Sockets Layer (SSL).  
 
- Utilisez les sections suivantes pour vous aider à planifier la gestion des clients basés sur Internet.  
+ Gebruik de volgende secties voor het plannen van clientbeheer via internet.  
 
-##  <a name="features-that-are-not-supported-on-the-internet"></a>Fonctionnalités non prises en charge sur Internet  
- Toutes les fonctionnalités de gestion des clients ne sont pas adaptées à Internet. Par conséquent, elles ne sont pas pris en charge lorsque les clients sont gérés sur Internet. Les fonctionnalités qui ne sont pas prises en charge pour la gestion d'Internet reposent généralement sur les services de domaine Active Directory ou ne conviennent pas à un réseau public, comme par exemple la découverte de réseau et Wake-on-LAN (WOL).  
+##  <a name="features-that-are-not-supported-on-the-internet"></a>Functies die niet worden ondersteund op het internet  
+ Niet alle clientbeheerfunctionaliteiten zijn geschikt voor het internet; daarom worden ze niet ondersteund wanneer clients op het internet worden beheerd. De functies die niet worden ondersteund voor internetbeheer vertrouwen doorgaans op Active Directory domeinservices of zijn niet geschikt voor een openbaar netwerk, zoals netwerkdetectie en Wake-on-LAN (WOL).  
 
- Les fonctions ci-dessous ne sont pas prises en charge lorsque les clients sont gérés sur Internet :  
+ Onderstaande functies worden niet ondersteund wanneer clients op het internet worden beheerd:  
 
--   Le déploiement de client sur Internet, comme par exemple l'installation poussée du client et le déploiement de client basé sur des mises à jour. Utilisez plutôt l'installation manuelle du client.  
+-   Clientimplementatie via internet, zoals clientpush en clientimplementatie gebaseerd op software-update. Gebruik in plaats daarvan handmatige clientinstallatie.  
 
--   Attribution automatique du site.  
+-   Automatische sitetoewijzing.  
 
 -   Wake-on-LAN.  
 
--   Le déploiement de système d'exploitation. Toutefois, vous pouvez déployer des séquences de tâches qui ne déploient pas un système d'exploitation. Par exemple, des séquences de tâches qui exécutent des scripts et des tâches de maintenance sur les clients.  
+-   Implementatie van besturingssysteem. U kunt niettemin takenreeksen implementeren die geen besturingssysteem implementeren, bijvoorbeeld takenreeksen die scripts en onderhoudstaken op clients uitvoeren.  
 
--   Le contrôle à distance.  
+-   Extern beheer.  
 
--   Le déploiement de logiciels vers des utilisateurs, sauf si le point de gestion basé sur Internet peut authentifier l'utilisateur dans les services de domaine Active Directory à l'aide de l'authentification Windows (Kerberos ou NTLM). Cela est possible lorsque le point de gestion basé sur Internet approuve la forêt dans laquelle réside le compte d'utilisateur.  
+-   Software-implementatie op gebruikers tenzij het beheerpunt op internet de gebruiker kan verifiëren in Active Directory Domain Services met behulp van Windows-verificatie (Kerberos of NTLM). Dit is mogelijk wanneer het beheerpunt op internet de forest vertrouwt waar het gebruikersaccount is opgeslagen.  
 
- En outre, la gestion des clients sur Internet ne prend pas en charge l'itinérance. L'itinérance permet aux clients de toujours trouver les points de distribution les plus proches pour télécharger du contenu. Les clients qui ne sont pas gérés sur Internet communiquent avec des systèmes de site à partir du site qui leur est affecté lorsque ces systèmes de site sont configurés pour utiliser un nom de domaine complet Internet et les rôles de système de site autorisent les connexions client à partir d'Internet. Les clients sélectionnent de manière non déterministique l'un des systèmes de site basés sur Internet, indépendamment de la bande passante ou de l'emplacement physique.  
+ Clientbeheer via internet biedt bovendien geen ondersteuning voor roaming. Roaming maakt het clients mogelijk altijd de dichtstbijzijnde distributiepunten te vinden om inhoud te downloaden. Clients die worden beheerd via internet communiceren met sitesystemen van hun toegewezen site wanneer deze sitesystemen zijn geconfigureerd om internet-FQDN te gebruiken en de sitesysteemrollen de clientverbindingen op het internet toestaan. Clients selecteren op niet-deterministische wijze een van de sitesystemen op internet, ongeacht de bandbreedte of fysieke locatie.  
 
- Lorsque vous disposez d'un point de mise à jour logicielle qui est configuré pour accepter les connexions à partir d'Internet, les clients Configuration Manager basés sur Internet qui se trouvent sur Internet effectuent toujours une analyse par rapport à ce point de mise à jour logicielle afin de déterminer quelles mises à jour logicielles sont requises. Toutefois, lorsque ces clients se trouvent sur Internet, ils commencent par essayer de télécharger les mises à jour logicielles à partir de Microsoft Update, plutôt qu'à partir d'un point de distribution basé sur Internet. Uniquement en cas d'échec, ils tenteront de télécharger les mises à jour logicielles requises à partir d'un point de distribution basé sur Internet. Les clients qui ne sont pas configurés pour la gestion des clients basés sur Internet n’essaient jamais de télécharger les mises à jour logicielles auprès de Microsoft Update, mais utilisent toujours des points de distribution Configuration Manager.  
+ Als u een softwareupdate-punt hebt dat is geconfigureerd om verbindingen vanuit het internet te accepteren, zullen Configuration Manager-clients op internet altijd scannen ten opzichte van dit updatepunt om te bepalen welke software-updates vereist zijn. Als deze clients niettemin met het internet zijn verbonden, proberen ze eerst de software-updates te downloaden van Microsoft Update, in plaats van vanaf een internet-gebaseerd distributiepunt. Alleen als dit mislukt, wordt geprobeerd om de vereiste software-updates te downloaden vanaf een op internet gebaseerd distributiepunt. Clients die niet zijn geconfigureerd voor clientbeheer via Internet trachten nooit de software-updates downloaden vanaf Microsoft Update, maar gebruiken altijd Configuration Manager-distributiepunten.  
 
-##  <a name="considerations-for-client-communications-from-the-internet-or-untrusted-forest"></a>Éléments à prendre en considération pour les communications client à partir d'Internet ou d'une forêt non approuvée  
- Les rôles de système de site suivants installés sur les sites principaux prennent en charge les connexions de clients qui se trouvent dans des emplacements non approuvés, tels qu'Internet ou une forêt non approuvée (les sites secondaires ne prennent pas en charge les connexions client à partir d'emplacements non approuvés) :  
+##  <a name="considerations-for-client-communications-from-the-internet-or-untrusted-forest"></a>Overwegingen voor clientcommunicatie via internet of een niet-vertrouwd forest  
+ De volgende geïnstalleerde sitesysteemrollen op primaire sites ondersteunen verbindingen van clients in niet-vertrouwde locaties, zoals internet of een niet-vertrouwd forest (secundaire sites ondersteunen geen clientverbindingen van niet-vertrouwde locaties):  
 
--   Point du site web du catalogue des applications  
+-   Application Catalog-websitepunt  
 
--   Module de stratégie de Configuration Manager  
+-   Configuration Manager-beleidsmodule  
 
--   Point de distribution (HTTPS est requis par les points de distribution cloud)  
+-   Distributiepunt (HTTPS is vereist voor cloudgebaseerde distributiepunten)  
 
--   Point proxy d'inscription  
+-   Proxypunt voor inschrijving  
 
--   Point d’état de secours  
+-   Terugvalstatuspunt  
 
--   Point de gestion  
+-   Beheerpunt  
 
--   Point de mise à jour logicielle  
+-   Software-updatepunt  
 
- **À propos des systèmes de site accessibles sur Internet :**   
-Même s’il n’est pas nécessaire de disposer d’une relation de confiance entre la forêt d’un client et celle d’un serveur de système de site, quand la forêt qui contient un système de site accessible sur Internet approuve la forêt qui contient les comptes d’utilisateurs, cette configuration prend en charge les stratégies utilisateur pour les appareils sur Internet quand vous activez le paramètre client **Autoriser les demandes de stratégie utilisateur depuis des clients Internet** de la **Stratégie client**.  
+ **Over internetgerichte sitesystemen:**   
+Hoewel er geen vereiste is om een vertrouwensrelatie tussen de forest van de client en die van de sitesysteemserver als het forest met een Internetgericht sitesysteem het forest waarin de gebruikersaccounts vertrouwt, ondersteunt deze configuratie gebruikersbeleid voor apparaten op Internet wanneer u inschakelt de **clientbeleid** clientinstelling **Gebruikersbeleidsaanvragen van internetclients toestaan**.  
 
- Par exemple, les configurations suivantes illustrent la prise en charge par la gestion des clients basés sur Internet des stratégies utilisateur pour les appareils situés sur Internet :  
+ De volgende configuraties illustreren bijvoorbeeld wanneer clientbeheer via internet het gebruikersbeleid voor apparaten op internet ondersteunt:  
 
--   Le point de gestion basé sur Internet est le réseau de périmètre sur lequel réside un contrôleur de domaine en lecture seule pour authentifier l'utilisateur et un pare-feu qui intervient autorise les paquets Active Directory.  
+-   Het internet-gebaseerd beheerpunt bevindt zich in het perimeternetwerk waar een alleen-lezen domeincontroller bestaat om de gebruiker te verifiëren en een tussenkomende firewall Active Directory-pakketten toestaat.  
 
--   Le compte d'utilisateur se trouve dans la forêt A (Intranet) et le point de gestion basé sur Internet dans la forêt B (le réseau de périmètre). La forêt B approuve la forêt A et un pare-feu qui intervient autorise les paquets d'authentification.  
+-   Het gebruikersaccount bevindt zich in Forest A (intranet) en het internet-gebaseerd beheerpunt bevindt zich in Forest B (perimeternetwerk). Forest B vertrouwt Forest A en een tussenkomende firewall staat verificatiepakketten toe.  
 
--   Le compte d'utilisateur et le point de gestion basé sur Internet sont dans la forêt A (Intranet). Le point de gestion est publié sur Internet à l'aide d'un serveur proxy web (comme Forefront Threat Management Gateway).  
-
-> [!NOTE]  
->  Si l'authentification Kerberos échoue, l'authentification NTLM est ensuite automatiquement utilisée.  
-
- Comme l'indique l'exemple précédent, vous pouvez placer des systèmes de site basés sur Internet dans l'Intranet lorsqu'ils sont publiés sur Internet à l'aide d'un serveur proxy Web, tel que ISA Server et Forefront Threat Management Gateway. Ces systèmes de site peuvent être configurés pour la connexion client à partir d'Internet uniquement ou les connexions client à partir d'Internet et Intranet. Lorsque vous utilisez un serveur proxy Web, vous pouvez le configurer pour le pontage SSL (Secure Sockets Layer) vers SSL (plus sécurisé) ou le tunnel SSL :  
-
--   **Pontage SSL vers SSL :**   
-    La configuration recommandée quand vous utilisez des serveurs web proxy pour la gestion de clients sur Internet est le pontage SSL vers SSL, qui utilise une terminaison SSL avec authentification. Les ordinateurs clients doivent être authentifiés à l'aide de l'authentification de l'ordinateur et les clients hérités de l'appareil mobile sont authentifiés à l'aide de l'authentification utilisateur. Les appareils mobiles inscrits par Configuration Manager ne prennent pas en charge le pontage SSL.  
-
-     La terminaison SSL au niveau du serveur Web proxy présente l'avantage que les paquets provenant d'Internet sont inspectés avant d'être transférés au réseau interne. Le serveur Web proxy authentifie la connexion du client, l'arrête, puis ouvre une nouvelle connexion authentifiée vers les systèmes de site basés sur Internet. Quand les clients Configuration Manager utilisent un serveur web proxy, leur identité (GUID client) est contenue en toute sécurité dans la charge utile du paquet pour éviter que le point de gestion prenne le serveur web proxy pour le client. Le pontage n’est pas pris en charge dans Configuration Manager de HTTP vers HTTPS ou de HTTPS vers HTTP.  
-
--   **Tunneling** :   
-    Si votre serveur web proxy ne peut pas prendre en charge la configuration requise pour le pontage SSL, ou si vous souhaitez configurer la prise en charge Internet pour les appareils mobiles inscrits par Configuration Manager, le tunneling SSL est aussi pris en charge. Il s'agit d'une option moins sûre car les paquets SSL d'Internet sont transférés aux systèmes de site sans terminaison SSL et ne peuvent donc pas être inspectés à la recherche de contenu malveillant. Lors de l'utilisation du tunnel SSL, aucune configuration n'est requise pour les certificats pour le serveur Web proxy.  
-
-##  <a name="planning-for-internet-based-clients"></a>Planification des clients basés sur Internet  
- Vous devez décider si les ordinateurs clients qui seront gérés sur Internet seront configurés pour la gestion sur l'Intranet et Internet ou pour la gestion des clients sur Internet uniquement. Vous pouvez uniquement configurer l'option de gestion du client pendant l'installation d'un ordinateur client. Si vous changez d'avis ultérieurement, vous devez réinstaller le client.  
+-   Het gebruikersaccount en het internet-gebaseerde beheerpunt bevinden zich in Forest A (intranet). Het beheerpunt is gepubliceerd op internet met behulp van een webproxyserver (zoals Forefront Threat Management Gateway).  
 
 > [!NOTE]  
->  Si vous configurez un point de gestion compatible Internet, les clients qui s'y connectent deviennent compatibles Internet dès qu'ils actualisent leur liste de points de gestion disponibles.  
+>  Als Kerberos-verificatie is mislukt, wordt vervolgens automatisch de NTLM-verificatie geprobeerd.  
+
+ Zoals het vorige voorbeeld toont, kunt u internet-gebaseerde sitesystemen op het intranet plaatsen wanneer ze op het internet worden gepubliceerd met behulp van een webproxyserver, zoals ISA Server en Forefront Threat Management Gateway. Deze sitesystemen kunnen worden geconfigureerd voor clientverbinding van enkel internet of clientverbindingen van internet en intranet. Als u een webproxyserver gebruikt, dan kunt u deze configureren voor Secure Sockets Layer (SSL) bridging naar SSL (veiliger) of SSL-tunneling:  
+
+-   **SSL-bridging naar SSL:**   
+    De aanbevolen configuratie wanneer u proxy-webservers gebruikt voor clientbeheer op internet is SSL-bridging naar SSL. Dit maakt gebruik van SSL-beëindiging met verificatie. Clientcomputers moeten worden geverifieerd door gebruik te maken van computerverificatie en verouderde clients voor mobiele apparaten worden geverifieerd via gebruikersverificatie. Mobiele apparaten die zijn ingeschreven door Configuration Manager bieden geen ondersteuning voor SSL-bridging.  
+
+     Het voordeel van SSL-beëindiging aan de proxywebserver is dat pakketten van het internet onderhevig zijn aan inspectie voordat ze worden doorgestuurd naar het interne netwerk. De proxywebserver verifieert de verbinding van de client, beëindigt deze, en opent vervolgens een nieuwe geverifieerde verbinding naar de sitesystemen op internet. Wanneer Configuration Manager-clients een proxywebserver gebruikt, wordt de clientidentiteit (client-GUID) veilig opgenomen in de pakketlading zodat het beheerpunt de proxywebserver de client niet beschouwt. Bridging wordt niet ondersteund voor in Configuration Manager met HTTP naar HTTPS of van HTTPS naar HTTP.  
+
+-   **Tunneling**:   
+    Als uw proxywebserver de vereisten voor SSL-bridging niet kan ondersteunen, of u wilt configureren, Internet-ondersteuning voor mobiele apparaten die zijn ingeschreven door Configuration Manager, wordt SSL-tunneling ook ondersteund. Het is een minder veilige optie omdat de SSL-pakketten van het internet worden doorgestuurd naar de sitesystemen zonder SSL-beëindiging. Op die manier kunnen ze niet worden geïnspecteerd op schadelijke inhoud. Als u SSL-tunneling gebruikt, zijn er geen certificaatvereisten voor de proxywebserver.  
+
+##  <a name="planning-for-internet-based-clients"></a>Planning voor clients op internet  
+ U moet beslissen of de clientcomputers die via het internet zullen worden beheerd, geconfigureerd zullen zijn voor beheer op het intranet en het internet, of alleen voor clientbeheer op internet. U kunt de clientbeheeroptie alleen configureren tijdens de installatie van een clientcomputer. Als u later van gedachten verandert, moet u de client opnieuw installeren.  
+
+> [!NOTE]  
+>  Als u een beheerpunt met internetmogelijkheden configureert, worden clients die verbinding met het beheerpunt maken geschikt voor internet wanneer ze vervolgens hun lijst met beschikbare beheerpunten vernieuwen.  
 
 > [!TIP]  
->  Vous n'avez pas à limiter la configuration de la gestion des clients sur Internet uniquement à Internet et vous pouvez également l'utiliser sur l'Intranet.  
+>  U hoeft de configuratie van clientbeheer alleen via het internet niet beperken tot het internet en u kunt deze ook op het intranet gebruiken.  
 
- Les clients qui sont configurés pour la gestion des clients sur Internet uniquement ne communiquent qu'avec les systèmes de site qui sont configurés pour les connexions client à partir d'Internet. Cette configuration serait appropriée pour les ordinateurs qui ne se connectent jamais à l'Intranet de votre société, par exemple, des ordinateurs de point de vente dans des emplacements distants. Elle peut aussi convenir quand vous voulez limiter les communications client au protocole HTTPS uniquement (par exemple, pour prendre en charge un pare-feu et des stratégies de sécurité limitées) et quand vous installez des systèmes de site basés sur Internet dans un réseau de périmètre et que vous voulez gérer ces serveurs à l’aide du client Configuration Manager.  
+ Clients die worden geconfigureerd voor clientbeheer alleen op internet communiceren alleen met de sitesystemen die zijn geconfigureerd voor clientverbindingen van het internet. Deze configuratie is geschikt voor computers waarvan u weet dat ze nooit verbinding maken met het bedrijfsintranet, zoals point of sale-computers in externe locaties. Het ook mogelijk geschikt wanneer u wilt beperken tot clientcommunicatie HTTPS alleen (bijvoorbeeld ondersteuning firewall en beperkt beveiligingsbeleid), en wanneer u sitesystemen op Internet installeert in een perimeternetwerk en u wilt dat deze servers beheren met Configuration Manager-client.  
 
- Lorsque vous souhaitez gérer des clients du groupe de travail sur Internet, vous devez les installer en tant qu'Internet uniquement.  
+ Als u werkgroepclients op het internet wilt beheren, moet u deze installeren als alleen met internetverbinding.  
 
 > [!NOTE]  
->  Les clients d'appareil mobile sont automatiquement configurés en tant qu'Internet uniquement lorsqu'ils sont configurés pour utiliser un point de gestion basé sur Internet.  
+>  Clients van mobiele apparaten worden automatisch geconfigureerd als alleen met internetverbinding wanneer ze zijn geconfigureerd om een beheerpunt op internet te gebruiken.  
 
- D'autres ordinateurs clients peuvent être configurés pour une gestion des clients sur Internet et Intranet. Ils peuvent basculer automatiquement entre la gestion des clients basés sur Internet et la gestion des clients Intranet client lorsqu'ils détectent un changement de réseau. Si ces clients peuvent trouver et se connecter à un point de gestion qui est configuré pour les connexions client sur l’intranet, ces clients sont gérés en tant que clients intranet qui possèdent la fonctionnalité de gestion Configuration Manager complète. Si ces clients ne peuvent pas trouver ou se connecter à un point de gestion qui est configuré pour les connexions client sur l'Intranet, ils tentent de se connecter à un point de gestion basé sur Internet, et en cas de succès, ces clients sont ensuite gérés par les systèmes de site basés sur Internet et le site qui leur est affecté.  
+ Andere clientcomputers kunnen worden geconfigureerd voor clientbeheer op internet en intranet. Ze kunnen automatisch schakelen tussen clientbeheer op internet en clientbeheer op intranet wanneer ze een netwerkwijziging detecteren. Als deze clients kunnen vinden en verbinden om een beheerpunt dat is geconfigureerd voor clientverbindingen op het intranet, worden deze clients beheerd als intranetclients met volledige beheerfunctionaliteit van Configuration Manager. Als de clients geen beheerpunt kunnen vinden of er geen verbinding mee maken als het beheerpunt voor clientverbindingen op het intranet is geconfigureerd, proberen ze te verbinden met een beheerpunt op internet. Als dit lukt, worden deze clients vervolgens beheerd door de sitesystemen op internet in hun toegewezen site.  
 
- L’avantage de pouvoir basculer automatiquement entre la gestion des clients basée sur Internet et la gestion des clients intranet est que les ordinateurs clients peuvent utiliser automatiquement toutes les fonctionnalités de Configuration Manager chaque fois qu’ils sont connectés à l’intranet et continuer d’être gérés pour les fonctions de gestion essentielles quand ils sont sur Internet. En outre, un téléchargement commencé sur Internet peut reprendre sans interruption sur le réseau Intranet, et inversement.  
+ Het voordeel van automatisch overschakelen tussen clientbeheer op Internet en clientbeheer op intranet, is dat clientcomputers automatisch alle Configuration Manager-functies gebruiken kunnen wanneer ze zijn verbonden met het intranet en beheerd betreft essentiële beheerfuncties blijven wanneer ze op het Internet. Bovendien kan een download die begon op het internet probleemloos verder worden gedownload op het intranet, en vice versa.  
 
-##  <a name="prerequisites-for-internet-based-client-management"></a>Configuration requise pour la gestion des clients Internet  
- Dans Configuration, la gestion du client basée sur Internet Manager présente les dépendances externes suivantes :  
+##  <a name="prerequisites-for-internet-based-client-management"></a>Vereisten voor clientbeheer op internet  
+ Internet-gebaseerd clientbeheer in Configuration Manager heeft de volgende externe afhankelijkheden:  
 
--   Les clients qui seront gérés sur Internet doivent être dotés d'une connexion Internet.  
+-   Clients die zullen worden beheerd op het internet, moeten een internetverbinding hebben.  
 
-     Configuration Manager utilise les connexions du fournisseur de services Internet (ISP), qu’elles soient permanentes ou temporaires. Les appareils mobiles clients doivent disposer d'une connexion directe à Internet, alors que les ordinateurs clients peuvent se connecter à Internet directement ou par le biais d'un serveur Web proxy.  
+     Configuration Manager gebruikt bestaande Internetproviderverbindingen (ISP)-verbindingen met het Internet; dit kunnen zowel permanente als tijdelijke verbindingen. Mobiele apparaten van clients moeten een rechtstreekse internetverbinding hebben, maar clientcomputers kunnen een rechtstreekse internetverbinding hebben of verbinden via een proxywebserver.  
 
--   Les systèmes de site qui prennent en charge la gestion des clients basés sur Internet doivent être connectés à Internet et se trouver dans un domaine Active Directory.  
+-   Sitesystemen die clientbeheer op internet ondersteunen moeten verbonden zijn met het internet en moeten zich in een Active Directory-domein bevinden.  
 
-     Les systèmes de site basés sur Internet n'exigent aucune relation d'approbation avec la forêt Active Directory du serveur de site. Toutefois, lorsque le point de gestion basé sur Internet peut authentifier l'utilisateur à l'aide de l'authentification Windows, les stratégies utilisateur sont prises en charge. En cas d'échec de l'authentification Windows, seules les stratégies d'ordinateur sont prises en charge.  
+     De sitesystemen op internet hebben geen vertrouwensrelatie nodig met het Active Directory-forest van de siteserver. Gebruikersbeleid wordt echter ondersteund wanneer het beheerpunt op internet de gebruiker kan verifiëren met behulp van Windows-verificatie. Als Windows-verificatie is mislukt, wordt alleen computerbeleid ondersteund.  
 
     > [!NOTE]  
-    >  Pour prendre en charge des stratégies utilisateur, vous devez également définir sur **Vrai** les deux paramètres client **Stratégie client** :  
+    >  U moet, om gebruikersbeleid te ondersteunen, de twee clientinstellingen van **Clientbeleid** ook instellingen op **True**:  
     >   
-    >  -   **Activer l'interrogation de la stratégie utilisateur sur les clients**  
-    > -   **Autoriser les demandes de stratégie utilisateur depuis des clients Internet**  
+    >  -   **Polling voor gebruikersbeleid inschakelen op clients**  
+    > -   **Gebruikersbeleidsaanvragen van internetclients inschakelen**  
 
-     Un point de site Web du catalogue des applications basé sur Internet nécessite également l'authentification Windows pour authentifier les utilisateurs lorsque leur ordinateur est sur Internet. Cette exigence est indépendante des stratégies utilisateur.  
+     Een Application Catalog-websitepunt op internet vereist ook Windows-verificatie om gebruikers te verifiëren wanneer hun computer is verbonden met het internet. Deze vereiste is onafhankelijk van het gebruikersbeleid.  
 
--   Vous devez posséder une infrastructure à clé publique (PKI) annexe capable de déployer et gérer les certificats requis par les clients et gérés sur Internet et les serveurs de système de site basés sur Internet.  
+-   U moet een ondersteunende PKI (Public Key Infrastructure) hebben dat de implementatie en het beheer kan uitvoeren van certificaten die de clients nodig hebben en die worden beheerd op het internet en op de sitesysteemservers op internet.  
 
-     Pour plus d’informations sur les certificats PKI, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](/sccm/core/plan-design/network/pki-certificate-requirements).  
+     Zie [PKI-certificaatvereisten voor System Center Configuration Manager](/sccm/core/plan-design/network/pki-certificate-requirements) voor meer informatie over de PKI-certificaten.  
 
--   Le nom de domaine complet (FQDN) Internet des systèmes de site prenant en charge la gestion des clients Internet doit être enregistré sous la forme d'entrées hôtes sur les serveurs DNS publics.  
+-   Het internet-FQDN van sitesystemen die clientbeheer op internet ondersteunen, moeten als hostvermeldingen op openbare DNS-servers zijn geregistreerd.  
 
--   Les pare-feu ou serveurs proxy qui interviennent doivent autoriser les communications client associées aux systèmes de site basés sur Internet.  
+-   Tussenkomende firewalls of proxyservers moeten clientcommunicatie toestaan die wordt geassocieerd met sitesystemen op internet.  
 
-     Configuration requise des communications client :  
+     Vereisten voor clientcommunicatie:  
 
-    -   Prise en charge du protocole HTTP 1.1  
+    -   Ondersteuning voor HTTP 1.1  
 
-    -   Autorisation du type de contenu HTTP de pièces jointes MIME fractionnées (fractionné/mixte et application/flux d'octets)  
+    -   Sta HTTP-inhoudstype van meerdelige MIME-bijlage toe (meerdelig/gemengd en toepassing/octet-stream)  
 
-    -   Autorisation des verbes suivants pour le point de gestion Internet :  
+    -   Sta de volgende bewerkingen toe voor het beheerpunt op internet:  
 
         -   HEAD  
 
@@ -158,7 +158,7 @@ Même s’il n’est pas nécessaire de disposer d’une relation de confiance e
 
         -   PROPFIND  
 
-    -   Autorisation des verbes suivants pour le point de distribution Internet :  
+    -   Sta de volgende bewerkingen toe voor het distributiepunt op internet:  
 
         -   HEAD  
 
@@ -166,19 +166,19 @@ Même s’il n’est pas nécessaire de disposer d’une relation de confiance e
 
         -   PROPFIND  
 
-    -   Autorisation des verbes suivants pour le point d'état de secours Internet :  
+    -   Sta de volgende bewerkingen toe voor het terugvalstatuspunt op internet:  
 
         -   POST  
 
-    -   Autoriser les verbes suivants pour le point du site Web du catalogue des applications basé sur Internet :  
+    -   Sta de volgende bewerkingen toe voor het Application Catalog-websitepunt op internet:  
 
         -   POST  
 
         -   GET  
 
-    -   Autorisation des en-têtes HTTP suivants pour le point de gestion Internet :  
+    -   Sta de volgende HTTP-headers toe voor het beheerpunt op internet:  
 
-        -   Range:  
+        -   Bereik:  
 
         -   CCMClientID:  
 
@@ -188,10 +188,10 @@ Même s’il n’est pas nécessaire de disposer d’une relation de confiance e
 
         -   CCMClientTimestampsSignature:  
 
-    -   Autorisation de l'en-tête HTTP suivant pour le point de distribution Internet :  
+    -   Sta de volgende HTTP-header toe voor het distributiepunt op internet:  
 
-        -   Range:  
+        -   Bereik:  
 
-     Pour obtenir des informations de configuration afin de prendre en charge cette configuration requise, reportez-vous à la documentation de votre serveur proxy ou de votre pare-feu.  
+     Raadpleeg de documentatie van uw firewall of proxyserver voor configuratie-informatie om deze vereisten te ondersteunen.  
 
-     Pour obtenir des configurations de communication similaires lorsque vous utilisez le point de mise à jour logicielle pour les connexions client à partir d'Internet, consultez la documentation de WSUS (Windows Server Update Services). Par exemple, dans le cas de WSUS sous Windows Server 2003, voir [Annexe D : paramètres de sécurité](http://go.microsoft.com/fwlink/p/?LinkId=143368), l’annexe de déploiement pour les paramètres de sécurité.
+     Zie de documentatie voor Windows Server Update Services (WSUS) voor vergelijkbare communicatievereisten wanneer u het software-updatepunt voor clientverbindingen van het internet gebruikt. Bijvoorbeeld: voor WSUS op Windows Server 2003, Zie [Appendix D: Beveiligingsinstellingen](http://go.microsoft.com/fwlink/p/?LinkId=143368), de implementatie-bijlage voor beveiligingsinstellingen.

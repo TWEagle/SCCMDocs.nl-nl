@@ -1,5 +1,5 @@
 ---
-title: "Comment créer des éléments de configuration pour les appareils Windows Phone gérés via Microsoft Intune | Microsoft Docs"
+title: Het maken van configuratie-items voor Windows Phone-apparaten worden beheerd met Intune | Microsoft Docs
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,291 +16,291 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: bcb2d14ef097afc2915932fe09f6d83c968aecf9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-configuration-items-for-windows-phone-devices-managed-without-the-system-center-configuration-manager-client"></a>Comment créer des éléments de configuration pour des appareils Windows Phone gérés sans le client System Center Configuration Manager
-Utilisez l’élément de configuration System Center Configuration Manager **Windows Phone** pour gérer les paramètres des appareils Windows Phone qui sont inscrits dans Microsoft Intune ou gérés localement par Configuration Manager.  
+# <a name="how-to-create-configuration-items-for-windows-phone-devices-managed-without-the-system-center-configuration-manager-client"></a>Configuratie-items maken voor Windows Phone-apparaten die worden beheerd zonder de System Center Configuration Manager-client
+De System Center Configuration Manager gebruiken**Windows Phone** configuratie-item voor het beheren van instellingen voor Windows Phone-apparaten die zijn geregistreerd bij Microsoft Intune of on-premises worden beheerd door Configuration Manager.  
   
-### <a name="to-create-a-windows-phone-configuration-item"></a>Pour créer un élément de configuration Windows Phone  
+### <a name="to-create-a-windows-phone-configuration-item"></a>Een Windows Phone-configuratie-item maken  
   
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et conformité**.  
+1.  Klik in de Configuration Manager-console op **activa en naleving**.  
   
-2.  Dans l'espace de travail **Biens et conformité** , développez **Paramètres de compatibilité**, puis cliquez sur **Éléments de configuration**.  
+2.  Vouw in de werkruimte **Activa en naleving** het gedeelte **Instellingen voor naleving**uit en klik vervolgens op **Configuratie-items**.  
   
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un élément de configuration**.  
+3.  Klik op het tabblad **Start** in de groep **Maken** op **Configuratie-item maken**.  
   
-4.  Dans la page **Général** page de l’ **Assistant Création d’élément de configuration**, spécifiez un nom et une éventuelle description pour l’élément de configuration.  
+4.  Geef op de pagina **Algemeen** van de wizard **Configuratie-item maken**een naam en een optionele beschrijving voor het configuratie-item op.  
   
-5.  Sous **Spécifier le type d’élément de configuration que vous voulez créer**, sélectionnez **Windows Phone**.  
+5.  Onder **Geef het type configuratie-item dat u wilt maken**, selecteer **Windows Phone**.  
   
-6.  Cliquez sur **Catégories** si vous créez et attribuez des catégories pour faciliter la recherche et le filtrage des éléments de configuration dans la console Configuration Manager.  
+6.  Klik op **categorieën** als u categorieën maakt en toewijst om te zoeken en filteren van configuratie-items in de Configuration Manager-console.  
   
-7.  Dans la page **Plateformes prises en charge** de l’Assistant, sélectionnez les plateformes Windows Phone spécifiques chargées d’évaluer l’élément de configuration.  
+7.  Op de **ondersteunde Platforms** pagina van de wizard de specifieke Windows Phone-platforms selecteren die het configuratie-item evalueren.  
   
-8.  Dans la page **Paramètres de périphérique** de l’Assistant, sélectionnez le groupe de paramètres à configurer. Consultez [Informations de référence sur les paramètres d’élément de configuration Windows Phone](#BKMK_Setref) dans cette rubrique pour plus d’informations, puis cliquez sur **Suivant**.  
-  
-    > [!TIP]  
-    >  Si le paramètre souhaité n’est pas répertorié, cochez la case **Configurer d’autres paramètres qui ne se trouvent pas dans les groupes de paramètres par défaut**.  
-  
-9. Dans chaque page de paramètres, configurez les paramètres dont vous avez besoin et indiquez si vous voulez les corriger quand ils ne sont pas conformes sur des périphériques (quand cela est pris en charge).  
-  
-10. Pour chaque groupe de paramètres, vous pouvez également configurer la gravité signalée quand un élément de configuration n’est pas conforme :  
-  
-    -   **Aucun** : les appareils qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec pour les rapports Configuration Manager.  
-  
-    -   **Informations** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations** pour les rapports Configuration Manager.  
-  
-    -   **Avertissement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement** pour les rapports Configuration Manager.  
-  
-    -   **Critique** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.  
-  
-    -   **Critique avec événement** : les appareils qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est également enregistré comme événement Windows dans le journal des événements des applications.  
-  
-11. Dans la page **Condition d’application de la plateforme** de l’Assistant, passez en revue tous les paramètres qui ne sont pas compatibles avec les plateformes prises en charge que vous avez sélectionnées précédemment. Vous pouvez revenir sur ces paramètres et les supprimer, ou vous pouvez continuer.  
+8.  Op de pagina **Apparaatinstellingen** van de wizard selecteert u de instellingengroep die u wilt configureren. Zie [Naslaginformatie voor configuratie-iteminstellingen voor Windows Phone](#BKMK_Setref) in dit onderwerp voor details en klik vervolgens op **Volgende**.  
   
     > [!TIP]  
-    >  La conformité des paramètres non pris en charge n’est pas évaluée.  
+    >  Als de gewenste instelling niet wordt weergegeven, schakelt u het selectievakje **Extra instellingen configureren die niet zijn opgenomen in de standaardinstellingsgroepen**in.  
   
-12. Effectuez toutes les étapes de l'Assistant.  
+9. Op elke instellingenpagina configureert u de instellingen die u nodig hebt en geeft u aan of u deze wilt corrigeren wanneer ze niet compliant zijn op apparaten (wanneer dit wordt ondersteund).  
   
- Vous pouvez afficher le nouvel élément de configuration dans le nœud **Éléments de configuration** de l’espace de travail **Ressources et conformité** .  
+10. U kunt voor elke instellingengroep ook de ernst configureren die wordt gerapporteerd als wordt geconstateerd dat een configuratie-item niet compliant is:  
   
-##  <a name="windows-phone-configuration-item-settings-reference"></a>Informations de référence sur les paramètres d’élément de configuration Windows Phone  
+    -   **Geen** -apparaten die niet voldoen aan deze compliantieregel niet rapporteren ernst voor Configuration Manager-rapporten.  
   
-### <a name="password"></a>Mot de passe  
- Ces paramètres s’appliquent à la fois à Windows Phone 8 et Windows Phone 8.1.  
+    -   **Informatie** -apparaten die niet voldoen aan deze compliantieregel fouternst van **informatie** voor Configuration Manager-rapporten.  
   
-|Paramètre|Détails|  
+    -   **Waarschuwing** -apparaten die niet voldoen aan deze compliantieregel fouternst van **waarschuwing** voor Configuration Manager-rapporten.  
+  
+    -   **Kritieke** -apparaten die niet voldoen aan deze compliantieregel fouternst van **kritieke** voor Configuration Manager-rapporten.  
+  
+    -   **Kritiek met gebeurtenis** -apparaten die niet voldoen aan deze compliantieregel fouternst van **kritieke** voor Configuration Manager-rapporten. Dit ernstniveau wordt ook vastgelegd als een Windows-gebeurtenis in het logboek voor toepassingsgebeurtenissen.  
+  
+11. Op de pagina **Platformtoepasbaarheid** van de wizard controleert u alle instellingen die niet compatibel zijn met de ondersteunde platforms die u eerder hebt geselecteerd. U kunt teruggaan en deze instellingen verwijderen of u kunt doorgaan.  
+  
+    > [!TIP]  
+    >  Niet-ondersteunde instellingen worden niet beoordeeld op compliantie.  
+  
+12. Voltooi de wizard.  
+  
+ U kunt het nieuwe configuratie-item weergeven in het knooppunt **Configuratie-items** van de werkruimte **Activa en naleving** .  
+  
+##  <a name="windows-phone-configuration-item-settings-reference"></a>Naslaginformatie voor configuratie-iteminstellingen voor Windows Phone  
+  
+### <a name="password"></a>Wachtwoord  
+ Deze instellingen gelden voor zowel Windows Phone 8 en Windows Phone 8.1.  
+  
+|Instelling|Details|  
 |-------------|-------------|  
-|**Exiger des paramètres de mot de passe sur les appareils**|Exigez un mot de passe sur les appareils pris en charge.|  
-|**Longueur minimale du mot de passe (caractères)**|Longueur minimale du mot de passe.|  
-|**Expiration du mot de passe en jours**|Nombre de jours avant qu'un mot de passe ne doive être modifié.|  
-|**Nombre de mots de passe mémorisés**|Empêche la réutilisation des mots de passe déjà utilisés.|  
-|**Nombre d'échecs de tentative de connexion avant que l'appareil soit réinitialisé**|Réinitialise l'appareil si le nombre d'échecs de tentative de est atteint.|  
-|**Complexité du mot de passe**|Choisissez si vous pouvez spécifier un code confidentiel tel que « 1234 » ou si vous devez fournir un mot de passe fort.|  
-|**Envoyer le code PIN de récupération du mot de passe au serveur Exchange Server**||  
+|**Wachtwoordinstellingen vereisen op mobiele apparaten**|Hiermee vereist u een wachtwoord op ondersteunde apparaten.|  
+|**Minimale wachtwoordlengte (tekens)**|De minimale lengte van het wachtwoord.|  
+|**Wachtwoordverlooptijd in dagen**|Het aantal dagen waarna een wachtwoord moet worden gewijzigd.|  
+|**Aantal onthouden wachtwoorden**|Voorkomt dat eerder gebruikte wachtwoorden opnieuw worden gebruikt.|  
+|**Aantal mislukte aanmeldingspogingen voordat het apparaat wordt gewist**|Wist de gegevens op het apparaat als dit aantal aanmeldingspogingen mislukt.|  
+|**Wachtwoordcomplexiteit**|Hiermee kunt u opgeven of u een pincode, zoals '1234', wilt gebruiken of dat er een sterk wachtwoord moet worden opgegeven.|  
+|**Pincode voor wachtwoordherstel verzenden naar Exchange Server**||  
   
-### <a name="device"></a>Appareil  
+### <a name="device"></a>Apparaat  
   
-|Paramètre|Détails|  
+|Instelling|Details|  
 |-------------|-------------|  
-|**Capture d'écran**|Autorisez l’utilisateur à prendre une capture d’écran de l’affichage de l’appareil.<br /><br /> (Windows Phone 8.1 uniquement)|  
-|**Envoi des données de diagnostic**|Autorisez l'envoi des journaux d'application.|  
-|**Géolocalisation**|Autorisez l'appareil à utiliser les informations des services d'emplacement.<br /><br /> (Windows Phone 8.1 uniquement)|  
-|**Copier et coller**|Utilisez le copier-coller pour transférer des données entre les applications.<br /><br /> (Windows Phone 8.1 uniquement)|  
-|**BlueTooth**|Autorisez l’utilisation de la fonctionnalité Bluetooth de l’appareil.|  
+|**Schermopname**|De gebruiker te maken van een Beeldschermopname voor het apparaat toestaan.<br /><br /> (Alleen Windows Phone 8.1)|  
+|**Verzending van diagnostische gegevens**|Staat het verzenden van app- logboekbestanden toe.|  
+|**Geolocatie**|Staat toe dat het apparaat gegevens van locatieservices gebruikt.<br /><br /> (Alleen Windows Phone 8.1)|  
+|**Kopiëren en plakken**|Kopiëren en plakken gebruiken om gegevens te verplaatsen tussen apps.<br /><br /> (Alleen Windows Phone 8.1)|  
+|**Bluetooth**|Staat het gebruik van de Bluetooth-mogelijkheden van het apparaat toe.|  
   
-### <a name="email-management"></a>Gestion de la messagerie  
- Ces paramètres s’appliquent à la fois à Windows Phone 8 et Windows Phone 8.1.  
+### <a name="email-management"></a>E-mailbeheer  
+ Deze instellingen gelden voor zowel Windows Phone 8 en Windows Phone 8.1.  
   
-|Paramètre|Détails|  
+|Instelling|Details|  
 |-------------|-------------|  
-|**Messagerie POP et IMAP**|Autorise la connexion à des comptes de messagerie qui utilisent les normes POP et IMAP.|  
-|**Durée de conservation maximum des courriers électroniques**|Durée de conservation des courriers électroniques avant qu'ils ne soient supprimés du serveur.|  
-|**Formats de message autorisés**|Spécifiez si les courriers électroniques des utilisateurs peuvent être au format HTML ou au format texte brut uniquement.|  
-|**Taille maximale des messages en texte brut (téléchargés automatiquement)**|Contrôle la taille maximale des courriers électroniques en texte brut lorsqu'ils sont automatiquement téléchargés.|  
-|**Taille maximale des messages HTML (téléchargés automatiquement)**|Contrôle la taille maximale des courriers électroniques HTML lorsqu'ils sont automatiquement téléchargés.|  
-|**Taille maximum d'une pièce jointe (téléchargée automatiquement)**|Configure la taille maximale des courriers électroniques qui seront téléchargés automatiquement.|  
-|**Synchronisation du calendrier**||  
-|**Compte de messagerie personnalisé**|Autorisez l'utilisation d'un compte non Microsoft sur l'appareil.|  
-|**Rendre le compte Microsoft facultatif dans l'application Windows Mail**|Ne pas demander l’utilisation d’un compte Microsoft pour la connexion à Windows Mail.|  
+|**POP- en IMAP-e-mail**|Staat verbinding met e-mailaccounts die gebruikmaken van de POP- en IMAP-standaarden toe.|  
+|**Maximumtijd voor bewaren van e-mail**|De periode dat e-mail wordt bewaard voordat deze van de server wordt verwijderd.|  
+|**Toegestane berichtindelingen**|U kunt opgeven of de e-mails van de gebruiker de HTML-indeling kunnen hebben of dat die alleen uit tekst zonder opmaak mogen bestaan.|  
+|**Maximale grootte voor e-mail in tekst zonder opmaak (automatisch gedownload)**|Hiermee regelt u de maximale grootte voor e-mail in tekst zonder opmaak wanneer deze automatisch wordt gedownload.|  
+|**Maximumgrootte voor HTML-e-mail (automatisch gedownload)**|Hiermee regelt u de maximale grootte voor e-mail in HTML-indeling wanneer deze automatisch wordt gedownload.|  
+|**Maximale grootte van bijlage (automatisch gedownload)**|Hiermee regelt u de maximale grootte voor e-mail wanneer deze automatisch wordt gedownload.|  
+|**Agendasynchronisatie**||  
+|**Aangepast e-mailaccount**|Staat het gebruik van een niet-Microsoft-account op het apparaat toe.|  
+|**Het Microsoft-account optioneel maken in de Windows Mail-app**|Gebruik van een Microsoft-account voor aanmelding bij Windows Mail hebben geen nodig.|  
   
-### <a name="store"></a>Magasin  
- Ces paramètres s’appliquent aux appareils Windows Phone 8.1 uniquement.  
+### <a name="store"></a>Opslaan  
+ Deze instellingen gelden voor alleen Windows Phone 8.1-apparaten.  
   
-|Paramètre|Détails|  
+|Instelling|Details|  
 |-------------|-------------|  
-|**Boutique d'applications**|Permet d'accéder à l'App Store sur l'appareil.|  
+|**App Store**|Staat toegang tot de App Store op het apparaat toe.|  
   
-### <a name="browser"></a>Navigateur  
- Ces paramètres s’appliquent à la fois à Windows Phone 8 et Windows Phone 8.1.  
+### <a name="browser"></a>Browser  
+ Deze instellingen gelden voor zowel Windows Phone 8 en Windows Phone 8.1.  
   
-|Paramètre|Détails|  
+|Instelling|Details|  
 |-------------|-------------|  
-|**Autoriser le navigateur web**|Activez ou désactivez le navigateur Internet par défaut.|  
-|**Remplissage automatique**|L'utilisateur peut modifier les paramètres de saisie semi-automatique dans le navigateur.|  
-|**Active scripting**|Le navigateur peut exécuter des scripts, tels que les scripts ActiveX.|  
-|**Plug-ins**|L'utilisateur peut ajouter des plug-ins à Internet Explorer.|  
-|**Bloqueur de fenêtres publicitaires**|Active ou désactive le bloqueur de fenêtres publicitaires du navigateur.|  
-|**Avertissement de fraude**|Activez ou désactivez les avertissements des sites Web frauduleux potentiels.|  
+|**Webbrowser toestaan**|In- of uitschakelen van de standaard webbrowser.|  
+|**Automatisch doorvoeren**|Gebruiker kan de instellingen voor automatisch aanvullen in de browser wijzigen.|  
+|**Active Scripting**|Browser kan scripts, zoals Active X-scripts, uitvoeren.|  
+|**Invoegtoepassingen**|Gebruiker kan invoegtoepassingen toevoegen aan Internet Explorer.|  
+|**Pop-upblokkering**|Hiermee schakelt u de pop-upblokkering voor browsers in of uit.|  
+|**Fraudewaarschuwing**|Hiermee schakelt u de waarschuwingen voor mogelijke frauduleuze websites in of uit.|  
   
 ### <a name="internet-explorer"></a>Internet Explorer  
- Ces paramètres s’appliquent à la fois à Windows Phone 8 et Windows Phone 8.1.  
+ Deze instellingen gelden voor zowel Windows Phone 8 en Windows Phone 8.1.  
   
-|Paramètre|Détails|  
+|Instelling|Details|  
 |-------------|-------------|  
-|**Toujours envoyer un en-tête Aucun tracking**|Empêche que les informations d'exploration ne soient envoyées à des sites tiers.|  
-|**Zone de sécurité intranet**||  
-|**Niveau de sécurité de la zone Internet**|Configurez le niveau de sécurité pour la zone Internet.|  
-|**Niveau de sécurité de la zone intranet**|Configurez le niveau de sécurité pour la zone intranet.|  
-|**Niveau de sécurité de la zone Sites de confiance**|Configurez le niveau de sécurité pour la zone Sites de confiance.|  
-|**Niveau de sécurité de la zone des sites sensibles**|Configurez le niveau de sécurité pour la zone des sites sensibles.|  
-|**Espaces de noms pour la zone intranet**||  
-|**Accéder à un site intranet pour une entrée à mot unique**|Active ou désactive le paramètre qui permet à Internet Explorer d'accéder automatiquement à un site Intranet si un nom de site valide est entré sans être précédé de HTTP :|  
-|**Option de menu du mode entreprise**|Autorisez les utilisateurs à activer et désactiver le mode Entreprise à partir du menu **Outils** d’Internet Explorer.|  
-|**Emplacement du rapport de journalisation (URL)**|Spécifiez une URL où les sites web visités sont enregistrés quand le Mode entreprise est actif.|  
-|**Emplacement de la liste des sites en Mode entreprise (URL)**|Spécifiez l'emplacement de la liste des sites web qui utilisent le Mode entreprise quand il est actif.|  
+|**Altijd Niet Volgen-header verzenden**|Hiermee voorkomt u dat browsergegevens naar sites van derden worden verzonden.|  
+|**Beveiligingszone intranet**||  
+|**Beveiligingsniveau voor internetzone**|Hiermee stelt u het beveiligingsniveau voor de internetzone in.|  
+|**Beveiligingsniveau voor intranetzone**|Hiermee stelt u het beveiligingsniveau voor de intranetzone in.|  
+|**Beveiligingsniveau voor zone met vertrouwde sites**|Hiermee stelt u het beveiligingsniveau in voor de zone voor vertrouwde sites.|  
+|**Beveiligingsniveau voor zone Websites met beperkte toegang**|Hiermee stelt u het beveiligingsniveau in voor de zone voor websites met beperkte toegang.|  
+|**Naamruimten voor de intranetzone**||  
+|**Naar een intranetsite gaan voor invoer van één woord**|Hiermee schakelt u de instelling in of uit waarmee Internet Explorer wordt toegestaan om automatisch naar een intranetsite te gaan als een geldige sitenaam wordt opgegeven zonder het voorgaande 'HTTP:'|  
+|**Menuoptie Bedrijfsmodus**|Gebruikers toestaan om Bedrijfsmodus te activeren en deactiveren vanuit het menu **Extra** in Internet Explorer.|  
+|**Locatie van registratierapport (URL)**|U kunt een URL opgeven waar bezochte websites worden geregistreerd als Bedrijfsmodus actief is.|  
+|**Locatie van de lijst met websites van Bedrijfsmodus (URL)**|U kunt de locatie van de lijst met websites opgeven die door Bedrijfsmodus wordt gebruikt als het actief is.|  
   
 ### <a name="cloud"></a>Cloud  
   
-|Paramètre|Détails|  
+|Instelling|Details|  
 |-------------|-------------|  
-|**Synchronisation des paramètres**|Permet la synchronisation des paramètres entre les appareils.|  
-|**Synchronisation des informations d'identification**|Permet la synchronisation des informations d'identification entre les appareils.|  
-|**Compte Microsoft**|Autorisez l'utilisation d'un compte Microsoft sur l'appareil.<br /><br /> (Windows Phone 8.1 uniquement)|  
-|**Synchronisation des paramètres via des connexions limitées**|Autorisez la synchronisation des paramètres quand la connexion Internet est mesurée.|  
+|**Synchronisatie van instellingen**|De synchronisatie van instellingen tussen apparaten toestaan.|  
+|**Synchronisatie van referenties**|De synchronisatie van referenties tussen apparaten toestaan.|  
+|**Microsoft-account**|Het gebruik van een Microsoft-account op het apparaat toestaan.<br /><br /> (Alleen Windows Phone 8.1)|  
+|**Synchronisatie van instellingen via verbindingen met een datalimiet**|Toestaan dat instellingen worden gesynchroniseerd wanneer er voor de internetverbinding een datalimiet geldt.|  
   
-### <a name="security"></a>Sécurité  
+### <a name="security"></a>Beveiliging  
   
-|Paramètre|Détails|  
+|Instelling|Details|  
 |-------------|-------------|  
-|**Installation du fichier non signé**|Autorise le chargement des fichiers non signés.|  
-|**Applications non signées**|Autorise le chargement des applications non signées.|  
-|**Messagerie SMS et MMS**|Autorisez les messages SMS et MMS à partir de l'appareil.|  
-|**Stockage amovible**|Autorisez l'utilisation du stockage amovible, comme une carte SD sur l'appareil.|  
-|**Appareil photo**|Autorisez l'utilisation de l'appareil photo.|  
-|**Communication en champ proche (NFC)**|Autorisez la communication à l'aide de NFC sur l'appareil.<br /><br /> (Windows Phone 8.1 uniquement)|  
-|**Autoriser la connexion USB**|Autorisez les périphériques à se connecter à cet appareil via USB.|
+|**Installatie van niet-ondertekend bestand**|Staat het laden van niet-ondertekende bestanden toe.|  
+|**Niet-ondertekende toepassingen**|Staat het laden van niet-ondertekende apps toe.|  
+|**SMS- en MMS-berichten**|Toestaan dat met het apparaat SMS- en MMS-berichten worden verzonden.|  
+|**Verwisselbare opslag**|Het gebruik van verwisselbare opslag, zoals een SD-kaart, op het apparaat toestaan.|  
+|**Camera**|Gebruik van de camera op het apparaat toestaan.|  
+|**Near Field Communication (NFC)**|Communicatie via NFC op het apparaat toestaan.<br /><br /> (Alleen Windows Phone 8.1)|  
+|**USB-verbinding toestaan**|Toestaan dat randapparatuur verbinding maken met dit apparaat via USB.|
   
-### <a name="peak-synchronization"></a>Synchronisation de pointe  
- Ces paramètres s’appliquent à la fois à Windows Phone 8 et Windows Phone 8.1.  
+### <a name="peak-synchronization"></a>Pieksynchronisatie  
+ Deze instellingen gelden voor zowel Windows Phone 8 en Windows Phone 8.1.  
   
-|Paramètre|Détails|  
+|Instelling|Details|  
 |-------------|-------------|  
-|**Spécifier les heures de pointe**|Spécifiez une fenêtre de temps qui sera utilisé par les deux paramètres suivants.|  
-|**Fréquence de synchronisation pendant les heures de pointe**|Choisissez la fréquence de synchronisation de l’appareil pendant la période de pointe spécifiée.|  
-|**Fréquence de synchronisation pendant les heures creuses**|Choisissez la fréquence de synchronisation de l’appareil en dehors de la période de pointe spécifiée.|  
+|**Piektijd opgeven**|Geef een venster van de tijd die wordt gebruikt door de volgende twee instellingen.|  
+|**Synchronisatiefrequentie in piektijden**|Kies hoe vaak het apparaat wordt gesynchroniseerd tijdens de piektijden die u hebt opgegeven.|  
+|**Synchronisatiefrequentie buiten piektijden**|Kies hoe vaak het apparaat wordt gesynchroniseerd buiten de piektijden die u hebt opgegeven.|  
   
-### <a name="roaming"></a>Itinérant  
- Ces paramètres s’appliquent à la fois à Windows Phone 8 et Windows Phone 8.1.  
+### <a name="roaming"></a>Roaming  
+ Deze instellingen gelden voor zowel Windows Phone 8 en Windows Phone 8.1.  
   
-|Paramètre|Détails|  
+|Instelling|Details|  
 |-------------|-------------|  
-|**Gestion des appareils en itinérance**|Permet à l’appareil d’être géré par Configuration Manager en phase d’itinérance.|  
-|**Téléchargement de logiciel en itinérance**|Permet de télécharger des applications et des logiciels lors de l'itinérance.|  
-|**Téléchargement d'e-mails en itinérance**|Autorise les téléchargements de courrier électronique lors de l'itinérance.|  
-|**Itinérance des données**|Autorisez l'itinérance entre réseaux lors de l'accès aux données.|  
+|**Beheer van apparaten tijdens roaming**|Staat toe dat het apparaat worden beheerd door Configuration Manager bij roaming.|  
+|**Software downloaden tijdens roaming**|Staat toe dat apps en software tijdens het roamen worden gedownload.|  
+|**E-mail downloaden tijdens roaming**|Staat toe dat e-mail tijdens het roamen wordt gedownload.|  
+|**Gegevensroaming**|Roaming tussen netwerken toestaan tijdens het ophalen van gegevens.|  
   
-### <a name="encryption"></a>Chiffrement  
- Ces paramètres s’appliquent à la fois à Windows Phone 8 et Windows Phone 8.1.  
+### <a name="encryption"></a>Versleuteling  
+ Deze instellingen gelden voor zowel Windows Phone 8 en Windows Phone 8.1.  
   
-|Paramètre|Détails|  
+|Instelling|Details|  
 |-------------|-------------|  
-|**Chiffrement de la carte de stockage**|Exigez le chiffrement des cartes de stockage utilisées avec l'appareil.|  
-|**Chiffrement des fichiers sur l’appareil**|Requiert que les fichiers de l'appareil mobile soient chiffrés.|  
-|**Demander la signature des courriers électroniques**|Requiert la signature des messages électroniques avant leur envoi.|  
-|**Algorithme de signature**|Sélectionnez l’algorithme à utiliser pour signer les messages électroniques.|  
-|**Demander le chiffrement des courriers électroniques**|Exigez le chiffrement des messages électroniques avant leur envoi.|  
-|**Algorithme de chiffrement**|Sélectionnez l’algorithme à utiliser pour chiffrer les messages électroniques.|  
+|**Versleuteling opslagkaart**|Vereist dat opslagkaarten die worden gebruikt met het apparaat zijn versleuteld.|  
+|**Bestandsversleuteling op apparaat**|Vereist dat bestanden op het mobiele apparaat zijn versleuteld.|  
+|**Ondertekening van e-mail vereisen**|Vereis dat e-mailberichten worden ondertekend voordat ze worden verzonden.|  
+|**Handtekeningalgoritme**|Selecteer het algoritme voor het ondertekenen van e-mailberichten.|  
+|**E-mailversleuteling vereisen**|Vereis dat e-mailberichten worden versleuteld voordat ze worden verzonden.|  
+|**Versleutelingsalgoritme**|Selecteer het algoritme voor het versleutelen van e-mailberichten.|  
   
-###  <a name="wireless-communications"></a>Communications sans fil  
- Ces paramètres s’appliquent à la fois à Windows Phone 8 et Windows Phone 8.1.  
+###  <a name="wireless-communications"></a>Draadloze communicatie  
+ Deze instellingen gelden voor zowel Windows Phone 8 en Windows Phone 8.1.  
   
-|Nom du paramètre|Détails|  
+|Naam van de instelling|Details|  
 |------------------|-------------|  
-|**Connexion réseau sans fil**|Activez ou désactivez la fonctionnalité Wi-Fi des appareils.|  
-|**Connexion Wi-Fi**|Les utilisateurs peuvent utiliser leur appareil en tant que point d'accès sans fil mobile.|  
-|**Décharger les données en Wi-Fi si possible**||  
-|**Rapports de point d'accès Wi-Fi**||  
+|**Draadloze netwerkverbinding**|Wi-Fi-mogelijkheden van het apparaat in- of uitschakelen.|  
+|**Wi-Fi-tethering**|Biedt gebruikers de mogelijkheid om hun apparaat te gebruiken als een mobiele hotspot.|  
+|**Gegevens overdragen via Wi-Fi indien mogelijk**||  
+|**Wi-Fi-hotspots melden**||  
   
-##### <a name="to-configure-a-wireless-network-connection"></a>Pour configurer une connexion réseau sans fil  
+##### <a name="to-configure-a-wireless-network-connection"></a>U kunt als volgt een draadloze netwerkverbinding configureren:  
   
-1.  Dans la page **Configurer les paramètres de communication sans fil de l'appareil mobile** , cliquez sur **Ajouter**.  
+1.  Klik op de pagina **Instellingen voor draadloze communicatie voor mobiele apparaten configureren** op **Toevoegen**.  
   
-2.  Dans la boîte de dialogue **Connexion réseau sans fil** , spécifiez les informations suivantes sur la connexion sans fil qui sera configurée sur les appareils mobiles :  
+2.  Geef in het dialoogvenster **Draadloze netwerkverbinding** de volgende informatie op over de draadloze verbinding die wordt ingericht op mobiele apparaten:  
   
-|Paramètre|Plus d'informations|  
+|Instelling|Meer informatie|  
 |-------------|----------------------|  
-|**Nom réseau (SSID)**||  
-|**Connexion réseau**|Choisissez entre **Internet** et **Travail**.|  
-|**Authentification**|Sélectionnez la méthode d'authentification de la connexion sans fil :<br><br> - **Ouvrir**<br> - **Partagé**<br> - **WPA**<br> - **WPA-PSK**<br> - **WPA2**<br> - **WPA2-PSK**|  
-|**Chiffrement des données**|Choisissez la méthode de chiffrement utilisée par cette connexion. Les valeurs possibles varient en fonction de la méthode d' **Authentification** sélectionnée :<br><br> - **Désactivé**<br> - **WEP**<br> - **TKIP**<br> - **AES**|  
-|**Index de clé**|Sélectionnez un index de clé entre **1** et **4** , qui sera utilisé avec un paramètre **Chiffrement des données** de **WEP**.|  
-|**Ce réseau se connecte à Internet**|Sélectionnez cette option si vous souhaitez fournir des paramètres de proxy qui permettent aux appareils mobiles d'établir une connexion sans fil à Internet.|  
-|**Paramètres du serveur proxy**|Spécifiez si nécessaire les paramètres **Serveur** et **Port** pour **HTTP**, **WAP** et **Sockets**.|  
-|**Activer l'accès réseau 802.1X**|Sélectionnez cette option si vous souhaitez sécuriser la connexion en spécifiant un type EAP.|  
-|**Type EAP**|Choisissez le type EAP à utiliser :<br><br> - **PEAP**<br> - **Carte à puce ou certificat**|  
+|**Netwerknaam (SSID)**||  
+|**Netwerkverbinding**|Kies uit **Internet** of **Werk**.|  
+|**Verificatie**|Selecteer de verificatiemethode voor de draadloze verbinding:<br><br> - **Open**<br> - **Gedeeld**<br> - **WPA**<br> - **WPA-PSK**<br> - **WPA2**<br> - **WPA2-PSK**|  
+|**Gegevensversleuteling**|Kies de versleutelingsmethode die wordt gebruikt voor deze verbinding. De waarden die u selecteert, kunnen verschillen naargelang de **Verificatie**methode die u hebt geselecteerd:<br><br> - **Uitgeschakeld**<br> - **WEP**<br> - **TKIP**<br> - **AES**|  
+|**Sleutelindex**|Selecteer een sleutelindex van **1** tot **4** die wordt gebruikt met een instelling voor **Gegevensversleuteling** van **WEP**.|  
+|**Dit netwerk maakt verbinding met internet**|Selecteer deze optie als u proxyinstellingen wilt gebruiken zodat mobiele apparaten met een draadloze verbinding in staat worden gesteld om verbinding te maken met internet.|  
+|**Proxyserverinstellingen**|Geef waar nodig de waarde voor **Server** - en **Poort** -instellingen voor **HTTP**, **WAP** en **Sockets**op.|  
+|**802. 1 X-netwerktoegang inschakelen**|Selecteer deze optie als u de verbinding wilt beveiligen door een EAP-type op te geven.|  
+|**EAP-type:**|Kies het EAP-type dat u wilt gebruiken:<br><br> - **PEAP**<br> - **Smartcard of certificaat**|  
     
   
-###  <a name="certificates"></a>Certificats  
- Importez les certificats à installer sur les appareils mobiles.  
+###  <a name="certificates"></a>Certificaten  
+ Hiermee kunt u certificaten importeren die op mobiele apparaten worden geïnstalleerd.  
   
- Cliquez sur **Importer**, puis spécifiez les valeurs suivantes :  
+ Klik op **Importeren** en geef vervolgens de volgende waarden op:  
   
--   **Fichier de certificat** : cliquez sur **Parcourir** , puis sélectionnez le fichier de certificat avec l'extension **.cer** que vous souhaitez importer.  
+-   **Certificaatbestand** : klik op **Bladeren** en selecteer vervolgens het certificaatbestand met de extensie **.cer** die u wilt importeren.  
   
--   **Banque d'informations de destination** : choisissez une ou plusieurs banques de destination où le certificat importé sera ajouté sur l'appareil mobile :  
+-   **Doelarchief**: kies uit de volgende opties een of meer doelarchieven waaraan het geïmporteerde certificaat wordt toegevoegd op het mobiele apparaat:  
   
-    -   **Racine**  
+    -   **Hoofdmap**  
   
-    -   **Autorité de certification**  
+    -   **CA**  
   
-    -   **Normal**  
+    -   **Normaal**  
   
-    -   **Privilégié**  
+    -   **Bevoegdheden**  
   
     -   **SPC**  
   
-    -   **Homologue**  
+    -   **Peer**  
   
--   **Rôle** : si **SPC** (Software Publisher Certificate) est sélectionné en tant que banque de destination, choisissez le rôle qui sera associé au certificat :  
+-   **Rol**: als **SPC** (Software Publisher Certificate) is geselecteerd als het doelarchief, kies dan uit de volgende opties de rol die aan het certificaat wordt gekoppeld:  
   
-    -   **Opérateur mobile**  
+    -   **Mobiele Operator**  
   
-    -   **Gestionnaire**  
+    -   **Manager**  
   
-    -   **Utilisateur authentifié**  
+    -   **Door gebruiker geverifieerd**  
   
-    -   **Administrateur informatique**  
+    -   **IT-beheerder**  
   
-    -   **Utilisateur non authentifié**  
+    -   **Niet-geverifieerde gebruiker**  
   
-    -   **Serveur d’approvisionnement approuvé**  
+    -   **Vertrouwde inrichtingsserver**  
   
-### <a name="system-security"></a>Sécurité système  
- Ces paramètres s’appliquent à la fois à Windows Phone 8 et Windows Phone 8.1.  
+### <a name="system-security"></a>Systeembeveiliging  
+ Deze instellingen gelden voor zowel Windows Phone 8 en Windows Phone 8.1.  
   
-|Paramètre|Détails|  
+|Instelling|Details|  
 |-------------|-------------|  
-|**Contrôle de compte d'utilisateur**|Active ou désactive le contrôle de compte d'utilisateur Windows sur l'appareil.|  
-|**Pare-feu réseau**|Active ou désactive le pare-feu Windows.|  
-|**Mises à jour**|Choisissez le mode de téléchargement des mises à jour logicielles Windows sur les ordinateurs. Par exemple, vous pouvez télécharger automatiquement les mises à jour, mais permettre à l'utilisateur de choisir à quel moment les installer.|  
-|**Classification minimale des mises à jour**|Choisissez la classification minimale des mises à jour téléchargées sur les ordinateurs Windows : **Aucune**, **Importante**ou **Recommandée**.|  
-|**SmartScreen**|Activez ou désactivez Windows SmartScreen.|  
-|**Protection antivirus**|Assurez-vous que l’appareil est protégé par un logiciel antivirus.|  
-|**Les signatures de la protection antivirus sont à jour**|Assurez-vous que les signatures antivirus sont à jour.|
-|**Autoriser la désinscription manuelle**|Autorisez l’utilisateur à supprimer son appareil de la Gestion des appareils mobiles.|  
+|**Gebruikersaccountbeheer**|Schakelt Windows Gebruikersaccountbeheer op het apparaat in of uit.|  
+|**Netwerkfirewall**|Schakelt de Windows-firewall in of uit.|  
+|**Updates**|U kunt kiezen hoe Windows-software-updates naar computers worden gedownload. U kunt bijvoorbeeld updates automatisch laten downloaden, maar aan de gebruiker de keuze laten wanneer deze worden geïnstalleerd.|  
+|**Minimale classificatie van updates**|U kunt de minimale classificatie selecteren van updates die naar Windows-computers worden gedownload. U kunt kiezen uit **Geen**, **Belangrijk**of **Aanbevolen**.|  
+|**SmartScreen**|Windows Smart Screen in- of uitschakelen.|  
+|**Virusbeveiliging**|Zorg ervoor dat het apparaat wordt beveiligd door antivirussoftware.|  
+|**Handtekeningen voor virusbeveiliging zijn bijgewerkt**|Selecteer deze optie om aan te geven dat de definities voor antivirussoftware zijn bijgewerkt.|
+|**Handmatige uitschrijving toestaan**|De gebruiker verwijderen we hun apparaat uit MDM.|  
   
-### <a name="windows-server-work-folders"></a>Dossiers de travail du serveur Windows  
- Ces paramètres s’appliquent à la fois à Windows Phone 8 et Windows Phone 8.1.  
+### <a name="windows-server-work-folders"></a>Windows Server-werkmappen  
+ Deze instellingen gelden voor zowel Windows Phone 8 en Windows Phone 8.1.  
   
-|Paramètre|Détails|  
+|Instelling|Details|  
 |-------------|-------------|  
-|**URL des dossiers de travail**|Configure l'emplacement d'un dossier de travail Windows Server auquel les utilisateurs peuvent se connecter à partir de leur appareil.|  
+|**URL voor werkmappen**|Hiermee configureert u de locatie van een Windows Server-werkmap waarmee gebruikers op hun apparaat verbinding kunnen maken.|  
   
-### <a name="allowed-and-blocked-apps-list-windows-phone-81-only"></a>Liste des applications autorisées et bloquées (Windows Phone 8.1 uniquement)  
- Elle vous permet de spécifier la liste des applications Windows Phone conformes ou non conformes dans votre entreprise. Les applications que vous spécifiez comme bloquées ne peuvent pas être installées par les utilisateurs. Si vous spécifiez une liste d'applications autorisées, les utilisateurs peuvent installer uniquement les applications de la liste.  
+### <a name="allowed-and-blocked-apps-list-windows-phone-81-only"></a>Lijst met toegestane en geblokkeerde apps (alleen Windows Phone 8.1)  
+ Hiermee kunt u een lijst opgeven met Windows Phone-apps in uw bedrijf die compatibel of niet compatibel zijn. Apps die u als geblokkeerd opgeeft, kunnen niet door gebruikers worden geïnstalleerd. Als u een lijst met toegestane apps opgeeft, kunnen gebruikers alleen apps uit die lijst installeren.  
   
- Vous ne pouvez pas spécifier à la fois des applications autorisées et bloquées dans le même élément de configuration.  
+ U opgeven niet zowel toegestane en geblokkeerde apps in hetzelfde configuratie-item.  
   
 > [!IMPORTANT]  
->  Si vous spécifiez une liste d’applications autorisées, vous devez vous assurer que l’application du portail d’entreprise et toutes les applications déployées sur les appareils Windows Phone 8.1 figurent dans la liste **Applications autorisées** .  
+>  Als u een lijst met toegestane apps opgeeft, moet u ervoor zorgen dat de bedrijfsportal-app en alle apps die u hebt geïmplementeerd op Windows Phone 8.1-apparaten voorkomen de **toegestane** lijst met apps.  
   
-##### <a name="to-specify-an-allowed-or-blocked-apps-list"></a>Pour spécifier une liste des applications autorisées ou bloquées  
+##### <a name="to-specify-an-allowed-or-blocked-apps-list"></a>Een lijst met toegestane of geblokkeerde apps opgeven  
   
-1.  Dans la page **Liste des applications autorisées et bloquées (Windows Phone 8.1)** spécifiez les informations suivantes :  
+1.  Op de **lijst met toegestane en geblokkeerde Apps (Windows Phone 8.1)** pagina, geeft u de volgende informatie:  
   
 |||  
 |-|-|  
-|Paramètre|Plus d'informations|  
-|**Liste des applications bloquées**|Sélectionnez cette option si vous souhaitez spécifier une liste d'applications que les utilisateurs sont autorisés à installer.|  
-|**Liste des applications autorisées**|Sélectionnez cette option si vous souhaitez spécifier une liste d'applications que les utilisateurs sont autorisés à installer.|  
-|**Ajouter**|Ajoute une application à la liste sélectionnée. Spécifiez le nom de votre choix, éventuellement l’éditeur de l’application, ainsi que l’URL de l’application dans la boutique d’applications.<br /><br /> Pour spécifier l’URL, dans la page Windows Phone Store, recherchez l’application que vous voulez utiliser.<br /><br /> **Exemple :** recherchez l’application **Skype** dans le Store. L’URL que vous utilisez sera http://www.windowsphone.com/en-us/store/app/skype/c3f8e570-68b3-4d6a-bdbb-c0a3f4360a51.<br /><br /> Pour l'application du portail d'entreprise, ou des applications métiers, il est inutile de spécifier une URL complète, le GUID de l'application suffit.|  
-|**Éditer**|Vous permet de modifier le nom, l'éditeur et l'URL de l'application sélectionnée.|  
-|**Supprimer**|Supprime l'application sélectionnée dans la liste.|  
-|**Importerer**|Importe une liste d'applications que vous avez spécifiée dans un fichier de valeurs séparées par des virgules. Utilisez le format Nom de l'application, Éditeur, URL de l'application dans le fichier.|  
+|Instelling|Meer informatie|  
+|**Lijst met geblokkeerde apps**|Selecteer deze optie als u een lijst wilt opgeven met apps die gebruikers niet mogen installeren.|  
+|**Lijst met toegestane apps**|Selecteer deze optie als u een lijst wilt opgeven met apps die gebruikers mogen installeren.|  
+|**Toevoegen**|Hiermee voegt u een app toe aan de geselecteerde lijst. Geef een naam van uw keuze op, eventueel de uitgever van de app, en de URL van de app in de App Store.<br /><br /> Zoek op de Windows Phone Store-pagina de app die u wilt gebruiken om de URL op te geven.<br /><br /> **Voorbeeld:** Zoek in de store naar de **Skype** app. De URL die u gebruikt, is http://www.windowsphone.com/en-us/store/app/skype/c3f8e570-68b3-4d6a-bdbb-c0a3f4360a51.<br /><br /> U hebt voor de bedrijfsportal-app of line-of-business-apps, niet een volledige URL, maar alleen de GUID van de app op te geven.|  
+|**Bewerken**|Hiermee kunt u de naam, de uitgever en de URL van de geselecteerde app bewerken.|  
+|**Verwijderen**|Hiermee verwijdert u de geselecteerde app uit de lijst.|  
+|**Importereneren**|Hiermee importeert u een lijst met apps die u hebt opgegeven in een bestand met door komma's gescheiden waarden. Gebruik de notatie, toepassingsnaam, uitgever en app-URL in het bestand.|  
   
-## <a name="see-also"></a>Voir aussi  
- [Éléments de configuration pour les appareils gérés sans le client System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)
+## <a name="see-also"></a>Zie ook  
+ [Configuratie-items voor apparaten die worden beheerd zonder de System Center Configuration Manager-client](../../compliance/deploy-use/configuration-items-for-devices-managed-without-the-client.md)

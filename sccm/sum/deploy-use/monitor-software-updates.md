@@ -1,6 +1,6 @@
 ---
-title: "Surveiller les mises à jour logicielles | Microsoft Docs"
-description: "La console System Center Configuration Manager fournit des alertes et des états pour surveiller les mises à jour et la compatibilité."
+title: Software-updates controleren | Microsoft Docs
+description: De System Center Configuration Manager-console biedt waarschuwingen en statussen voor het bewaken van updates en naleving.
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,87 +13,87 @@ ms.technology: configmgr-sum
 ms.assetid: 9afd7b0f-5c8e-48bc-9a65-1f7d74103688
 ms.openlocfilehash: 956ef263a1c178b5ab5926705859f4b2d0ae5bc7
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="monitor-software-updates-in-system-center-configuration-manager"></a>Surveiller les mises à jour logicielles dans System Center Configuration Manager
+# <a name="monitor-software-updates-in-system-center-configuration-manager"></a>Software-updates in System Center Configuration Manager controleren
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-System Center Configuration Manager fournit de nombreuses méthodes pour vous aider à surveiller les objets de mises à jour logicielles, les processus et les informations de conformité. Utilisez les sections suivantes pour surveiller les mises à jour logicielles.
+System Center Configuration Manager biedt tal van manieren om te controleren van objecten voor software-updates, processen en compatibiliteitsinformatie. Gebruik de volgende secties voor het bewaken van software-updates.
 
-## <a name="software-updates-dashboard"></a>Tableau de bord des mises à jour logicielles
-À partir de Configuration Manager version 1610, vous pouvez utiliser le tableau de bord des mises à jour logicielles pour afficher l’état de compatibilité actuel des appareils de votre organisation et analyser rapidement les données pour identifier les appareils qui sont exposés. Pour afficher le tableau de bord, accédez à **Surveillance** > **Vue d’ensemble** > **Sécurité** > **Software Updates Dashboard** (Tableau de bord des mises à jour logicielles).   
+## <a name="software-updates-dashboard"></a>Dashboard voor software-updates
+U start in Configuration Manager versie 1610, kunt u het Software-Updates-Dashboard weergeven van de huidige status van naleving van apparaten in uw organisatie en snel analyseren van de gegevens om te zien welke apparaten zijn kwetsbaar voor. Als u wilt weergeven in het dashboard, gaat u naar **bewaking** > **overzicht** > **beveiliging** > **Software-Updates Dashboard**.   
 
-##  <a name="BKMK_SUAlerts"></a> Alertes pour les mises à jour logicielles  
- Vous pouvez configurer des alertes pour les mises à jour logicielles afin d'avertir les utilisateurs administratifs lorsque les niveaux de conformité pour les déploiements de mises à jour logicielles sont inférieurs au pourcentage configuré. Vous pouvez configurer des alertes pour les déploiements de mises à jour logicielles aux emplacements suivants :  
+##  <a name="BKMK_SUAlerts"></a> Waarschuwingen voor software-updates  
+ U kunt waarschuwingen voor software-updates configureren om gebruikers met beheerdersrechten te waarschuwen wanneer compatibiliteitsniveaus voor implementaties van software-updates onder het geconfigureerde percentage uitkomen. U kunt op de volgende locaties waarschuwingen voor implementaties van software-updates configureren:  
 
--   Paramètre ADR : vous pouvez configurer les paramètres des alertes dans l’Assistant Règle de déploiement automatique et dans les propriétés de la règle de déploiement automatique.  
+-   ADR-instelling: U kunt de instellingen voor waarschuwingen configureren in de Wizard regel voor automatische implementatie en in de eigenschappen voor de ADR.  
 
--   Paramètre de déploiement : vous pouvez configurer les paramètres des alertes dans l’Assistant Déploiement des mises à jour logicielles et dans les propriétés de déploiement.  
+-   Implementatie-instelling: U kunt de instellingen voor waarschuwingen configureren in de Wizard Software-Updates implementeren en implementatie-eigenschappen.  
 
-Après avoir configuré les paramètres d’alerte, si les conditions spécifiées sont remplies, Configuration Manager génère une alerte. Vous pouvez consulter les alertes des mises à jour logicielles aux emplacements suivants :  
+Nadat u de instellingen voor waarschuwingen hebt geconfigureerd als de opgegeven voorwaarden wordt voldaan, wordt in Configuration Manager een waarschuwing genereert. U kunt de waarschuwingen voor software-updates op de volgende locaties weergeven:  
 
-1.  Consultez les alertes récentes dans le nœud **Mises à jour logicielles** dans l'espace de travail **Bibliothèque de logiciels** .  
+1.  U kunt recente waarschuwingen weergeven in het knooppunt **Software-updates** in de werkruimte **Softwarebibliotheek** .  
 
-2.  Gérez les alertes configurées dans le nœud **Alertes** dans l'espace de travail **Surveillance** .  
+2.  U kunt de geconfigureerde waarschuwingen beheren in het knooppunt **Waarschuwingen** in de werkruimte **Controle** .  
 
-##  <a name="BKMK_SUSyncStatus"></a> État de synchronisation des mises à jour logicielles  
- Après avoir lancé le processus de synchronisation, vous pouvez le surveiller à partir de la console Configuration Manager pour tous les points de mise à jour logicielle de votre hiérarchie. Pour surveiller le processus de synchronisation des mises à jour logicielles, procédez comme suit.  
+##  <a name="BKMK_SUSyncStatus"></a> Synchronisatiestatus van software-updates  
+ Nadat u het synchronisatieproces hebt gestart, kunt u het synchronisatieproces uit de Configuration Manager-console voor alle software-updatepunten in uw hiërarchie bewaken. Gebruik de volgende procedure om het synchronisatieproces voor software-updates te controleren.  
 
-#### <a name="to-monitor-the-software-updates-synchronization-process"></a>Pour surveiller le processus de synchronisation des mises à jour logicielles  
+#### <a name="to-monitor-the-software-updates-synchronization-process"></a>Het synchronisatieproces voor software-updates controleren  
 
-- Dans la console Configuration Manager, accédez à **Analyse** > **Vue d’ensemble** > **État de la synchronisation du point de mise à jour logicielle**.  
+- Navigeer in de Configuration Manager-console naar **bewaking** > **overzicht** > **synchronisatiestatus van Software-Update**.  
 
-    Les points de mise à jour logicielle de votre hiérarchie Configuration Manager sont affichés dans le volet des résultats. Dans cette vue, vous pouvez surveiller l'état de synchronisation pour tous les points de mise à jour logicielle. Pour plus d’informations sur le processus de synchronisation, vous pouvez consulter le fichier wsyncmgr.log qui se trouve dans <*chemin_installation_Configuration_Manager*>\Logs sur chaque serveur de site.  
+    De software-updatepunten in uw Configuration Manager-hiërarchie worden weergegeven in het deelvenster met resultaten. In deze weergave kunt u de synchronisatiestatus van alle software-updatepunten controleren. Als u wilt zien meer gedetailleerde informatie over het synchronisatieproces wenst, kunt u bekijken van het bestand wsyncmgr.log openen dat zich bevindt in <*ConfigMgrInstallationPath*> \Logs op elke siteserver.  
 
-##  <a name="BKMK_SUDeployStatus"></a> État de déploiement des mises à jour logicielles  
- Après avoir déployé les mises à jour logicielles dans un groupe de mises à jour logicielles ou déployé une mise à jour logicielle individuelle, vous pouvez surveiller l'état du déploiement. Pour surveiller l'état de déploiement d'un groupe de mises à jour logicielles ou d'une mise à jour logicielle, procédez comme suit.  
+##  <a name="BKMK_SUDeployStatus"></a> Implementatiestatus van software-updates  
+ Nadat u de software-updates in een software-updategroep hebt geïmplementeerd of nadat u een afzonderlijke software-updates hebt geïmplementeerd, kunt u de implementatiestatus controleren. Gebruik de volgende procedure om de implementatiestatus van een software-updategroep of software-update te controleren.  
 
-#### <a name="to-monitor-deployment-status"></a>Pour surveiller l'état d'un déploiement  
+#### <a name="to-monitor-deployment-status"></a>De implementatiestatus controleren  
 
-1.  Dans la console Configuration Manager, accédez à **Analyse** > **Vue d’ensemble** > **Déploiements**.  
+1.  Navigeer in de Configuration Manager-console naar **bewaking** > **overzicht** > **implementaties**.  
 
-2.  Cliquez sur le groupe de mises à jour logicielles ou sur la mise à jour logicielle de laquelle vous voulez surveiller l'état de déploiement.  
+2.  Klik op de software-updategroep of software-update waarvan u de implementatiestatus wilt controleren.  
 
-3.  Dans l'onglet **Accueil** , du groupe **Déploiement** , cliquez sur **Afficher l'état**.  
+3.  Klik op het tabblad **Starten** in de groep **Implementatie** op **Status weergeven**.  
 
-##  <a name="BKMK_SUReports"></a> Rapports des mises à jour logicielles  
- Les messages d'état des mises à jour logicielles fournissent des informations sur la conformité des mises à jour logicielles et présentent l'état de l'évaluation et de l'application des déploiements des mises à jour logicielles. Vous pouvez exécuter des rapports de mises à jour logicielles pour afficher ces messages d'état. Il existe plus de 30 rapports de mises à jour logicielles prédéfinis disponibles. Ceux-ci sont organisés en plusieurs catégories et peuvent être utilisés pour signaler des informations spécifiques sur les mises à jour logicielles et les déploiements. En plus d'utiliser les rapports préconfigurés, vous pouvez également créer des rapports de mises à jour logicielles personnalisés selon les besoins de votre entreprise. Pour plus d’informations, consultez [Opérations et maintenance pour les rapports](../../core/servers/manage/operations-and-maintenance-for-reporting.md).  
+##  <a name="BKMK_SUReports"></a> Rapporten van software-updates  
+ De statusberichten voor software-updates bieden informatie over de compatibiliteit van software-updates en over de evaluatie en afdwingingsstatus van implementaties van software-updates. U kunt software-updaterapporten uitvoeren om deze statusberichten weer te geven. Er zijn meer dan 30 vooraf gedefinieerde software-updaterapporten beschikbaar. Deze zijn ingedeeld in verscheidene categorieën die kunnen worden gebruikt voor het rapporteren van specifieke informatie over software-updates en implementaties. U kunt naast deze vooraf geconfigureerde rapporten ook aangepaste software-updaterapporten maken op basis van de behoeften van uw bedrijf. Zie voor meer informatie [bewerkingen en onderhoud voor rapportage](../../core/servers/manage/operations-and-maintenance-for-reporting.md).  
 
-##  <a name="BKMK_MonitorContent"></a> Surveiller le contenu  
- Vous pouvez surveiller le contenu dans la console Configuration Manager pour déterminer l’état de tous les types de package en rapport avec les points de distribution associés, notamment l'état de validation du contenu du package, l'état du contenu attribué à un groupe de points de distribution spécifique, l'état du contenu attribué à un point de distribution et l'état des fonctions facultatives de chaque point de distribution (validation du contenu, PXE et multidiffusion).  
+##  <a name="BKMK_MonitorContent"></a> Inhoud controleren  
+ U kunt de inhoud in de Configuration Manager-console om te controleren van de status van alle pakkettypen in relatie tot de gekoppelde distributiepunten bewaken. Dit kan het volgende omvatten: de validatiestatus voor de inhoud in het pakket, de status van inhoud die is toegewezen aan een specifieke distributiepuntengroep, de status van inhoud die is toegewezen aan een distributiepunt en de status van optionele functies voor de afzonderlijke distributiepunten (inhoudvalidatie, PXE en multicast).  
 
-###  <a name="BKMK_ContentStatus"></a> Surveillance de l’état du contenu  
- Le nœud **État du contenu** dans l'espace de travail **Surveillance** fournit des informations sur les packages de contenu. Vous pouvez consulter les informations générales sur l'emballage, l'état de distribution pour le package et les informations d'état détaillées sur le package. Pour afficher l'état du contenu, procédez comme suit.  
+###  <a name="BKMK_ContentStatus"></a> Controle van de status van inhoud  
+ Het knooppunt **Status van inhoud** in de werkruimte **Controle** biedt informatie over inhoudspakketten. U kunt algemene informatie over het pakket, de distributiestatus voor het pakket en gedetailleerde statusinformatie over het pakket weergeven. Gebruik de volgende procedure om de status van inhoud weer te geven.  
 
-#### <a name="to-monitor-content-status"></a>Pour surveiller l'état du contenu  
+#### <a name="to-monitor-content-status"></a>De status van inhoud controleren  
 
-1.  Dans la console Configuration Manager, accédez à **Analyse** > **Vue d’ensemble** > **État de distribution** > **État du contenu**. Les packages sont affichés.  
+1.  Navigeer in de Configuration Manager-console naar **bewaking** > **overzicht** > **distributiestatus** > **inhoudsstatus**. De pakketten worden weergegeven.  
 
-2.  Sélectionnez le package pour lequel afficher des informations d'état détaillées.  
+2.  Selecteer het pakket waarvoor u gedetailleerde statusinformatie wilt weergeven.  
 
-3.  Dans l'onglet **Accueil** , cliquez sur **Afficher l'état**. Des informations d'état détaillées pour le package sont affichées.  
+3.  Klik op het tabblad **Start** op **Status weergeven**. De gedetailleerde statusinformatie voor het pakket wordt weergegeven.  
 
-###  <a name="BKMK_DPGroupStatus"></a> État du groupe de points de distribution  
- Le nœud **État du groupe de points de distribution** dans l'espace de travail **Surveillance** fournit des informations sur les groupes de points de distribution. Vous pouvez consulter les informations générales sur le groupe de points de distribution, notamment l'état du groupe de points de distribution et le degré de conformité, ainsi que les informations d'état détaillées pour le groupe de points de distribution. Pour afficher l'état du groupe de points de distribution, procédez comme suit.  
+###  <a name="BKMK_DPGroupStatus"></a> Status van distributiepuntengroep  
+ Het knooppunt **Status van distributiepuntengroep** in de werkruimte **Controle** biedt informatie over distributiepuntengroepen. U kunt algemene informatie weergeven over de distributiepuntengroep, zoals de status van de distributiepuntengroep en het compatibiliteitspercentage, evenals gedetailleerde statusinformatie voor de distributiepuntengroep. Gebruik de volgende procedure om de status van een distributiepuntengroep weer te geven.  
 
-#### <a name="to-monitor-distribution-point-group-status"></a>Pour surveiller l'état du groupe de points de distribution  
+#### <a name="to-monitor-distribution-point-group-status"></a>De status van een distributiepuntengroep bewaken  
 
-1.  Dans la console Configuration Manager, accédez à **Analyse** > **Vue d’ensemble** > **État de distribution** > **État du groupe de points de distribution**. Les groupes de points de distribution sont affichés.  
+1.  Navigeer in de Configuration Manager-console naar **bewaking** > **overzicht** > **distributiestatus** > **Status van Distributiepuntengroep**. De distributiepuntengroepen worden weergegeven.  
 
-2.  Sélectionnez le groupe de points de distribution pour lequel afficher des informations d'état détaillées.  
+2.  Selecteer de distributiepuntengroep waarvoor u gedetailleerde statusinformatie wilt weergeven.  
 
-3.  Dans l'onglet **Accueil** , cliquez sur **Afficher l'état**. Des informations d'état détaillées pour le groupe de points de distribution sont affichées.  
+3.  Klik op het tabblad **Start** op **Status weergeven**. Er wordt gedetailleerde statusinformatie voor de distributiepuntengroep weergegeven.  
 
-###  <a name="BKMK_DPConfigStatus"></a> État de configuration du point de distribution  
- Le nœud **État de configuration du point de distribution** dans l'espace de travail **Surveillance** fournit des informations sur le point de distribution. Vous pouvez examiner les attributs qui sont activés pour le point de distribution, par exemple, PXE, multidiffusion et validation du contenu. Vous pouvez également afficher des informations d'état détaillées pour le point de distribution. Pour afficher l'état de configuration du point de distribution, procédez comme suit.  
+###  <a name="BKMK_DPConfigStatus"></a> Configuratiestatus van distributiepunt  
+ Het knooppunt **Configuratiestatus van distributiepunt** in de werkruimte **Controle** biedt informatie over de distributiepuntengroep. U kunt weergeven welke kenmerken voor het distributiepunt zijn ingeschakeld, zoals PXE, multicast en validatie van inhoud. U kunt tevens gedetailleerde statusinformatie voor het distributiepunt weergeven. Gebruik de volgende procedure om de configuratiestatus van een distributiepuntengroep weer te geven.  
 
-#### <a name="to-monitor-distribution-point-configuration-status"></a>Pour surveiller l'état de configuration du point de distribution  
+#### <a name="to-monitor-distribution-point-configuration-status"></a>Bewaken van de configuratiestatus van distributiepunten  
 
-1.  Dans la console Configuration Manager, accédez à **Analyse** > **Vue d’ensemble** > **État de distribution** > **État de la configuration du point de distribution**. Les points de distribution sont affichés.  
+1.  Navigeer in de Configuration Manager-console naar **bewaking** > **overzicht** > **distributiestatus** > **configuratiestatus van distributiepunt**. De distributiepunten worden weergegeven.  
 
-2.  Sélectionnez le point de distribution pour lequel afficher des informations d'état du point de distribution.  
+2.  Selecteer het distributiepunt waarvoor u de statusinformatie wilt weergeven.  
 
-3.  Dans le volet des résultats, cliquez sur l'onglet **Détails** . Des informations d'état pour le point de distribution sont affichées.  
+3.  Klik op het tabblad **Details** in het resultatenvenster. De statusinformatie voor het distributiepunt wordt weergegeven.  

@@ -1,6 +1,6 @@
 ---
-title: "Conditions générales de System Center Configuration Manager | Microsoft Docs"
-description: "Déployez les conditions générales de System Center Configuration Manager dans des groupes d’utilisateurs."
+title: Voorwaarden in System Center Configuration Manager. | Microsoft Docs
+description: Voorwaarden implementeren voor gebruikersgroepen in System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,108 +16,108 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 20be68496099a67ad2d475067f073da2cef16c86
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="add-terms-and-conditions-with-system-center-configuration-manager"></a>Ajouter des conditions générales dans System Center Configuration Manager
+# <a name="add-terms-and-conditions-with-system-center-configuration-manager"></a>Voorwaarden en bepalingen met System Center Configuration Manager toevoegen
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Vous pouvez déployer les conditions générales de System Center Configuration Manager dans des groupes d’utilisateurs pour expliquer en quoi l’inscription d’appareils, l’accès aux ressources de travail et l’utilisation du Portail d’entreprise affectent les utilisateurs et les appareils. Les utilisateurs doivent accepter les conditions générales avant de pouvoir utiliser le Portail d’entreprise pour s’inscrire et accéder à leur travail.  
+U kunt System Center Configuration Manager voorwaarden implementeren voor gebruikersgroepen om uit te leggen hoe apparaatinschrijving, toegang tot werkresources en het gebruik van de bedrijfsportal invloed hebben op apparaten en gebruikers. Gebruikers moeten de voorwaarden accepteren voordat ze de bedrijfsportal kunnen gebruiken om hun apparaat te registreren en toegang te krijgen tot hun werk.  
 
- ## <a name="working-with-terms-and-conditions-policies-in-system-center-configuration-manager"></a>Utilisation de stratégies associées aux conditions générales dans System Center Configuration Manager  
- Vous pouvez créer et déployer plusieurs ensembles de conditions générales. Vous pouvez également produire des versions des mêmes conditions générales dans différentes langues et les déployer pour les groupes appropriés.  
+ ## <a name="working-with-terms-and-conditions-policies-in-system-center-configuration-manager"></a>Werken met voorwaarden in System Center Configuration Manager  
+ U kunt meerdere sets voorwaarden maken en implementeren. U kunt ook meerdere versies van dezelfde voorwaarden in verschillende talen maken en deze voor de betreffende groepen implementeren.  
 
-## <a name="to-create-a-terms-and-conditions"></a>Pour créer des conditions générales  
+## <a name="to-create-a-terms-and-conditions"></a>Voorwaarden maken  
 
-1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité** > **Vue d’ensemble** > **Paramètres de compatibilité** > **Conditions générales**.  
+1.  Ga in de Configuration Manager-console naar **Activa en naleving** > **Overzicht** > **Instellingen voor naleving** > **Voorwaarden**.  
 
-2.  Cliquez sur **Créer les conditions générales** pour créer des conditions générales.  
+2.  Klik op **Voorwaarden maken** om nieuwe voorwaarden te maken.  
 
-3.  Sur la page **Général** , spécifiez informations suivantes :  
+3.  Geef op de pagina **Algemeen** de volgende gegevens op:  
 
-    -   **Nom** : nom unique affiché dans la console Configuration Manager.  
+    -   **Naam** -een unieke naam weergegeven in de Configuration Manager-console  
 
-    -   **Description** : détails qui vous aident à identifier les conditions générales dans la console Configuration Manager.  
+    -   **Beschrijving** - die helpen bij het identificeren van de voorwaarden en condities in de Configuration Manager-console  
 
-     Puis cliquez sur **Suivant**.  
+     Klik vervolgens op **Volgende**.  
 
-4.  Dans la page **Termes** , spécifiez les informations suivantes :  
+4.  Geef op de pagina **Voorwaarden** de volgende gegevens op:  
 
-    -   **Titre** : titre affiché dans le Portail d’entreprise.  
+    -   **Titel** : de titel die voor gebruikers in de bedrijfsportal wordt weergegeven  
 
-    -   **Texte pour les conditions** : conditions générales affichées dans le Portail d’entreprise.  
+    -   **Tekst voor voorwaarden** : de voorwaarden die voor gebruikers in de bedrijfsportal worden weergegeven  
 
-    -   **Texte expliquant ce que cela signifie si l'utilisateur accepte** : étiquette informant les utilisateurs des conséquence de l'acceptation. **Exemple** : « J’accepte les conditions générales. »  
+    -   **Tekst waarmee wordt uitgelegd wat het inhoudt als de gebruiker de voorwaarden accepteert** e verklaring die gebruikers zien in verband met aanvaarding **Voorbeeld**: "Ik ga akkoord met de voorwaarden."  
 
-     Puis cliquez sur **Suivant**.  
+     Klik vervolgens op **Volgende**.  
 
-5.  Terminez l’Assistant pour créer les conditions générales. Les nouvelles conditions générales sont affichées dans le nœud Conditions générales de l’espace de travail Ressources et Conformité.  
+5.  Voltooi de wizard om de nieuwe voorwaarden te maken. De nieuwe voorwaarden worden weergegeven in het knooppunt Voorwaarden van de werkruimte Activa en naleving.  
 
-## <a name="to-deploy-a-terms-and-conditions"></a>Pour déployer des conditions générales  
+## <a name="to-deploy-a-terms-and-conditions"></a>Voorwaarden implementeren  
 
-1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité** > **Vue d’ensemble** > **Paramètres de compatibilité** > **Conditions générales**.  
+1.  Ga in de Configuration Manager-console naar **Activa en naleving** > **Overzicht** > **Instellingen voor naleving** > **Voorwaarden**.  
 
-2.  Dans la liste **Conditions générales** , sélectionnez l’élément à déployer, puis cliquez sur **Gérer**.  
+2.  Selecteer in de lijst **Voorwaarden** het item dat u wilt implementeren en klik vervolgens op **Implementeren**.  
 
-3.  Cliquez sur**Parcourir** et accédez au **Regroupement** dans lequel vous souhaitez déployer les conditions générales, puis cliquez sur **OK**.  
+3.  **Blader** naar de **Verzameling** waarnaar u de voorwaarden wilt implementeren en klik vervolgens op **OK**.  
 
-     Quand des appareils ciblés accèdent à l’application Portail d’entreprise, les conditions générales que vous avez déployées sont affichées. Les utilisateurs doivent accepter ces conditions générales avant de pouvoir accéder aux ressources de l'entreprise.  
+     Wanneer de betreffende apparaten de bedrijfsportal-app openen, worden de voorwaarden weergegeven die u hebt geïmplementeerd. Gebruikers moeten deze voorwaarden accepteren voordat ze toegang krijgen tot bedrijfsresources.  
 
     > [!NOTE]  
-    >  Si vous déployez un ensemble de conditions générales dans plusieurs regroupements d’utilisateurs auxquels appartient un utilisateur, il verra plusieurs copies de conditions générales identiques quand il ouvrira le Portail d’entreprise. Étant donné que les utilisateurs peuvent uniquement accepter ou refuser toutes les conditions générales, il n’existe aucun risque d’être dans un état d’acceptation ambigu où l’utilisateur aurait à la fois accepté et refusé les conditions générales. Le rapport d’acceptation des conditions générales comprend une seule ligne par ensemble de conditions générales et par utilisateur. Il ne contient donc aucune erreur.  
+    >  Als u een set voorwaarden implementeert naar meerdere gebruikersverzamelingen waartoe een gebruiker behoort, ziet deze gebruiker bij het openen van de bedrijfsportal meerdere exemplaren van dezelfde voorwaarden. Omdat gebruikers alleen alle voorwaarden kunnen accepteren of weigeren, is er geen gevaar voor een niet-eenduidige acceptatiestatus waar de gebruiker de voorwaarden zowel heeft geaccepteerd als geweigerd. Het rapport Acceptatie van voorwaarden bevat slechts één rij voor elke set voorwaarden voor elke gebruiker. Het rapport bevat dus geen fouten.  
 
-## <a name="to-monitor-terms-and-conditions"></a>Pour surveiller des conditions générales  
+## <a name="to-monitor-terms-and-conditions"></a>Voorwaarden controleren  
 
-1.  Vous pouvez surveiller les déploiements de conditions générales dans la console Configuration Manager. Dans la console Configuration Manager, accédez à **Analyse** > **Vue d’ensemble** > **Déploiements**.  
+1.  U kunt voorwaarden en bepalingen implementaties controleren in de Configuration Manager-console. Open de Configuration Manager-console en ga naar **Bewaking** > **Overzicht** > **Implementaties**.  
 
-2.  Sélectionnez le déploiement de conditions générales dans la liste des déploiements.  
+2.  Selecteer de implementatie voor voorwaarden in de lijst met implementaties.  
 
-     La zone récapitulative affiche les statistiques suivantes :  
+     In het samenvattingsgebied worden de volgende statistische gegevens weergegeven:  
 
-    -   **Conforme** - Les utilisateurs ont accepté la dernière version des conditions générales  
+    -   **Compatibel** : gebruikers hebben de nieuwste versie van de voorwaarden geaccepteerd  
 
-    -   **Erreur**  
+    -   **Fout**  
 
-    -   **Non conforme** - Les utilisateurs ont accepté une version des conditions générales, mais pas la dernière  
+    -   **Niet-compatibel** : gebruikers hebben een versie van de voorwaarden geaccepteerd, maar niet de meest recente versie  
 
-    -   **Inconnu** - Les utilisateurs n’ont jamais accepté les conditions générales, y compris celles sans un appareil inscrit  
+    -   **Onbekend** : gebruikers hebben de voorwaarden nooit geaccepteerd, inclusief gebruikers met een geregistreerd apparaat  
 
-3.  Sélectionnez un déploiement de conditions générales, puis **Exécuter le résumé** pour afficher l’État du déploiement des utilisateurs.  
+3.  Selecteer een implementatie voor voorwaarden en selecteer vervolgens **Samenvatting uitvoeren** om de implementatiestatus van afzonderlijke gebruikers te bekijken.  
 
-     Sur l’écran État du déploiement, vous pouvez sélectionner les onglets d’état pour afficher les utilisateurs avec cet état. Vous pouvez cliquer sur **Exécuter le résumé** pour mettre à jour les données dans toute la hiérarchie. Cliquez sur **Actualiser** pour mettre à jour les données dans la console  
+     Op het scherm Implementatiestatus kunt u de statustabbladen selecteren om gebruikers met die status weer te geven. U kunt op **Samenvatting uitvoeren** klikken om de gegevens in de gehele hiërarchie bij te werken. Klik op **Vernieuwen** om de gegevens in de console bij te werken.  
 
-## <a name="to-view--a-terms-and-conditions-report"></a>Pour afficher un rapport de conditions générales  
+## <a name="to-view--a-terms-and-conditions-report"></a>Een rapport van voorwaarden weergeven  
 
-1.  Dans la console Configuration Manager, accédez à **Analyse** > **Vue d’ensemble** > **Reporting** > **Rapport**.  
+1.  Open de Configuration Manager-console en ga naar **Bewaking** > **Overzicht** > **Rapportage** > **Rapport**.  
 
-2.  Sélectionnez **Acceptation des conditions générales** , puis cliquez sur **Exécuter**. Le rapport d’acceptation des conditions générales s’ouvre. Le rapport affiche chaque utilisateur pour lequel des conditions générales ont été déployées. Les champs sont les suivants :  
+2.  Selecteer **Acceptatie van de Voorwaarden** en klik vervolgens op **Uitvoeren**. Het rapport Acceptatie van voorwaarden wordt geopend. Het rapport geeft elke gebruiker weer voor wie de voorwaarden zijn geïmplementeerd. Dit zijn enkele velden:  
 
-    -   Nom des conditions générales  
+    -   Naam van voorwaarden  
 
-    -   Nom d'utilisateur  
+    -   Gebruikersnaam  
 
-    -   Version acceptée  
+    -   Geaccepteerde versie  
 
-    -   Date d’acceptation  
+    -   Geaccepteerd op  
 
-    -   Dernière version acceptée  
+    -   Laatste geaccepteerd  
 
-## <a name="updates-and-version-control-for-terms-and-conditions"></a>Mises à jour et contrôle de version pour les conditions générales  
- Quand vous modifiez des conditions générales existantes, vous pouvez choisir le comportement lors de leur déploiement. Appliquez la procédure suivante pour vous aider à mettre à jour des conditions générales existantes.  
+## <a name="updates-and-version-control-for-terms-and-conditions"></a>Updates en versiebeheer voor voorwaarden  
+ Wanneer u bestaande voorwaarden bewerkt, kunt u het gewenste gedrag kiezen wanneer u de voorwaarden implementeert. Volg de volgende procedure om bestaande voorwaarden bij te werken.  
 
-### <a name="how-to-work-with-multiple-versions-of-terms-and-conditions"></a>Utilisation de plusieurs versions des conditions générales  
+### <a name="how-to-work-with-multiple-versions-of-terms-and-conditions"></a>Met meerdere versies van voorwaarden werken  
 
-1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité** > **Vue d’ensemble** > **Paramètres de compatibilité** > **Conditions générales**.  
+1.  Ga in de Configuration Manager-console naar **Activa en naleving** > **Overzicht** > **Instellingen voor naleving** > **Voorwaarden**.  
 
-2.  Sélectionnez l’instance de conditions générales à modifier, puis double-cliquez pour l’ouvrir.  
+2.  Selecteer het exemplaar van de voorwaarden dat u wilt bewerken en dubbelklik om dit te openen.  
 
-3.  Vous pouvez modifier le contenu dans la page **Général** ou **Termes** pour effectuer les modifications nécessaires.  
+3.  U kunt gewenste wijzigingen doorvoeren op de pagina **Algemeen** of **Voorwaarden** .  
 
-4.  Dans la page **Termes** , vous pouvez ensuite spécifier si cette nouvelle version exige que tous les utilisateurs acceptent les conditions générales ou si seuls les nouveaux utilisateurs verront la nouvelle version.  
+4.  Op de pagina **Voorwaarden** geeft u aan of alle gebruikers de nieuwe voorwaarden moeten accepteren, of dat alleen nieuwe gebruikers de nieuwe versie zien.  
 
-     Nous vous recommandons d’incrémenter le numéro de version et d’exiger l’acceptation chaque fois que vous apportez des modifications majeures à vos conditions générales. Conservez le numéro de version actuel si vous corrigez des fautes de frappe ou si vous modifiez la mise en forme, par exemple.
+     Het wordt aangeraden het versienummer te verhogen en elke keer dat u belangrijke wijzigingen doorvoert te vereisen dat gebruikers de nieuwe voorwaarden accepteren. Behoud het huidige versienummer als u bijvoorbeeld typefouten wilt herstellen of de opmaak wilt wijzigen.
 
 > [!div class="button"]
-[< Étape précédente](configure-intune-subscription.md) [Étape suivante >](create-service-connection-point.md)
+[< Vorige stap](configure-intune-subscription.md)[volgende stap >  ](create-service-connection-point.md)

@@ -1,6 +1,6 @@
 ---
-title: "Configurer l’état du client | Microsoft Docs"
-description: "Sélectionnez les paramètres d’état du client dans System Center Configuration Manager."
+title: Clientstatus configureren | Microsoft Docs
+description: Selecteer de status van clientinstellingen in System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,97 +17,97 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 060d63ab8bce9c3bb39d2db404580b9f59416d33
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-client-status-in-system-center-configuration-manager"></a>Comment configurer l’état du client dans System Center Configuration Manager
+# <a name="how-to-configure-client-status-in-system-center-configuration-manager"></a>Clientstatus configureren in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Afin de surveiller l’état du client System Center Configuration Manager et de corriger les problèmes rencontrés, vous devez configurer votre site pour spécifier les paramètres qui sont utilisés pour marquer des clients comme inactifs et configurer des options pour vous avertir si l’activité du client passe sous un seuil spécifié. Il est également possible de désactiver la résolution automatique par les ordinateurs des problèmes rencontrés par l'état du client.  
+Voordat u kunt de status van de System Center Configuration Manager-client controleren en oplossen van problemen die zijn gevonden, moet u uw site om op te geven van de parameters die worden gebruikt voor clients als inactief markeren en opties configureren zodat u wordt gewaarschuwd als de clientactiviteiten onder een bepaalde drempelwaarde vallen. U kunt ook voorkomen automatisch oplossen van problemen die door clientstatus worden gevonden.  
 
-##  <a name="BKMK_1"></a> Pour configurer l’état du client  
+##  <a name="BKMK_1"></a>Clientstatus configureren  
 
-1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
+1.  Klik in de Configuration Manager-console op **bewaking**.  
 
-2.  Dans l'espace de travail **Surveillance** , cliquez sur **État du client**, puis dans l'onglet **Accueil** , dans le groupe **État du client** , cliquez sur **Paramètres d'état du client**.  
+2.  In de **bewaking** werkruimte, klikt u op **clientstatus**, klik op de **Start** tabblad, in de **clientstatus** groep, klikt u op **Clientstatusinstellingen**.  
 
-3.  Dans la boîte de dialogue **Propriétés des paramètres d'état des clients** , spécifiez les valeurs suivantes pour déterminer l'activité du client :  
-
-    > [!NOTE]  
-    >  Si aucun des paramètres n'est satisfait, le client sera marqué comme inactif.  
-
-    -   **Demandes de stratégie client lors des jours suivants :** Spécifiez le nombre de jours depuis qu'un client a demandé une stratégie. La valeur par défaut est **7** jours.  
-
-    -   **Découverte par pulsations d'inventaire lors des jours suivants :** Spécifiez le nombre de jours depuis que l'ordinateur client a envoyé un enregistrement de découverte par pulsations d'inventaire à la base de données du site. La valeur par défaut est **7** jours.  
-
-    -   **Inventaire matériel lors des jours suivants :** Spécifiez le nombre de jours depuis que l'ordinateur client a envoyé un enregistrement d'inventaire matériel à la base de données du site. La valeur par défaut est **7** jours.  
-
-    -   **Inventaire des logiciels lors des jours suivants :** Spécifiez le nombre de jours depuis que l'ordinateur client a envoyé un enregistrement d'inventaire logiciel à la base de données du site. La valeur par défaut est **7** jours.  
-
-    -   **Messages d'état lors des jours suivants :** Spécifiez le nombre de jours depuis que l'ordinateur client a envoyé des messages d'état à la base de données du site. La valeur par défaut est **7** jours.  
-
-4.  Dans la boîte de dialogue **Propriétés des paramètres d'état des clients** , spécifiez la valeur suivante pour déterminer la durée pendant laquelle les données de l'historique d'état du client sont conservées :  
-
-    -   **Conserver l'historique de l'état du client pendant le nombre de jours suivant :** Spécifiez la durée pendant laquelle vous voulez que l'historique de l'état du client soit conservé dans la base de données du site. La valeur par défaut est **31** jours.  
-
-5.  Cliquez sur **OK** pour enregistrer les propriétés et fermer la boîte de dialogue **Propriétés des paramètres d'état des clients** .  
-
-##  <a name="BKMK_Schedule"></a> Pour configurer le calendrier de l’état du client  
-
-1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
-
-2.  Dans l'espace de travail **Surveillance** , cliquez sur **État du client**, puis dans l'onglet **Accueil** , dans le groupe **État du client** , cliquez sur **Planifier la mise à jour de l'état des clients**.  
-
-3.  Dans la boîte de dialogue **Planifier la mise à jour de l'état des clients** , configurez la fréquence à laquelle vous souhaitez que l'état des clients soit mis à jour, puis cliquez sur OK.  
+3.  In de **eigenschappen van Clientstatusinstellingen** dialoogvenster geeft u de volgende waarden om te bepalen van clientactiviteit:  
 
     > [!NOTE]  
-    >  Lorsque vous modifiez la planification des mises à jour de l'état des clients, la mise à jour ne prend effet que lors de la mise à jour de l'état des clients suivante (selon le calendrier précédemment configuré).  
+    >  Als geen van de instellingen wordt voldaan, wordt de client als inactief worden gemarkeerd.  
 
-##  <a name="BKMK_2"></a> Pour configurer des alertes liées à l’état du client  
+    -   **Clientbeleidsaanvragen gedurende de volgende dagen:** Geef het aantal dagen geleden een client beleid heeft aangevraagd. De standaardwaarde is **7** dagen.  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
+    -   **Heartbeat-detectie gedurende de volgende dagen:** Geef het aantal dagen geleden de clientcomputer een hartslagdetectierecord naar de sitedatabase verzonden. De standaardwaarde is **7** dagen.  
 
-2.  Dans l'espace de travail **Ressources et Conformité** , cliquez sur **Regroupements de périphériques**.  
+    -   **Hardware-inventarisatie gedurende de volgende dagen:** Geef het aantal dagen geleden de clientcomputer een hardware-inventarisatierecord naar de sitedatabase heeft verzonden. De standaardwaarde is **7** dagen.  
 
-3.  Dans la liste **Regroupements de périphériques** , sélectionnez le regroupement pour lequel vous souhaitez configurer des alertes, puis cliquez sur **Propriétés** dans l'onglet **Accueil** , du groupe **Propriétés**.  
+    -   **Software-inventarisatie gedurende de volgende dagen:** Geef het aantal dagen geleden de clientcomputer een software-inventarisatierecord naar de sitedatabase heeft verzonden. De standaardwaarde is **7** dagen.  
+
+    -   **Statusberichten gedurende de volgende dagen:** Geef het aantal dagen geleden de clientcomputer statusberichten naar de sitedatabase heeft verzonden. De standaardwaarde is **7** dagen.  
+
+4.  In de **eigenschappen van Clientstatusinstellingen** dialoogvenster geeft u de volgende waarde om te bepalen hoe lang historische gegevens voor de client worden bewaard:  
+
+    -   **Geschiedenis van clientstatus bewaren gedurende het volgende aantal dagen:** Geef op hoe lang de geschiedenis van clientstatus blijven in de sitedatabase. De standaardwaarde is **31** dagen.  
+
+5.  Klik op **OK** de eigenschappen op te slaan en sluit de **eigenschappen van Clientstatusinstellingen** in het dialoogvenster.  
+
+##  <a name="BKMK_Schedule"></a>De planning voor de clientstatus configureren  
+
+1.  Klik in de Configuration Manager-console op **bewaking**.  
+
+2.  In de **bewaking** werkruimte, klikt u op **clientstatus**, klik op de **Start** tabblad, in de **clientstatus** groep, klikt u op **Clientstatusupdate**.  
+
+3.  In de **Clientstatusupdate** dialoogvenster Configureer het interval waarmee u de clientstatus wilt bijwerken en klik vervolgens op OK.  
 
     > [!NOTE]  
-    >  Vous ne pouvez pas configurer d'alertes pour les regroupements d'utilisateurs.  
+    >  Wanneer u de planning voor clientstatusupdates wijzigt, worden de update pas van kracht totdat de volgende geplande clientstatusupdate (voor de eerder geconfigureerde planning).  
 
-4.  Sous l’onglet **Alertes** de la boîte de dialogue **Propriétés de***&lt;Nom du regroupement\>*, cliquez sur **Ajouter**.  
+##  <a name="BKMK_2"></a>Waarschuwingen voor de clientstatus configureren  
+
+1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
+
+2.  Klik op **Apparaatverzamelingen** in de werkruimte **Activa en naleving**.  
+
+3.  Selecteer in de lijst **Apparaatverzamelingen** de verzameling waarvoor u waarschuwingen wilt configureren en klik vervolgens op het tabblad **Start** in de groep **Eigenschappen** op **Eigenschappen**.  
 
     > [!NOTE]  
-    >  L'onglet **Alertes** n'est visible que si le rôle de sécurité auquel vous êtes associé dispose d'autorisations pour les alertes.  
+    >  U kunt geen waarschuwingen voor gebruikersverzamelingen configureren.  
 
-5.  Dans la boîte de dialogue **Ajouter de nouvelles alertes de regroupement** , choisissez les alertes que vous souhaitez générer lorsque les seuils d'état du client passent sous une valeur spécifique, puis cliquez sur **OK**.  
+4.  Op de **waarschuwingen** tabblad van de  *&lt;verzameling naam\>***eigenschappen** in het dialoogvenster, klikt u op **toevoegen**.  
 
-6.  Dans la liste **Conditions** de l'onglet **Alertes** , sélectionnez chaque alerte relative à l'état du client, puis spécifiez les informations suivantes.  
+    > [!NOTE]  
+    >  Het tabblad **Waarschuwingen** is alleen zichtbaar als aan de beveiligingsrol waaraan u gekoppeld bent machtigingen voor waarschuwingen zijn toegewezen.  
 
-    -   **Nom d’alerte** – Acceptez le nom par défaut ou entrez un nouveau nom pour l’alerte.  
+5.  Geef in het dialoogvenster **Nieuwe verzamelingmeldingen toevoegen** op welke meldingen moeten worden gegenereerd wanneer clientstatuswaarden onder een bepaalde drempelwaarde vallen en klik vervolgens op **OK**.  
 
-    -   **Gravité d’alerte** – Dans la liste déroulante, choisissez la gravité d’alerte qui sera affichée dans la console Configuration Manager.  
+6.  Selecteer elke clientstatuswaarschuwing in de lijst **Voorwaarden** van het tabblad **Waarschuwingen** en geef vervolgens de volgende gegevens op.  
 
-    -   **Déclencher l’alerte** – Spécifiez le pourcentage seuil pour l’alerte.  
+    -   **Naam melding** : Accepteer de standaardnaam of voer een nieuwe naam voor de waarschuwing.  
 
-7.  Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de***&lt;Nom du regroupement\>*.  
+    -   **Ernst melding** - Selecteer in de vervolgkeuzelijst de ernst die moet worden weergegeven in de Configuration Manager-console.  
 
-##  <a name="BKMK_3"></a> Pour exclure des ordinateurs de la résolution automatique  
+    -   **Waarschuwing activeren** -Geef het drempelwaardepercentage voor de waarschuwing.  
 
-1.  Ouvrez l'éditeur du Registre sur l'ordinateur client pour lequel vous souhaitez désactiver la résolution automatique.  
+7.  Klik op **OK** sluiten de  *&lt;verzameling naam\>***eigenschappen** in het dialoogvenster.  
+
+##  <a name="BKMK_3"></a>Computers uitsluiten van automatisch herstel  
+
+1.  Open de Register-editor op de clientcomputer waarvoor u wilt uitschakelen van automatisch herstel.  
 
     > [!WARNING]  
-    >  Une utilisation incorrecte de l'Éditeur du Registre peut éventuellement provoquer de graves problèmes, lesquels nécessitent parfois la réinstallation complète du système d'exploitation. Microsoft ne garantit pas la résolution des erreurs résultant d'une utilisation incorrecte de l'Éditeur du Registre. Les opérations exécutées dans l'Éditeur du Registre le sont à vos propres risques.  
+    >  Als u de Register-Editor onjuist gebruikt, kunt u ernstige problemen waarvoor u het besturingssysteem opnieuw installeren kunnen veroorzaken. Microsoft biedt geen garantie dat u problemen kunt oplossen die veroorzaakt worden door onjuist gebruik van de Registry Editor. Gebruik de Registry Editor op eigen risico.  
 
-2.  Accédez à **HKEY_LOCAL_MACHINE\Software\Microsoft\CCM\CcmEval\NotifyOnly**.  
+2.  Navigeer naar **HKEY_LOCAL_MACHINE\Software\Microsoft\CCM\CcmEval\NotifyOnly**.  
 
-3.  Entrez l'une des valeurs suivantes pour cette clé de Registre :  
+3.  Voer een van de volgende waarden voor deze registersleutel:  
 
-    -   **Vrai** – L’ordinateur client ne résoudra pas automatiquement les problèmes détectés. Vous serez toutefois alerté dans l'espace de travail **Surveillance** des problèmes survenus pour ce client.  
+    -   **De waarde True** -eventuele problemen die zijn gevonden worden niet automatisch hersteld door de clientcomputer. Echter, wordt u nog wel gewaarschuwd de **bewaking** werkruimte over eventuele problemen met deze client.  
 
-    -   **Faux** – L’ordinateur client résoudra automatiquement les problèmes détectés et vous serez alerté dans l’espace de travail **Surveillance**. Il s'agit du paramètre par défaut.  
+    -   **ONWAAR** -problemen worden automatisch door de clientcomputer worden hersteld wanneer ze zijn gevonden en u wordt gewaarschuwd in de **bewaking** werkruimte. Dit is de standaardinstelling.  
 
-4.  Fermez l'éditeur du Registre.  
+4.  Sluit de Register-editor.  
 
- Vous pouvez également installer des clients à l'aide de la propriété d'installation CCMSetup **NotifyOnly** pour les exclure de la résolution automatique. Pour plus d’informations sur cette propriété d’installation du client, consultez [À propos des propriétés d’installation du client dans System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
+ U kunt clients ook installeren met de CCMSetup **NotifyOnly** installatie-eigenschap ze uitsluiten van automatisch herstel. Zie voor meer informatie over deze clientinstallatie-eigenschap [over eigenschappen van clientinstallatie in System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  

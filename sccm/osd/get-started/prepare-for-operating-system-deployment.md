@@ -1,6 +1,6 @@
 ---
-title: "Préparer un déploiement de système d’exploitation | Microsoft Docs"
-description: "Lisez ces articles pour en savoir plus sur ce que vous devez faire dans Configuration Manager pour préparer les déploiements de système d’exploitation."
+title: Voorbereiden voor implementatie van besturingssysteem | Microsoft Docs
+description: Lees deze artikelen voor meer informatie over wat u in Configuration Manager om voor te bereiden voor implementaties van besturingssystemen moet doen.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,26 +16,26 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: dcc35f39b6ece8b466fc3770c6b9f304180eb42a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-for-operating-system-deployment-in-system-center-configuration-manager"></a>Préparer un déploiement de système d’exploitation dans System Center Configuration Manager
+# <a name="prepare-for-operating-system-deployment-in-system-center-configuration-manager"></a>Besturingssysteemimplementatie voorbereiden in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Vous devez effectuer plusieurs opérations dans Configuration Manager avant de pouvoir déployer des systèmes d’exploitation. Utilisez les rubriques suivantes pour préparer un déploiement de système d’exploitation :  
+Er zijn verschillende dingen die u in Configuration Manager doen moet voordat u besturingssystemen kunt implementeren. Gebruik de volgende onderwerpen om besturingssysteemimplementaties voor te bereiden:  
 
--   [Gérer les images de démarrage](manage-boot-images.md)  
+-   [Opstartinstallatiekopieën beheren](manage-boot-images.md)  
 
--   [Gérer les images de système d’exploitation](manage-operating-system-images.md)  
+-   [Installatiekopieën van besturingssystemen beheren](manage-operating-system-images.md)  
 
--   [Gérer les packages de mise à niveau de système d’exploitation](manage-operating-system-upgrade-packages.md)  
+-   [Upgradepakketten voor het besturingssysteem beheren](manage-operating-system-upgrade-packages.md)  
 
--   [Gérer les pilotes](manage-drivers.md)  
+-   [Stuurprogramma's beheren](manage-drivers.md)  
 
--   [Gérer l’état utilisateur](manage-user-state.md)  
+-   [De gebruikersstatus beheren](manage-user-state.md)  
 
--   [Préparer les déploiements d’ordinateurs inconnus](prepare-for-unknown-computer-deployments.md)  
+-   [Voorbereiden op onbekende computerimplementaties](prepare-for-unknown-computer-deployments.md)  
 
--   [Associer des utilisateurs à un ordinateur de destination](associate-users-with-a-destination-computer.md)  
+-   [Gebruikers koppelen aan een doelcomputer](associate-users-with-a-destination-computer.md)  

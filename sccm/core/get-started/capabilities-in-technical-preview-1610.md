@@ -1,6 +1,6 @@
 ---
-title: "Fonctionnalités de Technical Preview 1610 Configuration Manager"
-description: "Découvrez les fonctionnalités disponibles dans la version d’évaluation technique de System Center Configuration Manager, version 1610."
+title: Mogelijkheden in Technical Preview 1610 Configuration Manager
+description: Meer informatie over functies die beschikbaar zijn in de Technical Preview voor System Center Configuration Manager, versie 1610.
 ms.custom: na
 ms.date: 01/23/2017
 ms.reviewer: na
@@ -16,149 +16,149 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 59633ce68e2bb2d722900215751f345d6d098721
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="capabilities-in-technical-preview-1610-for-system-center-configuration-manager"></a>Fonctionnalités dans la version d’évaluation technique 1610 de System Center Configuration Manager
+# <a name="capabilities-in-technical-preview-1610-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1610 voor System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (version d’évaluation technique)*
-
-
-
-Cet article présente les fonctionnalités qui sont disponibles dans la version d’évaluation technique de System Center Configuration Manager, version 1610. Vous pouvez installer cette version pour mettre à jour et ajouter de nouvelles fonctionnalités à votre site de version d’évaluation technique de Configuration Manager.      Avant d’installer cette version d’évaluation technique, passez en revue la rubrique de présentation, [Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md), pour vous familiariser avec les conditions générales et les limitations d’utilisation d’une version d’évaluation technique, la mise à jour entre les versions et l’envoi de commentaires sur les fonctionnalités dans une version d’évaluation technique.    
+*Van toepassing op: System Center Configuration Manager (Technical Preview)*
 
 
-**Vous trouverez ci-dessous les nouvelles fonctionnalités propres à cette version.**  
-## <a name="filter-by-content-size-in-automatic-deployment-rules"></a>Filtrer par taille de contenu dans les règles de déploiement automatique
-Vous pouvez désormais filtrer sur la taille du contenu des mises à jour logicielles dans les règles de déploiement automatique. Par exemple, vous pouvez définir le filtre **Taille du contenu (Ko)** sur **< 2048** pour télécharger uniquement les mises à jour logicielles inférieures à 2 Mo. Ce filtre empêche le téléchargement automatique des mises à jour logicielles volumineuses pour une meilleure prise en charge de la maintenance de bas niveau Windows simplifiée lorsque la bande passante du réseau est limitée. Pour plus d’informations, consultez [Configuration Manager et maintenance Windows simplifiée sur des systèmes d’exploitation de bas niveau](https://blogs.technet.microsoft.com/enterprisemobility/2016/10/07/configuration-manager-and-simplified-windows-servicing-on-down-level-operating-systems/).
 
-#### <a name="to-configure-the-content-size-field"></a>Pour configurer le champ Taille du contenu
-Pour configurer le champ **Taille du contenu (Ko)**, accédez à la page **Mises à jour logicielles** dans l’Assistant Création d’une règle de déploiement automatique, lorsque vous créez une règle ADR ou accédez à l’onglet **Mises à jour logicielles** dans les propriétés pour une règle ADR existante.
-
-![Champ Taille du contenu](media/contentsizefield.png)
-
-## <a name="improved-functionality-for-required-software-dialogs"></a>Fonctionnalités améliorées pour les boîtes de dialogue des logiciels requis
-Quand un utilisateur reçoit des logiciels requis, dans le paramètre **Répéter et me le rappeler :**, il peut choisir parmi les valeurs suivantes de la liste déroulante :
-- Ultérieurement : Spécifie que les notifications sont planifiées selon les paramètres de notification configurés dans les paramètres de l’agent du client.
-- Heure fixe : Indique que la notification sera programmée pour s’afficher de nouveau après l’heure sélectionnée. Par exemple, si un utilisateur sélectionne 30 minutes, la notification s’affichera de nouveau après 30 minutes.
-
-![Page Agent ordinateur dans les paramètres de l’agent du client](media/computeragentsettings.png)
-
-L’intervalle de répétition maximal est toujours basé sur les valeurs de notification configurées dans les paramètres de l’agent du client à tout instant le long de la chronologie du déploiement. Par exemple, si le paramètre **Échéance du déploiement supérieure à 24 heures, effectuer un rappel à l’utilisateur toutes les (heures)** sur la page Agent ordinateur est configuré pour 10 heures et qu’il reste plus de 24 heures avant l’échéance du lancement de la boîte de dialogue, l’utilisateur se voit proposer un ensemble d’options de répétition toujours inférieures ou égales à 10 heures. Au fur et à mesure que l’échéance approche, la boîte de dialogue affiche moins d’options, conformément aux paramètres appropriés de l’agent du client, pour chaque composant de la chronologie du déploiement.
-
-En outre, pour un déploiement à haut risque, tel qu’une séquence de tâches déployant un système d’exploitation, l’expérience de notification de l’utilisateur final est désormais plus intrusive. Au lieu d’une notification temporaire sur la barre des tâches, chaque fois que l’utilisateur est averti qu’une maintenance logicielle critique est nécessaire, une boîte de dialogue similaire à la suivante s’affiche sur l’ordinateur de l’utilisateur :
-
-![Boîte de dialogue Logiciel requis](media/requiredsoftwaredialog.png)
+Dit artikel bevat de functies die beschikbaar in de Technical Preview voor System Center Configuration Manager, versie 1610 zijn. U kunt deze versie om te werken en nieuwe mogelijkheden toevoegen aan uw Configuration Manager technical preview-site installeren.      Controleer voordat u deze versie van de technical preview installeert, de inleidende informatie [Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md), om vertrouwd te raken met algemene vereisten en beperkingen voor het gebruik van een technical preview hoe bijwerken tussen versies en hoe u feedback over de functies in een technical preview.    
 
 
-Pour plus d’informations :
-- [Paramètres de gestion des déploiements à haut risque](../../protect/understand/settings-to-manage-high-risk-deployments.md)
-- [Guide pratique pour configurer les paramètres client](../clients/deploy/configure-client-settings.md)
+**Hier volgen nieuwe functies die u met deze versie kunt uitproberen.**  
+## <a name="filter-by-content-size-in-automatic-deployment-rules"></a>Filteren op Inhoudsgrootte in regels voor automatische implementatie
+U kunt nu filteren op de grootte van de inhoud voor software-updates in de regels voor automatische implementatie. U kunt bijvoorbeeld instellen de **inhoud grootte (KB)** filteren op **< 2048** alleen softwareupdates te downloaden die kleiner dan 2 MB zijn. Met dit filter voorkomt dat grote software-updates automatisch downloaden naar betere ondersteuning vereenvoudigd Windows downlevel-onderhoud als de netwerkbandbreedte beperkt is. Zie voor meer informatie [Configuration Manager en vereenvoudigd onderhoud van Windows op omlaag niveau besturingssystemen](https://blogs.technet.microsoft.com/enterprisemobility/2016/10/07/configuration-manager-and-simplified-windows-servicing-on-down-level-operating-systems/).
 
-## <a name="deny-previously-approved-application-requests"></a>Refuser les demandes d’application précédemment approuvées
+#### <a name="to-configure-the-content-size-field"></a>Het veld Inhoudsgrootte configureren
+Voor het configureren van de **inhoud grootte (KB)** veld, gaat u naar de **Software-Updates** pagina in de Wizard automatische implementatie maken regel wanneer u een ADR maken of Ga naar de **Software-Updates** tabblad in de eigenschappen voor een bestaande ADR.
 
-En tant qu’administrateur, vous pouvez maintenant refuser une demande d’application précédemment approuvée. Une fois refusée, pour installer ultérieurement cette application, les utilisateurs doivent resoumettre une demande. Un refus ne désinstalle pas l’application ; au lieu de cela, il force la réapprobation de toute nouvelle demande de cette application par cet utilisateur. Auparavant, le refus d’une demande d’application était uniquement disponible pour les demandes d’application qui n’avaient pas été approuvées.
+![Inhoudsgrootte veld](media/contentsizefield.png)
 
-#### <a name="try-it-out"></a>Faîtes un essai
-Pour refuser une demande approuvée d’application :
+## <a name="improved-functionality-for-required-software-dialogs"></a>Verbeterde functionaliteit voor vereiste software-dialoogvensters
+Wanneer een gebruiker de vereiste software ontvangt van de **uitstellen en Help me herinneren:** instelt, kunnen ze selecteren in de volgende lijst in de vervolgkeuzelijst van waarden:
+- Later: geeft aan dat meldingen worden gepland op basis van de instellingen voor meldingen geconfigureerd in de clientagentinstellingen.
+- Vaste tijd: geeft aan dat de melding wordt gepland om opnieuw op de geselecteerde tijd weer te geven. Bijvoorbeeld, als een gebruiker 30 minuten selecteert, weergegeven de melding over 30 minuten opnieuw.
 
-1.  Dans la console Configuration Manager, [créez et déployez une application](https://docs.microsoft.com/en-us/sccm/apps/deploy-use/create-applications) qui nécessite une approbation.
-2.  Sur un ordinateur client, ouvrez le Centre logiciel et soumettez une demande pour l’application.
-3.  Dans la console Configuration Manager, approuvez la demande d’application.
-4.  Refusez la demande d’application approuvée : Dans la console Configuration Manager, accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Gestion des applications** > **Demandes d’approbation** et sélectionnez la demande d’application que vous souhaitez refuser.  Dans le ruban, cliquez sur **Refuser**.
+![Computer Agent pagina in de clientagentinstellingen](media/computeragentsettings.png)
 
-## <a name="exclude-clients-from-automatic-upgrade"></a>Exclure des clients de la mise à niveau automatique
-La version d’évaluation technique 1610 introduit un nouveau paramètre, que vous pouvez utiliser pour empêcher un regroupement de clients d’installer automatiquement les versions mises à jour du client.  Cela s’applique à la mise à niveau automatique ainsi qu’à d’autres méthodes, telles que la mise à niveau de logiciels basée sur la mise à jour, les scripts d’ouverture de session et la stratégie de groupe. Cela peut être utilisé pour un regroupement d’ordinateurs ayant besoin de plus grands soins, lors de la mise à niveau du client. Un client qui se trouve dans un regroupement exclu ignore les demandes d’installation du logiciel client mis à jour.
+De maximale uitstellen is altijd op basis van tijd op de melding ingestelde waarden in de clientagentinstellingen op elk moment langs de tijdlijn voor implementatie. Bijvoorbeeld, als de **langer dan 24 uur deadline voor implementatie, gebruikers herinneren elke (uur)** instellen op de Computer Agent pagina is geconfigureerd voor 10 uur en meer dan 24 uur vóór de deadline is wanneer het dialoogvenster wordt gestart, de gebruiker zou worden gepresenteerd met een set opties voor bewerkingen worden uitgesteld tot maar nooit meer dan 10 uur. Als de deadline nadert, wordt het dialoogvenster minder mogelijkheden consistent zijn met de relevante instellingen voor Clientagent voor elk onderdeel van de implementatie-tijdlijn weergegeven.
 
-### <a name="configure-exclusion-from-automatic-upgrade"></a>Configurer l’exclusion de la mise à niveau automatique
-Pour configurer des exclusions de mise à niveau automatique :
-1.  Dans la console Configuration Manager, ouvrez **Paramètres de hiérarchie** sous **Administration > Configuration du site > Sites**, puis sélectionnez l’onglet **Mise à niveau des clients**.
-2.  Cochez la case **Exclure les clients spécifiés de la mise à niveau**, puis pour **Regroupement à exclure**, sélectionnez le regroupement que vous souhaitez exclure. Vous pouvez sélectionner un seul regroupement à exclure.
-3.  Cliquez sur **OK** pour fermer et enregistrer la configuration. Ensuite, une fois que les clients ont mis à jour la stratégie, les clients figurant dans le regroupement exclu n’installent plus automatiquement les mises à jour du logiciel client.
+Daarnaast voor een implementatie met hoog risico, zoals een takenreeks die een besturingssysteem implementeert is de eindgebruikerservaring voor melding nu ingrijpender. In plaats van een melding van tijdelijke taakbalk, elke keer dat de gebruiker wordt geïnformeerd dat essentieel softwareonderhoud vereist is, een dialoogvenster zoals de volgende wordt weergegeven op de computer van de gebruiker:
 
-  ![Paramètres d’exclusion de mise à niveau automatique](media/automatic_upgrade_exclusion.png)
+![Dialoogvenster voor vereiste Software](media/requiredsoftwaredialog.png)
 
-> [!NOTE]
-> Même si l’interface utilisateur indique que les clients ne seront pas mis à niveau, quelle que soit la méthode, il existe deux méthodes que vous pouvez utiliser pour remplacer ces paramètres. L’installation Push du client et une installation manuelle du client peuvent être utilisées pour remplacer cette configuration. Pour plus d’informations, consultez la section suivante.
 
-### <a name="how-to-upgrade-a-client-that-is-in-an-excluded-collection"></a>Guide pratique pour mettre à niveau un client figurant dans un regroupement exclu
-Quand un regroupement est configuré comme exclu, les membres de ce regroupement peuvent mettre à niveau leur logiciel client par seulement deux méthodes, qui ont priorité sur l’exclusion :
- - **Installation Push du client** : Vous pouvez utiliser l’installation Push du client pour mettre à niveau un client figurant dans un regroupement exclu. Cela est autorisé, car cela est considéré comme l’intention de l’administrateur et vous permet de mettre à niveau les clients sans retirer le regroupement complet de l’exclusion.       
- - **Installation manuelle du client** : Vous pouvez mettre à niveau manuellement les clients qui se trouvent dans un regroupement exclu en utilisant le commutateur de ligne de commande suivant avec ccmsetup :  ***/ignoreskipupgrade***
+Voor meer informatie:
+- [Instellingen voor het beheren van implementaties met een hoog risico](../../protect/understand/settings-to-manage-high-risk-deployments.md)
+- [Clientinstellingen configureren](../clients/deploy/configure-client-settings.md)
 
-  Si vous tentez de mettre à niveau manuellement un client qui est membre du regroupement exclu et que vous n’utilisez pas ce commutateur, le client n’installe pas le nouveau logiciel client. Pour plus d’informations, consultez [Comment installer les clients Configuration Manager manuellement](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#a-namebkmkmanuala-how-to-install-configuration-manager-clients-manually).
+## <a name="deny-previously-approved-application-requests"></a>Eerder goedgekeurde toepassingsaanvragen weigeren
 
-Pour plus d’informations sur les méthodes d’installation de client, consultez [Comment déployer des clients sur des ordinateurs Windows dans System Center Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-windows-computers).
+Als beheerder kunt u nu een eerder goedgekeurde toepassingsaanvraag weigeren. Eenmaal is geweigerd voor het installeren van deze toepassing later gebruikers moeten een aanvraag opnieuw indienen. Denial-of verwijderd de toepassing; niet in plaats daarvan wordt opnieuw goedkeuren voor een nieuw verzoek voor die toepassing bij die gebruiker gedwongen. Weigeren van de toepassing-aanvraag was eerder alleen beschikbaar voor aanvragen van toepassingen die niet zijn goedgekeurd.
 
-## <a name="windows-defender-configuration-settings"></a>Paramètres de configuration de Windows Defender
+#### <a name="try-it-out"></a>Try it out in
+Voor het weigeren van een toepassing heeft een verzoek goedgekeurd:
 
-Vous pouvez maintenant configurer les paramètres du client Windows Defender sur des ordinateurs Windows 10 inscrits auprès d’Intune à l’aide d’éléments de configuration de la console Configuration Manager.
+1.  In de Configuration Manager-console [maken en implementeren van een toepassing](https://docs.microsoft.com/en-us/sccm/apps/deploy-use/create-applications) waarvoor goedkeuring is vereist.
+2.  Software Center te openen en een aanvraag indienen voor de toepassing op een clientcomputer.
+3.  In de Configuration Manager-console, moet u de toepassingsaanvraag goedkeuren.
+4.  De goedgekeurde toepassingsaanvraag weigeren: Navigeer in de Configuration Manager-console **softwarebibliotheek** > **overzicht** > **Toepassingsbeheer** > **goedkeuringsaanvragen** en selecteer de toepassingsaanvraag die u wilt weigeren.  Klik in het lint op **weigeren**.
 
-Plus précisément, vous pouvez configurer les paramètres suivants de Windows Defender :
-- Autoriser la surveillance en temps réel
-- Autoriser la surveillance du comportement
-- Activer le système NIS (Network Inspection System)
-- Analyser tous les téléchargements
-- Autoriser l’analyse des scripts
-- Surveiller l’activité des fichiers et des programmes
-  - Fichiers surveillés
-- Durée du suivi des logiciels malveillants dont le cas a été résolu (en jours)
-- Autoriser l’accès à l’interface utilisateur du client
-- Planifier une analyse du système
-  - Jour planifié
-  - Heure planifiée
-- Planifier une analyse quotidienne rapide
-  - Heure planifiée
-- Limiter l’utilisation du processeur pendant une analyse	 Analyser les fichiers d’archives
-- Analyser les messages électroniques
-- Analyser les lecteurs amovibles
-- Analyser les lecteurs mappés
-- Analyser les fichiers ouverts à partir de partages réseau
-- Intervalle de mise à jour des signatures
-- Activer la protection cloud
-- Demander aux utilisateurs d’envoyer des exemples
-- Détection des applications potentiellement indésirables
-- Fichiers/dossiers exclus
-- Extensions de fichier exclus
-- Processus exclus
+## <a name="exclude-clients-from-automatic-upgrade"></a>Clients uitsluiten van Automatische upgrade
+Technische Preview 1610 introduceert een nieuwe instelling die u gebruiken kunt voor het uitsluiten van een verzameling van clients van de versies van de bijgewerkte client automatisch worden geïnstalleerd.  Dit geldt voor de automatische upgrade, evenals andere methoden, zoals software-update-gebaseerde upgrade aanmeldingsscripts en Groepsbeleid. Dit kan worden gebruikt voor een verzameling van computers die moeten worden groter voorzichtig bij het upgraden van de client. Een client die zich in een uitgesloten verzameling negeert aanvragen om bijgewerkte clientsoftware te installeren.
+
+### <a name="configure-exclusion-from-automatic-upgrade"></a>Uitsluiting van Automatische upgrade configureren
+Automatische upgrade uitsluitingen configureren:
+1.  In de Configuration Manager-console openen **hiërarchie-instellingen** onder **beheer > siteconfiguratie > Sites**, en selecteer vervolgens de **Clientupgrade** tabblad.
+2.  Schakel het selectievakje voor **uitsluiten opgegeven clients upgrade**, en vervolgens voor **uitsluiting verzameling**, selecteer de verzameling die u wilt uitsluiten. U kunt slechts één verzameling voor uitsluiting selecteren.
+3.  Klik op **OK** te sluiten en de configuratie op te slaan. Vervolgens, nadat clients beleid bijwerken, clients in de uitgesloten verzameling wordt niet langer automatisch updates installeren voor de clientsoftware.
+
+  ![Instellingen voor uitsluiting van Automatische upgrade](media/automatic_upgrade_exclusion.png)
 
 > [!NOTE]
-> Ces paramètres peuvent uniquement être configurés sur des ordinateurs clients exécutant la mise à jour de novembre (1511) de Windows 10 ou ultérieure.
+> Hoewel de gebruikersinterface wordt aangegeven dat clients niet worden bijgewerkt via een van deze methoden, zijn er twee methoden die u kunt deze instellingen overschrijven. Client-pushinstallatie en een handmatige clientinstallatie kunnen worden gebruikt voor het onderdrukken van deze configuratie. Zie de volgende sectie voor meer informatie.
 
-### <a name="try-it-out"></a>Essayez !
+### <a name="how-to-upgrade-a-client-that-is-in-an-excluded-collection"></a>Een client die zich in een uitgesloten verzameling bijwerken
+Zolang een verzameling is geconfigureerd om te worden uitgesloten, kunnen leden van de verzameling alleen hun bijgewerkt door een van twee methoden, deze de uitsluiting van de heffen clientsoftware hebben:
+ - **Push-clientinstallatie** – u kunt push-clientinstallatie naar een client bijwerkt die zich in een uitgesloten verzameling. Dit is toegestaan als het wordt beschouwd als de bedoeling van de beheerder en kunt u clients bijwerken zonder de volledige verzameling worden verwijderd uit uitsluiting.       
+ - **Handmatige clientinstallatie** – u kunt clients die zich in een uitgesloten verzameling als u de volgende opdrachtregel-switch met ccmsetup handmatig bijwerken: ***/ignoreskipupgrade***
 
-1.  Dans la console de Configuration Manager, cliquez sur **Ressources et Conformité** > **Vue d’ensemble** > **Paramètres de compatibilité** > **Éléments de configuration**, puis créez un **Élément de configuration**.
-2.  Entrez un nom, sélectionnez **Windows 8.1 et Windows 10** sous **Paramètres pour les appareils gérés sans le client Configuration Manager**, puis cliquez sur **Suivant**.
-3.  Vérifiez que les options **Tout Windows 10 (64 bits)** et **Tout Windows 10 (32 bits)** sont sélectionnées dans la page **Plateformes prises en charge**, puis cliquez sur **Suivant**.
-4.  Sélectionnez le groupe de paramètres **Windows Defender**, puis cliquez sur **Suivant**.
-5.  Configurez les paramètres souhaités dans cette page, puis cliquez sur **Suivant**.
-6.  Effectuez toutes les étapes de l'Assistant.
-7.  Ajoutez cet élément de configuration à une base de référence de configuration, puis déployez cette base de référence sur les ordinateurs exécutant la mise à jour de novembre de Windows 10 (1511) ou version ultérieure.
+  Als u probeert bij te werken handmatig een client die lid is van de uitgesloten verzameling en gebruik deze schakeloptie niet, wordt de client de nieuwe clientsoftware niet installeren. Zie voor meer informatie [Configuration Manager-Clients handmatig installeren](/sccm/core/clients/deploy/deploy-clients-to-windows-computers#a-namebkmkmanuala-how-to-install-configuration-manager-clients-manually).
+
+Zie voor meer informatie over clientinstallatiemethoden [clients implementeren op Windows-computers in System Center Configuration Manager](/sccm/core/clients/deploy/deploy-clients-to-windows-computers).
+
+## <a name="windows-defender-configuration-settings"></a>Configuratie-instellingen voor Windows Defender
+
+U kunt nu instellingen voor Windows Defender-client configureren op Intune ingeschreven Windows 10-computers met configuratie-items in de Configuration Manager-console.
+
+U kunt in het bijzonder de volgende Windows Defender-instellingen configureren:
+- Real-timecontrole toestaan
+- Gedragscontrole toestaan
+- Systeem voor netwerkinspectie inschakelen
+- Alle downloads scannen
+- Scannen van scripts toestaan
+- Bestands- en programma-activiteit controleren
+  - Bewaakte bestanden
+- Dagen opgeloste malware bijhouden
+- Toegang tot de gebruikersinterface van client toestaan
+- Een systeemscan plannen
+  - Geplande dag
+  - Geplande tijd
+- Een dagelijkse snelle scan plannen
+  - Geplande tijd
+- % Van de limiet CPU-gebruik tijdens een scan Scan bestanden te archiveren
+- E-mailberichten scannen
+- Verwisselbare stations scannen
+- Netwerkstations scannen
+- Bestanden die zijn geopend vanuit net shares scannen
+- Update-interval voor handtekeningen
+- Cloudbeveiliging toestaan
+- Gebruikers vragen voorbeelden
+- Detectie van mogelijk ongewenste toepassingen
+- Uitgesloten bestanden/mappen
+- Uitgesloten bestandsextensies
+- Uitgesloten processen
 
 > [!NOTE]
-> N’oubliez pas de cocher la case **Résoudre les paramètres non compatibles** durant le déploiement de la base de référence de configuration.
+> Deze instellingen kunnen alleen worden geconfigureerd op clientcomputers met Windows 10 November Update (1511) en hoger.
 
-## <a name="request-policy-sync-from-administrator-console"></a>Synchronisation de la stratégie de demande à partir de la console administrateur
+### <a name="try-it-out"></a>Probeer het nu!
 
-Vous pouvez désormais demander une synchronisation de la stratégie pour un appareil mobile à partir de la console Configuration Manager, au lieu d’avoir à la demander sur l’appareil. Les informations sur l’état de la demande de synchronisation sont disponibles dans une nouvelle colonne, appelée **État de la synchronisation à distance** dans la vue des appareils. L’état apparaît également dans la section **Données de découverte** de la boîte de dialogue **Propriétés** pour chaque appareil mobile.
+1.  Ga in de Configuration Manager-console **activa en naleving** > **overzicht** > **instellingen voor naleving** > **configuratie-Items**, en maak een nieuwe **configuratie-Item**.
+2.  Voer een naam in en selecteer vervolgens **Windows 8.1 en Windows 10** onder **instellingen voor apparaten die worden beheerd zonder Configuration Manager-client** en klik op **volgende**.
+3.  Zorg ervoor dat **alle Windows 10 (64-bits)** en **alle Windows 10 (32-bits)** zijn geselecteerd op de **ondersteunde Platforms** pagina en klik vervolgens op **volgende**.
+4.  Selecteer de **Windows Defender** instelling groep, klikt u vervolgens op **volgende**.
+5.  Configureer de gewenste instellingen op deze pagina en klik vervolgens op **volgende**.
+6.  Voltooi de wizard.
+7.  Dit configuratie-item toevoegen aan een configuratiebasislijn en implementeren van deze basislijn op computers met Windows 10 November Update (1511) of hoger.
 
-### <a name="try-it-out"></a>Essayez !
+> [!NOTE]
+> Vergeet niet om te controleren de **niet-compatibele instellingen herstellen** selectievakje bij het implementeren van de configuratiebasislijn.
 
-1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité** > **Vue d’ensemble** > Appareils.
-2.  Dans le menu **Actions de l’appareil à distance**, sélectionnez **Envoyer une demande de synchronisation**.
+## <a name="request-policy-sync-from-administrator-console"></a>Aanvraag beleid synchroniseren vanuit de administrator-console
 
-La synchronisation peut prendre de cinq à dix minutes. Les modifications apportées à la stratégie sont synchronisées avec l’appareil. Vous pouvez suivre l’état de la demande de synchronisation dans la colonne **État de la synchronisation à distance** de la vue **Appareils** ou dans la boîte de dialogue **Propriétés** de l’appareil.
+U kunt nu een synchronisatie met beleid voor een mobiel apparaat aanvragen via de Configuration Manager-console, in plaats van hoeven aan te vragen een synchronisatie van het apparaat zelf. Informatie over de status van de synchronisatie-aanvraag is beschikbaar als een nieuwe kolom in de apparaat-weergaven, aangeroepen **status van externe synchronisatie**. Status wordt ook weergegeven in de **detectiegegevens** sectie van de **eigenschappen** dialoogvenster voor elk mobiele apparaat.
 
-## <a name="additional-security-role-support"></a>Prise en charge des rôles de sécurité supplémentaires
+### <a name="try-it-out"></a>Probeer het nu!
 
-Outre le rôle Administrateur complet, les rôles de sécurité intégrés suivants ont maintenant un accès complet aux éléments dans le nœud **Appareils d’entreprise**, notamment **Appareils prédéclarés**, **Profils d’inscription iOS** et **Profils d’inscription Windows** : •   **Gestionnaire de biens** •   **Gestionnaire d’accès aux ressources de l’entreprise**
+1.  Ga in de Configuration Manager-console **activa en naleving** > **overzicht** > apparaten.
+2.  In de **acties extern apparaat** selecteert u **synchronisatie-aanvraag verzenden**.
 
-L’accès en lecture seule à ces zones de la console Configuration Manager est toujours accordé au rôle **Analyste en lecture seule**.
+Synchronisatie kan vijf tot tien minuten duren. Eventuele wijzigingen in het beleid worden gesynchroniseerd met het apparaat. U kunt de status van de synchronisatieaanvraag in volgen de **Sync-status van externe** kolom in de **apparaten** weergave, of het apparaat **eigenschappen** dialoogvenster.
 
-## <a name="conditional-access-for-windows-10-vpn-profiles"></a>Accès conditionnel pour les profils VPN Windows 10
+## <a name="additional-security-role-support"></a>Ondersteuning voor extra beveiliging rol
 
-Vous pouvez maintenant exiger que les appareils Windows 10 inscrits dans Azure Active Directory soient conformes pour pouvoir avoir un accès VPN via les profils VPN Windows 10 créés dans la console Configuration Manager. Ceci est possible grâce à la nouvelle case à cocher **Activer l’accès conditionnel pour cette connexion VPN** dans la page **Méthode d’authentification** de l’Assistant Profil VPN et les propriétés de profil VPN pour les profils VPN Windows 10. Vous pouvez également spécifier un certificat distinct pour l’authentification unique si vous activez l’accès conditionnel pour le profil.
+Naast de volledige beheerder hebben de volgende ingebouwde beveiligingsrollen nu volledige toegang tot de items in de **alle apparaten in Bedrijfseigendom** knooppunt, met inbegrip van **Predeclared apparaten**, **iOS-Inschrijvingsprofielen**, en **Windows-Inschrijvingsprofielen**: • **Asset Manager** • **toegang tot bedrijfsbronnen**
 
-## <a name="see-also"></a>Voir aussi
-[Technical Preview pour System Center Configuration Manager](../../core/get-started/technical-preview.md)
+Alleen-lezen toegang tot deze gebieden van de Configuration Manager-console nog steeds te krijgen tot de **alleen-Lezenanalist** rol.
+
+## <a name="conditional-access-for-windows-10-vpn-profiles"></a>Voorwaardelijke toegang voor Windows 10 VPN-profielen
+
+U kunt nu Windows 10 vereisen apparaten zijn ingeschreven in Azure Active Directory aan het beleid voldoen om VPN-toegang tot en met Windows 10 VPN-profielen die zijn gemaakt in de Configuration Manager-console. Dit is mogelijk via de nieuwe **voorwaardelijke toegang inschakelen voor deze VPN-verbinding** selectievakje op het **verificatiemethode** pagina in de wizard VPN-profiel en de eigenschappen van de VPN-profiel voor Windows 10 VPN-profielen. U kunt ook een apart certificaat voor eenmalige aanmelding verificatie opgeven als u voorwaardelijke toegang voor het profiel inschakelen.
+
+## <a name="see-also"></a>Zie ook
+[Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md)

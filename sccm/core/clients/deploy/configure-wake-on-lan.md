@@ -1,6 +1,6 @@
 ---
-title: Configurer Wake on LAN | Microsoft Docs
-description: "Sélectionnez les paramètres Wake On LAN dans System Center Configuration Manager."
+title: Wake on LAN configureren | Microsoft Docs
+description: Selecteer Wake On LAN-instellingen in System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,44 +16,44 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 9c920651ba1dc6e0a28df458d28956126ddbaff0
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-wake-on-lan-in-system-center-configuration-manager"></a>Guide pratique pour configurer Wake on LAN dans System Center Configuration Manager
+# <a name="how-to-configure-wake-on-lan-in-system-center-configuration-manager"></a>Het configureren van Wake on LAN in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Spécifiez les paramètres d’éveil par appel réseau (« Wake On LAN ») pour System Center Configuration Manager quand vous voulez sortir des ordinateurs d’un état de veille pour installer les logiciels requis, notamment des mises à jour logicielles, des applications, des séquences de tâches ou des programmes.
+Geef de Wake on LAN-instellingen voor System Center Configuration Manager als u computers uit de slaapstand wilt voor het installeren van vereiste software, zoals software-updates, toepassingen, takenreeksen en programma's te brengen.
 
-Vous pouvez compléter Wake On LAN en utilisant les paramètres client du proxy de mise en éveil. Cependant, pour pouvoir utiliser le proxy de mise en éveil, vous devez au préalable activer l'éveil par appel réseau sur le site et activer les options **Utiliser uniquement les paquets de mise en éveil** et **Monodiffusion** pour la méthode de transmission de l'éveil par appel réseau. Cette solution de mise en éveil prend également en charge les connexions ad hoc, notamment les connexions Bureau à distance.
+U kunt de Wake on LAN aanvullen met behulp van de wake-up proxyclient-instellingen. Echter, voor het gebruik van wake-up proxy, moet u eerst Wake on LAN inschakelen voor de site en geef **alleen ontwaakpakketten gebruiken** en de **Unicast** optie voor de Wake on LAN-verzendingsmethode. Deze ontwaakoplossingen ondersteunt ook ad-hoc-verbindingen, zoals een verbinding met extern bureaublad.
 
-Utilisez la première procédure pour configurer l'éveil par appel réseau sur un site principal. Ensuite, utilisez la deuxième procédure pour configurer les paramètres client du proxy de mise en éveil. Cette deuxième procédure configure les paramètres client par défaut, de façon à ce que les paramètres du proxy de mise en éveil soient appliqués à tous les ordinateurs de la hiérarchie. Si vous souhaitez appliquer ces paramètres à certains ordinateurs seulement, créez un paramètre d’appareil personnalisé et attribuez-le à un regroupement contenant les ordinateurs que vous souhaitez configurer pour le proxy de mise en éveil. Pour plus d'informations sur la création de paramètres client personnalisés, consultez [Guide pratique pour configurer les paramètres client dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-settings.md).
+Gebruik de eerste procedure voor het configureren van een primaire site voor Wake on LAN. Vervolgens gebruikt u de tweede procedure voor het configureren van de wake-up proxyclient-instellingen. Deze tweede procedure configureert u de standaardclientinstellingen voor de wake-up proxy-instellingen toepassen op alle computers in de hiërarchie. Als u deze instellingen wilt toepassen op alleen de geselecteerde computers, aangepaste apparaatinstellingen maken en toewijzen aan een verzameling waartoe de computers die u wilt configureren voor wake-up proxy. Zie [Clientinstellingen in System Center Configuration Manager configureren](../../../core/clients/deploy/configure-client-settings.md) voor meer informatie over het maken van aangepaste clientinstellingen.
 
-Un ordinateur qui reçoit les paramètres client du proxy de mise en éveil risque d’interrompre sa connexion réseau pendant 1 à 3 secondes. Cela est dû au fait que le client doit réinitialiser la carte d’interface réseau pour activer le pilote de proxy de mise en éveil.
+Een computer die de wake-up proxy clientinstellingen ontvangt pauzeert waarschijnlijk de netwerkverbinding voor 1-3 seconden. Dit komt doordat de client opnieuw voor de netwerkkaart instellen moet zodat het stuurprogramma van de wake-up proxy erop.
 
 > [!WARNING]
-> Pour éviter une interruption inattendue de vos services réseau, commencez par évaluer le proxy de mise en éveil sur une infrastructure réseau isolée et représentative. Utilisez ensuite les paramètres client personnalisés pour étendre votre test à une sélection d'ordinateurs situés sur plusieurs sous-réseaux. Pour plus d’informations sur le fonctionnement du proxy de mise en éveil, consultez [Planifier la sortie de veille des clients dans System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).
+> Om te voorkomen onverwachte onderbreking van uw netwerkservices, moet u eerst wake-up proxy op een afgezonderde en representatieve netwerkinfrastructuur evalueren. Gebruik vervolgens aangepaste clientinstellingen uw test uitbreiden naar een selecte groep computers op verschillende subnetten. Zie voor meer informatie over wake-up proxy werkt [plannen voor ontwaken van clients in System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).
 
-## <a name="to-configure-wake-on-lan-for-a-site"></a>Pour configurer l'éveil par appel réseau pour un site
+## <a name="to-configure-wake-on-lan-for-a-site"></a>Voor Wake on LAN voor een site configureren
 
-1. Dans la console Configuration Manager, accédez à **Administration > Configuration du site > Sites**.
-2. Cliquez sur le site principal à configurer, puis sur **Propriétés**.
-3. Cliquez sur l’onglet **Wake On LAN** et configurez les options dont vous avez besoin pour ce site. Pour activer la prise en charge du proxy de mise en éveil, veillez à sélectionner **Utiliser uniquement les paquets de mise en éveil** et **Monodiffusion**. Pour plus d’informations, consultez [Planifier la sortie de veille des clients dans System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).
-4. Cliquez sur **OK** et répétez cette procédure pour tous les sites principaux de la hiérarchie.
+1. Ga in de Configuration Manager-console naar **beheer > siteconfiguratie > Sites**.
+2. Klik op de primaire site om te configureren en klik vervolgens op **eigenschappen**.
+3. Klik op de **Wake on LAN** tabblad en configureer de opties die u nodig voor deze site hebt. Ter ondersteuning van wake-up proxy, zorg ervoor dat u selecteert **alleen ontwaakpakketten gebruiken** en **Unicast**. Zie voor meer informatie [plannen voor ontwaken van clients in System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).
+4. Klik op **OK** en Herhaal de procedure voor alle primaire sites in de hiërarchie.
 
-## <a name="to-configure-wake-up-proxy-client-settings"></a>Pour configurer les paramètres client du proxy de mise en éveil
+## <a name="to-configure-wake-up-proxy-client-settings"></a>Wake-up proxyclient-instellingen configureren
 
-1. Dans la console Configuration Manager, accédez à **Administration > Paramètres client**.
-2. Cliquez sur **Paramètres client par défaut**, puis sur **Propriétés**.
-3. Sélectionnez **Gestion de l’alimentation**, puis choisissez **Oui** pour **Autoriser le proxy de mise en éveil**.
-4. Passez en revue les autres paramètres du proxy de mise en éveil et configurez-les si nécessaire. Pour plus d’informations sur ces paramètres, consultez [Paramètres de gestion de l’alimentation](../../../core/clients/deploy/about-client-settings.md#power-management).
-5. Cliquez sur **OK** pour fermer la boîte de dialogue, puis cliquez de nouveau sur **OK** pour fermer la boîte de dialogue Paramètres client par défaut.
+1. Ga in de Configuration Manager-console naar **beheer > clientinstellingen**.
+2. Klik op **Standaardclientinstellingen**, en klik vervolgens op **eigenschappen**.
+3. Selecteer **energiebeheer** en kies vervolgens **Ja** voor **wake-up proxy inschakelen**.
+4. Bekijk en configureer zo nodig de andere wake-up proxy-instellingen. Zie voor meer informatie over deze instellingen [energiebeheerinstellingen](../../../core/clients/deploy/about-client-settings.md#power-management).
+5. Klik op **OK** in het dialoogvenster sluiten en klik vervolgens op **OK** om de Standaardclientinstellingen dialoogvenster te sluiten.
 
-Vous pouvez utiliser les rapports de Wake On LAN suivants pour surveiller l'installation et la configuration du proxy de mise en éveil :
+De volgende Wake On LAN-rapporten kunt u de installatie en configuratie van wake-up proxy controleren:
 
-- Résumé de l'état de déploiement du proxy de mise en éveil
-- Détails sur l'état du déploiement de proxy de mise en éveil
+- Samenvatting van implementatiestatus van Wake-up proxy
+- Details van implementatiestatus van Wake-up proxy
 
 > [!TIP]
-> Pour vérifier le bon fonctionnement du proxy de mise en éveil, essayez de vous connecter à un ordinateur en veille. Essayez par exemple de vous connecter à un dossier partagé sur cet ordinateur ou de vous connecter à ce dernier via une connexion Bureau à distance. Si vous utilisez l’accès direct, vérifiez que les préfixes IPv6 fonctionnent en effectuant les mêmes tests sur un ordinateur en veille actuellement connecté à Internet.
+> Als u wilt testen of wake-up proxy werkt, test u een verbinding met een computer in slaapstand. Bijvoorbeeld verbinding maken met een gedeelde map op die computer of probeer verbinding te maken met de computer met extern bureaublad. Als u directe toegang gebruikt, controleert u dat de IPv6-voorvoegsels werken door dezelfde tests uit voor een computer in slaapstand die zich momenteel op het Internet.

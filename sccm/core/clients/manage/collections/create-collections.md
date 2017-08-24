@@ -1,6 +1,6 @@
 ---
-title: "Créer des regroupements | Microsoft Docs"
-description: "Créez des regroupements dans System Center Configuration Manager pour faciliter la gestion des groupes d’utilisateurs et d’appareils."
+title: Verzamelingen maken | Microsoft Docs
+description: Verzamelingen in System Center Configuration Manager voor het beheren van groepen van gebruikers en apparaten eenvoudiger maken.
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -17,85 +17,85 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 44b4707b1a40624c51decf548d23ddd2164c5833
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-collections-in-system-center-configuration-manager"></a>Guide pratique pour créer des regroupements dans System Center Configuration Manager
+# <a name="how-to-create-collections-in-system-center-configuration-manager"></a>Verzamelingen maken in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Les regroupements sont des groupes d’utilisateurs ou d’appareils. Utilisez les regroupements pour effectuer des tâches comme la gestion d’applications, le déploiement de paramètres de compatibilité ou l’installation de mises à jour logicielles. Vous pouvez également utiliser des regroupements pour gérer des groupes de paramètres client ou les utiliser avec l’administration basée sur les rôles pour définir les ressources auxquelles un utilisateur administratif peut accéder. Configuration Manager contient plusieurs regroupements intégrés. Pour plus d’informations, consultez [Présentation des regroupements dans System Center Configuration Manager](../../../../core/clients/manage/collections/introduction-to-collections.md).  
+Verzamelingen zijn groepen gebruikers of apparaten. Gebruik verzamelingen voor taken zoals toepassingsbeheer, de implementatie van nalevingsinstellingen of de installatie van software-updates. U kunt verzamelingen ook gebruiken om groepen clientinstellingen te beheren of te gebruiken met op rollen gebaseerd beheer om de resources op te geven waartoe een gebruiker met beheerdersrechten toegang heeft. Configuration Manager bevat verschillende ingebouwde verzamelingen. Zie voor meer informatie [inleiding op verzamelingen in System Center Configuration Manager](../../../../core/clients/manage/collections/introduction-to-collections.md).  
 
 > [!NOTE]  
->  Un regroupement peut contenir des utilisateurs ou des appareils, mais pas les deux.  
+>  Een verzameling kan gebruikers of apparaten, maar niet beide bevatten.  
 
- Le tableau suivant répertorie les règles que vous pouvez utiliser pour configurer les membres d’un regroupement dans Configuration Manager.  
+ De volgende tabel bevat de regels die u kunt de leden van een verzameling configureren in Configuration Manager.  
 
-|Type de règle d'appartenance|Plus d'informations|  
+|Type lidmaatschapsregel|Meer informatie|  
 |--------------------------|----------------------|  
-|Règle directe|Utilisez les règles directes pour choisir les utilisateurs ou les ordinateurs à ajouter à un regroupement. Cette appartenance ne change pas, à moins qu’une ressource soit supprimée de Configuration Manager. Configuration Manager doit avoir découvert les ressources ou vous devez les avoir importées pour pouvoir les ajouter à un regroupement à règle directe. Les regroupements avec règle directe ont une surcharge administrative plus élevée que celle des regroupements avec règle de requête, car ils nécessitent des modifications manuelles.|  
-|Règle de requête|Les règles de requête mettent à jour dynamiquement l’appartenance à un regroupement en fonction d’une requête que Configuration Manager exécute selon une planification. Par exemple, vous pouvez créer un regroupement d'utilisateurs membres de l'unité d'organisation Ressources Humaines dans les services de domaine Active Directory. Ce regroupement est automatiquement mis à jour quand de nouveaux utilisateurs sont ajoutés ou supprimés dans l’unité d’organisation Ressources Humaines.<br /><br /> Pour examiner des exemples de requêtes que vous pouvez utiliser pour créer des regroupements, consultez [Guide pratique pour créer des requêtes dans System Center Configuration Manager](../../../../core/servers/manage/create-queries.md).|  
-|Règle Inclure des regroupements|Cette règle inclut les membres d’un autre regroupement dans un regroupement Configuration Manager. L’appartenance au regroupement actif est mise à jour selon une planification si le regroupement inclus est modifié.<br /><br /> Vous pouvez ajouter plusieurs règles d’inclusion de regroupement à un regroupement.<br /> |  
-|Règle Exclure des regroupements|La règle Exclure des regroupements permet d’exclure les membres d’un autre regroupement d’un regroupement Configuration Manager. L’appartenance du regroupement actuel est mise à jour selon une planification si le regroupement exclu est modifié.<br /><br /> Vous pouvez ajouter plusieurs règles d’exclusion de regroupement à un regroupement. Si un regroupement inclut des règles d’inclusion et d’exclusion de regroupement et qu’il existe un conflit, la règle d’exclusion de regroupement est prioritaire.<br />              **Exemple :** vous créez un regroupement qui comporte une seule règle d’inclusion de regroupement et une seule règle d’exclusion de regroupement. La règle d’inclusion concerne un regroupement d’ordinateurs de bureau Dell. La règle d’exclusion concerne un regroupement d’ordinateurs qui possèdent moins de 4 Go de RAM. Le nouveau regroupement contient les ordinateurs de bureau Dell qui ont au moins 4 Go de RAM.|  
+|Directe regel|Gebruik om de gebruikers of computers kiezen die u wilt toevoegen aan een verzameling. Dit lidmaatschap wordt niet gewijzigd, tenzij u een resource uit de Configuration Manager verwijdert. Configuration Manager moet de resources hebben gedetecteerd of u moet de resources hebben geïmporteerd voordat u ze aan de verzameling van een directe regel toevoegen kunt. Directe regelverzamelingen hebben een hogere administratieve overhead dan queryregelverzamelingen omdat ze handmatige wijzigingen vereisen.|  
+|Queryregel|Het lidmaatschap van een verzameling op basis van een query die Configuration Manager wordt uitgevoerd op een planning dynamisch bijwerken. U kunt bijvoorbeeld een verzameling gebruikers maken die lid zijn van de organisatie-eenheid Human Resources in Active Directory Domain Services. Deze verzameling wordt automatisch bijgewerkt wanneer nieuwe gebruikers worden toegevoegd aan of verwijderd uit de organisatie-eenheid Human Resources.<br /><br /> Bijvoorbeeld query's die u kunt gebruiken voor het bouwen van verzamelingen, Zie [query's maken in System Center Configuration Manager](../../../../core/servers/manage/create-queries.md).|  
+|Regel voor opnemen van verzameling|De leden van een andere verzameling opnemen in een Configuration Manager-verzameling die het lidmaatschap van de huidige verzameling wordt bijgewerkt volgens een schema als de opgenomen verzameling wordt gewijzigd.<br /><br /> U kunt meerdere regels voor het opnemen van verzamelingen toevoegen aan een verzameling.<br /> |  
+|Regel voor uitsluiten van verzameling|Regel voor het uitsluiten kunt u de leden van een andere verzameling uitsluiten van een Configuration Manager-verzameling. Het lidmaatschap van de huidige verzameling wordt volgens een schema bijgewerkt als de uitgesloten verzameling wordt gewijzigd.<br /><br /> U kunt meerdere regels voor het uitsluiten van een verzameling toevoegen aan een verzameling. Als een verzameling bevat zowel verzameling opnemen en uitsluiten van regels voor het verzamelen en heeft er is een conflict, wordt de verzameling-regel voor uitsluiten voorrang.<br />              **Voorbeeld:** U maakt een verzameling met één regel voor verzamelen en een uitsluitingsregel voor verzameling opnemen. De regel voor het opnemen van een verzameling is bedoeld voor een verzameling Dell-desktopcomputers. De uitsluitingsverzameling is een verzameling computers met minder dan 4 GB RAM-geheugen. De nieuwe verzameling bevat Dell-desktopcomputers met minstens 4 GB RAM-geheugen.|  
 
- Utilisez les procédures suivantes pour créer des regroupements dans Configuration Manager. Vous pouvez aussi importer des regroupements créés sur ce site ou sur un autre site Configuration Manager. Pour plus d’informations sur l’exportation et l’importation des regroupements, consultez [Guide pratique pour gérer des regroupements dans System Center Configuration Manager](../../../../core/clients/manage/collections/manage-collections.md).  
+ Gebruik de volgende procedures voor hulp bij het maken van verzamelingen in Configuration Manager. U kunt ook verzamelingen die zijn gemaakt op deze of een andere Configuration Manager-site importeren. Zie voor meer informatie over het exporteren en importeren van verzamelingen [verzamelingen in System Center Configuration Manager beheren](../../../../core/clients/manage/collections/manage-collections.md).  
 
- Pour plus d’informations sur la création de regroupements pour des ordinateurs qui exécutent Linux et UNIX, consultez [Guide pratique pour gérer les clients pour des serveurs Linux et UNIX dans System Center Configuration Manager](../../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md).  
+ Zie voor meer informatie over het maken van verzamelingen voor computers waarop Linux en UNIX [clients voor Linux en UNIX-servers in System Center Configuration Manager beheren](../../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md).  
 
-##  <a name="BKMK_1"></a> Pour créer un regroupement d’appareils  
+##  <a name="BKMK_1"></a> Een apparaatverzameling maken  
 
-1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Regroupements d’appareils**.  
+1.  Kies in de Configuration Manager-console **activa en naleving** > **Apparaatverzamelingen**.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer un regroupement de périphériques**.  
+3.  Op de **Start** tabblad, in de **maken** groep, kiest u **Apparaatverzameling maken**.  
 
-4.  Dans la page **Général**, fournissez un **Nom** et un **Commentaire**. Ensuite, dans **Limitation au regroupement**, choisissez **Parcourir** pour sélectionner un regroupement de limitation. Le regroupement contiendra uniquement les membres du regroupement de limitation.  
+4.  Op de **algemene** -pagina bevatten een **naam** en een **Opmerking**. Klik op **beperkende verzameling**, kies **Bladeren** om een beperkende verzameling te selecteren. De verzameling bevat alleen leden uit de beperkende verzameling.  
 
-5.  Dans la page **Règles d’adhésion** de l’**Assistant Création d’un regroupement de périphériques**, dans la liste **Ajouter une règle**, sélectionnez le type de règle d’adhésion que vous voulez utiliser pour le regroupement. Vous pouvez configurer plusieurs règles pour chaque regroupement.  
+5.  Op de **lidmaatschapsregels** pagina van de **Wizard Apparaatverzameling maken**, in de **regel toevoegen** , selecteert u het type lidmaatschapsregel dat u wilt gebruiken voor deze verzameling. U kunt meerdere regels voor elke verzameling configureren.  
 
         
-##### <a name="to-configure-a-direct-rule"></a>Pour configurer une règle directe  
+##### <a name="to-configure-a-direct-rule"></a>Een directe regel configureren  
 
-1.  Sur la page **Rechercher des ressources** de l' **Assistant Création d'une règle d'adhésion directe**, spécifiez les informations suivantes :  
+1.  Geef op de pagina **Zoeken naar resources** van de wizard **Regel voor direct lidmaatschap maken**de volgende gegevens op:  
 
--   **Classe de ressource** : Sélectionnez le type de ressource à rechercher et ajouter au regroupement. Sélectionnez dans les valeurs **Ressource Système** pour rechercher des données d'inventaire renvoyées par les ordinateurs clients ou **Ordinateur inconnu** pour sélectionner dans les valeurs renvoyées par les ordinateurs inconnus.  
+-   **Bronklasse**: Selecteer het type resource dat u wilt zoeken en toevoegen aan de verzameling. Selecteer waarden bij **Systeembron** om te zoeken naar inventarisgegevens die zijn geretourneerd door clientcomputers of bij **Onbekende computer** om een keuze te maken uit waarden die zijn geretourneerd door onbekende computers.  
 
--   **Nom d’attribut** : Sélectionnez l’attribut associé à la classe de ressource sélectionnée que vous voulez rechercher. Par exemple, si vous souhaitez sélectionner des ordinateurs par leur nom NetBIOS, sélectionnez **Ressource Système** dans la liste **Classe de ressource** et **NetBIOS nom** dans la liste **Nom d'attribut** .  
+-   **Kenmerknaam**: Selecteer het kenmerk dat is gekoppeld aan de geselecteerde resourceklasse die u wilt zoeken. Als u bijvoorbeeld computers wilt selecteren op basis van hun NetBIOS-naam, selecteert u **Systeembron** in de lijst **Resourceklasse** en **NetBIOS-naam** in de lijst **Kenmerknaam** .  
 
--   **Exclure les ressources signalées comme obsolètes** : si un ordinateur client est signalé comme obsolète, n’incluez pas cette valeur dans les résultats de recherche.  
+-   **Alle resources die zijn gemarkeerd als verouderd uitsluiten** - als een clientcomputer is gemarkeerd als verouderd, moet u deze waarde niet opnemen in de zoekresultaten.  
 
--   **Exclure les ressources sur lesquelles le client Configuration Manager n’est pas installé** : Elles ne seront pas affichées dans les résultats de recherche.  
+-   **Resources uitsluiten waarop geen Configuration Manager-client geïnstalleerd** -deze niet weergegeven in de zoekresultaten.  
 
--   **Valeur :** entrez une valeur pour laquelle vous voulez rechercher le nom d’attribut sélectionné. Vous pouvez utiliser le caractère de pourcentage ( **%** ) comme caractère générique. Par exemple, pour rechercher les ordinateurs dont le nom NetBIOS commence par « M », entrez **M%** dans ce champ.  
+-   **Waarde:** Voer een waarde waarvoor u wilt zoeken van de naam van het geselecteerde kenmerk. U kunt het percentageteken **%** als een jokerteken gebruiken. Voer bijvoorbeeld wilt zoeken naar computers waarvoor een NetBIOS-naam die begint met ''M', **M %** in dit veld.  
 
-2.  Dans la page **Sélectionner les ressources**, sélectionnez les ressources à ajouter au regroupement dans la liste **Ressources**, puis choisissez **Suivant**.  
+2.  Op de **Resources selecteren** pagina, selecteert u de resources die u wilt toevoegen aan de verzameling in de **Resources** lijst en kies vervolgens **volgende**.  
 
 
-##### <a name="to-configure-a-query-rule"></a>Pour configurer une règle de requête  
+##### <a name="to-configure-a-query-rule"></a>Een queryregel configureren  
 
-1.  Dans la boîte de dialogue **Propriétés de la règle de requête** , définissez les options suivantes :  
+1.  Geef in het dialoogvenster **Queryregeleigenschappen** de volgende gegevens op:  
 
--   **Nom** : Spécifiez un nom unique.  
+-   **Naam**: Geef een unieke naam.  
 
--   **Importer l’instruction de requête** : Ouvre la boîte de dialogue **Parcourir la requête** dans laquelle vous pouvez sélectionner une [requête Configuration Manager](../../../../core/servers/manage/create-queries.md) à utiliser comme règle de requête pour le regroupement.   
+-   **Query-instructie importeren** -Hiermee opent u de **door Query Bladeren** waarin u kunt selecteren in het dialoogvenster een [Configuration Manager-query](../../../../core/servers/manage/create-queries.md) gebruiken als de queryregel voor de verzameling.   
 
--   **Classe de ressource :** Sélectionnez le type de ressource à rechercher et ajouter au regroupement. Sélectionnez dans les valeurs **Ressource système** pour rechercher des données d'inventaire renvoyées par les ordinateurs clients ou **Ordinateur inconnu** pour sélectionner dans les valeurs renvoyées par les ordinateurs inconnus.  
+-   **Resourceklasse:** Selecteer het type resource dat u wilt zoeken en toevoegen aan de verzameling. Selecteer een waarde bij **Systeembron** om te zoeken naar inventarisgegevens die zijn geretourneerd door clientcomputers of bij **Onbekende computer** om een keuze te maken uit waarden die zijn geretourneerd door onbekende computers.  
 
--   **Modifier l’instruction de requête** : ouvre la boîte de dialogue **Propriétés de l’instruction de requête** dans laquelle vous pouvez créer une requête à utiliser comme règle pour le regroupement. Pour plus d’informations sur les requêtes, consultez [Informations techniques de référence sur les requêtes pour System Center Configuration Manager](../../../../core/servers/manage/queries-technical-reference.md).  
+-   **Query-instructie bewerken** -Hiermee opent u de **eigenschappen Query-instructie** in het dialoogvenster waarin u een query wilt gebruiken als de regel voor de verzameling kunt maken. Voor meer informatie over query’s, zie [Technische documentatie over query’s in System Center Configuration Manager](../../../../core/servers/manage/queries-technical-reference.md).  
 
     
-##### <a name="to-configure-an-include-collection-rule"></a>Pour configurer une règle d'inclusion de regroupements  
+##### <a name="to-configure-an-include-collection-rule"></a>Een regel voor het opnemen van een verzameling configureren  
 
-Dans la boîte de dialogue **Sélectionner des regroupements**, sélectionnez les regroupements à inclure dans le nouveau regroupement, puis choisissez **OK**.  
+In de **verzamelingen selecteren** dialoogvenster Selecteer de verzamelingen die u wilt opnemen in de nieuwe verzameling en kies vervolgens **OK**.  
 
-##### <a name="to-configure-an-exclude-collection-rule"></a>Pour configurer une règle d'exclusion de regroupements  
+##### <a name="to-configure-an-exclude-collection-rule"></a>Een regel voor het uitsluiten van een verzameling configureren  
 
-Dans la boîte de dialogue **Sélectionner des regroupements**, sélectionnez les regroupements à inclure dans le nouveau regroupement, puis choisissez **OK**.  
+In de **verzamelingen selecteren** dialoogvenster Selecteer de verzamelingen die u wilt uitsluiten van de nieuwe verzameling en kies vervolgens **OK**.  
 
--   **Utiliser des mises à jour incrémentielles pour ce regroupement** : Sélectionnez cette option pour rechercher et mettre à jour régulièrement uniquement les ressources nouvelles ou modifiées dans l’évaluation de regroupement précédente, indépendamment d’une évaluation de regroupement complète. Les mises à jour incrémentielles ont lieu toutes les 10 minutes.  
+-   **Incrementele updates gebruiken voor deze verzameling** : Selecteer deze optie om periodiek controleren en bijwerken alleen nieuwe of gewijzigde bronnen uit de vorige evaluatie, onafhankelijk van een volledige verzamelingsevaluatie. Incrementele updates worden om de tien minuten uitgevoerd.  
 
 > [!IMPORTANT]  
->  Les regroupements configurés à l'aide de règles de requête qui utilisent les classes suivantes ne prennent pas en charge les mises à jour incrémentielles :  
+>  Verzamelingen die zijn geconfigureerd met queryregels die de volgende klassen gebruiken, ondersteunen geen incrementele updates.  
 >   
 > -   SMS_G_System_CollectedFile  
 > -   SMS_G_System_LastSoftwareScan  
@@ -104,70 +104,70 @@ Dans la boîte de dialogue **Sélectionner des regroupements**, sélectionnez le
 > -   SMS_G_System_DCMDeploymentErrorAssetDetails  
 > -   SMS_G_System_DCMDeploymentCompliantAssetDetails  
 > -   SMS_G_System_DCMDeploymentNonCompliantAssetDetails  
-> -   SMS_G_User_DCMDeploymentCompliantAssetDetails (pour les regroupements d'utilisateurs uniquement)  
-> -   SMS_G_User_DCMDeploymentNonCompliantAssetDetails (pour les regroupements d'utilisateurs uniquement)  
+> -   SMS_G_User_DCMDeploymentCompliantAssetDetails (alleen voor verzamelingen van gebruikers)  
+> -   SMS_G_User_DCMDeploymentNonCompliantAssetDetails (alleen voor verzamelingen van gebruikers)  
 > -   SMS_G_System_SoftwareUsageData  
 > -   SMS_G_System_CI_ComplianceState  
 > -   SMS_G_System_EndpointProtectionStatus  
 > -   SMS_GH_System_*  
 > -   SMS_GEH_System_*  
 
--   **Planifier une mise à jour complète sur ce regroupement** : Planifiez une évaluation complète régulière de l’appartenance au regroupement.  
+-   **Een volledige update voor deze verzameling plannen** -een normale volledige evaluatie van het verzamelingslidmaatschap te plannen.  
 
-6.  Terminez l'Assistant pour créer le regroupement. Le nouveau regroupement figure dans le nœud **Regroupements de périphériques** de l'espace de travail **Ressources et conformité**.  
+6.  Voltooi de wizard om de nieuwe verzameling te maken. De nieuwe verzameling wordt weergegeven in het knooppunt **Apparaatverzamelingen** van de werkruimte **Activa en naleving** .  
 
 > [!NOTE]  
->  Vous devez actualiser ou recharger la console Configuration Manager pour voir les membres du regroupement. Toutefois, les membres n’apparaissent pas dans le regroupement tant que la première mise à jour planifiée n’est pas effectuée ou que vous ne sélectionnez pas manuellement **Mettre à jour l’appartenance** pour le regroupement. La mise à jour d’un regroupement peut prendre quelques minutes.  
+>  U moet vernieuwen of opnieuw laden van de Configuration Manager-console om te zien van de leden van de verzameling. Echter de leden worden niet weergegeven in de verzameling pas na de eerste geplande update of als u handmatig selecteren **lidmaatschap bijwerken** voor de verzameling. Duurt een paar minuten voordat een verzamelingsupdate is voltooid.  
 
-##  <a name="BKMK_2"></a> Pour créer un regroupement d'utilisateurs  
+##  <a name="BKMK_2"></a> Een gebruikersverzameling maken  
 
-1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Regroupements d’utilisateurs**.  
+1.  Kies in de Configuration Manager-console **activa en naleving** > **Gebruikersverzamelingen**.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer un regroupement d’utilisateurs**.  
+3.  Op de **Start** tabblad, in de **maken** groep, kiest u **Gebruikersverzameling maken**.  
 
-4.  Dans la page **Général** de l’Assistant, fournissez un **Nom** et un **Commentaire**. Ensuite, dans **Limitation au regroupement**, choisissez **Parcourir** pour sélectionner un regroupement de limitation. Le regroupement contiendra uniquement les membres du regroupement de limitation.  
+4.  Op de **algemene** pagina van de wizardprovide een **naam** en een **Opmerking**. Klik op **beperkende verzameling**, kies **Bladeren** om een beperkende verzameling te selecteren. De verzameling bevat alleen leden uit de beperkende verzameling.  
 
-5.  Dans la page **Règles d’adhésion**, spécifiez ce qui suit :  
+5.  Op de **lidmaatschapsregels** pagina, geeft u het volgende:  
 
-    -   dans la liste **Ajouter une règle** , sélectionnez le type de règle d'adhésion à utiliser pour le regroupement. Vous pouvez configurer plusieurs règles pour chaque regroupement.  
+    -   Selecteer in de lijst **Regel toevoegen** het type lidmaatschapsregel dat u wilt gebruiken voor deze verzameling. U kunt meerdere regels voor elke verzameling configureren.  
 
-##### <a name="to-configure-a-direct-rule"></a>Pour configurer une règle directe  
+##### <a name="to-configure-a-direct-rule"></a>Een directe regel configureren  
 
-1.  Dans la page **Rechercher des ressources** de l’**Assistant Création d’une règle d’adhésion directe**, spécifiez les informations suivantes :  
+1.  Op de **zoeken naar Resources** pagina van de **Direct lidmaatschap Wizard regel voor maken**, opgeven:  
 
--   **Classe de ressource** : Sélectionnez le type de ressource à rechercher et ajouter au regroupement. Sélectionnez des valeurs **Ressource utilisateur** pour rechercher les informations utilisateur collectées par Configuration Manager ou **Ressource groupe d’utilisateurs** pour rechercher les informations sur les groupes d’utilisateurs collectées par Configuration Manager.  
+-   **Bronklasse**: Selecteer het type resource dat u wilt zoeken en toevoegen aan de verzameling. Selecteer uit **gebruikersbron** waarden om te zoeken naar gebruikersgegevens verzameld door Configuration Manager of **bron van gebruikersgroep** om te zoeken naar gebruikersgroepsgegevens verzameld door Configuration Manager.  
 
--   **Nom d’attribut** : Sélectionnez l’attribut associé à la classe de ressource que vous voulez rechercher. Par exemple, si vous voulez sélectionner des utilisateurs par leur nom d’unité d’organisation (UO), sélectionnez **Ressource utilisateur** dans la liste **Classe de ressource** et **Nom de l’unité d’organisation utilisateur** dans la liste **Nom d’attribut** .  
+-   **Kenmerknaam**: Selecteer het kenmerk dat is gekoppeld aan de resourceklasse die u wilt zoeken. Als u bijvoorbeeld gebruikers wilt selecteren op basis van de naam van de organisatie-eenheid, selecteert u **Gebruikersbron** in de lijst **Resourceklasse** en **Naam van gebruikers-OE** in de lijst **Kenmerknaam** .  
 
--   **Valeur :** Entrez une valeur à rechercher. Vous pouvez utiliser le caractère de pourcentage ( **%** ) comme caractère générique. Par exemple, pour rechercher des utilisateurs dans l’unité d’organisation Contoso, entrez **Contoso** dans ce champ.  
+-   **Waarde:** Voer een waarde die u wilt zoeken. U kunt het percentageteken **%** als een jokerteken gebruiken. Voer bijvoorbeeld wilt zoeken naar gebruikers in de Contoso OU, **Contoso** in dit veld.  
 
-2.  Dans la page **Sélectionner les ressources**, sélectionnez les ressources à ajouter au regroupement dans la liste **Ressources**.  
+2.  Op de **Resources selecteren** pagina, selecteert u de resources die u wilt toevoegen aan de verzameling in de **Resources** lijst.  
 
-##### <a name="to-configure-a-query-rule"></a>Pour configurer une règle de requête  
+##### <a name="to-configure-a-query-rule"></a>Een queryregel configureren  
 
-1.  Dans la boîte de dialogue **Propriétés de la règle de requête**, fournissez les informations suivantes :  
+1.  In de **Queryregeleigenschappen** dialoogvenster bieden:  
 
--   **Nom** : Un nom unique.  
+-   **Naam**: Een unieke naam.  
 
--   **Importer l’instruction de requête** : Ouvre la boîte de dialogue **Parcourir la requête** dans laquelle vous pouvez sélectionner une [requête Configuration Manager](../../../../core/servers/manage/queries-technical-reference.md) à utiliser comme règle de requête pour le regroupement.  
+-   **Query-instructie importeren** -Hiermee opent u de **door Query Bladeren** waarin u kunt selecteren in het dialoogvenster een [Configuration Manager-query](../../../../core/servers/manage/queries-technical-reference.md) gebruiken als de queryregel voor de verzameling.  
 
--   **Classe de ressource** : Sélectionnez le type de ressource à rechercher et ajouter au regroupement. Sélectionnez des valeurs **Ressource utilisateur** pour rechercher les informations utilisateur collectées par Configuration Manager ou **Ressource groupe d’utilisateurs** pour rechercher les informations sur les groupes d’utilisateurs collectées par Configuration Manager.  
+-   **Bronklasse**: Selecteer het type resource dat u wilt zoeken en toevoegen aan de verzameling. Selecteer uit **gebruikersbron** waarden om te zoeken naar gebruikersgegevens verzameld door Configuration Manager of **bron van gebruikersgroep** om te zoeken naar gebruikersgroepsgegevens verzameld door Configuration Manager.  
 
--   **Modifier l’instruction de requête** : Ouvre la boîte de dialogue **Propriétés de l’instruction de requête** dans laquelle vous pouvez [créer une requête](../../../../core/servers/manage/queries-technical-reference.md) à utiliser comme règle pour le regroupement.  
+-   **Query-instructie bewerken** -Hiermee opent u de **eigenschappen Query-instructie** u kunt in het dialoogvenster [ontwerpen van een query](../../../../core/servers/manage/queries-technical-reference.md) gebruiken als de regel voor de verzameling.  
 
-##### <a name="to-configure-an-include-collection-rule"></a>Pour configurer une règle d'inclusion de regroupements  
+##### <a name="to-configure-an-include-collection-rule"></a>Een regel voor het opnemen van een verzameling configureren  
 
-Dans la boîte de dialogue **Sélectionner des regroupements**, sélectionnez les regroupements à inclure dans le nouveau regroupement, puis choisissez **OK**.  
+In de **verzamelingen selecteren** dialoogvenster Selecteer de verzamelingen die u wilt opnemen in de nieuwe verzameling en kies vervolgens **OK**.  
 
-##### <a name="to-configure-an-exclude-collection-rule"></a>Pour configurer une règle d'exclusion de regroupements  
+##### <a name="to-configure-an-exclude-collection-rule"></a>Een regel voor het uitsluiten van een verzameling configureren  
 
-Dans la boîte de dialogue **Sélectionner des regroupements**, sélectionnez les regroupements à inclure dans le nouveau regroupement, puis choisissez **OK**.  
+In de **verzamelingen selecteren** dialoogvenster Selecteer de verzamelingen die u wilt uitsluiten van de nieuwe verzameling en kies vervolgens **OK**.  
 
 
--   **Utiliser des mises à jour incrémentielles pour ce regroupement** : Sélectionnez cette option pour rechercher et mettre à jour régulièrement uniquement les ressources nouvelles ou modifiées dans l’évaluation de regroupement précédente, indépendamment d’une évaluation de regroupement complète. Les mises à jour incrémentielles ont lieu toutes les 10 minutes.  
+-   **Incrementele updates gebruiken voor deze verzameling** : Selecteer deze optie om periodiek controleren en bijwerken alleen nieuwe of gewijzigde bronnen uit de vorige evaluatie, onafhankelijk van een volledige verzamelingsevaluatie. Incrementele updates worden om de tien minuten uitgevoerd.  
 
 > [!IMPORTANT]  
->  Les regroupements configurés à l'aide de règles de requête qui utilisent les classes suivantes ne prennent pas en charge les mises à jour incrémentielles :  
+>  Verzamelingen die zijn geconfigureerd met queryregels die de volgende klassen gebruiken, ondersteunen geen incrementele updates.  
 >   
 > -   SMS_G_System_CollectedFile  
 > -   SMS_G_System_LastSoftwareScan  
@@ -176,32 +176,32 @@ Dans la boîte de dialogue **Sélectionner des regroupements**, sélectionnez le
 > -   SMS_G_System_DCMDeploymentErrorAssetDetails  
 > -   SMS_G_System_DCMDeploymentCompliantAssetDetails  
 > -   SMS_G_System_DCMDeploymentNonCompliantAssetDetails  
-> -   SMS_G_User_DCMDeploymentCompliantAssetDetails (pour les regroupements d'utilisateurs uniquement)  
-> -   SMS_G_User_DCMDeploymentNonCompliantAssetDetails (pour les regroupements d'utilisateurs uniquement)  
+> -   SMS_G_User_DCMDeploymentCompliantAssetDetails (alleen voor verzamelingen van gebruikers)  
+> -   SMS_G_User_DCMDeploymentNonCompliantAssetDetails (alleen voor verzamelingen van gebruikers)  
 > -   SMS_G_System_SoftwareUsageData  
 > -   SMS_G_System_CI_ComplianceState  
 > -   SMS_G_System_EndpointProtectionStatus  
 > -   SMS_GH_System_*  
 > -   SMS_GEH_System_*  
 
--   **Planifier une mise à jour complète sur ce regroupement** : Planifiez une évaluation complète régulière de l’appartenance au regroupement.  
+-   **Een volledige update voor deze verzameling plannen** -een normale volledige evaluatie van het verzamelingslidmaatschap te plannen.  
 
-6.  Effectuez toutes les étapes de l'Assistant. Le nouveau regroupement figure dans le nœud **Regroupements d'utilisateurs** de l'espace de travail **Ressources et conformité**.  
+6.  Voltooi de wizard. De nieuwe verzameling wordt weergegeven in het knooppunt **Gebruikersverzamelingen** van de werkruimte **Activa en naleving** .  
 
 > [!NOTE]  
->  Vous devez actualiser ou recharger la console Configuration Manager pour voir les membres du regroupement. Toutefois, les membres n’apparaissent pas dans le regroupement tant que la première mise à jour planifiée n’est pas effectuée ou que vous ne sélectionnez pas manuellement **Mettre à jour l’adhésion** pour le regroupement. La mise à jour d’un regroupement peut prendre quelques minutes.  
+>  U moet vernieuwen of opnieuw laden van de Configuration Manager-console om te zien van de leden van de verzameling. De leden worden echter pas in de verzameling weergegeven na de eerste geplande update of als u **Lidmaatschap bijwerken** handmatig selecteert voor de verzameling. Duurt een paar minuten voordat een verzamelingsupdate is voltooid.  
 
-##  <a name="BKMK_3"></a> Pour importer un regroupement  
+##  <a name="BKMK_3"></a> Een verzameling importeren  
 
-1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Regroupements d’utilisateurs** ou **Regroupements d’appareils**.  
+1.  Kies in de Configuration Manager-console **activa en naleving** > **Gebruikersverzamelingen** of **Apparaatverzamelingen**.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Importer des regroupements**.  
+3.  Op de **Start** tabblad, in de **maken** groep, kiest u **verzamelingen importeren**.  
 
-4.  Dans la page **Général** de l’**Assistant Importation de regroupements**, choisissez **Suivant**.  
+4.  Op de **algemene** pagina van de **Wizard verzamelingen importeren**, kies **volgende**.  
 
-5.  Dans la page **Nom du fichier MOF**, cliquez sur **Parcourir**, puis accédez au fichier MOF qui contient les informations de regroupement à importer.  
+5.  Op de **MOF-bestandsnaam** pagina **Bladeren** en blader vervolgens naar het MOF-bestand met de Verzamelingsgegevens die u wilt importeren.  
 
     > [!NOTE]  
-    >  Le fichier à importer doit avoir été exporté à partir d’un site exécutant la même version de Configuration Manager que celui-ci. Pour plus d’informations sur l’exportation de regroupements, consultez [Guide pratique pour gérer des regroupements dans System Center Configuration Manager](../../../../core/clients/manage/collections/manage-collections.md).  
+    >  Het bestand dat u wilt importeren moet zijn geëxporteerd uit een site waarop dezelfde versie van Configuration Manager als deze wordt uitgevoerd. Zie voor meer informatie over het exporteren van verzamelingen [verzamelingen in System Center Configuration Manager beheren](../../../../core/clients/manage/collections/manage-collections.md).  
 
-6.  Terminez l'Assistant pour importer le regroupement. Le nouveau regroupement figure dans le nœud **Regroupements d’utilisateurs** ou **Regroupements de périphériques** de l’espace de travail **Ressources et Conformité** . Actualisez ou rechargez la console Configuration Manager pour afficher les membres du regroupement récemment importé.  
+6.  Voltooi de wizard om de verzameling te importeren. De nieuwe verzameling wordt weergegeven in het knooppunt **Gebruikersverzamelingen** of **Apparaatverzamelingen** van de werkruimte **Activa en naleving** . Vernieuwen of opnieuw laden van de Configuration Manager-console om te zien van de leden van de geïmporteerde verzameling.  

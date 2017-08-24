@@ -1,6 +1,6 @@
 ---
-title: "Transferts de données | Microsoft Docs"
-description: "Découvrez comment Configuration Manager déplace les données entre les sites et comment vous pouvez gérer le transfert des données sur votre réseau."
+title: Gegevensoverdracht | Microsoft Docs
+description: Meer informatie over hoe worden gegevens in Configuration Manager worden verplaatst tussen sites en hoe u de overdracht van de gegevens in uw netwerk kunt beheren.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,191 +16,191 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: bf0fdc8d4b4a72760b2cfb91231378a17df01594
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="data-transfers-between-sites-in-system-center-configuration-manager"></a>Transfert de données entre sites dans System Center Configuration Manager
+# <a name="data-transfers-between-sites-in-system-center-configuration-manager"></a>Gegevensoverdracht tussen sites in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-System Center Configuration Manager utilise la **réplication basée sur les fichiers** et la **réplication de base de données** pour transférer différents types d’informations entre les sites. Découvrez comment Configuration Manager déplace les données entre les sites et comment vous pouvez gérer le transfert des données sur votre réseau.  
+System Center Configuration Manager gebruikt **bestandsgebaseerde replicatie** en **databasereplicatie** om over te dragen van verschillende typen informatie tussen sites. Meer informatie over hoe worden gegevens in Configuration Manager worden verplaatst tussen sites en hoe u de overdracht van gegevens in uw netwerk kunt beheren.  
 
 
 ## <a name="bkmk_fileroute"></a> File-based replication  
-Configuration Manager utilise la réplication basée sur les fichiers pour transférer des données basées sur les fichiers entre les sites dans votre hiérarchie. Ces données incluent les applications et les packages que vous voulez déployer sur des points de distribution dans des sites enfants, ainsi que les enregistrements de données de découverte non traités qui sont transférés vers les sites parents puis traités.  
+Configuration Manager gebruikt bestandsgebaseerde replicatie voor het overbrengen van gegevens op basis van bestanden tussen sites in uw hiërarchie. Deze gegevens omvatten toepassingen en pakketten die u wilt distribueren naar distributiepunten in onderliggende sites en onverwerkte detectiegegevensrecords die naar bovenliggende sites overgedragen en vervolgens wordt verwerkt.  
 
-La communication basée sur les fichiers entre les sites utilise le protocole SMB (**Server Message Block**) sur le port TCP/IP 445. Vous pouvez spécifier la limitation de bande passante et le mode impulsion pour contrôler la quantité de données transférées sur le réseau, et vous pouvez utiliser des planifications pour contrôler à quel moment les données sont envoyées sur le réseau.  
+Bestandsgebaseerde communicatie tussen sites maakt gebruik de **Server Message Block** protocol op TCP/IP-poort 445 (SMB). U kunt bandbreedte bandbreedtebeperking en pulse-modus voor het beheren van de hoeveelheid gegevens die via het netwerk wordt overgedragen opgeven en kunt u schema's om te bepalen wanneer gegevens worden verzonden via het netwerk.  
 
-### <a name="bkmk_routes"></a> Itinéraires de réplication de fichiers  
-Les informations suivantes peuvent vous aider à configurer et à utiliser les itinéraires de réplication de fichiers.  
+### <a name="bkmk_routes"></a> Bestandsreplicatieroutes  
+De volgende informatie kunt u instellen en bestandsreplicatieroutes gebruiken.  
 
-#### <a name="file-replication-route"></a>Itinéraire de réplication de fichiers
+#### <a name="file-replication-route"></a>Route voor bestandsreplicatie
 
-Chaque itinéraire de réplication de fichiers identifie un site de destination vers lequel les données basées sur des fichiers peuvent être transférées. Chaque site prend en charge un seul itinéraire de réplication de fichiers vers un site de destination spécifique.  
+Elke bestandsreplicatieroute identificeert een doelsite waarnaar bestandsgebaseerde gegevens kunnen worden overgedragen. Elke site ondersteunt één bestandsreplicatieroute naar een specifieke doelsite.  
 
-Vous pouvez modifier les paramètres suivants pour les itinéraires de réplication de fichiers :  
+U kunt de volgende instellingen voor de routes voor bestandsreplicatie wijzigen:  
 
--  **Compte de réplication de fichiers**. Ce compte se connecte au site de destination et écrit des données dans le partage **SMS_Site** de ce site. Les données écrites dans ce partage sont traitées par le site de réception. Par défaut, quand un site est ajouté à la hiérarchie, Configuration Manager attribue le compte d’ordinateur du serveur de site du nouveau site comme Compte de réplication de fichiers de ce site. Ce compte est ensuite ajouté au groupe **SMS_SiteToSiteConnection_&lt;code_site\>** du site de destination, un groupe local sur l’ordinateur qui accorde l’accès au partage SMS_Site. Vous pouvez modifier ce compte en un compte d'utilisateur Windows. Si vous changez le compte, veillez à ajouter le nouveau compte au groupe **SMS_SiteToSiteConnection_&lt;code_site\>** du site de destination.  
+-  **Account voor bestandsreplicatie**. Dit account maakt verbinding met de doelsite en schrijft gegevens naar die site **SMS_Site** delen. Gegevens die naar deze share worden geschreven, worden verwerkt door de ontvangende site. Standaard, wanneer een site wordt toegevoegd aan de hiërarchie, wijst Configuration Manager het computeraccount van de siteserver van de nieuwe site als deze sites bestandsreplicatie-Account. Dit account wordt vervolgens toegevoegd aan de doelsite **SMS_SiteToSiteConnection_&lt;Sitecode\>**  groep, een lokale groep op de computer die toegang tot de SMS_Site-share verleent. U kunt dit account zodanig wijzigen, dat dit een Windows gebruikersaccount is. Als u het account wijzigt, zorg ervoor dat u de nieuwe account toevoegt aan de doelsite **SMS_SiteToSiteConnection_&lt;Sitecode\>**  groep.  
 
     > [!NOTE]  
-    >  Les sites secondaires utilisent toujours le compte d'ordinateur du serveur de site secondaire en tant que **Compte de réplication de fichiers**.  
+    >  Secundaire sites gebruiken altijd het computeraccount van de secundaire siteserver als het **Account voor bestandsreplicatie**.  
 
--  **Planification**. Vous pouvez établir le calendrier de chaque itinéraire de réplication de fichiers pour restreindre le type de données et la période de transfert des données vers le site de destination.  
--  **Limites du taux de transfert**. Vous pouvez spécifier des limites de taux de transfert pour chaque itinéraire de réplication de fichiers, afin de contrôler la bande passante réseau utilisée lorsque le site transfère les données vers le site de destination :  
+-  **Planning**. U kunt het schema voor elke bestandsreplicatieroute naar het type gegevens en de tijd waarop gegevens naar de doelsite kunnen worden overgedragen, beperkt instellen.  
+-  **Frequentielimieten**. U kunt opgeven voor elke bestandsreplicatieroute om te bepalen van de netwerkbandbreedte die wordt gebruikt wanneer de site gegevens naar de doelsite overdraagt snelheidslimieten:  
 
-    -  Utilisez l'option **Mode impulsion** pour spécifier la taille des blocs de données envoyés vers le site de destination. Vous pouvez également spécifier un délai entre l’envoi de chaque bloc de données. Utilisez cette option lorsque vous devez envoyer des données via une connexion réseau à très faible bande passante vers le site de destination. Par exemple, vous pouvez forcer l'envoi de 1 Ko de données toutes les cinq secondes, mais empêcher l'envoi de 1 Ko toutes les trois secondes, quelle que soit la vitesse de la liaison ou son utilisation.
-    -  Utilisez l'option **Limité aux taux de transfert maximaux indiqués par heure** pour permettre à un site d'envoyer des données vers un site de destination en utilisant uniquement le pourcentage de temps spécifié. Quand vous utilisez cette option, Configuration Manager n’identifie pas la bande passante disponible du réseau, mais divise plutôt le temps pendant lequel il peut envoyer des données en périodes plus petites. Ensuite, les données sont envoyées pendant une courte plage horaire, suivie de plages horaires pendant lesquelles aucune donnée n’est envoyée. Par exemple, si le taux maximal est fixé à **50 %**, Configuration Manager transmet les données pendant une durée, suivie d’une période d’une durée égale pendant laquelle aucune donnée n’est envoyée. La taille effective des donnés (taille des blocs de données) n’est pas gérée. En revanche, seule la durée pendant laquelle des données sont envoyées est gérée.  
+    -  Gebruik **Pulsmodus** om de grootte van de gegevensblokken die naar de doelsite worden verzonden, te specificeren. U kunt ook een vertraging tussen het verzenden van de afzonderlijke gegevensblokken opgeven. Gebruik deze optie wanneer u gegevens via een netwerkverbinding met zeer lage bandbreedte naar de doelsite verzendt. U kunt bijvoorbeeld beperkingen instellen om elke vijf seconden 1 kB aan gegevens te verzenden, maar niet elke drie seconden, ongeacht de snelheid van de koppeling of het gebruik ervan op een bepaald moment.
+    -  Gebruik **Beperkt tot maximale overdrachtssnelheid per uur** om een site gegevens te laten sturen naar een doelsite door alleen het percentage tijd te gebruiken dat u opgeeft. Als u deze optie gebruikt, wordt Configuration Manager geeft niet de beschikbare bandbreedte van het netwerk, maar verdeelt het de tijd die het gegevens in stukken tijd verzenden kan. Gegevens worden vervolgens verzonden in een kort tijdsblok, gevolgd door tijdsblokken waarin geen gegevens worden verzonden. Bijvoorbeeld, als de maximale snelheid wordt ingesteld op **50%**, Configuration Manager brengt gegevens over een bepaalde tijd, gevolgd door een even lange periode waarin geen gegevens worden verzonden. De werkelijke hoeveelheid gegevens of de grootte van het gegevensblok, wordt niet beheerd. Alleen de hoeveelheid tijd waarin gegevens worden verzonden, wordt beheerd.  
 
         > [!CAUTION]  
-        > Par défaut, un site peut utiliser jusqu'à trois **envois simultanés** pour transférer des données vers un site de destination. Lorsque vous définissez des limites de taux pour un itinéraire de réplication de fichiers, les **envois simultanés** dans le cadre de l'envoi de données vers ce site sont limités à un. Cela s'applique même lorsque l'option **Limiter la bande passante disponible (%)** est définie sur **100 %**. Par exemple, si vous utilisez les paramètres par défaut pour l’expéditeur, le taux de transfert vers le site de destination est réduit à un tiers de la capacité par défaut.  
+        > Standaard kan een site maximaal drie **gelijktijdige verzendingen** gebruiken om gegevens naar een doelsite over te dragen. Wanneer u snelheidslimieten voor een bestandsreplicatieroute inschakelt, zijn de **gelijktijdige verzendingen** voor het verzenden van gegevens naar die site beperkt tot één. Dit geldt ook wanneer de **Limiet beschikbare bandbreedte (%)** is ingesteld op **100%**. Bijvoorbeeld, als u de standaardinstellingen voor de afzender gebruikt, reduceert dit de overdrachtssnelheid naar de doelsite tot één derde van de standaardcapaciteit.  
 
--  Vous pouvez configurer un itinéraire de réplication de fichiers entre deux sites secondaires pour acheminer du contenu basé sur des fichiers entre ces sites.  
+-  U kunt een bestandsreplicatieroute tussen twee secundaire sites configureren om bestandsgebaseerde content tussen die sites te routeren.  
 
-Pour gérer un itinéraire de réplication de fichiers, dans l’espace de travail **Administration**, développez le nœud **Configuration de la hiérarchie**, puis sélectionnez **Réplication de fichiers**.  
+Voor het beheren van een route voor bestandsreplicatie, in de **beheer** werkruimte, vouw de **Hiërarchieconfiguratie** knooppunt en selecteer vervolgens **bestandsreplicatie**.  
 
-#### <a name="sender"></a>Expéditeur
+#### <a name="sender"></a>Afzender
 
-Chaque site a un expéditeur. L'expéditeur gère la connexion réseau entre un site et un site de destination et peut établir des connexions vers plusieurs sites à la fois. Pour se connecter à un site, l'expéditeur utilise l'itinéraire de réplication de fichiers vers le site pour identifier le compte à utiliser pour établir la connexion réseau. L’expéditeur utilise également ce compte pour écrire des données dans le partage SMS_Site du site de destination.  
+Elke site heeft één afzender. De afzender beheert de netwerkverbinding van één site met een doelsite, en kan verbindingen naar meerdere sites op hetzelfde moment tot stand brengen. Om verbinding met een site te maken, gebruikt de afzender de bestandsreplicatieroute naar de site om het account te identificeren dat gebruikt wordt om de netwerkverbinding tot stand te brengen. De afzender gebruikt dit account ook om gegevens te schrijven naar de SMS_Site-share van de doelsite.  
 
-Par défaut, l'expéditeur écrit des données sur un site de destination en utilisant plusieurs **envois simultanés**, généralement appelés « thread ». Chaque envoi simultané (ou « thread ») peut transférer un objet basé sur un fichier différent vers le site de destination. Par défaut, lorsque l'expéditeur commence à envoyer un objet, il continue d'écrire des blocs de données pour cet objet jusqu'à la fin de l'envoi de l'objet complet. Une fois que toutes les données de l'objet ont été envoyées, l'envoi d'un nouvel objet peut commencer sur ce thread.  
+Standaard schrijft de afzender gegevens naar een doelsite door meerdere **gelijktijdige verzendingen**te gebruiken, meestal thread genoemd. Elke gelijktijdige verzending, of thread, kan een verschillend bestandsgebaseerd object naar de doelsite overdragen. Wanneer de afzender begint met het verzenden van een object, gaat de afzender standaard door met het schrijven van gegevensblokken voor dat object totdat het gehele object verzonden is. Nadat alle gegevens voor het object verzonden zijn, kan een nieuw object beginnen met verzenden op die thread.  
 
-Vous pouvez modifier les paramètres suivants pour un expéditeur :  
+U kunt de volgende instellingen voor een afzender wijzigen:  
 
--  **Nombre maximal d’envois simultanés**. Par défaut, chaque site utilise cinq envois simultanés, dont trois peuvent être utilisés dans le cadre de l’envoi de données vers un site de destination quelconque. En augmentant ce nombre, vous pouvez augmenter le débit des données échangées entre les sites, car Configuration Manager peut transférer davantage de fichiers à la fois. Cela a également pour effet d'augmenter la demande en bande passante entre les sites.  
+-  **Maximum aantal gelijktijdige verzendingen**. Elke site maakt standaard gebruik van vijf gelijktijdige verzendingen, waarvan er drie beschikbaar zijn voor gebruik wanneer het gegevens naar eender welke één bestemmingssite verzendt. Als u dit aantal verhoogt, kunt u de verwerkingscapaciteit van gegevens tussen sites verhogen omdat Configuration Manager meer bestanden tegelijkertijd kunnen worden overgedragen. Door dit aantal te verhogen wordt de vraag voor netwerkbandbreedte tussen sites ook verhoogd.  
 
--  **Paramètres de nouvelle tentative**. Par défaut, chaque site effectue deux nouvelles tentatives de connexion en cas de problème, avec un délai d’une minute entre deux essais. Vous pouvez modifier le nombre de tentatives de connexion du site, ainsi que le délai d’attente entre les tentatives.  
+-  **Instellingen voor opnieuw proberen**. Standaard elke site opnieuw probeert een probleemverbinding tweemaal met een vertraging van één minuut tussen de verbindingspogingen. U kunt het aantal verbindingspogingen is de site doet, wijzigen en hoe lang er moet worden gewacht tussen pogingen.  
 
-Pour gérer l’expéditeur pour un site, dans l’espace de travail **Administration**, développez le nœud **Configuration du site**, sélectionnez le nœud **Sites**, puis cliquez sur **Propriétés** pour le site à gérer. Sélectionnez l’onglet **Expéditeur** pour modifier les paramètres de l’expéditeur.  
+Voor het beheren van de verzender voor een site in de **beheer** werkruimte, vouw de **siteconfiguratie** knooppunt, selecteer de **Sites** knooppunt en selecteer vervolgens **eigenschappen** voor de site die u wilt beheren. Selecteer de **afzender** tabblad om de instellingen van de afzender te wijzigen.  
 
 ## <a name="bkmk_dbrep"></a> Database replication  
-La réplication de base de données Configuration Manager utilise SQL Server pour transférer les données et fusionner les modifications apportées à la base de données d’un site avec les informations stockées dans la base de données sur d’autres sites de la hiérarchie. Notez les éléments suivants sur la réplication de base de données :
+Configuration Manager-databasereplicatie gebruikt SQL Server om gegevens te dragen en wijzigingen die zijn aangebracht in een sitedatabase met de informatie opgeslagen in de database op andere sites in de hiërarchie. Houd rekening met het volgende over databasereplicatie:
 
--  Tous les sites partagent les mêmes informations.  
--  Quand vous installez un site dans une hiérarchie, la réplication de base de données est établie automatiquement entre le nouveau site et son site parent désigné.  
--  Une fois l'installation du site terminée, la réplication de base de données démarre automatiquement.  
+-  Alle sites delen dezelfde informatie.  
+-  Wanneer u een site in een hiërarchie installeert, wordt databasereplicatie automatisch geconfigureerd tussen de nieuwe site en de aangeduide bovenliggende site.  
+-  Als de site-installatie is voltooid, wordt databasereplicatie automatisch gestart.  
 
-Quand vous ajoutez un nouveau site à une hiérarchie, Configuration Manager crée une base de données générique sur le nouveau site. Ensuite, le site parent crée un instantané des données appropriées dans sa base de données, puis transfère cet instantané vers le nouveau site par réplication basée sur des fichiers. Le nouveau site utilise ensuite le programme de copie en bloc de SQL Server pour charger les informations dans sa copie locale de la base de données Configuration Manager. Une fois l'instantané chargé, chaque site effectue une réplication de base de données avec l'autre site.  
+Wanneer u een nieuwe site aan een hiërarchie toevoegt, maakt Configuration Manager een algemene database op de nieuwe site. Vervolgens de bovenliggende site een momentopname van de relevante gegevens in de database maakt en vervolgens de momentopname overbrengt naar de nieuwe site door replicatie op basis van een bestand. De nieuwe site gebruikt dan de SQL Server-programma bulksgewijs kopiëren (BCP) om te laden van de informatie in de lokale kopie ervan van de Configuration Manager-database. Nadat de momentopname is geladen, voert elke site databasereplicatie uit met de andere site.  
 
-Pour répliquer des données entre les sites, Configuration Manager utilise son propre service de réplication de base de données. Le service de réplication de base de données utilise le suivi des modifications de SQL Server pour surveiller les modifications apportées à la base de données du site local, puis réplique ces modifications sur les autres sites à l’aide de SQL Server Service Broker (SSB). Par défaut, ce processus utilise le port TCP/IP 4022.  
+Configuration Manager gebruikt om gegevens te repliceren tussen sites, haar eigen databasereplicatieservice. De databasereplicatieservice gebruikt SQL Server-bijhouden om te controleren van de lokale sitedatabase voor wijzigingen en worden de wijzigingen naar andere sites gerepliceerd met behulp van SQL Server Service Broker (SSB). Dit proces maakt standaard gebruik van TCP/IP-poort 4022.  
 
-Configuration Manager regroupe les données répliquées par la réplication de base de données dans différents groupes de réplication. Notez les éléments suivants sur les groupes de réplication :
+Configuration Manager groepeert gegevens die door databasereplicatie in verschillende replicatiegroepen zijn gerepliceerd. Houd rekening met de volgende replicatiegroepen:
 
--  À chaque groupe de réplication correspond une planification de réplication fixe et distincte qui détermine la fréquence de réplication vers d'autres sites des modifications apportées aux données.  
+-  Elke replicatiegroep heeft een afzonderlijk, vast replicatieschema dat bepaalt hoe vaak wijzigingen aan de gegevens in de groep worden gerepliceerd naar andere sites.  
 
-     Par exemple, une modification apportée à une configuration d’administration basée sur des rôles est répliquée rapidement sur d’autres sites pour que ces modifications soient appliquées dès que possible. En revanche, une modification de configuration de plus basse priorité, telle qu’une demande d’installation d’un nouveau site secondaire, est répliquée avec moins d’urgence. Une nouvelle demande de site peut mettre plusieurs minutes pour atteindre le site principal de destination.  
+     Een wijziging in een op rollen gebaseerde beheerconfiguratie repliceert bijvoorbeeld snel naar andere sites om ervoor te zorgen dat deze wijzigingen zo snel mogelijk worden doorgevoerd. Ondertussen repliceert een configuratiewijziging van lagere prioriteit, zoals een aanvraag voor het installeren van een nieuwe secundaire site, met minder urgentie. Het kan enkele minuten duren voordat een nieuwe site-aanvraag naar de primaire bestemmingssite bereikt.  
 
--   Vous pouvez modifier les paramètres suivants de réplication de base de données :  
+-   U kunt de volgende instellingen voor databasereplicatie wijzigen:  
 
-    -  **Liens de réplication de base de données**. Contrôlez quand un trafic spécifique traverse le réseau.  
-    -  **Vues distribuées**. Changez les paramètres des liens de réplication qui permettent aux demandes formulées sur un site d’administration centrale relatives à des données de site sélectionnées d’accéder à ces données directement à partir de la base de données d’un site principal enfant.  
-    -  **Planifications**. Spécifiez quand un lien de réplication doit être utilisé et quand différents types de données de site sont répliqués.  
-    -  **Totalisation**. Changez les paramètres de totalisation des données concernant le trafic réseau qui traverse les liens de réplication. La totalisation a lieu toutes les 15 minutes par défaut et est utilisée pour la réplication de base de données dans les rapports.  
-    -  **Seuils de réplication de base de données**. Définissez quand les liens sont signalés comme détériorés ou en échec. Vous pouvez également configurer à quel moment Configuration Manager doit déclencher des alertes au sujet des liens de réplication dont l’état est Détérioré ou Échec.  
+    -  **Koppelingen voor databasereplicatie**. Bepalen wanneer specifiek verkeer over het netwerk gaat.  
+    -  **Gedistribueerde weergaven**. Instellingen voor replicatiekoppelingen waarmee aanvragen die aan een centrale beheersite voor geselecteerde sitegegevens zijn gedaan toegang die sitegegevens rechtstreeks uit de database op een onderliggende primaire site tot wijzigen.  
+    -  **Planningen**. Geef op wanneer een replicatiekoppeling wordt gebruikt en wanneer verschillende types sitegegevens worden gerepliceerd.  
+    -  **Samenvatting**. Instellingen wijzigen voor gegevenssamenvatting over het netwerkverkeer dat koppelingen voor databasereplicatie passeert. Samenvatting gebeurt elke 15 minuten, standaard en wordt gebruikt in rapporten voor databasereplicatie.  
+    -  **Drempelwaarden voor databasereplicatie**. Gedefinieerd wanneer koppelingen worden gerapporteerd als gedegradeerd of mislukt. U kunt ook configureren wanneer Configuration Manager waarschuwingen geeft over replicatiekoppelingen die een gedegradeerde of mislukte status.  
 
-Configuration Manager classe les données qu’il réplique via la réplication de base de données comme **données globales** ou **données de site**. Lorsqu'une réplication de base de données se produit, les modifications apportées aux données globales et aux données de site sont transférées via le lien de réplication de base de données. Les données globales peuvent être répliquées vers un site parent ou enfant. Les données de site sont répliquées uniquement vers un site parent. Un troisième type de données, les données locales, n’est pas répliqué vers d’autres sites. Les données locales sont des informations qui ne sont pas requises par les autres sites. Notez les éléments suivants concernant les types de données :  
+Configuration Manager deelt de gegevens die het repliceert door databasereplicatie als hetzij **globale gegevens** of **sitegegevens**. Wanneer databasereplicatie plaatsvindt, worden wijzigingen aan algemene gegevens en sitegegevens overgebracht over de databasereplicatiekoppeling. Globale gegevens kunnen repliceren naar een bovenliggende of onderliggende site. Sitegegevens repliceert enkel naar een bovenliggende site. Een derde gegevenstype lokale gegevens wordt niet gerepliceerd naar andere sites. Lokale gegevens is informatie die niet is vereist voor andere sites. Houd rekening met de volgende gegevenstypen:  
 
--  **Données globales**. Les données globales font référence aux objets créés par l'administrateur et qui sont répliquées sur tous les sites dans la hiérarchie, bien que les sites secondaires reçoivent uniquement un sous-ensemble des données globales, en tant que données globales proxy. Les déploiements logiciels, les mises à jour logicielles, les définitions de regroupement et les étendues de la sécurité de l’administration basée sur les rôles sont autant d’exemples de données globales. Les administrateurs peuvent créer des données globales sur des sites d'administration centrale et des sites principaux.  
--  **Données de site**. Les données de site font référence aux informations opérationnelles créées par les sites principaux Configuration Manager et les clients qui sont sous la hiérarchie de sites principaux. Les données de site sont répliquées vers le site d'administration centrale mais pas vers d'autres sites principaux. Les données de site incluent les données d’inventaire matériel, les messages d’état, les alertes et les résultats de regroupements basés sur des requêtes. Les données de site ne peuvent être consultées que sur le site d’administration centrale et sur le site principal d’où proviennent les données. Les données de site ne peuvent être modifiées que sur le site principal sur lequel elles ont été créées.  
+-  **Globale gegevens**. Algemene gegevens verwijst naar objecten beheerder zijn gemaakt die naar alle sites in de gehele hiërarchie repliceren, hoewel secundaire sites alleen een subset van globale gegevens, als algemene proxygegevens ontvangen. Algemene gegevens omvatten software-implementaties, software-updates, verzamelingdefinities en op rollen gebaseerde beheerbeveiligingsbereiken. Beheerders kunnen algemene gegevens aanmaken op centrale beheersites en primaire sites.  
+-  **Sitegegevens**. Sitegegevens verwijzen naar operationele informatie die primaire site van Configuration Manager en de clients die rapport naar primaire sites maken. Sitegegevens worden gerepliceerd naar de centrale beheersite, maar niet naar andere primaire sites. Sitegegevens omvat hardware-inventarisgegevens, statusberichten, waarschuwingen en de resultaten van query's gebaseerde verzamelingen. Sitegegevens zijn alleen zichtbaar op de centrale beheersite en op de primaire site waarvan de gegevens afkomstig is. Sitegegevens kunnen enkel worden gewijzigd op de primaire site waar ze werden gemaakt.  
 
-     Toutes les données de site sont répliquées vers le site d’administration centrale. Ce site effectue l’administration et la création de rapports pour toute la hiérarchie des sites.  
+     Alle sitegegevens worden gerepliceerd naar de centrale beheersite. De centrale beheersite voert beheer en rapportage voor de hele sitehiërarchie.  
 
-Les sections suivantes détaillent les paramètres que vous pouvez modifier pour gérer la réplication de base de données.  
+De volgende secties detailleren de instellingen die u wijzigen kunt voor het beheren van databasereplicatie.  
 
-### <a name="bkmk_Dblinks"></a> liens de réplication de base de données  
-Quand vous installez un nouveau site dans une hiérarchie, Configuration Manager crée automatiquement un lien de réplication de base de données entre le site parent et le nouveau site. Un lien unique est créé pour connecter les deux sites.  
+### <a name="bkmk_Dblinks"></a> Koppelingen voor databasereplicatie  
+Wanneer u een nieuwe site in een hiërarchie installeert, maakt Configuration Manager automatisch een databasereplicatiekoppeling tussen de bovenliggende site en de nieuwe site. Een enkele koppeling wordt gemaakt om de twee sites verbinding te maken.  
 
-Vous pouvez modifier les paramètres pour chaque lien de réplication de base de données afin de contrôler plus aisément le transfert de données via le lien de réplication. Chaque lien de réplication prend en charge des configurations distinctes. Les contrôles pour les liens de réplication de base de données sont les suivants :  
+U kunt instellingen voor elke databasereplicatiekoppeling om te bepalen van de overdracht van gegevens via de replicatiekoppeling wijzigen. Elke replicatiekoppeling ondersteunt afzonderlijke configuraties. De besturingselementen voor databasereplicatiekoppelingen omvatten het volgende:  
 
--  Arrêtez la réplication de données de site sélectionnées à partir d’un site principal vers le site d’administration centrale, afin que le site d’administration centrale puisse accéder directement à ces données à partir de la base de données du site principal.  
--  Planifiez les données de site sélectionnées à transférer d’un site principal enfant vers le site d’administration centrale.
--  Définissez les paramètres qui déterminent quand un lien de réplication de base de données a l’état Détérioré ou Échec.
--  Spécifiez à quel moment déclencher des alertes dans le cas d’un lien de réplication en échec.
--  Spécifiez la fréquence à laquelle Configuration Manager résume les données sur le trafic de réplication qui utilise le lien de réplication. Ces données sont utilisées dans les rapports.
+-  Stop de replicatie van geselecteerde sitegegevens van een primaire site naar de centrale beheersite, zodat de centrale beheersite toegang deze gegevens rechtstreeks vanuit de database van de primaire site tot.  
+-  Plannen van geselecteerde sitegegevens overzetten van een onderliggende primaire site naar de centrale beheersite.
+-  Definieer de instellingen die bepalen wanneer een databasereplicatiekoppeling een gedegradeerde status heeft of is mislukt.
+-  Geef op wanneer waarschuwingen worden gegeven voor een mislukte replicatiekoppeling.
+-  Geef op hoe vaak Configuration Manager bevat een overzicht van gegevens over het replicatieverkeer dat de replicatiekoppeling gebruikt. Deze gegevens worden in rapporten gebruikt.
 
-Pour configurer un lien de réplication de base de données, dans la console Configuration Manager, dans le nœud **Réplication de la base de données**, modifiez les propriétés du lien. Ce nœud apparaît dans l’espace de travail **Surveillance** et dans l’espace de travail **Administration**, sous le nœud **Configuration de la hiérarchie**. Vous pouvez modifier un lien de réplication à partir du site parent ou du site enfant du lien de réplication.  
-
-> [!TIP]  
-> Vous pouvez modifier les liens de réplication de base de données à partir du nœud **Réplication de la base de données** dans chaque espace de travail. Toutefois, lorsque vous utilisez le nœud **Réplication de la base de données** dans l’espace de travail **Surveillance**, vous pouvez également consulter l’état de la réplication de base de données des liens de réplication et accéder à l’outil Analyseur de lien de réplication pour mieux identifier les problèmes de réplication de base de données.  
-
-Pour plus d'informations sur la configuration des liens de réplication, voir [Contrôles de réplication de la base de données du site](#BKMK_DBRepControls). Pour plus d’informations sur la surveillance de la réplication, consultez [Comment surveiller des liens de réplication de la base de données et l’état de la réplication](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_MonitorRepLinksAndStatuss) dans la rubrique [Surveiller l’infrastructure de la hiérarchie et de la réplication dans System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md).  
-
-Pour planifier des liens de réplication de base de données, aidez-vous des informations figurant dans les sections suivantes.  
-
-### <a name="bkmk_distviews"></a> vues distribuées  
-Les vues distribuées permettent aux demandes formulées sur un site d’administration centrale relatives à des données de site sélectionnées d’accéder à ces données directement à partir de la base de données d’un site principal enfant. L’accès direct évite d’avoir à répliquer ces données de site du site principal vers le site d’administration centrale. Comme chaque lien de réplication est indépendant des autres liens de réplication, vous pouvez utiliser les vues distribuées uniquement sur les liens de réplication de votre choix. Vous ne pouvez pas utiliser les vues distribuées entre un site principal et un site secondaire.  
-
-Les vues distribuées peuvent offrir les avantages suivants :  
-
--  Elles diminuent la charge du processeur lors du traitement des modifications apportées à la base de données sur le site d’administration centrale et les sites principaux.
--  Elles réduisent la quantité de données transférées sur le réseau à destination du site d’administration centrale.
--  Elles améliorent les performances du serveur SQL Server qui héberge la base de données du site d’administration centrale.
--  Elles réduisent l’espace disque utilisé par la base de données sur le site d’administration centrale.
-
-Vous pouvez envisager d’utiliser des vues distribuées lorsqu’un site principal est situé à proximité du site d’administration centrale sur le réseau et que les deux sites sont toujours actifs et connectés. En effet, les vues distribuées remplacent la réplication des données sélectionnées entre les sites par des connexions directes entre les serveurs SQL Server de chaque site. Une connexion directe est établie chaque fois qu’une demande portant sur ces données est formulée sur le site d’administration centrale. En règle générale, les demandes de données que vous pouvez autoriser pour les vues distribuées sont formulées lorsque vous exécutez des rapports ou des requêtes, lorsque vous consultez des informations dans l’Explorateur de ressources et par l’évaluation des regroupements lorsque ceux-ci incluent des règles basées sur les données de site.  
-
-Par défaut, les vues distribuées sont désactivées pour chaque lien de réplication. Lorsque vous activez les vues distribuées pour un lien de réplication, vous sélectionnez les données de site qui ne seront pas répliquées vers le site d’administration centrale via ce lien. Le site d’administration centrale accède à ces données directement à partir de la base de données du site principal enfant qui partage le lien. Pour les vues distribuées, vous pouvez configurer les types de données de site suivants :  
-
--  Données d'inventaire matériel des clients
--  Données d'inventaire et de contrôle de logiciel des clients
--  Messages d'état en provenance des clients, du site principal et de tous les sites secondaires
-
-Sur le plan opérationnel, les vues distribuées sont invisibles pour un utilisateur administratif qui consulte des données dans la console Configuration Manager ou dans des rapports. Quand une demande est effectuée pour des données activées pour les vues distribuées, le serveur SQL Server qui héberge la base de données du site d’administration centrale accède directement au serveur SQL Server du site principal enfant afin d’extraire les informations. Par exemple, vous utilisez une console Configuration Manager au niveau du site d’administration centrale pour demander des informations sur l’inventaire matériel de deux sites alors qu’un seul des deux possède un inventaire matériel compatible avec une vue distribuée. Les informations d'inventaire pour les clients du site qui n'est pas configuré pour les vues distribuées sont extraites de la base de données au niveau du site d'administration centrale. Les informations d’inventaire des clients du site qui est configuré pour les vues distribuées sont accessibles à partir de la base de données au niveau du site principal enfant. Ces informations apparaissent dans la console Configuration Manager ou dans un rapport sans que la source soit identifiée.  
-
-Tant qu’un lien de réplication comporte un type de données activé pour les vues distribuées, le site principal enfant ne réplique pas ces données sur le site d’administration centrale. Dès que vous désactivez les vues distribuées pour un type de données, le site principal enfant reprend la réplication des données sur le site d’administration centrale dans le cadre d’une réplication normale des données. Toutefois, pour que ces données soient disponibles au niveau du site d’administration centrale, les groupes de réplication qui les contiennent doivent être réinitialisés entre le site principal et le site d’administration centrale. De même, après la désinstallation d’un site principal dont les vues distribuées sont activées, le site d’administration centrale doit effectuer la réinitialisation de ses données pour que vous puissiez accéder aux données activées pour les vues distribuées sur le site d’administration centrale.  
-
-> [!IMPORTANT]  
-> Lorsque vous utilisez les vues distribuées sur un lien de réplication quelconque dans la hiérarchie des sites, vous devez les désactiver pour tous les liens de réplication avant de désinstaller un site principal. Pour plus d’informations, consultez [Désinstaller un site principal configuré avec des vues distribuées](../../../core/servers/deploy/install/uninstall-sites-and-hierarchies.md#BKMK_UninstallPrimaryDistViews).  
-
-#### <a name="prerequisites-and-limitations-for-distributed-views"></a>Prérequis et limitations des vues distribuées  
-
--  Vous pouvez utiliser les vues distribuées uniquement sur des liens de réplication entre un site d’administration centrale et un site principal.
-- Le site d’administration centrale doit utiliser une édition Enterprise de SQL Server. Le site principal n’a pas cette exigence.
--  Le site d'administration centrale peut disposer d'une seule instance du fournisseur SMS installée, et cette instance doit être installée sur le serveur de base de données du site. Cette contrainte sert à prendre en charge l’authentification Kerberos requise pour permettre au serveur SQL Server au niveau du site d’administration centrale d’accéder au serveur SQL Server au niveau du site principal enfant. Il n'existe aucune limitation sur le fournisseur SMS au niveau du site principal enfant.
--  Le site d'administration centrale peut disposer d'un seul point SQL Server Reporting Services installé, et ce dernier doit se trouver sur le serveur de base de données du site. Cette contrainte sert à prendre en charge l’authentification Kerberos requise pour permettre au serveur SQL Server au niveau du site d’administration centrale d’accéder au serveur SQL Server au niveau du site principal enfant.
--  La base de données du site ne peut pas être hébergée sur un cluster SQL Server.
--  La base de données du site ne peut pas être hébergée sur un groupe de disponibilité SQL Server Always On.
--  Le compte d’ordinateur du serveur de base de données du site d’administration centrale requiert des autorisations de lecture pour la base de données du site principal.
-
-> [!IMPORTANT]  
->  Les vues distribuées et les planifications des périodes où les données peuvent être répliquées sont des paramètres qui s’excluent mutuellement pour un lien de réplication de base de données.  
-
-### <a name="BKMK_schedules"></a> Planifier les transferts de données de site sur les liens de réplication de la base de données  
-Pour mieux contrôler la bande passante réseau utilisée pour répliquer les données de site depuis un site principal enfant vers son site d'administration centrale, vous pouvez planifier le moment auquel un lien de réplication est utilisé, ainsi que spécifier quand les différents types de données de site se répliquent. Vous pouvez contrôler le moment auquel le site principal réplique les messages d'état, l'inventaire et les données de contrôle. Les liens de réplication de la base de données des sites secondaires ne prennent pas en charge les planifications des données de site. Le transfert de données globales ne peut pas être planifié.  
-
-Quand vous configurez une planification de lien de réplication de la base de données, vous pouvez restreindre le transfert des données de site sélectionnées depuis le site principal vers le site d'administration centrale et vous pouvez configurer différentes heures pour répliquer des types différents de données de site.  
-
-> [!IMPORTANT]  
-> Les vues distribuées et les planifications relatives aux dates de réplication des données sont des configurations qui s'excluent mutuellement pour un lien de réplication de la base de données.  
-
-### <a name="BKMK_SummarizeDBReplication"></a> Synthèse du trafic de réplication de la base de données  
-Chaque site réalise régulièrement une synthèse des données sur le trafic réseau qui traverse les liens de réplication de la base de données pour ce site. Les données résumées sont utilisées dans les rapports pour la réplication de la base de données. Les deux sites sur un lien de réplication résument le trafic réseau qui traverse le lien de réplication. Le résumé des données est effectué par le serveur SQL Server qui héberge la base de données du site. Une fois les données résumées, les informations sont répliquées vers d’autres sites en tant que données globales.  
-
-Par défaut, le résumé se produit toutes les 15 minutes. Pour modifier la fréquence de synthèse du trafic réseau, dans les propriétés du lien de réplication de la base de données, modifiez la valeur **Intervalle de résumé**. La fréquence de synthèse affecte les informations affichées dans les rapports sur la réplication de la base de données. Vous pouvez choisir un intervalle compris entre 5 et 60 minutes. Lorsque vous augmentez la fréquence de synthèse, vous augmentez la charge de traitement sur le serveur SQL Server au niveau de chaque site sur le lien de réplication.  
-
-### <a name="BKMK_DBRepThresholds"></a> Seuils de réplication de base de données  
-Les seuils de réplication de la base de données définissent le moment auquel un lien de réplication de la base de données est signalé comme étant détérioré ou en état d'échec. Par défaut, un lien est défini comme détérioré quand l’un des groupes de réplication ne parvient pas à terminer la réplication à l’issue de 12 tentatives consécutives. Le lien est défini en état d’échec quand l’un des groupes de réplication ne parvient pas à être répliqué à l’issue de 24 tentatives consécutives.  
-
-Vous pouvez spécifier des valeurs personnalisées pour ajuster le moment auquel Configuration Manager signale qu’un lien de réplication est détérioré ou en état d’échec. L’ajustement du moment auquel Configuration Manager signale chaque état de vos liens de réplication de la base de données peut vous aider à surveiller l’intégrité de la réplication de la base de données avec précision.  
-
-Comme il est possible qu’un ou plusieurs groupes de réplication ne parviennent pas à être répliqués alors que les autres groupes de réplication continuent d’être répliqués correctement, prévoyez de vérifier l’état de réplication d’un lien de réplication dès qu’un état détérioré est signalé. S'il existe des délais récurrents pour des groupes de réplication et qu'ils ne présentent pas de problème, où lorsque la liaison réseau entre les sites dispose d'une faible bande passante disponible, envisagez de modifier le nombre de nouvelles tentatives pour l'état détérioré ou en échec du lien. En augmentant le nombre de nouvelles tentatives à effectuer avant de définir le lien comme détérioré ou en état d’échec, vous pouvez éliminer les faux avertissements liés à des problèmes connus et suivre l’état du lien de manière plus précise.  
-
-Prenez en compte également l’intervalle de synchronisation de réplication pour chaque groupe de réplication afin de comprendre la fréquence de réplication de ce groupe. Pour afficher l’**intervalle de synchronisation** des groupes de réplication, dans l’espace de travail **Surveillance**, sous le nœud **Réplication de la base de données**, sélectionnez l’onglet **Détail de la réplication** d’un lien de réplication.  
-
-Pour plus d’informations sur la manière de surveiller la réplication de la base de données, y compris la manière d’afficher l’état de réplication, consultez [Comment surveiller des liens de réplication de la base de données et l’état de la réplication](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_MonitorRepLinksAndStatuss) dans la rubrique [Surveiller l’infrastructure de la hiérarchie et de la réplication dans System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md).  
-
-Pour plus d’informations sur la configuration des seuils de réplication de base de données, voir [Contrôles de réplication de la base de données du site](#BKMK_DBRepControls).  
-
-## <a name="BKMK_DBRepControls"></a> Contrôles de réplication de la base de données du site  
-Vous pouvez modifier les paramètres de chaque base de données de site pour mieux contrôler la bande passante réseau utilisée pour la réplication de base de données. Ces paramètres s’appliquent uniquement à la base de données de site dans laquelle vous configurez les paramètres. Ces paramètres sont toujours utilisés lorsque le site réplique des données via la réplication de base de données vers un autre site.  
-
-Les contrôles de réplication que vous pouvez modifier pour chaque base de données de site sont les suivants :  
-
--  Modifiez le port SSB.  
--  Configurez le délai d’attente avant que les échecs de réplication déclenchent la réinitialisation de la copie de la base de données du site.  
--  Configurez une base de données de site afin qu'elle compresse les données qu'elle réplique par réplication de base de données. Les données sont compressées uniquement pour le transfert entre les sites et non pour le stockage dans la base de données du site sur l'un des sites.  
-
-Pour modifier les paramètres des contrôles de réplication d’une base de données de site, dans la console Configuration Manager, dans le nœud **Réplication de la base de données**, modifiez les propriétés de la base de données de site. Ce nœud apparaît sous le nœud **Configuration de la hiérarchie** dans l'espace de travail **Administration** et également dans l' **espace de travail Surveillance**. Pour modifier les propriétés de la base de données de site, sélectionnez le lien de réplication entre les sites, puis ouvrez soit **Propriétés de la base de données parent**, soit **Propriétés de la base de données enfant**.  
+Voor het configureren van een databasereplicatiekoppeling in de Configuration Manager-console op de **databasereplicatie** knooppunt, bewerk de eigenschappen voor de koppeling. Dit knooppunt verschijnt in de **bewaking** werkruimte en in de **beheer** werkruimte op het **Hiërarchieconfiguratie** knooppunt. U kunt een replicatiekoppeling bewerken vanuit hetzij de bovenliggende site hetzij de onderliggende site van de replicatiekoppeling.  
 
 > [!TIP]  
-> Vous pouvez configurer les contrôles de réplication de la base de données à partir du nœud **Réplication de la base de données** dans l'un ou l'autre espace de travail. Toutefois, lorsque vous utilisez le nœud **Réplication de la base de données** dans l’espace de travail **Surveillance**, vous pouvez également afficher l’état de réplication de base de données d’un lien de réplication, puis accéder à l’outil Analyseur de lien de réplication pour mieux identifier les problèmes de réplication.  
+> U kunt databasereplicatiekoppelingen bewerken vanuit het knooppunt **Databasereplicatie** in beide werkruimten. Wanneer u echter gebruiken de **databasereplicatie** knooppunt in de **bewaking** werkruimte u ook kunt de status van databasereplicatie voor replicatiekoppelingen bekijken en het hulpprogramma Replication Link Analyzer openen om u te helpen bij het onderzoeken van problemen met databasereplicatie.  
+
+Zie [Besturingselementen voor de replicatie van sitedatabases](#BKMK_DBRepControls)voor meer informatie over de configuratie van replicatiekoppelingen. Zie voor meer informatie over het controleren van replicatie [database databasereplicatiekoppelingen en de replicatiestatus replicatiestatus controleren](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_MonitorRepLinksAndStatuss) in de [hiërarchie- en replicatie-infrastructuur bewaken in System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md) onderwerp.  
+
+Gebruik de informatie in de volgende secties om te plannen voor databasereplicatiekoppelingen.  
+
+### <a name="bkmk_distviews"></a> Gedistribueerde weergaven  
+Door middel van gedistribueerde weergaven geselecteerd die zijn ingediend op een centrale beheersite voor toegang tot de gegevens van de site sitegegevens rechtstreeks uit de database op een onderliggende primaire site. De rechtstreekse toegang vervangt de noodzaak die om sitegegevens te repliceren van de primaire site naar de centrale beheersite. Omdat elke replicatiekoppeling onafhankelijk is van andere replicatiekoppelingen, kunt u gedistribueerde weergaven op enkel de replicatiekoppelingen die u kiest. U gedistribueerde weergaven tussen een primaire site en een secundaire site niet gebruiken.  
+
+Gedistribueerde weergaven kunnen de volgende voordelen bieden:  
+
+-  Verminderen de CPU-belasting om databasewijzigingen op de centrale beheersite en primaire sites te verwerken
+-  Verklein de hoeveelheid gegevens die worden verstuurd via het netwerk naar de centrale beheersite
+-  De prestaties van de SQL server die als host fungeert voor de centrale beheersite database verbeteren
+-  Ze verminderen de schijfruimte die wordt gebruikt door de database op de centrale beheersite
+
+Overweeg het gebruik van gedistribueerde weergaven wanneer een primaire site dicht in de centrale beheersite op het netwerk is en de twee sites steeds zijn ingeschakeld en steeds zijn verbonden. Dit is omdat gedistribueerde weergaven de replicatie van de geselecteerde gegevens tussen de sites met rechtstreekse verbindingen tussen de SQL-servers op elke site vervangen. Een rechtstreekse verbinding wordt gemaakt telkens die een aanvraag voor deze gegevens wordt gedaan aan de centrale beheersite. Aanvragen voor gegevens die u voor gedistribueerde weergaven inschakelt mogelijk worden gewoonlijk gedaan wanneer u rapporten of query's uitvoert wanneer u informatie bekijken in Resource Explorer en door verzamelingevaluatie voor verzamelingen die regels omvatten die zijn gebaseerd op de sitegegevens.  
+
+Gedistribueerde weergaven zijn standaard uitgeschakeld voor elke replicatiekoppeling. Wanneer u gedistribueerde weergaven voor een replicatiekoppeling inschakelt, selecteert u sitegegevens die niet wordt gerepliceerd naar de centrale beheersite over die koppeling. De centrale beheersite heeft toegang tot deze gegevens rechtstreeks vanuit de database van de onderliggende primaire site die de koppeling deelt. U kunt de volgende types van sitegegevens voor gedistribueerde weergaven configureren:  
+
+-  Hardware-inventarisgegevens van clients
+-  Software-inventarisatie en licentiecontrolegegevens van clients
+-  Statusberichten van clients, de primaire site en alle secundaire sites
+
+Werking zijn gedistribueerde weergaven onzichtbaar voor een gebruiker met beheerdersrechten die gegevens in de Configuration Manager-console of in rapporten. Wanneer een aanvraag wordt gedaan voor gegevens die zijn ingeschakeld voor gedistribueerde weergaven, heeft de SQL-server waarop de database voor de centrale beheersite rechtstreeks toegang tot de SQL server van de onderliggende primaire site de informatie op te halen. Bijvoorbeeld, gebruik van een Configuration Manager-console op de centrale beheersite om informatie te vragen over hardware-inventaris van twee sites, en slechts één site hardware-inventaris heeft ingeschakeld voor een gedistribueerde weergave. De inventarisinformatie voor clients van de site die niet is geconfigureerd voor gedistribueerde weergaven, wordt opgehaald uit de database op de centrale beheersite. De Inventarisinformatie voor clients van de site die is geconfigureerd voor gedistribueerde weergaven wordt uit de database op de onderliggende primaire site geopend. Deze informatie verschijnt in de Configuration Manager-console of in een rapport zonder te identificeren van de bron.  
+
+Zoals een replicatiekoppeling een type gegevens ingeschakeld voor gedistribueerde weergaven, repliceert de onderliggende primaire site de gegevens niet naar de centrale beheersite. Zodra u gedistribueerde weergaven voor een type gegevens, de onderliggende primaire uitschakelt site de hervat de replicatie van de gegevens naar de centrale beheersite als onderdeel van de normale gegevensreplicatie. Echter, voordat deze gegevens beschikbaar op de centrale beheersite zijn, de replicatiegroepen die deze gegevens moeten opnieuw worden geïnitialiseerd tussen de primaire site en de centrale beheersite. Zo ook, nadat u een primaire site die gedistribueerde weergaven ingeschakeld heeft verwijderd, de centrale beheersite moet voltooien herinitialisatie van de gegevens voordat u toegang hebt tot gegevens die waren ingeschakeld voor gedistribueerde weergaven op de centrale beheersite.  
+
+> [!IMPORTANT]  
+> Wanneer u gedistribueerde weergaven gebruikt op eender welke replicatiekoppeling in de sitehiërarchie gebruikt, moet u gedistribueerde weergaven voor alle replicatiekoppelingen uitschakelen voordat u een primaire site verwijdert. Zie [Een primaire site verwijderen die is geconfigureerd met gedistribueerde weergaven](../../../core/servers/deploy/install/uninstall-sites-and-hierarchies.md#BKMK_UninstallPrimaryDistViews) voor meer informatie.  
+
+#### <a name="prerequisites-and-limitations-for-distributed-views"></a>Vereisten en beperkingen voor gedistribueerde weergaven  
+
+-  Hier kunt u gedistribueerde weergaven alleen op replicatiekoppelingen tussen een centrale beheersite en een primaire site.
+- De centrale beheersite moet een Enterprise-editie van SQL Server gebruiken. De primaire site beschikt niet over deze vereiste.
+-  Er kan slechts één instantie van de SMS-provider op de centrale beheersite worden geïnstalleerd en die instantie moet zijn geïnstalleerd op de sitedatabaseserver. Dit is vereist voor de ondersteuning van de Kerberos-verificatie vereist zodat de SQL server op de centrale beheersite toegang heeft tot de SQL server op de onderliggende primaire site. Er zijn geen beperkingen met betrekking tot de SMS-provider op de onderliggende primaire site.
+-  Er kan slechts één SQL Server Reporting Services-punt op de centrale beheersite worden geïnstalleerd en dat punt moet zich op sitedatabaseserver bevinden. Dit is vereist voor de ondersteuning van de Kerberos-verificatie vereist voor het inschakelen van de SQL server op de centrale beheersite voor toegang tot de SQL server op de onderliggende primaire site.
+-  De sitedatabase kan niet worden gehost op een SQL Server-cluster.
+-  De sitedatabase kan niet worden gehost op een SQL Server Always On-beschikbaarheidsgroep.
+-  Het computeraccount van de databaseserver van de centrale beheersite heeft leesrechten nodig voor de sitedatabase van de primaire site.
+
+> [!IMPORTANT]  
+>  Gedistribueerde weergaven en schema's voor wanneer gegeven kunnen repliceren zijn sluiten elkaar wederzijds uit instellingen voor een databasereplicatiekoppeling.  
+
+### <a name="BKMK_schedules"></a> De overdracht van sitegegevens voor databasereplicatiekoppelingen plannen  
+U kunt plannen wanneer een replicatiekoppeling wordt gebruikt en opgeven wanneer verschillende types sitegegevens worden gerepliceerd om u te helpen bij het controleren van de netwerkbandbreedte die wordt gebruikt om sitegegevens te repliceren van een onderliggende primaire site naar zijn centrale beheersite. U kunt controleren wanneer de primaire site statusberichten, inventarissen en metergegevens repliceert. Databasereplicatiekoppelingen van secundaire sites ondersteunen geen schema's voor sitegegevens. De overdracht van globale gegevens kan niet worden gepland.  
+
+Wanneer u een schema van databasereplicatiekoppelingen configureert, kunt u de overdracht van geselecteerde sitegegevens vanaf de primaire site naar de centrale beheersite beperken, en kunt u de verschillende tijdstippen configureren waarop de verschillende typen sitegegevens moeten worden gerepliceerd.  
+
+> [!IMPORTANT]  
+> Gedistribueerde weergaven en schema's voor wanneer gegeven kunnen repliceren, zijn onderling exclusieve configuraties voor een databasereplicatiekoppeling.  
+
+### <a name="BKMK_SummarizeDBReplication"></a> Samenvatting van het databasereplicatieverkeer  
+Elke site wordt periodiek een gegevensoverzicht gegevens over het netwerkverkeer dat voor de site databasereplicatiekoppelingen. Samengevatte gegevens worden gebruikt in rapporten voor databasereplicatie. Beide sites op een replicatiekoppeling vatten het netwerkverkeer samen dat de replicatiekoppeling passeert. De samenvatting van gegevens wordt uitgevoerd door de SQL Server waarop de sitedatabase wordt gehost. Nadat de gegevens worden samengevat, wordt de informatie naar andere sites repliceert als globale gegevens.  
+
+De samenvatting wordt standaard om de 15 minuten uitgevoerd. Als u wilt wijzigen van de samenvattingsfrequentie voor netwerkverkeer, in de eigenschappen van de databasereplicatiekoppeling bewerken de **samenvattingsinterval**. De samenvattingsfrequentie heeft invloed op de informatie die u in rapporten over databasereplicatie ziet. U kunt een interval van 5 minuten tot 60 minuten. Als u de samenvattingsfrequentie verhoogt, verhoogt u de verwerkingsbelasting op de SQL server op elke site op de replicatiekoppeling.  
+
+### <a name="BKMK_DBRepThresholds"></a>Drempelwaarden voor databasereplicatie  
+Drempelwaarden voor databasereplicatie definiëren wanneer de status van een databasereplicatiekoppeling als gedegradeerd of mislukt wordt gerapporteerd. Een koppeling is standaard ingesteld op gedegradeerde status wanneer een replicatiegroep is mislukt om de replicatie voor een periode van 12 opeenvolgende pogingen te voltooien. De koppeling is ingesteld op de status mislukt wanneer een replicatiegroep geen replicatie van 24 opeenvolgende pogingen kan.  
+
+U kunt aangepaste waarden af te stemmen wanneer Configuration Manager een replicatiekoppeling als gedegradeerd of mislukt rapporteert. Aanpassen wanneer Configuration Manager-rapporten elke status voor uw databasereplicatiekoppelingen kan u helpen bij controleren van de status van de databasereplicatie voor uw databasereplicatiekoppelingen.  
+
+Omdat het is mogelijk dat één of een aantal replicatiegroepen niet kunnen repliceren terwijl andere replicatiegroepen zijn gerepliceerd, dient u te controleren van de replicatiestatus van een replicatiekoppeling als eerst een gedegradeerde status rapporteert. Als er herhaalde vertragingen zijn voor specifieke replicatiegroepen en hun vertraging geen probleem veroorzaakt, of wanneer de netwerkkoppeling tussen sites een lage beschikbare bandbreedte heeft, overweeg dan om de waarden aan te passen voor een nieuwe poging voor de gedegradeerde of mislukte status van de koppeling. Als u het aantal nieuwe pogingen verhoogt voordat de koppeling wordt ingesteld op gedegradeerd of mislukt, kunt u valse waarschuwingen voor bekende problemen elimineren en de status van de koppeling nauwkeuriger te volgen.  
+
+Houd ook rekening met de synchronisatie-interval voor replicatie voor elke replicatiegroep om te begrijpen hoe vaak de replicatie van die groep zich voordoet. Om weer te geven de **synchronisatie-Interval** voor replicatiegroepen, in de **bewaking** werkruimte op het **databasereplicatie** knooppunt, selecteer de **Replicatiedetails** tabblad van een replicatiekoppeling.  
+
+Zie voor meer informatie over het bewaken van databasereplicatie, inclusief het weergeven van de replicatiestatus [database databasereplicatiekoppelingen en de replicatiestatus replicatiestatus controleren](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md#BKMK_MonitorRepLinksAndStatuss) in de [hiërarchie- en replicatie-infrastructuur bewaken in System Center Configuration Manager](../../../core/servers/manage/monitor-hierarchy-and-replication-infrastructure.md) onderwerp.  
+
+Zie voor meer informatie over het configureren van drempelwaarden voor databasereplicatie [Sitedatabasereplicatie](#BKMK_DBRepControls).  
+
+## <a name="BKMK_DBRepControls"></a> Besturingselementen voor de sitedatabasereplicatie  
+U kunt de instellingen voor de database van elke site om te bepalen van de netwerkbandbreedte die wordt gebruikt voor databasereplicatie kunt wijzigen. De instellingen gelden alleen voor de database van de site waarin u de instellingen configureren. De instellingen worden altijd gebruikt wanneer de site gegevens repliceert door databasereplicatie naar een andere site.  
+
+Besturingselementen voor replicatie die u voor elke sitedatabase aanpassen kunt zijn:  
+
+-  Wijzig de SSB-poort.  
+-  Configureer de wachttijd voordat replicatiefouten activeren van de site om opnieuw te initialiseren van de kopie van de sitedatabase.  
+-  Configureer een sitedatabase om de gegevens te comprimeren die deze repliceert door databasereplicatie. De gegevens worden alleen gecomprimeerd voor overdracht tussen sites en niet voor opslag in de sitedatabase van iedere site.  
+
+De instellingen te wijzigen voor de besturingselementen voor replicatie voor de database van een site in de Configuration Manager-console op de **databasereplicatie** knooppunt, bewerk de eigenschappen van de sitedatabase. Dit knooppunt verschijnt in het knooppunt **Hiërarchieconfiguratie** in de werkruimte **Beheer** en ook in de werkruimte **Bewaking**. Als u wilt bewerken in de eigenschappen van de sitedatabase, selecteer de replicatiekoppeling tussen de sites en open vervolgens ofwel **eigenschappen bovenliggende Database** of **eigenschappen onderliggende Database**.  
+
+> [!TIP]  
+> U kunt de besturingselementen voor databasereplicatie configureren in het knooppunt **Databasereplicatie** in beide werkruimten. Wanneer u echter gebruiken de **databasereplicatie** knooppunt in de **bewaking** werkruimte u ook kunt zien die de status van databasereplicatie voor een replicatiekoppeling en het hulpprogramma Replication Link Analyzer openen om u te helpen bij het onderzoeken van replicatieproblemen.  

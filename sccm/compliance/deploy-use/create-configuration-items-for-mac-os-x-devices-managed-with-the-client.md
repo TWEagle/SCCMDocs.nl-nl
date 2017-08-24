@@ -1,6 +1,6 @@
 ---
-title: "Créer des éléments de configuration pour des appareils Macs gérés par le client - Configuration Manager | Microsoft Docs"
-description: "L’élément de configuration System Center Configuration Manager Mac OS X permet de gérer les paramètres des appareils Mac OS X."
+title: Configuratie-items maken voor beheerde client Macs - Configuration Manager | Microsoft Docs
+description: Gebruik de System Center Configuration Manager Mac OS X-configuratie-item voor het beheren van instellingen voor Mac OS X-apparaten.
 ms.custom: na
 ms.date: 03/28/2017
 ms.prod: configuration-manager
@@ -17,159 +17,159 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 541e5ad629a9e2ed9c353dff150f9b86b9d12b7d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-configuration-items-for-mac-os-x-devices-managed-with-the-system-center-configuration-manager-client"></a>Comment créer des éléments de configuration pour des appareils Mac OS X gérés avec le client System Center Configuration Manager
-Utilisez l’élément de configuration System Center Configuration Manager **Mac OS X (personnalisé)** pour gérer les paramètres des appareils Mac OS X gérés par le client Configuration Manager.  
+# <a name="how-to-create-configuration-items-for-mac-os-x-devices-managed-with-the-system-center-configuration-manager-client"></a>Configuratie-items maken voor Mac OS X-apparaten die worden beheerd door de System Center Configuration Manager-client
+De System Center Configuration Manager gebruiken**Mac OS X (aangepast)** configuratie-item voor het beheren van instellingen voor Mac OS X-apparaten die worden beheerd door Configuration Manager-client.  
   
- Le système d’exploitation Mac OS X utilise des fichiers de liste de propriétés (plist) pour stocker les paramètres d’application. Utilisez les paramètres de compatibilité pour évaluer et corriger les paramètres dans un fichier de liste de propriétés. Vous pouvez également gérer les paramètres Mac OS X en écrivant un script Shell qui retourne une valeur que vous pouvez évaluer et dont vous pouvez corriger la conformité.  
+ Het Mac OS X-besturingssysteem gebruikt eigenschappenlijstbestanden (of plist-bestanden) om toepassingsinstellingen op te slaan. Gebruik nalevingsinstellingen om instellingen in een eigenschappenlijstbestand te beoordelen en herstellen. U kunt ook Mac OS X-instellingen beheren door een shellscript te schrijven dat een waarde retourneert die u voor nalevingsdoeleinden kunt beoordelen en herstellen.  
   
-### <a name="to-create-a-custom-mac-os-x-configuration-item"></a>Pour créer un élément de configuration Mac OS X personnalisé  
+### <a name="to-create-a-custom-mac-os-x-configuration-item"></a>Een aangepast Mac OS X-configuratie-item maken  
   
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et conformité**.  
+1.  Klik in de Configuration Manager-console op **activa en naleving**.  
   
-2.  Dans l'espace de travail **Biens et conformité** , développez **Paramètres de compatibilité**, puis cliquez sur **Éléments de configuration**.  
+2.  Vouw in de werkruimte **Activa en naleving** het gedeelte **Instellingen voor naleving**uit en klik vervolgens op **Configuratie-items**.  
   
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un élément de configuration**.  
+3.  Klik op het tabblad **Start** in de groep **Maken** op **Configuratie-item maken**.  
   
-4.  Dans la page **Général** page de l’ **Assistant Création d’élément de configuration**, spécifiez un nom et une éventuelle description pour l’élément de configuration.  
+4.  Geef op de pagina **Algemeen** van de **Wizard Configuratie-item maken** een naam en een optionele beschrijving voor het configuratie-item op.  
   
-5.  Sous **Spécifier le type d’élément de configuration que vous voulez créer**, sélectionnez **Mac OS X (personnalisé)**.  
+5.  Selecteer onder **Geef het type configuratie-item op dat u wilt maken** de optie **Mac OS X (aangepast)**.  
   
-6.  Cliquez sur **Catégories** si vous créez et attribuez des catégories pour faciliter la recherche et le filtrage des éléments de configuration dans la console Configuration Manager.  
+6.  Klik op **categorieën** als u categorieën maakt en toewijst om te zoeken en filteren van configuratie-items in de Configuration Manager-console.  
   
-7.  Dans la page **Plateformes prises en charge** de l’Assistant, sélectionnez les versions Max OS X spécifiques chargées d’évaluer l’élément de configuration.  
+7.  Selecteer op de pagina **Ondersteunde platforms** van de wizard de specifieke Mac OS X-versies die het configuratie-item beoordelen.  
   
-8.  Dans la page **Paramètres** de l’Assistant, vous allez ajouter les nouveaux paramètres dont la compatibilité sera évaluée sur les ordinateurs Mac. Cliquez sur **Nouveau** pour ouvrir la boîte de dialogue **Créer un paramètre** .  
+8.  Op de pagina **Instellingen** van de wizard geeft u nieuwe instellingen op die worden beoordeeld op naleving op Mac-computers. Klik op **Nieuw** om het dialoogvenster **Instelling maken** te openen.  
   
-9. Dans la boîte de dialogue **Créer un paramètre** , entrez un nom unique et la description du paramètre.  
+9. Geef in het dialoogvenster **Instelling maken** een unieke naam en een beschrijving voor de instelling op.  
   
-10. Choisissez le **type de paramètre** souhaité, puis fournissez les informations requises, comme indiqué dans le tableau suivant :  
+10. Kies het **Instellingstype** dat u wilt en geef de vereiste gegevens op, zoals weergegeven in de volgende tabel:  
   
-    -   **Préférences Mac OS X** -  
+    -   **Mac OS X-voorkeuren** -  
   
-        -   **ID d’application** : spécifiez l’ID d’application du fichier de liste de propriétés à partir duquel vous voulez évaluer la conformité d’une clé.  
+        -   **Toepassings-id**: geef de toepassings-id van het eigenschappenlijstbestand op vanwaaruit u een sleutel op naleving wilt beoordelen.  
   
-             Par exemple, si vous souhaitez modifier les paramètres du navigateur Web Safari, vous pouvez utiliser **com.apple.Safari.plist**.  
+             Bijvoorbeeld, als u instellingen voor de Safari-webbrowser wilt bewerken, kunt u **com.apple.Safari.plist** gebruiken.  
   
-        -   **Clé** – spécifiez le nom de la clé que vous souhaitez évaluer la conformité sur les ordinateurs Mac. Utilisez la syntaxe suivante : */<dictionnaire>\>/<nom_clé\>*.  
+        -   **Sleutel**: Geef de naam van de sleutel op die u wilt beoordelen op naleving op Mac-computers. Gebruik de volgende syntaxis: */<woordenlijst\>/<sleutelnaam\>*.  
   
             > [!IMPORTANT]  
-            >  Le nom de clé respecte la casse et il n’est pas évalué s’il diffère de celui indiqué sur l’ordinateur Mac. De plus, vous ne pouvez pas modifier le nom de clé une fois que vous l’avez spécifié. Si vous devez modifier le nom de clé, supprimez, puis recréez le paramètre.  
+            >  De sleutelnaam is hoofdlettergevoelig en wordt niet beoordeeld als deze anders is dan de sleutelnaam op de Mac-computer. Bovendien kunt u de sleutelnaam niet bewerken nadat u die hebt opgegeven. Als u de sleutelnaam wilt bewerken, moet u de instelling verwijderen en vervolgens opnieuw maken.  
   
     -   **Script** -  
   
-        -   **Script de découverte** : cliquez sur **Ajouter un Script**, puis entrez un script Shell pour évaluer la conformité des paramètres sur l’ordinateur Mac. Utilisez la commande **echo** dans le script Shell pour retourner des valeurs à Configuration Manager à des fins de conformité. Configuration Manager utilise les résultats retournés dans **STDOUT** pour évaluer la conformité.  
+        -   **Detectiescript**: Klik op **Script toevoegen** en voer vervolgens een shellscript in om voor nalevingsdoeleinden toegang te krijgen tot instellingen op de Mac-computer. Gebruik de **echo** opdracht in het shellscript om waarden te retourneren naar Configuration Manager om te voldoen. Configuration Manager gebruikt de resultaten in **STDOUT** evalueren van naleving.  
   
             > [!IMPORTANT]  
-            >  N’incluez pas la commande **reboot** dans le script de découverte. Étant donné que le script de découverte s'exécute chaque fois redémarrage du client, cela entraînera l'ordinateur Mac à redémarrer en permanence.  
+            >  Neem de opdracht **reboot** niet op in het detectiescript. Omdat het detectiescript elke keer wordt uitgevoerd wanneer de client opnieuw wordt opgestart, zorgt dit ervoor dat de Mac-computer doorlopend opnieuw wordt opgestart.  
   
-        -   **Script de correction (facultatif)** : cliquez éventuellement sur **Ajouter un script** , puis entrez un script Shell utilisé pour corriger les paramètres non compatibles trouvés sur les ordinateurs clients Mac.  
+        -   **Herstelscript (optioneel)**: Klik desgewenst op **Script toevoegen** en voer vervolgens een shellscript in dat wordt gebruikt voor het herstellen van niet-compatibele instellingen die op Mac-clientcomputers worden gevonden.  
   
             > [!IMPORTANT]  
-            >  Pour vous assurer de ne pas introduire de caractères de mise en forme que l’ordinateur Mac ne sait pas interpréter, évitez d’utiliser les options Copier et Coller, mais tapez le script.  
+            >  Om ervoor te zorgen dat u geen opmaaktekens introduceert die de Mac-computer niet kan interpreteren, moet u het script niet kopiëren en plakken maar zelf typen.  
   
-11. Choisissez le **Type de données** , c’est-à-dire le format dans lequel la condition retourne les données avant de les utiliser pour évaluer le paramètre.  
+11. Kies het **gegevenstype**. Dit heeft de indeling waarin de voorwaarde de gegevens retourneert voordat deze worden gebruikt om de instelling te beoordelen.  
   
     > [!NOTE]  
-    >  Le type de données **Virgule flottante** prend en charge uniquement 3 chiffres après la virgule décimale.  
+    >  Het gegevenstype **Drijvende komma** ondersteunt alleen 3 cijfers na het decimaalteken.  
     >   
-    >  Configuration Manager ne prend pas en charge l’utilisation du type de données **booléen** pour les paramètres de script de l’élément de configuration Mac. Définissez plutôt le type de données sur **Entier** et assurez-vous que le script renvoie une valeur entière.  
+    >  Configuration Manager biedt geen ondersteuning met behulp van de **Booleaanse** gegevenstype voor scriptinstellingen voor Mac-configuratie-item. Stel in plaats daarvan het gegevenstype in op **Geheel getal** en zorg ervoor dat het script een geheel getal retourneert.  
   
-12. Cliquez sur **OK** pour enregistrer le paramètre et fermer la boîte de dialogue **Créer un paramètre** , puis continuez à ajouter autant de paramètres que nécessaire.  
+12. Klik op **OK** om de instellingen op te slaan, sluit het dialoogvenster **Instelling maken**, en ga vervolgens door met het toevoegen van de instellingen die u nodig hebt.  
   
-13. Dans la page **Règles de compatibilité** de l’Assistant, vous spécifiez les conditions qui définissent la compatibilité d’un élément de configuration. Pour pouvoir évaluer la compatibilité d’un paramètre, celui-ci doit comporter au moins une règle de compatibilité. Cliquez sur **Nouveau** pour ajouter une nouvelle règle.  
+13. Op de pagina **Compliantieregels** van de wizard dient u de voorwaarden op te geven voor naleving van een configuratie-item. Voordat een instelling kan worden beoordeeld op naleving, moet de instelling minimaal één compliantieregel hebben. Klik op **Nieuw** om een nieuwe regel toe te voegen.  
   
-14. Dans la boîte de dialogue **Créer une règle** , indiquez les informations suivantes :  
+14. Geef in het dialoogvenster **Regel maken** de volgende informatie op:  
   
-    -   **Nom :** Entrez un nom pour la règle de conformité.  
+    -   **Naam:** Voer een naam voor de compliantieregel.  
   
-    -   **Description :** Entrez une description pour la règle de conformité.  
+    -   **Beschrijving:** Voer een beschrijving voor de compliantieregel.  
   
-    -   **Paramètre sélectionné :** Cliquez sur **Parcourir** pour ouvrir le **Sélectionner le paramètre** boîte de dialogue. Sélectionnez le paramètre que vous souhaitez définir une règle, ou cliquez sur **nouveau paramètre**. Lorsque vous avez terminé, cliquez sur **Sélectionner**.  
+    -   **Geselecteerde instelling:** Klik op **Bladeren** openen de **instelling selecteren** in het dialoogvenster. Selecteer de instelling waarvoor u een regel wilt definiëren of klik op **Nieuwe instelling**. Klik op **Selecteren** als u klaar bent.  
   
         > [!TIP]  
-        >  Vous pouvez également cliquer sur **Propriétés** pour afficher des informations sur le paramètre actuellement sélectionné.  
+        >  U kunt ook klikken op **Eigenschappen** om informatie over de geselecteerde instelling weer te geven.  
   
-    -   **Type de règle :** sélectionnez le type de règle de compatibilité à utiliser :  
+    -   **Regeltype:** Selecteer het type compliantieregel dat u wilt gebruiken:  
   
-        -   **Valeur** : créez une règle qui compare la valeur renvoyée par l’élément de configuration à une valeur que vous spécifiez.  
+        -   **Waarde:** Maak een regel die de waarde die is geretourneerd door de configuratie-item met een waarde die u opgeeft.  
   
-        -   **Existentiel** : créez une règle qui évalue le paramètre, selon qu’il existe sur un périphérique.  
+        -   **Existentieel:** Maak een regel die de instelling beoordeelt, afhankelijk van of deze op een apparaat bestaat.  
   
-    -   Pour un type de règle **Valeur**, spécifiez les informations suivantes :  
+    -   Geef voor het regeltype **Waarde** de volgende informatie op:  
   
-        -   Le paramètre doit respecter la règle suivante : sélectionnez un opérateur et une valeur dont la compatibilité est évaluée avec le paramètre sélectionné. Vous pouvez utiliser les opérateurs suivants :  
+        -   De instelling moet voldoen aan de volgende regel: selecteer een operator en een waarde die worden beoordeeld op naleving van de geselecteerde instelling. U kunt de volgende operatoren gebruiken:  
   
-            -   **Égal à**  
+            -   **Is gelijk aan**  
   
-            -   **Non égal à**  
+            -   **Is niet gelijk aan**  
   
-            -   **Supérieur à**  
+            -   **Groter dan**  
   
-            -   **Inférieur à**  
+            -   **Kleiner dan**  
   
-            -   **Entre**  
+            -   **Tussen**  
   
-            -   **Supérieur ou égal à**  
+            -   **Groter dan of gelijk aan**  
   
-            -   **Inférieur ou égal à**  
+            -   **Kleiner dan of gelijk aan**  
   
-            -   **L’un des** : dans la zone de texte, spécifiez une seule entrée sur chaque ligne.  
+            -   **Een van**: geef in het tekstvak één vermelding per regel op.  
   
-            -   **Aucun des** : dans la zone de texte, spécifiez une seule entrée sur chaque ligne.  
+            -   **Geen van**: geef in het tekstvak één vermelding per regel op.  
   
-        -   **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** : sélectionnez cette option si vous voulez que Configuration Manager corrige automatiquement les règles non compatibles.  
+        -   **Regels die niet compliant zijn herstellen, waar ondersteund**: Selecteer deze optie als u wilt dat Configuration Manager automatisch niet-compatibele regels oplost.  
   
             > [!IMPORTANT]  
-            >  Vous ne pouvez corriger que les règles non compatibles lorsque l'opérateur de règle est défini sur **Égal à**.  
+            >  U kunt niet-compatibele regels alleen herstellen als de regeloperator is ingesteld op **Is gelijk aan**.  
   
-        -   **Signaler la non-compatibilité si l’instance de ce paramètre est introuvable** : l’élément de configuration signale une non-compatibilité si ce paramètre est introuvable sur l’ordinateur Mac.  
+        -   **Niet-compliantie melden als deze instellingsexemplaar niet wordt gevonden**: het configuratie-item rapporteert niet-naleving als deze instelling niet op de Mac-computer is gevonden.  
   
-    -   **Gravité de non-compatibilité pour les rapports** : spécifiez le niveau de gravité signalé en cas d’échec de cette règle de compatibilité. Les niveaux de gravité disponibles sont les suivants :  
+    -   **Ernst van niet-compliantie voor rapporten**: Geef de ernst op die moet worden gerapporteerd als deze compliantieregel mislukt. De beschikbare ernstniveaus zijn als volgt:  
   
-        -   **Aucun** : les ordinateurs qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec pour les rapports Configuration Manager.  
+        -   **Geen** -Computers die niet voldoen aan deze compliantieregel niet rapporteren ernst voor Configuration Manager-rapporten.  
   
-        -   **Informations** : les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations** pour les rapports Configuration Manager.  
+        -   **Informatie** -Computers die niet voldoen aan deze compliantieregel fouternst van **informatie** voor Configuration Manager-rapporten.  
   
-        -   **Avertissement** : les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement** pour les rapports Configuration Manager.  
+        -   **Waarschuwing** -Computers die niet voldoen aan deze compliantieregel fouternst van **waarschuwing** voor Configuration Manager-rapporten.  
   
-        -   **Critique** : les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.  
+        -   **Kritieke** -Computers die niet voldoen aan deze compliantieregel fouternst van **kritieke** voor Configuration Manager-rapporten.  
   
-        -   **Critique avec événement** : les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est également consigné par l’ordinateur client Mac.  
+        -   **Kritiek met gebeurtenis** -Computers die niet voldoen aan deze compliantieregel fouternst van **kritieke** voor Configuration Manager-rapporten. Dit ernstniveau wordt ook vastgelegd door de Mac-clientcomputer.  
   
-    -   Pour un type de règle **Existentiel**, spécifiez les informations suivantes :  
+    -   Geef voor het regeltype **Existentieel** de volgende informatie op:  
   
-        -   Choisissez parmi :  
+        -   Kies een van de volgende mogelijkheden:  
   
-            -   **Le paramètre doit exister sur les périphériques clients**  
+            -   **De instelling moet bestaan op clientapparaten**  
   
-            -   **Le paramètre ne doit pas exister sur les périphériques clients**  
+            -   **De instelling mag niet bestaan op clientapparaten**  
   
-        -   **Gravité de non compatibilité pour les rapports :** Spécifier le niveau de gravité signalé en cas d'échec de cette règle de conformité. Les niveaux de gravité disponibles sont les suivants :  
+        -   **Niet-nageleefd ernst voor rapporten:** Geef de ernst op die worden gerapporteerd als deze compliantieregel mislukt. De beschikbare ernstniveaus zijn als volgt:  
   
-            -   **Aucun** : les ordinateurs qui ne respectent pas cette règle de conformité ne signalent pas la gravité d’un échec pour les rapports Configuration Manager.  
+            -   **Geen** -Computers die niet voldoen aan deze compliantieregel niet rapporteren ernst voor Configuration Manager-rapporten.  
   
-            -   **Informations** : les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Informations** pour les rapports Configuration Manager.  
+            -   **Informatie** -Computers die niet voldoen aan deze compliantieregel fouternst van **informatie** voor Configuration Manager-rapporten.  
   
-            -   **Avertissement** : les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Avertissement** pour les rapports Configuration Manager.  
+            -   **Waarschuwing** -Computers die niet voldoen aan deze compliantieregel fouternst van **waarschuwing** voor Configuration Manager-rapporten.  
   
-            -   **Critique** : les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager.  
+            -   **Kritieke** -Computers die niet voldoen aan deze compliantieregel fouternst van **kritieke** voor Configuration Manager-rapporten.  
   
-            -   **Critique avec événement** : les ordinateurs qui ne respectent pas cette règle de conformité signalent la gravité d’un échec de niveau **Critique** pour les rapports Configuration Manager. Ce niveau de gravité est également consigné par l’ordinateur client Mac.  
+            -   **Kritiek met gebeurtenis** -Computers die niet voldoen aan deze compliantieregel fouternst van **kritieke** voor Configuration Manager-rapporten. Dit ernstniveau wordt ook vastgelegd door de Mac-clientcomputer.  
   
         > [!NOTE]  
-        >  Les options affichées peuvent varier selon le type de paramètre pour lequel vous configurez une règle.  
+        >  Welke opties worden weergegeven, hangt af van het instellingstype waarvoor u een regel configureert.  
   
-    -   Cliquez sur **OK** pour fermer la boîte de dialogue **Créer une règle** .  
+    -   Klik op **OK** om het dialoogvenster **Regel maken** te sluiten.  
   
-15. Dans la page **Résumé** , vérifiez les paramètres du nouvel élément de configuration, puis terminez l’Assistant.  
+15. Bevestig de instellingen voor het nieuwe configuratie-item op de pagina **Samenvatting** en voltooi vervolgens de wizard.  
   
- Le nouvel élément de configuration s’affiche dans le nœud **Éléments de configuration** de l’espace de travail **Ressources et Conformité** .  
+ Het nieuwe configuratie-item wordt weergegeven in het knooppunt **Configuratie-items** van de werkruimte **Activa en naleving**.  
   
- Si vous souhaitez maintenant ajouter cet élément de configuration à une base de référence de configuration, consultez [Comment créer des bases de référence de configuration dans System Center Configuration Manager](../../compliance/deploy-use/create-configuration-baselines.md).  
+ Zie [Configuratiebasislijnen maken in System Center Configuration Manager](../../compliance/deploy-use/create-configuration-baselines.md) als u dit configuratie-item nu wilt toevoegen aan een configuratiebasislijn.  
   
-## <a name="see-also"></a>Voir aussi  
- [Éléments de configuration pour les appareils gérés avec le client System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md)
+## <a name="see-also"></a>Zie ook  
+ [Configuratie-items voor apparaten die worden beheerd met de System Center Configuration Manager-client](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md)

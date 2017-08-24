@@ -1,6 +1,6 @@
 ---
-title: "Créer des bases de référence de configuration | Microsoft Docs"
-description: "Créez des bases de référence de configuration dans System Center Configuration Manager pour les déployer ensuite dans un regroupement."
+title: Configuratiebasislijnen maken | Microsoft Docs
+description: Configuratiebasislijnen maken in System Center Configuration Manager die u aan een verzameling kunt implementeren.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,55 +17,55 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 649942d3d468ec35c7246e08f741cdebd22fb3ac
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-configuration-baselines-in-system-center-configuration-manager"></a>Créer des bases de référence de configuration dans System Center Configuration Manager
+# <a name="create-configuration-baselines-in-system-center-configuration-manager"></a>Configuratiebasislijnen maken in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
-Les bases de référence de configuration System Center Configuration Manager contiennent des éléments de configuration prédéfinis et, éventuellement, d’autres bases de référence de configuration. Après avoir créé une base de référence de configuration, vous pouvez la déployer vers un regroupement afin que les périphériques de ce regroupement puissent la télécharger et évaluer leur compatibilité avec elle.  
+Configuratiebasislijnen in System Center Configuration Manager bevatten vooraf gedefinieerde configuratie-items en eventueel andere configuratiebasislijnen. Nadat u een configuratiebasislijn hebt gemaakt, kunt u deze implementeren bij een verzameling, zodat apparaten in die verzameling de configuratiebasislijn downloaden en naleving ervan beoordelen.  
 
- Les bases de référence de configuration dans Configuration Manager peuvent contenir des révisions spécifiques des éléments de configuration, ou être configurées pour toujours utiliser la dernière version d’un élément de configuration. Pour plus d’informations sur les révisions des éléments de configuration, consultez [Tâches de gestion des données de configuration](../../compliance/deploy-use/management-tasks-for-configuration-data.md).  
+ Configuratiebasislijnen in Configuration Manager kunnen specifieke herziening van configuratie-items bevatten of kunnen worden geconfigureerd voor gebruik altijd de nieuwste versie van een configuratie-item. Zie voor meer informatie over herzieningen van configuratie-item [beheertaken voor configuratiegegevens](../../compliance/deploy-use/management-tasks-for-configuration-data.md).  
 
- Vous pouvez créer des bases de référence de configuration selon deux méthodes différentes :  
+ Er zijn twee methoden die u kunt configuratiebasislijnen maken:  
 
--   Importer des données de configuration depuis un fichier. Pour démarrer l’ **Assistant Importer des données de configuration**, dans le nœud **Éléments de configuration** ou **Lignes de base de configuration** de l’espace de travail **Biens et conformité** , cliquez sur **Importer des données de configuration**.  
+-   Configuratiegegevens uit een bestand importeren. Als u de **Wizard Configuratiegegevens importeren**wilt starten, moet u in het knooppunt **Configuratie-items** of **Configuratiebasislijnen** in de werkruimte **Activa en naleving** op **Configuratiegegevens importeren**klikken.  
 
--   Utilisez la boîte de dialogue **Créer une ligne de base de configuration** pour créer une nouvelle ligne de base de configuration.  
+-   Gebruik het dialoogvenster **Configuratiebasislijn maken** om een nieuwe configuratiebasislijn te maken.  
 
- Procédez comme suit pour créer une ligne de base de configuration à l'aide de la boîte de dialogue **Créer une ligne de base de configuration** .  
+ Volg de volgende procedure om een configuratiebasislijn te maken in het dialoogvenster **Configuratiebasislijn maken** .  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Lignes de base de configuration**.  
+1.  Klik in de Configuration Manager-console op **activa en naleving** > **instellingen voor naleving** > **Configuratiebasislijnen**.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une ligne de base de configuration**.  
+3.  Klik op het tabblad **Start** in de groep **Maken** op **Configuratiebasislijn maken**.  
 
-4.  Dans la boîte de dialogue **Créer une ligne de base de configuration** , entrez un nom unique et une description pour la ligne de base de configuration. Vous pouvez utiliser un maximum de 255 caractères pour le nom et de 512 caractères pour la description.  
+4.  Voer in het dialoogvenster **Configuratiebasislijn maken** een unieke naam en een beschrijving voor de configuratiebasislijn in. U kunt maximaal 255 tekens voor de naam en 512 tekens voor de beschrijving gebruiken.  
 
-5.  La liste **Données de configuration** affiche tous les éléments de configuration ou toutes les bases de référence de configuration qui sont inclus dans cette base de référence de configuration. Cliquez sur **Ajouter** pour ajouter à la liste un nouvel élément de configuration ou une nouvelle ligne de base de configuration. Vous pouvez choisir parmi les priorités suivantes :  
+5.  De lijst **Configuratiegegevens** geeft alle configuratie-items of configuratiebasislijnen weer die in deze configuratiebasislijn zijn opgenomen. Klik op **Toevoegen** om een nieuw configuratie-item of een nieuwe configuratiebasislijn toe te voegen aan de lijst. U kunt kiezen uit de volgende mogelijkheden:  
 
-    -   **Éléments de configuration**  
+    -   **Configuratie-items**  
 
-    -   **Mises à jour logicielles**  
+    -   **Software-updates**  
 
-    -   **Lignes de base de configuration**  
+    -   **Configuratiebasislijnen**  
       > [!IMPORTANT]
-      > Vous devez limiter chaque base de référence de configuration à 1 000 mises à jour logicielles.
-6.  Utilisez la liste **Changer d’objet** pour spécifier le comportement d’un élément de configuration que vous avez sélectionné dans la liste **Données de configuration** . Vous pouvez choisir parmi les options suivantes  
+      > U moet elke configuratiebasislijn om niet meer dan 1000 software-updates te beperken.
+6.  Gebruik de lijst **Doel wijzigen** om het gedrag te bepalen van een configuratie-item dat u in de lijst **Configuratiegegevens** hebt geselecteerd. U kunt het volgende selecteren:  
 
-    -   **Obligatoire** La base de référence de configuration est évaluée comme non compatible si l’élément de configuration n’est pas détecté sur un périphérique client. S’il est détecté, sa conformité est évaluée.  
+    -   **Vereist** De configuratiebasislijn wordt beoordeeld als niet-compatibel als het configuratie-item niet op een clientapparaat wordt gedetecteerd. Als dit wel wordt gedetecteerd, wordt naleving beoordeeld  
 
-    -   **Facultatif** La conformité de l’élément de configuration n’est évaluée que si l’application à laquelle il fait référence se trouve sur des ordinateurs client. Si l’application est introuvable, la base de référence de configuration n’est pas marquée comme non compatible (applicable uniquement aux éléments de configuration d’application).  
+    -   **Optioneel** Het configuratie-item wordt alleen op naleving beoordeeld als de toepassing waarnaar wordt verwezen op clientcomputers is gevonden. Als de toepassing niet is gevonden, wordt de configuratiebasislijn niet gemarkeerd als niet-compatibel (alleen van toepassing op configuratie-items van toepassingen).  
 
-    -   **Interdit** La base de référence de configuration est évaluée comme non compatible si l’élément de configuration est détecté sur des ordinateurs client (applicable uniquement aux éléments de configuration d’application).  
+    -   **Verboden** De configuratiebasislijn wordt beoordeeld als niet-compatibel als het configuratie-item wordt gedetecteerd op clientcomputers (alleen van toepassing op configuratie-items van toepassingen).  
 
     > [!NOTE]
-    >  La liste **Changer d’objet** est disponible uniquement si vous avez cliqué sur l’option **Cet élément de configuration contient des paramètres d’application** dans la page **Général** de l’Assistant **Création d’élément de configuration**.  
+    >  De lijst **Doel wijzigen** is alleen beschikbaar als u op de optie **Dit configuratie-item bevat toepassingsinstellingen** hebt geklikt op de pagina **Algemeen** van de **Wizard Configuratie-item maken**.  
 
-7.  Utilisez la liste **Changer de révision** pour sélectionner une révision spécifique ou la dernière révision de l’élément de configuration afin d’évaluer la conformité sur des périphériques client ou sélectionnez **Toujours utiliser le dernier** pour toujours utiliser la dernière révision. Pour plus d’informations sur les révisions des éléments de configuration, consultez [Tâches de gestion des données de configuration](../../compliance/deploy-use/management-tasks-for-configuration-data.md).  
+7.  Gebruik de lijst **Herziening wijzigen** om een specifieke of de nieuwste herziening van het configuratie-item te selecteren om te beoordelen op naleving op clientapparaten, of selecteer **Altijd nieuwste gebruiken** om altijd de nieuwste herziening te gebruiken. Zie voor meer informatie over herzieningen van configuratie-item [beheertaken voor configuratiegegevens](../../compliance/deploy-use/management-tasks-for-configuration-data.md).  
 
-8.  Pour supprimer un élément de configuration de la base de référence de configuration, sélectionnez un élément de configuration, puis cliquez sur **Supprimer**.  
+8.  Als een configuratie-item uit de configuratiebasislijn wilt verwijderen, selecteert u een configuratie-item en klik vervolgens op **verwijderen**.  
 
-9. Cliquez sur **OK** pour fermer la boîte de dialogue **Créer une ligne de base de configuration** et pour créer la ligne de base de configuration.  
+9. Klik op **OK** om het dialoogvenster **Configuratiebasislijn maken** te sluiten en de configuratiebasislijn te maken.  

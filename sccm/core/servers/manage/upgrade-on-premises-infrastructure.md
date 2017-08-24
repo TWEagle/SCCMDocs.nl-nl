@@ -1,6 +1,6 @@
 ---
-title: "Mettre à niveau l’infrastructure locale | Microsoft Docs"
-description: "Découvrez comment mettre à niveau l’infrastructure, telles que SQL Server et le système d’exploitation de site des systèmes de site."
+title: On-premises infrastructuur bijwerken | Microsoft Docs
+description: Informatie over het upgraden van de infrastructuur, zoals SQL Server en het besturingssysteem van de site van site-systemen.
 ms.custom: na
 ms.date: 06/05/2017
 ms.prod: configuration-manager
@@ -17,195 +17,195 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 188b7f2537dd0e569a5c00995620124512cf311b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="upgrade-on-premises-infrastructure-that-supports-system-center-configuration-manager"></a>Mettre à niveau l’infrastructure locale qui prend en charge System Center Configuration Manager
+# <a name="upgrade-on-premises-infrastructure-that-supports-system-center-configuration-manager"></a>Lokale infrastructuur bijwerken die ondersteuning biedt voor System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Utilisez les informations de cette rubrique pour mettre à niveau l’infrastructure de serveur qui exécute System Center Configuration Manager.  
+Gebruik de informatie in dit onderwerp voor hulp bij het upgraden van de infrastructuur van de server waarop System Center Configuration Manager wordt uitgevoerd.  
 
- - Si vous voulez effectuer la mise à niveau à partir d’une version antérieure de Configuration Manager vers System Center Configuration Manager, consultez [Mettre à niveau vers System Center Configuration Manager](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager).
+ - Als u upgraden vanaf een eerdere versie van Configuration Manager naar System Center Configuration Manager wilt, raadpleegt u [upgraden naar System Center Configuration Manager](/sccm/core/servers/deploy/install/upgrade-to-configuration-manager).
 
-- Si vous voulez mettre à jour votre infrastructure System Center Configuration Manager vers une nouvelle version, consultez [Mises à jour pour System Center Configuration Manager](/sccm/core/servers/manage/updates).
+- Als u uw infrastructuur voor System Center Configuration Manager bijwerken naar een nieuwe versie wilt, Zie [Updates voor System Center Configuration Manager](/sccm/core/servers/manage/updates).
 
-##  <a name="BKMK_SupConfigUpgradeSiteSrv"></a> Mettre à niveau le système d’exploitation des systèmes de site  
- Configuration Manager prend en charge la mise à niveau sur place du système d’exploitation de serveurs qui hébergent un serveur de site et des serveurs distants hébergeant un rôle de système de site, dans les situations suivantes :  
+##  <a name="BKMK_SupConfigUpgradeSiteSrv"></a>Werk het besturingssysteem van de site-systemen  
+ Configuration Manager ondersteunt de in-place upgrade van het besturingssysteem van de servers die als host fungeren van een siteserver en externe servers die als host fungeren van elke sitesysteemrol in de volgende situaties:  
 
--   Mise à niveau sur place vers un Service Pack Windows Server ultérieur si le niveau du Service Pack de Windows résultant est pris en charge par Configuration Manager.  
--   Mise à niveau sur place à partir de :
-    - Windows Server 2012 R2 vers Windows Server 2016 ([afficher des informations supplémentaires](#bkmk_2016)).
-    - Windows Server 2012 vers Windows Server 2016 ([afficher des informations supplémentaires](#bkmk_2016)).
-    - Windows Server 2012 vers Windows Server 2012 R2 ([afficher des informations supplémentaires](#bkmk_2012r2)).
-    - Quand vous utilisez Configuration Manager version 1602 ou ultérieur, la mise à niveau de Windows Server 2008 R2 vers Windows Server 2012 R2 est également prise en charge ([afficher des informations supplémentaires](#bkmk_from2008r2).
+-   In-place upgrade naar een hoger Windows Server-servicepack als het resulterende servicepackniveau van Windows ondersteund door Configuration Manager blijft.  
+-   In-place upgrade van:
+    - Windows Server 2012 R2 naar Windows Server 2016 ([Zie aanvullende informatie](#bkmk_2016)).
+    - Windows Server 2012 naar Windows Server 2016 ([Zie aanvullende informatie](#bkmk_2016)).
+    - Windows Server 2012 naar Windows Server 2012 R2 ([Zie aanvullende informatie](#bkmk_2012r2)).
+    - Wanneer u Configuration Manager versie 1602 of hoger, wordt ook ondersteund voor een upgrade van Windows Server 2008 R2 naar Windows Server 2012 R2 ([Zie aanvullende informatie](#bkmk_from2008r2).
 
     > [!WARNING]  
-    >  Avant de mettre à niveau vers Windows Server 2012 R2, *vous devez désinstaller WSUS 3.2* du serveur.  
+    >  Voordat u de upgrade naar Windows Server 2012 R2 uitvoert, *dient u WSUS 3.2 te verwijderen* van de server.  
     >   
-    >  Pour plus d’informations sur cette étape critique, consultez la section « Fonctionnalités nouvelles et modifiées » de la rubrique [Vue d’ensemble des services WSUS (Windows Server Update Services)](https://technet.microsoft.com/library/hh852345.aspx) dans la documentation de Windows Server.  
+    >  Voor informatie over deze kritieke stap, Zie de sectie 'New and changed functionality' in [overzicht van Windows Server Update Services](https://technet.microsoft.com/library/hh852345.aspx) in de documentatie van Windows Server.  
 
-Pour mettre à niveau un serveur, utilisez les procédures de mise à niveau fournies par le système d’exploitation vers lequel vous effectuez la mise à niveau.  Consultez les rubriques suivantes :
-  -  [Options de mise à niveau pour Windows Server 2012 R2](https://technet.microsoft.com/library/dn303416.aspx) dans la documentation de Windows Server.  
-  - [Options de mise à niveau et de conversion pour Windows Server 2016](https://technet.microsoft.com/windows-server-docs/get-started/supported-upgrade-paths) dans la documentation de Windows Server.
+Gebruik de upgradeprocedures geleverd door het besturingssysteem dat u een upgrade uitvoert voor het bijwerken van een server.  Zie de volgende:
+  -  [Opties voor Windows Server 2012 R2 upgraden](https://technet.microsoft.com/library/dn303416.aspx) in de documentatie van Windows Server.  
+  - [Upgrade en conversie-opties voor Windows Server 2016](https://technet.microsoft.com/windows-server-docs/get-started/supported-upgrade-paths) in de documentatie van Windows Server.
 
-### <a name="bkmk_2016"></a> Mise à niveau de Windows Server 2012 ou Windows Server 2012 R2 vers la version 2016
-Lorsque vous mettez à niveau Windows Server 2012 ou Windows Server 2012 R2 vers Windows Server 2016, ce qui suit s’applique :
-
-
-**Avant la mise à niveau :**  
--   Supprimez le client SCEP (System Center Endpoint Protection). Windows Defender, qui remplace le client SCEP, est intégré à Windows Server 2016. La présence du client SCEP peut empêcher une mise à niveau vers Windows Server 2016.
-
-**Après la mise à niveau :**
--   Vérifiez que Windows Defender est activé, configuré pour démarrer automatiquement et en cours d’exécution.
--   Vérifiez que les services Configuration Manager suivants sont en cours d’exécution :
-  -     SMS_EXECUTIVE
-  -     SMS_SITE_COMPONENT_MANAGER
+### <a name="bkmk_2016"></a>Upgrade van WindowsServer 2012 of WindowsServer 2012 R2-2016
+Wanneer u Windows Server 2012 of Windows Server 2012 R2 naar Windows Server 2016, de volgende van toepassing upgraden:
 
 
--   Vérifiez que le **service d’activation des processus Windows** et le **service WWW/W3SVC** sont activés, configurés pour démarrer automatiquement et en cours d’exécution pour les rôles de système de site suivants (ces services sont désactivés pendant la mise à niveau) :
-  -     Serveur de site
-  -     Point de gestion
-  -     Point de service web du catalogue des applications
-  -     Point du site web du catalogue des applications
+**Voor de upgrade:**  
+-   De System Center Endpoint Protection (SCEP)-client verwijderen. Windows Server 2016 heeft ingebouwde Windows-Defender die de SCEP-client vervangt. De aanwezigheid van de SCEP-client kunt voorkomen dat een upgrade naar Windows Server 2016.
 
--   Vérifiez que chaque serveur qui héberge un rôle de système de site respecte l’ensemble des [prérequis pour les rôles de système de site](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) qui s’exécutent sur ce serveur. Par exemple, il se peut que vous deviez réinstaller le service BITS ou le service WSUS, ou de configurer des paramètres spécifiques pour IIS.
-
--   Après avoir restauré les prérequis manquants, redémarrez le serveur une fois de plus pour être sûr que les services sont démarrés et en cours d’exécution.
-
-**Problème connu lié aux consoles Configuration Manager distantes :**  
-Une fois la mise à niveau du serveur de site ou d’un serveur qui héberge une instance de SMS_Provider vers Windows Server 2016 effectuée, il se peut que les utilisateurs administratifs ne puissent pas connecter une console Configuration Manager au site. Pour contourner ce problème, vous devez restaurer manuellement les autorisations pour le groupe Administrateurs SMS dans WMI. Les autorisations doivent être définies sur le serveur de site, ainsi que sur chaque serveur distant qui héberge une instance de SMS_Provider :
-
-1. Sur les serveurs applicables, ouvrez la console MMC (Microsoft Management Console) et ajoutez le composant logiciel enfichable pour le **Contrôle WMI**, puis sélectionnez **Ordinateur local**.
-2. Dans la console MMC, ouvrez les **Propriétés** du **Contrôle WMI (local)**, puis sélectionnez l’onglet **Sécurité**.
-3. Développez l’arborescence sous la racine, sélectionnez le nœud **SMS**, puis choisissez **Sécurité**.  Vérifiez que le groupe **Administrateurs SMS** dispose des autorisations suivantes :
-  -     Activer le compte
-  -     Appel à distance autorisé
-4. Dans **l’onglet Sécurité** sous le nœud **SMS**, sélectionnez le nœud **site_&lt;sitecode**>, puis choisissez **Sécurité**. Vérifiez que le groupe **Administrateurs SMS** dispose des autorisations suivantes :
-  -   Méthodes d’exécution
-  -   Écriture fournisseur
-  -   Activer le compte
-  -   Appel à distance autorisé
-5. Enregistrez les autorisations pour restaurer l’accès à la console Configuration Manager.
-
-### <a name="bkmk_2012r2"></a> Windows Server 2012 vers Windows Server 2012 R2
-
-**Avant la mise à niveau :**
--  Contrairement aux autres scénarios pris en charge, ce scénario ne nécessite pas de considérations supplémentaires avant la mise à niveau.
-
-**Après la mise à niveau :**
-  - Vérifiez que le service de déploiement Windows est démarré et en cours d’exécution pour les rôles de système de site suivants (ce service est arrêté pendant la mise à niveau) :
-    - Serveur de site
-    - Point de gestion
-    - Point de service web du catalogue des applications
-    - Point du site web du catalogue des applications
-
-  -     Vérifiez que le **service d’activation des processus Windows** et le **service WWW/W3SVC** sont activés, configurés pour démarrer automatiquement et en cours d’exécution pour les rôles de système de site suivants (ces services sont désactivés pendant la mise à niveau) :
-    -   Serveur de site
-    -   Point de gestion
-    -   Point de service web du catalogue des applications
-    -   Point du site web du catalogue des applications
+**Na de upgrade:**
+-   Zorg ervoor dat Windows Defender is ingeschakeld, instellen voor automatisch starten en wordt uitgevoerd.
+-   Zorg ervoor dat de volgende Configuration Manager-services worden uitgevoerd:
+  -     SMS EXECUTIVE
+  -     SMS SITE COMPONENT MANAGER
 
 
-  -     Vérifiez que chaque serveur qui héberge un rôle de système de site respecte l’ensemble des [prérequis pour les rôles de système de site](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) qui s’exécutent sur ce serveur. Par exemple, il se peut que vous deviez réinstaller le service BITS ou le service WSUS, ou de configurer des paramètres spécifiques pour IIS.
+-   Zorg ervoor dat de **Windows Process Activation** en **WWW/W3svc** services zijn ingeschakeld, worden ingesteld voor automatisch starten en de volgende sitesysteemrollen (deze services worden uitgeschakeld tijdens de upgrade) worden uitgevoerd:
+  -     Siteserver
+  -     Beheerpunt
+  -     Application Catalog-webservicepunt
+  -     Application Catalog-websitepunt
 
-  Après avoir restauré les prérequis manquants, redémarrez le serveur une fois de plus pour être sûr que les services sont démarrés et en cours d’exécution.
+-   Zorg ervoor dat elke server die als host fungeert voor een sitesysteemrol blijft voldoen aan alle de [vereisten voor sitesysteemrollen](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) die worden uitgevoerd op die server. U wilt bijvoorbeeld BITS, WSUS, opnieuw installeren of configureren met specifieke instellingen voor IIS.
 
-### <a name="bkmk_from2008r2"></a> Mise à niveau de Windows Server 2008 R2 vers Windows Server 2012 R2
-Ce scénario de mise à niveau du système d’exploitation a les conditions suivantes :  
+-   Na het terugzetten van ontbrekende vereiste onderdelen, start opnieuw op de server een keer om ervoor te zorgen services zijn gestart en operationele.
 
-**Avant la mise à niveau :**
--   Désinstallez WSUS 3.2.  
-    Avant de mettre à niveau le système d’exploitation d’un serveur vers Windows Server 2012 R2, vous devez désinstaller WSUS 3.2 du serveur. Pour plus d’informations sur cette étape critique, consultez la section Fonctionnalités nouvelles et modifiées de la rubrique Vue d’ensemble des services WSUS (Windows Server Update Services) dans la documentation de Windows Server.
+**Bekend probleem voor externe Configuration Manager-consoles:**  
+Na de upgrade van de siteserver of een server die als host fungeert voor een exemplaar van de SMS-provider naar Windows Server 2016, kunnen gebruikers met beheerdersrechten mogelijk niet een Configuration Manager-console verbinden met de site. U kunt dit probleem omzeilen, moet u machtigingen voor de SMS Admins-groep in WMI handmatig herstellen. Machtigingen zijn ingesteld op de siteserver en op elke externe server die als host fungeert voor een exemplaar van de SMS-provider:
 
-**Après la mise à niveau :**
-  - Vérifiez que le service de déploiement Windows est démarré et en cours d’exécution pour les rôles de système de site suivants (ce service est arrêté pendant la mise à niveau) :
-    - Serveur de site
-    - Point de gestion
-    - Point de service web du catalogue des applications
-    - Point du site web du catalogue des applications
+1. Open Microsoft Management Console (MMC) op de desbetreffende servers en voeg de module voor **WMI-beheer**, en selecteer vervolgens **lokale computer**.
+2. Open in de MMC, de **eigenschappen** van **WMI-beheer (lokaal)** en selecteer de **beveiliging** tabblad.
+3. Vouw de structuur hieronder Root, selecteer de **SMS** knooppunt, en kies vervolgens **beveiliging**.  Zorg ervoor dat de **SMS Admins** groep heeft de volgende machtigingen:
+  -     Account inschakelen
+  -     Op afstand inschakelen
+4. Op de **tabblad Beveiliging** onder de **SMS** knooppunt, selecteer de **site_&lt;sitecode**>-knooppunt, en kies vervolgens **beveiliging**. Zorg ervoor dat de **SMS Admins** groep heeft de volgende machtigingen:
+  -   Methoden uitvoeren
+  -   Schrijftoegang tot providerobjecten
+  -   Account inschakelen
+  -   Op afstand inschakelen
+5. Sla de machtigingen voor toegang voor de Configuration Manager-console herstellen.
+
+### <a name="bkmk_2012r2"></a>WindowsServer 2012 naar Windows Server 2012 R2
+
+**Voor de upgrade:**
+-  In tegenstelling tot de andere ondersteunde scenario's, is dit scenario geen extra overwegingen vóór upgrade vereist.
+
+**Na de upgrade:**
+  - Zorg ervoor dat de Windows Deployment Service is gestart en worden uitgevoerd voor de volgende sitesysteemrollen (deze service is gestopt tijdens de upgrade):
+    - Siteserver
+    - Beheerpunt
+    - Application Catalog-webservicepunt
+    - Application Catalog-websitepunt
+
+  -     Zorg ervoor dat de **Windows Process Activation** en **WWW/W3svc** services zijn ingeschakeld, worden ingesteld voor automatisch starten en de volgende sitesysteemrollen (deze services worden uitgeschakeld tijdens de upgrade) worden uitgevoerd:
+    -   Siteserver
+    -   Beheerpunt
+    -   Application Catalog-webservicepunt
+    -   Application Catalog-websitepunt
 
 
-  -     Vérifiez que le **service d’activation des processus Windows** et le **service WWW/W3SVC** sont activés, configurés pour démarrer automatiquement et en cours d’exécution pour les rôles de système de site suivants (ces services sont désactivés pendant la mise à niveau) :
-    -   Serveur de site
-    -   Point de gestion
-    -   Point de service web du catalogue des applications
-    -   Point du site web du catalogue des applications
+  -     Zorg ervoor dat elke server die als host fungeert voor een sitesysteemrol blijft voldoen aan alle de [vereisten voor sitesysteemrollen](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) die worden uitgevoerd op die server. U wilt bijvoorbeeld BITS, WSUS, opnieuw installeren of configureren met specifieke instellingen voor IIS.
+
+  Na het terugzetten van ontbrekende vereiste onderdelen, start opnieuw op de server een keer om ervoor te zorgen services zijn gestart en operationele.
+
+### <a name="bkmk_from2008r2"></a>Upgrade van Windows Server 2008 R2 naar Windows Server 2012 R2
+Dit besturingssysteem upgradescenario heeft de volgende voorwaarden:  
+
+**Voor de upgrade:**
+-   WSUS 3.2 verwijderen.  
+    Voordat u een besturingssysteem naar Windows Server 2012 R2 upgraden, moet u WSUS 3.2 verwijderen van de server. Zie de sectie nieuwe en gewijzigde functionaliteit in het overzicht van Windows Server Update Services in Windows Server-documentatie voor informatie over deze kritieke stap.
+
+**Na de upgrade:**
+  - Zorg ervoor dat de Windows Deployment Service is gestart en worden uitgevoerd voor de volgende sitesysteemrollen (deze service is gestopt tijdens de upgrade):
+    - Siteserver
+    - Beheerpunt
+    - Application Catalog-webservicepunt
+    - Application Catalog-websitepunt
 
 
-  -     Vérifiez que chaque serveur qui héberge un rôle de système de site respecte l’ensemble de la [configuration requise pour les rôles de système de site](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) qui s’exécutent sur ce serveur. Par exemple, il se peut que vous deviez réinstaller le service BITS ou le service WSUS, ou de configurer des paramètres spécifiques pour IIS.
-
-  Après avoir restauré les prérequis manquants, redémarrez le serveur une fois de plus pour être sûr que les services sont démarrés et en cours d’exécution.
-
-
-### <a name="unsupported-upgrade-scenarios"></a>Scénarios de mise à niveau non pris en charge
-Les scénarios de mise à niveau de Windows Server suivants font souvent l’objet de questions, mais ils ne sont pas pris en charge par Configuration Manager :  
-
--   Windows Server 2008 vers Windows Server 2012 ou version ultérieure  
--   Windows Server 2008 R2 vers Windows Server 2012
+  -     Zorg ervoor dat de **Windows Process Activation** en **WWW/W3svc** services zijn ingeschakeld, worden ingesteld voor automatisch starten en de volgende sitesysteemrollen (deze services worden uitgeschakeld tijdens de upgrade) worden uitgevoerd:
+    -   Siteserver
+    -   Beheerpunt
+    -   Application Catalog-webservicepunt
+    -   Application Catalog-websitepunt
 
 
+  -     Zorg ervoor dat elke server die als host fungeert voor een sitesysteemrol blijft voldoen aan alle [vereisten voor sitesysteemrollen](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) die worden uitgevoerd op die server. U wilt bijvoorbeeld BITS, WSUS, opnieuw installeren of configureren met specifieke instellingen voor IIS.
 
-##  <a name="BKMK_SupConfigUpgradeClient"></a> Mettre à niveau le système d’exploitation de clients Configuration Manager  
- Configuration Manager prend en charge une mise à niveau sur place du système d’exploitation pour les clients Configuration Manager dans les situations suivantes :  
+  Na het terugzetten van ontbrekende vereiste onderdelen, start opnieuw op de server een keer om ervoor te zorgen services zijn gestart en operationele.
 
--   La mise à niveau sur place vers un Service Pack Windows ultérieur si le niveau du Service Pack résultant est pris en charge par Configuration Manager.  
 
--   Mise à niveau sur place de Windows à partir d’une version prise en charge vers Windows 10. Pour plus d’informations, consultez [Mettre à niveau Windows vers la dernière version avec System Center Configuration Manager](../../../osd/deploy-use/upgrade-windows-to-the-latest-version.md).  
+### <a name="unsupported-upgrade-scenarios"></a>Niet-ondersteunde upgradescenario 's
+De volgende upgradescenario's van Windows Server veelgestelde over, maar niet ondersteund door Configuration Manager:  
 
--   Mises à niveau de la maintenance de build à build de Windows 10.  Pour plus d’informations, consultez [Gérer Windows as a Service (WaaS) à l’aide de System Center Configuration Manager](../../../osd/deploy-use/manage-windows-as-a-service.md).  
+-   Windows Server 2008 naar Windows Server 2012 of hoger  
+-   Windows Server 2008 R2 naar WindowsServer 2012
 
-##  <a name="BKMK_SupConfigUpgradeDBSrv"></a> Mettre à niveau SQL Server sur le serveur de base de données de site  
-  Configuration Manager prend en charge une mise à niveau sur place de SQL Server à partir d’une version prise en charge de SQL sur le serveur de base de données de site. Les scénarios de mise à niveau de SQL Server décrits dans cette section sont pris en charge par Configuration Manager et incluent la configuration requise pour chaque scénario.
 
- Pour plus d’informations sur les versions de SQL Server prises en charge par Configuration Manager, consultez [Prise en charge des versions de SQL Server pour System Center Configuration Manager](../../../core/plan-design/configs/support-for-sql-server-versions.md).  
 
- **Mettre à niveau la version du Service Pack de SQL Server**    
- Configuration Manager prend en charge la mise à niveau sur place de SQL Server vers un Service Pack ultérieur si le niveau du Service Pack SQL Server résultant est pris en charge par Configuration Manager.
+##  <a name="BKMK_SupConfigUpgradeClient"></a>Werk het besturingssysteem van Configuration Manager-clients  
+ Configuration Manager ondersteunt een in-place upgrade van het besturingssysteem voor Configuration Manager-clients in de volgende situaties:  
 
- Quand une hiérarchie comprend plusieurs sites Configuration Manager, chaque site peut exécuter une version différente du Service Pack de SQL Server, et il n’existe pas de limitation quant à l’ordre dans lequel les sites mettent à niveau la version du Service Pack de SQL Server qui est utilisé pour la base de données du site.
+-   In-place upgrade naar een hoger Windows servicepack als het resulterende servicepackniveau ondersteund door Configuration Manager blijft.  
 
- **Mise à niveau vers une nouvelle version de SQL Server :**   
- Configuration Manager prend en charge la mise à niveau sur place de SQL Server vers les versions suivantes :
+-   In-place upgrade van Windows vanuit een ondersteunde versie naar Windows 10. Zie [Windows upgraden naar de nieuwste versie met System Center Configuration Manager](../../../osd/deploy-use/upgrade-windows-to-the-latest-version.md) voor meer informatie.  
+
+-   Upgrades van build-naar-build onderhoud van Windows 10.  Zie [Windows als een service beheren met System Center Configuration Manager](../../../osd/deploy-use/manage-windows-as-a-service.md) voor meer informatie.  
+
+##  <a name="BKMK_SupConfigUpgradeDBSrv"></a>SQL Server op de Sitedatabaseserver bijwerken  
+  Configuration Manager ondersteunt een in-place upgrade van SQL Server vanuit een ondersteunde versie van SQL op de Sitedatabaseserver. De SQL Server upgradescenario's in deze sectie worden ondersteund door Configuration Manager en vereisten voor elk scenario bevatten.
+
+ Zie voor meer informatie over de versies van SQL Server die worden ondersteund door Configuration Manager [ondersteuning voor SQL Server-versies voor System Center Configuration Manager](../../../core/plan-design/configs/support-for-sql-server-versions.md).  
+
+ **Upgrade de servicepackversie van SQL Server:**    
+ Configuration Manager ondersteunt de in-place upgrade van SQL Server naar een hoger servicepack als het resulterende SQL Server-servicepackniveau ondersteund door Configuration Manager blijft.
+
+ Wanneer u meerdere Configuration Manager-sites in een hiërarchie hebt, kan elke site een andere servicepackversie van SQL Server worden uitgevoerd en er geldt geen beperking voor de volgorde waarin de servicepackversie van SQL Server die wordt gebruikt voor de sitedatabase de sites wordt bijgewerkt.
+
+ **Een upgrade naar een nieuwe versie van SQL Server:**   
+ Configuration Manager ondersteunt de in-place upgrade van SQL Server op de volgende versies:
 
  - SQL Server 2012  
  - SQL Server 2014  
- - SQL Server 2016  
+ - SQL Server 2016  
 
-Quand vous mettez à niveau la version de SQL Server qui héberge la base de données du site, vous devez mettre à niveau la version de SQL Server qui est utilisée sur les sites dans l’ordre suivant :
+Wanneer u de versie van SQL Server die als host fungeert voor de sitedatabase bijwerkt, moet u een upgrade van de SQL Server-versie die wordt gebruikt op sites in de volgende volgorde:
 
- 1. Mettez d'abord à niveau SQL Server sur le site administration centrale.
- 2. Mettez à niveau les sites secondaires avant de mettre à niveau le site principal parent d’un site secondaire.
- 3. Mettez à niveau les sites principaux parents en dernier. Ceci inclut les sites principaux enfants qui dépendent d'un site d'administration centrale et les sites principaux autonomes qui constituent les sites de plus haut niveau d'une hiérarchie.
+ 1. Voer eerst een upgrade uit voor SQL Server op de centrale beheersite.
+ 2. Upgraden van secundaire sites voordat u een secundaire site bovenliggende primaire site bijwerkt.
+ 3. Voer het laatst een upgrade uit voor bovenliggende primaire sites. Dit omvat zowel onderliggende primaire sites die rapporteren aan een centrale beheersite als zelfstandige primaire sites die zijn van het hoogste niveau van een hiërarchie.
 
-**Niveau Estimation de cardinalité SQL Server et base de données de site :**   
-Quand une base de données de site est mise à niveau à partir d’une version antérieure de SQL Server, la base de données conserve son niveau Estimation de cardinalité SQL Server (SQL Server CE) existant s’il est au minimum autorisé pour cette instance de SQL Server. En mettant à niveau SQL Server avec une base de données à un niveau de compatibilité inférieur que celui autorisé automatiquement, vous définissez la base de données sur le niveau de compatibilité le plus bas autorisé par SQL Server.
+**SQL Server Kardinaliteitsschatting niveau en de sitedatabase:**   
+Wanneer een sitedatabase van een eerdere versie van SQL Server wordt bijgewerkt, wordt in de database zijn bestaande SQL kardinaliteit schatting (CE)-niveau behouden als het is ingesteld op de minimaal toegestane voor dat betreffende exemplaar van SQL Server. SQL Server bijwerken met een database op een lager compatibiliteitsniveau dan het toegestane niveau automatisch, wordt de database ingesteld op het laagste niveau van databasecompatibiliteit toegestaan door SQL Server.
 
-Le tableau suivant identifie les niveaux de compatibilité recommandés pour les bases de données de site Configuration Manager :
+De volgende tabel bevat de aanbevolen compatibiliteitsniveaus voor Configuration Manager-sitedatabases:
 
-|Version SQL Server | Niveaux de compatibilité pris en charge |Niveau conseillé|
+|SQL Server-versie | Ondersteunde compatibiliteitsniveaus |Aanbevolen niveau|
 |----------------|--------------------|--------|
-| SQL Server 2016| 130, 120, 110, 100 | 130|
+| SQL Server 2016| 130, 120, 110, 100 | 130|
 | SQL Server 2014| 120, 110, 100      | 110|
 
-Pour identifier le niveau de compatibilité SQL Server CE en cours d’utilisation pour votre base de données de site, exécutez la requête SQL suivante sur le serveur de base de données de site : **SELECT name, compatibility_level FROM sys.databases**
+Om het compatibiliteitsniveau van de SQL Server CE gebruikt voor de database van uw site hebt geïdentificeerd, voer de volgende SQL-query op de Sitedatabaseserver:  **Selecteer de naam, compatibility_level FROM sys.databases.**
 
- Pour plus d’informations sur les niveaux de compatibilité SQL CE et comment les définir, consultez [Niveau de compatibilité ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/bb510680.aspx).
-
-
-Pour plus d’informations sur SQL Server, consultez la documentation de SQL Server sur TechNet :
--   [Mise à niveau vers SQL Server 2012](http://technet.microsoft.com/library/ms143393\(v=sql.110))
--   [Mise à niveau vers SQL Server 2014](http://technet.microsoft.com/library/ms143393\(v=sql.120))  
--   [Mise à niveau vers SQL Server 2016](https://technet.microsoft.com/library/bb677622(v=sql.130))
+ Zie voor meer informatie over SQL CE-compatibiliteitsniveaus en hoe deze [ALTER databasecompatibiliteitsniveau (Transact-SQL)](https://msdn.microsoft.com/library/bb510680.aspx).
 
 
+Zie de documentatie van SQL Server op TechNet voor meer informatie over SQL Server:
+-   [Upgrade naar SQL Server 2012](http://technet.microsoft.com/library/ms143393\(v=sql.110))
+-   [Upgrade naar SQL Server 2014](http://technet.microsoft.com/library/ms143393\(v=sql.120))  
+-   [Upgrade naar SQL Server 2016](https://technet.microsoft.com/library/bb677622(v=sql.130))
 
-### <a name="to-upgrade-sql-server-on-the-site-database-server"></a>Pour mettre à niveau SQL Server sur le serveur de base de données de site  
 
-1.  Arrêtez tous les services de Configuration Manager sur le site.  
-2.  Mettez à niveau SQL Server vers une version prise en charge.  
-3.  Redémarrez les services de Configuration Manager.  
+
+### <a name="to-upgrade-sql-server-on-the-site-database-server"></a>Een upgrade uitvoeren voor SQL Server op de sitedatabaseserver  
+
+1.  Stop alle Configuration Manager-services op de site.  
+2.  Werk SQL Server bij naar een ondersteunde versie.  
+3.  De Configuration Manager-services opnieuw starten.  
 
 > [!NOTE]  
->  Quand vous changez l'édition de SQL Server utilisée sur le site d'administration centrale d'une édition Standard en une édition Enterprise ou Datacenter, la partition de base de données qui limite le nombre de clients que la hiérarchie prend en charge ne change pas.
+>  Wanneer u de SQL Server-editie die wordt gebruikt op de centrale beheersite wijzigt van een Standard-editie in een Datacenter- of Enterprise-editie, wordt de databasepartitie met beperkingen voor het aantal clients dat door de hiërarchie wordt ondersteund niet aangepast.

@@ -1,6 +1,6 @@
 ---
-title: "Créer une séquence de tâches personnalisée | Microsoft Docs"
-description: "Modifiez une séquence de tâches personnalisée dans System Center Configuration Manager pour y ajouter des étapes."
+title: Een aangepaste takenreeks maken | Microsoft Docs
+description: Een aangepaste takenreeks in System Center Configuration Manager toevoegen van stappen aan de takenreeks bewerken.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,38 +17,38 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 03c844084c72fc52806123d9f4c11a410a3ec775
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-a-custom-task-sequence-with-system-center-configuration-manager"></a>Créer une séquence de tâches personnalisée avec System Center Configuration Manager
+# <a name="create-a-custom-task-sequence-with-system-center-configuration-manager"></a>Een aangepaste takenreeks maken met System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Quand vous créez une séquence de tâches personnalisée dans System Center Configuration Manager, elle ne contient aucune étape de séquence de tâches. Après avoir créé la séquence de tâches, vous devez la modifier et ajouter les étapes de séquence de tâches dont vous avez besoin.  
+Wanneer u een aangepaste takenreeks in System Center Configuration Manager maakt, bevat deze geen takenreeksstappen. Nadat u de takenreeks hebt gemaakt, moet u deze bewerken en de benodigde takenreeksstappen toevoegen.  
 
-##  <a name="BKMK_CustomTS"></a> Créer une séquence de tâches personnalisée  
- Pour créer une séquence de tâches personnalisée, procédez comme suit.  
+##  <a name="BKMK_CustomTS"></a> Een aangepaste takenreeks maken  
+ Gebruik de volgende procedure om een aangepaste takenreeks te maken.  
 
-#### <a name="to-create-a-custom-task-sequence"></a>Pour créer une séquence de tâches personnalisée  
+#### <a name="to-create-a-custom-task-sequence"></a>Een aangepaste takenreeks maken  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
+2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Takenreeksen**.  
 
-3.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une séquence de tâches** pour démarrer l'Assistant Création d'une séquence de tâches.  
+3.  Klik op **Takenreeks maken** in het tabblad **Start** , in de groep **Maken** om de wizard Takenreeks maken te starten.  
 
-4.  Sur la page **Créer une nouvelle séquence de tâches** , sélectionnez **Créez une séquence de tâches personnalisée**.  
+4.  Selecteer **Nieuwe aangepaste takenreeks maken** op de pagina **Nieuwe takenreeks maken**.  
 
-5.  Sur la page **Informations sur la séquence de tâches** , spécifiez un nom, une description et une image de démarrage facultative pour la séquence de tâches à utiliser, puis fermez l'Assistant.  
+5.  Geef, op de pagina **Takenreeksinformatie** , een naam op voor de takenreeks, een beschrijving van de takenreeks en een optionele opstartinstallatiekopie voor gebruik door de takenreeks en voltooi vervolgens de wizard.  
 
- Après avoir fermé l’Assistant Création d’une séquence de tâches, Configuration Manager ajoute la séquence de tâches personnalisée au nœud **Séquences de tâches**. Vous pouvez désormais modifier cette séquence de tâches pour y ajouter des étapes de séquence de tâches.  
+ Nadat u de Wizard Takenreeks maken hebt voltooid, Configuration Manager de aangepaste takenreeks voegt de **Takenreeksen** knooppunt. U kunt deze takenreeks nu bewerken om er takenreeksstappen aan toe te voegen.  
 
- Pour obtenir une liste des étapes de séquence de tâches disponibles, consultez [Étapes de séquence de tâches](../understand/task-sequence-steps.md).  
+ Zie voor een lijst met beschikbare takenreeksstappen [Takenreeksstappen](../understand/task-sequence-steps.md).  
 
- Pour plus d’informations sur la modification d’une séquence de tâches, consultez [Modifier une séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence).  
+ Zie voor meer informatie over het bewerken van een takenreeks [een takenreeks bewerken](manage-task-sequences-to-automate-tasks.md#BKMK_ModifyTaskSequence).  
 
- Souvent, vous utiliserez des séquences de tâches pour automatiser des tâches de déploiement de système d’exploitation, mais vous pouvez créer une séquence de tâches personnalisée pour automatiser de nombreuses tâches. Pour plus d’informations, consultez [Créer une séquence de tâches pour les déploiements autres que les déploiements de système d’exploitation](create-a-task-sequence-for-non-operating-system-deployments.md).  
+ U zult takenreeksen meestal gebruiken om taken voor besturingssysteemimplementatie te automatiseren, maar u kunt een aangepaste takenreeks maken om een verscheidenheid aan taken te automatiseren. Zie voor meer informatie [een takenreeks maken voor niet - besturingssysteemimplementaties](create-a-task-sequence-for-non-operating-system-deployments.md).  
 
- ## <a name="next-steps"></a>Étapes suivantes
- [Déployer la séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS)
+ ## <a name="next-steps"></a>Volgende stappen
+ [De takenreeks implementeren](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS)

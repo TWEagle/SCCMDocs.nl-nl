@@ -1,6 +1,6 @@
 ---
-title: "Gérer le verrou d’activation iOS | Microsoft Docs"
-description: "Découvrez comment gérer le verrou d’activation iOS avec System Center Configuration Manager."
+title: Beheren van iOS-Activeringsvergrendeling | Microsoft Docs
+description: IOS-Activeringsvergrendeling met System Center Configuration Manager beheren.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,90 +16,90 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 88bef04a52f716ae13afc21c25d33dea06a3fc9c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-ios-activation-lock-with-system-center-configuration-manager"></a>Gérer le verrou d’activation iOS avec System Center Configuration Manager
+# <a name="manage-ios-activation-lock-with-system-center-configuration-manager"></a>iOS-activeringsvergrendeling beheren met System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
-System Center Configuration Manager peut vous aider à gérer le verrou d’activation iOS, fonctionnalité de l’application Rechercher mon iPhone pour les appareils iOS 7.1 et versions ultérieures. Quand le verrou d’activation est activé, l’ID et le mot de passe Apple de l’utilisateur doivent être entrés pour permettre à quiconque de :
+System Center Configuration Manager kan u helpen bij het beheer van de activeringsvergrendeling voor iOS, een onderdeel van de app Zoek mijn iPhone voor apparaten met iOS 7.1 en hoger. Nadat de activeringsvergrendeling is ingeschakeld, moeten de Apple ID en het wachtwoord van de gebruiker worden ingevoerd voordat een van de volgende handelingen kan worden verricht:
 
-- désactiver Rechercher mon iPhone ;
-- Effacer l'appareil
-- réactiver l'appareil.
+- Zoek mijn iPhone uitschakelen
+- Het apparaat wissen
+- Het apparaat opnieuw activeren
 
-Sur les appareils **non supervisés** , le verrou d’activation est activé automatiquement dès lors que l’application Rechercher mon iPhone est utilisée.
+Op apparaten **zonder supervisie** wordt de activeringsvergrendeling automatisch ingeschakeld wanneer de app Zoek mijn iPhone op een apparaat wordt gebruikt.
 
-Sur les appareils **supervisés** , vous devez activer le verrou d’activation à l’aide des paramètres de compatibilité de Configuration Manager.
+Op apparaten **met supervisie** moet u de activeringsvergrendeling activeren met behulp van de Configuration Manager-instellingen voor naleving.
 
 > [!TIP]
-> Le mode supervisé pour les appareils iOS vous permet d'utiliser l'outil de configuration Apple pour verrouiller un appareil et limiter ainsi la fonctionnalité à des usages professionnels spécifiques. Le mode surveillé est généralement destiné uniquement aux appareils appartenant à l'entreprise.
+> Met de supervisiemodus voor iOS-apparaten kunt u het hulpprogramma Apple Configurator gebruiken om de vergrendelingsfunctionaliteit te beperken tot bepaalde bedrijfsdoeleinden. De supervisiemodus wordt doorgaans alleen gebruikt voor apparaten in bedrijfseigendom.
 
-Bien que le verrou d’activation permette de sécuriser les appareils iOS et améliore les chances de récupération en cas de perte ou de vol, cette fonctionnalité peut présenter quelques défis pour les administrateurs informatiques. Exemple :
+Activeringsvergrendeling helpt iOS-apparaten te beveiligen en verbetert de kans op herstel wanneer de apparaten zoekraken of worden gestolen. Deze mogelijkheid kan voor u als IT-beheerder echter een aantal uitdagingen opleveren. Bijvoorbeeld:
 
-- L'un de vos utilisateurs configure le verrou d'activation sur un appareil. L'utilisateur quitte ensuite l'entreprise et rend l'appareil. Sans l’ID et le mot de passe Apple de l’utilisateur, il n’existe aucun moyen de réactiver l’appareil, même si vous le réinitialisez.
-- Vous avez besoin d’un rapport répertoriant tous les appareils sur lesquels le verrou d’activation est activé.
-- Lors d'une actualisation des appareils de votre organisation, vous souhaitez réaffecter certains appareils à un autre service. Vous ne pouvez réaffecter que les appareils sur lesquels le verrou d’activation n’est pas activé.
-
-
-Pour résoudre ces problèmes, Apple a introduit le contournement du verrou d'activation dans iOS 7.1. Il vous permet de supprimer le verrou d'activation des appareils supervisés sans avoir l'ID Apple et le mot de passe de l'utilisateur. Les appareils supervisés peuvent générer un code de contournement du verrou d'activation spécifique à l'appareil, qui est stocké sur le serveur d'activation d'Apple.
-
-Vous trouverez un complément d’information sur le verrou d’activation [ici](https://support.apple.com/HT201365).
-
-## <a name="how-configuration-manager-helps-you-manage-activation-lock"></a>Comment Configuration Manager aide à gérer le verrou d’activation
-
-Configuration Manager peuvent vous aider à gérer le verrou d’activation de deux façons :
-
-1. en activant le verrou d’activation sur les appareils supervisés ;
-2. en contournant le verrou d’activation sur les appareils supervisés.
-
-> [!IMPORTANT]
-> Vous ne pouvez pas contourner le verrou d’activation sur les appareils non supervisés.
-
-Les avantages pour les appareils de l’entreprise sont les suivants :
+- Een van uw gebruikers stelt activeringsvergrendeling in op een apparaat. De gebruiker verlaat vervolgens het bedrijf en levert het apparaat in. Zonder de Apple-id en het wachtwoord van de gebruiker is het niet mogelijk om het apparaat opnieuw te activeren zelfs als u er alles van verwijdert.
+- U hebt een lijst nodig van alle apparaten waarop activeringsvergrendeling is ingeschakeld.
+- Tijdens het vervangen van apparaten binnen uw organisatie, wilt u bepaalde apparaten aan een andere afdeling toewijzen. U kunt alleen apparaten toewijzen waarop de activeringsvergrendeling niet is ingeschakeld.
 
 
+Voor het oplossen van deze problemen heeft Apple in iOS 7.1 de mogelijkheid geïntroduceerd om een bypass van de activeringsvergrendeling uit te voeren. Hiermee kunt u de activeringsvergrendeling van een apparaat onder supervisie verwijderen zonder dat u de Apple-id en het wachtwoord van de gebruiker nodig hebt. 0p apparaten onder supervisie kan een apparaatspecifieke bypass-code voor de activeringsvergrendeling worden gegenereerd, die wordt opgeslagen op de activeringsserver van Apple.
 
-- L'utilisateur bénéficie des avantages de sécurité offerts par l'application Rechercher mon iPhone.
-- Vous pouvez laisser l’utilisateur effectuer son travail en sachant que lorsque vous devrez réaffecter l’appareil, vous pourrez le mettre hors service ou le déverrouiller.
+Meer informatie over de activeringsvergrendeling vindt u [hier](https://support.apple.com/HT201365).
 
+## <a name="how-configuration-manager-helps-you-manage-activation-lock"></a>Hoe Configuration Manager u helpt met het beheer van activeringsvergrendeling
 
-## <a name="enable-activation-lock-on-supervised-devices"></a>Activer le verrou d’activation sur les appareils supervisés
+Configuration Manager kan u op twee manieren helpen met het beheer van de activeringsvergrendeling:
 
-Vous pouvez utiliser les paramètres de compatibilité de Configuration Manager pour créer et déployer un élément de configuration de type **iOS et Mac OS X** pour activer le verrou d’activation sur les appareils supervisés :
-
-1. Aidez-vous des informations contenues dans la rubrique [Comment créer des éléments de configuration pour des appareils iOS et Mac OS X gérés sans le client System Center Configuration Manager](/sccm/compliance/deploy-use/create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client) pour créer un élément de configuration de type **iOS et Mac OS X**.
-2. Dans la page **Sécurité système** de l’Assistant Création d’élément de configuration, configurez le paramètre **Autoriser le verrou d’activation (mode supervisé uniquement)** sur **Autorisé**.
-3. [Ajoutez l’élément de configuration à une base de référence de configuration](/sccm/compliance/deploy-use/create-configuration-baselines).
-4. [Déployez cette base de référence de configuration](/sccm/compliance/deploy-use/deploy-configuration-baselines) sur le regroupement contenant les appareils iOS pour lesquels vous voulez activer le verrou d’activation.
+1. Door activeringsvergrendeling op apparaten met supervisie in te schakelen.
+2. Door bypass van activeringsvergrendeling op apparaten met supervisie in te schakelen.
 
 > [!IMPORTANT]
-> Assurez-vous d’être en possession de l’appareil avant de suivre cette procédure. Si ce n’est pas le cas, le verrou d’activation sera contourné et toute personne en possession de l’appareil aura un accès total à celui-ci et aura ainsi tout loisir de désactiver l’application Rechercher mon iPhone, d’effacer le contenu du périphérique ou de le réactiver.
+> U kunt bypass van activeringsvergrendeling niet inschakelen op apparaten zonder supervisie.
 
-Vous ne pouvez contourner le verrou d’activation ou récupérer le code de contournement du verrou d’activation que sur des appareils supervisés ; toute tentative de contournement du verrou d’activation sur un appareil non supervisé ou d’affichage du code de contournement générera une erreur.
+De zakelijk voordelen hiervan voor apparaten in bedrijfseigendom zijn:
 
 
 
-## <a name="view-the-activation-lock-bypass-code"></a>Afficher le code de contournement du verrou d’activation
+- De gebruiker beschikt over de beveiligingsvoordelen van de app Zoek mijn iPhone
+- De gebruiker kan werken en u weet ondertussen zeker dat u het apparaat buiten gebruik kunt stellen of kunt ontgrendelen wanneer het opnieuw moet worden toegewezen.
 
-1. Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.
-2. Dans l'espace de travail **Ressources et Conformité** , cliquez sur **Périphériques**.
-3. Sélectionnez un appareil inscrit et en mode supervisé pour lequel le verrou d’activation est activé.
-4. Sous l’onglet **Accueil** , dans le groupe **Appareil** , cliquez sur **Actions de l’appareil à distance** > **Afficher le code de contournement du verrou d’activation**.
-5. La boîte de dialogue **Code de contournement du verrou d’activation** affiche le code de contournement de l’appareil sélectionné.
 
-## <a name="bypass-activation-lock"></a>Contourner le verrou d’activation
+## <a name="enable-activation-lock-on-supervised-devices"></a>Hiermee schakelt u Activeringsvergrendeling op apparaten onder supervisie
 
-1. Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.
-2. Dans l'espace de travail **Ressources et Conformité** , cliquez sur **Périphériques**.
-3. Sélectionnez un appareil inscrit et en mode supervisé pour lequel le verrou d’activation est activé.
-3. Sous l’onglet **Accueil** , dans le groupe **Appareils** , cliquez sur **Actions de l’appareil à distance** > **Contourner le verrou d’activation**.
-5. Lisez les messages d’avertissement s’affichant dans la boîte de dialogue, puis cliquez sur **Oui** dès que vous êtes prêt à continuer.
-6. Vous pouvez examiner l’état de la demande de déverrouillage via :
+U kunt de instellingen voor naleving van Configuration Manager gebruiken om een configuratie-item van het type **iOS en Mac OS X** te maken en implementeren om de activeringsvergrendeling op apparaten met supervisie in te schakelen:
 
-    - les données de découverte de l’appareil dans la boîte de dialogue des propriétés de l’appareil ;
-    - la colonne **État de contournement du verrou d’activation** dans la vue **Appareils** (cette colonne est masquée par défaut) ;
-    - la section d’ **informations sur les actions de l’appareil à distance** sous l’onglet **Résumé** du volet d’informations (quand un appareil est sélectionné).
+1. Gebruik de informatie in het onderwerp [Configuratie-items maken voor iOS en Mac OS X-apparaten die worden beheerd zonder de System Center Configuration Manager-client](/sccm/compliance/deploy-use/create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client) voor het maken van een configuratie-item van het type **iOS en Mac OS X**.
+2. Op de pagina **Systeembeveiliging** van de wizard Configuratie-item maken, stelt u de instelling **Activeringsvergrendeling toestaan (alleen in de modus Supervisie)** in op **Toegestaan**.
+3. [Voeg het configuratie-item toe aan een configuratiebasislijn](/sccm/compliance/deploy-use/create-configuration-baselines).
+4. [Implementeer deze configuratiebasislijn](/sccm/compliance/deploy-use/deploy-configuration-baselines) naar een verzameling die de iOS-apparaten bevat waarvoor u de activeringsvergrendeling wilt inschakelen.
+
+> [!IMPORTANT]
+> Zorg dat u het apparaat fysiek in bezit hebt voordat u deze procedure uitvoert. Als u dit niet doet, wordt de activeringsvergrendeling overgeslagen en heeft iedereen die in het bezit is van het apparaat, er volledige toegang toe, zodat ze Zoek mijn iPhone kunnen uitschakelen, het apparaat kunnen wissen of opnieuw activeren.
+
+U kunt de activeringsvergrendeling alleen overslaan of de code voor het overslaan van de activeringsvergrendeling alleen ophalen op apparaten met supervisie. Als u probeert de activeringsvergrendeling over te slaan op een apparaat zonder supervisie of de code voor het overslaan van de activeringsvergrendeling wilt weergeven, treedt er een fout op.
+
+
+
+## <a name="view-the-activation-lock-bypass-code"></a>Code voor het weergeven van de Activeringsvergrendeling overslaan
+
+1. Klik op **Activa en naleving**op de Configuration Manager-console.
+2. Klik op **Apparaten** in de werkruimte **Activa en naleving**.
+3. Selecteer een ingeschreven apparaat in de modus Supervisie waarop de activeringsvergrendeling is ingeschakeld.
+4. Op het tabblad **Start** in de groep **Apparaat** klikt u op **Acties extern apparaat** > **De code voor het overslaan van de activeringsvergrendeling weergeven**.
+5. In het dialoogvenster **Code voor het overslaan van de activeringsvergrendeling** wordt de code voor het overslaan van de activeringsvergrendeling voor het geselecteerde apparaat weergegeven.
+
+## <a name="bypass-activation-lock"></a>Bypass van Activeringsvergrendeling
+
+1. Klik op **Activa en naleving**op de Configuration Manager-console.
+2. Klik op **Apparaten** in de werkruimte **Activa en naleving**.
+3. Selecteer een ingeschreven apparaat in de modus Supervisie waarop de activeringsvergrendeling is ingeschakeld.
+3. Op het tabblad **Start** in de groep **Apparaat** klikt u op **Acties extern apparaat** > **Activeringsvergrendeling overslaan**.
+5. Lees de waarschuwingen in het dialoogvenster en klik op **Ja** wanneer u klaar bent om door te gaan.
+6. U kunt de status van de aanvraag tot ontgrendeling zien in:
+
+    - De detectiegegevens voor het apparaat in het dialoogvenster met de eigenschappen van het apparaat.
+    - De kolom **Status van het overslaan van de activeringsvergrendeling** kolom in de weergave **Apparaten** (deze kolom wordt standaard verborgen).
+    - De sectie **Gegevens over acties extern apparaat** op het tabblad **Samenvatting** van het detailvenster (als er een apparaat is geselecteerd).

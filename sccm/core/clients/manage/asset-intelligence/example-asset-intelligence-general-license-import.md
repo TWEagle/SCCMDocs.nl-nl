@@ -1,6 +1,6 @@
 ---
-title: "Exemple de fichier d’importation de licence générale Asset Intelligence | Microsoft Docs"
-description: "Aidez-vous d’un exemple de fichier d’importation de licence générale Asset Intelligence pour importer des licences logicielles dans System Center Configuration Manager."
+title: Voorbeeld van de Asset Intelligence algemeen licentie-importbestand | Microsoft Docs
+description: Gebruik een voorbeeldbestand voor Asset Intelligence algemene Licentieverklaring voor het importeren van softwarelicenties in System Center Configuration Manager.
 ms.custom: na
 ms.date: 2/22/2017
 ms.prod: configuration-manager
@@ -17,25 +17,25 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 400afbe8c09b80985187a34b0dd0f3f8581c7d4e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="example-asset-intelligence-general-license-import-file-in-system-center-configuration-manager"></a>Exemple de fichier d’importation de licence générale Asset Intelligence dans System Center Configuration Manager
+# <a name="example-asset-intelligence-general-license-import-file-in-system-center-configuration-manager"></a>Voorbeeld van de Asset Intelligence algemeen licentie-importbestand in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Les informations données à titre d'exemple dans cette rubrique peuvent être utilisées pour créer un exemple de fichier de licence logicielle générale afin d'importer des licences logicielles dans le catalogue Asset Intelligence à l'aide de l'Assistant Importer des licences logicielles. Vous pouvez copier et coller le tableau suivant dans une nouvelle feuille de calcul Microsoft Excel et l'enregistrer avec l'extension .csv afin de pouvoir l'utiliser en tant qu'exemple de fichier d'importation de licence générale à des fins de test. Lors de la création d'un fichier d'importation de licence, tous les champs d'en-tête sont requis alors que seules les valeurs de données Nom, Éditeur, Version et Quantité effective sont requises dans la feuille de calcul. Pour plus d’informations sur l’importation de licences logicielles dans le catalogue Asset Intelligence, consultez [Configuration d’Asset Intelligence dans System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
+De voorbeeldinformatie in dit onderwerp kan worden gebruikt voor het maken van een voorbeeld van een algemeen softwarelicentiebestand om softwarelicenties te importeren in de Asset Intelligence-catalogus met behulp van de Wizard Software-licentie importeren. U kunt de volgende tabel kopiëren en plakken in een nieuw Microsoft Excel-spreadsheet opslaan met de bestandsnaamextensie .csv, als voorbeeld van een algemeen importbestand voor softwarelicenties voor testdoeleinden. Bij het maken van het licentie-importbestand zijn alle koptekstvelden vereist, terwijl alleen de gegevensvelden Name, Publisher, Version en EffectiveQuantity vereist zijn in het spreadsheet. Zie voor meer informatie over het importeren van softwarelicenties aan de Asset Intelligence-catalogus [Asset Intelligence configureren in System Center Configuration Manager](../../../../core/clients/manage/asset-intelligence/configuring-asset-intelligence.md).  
 
-|Nom|Éditeur|Version|Langage|Quantité effective|Numéro BC|Nom du revendeur|Date d'achat|Achat de la prise en charge|Date d'expiration de la prise en charge|Commentaires|  
+|Naam|Uitgever|Versie|Taal|EffectiveQuantity|PONumber|ResellerName|DateOfPurchase|SupportPurchased|SupportExpirationDate|Opmerkingen|  
 |----------|---------------|-------------|--------------|-----------------------|--------------|------------------|--------------------|----------------------|---------------------------|--------------|  
-|Nom du logiciel 1|Éditeur du logiciel|1.01|Anglais|1|Numéro d'achat|Nom du revendeur|10/10/2010|0|10/10/2012|Commentaire|  
-|Nom du logiciel 2|Éditeur du logiciel|1.02|Anglais|1|Numéro d'achat|Nom du revendeur|10/10/2010|0|10/10/2012|Commentaire|  
-|Nom du logiciel 3|Éditeur du logiciel|1.03|Anglais|1|Numéro d'achat|Nom du revendeur|10/10/2010|0|10/10/2012|Commentaire|  
-|Nom du logiciel 4|Éditeur du logiciel|1.04|Anglais|1|Numéro d'achat|Nom du revendeur|10/10/2010|0|10/10/2012|Commentaire|  
-|Nom du logiciel 5|Éditeur du logiciel|1.05|Anglais|1|Numéro d'achat|Nom du revendeur|10/10/2010|0|10/10/2012|Commentaire|  
-|Nom du logiciel 6|Éditeur du logiciel|1.06|Anglais|1|Numéro d'achat|Nom du revendeur|10/10/2010|0|10/10/2012|Commentaire|  
-|Nom du logiciel 7|Éditeur du logiciel|1.07|Anglais|1|Numéro d'achat|Nom du revendeur|10/10/2010|0|10/10/2012|Commentaire|  
-|Nom du logiciel 8|Éditeur du logiciel|1.08|Anglais|1|Numéro d'achat|Nom du revendeur|10/10/2010|0|10/10/2012|Commentaire|  
-|Nom du logiciel 9|Éditeur du logiciel|1.09|Anglais|1|Numéro d'achat|Nom du revendeur|10/10/2010|0|10/10/2012|Commentaire|  
-|Nom du logiciel 10|Éditeur du logiciel|1.10|Anglais|1|Numéro d'achat|Nom du revendeur|10/10/2010|0|10/10/2012|Commentaire|  
+|Software Title 1|Software publisher|1.01|Engels|1|Purchase number|Reseller name|10/10/2010|0|10/10/2012|Opmerking|  
+|Software title 2|Software publisher|1.02|Engels|1|Purchase number|Reseller name|10/10/2010|0|10/10/2012|Opmerking|  
+|Software title 3|Software publisher|1.03|Engels|1|Purchase number|Reseller name|10/10/2010|0|10/10/2012|Opmerking|  
+|Software title 4|Software publisher|1.04|Engels|1|Purchase number|Reseller name|10/10/2010|0|10/10/2012|Opmerking|  
+|Software title 5|Software publisher|1.05|Engels|1|Purchase number|Reseller name|10/10/2010|0|10/10/2012|Opmerking|  
+|Software title 6|Software publisher|1.06|Engels|1|Purchase number|Reseller name|10/10/2010|0|10/10/2012|Opmerking|  
+|Software title 7|Software publisher|1.07|Engels|1|Purchase number|Reseller name|10/10/2010|0|10/10/2012|Opmerking|  
+|Software title 8|Software publisher|1.08|Engels|1|Purchase number|Reseller name|10/10/2010|0|10/10/2012|Opmerking|  
+|Software title 9|Software publisher|1.09|Engels|1|Purchase number|Reseller name|10/10/2010|0|10/10/2012|Opmerking|  
+|Software title 10|Software publisher|1.10|Engels|1|Purchase number|Reseller name|10/10/2010|0|10/10/2012|Opmerking|  

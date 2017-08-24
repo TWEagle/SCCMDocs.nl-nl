@@ -1,6 +1,6 @@
 ---
-title: "Personnaliser les images de démarrage - Configuration Manager | Microsoft Docs"
-description: "Découvrez plusieurs façons d’utiliser Configuration Manager ou l’outil en ligne de commande de gestion et de maintenance des images de déploiement (DISM) pour personnaliser une image de démarrage."
+title: "Opstartinstallatiekopieën - Configuration Manager aanpassen | Microsoft Docs"
+description: Meer informatie over het gebruik van Configuration Manager of Deployment Image Servicing and Management (DISM) opdrachtregeltool aan een opstartinstallatiekopie aanpassen op verschillende manieren.
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -17,285 +17,285 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: ab2ecb64c9c80b4effed79ba08769c99473db0c4
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="customize-boot-images-with-system-center-configuration-manager"></a>Personnaliser les images de démarrage avec System Center Configuration Manager
+# <a name="customize-boot-images-with-system-center-configuration-manager"></a>Opstartinstallatiekopieën aanpassen met System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Chaque version de Configuration Manager prend en charge une version spécifique du Kit de déploiement et d’évaluation Windows (Windows ADK). Vous pouvez utiliser, ou personnaliser, les images de démarrage depuis la console Configuration Manager quand elles sont basées sur une version Windows PE depuis la version prise en charge de Windows ADK. Vous devez déployer les autres images de démarrage à l'aide d'une autre méthode, telle que l'outil de ligne de commande Gestion et maintenance des images de déploiement (DISM) qui fait partie de Windows AIK et Windows ADK.  
+Elke versie van Configuration Manager ondersteunt een specifieke versie van de Windows Assessment and Deployment Kit (Windows ADK). U kunt de service of installatiekopieën uit de Configuration Manager-console wanneer ze zijn gebaseerd op een Windows PE-versie van de ondersteunde versie van Windows ADK aanpassen. Voor andere installatiekopieën geldt dat u ze moet aanpassen met een andere methode, zoals de Deployment Image Servicing and Management (DISM) opdrachtregeltool welke deel uitmaakt van Windows AIK en Windows ADK.  
 
- Vous trouverez ci-dessous des informations sur la version prise en charge de Windows ADK, la version de Windows PE sur laquelle l’image de démarrage est basée et qui peut être personnalisée à partir de la console Configuration Manager, ainsi que les versions de Windows PE sur lesquelles l’image de démarrage est basée et que vous pouvez personnaliser à l’aide de l’outil DISM avant d’ajouter l’image à Configuration Manager.  
+ Hieronder vindt u de ondersteunde versie van Windows ADK, de Windows PE-versie die op waarop de opstartinstallatiekopie is gebaseerd die kan worden aangepast via de Configuration Manager-console en de Windows PE-versies waarop de opstartinstallatiekopie is gebaseerd, u kunt aanpassen met behulp van DISM en vervolgens de installatiekopie toevoegen aan Configuration Manager.  
 
--   **Version de Windows ADK**  
+-   **Windows ADK-versie**  
 
-     Windows ADK pour Windows 10  
+     Windows ADK voor Windows 10  
 
--   **Versions de Windows PE pour les images de démarrage personnalisables à partir de la console Configuration Manager**  
+-   **Windows PE-versies voor installatiekopieën die aanpasbaar zijn via de Configuration Manager-console**  
 
      Windows PE 10  
 
--   **Versions prises en charge de Windows PE pour les images de démarrage non personnalisables à partir de la console Configuration Manager**  
+-   **Ondersteunde Windows PE-versies voor installatiekopieën die niet aanpasbaar zijn via de Configuration Manager-console**  
 
-     Windows PE 3.1<sup>1</sup> et Windows PE 5  
+     Windows PE 3.1<sup>1</sup> en Windows PE 5  
 
-     <sup>1</sup> Vous pouvez ajouter une image de démarrage à Configuration Manager uniquement si elle est basée sur Windows PE 3.1. Installez le supplément Windows AIK pour Windows 7 SP1 pour mettre à niveau Windows AIK pour Windows 7 (basé sur Windows PE 3) avec le supplément Windows AIK pour Windows 7 SP1 (basé sur Windows PE 3.1). Vous pouvez télécharger le supplément Windows AIK pour Windows 7 SP1 depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
+     <sup>1</sup> u kunt alleen een opstartinstallatiekopie toevoegen aan Configuration Manager wanneer deze is gebaseerd op Windows PE 3.1. Installeer Windows AIK Supplement voor Windows 7 SP1 om een upgrade van Windows AIK voor Windows 7 (gebaseerd op Windows PE 3) naar Windows AIK Supplement voor Windows 7 SP1 (gebaseerd op Windows PE 3.1) uit te voeren. U kunt Windows AIK Supplement voor Windows 7 SP1 downloaden via het [Microsoft Downloadcentrum](http://www.microsoft.com/download/details.aspx?id=5188).  
 
-     Par exemple, si vous utilisez Configuration Manager, vous pouvez personnaliser les images de démarrage de Windows ADK pour Windows 10 (basées sur Windows PE 10) depuis la console Configuration Manager. Toutefois, si les images de démarrage basées sur Windows PE 5 sont prises en charge, vous devez les personnaliser depuis un autre ordinateur et utiliser la version de DISM installée avec Windows ADK pour Windows 8. Ensuite, vous pouvez ajouter l’image de démarrage à la console Configuration Manager.  
+     Bijvoorbeeld, wanneer u Configuration Manager hebt, kunt u opstartinstallatiekopieën uit Windows ADK voor Windows 10 (gebaseerd op Windows PE 10) aanpassen via de Configuration Manager-console. Hoewel installatiekopieën die zijn gebaseerd op Windows PE 5 wel worden wel ondersteund, moet u ze aanpassen op een andere computer en moet u die versie van DISM gebruiken die is geïnstalleerd met Windows ADK voor Windows 8. Vervolgens kunt u de installatiekopie toevoegen aan de Configuration Manager-console.  
 
- Les procédures de cette rubrique expliquent comment ajouter les composants facultatifs requis par Configuration Manager à l’image de démarrage en utilisant les packages Windows PE suivants :  
+ De procedures in dit onderwerp laten zien hoe u de optionele componenten die door Configuration Manager aan de installatiekopie met behulp van de volgende Windows PE-pakketten toevoegen:  
 
--   **WinPE-WMI**: Ajoute la prise en charge de Windows Management Instrumentation (WMI).  
+-   **WinPE-WMI**: Voegt ondersteuning voor Windows Management Instrumentation (WMI) toe.  
 
--   **WinPE-Scripting**: ajoute la prise en charge de Windows Script Host (WSH).  
+-   **WinPE-Scripting**: Voegt ondersteuning voor Windows Script Host (WSH) toe.  
 
--   **WinPE-WDS-Tools**: installe les outils Windows Deployment Services.  
+-   **WinPE-WDS-Tools**: Windows Deployment Services-hulpprogramma's installeert.  
 
- D'autres packages Windows PE peuvent être ajoutés. Les ressources suivantes fournissent plus d'informations sur les composants facultatifs que vous pouvez ajouter à l'image de démarrage.  
+ Er zijn andere Windows PE-pakketten beschikbaar die u kunt toevoegen. De volgende bronnen geven informatie over de optionele onderdelen die u kunt toevoegen aan de installatiekopie.  
 
--   Pour Windows PE 5, consultez [WinPE : Ajouter des packages (informations de référence sur les composants facultatifs)](https://msdn.microsoft.com/library/windows/hardware/dn938382\(v=vs.85\).aspx)  
+-   Zie voor Windows PE 5 [WinPE: Pakketten (Optional Components Reference) toevoegen](https://msdn.microsoft.com/library/windows/hardware/dn938382\(v=vs.85\).aspx)  
 
--   Pour Windows PE 3.1, consultez la rubrique [Ajouter un package à une image Windows PE](http://technet.microsoft.com/library/dd799312\(v=WS.10\).aspx) dans la bibliothèque de documentation TechNet Windows 7.  
+-   Voor Windows PE 3.1, zie het onderwerp [Add a Package to a Windows PE Image](http://technet.microsoft.com/library/dd799312\(v=WS.10\).aspx) (Een pakket toevoegen aan een Windows PE-installatiekopie) in de Windows 7 TechNet Documentation Library.  
 
 > [!NOTE]
->Lors du démarrage de WinPE à partir d’une image de démarrage personnalisée qui inclut des outils que vous avez ajoutés, vous pouvez ouvrir une invite de commandes à partir de WinPE et taper le nom de fichier de l’outil pour l’exécuter. L’emplacement de ces outils est automatiquement ajouté à la variable de chemin d’accès. L’invite de commandes ne peut être ajoutée que si le paramètre **Activer la prise en charge des commandes (test uniquement)** est sélectionné sous l’onglet **Personnalisation** des propriétés d’image de démarrage.
+>Wanneer u WinPE opstart vanuit een aangepaste installatiekopie die hulpprogramma's bevat die u hebt toegevoegd, kunt u een opdrachtprompt openen vanuit WinPE en de naam typen van het hulpprogramma om dit uit te voeren. De locatie van deze hulpprogramma's worden automatisch toegevoegd aan de padvariabele. De opdrachtprompt kan alleen worden toegevoegd als de **opdrachtondersteuning inschakelen (alleen testen)** instelling is geselecteerd op de **aanpassing** tabblad in de eigenschappen van de opstartinstallatiekopie.
 
-## <a name="customize-a-boot-image-that-uses-windows-pe-5"></a>Personnaliser une image de démarrage qui utilise Windows PE 5  
- Pour personnaliser une image de démarrage qui utilise Windows PE 5, vous devez installer Windows ADK et utiliser l’outil en ligne de commande DISM pour monter l’image de démarrage, ajouter des composants et des pilotes facultatifs et appliquer les modifications à l’image de démarrage. Pour personnaliser l'image de démarrage, procédez comme suit.  
+## <a name="customize-a-boot-image-that-uses-windows-pe-5"></a>Een installatiekopie die gebruikmaakt van Windows PE 5 aanpassen.  
+ Als u een opstartinstallatiekopie wilt aanpassen die gebruikmaakt van Windows PE 5, moet u Windows ADK installeren en het opdrachtregelprogramma DISM gebruiken om de opstartinstallatiekopie te koppelen, de optionele componenten en stuurprogramma's toe te voegen en de wijzigingen aan te brengen in de opstartinstallatiekopie. Gebruik de volgende procedure om de installatiekopie aan te passen.  
 
-#### <a name="to-customize-a-boot-image-that-uses-windows-pe-5"></a>Pour personnaliser une image de démarrage qui utilise Windows PE 5  
+#### <a name="to-customize-a-boot-image-that-uses-windows-pe-5"></a>Een opstartinstallatiekopie aanpassen die gebruikmaakt van Windows PE 5  
 
-1.  Installez le kit Windows ADK sur un ordinateur qui n’a pas d’autre version de Windows AIK ni de Windows ADK, et sur lequel aucun composant Configuration Manager n’est installé.  
+1.  De Windows ADK op een computer waarop geen andere versie van Windows AIK of Windows ADK installeren en niet alle Configuration Manager-onderdelen zijn geïnstalleerd.  
 
-2.  Téléchargez Windows ADK pour Windows 8.1 depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=39982).  
+2.  Download Windows ADK voor Windows 8.1 via het [Microsoft Downloadcentrum](http://www.microsoft.com/download/details.aspx?id=39982).  
 
-3.  Copiez l’image de démarrage (wimpe.wim) du dossier d’installation de Windows ADK (par exemple, <*chemin_installation*>\Windows Kits\\<*version*>\Assessment and Deployment Kit\Windows Preinstallation Environment\\<*x86 ou amd64*>\\<*paramètres régionaux*>) vers un dossier de destination sur l’ordinateur à partir duquel vous personnaliserez l’image de démarrage. Cette procédure utilise C:\WinPEWAIK comme nom de dossier de destination.  
+3.  Kopieer de installatiekopie (wimpe.wim) uit de Windows ADK installatiemap (bijvoorbeeld <*installatiepad*> \Windows Kits\\<*versie*> \Assessment and Deployment Kit\Windows Preinstallation Environment\\<*x86 of amd64*>\\<*landinstelling*>) naar een doelmap op de computer van waaruit u de installatiekopie gaat aanpassen. Deze procedure maakt gebruik van C:\WinPEWAIK als de naam van de doelmap.  
 
-4.  Utilisez DISM pour monter l'image de démarrage dans un dossier Windows PE local. Par exemple, tapez la ligne de commande suivante :  
+4.  Gebruik DISM om de installatiekopie te koppelen aan een lokale Windows PE-map. Typ bijvoorbeeld de volgende opdrachtregel:  
 
-     **dism.exe /mount-wim /wimfile:C:\WinPEWAIK\winpe.wim /index:1 /mountdir:C:\WinPEMount**  
+     **DISM.exe/mount-wim /wimfile:C:\WinPEWAIK\winpe.wim /index:1 /mountdir:C:\WinPEMount**  
 
-     Où C:\WinPEWAIK est le dossier qui contient l'image de démarrage et C:\WinPEMount est le dossier monté.  
-
-    > [!NOTE]
-    >  Pour plus d'informations sur DISM, consultez la rubrique [Informations techniques de référence sur l’outil Gestion et maintenance des images de déploiement](http://technet.microsoft.com/library/hh824821.aspx) dans la bibliothèque de documentation TechNet Windows 8.1 et Windows 8.
-
-5.  Une fois que vous avez monté l'image de démarrage, utilisez DISM pour ajouter des composants facultatifs à l'image de démarrage. Dans Windows PE 5, les composants facultatifs 64 bits sont situés dans <*chemin_installation*>\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs.  
+     Waar C:\WinPEWAIK de map is waar de installatiekopie in staat en C:\WinPEMount de gekoppelde map.  
 
     > [!NOTE]
-    >  Cette procédure utilise l'emplacement suivant pour les composants facultatifs : C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs. Le chemin d'accès que vous utilisez peut être différent selon les options de version et d'installation que vous choisissez pour le kit Windows ADK.  
+    >  Voor meer informatie over DISM, zie het onderwerp [DISM - Deployment Image Servicing and Management Technical Reference](http://technet.microsoft.com/library/hh824821.aspx) in de Windows 8.1 en Windows 8 TechNet Documentation Library.
 
-     Tapez la commande suivante pour installer les composants facultatifs :  
+5.  Gebruik, nadat u de installatiekopie gekoppeld hebt, DISM om optionele componenten aan de installatiekopie toe te voegen. In Windows PE 5 bevinden de optionele 64-bits componenten zich op de volgende locatie: <*Installation path*>\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs.  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-wmi.cab"**  
+    > [!NOTE]
+    >  Deze procedure gebruikt de volgende locatie voor de optionele onderdelen: C:\Program bestanden (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs. Het pad dat u gebruikt kan afwijken afhankelijk van de versie en installatieopties die u voor de Windows ADK kiest.  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-scripting.cab"**  
+     Typ het volgende om de optionele componenten te installeren:  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-wds-tools.cab"**  
+     **DISM.exe \winpemount/Add-Package/PackagePath: 'C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-wmi.cab'**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-SecureStartup.cab"**  
+     **DISM.exe \winpemount/Add-Package/PackagePath: "C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-scripting.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<paramètres régionaux\>* **\WinPE-SecureStartup_** *<paramètres régionaux\>* **.cab"**  
+     **DISM.exe \winpemount/Add-Package/PackagePath: 'C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\winpe-WDS-Tools.cab'**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<paramètres régionaux\>* **\WinPE-WMI_** *<paramètres régionaux\>* **.cab"**  
+     **DISM.exe \winpemount/Add-Package/PackagePath: 'C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\WinPE-SecureStartup.cab'**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<paramètres régionaux\>* **\WinPE-Scripting** *<paramètres régionaux\>* **.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<locale\>* **\WinPE-SecureStartup_** *<locale\>* **.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<paramètres régionaux\>* **\WinPE-WDS-Tools_** *<paramètres régionaux\>* **.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<locale\>* **\WinPE-WMI_** *<locale\>* **.cab"**  
 
-     Où C:\WinPEMount est le dossier monté et paramètres régionaux désigne les paramètres régionaux des composants. Par exemple, pour les paramètres régionaux **fr-fr** , tapez :  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<locale\>* **\WinPE-Scripting** *<locale\>* **.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-SecureStartup_en-us.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\\** *<locale\>* **\WinPE-WDS-Tools_** *<locale\>* **.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-WMI_en-us.cab"**  
+     Waarbij C:\WinPEMount de gekoppelde map is en taal de taal voor de onderdelen. Voor de taal **en-us** typt u bijvoorbeeld:  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-Scripting_en-us.cab"**  
+     **DISM.exe \winpemount/Add-Package/PackagePath: 'C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-SecureStartup_en-us.cab'**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files (x86)\Windows Kits\8.1\Assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-WDS-Tools_en-us.cab"**  
+     **DISM.exe \winpemount/Add-Package/PackagePath: 'C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-WMI_en-us.cab'**  
+
+     **DISM.exe \winpemount/Add-Package/PackagePath: 'C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-Scripting_en-us.cab'**  
+
+     **DISM.exe \winpemount/Add-Package/PackagePath: 'C:\Program Files (x86) kits\8.1\assessment and Deployment Kit\Windows Preinstallation Environment\amd64\WinPE_OCs\en-us\WinPE-WDS-Tools_en-us.cab'**  
 
     > [!TIP]
-    >  Pour plus d'informations sur les composants facultatifs que vous pouvez ajouter à l'image de démarrage, consultez la rubrique [Informations de référence sur les composants facultatifs Windows PE](http://technet.microsoft.com/library/hh824926.aspx) dans la bibliothèque de documentation TechNet Windows 8.1 et Windows 8.  
+    >  Voor meer informatie over de optionele componenten die u aan de installatiekopie kunt toevoegen, zie het onderwerp [Windows PE Optional Components Reference](http://technet.microsoft.com/library/hh824926.aspx) (Naslagdocumentatie voor optionele componenten van Windows PE) in de Windows 8.1 en Windows 8 TechNet Documentation Library.  
 
-6.  Utilisez DISM pour ajouter des pilotes spécifiques à l'image de démarrage, si nécessaire. Tapez la commande suivante pour ajouter des pilotes à l'image de démarrage :  
+6.  Gebruik DISM om specifieke stuurprogramma's aan de installatiekopie toe te voegen, indien nodig. Typ het volgende om stuurprogramma's aan de installatiekopie toe te voegen:  
 
-     **dism.exe /image:C:\WinPEMount /add-driver /driver:&lt;** *chemin d'accès au fichier .inf du pilote* **>**  
+     **dism.exe /image:C:\WinPEMount /add-driver /driver:<** *pad naar .inf-bestand van stuurprogramma***>**  
 
-     Où C:\WinPEMount est le dossier monté.  
+     Waar C:\WinPEMount de gekoppelde map is.  
 
-7.  Tapez la commande suivante pour démonter le fichier image de démarrage et valider les modifications.  
+7.  Typ het volgende om het installatiekopiebestand te ontkoppelen en de wijzigingen door te voeren.  
 
-     **dism.exe /unmount-wim /mountdir:C:\WinPEMount /commit**  
+     **DISM.exe /unmount-wim /mountdir:C:\WinPEMount/Commit**  
 
-     Où C:\WinPEMount est le dossier monté.  
+     Waar C:\WinPEMount de gekoppelde map is.  
 
-8.  Ajoutez l’image de démarrage mise à jour à Configuration Manager pour pouvoir l’utiliser dans vos séquences de tâches. Utilisez les étapes suivantes pour importer l'image de démarrage mise à jour :  
+8.  Voeg de bijgewerkte installatiekopie voor Configuration Manager zodat deze beschikbaar voor gebruik in uw takenreeksen. Gebruik de volgende stappen om de bijgewerkte installatiekopie te importeren:  
 
-    1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+    1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
-    2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Images de démarrage**.  
+    2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek** en klik vervolgens op **Installatiekopieën**.  
 
-    3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Ajouter une image de démarrage** pour démarrer l'Assistant Ajout d'une image de démarrage.  
+    3.  Klik op **Installatiekopie toevoegen** in het tabblad **Start** in de groep **Maken** om de wizard Installatiekopie toevoegen te starten.  
 
-    4.  Sur la page **Source de données** , spécifiez les options suivantes et cliquez sur **Suivant**.  
+    4.  Geef op de pagina **Gegevensbron** de volgende opties op en klik op **Volgende**.  
 
-        -   Dans la zone **Chemin d'accès** , indiquez le chemin d'accès au fichier de l'image de démarrage mis à jour. Le chemin d'accès spécifié doit être un chemin d'accès réseau valide au format UNC. Par exemple : **\\\\<***nom_serveur***>\\<***partage WinPEWAIK***>\winpe.wim**.  
+        -   Geef in het venster **Pad** het pad naar het bijgewerkte installatiekopiebestand op. Het opgegeven pad moet een geldig netwerkpad zijn in UNC-indeling. Bijvoorbeeld:  **\\ \\ <**  *servername***>\\<***WinPEWAIK share***> \winpe.wim**.  
 
-        -   Sélectionnez l'image de démarrage dans la liste déroulante **Image de démarrage** . Si le fichier WIM contient plusieurs images de démarrage, chaque image est répertoriée.  
+        -   Selecteer de installatiekopie in de vervolgkeuzelijst **Installatiekopie**. Als het WIM-bestand meerdere installatiekopieën bevat, wordt elke installatiekopie vermeld.  
 
-    5.  Sur la page **Général** , spécifiez les options suivantes et cliquez sur **Suivant**.  
+    5.  Geef op de pagina **Algemeen** de volgende opties op en klik op **Volgende**.  
 
-        -   Dans la zone **Nom** , spécifiez un nom unique pour l'image de démarrage.  
+        -   Geef in het venster **Naam** een unieke naam op voor de installatiekopie.  
 
-        -   Dans la zone **Version** , spécifiez un numéro de version pour l'image de démarrage.  
+        -   Geef in het venster **Versie** een uniek versienummer op voor de installatiekopie.  
 
-        -   Dans la zone **Commentaire** , spécifiez une description sommaire de l'utilisation de l'image de démarrage.  
+        -   Geef in het veld **Opmerking** een korte beschrijving van hoe de installatiekopie wordt gebruikt.  
 
-    6.  Effectuez toutes les étapes de l'Assistant.  
+    6.  Voltooi de wizard.  
 
-9. Vous pouvez activer une invite de commandes dans l'image de démarrage pour le débogage et le dépannage dans Windows PE. Utilisez les étapes suivantes pour activer l'invite de commandes.  
+9. U kunt een opdrachtshell in de installatiekopie inschakelen om eventuele fouten die erin staan op te sporen en te herstellen in Windows PE. Gebruik de volgende stappen om de opdrachtshell in te schakelen.  
 
-    1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+    1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
-    2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Images de démarrage**.  
+    2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek** en klik vervolgens op **Installatiekopieën**.  
 
-    3.  Recherchez la nouvelle image de démarrage dans la liste et identifiez l'ID de package pour l'image. Vous pouvez trouver l'ID de package dans la colonne **ID de l'image** pour l'image de démarrage.  
+    3.  Zoek de nieuwe installatiekopie in de lijst en identificeer de pakket-id voor de kopie. U kunt de pakket-id vinden in de kolom **Kopie-id** voor de installatiekopie.  
 
-    4.  À partir d'une invite de commande, tapez **wbemtest** pour ouvrir le testeur WMI.  
+    4.  Typ na een opdrachtprompt **wbemtest** om de Windows Management Instrumentation Tester te openen.  
 
-    5.  Tapez **\\\\<***ordinateur_fournisseur_SMS***>\root\sms\site_<***code_site***>** dans **Espace de noms**, puis cliquez sur **Connexion**.  
+    5.  Type  **\\ \\ <**  *SMS-Providercomputer***> \root\sms\site_ <***sitecode*  **>**  in **Namespace**, en klik vervolgens op **Connect**.  
 
-    6.  Cliquez sur **Ouvrir une instance**, tapez **sms_bootimagepackage.packageID="<packageID\>"**, puis cliquez sur **OK**. Pour packageID, entrez la valeur que vous avez identifiée à l'étape 3.  
+    6.  Klik op **Instantie openen**, typ **sms_bootimagepackage.packageID="<packageID\>"** en klik vervolgens op **OK**. Voer voor pakket-id de waarde in die u in stap 3 hebt geïdentificeerd.  
 
-    7.  Cliquez sur **Actualiser l'objet**, puis cliquez sur **EnableLabShell** dans le volet **Propriétés** .  
+    7.  Klik op **Object vernieuwen** en klik vervolgens in het venster **Eigenschappen** op **EnableLabShell**.  
 
-    8.  Cliquez sur **Modifier la propriété**, remplacez la valeur par **TRUE**, puis cliquez sur **Enregistrer la propriété**.  
+    8.  Klik op **Eigenschap bewerken**, wijzig de waarde in **TRUE** en klik op **Eigenschap opslaan**.  
 
-    9. Cliquez sur **Enregistrer l'objet**, puis fermez le testeur WMI.  
+    9. Klik op **Object opslaan** en sluit het Testprogramma voor Windows Management Instrumentation.  
 
-10. Vous devez distribuer l'image de démarrage vers des points de distribution, des groupes de points de distribution ou des regroupements associés à des groupes de points de distribution avant de pouvoir utiliser l'image de démarrage dans une séquence de tâches. Pour distribuer l'image de démarrage, procédez comme suit.  
+10. Voordat u de installatiekopie kunt gebruiken in een takenreeks, moet u de installatiekopie distribueren naar distributiepunten, distributiepuntgroepen, of naar verzamelingen die aan distributiepuntgroepen gekoppeld zijn. Gebruik de volgende stappen om de installatiekopie te distribueren.  
 
-    1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+    1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
-    2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Images de démarrage**.  
+    2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek** en klik vervolgens op **Installatiekopieën**.  
 
-    3.  Cliquez sur l'image de démarrage identifiée à l'étape 3.  
+    3.  Klik op de installatiekopie die u in stap 3 hebt geïdentificeerd.  
 
-    4.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Mettre à jour les points de distribution**.  
+    4.  Klik op het tabblad **Start** in de groep **Implementatie** op **Distributiepunten bijwerken**.  
 
-## <a name="customize-a-boot-image-that-uses-windows-pe-31"></a>Personnaliser une image de démarrage qui utilise Windows PE 3.1  
- Pour personnaliser une image de démarrage qui utilise WinPE 3.1, vous devez installer Windows AIK, installer le supplément Windows AIK pour Windows 7 SP1 et utiliser l'outil de ligne de commande DISM pour monter l'image de démarrage, ajouter des composants et des pilotes facultatifs et appliquer les modifications à l'image de démarrage. Pour personnaliser l'image de démarrage, procédez comme suit.  
+## <a name="customize-a-boot-image-that-uses-windows-pe-31"></a>Een installatiekopie die gebruikmaakt van Windows PE 3.1 aanpassen  
+ Om een installatiekopie die gebruikmaakt van WinPE 3.1 aan te passen, moet u Windows AIK installeren, de Windows AIK supplement voor Windows 7 SP1 installeren, en het opdrachtregelhulpprogramma DISM gebruiken om de installatiekopie te koppelen, optionele componenten en stuurprogramma's toe te voegen, en de wijzigingen door te voeren op de installatiekopie. Gebruik de volgende procedure om de installatiekopie aan te passen.  
 
-#### <a name="to-customize-a-boot-image-that-uses-windows-pe-31"></a>Pour personnaliser une image de démarrage qui utilise Windows PE 3.1  
+#### <a name="to-customize-a-boot-image-that-uses-windows-pe-31"></a>Een installatiekopie die gebruikmaakt van Windows PE 3.1 aanpassen  
 
-1.  Installez Windows AIK sur un ordinateur qui n’a pas d’autre version de Windows AIK ni de Windows ADK, et sur lequel aucun composant Configuration Manager n’est installé. Téléchargez le kit Windows AIK depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=5753).  
+1.  De Windows AIK op een computer waarop geen andere versie van Windows AIK of Windows ADK installeren en niet alle Configuration Manager-onderdelen zijn geïnstalleerd. Download Windows AIK via het [Microsoft Downloadcentrum](http://www.microsoft.com/download/details.aspx?id=5753).  
 
-2.  Installez le supplément Windows AIK pour Windows 7 avec SP1 sur l'ordinateur de l'étape 1. Téléchargez le supplément Windows AIK pour Windows 7 SP1 depuis le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=5188).  
+2.  Installeer de Windows AIK Supplement voor Windows 7 met SP1 op de computer vanaf stap 1. Download Windows AIK Supplement voor Windows 7 SP1 via het [Microsoft Downloadcentrum](http://www.microsoft.com/download/details.aspx?id=5188).  
 
-3.  Copiez l’image de démarrage (wimpe.wim) qui se trouve dans le dossier d’installation Windows AIK (par exemple, <*chemin_installation*>\Windows AIK\Tools\PETools\amd64\\) vers un dossier de l’ordinateur à partir duquel vous personnaliserez l’image de démarrage. Cette procédure utilise C:\WinPEWAIK comme nom de dossier.  
+3.  Kopieer de installatiekopie (wimpe.wim) uit de installatiemap van Windows AIK (bijvoorbeeld <*InstallationPath*>\Windows AIK\Tools\PETools\amd64\\) naar een map op de computer vanwaaruit u de installatiekopie gaat aanpassen. Deze procedure maakt gebruik van C:\WinPEWAIK als de naam van de map.  
 
-4.  Utilisez DISM pour monter l'image de démarrage dans un dossier Windows PE local. Par exemple, tapez la ligne de commande suivante :  
+4.  Gebruik DISM om de installatiekopie te koppelen aan een lokale Windows PE-map. Typ bijvoorbeeld de volgende opdrachtregel:  
 
-     **dism.exe /mount-wim /wimfile:C:\WinPEWAIK\winpe.wim /index:1 /mountdir:C:\WinPEMount**  
+     **DISM.exe/mount-wim /wimfile:C:\WinPEWAIK\winpe.wim /index:1 /mountdir:C:\WinPEMount**  
 
-     Où C:\WinPEWAIK est le dossier qui contient l'image de démarrage et C:\WinPEMount est le dossier monté.  
-
-    > [!NOTE]
-    >  Pour plus d’informations sur DISM, consultez la rubrique [Informations techniques de référence sur l’outil Gestion et maintenance des images de déploiement](http://technet.microsoft.com/library/dd744256\(v=ws.10\).aspx) dans la bibliothèque de documentation TechNet Windows 7.  
-
-5.  Une fois que vous avez monté l'image de démarrage, utilisez DISM pour ajouter des composants facultatifs à l'image de démarrage. Dans Windows PE 3.1, par exemple, les composants facultatifs sont situés dans <*chemin_installation*>\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\.  
+     Waar C:\WinPEWAIK de map is waar de installatiekopie in staat en C:\WinPEMount de gekoppelde map.  
 
     > [!NOTE]
-    >  Cette procédure utilise l'emplacement suivant pour les composants facultatifs : C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs. Le chemin d'accès que vous utilisez peut être différent selon les options de version et d'installation que vous choisissez pour le kit Windows AIK.  
+    >  Voor meer informatie over DISM, zie het onderwerp [Deployment Image Servicing and Management Technical Reference](http://technet.microsoft.com/library/dd744256\(v=ws.10\).aspx) (Technische documentatie voor het implementeren van servicebeheer voor installatiekopieën) in de Windows 7 TechNet Documentation Library.  
 
-     Tapez la commande suivante pour installer les composants facultatifs :  
+5.  Gebruik, nadat u de installatiekopie gekoppeld hebt, DISM om optionele componenten aan de installatiekopie toe te voegen. In Windows PE 3.1 staan de optionele componenten bijvoorbeeld in <*InstallationPath*>\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\.  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-wmi.cab"**  
+    > [!NOTE]
+    >  Deze procedure gebruikt de volgende locatie voor de optionele onderdelen: C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs. Het pad dat u gebruikt kan afwijken afhankelijk van de versie en installatieopties die u voor de Windows AIK kiest.  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-scripting.cab"**  
+     Typ het volgende om de optionele componenten te installeren:  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-wds-tools.cab"**  
+     **DISM.exe \winpemount/Add-Package/PackagePath: "C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-wmi.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\** *<locale\>* **\winpe-wmi_** *<paramètres régionaux\>* **.cab"**  
+     **DISM.exe \winpemount/Add-Package/PackagePath: "C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-scripting.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\** *<locale\>* **\winpe-scripting_** *<paramètres régionaux\>* **.cab"**  
+     **DISM.exe \winpemount/Add-Package/PackagePath: "C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\winpe-wds-tools.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\** *<locale\>* **\winpe-wds-tools_** *<paramètres régionaux\>* **.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\** *<locale\>* **\winpe-wmi_** *<locale\>* **.cab"**  
 
-     Où C:\WinPEMount est le dossier monté et paramètres régionaux désigne les paramètres régionaux des composants. Par exemple, pour les paramètres régionaux **fr-fr** , tapez :  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\** *<locale\>* **\winpe-scripting_** *<locale\>* **.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-wmi_en-us.cab"**  
+     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\\** *<locale\>* **\winpe-wds-tools_** *<locale\>* **.cab"**  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-scripting_en-us.cab"**  
+     Waarbij C:\WinPEMount de gekoppelde map is en taal de taal voor de onderdelen. Voor de taal **en-us** typt u bijvoorbeeld:  
 
-     **dism.exe /image:C:\WinPEMount /add-package /packagepath:"C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-wds-tools_en-us.cab"**  
+     **DISM.exe \winpemount/Add-Package/PackagePath: "C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-wmi_en-us.cab"**  
+
+     **DISM.exe \winpemount/Add-Package/PackagePath: "C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-scripting_en-us.cab"**  
+
+     **DISM.exe \winpemount/Add-Package/PackagePath: "C:\Program Files\Windows AIK\Tools\PETools\amd64\WinPE_FPs\en-us\winpe-wds-tools_en-us.cab"**  
 
     > [!TIP]
-    >  Pour plus d’informations sur les différents packages que vous pouvez ajouter à l’image de démarrage, consultez la rubrique [Ajouter un package à une image Windows PE](http://technet.microsoft.com/library/dd799312\(v=WS.10\).aspx) dans la bibliothèque de documentation TechNet Windows 7.  
+    >  Voor meer informatie over de verschillende pakketten die u aan de installatiekopie kunt toevoegen, zie het onderwerp [Add a Package to a Windows PE Image](http://technet.microsoft.com/library/dd799312\(v=WS.10\).aspx) (Een pakket toevoegen aan een Windows PE-installatiekopie) in de Windows 7 TechNet Documentation Library.  
 
-6.  Utilisez DISM pour ajouter des pilotes spécifiques à l'image de démarrage, si nécessaire. Tapez la commande suivante pour ajouter des pilotes à l'image de démarrage, si nécessaire :  
+6.  Gebruik DISM om specifieke stuurprogramma's aan de installatiekopie toe te voegen, indien nodig. Typ het volgende om stuurprogramma's aan de installatiekopie toe te voegen, indien nodig:  
 
-     **dism.exe /image:C:\WinPEMount /add-driver /driver:&lt;** *chemin d'accès au fichier .inf du pilote* **>**  
+     **dism.exe /image:C:\WinPEMount /add-driver /driver:<** *pad naar .inf-bestand van stuurprogramma***>**  
 
-     Où C:\WinPEMount est le dossier monté.  
+     Waar C:\WinPEMount de gekoppelde map is.  
 
-7.  Tapez la commande suivante pour démonter le fichier image de démarrage et valider les modifications.  
+7.  Typ het volgende om het installatiekopiebestand te ontkoppelen en de wijzigingen door te voeren.  
 
-     **dism.exe /unmount-wim /mountdir:C:\WinPEMount /commit**  
+     **DISM.exe /unmount-wim /mountdir:C:\WinPEMount/Commit**  
 
-     Où C:\WinPEMount est le dossier monté.  
+     Waar C:\WinPEMount de gekoppelde map is.  
 
-8.  Ajoutez l’image de démarrage mise à jour à Configuration Manager pour pouvoir l’utiliser dans vos séquences de tâches. Utilisez les étapes suivantes pour importer l'image de démarrage mise à jour :  
+8.  Voeg de bijgewerkte installatiekopie voor Configuration Manager zodat deze beschikbaar voor gebruik in uw takenreeksen. Gebruik de volgende stappen om de bijgewerkte installatiekopie te importeren:  
 
-    1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+    1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
-    2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Images de démarrage**.  
+    2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek** en klik vervolgens op **Installatiekopieën**.  
 
-    3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Ajouter une image de démarrage** pour démarrer l'Assistant Ajout d'une image de démarrage.  
+    3.  Klik op **Installatiekopie toevoegen** in het tabblad **Start** in de groep **Maken** om de wizard Installatiekopie toevoegen te starten.  
 
-    4.  Sur la page **Source de données** , spécifiez les options suivantes et cliquez sur **Suivant**.  
+    4.  Geef op de pagina **Gegevensbron** de volgende opties op en klik op **Volgende**.  
 
-        -   Dans la zone **Chemin d'accès** , indiquez le chemin d'accès au fichier de l'image de démarrage mis à jour. Le chemin d'accès spécifié doit être un chemin d'accès réseau valide au format UNC. Par exemple : **\\\\<***nom_serveur***>\\<***partage WinPEWAIK***>\winpe.wim**.  
+        -   Geef in het venster **Pad** het pad naar het bijgewerkte installatiekopiebestand op. Het opgegeven pad moet een geldig netwerkpad zijn in UNC-indeling. Bijvoorbeeld:  **\\ \\ <**  *servername***>\\<***WinPEWAIK share***> \winpe.wim**.  
 
-        -   Sélectionnez l'image de démarrage dans la liste déroulante **Image de démarrage** . Si le fichier WIM contient plusieurs images de démarrage, chaque image est répertoriée.  
+        -   Selecteer de installatiekopie in de vervolgkeuzelijst **Installatiekopie**. Als het WIM-bestand meerdere installatiekopieën bevat, wordt elke installatiekopie vermeld.  
 
-    5.  Sur la page **Général** , spécifiez les options suivantes et cliquez sur **Suivant**.  
+    5.  Geef op de pagina **Algemeen** de volgende opties op en klik op **Volgende**.  
 
-        -   Dans la zone **Nom** , spécifiez un nom unique pour l'image de démarrage.  
+        -   Geef in het venster **Naam** een unieke naam op voor de installatiekopie.  
 
-        -   Dans la zone **Version** , spécifiez un numéro de version pour l'image de démarrage.  
+        -   Geef in het venster **Versie** een uniek versienummer op voor de installatiekopie.  
 
-        -   Dans la zone **Commentaire** , spécifiez une description sommaire de l'utilisation de l'image de démarrage.  
+        -   Geef in het veld **Opmerking** een korte beschrijving van hoe de installatiekopie wordt gebruikt.  
 
-    6.  Effectuez toutes les étapes de l'Assistant.  
+    6.  Voltooi de wizard.  
 
-9. Vous pouvez activer une invite de commandes dans l'image de démarrage pour le débogage et le dépannage dans Windows PE. Utilisez les étapes suivantes pour activer l'invite de commandes.  
+9. U kunt een opdrachtshell in de installatiekopie inschakelen om eventuele fouten die erin staan op te sporen en te herstellen in Windows PE. Gebruik de volgende stappen om de opdrachtshell in te schakelen.  
 
-    1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+    1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
-    2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Images de démarrage**.  
+    2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek** en klik vervolgens op **Installatiekopieën**.  
 
-    3.  Recherchez la nouvelle image de démarrage dans la liste et identifiez l'ID de package pour l'image. Vous pouvez trouver l'ID de package dans la colonne **ID de l'image** pour l'image de démarrage.  
+    3.  Zoek de nieuwe installatiekopie in de lijst en identificeer de pakket-id voor de kopie. U kunt de pakket-id vinden in de kolom **Kopie-id** voor de installatiekopie.  
 
-    4.  À partir d'une invite de commande, tapez **wbemtest** pour ouvrir le testeur WMI.  
+    4.  Typ na een opdrachtprompt **wbemtest** om de Windows Management Instrumentation Tester te openen.  
 
-    5.  Tapez **\\\\<***ordinateur_fournisseur_SMS***>\root\sms\site_<***code_site***>** dans **Espace de noms**, puis cliquez sur **Connexion**.  
+    5.  Type  **\\ \\ <**  *SMS-Providercomputer***> \root\sms\site_ <***sitecode*  **>**  in **Namespace**, en klik vervolgens op **Connect**.  
 
-    6.  Cliquez sur **Ouvrir une instance**, tapez **sms_bootimagepackage.packageID="<packageID\>"**, puis cliquez sur **OK**. Pour packageID, entrez la valeur que vous avez identifiée à l'étape 3.  
+    6.  Klik op **Instantie openen**, typ **sms_bootimagepackage.packageID="<packageID\>"** en klik vervolgens op **OK**. Voer voor pakket-id de waarde in die u in stap 3 hebt geïdentificeerd.  
 
-    7.  Cliquez sur **Actualiser l'objet**, puis cliquez sur **EnableLabShell** dans le volet **Propriétés** .  
+    7.  Klik op **Object vernieuwen** en klik vervolgens in het venster **Eigenschappen** op **EnableLabShell**.  
 
-    8.  Cliquez sur **Modifier la propriété**, remplacez la valeur par **TRUE**, puis cliquez sur **Enregistrer la propriété**.  
+    8.  Klik op **Eigenschap bewerken**, wijzig de waarde in **TRUE** en klik op **Eigenschap opslaan**.  
 
-    9. Cliquez sur **Enregistrer l'objet**, puis fermez le testeur WMI.  
+    9. Klik op **Object opslaan** en sluit het Testprogramma voor Windows Management Instrumentation.  
 
-10. Vous devez distribuer l'image de démarrage vers des points de distribution, des groupes de points de distribution ou des regroupements associés à des groupes de points de distribution avant de pouvoir utiliser l'image de démarrage dans une séquence de tâches. Pour distribuer l'image de démarrage, procédez comme suit.  
+10. Voordat u de installatiekopie kunt gebruiken in een takenreeks, moet u de installatiekopie distribueren naar distributiepunten, distributiepuntgroepen, of naar verzamelingen die aan distributiepuntgroepen gekoppeld zijn. Gebruik de volgende stappen om de installatiekopie te distribueren.  
 
-    1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+    1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
-    2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Images de démarrage**.  
+    2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek** en klik vervolgens op **Installatiekopieën**.  
 
-    3.  Cliquez sur l'image de démarrage identifiée à l'étape 3.  
+    3.  Klik op de installatiekopie die u in stap 3 hebt geïdentificeerd.  
 
-    4.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Mettre à jour les points de distribution**.  
+    4.  Klik op het tabblad **Start** in de groep **Implementatie** op **Distributiepunten bijwerken**.  

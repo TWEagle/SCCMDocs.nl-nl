@@ -1,6 +1,6 @@
 ---
-title: "Télécharger des mises à jour logicielles - Configuration Manager | Microsoft Docs"
-description: "Utilisez l’Assistant Téléchargement des mises à jour logicielles pour télécharger les mises à jour logicielles et les distribuer aux points de distribution afin qu’elles soient prêtes à être déployées sur les clients."
+title: Downloaden van software-updates - Configuration Manager | Microsoft Docs
+description: Gebruik de Wizard Software-Updates downloaden voor software-updates downloaden en ze distribueren naar distributiepunten, zodat ze klaar om te implementeren op clients.
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,22 +13,22 @@ ms.technology: configmgr-sum
 ms.assetid: de78e8d3-043f-4cd3-97e0-4dfb824fd3fb
 ms.openlocfilehash: f38f72f9f547b82c92789f02975cbd0193b79b2d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="download-software-updates"></a>Télécharger les mises à jour logicielles  
+# <a name="download-software-updates"></a>Software-updates downloaden  
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Vous avez le choix entre plusieurs méthodes pour télécharger les mises à jour logicielles dans Configuration Manager. Quand vous créez une règle de déploiement automatique (ADR) ou que vous déployez manuellement des mises à jour logicielles, celles-ci sont téléchargées vers la bibliothèque de contenu du serveur de site. Ensuite, les mises à jour logicielles sont copiées dans la bibliothèque de contenu sur les points de distribution associés au package de déploiement configuré. Si vous souhaitez télécharger les mises à jour logicielles avant de les déployer, vous pouvez utiliser l'Assistant Téléchargement des mises à jour. Cela vous permet de vérifier que les mises à jour logicielles sont disponibles sur les points de distribution avant de les déployer sur les ordinateurs clients.  
+Er zijn verschillende methoden beschikbaar voor het downloaden van softwareupdates in Configuration Manager. Wanneer u een regel voor automatische implementatie (ADR) maakt of software-updates handmatig implementeert, worden de software-updates gedownload naar de Inhoudsbibliotheek op de siteserver. Vervolgens worden de software-updates gekopieerd naar de Inhoudsbibliotheek op de distributiepunten die gekoppeld aan het geconfigureerde implementatiepakket zijn. Als u de software-updates wilt downloaden voordat u deze implementeert, kunt u de wizard Updates downloaden gebruiken. Dit stelt u in staat om de controleren of de software-updates beschikbaar zijn op de distributiepunten voordat u de software-updates implementeert voor clientcomputers.  
 
 > [!NOTE]  
->  Pour plus d’informations sur la surveillance de l’état du contenu, consultez [Content status monitoring](../deploy-use/monitor-software-updates.md#BKMK_ContentStatus).  
+>  Zie [Inhoudstatussen controleren](../deploy-use/monitor-software-updates.md#BKMK_ContentStatus) voor informatie over het controleren van inhoudstatussen.  
 
-Pour télécharger des mises à jour logicielles à l'aide de l'Assistant Téléchargement de mises à jour logicielles, procédez comme suit.  
+Gebruik de volgende procedure om software-updates te downloaden met de wizard Software-updates downloaden.  
 
-#### <a name="to-download-software-updates"></a>Pour télécharger des mises à jour logicielles  
+#### <a name="to-download-software-updates"></a>Software-updates downloaden  
 [!INCLUDE[downloadupdates](..\includes\downloadupdates.md)]
 <!---
 1.  In the Configuration Manager console, navigate to **Software Library** > **Software Updates**.  

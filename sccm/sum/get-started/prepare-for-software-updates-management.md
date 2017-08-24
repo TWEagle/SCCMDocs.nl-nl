@@ -1,6 +1,6 @@
 ---
-title: "Préparer la gestion des mises à jour logicielles | Microsoft Docs"
-description: "Pour préparer votre environnement à la gestion des mises à jour logicielles, effectuez ces tâches qui permettent d’afficher les données d’évaluation de la conformité dans la console System Center Configuration Manager."
+title: Voorbereiden voor beheer van software-updates | Microsoft Docs
+description: Als u wilt voorbereiden voor het beheren van updates, deze taken uitvoeren om gegevens voor de nalevingsbeoordeling weergegeven in de System Center Configuration Manager-console.
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,24 +13,24 @@ ms.technology: configmgr-sum
 ms.assetid: 01907900-e28b-4cd7-9479-42906416707b
 ms.openlocfilehash: 5c34bd1ea108dffda10c30281fb9c97ba38ae1ae
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-for-software-updates-management"></a>Préparation à la gestion des mises à jour logicielles
+# <a name="prepare-for-software-updates-management"></a>Beheer van software-updates voorbereiden
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Avant de pouvoir afficher les données d’évaluation de la conformité des mises à jour logicielles dans la console System Center Configuration Manager et déployer les mises à jour logicielles sur des ordinateurs clients, vous devez effectuer les étapes décrites dans les sections ci-dessous.
+Voordat de gegevens voor de nalevingsbeoordeling van de software-update wordt weergegeven in de System Center Configuration Manager-console en voordat u software-updates naar clientcomputers kunt implementeren, moet u de stappen in de volgende secties.
 
-## <a name="step-1-install-a-software-update-point"></a>Étape 1 : installer un point de mise à jour logicielle  
-Il doit y avoir un point de mise à jour logicielle installé sur le site d’administration centrale, ou le site principal autonome, et sur les sites principaux pour permettre l’évaluation de la conformité des mises à jour logicielles et le déploiement des mises à jour logicielles sur les clients. Le point de mise à jour de logicielle est facultatif sur les sites secondaires. Pour plus d’informations, consultez [Installer un point de mise à jour logicielle](install-a-software-update-point.md)  
+## <a name="step-1-install-a-software-update-point"></a>Stap 1: Installeert een software-updatepunt  
+De software-updatepunt is vereist op de centrale beheersite of zelfstandige primaire site en op primaire sites beoordeling van compatibiliteit om de software-updates en software-updates implementeren op clients. Het software-updatepunt is optioneel op secundaire sites. Zie voor meer informatie [installeert een software-updatepunt](install-a-software-update-point.md)  
 
-## <a name="step-2-synchronize-software-updates"></a>Étape 2 : synchroniser les mises à jour logicielles
-La synchronisation des mises à jour logicielles consiste à récupérer les métadonnées des mises à jour logicielles correspondant aux critères que vous configurez. Les mises à jour logicielles ne s’affichent pas dans la console Configuration Manager tant que vous ne les avez pas synchronisées. Pour plus d’informations, consultez [Synchroniser les mises à jour logicielles](synchronize-software-updates.md).   
+## <a name="step-2-synchronize-software-updates"></a>Stap 2: Software-Updates synchroniseren
+Synchronisatie van software-updates is het proces van het ophalen van de metagegevens van de software-updates die voldoet aan de criteria die u configureert. Software-updates worden niet weergegeven in de Configuration Manager-console totdat u de software-updates synchroniseren. Zie voor meer informatie [software-updates synchroniseren](synchronize-software-updates.md).   
 
-## <a name="step-3-configure-classifications-and-products-to-synchronize"></a>Étape 3 : configurer les classifications et les produits à synchroniser
-Effectuez cette configuration sur le site d'administration centrale ou le site primaire autonome. Après la première synchronisation des mises à jour logicielles, Configuration Manager récupère une liste mise à jour de produits et de classifications. Vous pouvez maintenant sélectionner de nouvelles options disponibles dans les propriétés du composant du point de mise à jour logicielle. Après avoir configuré les nouveaux produits et classifications, répétez l’étape 2 pour démarrer la synchronisation des mises à jour logicielles et récupérer les métadonnées de mises à jour logicielles correspondant aux nouveaux critères. Pour plus d’informations, consultez [Configurer les classifications et les produits à synchroniser](configure-classifications-and-products.md).
+## <a name="step-3-configure-classifications-and-products-to-synchronize"></a>Stap 3: Configureer classificaties en producten voor synchronisatie
+Voer deze configuratie uit op de centrale beheersite of de zelfstandige primaire site. Na het synchroniseren van software-updates voor de eerste keer wordt een bijgewerkte lijst van classificaties en producten in Configuration Manager opgehaald. U kunt nu selecteren uit de nieuwe opties in de eigenschappen van Software-Updatepuntcomponenten. Nadat u de nieuwe classificaties en producten configureren, herhaalt u stap 2 starten van synchronisatie van software-updates voor het ophalen van metagegevens van software-updates voor de nieuwe criteria. Zie voor meer informatie [classificaties en producten configureren voor het synchroniseren](configure-classifications-and-products.md).
 
-## <a name="step-4-manage-settings-for-software-updates"></a>Étape 4 : gérer les paramètres des mises à jour logicielles
-Après avoir synchronisé les mises à jour logicielles, vérifiez les paramètres du client Configuration Manager, les configurations de stratégies de groupe et les paramètres des mises à jour logicielles avant de déployer les mises à jour logicielles. Pour plus d’informations, consultez [Gérer les paramètres des mises à jour logicielles](manage-settings-for-software-updates.md).
+## <a name="step-4-manage-settings-for-software-updates"></a>Stap 4: Instellingen voor software-updates beheren
+Controleer na het synchroniseren van software-updates, of Configuration Manager-clientinstellingen en groepsbeleidconfiguraties instellingen voor software-updates voordat u software-updates implementeren. Zie voor meer informatie [instellingen beheren voor software-updates](manage-settings-for-software-updates.md).

@@ -1,6 +1,6 @@
 ---
-title: Planifier la gestion des appareils mobiles locale | Microsoft Docs
-description: "Planifiez la gestion des appareils mobiles (MDM) locale pour gérer des appareils mobiles dans System Center Configuration Manager."
+title: On-premises MDM plannen | Microsoft Docs
+description: Plan voor On-premises Mobile Device Management voor het beheren van mobiele apparaten in System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,105 +17,105 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 544c3bea0c7df96887ee1717f061c39c64b82d01
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>Planifier la gestion des appareils mobiles locale dans System Center Configuration Manager
+# <a name="plan-for-on-premises-mobile-device-management-in-system-center-configuration-manager"></a>On-premises Mobile Device Management plannen in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Tenez compte des conditions requises suivantes avant de préparer l’infrastructure Configuration Manager à la gestion des appareils mobiles locale.
+Overweeg de volgende vereisten voordat het voorbereiden van de Configuration Manager-infrastructuur om af te handelen op\-premises Mobile Device Management.
 
-##  <a name="bkmk_devices"></a> Appareils pris en charge  
- La gestion des appareils mobiles locale vous permet de gérer des appareils mobiles à l’aide des fonctions de gestion intégrées aux systèmes d’exploitation des appareils.  La fonctionnalité de gestion est basée sur la norme Open Mobile Alliance (OMA) Device Management (DM), et de nombreuses plateformes d’appareils utilisent cette norme pour autoriser la gestion des appareils.  Nous les appelons **appareils modernes** (dans la documentation et l’interface utilisateur de la console Configuration Manager) pour les différencier des autres appareils dont la gestion nécessite le client Configuration Manager.  
+##  <a name="bkmk_devices"></a>Ondersteunde apparaten  
+ Lokaal beheer van mobiele apparaten kunt u mobiele apparaten beheren met de beheermogelijkheden die zijn ingebouwd in de besturingssystemen van apparaten.  De beheerfunctionaliteit is gebaseerd op de standaard Open Mobile Alliance (OMA) Device Management (DM) en veel apparaatplatformen maken gebruik van deze standaard om het beheer van de apparaten toe te staan.  We noemen deze **moderne apparaten** (in de documentatie en de gebruikersinterface van de Configuration Manager-console) ze te onderscheiden van andere apparaten waarvoor de Configuration Manager-client te beheren.  
 
  > [!NOTE]  
->  Dans la gestion des appareils mobiles locale, la version Current Branch de Configuration Manager prend en charge l’inscription des appareils exécutant les systèmes d’exploitation suivants :  
+>  De huidige vertakking van Configuration Manager ondersteunt de inschrijving in On-premises Mobile Device Management voor apparaten met de volgende besturingssystemen:  
 >   
-> -  Windows 10 Entreprise  
-> -   Windows 10 Professionnel  
-> -   Windows 10 Collaboration \(à compter de Configuration Manager version 1602\)  
+> -  Windows 10 Enterprise  
+> -   Windows 10 Pro  
+> -   Windows 10 Team \(vanaf versie 1602 van Configuration Manager\)  
 > -   Windows 10 Mobile  
-> -   Windows 10 Mobile Entreprise
-> -   Windows 10 IoT Entreprise   
+> -   Windows 10 Mobile Enterprise
+> -   Windows 10 IoT Enterprise   
 
-##  <a name="bkmk_intune"></a> Utilisation de l’abonnement Microsoft Intune  
- Pour pouvoir utiliser la gestion des appareils mobiles locale, vous avez besoin d’un abonnement Microsoft Intune. L’abonnement est nécessaire uniquement pour effectuer le suivi des licences des appareils. Il ne sert pas à gérer ou à stocker des informations sur la gestion des appareils. Toute la gestion s’effectue dans votre organisation à l’aide de l’infrastructure Configuration Manager locale.  
+##  <a name="bkmk_intune"></a>Gebruik van de Microsoft Intune-abonnement  
+ Om te gebruiken op\-premises Mobile Device Management, moet u een abonnement op Microsoft Intune. Het abonnement is alleen vereist voor het bijhouden van de licentieverlening voor de apparaten en wordt niet gebruikt om de beheergegevens voor de apparaten te beheren of op te slaan. Alle beheer wordt uitgevoerd in uw bedrijfsorganisatie met behulp van de on-premises Configuration Manager-infrastructuur.  
 
  > [!NOTE]  
- > À compter de la version 1610, Configuration Manager prend en charge l’utilisation simultanée de Microsoft Intune et de l’infrastructure Configuration Manager locale pour gérer les appareils mobiles.   
+ > Vanaf versie 1610, ondersteunt Configuration Manager het beheer van mobiele apparaten met behulp van on-premises infrastructuur voor Configuration Manager en Microsoft Intune.   
 
- Si votre site comporte des appareils dotés d’une connectivité Internet, vous pouvez utiliser le service Intune pour que les appareils vérifient l’existence de mises à jour de la stratégie par le biais du point de gestion d’appareil. Cette utilisation d’Intune est réservée uniquement à la notification des appareils exposés à Internet. Les appareils sans connexion Internet (ne pouvant pas être contactés par Intune) se fient à l’intervalle d’interrogation configuré pour vérifier les fonctions de gestion auprès des rôles système de site.  
+ Als uw site apparaten met internetverbinding heeft, kan de Intune-service op de hoogte van apparaten om te controleren op het apparaatbeheerpunt, voor het bijwerken van het beleid wilt worden gebruikt. Dit gebruik van Intune geldt uitsluitend voor meldingen alleen met internet verbonden apparaten. Apparaten zonder internetverbinding (en kan geen verbinding worden gemaakt door Intune) zijn afhankelijk van het geconfigureerde polling-interval om te controleren met de sitesysteemrollen voor beheerfuncties.  
 
 > [!TIP]  
->  Nous vous recommandons de configurer l’abonnement Intune avant de configurer les rôles système de site nécessaires, pour que ces derniers soient opérationnels le plus rapidement possible.  
+>  Het is raadzaam dat u de Intune instellen voordat u de vereiste sitesysteemrollen instellen om de tijd die nodig zijn voor de sitesysteemrollen functioneel te laten worden.  
 
- Pour plus d’informations sur la façon de configurer l’abonnement Intune, consultez [Configurer un abonnement Microsoft Intune pour la gestion locale des appareils mobiles dans System Center Configuration Manager](../../mdm/get-started/set-up-intune-subscription-on-premises-mdm.md).  
+ Zie voor informatie over het instellen van het Intune-abonnement, [een Microsoft Intune-abonnement instellen voor On-premises Mobile Device Management in System Center Configuration Manager](../../mdm/get-started/set-up-intune-subscription-on-premises-mdm.md).  
 
-##  <a name="bkmk_roles"></a> Rôles système de site nécessaires  
- La gestion des appareils mobiles locale nécessite au moins un rôle système de site parmi chacun des suivants :  
+##  <a name="bkmk_roles"></a>Vereiste sitesysteemrollen  
+ Op\-premises Mobile Device Management vereist ten minste één van elk van de volgende sitesysteemrollen:  
 
--   **Point proxy d’inscription** pour prendre en charge les demandes d’inscription.  
+-   **Proxypunt voor inschrijving** voor de ondersteuning van inschrijvingsaanvragen.  
 
--   **Point d’inscription** pour prendre en charge l’inscription des appareils.  
+-   **Inschrijvingspunt** voor de ondersteuning van apparaatinschrijving.  
 
--   **Point de gestion du périphérique** pour la remise de la stratégie. Ce rôle de système de site est une variante du rôle de point de gestion qui a été configuré pour autoriser la gestion des appareils mobiles.  
+-   **Apparaatbeheerpunt** voor de levering van het beleid. Deze sitesysteemrol is een variatie op de beheerpuntrol die is geconfigureerd om het beheer van mobiele apparaten toe te staan.  
 
--   **Point de distribution** pour la remise du contenu.  
+-   **Distributiepunt** voor de levering van inhoud.  
 
--   **Point de connexion de service** pour la connexion à Intune pour informer les appareils à l’extérieur du pare-feu.  
+-   **Serviceaansluitpunt** voor het verbinden met Intune op de hoogte van apparaten buiten de firewall wilt.  
 
- Vous pouvez installer ces rôles de système de site sur le serveur de système de site unique, ou vous pouvez les exécuter séparément sur des serveurs distincts en fonction des besoins de votre organisation. Chaque serveur de système de site utilisé pour la gestion des appareils mobiles locale doit être configuré comme point de terminaison HTTPS pour communiquer avec les appareils de confiance. Pour plus d'informations, voir [Communications fiables requises](#bkmk_trustedComs).  
+ Deze sitesysteemrollen kunnen worden geïnstalleerd op de systeemserver van één site of kunnen afzonderlijk worden uitgevoerd op verschillende servers, afhankelijk van de behoeften van uw organisatie. Elke sitesysteemserver gebruikt voor op\-premises Mobile Device Management moeten zijn geconfigureerd als een HTTPS-eindpunt voor communicatie met de vertrouwde apparaten. Zie [Vereiste vertrouwde communicatie](#bkmk_trustedComs) voor meer informatie.  
 
- Pour plus d’informations sur la planification des rôles de système de site, consultez [Planifier des serveurs de système de site et des rôles système de site pour System Center Configuration Manager](../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md).  
+ Zie [Plan maken voor sitesysteemservers en sitesysteemrollen voor System Center Configuration Manager](../../core/plan-design/hierarchy/plan-for-site-system-servers-and-site-system-roles.md) voor meer informatie over het plannen van sitesysteemrollen.  
 
- Pour plus d’informations sur l’ajout des rôles de système de site obligatoires, consultez [Installer des rôles de système de site pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/get-started/install-site-system-roles-for-on-premises-mdm.md).  
+ Zie [Sitesysteemrollen installeren voor on-premises Mobile Device Management in System Center Configuration Manager](../../mdm/get-started/install-site-system-roles-for-on-premises-mdm.md) voor meer informatie over het toevoegen van de vereiste sitesysteemrollen.  
 
-##  <a name="bkmk_trustedComs"></a> Communications fiables requises  
- La gestion des appareils mobiles locale exige que des rôles système de site soient activés pour les communications HTTPS. En fonction de vos besoins, vous pouvez utiliser l’autorité de certification de votre entreprise pour établir les connexions approuvées entre les serveurs et les appareils, ou vous pouvez utiliser une autorité de certification publique comme autorité de confiance.  Dans les deux cas, vous devez configurer un certificat de serveur web avec IIS sur les serveurs de système de site hébergeant les rôles de système de site nécessaires, et vous devez installer le certificat racine de cette autorité de certification sur les appareils qui doivent se connecter à ces serveurs.  
+##  <a name="bkmk_trustedComs"></a>Vereiste vertrouwde communicatie  
+ Op\-premises Mobile Device Management sitesysteemrollen worden ingeschakeld voor HTTPS-communicatie is vereist. Afhankelijk van uw behoeften kunt u gebruikmaken van de certificeringsinstantie (CA) voor uw onderneming om vertrouwde verbindingen tussen servers en apparaten tot stand te brengen. U kunt ook gebruikmaken van een openbaar toegankelijke certificeringsinstantie als de vertrouwde instantie.  In beide gevallen moet u over een webservercertificaat beschikken die met IIS is geconfigureerd op de sitesysteemservers die als host fungeren voor de vereiste sitesysteemrollen. Daarnaast moet het basiscertificaat van die certificeringsinstantie zijn geïnstalleerd op de apparaten die verbinding moeten maken met die servers.  
 
- Si vous utilisez l’autorité de certification de votre entreprise pour établir des communications approuvées, vous devez effectuer les tâches suivantes :  
+ Als u gebruikmaakt van de certificeringsinstantie voor uw onderneming om vertrouwde verbindingen tot stand te brengen, moet u de volgende taken uitvoeren:  
 
--   Créer et émettre le modèle de certificat de serveur web sur l’autorité de certification.  
+-   Het sjabloon voor het webservercertificaat maken en uitgeven.  
 
--   Demander un certificat de serveur web pour chaque serveur de système de site hébergeant un rôle de système de site nécessaire.  
+-   Een webservercertificaat aanvragen voor elke sitesysteemserver die als host fungeert voor een vereiste sitesysteemrol.  
 
--   Configurer IIS sur le serveur de système de site pour utiliser le certificat de serveur web demandé.  
+-   IIS configureren op de sitesysteemserver zodat het aangevraagde webservercertificaat wordt gebruikt.  
 
- Pour les appareils joints au domaine Active Directory d’entreprise, le certificat racine de l’autorité de certification d’entreprise est déjà disponible sur l’appareil pour les connexions approuvées. Cela signifie que les appareils appartenant au domaine (comme les ordinateurs de bureau) sont automatiquement approuvés pour les connexions HTTPS avec les serveurs de système de site. En revanche, les appareils non joints au domaine (généralement les appareils mobiles) ne possèdent pas le certificat racine nécessaire. Vous devez installer manuellement le certificat racine sur ces appareils pour qu’ils puissent communiquer correctement avec les serveurs de système de site prenant en charge la gestion des appareils mobiles locale.  
+ Voor apparaten die zijn gekoppeld aan het Active Directory-domein van de onderneming is het basiscertificaat van de certificeringsinstantie voor de onderneming al beschikbaar op het apparaat voor vertrouwde verbindingen. Dit betekent dat apparaten die lid zijn van een domein (zoals desktopcomputers) automatisch worden vertrouwd voor HTTPS-verbindingen met de sitesysteemservers. Op apparaten die geen lid zijn van het domein (meestal mobiele apparaten) is het vereiste basiscertificaat echter niet geïnstalleerd. Die apparaten moet het basiscertificaat handmatig worden geïnstalleerd op deze kunnen communiceren met sitesysteemservers op ondersteunende\-premises Mobile Device Management.  
 
- Vous devez exporter le certificat racine de l’autorité de certification émettrice pour une utilisation par les différents appareils. Pour obtenir le fichier de certificat racine, vous pouvez l’exporter à l’aide de l’autorité de certification. Une méthode plus simple consiste à utiliser le certificat de serveur web émis par l’autorité de certification pour extraire la racine et créer un fichier de certificat racine.   Ensuite, le certificat racine doit être remis à l’appareil.  Voici quelques exemples de méthodes de remise :  
+ U moet het basiscertificaat van de verlenende certificeringsinstantie exporteren zodat dit kan worden gebruikt door de afzonderlijke apparaten . U kunt het basiscertificaatbestand verkrijgen door dit met behulp van de certificeringsinstantie te exporteren. Een eenvoudigere methode is om met het webservercertificaat dat is uitgegeven door de certificeringsinstantie de hoofdmap uit te pakken en een basiscertificaatbestand te maken.   Het basiscertificaat moet vervolgens aan het apparaat worden geleverd.  Enkele voorbeelden van leveringsmethoden zijn:  
 
--   Système de fichiers  
+-   Bestandssysteem  
 
--   Pièce jointe  
+-   E-mailbijlage  
 
--   Carte mémoire  
+-   Geheugenkaart  
 
--   Périphérique attaché  
+-   Aangesloten apparaat  
 
--   Stockage cloud (tel que OneDrive)  
+-   Opslag in de cloud (zoals OneDrive)  
 
--   Connexion NFC (communication en champ proche)  
+-   NFC-verbinding (Near Field Communication)  
 
--   Lecteur de code-barres  
+-   Streepjescodelezer  
 
--   Package d’approvisionnement OOBE (Out of Box Experience)  
+-   OOBE- inrichtingspakket (out of box experience)  
 
- Pour plus d'informations, consultez [Configurer des certificats pour les communications approuvées pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/get-started/set-up-certificates-on-premises-mdm.md).  
+ Zie [Certificaten voor vertrouwde communicatie instellen voor On-premises Mobile Device Management in System Center Configuration Manager](../../mdm/get-started/set-up-certificates-on-premises-mdm.md) voor meer informatie.  
 
-##  <a name="bkmk_enrollment"></a> Considérations relatives à l’inscription  
- Pour permettre l’inscription des appareils à la gestion des appareils mobiles locale, vous devez autoriser les utilisateurs à inscrire leurs appareils et ceux-ci doivent pouvoir établir des communications approuvées avec les serveurs de système de site hébergeant les rôles système de site nécessaires.  
+##  <a name="bkmk_enrollment"></a>Overwegingen voor inschrijving  
+ Registratie van apparaten voor inschakelen op\-lokaal beheer van mobiele apparaten, gebruikers moeten machtigingen verlenen voor het inschrijven en hun apparaten moeten kunnen een vertrouwde communicatie met de sitesysteemservers die als host fungeert voor de vereiste sitesysteemrollen.  
 
- Pour accorder aux utilisateurs l’autorisation d’inscrire des appareils, vous pouvez configurer un profil d’inscription dans les paramètres client de Configuration Manager. Vous pouvez utiliser les paramètres client par défaut pour envoyer le profil d’inscription à tous les utilisateurs découverts, ou vous pouvez configurer le profil d’inscription dans les paramètres client personnalisés et envoyer les paramètres à un ou plusieurs regroupements d’utilisateurs.  
+ Gebruikers machtigen kan worden bereikt door het instellen van een inschrijvingsprofiel in de clientinstellingen voor Configuration Manager. U kunt de standaardclientinstellingen gebruiken om het inschrijvingsprofiel naar alle gedetecteerde gebruikers te pushen of u kunt het inschrijvingsprofiel configureren in de aangepaste clientinstellingen en de instellingen naar een of meer gebruikersverzamelingen pushen.  
 
- Une fois l’autorisation d’inscription accordée aux utilisateurs, ils peuvent inscrire leurs appareils. Pour que l’inscription soit possible, il faut que l’appareil possède le certificat racine de l’autorité de certification qui a émis le certificat de serveur web utilisé sur les serveurs de système de site hébergeant les rôles de système de site nécessaires.  
+ Wanneer de gebruikers zijn gemachtigd om de apparaten in te schrijven, kunnen de gebruikers hun eigen apparaten inschrijven. Als de gebruikers hun apparaat willen inschrijven, moet dit beschikken over het basiscertificaat van de certificeringsinstantie (CA) die het webservercertificaat heeft uitgegeven dat wordt gebruikt op de sitesysteemservers die als host fungeren voor de vereiste sitesysteemrollen.  
 
- En guise d’alternative à l’inscription initiée par l’utilisateur, vous pouvez configurer un package d’inscription en bloc qui permet d’inscrire l’appareil sans intervention de l’utilisateur. Vous pouvez remettre ce package à l’appareil avant sa mise en service initiale ou à l’issue du processus OOBE.  
+ U kunt in plaats van de inschrijving door gebruikers ook een pakket voor bulksgewijs inschrijven instellen. Hiermee wordt toegestaan dat het apparaat wordt ingeschreven zonder tussenkomst van de gebruiker. Dit pakket kan aan het apparaat worden geleverd voordat dit is ingericht voor gebruik of nadat het apparaat het OOBE-proces heeft ondergaan.  
 
- Pour plus d’informations sur la façon de configurer et d’inscrire des appareils, consultez  
+ Zie voor meer informatie over het instellen en inschrijven van apparaten:  
 
--   [Configurer l’inscription d’appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/get-started/set-up-device-enrollment-on-premises-mdm.md)  
+-   [Registratie van apparaten instellen voor On-premises Mobile Device Management in System Center Configuration Manager](../../mdm/get-started/set-up-device-enrollment-on-premises-mdm.md)  
 
--   [Inscrire des appareils pour la gestion des appareils mobiles locale dans System Center Configuration Manager](../../mdm/deploy-use/enroll-devices-on-premises-mdm.md)  
+-   [Apparaten inschrijven voor On-premises Mobile Device Management in System Center Configuration Manager](../../mdm/deploy-use/enroll-devices-on-premises-mdm.md)  

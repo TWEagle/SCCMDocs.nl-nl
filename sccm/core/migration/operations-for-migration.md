@@ -1,6 +1,6 @@
 ---
-title: "Opérations de migration | Microsoft Docs"
-description: "Créez et exécutez des tâches pour migrer les données et les clients vers System Center Configuration Manager."
+title: Migratiebewerkingen | Microsoft Docs
+description: Maken en uitvoeren van taken voor het migreren van gegevens en clients voor System Center Configuration Manager.
 ms.custom: na
 ms.date: 12/30/2016
 ms.prod: configuration-manager
@@ -16,224 +16,224 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: fb8a292c4fecbe5744e2cd09bc1442fab11046bc
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="operations-for-migrating-to-system-center-configuration-manager"></a>Opérations de migration vers System Center Configuration Manager
+# <a name="operations-for-migrating-to-system-center-configuration-manager"></a>Bewerkingen voor de migratie naar System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Pour la migration dans System Center Configuration Manager, vous pouvez migrer des données et des clients une fois que vous avez collecté des données à partir d’un site source dans une hiérarchie source prise en charge. Utilisez les informations des sections suivantes pour créer et exécuter des tâches de migration pour migrer des données et des clients, puis terminer le processus de migration.  
+Migratie in System Center Configuration Manager, kunt u gegevens en clients migreren wanneer u gegevens hebt verzameld van een bronsite in een ondersteunde bronhiërarchie. Gebruik de informatie in de volgende secties voor het maken en migratietaken voor het migreren van gegevens en clients uitvoeren en vervolgens het migratieproces voltooien.  
 
--   [Créer et modifier des tâches de migration](#Create_Edit_migration_Jobs)  
+-   [Migratietaken maken en bewerken](#Create_Edit_migration_Jobs)  
 
--   [Exécuter des tâches de migration](#Run_Migration_Jobs)  
+-   [Migratietaken uitvoeren](#Run_Migration_Jobs)  
 
--   [Mettre à niveau ou réattribuer un point de distribution partagé](#BKMK_ProcUpgrdSS)  
+-   [Een gedeeld distributiepunt bijwerken of opnieuw toewijzen](#BKMK_ProcUpgrdSS)  
 
--   [Surveiller l’activité de migration dans l’espace de travail Migration](#Monitor_MIgration)  
+-   [Migratieactiviteiten in de werkruimte Migratie bewaken](#Monitor_MIgration)  
 
--   [Migrer des clients](#BKMK_MigrateClients)  
+-   [Clients migreren](#BKMK_MigrateClients)  
 
--   [Terminer la migration](#Complete_Migration)  
+-   [Migratie voltooien](#Complete_Migration)  
 
-##  <a name="Create_Edit_migration_Jobs"></a> Créer et modifier des tâches de migration  
- Procédez comme suit pour créer des tâches de migration de données, modifier la liste d’exclusions pour les tâches de migration basée sur des regroupements, configurer des points de distribution partagés et modifier des planifications de tâches de migration.  
+##  <a name="Create_Edit_migration_Jobs"></a> Migratietaken maken en bewerken  
+ Gebruik de volgende procedures om gegevens migratietaken maakt, de uitsluitingenlijst voor migratie op basis van een verzameling taken bewerken, instellen van gedeelde distributiepunten en planningen voor migratietaken te bewerken.  
 
 > [!NOTE]  
->  La procédure ci-dessous permet de créer une tâche de migration basée sur des regroupements. Elle s’applique uniquement aux hiérarchies sources qui exécutent une version prise en charge de Configuration Manager 2007. Le type de tâche de migration basée sur les regroupements n’est pas disponible lorsque vous migrez à partir d’une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager.  
+>  De volgende procedure voor het maken van een migratietaak die op basis van verzamelingen gemigreerd geldt alleen voor bronhiërarchieën waarop een ondersteunde versie van Configuration Manager 2007. Het type migratietaak op basis van een verzameling is niet beschikbaar wanneer u vanaf een bronhiërarchie System Center 2012 Configuration Manager of System Center Configuration Manager migreert.  
 
-#### <a name="create-a-migration-job-to-migrate-by-collections"></a>Créer une tâche de migration par regroupements  
+#### <a name="create-a-migration-job-to-migrate-by-collections"></a>Een migratietaak maken om te migreren met verzamelingen  
 
-1.  Dans la console Configuration Manager, choisissez **Administration**.  
+1.  Kies in de Configuration Manager-console **beheer**.  
 
-2.  Dans l’espace de travail **Administration**, développez **Migration**, puis choisissez **Tâches de migration**.  
+2.  In de **beheer** werkruimte Vouw **migratie**, en kies vervolgens **migratietaken**.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer une tâche de migration**.  
+3.  Op de **Start** tabblad, in de **maken** groep, kiest u **migratietaak maken**.  
 
-4.  Dans la page **Général** de l’Assistant Création de tâche de migration, configurez les éléments suivants, puis choisissez **OK** :  
+4.  Op de **algemene** pagina van de wizard migratietaak maken, instellen van de volgende en kies vervolgens **OK**:  
 
-    -   Spécifiez un nom pour la tâche de migration.  
+    -   Geef een naam op voor de migratietaak.  
 
-    -   Dans la liste déroulante **Type de tâche** , sélectionnez **Migration du regroupement**.  
+    -   Selecteer **Verzamelingmigratie** in de vervolgkeuzelijst **Type taak**.  
 
-5.  Dans la page **Sélectionner des regroupements**, configurez les éléments suivants, puis choisissez **Suivant** :  
+5.  Op de **verzamelingen selecteren** pagina, stel het volgende en kies vervolgens **volgende**:  
 
-    -   Sélectionnez les regroupements que vous souhaitez migrer.  
+    -   Selecteer de verzamelingen die u wilt migreren.  
 
-    -   Si vous souhaitez migrer uniquement les regroupements, sans les objets qui leur sont associés, décochez **Migrer les objets qui sont associés aux regroupements spécifiés**. Si vous décochez cette option, aucun objet associé n’est migré au cours de cette tâche. Vous pouvez alors ignorer les étapes 6 et 7.  
+    -   Als u wilt migreren alleen verzamelingen en niet de objecten die gekoppeld aan deze verzamelingen zijn, schakel het selectievakje **objecten migreren die gekoppeld aan de gespecificeerde verzamelingen zijn**. Als u deze optie uitschakelt, wordt er geen bijbehorende objecten worden gemigreerd in deze taak en kunt u stap 6 en 7 overslaan.  
 
-6.  Dans la page **Sélectionner des objets**, décochez tous les types d’objet ou les objets disponibles spécifiques que vous ne souhaitez pas migrer. Par défaut, tous les types d'objet associés et les objets disponibles sont sélectionnés. Choisissez **Suivant**.  
+6.  Op de **objecten selecteren** pagina, schakel het selectievakje alle objecttypen of specifieke beschikbare objecten die u niet wilt migreren. Standaard worden alle gekoppelde objecttypen en beschikbare objecten geselecteerd. Kies **volgende**.  
 
-7.  Dans la page **Propriété du contenu**, attribuez la propriété du contenu de chaque site source de la liste à un site de la hiérarchie de destination, puis choisissez **Suivant**.  
+7.  Op de **Inhoudeigendom** pagina en kies vervolgens het eigendom van de inhoud van elke vermelde bronsite toewijzen aan een site in de doelhiërarchie **volgende**.  
 
-8.  Dans la page **Étendue de sécurité**, sélectionnez la ou les étendues de sécurité d’administration basée sur un rôle que vous voulez affecter aux objets à migrer dans cette tâche de migration, puis choisissez **Suivant**.  
+8.  Op de **beveiligingsbereik** pagina, selecteert u een of meer op rollen gebaseerde beheerbeveiligingsbereiken om toe te wijzen aan de objecten gemigreerd in deze migratietaak en klik vervolgens op **volgende**.  
 
-9. Dans la page **Limitation au regroupement**, configurez un regroupement de la hiérarchie de destination pour limiter l’étendue de chaque regroupement de la liste, puis choisissez **Suivant**. Si aucun regroupement n’est répertorié, choisissez **Suivant**.  
+9. Op de **beperkende verzameling** pagina, instellen van een verzameling vanuit de doelhiërarchie om het bereik van elke vermelde verzameling te beperken en kies vervolgens **volgende**. Als er geen verzamelingen worden vermeld, kiest u **volgende**.  
 
-10. Dans la page **Remplacement d’un code de site**, affectez un code de site de la hiérarchie de destination pour remplacer le code de site Configuration Manager 2007 de chaque regroupement répertorié, puis choisissez **Suivant**. Si aucun regroupement n’est répertorié, choisissez **Suivant**.  
+10. Op de **vervanging van Sitecodes** pagina, wijst u een sitecode uit de doelhiërarchie de Configuration Manager 2007-sitecode voor elke vermelde verzameling te vervangen en klik vervolgens op **volgende**. Als er geen verzamelingen worden vermeld, kiest u **volgende**.  
 
-11. Dans la page **Consulter les informations**, choisissez **Enregistrer dans un fichier** pour enregistrer les informations affichées en vue de les consulter ultérieurement. Quand vous êtes prêt à continuer, choisissez **Suivant**.  
+11. Op de **gegevens bekijken** pagina **opslaan in bestand** om op te slaan van de weergegeven informatie voor later kunt bekijken. Wanneer u klaar om door te gaan bent, kies **volgende**.  
 
-12. Dans la page **Paramètres**, définissez la période d’exécution de la tâche de migration et tous les autres paramètres nécessaires à cette tâche, puis choisissez **Suivant**.  
+12. Op de **instellingen** pagina instellen wanneer de migratietaak wordt uitgevoerd, geef de overige instellingen die u nodig hebt voor deze migratietaak kiezen en kies vervolgens **volgende**.  
 
-13. Confirmez les paramètres et mettez fin à l’Assistant.  
+13. Bevestig de instellingen en voltooi de wizard.  
 
-#### <a name="create-a-migration-job-to-migrate-by-objects"></a>Créer une tâche de migration par objets  
+#### <a name="create-a-migration-job-to-migrate-by-objects"></a>Een migratietaak voor het migreren van objecten maken  
 
-1.  Dans la console Configuration Manager, choisissez **Administration**.  
+1.  Kies in de Configuration Manager-console **beheer**.  
 
-2.  Dans l’espace de travail **Administration**, développez **Migration**, puis choisissez **Tâches de migration**.  
+2.  In de **beheer** werkruimte Vouw **migratie**, en kies vervolgens **migratietaken**.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer une tâche de migration**.  
+3.  Op de **Start** tabblad, in de **maken** groep, kiest u **migratietaak maken**.  
 
-4.  Dans la page **Général** de l’Assistant Création de tâche de migration, configurez les éléments suivants, puis choisissez **Suivant** :  
+4.  Op de **algemene** pagina van de wizard migratietaak maken, instellen van de volgende en kies vervolgens **volgende**:  
 
-    -   Spécifiez un nom pour la tâche de migration.  
+    -   Geef een naam op voor de migratietaak.  
 
-    -   Dans la liste déroulante **Type de tâche** , sélectionnez **Migration d'objet**.  
+    -   Selecteer **Objectmigratie** in de vervolgkeuzelijst **Type taak**.  
 
-5.  Sur la page **Sélectionner des objets** , sélectionnez les types d'objet que vous souhaitez migrer. Par défaut, tous les objets disponibles sont sélectionnés pour chaque type d'objet que vous sélectionnez.  
+5.  Selecteer op de pagina **Objecten selecteren** de objecttypen die u wilt migreren. Standaard worden alle beschikbare objecten geselecteerd voor elk objecttype dat u selecteert.  
 
-6.  Dans la page **Propriété du contenu**, attribuez la propriété du contenu de chaque site source de la liste à un site de la hiérarchie de destination, puis choisissez **Suivant**. Si aucun site source n’est répertorié, choisissez **Suivant**.  
+6.  Op de **Inhoudeigendom** pagina en kies vervolgens het eigendom van de inhoud van elke vermelde bronsite toewijzen aan een site in de doelhiërarchie **volgende**. Als er geen bronsites worden vermeld, kiest u **volgende**.  
 
-7.  Dans la page **Étendue de sécurité**, sélectionnez la ou les étendues de sécurité d’administration basée sur un rôle que vous voulez affecter aux objets de cette tâche de migration, puis choisissez **Suivant**.  
+7.  Op de **beveiligingsbereik** pagina, selecteert u een of meer op rollen gebaseerde beheerbeveiligingsbereiken toewijzen aan de objecten in deze migratietaak en klik vervolgens op **volgende**.  
 
-8.  Dans la page **Consulter les informations**, choisissez **Enregistrer dans un fichier** pour enregistrer les informations affichées en vue de les consulter ultérieurement. Quand vous êtes prêt à continuer, choisissez **Suivant**.  
+8.  Op de **gegevens bekijken** pagina **opslaan in bestand** om op te slaan van de weergegeven informatie voor later kunt bekijken. Wanneer u klaar om door te gaan bent, kies **volgende**.  
 
-9. Dans la page **Paramètres**, définissez la période d’exécution de la tâche de migration et tous les autres paramètres nécessaires à cette tâche. Ensuite, choisissez **Suivant**.  
+9. Op de **instellingen** pagina wanneer de migratietaak wordt uitgevoerd en kies desgewenst aanvullende instellingen die u nodig hebt voor deze migratietaak instellen. Kies vervolgens **volgende**.  
 
-10. Confirmez les paramètres et mettez fin à l’Assistant.  
+10. Bevestig de instellingen en voltooi de wizard.  
 
-#### <a name="create-a-migration-job-to-migrate-changed-objects"></a>Créer une tâche de migration pour migrer des objets modifiés  
+#### <a name="create-a-migration-job-to-migrate-changed-objects"></a>Maken van een migratietaak om gewijzigde objecten te migreren  
 
-1.  Dans la console Configuration Manager, choisissez **Administration**.  
+1.  Kies in de Configuration Manager-console **beheer**.  
 
-2.  Dans l’espace de travail **Administration**, développez **Migration**, puis choisissez **Tâches de migration**.  
+2.  In de **beheer** werkruimte Vouw **migratie**, en kies vervolgens **migratietaken**.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer une tâche de migration**.  
+3.  Op de **Start** tabblad, in de **maken** groep, kiest u **migratietaak maken**.  
 
-4.  Dans la page **Général** de l’Assistant Création de tâche de migration, configurez les éléments suivants, puis choisissez **Suivant** :  
+4.  Op de **algemene** pagina van de wizard migratietaak maken, instellen van de volgende en kies vervolgens **volgende**:  
 
-    -   Spécifiez un nom pour la tâche de migration.  
+    -   Geef een naam op voor de migratietaak.  
 
-    -   Dans la liste déroulante **Type de tâche**, sélectionnez **Objets modifiés après la migration**.  
+    -   In de **taaktype** vervolgkeuzelijst, selecteer **objecten gewijzigd na migratie**.  
 
-5.  Sur la page **Sélectionner des objets** , sélectionnez les types d'objet que vous souhaitez migrer. Par défaut, tous les objets disponibles sont sélectionnés pour chaque type d'objet que vous sélectionnez.  
+5.  Selecteer op de pagina **Objecten selecteren** de objecttypen die u wilt migreren. Standaard worden alle beschikbare objecten geselecteerd voor elk objecttype dat u selecteert.  
 
-6.  Dans la page **Propriété du contenu**, attribuez la propriété du contenu de chaque site source de la liste à un site de la hiérarchie de destination, puis choisissez **Suivant**. Si aucun site source n’est répertorié, choisissez **Suivant**.  
+6.  Op de **Inhoudeigendom** pagina en kies vervolgens het eigendom van de inhoud van elke vermelde bronsite toewijzen aan een site in de doelhiërarchie **volgende**. Als er geen bronsites worden vermeld, kiest u **volgende**.  
 
-7.  Dans la page **Étendue de sécurité**, sélectionnez la ou les étendues de sécurité d’administration basée sur un rôle que vous voulez affecter aux objets de cette tâche de migration, puis choisissez **Suivant**.  
+7.  Op de **beveiligingsbereik** pagina, selecteert u een of meer op rollen gebaseerde beheerbeveiligingsbereiken toewijzen aan de objecten in deze migratietaak en klik vervolgens op **volgende**.  
 
-8.  Dans la page **Consulter les informations**, choisissez **Enregistrer dans un fichier** pour enregistrer les informations affichées en vue de les consulter ultérieurement. Quand vous êtes prêt à continuer, choisissez **Suivant**.  
+8.  Op de **gegevens bekijken** pagina **opslaan in bestand** om op te slaan van de weergegeven informatie voor later kunt bekijken. Wanneer u klaar om door te gaan bent, kies **volgende**.  
 
-9. Dans la page **Paramètres**, définissez la période d’exécution de la tâche de migration et tous les autres paramètres nécessaires à cette tâche. À la différence des autres types de tâches de migration, cette tâche de migration doit remplacer les objets migrés précédemment dans la base de données System Center Configuration Manager. Choisissez **Suivant**.  
+9. Op de **instellingen** pagina wanneer de migratietaak wordt uitgevoerd en kies desgewenst aanvullende instellingen die u nodig voor deze migratietaak hebt instellen. In tegenstelling tot de andere typen, moet deze migratietaak de eerder gemigreerde objecten in de System Center Configuration Manager-database overschrijven. Kies **volgende**.  
 
-10. Confirmez les paramètres, puis terminez l’Assistant.  
+10. Bevestig de instellingen en voltooi de wizard.  
 
-###  <a name="BKMK_Modify_Exclusion_List"></a> Modifier la liste d’exclusions pour la migration  
+###  <a name="BKMK_Modify_Exclusion_List"></a>De uitsluitingenlijst voor migratie wijzigen  
 
-1.  Dans la console Configuration Manager, choisissez **Administration**.  
+1.  Kies in de Configuration Manager-console **beheer**.  
 
-2.  Dans l’espace de travail **Administration**, choisissez **Migration** pour accéder à la liste d’exclusions. Vous pouvez également accéder à la liste des exclusions à partir du nœud **Hiérarchie source** ou **Tâches de migration** .  
+2.  In de **beheer** werkruimte, kiest u **migratie** toegang te krijgen tot de uitsluitingslijst. U kunt de uitsluitingenlijst ook openen vanuit het knooppunt **Bronhiërarchie** of **Migratietaken** .  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Migration**, choisissez **Modifier la liste d’exclusion**.  
+3.  Op de **Start** tabblad, in de **migratie** groep, kiest u **Uitsluitingenlijst bewerken**.  
 
-4.  Dans la boîte de dialogue **Modifier la liste d’exclusion**, sélectionnez l’objet exclu que vous souhaitez retirer de la liste d’exclusions, puis choisissez **Supprimer**.  
+4.  In de **Uitsluitingenlijst bewerken** dialoogvenster Selecteer het uitgesloten object dat u wilt verwijderen uit de uitsluitingslijst en kies vervolgens **verwijderen**.  
 
-5.  Choisissez **OK** pour enregistrer les modifications et terminer l’opération. Pour annuler les modifications en cours et restaurer tous les objets que vous avez supprimés, choisissez **Annuler**, puis choisissez **Non**. La suppression des objets est annulée et la boîte de dialogue **Modifier la liste d'exclusion** se ferme.  
+5.  Kies **OK** de wijzigingen opslaan en de bewerking te voltooien. Om de huidige wijzigingen annuleren en herstellen van de objecten die u hebt verwijderd, kiest u **annuleren**, en kies vervolgens **Nee**. Op deze manier maakt u de verwijdering van de objecten ongedaan en sluit u het dialoogvenster **Uitsluitingenlijst bewerken** .  
 
-#### <a name="share-distribution-points-from-the-source-hierarchy"></a>Partager des points de distribution à partir de la hiérarchie source  
+#### <a name="share-distribution-points-from-the-source-hierarchy"></a>Distributiepunten uit de bronhiërarchie delen  
 
-1.  Dans la console Configuration Manager, choisissez **Administration**.  
+1.  Kies in de Configuration Manager-console **beheer**.  
 
-2.  Dans l’espace de travail **Administration**, développez **Migration**, choisissez **Hiérarchie source**, puis sélectionnez le site source que vous souhaitez configurer.  
+2.  In de **beheer** werkruimte Vouw **migratie**, kies **bronhiërarchie**, en selecteer vervolgens de bronsite die u wilt instellen.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Site source**, choisissez **Configurer**.  
+3.  Op de **Start** tabblad, in de **bronsite** groep, kiest u **configureren**.  
 
-4.  Dans la boîte de dialogue **Informations d’identification du site source**, sélectionnez **Activer le partage du point de distribution pour ce serveur de site source**, puis choisissez **OK**.  
+4.  Op de **Bronsitereferenties** dialoogvenster, **inschakelen voor de bronsiteserver deling van distributiepunt**, en kies vervolgens **OK**.  
 
-5.  Une fois la collecte des données terminée, choisissez **Fermer**.  
+5.  Wanneer de gegevens zijn verzameld, optie **sluiten**.  
 
-#### <a name="change-the-schedule-of-a-migration-job"></a>Modifier la planification d’une tâche de migration  
+#### <a name="change-the-schedule-of-a-migration-job"></a>De planning van een migratietaak wijzigen  
 
-1.  Dans la console Configuration Manager, choisissez **Administration**.  
+1.  Kies in de Configuration Manager-console **beheer**.  
 
-2.  Dans l’espace de travail **Administration**, développez **Migration**, puis choisissez **Tâches de migration**.  
+2.  In de **beheer** werkruimte Vouw **migratie**, en kies vervolgens **migratietaken**.  
 
-3.  Choisissez la tâche de migration que vous souhaitez modifier. Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+3.  Kies de migratietaak die u wilt wijzigen. Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
 
-4.  Dans les propriétés de la tâche de migration, sélectionnez l’onglet **Paramètres**, modifiez l’heure d’exécution de la tâche de migration, puis choisissez **OK**.  
+4.  Selecteer in de eigenschappen van de migratietaak is de **instellingen** tabblad, wijzig de uitvoeringstijd voor de migratietaak en kies vervolgens **OK**.  
 
-##  <a name="Run_Migration_Jobs"></a> Exécuter des tâches de migration  
- Pour exécuter une tâche de migration n'a pas encore commencé, suivez la procédure ci-dessous.  
+##  <a name="Run_Migration_Jobs"></a> Migratietaken uitvoeren  
+ Gebruik de volgende procedure om een migratietaak uit te voeren die nog niet is gestart.  
 
 
-1.  Dans la console Configuration Manager, choisissez **Administration**.  
+1.  Kies in de Configuration Manager-console **beheer**.  
 
-2.  Dans l’espace de travail **Administration**, développez **Migration**, puis choisissez **Tâches de migration**.  
+2.  In de **beheer** werkruimte Vouw **migratie**, en kies vervolgens **migratietaken**.  
 
-3.  Choisissez la tâche de migration que vous souhaitez exécuter. Sous l’onglet **Accueil**, dans le groupe **Tâche de migration**, choisissez **Démarrer**.  
+3.  Kies de migratietaak die u wilt uitvoeren. Op de **Start** tabblad, in de **migratietaak** groep, kiest u **Start**.  
 
-4.  Choisissez **Oui** pour démarrer la tâche de migration.  
+4.  Kies **Ja** om de migratietaak te starten.  
 
-##  <a name="BKMK_ProcUpgrdSS"></a> Mettre à niveau ou réattribuer un point de distribution partagé  
- Vous pouvez mettre à niveau un point de distribution pris en charge qui est partagé à partir d’un site source Configuration Manager 2007 (ou réaffecter un point de distribution pris en charge qui est partagé à partir d’un site source System Center Configuration Manager) pour qu’il devienne un point de distribution dans la hiérarchie de destination.  
+##  <a name="BKMK_ProcUpgrdSS"></a> Een gedeeld distributiepunt bijwerken of opnieuw toewijzen  
+ U kunt een ondersteund distributiepunt dat wordt gedeeld via een Configuration Manager 2007-bronsite bijwerken (of een ondersteund distributiepunt dat wordt gedeeld via een System Center Configuration Manager-bronsite opnieuw toewijzen) aan een distributiepunt in de doelhiërarchie.  
 
 > [!IMPORTANT]  
->  Avant de mettre à niveau un point de distribution de branche Configuration Manager 2007, vous devez désinstaller le logiciel client Configuration Manager 2007 de l’ordinateur du point de distribution de branche. Si le logiciel client Configuration Manager 2007 est installé lorsque vous essayez de mettre à niveau le point de distribution, la mise à niveau échoue et le contenu précédemment déployé sur le point de distribution de branche est supprimé de l’ordinateur.  
+>  Voordat u een Configuration Manager 2007-vertakkingsdistributiepunt bijwerkt, moet u de Configuration Manager 2007-clientsoftware van de vertakking distributiepuntcomputer verwijderen. Als de Configuration Manager 2007-clientsoftware wordt geïnstalleerd wanneer u probeert bij te werken van het distributiepunt, wordt de upgrade mislukt en wordt inhoud die eerder was geïmplementeerd op het vertakkingsdistributiepunt verwijderd van de computer.  
 
 > [!CAUTION]  
->  Quand vous mettez à niveau ou réaffectez un point de distribution partagé, le rôle de système de site et l’ordinateur du système de site du point de distribution sont supprimés du site source et ajoutés comme point de distribution au site sélectionné dans la hiérarchie de destination.  
+>  Wanneer u een upgrade of een gedeeld distributiepunt opnieuw toewijst, worden de site system rol en de site system distributiepuntcomputer verwijderd uit de bronsite en als een distributiepunt toegevoegd aan de site in de doelhiërarchie die u selecteert.  
 
-#### <a name="upgrade-or-reassign-a-shared-distribution-point"></a>Mettre à niveau ou réattribuer un point de distribution partagé  
+#### <a name="upgrade-or-reassign-a-shared-distribution-point"></a>Bijwerken of opnieuw toewijzen van een gedeeld distributiepunt  
 
-1.  Dans la console Configuration Manager, choisissez **Administration**.  
+1.  Kies in de Configuration Manager-console **beheer**.  
 
-2.  Dans l’espace de travail **Administration**, développez **Migration**, puis choisissez **Hiérarchie source**.  
+2.  In de **beheer** werkruimte Vouw **migratie**, en kies vervolgens **bronhiërarchie**.  
 
-3.  Sélectionnez le site propriétaire du point de distribution à mettre à niveau, choisissez l’onglet **Points de distribution partagés**, puis sélectionnez le point de distribution éligible que vous souhaitez mettre à niveau ou réaffecter.  
+3.  Selecteer de site die het distributiepunt dat u wilt upgraden bezit, kies de **gedeelde distributiepunten** tabblad en selecteer het distributiepunt die u wilt bijwerken of opnieuw toewijzen.  
 
-4.  Sous l’onglet **Point de distribution**, dans le groupe **Point de distribution**, choisissez **Réaffecter**.  
+4.  Op de **distributiepunt** tabblad, in de **distributiepunt** groep, kiest u **toewijzen**.  
 
-5.  Dans l’Assistant Réaffectation du point de distribution partagé, spécifiez les paramètres comme si vous installiez un nouveau point de distribution pour la hiérarchie de destination, en ajoutant les configurations suivantes :  
+5.  Als u een nieuw distributiepunt voor de doelhiërarchie, met de volgende toevoeging installeert, kunt u instellingen opgeven in de wizard opnieuw toewijzen van gedeelde distributiepunt:  
 
-    -   Dans la page **Conversion du contenu**, prenez connaissance des conseils relatifs à l’espace nécessaire pour convertir le contenu existant. Puis, dans la page **Paramètres du lecteur** de l’Assistant, vérifiez que le lecteur de l’ordinateur du point de distribution sélectionné a la quantité nécessaire d’espace disque disponible.  
+    -   Op de **Inhoudsconversie** controleert u de informatie over de ruimte die nodig zijn om de bestaande inhoud te converteren. Klik op de **Stationsinstellingen** pagina van de wizard, Controleer of het station van de distributiepuntcomputer die u hebt geselecteerd de vereiste hoeveelheid vrije schijfruimte heeft.  
 
-6.  Confirmez les paramètres, puis terminez l’Assistant.  
+6.  Bevestig de instellingen en voltooi de wizard.  
 
-##  <a name="Monitor_MIgration"></a> Surveiller l’activité de migration dans l’espace de travail Migration  
- Utilisez la console Configuration Manager pour surveiller la migration.  
+##  <a name="Monitor_MIgration"></a> Migratieactiviteiten in de werkruimte Migratie bewaken  
+ De Configuration Manager-console gebruiken om migraties te bewaken.  
 
-1.  Dans la console Configuration Manager, choisissez **Administration**.  
+1.  Kies in de Configuration Manager-console **beheer**.  
 
-2.  Dans l’espace de travail **Administration**, développez **Migration**, puis choisissez **Tâches de migration**.  
+2.  In de **beheer** werkruimte Vouw **migratie**, en kies vervolgens **migratietaken**.  
 
-3.  Choisissez la tâche de migration que vous souhaitez surveiller.  
+3.  Kies de migratietaak die u wilt bewaken.  
 
-4.  Affichez les détails et l'état de la tâche de migration sélectionnée sur les onglets **Synthèse** et **Objets de la tâche**.  
+4.  Bekijk de details over en status van de geselecteerde migratietaak op de tabbladen voor **Samenvatting** en **Objecten in taak**.  
 
-##  <a name="BKMK_MigrateClients"></a> Migrer des clients  
- Effectuez la migration des clients vers la hiérarchie de destination après avoir migré les données des clients entre les hiérarchies, mais avant de terminer le processus de migration. La migration de clients entre les hiérarchies implique la désinstallation du logiciel client Configuration Manager des ordinateurs qui sont affectés à la hiérarchie source, puis l’installation du logiciel client Configuration Manager à partir de la hiérarchie de destination. Lorsque vous installez le client à partir de la hiérarchie de destination, vous affectez également le client à un site principal de cette hiérarchie. Pour en savoir plus sur la migration de clients, consultez [Planification d’une stratégie de migration de clients dans System Center Configuration Manager](../../core/migration/planning-a-client-migration-strategy.md).  
+##  <a name="BKMK_MigrateClients"></a> Clients migreren  
+ Nadat u gegevens van clients tussen hiërarchieën migreren maar voordat u de migratie hebt voltooid, moet u wilt migreren van clients naar de doelhiërarchie. De migratie van clients tussen hiërarchieën omvat het verwijderen van de Configuration Manager-clientsoftware van computers die zijn toegewezen aan de bronhiërarchie, en vervolgens de Configuration Manager-clientsoftware te installeren vanuit de doelhiërarchie. Wanneer u de client vanuit de doelhiërarchie installeert, wijst u de client ook aan een primaire site in die hiërarchie toe. Voor meer informatie over het migreren van clients, Zie [een strategie voor clientmigratie in System Center Configuration Manager plannen](../../core/migration/planning-a-client-migration-strategy.md).  
 
-##  <a name="Complete_Migration"></a> Terminer la migration  
- Procédez comme suit pour terminer la migration à partir de la hiérarchie source.  
+##  <a name="Complete_Migration"></a>Migratie voltooien  
+ Gebruik deze procedure voor het voltooien van de migratie van de bronhiërarchie.  
 
-1.  Dans la console Configuration Manager, choisissez **Administration**.  
+1.  Kies in de Configuration Manager-console **beheer**.  
 
-2.  Dans l’espace de travail **Administration**, développez **Migration**, puis choisissez **Hiérarchie source**.  
+2.  In de **beheer** werkruimte Vouw **migratie**, en kies vervolgens **bronhiërarchie**.  
 
-3.  Dans le cas d’une hiérarchie source Configuration Manager 2007, sélectionnez un site source qui se trouve au niveau inférieur de la hiérarchie source. Dans le cas d’une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager, sélectionnez le site source disponible.  
+3.  Voor een Configuration Manager 2007-bronhiërarchie selecteert u een bronsite op het laagste niveau van de bronhiërarchie. Voor een System Center 2012 Configuration Manager of System Center Configuration Manager-bronhiërarchie selecteert u de beschikbare bronsite.  
 
-4.  Sous l’onglet **Accueil**, dans le groupe **Nettoyer**, choisissez **Arrêter la collecte de données**.  
+4.  Op de **Start** tabblad, in de **opschonen** groep, kiest u **geen gegevens meer verzamelen**.  
 
-5.  Choisissez **Oui** pour confirmer l’action.  
+5.  Kies **Ja** de actie te bevestigen.  
 
-6.  Pour une hiérarchie source Configuration Manager 2007, avant de passer à l’étape suivante, répétez les étapes 3, 4 et 5. Effectuez ces étapes au niveau de chaque site de la hiérarchie, du bas vers le haut. Dans le cas d’une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager, passez à l’étape suivante.  
+6.  Herhaal stap 3, 4 en 5 voor een bronhiërarchie Configuration Manager 2007 voordat u met de volgende stap doorgaat. Deze stappen op elke site in de hiërarchie, van de onderkant van de hiërarchie boven doorlopen. Voor een bronhiërarchie System Center 2012 Configuration Manager of System Center Configuration Manager, blijven de volgende stap.  
 
-7.  Sous l’onglet **Accueil**, dans le groupe **Nettoyer**, choisissez **Nettoyer les données de migration**.  
+7.  Op de **Start** tabblad, in de **opschonen** groep, kiest u **migratiegegevens opruimen**.  
 
-8.  Dans la boîte de dialogue **Nettoyer les données de migration**, dans la liste déroulante **Hiérarchie source**, sélectionnez le code de site et le serveur de site du site de niveau supérieur de la hiérarchie source, puis choisissez **OK**.  
+8.  Op de **migratiegegevens opruimen** in het dialoogvenster van de **bronhiërarchie** vervolgkeuzelijst, selecteer de sitecode en siteserver van het hoogste niveau van de bronhiërarchie, en kies vervolgens **OK**.  
 
-9. Choisissez **Oui** pour terminer le processus de migration pour la hiérarchie source.  
+9. Kies **Ja** voor het voltooien van het migratieproces voor de bronhiërarchie.  

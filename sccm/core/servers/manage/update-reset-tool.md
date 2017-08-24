@@ -1,6 +1,6 @@
 ---
-title: "Outil de réinitialisation des mises à jour | Microsoft Docs"
-description: "Utilisez l’outil de réinitialisation des mises à jour pour effectuer des mises à jour dans la console pour System Center Configuration Manager."
+title: Hulpprogramma voor update opnieuw instellen | Microsoft Docs
+description: Gebruik het hulpprogramma bijwerken opnieuw instellen voor updates in de console voor System Center Configuration Manager.
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
@@ -17,63 +17,63 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 1960f86e98a957559f379b9eeb6d293f7e4182e5
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="update-reset-tool"></a>Outil de réinitialisation des mises à jour
+# <a name="update-reset-tool"></a>Hulpprogramma voor het bijwerken opnieuw instellen
 
-*S’applique à : System Center Configuration Manager (Current Branch)*  
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*  
 
 
-À compter de la version 1706, les sites d’administration centrale et les sites principaux Configuration Manager incluent l’outil de réinitialisation des mises à jour Configuration Manager (**CMUpdateReset.exe**). Utilisez l’outil pour résoudre les problèmes de téléchargement ou de réplication des mises à jour dans la console. L’outil se trouve dans le dossier ***\cd.latest\SMSSETUP\TOOLS*** du serveur de site.
+Vanaf versie 1706, primaire Configuration Manager-sites en centrale beheersites omvatten het hulpprogramma Configuration Manager-Update opnieuw instellen, **CMUpdateReset.exe**. Gebruik het hulpprogramma problemen oplossen wanneer updates in de console hebben problemen met het downloaden of repliceren. Het hulpprogramma is gevonden in de ***\cd.latest\SMSSETUP\TOOLS*** map van de siteserver.
 
-Vous pouvez utiliser cet outil avec n’importe quelle version de Current Branch prise en charge.
+U kunt dit hulpprogramma gebruiken met een willekeurige versie van de huidige vertakking dat nog in de ondersteuning.
 
-Utilisez cet outil quand une [mise à jour dans la console](/sccm/core/servers/manage/install-in-console-updates) n’a pas encore été installée et qu’elle se trouve dans un état d’échec. Un état d’échec signifie que le téléchargement de la mise à jour est en cours, mais qu’il est bloqué ou qu’il prend beaucoup trop de temps. Un téléchargement est considéré comme trop long s’il dépasse de plusieurs heures le téléchargement de packages de mise à jour de taille similaire. Il peut également s’agir d’un échec de réplication de la mise à jour sur les sites principaux enfants.  
+Gebruik dit hulpprogramma wanneer een [update in de console](/sccm/core/servers/manage/install-in-console-updates) nog niet is geïnstalleerd en bevindt zich in een foutstatus. Een mislukte status betekent dat het downloaden van de update is uitgevoerd maar vastgelopen of een te lange tijd. Een lange tijd wordt beschouwd als uren langer is dan de historische verwachtingen voor updatepakketten van vergelijkbare grootte. Het kan ook een fout in de update gerepliceerd naar onderliggende primaire sites zijn.  
 
-Lorsque vous exécutez l’outil, il s’exécute sur la mise à jour que vous spécifiez. Par défaut, l’outil ne supprime pas les mises à jour installées ou téléchargées avec succès.  
+Wanneer u het hulpprogramma uitvoert, wordt deze wordt uitgevoerd voor de update die u opgeeft. Standaard wordt het hulpprogramma is geïnstalleerd of gedownloade updates niet verwijderd.  
 
-### <a name="prerequisites"></a>Conditions préalables
-Le compte que vous utilisez pour exécuter l’outil nécessite les autorisations suivantes :
--   Autorisations en **Lecture** et **Écriture** pour la base de données de site du site d’administration centrale et pour chaque site principal de votre hiérarchie. Pour définir ces autorisations, vous pouvez ajouter le compte d’utilisateur en tant que membre des [rôles de base de données fixes](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles) **db_datawriter** et **db_datareader** sur la base de données Configuration Manager de chaque site. L’outil n’interagit pas avec les sites secondaires.
--   **Administrateur local** sur le site de niveau supérieur de votre hiérarchie.
--   **L’administrateur local** sur l’ordinateur hébergeant le point de connexion de service.
+### <a name="prerequisites"></a>Vereisten
+Het account waarmee u het hulpprogramma uitvoert vereist de volgende machtigingen:
+-   **Lees** en **schrijven** machtigingen voor de sitedatabase van de centrale beheersite en voor elke primaire site in uw hiërarchie. Als u wilt deze machtigingen instelt, kunt u het gebruikersaccount toevoegen als lid van de **db_datawriter** en **db_datareader** [vaste databaserollen](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles) op de Configuration Manager-database van elke site. Het hulpprogramma communiceert niet met secundaire sites.
+-   **Lokale beheerder** op het hoogste niveau van uw hiërarchie.
+-   **Lokale beheerder** op de computer die als host fungeert voor het serviceverbindingspunt wordt gehost.
 
-Vous devez disposer du GUID du package de mise à jour à réinitialiser. Pour obtenir le GUID :
-  1.   Dans la console, accédez à **Administration** > **Mises à jour et maintenance**.
-  2.   Dans le volet qui s’affiche, cliquez avec le bouton droit sur l’en-tête d’une des colonnes (comme **État**), puis sélectionnez **GUID du package** pour ajouter cette colonne à l’affichage.
-  3.   La colonne affiche maintenant le GUID du package de mise à jour.
+U moet de GUID van het updatepakket dat u wilt instellen. De GUID ophalen:
+  1.   Ga in de console naar **beheer** > **Updates en onderhoud**.
+  2.   In het weergavevenster met de rechtermuisknop op de kop van een van de kolommen (zoals **status**), selecteer daarna **pakket-Guid** die kolom toevoegen aan de weergave.
+  3.   De GUID van het updatepakket wordt nu weergegeven in de kolom.
 
 > [!TIP]  
-> Pour copier le GUID, sélectionnez la ligne pour le package de mise à jour que vous souhaitez réinitialiser, puis utilisez CTRL + C pour copier cette ligne. Si vous collez votre sélection copiée dans un éditeur de texte, vous pouvez ensuite copier uniquement le GUID pour une utilisation en tant que paramètre de ligne de commande quand vous exécutez l’outil.
+> Selecteer de rij voor het updatepakket dat u wilt instellen voor het kopiëren van de GUID en gebruikt u CTRL + C om te kopiëren die rij. Als u de gekopieerde selectie in een teksteditor plakken, kunt u alleen de GUID voor gebruik als een parameter in opdrachtregel vervolgens kopiëren wanneer u het hulpprogramma uitvoert.
 
-### <a name="run-the-tool"></a>Exécution de l'outil    
-L’outil doit être exécuté sur le site de niveau supérieur de la hiérarchie.
+### <a name="run-the-tool"></a>Het hulpprogramma uitvoeren    
+Het hulpprogramma moet worden uitgevoerd op het hoogste niveau van de hiërarchie.
 
-Quand vous exécutez l’outil, utilisez les paramètres de ligne de commande pour spécifier les éléments suivants :
-  -   Serveur SQL Server sur le site de niveau supérieur de la hiérarchie.
-  -   Nom de la base de données de site sur le site de niveau supérieur.
-  -   GUID du package de mise à jour à réinitialiser.
+Wanneer u het hulpprogramma uitvoert, gebruik van opdrachtregelparameters om op te geven:
+  -   De SQL Server op de bovenste site van de hiërarchie.
+  -   De databasenaam van de site op de bovenste site.
+  -   De GUID van het updatepakket dat u wilt instellen.
 
-En fonction de l’état de la mise à jour, l’outil identifie les serveurs supplémentaires auxquels il doit accéder.   
+Op basis van de status van de update, identificeert het hulpprogramma de extra servers nodig voor toegang tot.   
 
-Si le package de mise à jour est dans un état *post-téléchargement*, l’outil ne nettoie pas le package. Vous pouvez éventuellement forcer la suppression d’une mise à jour téléchargée avec succès à l’aide du paramètre de suppression de force (consultez les paramètres de ligne de commande plus loin dans cette rubrique).
+Als u het updatepakket is in een *na de download* status, het hulpprogramma niet clean up gemaakt van het pakket. U kunt het verwijderen van een update is gedownload met behulp van de parameter force verwijderen (Zie opdrachtregelparameters verderop in dit onderwerp) forceren als een optie.
 
-Une fois que l’outil s’exécute :
--   Si un package a été supprimé, redémarrez le service SMS_Executive sur le site de niveau supérieur. Ensuite, recherchez les mises à jour pour pouvoir retélécharger le package.
--   Si un package n’a pas été supprimé, aucune action n’est nécessaire. La mise à jour se réinitialise, puis redémarre la réplication ou l’installation.
+Nadat het hulpprogramma wordt uitgevoerd:
+-   Als een pakket is verwijderd, start u de SMS_Executive-service op de bovenste site. Controleer op updates zodat u kunt het pakket opnieuw downloaden.
+-   Als een pakket is niet verwijderd, hoeft u geen geen actie te ondernemen. De update wordt opnieuw geïnitialiseerd en wordt opnieuw opgestart replicatie of de installatie.
 
-**Paramètres de ligne de commande :**  
+**Parameters voor de opdrachtregel:**  
 
-| Paramètre        |Description                 |  
+| Parameter        |Beschrijving                 |  
 |------------------|----------------------------|  
-|**-S &lt;Nom de domaine complet de l’instance SQL Server de votre site de niveau supérieur >** | *Obligatoire* <br> Permet de spécifier le nom de domaine complet de l’instance SQL Server qui héberge la base de données de site pour le site de niveau supérieur de votre hiérarchie.    |  
-| **D - &lt;Nom de la base de données>**                        | *Obligatoire* <br> Permet de spécifier le nom de la base de données pour le site de niveau supérieur.  |  
-| **-P &lt;GUID du package>**                         | *Obligatoire* <br> Permet de spécifier le GUID du package de mise à jour à réinitialiser.   |  
-| **-I &lt;Nom de l'instance SQL Server>**             | *Facultatif* <br> Permet d’identifier l’instance de SQL Server qui héberge la base de données du site. |
-| **-FDELETE**                              | *Facultatif* <br> Permet de forcer la suppression d’un package de mise à jour téléchargé avec succès. |  
- **Exemples :**  
- Dans un scénario classique, vous souhaitez réinitialiser une mise à jour qui présente des problèmes de téléchargement. Votre nom de domaine complet SQL Server est *server1.fabrikam.com*, la base de données du site est *CM_XYZ* et le GUID du package est *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Vous exécutez : ***CMUpdateReset.exe -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
+|**-S &lt;FQDN-naam van de SQL Server van de bovenste site >** | *Vereist* <br> Geef de FQDN van de SQL Server die als host fungeert voor de sitedatabase voor de bovenste site van uw hiërarchie.    |  
+| **-D &lt;databasenaam >**                        | *Vereist* <br> Geef de naam van de database op de bovenste site.  |  
+| **-P &lt;pakket-GUID >**                         | *Vereist* <br> Geef de GUID van het updatepakket dat u wilt instellen.   |  
+| **-Ik &lt;SQL Server-instantienaam >**             | *Optioneel* <br> De instantie van SQL Server die als host fungeert voor de sitedatabase te identificeren. |
+| **-FDELETE**                              | *Optioneel* <br> Verwijderen van een gedownloade updatepakket forceren. |  
+ **Voorbeelden:**  
+ In een typisch scenario dat u wilt opnieuw instellen van een update die downloaden problemen heeft. De FQDN van uw SQL-Servers is *server1.Fabrikam.com zijn*, de sitedatabase is *CM_XYZ*, en het pakket-GUID is *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  U hebt uitgevoerd: ***CMUpdateReset.exe -S server1.Fabrikam.com zijn -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
 
- Dans un scénario plus extrême, vous souhaitez forcer la suppression du package de mise à jour problématique. Votre nom de domaine complet SQL Server est *server1.fabrikam.com*, la base de données du site est *CM_XYZ* et le GUID du package est *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  Vous exécutez : ***CMUpdateReset.exe  -FDELETE -S server1.fabrikam.com -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***
+ In een scenario met meer extreme die u wilt verwijderen van problematisch updatepakket forceren. De FQDN van uw SQL-Servers is *server1.Fabrikam.com zijn*, de sitedatabase is *CM_XYZ*, en het pakket-GUID is *61F16B3C-F1F6-4F9F-8647-2A524B0C802C*.  U hebt uitgevoerd: ***CMUpdateReset.exe - FDELETE -S server1.Fabrikam.com zijn -D CM_XYZ -P 61F16B3C-F1F6-4F9F-8647-2A524B0C802C***

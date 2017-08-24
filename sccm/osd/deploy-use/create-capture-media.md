@@ -1,6 +1,6 @@
 ---
-title: "Créer un média de capture - Configuration Manager | Microsoft Docs"
-description: "Utilisez l’Assistant Création d’un média de séquence de tâches pour créer un média de capture dans Configuration Manager pour capturer une image de système d’exploitation à partir d’un ordinateur de référence."
+title: Maken van vastleggende media - Configuration Manager | Microsoft Docs
+description: Gebruik de Wizard Takenreeks maken Media te maken van vastleggende media in Configuration Manager om de installatiekopie van een besturingssysteem vanaf een referentiecomputer.
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -17,65 +17,65 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 5acf800ff5aebd849e294393337755145a60cca5
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-capture-media-with-system-center-configuration-manager"></a>Créer un média de capture avec System Center Configuration Manager
+# <a name="create-capture-media-with-system-center-configuration-manager"></a>Vastlegmedia maken met System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Dans Configuration Manager, un média de capture vous permet de capturer une image de système d’exploitation à partir d’un ordinateur de référence. Utilisez un média de capture dans le scénario suivant :  
+Registrerende media in Configuration Manager kunt u de installatiekopie van een besturingssysteem vanaf een referentiecomputer vastleggen. Gebruik vastlegmedia voor het volgende scenario:  
 
--   [Créer une séquence de tâches pour capturer un système d’exploitation](create-a-task-sequence-to-capture-an-operating-system.md)  
+-   [Maak een takenreeks voor het vastleggen van een besturingssysteem](create-a-task-sequence-to-capture-an-operating-system.md)  
 
-##  <a name="BKMK_CreateCaptureMedia"></a> Comment créer un média de capture  
- Utilisez un média de capture pour capturer une image de système d'exploitation à partir d'un ordinateur de référence. Un média de capture contient l'image de démarrage qui démarre l'ordinateur de référence et la séquence de tâches qui capture l'image du système d'exploitation.
+##  <a name="BKMK_CreateCaptureMedia"></a> Het maken van vastleggende media  
+ Gebruik vastleggende media om een installatiekopie van een besturingssysteem van een referentiecomputer vast te leggen. Vastlegmedia bevatten de opstartinstallatiekopie waarmee de referentiecomputer wordt gestart en de takenreeks waarmee de installatiekopie van het besturingssysteem wordt vastgelegd.
 
-Vous créez des média de capture à l'aide de l'Assistant Création d'un média de séquence de tâches. Avant d'exécuter l'Assistant, assurez-vous que toutes les conditions suivantes sont remplies :  
+U kunt vastleggende media maken door de wizard Takenreeks media maken te gebruiken. Zorg ervoor dat aan de volgende voorwaarden is voldaan voordat u deze wizard uitvoert:  
 
-|Tâche|Description|  
+|Taak|Beschrijving|  
 |----------|-----------------|  
-|Image de démarrage|Prenez en considération les éléments suivants relatifs à l’image de démarrage que vous utiliserez dans la séquence de tâches pour capturer le système d’exploitation :<br /><br /> -   L’architecture de l’image de démarrage doit être adaptée à l’architecture de l’ordinateur de destination. Par exemple, un ordinateur de destination x64 peut démarrer et exécuter une image de démarrage x86 ou x64. Toutefois, un ordinateur de destination x86 peut démarrer et exécuter uniquement une image de démarrage x86.<br />-   Vérifiez que l’image de démarrage contient les pilotes de stockage de masse et de réseau nécessaires à l’approvisionnement de l’ordinateur de destination.|  
-|Distribuer tout le contenu associé à la séquence de tâches|Vous devez distribuer tout le contenu exigé par la séquence de tâches à au moins un point de distribution. Cela inclut l’image de démarrage, l’image du système d’exploitation et les autres fichiers associés. L'Assistant collecte les informations à partir du point de distribution lorsqu'il crée le média autonome. Vous devez disposer de droits d’accès en **Lecture** à la bibliothèque de contenu sur ce point de distribution.  Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).|  
-|Préparer le lecteur USB amovible|Pour un lecteur USB amovible :<br /><br /> Si vous envisagez d’utiliser un lecteur USB amovible, ce dernier doit être connecté à l’ordinateur sur lequel est exécuté l’Assistant et il doit être détectable par Windows en tant que périphérique amovible. L’Assistant écrit directement sur le lecteur USB quand il crée le média.|  
-|Créer un dossier de sortie|Pour un ensemble de CD/DVD :<br /><br /> Avant d'exécuter l'Assistant Création d'un média de séquence de tâches afin de créer un média pour un ensemble de CD ou DVD, vous devez créer un dossier pour les fichiers de sortie créés par l'Assistant. Le média créé pour un ensemble de CD ou DVD est écrit sous forme de fichiers .iso directement dans le dossier.|  
+|Opstartinstallatiekopie|Overweeg het volgende met betrekking tot de opstartinstallatiekopie die u in de takenreeks gebruikt om het besturingssysteem vast te leggen:<br /><br /> -De architectuur van de opstartinstallatiekopie moet geschikt is voor de architectuur van de doelcomputer. Op een x64-doelcomputer kan een x86- of x64-opstartinstallatiekopie worden opgestart en uitgevoerd. Op een x86-doelcomputer kan echter alleen een x86-opstartinstallatiekopie worden opgestart en uitgevoerd.<br />-Zorg ervoor dat de installatiekopie de netwerk- en mass storage stuurprogramma's die zijn vereist bevat voor het inrichten van de doelcomputer.|  
+|Alle aan de takenreeks gekoppeld inhoud distribueren|U moet alle inhoud die door de takenreeks is vereist naar ten minste één distributiepunt distribueren. Dit omvat de opstartinstallatiekopie, de installatiekopie van het besturingssysteem en andere gekoppelde bestanden. De wizard haalt de informatie op van het distributiepunt wanneer het de zelfstandige media creëert. U moet over het toegangsrecht **Lezen** beschikken voor de inhoudsbibliotheek op het distributiepunt.  Zie voor meer informatie [inhoud distribueren](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).|  
+|Het verwisselbare USB-station voorbereiden|Voor een verwisselbaar USB-station:<br /><br /> Wanneer u een verwisselbaar USB-station wilt gebruiken, moet het USB-station zijn aangesloten op de computer waarop de wizard wordt uitgevoerd. Daarnaast moet het USB-station door Windows gedetecteerd kunnen worden als een verwisselbaar apparaat. De wizard schrijft rechtstreeks naar het USB-station wanneer deze het medium maakt.|  
+|Een uitvoermap maken|Voor een cd/dvd-set:<br /><br /> Voordat u de wizard Takenreeksmedia maken uitvoert voor het maken van media voor een cd- of dvd-set, moet u een map maken voor de uitvoerbestanden die door de wizard worden gemaakt. Media die worden gemaakt voor een cd- of dvdset worden als .iso-bestanden direct naar de map geschreven.|  
 
- Pour créer un média de capture, procédez comme suit.  
+ De volgende procedure gebruiken om vastleggende media te maken.  
 
-#### <a name="to-create-capture-media"></a>Pour créer un support de capture  
+#### <a name="to-create-capture-media"></a>Maken van vastleggende media  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
+2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Takenreeksen**.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un média de séquence de tâches** pour démarrer l'Assistant Création d'un média de séquence de tâches.  
+3.  Klik op het tabblad **Start** in de groep **Maken** op **Takenreeksmedia maken** om de wizard Takenreeksmedia maken te starten.  
 
-4.  Sur la page **Sélectionner le type de média** , sélectionnez **Média de capture**, puis cliquez sur **Suivant**.  
+4.  Selecteer **Eén computer importeren** op de pagina **Bron selecteren**en klik dan op **Volgende**.  
 
-5.  Dans la page **Type de média** , spécifiez si le média est un disque mémoire flash ou un ensemble de CD/DVD, puis cliquez pour configurer les éléments suivants :  
+5.  Geef op de pagina **Mediumtype** op of het medium een flashstation of een cd/dvd-set is en klik vervolgens om het volgende te configureren:  
 
-    -   Si vous sélectionnez **Périphérique flash USB**, spécifiez le lecteur sur lequel stocker le contenu.  
+    -   Als u **USB-flashstation**selecteert, moet u het station opgeven waarop u de inhoud wilt opslaan.  
 
-    -   Si vous sélectionnez **Ensemble CD/DVD**, spécifiez la capacité du média et le nom et le chemin d'accès des fichiers de sortie. L'Assistant écrit les fichiers de sortie à cet emplacement. Par exemple : **\\\nom_serveur\dossier\fichier_sortie.iso**  
+    -   Indien u **cd-/dvdset selecteert**, geef dan de capaciteit van de media en de naam en het pad van de uitvoerbestanden op. De wizard schrijft de uitvoerbestanden naar deze locatie. Bijvoorbeeld:  **\\\servername\folder\outputfile.iso**  
 
-         Si la capacité du média est insuffisante pour stocker l’ensemble du contenu, plusieurs fichiers sont créés et vous devez stocker le contenu sur plusieurs CD ou DVD. Quand plusieurs médias sont nécessaires, Configuration Manager ajoute un numéro de séquence au nom de chaque fichier de sortie qu’il crée. De plus, si vous déployez une application en même temps que le système d’exploitation et que cette application ne peut pas tenir sur un seul média, Configuration Manager stocke l’application sur plusieurs médias. Quand le média autonome est exécuté, Configuration Manager invite l’utilisateur à insérer le média suivant sur lequel l’application est stockée.  
+         Als de capaciteit van de media te klein is om alle inhoud op te slaan, worden er meerdere bestanden gemaakt en moet u de inhoud op meerdere cd's of dvd's opslaan. Als meerdere media nodig zijn, wordt een volgnummer toegevoegd aan de naam van ieder uitvoerbestand dat wordt gemaakt van Configuration Manager. Bovendien, als u een toepassing tezamen met het besturingssysteem implementeert en de toepassing is te voor één media groot, slaat Configuration Manager de toepassing over verschillende media. Wanneer de zelfstandige media wordt uitgevoerd, wordt Configuration Manager de gebruiker naar de volgende media waar de toepassing wordt opgeslagen.  
 
         > [!IMPORTANT]  
-        >  Si vous sélectionnez une image .iso existante, l'Assistant Média de séquence de tâches supprime cette image du lecteur ou du partage dès lors que vous passez à la page suivante de l'Assistant. L'image existante est supprimée même si vous annulez ensuite l'Assistant.  
+        >  Als u een bestaande .iso-afbeelding selecteert, verwijdert de wizard voor het maken van takenreeksmedia die afbeelding uit het station of de share wanneer u doorgaat naar de volgende pagina van de wizard. De bestaande installatiekopie wordt gewist, zelfs als u de wizard annuleert.  
 
-     Cliquez sur **Suivant**.  
+     Klik op **Volgende**.  
 
-6.  Sur la page **Image de démarrage** , spécifiez les informations suivantes et cliquez sur **Suivant**.  
+6.  Geef op de pagina **Opstartinstallatiekopie** de volgende informatie op en klik vervolgens op **Volgende**.  
 
     > [!IMPORTANT]  
-    >  L'architecture de l'image de démarrage que vous spécifiez doit être adaptée à l'architecture de l'ordinateur de référence. Par exemple, un ordinateur de référence x64 peut démarrer et exécuter une image de démarrage x86 ou x64. Toutefois, un ordinateur de référence x86 peut démarrer et exécuter uniquement une image de démarrage x86.  
+    >  De architectuur van de opstartinstallatiekopie die u opgeeft, moet toepasselijk zijn voor de architectuur van de referentiecomputer. Op een x64-referentiecomputer kan een x86- of x64-opstartinstallatiekopie worden opgestart en uitgevoerd. Op een x86-referentiecomputer kan echter alleen een x86-opstartinstallatiekopie worden opgestart en uitgevoerd.  
 
-    -   Dans la zone **Image de démarrage** , spécifiez l'image de démarrage pour démarrer l'ordinateur de référence.  
+    -   Geef in het vakje **Opstartinstallatiekopie** de opstartinstallatiekopie op om de referentiecomputer op te starten.  
 
-    -   Dans la zone **Point de distribution** , spécifiez le point de distribution où réside l'image de démarrage. L'Assistant extrait l'image de démarrage à partir du point de distribution et l'écrit sur le média.  
+    -   Geef in het vak **Distributiepunt** het distributiepunt op waar de installatiekopie is opgeslagen. De wizard haalt de opstartinstallatiekopie op van het distributiepunt en schrijft deze naar de media.  
 
         > [!NOTE]  
-        >  Vous devez disposer de droits d'accès en lecture à la bibliothèque de contenu sur le point de distribution.  
+        >  U moet leesrechten hebben voor de inhoudsbibliotheek op het distributiepunt.  
 
-7.  Effectuez toutes les étapes de l'Assistant.  
+7.  Voltooi de wizard.  

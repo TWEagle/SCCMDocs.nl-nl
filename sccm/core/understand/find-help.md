@@ -1,6 +1,6 @@
 ---
-title: "Trouver de l’aide sur l’utilisation de System Center Configuration Manager | Microsoft Docs"
-description: "Recherchez des ressources pour plus d’informations sur System Center Configuration Manager."
+title: Hulp zoeken voor het gebruik van System Center Configuration Manager | Microsoft Docs
+description: Informatiebronnen voor meer informatie over System Center Configuration Manager.
 ms.custom: na
 ms.date: 2/8/2017
 ms.prod: configuration-manager
@@ -17,60 +17,60 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 72fe220cb9a40d6a20164ace1db8542a91221f55
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="find-help-for-using-system-center-configuration-manager"></a>Trouver de l’aide pour l’utilisation de System Center Configuration Manager
+# <a name="find-help-for-using-system-center-configuration-manager"></a>Hulp zoeken over het gebruik van System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Utilisez les ressources suivantes pour obtenir plus d’informations sur System Center Configuration Manager :  
+Gebruik de volgende bronnen voor aanvullende informatie over System Center Configuration Manager:  
 
--   [Information et support](#bkmk_Info)  
+-   [Informatie en ondersteuning](#bkmk_Info)  
 
-    -   [Rechercher dans la bibliothèque de documentation](#BKMK_SearchTips)  
+    -   [Zoeken in de documentatiebibliotheek](#BKMK_SearchTips)  
 
-    -   [Blog de l'équipe System Center Configuration Manager](#BKMK_ProductGroupBlog)  
-    -   [Options de support et ressources de la communauté](#BKMK_SupportOptions)
+    -   [Het teamblog van System Center Configuration Manager](#BKMK_ProductGroupBlog)  
+    -   [Ondersteuningsopties en bronnen van de community](#BKMK_SupportOptions)
 
-  Pour obtenir de l’aide concernant l’accessibilité, consultez [Fonctionnalités d’accessibilité dans System Center Configuration Manager](../../core/understand/accessibility-features.md).
+  Zie voor meer informatie over toegankelijkheid, [toegankelijkheidsfuncties in System Center Configuration Manager](../../core/understand/accessibility-features.md).
 
-##  <a name="bkmk_Info"></a> Information et support  
- Utilisez les ressources suivantes pour obtenir plus d’informations sur Configuration Manager.  
+##  <a name="bkmk_Info"></a> Informatie en ondersteuning  
+ Gebruik de volgende bronnen voor aanvullende informatie over Configuration Manager.  
 
--   **Pour accéder à la documentation la plus récente du produit System Center Configuration Manager :** utilisez la [bibliothèque de documentation pour System Center Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=691974) dans TechNet.
+-   **Toegang krijgen tot de meest actuele productdocumentatie voor System Center Configuration Manager:** Gebruik de TechNet [Documentatiebibliotheek voor System Center Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=691974).
 
--   **Pour fournir des commentaires sur la documentation :** envoyez vos commentaires sur **User Voice** à la page [System Center Configuration Manager Feedback (Documentation)](https://configurationmanager.uservoice.com/forums/300492-ideas/category/112371-documentation).  
+-   **Feedback geven over de documentatie:** Met behulp van feedback verzenden **User Voice** op [System Center Configuration Manager Feedback (documentatie)](https://configurationmanager.uservoice.com/forums/300492-ideas/category/112371-documentation).  
 
--   **Pour télécharger une copie archivée de la documentation :** Accédez à la Galerie TechNet :
+-   **Een gearchiveerde kopie van de documentatie te downloaden:** gaat u naar de TechNet-galerie:
 
-    - [Version 1602](https://gallery.technet.microsoft.com/documentation-for-system-ea90eaf1)
-    - [Version 1511](https://gallery.technet.microsoft.com/documentation-for-system-ea90eaf1)
+    - [Versie 1602](https://gallery.technet.microsoft.com/documentation-for-system-ea90eaf1)
+    - [Versie 1511](https://gallery.technet.microsoft.com/documentation-for-system-ea90eaf1)
 
-###  <a name="BKMK_SearchTips"></a> Rechercher dans la bibliothèque de documentation  
- Utilisez les conseils de recherche suivants pour vous aider à trouver les informations dont vous avez besoin :  
+###  <a name="BKMK_SearchTips"></a> Zoeken in de documentatiebibliotheek  
+ Gebruik de volgende zoektips om de benodigde informatie te vinden:  
 
--   Quand vous utilisez votre moteur de recherche préféré pour localiser du contenu pour System Center Configuration Manager, vous pouvez limiter les résultats de recherche à la bibliothèque de contenu actuel en incluant les deux termes suivants : **SCCM** et **Docs**.
+-   Wanneer u uw voorkeur zoekmachine inhoud te zoeken voor System Center Configuration Manager gebruikt, kunt u de zoekresultaten in de huidige Inhoudsbibliotheek zich richten op waaronder de volgende twee voorwaarden **SCCM** en **Docs**.
 
--   Utilisez des termes de recherche correspondant à ceux que vous voyez dans l’interface utilisateur et la documentation en ligne, plutôt que des termes ou abréviations non officiels que vous pouvez voir dans le contenu de la communauté. Par exemple, rechercher « point de gestion » plutôt que « MP », « type de déploiement » plutôt que « DT » et « mises à jour logicielles » plutôt que « SUM ».  
+-   Gebruik zoektermen die overeenkomen met de die u in de gebruikersinterface (UI) en de online documentatie ziet, in plaats van onofficiële termen of afkortingen die u in inhoud van de community ziet. Bijvoorbeeld, zoek naar 'beheerpunt' in plaats van 'Bp'; 'implementatietype' in plaats van 'IT'; en 'software-updates' in plaats van 'SUM'.  
 
--   Si vous effectuez une recherche dans une page dans TechNet ou dans le fichier d’aide (par exemple, sélectionnez Ctrl+F1, puis entrez les termes recherchés dans la zone **Rechercher**), les résultats excluent le texte se trouvant dans les sections réduites. Pour rechercher un texte dans les sections réduites, développez les sections avant d'effectuer la recherche sur la page. Pour ce faire, vous pouvez sélectionner le bouton **Développer tout** en haut de la page ou double-cliquer sur une section réduite. Lorsque toutes les sections sont développées, une recherche sur la page peut alors rechercher toutes les sections de cette page.  
+-   Wanneer u zoekt op een pagina in TechNet of in het help-bestand (bijvoorbeeld Ctrl + F1 selecteren en Typ zoektermen in het **vinden** vak), tekst in samengevouwen gedeeltes uitgesloten van de resultaten. Als u ook naar tekst wilt zoeken in samengevouwen gedeeltes, vouwt u de gedeeltes uit voordat u zoekt op de pagina. Om dit te doen, kunt u de **Alles uitvouwen** knop aan de bovenkant van de pagina of dubbelklikken op een willekeurig samengevouwen gedeelte. Wanneer alle gedeeltes zijn uitgevouwen, kunt u met een zoekopdracht op de pagina vervolgens zoeken in alle gedeeltes van die pagina.  
 
--   Pour rechercher une rubrique dans le fichier d’aide, sélectionnez F1, puis entrez des termes de recherche dans la boîte de dialogue **Rechercher**. Le fichier d’aide ne prend pas en charge l’option **Développer tout** et vous devez développer manuellement les sections individuelles qui sont réduites pour qu’une recherche dans la page trouve du texte dans ces sections.  
+-   Als u wilt zoeken naar een onderwerp in het help-bestand, selecteer F1 en voer vervolgens zoektermen op in de **vinden** in het dialoogvenster. Het help-bestand biedt geen ondersteuning voor de **Alles uitvouwen** optie en u moet handmatig uitvouwen afzonderlijke gedeeltes die zijn samengevouwen voordat de zoekopdracht op de pagina tekst in die gedeeltes wordt gevonden.  
 
--   Autant que possible, utilisez la bibliothèque en ligne TechNet plutôt que la documentation téléchargée. TechNet contient les informations les plus récentes, et les éléments que vous recherchez peuvent ne pas se trouver dans la documentation téléchargée, ou des corrections ou d’autres informations peuvent être disponibles en ligne.  
+-   Gebruik indien mogelijk de onlinebibliotheek van TechNet in plaats van gedownloade documentatie. TechNet bevat de meest actuele informatie en de informatie die u zoekt zijn mogelijk niet in de gedownloade documentatie of er zijn mogelijk correcties of online voor meer informatie.  
 
--   S’il est plus facile et plus rapide pour vous d’effectuer des recherches dans la documentation stockée sur votre ordinateur, vous pouvez sélectionner plusieurs rubriques dans TechNet et les enregistrer localement. Tout d’abord, connectez-vous à TechNet. Ensuite, en haut de la page que vous souhaitez enregistrer localement, choisissez **Exporter** (à côté d’**Imprimer**). Vous voyez alors la bannière **Exporter plusieurs ensembles de pages** , qui vous permet d'ajouter et de supprimer les pages que vous voulez enregistrer. Ensuite, choisissez **Gérer les pages** pour les exporter. Pour plus d’informations, choisissez **Aide** sur la bannière.  
+-   Als u deze vindt gemakkelijker en sneller te zoeken in documentatie lokaal is opgeslagen, kunt u meerdere onderwerpen selecteren op TechNet en deze lokaal opslaat. Eerst aanmelden bij TechNet. Kies vervolgens boven aan de pagina die u lokaal wilt opslaan, **exporteren** (naast **afdrukken**). Vervolgens ziet u koptekst **Meerdere sets met pagina's exporteren** waarmee u pagina's kunt toevoegen en verwijderen die u wilt opslaan. Kies vervolgens **pagina's beheren** om ze te exporteren. Kies voor meer informatie **Help** op de koptekst.  
 
-###  <a name="BKMK_ProductGroupBlog"></a> Blog de l'équipe System Center Configuration Manager  
- Les équipes d’ingénierie et partenaire de Configuration Manager utilisent le [blog de l’équipe System Center Configuration Manager](http://go.microsoft.com/fwlink/?LinkId=191941) pour vous donner des informations techniques et d’autres informations sur Configuration Manager et les technologies associées. Les publications de ce blog complètent la documentation et le support du produit.  
+###  <a name="BKMK_ProductGroupBlog"></a> Het teamblog van System Center Configuration Manager  
+ De Configuration Manager-ontwikkelings- en partnerteams gebruiken het [System Center Configuration Manager-teamblog](http://go.microsoft.com/fwlink/?LinkId=191941) om u te leveren technische informatie en ander nieuws over Configuration Manager en verwante technologieën. Onze blogberichten vormen een aanvulling op de productdocumentatie en ondersteunende informatie.  
 
-###  <a name="BKMK_SupportOptions"></a> Options de support et ressources de la communauté  
- Les liens suivants fournissent des informations sur les options de support et les ressources communautaires :  
+###  <a name="BKMK_SupportOptions"></a> Ondersteuningsopties en bronnen van de community  
+ Via de volgende koppelingen vindt u informatie over ondersteuningsopties en bronnen van de community:  
 
--   [Support Microsoft](http://go.microsoft.com/fwlink/?LinkId=243064)  
+-   [Microsoft-ondersteuning](http://go.microsoft.com/fwlink/?LinkId=243064)  
 
--   [Communauté Configuration Manager : Guide de survie de System Center Configuration Manager (Current Branch)](http://social.technet.microsoft.com/wiki/contents/articles/33035.system-center-configuration-manager-current-branch-survival-guide.aspx )  
+-   [Configuration Manager-Community: Handleiding voor voortdurende van System Center Configuration Manager (huidige vertakking)](http://social.technet.microsoft.com/wiki/contents/articles/33035.system-center-configuration-manager-current-branch-survival-guide.aspx )  
 
--   [Page Forums de Configuration Manager](https://social.technet.microsoft.com/Forums/en-US/home?category=ConfigMgrCB)  
+-   [Pagina met Configuration Manager-forums](https://social.technet.microsoft.com/Forums/en-US/home?category=ConfigMgrCB)  

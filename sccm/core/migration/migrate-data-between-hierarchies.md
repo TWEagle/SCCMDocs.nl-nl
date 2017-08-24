@@ -1,6 +1,6 @@
 ---
-title: "Migrer des données | Microsoft Docs"
-description: "Découvrez comment transférer des données d’une hiérarchie source vers une hiérarchie de destination System Center Configuration Manager."
+title: Gegevens migreren | Microsoft Docs
+description: "Informatie over het overdragen van gegevens uit een bronhiërarchie naar een doelhiërarchie van System Center Configuration Manager."
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
@@ -17,95 +17,95 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: dface33392c2a2a662522656eabf0936b52b28fc
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="migrate-data-between-hierarchies-in-system-center-configuration-manager"></a>Migrer des données entre hiérarchies dans System Center Configuration Manager
+# <a name="migrate-data-between-hierarchies-in-system-center-configuration-manager"></a>Gegevens migreren tussen hiërarchieën in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Transférez des données d’une hiérarchie source prise en charge vers une hiérarchie de destination System Center Configuration Manager en procédant à une migration.  Quand vous migrez des données d’une hiérarchie source :  
+Gebruik migratie om gegevens te brengen vanaf een ondersteunde bronhiërarchie naar uw doelhiërarchie System Center Configuration Manager.  Wanneer u gegevens migreert vanuit een Bronhiërarchie:  
 
--   Vous accédez aux données des bases de données de site que vous identifiez dans l’infrastructure source, puis vous transférez ces données vers votre environnement actuel.  
+-   U toegang tot gegevens van de sitedatabases die u identificeert in de broninfrastructuur en brengt u die gegevens naar uw huidige omgeving.  
 
--   La migration ne modifie pas les données de la hiérarchie source, mais découvre les données et en enregistre une copie dans la base de données de la hiérarchie de destination.  
+-   Migratie worden de gegevens in de bronhiërarchie niet gewijzigd, maar in plaats daarvan worden de gegevens gedetecteerd en wordt een kopie opgeslagen in de database van de doelhiërarchie.  
 
-Tenez compte des points suivants quand vous planifiez votre stratégie de migration :  
+Houd rekening met het volgende wanneer u uw migratiestrategie plant:  
 
--   Vous pouvez migrer une infrastructure Configuration Manager 2007 SP2 existante vers System Center Configuration Manager.  
+-   U kunt een bestaande Configuration Manager 2007 SP2-infrastructuur migreren naar System Center Configuration Manager.  
 
--   Vous pouvez migrer certaines données ou toutes les données prises en charge à partir d’un site source.  
+-   U kunt bepaalde of alle ondersteunde gegevens van een bronsite migreren.  
 
--   Vous pouvez migrer les données d’un seul site source vers plusieurs sites dans la hiérarchie de destination.  
+-   U kunt de gegevens van één bronsite migreren naar verschillende sites in de doelhiërarchie.  
 
--   Vous pouvez déplacer des données de plusieurs sites sources vers un seul site dans la hiérarchie de destination.  
+-   U kunt gegevens van meerdere bronsites verplaatsen naar één site in de doelhiërarchie.  
 
-##  <a name="BKMK_MigrationConcepts"></a> Concepts de migration  
- Vous pouvez rencontrer les concepts et les termes suivants quand vous utilisez la migration.  
+##  <a name="BKMK_MigrationConcepts"></a> Concepten voor migratie  
+ U kunt de volgende concepten en termen die zijn wanneer u migratie gebruikt tegenkomen.  
 
-|Concept ou terme|Plus d'informations|  
+|Concept of term|Meer informatie|  
 |---------------------|----------------------|  
-|Hiérarchie source|Hiérarchie qui exécute une version prise en charge de Configuration Manager et qui contient les données à migrer. Quand vous configurez la migration, vous identifiez la hiérarchie source au moment de spécifier le site de niveau supérieur de cette hiérarchie. Une fois que vous avez spécifié une hiérarchie source, le site de niveau supérieur de la hiérarchie de destination recueille les données de la base de données du site source désigné afin d'identifier les données que vous pouvez migrer.<br /><br /> Pour plus d’informations, consultez [Hiérarchies sources](../../core/migration/planning-a-source-hierarchy-strategy.md#BKMK_Source_Hierarchies) dans [Planification d’une stratégie de hiérarchie source dans System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).|  
-|Sites source|Sites de la hiérarchie source comportant des données vous pouvez migrer vers votre hiérarchie de destination.<br /><br /> Pour plus d’informations, consultez [Sites sources](../../core/migration/planning-a-source-hierarchy-strategy.md#BKMK_Source_Sites) dans [Planification d’une stratégie de hiérarchie source dans System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).|  
-|Hiérarchie de destination|Hiérarchie System Center Configuration Manager dans laquelle une migration est exécutée pour importer les données d’une hiérarchie source.|  
-|Collecte des données|Processus continu d'identification des informations d'une hiérarchie source que vous pouvez migrer vers votre hiérarchie de destination. Configuration Manager vérifie la hiérarchie source selon une planification établie pour identifier les modifications apportées aux informations de la hiérarchie source que vous avez déjà migrées et que vous pourriez souhaiter mettre à jour dans la hiérarchie de destination.<br /><br /> Pour plus d’informations, consultez [Collecte de données](../../core/migration/planning-a-source-hierarchy-strategy.md#BKMK_Data_Gathering) dans [Planification d’une stratégie de hiérarchie source dans System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).|  
-|Tâches de migration|Processus de configuration des objets spécifiques à migrer et de gestion de la migration de ces objets vers la hiérarchie de destination.<br /><br /> Pour plus d’informations, consultez [Planification d’une stratégie pour les tâches de migration dans System Center Configuration Manager](../../core/migration/planning-a-migration-job-strategy.md).|  
-|Migration des clients|Processus de transfert d'informations que les clients utilisent depuis la base de données du site source vers la base de données de la hiérarchie de destination. Cette migration des données est ensuite suivie d'une mise à niveau du logiciel client sur les périphériques à la version du logiciel client à partir de la hiérarchie de destination.<br /><br /> Pour plus d'informations, voir [Planification d’une stratégie de migration de clients dans System Center Configuration Manager](../../core/migration/planning-a-client-migration-strategy.md).|  
-|Points de distribution partagés|Points de distribution de la hiérarchie source qui sont partagés avec la hiérarchie de destination tout au long de la période de migration.<br /><br /> Pendant la période de migration, les clients attribués aux sites de la hiérarchie de destination peuvent obtenir du contenu auprès des points de distribution partagés.<br /><br /> Pour plus d’informations, consultez [Partager des points de distribution entre une hiérarchie source et une hiérarchie de destination](../../core/migration/planning-a-content-deployment-migration-strategy.md#About_Shared_DPs_in_Migration) dans [Planification d’une stratégie de migration de déploiement de contenu dans System Center Configuration Manager](../../core/migration/planning-a-content-deployment-migration-strategy.md).|  
-|Surveillance de la migration|Processus de surveillance des activités de migration. Vous surveillez la progression de la migration et son bon déroulement à partir du nœud **Migration** de l’espace de travail **Administration**.<br /><br /> Pour plus d’informations, consultez [Planification de la surveillance de la migration dans System Center Configuration Manager](../../core/migration/planning-to-monitor-migration-activity.md).|  
-|Arrêter la collecte de données|Processus consistant à arrêter la collecte de données auprès des sites source. Quand vous n’avez plus de données à migrer à partir d’une hiérarchie source, ou si vous voulez suspendre les activités liées à la migration, vous pouvez configurer la hiérarchie de destination pour arrêter la collecte de données à partir de la hiérarchie source.<br /><br /> Pour plus d’informations, consultez [Collecte de données](../../core/migration/planning-a-source-hierarchy-strategy.md#BKMK_Data_Gathering) dans [Planification d’une stratégie de hiérarchie source dans System Center Configuration Manager](../../core/migration/planning-a-source-hierarchy-strategy.md).|  
-|Nettoyer les données de migration|Processus de finalisation de la migration à partir d'une hiérarchie source en supprimant les informations relatives à la migration à partir de la base de données des hiérarchies de destination.<br /><br /> Pour plus d’informations, voir [Planification d’une migration complète vers System Center 2012 Configuration Manager](../../core/migration/planning-to-complete-migration.md).|  
+|Bronhiërarchie|Een hiërarchie die een ondersteunde versie van Configuration Manager wordt uitgevoerd en gegevens die u wilt migreren. Wanneer u migratie instelt, wordt de bronhiërarchie identificeren wanneer u het hoogste niveau van een bronhiërarchie opgeeft. Nadat u een bronhiërarchie hebt opgegeven, verzamelt de site op het hoogste niveau van de doelhiërarchie gegevens uit de database van de opgegeven bronsite om te bepalen welke gegevens u kunt migreren.<br /><br /> Zie voor meer informatie [Bronhiërarchieën](../../core/migration/planning-a-source-hierarchy-strategy.md#BKMK_Source_Hierarchies) in [strategie in System Center Configuration Manager voor een bronhiërarchie plannen](../../core/migration/planning-a-source-hierarchy-strategy.md).|  
+|Bronsites|De sites in de bronhiërarchie die gegevens bevatten die u kunt migreren naar uw doelhiërarchie.<br /><br /> Zie voor meer informatie [Bronsites](../../core/migration/planning-a-source-hierarchy-strategy.md#BKMK_Source_Sites) in [strategie in System Center Configuration Manager voor een bronhiërarchie plannen](../../core/migration/planning-a-source-hierarchy-strategy.md).|  
+|Doelhiërarchie|Een System Center Configuration Manager-hiërarchie waarop migratie wordt uitgevoerd om gegevens te importeren vanuit een bronhiërarchie.|  
+|Gegevens verzamelen|Het continue proces om te ontdekken welke informatie in de bronhiërarchie u kunt migreren naar de doelhiërarchie. Configuration Manager controleert de bronhiërarchie volgens een schema voor het identificeren van eventuele wijzigingen in de informatie in de bronhiërarchie die u eerder hebt gemigreerd en die u mogelijk wilt bijwerken in de doelhiërarchie.<br /><br /> Zie voor meer informatie [gegevensverzamelingsbewerkingen](../../core/migration/planning-a-source-hierarchy-strategy.md#BKMK_Data_Gathering) in [strategie in System Center Configuration Manager voor een bronhiërarchie plannen](../../core/migration/planning-a-source-hierarchy-strategy.md).|  
+|Migratietaken|Het proces waarbij wordt geconfigureerd welke specifieke objecten moeten worden gemigreerd, gevolgd door het beheer van de migratie van die objecten naar de doelhiërarchie.<br /><br /> Zie voor meer informatie [een strategie voor migratie in System Center Configuration Manager plannen](../../core/migration/planning-a-migration-job-strategy.md)|  
+|Clientmigratie|Het proces waarbij informatie die clients gebruiken, wordt overgedragen van de database van de bronsite naar de database van de doelhiërarchie. Deze migratie van gegevens wordt gevolgd door een upgrade van clientsoftware op apparaten naar de clientsoftwareversie van de doelhiërarchie.<br /><br /> Zie voor meer informatie [Een strategie voor clientmigratie plannen in System Center Configuration Manager](../../core/migration/planning-a-client-migration-strategy.md).|  
+|Gedeelde distributiepunten|De distributiepunten van de bronhiërarchie die tijdens de migratieperiode worden gedeeld met de doelhiërarchie.<br /><br /> Tijdens de migratieperiode kunnen clients die zijn toegewezen aan sites in de doelhiërarchie inhoud ophalen van gedeelde distributiepunten.<br /><br /> Zie voor meer informatie [distributiepunten delen tussen de bron- en Doelhiërarchieën](../../core/migration/planning-a-content-deployment-migration-strategy.md#About_Shared_DPs_in_Migration) in [een migratiestrategie voor inhoudsimplementatie in System Center Configuration Manager plannen](../../core/migration/planning-a-content-deployment-migration-strategy.md).|  
+|Migratiebewaking|Het proces waarbij migratieactiviteiten worden bewaakt. U bewaakt de voortgang van migratie en het slagen van de **migratie** knooppunt in de **beheer** werkruimte.<br /><br /> Zie voor meer informatie [voor het bewaken van migratieactiviteiten in System Center Configuration Manager plannen](../../core/migration/planning-to-monitor-migration-activity.md).|  
+|Gegevens verzamelen stoppen|Het proces waarbij het verzamelen van gegevens vanaf bronsites wordt gestopt. Wanneer u niet meer gegevens te migreren vanuit een bronhiërarchie hebt, of als u wilt onderbreken migratiegerelateerde activiteiten, kunt u de doelhiërarchie te stoppen met het verzamelen van gegevens van de bronhiërarchie configureren.<br /><br /> Zie voor meer informatie [gegevensverzamelingsbewerkingen](../../core/migration/planning-a-source-hierarchy-strategy.md#BKMK_Data_Gathering) in [strategie in System Center Configuration Manager voor een bronhiërarchie plannen](../../core/migration/planning-a-source-hierarchy-strategy.md).|  
+|Migratiegegevens opruimen|Het proces waarbij de migratie vanuit een bronhiërarchie wordt voltooid door informatie over de migratie te verwijderen uit de database van de doelhiërarchie.<br /><br /> Zie [Planning voor het voltooien van de migratie in System Center Configuration Manager](../../core/migration/planning-to-complete-migration.md) voor meer informatie.|  
 
-## <a name="typical-workflow-for-migration"></a>Flux de travail standard de migration  
-Pour configurer un flux de travail standard de migration :
+## <a name="typical-workflow-for-migration"></a>Gangbare werkstroom voor de migratie  
+Voor het instellen van een werkstroom voor migratie:
 
-1.  Spécifiez une hiérarchie source prise en charge.  
+1.  Geef een ondersteunde bronhiërarchie op.  
 
-2.  Configurez la collecte des données. La collecte de données permet à Configuration Manager de récupère des informations sur les données qui peuvent être migrées à partir de la hiérarchie source.  
+2.  Het verzamelen van gegevens instellen. Verzamelen van gegevens kan verzamelen van informatie over gegevens die uit de bronhiërarchie kunt migreren van Configuration Manager.  
 
-     Configuration Manager répète automatiquement le processus de collecte de données selon une planification simple, jusqu’à ce que vous arrêtiez ce processus. Par défaut, il se répète toutes les quatre heures, de telle sorte que Configuration Manager peut identifier les modifications apportées aux données de la hiérarchie source que vous pourriez souhaiter migrer. La collecte de données est également nécessaire pour partager des points de distribution entre la hiérarchie source et la hiérarchie de destination.  
+     Configuration Manager herhaald automatisch het proces voor het verzamelen van gegevens op een eenvoudige planning, totdat u stopt met het proces voor gegevensverzameling. Standaard wordt in het proces voor gegevensverzameling elke vier uur herhaald zodat dat Configuration Manager wijzigingen kan herkennen aan gegevens in de bronhiërarchie die u wilt migreren. Het verzamelen van gegevens is ook nodig om distributiepunten van de bronhiërarchie te delen met de doelhiërarchie.  
 
-3.  Créez des tâches de migration pour migrer des données entre la hiérarchie source et la hiérarchie de destination.  
+3.  Maak migratietaken om gegevens te migreren tussen de bron- en doelhiërarchie.  
 
-4.  Vous pouvez arrêter le processus de collecte de données à tout moment, à l'aide de la commande **Arrêter la collecte de données** . Quand vous arrêtez la collecte de données, Configuration Manager n’identifie plus les modifications apportées aux données de la hiérarchie source et ne peut plus partager de points de distribution entre la hiérarchie source et la hiérarchie de destination. En règle générale, cette commande est utilisée lorsque vous n'avez plus l'intention de migrer des données ni de partager des points de distribution à partir de la hiérarchie source.  
+4.  U kunt het proces voor het verzamelen van gegevens op elk gewenst moment stoppen met de opdracht **Geen gegevens meer verzamelen** . Wanneer u het verzamelen van gegevens stopt, wordt Configuration Manager niet langer wijzigingen aan gegevens in de bronhiërarchie identificeert en kan niet meer distributiepunten delen tussen de bron- en Doelhiërarchieën. Meestal gebruikt u deze actie wanneer u niet langer van plan bent om gegevens te migreren of distributiepunten van de bronhiërarchie te delen.  
 
-5.  Si vous le souhaitez, après avoir arrêté la collecte de données sur tous les sites pour la hiérarchie source, vous pouvez nettoyer les données de migration à l'aide de la commande **Nettoyer les données de migration** . Cette commande supprime de la base de données de la hiérarchie de destination l'ensemble des données historiques relatives à la migration à partir d'une hiérarchie source.  
+5.  Nadat het verzamelen van gegevens op alle sites is gestopt voor de bronhiërarchie, kunt u eventueel de migratiegegevens opruimen met de opdracht **Migratiegegevens opruimen** . Met deze opdracht worden historische gegevens over migratie vanuit een bronhiërarchie gewist uit de database van de doelhiërarchie.  
 
-Après avoir migré les données d’une hiérarchie source Configuration Manager que vous n’utiliserez plus pour gérer votre environnement, vous pouvez désactiver cette hiérarchie source et son infrastructure.  
+Wanneer u gegevens vanuit een Configuration Manager-bronhiërarchie die u niet langer gebruikt om uw omgeving te beheren migreert, kunt u buiten gebruik stellen die bronhiërarchie en -infrastructuur.  
 
-##  <a name="BKMK_MigrationScenarios"></a> Scénarios de migration  
- Configuration Manager prend en charge les scénarios de migration ci-suivants.  
+##  <a name="BKMK_MigrationScenarios"></a> Migratiescenario's  
+ Configuration Manager ondersteunt de volgende migratiescenario's.  
 
 > [!NOTE]  
->  L’expansion d’une hiérarchie contenant un site autonome en hiérarchie contenant un site d’administration centrale n’est pas considérée comme une migration. Pour plus d’informations sur l’expansion de hiérarchie, consultez [Étendre un site principal autonome](../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand) dans [Utiliser l’Assistant Installation pour installer des sites](../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  
+>  De uitbreiding van een hiërarchie met een zelfstandige site naar een hiërarchie die een centrale beheersite is niet gecategoriseerd als een migratie. Zie voor meer informatie over hiërarchie-uitbreiding [een zelfstandige primaire site uitbreiden](../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_expand) in [gebruik van de installatiewizard om sites te installeren](../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  
 
-### <a name="migration-from-configuration-manager-2007-hierarchies"></a>Migration à partir de hiérarchies Configuration Manager 2007  
- Quand vous migrez des données à partir de Configuration Manager 2007, vous pouvez pérenniser les investissements liés à votre infrastructure de site existante et profiter des avantages suivants :  
+### <a name="migration-from-configuration-manager-2007-hierarchies"></a>Migreren vanuit Configuration Manager 2007-hiërarchieën  
+ Wanneer u migratie gebruikt om gegevens te migreren van Configuration Manager 2007, kunt u uw investering in uw bestaande site-infrastructuur worden onderhouden en krijgt de volgende voordelen:  
 
-|Avantage|Plus d'informations|  
+|Voordeel|Meer informatie|  
 |-------------|----------------------|  
-|Améliorations de la base de données du site|La base de données System Center Configuration Manager assure une prise en charge complète d’Unicode.|  
-|Réplication de la base de données entre sites|La réplication dans System Center Configuration Manager s’appuie sur Microsoft SQL Server. Les performances des transferts de données de site à site sont ainsi améliorées.|  
-|Gestion centrée sur l'utilisateur|Les utilisateurs constituent l’élément central des tâches de gestion dans System Center Configuration Manager. Par exemple, vous pouvez distribuer un logiciel à un utilisateur, même si vous ne connaissez pas le nom du périphérique pour cet utilisateur. En outre, System Center Configuration Manager offre aux utilisateurs beaucoup plus de contrôle sur les logiciels qui sont installés sur leurs appareils et sur le moment où ils le sont.|  
-|Simplification de la hiérarchie|Dans System Center Configuration Manager, le type de site d’administration centrale et les modifications apportées au comportement du site principal et des sites secondaires vous permettent de créer une hiérarchie de site plus simple, plus économique en bande passante réseau et nécessitant un nombre de serveurs moins important.|  
-|Administration basée sur des rôles|Ce modèle de sécurité central dans System Center Configuration Manager offre une gestion et une sécurité pour toute la hiérarchie, qui correspondent à vos exigences administratives et opérationnelles.|  
+|Verbeteringen aan de sitedatabase|De System Center Configuration Manager-database ondersteunt volledige Unicode.|  
+|Databasereplicatie tussen sites|Replicatie in System Center Configuration Manager is gebaseerd op Microsoft SQL Server. Hierdoor worden de prestaties voor gegevensoverdracht tussen sites verbeterd.|  
+|Op de gebruiker gericht beheer|Gebruikers kunnen de focus van de beheertaken in System Center Configuration Manager. U kunt bijvoorbeeld software distribueren naar een gebruiker, zelfs als u de apparaatnaam voor die gebruiker niet weet. Bovendien geeft System Center Configuration Manager gebruikers veel meer controle over welke software op hun apparaten wordt geïnstalleerd en wanneer die software wordt geïnstalleerd.|  
+|Vereenvoudiging van de hiërarchie|In System Center Configuration Manager, het type centrale beheersite en wijzigingen in het gedrag van primaire en secundaire sites kunnen u een eenvoudigere sitehiërarchie die minder netwerkbandbreedte gebruikt en minder servers vereist bouwen.|  
+|Op rollen gebaseerd beheer|Dit centrale beveiligingsmodel in System Center Configuration Manager biedt binnen de gehele hiërarchie beveiliging en beheer conform uw beheer- en zakelijke vereisten.|  
 
 > [!NOTE]  
->  Compte tenu de l’évolution de la conception amorcée par System Center 2012 Configuration Manager, vous ne pouvez pas mettre à niveau une infrastructure Configuration Manager 2007 vers System Center Configuration Manager. La mise à niveau sur place de System Center 2012 Configuration Manager vers System Center Configuration Manager est prise en charge.  
+>  Wegens de ontwerpwijzigingen die zijn geïntroduceerd in System Center 2012 Configuration Manager, upgraden u niet infrastructuur van Configuration Manager 2007 naar System Center Configuration Manager. In-place upgrade wordt ondersteund vanuit System Center 2012 Configuration Manager naar System Center Configuration Manager.  
 
-### <a name="migration-from-configuration-manager-2012-or-another-system-center-configuration-manager-hierarchy"></a>Migration à partir d’une hiérarchie Configuration Manager 2012 ou d’une autre hiérarchie System Center Configuration Manager  
- Le processus de migration de données d’une hiérarchie System Center 2012 Configuration Manager ou System Center Configuration Manager est identique. Vous pouvez notamment migrer les données de plusieurs hiérarchies sources vers une seule hiérarchie de destination, par exemple, quand votre société obtient des ressources supplémentaires qui sont déjà gérées par Configuration Manager. Par ailleurs, vous pouvez migrer des données d’un environnement de test vers votre environnement de production Configuration Manager. Vous pérennisez ainsi les investissements liés à l’environnement de test Configuration Manager.  
+### <a name="migration-from-configuration-manager-2012-or-another-system-center-configuration-manager-hierarchy"></a>Migratie vanuit Configuration Manager 2012 of een andere System Center Configuration Manager-hiërarchie  
+ Het proces voor het migreren van gegevens uit een System Center 2012 Configuration Manager of System Center Configuration Manager-hiërarchie is hetzelfde. Dit omvat migreren van gegevens vanuit meerdere bronhiërarchieën naar één enkele doelhiërarchie, bijvoorbeeld wanneer uw bedrijf aanvullende bronnen die al worden beheerd door Configuration Manager opgehaald. Bovendien kunt u gegevens migreert vanuit een testomgeving naar uw productieomgeving Configuration Manager. Hiermee kunt u uw investering in de Configuration Manager-testomgeving behouden.  
 
-## <a name="additional-topics-for-migration"></a>Rubriques supplémentaires relatives à la migration :  
+## <a name="additional-topics-for-migration"></a>Aanvullende onderwerpen voor migratie:  
 
--   [Planification de la migration vers System Center Configuration Manager](../../core/migration/planning-for-migration.md)  
+-   [Migratie naar System Center Configuration Manager plannen](../../core/migration/planning-for-migration.md)  
 
--   [Configuration des hiérarchies sources et des sites sources pour la migration vers System Center Configuration Manager](../../core/migration/configuring-source-hierarchies-and-source-sites-for-migration.md)  
+-   [Bronhiërarchieën en bronsites voor migratie naar System Center Configuration Manager configureren](../../core/migration/configuring-source-hierarchies-and-source-sites-for-migration.md)  
 
--   [Opérations de migration vers System Center Configuration Manager](../../core/migration/operations-for-migration.md)  
+-   [Bewerkingen voor de migratie naar System Center Configuration Manager](../../core/migration/operations-for-migration.md)  
 
--   [Sécurité et confidentialité pour la migration vers System Center Configuration Manager](../../core/migration/security-and-privacy-for-migration.md)  
+-   [Beveiliging en privacy voor migratie naar System Center Configuration Manager](../../core/migration/security-and-privacy-for-migration.md)  
 
-## <a name="see-also"></a>Voir aussi  
- [Commencer à utiliser System Center Configuration Manager](../../core/servers/deploy/start-using.md)
+## <a name="see-also"></a>Zie ook  
+ [Aan de slag met System Center Configuration Manager](../../core/servers/deploy/start-using.md)

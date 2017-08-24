@@ -1,6 +1,6 @@
 ---
-title: "Gérer les données de configuration | Microsoft Docs"
-description: "Après avoir créé les éléments de configuration et les bases de référence de configuration dans System Center Configuration Manager, vous pouvez utiliser d’autres commandes pour effectuer diverses actions."
+title: Configuratiegegevens beheren | Microsoft Docs
+description: Nadat u configuratie-items en basislijnen in System Center Configuration Manager maakt, kunt u andere opdrachten verschillende acties uit te voeren.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,43 +17,43 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 1a6084834384e695b49a71fe23833049c86f8dbc
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-configuration-data-in-system-center-configuration-manager"></a>Gérer les données de configuration dans System Center Configuration Manager
+# <a name="manage-configuration-data-in-system-center-configuration-manager"></a>Configuratiegegevens in System Center Configuration Manager beheren
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Une fois que vous avez créé les éléments de configuration et les bases de référence de configuration dans System Center Configuration Manager, vous pouvez utiliser d’autres commandes pour effectuer plus rapidement diverses actions.  
+Nadat u configuratie-items en configuratiebasislijnen in System Center Configuration Manager gemaakt hebt, meer zijn opdrachten beschikbaar waarmee u verschillende acties uitvoeren.  
 
-## <a name="manage-configuration-items"></a>Gérer les éléments de configuration  
+## <a name="manage-configuration-items"></a>Configuratie-items beheren  
 
--   Dans l’espace de travail **Ressources et Conformité**, développez **Paramètres de compatibilité** > **Éléments de configuration**, sélectionnez l’élément de configuration à gérer, puis sélectionnez une tâche de gestion.  
+-   In de **activa en naleving** werkruimte Vouw **instellingen voor naleving** > **configuratie-Items**, selecteert u het configuratie-item voor het beheren en selecteer vervolgens een beheertaak.  
 
-|Tâche de gestion|Détails|  
+|Beheertaak|Details|  
 |---------------------|-------------|  
-|**Créer un élément de configuration enfant**|Ouvre l' **Assistant Création d'élément de configuration enfant** où vous pouvez créer un élément de configuration enfant depuis l'élément de configuration sélectionné.<br /><br /> Il n'est pas possible de créer un élément de configuration enfant à partir d'un élément de configuration d’appareil mobile.<br /><br /> Pour plus d’informations, consultez [Créer des éléments de configuration enfants](../../compliance/deploy-use/create-child-configuration-items.md).|  
-|**Historique des révisions**|Ouvre la boîte de dialogue **Historique de révision des éléments de configuration** dans laquelle vous pouvez afficher et gérer les révisions précédentes de l'élément de configuration sélectionné.|  
-|**Afficher la définition XML**|Affiche le fichier de définition XML de l’élément de configuration sélectionné dans une nouvelle fenêtre. Cette information peut être utile lorsque vous souhaitez créer manuellement les données de configuration.|  
-|**Exporter**|Exporte un élément de configuration dans un fichier de format .cab (cabinet) s'il a été créé sur ce site. Vous pouvez ensuite l’importer vers le même site ou un site Configuration Manager différent. Les données de configuration sont converties dans le format DCM Digest.|  
-|**Copier**|Crée une copie de l'élément de configuration sélectionné avec un nom que vous spécifiez. Le nouvel élément de configuration ne conserve pas de relation avec l'élément de configuration d'origine. En d'autres termes, l'élément de configuration dupliqué n'hérite plus des informations de configuration de l'élément de configuration d'origine.|  
-|**Supprimer**|Ouvre la boîte de dialogue **Supprimer un élément de configuration** dans laquelle vous pouvez consulter toutes les références à cet élément de configuration.<br /><br /> Vous devez supprimer toutes les références à un élément de configuration pour pouvoir supprimer l'élément de configuration.|  
+|**Onderliggend configuratie-item maken**|Hiermee opent u de **Wizard Onderliggend configuratie-item maken** waarmee u een onderliggend configuratie-item kunt maken van het geselecteerde configuratie-item.<br /><br /> U kunt geen onderliggend configuratie-item maken van een configuratie-item voor mobiele apparaten.<br /><br /> Zie voor meer informatie [onderliggende configuratie-items maken](../../compliance/deploy-use/create-child-configuration-items.md).|  
+|**Overzicht van wijzigingen**|Hiermee opent u het dialoogvenster **Overzicht van wijzigingen van configuratie-item** waarin u eerdere versies van het geselecteerde configuratie-item kunt weergeven en beheren.|  
+|**XML-definitie weergeven**|Toont de definitie van het XML-bestand voor het geselecteerde configuratie-item in een nieuw venster. Deze informatie kan nuttig zijn wanneer u configuratiegegevens handmatig wilt maken.|  
+|**Exportereneren**|Exporteert een configuratie-item naar een CAB-bestand-indeling, mits het is gemaakt op die site. U kunt deze vervolgens importeren naar dezelfde of een andere Configuration Manager-site. Configuratiegegevens worden geconverteerd naar DCM Digest.|  
+|**Kopiëren**|Maakt een kopie van het geselecteerde configuratie-item met een naam die u opgeeft. Het nieuwe configuratie-item behoudt geen relatie met het oorspronkelijke configuratie-item. Dit betekent dat het dubbele configuratie-item geen configuratie-informatie blijft overnemen van het oorspronkelijke configuratie-item.|  
+|**Verwijderen**|Hiermee opent u het dialoogvenster **Configuratie-item verwijderen** waarin u alle verwijzingen naar dit configuratie-item kunt bekijken.<br /><br /> U moet alle verwijzingen naar een configuratie-item verwijderen voordat u dit kunt verwijderen.|  
 
-## <a name="manage-configuration-baselines"></a>Gérer les bases de référence de configuration  
+## <a name="manage-configuration-baselines"></a>Configuratiebasislijnen beheren  
 
--   Dans l’espace de travail **Ressources et Conformité**, développez **Paramètres de compatibilité** > **Bases de référence de configuration**, sélectionnez la base de référence de configuration à gérer, puis sélectionnez une tâche de gestion.  
+-   In de **activa en naleving** werkruimte Vouw **instellingen voor naleving** > **Configuratiebasislijnen**, selecteer de configuratiebasislijn voor het beheren en selecteer vervolgens een beheertaak.  
 
 
-|Tâche de gestion|Détails|  
+|Beheertaak|Details|  
 |---------------------|-------------|  
-|**Afficher les membres**|Affiche tous les éléments de configuration qui sont référencés par la ligne de base de configuration.|  
-|**Planifier le résumé**|Configure la planification pour que les données affichées dans le nœud **Lignes de base de configuration** dans la console Configuration Manager soient mises à jour avec les informations les plus récentes de la base de données de site.|  
-|**Exécuter le résumé**|Le résumé actualise les données du noeud **Lignes de base de configuration** avec les dernières données de la base de données du site. Cette action peut prendre plusieurs minutes. Vous devrez peut-être cliquer sur **Actualiser** pour afficher les données les plus récentes dans la console.|  
-|**Afficher la définition XML**|Affiche le fichier de définition XML de la ligne de base de configuration sélectionnée dans une nouvelle fenêtre. Cette information peut être utile lorsque vous souhaitez créer manuellement les données de configuration.|  
-|**Activer**|Active une ligne de base de configuration pour la surveillance de la compatibilité.|  
-|**Désactiver**|Désactive une ligne de base de configuration afin qu'elle ne soit plus évaluée pour la compatibilité sur les ordinateurs clients. Les lignes de base de configuration qui font référence à cette ligne de base de configuration seront également désactivées.|  
-|**Exporter**|Exporte une ligne de base de configuration dans un fichier .cab (cabinet) si elle a été créée sur ce site. Vous pouvez ensuite l’importer vers le même site ou un site Configuration Manager différent. Les données de configuration sont converties dans le format DCM Digest.<br /><br /> Pour plus d’informations sur l’importation des données de configuration, consultez [Importer des données de configuration](../../compliance/deploy-use/import-configuration-data.md).|  
-|**Copier**|Crée une copie de la ligne de base de configuration sélectionnée avec un nom que vous spécifiez. La nouvelle ligne de base de configuration ne conserve pas de relation avec la ligne de base de configuration d'origine.|  
-|**Supprimer**|Ouvre la boîte de dialogue **Supprimer une ligne de base de configuration** dans laquelle vous pouvez consulter toutes les références à cette ligne de base de configuration.<br /><br /> Vous devez supprimer toutes les références à une ligne de base de configuration pour pouvoir supprimer la ligne de base de configuration.|  
-|**Déployer**|Ouvre la boîte de dialogue **Déployer des lignes de base de configuration** dans laquelle vous pouvez déployer une ou plusieurs lignes de base de configuration sur les appareils de votre hiérarchie.<br /><br /> Pour plus d’informations, consultez [Déployer des bases de référence de configuration](../../compliance/deploy-use/deploy-configuration-baselines.md).|  
+|**Leden weergeven**|Geeft alle configuratie-items weer waarnaar wordt verwezen door de configuratiebasislijn.|  
+|**Overzicht plannen**|Configureert de planning op waarmee de gegevens weergegeven in de **Configuratiebasislijnen** knooppunt in de Configuration Manager-console wordt bijgewerkt met de meest recente informatie uit de sitedatabase.|  
+|**Overzicht uitvoeren**|Het maken van een overzicht zorgt ervoor dat de gegevens op het knooppunt **Configuratiebasislijnen** worden vernieuwd met de meest recente gegevens uit de sitedatabase. Deze actie kan enkele minuten duren. Mogelijk moet u op **Vernieuwen** klikken voordat u de meest recente gegevens in de console kunt zien.|  
+|**XML-definitie weergeven**|Toont de definitie van het XML-bestand voor de geselecteerde configuratiebasislijn in een nieuw venster. Deze informatie kan nuttig zijn wanneer u configuratiegegevens handmatig wilt maken.|  
+|**Inschakelen**|Hiermee wordt een configuratiebasislijn ingeschakeld voor het bewaken van naleving.|  
+|**Uitschakelen**|Hiermee wordt een configuratiebasislijn uitgeschakeld zodat deze niet langer wordt geëvalueerd voor naleving op clientcomputers. Configuratiebasislijnen die verwijzen naar deze configuratiebasislijn worden ook uitgeschakeld.|  
+|**Exportereneren**|Exporteert een configuratiebasislijn naar een CAB-bestand-indeling, mits deze is gemaakt op die site. U kunt deze vervolgens importeren naar dezelfde of een andere Configuration Manager-site. Configuratiegegevens worden geconverteerd naar DCM Digest.<br /><br /> Zie voor meer informatie over het importeren van configuratiegegevens [configuratiegegevens importeren](../../compliance/deploy-use/import-configuration-data.md).|  
+|**Kopiëren**|Maakt een kopie van de geselecteerde configuratiebasislijn met een naam die u opgeeft. De nieuwe configuratiebasislijn behoudt geen relatie met de oorspronkelijke configuratiebasislijn.|  
+|**Verwijderen**|Hiermee opent u het dialoogvenster **Configuratiebasislijn verwijderen** waarin u alle verwijzingen naar deze configuratiebasislijn kunt bekijken.<br /><br /> U moet alle verwijzingen naar een configuratiebasislijn verwijderen voordat u deze kunt verwijderen.|  
+|**Implementeren**|Hiermee opent u het dialoogvenster **Configuratiebasislijn implementeren** waarin u een of meer configuratiebasislijnen kunt implementeren op apparaten in uw hiërarchie.<br /><br /> Zie voor meer informatie [configuratiebasislijnen implementeren](../../compliance/deploy-use/deploy-configuration-baselines.md).|  

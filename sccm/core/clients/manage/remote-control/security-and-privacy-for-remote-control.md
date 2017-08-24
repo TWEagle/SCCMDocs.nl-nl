@@ -1,6 +1,6 @@
 ---
-title: "Sécurité et confidentialité pour le contrôle à distance | Microsoft Docs"
-description: "Obtenez des informations de sécurité et de confidentialité pour le contrôle à distance dans System Center Configuration Manager."
+title: Beheer op afstand beveiliging privacy | Microsoft Docs
+description: Beveiliging en privacy-informatie ophalen voor beheer op afstand in System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,47 +17,47 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 03b8ede7fa4f4c02ffb551bb28fe2db234d39b12
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-remote-control-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour le contrôle à distance dans System Center Configuration Manager
+# <a name="security-and-privacy-for-remote-control-in-system-center-configuration-manager"></a>Beveiliging en privacy voor beheer op afstand in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Cette rubrique contient des informations de sécurité et de confidentialité pour le contrôle à distance dans System Center 2012 Configuration Manager.  
+Dit onderwerp bevat beveiligings- en privacy-informatie voor beheer op afstand in System Center 2012 Configuration Manager.  
 
-##  <a name="BKMK_Security_HardwareInventory"></a> Meilleures pratiques de sécurité pour le contrôle à distance  
- Utilisez les meilleures pratiques de sécurité suivantes lorsque vous gérez des ordinateurs client à l'aide du contrôle à distance.  
+##  <a name="BKMK_Security_HardwareInventory"></a> Aanbevolen procedures voor beveiliging voor beheer op afstand  
+ Gebruik de volgende aanbevolen procedures voor beveiliging wanneer u clientcomputers beheert via beheer op afstand.  
 
-|Meilleure pratique de sécurité|Plus d'informations|  
+|Aanbevolen beveiligingsprocedure|Meer informatie|  
 |----------------------------|----------------------|  
-|Quand vous vous connectez à un ordinateur distant, ne continuez pas si l’authentification NTLM est utilisée au lieu de l’authentification Kerberos.|Quand Configuration Manager détecte que la session de contrôle à distance est authentifiée à l’aide de NTLM plutôt que Kerberos, une invite apparaît pour vous avertir que l’identité de l’ordinateur distant ne peut pas être vérifiée. Ne poursuivez pas la session de contrôle à distance. L'authentification NTLM est un protocole d'authentification plus faible que Kerberos et elle est vulnérable à la relecture et à l'emprunt d'identité.|  
-|N’activez pas le partage du Presse-papiers dans l’observateur de contrôle à distance.|Le Presse-papiers prend en charge des objets tels que des fichiers exécutables ou du texte et il peut être utilisé par l’utilisateur sur l’ordinateur hôte pendant la session de contrôle à distance pour exécuter un programme sur l’ordinateur d’origine.|  
-|N’entrez pas de mots de passe pour les comptes privilégiés en cas d’administration à distance d’un ordinateur.|Des logiciels qui observent les saisies clavier peuvent intercepter le mot de passe. Ou bien, si le programme en cours d’exécution sur l’ordinateur client n’est pas celui auquel l’utilisateur du contrôle à distance pense, ce programme peut être en train de capturer le mot de passe. Lorsque des comptes et des mots de passe sont demandés, ils doivent être saisis par l'utilisateur final.|  
-|Verrouillez le clavier et la souris pendant une session de contrôle à distance.|Si Configuration Manager détecte que la connexion de contrôle à distance est terminée, Configuration Manager verrouille automatiquement le clavier et la souris afin qu’aucun utilisateur ne puisse prendre le contrôle de la session de contrôle à distance ouverte. Toutefois, cette détection peut ne pas se produire immédiatement et ne se produit pas si le service de contrôle à distance est terminé.<br /><br /> Sélectionnez l'action **Verrouiller le clavier distant et la souris** dans la fenêtre **Contrôle à distance ConfigMgr** .|  
-|N’autorisez pas les utilisateurs à configurer les paramètres de contrôle à distance dans le Centre logiciel.|N'activez pas le paramètre client **Les utilisateurs peuvent modifier les paramètres de stratégie ou de notification dans le Centre logiciel** pour empêcher l'espionnage des utilisateurs.<br /><br /> Ce paramètre est destiné à l’ordinateur et non à l’utilisateur connecté.|  
-|Activez le profil de pare-feu Windows **Domaine** .|Activez le paramètre client **Activer le contrôle à distance sur les profils d'exception de pare-feu clients** , puis sélectionnez le pare-feu Windows **Domaine** pour les ordinateurs de l'intranet.|  
-|Si vous fermez une session pendant un contrôle à distance et vous connectez en tant qu’utilisateur différent, assurez-vous de fermer la session avant de déconnecter la session de contrôle à distance.|Si vous ne fermez pas la session selon ce scénario, la session reste ouverte.|  
-|N’accordez pas aux utilisateurs des droits d’administrateur local.|Lorsque vous accordez aux utilisateurs des droits d'administrateur local, ils peuvent reprendre votre session de contrôle à distance ou compromettre vos informations d'identification.|  
-|Utilisez une stratégie de groupe ou Configuration Manager pour configurer les paramètres d’assistance à distance, mais pas les deux.|Vous pouvez utiliser Configuration Manager et une stratégie de groupe pour modifier la configuration des paramètres d’assistance à distance. Quand la stratégie de groupe est actualisée sur le client, par défaut, le processus est optimisé en modifiant uniquement les stratégies qui ont été modifiées sur le serveur. Configuration Manager modifie les paramètres de la stratégie de sécurité locale, qui ne peuvent pas être remplacés, sauf si la mise à jour de la stratégie de groupe est imposée.<br /><br /> Définir la stratégie aux deux emplacements peut provoquer des incohérences. Choisissez l'une des méthodes ci-dessous pour configurer vos paramètres d'assistance à distance.|  
-|Activez le paramètre client **Inviter l’utilisateur à autoriser le contrôle à distance**.|Bien qu'il soit possible de contourner ce paramètre client qui invite un utilisateur à confirmer une session de contrôle à distance, activez ce paramètre afin de réduire le risque d'espionnage des utilisateurs lorsqu'ils travaillent sur des tâches confidentielles.<br /><br /> En outre, apprenez aux utilisateurs à vérifier le nom du compte qui est affiché pendant la session de contrôle à distance et à fermer la session s'ils pensent que le compte n'est pas autorisé.|  
-|Limitez la liste des observateurs autorisés.|Des droits d'administrateur local ne sont pas nécessaires à l'utilisation du contrôle à distance par un utilisateur.|  
+|Als u verbinding wilt maken met een externe computer, moet u stoppen als NTLM-verificatie wordt gebruikt in plaats van Kerberos-verificatie.|Als Configuration Manager detecteert dat de sessie voor extern beheer met behulp van NTLM in plaats van Kerberos is geverifieerd, ziet u een opdrachtprompt met een waarschuwing dat de identiteit van de externe computer kan niet worden geverifieerd. Ga niet verder met de sessie voor beheer op afstand. NTLM-verificatie is een zwakker verificatieprotocol dan Kerberos en is kwetsbaar voor opnieuw afspelen en imitatie.|  
+|Activeer Klembord delen niet in de viewer voor beheer op afstand.|Het Klembord ondersteunt objecten, zoals uitvoerbare bestanden en tekst, en kan door de gebruiker op de hostcomputer tijdens de sessie voor beheer op afstand worden gebruikt om een programma uit te voeren op de oorspronkelijke computer.|  
+|Geef geen wachtwoorden voor bevoegde accounts op wanneer u een computer op afstand beheert.|Het wachtwoord kan worden vastgelegd door software waarmee toetsenbordinvoer kan worden geregistreerd. Het wachtwoord kan ook worden vastgelegd als het programma dat wordt uitgevoerd op de clientcomputer niet het programma is dat de gebruiker van beheer op afstand denkt. Wanneer accounts en wachtwoorden vereist zijn, moet de eindgebruiker deze invoeren.|  
+|Vergrendel het toetsenbord en de muis tijdens een sessie voor beheer op afstand.|Als Configuration Manager detecteert dat de beheer op afstand verbinding is verbroken, wordt het toetsenbord en muis door Configuration Manager vergrendeld, zodat een gebruiker kan niet van de sessie voor beheer op afstand overnemen. Deze detectie vindt mogelijk echter niet direct plaats en vindt niet plaats als de service voor beheer op afstand is beëindigd.<br /><br /> Selecteer de actie **Extern toetsenbord en muis vergrendelen** in het venster **Afstandbediening ConfigMgr** .|  
+|Laat gebruikers geen instellingen voor beheer op afstand configureren in Software Center.|Schakel de clientinstelling **Gebruikers kunnen instellingen voor beleid of meldingen wijzigen in Software Center** niet in om te voorkomen dat gebruikers worden bespioneerd.<br /><br /> Deze instelling is voor de computer, niet voor de aangemelde gebruiker.|  
+|Schakel het Windows Firewall-profiel **Domein** in.|Schakel de clientinstelling **Beheer op afstand inschakelen op clients Firewall-uitzonderingsprofielen** in en selecteer vervolgens het Windows Firewall-profiel **Domein** voor intranetcomputers.|  
+|Als u zich afmeldt tijdens een sessie voor beheer op afstand en u zich vervolgens aanmeldt als een andere gebruiker, moet u zich weer afmelden voordat u de sessie voor beheer op afstand beëindigt.|Als u zich niet afmeldt in dit scenario, blijft de sessie geopend.|  
+|Geef gebruikers geen lokale beheerdersrechten.|Wanneer u gebruikers lokale beheerdersrechten geeft, kunnen ze uw sessie voor beheer op afstand mogelijk overnemen of met uw referenties knoeien.|  
+|Groepsbeleid of Configuration Manager gebruiken voor het configureren van instellingen voor hulp op afstand, maar niet beide.|U kunt de Configuration Manager en Groepsbeleid configuratiewijzigingen aanbrengen in de instellingen van Hulp op afstand gebruiken. Wanneer Groepsbeleid wordt vernieuwd op de client, wordt het proces standaard geoptimaliseerd door alleen de beleidsregels te wijzigen die zijn gewijzigd op de server. Configuration Manager wijzigt de instellingen in het lokale beveiligingsbeleid, kan niet worden overschreven, tenzij de Groepsbeleid-update wordt geforceerd.<br /><br /> Wanneer u op beide plaatsen beleid instelt, kan dit leiden tot inconsistente resultaten. Kies een van deze methoden om uw instellingen voor Hulp op afstand te configureren.|  
+|Schakel de clientinstelling **Gebruikers vragen naar machtiging voor Beheer op afstand**in.|Hoewel er manieren zijn om deze clientinstelling, waarbij een gebruiker wordt gevraagd een sessie voor beheer op afstand te bevestigen, te omzeilen, kunt u deze instelling inschakelen om het risico te beperken dat gebruikers worden bespioneerd terwijl ze aan vertrouwelijke taken werken.<br /><br /> Leer gebruikers daarnaast om de accountnaam te controleren die tijdens de sessie voor beheer op afstand wordt weergegeven en de sessie te beëindigen als ze vermoeden dat het account niet is geautoriseerd.|  
+|Beperk de lijst van toegestane viewers.|Een gebruiker heeft geen lokale beheerdersrechten nodig om beheer op afstand te kunnen gebruiken.|  
 
-### <a name="security-issues-for-remote-control"></a>Problèmes de sécurité pour le contrôle à distance  
- La gestion d'ordinateurs client à l'aide du contrôle à distance présente les problèmes de sécurité suivants :  
+### <a name="security-issues-for-remote-control"></a>Beveiligingsproblemen voor beheer op afstand  
+ Bij het beheren van clientcomputers via beheer op afstand kunnen de volgende beveiligingsproblemen optreden:  
 
--   Ne considérez pas les messages d’audit de contrôle à distance comme fiables.  
+-   Beschouw controleberichten voor beheer op afstand niet als betrouwbaar.  
 
-     Si vous démarrez une session de contrôle à distance et vous vous connectez ensuite à l’aide d’autres informations d’identification, c’est le compte d’origine qui envoie les messages d’audit et non le compte qui a utilisé les autres informations d’identification.  
+     Als u een sessie voor beheer op afstand start en u zich vervolgens aanmeldt met alternatieve referenties, worden de controleberichten verzonden voor het oorspronkelijke account, niet het account dat de alternatieve referenties gebruikte.  
 
-     Les messages d’audit ne sont pas envoyés si vous copiez les fichiers binaires pour le contrôle à distance au lieu d’installer la console Configuration Manager, puis exécutez le contrôle à distance à partir de l’invite de commandes.  
+     Controleberichten worden niet verzonden als u de binaire bestanden voor beheer op afstand kopieert in plaats van de Configuration Manager-console installeren en voer vervolgens extern beheer bij de opdrachtprompt.  
 
-##  <a name="BKMK_Privacy_HardwareInventory"></a> Informations de confidentialité pour le contrôle à distance  
- Le contrôle à distance vous permet d’afficher les sessions actives sur les ordinateurs clients Configuration Manager et de consulter éventuellement des informations stockées sur ces ordinateurs. Par défaut, le contrôle à distance n’est pas activé.  
+##  <a name="BKMK_Privacy_HardwareInventory"></a> Privacy-informatie voor beheer op afstand  
+ Beheer op afstand kunt u actieve sessies op Configuration Manager-clientcomputers bekijken en mogelijk de gegevens opgeslagen op deze computers bekijken. Beheer op afstand is standaard niet ingeschakeld.  
 
- Bien que vous puissiez le configurer pour envoyer des avis importants et obtenir le consentement d'un utilisateur avant le début d'une session de contrôle à distance, il peut également surveiller les utilisateurs sans qu'ils le veuillent ou le sachent. Vous pouvez configurer le niveau d'accès Afficher uniquement, de sorte que rien ne puisse être modifié sur le contrôle à distance ou le contrôle intégral. Le compte de l'administrateur de connexion s'affiche dans la session de contrôle à distance pour aider les utilisateurs à savoir qui se connecte à leur ordinateur.  
+ Hoewel u beheer op afstand zo kunt configureren dat er opvallende meldingen worden weergegeven en er toestemming moet worden verkregen van een gebruiker voordat een sessie voor beheer op afstand begint, kunnen deze gebruikers ook zonder hun toestemming of medeweten worden gevolgd. U kunt het toegangsniveau Alleen weergeven, zodat niets kan worden gewijzigd tijdens de sessie voor beheer op afstand, of Volledig beheer configureren. Het account van de beheerder van de verbinding wordt weergegeven in de sessie voor extern beheer, zodat gebruikers kunnen zien wie er verbinding maakt met hun computer.  
 
- Par défaut, Configuration Manager accorde au groupe Administrateurs local des autorisations de contrôle à distance.  
+ Standaard verleent Configuration Manager de lokale beheerders groepsmachtigingen voor beheer op afstand.  
 
- Avant de configurer le contrôle à distance, analysez vos besoins en matière de confidentialité.  
+ Houd rekening met uw privacyvereisten voordat u beheer op afstand configureert.  

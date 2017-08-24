@@ -1,6 +1,6 @@
 ---
-title: "Opérations et maintenance pour les requêtes | Microsoft Docs"
-description: "Découvrez une liste de rubriques sur les requêtes dans System Center Configuration Manager. Le thème central est la maintenance et les opérations."
+title: Bewerkingen en onderhoud voor query's | Microsoft Docs
+description: Een overzicht van onderwerpen over query's in System Center Configuration Manager. Richt zich voornamelijk bewerkingen en onderhoud.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,21 +17,21 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 82648626882ddd23db0e40cfb18621a5953a1786
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="operations-and-maintenance-for-queries-in-system-center-configuration-manager"></a>Opérations et maintenance pour les requêtes dans System Center Configuration Manager
+# <a name="operations-and-maintenance-for-queries-in-system-center-configuration-manager"></a>Bewerkingen en onderhoud voor query's in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Consultez les rubriques de cette section pour en savoir plus sur les opérations et la maintenance en matière de requêtes dans System Center Configuration Manager.  
+Gebruik de volgende onderwerpen in deze sectie voor bewerkingen en onderhoudsinformatie voor query's in System Center Configuration Manager.  
 
-## <a name="in-this-section"></a>Dans cette section  
+## <a name="in-this-section"></a>In deze sectie  
 
--   [Guide pratique pour créer des requêtes dans System Center Configuration Manager](../../../core/servers/manage/create-queries.md)  
+-   [Query's maken in System Center Configuration Manager](../../../core/servers/manage/create-queries.md)  
 
--   [Guide pratique pour gérer les requêtes dans System Center Configuration Manager](../../../core/servers/manage/manage-queries.md)  
+-   [Query's in System Center Configuration Manager beheren](../../../core/servers/manage/manage-queries.md)  
 
-## <a name="see-also"></a>Voir aussi  
- [Informations techniques de référence sur les requêtes pour System Center Configuration Manager](../../../core/servers/manage/queries-technical-reference.md)
+## <a name="see-also"></a>Zie ook  
+ [Technische naslaginformatie voor query's voor System Center Configuration Manager](../../../core/servers/manage/queries-technical-reference.md)

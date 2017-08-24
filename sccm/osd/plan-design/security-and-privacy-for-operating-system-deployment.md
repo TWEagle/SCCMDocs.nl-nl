@@ -1,6 +1,6 @@
 ---
-title: "Sécurité et confidentialité du déploiement de systèmes d’exploitation | Microsoft Docs"
-description: "Découvrez les bonnes pratiques en matière de sécurité et de confidentialité pour le déploiement de systèmes d’exploitation dans System Center Configuration Manager."
+title: Beveiliging en privacy voor implementatie van besturingssysteem | Microsoft Docs
+description: Meer informatie over beveiliging en privacy best practices voor besturingssysteemimplementatie in System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,192 +17,192 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 5632a753fc565312a80b2ed69ce438335b3fad50
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-operating-system-deployment-in-system-center-configuration-manager"></a>Sécurité et confidentialité du déploiement de systèmes d’exploitation dans System Center Configuration Manager
+# <a name="security-and-privacy-for-operating-system-deployment-in-system-center-configuration-manager"></a>Beveiliging en privacy in System Center Configuration Manager voor besturingssysteemimplementatie
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Cette rubrique contient des informations de sécurité et de confidentialité pour le déploiement de systèmes d’exploitation dans System Center Configuration Manager.  
+Dit onderwerp bevat beveiligings- en privacy-informatie voor besturingssysteemimplementatie in System Center Configuration Manager.  
 
-##  <a name="BKMK_Security_HardwareInventory"></a> Bonnes pratiques de sécurité pour le déploiement de systèmes d’exploitation  
- Utilisez les bonnes pratiques de sécurité suivantes lorsque vous déployez des systèmes d’exploitation avec Configuration Manager :  
+##  <a name="BKMK_Security_HardwareInventory"></a>Aanbevolen beveiligingsprocedures voor besturingssysteemimplementatie  
+ Gebruik de volgende aanbevolen beveiligingsprocedures wanneer u besturingssystemen met Configuration Manager implementeert:  
 
--   **Instaurez des contrôles d’accès pour protéger les médias de démarrage**  
+-   **Toegangsbeheer implementeren om opstartbare media te beveiligen**  
 
-     Lorsque vous créez un média de démarrage, attribuez toujours un mot de passe pour sécuriser le média. Toutefois, même avec un mot de passe, seuls les fichiers qui contiennent des informations sensibles sont cryptés et tous les fichiers peuvent être remplacés.  
+     Als u opstartbare media maakt, dient u steeds een wachtwoord toe te wijzen om de media te helpen beveiligen. Zelfs met een wachtwoord worden alleen bestanden die gevoelige informatie bevatten, gecodeerd en kunnen alle bestanden overschreven worden.  
 
-     Contrôlez l'accès physique au média pour qu'une personne malveillante ne puisse pas recourir à des attaques par chiffrement pour obtenir le certificat d'authentification du client.  
+     Beheer de fysieke toegang tot de media door te voorkomen dat aanvallers cryptografische aanvallen kunnen gebruiken om het clientverificatiecertificaat te verkrijgen.  
 
-     Pour empêcher un client d’installer une stratégie client ou un contenu falsifié, le contenu est haché et doit être utilisé avec la stratégie d’origine.  Si le hachage de contenu échoue ou si la vérification détecte que le contenu correspond à la stratégie, le client n'utilise pas le média de démarrage. Seul le contenu est haché : la stratégie ne l'est pas. En revanche, elle est chiffrée et sécurisée lorsque vous spécifiez un mot de passe, ce qui rend la modification de la stratégie plus complexe pour les éventuels intrus.  
+     De inhoud wordt gehasht en moet worden gebruikt met het oorspronkelijke beleid. Zo wordt voorkomen dat een client inhoud of clientbeleid installeert waarmee is geknoeid.  De client zal de opstartbare media niet gebruiken als het hashen van de inhoud of de controle van de overeenkomst tussen de inhoud en het beleid mislukt. Alleen de inhoud wordt gehasht, niet het beleid. Het beleid wordt gecodeerd en beveiligd wanneer u een wachtwoord opgeeft. Dit maakt het moeilijker voor aanvallers om het beleid te wijzigen.  
 
--   **Utilisez un emplacement sécurisé lorsque vous créez des médias pour des images de système d’exploitation**  
+-   **Gebruik een beveiligde locatie wanneer u media voor installatiekopieën van besturingssystemen maakt**  
 
-     Si des utilisateurs non autorisés ont accès à l'emplacement, ils peuvent falsifier les fichiers que vous créez et utiliser tout l'espace disque disponible pour faire échouer la création des médias.  
+     Onbevoegde gebruikers die toegang hebben tot de locatie, kunnen knoeien met de bestanden die u maakt en ze kunnen ook alle beschikbare schijfruimte innemen. Hierdoor mislukt het maken van de media.  
 
--   **Protégez les fichiers de certificat (.pfx) avec un mot de passe fort et, si vous les stockez sur le réseau, sécurisez le canal de réseau lorsque vous les importez dans Configuration Manager**  
+-   **Beveilig certificaatbestanden (PFX) met een sterk wachtwoord en als u ze op het netwerk opslaat, het netwerkkanaal wanneer u ze. in Configuration Manager importeert**  
 
-     Lorsque vous avez besoin d'un mot de passe pour importer le certificat d'authentification client que vous utilisez pour des médias de démarrage, cela permet de protéger le certificat contre une personne malveillante.  
+     Wanneer u een wachtwoord vereist om het certificaat voor clientverificatie te importeren dat u gebruikt voor opstartbare media, helpt u hiermee het certificaat te beschermen tegen kwaadwillende personen.  
 
-     Utilisez la signature SMB ou IPsec entre l'emplacement réseau et le serveur de site pour empêcher un intrus de falsifier le fichier de certificat.  
+     Gebruik SMB-ondertekening of IPsec tussen de netwerklocatie en de siteserver om te voorkomen dat kwaadwillende personen knoeien met het certificaatbestand.  
 
--   **Si le certificat client est compromis, bloquez ce certificat à partir de Configuration Manager et révoquez-le s’il s’agit d’un certificat PKI**  
+-   **Als het clientcertificaat is geknoeid, Blokkeer het certificaat uit Configuration Manager en trekken als het een PKI-certificaat**  
 
-     Pour déployer un système d'exploitation à l'aide d'un média de démarrage et un démarrage PXE, vous devez disposer d'un certificat d'authentification client avec une clé privée. Si ce certificat est compromis, bloquez le certificat dans le nœud **Certificats** de l'espace de travail **Administration** , nœud **Sécurité** .  
+     U moet beschikken over een clientverificatiecertificaat met een persoonlijke sleutel om een besturingssysteem te implementeren door gebruik te maken van opstartmedia en een PXE-opstartbewerking. Blokkeer het certificaat als ermee is geknoeid, in het knooppunt **Beveiliging** van de werkruimte **Beheer** in het knooppunt **Certificaten**.  
 
--   **Lorsque le fournisseur SMS se trouve sur un ou plusieurs ordinateurs autres que le serveur de site, sécurisez le canal de communication pour protéger les images de démarrage**  
+-   **Wanneer de SMS-Provider zich op een computer of andere computers dan de siteserver, Beveilig het communicatiekanaal ter bescherming van opstartinstallatiekopieën**  
 
-     Lorsque des images de démarrage sont modifiées et que le fournisseur SMS est en cours d'exécution sur un serveur qui n'est pas le serveur de site, les images de démarrage sont vulnérables aux attaques. Protégez le canal de réseau entre ces ordinateurs en utilisant la signature SMB ou IPsec.  
+     De opstartinstallatiekopieën zijn kwetsbaar voor een aanval als er opstartkopieën worden gewijzigd en de SMS-provider wordt uitgevoerd op een andere server dan de siteserver. Beveilig het netwerkkanaal tussen deze computer door gebruik te maken van SMB-ondertekening of IPsec.  
 
--   **Activez les points de distribution pour la communication du client PXE uniquement sur des segments de réseau sécurisés**  
+-   **Schakel distributiepunten voor PXE-clientcommunicatie alleen op beveiligde netwerksegmenten**  
 
-     Lorsqu'un client envoie une demande de démarrage PXE, vous n'avez aucun moyen de vous assurer que la demande est traitée par un point de distribution PXE valide. Ce scénario présente les risques de sécurité suivants :  
+     Als een client een PXE-opstartaanvraag verstuurt, kunt u op geen enkele manier er zeker van zijn dat de aanvraag wordt uitgevoerd door een geldig distributiepunt met PXE-functionaliteit. Voor dit scenario gelden de volgende beveiligingsrisico's:  
 
-    -   Un point de distribution non autorisé qui répond aux demandes PXE peut fournir une image falsifiée aux clients.  
+    -   Een rogue distributiepunt dat antwoordt op PXE-aanvragen kan mogelijk een geknoeide installatiekopie aan clients bezorgen.  
 
-    -   Une personne malveillante peut lancer une attaque par le biais d'un intermédiaire (« man-in-the-middle ») contre le protocole TFTP utilisé par PXE, et envoyer du code nuisible avec les fichiers du système d'exploitation, ou créer un client non autorisé pour effectuer des demandes TFTP directement au point de distribution.  
+    -   Een aanvaller zou een man-in-the-middle-aanval kunnen lanceren tegen het TFTP-protocol dat wordt gebruikt door PXE en schadelijke code verzendt samen met de bestanden van het besturingssysteem. Het is ook mogelijk dat er een rogue client wordt gemaakt om TFTP-aanvragen rechtstreeks naar het distributiepunt te maken.  
 
-    -   Une personne malveillante peut utiliser un client malveillant pour lancer une attaque par déni de service contre le point de distribution.  
+    -   Een aanvaller zou een schadelijke client kunnen gebruiken om een Denial of Service-aanval uit te voeren tegen het distributiepunt.  
 
-     Adoptez un excellent système de défense pour protéger les segments réseau sur lesquels les clients accèderont aux points de distribution pour des demandes PXE.  
+     Gebruik verdediging in de diepte ter bescherming van de netwerksegmenten waar clients toegang zullen krijgen tot distributiepunten voor PXE-aanvragen.  
 
     > [!WARNING]  
-    >  En raison de ces risques de sécurité, n'activez pas un point de distribution pour les communications PXE lorsqu'il se trouve sur un réseau non approuvé, tel qu'un réseau de périmètre.  
+    >  Door deze beveiligingsrisico's wordt het afgeraden om een distributiepunt in te schakelen voor PXE-communicatie wanneer het zich in een niet-vertrouwd netwerk, zoals een perimeternetwerk, bevindt.  
 
--   **Configurez le points de distribution PXE de sorte qu’il réponde aux demandes PXE uniquement sur des interfaces réseau spécifiées**  
+-   **Configureer distributiepunten met PXE-functionaliteit om te reageren op PXE-aanvragen alleen op gespecificeerde netwerkinterfaces**  
 
-     Si vous autorisez le point de distribution à répondre aux demandes PXE sur toutes les interfaces réseau, cette configuration peut exposer le service PXE à des réseaux non approuvés  
+     Als u toestaat dat het distributiepunt antwoordt op PXE-aanvragen op alle netwerkinterfaces, is het mogelijk dat deze configuratie de PXE-service blootstelt aan niet-vertrouwde netwerken.  
 
--   **Exigez un mot de passe pour le démarrage PXE**  
+-   **Wachtwoord vereisen voor PXE-opstartbewerking**  
 
-     Lorsque vous avez besoin d’un mot de passe pour le démarrage PXE, cette configuration ajoute un niveau supplémentaire de sécurité au processus de démarrage PXE afin d’éviter que des clients non autorisés rejoignent la hiérarchie Configuration Manager.  
+     Wanneer u een wachtwoord voor PXE-opstartbewerking vereisen, voegt deze configuratie een extra beveiligingsniveau toe aan de PXE-opstartproces te helpen beschermen tegen rogue clients die lid te worden van de Configuration Manager-hiërarchie.  
 
--   **N’incluez pas d’applications métier ni de logiciels contenant des données sensibles dans une image qui sera utilisée pour un démarrage PXE ou une multidiffusion**  
+-   **Neem geen line-of-business-toepassingen of software met gevoelige gegevens in een installatiekopie die wordt gebruikt voor PXE-opstartbewerkingen of multicast**  
 
-     En raison des risques de sécurité liés à la multidiffusion et au démarrage PXE, réduisez les risques si l'ordinateur non autorisé télécharge l'image du système d'exploitation.  
+     Er zijn inherente beveiligingsrisico's verbonden aan PXE-opstartbewerkingen en multicast; verminder daarom de kans dat rogue computers de installatiekopie van het besturingssysteem downloaden.  
 
--   **N’incluez pas d’applications métier ni de logiciels contenant des données sensibles dans des packages logiciels qui sont installés à l’aide de variables de séquences de tâches**  
+-   **Neem geen line-of-business-toepassingen of software met gevoelige gegevens op in softwarepakketten die via takenreeksvariabelen zijn geïnstalleerd**  
 
-     Lorsque vous déployez des packages logiciels à l'aide de variables de séquences de tâches, le logiciel peut être installé sur des ordinateurs et pour des utilisateurs qui ne sont pas autorisés à recevoir ce logiciel.  
+     Wanneer u softwarepakketten implementeert via takenreeksvariabelen, is het mogelijk dat er software wordt geïnstalleerd op computers en voor gebruikers die geen machtigingen hebben om die software te ontvangen.  
 
--   **Lorsque vous migrez un état utilisateur, sécurisez le canal de réseau entre le client et le point de migration d’état à l’aide de la signature SMB ou d’IPsec**  
+-   **Wanneer u de gebruikersstatus migreert, het netwerkkanaal tussen de client en het statusmigratiepunt beveiligen met behulp van SMB-ondertekening of IPsec**  
 
-     Après la connexion initiale sur HTTP, les données de migration d'état utilisateur sont transférées à l'aide de SMB.  Si vous ne sécurisez pas le canal de réseau, une personne malveillante peut lire et modifier ces données.  
+     Na de initiële verbinding via HTTP worden de statusmigratiegegevens overgedragen via SMB.  Een aanvaller kan deze gegevens mogelijk lezen en wijzigen als u het netwerkkanaal niet beveiligt.  
 
--   **Utilisez la dernière version de l’outil de migration de l’état utilisateur (USMT) pris en charge par Configuration Manager**  
+-   **Gebruik de meest recente versie van de gebruiker State Migration Tool (USMT) die ondersteuning biedt voor Configuration Manager**  
 
-     La dernière version d'USMT offre des améliorations de sécurité et un meilleur contrôle de la migration des données d'état utilisateur.  
+     De meest recente versie van USMT biedt beveiligingsverbeteringen en grotere controle voor wanneer u de gebruikersstatusgegevens migreert.  
 
--   **Supprimez manuellement des dossiers sur le point de migration d’état lorsqu’ils sont mis hors service**  
+-   **Verwijder handmatig de mappen op het statusmigratiepunt wanneer ze buiten werking worden gesteld**  
 
-     Lorsque vous supprimez un dossier de point de migration d’état dans la console Configuration Manager sur les propriétés du point de migration d’état, le dossier physique n’est pas supprimé. Pour protéger les données de migration d'état utilisateur contre la divulgation d'informations, vous devez supprimer manuellement le partage réseau et supprimer le dossier.  
+     Wanneer u een map van een statusmigratiepunt in de Configuration Manager-console op de status eigenschappen verwijdert, worden de fysieke map wordt niet verwijderd. U moet de netwerkshare handmatig verwijderen en de map wissen om de migratiegegevens over de gebruikersstatus te beschermen tegen openbaarmaking.  
 
--   **Ne configurez pas la stratégie de suppression pour supprimer l’état utilisateur immédiatement**  
+-   **Configureer het verwijderingsbeleid Gebruikersstatus om onmiddellijk te verwijderen**  
 
-     Si vous configurez la stratégie de suppression sur le point de migration d'état afin de supprimer les données marquées pour suppression immédiatement, et si une personne malveillante parvient à récupérer les données d'état utilisateur avant l'ordinateur valide, les données d'état utilisateur seront immédiatement supprimées. Définissez l'intervalle **Supprimer après** de sorte qu'il soit suffisamment long pour permettre la vérification de la restauration correcte des données de l'état utilisateur.  
+     De gebruikersstatusgegevens worden onmiddellijk verwijderd als u het verwijderingsbeleid configureert op het statusmigratiepunt om gegevens te verwijderen die gemarkeerd zijn voor onmiddellijke verwijdering, en als een aanvaller erin slaagt om de gebruikersstatusgegevens op te halen vóór de geldige computer. Stel het interval **Verwijderen na** lang genoeg in om het succesvolle herstellen van gebruikersstatusgegevens te verifiëren.  
 
--   **Supprimez manuellement les associations d’ordinateurs lorsque la restauration des données de migration d’état utilisateur est terminée et vérifiée**  
+-   **Verwijder computerkoppelingen handmatig wanneer gegevens van de gebruikersstatusmigratie voltooid en geverifieerd is**  
 
-     Configuration Manager ne supprime pas automatiquement les associations d’ordinateurs. Protégez l'identité des données d'état utilisateur en supprimant manuellement les associations d'ordinateurs qui ne sont plus nécessaires.  
+     Configuration Manager computerkoppelingen niet automatisch worden verwijderd. Help bij het beschermen van de identiteit van de gebruikersstatusgegevens door de computerkoppelingen die niet langer zijn vereist, handmatig te verwijderen.  
 
--   **Sauvegardez manuellement les données de migration d’état utilisateur sur le point de migration d’état**  
+-   **Handmatige back-up migratiegegevens van de gebruiker op het statusmigratiepunt**  
 
-     La sauvegarde Configuration Manager n’inclut pas les données de migration d’état utilisateur.  
+     Configuration Manager back-up bevat geen migratiegegevens van de gebruiker.  
 
--   **N’oubliez pas d’activer BitLocker après avoir installé le système d’exploitation**  
+-   **Houd er rekening mee BitLocker in te schakelen nadat het besturingssysteem is geïnstalleerd**  
 
-     Si un ordinateur prend en charge BitLocker, vous devez le désactiver à l'aide d'une étape de séquence de tâches si vous souhaitez installer le système d'exploitation en mode sans assistance. Configuration Manager n’active pas BitLocker une fois le système d’exploitation installé, vous devez donc réactiver BitLocker manuellement.  
+     Als een computer BitLocker ondersteunt u het besturingssysteem zonder toezicht wilt installeren, moet u dit programma uitschakelen met een takenreeksstap. Configuration Manager schakelt BitLocker niet nadat het besturingssysteem is geïnstalleerd, u moet BitLocker dus handmatig opnieuw inschakelen.  
 
--   **Instaurez des contrôles d’accès pour protéger les médias préparés**  
+-   **Implementeer toegangsbeheer om de voorbereide media te beveiligen**  
 
-     Contrôlez l'accès physique au média pour qu'une personne malveillante ne puisse pas recourir à des attaques par chiffrement afin d'obtenir le certificat d'authentification du client et les données sensibles.  
+     Beheer de fysieke toegang tot de media door te voorkomen dat aanvallers cryptografische aanvallen kunnen gebruiken om het clientverificatiecertificaat en gevoelige gegevens te verkrijgen.  
 
--   **Instaurez des contrôles d’accès pour protéger le processus d’acquisition d’image de l’ordinateur de référence**  
+-   **Implementeer toegangsbeheer om het installatiekopieproces referentiecomputer te beschermen**  
 
-     Vérifiez que l'ordinateur de référence utilisé pour capturer des images du système d'exploitation est situé dans un environnement sécurisé intégrant les contrôles d'accès appropriés afin que des logiciels malveillants ne puissent pas être installés et inclus par inadvertance dans l'image capturée. Lorsque vous capturez l'image, assurez-vous que l'emplacement du partage de fichiers réseau de destination est sécurisé afin que l'image ne puisse pas être falsifiée une fois capturée.  
+     Zorg ervoor dat de referentiecomputer die u gebruikt om de installatiekopieën van het besturingssysteem vast te leggen zich in een beveiligde omgeving bevindt met aangepast toegangsbeheer, zodat onverwachte of schadelijke software niet kan worden geïnstalleerd en onbedoeld opgenomen in de vastgelegde installatiekopie. Als u de installatiekopie vastlegt, dient u ervoor te zorgen dat de sharelocatie van het doelnetwerkbestand beveiligd is, zodat er niet met de installatiekopie kan worden geknoeid na het vastleggen ervan.  
 
--   **Installez systématiquement les mises à jour de sécurité les plus récentes sur l’ordinateur de référence**  
+-   **Installeer altijd de meest recente beveiligingsupdates op de referentiecomputer**  
 
-     Lorsque l'ordinateur de référence contient des mises à jour de sécurité, il permet de réduire la fenêtre de vulnérabilité des nouveaux ordinateurs lors de leur premier démarrage.  
+     Wanneer de referentiecomputer actuele beveiligingsupdates heeft, helpt het om de kwetsbaarheid te verminderen voor nieuwe computers wanneer deze voor de eerste keer worden opgestart.  
 
--   **Si vous devez déployer des systèmes d’exploitation vers un ordinateur inconnu, implémentez des contrôles d’accès afin de bloquer la connexion des ordinateurs non autorisés au réseau**  
+-   **Als u besturingssystemen op een onbekende computer implementeren moet, dient toegangsbeheer om te voorkomen dat onbevoegde computers verbinding maken met het netwerk implementeren**  
 
-     Bien que le provisionnement des ordinateurs inconnus fournisse une méthode pratique pour déployer de nouveaux ordinateurs à la demande, il peut également permettre à une personne malveillante de devenir un client approuvé sur votre réseau. Limitez l'accès physique au réseau et contrôlez les clients afin de détecter les ordinateurs non autorisés. De même, toutes les données relatives aux ordinateurs répondant au déploiement du système d'exploitation établi par PXE risquent d'être détruites lors du déploiement du système d'exploitation. Cela peut engendrer une perte de disponibilité au niveau des systèmes qui sont reformatés par inadvertance.  
+     Hoewel het inrichten van onbekende computers een handige methode is om nieuwe computers op aanvraag te implementeren, is het mogelijk dat dit een aanvaller in staat stelt om op doeltreffende wijze een vertrouwde client op uw netwerk te worden. Beperk de fysieke toegang tot het netwerk en bewaak clients om onbevoegde computers te detecteren. Bovendien is het mogelijk dat alle gegevens van computers die op door PXE geïnitieerde besturingssysteemimplementaties reageren, worden vernietigd tijdens de implementatie van het besturingssysteem. Dit kan resulteren in een verlies van beschikbaarheid van systemen die onbedoeld opnieuw opgemaakt zijn.  
 
--   **Activez le chiffrement de packages de multidiffusion**  
+-   **Schakel versleuteling voor multicast-pakketten**  
 
-     Pour chaque package de déploiement du système d’exploitation, vous pouvez activer le chiffrement lorsque Configuration Manager transfère le package par multidiffusion. Cette configuration permet d'empêcher les ordinateurs non autorisés de se joindre à la session multidiffusion et les personnes malveillantes d'altérer la transmission.  
+     Voor elk implementatiepakket voor besturingssystemen hebt u de optie versleuteling inschakelen wanneer Configuration Manager het pakket via multicast overdraagt. Deze configuratie helpt om rogue computers te verhinderen om deel te nemen aan de multicast-sessie en het helpt bij het voorkomen dat aanvallers met de overdracht kunnen knoeien.  
 
--   **Contrôlez les points de distribution de multidiffusion activée**  
+-   **Bewaking voor onbevoegde distributiepunten met ingeschakelde multicast**  
 
-     Si des personnes malveillantes peuvent accéder à votre réseau, elles peuvent configurer des serveurs de multidiffusion non autorisés afin qu'ils usurpent un déploiement de systèmes d'exploitation.  
+     Als aanvallers toegang kunnen krijgen tot uw netwerk, kunnen ze rogue multicast-servers configureren om adresvervalsing te gebruiken voor de implementatie van besturingssystemen.  
 
--   **Lorsque vous exportez des séquences de tâches vers un emplacement réseau, sécurisez l’emplacement et le canal de réseau**  
+-   **Wanneer u takenreeksen naar een netwerklocatie exporteert, Beveilig de locatie en Beveilig het netwerkkanaal**  
 
-     Veillez à restreindre l'accès au dossier réseau.  
+     Beperk wie toegang heeft tot de netwerkmap.  
 
-     Utilisez la signature SMB ou IPsec entre l'emplacement réseau et le serveur de site pour empêcher une personne malveillante de falsifier la séquence de tâches exportée.  
+     Gebruik SMB-ondertekening of IPsec tussen de netwerklocatie en de siteserver om te voorkomen dat kwaadwillende personen knoeien met de geëxporteerde takenreeks.  
 
--   **Sécurisez le canal de communication lorsque vous chargez un disque dur virtuel vers Virtual Machine Manager**  
+-   **Beveilig het communicatiekanaal wanneer u een virtuele harde schijf naar Virtual Machine Manager uploadt.**  
 
-     Pour empêcher la falsification des données lorsqu’elles sont transférées via le réseau, utilisez la sécurité du protocole Internet (IPsec) ou le bloc de message serveur (SMB) entre l’ordinateur qui exécute la console Configuration Manager et l’ordinateur qui exécute Virtual Machine Manager.  
+     Gebruiken om te voorkomen dat knoeien met gegevens wanneer deze via het netwerk wordt overgedragen, Internet Protocol security (IPsec) of server message block (SMB) tussen de computer waarop de Configuration Manager-console en de computer waarop Virtual Machine Manager wordt uitgevoerd.  
 
--   **Si vous devez utiliser le compte d’identification de séquence de tâches, prenez des précautions de sécurité supplémentaires**  
+-   **Als u de Takenreeks Run As-Account, moet u bijkomende beveiligingsmaatregelen te nemen**  
 
-     Si vous utilisez le compte d'identification de séquence de tâches, prenez les précautions suivantes :  
+     Neem de volgende voorzorgsmaatregelen als u de takenreeks Run As-account gebruikt:  
 
-    -   Utilisez un compte doté du moindre nombre d'autorisations possible.  
+    -   Gebruik een account met zo weinig mogelijk machtigingen.  
 
-    -   N'utilisez pas le compte d'accès réseau pour ce compte.  
+    -   Gebruik voor dit account geen netwerktoegangsaccount.  
 
-    -   Ne configurez en aucun cas le compte en tant qu'administrateur de domaine.  
+    -   Maak nooit een domeinbeheerder van het account.  
 
-     En outre :  
+     Daarnaast:  
 
-    -   Ne configurez jamais de profils itinérants pour ce compte. Lorsque la séquence de tâches s'exécute, elle télécharge le profil itinérant pour le compte, ce qui le rend vulnérable aux accès sur l'ordinateur local.  
+    -   Configureer nooit zwervende profielen voor dit account. Wanneer de takenreeks wordt uitgevoerd, zal deze het zwervend profiel voor het account downloaden. Dit maakt het profiel kwetsbaar voor toegang op de lokale computer.  
 
-    -   Limitez la portée du compte. Par exemple, créez différents comptes d'identification de séquence de tâches pour chaque séquence de tâches, de sorte que, si un compte est compromis, seuls les ordinateurs clients auxquels ce compte a accès sont compromis. Si la ligne de commande requiert un accès administrateur sur l'ordinateur, vous pouvez créer un compte administrateur local réservé au compte d'identification de séquence de tâches sur tous les ordinateurs qui exécuteront la séquence, puis supprimer le compte devenu inutile.  
+    -   Beperk het bereik van het account. Maak bijvoorbeeld verschillende Run As-account-takenreeksen voor elke takenreeks, zodat, als er met één account is geknoeid, alleen de clientcomputers waarvoor dat account toegang heeft, worden getroffen. Als de opdrachtregel beheerderstoegang op de computer vereist, moet u overwegen om een lokaal beheerdersaccount te maken alleen voor de takenreeks Run As-account op alle computers die de takenreeks zullen uitvoeren. Wis dit account zodra het niet langer nodig is.  
 
--   **Limitez et surveillez les utilisateurs administratifs disposant du rôle de sécurité Gestionnaire de déploiement de système d’exploitation**  
+-   **Beperk en bewaak de gebruikers met beheerdersrechten die de beveiligingsrol beheerder Besturingssysteemimplementatie krijgen**  
 
-     Les utilisateurs administratifs disposant du rôle de sécurité Gestionnaire de déploiement de système d’exploitation peuvent créer des certificats auto-signés pouvant ensuite être utilisés pour emprunter l’identité d’un client et obtenir une stratégie client de Configuration Manager.  
+     Gebruikers met beheerdersrechten die de beveiligingsrol beheerder Besturingssysteemimplementatie krijgen, kunnen zelfondertekende certificaten die vervolgens kunnen worden gebruikt voor een client imiteren en ophalen van clientbeleid uit Configuration Manager maken.  
 
-### <a name="security-issues-for-operating-system-deployment"></a>Problèmes de sécurité pour le déploiement de systèmes d’exploitation  
- Bien que le déploiement de systèmes d'exploitation puisse être un moyen efficace de déployer les systèmes d'exploitation et les configurations les plus sûrs pour les ordinateurs sur votre réseau, il comporte les risques de sécurité suivants :  
+### <a name="security-issues-for-operating-system-deployment"></a>Beveiligingsproblemen voor besturingssysteemimplementatie  
+ Hoewel besturingssysteemimplementatie een handige manier kan zijn om de meest beveiligde besturingssystemen en configuraties voor computers in uw netwerk te implementeren, zijn er toch volgende beveiligingsrisico's aan verbonden:  
 
--   Divulgation d'informations et déni de service  
+-   Openbaarmaking van informatie en Denial of Service  
 
-     Si une personne malveillante peut prendre le contrôle de votre infrastructure Configuration Manager, elle peut exécuter n’importe quelle séquence de tâches, ce qui peut inclure le formatage des disques durs de tous les ordinateurs clients. Des séquences de tâches peuvent être configurées pour contenir des informations sensibles, telles que les comptes autorisés à rejoindre le domaine et les clés de licence en volume.  
+     Als een aanvaller controle over uw Configuration Manager-infrastructuur krijgen kan, kan deze eender welke takenreeks, waaronder het formatteren van de harde schijven van alle clientcomputers uitvoeren. Takenreeksen kunnen worden geconfigureerd om gevoelige informatie te bevatten, zoals accounts die machtigingen hebben om lid te worden van de domein- en volumelicentiesleutels.  
 
--   Emprunt d'identité et élévation de privilèges  
+-   Imitatie en verhoging van bevoegdheden  
 
-     Des séquences de tâches peuvent joindre un ordinateur au domaine, qui peut fournir l'accès réseau authentifié à un ordinateur non autorisé. Un autre principe important de la sécurité du déploiement du système d'exploitation consiste à protéger le certificat d'authentification du client utilisé pour le média de démarrage des séquences de tâches et pour le déploiement du démarrage PXE. Lorsque vous capturez un certificat d'authentification client, cela permet à la personne malveillante d'obtenir la clé privée dans le certificat puis d'emprunter l'identité d'un client valide sur le réseau.  
+     Takenreeksen kunnen een computer toevoegen aan een domein, wat een rogue computer mogelijk geverifieerde netwerktoegang kan geven. Een andere belangrijke veiligheidsoverweging voor de implementatie van besturingssystemen is het beschermen van het clientverificatiecertificaat dat wordt gebruikt voor opstartbare takenreeksmedia en voor implementatie van PXE-opstartbewerkingen. Door het vastleggen van een clientverificatiecertificaat geeft u een aanvaller een kans om de persoonlijke sleutel in het certificaat te verkrijgen. Hiermee kan deze een geldige client op het netwerk imiteren.   
 
-     Si une personne malveillante obtient le certificat client utilisé pour le média de démarrage des séquences de tâches et pour le déploiement du démarrage PXE, ce certificat peut être utilisé pour emprunter l’identité d’un client valide sur Configuration Manager. Dans ce scénario, l'ordinateur non autorisé peut télécharger une stratégie, qui peut contenir des données sensibles.  
+     Als een aanvaller het clientcertificaat dat wordt gebruikt voor opstartbare takenreeksmedia en voor implementatie van PXE-opstart krijgt, kan dit certificaat moet een geldige naar Configuration Manager-client te imiteren worden gebruikt. In dit scenario kan de malafide computer beleid downloaden dat gevoelige gegevens kan bevatten.  
 
-     Si des clients utilisent le compte d'accès réseau pour accéder aux données stockées sur le point de migration d'état, ces clients partagent effectivement la même identité et peuvent accéder aux données de migration d'état d'un autre client utilisant le compte d'accès réseau. Les données sont chiffrées et seul le client d'origine peut donc les lire, mais elles peuvent être falsifiées ou supprimées.  
+     Als clients gebruik maken van het netwerktoegangsaccount om toegang te krijgen tot op het statusmigratiepunt opgeslagen gegevens, delen deze clients feitelijk dezelfde identiteit en hebben toegang tot statusmigratiegegevens van een andere client die het netwerktoegangsaccount gebruikt. De gegevens zijn versleuteld, zodat alleen de oorspronkelijke client deze kan lezen, maar met deze gegevens kan worden geknoeid en deze kunnen worden verwijderd.  
 
--   L’authentification des clients auprès du point de migration d’état s’effectue à l’aide d’un jeton Configuration Manager émis par le point de gestion.  
+-   Clientverificatie voor het statusmigratiepunt wordt bereikt door middel van een Configuration Manager-token dat is uitgegeven door het beheerpunt.  
 
-     Par ailleurs, Configuration Manager ne limite pas et ne gère pas la quantité de données stockées sur le point de migration d’état. Or, un intrus peut saturer l’espace disque disponible et provoquer un déni de service.  
+     Bovendien kunnen niet worden beperkt of beheren van de hoeveelheid gegevens die zijn opgeslagen op het statusmigratiepunt door Configuration Manager en een aanvaller kan bijna vol zijn de beschikbare schijfruimte en leiden tot een denial of service.  
 
--   Si vous utilisez des variables de regroupement, les administrateurs locaux peuvent lire des informations potentiellement sensibles.  
+-   Als u verzamelingsvariabelen gebruikt, kunnen lokale beheerders potentieel gevoelige informatie lezen.  
 
-     Même si les variables de regroupement offrent une méthode flexible pour le déploiement des systèmes d'exploitation, elles peuvent entraîner une divulgation d'informations.  
+     Hoewel verzamelingsvariabelen een flexibele methode bieden om besturingssystemen te implementeren, kan dit openbaarmaking van informatie tot gevolg hebben.  
 
-##  <a name="BKMK_Privacy_HardwareInventory"></a> Informations de confidentialité pour le déploiement de systèmes d’exploitation  
- Configuration Manager peut non seulement permettre de déployer des systèmes d’exploitation sur des ordinateurs sans système d’exploitation, mais également permettre de migrer les fichiers et les paramètres des utilisateurs d’un ordinateur à un autre. L'administrateur configure les informations à transférer, notamment les fichiers de données personnelles, les paramètres de configuration et les cookies du navigateur.  
+##  <a name="BKMK_Privacy_HardwareInventory"></a>Privacy-informatie voor besturingssysteemimplementatie  
+ Naast het implementeren van besturingssystemen op computers zonder besturingssysteem, kan Configuration Manager worden gebruikt voor het migreren van bestanden en instellingen van gebruikers van de ene computer naar een andere. De beheerder configureert welke informatie moet worden overgedragen, waaronder bestanden met persoonsgegevens, configuratie-instellingen en cookies van de browser.  
 
- Les informations sont stockées sur un point de migration de l'état et sont chiffrées durant la transmission et le stockage. Les informations peuvent être récupérées par le nouvel ordinateur associé aux informations d'état. Si le nouvel ordinateur perd la clé permettant d'extraire les informations, un administrateur Configuration Manager bénéficiant de l'autorisation Afficher les informations de récupération sur les objets d'instance d'association d'ordinateurs peut accéder aux informations et les associer au nouvel ordinateur. Une fois que le nouvel ordinateur a restauré les informations d'état, il supprime les données après un jour par défaut. Vous pouvez configurer le moment auquel le point de migration de l'état supprime les données marquées pour suppression. Les informations de migration de l'état ne sont pas stockées dans la base de données de site et ne sont pas envoyées à Microsoft.  
+ De informatie wordt op een statusmigratiepunt opgeslagen en wordt tijdens de overdracht en opslag versleuteld. De informatie mag worden verkregen door de nieuwe computer die aan de statusinformatie is gekoppeld. Als de nieuwe computer de sleutel verliest voor het verkrijgen van de informatie, heeft een Configuration Manager-beheerder met het recht Herstelgegevens weergeven voor exemplaarobjecten voor computerkoppelingen toegang tot de informatie en kan deze aan een nieuwe computer koppelen. Wanneer de statusinformatie wordt hersteld op de nieuwe computer, worden de gegevens standaard na één dag verwijderd. U kunt configureren wanneer het statusmigratiepunt de voor verwijdering aangemerkte gegevens verwijdert. De statusmigratiegegevens worden niet in de sitedatabase opgeslagen en evenmin naar Microsoft verzonden.  
 
- Si vous utilisez un média de démarrage pour déployer des images du système d'exploitation, utilisez systématiquement l'option par défaut permettant de protéger par mot de passe le média de démarrage. Le mot de passe chiffre les variables stockées dans la séquence de tâches, mais les informations non stockées dans une variable peuvent être facilement divulguées.  
+ Als u opstartmedia gebruikt voor het implementeren van besturingssystemen, dient u altijd de standaardoptie te gebruiken om de opstartmedia met een wachtwoord te beveiligen. Het wachtwoord versleutelt eventuele in de takenreeks opgeslagen variabelen, maar eventuele niet in een variabele opgeslagen informatie is mogelijk kwetsbaar voor openbaarmaking.  
 
- Le déploiement du système d'exploitation peut utiliser des séquences de tâches pour effectuer un grand nombre de tâches durant le processus de déploiement, notamment l'installation d'applications et de mises à jour logicielles. Lorsque vous configurez des séquences de tâches, vous devez également être conscient des conséquences de l'installation de logiciels en termes de confidentialité.  
+ Tijdens het implementatieproces kan de implementatie van besturingssystemen gebruik maken van takenreeksen om veel verschillende taken uit te voeren, waaronder het installeren van toepassingen en software-updates. Wanneer u takenreeksen configureert, dient u zich bewust te zijn van de gevolgen van het installeren van software ten aanzien van privacy.  
 
- Si vous téléchargez un disque dur virtuel vers Virtual Machine Manager sans utiliser Sysprep auparavant pour nettoyer l'image, le disque dur virtuel téléchargé peut contenir des données personnelles de l'image d'origine.  
+ Als u een virtuele harde schijf naar Virtual Machine Manager uploadt zonder met behulp van Sysprep de installatiekopie op te schonen, kan de geüploade virtuele harde schijf persoonsgegevens bevatten van de originele installatiekopie.  
 
- Configuration Manager ne met pas en œuvre le déploiement du système d’exploitation par défaut et requiert plusieurs étapes de configuration avant que vous puissiez recueillir des informations d’état utilisateur ou créer des séquences de tâches ou des images de démarrage.  
+ Configuration Manager wordt implementatie van besturingssysteem niet standaard geïmplementeerd en vereist verschillende configuratiestappen voordat u gebruikersstatusgegevens verzamelt of maken van takenreeksen of opstartinstallatiekopieën.  
 
- Avant de configurer le déploiement du système d'exploitation, prenez en compte vos impératifs en matière de confidentialité.  
+ Bedenk wat uw privacyvereisten zijn voordat u de implementatie van besturingssystemen configureert.  

@@ -1,6 +1,6 @@
 ---
-title: "Gestion de la conformité sur les appareils gérés avec Microsoft Intune | Microsoft Docs"
-description: "Découvrez les paramètres de compatibilité de System Center Configuration Manager en examinant certains scénarios courants."
+title: Het beheren van naleving op apparaten worden beheerd met Intune | Microsoft Docs
+description: Meer informatie over System Center Configuration Manager-instellingen voor naleving door het uitvoeren van enkele algemene scenario's.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,119 +16,119 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: b3a63f6c55c317c9c84d4394dfdcb9f1cbbbc90b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="managing-compliance-on-devices-managed-with-intune"></a>Gestion de la conformité sur les appareils gérés avec Microsoft Intune
+# <a name="managing-compliance-on-devices-managed-with-intune"></a>Het beheren van naleving op apparaten worden beheerd door Intune
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Cette rubrique vous propose une introduction à l’utilisation des paramètres de compatibilité de System Center Configuration Manager à travers des exemples de scénarios courants que vous êtes susceptible de rencontrer.  
+Deze scenario's bieden u een inleiding tot het gebruik van System Center Configuration Manager-instellingen voor naleving door het uitvoeren van enkele algemene scenario's die u kunt tegenkomen.  
 
- Si vous connaissez déjà les paramètres de compatibilité, vous trouverez une documentation détaillée sur toutes les fonctionnalités que vous utilisez dans la section [Éléments de configuration pour les appareils gérés avec Microsoft Intune](#configuration-items-for-devices-managed-with-intune).  
+ Als u al bekend met instellingen voor naleving bent, gedetailleerde documentatie over functies die u gebruikt kan worden gevonden in de [configuratie-items voor apparaten die worden beheerd door Intune](#configuration-items-for-devices-managed-with-intune) sectie.  
 
- La section [Bien démarrer avec les paramètres de conformité](../../compliance/get-started/get-started-with-compliance-settings.md) fournit des informations de base sur les paramètres de conformité. Pour savoir comment implémenter les composants requis éventuels, voir [Planifier et configurer les paramètres de compatibilité dans System Center Configuration Manager](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md).  
+ [Aan de slag met instellingen voor naleving](../../compliance/get-started/get-started-with-compliance-settings.md) biedt u de basisbeginselen van nalevingsinstellingen en [plannen en configureren van instellingen voor naleving](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md) helpt u alle benodigde voorwaarden te implementeren.  
 
-## <a name="general-information-for-each-scenario"></a>Informations générales pour chaque scénario  
- Dans chaque scénario, vous allez créer un élément de configuration qui effectue une tâche spécifique. Pour ouvrir l’Assistant Création d’élément de configuration, procédez comme suit :  
+## <a name="general-information-for-each-scenario"></a>Algemene informatie voor elk scenario  
+ In elk scenario maakt u een configuratie-item waarmee een specifieke taak wordt uitgevoerd. Open de wizard Configuratie-item maken en voer de volgende stappen uit:  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Éléments de configuration**.  
+1.  Klik in de Configuration Manager-console op **activa en naleving** > **instellingen voor naleving** > **configuratie-Items**.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un élément de configuration**.  
+3.  Klik op het tabblad **Start** in de groep **Maken** op **Configuratie-item maken**.  
 
-4.  Sous l’onglet **Général** de l’Assistant Création d’élément de configuration illustré ci-dessous, nommez et décrivez l’élément de configuration, puis choisissez le type d’élément de configuration approprié pour chaque scénario de cette rubrique.  
+4.  Geef op het tabblad **Algemeen** van de wizard Configuratie-item maken een naam en beschrijving op voor het configuratie-item, zoals hieronder wordt weergegeven. Kies vervolgens het juiste configuratie-itemtype voor elk scenario in dit onderwerp.  
 
-     ![Affiche la page Général de l’Assistant Création d’élément de configuration.](media/Compliance-Settings-Wizard---1.png)  
+     ![Pagina Algemeen van de configuratiewizard-item bevat.](media/Compliance-Settings-Wizard---1.png)  
 
-## <a name="scenarios-for-windows-81-and-windows-10-devices-managed-with-intune"></a>Scénarios relatifs aux appareils Windows 8.1 et Windows 10 gérés via Microsoft Intune  
+## <a name="scenarios-for-windows-81-and-windows-10-devices-managed-with-intune"></a>Scenario's voor Windows 8.1 en Windows 10-apparaten worden beheerd door Intune  
 
-### <a name="scenario-restrict-access-to-the-app-store-on-all-windows-pcs"></a>Scénario : restreindre l’accès à la boutique d’applications sur tous les PC Windows  
- Dans ce scénario, vous êtes l’administrateur informatique d’une société qui gère des informations hautement confidentielles. Pour cette raison, vous limitez les applications que les utilisateurs peuvent installer. Vous souhaitez empêcher les utilisateurs de tous les PC Windows 10 de télécharger des applications à partir du Windows Store. Vous prenez donc les mesures suivantes.  
+### <a name="scenario-restrict-access-to-the-app-store-on-all-windows-pcs"></a>Scenario: Beperk de toegang tot de appstore op alle Windows-pc 's  
+ In dit scenario bent u de IT-beheerder voor een bedrijf dat werkt met uiterst gevoelige informatie. U legt daarom beperkingen op voor de apps die gebruikers kunnen installeren. U wilt voorkomen dat gebruikers van alle Windows 10-computers apps downloaden van de Windows Store en onderneemt daarom de volgende acties.  
 
-1.  Dans la page **Général** de l’Assistant Création d’élément de configuration, sélectionnez le type d’élément de configuration **Windows 8.1 et Windows 10** , puis cliquez sur **Suivant**.  
+1.  Selecteer op de pagina **Algemeen** van de wizard Configuratie-item maken het configuratie-itemtype **Windows 8.1 en Windows 10** en klik vervolgens op **Volgende**.  
 
-2.  Dans la page **Plateformes prises en charge**, sélectionnez toutes les plateformes Windows 10.  
+2.  Op de **ondersteunde Platforms** pagina, selecteert u alle Windows 10-platforms.  
 
-3.  Dans la page **Paramètres du périphérique** , sélectionnez **Boutique**, puis cliquez sur **Suivant**.  
+3.  Selecteer op de pagina **Apparaatinstellingen** de optie **Store**en klik vervolgens op **Volgende**.  
 
-4.  Dans la page **Boutique** , sélectionnez la valeur **Interdit** pour **Boutique d’applications**.  
+4.  Selecteer op de pagina **Store** de optie **Niet toegestaan** als waarde voor **App Store**.  
 
-5.  Sélectionnez **Résoudre les paramètres non compatibles** pour que la modification s’applique à tous les PC.  
+5.  Selecteer **Niet-compatibele instellingen herstellen** zodat de wijziging wordt toegepast op alle pc’s.  
 
-6.  Terminez l’Assistant pour créer l’élément de configuration.  
+6.  Voltooi de wizard om het configuratie-item te maken.  
 
- Vous pouvez maintenant utiliser les informations contenues dans la rubrique [Tâches courantes de création et de déploiement de bases de référence de configuration](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) pour déployer la configuration que vous avez créée sur les appareils.  
+ U kunt nu de informatie in de [algemene taken voor het maken en implementeren van configuratiebasislijnen](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) onderwerp waarmee u de configuratie die u hebt gemaakt op apparaten implementeren.  
 
-## <a name="scenarios-for-windows-phone-devices-managed-with-intune"></a>Scénarios relatifs aux appareils Windows Phone gérés via Microsoft Intune  
+## <a name="scenarios-for-windows-phone-devices-managed-with-intune"></a>Scenario's voor Windows Phone-apparaten die worden beheerd met Intune  
 
-### <a name="scenario-disable-the-use-of-screen-capture-on-a-windows-phone"></a>Scénario : désactiver l’utilisation de la capture d’écran sur un Windows Phone  
- Dans ce scénario, vous utilisez des appareils Windows Phone 8.1 dans votre société. Ces appareils exécutent une application de ventes qui contient des informations sensibles. Pour protéger votre entreprise, vous souhaitez désactiver l’utilisation de la capture d’écran sur l’appareil, car elle pourrait être utilisée pour transmettre des informations sensibles en dehors de l’entreprise.  
+### <a name="scenario-disable-the-use-of-screen-capture-on-a-windows-phone"></a>Scenario: Het gebruik van schermafbeeldingen op een Windows Phone uitschakelen  
+ In dit scenario gebruikt u Windows Phone 8.1-apparaten in uw bedrijf. Op deze apparaten wordt een verkoop-app uitgevoerd die gevoelige informatie bevat. Ter bescherming van uw bedrijf wilt u het gebruik van schermafbeeldingen op het apparaat uitschakelen. Deze zouden namelijk kunnen worden gebruikt om gevoelige informatie van uw bedrijf naar buiten te smokkelen.  
 
-1.  Dans la page **Général** de l’Assistant Création d’élément de configuration, sélectionnez le type d’élément de configuration **Windows Phone** , puis cliquez sur **Suivant**.  
+1.  Selecteer op de pagina **Algemeen** van de wizard Configuratie-item maken het configuratie-itemtype **Windows Phone** en klik vervolgens op **Volgende**.  
 
-2.  Dans la page **Plateformes prises en charge**, sélectionnez les plateformes **Tout Windows Phone 8.1**.  
+2.  Op de **ondersteunde Platforms** pagina **alle Windows Phone 8.1** platforms.  
 
-3.  Dans la page **Paramètres du périphérique** , sélectionnez **Périphérique**, puis cliquez sur **Suivant**.  
+3.  Selecteer op de pagina **Apparaatinstellingen** de optie **Apparaat**en klik vervolgens op **Volgende**.  
 
-4.  Dans la page **Périphérique** , sélectionnez la valeur **Désactivé** pour **Capture d’écran**.  
+4.  Selecteer op de pagina **Apparaat** de optie **Uitgeschakeld** als de waarde voor **Schermafbeelding**.  
 
-5.  Sélectionnez **Résoudre les paramètres non compatibles** pour que la modification s’applique à tous les appareils Windows Phone 8.1.  
+5.  Selecteer **Niet-compatibele instellingen herstellen** zodat de wijziging wordt toegepast op alle Windows Phone 8.1-apparaten.  
 
-6.  Terminez l’Assistant pour créer l’élément de configuration.  
+6.  Voltooi de wizard om het configuratie-item te maken.  
 
- Vous pouvez maintenant utiliser les informations contenues dans la rubrique [Tâches courantes de création et de déploiement de bases de référence de configuration avec System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) pour déployer la configuration que vous avez créée sur les appareils.  
+ U kunt nu de informatie in de [algemene taken voor het maken en implementeren van configuratiebasislijnen met System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) onderwerp waarmee u de configuratie die u hebt gemaakt op apparaten implementeren.  
 
-## <a name="scenarios-for-ios-and-mac-os-x-devices-managed-with-intune"></a>Scénarios relatifs aux appareils iOS et Mac OS X gérés via Microsoft Intune  
+## <a name="scenarios-for-ios-and-mac-os-x-devices-managed-with-intune"></a>Scenario's voor iOS en Mac OS X-apparaten worden beheerd door Intune  
 
-### <a name="scenario-disable-the-camera-on-ios-devices"></a>Scénario : désactiver l’appareil photo sur les appareils iOS  
- Dans ce scénario, votre entreprise produit des plans pour de nouvelles conceptions de produits. Ces plans contiennent des informations sensibles qui ne doivent pas être divulguées. Étant donné que votre entreprise fournit des iPhones ou des iPads à tous les employés, vous souhaitez désactiver l’utilisation de l’appareil photo sur ces appareils pour éviter leur utilisation pour photographier les plans.  
+### <a name="scenario-disable-the-camera-on-ios-devices"></a>Scenario: De camera op iOS-apparaten uitschakelen  
+ In dit scenario produceert uw bedrijf blauwdrukken voor nieuwe productontwerpen. Deze bevatten vertrouwelijke informatie die niet naar buiten mag worden gebracht. Als uw bedrijf alle werknemers voorziet van iPhone's en iPads, wilt u het gebruik van de camera op deze apparaten uitschakelen om te voorkomen dat ze worden gebruikt om de blauwdrukken te fotograferen.  
 
-1.  Dans la page **Général** de l’Assistant Création d’élément de configuration, sélectionnez le type d’élément de configuration **iOS et Mac OS X** , puis cliquez sur **Suivant**.  
+1.  Selecteer op de pagina **Algemeen** van de wizard Configuratie-item maken het configuratie-itemtype **iOS en Mac OS X** en klik vervolgens op **Volgende**.  
 
-2.  Dans la page **Plateformes prises en charge**, sélectionnez toutes les plateformes d’appareils iPhone et iPad.  
+2.  Op de **ondersteunde Platforms** pagina, selecteert u alle iPhone- en alle iPad-apparaatplatformen.  
 
-3.  Dans la page **Paramètres du périphérique** , sélectionnez **Sécurité**, puis cliquez sur **Suivant**.  
+3.  Selecteer op de pagina **Apparaatinstellingen** de optie **Beveiliging**en klik vervolgens op **Volgende**.  
 
-4.  Dans la page **Sécurité** , sélectionnez la valeur **Interdit** pour **Appareil photo**.  
+4.  Selecteer op de pagina **Beveiliging** de optie **Niet toegestaan** als waarde voor **Camera**.  
 
-5.  Sélectionnez **Résoudre les paramètres non compatibles** pour que la modification s’applique à tous les appareils iOS.  
+5.  Selecteer **Niet-compatibele instellingen herstellen** zodat de wijziging wordt toegepast op alle iOS-apparaten.  
 
-6.  Terminez l’Assistant pour créer l’élément de configuration.  
+6.  Voltooi de wizard om het configuratie-item te maken.  
 
- Vous pouvez maintenant utiliser les informations contenues dans la rubrique [Tâches courantes de création et de déploiement de bases de référence de configuration avec System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) pour déployer la configuration que vous avez créée sur les appareils.  
+ U kunt nu de informatie in de [algemene taken voor het maken en implementeren van configuratiebasislijnen met System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) onderwerp waarmee u de configuratie die u hebt gemaakt op apparaten implementeren.  
 
-## <a name="scenarios-for-android-and-samsung-knox-standard-devices-managed-with-intune"></a>Scénarios relatifs aux appareils Android et Samsung KNOX Standard gérés via Microsoft Intune  
+## <a name="scenarios-for-android-and-samsung-knox-standard-devices-managed-with-intune"></a>Scenario's voor Android en Samsung KNOX Standard-apparaten worden beheerd door Intune  
 
-### <a name="scenario-require-a-password-on-all-android-5-devices"></a>Scénario : exiger un mot de passe sur tous les appareils Android 5  
- Dans ce scénario, vous allez créer un élément de configuration uniquement pour les appareils Android 5 qui exige des utilisateurs qu’ils configurent un mot de passe d’au moins six caractères sur leurs appareils. De plus, si un utilisateur entre un mot de passe incorrect à cinq reprises, l’appareil sera effacé.  
+### <a name="scenario-require-a-password-on-all-android-5-devices"></a>Scenario: Een wachtwoord vereisen bij alle Android 5-apparaten  
+ In dit scenario maakt u uitsluitend voor Android 5-apparaten een configuratie-item waarmee gebruikers verplicht worden gesteld om een wachtwoord van ten minste zes tekens op hun apparaten te configureren. Bovendien worden alle gegevens op het apparaat gewist, als een gebruiker vijf maal een onjuist wachtwoord heeft ingevoerd.  
 
-1.  Dans la page **Général** de l’Assistant Création d’élément de configuration, sélectionnez le type d’élément de configuration **Android et Samsung KNOX** , puis cliquez sur **Suivant**.  
+1.  Selecteer op de pagina **Algemeen** van de wizard Configuratie-item maken het configuratie-itemtype **Android en Samsung KNOX** en klik vervolgens op **Volgende**.  
 
-2.  Dans la page **Plateformes prises en charge**, sélectionnez uniquement **Android 5** (pour que les paramètres soient appliqués uniquement à cette plateforme).  
+2.  Op de **ondersteunde Platforms** pagina, selecteert u alleen **Android 5** (om te zorgen dat de instellingen alleen toegepast op dat platform).  
 
-3.  Dans la page **Paramètres du périphérique** , sélectionnez **Mot de passe**, puis cliquez sur **Suivant**.  
+3.  Selecteer op de pagina **Apparaatinstellingen** de optie **Wachtwoord**en klik vervolgens op **Volgende**.  
 
-4.  Dans la page **Mot de passe** , configurez les paramètres suivants :  
+4.  Configureer op de pagina **Wachtwoord** de volgende instellingen:  
 
-    -   **Demander des paramètres de mot de passe sur les appareils** > **Requis**  
+    -   **Wachtwoordinstellingen verplicht stellen op apparaten** > **Verplicht**  
 
-    -   **Longueur minimale du mot de passe (caractères)** > **6**  
+    -   **Minimale wachtwoordlengte (tekens)** > **6**  
 
-    -   **Nombre d’échecs de tentative de connexion avant que le périphérique soit réinitialisé** > **5**  
+    -   **Aantal mislukte aanmeldingspogingen voordat het apparaat wordt gewist** > **5**  
 
-5.  Terminez l’Assistant pour créer l’élément de configuration.  
+5.  Voltooi de wizard om het configuratie-item te maken.  
 
- Vous pouvez maintenant utiliser les informations contenues dans la rubrique [Tâches courantes de création et de déploiement de bases de référence de configuration](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) pour déployer la configuration que vous avez créée sur les appareils.  
+ U kunt nu de informatie in de [algemene taken voor het maken en implementeren van configuratiebasislijnen](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) onderwerp waarmee u de configuratie die u hebt gemaakt op apparaten implementeren.  
 
-## <a name="configuration-items-for-devices-managed-with-intune"></a>Éléments de configuration pour les appareils gérés avec Microsoft Intune
+## <a name="configuration-items-for-devices-managed-with-intune"></a>Configuratie-items voor apparaten die worden beheerd met Intune
 
-Vous trouverez ici les types d’éléments de configuration System Center Configuration Manager disponibles pour les appareils qui ne sont pas gérés par le client Configuration Manager, par exemple les appareils inscrits auprès de Microsoft Intune.  
+System Center Configuration Manager configuratie-items die zijn beschikbaar voor apparaten die niet worden beheerd door de Configuration Manager-client, bijvoorbeeld apparaten die zijn geregistreerd bij Microsoft Intune.  
 
- -   [Comment créer des éléments de configuration pour les appareils Windows 8.1 et Windows 10 gérés via Microsoft Intune](create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md)  
+ -   [Het maken van configuratie-items voor Windows 8.1 en Windows 10-apparaten worden beheerd door Intune](create-configuration-items-for-windows-8.1-and-windows-10-devices-managed-without-the-client.md)  
 
- -   [Comment créer des éléments de configuration pour les appareils Windows Phone gérés via Microsoft Intune](create-configuration-items-for-windows-phone-devices-managed-without-the-client.md)  
+ -   [Het maken van configuratie-items voor Windows Phone-apparaten die worden beheerd met Intune](create-configuration-items-for-windows-phone-devices-managed-without-the-client.md)  
 
- -   [Comment créer des éléments de configuration pour les appareils iOS et Mac OS X gérés via Microsoft Intune](create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client.md)  
+ -   [Het maken van configuratie-items voor iOS en Mac OS X-apparaten worden beheerd door Intune](create-configuration-items-for-ios-and-mac-os-x-devices-managed-without-the-client.md)  
 
- -   [Comment créer des éléments de configuration pour les appareils Android et Samsung KNOX Standard gérés via Microsoft Intune](create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client.md)  
+ -   [Het maken van configuratie-items voor Android en Samsung KNOX Standard-apparaten worden beheerd door Intune](create-configuration-items-for-android-and-samsung-knox-devices-managed-without-the-client.md)  

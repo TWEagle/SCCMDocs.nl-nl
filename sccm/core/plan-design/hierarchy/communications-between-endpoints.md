@@ -1,6 +1,6 @@
 ---
-title: Communications entre points de terminaison | Microsoft Docs
-description: "Découvrez comment les systèmes de site et les composants System Center Configuration Manager communiquent sur un réseau."
+title: Communicatie tussen de eindpunten | Microsoft Docs
+description: Meer informatie over hoe System Center Configuration Manager-sitesystemen en -onderdelen via een netwerk communiceren.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,244 +16,244 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: cd94f9ccc7e196b30e5dc7ae9368d073b7cff5d2
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="communications-between-endpoints-in-system-center-configuration-manager"></a>Communications entre points de terminaison dans System Center Configuration Manager
+# <a name="communications-between-endpoints-in-system-center-configuration-manager"></a>De communicatie tussen de eindpunten in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
-##  <a name="Planning_Intra-site_Com"></a> Communications entre les systèmes d’un site  
- Quand des systèmes de site ou des composants Configuration Manager communiquent sur le réseau avec d’autres systèmes de site ou d’autres composants Configuration Manager du site, ils utilisent l’un des protocoles suivants, selon la configuration du site :  
+##  <a name="Planning_Intra-site_Com"></a> Communicatie tussen sitesystemen in een site  
+ Wanneer de Configuration Manager-sitesystemen of -onderdelen over het netwerk naar andere sitesystemen of Configuration Manager-onderdelen in de site communiceren, gebruiken ze een van de volgende protocollen, afhankelijk van hoe u de site configureert:  
 
--   SMB (Server Message Block)  
+-   Server Message Block (SMB)  
 
 -   HTTP  
 
 -   HTTPS  
 
-À l’exception de la communication depuis le serveur de site vers un point de distribution, ces communications de serveur à serveur dans un site peuvent avoir lieu à tout moment et n’utilisent aucun mécanisme de contrôle de la bande passante réseau. Comme vous ne pouvez pas contrôler la communication entre systèmes de site, vérifiez que vous installez des serveurs de système de site à des emplacements dotés de réseaux rapides et bien connectés.  
+Met uitzondering van de communicatie van de siteserver naar een distributiepunt kan er op elk moment communicatie tussen servers in een site plaatsvinden. Hierbij wordt geen gebruikgemaakt van mechanismen om de netwerkbandbreedte te controleren. U kunt de communicatie tussen sitesystemen controleren, zorg ervoor dat u sitesysteemservers installeert op locaties die snel en goed verbonden netwerken.  
 
-Pour gérer plus facilement le transfert de contenu depuis le serveur de site vers des points de distribution :  
+Voor de overdracht van inhoud van de siteserver naar distributiepunten:  
 
--   Configurez le point de distribution pour la planification et le contrôle de la bande passante réseau. Ces contrôles ressemblent aux configurations utilisées par les adresses intersites et vous pouvez souvent utiliser cette configuration au lieu d’installer un autre site Configuration Manager quand le transfert de contenu vers des emplacements réseau distants est votre préoccupation principale en ce qui concerne la bande passante.  
+-   Configureer netwerkbandbreedtebeheer en -planning op het distributiepunt. Deze besturingselementen zijn vergelijkbaar met de configuraties die worden gebruikt door intersite-adressen en vaak kunt u deze configuratie gebruiken in plaats van een andere Configuration Manager-site installeren wanneer de overdracht van inhoud naar externe netwerklocaties uw belangrijkste overweging inzake bandbreedte is.  
 
--   Vous pouvez installer un point de distribution comme un point de distribution préparé. Un point de distribution préparé vous permet d'utiliser du contenu qui est placé manuellement sur le serveur de point de distribution et supprime la nécessité de transférer des fichiers de contenu sur le réseau.  
+-   U kunt een distributiepunt installeren als een voorbereid distributiepunt. Een voorbereid distributiepunt laat u inhoud gebruiken die handmatig op de distributiepuntserver wordt geplaatst en verwijdert de vereiste om inhoudsbestanden over het netwerk over te dragen.  
 
-Pour plus d’informations, consultez [Gérer la bande passante réseau pour la gestion de contenu](manage-network-bandwidth.md).
+Zie voor meer informatie [netwerkbandbreedte voor inhoudsbeheer beheren](manage-network-bandwidth.md).
 
 
-##  <a name="Planning_Client_to_Site_System"></a> Communications depuis les clients vers les systèmes de site et les services  
-Les clients lancent des communications vers les rôles de système de site, les services de domaine Active Directory et les services en ligne. Pour activer ces communications, les pare-feu doivent autoriser le trafic réseau entre les clients et le point de terminaison de leurs communications. Les points de terminaison sont les suivants :  
+##  <a name="Planning_Client_to_Site_System"></a> Communicatie van clients naar sitesystemen en services  
+Clients starten communicatie met sitesysteemrollen, Active Directory Domain Services en onlineservices. Voor het inschakelen van deze communicatie moet in de firewalls het netwerkverkeer tussen clients en het eindpunt van de communicatie worden toegestaan. Eindpunten zijn:  
 
--   **Point du site web du catalogue des applications** : Prend en charge les communications HTTP et HTTPS
+-   **Application Catalog-websitepunt**: Ondersteunt HTTP en HTTPS-communicatie
 
--   **Ressources cloud** : Inclut Microsoft Azure et Microsoft Intune  
+-   **Cloudresources**: Bevat de Microsoft Azure en Microsoft Intune  
 
--   **Module de stratégie de Configuration Manager (NDES)** : Prend en charge les communications HTTP et HTTPS
+-   **Configuration Manager-beleidsmodule (NDES)**: Ondersteunt HTTP en HTTPS-communicatie
 
--   **Points de distribution** : Prennent en charge les communications HTTP et HTTPS. HTTPS est obligatoire pour les points de distribution cloud  
+-   **Distributiepunten**: Ondersteunt HTTP en HTTPS-communicatie en HTTPS is vereist voor cloud-gebaseerde distributiepunten  
 
--   **Point d’état de secours** : Prend en charge les communications HTTP  
+-   **Terugvalstatuspunt**: Biedt ondersteuning voor HTTP-communicatie  
 
--   **Point de gestion** : Prend en charge les communications HTTP et HTTPS  
+-   **Beheerpunt**: Ondersteunt HTTP en HTTPS-communicatie  
 
 -   **Microsoft Update**  
 
--   **Points de mise à jour logicielle** : Prennent en charge les communications HTTP et HTTPS  
+-   **Software-updatepunten** : Ondersteunt HTTP en HTTPS-communicatie  
 
--   **Points de migration d’état** : Prennent en charge les communications HTTP et HTTPS  
+-   **Statusmigratiepunt**: Ondersteunt HTTP en HTTPS-communicatie  
 
--   **Divers services de domaine**  
+-   **Verschillende domeinservices**  
 
-Avant qu’un client puisse communiquer avec un rôle de système de site, le client utilise l’emplacement du service pour rechercher un rôle de système de site prenant en charge son protocole (HTTP ou HTTPS). Par défaut, les clients utilisent la méthode la plus sûre à leur disposition :  
+Voordat een client met een sitesysteemrol communiceren kan, gebruikt de client servicelocatie vinden van een sitesysteemrol die het clientprotocol (HTTP of HTTPS) ondersteunt. Standaard gebruiken clients de meest beveiligde methode die voor hen beschikbaar is:  
 
--   Pour utiliser le protocole HTTPS, vous devez disposer d'une infrastructure à clé publique (PKI) et installer des certificats PKI sur des clients et serveurs. Pour plus d’informations sur la façon d’utiliser des certificats, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
+-   U moet een PKI (Public Key Infrastructure) hebben en u moet PKI-certificaten installeren op clients en servers om HTTPS te gebruiken. Zie [PKI-certificaatvereisten voor System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md) voor informatie over het gebruik van certificaten.  
 
--   Quand vous déployez un rôle de système de site qui utilise Internet Information Services (IIS) et prend en charge les communications des clients, vous devez spécifier si les clients se connectent au système de site à l'aide de HTTP ou HTTPS. Si vous utilisez le protocole HTTP, vous devez également envisager les options de signature et de chiffrement. Pour plus d’informations, consultez [Planification de la signature et du chiffrement](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForSigningEncryption) dans [Planifier la sécurité dans System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md).  
+-   Wanneer u een sitesysteemrol implementeert die gebruikmaakt van Internet Information Services (IIS) en communicatie van clients ondersteunt, moet u opgeven of clients verbinding met het sitesysteem maken via HTTP of HTTPS. Als u HTTP gebruikt, dient u ook opties voor ondertekening en versleuteling te overwegen. Zie voor meer informatie [Planning voor ondertekening en versleuteling](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForSigningEncryption) in [beveiliging in System Center Configuration Manager plannen](../../../core/plan-design/security/plan-for-security.md).  
 
-Pour plus d’informations sur l’emplacement de service par les clients, consultez  [Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager](../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
+Zie [Begrijpen hoe clients siteresources en -services vinden voor System Center Configuration Manager](../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md) voor informatie over servicelocatie door clients.  
 
-Pour plus d’informations sur les ports et protocoles utilisés par les clients pour communiquer avec ces points de terminaison, consultez [Ports utilisés dans System Center Configuration Manager](../../../core/plan-design/hierarchy/ports.md).  
+Zie voor meer informatie over de poorten en protocollen die door clients wordt gebruikt wanneer ze met eindpunten communiceren [poorten die worden gebruikt in System Center Configuration Manager](../../../core/plan-design/hierarchy/ports.md).  
 
-###  <a name="BKMK_clientspan"></a> Éléments à prendre en considération pour les communications de clients à partir d’Internet ou d’une forêt non approuvée  
-Les rôles de système de site suivants installés sur les sites principaux prennent en charge les connexions de clients qui se trouvent dans des emplacements non approuvés, comme Internet ou une forêt non approuvée. (Les sites secondaires ne prennent pas en charge les connexions du client à partir d’emplacements non approuvés) :  
+###  <a name="BKMK_clientspan"></a> Overwegingen voor clientcommunicatie via internet of een niet-vertrouwd forest  
+De volgende geïnstalleerde sitesysteemrollen op primaire sites ondersteunen verbindingen van clients die zich in niet-vertrouwde locaties, zoals Internet of een niet-vertrouwd forest. (Secundaire sites ondersteunen geen clientverbindingen van niet-vertrouwde locaties):  
 
--   Point du site web du catalogue des applications  
+-   Application Catalog-websitepunt  
 
--   Module de stratégie de Configuration Manager  
+-   Configuration Manager-beleidsmodule  
 
--   Point de distribution (HTTPS est requis par les points de distribution cloud)  
+-   Distributiepunt (HTTPS is vereist voor cloudgebaseerde distributiepunten)  
 
--   Point proxy d'inscription  
+-   Proxypunt voor inschrijving  
 
--   Point d’état de secours  
+-   Terugvalstatuspunt  
 
--   Point de gestion  
+-   Beheerpunt  
 
--   Point de mise à jour logicielle  
+-   Software-updatepunt  
 
-**À propos des systèmes de site accessibles sur Internet :**   
-Vous n’avez pas besoin d’une relation d’approbation entre la forêt d’un client et celle du serveur de système de site. Toutefois, quand la forêt qui contient un système de site accessible sur Internet approuve la forêt qui contient les comptes d’utilisateurs, cette configuration prend en charge les stratégies utilisateur pour les appareils sur Internet quand vous activez le paramètre client **Autoriser les demandes de stratégie utilisateur depuis des clients Internet** de la **Stratégie client**.  
+**Over internetgerichte sitesystemen:**   
+Er is geen vereiste om een vertrouwensrelatie tussen de forest van de client en die van de sitesysteemserver. Als de forest met een internetgericht sitesysteem het forest waarin de gebruikersaccounts vertrouwt, deze configuratie ondersteunt echter gebruikersbeleid voor apparaten op Internet wanneer u inschakelt de **clientbeleid** clientinstelling **Gebruikersbeleidsaanvragen van internetclients toestaan**.  
 
-Par exemple, les configurations suivantes illustrent la prise en charge par la gestion des clients basés sur Internet des stratégies utilisateur pour les appareils situés sur Internet :  
+De volgende configuraties illustreren bijvoorbeeld wanneer clientbeheer via internet het gebruikersbeleid voor apparaten op internet ondersteunt:  
 
--   Le point de gestion basé sur Internet est le réseau de périmètre sur lequel réside un contrôleur de domaine en lecture seule pour authentifier l'utilisateur et un pare-feu qui intervient autorise les paquets Active Directory.  
+-   Het internet-gebaseerd beheerpunt bevindt zich in het perimeternetwerk waar een alleen-lezen domeincontroller bestaat om de gebruiker te verifiëren en een tussenkomende firewall Active Directory-pakketten toestaat.  
 
--   Le compte d'utilisateur se trouve dans la forêt A (Intranet) et le point de gestion basé sur Internet dans la forêt B (le réseau de périmètre). La forêt B approuve la forêt A et un pare-feu qui intervient autorise les paquets d'authentification.  
+-   Het gebruikersaccount bevindt zich in Forest A (intranet) en het internet-gebaseerd beheerpunt bevindt zich in Forest B (perimeternetwerk). Forest B vertrouwt Forest A en een tussenkomende firewall staat verificatiepakketten toe.  
 
--   Le compte d'utilisateur et le point de gestion basé sur Internet sont dans la forêt A (Intranet). Le point de gestion est publié sur Internet à l'aide d'un serveur proxy web (comme Forefront Threat Management Gateway).  
+-   Het gebruikersaccount en het internet-gebaseerde beheerpunt bevinden zich in Forest A (intranet). Het beheerpunt is gepubliceerd op internet met behulp van een webproxyserver (zoals Forefront Threat Management Gateway).  
 
 > [!NOTE]  
->  Si l'authentification Kerberos échoue, l'authentification NTLM est ensuite automatiquement utilisée.  
+>  Als Kerberos-verificatie is mislukt, wordt vervolgens automatisch de NTLM-verificatie geprobeerd.  
 
-Comme l'indique l'exemple précédent, vous pouvez placer des systèmes de site basés sur Internet dans l'Intranet lorsqu'ils sont publiés sur Internet à l'aide d'un serveur proxy Web, tel que ISA Server et Forefront Threat Management Gateway. Ces systèmes de site peuvent être configurés pour la connexion du client à partir d’Internet uniquement, ou pour les connexions du client à partir d’Internet et d’un intranet. Quand vous utilisez un serveur proxy web, vous pouvez le configurer pour le pontage SSL (Secure Sockets Layer) vers SSL (plus sécurisé) ou le tunnel SSL, comme suit :  
+Zoals het vorige voorbeeld toont, kunt u internet-gebaseerde sitesystemen op het intranet plaatsen wanneer ze op het internet worden gepubliceerd met behulp van een webproxyserver, zoals ISA Server en Forefront Threat Management Gateway. Deze sitesystemen kunnen worden geconfigureerd voor clientverbinding van het Internet, of voor alleen clientverbindingen van Internet en intranet. Wanneer u een webproxyserver gebruikt, kunt u deze configureren voor Secure Sockets Layer (SSL) bridging naar SSL (veiliger) of SSL-tunneling als volgt:  
 
--   **Pontage SSL vers SSL :**   
-    La configuration recommandée quand vous utilisez des serveurs web proxy pour la gestion de clients sur Internet est le pontage SSL vers SSL, qui utilise une terminaison SSL avec authentification. Les ordinateurs clients doivent être authentifiés à l'aide de l'authentification de l'ordinateur et les clients hérités de l'appareil mobile sont authentifiés à l'aide de l'authentification utilisateur. Les appareils mobiles inscrits par Configuration Manager ne prennent pas en charge le pontage SSL.  
+-   **SSL-bridging naar SSL:**   
+    De aanbevolen configuratie wanneer u proxy-webservers gebruikt voor clientbeheer op internet is SSL-bridging naar SSL. Dit maakt gebruik van SSL-beëindiging met verificatie. Clientcomputers moeten worden geverifieerd door gebruik te maken van computerverificatie en verouderde clients voor mobiele apparaten worden geverifieerd via gebruikersverificatie. Mobiele apparaten die zijn ingeschreven door Configuration Manager bieden geen ondersteuning voor SSL-bridging.  
 
-     La terminaison SSL au niveau du serveur Web proxy présente l'avantage que les paquets provenant d'Internet sont inspectés avant d'être transférés au réseau interne. Le serveur Web proxy authentifie la connexion du client, l'arrête, puis ouvre une nouvelle connexion authentifiée vers les systèmes de site basés sur Internet. Quand les clients Configuration Manager utilisent un serveur web proxy, leur identité (GUID client) est contenue en toute sécurité dans la charge utile du paquet pour éviter que le point de gestion prenne le serveur web proxy pour le client. Le pontage n’est pas pris en charge dans Configuration Manager de HTTP vers HTTPS ou de HTTPS vers HTTP.  
+     Het voordeel van SSL-beëindiging aan de proxywebserver is dat pakketten van het internet onderhevig zijn aan inspectie voordat ze worden doorgestuurd naar het interne netwerk. De proxywebserver verifieert de verbinding van de client, beëindigt deze, en opent vervolgens een nieuwe geverifieerde verbinding naar de sitesystemen op internet. Wanneer Configuration Manager-clients een proxywebserver gebruikt, wordt de clientidentiteit (client-GUID) veilig opgenomen in de pakketlading zodat het beheerpunt de proxywebserver de client niet beschouwt. Bridging wordt niet ondersteund voor in Configuration Manager met HTTP naar HTTPS of van HTTPS naar HTTP.  
 
--   **Tunneling** :   
-    Si votre serveur web proxy ne peut pas prendre en charge la configuration requise pour le pontage SSL, ou si vous souhaitez configurer la prise en charge Internet pour les appareils mobiles inscrits par Configuration Manager, le tunneling SSL est aussi pris en charge. Il s'agit d'une option moins sûre car les paquets SSL d'Internet sont transférés aux systèmes de site sans terminaison SSL et ne peuvent donc pas être inspectés à la recherche de contenu malveillant. Lors de l'utilisation du tunnel SSL, aucune configuration n'est requise pour les certificats pour le serveur Web proxy.  
+-   **Tunneling**:   
+    Als uw proxywebserver de vereisten voor SSL-bridging niet kan ondersteunen, of u wilt configureren, Internet-ondersteuning voor mobiele apparaten die zijn ingeschreven door Configuration Manager, wordt SSL-tunneling ook ondersteund. Het is een minder veilige optie omdat de SSL-pakketten van het internet worden doorgestuurd naar de sitesystemen zonder SSL-beëindiging. Op die manier kunnen ze niet worden geïnspecteerd op schadelijke inhoud. Als u SSL-tunneling gebruikt, zijn er geen certificaatvereisten voor de proxywebserver.  
 
-##  <a name="Plan_Com_X-Forest"></a> Communications dans les forêts Active Directory  
-System Center Configuration Manager prend en charge des sites et des hiérarchies qui recouvrent des forêts Active Directory.  
+##  <a name="Plan_Com_X-Forest"></a> Communicatie tussen Active Directory-forests  
+System Center Configuration Manager biedt ondersteuning voor sites en hiërarchieën die Active Directory-forests omvatten.  
 
-Configuration Manager prend également en charge les ordinateurs de domaine qui ne se trouvent pas dans la même forêt Active Directory que le serveur de site, et les ordinateurs qui se trouvent dans des groupes de travail :  
+Configuration Manager biedt ook ondersteuning voor domeincomputers die zich niet in hetzelfde Active Directory-forest als de siteserver en computers die zich in werkgroepen bevinden:  
 
--   **Pour prendre en charge des ordinateurs de domaine situés dans une forêt qui n’est pas approuvée par la forêt de votre serveur de site**, vous pouvez procéder comme suit :  
+-   **Ter ondersteuning van computers in het domein in een forest dat niet wordt vertrouwd door het forest van uw siteserver**, kunt u:  
 
-    -   Installez des rôles de système de site dans cette forêt non approuvée, en activant l’option de publication des informations de site dans cette forêt Active Directory.  
+    -   Sitesysteemrollen in het niet-vertrouwde forest installeren met de optie om sitegegevens naar het desbetreffende Active Directory-forest te publiceren.  
 
-    -   Gérez ces ordinateurs comme des ordinateurs de groupe de travail.  
+    -   Deze computers beheren alsof het werkgroepcomputers betreft.  
 
-  Quand vous installez des serveurs de système de site dans une forêt Active Directory non approuvée, les communications des clients de cette forêt vers le serveur restent internes à cette forêt, ce qui permet à Configuration Manager d’authentifier l’ordinateur avec Kerberos. Quand vous publiez des informations de site dans la forêt du client, le client peut récupérer les informations de site, notamment la liste des points de gestion disponibles, à partir de sa forêt Active Directory, au lieu de télécharger ces informations à partir de son point de gestion attribué.  
+  Wanneer u sitesysteemservers installeert in een niet-vertrouwd Active Directory-forest, de client-naar-server-communicatie van clients in dat forest blijft aanwezig in dat forest en Configuration Manager de computer verifiëren kan via Kerberos. Wanneer u site-informatie naar het forest van de client publiceert, kunnen clients baat hebben bij het ophalen van site-informatie, zoals een lijst met beschikbare beheerpunten, vanuit hun Active Directory-forest in plaats van deze informatie te downloaden via hun toegewezen beheerpunt.  
 
   > [!NOTE]  
-  >  Pour gérer les appareils qui se trouvent sur Internet, vous pouvez installer des rôles système de site de type Internet dans votre réseau de périmètre lorsque des serveurs de système de site se trouvent dans une forêt Active Directory. Ce scénario ne nécessite pas d’approbation bidirectionnelle entre le réseau de périmètre et la forêt du serveur de site.  
+  >  Als u apparaten wilt beheren die zich op internet bevinden, kunt u op internet gebaseerde sitesysteemrollen installeren in uw perimeternetwerk wanneer de sitesysteemservers zich in een Active Directory-forest bevinden. Dit scenario vereist geen wederzijdse vertrouwensrelatie tussen het perimeternetwerk en het forest van de siteserver.  
 
--   **Pour prendre en charge des ordinateurs situés dans un groupe de travail**, vous devez effectuer les opérations suivantes :  
+-   **Als u computers in een werkgroep wilt ondersteunen**, moet u het volgende doen:  
 
-    -   Approuvez manuellement les ordinateurs du groupe de travail qui utilisent des connexions client HTTP pour accéder aux rôles de système de site. En effet, Configuration Manager ne peut pas authentifier ces ordinateurs avec Kerberos.  
+    -   Werkgroepcomputers handmatig goedkeuren wanneer ze HTTP-clientverbindingen met sitesysteemrollen gebruiken. Dit is omdat Configuration Manager deze computers niet kan verifiëren via Kerberos.  
 
-    -   Configurez les clients du groupe de travail avec le compte d’accès réseau pour permettre à ces ordinateurs de récupérer le contenu à partir des points de distribution.  
+    -   Werkgroepclients configureren voor het gebruik van het netwerktoegangsaccounts, zodat deze computers inhoud kunnen ophalen van distributiepunten.  
 
-    -   Fournir aux clients du groupe de travail une méthode de remplacement pour rechercher les points de gestion. Vous pouvez utiliser la publication DNS, WINS, ou attribuer directement un point de gestion. Cela est dû au fait que ces clients ne peuvent pas récupérer les informations de site à partir des services de domaine Active Directory.  
+    -   Een alternatief mechanisme voor werkgroepclients verschaffen om beheerpunten te zoeken. U kunt publiceren in DNS, WINS gebruiken of u kunt een beheerpunt rechtstreeks toewijzen. Dit is omdat deze clients geen site-informatie uit Active Directory Domain Services kunnen ophalen.  
 
-    Ressources connexes dans cette bibliothèque de contenu :  
+    Verwante resources in deze inhoudsbibliotheek:  
 
-    -   [Gérer les conflits d’enregistrement pour les clients Configuration Manager](../../../core/clients/manage/manage-clients.md#BKMK_ConflictingRecords)  
+    -   [Conflicterende records voor Configuration Manager-Clients beheren](../../../core/clients/manage/manage-clients.md#BKMK_ConflictingRecords)  
 
-    -   [Compte d’accès au réseau](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#accounts-used-for-content-management)  
+    -   [Netwerktoegangsaccount](../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md#accounts-used-for-content-management)  
 
-    -   [Installer des clients Configuration Manager sur des ordinateurs de groupe de travail](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientWorkgroup)  
+    -   [Het installeren van Configuration Manager-Clients op Computers in werkgroepen](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientWorkgroup)  
 
-###  <a name="bkmk_span"></a> Scénarios de prise en charge d’un site ou d’une hiérarchie qui s’étend sur plusieurs domaines et forêts  
+###  <a name="bkmk_span"></a> Scenario’s voor ondersteuning van een site of hiërarchie die meerdere domeinen en forests omvat  
 
-#### <a name="communication-between-sites-in-a-hierarchy-that-spans-forests"></a>Communication entre les sites d’une hiérarchie qui s’étend sur des forêts  
-Ce scénario nécessite une approbation de forêt bidirectionnelle prenant en charge l’authentification Kerberos.  Si vous n’avez pas d’approbation de forêt bidirectionnelle prenant en charge l’authentification Kerberos, Configuration Manager ne prend pas en charge de site enfant dans la forêt distante.  
+#### <a name="communication-between-sites-in-a-hierarchy-that-spans-forests"></a>Communicatie tussen sites in een hiërarchie die forests omvat  
+Dit scenario is een wederzijdse forestvertrouwensrelatie, die ondersteuning biedt voor Kerberos-verificatie vereist.  Als er geen wederzijdse forestvertrouwensrelatie, die ondersteuning biedt voor Kerberos-verificatie, biedt vervolgens Configuration Manager geen ondersteuning voor een onderliggende site in het externe forest.  
 
- **Configuration Manager prend en charge l’installation d’un site enfant dans une forêt distante qui possède l’approbation bidirectionnelle requise avec la forêt du site parent.**  
+ **Configuration Manager ondersteunt de installatie van een onderliggende site in een extern forest dat de vereiste tweerichtingsrelatie met het forest van de bovenliggende site**  
 
--   Par exemple, vous pouvez placer un site secondaire dans une autre forêt de son site parent principal tant que l’approbation nécessaire existe.  
+-   U kunt bijvoorbeeld een secundaire site in een ander forest van de primaire bovenliggende site plaatsen, zolang de vereiste vertrouwensrelatie bestaat.  
 
 > [!NOTE]  
->  Un site enfant peut être un site principal (où le site d’administration centrale est le site parent) ou un site secondaire.  
+>  Een onderliggende site is de primaire site (waarbij de centrale beheersite de bovenliggende site is) of een secundaire site.  
 
-Les communications intersite dans Configuration Manager utilisent la réplication de base de données et les transferts basés sur des fichiers. Quand vous installez un site, vous devez spécifier un compte à utiliser pour installer le site sur le serveur indiqué. Ce compte établit et conserve également la communication entre les sites.  
+Intersitecommunicatie in Configuration Manager maakt gebruik van databasereplicatie en overdrachten op basis van bestanden. Wanneer u een site installeert, moet u een account waarmee u de site op de aangewezen server opgeven. Dit account brengt ook communicatie tot stand tussen sites en onderhoudt de communicatie.  
 
-Une fois que le site a installé et lancé avec succès les transferts basés sur des fichiers et la réplication de base de données, il est inutile de configurer autre chose pour la communication vers le site.  
+Nadat de site de overdrachten op basis van bestanden en databasereplicatie heeft geïnstalleerd en geïnitieerd, zijn voor communicatie naar de site geen verdere configuraties vereist.  
 
-**Lorsqu’une approbation de forêt bidirectionnelle existe, Configuration Manager ne nécessite aucune étape de configuration supplémentaire.**  
+**Als er een wederzijdse forestvertrouwensrelatie bestaat, maakt Configuration Manager vereist geen aanvullende configuratiestappen.**  
 
-Par défaut, lorsque vous installez un nouveau site en tant qu’enfant d’un autre site, Configuration Manager configure les éléments suivants :  
+Standaard, wanneer u een nieuwe site als een onderliggend element van een andere site installeert, Configuration Manager configureert u het volgende:  
 
--   Un itinéraire de réplication de fichiers intersite sur chaque site qui utilise le compte d’ordinateur du serveur de site. Configuration Manager ajoute le compte d’ordinateur de chaque ordinateur au groupe **SMS_SiteToSiteConnection_&lt;code_site\>** sur l’ordinateur de destination.  
+-   Een intersite replicatieroute op basis van bestanden op elke site gebruikmaakt van het siteservercomputeraccount. Configuration Manager voegt de computeraccount van elke computer toe aan de **SMS_SiteToSiteConnection_&lt;sitecode\>**  groep op de doelcomputer.  
 
--   Réplication de base de données entre les serveurs SQL Server sur chaque site.  
+-   Databasereplicatie tussen de SQL Server op elke site.  
 
-Les configurations suivantes doivent également être définies :  
+De volgende configuraties moeten ook worden ingesteld:  
 
--   Les appareils réseau et les pare-feu qui interviennent doivent autoriser les paquets réseau requis par Configuration Manager.  
+-   Tussenkomende firewalls en netwerkapparaten moeten de netwerkpakketten die Configuration Manager vereist toestaan.  
 
--   La résolution de noms doit fonctionner entre les forêts.  
+-   Naamomzetting moet tussen de forests werken.  
 
--   Pour installer un site ou un rôle de système de site, vous devez spécifier un compte qui dispose des autorisations d'administrateur local sur l'ordinateur spécifié.  
+-   Als u een site of sitesysteemrol wilt installeren, moet u een account opgeven die lokale beheerdersmachtigingen heeft op de opgegeven computer.  
 
-#### <a name="communication-in-a-site-that-spans-forests"></a>Communication dans un site qui s’étend sur des forêts  
-Ce scénario ne nécessite aucune approbation de forêt bidirectionnelle.  
+#### <a name="communication-in-a-site-that-spans-forests"></a>Communicatie in een site die forests omvat  
+Voor dit scenario is een tweerichtingsrelatie tussen forests niet vereist.  
 
-**Les sites principaux prennent en charge l’installation de rôles de système de site sur les ordinateurs des forêts distantes**.  
+**Primaire sites ondersteunen de installatie van sitesysteemrollen op computers in externe forests**.  
 
--   Le point de service web du catalogue des applications est la seule exception.  Il est uniquement pris en charge dans la même forêt que le serveur de site.  
+-   Het Application Catalog-webservicepunt is de enige uitzondering.  Het punt wordt alleen ondersteund in hetzelfde forest als de siteserver.  
 
--   Si le rôle de système de site accepte les connexions depuis Internet, comme bonne pratique de sécurité, installez ces rôles de système de site dans un emplacement où la limite de forêt fournit une protection pour le serveur de site (par exemple, dans un réseau de périmètre).  
+-   Als een sitesysteemrol verbindingen aanvaardt van internet, installeer dan, als best practice voor beveiliging, de sitesysteemrollen in een locatie waarin de grens van het forest de siteserver beveiligt (bijvoorbeeld in een perimeternetwerk).  
 
-**Pour installer un rôle de système de site sur un ordinateur situé dans une forêt non approuvée :**  
+**Een sitesysteemrol installeren op een computer in een niet-vertrouwd forest:**  
 
--   Vous devez spécifier un **Compte d’installation du système de site**, utilisé pour installer le rôle de système de site. (Ce compte doit disposer d’informations d’identification administratives locales pour la connexion.) Ensuite, installez les rôles de système de site sur l’ordinateur spécifié.  
+-   Geef een **Installatieaccount**, dat wordt gebruikt voor het installeren van de sitesysteemrol. (Dit account moet lokale beheerdersreferenties verbinding maken met hebben). Installeer vervolgens sitesysteemrollen op de opgegeven computer.  
 
--   Vous devez sélectionner l'option de système de site **Exiger que le serveur de site établisse des connexions vers ce système de site**. Pour cela, le serveur de site doit établir des connexions au serveur de système de site pour transférer des données. De cette manière, l’ordinateur qui se trouve dans l’emplacement non approuvé ne peut pas établir de contact avec le serveur de site au sein de votre réseau approuvé. Ces connexions utilisent le **Compte d'installation du système de site**.  
+-   U moet de sitesysteemoptie **De siteserver moet verbinding met dit sitesysteem initiëren**selecteren. Hiervoor moet de siteserver verbindingen instellen met de sitesysteemserver om gegevens over te dragen. Dit voorkomt dat de computer in de niet-vertrouwde locatie verbinding maakt met de siteserver die in uw vertrouwde netwerk. Voor deze verbindingen wordt het **Installatieaccount sitesysteem**gebruikt.  
 
-**Pour utiliser un rôle de système de site installé dans une forêt non approuvée,** les pare-feu doivent autoriser le trafic réseau, même quand le serveur de site lance le transfert de données.  
+**Als u een sitesysteemrol gebruikt in een niet-vertrouwd forest** , moeten firewalls het netwerkverkeer toestaan, zelfs wanneer de siteserver de overdracht van gegevens initieert.  
 
-Par ailleurs, les rôles de système de site suivants requièrent un accès direct à la base de données de site. Par conséquent, les pare-feu doivent autoriser le trafic applicable de la forêt non approuvée vers les sites SQL Server :  
+Bovendien moeten de volgende sitesysteemrollen directe toegang tot de sitedatabase hebben. Daarom moeten firewalls toepasselijk verkeer van de niet-vertrouwd forest naar de siteserver SQL toestaan:  
 
--   Point de synchronisation Asset Intelligence  
+-   Asset Intelligence-synchronisatiepunt  
 
--   Point Endpoint Protection  
+-   Endpoint Protection-punt  
 
--   Point d'inscription  
+-   Inschrijvingspunt  
 
--   Point de gestion  
+-   Beheerpunt  
 
--   Point du service de rapport  
+-   Reporting Service-punt  
 
--   Point de migration d'état  
+-   Statusmigratiepunt  
 
-Pour plus d’informations, consultez [Ports utilisés dans System Center Configuration Manager](../../../core/plan-design/hierarchy/ports.md).  
+Zie voor meer informatie [poorten die worden gebruikt in System Center Configuration Manager](../../../core/plan-design/hierarchy/ports.md).  
 
-**Vous serez peut-être amené à configurer l’accès des rôles système de site à la base de données du site :**  
+**Mogelijk moet u de toegang van de sitesysteemrol tot de sitedatabase configureren:**  
 
-Les rôles de système de site de point d’inscription et de point de gestion se connectent à la base de données de site.  
+Het beheerpunt en het inschrijvingspunt van de sitesysteemrollen maken verbinding met de sitedatabase.  
 
--   Par défaut, quand ces rôles de système de site sont installés, Configuration Manager configure le compte d’ordinateur du nouveau serveur de système de site comme compte de connexion pour le rôle de système de site et ajoute le compte au rôle de base de données SQL Server approprié.  
+-   Standaard, als deze sitesysteemrollen worden geïnstalleerd, Configuration Manager configureert u het computeraccount van de nieuwe sitesysteemserver als het verbindingsaccount voor de sitesysteemrol en voegt u het account vervolgens toe aan de geschikte SQL Server-databaserol.  
 
--   Lorsque vous installez ces rôles de système de site dans un domaine non approuvé, vous devez configurer le compte de connexion du rôle de système de site pour autoriser le rôle de système de site à obtenir des informations à partir de la base de données.  
+-   Als u deze sitesysteemrollen op een niet-vertrouwd domein installeert, moet u het verbindingsaccount van de sitesysteemrol configureren om het de sitesysteemrol mogelijk te maken informatie in te winnen van de database.  
 
-Si vous configurez un compte d’utilisateur de domaine comme compte de connexion pour ces rôles de système de site, assurez-vous que le compte d’utilisateur de domaine dispose des accès appropriés à la base de données SQL Server sur ce site :  
+Als u een domeingebruikersaccount configureert als verbindingsaccount voor deze sitesysteemrollen, moet u ervoor zorgen dat de domeingebruiker de juiste toegang heeft tot de SQL Serve-database op die site:  
 
--   Point de gestion : **compte de connexion à la base de données du point de gestion**.  
+-   Beheerpunt: **Verbindingsaccount voor Beheerpuntdatabase**  
 
--   Point d'inscription : **compte de connexion du point d'inscription**.  
+-   Inschrijvingspunt: **Verbindingsaccount voor inschrijvingspunt**  
 
-Lorsque vous planifiez des rôles de système de site dans d'autres forêts, tenez compte des informations supplémentaires suivantes :  
+Houd rekening met de volgende aanvullende informatie om sitesysteemrollen in andere forests te plannen:  
 
--   Si vous exécutez un pare-feu Windows, configurez les profils de pare-feu applicables pour transmettre les communications entre le serveur de base de données du site et les ordinateurs qui sont installés avec des rôles de système de site distants. Pour plus d’informations sur les profils de pare-feu, consultez [Présentation des profils de Pare-feu](http://go.microsoft.com/fwlink/p/?LinkId=233629).  
+-   Als u Windows Firewall uitvoert, configureert u de toepasselijke firewallprofielen om uitwisselt tussen de Sitedatabaseserver en computers die zijn geïnstalleerd met externe sitesysteemrollen. Zie voor meer informatie inzake firewallprofielen [firewallprofielen](http://go.microsoft.com/fwlink/p/?LinkId=233629).  
 
--   Lorsque le point de gestion basé sur Internet approuve la forêt contenant les comptes d'utilisateur, les stratégies utilisateur sont prises en charge. Lorsqu'il n'existe aucune relation d'approbation, seules les stratégies d'ordinateur sont prises en charge.  
+-   Als het beheerpunt op internet de forests vertrouwt die de gebruikersaccounts bevat, dan wordt het gebruikersbeleid ondersteund. Als er geen vertrouwensrelatie bestaat, wordt alleen computerbeleid ondersteund.  
 
-#### <a name="communication-between-clients-and-site-system-roles-when-the-clients-are-not-in-the-same-active-directory-forest-as-their-site-server"></a>Communication entre les clients et les rôles de système de site quand les clients ne se trouvent pas dans la même forêt Active Directory que leur serveur de site  
-Configuration Manager prend en charge les scénarios suivants pour les clients qui ne se trouvent pas dans la même forêt que le serveur de site de leur site :  
+#### <a name="communication-between-clients-and-site-system-roles-when-the-clients-are-not-in-the-same-active-directory-forest-as-their-site-server"></a>Communicatie tussen clients en sitesysteemrollen wanneer de clients zich niet in hetzelfde Active Directory-forest bevinden als hun siteserver.  
+Configuration Manager ondersteunt de volgende scenario's voor clients die zich niet in hetzelfde forest als hun siteserver:  
 
--   Il existe une relation d’approbation de forêt bidirectionnelle entre la forêt du client et celle du serveur du site.  
+-   Er is een wederzijdse vertrouwensrelatie tussen de forest van de client en het forest van de siteserver.  
 
--   Le serveur de rôle de système de site se trouve dans la même forêt que le client.  
+-   De server van de sitesysteemrol bevindt zich in hetzelfde forest als de client.  
 
--   Le client se trouve sur un ordinateur de domaine sans approbation de forêt bidirectionnelle avec le serveur de site, et les rôles de système de site ne sont pas installés dans la forêt du client.  
+-   De client is een domeincomputer geen een tweerichtingsrelatie tussen forests vertrouwen met de siteserver en heeft-site sitesysteemrollen zijn niet geïnstalleerd in het forest van de client.  
 
--   Le client se trouve sur un ordinateur de groupe de travail.  
+-   De client zich op een werkgroepcomputer is geworden.  
 
-Les clients se trouvant sur un ordinateur joint à un domaine peuvent utiliser les services de domaine Active Directory pour l’emplacement du service si leur site est publié dans leur forêt Active Directory.  
+Clients op een computer lid van een domein kunnen Active Directory Domain Services voor de servicelocatie gebruiken wanneer hun site gepubliceerd is naar hun Active Directory-forest.  
 
-Pour publier des informations de site dans une autre forêt Active Directory, vous devez effectuer les opérations suivantes :  
+Als u site-informatie naar een ander Active Directory-forest wilt publiceren, moet u het volgende doen:  
 
--   Spécifiez la forêt et activez la publication dans cette forêt dans le nœud **Forêts Active Directory** de l’espace de travail **Administration** .  
+-   Het forest opgeven en vervolgens publiceren naar dit forest inschakelen in het knooppunt **Active Directory-forests** van de werkruimte **Beheer** .  
 
--   Configurez chaque site pour publier ses données dans les services de domaine Active Directory. Cette configuration permet aux clients se trouvant dans cette forêt d'extraire des informations de site et de trouver des points de gestion. Pour un client qui ne peut pas utiliser les services de domaine Active Directory pour l’emplacement du service, vous pouvez utiliser DNS, WINS ou le point de gestion attribué du client.  
+-   Elke site configureren om de bijbehorende gegevens te publiceren naar Active Directory-domeinservices. Deze configuratie maakt het clients in deze forest mogelijk site-informatie op te halen en beheerpunten te vinden. Voor clients die Active Directory Domain Services voor de servicelocatie van de niet gebruiken, kunt u DNS, WINS of de client toegewezen beheerpunt.  
 
-###  <a name="bkmk_xchange"></a> Placer le connecteur du serveur Exchange Server dans une forêt distante  
-Pour prendre en charge ce scénario, assurez-vous que la résolution de noms fonctionne entre les forêts (par exemple, via une configuration DNS supplémentaire) et spécifiez le nom de domaine complet (FQDN) intranet du serveur Exchange Server au moment où vous configurez le connecteur du serveur Exchange Server. Pour plus d’informations, consultez [Gérer les appareils mobiles avec System Center Configuration Manager et Exchange](../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
+###  <a name="bkmk_xchange"></a> De Exchange Server-connector in een extern forest plaatsen  
+Als u dit scenario wilt ondersteunen, moet u ervoor zorgen dat de naamomzetting tussen de forests werkt (configureer bijvoorbeeld DNS-forwards) en geeft u de intranet-FQDN voor Exchange Server op wanneer u de Exchange Server-connector configureert. Zie [Mobiele apparaten beheren met System Center Configuration Manager en Exchange](../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md) voor meer informatie.  

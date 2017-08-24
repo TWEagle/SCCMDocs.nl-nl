@@ -1,6 +1,6 @@
 ---
-title: "Sécurité et confidentialité pour l’administration de site | Microsoft Docs"
-description: "Optimisez la sécurité et la confidentialité pour l’administration de site dans System Center Configuration Manager."
+title: Site administration beveiliging en privacy | Microsoft Docs
+description: Beveiliging en privacy voor sitebeheer in System Center Configuration Manager optimaliseren.
 ms.custom: na
 ms.date: 3/1/2017
 ms.prod: configuration-manager
@@ -16,267 +16,267 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: a60b8c103a303dcae0bd66f3060d5a8f17d1cef9
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-site-administration-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour l’administration de site dans System Center Configuration Manager
+# <a name="security-and-privacy-for-site-administration-in-system-center-configuration-manager"></a>Beveiliging en privacy voor sitebeheer in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Cette rubrique contient des informations de sécurité et de confidentialité pour les sites System Center Configuration Manager et la hiérarchie.
+Dit onderwerp bevat beveiligings- en privacy-informatie voor System Center Configuration Manager-sites en de hiërarchie.
 
-##  <a name="BKMK_Security_Sites"></a> Bonnes pratiques de sécurité pour l’administration de site  
- Utilisez les bonnes pratiques de sécurité suivantes pour vous aider à sécuriser les sites System Center Configuration Manager et la hiérarchie.  
+##  <a name="BKMK_Security_Sites"></a>Aanbevolen beveiligingsprocedures voor sitebeheer  
+ Gebruik de volgende aanbevolen beveiligingsprocedures om u te helpen beveiligen System Center Configuration Manager-sites en de hiërarchie.  
 
- **Exécutez le programme d’installation à partir d’une source approuvée et sécurisez le canal de communication entre le support d’installation et le serveur de site.**  
+ **Installatieprogramma enkel uitvoeren vanuit een vertrouwde bron en Beveilig het communicatiekanaal tussen de setup-media en de siteserver.**  
 
- Pour empêcher la falsification des fichiers sources, exécutez le programme d’installation à partir d’une source approuvée. Si vous stockez les fichiers sur le réseau, sécurisez l'emplacement réseau.  
+ Om te voorkomen dat iemand knoeien met de bronbestanden bevat, moet u setup uitvoeren vanaf een vertrouwde bron. Slaat u bestanden op het netwerk op, dan beveiligt u de netwerklocatie.  
 
- Si vous exécutez le programme d’installation à partir d’un emplacement réseau, pour empêcher une éventuelle personne malveillante de falsifier les fichiers lors de leur transmission sur le réseau, utilisez IPsec ou la signature SMB (Server Message Block) entre l’emplacement source des fichiers d’installation et le serveur de site.  
+ Als u setup vanaf een netwerklocatie uitvoert, om te helpen te voorkomen dat kwaadwillende personen knoeien met de bestanden als ze worden verzonden via het netwerk, gebruikt u IPsec of Server Message Block (SMB) ondertekening tussen de bronlocatie van de setup-bestanden en de siteserver.  
 
- De plus, si vous utilisez le téléchargeur d’installation pour télécharger les fichiers requis par le programme d’installation, veillez à sécuriser également l’emplacement de stockage de ces fichiers et sécurisez le canal de communication pour cet emplacement lorsque vous exécutez le programme d’installation.  
+ Bovendien, als u het Downloadprogramma voor het downloaden van de bestanden die voor installatie vereist zijn gebruikt, zorg dat u ook de locatie waar deze bestanden worden opgeslagen en Beveilig het communicatiekanaal voor deze locatie wanneer u setup uitvoert, beveiligt.  
 
- **Développez le schéma Active Directory pour System Center Configuration Manager et publiez des sites vers les services de domaine Active Directory.**  
+ **Active Directory-schema uitbreiden voor System Center Configuration Manager en publiceer sites naar Active Directory Domain Services.**  
 
- Les extensions de schéma ne sont pas nécessaires pour exécuter System Center Configuration Manager, mais elles créent un environnement plus sécurisé car les serveurs de site et les clients Configuration Manager peuvent récupérer les informations à partir d’une source approuvée.  
+ Schema-uitbreidingen niet vereist zijn voor het uitvoeren van System Center Configuration Manager, maar ze een veiligere omgeving maken omdat Configuration Manager-clients en siteservers informatie van een vertrouwde bron ophalen kunnen.  
 
- Si les clients se trouvent dans un domaine non approuvé, déployez les rôles de système de site suivants dans les domaines des clients :  
+ Als clients zich in een niet-vertrouwd domein, moet u de volgende sitesysteemrollen in de clients domeinen implementeren:  
 
--   Point de gestion  
+-   Beheerpunt  
 
--   Point de distribution  
+-   Distributiepunt  
 
--   Point du site web du catalogue des applications  
-
-> [!NOTE]  
->  Un domaine approuvé pour Configuration Manager requiert l’authentification Kerberos. Cela signifie que si des clients se trouvent dans une autre forêt qui ne dispose pas d’une approbation de forêt bidirectionnelle avec la forêt du serveur de site, ces clients sont considérés comme étant dans un domaine non approuvé. Dans ce cas, une approbation externe n'est pas suffisante.  
-
- **Utilisez IPsec pour sécuriser les communications entre les sites et serveurs de système de site.**  
-
- Bien que Configuration Manager sécurise les communications entre le serveur de site et l’ordinateur qui exécute SQL Server, Configuration Manager ne sécurise pas les communications entre les rôles de système de site et SQL Server. Seuls certains systèmes de site (le point d'inscription et le point de service Web du catalogue d'applications) peuvent être configurés pour le protocole HTTPS pour la communication intrasite.  
-
- Si vous n'utilisez pas de contrôles supplémentaires pour sécuriser ces canaux serveur à serveur, des personnes malveillantes peuvent utiliser différentes attaques d'usurpation ou de l'intercepteur contre les systèmes de site. Utilisez la signature SMB lorsque vous ne pouvez pas utiliser IPsec.  
+-   Application Catalog-websitepunt  
 
 > [!NOTE]  
->  Il est particulièrement important de sécuriser le canal de communication entre le serveur de site et le serveur de la source du package. Cette communication utilise SMB. Si vous ne pouvez pas utiliser IPsec pour sécuriser cette communication, utilisez la signature SMB afin de vous assurer que les fichiers ne sont pas falsifiés avant que les clients les téléchargent et les exécutent.  
+>  Een vertrouwd domein voor Configuration Manager vereist Kerberos-verificatie. Dit betekent dat als clients zich in een andere dat forest geen wederzijdse forestvertrouwensrelatie met de forest de siteserver, deze clients worden beschouwd als in niet-vertrouwd domein. Een externe vertrouwensrelatie is niet voldoende voor dit doel.  
 
- **Ne modifiez pas les groupes de sécurité créés et gérés par Configuration Manager pour la communication du système de site.**  
+ **Gebruik IPsec om communicaties tussen sitesysteemservers en sites te beveiligen.**  
 
- Groupes de sécurité :  
+ Hoewel Configuration Manager communicatie tussen de siteserver en de computer die SQL Server uitvoert beveiligt, wordt in Configuration Manager-communicatie tussen sitesysteemrollen en SQL Server niet beveiligen. Slechts enkele sitesystemen (het inschrijvingspunt en het Application Catalog-webservicepunt)  kunnen worden geconfigureerd voor HTTPS voor intrasitecommunicatie.  
 
--   **SMS_SiteSystemToSiteServerConnection_MP_&lt;code_site\>**  
+ Gebruikt u geen bijkomende controles om deze server-to-server-kanalen te beveiligen, dan kunnen kwaadwillende personen verschillende adresvervalsingen (spoofing) en man-in-the-middle-aanvallen gebruiken tegen sitesystemen. Gebruik de SMB-ondertekening wanneer u IPsec niet kunt gebruiken.  
 
--   **SMS_SiteSystemToSiteServerConnection_SMSProv_&lt;code_site\>**  
+> [!NOTE]  
+>  Het is van groot belang het communicatiekanaal tussen de siteserver en de bronserver te beveiligen. Deze communicatie maakt gebruik van SMB. Kunt u IPsec niet gebruiken om deze communicatie te beveiligen, dan gebruikt u SMB-ondertekening om te zorgen dat niet aan de bestanden wordt geknoeid voordat clients ze downloaden en uitvoeren.  
 
--   **SMS_SiteSystemToSiteServerConnection_Stat_&lt;code_site\>**  
+ **De beveiligingsgroepen die Configuration Manager maken en beheren voor sitesysteemcommunicatie niet wijzigen.**  
 
-Configuration Manager crée et gère automatiquement ces groupes de sécurité. Cela inclut la suppression de comptes d'ordinateur lorsqu'un rôle de système de site est supprimé.  
+ Beveiligingsgroepen:  
 
-Pour garantir la continuité de service et des privilèges minimum, ne modifiez pas ces groupes manuellement.  
+-   **SMS_SiteSystemToSiteServerConnection_MP_&lt;SiteCode\>**  
 
-**Si les clients ne peuvent pas interroger le serveur du catalogue global pour obtenir des informations Configuration Manager, gérez le processus de mise en service de la clé racine approuvée.**  
+-   **SMS_SiteSystemToSiteServerConnection_SMSProv_&lt;SiteCode\>**  
 
-Si les clients ne peuvent pas interroger le catalogue global pour obtenir des informations Configuration Manager, ils doivent s’appuyer sur la clé racine approuvée pour authentifier des points de gestion valides. La clé racine approuvée est stockée dans le Registre du client et peut être configurée à l'aide d'une stratégie de groupe ou d'une configuration manuelle.  
+-   **SMS_SiteSystemToSiteServerConnection_Stat_&lt;SiteCode\>**  
 
-Si le client ne dispose pas d'une copie de la clé racine approuvée avant de contacter un point de gestion pour la première fois, il approuve le premier point de gestion avec lequel il communique. Pour réduire le risque d'un acte de piraterie consistant à réacheminer les clients vers un point de gestion non autorisé, vous pouvez préparer la mise en service des clients avec la clé racine approuvée. Pour plus d’informations, voir [Planification de la clé racine approuvée](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForRTK).  
+Configuration Manager maakt en beheert deze beveiligingsgroepen automatisch. Dit omvat het verwijderen van computeraccounts wanneer een sitesysteemrol wordt verwijderd.  
 
-**Utilisez des numéros différents des numéros de port par défaut.**  
+Bewerk deze groepen niet handmatig om te zorgen voor de continuïteit van de service en de minimaal benodigde bevoegdheden.  
 
-L’utilisation de numéros de port différents des numéros par défaut peut vous permettre de bénéficier d’une sécurité supplémentaire, car les personnes malveillantes ont plus de difficulté à explorer l’environnement en vue d’une attaque. Si vous décidez d’utiliser des ports autres que les ports par défaut, planifiez-les avant d’installer Configuration Manager et utilisez-les de manière cohérente sur tous les sites de la hiérarchie. Les ports de demande client et l’éveil par appel réseau (Wake On LAN), notamment, permettent d’utiliser des numéros de port autres que les numéros par défaut.  
+**Als clients kunnen geen query op de GC-server voor Configuration Manager-informatie uitvoeren, beheert u de vertrouwde basissleutel inrichtingsproces.**  
 
-**Utilisez la séparation des rôles sur les systèmes de site.**  
+Als clients niet kunnen de globale catalogus voor gegevens van Configuration Manager, moeten ze vertrouwen op de vertrouwde basissleutel om geldige beheerpunten te verifiëren. De vertrouwde basissleutel is opgeslagen in het clientregister en kan worden ingesteld door groepsbeleid of handmatige configuratie te gebruiken.  
 
-Bien que vous puissiez installer tous les rôles de système de site sur un seul ordinateur, cette pratique est rarement utilisée sur les réseaux de production, car elle crée un point de défaillance unique.  
+Heeft de client geen kopie van de vertrouwde basissleutel voordat een beheerpunt voor het eerst wordt gecontacteerd, dan wordt het eerste beheerpunt vertrouwd waarmee wordt gecommuniceerd. U kunt de clients vooraf inrichten door gebruik te maken van de vertrouwde basissleutel om het risico te verkleinen dat een aanvaller clients naar een niet-geautoriseerd beheerpunt omleidt. Zie voor meer informatie [Planning voor de vertrouwde basissleutel](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForRTK).  
 
-**Réduisez le profil d'attaque.**  
+**Niet-standaardpoortnummers gebruiken.**  
 
-L’isolation de chaque rôle de système de site sur un serveur différent réduit le risque qu’une attaque contre les vulnérabilités d’un système de site puisse être utilisée contre un autre système de site. De nombreux rôles de système de site requièrent l’installation d’IIS (Internet Information Services) sur le système de site et cela augmente la surface d’attaque. Si vous devez combiner des rôles de système de site afin de réduire les dépenses en matériel, combinez les rôles de système de site IIS uniquement avec d’autres rôles de système de site nécessitant IIS.  
+Met behulp van niet-standaardpoortnummers kan bijkomende beveiliging bieden omdat ze het moeilijker voor aanvallers om te verkennen van de omgeving in voorbereiding voor een aanval. Als u besluit niet-standaardpoorten te gebruiken, ze te plannen voordat u Configuration Manager installeren en gebruik ze consequent doorheen alle sites in de hiërarchie. Client aangevraagde poorten en Wake On LAN zijn voorbeelden van het gebruik van niet-standaardpoortnummers.  
+
+**Functiescheiding op sitesystemen gebruiken.**  
+
+Hoewel u alle sitesysteemrollen op één enkele computer kunt installeren, wordt deze praktijk zelden gebruikt op productienetwerken aangezien één enkel storingspunt wordt gemaakt.  
+
+**Verminder de kwetsbaarheid.**  
+
+Elke sitesysteemrol op een andere server isoleren verkleint de kans dat een aanval tegen kwetsbaarheden op één sitesysteem kan worden gebruikt voor een andere site-systeem. Vele sitesysteemrollen vereisen de installatie van Internet Information Services (IIS) op het sitesysteem en dit verhoogt de kwetsbaarheid voor aanvallen. Moet u de sitesysteemrollen combineren om uitgaven aan hardware te beperken, combineer IIS-sitesysteemrollen enkel met andere sitesysteemrollen die IIS vereisen.  
 
 > [!IMPORTANT]  
->  Le rôle de point d’état de secours est une exception. Comme ce rôle de système de site accepte les données non authentifiées des clients, nous vous recommandons de ne jamais attribuer le rôle de point d’état de secours à un autre système de site Configuration Manager.  
+>  De rol van het fallbackstatuspunt is een uitzondering. Omdat deze sitesysteemrol niet-geverifieerde gegevens van clients accepteert, wordt u aangeraden dat u de rol van terugvalstatuspunt ooit niet aan een andere Configuration Manager sitesysteemrol toewijzen.  
 
 
-**Suivez les meilleures pratiques de sécurité pour Windows Server et exécutez l'Assistant Configuration de la sécurité sur tous les systèmes de site.**  
+**Volg de aanbevolen beveiligingsprocedures voor Windows Server en voer de Security Configuration Wizard op alle sitesystemen uit.**  
 
-L'Assistant Configuration de la sécurité (SCW) vous aide à créer une stratégie de sécurité que vous pouvez appliquer à n'importe quel serveur de votre réseau. Une fois que vous avez installé le modèle System Center Configuration Manager, l’Assistant Configuration de la sécurité reconnaît les applications, les services, les ports et les rôles de système de site Configuration Manager. Il autorise ensuite les communications requises pour Configuration Manager et bloque les communications non requises.  
+De Security Configuration Wizard (SCW) helpt u om een beveiligingsbeleid te maken dat u kunt toepassen op elke server van uw netwerk. Nadat u de System Center Configuration Manager-sjabloon hebt geïnstalleerd, herkent SCW Configuration Manager-sitesysteemrollen, services, poorten en toepassingen. Dan is de communicatie mogelijk die is vereist voor Configuration Manager en is geen vereiste communicatie geblokkeerd.  
 
-L’Assistant Configuration de la sécurité est inclus dans le kit de ressources pour System Center 2012 Configuration Manager, que vous pouvez télécharger dans le Centre de téléchargement Microsoft : [System Center 2012 – Composants additionnels et extensions du composant Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=251931).  
+De Wizard Beveiliging configureren is inbegrepen in de werkset voor System Center 2012 Configuration Manager, die u via het Microsoft Download Center downloaden kunt: [System Center 2012 – Configuration Manager-onderdeel-invoegtoepassingen en uitbreidingen voor](http://go.microsoft.com/fwlink/p/?LinkId=251931).  
 
-**Configurez des adresses IP statiques pour les systèmes de site.**  
+**Statische IP-adressen voor sitesystemen configureren.**  
 
-Les adresses IP statiques sont plus simples à protéger des attaques de résolution de noms.  
+Statische IP-adressen zijn gemakkelijker te beschermen tegen aanvallen met naamomzetting.  
 
-Elles facilitent également la configuration d’IPsec. L’utilisation d’IPsec est une bonne pratique de sécurité pour sécuriser les communications entre des systèmes de site dans Configuration Manager.  
+Statische IP-adressen maken ook de configuratie van IPsec gemakkelijker. Met behulp van IPsec is een aanbevolen beveiligingsprocedure voor het beveiligen van communicatie tussen sitesystemen in Configuration Manager.  
 
-**N'installez pas d'autres applications sur des serveurs de système de site.**  
+**Installeer geen andere toepassingen op sitesysteemservers.**  
 
-Lorsque vous installez d’autres applications sur des serveurs de système de site, vous augmentez la surface d’attaque pour Configuration Manager et risquez des problèmes d’incompatibilité.  
+Als u andere toepassingen op sitesysteemservers installeert, verhoogt u de kwetsbaarheid voor Configuration Manager en risico incompatibiliteitsproblemen.  
 
-**Exigez la signature et autorisez le cryptage comme une option de site.**  
+**Ondertekening vereisen en versleuteling inschakelen als een optie van de site.**  
 
-Activez les options de signature et de cryptage pour le site. Assurez-vous que tous les clients peuvent prendre en charge l’algorithme de hachage SHA-256, puis activez l’option **Exiger SHA-256**.  
+Schakel de ondertekenings- en versleutelingsopties voor de site in. Zorg ervoor dat alle clients kunnen de hash-algoritme SHA-256 ondersteunen en schakel dan de optie **Vereis SHA-256**.  
 
-**Limitez et surveillez les utilisateurs administratifs Configuration Manager et utilisez l’administration basée sur les rôles pour accorder à ces utilisateurs les autorisations minimales dont ils ont besoin.**  
+**Beperken en gebruikers met beheerdersrechten Configuration Manager controleren en op rollen gebaseerd beheer gebruiken deze gebruikers de minimale om machtigingen te verlenen die ze nodig hebben.**  
 
-Accordez un accès administratif à Configuration Manager uniquement aux utilisateurs auxquels vous faites confiance, puis accordez-leur les autorisations minimales en utilisant les rôles de sécurité intégrés ou en personnalisant les rôles de sécurité. Les utilisateurs administratifs qui peuvent créer, modifier et déployer des applications, des séquence de tâches, des mises à jour logicielles, des éléments de configuration et des références de configuration, peuvent potentiellement contrôler des appareils dans la hiérarchie Configuration Manager.  
+Verleen beheerderstoegang tot Configuration Manager alleen voor gebruikers die u vertrouwt en hen minimale machtigingen Verleen met behulp van de ingebouwde beveiligingsrollen of door de beveiligingsrollen aanpassen. Gebruikers met beheerdersrechten die kunnen maken, wijzigen en implementeren van toepassingen, takenreeks, software-updates, configuratie-items en configuratiebasislijnen, kunnen mogelijk apparaten controleren in de Configuration Manager-hiërarchie.  
 
-Auditez régulièrement les affectations d'utilisateur administratifs et leur niveau d'autorisation pour vérifier les modifications requises.  
+Controleer regelmatig de toewijzingen van gebruikers met beheerdersrechten en hun autorisatieniveau om de vereiste wijzigingen te verifiëren.  
 
-Pour plus d'informations sur la configuration de l'administration basée sur des rôles, voir la section [Configure role-based administration for System Center Configuration Manager](../../../core/servers/deploy/configure/configure-role-based-administration.md).  
+Zie [Beheer op basis van rollen configureren voor System Center Configuration Manager](../../../core/servers/deploy/configure/configure-role-based-administration.md) voor meer informatie over het configureren van op rollen gebaseerd beheer.  
 
-**Sécurisez les sauvegardes Configuration Manager et le canal de communication lors de la sauvegarde et de la restauration.**  
+**Beveiligen van Configuration Manager back-ups en Beveilig het communicatiekanaal wanneer u een back-up en herstellen.**  
 
-Lorsque vous sauvegardez Configuration Manager, ces informations incluent des certificats et d’autres données sensibles qui pourraient être utilisées par une personne malveillante pour l’emprunt d’identité.  
+Wanneer u een back-up van Configuration Manager, omvat deze informatie certificaten en overige gevoelige gegevens die door een aanvaller kunnen worden aangewend voor imitatie.  
 
-Utilisez la signature SMB ou IPsec lorsque vous transférez ces données sur le réseau et sécurisez l'emplacement de sauvegarde.  
+Gebruik SMB-ondertekening of IPsec wanneer u gegevens via het netwerk overdraagt en beveilig de locatie van back-up.  
 
-**Lorsque vous exportez ou importez des objets à partir de la console Configuration Manager vers un emplacement réseau, sécurisez l’emplacement et le canal de réseau.**  
+**Wanneer u objecten exporteert of van de Configuration Manager-console naar een netwerklocatie importeert, Beveilig de locatie en Beveilig het netwerkkanaal.**  
 
-Veillez à restreindre l'accès au dossier réseau.  
+Beperk wie toegang heeft tot de netwerkmap.  
 
-Utilisez la signature SMB ou IPsec entre l’emplacement réseau et le serveur de site, et entre l’ordinateur qui exécute la console Configuration Manager et le serveur de site pour empêcher une personne malveillante de falsifier les données exportées. Utilisez IPsec pour chiffrer les données sur le réseau afin d'éviter la divulgation d'informations.  
+Gebruik SMB-ondertekening of IPsec tussen de netwerklocatie en de siteserver en tussen de computer waarop de Configuration Manager-console en site server uitvoert, om te voorkomen dat een kwaadwillende persoon knoeit met de geëxporteerde gegevens. Gebruik IPsec om de gegevens op het netwerk te versleutelen om openbaarmaking van informatie te voorkomen.  
 
-**Si un système de site n’est pas désinstallé correctement ou cesse de fonctionner et ne peut pas être restauré, supprimez manuellement les certificats Configuration Manager pour ce serveur à partir des autres serveurs Configuration Manager.**  
+**Als een sitesysteem is niet correct verwijderd of niet meer werkt en kan niet worden hersteld, moet u handmatig de Configuration Manager-certificaten voor deze server verwijderen van andere Configuration Manager-servers.**  
 
-Pour supprimer la confiance entre homologues initialement établie avec le système de site et les rôles de système de site, supprimez manuellement les certificats Configuration Manager pour le serveur en échec dans le magasin de certificats **Personnes autorisées** sur d’autres serveurs de système de site. Ceci est particulièrement important si vous adaptez le serveur sans le reformater.  
+Om de PeerTrust die aanvankelijk was ingesteld met het sitesysteem en sitesysteemrollen verwijderen, verwijdert u handmatig de Configuration Manager-certificaten voor de server in de **vertrouwde personen** certificaatarchief op andere sitesysteemservers. Dit is in het bijzonder belangrijk als u het doel van de server wijzigt maar hem niet opnieuw opmaakt.  
 
-Pour plus d’informations sur ces certificats, consultez la section **Contrôles de chiffrement pour la communication du serveur** dans [Informations techniques de référence sur les contrôles de chiffrement pour System Center Configuration Manager](../../../protect/deploy-use/cryptographic-controls-technical-reference.md).  
+Zie de sectie voor meer informatie over deze certificaten **cryptografische besturingselementen voor servercommunicatie** in [cryptografische besturingselementen technische documentatie voor System Center Configuration Manager](../../../protect/deploy-use/cryptographic-controls-technical-reference.md).  
 
-**Ne configurez pas les systèmes de site basés sur Internet pour relier le réseau de périmètre et l'Intranet.**  
+**Configureer geen sitesystemen op internet om het perimeternetwerk en het intranet te overbruggen.**  
 
-Ne configurez pas les serveurs de système de site comme multi-résidents, afin qu’ils se connectent au réseau de périmètre et à l’intranet. Bien que cette configuration autorise les systèmes de site basés sur Internet à accepter les connexions client à partir d'Internet et de l'Intranet, elle élimine une limite de sécurité entre le réseau de périmètre et l'Intranet.  
+Configureer geen sitesysteemservers worden multihomed zodat ze verbinding met het perimeternetwerk en het intranet maken. Hoewel deze configuratie het de sitesystemen op internet toestaat om clientverbindingen via internet en intranet te aanvaarden, wordt hierdoor een beveiligingsgrens tussen het perimeternetwerk en het intranet verwijderd.  
 
-**Si le serveur de système de site se trouve sur un réseau non approuvé (tel qu'un réseau de périmètre), configurez le serveur de site pour établir des connexions avec le système de site.**  
+**Als de sitesysteemserver zich op een niet-vertrouwd netwerk bevindt (zoals een perimeternetwerk), configureert u de siteserver om verbindingen naar het sitesysteem te starten.**  
 
-Par défaut, les systèmes de site établissent des connexions avec le serveur de site pour transférer des données, ce qui peut constituer un risque pour la sécurité lorsque la connexion est établie depuis un réseau non approuvé vers le réseau approuvé. Lorsque des systèmes de site acceptent des connexions depuis Internet ou résident dans une forêt non approuvée, configurez l'option du système de site **Exiger que le serveur de site établisse des connexions vers ce système de site** afin que toutes les connexions soient établies depuis le réseau approuvé une fois que le système de site et tout rôle de système de site a été installé.  
+Standaard starten sitesystemen de verbindingen naar de siteserver om gegevens over te dragen; dit kan een veiligheidsrisico inhouden wanneer de initialisatie van de verbinding loopt van een niet-vertrouwd naar het vertrouwde netwerk. Wanneer sitesystemen verbindingen aanvaarden van het internet of zich bevinden in een niet-vertrouwd forest, configureert u de sitesysteemoptie **De siteserver moet verbindingen met dit sitesysteem initiëren** zodat na de installatie van het sitesysteem en sitesysteemrollen, alle verbindingen geïnitieerd worden vanuit het vertrouwde netwerk.  
 
-**Si vous utilisez un serveur proxy Web pour la gestion des clients basés sur Internet, utilisez le pontage SSL vers SSL à l'aide de la terminaison avec authentification.**  
+**Als u een webproxyserver gebruikt voor clientbeheer via het internet, gebruikt u SSL-bridging naar SSL, door beëindiging met verificatie aan te wenden.**  
 
- Lorsque vous configurez la terminaison SSL au niveau du serveur Web proxy, les paquets provenant d'Internet sont inspectés avant d'être transférés au réseau interne. Le serveur Web proxy authentifie la connexion du client, l'arrête, puis ouvre une nouvelle connexion authentifiée vers les systèmes de site basés sur Internet.  
+ Als u SSL-beëindiging aan de proxywebserver configureert, zijn pakketten van het internet onderhevig aan inspectie voordat ze worden doorgestuurd naar het interne netwerk. De proxywebserver verifieert de verbinding van de client, beëindigt deze, en opent vervolgens een nieuwe geverifieerde verbinding naar de sitesystemen op internet.  
 
- Lorsque les ordinateurs clients Configuration Manager utilisent un serveur web proxy pour se connecter à des systèmes de site basés sur Internet, l’identité du client (GUID client) est contenue, en toute sécurité, dans la charge utile du paquet pour que le point de gestion ne considère pas le serveur web proxy comme le client. Si votre serveur Web proxy ne peut pas prendre en charge la configuration requise pour le pontage SSL, le tunnel SSL est également pris en charge. Il s'agit d'une option moins sûre car les paquets SSL d'Internet sont transférés aux systèmes de site sans terminaison et ne peuvent donc pas être inspectés à la recherche de contenu malveillant.  
+ Wanneer Configuration Manager-clientcomputers een proxywebserver gebruikt verbinding maken met sitesystemen op Internet, wordt de clientidentiteit (client-GUID) veilig opgenomen in de pakketlading zodat het beheerpunt de proxywebserver de client niet beschouwt. Als uw proxywebserver de vereisten voor SSL-bridging niet kan ondersteunen, wordt ook SSL-tunneling ondersteund. Dit is een minder veilige optie omdat de SSL-pakketten van het internet worden doorgestuurd naar de sitesystemen zonder beëindiging. Op die manier kunnen ze niet worden geïnspecteerd op schadelijke inhoud.  
 
- Si votre serveur Web proxy ne peut pas prendre en charge la configuration requise pour le pontage SSL, vous pouvez utiliser le tunnel SSL. Toutefois, il s'agit d'une option moins sûre car les paquets SSL d'Internet sont transférés aux systèmes de site sans terminaison et ne peuvent donc pas être inspectés à la recherche de contenu malveillant.  
+ Als uw proxywebserver de vereisten voor SSL-bridging niet kan ondersteunen, kunt u SSL-tunneling gebruiken. Dit is echter een minder veilige optie omdat de SSL-pakketten van het internet worden doorgestuurd naar de sitesystemen zonder beëindiging. Op die manier kunnen ze niet worden geïnspecteerd op schadelijke inhoud.  
 
 > [!WARNING]  
->  Les appareils mobiles qui sont inscrits par Configuration Manager ne peuvent pas utiliser le pontage SSL et doivent utiliser le tunnel SSL uniquement.  
+>  Mobiele apparaten die zijn ingeschreven door Configuration Manager moeten kunnen SSL-bridging niet gebruiken en enkel SSL-tunneling.  
 
-**Configurations à utiliser si vous configurez le site pour qu’il réveille les ordinateurs afin d’installer le logiciel :**  
+**Te gebruiken configuraties als u de site configureert om computers te activeren om software te installeren:**  
 
--   Si vous utilisez des paquets de mise en éveil traditionnels, utilisez la monodiffusion plutôt que des diffusions dirigées vers le sous-réseau.  
+-   Als u traditionele ontwaakpakketten gebruikt, gebruikt u unicast in plaats van subnet gerichte broadcasts.  
 
--   Si vous devez utiliser des diffusions dirigées vers le sous-réseau, configurez les routeurs de sorte à autoriser les diffusions vers IP uniquement à partir du serveur de site et uniquement sur un numéro de port autre que le port par défaut.  
+-   Als u subnet gerichte broadcasts gebruiken moet, configureert u routers zodat IP gerichte broadcasts alleen vanaf de siteserver en alleen op een niet-standaard poortnummer.  
 
-Pour plus d’informations sur les différentes technologies Wake On LAN, consultez [Planification de l’éveil des clients dans System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).
+Zie voor meer informatie over de verschillende Wake On LAN-technologieën [plannen voor ontwaken van clients in System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).
 
-**Si vous utilisez la notification par courrier électronique, configurez un accès authentifié au serveur de messagerie SMTP.**  
+**Configureer geverifieerde toegang naar de SMTP-mailserver als u e-mailmeldingen gebruikt.**  
 
-Dans la mesure du possible, utilisez un serveur de courrier qui prend en charge l’accès authentifié et le compte d’ordinateur du serveur de site pour l’authentification. Si vous devez spécifier un compte d'utilisateur pour l'authentification, utilisez un compte qui dispose des privilèges minimum.  
+Indien mogelijk gebruik van een e-mailserver die toegang ondersteunt geverifieerde en gebruik het computeraccount van de siteserver voor verificatie. Gebruik het account met de minste bevoegdheden als u een gebruikersaccount moet opgeven voor verificatie.  
 
-##  <a name="BKMK_Security_SiteServer"></a> Bonnes pratiques de sécurité pour le serveur de site  
- Utilisez les bonnes pratiques de sécurité suivantes pour mieux sécuriser le serveur de site Configuration Manager.  
+##  <a name="BKMK_Security_SiteServer"></a>Aanbevolen beveiligingsprocedures voor de siteserver  
+ Gebruik de volgende aanbevolen beveiligingsprocedures om te beschermen met de Configuration Manager-siteserver.  
 
- **Installez Configuration Manager sur un serveur membre plutôt que sur un contrôleur de domaine.**  
+ **Configuration Manager installeren op een lidserver in plaats van een domeincontroller.**  
 
- Le serveur de site Configuration Manager et les systèmes de site ne nécessitent pas d’installation sur un contrôleur de domaine. Un contrôleur de domaine ne possède pas de base de données SAM (Security Accounts Management) locale autre que la base de données du domaine. Lorsque vous installez Configuration Manager sur un serveur membre, vous pouvez gérer les comptes Configuration Manager dans la base de données SAM locale plutôt que dans la base de données du domaine.  
+ De Configuration Manager site server en sitesystemen hoeven niet installeren op een domeincontroller. Domeincontrollers hebben geen lokale SAM-database (Security Accounts Management) naast de domeindatabase. Wanneer u Configuration Manager op een lidserver installeert, kunt u Configuration Manager-accounts in de lokale SAM-database in plaats van de domeindatabase onderhouden.  
 
- Cette pratique réduit également la surface d'attaque sur vos contrôleurs de domaine.  
+ Deze procedure verlaagt ook de kwetsbaarheid op uw domeincontrollers.  
 
- **Installez des sites secondaires en évitant de copier les fichiers vers le serveur de site secondaire sur le réseau.**  
+ **Installeer secundaire sites door te vermijden om de bestanden te kopiëren naar de secundaire siteserver over het netwerk.**  
 
- Lorsque vous exécutez le programme d’installation et créez un site secondaire, ne sélectionnez pas l’option de copie des fichiers depuis le site parent vers le site secondaire, et n’utilisez pas un emplacement réseau source. Lorsque vous copiez des fichiers sur le réseau, un attaquant doué pourrait pirater le package d'installation du site secondaire et falsifier les fichiers avant qu'ils soient installés, bien qu'il soit difficile de programmer cette attaque. Cette attaque peut être atténuée à l'aide d'IPsec ou de SMB lorsque vous transférez les fichiers.  
+ Wanneer u setup uitvoert en maakt een secundaire site, selecteer de optie voor het kopiëren van de bestanden van de bovenliggende site naar de secundaire site niet en gebruik een netwerkbronlocatie niet. Wanneer u bestanden over het netwerk kopieert, zou een ervaren aanvaller het installatiepakket van de secundaire site kunnen overnemen en knoeien met de bestanden voordat ze worden geïnstalleerd. Het plannen van een dergelijke aanval is echter moeilijk. Deze aanval kan worden voorkomen door IPsec of SMB te gebruiken voor de bestandsoverdracht.  
 
- Au lieu de copier les fichiers sur le réseau, sur le serveur de site secondaire, copiez les fichiers sources du dossier multimédia vers un dossier local. Ensuite, lorsque vous exécutez le programme d’installation pour créer un site secondaire, dans la page **Fichiers sources d’installation**, sélectionnez **Utiliser les fichiers sources dans l’emplacement local suivant sur l’ordinateur de site secondaire (le plus sûr)**, et spécifiez ce dossier.  
+ In plaats van het kopiëren van bestanden via het netwerk, klikt u op de secundaire siteserver de bronbestanden van media-map te kopiëren naar een lokale map. Wanneer u vervolgens setup uitvoert om te maken van een secundaire site op het **installatiebronbestanden** pagina **gebruik van de bronbestanden op de volgende locatie op de secundaire sitecomputer (veiligst)**, en geef deze map.  
 
- Pour plus d’informations, consultez [Install a secondary site](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_secondary) (Installer un site secondaire) dans la rubrique [Use the Setup Wizard to install sites](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md) (Utiliser l’Assistant Configuration pour installer des sites).  
+ Zie voor meer informatie [Een secundaire site installeren](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md#bkmk_secondary) in het onderwerp [De installatiewizard gebruiken om sites te installeren](../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  
 
-##  <a name="BKMK_Security_SQLServer"></a> Bonnes pratiques de sécurité pour SQL Server  
- Configuration Manager utilise SQL Server comme base de données principale. Si la base de données est compromise, des personnes malveillantes pourraient contourner Configuration Manager et accéder directement à SQL Server afin de lancer des attaques via Configuration Manager. Considérez les attaques contre SQL Server comme présentant un risque élevé et traitez-les en conséquence.  
+##  <a name="BKMK_Security_SQLServer"></a>Aanbevolen beveiligingsprocedures voor SQL Server  
+ Configuration Manager gebruikt SQL Server als de back-enddatabase. Als de database is aangetast, kunnen aanvallers overslaan van de Configuration Manager en toegang tot SQL Server om aanvallen via Configuration Manager rechtstreeks te. Houd rekening met aanvallen tegen de SQL-Server voor een zeer hoog risico en op de juiste wijze te verhelpen.  
 
- Utilisez les bonnes pratiques de sécurité suivantes pour mieux sécuriser SQL Server pour Configuration Manager.  
+ Gebruik de volgende aanbevolen beveiligingsprocedures om te beschermen, SQL Server voor Configuration Manager.  
 
- **N’utilisez pas le serveur de base de données de site Configuration Manager pour exécuter d’autres applications SQL Server.**  
+ **Gebruik de Configuration Manager-Sitedatabaseserver geen andere SQL Server-toepassingen uit te voeren.**  
 
- L’augmentation du nombre d’accès au serveur de base de données de site Configuration Manager augmente le risque auquel sont exposées vos données Configuration Manager. Si la base de données du site Configuration Manager est compromise, les autres applications sur le même ordinateur SQL Server présentent également des risques.  
+ Wanneer u de toegang tot de Configuration Manager-Sitedatabaseserver verhoogt, verhoogt dit de risico's voor uw Configuration Manager-gegevens. Als de Configuration Manager-sitedatabase is aangetast, worden andere toepassingen op dezelfde computer met SQL Server vervolgens ook risico plaatsen.  
 
- **Configurez SQL Server pour utiliser l'authentification Windows.**  
+ **SQL Server voor het gebruik van Windows-verificatie configureren.**  
 
- Configuration Manager accède au site de base de données à l’aide d’un compte Windows et de l’authentification Windows, mais vous pouvez également configurer SQL Server de sorte qu’il utilise le mode mixte SQL Server. Le mode mixte SQL Server vous permet de configurer des connexions SQL supplémentaires afin d’accéder à la base de données, mais cela n’est pas nécessaire et augmente la surface d’attaque.  
+ Hoewel Configuration Manager toegang heeft tot de sitedatabase met behulp van een Windows-account en de Windows-verificatie, is het nog steeds mogelijk om SQL Server gemengde modus van SQL Server te configureren. Gemengde modus van SQL Server kunnen aanvullende SQL aanmeldingen voor toegang tot de database, die is niet vereist en verhoogt de kwetsbaarheid voor aanvallen.  
 
- **Prenez des mesures supplémentaires pour assurer que les sites secondaires qui utilisent SQL Server Express disposent des dernières mises à jour logicielles.**  
+ **Neem bijkomende stappen om ervoor te zorgen dat secundaire sites die SQL Server Express gebruiken, beschikken over de meest recente software-updates.**  
 
- Lorsque vous installez un site principal, Configuration Manager télécharge SQL Server Express depuis le Centre de téléchargement Microsoft, puis copie les fichiers sur le serveur de site principal. Lorsque vous installez un site secondaire et sélectionnez l’option d’installation de SQL Server Express, Configuration Manager installe la version téléchargée précédemment et ne vérifie pas si de nouvelles versions sont disponibles. Pour vous assurer que le site secondaire dispose des dernières versions, effectuez l’une des tâches suivantes :  
+ Wanneer u een primaire site installeert, wordt Configuration Manager SQL Server Express kan downloaden vanaf het Microsoft Download Center en kopieert de bestanden naar de primaire siteserver. Wanneer u een secundaire site installeert en de optie selecteert om SQL Server Express installeert, wordt Configuration Manager installeert de eerder gedownloade versie en controleert niet of er nieuwe versies beschikbaar zijn. Om ervoor te zorgen dat de secundaire site de meest recente versies heeft, een van de volgende taken te doen:  
 
--   Une fois le site secondaire installé, exécutez Windows Update sur le serveur de site secondaire.  
+-   Nadat de secundaire site is geïnstalleerd, moet u Windows Update uitvoeren op de secundaire siteserver.  
 
--   Avant d'installer le site secondaire, installez SQL Server Express manuellement sur l'ordinateur qui va exécuter le serveur de site secondaire et assurez-vous d'installer la version la plus récente, ainsi que toutes les mises à jour logicielles. Installez ensuite le site secondaire et sélectionnez l’option pour utiliser une instance existante de SQL Server.  
+-   Voordat u de secundaire site installeert, installeert u SQL Server Express handmatig op de computer waarop de secundaire siteserver zal worden uitgevoerd. Zorg er ook voor dat u de meest recente versie en eventuele software-updates installeert. Vervolgens de secundaire site installeert en selecteer de optie voor een bestaand exemplaar van SQL Server gebruiken.  
 
-Exécutez régulièrement Windows Update sur ces sites et sur toutes les versions installées de SQL Server pour vous assurer qu'ils disposent des dernières mises à jour logicielles.  
+Voer Windows Update periodiek uit voor deze sites en alle geïnstalleerde versies van SQL Server om ervoor te zorgen dat ze beschikken over de meest recente software-updates.  
 
-**Suivez les meilleures pratiques pour SQL Server.**  
+**Volg de aanbevolen procedures voor SQL Server.**  
 
-Identifiez et suivez les meilleures pratiques pour votre version de SQL Server. Prenez toutefois en compte les impératifs suivants pour Configuration Manager :  
+Achterhaal en volg de aanbevolen procedures voor uw versie van SQL Server. Echter rekening met de volgende vereisten voor Configuration Manager:  
 
--   Le compte d'ordinateur du serveur de site doit être membre du groupe Administrateurs sur l'ordinateur exécutant SQL Server. Si vous suivez la recommandation SQL Server « Définir des administrateurs de manière explicite », le compte utilisé pour exécuter l’installation sur le serveur de site doit être membre du groupe Utilisateurs SQL.  
+-   Het computeraccount van de siteserver moet lid zijn van de groep Beheerders op de computer waar SQL Server op wordt uitgevoerd. Als u de aanbeveling van SQL Server volgt 'beheerder principals expliciet inrichten', moet het account dat u gebruikt om uit te voeren setup op de siteserver moet lid zijn van de SQL-gebruikersgroep.  
 
--   Si vous installez SQL Server à l'aide d'un compte utilisateur de domaine, vous devez configurer un nom principal de service (SPN) pour le compte d'ordinateur de domaine dans les services de domaine Active Directory. Sans le nom de principal du service, l’authentification Kerberos échoue, de même que l’installation de Configuration Manager.  
+-   Als u SQL Server installeert met een domeingebruikersaccount, zorg er dan voor dat het account van de siteservercomputer is geconfigureerd voor de principal-naam van de service (SPN-naam) die is gepubliceerd naar Active Directory Domain Services. Kerberos-verificatie is mislukt zonder de SPN-naam en mislukt de installatie van Configuration Manager.  
 
-##  <a name="BKMK_Security_IIS"></a> Bonnes pratiques de sécurité pour les systèmes de site exécutant IIS  
-Plusieurs rôles de système de site dans Configuration Manager requièrent IIS. Le processus de sécurisation IIS permet à Configuration Manager de fonctionner correctement et réduit les risques d’attaques de sécurité. Dans la mesure du possible, réduisez le nombre de serveurs qui requièrent IIS. Par exemple, exécutez uniquement le nombre de points de gestion dont vous avez besoin pour prendre en charge votre base de clients, en tenant compte de la haute disponibilité et de l'isolation du réseau pour la gestion des clients basée sur Internet.  
+##  <a name="BKMK_Security_IIS"></a>Aanbevolen beveiligingsprocedures voor sitesystemen die IIS uitvoeren  
+Verschillende sitesysteemrollen in Configuration Manager vereisen IIS. Het proces voor het beveiligen van IIS kunt Configuration Manager correct functioneren en vermindert het risico op beveiligingsaanvallen. Wanneer praktische, Beperk het aantal servers die IIS vereisen. Voer bijvoorbeeld alleen het aantal beheerpunten uit dat u nodig hebt om uw clients te ondersteunen en houdt rekening met de hoge beschikbaarheid en netwerkisolatie voor clientbeheer via het internet.  
 
- Utilisez les meilleures pratiques de sécurité suivantes pour contribuer à sécuriser les systèmes de site qui exécutent IIS.  
+ Gebruik de volgende aanbevolen beveiligingsprocedures om te helpen de sitesystemen die IIS uitvoeren, te beveiligen.  
 
- **Désactivez les fonctions IIS dont vous n’avez pas besoin.**  
+ **Schakel IIS-functies die u niet nodig hebt.**  
 
- Installez uniquement les fonctionnalités IIS minimales pour le rôle de système de site que vous installez. Pour plus d’informations, consultez [Prérequis des sites et systèmes de site](../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
+ Installeer alleen de IIS-functies die u nodig hebt voor de sitesysteemrol die u installeert. Zie voor meer informatie [Site and site system prerequisites](../../../core/plan-design/configs/site-and-site-system-prerequisites.md) (Vereisten voor sites en sitesystemen).  
 
- **Configurez les rôles de système de site pour exiger HTTPS.**  
+ **Configureer de sitesysteemrollen om HTTPS te gebruiken.**  
 
- Lorsque les clients se connectent à un système de site à l'aide du protocole HTTP au lieu de HTTPS, ils utilisent l'authentification Windows, qui peut avoir recours à l'authentification NTLM plutôt qu'à l'authentification Kerberos. Avec l'authentification NTLM, les clients risquent de se connecter à un serveur non autorisé.  
+ Als clients verbinden met een sitesysteem via HTTP in plaats van HTTPS, gebruiken ze Windows-verificatie, en met deze methode is het mogelijk dat ze terugschakelen naar NTLM-verificatie in plaats van Kerberos-verificatie. Als NTLM-verificatie wordt gebruikt, is het mogelijk dat clients verbinden met een rogue server.  
 
- Les points de distribution peuvent présenter l'exception à cette meilleure pratique de sécurité dans la mesure où les comptes d'accès aux packages ne fonctionnent pas lorsque ces points de distribution sont configurés pour le protocole HTTPS. Les comptes d'accès aux packages fournissent des autorisations d'accès au contenu, vous permettant de limiter les utilisateurs disposant des droits d'accès au contenu. Pour plus d’informations, voir [Bonnes pratiques de sécurité pour la gestion de contenu](../../../core/plan-design/hierarchy/security-and-privacy-for-content-management.md#BKMK_Security_ContentManagement).  
+ Distributiepunten zijn een mogelijke uitzondering op deze aanbevolen beveiligingsprocedure, omdat pakkettoegangsaccounts niet werken wanneer het distributiepunt is geconfigureerd voor HTTPS. Pakkettoegangsaccounts geven goedkeuring aan de inhoud; zo kunt u beperken welke gebruikers toegang hebben tot de inhoud. Zie voor meer informatie [aanbevolen beveiligingsprocedures voor inhoudsbeheer](../../../core/plan-design/hierarchy/security-and-privacy-for-content-management.md#BKMK_Security_ContentManagement).  
 
-**Configurez une liste de certificats de confiance dans IIS pour les rôles système de site.**  
+**Configureer een certificaatvertrouwenslijst (CTL) in IIS voor de sitesysteemrollen.**  
 
-Rôles des systèmes de site :  
+Sitesysteemrollen:  
 
--   Point de distribution configuré pour le protocole HTTPS  
+-   Een distributiepunt dat is geconfigureerd voor HTTPS  
 
--   Point de gestion configuré pour le protocole HTTPS et pour la prise en charge des appareils mobiles
+-   Een beheerpunt dat is geconfigureerd voor HTTPS en ingeschakeld voor de ondersteuning van mobiele apparaten
 
-Une liste de certificats de confiance est une liste définie d'autorités de certification racine de confiance. Utilisée avec une stratégie de groupe et un déploiement d’infrastructure à clé publique (PKI), une liste de certificats de confiance vous permet de compléter les autorités de certification racine de confiance déjà configurées sur votre réseau, notamment celles installées automatiquement avec Microsoft Windows ou ajoutées par le biais des autorités de certification racine d’entreprise Windows. Toutefois, lorsqu’une liste de certificats de confiance est configurée dans IIS, elle définit un sous-ensemble des autorités de certification racine de confiance.  
+Een certificaatvertrouwenslijst (CTL) is een gedefinieerde lijst van vertrouwde basiscertificeringsinstanties. Wanneer u een CTL met Groepsbeleid en een openbare-sleutelinfrastructuur (PKI)-implementatie gebruikt, wordt er een CTL kunt u vormen een aanvulling op de bestaande vertrouwde basiscertificeringsinstanties die zijn geconfigureerd op uw netwerk, zoals systemen die automatisch worden geïnstalleerd met Microsoft Windows of met behulp van Windows enterprise basiscertificeringsinstanties toegevoegd. Als een CTL in IIS is geconfigureerd, definieert deze echter een subset van deze vertrouwde basiscertificeringsinstanties.  
 
-Ce dernier vous confère un contrôle accru de la sécurité car la liste de certificats de confiance limite l'acceptation des certificats clients à ceux qui sont publiés à partir de la liste des autorités de certification de la liste de certificats de confiance. Par exemple, Windows est fourni avec différents certificats d’autorités de certification tierces renommées, telles que VeriSign et Thawte.
+Deze subset geeft u meer controle over beveiliging omdat CTL de clientcertificaten die worden geaccepteerd, beperkt tot alleen deze die worden verleend uit de lijst certificeringsinstanties in de CTL. Windows wordt bijvoorbeeld geleverd met een aantal certificaten van certificeringsinstanties van een bekende, van derden, zoals VeriSign en Thawte.
 
-Par défaut, l'ordinateur qui exécute les services Internet (IIS) approuve les certificats liés à ces autorités de certification connues. Si vous ne configurez pas IIS avec une liste de certificats de confiance pour les rôles de système de site répertoriés, tout appareil doté d’un certificat client publié par ces autorités de certification est accepté comme client Configuration Manager valide. Si vous configurez les services Internet (IIS) avec une liste de certificats de confiance qui ne comprend pas ces autorités de certification, les connexions de clients sont rejetées si le certificat requis était lié à ces autorités de certification. Cependant, pour que les clients Configuration Manager soient acceptés dans les rôles de système de site répertoriés, vous devez configurer IIS avec une liste de certificats de confiance qui spécifie les autorités de certification utilisées par les clients Configuration Manager.  
+Standaard vertrouwt de computer die IIS uitvoert, certificaten die zijn gekoppeld aan deze bekende certificeringsinstanties. Als u IIS niet met een CTL voor de vermelde sitesysteemrollen configureert, wordt elk apparaat dat een clientcertificaat dat is uitgegeven door deze certificeringsinstanties heeft geaccepteerd als een geldige Configuration Manager-client. Als u IIS configureert met een CTL dat deze certificeringsinstanties niet bevat, worden clientverbindingen geweigerd als het certificaat aan deze certificeringsinstellingen is gekoppeld. Voor Configuration Manager-clients kunnen worden geaccepteerd voor de vermelde sitesysteemrollen, moet u IIS echter configureren met een CTL dat de certificeringsinstanties opgeven die worden gebruikt door Configuration Manager-clients.  
 
 > [!NOTE]  
->  Seuls les rôles de système de site répertoriés exigent que vous configuriez une liste de certificats de confiance dans IIS. La liste d’émetteurs de certificats utilisée par Configuration Manager pour les points de gestion fournit la même fonctionnalité aux ordinateurs clients lorsqu’ils se connectent aux points de gestion HTTPS.  
+>  Alleen de vermelde sitesysteemrollen, moet u een CTL in IIS te configureren. De lijst met certificaatverleners die Configuration Manager voor beheerpunten gebruikt, bieden dezelfde functionaliteit voor clientcomputers wanneer ze met HTTPS-beheerpunten verbinden.  
 
-Pour plus d'informations sur la façon de configurer une liste d'autorités de certification approuvées dans IIS, consultez la documentation de IIS.  
+Raadpleeg uw IIS-documentatie voor meer informatie over het configureren van een lijst met vertrouwde certificeringsinstanties in IIS.  
 
-**N'installez pas le serveur de site sur un ordinateur comportant IIS.**  
+**Plaats de siteserver niet op een computer met IIS.**  
 
-La séparation des rôles permet de réduire le profil d'attaque et d'optimiser la récupération. De plus, le compte d’ordinateur du serveur de site dispose généralement des privilèges d’administrateur sur tous les rôles de système de site (et probablement sur les clients Configuration Manager, si vous utilisez l’installation poussée du client).  
+Functiescheiding helpt de kwetsbaarheid te verlagen en de herstelmogelijkheden te verbeteren. Bovendien heeft het computeraccount van de siteserver doorgaans beheerdersbevoegdheden op alle sitesysteemrollen (en mogelijk op Configuration Manager-clients, als u push-clientinstallatie gebruiken).  
 
-**Utilisez des serveurs IIS dédiés pour Configuration Manager.**  
+**Gebruik toegewijde IIS-servers voor Configuration Manager.**  
 
-Il est possible d’héberger plusieurs applications basées sur le web sur les serveurs IIS utilisés par Configuration Manager, mais cela peut augmenter considérablement votre surface d’attaque. Une application mal configurée peut permettre à un attaquant d’acquérir le contrôle d’un système de site Configuration Manager, puis d’étendre son contrôle à la hiérarchie.  
+Hoewel u meerdere webtoepassingen op de IIS-servers die ook door Configuration Manager gebruikt worden hosten kunt, kan deze praktijk uw kwetsbaarheid aanzienlijk verhogen. Een slecht geconfigureerde toepassing kan een aanvaller controle van een Configuration Manager-sitesysteem, waardoor een aanvaller controle krijgt over de hiërarchie kan krijgen.  
 
-Si vous devez exécuter d’autres applications basées sur le web sur des systèmes de site Configuration Manager, créez un site web personnalisé pour les systèmes de site Configuration Manager.  
+Als u andere webtoepassingen op Configuration Manager-sitesystemen uitvoeren moet, maakt u een aangepaste website voor Configuration Manager-sitesystemen.  
 
-**Utilisez un site web personnalisé.**  
+**Een aangepaste website gebruiken.**  
 
-Pour les systèmes de site exécutant IIS, vous pouvez configurer Configuration Manager pour utiliser un site web personnalisé en lieu et place du site web par défaut pour IIS. Si vous devez exécuter d’autres applications basées sur le Web sur le système de site, vous devez utiliser un site web personnalisé. Ce paramètre s’applique à l’ensemble du site plutôt qu’à un système de site spécifique.  
+U kunt de Configuration Manager voor het gebruik van een aangepaste website in plaats van de standaardwebsite voor IIS configureren voor sitesystemen die IIS uitvoeren. Als u andere webtoepassingen op het sitesysteem uitvoeren, moet u een aangepaste website. Deze instelling is een gehele site-instelling in plaats van een instelling voor een specifiek sitesysteem.  
 
-En plus de fournir une sécurité supplémentaire, vous devez utiliser un site Web personnalisé si vous exécutez d'autres applications Web sur le système de site.  
+Naast het bieden van bijkomende beveiliging, moet u een aangepaste website gebruiken als u andere webtoepassingen op het sitesysteem uitvoert.  
 
-**Si vous passez du site Web par défaut à un site Web personnalisé après l'installation des rôles de point de distribution, supprimez les répertoires virtuels par défaut.**  
+**Verwijder de standaard virtuele mappen als u overschakelt van de standaardwebsite naar een aangepaste website na het installeren van distributiepunten.**  
 
-Lorsque vous utilisez un site web personnalisé à la place du site web par défaut, Configuration Manager ne supprime pas les anciens répertoires virtuels. Supprimez les répertoires virtuels que Configuration Manager a créés initialement sous le site web par défaut.  
+Als u overschakelt van de standaardwebsite naar een aangepaste website, verwijdert Configuration Manager de oude virtuele mappen niet. Verwijder de virtuele mappen die oorspronkelijk door Configuration Manager zijn gemaakt voor de standaardwebsite.  
 
-Par exemple, les répertoires virtuels à supprimer pour un point de distribution sont les suivants :  
+Dit zijn de virtuele mappen die u bijvoorbeeld moet verwijderen voor een distributiepunt:  
 
 -   SMS_DP_SMSPKG$  
 
@@ -286,81 +286,81 @@ Par exemple, les répertoires virtuels à supprimer pour un point de distributio
 
 -   NOCERT_SMS_DP_SMSSIG$  
 
-**Suivez les meilleures pratiques relatives au serveur IIS.**  
+**Volg de aanbevolen procedures voor IIS Server.**  
 
-Identifiez et suivez les meilleures pratiques relatives à votre version du serveur IIS. Toutefois, prenez en considération les spécifications de Configuration Manager relatives à certains rôles de système de site spécifiques. Pour plus d’informations, consultez [Prérequis des sites et systèmes de site](../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
+Achterhaal en volg de aanbevolen procedures voor uw versie van IIS Server. Echter rekening met de vereisten die Configuration Manager voor specifieke sitesysteemrollen heeft. Zie voor meer informatie [Site and site system prerequisites](../../../core/plan-design/configs/site-and-site-system-prerequisites.md) (Vereisten voor sites en sitesystemen).  
 
-##  <a name="BKMK_Security_ManagementPoint"></a> Bonnes pratiques de sécurité pour le point de gestion  
- Les points de gestion représentent l’interface principale entre les appareils et Configuration Manager. Toute attaque contre le point de gestion et le serveur sur lequel il s’exécute doit être considérée comme représentant un risque élevé et doit être traitée en conséquence. Appliquez toutes les bonnes pratiques de sécurité et surveillez toute activité inattendue.  
+##  <a name="BKMK_Security_ManagementPoint"></a>Aanbevolen beveiligingsprocedures voor het beheerpunt  
+ Beheerpunten zijn de primaire interface tussen apparaten en Configuration Manager. Houd rekening met aanvallen tegen het beheerpunt en de server waarop deze wordt uitgevoerd op een zeer hoog risico en op de juiste wijze te verhelpen. Pas alle aanbevolen beveiligingsprocedures toe en controleer het systeem op ongewone activiteit.  
 
- Utilisez les bonnes pratiques suivantes pour mieux sécuriser un point de gestion dans Configuration Manager.  
+ Gebruik de volgende aanbevolen beveiligingsprocedures om te helpen beveiligen van een beheerpunt in Configuration Manager.  
 
-**Lorsque vous installez un client Configuration Manager sur le point de gestion, attribuez-le au site de ce point de gestion.**  
+**Wanneer u een Configuration Manager-client op het beheerpunt installeert, kunt u dit aan dat beheerpunt site toewijzen.**  
 
- Évitez le scénario où un client Configuration Manager sur un système de site de point de gestion est attribué à un site autre que le site du point de gestion.  
+ Vermijd een scenario waarbij een Configuration Manager-client die zich op een sitesysteem voor beheerpunt bevindt is toegewezen aan een andere site dan de site van het beheerpunt.  
 
- Si vous migrez vers System Center Configuration Manager à partir d’une version antérieure, migrez dès que possible le logiciel client sur le point de gestion vers System Center Configuration Manager.  
+ Als u vanaf een eerdere versie naar System Center Configuration Manager migreert, migreren van de clientsoftware op het beheerpunt naar System Center Configuration Manager zo snel mogelijk.  
 
-##  <a name="BKMK_Security_FSP"></a> Bonnes pratiques de sécurité pour le point d’état de secours  
- Utilisez les bonnes pratiques de sécurité suivantes si vous installez un point d’état de secours dans Configuration Manager.  
+##  <a name="BKMK_Security_FSP"></a>Aanbevolen beveiligingsprocedures voor het terugvalstatuspunt  
+ Gebruik de volgende aanbevolen beveiligingsprocedures als u een terugvalstatuspunt in Configuration Manager installeert.  
 
- Pour plus d'informations sur les considérations relatives à la sécurité, voir [Determine Whether You Require a Fallback Status Point](../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md#determine-if-you-need-a-fallback-status-point).  
+ Zie [Bepalen of u een terugvalstatuspunt](../../../core/clients/deploy/plan/determine-the-site-system-roles-for-clients.md#determine-if-you-need-a-fallback-status-point) nodig hebt voor meer informatie over de beveiligingsoverwegingen wanneer u een terugvalstatuspunt installeert.  
 
 
-**N’exécutez pas d’autres rôles de système de site sur le système de site et n’installez pas le point d’état de secours sur un contrôleur de domaine.**  
+**Voer geen andere sitesysteemrollen op het sitesysteem en niet de status fallback-punt installeert op een domeincontroller.**  
 
- Le point d'état de secours est conçu pour accepter les communications non authentifiées provenant de n'importe quel ordinateur. De ce fait, l'exécution de ce rôle de système de site avec d'autres rôles de système de site ou sur un contrôleur de domaine augmente considérablement le risque auquel est exposé le serveur.  
+ Omdat het terugvalstatuspunt is ontwikkeld om niet-geverifieerde communicatie van eender welke computer te accepteren, vormt het uitvoeren van deze sitesysteemrol met andere sitesysteemrollen of op een domeincontroller een aanzienlijk hoger risico voor die server.  
 
-**Lorsque vous utilisez des certificats PKI pour la communication client dans Configuration Manager, installez le point d’état de secours avant d’installer les clients.**  
+**Wanneer u PKI-certificaten voor clientcommunicatie in Configuration Manager gebruikt, installeert u het terugvalstatuspunt voordat u de clients installeert.**  
 
- Si les systèmes de site Configuration Manager n’acceptent pas la communication client HTTP, vous pouvez ne pas être au courant que des clients ne sont pas gérés en raison de problèmes liés aux certificats PKI. Toutefois, si les clients sont affectés à un point d’état de secours, ces problèmes de certificat sont signalés par le point d’état de secours.  
+ Als Configuration Manager-sitesystemen geen HTTP-clientcommunicatie accepteren, kent u mogelijk niet dat clients niet-beheerd door aan PKI gerelateerde certificaatproblemen zijn. Echter, als clients zijn toegewezen aan een terugvalstatuspunt, deze certificaatproblemen worden gemeld door het terugvalstatuspunt.  
 
- Pour des raisons de sécurité, vous ne pouvez pas affecter un point d’état de secours aux clients une fois qu’ils sont installés. Au lieu de cela, vous ne pouvez attribuer ce rôle que pendant l’installation des clients.  
+ Uit veiligheidsoverwegingen kunt u een terugvalstatuspunt toewijzen aan clients nadat ze zijn geïnstalleerd. In plaats daarvan kunt u deze rol alleen tijdens clientinstallatie toewijzen.  
 
-**Évitez d'utiliser le point d'état de secours dans le réseau de périmètre.**  
+**Vermijd het gebruik van het terugvalstatuspunt in het perimeternetwerk.**  
 
- Le point d'état de secours est conçu pour accepter les données provenant de n'importe quel client. Un point d'état de secours sur le réseau de périmètre facilite le dépannage des clients basés sur Internet, mais il convient d'évaluer les avantages liés au dépannage par rapport aux risques pouvant être engendrés par un système de site qui accepte les données non authentifiées sur un réseau accessible au public.  
+ Het terugvalstatuspunt is bedoeld om gegevens van elke client te accepteren. Hoewel een terugvalstatuspunt in het perimeternetwerk u hulp kan bieden bij foutopsporing voor clients op internet, moet u de voordelen voor foutopsporing afwegen tegen het risico van een sitesysteem dat niet-geverifieerde gegevens accepteert in een vrij toegankelijk netwerk.  
 
- Si vous installez le point d’état de secours sur le réseau de périmètre ou sur tout réseau non approuvé, configurez le serveur de site de sorte qu’il initialise les transferts de données au lieu du paramètre par défaut qui autorise le point d’état de secours à se connecter au serveur de site.  
+ Als u het terugvalstatuspunt in het perimeternetwerk of een niet-vertrouwd netwerk installeert, configureert u de siteserver om gegevensoverdrachten te initiëren in plaats van het terugvalstatuspunt een verbinding met de siteserver tot stand met behulp van de instelling die toestaat.  
 
-##  <a name="BKMK_SecurityIssues_Clients"></a> Problèmes de sécurité pour l’administration de site  
- Passez en revue les problèmes de sécurité suivants pour Configuration Manager :  
+##  <a name="BKMK_SecurityIssues_Clients"></a>Beveiligingsproblemen voor sitebeheer  
+ Bekijk de volgende beveiligingsproblemen voor Configuration Manager:  
 
--   Configuration Manager ne possède aucune défense contre un utilisateur administratif autorisé qui utilise Configuration Manager pour attaquer le réseau. Les utilisateurs administratifs non autorisés représentent un risque élevé pour la sécurité et peuvent lancer de nombreuses attaques, dont notamment les stratégies suivantes :  
+-   Configuration Manager bevat geen beveiliging tegen een geautoriseerde beheergebruiker die Configuration Manager gebruikt voor aanvallen op het netwerk. Niet-geautoriseerde gebruikers met beheerdersrechten kunnen vormen een hoog beveiligingsrisico en talrijke aanvallen doen, waaronder de volgende strategieën:  
 
-    -   l’utilisation de la fonction de déploiement de logiciels pour installer et exécuter automatiquement un logiciel malveillant sur tous les clients Configuration Manager de l’entreprise ;  
+    -   Software-implementatie gebruiken automatisch installeren en uitvoeren van schadelijke software op elke Configuration Manager-clientcomputer in de onderneming.  
 
-    -   l’utilisation du contrôle distant pour prendre à distance le contrôle d’un client Configuration Manager sans autorisation ;  
+    -   Gebruik extern beheer op afstand beheren van een Configuration Manager-client zonder toestemming.  
 
-    -   la configuration d'intervalles d'interrogation rapides et d'un grand nombre d'inventaires afin de créer des attaques par déni de service contre les clients et les serveurs ;  
+    -   Snelle pollingintervallen en buitensporige hoeveelheden inventaris configureren om DoS-aanvallen te doen tegen de clients en servers.  
 
-    -   l'utilisation d'un site de la hiérarchie pour écrire des données dans un autre site Active Directory.  
+    -   Eén site in de hiërarchie gebruiken om gegevens naar Active Directory-gegevens van een andere site te schrijven.  
 
-    La hiérarchie du site constitue la limite de sécurité. Considérez le sites comme des limites de gestion uniquement.  
+    Hiërarchie van de site is de beveiligingsgrens. Bedenk dat sites alleen beheergrenzen.  
 
-    Analysez toutes les opérations de l'utilisateur administratif et consultez régulièrement les journaux d'audit. Il est impératif de vérifier les antécédents professionnels des utilisateurs administratifs Configuration Manager avant de les recruter, puis de les soumettre régulièrement à des vérifications.  
+    Controleer de gehele activiteit van gebruikers met beheerdersrechten en controleer regelmatig de controlelogboeken. Vereist op alle Configuration Manager gebruikers met beheerdersrechten dat zij een achtergrondcontrole ondergaan voordat zij worden aangenomen en eis periodieke hercontroles als arbeidsvoorwaarde.  
 
--   Si le point d'inscription est compromis, un attaquant peut obtenir des certificats pour authentification et voler les informations d'identification des utilisateurs qui inscrivent leurs appareils mobiles.  
+-   Als het inschrijvingspunt in het geding komt, zou een kwaadwillend persoon certificaten voor verificatie kunnen verkrijgen en de referenties kunnen stelen van gebruikers die hun mobiele apparaten inschrijven.  
 
-    Le point d'inscription communique avec une autorité de certification et peut créer, modifier et supprimer des objets Active Directory. N’installez jamais le point d’inscription dans le réseau de périmètre et surveillez toute activité inattendue.  
+    Het inschrijvingspunt communiceert met een certificeringinstantie en kan Active Directory-objecten maken, aanpassen en verwijderen. Het inschrijvingspunt nooit installeren in het perimeternetwerk en altijd op ongewone activiteit controleren.  
 
--   Si vous autorisez des stratégies d'utilisateur pour la gestion des clients basés sur Internet ou configurez le point du site Web du catalogue d'applications pour les utilisateurs lorsqu'ils sont sur Internet, vous augmentez votre profil d'attaque.  
+-   Als u beleidsregels van gebruikers toestaat voor clientbeheer op internet of het Application Catalog-websitepunt voor gebruikers configureert wanneer zij op het internet zijn, vergroot u uw beveiligingsrisico voor een aanval.  
 
-    En plus des certificats PKI pour les connexions client à serveur, ces configurations requièrent l'authentification Windows, qui peut avoir recours à l'authentification NTLM plutôt qu'à l'authentification Kerberos. L'authentification NTLM est vulnérable aux attaques par relecture et emprunt d'identité. Pour authentifier correctement un utilisateur sur Internet, vous devez autoriser une connexion d'un serveur de système de site basé sur Internet à un contrôleur de domaine.  
+    Naast het gebruik van PKI-certificaten voor verbindingen tussen client en server vereisen deze configuraties Windows-verificatie, wat mogelijk erop neerkomt dat u NTLM-verificatie gebruikt in plaats van Kerberos. NTLM-verificatie is kwetsbaar voor imitatie- en replayaanvallen. Als u een gebruiker op het internet wilt verifiëren, moet u een verbinding toestaan van de sitesysteemserver op internet met een domeincontroller.  
 
--   Le partage Admin$ est requis sur les serveurs de système de site.  
+-   De Admin$-share is vereist op sitesysteemservers.  
 
-    Le serveur de site Configuration Manager utilise le partage Admin$ pour se connecter aux systèmes de site et y effectuer des opérations de service. Ne désactivez pas ou ne supprimez pas le partage Admin$.  
+    De Configuration Manager-siteserver gebruikt de Admin$-share voor verbinding maken met en het uitvoeren van de servicebewerkingen op sitesystemen. U dient de Admin$-share niet uit te schakelen of te verwijderen.  
 
--   Configuration Manager utilise des services de résolution de noms pour se connecter à d’autres ordinateurs. Ces services sont difficiles à sécuriser contre des attaques de sécurité telles que l’usurpation, l’altération, la répudiation, la divulgation d’informations, le déni de service et l’élévation de privilèges.  
+-   Configuration Manager maakt gebruik van naamomzettingsservices verbinding maken met andere computers en deze services zijn moeilijk te beveiligen tegen beveiligingsaanvallen zoals vervalsing, knoeien, ontkenning, openbaarmaking van informatie, DOS-aanval en bevoegdheden.  
 
-    Identifiez et suivez les meilleures pratiques de sécurité pour la version de DNS et WINS que vous utilisez pour la résolution de noms.  
+    Stel de aanbevolen procedures voor beveiliging vast voor de DNS- en WINS-versie die u voor naamomzetting gebruikt.  
 
-##  <a name="BKMK_Privacy_Cliients"></a> Informations de confidentialité pour la découverte  
- La découverte crée des enregistrements pour les ressources réseau et les stocke dans la base de données System Center Configuration Manager. Les enregistrements de données de découverte contiennent des informations sur les ordinateurs, telles que les adresses IP, les systèmes d’exploitation et les noms des ordinateurs. Les méthodes de découverte Active Directory peuvent également être configurées pour découvrir toute information stockée dans les services de domaine Active Directory.  
+##  <a name="BKMK_Privacy_Cliients"></a>Privacyinformatie voor detectie  
+ Detectie records gemaakt voor netwerkbronnen en slaat ze op in de System Center Configuration Manager-database. Records van detectiegegevens bevatten computergegevens zoals IP-adressen, besturingssystemen en computernamen. U kunt Active Directory-detectiemethoden tevens zodanig configureren, dat in Active Directory Domain Services opgeslagen informatie wordt gedetecteerd.  
 
- La seule méthode de découverte activée par défaut est la découverte par pulsations d’inventaire, mais cette méthode découvre uniquement les ordinateurs sur lesquels le logiciel client System Center Configuration Manager est installé.  
+ De enige detectiemethode die standaard is ingeschakeld is Heartbeat Discovery, maar deze methode detecteert alleen computers die al de System Center Configuration Manager-clientsoftware geïnstalleerd hebben.  
 
- Les informations de découverte ne sont pas envoyées à Microsoft. Au lieu de cela, elles sont stockées dans la base de données Configuration Manager. Les informations sont conservées dans la base de données jusqu’à leur suppression, tous les 90 jours, par la tâche de maintenance du site **Supprimer les données de découverte anciennes**.  
+ Er wordt geen detectie-informatie naar Microsoft verzonden. Het item wordt opgeslagen in de Configuration Manager-database. Informatie wordt bewaard in de database tot deze om de 90 dagen wordt verwijderd door de siteonderhoudstaak **verouderde Detectiegegevens verwijderen**.  
 
- Avant de configurer d'autres méthodes de découverte ou d'étendre la découverte Active Directory, pensez aux conditions requises en termes de confidentialité.  
+ Bedenk goed wat uw privacyvereisten zijn, voordat u extra detectiemethoden configureert of de Active Directory-detectie uitbreidt,  

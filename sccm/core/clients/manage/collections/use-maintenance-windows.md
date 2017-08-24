@@ -1,6 +1,6 @@
 ---
-title: "Utiliser des fenêtres de maintenance | Microsoft Docs"
-description: "Utilisez les regroupements et les fenêtres de maintenance pour gérer efficacement les clients dans System Center Configuration Manager."
+title: Gebruik van onderhoudsvensters | Microsoft Docs
+description: Verzamelingen en onderhoudsvensters gebruiken clients in System Center Configuration Manager effectief te beheren.
 ms.custom: na
 ms.date: 02/22/2017
 ms.prod: configuration-manager
@@ -17,55 +17,55 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: fa67cf597c73bab47209c9b98539f97e174ae70b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-use-maintenance-windows-in-system-center-configuration-manager"></a>Comment utiliser les fenêtres de maintenance dans System Center Configuration Manager
+# <a name="how-to-use-maintenance-windows-in-system-center-configuration-manager"></a>Het gebruik van onderhoudsvensters in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Les fenêtres de maintenance vous permettent de définir une période de temps pendant laquelle des opérations Configuration Manager peuvent être effectuées sur un regroupement d’appareils. Vous pouvez utiliser les fenêtres de maintenance afin de vous assurer que les modifications apportées à la configuration client seront effectuées pendant des périodes qui n’affectent pas la productivité.  
+Onderhoudsvensters kunnen u een tijdstip waarop Configuration Manager-bewerkingen kunnen worden uitgevoerd op een apparatenverzameling definiëren. U kunt onderhoudsvensters gebruiken om ervoor te zorgen dat wijzigingen plaatsvinden tijdens perioden die niet van invloed zijn op de productiviteit van de clientconfiguratie.  
 
- Les opérations suivantes prennent en charge les fenêtres de maintenance :  
+ De volgende bewerkingen ondersteunen onderhoudsvensters:  
 
--   Déploiements de logiciels  
+-   Software-implementatie  
 
--   Déploiements de mises à jour logicielles  
+-   Software-update-implementaties  
 
--   Déploiement et évaluation des paramètres de compatibilité  
+-   Implementatie en beoordeling van instellingen voor naleving  
 
--   Déploiements de système d'exploitation  
+-   Implementaties van besturingssystemen  
 
--   Déploiements de séquences de tâches  
+-   Implementaties van takenreeksen  
 
- Configurez des fenêtres de maintenance avec une date de début, une heure de début et de fin, ainsi qu’une périodicité. La durée maximale d’une fenêtre doit être inférieure à 24 heures. Par défaut, les redémarrages de l’ordinateur dus à un déploiement ne sont pas autorisés à l’extérieur d’une fenêtre de maintenance, mais vous pouvez remplacer la valeur par défaut. Les fenêtres de maintenance affectent uniquement l’heure d’exécution du programme de déploiement ; les applications configurées pour un téléchargement et une exécution en local peuvent télécharger du contenu en dehors de la fenêtre.  
+ Onderhoudsvensters configureren met een startdatum, een start- en eindtijd en een terugkeerpatroon. De maximumduur van een venster is minder dan 24 uur. Computer opnieuw opgestart door een implementatie zijn niet toegestaan buiten een onderhoudsvenster, maar u kunt deze standaardinstelling negeren. Onderhoudsvensters invloed hebben op alleen de tijd waarop het implementatieprogramma wordt uitgevoerd; toepassingen die zijn geconfigureerd om te downloaden en lokaal uitvoeren kunnen downloaden van inhoud van buiten het venster.  
 
- Quand un ordinateur client est membre d’un regroupement d’appareils avec une fenêtre de maintenance, un programme de déploiement est exécuté uniquement si la durée d’exécution maximale autorisée ne dépasse pas la durée configurée pour la fenêtre. Si le programme ne peut pas être exécuté, une alerte est générée et le déploiement est de nouveau exécuté lors de la fenêtre de maintenance planifiée suivante qui dispose de suffisamment de temps.  
+ Wanneer een clientcomputer lid is van een apparatenverzameling die een onderhoudsvenster, implementatieprogramma alleen uitgevoerd als de maximaal toegestane uitvoeringstijd niet langer zijn dan de duur die is geconfigureerd voor het venster. Als de uitvoering van het programma mislukt, wordt er een waarschuwing gegenereerd en wordt de implementatie opnieuw uitgevoerd tijdens het volgende geplande onderhoudsvenster dat over voldoende tijd beschikt.  
 
-## <a name="using-multiple-maintenance-windows"></a>Utilisation de fenêtres de maintenance multiples  
- Quand un ordinateur client est membre de plusieurs regroupements d’appareils avec des fenêtres de maintenance, les règles suivantes s’appliquent :  
+## <a name="using-multiple-maintenance-windows"></a>Meerdere onderhoudsvensters gebruiken  
+ Wanneer een clientcomputer lid is van meerdere apparaatverzamelingen waarbij onderhoudsvensters zijn, wordt deze regels toepassen:  
 
--   Si les fenêtres de maintenance ne se chevauchent pas, elles sont traitées comme deux fenêtres de maintenance indépendantes.  
+-   Als de onderhoudsvenster elkaar niet overlappen, worden deze behandeld als twee onafhankelijke vensters.  
 
--   Si les fenêtres de maintenance se chevauchent, elles sont traitées comme une seule fenêtre de maintenance englobant la période couverte par les deux fenêtres de maintenance. Par exemple, si deux fenêtres d’une heure chacune se chevauchent de 30 minutes, la durée effective de la fenêtre de maintenance est de 90 minutes.  
+-   Als de onderhoudsvensters elkaar overlappen, worden deze behandeld als één enkel onderhoudsvenster dat een tijdsduur omvat die door beide onderhoudsvenster wordt ingenomen. Wanneer bijvoorbeeld twee windows elk een uur in duur overlappen met 30 minuten, de effectieve duur van het onderhoudsvenster 90 minuten zijn.  
 
- Quand un utilisateur lance l’installation d’une application à partir du Centre logiciel, l’application est installée immédiatement, indépendamment de toute fenêtre de maintenance.  
+ Wanneer een gebruiker de installatie van een toepassing in Software Center begint, wordt de toepassing onmiddellijk geïnstalleerd, ongeacht enig onderhoudsvensters.  
 
- Si le déploiement d’une application avec un objectif **Obligatoire** atteint son échéance d’installation pendant les heures creuses configurées par un utilisateur dans le Centre logiciel, l’application est installée.  
+ Als de implementatie van een toepassing met het doel **Vereist** buiten kantooruren de installatiedeadline bereikt die door de gebruiker in Software Center is gedefinieerd, wordt de toepassing geïnstalleerd.  
 
-### <a name="how-to-configure-maintenance-windows"></a>Comment configurer les fenêtres de maintenance  
+### <a name="how-to-configure-maintenance-windows"></a>Onderhoudsvensters configureren  
 
-1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité**>  **Regroupements d’appareils**.  
+1.  Kies in de Configuration Manager-console **activa en naleving**>  **Apparaatverzamelingen**.  
 
-3.  Dans la liste **Regroupements d’appareils**, sélectionnez un regroupement. Vous ne pouvez pas créer de fenêtres de maintenance pour le regroupement **Tous les systèmes** .  
+3.  In de **Apparaatverzamelingen** , selecteert u een verzameling. U kunt geen onderhoudsvensters maken voor de verzameling **Alle systemen** .  
 
-4.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+4.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
 
-5.  Dans l’onglet **Fenêtres de maintenance** de la boîte de dialogue **Propriétés de &lt;nom_regroupement\>**, choisissez l’icône **Nouveau**.  
+5.  In de **Onderhoudsvensters** tabblad van de  **&lt;verzamelingsnaam\> eigenschappen** dialoogvenster Kies de **nieuw** pictogram.  
 
-6.  Renseignez la boîte de dialogue **&lt;nouveau\> Calendrier**.  
+6.  Voltooi de  **&lt;nieuwe\> planning** dialoogvenster.  
 
-7.  Effectuez une sélection à partir de la liste déroulante **Appliquer cette planification à**.  
+7.  Maak een keuze uit de **dit schema toepassen op** vervolgkeuzelijst.  
 
-8.  Choisissez **OK**, puis fermez la boîte de dialogue **Propriétés de &lt;nom_regroupement\>**.  
+8.  Kies **OK** en sluit vervolgens de  **&lt;verzamelingsnaam\> eigenschappen** in het dialoogvenster.  

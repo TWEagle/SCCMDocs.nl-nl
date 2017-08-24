@@ -1,6 +1,6 @@
 ---
-title: "Ajouter des mises à jour à un groupe de mises à jour - Configuration Manager| Microsoft Docs"
-description: "Ajoutez manuellement ou automatiquement des mises à jour logicielles à un groupe de mises à jour logicielles dans votre environnement."
+title: Updates toevoegen aan een updategroep - Configuration Manager | Microsoft Docs
+description: Handmatig of automatisch kunt u de software-updates toevoegen aan een software-updategroep in uw omgeving.
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,47 +13,47 @@ ms.technology: configmgr-sum
 ms.assetid: a0767664-fd60-46a8-9da5-86cc431ce53c
 ms.openlocfilehash: 02e30ba48f3564fa8a31f21793c145054e02e002
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="add-software-updates-to-an-update-group"></a>Ajouter des mises à jour logicielles à un groupe de mises à jour  
+# <a name="add-software-updates-to-an-update-group"></a>Software-updates toevoegen aan een updategroep  
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
- Les groupes de mises à jour logicielles vous permettent d'organiser efficacement les mises à jour logicielles dans votre environnement. Vous pouvez ajouter des mises à jour logicielles à un groupe de mises à jour logicielles manuellement ou automatiquement à l’aide d’une règle de déploiement automatique (ADR). Une telle règle vous permet aussi de déployer un groupe de mises à jour logicielles manuellement ou automatiquement. Après avoir déployé un groupe de mises à jour logicielles, vous pouvez ajouter de nouvelles mises à jour logicielles au groupe et Configuration Manager les déploiera automatiquement. Pour ajouter des mises à jour logicielles à un groupe nouveau ou existant de mises à jour logicielles, procédez comme suit.  
+ Software-updategroepen bieden u een doeltreffende methode om software-updates in uw omgeving te organiseren. U kunt software-updates handmatig toevoegen aan een software-updategroep of u kunt software-updates automatisch toevoegen aan een software-updategroep met behulp van een ADR. U kunt een software-updategroep ook handmatig implementeren of de groep automatisch implementeren met behulp van een ADR. Nadat u een software-updategroep hebt geïmplementeerd, kunt u nieuwe software-updates toevoegen aan de groep en automatisch implementeren voor Configuration Manager. Gebruik de volgende procedures om software-updates toe te voegen aan een nieuwe of bestaande software-updategroep.  
 
-#### <a name="to-add-software-updates-to-a-new-software-update-group"></a>Pour ajouter des mises à jour logicielles à un nouveau groupe de mises à jour logicielles  
+#### <a name="to-add-software-updates-to-a-new-software-update-group"></a>Software-updates toevoegen aan een nieuwe software-updategroep  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
-2.  Dans l'espace de travail Bibliothèque de logiciels, développez **Mises à jour logicielles**, puis cliquez sur **Toutes les mises à jour logicielles**.  
+2.  Vouw **Software-updates**uit in de Softwarebibliotheekwerkruimte en klik vervolgens op **Alle software-updates**.  
 
-3.  Sélectionnez les mises à jour logicielles à ajouter au nouveau groupe de mises à jour logicielles.  
+3.  Selecteer de software-updates die aan de nieuwe software-updategroep moeten worden toegevoegd.  
 
-4.  Dans l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Créer un groupe de mises à jour logicielles**.  
+4.  Klik op het tabblad **Start** in de groep **Update** op **Software-updategroep maken**.  
 
-5.  Spécifiez le nom du groupe de mises à jour logicielles et indiquez éventuellement une description. Utilisez un nom et une description suffisamment détaillés pour vous permettre de déterminer quel type de mises à jour logicielles se trouve dans le groupe de mises à jour logicielles. Pour continuer, cliquez sur **Créer**.  
+5.  Geef de naam voor de software-updategroep en geef optioneel een beschrijving. Gebruik een naam en beschrijving die voldoende informatie geven aan u om te bepalen welk type software-updates er in de software-updategroep zitten. Als u wilt doorgaan, klikt u op **Maken**.  
 
-6.  Cliquez sur **Groupes de mises à jour logicielles** pour afficher le nouveau groupe de mises à jour logicielles.  
+6.  Klik op **Software-updategroepen** om de nieuwe software-updategroep te tonen.  
 
-7.  Sélectionnez le groupe de mises à jour logicielles et, sous l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Afficher les membres** pour afficher la liste des mises à jour logicielles incluses dans le groupe.  
+7.  Selecteer de software-updategroep en klik op het tabblad **Start** in de groep **Update** op **Leden tonen** om een lijst van de software-updates te tonen die in de groep zijn opgenomen.  
 
-#### <a name="to-add-software-updates-to-an-existing-software-update-group"></a>Pour ajouter des mises à jour logicielles à un groupe de mises à jour logicielles existant  
+#### <a name="to-add-software-updates-to-an-existing-software-update-group"></a>Software-updates toevoegen aan een bestaande software-updategroep  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
-2.  Dans l'espace de travail Bibliothèque de logiciels, développez **Mises à jour logicielles**, puis cliquez sur **Toutes les mises à jour logicielles**.  
+2.  Vouw **Software-updates**uit in de Softwarebibliotheekwerkruimte en klik vervolgens op **Alle software-updates**.  
 
-3.  Sélectionnez les mises à jour logicielles que vous souhaitez ajouter au nouveau groupe de mises à jour logicielles.  
+3.  Selecteer de software-updates die u wilt toevoegen aan de nieuwe software-updategroep.  
 
     > [!NOTE]  
-    >  Dans le nœud **Toutes les mises à jour logicielles**, par défaut, Configuration Manager affiche uniquement les mises à jour logicielles classées comme **Critique** et **Sécurité** et qui ont été publiées au cours des 30 derniers jours.  
+    >  Op de **alle Software-Updates** knooppunt standaard Configuration Manager worden weergegeven alleen software-updates met een **Kritiek** en **beveiliging** classificatie en die gedurende de afgelopen 30 dagen waren vrijgegeven.  
 
-4.  Dans l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Modifier l'adhésion**.  
+4.  Klik in het tabblad **Start** in de groep **Update** op **Lidmaatschap bewerken**.  
 
-5.  Sélectionnez le groupe de mises à jour logicielles dans lequel vous souhaitez ajouter les mises à jour logicielles.  
+5.  Selecteer de software-updategroep waaraan u de software-updates wilt toevoegen.  
 
-6.  Cliquez sur le nœud **Groupes de mises à jour logicielles** pour afficher le groupe de mises à jour logicielles.  
+6.  Klik op het knooppunt **Software-updategroepen** om de software-updategroep weer te geven.  
 
-7.  Sélectionnez le groupe de mises à jour logicielles et, sous l'onglet **Accueil** , dans le groupe **Mise à jour** , cliquez sur **Afficher les membres** pour afficher la liste des mises à jour logicielles incluses dans le groupe.  
+7.  Selecteer de software-updategroep en klik op het tabblad **Start** in de groep **Update** op **Leden tonen** om een lijst van de software-updates te tonen die in de software-updategroep zijn opgenomen.  

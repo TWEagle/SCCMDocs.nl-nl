@@ -1,6 +1,6 @@
 ---
-title: "Créer un média préparé avec System Center Configuration Manager | Microsoft Docs"
-description: "Créer un média préparé dans System Center Configuration Manager pour simplifier le déploiement de Windows dans plusieurs scénarios."
+title: Voorbereide media maken met System Center Configuration Manager | Microsoft Docs
+description: Voorbereide media maken in System Center Configuration Manager voor het vereenvoudigen van implementatie van Windows in verschillende scenario's.
 ms.custom: na
 ms.date: 04/11/2017
 ms.prod: configuration-manager
@@ -16,129 +16,129 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 33abf3853d912d423e427db4d35fb4a16167164e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-prestaged-media-with-system-center-configuration-manager"></a>Créer un média préparé avec System Center Configuration Manager
+# <a name="create-prestaged-media-with-system-center-configuration-manager"></a>Voorbereide media maken met System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Le média préparé dans System Center Configuration Manager est un fichier WIM (Windows Imaging Format) qui peut être installé sur un ordinateur nu par le fabricant ou dans un centre de reclassement d’entreprise qui n’est pas connecté à l’environnement Configuration Manager.  
-Un média préparé contient l'image de démarrage utilisée pour démarrer l'ordinateur de destination et l'image du système d'exploitation qui est appliquée à l'ordinateur de destination. Vous pouvez aussi spécifier les applications, les packages et les packages de pilotes à inclure dans le média préparé. La séquence de tâches qui déploie le système d'exploitation n'est pas incluse dans le média. Un média préparé est appliqué au disque dur d'un nouvel ordinateur avant que l'ordinateur soit envoyé à l'utilisateur final. Utilisez un média préparé pour les scénarios de déploiement de système d’exploitation suivants :  
+Voorbereide media in System Center Configuration Manager is een Windows Imaging Format (WIM)-bestand dat kan worden geïnstalleerd op een bare-metal computer door de fabrikant of in een zakelijk voorbereidingscentrum dat niet is verbonden met de Configuration Manager-omgeving.  
+Voorbereide media bevatten de opstartinstallatiekopie die wordt gebruikt voor het starten van de doelcomputer en de installatiekopie van het besturingssysteem die op de doelcomputer wordt toegepast. U kunt ook toepassingen, pakketten en stuurprogrammapakketten opgeven die moeten worden opgenomen als onderdeel van de voorgefaseerde media. De takenreeks waarmee het besturingssysteem wordt geïmplementeerd, staat niet op de media. Voorbereide media worden toegepast op de harde schijf van een nieuwe computer voordat de computer wordt verzonden naar de eindgebruiker. Gebruik voorgefaseerde media voor de volgende implementatiescenario'voor besturingssystemen:  
 
--   [Créer une image pour un fabricant OEM en usine ou un dépôt local](../../osd/deploy-use/create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
+-   [Een installatiekopie voor een OEM in de fabriek of een lokaal depot maken](../../osd/deploy-use/create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
 
--   [Installer une nouvelle version de Windows sur un nouvel ordinateur (système nu)](install-new-windows-version-new-computer-bare-metal.md)  
+-   [Een nieuwe versie van Windows op een nieuwe computer (bare-metal) installeren](install-new-windows-version-new-computer-bare-metal.md)  
 
--   [Déployer Windows To Go](deploy-windows-to-go.md)  
+-   [Windows to Go implementeren](deploy-windows-to-go.md)  
 
- Quand l’ordinateur démarre pour la première fois après l’application du média préparé, il démarre Windows PE et se connecte à un point de gestion pour localiser la séquence de tâches qui finalise le processus de déploiement du système d’exploitation. Vous pouvez spécifier les applications, les packages et les packages de pilotes à inclure dans le média préparé. Lorsque vous déployez une séquence de tâches qui fait appel à un média préparé, l'Assistant vérifie tout d'abord que le contenu du cache local de la séquence de tâches est valide. Si ce contenu est introuvable ou a été modifié, l'Assistant télécharge le contenu auprès du point de distribution.  
+ Wanneer de computer voor het eerst wordt opgestart nadat de voorgefaseerde media zijn toegepast, wordt Windows PE gestart op de computer en wordt er verbinding gemaakt met een beheerpunt om de takenreeks te vinden waarmee het implementatieproces van het besturingssysteem wordt voltooid. U kunt ook toepassingen, pakketten en stuurprogrammapakketten opgeven die moeten worden opgenomen als onderdeel van de voorgefaseerde media. Wanneer u een takenreeks implementeert waarvoor voorbereide media worden gebruikt, controleert de wizard eerst de lokale takenreekscache op geldige inhoud. Als de inhoud niet wordt gevonden of is gewijzigd, wordt deze door de wizard gedownload vanaf het distributiepunt.  
 
-##  <a name="BKMK_CreatePrestagedMedia"></a> Comment créer un média préparé  
- Avant de créer un média préparé à l’aide de l’Assistant Création d’un média de séquence de tâches, vérifiez que toutes les conditions suivantes sont remplies :  
+##  <a name="BKMK_CreatePrestagedMedia"></a> Voorbereide media maken  
+ Voordat u voorgefaseerde media met de wizard Takenreeksmedia maken maakt, moet u ervoor zorgen dat aan de volgende voorwaarden wordt voldaan:  
 
-|Tâche|Description|  
+|Taak|Beschrijving|  
 |----------|-----------------|  
-|Image de démarrage|Prenez en considération les éléments suivants relatifs à l’image de démarrage que vous utiliserez dans la séquence de tâches pour déployer le système d’exploitation :<br /><br /> -   L’architecture de l’image de démarrage doit être adaptée à l’architecture de l’ordinateur de destination. Par exemple, un ordinateur de destination x64 peut démarrer et exécuter une image de démarrage x86 ou x64. Toutefois, un ordinateur de destination x86 peut démarrer et exécuter uniquement une image de démarrage x86.<br />-   Assurez-vous que l’image de démarrage contient les pilotes de stockage de masse et de réseau qui sont requis pour provisionner l’ordinateur de destination.|  
-|Créer une séquence de tâches pour déployer le système d’exploitation|Dans le cadre du média préparé, vous devez spécifier la séquence de tâches destinée à déployer le système d’exploitation.<br /><br /> -   Pour connaître les étapes permettant de créer une séquence de tâches, voir [Créer une séquence de tâches pour installer un système d’exploitation](../../osd/deploy-use/create-a-task-sequence-to-install-an-operating-system.md).<br />-   Pour plus d’informations sur les séquences de tâches, voir [Gérer les séquences de tâches pour automatiser des tâches](../../osd/deploy-use/manage-task-sequences-to-automate-tasks.md).|  
-|Distribuer tout le contenu associé à la séquence de tâches|Vous devez distribuer tout le contenu exigé par la séquence de tâches à au moins un point de distribution. Cela inclut l’image de démarrage, l’image du système d’exploitation et les autres fichiers associés. L'Assistant collecte les informations à partir du point de distribution lorsqu'il crée le média autonome. Vous devez disposer de droits d’accès en **Lecture** à la bibliothèque de contenu sur ce point de distribution.  Pour plus d’informations, voir [À propos de la bibliothèque de contenu](../../core/plan-design/hierarchy/the-content-library.md).|  
-|Disque dur de l’ordinateur de destination|Le disque dur de l’ordinateur de destination doit être formaté avant que le support préparé soit préparé sur le disque dur de l’ordinateur. Si le disque dur n'est pas formaté lorsque le média est appliqué, la séquence de tâches qui déploie le système d'exploitation échouera lorsqu'elle tentera de démarrer l'ordinateur de destination.|  
+|Opstartinstallatiekopie|Overweeg het volgende met betrekking tot de opstartinstallatiekopie die u in de takenreeks gebruikt om het besturingssysteem te implementeren:<br /><br /> -De architectuur van de opstartinstallatiekopie moet geschikt is voor de architectuur van de doelcomputer. Op een x64-doelcomputer kan een x86- of x64-opstartinstallatiekopie worden opgestart en uitgevoerd. Op een x86-doelcomputer kan echter alleen een x86-opstartinstallatiekopie worden opgestart en uitgevoerd.<br />-Zorg ervoor dat de installatiekopie de netwerk- en mass storage stuurprogramma's die zijn vereist bevat voor het inrichten van de doelcomputer.|  
+|Een takenreeks maken om een besturingssysteem te implementeren|Als onderdeel van de voorgefaseerde media, moet u de takenreeks voor de implemtenatie van het besturingssysteem opgeven.<br /><br /> -Zie voor de stappen voor het maken van een nieuwe takenreeks [een takenreeks maken om een besturingssysteem te installeren](../../osd/deploy-use/create-a-task-sequence-to-install-an-operating-system.md).<br />-Voor meer informatie over takenreeksen, Zie [beheren van takenreeksen om taken te automatiseren](../../osd/deploy-use/manage-task-sequences-to-automate-tasks.md).|  
+|Alle aan de takenreeks gekoppeld inhoud distribueren|U moet alle inhoud die door de takenreeks is vereist naar ten minste één distributiepunt distribueren. Dit omvat de opstartinstallatiekopie, de installatiekopie van het besturingssysteem en andere gekoppelde bestanden. De wizard haalt de informatie op van het distributiepunt wanneer het de zelfstandige media creëert. U moet over het toegangsrecht **Lezen** beschikken voor de inhoudsbibliotheek op het distributiepunt.  Zie voor meer informatie [over de Inhoudsbibliotheek](../../core/plan-design/hierarchy/the-content-library.md).|  
+|Harde schijf op de doelcomputer|De harde schijf van de doelcomputer moet zijn geformatteerd voordat de voorgefaseerde media op de harde schijf van de computer wordt geplaatst. Indien de harde schijf niet ingedeeld is wanneer de media toegepast wordt, zal de takenreeks die het besturingssysteem implementeert falen wanneer hij de doelcomputer probeert op te starten.|  
 
 > [!NOTE]  
->  L’Assistant Création d’un média de séquence de tâches définit la condition de variable de séquence de tâches suivante sur le média : **_SMSTSMediaType = OEMMedia**. Vous pouvez utiliser cette condition dans votre séquence de tâches.  
+>  De Wizard Takenreeks maken Media de volgende takenreeksvariabelevoorwaarde ingesteld op de media: **_SMSTSMediaType OEMMedia =**. U kunt deze voorwaarde in uw takenreeks gebruiken.  
 
- Pour créer des médias préparés, appliquez la procédure suivante.  
+ Gebruik de volgende procedure om voorbereide media te maken.  
 
-#### <a name="to-create-prestaged-media"></a>Pour créer un média préparé  
+#### <a name="to-create-prestaged-media"></a>Voorbereide media maken  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
+2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Takenreeksen**.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un média de séquence de tâches** pour démarrer l'Assistant Création d'un média de séquence de tâches.  
+3.  Klik op het tabblad **Start** in de groep **Maken** op **Takenreeksmedia maken** om de wizard Takenreeksmedia maken te starten.  
 
-4.  Sur la page **Sélectionner le type de média** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+4.  Geef op de pagina **Mediatype selecteren** de volgende informatie op en klik op **Volgende**.  
 
-    -   Sélectionnez **Média préparé**.  
+    -   Selecteer **Voorbereide media**.  
 
-    -   Éventuellement, si vous souhaitez autoriser le déploiement du système d'exploitation sans intervention de l'utilisateur, sélectionnez **Autoriser le déploiement du système d'exploitation de manière autonome**. Lorsque vous sélectionnez cette option, l'utilisateur n'est pas invité à fournir des informations de configuration réseau ou des séquences de tâches facultatives. Toutefois, l'utilisateur est toujours invité à fournir un mot de passe si le média est configuré avec la protection par mot de passe.  
+    -   Selecteer optioneel, indien u wenst toe te staan dat het besturingssysteem geïmplementeerd wordt zonder invoer van de gebruiker, de optie **Implementatie van het besturingssysteem zonder toezicht toestaan**. Wanneer u deze optie selecteert, wordt de gebruiker niet gevraagd naar informatie over netwerkconfiguratie of naar optionele takenreeksen. De gebruiker wordt wel nog steeds gevraagd om een wachtwoord als de media hiervoor is geconfigureerd.  
 
-5.  Sur la page **Gestion du média** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+5.  Geef op de pagina **Mediabeheer** de volgende informatie op en klik op **Volgende**.  
 
-    -   Sélectionnez **Média dynamique** si vous souhaitez autoriser un point de gestion à rediriger le média vers un autre point de gestion, basé sur l'emplacement du client dans les limites du site.  
+    -   Selecteer **Dynamische media** als u wilt toestaan dat een beheerpunt media omleidt naar een ander beheerpunt op basis van de clientlocatie binnen de sitegrenzen.  
 
-    -   Sélectionnez **Média basé sur le site** si vous souhaitez que le média contacte uniquement le point de gestion spécifié.  
+    -   Selecteer **Op site gebaseerde media** als u wilt dat de media alleen contact maken met het opgegeven beheerpunt.  
 
-6.  Dans la page **Propriétés du média**  , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+6.  Geef op de pagina **Media-eigenschappen**  de volgende informatie op en klik vervolgens op **Volgende**.  
 
-    -   **Créé par**: spécifiez qui a créé le média.  
+    -   **Gemaakt door**: Geef op wie het medium is gemaakt.  
 
-    -   **Version**: spécifiez le numéro de version du média.  
+    -   **Versie**: Geef het versienummer van de media.  
 
-    -   **Commentaire**: spécifiez une description unique de ce pour quoi le média est utilisé.  
+    -   **Opmerking**: Geef een unieke beschrijving van wat de media wordt gebruikt.  
 
-    -   **Fichier multimédia**: spécifiez le nom et le chemin des fichiers de sortie. L'Assistant écrit les fichiers de sortie à cet emplacement. Par exemple : **\\\nomserveur\dossier\outputfile.wim**  
+    -   **Mediabestand**: Geef de naam en pad van de uitvoerbestanden op. De wizard schrijft de uitvoerbestanden naar deze locatie. Bijvoorbeeld:  **\\\servername\folder\outputfile.wim**  
 
-7.  Sur la page **Sécurité** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+7.  Geef op de pagina **Beveiliging** de volgende informatie op en klik vervolgens op **Volgende**.  
 
-    -   Cochez la case **Activer la prise en charge d'ordinateur inconnu** pour autoriser le média à déployer un système d'exploitation sur un ordinateur qui n'est pas géré par Configuration Manager. Il n'existe aucun enregistrement de ces ordinateurs dans la base de données Configuration Manager.  Pour plus d’informations, voir [Préparer les déploiements d’ordinateurs inconnus](../get-started/prepare-for-unknown-computer-deployments.md).  
+    -   Selecteer de **Schakel onbekende computerondersteuning** selectievakje in zodat de media een besturingssysteem implementeren op een computer die niet wordt beheerd door Configuration Manager. Er is geen record van deze computers in de Configuration Manager-database.  Zie voor meer informatie [voorbereiden voor onbekende computerimplementaties](../get-started/prepare-for-unknown-computer-deployments.md).  
 
-    -   Activez la case à cocher **Protéger le média à l'aide d'un mot de passe** et entrez un mot de passe fort pour protéger le média contre les accès non autorisés. Lorsque vous spécifiez un mot de passe, l'utilisateur doit fournir ce mot de passe pour utiliser le média préparé.  
+    -   Selecteer het selectievakje **Bescherm de media met een wachtwoord** en voer een sterk wachtwoord in om de media te helpen te beschermen tegen onbevoegde toegang. Wanneer u een wachtwoord opgeeft, moet de gebruiker dat wachtwoord leveren om de voorbereide media te gebruiken.  
 
         > [!IMPORTANT]  
-        >  Pour une sécurité optimale, il vous est conseillé de toujours attribuer un mot de passe pour protéger les médias préparés.  
+        >  Wijs, als een beste praktijk op vlak van beveiliging, altijd een wachtwoord toe om te helpen de vooraf geplaatste media te beschermen.  
 
-    -   Pour les communications HTTP, sélectionnez **Créer un certificat de média auto-signé**, puis spécifiez les dates de début et d'expiration du certificat.  
+    -   Selecteer **Zelfondertekend certificaat maken**voor HTTP-communicatie en geef vervolgens de begin- en verloopdatum voor het certificaat op.  
 
-    -   Pour les communications HTTPS, sélectionnez **Importer un certificat PKI**, puis spécifiez le certificat à importer et son mot de passe.  
+    -   Selecteer **PKI-certificaat importeren**voor HTTPS-communicatie en geef vervolgens het certificaat op dat moet worden geïmporteerd met het bijbehorende wachtwoord.  
 
-         Pour plus d’informations sur ce certificat client utilisé pour les images de démarrage, consultez [Configuration requise des certificats PKI](../../core/plan-design/network/pki-certificate-requirements.md).  
+         Zie voor meer informatie over dit clientcertificaat dat wordt gebruikt voor opstartinstallatiekopieën [PKI-certificaatvereisten](../../core/plan-design/network/pki-certificate-requirements.md).  
 
-    -   **Affinité entre appareil et utilisateur** : pour prendre en charge la gestion centrée sur l’utilisateur dans Configuration Manager, spécifiez la manière dont vous voulez que le média associe des utilisateurs à l’ordinateur de destination. Pour plus d’informations sur la prise en charge de l’affinité entre utilisateur et appareil par le déploiement de systèmes d’exploitation, consultez [Associer des utilisateurs à un ordinateur de destination](../get-started/associate-users-with-a-destination-computer.md).  
+    -   **Affiniteit van gebruikersapparaat**: Ter ondersteuning van de gebruiker gericht beheer in Configuration Manager, moet u opgeven hoe u wilt dat de media gebruikers koppelen aan de doelcomputer. Zie voor meer informatie over hoe gebruikersapparaataffiniteit ondersteuning biedt voor implementatie van besturingssystemen, [gebruikers koppelen aan een doelcomputer](../get-started/associate-users-with-a-destination-computer.md).  
 
-        -   Spécifiez **Autoriser une affinité entre périphérique et utilisateur avec approbation automatique** si vous voulez que le média associe automatiquement des utilisateurs à l'ordinateur de destination. Cette fonctionnalité est basée sur les actions de la séquence de tâches qui déploie le système d'exploitation. Dans ce scénario, la séquence de tâches crée une relation entre les utilisateurs spécifiés et l'ordinateur de destination lorsqu'elle déploie le système d'exploitation sur l'ordinateur de destination.  
+        -   Stel **Affiniteit tussen gebruikers en apparaten toestaan met automatische goedkeuring** in als u wilt dat de media gebruikers automatisch koppelen aan de doelcomputer. Deze functionaliteit is gebaseerd op de acties van de takenreeks waardoor het besturingssysteem wordt geïmplementeerd. In dit scenario brengt de takenreeks een relatie tot stand tussen de opgegeven gebruikers en de doelcomputer wanneer deze het besturingssysteem op de doelcomputer implementeert.  
 
-        -   Spécifiez **Autoriser une affinité entre périphérique et utilisateur en attente de l'approbation de l'administrateur** si vous souhaitez que le média associe des utilisateurs à l'ordinateur de destination une fois l'approbation accordée. Cette fonctionnalité est basée sur l'étendue de la séquence de tâches qui déploie le système d'exploitation. Dans ce scénario, la séquence de tâches crée une relation entre les utilisateurs spécifiés et l'ordinateur de destination, mais attend l'approbation d'un utilisateur administratif avant le déploiement du système d'exploitation.  
+        -   Stel **Affiniteit tussen gebruikers en apparaten toestaan in afwachting van goedkeuring door beheerder** in als u wilt dat de media gebruikers aan de doelcomputer koppelen nadat er goedkeuring is verleend. Deze functionaliteit is gebaseerd op het bereik van de takenreeks waardoor het besturingssysteem wordt geïmplementeerd. In dit scenario brengt de takenreeks een relatie tot stand tussen de opgegeven gebruikers en de doelcomputer, maar wordt er gewacht op goedkeuring van een gebruiker met beheerderrechten voordat het besturingssysteem wordt geïmplementeerd.  
 
-        -   Spécifiez **Ne pas autoriser d'affinité entre périphérique et utilisateur** si vous ne souhaitez pas que le média associe des utilisateurs à l'ordinateur de destination. Dans ce scénario, la séquence de tâches n'associe pas d'utilisateurs à l'ordinateur de destination lorsqu'elle déploie le système d'exploitation.  
+        -   Stel **Geen affiniteit tussen gebruikers en apparaten toestaan** in als niet wilt dat de media gebruikers aan de doelcomputer koppelen. In dit scenario koppelt de takenreeks geen gebruikers aan de doelcomputer wanneer dit het besturingssysteem implementeert.  
 
-8.  Dans la page **Séquence de tâches** , spécifiez la séquence de tâches qui s’exécutera sur l’ordinateur de destination. Le contenu référencé par la séquence de tâches est affiché dans **Cette séquence de tâches fait référence au contenu suivant**. Vérifiez le contenu, puis cliquez sur **Suivant**.  
+8.  Geef op de pagina **Takenreeks** de takenreeks op die op de doelcomputer wordt uitgevoerd. De inhoud waarnaar wordt verwezen door de takenreeks wordt weergegeven in **Deze takenreeks verwijst naar de volgende inhoud**. Controleer de inhoud en klik vervolgens op **Volgende**.  
 
-9. Sur la page **Image de démarrage** , spécifiez les informations suivantes et cliquez sur **Suivant**.  
+9. Geef op de pagina **Opstartinstallatiekopie** de volgende informatie op en klik vervolgens op **Volgende**.  
 
     > [!IMPORTANT]  
-    >  L'architecture de l'image de démarrage qui est distribuée doit être adaptée à l'architecture de l'ordinateur de destination. Par exemple, un ordinateur de destination x64 peut démarrer et exécuter une image de démarrage x86 ou x64. Toutefois, un ordinateur de destination x86 peut démarrer et exécuter uniquement une image de démarrage x86.  
+    >  De architectuur van de opstartinstallatiekopie die wordt gedistribueerd moet toepasselijk zijn voor de architectuur van de doelcomputer. Op een x64-doelcomputer kan een x86- of x64-opstartinstallatiekopie worden opgestart en uitgevoerd. Op een x86-doelcomputer kan echter alleen een x86-opstartinstallatiekopie worden opgestart en uitgevoerd.  
 
-    -   Dans la zone **Image de démarrage** , spécifiez l'image de démarrage pour démarrer l'ordinateur de destination. Pour plus d'informations, voir [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
+    -   Geef in het vakje **Opstartinstallatiekopie** de opstartinstallatiekopie op om de doelcomputer op te starten. Zie voor meer informatie [opstartinstallatiekopieën beheren](../get-started/manage-boot-images.md).  
 
-    -   Dans la zone **Point de distribution** , spécifiez le point de distribution où réside l'image de démarrage. L'Assistant extrait l'image de démarrage à partir du point de distribution et l'écrit sur le média.  
+    -   Geef in het vak **Distributiepunt** het distributiepunt op waar de installatiekopie is opgeslagen. De wizard haalt de opstartinstallatiekopie op van het distributiepunt en schrijft deze naar de media.  
 
         > [!NOTE]  
-        >  Vous devez disposer de droits d’accès en **lecture** à la bibliothèque de contenu sur le point de distribution. Pour plus d'informations, voir [À propos de la bibliothèque de contenu](../../core/plan-design/hierarchy/the-content-library.md).  
+        >  U moet over het toegangsrecht **Lezen** beschikken voor de inhoudsbibliotheek op het distributiepunt. Zie voor meer informatie [over de Inhoudsbibliotheek](../../core/plan-design/hierarchy/the-content-library.md).  
 
-    -   Si vous avez sélectionné **Média basé sur le site** dans la page **Gestion du média** de l’Assistant, dans la zone **Point de gestion** , spécifiez un point de gestion à partir d’un site principal.  
+    -   Als u **Op site gebaseerde media** hebt geselecteerd op de pagina **Mediabeheer** van de wizard, geeft u in het vak **Beheerpunt** een beheerpunt op van een primaire site.  
 
-    -   Si vous avez sélectionné **Média dynamique** dans la page **Gestion du média** de l’Assistant, dans la zone **Points de gestion associés** , spécifiez les points de gestion de site principal à utiliser et un ordre de priorité pour les communications initiales.  
+    -   Als u **Dynamische media** hebt geselecteerd op de pagina **Mediabeheer** van de wizard, geeft u in het vak **Gekoppelde beheerpunten** de beheerpunten van de primaire site die moeten worden gebruikt en een prioriteitsvolgorde voor de eerste communicatie op.  
 
-10. Sur la page **Images** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+10. Geef op de pagina **Installatiekopieën** de volgende informatie op en klik vervolgens op **Volgende**.  
 
-    -   Dans la zone **Package d’images** , spécifiez l’image du système d’exploitation. Pour plus d’informations, voir [Gérer les images de système d’exploitation](../get-started/manage-operating-system-images.md).  
+    -   Geef in het vak **Installatiekopiepakket** de installatiekopie van het besturingssysteem op. Zie voor meer informatie [installatiekopieën van besturingssystemen beheren](../get-started/manage-operating-system-images.md).  
 
-    -   Si le package contient plusieurs images du système d'exploitation, dans la zone **Index d'images** , spécifiez l'image à déployer.  
+    -   Geef, indien het pakket verschillende installatiekopieën van besturingssystemen bevat, in het vakje **Installatiekopie-index** de installatiekopie op die moet geïmplementeerd worden.  
 
-    -   Dans la zone **Point de distribution** , spécifiez le point de distribution où réside le package d'images du système d'exploitation. L'Assistant extrait l'image du système d'exploitation à partir du point de distribution et l'écrit sur le média.  
+    -   Geef in het vak **Distributiepunt** het distributiepunt op waar het pakket van de installatiekopie van het besturingssysteem is opgeslagen. De wizard haalt de opstartinstallatiekopie van het besturingssysteem op van het distributiepunt en schrijft deze naar de media.  
 
-11. Sur la page **Personnalisation** , spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
+11. Geef op de pagina **Aanpassing** de volgende informatie op en klik vervolgens op **Volgende**.  
 
-    -   Spécifiez les variables que la séquence de tâches utilise pour déployer le système d'exploitation.  
+    -   Geef de variabelen op die de takenreeks gebruikt voor het implementeren van het besturingssyteem.  
 
-    -   Spécifiez les commandes de prédémarrage que vous voulez exécuter avant l'exécution de la séquence de tâches. Les commandes de prédémarrage sont un script ou un exécutable qui peut interagir avec l'utilisateur dans Windows PE avant que la séquence de tâches s'exécute pour installer le système d'exploitation. Pour plus d’informations sur les commandes de prédémarrage pour les médias, voir [Commandes de prédémarrage pour les médias de séquence de tâches](../understand/prestart-commands-for-task-sequence-media.md).  
+    -   Geef eventuele prestart-opdrachten op die u wilt uitvoeren voordat de takenreeks wordt uitgevoerd. Prestart-opdrachten bestaan uit een script of een uitvoerbaar bestand dat kan communiceren met de gebruiker in Windows PE voordat de takenreeks wordt uitgevoerd om het besturingssysteem te installeren. Zie voor meer informatie over prestart-opdrachten voor media de [Prestart-opdrachten voor takenreeksmedia](../understand/prestart-commands-for-task-sequence-media.md).  
 
         > [!TIP]  
-        >  Lors de la création du média de séquence de tâches, la séquence de tâches écrit l’ID du package et la ligne de commande de prédémarrage, y compris la valeur des variables de la séquence de tâches, dans le fichier journal CreateTSMedia.log sur l’ordinateur qui exécute la console Configuration Manager. Vous pouvez consulter ce fichier journal pour vérifier la valeur des variables de séquence de tâches.  
+        >  Tijdens het maken van taak de media schrijft de takenreeks de pakket-ID en prestart-opdrachtregel, inclusief de waarde voor eventuele takenreeksvariabelen, naar het logboekbestand CreateTSMedia.log op de computer waarop de Configuration Manager-console. U kunt dit logboekbestand controleren om de waarde voor de takenreeksvariabelen te verifiëren.  
 
-12. Effectuez toutes les étapes de l'Assistant.  
+12. Voltooi de wizard.  
 
-## <a name="next-steps"></a>Étapes suivantes
-[Scénarios de déploiement de systèmes d’exploitation d’entreprise](scenarios-to-deploy-enterprise-operating-systems.md)
+## <a name="next-steps"></a>Volgende stappen
+[Scenario's voor het implementeren van enterprise-besturingssystemen](scenarios-to-deploy-enterprise-operating-systems.md)

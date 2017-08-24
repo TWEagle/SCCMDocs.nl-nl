@@ -1,6 +1,6 @@
 ---
-title: "Préparer l’installation de sites | Microsoft Docs"
-description: "Si vous avez l’intention d’installer plusieurs sites Configuration Manager, lisez ces informations pour vous aider à gagner du temps et éviter toute erreur."
+title: Voorbereiden om sites te installeren | Microsoft Docs
+description: Als u van plan bent om meerdere Configuration Manager-sites te installeren, leest u deze informatie om u te helpen u tijd besparen en om fouten te voorkomen.
 ms.custom: na
 ms.date: 3/1/2017
 ms.prod: configuration-manager
@@ -16,77 +16,77 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 829f2d44a9b8d203a5b753ebb6d8f759b1a05111
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-to-install-system-center-configuration-manager-sites"></a>Préparer l’installation de sites System Center Configuration Manager
+# <a name="prepare-to-install-system-center-configuration-manager-sites"></a>Voorbereiden voor het installeren van System Center Configuration Manager-sites
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Pour préparer dans les meilleures conditions le déploiement d’un ou plusieurs sites System Center Configuration Manager, prenez connaissance des informations contenues dans cet article. Ces étapes peuvent vous faire gagner du temps durant l’installation de plusieurs sites et vous éviter des faux pas qui pourraient vous contraindre à réinstaller un ou plusieurs sites.
+Als u wilt voorbereiden voor een geslaagde implementatie van een of meer System Center Configuration Manager-sites, raken met de informatie in dit artikel. Deze stappen kunnen bespaart u tijd tijdens de installatie van meerdere sites en te voorkomen dat vergissingen zult die ertoe kunnen leiden de noodzaak om opnieuw te installeren van een of meer sites.
 
 > [!TIP]
-> Lors de la gestion de l’infrastructure de site et de hiérarchie de System Center Configuration Manager, les termes *mise à niveau*, *mise à jour* et *installation* sont utilisés pour décrire trois concepts distincts. Pour connaître la signification et l’usage de chaque terme, consultez [À propos de la mise à niveau, de la mise à jour et de l’installation de l’infrastructure de site et de hiérarchie](/sccm/core/understand/upgrade-update-install).
+> Bij het beheren van System Center Configuration Manager-site en hiërarchie-infrastructuur, de voorwaarden *upgrade*, *bijwerken*, en *installeren* worden gebruikt voor het beschrijven van drie afzonderlijke concepten. Zie voor meer informatie over hoe elke term wordt gebruikt, [over upgrade-, update- en installatie](/sccm/core/understand/upgrade-update-install).
 
-## <a name="bkmk_options"></a> Options d’installation de différents types de sites
-Quand vous installez une nouvelle version de Configuration Manager, la version des fichiers sources que vous pouvez utiliser dépend de la version des sites qui se trouvent déjà dans la hiérarchie (le cas échéant). Les méthodes d’installation disponibles dépendent du type de site que vous souhaitez installer.  
+## <a name="bkmk_options"></a>Opties voor het installeren van verschillende typen sites
+De versie van de bronbestanden die u kunt gebruiken wanneer u een nieuwe Configuration Manager-site installeert, zijn afhankelijk van de versie van de sites die zich al in de hiërarchie (indien aanwezig). De installatiemethoden die u kunt gebruiken, is afhankelijk van het type site dat u wilt installeren.  
 
-Avant d’installer un site, veillez à élaborer le plan de votre hiérarchie et à déterminer le type de site que vous voulez installer. Pour plus d’informations, consultez [Concevoir une hiérarchie de sites](../../../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md).
-
-
-### <a name="first-site"></a>Premier site
-Le premier site que vous installez dans une hiérarchie doit être un site principal autonome ou un site d’administration centrale.
-
-**Support d’installation** : pour installer un site d’administration centrale ou un site principal autonome comme premier site d’une nouvelle hiérarchie, vous devez [utiliser une version de base de référence](../../../../core/servers/manage/updates.md#bkmk_Baselines) de Configuration Manager. N’installez pas le premier site d’une nouvelle hiérarchie à l’aide de fichiers sources mis à jour extraits du [dossier CD.Latest](../../../../core/servers/manage/the-cd.latest-folder.md) d’un site.
-
-**Méthode d’installation** : vous pouvez installer l’un ou l’autre type de site en vous aidant de l’[Assistant Installation de Configuration Manager](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md). Vous pouvez aussi configurer un script à utiliser avec une [installation scriptée en ligne de commande](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md).
+Voordat u een site installeert, moet u uw hiërarchie hebt gepland, en dat u begrijpt dat het type site dat u wilt installeren. Zie voor meer informatie [een sitehiërarchie ontwerpen](../../../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md).
 
 
-### <a name="additional-sites"></a>Sites supplémentaires
-Après avoir installé le site initial, vous pouvez à tout moment ajouter d’autres sites. Vous disposez des options suivantes pour ajouter des sites (jusqu’aux [limites autorisées](../../../../core/plan-design/configs/size-and-scale-numbers.md)) :
+### <a name="first-site"></a>Eerste site
+De eerste site die u in een hiërarchie installeert is een zelfstandige primaire site of een centrale beheersite.
 
-|Site existant|Type de site supplémentaire que vous pouvez installer|
+**Installatiemedia**: Als u wilt een centrale beheersite of een zelfstandige primaire site als de eerste site in een nieuwe hiërarchie installeert, moet u [een basislijnversie gebruiken](../../../../core/servers/manage/updates.md#bkmk_Baselines) van Configuration Manager. Installeer de eerste site van een nieuwe hiërarchie niet met bijgewerkte bronbestanden vanuit de [CD. Meest recente map](../../../../core/servers/manage/the-cd.latest-folder.md) van elke site.
+
+**Installatiemethode**: U kunt beide typen site installeren met behulp van de [Configuration Manager-installatiewizard](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md), of kunt u een script te gebruiken met een [installatie vanaf de opdrachtregel in een script vastgelegd](../../../../core/servers/deploy/install/use-a-command-line-to-install-sites.md).
+
+
+### <a name="additional-sites"></a>Extra sites
+Nadat de eerste site is geïnstalleerd, kunt u meer sites op elk gewenst moment toevoegen. U hebt de volgende opties voor het toevoegen van sites (maximaal [ondersteund limieten](../../../../core/plan-design/configs/size-and-scale-numbers.md)):
+
+|Site die u hebt|Type aanvullende site die kunt u installeren|
 |---|---|
-|Site d'administration centrale|Site principal enfant|
-|Site principal enfant|Site secondaire|
-|Site principal autonome|Site secondaire (vous pouvez étendre le site principal, ce qui convertit le site principal autonome en site principal enfant)|
+|Centrale beheersite|Onderliggende primaire site|
+|Onderliggende primaire site|Secundaire site|
+|Zelfstandige primaire site|Secundaire site (u kunt de primaire site, die de zelfstandige primaire site naar een onderliggende primaire site converteert uitbreiden)|
 
-**Support d’installation** : quand vous installez un site d’administration centrale pour étendre un site principal autonome, ou que vous installez un nouveau site principal enfant dans une hiérarchie existante, vous devez utiliser le support d’installation (qui contient les fichiers sources) qui correspond à la version du ou des sites existants.
+**Installatiemedia**: Wanneer u een centrale beheersite als u wilt uitbreiden een zelfstandige primaire site installeert, of als u een nieuwe onderliggende primaire site in een bestaande hiërarchie installeert, moet u installatiemedia (die bronbestanden bevat) die overeenkomt met de versie van de bestaande site of websites.
 
 > [!IMPORTANT]
-> Si vous avez installé des mises à jour dans la console qui ont changé la version des sites installés précédemment, n’utilisez pas le support d’installation d’origine. Utilisez plutôt les fichiers sources du [dossier CD.Latest](../../../../core/servers/manage/the-cd.latest-folder.md) d’un site mis à jour. Configuration Manager vous impose d’utiliser des fichiers sources qui correspondent à la version du site existant auquel votre nouveau site doit se connecter.
+> Als u in de console-updates die zijn gewijzigd van de versie van de eerder geïnstalleerde sites hebt geïnstalleerd, gebruik niet de originele installatiemedia. Gebruik in plaats daarvan in dat scenario bronbestanden op uit de [CD. Meest recente map](../../../../core/servers/manage/the-cd.latest-folder.md) van een bijgewerkte site. Configuration Manager moet u bronbestanden gebruiken die overeenkomen met de versie van de bestaande site die de nieuwe site verbinding maken.
 
-Un site secondaire doit être installé à partir de la console Configuration Manager. De cette façon, les sites secondaires sont toujours installés à l’aide des fichiers sources à partir du site principal parent.
+Een secundaire site moet worden geïnstalleerd vanuit de Configuration Manager-console. Op deze manier worden altijd secundaire sites geïnstalleerd met behulp van de bronbestanden van de bovenliggende primaire site.
 
-**Méthode d’installation** : la méthode que vous utilisez pour installer des sites supplémentaires dépend du type de site que vous voulez installer.
--   **Ajouter un site d’administration centrale** : vous pouvez utiliser l’Assistant Installation de Configuration Manager ou une ligne de commande scriptée pour installer le nouveau site d’administration centrale comme site parent de votre site principal autonome existant. Pour plus d’informations, consultez [Extension d’un site principal autonome](../../../../core/servers/deploy/install/prerequisites-for-installing-sites.md#bkmk_expand).
--   **Ajouter un site principal enfant** : vous pouvez utiliser l’Assistant Installation de Configuration Manager ou une installation en ligne de commande pour ajouter un site principal enfant sous un site d’administration centrale.
--   **Ajouter un site secondaire** : utilisez la console Configuration Manager pour installer un site secondaire comme site enfant sous un site principal. Les autres méthodes ne sont pas prises en charge pour l’ajout de sites secondaires.
+**Installatiemethode**: De methode die u gebruikt om aanvullende sites te installeren, is afhankelijk van het type site dat u wilt installeren.
+-   **Toevoegen van een centrale beheersite**:  U kunt de Setup Wizard van Configuration Manager of een script opdrachtregel gebruiken voor het installeren van de nieuwe centrale beheersite als een bovenliggende site naar uw bestaande zelfstandige primaire site. Zie voor meer informatie [uitbreiden een zelfstandige primaire site](../../../../core/servers/deploy/install/prerequisites-for-installing-sites.md#bkmk_expand).
+-   **Toevoegen van een onderliggende primaire site**:  U kunt de Setup Wizard van Configuration Manager of een installatie vanaf de opdrachtregel gebruiken om toe te voegen een onderliggende primaire site onder een centrale beheersite.
+-   **Toevoegen van een secundaire site**:  De Configuration Manager-console gebruiken voor het installeren van een secundaire site als een onderliggende site onder een primaire site. Andere methoden worden niet ondersteund voor het toevoegen van secundaire sites.
 
-## <a name="bkmk_tasks"></a>  Tâches courantes à effectuer avant de commencer une installation
--   **Déterminer la topologie de la hiérarchie que vous allez utiliser pour votre déploiement**    
-Pour plus d’informations, consultez [Concevoir une hiérarchie de sites pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md).  
+## <a name="bkmk_tasks"></a>Algemene taken zijn voltooid voordat u een installatie
+-   **De hiërarchietopologie die u voor uw implementatie gebruiken wilt begrijpen**    
+Zie voor meer informatie [een sitehiërarchie ontwerpen voor System Center Configuration Manager](../../../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md).  
 
--   **Préparer et configurer des serveurs individuels pour respecter les prérequis et les configurations prises en charge en vue d’une utilisation avec Configuration Manager**         
-Pour plus d’informations, consultez [Prérequis des sites et systèmes de site](../../../../core/plan-design/configs/site-and-site-system-prerequisites.md).  
+-   **Bereid en afzonderlijke servers configureren om te voldoen aan de vereisten en ondersteunde configuraties voor gebruik met Configuration Manager**         
+Zie voor meer informatie [Site and site system prerequisites](../../../../core/plan-design/configs/site-and-site-system-prerequisites.md) (Vereisten voor sites en sitesystemen).  
 
--   **Installer et configurer SQL Server pour héberger la base de données du site**     
-Pour plus d’informations, consultez [Prise en charge des versions de SQL Server pour System Center Configuration Manager](../../../../core/plan-design/configs/support-for-sql-server-versions.md).  
+-   **SQL Server als host voor de sitedatabase installeren en configureren**     
+Zie voor meer informatie [ondersteuning voor SQL Server-versies voor System Center Configuration Manager](../../../../core/plan-design/configs/support-for-sql-server-versions.md).  
 
--   **Préparer votre environnement réseau pour prendre en charge Configuration Manager**      
-Pour plus d’informations, consultez [Configurer les pare-feu, les ports et les domaines pour préparer votre infrastructure pour Configuration Manager](../../../../core/plan-design/network/configure-firewalls-ports-domains.md).  
+-   **Uw netwerkomgeving ter ondersteuning van Configuration Manager voorbereiden**      
+Zie voor meer informatie [firewalls, poorten en domeinen voorbereiden voor Configuration Manager configureren](../../../../core/plan-design/network/configure-firewalls-ports-domains.md).  
 
-- **Si vous prévoyez d’utiliser une infrastructure à clé publique (PKI), préparer votre infrastructure et vos certificats**      
-Pour plus d’informations, consultez [Configuration requise des certificats PKI pour Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).
+- **Als u een openbare-sleutelinfrastructuur (PKI) gebruiken wilt, moet u voorbereiden uw infrastructuur en certificaten**      
+Zie voor meer informatie [PKI-certificaatvereisten voor Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).
 
--   **Installer les dernières mises à jour de sécurité sur les ordinateurs que vous devez utiliser comme serveurs de site ou serveurs de système de site et les redémarrer si nécessaire**
+-   **De meest recente beveiligingsupdates installeren op computers die u wilt gebruiken als siteservers of sitesysteemservers en indien nodig, zodat deze opnieuw opstarten**
 
-## <a name="bkmk_sitecodes"></a>  À propos des noms de site et des codes de site
-Les codes de site et les noms de site permettent d’identifier et de gérer les sites dans une hiérarchie Configuration Manager. Dans la console Configuration Manager, le code de site et le nom de site s’affichent au format &lt;*code_site*\> - &lt;*nom_site*\>. Chaque code de site que vous utilisez dans votre hiérarchie doit être unique. Si le schéma Active Directory est étendu pour Configuration Manager et que vos sites publient des données, les codes de site utilisés dans une forêt Active Directory doivent être uniques, même s’ils sont utilisés dans une autre hiérarchie Configuration Manager ou s’ils ont été utilisés dans des installations précédentes de Configuration Manager. Veillez à planifier correctement vos codes et noms de site avant de déployer votre hiérarchie.
+## <a name="bkmk_sitecodes"></a>Over sitenamen en sitecodes
+Sitecodes en sitenamen worden gebruikt om te bepalen en de sites in een Configuration Manager-hiërarchie beheren. In de Configuration Manager-console de sitecode en sitenaam worden weergegeven in de &lt; *sitecode*\> - &lt;*sitenaam* \> indeling. Elke sitecode die u in uw hiërarchie gebruikt moet uniek zijn. Als het Active Directory-schema wordt uitgebreid voor Configuration Manager en uw sites gegevens publiceren, moet de sitecodes die binnen een Active Directory-forest gebruikt uniek zelfs als ze worden gebruikt in een andere Configuration Manager-hiërarchie of als deze zijn gebruikt in eerdere installaties van Configuration Manager. Zorg dat u zorgvuldig plannen van uw sitecodes en sitenamen voordat u uw hiërarchie implementeert.
 
-### <a name="specify-a-site-code-and-site-name"></a>Spécifier un code de site et un nom de site
-Quand vous exécutez le programme d’installation de Configuration Manager, vous êtes invité à fournir un code de site et un nom de site pour le site d’administration centrale, et pour l’installation de chaque site principal et secondaire. Un code de site doit identifier chaque site de façon unique dans la hiérarchie. Le code de site étant utilisé dans les noms de dossiers, n’utilisez jamais les noms suivants comme code de site, notamment les noms réservés à Configuration Manager et à Windows :
+### <a name="specify-a-site-code-and-site-name"></a>Geef een sitecode en sitenaam
+Wanneer u Setup van Configuration Manager uitvoert, wordt u gevraagd om een sitecode en sitenaam voor de centrale beheersite, en voor elke primaire site en de installatie van secundaire site. Een sitecode moet een unieke identificatie voor elke site in de hiërarchie. Aangezien de sitecode in mapnamen wordt gebruikt, nooit de volgende namen voor de sitecode, waaronder namen die zijn gereserveerd voor Configuration Manager en Windows te gebruiken:
   -  AUX
   -  CON
   -  NUL
@@ -94,46 +94,46 @@ Quand vous exécutez le programme d’installation de Configuration Manager, vou
   -  SMS
 
 > [!NOTE]
-> Le programme d’installation de Configuration Manager ne vérifie pas si un code de site est déjà utilisé.
+> Setup van Configuration Manager controleert niet of een sitecode niet al in gebruik.
 
-Pour entrer le code de site pour un site quand vous exécutez le programme d’installation de Configuration Manager, vous devez entrer trois caractères alphanumériques. Seules les lettres de *A* à *Z* et les nombres de *0* à *9*, dans n’importe quelle combinaison, sont autorisés dans les codes de site. La séquence de lettres ou de chiffres n'influe en rien sur la communication entre les sites. Par exemple, il n’est pas nécessaire de nommer un site principal *ABC* et un site secondaire *DEF*.
+Om in te voeren de sitecode voor een site wanneer u Setup van Configuration Manager uitvoert, moet u drie alfanumerieke karakters invoeren. Alleen de letters *A* via *Z* en de getallen *0* via *9*, in een willekeurige combinatie in sitecodes zijn toegestaan. De volgorde van letters of cijfers heeft geen effect op de communicatie tussen sites. Het is bijvoorbeeld niet nodig als naam voor een primaire site *ABC* en een secundaire site *DEF*.
 
-Le nom du site est un identificateur de nom convivial pour ce site. Vous pouvez utiliser uniquement les caractères de *A* à *Z*, de *a* à *z* et de *0* à *9*, ainsi que le tiret (*-*) dans les noms des sites.
+Naam van de site is een beschrijvende naam-id voor de site. U kunt alleen de tekens *A* via *Z*, *een* via *z*, *0* via *9*, en het afbreekstreepje (*-*) in sitenamen.
 
 > [!IMPORTANT]
-> La modification du code de site ou du nom de site après l’installation du site n’est pas prise en charge.
+> Een wijziging van de sitecode of sitenaam na installatie van de site wordt niet ondersteund.
 
-### <a name="reuse-a-site-code"></a>Réutiliser un code de site
-Les codes de site ne peuvent pas être utilisés plusieurs fois dans une hiérarchie Configuration Manager pour un site d’administration centrale ou un site principal, même si le site et le code de site d’origine ont été désinstallés. Si vous réutilisez un code de site, vous risquez d’avoir des conflits d’ID d’objet dans votre hiérarchie. Vous pouvez réutiliser le code de site d’un site secondaire si ce site secondaire et le code de site ne sont plus utilisés dans votre hiérarchie Configuration Manager ou dans la forêt Active Directory.
+### <a name="reuse-a-site-code"></a>Een sitecode hergebruikt
+Sitecodes kunnen niet worden gebruikt meer dan één keer in een hiërarchie van Configuration Manager voor een centrale beheersite of een primaire site, zelfs als de oorspronkelijke site en de sitecode is verwijderd. Als u een sitecode hergebruikt, risico u conflicterende object-ID's in uw hiërarchie. U kunt de sitecode voor een secundaire site opnieuw gebruiken als deze secundaire site en de sitecode niet langer in gebruik in uw Configuration Manager-hiërarchie of in Active Directory-forest.
 
-## <a name="limits-and-restrictions-for-installed-sites"></a>Limites et restrictions concernant les sites installés
-Avant d’installer un site, vous devez connaître les limitations suivantes qui s’appliquent aux sites et aux hiérarchies :
--   Après l’exécution du programme d’installation, vous ne pouvez modifier les propriétés suivantes du site qu’en désinstallant le site et en le réinstallant avec les nouvelles valeurs :  
-  -   Répertoire d’installation des fichiers programmes  
-  -   Code de site  
-  -   Description du site  
--   Si votre hiérarchie comprend un site d’administration centrale :  
-  -   Configuration Manager ne permet pas de retirer un site principal enfant d’une hiérarchie pour en faire un site principal autonome ou pour le rattacher à une autre hiérarchie. Au lieu de cela, vous devez désinstaller le site principal enfant et le réinstaller comme nouveau site principal autonome ou comme site enfant du site d’administration centrale d’une autre hiérarchie.  
+## <a name="limits-and-restrictions-for-installed-sites"></a>Limieten en beperkingen voor geïnstalleerde sites
+Voordat u een site installeert, is het belangrijk te begrijpen van de volgende beperkingen die betrekking hebben op sites en sitehiërarchieën:
+-   Nadat Setup is uitgevoerd, kunt u de volgende site-eigenschappen niet wijzigen zonder de site verwijderen en vervolgens opnieuw installeert met behulp van de nieuwe waarden:  
+  -   Map voor installatie programmabestanden  
+  -   Sitecode  
+  -   Sitebeschrijving  
+-   Wanneer uw hiërarchie een centrale beheersite bevat:  
+  -   Configuration Manager biedt geen ondersteuning voor het verplaatsen van een onderliggende primaire site uit een hiërarchie maken van een zelfstandige primaire site of te koppelen aan een andere hiërarchie. In plaats daarvan de onderliggende primaire site verwijderen en opnieuw installeren als een nieuwe zelfstandige primaire site of als een onderliggende site van de centrale beheersite van een andere hiërarchie.  
 
 
-## <a name="bkmk_optionalsteps"></a>  Étapes facultatives avant d’exécuter le programme d’installation
-**Exécuter manuellement le[Téléchargeur d’installation](../../../../core/servers/deploy/install/setup-downloader.md)**
+## <a name="bkmk_optionalsteps"></a>Optionele stappen voordat u Setup uitvoert
+**Handmatig uitvoeren [Setup Downloader](../../../../core/servers/deploy/install/setup-downloader.md)**
 
-Pour télécharger les fichiers d’installation mis à jour pour Configuration Manager, vous pouvez exécuter le Téléchargeur d’installation. Si l’ordinateur sur lequel vous voulez exécuter le programme d’installation n’est pas connecté à Internet, ou si vous prévoyez d’installer plusieurs serveurs de site, utilisez le Téléchargeur d’installation pour télécharger les mises à jour requises du programme d’installation. Voici des informations supplémentaires :
--  Par défaut, le programme d’installation se connecte à Internet pour télécharger les fichiers du programme d’installation mis à jour.
--  Par défaut, les fichiers sont stockés dans le dossier Redist.
--  Vous pouvez diriger le programme d’installation vers un emplacement sur votre réseau où vous avez précédemment stocké une copie de ces fichiers.
+Voor het downloaden van bijgewerkte installatiebestanden voor Configuration Manager, kunt u Setup Downloader uitvoeren. Als de computer waar u de installatie uitvoert niet is verbonden met Internet of als u verwacht dat meerdere siteservers te installeren, kunt u overwegen Setup Downloader om de vereiste updates te downloaden. Hier vindt u aanvullende informatie:
+-  Het installatieprogramma maakt standaard verbinding met Internet te downloaden van bijgewerkte installatiebestanden.
+-  Standaard worden de bestanden opgeslagen in de map Redist.
+-  U kunt het installatieprogramma verwijzen naar een locatie op het netwerk waar u eerder een kopie van deze bestanden hebt opgeslagen.
 
-**Exécuter manuellement l’[Outil de vérification des conditions préalables](../../../../core/servers/deploy/install/prerequisite-checker.md)**
+**Handmatig uitvoeren [Prerequisite Checker](../../../../core/servers/deploy/install/prerequisite-checker.md)**
 
-Pour identifier et résoudre les problèmes avant d’exécuter le programme d’installation pour installer un site et avant d’installer un rôle de système de site sur un serveur, vous pouvez exécuter l’Outil de vérification des prérequis. Cet outil permet de vérifier que l’ordinateur remplit les conditions requises pour héberger le site ou le rôle de système de site. Voici des informations supplémentaires :
- -  Par défaut, le programme d’installation exécute l’Outil de vérification des prérequis.
- -  En cas d’erreur, le programme d’installation s’arrête jusqu’à ce que le problème soit résolu.
+Om te identificeren en oplossen van problemen voordat u Setup voor de installatie van een site uitvoert en voordat u een sitesysteemrol op een server installeert, kunt u de Prerequisite Checker uitvoeren. Prerequisite Checker zorgt ervoor dat de computer voldoet aan de vereisten voor het hosten van de site of sitesysteemrol. Hier vindt u aanvullende informatie:
+ -  Setup wordt standaard Prerequisite Checker uitgevoerd.
+ -  Als er fouten zijn, stopt Setup totdat het probleem is opgelost.
 
-**Identifier des ports facultatifs**
+**Stel vast welke poorten**
 
-Vous pouvez identifier des ports facultatifs pouvant être utilisés par les clients et les systèmes de site. Voici des informations supplémentaires :
- -  Par défaut, les systèmes de site et les clients utilisent des ports prédéfinis pour communiquer.
- -  Pendant l’installation, vous pouvez configurer d’autres ports.
+Optionele poorten voor sitesystemen en clients te gebruiken, kunt u identificeren. Hier vindt u aanvullende informatie:
+ -  Standaard, sitesystemen en clients vooraf gedefinieerde poorten te gebruiken om te communiceren.
+ -  Tijdens de installatie kunt u alternatieve poorten te configureren.
 
- Pour plus d’informations, consultez [Ports utilisés dans System Center Configuration Manager](../../../../core/plan-design/hierarchy/ports.md).
+ Zie voor meer informatie [poorten die worden gebruikt in System Center Configuration Manager](../../../../core/plan-design/hierarchy/ports.md).

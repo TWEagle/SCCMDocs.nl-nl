@@ -1,6 +1,6 @@
 ---
-title: "Introduction aux mises à jour logicielles | Microsoft Docs"
-description: "Découvrez les principes de base des mises à jour logicielles dans System Center Configuration Manager."
+title: Inleiding tot software-updates | Microsoft Docs
+description: Leer de basisbeginselen van software-updates in System Center Configuration Manager.
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,269 +13,269 @@ ms.technology: configmgr-sum
 ms.assetid: e9778b13-c8a3-40eb-8655-34ac8ce9cdaa
 ms.openlocfilehash: 2904b904bbaf155f016f55fbd36af80308a42d76
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-software-updates-in-system-center-configuration-manager"></a>Présentation des mises à jour logicielles dans System Center Configuration Manager
+# <a name="introduction-to-software-updates-in-system-center-configuration-manager"></a>Inleiding tot software-updates in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Les mises à jour logicielles dans System Center Configuration Manager offrent un ensemble d’outils et de ressources qui peuvent faciliter la gestion de la tâche complexe que représentent le suivi et l’application des mises à jour logicielles sur les ordinateurs clients de l’entreprise. Il est essentiel de disposer d'un processus de gestion des mises à jour logicielles efficace pour assurer le fonctionnement des opérations, résoudre les problèmes de sécurité et préserver la stabilité de l'infrastructure réseau. Toutefois, la gestion des mises à jour logicielles nécessite une attention constante et continue du fait que les technologies évoluent rapidement et que de nouvelles menaces de sécurité émergent constamment.  
+Software-updates in System Center Configuration Manager biedt een set hulpprogramma's en bronnen die kunnen helpen bij de complexe taak van tracking en toepassen van software-updates op clientcomputers in de onderneming beheren. Een effectief beheerproces van software-update is nodig om operationele efficiëntie te behouden, om beveiligingsproblemen te overwinnen en om de stabiliteit van de netwerkinfrastructuur te behouden. Wegens de veranderende aard van technologie en het permanent opduiken van nieuwe veiligheidsbedreigingen, vergt effectief beheer van software-updates consistente en continue aandacht.  
 
-Pour obtenir un exemple de scénario illustrant la façon dont vous pouvez déployer des mises à jour logicielles dans votre environnement, consultez [Exemple de scénario de déploiement de mises à jour logicielles de sécurité](../deploy-use/example-scenario-deploy-monitor-monthly-security-updates.md).  
+Zie voor een voorbeeldscenario dat toont hoe u software-updates in uw omgeving kunt implementeren, [voorbeeldscenario voor het implementeren van beveiligingsupdates](../deploy-use/example-scenario-deploy-monitor-monthly-security-updates.md).  
 
-##  <a name="BKMK_Synchronization"></a> Synchronisation des mises à jour logicielles  
- La synchronisation des mises à jour logicielles dans Configuration Manager se connecte à Microsoft Update pour récupérer les métadonnées des mises à jour logicielles. Le site de niveau supérieur (site d’administration centrale ou site principal autonome) se synchronise avec Microsoft Update selon une planification ou quand vous démarrez manuellement la synchronisation à partir de la console Configuration Manager. Dès lors que Configuration Manager a terminé la synchronisation des mises à jour logicielles sur le site de niveau supérieur, il la démarre sur les sites enfants, le cas échéant. Quand la synchronisation est terminée sur chaque site principal ou secondaire, une stratégie à l'échelle du site est créée, laquelle fournit aux ordinateurs clients l'emplacement des points de mise à jour logicielle.  
-
-> [!NOTE]  
->  Les mises à jour logicielles sont activées par défaut dans les paramètres client. Toutefois, si vous définissez le paramètre client **Activer les mises à jour logicielles sur les clients** sur **Non** pour désactiver les mises à jour logicielles sur un regroupement ou dans les paramètres par défaut, l'emplacement des points de mise à jour logicielle ne sont pas envoyés aux clients associés. Pour plus d’informations, consultez [paramètres client des mises à jour logicielles](../../core/clients/deploy/about-client-settings.md#software-updates).  
-
- Une fois que le client a reçu la stratégie, il lance une analyse de la conformité des mises à jour logicielles et écrit les informations dans Windows Management Instrumentation (WMI). Les informations de conformité sont ensuite envoyées au point de gestion qui les transmet alors au serveur de site. Pour plus d'informations sur l'évaluation de la conformité, voir la section [Software updates compliance assessment](#BKMK_SUMCompliance) de cette rubrique.  
-
- Vous pouvez installer plusieurs points de mise à jour logicielle sur un site principal. Le premier point de mise à jour logicielle que vous installez est configuré en tant que source de synchronisation. Celle-ci effectue la synchronisation à partir de Microsoft Update ou d’un serveur WSUS ne figurant pas dans votre hiérarchie Configuration Manager. Les autres points de mise à jour logicielle au niveau du site utilisent le premier point de mise à jour logicielle en tant que source de synchronisation.  
+##  <a name="BKMK_Synchronization"></a> Synchronisatie van software-updates  
+ Synchronisatie van software-updates in Configuration Manager maakt verbinding met Microsoft Update voor het ophalen van metagegevens van software-updates. Het hoogste niveau (centrale beheersite of zelfstandige primaire site) synchroniseert met Microsoft Update volgens een planning of wanneer u handmatig synchronisatie vanaf de Configuration Manager-console start. Als Configuration Manager synchronisatie van software-updates op het hoogste niveau, wordt synchronisatie software-updates gestart op onderliggende sites, indien aanwezig. Wanneer synchronisatie volledig is op de primaire site of secundaire site, wordt een beleid voor de hele site gemaakt, dat de clientcomputers de locatie van software-updatepunten levert.  
 
 > [!NOTE]  
->  Lorsque le processus de synchronisation des mises à jour logicielles est terminé sur le site de niveau supérieur, les métadonnées des mises à jour logicielles sont répliquées sur les sites enfants par réplication de la base de données. Quand vous connectez une console Configuration Manager au site enfant, Configuration Manager affiche les métadonnées des mises à jour logicielles. Toutefois, tant que vous n’avez pas installé ni configuré un point de mise à jour logicielle sur le site, les clients n’analysent pas la conformité des mises à jour logicielles, ils ne transmettent pas les informations de conformité à Configuration Manager et vous ne pouvez pas déployer correctement les mises à jour logicielles.  
+>  Software-updates zijn in de clientinstellingen standaard ingeschakeld. Indien u evenwel de clientinstelling **Software-updates inschakelen op clients** instelt op **Nee** om software-updates uit te schakelen op een verzameling of in de standaardinstellingen, worden de locaties van software-updatepunten niet gezonden naar gekoppelde clients. Zie voor meer informatie [clientinstellingen van software-updates](../../core/clients/deploy/about-client-settings.md#software-updates).  
 
-### <a name="synchronization-on-the-top-level-site"></a>Synchronisation sur le site de niveau supérieur  
- Le processus de synchronisation des mises à jour logicielles sur le site de niveau supérieur permet de récupérer auprès de Microsoft Update les métadonnées des mises à jour logicielles qui respectent les critères que vous spécifiez dans les propriétés du composant du point de mise à jour logicielle. Vous configurez les critères uniquement sur le site de niveau supérieur.  
+ Nadat de client het beleid ontvangt, start de client een scan voor naleving van software-updates en schrijft de informatie naar Windows Management Instrumentation (WMI). De informatie over naleving wordt dan gezonden naar het beheerpunt dat dan de informatie naar de siteserver zendt. Zie de sectie [Software updates compliance assessment](#BKMK_SUMCompliance) van dit onderwerp voor meer informatie over nalevingsbeoordeling.  
+
+ U kunt meerdere software-updatepunten installeren in een primaire site. Het eerste software-updatepunt dat u installeert is geconfigureerd als de synchronisatiebron. Dit synchroniseert vanaf Microsoft Update of een WSUS-server niet in uw Configuration Manager-hiërarchie. De andere software-updatepunten op de site gebruiken het eerste software-updatepunt als de synchronisatiebron.  
 
 > [!NOTE]  
->  En guise de source de synchronisation, plutôt que Microsoft Updates, vous pouvez spécifier un serveur WSUS existant qui ne figure pas dans la hiérarchie Configuration Manager.  
+>  Wanneer het proces van synchronisatie van software-updates volledig is op de site van het hoogste niveau, worden de metagegevens van software-updates gerepliceerd naar onderliggende sites door gebruik te maken van databasereplicatie. Wanneer u een Configuration Manager-console verbinding met de onderliggende site, wordt in Configuration Manager de metagegevens van software-updates weergegeven. Echter, totdat u installeert en configureert een software-updatepunt op de site, zullen clients niet scannen voor naleving van software-updates, clients wordt geen informatie over naleving rapporteren aan Configuration Manager en u niet met succes software-updates implementeren.  
 
- La liste suivante décrit les étapes de base du processus de synchronisation sur le site de niveau supérieur :  
+### <a name="synchronization-on-the-top-level-site"></a>Synchronisatie in de site op het hoogste niveau  
+ Het proces van synchronisatie van software-updates op de site van het hoogste niveau, onttrekt de metagegevens voor software-updates van Microsoft Update, die voldoen aan de criteria die u opgeeft in de eigenschappen van onderdeel software-updatepunt U kunt de criteria alleen op de site het hoogste niveau configureren.  
 
-1.  La synchronisation des mises à jour logicielles démarre.  
+> [!NOTE]  
+>  U kunt een bestaande WSUS-server die zich niet in de Configuration Manager-hiërarchie in plaats van Microsoft-Updates als de synchronisatiebron opgeven.  
 
-2.  Le Gestionnaire de synchronisation WSUS envoie une demande à WSUS exécuté sur le point de mise à jour logicielle pour lancer la synchronisation avec Microsoft Update.  
+ De volgende lijst beschrijft de basisstappen voor het synchronisatieproces op de site van het hoogste niveau:  
 
-3.  Les métadonnées des mises à jour logicielles sont synchronisées à partir de Microsoft Update et toutes les modifications sont insérées ou mises à jour dans la base de données WSUS.  
+1.  Synchronisatie van software-updates wordt gestart.  
 
-4.  Quand WSUS a terminé la synchronisation, le gestionnaire de synchronisation WSUS synchronise les métadonnées des mises à jour logicielles de la base de données WSUS vers la base de données Configuration Manager, et toutes les modifications effectuées après la dernière synchronisation sont insérées ou mises à jour dans la base de données du site. Les métadonnées des mises à jour logicielles sont stockées dans la base de données du site sous la forme d'un élément de configuration.  
+2.  WSUS Synchronization Manager zendt een verzoek naar WSUS dat uitgevoerd wordt op het software-updatepunt, om synchronisatie te starten met Microsoft Update.  
 
-5.  Les éléments de configuration des mises à jour logicielles sont envoyées aux sites enfants par réplication de la base de données.  
+3.  De metagegevens van software-updates worden gesynchroniseerd door Microsoft Update, en wijzigingen worden toegevoegd of geüpdatet in de WSUS-database.  
 
-6.  Une fois la synchronisation terminée avec succès, le Gestionnaire de synchronisation WSUS crée le message d'état 6702.  
+4.  Wanneer WSUS synchronisatie heeft beëindigd, synchroniseert WSUS Synchronization Manager de metagegevens van de software-updates vanaf de WSUS-database met de Configuration Manager-database en eventuele wijzigingen na de laatste synchronisatie worden ingevoegd of geüpdatet in de sitedatabase. De metagegevens van de software-updates worden opgeslagen in de site-database als een configuratie-item.  
 
-7.  Le Gestionnaire de synchronisation WSUS envoie une demande de synchronisation à tous les sites enfants.  
+5.  De configuratie-items van software-updates worden gezonden naar onderliggende sites door gebruik te maken van databasereplicatie.  
 
-8.  Le gestionnaire de synchronisation WSUS envoie une demande à la fois au serveur WSUS qui s'exécute sur d'autres points de mise à jour logicielle sur le site. Les serveurs WSUS sur les autres points de mise à jour logicielle sont configurés pour être des réplicas du serveur WSUS qui s'exécute sur le point de mise à jour logicielle par défaut sur le site.  
+6.  Wanneer synchronisatie is voltooid, maakt de WSUS Synchronization Manager een statusbericht 6702.  
 
-### <a name="synchronization-on-child-primary-and-secondary-sites"></a>Synchronisation sur les sites secondaires et principaux enfants  
- Lors du processus de synchronisation des mises à jour logicielles sur le site de niveau supérieur, les éléments de configuration des mises à jour logicielles sont répliqués sur les sites enfants par réplication de la base de données. À la fin du processus, le site de niveau supérieur envoie une demande de synchronisation au site enfant, puis le site enfant démarre la synchronisation WSUS. La liste suivante fournit les étapes de base pour le processus de synchronisation sur un site secondaire ou un site principal enfant :  
+7.  WSUS Synchronization Manager zendt een synchronisatieverzoek naar alle onderliggende sites.  
 
-1.  Le gestionnaire de synchronisation WSUS reçoit une demande de synchronisation de la part du site de niveau supérieur.  
+8.  WSUS Synchronization Manager zendt één verzoek per keer naar WSUS die uitgevoerd wordt op andere software-updatepunten op de site. De WSUS-servers op de andere software-updatepunten zijn geconfigureerd om replica's te zijn van WSUS, die uitgevoerd wordt op het standaard-updatepunt op de site.  
 
-2.  La synchronisation des mises à jour logicielles démarre.  
+### <a name="synchronization-on-child-primary-and-secondary-sites"></a>Synchronisatie in de onderliggende primaire en secundaire sites  
+ Wanneer het proces van synchronisatie van software-updates volledig is op de site van het hoogste niveau, worden de configuratie-items van de software-updates gerepliceerd naar onderliggende sites door gebruik te maken van databasereplicatie. Op het einde van het proces zendt de site op het hoogste niveau een synchronisatieverzoek naar de onderliggende site en de onderliggende site start de WSUS-synchronisatie. De volgende lijst beschrijft de basisstappen voor het synchronisatieproces op een onderliggende primaire site of op een secundaire site:  
 
-3.  Le Gestionnaire de synchronisation WSUS effectue une demande à WSUS qui est exécuté sur le point de mise à jour logicielle pour démarrer la synchronisation.  
+1.  WSUS Synchronization Manager zendt een synchronisatieverzoek vanaf de site van het hoogste niveau.  
 
-4.  WSUS exécuté sur le point de mise à jour logicielle sur le site enfant synchronise les métadonnées des mises à jour logicielles à partir de WSUS exécuté sur le point de mise à jour logicielle sur le site parent.  
+2.  Synchronisatie van software-updates wordt gestart.  
 
-5.  Une fois la synchronisation terminée avec succès, le Gestionnaire de synchronisation WSUS crée le message d'état 6702.  
+3.  WSUS Synchronization Manager zendt een verzoek naar WSUS die uitgevoerd wordt op het software-updatepunt, om synchronisatie te starten.  
 
-6.  À partir d'un site principal, le gestionnaire de synchronisation WSUS envoie une demande de synchronisation aux sites secondaires enfants. Le site secondaire démarre la synchronisation des mises à jour logicielles avec le site principal parent. Le site secondaire est configuré en tant que réplica du serveur WSUS qui s'exécute sur le site parent.  
+4.  WSUS die uitgevoerd wordt op het software-updatepunt op de onderliggende site synchroniseert metagegevens van software-updates vanaf WSUS die uitgevoerd wordt op het software-updatepunt op de bovenliggende site.  
 
-7.  Le gestionnaire de synchronisation WSUS envoie une demande à la fois au serveur WSUS qui s'exécute sur d'autres points de mise à jour logicielle sur le site. Les serveurs WSUS sur les autres points de mise à jour logicielle sont configurés pour être des réplicas du serveur WSUS qui s'exécute sur le point de mise à jour logicielle par défaut sur le site.  
+5.  Wanneer synchronisatie is voltooid, maakt de WSUS Synchronization Manager een statusbericht 6702.  
+
+6.  Vanaf een primaire site zendt WSUS Synchronization Manager een synchronisatieverzoek naar alle onderliggende, secundaire sites. De secundaire site start de synchronisatie van software-updates met de bovenliggende primaire site. De secundaire site is geconfigureerd als een replica van WSUS die uitgevoerd wordt op de bovenliggende site.  
+
+7.  WSUS Synchronization Manager zendt één verzoek per keer naar WSUS die uitgevoerd wordt op andere software-updatepunten op de site. De WSUS-servers op de andere software-updatepunten zijn geconfigureerd om replica's te zijn van WSUS, die uitgevoerd wordt op het standaard-updatepunt op de site.  
 
 ##  <a name="BKMK_SUMCompliance"></a> Software updates compliance assessment  
- Avant de déployer des mises à jour logicielles sur des ordinateurs clients dans Configuration Manager, lancez une analyse de conformité des mises à jour logicielles sur ces ordinateurs. Pour chaque mise à jour logicielle, un message indiquant l'état de conformité de la mise à jour est créé. Les messages d'état sont envoyés en bloc vers le point de gestion, puis vers le serveur du site où l'état de conformité est inséré dans la base de données du site. L’état de conformité des mises à jour logicielles s’affiche dans la console Configuration Manager. Vous pouvez déployer et installer des mises à jour logicielles sur des ordinateurs qui nécessitent les mises à jour. Vous trouverez dans les sections suivantes des informations sur les états de conformité, ainsi qu'une description du processus d'analyse de la conformité des mises à jour logicielles.  
+ Voordat u software-updates naar clientcomputers in Configuration Manager implementeert, start u een scan voor naleving van software-updates op clientcomputers. Voor elke software-update wordt een statusbericht gemaakt dat de nalevingsstatus bevat voor de update. De statusberichten worden in bulk gezonden naar het beheerpunt en dan naar de siteserver, waar de nalevingstatus ingevoegd wordt in de sitedatabase. De nalevingsstatus voor software-updates wordt weergegeven in de Configuration Manager-console. U kunt software-updates implementeren en installeren op computers die de updates nodig hebben. De volgende secties geven informatie over de nalevingsstatussen en beschrijven het proces van scannen voor naleving van software-updates  
 
-### <a name="software-updates-compliance-states"></a>États de conformité des mises à jour logicielles  
- Vous trouverez ci-dessous une description de chaque état de conformité affiché dans la console Configuration Manager pour les mises à jour logicielles.  
+### <a name="software-updates-compliance-states"></a>Nalevingsstatussen voor software-updates  
+ De volgende lijsten en beschrijft elke nalevingsstatus die wordt weergegeven in de Configuration Manager-console voor software-updates.  
 
--   **Obligatoire**  
+-   **Vereist**  
 
-     Spécifie que la mise à jour logicielle est applicable et qu'elle est requise par l'ordinateur client. Lorsque l'état de la mise à jour est **Requise**, n'importe laquelle des conditions suivante peut être vérifiée :  
+     Specificeert dat de software-update toepasselijk is en nodig op de clientcomputer Eén van de volgende condities kan waar zijn wanneer de software-updatestatus **Vereist**is:  
 
-    -   La mise à jour logicielle n'a pas été déployée sur l'ordinateur client.  
+    -   De software-update is niet geïmplementeerd op de clientcomputer.  
 
-    -   La mise à jour logicielle a été installée sur l'ordinateur client. Toutefois, le message d'état le plus récent n'a pas encore été inséré dans la base de données sur le serveur de site. Une fois l'installation terminée, l'ordinateur client analyse de nouveau la mise à jour. Un délai maximal de deux minutes peut être observé avant que le client n'envoie l'état actualisé au point de gestion, lequel le transfère ensuite au serveur de site.  
+    -   De software-update is geïnstalleerd op de clientcomputer. Evenwel is het meest recente statusbericht nog niet ingevoegd in de database op de siteserver. De clientcomputer scant opnieuw voor de update nadat de installatie voltooid is. Er kan een vertraging zijn tot twee minuten vóór de client de geüpdate toestand zendt naar het beheerpunt dat dan de geüpdate toestand doorstuurt naar de siteserver.  
 
-    -   La mise à jour logicielle a été installée sur l'ordinateur client. Toutefois, l'installation de la mise à jour logicielle requiert un redémarrage de l'ordinateur pour se terminer.  
+    -   De software-update is geïnstalleerd op de clientcomputer. De software-update-installatie vereist evenwel een opnieuw opstarten van de computer vóór de update voltooid is.  
 
-    -   La mise à jour logicielle a été déployée sur l'ordinateur client, mais elle n'a pas encore été installée.  
+    -   De software-update werd geïmplementeerd naar de clientcomputer maar werd nog niet geïnstalleerd.  
 
--   **Non requis**  
+-   **Niet vereist**  
 
-     Spécifie que la mise à jour logicielle n'est pas applicable à l'ordinateur client. Par conséquent, elle n'est pas obligatoire.  
+     Geeft op dat de software-update niet toepasselijk is op de clientcomputer. De software-update is daarom niet vereist.  
 
--   **Installé**  
+-   **Geïnstalleerd**  
 
-     Indique que la mise à jour logicielle est applicable à l'ordinateur client et qu'elle est déjà installée sur celui-ci.  
+     Geeft op dat de software-update toepasselijk is op de clientcomputer en dat de clientcomputer de software-update reeds geïnstalleerd heeft.  
 
--   **Inconnu.**  
+-   **Onbekend**  
 
-     Indique que le serveur de site n'a reçu aucun message d'état émanant de l'ordinateur client, généralement pour l'une des raisons suivantes :  
+     Geeft op dat de siteserver geen statusbericht heeft ontvangen van de clientcomputer, typisch wegens één van de volgende redenen:  
 
-    -   L'ordinateur client n'a pas réussi à faire l'analyse de conformité des mises à jour logicielles.  
+    -   De clientcomputer heeft niet met succes gescand op naleving van software-updates.  
 
-    -   L'analyse s'est correctement terminée sur l'ordinateur client. Toutefois, le message d'état n'a pas encore été traité sur le serveur de site, probablement en raison d'un backlog de messages d'état.  
+    -   De scan is voltooid op de clientcomputer. Het statusbericht werd nog niet verwerkt op de siteserver, eventueel omwille van een achterstand van de statusberichten.  
 
-    -   L'analyse sur l'ordinateur client a abouti, mais le site enfant n'a envoyé aucun message d'état.  
+    -   De scan werd voltooid op de clientcomputer, maar het statusbericht werd nog niet ontvangen van de onderliggende site.  
 
-    -   L'analyse sur l'ordinateur client a abouti, mais le fichier de message d'état est endommagé et n'a pas pu être traité.  
+    -   De scan werd voltooid op de clientcomputer, maar het statusberichtenbestand werd op één of andere manier beschadigd en kon niet verwerkt worden.  
 
-### <a name="scan-for-software-updates-compliance-process"></a>Processus d'analyse de la conformité des mises à jour logicielles  
- Quand le point de mise à jour logicielle est installé et synchronisé, une stratégie d’ordinateur à l’échelle du site est créée pour informer les ordinateurs clients que les mises à jour logicielles de Configuration Manager ont été activées pour le site. Lorsqu'un client reçoit la stratégie de l'ordinateur, une analyse d'évaluation de la conformité est planifiée pour démarrer de façon aléatoire dans les deux heures suivantes. Lorsqu'une analyse est lancée, le processus Agent client des mises à jour logicielles efface l'historique des analyses, soumet une requête pour rechercher le serveur WSUS qui devrait être utilisé pour l'analyse, et met à jour la stratégie de groupe local avec l'emplacement du serveur WSUS.  
+### <a name="scan-for-software-updates-compliance-process"></a>Het scannen op de naleving voor software-updates  
+ Wanneer de software-updatepunt is geïnstalleerd en gesynchroniseerd, wordt een computerbeleid voor de hele site gemaakt die de clientcomputers informeert dat de Configuration Manager software-updates is ingeschakeld voor de site. Wanneer een client een computerbeleid ontvangt, wordt een scan gepland, die willekeurig binnen de komende twee uren kan beginnen, om de naleving te beoordelen. Wanneer de scan is gestart, wist een clientagent-proces voor software updates de geschiedenis van de scan, verzendt een verzoek om de WSUS-server te vinden die moet gebruikt worden voor de scan, en werkt het beleid van de lokale groep bij met de WSUS-serverlocatie.  
 
 > [!NOTE]  
->  Les clients basés sur Internet doivent se connecter au serveur WSUS à l'aide de SSL.  
+>  Internetclients moeten zich verbinden met de WSUS-server door gebruik te maken van SSL.  
 
- Une requête d'analyse est transmise à l'Agent Windows Update (WUA). L'Agent Windows Update (WUA) se connecte à l'emplacement du serveur WSUS répertorié dans la stratégie locale, récupère les métadonnées des mises à jour logicielles synchronisées sur le serveur WSUS, puis recherche les mises à jour sur l'ordinateur client. Le processus Agent client des mises à jour logicielles détecte que l'analyse de la conformité est terminée. Il crée des messages d'état pour chacune des mises à jour logicielles dont l'état de conformité a changé après la dernière analyse. Les messages d'état sont envoyés en bloc au point de gestion, toutes les 15 minutes. Le point de gestion transfère ensuite les messages d'état au serveur de site où ils sont insérés dans la base de données du serveur de site.  
+ Een scanaanvraag wordt doorgegeven aan de Windows Update Agent (WUA). De WUA verbindt vervolgens met de WSUS-serverlocatie die wordt vermeld in het lokale beleid, haalt de metagegevens van de software-updates op die zijn gesynchroniseerd op de WSUS-server en scant de clientcomputer voor de updates. Een clientagentproces voor software-updates detecteert dat de compatibiliteitsscan is voltooid en maakt de statusberichten voor elke software-update waarvan de compatibiliteitsstatus is gewijzigd na de laatste scan. De statusberichten worden elke 15 minuten in bulk naar het beheerpunt verzonden. Het beheerpunt stuurt vervolgens de statusberichten naar de siteserver door; daar worden de statusberichten toegevoegd aan de siteserverdatabase.  
 
- Après la première analyse de conformité des mises à jour logicielles, l'analyse démarre selon le calendrier d'analyse configuré. Cependant, si le client a effectué l'analyse de conformité des mises à jour logicielles dans la plage de temps indiquée par la valeur de durée de vie, il utilise les métadonnées des mises à jour logicielles stockées localement. Si la dernière analyse a été effectuée en dehors de la durée de vie, le client doit se connecter au serveur WSUS en cours d'exécution sur le point de mise à jour logicielle et mettre à jour les métadonnées des mises à jour logicielles stockées sur le client.  
+ Na de initiële scan voor compatibiliteit van software-updates, wordt de scan gestart volgens het geconfigureerde schema voor scannen. Als de client echter gescand heeft naar de compatibiliteit van software-updates binnen de door Time to Live (TTL) aangeduide tijdspanne, dan gebruikt deze de metagegevens van de software-updates die lokaal worden opgeslagen. Als de laatste scan zich buiten de TTL bevindt, moet de client verbinding maken met WSUS dat wordt uitgevoerd op het software-updatepunt en de metagegevens bijwerken van de software-updates die zijn opgeslagen op de clients.  
 
- En incluant la planification de l'analyse, l'analyse de la conformité des mises à jour logicielles peut être lancée de différentes manières :  
+ Met inbegrip van het scanschema kan de scan voor compatibiliteit van de software-updates op de volgende manieren starten:  
 
--   **Calendrier d’analyse des mises à jour logicielles**: l’analyse de la conformité des mises à jour logicielles commence selon le calendrier d’analyse configuré dans les paramètres Agent client des mises à jour logicielles. Pour plus d’informations sur la configuration des paramètres client des mises à jour logicielles, consultez [paramètres client des mises à jour logicielles](../../core/clients/deploy/about-client-settings.md#software-updates).  
+-   **Schema voor scan van software-updates**: De scan voor software-updates naleving begint bij het geconfigureerde scanschema dat is geconfigureerd in de instellingen voor Clientagent voor Software-Updates. Zie voor meer informatie over het configureren van de clientinstellingen voor Software-Updates [clientinstellingen van software-updates](../../core/clients/deploy/about-client-settings.md#software-updates).  
 
--   **Action Propriétés de Configuration Manager**: l’utilisateur peut démarrer l’action **Cycle d’analyse des mises à jour de logiciels** ou **Cycle d’évaluation des déploiements de mises à jour de logiciels** sous l’onglet **Action** de la boîte de dialogue **Propriétés du Configuration Manager** sur l’ordinateur client.  
+-   **Eigenschappen van Configuration Manager-actie**: Kan worden gestart door de gebruiker de **Scancyclus voor Software-Updates** of **evaluatiecyclus voor installatie van Software-Updates** actie op de **actie** tabblad de **eigenschappen van Configuration Manager** in het dialoogvenster op de clientcomputer.  
 
--   **Planification de la réévaluation du déploiement**: l’évaluation du déploiement et l’analyse de la conformité des mises à jour logicielles commencent selon le calendrier de réévaluation du déploiement configuré, comme indiqué dans les paramètres Agent client des mises à jour logicielles. Pour plus d’informations sur les paramètres client des mises à jour logicielles, consultez [paramètres client des mises à jour logicielles](../../core/clients/deploy/about-client-settings.md#software-updates).  
+-   **Implementatie voor nieuwe evaluaties**: De evaluatie van implementaties en de scan voor software-updates naleving begint bij het geconfigureerde herevaluatie schema, dat is geconfigureerd in de instellingen van de Clientagent voor Software-Updates. Zie voor meer informatie over de clientinstellingen voor Software-Updates [clientinstellingen van software-updates](../../core/clients/deploy/about-client-settings.md#software-updates).  
 
--   **Avant de télécharger les fichiers de mises à jour**: quand un ordinateur client reçoit une stratégie d’attribution pour un nouveau déploiement obligatoire, l’Agent client des mises à jour logicielles télécharge les fichiers de mise à jour logicielle dans le cache du client local. Avant de télécharger les fichiers de mise à jour logicielle, l'agent du client démarre une analyse pour vérifier que la mise à jour logicielle est toujours nécessaire.  
+-   **Vóór het downloaden van updatebestanden**: De Clientagent voor Software-Updates downloadt de software-updatebestanden naar de lokale clientcache wanneer een clientcomputer een toewijzingsbeleid voor een nieuwe vereiste implementatie ontvangt. De clientagent start, vóór het downloaden van de software-updatebestanden, een scan om te verifiëren dat de software-update nog steeds vereist is.  
 
--   **Avant l’installation des mises à jour logicielles**: juste avant d’installer des mises à jour logicielles, l’Agent client des mises à jour logicielles démarre une analyse pour vérifier que les mises à jour logicielles sont toujours nécessaires.  
+-   **Vóór software-update installatie**: Net voordat de installatie van de software-update Start de Clientagent voor Software-Updates een scan om te controleren of de software-updates nog steeds vereist.  
 
--   **Après l’installation des mises à jour logicielles**: juste après la fin de l’installation des mises à jour logicielles, l’Agent client des mises à jour logicielles démarre une analyse pour vérifier que les mises à jour logicielles ne sont plus nécessaires et crée un message d’état indiquant que la mise à jour logicielle est installée. Lorsque l'installation est terminée mais qu'un redémarrage est nécessaire, le message d'état indique que l'ordinateur client doit être redémarré.  
+-   **Na software-update installatie**: Nadat de installatie van een software-update voltooid is, start de Clientagent voor Software-Updates een scan om te controleren dat de software-updates niet langer vereist zijn, en maakt u een nieuw statusbericht waarin wordt aangegeven dat de software-update is geïnstalleerd. Als het na het voltooien van de installatie nodig is om opnieuw op te starten, geeft het statusbericht aan dat de clientcomputer wacht om opnieuw te worden opgestart.  
 
--   **Après le redémarrage du système**: si un ordinateur client attend le redémarrage du système pour terminer l’installation de la mise à jour logicielle, l’Agent client des mises à jour logicielles démarre une analyse après le redémarrage pour vérifier que la mise à jour logicielle n’est plus nécessaire et crée un message d’état indiquant que la mise à jour logicielle est installée.  
+-   **Nadat het systeem opnieuw opstarten**: Wanneer een clientcomputer is in afwachting van opnieuw opstarten voor de software-updatepunten installatie is voltooid, de Clientagent voor Software-Updates een scan wordt gestart nadat het opnieuw opstarten om te controleren dat de software-update niet langer vereist is en maakt een statusbericht waarin wordt vermeld dat de software-update is geïnstalleerd.  
 
-#### <a name="time-to-live-value"></a>Valeur de la durée de vie  
- Les métadonnées des mises à jour logicielles requises pour l'analyse de la conformité des mises à jour logicielles sont stockées sur l'ordinateur client local et, par défaut, sont pertinentes pendant 24 heures. Cette durée est appelée durée de vie.  
+#### <a name="time-to-live-value"></a>De waarde Time to Live  
+ De metagegevens van software-updates die zijn vereist voor de scan naar compatibiliteit van software-updates, worden opgeslagen op de lokale clientcomputer en zijn standaard tot 24 uur geldig. Deze waarde wordt aangeduid als de Time to Live (TTL).  
 
-#### <a name="scan-for-software-updates-compliance-types"></a>Types d'analyse de conformité des mises à jour logicielles  
- Le client analyse la conformité des mises à jour logicielles à l'aide d'un outil d'analyse en ligne ou hors ligne. L'analyse peut être forcée ou non, en fonction de la méthode d'exécution adoptée. Vous trouverez ci-dessous une description des méthodes en ligne ou hors ligne, forcée ou non forcée, permettant de lancer l’analyse.  
+#### <a name="scan-for-software-updates-compliance-types"></a>Typen scans voor software-updatenaleving  
+ De client scant naar de compatibiliteit van software-updates via een online of offline scan en een geforceerde of niet-geforceerde scan, afhankelijk van de manier waarop de scan voor software-updatecompatibiliteit wordt gestart. Hieronder wordt beschreven welke methoden voor het starten van de scan online of offline zijn en of de scan geforceerd of niet-geforceerde.  
 
--   **Calendrier d’analyse des mises à jour logicielles** (analyse en ligne non forcée)  
+-   **Schema voor scan van software-updates** (niet-geforceerde online scan)  
 
-     Conformément au calendrier d'analyse configuré, le client se connecte au serveur WSUS en cours d'exécution sur le point de mise à jour logicielle pour récupérer les métadonnées des mises à jour logicielles uniquement si la dernière analyse a été effectuée en dehors de la durée de vie définie.  
+     Volgens het geconfigureerde scanschema verbindt de client met WSUS dat wordt uitgevoerd op het software-updatepunt om de metagegevens van de software-updates op te halen, alleen wanneer de laatste scan buiten de TTL werd uitgevoerd.  
 
--   **Cycle d’analyse des mises à jour logicielles** ou **Cycle d’évaluation des déploiements de mises à jour**  (analyse en ligne forcée)  
+-   **Scancyclus voor Software-Updates** of **evaluatiecyclus voor installatie van Software-Updates** (geforceerde online scan)  
 
-     L'ordinateur client se connecte toujours au serveur WSUS en cours d'exécution sur le point de mise à jour logicielle pour récupérer les métadonnées des mises à jour logicielles avant d'analyser la conformité des mises à jour logicielles. Une fois l'analyse terminée, le compteur de durée de vie est réinitialisé. Prenons l'exemple d'une valeur de durée de vie de 24 heures : si l'utilisateur lance une analyse de conformité des mises à jour logicielles, cette valeur est réinitialisée sur 24 heures.  
+     De clientcomputer maakt steeds verbinding met WSUS dat wordt uitgevoerd op het software-updatepunt voor het ophalen van de metagegevens van software-updates voordat de clientcomputer scant naar de compatibiliteit van software-updates. Nadat de scan is voltooid, wordt de TTL-teller opnieuw ingesteld. Als de TTL bijvoorbeeld 24 uur is, wordt de TTL opnieuw ingesteld op 24 uur nadat een gebruiker een scan start van de compatibiliteit van software-updates.  
 
--   **Calendrier de la réévaluation du déploiement** (analyse en ligne non forcée)  
+-   **Implementatie voor nieuwe evaluaties** (niet-geforceerde online scan)  
 
-     Conformément au calendrier de réévaluation du déploiement configuré, le client se connecte au serveur WSUS en cours d'exécution sur le point de mise à jour logicielle pour récupérer les métadonnées des mises à jour logicielles uniquement si la dernière analyse a été effectuée en dehors de la durée de vie définie.  
+     Volgens het geconfigureerde implementatieschema voor nieuwe evaluaties verbindt de client met WSUS dat wordt uitgevoerd op het software-updatepunt om de metagegevens van de software-updates op te halen, alleen wanneer de laatste scan buiten de TTL werd uitgevoerd.  
 
--   **Avant de télécharger les fichiers de mise à jour** (analyse en ligne non forcée)  
+-   **Vóór het downloaden van updatebestanden** (niet-geforceerde online scan)  
 
-     Avant de pouvoir télécharger les fichiers de mise à jour dans les déploiements requis, le client se connecte au serveur WSUS en cours d'exécution sur le point de mise à jour logicielle pour récupérer les métadonnées des mises à jour logicielles uniquement si la dernière analyse a été effectuée en dehors de la durée de vie définie.  
+     Voordat de client updatebestanden in de vereiste implementaties kan downloaden, verbindt de client met WSUS dat wordt uitgevoerd op het software-updatepunt om de metagegevens van de software-updates op te halen, alleen wanneer de laatste scan buiten de TTL werd uitgevoerd.  
 
--   **Avant l’installation des mises à jour logicielles** (analyse en ligne non forcée)  
+-   **Vóór software-update installatie** (niet-geforceerde online scan)  
 
-     Avant d'installer les mises à jour logicielles dans les déploiements requis, le client se connecte au serveur WSUS en cours d'exécution sur le point de mise à jour logicielle pour récupérer les métadonnées des mises à jour logicielles uniquement si la dernière analyse a été effectuée en dehors de la durée de vie définie.  
+     Voordat de client software-update installeert in de vereiste implementaties, verbindt de client met WSUS dat wordt uitgevoerd op het software-updatepunt om de metagegevens van de software-updates op te halen, alleen wanneer de laatste scan buiten de TTL werd uitgevoerd.  
 
--   **Après l’installation des mises à jour logicielles** (analyse hors ligne non forcée)  
+-   **Na software-update installatie** (geforceerde offline scan)  
 
-     Une fois qu'une mise à jour logicielle a été installée, l'Agent client des mises à jour logicielles démarre une analyse à l'aide des métadonnées locales. Le client ne se connecte jamais au serveur WSUS en cours d'exécution sur le point de mise à jour logicielle pour récupérer les métadonnées des mises à jour logicielles.  
+     Na het installeren van een software-update, start de clientagent van software-updates een scan door gebruik te maken van de lokale metagegevens. De client maakt nooit verbinding met WSUS dat wordt uitgevoerd op het software-updatepunt om de metagegevens van software-updates op te halen.  
 
--   **Après le redémarrage du système** (analyse hors ligne forcée)  
+-   **Nadat het systeem opnieuw opstarten** (geforceerde offline scan)  
 
-     Une fois qu'une mise à jour logicielle a été installée et l'ordinateur redémarré, l'Agent client des mises à jour logicielles démarre une analyse en utilisant les métadonnées locales. Le client ne se connecte jamais au serveur WSUS en cours d'exécution sur le point de mise à jour logicielle pour récupérer les métadonnées des mises à jour logicielles.  
+     Na het installeren van een software-update en het opnieuw opstarten van de computer, start de clientagent van software-updates een scan door gebruik te maken van de lokale metagegevens. De client maakt nooit verbinding met WSUS dat wordt uitgevoerd op het software-updatepunt om de metagegevens van software-updates op te halen.  
 
-##  <a name="BKMK_DeploymentPackages"></a> Packages de déploiement des mises à jour logicielles  
- Un package de déploiement de mise à jour logicielle est le véhicule utilisé pour télécharger des mises à jour logicielles vers un dossier partagé du réseau et copier les fichiers sources des mises à jour logicielles vers la bibliothèque de contenu sur les serveurs de site et sur les points de distribution qui sont définis dans le déploiement. À l'aide de l'Assistant Téléchargement des mises à jour, vous pouvez télécharger des mises à jour logicielles et les ajouter à des packages de déploiement avant de les déployer. Cet Assistant vous permet de préparer les mises à jour logicielles sur des points de distribution et de vérifier que cette partie du processus de déploiement a réussi avant que vous déployiez les mises à jour logicielles vers les clients.  
+##  <a name="BKMK_DeploymentPackages"></a> Implementatiepakketten voor software-updates  
+ Een implementatiepakket van een software-updatepunt is de drager die wordt gebruikt om software-updates naar een gedeelde netwerkmap te downloaden, en om de bronbestanden van de software-update te kopiëren naar de inhoudsbibliotheek op siteservers en op distributiepunten die in de implementatie worden gedefinieerd. Door de wizard Updates downloaden te gebruiken, kunt u software-updates downloaden en deze toevoegen aan implementatiepakketten voordat u ze implementeert. Met deze wizard kunt u software-updates inrichten op distributiepunten en verifiëren dat dit onderdeel van het implementatieproces succesvol is voordat u de software-updates naar clients implementeert.  
 
- Une fois que vous avez déployé les mises à jour logicielles téléchargées à l'aide de l'Assistant Déploiement des mises à jour logicielles, le déploiement utilise automatiquement le package de déploiement qui contient les mises à jour logicielles. Lorsque les mises à jour logicielles qui n'ont pas été téléchargées sont déployées, vous devez spécifier un package de déploiement nouveau ou existant dans l'Assistant Déploiement des mises à jour logicielles et les mises à jour logicielles sont téléchargées à la fin de l'exécution de l'Assistant.  
-
-> [!IMPORTANT]  
->  Vous devez créer manuellement le dossier réseau partagé pour les fichiers sources du package de déploiement avant de le spécifier dans l'Assistant. Chaque package de déploiement doit utiliser un dossier réseau partagé différent.  
+ De implementatie gebruikt automatisch het implementatiepakket dat de software-updates bevat als u gedownloade software-updates implementeert door gebruik te maken van de wizard Software-updates implementeren. Wanneer er software-updates worden geïmplementeerd die nog niet zijn gedownload, dient u een nieuw of bestaand implementatiepakket op te geven in de wizard Software-updates implementeren. De software-updates worden gedownload wanneer de wizard is voltooid.  
 
 > [!IMPORTANT]  
->  Le compte d'ordinateur du fournisseur SMS et l'utilisateur administratif qui télécharge les mises à jour logicielles requièrent des autorisations en **Écriture** vers la source du package. Limitez l'accès à la source du package pour éviter qu'une personne malveillante falsifie les fichiers sources de mises à jour logicielles dans la source du package.  
+>  U moet de gedeelde netwerkmap handmatig maken voor de bronbestanden van het installatiepakket voordat u het opgeeft in de wizard. Elk implementatiepakket moet een andere gedeelde netwerkmap gebruiken.  
 
- Lors de la création d'un package de déploiement, la version du contenu est définie sur 1 avant que des mises à jour logicielles soient téléchargées. Quand les fichiers de mise à jour logicielle sont téléchargés à l'aide du package, la version de contenu est incrémentée à 2. Par conséquent, tous les nouveaux packages de déploiement démarrent avec une version de contenu égale à 2. Chaque fois que le contenu d'un package de déploiement change, la version de contenu est incrémentée de 1. Pour plus d’informations, consultez [Concepts fondamentaux de la gestion de contenu](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
+> [!IMPORTANT]  
+>  Het computeraccount van de SMS-provider en de gebruiker met beheerdersrechten die de software-updates effectief downloadt, hebben beide **Schrijf** machtigingen nodig voor de pakketbron. Beperk de toegang tot de pakketbron om het risico te beperken dat kwaadwillende personen knoeien met de bronbestanden van software-updates in de pakketbron.  
 
- Les clients installent les mises à jour logicielles dans un déploiement en utilisant tout point de distribution qui met à disposition les mises à jour logicielles, quel que soit le package de déploiement. Même si un package de déploiement est supprimé pour un déploiement actif, les clients peuvent toujours installer les mises à jour logicielles dans le déploiement à condition que chacune d'elles ait été téléchargée dans au moins un autre package de déploiement et qu'elle soit disponible sur un point de distribution accessible depuis le client. Lorsque le dernier package de déploiement contenant une mise à jour logicielle est supprimé, les ordinateurs clients ne peuvent pas récupérer la mise à jour logicielle tant qu'elle n'est pas à nouveau téléchargée vers un package de déploiement. Les mises à jour logicielles s’affichent avec une flèche rouge dans la console Configuration Manager quand les fichiers de mise à jour ne se trouvent dans aucun package de déploiement. Les déploiements apparaissent avec une double flèche rouge lorsqu'ils contiennent des mises à jour dans cet état.  
+ Wanneer er een nieuw implementatiepakket wordt gemaakt, wordt de inhoudsversie op 1 ingesteld voordat er software-updates worden gedownload. Wanneer de software-updatebestanden worden gedownload met het pakket, wordt de inhoudsversie verhoogd naar 2. Daarom beginnen alle nieuwe implementatiepakketten met de inhoudsversie 2. Telkens wanneer de inhoud in een implementatiepakket wordt gewijzigd, wordt de inhoudsversie met 1 verhoogd. Zie voor meer informatie [basisconcepten voor inhoudsbeheer](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
-##  <a name="BKMK_DeploymentWorkflows"></a> Flux de travail de déploiement de mise à jour logicielle  
- Il existe deux principaux scénarios de déploiement des mises à jour logicielles dans votre environnement : le déploiement manuel et le déploiement automatique. En règle générale, vous déployez manuellement les mises à jour logicielles pour créer une ligne de base pour vos ordinateurs clients, puis vous gérez les mises à jour logicielles sur les clients à l'aide d'un déploiement automatique. Les sections suivantes fournissent un résumé du flux de travail pour le déploiement manuel et automatique pour les mises à jour logicielles.  
+ Clients installeren software-updates in een implementatie door gebruik te maken van een distributiepunt waarvan de software-updates beschikbaar zijn, onafhankelijk van het implementatiepakket. Zelfs als een implementatiepakket wordt verwijderd voor een actieve implementatie, kunnen clients nog steeds de software-updates installeren in de implementatie, zolang dat elke update naar minstens één ander implementatiepakket is gedownload en beschikbaar is op een distributiepunt dat kan worden bereikt vanaf de client. Wanneer het laatste implementatiepakket dat een software-update bevat, wordt verwijderd, kunnen clientcomputers de software-update niet ophalen totdat de update opnieuw wordt gedownload naar een implementatiepakket. Software-updates worden weergegeven met een rode pijl in de Configuration Manager-console wanneer de updatebestanden zich niet in implementatiepakketten bevinden. Implementaties worden weergegeven met een dubbele rode pijl als ze updates in deze toestand bevatten.  
 
-###  <a name="BKMK_ManualDeployment"></a> Déploiement manuel de mises à jour logicielles  
- Le déploiement manuel de mises à jour logicielles consiste à sélectionner des mises à jour logicielles dans la console Configuration Manager et à démarrer manuellement le processus de déploiement. Généralement, vous utilisez cette méthode de déploiement pour mettre à jour les ordinateurs clients avec les mises à jour logicielles requises avant de créer des règles de déploiement automatique qui gèrent les déploiements de mises à jour logicielles mensuelles en continu ; vous pouvez également déployer des mises à jour logicielles requises hors bande. La liste suivante fournit le flux de travail général pour le déploiement manuel de mises à jour logicielles :  
+##  <a name="BKMK_DeploymentWorkflows"></a> Werkstromen voor de implementatie van software-updates  
+ Er zijn twee hoofdscenario's voor het implementeren van software-updates in uw omgeving: handmatige implementatie en automatische implementatie. Doorgaans kunt u software-updates handmatig implementeren om een basislijn voor clientcomputers te maken. Vervolgens beheert u software-updates op clients via automatische implementatie. De volgende secties bevatten een samenvatting van de werkstroom voor handmatige en automatische implementatie voor software-updates.  
 
-1.  filtre pour les mises à jour logicielles qui utilisent des configurations spécifiques. Par exemple, vous pouvez fournir des critères qui récupèrent toutes les mises à jour logicielles critiques ou de sécurité qui sont requises sur plus de 50 ordinateurs clients.  
+###  <a name="BKMK_ManualDeployment"></a> Handmatige implementatie van software-updates  
+ Handmatige implementatie van software-updates is het proces van het selecteren van software-updates in de Configuration Manager-console en het handmatig starten van het implementatieproces. Doorgaans gebruikt u deze methode van implementatie om de clientcomputers up-to-date te krijgen met de vereiste software-updates voordat u automatische implementatieregels kunt maken die de lopende maandelijkse implementaties van software-updates beheren, en om buiten-bandvereisten van software-updates te implementeren. De volgende lijst geeft de algemene werkstroom voor handmatige implementatie van software-updates:  
 
-2.  Créez un groupe de mises à jour logicielles contenant les mises à jour logicielles.  
+1.  Filter voor software-updates die gebruikmaken van specifieke vereisten. U kunt bijvoorbeeld criteria opgeven die alle beveiligingsupdates of kritieke software-updates ophalen die op meer dan 50 clientcomputers zijn vereist.  
 
-3.  Téléchargez le contenu pour les mises à jour logicielles dans le groupe de mises à jour logicielles.  
+2.  Maak een software-updategroep die de software-updates bevat.  
 
-4.  Déployez manuellement le groupe de mises à jour logicielles.  
+3.  Downloadt de inhoud voor software-updates in de software-updategroep.  
 
-###  <a name="BKMK_AutomaticDeployment"></a> Déploiement automatique de mises à jour logicielles  
- La configuration du déploiement automatique de mises à jour logicielles s’effectue à l'aide d’une règle de déploiement automatique. Vous utilisez généralement cette méthode de déploiement pour vos mises à jour logicielles mensuelles (généralement appelées Patch Tuesday) et pour la gestion des mises à jour de définitions. Quand la règle s'exécute, les mises à jour logicielles sont supprimées du groupe de mises à jour logicielles (dans le cas d'un groupe existant), celles qui répondent aux critères spécifiés (par exemple, toutes les mises à jour logicielles publiées au cours de la dernière semaine) sont ajoutées à un groupe de mises à jour logicielles, les fichiers de contenu des mises à jour logicielles sont téléchargés et copiés dans les points de distribution, et les mises à jour logicielles sont déployées sur les ordinateurs clients du regroupement cible. La liste suivante fournit le flux de travail général pour le déploiement automatique de mises à jour logicielles :  
+4.  De software-updategroep handmatig implementeren.  
 
-1.  Créez une règle de déploiement automatique qui spécifie des paramètres de déploiement tels que :  
+###  <a name="BKMK_AutomaticDeployment"></a> Automatische implementatie van software-updates  
+ De automatische implementatie van software-updates wordt geconfigureerd met een regel voor automatische implementatie (ADR). Doorgaans gebruikt u deze methode voor uw maandelijkse software-updates (ook wel bekend als 'patchdinsdag') en voor het beheren van definitie-updates. Wanneer de regel wordt uitgevoerd, worden software-updates verwijderd van de software-updategroep (als u een bestaande groep gebruikt). De software-updates die voldoen aan een bepaald criterium (bijvoorbeeld alle softwarebeveiligingsupdates van de afgelopen week) worden toegevoegd aan een software-updategroep. De inhoudsbestanden voor de software-updates worden gedownload en gekopieerd naar de distributiepunten en de software-updates worden geïmplementeerd op clientcomputers in de doelverzameling. De volgende lijst geeft de algemene werkstroom voor automatische implementatie van software-updates:  
 
-    -   Regroupement cible  
+1.  Maak een regel voor automatische implementatie waarmee implementatie-instellingen als de volgende worden opgegeven:  
 
-    -   Décider d'activer ou non le déploiement ou le rapport sur la conformité des mises à jour logicielles pour les ordinateurs clients du regroupement cible  
+    -   Doelverzameling  
 
-    -   Critères de mises à jour logicielles  
+    -   Bepaal of u de implementatie of rapportage over compatibiliteit van software-updates wilt inschakelen voor de clientcomputers in de doelverzameling.  
 
-    -   Calendriers d'évaluation et de déploiement  
+    -   Criteria voor software-updates  
 
-    -   Expérience utilisateur  
+    -   Evaluatie- en implementatieschema's  
 
-    -   Propriétés de téléchargement  
+    -   Gebruikerservaring  
 
-2.  Les mises à jour logicielles sont ajoutées à un groupe de mises à jour logicielles.  
+    -   Downloadeigenschappen  
 
-3.  Le groupe de mises à jour logicielles est déployé sur les ordinateurs clients du regroupement cible, s'il est spécifié.  
+2.  De software-updates worden toegevoegd aan een software-updategroep.  
 
- Vous devez déterminer quelle stratégie de déploiement utiliser dans votre environnement. Par exemple, vous pouvez créer la règle de déploiement automatique et cibler un regroupement de clients test. Après avoir vérifié que les mises à jour logicielles sont installées sur le groupe test, vous pouvez ajouter un nouveau déploiement à la règle ou modifier le regroupement dans le déploiement existant et le remplacer par un regroupement cible qui comprend un ensemble plus important de clients. Les objets de mise à jour logicielle qui sont créés par les règles de déploiement automatique sont interactifs.  
+3.  De software-updategroep wordt geïmplementeerd naar de clientcomputers in de doelverzameling, als deze is opgegeven.  
 
--   Les mises à jour logicielles qui ont été déployées à l'aide d'une règle de déploiement automatique sont déployées automatiquement sur les nouveaux clients ajoutés au regroupement cible.  
+ U moet bepalen welke implementatiestrategie er moet worden gebruikt in uw omgeving. U kunt bijvoorbeeld een regel voor automatische implementatie maken en een verzameling van testclients als doel nemen. Nadat u hebt gecontroleerd of de software-updates op de testgroep zijn geïnstalleerd, kunt u een nieuwe implementatie aan de regel toevoegen of de verzameling in de bestaande implementatie wijzigen in een doelverzameling die een grotere set van clients bevat. De software-updateobjecten die door de regels voor automatische implementatie worden gemaakt, zijn interactief.  
 
--   Les nouvelles mises à jour logicielles ajoutées à un groupe de mises à jour logicielles sont déployées automatiquement sur les clients du regroupement cible.  
+-   Software-updates die zijn geïmplementeerd met een regel voor automatische implementatie worden automatisch geïmplementeerd voor nieuwe clients die aan de doelverzameling zijn toegevoegd.  
 
--   Vous pouvez activer ou désactiver les déploiements à tout moment pour la règle de déploiement automatique.  
+-   Nieuwe software-updates die zijn toegevoegd aan een software-updategroep, worden automatisch geïmplementeerd naar de clients in de doelverzameling.  
 
- Après avoir créé une règle de déploiement automatique, vous pouvez y ajouter des déploiements supplémentaires. Cela peut vous aider à gérer la complexité liée au déploiement de différentes mises à jour vers différents regroupements. Chaque nouveau déploiement possède la gamme complète de fonctionnalités et d'expérience de surveillance de déploiement, et chaque nouveau déploiement que vous ajoutez :  
+-   U kunt implementaties voor de regel voor automatische implementatie op elk gewenst moment in- of uitschakelen.  
 
--   utilise les mêmes packages et groupes de mise à jour que ceux créés lors de la première exécution de la règle de déploiement automatique ;  
+ Nadat u een regel voor automatische implementatie hebt gemaakt, kunt u aanvullende implementaties aan de regel toevoegen. Dit kan helpen bij het beheren van de complexiteit van het implementeren van verschillende updates voor verschillende verzamelingen. Elke nieuwe implementatie beschikt over de volledige functionaliteit en implementatiecontrole, en elke implementatie die u toevoegt:  
 
--   peut spécifier un regroupement différent ;  
+-   Gebruikt dezelfde bijwerkgroep en hetzelfde bijwerkpakket die worden gemaakt wanneer de ADR voor het eerst wordt uitgevoerd  
 
--   prend en charge des propriétés de déploiement uniques, notamment :  
+-   U kunt een andere verzameling opgeven  
 
-    -   Heure d'activation  
+-   Ondersteunt unieke implementatie-eigenschappen, waaronder:  
 
-    -   Échéance  
+    -   Activeringstijd  
 
-    -   Afficher ou masquer l'expérience utilisateur  
+    -   Deadline  
 
-    -   Séparer les alertes pour ce déploiement  
+    -   Ervaringen van eindgebruikers weergeven of verbergen  
 
-##  <a name="BKMK_DeploymentProcess"></a> Processus de déploiement des mises à jour logicielles  
- Après avoir déployé des mises à jour logicielles ou lorsqu'une règle de déploiement automatique exécute et déploie des mises à jour logicielles, une stratégie d'attribution du déploiement est ajoutée à la stratégie de l'ordinateur pour le site. Les mises à jour logicielles sont téléchargées à partir de l'emplacement de téléchargement, d'Internet, ou du dossier réseau, vers la source du package. Les mises à jour logicielles sont copiées depuis la source du package vers la bibliothèque de contenu sur le serveur de site, puis copiées dans la bibliothèque de contenu sur le point de distribution.  
+    -   Afzonderlijke waarschuwingen voor deze implementatie  
 
- Lorsqu'un ordinateur client du regroupement cible pour le déploiement reçoit la stratégie d'ordinateur, l'Agent du client de mise à jour logicielle démarre une analyse d'évaluation. L'agent du client télécharge le contenu pour les mises à jour logicielles requises depuis un point de distribution vers le cache du client local juste après avoir reçu le déploiement, mais attend la fin du paramètre **Temps disponible du logiciel** pour le déploiement avant que les mises à jour logicielles soient disponibles pour l'installation. Les mises à jour logicielles dans les déploiements facultatifs (déploiements qui ne possèdent pas d'échéance d'installation) ne sont pas téléchargées avant qu'un utilisateur démarre manuellement l'installation.  
+##  <a name="BKMK_DeploymentProcess"></a> Het implementatieproces voor software-updates  
+ Nadat u software-updates implementeert of wanneer er een automatische implementatieregel wordt uitgevoerd en software-updates implementeert, wordt er een implementatietoewijzingsbeleid toegevoegd aan het machinebeleid voor de site. De software-updates worden naar de pakketbron gedownload vanaf de downloadlocatie, het internet of de gedeelde netwerkmap. De software-updates worden gekopieerd van de pakketbron naar de inhoudsbibliotheek op de siteserver en vervolgens gekopieerd naar de inhoudsbibliotheek op het distributiepunt.  
 
- Une fois l'échéance configurée dépassée, l'Agent client des mises à jour logicielles effectue une analyse pour vérifier que les mises à jour logicielles sont toujours nécessaires. Il vérifie ensuite le cache local sur l'ordinateur client pour s'assurer que les fichiers sources de mise à jour logicielle sont toujours disponibles. Enfin, le client installe les mises à jour logicielles. Si le contenu a été supprimé de la mémoire cache du client pour laisser de la place à un autre déploiement, le client télécharge à nouveau les mises à jour logicielles depuis le point de distribution vers la mémoire cache du client. Les mises à jour logicielles sont toujours téléchargées sur la mémoire cache du client indépendamment de la taille maximale de la mémoire cache configurée pour le client. Lorsque l'installation est terminée, l'agent du client vérifie que les mises à jour logicielles ne sont plus requises, puis il envoie un message d'état au point de gestion pour indiquer que les mises à jour logicielles sont désormais installées sur le client.  
+ Wanneer een clientcomputer in de doelverzameling voor de implementatie het machinebeleid ontvangt, start de clientagent voor software-updates een evaluatiescan. De clientagent downloadt de vereiste inhoud voor software-updates vanaf een distributiepunt naar de lokale clientcache zodra de implementatie wordt ontvangen, maar wacht tot na de waarde van de instelling **Tijd waarop de software beschikbaar is** voor de implementatie is bereikt voordat de software-updates beschikbaar zijn voor installatie. De software-updates in optionele implementaties (implementaties zonder installatiedeadline) worden pas gedownload wanneer een gebruiker de installatie handmatig start.  
 
-### <a name="required-system-restart"></a>Redémarrage du système obligatoire  
- Par défaut, lorsque des mises à jour logicielles d'un déploiement requis sont installées sur un ordinateur client, et qu'un redémarrage du système est nécessaire pour terminer l'installation, le redémarrage du système est effectué. Pour les mises à jour logicielles qui ont été installées avant l'échéance, le redémarrage automatique du système est repoussé à la date et à l'heure de l'échéance, à moins que l'ordinateur ne soit redémarré entre temps pour une autre raison. Le redémarrage du système peut être ignoré pour les serveurs et les stations de travail. Ces paramètres sont configurés sur la page **Expérience utilisateur** de l'Assistant Déploiement des mises à jour logicielles ou créez Assistant Création d'une règle de mises à jour automatique.  
+ Wanneer de geconfigureerde deadline verstrijkt, voert de clientagent voor software-updates een scan uit om te controleren of de software-updates nog steeds vereist zijn. Vervolgens wordt de lokale cache op de clientcomputer gecontroleerd en wordt er nagegaan of de bronbestanden voor de software-update nog steeds beschikbaar zijn. Tot slot installeert de client de software-updates. Als de inhoud uit de clientcache is verwijderd om ruimte vrij te maken voor een andere implementatie, downloadt de client de software-updates opnieuw vanaf het distributiepunt naar de clientcache. Software-updates worden altijd naar de clientcache gedownload, ongeacht de maximale grootte van de clientcache. Wanneer de installatie is voltooid, controleert de clientagent of de software-updates nog vereist zijn en vervolgens wordt er een statusbericht naar het beheerpunt verzonden om aan te geven dat de software-updates nu op de client zijn geïnstalleerd.  
 
-### <a name="deployment-reevaluation-cycle"></a>Cycle de réévaluation des déploiements  
- Par défaut, les ordinateurs clients démarrent un cycle de réévaluation du déploiement tous les 7 jours. Durant ce cycle d'évaluation, l'ordinateur client analyse les mises à jour logicielles qui ont été précédemment déployées et installées. Si des mises à jour logicielles viennent à manquer, elles sont réinstallées à partir du cache local. Si une mise à jour logicielle n'est plus disponible dans le cache local, elle est téléchargée à partir d'un point de distribution, puis installée. Vous pouvez configurer le calendrier de réévaluation sur la page **Mises à jour logicielles** dans les paramètres client du site.  
+### <a name="required-system-restart"></a>Het systeem verplicht opnieuw opstarten  
+ Standaard wordt het opnieuw starten van het systeem geïnitieerd wanneer software-updates voor een vereiste implementatie op een clientcomputer worden geïnstalleerd en het opnieuw opstarten van het systeem is vereist. Voor software-updates die voor de deadline zijn geïnstalleerd, wordt het automatisch opnieuw starten van het systeem uitgesteld, totdat de deadline is bereikt, tenzij de computer voordat tijdstip om een andere reden opnieuw wordt opgestart. Het opnieuw starten van het systeem kan worden onderdrukt voor servers en werkstations. Deze instellingen worden geconfigureerd op de pagina **Gebruikerservaring** van de wizard Software-updates toepassen of de wizard voor het maken van regels voor automatische updates.  
 
-##  <a name="BKMK_EmbeddedDevices"></a> Prise en charge des appareils Windows Embedded qui utilisent des filtres d'écriture  
- Lorsque vous déployez des mise à jour logicielles sur des appareils Windows Embedded à filtre d'écriture, vous pouvez spécifier s'il faut désactiver le filtre d'écriture sur l'appareil pendant le déploiement, puis redémarrer l'appareil après le déploiement. Si le filtre d'écriture n'est pas désactivé, le logiciel est déployé sur un segment de recouvrement temporaire et il n'est plus installé lorsque l'appareil redémarre, sauf si un autre déploiement force la conservation des modifications.  
+### <a name="deployment-reevaluation-cycle"></a>Cyclus voor het opnieuw evalueren van implementaties  
+ Clientcomputers starten standaard om de zeven dagen een cyclus voor het opnieuw evalueren van implementaties. Tijdens deze evaluatiecyclus controleert de clientcomputer of er software-updates aanwezig zijn die eerder zijn geïmplementeerd en geïnstalleerd. Als er software-updates ontbreken, worden de software-updates opnieuw geïnstalleerd vanuit de lokale cache. Als een software-updates niet langer beschikbaar is in de lokale cache, kan deze vanaf een distributiepunt worden gedownload en vervolgens worden geïnstalleerd. U kunt de planning voor opnieuw evalueren configureren op de pagina **Software-updates** in de clientinstellingen.  
+
+##  <a name="BKMK_EmbeddedDevices"></a> Ondersteuning voor Windows Embedded-apparaten die gebruikmaken van schrijffilters  
+ Wanneer u software-updates implementeert voor Windows Embedded-apparaten waarvoor een schrijffilter is ingeschakeld, kunt u opgeven of het schrijffilter op het apparaat tijdens de implementatie moet worden uitgeschakeld en of het apparaat vervolgens na de implementatie opnieuw moet worden opgestart. Als het schrijffilter niet wordt uitgeschakeld, wordt de software geïmplementeerd op een tijdelijke overlay en wordt de software niet meer geïnstalleerd wanneer het apparaat opnieuw start, tenzij een andere implementatie afdwingt dat wijzigingen blijvend zijn.  
 
 > [!NOTE]  
->  Lorsque vous déployez une mise à jour logicielle sur un appareil Windows Embedded, assurez-vous que l'appareil fait partie des membres d'un regroupement pour lequel une fenêtre de maintenance a été configurée. Cela vous permet de gérer le moment auquel le filtre d'écriture est désactivé et activé et le moment auquel l'appareil redémarre.  
+>  Wanneer u een software-update implementeert op een Windows Embedded-apparaat, moet u ervoor zorgen dat het apparaat lid is van een verzameling met een geconfigureerd onderhoudsvenster. U kunt op deze manier beheren wanneer het schrijffilter is uitgeschakeld en ingeschakeld en wanneer het apparaat opnieuw wordt gestart.  
 
- Le paramètre d'expérience utilisateur qui contrôle le comportement du filtre d'écriture est une case à cocher nommée **Valider les changements à l'échéance ou pendant une fenêtre de maintenance (redémarrage requis)**.  
+ De gebruikerservaringinstelling die het gedrag van het schrijffilter bepaalt, is het selectievakje **Wijzigingen doorvoeren bij deadline of tijdens onderhoud (opnieuw opstarten noodzakelijk)**.  
 
- Pour plus d’informations sur la façon dont Configuration Manager gère les appareils intégrés qui utilisent des filtres d’écriture, consultez [Planification du déploiement du client sur des appareils Windows Embedded](../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md).  
+ Zie voor meer informatie over hoe Configuration Manager ingesloten apparaten beheert die schrijffilters gebruiken [Planning voor clientimplementatie op Windows Embedded-apparaten](../../core/clients/deploy/plan/planning-for-client-deployment-to-windows-embedded-devices.md).  
 
-##  <a name="BKMK_ExtendSoftwareUpdates"></a> Étendre les mises à jour logicielles dans Configuration Manager  
- Utilisez l’éditeur de mise à jour Systems Center pour gérer les mises à jour logicielles qui ne sont pas disponibles à partir de Microsoft Update. Une fois que vous avez publié les mises à jour logicielles sur le serveur de mise à jour et que vous les avez synchronisées dans Configuration Manager, vous pouvez les déployer sur des clients Configuration Manager. Pour plus d’informations sur l’éditeur de mise à jour, consultez [Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkId=252947).  
+##  <a name="BKMK_ExtendSoftwareUpdates"></a> Software-updates uitbreiden in Configuration Manager  
+ System Center Updates Publisher gebruiken voor het beheren van software-updates die niet beschikbaar via Microsoft Update zijn. Nadat u de software-updates naar de updateserver publiceert en synchroniseren van de software-updates in Configuration Manager, kunt u de software-updates implementeren naar Configuration Manager-clients. Zie voor meer informatie over Updates Publisher [Updates Publisher 2011](http://go.microsoft.com/fwlink/p/?LinkId=252947).  
 
-## <a name="next-steps"></a>Étapes suivantes
-[Planifier les mises à jour logicielles](../plan-design/plan-for-software-updates.md)
+## <a name="next-steps"></a>Volgende stappen
+[Software-updates plannen](../plan-design/plan-for-software-updates.md)

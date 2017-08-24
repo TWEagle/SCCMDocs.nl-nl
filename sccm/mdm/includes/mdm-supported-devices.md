@@ -1,14 +1,14 @@
 
-- Apple iOS 8.0 et versions ultérieures
-- Google Android 4.0 et versions ultérieures (dont Samsung Knox Standard 4.0 et versions supérieures)*
-- Windows Phone 8.1 (Windows Embedded 8.1 Handheld n'est pas pris en charge)
+- Apple iOS 8.0 en hoger
+- Google Android 4.0 en hoger (inclusief Samsung KNOX Standard 4.0 en hoger) *
+- Windows Phone 8.1 (Windows Embedded 8.1 Handheld wordt niet ondersteund)
 - Windows 10 Mobile
 - Windows 8.1 RT
-- PC exécutant Windows 8.1
-- PC exécutant Windows 10 (versions Famille, Professionnel, Éducation et Entreprise)
-- Appareils exécutant Windows 10 IoT Entreprise (x86, x64)
-- Appareils exécutant Windows 10 IoT Mobile Entreprise
-- Windows Holographique & Windows Holographique Entreprise
-- Mac OS X 10.9 et versions ultérieures
+- Computers met Windows 8.1
+- Computers met Windows 10 (Home, Pro, Education en Enterprise-versies)
+- Apparaten met Windows 10 IoT Enterprise (x86, x64)
+- Apparaten met Windows 10 IoT Mobile Enterprise
+- Windows Holographic & Windows Holographic Enterprise
+- Mac OS X 10.9 en hoger
 
-*Les modèles suivants du téléphone Samsung Galaxy Ace ne peuvent pas être gérés par Intune comme appareils Samsung KNOX Standard : SM-G313HU, SM-G313HY, SM-G313M, SM-G313MY et SM-G313U. Quand vous inscrivez ces appareils auprès d’Intune, ils sont gérés comme des appareils Android standard. Pour plus d’informations, consultez le site web de Samsung KNOX.
+* De volgende modellen van het telefoonnummer Samsung Galaxy Ace kunnen niet worden beheerd door Intune als Samsung KNOX Standard-apparaten: SM-G313HU, SM G313HY SM G313M, SM G313MY en SM G313U. Wanneer u deze apparaten met Intune inschrijft, moeten ze worden beheerd als standaard Android-apparaten. Zie de Samsung KNOX-website voor meer informatie.

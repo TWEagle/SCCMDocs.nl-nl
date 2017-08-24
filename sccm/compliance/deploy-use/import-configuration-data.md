@@ -1,6 +1,6 @@
 ---
-title: "Importer des données de configuration | Microsoft Docs"
-description: "Importez des données de configuration contenues dans un fichier CAB et conformes au schéma SML (Service Modeling Language) pris en charge."
+title: Configuratiegegevens importeren | Microsoft Docs
+description: Configuratiegegevens importeren als deze is opgenomen in een CAB-bestand-indeling en aan de ondersteunde Service Modeling Language-schema voldoet.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,44 +17,44 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 60d0642618a3074fc50a848f1189f4d6559ca916
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="import-configuration-data-with-system-center-configuration-manager"></a>Importer des données de configuration avec System Center Configuration Manager
+# <a name="import-configuration-data-with-system-center-configuration-manager"></a>Configuratiegegevens importeren met System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Vous pouvez créer des bases de référence de configuration et des éléments de configuration dans la console System Center Configuration Manager, mais également importer des données de configuration contenues dans un fichier CAB (.cab) et conformes au schéma SML (Service Modeling Language) pris en charge. Vous pouvez importer les données de configuration suivantes :  
+Naast het maken van configuratiebasislijnen en configuratie-items in de System Center Configuration Manager-console, kunt u de configuratie van gegevens als deze is opgenomen in een CAB-bestand en voldoen aan de ondersteunde schema van de Service Modeling Language (SML) importeren. U kunt configuratiegegevens van importeren:  
 
--   Données de configuration recommandées (packs de configuration) téléchargées à partir de Microsoft ou d’autres sites d’éditeurs de logiciels.  
+-   Aanbevolen configuratiegegevens (configuratiepakketten) die zijn gedownload van Microsoft of van andere sites van softwareleveranciers.  
 
--   Données de configuration exportées à partir de System Center 2012 Configuration Manager et versions ultérieures.  
+-   De configuratiegegevens die zijn geëxporteerd uit System Center 2012 Configuration Manager en later.  
 
--   Données de configuration créées en externe et conformes au schéma SML.  
+-   Configuratiegegevens die extern zijn ontworpen en die voldoet aan het SML-schema.  
 
- Pour obtenir un exemple de pack de configuration qui vous permet de gérer la compatibilité aux rôles de serveur de site System Center 2012 Configuration Manager, consultez [Pack de configuration de System Center 2012 Configuration Manager](http://www.microsoft.com/en-us/download/details.aspx?id=30710&WT.mc_id=rss_alldownloads_all).  
+ Zie [System Center 2012 Configuration Manager Configuration Pack](http://www.microsoft.com/en-us/download/details.aspx?id=30710&WT.mc_id=rss_alldownloads_all)(Engelstalig) voor een voorbeeld van een configuratiepakket waarmee u compliantie beheert voor System Center 2012 Configuration Manager-siteserverrollen.  
 
-Lorsque vous importez une ligne de base de configuration, une partie ou la totalité des éléments de configuration référencés dans la ligne de base peuvent être également inclus dans le fichier CAB. Pendant le processus d’importation, Configuration Manager vérifie que tous les éléments de configuration référencés dans la base de référence de configuration sont également inclus dans le fichier CAB ou qu’ils existent déjà sur le site Configuration Manager. Le processus d’importation échoue si vous tentez d’importer une base de référence de configuration qui fait référence à des données de configuration que Configuration Manager ne trouve pas.  
+Wanneer u een configuratiebasislijn importeert, kunnen enkele of alle van de configuratie-items waarnaar wordt verwezen in de configuratiebasislijn ook worden opgenomen in het CAB-bestand. Configuration Manager controleert tijdens het importeren of dat alle configuratie-items waarnaar wordt verwezen in de configuratiebasislijn ook zijn opgenomen in het CAB-bestand of al aanwezig zijn in de Configuration Manager-site. Tijdens het importeren mislukt als u probeert te importeren van een configuratiebasislijn die verwijst naar de configuratiegegevens die Configuration Manager kan niet worden gevonden.  
 
-L'importation risque d'échouer dans d'autres cas également. Par exemple :  
+Hieronder worden enkele andere scenario's beschreven waarin het importproces kan mislukken:  
 
--   Les données de configuration font référence à des données que Configuration Manager ne parvient pas à localiser, soit dans sa base de données, soit dans le fichier CAB lui-même.  
+-   De configuratiegegevens verwijzen naar configuratiegegevens die Configuration Manager kan niet in de database of in het CAB-bestand zelf vinden.  
 
--   Les données de configuration sont déjà présentes dans la base de données Configuration Manager avec un nom et une version identiques, mais la version du contenu est différente.  
+-   De configuratiegegevens zijn al aanwezig in de Configuration Manager-database met dezelfde naam en versie van configuration data, maar de inhoudsversie wijkt af.  
 
--   Les données de configuration sont déjà présentes dans la base de données Configuration Manager avec la même version de contenu, mais le calcul du hachage les identifie comme différentes.  
+-   De configuratiegegevens zijn al aanwezig in de Configuration Manager-database met dezelfde inhoudsversie, maar de hashberekening deze als afwijkend identificeert.  
 
--   Une version plus récente des données de configuration avec le même nom est déjà présente (ou a récemment été supprimée) dans la base de données Configuration Manager.  
+-   Een nieuwere versie van de configuratiegegevens met dezelfde naam is al aanwezig of is onlangs verwijderd in de Configuration Manager-database.  
 
--   Dans une hiérarchie Configuration Manager à plusieurs sites, les données de configuration ont été initialement importées depuis un site parent. Vous devez les mettre à jour à partir du même site et non pas d'un site enfant.  
+-   In een hiërarchie met meerdere sites Configuration Manager is de configuratiegegevens oorspronkelijk geïmporteerd van een bovenliggende site. U moet deze bijwerken van dezelfde site, niet een onderliggende site.  
 
-### <a name="import-configuration-data"></a>Importer des données de configuration  
+### <a name="import-configuration-data"></a>Configuratiegegevens importeren  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Éléments de configuration** ou **Lignes de base de configuration**
-2.  Sous l’onglet **Accueil**, dans le groupe **Créer**, cliquez sur **Importer des données de configuration**.  
-3.  Dans la page **Sélectionner des fichiers** de l’Assistant **Importer des données de configuration**, cliquez sur **Ajouter**, puis, dans la boîte de dialogue **Ouvrir** , sélectionnez les fichiers .cab à importer.  
-4.  Cochez la case **Créer une nouvelle copie des lignes de base de la configuration importée et des éléments de configuration** pour que les données de configuration importées soient modifiables dans la console Configuration Manager.  
-5.  Dans la page **Résumé**, passez en revue les actions qui seront exécutées, puis terminez l’Assistant.  
+1.  Klik in de Configuration Manager-console op **activa en naleving** > **configuratie-Items** of **Configuratiebasislijnen**
+2.  In de **Start** tabblad, in de **maken** groep, klikt u op **configuratiegegevens importeren**.  
+3.  Klik op de pagina **Bestanden selecteren** van de wizard **Configuratiegegevens importeren**op **Toevoegen**en selecteer in het dialoogvenster **Openen** de CAB-bestanden die u wilt importeren.  
+4.  Selecteer de **Maak een nieuw exemplaar van de geïmporteerde configuratiebasislijnen en configuratie-items** selectievakje in als u wilt dat de geïmporteerde configuratiegegevens moeten kunnen worden bewerkt in de Configuration Manager-console.  
+5.  Op de **samenvatting** controleert u de acties die moeten worden ondernomen en voltooi de wizard.  
 
-Les données de configuration importées apparaissent dans le nœud **Paramètres de compatibilité** de l’espace de travail **Ressources et Conformité**.  
+De geïmporteerde configuratiegegevens worden weergegeven in de **instellingen voor naleving** knooppunt van de **activa en naleving** werkruimte.  

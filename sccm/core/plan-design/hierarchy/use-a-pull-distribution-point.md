@@ -1,6 +1,6 @@
 ---
-title: "Point de distribution d’extraction | Microsoft Docs"
-description: "Découvrez les configurations et les limites de l’utilisation d’un point de distribution d’extraction avec System Center Configuration Manager."
+title: Pull-distributiepunt | Microsoft Docs
+description: Meer informatie over configuraties en beperkingen voor het gebruik van een pull-distributiepunt met System Center Configuration Manager.
 ms.custom: na
 ms.date: 2/14/2017
 ms.prod: configuration-manager
@@ -16,96 +16,96 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: db5039ff6cb93e3099b096196d49a1f06c315a6b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-a-pull-distribution-point-with-system-center-configuration-manager"></a>Utiliser un point de distribution d’extraction avec System Center Configuration Manager
+# <a name="use-a-pull-distribution-point-with-system-center-configuration-manager"></a>Een pull-distributiepunt voor System Center Configuration Manager gebruiken
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
-Un point de distribution d’extraction pour System Center Configuration Manager est un point de distribution standard qui obtient le contenu distribué en le téléchargeant à partir d’un emplacement source tel qu’un client, au lieu de recevoir le contenu du serveur de site.  
+Een pull-distributiepunt voor System Center Configuration Manager is een standaarddistributiepunt dat gedistribueerde inhoud ophaalt downloaden via een bronlocatie zoals een client, in plaats van de inhoud wordt gepusht vanaf de siteserver.  
 
- Lorsque vous déployez du contenu sur un grand nombre de points de distribution au niveau d’un site, les points de distribution d’extraction contribuent à réduire la charge de traitement du serveur de site et accélèrent le transfert du contenu vers chaque point de distribution. Pour cela, vous devez décharger le processus de transfert du contenu sur chaque point de distribution à partir du processus du gestionnaire de distribution sur le serveur de site.  
+ Wanneer u inhoud naar een groot aantal distributiepunten op een site implementeert, worden de pull-distributiepunten kunnen u de verwerkingsbelasting op de siteserver verminderen en versnellen van de overdracht van de inhoud naar elk distributiepunt. Deze efficiëntie wordt bereikt door het offloaden van het proces van het overdragen van de inhoud aan de afzonderlijke distributiepunten via het distributiebeheerproces op de siteserver.  
 
--   Vous configurez des points de distribution comme des points de distribution d’extraction.  
+-   U kunt afzonderlijke distributiepunten als pull-distributiepunten configureren.  
 
--   Pour chaque point de distribution d’extraction, vous devez spécifier un ou plusieurs points de distribution sources à partir desquels il peut obtenir des déploiements. (Un point de distribution d’extraction ne peut obtenir du contenu qu’à partir d’un point de distribution spécifié comme point de distribution source.)  
+-   Voor elk pull-distributiepunt, moet u een of meer brondistributiepunten waaruit implementaties (een pull-distributiepunt kan alleen inhoud ophalen van een distributiepunt dat is opgegeven als een brondistributiepunt) kunnen worden opgehaald.  
 
--   Quand vous distribuez du contenu vers un point de distribution d’extraction, le serveur de site avertit ce point de distribution, qui lance alors le téléchargement (transfert) du contenu à partir d’un point de distribution source. Chaque point de distribution d’extraction gère individuellement le transfert du contenu en téléchargeant le contenu à partir d’un point de distribution qui possède déjà une copie du contenu.  
+-   Wanneer u inhoud naar een pull-distributiepunt distribueert, verwittigt de server het pull-distributiepunt, vervolgens begint met het downloaden (transfer) van de inhoud vanaf een brondistributiepunt. Een pull-distributiepunt beheert de overdracht van inhoud afzonderlijk door inhoud te downloaden van een distributiepunt dat al over een kopie van de inhoud beschikt.  
 
-Les points de distribution d’extraction prennent en charge les mêmes configurations et fonctionnalités que les points de distribution classiques de Configuration Manager. Par exemple, un point de distribution configuré en tant que point de distribution d'extraction prend en charge l'utilisation de configurations de multidiffusion et PXE, la validation de contenu et la distribution de contenu à la demande. Un point de distribution d'extraction prend en charge les communications des clients HTTP ou HTTPS, gère les mêmes options de certificat que les autres points de distribution et peut être géré individuellement ou en tant que membre d'un groupe de points de distribution.  
+Pull-distributiepunten ondersteunen dezelfde configuraties en functionaliteit als standaard Configuration Manager-distributiepunten. Een distributiepunt dat is geconfigureerd als een pull-distributiepunt ondersteunt bijvoorbeeld het gebruik van multicast- en PXE-configuraties, inhoudsvalidatie en distributie van inhoud op aanvraag. Een pull-distributiepunt ondersteunt HTTP- of HTTPS-communicatie van clients, ondersteunt dezelfde certificaatopties als andere distributiepunten en kan afzonderlijk of als een lid van een distributiepuntgroep worden beheerd.  
 
 > [!IMPORTANT]
-> Bien qu’un point de distribution d’extraction prenne en charge les communications par HTTP et HTTPS, lorsque vous utilisez Configuration Manager, vous ne pouvez spécifier que des points de distribution sources configurés pour HTTP. Le Kit de développement logiciel (SDK) Configuration Manager permet de spécifier un point de distribution source configuré pour le protocole HTTPS.  
+> Hoewel een pull-distributiepunt communicatie via HTTP en HTTPS, ondersteunt wanneer u Configuration Manager gebruikt, kunt u alleen brondistributiepunten die zijn geconfigureerd voor HTTP opgeven. U kunt de Configuration Manager-SDK gebruiken om op te geven van een brondistributiepunt dat is geconfigureerd voor HTTPS.  
 
- **Quand vous distribuez du contenu vers un point de distribution d’extraction, la séquence d’événements est la suivante :**  
+ **De volgende reeks gebeurtenissen treedt op wanneer u inhoud distribueert naar een pull-distributiepunt:**  
 
--   Dès que du contenu est distribué à un point de distribution d'extraction, sur le serveur de site, le composant Package Transfer Manager vérifie la base de données de site pour confirmer si le contenu est disponible sur un point de distribution source. Si Package Transfer Manager ne peut pas confirmer que le contenu se trouve sur un point de distribution source pour le point de distribution d'extraction, la vérification est répétée toutes les 20 minutes jusqu'à ce que le contenu soit disponible.  
+-   Zodra inhoud naar een pull-distributiepunt is gedistribueerd, controleert de Package Transfer Manager op de siteserver de sitedatabase om te bevestigen of de inhoud beschikbaar is op het brondistributiepunt. Als dit niet kan bevestigen of de inhoud aanwezig is op het brondistributiepunt voor het pull-distributiepunt, wordt de controle om de 20 minuten herhaald, totdat de inhoud beschikbaar is.  
 
--   Une fois la disponibilité du contenu confirmée par Package Transfer Manager, une notification est adressée au point de distribution d'extraction pour télécharger le contenu. Après avoir reçu cette notification, le point de distribution d'extraction tente de télécharger le contenu auprès de ses points de distribution source.  
+-   Wanneer door Package Transfer Manager wordt bevestigd dat de inhoud beschikbaar is, meldt dit aan het pull-distributiepunt dat de inhoud kan worden gedownload. Wanneer het pull-distributiepunt deze melding ontvangt, probeert dit om de inhoud te downloaden vanaf de bijbehorende brondistributiepunten.  
 
--   Une fois le téléchargement du contenu terminé, le point de distribution d'extraction soumet cet état à un point de gestion. Toutefois, si l’état n’est pas reçu après 60 minutes, Package Transfer Manager sort de veille et vérifie auprès du point de distribution d’extraction si le contenu a été téléchargé. Si le téléchargement du contenu est en cours, Package Transfer Manager se met en veille pendant 60 minutes avant de vérifier de nouveau auprès du point de distribution d'extraction. Ce cycle se répète jusqu'à ce que le point de distribution d'extraction termine le transfert du contenu.  
+-   Nadat het pull-distributiepunt het downloaden van inhoud heeft voltooid, verzendt dit deze status aan een beheerpunt. Echter, als deze status na 60 minuten geen activiteit ontvangen is, de Package Transfer Manager ontwaakt en controleert het pull-distributiepunt om te bevestigen of het pull-distributiepunt de inhoud heeft gedownload. Als het downloaden van de inhoud wordt uitgevoerd, sluimert de Package Transfer Manager gedurende 60 minuten voordat deze het pull-distributiepunt opnieuw controleert. De cyclus gaat door totdat het pull-distributiepunt de inhoudstransfer voltooit.  
 
-**Vous pouvez configurer un point de distribution d’extraction** pendant l’installation du point de distribution ou après son installation en modifiant les propriétés du rôle de système de site du point de distribution.  
+**U kunt een pull-distributiepunt configureren** wanneer u het distributiepunt installeert of nadat dit is geïnstalleerd door de eigenschappen van de sitesysteemrol van het distributiepunt te bewerken.  
 
-**Vous pouvez supprimer la configuration de point de distribution d’extraction** en modifiant les propriétés du point de distribution. Lorsque vous supprimez la configuration de point de distribution d’extraction, le point de distribution reprend un fonctionnement normal et les prochains transferts de contenu vers le point de distribution sont alors gérés par le serveur de site.  
+**U kunt de configuratie voor een pull-distributiepunt verwijderen** door de eigenschappen van het distributiepunt te bewerken. Wanneer u de pull-distributiepuntconfiguratie, verwijdert het distributiepunt weer normaal functioneert en beheert de siteserver toekomstige inhoud worden overgebracht naar het distributiepunt.  
 
-## <a name="limitations-for-pull-distribution-points"></a>Limitations des points de distribution d’extraction  
+## <a name="limitations-for-pull-distribution-points"></a>Beperkingen voor pull-distributiepunten  
 
--   Un point de distribution cloud ne peut pas être configuré en tant que point de distribution d'extraction.  
+-   Een clouddistributiepunt kan niet worden geconfigureerd als een pull-distributiepunt.  
 
--   Un point de distribution sur un serveur de site ne peut pas être configuré en tant que point de distribution d'extraction.  
+-   Een distributiepunt op siteserver kan niet worden geconfigureerd als een pull-distributiepunt.  
 
--   **La configuration de contenu préparé se substitue à la configuration du point de distribution d’extraction**. Un point de distribution d'extraction configuré pour du contenu préparé attend le contenu. Il n’extrait pas de contenu d’un point de distribution source et, comme un point de distribution standard avec la configuration de contenu préparé, il ne reçoit pas de contenu du serveur de site.  
+-   **De configuratie voor het pull-distributiepunt wordt door de configuratie voor voorbereide inhoud overschreven**. Een pull-distributiepunt dat is geconfigureerd voor voorbereide inhoud wacht op de inhoud. Dit komt niet haalt inhoud binnen vanuit het brondistributiepunt en, zoals een standaarddistributiepunt punt met de configuratie van het voorbereide inhoud, ontvangt geen inhoud van de siteserver.  
 
--   **Un point de distribution d’extraction n’utilise pas les limites de taux de transfert configurées** lors du transfert de contenu. Si vous configurez un point de distribution précédemment installé en tant que point de distribution d'extraction, les limites de taux configurées sont enregistrées, mais pas utilisées. Si, par la suite, vous supprimez la configuration du point de distribution d’extraction, les limites de taux configurées sont implémentées selon la configuration précédente.  
+-   **Een pull-distributiepunt gebruikt geen configuraties voor frequentielimieten** wanneer inhoud wordt overgedragen. Als u een eerder geïnstalleerd distributiepunt configureert als een pull-distributiepunt, worden configuraties voor frequentielimieten opgeslagen, maar niet gebruikt. Als u later de pull-distributiepuntconfiguratie verwijdert, worden de frequentielimieten geïmplementeerd zoals eerder is geconfigureerd.  
 
     > [!NOTE]  
-    >  Lorsqu'un point de distribution est configuré en tant que point de distribution d'extraction, l'onglet **Limites du taux de transfert** n'est pas disponible dans les propriétés du point de distribution.  
+    >  Wanneer een distributiepunt is geconfigureerd als een pull-distributiepunt, wordt het tabblad **Frequentielimieten** niet weergegeven in de eigenschappen van het distributiepunt.  
 
--   Un point de distribution d’extraction n’utilise pas les **paramètres de nouvelle tentative** pour la distribution de contenu. Les**Paramètres de nouvelle tentative** peuvent être configurés dans le cadre des **Propriétés du composant de distribution de logiciels** pour chaque site. Pour afficher ou configurer ces propriétés, dans l’espace de travail **Administration** de la console Configuration Manager, développez **Configuration du site**, puis sélectionnez **Sites**. Ensuite, dans le volet des résultats, sélectionnez un site puis, dans l’onglet **Accueil**, sélectionnez **Configurer les composants de site**. Enfin, sélectionnez **Distribution de logiciels**.  
+-   Een distributiepunt maakt geen gebruik van de optie **Instellingen voor opnieuw proberen** voor de distributie van inhoud. **Instellingen voor opnieuw proberen** kan worden geconfigureerd als onderdeel van **Eigenschappen van softwaredistributieonderdelen** van elke site. Weergeven of configureren van deze eigenschappen in de **beheer** werkruimte van de Configuration Manager-console, vouw **siteconfiguratie**, en selecteer vervolgens **Sites**. Selecteer vervolgens een site in het resultatenvenster en klik vervolgens op de **Start** tabblad **Siteonderdelen configureren**. Tot slot selecteert **softwaredistributie**.  
 
--   Pour transférer du contenu depuis un point de distribution source dans une forêt distante, un client Configuration Manager doit être installé sur l’ordinateur qui héberge le point de distribution d’extraction. Un compte d'accès réseau qui peut accéder au point de distribution source doit être configuré.  
+-   Om over te dragen van inhoud van een bron distributiepunt in een extern forest, de computer die als host fungeert de pull-distributiepunt moet een Configuration Manager-client geïnstalleerd hebben. Een netwerktoegangsaccount die toegang heeft tot het brondistributiepunt moet worden geconfigureerd voor gebruik.  
 
--   Sur un ordinateur configuré comme point de distribution d’extraction et exécutant un client Configuration Manager, la version du client doit correspondre à celle du site Configuration Manager qui installe le point de distribution d’extraction. Le point de distribution d’extraction doit impérativement utiliser le composant CCMFramework qui est commun au point de distribution d’extraction et au client Configuration Manager.  
+-   Op een computer die is geconfigureerd als een pull-distributiepunt en die een Configuration Manager-client wordt uitgevoerd, wordt de versie van de client moet dezelfde versie als de Configuration Manager-site die het pull-distributiepunt installeert. Dit is een vereiste voor het pull-distributiepunt voor het gebruik van CCMFramework die geldt voor zowel het pull-distributiepunt en de Configuration Manager-client.  
 
-## <a name="about-source-distribution-points"></a>À propos des points de distribution sources  
- Quand vous configurez le point de distribution d’extraction, vous devez spécifier un ou plusieurs points de distribution sources :  
+## <a name="about-source-distribution-points"></a>Brondistributiepunten  
+ Wanneer u een pull-distributiepunt configureert, moet u een of meer brondistributiepunten opgeven:  
 
--   Seuls les points de distribution considérés comme points de distribution source possibles sont affichés.  
+-   Alleen distributiepunten die in aanmerking komen voor gebruik als brondistributiepunten, worden weergegeven.  
 
--   Un point de distribution d'extraction peut être spécifié en tant que point de distribution source d'un autre point de distribution d'extraction.  
+-   Een pull-distributiepunt kan worden opgegeven als een brondistributiepunt voor een ander pull-distributiepunt.  
 
--   Si vous utilisez Configuration Manager, seuls les points de distribution prenant en charge le protocole HTTP peuvent être spécifiés comme des points de distribution sources.  
+-   Alleen distributiepunten die ondersteuning bieden voor HTTP kunnen worden opgegeven als brondistributiepunten wanneer u Configuration Manager gebruiken.  
 
--   Le Kit de développement logiciel (SDK) Configuration Manager permet de spécifier un point de distribution source configuré pour le protocole HTTPS. Pour utiliser un point de distribution source configuré pour le protocole HTTPS, le point de distribution d’extraction doit se trouver sur l’ordinateur qui exécute le client Configuration Manager.  
+-   U kunt de Configuration Manager-SDK gebruiken om op te geven van een brondistributiepunt dat is geconfigureerd voor HTTPS. Voor het gebruik van een brondistributiepunt dat is geconfigureerd voor HTTPS, moet het pull-distributiepunt worden geplaatst op een computer waarop de Configuration Manager-client wordt uitgevoerd.  
 
-Une priorité peut être attribuée à chaque point de distribution figurant dans la liste de points de distribution sources utilisée par le point de distribution d’extraction :  
+Er kan aan elk distributiepunt in de lijst met brondistributiepunten van een pull-distributiepunt een prioriteit worden toegewezen:  
 
--   Vous pouvez affecter une priorité distincte à chaque point de distribution source ou affecter la même priorité à plusieurs points de distribution source.  
+-   U kunt aan elk brondistributiepunt een afzonderlijke prioriteit toewijzen en u kunt een dezelfde prioriteit toewijzen aan meerdere distributiepunten.  
 
--   La priorité détermine l'ordre dans lequel le point de distribution d'extraction demande du contenu auprès de ses points de distribution source.  
+-   De prioriteit bepaalt in welke volgorde pull-distributiepunten inhoud aanvragen bij brondistributiepunten die bij het pull-distributiepunt horen.  
 
--   Les points de distribution d'extraction contactent initialement le point de distribution source présentant la valeur de priorité la plus basse.  Si plusieurs points de distribution source présentent la même priorité, le point de distribution d'extraction sélectionne de façon non déterminante l'un des points de distribution source partageant cette priorité.  
+-   Pull-distributiepunten maken eerst contact met een brondistributiepunt met de laagste waarde voor de prioriteit.  Als er meerdere brondistributiepunten met dezelfde prioriteit zijn, selecteert het pull-distributiepunt een van de bron-distributiepunten die deze prioriteit delen.  
 
--   Si le contenu n’est pas disponible sur une source sélectionnée, le point de distribution d’extraction tente de télécharger le contenu à partir d’un autre point de distribution présentant le même niveau de priorité.  
+-   Als de inhoud niet beschikbaar is op een geselecteerde bron, probeert het pull-distributiepunt de inhoud te downloaden vanaf een ander distributiepunt met dezelfde prioriteit.  
 
--   Si le contenu n'est pas disponible sur les points de distribution présentant la priorité donnée, le point de distribution d'extraction essaie de télécharger le contenu auprès du point de distribution présentant le niveau de priorité suivant et continue ainsi jusqu'à trouver le contenu, ou bien le point de distribution d'extraction se met en veille pendant 30 minutes et recommence le processus.  
+-   Als de inhoud niet beschikbaar is op alle distributiepunten met een bepaalde prioriteit, probeert het pull-distributiepunt de inhoud te downloaden vanaf een distributiepunt waaraan de eerstvolgende hogere waarde is toegewezen, totdat de inhoud is gevonden of het pull-distributiepunt gedurende 30 minuten de inactieve modus inschakelt voordat het proces opnieuw begint.  
 
-Quand un point de distribution d’extraction télécharge du contenu à partir d’un point de distribution source, il est considéré comme un client dans la colonne **Client consulté (unique)** du rapport **Résumé de l’utilisation des points de distribution** .  
+Wanneer een pull-distributiepunt inhoud downloadt vanaf een brondistributiepunt, wordt dat pull-distributiepunt in de kolom **Gebruikte (unieke) clients** van het rapport **Overzicht van gebruik van distributiepunten** geteld als een client.  
 
- Par défaut, un point de distribution d’extraction utilise son **compte d’ordinateur** pour transférer le contenu d’un point de distribution source. Toutefois, lorsque le point de distribution d’extraction transfère du contenu à partir d’un point de distribution source qui se trouve dans une forêt distante, il utilise toujours le compte d’accès réseau. Ce processus nécessite que le client Configuration Manager soit installé sur l’ordinateur et qu’un compte d’accès réseau soit configuré pour utiliser le point de distribution source et ait accès à celui-ci.  
+ Een pull-distributiepunt gebruikt standaard het eigen **computeraccount** om inhoud vanaf een brondistributiepunt over te dragen. Echter, wanneer het pull-distributiepunt overbrengt inhoud vanaf een brondistributiepunt dat zich in een extern forest, het pull-distributiepunt gebruikt altijd de account voor netwerktoegang. Dit proces vereist dat de computer de Configuration Manager-client is geïnstalleerd heeft en dat een netwerktoegangsaccount is geconfigureerd voor gebruik en toegang tot het brondistributiepunt heeft.  
 
-## <a name="about-content-transfers"></a>À propos des transferts de contenu  
- Pour gérer le transfert de contenu, les points de distribution d’extraction utilisent le composant **CCMFramework** du logiciel client Configuration Manager.  
+## <a name="about-content-transfers"></a>Inhoudsoverdracht  
+ Als u wilt beheren de overdracht van inhoud, pull-distributiepunten gebruiken de **CCMFramework** onderdeel van de Configuration Manager-clientsoftware.  
 
--   Cette infrastructure est installée par **Pulldp.msi** lors de la configuration du point de distribution comme point de distribution d’extraction. Elle n’a pas besoin du client Configuration Manager.  
+-   Dit framework wordt geïnstalleerd door de **Pulldp.msi** wanneer u het distributiepunt naar een pull-distributiepunt configureert. Het framework vereist geen Configuration Manager-client.  
 
--   Une fois le point de distribution d'extraction installé, le service CCMExec doit être opérationnel sur l'ordinateur du point de distribution pour permettre au point de distribution d'extraction de fonctionner.  
+-   Nadat het pull-distributiepunt is geïnstalleerd, moet de service CCMExecio op de distributiepuntcomputer worden ingeschakeld omdat het pull-distributiepunt anders niet werkt.  
 
--   Quand le point de distribution d’extraction transfère du contenu, il utilise le **service de transfert intelligent en arrière-plan** (BITS) et consigne ses opérations dans les fichiers journaux **datatransferservice.log** et **pulldp.log** sur l’ordinateur du point de distribution.  
+-   Wanneer het pull-distributiepunt inhoud overdraagt, wordt dit gedaan via **Background Intelligent Transfer Service** (BITS). De bewerkingen worden geregistreerd in het bestand **datatransferservice.log** en in het bestand **pulldp.log** op de distributiepuntcomputer.  
 
-## <a name="see-also"></a>Voir aussi  
- [Concepts fondamentaux de la gestion de contenu dans System Center Configuration Manager](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management)   
+## <a name="see-also"></a>Zie tevens  
+ [Basisconcepten voor inhoudsbeheer in System Center Configuration Manager](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management)   

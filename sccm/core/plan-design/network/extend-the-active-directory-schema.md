@@ -1,6 +1,6 @@
 ---
-title: "Publication et schéma Active Directory | Microsoft Docs"
-description: "L’extension du schéma Active Directory pour System Center Configuration Manager permet de simplifier le processus de déploiement et de configuration des clients."
+title: Publicatie- en Active Directory-schema | Microsoft Docs
+description: Breid het Active Directory-schema voor System Center Configuration Manager en het proces van het implementeren en configureren van clients vereenvoudigen.
 ms.custom: na
 ms.date: 2/6/2017
 ms.prod: configuration-manager
@@ -17,95 +17,95 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 58beef440db8e019a06ce7c4c8eaabc8e85ce954
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="prepare-active-directory-for-site-publishing"></a>Préparer Active Directory pour la publication de site
+# <a name="prepare-active-directory-for-site-publishing"></a>Active Directory voorbereiden voor het publiceren van site
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Quand vous étendez le schéma Active Directory pour System Center Configuration Manager, les nouvelles structures que vous introduisez dans Active Directory sont utilisées par les sites System Center Configuration Manager pour publier des informations importantes, à un emplacement sécurisé facilement accessible par les clients.  
+Wanneer u het Active Directory-schema voor System Center Configuration Manager uitbreidt, kunt u nieuwe structuren introduceren in Active Directory die worden gebruikt door Configuration Manager-sites voor het publiceren van belangrijke gegevens op een veilige locatie waar eenvoudig toegankelijk is voor clients.  
 
-Si vous gérez localement des clients, nous vous conseillons d’utiliser Configuration Manager avec un schéma Active Directory étendu. Un schéma étendu peut simplifier le processus de déploiement et de configuration des clients. Un schéma étendu permet également aux clients de localiser efficacement des ressources comme les serveurs de contenu et d’autres services fournis par les différents rôles de système de site Configuration Manager.  
+Er is een goed idee Configuration Manager gebruiken met een uitgebreid Active Directory-schema bij het beheren van lokale clients. Een uitgebreid schema kan het proces van het implementeren en instellen van clients vereenvoudigen. Een uitgebreid schema kan ook clients die bronnen zoals inhoudsservers en aanvullende services die de verschillende sitesysteemrollen van Configuration Manager bieden efficiënt te zoeken.  
 
--   Si vous ne savez pas si vous avez intérêt à utiliser un schéma étendu pour le déploiement dans Configuration Manager, consultez [Extensions de schéma pour System Center Configuration Manager](../../../core/plan-design/network/schema-extensions.md) pour vous aider à prendre cette décision.  
+-   Als u niet bekend bent met welk uitgebreid schema voorziet in een Configuration Manager-implementatie, kunt u lezen over [Schema-uitbreidingen voor System Center Configuration Manager](../../../core/plan-design/network/schema-extensions.md) kunt u deze beslissing over.  
 
--   Si vous n’utilisez pas de schéma étendu, vous pouvez configurer d’autres méthodes, telles que DNS et WINS, pour rechercher des services et des serveurs de système de site. Ces méthodes d’emplacement de service nécessitent des configurations supplémentaires et ne sont pas la méthode préférée pour l’emplacement du service par les clients. Pour en savoir plus, consultez [Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager](../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
+-   Wanneer u niet een uitgebreid schema gebruikt, kunt u andere methoden zoals DNS en WINS om services en sitesysteemservers te vinden instellen. Voor deze methoden van servicelocatie zijn aanvullende configuraties vereist en de methoden hebben niet de voorkeur bij servicelocatie door clients. Voor meer informatie lezen [begrijpen hoe clients siteresources en -services voor System Center Configuration Manager vinden](../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md),  
 
--   Si votre schéma Active Directory a déjà été étendu pour Configuration Manager 2007 ou System Center 2012 Configuration Manager, vous n’avez pas d’autres tâches à effectuer. Les extensions de schéma demeurent inchangées et sont déjà en place.  
+-   Als uw Active Directory-schema is uitgebreid voor Configuration Manager 2007 of System Center 2012 Configuration Manager, moet u niet meer doen. De schema-uitbreidingen zijn ongewijzigd en zijn al aanwezig.  
 
-L’extension du schéma est une opération qui s’effectue une seule fois pour n’importe quelle forêt. Pour étendre le schéma Active Directory étendu, puis l’utiliser, procédez comme suit :  
+Het schema uitbreiden is een eenmalige bewerking voor elk forest. Als u wilt uitbreiden en vervolgens met de uitgebreide Active Directory-schema, de volgende stappen uit:  
 
-## <a name="step-1-extend-the-schema"></a>Étape 1. Étendre le schéma  
-Pour étendre le schéma pour Configuration Manager, vous devez :  
+## <a name="step-1-extend-the-schema"></a>Stap 1. Het schema uitbreiden  
+Het schema voor Configuration Manager uitbreiden:  
 
--   Utiliser un compte qui est membre du groupe de sécurité Administrateurs du schéma.  
+-   Gebruik een account dat lid is van de beveiligingsgroep Schemabeheerders.  
 
--   Être connecté à un contrôleur de domaine principal du schéma.  
+-   Worden aangemeld bij de schemamaster-domeincontroller.  
 
--   Exécuter l’outil **Extadsch.exe** , ou utiliser l’utilitaire de ligne de commande LDIFDE avec le fichier **ConfigMgr_ad_schema.ldf** . L’outil et le fichier se trouvent dans le dossier **SMSSETUP\BIN\X64** sur le média d’installation de Configuration Manager.  
+-   Voer de **Extadsch.exe** hulpprogramma of gebruik het opdrachtregelhulpprogramma LDIFDE met het **ConfigMgr_ad_schema.ldf** bestand. Het hulpprogramma en het bestand zich in de **SMSSETUP\BIN\X64** map op de installatiemedia van Configuration Manager.  
 
-#### <a name="option-a-use-extadschexe"></a>Option A : utiliser Extadsch.exe  
+#### <a name="option-a-use-extadschexe"></a>Optie A: Gebruik Extadsch.exe  
 
-1.  Exécutez le fichier **extadsch.exe** pour ajouter les nouvelles classes et les nouveaux attributs au schéma Active Directory.  
+1.  Voer **extadsch.exe** uit om nieuwe klassen en kenmerken aan het Active Directory-schema toe te voegen.  
 
     > [!TIP]  
-    >  Exécutez cet outil à partir de la ligne de commande pour afficher les commentaires pendant son exécution.  
+    >  Voer dit hulpprogramma uit vanaf een opdrachtregel om feedback weer te geven terwijl het programma wordt uitgevoerd.  
 
-2.  Pour vérifier que l’extension du schéma a réussi, examinez extadsch.log à la racine du lecteur du système.  
+2.  Controleren of de schema-uitbreiding gelukt is aan de hand van extadsch.log in de hoofdmap van het systeemstation.  
 
-#### <a name="option-b-use-the-ldif-file"></a>Option B : utiliser le fichier LDIF  
+#### <a name="option-b-use-the-ldif-file"></a>Optie B: Gebruik het LDIF-bestand  
 
-1.  Modifiez le fichier **ConfigMgr_ad_schema.ldf** pour définir le domaine racine Active Directory à étendre :  
+1.  Bewerk de **ConfigMgr_ad_schema.ldf** bestand voor het definiëren van het Active Directory-hoofddomein dat u wilt uitbreiden:  
 
-    -   Remplacez toutes les instances du texte **DC=x** dans le fichier par le nom complet du domaine à étendre.  
+    -   Vervang alle exemplaren van de tekst, **DC = x**, in het bestand met de volledige naam van het domein uit te breiden.  
 
-    -   Par exemple, si le nom complet du domaine à étendre est widgets.microsoft.com, remplacez toutes les instances de DC=x dans le fichier par **DC=widgets, DC=microsoft, DC=com**.  
+    -   Bijvoorbeeld als de volledige naam van de uit te breiden domein widgets.microsoft.com naam, Wijzig alle instanties van DC = x in het bestand naar **DC = widgets, DC = microsoft, DC = com**.  
 
-2.  À l’aide de l’utilitaire de ligne de commande LDIFDE, importez le contenu du fichier **ConfigMgr_ad_schema.ldf** dans Active Directory Domain Services :  
+2.  Gebruik het opdrachtregelhulpprogramma LDIFDE om te importeren van de inhoud van de **ConfigMgr_ad_schema.ldf** bestand naar Active Directory Domain Services:  
 
-    -   Par exemple, la ligne de commande suivante importe les extensions de schéma dans Active Directory Domain Services, active la journalisation détaillée et crée un fichier journal pendant l’importation : **ldifde -i -f ConfigMgr_ad_schema.ldf -v -j &lt;emplacement_de_stockage_du_fichier_journal\>**.  
+    -   Bijvoorbeeld de volgende opdrachtregel de schema-uitbreidingen in Active Directory Domain Services geïmporteerd, wordt uitgebreide logboekregistratie ingeschakeld en wordt een logboekbestand gemaakt tijdens het importproces: **ldifde -i -f ConfigMgr_ad_schema.ldf - v -j &lt;locatie voor het opslaan van logboekbestand\>**.  
 
-3.  Pour vérifier si l’extension du schéma a réussi, examinez le fichier journal créé par la ligne de commande exécutée à l’étape précédente.  
+3.  Om te controleren of de schema-uitbreiding geslaagd is, bekijk een logboekbestand gemaakt door de opdrachtegel in de vorige stap.  
 
-## <a name="step-2--create-the-system-management-container-and-grant-sites-permissions-to-the-container"></a>Étape 2.  Créer le conteneur System Management et accorder des autorisations de sites au nouveau conteneur  
- Après avoir étendu le schéma, vous devez créer un conteneur nommé **System Management** dans Active Directory Domain Services (AD DS) :  
+## <a name="step-2--create-the-system-management-container-and-grant-sites-permissions-to-the-container"></a>Stap 2.  De container Systeembeheer maken en sites machtigingen aan de container toekennen  
+ Nadat u het schema uitbreidt, moet u een container met de naam **System Management** in Active Directory Domain Services (AD DS):  
 
--   Vous créez ce conteneur une fois pour toutes dans chaque domaine comportant un site principal ou secondaire qui publiera des données dans Active Directory.  
+-   U maakt deze container één keer in elk domein met een primaire of secundaire site die gegevens naar Active Directory publiceert.  
 
--   Pour chaque conteneur, vous accordez des autorisations au compte d’ordinateur de chaque serveur de site principal et secondaire appelé à publier les données sur ce domaine. Chaque compte doit avoir un **contrôle total** sur le conteneur avec l’autorisation avancée **Appliquer à** égale à **cet objet et tous ceux descendants**.  
+-   Voor elke container verlenen u machtigingen voor het computeraccount van elke primaire en secundaire siteserver die gegevens naar dat domein publiceert. Elk account moet **volledig beheer** aan de container met de geavanceerde machtiging **toepassen op**gelijk is aan **dit object en alle onderliggende objecten**.  
 
-#### <a name="to-add-the-container"></a>Pour ajouter le conteneur  
+#### <a name="to-add-the-container"></a>De container toevoegen  
 
-1.  Utilisez un compte possédant l’autorisation **Créer tous les objets enfants** sur le conteneur **Système** dans les services de domaine Active Directory.  
+1.  Gebruik een account dat beschikt over de machtiging **Alle onderliggende objecten maken** in de container **Systeem** in Active Directory Domain Services.  
 
-2.  Exécutez **ADSI Edit** (adsiedit.msc) et connectez-vous au domaine du serveur de site.  
+2.  Voer **ADSI Edit** (adsiedit.msc) uit en maak verbinding met het domein van de siteserver.  
 
-3.  Créez le conteneur :  
+3.  Maak de container:  
 
-    -   Développez **Domaine** &lt;nom_de_domaine_complet_ordinateur\>, développez &lt;nom_unique\>, cliquez avec le bouton droit sur **CN=System**, choisissez **Nouveau**, puis **Objet**.  
+    -   Vouw **domein** &lt;computer volledig gekwalificeerde domeinnaam\>, vouw &lt;DN-naam\>, met de rechtermuisknop op **CN = systeem**, kies **nieuw**, en kies vervolgens **Object**.  
 
-    -   Dans la boîte de dialogue **Créer un objet**, choisissez **Conteneur**, puis **Suivant**.  
+    -   In de **Object maken** dialoogvenster Kies **Container**, en kies vervolgens **volgende**.  
 
-    -   Dans la zone **Valeur**, entrez **System Management**, puis choisissez **Suivant**.  
+    -   In de **waarde** Voer **System Management**, en kies vervolgens **volgende**.  
 
-4.  Accordez les autorisations appropriées :  
+4.  Wijs machtigingen toe:  
 
     > [!NOTE]  
-    >  Si vous préférez, vous pouvez utiliser d’autres outils, tels que l’outil d’administration Utilisateurs et ordinateurs Active Directory (DSA.msc) pour ajouter des autorisations au conteneur.  
+    >  Als u liever, kunt u andere hulpprogramma's zoals de Active Directory: gebruikers en beheerhulpmiddelen voor Computers (dsa.msc) machtigingen toevoegen aan de container.  
 
-    -   Cliquez avec le bouton droit sur **CN=System Management**, puis choisissez **Propriétés**.  
+    -   Met de rechtermuisknop op **CN = System Management**, en kies vervolgens **eigenschappen**.  
 
-    -   Choisissez l’onglet **Sécurité**, **Ajouter**, puis ajoutez le compte d’ordinateur de serveur de site avec l’autorisation **Contrôle intégral**.  
+    -   Kies de **beveiliging** Kies **toevoegen**, en voeg de computeraccount van de siteserver met de **volledig beheer** machtiging.  
 
-    -   Choisissez **Avancé**, choisissez le compte d’ordinateur du serveur de site, puis choisissez **Modifier**.  
+    -   Kies **Geavanceerd**, kiest u het computeraccount van de siteserver en kies vervolgens **bewerken**.  
 
-    -   Dans la liste **Appliquer à**, choisissez **cet objet et tous ceux descendants**.  
+    -   In de **toepassen op** Kies **dit object en alle onderliggende objecten**.  
 
-5.  Choisissez **OK** pour fermer la console et enregistrer la configuration.  
+5.  Kies **OK** naar de console sluiten en de configuratie op te slaan.  
 
-## <a name="step-3-set-up-sites-to-publish-to-active-directory-domain-services"></a>Étape 3. Configurer les sites pour la publication de données sur Active Directory Domain Services  
- Après avoir configuré le conteneur, accordé les autorisations appropriées et installé un site principal Configuration Manager, vous pouvez configurer ce site pour la publication de données dans Active Directory.  
+## <a name="step-3-set-up-sites-to-publish-to-active-directory-domain-services"></a>Stap 3. Sites publiceren naar Active Directory Domain Services instellen  
+ Nadat de container is ingesteld, machtigingen worden toegekend en u een primaire site van Configuration Manager hebt geïnstalleerd, kunt u die site instellen om gegevens te publiceren naar Active Directory.  
 
- Pour plus d’informations sur la publication, consultez [Publier des données de site pour System Center Configuration Manager](../../../core/servers/deploy/configure/publish-site-data.md).  
+ Zie voor meer informatie over publiceren [sitegegevens voor System Center Configuration Manager publiceren](../../../core/servers/deploy/configure/publish-site-data.md).  

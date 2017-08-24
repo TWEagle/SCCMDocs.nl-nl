@@ -1,6 +1,6 @@
 ---
-title: "Créer des applications Android | Documents Microsoft"
-description: "Examinez les éléments à prendre en compte quand vous créez et déployez des applications pour appareils Android."
+title: Android-toepassingen maken | Microsoft Docs
+description: Zie welke overwegingen u moet rekening account wanneer u maken en implementeren van toepassingen voor Android-apparaten.
 ms.custom: na
 ms.date: 07/31/2017
 ms.prod: configuration-manager
@@ -16,51 +16,51 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 3a89abc81cd70f4e499bf4e3087fd53915377c44
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-android-applications-with-system-center-configuration-manager"></a>Créer des applications Android avec System Center Configuration Manager
+# <a name="create-android-applications-with-system-center-configuration-manager"></a>Android-toepassingen maken met System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Une application System Center Configuration Manager a un ou plusieurs types de déploiement. Les types de déploiement comprennent les fichiers d’installation et les informations nécessaires pour déployer des logiciels sur un appareil. Le type de déploiement contient également des règles spécifiant à quel moment et selon quelle méthode le logiciel est déployé.  
+Een System Center Configuration Manager-toepassing heeft een of meer implementatietypen. Implementatietypen die bestaat uit de installatiebestanden en informatie die vereist is om software te implementeren op een apparaat. Een implementatietype heeft ook regels die specificeren hoe en wanneer de software wordt geïmplementeerd.  
 
- Vous pouvez créer des applications à l'aide des méthodes suivantes :  
+ U kunt toepassingen maken met behulp van de volgende methoden:  
 
--   Créer automatiquement les types d'application et de déploiement en lisant les fichiers d'installation de l'application.  
--   Créer manuellement l'application, puis ajouter des types de déploiement ultérieurement.  
--   Importer une application à partir d’un fichier.  
+-   De toepassing en implementatietype-typen automatisch maken door te lezen van de installatiebestanden van de toepassing.  
+-   U kunt de toepassing handmatig maken en deze op een later tijdstip aan implementatietypen toevoegen.  
+-   Een toepassing importeren uit een bestand.  
 
-Pour connaître les étapes requises pour créer des types de déploiement et applications Configuration Manager, voir [Démarrer l’Assistant Création d’une application](../../apps/deploy-use/create-applications.md#start-the-create-application-wizard). De plus, gardez à l’esprit les considérations suivantes quand vous créez et déployez des applications pour des appareils Android.  
+Zie [Start de wizard toepassing maken](../../apps/deploy-use/create-applications.md#start-the-create-application-wizard) voor de stappen die nodig zijn voor de Configuration Manager-toepassingen maken en implementatietypen. Houd er ook de volgende aandachtspunten in rekening wanneer u maken en implementeren van toepassingen voor Android-apparaten.  
 
-## <a name="general-considerations-for-android-apps"></a>Éléments généraux à prendre en compte pour les applications Android
+## <a name="general-considerations-for-android-apps"></a>Algemene overwegingen voor Android-apps
 
-Configuration Manager prend en charge le déploiement des types d’applications suivants pour Android :
+Configuration Manager ondersteunt de implementatie van de volgende typen Apps voor Android:
 
-|Type d'appareil|Fichiers pris en charge|
+|Apparaattype|Ondersteunde bestanden|
 |-|-|
-|Android|.apk|
+|Android|.APK|
 
-Les actions de déploiement suivantes sont prises en charge :
+De volgende implementatieacties worden ondersteund:
 
-|Type d'appareil|Actions prises en charge|
+|Apparaattype|Ondersteunde bewerkingen|
 |-|-|
-|Android|**Disponible**, **Obligatoire** L’utilisateur doit donner son consentement pour l’installation et la désinstallation.|
-|Android for Work | **Obligatoire** |
+|Android|**Beschikbare**, **vereist** de gebruiker moet toestemming geven om te installeren en verwijderen van zowel.|
+|Android for Work | **Vereist** |
 
-## <a name="approve-and-deploy-android-for-work-apps"></a>Approuver et déployer des applications Android for Work
-En tant qu’administrateur de Configuration Manager, vous pouvez également approuver des applications sur le [site web Play for Work](https://play.google.com/work), et déployer ces applications sur des appareils Android for Work gérés.
+## <a name="approve-and-deploy-android-for-work-apps"></a>Goedkeuren en implementeren van Android voor bedrijfs-apps
+Als een Configuration Manager-beheerder, kunt u ook apps in goedkeuren de [afspelen voor werk website](https://play.google.com/work), en deze apps implementeren op beheerde Android voor Work-apparaten.
 
-Effectuez les étapes suivantes pour approuver des applications dans le magasin Play for Work, les synchroniser avec la console Configuration Manager et les déployer sur des appareils Android for Work gérés. Pour déployer des applications sur les profils professionnels des utilisateurs, vous devez approuver les applications dans Play for Work, puis les synchroniser avec la console Configuration Manager.
+Volg deze stappen apps in de Play voor werk store goedkeuren en implementeren voor beheerde Android voor werk apparaten ze naar de Configuration Manager-console synchroniseren. Om apps te werk gebruikersprofielen implementeert, moet u de apps in de Play for Work goedkeuren en vervolgens de apps met de Configuration Manager-console te synchroniseren.
 
-1. Ouvrez un navigateur et accédez à https://play.google.com/work.
-2. Connectez-vous à l’aide du compte d’administrateur Google que vous avez lié à votre client Intune.
-3. Recherchez les applications que vous souhaitez déployer dans votre environnement et choisissez **Approuver** pour chacune d’elles afin de les rendre disponibles pour Android for Work.
-4. Dans la console Configuration Manager, accédez à **Administrateur** > **Vue d’ensemble** > **Services Cloud** > **Android for Work** et choisissez **Synchroniser**.
-5. Patientez jusqu’à 10 minutes que les applications soient synchronisées, puis accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Gestion des applications** > **Informations de licence pour les applications du Store**.
-6. Choisissez une application synchronisée à partir de Play for Work, puis choisissez **Créer une application**.
-7. Terminez l’Assistant et choisissez **Fermer**.
-8. Accédez à **Bibliothèque de logiciels** > **Vue d’ensemble** > **Gestion des applications** > **Applications**, choisissez une application Android for Work et déployez-la normalement.
+1. Open een browser en Ga naar: https://play.google.com/work.
+2. Meld u met behulp van de Google-beheerdersaccount dat u afhankelijk van uw Intune-tenant.
+3. Voor apps die u wilt implementeren in uw omgeving en kies Bladeren **goedkeuren** voor elk van deze om de app beschikbaar maken voor Android for Work.
+4. Ga in de Configuration Manager-console naar **beheerder** > **overzicht** > **Cloudservices** > **Android for Work** en kies **Sync**.
+5. Wacht tot tien minuten om apps te synchroniseren en gaat u naar **softwarebibliotheek** > **overzicht** > **Toepassingsbeheer** > **licentiegegevens voor Store-Apps**.
+6. Kies een app die vanuit Play for Work zijn gesynchroniseerd en kies vervolgens **toepassing maken**.
+7. De wizard is voltooid en kies **sluiten**.
+8. Ga naar **softwarebibliotheek** > **overzicht** > **Toepassingsbeheer** > **toepassingen**, kiest u een Android voor Work-app en gewoon implementeren.
 
-Pour synchroniser des applications Play for Work avec Configuration Manager, vous devez d’abord approuver au moins une application sur le site web Play for Work.
+Als u wilt synchroniseren Play voor zakelijke apps met Configuration Manager, moet u eerst ten minste één app in de Play voor werk website goedkeuren.

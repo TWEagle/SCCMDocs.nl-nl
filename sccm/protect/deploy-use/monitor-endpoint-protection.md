@@ -1,6 +1,6 @@
 ---
-title: "Surveiller l’état d’Endpoint Protection | Microsoft Docs"
-description: "Découvrez comment surveiller Endpoint Protection dans votre hiérarchie System Center Configuration Manager."
+title: Endpoint Protection-status controleren | Microsoft Docs
+description: "Meer informatie over hoe Endpoint Protection controleren in uw System Center Configuration Manager-hiërarchie."
 ms.custom: na
 ms.date: 03/13/2017
 ms.prod: configuration-manager
@@ -16,67 +16,67 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: b5771f4faebc06076bdbf84727848c881fc1dfb4
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-monitor-endpoint-protection-status"></a>Guide pratique pour surveiller l’état d’Endpoint Protection
+# <a name="how-to-monitor-endpoint-protection-status"></a>Het controleren van Endpoint Protection-status
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Vous pouvez surveiller Endpoint Protection dans votre hiérarchie Microsoft System Center Configuration Manager à l’aide du nœud **État Endpoint Protection** sous **Sécurité** dans l’espace de travail **Surveillance**, à l’aide du nœud **Endpoint Protection** dans l’espace de travail **Ressources et Conformité** et à l’aide de rapports.  
+U kunt Endpoint Protection in uw Microsoft System Center Configuration Manager-hiërarchie controleren met behulp van de **Status van Endpoint Protection** knooppunt onder **beveiliging** in de **bewaking** werkruimte de **Endpoint Protection** knooppunt in de **activa en naleving** werkruimte en met behulp van rapporten.  
 
-##  <a name="BKMK_1"></a> Guide pratique pour surveiller Endpoint Protection à l’aide du nœud État Endpoint Protection  
+##  <a name="BKMK_1"></a>Endpoint Protection controleren met behulp van het knooppunt Status van Endpoint Protection  
 
-1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
+1.  Klik in de Configuration Manager-console op **bewaking**.  
 
-2.  Dans l’espace de travail **Surveillance**, développez **Sécurité**, puis cliquez sur **État Endpoint Protection**.  
+2.  In de **bewaking** werkruimte Vouw **beveiliging** en klik vervolgens op **Status van Endpoint Protection**.  
 
-3.  Dans la liste **Regroupement** , sélectionnez le regroupement pour lequel vous souhaitez afficher des informations sur l'état.  
+3.  In de **verzameling** , selecteert u de verzameling waarvoor u wilt statusinformatie wilt weergeven.  
 
     > [!IMPORTANT]  
-    >  Les regroupements peuvent être sélectionnés dans les cas suivants :  
+    >  Verzamelingen zijn beschikbaar voor selectie in de volgende gevallen:  
     >   
-    >  -   Quand vous sélectionnez **Afficher ce regroupement dans le tableau de bord Endpoint Protection** sous l’onglet **Alertes** de la boîte de dialogue *Propriétés de***<nom_regroupement\>**.  
-    > -   Quand vous déployez une stratégie de logiciel anti-programme malveillant Endpoint Protection sur le regroupement.  
-    > -   Quand vous activez et déployez les paramètres client Endpoint Protection sur le regroupement.  
+    >  -   Wanneer u selecteert **deze verzameling weergeven op het dashboard Endpoint Protection** op de **waarschuwingen** tabblad van de *< verzamelingsnaam\>***eigenschappen** in het dialoogvenster.  
+    > -   Wanneer u een antimalwarebeleid van Endpoint Protection implementeert aan de verzameling.  
+    > -   Als u inschakelen en clientinstellingen voor Endpoint Protection te implementeren voor de verzameling.  
 
-4.  Examinez les informations affichées dans le **état de sécurité** et **état opérationnel** sections. Vous pouvez cliquer sur n'importe quel lien d'état pour créer un regroupement temporaire dans le nœud **Périphériques** de l'espace de travail **Ressources et Conformité**. Le regroupement temporaire contient les ordinateurs dont l'état est sélectionné.  
+4.  Lees de informatie die wordt weergegeven in de **beveiligingsstatus** en **operationele status** secties. U kunt op elke statuskoppeling klikken om een tijdelijke verzameling te maken in het knooppunt **Apparaten** van de werkruimte **Activa en naleving** . De tijdelijke verzameling bevat de computers met de geselecteerde status.  
 
     > [!IMPORTANT]  
-    >  Les informations affichées dans le nœud **État Endpoint Protection** se basent sur les dernières données de synthèse de la base de données Configuration Manager et peuvent ne pas être actualisées. Si vous voulez récupérer les dernières données, sous l’onglet **Accueil** , cliquez sur **Exécuter le résumé**ou cliquez sur **Planifier le résumé** pour régler l’intervalle de résumé.  
+    >  Informatie die wordt weergegeven in de **Status van Endpoint Protection** knooppunt is gebaseerd op de meest recente gegevens dat is gedestilleerd uit de Configuration Manager-database en zijn mogelijk niet actueel. Als u de meest recente gegevens wilt ophalen, klikt u op het tabblad **Start** op de optie **Samenvatting uitvoeren**of klikt u op **Overzicht plannen** om het interval voor overzichten aan te passen.  
 
-##  <a name="BKMK_2"></a> Guide pratique pour surveiller Endpoint Protection dans l’espace de travail Ressources et Conformité  
+##  <a name="BKMK_2"></a>Het controleren van Endpoint Protection in de activa en naleving werkruimte  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
+1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
 
-2.  Dans l'espace de travail **Ressources et Conformité**, exécutez l'une des actions suivantes :  
+2.  In de **activa en naleving** werkruimte een van de volgende acties uitvoeren:  
 
-    -   Cliquez sur **Périphériques**. Dans la liste **Périphériques** , sélectionnez un ordinateur, puis cliquez sur l'onglet **Détail du programme malveillant** .  
+    -   Klik op **apparaten**. Selecteer in de lijst **Apparaten** een computer en klik op het tabblad **Details van malware** .  
 
-    -   Cliquez sur **Regroupements de périphériques**. Dans la liste **Regroupements d’appareils** , sélectionnez le regroupement qui contient l’ordinateur que vous voulez surveiller puis, sous l’onglet **Accueil** , dans le groupe **Regroupement** , cliquez sur **Afficher les membres**.  
+    -   Klik op **Apparaatverzamelingen**. Selecteer in de lijst **Apparaatverzamelingen** de verzameling met de computer die u wilt bewaken en klik vervolgens op het tabblad **Start** in de groep **Verzameling** op **Leden weergeven**.  
 
-3.  Dans la liste *<Nom_regroupement\>*, sélectionnez un ordinateur, puis cliquez sur l’onglet **Détail du programme malveillant**.  
+3.  In de *< verzamelingsnaam\>*  lijst, selecteer een computer en klik op de **details van Malware** tabblad.  
 
-##  <a name="BKMK_3"></a> Guide pratique pour surveiller Endpoint Protection à l’aide de rapports  
- Utilisez les rapports suivants pour obtenir des informations sur Endpoint Protection dans votre hiérarchie. Vous pouvez aussi vous servir de ces rapports pour résoudre les problèmes liés à Endpoint Protection. Pour plus d’informations sur la configuration de la création de rapports dans Configuration Manager, consultez [Création de rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md) et [Fichiers journaux dans System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md). Les rapports Endpoint Protection sont dans le dossier Endpoint Protection.  
+##  <a name="BKMK_3"></a>Endpoint Protection controleren met behulp van rapporten  
+ Gebruik de volgende rapporten kunt u informatie over Endpoint Protection weergeven in uw hiërarchie. U kunt deze rapporten ook gebruiken voor het oplossen van problemen met Endpoint Protection. Zie voor meer informatie over het configureren van rapportage in Configuration Manager [rapportage in System Center Configuration Manager](../../core/servers/manage/reporting.md) en [logbestanden in System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md). De Endpoint Protection-rapporten zijn in de map Endpoint Protection.  
 
-|Nom du rapport|Description|  
+|Rapportnaam|Beschrijving|  
 |-----------------|-----------------|  
-|**Rapport d'activité des logiciels anti-programme malveillant**|Affiche une vue d'ensemble de l'activité des logiciels anti-programme malveillant pour un regroupement spécifié.|  
-|**Ordinateurs infectés**|Affiche une liste des ordinateurs sur lesquels une menace spécifique est détectée.|  
-|**Utilisateurs récurrents par menace**|Affiche la liste des utilisateurs ayant le plus grand nombre de menaces détectées.|  
-|**Liste des menaces utilisateur**|Affiche une liste des menaces qui ont été trouvées pour un compte d'utilisateur spécifié.|  
+|**Activiteitenrapport voor anti-malware**|Geeft een overzicht van activiteiten met betrekking tot anti-malware voor een opgegeven verzameling.|  
+|**Geïnfecteerde computers**|Geeft een lijst weer van computers waarop een opgegeven bedreiging is gedetecteerd.|  
+|**Meest voorkomende gebruikers op bedreigingen**|Geeft een lijst weer met de gebruikers met het hoogste aantal gedetecteerde bedreigingen.|  
+|**Lijst met bedreigingen voor gebruiker**|Geeft een lijst weer met bedreigingen die zijn gedetecteerd voor een opgegeven gebruikersaccount.|  
 
-## <a name="malware-alert-levels"></a>Niveaux d'alerte contre les logiciels malveillants  
- Utilisez le tableau suivant pour identifier les différents niveaux d’alerte Endpoint Protection qui peuvent apparaître dans les rapports ou dans la console Configuration Manager.  
+## <a name="malware-alert-levels"></a>Waarschuwingsniveaus voor malware  
+ Gebruik de volgende tabel om te identificeren van de andere Endpoint Protection-waarschuwingsniveaus die kunnen worden weergegeven in rapporten of in de Configuration Manager-console.  
 
-|Niveau d'alerte|Description|  
+|Waarschuwingsniveau|Beschrijving|  
 |-----------------|-----------------|  
-|**Échec**|Endpoint Protection n’a pas pu remédier au logiciel malveillant. Vérifiez les journaux pour plus de détails de l'erreur.<br /><br /> **Remarque :** pour obtenir la liste des fichiers journaux Configuration Manager et Endpoint Protection, consultez la section « Endpoint Protection » dans la rubrique [Fichiers journaux dans System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md).|  
-|**Supprimé**|Endpoint Protection a correctement supprimé le logiciel malveillant.|  
-|**En quarantaine**|Endpoint Protection a déplacé le logiciel malveillant vers un emplacement sécurisé et a empêché son exécution en attendant que vous le supprimiez ou que vous en autorisiez l’exécution.|  
-|**Nettoyage effectué**|Les logiciels malveillants ont été supprimés du fichier infecté.|  
-|**Autorisé**|Un utilisateur administratif est activée, le logiciel qui contient le logiciel malveillant de s'exécuter.|  
-|**Aucune Action**|Endpoint Protection n’a pris aucune mesure contre le logiciel malveillant. Cela peut se produire si l'ordinateur est redémarré une fois le logiciel malveillant est détecté et le logiciel malveillant n'est plus détecté ; par exemple, si un réseau mappé lecteur sur le logiciel malveillant est détecté n'est pas reconnecté lorsque l'ordinateur redémarre.|  
-|**Bloqué**|Endpoint Protection a empêché le logiciel malveillant de s’exécuter. Cela peut se produire si un processus sur l'ordinateur se trouve à contenir des logiciels malveillants.|
+|**Mislukt**|Herstellen van de malware van Endpoint Protection is mislukt. Raadpleeg de logboeken voor meer informatie over de fout.<br /><br /> **Opmerking:** Zie de sectie 'Endpoint Protection' in voor een lijst met Configuration Manager en Endpoint Protection-logboekbestanden, de [logbestanden in System Center Configuration Manager](../../core/plan-design/hierarchy/log-files.md) onderwerp.|  
+|**Verwijderd**|Endpoint Protection verwijderd de malware.|  
+|**In quarantaine**|Endpoint Protection heeft de malware verplaatst naar een veilige locatie en voorkomt dat deze wordt uitgevoerd totdat u deze verwijdert of toe te staan om uit te voeren.|  
+|**Opgeruimd**|De malware is verwijderd uit het geïnfecteerde bestand.|  
+|**Toegestaan**|Een gebruiker met beheerdersrechten heeft toegestaan om de software met de malware uit te voeren.|  
+|**Geen actie**|Endpoint Protection heeft geduurd dat er geen actie tegen de schadelijke software. Dit kan voorkomen als de computer opnieuw wordt opgestart nadat de malware is gedetecteerd en de malware niet meer wordt gedetecteerd. Het kan bijvoorbeeld gebeuren dat een toegewezen netwerkstation waarop malware wordt gedetecteerd niet opnieuw wordt aangesloten wanneer de computer opnieuw wordt opgestart.|  
+|**Geblokkeerd**|Endpoint Protection geblokkeerd uitvoeren van de malware. Dit kan gebeuren als een proces op de computer malware blijkt te bevatten.|

@@ -1,6 +1,6 @@
 ---
-title: Prise en charge de la virtualisation | Microsoft Docs
-description: "Découvrez la configuration requise pour l’installation des rôles système de site et du client System Center Configuration Manager dans un environnement de virtualisation."
+title: Ondersteuning voor het virtualisatie | Microsoft Docs
+description: Vereisten voor het installeren van System Center Configuration Manager-client en de sitesysteemrollen in een virtualisatieomgeving ophalen.
 ms.custom: na
 ms.date: 1/12/2017
 ms.prod: configuration-manager
@@ -16,53 +16,53 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: b49bd179da850cee35b2487a353bb1788df03d58
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="support-for-virtualization-environments-for-system-center-configuration-manager"></a>Prise en charge des environnements de virtualisation pour System Center Configuration Manager
+# <a name="support-for-virtualization-environments-for-system-center-configuration-manager"></a>Ondersteuning voor virtualisatieomgevingen voor System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Configuration Manager prend en charge l’installation de rôles de système de site et de client sur les systèmes d’exploitation pris en charge qui s’exécutent comme machines virtuelles dans les environnements de virtualisation décrits dans cet article. Cette prise en charge se fait même quand l'hôte de la machine virtuelle (environnement de virtualisation) n'est pas pris en charge comme client ou comme serveur de site.  
+Configuration Manager ondersteunt de installatie van de client en sitesysteemrollen op ondersteunde besturingssystemen die worden uitgevoerd als een virtuele machines in de virtualisatieomgevingen die in dit artikel worden vermeld. Deze ondersteuning geldt zelfs wanneer de host van de virtuele machine (virtualisatieomgeving) niet wordt ondersteund als een client of siteserver.  
 
- Par exemple, si vous utilisez Microsoft Hyper-V Server 2012 pour héberger une machine virtuelle qui exécute Windows Server 2012, vous pouvez installer les rôles de système de site ou de client sur la machine virtuelle (Windows Server 2012), mais pas sur l’hôte (Microsoft Hyper-V Server 2012).  
+ Bijvoorbeeld, als u Microsoft Hyper-V Server 2012 gebruikt voor het hosten van een virtuele machine met Windows Server 2012 wordt uitgevoerd, kunt u de client of de sitesysteemrollen op de virtuele machine (Windows Server 2012), maar niet op de host (Microsoft Hyper-V Server 2012).  
 
-|Environnement de virtualisation|  
+|Virtualisatieomgeving|  
 |--------------------------------|  
 |Windows Server 2008 R2|  
 |Microsoft Hyper-V Server 2008 R2|  
 |Windows Server 2012|  
 |Microsoft Hyper-V Server 2012|  
 |Windows Server 2012 R2|
-|Windows Server 2016 <sup>(voir la *remarque 1*)</sup>|
-|Microsoft Hyper-V Server 2016 <sup>(voir la *remarque 1*)|
--  *Remarque 1* : Configuration Manager ne prend pas en charge la [virtualisation imbriquée](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/what-s-new-in-hyper-v-on-windows#a-namebkmknestedanested-virtualization-new), qui est une nouvelle fonctionnalité de Windows Server 2016.
+|Windows Server 2016 <sup>(Zie *Opmerking 1*)</sup>|
+|Microsoft Hyper-V Server 2016 <sup>(Zie *Opmerking 1*)|
+-  *Opmerking 1*: Configuration Manager biedt geen ondersteuning voor [geneste virtualisatie](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/what-s-new-in-hyper-v-on-windows#a-namebkmknestedanested-virtualization-new), die is er nieuw in Windows Server 2016.
 
 
- Chaque machine virtuelle que vous utilisez doit respecter ou dépasser les mêmes configurations matérielle et logicielle requises que celles que vous utiliseriez pour un ordinateur Configuration Manager physique.  
+ Elke virtuele computer die u gebruikt, moet voldoen aan of groter zijn dan de dezelfde hardware- en softwarevereisten die u voor een fysieke computer in de Configuration Manager gebruiken wilt.  
 
- Vous pouvez vérifier que votre environnement de virtualisation est bien pris en charge pour Configuration Manager à l’aide du programme SVVP (Server Virtualization Validation Program) et de son Assistant Stratégie de prise en charge du programme de virtualisation en ligne. Pour plus d’informations sur le programme SVVP (Server Virtualization Validation Program), consultez [Programme SVVP (Server Virtualization Validation Program) de Windows Server](https://www.windowsservercatalog.com/svvp.aspx).  
+ U kunt controleren of uw virtualisatieomgeving wordt ondersteund voor Configuration Manager met behulp van de Server Virtualization Validation Program en de Wizard online virtualisatie programma ondersteuning beleid. Zie voor meer informatie over het Server Virtualization Validation Program [Windows Server Virtualization Validation Program](https://www.windowsservercatalog.com/svvp.aspx).  
 
 > [!NOTE]  
->  Configuration Manager ne prend pas en charge les systèmes d’exploitation invités Virtual PC ou Virtual Server qui sont exécutés sur des ordinateurs Mac.  
+>  Configuration Manager biedt geen ondersteuning voor Virtual PC of Virtual Server gastbesturingssystemen die worden uitgevoerd op de Mac-computers.  
 
-Configuration Manager ne peut pas gérer les machines virtuelles, sauf si elles sont en ligne. Il n’est pas possible de mettre à jour une image de machine virtuelle déconnectée, ni de collecter un inventaire via le client Configuration Manager sur l’ordinateur hôte.  
+Configuration Manager kan geen virtuele machines beheren, tenzij deze online zijn. Een installatiekopie van een offline virtuele machine kan niet worden bijgewerkt. ook kan inventaris worden verzameld met behulp van de Configuration Manager-client op de hostcomputer.  
 
-Aucune attention particulière n'est accordée aux machines virtuelles. Par exemple, si la mise à jour d’une image de machine virtuelle a été arrêtée puis redémarrée sans que l’état de la machine virtuelle à laquelle la mise à jour a été appliquée n’ait été enregistré, il est possible que Configuration Manager ne détermine pas s’il est nécessaire de réappliquer cette mise à jour.  
+Er wordt geen speciale aandacht besteed aan virtuele machines. Configuration Manager kan bijvoorbeeld niet bepalen of een update heeft opnieuw moet worden toegepast op de installatiekopie van een virtuele machine als de virtuele machine is gestopt en opnieuw opgestart zonder op te slaan de status van de virtuele machine waarop de update is toegepast.  
 
-##  <a name="bkmk_Azure"></a> Machines virtuelles Microsoft Azure  
- Configuration Manager peut s’exécuter sur des machines virtuelles Azure de la même manière qu’il s’exécute localement dans votre réseau physique d’entreprise. Vous pouvez utiliser Configuration Manager sur des machines virtuelles Azure dans les scénarios suivants :  
+##  <a name="bkmk_Azure"></a> Virtuele Microsoft Azure-machines  
+ Net als deze wordt uitgevoerd op de lokale Configuration Manager kunt uitvoeren op virtuele machines in Azure binnen uw fysieke bedrijfsnetwerk. U kunt de Configuration Manager gebruiken met Azure virtuele machines in de volgende scenario's:  
 
--   **Scénario 1 :** vous pouvez exécuter Configuration Manager sur une machine virtuelle Azure et l’utiliser pour gérer des clients qui sont installés sur d’autres machines virtuelles Azure.  
+-   **Scenario 1:** U kunt de Configuration Manager uitvoeren op Azure een virtuele machine en gebruiken voor het beheren van clients die zijn geïnstalleerd op andere virtuele machines in Azure.  
 
--   **Scénario 2** : vous pouvez exécuter Configuration Manager sur une machine virtuelle Azure et l’utiliser pour gérer des clients qui ne s’exécutent pas sur Azure.  
+-   **Scenario 2:** U kunt de Configuration Manager uitvoeren op Azure een virtuele machine en gebruiken voor het beheren van clients die niet worden uitgevoerd op Azure.  
 
--   **Scénario 3** : vous pouvez exécuter différents rôles de système de site Configuration Manager sur des machines virtuelles Azure tout en exécutant d’autres rôles dans votre réseau physique d’entreprise (avec une connectivité réseau appropriée pour les communications).  
+-   **Scenario 3:** U kunt andere Configuration Manager-sitesysteemrollen uitvoeren op Azure virtuele machines tegelijkertijd andere rollen uitvoeren in uw fysieke bedrijfsnetwerk (met de juiste netwerkverbinding voor communicatie).  
 
-La même configuration requise de System Center Configuration Manager en matière de réseaux, de configurations prises en charge et de matériel, applicable à l’installation locale de Configuration Manager sur votre réseau d’entreprise physique, s’applique également aux installations effectuées sur des machines virtuelles Azure.  
+Dezelfde vereisten voor netwerken, ondersteunde configuraties en hardwarevereisten die van toepassing aan het installeren van Configuration Manager lokaal op uw fysieke bedrijfsnetwerk System Center Configuration Manager zijn ook van toepassing op installatie op virtuele machines in Azure.  
 
-Pour plus d’informations, consultez [Configuration Manager sur Azure : Forum Aux Questions](/sccm/core/understand/configuration-manager-on-azure).
+Zie voor meer informatie [Configuration Manager in Azure--Frequently Asked Questions](/sccm/core/understand/configuration-manager-on-azure).
 
 > [!IMPORTANT]  
->  Les sites et les clients Configuration Manager qui s’exécutent sur des machines virtuelles Azure sont soumis aux mêmes exigences de licence que les installations locales.  
+>  Configuration Manager-sites en clients die worden uitgevoerd op virtuele machines in Azure zijn onderworpen aan dezelfde licentievereisten als on-premises installaties.  

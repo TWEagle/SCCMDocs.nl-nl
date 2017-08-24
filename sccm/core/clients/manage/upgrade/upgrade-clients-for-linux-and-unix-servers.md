@@ -1,6 +1,6 @@
 ---
 itle: 'Upgrade clients | Microsoft Docs | Linux UNIX '
-description: "Mettez à niveau un client sur un serveur Linux ou UNIX dans System Center Configuration Manager."
+description: Upgrade van een client op een Linux- of UNIX-server in System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,36 +17,36 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 394ba7c236c05cc90a3d7f99eb6146b15d620f11
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-upgrade-clients-for-linux-and-unix-servers-in-system-center-configuration-manager"></a>Comment mettre à niveau les clients pour des serveurs Linux et UNIX dans System Center Configuration Manager
+# <a name="how-to-upgrade-clients-for-linux-and-unix-servers-in-system-center-configuration-manager"></a>Clients voor Linux- en UNIX-servers bijwerken in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Vous pouvez mettre à niveau la version du client pour Linux et UNIX vers une version plus récente du client sans désinstaller au préalable le client actuel. Pour cela, installez le nouveau package d’installation du client sur l’ordinateur en utilisant la propriété de ligne de commande **-keepdb** . Quand le client pour Linux et UNIX est installé, il remplace les données du client existantes par les nouveaux fichiers du client. Toutefois, la propriété de ligne de commande **-keepdb** demande au processus d’installation de conserver l’identificateur unique (GUID) du client, la base de données locale d’informations et le magasin de certificats. Ces informations sont ensuite utilisées par la nouvelle installation du client.  
+U kunt de versie van de client voor Linux en UNIX op een computer bijwerken naar een nieuwere clientversie zonder dat u de huidige client eerst hoeft te verwijderen. Hiervoor installeert u het clientinstallatiepakket op de computer tijdens met gebruik van de opdrachtregeleigenschap **-keepdb** . Wanneer de client voor Linux en UNIX wordt geïnstalleerd, worden de bestaande clientgegevens overschreven met de nieuwe clientbestanden. Echter, de **- keepdb** opdrachtregel-eigenschap instrueert het installatieproces voor de clients unique identifier (GUID), lokale database met gegevens behouden en het certificaatarchief. Deze informatie wordt vervolgens gebruikt door de nieuwe clientinstallatie.  
 
- Par exemple, vous avez un ordinateur RHEL5 x64 qui exécute le client à partir de la version d’origine du client Configuration Manager pour Linux et UNIX. Pour mettre à niveau ce client vers la version du client disponible dans la mise à jour cumulative 1, vous exécutez manuellement le script **install** pour installer le package du client approprié à partir de la mise à jour cumulative 1, en ajoutant le commutateur de ligne de commande **-keepdb**. La ligne de commande que vous utilisez ressemble à ceci : **./install -mp <hostname\> -sitecode <code\> -keepdb ccm-Universal-x64.<build\>.tar**  
+ Als u bijvoorbeeld een RHEL5 x64-computer hebt waarop de client uit de oorspronkelijke release van de Configuration Manager-client voor Linux en UNIX wordt uitgevoerd. Als u wilt upgraden deze client naar de clientversie uit cumulatieve update 1, die u handmatig uitvoert de **installeren** script voor het installeren van het desbetreffende clientpakket uit cumulatieve update 1, door het toevoegen van de **- keepdb** opdrachtregelparameter. De opdrachtregel die u gebruikt lijkt op het volgende: **. / install -mp < hostnaam\> - sitecode < code\> - keepdb ccm-Universal-x64. < build\>tar**  
 
-## <a name="how-to-use-a-software-deployment-to-upgrade-the-client-on-linux-and-unix-servers"></a>Comment utiliser un déploiement de logiciels pour mettre à niveau le client sur des serveurs Linux et UNIX  
- Vous pouvez utiliser un déploiement de logiciels pour mettre à niveau le client sur des serveurs Linux et UNIX vers une nouvelle version du client. Toutefois, le client System Center Configuration Manager ne peut pas exécuter directement le script d’installation pour installer le nouveau client, car l’installation d’un nouveau client doit d’abord désinstaller le client actuel. Sinon, le processus client Configuration Manager qui exécute le script d’installation se terminerait avant que l’installation du nouveau client ne commence. Pour pouvoir utiliser un déploiement de logiciels pour installer le nouveau client, vous devez planifier l’installation pour qu’elle commence plus tard et qu’elle soit exécutée par les fonctionnalités de planification intégrées du système d’exploitation.  
+## <a name="how-to-use-a-software-deployment-to-upgrade-the-client-on-linux-and-unix-servers"></a>Een software-implementatie gebruiken om de client op Linux- en UNIX-servers bij te werken  
+ Een software-implementatie gebruiken om de client op Linux- en UNIX-servers bij te werken De System Center Configuration Manager-client kan niet echter rechtstreeks uitvoeren voor het script voor installatie om de nieuwe client installeert, omdat de installatie van een nieuwe client moet de huidige client eerst verwijderen. Hierdoor zou de Configuration Manager-clientproces dat het script voor installatie wordt uitgevoerd voordat de installatie van de nieuwe client begint beëindigd. Om te kunnen een software-implementatie gebruiken om de nieuwe client te installeren, moet u de installatie te starten op een later tijdstip en wordt uitgevoerd door het besturingssysteem ingebouwde mogelijkheden voor planning plannen.  
 
- Pour cela, utilisez un déploiement de logiciels pour d’abord copier les fichiers du nouveau package d’installation du client sur l’ordinateur client, puis déployez et exécutez un script destiné à planifier le processus d’installation du client. Le script utilise la commande **at** intégrée du système d’exploitation pour retarder son démarrage. Ensuite, quand le script s’exécute, son fonctionnement est géré par le système d’exploitation du client, et non par le client Configuration Manager sur l’ordinateur. Ainsi, la ligne de commande appelée par le script désinstalle d’abord le client Configuration Manager, puis installe le nouveau client, ce qui termine le processus de mise à niveau du client sur l’ordinateur UNIX ou Linux. Une fois la mise à niveau terminée, le client mis à niveau continue à être géré par Configuration Manager.  
+ Hiervoor gebruikt u een software-implementatie om eerst de bestanden voor het nieuwe clientinstallatiepakket naar de clientcomputer te kopiëren en vervolgens een script te implementeren en uit te voeren om het clientinstallatieproces te plannen. Het script maakt gebruik van het besturingssysteem ingebouwd **op** opdracht later wilt starten. Vervolgens, wanneer het script wordt uitgevoerd, wordt de werking ervan wordt beheerd door het besturingssysteem van de client en niet de Configuration Manager-client op de computer. Hiermee wordt de opdrachtregel die wordt aangeroepen door het script op voor de Configuration Manager-client eerst verwijderen en installeer vervolgens de nieuwe client het proces van upgrade van de client op de Linux- of UNIX-computer wordt voltooid. Nadat de upgrade is voltooid, blijft de bijgewerkte client beheerd door Configuration Manager.  
 
- Utilisez la procédure suivante pour configurer un déploiement de logiciels destiné à mettre à niveau le client pour Linux et UNIX. Les étapes et exemples suivants mettent à niveau un ordinateur RHEL5 x64 qui exécute la version initiale du client vers la version du client disponible dans la mise à jour cumulative 1.  
+ Gebruik de volgende procedure om een software-implementatie te configureren waarmee de client voor Linux en UNIX kan worden bijgewerkt. Met de volgende stappen en voorbeelden wordt een RHEL5 x64-computer waarop de initiële release van de client wordt uitgevoerd, bijgewerkt naar de clientversie van de cumulatieve update 1.  
 
-#### <a name="to-use-a-software-deployment-to-upgrade-the-client-on-linux-and-unix-servers"></a>Pour utiliser un déploiement de logiciels destiné à mettre à niveau le client sur des serveurs Linux et UNIX  
+#### <a name="to-use-a-software-deployment-to-upgrade-the-client-on-linux-and-unix-servers"></a>Een software-implementatie gebruiken om de client op Linux- en UNIX-servers bij te werken  
 
-1.  Copiez le fichier du nouveau package d’installation du client sur l’ordinateur qui exécute le client Configuration Manager que vous envisagez de mettre à niveau.  
+1.  Kopieer het nieuwe pakketbestand voor client-installatie op de computer waarop de Configuration Manager-client die u wilt bijwerken.  
 
-     Par exemple, vous pouvez placer le package d’installation du client et le script d’installation de la mise à jour cumulative 1 dans l’emplacement suivant sur l’ordinateur client : **/tmp/PATCH**  
+     U kunt het clientinstallatiepakket en het installatiescript voor cumulatieve update 1 bijvoorbeeld opslaan op de volgende locatie op de clientcomputer: **/tmp/PATCH**  
 
-2.  Créez un script pour gérer la mise à niveau du client Configuration Manager, puis placez une copie de ce script dans le même dossier sur l’ordinateur client que les fichiers d’installation du client de l’étape 1.  
+2.  Een script voor het beheren van de upgrade van de Configuration Manager-client maken en vervolgens een kopie van het script plaatsen in dezelfde map als de clientinstallatiebestanden uit stap 1 op de clientcomputer.  
 
-     Le script ne doit pas obligatoirement porter un nom spécifique, mais il doit contenir les lignes de commande nécessaires pour utiliser les fichiers d’installation du client à partir d’un dossier local sur l’ordinateur client et installer le package d’installation du client à l’aide de la propriété de ligne de commande **-keepdb** . Vous utilisez la propriété de ligne de commande **-keepdb** pour conserver l’identificateur unique du client actuel afin qu’il soit utilisé par le nouveau client que vous installez.  
+     Het script is niet vereist voor een specifieke naam, maar moet voldoende gebruiken de clientinstallatiebestanden vanuit een lokale map op de clientcomputer en het installatiepakket voor de client installeren met behulp van opdrachtregels bevatten de **- keepdb** opdrachtregel-eigenschap. U gebruikt de **- keepdb** opdrachtregel-eigenschap voor het onderhouden van de unieke id van de huidige client voor gebruik door de nieuwe client die u installeert.  
 
-     Par exemple, vous créez un script nommé **upgrade.sh** qui contient les lignes suivantes, puis vous le copiez dans le dossier **/tmp/PATCH** sur l’ordinateur client :  
+     U kunt bijvoorbeeld een script met de naam **upgrade.sh** maken die de volgende regels bevat en het script vervolgens kopiëren naar de map **/tmp/PATCH** op de clientcomputer:  
 
     ```  
     #!/bin/sh  
@@ -55,8 +55,8 @@ Vous pouvez mettre à niveau la version du client pour Linux et UNIX vers une ve
 
     ```  
 
-3.  Utilisez le déploiement de logiciels pour que chaque client utilise la commande **at** intégrée de l’ordinateur pour exécuter le script **upgrade.sh** avec un court délai avant l’exécution du script.  
+3.  Gebruik software-implementatie om ervoor te zorgen dat elke client de ingebouwde **at** -opdracht van de computer gebruikt om het script **upgrade.sh** met een korte vertraging uit te voeren voordat het script wordt uitgevoerd.  
 
-     Par exemple, utilisez la ligne de commande suivante pour exécuter le script : **at -f /tmp/upgrade.sh -m now + 5 minutes**  
+     Bijvoorbeeld de volgende opdrachtregel gebruiken het script uitvoeren: **op -f /tmp/upgrade.sh -m nu + 5 minuten**  
 
- Une fois que le client a correctement planifié l’exécution du script **upgrade.sh** , le client envoie un message d’état indiquant que le déploiement de logiciels s’est terminé avec succès. Toutefois, l’installation du client actuel est ensuite gérée par l’ordinateur, une fois le délai écoulé. Une fois la mise à niveau du client terminée, validez l’installation en consultant le fichier **/var/opt/microsoft/scxcm.log** sur l’ordinateur client. De plus, vous pouvez vérifier que le client est installé et qu’il communique avec le site en affichant les détails relatifs au client dans le nœud **Appareils** de l’espace de travail **Ressources et Conformité** dans la console Configuration Manager.  
+ Nadat de client de uitvoering van het script **upgrade.sh** heeft gepland, wordt er een statusbericht door de client verzonden dat de software-implementatie is voltooid. De werkelijke clientinstallatie wordt na de vertraging vervolgens beheerd door de computer. Nadat de clientupgrade is voltooid, valideert u de installatie door het bestand **/var/opt/microsoft/scxcm.log** op clientcomputer te controleren. Bovendien kunt u bevestigen dat de client is geïnstalleerd en communiceert met de site door details weergeven voor de client in de **apparaten** knooppunt van de **activa en naleving** werkruimte in de Configuration Manager-console.  

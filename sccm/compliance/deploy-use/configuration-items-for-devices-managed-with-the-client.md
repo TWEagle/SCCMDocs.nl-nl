@@ -1,6 +1,6 @@
 ---
-title: "Éléments de configuration des appareils gérés par un client - Configuration Manager | Microsoft Docs"
-description: "Découvrez comment configurer des appareils Windows et Mac gérés avec le client System Center Configuration Manager."
+title: 'Configuratie-items voor Configuration Manager-client-beheerde apparaten: | Microsoft Docs'
+description: Informatie over het configureren van Windows en Mac-apparaten die worden beheerd met de System Center Configuration Manager-client.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,18 +17,18 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 093d24951e8d741bfcf2cedb7618ecf75300e035
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configuration-items-for-devices-managed-with-the-system-center-configuration-manager-client"></a>Éléments de configuration pour les appareils gérés avec le client System Center Configuration Manager
+# <a name="configuration-items-for-devices-managed-with-the-system-center-configuration-manager-client"></a>Configuratie-items voor apparaten die met Configuration Manager-client worden beheerd
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Cette rubrique répertorie les types d’éléments de configuration de System Center Configuration Manager disponibles pour les appareils qui sont gérés par le client Configuration Manager, par exemple des PC Windows et des ordinateurs Mac.  
+Dit onderwerp worden de System Center Configuration Manager configuratie-items die beschikbaar zijn voor apparaten die worden beheerd door Configuration Manager-client, bijvoorbeeld, bijvoorbeeld Windows-pc's en Mac-computers.  
 
--   [Guide pratique pour créer des éléments de configuration pour les appareils Windows 10 gérés avec le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-windows-10-devices-managed-with-the-client.md)  
+-   [Het maken van configuratie-items voor Windows 10-apparaten die worden beheerd door System Center Configuration Manager-Client](../../compliance/deploy-use/create-configuration-items-for-windows-10-devices-managed-with-the-client.md)  
 
--   [Guide pratique pour créer des éléments de configuration pour les appareils Mac OS X gérés avec le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-mac-os-x-devices-managed-with-the-client.md)  
+-   [Het maken van configuratie-items voor Mac OS X-apparaten die worden beheerd door de System Center Configuration Manager-client](../../compliance/deploy-use/create-configuration-items-for-mac-os-x-devices-managed-with-the-client.md)  
 
--   [Guide pratique pour créer des éléments de configuration personnalisés pour les ordinateurs et serveurs Windows gérés par le client System Center Configuration Manager](../../compliance/deploy-use/create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-client.md)  
+-   [Het maken van aangepaste configuratie-items voor Windows desktop- en servercomputers die worden beheerd door de System Center Configuration Manager-client](../../compliance/deploy-use/create-custom-configuration-items-for-windows-desktop-and-server-computers-managed-with-the-client.md)  

@@ -1,6 +1,6 @@
 ---
-title: Forum aux questions sur le produit et les licences | Microsoft Docs
-description: "Trouvez des réponses aux questions courantes sur le produit et les licences pour System Center Configuration Manager."
+title: Product- en veelgestelde vragen over licentieverlening | Microsoft Docs
+description: Antwoorden voor veelgestelde vragen voor product en de licentie voor System Center Configuration Manager.
 ms.custom: na
 ms.date: 2/28/2017
 ms.prod: configuration-manager
@@ -16,63 +16,63 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: c1a276ad1ed6d10d286ab389ab3f05ec780c4e58
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="frequently-asked-questions-for-system-center-configuration-manager-branches-and-licensing"></a>Forum aux questions sur les branches et la gestion des licences System Center Configuration Manager
+# <a name="frequently-asked-questions-for-system-center-configuration-manager-branches-and-licensing"></a>Veelgestelde vragen voor System Center Configuration Manager vertakkingen en licenties
 
- *S’applique à : System Center Configuration Manager (Long-Term Servicing Branch)*
+ *Van toepassing op: System Center Configuration Manager (op lange termijn onderhoud vertakking)*
 
-## <a name="summary"></a>Résumé
-Ce forum aux questions répond à des questions courantes sur la gestion des licences des versions System Center Configuration Manager Current Branch (CB) et Long Term Servicing Branch (LTSB), disponibles via les programmes de licence en volume Microsoft. Il est fourni à titre d’information et ne remplace ni n’annule toute documentation couvrant la gestion des licences System Center Configuration Manager. Pour obtenir plus de détails et d’informations sur la gestion des licences, reportez-vous à la page de System Center 2016 sur la gestion des licences en volume [ici](https://www.microsoft.com/licensing/product-licensing/system-center-2016.aspx) et aux [Conditions des Produits](http://www.microsoft.com/licensing/about-licensing/product-licensing.aspx). Les Conditions des Produits décrivent les conditions d’utilisation de tous les produits Microsoft dans la gestion des licences en volume.
+## <a name="summary"></a>Samenvatting
+Deze Veelgestelde vragen adressen algemene Licentieverklaring vragen over System Center Configuration Manager Current Branch (CB) en langetermijnbeveiliging Servicing Branch (LTSB)-versies, beschikbaar via Microsoft Volume Licensing-programma's. Dit is uitsluitend ter informatie bedoeld en niet vervangen of vervang de documentatie die betrekking hebben op System Center Configuration Manager-licentieverlening. Raadpleeg voor meer informatie en informatie over licentieverlening pagina van de volumelicenties van System Center 2016 [hier](https://www.microsoft.com/licensing/product-licensing/system-center-2016.aspx) en de [Product voorwaarden](http://www.microsoft.com/licensing/about-licensing/product-licensing.aspx). De Product-voorwaarden beschrijven de gebruiksvoorwaarden voor alle Microsoft-producten in volumelicenties.
 
-Pour plus d’informations sur les fonctionnalités de System Center Configuration Manager, reportez-vous à la page sur le produit Microsoft [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager)
-
-
+Raadpleeg voor meer informatie over System Center Configuration Manager-functies van Microsoft [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager) productpagina
 
 
-## <a name="system-center-configuration-manager-licensing-faq"></a>Forum aux questions sur les licences System Center Configuration Manager
 
-1.  **Qu’est-ce que Current Branch (CB) ?**   
-Il s’agit de la build prête pour la production de System Center Configuration Manager qui fournit un modèle de maintenance actif. Ce modèle de maintenance ressemble à l’expérience avec Windows 10 ou l’option d’installation de Windows Server 2016 Nano Server. Cette approche prend en charge les clients qui évoluent à une « cadence cloud » et souhaitent innover plus rapidement. Avec le modèle de maintenance Current Branch, les clients System Center Configuration Manager continuent de recevoir de nouvelles fonctionnalités. Pour cette raison, seuls les clients dotés d’une Software Assurance active sur des licences System Center Configuration Manager, ou dotés de droits d’abonnement équivalents, peuvent installer et utiliser Current Branch de System Center Configuration Manager.
 
-2.  **Qu’est-ce que Long Term Servicing Branch (LTSB) ?**  
-Long Term Servicing Branch est une build prête pour la production de System Center Configuration Manager destinée aux clients qui autorisent l’expiration de Software Assurance ou des droits d’abonnement équivalents. Par rapport à Current Branch, LTSB a des [fonctionnalités réduites](/sccm/core/understand/introduction-to-the-ltsb#features-that-are-not-available-in-the-ltsb-of-configuration-manager). Les clients qui autorisent l’expiration de Software Assurance ou des droits d’abonnement équivalents doivent désinstaller Current Branch de System Center Configuration Manager. Les clients dotés de droits de licence perpétuels sur System Center Configuration Manager peuvent ensuite installer et utiliser la build LTSB de la version de System Center Configuration Manager qui est en vigueur au moment de l’expiration.
+## <a name="system-center-configuration-manager-licensing-faq"></a>System Center Configuration Manager Veelgestelde vragen over licentieverlening
 
-3.  **J’ai vu les termes SA et L&SA utilisés dans le contenu des licences. Quelle est leur signification concernant System Center Configuration Manager ?**    
-SA (Software Assurance) et L&SA (Licence et Software Assurance) sont des options de licence qui accordent des droits d’utilisation de System Center Configuration Manager. SA est une option qui s’adresse à un client qui renouvelle la SA suite à un contrat précédent. L&SA est une option qui s’adresse à un client qui achète une nouvelle licence et la SA.
-  - Software Assurance (SA) : les clients doivent disposer d’une SA active sur des licences System Center Configuration Manager, ou de droits d’abonnement équivalents, pour pouvoir installer et utiliser l’option Current Branch de System Center Configuration Manager.    
+1.  **Wat is de Current Branch (CB)?**   
+De huidige vertakking is het gereed productieversie van System Center Configuration Manager waarmee u een actieve ServiceModel. Dit servicemodel is vergelijkbaar met de ervaring met Windows 10 of de installatieoptie van Windows Server 2016 Nano Server. Deze aanpak biedt ondersteuning voor klanten die overstapt op een uitgebracht' cloud' en innoveren sneller wilt. Met de huidige vertakking servicemodel, blijven de klanten van System Center Configuration Manager voor het ontvangen van nieuwe functies en functionaliteit. Om deze reden kunnen klanten met het actieve Software Assurance in System Center Configuration Manager-licenties of een equivalente abonnementsrechten installeren en gebruiken van de huidige vertakking van System Center Configuration Manager.
 
-        -   Même si la SA est facultative pour certains produits Microsoft, la seule façon d’obtenir les droits d’utiliser System Center Configuration Manager Current Branch est avec la SA *(ou des droits d’abonnement équivalents)*.  Pour plus d’informations, consultez https://www.microsoft.com/en-us/licensing/licensing-programs/FAQ-Software-Assurance.aspx.
+2.  **Wat is Long Term Servicing Branch (LTSB)?**  
+De vertakking Long-Term onderhoud is een gereed productieversie van System Center Configuration Manager die is bedoeld voor klanten die toestaan dat Software Assurance of gelijkwaardige abonnementsrechten verlopen. In vergelijking met de huidige vertakking, de LTSB heeft [verminderde functionaliteit](/sccm/core/understand/introduction-to-the-ltsb#features-that-are-not-available-in-the-ltsb-of-configuration-manager). Klanten die toestaan dat Software Assurance of gelijkwaardige abonnementsrechten verlopen, moeten de huidige vertakking van System Center Configuration Manager verwijderen. Klanten die gemachtigd voor permanente licentie voor System Center Configuration Manager zijn kunnen vervolgens installeren en gebruiken van de LTSB-build van de versie van System Center Configuration Manager die op het moment van verlopen actief is.
 
-      - L&SA (Licence et Software Assurance) Microsoft. Les clients qui achètent de nouvelles licences pour System Center Configuration Manager doivent acquérir une L&SA (Licence et SA).   
+3.  **Ik heb gezien SA en L & SA gebruikt in de licentieverlening van inhoud. Wat deze aan de hand met betrekking tot System Center Configuration Manager?**    
+Software Assurance (SA) en L & SA (en de Software Assurance) zijn licentieopties voor het verlenen van rechten voor het gebruik van System Center Configuration Manager. SA is een optie voor een klant die Software Assurance-dekking uit een eerdere is vernieuwd. L & SA is een optie voor het aanschaffen van een nieuwe licentie- en Software Assurance-dekking van de klant.
+  - Software Assurance (SA): Klanten moeten beschikken over actieve SA op System Center Configuration Manager-licenties of gelijkwaardige abonnementsrechten, om te installeren en de optie huidige vertakking van System Center Configuration Manager gebruiken.    
 
-         - La SA accorde les droits d’utilisation de Current Branch.
+        -   Hoewel SA optioneel voor sommige Microsoft-producten is, de enige manier om het ophalen van de rechten voor het gebruik van System Center Configuration Manager Current Branch is met Software Assurance *(of gelijkwaardige abonnementsrechten)*.  Zie https://www.microsoft.com/en-us/licensing/licensing-programs/FAQ-Software-Assurance.aspx voor meer informatie.
 
-       - Si votre SA expire et que vous avez toujours une licence pour System Center Configuration Manager, toutefois, vous ne pouvez plus utiliser Current Branch. Consultez la question numéro 6 dans ce forum aux questions : ***Si ma SA expire et que j’avais une L&SA, que se passe-t-il ?***
+      - Licentievoorwaarden voor Microsoft- en Software Assurance (L & SA). Klanten aanschaf van nieuwe licenties voor System Center Configuration Manager moeten aanschaffen L & SA (de licentie- en Software Assurance-dekking).   
 
-       En savoir plus sur les offres de licences sur https://www.microsoft.com/licensing/licensing-programs et http://www.microsoftvolumelicensing.com/ProductResults.aspx?doc=Product%20Terms,OST&fid=64.
+         - De SA verleent rechten voor het gebruik van de huidige vertakking.
 
-4.  **J’ai lu le terme « abonnement équivalent », à quels programmes cela fait-il référence ?**   
-       Les abonnements équivalents font référence à des programmes comme [Enterprise Mobility + Security](http://www.microsoftvolumelicensing.com/ProductResults.aspx?doc=Product%20Terms,OST&fid=51) (EMS) ou [Secure Productive Enterprise](https://www.microsoft.com/secure-productive-enterprise/default.aspx) (SPE). Il peut y en avoir d’autres, mais ceux-ci sont les plus courants. Ils sont référencés dans les conditions des produits de licence en volume Microsoft comme licences équivalentes à des licences de gestion.
+       - Als uw SA is verlopen en u nog steeds een licentie voor System Center Configuration Manager, maar kunt u niet meer gebruiken de huidige vertakking. Nummer 6 in deze Veelgestelde vragen worden weergegeven: ***Als mijn SA verloopt en ik had L & SA, wat krijg ik?***
 
-5.  **J’ai Enterprise Mobility + Security et il a expiré, que dois-je faire maintenant ?**  
-       EMS accorde les droits d’utilisation de System Center Configuration Manager (Current Branch et Long Term Servicing Branch). Quand ces droits expirent, vous n’avez plus le droit d’utiliser aucune version et devez procéder à la désinstallation.  
+       Meer informatie over licentie-aanbiedingen op https://www.microsoft.com/licensing/licensing-programs en http://www.microsoftvolumelicensing.com/ProductResults.aspx?doc=Product%20Terms, OST & bestands-id = 64.
 
-6.  **Si ma SA expire et que j’avais une L&SA, que se passe-t-il ?**   
-   Si votre SA a expiré après le 1er octobre 2016, selon le programme dans le cadre duquel vous avez acquis la L&SA, vous pouvez conserver une licence perpétuelle pour utiliser LTSB (Long Term Servicing Branch). Si vous utilisez la version Current Branch, vous devez la désinstaller, puis installer LTSB. Il n’existe aucune prise en charge de la migration ni de la conversion vers LTSB à partir de Current Branch.
+4.  **Lezen van de term 'gelijkwaardige abonnement', welke programma's die verwijst naar?**   
+       Gelijkwaardige abonnementen verwijzen naar programma's zoals [Enterprise Mobility + Security](http://www.microsoftvolumelicensing.com/ProductResults.aspx?doc=Product%20Terms,OST&fid=51) (EMS) of [productief Enterprise Secure](https://www.microsoft.com/secure-productive-enterprise/default.aspx) (Gebeurtenisspe). Er kunnen anderen, maar dit zijn de meest voorkomende. Deze worden genoemd in de Microsoft Volume Licensing Product voorwaarden Management licentie gelijkwaardige licenties.
 
-  Si votre SA a expiré avant le 1er octobre 2016 et que vous avez conservé une licence perpétuelle pour System Center Configuration Manager, votre seule option pour continuer à l’utiliser consiste à installer et utiliser System Center 2012 R2 Configuration Manager et ses Service Packs disponibles. Vous deviez désinstaller Current Branch lors de l’expiration de votre SA et réinstaller cette version antérieure du produit. Il n’existe aucune prise en charge de la migration ni du passage à une version antérieure depuis System Center Configuration Manager Current Branch vers des versions précédentes de Configuration Manager.
+5.  **Ik heb Enterprise Mobility + Security en verlopen, wat moet ik doen nu?**  
+       EMS verleent rechten voor het gebruik van System Center Configuration Manager (huidige vertakking en Service-vertakking Long-Term). Wanneer deze rechten verlopen kunt u niet langer rechten voor het gebruik van de vertakking hebben en moet verwijderen.  
 
-7. **Suis-je « propriétaire » de Current Branch ?**   
-  Non. Vous bénéficiez d’une licence pour utiliser Current Branch pendant que vous avez une SA active. Par exemple, avec *L&SA*, quand la *SA* arrive à expiration, il ne vous reste plus que les droits *L (Licence)*, ce qui n’inclut pas les droits d’utilisation de Current Branch. Si votre L (Licence) fournit des droits perpétuels, vous pouvez utiliser LTSB (Long Term Servicing Branch) de System Center Configuration Manager (ou System Center 2012 R2 Configuration Manager si votre SA a expiré avant le 1er octobre 2016) à la place de Current Branch.
+6.  **Als mijn SA verloopt en ik had L & SA, wat krijg ik?**   
+   Als uw SA verlopen na 1 oktober 2016, afhankelijk van welke programma u L & SA onder hebt verkregen, kan u een permanente licentie voor het gebruik van Long-Term Servicing Branch (LTSB) behouden. Als u de huidige vertakking momenteel gebruikt, moet u deze verwijderen en installeer vervolgens de LTSB. Er is geen ondersteuning voor het migreren naar of van de huidige vertakking naar de LTSB converteren.
 
-8. **Puis-je acheter System Center Configuration Manager autonome sans SA ?**      
-  Non.  La seule façon d’obtenir les droits d’utiliser System Center Configuration Manager est d’acquérir une licence avec SA. Il existe des programmes pour développeurs (comme MSDN) où System Center Configuration Manager est proposé à des fins de développement et de test, mais pas pour une utilisation en production.
+  Als uw SA vóór 1 oktober 2016, verlopen en u hebt een permanente naar System Center Configuration Manager-licentie behouden, dan is de enige optie voor lopende gebruik installeren en gebruiken van System Center 2012 R2 Configuration Manager en de beschikbare servicepacks. Moest u de huidige vertakking verwijderen wanneer uw SA verlopen en die eerdere versie van het product opnieuw installeren. Er is geen ondersteuning om te migreren naar of vanuit System Center Configuration Manager Current branche worden gedowngraded naar eerdere versies van Configuration Manager.
 
-9. **Je vois des mises à jour pour System Center Configuration Manager proposées depuis ma console, comme la version 1610. Ai-je le droit de les installer ?**   
-  Si vous avez une *SA* active, vous pouvez. Si vous n’avez pas de SA active, vous devez désinstaller Current Branch, puis installer LTSB de System Center Configuration Manager. LTSB ne reçoit pas de mises à jour pour les versions incrémentielles de System Center Configuration Manager, mais reçoit les mises à jour de sécurité selon le cycle de vie de prise en charge.
+7. **Ik 'bezit' de huidige vertakking?**   
+  Nee. Hebt u de huidige vertakking gebruiken terwijl er actieve SA licentie. Bijvoorbeeld, via *L & SA*als *SA* is verlopen, vervolgens hebt u alleen *L (licentie)* rechten omvat geen rechten voor het gebruik van de huidige vertakking. Als uw L permanente rechten beschikt biedt, kunt u de Long-Term onderhoud vertakking van System Center Configuration Manager (of System Center 2012 R2 Configuration Manager als uw SA vóór 1 oktober 2016 verlopen) in plaats van de huidige vertakking.
 
-10. **Est-ce que la date de fin de mon abonnement est identique à la date d’expiration d’une SA ?**    
-  Si la *SA* ou votre abonnement est actif, vous disposez des droits d’utilisation pour System Center Configuration Manager Current Branch. Un abonnement actif équivaut à avoir une *SA* active, mais pas perpétuelle *« L » (Licence)*. Une fois votre abonnement terminé, vous devez désinstaller Current Branch et vous n’avez pas le droit d’utiliser LTSB.
+8. **Kan ik System Center Configuration Manager Standalone zonder Software Assurance aanschaffen?**      
+  Nee.  De enige manier om het ophalen van de rechten voor het gebruik van System Center Configuration Manager is een licentie met SA. Er zijn developer's (zoals MSDN) wanneer de System Center Configuration Manager voor ontwikkelings- en testdoeleinden, maar niet voor productiegebruik wordt aangeboden.
+
+9. **Ik zie updates voor System Center Configuration Manager door in mijn console, zoals versie 1610 wordt aangeboden. Heb ik rechten om deze te installeren?**   
+  Als u actieve *SA*, doet u. Als er geen actieve SA, kunt u de huidige vertakking moet verwijderen en de LTSB van System Center Configuration Manager kunt installeren. De LTSB ontvangt geen updates voor incrementele versies van System Center Configuration Manager, maar heeft ontvangen beveiligingsupdates op basis van de levenscyclus voor ondersteuning.
+
+10. **De einddatum voor mijn abonnement is hetzelfde als een vervaldatum SA?**    
+  Als *SA* of uw abonnement actief is, moet u gebruiksrechten voor de huidige vertakking van System Center Configuration Manager. Een actief abonnement is equivalent van een actieve *SA*, maar geen permanente *"L" (licentie)*. Wanneer uw abonnement afgelopen is, moet u de huidige vertakking verwijderen en u hebt geen rechten voor het gebruik van de LTSB.

@@ -1,6 +1,6 @@
 ---
-title: Versions Current Branch | Microsoft Docs
-description: "Passez en revue l’historique des versions de System Center Configuration Manager et découvrez les phases de service proposées."
+title: Huidige vertakking versies | Microsoft Docs
+description: Bekijk de versiegeschiedenis van de van System Center Configuration Manager en meer informatie over de fasen geboden.
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
@@ -17,38 +17,38 @@ manager: angrobe
 robots: noindex,nofollow
 ms.openlocfilehash: 1c02d2c51964fed960ffab42175762c1b04e6445
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="support-for-system-center-configuration-manager-current-branch-versions"></a>Prise en charge des versions Current Branch de System Center Configuration Manager
+# <a name="support-for-system-center-configuration-manager-current-branch-versions"></a>Ondersteuning voor de huidige vertakking-versies van System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Microsoft prévoit de publier des mises à jour de System Center Configuration Manager Current Branch plusieurs fois par an. Chaque version de mise à jour reste prise en charge pendant 12 mois suivant sa date de publication de disponibilité générale (GA). Un support technique est assuré pendant les 12 mois. Toutefois, notre structure de prise en charge est désormais dynamique et évolue en deux phases de maintenance distinctes qui dépendent de la disponibilité de la dernière version Current Branch.  
+Microsoft plannen voor het vrijgeven van updates voor de huidige vertakking van System Center Configuration Manager een paar keer per jaar. Elke versie van de update blijft in de ondersteuning voor 12 maanden na de releasedatum algemene beschikbaarheid (GA). Technische ondersteuning is beschikbaar voor de hele twaalf maanden. Onze support-structuur is nu echter dynamisch is, twee afzonderlijke onderhoud fasen die afhankelijk van de beschikbaarheid van de nieuwste versie met huidige vertakking zijn in ontwikkeling.  
 
--   Phase de maintenance Mises à jour de sécurité et mises à jour critiques : quand vous exécutez la dernière version Current Branch de Configuration Manager, vous recevez des mises à jour de sécurité et des mises à jour critiques.  
+-   Beveiligingsupdates en essentiële Updates onderhoud fase - bij het uitvoeren van de meest recente huidige vertakking versie van Configuration Manager, wordt zowel beveiligingsupdates en essentiële updates.  
 
--   Phase de maintenance Mises à jour de sécurité (uniquement) : après la publication d’une nouvelle version Current Branch, la prise en charge des branches antérieures est réduite aux mises à jour de sécurité uniquement pendant le reste du cycle de vie de prise en charge de 12 mois (illustré à la figure 1).  
+-   Beveiligingsupdates (alleen) onderhoud fase - nadat een nieuwe versie met huidige vertakking loslaat, ondersteuning voor oudere vertakkingen op beveiligingsupdates alleen voor het restant van de ondersteuningslevenscyclus van de voor 12 maanden verminderen (weergegeven in afbeelding 1).  
 
- ![CM&#95;Servicing&#95;support&#95;timeline](../../../core/servers/manage/media/CM_Servicing_support_timeline.png "CM_Servicing_support_timeline")  
-Figure 1. Exemple de la superposition du cycle de publication pour la prise en charge de maintenance de Current Branch.
+ ![CM &#95; Onderhoud &#95; ondersteuning &#95; tijdlijn](../../../core/servers/manage/media/CM_Servicing_support_timeline.png "CM_Servicing_support_timeline")  
+Afbeelding 1. Voorbeeld van de overlapping van de cyclus release voor de huidige vertakking ondersteuning onderhoud.
 
 > [!NOTE]  
->  La dernière version Current Branch est toujours en phase de maintenance Mises à jour de sécurité et mises à jour critiques. Cela signifie que si vous rencontrez une erreur de code qui nécessite une mise à jour critique, vous devez avoir la dernière version Current Branch afin de recevoir un correctif. Toutes les autres versions Current Branch prises en charge sont autorisées à recevoir uniquement les mises à jour de sécurité. Toute prise en charge se termine après l’expiration du cycle de vie de 12 mois des versions Current Branch. À ce stade, les clients doivent effectuer une mise à jour vers une version Current Branch prise en charge.  
+>  De nieuwste versie met huidige vertakking is altijd in de beveiliging en belangrijke Updates onderhoud fase. Dit betekent dat in het geval dat er een defecte code die een essentiële garandeert optreden, moet u de meest recente huidige vertakking versie geïnstalleerd om te kunnen ontvangen van een oplossing hebben. Alle andere ondersteunde huidige vertakking versies komen in aanmerking voor het ontvangen van alleen beveiligingsupdates. Alle ondersteuning eindigt nadat de levenscyclus van de 12 maanden voor een actuele versie van de vertakking is verlopen. Op dat moment moeten klanten bijwerken naar een ondersteunde versie voor huidige vertakking.  
 
- **Historique des versions**  
+ **Versiegeschiedenis**  
 
-|Version|Date de disponibilité|Date de fin de prise en charge|  
+|Versie|Beschikbaarheidsdatum|Einddatum voor ondersteuning|  
 |-------------|-----------------------|----------------------|  
-|1706|31 juillet 2017|31 juillet 2018|
-|1702|27 Mars 2017|27 mars 2018|
-|1610|18 novembre 2016|18 novembre 2017|
-|1606|22 juillet 2016| 22 juillet 2017|
-|1602|11 Mars 2016|11 Mars 2017|
-|1511|8 décembre 2015|8 décembre 2016|  
+|1706|31 juli 2017|31 juli 2018|
+|1702|27 maart 2017|27 maart 2018|
+|1610|18 november 2016|18 november 2017|
+|1606|22 juli 2016| 22 juli 2017|
+|1602|11 maart 2016|11 maart 2017|
+|1511|8 december 2015|8 december 2016|  
 
 
 
 
-Pour plus d’informations sur les numéros de version et la disponibilité sous forme de mise à jour dans la console ou d’une ligne de base, consultez [Versions de base et de mise à jour](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions).
+Zie voor meer informatie over versienummers en beschikbaarheid als een update in de console of als een basislijn [basislijn- en updateversies](/sccm/core/servers/manage/updates#a-namebkmkbaselinesa-baseline-and-update-versions).

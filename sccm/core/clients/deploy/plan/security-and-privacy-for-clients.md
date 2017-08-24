@@ -1,6 +1,6 @@
 ---
-title: "Sécurité et confidentialité des clients | Microsoft Docs"
-description: "En savoir plus sur la sécurité et la confidentialité pour les clients dans System Center Configuration Manager."
+title: Client-beveiliging en privacy | Microsoft Docs
+description: Meer informatie over beveiliging en privacy voor clients in System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,290 +17,290 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 1d871b0e1a2897c236d17211a23c9c7d93e42313
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="security-and-privacy-for-clients-in-system-center-configuration-manager"></a>Sécurité et confidentialité pour les clients dans System Center Configuration Manager
+# <a name="security-and-privacy-for-clients-in-system-center-configuration-manager"></a>Beveiliging en privacy voor clients in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Cet article contient des informations de sécurité et de confidentialité pour les clients de System Center Configuration Manager et pour les appareils mobiles qui sont gérés par le connecteur Exchange Server :  
+Dit artikel bevat beveiligings- en privacy-informatie voor clients in System Center Configuration Manager en voor mobiele apparaten die worden beheerd door de Exchange Server-connector:  
 
-##  <a name="BKMK_Security_Cliients"></a> Bonnes pratiques de sécurité pour les clients  
- Quand Configuration Manager accepte les données provenant d'appareils qui exécutent le client Configuration Manager, il existe un risque que les clients attaquent le site. Par exemple, ils pourraient envoyer un inventaire incorrect ou tenter de surcharger les systèmes de site. Déployez le client Configuration Manager uniquement sur les appareils auxquels vous faites confiance. En outre, utilisez les meilleures pratiques de sécurité suivantes pour contribuer à protéger le site des appareils non autorisés ou compromis :  
+##  <a name="BKMK_Security_Cliients"></a>Aanbevolen beveiligingsprocedures voor clients  
+ Wanneer de Configuration Manager gegevens accepteert van apparaten waarop de Configuration Manager-client wordt uitgevoerd, wordt hierdoor het risico dat de clients de site aanvallen. Ze kunnen bijvoorbeeld een ongeldige inventaris versturen of proberen om de sitesystemen te overbelasten. Configuration Manager-client alleen implementeren op apparaten die u vertrouwt. Gebruik bovendien de volgende aanbevolen procedures voor beveiliging om de site te helpen beschermen tegen rogue of aangetaste apparaten:  
 
- **Utilisez des certificats d’infrastructure à clé publique (PKI) pour les communications client avec les systèmes de site exécutant IIS.**  
+ **Openbare-sleutelinfrastructuur (PKI)-certificaten gebruiken voor clientcommunicatie met sitesystemen die IIS uitvoeren.**  
 
--   Comme propriété de site, configurez **Paramètres du système de site** pour **HTTPS uniquement**.  
+-   Configureer **Sitesysteeminstellingen** voor **alleen HTTPS** als een site-eigenschap.  
 
--   Installer des clients avec la propriété CCMSetup **/UsePKICert**  
+-   Clients met de CCMSetup-eigenschap **/UsePKICert** installeren  
 
--   Utilisez une liste de révocation de certificats (CRL) et assurez-vous que les clients et les serveurs qui communiquent peuvent toujours y accéder.  
+-   Gebruik een certificaatintrekkingslijst (CRL) en zorg ervoor dat clients en communicerende servers er altijd toegang tot hebben.  
 
- Ces certificats sont requis pour les clients des appareils mobiles et pour les connexions d'ordinateurs clients sur Internet et, à l'exception des points de distribution, ils sont recommandés pour toutes les connexions client sur l'Intranet.  
+ Deze certificaten zijn vereist voor clients van mobiele apparaten en voor clientcomputerverbindingen op het internet en worden, met uitzondering van distributiepunten, aanbevolen voor alle clientverbindingen op het intranet.  
 
- Pour plus d’informations sur les spécifications requises des certificats PKI et comment ils sont utilisés pour protéger Configuration Manager, voir [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
+ Zie voor meer informatie over PKI-certificaatvereisten en hoe ze worden gebruikt voor het beveiligen van Configuration Manager [PKI-certificaatvereisten voor System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
 
- **Approuver automatiquement les ordinateurs clients à partir de domaines approuvés et vérifier et approuver manuellement d'autres ordinateurs**  
+ **Automatisch goedkeuren van clientcomputers van vertrouwde domeinen en handmatig controleren en goedkeuren van andere computers**  
 
- Vous pouvez configurer l'approbation pour la hiérarchie comme manuelle, automatique pour les ordinateurs de domaines approuvés ou automatique pour tous les ordinateurs. La méthode d'approbation la plus sûre consiste à approuver automatiquement les clients qui sont membres de domaines approuvés, puis à vérifier et approuver manuellement tous les autres ordinateurs. Il n'est pas recommandé d'approuver automatiquement tous les clients, sauf si vous disposez d'autres contrôles d'accès pour empêcher l'accès des ordinateurs non approuvés à votre réseau.  
+ U kunt de goedkeuring voor de hiërarchie configureren als handmatig, automatisch voor computers in vertrouwde domeinen of automatisch voor alle computers. De veiligste goedkeuringsmethode is het automatisch goedkeuren van clients die lid zijn van vertrouwde domeinen en het handmatig controleren en goedkeuren van alle andere computers. Het automatisch goedkeuren van alle clients wordt niet aanbevolen, tenzij u andere toegangscontroles hebt om onbetrouwbare computers de toegang tot uw netwerk te verhinderen.  
 
- L'approbation identifie un ordinateur dont vous approuvez la gestion par Configuration Manager lorsque vous ne pouvez pas utiliser l'authentification PKI.  
+ Goedkeuring identificeert een computer die u vertrouwt om te worden beheerd door Configuration Manager wanneer u PKI-verificatie niet gebruiken.  
 
- Pour plus d’informations sur l’approbation manuelle des ordinateurs, voir [Gérer les clients à partir du nœud Appareils](../../../../core/clients/manage/manage-clients.md#BKMK_ManagingClients_DevicesNode).  
+ Zie [Clients beheren vanaf het knooppunt Apparaten](../../../../core/clients/manage/manage-clients.md#BKMK_ManagingClients_DevicesNode) voor meer informatie over het handmatig goedkeuren van computers.  
 
- **Ne vous fiez pas au blocage pour empêcher certains clients d'accéder à la hiérarchie Configuration Manager**  
+ **Vertrouw niet op blokkeren om te voorkomen dat clients toegang hebben tot de Configuration Manager-hiërarchie**  
 
- L'infrastructure Configuration Manager rejette les clients bloqués afin qu’ils ne puissent pas communiquer avec les systèmes de site pour télécharger la stratégie, charger les données d'inventaire ou envoyer des messages d'état. Toutefois, ne vous fiez pas au blocage pour protéger la hiérarchie Configuration Manager des ordinateurs non approuvés lorsque des systèmes de site acceptent les connexions client HTTP. Dans ce scénario, un client bloqué peut se reconnecter au site avec un nouveau certificat auto-signé et un nouvel ID de matériel. Ce blocage vise à bloquer le support de démarrage perdu ou compromis pendant le déploiement d'un système d'exploitation sur des clients et quand tous les systèmes de site acceptent des connexions client HTTPS. Si vous utilisez une infrastructure à clés publiques (PKI) et si elle prend en charge une liste de révocation de certificats, envisagez toujours de définir la révocation de certificats comme première ligne de défense contre les certificats potentiellement compromis. Le blocage des clients dans Configuration Manager fournit une seconde ligne de défense pour protéger votre hiérarchie.  
+ Geblokkeerde clients worden geweigerd door de Configuration Manager-infrastructuur zodat ze niet kunnen met sitesystemen om te downloaden communiceren, inventarisgegevens te uploaden of of statusberichten te verzenden. Echter Vertrouw niet op blokkeren om te voorkomen dat de Configuration Manager-hiërarchie niet-vertrouwde computers wanneer de sitesystemen HTTP-clientverbindingen accepteren. In dit scenario kan een geblokkeerde client zich opnieuw aanmelden voor de site met een nieuw zelfondertekend certificaat en hardware-id. Blokkeren is ontworpen om te worden gebruikt om verloren of aangetaste opstartmedia te blokkeren wanneer u een besturingssysteem implementeert naar clients en wanneer alle sitesystemen HTTPS-clientverbindingen accepteren. Als u een PKI (Public Key Infrastructure) gebruikt die een certificaatintrekkingslijst (CRL) ondersteunt, dient u certificaatintrekking altijd te beschouwen als de primaire beveiliging tegen mogelijk aangetaste certificaten. Blokkeren van clients in Configuration Manager is een tweede verdediging om uw hiërarchie te beschermen.  
 
- Pour plus d’informations, voir [Déterminer si des clients doivent être bloqués dans System Center Configuration Manager](../../../../core/clients/deploy/plan/determine-whether-to-block-clients.md).  
+ Zie [Bepalen of clients worden geblokkeerd in System Center Configuration Manage](../../../../core/clients/deploy/plan/determine-whether-to-block-clients.md) voor meer informatie.  
 
- **Utilisez les méthodes d'installation de client plus sécurisées qui sont pratiques pour votre environnement :**  
+ **Gebruik de veiligste clientinstallatiemethoden die praktisch voor uw omgeving zijn:**  
 
--   Pour les ordinateurs du domaine, les méthodes d'installation du client de la stratégie de groupe et les méthodes d'installation du client basé sur des mises à jour sont plus sûres que l'installation poussée du client.  
+-   Voor domeincomputers zijn installatie van groepsbeleid van de client en installatie van de client via software-updates veiliger dan een clientpushinstallatie.  
 
--   L'acquisition d'images et l'installation manuelle peuvent être très sûres si vous appliquez des contrôles d'accès et modifiez des contrôles.  
+-   Installatiekopieën en handmatige installatie kunnen heel veilig zijn als u toegangs- en wijzigingsbeheer toepast.  
 
- Parmi toutes les méthodes d'installation des clients, l'installation poussée du client est la moins sûre en raison des nombreuses dépendances qu'elle possède, notamment les autorisations d'administrateur local, le partage Admin$ et de nombreuses exceptions de pare-feu. Ces dépendances augmentent votre surface d'attaque.  
+ Van alle clientinstallatiemethoden is clientpushinstallatie het minst veilig omdat deze methode veel afhankelijkheden heeft. Deze omvatten lokale beheermachtigingen, de share Admin$ en veel firewalluitzonderingen. Deze afhankelijkheden verhogen uw kwetsbaarheid.  
 
- Pour plus d’informations sur les différentes méthodes d’installation de clients, voir [Méthodes d’installation du client dans System Center Configuration Manager](../../../../core/clients/deploy/plan/client-installation-methods.md).  
+ Zie [Clientinstallatiemethoden in System Center Configuration Manager](../../../../core/clients/deploy/plan/client-installation-methods.md) voor meer informatie over de verschillende clientinstallatiemethoden.  
 
- De plus, dans la mesure du possible, sélectionnez une méthode d'installation du client qui nécessite le moins d'autorisations de sécurité dans Configuration Manager et limitez les utilisateurs administratifs auxquels sont affectés des rôles de sécurité qui incluent des autorisations pouvant être utilisées à d'autres fins que le déploiement du client. Par exemple, la mise à niveau automatique du client nécessite le rôle de sécurité **Administrateur complet** , qui accorde à un utilisateur administratif toutes les autorisations de sécurité.  
+ Bovendien waar mogelijk een installatiemethode voor clients die de minste beveiligingsmachtigingen in Configuration Manager vereist selecteren en beperk de gebruikers met beheerdersrechten die beveiligingsrollen met machtigingen die kunnen worden gebruikt voor andere doeleinden dan clientimplementatie zijn toegewezen. Voor automatische clientupgrades is bijvoorbeeld de beveiligingsrol **Volledige beheerder** vereist die een gebruiker met beheerdersrechten alle beveiligingsmachtigingen toekent.  
 
- Pour plus d’informations sur les dépendances et les autorisations de sécurité requises pour chaque méthode d’installation du client, voir « Dépendances liées aux méthodes d'installation » dans [Configuration requise pour les clients d'ordinateurs](../../../../core/clients/deploy/prerequisites-for-deploying-clients-to-windows-computers.md#BKMK_prereqs_computers).  
+ Zie voor meer informatie over de afhankelijkheden en beveiligingsmachtigingen die voor elke clientinstallatiemethode zijn vereist, 'installatiemethode-afhankelijkheden in [vereisten voor computerclients](../../../../core/clients/deploy/prerequisites-for-deploying-clients-to-windows-computers.md#BKMK_prereqs_computers).  
 
- **Si vous devez utiliser l'installation Push du client, prenez des mesures supplémentaires pour sécuriser le compte d'installation Push du client**  
+ **Als u push-clientinstallatie, moet u extra stappen ondernemen voor het beveiligen van de Clientpushinstallatie-Account**  
 
- Bien que ce compte doive être membre du groupe **Administrateurs** local sur chaque ordinateur qui installera le logiciel client Configuration Manager, n'ajoutez jamais le compte d'installation Push du client au groupe **Administrateurs de domaine**. Créez plutôt un groupe global, puis ajoutez ce groupe global au groupe **Administrateurs** local sur vos ordinateurs clients. Vous pouvez également créer un objet de stratégie de groupe pour ajouter un paramètre de groupe restreint afin d'ajouter le compte d'installation poussée du client au groupe **Administrateurs** local.  
+ Hoewel dit account lid zijn van de lokale moet **beheerders** groep op elke computer waarop de Configuration Manager-clientsoftware wordt geïnstalleerd nooit het Clientpushinstallatieaccount aan toe te voegen de **Domeinadministrators** groep. Maak in plaats daarvan een globale groep aan en voeg die globale groep toe aan de lokale groep **Administrators** op uw clientcomputers. U kunt ook een groepsbeleidsobject maken om een beperkte groepsinstelling toe te voegen om het Clientpushinstallatieaccount toe te voegen aan de lokale groep **Administrators**.  
 
- Pour renforcer la sécurité, créez plusieurs comptes d’installation poussée du client, disposant chacun d’un accès administratif à un nombre limité d’ordinateurs, de sorte que si un compte est compromis, seuls les ordinateurs clients auxquels ce compte a accès sont compromis.  
+ Maak, voor extra beveiliging, meerdere Clientpushinstallatieaccounts aan, elk met beheerderstoegang voor een beperkt aantal computers. Als er zo één account wordt aangetast, zijn alleen de clientcomputers waarvoor dat account toegang heeft, aangetast.  
 
- **Supprimez les certificats avant l'acquisition d'images de l'ordinateur client**  
+ **Verwijder certificaten voordat u installatiekopieën van de clientcomputer**  
 
- Si vous prévoyez de déployer des clients en utilisant la technologie d'acquisition d'images, supprimez toujours les certificats tels que les certificats PKI qui incluent l'authentification du client et les certificats auto-signés avant de capturer l'image. Si vous ne supprimez pas ces certificats, les clients pourront emprunter l'identité l'un de l'autre et vous ne serez pas en mesure de vérifier les données pour chaque client.  
+ Als u clients plant te implementeren door gebruik te maken van technologie voor installatiekopieën, dient u altijd certificaten (zoals PKI-certificaten die clientverificatie en zelfondertekende certificaten omvatten) te verwijderen voordat u de installatiekopie vastlegt. Als u deze certificaten niet verwijdert, is het mogelijk dat clients elkaar imiteren. In dat geval kunt u de gegevens voor elke client niet verifiëren.  
 
- Pour plus d'informations sur l'utilisation de Sysprep pour préparer un ordinateur à l'acquisition d'images, voir la documentation de votre déploiement Windows.  
+ Zie de documentatie van uw Windows-implementatie voor meer informatie over het gebruik van Sysprep om een computer voor te bereiden om een installatiekopie vast te leggen.  
 
- **Assurez-vous que les clients d'ordinateur Configuration Manager obtiennent une copie autorisée de ces certificats :**  
+ **Zorg ervoor dat de Configuration Manager-computerclients een geautoriseerde kopie van deze certificaten ontvangen:**  
 
--   La clé racine approuvée de Configuration Manager  
+-   De vertrouwde basissleutel van Configuration Manager  
 
-     Si vous n'avez pas développé le schéma Active Directory pour Configuration Manager et si les clients n'utilisent pas de certificats PKI lorsqu'ils communiquent avec des points de gestion, les clients font appel à la clé racine approuvée de Configuration Manager pour authentifier les points de gestion valides. Dans ce scénario, les clients n'ont aucun moyen de vérifier que le point de gestion est un point de gestion approuvé pour la hiérarchie, sauf s'ils utilisent la clé racine approuvée. Sans la clé racine approuvée, un attaquant doué pourrait diriger les clients vers un point de gestion non autorisé.  
+     Als u hebt het Active Directory-schema niet uitgebreid voor Configuration Manager en clients geen PKI-certificaten gebruiken wanneer ze met beheerpunten communiceren, worden clients vertrouwen op de Configuration Manager vertrouwde basissleutel om geldige beheerpunten te verifiëren. In dit scenario hebben clients geen manier om te verifiëren dat het beheerpunt een vertrouwd beheerpunt is voor de hiërarchie, tenzij ze de vertrouwde basissleutel gebruiken. Zonder de vertrouwde basissleutel kan een ervaren aanvaller clients omleiden naar een rogue beheerpunt.  
 
-     Lorsque les clients ne peuvent pas télécharger la clé racine approuvée de Configuration Manager à partir du catalogue global ou en utilisant des certificats PKI, mettez en service anticipé les clients qui possèdent la clé racine approuvée pour être sûr qu'ils ne peuvent pas être dirigés vers un point de gestion non autorisé. Pour plus d’informations, voir [Planning for the Trusted Root Key](../../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForRTK).  
+     Clients kunnen de vertrouwde basissleutel van Configuration Manager niet kunnen downloaden uit de globale catalogus of met behulp van PKI-certificaten, de clients vooraf inrichten met de vertrouwde basissleutel om ervoor te zorgen dat ze niet kunnen worden omgeleid naar een rogue beheerpunt. Zie [Planning voor de vertrouwde basissleutel](../../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForRTK) voor meer informatie.  
 
--   Le certificat de signature du serveur de site  
+-   Het handtekeningcertificaat van de siteserver  
 
-     Les clients utilisent le certificat de signature du serveur de site pour vérifier que le serveur de site a signé la stratégie de clients qu'ils téléchargent à partir d'un point de gestion. Ce certificat est auto-signé par le serveur de site et publié dans les services de domaine Active Directory.  
+     Clients gebruiken het handtekeningcertificaat van de siteserver om te verifiëren of de siteserver het clientbeleid, dat ze downloaden van een beheerpunt, heeft ondertekend. Dit certificaat wordt zelfondertekend door de siteserver en gepubliceerd naar Active Directory Domain Services.  
 
-     Lorsque les clients ne peuvent pas télécharger le certificat de signature de serveur de site à partir du catalogue global, par défaut ils le téléchargent à partir du point de gestion. Lorsque le point de gestion est exposé à un réseau non approuvé (par exemple, Internet), installez manuellement le certificat de signature de serveur de site sur les clients pour vous assurer qu'ils ne peuvent pas exécuter de stratégies de clients qui ont été falsifiées à partir d'un point de gestion compromis.  
+     Clients downloaden het handtekeningcertificaat van de siteserver standaard van een beheerpunt als ze het niet kunnen downloaden van de globale catalogus. Wanneer het beheerpunt wordt blootgesteld aan een niet-vertrouwd netwerk (zoals het internet), installeert u het handtekeningcertificaat van de siteserver handmatig op clients om ervoor te zorgen dat ze geen clientbeleid kunnen uitvoeren waarmee is geknoeid vanuit een aangetast beheerpunt.  
 
-     Pour installer manuellement le certificat de signature de serveur de site, utilisez la propriété client.msi CCMSetup **SMSSIGNCERT**. Pour plus d’informations, voir [À propos des propriétés d’installation du client dans System Center Configuration Manager](../../../../core/clients/deploy/about-client-installation-properties.md).  
+     Gebruik de eigenschap **SMSSIGNCERT** van CCMSetup client.msi om het handtekeningcertificaat van de siteserver handmatig te installeren. Zie [Over de eigenschappen van clientinstallatie in System Center Configuration Manager](../../../../core/clients/deploy/about-client-installation-properties.md) voor meer informatie.  
 
- **Ne pas utiliser l'attribution automatique de site si le client envisage de télécharger la clé racine approuvée à partir du premier point de gestion qu'il contacte**  
+ **Gebruik geen automatische sitetoewijzing als de client de vertrouwde basissleutel zal downloaden van het eerste beheerpunt waarmee dat het contact opneemt**  
 
- Cette pratique recommandée en termes de sécurité est liée à l'entrée précédente. Pour éviter le risque qu'un nouveau client télécharge la clé racine approuvée à partir d'un point de gestion factice, utilisez l'attribution automatique de site dans les scénarios suivants uniquement :  
+ Deze aanbevolen procedure voor beveiliging is gekoppeld aan het voorgaande item. U kunt het risico vermijden dat een nieuwe client de vertrouwde basissleutel downloadt van een rogue beheerpunt; hiervoor dient u alleen automatische sitetoewijzing te gebruiken in de volgende scenario's:  
 
--   Le client peut accéder aux informations de site Configuration Manager publiées dans les services de domaine Active Directory.  
+-   De client toegang tot site-informatie voor Configuration Manager die is gepubliceerd naar Active Directory Domain Services.  
 
--   Vous préconfigurez un client avec la clé racine approuvée.  
+-   U richt de client vooraf in met de vertrouwde basissleutel.  
 
--   Vous utilisez des certificats PKI depuis une autorité de certification d'entreprise pour établir l'approbation entre le client et le point de gestion.  
+-   U kunt PKI-certificaten gebruiken van een bedrijfscertificeringsinstantie om het vertrouwen tussen de client en het beheerpunt vast te leggen.  
 
- Pour plus d'informations sur la clé racine approuvée, voir [Planification de la clé racine approuvée](../../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForRTK).  
+ Zie [Planning voor de vertrouwde basissleutel](../../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForRTK) voor meer informatie over de vertrouwde basissleutel.  
 
- **Installer des ordinateurs clients avec l'option Client.msi CCMSetup SMSDIRECTORYLOOKUP=NoWINS**  
+ **Clientcomputers installeren met de CCMSetup Client.msi-optie SMSDIRECTORYLOOKUP = NoWINS**  
 
- La méthode d'emplacement des services la plus sûre pour les clients afin de trouver des sites et des points de gestion consiste à utiliser des services de domaine Active Directory. Si cela n'est pas possible, par exemple, parce que vous ne pouvez pas développer le schéma Active Directory pour Configuration Manager ou parce que les clients se trouvent dans une forêt ou un groupe de travail non approuvé, vous pouvez utiliser la publication DNS comme autre méthode d'emplacement des services. Si ces deux méthodes échouent, les clients peuvent recourir à l'utilisation de WINS lorsque le point de gestion n'est pas configuré pour les connexions client HTTPS.  
+ Active Directory Domain Services gebruiken is de meest beveiligde servicelocatiemethode voor clients om sites en beheerpunten te vinden. Als dit niet mogelijk is, bijvoorbeeld kunt omdat u het Active Directory-schema voor Configuration Manager kan niet uitbreiden of omdat clients zich in een niet-vertrouwde forest of een werkgroep, u DNS-publicatie als een alternatieve servicelocatiemethode. Als deze twee methoden mislukken, kunnen clients terugvallen op het gebruik van WINS wanneer het beheerpunt niet voor HTTPS-clientverbindingen is geconfigureerd.  
 
- Dans la mesure où la publication vers WINS est moins sûre que les autres méthodes de publication, configurez les ordinateurs clients de sorte qu'ils ne recourent pas à l'utilisation de WINS en spécifiant SMSDIRECTORYLOOKUP=NoWINS. Si vous devez utiliser WINS pour l'emplacement des services, utilisez SMSDIRECTORYLOOKUP=WINSSECURE (paramètre par défaut), qui utilise la clé racine approuvée de Configuration Manager pour valider le certificat auto-signé du point de gestion.  
+ Omdat publishing naar WINS minder veilig is dan de andere publishingmethoden, dient u clientcomputers te configureren om niet terug te vallen om het gebruik van WINS door SMSDIRECTORYLOOKUP=NoWINS op te geven. Als u WINS voor servicelocatie gebruiken moet, gebruikt u SMSDIRECTORYLOOKUP = WINSSECURE (de standaardinstelling), die de vertrouwde basissleutel van Configuration Manager gebruikt het zelfondertekende certificaat van het beheerpunt te valideren.  
 
 > [!NOTE]  
->  Lorsque le client est configuré pour SMSDIRECTORYLOOKUP=WINSSECURE et trouve un point de gestion à partir de WINS, le client vérifie sa copie de la clé racine approuvée de Configuration Manager qui se trouve dans WMI. Si la signature du certificat du point de gestion correspond à la copie du client de la clé racine approuvée, le certificat est validé et le client communique avec le point de gestion trouvé à l'aide de WINS. Si la signature du certificat du point de gestion ne correspond pas à la copie du client de la clé racine approuvée, le certificat n'est pas validé et le client ne communique pas avec le point de gestion trouvé à l'aide de WINS.  
+>  Wanneer de client is geconfigureerd voor SMSDIRECTORYLOOKUP = WINSSECURE en een beheerpunt vindt van WINS, de client controleert zijn kopie van de vertrouwde basissleutel van Configuration Manager die in WMI. De handtekening op het certificaat overeenkomt met de kopie van de client van de vertrouwde basissleutel, het beheerpuntcertificaat wordt gevalideerd als de client communiceert met het beheerpunt dat het vond door WINS. Als de handtekening van het certificaat komt niet overeen met de kopie van de vertrouwde basissleutel van de client, wordt het certificaat is niet geldig en wordt de client zal vervolgens niet communiceren met het beheerpunt dat het vond door WINS.  
 
- **Assurez-vous que les fenêtres de maintenance sont assez grandes pour déployer des mises à jour logicielles critiques**  
+ **Zorg ervoor dat onderhoudsvensters groot genoeg zijn om kritieke software-updates implementeren**  
 
- Vous pouvez configurer des fenêtres de maintenance pour les regroupements d'appareils afin de limiter les périodes où Configuration Manager peut installer des logiciels sur ces appareils. Si vous configurez une fenêtre de maintenance trop petite, le client peut ne pas installer les mises à jour logicielles critiques et se retrouver vulnérable à l'attaque qui aurait été contrée par la mise à jour logicielle.  
+ U kunt de onderhoudsvensters voor apparaatverzamelingen om de tijdstippen dat Configuration Manager software op deze apparaten installeren kunt te beperken. Als u het onderhoudsvenster te klein configureert, is het mogelijk dat de client kritieke software-updates niet kan installeren. Dit maakt de client kwetsbaar voor de aanval die wordt verholpen door de software-update.  
 
- **Dans le cas d'appareils Windows Embedded avec des filtres d'écriture, prendre des précautions de sécurité supplémentaires pour réduire la surface d'attaque si Configuration Manager désactive les filtres d'écriture dans le but de conserver les installations logicielles et les modifications**  
+ **Voor Windows embedded-apparaten die schrijffilters hebben, extra beveiligingsmaatregelen nemen om de kwetsbaarheid voor aanvallen te verlagen als Configuration Manager de schrijffilters uitschakelt om te software-installaties en -wijzigingen te behouden**  
 
- Lorsque des filtres d'écriture sont activés sur des appareils Windows Embedded, les installations logicielles ou les modifications sont apportées dans le segment de recouvrement uniquement et ne sont pas conservées après le redémarrage de l'appareil. Si vous utilisez Configuration Manager pour désactiver temporairement les filtres d'écriture dans le but de conserver les installations logicielles et les modifications, pendant cette période, l'appareil intégré est vulnérable aux modifications apportées à tous les volumes, y compris les dossiers partagés.  
+ Wanneer schrijffilters ingeschakeld zijn op Windows Embedded-apparaten, worden software-installaties of -wijzigingen alleen aan de overlay toegevoegd en blijven ze niet behouden nadat het apparaat opnieuw wordt opgestart. Als u Configuration Manager gebruiken voor het tijdelijk uitschakelen van de schrijffilters om te software-installaties en -wijzigingen te behouden tijdens deze periode is het embedded-apparaat kwetsbaar voor wijzigingen aan alle volumes, wat ook gedeelde mappen omvat.  
 
- Bien que Configuration Manager verrouille l'ordinateur pendant cette période afin que seuls les administrateurs locaux puissent se connecter, prenez des précautions de sécurité supplémentaires pour aider à protéger l'ordinateur lorsque cela est possible. Par exemple, activez des restrictions supplémentaires sur le pare-feu et déconnectez l'appareil du réseau.  
+ Hoewel Configuration Manager worden de computer tijdens deze periode vergrendelt zodat alleen lokale beheerders kunnen zich aanmelden, indien mogelijk, bijkomende beveiligingsmaatregelen nemen om de computer te beschermen. Schakel bijvoorbeeld bijkomende beperkingen in op de firewall en verbreek de netwerkverbinding van het apparaat.  
 
- Si vous utilisez des fenêtres de maintenance pour conserver les modifications, planifiez soigneusement la durée de ces fenêtres pour réduire le temps de désactivation des filtres d'écriture mais permettre les installations logicielles et les redémarrages.  
+ Als u onderhoudsvensters gebruikt om wijzigingen te behouden, dient u deze vensters zorgvuldig te plannen om de tijd te minimaliseren waarop schrijffilters mogelijk uitgeschakeld kunnen zijn, maar de tijd moet lang genoeg zijn om software-installaties en het opnieuw opstarten van het apparaat mogelijk te maken.  
 
- **Si vous utilisez l'installation de client basée sur des mises à jour logicielles et installez une version ultérieure du client sur le site, exécutez la mise à jour logicielle publiée sur le point de mise à jour logicielle afin que le client reçoive la version la plus récente**  
+ **Als u software-update gebaseerde clientinstallatie gebruiken en een nieuwere versie van de client op de site installeert, werkt u de software-update die is gepubliceerd op het software-updatepunt zodat clients de nieuwste versie ontvangen**  
 
- Si vous installez une version ultérieure du client sur le site, par exemple, vous mettez le site à niveau, la mise à jour logicielle pour le déploiement de client qui est publiée sur le point de mise à jour logicielle n'est pas exécutée automatiquement. Vous devez republier le client Configuration Manager sur le point de mise à jour logicielle et cliquer sur **Oui** pour mettre à jour le numéro de version.  
+ Als u een nieuwere versie van de client op de site installeert als u bijvoorbeeld de site bijwerkt, wordt de software-update voor clientimplementatie die naar het software-updatepunt is gepubliceerd, niet automatisch bijgewerkt. Moet u naar het software-updatepunt en klikken op de Configuration Manager-client opnieuw publiceren **Ja** bijwerken van het versienummer.  
 
- Pour plus d’informations, voir la procédure « Pour publier le client Configuration Manager dans le point de mise à jour logicielle » dans [Comment installer des clients Configuration Manager à l'aide d'une installation basée sur les mises à jour logicielles](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientSUP).  
+ Zie voor meer informatie de procedure ' de Configuration Manager-client op het software-updatepunt publiceren' in [Configuration Manager-clients installeren met behulp installatie](../../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientSUP).  
 
- **Configurez le paramètre de l’appareil client de l’Agent ordinateur Interrompre l’entrée du code confidentiel BitLocker au redémarrage sur Toujours uniquement pour les ordinateurs auxquels vous faites confiance et qui ont un accès physique limité**  
+ **Configureer de Computeragent-clientapparaatinstelling invoer BitLocker-PINCODE bij opnieuw opstarten op altijd alleen voor computers die u vertrouwt en die beperkte fysieke toegang hebben**  
 
- Lorsque vous définissez ce paramètre client sur **Toujours**, Configuration Manager peut terminer l'installation du logiciel afin de s'assurer que les mises à jour logicielles critiques sont installées et que les services ont repris. Toutefois, si un attaquant intercepte le processus de redémarrage, il peut prendre le contrôle de l'ordinateur. Utilisez ce paramètre uniquement lorsque vous faites confiance à l'ordinateur et lorsque l'accès physique à l'ordinateur est limité. Par exemple, ce paramètre peut convenir aux serveurs d'un centre de données.  
+ Als u deze clientinstelling instelt op instelt **altijd**, Configuration Manager kunt voltooit de installatie van software om ervoor te zorgen dat essentiële software-updates zijn geïnstalleerd en dat services worden hervat. Wanneer een kwaadwillend persoon het proces van het opnieuw opstarten onderschept, kan deze persoon de controle over de computer overnemen. Gebruik deze instelling alleen wanneer u de computer vertrouwt en wanneer fysieke toegang tot de computer beperkt is. Deze instelling is bijvoorbeeld mogelijk geschikt voor servers in een datacenter.  
 
- **Ne configurez pas le paramètre de l’appareil client de l’Agent ordinateur Stratégie d’exécution de PowerShell sur Ignorer.**  
+ **Configureer de Computeragent-client Apparaatinstelling PowerShell-uitvoeringsbeleid wilt overslaan.**  
 
- Ce paramètre client permet au client Configuration Manager d'exécuter des scripts PowerShell non signés, ce qui peut autoriser l'exécution de programmes malveillants sur des ordinateurs clients. Si vous devez sélectionner cette option, utilisez un paramètre client personnalisé et affectez-le uniquement aux ordinateurs clients qui doivent exécuter des scripts PowerShell non signés.  
+ Deze client-instelling kan de Configuration Manager-client niet-ondertekende PowerShell-scripts, waardoor er malware uit te voeren op clientcomputers zou kunnen uitvoeren. Als u deze optie moet selecteren, moet u een aangepaste clientinstelling gebruiken en deze alleen toewijzen aan die clientcomputers die niet-ondertekende PowerShell-scripts moeten uitvoeren.  
 
-##  <a name="bkmk_mobile"></a> Bonnes pratiques de sécurité pour les appareils mobiles  
- **Pour les appareils mobiles que vous inscrivez à Configuration Manager et qui seront pris en charge sur Internet : Installer le point proxy d'inscription dans un réseau de périmètre et le point d'inscription dans l'Intranet**  
+##  <a name="bkmk_mobile"></a>Aanbevolen beveiligingsprocedures voor mobiele apparaten  
+ **Voor mobiele apparaten die u inschrijft met Configuration Manager en wordt ondersteund op het Internet: Installeer het proxypunt voor inschrijving in een perimeternetwerk en het inschrijvingspunt op het intranet**  
 
- Cette séparation des rôles permet de protéger le point d'inscription contre une attaque. Si le point d'inscription est compromis, un attaquant peut obtenir des certificats pour authentification et voler les informations d'identification des utilisateurs qui inscrivent leurs appareils mobiles.  
+ Deze scheiding van rollen help om het proxypunt voor inschrijving te beveiligen tegen een aanval. Als het inschrijvingspunt in het geding komt, zou een kwaadwillend persoon certificaten voor verificatie kunnen verkrijgen en de referenties kunnen stelen van gebruikers die hun mobiele apparaten inschrijven.  
 
- **Pour les appareils mobiles : Configurez les paramètres de mot de passe pour protéger les appareils mobiles contre les accès non autorisés**  
+ **Voor mobiele apparaten: Configureer de wachtwoordinstellingen om mobiele apparaten te beveiligen tegen onbevoegde toegang**  
 
- Pour les appareils mobiles qui sont inscrits par Configuration Manager: Utilisez un élément de configuration d'appareil mobile pour configurer la complexité du mot de passe comme étant le code confidentiel et au moins la longueur par défaut pour la longueur minimale du mot de passe.  
+ Voor mobiele apparaten die zijn ingeschreven door Configuration Manager: Een configuratie-item voor mobiele apparaten gebruiken voor het configureren van de wachtwoordcomplexiteit de PINCODE en ten minste de standaardlengte op voor de minimale wachtwoordlengte.  
 
- Pour les appareils mobiles sur lesquels le client Configuration Manager n'est pas installé mais qui sont gérés par le connecteur Exchange Server  : Configurez les **Paramètres de mot de passe** pour le connecteur Exchange Server, de sorte que la complexité du mot de passe soit le code confidentiel et spécifier au moins la longueur par défaut pour la longueur minimale du mot de passe.  
+ Voor mobiele apparaten waarvoor geen Configuration Manager-client geïnstalleerd maar die worden beheerd door de Exchange Server-connector: Configureer de **wachtwoordinstellingen** voor Exchange Server-connector zo dat de wachtwoordcomplexiteit is de PINCODE en Geef ten minste de standaardlengte op voor de minimale wachtwoordlengte.  
 
- **Pour les appareils mobiles : Empêchez la falsification des informations d'inventaire et des informations d'état en autorisant l'exécution des applications uniquement lorsqu'elles sont signées par des entreprises approuvées et ne pas autoriser l'installation de fichiers non signés**  
+ **Voor mobiele apparaten: Help voorkoming van knoeien met Inventarisinformatie en statusinformatie door toepassingen mogen worden uitgevoerd alleen wanneer deze zijn ondertekend door bedrijven die u vertrouwt en niet-ondertekende bestanden worden geïnstalleerd niet toestaan**  
 
- Pour d'autres appareils mobiles qui sont inscrits par Configuration Manager : Utilisez un élément de configuration d'appareil mobile pour configurer le paramètre de sécurité **Applications non signée**s comme **Interdites** et configurez les **Installations de fichiers non signés** comme une source approuvée.  
+ Voor meer mobiele apparaten die zijn ingeschreven door Configuration Manager: Een configuratie-item voor mobiele apparaten gebruiken voor het configureren van de beveiligingsinstelling **niet-ondertekende toepassingen** als **Prohibited** en configureer **bestand installaties van niet-ondertekende** moet een vertrouwde bron.  
 
- Pour les appareils mobiles sur lesquels le client Configuration Manager n'est pas installé mais qui sont gérés par le connecteur Exchange Server : Configurez les **Paramètres d'application** pour le connecteur Exchange Server, de sorte que l'**Installation de fichiers non signés** et les **Applications non signées** soient configurées comme **Interdites**.  
+ Voor mobiele apparaten waarvoor geen Configuration Manager-client geïnstalleerd maar die worden beheerd door de Exchange Server-connector: Configureert de **toepassingsinstellingen** voor Exchange Server-connector zodat **installatie van niet-ondertekende** en **niet-ondertekende toepassingen** zijn geconfigureerd als **Prohibited**.  
 
- **Pour les appareils mobiles : Empêchez l'élévation des attaques de privilège en verrouillant l'appareil mobile lorsqu'il n'est pas autorisé**  
+ **Voor mobiele apparaten: Aanval via verhoogde bevoegdheden voorkomen door het mobiele apparaat vergrendelen wanneer dit wordt niet gebruikt**  
 
- Pour d'autres appareils mobiles qui sont inscrits par Configuration Manager : Utiliser un élément de configuration d'appareil mobile pour configurer le paramètre de mot de passe **Durée d'inactivité en minutes avant le verrouillage du périphérique mobile**.  
+ Voor meer mobiele apparaten die zijn ingeschreven door Configuration Manager: Een configuratie-item voor mobiele apparaten gebruiken voor het configureren van de instelling **niet-actieve periode in minuten voordat mobiel apparaat wordt vergrendeld**.  
 
- Pour les appareils mobiles sur lesquels le client Gestionnaire de configuration n'est pas installé mais qui sont gérés par le connecteur Exchange Server : Configurez les **Paramètres de mot de passe** pour le connecteur Exchange Server afin de configurer la **Durée d'inactivité en minutes avant le verrouillage du périphérique mobile** .  
+ Voor mobiele apparaten waarvoor geen Configuration Manager-client geïnstalleerd maar die worden beheerd door de Exchange Server-connector: Configureer de **wachtwoordinstellingen** voor Exchange Server-connector configureren **niet-actieve periode in minuten voordat mobiel apparaat wordt vergrendeld**.  
 
- **Pour les appareils mobiles : Empêchez l'élévation de privilèges en limitant les utilisateurs qui peuvent inscrire leurs appareils mobiles**  
+ **Voor mobiele apparaten: Verhoging van bevoegdheden voorkomen door het beperken van de gebruikers hun mobiele apparaten kunnen registreren.**  
 
- Utilisez un paramètre client personnalisé plutôt que les paramètres clients par défaut, pour que seuls les utilisateurs autorisés puissent inscrire leurs appareils mobiles.  
+ Gebruik een aangepaste clientinstelling in plaats van standaardclientinstellingen om alleen geautoriseerde gebruikers toe te staan hun mobiele apparaten te registreren.  
 
- **Pour les appareils mobiles : Ne déployez pas d’applications pour les utilisateurs qui possèdent des appareils mobiles inscrits par Configuration Manager ou Microsoft Intune dans les cas suivants :**  
+ **Voor mobiele apparaten: Implementeer geen toepassingen voor gebruikers die mobiele apparaten geregistreerd via Configuration Manager of Microsoft Intune in de volgende scenario's hebben:**  
 
--   Lorsque l'appareil mobile est utilisé par plusieurs personnes.  
+-   Wanneer het mobiele apparaat door meer dan één persoon wordt gebruikt.  
 
--   Lorsque l'appareil est inscrit par un administrateur pour le compte d'un utilisateur.  
+-   Wanneer het apparaat namens een gebruiker door een beheerder wordt geregistreerd.  
 
--   Lorsque l'appareil est transféré à une autre personne sans retirer puis réinscrire l'appareil.  
+-   Wanneer het apparaat aan een andere persoon wordt overgedragen zonder het apparaat buiten gebruikt te stellen en vervolgens opnieuw te registreren.  
 
- Une relation d'affinité entre appareil et utilisateur est créée lors de l'inscription, qui mappe l'utilisateur effectuant l'inscription à l'appareil mobile. Si un autre utilisateur utilise l'appareil mobile, il pourra exécuter les applications que vous déployez sur l'utilisateur d'origine, ce qui peut entraîner une élévation de privilèges. De même, si un autre administrateur inscrit l'appareil mobile pour un utilisateur, les applications déployées sur l'utilisateur ne sont pas installées sur l'appareil mobile, mais les applications déployées sur l'administrateur peuvent être installées.  
+ Er wordt tijdens het inschrijven een relatie voor gebruikersapparaataffiniteit voor het gebruikersapparaat gemaakt, waarbij de gebruiker die de inschrijving uitvoert, aan het mobiele apparaat wordt toegewezen. Als een andere gebruiker het mobiele apparaat gebruik, kan deze de toepassingen uitvoeren die u voor de oorspronkelijke gebruiker implementeert. Dit kan leiden tot verhoogde bevoegdheden. Als een beheerder een mobiel apparaat voor een gebruiker registreert, worden toepassingen die voor de gebruiker worden geïmplementeerd, niet op het mobiele apparaat geïnstalleerd en worden er in plaats daarvan mogelijk toepassingen geïnstalleerd die voor de beheerder worden geïmplementeerd.  
 
- Contrairement à l'affinité entre appareil et utilisateur pour les ordinateurs Windows, vous ne pouvez pas définir manuellement les informations d'affinité entre appareil et utilisateur pour les appareils mobiles qui sont inscrits par Microsoft Intune.  
+ In tegenstelling tot bij gebruikersapparaataffiniteit voor Windows-computers, kan niet u handmatig definiëren van de gebruiker informatie over gebruikersapparaataffiniteit voor mobiele apparaten die zijn geregistreerd door Microsoft Intune.  
 
- Si vous transférez la propriété d'un appareil mobile inscrit par Intune, retirez l'appareil mobile de Intune pour supprimer l'affinité entre appareil et utilisateur, puis demandez à l'utilisateur actuel de réinscrire l'appareil.  
+ Als u het eigendom van een mobiel apparaat dat is geregistreerd door Intune overdraagt, het mobiele apparaat buiten gebruik stellen vanuit Intune de gebruikersapparaataffiniteit te verwijderen en vervolgens vraagt u de huidige gebruiker het apparaat om opnieuw te registreren.  
 
- **Pour les appareils mobiles : Assurez-vous que les utilisateurs inscrivent leurs appareils mobiles pour Microsoft Intune**  
+ **Voor mobiele apparaten: Zorg ervoor dat gebruikers hun eigen mobiele apparaten voor Microsoft Intune registreren**  
 
- Dans la mesure où une relation d'affinité entre appareil et utilisateur est créée lors de l'inscription qui mappe l'utilisateur effectuant l'inscription sur l'appareil mobile, si un administrateur inscrit l'appareil mobile pour un utilisateur, les applications déployées sur l'utilisateur ne sont pas installées sur l'appareil mobile, mais les applications déployées sur l'administrateur peuvent être installées.  
+ Omdat er tijdens het inschrijven een affiniteitsrelatie voor het gebruikersapparaat wordt gemaakt, waarbij de gebruiker die de inschrijving uitvoert aan het mobiele apparaat wordt toegewezen, worden, als een beheerder een mobiel apparaat voor een gebruiker registreert, toepassingen die voor de gebruiker worden geïmplementeerd, niet op het mobiele apparaat geïnstalleerd en worden er in plaats daarvan mogelijk toepassingen geïnstalleerd die voor de beheerder worden geïmplementeerd.  
 
- **Pour le connecteur Exchange Server : Assurez-vous que la connexion entre le serveur de site Configuration Manager et l'ordinateur Exchange Server est protégée**  
+ **Voor Exchange Server-connector: Zorg ervoor dat de verbinding tussen de siteserver van Configuration Manager en de Exchange Server-computer is beveiligd**  
 
- Utiliser IPsec si le serveur Exchange Server est sur le site ; Exchange hébergé sécurise automatiquement la connexion par SSL.  
+ Gebruik IPsec als het een on-premise Exchange Server-exemplaar betreft. Bij gehoste Exchange wordt de verbinding automatisch beveiligd via SSL.  
 
- **Pour le connecteur Exchange Server : Utilisez le principe des privilèges minimum pour le connecteur**  
+ **Voor Exchange Server-connector: Gebruik het principe van minimale bevoegdheden voor de connector**  
 
- Pour obtenir la liste des applets de commande dont le connecteur Exchange Server a besoin au minimum, voir [Gérer des appareils mobiles à l’aide de System Center Configuration Manager et d’Exchange](../../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
+ Zie [Mobiele apparaten beheren met System Center Configuration Manager en Exchange](../../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md) voor een lijst met de cmdlets die minimaal door de Exchanges Server-connector worden vereist.  
 
-##  <a name="bkmk_macs"></a> Bonnes pratiques de sécurité pour les ordinateurs Mac  
- **Pour les ordinateurs Mac : Stockez et accédez aux fichiers sources du client à partir d'un emplacement sécurisé.**  
+##  <a name="bkmk_macs"></a>Aanbevolen beveiligingsprocedures voor Macs  
+ **Voor Mac-computers: Opslaan van en toegang tot de bronbestanden vanaf een beveiligde locatie.**  
 
- Configuration Manager ne vérifie pas si ces fichiers source du client ont été falsifiés avant d'installer ou d'inscrire le client sur un ordinateur Mac. Téléchargez ces fichiers à partir d'une source digne de confiance, enregistrez-les et accédez-y en toute sécurité.  
+ Configuration Manager controleert niet of deze clientbronbestanden is geknoeid voordat de client op Mac-computer geïnstalleerd of geregistreerd. Download deze bestanden vanaf een betrouwbare bron en sla deze op veilig op en benader ze op een veilige wijze.  
 
- **Pour les ordinateurs Mac : Indépendamment de Configuration Manager, surveillez et effectuez le suivi de la période de validité du certificat d'inscription des utilisateurs.**  
+ **Voor Mac-computers: Onafhankelijk van Configuration Manager, bewaken en bijhouden van de geldigheidsperiode van het certificaat dat is ingeschreven voor gebruikers.**  
 
- Pour garantir la pérennité des activités, surveillez et effectuez le suivi de la période de validité des certificats que vous utilisez pour les ordinateurs Mac. Configuration Manager ne prend pas en charge le renouvellement automatique de ce certificat et ne vous avertit pas que le certificat est sur le point d'expirer. La période de validité type est de 1 an.  
+ Stel de bedrijfscontinuïteit veilig door de geldigheidsperiode van het certificaat dat voor Mac-computers wordt gebruikt, te controleren en te volgen. Configuration Manager geen ondersteuning voor automatische vernieuwing van dit certificaat of waarschuwen dat het certificaat is bijna verlopen. Een gebruikelijke geldigheidsduur is één jaar.  
 
- Pour plus d’informations sur le renouvellement du certificat, voir [Renouvellement manuel du certificat client Mac](../../../../core/clients/deploy/deploy-clients-to-macs.md#renewing-the-mac-client-certificate).  
+ Zie [Het Mac-clientcertificaat vernieuwen](../../../../core/clients/deploy/deploy-clients-to-macs.md#renewing-the-mac-client-certificate) voor meer informatie over het vernieuwen van het certificaat.  
 
- **Pour les ordinateurs Mac : Envisagez de configurer le certificat d’Autorité de certification racine approuvé de manière à ce qu’il soit approuvé pour le protocole SSL uniquement afin d’empêcher une élévation des privilèges.**  
+ **Voor Mac-computers: Houd rekening met het vertrouwde basis-CA-certificaat configureren zodat deze vertrouwd voor uitsluitend het SSL-protocol wordt als extra beveiliging tegen verhoging van bevoegdheden.**  
 
- Lorsque vous inscrivez des ordinateurs Mac, un certificat utilisateur destiné à gérer le client Configuration Manager est automatiquement installé, ainsi que le certificat racine approuvé auquel est lié le certificat utilisateur. Si vous voulez limiter l'approbation de ce certificat racine au protocole SSL uniquement, vous pouvez procéder comme suit.  
+ Wanneer u Mac-computers registreert, wordt een gebruikerscertificaat voor het beheren van Configuration Manager-client automatisch geïnstalleerd, samen met het vertrouwde basiscertificaat waaraan het gebruikerscertificaat wordt gekoppeld. Als u het vertrouwen met betrekking tot dit basiscertificaat wilt beperken tot uitsluitend het SSL-protocol, kunt u de volgende procedure gebruiken.  
 
- Une fois cette procédure exécutée, le certificat racine n'est pas approuvé pour valider les protocoles autres que SSL : par exemple, Courrier sécurisé (S/MIME), Protocole EAP (Extensible Authentication), ou la signature de code.  
+ Nadat u deze procedure hebt voltooid, zou u het basiscertificaat niet vertrouwd voor het valideren van andere protocollen dan SSL - bijvoorbeeld beveiligde E-mail (S/MIME), uitbreidbare verificatie (EAP) of handtekeningen bij programmacode.  
 
 > [!NOTE]  
->  Vous pouvez également utiliser cette procédure si vous avez installé le certificat client indépendamment de Configuration Manager.  
+>  U kunt deze procedure ook gebruiken als u het clientcertificaat onafhankelijk van Configuration Manager geïnstalleerd.  
 
- Pour limiter le certificat d'autorité de certification racine pour le protocole SSL uniquement :  
+ Als u het basiscertificaat uitsluitend tot het SSL-protocol wilt beperken:  
 
-1.  Sur l'ordinateur Mac, ouvrez une fenêtre de terminal.  
+1.  Open een terminalvenster op de Mac-computer.  
 
-2.  Entrez la commande **sudo /Applications/Utilities/Keychain\ Access.app/Contents/MacOS/Keychain\ Access**  
+2.  Voer de opdracht **sudo /Applications/Utilities/Keychain\ Access.app/Contents/MacOS/Keychain\ Access** in.  
 
-3.  Dans la boîte de dialogue **Trousseau d'accès** , dans la zone **Trousseau** , cliquez sur **Système**, puis dans la zone **Catégorie** , cliquez sur **Certificats**.  
+3.  Klik in het dialoogvenster **Toegang tot sleutelhanger** in de sectie **Sleutelhangers** op **Systeem**, en klik vervolgens in de sectie **Categorie** op **Certificaten**.  
 
-4.  Recherchez et double-cliquez sur le certificat d'autorité de certification racine pour le certificat client Mac.  
+4.  Ga naar het basiscertificaat voor het Mac-clientcertificaat en dubbelklik op dit certificaat.  
 
-5.  Dans la boîte de dialogue du certificat d'autorité de certification racine, développez la zone **Confiance** , puis apportez les modifications suivantes :  
+5.  Vouw in het dialoogvenster voor het basis-CA-certificaat de sectie **Vertrouwen** uit en breng vervolgens de volgende wijzigingen aan:  
 
-    1.  Pour le paramètre **Lors de l'utilisation de ce certificat** , remplacez le paramètre par défaut **Toujours faire confiance** par **Utiliser les valeurs système par défaut**.  
+    1.  Wijzig bij de instelling voor **Wanneer dit certificaat wordt gebruikt** de standaardinstelling **Altijd vertrouwen** in de optie voor het **gebruik van de standaardwaarden van het systeem**.  
 
-    2.  Pour le paramètre **Secure Sockets Layer (SSL)** , remplacez le paramètre **aucune valeur spécifiée** par **Toujours faire confiance**.  
+    2.  Wijzig bij de instelling **Secure Sockets Layer (SSL)** het item **geen waarde opgegeven** in **Altijd vertrouwen**.  
 
-6.  Fermez la boîte de dialogue et lorsque vous y êtes invité, entrez le mot de passe de l'administrateur, puis cliquez sur **Mettre à jour les paramètres**.  
+6.  Het dialoogvenster sluiten en desgevraagd het beheerderswachtwoord in en klik vervolgens op **Update-instellingen**.  
 
-##  <a name="BKMK_SecurityIssues_Clients"></a> Problèmes de sécurité pour les clients Configuration Manager  
- Les problèmes de sécurité suivants ne peuvent pas être atténués :  
+##  <a name="BKMK_SecurityIssues_Clients"></a>Beveiligingsproblemen voor Configuration Manager-clients  
+ Er zijn voor de volgende beveiligingsproblemen geen matigingsmaatregelen bekend:  
 
--   Les messages de statut ne sont pas authentifiés  
+-   Statusberichten worden niet geverifieerd  
 
-     Aucune authentification n'est effectuée sur les messages de statut. Lorsqu'un point de gestion accepte les connexions client HTTP, n'importe quel appareil peut envoyer des messages de statut au point de gestion. Si le point de gestion n'accepte que les connexions client HTTPS, un appareil doit obtenir un certificat d'authentification client valide provenant d'une autorité de certification racine de confiance, mais peut également envoyer des messages de statut par la suite. Si un client envoie un message de statut non valide, il est supprimé.  
+     Er wordt geen verificatie uitgevoerd voor statusberichten. Wanneer een beheerpunt HTTP-clientverbindingen accepteert, kan elk apparaat statusberichten naar het beheerpunt verzenden. Als het beheerpunt alleen HTTPS-clientverbindingen accepteert, moet een apparaat een geldig clientverificatiecertificaat verkrijgen van een certificeringsinstantie voor vertrouwde basiscertificaten, maar kan dit tevens welk statusbericht dan ook verzenden. Als een client een ongeldig statusbericht verzendt, wordt dit genegeerd.  
 
-     Il existe donc peu d'attaques potentielles contre cette vulnérabilité. Un attaquant pourrait envoyer un message de statut erroné pour adhérer à un regroupement basé sur des requêtes de messages de statut. Un client pourrait déclencher un refus de service contre le point de gestion en l'inondant de messages de statut. Si les messages de statut déclenchent des actions dans les règles de filtrage des messages de statut, un attaquant pourrait déclencher la règle de filtrage des messages de statut. Un attaquant pourrait également envoyer un message de statut qui rendrait les informations de rapport incorrectes.  
+     Er is een aantal potentiële aanvallen via deze kwetsbaarheid mogelijk. Een kwaadwillend persoon zou een vals statusbericht kunnen verzenden om lidmaatschap van een verzameling te verkrijgen die is gebaseerd op statusberichtquery's. Elke client zou een DoS-aanval op het beheerpunt kunnen starten door dit met statusberichten te overspoelen. Als statusberichten acties in werking stellen via regels voor het statusberichtfilter, zou een kwaadwillend persoon deze regels in werking kunnen stellen. Een kwaadwillend persoon zou ook een statusbericht kunnen verzenden waardoor rapportage-informatie onnauwkeurig wordt.  
 
--   Des stratégies peuvent être reciblées vers des clients non ciblés  
+-   Beleid kan opnieuw worden afgestemd op clients waarop dit niet is gericht  
 
-     Un attaquant pourrait utiliser plusieurs méthodes pour faire en sorte qu'une stratégie ciblée sur un seul client soit appliquée à un client totalement différent. Par exemple, un attaquant au niveau d'un client approuvé pourrait envoyer de fausses informations de découverte ou d'inventaire pour que l'ordinateur soit ajouté à un regroupement auquel il ne devrait pas appartenir, puis recevoir tous les déploiements de celui-ci. Bien que des contrôles existent pour aider à empêcher les attaquants de modifier la stratégie directement, des attaquants pourraient prendre une stratégie existante pour reformater ou redéployer un système d'exploitation et l'envoyer à un autre ordinateur, créant ainsi un refus de service. Ces types d'attaques demanderaient un minutage précis et des connaissances approfondies de l'infrastructure de Configuration Manager.  
+     Er zijn verschillende methoden die kwaadwillende personen zouden kunnen gebruiken om beleid dat op één client is gericht, toe te passen op een geheel andere client. Een kwaadwillend persoon zou via een vertrouwde client bijvoorbeeld valse inventaris- of detectie-informatie kunnen verzenden om de computer toe te voegen aan een verzameling waartoe deze niet behoort en zou vervolgens alle implementaties voor deze verzameling kunnen ontvangen. Hoewel er methoden bestaan om te voorkomen dat kwaadwillende personen beleid rechtstreeks kunnen aanpassen, zouden dergelijke personen bestaand beleid kunnen gebruiken voor het opnieuw indelen en implementeren van een besturingssysteem en om dit naar een andere computer te verzenden, zodat er een DoS-aanval ontstaat. Deze type aanvallen vereist een precieze timing en uitgebreide kennis van de Configuration Manager-infrastructuur.  
 
--   Les journaux du client permettent l'accès utilisateur  
+-   Clientlogboeken staan gebruikerstoegang toe  
 
-     Tous les fichiers journaux des clients accordent un accès en lecture aux utilisateurs et un accès en écriture aux utilisateurs interactifs. Si vous activez la journalisation détaillée, des attaquants peuvent lire les fichiers journaux pour y rechercher des informations sur la compatibilité ou les vulnérabilités du système. Les processus tels que l'installation de logiciels, effectués dans un contexte de l'utilisateur, doivent être capables d'écrire vers les journaux avec un compte d'utilisateur doté de droits limités. Cela signifie qu'un attaquant pourrait également écrire vers les journaux avec un compte doté de droits limités.  
+     Alle clientlogbestanden staan gebruikers leestoegang en interactieve gebruikers schrijftoegang toe. Als u uitgebreide logboekregistratie inschakelt, kunnen kwaadwillende personen eventueel de logboekbestanden lezen op zoek naar informatie over kwetsbaarheden op het vlak van het systeem of compatibiliteit. Processen zoals software-installatie die binnen de context van een gebruiker worden uitgevoerd, moeten logboeken kunnen schrijven met een gebruikersaccount met een laag niveau aan rechten. Dit betekent dat een kwaadwillend persoon ook naar logboeken kan schrijven met een account met een laag niveau aan rechten.  
 
-     Le risque le plus sérieux est qu'un attaquant puisse supprimer des informations des fichiers journaux, dont un administrateur pourrait avoir besoin pour l'audit et la détection d'intrus.  
+     Het meest ernstige risico hierbij is dat een kwaadwillend persoon informatie uit de logboekbestanden zou kunnen verwijderen die een beheerder mogelijk nodig heeft voor controledoeleinden en het detecteren van indringers.  
 
--   Un ordinateur peut être utilisé pour obtenir un certificat conçu pour l'inscription d'appareils mobiles  
+-   Een computer kan worden gebruikt voor het verkrijgen van een certificaat dat is ontworpen voor het inschrijven van een mobiel apparaat  
 
-     Lorsque Configuration Manager traite une demande d'inscription, il ne peut pas vérifier qu'elle émane d'un appareil mobile plutôt que d'un ordinateur. Si la demande provient d'un ordinateur, il peut installer un certificat PKI qui lui permet ensuite de s'inscrire avec Configuration Manager. Pour prévenir une attaque par élévation de privilèges dans ce scénario, n'autorisez que les utilisateurs approuvés à inscrire leurs appareils mobiles et surveillez attentivement les activités d'inscription.  
+     Wanneer Configuration Manager een aanvraag voor inschrijving verwerken, kan deze niet verifiëren dat de aanvraag afkomstig van een mobiel apparaat in plaats van vanaf een computer is. Als de aanvraag afkomstig van een computer is, kan een PKI-certificaat dat toestaat dat deze registreren met Configuration Manager worden geïnstalleerd. Met het oog op het in dit scenario voorkomen van een aanval via verhoogde bevoegdheden, is het raadzaam om alleen vertrouwde gebruikers toe te staan hun mobiele apparaten in te schrijven, waarbij de inschrijvingsactiviteiten nauwlettend moeten worden gecontroleerd.  
 
--   La connexion d'un client au point de gestion n'est pas abandonnée si vous bloquez un client, et celui-ci peut continuer à envoyer des paquets de notification client au point de gestion, par exemple, des messages de conservation d'activité  
+-   De verbinding van een client met een beheerpunt wordt niet verbroken als u een client blokkeert en de geblokkeerde client zou kunnen doorgaan met het naar het beheerpunt verzenden van meldingspakketten en keepalive-berichten  
 
-     Lorsque vous bloquez un client auquel vous ne faites plus confiance, et qui a établi une communication de notification client, Configuration Manager ne déconnecte pas la session. Le client bloqué peut continuer à envoyer des paquets à son point de gestion jusqu'à ce que le client se déconnecte du réseau. Ces paquets sont seulement des paquets de petite taille, des paquets de conservation d'activité, et ces clients ne peuvent pas être gérés par Configuration Manager jusqu'à ce qu'ils soient débloqués.  
+     Wanneer u een client die u niet langer vertrouwt, blokkeert en heeft deze clientmeldingscommunicatie tot stand gebracht, wordt de sessie niet verbroken door Configuration Manager. De geblokkeerde client kan doorgaan met het verzenden van pakketten naar het beheerpunt, totdat de client de verbinding met het netwerk verbreekt. Deze pakketten betreffen slechts kleine keepalive-pakketten en deze clients kunnen niet worden beheerd door Configuration Manager totdat deze geblokkeerd zijn.  
 
--   Lorsque vous utilisez la mise à niveau automatique des clients et que le client est dirigé vers un point de gestion pour télécharger les fichiers source du client, le point de gestion n'est pas vérifié comme une source fiable  
+-   Wanneer u Automatische clientupgrade gebruikt en de client naar een beheerpunt wordt omgeleid voor het downloaden van de clientbronbestanden, wordt niet gecontroleerd of het beheerpunt een vertrouwde bron is  
 
--   Lorsque les utilisateurs inscrivent des ordinateurs Mac pour la première fois, ils sont exposés à l'usurpation DNS  
+-   Wanneer gebruikers eerst Mac-computers inschrijven, zijn deze kwetsbaar voor aanvallen via DNS-vervalsing.  
 
-     Lorsque l'ordinateur Mac se connecte au point proxy d'inscription lors de l'inscription, il est peu probable que l'ordinateur Mac possède déjà le certificat d'autorité de certification racine. À ce stade, le serveur est non approuvé par l'ordinateur Mac et il invite l'utilisateur à continuer. Si le nom de domaine complet du point proxy d'inscription est résolu par un serveur DNS non autorisé, il peut diriger l'ordinateur Mac vers un point proxy d'inscription non autorisé et installer des certificats à partir d'une source non approuvée. Pour réduire ce risque, suivez les meilleures pratiques afin d'éviter l'usurpation DNS dans votre environnement.  
+     Wanneer de Mac-computer tijdens het inschrijven verbinding maakt met het proxypunt voor inschrijving, is het onwaarschijnlijk dat deze al over het CA-basiscertificaat beschikt. Op dit punt wordt de server door de Mac-computer niet vertrouwd en wordt de gebruiker gevraagd om door te gaan. Als de volledig gekwalificeerde naam van het proxypunt voor inschrijving door een malafide DNS-server wordt omgezet, zou deze de Mac-computer kunnen omleiden naar een malafide proxypunt voor inschrijving en certificaten vanuit een niet-vertrouwde bron kunnen installeren. Volg de aanbevolen procedures voor het vermijden van DNS-vervalsing in uw omgeving om dit risico te reduceren.  
 
--   L'inscription d'ordinateurs Mac ne limite pas les demandes de certificat  
+-   Mac-inschrijving brengt geen beperking op het vlak van certificaataanvragen met zich mee  
 
-     Les utilisateurs peuvent réinscrire leurs ordinateurs Mac, en demandant chaque fois un certificat client. Configuration Manager ne vérifie pas s'il existe plusieurs demandes ni limite le nombre de certificats demandés à partir d'un seul ordinateur. Un utilisateur non autorisé pourrait exécuter un script qui répète la demande d'inscription de ligne de commande, provoquant un déni de service sur le réseau ou sur l'autorité de certification (CA) émettrice. Pour réduire ce risque, surveillez attentivement l'autorité de certification émettrice pour ce type de comportement suspect. Un ordinateur qui présente ce modèle de comportement doit immédiatement être bloqué de la hiérarchie Configuration Manager.  
+     Telkens wanneer er een nieuw certificaat wordt aangevraagd, kunnen gebruikers hun Mac-computer opnieuw inschrijven. Configuration Manager niet controleren op meerdere aanvragen of Beperk het aantal certificaten dat via één computer aangevraagd. Een malafide gebruiker zou een script kunnen uitvoeren waarin de inschrijvingsaanvraag vanaf de opdrachtregel wordt herhaald. Dit leidt tot een DoS-aanval op het netwerk of de uitgevende certificeringsinstantie. Controleer de uitgevende certificeringsinstantie nauwlettend op dit type verdacht gedrag om dit risico te reduceren. Een computer die u dit patroon van gedrag ziet moet onmiddellijk worden geblokkeerd vanuit de Configuration Manager-hiërarchie.  
 
--   Un accusé de réception de réinitialisation ne vérifie pas que l'appareil a bien été réinitialisé  
+-   Een wisbevestiging controleert niet of het apparaat daadwerkelijk is gewist  
 
-     Lorsque vous lancez une action de réinitialisation pour un appareil mobile et Configuration Manager affiche l'état de la réinitialisation pour laquelle un accusé de réception est attendu, la vérification indique que Configuration Manager a bien envoyé le message et non que l'appareil a effectué une action sur celui-ci. En outre, pour les appareils mobiles qui sont gérés par le connecteur Exchange Server, un accusé de réception de réinitialisation vérifie que la commande a été reçue par Exchange, et non par l'appareil.  
+     Wanneer u een wisactie voor een mobiel apparaat en Configuration Manager geeft de wisstatus is initieert bevestigd, de controle is dat Configuration Manager verzonden het bericht en niet dat het apparaat waarop deze. Daarnaast geldt voor mobiele apparaten die door de Exchange Server-connector worden beheerd, dat een wisbevestiging controleert of de opdracht door Exchange, en dus niet door het apparaat, is ontvangen.  
 
--   Si vous utilisez les options de validation des modifications sur des appareils Windows Embedded, les comptes peuvent être verrouillés plus tôt que prévu  
+-   Als u de opties gebruikt om wijzigingen door te voeren op Windows Embedded-apparaten, is het mogelijk dat accounts vroeger dan verwacht worden vergrendeld.  
 
-     Si l’appareil Windows Embedded exécute un système d’exploitation antérieur à Windows 7, et qu’un utilisateur tente de se connecter alors que les filtres d’écriture sont désactivés pour valider des modifications apportées par Configuration Manager, le nombre de tentatives de connexion incorrectes permis avant le verrouillage du compte est réduit de moitié. Par exemple, si le **Seuil de verrouillage de compte** est configuré sur 6, et que l'utilisateur entre son mot de passe incorrectement 3 fois, le compte est bloqué, ce qui crée une situation de déni de service.  Si les utilisateurs doivent se connecter aux appareils intégrés dans ce scénario, avertissez-les du risque d'un seuil de verrouillage réduit.  
+     Als de Windows Embedded-apparaat een besturingssysteem dat ouder is dan Windows 7 wordt uitgevoerd en een gebruiker wil zich aanmelden terwijl de schrijffilters zijn uitgeschakeld om de aangebrachte wijzigingen door Configuration Manager, wordt het aantal pogingen voor onjuist aanmelden dat is toegestaan voordat het account is vergrendeld feite gehalveerd. Als bijvoorbeeld de **Drempel voor accountvergrendeling** als 6 wordt geconfigureerd en een gebruiker 3 keer een verkeerd wachtwoord invoert, wordt het account vergrendeld, waardoor in feite een DoS-situatie (Denial of Service) ontstaat.  Waarschuw, als gebruikers zich in dit scenario moeten aanmelden bij Embedded-apparaten, hen voor de mogelijkheid van een verlaagde vergrendelingsdrempel.  
 
-##  <a name="BKMK_Privacy_Cliients"></a> Informations de confidentialité pour les clients Configuration Manager  
- Lorsque vous déployez le client Configuration Manager, vous activez des paramètres clients afin de pouvoir utiliser les fonctionnalités de gestion de Configuration Manager. Les paramètres que vous utilisez pour configurer les fonctionnalités peuvent s'appliquer à tous les clients de la hiérarchie Configuration Manager, qu'ils soient directement connectés au réseau d'entreprise, connectés via une session distante ou connectés à Internet mais pris en charge par Configuration Manager.  
+##  <a name="BKMK_Privacy_Cliients"></a>Privacy-informatie voor Configuration Manager-clients  
+ Wanneer u de Configuration Manager-client implementeert, schakelt u clientinstellingen zodat u functies voor Configuration Manager kunt gebruiken. De instellingen die u gebruikt voor het configureren van de functies kunnen toepassen op alle clients in de Configuration Manager-hiërarchie, ongeacht of ze zijn rechtstreeks verbonden met het bedrijfsnetwerk, via een externe sessie zijn verbonden of verbonden met Internet maar ondersteund door Configuration Manager.  
 
- Les informations sur le client sont stockées dans la base de données Configuration Manager et ne sont pas envoyées à Microsoft. Les informations sont conservées dans la base de données jusqu'à leur suppression par les tâches de maintenance du site **Supprimer les données de découverte anciennes** , tous les 90 jours. Vous pouvez configurer l'intervalle de suppression.  
+ Clientinformatie wordt opgeslagen in de Configuration Manager-database en wordt niet naar Microsoft verzonden. Informatie wordt in de database bewaard tot deze om de 90 dagen door de siteonderhoudstaken **Verouderde detectiegegevens verwijderen** wordt verwijderd. U kunt het verwijderingsinterval configureren.  
 
- Avant de configurer le client Configuration Manager, réfléchissez à vos besoins en matière de confidentialité.  
+ Bedenk wat uw privacyvereisten voordat u Configuration Manager-client configureert.  
 
-### <a name="privacy-information-for-mobile-devices-that-are-enrolled-by-configuration-manager"></a>Informations sur la confidentialité des appareils mobiles qui sont inscrits par Configuration Manager  
- Pour des informations sur la confidentialité quand vous inscrivez un appareil mobile par Configuration Manager, voir [Déclaration de confidentialité de System Center Configuration Manager - Addendum relatif aux appareils mobiles](../../../../core/misc/privacy/privacy-statement-mobile-device-addendum.md).  
+### <a name="privacy-information-for-mobile-devices-that-are-enrolled-by-configuration-manager"></a>Privacygegevens voor mobiele apparaten die door Configuration Manager zijn geregistreerd  
+ Zie voor privacygegevens wanneer u een mobiel apparaat door Configuration Manager registreert, [privacyverklaring voor System Center Configuration Manager - addendum voor mobiele apparaten](../../../../core/misc/privacy/privacy-statement-mobile-device-addendum.md).  
 
-### <a name="client-status"></a>État du client  
- Configuration Manager surveille l'activité des clients et l'évalue périodiquement, et peut corriger le client Configuration Manager et ses dépendances. L'état du client est activé par défaut et il utilise les mesures côté serveur pour vérifier l'activité du client, ainsi que les actions côté client pour les auto-contrôles, la correction et pour l'envoi d'informations sur l'état du client au site Configuration Manager. Le client exécute les auto-contrôles en fonction d'un calendrier que vous pouvez configurer. Le client envoie les résultats des contrôles au site Configuration Manager. Ces informations sont chiffrées lors du transfert.  
+### <a name="client-status"></a>Clientstatus  
+ Configuration Manager controleert de activiteit van clients en periodiek geëvalueerd en Configuration Manager-client en de afhankelijkheden ervan kunt herstellen. Status van de client is standaard ingeschakeld en maakt gebruik van serverzijde metrische gegevens voor de controle van clientactiviteit, en van acties van de clientzijde voor zelfcontrole, herstel, en voor het verzenden van de status van de client informatie aan de Configuration Manager-site. De client voert de zelfcontroles uit volgens een door u te configureren planning. De client verzendt de resultaten van de controles naar de Configuration Manager-site. Deze gegevens zijn versleuteld tijdens de overdracht.  
 
- Les informations sur l’état du client sont stockées dans la base de données Configuration Manager et ne sont pas envoyées à Microsoft. Les informations ne sont pas stockées sous forme chiffrée dans la base de données du site. Ces informations sont conservées dans la base de données jusqu'à ce qu'elles en soient supprimées en fonction de la valeur configurée pour le paramètre de l'état du client **Conserver l'historique de l'état du client pendant le nombre de jours suivant** . La valeur par défaut pour ce paramètre est 31 jours.  
+ Clientstatusgegevens worden opgeslagen in de Configuration Manager-database en wordt niet naar Microsoft verzonden. De gegevens worden niet in een versleutelde indeling opgeslagen in de database van de site. Deze gegevens worden bewaard in de database tot deze worden verwijderd op basis van de waarde die voor de clientstatusinstelling **Historie van clientstatus bewaren gedurende het volgende aantal dagen** is geconfigureerd. De standaardwaarde voor deze instelling is elke 31 dagen.  
 
- Avant d'installer le client Configuration Manager avec vérification de l'état du client, pensez à vos besoins en matière de confidentialité.  
+ Bedenk wat uw privacyvereisten voordat u Configuration Manager-client met de clientstatus controleren installeert.  
 
-##  <a name="BKMK_Privacy_ExchangeConnector"></a> Informations de confidentialité pour les appareils mobiles qui sont gérés à l’aide du connecteur Exchange Server  
- Le connecteur Exchange Server détecte et gère les appareils qui se connectent à Exchange Server (hébergés ou sur site) en utilisant le protocole ActiveSync. Les enregistrements trouvés par le connecteur Exchange Server sont stockés dans la base de données Configuration Manager. Les informations sont collectées à partir d'Exchange Server. Elles ne contiennent pas d'informations supplémentaires par rapport à ce que les appareils mobiles envoient à Exchange Server.  
+##  <a name="BKMK_Privacy_ExchangeConnector"></a>Privacygegevens voor mobiele apparaten die worden beheerd met de Exchange Server-Connector  
+ De Exchange Server-connector zoekt en beheert apparaten die verbinding hebben met Exchange Server (op locatie of gehost) via het ActiveSync-protocol. De door de Exchange Server-Connector gevonden records worden opgeslagen in de Configuration Manager-database. De gegevens worden verzameld uit Exchange-Server. Deze bevatten geen extra informatie van wat de mobiele apparaten naar Exchange server verzenden.  
 
- Les informations de l'appareil mobile ne sont pas envoyées à Microsoft. Ensuite, les informations de compatibilité sont stockées dans la base de données de Configuration Manager. Les informations sont conservées dans la base de données jusqu'à leur suppression par les tâches de maintenance du site **Supprimer les données de découverte anciennes** , tous les 90 jours. Vous pouvez configurer l'intervalle de suppression.  
+ De informatie van mobiele apparaten wordt niet naar Microsoft verzonden. De informatie van mobiele apparaten wordt opgeslagen in de Configuration Manager-database. Informatie wordt in de database bewaard tot deze om de 90 dagen door de siteonderhoudstaken **Verouderde detectiegegevens verwijderen** wordt verwijderd. U kunt het verwijderingsinterval configureren.  
 
- Avant d'installer et de configurer le connecteur Exchange Server, pensez à vos besoins en matière de confidentialité.  
+ Denk na over uw privacyvereisten voordat u de Exchange Server-connector installeert en configureert.  

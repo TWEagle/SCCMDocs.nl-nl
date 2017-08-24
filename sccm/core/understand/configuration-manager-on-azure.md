@@ -1,6 +1,6 @@
 ---
-title: Configuration Manager dans Azure | Microsoft Docs
-description: "Informations sur l’utilisation de Configuration Manager dans un environnement Azure."
+title: Configuration Manager in Azure | Microsoft Docs
+description: Informatie over het gebruik van Configuration Manager op een Azure-omgeving.
 ms.custom: na
 ms.date: 03/27/2017
 ms.reviewer: na
@@ -16,166 +16,166 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 5276ad999fc871496d79e6efff34d5edc6335380
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configuration-manager-on-azure---frequently-asked-questions"></a>Configuration Manager dans Azure – Forum Aux Questions
-*S’applique à : System Center Configuration Manager (Current Branch)*
+# <a name="configuration-manager-on-azure---frequently-asked-questions"></a>Configuration Manager in Azure: Frequently Asked Questions
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Les questions et réponses suivantes peuvent vous aider à comprendre quand utiliser et comment configurer Configuration Manager dans Microsoft Azure.
+De volgende vragen en antwoorden kunt u leert wanneer te gebruiken en het configureren van Configuration Manager op Microsoft Azure.
 
-## <a name="general-questions"></a>Questions générales
-### <a name="my-company-is-trying-to-move-as-many-physical-servers-as-possible-to-microsoft-azure-can-i-move-configuration-manager-servers-to-azure"></a>Mon entreprise tente de déplacer autant de serveurs physiques que possible vers Microsoft Azure. Puis-je déplacer les serveurs Configuration Manager vers Azure ?
-Absolument, ce scénario est pris en charge.  Consultez [Prise en charge des environnements de virtualisation pour System Center Configuration Manager](/sccm/core/plan-design/configs/support-for-virtualization-environments).
+## <a name="general-questions"></a>Algemene vragen
+### <a name="my-company-is-trying-to-move-as-many-physical-servers-as-possible-to-microsoft-azure-can-i-move-configuration-manager-servers-to-azure"></a>Mijn bedrijf wilt verplaatsen zoals veel fysieke servers mogelijk bij Microsoft Azure, kan dat ik Configuration Manager-servers verplaatsen naar Azure?
+Zeker, dit is een ondersteund scenario.  Zie [ondersteuning voor virtualisatieomgevingen voor System Center Configuration Manager](/sccm/core/plan-design/configs/support-for-virtualization-environments).
 
-### <a name="great-my-environment-requires-multiple-sites-should-all-child-primary-sites-be-in-azure-with-the-central-administration-site-or-on-premises-what-about-secondary-sites"></a>Très bien ! Mon environnement requiert plusieurs sites. Tous les sites principaux enfants doivent-ils être dans Azure avec le site d’administration centrale ou locale ? Qu’en est-il des sites secondaires ?
-Les communications de site à site (réplication de base de données et basée sur les fichiers) tirent parti de la proximité de l’hébergement dans Azure. Toutefois, tout le trafic associé aux clients serait distant des serveurs de site et des systèmes de site. Si vous utilisez une connexion réseau rapide et fiable entre Azure et votre intranet avec un plan de données illimité, l’hébergement de toute votre infrastructure dans Azure est une option.
+### <a name="great-my-environment-requires-multiple-sites-should-all-child-primary-sites-be-in-azure-with-the-central-administration-site-or-on-premises-what-about-secondary-sites"></a>Goed gedaan. Mijn omgeving moet meerdere sites. Alle onderliggende primaire sites moet in Azure met de centrale beheersite of een on-premises? Hoe zit het met secundaire sites?
+Site-naar-site-communicatie (op basis van bestanden en databasereplicatie) voordelen biedt voor in de buurt van wordt gehost in Azure. Echter clientgerelateerde alle verkeer extern van siteservers en sitesystemen zou zijn. Als u een snelle en betrouwbare netwerkverbinding tussen Azure en het intranet met een onbeperkte gegevens-plan gebruiken, is die als host fungeert voor uw infrastructuur in Azure een optie.
 
-Toutefois, si vous utilisez un plan de données contrôlé et la bande passante disponible ou si le coût est un problème, ou si la connexion réseau entre Azure et votre intranet n’est pas rapide ou peut ne pas être fiable, envisagez de placer des sites spécifiques (et les systèmes de site) localement, puis d’utiliser les contrôles de bande passante intégrés dans Configuration Manager.
+Echter, als u een plan datalimiet gebruiken en de beschikbare bandbreedte of kosten een probleem is of de netwerkverbinding tussen Azure en het intranet is geen snelle of onbetrouwbare kan worden, overweeg vervolgens te plaatsen specifieke sites (en sitesystemen) on-premises en gebruik vervolgens de bandbreedte besturingselementen in Configuration Manager gebouwd.
 
-### <a name="is-having-configuration-manager-in-azure-a-saas-scenario-software-as-a-service"></a>Le fait d’avoir Configuration Manager dans Azure est-il un scénario SaaS (logiciel en tant que service) ?
-Non, il s’agit d’un IaaS (infrastructure en tant que service), car vous hébergez vos serveurs d’infrastructure Configuration Manager sur des machines virtuelles Azure.
+### <a name="is-having-configuration-manager-in-azure-a-saas-scenario-software-as-a-service"></a>Heeft Configuration Manager in Azure een SaaS-scenario (Software als een Service)?
+Nee, is een IaaS (infrastructuur als een Service) omdat u uw Configuration Manager-infrastructuurservers in virtuele machines in Azure worden gehost.
 
-### <a name="what-areas-should-i-pay-attention-to-when-considering-a-move-of-my-configuration-manager-infrastructure-to-azure"></a>À quelles zones dois-je faire attention lorsque j’envisage un déplacement de mon infrastructure Configuration Manager vers Azure ?
-Excellente question. Voici les zones les plus importantes quand vous prenez cette décision. Chacune est explorée dans une section distincte de cette rubrique :
-1.  Mise en réseau
-2.  Disponibilité
-3.  Performances
-4.  Coût
-5.  Expérience utilisateur
+### <a name="what-areas-should-i-pay-attention-to-when-considering-a-move-of-my-configuration-manager-infrastructure-to-azure"></a>Welke gebieden moet ik letten wanneer u overweegt een verplaatsing van mijn Configuration Manager-infrastructuur naar Azure?
+Goede vraag hier worden de gebieden die het belangrijkst zijn wanneer deze beslissing, elk is verkend in een aparte sectie van dit onderwerp:
+1.  Netwerken
+2.  Beschikbaarheid
+3.  Prestatie
+4.  Kosten
+5.  Gebruikerservaring
 
-## <a name="networking"></a>Mise en réseau
-### <a name="what-about-networking-requirements-should-i-use-expressroute-or-an-azure-vpn-gateway"></a>Qu’en est-il de la configuration réseau requise ? Dois-je utiliser ExpressRoute ou une passerelle VPN Azure ?
-La mise en réseau est une décision très importante. Les vitesses et la latence des réseaux peuvent affecter les fonctionnalités entre le serveur de site et les systèmes de site distants, ainsi que les communications des clients vers les systèmes de site. Nous vous recommandons d’utiliser ExpressRoute. Toutefois, Configuration Manager ne présente aucune limitation pour vous empêcher d’utiliser la passerelle VPN Azure. Vous devez examiner attentivement vos besoins (performances, correctifs, distribution de logiciels, déploiement de système d’exploitation) à partir de cette infrastructure, puis prendre votre décision. Voici quelques points à prendre en compte pour chaque solution :
+## <a name="networking"></a>Netwerken
+### <a name="what-about-networking-requirements-should-i-use-expressroute-or-an-azure-vpn-gateway"></a>Hoe zit het netwerkvereisten, moet ik ExpressRoute of een Azure VPN-Gateway gebruiken?
+Netwerken wordt een zeer belangrijke beslissing. Netwerksnelheden en latentie kunnen functionaliteit tussen de siteserver en externe sitesystemen en alle clientcommunicatie naar de sitesystemen beïnvloeden. Onze aanbeveling is het gebruik van ExpressRoute. Maar er geldt geen beperking voor Configuration Manager om te voorkomen dat u met behulp van Azure VPN-Gateway. U moet zorgvuldig door uw vereisten (prestaties, patches, softwaredistributie, implementatie van besturingssystemen) van deze infrastructuur en breng vervolgens uw beslissing. Enkele overwegingen voor elke oplossing zijn onder andere:
 
- - **ExpressRoute** (recommandé)
-  - Extension naturelle de votre centre de données (peut relier plusieurs centres de données)
-  - Connexions privées entre des centres de données Azure et votre infrastructure
-  - Ne parvient pas jusqu’à l’Internet public
-  - Offre une fiabilité, des vitesses élevées, une latence plus faible, une haute sécurité
-  - Offre des vitesses pouvant atteindre 10 Gbits/s et des options de plan de données illimitées
- - **Passerelle VPN**
-  - Réseaux VPN de site à site/point à site
-  - Le trafic parvient jusqu’à l’Internet public
-  - Utilise la sécurité du protocole Internet (IPsec) et Internet Key Exchange (IKE)
+ - **ExpressRoute** (aanbevolen)
+  - Natuurlijke extensie voor uw datacenter (kunt met elkaar verbinden meerdere datacenters)
+  - Particuliere verbindingen tussen Azure-datacenters en uw infrastructuur
+  - Niet kan worden verstuurd via het openbare Internet
+  - Biedt betrouwbaarheid, hoge snelheden, lagere latentie en hoge beveiliging
+  - Aanbiedingen tot snelheden 10 Gbps en opties voor onbeperkte gegevens-plan
+ - **VPN-Gateway**
+  - Site-naar-site/punt-naar-site VPN-verbindingen
+  - Verkeer wordt via het openbare Internet
+  - Maakt gebruik van Internet Protocol Security (IPsec) en Internet Key Exchange (IKE)
 
-### <a name="expressroute-has-many-different-options-like-unlimited-vs-metered-different-speed-options-and-premium-add-on-which-should-i-choose"></a>ExpressRoute dispose de nombreuses options différentes telles que différentes options de vitesse, illimitées et contrôlées, ainsi qu’un module complémentaire premium. Laquelle choisir ?
-Les options que vous sélectionnez dépendent du scénario que vous mettez en œuvre et du volume de données que vous envisagez de distribuer. Le transfert de données de Configuration Manager peut être contrôlé entre les serveurs de site et les points de distribution, mais la communication de serveur de site à serveur de site ne peut pas être contrôlée.   Lorsque vous utilisez un plan de données contrôlé, le placement de sites spécifiques (et de systèmes de site) localement et l’utilisation de [contrôles de bande passante intégrés à Configuration Manager](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management) permettent de mieux contrôler le coût d’utilisation d’Azure.
+### <a name="expressroute-has-many-different-options-like-unlimited-vs-metered-different-speed-options-and-premium-add-on-which-should-i-choose"></a>ExpressRoute heeft veel verschillende opties zoals onbeperkte versus snelheid gecontroleerde, verschillende opties en premium-invoegtoepassing. Waarmee moet ik kiezen?
+De opties die u selecteert, is afhankelijk van het scenario dat u implementeert en hoeveel gegevens die u wilt distribueren. De overdracht van gegevens van Configuration Manager tussen siteservers en distributiepunten kan worden beheerd, maar site server-naar-site server-communicatie niet worden beheerd.   Wanneer u een plan datalimiet plaatsen specifieke sites (en sitesystemen) on-premises en met behulp van [van Configuration Manager ingebouwde bandbreedte besturingselementen](/sccm/core/plan-design/hierarchy/fundamental-concepts-for-content-management) kan helpen bij het beheren van de kosten van het gebruik van Azure.
 
-### <a name="what-about-installation-requirements-like-active-directory-domains-do-i-still-need-to-join-my-site-servers-to-an-active-directory-domain"></a>Qu’en est-il des exigences d’installation telles que les domaines Active Directory ? Ai-je encore besoin de joindre mes serveurs de site à un domaine Active Directory ?
-Oui. Quand vous passez à Azure, les [configurations prises en charge](/sccm/core/plan-design/configs/supported-configurations) restent les mêmes, notamment les exigences d’Active Directory pour l’installation de Configuration Manager.
+### <a name="what-about-installation-requirements-like-active-directory-domains-do-i-still-need-to-join-my-site-servers-to-an-active-directory-domain"></a>Hoe zit het met vereisten voor de installatie, zoals Active Directory-domeinen? Moet ik mijn siteservers toevoegen aan een Active Directory-domein?
+Ja. Wanneer u naar Azure verplaatst de [ondersteunde configuraties](/sccm/core/plan-design/configs/supported-configurations) hetzelfde blijven, met inbegrip van Active Directory-vereisten voor het installeren van Configuration Manager.
 
-### <a name="i-understand-the-need-to-join-my-site-servers-to-an-active-directory-domain-but-can-i-use-azure-active-directory"></a>Je comprends le besoin de joindre mes serveurs de site à un domaine Active Directory, mais puis-je utiliser Azure Active Directory ?
-Non, Azure Active Directory n’est pas pris en charge à ce stade. Vos serveurs de site doivent cependant être membres d’un [domaine Windows Active Directory](/sccm/core/plan-design/configs/support-for-active-directory-domains).
-
-
-
-## <a name="availability"></a>Disponibilité
-### <a name="one-of-the-reasons-i-am-moving-infrastructure-to-azure-is-the-promise-of-high-availability-can-i-take-advantage-of-high-availability-options-like-azure-vm-availability-sets-for-vms-that-i-will-use-for-configuration-manager"></a>L’une des raisons pour lesquelles je déplace l’infrastructure vers Azure est la promesse d’une haute disponibilité. Puis-je tirer parti des options de haute disponibilité, telles que les ensembles de disponibilité des machines virtuelles Azure, pour les machines virtuelles que j’utiliserai pour Configuration Manager ?
-Oui ! Des ensembles de disponibilité de machines virtuelles Azure peuvent être utilisés pour des rôles de système de site redondants, tels que les points de distribution ou les points de gestion.
-
-Vous pouvez également les utiliser pour les serveurs de site Configuration Manager. Par exemple, les sites d’administration centrale et les sites principaux peuvent tous être dans le même ensemble de disponibilité, ce qui peut vous aider à vous assurer qu’ils ne sont pas redémarrés en même temps.
-
-### <a name="how-can-i-make-my-database-highly-available-can-i-use-azure-sql-database-or-do-i-have-to-use-microsoft-sql-server-in-a-vm"></a>Comment puis-je rendre ma base de données hautement disponible ? Puis-je utiliser Base de données SQL Azure ? Ou dois-je utiliser Microsoft SQL Server sur une machine virtuelle ?
-Vous devez utiliser Microsoft SQL Server sur une machine virtuelle. Configuration Manager ne prend pas en charge Azure SQL Server à ce stade. Mais vous pouvez utiliser des fonctionnalités telles que les groupes de disponibilité AlwaysOn pour votre serveur SQL Server. Les [groupes de disponibilité AlwaysOn](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database) sont recommandés et sont officiellement pris en charge depuis la version 1602 de Configuration Manager.
-
-### <a name="can-i-use-azure-load-balancers-with-site-system-roles-like-management-points--or-software-update-points"></a>Puis-je utiliser des équilibreurs de charge Azure avec des rôles de système de site tels que les points de gestion ou les points de mise à jour logicielle ?
-Configuration Manager n’a pas été testé avec les équilibreurs de charge Azure, mais si la fonctionnalité est transparente pour l’application, elle ne doit pas avoir d’effets négatifs sur les opérations normales.
-
-
-## <a name="performance"></a>Performances
-### <a name="what-factors-affect-performance-in-this-scenario"></a>Quels facteurs affectent les performances dans ce scénario ?
-[La taille et le type des machines virtuelles Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs), les disques des machines virtuelles Azure (un stockage premium est recommandé, en particulier pour SQL Server), la latence de mise en réseau et la vitesse sont les domaines les plus importants.
-
-### <a name="so-tell-me-more-about-azure-virtual-machines-what-size-vms-should-i-use"></a>Spécifiez donc plus d’informations sur les machines virtuelles Azure ; quelle taille de machines virtuelles dois-je utiliser ?
-En règle générale, votre puissance de calcul (UC et mémoire) doit correspondre au [matériel recommandé pour System Center Configuration Manager](/sccm/core/plan-design/configs/recommended-hardware). Toutefois, il existe certaines différences entre le matériel informatique standard et les machines virtuelles Azure, notamment en ce qui concerne les disques que ces machines virtuelles utilisent.  La taille des machines virtuelles que vous utilisez dépend de la taille de votre environnement. Voici quelques recommandations :
-- Pour les déploiements en production d’une taille importante, nous recommandons des machines virtuelles Azure de classe « **S** ». Cela tient au fait qu’elles peuvent tirer parti des disques de stockage Premium.  Les machines virtuelles de classe autre que « S » utilisent le stockage d’objets blob et, en général, ne respectent pas les exigences de performances nécessaires pour un environnement de production acceptable.
-- Plusieurs disques de stockage Premium doivent être utilisés pour une échelle supérieure et agrégés par bandes dans la console Windows Disk Management pour un nombre maximal d’E/S par seconde.  
-- Nous vous recommandons d’utiliser de meilleurs disques premium ou plusieurs disques premium pendant votre déploiement initial de site (comme P30 à la place de P20, et 2xP30 dans un volume agrégé par bandes à la place de 1xP30). Ensuite, si votre site a besoin d’augmenter ultérieurement la taille des machines virtuelles en raison d’une charge supplémentaire, vous pouvez tirer parti de l’UC et de la mémoire supplémentaires qu’une plus grande taille de machine virtuelle fournit. Vous aurez également des disques déjà en place, susceptibles de tirer parti du débit d’E/S par seconde supplémentaire que permet la plus grande taille de machine virtuelle.
+### <a name="i-understand-the-need-to-join-my-site-servers-to-an-active-directory-domain-but-can-i-use-azure-active-directory"></a>Ik begrijp de noodzaak mijn siteservers toevoegen aan een Active Directory-domein, maar kan ik Azure Active Directory gebruiken?
+Nee, Azure Active Directory wordt niet ondersteund op dit moment. Uw siteservers nog steeds moeten lid zijn van een [Windows Active Directory-domein](/sccm/core/plan-design/configs/support-for-active-directory-domains).
 
 
 
-Les tableaux suivants répertorient les nombres de disques suggérés initiaux à utiliser sur les sites principaux et d’administration centrale pour des installations de différentes tailles :
+## <a name="availability"></a>Beschikbaarheid
+### <a name="one-of-the-reasons-i-am-moving-infrastructure-to-azure-is-the-promise-of-high-availability-can-i-take-advantage-of-high-availability-options-like-azure-vm-availability-sets-for-vms-that-i-will-use-for-configuration-manager"></a>Een van de redenen dat ik ben infrastructuur verplaatsen naar Azure is de belofte van hoge beschikbaarheid. Kan ik profiteren van de opties voor hoge beschikbaarheid zoals Azure VM beschikbaarheidssets voor virtuele machines die ik gebruik voor Configuration Manager?
+Ja! Beschikbaarheidssets van Azure VM kunnen worden gebruikt voor redundante sitesysteemrollen zoals distributiepunten of beheerpunten.
 
-**Base de données de site colocalisé** : site d’administration centrale ou site principal avec la base de données de site sur le serveur de site :
+U kunt ze ook gebruiken voor de Configuration Manager-siteservers. Bijvoorbeeld: centrale beheersites en primaire sites kunnen worden in dezelfde beschikbaarheidsset die u ervoor zorgen kunt dat ze niet op hetzelfde moment opnieuw opgestart.
 
-| Clients bureau    |Taille de machine virtuelle recommandée|Disques recommandés|
+### <a name="how-can-i-make-my-database-highly-available-can-i-use-azure-sql-database-or-do-i-have-to-use-microsoft-sql-server-in-a-vm"></a>Hoe kan ik mijn database maximaal beschikbaar maken? Kan ik Azure SQL Database gebruiken? Of heb ik Microsoft SQL Server op een virtuele machine gebruiken?
+U moet Microsoft SQL Server gebruiken in een virtuele machine. Configuration Manager biedt geen ondersteuning voor Azure SQL Server op dit moment. Maar u kunt functies zoals AlwaysOn-beschikbaarheidsgroepen gebruiken voor uw SQL-server. [AlwaysOn Availability Groups](/sccm/core/servers/deploy/configure/sql-server-alwayson-for-a-highly-available-site-database) worden aanbevolen en officieel ondersteund vanaf versie 1602 van Configuration Manager.
+
+### <a name="can-i-use-azure-load-balancers-with-site-system-roles-like-management-points--or-software-update-points"></a>Kan ik Azure load balancers met sitesysteemrollen zoals beheerpunten of software-updatepunten gebruiken?
+Terwijl Configuration Manager niet met Azure load balancers geldt getest is als de functionaliteit transparant voor de toepassing is, mag het geen negatieve gevolgen op normale bewerkingen.
+
+
+## <a name="performance"></a>Prestatie
+### <a name="what-factors-affect-performance-in-this-scenario"></a>Welke factoren van invloed op prestaties in dit scenario?
+[Azure VM-grootte en het type](https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs), Azure VM-schijven (premium-opslag wordt aanbevolen, met name voor SQL Server), netwerken latentie en snelheid zijn de belangrijkste gebieden.
+
+### <a name="so-tell-me-more-about-azure-virtual-machines-what-size-vms-should-i-use"></a>Dus meer informatie over virtuele machines in Azure; welke de grootte van virtuele machines moet ik gebruiken?
+In het algemeen de rekencapaciteit (CPU en geheugen) moet voldoen aan de [aanbevolen hardware voor System Center Configuration Manager](/sccm/core/plan-design/configs/recommended-hardware). Maar er zijn een aantal verschillen tussen reguliere computerhardware en de Azure VM's, vooral wanneer het gaat om de schijven het gebruik van deze virtuele machines.  Welke grootte van virtuele machines die u gebruikt, is afhankelijk van de grootte van uw omgeving, maar hier volgen enkele aanbevelingen:
+- Voor de productie-implementaties van elke grootte aanzienlijke aangeraden '**S**' klasse virtuele Azure-machines. Dit is omdat ze van Premium-opslag-schijven gebruikmaken kunnen.  Niet "S" klasse VMs gebruik blob-opslag en in het algemeen niet voldoet aan de prestatie-eisen die nodig zijn voor een acceptabele productie-ervaring.
+- Meerdere schijven met Premium-opslag moeten worden gebruikt voor een hogere schaal en striped opgeslagen in de console Windows Schijfbeheer bij maximumaantal IOPS.  
+- Wordt u aangeraden beter of meerdere premium-schijven tijdens de implementatie van uw eerste site (zoals P30 in plaats van P20 en 2xP30 in striped volumes in plaats van 1xP30). Klik, als uw site later mogelijk uitbreiden in VM-grootte vanwege de extra belasting moet, kunt u profiteren van de aanvullende CPU en geheugen dat voorziet in een grotere VM-grootte. Ook hebt u schijven al in de locatie die u kunt profiteren van de aanvullende IOPS doorvoer waarmee de grotere VM-grootte.
+
+
+
+De volgende tabellen worden de eerste voorgestelde schijf tellingen gebruikmaken van op primaire en centrale beheersites voor installaties van verschillende grootte:
+
+**CO-locaties sitedatabase** -primaire of centrale beheersite met de sitedatabase op de siteserver:
+
+| Bureaublad-Clients    |Aanbevolen VM-grootte|Aanbevolen schijven|
 |--------------------|-------------------|-----------------|
-|**Jusqu’à 25 000**       |   DS4_V2          |2xP30 (agrégé par bandes)  |
-|**de 25 000 à 50 000**      |   DS13_V2         |2xP30 (agrégé par bandes)  |
-|**de 50 000 à 100 000**     |   DS14_V2         |3xP30 (agrégé par bandes)  |
+|**Maximaal 25k**       |   DS4_V2          |2xP30 (striped)  |
+|**25-k tot 50k**      |   DS13_V2         |2xP30 (striped)  |
+|**k van 50-100 kB**     |   DS14_V2         |3xP30 (striped)  |
 
 
-**Base de données de site distant** : site d’administration centrale ou site principal avec la base de données de site sur le serveur de site :
+**Externe sitedatabase** -primaire of centrale beheersite met de sitedatabase op een externe server:
 
-| Clients bureau    |Taille de machine virtuelle recommandée|Disques recommandés |
+| Bureaublad-Clients    |Aanbevolen VM-grootte|Aanbevolen schijven |
 |--------------------|-------------------|------------------|
-|**Jusqu’à 25 000**       | Serveur de site : F4S </br>Serveur de base de données : DS12_V2 | Serveur de site : 1xP30 </br>Serveur de base de données : 2xP30 (agrégé par bandes)  |
-|**de 25 000 à 50 000**      | Serveur de site : F4S </br>Serveur de base de données : DS13_V2 | Serveur de site : 1xP30 </br>Serveur de base de données : 2xP30 (agrégé par bandes)   |
-|**de 50 000 à 100 000**     | Serveur de site : F8S </br>Serveur de base de données : DS14_V2 | Serveur de site : 2xP30 (agrégé par bandes)   </br>Serveur de base de données : 3xP30 (agrégé par bandes)   |
+|**Maximaal 25k**       | Siteserver: F4S </br>Database-server: DS12_V2 | Siteserver: 1xP30 </br>Database-server: 2xP30 (striped)  |
+|**25-k tot 50k**      | Siteserver: F4S </br>Database-server: DS13_V2 | Siteserver: 1xP30 </br>Database-server: 2xP30 (striped)   |
+|**k van 50-100 kB**     | Siteserver: F8S </br>Database-server: DS14_V2 | Siteserver: 2xP30 (striped)   </br>Database-server: 3xP30 (striped)   |
 
-Voici un exemple de configuration pour 50 000 à 100 000 clients sur DS14_V2 avec 3 disques P30 dans un volume agrégé par bandes avec des volumes logiques distincts pour les fichiers d’installation de Configuration Manager et les fichiers de base de données : ![VM)disks](media/vm_disks.png)  
+Hieronder ziet u een van de voorbeeldconfiguratie voor clients van 50-k tot 100k op DS14_V2 met 3xP30 schijven in een striped volume afzonderlijke logische volumes voor de Configuration Manager installeren en databasebestanden: ![VM)-schijven](media/vm_disks.png)  
 
 
 
-## <a name="user-experience"></a>Expérience utilisateur
-### <a name="you-mention-that-user-experience-is-one-of-the-main-areas-of-importance-why-is-that"></a>Vous indiquez que l’expérience utilisateur est l’un des principaux domaines d’importance, pourquoi ?
-Les décisions que vous prenez quant à la mise en réseau, la disponibilité, les performances et l’emplacement où vous placez vos serveurs de site Configuration Manager peuvent directement affecter vos utilisateurs. Nous pensons qu’un déplacement vers Azure doit être transparent pour vos utilisateurs afin qu’ils ne rencontrent aucune modification de leurs interactions quotidiennes avec Configuration Manager.
+## <a name="user-experience"></a>Gebruikerservaring
+### <a name="you-mention-that-user-experience-is-one-of-the-main-areas-of-importance-why-is-that"></a>U aangeven dat gebruikerservaring een van de belangrijkste gebieden van belang is is, waarom is dat?
+De beslissingen die u maakt voor netwerken, beschikbaarheid, prestaties en waar u uw Configuration Manager-siteservers rechtstreeks uw gebruikers kunnen beïnvloeden. We zijn ervan overtuigd dat verplaatsen naar Azure moet transparant voor uw gebruikers zodat er is geen sprake van een wijziging in hun dagelijkse interacties met Configuration Manager.
 
-### <a name="ok-i-get-it-i-plan-to-install-a-single-stand-alone-primary-site-on-an-azure-virtual-machine-and-i-want-to-make-sure-my-costs-are-low-should-i-place-remote-site-systems-like-management-points-distribution-points-and-software-update-points-on-azure-virtual-machines-as-well-or-on-premises"></a>Je comprends. J’envisage d’installer un site principal autonome unique sur une machine virtuelle Azure et je veux m’assurer que les coûts seront faibles. Dois-je placer les systèmes de site (distants) (tels que des points de gestion, des points de distribution et des points de mise à jour logicielle) sur des machines virtuelles Azure aussi ou localement ?
-À l’exception des communications depuis le serveur de site vers un point de distribution, des communications de serveur à serveur dans un site peuvent avoir lieu à tout moment et n’utilisent aucun mécanisme pour contrôler l’utilisation de la bande passante réseau. Étant donné que vous ne pouvez pas contrôler les communications entre les systèmes de site, tous les coûts associés à ces communications doivent être pris en compte.
+### <a name="ok-i-get-it-i-plan-to-install-a-single-stand-alone-primary-site-on-an-azure-virtual-machine-and-i-want-to-make-sure-my-costs-are-low-should-i-place-remote-site-systems-like-management-points-distribution-points-and-software-update-points-on-azure-virtual-machines-as-well-or-on-premises"></a>OK klikt, verschijnt het. Ik wil een enkele zelfstandige primaire site installeren op een virtuele machine van Azure en ik wil ervoor zorgen dat mijn kosten laag zijn. Moet ik (extern) sitesystemen (zoals beheerpunten, distributiepunten en software-updatepunten) op virtuele machines in Azure ook of on-premises plaatsen?
+Met uitzondering van de communicatie van de siteserver naar een distributiepunt, is deze server naar server-communicatie in een site op elk gewenst moment kan optreden, en geen gebruikgemaakt van mechanismen voor het beheren van het gebruik van netwerkbandbreedte. U kunt de communicatie tussen sitesystemen controleren, eventuele kosten die zijn gekoppeld aan deze communicatie beschouwd.
 
-Les vitesses et la latence des réseaux sont d’autres facteurs à prendre en compte également. Des réseaux lents et non fiables peuvent affecter les fonctionnalités entre le serveur de site et les systèmes de site distants, ainsi que les communications des clients vers les systèmes de site. Le nombre de clients managés qui utilisent un système de site donné, ainsi que les fonctionnalités que vous utilisez activement doivent également être pris en compte.
-En général, vous pouvez exploiter les conseils normaux en ce qui concerne les liaisons WAN et les systèmes de site, comme point de départ. Dans l’idéal, le débit réseau que vous sélectionnez et recevez entre Azure et votre intranet est cohérent avec un réseau WAN correctement connecté à un réseau rapide.
+Zijn andere factoren ook netwerksnelheden en latentie. Functionaliteit tussen de siteserver en externe sitesystemen als ook alle clientcommunicatie naar de sitesystemen kunnen van invloed zijn trage of onbetrouwbare netwerken. Het aantal beheerde clients die gebruikmaken van een opgegeven sitesysteem, evenals de functies die u actief gebruikt moet ook worden overwogen.
+In het algemeen kunt u de normale richtlijnen met betrekking tot WAN-verbindingen en sitesystemen als uitgangspunt gebruikmaken. De netwerkdoorvoer die u selecteert en ontvangt tussen Azure en het intranet worden in het ideale geval consistent zijn met een WAN die goed is verbonden met een snel netwerk.
 
-### <a name="what-about-content-distribution-and-content-management-should-standard-distribution-points-be-in-azure-or-on-premises-and-should-i-use-branchcache-or-pull-distribution-points-on-premises-or-should-i-make-exclusive-use-of-cloud-distribution-points"></a>Qu’en est-il de la distribution de contenu et de la gestion de contenu ? Les points de distribution standard doivent-ils être dans Azure ou localement, et dois-je utiliser BranchCache ou des points de distribution d’extraction localement ? Ou faut-il que j’effectue un usage exclusif des points de distribution cloud ?
-L’approche de la gestion de contenu est très similaire à celui pour les serveurs de site et les systèmes de site.
-- Si vous utilisez une connexion réseau rapide et fiable entre Azure et votre intranet avec un plan de données illimité, l’hébergement de points de distribution standard dans Azure pourrait être une option.
--  Si vous utilisez un plan de données contrôlé et que le coût de la bande passante est un problème ou que la connexion réseau entre Azure et votre intranet n’est pas rapide ou peut ne pas être fiable, vous pouvez envisager d’autres approches. Elles incluent le positionnement des points de distribution d’extraction ou standard localement, ainsi que l’utilisation de BranchCache. L’utilisation des points de distribution cloud est également une option, mais il existe certaines limites sur les types de contenu pris en charge (par exemple, aucune prise en charge pour les packages de mises à jour logicielles).
+### <a name="what-about-content-distribution-and-content-management-should-standard-distribution-points-be-in-azure-or-on-premises-and-should-i-use-branchcache-or-pull-distribution-points-on-premises-or-should-i-make-exclusive-use-of-cloud-distribution-points"></a>Hoe zit het distribueren van inhoud en inhoudbeheer? Standaard distributiepunten moet in Azure of on-premises, en moet ik gebruiken BranchCache of lokale pull-distributiepunten? Of moet ik ervoor exclusief gebruik maken van Clouddistributiepunten?
+De benadering voor inhoudsbeheer is grotendeels hetzelfde als voor siteservers en sitesystemen.
+- Als u een snelle en betrouwbare netwerkverbinding tussen Azure en het intranet met een onbeperkte gegevens-plan gebruiken, kan die als host fungeert voor standaarddistributiepunten in Azure een optie worden.
+-  Als u een datalimiet plannings- en bandbreedte kosten is een probleem of de netwerkverbinding tussen Azure en uw intranet is niet snel of onbetrouwbare, kan worden en vervolgens u andere methoden kunt. Deze omvatten zoeken naar standard of pull-distributiepunten zowel lokale als met behulp van BranchCache. Het gebruik van cloud-gebaseerde distributiepunten is ook een optie, maar er zijn enkele beperkingen op de inhoudstypen die wordt ondersteund (bijvoorbeeld geen ondersteuning voor software-updatepakketten).
 
 > [!NOTE]
->  Si la prise en charge PXE est requise, vous devez utiliser des points de distribution locaux (standard ou d’extraction) pour répondre aux demandes de démarrage. [WDS n’est actuellement pas pris en charge pour s’exécuter sur les machines virtuelles Azure](https://technet.microsoft.com/library/hh831764(v=ws.11).aspx).
+>  Als u PXE-ondersteuning is vereist, moet u on-premises distributiepunten (standard of pull) gebruiken om te reageren op aanvragen voor het starten. [WDS wordt momenteel niet ondersteund als u wilt uitvoeren op Azure Virtual machines](https://technet.microsoft.com/library/hh831764(v=ws.11).aspx).
 
 
-### <a name="while-i-am-ok-with-the-limitations-of-cloud-based-distribution-points-i-dont-want-to-put-my-management-point-into-a-dmz-even-though-that-is-needed-to-support-my-internet-based-clients-do-i-have-any-other-options"></a>Les limitations des points de distribution cloud ne me posent pas de problème, mais je ne souhaite pas placer mon point de gestion dans une zone DMZ, même si cela est nécessaire pour prendre en charge mes clients basés sur Internet. Y a-t-il d’autres options à ma disposition ?
-Oui ! Dans Configuration Manager version 1610, nous avons introduit la fonctionnalité de préversion [Passerelle de gestion cloud](/sccm/core/clients/manage/manage-clients-internet#cloud-management-gateway). (Cette fonctionnalité a d’abord été proposée dans la version Technical Preview 1606 sous le nom [Service de proxy cloud](/sccm/core/get-started/capabilities-in-technical-preview-1606#a-namecloudproxyacloud-proxy-service-for-managing-clients-on-the-internet).)
+### <a name="while-i-am-ok-with-the-limitations-of-cloud-based-distribution-points-i-dont-want-to-put-my-management-point-into-a-dmz-even-though-that-is-needed-to-support-my-internet-based-clients-do-i-have-any-other-options"></a>Terwijl ik OK met de beperkingen van cloud-gebaseerde distributiepunten ben, wil ik mijn beheerpunt in een Perimeternetwerk geplaatst, zelfs als die nodig zijn ter ondersteuning van mijn clients op Internet. Heb ik andere opties?
+Ja! Met de Configuration Manager versie-1610 geïntroduceerd we de [Cloud Management Gateway](/sccm/core/clients/manage/manage-clients-internet#cloud-management-gateway) als een functie van de voorlopige versie. (Deze functie komt eerst in de Technical Preview-versie 1606 als de [Cloudproxyservice](/sccm/core/get-started/capabilities-in-technical-preview-1606#a-namecloudproxyacloud-proxy-service-for-managing-clients-on-the-internet)).
 
-La fonctionnalité **Passerelle de gestion cloud** fournit un moyen simple de gérer les clients Configuration Manager sur Internet. Ce service, qui est déployé sur Microsoft Azure et nécessite un abonnement Azure, se connecte à votre infrastructure Configuration Manager locale à l’aide d’un nouveau rôle appelé « point de connexion de passerelle de gestion cloud ». Après son déploiement et sa configuration, les clients peuvent accéder aux rôles de système de site Configuration Manager locaux, qu’ils soient connectés au réseau privé interne ou à Internet.
+De **Cloud Management Gateway** biedt een eenvoudige manier voor het beheren van Configuration Manager-clients op Internet. De service, die wordt geïmplementeerd voor Microsoft Azure en een Azure-abonnement is vereist, maakt verbinding met uw on-premises Configuration Manager-infrastructuur met behulp van een nieuwe rol met de naam van het cloud-gateway connector beheerpunt. Nadat deze is geïmplementeerd en geconfigureerd, clients toegang lokale sitesysteemrollen van Configuration Manager ongeacht tot hebben of ze bent verbonden met het interne particuliere netwerk of op het Internet.
 
-Vous pouvez commencer à utiliser la passerelle de gestion cloud dans votre environnement et nous envoyer vos commentaires pour nous aider à améliorer cette fonctionnalité. Pour plus d’informations sur les fonctionnalités de préversions, consultez [Utiliser des fonctionnalités de préversions de mises à jour](/sccm/core/servers/manage/install-in-console-updates#a-namebkmkprereleasea-use-pre-release-features-from-updates).
+U kunt aan de slag met de cloud-management-gateway in uw omgeving en feedback te dit beter te maken. Zie voor meer informatie over de functies van evaluatieversies [functies van evaluatieversies van updates gebruiken](/sccm/core/servers/manage/install-in-console-updates#a-namebkmkprereleasea-use-pre-release-features-from-updates).
 
-### <a name="i-also-heard-that-you-have-another-new-feature-called-peer-cache-introduced-as-a-pre-release-feature-in-version-1610-is-that-different-than-branchcache-which-one-should-i-choose"></a>J’ai également entendu que vous avez introduit une nouvelle fonctionnalité, appelée Cache d’homologue, comme fonctionnalité préliminaire dans la version 1610. Est-elle différente de BranchCache ? Laquelle choisir ?
-Oui, totalement différente. La fonctionnalité [Cache d’homologue](/sccm/core/plan-design/hierarchy/client-peer-cache) est une technologie 100 % native de Configuration Manager, alors que BranchCache est une fonctionnalité de Windows. Les deux peuvent vous être utiles. BranchCache utilise une diffusion pour rechercher le contenu requis alors que le cache d’homologue utilise les paramètres de groupe de limites et de flux de travail de distribution standard de Configuration Manager.
+### <a name="i-also-heard-that-you-have-another-new-feature-called-peer-cache-introduced-as-a-pre-release-feature-in-version-1610-is-that-different-than-branchcache-which-one-should-i-choose"></a>Ik ook gehoord dat er een andere nieuwe functie geïntroduceerd als onderdeel van de voorlopige versie 1610-Peer-Cache. Verschilt van die BranchCache? Welk account moet ik kiezen?
+Ja, compleet andere. [Peer-Cache](/sccm/core/plan-design/hierarchy/client-peer-cache) is een systeemeigen Configuration Manager-technologie van 100% waarop BranchCache een functie van Windows is. Beide kunnen nuttig zijn voor u; BranchCache maakt gebruik van een uitzending vereiste inhoud vinden dat Configuration Managers-normale distributie werkstroom en grens groepsinstellingen maakt gebruik van Peer-Cache.
 
-Vous pouvez configurer n’importe quel client comme source de mise en cache d’homologue. Ensuite, lorsque les points de gestion fournissent aux clients des informations sur les emplacements sources de contenu, ils fournissent des détails sur les points de distribution et toutes les sources de mise en cache d’homologue qui disposent du contenu que le client requiert.
+U kunt een client configureren voor een Peer-Cache-bron. Vervolgens wanneer beheerpunten clients informatie over de locatie van de inhoudsbron, ze bieden informatie over de distributiepunten en een Peer-Cache-bronnen die de inhoud bevatten die client vereist.
 
 
-## <a name="cost"></a>Coût
-### <a name="ok-tell-me-a-bit-about-the-cost-will-this-be-a-cost-effective-solution-for-me"></a>Donnez-moi des informations sur le coût. Cette solution sera-t-elle à faible coût ?
-Cela est difficile à dire puisque chaque environnement est différent. La meilleure chose à faire est d’estimer le coût de votre environnement à l’aide de la calculatrice de prix de Microsoft Azure : https://azure.microsoft.com/pricing/calculator/
+## <a name="cost"></a>Kosten
+### <a name="ok-tell-me-a-bit-about-the-cost-will-this-be-a-cost-effective-solution-for-me"></a>OK meer iets over de kosten. Is dit een rendabele oplossing voor mij?
+Moeilijk te spreken sinds elke omgeving verschilt. De beste is aan de kosten van uw omgeving met Microsoft Azure prijscalculator: https://azure.microsoft.com/pricing/calculator/
 
-## <a name="additional-resources"></a>Ressources supplémentaires
-**Notions de base :** http://azure.microsoft.com/documentation/articles/fundamentals-introduction-to-azure/
+## <a name="additional-resources"></a>Aanvullende bronnen
+**Grondbeginselen:** http://azure.microsoft.com/documentation/articles/fundamentals-introduction-to-azure/
 
-**Types de machines virtuelles Azure :**
- - Tailles des machines Azure : https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs/  
- - Tarification des machines virtuelles : http://azure.microsoft.com/pricing/details/virtual-machines/  
- - Tarification Azure Storage : http://azure.microsoft.com/pricing/details/storage/
+**Typen Azure VM-machines:**
+ - Azure Machine grootten: https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs/  
+ - VM-prijzen: http://azure.microsoft.com/pricing/details/virtual-machines/  
+ - Prijzen voor Storage: http://azure.microsoft.com/pricing/details/storage/
 
-**Considérations sur les performances de disque :**    
- - Introduction à disque Premium : http://azure.microsoft.com/blog/2014/12/11/introducing-premium-storage-high-performance-storage-for-azure-virtual-machine-workloads/  
- - Informations approfondies sur disque Premium : http://azure.microsoft.com/documentation/articles/storage-premium-storage-preview-portal/   
- - Ensemble pratique de graphiques de cibles de tailles et de performances maximales pour Storage : https://azure.microsoft.com/documentation/articles/storage-scalability-targets/  
- - Autre introduction + données intéressantes sur le fonctionnement du stockage Premium en coulisses : http://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2/
+**Aandachtspunten voor prestaties bij schijf:**    
+ - Premium schijf intro: http://azure.microsoft.com/blog/2014/12/11/introducing-premium-storage-high-performance-storage-for-azure-virtual-machine-workloads/  
+ - Premium Schijfinfo diepere: http://azure.microsoft.com/documentation/articles/storage-premium-storage-preview-portal/   
+ - Handige verzameling grafieken voor maximale grootten en Perf gericht voor opslag: https://azure.microsoft.com/documentation/articles/storage-scalability-targets/  
+ - Een andere Intro + sommige cool uber-zo'n expert gegevens over de werking van Premium-opslag achter de schermen: http://azure.microsoft.com/blog/2015/04/16/azure-premium-storage-now-generally-available-2/
 
-**Disponibilité :**
- - Contrat SLA de durée active Azure IaaS : https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/  
- - Ensembles de disponibilité expliqués : https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability/
+**Beschikbaarheid:**
+ - Azure IaaS bedrijfstijd SLA van: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/  
+ - Beschikbaarheidssets uitgelegd: https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability/
 
-**Connectivité :**
- - ExpressRoute ou réseau VPN Azure : http://azure.microsoft.com/blog/2014/06/10/expressroute-or-virtual-network-vpn-whats-right-for-me/
- - Tarification ExpressRoute : http://azure.microsoft.com/pricing/details/expressroute/
- - Plus d’informations sur ExpressRoute : http://azure.microsoft.com/documentation/articles/expressroute-introduction/
+**Verbinding:**
+ - Express route-tegenover. Azure VPN: http://azure.microsoft.com/blog/2014/06/10/expressroute-or-virtual-network-vpn-whats-right-for-me/
+ - Express Route prijzen: http://azure.microsoft.com/pricing/details/expressroute/
+ - Meer informatie over Express Route: http://azure.microsoft.com/documentation/articles/expressroute-introduction/
 
  

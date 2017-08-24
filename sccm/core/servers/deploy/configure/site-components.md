@@ -1,6 +1,6 @@
 ---
-title: Composants de site pour Configuration Manager | Microsoft Docs
-description: "Apprenez à configurer des composants de site pour modifier le comportement des rôles système de site et la création des rapports d’état de site."
+title: Siteonderdelen voor Configuration Manager | Microsoft Docs
+description: Leer hoe u configureert Siteonderdelen om het gedrag van sitesysteemrollen en sitestatusrapportage te wijzigen.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,107 +16,107 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 83550fbf0ef1f9adb0bb2c51a4f3c26a7500d352
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="site-components-for-system-center-configuration-manager"></a>Composants de site pour System Center Configuration Manager
+# <a name="site-components-for-system-center-configuration-manager"></a>Siteonderdelen voor System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Sur chaque site System Center Configuration Manager, vous pouvez configurer des composants de site pour modifier le comportement des rôles système de site et la création des rapports d’état de site. Les configurations de composants de site s’appliquent à un site donné et à chaque instance d’un rôle de système de site applicable au niveau de ce site.  
+Op elke site System Center Configuration Manager kunt u Siteonderdelen instellen om de gedrag van sitesysteemrollen en sitestatusrapportage te wijzigen. Siteonderdeelconfiguraties van toepassing op een site en elk exemplaar van een sitesysteemrol die van toepassing zijn op de site.  
 
-## <a name="about-site-components"></a>À propos des composants de site  
- La plupart des options des différents composants de site sont suffisamment explicites quand elles apparaissent dans la console Configuration Manager. Toutefois, les informations suivantes peuvent être utiles pour mieux comprendre certaines configurations plus complexes ou vous diriger vers du contenu supplémentaire qui les explique.  
+## <a name="about-site-components"></a>Siteonderdelen  
+ De meeste opties voor de verschillende Siteonderdelen behoeven geen uitleg wanneer weergegeven in de Configuration Manager-console. De volgende details kunnen echter helpen bevatten uitleg over enkele van de complexere configuraties, of u rechtstreeks naar aanvullende inhoud waarin deze worden uitgelegd.  
 
-### <a name="software-distribution"></a>Distribution de logiciels  
+### <a name="software-distribution"></a>Softwaredistributie  
 
--   **Paramètres de distribution de contenu :** vous pouvez spécifier des paramètres qui modifient la façon dont le serveur de site transfère du contenu vers ses points de distribution. Si vous augmentez les valeurs des paramètres de distribution simultanée, la distribution de contenu risque d’utiliser davantage de bande passante réseau.  
+-   **Instellingen voor inhoudsdistributie:**  U kunt instellingen waarmee u aanpassen hoe de siteserver inhoud overdraagt naar de distributiepunten opgeven. Als u de waarden voor instellingen voor gelijktijdige distributie verhoogt, kan de inhoudsdistributie meer netwerkbandbreedte gebruiken.  
 
--   **Compte d’accès réseau :** pour plus d’informations sur la configuration et l’utilisation du compte d’accès réseau, consultez [Compte d’accès réseau](../../../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#bkmk_NAA).  
+-   **Netwerktoegangsaccount:**  Zie voor meer informatie over het instellen en gebruiken het netwerktoegangsaccount [netwerktoegangsaccount](../../../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#bkmk_NAA).  
 
-### <a name="software-update-point"></a>Point de mise à jour logicielle  
+### <a name="software-update-point"></a>Software-updatepunt  
 
--   Pour plus d’informations sur les options de configuration du composant de point de mise à jour logicielle, consultez [Installer un point de mise à jour logicielle](../../../../sum/get-started/install-a-software-update-point.md).  
+-   Zie voor meer informatie over configuratieopties voor het softwareonderdeel-updatepunt [installeert een software-updatepunt](../../../../sum/get-started/install-a-software-update-point.md).  
 
-### <a name="management-point"></a>Point de gestion  
+### <a name="management-point"></a>Beheerpunt  
 
--   **Points de gestion :** vous pouvez configurer le site pour publier des informations sur ses points de gestion dans les services de domaine Active Directory.  
+-   **Beheerpunten:** U kunt de site zo instellen dat er informatie over de eigen beheerpunten publiceert naar Active Directory Domain Services.  
 
-     Les clients Configuration Manager utilisent des points de gestion pour localiser les services et pour rechercher des informations sur le site, telles que les options de sélection de certificats PKI et d’appartenance à des groupes de limites. Les clients utilisent également des points de gestion pour rechercher d’autres points de gestion du site, ainsi que des points de distribution d’où ils peuvent télécharger des logiciels. Les points de gestion aident également les clients à terminer l’attribution de site et à télécharger la stratégie client et leurs informations client.  
+     Configuration Manager-clients gebruiken beheerpunten te zoeken, services en site-informatie zoals lidmaatschap van grensgroepen en opties voor de selectie van PKI-certificaat vinden. Clients gebruiken ook beheerpunten andere om beheerpunten te vinden in de site, evenals de distributiepunten van waaruit software te downloaden. Beheerpunten kunnen ook clients voor site-toewijzing vervolledigen en voor het clientbeleid downloaden en clientgegevens uploaden.  
 
-     Comme la plus sûre des méthodes pour que les clients trouvent des points de gestion est de publier ceux-ci dans les services de domaines Active Directory, vous aurez généralement toujours besoin de sélectionner tous les points de gestion en fonctionnement pour publier dans les services de domaine Active Directory. Toutefois, pour pouvoir utiliser cette méthode de localisation de service, les éléments suivants doivent être vrais :
+     Omdat de veiligste methode voor clients om beheerpunten te vinden in Active Directory Domain Services publiceren is, wordt doorgaans altijd selecteert u alle werkende beheerpunten publiceren naar Active Directory Domain Services. Deze servicelocatiemethode vereist echter de volgende wordt voldaan:
 
-     - Le schéma est étendu pour Configuration Manager.
-     - Il existe un conteneur **Gestion du système** disposant des autorisations de sécurité appropriées pour que le serveur de site puisse publier dans ce conteneur.
-     - Le site Configuration Manager est configuré pour publier dans les services de domaine Active Directory.
-     - Les clients appartiennent à la même forêt Active Directory que le serveur de site.  
+     - Het schema wordt uitgebreid voor Configuration Manager.
+     - Er is een **System Management** container met geschikte beveiligingsmachtigingen voor de siteserver om te publiceren naar deze container.
+     - De Configuration Manager-site is ingesteld om te publiceren naar Active Directory Domain Services.
+     - Clients behoren tot hetzelfde Active Directory-forest als de forest de siteserver.  
 
-     Quand les clients sur l’intranet ne peuvent pas utiliser les services de domaine Active Directory pour rechercher des points de gestion, utilisez la publication [DNS](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#bkmk_dns) à la place.  
+     Wanneer clients op het intranet kunnen geen Active Directory Domain Services om beheerpunten te zoeken, gebruik [DNS](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#bkmk_dns) publiceren in plaats daarvan.  
 
- Pour obtenir des informations générales sur l’emplacement du service, consultez [Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
+ Raadpleeg voor algemene informatie over de servicelocatie [begrijpen hoe clients siteresources en -services voor System Center Configuration Manager vinden](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
 
--   **Publier les points de gestion intranet sélectionnés dans DNS :** spécifiez cette option quand des clients sur l’intranet ne trouvent pas de points de gestion à partir des services de domaine Active Directory. Au lieu de cela, ils peuvent utiliser un enregistrement de ressource d’emplacement de service DNS (SRV RR) pour trouver un point de gestion dans leur site attribué.  
+-   **Geselecteerde intranetbeheerpunten publiceren in DNS:** Geef deze optie wanneer clients op het intranet beheerpunten van Active Directory Domain Services vinden kunnen. Ze kunnen in plaats daarvan een DNS-servicelocatiebronrecord (SRV RR) gebruiken om een beheerpunt te vinden in hun toegewezen site.  
 
-    Pour que Configuration Manager puisse publier des points de gestion intranet dans DNS, toutes les conditions suivantes doivent être remplies :  
+    Configuration Manager intranetbeheerpunten publiceren naar DNS, alle volgende voorwaarden is voldaan:  
 
-    -   Vos serveurs DNS ont une version de BIND 8.1.2 ou ultérieure.  
+    -   Uw DNS-servers hebben een versie van BIND die 8.1.2 of hoger.  
 
-    -   Vos serveurs DNS sont configurés pour les mises à jour automatiques et prennent en charge les enregistrements de ressource d’emplacement de service.  
+    -   Uw DNS-servers zijn ingesteld voor automatische updates en ondersteunen servicelocatiebronrecords.  
 
-    -   Les noms de domaine complets spécifiés pour les points de gestion dans Configuration Manager ont des entrées d’hôte (enregistrements A ou AAA) dans DNS.  
+    -   De opgegeven volledig gekwalificeerde domeinnamen (FQDN's) voor de beheerpunten in Configuration Manager hebben hostvermeldingen (A of AAA records) in DNS.  
 
     > [!WARNING]  
-    >  Pour que les clients trouvent des points de gestion publiés dans DNS, vous devez affecter les clients à un site spécifique (plutôt qu’utiliser l’attribution automatique de site). Configurez ces clients pour qu’ils utilisent le code de site avec le suffixe du domaine de leur point de gestion. Pour plus d’informations, consultez [Localisation de points de gestion](/sccm/core/clients/deploy/assign-clients-to-a-site#locating-management-points) dans [Guide pratique pour affecter des clients à un site dans System Center Configuration Manager](/sccm/core/clients/deploy/assign-clients-to-a-site).  
+    >  Voor clients om beheerpunten die zijn gepubliceerd in DNS te zoeken, moet u de clients toewijzen aan een specifieke site (en niet automatische sitetoewijzing gebruiken). Deze clients instellen voor het gebruik van de sitecode met het domeinachtervoegsel van hun beheerpunt. Zie voor meer informatie [zoeken voor beheerpunten](/sccm/core/clients/deploy/assign-clients-to-a-site#locating-management-points) in [clients toewijzen aan een site in System Center Configuration Manager](/sccm/core/clients/deploy/assign-clients-to-a-site).  
 
-     Si les clients Configuration Manager ne peuvent pas utiliser les services de domaine Active Directory ou DNS pour rechercher des points de gestion sur l’intranet, ils peuvent utiliser [WINS](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#bkmk_wins). Le premier point de gestion installé pour le site est automatiquement publié dans WINS lorsqu’il est configuré pour accepter les connexions client HTTP sur l’intranet.  
+     Als Configuration Manager-clients niet Active Directory Domain Services of DNS-server gebruiken om beheerpunten te vinden op het intranet, dan gebruiken deze [WINS](../../../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md#bkmk_wins). Het eerste beheerpunt dat voor de site is geïnstalleerd, wordt automatisch gepubliceerd naar WINS wanneer deze is ingesteld om HTTP-clientverbindingen op het intranet te aanvaarden.  
 
-### <a name="status-reporting"></a>édition de rapports d’état ;  
+### <a name="status-reporting"></a>Statusrapportage  
 
--   Ces paramètres configurent directement le niveau de détail qui est fourni dans les rapports d’état à partir de sites et de clients.  
+-   Deze instellingen worden rechtstreeks het detailniveau dat is opgenomen in de statusrapporten van sites en clients instellen.  
 
-### <a name="email-notification"></a>Notification par courrier électronique  
+### <a name="email-notification"></a>E-mailmeldingen  
 
--   Spécifiez les détails de compte ou de serveur de messagerie pour que Configuration Manager envoie des notifications par e-mail en cas d’alertes.  
+-   Geef details op en het e-server zodat de Configuration Manager voor het verzenden van e-mailmeldingen voor waarschuwingen.  
 
-### <a name="collection-membership-evaluation"></a>Évaluation de l’appartenance au regroupement  
+### <a name="collection-membership-evaluation"></a>Evaluatie lidmaatschap verzameling  
 
--   Cette tâche permet de définir la fréquence à laquelle l’appartenance à un regroupement est évaluée de façon incrémentielle. L'évaluation incrémentielle met à jour une appartenance à un regroupement uniquement avec de nouvelles ressources ou des ressources modifiées.  
+-   Gebruik deze taak om in te stellen hoe vaak het verzamelingslidmaatschap stapsgewijs wordt geëvalueerd. Via stapsgewijze evaluatie werkt u een verzamelingslidmaatschap bij met uitsluitend nieuwe of gewijzigde bronnen.  
 
-### <a name="edit-the-site-components-at-a-site"></a>Modifier les composants de site sur un site  
+### <a name="edit-the-site-components-at-a-site"></a>De onderdelen van de site op een site bewerken  
 
-Utilisez la procédure suivante pour modifier les composants de site :
+Gebruik de volgende stappen uit om te bewerken van site-onderdelen:
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Configuration du site** > **Sites**, puis sélectionnez le site comportant les composants de site que vous voulez configurer.  
+1.  Klik in de Configuration Manager-console op **beheer** > **siteconfiguratie** > **Sites**, en selecteer vervolgens de site met site-onderdelen die u wilt configureren.  
 
-2.  Sous l’onglet **Accueil**, dans le groupe **Paramètres**, cliquez sur **Configurer les composants de site**. Sélectionnez ensuite le composant de site que vous souhaitez configurer.  
+2.  Op de **Start** tabblad, in de **instellingen** groep, klikt u op **Siteonderdelen configureren**. Selecteer vervolgens het siteonderdeel dat u wilt configureren.  
 
-##  <a name="BKMK_ServiceMgr"></a> Utiliser Configuration Manager Service Manager pour gérer les composants de site  
-Vous pouvez utiliser Configuration Manager Service Manager pour contrôler les services Configuration Manager et afficher l’état de tout service ou thread de travail Configuration Manager (collectivement appelés composants Configuration Manager). Retenez les points suivants concernant les composant Configuration Manager :  
+##  <a name="BKMK_ServiceMgr"></a> Configuration Manager Service Manager gebruiken om siteonderdelen te beheren  
+U kunt de Configuration Manager Service Manager Configuration Manager-services beheren en weergeven van de status van alle Configuration Manager-services of werkende threads (gezamenlijk aangeduid als Configuration Manager-onderdelen). Inzicht in het volgende over Configuration Manager-onderdelen:  
 
--   Les composants peuvent s’exécuter sur n’importe quel système de site.  
+-   Onderdelen kunnen worden uitgevoerd op elk sitesysteem.  
 
--   Ils sont gérés de la même façon que les services dans Windows. Vous pouvez les démarrer, les arrêter, les suspendre, les reprendre et les interroger.  
+-   Onderdelen op dezelfde manier beheren van services in Windows worden beheerd. U kunt starten, stoppen, onderbreken, hervatten of opvragen van Configuration Manager-onderdelen.  
 
-Un service Configuration Manager s’exécute dès qu’il a une tâche à effectuer (quand un fichier de configuration est enregistré dans la boîte de réception d’un composant, par exemple). Si vous devez identifier le composant impliqué dans une opération, vous pouvez utiliser Configuration Manager Service Manager pour agir sur plusieurs services et threads. Vous pouvez ensuite afficher les effets sur le comportement de Configuration Manager. Vous pouvez par exemple arrêter les services Configuration Manager un par un, jusqu’à ce qu’une réponse spécifique disparaisse. Vous pourrez ainsi déterminer le service qui provoque ce comportement.  
+Een Configuration Manager-service wordt uitgevoerd wanneer er iets is om te doen (gewoonlijk wanneer een configuratiebestand wordt geschreven naar het postvak in van een onderdeel). Als u hebt het onderdeel dat betrokken is bij een bewerking moet identificeren, kunt u de Configuration Manager Service Manager gebruiken om verschillende services en threads te manipuleren. U kunt vervolgens de resulterende wijziging in het gedrag van Configuration Manager weergeven. U kunt bijvoorbeeld één van de Configuration Manager-services stoppen tegelijk, totdat een bepaalde respons wordt geëlimineerd. Op die manier kunt u bepalen welke service het gedrag veroorzaakt.  
 
 > [!TIP]  
->  La procédure suivante peut servir à manipuler des opérations de composants Configuration Manager.  
+>  De volgende procedure kan worden gebruikt voor het bewerken van Configuration Manager-onderdeel-bewerking.  
 
-### <a name="use-the-configuration-manager-service-manager"></a>Utiliser le Gestionnaire de service de Configuration Manager  
+### <a name="use-the-configuration-manager-service-manager"></a>De Configuration Manager Service Manager gebruiken  
 
-1.  Dans la console Configuration Manager, cliquez sur **Surveillance** >  **État du système**, puis cliquez sur **État du composant**.  
+1.  Klik in de Configuration Manager-console op **bewaking** >  **systeemstatus**, en klik vervolgens op **Onderdeelstatus**.  
 
-2.  Sous l’onglet **Accueil**, dans le groupe **Composant**, cliquez sur **Démarrer**. Sélectionnez ensuite **Gestionnaire de service de Configuration Manager**.  
+2.  Op de **Start** tabblad, in de **onderdeel** groep, klikt u op **Start**. Selecteer vervolgens **Configuration Manager-servicebeheer**.  
 
-3.  Lorsque le Gestionnaire de service de Configuration Manager s'ouvre, connectez-vous au site que vous souhaitez gérer.  
+3.  Wanneer het Configuration Manager-servicebeheer opent, verbindt dan met de site die u wilt beheren.  
 
-     Si vous ne voyez pas le site que vous souhaitez gérer, cliquez sur **Site**, puis sur **Connecter**, et entrez le nom du serveur de site du site correct.  
+     Als u de site die u wilt beheren, niet ziet, klik dan op **Site**, klik daarna op **Verbinden**, en geef vervolgens de naam van de siteserver van de juiste site in.  
 
-4.  Développez le site et accédez à **Composants** ou à **Serveurs**selon l'emplacement où se trouvent les composants que vous souhaitez gérer.  
+4.  Vouw de site uit en navigeer naar **Onderdelen** of **Servers**, afhankelijk van waar de onderdelen zich bevinden die u wilt beheren.  
 
-5.  Dans le volet de droite, sélectionnez un ou plusieurs composants. Puis, dans le menu **Composant**, cliquez sur **Requête** pour mettre à jour l’état de votre sélection.  
+5.  Selecteer één of meer onderdelen in het rechterpaneel. Klik op de **onderdeel** menu, klikt u op **Query** de status van uw selectie bij te werken.  
 
-6.  Après la mise à jour de l’état du composant, utilisez l’une des quatre actions en option dans le menu **Composant** pour modifier le fonctionnement du composant. Après avoir demandé une action, vous devez demander au composant d'afficher son nouvel état.  
+6.  Nadat de status van het onderdeel is bijgewerkt, gebruikt u een van de vier op actie gebaseerde opties in de **onderdeel** menu van het onderdeel opnieuw te wijzigen. Nadat u een actie vraagt, moet u het onderdeel opvragen om de nieuwe status van het onderdeel weer te geven.  
 
-7.  Fermez Configuration Manager Service Manager quand vous avez fini de modifier l’état opérationnel des composants.  
+7.  Sluit de Configuration Manager-servicebeheer wanneer u bent klaar voor het wijzigen van de operationele status van onderdelen.  

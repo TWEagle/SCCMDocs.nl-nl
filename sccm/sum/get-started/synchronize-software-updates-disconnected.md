@@ -1,6 +1,6 @@
 ---
-title: "Synchroniser les mises à jour sans connexion Internet - Configuration Manager | Microsoft Docs"
-description: "Exécutez la synchronisation des mises à jour logicielles à partir du point de mise à jour logicielle de niveau supérieur qui est déconnecté d’Internet."
+title: Updates synchroniseren met geen verbinding met Internet - Configuration Manager | Microsoft Docs
+description: Synchronisatie van software-updates uitgevoerd op het hoogste niveau software-updatepunt dat niet is verbonden met Internet.
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,94 +13,94 @@ ms.technology: configmgr-sum
 ms.assetid: 1a997c30-8e71-4be5-89ee-41efb2c8d199
 ms.openlocfilehash: fd9c1e9418ff1956c6ef98753e23a293440179be
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="synchronize-software-updates-from-a-disconnected-software-update-point"></a>Synchroniser les mises à jour logicielles à partir d’un point de mise à jour logicielle déconnecté  
+# <a name="synchronize-software-updates-from-a-disconnected-software-update-point"></a>Software-updates vanaf een niet-verbonden software-updatepunt synchroniseren  
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
- Quand le point de mise à jour logicielle sur le site de niveau supérieur est déconnecté d'Internet, vous devez utiliser les fonctions d'exportation et d'importation de l'outil WSUSUtil pour synchroniser les métadonnées des mises à jour logicielles. Vous pouvez choisir un serveur WSUS existant qui ne fait pas partie de votre hiérarchie Configuration Manager en tant que source de synchronisation. Cette rubrique fournit des informations sur l’utilisation des fonctions d’exportation et d’importation de l’outil WSUSUtil.  
+ Wanneer de verbinding van het software-updatepunt op de site op het hoogste niveau met het internet verbroken is, moet u de export- en importfuncties van het WSUSUtil-hulpprogramma gebruiken om metagegevens van software-updates te synchroniseren. U kunt een bestaande WSUS-server niet in uw Configuration Manager-hiërarchie als de synchronisatiebron. In dit onderwerp bevat informatie over hoe u de export- en importfuncties van het WSUSUtil-hulpprogramma.  
 
- Pour exporter et importer des métadonnées de mises à jour logicielles, vous devez les exporter de la base de données WSUS sur un serveur d'exportation spécifié, copier les fichiers du contrat de licence stockés localement vers le point de mise à jour logicielle déconnecté, puis importer les métadonnées des mises à jour logicielles dans la base de données WSUS sur le point de mise à jour logicielle déconnecté.  
+ Om metagegevens van software-updates te exporteren en te importeren moet u de metagegevens van de software-updates exporteren vanuit de WSUS-database op een gespecificeerde exportserver, vervolgens moet u de lokaal opgeslagen licentievoorwaardenbestanden kopiëren naar het niet-verbonden software-updatepunt, en dan moet u de metagegevens van de software-updates importeren in de WSUS-database op het niet-verbonden software-updatepunt.  
 
- Utilisez le tableau suivant pour identifier le serveur d'exportation vers lequel exporter les métadonnées des mises à jour logicielles.  
+ Gebruik de volgende tabel om de exportserver te identificeren waarnaar de metagegevens van de software-updates moeten worden geëxporteerd.  
 
-|Point de mise à jour logicielle|Source de mise à jour en amont pour les points de mise à jour logicielle connectés|Serveur d'exportation d'un point de mise à jour logicielle déconnecté|  
+|Sitesysteemrollen toevoegen|Updatebron stroomopwaarts voor verbonden software-updatepunten|Exportserver voor een niet-verbonden software-updatepunt|  
 |---------------------------|-----------------------------------------------------------------|------------------------------------------------------------|  
-|Site d'administration centrale|Microsoft Update (Internet)<br /><br /> Serveur WSUS existant|Choisissez un serveur WSUS qui est synchronisé avec Microsoft Update en utilisant les classifications de mise à jour logicielle, les produits et les langues dont vous avez besoin dans votre environnement Configuration Manager.|  
-|Site principal autonome|Microsoft Update (Internet)<br /><br /> Serveur WSUS existant|Choisissez un serveur WSUS qui est synchronisé avec Microsoft Update en utilisant les classifications de mise à jour logicielle, les produits et les langues dont vous avez besoin dans votre environnement Configuration Manager.|  
+|Centrale beheersite|Microsoft Update (internet)<br /><br /> Bestaande WSUS-server|Kies een WSUS-server die is gesynchroniseed met Microsoft Update met behulp van de software-updateclassificaties, producten en talen die u nodig hebt in uw Configuration Manager-omgeving.|  
+|Zelfstandige primaire site|Microsoft Update (internet)<br /><br /> Bestaande WSUS-server|Kies een WSUS-server die is gesynchroniseed met Microsoft Update met behulp van de software-updateclassificaties, producten en talen die u nodig hebt in uw Configuration Manager-omgeving.|  
 
- Avant de commencer le processus d'exportation, vérifiez que la synchronisation des mises à jour logicielles est terminée sur le serveur d'exportation sélectionné pour vous assurer que les métadonnées des mises à jour logicielles les plus récentes sont synchronisées. Pour vérifier que la synchronisation des mises à jour logicielles s'est terminée correctement, procédez comme suit.  
+ Voordat u het exportproces start, dient u te controleren of de synchronisatie van software-updates voltooid is op de geselecteerde exportserver om ervoor te zorgen dat de meest recente metagegevens van software-updates worden gesynchroniseerd. Volg de volgende procedure om te controleren of de synchronisatie van software-updates voltooid is.  
 
-#### <a name="to-verify-that-software-updates-synchronization-has-completed-successfully-on-the-export-server"></a>Pour vérifier que la synchronisation des mises à jour logicielles s'est terminée correctement sur le serveur d'exportation  
+#### <a name="to-verify-that-software-updates-synchronization-has-completed-successfully-on-the-export-server"></a>Controleren of de synchronisatie van software-updates voltooid is op de exportserver.  
 
-1.  Ouvrez la console d'administration WSUS et connectez-vous à la base de données WSUS sur le serveur d'exportation.  
+1.  Open de WSUS-beheerconsole en maak een verbinding met de WSUS-database op de exportserver.  
 
-2.  Dans la console d'administration WSUS, cliquez sur **Synchronisations**. Une liste des tentatives de synchronisation des mises à jour logicielles s'affiche dans le volet des résultats.  
+2.  Klik op **Synchronisatie**in de WSUS-beheerconsole. Er wordt een lijst van synchronisatiepogingen van software-updates getoond in het resultatenvenster.  
 
-3.  Dans le volet des résultats, chercher les dernières tentatives de synchronisation des mises à jour logicielles et vérifiez que la synchronisation s'est terminée correctement.  
+3.  In het resultatenvenster ziet u de laatste synchronisatiepoging van software-updates en kunt u controleren of het met succes voltooid was.  
 
 > [!IMPORTANT]  
->  L'outil WSUSUtil doit être exécuté localement sur le serveur d'exportation afin d'exporter les métadonnées des mises à jour logicielles et il doit également être exécuté sur le serveur du point de mise à jour logicielle déconnecté afin d'importer les métadonnées des mises à jour logicielles. En outre, l'utilisateur qui exécute l'outil WSUSUtil doit être membre du groupe Administrateurs local sur chaque serveur.  
+>  Het WSUSUtil-hulpprogramma moet lokaal op de exportserver worden uitgevoerd om de metagegevens van software-updates te exporteren, en het moet ook worden uitgevoerd op de niet-verbonden software-updatepuntserver om de metagegevens van software-updates te importeren. Daarnaast moet de gebruiker die het WSUSUtil-hulpprogramma uitvoert, lid zijn van de lokale groep Administrators op elke server.  
 
-## <a name="export-process-for-software-updates"></a>Processus d’exportation pour les mises à jour logicielles  
- Le processus d'exportation des mises à jour logicielles comporte deux étapes principales : pour copier les fichiers du contrat de licence stockés localement dans le point de mise à jour logicielle déconnecté et pour exporter les métadonnées des mises à jour logicielles de la base de données WSUS sur le serveur d'exportation.  
+## <a name="export-process-for-software-updates"></a>Exportproces voor software-updates  
+ Het exportproces voor software-updates bestaat uit twee belangrijke stappen: het kopiëren van de lokaal opgeslagen licentievoorwaardenbestanden naar het niet-verbonden software-updatepunt, en het exporteren van de metagegevens van software-updates vanuit de WSUS-database op de exportserver.  
 
- Pour copier les métadonnées du contrat de licence local vers le point de mise à jour logicielle déconnecté, procédez comme suit.  
+ Volg de volgende procedure om de lokale licentievoorwaardenbestanden naar het niet-verbonden software-updatepunt te kopiëren.  
 
-#### <a name="to-copy-local-files-from-the-export-server-to-the-disconnected-software-update-point-server"></a>Pour copier les fichiers locaux du serveur d'exportation vers le serveur du point de mise à jour logicielle déconnecté  
+#### <a name="to-copy-local-files-from-the-export-server-to-the-disconnected-software-update-point-server"></a>Kopiëren van lokale bestanden vanuit de exportserver naar de niet-verbonden software-updatepuntserver  
 
-1.  Sur le serveur d'exportation, accédez au dossier dans lequel les mises à jour logicielles et les termes du contrat de licence des mises à jour logicielles sont stockés. Par défaut, le serveur WSUS stocke les fichiers dans <*lecteur_installation_WSUS*>\WSUS\WSUSContent\\, où *lecteur_installation_WSUS* correspond au lecteur sur lequel WSUS est installé.  
+1.  Op de exportserver bladert u naar de map waar software-updates en de licentievoorwaarden voor software-upates zijn opgeslagen. De WSUS-server slaat de bestanden standaard op in <*WSUSInstallationDrive*>\WSUS\WSUSContent\\, waar *WSUSInstallationDrive* het station is waarop WSUS is geïnstalleerd.  
 
-2.  Copiez tous les fichiers et dossiers depuis cet emplacement vers le dossier WSUSContent sur le serveur du point de mise à jour logicielle déconnecté.  
+2.  Kopieer alle bestanden en mappen van deze locatie naar de WSUSContent-map op de niet-verbonden software-updatepuntserver.  
 
- Pour exporter les métadonnées des mises à jour logicielles à partir de la base de données WSUS sur le serveur d'exportation, procédez comme suit.  
+ Volg de volgende procedure om de metagegevens van software-updates van de WSUS-database op de exportserver te exporteren.  
 
-#### <a name="to-export-software-updates-metadata-from-the-wsus-database-on-the-export-server"></a>Pour exporter les métadonnées des mises à jour logicielles à partir de la base de données WSUS sur le serveur d'exportation  
+#### <a name="to-export-software-updates-metadata-from-the-wsus-database-on-the-export-server"></a>Metagegevens van software-updates vanuit de WSUS-database op de exportserver exporteren  
 
-1.  À l'invite de commandes sur le serveur d'exportation, accédez au dossier qui contient WSUSutil.exe. Par défaut, l'outil se trouve dans %*ProgramFiles*%\Update Services\Tools. Par exemple, si l’outil se trouve à l’emplacement par défaut, tapez **cd %ProgramFiles%\Update Services\Tools**.  
+1.  Navigeer via de opdrachtprompt op de exportserver naar de map met WSUSutil.exe. Het hulpprogramma bevindt zich standaard op de volgende locatie: %*ProgramFiles*%\Update Services\Tools. Als het hulpprogramma zich op de standaardlocatie bevindt, typ dan bijvoorbeeld **cd %ProgramFiles%\Update Services\Tools**.  
 
-2.  Tapez ce qui suit pour exporter les métadonnées des mises à jour logicielles vers un fichier de package :  
+2.  Typ het volgende om de metagegevens van software-updates naar een pakketbestand te exporteren:  
 
-     **wsusutil.exe export***nompackage**fichierjournal*  
+     **wsusutil.exe export**  *packagename*  *logfile*  
 
-     Exemple :  
+     Bijvoorbeeld:  
 
      **wsusutil.exe export export.cab export.log**  
 
-     Le format peut être résumé comme suit : WSUSutil.exe est suivi de l’option d’exportation, du nom du fichier .cab d’exportation créé pendant l’opération d’exportation et du nom d’un fichier journal. WSUSutil.exe exporte les métadonnées du serveur d'exportation et crée un fichier journal de l'opération.  
+     De notatie kan als volgt worden samengevat: WSUSutil.exe wordt gevolgd door de exportoptie, de naam van het cab-exportbestand dat is gemaakt tijdens de exportbewerking en de naam van een logbestand. WSUSutil.exe exporteert de metagegevens van de exportserver en maakt een logbestand van de bewerking.  
 
     > [!NOTE]  
-    >  Le nom du package (fichier .cab) et du fichier journal doivent être uniques dans le dossier actif.  
+    >  Het pakket (.cab-bestand) en de naam van het logbestand moeten uniek zijn in de huidige map.  
 
-3.  Déplacez le package d'exportation dans le dossier qui contient WSUSutil.exe sur le serveur d'importation WSUS.  
+3.  Verplaats het exportpakket naar de map die WSUSUtil.exe bevat op de WSUS-importserver.  
 
     > [!NOTE]  
-    >  Si vous déplacez le package vers ce dossier, l'expérience d'importation peut s'avérer plus facile. Vous pouvez déplacer le package vers un emplacement accessible au serveur d'importation, puis spécifier l'emplacement pendant l'exécution de WSUSutil.exe.  
+    >  Als u het pakket naar deze map verplaatst, kan de import eenvoudiger zijn. U kunt het pakket naar eender welke locatie verplaatsen die toegankelijk is voor de importserver, en dan de locatie opgeven wanneer u WSUSUtil.exe uitvoert.  
 
-## <a name="import-software-updates-metadata"></a>Importer les métadonnées des mises à jour logicielles  
- Pour importer les métadonnées des mises à jour logicielles depuis le serveur d'exportation vers le point de mise à jour logicielle déconnecté, procédez comme suit.  
+## <a name="import-software-updates-metadata"></a>Metagegevens van software-updates importeren  
+ Volg de volgende procedure om metagegevens van software-updates te importeren vanuit de exporserver naar het niet-verbonden software-updatepunt.  
 
 > [!IMPORTANT]  
->  N'importez jamais de données exportées à partir d'une source non approuvée. Si vous importez du contenu à partir d'une source non approuvée, vous risquez de compromettre la sécurité de votre serveur WSUS.  
+>  Importeer nooit geëxporteerde gegevens vanuit een bron die u niet vertrouwt. Als u inhoud importeert vanuit een bron die u niet vertrouwt, kan het de beveiliging van uw WSUS-server mogelijk beschadigen.  
 
-#### <a name="to-import-metadata-to-the-database-of-the-import-server"></a>Pour importer les métadonnées de la base de données du serveur d'importation  
+#### <a name="to-import-metadata-to-the-database-of-the-import-server"></a>Metagegevens importeren in de database van de importserver  
 
-1.  À l'invite de commandes sur le serveur WSUS d'importation, accédez au dossier qui contient WSUSutil.exe. Par défaut, l'outil se trouve dans %*ProgramFiles*%\Update Services\Tools.  
+1.  Navigeer via de opdrachtprompt op de WSUS-importserver naar de map met WSUSutil.exe. Het hulpprogramma bevindt zich standaard op de volgende locatie: %*ProgramFiles*%\Update Services\Tools.  
 
-2.  Tapez la commande suivante :  
+2.  Typ het volgende:  
 
-     **wsusutil.exe import** *nompackage**fichierjournal*  
+     **wsusutil.exe import**  *packagename*  *logfile*  
 
-     Exemple :  
+     Bijvoorbeeld:  
 
      **wsusutil.exe import export.cab import.log**  
 
-     Le format peut être résumé comme suit : WSUSutil.exe est suivi par la commande d’importation, le nom du fichier de package (.cab) créé pendant l’opération d’exportation, le chemin du fichier de package s’il se trouve dans un autre dossier et le nom d’un fichier journal. WSUSutil.exe importe les métadonnées du serveur d'exportation et crée un fichier journal de l'opération.  
+     De notatie kan als volgt worden samengevat: WSUSutil.exe wordt gevolgd door de importopdracht, de naam van het pakketbestand (.cab) dat is gemaakt tijdens de exportbewerking, het pad naar het pakketbestand als het zich in een andere map en de naam van een logbestand. WSUSutil.exe importeert de metagegevens vanuit de exportserver en maakt een logbestand van de bewerking.  
 
-## <a name="next-steps"></a>Étapes suivantes
-À l’issue de la première synchronisation de mises à jour logicielles ou après la mise à disposition de nouvelles classifications ou de nouveaux produits, vous devez [configurer les nouvelles classifications et les nouveaux produits](configure-classifications-and-products.md) pour synchroniser les mises à jour logicielles avec les nouveaux critères.
+## <a name="next-steps"></a>Volgende stappen
+Nadat u software-updates voor het eerst synchroniseert, of nadat er nieuwe classificaties of producten beschikbaar zijn, u moet [de nieuwe classificaties en producten configureren](configure-classifications-and-products.md) softwareupdates te synchroniseren met de nieuwe criteria.
 
-Après avoir synchronisé les mises à jour logicielles avec les critères dont vous avez besoin, [gérez les paramètres des mises à jour logicielles](manage-settings-for-software-updates.md).  
+Nadat u de software-updates synchroniseren met de criteria die u nodig hebt, [instellingen beheren voor software-updates](manage-settings-for-software-updates.md).  

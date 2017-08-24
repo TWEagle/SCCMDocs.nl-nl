@@ -1,6 +1,6 @@
 ---
-title: "Créer des requêtes | Microsoft Docs"
-description: "Découvrez comment créer et importer des requêtes dans System Center Configuration Manager. Inclut des conseils et des exemples de requêtes."
+title: Query's maken | Microsoft Docs
+description: Ontdek hoe u kunt maken en importeren van query's in System Center Configuration Manager. Bevat voorbeelden van query's en tips.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,96 +17,96 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 9f38d86ff6227bb6ea88c358a3d61242372d449e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-queries-in-system-center-configuration-manager"></a>Comment créer des requêtes dans System Center Configuration Manager
+# <a name="how-to-create-queries-in-system-center-configuration-manager"></a>Query's maken in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Vous pouvez utiliser cette rubrique pour créer ou importer des requêtes dans System Center Configuration Manager.  
+U kunt in dit onderwerp gebruiken bij het maken of importeren van query's in System Center Configuration Manager.  
 
-##  <a name="BKMK_Create"></a> Comment créer des requêtes  
- Procédez comme suit pour créer des requêtes dans Configuration Manager.  
+##  <a name="BKMK_Create"></a> Query’s maken  
+ Gebruik deze procedure kunt u query's maken in Configuration Manager.  
 
-#### <a name="to-create-a-query"></a>Pour créer une requête  
+#### <a name="to-create-a-query"></a>Een query maken  
 
-1.  Dans la console Configuration Manager, choisissez **Surveillance**.  
+1.  Kies in de Configuration Manager-console **bewaking**.  
 
-2.  Dans l'espace de travail **Surveillance**, choisissez **Requêtes**. Puis, sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer une requête**.  
+2.  In de **bewaking** werkruimte, kiest u **query's**. Klik op de **Start** tabblad, in de **maken** groep, kiest u **Query maken**.  
 
-3.  Sous l’onglet **Général** de l’ **Assistant Création de requête**, spécifiez un nom unique et un commentaire facultatif pour la requête.  
+3.  Geef op het tabblad **Algemeen** van de **Wizard Query maken**een unieke naam en een optionele opmerking voor de query op.  
 
-4.  Si vous souhaitez importer une requête existante à utiliser comme base de la nouvelle requête, choisissez **importer la déclaration de requête**. Dans le **parcourir la requête** boîte de dialogue, sélectionnez une requête existante que vous souhaitez importer, puis choisissez **OK**.  
+4.  Als u wilt importeren van een bestaande query Kies om verder te gebruiken als basis voor de nieuwe query **Query-instructie importeren**. In de **door Query Bladeren** dialoogvenster Selecteer een bestaande query die u wilt importeren, en kies vervolgens **OK**.  
 
-5.  Dans la liste **Type d’objet** , sélectionnez le type d’objet que vous voulez que la requête renvoie. Le tableau suivant décrit certains exemples du type d’objet que vous pouvez rechercher :  
+5.  In de **objecttype** , selecteert u het type object die u wilt dat de query retourneert. In de volgende tabel staan enkele voorbeelden van het type object waar u naar kunt zoeken:  
 
-    |Type d’objet|Description|  
+    |Objecttype|Beschrijving|  
     |-----------------|-----------------|  
-    |**Ressource système**|Utilisé pour rechercher des attributs système standard tels que le nom NetBIOS d’un périphérique, la version du client, l’adresse IP du client et les informations des services de domaine Active Directory.|  
-    |**Ressource utilisateur**|Utilisé pour rechercher des informations utilisateur standard, telles que des noms d’utilisateur, des noms de groupes d’utilisateurs et des noms de groupes de sécurité.|  
-    |**Déploiement**|Utilisé pour rechercher les attributs standard d’un déploiement, tels que le nom du déploiement, la planification et le regroupement vers lequel il a été déployé.|  
+    |**Systeembron**|Gebruik dit om te zoeken naar typische systeemkenmerken, zoals de NetBIOS-naam van een apparaat, de clientversie, het IP-adres van de client en informatie van Active Directory Domain Services.|  
+    |**Gebruikersbron**|Gebruiken om te zoeken naar gangbare gebruikersinformatie, zoals gebruikersnamen, namen van gebruikersgroepen en namen van beveiligingsgroepen.|  
+    |**Implementatie**|Gebruiken om te zoeken naar gangbare kenmerken van een implementatie, zoals de implementatienaam, planning en de verzameling die is geïmplementeerd op.|  
 
-6.  Choisissez **Modifier l’instruction de la requête** pour ouvrir la boîte de dialogue *Propriétés de l’instruction de* **&lt;Nom de la requête\>**.  
+6.  Kies **Query-instructie bewerken** openen de  *&lt;querynaam\>*  **instructie-eigenschappen** in het dialoogvenster.  
 
-7.  Sous l’onglet **Général** de la boîte de dialogue **Propriétés de l’instruction de** *&lt;Nom de la requête\>*, spécifiez les attributs que cette requête renvoie et comment ils doivent être affichés. Choisissez l’icône **Nouveau** pour ajouter un nouvel attribut. Vous pouvez également choisir **Afficher la requête** pour entrer ou modifier la requête directement en langage de requêtes WMI (WQL). Pour obtenir des exemples de requêtes WMI, consultez la section [Exemples de requêtes WQL](#BKMK_Example) dans cette rubrique.  
+7.  Op de **algemene** tabblad de  *&lt;querynaam\>*  **instructie-eigenschappen** dialoogvenster geeft u de kenmerken die deze query retourneert en hoe ze worden weergegeven. Kies de **nieuw** pictogram van een nieuw kenmerk toe te voegen. U kunt ook **querytaal weergeven** invoeren of bewerken van de query rechtstreeks in WMI Query Language (WQL). Zie de sectie [Example WQL queries](#BKMK_Example) in dit onderwerp voor voorbeelden van WMI-query's.  
 
     > [!TIP]  
-    > Vous pouvez utiliser la documentation de référence MSDN suivante pour vous aider à créer vos propres requêtes WQL :  
+    > U kunt de volgende MSDN-naslagdocumentatie gebruiken bij het maken van uw eigen WQL-query's:  
     >   
-    > -   [WQL (SQL pour WMI)](http://go.microsoft.com/fwlink/p/?LinkId=256653)  
-    > -   [Clause WHERE](http://go.microsoft.com/fwlink/p/?LinkId=256654)  
-    > -   [Opérateurs WQL](http://go.microsoft.com/fwlink/p/?LinkId=256655)  
+    > -   [WQL (SQL voor WMI)](http://go.microsoft.com/fwlink/p/?LinkId=256653)  
+    > -   [WHERE-component](http://go.microsoft.com/fwlink/p/?LinkId=256654)  
+    > -   [WQL-operators](http://go.microsoft.com/fwlink/p/?LinkId=256655)  
 
-8.  Sous l’onglet **Critères** de la boîte de dialogue **Propriétés de l’instruction de** *&lt;Nom de la requête\>*, spécifiez les critères utilisés pour affiner les résultats de la requête. Par exemple, vous pouvez renvoyer uniquement les ressources dont le code de site est **XYZ** dans les résultats de la requête. Vous pouvez configurer plusieurs critères pour une requête.  
+8.  Op de **Criteria** tabblad van de  *&lt;querynaam\>*  **instructie-eigenschappen** dialoogvenster geeft u de criteria die worden gebruikt om de resultaten van de query te verfijnen. U kunt bijvoorbeeld alleen bronnen retourneren met een sitecode van **XYZ** in de queryresultaten. U kunt meerdere criteria voor een query configureren.  
 
     > [!IMPORTANT]  
-    > Si vous créez une requête qui ne contient aucun critère, elle retourne tous les appareils du regroupement **Tous les systèmes** .  
+    > Als u een query zonder criteria maakt, retourneert de query alle apparaten in de verzameling **Alle systemen** .  
 
-9. Sous l’onglet **Jointures** de la boîte de dialogue **Propriétés de l’instruction de** *&lt;Nom de la requête\>*, vous pouvez combiner des données de deux attributs différents dans les résultats de votre requête. Bien que Configuration Manager crée automatiquement des jointures de requête lorsque vous choisissez différents attributs pour les résultats de votre requête, l'onglet **Jointures** fournit d'autres options avancées. Les classes d’attributs prises en charge par System Center 2012 Configuration Manager sont indiquées dans le tableau ci-dessous :  
+9. Op de **Joins** tabblad de  *&lt;querynaam\>*  **instructie-eigenschappen** in het dialoogvenster kunt u gegevens uit twee verschillende kenmerken combineren in uw queryresultaten. Hoewel de Configuration Manager automatisch query's samenvoegt wanneer u verschillende kenmerken voor het queryresultaat kiest de **Joins** tabblad biedt meer geavanceerde opties. De kenmerkklassen die ondersteuning biedt voor System Center 2012 Configuration Manager worden weergegeven in de volgende tabel:  
 
-    |Type de jointure|Description|  
+    |Type samenvoeging|Beschrijving|  
     |---------------|-----------------|  
-    |Interne|Affiche uniquement les résultats ayant une correspondance ; ce type est toujours utilisé par les jointures qui sont créées automatiquement.|  
-    |Gauche|Affiche tous les résultats pour l'attribut de base et uniquement les résultats ayant une correspondance pour l'attribut de jointure.|  
-    |Droit|Affiche tous les résultats pour l'attribut de jointure et seulement les résultats ayant une correspondance pour l'attribut de base.|  
-    |Complète|Affiche tous les résultats à la fois pour l'attribut de base et pour l'attribut de jointure.|  
+    |Binnen|Geeft alleen overeenkomende resultaten — altijd gebruikt door samenvoegingen die automatisch worden gemaakt.|  
+    |Links|Geeft alle resultaten voor het basiskenmerk weer en alleen de overeenkomende resultaten voor het samenvoegingskenmerk.|  
+    |Rechts|Geeft alle resultaten voor het samenvoegingskenmerk weer en alleen de overeenkomende resultaten voor het basiskenmerk.|  
+    |Volledig|Geeft alle resultaten weer voor zowel het basiskenmerk als het samenvoegingskenmerk.|  
 
-     Pour plus d’informations sur la manière d’utiliser des opérations de jointure, consultez votre documentation SQL Server.  
+     Raadpleeg de SQL Server-documentatie voor meer informatie over het gebruik van samenvoegingsbewerkingen.  
 
-10. Choisissez **OK** pour fermer la boîte de dialogue **Propriétés de l’instruction de** *&lt;Nom de la requête\>*.  
+10. Kies **OK** sluiten de  *&lt;querynaam\>*  **instructie-eigenschappen** in het dialoogvenster.  
 
-11. Sous l’onglet **Général** de l’**Assistant Création de requête**, spécifiez si les résultats de cette requête ne sont pas limités aux membres d’un regroupement, s’ils sont limités aux membres d’un regroupement spécifique ou s’ils affichent une invite pour choisir un regroupement à chaque exécution de la requête.  
+11. Op de **algemene** tabblad van de **Wizard Query maken**, opgeven of de resultaten van deze query niet beperkt tot de leden van een verzameling of ze zijn beperkt tot de leden van een opgegeven verzameling, of er is een prompt voor een verzameling telkens wanneer de query wordt uitgevoerd.  
 
-12. Terminez l'assistant pour créer la requête. La nouvelle requête s’affiche dans le nœud **Requêtes** de l’espace de travail **Surveillance** .  
+12. Voltooi de wizard om de query te maken. De nieuwe query wordt weergegeven in het knooppunt **Query's** in de werkruimte **Bewaking** .  
 
-##  <a name="BKMK_Import"></a> Comment importer des requêtes  
- Procédez comme suit pour importer une requête dans Configuration Manager. Pour plus d'informations sur l’exportation des requêtes, voir [Guide pratique pour gérer des requêtes dans System Center Configuration Manager](../../../core/servers/manage/manage-queries.md).  
+##  <a name="BKMK_Import"></a> Query’s importeren  
+ Gebruik deze procedure kunt u een query importeren in Configuration Manager. Zie voor meer informatie over het exporteren van query's [query's in System Center Configuration Manager beheren](../../../core/servers/manage/manage-queries.md).  
 
-#### <a name="to-import-a-query"></a>Pour importer une requête  
+#### <a name="to-import-a-query"></a>Een query importeren  
 
-1.  Dans la console Configuration Manager, choisissez **Surveillance**.  
+1.  Kies in de Configuration Manager-console **bewaking**.  
 
-2.  Dans l'espace de travail **Surveillance**, choisissez **Requêtes**. Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Importer des objets**.  
+2.  In de **bewaking** werkruimte, kiest u **query's**. Op de **Start** tabblad, in de **maken** groep, kiest u **objecten importeren**.  
 
-3.  Dans la page **Nom du fichier MOF** de l’**Assistant Importation d’objets**, choisissez **Parcourir** pour sélectionner le fichier MOF (Managed Object Format) contenant la requête à importer.  
+3.  Op de **MOF-bestandsnaam** pagina van de **Wizard objecten importeren**, kies **Bladeren** selecteert het Managed Object Format (MOF) bestand met de query die u wilt importeren.  
 
-4.  Passez en revue les informations relatives à la requête à importer, puis terminez l’Assistant. La nouvelle requête s’affiche dans le nœud **Requêtes** de l’espace de travail **Surveillance**.  
+4.  Controleer de informatie die over de te importeren query wordt weergegeven en voltooi de wizard. De nieuwe query wordt weergegeven op de **query's** knooppunt in de **bewaking** werkruimte.  
 
 ##  <a name="BKMK_Example"></a> Example WQL queries
 
-Cette section contient des exemples de requêtes WMI que vous pouvez utiliser dans votre hiérarchie ou modifier à d’autres fins. Pour utiliser ces requêtes, choisissez **Afficher la requête** dans la boîte de dialogue **Propriétés de l'instruction de la requête**. Puis copiez et collez la requête dans le champ **Instruction de la requête**.  
+In deze sectie vindt u voorbeelden van WMI-query's die u kunt gebruiken in uw hiërarchie of die u voor andere doeleinden kunt wijzigen. Deze query's, kiest u **querytaal weergeven** in de **eigenschappen Query-instructie** in het dialoogvenster. Kopieer en plak de query in vervolgens de **Query-instructie** veld.  
 
 > [!TIP]  
-> Utilisez le caractère générique `%` pour signifier n’importe quelle chaîne de caractères. Par exemple, `%Visio%` renvoie Microsoft Office Visio 2010.  
+> Het jokerteken gebruiken `%` om willekeurige tekenreeks aan te geven. Bijvoorbeeld, `%Visio%` retourneert Microsoft Office Visio 2010.  
 
-### <a name="computers-that-run-windows-7"></a>Ordinateurs qui exécutent Windows 7
+### <a name="computers-that-run-windows-7"></a>Computers met Windows 7
 
-Utilisez la requête suivante pour renvoyer le nom NetBIOS et la version du système d’exploitation de tous les ordinateurs qui exécutent Windows 7.  
+Gebruik de volgende query om de NetBIOS-naam en besturingssysteemversie te retourneren van alle computers met Windows 7.  
 
 > [!TIP]  
-> Pour retourner les ordinateurs qui exécutent Windows Server 2008 R2, remplacez `%Workstation 6.1%` par `%Server 6.1%`.  
+> Wijzigen voor computers waarop Windows Server 2008 R2 wordt uitgevoerd, `%Workstation 6.1%` naar `%Server 6.1%`.  
 
 ```  
 select SMS_R_System.NetbiosName,  
@@ -115,12 +115,12 @@ SMS_R_System where
 SMS_R_System.OperatingSystemNameandVersion like "%Workstation 6.1%"  
 ```  
 
-### <a name="computers-with-a-specific-software-package-installed"></a>Ordinateurs avec un package logiciel spécifique installé  
+### <a name="computers-with-a-specific-software-package-installed"></a>Computers met een specifiek softwarepakket geïnstalleerd  
 
-Utilisez la requête suivante pour retourner le nom NetBIOS et le nom du package logiciel de tous les ordinateurs dotés d’un package logiciel spécifique installé. Cet exemple affiche tous les ordinateurs sur lesquels une version de Microsoft Visio est installée. Remplacez `%Visio%` par le package logiciel à rechercher.  
+Gebruik de volgende query om de NetBIOS-naam en softwarepakketnaam te retourneren van alle computers waarop een specifiek softwarepakket is geïnstalleerd. In dit voorbeeld worden alle computers weergegeven waarop een versie van Microsoft Visio is geïnstalleerd. Vervang `%Visio%` met het softwarepakket dat u wilt zoeken.  
 
 > [!TIP]  
-> Cette requête recherche le package logiciel en utilisant les noms figurant dans la liste des programmes inclus dans le Panneau de configuration Windows.  
+> Deze query zoekt naar het softwarepakket op basis van de namen die worden weergegeven in de lijst met programma's in het Configuratiescherm.  
 
 ```  
 select SMS_R_System.NetbiosName,   
@@ -131,9 +131,9 @@ SMS_R_System.ResourceId where
 SMS_G_System_ADD_REMOVE_PROGRAMS.DisplayName like "%Visio%"  
 ```  
 
-### <a name="computers-that-are-in-a-specific-active-directory-domain-services-organizational-unit"></a>Ordinateurs situés dans une unité d’organisation (UO) des services de domaine Active Directory spécifique
+### <a name="computers-that-are-in-a-specific-active-directory-domain-services-organizational-unit"></a>Computers die zich in een specifieke organisatie-eenheid van Active Directory Domain Services
 
-Utilisez la requête suivante pour retourner le nom NetBIOS et le nom d’unité d’organisation (UO) de tous les ordinateurs inclus dans une unité d’organisation spécifiée. Remplacez le texte `OU Name` par le nom de l’UO à rechercher.  
+Gebruik de volgende query te retourneren van de NetBIOS-naam en de naam van de organisatie-eenheid (OE) van alle computers in een opgegeven organisatie-eenheid. Vervang de tekst `OU Name` met de naam van de organisatie-eenheid die u wilt zoeken.  
 
 ```  
 select SMS_R_System.NetbiosName,   
@@ -142,47 +142,47 @@ SMS_R_System where
 SMS_R_System.SystemOUName = "OU Name"  
 ```  
 
-### <a name="computers-with-a-specific-netbios-name"></a>Ordinateurs portant un nom NetBIOS spécifique
+### <a name="computers-with-a-specific-netbios-name"></a>Computers met een specifieke NetBIOS-naam
 
-Utilisez la requête suivante pour retourner le nom NetBIOS de tous les ordinateurs dont le nom commence par une chaîne de caractères spécifique. Dans cet exemple, la requête retourne tous les ordinateurs dont le nom NetBIOS commence par `ABC`.  
+Gebruik de volgende query om de NetBIOS-naam te retourneren van alle computers die met een specifieke tekenreeks beginnen. In dit voorbeeld retourneert de query alle computers met een NetBIOS-naam die met begint `ABC`.  
 
 ```  
 select SMS_R_System.NetbiosName from    
 SMS_R_System where SMS_R_System.NetbiosName like "ABC%"  
 ```  
 
-###  <a name="BKMK_DeviceType"></a> Appareils d’un type spécifique
+###  <a name="BKMK_DeviceType"></a> Apparaten van een bepaald type
 
-Les types d’appareils sont stockés dans la base de données Configuration Manager sous la classe de ressource **sms_r_system** et le nom d’attribut **AgentEdition**. Utilisez la requête suivante pour récupérer uniquement les appareils correspondant à l’édition agent du type d’appareil que vous spécifiez :  
+Apparaattypen worden opgeslagen in de Configuration Manager-database onder de bronklasse **sms_r_system** en de naam van het kenmerk **AgentEdition**. Gebruik de volgende query om op te halen, alleen de apparaten die overeenkomen met de agenteditie van het apparaattype dat u opgeeft:  
 
 ```  
 Select SMS_R_System.ClientEdition from SMS_R_System where SMS_R_System.ClientEdition = <Device ID>  
 ```  
 
-Utilisez l’une des valeurs suivantes pour *&lt;ID d’appareil\>* :  
+Gebruik een van de volgende waarden voor  *&lt;apparaat-ID\>*:  
 
-|Type d'appareil|Valeur de AgentEdition|  
+|Apparaattype|Waarde van AgentEdition|  
 |-----------------|---------------------------|  
-|Ordinateur portable ou de bureau Windows|0|  
-|Appareil ARM Windows (exécutant Windows RT)|1|  
+|Windows desktop- of -computer|0|  
+|Windows ARM-apparaat (waarop Windows RT wordt uitgevoerd)|1|  
 |Windows Mobile 6.5|2|  
 |Nokia Symbian|3|  
 |Windows Phone|4|  
-|Ordinateur Mac|5|  
+|Mac-computer|5|  
 |Windows CE|6|  
 |Windows Embedded|7|  
 |iOS|8|  
 |iPad|9|  
 |iPod Touch|10|  
 |Android|11|  
-|Système Intel sur une puce|12|  
-|Serveurs Unix et Linux|13|  
+|Intel System-on-a-Chip|12|  
+|UNIX- en Linux-servers|13|  
 
- Par exemple, si vous voulez que la requête retourne uniquement des ordinateurs Mac, utilisez la requête suivante :  
+ Een voorbeeld: als u wilt dat de query alleen Mac-computers retourneert, gebruikt u de volgende query:  
 
 ```  
 Select SMS_R_System.ClientEdition from SMS_R_System where SMS_R_System.ClientEdition = 5  
 ```  
 
-## <a name="see-also"></a>Voir aussi  
- [Opérations et maintenance pour les requêtes dans System Center Configuration Manager](../../../core/servers/manage/operations-and-maintenance-for-queries.md)
+## <a name="see-also"></a>Zie tevens  
+ [Bewerkingen en onderhoud voor query's in System Center Configuration Manager](../../../core/servers/manage/operations-and-maintenance-for-queries.md)

@@ -1,6 +1,6 @@
 ---
-title: "Comptes utilisés par Configuration Manager | Microsoft Docs"
-description: "Identifier et gérer les groupes Windows ainsi que les comptes dans System Center Configuration Manager."
+title: Accounts die worden gebruikt door Configuration Manager | Microsoft Docs
+description: Identificeren en te beheren de Windows-groepen en de accounts in System Center Configuration Manager.
 ms.custom: na
 ms.date: 2/9/2016
 ms.prod: configuration-manager
@@ -17,329 +17,329 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: a776667cc9f24bd4a468afea76e466c34ce66864
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="accounts-used-in-system-center-configuration-manager"></a>Comptes utilisés dans System Center Configuration Manager
+# <a name="accounts-used-in-system-center-configuration-manager"></a>Accounts die worden gebruikt System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Utilisez les informations suivantes pour identifier les groupes Windows et les comptes utilisés dans System Center Configuration Manager, savoir comment ils sont utilisés et connaître les exigences associées.  
+Gebruik de volgende informatie om de Windows-groepen en de accounts die worden gebruikt in System Center Configuration Manager, hoe ze worden gebruikt en eventuele vereisten te identificeren.  
 
-## <a name="windows-groups-that-configuration-manager-creates-and-uses"></a>Groupes Windows créés et utilisés par Configuration Manager  
- Configuration Manager crée automatiquement et, très souvent, gère automatiquement les groupes Windows suivants.  
+## <a name="windows-groups-that-configuration-manager-creates-and-uses"></a>Windows-groepen die worden gemaakt en gebruikt met Configuration Manager  
+ Configuration Manager automatisch maakt en in veel gevallen automatisch onderhoudt, worden de volgende Windows-groepen.  
 
 > [!NOTE]  
->  Lorsque que Configuration Manager crée un groupe sur un ordinateur qui est membre d'un domaine, ce groupe est un groupe de sécurité local. Si l'ordinateur est un contrôleur de domaine, ce groupe est un groupe de domaine local qui est partagé entre tous les contrôleurs de domaine du domaine.  
+>  Als u Configuration Manager maakt een groep op een computer die lid is van een domein, is de groep een lokale beveiligingsgroep. Als de computer een domeincontroller is, is de groep een lokale domeingroep die wordt gedeeld onder alle domeincontrollers in het domein.  
 
 
 ### <a name="configmgrcollectedfilesaccess"></a>ConfigMgr_CollectedFilesAccess  
-Configuration Manager utilise ce groupe pour autoriser la consultation des fichiers collectés par l’inventaire logiciel.  
+Configuration Manager gebruikt deze groep toegang om bestanden die worden verzameld door software-inventaris weer te geven.  
 
-Le tableau suivant répertorie des détails supplémentaires pour ce groupe :  
+De volgende tabel bevat aanvullende informatie voor deze groep:  
 
-|Détail|Plus d'informations|  
+|Detail|Meer informatie|  
 |------------|----------------------|  
-|Type et emplacement|Ce groupe est un groupe de sécurité local créé sur le serveur de site principal.<br /><br /> Lorsque vous désinstallez un site, ce groupe n’est pas supprimé automatiquement. Il doit être supprimé manuellement.|  
-|Adhésion|Configuration Manager gère automatiquement l'appartenance au groupe. Les membres incluent les utilisateurs administratifs qui disposent de l'autorisation **Afficher les fichiers collectés** pour l'objet sécurisable **Regroupement** depuis un rôle de sécurité attribué.|  
-|Autorisations|Par défaut, ce groupe dispose de l'autorisation **Read** pour le dossier suivant sur le serveur de site : **%path%\Microsoft Configuration Manager\sinv.box\FileCol**.|  
+|Type en locatie|Deze groep is een lokale beveiligingsgroep die op de primaire siteserver is gemaakt.<br /><br /> Wanneer u een site verwijdert, wordt deze groep niet automatisch verwijderd. Dit moet handmatig worden verwijderd.|  
+|Lidmaatschap|Het groepslidmaatschap wordt automatisch beheerd door Configuration Manager. De leden zijn onder andere beheerders aan wie de machtiging **Verzamelde bestanden weergeven** is verleend op het beveiligbare object **Verzameling** van een toegewezen beveiligingsrol.|  
+|Machtigingen|Deze groep heeft standaard **lezen** machtiging voor de volgende map op de siteserver: **%path%\Microsoft Configuration Manager\sinv.box\FileCol**.|  
 
 ### <a name="configmgrdviewaccess"></a>ConfigMgr_DViewAccess  
- Ce groupe est un groupe de sécurité local créé par Configuration Manager sur le serveur de base de données du site ou le serveur réplica de base de données. Il n’est pas utilisé actuellement, mais est réservé à un usage ultérieur.  
+ Deze groep is een lokale beveiligingsgroep die Configuration Manager op de Sitedatabaseserver of databasereplicaserver maakt. Wordt momenteel niet gebruikt, maar is gereserveerd voor toekomstig gebruik.  
 
-### <a name="configmgr-remote-control-users"></a>Utilisateurs du contrôle à distance ConfigMgr  
- Les outils de contrôle à distance de Configuration Manager utilisent ce groupe pour stocker les comptes et les groupes que vous configurez dans la liste Observateurs autorisés qui est attribuée à chaque client.  
+### <a name="configmgr-remote-control-users"></a>Gebruikers van extern beheer van ConfigMgr  
+ Deze groep externe hulpprogramma's voor Configuration Manager gebruiken voor het opslaan van de accounts en groepen die u hebt ingesteld in de lijst van toegestane Viewers die aan elke client is toegewezen.  
 
- Le tableau suivant répertorie des détails supplémentaires pour ce groupe :  
+ De volgende tabel bevat aanvullende informatie voor deze groep:  
 
-|Détail|Plus d'informations|  
+|Detail|Meer informatie|  
 |------------|----------------------|  
-|Type et emplacement|Ce groupe est un groupe de sécurité local créé sur le client Configuration Manager, lorsque le client reçoit une stratégie qui active les outils de contrôle à distance.<br /><br /> Lorsque vous désactivez les outils de contrôle à distance pour un client, ce groupe n’est pas supprimé automatiquement. Il doit être supprimé manuellement sur chaque ordinateur client.|  
-|Adhésion|Par défaut, ce groupe ne contient aucun membre. Lorsque vous ajoutez des utilisateurs à la liste Observateurs autorisés, ils sont automatiquement ajoutés à ce groupe.<br /><br /> Vous pouvez utiliser la liste Observateurs autorisés pour gérer l’appartenance à ce groupe au lieu d’y ajouter directement des utilisateurs ou des groupes.<br /><br /> En plus d’être un observateur autorisé, un utilisateur administratif doit disposer de l’autorisation **Contrôle à distance** sur l’objet **Regroupement**. Vous pouvez attribuer cette autorisation à l'aide du rôle de sécurité Opérateur d'outils à distance.|  
-|Autorisations|Par défaut, ce groupe ne possède pas d’autorisations sur les emplacements de l’ordinateur. Il ne sert qu’à contenir la liste Observateurs autorisés.|  
+|Type en locatie|Deze groep is een lokale beveiligingsgroep op de Configuration Manager-client wordt gemaakt wanneer de client een beleid ontvangt dat externe hulpprogramma's inschakelt.<br /><br /> Nadat u externe hulpprogramma's voor een client uitgeschakeld, wordt deze groep niet automatisch verwijderd. Dit moet handmatig worden verwijderd uit elke clientcomputer.|  
+|Lidmaatschap|Standaard behoren er geen leden tot deze groep. Wanneer u gebruikers aan de lijst van toegestane viewers toevoegt, worden ze automatisch aan deze groep toegevoegd.<br /><br /> U kunt de lijst van toegestane viewers gebruiken om het lidmaatschap van deze groep te beheren in plaats van gebruikers of groepen rechtstreeks aan deze groep toe te voegen.<br /><br /> Niet enkel een toegestane viewer, een gebruiker met beheerdersrechten moet hebben de **beheer op afstand** machtiging voor de **verzameling** object. U kunt deze machtiging toewijzen door de beveiligingsrol Operator voor externe hulpprogramma's te gebruiken.|  
+|Machtigingen|Standaard heeft deze groep geen machtigingen op enige locaties op de computer. Dit wordt alleen gebruikt om de lijst van toegestane Viewers houdt.|  
 
-### <a name="sms-admins"></a>Administrateurs SMS  
- Configuration Manager utilise ce groupe pour autoriser l’accès au fournisseur SMS, via Windows Management Instrumentation (WMI). L’accès au fournisseur SMS est requis pour afficher et modifier des objets dans la console Configuration Manager.  
+### <a name="sms-admins"></a>SMS Admins  
+ Deze groep Configuration Manager gebruikt om toegang te verlenen tot de SMS-Provider, via Windows Management Instrumentation (WMI). Toegang tot de SMS-Provider is vereist voor het weergeven en wijzigen van objecten in de Configuration Manager-console.  
 
 > [!NOTE]  
->  La configuration de l'administration basée sur les rôles d'un utilisateur administratif détermine quels objets celui-ci peut consulter et gérer, lorsqu'il utilise la console Configuration Manager.  
+>  Op rollen gebaseerde beheerconfiguratie van een gebruiker met beheerdersrechten bepaalt welke objecten ze kunnen weergeven en beheren wanneer u de Configuration Manager-console.  
 
- Le tableau suivant répertorie des détails supplémentaires pour ce groupe :  
+ De volgende tabel bevat aanvullende informatie voor deze groep:  
 
-|Détail|Plus d'informations|  
+|Detail|Meer informatie|  
 |------------|----------------------|  
-|Type et emplacement|Ce groupe est un groupe de sécurité local créé sur chaque ordinateur qui dispose d’un fournisseur SMS.<br /><br /> Lorsque vous désinstallez un site, ce groupe n’est pas supprimé automatiquement. Il doit être supprimé manuellement.|  
-|Adhésion|Configuration Manager gère automatiquement l'appartenance au groupe. Par défaut, chaque utilisateur administratif d'une hiérarchie et le compte d'ordinateur du serveur de site sont membres du groupe Administrateurs SMS sur chaque ordinateur du fournisseur SMS d'un site.|  
-|Autorisations|La définition des autorisations et des droits des administrateurs SMS s'effectue dans le composant logiciel enfichable MMC Contrôle WMI. Par défaut, les autorisations **Enable Account** et **Remote Enable** sont accordées au groupe Administrateurs SMS sur l'espace de noms Root\SMS. Les utilisateurs authentifiés disposent des autorisations **Méthodes d’exécution**, **Écriture fournisseur** et **Activer le compte**.<br /><br /> Les administrateurs qui utiliseront une console Configuration Manager distante doivent posséder des autorisations DCOM d'activation à distance à la fois sur le serveur de site et sur l'ordinateur du fournisseur SMS. Il est recommandé d'accorder ces droits aux Administrateurs SMS pour simplifier l'administration plutôt que d'accorder ces droits directement aux utilisateurs ou groupes. Pour plus d'informations, consultez la section [Configurer les autorisations DCOM pour les consoles Configuration Manager distantes](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ConfigDCOMforRemoteConsole) dans la rubrique [Modifier votre infrastructure System Center Configuration Manager](../../../core/servers/manage/modify-your-infrastructure.md).|  
+|Type en locatie|Deze groep is een lokale beveiligingsgroep gemaakt op elke computer die een SMS-Provider heeft.<br /><br /> Wanneer u een site verwijdert, wordt deze groep niet automatisch verwijderd. Dit moet handmatig worden verwijderd.|  
+|Lidmaatschap|Het groepslidmaatschap wordt automatisch beheerd door Configuration Manager. Elke beheerder in een hiërarchie en de account van de siteservercomputer is standaard lid van de SMS Admins-groep op elke computer van de SMS Provider in een site.|  
+|Machtigingen|SMS Admins-rechten en machtigingen zijn ingesteld in de WMI Control MMC-module. Standaard wordt de groep SMS Admins krijgt **Account inschakelen** en **extern activeren** voor de naamruimte Root\SMS. Geverifieerde gebruikers hebben **methoden uitvoeren**, **providerobjecten**, en **Account inschakelen**.<br /><br /> Gebruikers met beheerdersrechten die een externe Configuration Manager-console gebruiken vereisen Remote Activation DCOM-machtigingen voor zowel de siteservercomputer als de computer van de SMS-Provider. Het wordt aanbevolen deze rechten toe te kennen aan de SMS Admins om het beheer te vereenvoudigen in plaats van deze rechten rechtstreeks aan gebruikers of groepen toe te kennen. Zie voor meer informatie de sectie [DCOM-machtigingen configureren voor externe Configuration Manager-consoles](../../../core/servers/manage/modify-your-infrastructure.md#BKMK_ConfigDCOMforRemoteConsole) in het onderwerp [Uw infrastructuur van System Center Configuration Manager aanpassen](../../../core/servers/manage/modify-your-infrastructure.md).|  
 
-### <a name="smssitesystemtositeserverconnectionmpltsitecode"></a>SMS_SiteSystemToSiteServerConnection_MP_&lt;code_site\>  
- Les points de gestion Configuration Manager qui sont distants du serveur de site utilisent ce groupe pour se connecter à la base de données du site. Ce groupe fournit un accès au point de gestion pour les dossiers Boîte de réception sur le serveur de site et la base de données du site.  
+### <a name="smssitesystemtositeserverconnectionmpltsitecode"></a>SMS_SiteSystemToSiteServerConnection_MP_&lt;sitecode\>  
+ Deze groep Configuration Manager-beheerpunten die extern van de siteserver zijn gebruiken voor verbinding met de sitedatabase. Deze groep biedt een beheerpunt toegang tot het Postvak IN op de siteserver en de sitedatabase.  
 
- Le tableau suivant répertorie des détails supplémentaires pour ce groupe :  
+ De volgende tabel bevat aanvullende informatie voor deze groep:  
 
-|Détail|Plus d'informations|  
+|Detail|Meer informatie|  
 |------------|----------------------|  
-|Type et emplacement|Ce groupe est un groupe de sécurité local créé sur chaque ordinateur qui dispose d’un fournisseur SMS.<br /><br /> Lorsque vous désinstallez un site, ce groupe n’est pas supprimé automatiquement. Il doit être supprimé manuellement.|  
-|Adhésion|Configuration Manager gère automatiquement l'appartenance au groupe. Par défaut, l'appartenance inclut les comptes d'ordinateur des ordinateurs distants qui disposent d'un point de gestion pour le site.|  
-|Autorisations|Par défaut, ce groupe dispose des autorisations **Lecture**, **Lecture et exécution** et **Affichage du contenu du dossier** pour le dossier **%path%\Microsoft Configuration Manager\inboxes** sur le serveur de site. Ce groupe dispose de l’autorisation supplémentaire **Écriture** sur les sous-dossiers de **inboxes** dans lesquels le point de gestion écrit les données client.|  
+|Type en locatie|Deze groep is een lokale beveiligingsgroep gemaakt op elke computer die een SMS-Provider heeft.<br /><br /> Wanneer u een site verwijdert, wordt deze groep niet automatisch verwijderd. Dit moet handmatig worden verwijderd.|  
+|Lidmaatschap|Het groepslidmaatschap wordt automatisch beheerd door Configuration Manager. Lidmaatschap omvat standaard de computeraccounts van externe computers die een beheerpunt voor de site hebben.|  
+|Machtigingen|Deze groep heeft standaard **lezen**, **lezen & uitvoeren**, en **Mapinhoud weergeven** machtiging voor de **%path%\Microsoft Configuration Manager\inboxes** map op de siteserver. Deze groep de extra machtiging heeft **schrijven** op submappen onder de **postvakken** waarnaar het beheerpunt clientgegevens schrijft.|  
 
-### <a name="smssitesystemtositeserverconnectionsmsprovltsitecode"></a>SMS_SiteSystemToSiteServerConnection_SMSProv_&lt;code_site\>  
- Les ordinateurs fournisseurs SMS Configuration Manager qui sont distants du serveur de site utilisent ce groupe pour se connecter à celui-ci.  
+### <a name="smssitesystemtositeserverconnectionsmsprovltsitecode"></a>SMS_SiteSystemToSiteServerConnection_SMSProv_&lt;sitecode\>  
+ SMS-Provider voor Configuration Manager-computers die extern van de siteserver zijn gebruiken deze groep verbinding maken met de siteserver.  
 
- Le tableau suivant répertorie des détails supplémentaires pour ce groupe :  
+ De volgende tabel bevat aanvullende informatie voor deze groep:  
 
-|Détail|Plus d'informations|  
+|Detail|Meer informatie|  
 |------------|----------------------|  
-|Type et emplacement|Ce groupe est un groupe de sécurité local créé sur le serveur de site.<br /><br /> Lorsque vous désinstallez un site, ce groupe n’est pas supprimé automatiquement. Il doit être supprimé manuellement.|  
-|Adhésion|Configuration Manager gère automatiquement l'appartenance au groupe. Par défaut, l’appartenance comprend le compte d’ordinateur ou le compte d’utilisateur de domaine utilisé pour se connecter au serveur de site depuis chaque ordinateur distant ayant installé un fournisseur SMS pour le site.|  
-|Autorisations|Par défaut, ce groupe dispose des autorisations **Lecture**, **Lecture et exécution** et **Affichage du contenu du dossier** pour le dossier **%path%\Microsoft Configuration Manager\inboxes** sur le serveur de site. Ce groupe dispose de l’autorisation supplémentaire **Écriture** ou des autorisations **Écriture** et **Modifier** sur les sous-dossiers de **inboxes** auxquels le fournisseur SMS doit avoir accès.<br /><br /> Ce groupe dispose des autorisations **Lecture**, **Lecture et exécution**, **Affichage du contenu du dossier**, **Écriture** et **Modification** pour les dossiers situés sous **%path%\Microsoft Configuration Manager\OSD\boot** et **Lecture** pour les dossiers situés sous **%path%\Microsoft Configuration Manager\OSD\Bin** sur le serveur de site.|  
+|Type en locatie|Deze groep is een lokale beveiligingsgroep die op de siteserver is gemaakt.<br /><br /> Wanneer u een site verwijdert, wordt deze groep niet automatisch verwijderd. Dit moet handmatig worden verwijderd.|  
+|Lidmaatschap|Het groepslidmaatschap wordt automatisch beheerd door Configuration Manager. Lidmaatschap omvat standaard de computeraccount of de domeingebruikersaccount die wordt gebruikt voor het verbinding maken met de siteserver van elke externe computer die een SMS-Provider voor de site is geïnstalleerd.|  
+|Machtigingen|Deze groep heeft standaard **lezen**, **lezen & uitvoeren**, en **Mapinhoud weergeven** machtiging voor de **%path%\Microsoft Configuration Manager\inboxes** map op de siteserver. Deze groep de extra machtiging heeft **schrijven** of de machtigingen **schrijven** en **wijzigen** op submappen onder de **postvakken** waartoe de SMS-Provider toegang nodig.<br /><br /> Deze groep heeft ook **lezen**, **lezen & uitvoeren**, **Mapinhoud weergeven**, **schrijven**, en **wijzigen** machtigingen op de mappen onder **%path%\Microsoft Configuration Manager\OSD\boot** en **lezen** machtiging op de mappen onder **%path%\Microsoft Configuration Manager\OSD\Bin** op de siteserver.|  
 
-### <a name="smssitesystemtositeserverconnectionstatltsitecode"></a>SMS_SiteSystemToSiteServerConnection_Stat_&lt;code_site\>  
- Le Gestionnaire de répartition de fichiers sur les ordinateurs de système de site distants Configuration Manager utilise ce groupe pour se connecter au serveur de site.  
+### <a name="smssitesystemtositeserverconnectionstatltsitecode"></a>SMS_SiteSystemToSiteServerConnection_Stat_&lt;sitecode\>  
+ De File Dispatch Manager op externe sitesysteemcomputers Configuration Manager maakt gebruik van deze groep verbinding maken met de siteserver.  
 
- Le tableau suivant répertorie des détails supplémentaires pour ce groupe :  
+ De volgende tabel bevat aanvullende informatie voor deze groep:  
 
-|Détail|Plus d'informations|  
+|Detail|Meer informatie|  
 |------------|----------------------|  
-|Type et emplacement|Ce groupe est un groupe de sécurité local créé sur le serveur de site.<br /><br /> Lorsque vous désinstallez un site, ce groupe n’est pas supprimé automatiquement. Il doit être supprimé manuellement.|  
-|Adhésion|Configuration Manager gère automatiquement l'appartenance au groupe. Par défaut, l'appartenance comprend le compte d'ordinateur ou le compte d'utilisateur de domaine utilisé pour se connecter au serveur de site depuis chaque ordinateur de système de site distant qui exécute le Gestionnaire de répartition de fichiers.|  
-|Autorisations|Par défaut, ce groupe dispose des autorisations **Lecture**, **Écriture et exécution** et **Affichage du contenu du dossier** sur le dossier **%path%\Microsoft Configuration Manager\inboxes** et ses sous-dossiers sur le serveur de site. Ce groupe dispose des autorisations supplémentaires **Écriture** et **Modifier** sur le dossier **%path%\Microsoft Configuration Manager\inboxes\statmgr.box** sur ce serveur de site.|  
+|Type en locatie|Deze groep is een lokale beveiligingsgroep die op de siteserver is gemaakt.<br /><br /> Wanneer u een site verwijdert, wordt deze groep niet automatisch verwijderd. Dit moet handmatig worden verwijderd.|  
+|Lidmaatschap|Het groepslidmaatschap wordt automatisch beheerd door Configuration Manager. Lidmaatschap omvat standaard de computeraccount of de domeingebruikersaccount die wordt gebruikt om een verbinding te maken met de siteserver van elke externe sitesysteemcomputer die de File Dispatch Manager uitvoert.|  
+|Machtigingen|Deze groep heeft standaard **lezen**, **lezen & uitvoeren**, en **Mapinhoud weergeven** machtiging voor de **%path%\Microsoft Configuration Manager\inboxes** map en submappen onder die locatie op de siteserver. Deze groep de extra machtigingen heeft **schrijven** en **wijzigen** naar de **%path%\Microsoft Configuration Manager\inboxes\statmgr.box** map op de siteserver.|  
 
-### <a name="smssitetositeconnectionltsitecode"></a>SMS_SiteToSiteConnection_&lt;code_site\>  
- Configuration Manager utilise ce groupe pour activer la réplication de fichiers entre les sites d’une hiérarchie. Pour chaque site distant qui transfère directement des fichiers vers ce site, ce groupe contient les comptes configurés en tant que **compte de réplication de fichiers**.  
+### <a name="smssitetositeconnectionltsitecode"></a>SMS_SiteToSiteConnection_&lt;sitecode\>  
+ Configuration Manager gebruikt deze groep bestandsgebaseerde replicatie tussen sites in een hiërarchie in te schakelen. Voor elke externe site die rechtstreeks bestanden naar deze site overbrengt, heeft deze groep accounts die zijn ingesteld als een **Account voor bestandsreplicatie**.  
 
- Le tableau suivant répertorie des détails supplémentaires pour ce groupe :  
+ De volgende tabel bevat aanvullende informatie voor deze groep:  
 
-|Détail|Plus d'informations|  
+|Detail|Meer informatie|  
 |------------|----------------------|  
-|Type et emplacement|Ce groupe est un groupe de sécurité local créé sur le serveur de site.|  
-|Adhésion|Lorsque vous installez un nouveau site en tant qu’enfant d’un autre site, Configuration Manager ajoute automatiquement le compte de l’ordinateur du nouveau site au groupe situé sur le serveur de site parent. Configuration Manager ajoute également le compte d’ordinateur du site parent au groupe sur le serveur de site. Si vous spécifiez un autre compte pour les transferts de fichiers, ajoutez ce compte à ce groupe sur le serveur de site de destination.<br /><br /> Lorsque vous désinstallez un site, ce groupe n’est pas supprimé automatiquement. Il doit être supprimé manuellement.|  
-|Autorisations|Par défaut, ce groupe dispose du **contrôle intégral** pour le dossier **%path%\Microsoft Configuration Manager\inboxes\despoolr.box\receive** .|  
+|Type en locatie|Deze groep is een lokale beveiligingsgroep die op de siteserver is gemaakt.|  
+|Lidmaatschap|Wanneer u een nieuwe site als onderliggende site van een andere site installeert, Configuration Manager het computeraccount van de nieuwe site automatisch toegevoegd aan de groep op de bovenliggende siteserver. Het computeraccount van de bovenliggende site Configuration Manager ook toegevoegd aan de groep op de nieuwe siteserver. Als u een ander account voor op bestanden gebaseerde overdrachten opgeeft, moet u dat account toevoegen aan deze groep op de doelserver van site.<br /><br /> Wanneer u een site verwijdert, wordt deze groep niet automatisch verwijderd. Dit moet handmatig worden verwijderd.|  
+|Machtigingen|Deze groep heeft standaard **volledig beheer** naar de **%path%\Microsoft Configuration Manager\inboxes\despoolr.box\receive** map.|  
 
-## <a name="accounts-that-configuration-manager-uses"></a>Comptes utilisés par Configuration Manager  
- Vous pouvez utiliser les comptes suivants pour Configuration Manager.  
+## <a name="accounts-that-configuration-manager-uses"></a>Accounts die worden gebruikt met Configuration Manager  
+ U kunt instellen de volgende accounts voor Configuration Manager.  
 
-### <a name="active-directory-group-discovery-account"></a>Compte de découverte de groupes Active Directory  
- Le **compte de découverte de groupes Active Directory** permet de détecter les groupes de sécurité locaux, globaux et universels, les membres de ces groupes et les membres des groupes de distribution à partir des emplacements spécifiés dans Active Directory Domain Services. Les groupes de distribution ne sont pas découverts en tant que ressources de groupe.  
+### <a name="active-directory-group-discovery-account"></a>Detectieaccount Active Directory-groepen  
+ De **Detectieaccount Active Directory-groepen** wordt gebruikt voor het detecteren van lokale, globale en universele beveiligingsgroepen, het lidmaatschap binnen deze groepen en het lidmaatschap binnen distributiegroepen van de opgegeven locaties in Active Directory Domain Services. Distributiegroepen worden niet als groepsbronnen gedetecteerd.  
 
- Ce compte peut être un compte d'ordinateur du serveur de site qui exécute la découverte ou un compte d'utilisateur Windows. Celui-ci doit disposer de l'autorisation d'accès **Lecture** aux emplacements Active Directory spécifiés pour cette découverte.  
+ Dit account kan een computeraccount van de siteserver zijn dat detectie uitvoert of een Windows-gebruikersaccount. Het moet beschikken over een toegangsmachtiging van het type **Lezen** voor de Active Directory-locaties die voor detectie zijn opgegeven.  
 
-### <a name="active-directory-system-discovery-account"></a>Compte de découverte de systèmes Active Directory  
- Le **compte de découverte de systèmes Active Directory** est utilisé pour détecter des ordinateurs partir des emplacements spécifiés dans les services de domaine Active Directory.  
+### <a name="active-directory-system-discovery-account"></a>Detectieaccount Active Directory-systeem  
+ Het **detectieaccount Active Directory-systeem** wordt gebruikt voor het detecteren van computers van de opgegeven locaties in Active Directory Domain Services.  
 
- Ce compte peut être un compte d'ordinateur du serveur de site qui exécute la découverte ou un compte d'utilisateur Windows. Celui-ci doit disposer de l'autorisation d'accès **Lecture** aux emplacements Active Directory spécifiés pour cette découverte.  
+ Dit account kan een computeraccount van de siteserver zijn dat detectie uitvoert of een Windows-gebruikersaccount. Het moet beschikken over een toegangsmachtiging van het type **Lezen** voor de Active Directory-locaties die voor detectie zijn opgegeven.  
 
-### <a name="active-directory-user-discovery-account"></a>Compte de découverte d'utilisateurs Active Directory  
- Le **compte de découverte d’utilisateurs Active Directory** est utilisé pour détecter des comptes d’utilisateur partir des emplacements spécifiés dans les services de domaine Active Directory.  
+### <a name="active-directory-user-discovery-account"></a>Detectieaccount Active Directory-gebruikers  
+ Het **detectieaccount Active Directory-gebruikers** wordt gebruikt voor het detecteren van gebruikersaccounts van de opgegeven locaties in Active Directory Domain Services.  
 
- Ce compte peut être un compte d'ordinateur du serveur de site qui exécute la découverte ou un compte d'utilisateur Windows. Celui-ci doit disposer de l'autorisation d'accès **Lecture** aux emplacements Active Directory spécifiés pour cette découverte.  
+ Dit account kan een computeraccount van de siteserver zijn dat detectie uitvoert of een Windows-gebruikersaccount. Het moet beschikken over een toegangsmachtiging van het type **Lezen** voor de Active Directory-locaties die voor detectie zijn opgegeven.  
 
-### <a name="active-directory-forest-account"></a>Compte de forêt Active Directory  
- Le **compte de forêt Active Directory** est utilisé pour découvrir l’infrastructure de réseau à partir de forêts Active Directory. Les sites d’administration centrale et les sites principaux l’utilisent également pour publier des données dans les services AD DS d’une forêt.  
+### <a name="active-directory-forest-account"></a>Active Directory-forestaccount  
+ De **Active Directory-Forestaccount** wordt gebruikt voor het detecteren van netwerkinfrastructuur van Active Directory-forests. Centrale beheersites en primaire sites ook gebruiken om sitegegevens te publiceren naar Active Directory Domain Services voor een forest.  
 
 > [!NOTE]  
->  Les sites secondaires utilisent toujours le compte d'ordinateur du serveur de site secondaire pour publier dans Active Directory.  
+>  Secundaire sites gebruiken steeds het computeraccount van de secundaire siteserver om naar Active Directory te publiceren.  
 
 > [!NOTE]  
->  Le Compte de forêt Active Directory doit être un compte global utilisé pour détecter des forêts non approuvées et publier des données dans celles-ci. Si vous n’utilisez pas le compte d’ordinateur du serveur de site, vous ne pouvez sélectionner qu’un compte global.  
+>  De Active Directory-Forestaccount moet een globaal account om te detecteren en te publiceren naar niet-vertrouwde forests. Als u het computeraccount van de siteserver niet gebruikt, kunt u alleen een globaal account selecteren.  
 
- Ce compte doit disposer des autorisations de **Lecture** pour chaque forêt Active Directory dont vous souhaitez découvrir l'infrastructure réseau.  
+ Dit account moet **Lezen**-machtigingen hebben voor elk Active Directory-forest waar u de netwerkinfrastructuur wilt detecteren.  
 
- Ce compte doit disposer des autorisations **Contrôle intégral** pour le conteneur Gestion du système et tous ses objets enfants dans chaque forêt Active Directory où vous souhaitez publier les données de site.  
+ Dit account moet **Volledige bevoegdheid**-machtigingen hebben op de System Management-container en op alle onderliggende objecten daarvan in elk Active Directory-forest waar u sitegegevens wilt publiceren.  
 
-### <a name="asset-intelligence-synchronization-point-proxy-server-account"></a>Compte du serveur proxy du point de synchronisation Asset Intelligence  
- Le point de synchronisation Asset Intelligence utilise le **compte du serveur proxy du point de synchronisation Asset Intelligence** pour accéder à Internet via un serveur proxy ou un pare-feu qui exige un accès authentifié.  
+### <a name="asset-intelligence-synchronization-point-proxy-server-account"></a>Proxyserveraccount van Asset Intelligence-synchronisatiepunt  
+ De Asset Intelligence-synchronisatiepunt maakt gebruik van de **Asset Intelligence-synchronisatie Proxyserveraccount** toegang tot Internet via een proxy-server of firewall die geverifieerde toegang.  
 
 > [!IMPORTANT]  
->  Spécifiez un compte qui dispose des autorisations minimales pour le serveur proxy requis ou le pare-feu.  
+>  Geef een account op dat over de geringst mogelijke machtigingen voor de vereiste proxyserver of firewall beschikt.  
 
-### <a name="certificate-registration-point-account"></a>Compte de point d'enregistrement de certificat  
- Le **compte du point d'enregistrement du certificat** connecte le point d'enregistrement du certificat à la base de données Configuration Manager. Le compte d’ordinateur du serveur du point d’enregistrement de certificat est utilisé par défaut, mais vous pouvez configurer un compte d’utilisateur à la place. Chaque fois que le point d'enregistrement de certificat est dans un domaine non approuvé du serveur de site, vous devez spécifier un compte d'utilisateur. Ce compte ne requiert qu’un accès en **Lecture** sur la base de données du site, car le système de messages d’état gère les tâches d’écriture.  
+### <a name="certificate-registration-point-account"></a>Account voor het certificaatregistratiepunt  
+ De **Account voor het Certificaatregistratiepunt** verbindt het certificaatregistratiepunt met de Configuration Manager-database. Het computeraccount van de certificaatregistratiepuntserver wordt standaard gebruikt, maar u kunt een gebruikersaccount in plaats daarvan instellen. U moet een gebruikersaccount opgeven wanneer het certificaatregistratiepunt zich in een niet-vertrouwd domein van de siteserver bevindt. Deze account vereist alleen **lezen** toegang tot de sitedatabase, omdat het statusberichtsysteem schrijven taken verwerkt.  
 
-### <a name="capture-operating-system-image-account"></a>Compte Capturer l'image du système d'exploitation  
- Configuration Manager utilise le **compte Capturer l’image du système d’exploitation** pour accéder au dossier qui stocke les images capturées lorsque vous déployez des systèmes d’exploitation. Ce compte est requis si vous ajoutez l'étape **Capturer l'image du système d'exploitation** à la séquence de tâches.  
+### <a name="capture-operating-system-image-account"></a>Account voor het vastleggen van een besturingssysteeminstallatiekopie  
+ Configuration Manager gebruikt de **Account Besturingssysteeminstallatiekopie vastleggen** toegang tot de map wanneer vastgelegde installatiekopieën worden opgeslagen wanneer u besturingssystemen implementeert. Dit account is vereist als u de stap **Besturingssysteeminstallatiekopie vastleggen** toevoegt aan een takenreeks.  
 
- Le compte doit disposer d'autorisations en **Lecture** et en **Écriture** sur le partage réseau sur lequel l'image capturée est stockée.  
+ Het account moet de machtigingen **Lezen** en **Schrijven** hebben op de netwerkshare waar de vastgelegde installatiekopie is opgeslagen.  
 
- Si le mot de passe du compte est modifié dans Windows, vous devez mettre à jour la séquence de tâches avec le nouveau mot de passe. Le client Configuration Manager reçoit le nouveau mot de passe lorsqu’il télécharge la stratégie du client.  
+ Als het wachtwoord voor het account is gewijzigd in Windows, moet u de takenreeks bijwerken met het nieuwe wachtwoord. Configuration Manager-client wordt het nieuwe wachtwoord ontvangen wanneer het clientbeleid op de volgende keer downloadt.  
 
- Si vous utilisez ce compte, vous pouvez créer un compte d'utilisateur de domaine avec des autorisations minimales pour accéder aux ressources réseau nécessaires et l'utiliser pour tous les comptes de séquence de tâches.  
+ Als u dit account gebruikt, kunt u één domeingebruikersaccount maken met minimale machtigingen voor toegang tot de vereiste netwerkbronnen en dit gebruiken voor alle takenreeksaccounts.  
 
 > [!IMPORTANT]  
->  N’attribuez pas d’autorisations d’ouverture de session interactive à ce compte.  
+>  Wijs machtigingen voor interactief aanmelden niet toe aan dit account.  
 >   
->  N'utilisez pas le compte d'accès réseau pour ce compte.  
+>  Gebruik voor dit account geen netwerktoegangsaccount.  
 
-### <a name="client-push-installation-account"></a>Compte d'installation poussée du client  
- Le **compte d’installation push du client** est utilisé pour se connecter à des ordinateurs et installer le logiciel client Configuration Manager si vous déployez des clients via l’installation push du client. Si ce compte n'est pas spécifié, c'est le compte du serveur de site qui est utilisé pour installer le logiciel client.  
+### <a name="client-push-installation-account"></a>Account voor push-installatie client  
+ De **Clientpushinstallatieaccount** wordt gebruikt voor verbinding maken met computers en de Configuration Manager-clientsoftware te installeren als u clients implementeert met behulp van push-clientinstallatie. Als dit account niet is opgegeven, wordt het siteserveraccount gebruikt om te proberen de clientsoftware te installeren.  
 
- Ce compte doit être membre du groupe **Administrateurs** local sur les ordinateurs où le logiciel client Configuration Manager doit être installé. Il ne nécessite pas de droits **Administrateur de domaine**.  
+ Dit account moet lid zijn van de lokale **beheerders** groep op de computers waarop de Configuration Manager-clientsoftware wordt geïnstalleerd. Deze account vereist geen **domeinbeheerder** rechten.  
 
- Vous pouvez spécifier un ou plusieurs comptes d'installation Push du client, que Configuration Manager teste successivement jusqu'à ce que l'un d'eux fonctionne.  
+ U kunt een of meer Clientpushinstallatieaccounts, die Configuration Manager elk om beurt probeert tot er één lukt.  
 
 > [!TIP]  
->  Pour améliorer la coordination des mises à jour de comptes dans des déploiements Active Directory étendus, créez un compte avec un autre nom, puis ajoutez le nouveau compte à la liste des comptes d'installation Push du client dans Configuration Manager. Laissez suffisamment de temps aux services de domaine Active Directory pour répliquer le nouveau compte, puis supprimez l'ancien compte de Configuration Manager et des services de domaine Active Directory.  
+>  Om accountupdates in grote Active Directory-implementaties efficiënter te coördineren, een nieuw account maken met een andere naam en vervolgens het nieuwe account toevoegt aan de lijst met Clientpushinstallatieaccounts in Configuration Manager. Voorzie voldoende tijd voor Active Directory Domain Services om de nieuwe account te repliceren en verwijder de oude account vervolgens uit Configuration Manager en Active Directory Domain Services.  
 
 > [!IMPORTANT]  
->  N’accordez pas à ce compte le droit d’ouvrir une session locale.  
+>  Ken deze account geen het recht Lokaal aanmelden.  
 
-### <a name="enrollment-point-connection-account"></a>Compte de connexion du point d'inscription  
- Le **compte de connexion du point d'inscription** permet de connecter le point d'inscription à la base de données Configuration Manager. Le compte d’ordinateur du point d’inscription est utilisé par défaut, mais vous pouvez configurer un compte d’utilisateur à la place. Chaque fois que le point d'inscription est dans un domaine non approuvé à partir du serveur de site, vous devez spécifier un compte d'utilisateur. Ce compte requiert un accès en **Lecture** et en **Écriture** à la base de données du site.  
+### <a name="enrollment-point-connection-account"></a>Verbindingsaccount voor inschrijvingspunt  
+ De **Verbindingsaccount voor Inschrijvingspunt** het inschrijvingspunt verbindt met de Configuration Manager-sitedatabase. Het computeraccount van het inschrijvingspunt wordt standaard gebruikt, maar u kunt een gebruikersaccount in plaats daarvan instellen. U moet een gebruikersaccount opgeven wanneer het inschrijvingspunt zich in een niet-vertrouwd domein van de siteserver bevindt. Deze account vereist **lezen** en **schrijven** toegang tot de sitedatabase.  
 
-### <a name="exchange-server-connection-account"></a>Compte de connexion Exchange Server  
- Le **compte de connexion du serveur Exchange Server** connecte le serveur de site à l’ordinateur Exchange Server spécifié pour rechercher et gérer des appareils mobiles qui se connectent à Exchange Server. Ce compte nécessite des applets de commande PowerShell Exchange qui fournissent les autorisations requises pour l'ordinateur Exchange Server. Pour plus d’informations sur cette solution, consultez [Gérer des appareils mobiles à l’aide de System Center Configuration Manager et d’Exchange](../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md).  
+### <a name="exchange-server-connection-account"></a>Exchange Server-verbindingsaccount  
+ Het **Exchange Server-verbindingsaccount** verbindt de siteserver met de opgegeven Exchange Server-computer om mobiele apparaten te zoeken en te beheren die een verbinding maken met Exchange Server. Dit account vereist Exchange PowerShell-cmdlets die de vereiste machtigingen op de Exchange Server-computer bieden. Zie [Mobiele apparaten beheren met System Center Configuration Manager en Exchange](../../../mdm/deploy-use/manage-mobile-devices-with-exchange-activesync.md) voor meer informatie over de cmdlets.  
 
-### <a name="exchange-server-connector-proxy-server-account"></a>Compte du serveur proxy du connecteur Exchange Server  
- Le connecteur Exchange Server utilise le **compte du serveur proxy du connecteur Exchange Server** pour accéder à Internet via un serveur proxy ou un pare-feu qui exige un accès authentifié.  
-
-> [!IMPORTANT]  
->  Spécifiez un compte qui dispose des autorisations minimales pour le serveur proxy requis ou le pare-feu.  
-
-### <a name="management-point-connection-account"></a>Compte de connexion du point de gestion  
- Le **compte de connexion du point de gestion** permet de connecter le point de gestion à la base de données de site Configuration Manager pour permettre l’envoi et la récupération d’informations pour les clients. Le compte d’ordinateur du point de gestion est utilisé par défaut, mais vous pouvez configurer un compte d’utilisateur à la place. Chaque fois que le point de gestion est dans un domaine non approuvé à partir du serveur de site, vous devez spécifier un compte d'utilisateur.  
-
- Créez le compte comme un compte doté de droits limités, compte local sur l'ordinateur qui exécute Microsoft SQL Server.  
+### <a name="exchange-server-connector-proxy-server-account"></a>Proxyserveraccount Exchange Server-connector  
+ De Exchange Server-connector gebruikt de **Proxyserveraccount voor Exchange Server-Connector** toegang tot Internet via een proxy-server of firewall die geverifieerde toegang.  
 
 > [!IMPORTANT]  
->  N’accordez pas à ce compte des autorisations d’ouverture de session interactive.  
+>  Geef een account op dat over de geringst mogelijke machtigingen voor de vereiste proxyserver of firewall beschikt.  
 
-### <a name="multicast-connection-account"></a>Compte de connexion multidiffusion  
- Les points de distribution configurés pour la multidiffusion utilisent le **compte de connexion multidiffusion** pour lire les informations de la base de données de site. Le compte d’ordinateur du point de distribution est utilisé par défaut, mais vous pouvez configurer un compte d’utilisateur à la place. Chaque fois que la base de données de site est dans une forêt non approuvée, vous devez spécifier un compte d'utilisateur. Par exemple, si votre centre de données dispose d'un réseau de périmètre dans une forêt autre que celle du serveur de site et de la base de données du site, vous pouvez utiliser ce compte pour lire les informations sur la multidiffusion à partir de la base de données du site.  
+### <a name="management-point-connection-account"></a>Verbindingsaccount beheerpunt  
+ De **Account voor Beheerpuntverbinding** verbinding maken met het beheerpunt de Configuration Manager-sitedatabase zodat het kan verzenden en opvragen van informatie voor clients wordt gebruikt. Het computeraccount van het beheerpunt wordt standaard gebruikt, maar u kunt een gebruikersaccount in plaats daarvan instellen. U moet een gebruikersaccount opgeven wanneer het beheerpunt zich in een niet-vertrouwd domein van de siteserver bevindt.  
 
- Si vous créez ce compte, créez-le en tant que compte local doté de droits limités sur l’ordinateur qui exécute Microsoft SQL Server.  
+ Maak de account zijn als een laag niveau aan rechten, lokaal account op de computer waarop Microsoft SQL Server uitvoert.  
 
 > [!IMPORTANT]  
->  N’accordez pas à ce compte des autorisations d’ouverture de session interactive.  
+>  Ken geen rechten voor interactief aanmelden voor dit account.  
 
-### <a name="network-access-account"></a>Compte d'accès au réseau  
- Les ordinateurs clients utilisent le **compte d’accès au réseau** lorsqu’ils ne peuvent pas utiliser leur compte d’ordinateur local pour accéder au contenu sur les points de distribution. Par exemple, cela s'applique aux clients du groupe de travail et aux ordinateurs de domaines non approuvés. Ce compte peut également être utilisé pendant le déploiement du système d’exploitation, si l’ordinateur qui installe le système d’exploitation n’a pas encore un compte d’ordinateur sur le domaine.  
+### <a name="multicast-connection-account"></a>Multicastverbindingsaccount  
+ Distributiepunten die zijn ingesteld voor multicast-gebruik de **Multicastverbindingsaccount** om informatie te lezen uit de sitedatabase. Het computeraccount van het distributiepunt wordt standaard gebruikt, maar u kunt een gebruikersaccount in plaats daarvan instellen. U moet een gebruikersaccount opgeven wanneer de sitedatabase zich in een niet-vertrouwd forest bevindt. Als uw datacentrum bijvoorbeeld een perimeternetwerk heeft in een ander forest dan de siteserver en sitedatabase, kunt u dit account gebruiken om de multicastinformatie uit de sitedatabase te lezen.  
+
+ Als u dit account maakt, maakt u dit als een beperkte rechten, lokaal account op de computer waarop Microsoft SQL Server uitvoert.  
+
+> [!IMPORTANT]  
+>  Ken geen rechten voor interactief aanmelden voor dit account.  
+
+### <a name="network-access-account"></a>Netwerktoegangsaccount  
+ Clientcomputers kunnen gebruiken de **netwerktoegangsaccount** wanneer ze hun lokale computeraccount niet gebruiken voor toegang tot inhoud op distributiepunten. Dit is bijvoorbeeld van toepassing op werkgroepclients en computers uit niet-vertrouwde domeinen. Dit account kan ook worden gebruikt tijdens de implementatie van besturingssysteem, wanneer de computer waarop het besturingssysteem installeert nog geen account op een computer op het domein.  
 
 > [!NOTE]  
->  Le compte d’accès au réseau n’est jamais utilisé comme contexte de sécurité pour exécuter des applications et des programmes, installer des mises à jour logicielles ou exécuter des séquences de tâches. Il n’est utilisé que pour accéder aux ressources du réseau.  
+>  Het netwerktoegangsaccount wordt nooit gebruikt als de beveiligingscontext voor programma's uitvoeren, software-updates installeren of uitvoeren van takenreeksen. Dit wordt alleen gebruikt voor toegang tot bronnen op het netwerk.  
 
- Accordez à ce compte les autorisations minimales appropriées sur le contenu dont le client a besoin pour accéder au logiciel. Le compte doit disposer du droit **Accéder à cet ordinateur à partir du réseau** sur le point de distribution ou d'un autre serveur sur lequel se trouve le contenu du package. Vous pouvez configurer jusqu’à 10 comptes d’accès réseau par site.  
+ Verleen aan dit account de minimum geschikte machtigingen op de inhoud die de client nodig heeft voor toegang tot de software. Het account moet het recht **Deze computer via het netwerk benaderen** hebben op het distributiepunt of andere server waar de pakketinhoud staat. U kunt maximaal 10 netwerktoegangsaccounts per site configureren.  
 
 > [!WARNING]  
->  Lorsque Configuration Manager tente d’utiliser le compte nomordinateur$ pour télécharger le contenu et qu’il n’y parvient pas, il essaie automatiquement de réutiliser le compte d’accès réseau, même s’il a préalablement fait une tentative qui a échoué.  
+>  Wanneer er wordt geprobeerd met Configuration Manager het computernaam$-account te gebruiken om de inhoud te downloaden en dit mislukt, wordt het automatisch opnieuw geprobeerd met het netwerktoegangsaccount, zelfs als dit al eerder is mislukt.  
 
- Créez le compte dans n’importe quel domaine fournissant l’accès nécessaire aux ressources. Le compte d'accès réseau doit toujours inclure un nom de domaine. La sécurité directe n’est pas prise en charge pour ce compte. Si vous disposez de points de distribution dans plusieurs domaines, créez le compte dans un domaine approuvé.  
-
-> [!TIP]  
->  Pour éviter les verrouillages de compte, ne modifiez pas le mot de passe d'un compte d'accès réseau existant. Au lieu de cela, créez un compte et configurez-le dans Configuration Manager. Après un délai suffisant pendant lequel tous les clients ont reçu les informations du nouveau compte, supprimez l'ancien compte des dossiers partagés du réseau et supprimez le compte.  
-
-> [!IMPORTANT]  
->  N’accordez pas à ce compte des autorisations d’ouverture de session interactive.
->   
->  N'accordez pas à ce compte le droit de joindre les ordinateurs au domaine. Si vous devez joindre les ordinateurs au domaine au cours d'une séquence de tâches, utilisez le compte de jonction de domaine de l'Éditeur de séquence de tâches.  
-
-### <a name="package-access-account"></a>Compte d'accès au package  
- Un **compte d’accès au package** vous permet de définir des autorisations NTFS pour spécifier les utilisateurs et les groupes d’utilisateurs autorisés à accéder à un dossier de package sur des points de distribution. Par défaut, Configuration Manager n’accorde cet accès qu’aux comptes d’accès générique **Utilisateurs** et **Administrateurs**. Vous pouvez contrôler l’accès des ordinateurs clients à l’aide d’autres comptes ou groupes Windows. Les appareils mobiles n’utilisent pas les comptes d’accès au package, car ils récupèrent toujours le contenu du package de façon anonyme.  
-
- Par défaut, lorsque Configuration Manager crée le partage du package sur un point de distribution, il accorde un accès en **Lecture** au groupe **Utilisateurs** local et un **Contrôle intégral** au groupe **Administrateurs** local. Les autorisations requises dépendent du package. Si vous avez des clients dans des groupes de travail ou dans des forêts non approuvées, ceux-ci utiliseront le compte d'accès réseau pour accéder au contenu du package. Assurez-vous que le compte d'accès réseau bénéficie d'autorisations sur le package à l'aide des comptes d'accès au package définis.  
-
- Utilisez des comptes dans un domaine susceptible d'accéder aux points de distribution. Si vous créez ou modifiez le compte après la création du package, vous devez redistribuer ce dernier. La mise à jour du package ne modifie pas les autorisations NTFS sur le package.  
-
- Il est inutile d'ajouter le compte d'accès réseau comme un compte d'accès au package, car l'appartenance au groupe Utilisateurs l'ajoute automatiquement. Le fait de restreindre le compte d'accès au package au compte d'accès réseau uniquement n'empêche pas les clients d'accéder au package.  
-
-### <a name="reporting-services-point-account"></a>Compte du point de Reporting Services  
- SQL Server Reporting Services utilise le **compte du point de Reporting Services** pour récupérer les données des rapports Configuration Manager à partir de la base de données de site. Le compte d'utilisateur Windows et le mot de passe que vous spécifiez sont chiffrés et stockés dans la base de données SQL Server Reporting Services.  
-
-### <a name="remote-tools-permitted-viewer-accounts"></a>Comptes d'observateurs autorisés des outils de contrôle à distance  
- Les comptes que vous spécifiez en tant qu' **Observateurs autorisés** pour le contrôle à distance sont une liste d'utilisateurs autorisés à utiliser la fonctionnalité Outils de contrôle à distance sur les clients.  
-
-### <a name="site-system-installation-account"></a>Compte d'installation du système de site  
- Le serveur de site utilise le **compte d’installation du système de site** pour installer, réinstaller, désinstaller et configurer des systèmes de site. Si vous configurez le système de site afin qu’il établisse des connexions à ce système de site, Configuration Manager utilise également ce compte pour extraire les données de l’ordinateur du système de site après l’installation du système de site et de tous les rôles de ce dernier. Chaque système de site peut avoir un autre compte d’installation du système de site, mais vous ne pouvez configurer qu’un compte d’installation du système de site pour gérer tous les rôles de système de site sur ce système de site.  
-
- Ce compte nécessite des autorisations d’administrateur locales sur les systèmes de site que les administrateurs installeront et configureront. De plus, ce compte doit disposer du droit **Accéder à cet ordinateur à partir du réseau** dans la stratégie de sécurité sur les systèmes de site que les administrateurs installeront et configureront.  
+ Maak het account in elk domein dat de noodzakelijke toegang tot bronnen zal bieden. Het netwerktoegangsaccount moet altijd een domeinnaam omvatten. Pass Through-beveiliging wordt niet ondersteund voor dit account. Als u over distributiepunten in meerdere domeinen beschikt, maakt u het account in een vertrouwd domein.  
 
 > [!TIP]  
->  Si vous disposez de plusieurs contrôleurs de domaine et si ces comptes seront utilisés dans plusieurs domaines, vérifiez qu’ils ont été répliqués avant de configurer le système de site.  
+>  Wijzig het wachtwoord van een bestaand netwerktoegangsaccount niet om vergrendeling te voorkomen. In plaats daarvan een nieuw account maken en het nieuwe account in Configuration Manager instellen. Wanneer er voldoende tijd is verstreken waarbinnen alle clients de nieuwe accountgegevens hebben ontvangen, verwijdert u het account uit de gedeelde netwerkmappen en verwijdert u het account.  
+
+> [!IMPORTANT]  
+>  Ken geen rechten voor interactief aanmelden voor dit account.
 >   
->  Lorsque vous spécifiez un compte local sur chaque système de site à gérer, cette configuration est plus sécurisée que l'utilisation de comptes de domaine, car elle limite les dommages que les personnes malveillantes peuvent provoquer en cas de compromission du compte. Toutefois, les comptes de domaine sont plus faciles à gérer. Examinez le compromis entre sécurité et efficacité d’administration.  
+>  Aan dit account mag niet de machtiging worden toegekend om computers lid te maken van het domein. Gebruik het domeinlidmaatschapsaccount van de takenreekseditor als u tijdens een takenreeks computers lid moet maken van een domein.  
 
-### <a name="smtp-server-connection-account"></a>Compte de connexion au serveur SMTP  
- Le serveur de site utilise le **compte de connexion au serveur SMTP** pour envoyer des alertes par courrier électronique quand le serveur SMTP requiert un accès authentifié.  
+### <a name="package-access-account"></a>Pakkettoegangsaccount  
+ Een **Pakkettoegangsaccount** kunt u NTFS-machtigingen opgeven welke gebruikers en gebruikersgroepen die toegang heeft tot een pakketmap op distributiepunten. Standaard Configuration Manager alleen toegang verleend aan de algemene toegangsaccounts **gebruikers** en **beheerders**. U kunt de toegang voor clientcomputers beheren via aanvullende Windows-accounts of groepen. Mobiele apparaten halen pakketinhoud altijd anoniem, zodat ze de Accounts voor pakkettoegang niet gebruiken.  
+
+ Standaard wanneer Configuration Manager het pakketshare op een distributiepunt maakt, kent het **lezen** toegang tot de lokale **gebruikers** groep en **volledig beheer** aan de lokale **beheerders** groep. De werkelijke noodzakelijke machtigingen zijn afhankelijk van het pakket. Als er sprake is van clients in werkgroepen of in niet-vertrouwde forests, kunnen deze clients het netwerktoegangsaccount gebruiken voor toegang tot de pakketinhoud. Zorg ervoor dat het netwerktoegangsaccount machtigingen heeft op het pakket door gebruik te maken van de gedefinieerde pakkettoegangsaccounts.  
+
+ Gebruik accounts in een domein dat toegang heeft tot de distributiepunten. Als u maakt of het account wijzigen nadat het pakket is gemaakt, moet u het pakket opnieuw distribueren. Het bijwerken van het pakket verandert de NTFS-machtigingen op het pakket niet.  
+
+ U hoeft het netwerktoegangsaccount niet toe te voegen als een pakkettoegangsaccount omdat dit al automatisch is toegevoegd via het lidmaatschap van de groep Gebruikers. Als u het pakkettoegangsaccount uitsluitend tot het netwerktoegangsaccount beperkt, blijven clients toegang houden tot het pakket.  
+
+### <a name="reporting-services-point-account"></a>Account van Reporting Services-punt  
+ SQL Server Reporting Services gebruikt de **Account voor Reporting Services-punt** voor het ophalen van de gegevens voor Configuration Manager-rapporten uit de sitedatabase. Het Windows-gebruikersaccount en wachtwoord die u opgeeft, worden versleuteld en opgeslagen in de SQL Server Reporting Services-database.  
+
+### <a name="remote-tools-permitted-viewer-accounts"></a>Accounts van toegestane van externe hulpprogramma's  
+ De accounts die u opgeeft als **toegestane viewers** voor extern beheer zijn een lijst van gebruikers die zijn gemachtigd externe hulpprogramma's te gebruiken op clients.  
+
+### <a name="site-system-installation-account"></a>Installatieaccount voor sitesystemen  
+ De siteserver gebruikt de **Installatieaccount sitesysteem** om te installeren, opnieuw te installeren, verwijderen en instellen van sitesystemen. Als u het sitesysteem ingesteld op de siteserver moet verbinding met dit sitesysteem initiëren, Configuration Manager gebruikt dit account ook voor pull-gegevens uit de sitesysteemcomputer nadat het sitesysteem en enige sitesysteemrollen zijn geïnstalleerd. Elk sitesysteem kan een verschillende Installatieaccount sitesysteem hebben, maar u kunt slechts één Installatieaccount instellen voor het beheren van alle sitesysteemrollen op dat sitesysteem.  
+
+ Deze account vereist lokale beheerdersmachtigingen op de sitesystemen die beheerders zullen installeren en instellen. Dit account moet bovendien hebben **toegang tot deze computer vanaf het netwerk** in het beveiligingsbeleid op de sitesystemen die beheerders zullen installeren en instellen.  
+
+> [!TIP]  
+>  Als u veel domeincontrollers hebt en deze accounts worden gebruikt in meerdere domeinen, controleert u of de accounts zijn gerepliceerd voordat u het sitesysteem instellen.  
+>   
+>  Wanneer u een lokaal account opgeeft op elk sitesysteem dat moet worden beheerd, is deze configuratie veiliger dan het gebruik van domeinaccounts, omdat het de schade beperkt die aanvallers kunnen aanbrengen als er met het account wordt geknoeid. Domeinaccounts zijn echter gemakkelijker te beheren. Een evenwicht tussen beveiliging en doeltreffend beheer.  
+
+### <a name="smtp-server-connection-account"></a>SMTP-serververbindingsaccount  
+ De siteserver gebruikt de **SMTP-Serververbindingsaccount** om e-mailwaarschuwingen te sturen die geverifieerde toegang als de SMTP-server is vereist.  
 
 > [!IMPORTANT]  
->  Spécifiez un compte qui dispose des autorisations minimales pour envoyer des courriers électroniques.  
+>  Geef een account die de geringst mogelijke machtigingen heeft om e-mails te verzenden.  
 
-### <a name="software-update-point-connection-account"></a>Compte de connexion de point de mise à jour logicielle  
- Le serveur de site utilise le **compte de connexion de point de mise à jour logicielle** pour les deux services de mise à jour logicielle suivants :  
+### <a name="software-update-point-connection-account"></a>Verbindingsaccount software-updatepunt  
+ De siteserver gebruikt de **bijwerken Verbindingsaccount Software** voor de volgende twee software-updateservices:  
 
--   Windows Server Update Services (WSUS) Configuration Manager, qui configure des paramètres tels que les définitions de produit, les classifications et les paramètres en amont.  
+-   Windows Server Update Services (WSUS) Configuration Manager, waarmee instellingen, zoals productdefinities, classificaties en upstream-instellingen wordt ingesteld.  
 
--   WSUS Synchronization Manager, qui demande la synchronisation à un serveur WSUS en amont ou Microsoft Update.  
+-   WSUS Synchronization Manager, dat synchronisatie vraagt met een upstream WSUS-server of Microsoft Update.  
 
-Le compte d’installation du système de site peut installer les composants des mises à jour logicielles, mais il ne peut pas exécuter des fonctions de mise à jour logicielle sur le point de mise à jour logicielle. Si vous ne pouvez pas utiliser le compte d'ordinateur du serveur de site pour cette fonctionnalité car le point de mise à jour logicielle se trouve dans une forêt non approuvée, vous devez spécifier ce compte en complément du compte d'installation du système de site.  
+De Account voor de installatie van de Site kunt onderdelen voor software-updates installeren, maar kan geen software-update-specifieke functies uitvoeren op het software-updatepunt. Als u het siteservercomputeraccount voor deze functie niet kunt gebruiken omdat het software-updatepunt zich in een niet-vertrouwd forest bevindt, moet u dit account opgeven naast het installatieaccount voor sitesystemen.  
 
-Ce compte doit être un administrateur local sur l’ordinateur où WSUS est installé. Il doit également faire partie du groupe Administrateurs de WSUS local.  
+Dit account moet een lokale beheerder op de computer waarop WSUS is geïnstalleerd. Deze moet ook deel uit van de lokale groep WSUS-Administrators.  
 
-### <a name="software-update-point-proxy-server-account"></a>Compte du serveur proxy du point de mise à jour logicielle  
- Le point de mise à jour logicielle utilise le **compte du serveur proxy du point de mise à jour logicielle** pour accéder à Internet via un serveur proxy ou un pare-feu qui requiert un accès authentifié.  
+### <a name="software-update-point-proxy-server-account"></a>Proxyserveraccount software-updatepunt  
+ De software-updatepunt gebruikt de **Software Update Proxyserveraccount** toegang tot Internet via een proxy-server of firewall die geverifieerde toegang.  
 
 > [!IMPORTANT]  
->  Spécifiez un compte qui dispose des autorisations minimales pour le serveur proxy requis ou le pare-feu.  
+>  Geef een account op dat over de geringst mogelijke machtigingen voor de vereiste proxyserver of firewall beschikt.  
 
-### <a name="source-site-account"></a>Compte du site source  
- Le processus de migration utilise le **compte de site source** pour accéder au fournisseur SMS du site source. Ce compte nécessite des autorisations en **Lecture** vers les objets de site du site source pour collecter des données pour les tâches de migration.  
+### <a name="source-site-account"></a>Bronsiteaccount  
+ Het migratieproces gebruikt de **Bronsiteaccount** voor toegang tot de SMS-Provider van de bronsite. Dit account vereist **Lezen**-machtigingen op siteobjecten in de bronsite om gegevens voor migratiejobs te verzamelen.  
 
- Si vous mettez à niveau les points de distribution Configuration Manager 2007 ou les sites secondaires ayant des points de distribution au même emplacement vers des points de distribution System Center Configuration Manager, ce compte doit également disposer d'autorisations en **Suppression** sur la classe **Site** pour pouvoir supprimer le point de distribution du site Configuration Manager 2007 au cours de la mise à niveau.  
+ Als u Configuration Manager 2007-distributiepunten of secundaire sites die distributiepunten naar System Center Configuration Manager-distributiepunten geplaatst bijwerkt, wordt deze account moet ook hebben **verwijderen** machtigingen voor de **Site** klasse om te kunnen het distributiepunt van de Configuration Manager 2007-site te verwijderen tijdens de upgrade.  
 
 > [!NOTE]  
->  Le compte de site source et le compte de base de données du site source sont identifiés comme **Gestionnaire de migration** dans le nœud **Comptes** de l’espace de travail **Administration** dans la console Configuration Manager.  
+>  Zowel het Bronsiteaccount als het Bronsitedatabaseaccount worden aangeduid als **Migratiebeheer** in de **Accounts** knooppunt van de **beheer** werkruimte in de Configuration Manager-console.  
 
-### <a name="source-site-database-account"></a>Compte de base de données du site source  
- Le processus de migration utilise le **compte de base de données du site source** pour accéder à la base de données SQL Server du site source. Pour collecter des données à partir de la base de données SQL Server du site source, le compte de base de données du site source doit disposer des autorisations **Lecture** et **Exécution** sur la base de données SQL Server du site source.  
-
-> [!NOTE]  
->  Si vous utilisez le compte d'ordinateur System Center Configuration Manager, assurez-vous que toutes les conditions suivantes sont remplies pour ce compte :  
->   
-> -   Il est membre du groupe de sécurité **Utilisateurs du modèle COM distribué** dans le domaine où le site Configuration Manager 2007 réside.  
-> -   Il est membre du groupe de sécurité **Administrateurs SMS** .  
-> -   Il possède l’autorisation **Lecture** sur tous les objets de Configuration Manager 2007.  
+### <a name="source-site-database-account"></a>Bronsitedatabaseaccount  
+ Het migratieproces gebruikt de **Bronsitedatabaseaccount** toegang tot de SQL Server-database voor de bronsite. Om gegevens te verzamelen van de SQL Server-database van de bronsite, het Bronsitedatabaseaccount moet hebben de **lezen** en **Execute** machtigingen voor het SQL Server-database van de bronsite.  
 
 > [!NOTE]  
->  Le compte du site source et le compte de base de données du site source sont identifiés comme **Gestionnaire de migration** dans le nœud **Comptes** de l'espace de travail **Administration** dans la console Configuration Manager.  
+>  Als u het computeraccount van de System Center Configuration Manager gebruikt, zorg ervoor dat alle volgende items voor dit account waar zijn:  
+>   
+> -   Het is lid van de beveiligingsgroep **DCOM-gebruikers** in het domein waarin de Configuration Manager 2007-site zich bevindt.  
+> -   Het is lid van de beveiligingsgroep **SMS Admins**.  
+> -   Dit is de **lezen** machtiging op alle Configuration Manager 2007-objecten.  
 
-### <a name="task-sequence-editor-domain-joining-account"></a>Compte de jonction de domaine de l'Éditeur de séquence de tâches  
- Le **compte de jonction de domaine de l’Éditeur de séquence de tâches** est utilisé dans une séquence de tâches pour joindre un ordinateur nouvellement mis en image à un domaine. Il est nécessaire si vous ajoutez l'étape **Joindre le domaine ou le groupe de travail** à une séquence de tâches, puis sélectionnez l'option **Joindre un domaine**. Vous pouvez également configurer ce compte si vous ajoutez l’étape **Appliquer les paramètres réseau** à une séquence de tâches, mais cette opération n’est pas obligatoire.  
+> [!NOTE]  
+>  Zowel het Bronsiteaccount als Bronsitedatabaseaccount worden aangeduid als **Migratiebeheer** in de **Accounts** knooppunt van de **beheer** werkruimte in de Configuration Manager-console.  
 
- Ce compte exige le droit de **Jonction de domaine** dans le domaine que l'ordinateur devra joindre.  
+### <a name="task-sequence-editor-domain-joining-account"></a>Takenreekseditoraccount voor domeinlidmaatschap  
+ Het **takenreekseditoraccount voor domeinlidmaatschap** wordt gebruikt in een takenreeks om een zojuist gerepliceerde computer lid te maken van een domein. Dit account is nodig als u de stap **Lid maken van domein of werkgroep** aan een takenreeks toevoegt en daarna **Lid maken van domein** selecteert. Dit account kan ook worden ingesteld als u de stap toevoegt **netwerkinstellingen toepassen** aan een taak, maar dit is niet vereist.  
+
+ Voor dit account is het recht **Lid worden van domein** vereist in het domein waarvan de computer lid wordt.  
 
 > [!TIP]  
->  Si vous avez besoin de ce compte pour vos séquences de tâches, vous pouvez créer un compte d'utilisateur de domaine doté des autorisations d'accès minimales aux ressources réseau nécessaires, puis l'utiliser pour tous les comptes de séquence de tâches.  
+>  Als u dit account nodig hebt voor uw takenreeksen, kunt u één domeingebruikersaccount maken met minimale machtigingen voor toegang tot de benodigde netwerkbronnen en ervan gebruik maken voor alle takenreeksaccounts.  
 
 > [!IMPORTANT]  
->  N’attribuez pas d’autorisations d’ouverture de session interactive à ce compte.  
+>  Wijs machtigingen voor interactief aanmelden niet toe aan dit account.  
 >   
->  N'utilisez pas le compte d'accès réseau pour ce compte.  
+>  Gebruik voor dit account geen netwerktoegangsaccount.  
 
-### <a name="task-sequence-editor-network-folder-connection-account"></a>Compte de connexion à un dossier réseau de l'Éditeur de séquence de tâches  
- Une séquence de tâches utilise le **compte de connexion à un dossier réseau de l’Éditeur de séquence de tâches** pour se connecter à un dossier partagé sur le réseau. Ce compte est obligatoire si vous ajoutez l'étape **Connexion à un dossier réseau** à une séquence de tâches.  
+### <a name="task-sequence-editor-network-folder-connection-account"></a>Takenreekseditoraccount voor netwerkmapverbinding  
+ Een takenreeks maakt gebruik van de **Takenreeks Editor netwerk map Verbindingsaccount** verbinding maken met een gedeelde map op het netwerk. Dit account is vereist als u de stap **Verbinding maken met netwerkmap** toevoegt aan een takenreeks.  
 
- Ce compte nécessite les autorisations permettant d'accéder au dossier partagé spécifié. Ce doit être un compte de domaine d’utilisateur.  
+ Deze account vereist machtigingen voor toegang tot de opgegeven gedeelde map. Er moet een domeinaccount van de gebruiker.  
 
 > [!TIP]  
->  Si vous avez besoin de ce compte pour vos séquences de tâches, vous pouvez créer un compte d'utilisateur de domaine doté des autorisations d'accès minimales aux ressources réseau nécessaires, puis l'utiliser pour tous les comptes de séquence de tâches.  
+>  Als u dit account nodig hebt voor uw takenreeksen, kunt u één domeingebruikersaccount maken met minimale machtigingen voor toegang tot de benodigde netwerkbronnen en ervan gebruik maken voor alle takenreeksaccounts.  
 
 > [!IMPORTANT]  
->  N’attribuez pas d’autorisations d’ouverture de session interactive à ce compte.  
+>  Wijs machtigingen voor interactief aanmelden niet toe aan dit account.  
 >   
->  N'utilisez pas le compte d'accès réseau pour ce compte.  
+>  Gebruik voor dit account geen netwerktoegangsaccount.  
 
-### <a name="task-sequence-run-as-account"></a>Compte d'identification de la séquence de tâches  
- Le **compte d’identification de la séquence de tâches** est utilisé pour exécuter des lignes de commande dans des séquences de tâches avec des informations d’identification différentes de celles du compte système local. Ce compte est requis si vous ajoutez l’étape **Exécuter la ligne de commande** à une séquence de tâches, sans que la séquence s’exécute avec les autorisations du compte système local sur l’ordinateur géré.  
+### <a name="task-sequence-run-as-account"></a>Uitvoeren als-account voor takenreeks  
+ Het **uitvoeren als-account voor takenreeksen** wordt gebruikt om opdrachtregels in takenreeksen uit te voeren en andere referenties te gebruiken dan het lokale systeemaccount. Dit account is vereist als u de stap toevoegt **opdrachtregel uitvoeren** een takenreeks wordt uitgevoerd, maar niet wilt dat de takenreeks uit te voeren met de machtigingen van het lokale systeemaccount op de beheerde computer.  
 
- Configurez le compte pour qu’il dispose des autorisations minimales permettant d’exécuter la ligne de commande spécifiée dans la séquence de tâches. Ce compte requiert des autorisations d’ouverture de session interactive et, en général, la possibilité d’installer des logiciels et d’accéder aux ressources du réseau.  
+ De account instellen voor de minimale machtigingen vereist voor het uitvoeren van de opdrachtregel die opgegeven in de takenreeks wordt uitgevoerd. Het account vereist interactieve rechten voor aanmelden en normaal gesproken de mogelijkheid om te software installeren en toegang tot netwerkbronnen.  
 
 > [!IMPORTANT]  
->  N'utilisez pas le compte d'accès réseau pour ce compte.  
+>  Gebruik voor dit account geen netwerktoegangsaccount.  
 >   
->  Ne configurez jamais le compte comme un administrateur de domaine.  
+>  Maak nooit de account de beheerder van een domein.  
 >   
->  Ne configurez jamais de profils itinérants pour ce compte. Lorsque la séquence de tâches s’exécute, elle télécharge le profil itinérant du compte. Cela laisse le profil vulnérable à l’accès sur l’ordinateur local.  
+>  Nooit zwervende profielen voor dit account instellen. Wanneer de takenreeks wordt uitgevoerd, zal deze het zwervend profiel voor het account downloaden. Dit betekent dat het profiel kwetsbaar voor toegang op de lokale computer.  
 >   
->  Limitez la portée du compte. Par exemple, créez différents comptes d'identification de la séquence de tâches pour chaque séquence de tâches, de sorte que, si un compte est compromis, seuls les ordinateurs clients auxquels ce compte a accès sont compromis.  
+>  Beperk het bereik van het account. Maak voor elke taakreeks bijvoorbeeld verschillende uitvoeren-als accounts voor takenreeksen, zodat, wanneer één account gevaar loopt, alleen de clientcomputers waartoe het account toegang heeft gevaar lopen.  
 >   
->  Si la ligne de commande requiert un accès administratif sur l’ordinateur, envisagez de créer un compte d’administrateur local réservé au compte d’identification de la séquence de tâches sur tous les ordinateurs qui exécuteront la séquence. Supprimez le compte dès que vous n’en avez plus besoin.  
+>  Als de opdrachtregel beheerderstoegang op de computer vereist, kunt u het maken van een lokale beheerdersaccount uitsluitend voor de Takenreeks Run As-Account op alle computers die de takenreeks wordt uitgevoerd. Het account verwijderen als u niet langer.  

@@ -1,6 +1,6 @@
 ---
-title: "Modifier l’infrastructure | Microsoft Docs"
-description: "Découvrez comment apporter des modifications ou prendre des mesures qui affecteront l’infrastructure Configuration Manager que vous avez déployée."
+title: Infrastructuur aanpassen | Microsoft Docs
+description: "Informatie over het wijzigen of acties ondernemen die van invloed zijn op de Configuration Manager-infrastructuur die u hebt geïmplementeerd."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,353 +17,353 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: a5228c4984347be4b115bfa5563791fa2fb7319c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="modify-your-system-center-configuration-manager-infrastructure"></a>Modifier votre infrastructure System Center Configuration Manager
+# <a name="modify-your-system-center-configuration-manager-infrastructure"></a>Uw infrastructuur van System Center Configuration Manager aanpassen
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Après avoir installé un ou plusieurs sites, vous pouvez être amené à modifier les configurations ou à effectuer des actions qui affectent l’infrastructure que vous avez déployée.  
+Nadat u een of meer sites hebt geïnstalleerd, moet u mogelijk configuraties wijzigen of acties ondernemen die van invloed zijn op de infrastructuur die u hebt geïmplementeerd.  
 
 
-##  <a name="BKMK_ManageSMSprovider"></a> Gérer le fournisseur SMS  
- Le fournisseur SMS (fichier de bibliothèque de liens dynamiques smsprov.dll) procure le point de contact administratif pour une ou plusieurs consoles Configuration Manager. Lorsque vous installez plusieurs fournisseurs SMS, vous pouvez fournir une redondance pour l'administration de votre site et hiérarchie par des points de contact.  
+##  <a name="BKMK_ManageSMSprovider"></a>De SMS-Provider beheren  
+ De SMS-Provider (een DLL-bestand: smsprov.dll) biedt de punt van beheercontact voor een of meer Configuration Manager-consoles. Als u meerdere SMS-providers installeert, kunt u redundantie verlenen aan contactpunten om u site en hiërarchie te beheren.  
 
- Sur chaque site Configuration Manager, vous pouvez réexécuter le programme d’installation pour :  
+ U kunt Setup opnieuw uitvoeren op elke site Configuration Manager:  
 
--   ajouter une instance du fournisseur SMS (chaque instance supplémentaire du fournisseur SMS doit se trouver sur un ordinateur distinct) ;  
+-   Voeg een extra exemplaar van de SMS-Provider (elk extra exemplaar van de SMS-Provider moet zich op een afzonderlijke computer)  
 
--   supprimer une instance du fournisseur SMS (pour supprimer le dernier fournisseur SMS pour un site, vous devez désinstaller le site).  
+-   Een exemplaar van de SMS-Provider verwijderen (als u wilt verwijderen van de laatste SMS-Provider voor een site, moet u de site verwijderen)  
 
- Vous pouvez surveiller le processus d'installation ou de suppression du fournisseur SMS en consultant le fichier **ConfigMgrSetup.log** dans le dossier racine du serveur du site sur lequel vous exécutez le programme d'installation.  
+ U kunt de installatie of verwijdering van de SMS-provider bewaken via het bestand **ConfigMgrSetup.log** in de hoofdmap van de siteserver waarop u het installatieprogramma uitvoert.  
 
- Avant de modifier le fournisseur SMS sur un site, familiarisez-vous avec les informations contenues dans [Planifier le fournisseur SMS pour System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md).  
+ Lees de informatie van [Plannen voor de SMS-provider voor System Center Configuration Manager](../../../core/plan-design/hierarchy/plan-for-the-sms-provider.md) door voordat u de SMS-provider op een site aanpast.  
 
-#### <a name="to-manage-the-sms-provider-configuration-for-a-site"></a>Pour gérer la configuration du fournisseur SMS pour un site  
+#### <a name="to-manage-the-sms-provider-configuration-for-a-site"></a>De configuratie van de SMS-provider voor een site beheren  
 
-1.  Exécutez **Installation de Configuration Manager** à partir de **&lt;dossier_installation_du_site_Configuration_Manager\>\BIN\X64\setup.exe**.  
+1.  Voer **Setup van Configuration Manager** van  **&lt;Configuration Manager site-installatiemap\>\BIN\X64\setup.exe**.  
 
-2.  Sur la page **Mise en route** , sélectionnez **Effectuer une maintenance de site ou réinitialiser ce site**, puis cliquez sur **Suivant**.  
+2.  Selecteer op de pagina **Aan de slag** de optie **Siteonderhoud uitvoeren of deze site resetten** en klik op **Volgende**.  
 
-3.  Sur la page **Maintenance de site** , sélectionnez **Modifier la configuration du fournisseur SMS**, puis cliquez sur **Suivant**.  
+3.  Op de pagina **Siteonderhoud** selecteert u **Configuratie van de SMS-provider wijzigen** en klikt u op **Volgende**.  
 
-4.  Sur la page **Gérer les fournisseurs SMS** , sélectionnez l'une des options suivantes et effectuez toutes les étapes de l'Assistant comme indiqué :  
+4.  Selecteer op de pagina **SMS-providers beheren** een van de volgende opties en voltooi de wizard met behulp van een van de volgende opties:  
 
-    -   Pour ajouter un fournisseur SMS supplémentaires sur ce site :  
+    -   Ga als volgt te werk om een extra SMS-provider aan deze site toe te voegen:  
 
-         Sélectionnez **Ajouter un nouveau fournisseur SMS**, spécifiez le nom de domaine complet d'un ordinateur qui hébergera le fournisseur SMS mais qui n'héberge aucun fournisseur SMS actuellement, puis cliquez sur **Suivant**.  
+         Selecteer **Een nieuwe SMS-provider toevoegen**, geef de FQDN op voor de computer die als host gaat dienen voor de SMS-provider (en momenteel niet als host voor de SMS-provider dient) en klik op **Volgende**.  
 
-    -   Pour supprimer un fournisseur SMS d'un serveur :  
+    -   Ga als volgt te werk om een SMS-provider van een server te verwijderen:  
 
-         Sélectionnez **Désinstaller le fournisseur SMS spécifié**, sélectionnez le nom de l'ordinateur dont vous souhaitez supprimer le fournisseur SMS, cliquez sur **Suivant**, puis confirmez l'action.  
+         Selecteer **De opgegeven SMS-provider verwijderen**, selecteer de naam van de computer waarvan u de SMS-provider wilt verwijderen, klik op **Volgende** en bevestig de actie.  
 
         > [!TIP]  
-        >  Pour déplacer le fournisseur SMS entre deux ordinateurs, vous devez installer le fournisseur SMS sur le nouvel ordinateur et supprimer le fournisseur SMS de l'emplacement d'origine. Il n'existe aucune option spéciale pour déplacer le fournisseur SMS entre les ordinateurs en un seul processus.  
+        >  Als u de SMS-provider tussen twee computers wilt verwijderen, moet u de SMS-provider op de nieuwe computer installeren en van de oorspronkelijke locatie verwijderen. Er is geen specifieke optie om de SMS-provider in één keer te verplaatsen tussen computers.  
 
- Une fois toutes les étapes de l'Assistant Installation effectuées, la configuration du fournisseur SMS est terminée. Dans l'onglet **Général** dans la boîte de dialogue **Propriétés** du site, vous pouvez vérifier les ordinateurs disposant d'un fournisseur SMS installé pour un site.  
+ Na het uitvoeren van de installatiewizard is de configuratie van de SMS-provider voltooid. U kunt op het tabblad **Algemeen** in het dialoogvenster **Eigenschappen** van de site de computers controleren die een SMS-provider hebben geïnstalleerd voor een site.  
 
-##  <a name="bkmk_Console"></a> Gérer la console Configuration Manager  
- Voici les tâches que vous pouvez effectuer pour gérer la console Configuration Manager :  
+##  <a name="bkmk_Console"></a>De Configuration Manager-console beheren  
+ Hier volgen de taken die u kunt voor het beheren van de Configuration Manager-console:  
 
--   **Modifier la langue qui s’affiche dans la console Configuration Manager** – Pour modifier les langues installées, consultez [Gérer la langue de la console Configuration Manager](#BKMK_ManageConsoleLanguages) dans cette rubrique.  
+-   **De taal wijzigen die wordt weergegeven in de Configuration Manager-console** : als u wilt wijzigen van de geïnstalleerde talen Zie [beheren van Configuration Manager-consoletalen](#BKMK_ManageConsoleLanguages) in dit onderwerp.  
 
--   **Installer d’autres consoles** – Pour installer des consoles supplémentaires, consultez [Installer des consoles System Center Configuration Manager](/sccm/core/servers/deploy/install/install-consoles).  
+-   **Aanvullende consoles installeren** : als u wilt aanvullende consoles installeren, Zie [installeert System Center Configuration Manager-consoles](/sccm/core/servers/deploy/install/install-consoles).  
 
--   **Configurer DCOM** – Pour configurer une autorisation DCOM pour permettre aux consoles distantes du serveur de site de se connecter, consultez [Configurer les autorisations DCOM pour les consoles Configuration Manager distantes](#BKMK_ConfigDCOMforRemoteConsole) dans cette rubrique.  
+-   **DCOM configureren** - voor het configureren van DCOM-machtigingen zodat consoles die extern van de siteserver verbinding kan maken zijn, Zie [configureren van DCOM-machtigingen voor externe Configuration Manager-consoles](#BKMK_ConfigDCOMforRemoteConsole) in dit onderwerp.  
 
--   **Modifier les autorisations pour limiter ce que voient les utilisateurs administratifs dans la console** – Pour modifier les autorisations d’administration qui limitent ce que les utilisateurs peuvent voir et faire dans la console, consultez [Modifier l’étendue administrative d’un utilisateur administratif](/sccm/core/servers/deploy/configure/configure-role-based-administration#BKMK_ModAdminUser).     
+-   **Wijzig de machtigingen om te beperken wat gebruikers met beheerdersrechten kunnen zien in de console** - beheerdersrechten beperken wat gebruikers kunnen zien en doen in de console, Zie wijzigen [het beheerbereik van een gebruiker met beheerdersrechten wijzigen](/sccm/core/servers/deploy/configure/configure-role-based-administration#BKMK_ModAdminUser).     
 
-###  <a name="BKMK_ManageConsoleLanguages"></a> Gérer la langue de la console Configuration Manager  
- Lors de l’installation du serveur de site, les fichiers d’installation de la console Configuration Manager et les modules linguistiques pris en charge pour le site sont copiés dans le sous-dossier **&lt;chemin_installation_Configuration_Manager\>\Tools\ConsoleSetup** du serveur de site.  
+###  <a name="BKMK_ManageConsoleLanguages"></a>Configuration Manager-consoletalen beheren  
+ Tijdens de installatie van de siteserver, worden de bestanden voor installatie van Configuration Manager-console en ondersteunde talenpakketten voor de site gekopieerd naar de  **&lt;ConfigMgrInstallationPath\>\Tools\ConsoleSetup** submap op de siteserver.  
 
--   Quand vous démarrez l’installation de la console Configuration Manager à partir de ce dossier sur le serveur de site, les fichiers de la console Configuration Manager et du module linguistique pris en charge sont copiés sur l’ordinateur.  
+-   Wanneer u de installatie van de Configuration Manager-console vanuit deze map op de siteserver start, worden de Configuration Manager-console en ondersteunde taalpakketbestanden naar de computer gekopieerd  
 
--   Si le module linguistique correspondant au paramètre de langue défini sur l’ordinateur est disponible, la console Configuration Manager s’ouvre dans cette langue.  
+-   Wanneer een taalpakket beschikbaar voor de huidige taalinstelling op de computer is, de Configuration Manager-console wordt geopend in die taal  
 
--   Si le module linguistique associé n’est pas disponible pour la console Configuration Manager, la console s’ouvre en anglais.  
+-   Als het gekoppelde taalpakket niet beschikbaar voor de Configuration Manager-console, wordt de console geopend in het Engels  
 
-Par exemple, considérez un scénario dans lequel vous installez la console Configuration Manager à partir d’un serveur de site prenant en charge l’anglais, l’allemand et le français. Si vous ouvrez la console Configuration Manager sur un ordinateur avec un paramètre de langue configuré pour le français, la console s’ouvre en français. Par contre, si vous ouvrez la console Configuration Manager sur un ordinateur avec un paramètre de langue configuré pour le japonais, la console s’ouvre en anglais, car le module linguistique japonais n’est pas disponible.  
+Neem bijvoorbeeld een scenario waarin u de Configuration Manager-console installeren vanaf een siteserver die Engels, Duits en Frans ondersteunt. Als u de Configuration Manager-console op een computer met een instelling van de taalinstelling is ingesteld op Frans opent, wordt de console geopend in het Frans. Als u de Configuration Manager-console op een computer met een taalinstelling is ingesteld op Japans opent, wordt de console geopend in het Engels omdat het Japanse taalpakket niet beschikbaar.  
 
- Chaque fois que la console Configuration Manager s’ouvre, les paramètres configurés pour la langue de l’ordinateur sont déterminés, la disponibilité d’un module linguistique associé pour la console Configuration Manager est vérifiée et le module linguistique correspondant est utilisé. Si vous voulez ouvrir la console Configuration Manager en anglais sans tenir compte des paramètres de langue configurés sur l’ordinateur, vous devez supprimer ou renommer manuellement les fichiers du module linguistique sur l’ordinateur.  
+ Elke keer dat de Configuration Manager-console wordt geopend, het bepaalt welke taalinstelling voor de computer zijn geconfigureerd, wordt gecontroleerd of het bijbehorende taalpakket beschikbaar is voor de Configuration Manager-console en vervolgens de console met behulp van het toepasselijke taalpakket geopend. Als u openen van de Configuration Manager-console in het Engels ongeacht welke taalinstelling op de computer zijn geconfigureerd wilt, moet u handmatig verwijderen of wijzig de naam van het taalpakket op de computer.  
 
- Utilisez les procédures suivantes pour démarrer la console Configuration Manager en anglais quels que soient les paramètres régionaux configurés sur l’ordinateur.  
+ Gebruik de volgende procedures in de Configuration Manager-console starten in het Engels ongeacht de geconfigureerde landinstelling op de computer.  
 
-##### <a name="to-install-an-english-only-version-of-the-configuration-manager-console-on-computers"></a>Pour installer une version en anglais uniquement de la console Configuration Manager sur des ordinateurs  
+##### <a name="to-install-an-english-only-version-of-the-configuration-manager-console-on-computers"></a>Een alleen-Engelse versie van de Configuration Manager-console installeren op computers  
 
-1.  Dans l’Explorateur Windows, accédez à **&lt;chemin_installation_Configuration_Manager\>\Tools\ConsoleSetup\LanguagePack**.  
+1.  Blader in Windows Verkenner naar  **&lt;ConfigMgrInstallationPath\>\Tools\ConsoleSetup\LanguagePack**  
 
-2.  Renommez les fichiers **.msp** et **.mst** . Par exemple, vous pouvez remplacer **&lt;nom_fichier\>.MSP** par **&lt;nom_fichier\>.MSP.disabled**.  
+2.  Wijzig de namen van de **MSP**- en **MST**-bestanden. U kunt **&lt;bestandsnaam\>.MSP** bijvoorbeeld wijzigen in **&lt;bestandsnaam\>.MSP.disabled**.  
 
-3.  Installez la console Configuration Manager sur l’ordinateur.  
+3.  De Configuration Manager-console installeren op de computer.  
 
     > [!IMPORTANT]  
-    >  Une fois les nouvelles langues de serveur configurées pour le serveur de site, les fichiers .msp et .mst sont recopiés dans le dossier **LanguagePack**. Vous devez répéter cette procédure pour installer de nouvelles consoles Configuration Manager en anglais uniquement.  
+    >  Wanneer er nieuwe servertalen voor de siteserver zijn geconfigureerd, worden de MSP- en MST-bestanden opnieuw naar de **LanguagePack** map en u moet deze procedure voor het installeren van nieuwe Configuration Manager-consoles in alleen Engels herhalen.  
 
-##### <a name="to-temporarily-disable-a-console-language-on-an-existing-configuration-manager-console-installation"></a>Pour désactiver temporairement la langue d'une console sur une installation existante de la console Configuration Manager  
+##### <a name="to-temporarily-disable-a-console-language-on-an-existing-configuration-manager-console-installation"></a>Een consoletaal voor een bestaande installatie van de Configuration Manager-console tijdelijk uitschakelen  
 
-1.  Sur l’ordinateur qui exécute la console Configuration Manager, fermez la console Configuration Manager.  
+1.  Op de computer waarop de Configuration Manager-console wordt uitgevoerd, sluit u de Configuration Manager-console.  
 
-2.  Dans l’Explorateur Windows, accédez à &lt;*chemin_installation_console*>\Bin\ sur l’ordinateur de la console Configuration Manager.  
+2.  Blader in Windows Verkenner naar &lt; *ConsoleInstallationPath*> \Bin\ op de consolecomputer Configuration Manager-.  
 
-3.  Renommez le dossier de langue approprié selon la langue configurée sur l'ordinateur. Par exemple, si les paramètres de langue pour l'ordinateur sont configurés pour l'allemand, renommez le dossier **de** , **de.disabled**.  
+3.  Wijzig de naam van de toepasselijke taalmap voor de taal die op de computer is geconfigureerd. Als de taalinstellingen voor de computer zijn ingesteld op Duits, kunt de naam van de map **de** wijzigen in **de.disabled**.  
 
-4.  Pour ouvrir la console Configuration Manager dans la langue configurée pour l’ordinateur, rétablissez le nom d’origine du dossier. Par exemple, renommez **de.disabled** , **de**.  
+4.  Om te openen van de Configuration Manager-console in de taal die is geconfigureerd voor de computer, wijzig de naam van de map in de oorspronkelijke naam. Wijzig bijvoorbeeld de naam **de.disabled** in **de**.  
 
-##  <a name="BKMK_ConfigDCOMforRemoteConsole"></a> Configurer les autorisations DCOM pour les consoles Configuration Manager distantes  
- Le compte d’utilisateur exécutant la console Configuration Manager exige des autorisations pour accéder à la base de données de site par le biais du fournisseur SMS. Toutefois, chaque utilisateur administratif qui utilise une console Configuration Manager distante doit posséder également des autorisations DCOM d’**activation à distance** sur :  
+##  <a name="BKMK_ConfigDCOMforRemoteConsole"></a>Configureren van DCOM-machtigingen voor externe Configuration Manager-consoles  
+ De gebruikersaccount die de Configuration Manager-console uitvoert heeft een machtiging voor toegang tot de sitedatabase met behulp van de SMS-Provider nodig. Een gebruiker met beheerdersrechten die gebruik maakt van een externe Configuration Manager-console ook vereist echter **extern activeren** DCOM-machtigingen op:  
 
--   L'ordinateur de serveur de site ;  
+-   De siteservercomputer  
 
--   chaque ordinateur qui héberge une instance du fournisseur SMS.  
+-   Elke computer waarop een exemplaar van de SMS-provider wordt gehost  
 
- Le groupe de sécurité nommé **Administrateurs SMS** accorde des autorisations d’accès au fournisseur SMS sur un ordinateur et permet également d’accorder les autorisations DCOM requises. (Quand le fournisseur SMS s’exécute sur un serveur membre, il s’agit d’un groupe local dans l’ordinateur. Quand le fournisseur SMS s’exécute sur un contrôleur de domaine, il s’agit d’un groupe de domaine local.)  
+ De beveiligingsgroep **SMS-beheerders** verleent toegang tot de SMS-provider en kan ook worden gebruikt om de vereiste DCOM-machtigingen te verlenen. (Deze groep is lokaal op de computer wanneer de SMS-Provider wordt uitgevoerd op een lidserver en is van een domein-lokale groep wanneer de SMS-Provider wordt uitgevoerd op een domeincontroller.)  
 
 > [!IMPORTANT]  
->  La console Configuration Manager utilise WMI (Windows Management Instrumentation) pour se connecter au fournisseur SMS, et WMI utilise DCOM en interne. Par conséquent, lorsque la console Configuration Manager est exécutée sur un ordinateur autre que le fournisseur SMS, Configuration Manager exige des autorisations pour activer un serveur DCOM sur l’ordinateur fournisseur SMS. Par défaut, l'activation à distance est accordée uniquement aux membres du groupe Administrateurs intégré. Accorder une autorisation d'activation à distance au groupe Administrateurs SMS reviendrait à permettre à un membre de ce groupe d'effectuer des attaques DCOM à l'encontre de l'ordinateur du fournisseur SMS. La surface d'attaque de l'ordinateur s'en trouverait également augmentée. Vous pouvez réduire l'étendue de cette menace en surveillant attentivement les membres du groupe Administrateurs SMS.  
+>  De Configuration Manager-console gebruikt Windows Management Instrumentation (WMI) voor verbinding met de SMS-Provider en WMI gebruikt intern DCOM. Configuration Manager vereist daarom machtigingen om te activeren van een DCOM-server op de computer van de SMS-Provider als de Configuration Manager-console wordt uitgevoerd op een andere computer dan de computer van de SMS-Provider. Standaard wordt extern activeren alleen verleend aan de leden van de ingebouwde groep Administrators. Als u de SMS-beheerdersgroep machtiging verleent voor extern activeren, zou een lid van deze groep DCOM-aanvallen kunnen uitvoeren op de computer van de SMS-provider. Deze configuratie verhoogt ook de kwetsbaarheid van de computer. Controleer de leden van de SMS-beheerdersgroep zorgvuldig om deze dreiging te verminderen.  
 
- Utilisez la procédure ci-après pour configurer chaque site d’administration centrale, serveur de site principal et ordinateur sur lequel est installé le fournisseur SMS pour accorder l’accès à distance à la console Configuration Manager aux utilisateurs administratifs.  
+ Gebruik de volgende procedure voor het configureren van elke centrale beheersite, primaire siteserver en elke computer waarop de SMS-Provider is geïnstalleerd externe Configuration Manager om consoletoegang te verlenen voor gebruikers met beheerdersrechten.  
 
-#### <a name="to-configure-dcom-permissions-for-remote-configuration-manager-console-connections"></a>Pour configurer des autorisations DCOM pour les connexions à distance à la console Configuration Manager  
+#### <a name="to-configure-dcom-permissions-for-remote-configuration-manager-console-connections"></a>DCOM-machtigingen configureren voor externe verbindingen van de Configuration Manager-console  
 
-1.  Ouvrez  **Services de composants** en exécutant **Dcomcnfg.exe**.  
+1.  Open **Component Services** door **Dcomcnfg.exe** uit te voeren.  
 
-2.  Dans **Services de composants**, cliquez sur **Racine de la console** >  **Services de composants** > **Ordinateurs**, puis cliquez sur **Poste de travail**. Dans le menu **Action** , cliquez sur **Propriétés**.  
+2.  In **Component Services**, klikt u op **consolebasis** >  **Component Services** > **Computers**, en klik vervolgens op **Mijn Computer**. Klik in het menu **Actie** op **Eigenschappen**.  
 
-3.  Dans la boîte de dialogue **Propriétés du poste de travail** , sous l'onglet **Sécurité COM** , dans la section **Autorisations d'exécution et d'activation** , cliquez sur **Modifier les limites**.  
+3.  Klik in het dialoogvenster **Mijn computereigenschappen** op het tabblad **COM-beveiliging**, in de sectie **Machtigingen voor starten en activeren**, op **Beperkingen bewerken**.  
 
-4.  Dans la boîte de dialogue **Autorisations d'exécution et d'activation** , cliquez sur **Ajouter**.  
+4.  Klik in het dialoogvenster **Machtigingen voor starten en activeren** op **Toevoegen**.  
 
-5.  Dans la boîte de dialogue **Sélectionner Utilisateur, ordinateurs, comptes de service ou groupes** , dans la zone **Entrez les noms d'objets à sélectionner (exemples)** , tapez **SMS Admins**, puis cliquez sur **OK**.  
+5.  In de **gebruiker selecteren, Computers, serviceaccounts of groepen** het dialoogvenster de **Geef de objectnamen op (voorbeelden)** in het vak **SMS Admins**, en klik vervolgens op **OK**.  
 
     > [!NOTE]  
-    >  Vous devrez peut-être modifier la valeur du paramètre de **À partir de cet emplacement** pour localiser le groupe Administrateurs SMS. Lorsque le fournisseur SMS s'exécute sur un serveur membre, il s'agit d'un groupe local dans l'ordinateur. Lorsque le fournisseur SMS s'exécute sur un contrôleur de domaine, il s'agit d'un groupe de domaine local.  
+    >  U moet mogelijk de instelling voor **Vanaf deze locatie** wijzigen om de SMS-beheerdersgroep te lokaliseren. Deze groep is lokaal op de computer wanneer de SMS-provider wordt uitgevoerd op een lidserver en is een domein-lokale groep wanneer de SMS-provider wordt uitgevoerd op een domeincontroller.  
 
-6.  Dans la section **Autorisations pour les administrateurs SMS** , sélectionnez la case à cocher **Activation à distance** pour autoriser l'activation à distance.  
+6.  Selecteer in de sectie **Machtigingen voor SMS Admins** het selectievakje **Extern activeren** om extern activeren toe te staan.  
 
-7.  Cliquez sur **OK** , cliquez de nouveau sur **OK** , puis fermez **Gestion de l'ordinateur**. Votre ordinateur est maintenant configuré pour autoriser l’accès à distance à la console Configuration Manager aux membres du groupe Administrateurs SMS.  
+7.  Klik op **OK** en nogmaals op **OK**. Sluit vervolgens **Computerbeheer**. Uw computer is nu geconfigureerd voor externe Configuration Manager consoletoegang tot de leden van de SMS Admins-groep.  
 
- Répétez cette procédure sur chaque ordinateur de fournisseur SMS pouvant prendre en charge les consoles Configuration Manager à distance.  
+ Herhaal deze procedure op elke computer SMS-Provider die externe Configuration Manager-consoles kan ondersteunen.  
 
-##  <a name="bkmk_dbconfig"></a> Modifier la configuration de base de données de site  
- Après avoir installé un site, vous pouvez modifier la configuration de la base de données de site et le serveur de base de données de site en exécutant l'installation sur un serveur de site d'administration centrale ou un serveur de site principal. Vous pouvez déplacer la base de données de site vers une nouvelle instance de SQL Server sur le même ordinateur ou vers un autre ordinateur exécutant une version de SQL Server prise en charge. Ces modifications et les modifications associées ne sont pas prises en charge pour la configuration de base de données sur des sites secondaires.  
+##  <a name="bkmk_dbconfig"></a>De configuratie van de sitedatabase wijzigen  
+ Nadat u een site geïnstalleerd hebt, kunt u de configuratie van de sitedatabase en sitedatabaseserver wijzigen door het installatieprogramma uit te voeren op een centrale beheersiteserver of primaire siteserver. U kunt de sitedatabase verplaatsen naar een nieuw exemplaar van SQL Server op dezelfde computer, of naar een andere computer die een ondersteunde versie van SQL Server uitvoert. Deze en gerelateerde wijzigingen worden niet ondersteund voor de databaseconfiguratie op secundaire sites.  
 
- Pour plus d’informations sur les limites de prise en charge, consultez [Support policy for manual database changes in a Configuration Manager environment](https://support.microsoft.com/kb/3106512).  
+ Zie [Support policy for manual database changes in a Configuration Manager environment](https://support.microsoft.com/kb/3106512) (Ondersteungingsbeleid voor handmatig databasewijzigingen een Configuration Manager-omgeving) voor meer informatie over de beperkingen van de ondersteuning.  
 
 > [!NOTE]  
->  Lorsque vous modifiez la configuration de la base de données pour un site, Configuration Manager redémarre ou réinstalle les services Configuration Manager sur le serveur de site et les serveurs de système de site distants qui communiquent avec la base de données.  
+>  Wanneer u de databaseconfiguratie voor een site wijzigt, wordt Configuration Manager opnieuw wordt opgestart of Configuration Manager-services wordt opnieuw geïnstalleerd op de siteserver en externe sitesysteemservers die met de database communiceren.  
 
-**Pour modifier la configuration de la base de données**, vous devez exécuter le programme d’installation sur le serveur de site, puis sélectionner l’option **Effectuer une maintenance de site ou réinitialiser ce site**. Ensuite, sélectionnez l'option **Modifier la configuration de SQL Server** . Vous pouvez modifier les configurations de base de données de site suivantes :  
+**Als u de databaseconfiguratie wilt wijzigen**, dient u het installatieprogramma op de siteserver uit te voeren en de optie **Siteonderhoud uitvoeren of deze site resetten selecteren** te selecteren. Selecteer volgens de optie **SQL Server-configuratie wijzigen**. U kunt de volgende configuraties van de sitedatabase wijzigen:  
 
--   Le serveur Windows qui héberge la base de données.  
+-   De Windows-server die als host fungeert voor de database.  
 
--   L'instance de SQL Server en cours d'utilisation sur un serveur qui héberge la base de données SQL Server.  
+-   Het exemplaar van SQL Server dat wordt gebruikt op een server die de SQL Server-database host.  
 
--   Nom de la base de données.  
+-   De naam van de database.  
 
--   Port SQL Server utilisé par Configuration Manager  
+-   SQL Server-poort in gebruik door Configuration Manager  
 
--   Port SQL Server Service Broker utilisé par Configuration Manager  
+-   SQL Server Service Broker-poort wordt gebruikt door Configuration Manager  
 
-**Si vous déplacez la base de données de site, vous devez configurer les éléments suivants :**  
+**Als u de sitedatabase verplaatst, moet u het volgende configureren:**  
 
--   **Configurer l’accès :** quand vous déplacez la base de données de site vers un nouvel ordinateur, ajoutez le compte d’ordinateur du serveur de site au groupe **Administrateurs locaux** sur l’ordinateur exécutant SQL Server. Si vous utilisez un cluster SQL Server pour la base de données de site, vous devez ajouter le compte d'ordinateur au groupe **Administrateurs locaux** de chaque ordinateur du nœud de cluster Windows Server.  
+-   **Configureer de toegang:** Wanneer u de sitedatabase naar een nieuwe computer verplaatst, voeg de computeraccount van de siteserver verzonden om de **lokale beheerders** groep op de computer waarop SQL Server wordt uitgevoerd. Als u een SQL Server-cluster voor de sitedatabase gebruikt, dient u de computeraccount toe te voegen aan de groep **Lokale beheerders** van elke Windows Server-clusterknooppuntcomputer.  
 
--   **Activer l’intégration du CLR (Common Language Runtime) :**  quand vous déplacez la base de données vers une nouvelle instance de SQL Server ou vers un nouvel ordinateur SQL Server, vous devez activer l’intégration du CLR. Pour activer le CLR, utilisez **SQL Server Management Studio** pour vous connecter à l’instance de SQL Server qui héberge la base de données de site, puis exécutez la procédure stockée suivante en tant que requête : **sp_configure ’clr enabled’,1; reconfigure**.  
--  **Garantir que le nouvel ordinateur SQL Server a accès à l’emplacement de sauvegarde :** quand vous utilisez un chemin UNC pour le stockage de la sauvegarde de la base de données de site, après avoir déplacé la base de données vers un nouveau serveur, dont un déplacement vers un groupe de disponibilité SQL Server AlwaysOn ou un cluster SQL Server, vérifiez que le compte d’ordinateur du nouvel ordinateur SQL Server a des autorisations en **écriture** sur l’emplacement UNC.  
+-   **Integratie common language runtime (CLR) inschakelen:**  Wanneer u de database naar een nieuw exemplaar van SQL Server of naar een nieuwe SQL Server-computer verplaatst, moet u integratie common language runtime (CLR) inschakelen. Gebruik zodat CLR **SQL Server Management Studio** verbinding met het exemplaar van SQL Server die als host fungeert voor de sitedatabase en voer de volgende opgeslagen procedure als een query: **sp_configure 'clr enabled', 1; configureren**.  
+-  **Zorg ervoor dat de nieuwe SQL-Server toegang heeft tot de back-uplocatie:** Wanneer u een UNC voor het opslaan van back-up van uw database site na het verplaatsen van de database naar een nieuwe server, met inbegrip van een verplaatsing van een SQL Server AlwaysOn-beschikbaarheidsgroep of naar een SQL Server-cluster gebruikt, zorg ervoor dat het computeraccount van de nieuwe SQL-Server **schrijven** machtigingen voor de UNC-locatie.  
 
 
 > [!IMPORTANT]  
->  Avant de déplacer une base de données possédant un ou plusieurs réplicas de base de données de points de gestion, vous devez supprimer les réplicas de base de données. Une fois la base de données déplacée, vous pouvez reconfigurer les réplicas de base de données. Pour plus d'informations, consultez [Database replicas for management points for System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md).  
+>  Voor dat u een database verplaatst die een of meerdere databasereplica's voor beheerpunten heeft, moet u de databasereplica's eerst verwijderen. Nadat u de database verplaatst hebt, kunt u databasereplica's opnieuw configureren. Zie [Databasereplica's voor beheerpunten voor System Center Configuration Manager](../../../core/servers/deploy/configure/database-replicas-for-management-points.md) voor meer informatie.  
 
-##  <a name="bkmk_SPN"></a> Gérer le SPN pour le serveur de base de données de site  
-Vous pouvez choisir le compte exécutant les services SQL pour la base de données du site :  
+##  <a name="bkmk_SPN"></a>De SPN voor de Sitedatabaseserver beheren  
+U kunt het account kiezen waarmee SQL-services voor de sitedatabase worden uitgevoerd:  
 
--   Quand les services s’exécutent avec le compte système d’ordinateurs, le SPN est enregistré automatiquement pour vous.  
+-   Wanneer de services worden uitgevoerd met het systeemaccount van de computer, wordt de SPN automatisch voor u geregistreerd.  
 
--   Quand les services s’exécutent avec un compte d’utilisateur local de domaine, vous devez enregistrer manuellement le SPN pour vous assurer que les clients SQL et autre système de site peuvent effectuer l’authentification Kerberos. Sans l’authentification Kerberos, la communication avec la base de données peut échouer.  
+-   Wanneer de services worden uitgevoerd met een lokale domeingebruikersaccount, moet u de SPN handmatig registreren om ervoor te zorgen dat SQL-clients en andere sitesystemen een Kerberos-verificatie kunnen uitvoeren. Zonder Kerberos-verificatie, is het mogelijk dat de communicatie met de database mislukt.  
 
-La documentation de SQL Server peut vous aider à [enregistrer manuellement le SPN](https://technet.microsoft.com/library/ms191153\(v=sql.120\).aspx)et fournit des informations supplémentaires sur les SPN et les connexions Kerberos.  
+In de SQL Server-documentatie vindt u meer informatie over het [handmatig registreren van de SPN](https://technet.microsoft.com/library/ms191153\(v=sql.120\).aspx) en aanvullende achtergrondinformatie over SPN's en Kerberos-verbindingen.  
 
 > [!IMPORTANT]  
->  -   Quand vous créez un SPN pour un serveur SQL Server en cluster, vous devez spécifier le nom virtuel du cluster SQL Server comme nom d’ordinateur SQL Server.  
-> -   La commande permettant d’enregistrer un SPN pour une instance nommée de SQL Server est la même que celle utilisée pour l’enregistrement du SPN d’une instance par défaut, la seule différence étant que le numéro de port doit correspondre au port utilisé par l’instance nommée.  
+>  -   Wanneer u een SPN voor een geclusterde SQL Server maakt, moet u de virtuele naam van de SQL Server-Cluster opgeven als de SQL Server-computernaam.  
+> -   De opdracht om een SPN voor een SQL Server-benoemd exemplaar te registreren is dezelfde als diegene die u gebruikt wanneer u een SPN voor een standaard exemplaar registreert, behalve dat het poortnummer moet overeenstemmen met de poort die wordt gebruikt door het benoemde exemplaar.  
 
-Vous pouvez enregistrer un SPN pour le compte de service SQL Server du serveur de base de données de site à l’aide de l’outil **Setspn** . Vous devez exécuter l'outil Setspn sur un ordinateur qui réside dans le domaine de SQL Server et qui doit utiliser les informations d'identification de l'administrateur de domaine pour pouvoir l'exécuter.  
+U kunt een SPN voor de SQL Server-serviceaccount van de sitedatabaseserver registreren met behulp van het **Setspn**-hulpprogramma. U moet het Setspn-hulpprogramma op een computer uitvoeren die zich in het domein van SQL Server bevindt, en het moet domeinbeheerdersreferenties gebruiken om uit te voeren.  
 
- Les procédures suivantes sont des exemples de gestion de SPN pour le compte de service SQL Server qui utilise l'outil Setspn sur Windows Server 2008 R2. Pour obtenir des instructions spécifiques à propos de Setspn, voir [Présentation de Setspn](http://go.microsoft.com/fwlink/p/?LinkId=226343)ou une documentation similaire, spécifique à votre système d'exploitation.  
+ Gebruik de volgende procedures als voorbeelden van hoe u de SPN voor de SQL Server-serviceaccount moet beheren die het Setspn-hulpprogramma op Windows Server 2008 R2 gebruikt. Zie [Setspn Overview (Setspn-overzicht)](http://go.microsoft.com/fwlink/p/?LinkId=226343) of gelijkaardige documentatie die specifiek is voor uw besturingssysteem voor specifieke hulp over Setspn.  
 
 > [!NOTE]  
->  Les procédures suivantes font référence à l'outil en ligne de commande Setspn. L'outil en ligne de commande Setspn est inclus lorsque vous installez les outils de support Windows Server 2003 à partir du CD du produit ou depuis le [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=100114). Pour plus d'informations sur l'installation des outils de support Windows à partir du CD du produit, voir [Installer des outils de support Windows](http://go.microsoft.com/fwlink/p/?LinkId=62270).  
+>  De volgende procedures verwijzen naar het opdrachtregelhulpprogramma Setspn. Het opdrachtregelhulpprogramma Setspn is opgenomen wanneer u Windows Server 2003-ondersteuningsprogramma's vanaf de product-CD of installeren de [Microsoft Download Center](http://go.microsoft.com/fwlink/p/?LinkId=100114). Zie [Install Windows Support Tools](http://go.microsoft.com/fwlink/p/?LinkId=62270) (Windows-ondersteuningsprogramma's installeren) voor meer informatie over de installatie van Windows-ondersteuningsprogramma's van de product-cd.  
 
-#### <a name="to-manually-create-a-domain-user-service-principal-name-spn-for-the-sql-server-service-account"></a>Pour créer manuellement un nom principal de service (SPN) d'utilisateur de domaine pour le compte du service SQL Server  
+#### <a name="to-manually-create-a-domain-user-service-principal-name-spn-for-the-sql-server-service-account"></a>Een domeingebruiker Service Principal Name (SPN) voor de SQL Server-serviceaccount handmatig maken  
 
-1.  Dans le menu **Démarrer** , cliquez sur **Exécuter**et entrez **cmd** dans la boîte de dialogue Exécuter.  
+1.  Klik in het menu **Start** op **Uitvoeren** en voer vervolgens **cmd** in het dialoogvenster Uitvoeren in.  
 
-2.  Sur la ligne de commande, accédez au répertoire d'installation des outils de support de Windows Server. Par défaut, ces outils se trouvent dans le répertoire **C:\Program Files\Support Tools** .  
+2.  Blader op de opdrachtregel naar de installatiedirectory van de Windows Server-ondersteuningsprogramma's. Standaard deze hulpprogramma's bevinden zich in de **C:\Program Files\Support Tools** directory.  
 
-3.  Entrez une commande valide pour créer le SPN. Pour créer le SPN, vous pouvez utiliser le nom NetBIOS ou le nom de domaine complet (FQDN) de l'ordinateur exécutant SQL Server. Toutefois, vous devez créer un SPN pour le nom NetBIOS et le nom de domaine complet.  
+3.  Voer een geldige opdracht in om de SPN te maken. U kunt de NetBIOS-naam of de volledig gekwalificeerde domeinnaam (FQDN) van de computer met SQL Server gebruiken voor het maken van de SPN-naam. U moet echter een SPN maken voor zowel de NetBIOS-naam als de FQDN.  
 
     > [!IMPORTANT]  
-    >  Lorsque vous créez un SPN pour un SQL Server en cluster, vous devez spécifier le nom virtuel du cluster SQL Server comme nom d'ordinateur SQL Server.  
+    >  Wanneer u een SPN voor een geclusterde SQL Server maakt, moet u de virtuele naam van de SQL Server-Cluster opgeven als de SQL Server-computernaam.  
 
-    -   Pour créer un SPN pour le nom NetBIOS de l’ordinateur SQL Server, tapez la commande suivante : **setspn -A MSSQLSvc/&lt;nom_ordinateur_SQL_Server\>:1433 &lt;Domaine\Compte>**  
+    -   Typ de volgende opdracht voor het maken van een SPN voor de NetBIOS-naam van de SQL Server-computer: **setspn - A MSSQLSvc /&lt;SQL Server-computernaam\>: 1433 &lt;domein\account >**  
 
-    -   Pour créer un SPN pour le nom de domaine complet de l’ordinateur SQL Server, tapez la commande suivante : **setspn -A MSSQLSvc/&lt;nom_de_domaine_complet_SQL_Server\>:1433 &lt;Domaine\Compte**  
+    -   Voor het maken van een SPN voor de FQDN van de SQL Server-computer, typt u de volgende opdracht: **setspn - A MSSQLSvc /&lt;FQDN van SQL Server\>: 1433 &lt;domein\account >**  
 
     > [!NOTE]  
-    >  La commande permettant d'enregistrer un SPN pour une instance nommée de SQL Server est la même que celle utilisée pour l'enregistrement du SPN d'une instance par défaut, sauf que le numéro de port doit correspondre au port utilisé par l'instance nommée.  
+    >  De opdracht om een SPN voor een SQL Server-benoemd exemplaar te registreren is dezelfde als diegene die u gebruikt wanneer u een SPN voor een standaard exemplaar registreert, behalve dat het poortnummer moet overeenstemmen met de poort die wordt gebruikt door het benoemde exemplaar.  
 
-#### <a name="to-verify-the-domain-user-spn-is-registered-correctly-by-using-the-setspn-command"></a>Pour vérifier si le SPN d'utilisateur de domaine est inscrit correctement en utilisant la commande Setspn  
+#### <a name="to-verify-the-domain-user-spn-is-registered-correctly-by-using-the-setspn-command"></a>Controleren of de SPN van de domeingebruiker correct is geregistreerd met behulp van de Setspn-opdracht.  
 
-1.  Dans le menu **Démarrer** , cliquez sur **Exécuter**et entrez **cmd** dans la boîte de dialogue **Exécuter** .  
+1.  Klik in het menu **Start** op **Uitvoeren** en voer vervolgens **cmd** in het dialoogvenster **Uitvoeren** in.  
 
-2.  À l’invite de commandes, entrez la commande suivante : **setspn -L &lt;domaine\compte_de_service_SQL>**.  
+2.  Voer de volgende opdracht achter de opdrachtprompt: **setspn -L &lt;domein\sql-serviceaccount >**.  
 
-3.  Examinez le **Nom principal de service** inscrit pour vous assurer qu'un SPN valide a été créé pour SQL Server.  
+3.  Bekijk de geregistreerde **ServicePrincipalName** om ervoor te zorgen dat er een geldige SPN is gemaakt voor de SQL Server.  
 
-#### <a name="to-verify-the-domain-user-spn-is-registered-correctly-when-using-the-adsiedit-mmc-console"></a>Pour vérifier que le SPN d'utilisateur de domaine est enregistré correctement lors de l'utilisation de la console MMC ADSIEdit  
+#### <a name="to-verify-the-domain-user-spn-is-registered-correctly-when-using-the-adsiedit-mmc-console"></a>Controleren of de SPN van de domeingebruiker correct is geregistreerd bij gebruik van de ADSIEdit MMC-console.  
 
-1.  Dans le menu **Démarrer** , cliquez sur **Exécuter**, puis entrez **adsiedit.msc** pour démarrer la console MMC ADSIEdit.  
+1.  Klik in het menu **Start** op **Uitvoeren** en voer vervolgens **adsiedit.msc** in om de ADSIEdit MMC-console te starten.  
 
-2.  Si nécessaire, connectez-vous au domaine du serveur de site.  
+2.  Indien nodig, moet u een verbinding maken met het domein van de siteserver.  
 
-3.  Dans le volet de la console, développez le domaine du serveur de site, développez **DC=&lt;nom_serveur_unique\>**, développez **CN=Users**, cliquez avec le bouton droit sur **CN=&lt;utilisateur_compte_de_service\>**, puis cliquez sur **Propriétés**.  
+3.  Vouw in het consolevenster van de siteserver domein **DC =&lt;server DN-naam\>**, vouw **CN = Users**, met de rechtermuisknop op **CN =&lt;Service Account User\>**, en klik vervolgens op **eigenschappen**.  
 
-4.  Dans la boîte de dialogue **Propriétés CN=&lt;utilisateur_compte_de_service\>**, consultez la valeur de **servicePrincipalName** pour vérifier qu’un SPN valide a été créé et associé à l’ordinateur SQL Server approprié.  
+4.  In de **CN =&lt;Service Account User\> eigenschappen** revisie van het dialoogvenster de **servicePrincipalName** waarde om ervoor te zorgen dat een geldige SPN is gemaakt en gekoppeld aan de juiste SQL Server-computer.  
 
-#### <a name="to-change-the-sql-server-service-account-from-local-system-to-a-domain-user-account"></a>Pour indiquer un compte d'utilisateur de domaine à la place du système local comme compte du service SQL Server  
+#### <a name="to-change-the-sql-server-service-account-from-local-system-to-a-domain-user-account"></a>De SQL Server-serviceaccount van lokaal systeem naar een domeingebruikersaccount wijzigen  
 
-1.  Créez ou sélectionnez un compte d'utilisateur de domaine ou de système local en tant que compte du service SQL Server.  
+1.  Maak een gebruikersaccount van het domein of lokale systeem of selecteer deze account die u wilt gebruiken als de SQL Server-serviceaccount.  
 
-2.  Ouvrez le **Gestionnaire de configuration SQL Server**.  
+2.  Open **SQL Server Configuration Manager**.  
 
-3.  Cliquez sur **Services SQL Server**, puis double-cliquez sur **SQL Server&lt;NOM_INSTANCE\>**.  
+3.  Klik op **SQL Server-Services**, en dubbelklik vervolgens op **SQL Server&lt;EXEMPLAARNAAM\>**.  
 
-4.  Dans l'onglet **Ouvrir une session** , sélectionnez **Ce compte**et entrez le nom et le mot de passe du compte d'utilisateur de domaine créé à l'étape 1. Vous pouvez également cliquer sur **Parcourir** pour rechercher le compte d'utilisateur dans les services de domaine Active Directory, puis cliquer sur **Appliquer**.  
+4.  Selecteer op het tabblad **Aanmelden** de optie **Dit account** en voer vervolgens de gebruikersnaam en het wachtwoord in voor de domeingebruikersaccount die is gemaakt in stap 1, of klik op **Bladeren** om de gebruikersaccount in Active Directory Domain Services te zoeken, en klik vervolgens op **Toepassen**.  
 
-5.  Cliquez sur **Oui** dans la boîte de dialogue **Confirmer la modification du compte** pour confirmer le changement de compte de service et redémarrer le service SQL Server.  
+5.  Klik op **Ja** in het dialoogvenster **Accountwijziging bevestigen** om de wijziging van de serviceaccount te bevestigen en de SQL Server-Service opnieuw te starten.  
 
-6.  Cliquez sur **OK** après modification du compte de service.  
+6.  Klik op **OK** nadat de serviceaccount is gewijzigd.  
 
-##  <a name="bkmk_reset"></a> Exécuter une réinitialisation de site  
- Quand une réinitialisation de site s’exécute sur un site d’administration centrale ou sur un site principal, le site :  
+##  <a name="bkmk_reset"></a>Een site resetten  
+ Wanneer een sitereset voor een centrale beheersite of primaire site wordt uitgevoerd:  
 
--   réapplique les autorisations de fichiers et de Registre Configuration Manager par défaut ;  
+-   De Configuration Manager standaard de machtigingen bestands- en registermachtigingen opnieuw toegepast  
 
--   réinstalle tous les composants de site et tous les rôles de système de site sur le site.  
+-   Alle siteonderdelen en sitesysteemrollen worden opnieuw op de site geïnstalleerd  
 
-Les sites secondaires ne prennent pas en charge la réinitialisation du site.  
+Secundaire sites ondersteunen een sitereset niet.  
 
-Les réinitialisations de site peuvent être exécutées manuellement, quand vous le souhaitez, mais peuvent également s’exécuter automatiquement une fois que vous avez modifié la configuration du site.  
+Een sitereset kan desgewenst handmatig worden uitgevoerd, maar ook automatisch nadat u de configuratie van de site hebt gewijzigd.  
 
-Par exemple, si les comptes utilisés par les composants Configuration Manager ont été modifiés, vous devez envisager de réinitialiser le site manuellement ; ainsi mis à jour, les composants de site peuvent utiliser les nouvelles informations de compte. Toutefois, si vous modifiez les langues du client ou du serveur sur un site, Configuration Manager réinitialise automatiquement le site, car cette action est nécessaire avant que le site puisse utiliser cette modification.  
+Bijvoorbeeld, als er een wijziging in de accounts die door Configuration Manager-onderdelen worden gebruikt is, moet u een site handmatig resetten om te controleren of dat de site-onderdelen bijwerken voor het gebruik van de nieuwe accountgegevens. Echter, als u de client of servertalen op een site wijzigt, Configuration Manager automatisch reset een site omdat de reset vereist is voordat een site deze wijziging kan gebruiken.  
 
 > [!NOTE]  
->  La réinitialisation d’un site ne réinitialise pas les autorisations d’accès aux objets non-Configuration Manager.  
+>  Een sitereset niet opnieuw ingesteld toegangsmachtigingen voor niet - Configuration Manager-objecten.  
 
-Quand une réinitialisation de site s’exécute :  
+Tijdens een sitereset:  
 
-1.  L’installation s’arrête et redémarre le service **SMS_SITE_COMPONENT_MANAGER** ainsi que les composants de thread du service **SMS_EXECUTIVE** .  
+1.  Setup stopt en start u de **SMS_SITE_COMPONENT_MANAGER** -service en de threadonderdelen van de **SMS_EXECUTIVE** service.  
 
-2.  Le programme d’installation supprime, puis recrée, le dossier partagé du système de site et le composant **SMS Executive** sur l’ordinateur local et sur les ordinateurs de système de site distants.  
+2.  Setup verwijdert en vervolgens opnieuw gemaakt met het sitesysteem map delen en de **SMS Executive** onderdeel op de lokale computer en op externe sitesysteemcomputers.  
 
-3.  Le programme d’installation redémarre le service **SMS_SITE_COMPONENT_MANAGER** , et ce service installe les services **SMS_EXECUTIVE** et **SMS_SQL_MONITOR** .  
+3.  Installatieprogramma start de **SMS_SITE_COMPONENT_MANAGER** installeert van deze service-service, de **SMS_EXECUTIVE** en de **SMS_SQL_MONITOR** services.  
 
-La réinitialisation d'un site restaure, également, les objets suivants :  
+Bovendien herstelt een sitereset de volgende objecten:  
 
--   Les clés de Registre **SMS** ou **NAL** et toutes les sous-clés par défaut dépendant de ces clés.  
+-   De **SMS**- of **NAL**-registersleutels, en enige standaard subsleutels onder deze sleutels.  
 
--   L’arborescence du répertoire de fichiers Configuration Manager et tous les fichiers par défaut ou tous les sous-répertoires de cette arborescence du répertoire de fichiers.  
+-   De bestandsmapstructuur van Configuration Manager en standaardbestanden of submappen in deze bestandsmapstructuur.  
 
-**Configuration requise pour exécuter une réinitialisation du site**  
+**Vereisten voor het uitvoeren van een sitereset**  
 
-Le compte que vous utilisez pour effectuer une réinitialisation du site doit disposer des autorisations suivantes :  
+De account waarmee u een sitereset kunt uitvoeren, moet de volgende machtigingen hebben:  
 
--   Le compte que vous utilisez pour effectuer une réinitialisation du site doit disposer des autorisations suivantes :  
+-   De account waarmee u een sitereset kunt uitvoeren, moet de volgende machtigingen hebben:  
 
-    -   **Site d’administration centrale**: le compte que vous utilisez pour réinitialiser un site de ce site doit être un administrateur local situé sur le serveur de site d'administration centrale et doit disposer de privilèges équivalents au rôle de sécurité de l'administration basée sur le rôle **Administrateur complet** .  
+    -   **Centrale beheersite**: Het account waarmee u kunt een sitereset uitvoert op deze site moet een lokale beheerder op de centrale beheersiteserver en moet over bevoegdheden beschikken die gelijkwaardig zijn aan de **volledige beheerder** op rollen gebaseerde beheerbeveiligingsrol.  
 
-    -   **Site principal**: le compte que vous utilisez pour réinitialiser un site de ce site doit être un administrateur local situé sur le serveur de site principal et doit disposer de privilèges équivalents au rôle de sécurité de l'administration basée sur le rôle **Administrateur complet** . Si le site principal se trouve dans une hiérarchie disposant d'un site d'administration centrale, ce compte doit également être un administrateur local sur le serveur du site d'administration centrale.  
+    -   **Primaire site**: Het account waarmee u kunt een sitereset uitvoert op deze site moet een lokale beheerder op de primaire siteserver en moet over bevoegdheden beschikken die gelijkwaardig zijn aan de **volledige beheerder** op rollen gebaseerde beheerbeveiligingsrol. Als de primaire site zich in een hiërarchie bevindt met een centrale beheersite, moet deze account tevens een lokale beheerder zijn op de centrale beheersiteserver.  
 
-**Limitations d’une réinitialisation de site**
-  - Depuis la version 1602, vous ne pouvez pas utiliser une réinitialisation de site pour modifier les modules linguistiques serveur ou client qui ont été installés sur les sites tant que la hiérarchie est configurée pour prendre en charge les [tests des mises à niveau du client dans un regroupement de préproduction](/sccm/core/clients/manage/upgrade/test-client-upgrades).
+**Beperkingen voor een sitereset**
+  - Vanaf versie 1602 kunt u een sitereset om te wijzigen van de Server niet gebruiken of taalpakketten voor clients die op sites geïnstalleerd, zolang de hiërarchie is geconfigureerd voor ondersteuning [clientupgrades testen in pre-productieverzameling](/sccm/core/clients/manage/upgrade/test-client-upgrades).
 
-#### <a name="to-perform-a-site-reset"></a>Pour effectuer une réinitialisation de site  
+#### <a name="to-perform-a-site-reset"></a>Een sitereset uitvoeren  
 
-1.  Exécutez **Installation de Configuration Manager** à partir de **&lt;dossier_installation_du_site_Configuration_Manager\>\BIN\X64\setup.exe**.  
+1.  Voer **Setup van Configuration Manager** van  **&lt;Configuration Manager site-installatiemap\>\BIN\X64\setup.exe**.  
 
     > [!TIP]  
-    >  Vous pouvez également exécuter une réinitialisation de site en démarrant le programme d’installation de Configuration Manager dans le menu **Démarrer** de l’ordinateur serveur de site ou depuis le média source Configuration Manager.  
+    >  U kunt ook uitvoeren met een site resetten door Configuration Manager Setup starten op de **Start** menu van de siteservercomputer of de Configuration Manager-bronmedia.  
 
-2.  Sur la page **Mise en route** , sélectionnez **Effectuer une maintenance de site ou réinitialiser ce site**, puis cliquez sur **Suivant**.  
+2.  Selecteer op de pagina **Aan de slag** de optie **Siteonderhoud uitvoeren of deze site resetten**en klik op **Volgende**.  
 
-3.  Sur la page **Maintenance de site** , sélectionnez **Réinitialiser le site sans modification de la configuration**, puis cliquez sur **Suivant**.  
+3.  Selecteer op de pagina **Siteonderhoud** de optie **Site resetten zonder configuratiewijzigingen** en klik op **Volgende**.  
 
-4.  Cliquez sur **Oui** pour démarrer la réinitialisation du site.  
+4.  Klik op **Ja** om met de sitereset te beginnen.  
 
-Une fois la réinitialisation du site terminée, cliquez sur **Fermer** pour terminer cette procédure.  
+Wanneer de sitereset is voltooid, klikt u op **Sluiten** om deze procedure te voltooien.  
 
-##  <a name="bkmk_sitelang"></a> Gérer les modules linguistiques sur un site  
-Après l’installation d’un site, vous pouvez modifier les modules linguistiques client et serveur en cours d’utilisation :  
+##  <a name="bkmk_sitelang"></a>Taalpakketten op een site beheren  
+Nadat een site is geïnstalleerd, kunt u de gebruikte taalpakketten voor de server en client wijzigen:  
 
-**Modules linguistiques serveur :**  
+**Taalpakketten voor server:**  
 
--   **S’applique à :**  
+-   **Van toepassing op:**  
 
-     Installations de la console Configuration Manager  
+     Installaties van Configuration Manager-console  
 
-     Nouvelles installations de rôles de système de site applicables  
+     Nieuwe installaties van toepasselijke sitesysteemrollen  
 
--   **Détails :**  
+-   **Details:**  
 
-     Après la mise à jour des modules linguistiques serveur d’un site, vous pouvez ajouter la prise en charge des modules linguistiques dans les consoles Configuration Manager.  
+     Nadat u de servertaalpakketten op een site hebt bijgewerkt, kunt u ondersteuning voor de taalpakketten kunt toevoegen aan Configuration Manager-consoles.  
 
-     Pour ajouter la prise en charge d’un module linguistique serveur dans une console Configuration Manager, vous devez installer la console Configuration Manager à partir du dossier **ConsoleSetup** d’un serveur de site dans lequel figure le module linguistique que vous souhaitez utiliser. Si la console Configuration Manager est déjà installée, vous devez commencer par la désinstaller, afin de permettre à la nouvelle installation d’identifier la liste actuelle des modules linguistiques pris en charge.  
+     U voegt ondersteuning voor een servertaalpakket aan een Configuration Manager-console, moet u de Configuration Manager-console van de **ConsoleSetup** map op een siteserver met het taalpakket dat u wilt gebruiken. Als de Configuration Manager-console al is geïnstalleerd, moet u eerst verwijderen om het inschakelen van de nieuwe installatie van de huidige lijst van ondersteunde taalpakketten te identificeren.  
 
-**Modules linguistiques client :**  
+**Taalpakketten voor client:**  
 
--   **S’applique à :**  
+-   **Van toepassing op:**  
 
-     Les modifications apportées aux modules linguistiques client mettent à jour les fichiers sources d’installation du client, pour que les nouvelles installations et mises à niveau de client ajoutent la prise en charge de la liste des langues client mise à jour.  
+     Wanneer er wijzigingen worden aangebracht in de clienttaalpakketten, worden de bronbestanden van de clientinstallatie bijgewerkt, zodat de nieuwe clientinstallaties en -upgrades ondersteuning bieden voor de bijgewerkte lijst met clienttalen.  
 
--   **Détails :**  
+-   **Details:**  
 
-     Après la mise à jour des modules linguistique client d'un site, vous devez installer chacun des clients qui utiliseront les modules linguistiques en utilisant les fichiers sources qui incluent les modules linguistiques client.  
+     U moet na het bijwerken van de clienttaalpakketten op een site elke client installeren die de taalpakketten gaat gebruiken, door gebruik te maken van bronbestanden met de clienttaalpakketten.  
 
-Pour plus d’informations sur les langues client et serveur prises en charge par Configuration Manager, consultez [Modules linguistiques dans System Center Configuration Manager](../../../core/servers/deploy/install/language-packs.md).  
+Zie voor meer informatie over de client en server talen die worden ondersteund door Configuration Manager [taalpakketten in System Center Configuration Manager](../../../core/servers/deploy/install/language-packs.md)  
 
-#### <a name="to-modify-the-language-packs-that-are-supported-at-a-site"></a>Pour modifier les modules linguistiques pris en charge par un site  
+#### <a name="to-modify-the-language-packs-that-are-supported-at-a-site"></a>De taalpakketten aanpassen die op een site worden ondersteund  
 
-1.  Sur le serveur de site, exécutez le programme d’installation de Configuration Manager à partir de **&lt;dossier_installation_du_site_Configuration_Manager\>\BIN\X64\setup.exe**.  
+1.  Op de siteserver Configuration Manager Setup uitvoeren vanuit  **&lt;Configuration Manager site-installatiemap\>\BIN\X64\setup.exe.**  
 
-2.  Sur la page **Mise en route** , sélectionnez **Effectuer une maintenance de site ou réinitialiser ce site**, puis cliquez sur **Suivant**.  
+2.  Selecteer op de pagina **Aan de slag** de optie **Siteonderhoud uitvoeren of deze site resetten** en klik op **Volgende**.  
 
-3.  Sur la page **Maintenance de site** , sélectionnez **Modifier la configuration de la langue**, puis cliquez sur **Suivant**.  
+3.  Selecteer op de pagina **Siteonderhoud** de optie **Taalconfiguratie aanpassen** en klik daarna op **Volgende**.  
 
-4.  Sur la page **Téléchargements requis** , sélectionnez **Télécharger les fichiers requis** pour acquérir des mises à jour de modules linguistiques ou **Utiliser des fichiers précédemment téléchargés** pour utiliser les fichiers précédemment téléchargés incluant les modules linguistiques que vous souhaitez ajouter au site. Cliquez sur **Suivant** pour valider les fichiers et continuer.  
+4.  Selecteer op de pagina **Vereisten downloads** het item **Vereiste bestanden downloaden** om updates voor taalpakketten te downloaden, of selecteer **Eerder gedownloade bestanden gebruiken** om eerder gedownloade bestanden te downloaden met de taalpakketten die u aan de site wilt toevoegen. Klik op **Volgende** om de bestanden te valideren en ga door.  
 
-5.  Sur la page **Sélection de la langue du serveur** , activez les cases à cocher correspondant aux langues serveur prises en charge par ce site, puis cliquez sur **Suivant**.  
+5.  Schakel op de pagina **Selectie van servertaal** het selectievakje voor servertalen in die door de site worden ondersteund, en klik daarna op **Volgende**.  
 
-6.  Sur la page **Sélection de la langue client** , activez les cases à cocher correspondant aux langues client prises en charge par ce site, puis cliquez sur **Suivant**.  
+6.  Schakel op de pagina **Selectie van clienttaal** het selectievakje voor clienttalen in die door de site worden ondersteund, en klik daarna op **Volgende**.  
 
-7.  Cliquez sur **Suivant**pour modifier les langues prises en charge au niveau du site.  
+7.  Klik op **Volgende** om taalondersteuning op de site aan te passen.  
 
     > [!NOTE]  
-    >  Configuration Manager lance une réinitialisation de site qui réinstalle également tous les rôles de système de site au niveau du site.  
+    >  Configuration Manager initieert een sitereset geactiveerd die tevens alle sitesysteemrollen op de site opnieuw te installeren.  
 
-8.  Cliquez sur **Fermer** pour terminer cette procédure.  
+8.  Klik op **Sluiten** om deze procedure te voltooien.  
 
-##  <a name="BKMK_ModDBAlert"></a> Modifier le seuil d’alerte du serveur de base de données  
- Par défaut, Configuration Manager génère des alertes lorsque l’espace disque libre sur un serveur de base de données de site est faible. Les valeurs par défaut sont définies pour générer un avertissement lorsque l'espace disque libre est de 10 Go ou moins et une alerte critique lorsque l'espace disque libre est de 5 Go ou moins. Vous pouvez modifier ces valeurs ou désactiver les alertes pour chaque site.  
+##  <a name="BKMK_ModDBAlert"></a>De waarschuwingsdrempel van de database-server wijzigen  
+ Configuration Manager genereert standaard waarschuwingen wanneer de vrije schijfruimte op een databaseserver gering. De standaardwaarden zijn zo ingesteld dat er een waarschuwing wordt gegenereerd wanneer er 10 GB of minder vrije schijfruimte beschikbaar is. Er wordt een kritieke waarschuwing gegenereerd wanneer er 5 GB of minder vrije schijfruimte beschikbaar is. U kunt deze waarden aanpassen of waarschuwingen voor afzonderlijke sites uitschakelen.  
 
- Pour modifier ces paramètres :  
+ Als u deze instellingen wilt wijzigen:  
 
-1.  Dans l'espace de travail **Administration** , développez **Configuration du site**, puis cliquez sur **Sites**.  
+1.  Vouw **Siteconfiguratie** uit in de werkruimte **Beheer**en klik vervolgens op **Sites**.  
 
-2.  Sélectionnez le site que vous souhaitez configurer et ouvrez les **Propriétés** de ce site.  
+2.  Selecteer de site die u wilt configureren en openen van die site **eigenschappen**.  
 
-3.  Dans la boîte de dialogue **Propriétés** du site, sélectionnez l’onglet **Alerte**, puis modifiez les paramètres.  
+3.  In de site **eigenschappen** selecteert u de **waarschuwing** tabblad en bewerk vervolgens de instellingen.  
 
-4.  Cliquez sur **OK** pour fermer la boîte de dialogue des propriétés de site.  
+4.  Klik op **OK** om het dialoogvenster met eigenschappen voor de site te sluiten.  

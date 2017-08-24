@@ -1,6 +1,6 @@
 ---
-title: Configurer les ports de communication des clients | Microsoft Docs
-description: Configurez les ports de communication des clients dans System Center Configuration Manager.
+title: Clientcommunicatiepoorten configureren | Microsoft Docs
+description: Clientcommunicatiepoorten in System Center Configuration Manager instellen.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,60 +17,60 @@ ms.author: robstackmsft
 manager: angrobe
 ms.openlocfilehash: 63e033fdb436930ac5f37e7408ca9292bc444560
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-client-communication-ports-in-system-center-configuration-manager"></a>Comment configurer les ports de communication des clients dans System Center Configuration Manager
+# <a name="how-to-configure-client-communication-ports-in-system-center-configuration-manager"></a>Clientcommunicatiepoorten in System Center Configuration Manager configureren
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Vous pouvez modifier les numéros des ports de demande utilisés par les clients System Center Configuration Manager pour communiquer avec les systèmes de site qui utilisent des protocoles HTTP et HTTPS pour les communications. Même si les protocoles HTTP ou HTTPS sont sans doute déjà configurés pour les pare-feu, une notification de client utilisant le protocole HTTP ou HTTPS consomme plus de ressources processeur et de mémoire sur l'ordinateur du point de gestion qu'en utilisant un numéro de port personnalisé. Vous pouvez également spécifier le numéro de port de site à utiliser si vous réveillez les clients à l'aide de paquets de réveil traditionnels.  
+U kunt de aangevraagde poortnummers die System Center Configuration Manager-clients gebruiken om te communiceren met sitesystemen die HTTP en HTTPS voor communicatie gebruiken wijzigen. Hoewel HTTP of HTTPS is het waarschijnlijker al is geconfigureerd voor firewalls, clientmeldingen die HTTP of HTTPS is vereist meer CPU-gebruik en geheugen op de beheerpuntcomputer dan als u een aangepast poortnummer. U kunt ook het sitepoortnummer moet worden gebruikt als u clients activeert via traditionele wake-uppakketten opgeven.  
 
- Lorsque vous spécifiez les ports de demande HTTP et HTTPS, vous pouvez spécifier un numéro de port par défaut et un autre numéro de port. Les clients essaient automatiquement le port alternatif après un échec de communication avec le port par défaut. Vous pouvez spécifier des paramètres pour la communication de données HTTP et HTTPS.  
+ Wanneer u aangevraagde poorten voor HTTP en HTTPS opgeeft, kunt u zowel een standaardpoortnummer als een alternatief poortnummer opgeven. Clients proberen automatisch de alternatieve poort nadat de communicatie mislukt met de standaardpoort. U kunt instellingen opgeven voor communicatie van HTTP en HTTPS.  
 
- Les valeurs par défaut des ports de demande client sont **80** pour le trafic HTTP et **443** pour le trafic HTTPS. Modifiez-les uniquement si vous ne souhaitez pas utiliser ces valeurs par défaut. Un exemple typique d'utilisation des ports personnalisés est lorsque vous utilisez un site Web personnalisé dans IIS, plutôt que le site Web par défaut. Si vous modifiez les numéros de port par défaut pour le site Web par défaut dans IIS et que d'autres applications utilisent également le site Web par défaut, ils sont susceptibles d'échouer.  
+ De standaardwaarden voor de client aangevraagde poortnummers zijn **80** voor HTTP-verkeer en **443** voor HTTPS-verkeer. Deze alleen wijzigen als u niet wilt gebruiken van deze standaardwaarden. Een typisch scenario voor het gebruik van aangepaste poorten is wanneer u een aangepaste website in IIS in plaats van de standaardwebsite. Als u de standaardpoortnummers voor de standaardwebsite in IIS wijzigt en andere toepassingen ook de standaardwebsite gebruiken, zijn deze waarschijnlijk zal mislukken.  
 
 > [!IMPORTANT]  
->  Avant de modifier des numéros de port dans Configuration Manager, pensez aux conséquences. Exemples :  
+>  De poortnummers in Configuration Manager niet wijzigen zonder het begrijpen van de gevolgen. Voorbeelden:  
 >   
->  -   Si vous changez les numéros de port des services de demande client en tant que configuration du site et que des clients existants ne sont pas reconfigurés de façon à utiliser les nouveaux numéros de port, ceux-ci ne seront pas gérés.  
-> -   Avant de configurer un numéro de port non défini par défaut, assurez-vous que les pare-feu et tous les périphériques réseau intermédiaires peuvent prendre en charge cette configuration, puis effectuez la reconfiguration en conséquence. Si vous allez gérer des clients sur Internet et modifier le numéro de port HTTPS par défaut 443, les routeurs et les pare-feu d'Internet pourraient bloquer cette communication.  
+>  -   Als u de poortnummers voor de client aangevraagde services als een siteconfiguratie wijzigt en bestaande clients worden niet opnieuw worden geconfigureerd voor het gebruik van de nieuwe poortnummers, worden deze clients niet onbeheerd.  
+> -   Voordat u een niet-standaardpoortnummer configureert, zorg ervoor dat firewalls en alle gekoppelde netwerkapparaten deze configuratie ondersteunt en configureer ze opnieuw naar behoefte. Als u clients op het Internet te beheren en het standaard HTTPS-poortnummer 443 wijzigt, routers en firewalls op het Internet blokkeren mogelijk deze communicatie.  
 
- Pour vous assurer que les clients ne sont pas non gérés après la modification des numéros de port de demande, les clients doivent être configurés pour utiliser les nouveaux numéros de port de demande. Lorsque vous modifiez les ports de requêtes sur un site principal, tout site secondaire associé héritera automatiquement de la même configuration de port. Utilisez la procédure décrite dans cette rubrique pour configurer les ports de requêtes sur le site principal.  
+ Om ervoor te zorgen dat clients niet onbeheerd worden na het wijzigen van de aangevraagde poortnummers, moeten clients worden geconfigureerd voor het gebruik van de nieuwe aangevraagde poortnummers. Wanneer u de aangevraagde poorten op een primaire site wijzigt, nemen alle gekoppelde secundaire sites automatisch dezelfde poortconfiguratie over. Gebruik de procedure in dit onderwerp voor het configureren van de aangevraagde poorten op de primaire site.  
 
 > [!NOTE]  
->  Pour plus d’informations sur la façon de configurer les ports de demande pour les clients sur les ordinateurs qui exécutent Linux et UNIX, consultez [Configurer des ports de demande pour le client pour Linux et UNIX](../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md#BKMK_ConfigLnUClientCommuincations).  
+>  Zie voor meer informatie over het configureren van de aanvraagpoorten voor clients op computers met Linux en UNIX [Aanvraagpoorten configureren voor de Client voor Linux en UNIX](../../../core/clients/deploy/deploy-clients-to-unix-and-linux-servers.md#BKMK_ConfigLnUClientCommuincations).  
 
- Lorsque le site Configuration Manager est publié dans les services de domaine Active Directory, les nouveaux clients et les clients existants qui peuvent accéder à ces informations seront automatiquement configurés avec leurs paramètres de port du site. Vous ne devez effectuer aucune opération ultérieure. Les clients qui ne peuvent pas accéder à ces informations publiées dans les services de domaine Active Directory incluent les clients des groupes de travail, les clients d'une autre forêt Active Directory, les clients configurés pour la gestion Internet uniquement et les clients qui se trouvent actuellement sur Internet. Si vous modifiez les numéros de ports par défaut après l'installation de ces clients, réinstallez-les et installez tout nouveau client à l'aide de l'une des méthodes suivantes :  
+ Wanneer de Configuration Manager-site is gepubliceerd naar Active Directory Domain Services, nieuwe en bestaande clients die toegang deze informatie tot automatisch worden geconfigureerd met hun sitepoortinstellingen en hoeft u geen verdere actie te ondernemen. Clients die geen toegang deze informatie gepubliceerd naar Active Directory Domain Services tot zijn onder andere werkgroepclients, clients van een andere Active Directory-forest, clients die zijn geconfigureerd voor alleen-Internet, en clients die zich momenteel op het Internet. Als u de standaardpoortnummers wijzigt nadat deze clients zijn geïnstalleerd, installeert u deze opnieuw en alle nieuwe clients installeren met behulp van een van de volgende methoden:  
 
--   Réinstallez les clients en utilisant l'Assistant Installation poussée du client. L'Installation poussée du client configure automatiquement les clients avec la configuration de port de site en cours. Pour plus d’informations sur l’utilisation de l’Assistant Installation Push du client, consultez [Guide pratique pour installer des clients Configuration Manager à l’aide d’une installation Push](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientPush).  
+-   De clients opnieuw installeren met behulp van de Wizard Push-clientinstallatie. Clientpushinstallatie configureert automatisch clients met de huidige sitepoortconfiguratie. Zie voor meer informatie over het gebruik van de Wizard Push-clientinstallatie [Configuration Manager-clients installeren door met behulp van Clientpush](../../../core/clients/deploy/deploy-clients-to-windows-computers.md#BKMK_ClientPush).  
 
--   Réinstallez les clients à l'aide du programme CCMSetup.exe ainsi que les propriétés d'installation du client.msi de CCMHTTPPORT et CCMHTTPSPORT. Pour plus d’informations sur ces propriétés, consultez [À propos des propriétés d’installation du client dans System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
+-   De clients opnieuw installeren met behulp van CCMSetup.exe en de client.msi-installatie-eigenschappen CCMHTTPPORT en CCMHTTPSPORT. Zie voor meer informatie over deze eigenschappen [over eigenschappen van clientinstallatie in System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties.md).  
 
--   Réinstallez les clients à l'aide d'une méthode qui permet de rechercher les propriétés d'installation du client Configuration Manager dans les Services de domaine Active Directory. Pour plus d’informations, consultez [À propos de la publication des propriétés d’installation du client sur les services de domaine Active Directory dans System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties-published-to-active-directory-domain-services.md).  
+-   De clients opnieuw installeren met behulp van een methode die zoekt naar Active Directory Domain Services naar installatie-eigenschappen van Configuration Manager-client. Zie [About client installation properties published to Active Directory Domain Services in System Center Configuration Manager](../../../core/clients/deploy/about-client-installation-properties-published-to-active-directory-domain-services.md) (Informatie over eigenschappen van clientinstallaties die zijn gepubliceerd naar Active Directory Domain Services in System Center Configuration Manager) voor meer informatie.  
 
- Pour reconfigurer les numéros de port de clients existants, vous pouvez également utiliser le script PORTSWITCH.VBS fourni avec le support d'installation dans le dossier SMSSETUP\Tools\PortConfiguration .  
+ U kunt ook het script PORTSWITCH gebruiken om de poortnummers voor bestaande clients opnieuw, te configureren. VBS die is opgegeven in de installatiemedia in de map SMSSETUP\Tools\PortConfiguration.  
 
 > [!IMPORTANT]  
->  Pour les clients existants et les nouveaux clients sur Internet, vous devez configurer les numéros de port par défaut en utilisant les propriétés CCMSetup.exe client.msi de CCMHTTPPORT et CCMHTTPSPORT.  
+>  Voor bestaande en nieuwe clients die zich momenteel op het Internet, moet u de niet-standaard poortnummers configureren met behulp van de CCMSetup.exe client.msi-eigenschappen CCMHTTPPORT en CCMHTTPSPORT.  
 
- Après avoir modifié les ports de demande sur le site, les nouveaux clients installés à l'aide de la méthode d'installation poussée du client à l'échelle du site seront automatiquement configurés avec les numéros de port du site en cours.  
+ Na het wijzigen van de aangevraagde poorten op de site, nieuwe clients die zijn geïnstalleerd met behulp van de gehele site push-clientinstallatiemethode automatisch geconfigureerd met de huidige poortnummers voor de site.  
 
-#### <a name="to-configure-the-client-communication-port-numbers-for-a-site"></a>Pour configurer les numéros de port de communication client pour un site  
+#### <a name="to-configure-the-client-communication-port-numbers-for-a-site"></a>De poortnummers voor clientcommunicatie voor een site configureren  
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
+1.  Klik op **Beheer**in de Configuration Manager-console.  
 
-2.  Dans l'espace de travail **Administration** développez **Configuration du site**, cliquez sur **Sites**et sélectionnez le site principal à configurer.  
+2.  In de **beheer** werkruimte Vouw **siteconfiguratie**, klikt u op **Sites**, en selecteer de primaire site configureren.  
 
-3.  Dans l'onglet **Accueil** , cliquez sur **Propriétés**, puis sur l'onglet **Ports** .  
+3.  Op de **Start** tabblad **eigenschappen**, en klik vervolgens op de **poorten** tabblad.  
 
-4.  Sélectionnez l'un des éléments et cliquez sur l'icône Propriétés pour ouvrir la boîte de dialogue **Détails du port** .  
+4.  Selecteer een van de items en klik op het pictogram eigenschappen om weer te geven de **Poortdetails** in het dialoogvenster.  
 
-5.  Dans la boîte de dialogue **Détails du port** , spécifiez le numéro de port et la description de l'élément et cliquez sur **OK**.  
+5.  In de **Poortdetails** in het dialoogvenster Geef het poortnummer en beschrijving voor het item en klik vervolgens op **OK**.  
 
-6.  Sélectionnez **Utiliser un site Web personnalisé** si vous souhaitez utiliser le nom du site Web personnalisé de **SMSWeb** pour les systèmes de site qui exécutent IIS.  
+6.  Selecteer **aangepaste website gebruiken** als u de naam van de aangepaste website van **SMSWeb** voor sitesystemen die IIS uitvoeren.  
 
-7.  Cliquez sur **OK** pour fermer la boîte de dialogue des propriétés du site.  
+7.  Klik op **OK** om het dialoogvenster met eigenschappen voor de site.  
 
- Répétez cette procédure pour tous les sites principaux de la hiérarchie.
+ Herhaal deze procedure voor alle primaire sites in de hiërarchie.

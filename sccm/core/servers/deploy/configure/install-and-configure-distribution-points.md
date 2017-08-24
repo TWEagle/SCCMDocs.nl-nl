@@ -1,6 +1,6 @@
 ---
-title: "Gérer les points de distribution | Microsoft Docs"
-description: "Hébergez le contenu (fichiers et logiciels) que vous déployez pour les appareils et les utilisateurs sur des points de distribution. Voici comment les installer et les configurer."
+title: Distributiepunten beheren | Microsoft Docs
+description: De inhoud (bestanden en software) die u op apparaten en gebruikers implementeert met distributiepunten hosten. Hier wordt het installeren en configureren.
 ms.custom: na
 ms.date: 2/14/2017
 ms.prod: configuration-manager
@@ -16,375 +16,375 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 4c94e4de5bbfe621492e8682c9424a48eb38196d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="install-and-configure-distribution-points-for-system-center-configuration-manager"></a>Installer et configurer des points de distribution pour System Center Configuration Manager
+# <a name="install-and-configure-distribution-points-for-system-center-configuration-manager"></a>Installeren en configureren van distributiepunten voor System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
  
-Vous pouvez installer des points de distribution System Center Configuration Manager pour héberger le contenu (fichiers et logiciels) que vous déployez sur des appareils et des utilisateurs. Vous pouvez aussi créer des groupes de points de distribution de façon à simplifier la gestion des points de distribution, ainsi que la distribution du contenu aux points de distribution.  
+U kunt System Center Configuration Manager-distributiepunten voor het hosten van de inhoud die u op apparaten en gebruikers implementeert (bestanden en software) installeren. U kunt ook distributie punt groepen maken die hoe u distributiepunten wilt beheren en hoe u inhoud naar distributiepunten distribueren vereenvoudigen.  
 
- Lorsque vous *installez un nouveau point de distribution* (à l’aide de l’Assistant Installation) ou que vous *gérez les propriétés d’un point de distribution* (en les modifiant), vous pouvez configurer la plupart des paramètres du point de distribution. Certains paramètres ne sont disponibles que lorsque vous effectuez une installation ou une modification, mais pas les deux :  
+ Wanneer u *een nieuw distributiepunt installeert* (via de installatiewizard) of *beheren van de eigenschappen van een bestaand distributiepunt* (het distributiepunt door eigenschappen te bewerken), kunt u de meeste van de distributiepuntinstellingen configureren. Enkele instellingen zijn alleen beschikbaar wanneer u bent u installeert of bewerkt, maar niet beide:  
 
--   Paramètres disponibles uniquement lors de l’installation d’un point distribution :  
+-   De instellingen die beschikbaar zijn alleen wanneer u een distributiepunt installeert:  
 
-    -   **Allow Configuration Manager to install IIS on the distribution point computer (Autoriser Configuration Manager à installer IIS sur l’ordinateur du point de distribution)**
+    -   **Configuration Manager IIS te installeren op de distributiepuntcomputer toestaan**
 
-    -   **Configure drive space settings for the distribution point (Configurer les paramètres d’espace disque pour le point de distribution)**  
+    -   **De schijfruimte-instellingen voor het distributiepunt configureren**  
 
--   Paramètres disponibles seulement pendant lorsque vous modifiez les propriétés d’un point distribution :  
+-   De instellingen die beschikbaar zijn alleen wanneer u de eigenschappen van een distributiepunt bewerkt:  
 
-    -   **Manage distribution point group relationships (Gérer les relations d’un groupe de points de distribution)**  
+    -   **Relaties tussen distributiepunten beheren**  
 
-    -   **View Content deployed to the distribution point (Afficher le contenu déployé sur le point de distribution)**  
+    -   **Inhoud weergeven geïmplementeerd op het distributiepunt.**  
 
-    -   **Configure Rate limits for data transfers to distribution points (Configurer des limites de taux pour les transferts de données vers les points de distribution)**  
+    -   **Snelheidslimieten configureren voor de gegevensoverdracht naar distributiepunten**  
 
-    -   **Configure Schedules for data transfers to distribution points (Configurer des planifications pour les transferts de données vers les points de distribution)**  
+    -   **Schema's configureren voor de gegevensoverdracht naar distributiepunten**  
 
-##  <a name="bkmk_install"></a> Installer un point de distribution  
- Vous devez désigner un serveur de système de site en tant que point de distribution pour rendre le contenu disponible pour les ordinateurs clients. Vous pouvez ajouter un rôle de site de point de distribution à un nouveau serveur de système de site ou ajouter le rôle de site à un système de site existant.  
+##  <a name="bkmk_install"></a>Een distributiepunt installeren  
+ U moet een sitesysteemserver toewijzen als een distributiepunt voordat inhoud kan worden gemaakt voor clientcomputers beschikbaar. U kunt de siterol van distributiepunt toevoegen aan een nieuwe sitesysteemserver of de siterol toevoegen aan een bestaande sitesysteemserver.  
 
- Quand vous installez un nouveau point de distribution, vous utilisez un Assistant d’installation qui vous guide à travers les paramètres disponibles. Avant de commencer, tenez compte des points suivants :  
+ Wanneer u een nieuw distributiepunt installeert, gebruikt u een installatiewizard die u bij de beschikbare instellingen helpt. Voordat u begint, moet u rekening houden met het volgende:  
 
--   Pour créer et configurer un point de distribution, vous devez disposer des autorisations de sécurité suivantes :  
+-   U moet de volgende beveiligingsmachtigingen hebben om te maken en configureren van een distributiepunt:  
 
-    -   **Lecture** pour l'objet **Point de distribution**  
+    -   **Lees** voor de **distributiepunt** object  
 
-    -   **Copier vers le point de distribution** pour l'objet **Point de distribution**  
+    -   **Kopiëren naar distributiepunt** voor de **distributiepunt** object  
 
-    -   **Modifier** pour l'objet **Site**  
+    -   **Wijzig** voor de **Site** object  
 
-    -   **Gérer des certificats pour le déploiement de système d'exploitation** pour l'objet **Site**  
+    -   **Certificaten beheren voor implementatie van besturingssysteem** voor de **Site** object  
 
--   IIS (Internet Information Services) doit être installé sur le serveur qui hébergera le point de distribution. Quand vous installez le rôle de système de site, Configuration Manager peut installer et configurer IIS automatiquement.  
+-   Internet Information Services (IIS) moet worden geïnstalleerd op de server die als voor het distributiepunt host fungeert. Wanneer u de sitesysteemrol installeert, wordt dit door Configuration Manager kunt installeren en configureren van IIS voor u.  
 
-Utilisez les procédures de base suivantes pour installer ou modifier un point de distribution. Pour plus d’informations sur les options de configuration disponibles, consultez la section [Configurer un point de distribution](#bkmk_configs) de cette rubrique.  
+Gebruik de volgende algemene procedures om te installeren of een distributiepunt te wijzigen. Zie voor meer informatie over de beschikbare configuratieopties, de [een distributiepunt configureren](#bkmk_configs) sectie van dit onderwerp.  
 
-#### <a name="to-install-a-distribution-point"></a>Pour installer un point de distribution  
+#### <a name="to-install-a-distribution-point"></a>Om een distributiepunt te installeren  
 
-1.  Dans la console Configuration Manager, choisissez **Administration** >  **Configuration du site** > **Serveurs et rôles de système de site**.  
+1.  Kies in de Configuration Manager-console **beheer** >  **siteconfiguratie** > **Servers en sitesysteemrollen**.  
 
-2.  Ajoutez le rôle de système de site de point de distribution à un serveur de système de site nouveau ou existant :  
+2.  De sitesysteemrol distributiepunt toevoegen aan een nieuwe of bestaande sitesysteemserver:  
 
-    -   **Nouveau serveur de système de site** : dans l’onglet **Accueil** puis dans le groupe **Créer**, choisissez **Créer un serveur de système de site**. L'Assistant Création de serveur de système de site s'ouvre.  
+    -   **Nieuwe sitesysteemserver**: Op de **Start** tabblad, in de **maken** groep, kiest u **Sitesysteemserver maken**. De wizard Sitesysteemserver maken wordt geopend.  
 
-    -   **Serveur de système de site existant** : choisissez le serveur sur lequel vous souhaitez installer le rôle de système de site du point de distribution. Lorsque vous choisissez un serveur, la liste des rôles de système de site déjà installés sur le serveur s’affiche dans le panneau des résultats.  
+    -   **Bestaande sitesysteemserver**: Kies de server waarin u wilt installeren van de sitesysteemrol distributiepunt. Wanneer u een server kiezen, wordt een lijst met de sitesysteemrollen die al zijn geïnstalleerd op de server wordt weergegeven in het deelvenster met resultaten.  
 
-         Dans l’onglet **Accueil** puis dans le groupe **Serveur**, choisissez **Ajouter des rôles de système de site**. L'Assistant Ajout de rôles de système de site s'ouvre.  
+         Op de **Start** tabblad, in de **Server** groep, kiest u **Sitesysteemrol toevoegen**. Hiermee opent u de wizard Sitesysteemrollen toevoegen.  
 
-3.  Sur la page **Général** , spécifiez les paramètres généraux du serveur de système de site. Lorsque vous ajoutez le point de distribution à un serveur de système de site existant, vérifiez les valeurs qui ont été précédemment configurées.  
+3.  Op de pagina **Algemeen** specificeert u de algemene instellingen voor de sitesysteemserver. Wanneer u het distributiepunt aan een bestaande sitesysteemserver toevoegt, controleert u of de waarden die eerder zijn geconfigureerd.  
 
-4.  Dans la page **Sélection du rôle système**, choisissez **Point de distribution** dans la liste des rôles disponibles, puis choisissez **Suivant**.  
+4.  Op de **Systeemrolselectie** pagina **distributiepunt** uit de lijst met beschikbare rollen en kies vervolgens **volgende**.  
 
-5.  Pour les pages suivantes de l’Assistant, consultez les informations fournies dans la section [Configurer un point de distribution](#bkmk_configs).  
+5.  Zie voor de volgende pagina's van de wizard de informatie in de [een distributiepunt configureren](#bkmk_configs) sectie.  
 
-     Par exemple, si vous souhaitez installer le point de distribution en tant que point de distribution d’extraction, choisissez **Activer ce point de distribution pour extraire le contenu à partir d’autres points de distribution**, puis procédez aux configurations supplémentaires requises par les points de distribution d’extraction.  
+     Bijvoorbeeld, als u naar het distributiepunt als een pull-distributiepunt installeert, kiest u **Schakel dit distributiepunt voor het ophalen van inhoud van andere distributiepunten** en breng vervolgens de aanvullende configuraties die pull-distributiepunten vereisen.  
 
-6.  Après avoir fermé l’Assistant, le rôle de site du point de distribution est ajouté au serveur de système de site.  
+6.  Nadat u de wizard hebt voltooid, wordt de siterol van distributiepunt toegevoegd aan de sitesysteemserver.  
 
-#### <a name="to-change-a-distribution-point"></a>Pour modifier un point de distribution  
+#### <a name="to-change-a-distribution-point"></a>Een distributiepunt wijzigen  
 
-1.  Dans la console Configuration Manager, choisissez **Administration** >  **Points de distribution**, puis sélectionnez le point de distribution à configurer.  
+1.  Kies in de Configuration Manager-console **beheer** >  **distributiepunten**, en selecteer vervolgens het distributiepunt dat u wilt configureren.  
 
-2.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+2.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
 
-3.  Utilisez les informations de la section [Configurer un point de distribution](#bkmk_configs) pour modifier les propriétés du point de distribution.  
+3.  Gebruik de informatie in de [een distributiepunt configureren](#bkmk_configs) sectie wanneer u de eigenschappen van het distributiepunt bewerkt.  
 
-4.  Après avoir apporté les modifications souhaitées, enregistrez vos paramètres et fermez la page des propriétés.  
+4.  Nadat u de gewenste wijzigingen hebt aangebracht, uw instellingen opslaan en sluiten van de eigenschappen van het distributiepunt.  
 
-##  <a name="bkmk_manage"></a> Gérer les groupes de points de distribution  
- Les groupes de points de distribution fournissent un regroupement logique de points de distribution pour la distribution de contenu. Vous pouvez utiliser ces groupes pour gérer et surveiller de manière centralisée le contenu des points de distribution qui s’étendent sur plusieurs sites. Gardez à l’esprit les points suivants :
+##  <a name="bkmk_manage"></a>Distributiepuntgroepen beheren  
+ Distributiepuntgroepen bieden een logische groepering van distributiepunten voor inhoudsdistributie. U kunt deze groepen gebruiken om te beheren en controleren van inhoud vanaf een centrale locatie voor distributiepunten die meerdere sites omvatten. Houd rekening met het volgende:
 
--   Vous pouvez ajouter un ou plusieurs points de distribution à partir de n’importe quel site de la hiérarchie, dans un groupe de points de distribution.  
+-   U kunt een of meer distributiepunten van elke site in de hiërarchie toevoegen aan een distributiepuntgroep.  
 
--   Vous pouvez ajouter un point de distribution à plusieurs groupes de points de distribution.  
+-   U kunt een distributiepunt toevoegen aan meer dan één distributiepuntgroep.  
 
--   Lorsque vous diffusez du contenu à un groupe de points de distribution, Configuration Manager le distribue à tous les points de distribution membres de ce groupe.  
+-   Wanneer u inhoud naar een distributiepuntgroep distribueert, distribueert Configuration Manager de inhoud naar alle distributiepunten die lid van de distributiepuntgroep zijn.  
 
--   Si vous ajoutez un point de distribution au groupe de points de distribution après une distribution de contenu initiale, Configuration Manager distribue automatiquement le contenu au nouveau membre du groupe.  
+-   Als u een distributiepunt aan de distributiepuntgroep na een initiële inhoudsdistributie toevoegt, distribueert Configuration Manager automatisch de inhoud naar het nieuwe distributiepuntlid.  
 
--   Vous pouvez associer un regroupement à un groupe de points de distribution. Lorsque vous distribuez du contenu à ce regroupement, Configuration Manager identifie les groupes de points de distribution associés au regroupement. Le contenu est ensuite distribué à tous les points de distribution qui sont membres de ces groupes de points de distribution.  
+-   U kunt een verzameling koppelen aan een distributiepuntgroep. Wanneer u inhoud naar die verzameling distribueert, bepaalt Configuration Manager welke distributiepuntengroepen zijn gekoppeld aan de verzameling. De inhoud wordt dan gedistribueerd naar alle distributiepunten die lid van deze distributiepuntgroepen zijn.  
 
     > [!NOTE]  
-    >  Si, après avoir distribué du contenu à un regroupement, vous associez ce regroupement à un nouveau groupe de points de distribution, vous devez redistribuer le contenu au regroupement pour pouvoir distribuer le contenu au nouveau groupe.  
+    >  Nadat u inhoud naar een verzameling, distribueert de verzameling daarna hebt gekoppeld aan een nieuwe distributiepuntgroep, moet u de inhoud aan de verzameling opnieuw distribueren voordat de inhoud wordt gedistribueerd naar de nieuwe distributiepuntgroep.  
 
-#### <a name="to-create-and-configure-a-new-distribution-point-group"></a>Pour créer et configurer un nouveau groupe de points de distribution  
+#### <a name="to-create-and-configure-a-new-distribution-point-group"></a>Maken en configureren van een nieuwe distributiepuntgroep  
 
-1.  Dans la console Configuration Manager, choisissez **Administration** > **Groupes de points de distribution**.  
+1.  Kies in de Configuration Manager-console **beheer** > **Distributiepuntengroepen**.  
 
-2.  Dans l’onglet **Accueil** puis dans le groupe **Créer**, choisissez **Créer un groupe**.  
+2.  Op de **Start** tabblad, in de **maken** groep, kiest u **groep maken**.  
 
-3.  Entrez le nom et la description du groupe de points de distribution.  
+3.  Voer de naam en beschrijving voor de distributiepuntengroep.  
 
-4.  Dans l’onglet **Regroupements**, cliquez sur **Ajouter**, sélectionnez les regroupements à associer au groupe de points de distribution, puis choisissez **OK**.  
+4.  Op de **verzamelingen** Kies **toevoegen**, selecteer de verzamelingen die u wilt koppelen aan de distributiepuntengroep en kies vervolgens **OK**.  
 
-5.  Dans l’onglet **Membres**, choisissez **Ajouter**, sélectionnez les points de distribution à ajouter comme membres du groupe de points de distribution, puis choisissez **OK**.  
+5.  Op de **leden** Kies **toevoegen**, selecteer de distributiepunten die u wilt toevoegen als leden van de distributiepuntengroep en kies vervolgens **OK**.  
 
-6.  Choisissez **OK** pour créer le groupe de points de distribution.  
+6.  Kies **OK** voor het maken van de distributiepuntgroep.  
 
-#### <a name="to-add-distribution-points-and-associate-collections-with-an-existing-distribution-point-group"></a>Pour ajouter des points de distribution et associer des regroupements à un groupe de points de distribution  
+#### <a name="to-add-distribution-points-and-associate-collections-with-an-existing-distribution-point-group"></a>Distributiepunten toevoegen en verzamelingen koppelen aan een bestaande distributiepuntengroep  
 
-1.  Dans la console Configuration Manager, choisissez **Administration** > **Groupes de points de distribution**.  
+1.  Kies in de Configuration Manager-console **beheer** > **Distributiepuntengroepen**.  
 
-2.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+2.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
 
-3.  Dans l’onglet **Regroupements**, choisissez **Ajouter** pour sélectionner les regroupements à associer au groupe de points de distribution, puis choisissez **OK**.  
+3.  Op de **verzamelingen** Kies **toevoegen** selecteren de verzamelingen die u wilt koppelen aan de distributiepuntengroep en kies vervolgens **OK**.  
 
-4.  Dans l’onglet **Membres**, choisissez **Ajouter** pour sélectionner les points de distribution à ajouter comme membres du groupe de points de distribution, puis choisissez **OK**.  
+4.  Op de **leden** Kies **toevoegen** selecteren van de distributiepunten die u wilt toevoegen als leden van de distributiepuntengroep en kies vervolgens **OK**.  
 
-5.  Choisissez **OK** pour enregistrer les modifications apportées au groupe de points de distribution.  
+5.  Kies **OK** wijzigingen aan de distributiepuntgroep wilt opslaan.  
 
-#### <a name="to-add-selected-distribution-points-to-a-new-distribution-point-group"></a>Pour ajouter les points de distribution sélectionnés à un nouveau groupe de points de distribution  
+#### <a name="to-add-selected-distribution-points-to-a-new-distribution-point-group"></a>Geselecteerde distributiepunten toevoegen verwijst naar een nieuwe distributiepuntgroep  
 
-1.  Dans la console Configuration Manager, choisissez **Administration** > **Points de distribution**, puis sélectionnez les points de distribution à ajouter au nouveau groupe de points de distribution.  
+1.  Kies in de Configuration Manager-console **beheer** > **distributiepunten**, en selecteer vervolgens de distributiepunten die u wilt toevoegen aan de nieuwe distributiepuntgroep.  
 
-2.  Dans l’onglet **Accueil** puis dans le groupe **Point de distribution**, développez **Ajouter les éléments sélectionnés**, puis choisissez **Ajouter les éléments sélectionnés au nouveau groupe de points de distribution**.  
+2.  Op de **Start** tabblad, in de **distributiepunt** groep uit, vouw **geselecteerde Items toevoegen**, en kies vervolgens **geselecteerde Items toevoegen aan nieuwe Distributiepuntengroepen**.  
 
-3.  Entrez le nom et la description du groupe de points de distribution.  
+3.  Voer de naam en beschrijving voor de distributiepuntengroep.  
 
-4.  Dans l’onglet **Regroupements**, choisissez **Ajouter** pour sélectionner les regroupements à associer au groupe de points de distribution, puis choisissez **OK**.  
+4.  Op de **verzamelingen** Kies **toevoegen** selecteren de verzamelingen die u wilt koppelen aan de distributiepuntengroep en kies vervolgens **OK**.  
 
-5.  Sous l’onglet **Membres**, confirmez votre souhait de voir Configuration Manager ajouter les points de distribution répertoriés en tant que membres du groupe de points de distribution. Choisissez **Ajouter** pour ajouter les points de distribution, puis choisissez **OK**.  
+5.  Op de **leden** tabblad, controleert u of dat u wilt dat de vermelde distributiepunten toevoegen als leden van de distributiepuntgroep in Configuration Manager. Kies **toevoegen** de distributiepunten toevoegen en klik vervolgens op **OK**.  
 
-6.  Choisissez **OK** pour créer le groupe de points de distribution.  
+6.  Kies **OK** voor het maken van de distributiepuntgroep.  
 
-#### <a name="to-add-selected-distribution-points-to-existing-distribution-point-groups"></a>Pour ajouter les points de distribution sélectionnés à des groupes de points de distribution existants  
+#### <a name="to-add-selected-distribution-points-to-existing-distribution-point-groups"></a>Verwijst naar geselecteerde distributiepunten toevoegen aan bestaande distributiepuntgroepen  
 
-1.  Dans la console Configuration Manager, choisissez **Administration** > **Points de distribution**, puis sélectionnez les points de distribution à ajouter au nouveau groupe de points de distribution.  
+1.  Kies in de Configuration Manager-console **beheer** > **distributiepunten**, en selecteer vervolgens de distributiepunten die u wilt toevoegen aan de nieuwe distributiepuntgroep.  
 
-2.  Dans l’onglet **Accueil** puis dans le groupe **Point de distribution**, développez **Ajouter les éléments sélectionnés**, puis choisissez **Ajouter les éléments sélectionnés aux groupes de points de distribution existants**.  
+2.  Op de **Start** tabblad, in de **distributiepunt** groep uit, vouw **geselecteerde Items toevoegen**, en kies vervolgens **geselecteerde Items toevoegen aan bestaande Distributiepuntgroepen**.  
 
-3.  Dans **Groupes de points de distribution disponibles**, sélectionnez les groupes de points de distribution auxquels les points de distribution sélectionnés doivent être ajoutés en tant que membres, puis choisissez **OK**.  
+3.  In de **beschikbare distributiepuntengroepen**, selecteer de distributiepuntgroepen waaraan de geselecteerde distributiepunten als leden worden toegevoegd en kies vervolgens **OK**.  
 
-##  <a name="bkmk_configs"></a> Configurer un point de distribution  
- Chaque point de distribution prend en charge plusieurs configurations différentes. Toutefois, tous les types de point de distribution ne prennent pas en charge toutes les configurations. Par exemple, les points de distribution cloud ne prennent pas en charge les déploiements de contenu activés pour PXE ou la multidiffusion. Les rubriques suivantes contiennent des informations sur certaines limitations :  
+##  <a name="bkmk_configs"></a>Een distributiepunt configureren  
+ Individuele distributiepunten bieden ondersteuning voor een groot aantal verschillende configuraties. Niet alle typen distributiepunten worden echter alle configuraties ondersteund. Cloud-gebaseerde distributiepunten ondersteunen bijvoorbeeld geen inhoudsimplementaties die zijn ingeschakeld voor PXE of multicast. In de volgende onderwerpen vindt u informatie over specifieke beperkingen:  
 
--   [Utiliser un point de distribution cloud avec System Center Configuration Manager](../../../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md)  
+-   [Een cloud-gebaseerd distributiepunt gebruiken met System Center Configuration Manager](../../../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md)  
 
--   [Utiliser un point de distribution d’extraction avec System Center Configuration Manager](/sccm/core/plan-design/hierarchy/use-a-pull-distribution-point)  
+-   [Een pull-distributiepunt met System Center Configuration Manager gebruiken](/sccm/core/plan-design/hierarchy/use-a-pull-distribution-point)  
 
-Les sections suivantes décrivent les configurations que vous pouvez sélectionner pendant l’installation d’un nouveau point de distribution ou la modification des propriétés d’un point de distribution.  
+De volgende secties worden de configuraties die u selecteren kunt wanneer u een nieuw distributiepunt installeert of de eigenschappen van een bestaand distributiepunt bewerkt.  
 
-### <a name="general"></a>Général  
- Configurez les paramètres généraux des points de distribution :  
+### <a name="general"></a>Algemeen  
+ De algemene distributiepuntinstellingen configureren:  
 
--   **Installer et configurer IIS si requis par Configuration Manager** : sélectionnez ce paramètre pour permettre à Configuration Manager d’installer et de configurer IIS sur le serveur si IIS n’est pas déjà installé. Les services Internet doivent être installés sur tous les points de distribution. Si IIS n’est pas installé sur le serveur et si vous ne sélectionnez pas ce paramètre, vous devez installer IIS pour pouvoir installer le point de distribution.  
+-   **Installeer en Configureer IIS indien vereist door Configuration Manager**: Kies deze instelling om Configuration Manager installeren en configureren van IIS op de server als deze nog niet is geïnstalleerd. IIS moet worden geïnstalleerd op alle distributiepunten. Als IIS is niet geïnstalleerd op de server en u deze instelling niet selecteert, moet u IIS installeren voordat het distributiepunt kan worden geïnstalleerd.  
 
     > [!NOTE]  
-    >  Cette option n’est disponible que lorsque vous installez un nouveau point de distribution.  
+    >  Deze optie is beschikbaar, alleen wanneer u een nieuw distributiepunt installeert.  
 
-- **Activer et configurer BranchCache pour ce point de distribution** : sélectionnez ce paramètre pour permettre à Configuration Manager de configurer Windows BranchCache sur le serveur de point de distribution. Pour plus d’informations sur l’utilisation de Windows BranchCache avec System Center Configuration Manager, consultez [BranchCache](/sccm/core/plan-design/configs/support-for-windows-features-and-networks#a-namebkmkbranchcachea-branchcache) dans *Prise en charge des fonctionnalités de Windows et des réseaux dans System Center Configuration Manager*.
+- **BranchCache inschakelen en configureren voor dit distributiepunt**: Kies deze instelling om Configuration Manager Windows BranchCache configureren op de distributiepuntserver. Zie voor meer informatie over het gebruik van Windows BranchCache met System Center Configuration Manager [BranchCache](/sccm/core/plan-design/configs/support-for-windows-features-and-networks#a-namebkmkbranchcachea-branchcache) in *ondersteuning voor Windows-onderdelen en -netwerken in System Center Configuration Manager*.
 
--   **Configure how client devices communicate with the distribution point (Configurer comment les appareils clients communiquent avec le point de distribution)** : l’utilisation de HTTP et de HTTPS présente des avantages et des inconvénients. Pour plus d’informations, consultez Meilleures pratiques de sécurité pour la gestion de contenu dans [Principes de base de la gestion de contenu dans System Center Configuration Manager](../../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
+-   **Configureren hoe clientapparaten communiceren met het distributiepunt**: Er zijn voor- en nadelen via HTTP en HTTPS. Zie voor meer informatie 'Aanbevolen beveiligingsprocedures voor inhoudsbeheer' in [basisconcepten voor inhoudsbeheer in System Center Configuration Manager](../../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
--   **Autoriser les clients à se connecter anonymement** : ce paramètre indique si le point de distribution autorise les connexions anonymes des clients Configuration Manager à la bibliothèque de contenu.  
+-   **Clients toestaan anoniem verbinding te**: Deze instelling bepaalt u of het distributiepunt anonieme verbindingen van Configuration Manager-clients naar de Inhoudsbibliotheek toestaat.  
 
     > [!IMPORTANT]  
-    >  La réparation d’une application Windows Installer sur un client peut échouer si vous n’utilisez pas ce paramètre.  
+    >  Reparatie van een Windows Installer-toepassing kan mislukken voor een client wanneer u deze instelling niet gebruikt.  
     >   
-    >  Lorsque vous déployez une application Windows Installer sur un client Configuration Manager, Configuration Manager télécharge le fichier dans le cache local du client. Les fichiers sont supprimés, une fois l’installation terminée.
+    >  Wanneer u een Windows Installer-toepassing op een Configuration Manager-client implementeert, wordt in Configuration Manager het bestand naar de lokale cache op de client gedownload. De bestanden eventueel verwijderd nadat de installatie is voltooid.
     >  
-    >  Le client Configuration Manager met à jour la liste source Windows Installer des applications Windows Installer installées avec le chemin de contenu de la bibliothèque de contenu sur les points de distribution associés. Par la suite, si vous démarrez l’action de réparation via Ajout/Suppression de programmes sur un client Configuration Manager, MSIExec tente d’accéder au chemin de contenu avec un compte d’utilisateur anonyme.  
+    >  Configuration Manager-client werkt de bronlijst voor Windows Installer voor de geïnstalleerde Windows Installer-toepassingen met het Inhoudspad voor de Inhoudsbibliotheek op gekoppelde distributiepunten. Later, als u de herstelactie van programma verwijderen of op een Configuration Manager-client start, probeert MSIExec toegang tot het Inhoudspad met een anonieme gebruiker.  
     >   
-    >  Vous pouvez toutefois changer ce comportement en installant la mise à jour décrite dans l’article [2619572](http://go.microsoft.com/fwlink/?LinkId=279699) de la Base de connaissances Microsoft, puis en modifiant une clé de Registre.  
+    >  U kunt echter de updates beschreven in de Microsoft Knowledge Base-artikel installeren [2619572](http://go.microsoft.com/fwlink/?LinkId=279699) en wijzigt u vervolgens een registersleutel om dit gedrag te wijzigen.  
     >   
-    >  Une fois la mise à jour installée sur les clients, MSIExec accède au chemin du contenu en utilisant le compte d’utilisateur connecté, lorsque vous ne choisissez pas le paramètre **Autoriser les clients à se connecter anonymement**.  
+    >  Nadat de update is geïnstalleerd op de clients, heeft MSIExec toegang tot het Inhoudspad met behulp van het aangemelde gebruikersaccount wanneer u geen kiest de **clients toestaan anoniem verbinding te** instelling.  
 
--   **Create a self-signed certificate or import a public key infrastructure (PKI) client certificate for the distribution point (Créer un certificat auto-signé ou importer un certificat client d’infrastructure à clé publique (PKI) pour le point de distribution)** : le certificat remplit les fonctions suivantes :  
+-   **Een zelfondertekend certificaat maken of importeren van een clientcertificaat voor openbare-sleutelinfrastructuur (PKI) voor het distributiepunt**: Het certificaat heeft de volgende doeleinden:  
 
-    -   Il authentifie le point de distribution à un point de gestion avant que le point de distribution n'envoie des messages d'état.  
+    -   Hiermee verifieert het distributiepunt naar een beheerpunt voordat het distributiepunt statusberichten verzendt.  
 
-    -   Lorsque vous activez la case à cocher **Activer la prise en charge PXE pour les clients** sur la page **Paramètres PXE**, le certificat est envoyé aux ordinateurs qui redémarrent PXE pour pouvoir se connecter à un point de gestion pendant le déploiement du système d’exploitation.  
+    -   Als u controleert de **PXE-ondersteuning inschakelen voor clients** vak op de **PXE-instellingen** pagina, wordt het certificaat verzonden naar computers die een PXE-opstartbewerking uitvoeren, zodat ze verbinding met een beheerpunt tijdens de implementatie van het besturingssysteem maken kunnen.  
 
-    Lorsque tous vos points de gestion du site sont configurés pour le protocole HTTP, créez un certificat auto-signé. Lorsque vos points de gestion sont configurés pour le protocole HTTPS, importez un certificat client PKI.  
+    Wanneer uw beheerpunten in de site zijn geconfigureerd voor HTTP, maakt u een zelfondertekend certificaat. Wanneer uw beheerpunten zijn geconfigureerd voor HTTPS, moet u een PKI-clientcertificaat importeren.  
 
-    Pour importer le certificat, accédez à un fichier PKCS #12 (Public Key Cryptography Standard #12) qui contient un certificat PKI avec les spécifications suivantes pour Configuration Manager :  
+    Blader naar een Public Key Cryptography Standard (PKCS #12) dat een PKI-certificaat met de volgende vereisten voor Configuration Manager heeft voor het importeren van het certificaat:  
 
-    -   L'utilisation prévue doit inclure l'authentification du client.  
+    -   Bedoelde gebruik moet clientverificatie omvatten.  
 
-    -   La clé privée doit être activée pour l'exportation.  
+    -   De persoonlijke sleutel moet exporteerbaar zijn ingeschakeld.  
 
     > [!TIP]  
-    >  Il n'existe aucune exigence particulière pour l'objet du certificat ou le nom alternatif d'objet du certificat (SAN), et vous pouvez utiliser le même certificat pour plusieurs points de distribution.  
+    >  Er zijn geen specifieke vereisten voor het certificaatonderwerp of alternatieve onderwerpnaam (SAN) en u kunt hetzelfde certificaat gebruiken voor meerdere distributiepunten.  
 
-     Pour plus d’informations sur la configuration requise pour les certificats, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md).  
+     Zie [PKI-certificaatvereisten voor System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md) voor meer informatie over de certificaatvereisten.  
 
-     Pour obtenir un exemple de déploiement de ce certificat, consultez la section Déployer le certificat client pour les points de distribution de la rubrique [Exemple de déploiement pas à pas des certificats PKI pour System Center Configuration Manager : autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
+     Voor een Voorbeeldimplementatie van dit certificaat, Zie de sectie 'Implementeren van de Client-certificaat voor distributiepunten' in [voorbeeld van stapsgewijze implementatie van de PKI-certificaten voor System Center Configuration Manager: Windows Server 2008-certificeringsinstantie](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
--   **Activer ce point de distribution pour le contenu préparé** : choisissez ce paramètre pour activer le point de distribution du contenu préparé. Lorsque ce paramètre est sélectionné, vous pouvez configurer le comportement de distribution lors de la distribution du contenu. Vous pouvez choisir de toujours effectuer l’une des opérations suivantes :
+-   **Dit distributiepunt inschakelen voor voorbereide inhoud**: Kies deze instelling naar het distributiepunt inschakelen voor voorbereide inhoud. Wanneer deze instelling is geselecteerd, kunt u distributiegedrag configureren wanneer u inhoud distribueert. U kunt kiezen om altijd een van de volgende:
 
- - Préparer le contenu sur le point de distribution.
- - Préparer le contenu initial du package, puis utiliser le processus de distribution de contenu standard lorsque le contenu fait l’objet de mises à jour.
- - Utiliser le processus de distribution standard pour le contenu du package.  
+ - De inhoud op het distributiepunt voor te bereiden.
+ - De initiële inhoud voor het pakket voor te bereiden, maar het normale inhouddistributieproces gebruiken wanneer er updates voor de inhoud.
+ - Het normale inhouddistributieproces gebruiken voor de inhoud van het pakket.  
 
-### <a name="drive-settings"></a>Paramètres du lecteur  
-
-> [!NOTE]  
->  Ces options ne sont disponibles que lorsque vous installez un nouveau point de distribution.  
-
-Spécifiez les paramètres du lecteur pour le point de distribution. Vous pouvez configurer jusqu’à deux lecteurs de disque pour la bibliothèque de contenu et deux lecteurs de disque pour le partage de package. Configuration Manager peut utiliser des lecteurs supplémentaires lorsque les deux premiers atteignent la réserve d’espace disque configurée. La page **Paramètres du lecteur** permet de configurer la priorité des lecteurs de disque et la quantité d'espace disque libre restant sur chaque lecteur de disque.  
-
--   **Réserve d’espace libre sur le lecteur (Mo)** : la valeur que vous configurez pour ce paramètre détermine la quantité d’espace libre sur un lecteur avant que Configuration Manager choisisse un autre lecteur et poursuive le processus de copie sur ce lecteur. Les fichiers de contenu peuvent s'étendre sur plusieurs lecteurs.  
-
--   **Emplacements du contenu**: Spécifiez les emplacements de contenu pour le partage de bibliothèque et de package de contenu. Configuration Manager copie le contenu à l’emplacement de contenu principal jusqu’à ce que la quantité d’espace libre atteigne la valeur spécifiée dans **Réserve d’espace libre sur le lecteur (Mo)**. Par défaut, les emplacements du contenu sont définis sur **Automatique**. L’emplacement de contenu principal est défini sur le lecteur de disque disposant le plus d’espace lors de l’installation. L’emplacement secondaire, quant à lui, est attribué au deuxième lecteur de disque disposant le plus d’espace. Quand le lecteur principal et le lecteur secondaire atteignent la réserve d’espace libre sur le lecteur, Configuration Manager sélectionne un autre lecteur disponible ayant le plus d’espace disque libre et poursuit le processus de copie.  
+### <a name="drive-settings"></a>Stationsinstellingen  
 
 > [!NOTE]  
->  Pour empêcher l’installation de Configuration Manager sur un lecteur spécifique, créez un fichier vide intitulé **no_sms_on_drive.sms** et copiez-le dans le dossier racine du lecteur avant d’installer le point de distribution.  
+>  Deze opties zijn alleen beschikbaar wanneer u een nieuw distributiepunt installeert.  
 
-### <a name="pull-distribution-point"></a>Point de distribution d'extraction  
-Quand vous choisissez **Activer ce point de distribution pour extraire le contenu à partir d’autres points de distribution**, vous modifiez la méthode employée par l’ordinateur pour obtenir le contenu que vous distribuez au point de distribution. Ce point de distribution devient un point de distribution d’extraction.  
+Geef de Stationsinstellingen voor het distributiepunt. U kunt maximaal twee schijfstations voor de Inhoudsbibliotheek en twee schijfstations voor de pakketshare configureren. Configuration Manager kan extra stations kan gebruiken wanneer de eerste twee de geconfigureerde stationsruimtereserve bereiken. De **Stationsinstellingen** pagina configureert de prioriteit voor de schijfstations en de hoeveelheid vrije schijfruimte die overblijft op elk schijfstation.  
 
-Pour chaque point de distribution d’extraction que vous configurez, vous devez spécifier un ou plusieurs points de distribution sources à partir desquels le point de distribution d’extraction obtient le contenu :  
+-   **Gereserveerde ruimte op station (MB)**: De waarde die u voor deze instelling configureert bepaalt de hoeveelheid vrije ruimte op een station voordat Configuration Manager een ander station kiest en verdergaat met het kopieerproces naar dat station. Inhoudsbestanden kunnen meerdere stations omvatten.  
 
--   Choisissez **Ajouter**, puis sélectionnez un ou plusieurs des points de distribution disponibles comme points de distribution sources.  
-
--   Choisissez **Supprimer** pour supprimer le point de distribution sélectionné comme point de distribution source.  
-
--   Utilisez les boutons fléchés pour définir l’ordre dans lequel le point de distribution d’extraction contacte les points de distribution sources lorsqu’il tente de transférer du contenu. Les points de distribution associés à la valeur la plus faible sont contactés en premier.  
-
-### <a name="pxe"></a>Environnement PXE  
-Indiquez si vous souhaitez activer l'environnement PXE sur le point de distribution. Quand vous activez l’environnement PXE, Configuration Manager installe les services de déploiement Windows sur le serveur, si nécessaire. Les services de déploiement Windows démarrent PXE pour installer les systèmes d’exploitation. Après avoir effectué toutes les étapes de l’Assistant pour créer le point de distribution, Configuration Manager installe dans les services de déploiement Windows un fournisseur qui utilise les fonctions de démarrage PXE.  
-
-Lorsque vous choisissez **Activer la prise en charge PXE pour les clients**, configurez les paramètres suivants :  
-
--   **Autoriser ce point de distribution à répondre aux requêtes PXE entrantes** : permet de spécifier si les Services de déploiement Windows doivent être activés, pour qu’ils répondent aux demandes de service PXE. Utilisez cette case à cocher pour activer et désactiver le service sans supprimer la fonctionnalité PXE du point de distribution.  
-
--   **Activer la prise en charge d’ordinateur inconnu** : indiquez si la prise en charge des ordinateurs non gérés par Configuration Manager doit être activée.  
-
--   **Exiger un mot de passe lorsque les ordinateurs utilisent PXE**: pour renforcer la sécurité de vos déploiements PXE, spécifiez un mot de passe fort.  
-
--   **Affinité entre appareil et utilisateur**: indiquez de quelle manière le point de distribution doit associer les utilisateurs à l'ordinateur de destination dans le cadre des déploiements PXE. Choisissez l'une des options suivantes :  
-
-    -   **Autoriser une affinité entre périphérique et utilisateur avec approbation automatique** : choisissez ce paramètre pour associer automatiquement les utilisateurs à l’ordinateur de destination sans attendre l’approbation.  
-
-    -   **Autoriser une affinité entre périphérique et utilisateur en attente de l’approbation de l’administrateur** : choisissez ce paramètre pour attendre l’approbation d’un utilisateur administratif avant d’associer des utilisateurs à l’ordinateur de destination.  
-
-    -   **Ne pas autoriser d’affinité entre périphérique et utilisateur** : choisissez ce paramètre pour empêcher l’association d’utilisateurs à l’ordinateur de destination.  
-
-     Pour plus d’informations sur l’affinité entre utilisateur et appareil, consultez [Lier des utilisateurs et des appareils avec l’affinité entre utilisateur et appareil dans System Center Configuration Manager](../../../../apps/deploy-use/link-users-and-devices-with-user-device-affinity.md).  
-
--   **Interfaces réseau**: Spécifiez que le point de distribution répond aux requêtes PXE à partir de toutes les interfaces réseau ou d'interfaces réseau spécifiques. Si le point de distribution répond à des interfaces réseau spécifiques, vous devez fournir l’adresse MAC pour chaque interface réseau.  
-
--   **Spécifier le délai de réponse du serveur PXE (secondes)** : indiquez, en secondes, le délai d’attente à l’issue duquel le point de distribution répond aux requêtes de l’ordinateur lorsque plusieurs points de distribution PXE sont utilisés. Par défaut, le point de service PXE de Configuration Manager répond d’abord aux demandes PXE du réseau.  
+-   **Inhoudslocaties**: Geef de inhoudslocaties op voor de inhoud en de pakketshare. Configuration Manager kopieert inhoud naar de primaire Inhoudslocatie, totdat de hoeveelheid vrije ruimte heeft bereikt voor de opgegeven waarde voor **vrije schijfruimte (MB) reserveren**. De inhoudslocaties zijn standaard ingesteld op **automatische**. De primaire Inhoudslocatie is ingesteld op het schijfstation dat de meeste schijfruimte bij de installatie heeft en de secundaire locatie wordt toegewezen aan het schijfstation dat de tweede meeste vrije schijfruimte heeft. Wanneer de primaire en secundaire stations de gereserveerde ruimte op station bereiken, wordt Configuration Manager selecteert een ander beschikbaar station met de meeste vrije schijfruimte en blijft het kopieerproces.  
 
 > [!NOTE]  
->  Le protocole PXE permet de démarrer les déploiements de système d’exploitation sur les ordinateurs clients Configuration Manager. Configuration Manager utilise le rôle de site du point de distribution PXE pour lancer le processus de déploiement du système d’exploitation. Le point de distribution PXE doit être configuré pour :
+>  Om te voorkomen dat Configuration Manager op een specifiek station wordt geïnstalleerd, maakt u een leeg bestand met de naam **no_sms_on_drive.sms** en kopieer het naar de hoofdmap van het station voordat u het distributiepunt installeert.  
+
+### <a name="pull-distribution-point"></a>Pull-distributiepunt  
+Wanneer u de optie **Schakel dit distributiepunt voor het ophalen van inhoud van andere distributiepunten**, u het gedrag van de manier waarop die computer, wordt de inhoud die u naar het distributiepunt distribueert wijzigen. Een pull-distributiepunt wordt.  
+
+Voor elk pull-distributiepunt dat u configureert, moet u een of meer brondistributiepunten van waaruit het pull-distributiepunt, de inhoud wordt opgeven:  
+
+-   Kies **toevoegen**, en selecteer vervolgens een of meer van de beschikbare distributiepunten als brondistributiepunten.  
+
+-   Kies **verwijderen** verwijderen van het geselecteerde distributiepunt als een brondistributiepunt.  
+
+-   Gebruik de pijltjesknoppen om aan te passen, de volgorde waarin het pull-distributiepunt contactpersonen die de bron distributiepunten wanneer het pull-distributiepunt probeert om inhoud te brengen. Distributiepunten met de laagste waarde worden eerst bereikt.  
+
+### <a name="pxe"></a>PXE  
+Geef op of PXE moet worden ingeschakeld op het distributiepunt. Wanneer u PXE inschakelt, installeert Configuration Manager Windows Deployment Services op de server, indien nodig. Windows Deployment Services is de service die de PXE-opstart om besturingssystemen te installeren uitvoert. Nadat u de wizard om het distributiepunt te maken, installeert Configuration Manager een provider in Windows Deployment Services die de PXE-opstartfuncties gebruikt.  
+
+Wanneer u de optie **PXE-ondersteuning inschakelen voor clients**, configureer de volgende instellingen:  
+
+-   **Dit distributiepunt reageert op binnenkomende PXE-aanvragen toestaan**: Geef op of Windows Deployment Services inschakelen zodat het reageert op PXE-serviceaanvragen. Gebruik dit vak inschakelen en uitschakelen van de service zonder dat de PXE-functionaliteit verwijderd uit het distributiepunt.  
+
+-   **Schakel onbekende computerondersteuning**: Geef op of ondersteuning voor computers die Configuration Manager niet beheert inschakelen.  
+
+-   **Een wachtwoord verplicht stellen wanneer computers PXE gebruiken**: Geef een sterk wachtwoord voor extra beveiliging voor uw PXE-implementaties.  
+
+-   **Affiniteit van gebruikersapparaat**: Geef op hoe het distributiepunt gebruikers moet koppelen aan de doelcomputer voor PXE-implementaties. Kies een van de volgende opties:  
+
+    -   **Gebruikersaffiniteit apparaat met automatische goedkeuring toestaan**: Kies deze instelling om gebruikers automatisch koppelen aan de doelcomputer zonder te wachten op goedkeuring.  
+
+    -   **Affiniteit van gebruikersapparaat in afwachting van goedkeuring door beheerder toestaan**: Kies deze instelling moet worden gewacht op goedkeuring van een gebruiker met beheerdersrechten voordat gebruikers aan de doelcomputer gekoppeld worden.  
+
+    -   **Geen affiniteit tussen gebruikers en apparaten toestaan**: Kies deze instelling om op te geven dat gebruikers niet gekoppeld aan de doelcomputer zijn.  
+
+     Zie [Gebruikers en apparaten koppelen met affiniteit tussen gebruikers en apparaten in System Center Configuration Manager](../../../../apps/deploy-use/link-users-and-devices-with-user-device-affinity.md) voor meer informatie over de gebruikersaffiniteit van het apparaat.  
+
+-   **Netwerkinterfaces**: Geef op dat het distributiepunt reageert op PXE-aanvragen van alle netwerkinterfaces of van specifieke netwerkinterfaces. Als het distributiepunt op specifieke netwerkinterfaces reageert, moet u het MAC-adres voor elke netwerkinterface opgeven.  
+
+-   **Geef de Reactievertraging van de PXE-server (seconden)**: Geef in seconden op hoe lang de vertraging is voordat het distributiepunt reageert op computeraanvragen wanneer er meerdere distributiepunten met PXE-functionaliteit worden gebruikt. Standaard de Configuration Manager PXE-servicepunt antwoordt eerst PXE-aanvragen van het netwerk.  
+
+> [!NOTE]  
+>  Het PXE-protocol kunt u implementaties van besturingssystemen aan Configuration Manager-clientcomputers starten. Configuration Manager gebruikt de siterol distributiepunt met PXE-functionaliteit voor het initiëren van het implementatieproces van het besturingssysteem. Het distributiepunt met PXE-functionaliteit moet worden geconfigureerd voor:
 >
-> 1. Répondre aux demandes de démarrage PXE émanant des clients Configuration Manager sur le réseau.
-> 2. Interagir avec l’infrastructure Configuration Manager pour déterminer les actions de déploiement appropriées à entreprendre.  
+> 1. Reageren op PXE-opstartaanvragen die Configuration Manager-clients op het netwerk.
+> 2. Met de Configuration Manager-infrastructuur om te bepalen welke implementatieacties te laten werken.  
 
-### <a name="multicast"></a>Multidiffusion  
-Indiquez si vous souhaitez activer la multidiffusion sur le point de distribution. Quand vous activez la multidiffusion, Configuration Manager installe les services de déploiement Windows sur le serveur, si nécessaire.  
+### <a name="multicast"></a>Multicast  
+Geef op of multicast op het distributiepunt moet worden ingeschakeld. Wanneer u multicast inschakelt, installeert Configuration Manager Windows Deployment Services op de server, indien nodig.  
 
-Lorsque vous activez la case à cocher **Activer la multidiffusion pour envoyer simultanément des données à plusieurs clients**, configurez les paramètres suivants :  
+Als u controleert de **multicast inschakelen om gelijktijdig gegevens verzenden naar meerdere clients** Configureer de volgende instellingen:  
 
--   **Compte de connexion multidiffusion** : indiquez le compte à utiliser quand vous configurez des connexions de base de données Configuration Manager pour la multidiffusion.  
+-   **Multicastverbindingsaccount**: Geef de account moet worden gebruikt wanneer u Configuration Manager-databaseverbindingen voor multicast configureert.  
 
--   **Paramètres de l’adresse de multidiffusion** : spécifiez les adresses IP pour envoyer des données vers les ordinateurs de destination. Par défaut; l'adresse IP est fournie par un serveur DCHP chargé de distribuer des adresses de multidiffusion. Selon l’environnement réseau, vous pouvez spécifier une plage d’adresses IP entre 239.0.0.0 et 239.255.255.255.  
-
-    > [!IMPORTANT]  
-    >  Les adresses IP que vous configurez doivent être accessibles par les ordinateurs de destination qui demandent l'image du système d'exploitation. Vérifiez que les routeurs et pare-feu autorisent le trafic de multidiffusion entre l'ordinateur de destination et le serveur de site.  
-
--   **Étendue du port UDP pour la multidiffusion** : spécifiez la plage de ports UDP (User Datagram Protocol) utilisés pour envoyer des données aux ordinateurs de destination.  
+-   **Multicastadresinstellingen**: Geef het IP-adressen voor het verzenden van gegevens naar de doelcomputers. Standaard wordt het IP-adres verkregen van een DHCP-server die is ingeschakeld voor het distribueren van multicastadressen. Afhankelijk van de netwerkomgeving, kunt u een bereik met IP-adressen van 239.0.0.0 tot en met 239.255.255.255.  
 
     > [!IMPORTANT]  
-    >  Les ports UDP doivent être accessibles par les ordinateurs de destination qui demandent l'image du système d'exploitation. Vérifiez que les routeurs et pare-feu autorisent le trafic de multidiffusion entre l'ordinateur de destination et le serveur de site.  
+    >  De IP-adressen die u configureert moet toegankelijk zijn voor de doelcomputers die de installatiekopie van het besturingssysteem aanvragen. Controleer of routers en firewalls toestaan voor multicast-verkeer tussen de doelcomputer en de siteserver.  
 
--   **Taux de transfert client**: Sélectionnez la vitesse de transfert utilisée pour télécharger des données sur les ordinateurs de destination.  
+-   **UDP-poortbereik voor multicast**: Geef het bereik van User Datagram Protocol (UDP)-poorten die worden gebruikt om gegevens te verzenden naar de doelcomputers.  
 
--   **Nombre maximum de clients**: Spécifiez le nombre maximal d'ordinateurs de destination qui peuvent télécharger le système d'exploitation à partir de ce point de distribution.  
+    > [!IMPORTANT]  
+    >  De UDP-poorten moeten toegankelijk zijn voor de doelcomputers die de installatiekopie van het besturingssysteem aanvragen. Controleer of routers en firewalls toestaan voor multicast-verkeer tussen de doelcomputer en de siteserver.  
 
--   **Activer la multidiffusion planifiée** : indiquez comment Configuration Manager contrôle le lancement du déploiement des systèmes d’exploitation sur les ordinateurs de destination. Configurez les options suivantes :  
+-   **Overdrachtssnelheid van client**: Selecteer de overdrachtssnelheid die wordt gebruikt om gegevens te downloaden naar de doelcomputers.  
 
-    -   **Délai de démarrage de session (en minutes)** : indiquez le nombre de minutes écoulé avant que Configuration Manager réponde à la première demande de déploiement.  
+-   **Maximum aantal clients**: Geef het maximum aantal doelcomputers op dat het besturingssysteem vanaf dit distributiepunt kan downloaden.  
 
-    -   **Taille minimale de la session (clients)** : indiquez le nombre de demandes qui doivent être reçues avant que Configuration Manager commence à déployer le système d’exploitation.  
+-   **Geplande multicast inschakelen**: Geef op hoe Configuration Manager bepaalt wanneer kan ik besturingssystemen implementeren op doelcomputers. Configureer de volgende opties:  
 
-> [!NOTE]  
->  Les déploiements de multidiffusion économisent la bande passante réseau en envoyant de manière simultanée des données à plusieurs clients Configuration Manager au lieu d’envoyer une copie des données à chaque client via une connexion distincte. Pour plus d’informations sur l’utilisation de la multidiffusion pour le déploiement de systèmes d’exploitation, consultez [Utiliser la multidiffusion pour Windows sur le réseau avec System Center Configuration Manager](../../../../osd/deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
+    -   **Startvertraging van sessie (minuten)**: Geef het aantal minuten dat Configuration Manager wacht voordat het reageert op de eerste implementatieaanvraag.  
 
-### <a name="group-relationships"></a>Relations de groupe  
-
-> [!NOTE]  
->  Ces options ne sont disponibles que quand vous modifiez les propriétés d’un point de distribution déjà installé.  
-
-Gérez les groupes de points de distribution dont ce point de distribution est membre.  
-
-Pour ajouter ce point de distribution en tant que membre à un groupe de points de distribution, choisissez **Ajouter**. Sélectionnez un groupe de points de distribution dans la liste de la boîte de dialogue **Ajouter aux groupes de points de distribution**, puis choisissez **OK**.  
-
-Pour supprimer ce point de distribution d’un groupe de points de distribution, sélectionnez le groupe dans la liste, puis choisissez **Supprimer**.  
-
-### <a name="content"></a>Content  
+    -   **Minimale sessiegrootte (clients)**: Geef op hoeveel aanvragen er moeten worden ontvangen voordat Configuration Manager begint met de implementatie van het besturingssysteem.  
 
 > [!NOTE]  
->  Ces options ne sont disponibles que quand vous modifiez les propriétés d’un point de distribution déjà installé.  
+>  Multicastimplementaties houden netwerkbandbreedte vrij door gegevens gelijktijdig te verzenden naar meerdere Configuration Manager-clients in plaats van een kopie van de gegevens verzenden naar elke client via een aparte verbinding. Zie voor meer informatie over het gebruik van multicast voor de implementatie van besturingssystemen, [multicast gebruiken om Windows te implementeren via het netwerk met System Center Configuration Manager](../../../../osd/deploy-use/use-multicast-to-deploy-windows-over-the-network.md).  
 
-Gérez le contenu qui a été distribué au point de distribution. La section **Packages de déploiement** fournit la liste des packages distribués à ce point de distribution. Vous pouvez sélectionner un package dans la liste, puis effectuer les actions suivantes :  
+### <a name="group-relationships"></a>Groepsrelaties  
 
--   **Valider**: Démarre le processus de validation de l'intégrité des fichiers de contenu dans le package. Pour afficher les résultats du processus de validation du contenu, dans l’espace de travail **Surveillance**, développez **État de distribution**, puis choisissez le nœud **État du contenu**.  
+> [!NOTE]  
+>  Deze opties zijn alleen beschikbaar wanneer u de eigenschappen van een eerder geïnstalleerd distributiepunt bewerkt.  
 
--   **Redistribuer**: Copie tous les fichiers de contenu dans le package vers le point de distribution et remplace les fichiers existants. Vous utilisez généralement cette opération pour réparer les fichiers de contenu dans le package.  
+Beheer de distributiepuntengroepen die dit distributiepunt lid is.  
 
--   **Supprimer**: Supprime les fichiers de contenu du point de distribution du package.  
+Kies voor dit distributiepunt als een lid toevoegen aan een bestaande distributiepuntgroep, **toevoegen**. Selecteer een bestaande distributiepuntgroep in de lijst in de **toevoegen aan Distributiepuntgroepen** dialoogvenster vak in en kies vervolgens **OK**.  
 
-### <a name="content-validation"></a>Validation du contenu  
-Indiquez si vous souhaitez définir une planification pour valider l'intégrité des fichiers de contenu sur le point de distribution. Quand vous activez la validation de contenu selon une planification, Configuration Manager démarre le processus à l’heure planifiée, et tout le contenu est vérifié sur le point de distribution. Vous pouvez également configurer la priorité de la validation du contenu. Par défaut, la priorité est définie sur **La plus faible**.  
+Als dit distributiepunt uit een distributiepuntgroep wilt verwijderen, selecteert u de distributiepuntgroep in de lijst en kies vervolgens **verwijderen**.  
 
-Pour afficher les résultats du processus de validation du contenu, dans l’espace de travail **Surveillance**, développez **État de distribution**, puis choisissez le nœud **État du contenu**. Le contenu de chaque type de package (par exemple, application, package de mises à jour logicielles et image de démarrage) s’affiche.  
+### <a name="content"></a>Inhoud  
+
+> [!NOTE]  
+>  Deze opties zijn alleen beschikbaar wanneer u de eigenschappen van een eerder geïnstalleerd distributiepunt bewerkt.  
+
+Beheren van de inhoud die naar het distributiepunt is gedistribueerd. De **implementatiepakketten** sectie geeft een lijst van de pakketten die gedistribueerd naar dit distributiepunt. U kunt een pakket in de lijst selecteren en de volgende acties uitvoeren:  
+
+-   **Valideren**: Start het proces voor het valideren van de integriteit van de inhoudsbestanden in het pakket. De resultaten van het inhoudvalidatieproces weergeven in de **bewaking** werkruimte Vouw **distributiestatus**, en kies vervolgens de **inhoudsstatus** knooppunt.  
+
+-   **Opnieuw distribueren**: Kopieert alle inhoudsbestanden in het pakket naar het distributiepunt en worden de bestaande bestanden overschreven. Deze actie wordt meestal gebruikt voor het repareren van inhoudsbestanden in het pakket.  
+
+-   **Verwijder**: Hiermee verwijdert u de inhoudsbestanden van het distributiepunt voor het pakket.  
+
+### <a name="content-validation"></a>Validatie van inhoud  
+Geef op of het instellen van een planning voor het valideren van de integriteit van inhoudsbestanden op het distributiepunt. Wanneer u inhoudsvalidatie op een planning inschakelt, wordt Configuration Manager begint het proces op het geplande tijdstip en wordt alle inhoud op het distributiepunt gecontroleerd. U kunt ook de prioriteit voor validatie van inhoud configureren. De prioriteit is standaard ingesteld op **laagste**.  
+
+De resultaten van het inhoudvalidatieproces weergeven in de **bewaking** werkruimte Vouw **distributiestatus**, en kies vervolgens de **inhoudsstatus** knooppunt. De inhoud van ieder pakkettype (bijvoorbeeld, toepassing, software-updatepakket en installatiekopie) wordt weergegeven.  
 
 > [!WARNING]  
->  Même si vous planifiez la validation du contenu en utilisant l’heure locale de l’ordinateur, la planification affichée dans la console Configuration Manager est exprimée en heure UTC.  
+>  Hoewel u de planning voor inhoudsvalidatie opgeven met behulp van de lokale tijd voor de computer, ziet u de Configuration Manager-console de planning in UTC.  
 
-### <a name="boundary-group"></a>Groupes de limites  
-Gérez les groupes de limites pour lesquels ce point de distribution est attribué. Vous pouvez associer des groupes de limites à un point de distribution. Au cours de déploiement de contenu, les clients doivent se trouver dans un groupe de limites associé au point de distribution pour l'utiliser en tant qu'emplacement source pour le contenu.
+### <a name="boundary-group"></a>Grensgroep  
+Beheer de grensgroepen waaraan dit distributiepunt is toegewezen. U kunt grensgroepen koppelen aan een distributiepunt. Tijdens inhoudsimplementatie moeten clients zich in een grensgroep die is gekoppeld aan het distributiepunt te gebruiken als bronlocatie voor inhoud.
 
-En outre :
+Aanvullend:
 
-- À compter de la version 1610, vous pouvez activer la case à cocher **Allow clients to use this site system as a fallback source location for content (Autoriser les clients à utiliser ce système de site en tant qu’emplacement source de secours du contenu)** pour permettre aux clients hors de ces groupes de limites d’être restaurés et d’utiliser le point de distribution comme emplacement source du contenu si aucun autre point de distribution n’est disponible. Pour plus d’informations sur les groupes de limites, consultez [Boundary groups for versions 1511, 1602, and 1606 (Groupes de limites pour les versions 1511, 1602 et 1606)](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606). Pour plus d’informations sur les points de distribution préférés, consultez [Principes de base de la gestion de contenu dans System Center Configuration Manager](../../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).
+- Voordat u versie 1610, kunt u controleren de **clients gebruiken dit sitesysteem als een terugvalbronlocatie voor inhoud toestaan** vak wilt toestaan dat clients buiten deze grensgroepen terug te vallen en het distributiepunt gebruiken als bronlocatie voor inhoud, wanneer er geen andere distributiepunten beschikbaar zijn. Zie voor meer informatie over grensgroepen [grensgroepen voor versie 1511, 1602 en 1606](/sccm/core/servers/deploy/configure/boundary-groups-for-1511-1602-and-1606). Zie voor voorkeursdistributiepunten, [basisconcepten voor inhoudsbeheer in System Center Configuration Manager](../../../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).
 
-- À partir de la version 1610, vous configurez des *relations* qui définissent à quel moment et auprès de quels groupes de limites un client peut effectuer une action de secours pour trouver du contenu. Pour plus d’informations, consultez [Groupes de limites](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
+- Versie 1610 of hoger, configureert u grensgroep *relaties* die definiëren wanneer en tot welke grensgroepen een client terugvallen om inhoud te zoeken. Zie voor meer informatie [grensgroepen](/sccm/core/servers/deploy/configure/define-site-boundaries-and-boundary-groups#boundary-groups).
 
 
-### <a name="schedule"></a>Planification  
+### <a name="schedule"></a>Planning  
 
 > [!NOTE]  
->  Ces options ne sont disponibles que quand vous modifiez les propriétés d’un point de distribution déjà installé.  
+>  Deze opties zijn alleen beschikbaar wanneer u de eigenschappen van een eerder geïnstalleerd distributiepunt bewerkt.  
 
 > [!TIP]  
->  Cet onglet n’est disponible que lorsque vous modifiez les propriétés d’un point de distribution distant de l’ordinateur du serveur de site.  
+>  Op dit tabblad is alleen beschikbaar wanneer u de eigenschappen bewerkt van een distributiepunt dat zich op afstand van de siteservercomputer.  
 
- Indiquez s’il convient de configurer une planification qui limite la période de transfert de données de Configuration Manager vers le point de distribution.  
+ Geef op of configureer een planning die beperkt wanneer Configuration Manager kan de gegevens naar het distributiepunt kan overdragen.  
 
 > [!IMPORTANT]  
->  La planification est basée sur le fuseau horaire du site émetteur, et non sur celui du point de distribution.  
+>  De planning is gebaseerd op de tijdzone van de verzendende site, niet het distributiepunt.  
 
-Pour restreindre les données, sélectionnez la période, puis choisissez l’un des paramètres suivants sous **Disponibilité** :  
+Als u wilt gegevens beperken, selecteert u de periode en kies een van de volgende instellingen voor **beschikbaarheid**:  
 
--   **Ouvrir pour toutes les priorités** : indique que Configuration Manager envoie les données au point de distribution sans restriction.  
+-   **Open voor alle prioriteiten**: Geeft aan of Configuration Manager gegevens naar het distributiepunt zonder beperkingen verzendt.  
 
--   **Autoriser les priorités moyennes et élevées** : indique que Configuration Manager n’envoie au point de distribution que les données de priorité moyenne et élevée.  
+-   **Gemiddelde en hoge prioriteit toestaan**: Hiermee geeft u dat Configuration Manager alleen de gegevens over gemiddelde en hoge prioriteit naar het distributiepunt verzendt.  
 
--   **Autoriser uniquement la priorité élevée** : indique que Configuration Manager n’envoie au point de distribution que les données de priorité élevée.  
+-   **Alleen hoge prioriteit toestaan**: Geeft aan of Configuration Manager alleen hoge prioriteit gegevens naar het distributiepunt verzendt.  
 
--   **Fermé** : indique que Configuration Manager n’envoie pas de données au point de distribution.  
+-   **Gesloten**: Geeft aan of Configuration Manager niet alle gegevens naar het distributiepunt verzenden.  
 
-Vous pouvez limiter les données par priorité ou fermer la connexion durant des périodes sélectionnées.  
+U kunt gegevens beperken door de prioriteit of de verbinding gedurende geselecteerde perioden te sluiten.  
 
-### <a name="rate-limits"></a>Limites du taux de transfert  
+### <a name="rate-limits"></a>Frequentielimieten  
 
 > [!NOTE]  
->  Ces options ne sont disponibles que quand vous modifiez les propriétés d’un point de distribution déjà installé.  
+>  Deze opties zijn alleen beschikbaar wanneer u de eigenschappen van een eerder geïnstalleerd distributiepunt bewerkt.  
 
 > [!TIP]  
->  Cet onglet n’est disponible que lorsque vous modifiez les propriétés d’un point de distribution distant de l’ordinateur du serveur de site.  
+>  Op dit tabblad is alleen beschikbaar wanneer u de eigenschappen bewerkt van een distributiepunt dat zich op afstand van de siteservercomputer.  
 
-Spécifiez si vous souhaitez configurer des limites du taux de transfert pour contrôler la bande passante réseau utilisée lorsque Configuration Manager transfère du contenu vers le point de distribution. Vous pouvez choisir parmi les options suivantes :  
+Geef op of voor het configureren van frequentielimieten voor het beheren van de netwerkbandbreedte die wordt gebruikt bij Configuration Manager overdracht van inhoud naar het distributiepunt. U kunt kiezen uit de volgende opties:  
 
--   **Illimité lors de l’expédition de données à cette destination** : cette option spécifie que Configuration Manager envoie le contenu au point de distribution sans aucune limite de taux de transfert.  
+-   **Onbeperkt bij verzenden naar deze bestemming**: Deze optie geeft aan of Configuration Manager inhoud naar het distributiepunt met zonder frequentielimietbeperkingen verzendt.  
 
--   **Mode impulsion** : cette option spécifie la taille des blocs de données qui sont envoyés au point de distribution. Vous pouvez également spécifier un délai entre l'envoi de chaque bloc de données. Utilisez cette option lorsque vous devez envoyer des données au point de distribution via une connexion réseau à très faible bande passante. Par exemple, vous pouvez forcer l'envoi de 1 Ko de données toutes les cinq secondes, quelle que soit la vitesse de la liaison ou son utilisation.  
+-   **Pulsmodus**: Deze optie geeft de grootte van de gegevensblokken die naar het distributiepunt worden verzonden. U kunt daarnaast een vertraging tussen het verzenden van de afzonderlijke gegevensblokken opgeven. Gebruik deze optie wanneer u gegevens via een netwerkverbinding met zeer lage bandbreedte naar het distributiepunt verzendt. U wellicht bijvoorbeeld beperkingen instellen om te verzenden van 1 KB aan gegevens om de vijf seconden, ongeacht de snelheid van de koppeling of het gebruik ervan op een bepaald moment.  
 
--   **Limité aux taux de transfert maximaux indiqués par heure**: spécifiez ce paramètre pour qu'un site envoie des données à un point de distribution en utilisant uniquement le pourcentage de temps que vous avez configuré. Quand vous utilisez cette option, Configuration Manager n’identifie pas la bande passante disponible du réseau, mais divise le temps pendant lequel il peut envoyer des données. Puis les données sont envoyées pendant une courte plage horaire, suivie de plages horaires pendant lesquelles aucune donnée n'est envoyée. Par exemple, si le taux maximal est fixé à **50 %**, Configuration Manager transmet les données sur une période, qui est suivie d’une période égale où aucune donnée n’est envoyée. La taille effective des donnés ou la taille des blocs de données ne sont pas gérées. En revanche, seule la durée pendant laquelle des données sont envoyées est gérée.  
+-   **Beperkt tot opgegeven maximale overdrachtssnelheid per uur**: Geef deze instelling om een site gegevens verzenden naar een distributiepunt met behulp van alleen het percentage tijd dat u configureert. Als u deze optie gebruikt, wordt Configuration Manager geeft niet de beschikbare bandbreedte van het netwerk, maar verdeelt het de tijd die het gegevens kan verzenden. Gegevens worden vervolgens verzonden voor een kort tijdsblok, gevolgd door tijdsblokken waarin geen gegevens worden verzonden. Bijvoorbeeld, als de maximale snelheid wordt ingesteld op **50%**, Configuration Manager brengt gegevens over voor een bepaalde tijd, gevolgd door een even lange periode waarin geen gegevens worden verzonden. De werkelijke hoeveelheid gegevens, of grootte van het gegevensblok, wordt hiermee niet beheerd. Alleen de hoeveelheid tijd waarin gegevens worden verzonden, wordt beheerd.  

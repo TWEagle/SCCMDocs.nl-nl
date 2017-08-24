@@ -1,6 +1,6 @@
 ---
-title: "Gérer les clients Linux et UNIX | Microsoft Docs"
-description: "Découvrez comment gérer les clients sur des serveurs Linux et UNIX dans System Center Configuration Manager."
+title: Linux- en UNIX-clients beheren | Microsoft Docs
+description: Clients op Linux en UNIX-servers in System Center Configuration Manager beheren.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,64 +17,64 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 506df4f7c7baa5f0586a1ddf0cb02b3de9f4d076
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-manage-clients-for-linux-and-unix-servers-in-system-center-configuration-manager"></a>Guide pratique pour gérer les clients pour des serveurs Linux et UNIX dans System Center Configuration Manager
+# <a name="how-to-manage-clients-for-linux-and-unix-servers-in-system-center-configuration-manager"></a>Clients voor Linux en UNIX-servers in System Center Configuration Manager beheren
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Quand vous gérez des serveurs Linux et UNIX avec System Center Configuration Manager, vous pouvez configurer des regroupements, des fenêtres de maintenance et des paramètres client pour mieux gérer les serveurs. Par ailleurs, le client Configuration Manager pour Linux et UNIX n’a pas d’interface utilisateur, mais vous pouvez forcer le client à interroger manuellement la stratégie du client.
+Wanneer u Linux en UNIX-servers met System Center Configuration Manager beheert, kunt u verzamelingen, onderhoudsvensters en clientinstellingen voor de servers te beheren. Hoewel de Configuration Manager-client voor Linux en UNIX geen gebruikersinterface heeft, kunt u ook de client handmatig poll-frequentie voor clientbeleid afdwingen.
 
-##  <a name="BKMK_CollectionsforLnU"></a> Regroupements de serveurs Linux et UNIX  
- Utilisez les regroupements pour gérer des groupes de serveurs Linux et UNIX de la même façon que d’autres types de clients. Les regroupements peuvent être des regroupements avec adhésion directe ou des regroupements basés sur une requête. Les regroupements basés sur une requête identifient les systèmes d’exploitation clients, les configurations matérielles ou d’autres détails sur le client qui sont stockés dans la base de données du site. Par exemple, vous pouvez utiliser des regroupements qui incluent des serveurs Linux et UNIX pour gérer les paramètres suivants :  
+##  <a name="BKMK_CollectionsforLnU"></a> Collections of Linux and UNIX servers  
+ Verzamelingen gebruiken voor het beheren van groepen van Linux en UNIX-servers op dezelfde manier u verzamelingen gebruiken voor het beheren van andere clienttypen. Verzamelingen kunnen directe lidmaatschapverzamelingen of query's gebaseerde verzamelingen zijn. Query's gebaseerde verzamelingen identificeren clientbesturingssystemen, hardwareconfiguraties of andere details over de client die zijn opgeslagen in de sitedatabase. U kunt bijvoorbeeld verzamelingen met Linux en UNIX-servers voor het beheren van de volgende instellingen:  
 
--   Paramètres du client  
+-   Clientinstellingen  
 
--   Déploiements de logiciels  
+-   Software-implementatie  
 
--   Application de fenêtres de maintenance  
+-   Onderhoudsvensters afdwingen  
 
- Avant de pouvoir identifier un client Linux ou UNIX par son système d’exploitation ou sa distribution, vous devez collecter l’[inventaire matériel](../../../core/clients/manage/inventory/hardware-inventory-for-linux-and-unix.md) du client.  
+ Voordat u een Linux- of UNIX-client door het besturingssysteem of distributie identificeren kunt, moet u verzamelt [hardware-inventaris](../../../core/clients/manage/inventory/hardware-inventory-for-linux-and-unix.md) van de client.  
 
- Les paramètres client par défaut pour l’inventaire matériel incluent des informations sur le système d’exploitation de l’ordinateur client. Vous pouvez utiliser la propriété **Légende** de la classe **Système d’exploitation** pour identifier le système d’exploitation d’un serveur Linux ou UNIX.  
+ De standaardclientinstellingen voor hardware-inventarisatie bevatten informatie over het besturingssysteem van een clientcomputer. U kunt de eigenschap **Bijschrift** van de klasse **Besturingssysteem** gebruiken voor het identificeren van het besturingssysteem van een Linux- of UNIX-server.  
 
- Vous pouvez afficher des informations détaillées sur les ordinateurs qui exécutent le client Configuration Manager pour Linux et UNIX dans le nœud **Appareils** de l’espace de travail **Ressources et Conformité**, dans la console Configuration Manager. Dans l’espace de travail **Ressources et Conformité** de la console Configuration Manager, la colonne **Système d’exploitation** affiche le nom du système d’exploitation de chaque ordinateur.  
+ U kunt details zien over computers met de Configuration Manager-client voor Linux en UNIX in de **apparaten** knooppunt van de **activa en naleving** werkruimte in de Configuration Manager-console. In de **activa en naleving** werkruimte van de Configuration Manager-console vindt u de naam van het besturingssysteem van elke computer in de **besturingssysteem** kolom.  
 
- Par défaut, les serveurs Linux et UNIX sont membres du regroupement **Tous les systèmes** . Nous recommandons de créer des regroupements personnalisés qui incluent uniquement les serveurs Linux et UNIX, ou un sous-ensemble de ces serveurs. Les regroupements personnalisés vous permettent de gérer des opérations telles que le déploiement de logiciels ou l’affectation de paramètres client à des groupes d’ordinateurs similaires, et de mesurer ainsi avec précision la réussite d’un déploiement.   
+ Standaard maken Linux- en UNIX-servers deel uit van de verzameling **Alle systemen** . Het is raadzaam dat u aangepaste verzamelingen maakt die alleen Linux en UNIX-servers of een subset ervan. Aangepaste verzamelingen kunnen u bewerkingen beheren zoals het implementeren van software of toewijzen van clientinstellingen aan groepen zoals computers, zodat u het succes van een implementatie nauwkeurig kunt meten.   
 
- Quand vous créez un regroupement personnalisé pour des serveurs Linux et UNIX, insérez des requêtes de règle d’appartenance qui incluent l’attribut Légende pour l’attribut Système d’exploitation. Pour plus d’informations sur la création de regroupements, consultez [Guide pratique pour créer des regroupements dans System Center Configuration Manage](../../../core/clients/manage/collections/create-collections.md).  
+ Wanneer u een aangepaste verzameling voor Linux- en UNIX-servers maakt, neem daarin dan lidmaatschapregelquery's op met het kenmerk Bijschrift voor het kenmerk Besturingssysteem. Zie voor meer informatie over het maken van verzamelingen [verzamelingen maken in System Center Configuration Manager](../../../core/clients/manage/collections/create-collections.md).  
 
-##  <a name="BKMK_MaintenanceWindowsforLnU"></a> Fenêtres de maintenance pour les serveurs Linux et UNIX  
- Le client Configuration Manager pour les serveurs Linux et UNIX prend en charge l’utilisation des [fenêtres de maintenance](../../../core/clients/manage/collections/use-maintenance-windows.md). Cette prise en charge est inchangée par rapport à celle des clients Windows.  
+##  <a name="BKMK_MaintenanceWindowsforLnU"></a> Maintenance windows for Linux and UNIX servers  
+ De Configuration Manager-client voor Linux en UNIX-servers ondersteunt het gebruik van [onderhoudsvensters](../../../core/clients/manage/collections/use-maintenance-windows.md). Deze ondersteuning is ongewijzigd ten opzichte van Windows-clients.  
 
-##  <a name="BKMK_ClientSettingsforLnU"></a> Paramètres client pour les serveurs Linux et UNIX  
- Vous pouvez [configurer les paramètres client](../../../core/clients/deploy/configure-client-settings.md) qui s’appliquent aux serveurs Linux et UNIX de la même façon que vous configurez les paramètres d’autres clients.  
+##  <a name="BKMK_ClientSettingsforLnU"></a> Client settings for Linux and UNIX servers  
+ U kunt [clientinstellingen configureren](../../../core/clients/deploy/configure-client-settings.md) die gelden voor Linux en UNIX-servers dezelfde manier als u instellingen configureren voor andere clients.  
 
- Par défaut, les **paramètres d’agent client par défaut** s’appliquent aux serveurs Linux et UNIX. Vous pouvez également créer des paramètres client personnalisés et les déployer dans des regroupements de clients spécifiques.  
+ **Standaard clientagentinstellingen** is standaard van toepassing op Linux- en UNIX-servers. U kunt ook aangepaste clientinstellingen maken en deze implementeren naar verzamelingen van specifieke clients.  
 
- Il n’existe pas d’autres paramètres client qui s’appliquent uniquement aux clients Linux et UNIX. Toutefois, il existe des paramètres client par défaut qui ne s’appliquent pas aux clients Linux et UNIX. Le client pour Linux et UNIX applique uniquement les paramètres pour les fonctionnalités qu’il prend en charge.  
+ Er zijn geen aanvullende clientinstellingen die alleen van toepassing zijn op Linux- en UNIX-clients. Er zijn echter standaardclientinstellingen die niet van toepassing zijn op Linux- en UNIX-clients. De client voor Linux en UNIX past alleen instellingen voor functionaliteit die wordt ondersteund.  
 
- Par exemple, un paramètre d’appareil client personnalisé qui active et configure les paramètres de contrôle à distance est ignoré par les serveurs Linux et UNIX, car le client pour Linux et UNIX ne prend pas en charge le contrôle à distance.  
+ Bijvoorbeeld zou een aangepaste clientapparaatinstelling die mogelijk maakt en configureert instellingen voor extern beheer door de Linux- en UNIX-servers, worden genegeerd omdat de client voor Linux en UNIX geen ondersteuning biedt voor beheer op afstand.  
 
-##  <a name="BKMK_PolicyforLnU"></a> Stratégie d’ordinateur pour les serveurs Linux et UNIX  
- Le client pour les serveurs Linux et UNIX interroge régulièrement la stratégie d’ordinateur de son site pour connaître les configurations demandées et rechercher les déploiements.  
+##  <a name="BKMK_PolicyforLnU"></a> Computer policy for Linux and UNIX servers  
+ De client voor Linux en UNIX-servers periodiek de site naar computerbeleid voor meer informatie over vereiste configuraties en implementaties te controleren.  
 
- Vous pouvez également forcer le client sur un serveur Linux ou UNIX à interroger immédiatement la stratégie d’ordinateur. Pour cela, utilisez les informations d’identification **racine** sur le serveur pour exécuter la commande suivante : **/opt/microsoft/configmgr/bin/ccmexec -rs policy**  
+ Ook kunt u de client op een Linux- of UNIX-server dwingen onmiddellijk naar computerbeleid te pollen. Gebruiken om dit te doen **hoofdmap** referenties op de server de volgende opdracht uitvoeren: **/opt/microsoft/configmgr/bin/ccmexec - rs beleid**  
 
- Des détails sur l’interrogation de la stratégie d’ordinateur sont entrés dans le fichier journal du client partagé **scxcm.log**.  
+ Details over de computerbeleidpoll worden ingevoerd in het logboekbestand van de gedeelde client; **scxcm.log**.  
 
 > [!NOTE]  
->  Le client Configuration Manager pour Linux et UNIX ne demande et ne traite jamais de stratégie utilisateur.  
+>  Configuration Manager-client voor Linux en UNIX nooit aanvragen noch gebruikersbeleid verwerkt.  
 
-##  <a name="BKMK_ManageLinuxCerts"></a> Gérer les certificats sur le client pour Linux et UNIX  
- Après avoir installé le client pour Linux et UNIX, vous pouvez utiliser l’outil **certutil** pour mettre à jour le client avec un nouveau certificat PKI et importer une nouvelle liste de révocation de certificats (CRL). Quand vous installez le client pour Linux et UNIX, cet outil est placé dans **/opt/microsoft/configmgr/bin/certutil**. 
+##  <a name="BKMK_ManageLinuxCerts"></a> How to manage certificates on the client for Linux and UNIX  
+ Nadat u de client voor Linux en UNIX hebt geïnstalleerd, kunt u het hulpprogramma **certutil** gebruiken om de client bij te werken met een nieuw PKI-certificaat, en om een nieuwe certificaatintrekkingslijst (CRL) te importeren. Wanneer u de client voor Linux en UNIX installeert, dit hulpprogramma wordt geplaatst in **/opt/microsoft/configmgr/bin/certutil**. 
 
- Pour gérer les certificats, sur chaque client, exécutez certutil avec l’une des options suivantes :  
+ Om certificaten te beheren, voert u elke client certutil met een van de volgende opties uit:  
 
-|Option|Plus d'informations|  
+|Optie|Meer informatie|  
 |------------|----------------------|  
-|importPFX|Utilisez cette option pour spécifier un certificat pour remplacer le certificat actuellement utilisé par un client.<br /><br /> Quand vous utilisez **-importPFX**, vous devez également utiliser le paramètre de ligne de commande **-password** pour fournir le mot de passe associé au fichier PKCS#12.<br /><br /> Utilisez **-rootcerts** pour spécifier des exigences de certificat racine supplémentaires.<br /><br /> Exemple : **certutil -importPFX &lt;chemin du certificat PKCS#12> -mot de passe &lt;mot de passe de certificat\> [-rootcerts &lt;liste de certificats séparés par des virgules>]**|  
-|-importsitecert|Utilisez cette option pour mettre à jour le certificat de signature du serveur de site qui se trouve sur le serveur d’administration.<br /><br /> Exemple : **certutil -importsitecert &lt;chemin du certificat DER\>**|  
-|-importcrl|Utilisez cette option pour mettre à jour la liste de révocation de certificats sur le client avec un ou plusieurs chemins d’accès de fichiers CRL.<br /><br /> Exemple : **certutil -importcrl &lt;liste de chemins de fichier CRL séparés par des virgules\>**|  
+|importPFX|Gebruik deze optie om een certificaat op te geven ter vervanging van het certificaat dat momenteel door een client wordt gebruikt.<br /><br /> Als u werkt met **- importPFX**, moet u ook gebruiken de **-wachtwoord** opdrachtregelparameter het wachtwoord die zijn gekoppeld aan het PKCS #12-bestand op te geven.<br /><br /> Gebruik **-rootcerts** om eventuele extra vereisten voor basiscertificaten op te geven.<br /><br /> Voorbeeld: **certutil - importPFX &lt;pad naar het PKCS #12-certificaat >-wachtwoord &lt;certificaatwachtwoord\> [-rootcerts &lt;door komma's gescheiden lijst met certificaten >]**|  
+|-importsitecert|Gebruik deze optie om het ondertekeningscertificaat voor de siteserver bij te werken dat zich op beheerserver bevindt.<br /><br /> Voorbeeld: **certutil - importsitecert &lt;pad naar het certificaat DER\>**|  
+|-importcrl|Gebruik deze optie om de certificaatintrekkingslijst op de client bij te werken met een of meer paden naar certificaatintrekkingslijstbestanden.<br /><br /> Voorbeeld: **certutil - importcrl &lt;door komma's gescheiden paden CRL\>**|  

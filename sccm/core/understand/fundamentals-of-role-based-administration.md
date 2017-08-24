@@ -1,6 +1,6 @@
 ---
-title: "Principes de base de l’administration basée sur des rôles | Microsoft Docs"
-description: "Utilisez l’administration basée sur les rôles pour contrôler l’accès administratif à Configuration Manager et les objets que vous gérez."
+title: Basisprincipes van beheer op basis van functie | Microsoft Docs
+description: Gebruik Rolgebaseerd beheer om beheerderstoegang tot Configuration Manager en de objecten die u beheert.
 ms.custom: na
 ms.date: 1/3/2017
 ms.prod: configuration-manager
@@ -16,198 +16,198 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: ddf2ad1cae51c1e36df5a6d86822e2b9abe604e2
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="fundamentals-of-role-based-administration-for-system-center-configuration-manager"></a>Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager
+# <a name="fundamentals-of-role-based-administration-for-system-center-configuration-manager"></a>Basisprincipes van beheer op basis van rollen voor System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Avec System Center Configuration Manager, l’administration basée sur des rôles vous permet de sécuriser l’accès nécessaire à l’administration de Configuration Manager. Vous sécurisez également l’accès aux objets que vous gérez, tels que les regroupements, les déploiements et les sites. À présent que vous comprenez les concepts présentés dans cette rubrique, vous pouvez [configurer l’administration basée sur des rôles pour System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
+Met System Center Configuration Manager u Rolgebaseerd beheer gebruiken om de toegang die nodig is voor het beheren van Configuration Manager te beveiligen. U ook beveiligen toegang tot de objecten die u, zoals verzamelingen, implementaties en sites beheert. Nadat u de concepten die in dit onderwerp begrijpt, kunt u [beheer op basis van rollen voor System Center Configuration Manager configureren](../../core/servers/deploy/configure/configure-role-based-administration.md).  
 
- Le modèle d’administration basée sur des rôles définit et gère de façon centralisée les paramètres d’accès de sécurité à l’échelle de la hiérarchie pour tous les sites ainsi que les paramètres de site à l’aide des éléments suivants :  
+ Het model op rollen gebaseerd beheer centraal gedefinieerd en hiërarchie-brede beveiligingtoegangsinstellingen voor alle sites en site-instellingen beheert door het volgende:  
 
--   Les *rôles de sécurité* sont attribués aux utilisateurs administratifs pour octroyer à ceux-ci (ou à des groupes d’utilisateurs) des autorisations relatives à différents objets Configuration Manager, par exemple, celles de créer ou modifier des paramètres client.  
+-   *Beveiligingsrollen* zijn toegewezen aan gebruikers met beheerdersrechten voor die gebruikers (of groepen gebruikers) machtiging voor andere Configuration Manager-objecten. Bijvoorbeeld: machtiging voor maken of wijzigen van clientinstellingen.  
 
--   Les *étendues de sécurité* permettent de regrouper des instances d’objets spécifiques qu’un utilisateur administratif est chargé de gérer, par exemple une application qui installe Microsoft Office 2010.  
+-   *Beveiligingsbereiken* worden gebruikt om specifieke exemplaren van objecten die een gebruiker met beheerdersrechten moeten worden beheerd, zoals een toepassing die Microsoft Office 2010 installeert.  
 
--   Les *regroupements* permettent de spécifier des groupes de ressources d’utilisateurs et d’appareils que l’utilisateur administratif peut gérer.  
+-   *Verzamelingen* worden gebruikt om op te geven van groepen van gebruikers- en resources die de gebruiker met beheerdersrechten kunt beheren.  
 
- L’utilisation combinée de rôles de sécurité, d’étendues de sécurité et de regroupements permet de séparer les attributions administratives répondant aux besoins de votre organisation, ainsi que de définir l’étendue administrative d’un utilisateur, autrement dit ce qu’il peut afficher et gérer dans votre déploiement de Configuration Manager.  
+ Met de combinatie van beveiligingsrollen, beveiligingsbereiken en verzamelingen afzonderlijke u de beheertoewijzingen die voldoen aan de vereisten van uw organisatie. Samen worden gebruikt, definiëren ze het beheerbereik van een gebruiker, namelijk wat die gebruiker kunt weergeven en beheren in uw Configuration Manager-implementatie.  
 
-## <a name="benefits-of-role-based-administration"></a>Avantages de l’administration basée sur des rôles  
+## <a name="benefits-of-role-based-administration"></a>Voordelen van op rollen gebaseerd beheer  
 
--   Les sites ne sont pas utilisés comme limites administratives.  
+-   Sites worden niet gebruikt als beheergrenzen.  
 
--   Après avoir créé des utilisateurs administratifs pour la hiérarchie, il vous suffit de leur attribuer une étendue de sécurité une seule fois.  
+-   U maakt gebruikers met beheerdersrechten voor een hiërarchie en hoeft alleen beveiliging toewijzen aan deze één keer.  
 
--   Toutes les attributions de sécurité sont répliquées et disponibles dans la hiérarchie.  
+-   Alle beveiligingstoewijzingen worden gerepliceerd en zijn beschikbaar in de gehele hiërarchie.  
 
--   Il existe des rôles de sécurité intégrés permettent d’attribuer les tâches d’administration classiques, mais vous pouvez aussi créer vos propres rôles de sécurité personnalisés en fonction des besoins propres à votre activité.  
+-   Er zijn ingebouwde beveiligingsrollen die worden gebruikt voor het toewijzen van de typische beheertaken. Maak uw eigen aangepaste beveiligingsrollen ter ondersteuning van uw specifieke bedrijfsvereisten.  
 
--   Les utilisateurs administratifs voient uniquement les objets qu'ils sont autorisés à gérer.  
+-   Gebruikers met beheerdersrechten zien alleen de objecten die ze gemachtigd zijn om te beheren.  
 
--   Vous pouvez auditer des actions administratives de sécurité.  
+-   U kunt acties administratieve beveiliging controleren.  
 
-Quand vous concevez et implémentez la sécurité administrative pour Configuration Manager, créez une *étendue administrative* pour un utilisateur administratif à l’aide des éléments suivants :  
+Bij het ontwerpen en implementeren van administratieve beveiliging voor Configuration Manager, de volgende maakt u een *beheerbereik* voor een gebruiker met beheerdersrechten:  
 
--   [Rôles de sécurité](#bkmk_Planroles)  
+-   [Beveiligingsrollen](#bkmk_Planroles)  
 
--   [Regroupements](#bkmk_planCol)  
+-   [Verzamelingen](#bkmk_planCol)  
 
--   [Étendues de sécurité](#bkmk_PlanScope)  
+-   [Beveiligingsbereiken](#bkmk_PlanScope)  
 
 
- L’étendue administrative contrôle les objets qu’un utilisateur administratif peut afficher dans la console Configuration Manager et les autorisations dont dispose cet utilisateur sur ces objets. Les configurations d'administration basées sur des rôles sont répliquées sur chaque site de la hiérarchie en tant que données globales, puis sont appliquées à toutes les connexions administratives.  
+ Het beheerbereik bepaalt de objecten die een gebruiker met beheerdersrechten weergaven in de Configuration Manager-console, en bepaalt de machtigingen die een gebruiker voor die objecten heeft. De configuraties voor rolgebaseerd beheer worden op elke site in de hiërarchie gerepliceerd als globale gegevens, en vervolgens toegepast op alle beheerverbindingen.  
 
 > [!IMPORTANT]  
->  Les retards de réplication intersite peuvent empêcher un site de recevoir des modifications pour l'administration basée sur les rôles. Pour plus d’informations sur la manière de surveiller la réplication intersite de base de données, consultez la rubrique [Transfert de données entre sites dans System Center Configuration Manager](../../core/servers/manage/data-transfers-between-sites.md).  
+>  Door vertragingen in de replicatie van de ene site naar de andere is het mogelijk dat een site geen wijzigingen ontvangt voor rolgebaseerd beheer. Zie voor meer informatie over het bewaken van databasereplicatie tussen sites de [gegevensoverdracht tussen sites in System Center Configuration Manager](../../core/servers/manage/data-transfers-between-sites.md) onderwerp.  
 
-##  <a name="bkmk_Planroles"></a> Rôles de sécurité  
- Utilisez des rôles de sécurité pour accorder des autorisations de sécurité aux utilisateurs administratifs. Les rôles de sécurité sont des groupes d'autorisations de sécurité que vous affectez aux utilisateurs administratifs afin qu'ils puissent effectuer leurs tâches administratives. Ces autorisations de sécurité définissent les actions administratives réalisables par un utilisateur administratif ainsi que les autorisations sont accordées pour des types d'objet particulier. Comme bonne pratique de sécurité, affectez les rôles de sécurité qui fournissent des autorisations minimales.  
+##  <a name="bkmk_Planroles"></a> Beveiligingsrollen  
+ Gebruik beveiligingsrollen voor het verlenen van beveiligingsmachtigingen aan gebruikers met beheerdersrechten. Beveiligingsrollen zijn groepen van beveiligingsmachtigingen die u toekent aan gebruikers met beheerdersrechten zodat zij hun beheertaken kunnen uitvoeren. Deze beveiligingsmachtigingen bepalen de beheeracties die een gebruiker met beheerdersrechten kan uitvoeren en de machtigingen die voor bepaalde objecttypes worden verleend. Aanbevolen wordt om de beveiligingsrollen toe te kennen waaraan de minste machtigingen zijn verbonden.  
 
- Configuration Manager possède plusieurs rôles de sécurité intégrés pour prendre en charge des regroupements typiques de tâches administratives et vous pouvez créer vos propres rôles de sécurité personnalisés pour prendre en charge vos besoins professionnels spécifiques. Exemples de rôles de sécurité intégrés :  
+ Configuration Manager heeft diverse ingebouwde beveiligingsrollen ter ondersteuning van typische groepen van beheertaken, en kunt u uw eigen aangepaste beveiligingsrollen ter ondersteuning van uw specifieke bedrijfsvereisten. Voorbeelden van ingebouwde beveiligingsrollen:  
 
--   *Administrateur complet* : accorde toutes les autorisations dans Configuration Manager.  
+-   *Volledige beheerder* verleent alle machtigingen in Configuration Manager.  
 
--   *Gestionnaire de biens* : accorde des autorisations permettant de gérer le point de synchronisation Asset Intelligence, les classes de création de rapports Asset Intelligence, l’inventaire logiciel, l’inventaire matériel et les règles de contrôle.  
+-   *Asset Intelligence-beheerder* verleent machtigingen voor het beheren van Asset Intelligence-synchronisatiepunt, Asset Intelligence-rapportageklassen, software-inventaris, hardware-inventaris en meetregels.  
 
--   *Gestionnaire des mises à jour logicielles* : accorde les autorisations de définir et déployer des mises à jour logicielles. Les utilisateurs administratifs qui sont associés à ce rôle peuvent créer des regroupements, des groupes de mises à jour logicielles, des déploiements et des modèles.  
+-   *Software-updatebeheer* verleent machtigingen voor het definiëren en implementeren van software-updates. Gebruikers met beheerdersrechten die gekoppeld aan deze rol zijn kunnen verzamelingen, software-updategroepen, implementaties en sjablonen maken.  
 
 > [!TIP]  
->  Vous pouvez afficher la liste des rôles de sécurité intégrés et les rôles de sécurité personnalisés que vous créez, ainsi que leurs descriptions, dans la console Configuration Manager. Pour afficher les rôles, dans l’espace de travail **Administration**, développez **Sécurité**, puis sélectionnez **Rôles de sécurité**.  
+>  U kunt de lijst met ingebouwde beveiligingsrollen en aangepaste beveiligingsrollen die u hebt gemaakt, inclusief bijbehorende beschrijvingen, in de Configuration Manager-console weergeven. De rollen weergeven in de **beheer** werkruimte Vouw **beveiliging**, en selecteer vervolgens **beveiligingsrollen**.  
 
- Chaque rôle de sécurité dispose d'autorisations spécifiques à différents types d'objets. Par exemple, le rôle de sécurité *Auteur d’application* a les autorisations suivantes pour les applications : Approuver, Créer, Supprimer, Modifier, Modifier un dossier, Déplacer un objet, Lire, Exécuter un rapport et Définir l’étendue de sécurité.
+ Elke beveiligingsrol heeft specifieke machtigingen voor verschillende objecttypen. Bijvoorbeeld, de *Toepassingsauteur* beveiligingsrol heeft de volgende machtigingen voor toepassingen: Goedkeuren, maken, verwijderen, wijzigen, map wijzigen verplaatsen Object, lezen, rapport en beveiligingsbereik instellen.
 
- Vous ne pouvez pas modifier les autorisations pour les rôles de sécurité intégrés, mais vous pouvez copier le rôle, y apporter des modifications, puis enregistrer ces modifications sous un nouveau rôle de sécurité personnalisé. Vous pouvez également importer des rôles de sécurité que vous avez exportés depuis une autre hiérarchie, par exemple depuis un réseau de test. Passez en revue les rôles de sécurité et leurs autorisations pour déterminer si vous allez utiliser les rôles de sécurité intégrés ou devoir créer vos propres rôles de sécurité personnalisés.  
+ U kunt de machtigingen voor de ingebouwde beveiligingsrollen niet wijzigen, maar u kunt de rol wel kopiëren, wijzigingen aanbrengen en vervolgens deze wijzigingen opslaan als een nieuwe aangepaste beveiligingsrol. U kunt ook beveiligingsrollen die u hebt geëxporteerd uit een andere hiërarchie, bijvoorbeeld uit een testnetwerk importeren. Bekijk de beveiligingsrollen en de bijbehorende machtigingen om te bepalen of u de ingebouwde beveiligingsrollen gaat gebruiken of of u hebt uw eigen aangepaste beveiligingsrollen maken.  
 
- ### <a name="to-help-you-plan-for-security-roles"></a>Pour faciliter la planification des rôles de sécurité  
+ ### <a name="to-help-you-plan-for-security-roles"></a>Om te plannen voor beveiligingsrollen  
 
-1.  Identifiez les tâches que les utilisateurs administratifs effectuent dans Configuration Manager. Ces tâches peuvent concerner un ou plusieurs groupes de tâches de gestion, tels que le déploiement d'applications et de packages, le déploiement de systèmes d'exploitation et de paramètres pour la conformité, la configuration de sites et de la sécurité, l'audit, le contrôle d'ordinateurs à distance et le recueil de données d'inventaire.  
+1.  Identificeer de taken die de gebruikers met beheerdersrechten in Configuration Manager uitvoeren. Deze rollen kunnen betrekking hebben op één of meer groepen van beheertaken, zoals implementatie van toepassingen en pakketten, implementatie van besturingssystemen en instellingen voor naleving, controle, externe bediening van computers, en verzameling van inventarisgegevens.  
 
-2.  Mappez ces tâches administratives vers un ou plusieurs rôles de sécurité intégrés.  
+2.  Wijs deze administratieve taken toe aan één of meer van de ingebouwde beveiligingsrollen.  
 
-3.  Si certains des utilisateurs administratifs effectuent des tâches de rôles de sécurité multiples, attribuez les rôles de sécurité multiples à ces utilisateurs administratifs au lieu de créer un nouveau rôle de sécurité qui combine les tâches.  
+3.  Als een aantal van de gebruikers met beheerdersrechten de taken van meerdere beveiligingsrollen uitvoert, ken de meerdere beveiligingsrollen dan toe aan deze gebruikers met beheerdersrechten in plaats van een nieuwe beveiligingsrol te maken die de taken combineert.  
 
-4.  Si les tâches que vous avez identifiées ne correspondent pas aux rôles de sécurité intégrés, créez et testez de nouveaux rôles de sécurité.  
+4.  Als de taken die u hebt geïdentificeerd niet zijn toegewezen aan de ingebouwde beveiligingsrollen, maak dan nieuwe beveiligingsrollen en test ze.  
 
-Pour plus d’informations sur la façon de créer et de configurer des rôles de sécurité pour l’administration basée sur des rôles, consultez [Créer des rôles de sécurité personnalisés](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_CreateSecRole) et [Configurer des rôles de sécurité](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecRole) dans la rubrique [Configurer l’administration basée sur des rôles pour System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
+Zie voor meer informatie over het maken en configureren van beveiligingsrollen voor Rolgebaseerd beheer [aangepaste beveiligingsrollen maken](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_CreateSecRole) en [beveiligingsrollen configureren](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecRole) in de [beheer op basis van rollen voor System Center Configuration Manager configureren](../../core/servers/deploy/configure/configure-role-based-administration.md) onderwerp.  
 
-##  <a name="bkmk_planCol"></a> Regroupements  
- Les regroupements spécifient les ressources d'utilisateur et d'ordinateur qu'un utilisateur administratif peut consulter ou gérer. Par exemple, pour que les utilisateurs administratifs puissent déployer des applications ou effectuer un contrôle à distance, un rôle de sécurité qui leur permet d'accéder à un regroupement contenant ces ressources doit leur être attribué. Vous pouvez sélectionner des regroupements d'utilisateurs ou d'appareils.  
+##  <a name="bkmk_planCol"></a> Verzamelingen  
+ Verzamelingen specificeren de gebruiker en computerbronnen die een gebruiker met beheerdersrechten kan bekijken of beheren. Bijvoorbeeld, als een gebruiker met beheerdersrechten toepassingen wil kunnen implementeren of een computer extern wil kunnen bedienen, moet er een beveiligingsrol aan hem zijn toegewezen die hem toegang verleent tot een verzameling die deze bronnen bevat. U kunt verzamelingen van gebruikers of apparaten selecteren.  
 
- Pour plus d’informations sur les regroupements, consultez [Présentation des regroupements dans System Center Configuration Manager](../../core/clients/manage/collections/introduction-to-collections.md).  
+ Zie voor meer informatie over verzamelingen [inleiding op verzamelingen in System Center Configuration Manager](../../core/clients/manage/collections/introduction-to-collections.md).  
 
- Avant de configurer l'administration basée sur les rôles, vérifiez si vous devez créer de nouveaux regroupements pour l'une des raisons suivantes :  
+ Controleer, voordat u rolgebaseerd beheer gaat configureren, of u nieuwe verzamelingen moet maken om een van de volgende redenen:  
 
--   Organisation fonctionnelle. Par exemple, des regroupements distincts de serveurs et de stations de travail.  
+-   Functionele organisatie. Bijvoorbeeld: afzonderlijke verzamelingen van servers en werkstations.  
 
--   Implantation géographique. Par exemple, des regroupements distincts pour l'Amérique du Nord et l'Europe.  
+-   Geografische uitlijning. Bijvoorbeeld: afzonderlijke verzamelingen voor Noord-Amerika en Europa.  
 
--   Exigences de sécurité et procédures commerciales. Par exemple, des regroupements distincts pour les ordinateurs de production et de test.  
+-   Beveiligingvereisten en bedrijfsprocessen. Bijvoorbeeld: afzonderlijke verzamelingen voor productie en testcomputers.  
 
--   Alignement de l'organisation. Par exemple, des regroupements distincts pour chaque unité d'exploitation.  
+-   Uitlijning per organisatie. Bijvoorbeeld, afzonderlijke verzamelingen voor elk bedrijfsonderdeel.  
 
-Pour plus d’informations sur la façon de configurer des regroupements pour l’administration basée sur des rôles, consultez [Configurer des regroupements pour gérer la sécurité](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigColl) dans la rubrique [Configurer l’administration basée sur des rôles pour System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
+Zie voor meer informatie over het configureren van verzamelingen voor Rolgebaseerd beheer [verzamelingen voor het beheren van beveiliging configureren](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigColl) in de [beheer op basis van rollen voor System Center Configuration Manager configureren](../../core/servers/deploy/configure/configure-role-based-administration.md) onderwerp.  
 
-##  <a name="bkmk_PlanScope"></a> Étendues de sécurité  
- Utilisez les étendues de sécurité pour permettre aux utilisateurs administratifs d'accéder à des objets sécurisables. Une étendue de sécurité est un ensemble nommé d’objets sécurisables attribués aux utilisateurs administratifs en tant que groupe. Tous les objets sécurisables doivent être affectés à une ou plusieurs étendues de sécurité. Configuration Manager possède deux étendues de sécurité intégrées :  
+##  <a name="bkmk_PlanScope"></a> Beveiligingsbereiken  
+ Gebruik beveiligingsrollen om gebruikers met beheerdersrechten toegang te geven tot beveiligbare objecten. Een beveiligingsbereik is een benoemde set van beveiligbare objecten die zijn toegewezen aan gebruikers met beheerdersrechten als groep. Alle beveiligbare objecten moeten aan één of meer beveiligingsbereiken zijn toegewezen. Configuration Manager heeft twee ingebouwde beveiligingsbereiken:  
 
--   L’étendue de sécurité intégrée *Toutes* accorde l’accès à toutes les étendues. Vous ne pouvez pas attribuer d'objets à cette étendue de sécurité.  
+-   De *alle* ingebouwde beveiligingsbereik verleent toegang tot alle bereiken. U kunt geen objecten toewijzen aan dit beveiligingsbereik.  
 
--   L’étendue de sécurité intégrée *Par défaut* est utilisée pour tous les objets, par défaut. Lorsque vous installez Configuration Manager pour la première fois, tous les objets sont attribués à cette étendue de sécurité.  
+-   De *standaard* ingebouwde beveiligingsbereik wordt standaard gebruikt voor alle objecten. Wanneer u Configuration Manager voor het eerst installeert, worden alle objecten aan dit beveiligingsbereik toegewezen.  
 
-Si vous souhaitez restreindre les objets que les utilisateurs administratifs peuvent voir et gérer, vous devez créer et utiliser vos propres étendues de sécurité personnalisées. Les étendues de sécurité ne prennent pas en charge une structure hiérarchique et ne peuvent pas être imbriquées. Les étendues de sécurité peuvent contenir un ou plusieurs types d'objet, dont les suivants :  
+Als u de objecten die gebruikers met beheerdersrechten kunnen zien en beheren wilt beperken, moet u uw eigen aangepaste beveiligingsbereiken maken en gebruiken. Beveiligingsbereiken bieden geen ondersteuning aan een hiërarchische structuur en kunnen niet worden genest. Beveiligingsbereiken kunnen één of meer objecttypen bevatten, waaronder de volgende:  
 
--   Abonnements aux alertes  
+-   Waarschuwingsabonnementen  
 
--   Applications  
+-   Toepassingen  
 
--   Images de démarrage  
+-   Installatiekopieën  
 
--   Groupes de limites  
+-   Grensgroepen  
 
--   Éléments de configuration  
+-   Configuratie-items  
 
--   Paramètres client personnalisés  
+-   Aangepaste clientinstellingen  
 
--   Points de distribution et groupes de points de distribution  
+-   Distributiepunten en distributiepuntengroepen  
 
--   Packages de pilotes  
+-   Driverpakketten  
 
--   Conditions globales  
+-   Globale voorwaarden  
 
--   Tâches de migration  
+-   Migratietaken  
 
--   Images du système d'exploitation  
+-   Installatiekopieën van besturingssysteem  
 
--   Packages d'installation du système d'exploitation  
+-   Installatiepakketten besturingssysteem  
 
--   Packages  
+-   Pakketten  
 
--   Requêtes  
+-   Query's  
 
 -   Sites  
 
--   Règles de contrôle de logiciel  
+-   Regels voor softwarelicentiecontrole  
 
--   Groupes de mises à jour logicielles  
+-   Software-updategroepen  
 
--   Packages de mises à jour logicielles  
+-   Software-updatepakketten  
 
--   Packages de séquence de tâches  
+-   Takenreekspakketten  
 
--   Éléments et packages des paramètres de l'appareil Windows CE  
+-   Windows CE apparaatinstellingsitems en pakketten  
 
-Certains objets ne peuvent pas être ajoutés aux étendues de sécurité, car ils ne sont sécurisés que par les rôles de sécurité. L’accès administratif à ces objets ne peut pas être limité à un sous-ensemble des objets disponibles. Par exemple, vous pouvez être un utilisateur administratif et créer des groupes de limites qui sont utilisés pour un site spécifique. Comme l'objet de la limite ne prend pas en charge les étendues de sécurité, vous ne pouvez pas attribuer à cet utilisateur une étendue de sécurité ne lui accordant que l'accès aux limites qui pourraient être associées à ce site. Comme l'objet de la limite ne peut pas être associé à une étendue de sécurité, lorsque vous attribuez un rôle de sécurité qui comprend l'accès aux objets de la limite à un utilisateur, celui-ci peut accéder à toutes les limites de la hiérarchie.  
+Er zijn ook een aantal objecten die u niet in een beveiligingsbereik kunt opnemen omdat ze alleen door beveiligingsrollen beveiligd zijn. Beheerderstoegang tot deze objecten kan niet worden beperkt tot een subset van de beschikbare objecten. Bijvoorbeeld, u heeft een gebruiker met beheerdersrechten die grensgroepen maakt welke gebruikt worden voor een specifieke site. Aangezien het grensobject geen beveiligingsbereiken ondersteunt, kunt u geen beveiligingsbereik aan deze gebruiker toewijzen dat toegang geeft tot alleen de grenzen die gekoppeld kunnen zijn aan die site. Aangezien een grensobject niet gekoppeld kan zijn aan een beveiligingsbereik, heeft die gebruiker, wanneer u een beveiligingsrol die toegang geeft tot grensobjecten toewijst aan een gebruiker, toegang tot elke grens in de hiërarchie.  
 
-Parmi les objets qui ne sont pas limités par des étendues de sécurité, on compte les objets suivants :  
+Objecten die niet beperkt zijn door beveiligingsbereiken zijn de volgende:  
 
--   Forêts Active Directory  
+-   Active Directory-forests  
 
--   Utilisateurs administratifs  
+-   Gebruikers met beheerdersrechten  
 
--   Alertes  
+-   Waarschuwingen  
 
--   Stratégies anti-programme malveillant  
+-   Beleidsregels voor Antimalware  
 
--   Limites  
+-   Grenzen  
 
--   Associations d'ordinateurs  
+-   Computerkoppelingen  
 
--   Paramètres client par défaut  
+-   Standaardclientinstellingen  
 
--   Modèles de déploiement  
+-   Implementatiesjablonen  
 
--   Pilotes d'appareils  
+-   Apparaatstuurprogramma 's  
 
--   Connecteur Exchange Server  
+-   Exchange Server-connector  
 
--   Mappages de site à site de migration  
+-   Toewijzingen tussen sites van migratie  
 
--   Profil d'inscription d'appareil mobile  
+-   Inschrijvingsprofielen voor mobiele apparaten  
 
--   Rôles de sécurité  
+-   Beveiligingsrollen  
 
--   Étendues de sécurité  
+-   Beveiligingsbereiken  
 
--   Adresses de site  
+-   Siteadressen  
 
--   Rôles système de site  
+-   Sitesysteemrollen  
 
--   Titres des logiciels  
+-   Softwaretitels  
 
--   Mises à jour logicielles  
+-   Software-updates  
 
--   Messages d'état  
+-   Statusberichten  
 
--   Affinités des appareils d'utilisateur  
+-   Gebruikersaffiniteiten apparaat  
 
-Créez des étendues de sécurité lorsque vous devez limiter l'accès à des instances d'objets distinctes. Exemple :  
+Maak beveiligingsbereiken wanneer u toegang tot afzonderlijke instanties van objecten wilt beperken. Bijvoorbeeld:  
 
--   Vous disposez d'un groupe d'utilisateurs administratifs qui doit être capable de consulter les applications de production, mais pas les applications de test. Créer une étendue de sécurité pour les applications de production et une autre pour les applications de test.  
+-   U hebt een groep van gebruikers met beheerdersrechten die productietoepassingen moeten kunnen zien en geen testtoepassingen. Maak één beveiligingsbereik voor productietoepassingen en nog één voor de testtoepassingen.  
 
--   Différents utilisateurs administratifs nécessitent différents accès pour certaines instances d'un type d'objet. Par exemple, un groupe d’utilisateurs administratifs requiert l’autorisation Lire pour des groupes de mises à jour logicielles spécifiques et un autre groupe d’utilisateurs administratifs requiert les autorisations Modifier et Supprimer pour d’autres groupes de mises à jour logicielles. Créez différentes étendues de sécurité pour ces groupes de mises à jour logicielles.  
+-   Gebruikers met verschillende beheerdersrechten hebben verschillende toegangsrechten nodig voor bepaalde instanties van een objecttype. Bijvoorbeeld, een groep gebruikers met beheerdersrechten vereist leesmachtiging voor specifieke software-updategroepen en een andere groep gebruikers met beheerdersrechten wijzigen en verwijderen-machtigingen nodig voor andere software-updategroepen. Maak verschillende beveiligingsbereiken voor deze software-updategroepen.  
 
-Pour plus d’informations sur la façon de configurer des étendues de sécurité pour l’administration basée sur des rôles, consultez [Configurer des étendues de sécurité pour un objet](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecScope) dans la rubrique [Configurer l’administration basée sur des rôles pour System Center Configuration Manager](../../core/servers/deploy/configure/configure-role-based-administration.md).  
+Zie voor meer informatie over het configureren van beveiligingsbereiken voor Rolgebaseerd beheer de [configureren van beveiligingsbereiken voor een object](../../core/servers/deploy/configure/configure-role-based-administration.md#BKMK_ConfigSecScope) in de [beheer op basis van rollen voor System Center Configuration Manager configureren](../../core/servers/deploy/configure/configure-role-based-administration.md) onderwerp.  

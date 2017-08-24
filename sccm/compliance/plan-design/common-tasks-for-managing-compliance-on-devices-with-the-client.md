@@ -1,6 +1,6 @@
 ---
-title: "Tâches courantes de gestion de la compatibilité pour les appareils gérés par un client - Configuration Manager | Microsoft Docs"
-description: "Découvrez les paramètres de compatibilité de System Center Configuration Manager en examinant certains scénarios courants."
+title: 'Algemene naleving beheertaken voor Configuration Manager-client-beheerde apparaten: | Microsoft Docs'
+description: Meer informatie over System Center Configuration Manager-instellingen voor naleving door het uitvoeren van enkele algemene scenario's.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,96 +16,96 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 2012ab5e55da8d707fd668e0163b42fe7d56c72f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="common-tasks-for-managing-compliance-on-devices-with-the-system-center-configuration-manager-client"></a>Tâches courantes de gestion de la compatibilité des appareils avec le client System Center Configuration Manager
+# <a name="common-tasks-for-managing-compliance-on-devices-with-the-system-center-configuration-manager-client"></a>Algemene taken voor het beheren van naleving op apparaten met System Center Configuration Manager-client
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Cette rubrique vous propose une introduction à l’utilisation des paramètres de compatibilité de System Center Configuration Manager à travers des exemples de scénarios courants que vous êtes susceptible de rencontrer.  
+De scenario's in dit onderwerp krijgt u een inleiding tot het gebruik van System Center Configuration Manager-instellingen voor naleving door het uitvoeren van enkele algemene scenario's die u kunt tegenkomen.  
 
- Si vous connaissez déjà les paramètres de compatibilité, vous trouverez une documentation détaillée sur toutes les fonctionnalités que vous utilisez dans la section [Éléments de configuration pour les appareils gérés avec le client System Center Configuration Manager](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md).  
+ Als u al bekend met instellingen voor naleving bent, gedetailleerde documentatie over functies die u gebruikt kan worden gevonden in de [configuratie-items voor apparaten die worden beheerd door de System Center Configuration Manager-client](../../compliance/deploy-use/configuration-items-for-devices-managed-with-the-client.md) sectie.  
 
- Avant de commencer, lisez [Bien démarrer avec les paramètres de compatibilité](../../compliance/get-started/get-started-with-compliance-settings.md) pour apprendre les notions de base sur les paramètres de compatibilité, et lisez également [Planifier et configurer les paramètres de compatibilité](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md) pour implémenter tous les prérequis.  
+ Lees voordat u begint, [aan de slag met instellingen voor naleving](../../compliance/get-started/get-started-with-compliance-settings.md) basisinformatie over de instellingen voor naleving en ook lezen [plannen en configureren van instellingen voor naleving](../../compliance/plan-design/plan-for-and-configure-compliance-settings.md) voor het implementeren van alle benodigde voorwaarden.  
 
-## <a name="general-information-for-each-scenario"></a>Informations générales pour chaque scénario  
- Dans chaque scénario, vous allez créer un élément de configuration qui effectue une tâche spécifique. Pour ouvrir l’Assistant Création d’élément de configuration, procédez comme suit :  
+## <a name="general-information-for-each-scenario"></a>Algemene informatie voor elk scenario  
+ In elk scenario maakt u een configuratie-item waarmee een specifieke taak wordt uitgevoerd. Open de wizard Configuratie-item maken en voer de volgende stappen uit:  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Éléments de configuration**.  
+1.  Klik in de Configuration Manager-console op **activa en naleving** > **instellingen voor naleving** > **configuratie-Items**.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un élément de configuration**.  
+3.  Klik op het tabblad **Start** in de groep **Maken** op **Configuratie-item maken**.  
 
-4.  Sous l’onglet **Général** de l’Assistant Création d’élément de configuration illustré ci-dessous, nommez et décrivez l’élément de configuration, puis choisissez le type d’élément de configuration approprié pour chaque scénario de cette rubrique.  
+4.  Geef op het tabblad **Algemeen** van de wizard Configuratie-item maken een naam en beschrijving op voor het configuratie-item, zoals hieronder wordt weergegeven. Kies vervolgens het juiste configuratie-itemtype voor elk scenario in dit onderwerp.  
 
-     ![Affiche la page Général de l’Assistant Création d’élément de configuration.](/sccm/compliance/plan-design/media/Compliance-Settings-Wizard---1.png)  
+     ![Pagina Algemeen van de configuratiewizard-item bevat.](/sccm/compliance/plan-design/media/Compliance-Settings-Wizard---1.png)  
 
-## <a name="scenarios-for-windows-10-devices-managed-with-the-configuration-manager-client"></a>Scénarios pour appareils Windows 10 gérés avec le client Configuration Manager  
+## <a name="scenarios-for-windows-10-devices-managed-with-the-configuration-manager-client"></a>Scenario's voor Windows 10-apparaten die worden beheerd met de Configuration Manager-client  
 
-### <a name="scenario-disable-the-use-of-bluetooth-on-windows-10-devices"></a>Scénario : désactiver l’utilisation de la fonction Bluetooth sur les appareils Windows 10  
- Dans ce scénario, votre service de sécurité a identifié la fonctionnalité Bluetooth des appareils comme un moyen pouvant servir à transmettre des informations sensibles de l’entreprise vers l’extérieur. Vous avez dernièrement mis à niveau tous vos PC vers Windows 10 et décidez de désactiver la fonctionnalité Bluetooth sur ces appareils.  
+### <a name="scenario-disable-the-use-of-bluetooth-on-windows-10-devices"></a>Scenario: Het gebruik van Bluetooth op Windows 10-apparaten uitschakelen  
+ In dit scenario heeft uw beveiligingsafdeling vastgesteld dat de Bluetooth-mogelijkheden op apparaten kunnen worden gebruikt om vertrouwelijke bedrijfsinformatie buiten het bedrijf te verzenden. U hebt al uw pc's onlangs bijgewerkt naar Windows 10 en besloten de Bluetooth-functie op deze apparaten uit te schakelen.  
 
-1.  Dans la page **Général** de l’Assistant Création d’élément de configuration, sélectionnez le type d’élément de configuration **Windows 10** , puis cliquez sur **Suivant**.  
+1.  Selecteer op de pagina **Algemeen** van de wizard Configuratie-item maken het configuratie-itemtype **Windows 10** en klik vervolgens op **Volgende**.  
 
-2.  Dans la page **Plateformes prises en charge** de l’Assistant, sélectionnez toutes les plateformes Windows 10.  
+2.  Selecteer op de pagina **Ondersteunde platforms** van de wizard alle Windows 10-platforms.  
 
-3.  Dans la page **Paramètres du périphérique** , sélectionnez **Périphérique**, puis cliquez sur **Suivant**.  
+3.  Selecteer op de pagina **Apparaatinstellingen** de optie **Apparaat**en klik vervolgens op **Volgende**.  
 
-4.  Dans la page **Périphérique** , sélectionnez la valeur **Interdit** pour **Bluetooth**.  
+4.  Selecteer op de pagina **Apparaat** de optie **Niet toegestaan** als waarde voor **Bluetooth**.  
 
-5.  Sélectionnez **Résoudre les paramètres non compatibles** pour faire en sorte que la modification s’applique à tous les appareils Windows 10.  
+5.  Selecteer **Niet-compliante instellingen herstellen** om ervoor te zorgen dat de wijziging wordt toegepast op alle Windows 10-apparaten.  
 
-6.  Terminez l’Assistant pour créer l’élément de configuration.  
+6.  Voltooi de wizard om het configuratie-item te maken.  
 
- Vous pouvez maintenant utiliser les informations contenues dans la rubrique [Tâches courantes de création et de déploiement de bases de référence de configuration avec System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) pour déployer la configuration que vous avez créée sur les appareils.  
+ U kunt nu de informatie in de [algemene taken voor het maken en implementeren van configuratiebasislijnen met System Center Configuration Manager](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) onderwerp waarmee u de configuratie die u hebt gemaakt op apparaten implementeren.  
 
-## <a name="scenarios-for-windows-desktop-and-server-computers-managed-with-the-configuration-manager-client"></a>Scénarios pour ordinateurs de bureau et serveurs Windows gérés avec le client Configuration Manager  
- Sur les ordinateurs Mac exécutant le client Configuration Manager, vous avez le choix entre deux options pour évaluer la compatibilité :  
+## <a name="scenarios-for-windows-desktop-and-server-computers-managed-with-the-configuration-manager-client"></a>Scenario's voor Windows desktop- en servercomputers die worden beheerd met de Configuration Manager-client  
+ Op Mac-computers waarop de Configuration Manager-client wordt uitgevoerd, hebt u twee opties voor de beoordeling van naleving:  
 
--   Évaluer un fichier de préférences (plist) Mac OS X.  
+-   Een bestand met Mac OS X-voorkeuren (PLIST-bestand) evalueren.  
 
--   Utiliser un script personnalisé et évaluer les résultats retournés par le script.  
+-   Een aangepast script gebruiken en de geretourneerde resultaten evalueren.  
 
- Pour plus d’informations, consultez [Guide pratique pour créer des éléments de configuration pour les appareils Mac OS X gérés avec le client System Center Configuration Manager](../../compliance/deploy-use/create-configuration-items-for-mac-os-x-devices-managed-with-the-client.md).  
+ Zie voor meer informatie [het maken van configuratie-items voor Mac OS X-apparaten worden beheerd met de System Center Configuration Manager-client](../../compliance/deploy-use/create-configuration-items-for-mac-os-x-devices-managed-with-the-client.md).  
 
-### <a name="scenario-remediate-an-incorrect-registry-value-on-windows-desktop-computers"></a>Scénario : corriger une valeur de Registre incorrecte sur les ordinateurs de bureau Windows  
- Dans ce scénario, vous constatez qu’une d’applications métier importante ne fonctionne pas correctement sur certains ordinateurs que vous gérez et qui exécutent Windows 8.1. Après enquête, vous découvrez que le problème est lié à la définition de la clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Woodgrove\LOB App\Configuration\Configuration1** , qui a la valeur **0** sur certains ordinateurs. Pour que l’application métier s’exécute correctement, cette valeur doit être égale à **1**.  
+### <a name="scenario-remediate-an-incorrect-registry-value-on-windows-desktop-computers"></a>Scenario: Een onjuiste registersleutel op Windows-desktopcomputers herstellen  
+ In dit scenario ontdekt u dat een belangrijke Line-Of-Business-app niet goed wordt uitgevoerd op bepaalde computers die u beheert en waarop Windows 8.1 wordt uitgevoerd. Na onderzoek ontdekt u dat dit is omdat een registersleutel met de naam **HKEY_LOCAL_MACHINE\SOFTWARE\Woodgrove\LOB App\Configuration\Configuration1** op sommige computers is ingesteld op de waarde **0** . Voor een goede uitvoer van de Line-Of-Business-app moet deze waarde zijn ingesteld op **1**.  
 
- Dans cette procédure, vous allez créer un élément de configuration destiné à rechercher les valeurs de clé de Registre incorrectes et à les corriger automatiquement, le cas échéant.  
+ In deze procedure maakt u een configuratie-item dat controleert op onjuiste registersleutelwaarden en deze automatisch herstelt.  
 
-1.  Dans la page **Général** de l’Assistant Création d’élément de configuration, sélectionnez le type d’élément de configuration **Ordinateurs et serveurs Windows (personnalisés)** , puis cliquez sur **Suivant**.  
+1.  Selecteer op de pagina **Algemeen** van de wizard Configuratie-item maken het configuratie-itemtype **Windows-desktops en -servers** en klik vervolgens op **Volgende**.  
 
-2.  Dans la page **Plateformes prises en charge** de l’Assistant, sélectionnez **Windows 8.1** (pour faire en sorte que l’élément de configuration ne s’applique qu’aux ordinateurs concernés).  
+2.  Selecteer op de pagina **Ondersteunde platforms** van de wizard de optie **Windows 8.1** (om ervoor te zorgen dat het configuratie-item alleen van toepassing is op de betreffende computers).  
 
-3.  Dans la page **Paramètres** , cliquez sur **Nouveau** pour créer un paramètre.  
+3.  Klik op de pagina **Instellingen** op **Nieuw** om een nieuwe instelling te maken.  
 
-4.  Sous l’onglet **Général** de la boîte de dialogue **Créer un paramètre** , configurez les éléments suivants :  
+4.  Configureer op het tabblad **Algemeen** van het dialoogvenster **Instelling maken** het volgende:  
 
-    -   **Nom** > **Paramètre de l’exemple**  
+    -   **Naam** > **Voorbeeldinstelling**  
 
-    -   **Type de paramètre** > **Valeur de Registre**  
+    -   **Instellingstype** > **Registerwaarde**  
 
-    -   **Type de données** > **Entier** (sachant que la valeur ne peut être qu’un nombre)  
+    -   **Gegevenstype** > **Geheel getal** (de waarde bevat alleen een getal)  
 
-    -   **Ruche** > **HKEY_LOCAL_MACHINE**  
+    -   **Component** > **HKEY_LOCAL_MACHINE**  
 
-    -   **Clé** > **SOFTWARE\Woodgrove\LOB App\Configuration\Configuration1**  
+    -   **Sleutel** > **SOFTWARE\Woodgrove\LOB App\Configuration\Configuration1**  
 
-    -   **Valeur** > **1** (valeur requise)  
+    -   **Waarde** > **1** (de vereiste waarde)  
 
-5.  Sous l’onglet **Règles de compatibilité** de la boîte de dialogue **Créer un paramètre** , cliquez sur **Nouveau**puis, dans la boîte de dialogue **Créer une règle** , configurez les éléments suivants :  
+5.  Klik op het tabblad **Compliantieregels** van het dialoogvenster **Instelling maken** op **Nieuw**en configureer in het dialoogvenster **Regel maken** het volgende:  
 
-    -   **Nom** > **Règle de l’exemple**  
+    -   **Naam** > **Voorbeeldregel**  
 
-    -   **Paramètre sélectionné** : vérifiez que le paramètre sélectionné est le **paramètre de l’exemple**.  
+    -   **Geselecteerde instelling** : controleer of de instelling **Voorbeeldinstelling**is geselecteerd.  
 
-    -   **Type de règle** > **Valeur**  
+    -   **Regeltype** > **Waarde**  
 
-    -   **Le paramètre doit être conforme à la règle suivante** : vérifiez que le nom du paramètre est correct et configurez l’option pour spécifier que la valeur du paramètre doit être égale à **1**.  
+    -   **De instelling moet voldoen aan de volgende regel** : controleer of de naam van de instelling correct is en configureer de optie zodanig dat de waarde van de instelling gelijk is aan **1**.  
 
-    -   **Résoudre les règles non compatibles lorsqu’elles sont prises en charge** – Cochez cette case pour garantir que Configuration manager rétablira la valeur correcte de la clé de Registre si sa valeur est incorrecte.  
+    -   **Herstellen, waar ondersteund** : Schakel dit selectievakje in om ervoor te zorgen dat Configuration Manager wordt opnieuw ingesteld registersleutelwaarde terugzet op de juiste waarde als dit onjuist is.  
 
-6.  Terminez l’Assistant pour créer l’élément de configuration.  
+6.  Voltooi de wizard om het configuratie-item te maken.  
 
- Vous pouvez maintenant utiliser les informations contenues dans la rubrique [Tâches courantes de création et de déploiement de bases de référence de configuration](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) pour déployer la configuration que vous avez créée sur les appareils.  
+ U kunt nu de informatie in de [algemene taken voor het maken en implementeren van configuratiebasislijnen](../../compliance/plan-design/common-tasks-for-creating-and-deploying-configuration-baselines.md) onderwerp waarmee u de configuratie die u hebt gemaakt op apparaten implementeren.  

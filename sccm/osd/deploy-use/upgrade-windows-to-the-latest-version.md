@@ -1,6 +1,6 @@
 ---
-title: "Mettre à niveau Windows vers la dernière version | Microsoft Docs"
-description: "Découvrez comment utiliser Configuration Manager pour mettre à niveau un système d’exploitation Windows 7 ou ultérieur vers Windows 10."
+title: Windows upgraden naar de nieuwste versie | Microsoft Docs
+description: Informatie over het upgraden van een besturingssysteem van Windows 7 of hoger naar Windows 10 met Configuration Manager.
 ms.custom: na
 ms.date: 02/06/2017
 ms.prod: configuration-manager
@@ -16,76 +16,76 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 026d61113a918e43ac4395ef092b1931f33f16d3
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="upgrade-windows-to-the-latest-version-with-system-center-configuration-manager"></a>Mettre à niveau Windows vers la dernière version avec System Center Configuration Manager
+# <a name="upgrade-windows-to-the-latest-version-with-system-center-configuration-manager"></a>Windows upgraden naar de nieuwste versie met System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Cette rubrique indique les étapes à suivre dans System Center Configuration Manager pour mettre à niveau un système d’exploitation sur un ordinateur depuis Windows 7 ou version ultérieure vers Windows 10, ou depuis Windows Server 2012 vers Windows Server 2016, sur un ordinateur de destination. Vous pouvez choisir parmi différentes méthodes de déploiement, telles qu’un média autonome ou le Centre logiciel. Le scénario de mise à niveau sur place :  
+Dit onderwerp bevat de stappen in System Center Configuration Manager om een besturingssysteem op een computer bijwerken van Windows 7 of hoger naar Windows 10 of Windows Server 2012 naar Windows Server 2016 op een doelcomputer. U kunt kiezen uit verschillende implementatiemethoden, zoals zelfstandige media of Software Center. Het in-place upgradescenario:  
 
--   Met à niveau le système d’exploitation sur les ordinateurs qui exécutent actuellement :
-    - Windows 7, Windows 8 ou Windows 8.1. Vous pouvez également effectuer des mises à niveau de build à build de Windows 10. Par exemple, vous pouvez mettre à niveau Windows 10 RTM vers Windows 10 version 1511.  
-    - Windows Server 2012. Vous pouvez également effectuer des mises à niveau de build à build de Windows Server 2016. Pour plus d’informations sur les options de mise à niveau prises en charge, consultez [Options de mise à niveau prises en charge](https://docs.microsoft.com/windows-server/get-started/supported-upgrade-paths#upgrading-previous-retail-versions-of-windows-server-to-windows-server-2016).    
+-   Upgrade van het besturingssysteem op computers die momenteel worden uitgevoerd:
+    - Windows 7, Windows 8 of Windows 8.1. U kunt ook build-naar-build-upgrades van Windows 10 uitvoeren. U kunt bijvoorbeeld Windows 10 RTM upgraden naar Windows 10, versie 1511.  
+    - WindowsServer 2012. U kunt ook build-naar-build-upgrades van Windows Server 2016 doen. Zie voor meer informatie over ondersteunde upgradepaden [ondersteunde upgradepaden](https://docs.microsoft.com/windows-server/get-started/supported-upgrade-paths#upgrading-previous-retail-versions-of-windows-server-to-windows-server-2016).    
 
--   Conserve les applications, les paramètres et les données utilisateur sur l’ordinateur.  
+-   Toepassingen, instellingen en gebruikersgegevens op de computer blijven behouden.  
 
--   N’a aucune dépendance externe, telles que Windows ADK.  
+-   Heeft geen externe afhankelijkheden, zoals de Windows ADK.  
 
--   Est plus rapide et plus fiable que les déploiements de système d'exploitation traditionnels.  
+-   Gaat sneller en is toleranter dan traditionele besturingssysteemimplementaties.  
 
- Suivez les sections ci-dessous pour déployer des systèmes d’exploitation sur le réseau à l’aide d’une séquence de tâches.  
+ Gebruik de volgende secties om besturingssystemen via het netwerk te implementeren met behulp van een takenreeks.  
 
 ##  <a name="BKMK_Plan"></a> Plan  
 
--   **Passer en revue les limitations de la séquence de tâches pour mettre à niveau un système d’exploitation**  
+-   **De beperkingen bekijken voor de takenreeks om een besturingssysteem te upgraden**  
 
-     Passez en revue les exigences et limitations suivantes de la séquence de tâches pour mettre à niveau un système d’exploitation pour vous assurer qu’elle répond à vos besoins :  
+     Bekijk de volgende vereisten en beperkingen voor de takenreeks voor het upgraden van een besturingssysteem om ervoor te zorgen dat het voldoet aan wat u nodig hebt:  
 
-    -   Vous devez ajouter uniquement des étapes de séquence de tâches associées à la tâche principale de déploiement de systèmes d’exploitation et de configuration des ordinateurs après l’installation de l’image. Cela comprend les étapes qui installent des packages, des applications ou des mises à jour et celles qui exécutent des lignes de commande, des commandes PowerShell, ou qui définissent des variables dynamiques.  
+    -   U wordt aangeraden alleen takenreeksstappen toe te voegen die te maken hebben met de hoofdtaken (het implementeren van besturingssystemen en computers configureren nadat de kopie is geïnstalleerd). Dit omvat stappen waarbij pakketten, toepassingen of updates worden geïnstalleerd en stappen waarbij opdrachtregels worden uitgevoerd, PowerShell wordt uitgevoerd of dynamische variabelen worden ingesteld.  
 
-    -   Passez en revue les pilotes et les applications installés sur les ordinateurs pour vérifier qu’ils sont compatibles avec Windows 10 avant de déployer la séquence de tâches de mise à niveau.  
+    -   Bekijk welke stuurprogramma's en toepassingen zijn geïnstalleerd op computers om te controleren of ze compatibel zijn met Windows 10 voordat u de upgradetakenreeks implementeert.  
 
-    -   Les tâches suivantes ne sont pas compatibles avec la mise à niveau sur place et vous obligent à effectuer des déploiements de système d’exploitation classiques :  
+    -   De volgende taken zijn niet compatibel met de in-place upgrade. U moet hier traditionele besturingssysteemimplementatie voor gebruiken:  
 
-        -   Modification de l’appartenance de domaine des ordinateurs ou mise à jour du groupe Administrateurs locaux.  
+        -   Het domeinlidmaatschap van de computer wijzigen of de lokale beheerders bijwerken.  
 
-        -   Implémentation d’une modification fondamentale sur l’ordinateur, y compris un partitionnement de disque, le passage d’une architecture x86 à x64, l’implémentation d’UEFI ou la modification de la langue de base du système d’exploitation.  
+        -   Een basiswijziging implementeren op de computer, zoals de schijf partitioneren, overstappen van x86 naar x64, UEFI implementeren of de basisbesturingssysteemtaal wijzigen.  
 
-        -   Vous avez des besoins personnalisés, notamment l’utilisation d’une image personnalisée de base ou du chiffrement de disque <sup>tiers</sup>, ou vous exigez des opérations hors connexion WinPE.  
+        -   U hebt aangepaste vereisten, waaronder het gebruik van een aangepaste basisinstallatiekopie met schijfversleuteling van een 3<sup>de</sup> partij, of er worden offline WinPE-bewerkingen vereist.  
 
--   **Planifier et implémenter la configuration requise pour l’infrastructure**  
+-   **Plannen en implementeren van de vereisten voor de infrastructuur**  
 
-     La seule condition préalable pour le scénario de mise à niveau est que vous disposiez d’un point de distribution disponible pour le package de mise à niveau de système d’exploitation et pour les autres packages que vous incluez dans la séquence de tâches. Pour plus d’informations, consultez [Installer ou modifier un point de distribution](../../core/servers/deploy/configure/install-and-configure-distribution-points.md).
+     De enige vereisten voor het upgradescenario zijn dat u hebt een distributiepunt beschikbaar is voor het upgradepakket voor besturingssysteem en andere pakketten die u in de takenreeks opneemt. Zie voor meer informatie [installeren of wijzigen van een distributiepunt](../../core/servers/deploy/configure/install-and-configure-distribution-points.md).
 
-##  <a name="BKMK_Configure"></a> Configurerr  
+##  <a name="BKMK_Configure"></a> Configurerenren  
 
-1.  **Préparer le package de mise à niveau de système d’exploitation**  
+1.  **Het upgradepakket voor het besturingssysteem voorbereiden**  
 
-     Le package de mise à niveau Windows 10 contient les fichiers sources nécessaires pour mettre à niveau le système d’exploitation sur l’ordinateur de destination. Le package de mise à niveau doit être de la même édition, architecture et langue que les clients que vous mettez à niveau.  Pour plus d’informations, consultez [Gérer les packages de mise à niveau de système d’exploitation](../get-started/manage-operating-system-upgrade-packages.md).  
+     Het Windows 10-upgradepakket bevat de bronbestanden die nodig zijn om het besturingssysteem op de doelcomputer te upgraden. Het upgradepakket moet dezelfde versie, architectuur en taal als de clients die u een upgrade uitvoert.  Zie voor meer informatie [upgradepakketten voor besturingssysteem beheren](../get-started/manage-operating-system-upgrade-packages.md).  
 
-2.  **Créer une séquence de tâches pour mettre à niveau le système d’exploitation**  
+2.  **Een takenreeks maken om het besturingssysteem bij te werken**  
 
-     Utilisez les étapes indiquées dans [Créer une séquence de tâches pour mettre à niveau un système d’exploitation](create-a-task-sequence-to-upgrade-an-operating-system.md) pour automatiser la mise à niveau du système d’exploitation.  
+     Gebruik de stappen in [een takenreeks maken om een besturingssysteem te upgraden](create-a-task-sequence-to-upgrade-an-operating-system.md) voor het automatiseren van de upgrade van het besturingssysteem.  
 
     > [!IMPORTANT]
-    > Quand vous utilisez un support autonome, vous devez inclure une image de démarrage dans la séquence de tâches pour qu’elle soit disponible dans l’Assistant Support de séquence de tâches.
+    > Wanneer u zelfstandige media gebruikt, moet u een opstartinstallatiekopie opnemen in de takenreeks als deze beschikbaar zijn in de Wizard Takenreeksmedia.
 
     > [!NOTE]  
-    > En général, vous utilisez les étapes indiquées dans [Créer une séquence de tâches pour mettre à niveau un système d’exploitation](create-a-task-sequence-to-upgrade-an-operating-system.md) afin de créer une séquence de tâches pour mettre à niveau un système d’exploitation vers Windows 10. La séquence de tâches comprend l’étape Mettre à niveau le système d’exploitation, ainsi que d’autres groupes et étapes recommandés pour gérer le processus de mise à niveau de bout en bout. Toutefois, vous pouvez créer une séquence de tâches personnalisée et ajouter l’étape de séquence de tâches [Mettre à niveau le système d’exploitation](../understand/task-sequence-steps.md#BKMK_UpgradeOS) pour mettre à niveau le système d’exploitation. Il s’agit de la seule étape requise pour mettre à niveau le système d’exploitation vers Windows 10. Si vous choisissez cette méthode, ajoutez également l’étape [Redémarrer l’ordinateur](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer) après l’étape Mettre à niveau le système d’exploitation pour terminer la mise à niveau. Veillez à activer le paramètre **Le système d’exploitation par défaut installé actuellement** pour redémarrer l’ordinateur dans le système d’exploitation installé, et non dans Windows PE.  
+    > Normaal gebruikt u de stappen in [een takenreeks maken om een besturingssysteem te upgraden](create-a-task-sequence-to-upgrade-an-operating-system.md) voor het maken van een takenreeks een besturingssysteem te upgraden naar Windows 10. De takenreeks bevat de stap besturingssysteem bijwerken, evenals aanvullende aanbevolen stappen en groepen voor de end-to-end upgradeproces. U kunt echter een aangepaste takenreeks maken en toevoegen de [besturingssysteem bijwerken](../understand/task-sequence-steps.md#BKMK_UpgradeOS) takenreeksstap om het besturingssysteem te upgraden. Dit is de enige stap die is vereist om het besturingssysteem te upgraden naar Windows 10. Als u deze methode kiest, voegt u ook de [Computer opnieuw opstarten](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer) stap na de stap besturingssysteem bijwerken om de upgrade te voltooien. Zorg ervoor dat u de **het momenteel geïnstalleerde standaardbesturingssysteem** instelling van de computer opnieuw opstarten in het geïnstalleerde besturingssysteem en niet met Windows PE.  
 
-##  <a name="BKMK_Deploy"></a> Déployer  
+##  <a name="BKMK_Deploy"></a> Implementeren  
 
--   Pour déployer le système d’exploitation, appliquez l’une des méthodes de déploiement suivantes :  
+-   Gebruik een van de volgende implementatiemethoden om het besturingssysteem te implementeren:  
 
-    -   [Utiliser le Centre logiciel pour déployer Windows sur le réseau](use-software-center-to-deploy-windows-over-the-network.md)  
+    -   [Windows met Software Center via het netwerk implementeren](use-software-center-to-deploy-windows-over-the-network.md)  
 
-    -   [Utiliser un média autonome pour déployer Windows sans utiliser le réseau](use-stand-alone-media-to-deploy-windows-without-using-the-network.md)  
+    -   [Zelfstandige media gebruiken om Windows te implementeren zonder gebruik van het netwerk](use-stand-alone-media-to-deploy-windows-without-using-the-network.md)  
 
-## <a name="monitor"></a>Analyse  
+## <a name="monitor"></a>Monitor  
 
--   **Surveiller le déploiement de la séquence de tâches**  
+-   **De takenreeksimplementatie controleren**  
 
-     Pour surveiller le déploiement de la séquence de tâches permettant de mettre à niveau le système d’exploitation, consultez [Surveiller les déploiements de système d’exploitation](monitor-operating-system-deployments.md).  
+     Zie voor het bewaken van de takenreeksimplementatie om het besturingssysteem te upgraden, [implementaties van besturingssystemen bewaken](monitor-operating-system-deployments.md).  

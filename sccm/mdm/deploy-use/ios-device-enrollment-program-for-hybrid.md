@@ -1,6 +1,6 @@
 ---
-title: "Inscrire des appareils iOS avec un programme d’inscription des appareils - Configuration Manager | Microsoft Docs"
-description: "Activez l’inscription d’appareils iOS via le programme DEP pour les déploiements hybrides dans Configuration Manager."
+title: IOS-apparaten met Device Enrollment Program (DEP) - Configuration Manager inschrijven | Microsoft Docs
+description: Schakel iOS Device Enrollment Program (DEP)-inschrijving voor hybride implementaties in Configuration Manager met Intune.
 ms.custom: na
 ms.date: 08/15/2017
 ms.prod: configuration-manager
@@ -16,96 +16,96 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: e76e46ce0d6ee0582d5161709ff114b936ac5660
 ms.sourcegitcommit: db7b7ec347638efd05cdba474e8a8f8535516116
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/16/2017
 ---
-# <a name="ios-device-enrollment-program-dep-enrollment-for-hybrid-deployments-with-configuration-manager"></a>Inscription d’appareils iOS via le programme DEP pour les déploiements hybrides avec Configuration Manager
+# <a name="ios-device-enrollment-program-dep-enrollment-for-hybrid-deployments-with-configuration-manager"></a>inschrijving van iOS-Device Enrollment Program (DEP) voor hybride implementaties met Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Les entreprises peuvent acheter des appareils iOS via le programme d’inscription des appareils (DEP, Device Enrollment Program) d’Apple, puis les gérer à l’aide de Microsoft Intune. Pour gérer des appareils iOS d’entreprise avec le programme d’inscription d’appareils d’Apple, les sociétés doivent suivre la procédure requise auprès d’Apple pour participer au programme et acquérir des appareils par son biais. Les détails de cette procédure sont disponibles à l’adresse suivante :  [https://deploy.apple.com](https://deploy.apple.com). Les avantages du programme incluent la configuration automatique des appareils sans connexion USB de chaque appareil à un ordinateur.  
+Bedrijven kunnen iOS-apparaten via Apples apparaatinschrijvingsprogramma kopen en vervolgens worden beheerd met Microsoft Intune. Bedrijven die iOS-apparaten van het bedrijf willen beheren met het DEP (Device Enrollment Program) van Apple, moeten de stappen met Apple uitvoeren om deel te nemen aan het programma en apparaten via dat programma te verkrijgen. Details van dit proces kunt u vinden op:  [https://deploy.apple.com](https://deploy.apple.com). Voordelen van het programma zijn onder andere handsfree instellen, dus zonder dat elk apparaat via een USB-verbinding op een computer hoeft te worden aangesloten.  
 
- Avant d’inscrire des appareils iOS d’entreprise à l’aide du programme DEP, vous devez obtenir un jeton approprié auprès d’Apple. Ce jeton permet à Intune de synchroniser les informations sur les appareils participant à ce programme et appartenant à votre entreprise. Il permet également à Intune de charger des profils d’inscription sur Apple et d’attribuer des appareils à ces profils.  
+ Voordat u iOS-apparaten van het bedrijf met DEP kunt registreren, hebt u een DEP-token van Apple nodig. Dit token kan Intune informatie synchroniseren over van uw bedrijf die aan DEP deelnemen-apparaten. Ook kunt u Intune Hiermee inschrijvingsprofielen naar Apple uploaden en apparaten toewijzen aan die profielen.  
 
-## <a name="apple-dep-enrollment-for-ios-devices"></a>Inscription au programme d’inscription d’appareils d’Apple pour les appareils iOS  
- Les procédures suivantes décrivent comment déclarer les appareils iOS achetés via le programme DEP d’Apple en tant qu’appareils appartenant à l’entreprise gérés par Intune. Lorsque l’utilisateur allume l’appareil pour la première fois, le profil de gestion DEP est reçu sur l’appareil, l’Assistant Installation s’exécute et la gestion de l’appareil est mise en place.  
+## <a name="apple-dep-enrollment-for-ios-devices"></a>Apple DEP-inschrijving voor iOS-apparaten  
+ De volgende procedures beschrijven het opgeven van iOS-apparaten die zijn aangeschaft via Apple DEP als Intune-beheerde apparaten in Bedrijfseigendom. Wanneer de eerste gebruiker-bevoegdheden-up maken van het apparaat worden ontvangen van het DEP-management-profiel en de Configuratieassistent en brengt deze onder beheer.  
 
-##  <a name="enable-dep-enrollment-in-configuration-manager-with-intune"></a>Activer l’inscription DEP (Device Enrollment Program) dans Configuration Manager avec Intune  
+##  <a name="enable-dep-enrollment-in-configuration-manager-with-intune"></a>DEP-inschrijving in Configuration Manager met Intune inschakelen  
 
-1.  **Commencer à gérer des appareils iOS avec Configuration Manager**   
-    Avant de pouvoir inscrire des appareils IOS via le programme DEP, vous devez effectuer la procédure de [configuration de la gestion des appareils mobiles hybrides](../../mdm/deploy-use/setup-hybrid-mdm.md), notamment la [procédure de prise en charge de l’inscription iOS](../deploy-use/enroll-hybrid-ios-mac.md).
-2.  **Créer une demande de jeton DEP**   
-    Dans la console Configuration Manager, dans l’espace de travail **Administration**, développez **Configuration de la hiérarchie**, développez **Services cloud**, puis cliquez sur **Abonnements Microsoft Intune**. Cliquez sur **Créer une demande de jeton DEP** sous l’onglet **Accueil** , sur **Parcourir** pour spécifier l’emplacement de téléchargement de la demande de jeton DEP, puis sur **Télécharger**. Enregistrez le fichier de demande de jeton DEP (.pem) localement. Le fichier .pem est utilisé pour demander un jeton approuvé (.p7m) au portail du programme d’inscription d’appareils d’Apple.  
-3.  **Obtenir un jeton du programme d’inscription d’appareils**   
-    Accédez au [portail du programme d’inscription d’appareils](https://deploy.apple.com) (https://deploy.apple.com) et connectez-vous avec votre ID Apple d’entreprise. Cet ID Apple doit être utilisé par la suite pour renouveler votre jeton DEP.  
-    1.  Dans la console [portail du programme d’inscription d’appareils](https://deploy.apple.com), accédez à **Programme d’inscription d’appareils** > **Gérer les serveurs**, puis cliquez sur **Ajouter un serveur MDM**.  
-    2.  Entrez le **Nom du serveur MDM**, puis cliquez sur **Suivant**. Le nom du serveur vous permet d'identifier le serveur MDM uniquement. Il ne s’agit pas du nom ou de l’URL du serveur Intune ou Configuration Manager.  
-    3.  La boîte de dialogue **Ajouter <nom_serveur\>** s’ouvre. Cliquez sur **Choisir un fichier…** pour charger le fichier .pem que vous avez créé à l’étape précédente, puis cliquez sur **Suivant**.  
-    4.  La boîte de dialogue **Ajouter <nom_serveur\>** affiche un lien **Votre jeton de serveur**. Téléchargez le fichier de jeton de serveur (.p7m) sur votre ordinateur, puis cliquez sur **Terminé**.  
+1.  **iOS-apparaten gaan beheren met Configuration Manager**   
+    Voordat u iOS-Device Enrollment Program (DEP)-apparaten inschrijven kunt, moet u de stappen voor het uitvoeren [hybride mobile device management instellen](../../mdm/deploy-use/setup-hybrid-mdm.md) inclusief [stappen voor de ondersteuning van iOS-inschrijving](../deploy-use/enroll-hybrid-ios-mac.md).
+2.  **Een DEP-tokenaanvraag maken**   
+    In de Configuration Manager-console in de **beheer** werkruimte Vouw **Hiërarchieconfiguratie**, vouw **Cloudservices**, en klik op **Microsoft Intune-abonnementen**. Klik op het tabblad **Start** op **DEP-tokenaanvraag maken** , klik op **Bladeren** om de downloadlocatie voor de DEP-tokenaanvraag op te geven en klik op **Downloaden**. Sla het PEM-bestand voor de DEP-tokenaanvraag lokaal op. Het PEM-bestand wordt gebruikt om een vertrouwd token (.p7m) bij de Apple Device Enrollment Program-portal aan te vragen.  
+3.  **Een DEP-token verkrijgen**   
+    Ga naar de [Device Enrollment Program-portal](https://deploy.apple.com) (https://deploy.apple.com) en meld u aan met de Apple-id van uw bedrijf. Deze Apple-id moet later ook worden gebruikt om uw DEP-token te verlengen.  
+    1.  In de [Device Enrollment Program-portal](https://deploy.apple.com)naar **Device Enrollment Program** > **Servers beheren**en klik op **MDM-server toevoegen**.  
+    2.  Voer de **MDM-servernaam**en klik op **Volgende**. De servernaam is voor eigen referentie en dient om de MDM-server te identificeren. Het is niet de naam of URL van de Intune of Configuration Manager-server.  
+    3.  De **toevoegen < ServerName\>**  dialoogvenster wordt geopend. Klik op **Bestand kiezen** upload het .pem-bestand dat u in de vorige stap hebt gemaakt en klik vervolgens op **volgende**.  
+    4.  De **toevoegen < ServerName\>**  in het dialoogvenster wordt weergegeven een **uw Servertoken** koppeling. Download het servertokenbestand (.p7m) naar uw computer en klik op **Gereed**.  
 
-     Ce fichier de certificat (.p7m) est utilisé pour établir une relation d’approbation entre le serveur Intune et le serveur du programme d’inscription d’appareils d’Apple.  
-4.  **Ajouter le jeton DEP à Configuration Manager**   
-    Dans la console Configuration Manage , dans l’espace de travail **Administration**, développez **Configuration de la hiérarchie**, puis cliquez sur **Abonnements Microsoft Intune**. Cliquez sur **Configurer des plateformes** sous l’onglet **Accueil** , puis cliquez sur **iOS**. Sélectionnez **Activer le programme d’inscription d’appareils**, accédez au fichier de certificat (.p7m), cliquez sur **Ouvrir**, sur **Télécharger**, puis sur **OK**.  
+     Dit certificaatbestand (.p7m) wordt gebruikt om een vertrouwensrelatie tussen Intune en de DEP-servers van Apple tot stand te brengen.  
+4.  **Het DEP-token toevoegen aan Configuration Manager**   
+    In de Configuration Manager-console in de **beheer** werkruimte Vouw **Hiërarchieconfiguratie** en klik op **Microsoft Intune-abonnementen**. Klik op het tabblad **Start** op **Platforms configureren** en klik op **iOS**. Selecteer **DEP inschakelen**, blader naar het certificaatbestand (.p7m), klik op **Openen**, klik op **Uploaden**en klik vervolgens op **OK**.  
 
-## <a name="add-a-corporate-device-enrollment-policy"></a>Ajouter une stratégie d'inscription d'appareils d'entreprise  
+## <a name="add-a-corporate-device-enrollment-policy"></a>Een inschrijvingsbeleid voor Bedrijfsapparaten toevoegen  
 
-1. Dans la console Configuration Manager, dans l’espace de travail **Ressources et Conformité**, développez **Vue d’ensemble**, **Tous les appareils d’entreprise** et **iOS**, puis cliquez sur **Profils d’inscription**. Cliquez sur **Créer un profil** sous l’onglet **Accueil** pour ouvrir l’Assistant Create Profile (Création d’un profil). Configurez les paramètres des pages suivantes :  
-2. Dans la page **Général**, spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
-  -   **Nom** : nom du profil d’inscription d’appareil. (Non visible pour les utilisateurs)  
-  -   **Description** : description du profil d'inscription d'appareil. (Non visible pour les utilisateurs)  
-  -   **Affinité utilisateur** : spécifie la façon dont les appareils sont inscrits. Voir [Affinité utilisateur pour les appareils gérés hybrides dans Configuration Manager](../../mdm/deploy-use/user-affinity-for-hybrid-managed-devices.md).  
+1. In de Configuration Manager-console in de **activa en naleving** werkruimte Vouw **overzicht**, vouw **alle apparaten in Bedrijfseigendom**, vouw **iOS**, en klik op **Inschrijvingsprofielen**. Klik op het tabblad **Start** op **Profiel maken** om de wizard Profiel maken te openen. Configureer de instellingen op de volgende pagina's:  
+2. On the **Algemeen** de volgende informatie op en klik op **Volgende**.  
+  -   **Naam** : naam van het inschrijvingsprofiel voor apparaten. (niet zichtbaar voor gebruikers)  
+  -   **Beschrijving** -beschrijving van het inschrijvingsprofiel voor apparaten. (niet zichtbaar voor gebruikers)  
+  -   **Gebruikersaffiniteit** : hiermee wordt bepaald hoe apparaten worden ingeschreven. Zie [gebruikersaffiniteit voor hybride beheerde apparaten in Configuration Manager](../../mdm/deploy-use/user-affinity-for-hybrid-managed-devices.md).  
 
-      -  **Demander une affinité utilisateur**: l’appareil doit être affilié à un utilisateur durant la configuration initiale. Il peut ensuite être autorisé à accéder aux données de l’entreprise et à envoyer des messages électroniques au nom de cet utilisateur.  L’affinité utilisateur doit être configurée pour les appareils gérés par DEP qui appartiennent à des utilisateurs et doivent utiliser le portail d’entreprise (par exemple, pour installer des applications).  
+      -  **Vragen om gebruikersaffiniteit**: Het apparaat moet aan een gebruiker worden gekoppeld tijdens de eerste configuratie en dan toegang tot bedrijfsgegevens en e-mailadres als die gebruiker is toegestaan.  Gebruikersaffiniteit moet worden geconfigureerd voor DEP-beheerde apparaten die eigendom zijn van gebruikers en de bedrijfsportal moeten gebruiken (om apps te installeren).  
       > [!NOTE]
-      > Dans le cas de DEP avec affinité utilisateur, un point de terminaison ADFS WS-Trust 1.3 Username/Mixed doit être activé pour demander un jeton utilisateur.
+      > DEP gebruikersaffiniteit vereist ADFS WS-Trust 1.3 gebruikersnaam/Mixed-eindpunt om aan te vragen gebruikerstoken worden ingeschakeld.
 
-      -   **Pas d’affinité utilisateur**: l’appareil n’est affilié à aucun utilisateur. Utilisez cette affiliation pour les appareils qui effectuent des tâches sans accéder aux données de l'utilisateur local. Les applications nécessitant une affiliation de l'utilisateur ne fonctionneront pas.  
-    ![Capture d’écran montrant le nom de profil DEP, une description et une invite Affinité utilisateur](../media/dep-general.png)
+      -   **Geen relatie met gebruiker**: Het apparaat is niet gekoppeld aan een gebruiker. Gebruik deze relatie voor apparaten waarmee taken worden uitgevoerd zonder toegang tot lokale gebruikersgegevens. Apps die een gebruikersrelatie vereisen, werken niet.  
+    ![Schermopname van het DEP-profielnaam, beschrijving en Gebruikersaffiniteit vragen](../media/dep-general.png)
 
-3. Dans la page **Paramètres du Programme d’inscription des appareils**, spécifiez les informations suivantes, puis cliquez sur **Suivant**.  
-    -   **Service** : cette information s’affiche quand les utilisateurs appuient sur «À propos de la configuration » pendant l’activation.  
-    -   **Numéro de téléphone du support** : s’affiche quand l’utilisateur clique sur le bouton **Besoin d’aide** pendant l’activation.
-       ![Capture d’écran montrant l’affectation d’un profil DEP à des appareils iOS](../media/dep-settings.png)
+3. Op de **apparaatinstellingen registratie programma** pagina, geef de volgende informatie en klik vervolgens op **volgende**.  
+    -   **Afdeling**: Deze informatie wordt weergegeven wanneer gebruikers tikken op 'Over configuratie' tijdens de activering.  
+    -   **Telefoonnummer voor ondersteuning**: Weergegeven wanneer de gebruiker de **hulp nodig** knop tijdens de activering.
+       ![Schermopname van het DEP-profiel op iOS-apparaten toewijzen](../media/dep-settings.png)
 
-    - **Mode de préparation** : cet état est défini pendant l’activation et ne peut pas être modifié sans rétablir les paramètres d’usine de l’appareil :  
-        -   **Non supervisé** : capacités de gestion limitées  
-        -   **Supervisé** : active des options de gestion supplémentaires et désactive le verrou d’activation par défaut  
-    - **Verrouiller le profil d’inscription de l’appareil** : cet état est défini pendant l’activation et ne peut pas être modifié sans rétablir les paramètres d’usine.  
-      -   **Désactiver** : permet de supprimer le profil de gestion à partir du menu **Paramètres**  
-      -   **Activer** : (nécessite le **Mode de préparation** = **Supervisé**) désactive les paramètres iOS qui pourraient autoriser la suppression du profil de gestion  
+    - **Voorbereidingsmodus**: Deze status wordt ingesteld tijdens de activering en kan niet worden gewijzigd zonder de factory opnieuw instellen van het apparaat:  
+        -   **Zonder supervisie** -beperkte beheermogelijkheden  
+        -   **Onder supervisie** - kunnen meer beheeropties en Activeringsvergrendeling standaard uitgeschakeld  
+    - **Inschrijvingsprofiel vergrendelen voor apparaat**: Deze status wordt ingesteld tijdens de activering en kan niet worden gewijzigd zonder de fabrieksinstellingen terug te zetten.  
+      -   **Schakel** -Hiermee kan het beheerprofiel worden verwijderd uit de **instellingen** menu  
+      -   **Schakel** -(vereist **Voorbereidingsmodus** = **onder supervisie**) iOS-instellingen die u verwijderen van het beheerprofiel kunnen zou wordt uitgeschakeld  
 
-4.  Dans la page **Assistant Configuration** , configurez les paramètres qui personnalisent l’Assistant Configuration iOS qui démarre quand l’appareil est mis sous tension pour la première fois, puis cliquez sur **Suivant**. Ces paramètres incluent :  
-  -   **Code secret** : demande un code secret pendant l’activation. Exige toujours un code secret, sauf si l’appareil doit être sécurisé ou si son accès doit être contrôlé d’une autre façon (c’est-à-dire, en mode plein écran qui limite l’appareil à une seule application).  
-  -   **Services de localisation** : si cette option est activée, l’Assistant Installation vous invite à spécifier le service pendant l’activation  
-  -   **Restaurer** : si cette option est activée, l’Assistant Installation invite à spécifier la sauvegarde iCloud pendant l’activation  
-  -   **ID Apple** : un ID Apple est nécessaire pour télécharger des applications App Store iOS, y compris celles qui sont installées par Intune. Si cette option est activée, iOS demande un ID Apple aux utilisateurs quand Intune tente d’installer une application sans ID.  
-  -   **Termes et Conditions** : si cette option est activée, l’Assistant Installation invite l’utilisateur à accepter les conditions générales d’Apple pendant l’activation  
-  -   **Touch ID** : si cette option est activée, l’Assistant Installation vous invite à spécifier ce service pendant l’activation
-  -   **Apple Pay** : si cette option est activée, l’Assistant Installation vous invite à spécifier ce service pendant l’activation
-  -   **Zoom** : si cette option est activée, l’Assistant Installation vous invite à spécifier ce service pendant l’activation
-  -   **Siri** : si cette option est activée, l’Assistant Installation vous invite à spécifier ce service pendant l’activation  
-  -   **Envoyer les données de diagnostic à Apple** : si cette option est activée, l’Assistant Installation vous invite à spécifier ce service pendant l’activation  
-    ![Capture d’écran montrant l’attribution d’un profil DEP à des appareils iOS](../media/dep-setup-assistant.png)
-5.  Sur la page **Gestion supplémentaire**, spécifiez si une connexion USB peut être utilisée pour les paramètres de la gestion supplémentaire. Quand vous sélectionnez **Demander un certificat**, vous devez importer un certificat de gestion Apple Configurator à utiliser pour ce profil.  Spécifiez **Interdire** pour empêcher la synchronisation des fichiers avec iTunes ou la gestion via Apple Configurator. Microsoft vous recommande de spécifier la valeur **Interdire**, exporter les configurations supplémentaires d’Apple Configurator, puis déployer en tant que profil de configuration iOS personnalisé via Intune, plutôt que d’utiliser ce paramètre pour permettre un déploiement manuel avec ou sans un certificat.  
+4.  Op de pagina **Configuratieassistent** configureert u de instellingen waarmee de iOS-configuratieassistent wordt aangepast die wordt gestart wanneer het apparaat voor het eerst wordt ingeschakeld. Klik vervolgens op **Volgende**. Deze instellingen omvatten:  
+  -   **Wachtwoordcode** - vragen om de wachtwoordcode tijdens de activering. Vereis altijd een wachtwoordcode tenzij het apparaat wordt beveiligd of beheerd in een andere manier (dat wil zeggen kioskmodus waarmee het apparaat aan een app) toegang hebben.  
+  -   **Locatieservices** - indien ingeschakeld, wordt Configuratieassistent gevraagd voor de service tijdens de activering  
+  -   **Herstellen** - indien ingeschakeld, wordt Configuratieassistent gevraagd voor iCloud-back-up tijdens de activering  
+  -   **Apple-ID** -een Apple-ID is vereist voor het downloaden van iOS-App Store-apps, waaronder die zijn geïnstalleerd door Intune. Bij inschakeling wordt iOS gebruikers voor een Apple-ID gevraagd wanneer Intune probeert te installeren van een app zonder ID.  
+  -   **Voorwaarden en bepalingen** -indien ingeschakeld, wordt Configuratieassistent gevraagd gebruikers de voorwaarden bepalingen van Apple accepteren tijdens de activering  
+  -   **Touch ID** - indien ingeschakeld, wordt Configuratieassistent gevraagd voor deze service tijdens de activering
+  -   **Apple Pay** - indien ingeschakeld, wordt Configuratieassistent gevraagd voor deze service tijdens de activering
+  -   **Zoomen** - indien ingeschakeld, wordt Configuratieassistent gevraagd voor deze service tijdens de activering
+  -   **Siri** - indien ingeschakeld, wordt Configuratieassistent gevraagd voor deze service tijdens de activering  
+  -   **Diagnostische gegevens verzenden naar Apple** - indien ingeschakeld, wordt Configuratieassistent gevraagd voor deze service tijdens de activering  
+    ![Schermopname van het DEP-profiel op iOS-apparaten toewijzen](../media/dep-setup-assistant.png)
+5.  Op de **aanvullend beheer** pagina, of een USB-verbinding kan worden gebruikt voor extra instellingen opgeven. Wanneer u selecteert **-certificaat vereist**, moet u een Apple Configurator-beheercertificaat voor dit profiel importeren.  Ingesteld op **Disallow** om te voorkomen dat synchroniseert bestanden met iTunes of beheer via Apple Configurator. Microsoft raadt u ingesteld op **Disallow**, een eventuele verdere configuratie vanuit Apple Configurator te exporteren en vervolgens implementeren als een aangepast iOS-configuratieprofiel, plaats deze instelling gebruiken voor handmatige implementatie met of zonder een certificaat.  
 
-  -   **Interdire** : empêche l’appareil de communiquer via USB (désactive l’appariement)  
-  -   **Autoriser** : autorise un appareil à communiquer via une connexion USB pour n’importe quel PC ou Mac  
-  -   **Demander un certificat** : permet un appariement avec un Mac avec un certificat importé dans le profil d’inscription  
+  -   **Niet toestaan van** -voorkomt u dat het apparaat communiceert via USB (wordt koppeling uitgeschakeld)  
+  -   **Toestaan dat** -apparaat kan communiceren via USB-verbinding met een PC of Mac  
+  -   **Certificaat vereisen**-Hiermee wordt een koppeling met een Mac met een certificaat dat is geïmporteerd in het Registratieprofiel  
 
-## <a name="assign-dep-devices-for-management"></a>Attribuer des appareils DEP pour la gestion
+## <a name="assign-dep-devices-for-management"></a>DEP-apparaten toewijzen voor beheer
 
-1. Accédez au [portail du programme d’inscription d’appareils](https://deploy.apple.com) (https://deploy.apple.com) et connectez-vous avec votre ID Apple d’entreprise.
-2. Accédez à **Programme de déploiement** > **Programme d’inscription d’appareils** > **Gérer les appareils**. Spécifiez la façon dont vous allez **choisir des appareils**, fournissez les informations relatives aux appareils et spécifiez les détails par appareil : **Numéro de série**, **Numéro de commande**ou **Télécharger un fichier CSV**. Ensuite, sélectionnez **Attribuer au serveur** et sélectionnez le <*nom_serveur*> que vous avez spécifié à l'étape 3, puis cliquez sur **OK**.  
+1. Ga naar de [Device Enrollment Program-portal](https://deploy.apple.com) (https://deploy.apple.com) en meld u aan met de Apple-id van uw bedrijf.
+2. Ga naar **Implementatieprogramma** > **Device Enrollment Program** > **Apparaten beheren**. Geef een manier op voor **Apparaten kiezen**, geef apparaatgegevens op en geef apparaatdetails op aan de hand van het **Serienummer**van het apparaat, het **Bestelnummer**of **door een CSV-bestand te uploaden**. Selecteer vervolgens **toewijzen aan Server** en selecteer de <*ServerName*> die u in stap 3 hebt opgegeven, en klik vervolgens op **OK**.  
 
-3.  **Synchroniser des appareils gérés par le programme DEP**   
-    Dans la console **Ressources et Conformité**, accédez à **Tous les appareils d’entreprise** > **Appareils prédéclarés**. Sous l’onglet **Accueil** , cliquez sur **Synchronisation DEP**. Une demande de synchronisation est envoyée à Apple. Une fois la synchronisation terminée, les appareils gérés par le programme DEP s'affichent.
+3.  **Met DEP-beheerde apparaten synchroniseren**   
+    In de **activa en naleving** werkruimte, gaat u naar **alle apparaten in Bedrijfseigendom** > **Predeclared apparaten**. Klik op het tabblad **Start** op **DEP-synchronisatie**. Er wordt een synchronisatieaanvraag verzonden naar Apple. Nadat de synchronisatie is voltooid, worden de met DEP beheerde apparaten weergegeven.
 
     > [!NOTE]
-    > Dans la configuration hybride, l’opération de synchronisation DEP est déclenchée manuellement en cliquant sur **Synchronisation DEP** dans la console Configuration Manager.
+    > In de hybride-configuratie handmatig het DEP-synchronisatie opnieuw wordt geactiveerd door te klikken op **DEP-synchronisatie** in de Configuration Manager-console.
 
-4.  **Attribuer un profil DEP**<br>Dans la console **Ressources et Conformité**, accédez à **Tous les appareils d’entreprise** > **iOS** > **Profils d’inscription**. Sélectionnez le profil d’inscription DEP, puis sous l’onglet **Accueil**, cliquez sur **Affecter aux appareils**. Sélectionnez les appareils qui utiliseront ce profil d’inscription, cliquez sur **Ajouter**, puis sur **OK**.   
-     ![Capture d’écran montrant l’attribution d’un profil DEP à des appareils iOS](../media/dep-assign-profile.png)
+4.  **DEP-profiel toewijzen**<br>In de **activa en naleving** werkruimte, gaat u naar **alle apparaten in Bedrijfseigendom** > **iOS** > **Inschrijvingsprofielen**. Selecteer het DEP-inschrijvingsprofiel en klikt u op de **Start** tabblad **toewijzen aan apparaten**. Selecteer de apparaten die dit inschrijvingsprofiel gebruiken, klikt u op **toevoegen**, en klik vervolgens op **OK**.   
+     ![Schermopname van het DEP-profiel op iOS-apparaten toewijzen](../media/dep-assign-profile.png)
 
-## <a name="distribute-devices-to-users"></a>Distribuer des appareils aux utilisateurs
-Vous pouvez maintenant distribuer vos appareils d'entreprise aux utilisateurs. La boîte de dialogue **État d’inscription** pour les appareils gérés indique **Non contacté** tant que l’appareil n’est pas sous tension et n’exécute pas l’Assistant Configuration pour inscrire l’appareil. Quand un appareil iOS est activé, il est inscrit pour être géré par Intune.
+## <a name="distribute-devices-to-users"></a>Apparaten aan gebruikers distribueren
+U kunt de apparaten in bedrijfseigendom nu uitreiken aan gebruikers. Bij **Inschrijvingsstatus** voor beheerde apparaten wordt **Geen contact gemaakt** weergegeven totdat het apparaat wordt ingeschakeld, en Configuratieassistent wordt uitgevoerd om het apparaat te registreren. Wanneer een iOS-apparaat wordt ingeschakeld, zal het worden ingeschreven voor beheer door Intune.

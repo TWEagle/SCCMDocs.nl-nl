@@ -1,5 +1,5 @@
 ---
-title: "Configurer l’administration basée sur des rôles | Microsoft Docs"
+title: Beheer op basis van rollen configureren | Microsoft Docs
 ms.custom: na
 ms.date: 2/14/2017
 ms.prod: configuration-manager
@@ -16,285 +16,285 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 3eea3a6e5f23808570ded4be3bd7412954518b96
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-role-based-administration-for-system-center-configuration-manager"></a>Configurer l’administration basée sur des rôles pour System Center Configuration Manager   
+# <a name="configure-role-based-administration-for-system-center-configuration-manager"></a>Beheer op basis van rollen voor System Center Configuration Manager configureren   
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Dans System Center Configuration Manager, l’administration basée sur des rôles combine des rôles de sécurité, des étendues de sécurité et des regroupements attribués pour définir l’étendue administrative de chaque utilisateur administratif. Une étendue administrative inclut les objets qu’un utilisateur administratif peut afficher dans la console Configuration Manager et les tâches associées à ces objets que cet administrateur est autorisé à exécuter. Les configurations d'administration basée sur des rôles s'appliquent à chaque site dans une hiérarchie.  
+In System Center Configuration Manager beheer op basis van rollen combineert beveiligingsrollen, beveiligingsbereiken en toegewezen verzamelingen om het beheerbereik voor elke gebruiker met beheerdersrechten te definiëren. Een beheerbereik bevat de objecten die een gebruiker met beheerdersrechten in de Configuration Manager-console en de taken gerelateerd aan die objecten bekijken kan dat de gebruiker met beheerdersrechten is gemachtigd om uit te voeren. Configuraties voor beheer op basis van rollen worden toegepast op elke site in een hiërarchie.  
 
- Si vous n’êtes pas encore familier avec les concepts de l’administration basée sur les rôles, consultez [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../../../core/understand/fundamentals-of-role-based-administration.md).  
+ Als u niet nog bekend met concepten voor beheer op basis van rollen bent, Zie [basisprincipes van beheer op basis van rollen voor System Center Configuration Manager](../../../../core/understand/fundamentals-of-role-based-administration.md).  
 
- Les informations figurant dans les procédures suivantes peuvent vous aider à créer et à configurer une administration basée sur des rôles ainsi que les paramètres de sécurité correspondants :  
+ De informatie in de volgende procedures kunt u maken en configureren van beheer op basis van rollen en overeenkomstige beveiligingsinstellingen:  
 
--   [Créer des rôles de sécurité personnalisés](#BKMK_CreateSecRole)  
+-   [Aangepaste beveiligingsrollen maken](#BKMK_CreateSecRole)  
 
--   [Configurer des rôles de sécurité](#BKMK_ConfigSecRole)  
+-   [Beveiligingsrollen configureren](#BKMK_ConfigSecRole)  
 
--   [Configurer des étendues de sécurité pour un objet](#BKMK_ConfigSecScope)  
+-   [Beveiligingsbereiken voor een object configureren](#BKMK_ConfigSecScope)  
 
--   [Configurer des regroupements pour gérer la sécurité](#BKMK_ConfigColl)  
+-   [Verzamelingen voor het beheren van beveiliging configureren](#BKMK_ConfigColl)  
 
--   [Créer un utilisateur administratif](#BKMK_Create_AdminUser)  
+-   [Een nieuwe gebruiker met beheerdersrechten maken](#BKMK_Create_AdminUser)  
 
--   [Modifier l’étendue administrative d’un utilisateur administratif](#BKMK_ModAdminUser)  
+-   [Het beheerbereik van een gebruiker met beheerdersrechten wijzigen](#BKMK_ModAdminUser)  
 
-##  <a name="BKMK_CreateSecRole"></a> Créer des rôles de sécurité personnalisés  
- Configuration Manager fournit plusieurs rôles de sécurité intégrés. Si vous avez besoin de rôles de sécurité supplémentaires, vous pouvez créer un rôle de sécurité personnalisé à l'aide d'une copie d'un rôle de sécurité existant, que vous modifiez par la suite. Vous pouvez créer un rôle de sécurité personnalisé pour accorder aux utilisateurs administratifs les autorisations de sécurité supplémentaires dont ils ont besoin et qui ne figurent pas dans le rôle de sécurité actuellement attribué. Un rôle de sécurité personnalisé permet de leur accorder uniquement les autorisations dont ils ont besoin sans pour autant leur attribuer un rôle de sécurité avec plus d'autorisations que nécessaire.  
+##  <a name="BKMK_CreateSecRole"></a> Aangepaste beveiligingsrollen maken  
+ Configuration Manager biedt diverse ingebouwde beveiligingsrollen. Indien u bijkomende beveiligingsrollen nodig hebt, kunt u een aangepaste beveiligingsrol maken door een kopie te maken van een bestaande beveiligingsrol en dan de kopie te wijzigen. U kunt een aangepaste beveiligingsrol voor het verlenen van gebruikers met beheerdersrechten de bijkomende beveiligingsmachtigingen die ze nodig hebben die niet zijn opgenomen in een huidige, toegewezen beveiligingsrol maken. Door een aangepaste beveiligingsrol te gebruiken, verleent u hen enkel de machtigingen die ze nodig hebben, en vermijdt u een beveiligingsrol toe te wijzen die meer machtigingen verleent dan ze nodig hebben.  
 
- Pour créer un rôle de sécurité à l'aide d'un rôle de sécurité existant en tant que modèle, procédez comme suit.  
+ Gebruik de volgende procedure om een nieuwe beveiligingsrol te maken door gebruik te maken van een bestaande beveiligingsrol als sjabloon.  
 
-#### <a name="to-create-custom-security-roles"></a>Pour créer des rôles de sécurité personnalisés  
+#### <a name="to-create-custom-security-roles"></a>Aangepaste beveiligingsrollen maken  
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
+1.  Ga in de Configuration Manager-console naar **beheer**.  
 
-2.  Dans l’espace de travail **Administration**, développez **Sécurité**, puis choisissez **Rôles de sécurité**.  
+2.  In de **beheer** werkruimte Vouw **beveiliging**, en kies vervolgens **beveiligingsrollen**.  
 
-     Utilisez l'une des procédures suivantes pour créer le rôle de sécurité :  
+     Gebruik één van de volgende processen om de nieuwe beveiligingsrol te maken:  
 
-    -   Pour créer un rôle de sécurité personnalisé, effectuez les actions suivantes :  
+    -   Voer de volgende acties uit om een aangepaste beveiligingsrol te maken:  
 
-        1.  Sélectionnez un rôle de sécurité existant à utiliser comme source pour le nouveau rôle de sécurité.  
+        1.  Selecteer een bestaande beveiligingsrol om die te gebruiken voor de nieuwe beveiligingsrol.  
 
-        2.  Dans l’onglet **Accueil** puis dans le groupe **Rôle de sécurité**, choisissez **Copier**. Vous créez ainsi une copie du rôle de sécurité source.  
+        2.  Op de **Start** tabblad, in de **beveiligingsrol** groep, kiest u **kopie**. Hiermee maakt u een kopie van de bronbeveiligingsrol.  
 
-        3.  Dans l'Assistant Copier le rôle de sécurité, spécifiez un **Nom** pour le nouveau rôle de sécurité personnalisé.  
+        3.  Geef in de wizard Beveiligingsrol kopiëren een **Naam** op voor de nieuwe aangepaste beveiligingsrol.  
 
-        4.  Dans **Attributions d'opérations de sécurité**, développez chaque nœud **Opérations de sécurité** pour afficher les actions disponibles.  
+        4.  Vouw in **Toewijzingen beveiligingsbewerking**het knooppunt **Beveiligingsbewerkingen** uit om de beschikbare acties weer te geven.  
 
-        5.  Pour modifier la configuration d’une opération de sécurité, cliquez sur la flèche vers le bas dans la colonne **Valeur**, puis choisissez **Oui** ou **Non**.  
+        5.  U wijzigt de instelling voor een beveiligingsbewerking, kies de pijl omlaag in de **waarde** kolom en kiest u **Ja** of **Nee**.  
 
             > [!CAUTION]  
-            >  Lorsque vous configurez un rôle de sécurité personnalisé, veillez à ne pas accorder les autorisations dont les utilisateurs administratifs associés à ce nouveau rôle n’ont pas besoin. Par exemple, la valeur **Modifier** pour l’opération de sécurité **Rôles de sécurité** permet aux utilisateurs administratifs de modifier un rôle auquel ils ont accès, même s’ils ne le possèdent pas.  
+            >  Wanneer u een aangepaste beveiligingsrol configureert, moet u ervoor zorgen dat u geen machtigingen die niet zijn vereist voor gebruikers met beheerdersrechten die gekoppeld aan de nieuwe beveiligingsrol zijn. Bijvoorbeeld, de **wijzigen** waarde voor de **beveiligingsrollen** beveiligingsbewerking gebruikers met beheerdersrechten verleent machtigingen om te bewerken van een beschikbare beveiligingsrol – zelfs als ze niet gekoppeld aan deze beveiligingsrol zijn.  
 
-        6.  Après avoir configuré les autorisations, choisissez **OK** pour enregistrer le nouveau rôle de sécurité.  
+        6.  Nadat u de machtigingen configureren, kiest u **OK** om op te slaan van de nieuwe beveiligingsrol.  
 
-    -   Pour importer un rôle de sécurité exporté à partir d’une autre hiérarchie Configuration Manager, effectuez les actions suivantes :  
+    -   Als u wilt importeren in een beveiligingsrol die is geëxporteerd uit een andere Configuration Manager-hiërarchie, kunt u de volgende acties uitvoeren:  
 
-        1.  Dans l’onglet **Accueil** puis dans le groupe **Créer**, choisissez **Importer un rôle de sécurité**.  
+        1.  Op de **Start** tabblad, in de **maken** groep, kiest u **beveiligingsrol importeren**.  
 
-        2.  Spécifiez le fichier .xml qui contient la configuration du rôle de sécurité que vous souhaitez importer. Choisissez **Ouvrir** pour terminer la procédure et enregistrer le rôle de sécurité.  
+        2.  Geef het .xml-bestand met de configuratie van de beveiligingsrol die u wilt importeren. Kies **Open** voert u de procedure en opslaan van de beveiligingsrol.  
 
             > [!NOTE]  
-            >  Après avoir importé un rôle de sécurité, vous pouvez en modifier les propriétés pour changer les autorisations d'objet associées au rôle de sécurité.  
+            >  Nadat u een beveiligingsrol importeert, kunt u de eigenschappen van de beveiligingsrol bewerken om de objectmachtigingen te wijzigen die zijn gekoppeld aan de beveiligingsrol.  
 
-##  <a name="BKMK_ConfigSecRole"></a> Configurer des rôles de sécurité  
- Les groupes d'autorisations de sécurité définis pour un rôle de sécurité sont appelés des attributions d'opérations de sécurité. Les attributions d'opérations de sécurité représentent une association de types d'objet et d'actions disponibles pour chaque type d'objet. Vous pouvez modifier les opérations de sécurité disponibles pour un rôle de sécurité personnalisé, mais pas modifier les rôles de sécurité prédéfinis par Configuration Manager.  
+##  <a name="BKMK_ConfigSecRole"></a> Beveiligingsrollen configureren  
+ De groepen van beveiligingsmachtiging die gedefinieerd zijn voor een beveiligingsmachtigingen worden beveiligingsbewerkingstoewijzingen genoemd. Beveiligingsbewerkingstoewijzingen vertegenwoordigen een combinatie van objecttypes en -acties die beschikbaar zijn voor elk type object. U kunt wijzigen welke beveiligingsbewerkingen beschikbaar zijn voor een aangepaste beveiligingsrol, maar u kunt de ingebouwde beveiligingsrollen waarmee Configuration Manager niet wijzigen.  
 
- Utilisez la procédure suivante pour modifier les opérations de sécurité pour un rôle de sécurité.  
+ Gebruik de volgende procedure om de beveiligingsbewerkingen te wijzigen voor een beveiligingsrol.  
 
-#### <a name="to-modify-security-roles"></a>Pour modifier des rôles de sécurité  
+#### <a name="to-modify-security-roles"></a>Beveiligingsrollen wijzigen  
 
-1.  Dans la console Configuration Manager, choisissez **Administration**.  
+1.  Kies in de Configuration Manager-console **beheer**.  
 
-2.  Dans l’espace de travail **Administration**, développez **Sécurité**, puis choisissez **Rôles de sécurité**.  
+2.  In de **beheer** werkruimte Vouw **beveiliging**, en kies vervolgens **beveiligingsrollen**.  
 
-3.  Sélectionnez le rôle de sécurité personnalisé à modifier.  
+3.  Selecteer de aangepaste beveiligingsrol die u wilt wijzigen.  
 
-4.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+4.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
 
-5.  Choisissez l’onglet **Autorisations**.  
+5.  Kies de **machtigingen** tabblad.  
 
-6.  Dans **Attributions d'opérations de sécurité**, développez chaque nœud **Opérations de sécurité** pour afficher les actions disponibles.  
+6.  Vouw in **Toewijzingen beveiligingsbewerking**het knooppunt **Beveiligingsbewerkingen** uit om de beschikbare acties weer te geven.  
 
-7.  Pour modifier la configuration d’une opération de sécurité, cliquez sur la flèche vers le bas dans la colonne **Valeur**, puis choisissez **Oui** ou **Non**.  
+7.  U wijzigt de instelling voor een beveiligingsbewerking, kies de pijl omlaag in de **waarde** kolom, en kies vervolgens een **Ja** of **Nee**.  
 
     > [!CAUTION]  
-    >  Lorsque vous configurez un rôle de sécurité personnalisé, veillez à ne pas accorder les autorisations dont les utilisateurs administratifs associés à ce nouveau rôle n’ont pas besoin. Par exemple, la valeur **Modifier** pour l’opération de sécurité **Rôles de sécurité** permet aux utilisateurs administratifs de modifier un rôle auquel ils ont accès, même s’ils ne le possèdent pas.  
+    >  Wanneer u een aangepaste beveiligingsrol configureert, moet u ervoor zorgen dat u geen machtigingen die niet zijn vereist voor gebruikers met beheerdersrechten die gekoppeld aan de nieuwe beveiligingsrol zijn. Bijvoorbeeld, de **wijzigen** waarde voor de **beveiligingsrollen** beveiligingsbewerking gebruikers met beheerdersrechten verleent machtigingen om te bewerken van een beschikbare beveiligingsrol – zelfs als ze niet gekoppeld aan deze beveiligingsrol zijn.  
 
-8.  Après avoir terminé la configuration des attributions de l’opération de sécurité, choisissez **OK** pour enregistrer le nouveau rôle de sécurité.  
+8.  Wanneer u klaar bent met het configureren van beveiligingsbewerkingstoewijzingen, kiezen **OK** om op te slaan van de nieuwe beveiligingsrol.  
 
-##  <a name="BKMK_ConfigSecScope"></a> Configurer des étendues de sécurité pour un objet  
- L’association d’une étendue de sécurité à un objet est gérée à partir de l’objet et non à partir de l’étendue de sécurité. Les seules configurations directes prises en charge par l'étendue de sécurité sont les modifications apportées à son nom et à sa description. Pour modifier le nom et la description d'une étendue de sécurité lorsque vous affichez les propriétés d'étendue de sécurité, vous devez disposer de l'autorisation **Modifier** pour l'objet sécurisable **Étendues de sécurité** .  
+##  <a name="BKMK_ConfigSecScope"></a> Beveiligingsbereiken voor een object configureren  
+ Bij het beheren van de koppeling van een beveiligingsbereik voor een object van het object: niet van het beveiligingsbereik. De enige directe configuraties die beveiligingsbereiken ondersteunen zijn wijzigingen aan zijn naam en beschrijving. Om de naam en beschrijving van een beveiligingsbereik te wijzigen wanneer u de eigenschappen van het beveiligingsbereik ziet, moet u de **Wijzig** -machtiging hebben voor het met **Beveiligingsbereiken** te beveiligen object.  
 
- Quand vous créez un objet dans Configuration Manager, il est associé à chaque étendue de sécurité qui est associée aux rôles de sécurité du compte utilisé pour créer l’objet, si ces rôles de sécurité accordent l’autorisation **Créer** ou **Définir l’étendue de sécurité**. Une fois l’objet créé, vous ne pouvez modifier que les étendues de sécurité qui lui sont associées.  
+ Wanneer u een nieuw object in Configuration Manager maakt, het nieuwe object is gekoppeld aan elke beveiligingsrol die is gekoppeld aan de beveiligingsrollen van de account die wordt gebruikt voor het maken van het object – wanneer deze beveiligingsrollen bieden de **maken** machtiging of **beveiligingsbereik instellen** machtiging. De beveiligingsbereiken die het object is gekoppeld aan nadat deze gemaakt, kunt u alleen wijzigen.  
 
- Par exemple, un rôle de sécurité accordant l’autorisation de créer un groupe de limites vous est attribué. Lorsque vous créez un groupe de limites, vous n’avez aucune option à laquelle attribuer des étendues de sécurité spécifiques. En revanche, les étendues de sécurité disponibles à partir des rôles de sécurité qui vous sont associés sont attribuées automatiquement au nouveau groupe de limites. Après l’enregistrement du nouveau groupe de limites, vous pouvez modifier les étendues de sécurité qui lui sont associées.  
+ Als u bijvoorbeeld krijgt u een beveiligingsrol die u machtiging verleent voor het maken van een nieuwe grensgroep. Wanneer u een nieuwe grensgroep maakt, hebt u geen optie die u kunt specifieke beveiligingsbereiken toewijzen. In plaats daarvan worden de beveiligingsbereiken die beschikbaar zijn vanuit de beveiligingsrollen die zijn gekoppeld, automatisch toegewezen aan de nieuwe grensgroep. Nadat u de nieuwe grensgroep opslaat, kunt u de beveiligingsbereiken die gekoppeld aan de nieuwe grensgroep zijn bewerken.  
 
- Utilisez la procédure suivante pour configurer les étendues de sécurité attribuées à un objet.  
+ Gebruik de volgende procedure voor het configureren van de beveiligingsbereiken die zijn toegewezen aan een object.  
 
-#### <a name="to-configure-security-scopes-for-an-object"></a>Pour configurer des étendues de sécurité pour un objet  
+#### <a name="to-configure-security-scopes-for-an-object"></a>Beveiligingsbereiken voor een object configureren  
 
-1.  Dans la console Configuration Manager, sélectionnez un objet qui autorise l’attribution à une étendue de sécurité.  
+1.  Selecteer een object dat wordt toegewezen aan een beveiligingsbereik ondersteunt in de Configuration Manager-console.  
 
-2.  Dans l’onglet **Accueil** puis dans le groupe **Classer**, choisissez **Définir des étendues de sécurité**.  
+2.  Op de **Start** tabblad, in de **classificeren** groep, kiest u **Beveiligingsbereiken instellen**.  
 
-3.  Dans la boîte de dialogue **Définir des étendues de sécurité** , activez ou désactivez les étendues de sécurité auxquelles cet objet est associé. Chaque objet prenant en charge des étendues de sécurité doit être attribué à une étendue de sécurité au moins.  
+3.  Selecteer of wis de beveiligingsbereiken waarmee dit object is gekoppeld in het dialoogvenster **Beveiligingsbereiken instellen** . Elk object dat beveiligingsbereiken ondersteunt, moet toegewezen zijn aan minstens één beveiligingsbereik.  
 
-4.  Choisissez **OK** pour enregistrer les étendues de sécurité attribuées.  
-
-    > [!NOTE]  
-    >  Lorsque vous créez un objet, vous pouvez l'attribuer à plusieurs étendues de sécurité. Pour modifier le nombre d’étendues de sécurité associées à l’objet, vous devez effectuer cette opération une fois l’objet créé.  
-
-##  <a name="BKMK_ConfigColl"></a> Configurer des regroupements pour gérer la sécurité  
- Aucune procédure de configuration de regroupements n'est disponible pour l'administration basée sur des rôles. Il n’existe pas de configuration d’administration basée sur des rôles pour les regroupements. Vous attribuez des regroupements à un utilisateur administratif lorsque vous le configurez. Les opérations de sécurité de regroupement qui sont activées dans les rôles de sécurité attribués aux utilisateurs déterminent les autorisations d’un utilisateur administratif sur les regroupements et les ressources de ces derniers (leurs membres).  
-
- Lorsqu'un utilisateur administratif dispose d'autorisations sur un regroupement, il dispose également d'autorisations sur des regroupements limités à ce regroupement. Par exemple, votre organisation utilise un regroupement nommé Tous les postes de travail, et il existe un regroupement nommé Tous les bureaux en Amérique du Nord qui est limité au regroupement Tous les postes de travail. Si un utilisateur administratif dispose des autorisations sur Tous les postes de travail, il dispose également des mêmes autorisations sur le regroupement Tous les bureaux en Amérique du Nord.
-
- En outre, un utilisateur administratif ne peut pas utiliser l’autorisation **Supprimer** ou **Modifier** sur un regroupement qui lui est attribué directement. Mais il peut utiliser ces autorisations sur les regroupements limités à ce regroupement. Dans l’exemple précédent, l’utilisateur administratif peut supprimer ou modifier le regroupement Tous les bureaux en Amérique du Nord, mais pas supprimer ou modifier le regroupement Tous les postes de travail.  
-
-##  <a name="BKMK_Create_AdminUser"></a> Créer un utilisateur administratif  
- Pour accorder aux personnes ou aux membres d’un groupe de sécurité l’accès pour gérer Configuration Manager, créez un utilisateur administratif dans Configuration Manager et spécifiez le compte Windows de l’utilisateur ou du groupe d’utilisateurs. Au moins un rôle de sécurité et une étendue de sécurité doivent être attribués à chaque utilisateur administratif dans Configuration Manager. Vous pouvez également attribuer des regroupements pour limiter l'étendue administrative de l'utilisateur administratif.  
-
- Utilisez les procédures suivantes pour créer de nouveaux utilisateurs administratifs.  
-
-#### <a name="to-create-a-new-administrative-user"></a>Pour créer un nouvel utilisateur administratif  
-
-1.  Dans la console Configuration Manager, choisissez **Administration**.  
-
-2.  Dans l’espace de travail **Administration**, développez **Sécurité**, puis choisissez **Utilisateurs administratifs**.  
-
-3.  Dans l’onglet **Accueil** puis dans le groupe **Créer**, choisissez **Ajouter un utilisateur ou un groupe**.  
-
-4.  Choisissez **Parcourir**, puis sélectionnez le compte d’utilisateur ou le groupe à utiliser pour le nouvel utilisateur administratif.  
+4.  Kies **OK** om op te slaan van de toegewezen beveiligingsbereiken.  
 
     > [!NOTE]  
-    >  Pour l'administration basée sur la console, seuls les utilisateurs du domaine ou les groupes de sécurité peuvent devenir des utilisateurs administratifs.  
+    >  Wanneer u een nieuw object maakt, moet u het object toewijzen aan verschillende beveiligingsbereiken. Voor het wijzigen van het aantal beveiligingsbereiken die gekoppeld aan het object zijn, moet u deze toewijzing wijzigen nadat het object is gemaakt.  
 
-5.  Dans **Associated security roles (Rôles de sécurité associés)**, choisissez **Ajouter** pour ouvrir la liste des rôles de sécurité disponibles, activez la case à cocher d’un ou de plusieurs rôles de sécurité, puis choisissez **OK**.  
+##  <a name="BKMK_ConfigColl"></a> Verzamelingen voor het beheren van beveiliging configureren  
+ Er zijn geen procedures voor het configureren van verzamelingen voor rolgebaseerd beheer. Verzamelingen beschikt niet over de configuratie van een op rollen gebaseerd beheer. In plaats daarvan, wijst u verzamelingen aan een gebruiker met beheerdersrechten bij het configureren van de gebruiker met beheerdersrechten. De verzameling beveiligingsbewerkingen die zijn ingeschakeld op de gebruiker toegewezen beveiligingsrollen bepalen de machtigingen die een gebruiker met beheerdersrechten voor verzamelingen en verzamelingbronnen (verzamelingsleden heeft).  
 
-6.  Sélectionnez l’une des deux options suivantes pour définir le comportement de l’objet sécurisable pour le nouvel utilisateur :  
+ Wanneer een gebruiker met beheerdersrechten machtigingen heeft voor een verzameling, heeft hij ook machtigingen voor verzamelingen die beperkt zijn tot deze verzameling. Als u bijvoorbeeld uw organisatie gebruikmaakt van een verzameling met de naam alle bureaubladen en er is een verzameling met de naam alle bureaubladen van Noord-Amerika die is beperkt tot de verzameling alle bureaubladen. Indien een gebruiker met beheerdersrechten machtigingen heeft tot Alle bureaubladen, hebben ze ook dezelfde machtigingen tot de verzameling Alle bureaubladen van Noord-Amerika.
 
-    -   **Tous les objets sécurisables pertinents pour les rôles de sécurité auxquels ils sont associés** : cette option associe l’utilisateur administratif à l’étendue de sécurité **Tout** ainsi qu’aux regroupements intégrés de niveau racine pour **Tous les systèmes** et **Tous les utilisateurs et groupes d’utilisateurs**. Les rôles de sécurité attribués à l'utilisateur définissent l'accès aux objets. Les nouveaux objets créés par cet utilisateur administratif sont attribués à l'étendue de sécurité **Par défaut** .  
+ Bovendien een gebruiker met beheerdersrechten kan niet via de **verwijderen** of **wijzigen** toegang tot een verzameling die rechtstreeks aan hen is toegewezen. Maar ze kunnen deze machtigingen gebruiken op de verzamelingen die beperkt tot deze verzameling zijn. In het vorige voorbeeld wordt de gebruiker met beheerdersrechten kunt verwijderen of wijzigen van de verzameling alle bureaubladen van Noord-Amerika, maar ze niet verwijderen of wijzigen van de verzameling alle bureaubladen.  
 
-    -   **Only securable objects in specified security scopes or collections (Seuls les objets sécurisables dans les étendues de sécurité ou les regroupements spécifiés)** : par défaut, cette option associe l’utilisateur administratif à l’étendue de sécurité **Par défaut**, ainsi qu’aux regroupements **Tous les systèmes** et **Tous les utilisateurs et groupes d’utilisateurs**. Toutefois, les étendues de sécurité et les regroupements réels sont limités à ceux qui sont associés au compte que vous avez utilisé pour créer le nouvel utilisateur administratif. Cette option prend en charge l'ajout ou la suppression d'étendues de sécurité et de regroupements pour personnaliser l'étendue administrative de l'utilisateur administratif.  
+##  <a name="BKMK_Create_AdminUser"></a> Een nieuwe gebruiker met beheerdersrechten maken  
+ Maken van een gebruiker met beheerdersrechten in Configuration Manager wilt verlenen aan individuen of leden van een groep beveiligingstoegang voor het beheren van Configuration Manager, en geef de Windows-account van de gebruiker of gebruikersgroep. Elke gebruiker met beheerdersrechten in Configuration Manager moet ten minste één beveiligingsrol en één beveiligingsbereik worden toegewezen. U kunt tevens verzamelingen toewijzen om het beheerbereik van de gebruiker met beheerdersrechten te beperken.  
+
+ Gebruik de volgende procedures om nieuwe gebruikers met beheerdersrechten te maken.  
+
+#### <a name="to-create-a-new-administrative-user"></a>Maken van een nieuwe gebruiker met beheerdersrechten  
+
+1.  Kies in de Configuration Manager-console **beheer**.  
+
+2.  In de **beheer** werkruimte Vouw **beveiliging**, en kies vervolgens **gebruikers met beheerdersrechten**.  
+
+3.  Op de **Start** tabblad, in de **maken** groep, kiest u **gebruiker of groep toevoegen**.  
+
+4.  Kies **Bladeren**, en selecteer vervolgens het gebruikersaccount of de groep voor deze nieuwe gebruiker met beheerdersrechten.  
+
+    > [!NOTE]  
+    >  Bij beheer via de console kunnen alleen domeingebruikers of beveiligingsgroepen worden gespecificeerd als een gebruiker met beheerdersrechten.  
+
+5.  Voor **beveiligingsrollen die zijn gekoppeld**, kies **toevoegen** voor een lijst van de beschikbare beveiligingsrollen, schakel het selectievakje voor een of meer beveiligingsrollen en kies vervolgens **OK**.  
+
+6.  Kies een van de volgende twee opties voor het definiëren van het gedrag van het beveiligbare object voor de nieuwe gebruiker:  
+
+    -   **Alle beveiligbare objecten die relevant voor hun gekoppelde beveiligingsrollen zijn**: Deze optie koppelt de gebruiker met beheerdersrechten de **alle** beveiligingsbereik en de op basisniveau ingebouwde verzamelingen voor **alle systemen** en **alle gebruikers en gebruikersgroepen**. De aan de gebruiker toegewezen beveiligingsrollen definiëren de toegang tot objecten. Nieuwe objecten die door deze gebruiker met beheerdersrechten worden gemaakt, worden toegewezen aan het beveiligingsbereik **Standaard** .  
+
+    -   **Alleen beveiligbare objecten in gespecificeerde beveiligingsbereiken of verzamelingen**: Standaard deze optie koppelt de gebruiker met beheerdersrechten de **standaard** beveiligingsbereik, en de **alle systemen** en **alle gebruikers en gebruikersgroepen** verzamelingen. De werkelijke beveiligingsbereiken en verzamelingen zijn echter beperkt tot die welke gekoppeld zijn aan het account dat u hebt gebruikt om de nieuwe gebruiker met beheerdersrechten te maken. Deze optie ondersteunt het toevoegen of verwijderen van beveiligingsbereiken en verzamelingen om het beheerbereik van de gebruiker met beheerdersrechten aan te passen.  
 
     > [!IMPORTANT]  
-    >  Les options précédentes associent chaque étendue de sécurité et chaque regroupement attribués, à chaque rôle de sécurité attribué à l’utilisateur administratif. Vous pouvez utiliser une troisième option, **Seuls les objets sécurisables définis par les rôles de sécurité de l’utilisateur administratif**, pour associer des rôles de sécurité individuellement à des étendues de sécurité et des regroupements spécifiques. Cette troisième option est disponible après la création du nouvel utilisateur administratif, lorsque vous modifiez l'utilisateur administratif.  
+    >  De voorgaande opties koppelen elk toegewezen beveiligingsbereik en verzameling aan elke beveiligingsrol die is toegewezen aan de gebruiker met beheerdersrechten. U kunt een derde optie **alleen beveiligbare objecten zoals bepaald door de beveiligingsrollen van de gebruiker met beheerdersrechten**, om individuele beveiligingsrollen aan specifieke beveiligingsbereiken en verzamelingen te koppelen. Deze derde optie is beschikbaar nadat u de nieuwe gebruiker met beheerdersrechten maakt, wanneer u de gebruiker met beheerdersrechten wijzigt.  
 
-7.  Selon l'option sélectionnée à l'étape 6, effectuez l'action suivante :  
+7.  Voer, afhankelijk van uw selectie in stap 6, de volgende handeling uit:  
 
-    -   Si vous avez sélectionné **Tous les objets sécurisables pertinents pour les rôles de sécurité auxquels ils sont associés**, choisissez **OK** pour terminer cette procédure.  
+    -   Als u hebt geselecteerd **alle beveiligbare objecten die relevant voor hun gekoppelde beveiligingsrollen zijn**, kies **OK** om deze procedure te voltooien.  
 
-    -   Si vous avez sélectionné **Seuls les objets sécurisables dans des étendues de sécurité ou des regroupements spécifiés**, choisissez **Ajouter** pour sélectionner des regroupements et des étendues de sécurité supplémentaires. Vous pouvez également sélectionner un ou plusieurs objets dans la liste, puis choisir **Supprimer** pour les supprimer. Choisissez **OK** pour terminer cette procédure.  
+    -   Als u hebt geselecteerd **alleen beveiligbare objecten in gespecificeerde beveiligingsbereiken of verzamelingen**, kunt u **toevoegen** aanvullende verzamelingen en beveiligingsrollen te selecteren. Of Selecteer een of meer objecten in de lijst en kies vervolgens **verwijderen** om ze te verwijderen. Kies **OK** om deze procedure te voltooien.  
 
-##  <a name="BKMK_ModAdminUser"></a> Modifier l’étendue administrative d’un utilisateur administratif  
- Vous pouvez modifier l'étendue administrative d'un utilisateur administratif en ajoutant ou en supprimant des rôles de sécurité, des étendues de sécurité et des regroupements associés à l'utilisateur. Chaque utilisateur administratif doit être associé à au moins un rôle de sécurité et une étendue de sécurité. Vous devrez peut-être affecter un ou plusieurs regroupements à l'étendue administrative de l'utilisateur. La plupart des rôles de sécurité interagissent avec les regroupements et ne fonctionnent pas correctement sans regroupement attribué.  
+##  <a name="BKMK_ModAdminUser"></a> Het beheerbereik van een gebruiker met beheerdersrechten wijzigen  
+ U kunt het beheerbereik van een gebruiker met beheerdersrechten wijzigen door beveiligingsrollen, beveiligingsbereiken, en verzamelingen die aan de gebruiker gekoppeld zijn, toe te voegen of te verwijderen. Aan elke gebruiker met beheerdersrechten moet minimaal één beveiligingsrol en één beveiligingsbereik zijn gekoppeld. Mogelijk moet u één of meer verzamelingen aan het beheerbereik van de gebruiker toewijzen. De meeste beveiligingsrollen communiceren met verzamelingen en werken goed zonder een toegewezen verzameling niet.  
 
- Lorsque vous modifiez un utilisateur administratif, vous pouvez modifier le comportement des objets sécurisables au niveau de leur association avec les rôles de sécurité attribués. Les trois comportements que vous pouvez sélectionner sont les suivants :  
+ Wanneer u een gebruiker met beheerdersrechten wijzigt, kunt u het gedrag wijzigen voor hoe beveiligbare objecten zijn gekoppeld aan de toegewezen beveiligingsrollen. Dit zijn de drie soorten gedrag die u kunt selecteren:  
 
--   **Tous les objets sécurisables pertinents pour les rôles de sécurité auxquels ils sont associés** : cette option associe l’utilisateur administratif à l’étendue **Tout** ainsi qu’aux regroupements intégrés de niveau racine pour **Tous les systèmes** et **Tous les utilisateurs et groupes d’utilisateurs**. Les rôles de sécurité attribués à l'utilisateur définissent l'accès aux objets.  
+-   **Alle beveiligbare objecten die relevant voor hun gekoppelde beveiligingsrollen zijn**: Deze optie koppelt de gebruiker met beheerdersrechten de **alle** bereik en de op basisniveau ingebouwde verzamelingen voor niveau **alle systemen** en **alle gebruikers en gebruikersgroepen**. De aan de gebruiker toegewezen beveiligingsrollen definiëren de toegang tot objecten.  
 
--   **Seuls les objets sécurisables dans les étendues de sécurité ou les regroupements spécifiés**: cette option associe l’utilisateur administratif aux mêmes étendues de sécurité et regroupements qui sont associés au compte que vous utilisez pour configurer l’utilisateur administratif. Cette option prend en charge l'ajout ou la suppression de rôles de sécurité et de regroupements pour personnaliser l'étendue administrative de l'utilisateur administratif.  
+-   **Alleen beveiligbare objecten in gespecificeerde beveiligingsbereiken of verzamelingen**: Deze optie koppelt de gebruiker met beheerdersrechten aan dezelfde beveiligingsbereiken en verzamelingen die gekoppeld aan het account dat u gebruikt zijn voor het configureren van de gebruiker met beheerdersrechten. Deze optie ondersteunt het toevoegen of verwijderen van beveiligingsrollen en verzamelingen om het beheerbereik van de gebruiker met beheerdersrechten aan te passen.  
 
--   **Seuls les objets sécurisables définis par les rôles de sécurité de l’utilisateur administratif**: cette option permet de créer des associations spécifiées entre des rôles de sécurité individuels et des étendues de sécurité et regroupements spécifiques pour l’utilisateur.  
-
-    > [!NOTE]  
-    >  Cette option est disponible uniquement lorsque vous modifiez les propriétés d'un utilisateur administratif.  
-
-La configuration actuelle du comportement de l'objet sécurisable modifie le processus qui vous permet d'attribuer des rôles de sécurité supplémentaires. Utilisez les procédures suivantes, basées sur les différentes options des objets sécurisables, pour vous aider à gérer un utilisateur administratif.  
-
-Utilisez la procédure suivante pour afficher et gérer la configuration des objets sécurisables pour un utilisateur administratif.  
-
-#### <a name="to-view-and-manage-the-securable-object-behavior-for-an-administrative-user"></a>Pour afficher et gérer le comportement de l'objet sécurisable pour un utilisateur administratif  
-
-1.  Dans la console Configuration Manager, choisissez **Administration**.  
-
-2.  Dans l’espace de travail **Administration**, développez **Sécurité**, puis choisissez **Utilisateurs administratifs**.  
-
-3.  Sélectionnez l'utilisateur administratif à modifier.  
-
-4.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
-
-5.  Choisissez l’onglet **Étendues de sécurité** pour afficher la configuration actuelle des objets sécurisables de cet utilisateur administratif.  
-
-6.  Pour modifier le comportement de l'objet sécurisable, sélectionnez une nouvelle option pour le comportement de l'objet sécurisable. Après avoir modifié cette configuration, consultez la procédure appropriée pour obtenir des instructions supplémentaires sur la configuration des étendues de sécurité et des regroupements ainsi que des rôles de sécurité pour cet utilisateur administratif.  
-
-7.  Choisissez **OK** pour terminer la procédure.  
-
-Utilisez la procédure suivante pour modifier un utilisateur administratif dont le comportement de l’objet sécurisable est **Tous les objets sécurisables pertinents pour les rôles de sécurité auxquels ils sont associés**.  
-
-#### <a name="for-option-all-securable-objects-that-are-relevant-to-their-associated-security-roles"></a>Pour l’option : Tous les objets sécurisables pertinents pour les rôles de sécurité auxquels ils sont associés  
-
-1.  Dans la console Configuration Manager, choisissez **Administration**.  
-
-2.  Dans l’espace de travail **Administration**, développez **Sécurité**, puis choisissez **Utilisateurs administratifs**.  
-
-3.  Sélectionnez l'utilisateur administratif à modifier.  
-
-4.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
-
-5.  Cliquez sur l’onglet **Étendues de sécurité** afin de confirmer que l’utilisateur administratif est configuré pour **Tous les objets sécurisables pertinents pour les rôles de sécurité auxquels ils sont associés**.  
-
-6.  Pour modifier les rôles de sécurité attribués, choisissez l’onglet **Rôles de sécurité**.  
-
-    -   Pour attribuer des rôles de sécurité supplémentaires à cet utilisateur administratif, choisissez **Ajouter**, activez la case à cocher de chaque rôle de sécurité supplémentaire que vous souhaitez attribuer, puis choisissez **OK**.  
-
-    -   Pour supprimer des rôles de sécurité, sélectionnez-en un ou plusieurs dans la liste, puis choisissez **Supprimer**.  
-
-7.  Pour modifier le comportement de l’objet sécurisable, choisissez l’onglet **Étendues de sécurité** et sélectionnez une nouvelle option pour le comportement de l’objet sécurisable. Après avoir modifié cette configuration, consultez la procédure appropriée pour obtenir des instructions supplémentaires sur la configuration des étendues de sécurité et des regroupements ainsi que des rôles de sécurité pour cet utilisateur administratif.  
+-   **Alleen beveiligbare objecten zoals bepaald door de beveiligingsrollen van de gebruiker met beheerdersrechten**: Deze optie kunt u specifieke koppelingen tussen individuele beveiligingsrollen en specifieke beveiligingsbereiken en verzamelingen voor de gebruiker.  
 
     > [!NOTE]  
-    >  Lorsque le comportement de l’objet sécurisable est **Tous les objets sécurisables pertinents pour les rôles de sécurité auxquels ils sont associés**, vous ne pouvez ni ajouter ni supprimer d’étendues de sécurité ou de regroupements.  
+    >  Deze optie is alleen beschikbaar wanneer u de eigenschappen van een gebruiker met beheerdersrechten wijzigt.  
 
-8.  Choisissez **OK** pour terminer cette procédure.  
+De huidige configuratie voor het gedrag van het beveiligbare object verandert het proces dat u gebruikt om aanvullende beveiligingsrollen toe te wijzen. Gebruik de volgende procedures die gebaseerd zijn op de verschillende opties voor beveiligbare objecten om u te helpen een gebruiker met beheerdersrechten te beheren.  
 
-Utilisez la procédure suivante pour modifier un utilisateur administratif pour lequel le comportement de l'objet sécurisable est paramétré sur **Seuls les objets sécurisables dans des étendues de sécurité ou des regroupements spécifiés**.  
+Gebruik de volgende procedure om te bekijken en beheren van de configuratie voor beveiligbare objecten voor een gebruiker met beheerdersrechten.  
 
-#### <a name="for-option-only-securable-objects-in-specified-security-scopes-or-collections"></a>Pour l’option : Seuls les objets sécurisables dans des étendues de sécurité ou des regroupements spécifiés  
+#### <a name="to-view-and-manage-the-securable-object-behavior-for-an-administrative-user"></a>Bekijken en beheren van het gedrag van een beveiligbaar object voor een gebruiker met beheerdersrechten  
 
-1.  Dans la console Configuration Manager, choisissez **Administration**.  
+1.  Kies in de Configuration Manager-console **beheer**.  
 
-2.  Dans l’espace de travail **Administration**, développez **Sécurité**, puis choisissez **Utilisateurs administratifs**.  
+2.  In de **beheer** werkruimte Vouw **beveiliging**, en kies vervolgens **gebruikers met beheerdersrechten**.  
 
-3.  Sélectionnez l'utilisateur administratif à modifier.  
+3.  Selecteer de gebruiker met beheerdersrechten die u wilt wijzigen.  
 
-4.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+4.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
 
-5.  Choisissez l’onglet **Étendues de sécurité** afin de confirmer que l’utilisateur est configuré pour **Seuls les objets sécurisables dans des étendues de sécurité ou des regroupements spécifiés**.  
+5.  Kies de **Beveiligingsbereiken** tabblad om de huidige configuratie voor beveiligbare objecten voor deze gebruiker met beheerdersrechten.  
 
-6.  Pour modifier les rôles de sécurité attribués, choisissez l’onglet **Rôles de sécurité**.  
+6.  Om het gedrag van een beveiligbaar object te wijzigen, selecteert u een nieuwe optie voor het gedrag van een beveiligbaar object. Nadat u deze configuratie wijzigen, raadpleegt u de juiste procedure voor verdere richtlijnen voor het configureren van beveiligingsbereiken en verzamelingen en beveiligingsrollen voor deze gebruiker met beheerdersrechten.  
 
-    -   Pour attribuer des rôles de sécurité supplémentaires à cet utilisateur, choisissez **Ajouter**, activez la case à cocher de chaque rôle de sécurité supplémentaire que vous souhaitez attribuer, puis choisissez **OK**.  
+7.  Kies **OK** om de procedure te voltooien.  
 
-    -   Pour supprimer des rôles de sécurité, sélectionnez-en un ou plusieurs dans la liste, puis choisissez **Supprimer**.  
+De volgende procedure gebruiken om te wijzigen van een gebruiker met beheerdersrechten die het gedrag van het beveiligbare object ingesteld op heeft **alle beveiligbare objecten die relevant voor hun gekoppelde beveiligingsrollen zijn**.  
 
-7.  Pour modifier les étendues de sécurité et les regroupements associés aux rôles de sécurité, choisissez l’onglet **Étendues de sécurité**.  
+#### <a name="for-option-all-securable-objects-that-are-relevant-to-their-associated-security-roles"></a>Voor de optie: Alle beveiligbare objecten die relevant voor hun gekoppelde beveiligingsrollen zijn  
 
-    -   Pour associer de nouvelles étendues de sécurité ou de nouveaux regroupements à tous les rôles de sécurité attribués à cet utilisateur administratif, choisissez **Ajouter** et sélectionnez l’une des quatre options. Si vous sélectionnez **Étendue de sécurité** ou **Regroupement**, activez la case à cocher d’un ou de plusieurs objets pour terminer cette sélection, puis choisissez **OK**.  
+1.  Kies in de Configuration Manager-console **beheer**.  
 
-    -   Pour supprimer une étendue de sécurité ou un regroupement, sélectionnez l’objet puis choisissez **Supprimer**.  
+2.  In de **beheer** werkruimte Vouw **beveiliging**, en kies vervolgens **gebruikers met beheerdersrechten**.  
 
-8.  Choisissez **OK** pour terminer cette procédure.  
+3.  Selecteer de gebruiker met beheerdersrechten die u wilt wijzigen.  
 
-Utilisez la procédure suivante pour modifier un utilisateur administratif pour lequel le comportement de l'objet sécurisable est paramétré sur **Seuls les objets sécurisables déterminés par les rôles de sécurité de l'utilisateur administratif**.  
+4.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
 
-#### <a name="for-option-only-securable-objects-as-determined-by-the-security-roles-of-the-administrative-user"></a>Pour l’option : Seuls les objets sécurisables déterminés par les rôles de sécurité de l’utilisateur administratif  
+5.  Kies de **Beveiligingsbereiken** tab om te bevestigen dat de gebruiker met beheerdersrechten geconfigureerd is voor **alle beveiligbare objecten die relevant voor hun gekoppelde beveiligingsrollen zijn**.  
 
-1.  Dans la console Configuration Manager, choisissez **Administration**.  
+6.  Voor het wijzigen van de toegewezen beveiligingsrollen, kies de **beveiligingsrollen** tabblad.  
 
-2.  Dans l’espace de travail **Administration**, développez **Sécurité**, puis choisissez **Utilisateurs administratifs**.  
+    -   Om aanvullende beveiligingsrollen aan deze gebruiker met beheerdersrechten toewijzen, kies **toevoegen**, schakel het selectievakje voor elke aanvullende beveiligingsrol die u wilt toewijzen, en kies vervolgens **OK**.  
 
-3.  Sélectionnez l'utilisateur administratif à modifier.  
+    -   Om beveiligingsrollen te verwijderen, selecteert u een of meer beveiligingsrollen uit de lijst en kies vervolgens **verwijderen**.  
 
-4.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+7.  Voor het wijzigen van het gedrag van het beveiligbare object, kies de **Beveiligingsbereiken** tabblad en kiest u een nieuwe optie voor het gedrag van het beveiligbare object. Nadat u deze configuratie wijzigen, raadpleegt u de juiste procedure voor verdere richtlijnen voor het configureren van beveiligingsbereiken en verzamelingen en beveiligingsrollen voor deze gebruiker met beheerdersrechten.  
 
-5.  Choisissez l’onglet **Étendues de sécurité** afin de confirmer que l’utilisateur administratif est configuré pour **Seuls les objets sécurisables dans des étendues de sécurité ou des regroupements spécifiés**.  
+    > [!NOTE]  
+    >  Wanneer het gedrag van het beveiligbare object is ingesteld op **alle beveiligbare objecten die relevant voor hun gekoppelde beveiligingsrollen zijn**, kunt u toevoegen of verwijderen van specifieke beveiligingsbereiken en verzamelingen.  
 
-6.  Pour modifier les rôles de sécurité attribués, choisissez l’onglet **Rôles de sécurité**.  
+8.  Kies **OK** om deze procedure te voltooien.  
 
-    -   Pour attribuer des rôles de sécurité supplémentaires à cet utilisateur administratif, choisissez **Ajouter**. Dans la boîte de dialogue **Ajouter un rôle de sécurité**, sélectionnez un ou plusieurs rôles de sécurité disponibles, choisissez **Ajouter**, puis sélectionnez un type d’objet à associer aux rôles de sécurité sélectionnés. Si vous sélectionnez **Étendue de sécurité** ou **Regroupement**, activez la case à cocher d’un ou de plusieurs objets pour terminer cette sélection, puis choisissez **OK**.  
+Gebruik de volgende procedure om een gebruiker met beheerdersrechten te wijzigen voor wie het gedrag van beveiligbare objecten op **Alleen beveiligbare objecten in gespecificeerde beveiligingsbereiken of verzamelingen**is ingesteld:  
+
+#### <a name="for-option-only-securable-objects-in-specified-security-scopes-or-collections"></a>Voor de optie: Alleen beveiligbare objecten in gespecificeerde beveiligingsbereiken of verzamelingen  
+
+1.  Kies in de Configuration Manager-console **beheer**.  
+
+2.  In de **beheer** werkruimte Vouw **beveiliging**, en kies vervolgens **gebruikers met beheerdersrechten**.  
+
+3.  Selecteer de gebruiker met beheerdersrechten die u wilt wijzigen.  
+
+4.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
+
+5.  Kies de **Beveiligingsbereiken** tabblad om te bevestigen dat de gebruiker is geconfigureerd voor **alleen beveiligbare objecten in gespecificeerde beveiligingsbereiken of verzamelingen**.  
+
+6.  Voor het wijzigen van de toegewezen beveiligingsrollen, kies de **beveiligingsrollen** tabblad.  
+
+    -   Om aanvullende beveiligingsrollen aan deze gebruiker toewijst, kies **toevoegen**, schakel het selectievakje voor elke aanvullende beveiligingsrol die u wilt toewijzen, en kies vervolgens **OK**.  
+
+    -   Om beveiligingsrollen te verwijderen, selecteert u een of meer beveiligingsrollen uit de lijst en kies vervolgens **verwijderen**.  
+
+7.  Voor het wijzigen van de beveiligingsbereiken en verzamelingen die gekoppeld aan beveiligingsrollen zijn, kies de **Beveiligingsbereiken** tabblad.  
+
+    -   Om nieuwe beveiligingsbereiken of verzamelingen koppelen aan alle beveiligingsrollen die zijn toegewezen aan deze gebruiker met beheerdersrechten, kies **toevoegen** en selecteer een van de vier opties. Als u selecteert **beveiligingsbereik** of **verzameling**, schakel het selectievakje voor een of meer objecten die selectie te voltooien en klik vervolgens op **OK**.  
+
+    -   Als u wilt een beveiligingsbereik of verzameling verwijderen, kiest u het object en kies vervolgens **verwijderen**.  
+
+8.  Kies **OK** om deze procedure te voltooien.  
+
+Gebruik de volgende procedure om een gebruiker met beheerdersrechten te wijzigen voor wie het gedrag van beveiligbare objecten op **Alleen beveiligbare objecten zoals bepaald door de beveiligingsrollen van de gebruiker met beheerdersrechten**is ingesteld:  
+
+#### <a name="for-option-only-securable-objects-as-determined-by-the-security-roles-of-the-administrative-user"></a>Voor de optie: Alleen beveiligbare objecten zoals bepaald door de beveiligingsrollen van de gebruiker met beheerdersrechten  
+
+1.  Kies in de Configuration Manager-console **beheer**.  
+
+2.  In de **beheer** werkruimte Vouw **beveiliging**, en kies vervolgens **gebruikers met beheerdersrechten**.  
+
+3.  Selecteer de gebruiker met beheerdersrechten die u wilt wijzigen.  
+
+4.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
+
+5.  Kies de **Beveiligingsbereiken** tab om te bevestigen dat de gebruiker met beheerdersrechten geconfigureerd is voor **alleen beveiligbare objecten in gespecificeerde beveiligingsbereiken of verzamelingen**.  
+
+6.  Voor het wijzigen van de toegewezen beveiligingsrollen, kies de **beveiligingsrollen** tabblad.  
+
+    -   Om aanvullende beveiligingsrollen aan deze gebruiker met beheerdersrechten toewijzen, kies **toevoegen**. Op de **beveiligingsrol toevoegen** in het dialoogvenster, selecteer een of meer beschikbare beveiligingsrollen, kies **toevoegen**, en selecteer een object dat aan de geselecteerde beveiligingsrollen wilt koppelen. Als u selecteert **beveiligingsbereik** of **verzameling**, schakel het selectievakje voor een of meer objecten die selectie te voltooien en klik vervolgens op **OK**.  
 
         > [!NOTE]  
-        >  Vous devez configurer au moins une étendue sécurité avant que les rôles de sécurité sélectionnés puissent être attribués à l'utilisateur administratif. Lorsque vous sélectionnez plusieurs rôles de sécurité, chaque étendue de sécurité et regroupement que vous configurez est associé à chacun des rôles de sécurité sélectionnés.  
+        >  U moet minimaal één beveiligingsbereik configureren voordat de geselecteerde beveiligingsrollen aan de gebruiker met beheerdersrechten kunnen worden toegewezen. Wanneer u meerdere beveiligingsrollen selecteert, wordt elk beveiligingsbereik en elke verzameling die u configureert gekoppeld aan elk van deze geselecteerde beveiligingsrollen.  
 
-    -   Pour supprimer des rôles de sécurité, sélectionnez-en un ou plusieurs dans la liste, puis choisissez **Supprimer**.  
+    -   Om beveiligingsrollen te verwijderen, selecteert u een of meer beveiligingsrollen uit de lijst en kies vervolgens **verwijderen**.  
 
-7.  Pour modifier les étendues de sécurité et les regroupements associés à un rôle de sécurité spécifique, choisissez l’onglet **Étendues de sécurité**, sélectionnez le rôle de sécurité, puis choisissez **Modifier**.  
+7.  Voor het wijzigen van de beveiligingsbereiken en verzamelingen die gekoppeld aan een specifieke beveiligingsrol zijn, kies de **Beveiligingsbereiken** tabblad, selecteert u de beveiligingsrol en kies vervolgens **bewerken**.  
 
-    -   Pour associer de nouveaux objets à ce rôle de sécurité, choisissez **Ajouter** et sélectionnez le type d’objet à associer aux rôles de sécurité sélectionnés. Si vous sélectionnez **Étendue de sécurité** ou **Regroupement**, activez la case à cocher d’un ou de plusieurs objets pour terminer cette sélection, puis choisissez **OK**.  
+    -   Kies nieuwe om objecten te koppelen aan deze beveiligingsrol, **toevoegen**, en selecteer een object dat aan de geselecteerde beveiligingsrollen wilt koppelen. Als u selecteert **beveiligingsbereik** of **verzameling**, schakel het selectievakje voor een of meer objecten die selectie te voltooien en klik vervolgens op **OK**.  
 
         > [!NOTE]  
-        >  Vous devez configurer au moins une étendue de sécurité.  
+        >  U moet ten minste één beveiligingsbereik configureren.  
 
-    -   Pour supprimer une étendue de sécurité ou un regroupement associé à ce rôle de sécurité, sélectionnez l’objet et choisissez **Supprimer**.  
+    -   Als u wilt verwijderen een beveiligingsbereik of verzameling die is gekoppeld aan deze beveiligingsrol is toegekend, selecteert u het object en kies vervolgens **verwijderen**.  
 
-    -   Lorsque vous avez terminé de modifier les objets associés, choisissez **OK**.  
+    -   Wanneer u klaar bent met het wijzigen van de gekoppelde objecten, kiezen **OK**.  
 
-8.  Choisissez **OK** pour terminer cette procédure.  
+8.  Kies **OK** om deze procedure te voltooien.  
 
     > [!CAUTION]  
-    >  Lorsqu'un rôle de sécurité accorde aux utilisateurs administratifs l'autorisation de déployer un regroupement, ces utilisateurs administratifs peuvent distribuer des objets depuis n'importe quelle étendue de sécurité pour laquelle il disposent d'autorisations de **Lecture** , même si cette étendue de sécurité est associée à un rôle de sécurité différent.  
+    >  Wanneer een beveiligingsrol gebruikers met beheerdersrechten de machtiging voor het implementeren van verzamelingen verleent, kunnen die gebruikers met beheerdersrechten objecten distribueren uit elk beveiligingsbereik waarvoor ze een **leesmachtiging** hebben, ook als dat beveiligingsbereik gekoppeld is aan een andere beveiligingsrol.  

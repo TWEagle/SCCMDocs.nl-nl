@@ -1,6 +1,6 @@
 ---
-title: "Inscrire des appareils d’entreprise - Configuration Manager | Microsoft Docs"
-description: "Découvrez les différentes méthodes d’inscription des appareils d’entreprise pour les déploiements hybrides avec Configuration Manager."
+title: Bedrijfseigen apparaten - Configuration Manager inschrijven | Microsoft Docs
+description: Meer informatie over de verschillende methoden voor het inschrijven van apparaten in Bedrijfseigendom voor hybride implementaties met Configuration Manager.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,31 +16,31 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: f0b503d8c9eba2dd1b6eb4c41ec40c001b727326
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="enroll-company-owned-devices-for-hybrid-deployments-with-configuration-manager"></a>Inscrire des appareils d’entreprise pour les déploiements hybrides avec Configuration Manager
+# <a name="enroll-company-owned-devices-for-hybrid-deployments-with-configuration-manager"></a>Bedrijfseigen apparaten registreren voor hybride implementaties met Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Les appareils d’entreprise ou d’organisation peuvent être gérés de différentes façons en fonction du type de l’appareil et de la méthode utilisée pour son achat.  
+Organisatie- of apparaten in Bedrijfseigendom (COD) kunnen worden gezet kunnen op verschillende manieren, al naar gelang het apparaat en hoe u het hebt aangeschaft.  
 
-## <a name="enroll-device-enrollment-program-ios-devices"></a>Inscrire des appareils iOS à l’aide du programme d’inscription d’appareils DEP  
- Un profil d’inscription « à distance » est déployé sur les appareils ayant été achetés par le biais du programme DEP d’Apple. Quand l’utilisateur exécute l’Assistant Configuration sur l’appareil, cet appareil est automatiquement inscrit dans Intune.  Les appareils inscrits via le programme DEP ne peuvent pas être désinscrits par les utilisateurs. Pour plus d’informations, consultez [Inscription d’appareils iOS via le programme DEP pour les déploiements hybrides avec Configuration Manager](../../mdm/deploy-use/ios-device-enrollment-program-for-hybrid.md).  
+## <a name="enroll-device-enrollment-program-ios-devices"></a>Device Enrollment Program iOS-apparaten inschrijven  
+ Een inschrijvingsprofiel implementeert 'draadloos' op apparaten die zijn aangeschaft via Apples Device Enrollment Program. Wanneer de gebruiker op het apparaat Configuratieassistent uitvoert, wordt het apparaat is ingeschreven bij Intune.  Gebruikers kunnen apparaten die met DEP zijn ingeschreven, niet uitschrijven. Zie [iOS Device Enrollment Program (DEP)-inschrijving voor hybride implementaties met Configuration Manager](../../mdm/deploy-use/ios-device-enrollment-program-for-hybrid.md).  
 
-## <a name="enroll-ios-devices-with-apple-configurator"></a>Inscrire des appareils iOS à l’aide de l’outil Apple Configurator  
- Avec cette méthode, l’administrateur doit préconfigurer l’inscription de l’appareil iOS après avoir établi une connexion USB entre l’appareil et un ordinateur Mac exécutant Apple Configurator. L’appareil est ensuite remis à l’utilisateur, qui doit exécuter l’Assistant Configuration pour configurer l’appareil avec les informations d’identification de son compte professionnel ou scolaire et terminer le processus d’inscription. Pour plus d’informations, consultez [Inscription d’appareils iOS à l’aide d’Apple Configurator pour les déploiements hybrides avec Configuration Manager](../../mdm/deploy-use/ios-hybrid-enrollment-using-apple-configurator.md).  
+## <a name="enroll-ios-devices-with-apple-configurator"></a>IOS-apparaten inschrijven met Apple Configurator  
+ Deze methode moet de beheerder een USB verbinding maken met het iOS-apparaat met een Mac-computer met Apple Configurator om de registratie vooraf te configureren. Apparaten zijn vervolgens aan hun gebruikers die de Configuratieassistent wordt uitgevoerd voor het configureren van het apparaat met de referenties van hun werk- of schoolaccount en het registratieproces voltooien geleverd. Zie [iOS hybride-inschrijving met Apple Configurator met Configuration Manager](../../mdm/deploy-use/ios-hybrid-enrollment-using-apple-configurator.md).  
 
-## <a name="device-enrollment-manager"></a>Gestionnaire d’inscription d’appareil  
- Les organisations peuvent utiliser Intune pour gérer un grand nombre d’appareils mobiles avec un seul compte d’utilisateur, appelé compte de gestionnaire d’inscription d’appareil. Après avoir créé un compte de gestionnaire d’inscription d’appareil, l’administrateur peut utiliser ce compte s’il a besoin d’inscrire plus de cinq appareils, qui est le nombre autorisé par défaut pour les utilisateurs standard. L’inscription d’appareils à l’aide d’un gestionnaire d’inscription d’appareil est possible uniquement pour les appareils qui ne sont pas dédiés à un utilisateur spécifique. Ces appareils sont appropriés pour les applications de point de vente ou les utilitaires, par exemple, mais ils ne le sont pas pour les utilisateurs qui doivent accéder à leurs e-mails ou à des ressources d’entreprise. Consultez [Inscrire des appareils avec un gestionnaire d’inscription d’appareil à l’aide de Configuration Manager](../../mdm/deploy-use/enroll-devices-with-device-enrollment-manager.md).  
+## <a name="device-enrollment-manager"></a>Apparaatinschrijvingsmanager  
+ Organisaties kunnen Intune gebruiken voor het beheren van grote aantallen mobiele apparaten met één gebruikersaccount een apparaatinschrijvingsbeheerder-account genoemd. Nadat een apparaatregistratiebeheeraccount is gemaakt, kan dat account worden gebruikt door een beheerder om meer dan de vijf apparaten op normale gebruikers standaard toegestaan te schrijven. Inschrijven van apparaten met een apparaatregistratiebeheer werkt alleen voor apparaten die niet worden gebruikt door een specifieke gebruiker. Deze apparaten zijn geschikt is voor het verkooppunt of het hulpprogramma apps, bijvoorbeeld, maar niet voor gebruikers die toegang tot e-mail of bedrijfsbronnen nodig. Zie [apparaten inschrijven met apparaatregistratiebeheer met Configuration Manager](../../mdm/deploy-use/enroll-devices-with-device-enrollment-manager.md).  
 
-## <a name="user-affinity-for-managed-devices"></a>Affinité utilisateur pour les appareils gérés  
- Quand il configure des profils pour des appareils d’entreprise, l’administrateur peut spécifier si les appareils gérés prennent en charge l’*affinité utilisateur* qui associe un utilisateur spécifique avec l’appareil. Des appareils configurés avec une **affinité utilisateur** peuvent installer et exécuter l’application Portail d’entreprise pour télécharger des applications et gérer des appareils. Consultez [Affinité utilisateur pour les appareils gérés hybrides dans Configuration Manager](../../mdm/deploy-use/user-affinity-for-hybrid-managed-devices.md).  
+## <a name="user-affinity-for-managed-devices"></a>Affiniteit tussen gebruikers en voor beheerde apparaten  
+ Wanneer u profielen voor apparaten in Bedrijfseigendom configureert, kan de beheerder opgeven of de beheerde apparaten ondersteunen *gebruikersaffiniteit* die een specifieke gebruiker identificeert met het apparaat. Op apparaten die zijn geconfigureerd met **user affinity** kan de bedrijfsportal-app worden geïnstalleerd en uitgevoerd om apps te downloaden en apparaten te beheren. Zie [gebruikersaffiniteit voor hybride beheerde apparaten in Configuration Manager](../../mdm/deploy-use/user-affinity-for-hybrid-managed-devices.md).  
 
-## <a name="manage-devices-with-activation-lock"></a>Gérer des appareils à l’aide du verrou d’activation  
- Microsoft Intune peut vous aider à gérer le verrou d’activation iOS, qui est une fonctionnalité de l’application Rechercher mon iPhone disponible sur les appareils iOS 7.1 et versions ultérieures. Le verrou d'activation est activé automatiquement quand l'application Rechercher mon iPhone est utilisée sur un appareil. Consultez [Gérer le verrou d’activation iOS avec System Center Configuration Manager](../../mdm/deploy-use/manage-ios-activation-lock.md).
+## <a name="manage-devices-with-activation-lock"></a>Apparaten beheren met Activeringsvergrendeling  
+ Microsoft Intune kunt u iOS-Activeringsvergrendeling, een functie van de Zoek mijn iPhone-app voor iOS 7.1 en hoger apparaten beheren. Activeringsvergrendeling is automatisch ingeschakeld wanneer de app Zoek mijn iPhone op een apparaat wordt gebruikt. Zie [beheren van iOS-Activeringsvergrendeling met System Center Configuration Manager](../../mdm/deploy-use/manage-ios-activation-lock.md).
 
- ## <a name="predeclare-devices-with-imei-or-ios-serial-numbers"></a>Prédéclarer des appareils avec des numéros IMEI ou numéros de série iOS
+ ## <a name="predeclare-devices-with-imei-or-ios-serial-numbers"></a>Apparaten met IMEI-nummer of iOS-serienummers labelen
 
-Vous pouvez identifier des appareils d’entreprise en important leur numéro IMEI (International Mobile Equipment Identity) ou leur numéro de série iOS. Vous pouvez charger un fichier de valeurs séparées par des virgules (.csv) qui contient les numéros IMEI des appareils, ou saisir vous-même les informations sur les appareils.  Pour plus d’informations, consultez [Prédéclarer des appareils avec des numéros IMEI ou numéros de série iOS](../../mdm/deploy-use/predeclare-devices-with-hardware-id.md).
+U kunt apparaten in Bedrijfseigendom identificeren met hun nummers van international station mobile equipment identity (IMEI-nummer) of een iOS-serienummers importeren. U kunt een door komma's gescheiden waarden (.csv)-bestand met IMEI-nummers van apparaten uploaden of u kunt de apparaatgegevens handmatig invoeren.  Zie [apparaten labelen met hardware-ID-nummers](../../mdm/deploy-use/predeclare-devices-with-hardware-id.md).

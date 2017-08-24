@@ -1,6 +1,6 @@
 ---
-title: "Protéger les données à l’aide de la réinitialisation à distance, du verrouillage ou de la réinitialisation du code d’accès en utilisant System Center Configuration Manager | Microsoft Docs"
-description: "Protégez les données des appareils à l’aide de la réinitialisation complète, de la réinitialisation sélective, du verrouillage à distance ou de la réinitialisation du code d’accès en utilisant System Center Configuration Manager."
+title: Gegevens beschermen met wissen op afstand, vergrendelen of opnieuw instellen met behulp van System Center Configuration Manager van wachtwoordcode | Microsoft Docs
+description: Apparaatgegevens beveiligen met volledig wissen, selectief wissen, vergrendelen op afstand en wachtwoordcode opnieuw instellen met behulp van System Center Configuration Manager.
 ms.custom: na
 ms.date: 03/27/2017
 ms.prod: configuration-manager
@@ -17,211 +17,211 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 351fdc6328dd0859d60e00b128963df738e69f81
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="protect-data-with-remote-wipe-lock-or-passcode-reset-by-using-system-center-configuration-manager"></a>Protéger les données à l’aide de la réinitialisation à distance, du verrouillage ou de la réinitialisation du code d’accès en utilisant System Center Configuration Manager
+# <a name="protect-data-with-remote-wipe-lock-or-passcode-reset-by-using-system-center-configuration-manager"></a>Gegevens beschermen met wissen op afstand, vergrendelen of de wachtwoordcode opnieuw instellen met behulp van System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-System Center Configuration Manager propose des fonctionnalités de réinitialisation sélective, de réinitialisation complète, de verrouillage à distance et de réinitialisation du code d’accès. Les appareils mobiles peuvent stocker leurs données sensibles et fournir un accès à de nombreuses ressources d'entreprise. Pour protéger les appareils, vous pouvez émettre :  
+System Center Configuration Manager biedt selectief wissen, volledig wissen, vergrendelen op afstand en wachtwoordcode opnieuw instellen van mogelijkheden. Op mobiele apparaten kunnen gevoelige bedrijfsgegevens worden opgeslagen en deze apparaten kunnen toegang geven tot talloze bedrijfsresources. Om apparaten te beveiligen, kunt u het volgende uitgeven:  
 
-- Une réinitialisation complète pour rétablir les paramètres d'usine de l'appareil.  
+- volledig wissen om het apparaat terug te zetten op de fabrieksinstellingen;  
 
-- Une réinitialisation sélective pour supprimer uniquement les données de l'entreprise.  
+- selectief wissen om alleen bedrijfsgegevens te verwijderen;  
 
-- Un verrouillage à distance pour sécuriser un appareil censé être perdu.  
+- een vergrendeling op afstand om een apparaat te beveiligen dat mogelijk zoek is;  
 
-- Une réinitialisation du code d’accès de l’appareil.  
+- Opnieuw instellen van wachtwoordcode van het apparaat.  
 
-## <a name="full-wipe"></a>Réinitialisation complète  
-Vous pouvez émettre une commande de réinitialisation vers un appareil lorsque vous devez sécuriser un appareil perdu ou lorsque vous mettez un appareil hors service.  
+## <a name="full-wipe"></a>Volledig wissen  
+U kunt een wisopdracht geven aan een apparaat wanneer u een vermist apparaat wilt beveiligen of wanneer u een apparaat buiten actief gebruik wilt stellen.  
 
-Émettez une **réinitialisation complète** sur un appareil pour restaurer l'appareil sur ses paramètres d'usine. Cette opération supprime toutes les données de l'entreprise et tous les paramètres utilisateur. Vous pouvez effectuer une réinitialisation complète sur les appareils Windows Phone, iOS, Android et Windows 10.  
+Geef opdracht tot **volledig wissen** van een apparaat om het apparaat terug te zetten op de fabrieksinstellingen. Hiermee verwijdert u alle bedrijfs- en gebruikersgegevens en -instellingen. U kunt volledig wissen op Windows Phone, iOS, Android en Windows 10-apparaten kunt doen.  
 
 > [!NOTE]
-> Les appareils Windows 10 antérieurs à la version 1511 et qui sont dotés de moins de 4 Go de RAM peuvent rester sans réponse à l’occasion d’une réinitialisation. [En savoir plus](https://technet.microsoft.com/library/mt592024.aspx#full-wipe-disables-windows-10-devices-with-less-than-4-gb-ram).
+> Wissen van Windows 10-apparaten in versies eerder dan versie 1511 met minder dan 4 GB RAM-geheugen, blijft het apparaat niet reageert. [Meer informatie](https://technet.microsoft.com/library/mt592024.aspx#full-wipe-disables-windows-10-devices-with-less-than-4-gb-ram).
 
-#### <a name="to-initiate-a-remote-wipe-from-the-configuration-manager-console"></a>Pour exécuter une réinitialisation à distance à partir de la console Configuration Manager  
+#### <a name="to-initiate-a-remote-wipe-from-the-configuration-manager-console"></a>Op afstand wissen vanuit de Configuration Manager-console  
 
-1. Dans la console Configuration Manager, choisissez **Ressources et Conformité** et **Appareils**. Vous pouvez également choisir **Regroupements d’appareils** , puis sélectionner un regroupement.  
+1. Kies in de Configuration Manager-console **activa en naleving** en kies **apparaten**. U kunt ook kiezen **Apparaatverzamelingen** en een verzameling selecteren.  
 
-2. Sélectionnez l'appareil que vous souhaitez mettre hors service/réinitialiser.  
+2. Selecteer het apparaat dat u buiten gebruik wilt stellen of wilt wissen.  
 
-3. Choisissez **Actions de l’appareil à distance** dans **Groupe d’appareils**, puis **Mettre hors service/Réinitialiser**.  
+3. Kies **acties extern apparaat** in **apparaatgroep**, en kies vervolgens **buiten gebruik stellen/wissen**.  
 
-## <a name="selective-wipe"></a>Réinitialisation sélective  
-Émettez une **réinitialisation sélective** sur un appareil pour supprimer uniquement les données de l'entreprise. Le tableau suivant décrit, en fonction de chaque plateforme, les données supprimées et l’effet de cette opération sur les données qui restent sur l’appareil après une réinitialisation sélective.  
+## <a name="selective-wipe"></a>Selectief wissen  
+Geef een opdracht tot **selectief wissen** van een apparaat om alleen bedrijfsgegevens te verwijderen. De volgende tabel beschrijft per platform, welke gegevens worden verwijderd en de gevolgen zijn voor gegevens die op het apparaat na selectief wissen achterblijven.  
 
 **iOS**  
 
-|Contenu supprimé lors de la mise hors service d’un appareil|iOS|  
+|Inhoud verwijderd wanneer u buiten gebruik van een apparaat stellen bent|iOS|  
 |--------------------------------------------|---------|  
-|Applications d’entreprise et données associées installées à l’aide de Configuration Manager et Intune|Les applications sont désinstallées. Les données des applications de l'entreprise sont supprimées.|  
-|Profils VPN et Wi-Fi|Supprimé.|  
-|Certificats|Supprimé et révoqué.|  
-|Paramètres|Supprimé, à l’exception de : **Autoriser l’itinérance vocale**, **Autoriser l’itinérance des données**, et **Autoriser la synchronisation automatique lors de l’itinérance**.|  
-|Agent de gestion|Le profil de gestion est supprimé.|  
-|Profils de messagerie|Pour les profils de messagerie configurés par Intune, le compte de messagerie et l’adresse e-mail sont supprimés.|  
+|Bedrijfs-apps en de bijbehorende gegevens die zijn geïnstalleerd met behulp van Configuration Manager en Intune|Apps worden verwijderd. Gegevens van bedrijfs-apps worden verwijderd.|  
+|VPN- en Wi-Fi-profielen|Verwijderd.|  
+|Certificaten|Verwijderd en ingetrokken.|  
+|Instellingen|Verwijderd, behalve voor: **Spraakroaming toestaan**, **gegevensroaming toestaan**, en **automatische synchronisatie tijdens roamen toestaan**.|  
+|Beheeragent|Beheerprofiel wordt verwijderd.|  
+|E-mailprofielen|Voor e-mailprofielen die zijn ingesteld door Intune, worden het e-mailaccount en e-mail verwijderd.|  
 
-**Android et Android Samsung KNOX Standard**  
+**Android- en Android Samsung KNOX Standard**  
 
-|Contenu supprimé lors de la mise hors service d’un appareil|Android|Samsung KNOX Standard|  
+|Inhoud verwijderd wanneer u buiten gebruik van een apparaat stellen bent|Android|Samsung KNOX Standard|  
 |--------------------------------------------|-------------|------------------|  
-|Applications d’entreprise et données associées installées à l’aide de Configuration Manager et Intune|Les applications et les données sont toujours installées.|Les applications sont désinstallées.|  
-|Profils VPN et Wi-Fi|Supprimé.|Supprimé.|  
-|Certificats|Révoqué.|Révoqué.|  
-|Paramètres|La configuration requise est supprimée.|La configuration requise est supprimée.|  
-|Agent de gestion|Le privilège d'administrateur d'appareil est révoqué.|Le privilège d'administrateur d'appareil est révoqué.|  
-|Profils de messagerie|Non applicable.|Pour les profils de messagerie configurés par Intune, le compte de messagerie et l’adresse e-mail sont supprimés.|  
+|Bedrijfs-apps en de bijbehorende gegevens die zijn geïnstalleerd met behulp van Configuration Manager en Intune|Apps en gegevens blijven geïnstalleerd.|Apps worden verwijderd.|  
+|VPN- en Wi-Fi-profielen|Verwijderd.|Verwijderd.|  
+|Certificaten|Ingetrokken.|Ingetrokken.|  
+|Instellingen|Vereisten worden verwijderd.|Vereisten worden verwijderd.|  
+|Beheeragent|Administratorbevoegdheden voor apparaat worden ingetrokken.|Administratorbevoegdheden voor apparaat worden ingetrokken.|  
+|E-mailprofielen|Niet van toepassing.|Voor e-mailprofielen die zijn ingesteld door Intune, worden het e-mailaccount en e-mail verwijderd.|  
 
 **Android for Work**
 
-Sur un appareil Android for Work, la réinitialisation sélective supprime le profil professionnel ainsi que toutes les données, applications et paramètres du profil professionnel de l’appareil. Cette opération met l’appareil hors service vis-à-vis de la gestion avec Configuration Manager et Intune. La réinitialisation complète n’est pas prise en charge pour Android for Work.
+Selectief wissen op een Android-apparaat werk te doen, verwijdert het profiel werk samen met alle gegevens, apps en instellingen in de work-profiel op dat apparaat. Deze beheerder het apparaat uit beheer met Configuration Manager en Intune. Volledig wissen wordt niet ondersteund voor Android for Work.
 
- **Windows 10, Windows 8.1, Windows RT 8.1 et Windows RT**  
+ **Windows 10, Windows 8.1, Windows RT 8.1 en Windows RT**  
 
-|Contenu supprimé lors de la mise hors service d’un appareil|Windows 10, Windows 8.1 et Windows RT 8.1|  
+|Inhoud verwijderd wanneer u buiten gebruik van een apparaat stellen bent|Windows 10, Windows 8.1 en Windows RT 8.1|  
 |---------------------------------|-------------|
-|Applications d’entreprise et données associées installées à l’aide de Configuration Manager et Intune|Les applications sont désinstallées et les clés de chargement de version test sont supprimées. Les applications utilisant la réinitialisation sélective de Windows voient la clé de chiffrement révoquée et les données ne sont plus accessibles.|  
-|Profils VPN et Wi-Fi|Supprimé.|  
-|Certificats|Supprimé et révoqué.|  
-|Paramètres|La configuration requise est supprimée.|
-|Agent de gestion|Non applicable. L’agent de gestion est intégré.|  
-|Profils de messagerie|La messagerie électronique compatible avec EFS est supprimée, ce qui inclut l’application de messagerie pour le courrier et les pièces jointes Windows.|  
+|Bedrijfs-apps en de bijbehorende gegevens die zijn geïnstalleerd met behulp van Configuration Manager en Intune|De installatie van apps wordt ongedaan gemaakt en sideloading-codes worden verwijderd. Apps die gebruikmaken van Windows selectief wissen heeft de versleutelingscode ingetrokken en gegevens niet langer toegankelijk.|  
+|VPN- en Wi-Fi-profielen|Verwijderd.|  
+|Certificaten|Verwijderd en ingetrokken.|  
+|Instellingen|Vereisten worden verwijderd.|
+|Beheeragent|Niet van toepassing. Beheeragent is ingebouwd in.|  
+|E-mailprofielen|E-mail waarvoor EFS is ingeschakeld wordt verwijderd, waaronder de e-mailapp voor Windows-e-mail en bijlagen.|  
 
- **Windows 10 Mobile, Windows Phone 8.0 et Windows Phone 8.1**
+ **Windows 10 Mobile, Windows Phone 8.0 en Windows Phone 8.1**
 
-|Contenu supprimé lors de la mise hors service d’un appareil|Windows 10 Mobile, Windows Phone 8 et Windows Phone 8.1|  
+|Inhoud verwijderd wanneer u buiten gebruik van een apparaat stellen bent|Windows 10 Mobile, Windows Phone 8 en Windows Phone 8.1|  
 |-|-|
-|Applications d’entreprise et données associées installées à l’aide de Configuration Manager et Intune|Les applications sont désinstallées. Les données des applications de l'entreprise sont supprimées.|  
-|Profils VPN et Wi-Fi|Supprimé pour Windows 10 Mobile et Windows Phone 8.1.|  
-|Certificats|Supprimé pour Windows Phone 8.1.|  
-|Agent de gestion|Non applicable. L’agent de gestion est intégré.|  
-|Profils de messagerie|Supprimé (à l’exception de Windows Phone 8.0).|  
+|Bedrijfs-apps en de bijbehorende gegevens die zijn geïnstalleerd met behulp van Configuration Manager en Intune|Apps worden verwijderd. Gegevens van bedrijfs-apps worden verwijderd.|  
+|VPN- en Wi-Fi-profielen|Voor Windows 10 Mobile en Windows Phone 8.1 verwijderd.|  
+|Certificaten|Voor Windows Phone 8.1 verwijderd.|  
+|Beheeragent|Niet van toepassing. Beheeragent is ingebouwd in.|  
+|E-mailprofielen|Verwijderd (met uitzondering van Windows Phone 8.0).|  
 
-Les paramètres suivants sont aussi supprimés des appareils Windows 10 Mobile et Windows Phone 8.1 :  
+De volgende instellingen worden ook verwijderd uit Windows 10 Mobile en Windows Phone 8.1-apparaten:  
 
-- **Exiger un mot de passe pour déverrouiller des appareils mobiles**  
-- **Autoriser les mots de passe simples**  
-- **Longueur minimale du mot de passe**  
-- **Type de mot de passe requis**
-- **Expiration du mot de passe (jours)**  
-- **Mémoriser l’historique des mots de passe**  
-- **Nombre d’échecs de connexion successifs autorisé avant réinitialisation de l’appareil**  
-- **Minutes d’inactivité avant demande du mot de passe**  
-- **Type de mot de passe requis - Nombre minimum de jeux de caractères**  
-- **Autoriser l’appareil photo**
-- **Exiger le chiffrement sur l’appareil mobile**  
-- **Autoriser le stockage amovible**  
-- **Autoriser le navigateur web**  
-- **Autoriser la boutique d’applications**  
-- **Autoriser la capture d’écran**  
-- **Autoriser la géolocalisation**  
-- **Autoriser un compte Microsoft**  
-- **Autoriser la fonction copier-coller**  
-- **Autoriser la connexion Wi-Fi**  
-- **Autoriser la connexion automatique aux points d’accès Wi-Fi gratuits**  
-- **Autoriser l’indication des points d’accès Wi-Fi**  
-- **Autoriser la réinitialisation aux paramètres d’usine**
-- **Autoriser Bluetooth**  
-- **Autoriser NFC**
-- **Autoriser le Wi-Fi**
+- **Wachtwoord vereisen voor het ontgrendelen van mobiele apparaten**  
+- **Eenvoudige wachtwoorden toestaan**  
+- **Minimale wachtwoordlengte**  
+- **Vereist Wachtwoordtype**
+- **Wachtwoord verloopt (dagen)**  
+- **Wachtwoordgeschiedenis onthouden**  
+- **Aantal herhaalde, mislukte aanmeldingen dat is toegestaan voordat het apparaat wordt gewist**  
+- **Minuten van inactiviteit voordat wachtwoord vereist is**  
+- **Vereist Wachtwoordtype – minimumaantal tekensets**  
+- **Camera toestaan**
+- **Versleuteling vereisen op mobiele apparaten**  
+- **Verwisselbare opslag toestaan**  
+- **Webbrowser toestaan**  
+- **Toepassingsarchief toestaan**  
+- **Schermafbeelding toestaan**  
+- **Geolocatie toestaan**  
+- **Microsoft-Account toestaan**  
+- **Kopiëren en plakken toestaan**  
+- **Wi-Fi-tethering toestaan**  
+- **Automatische verbinding met gratis Wi-Fi-hotspots toestaan**  
+- **Rapportage van Wi-Fi-hotspots toestaan**  
+- **Fabrieksinstellingen terugzetten toestaan**
+- **Bluetooth toestaan**  
+- **NFC toestaan**
+- **Wi-Fi toestaan**
 
-#### <a name="to-initiate-a-remote-wipe-from-the-configuration-manager-console"></a>Pour exécuter une réinitialisation à distance à partir de la console Configuration Manager  
+#### <a name="to-initiate-a-remote-wipe-from-the-configuration-manager-console"></a>Op afstand wissen vanuit de Configuration Manager-console  
 
-1. Dans la console Configuration Manager, choisissez **Ressources et Conformité** et **Appareils**. Vous pouvez également choisir **Regroupements d’appareils** , puis sélectionner un regroupement.  
+1. Kies in de Configuration Manager-console **activa en naleving** en kies **apparaten**. U kunt ook kiezen **Apparaatverzamelingen** en een verzameling selecteren.  
 
-2. Sélectionnez l'appareil que vous souhaitez mettre hors service/réinitialiser.  
+2. Selecteer het apparaat dat u buiten gebruik wilt stellen of wilt wissen.  
 
-3. Choisissez **Actions de l’appareil à distance** dans **Groupe d’appareils**, puis **Mettre hors service/Réinitialiser**.  
+3. Kies **acties extern apparaat** in **apparaatgroep**, en kies vervolgens **buiten gebruik stellen/wissen**.  
 
-## <a name="wiping-efs-enabled-content"></a>Réinitialisation du contenu EFS  
-Windows 8.1 et Windows RT 8.1 prennent en charge la réinitialisation sélective du contenu EFS (Encrypting File System). Les éléments suivants s'appliquent à une réinitialisation sélective du contenu EFS :  
+## <a name="wiping-efs-enabled-content"></a>EFS inhoud wissen  
+Windows 8.1 en Windows RT 8.1 ondersteuning voor selectief wissen van EFS Encrypting File System-gecodeerde inhoud. Het volgende is van toepassing op selectief wissen van EFS-inhoud:  
 
-- Seules les applications et les données protégées par EFS utilisant le même domaine Internet que le compte Intune sont réinitialisées de manière sélective. Pour plus d'informations, consultez la page relative à la [réinitialisation sélective de Windows pour la gestion des données d'appareil](http://technet.microsoft.com/library/dn486874.aspx).  
+- Alleen apps en gegevens die zijn beveiligd door EFS via hetzelfde internetdomein als de Intune-account, worden selectief gewist. Zie [Windows Selective Wipe for Device Data Management](http://technet.microsoft.com/library/dn486874.aspx)voor meer informatie.  
 
-- Si des modifications sont apportées au domaine associé à EFS, 48 heures peuvent être nécessaires avant que les applications et les données qui utilisent le nouveau domaine soient réinitialisées de manière sélective.  
+- Als er wijzigingen zijn aangebracht aan het domein dat is gekoppeld aan EFS, de wijzigingen kunnen maximaal 48 uur duren voordat apps en gegevens die gebruikmaken van het nieuwe domein, selectief kunnen worden gewist.  
 
-- Chaque domaine inscrit auprès d’Intune est réinitialisé.  
+- Elk domein dat is geregistreerd bij Intune is het domein dat zal worden gewist.  
 
-Les données et les applications qui sont actuellement prises en charge par la réinitialisation sélective EFS sont :  
+De gegevens en apps EFS selectief wissen op dit moment ondersteunt zijn:  
 
-- Application de messagerie pour Windows.  
+- E-mailapp voor Windows.  
 
-- Dossiers de travail.
+- Werkmappen.
 
-- Fichiers et dossiers chiffrés par EFS. Pour plus d'informations, consultez [Meilleures pratiques pour le chiffrement des systèmes de fichiers](http://support.microsoft.com/kb/223316).  
+- Bestanden en mappen die zijn gecodeerd met EFS. Zie [Aanbevolen procedures voor het Encrypting File System](http://support.microsoft.com/kb/223316)voor meer informatie.  
 
-### <a name="best-practices-for-selective-wipe"></a>Meilleures pratiques pour la réinitialisation sélective  
+### <a name="best-practices-for-selective-wipe"></a>Best practices voor selectief wissen  
 
-- Pour que la réinitialisation du courrier électronique réussisse, configurez les profils pour les appareils iOS et Windows Phone 8.1.  
+- Voor een het wissen van e-mail, stelt u het e-mailprofielen op iOS- en Windows Phone 8.1-apparaten.  
 
-- Pour que la réinitialisation des applications réussisse, vérifiez que les applications sont distribuées au moyen de la gestion d’applications d’appareil mobile.  
+- Zorg dat de apps zijn gedistribueerd via beheer van Apps voor mobiele apparaten voor een het wissen van apps.  
 
-- Pour iOS, configurez le paramètre **Autoriser la sauvegarde sur iCloud** sur **Désactiver** pour que les utilisateurs ne puissent pas restaurer le contenu à l’aide d’iCloud.  
+- Voor iOS configureert u de instelling **back-up naar iCloud toestaan** naar **Disallow** zodat gebruikers inhoud kunnen niet herstellen met behulp van iCloud.  
 
-- Si un compte a été désactivé, au bout d’une année il est supprimé par Intune et une réinitialisation sélective est effectuée.  
+- Als een account is gedeactiveerd, vervolgens na één jaar Intune wordt buiten gebruik stellen van het account en selectief wissen wordt uitgevoerd.  
 
-##  <a name="passcode-reset"></a>Réinitialiser le code secret  
-Si un utilisateur oublie son code d'accès, vous pouvez l'aider à résoudre ce problème en supprimant le code d'accès d'un appareil ou en forçant l'application d'un nouveau code accès temporaire sur un appareil. Le tableau ci-dessous indique la méthode de réinitialisation du code d’accès sur différentes plateformes mobiles.  
+##  <a name="passcode-reset"></a>Wachtwoordcode opnieuw instellen  
+Als een gebruiker de wachtwoordcode vergeet, kunt u helpen door de wachtwoordcode van een apparaat te verwijderen of door een nieuwe en tijdelijke wachtwoordcode op een apparaat af te dwingen. De volgende tabel geeft een lijst hoe de wachtwoordcode opnieuw werkt op verschillende mobiele platforms.  
 
-|Plate-forme|Réinitialiser le code secret|  
+|Platform|Wachtwoordcode opnieuw instellen|  
 |--------------|--------------------|  
-|iOS|Prise en charge de l'effacement du code d'accès d'un appareil. Ne crée pas un nouveau code d'accès temporaire.|
-|macOS| Non pris en charge.|
-|Android|Prise en charge et création d’un nouveau code d’accès temporaire.|
-|Android for Work | Non pris en charge.|
-|PC Windows 10|Non pris en charge.|  
-|Windows 10 Mobile|Prise en charge, sauf les appareils joints à Azure AD.|
-|Windows Phone 8.1|Pris en charge.|  
-|Windows RT 8.1 |Non pris en charge.|  
-|PC Windows 8.1 |Non pris en charge.|  
+|iOS|Wordt ondersteund voor het wissen van de wachtwoordcode van een apparaat. Maakt geen nieuwe tijdelijke wachtwoordcode aan.|
+|Mac OS| Niet ondersteund.|
+|Android|Ondersteund, en een tijdelijke wachtwoordcode aangemaakt.|
+|Android for Work | Niet ondersteund.|
+|Windows 10-pc 's|Niet ondersteund.|  
+|Windows 10 mobile|Ondersteund, met uitzondering van Azure AD lid zijn van apparaten.|
+|Windows Phone 8,1|Ondersteund.|  
+|Windows RT 8.1 |Niet ondersteund.|  
+|Windows 8.1-pc 's |Niet ondersteund.|  
 
-#### <a name="to-reset-the-passcode-on-a-mobile-device-remotely-in-configuration-manager"></a>Pour réinitialiser le mot de passe sur un appareil mobile à distance dans Configuration Manager  
+#### <a name="to-reset-the-passcode-on-a-mobile-device-remotely-in-configuration-manager"></a>Vanuit Configuration Manager op afstand de wachtwoordcode opnieuw instellen op een mobiel apparaat  
 
-1. Dans la console Configuration Manager, choisissez **Ressources et Conformité** et **Appareils**. Vous pouvez également choisir **Regroupements d’appareils** , puis sélectionner un regroupement.  
+1. Kies in de Configuration Manager-console **activa en naleving** en kies **apparaten**. U kunt ook kiezen **Apparaatverzamelingen** en een verzameling selecteren.  
 
-2. Sélectionnez les appareils sur lesquels vous voulez réinitialiser le code d'accès.  
+2. Selecteer het apparaat of de apparaten waarop u de wachtwoordcode opnieuw wilt instellen.  
 
-3. Choisissez **Actions de l’appareil à distance** dans **Groupe d’appareils**, puis choisissez **Réinitialisation du code d’accès**.  
+3. Kies **acties extern apparaat** in **apparaatgroep**, en kies vervolgens **wachtwoordcode opnieuw instellen**.  
 
-#### <a name="to-show-the-state-of-the-passcode-reset"></a>Pour afficher l'état de la réinitialisation du code d'accès  
+#### <a name="to-show-the-state-of-the-passcode-reset"></a>De status van het opnieuw instellen van de wachtwoordcode weergeven  
 
-1. Dans la console Configuration Manager, choisissez **Ressources et Conformité** et **Appareils**. Vous pouvez également choisir **Regroupements d’appareils** , puis sélectionner un regroupement.  
+1. Kies in de Configuration Manager-console **activa en naleving** en kies **apparaten**. U kunt ook kiezen **Apparaatverzamelingen** en een verzameling selecteren.  
 
-2. Sélectionnez les appareils sur lesquels vous voulez réinitialiser le code d'accès.  
+2. Selecteer het apparaat of de apparaten waarop u de status van het opnieuw instellen van de wachtwoordcode wilt weergeven.  
 
-3. Choisissez **Actions de l’appareil à distance** dans **Groupe d’appareils**, puis choisissez **Afficher l’état du code secret**.  
+3. Kies **acties extern apparaat** in **apparaatgroep**, en kies vervolgens **status van wachtwoordcode weergeven**.  
 
-## <a name="remote-lock"></a>Verrouillage à distance  
-Si un utilisateur perd son appareil, vous pouvez verrouiller ce dernier à distance. Le tableau ci-dessous illustre le fonctionnement du verrouillage à distance sur différentes plateformes mobiles.  
+## <a name="remote-lock"></a>Vergrendelen op afstand  
+Als een gebruiker het apparaat verliest, kunt u het apparaat op afstand vergrendelen. In de volgende tabel wordt vermeld hoe vergrendelen op afstand werkt op verschillende mobiele platforms.  
 
-|Plate-forme|Verrouillage à distance|  
+|Platform|Vergrendelen op afstand|  
 |--------------|-----------------|  
-|iOS|Pris en charge.|  
-|Android|Pris en charge.|  
-|Windows 10|Non pris en charge pour l’instant.|  
-|Windows Phone 8 et Windows Phone 8.1|Pris en charge.|  
-|Windows RT 8.1 |Prise en charge si l'utilisateur actuel de l'appareil est le même utilisateur qui a inscrit l'appareil.|  
-|Windows 8.1|Prise en charge si l'utilisateur actuel de l'appareil est le même utilisateur qui a inscrit l'appareil.|  
+|iOS|Ondersteund.|  
+|Android|Ondersteund.|  
+|Windows 10|Wordt momenteel niet ondersteund.|  
+|Windows Phone 8 en Windows Phone 8.1|Ondersteund.|  
+|Windows RT 8.1 |Ondersteund als de huidige gebruiker van het apparaat dezelfde gebruiker is die het apparaat heeft geregistreerd.|  
+|Windows 8.1|Ondersteund als de huidige gebruiker van het apparaat dezelfde gebruiker is die het apparaat heeft geregistreerd.|  
 
-#### <a name="to-lock-a-mobile-device-remotely-through-the-configuration-manager-console"></a>Pour verrouiller un appareil mobile à distance via la console Microsoft Intune  
+#### <a name="to-lock-a-mobile-device-remotely-through-the-configuration-manager-console"></a>Een mobiel apparaat op afstand vanuit de Configuration Manager-console vergrendelen  
 
-1. Dans la console Configuration Manager, choisissez **Ressources et Conformité** et **Appareils**. Vous pouvez également choisir **Regroupements d’appareils** , puis sélectionner un regroupement.  
+1. Kies in de Configuration Manager-console **activa en naleving** en kies **apparaten**. U kunt ook kiezen **Apparaatverzamelingen** en een verzameling selecteren.  
 
-2. Sélectionnez les appareils à verrouiller.  
+2. Selecteer het apparaat dat of de apparaten die u wilt vergrendelen.  
 
-3. Choisissez **Actions de l’appareil à distance** dans **Groupe d’appareils**, puis choisissez **Verrouillage à distance**.  
+3. Kies **acties extern apparaat** in **apparaatgroep**, en kies vervolgens **vergrendelen op afstand**.  
 
-#### <a name="to-show-the-state-of-the-remote-lock"></a>Pour afficher l'état du verrouillage à distance  
+#### <a name="to-show-the-state-of-the-remote-lock"></a>De status van de externe vergrendeling weergeven  
 
-1. Dans la console Configuration Manager, choisissez **Ressources et Conformité** et **Appareils**. Vous pouvez également choisir **Regroupements d’appareils** , puis sélectionner un regroupement.  
+1. Kies in de Configuration Manager-console **activa en naleving** en kies **apparaten**. U kunt ook kiezen **Apparaatverzamelingen** en een verzameling selecteren.  
 
-2. Sélectionnez les appareils sur lesquels vous voulez afficher l'état du verrouillage à distance.  
+2. Selecteer het apparaat waarop u de status van de externe vergrendeling wilt weergeven.  
 
-3. Choisissez **Actions de l’appareil à distance** dans **Groupe d’appareils**, puis choisissez **Afficher l’état du verrouillage à distance**.  
+3. Kies **acties extern apparaat** in **apparaatgroep**, en kies vervolgens **status van externe vergrendeling weergeven**.  
 
-### <a name="see-also"></a>Voir aussi  
-[Réinitialisation sélective de Windows pour la gestion des données d’appareil](http://technet.microsoft.com/library/dn486874.aspx)   
+### <a name="see-also"></a>Zie tevens  
+[Windows Selective Wipe for Device Data Management](http://technet.microsoft.com/library/dn486874.aspx)   

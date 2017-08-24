@@ -1,6 +1,6 @@
 ---
-title: "Créer une séquence de tâches pour capturer et restaurer l’état utilisateur | Microsoft Docs"
-description: "Utilisez des séquences de tâches System Center Configuration Manager pour capturer et restaurer les données d’état utilisateur dans les scénarios de déploiement de système d’exploitation."
+title: Maak een takenreeks voor het vastleggen en herstellen van gebruikersstatus | Microsoft Docs
+description: Gebruik System Center Configuration Manager vastleggen en herstellen van gebruikersstatusgegevens in scenario's voor besturingssysteemimplementaties takenreeksen.
 ms.custom: na
 ms.date: 06/07/2017
 ms.prod: configuration-manager
@@ -17,154 +17,154 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 4b3668094d576b1b8710f08b384aa2f7c5eb0cca
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-a-task-sequence-to-capture-and-restore-user-state-in-system-center-configuration-manager"></a>Créer une séquence de tâches pour capturer et restaurer l’état utilisateur dans System Center Configuration Manager
+# <a name="create-a-task-sequence-to-capture-and-restore-user-state-in-system-center-configuration-manager"></a>Maak een takenreeks voor het vastleggen en herstellen van gebruikersstatus in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Vous pouvez utiliser des séquences de tâches System Center Configuration Manager pour capturer et restaurer les données d’état utilisateur dans les scénarios de déploiement de système d’exploitation où vous souhaitez conserver l’état utilisateur du système d’exploitation actuel. En fonction du type de séquence de tâches que vous créez, les étapes de capture et de restauration peuvent être ajoutées automatiquement dans le cadre de la séquence de tâches. Dans d’autres scénarios, vous devrez peut-être ajouter manuellement les étapes de capture et de restauration à la séquence de tâches. Cette rubrique fournit les étapes que vous devez ajouter à une séquence de tâches existante pour capturer et restaurer des données d’état utilisateur.  
+U kunt System Center Configuration Manager-takenreeksen gebruiken vastleggen en herstellen van de gebruikersstatusgegevens in implementatiescenario's van besturingssysteem waar u wilt bewaren van de gebruikersstatus van het huidige besturingssysteem. Afhankelijk van het type takenreeks dat u wilt maken, worden de stappen voor het vastleggen en terugzetten automatisch toegevoegd als onderdeel van de takenreeks. In andere situaties moet u de stappen voor het vastleggen en terugzetten misschien handmatig toevoegen. In dit onderwerp worden de stappen beschreven die u aan een bestaande takenreeks moet toevoegen om gebruikersstatusgegevens vast te leggen en terug te zetten.  
 
-##  <a name="BKMK_CaptureRestoreUserState"></a> Comment capturer et restaurer des données d’état utilisateur  
- Pour capturer et restaurer l’état utilisateur, vous devez ajouter les étapes suivantes à la séquence de tâches :  
+##  <a name="BKMK_CaptureRestoreUserState"></a> Gebruikersstatusgegevens vastleggen en terugzetten  
+ Als u de gebruikersstatus wilt vastleggen en terugzetten, moet u de volgende stappen aan de takenreeks toevoegen:  
 
--   **Demander le magasin d’état**: cette étape est nécessaire seulement si vous stockez l’état utilisateur sur le point de migration d’état.  
+-   **Statusopslag opvragen**: Deze stap is alleen nodig als u de gebruikersstatus op het statusmigratiepunt opslaat.  
 
--   **Capturer l’état utilisateur**: cette étape capture les données d’état utilisateur et les stocke sur le point de migration d’état ou localement à l’aide de liens.  
+-   **Gebruikersstatus vastleggen**: Deze stap legt de gebruikersstatusgegevens vast en slaat deze op het statusmigratiepunt of lokaal via koppelingen.  
 
--   **Restaurer l’état utilisateur**: cette étape restaure les données d’état utilisateur sur l’ordinateur de destination. Elle peut récupérer les données à partir d'un point de migration d'état utilisateur ou à partir de l'ordinateur de destination.  
+-   **Gebruikersstatus herstellen**: Deze stap herstelt de gebruikersstatusgegevens op de doelcomputer. Hiermee kunnen de gegevens van een gebruikersstatusmigratiepunt of van de doelcomputer worden opgehaald.  
 
--   **Libérer le magasin d’état**: cette étape est nécessaire seulement si vous stockez l’état utilisateur sur le point de migration d’état. Cette étape supprime ces données du point de migration d'état.  
+-   **Statusopslag vrijgeven**: Deze stap is alleen nodig als u de gebruikersstatus op het statusmigratiepunt opslaat. Deze stap verwijdert deze gegevens uit het statusmigratiepunt.  
 
- Utilisez les procédures suivantes pour ajouter les étapes de séquence de tâches nécessaires pour capturer et restaurer l'état utilisateur. Pour plus d’informations sur la création d’une séquence de tâches, consultez [Gérer les séquences de tâches pour automatiser des tâches](manage-task-sequences-to-automate-tasks.md).  
+ Gebruik de volgende procedures om de takenreeksstappen toe te voegen die nodig zijn om de gebruikersstatus vast te leggen en te herstellen. Zie voor meer informatie over het maken van een takenreeks [beheren van takenreeksen om taken te automatiseren](manage-task-sequences-to-automate-tasks.md).  
 
-#### <a name="to-add-task-sequence-steps-to-capture-the-user-state"></a>Pour ajouter des étapes de séquence de tâches afin de capturer l'état utilisateur  
+#### <a name="to-add-task-sequence-steps-to-capture-the-user-state"></a>Toevoegen van takenreeksstappen voor het vastleggen van de gebruikersstatus  
 
-1.  Dans la liste **Séquence de tâches** , sélectionnez une séquence de tâches et cliquez sur **Modifier**.  
+1.  Selecteer een takenreeks uit de lijst **Takenreeks** en klik vervolgens op **Bewerken**.  
 
-2.  Si vous utilisez un point de migration d'état pour stocker l'état utilisateur, ajoutez l'étape **Demander le magasin d'état** à la séquence de tâches. Dans la boîte de dialogue **Éditeur de séquence de tâches** , cliquez sur **Ajouter**, pointez sur **État utilisateur**, puis cliquez sur **Demander le magasin d'état**. Spécifiez les propriétés et les options suivantes pour l'étape **Demander le magasin d'état** , puis cliquez sur **Appliquer**.  
+2.  Voeg de stap **Statusopslag opvragen** toe als u een statusmigratiepunt gebruikt om de gebruikersstatus op te slaan. Klik op **Toevoegen** in het dialoogvenster **Takenreekseditor**, ga naar **Gebruikersstatus**en klik vervolgens op **Statusopslag opvragen**. Geef de volgende eigenschappen en opties op voor de stap **Statusopslag opvragen** en klik vervolgens op **Toepassen**.  
 
-     Dans l'onglet **Propriétés** , spécifiez les options suivantes :  
+     Geef op het tabblad **Eigenschappen** de volgende opties op:  
 
-    -   Entrez un nom et une description pour l'étape.  
+    -   Voer een naam en beschrijving in voor de stap.  
 
-    -   Cliquez sur **Capturer l'état à partir de l'ordinateur**.  
+    -   Klik op **Status van de computer vastleggen**.  
 
-    -   Dans la zone **Nombre de tentatives** , spécifiez le nombre de tentatives de la séquence de tâches pour capturer les données d'état utilisateur si une erreur se produit.  
+    -   Geef in het vak **Aantal pogingen** het aantal keren op dat de takenreeks moet proberen de gebruikersstatusgegevens vast te leggen als er een fout optreedt.  
 
-    -   Dans la zone **Délai de nouvelle tentative (en secondes)** , spécifiez le nombre de secondes d'attente avant que la séquence de tâches retente de capturer les données.  
+    -   Geef, in het vak **Wachttijd nieuwe poging (seconden)** , op hoeveel seconden de takenreeks moet wachten voordat er een nieuwe poging wordt ondernomen om de gegevens vast te leggen.  
 
-    -   Cochez la case **Si le compte d’ordinateur ne parvient pas à se connecter au magasin d’état, utiliser le compte d’accès réseau** pour indiquer si vous voulez utiliser le [compte d’accès réseau](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#a-namebkmknaaa-network-access-account) Configuration Manager pour vous connecter aux données d’état utilisateur.  
+    -   Selecteer de **als het computeraccount geen verbinding maken met Statusopslag, het netwerktoegangsaccount gebruiken** selectievakje in om aan te geven of de Configuration Manager [netwerktoegangsaccount](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#a-namebkmknaaa-network-access-account) verbinding maken met de Statusopslag.  
 
-     Dans l'onglet **Options** , spécifiez les options suivantes :  
+     Specificeer op het tabblad **Opties** de volgende opties:  
 
-    -   Activez la case à cocher **Continuer en cas d'erreur** si vous souhaitez que la séquence de tâches passe à l'étape suivante si cette étape échoue.  
+    -   Selecteer het selectievakje **Doorgaan bij fout** als u de takenreeks wilt laten doorgaan naar de volgende stap als deze stap mislukt.  
 
-    -   Spécifiez des conditions qui doivent être remplies avant que la séquence de tâches puisse continuer si une erreur se produit.  
+    -   Geef eventueel voorwaarden op waaraan moet worden voldaan voordat de takenreeks kan doorgaan als een fout optreedt.  
 
-3.  Ajoutez l'étape **Capturer l'état utilisateur** à la séquence de tâches. Dans la boîte de dialogue **Éditeur de séquence de tâches** , cliquez sur **Ajouter**, pointez sur **État utilisateur**, puis cliquez sur **Capturer l'état utilisateur**. Spécifiez les propriétés et les options suivantes pour l'étape **Capturer l'état utilisateur** , puis cliquez sur **OK**.  
-
-    > [!IMPORTANT]  
-    >  Lorsque vous ajoutez cette étape à votre séquence de tâches, définissez également la variable de séquence de tâches **OSDStateStorePath** pour indiquer où sont stockées sur les données d'état utilisateur. Si vous stockez l'état utilisateur localement, ne spécifiez pas un dossier racine, car la séquence de tâches risquerait d'échouer. Lorsque vous stockez les données utilisateur localement, utilisez toujours un dossier ou un sous-dossier. Pour plus d’informations sur cette variable, consultez [Variables de l’action de séquence de tâches Capturer l’état utilisateur](../understand/task-sequence-action-variables.md#BKMK_CaptureUserState).  
-
-     Dans l'onglet **Propriétés** , spécifiez les options suivantes :  
-
-    -   Entrez un nom et une description pour l'étape.  
-
-    -   Indiquez l'emplacement du package qui contient les fichiers sources USMT utilisés pour capturer les données d'état utilisateur.  
-
-    -   Spécifiez les profils utilisateur à capturer :  
-
-        -   Cliquez sur **Capturer tous les profils utilisateur à l'aide des options standard** pour capturer tous les profils utilisateur.  
-
-        -   Cliquez sur **Personnaliser la façon dont les profils utilisateur sont capturés** pour spécifier les profils utilisateur individuels à capturer. Sélectionnez le fichier de configuration (miguser.xml, migsys.xml ou migapp.xml) qui contient les informations du profil utilisateur. Vous ne pouvez pas utiliser ici le fichier de configuration config.xml, mais vous pouvez l’ajouter manuellement à la ligne de commande USMT en utilisant les variables OSDMigrageAdditionalCaptureOptions et OSDMigrateAdditionalRestoreOptions.
-
-    -   Sélectionnez **Activer la journalisation documentée** pour spécifier la quantité d'informations à écrire dans des fichiers journaux si une erreur se produit.  
-
-    -   Sélectionnez **Ignorer les fichiers qui utilisent le système de fichiers EFS**.  
-
-    -   Sélectionnez **Copier en utilisant l'accès au système de fichiers** pour spécifier les paramètres suivants :  
-
-        -   **Continuer si certains fichiers ne peuvent pas être capturés**: ce paramètre permet à l’étape de séquence de tâches de continuer le processus de migration même si certains fichiers ne peuvent pas être capturés. Si vous désactivez cette option et qu'un fichier ne peut pas être capturé, l'étape de séquence de tâches échoue. Cette option est activée par défaut.  
-
-        -   **Capturer localement en utilisant des liens au lieu de copier les fichiers**: ce paramètre vous permet d’utiliser la fonctionnalité de migration de lien physique qui est disponible dans USMT 4.0. Ce paramètre est ignoré si vous utilisez des versions d'USMT antérieures à USMT 4.0.  
-
-        -   **Capturer en mode hors-ligne (Windows PE uniquement)**: ce paramètre vous permet de capturer l’état utilisateur à partir de Windows PE sans démarrer le système d’exploitation existant. Ce paramètre est ignoré si vous utilisez des versions d'USMT antérieures à USMT 4.0.  
-
-    -   Sélectionnez **Capturer en utilisant Volume Copy Shadow Service (VSS)**. Ce paramètre est ignoré si vous utilisez des versions d'USMT antérieures à USMT 4.0.  
-
-     Dans l'onglet **Options** , spécifiez les options suivantes :  
-
-    -   Activez la case à cocher **Continuer en cas d'erreur** si vous souhaitez que la séquence de tâches passe à l'étape suivante si cette étape échoue.  
-
-    -   Spécifiez des conditions qui doivent être remplies avant que la séquence de tâches puisse continuer si une erreur se produit.  
-
-4.  Si vous utilisez un point de migration d’état pour stocker l’état utilisateur, ajoutez l’étape [Libérer le magasin d’état](../understand/task-sequence-steps.md#BKMK_ReleaseStateStore) à la séquence de tâches. Dans la boîte de dialogue **Éditeur de séquence de tâches** , cliquez sur **Ajouter**, pointez sur **État utilisateur**, puis cliquez sur **Libérer le magasin d'état**. Spécifiez les propriétés et les options suivantes pour l'étape **Libérer le magasin d'état** , puis cliquez sur **OK**.  
+3.  Voeg de stap **Gebruikersstatus vastleggen** toe aan de takenreeks. Klik op **Toevoegen** in het dialoogvenster **Takenreekseditor**, ga naar **Gebruikersstatus**en klik vervolgens op **Gebruikersstatus vastleggen**. Geef de volgende eigenschappen en opties op voor de stap **Gebruikersstatus vastleggen** en klik vervolgens op **OK**.  
 
     > [!IMPORTANT]  
-    >  L'action de séquence de tâches exécutée avant l'étape **Libérer le magasin d'état** doit être effectuée avec succès avant que l'étape **Libérer le magasin d'état** démarre.  
+    >  Stel ook de takenreeksvariabele **OSDStateStorePath** in wanneer u deze stap toevoegt aan uw takenreeks om aan te duiden waar de gebruikersstatusgegevens worden opgeslagen. Als u de gebruikersstatus lokaal opslaat, dient u geen hoofdmap op te geven omdat dit ervoor kan zorgen dat de takenreeks niet kan worden uitgevoerd. Gebruik altijd een map of submap wanneer u de gebruikersgegevens lokaal opslaat. Zie voor meer informatie over deze variabele [vastleggen gebruiker State Task Sequence Action Variables](../understand/task-sequence-action-variables.md#BKMK_CaptureUserState).  
 
-     Sous l'onglet **Propriétés** , entrez un nom et une description pour l'étape.  
+     Geef op het tabblad **Eigenschappen** de volgende opties op:  
 
-     Sous l'onglet **Options** , spécifiez les options suivantes.  
+    -   Voer een naam en beschrijving in voor de stap.  
 
-    -   Activez la case à cocher **Continuer en cas d'erreur** si vous souhaitez que la séquence de tâches passe à l'étape suivante si cette étape échoue.  
+    -   Geef het pakket op dat het USMT-bronbestand bevat dat wordt gebruikt om de gebruikersstatusgegevens vast te leggen.  
 
-    -   Spécifiez des conditions qui doivent être remplies avant que la séquence de tâches puisse continuer si une erreur se produit.  
+    -   Geef de gebruikersprofielen op voor het vastleggen van:  
 
- Déployez cette séquence de tâches pour capturer l'état utilisateur sur un ordinateur de destination. Pour plus d’informations sur la façon de déployer des séquences de tâches, consultez [Déployer une séquence de tâches](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  
+        -   Klik op **Alle gebruikersprofielen vastleggen met standaardopties** om alle gebruikersprofielen vast te leggen.  
 
-#### <a name="to-add-task-sequence-steps-to-restore-the-user-state"></a>Pour ajouter des étapes de séquence de tâches afin de restaurer l'état utilisateur  
+        -   Klik op **Vastlegging van gebruikersprofiel aanpassen** om individuele gebruikersprofielen op te geven om vast te leggen. Selecteer het configuratiebestand (miguser.xml, migsys.xml of migapp.xml) die de gebruikersprofielgegevens bevat. Het configuratiebestand config.xml hier niet gebruiken, maar u kunt het handmatig toevoegen aan de USMT-opdrachtregel met behulp van de variabelen OSDMigrageAdditionalCaptureOptions en OSDMigrateAdditionalRestoreOptions.
 
-1.  Dans la liste **Séquence de tâches** , sélectionnez une séquence de tâches et cliquez sur **Modifier**.  
+    -   Selecteer **Uitgebreide logboekregistratie inschakelen** om op te geven hoeveel informatie er naar de logboekbestanden moet worden geschreven als er een fout optreedt.  
 
-2.  Ajoutez l’étape [Restaurer l’état utilisateur](../understand/task-sequence-steps.md#BKMK_RestoreUserState) à la séquence de tâches. Dans la boîte de dialogue **Éditeur de séquence de tâches** , cliquez sur **Ajouter**, pointez sur **État utilisateur**, puis cliquez sur **Restaurer l'état utilisateur**. Cette étape établit une connexion vers le point de migration d'état. Spécifiez les propriétés et les options suivantes pour l'étape **Restaurer l'état utilisateur** , puis cliquez sur **OK**.  
+    -   Selecteer **Bestanden die het Encrypting File System (EFS) gebruiken overslaan**.  
 
-     Dans l'onglet **Propriétés** , spécifiez les propriétés suivantes :  
+    -   Selecteer **Kopiëren door toegang tot bestandssysteem** om de volgende instellingen op te geven:  
 
-    -   Entrez un nom et une description pour l'étape.  
+        -   **Doorgaan als sommige bestanden niet kunnen worden vastgelegd**: Deze instelling kunt de takenreeksstap om door te gaan van het migratieproces, zelfs als sommige bestanden kunnen niet worden vastgelegd. De takenreeksstap mislukt als u deze optie uitschakelt en als er een bestand niet kan worden vastgelegd. Deze optie is standaard ingeschakeld.  
 
-    -   Spécifiez le package qui contient l'outil USMT pour restaurer les données d'état utilisateur.  
+        -   **Lokaal vastleggen met koppelingen in plaats van door bestanden te kopiëren**: Deze instelling kunt u de migratiefunctie voor vaste koppelingen die beschikbaar is in USMT 4.0 gebruiken. Deze instelling wordt genegeerd als u USMT-versies gebruikt die ouder zijn dan USMT 4.0.  
 
-    -   Spécifiez les profils utilisateur à restaurer :  
+        -   **Vastleggen in offline modus (alleen Windows PE)**: Deze instelling kunt u gebruikersstatus vastleggen vanuit Windows PE zonder op te starten naar het bestaande besturingssysteem. Deze instelling wordt genegeerd als u USMT-versies gebruikt die ouder zijn dan USMT 4.0.  
 
-        -   Cliquez sur **Restaurer tous les profils utilisateur capturés présentant des options standard** pour restaurer tous les profils utilisateur.  
+    -   Selecteer **Vastleggen met Volume Copy Shadow Service (VSS)**. Deze instelling wordt genegeerd als u USMT-versies gebruikt die ouder zijn dan USMT 4.0.  
 
-        -   Cliquez sur **Personnaliser la restauration des profils utilisateur** pour restaurer des profils utilisateur individuels. Sélectionnez le fichier de configuration (miguser.xml, migsys.xml ou migapp.xml) qui contient les informations du profil utilisateur. Vous ne pouvez pas utiliser ici le fichier de configuration config.xml, mais vous pouvez l’ajouter manuellement à la ligne de commande USMT en utilisant les variables OSDMigrageAdditionalCaptureOptions et OSDMigrateAdditionalRestoreOptions.
+     Specificeer op het tabblad **Opties** de volgende opties:  
 
-    -   Sélectionnez **Restaurer les profils utilisateur de l'ordinateur local** pour fournir un nouveau mot de passe pour les profils restaurés. Vous ne pouvez pas migrer les mots de passe pour les profils locaux.  
+    -   Selecteer het selectievakje **Doorgaan bij fout** als u de takenreeks wilt laten doorgaan naar de volgende stap als deze stap mislukt.  
+
+    -   Geef eventueel voorwaarden op waaraan moet worden voldaan voordat de takenreeks kan doorgaan als een fout optreedt.  
+
+4.  Als u een statusmigratiepunt gebruikt voor het opslaan van de gebruikersstatus, voegt de [Statusopslag vrijgeven](../understand/task-sequence-steps.md#BKMK_ReleaseStateStore) stap in de takenreeks wordt uitgevoerd. Klik in het dialoogvenster **Takenreekseditor** op **Toevoegen**wijs **Gebruikersstatus**aan en klik daarna op **Statusopslag vrijgeven**. Geef de volgende eigenschappen en opties voor de stap **Statusopslag vrijgeven** op en klik daarna op **OK**.  
+
+    > [!IMPORTANT]  
+    >  De takenreeksactie die vóór de stap **Statusopslag vrijgeven** wordt uitgevoerd, moet zijn gelukt voordat de stap **Statusopslag vrijgeven** is gestart.  
+
+     Voer op het tabblad **Eigenschappen** een naam en beschrijving in voor de stap.  
+
+     Specificeer op het tabblad **Opties** de volgende opties.  
+
+    -   Selecteer het selectievakje **Doorgaan bij fout** als u de takenreeks wilt laten doorgaan naar de volgende stap als deze stap mislukt.  
+
+    -   Geef eventueel voorwaarden op waaraan moet worden voldaan voordat de takenreeks kan doorgaan als een fout optreedt.  
+
+ Implementeer deze takenreeks om de gebruikersstatus op een doelcomputer vast te leggen. Zie voor meer informatie over het implementeren van takenreeksen [een takenreeks implementeert](../deploy-use/manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  
+
+#### <a name="to-add-task-sequence-steps-to-restore-the-user-state"></a>Takenreeksstappen toevoegen om de gebruikersstatus te herstellen  
+
+1.  Selecteer een takenreeks uit de lijst **Takenreeks** en klik vervolgens op **Bewerken**.  
+
+2.  Voeg de [gebruikersstatus herstellen](../understand/task-sequence-steps.md#BKMK_RestoreUserState) stap in de takenreeks wordt uitgevoerd. Klik in het dialoogvenster **Takenreekseditor** op **Toevoegen**wijs **Gebruikersstatus**aan en klik daarna op **Gebruikersstatus herstellen**. Deze stap brengt een verbinding tot stand met het statusmigratiepunt. Geef de volgende eigenschappen en opties voor de stap **Gebruikersstatus herstellen** op en klik daarna op **OK**.  
+
+     Specificeer op het tabblad **Eigenschappen** de volgende eigenschappen:  
+
+    -   Voer een naam en beschrijving in voor de stap.  
+
+    -   Geef het pakket op dat de USMT bevat om de gebruikersstatusgegevens te herstellen.  
+
+    -   Geef de gebruikersprofielen op die u wilt herstellen:  
+
+        -   Klik op **Alle geregiistreerde gebruikersprofielen met standaardopties herstellen** om alle gebruikersprofielen te herstellen.  
+
+        -   Klik op **herstellen van het gebruikersprofiel aanpassen** om afzonderlijke gebruikersprofielen te herstellen. Selecteer het configuratiebestand (miguser.xml, migsys.xml of migapp.xml) die de gebruikersprofielgegevens bevat. Het configuratiebestand config.xml hier niet gebruiken, maar u kunt het handmatig toevoegen aan de USMT-opdrachtregel met behulp van de variabelen OSDMigrageAdditionalCaptureOptions en OSDMigrateAdditionalRestoreOptions.
+
+    -   Selecteer **Gebruikersprofielen op lokale computers herstellen** om te voorzien in een nieuw wachtwoord voor de herstelde profielen. U kunt geen wachtwoorden voor lokale profielen migreren.  
 
         > [!NOTE]  
-        >  Quand vous disposez de comptes d’utilisateur locaux, que vous utilisez l’étape [Capturer l’état utilisateur](../understand/task-sequence-steps.md#BKMK_CaptureUserState) et que vous sélectionnez **Capturer tous les profils utilisateur à l’aide des options standard**, vous devez sélectionner le paramètre **Restaurer les profils utilisateur de l’ordinateur local** à l’étape [Restaurer l’état utilisateur](../understand/task-sequence-steps.md#BKMK_RestoreUserState), sinon la séquence de tâches échoue.  
+        >  Wanneer u lokale gebruikersaccounts hebt, en u gebruikt de [gebruikersstatus vastleggen](../understand/task-sequence-steps.md#BKMK_CaptureUserState) stap en selecteer **alle gebruikersprofielen met standaardopties vastleggen**, moet u de **gebruikersprofielen lokale computer herstellen** instellen in de [gebruikersstatus herstellen](../understand/task-sequence-steps.md#BKMK_RestoreUserState) stap of de takenreeks mislukt.  
 
-    -   Sélectionnez **Continuer si certains fichiers ne peuvent pas être restaurés** si vous souhaitez que l'étape **Restaurer l'état utilisateur** se poursuive si un fichier ne peut pas être restauré.  
+    -   Selecteer **Doorgaan als bestanden niet kunnen worden hersteld** als u wilt dat de stap **Gebruikersstatus herstellen** doorgaat als een bestand niet kan worden hersteld.  
 
-         Si vous stockez l'état utilisateur à l'aide de liens locaux et si la restauration échoue, l'utilisateur administratif peut supprimer manuellement les liens directs qui ont été créés pour stocker les données ou la séquence de tâches peut exécuter l'outil USMTUtils. Si vous utilisez USMTUtils pour supprimer le lien physique, ajoutez l’étape [Redémarrer l’ordinateur](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer) après l’exécution de USMTUtils.  
+         Als u de gebruikersstatus opslaat door middel van lokale koppelingen en herstellen is mislukt, kan de gebruiker met beheerdersrechten handmatig de vaste koppelingen verwijderen die zijn gemaakt om de gegevens op te slaan of u kunt de takenreeks het hulpprogramma USMTUtils laten uitvoeren. Als u met behulp van USMTUtils de vaste koppeling verwijdert, voegt u een [Computer opnieuw opstarten](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer) stap nadat u USMTUtils hebt uitgevoerd.  
 
-    -   Sélectionnez **Activer la journalisation documentée** pour spécifier la quantité d'informations à écrire dans des fichiers journaux si une erreur se produit.  
+    -   Selecteer **Uitgebreide logboekregistratie inschakelen** om op te geven hoeveel informatie er naar de logboekbestanden moet worden geschreven als er een fout optreedt.  
 
-     Dans l'onglet **Options** , spécifiez les options suivantes :  
+     Specificeer op het tabblad **Opties** de volgende opties:  
 
-    -   Activez la case à cocher **Continuer en cas d'erreur** si vous souhaitez que la séquence de tâches passe à l'étape suivante si cette étape échoue.  
+    -   Selecteer het selectievakje **Doorgaan bij fout** als u de takenreeks wilt laten doorgaan naar de volgende stap als deze stap mislukt.  
 
-    -   Spécifiez des conditions qui doivent être remplies avant que la séquence de tâches puisse continuer si une erreur se produit.  
+    -   Geef eventueel voorwaarden op waaraan moet worden voldaan voordat de takenreeks kan doorgaan als een fout optreedt.  
 
-3.  Si vous utilisez un point de migration d’état pour stocker l’état utilisateur, ajoutez l’étape [Libérer le magasin d’état](../understand/task-sequence-steps.md#BKMK_ReleaseStateStore) à la séquence de tâches. Dans la boîte de dialogue **Éditeur de séquence de tâches** , cliquez sur **Ajouter**, pointez sur **État utilisateur**, puis cliquez sur **Libérer le magasin d'état**. Spécifiez les propriétés et les options suivantes pour l'étape **Libérer le magasin d'état** , puis cliquez sur **OK**.  
+3.  Als u een statusmigratiepunt gebruikt voor het opslaan van de gebruikersstatus, voegt de [Statusopslag vrijgeven](../understand/task-sequence-steps.md#BKMK_ReleaseStateStore) stap in de takenreeks wordt uitgevoerd. Klik in het dialoogvenster **Takenreekseditor** op **Toevoegen**wijs **Gebruikersstatus**aan en klik daarna op **Statusopslag vrijgeven**. Geef de volgende eigenschappen en opties voor de stap **Statusopslag vrijgeven** op en klik daarna op **OK**.  
 
     > [!IMPORTANT]  
-    >  L'action de séquence de tâches exécutée avant l'étape **Libérer le magasin d'état** doit être effectuée avec succès avant que l'étape **Libérer le magasin d'état** démarre.  
+    >  De takenreeksactie die vóór de stap **Statusopslag vrijgeven** wordt uitgevoerd, moet zijn gelukt voordat de stap **Statusopslag vrijgeven** is gestart.  
 
-     Sous l'onglet **Propriétés** , entrez un nom et une description pour l'étape.  
+     Voer op het tabblad **Eigenschappen** een naam en beschrijving in voor de stap.  
 
-     Sous l'onglet **Options** , spécifiez les options suivantes.  
+     Specificeer op het tabblad **Opties** de volgende opties.  
 
-    -   Activez la case à cocher **Continuer en cas d'erreur** si vous souhaitez que la séquence de tâches passe à l'étape suivante si cette étape échoue.  
+    -   Selecteer het selectievakje **Doorgaan bij fout** als u de takenreeks wilt laten doorgaan naar de volgende stap als deze stap mislukt.  
 
-    -   Spécifiez des conditions qui doivent être remplies avant que la séquence de tâches puisse continuer si une erreur se produit.  
+    -   Geef eventueel voorwaarden op waaraan moet worden voldaan voordat de takenreeks kan doorgaan als een fout optreedt.  
 
- Déployez cette séquence de tâches pour restaurer l'état utilisateur sur un ordinateur de destination. Pour plus d’informations sur le déploiement de séquences de tâches, consultez [Déployer une séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  
+ Implementeer deze takenreeks om de gebruikersstatus op de doelcomputer te herstellen. Zie voor meer informatie over het implementeren van takenreeksen [een takenreeks implementeert](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS).  
 
-## <a name="next-steps"></a>Étapes suivantes
-[Surveiller le déploiement de la séquence de tâches](monitor-operating-system-deployments.md#BKMK_TSDeployStatus)
+## <a name="next-steps"></a>Volgende stappen
+[Monitor voor de takenreeksimplementatie](monitor-operating-system-deployments.md#BKMK_TSDeployStatus)

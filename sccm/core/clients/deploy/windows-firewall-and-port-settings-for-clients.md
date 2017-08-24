@@ -1,6 +1,6 @@
 ---
-title: "Paramètres de pare-feu et de port du client Windows | Microsoft Docs"
-description: "Sélectionnez les paramètres de port et de pare-feu Windows pour les clients dans System Center Configuration Manager."
+title: Windows firewall- en poortinstellingen clientinstellingen | Microsoft Docs
+description: Selecteer Windows Firewall- en poortinstellingen voor clients in System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,158 +17,158 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 79686514efcba344c4babc3d3be03b48adca7132
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="windows-firewall-and-port-settings-for-clients-in-system-center-configuration-manager"></a>Paramètres de port et de pare-feu Windows pour les clients dans System Center Configuration Manager
+# <a name="windows-firewall-and-port-settings-for-clients-in-system-center-configuration-manager"></a>Instellingen voor Windows Firewall- en poortinstellingen voor clients in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Dans System Center Configuration Manager, les ordinateurs clients qui exécutent le Pare-feu Windows exigent souvent que des exceptions soient configurées pour permettre la communication avec leur site. Les exceptions que vous devez configurer dépendent des fonctionnalités de gestion que vous utilisez avec le client Configuration Manager.  
+Client-computers in System Center Configuration Manager die vaak Windows Firewall uitvoeren, moet u uitzonderingen configureert om te communicatie toestaat met hun site. De uitzonderingen die u moet configureren, is afhankelijk van de beheerfuncties die u met Configuration Manager-client gebruikt.  
 
- Utilisez les sections suivantes pour identifier ces fonctionnalités de gestion et pour obtenir plus d'informations sur la configuration du Pare-feu Windows pour ces exceptions.  
+ Gebruik de volgende secties om deze beheerfuncties te identificeren en voor meer informatie over hoe Windows Firewall te configureren voor deze uitzonderingen.  
 
-##  <a name="BKMK_ModifyingWindowsFirewall"></a> Modification des ports et programmes autorisés par le Pare-feu Windows  
- Utilisez la procédure suivante pour modifier les ports et les programmes sur le Pare-feu Windows pour le client Configuration Manager.  
+##  <a name="BKMK_ModifyingWindowsFirewall"></a> De poorten en programma's toegestaan door Windows Firewall wijzigen  
+ Gebruik de volgende procedure om te wijzigen van de poorten en programma's op Windows Firewall voor de Configuration Manager-client.  
 
-#### <a name="to-modify-the-ports-and-programs-permitted-by-windows-firewall"></a>Pour modifier les ports et programmes autorisés par le Pare-feu Windows  
+#### <a name="to-modify-the-ports-and-programs-permitted-by-windows-firewall"></a>De door Windows Firewall toegstane poorten en programma's wijzigen  
 
-1.  Sur l'ordinateur exécutant le Pare-feu Windows, ouvrez le Panneau de configuration.  
+1.  Open configuratiescherm op de computer waarop Windows Firewall uitgevoerd wordt.  
 
-2.  Cliquez avec le bouton droit sur **Pare-feu Windows**, puis cliquez sur **Ouvrir**.  
+2.  Klik met de rechtermuisknop op **Windows Firewall**en klik dan op **Open**.  
 
-3.  Configurez toutes les exceptions nécessaires et tous les programmes et ports personnalisés dont vous avez besoin.  
+3.  Configureer vereiste uitzonderingen en aangepaste programma's en poorten die u wenst.  
 
-## <a name="programs-and-ports-that-configuration-manager-requires"></a>Programmes et ports dont Configuration Manager a besoin  
- Les fonctionnalités de Configuration Manager suivantes nécessitent des exceptions sur le Pare-feu Windows :  
+## <a name="programs-and-ports-that-configuration-manager-requires"></a>Programma's en poorten die Configuration Manager vereist  
+ De volgende Configuration Manager-functies vereisen uitzonderingen op de Windows Firewall:  
 
-### <a name="queries"></a>Requêtes  
- Si vous exécutez la console Configuration Manager sur un ordinateur qui exécute le Pare-feu Windows, les requêtes échouent à leur première exécution et le système d’exploitation affiche une boîte de dialogue vous demandant si vous voulez débloquer statview.exe. Si vous débloquez statview.exe, les requêtes ultérieures s'exécuteront sans erreur. Vous pouvez également ajouter manuellement le fichier Statview.exe à la liste des programmes et services dans l'onglet **Exceptions** du Pare-feu Windows avant d'exécuter une requête.  
+### <a name="queries"></a>Query's  
+ Als u de Configuration Manager-console op een computer met Windows Firewall uitvoert, query's mislukken de eerste keer dat ze worden uitgevoerd en het besturingssysteem geeft een dialoogvenster waarin wordt gevraagd of u statview.exe wilt deblokkeren. Indien u statview.exe deblokkeert zullen volgende query's zonder problemen uitgevoerd worden. U kunt ook handmatig Statview.exe toevoegen aan de lijst van prgramma's en diensten op het tabblad **Uitzonderingen** van de Windows Firewall vóór u een query uitvoert.  
 
-### <a name="client-push-installation"></a>Installation poussée du client  
- Pour procéder à une installation Push du client Configuration Manager, ajoutez les éléments suivants en tant qu’exceptions au Pare-feu Windows :  
+### <a name="client-push-installation"></a>Clientpushinstallatie  
+ Gebruik client-push voor Configuration Manager-client te installeren, voeg de volgende als uitzonderingen voor Windows Firewall:  
 
--   Entrant et sortant : **Partage de fichiers et d’imprimantes**  
+-   Uitgaande en binnenkomende: **Bestands- en printerdeling**  
 
--   Entrant : **Windows Management Instrumentation (WMI)**  
+-   Binnenkomend: **Windows Management Instrumentation (WMI)**  
 
-### <a name="client-installation-by-using-group-policy"></a>Installation du client à l'aide de la stratégie de groupe  
- Pour installer le client Configuration Manager à l’aide de la stratégie de groupe, ajoutez **Partage de fichiers et d’imprimantes** en tant qu’exception au Pare-feu Windows.  
+### <a name="client-installation-by-using-group-policy"></a>Installatie van de client via groepsbeleid  
+ Voor het gebruik van Groepsbeleid om de Configuration Manager-client te installeren, Voeg **bestands- en printerdeling** als uitzondering aan de Windows Firewall.  
 
-### <a name="client-requests"></a>Requêtes client  
- Pour permettre aux ordinateurs clients de communiquer avec les systèmes de site Configuration Manager, ajoutez les éléments suivants en tant qu’exceptions au Pare-feu Windows :  
+### <a name="client-requests"></a>Aanvragen van client  
+ Voor clientcomputers om te communiceren met sitesystemen van Configuration Manager, voegt u het volgende als uitzonderingen voor Windows Firewall:  
 
- Sortant : Port TCP **80** (pour communications HTTP)  
+ Uitgaand: TCP-poort **80** (voor HTTP-communicatie)  
 
- Sortant : Port TCP **443** (pour communications HTTPS)  
-
-> [!IMPORTANT]  
->  Ces numéros de port sont les valeurs par défaut. Elles peuvent être modifiées dans Configuration Manager. Pour plus d’informations, consultez [Guide pratique pour configurer les ports de communication des clients dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-communication-ports.md). Si ces ports ont été modifiés par rapport aux valeurs par défaut, vous devez également configurer des exceptions correspondantes pour le Pare-feu Windows.  
-
-### <a name="client-notification"></a>Notification du client  
- Pour que le point de gestion signale aux ordinateurs clients les actions qu’ils doivent entreprendre quand un utilisateur administratif sélectionne une action de client dans la console Configuration Manager (téléchargement d’une stratégie d’ordinateur, démarrage d’une recherche de programmes malveillants, etc.), ajoutez l’exception suivante au Pare-feu Windows :  
-
- Sortant : Port TCP **10123**  
-
- Si la communication n’aboutit pas, Configuration Manager recommence automatiquement à utiliser le port de communication HTTP ou HTTPS existant entre le client et le point de gestion :  
-
- Sortant : Port TCP **80** (pour communications HTTP)  
-
- Sortant : Port TCP **443** (pour communications HTTPS)  
+ Uitgaand: TCP-poort **443** (voor HTTPS-communicatie)  
 
 > [!IMPORTANT]  
->  Ces numéros de port sont les valeurs par défaut. Elles peuvent être modifiées dans Configuration Manager. Pour plus d’informations, consultez [Guide pratique pour configurer les ports de communication des clients dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-communication-ports.md). Si ces ports ont été modifiés par rapport aux valeurs par défaut, vous devez également configurer des exceptions correspondantes pour le Pare-feu Windows.  
+>  Dit zijn standaardpoortnummers die kunnen worden gewijzigd in Configuration Manager. Zie voor meer informatie hoe [clientcommunicatiepoorten in System Center Configuration Manager configureren](../../../core/clients/deploy/configure-client-communication-ports.md). Indien deze poorten gewijzigd zijn ten opzichte van hun standaardwaarden, moet u ook overeenkomstige uitzonderingen configureren op de Windows Firewall.  
 
-### <a name="remote-control"></a>Contrôle à distance  
- Pour utiliser la fonctionnalité de contrôle à distance de Configuration Manager, autorisez le port suivant :  
+### <a name="client-notification"></a>Clientmeldingen  
+ Voor het beheerpunt te waarschuwen clientcomputers een actie die moet worden uitgevoerd wanneer een gebruiker met beheerdersrechten een clientactie in de Configuration Manager-console, zoals selecteert computerbeleid voor downloaden of het initiëren van een scan op malware, Voeg het volgende toe als uitzondering aan de Windows Firewall:  
 
--   Entrant : Port TCP**2701**  
+ Uitgaand: TCP-poort **10123**  
 
-### <a name="remote-assistance-and-remote-desktop"></a>Assistance à distance et Bureau à distance  
- Pour lancer l’assistance à distance à partir de la console Configuration Manager, ajoutez le programme personnalisé **Helpsvc.exe** et le port personnalisé entrant TCP **135** à la liste des programmes et services autorisés dans le Pare-feu Windows de l’ordinateur client. Vous devez également autoriser l' **Assistance à distance** et le **Bureau à distance**. Si vous lancez l'assistance à distance depuis l'ordinateur client, le Pare-feu Windows configure et autorise automatiquement l' **Assistance à distance** et le **Bureau à distance**.  
+ Indien deze communicatie niet slaagt, terugvalt Configuration Manager automatisch op met de bestaande client-naar-beheerpunt communicatiepoort van HTTP of HTTPS:  
 
-### <a name="wake-up-proxy"></a>Proxy de mise en éveil  
- Si vous activez le paramètre client du proxy de mise en éveil, un nouveau service appelé ConfigMgr Wake-up Proxy utilise un protocole pair à pair pour savoir si d'autres ordinateurs du sous-réseau sont en éveil et pour les mettre en éveil, le cas échéant. Cette communication utilise les ports suivants :  
+ Uitgaand: TCP-poort **80** (voor HTTP-communicatie)  
 
- Sortant : Port UDP **25536**  
-
- Sortant : Port UDP **9**  
-
- Ces numéros correspondent aux ports par défaut qui peuvent être modifiés dans Configuration Manager en utilisant les paramètres client de **Gestion de l’alimentation** appelés **Numéro de port du proxy de mise en éveil (UDP)** et **Numéro de port Wake On LAN (UDP)**. Si vous spécifiez le paramètre client **Gestion de l’alimentation**: **Exception du Pare-feu Windows pour le proxy de mise en éveil** , ces ports sont configurés automatiquement dans le Pare-feu Windows des clients. Toutefois, si les clients exécutent un autre pare-feu, vous devez configurer manuellement les exceptions pour ces numéros de port.  
-
- En plus de ces ports, le proxy de mise en éveil utilise également des messages de demande d'écho ICMP (Internet Control Message Protocol) entre un ordinateur client et un autre ordinateur client. Cette communication permet de savoir si l'autre ordinateur client est en éveil sur le réseau. ICMP est parfois appelé commandes ping TCP/IP.  
-
- Pour plus d’informations sur le proxy de mise en éveil, consultez [Planifier la sortie de veille des clients dans System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).  
-
-### <a name="windows-event-viewer-windows-performance-monitor-and-windows-diagnostics"></a>Observateur d'événements de Windows, Analyseur de performances de Windows et Diagnostics Windows  
- Pour accéder à l’Observateur d’événements Windows, à l’Analyseur de performances Windows et à Diagnostics Windows à partir de la console Configuration Manager, activez **Partage de fichiers et d’imprimantes** en tant qu’exception sur le Pare-feu Windows.  
-
-## <a name="ports-used-during-configuration-manager-client-deployment"></a>Ports utilisés lors du déploiement du client de Configuration Manager  
- Les tableaux suivants référencent les ports utilisés lors du processus d'installation du client.  
+ Uitgaand: TCP-poort **443** (voor HTTPS-communicatie)  
 
 > [!IMPORTANT]  
->  S'il existe un pare-feu entre les serveurs de système de site et l'ordinateur client, confirmez si le pare-feu autorise le trafic pour les ports requis pour la méthode d'installation du client que vous avez choisie. Par exemple, les pare-feu causent souvent l'échec d'une installation poussée du client car ils bloquent le protocole SMB et les appels de procédure distante (RPC). Dans ce cas, utilisez une méthode d'installation du client différente, telle que l'installation manuelle (en exécutant CCMSetup.exe) ou l'installation du client basée sur une stratégie de groupe. Ces méthodes alternatives d'installation du client ne nécessitent pas de protocole SMB ou RPC.  
+>  Dit zijn standaardpoortnummers die kunnen worden gewijzigd in Configuration Manager. Zie voor meer informatie [clientcommunicatiepoorten in System Center Configuration Manager configureren](../../../core/clients/deploy/configure-client-communication-ports.md). Indien deze poorten gewijzigd zijn ten opzichte van hun standaardwaarden, moet u ook overeenkomstige uitzonderingen configureren op de Windows Firewall.  
 
- Pour plus d'informations sur la configuration du Pare-feu Windows sur l'ordinateur client, voir la section [Modification des ports et programmes autorisés par le Pare-feu Windows](#BKMK_ModifyingWindowsFirewall).  
+### <a name="remote-control"></a>Extern beheer  
+ Toestaan dat de volgende poort voor het gebruik van beheer op afstand Configuration Manager:  
 
-### <a name="ports-that-are-used-for-all-installation-methods"></a>Ports utilisés pour toutes les méthodes d'installation  
+-   Binnenkomend: TCP-poort**2701**  
 
-|Description|UDP|TCP|  
+### <a name="remote-assistance-and-remote-desktop"></a>Hulp op afstand en extern bureaublad  
+ Voeg het aangepaste programma voor hulp op afstand initieert van de Configuration Manager-console, **Helpsvc.exe** en de inkomende aangepaste TCP-poort **135** aan de lijst met toegestane programma's en services in Windows Firewall op de clientcomputer. U moet ook **Hulp op afstand** en **Extern bureaublad**toestaan. Indien u Hulp op afstand initieert van de clientcomputer, configureert Firewall automatisch **Hulp op afstand** en **Extern bureaublad**en laat ze ook toe.  
+
+### <a name="wake-up-proxy"></a>Wake-Up proxy  
+ Indien u de instelling voor wake-up proxy client inschakelt, gebruikt een nieuwe service met de naam ConfigMgr wake-up proxy een peer-to-peer protocol om te controleren of er computers actief zijn op het subnet en om ze indien nodig te activeren. Deze mededeling maakt gebruik van de volgende poorten:  
+
+ Uitgaand: UDP-poort **25536**  
+
+ Uitgaand: UDP-poort **9**  
+
+ Dit zijn de standaardpoortnummers die kunnen worden gewijzigd in Configuration Manager met behulp van de **energiebeheer** instellingen van clients van **Wake-up proxypoortnummer (UDP)** en **Wake On LAN-pooortnummer (UDP)**. Als u opgeeft de **energiebeheer**: **Windows Firewall-uitzondering voor wake-up proxy** client, deze poorten worden automatisch geconfigureerd in Windows Firewall voor clients. Indien clients evenwel een verschillende firewall uitvoeren, moet u handmatig de uitzonderingen voor deze poortnummers configureren.  
+
+ Behalve deze poorten gebruikt wake-up proxy ook Internet Control Message Protocol (ICMP) echoaanvraagberichten van één clientcomputer aan een andere clientcomputer. Deze communicatie wordt gebruikt om te bevestigen of de andere clientcomputer actief is op het netwerk. Naar ICMP wordt soms verwezen als TCP/IP-pingopdrachten.  
+
+ Zie voor meer informatie over wake-up proxy [plannen voor ontwaken van clients in System Center Configuration Manager](../../../core/clients/deploy/plan/plan-wake-up-clients.md).  
+
+### <a name="windows-event-viewer-windows-performance-monitor-and-windows-diagnostics"></a>Logboeken van Windows, prestatiemeter van Windows en Windows diagnostische gegevens  
+ Voor toegang tot logboeken van Windows, Prestatiemeter van Windows en Windows diagnostische gegevens van de Configuration Manager-console, inschakelen **bestands- en printerdeling** als een uitzondering op de Windows Firewall.  
+
+## <a name="ports-used-during-configuration-manager-client-deployment"></a>Poorten die worden gebruikt tijdens de implementatie van de Configuration Manager-client  
+ De volgende tabellen geeft de lijst van de poorten die gebruikt worden tijdens het installatieproces van de klant.  
+
+> [!IMPORTANT]  
+>  Bevestig, indien er een firewall is tussen de sitesysteemservers en de clientcomputer, of de firewall verkeer toestaat voor de poorten die vereist zijn voor de clientinstallatiemethode die u kiest. Firewalls verhinderen bijvoorbeeld dikwijls het succes van clientpushinstallatie omdat ze Server Message Block (SMB) en Remote Procedure Calls (RPC) blokkeren. Gebruik in dit scenario een andere clientinstallatiemethode, zoals handmatige installatie (uitvoeren van CCMSetup.exe) of groepsbeleid-gebaseerde clientinstallatie. Deze alternatieve clientinstallatiemethodes vereisen geen SMB of RPC.  
+
+ Voor informatie over hoe Windows Firewall te configureren op de clientcomputer, zie [De poorten en programma's toegestaan door Windows Firewall wijzigen](#BKMK_ModifyingWindowsFirewall).  
+
+### <a name="ports-that-are-used-for-all-installation-methods"></a>Poorten die worden gebruikt voor alle installatiemethoden  
+
+|Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
-|Protocole HTTP (Hypertext Transfer) à partir de l'ordinateur client vers un point d'état de secours, lorsqu'un point d'état de secours est affecté au client.|--|80 (Voir remarque 1, **Port alternatif disponible**)|  
+|Hypertext Transfer Protocol (HTTP) van de clientcomputer naar een terugvalstatuspunt, wanneer een terugvalstatuspunt toegekend is aan de client.|--|80 (zie opmerking 1, **alternatieve poort beschikbaar**)|  
 
-### <a name="ports-that-are-used-with-client-push-installation"></a>Ports utilisés avec l'installation poussée du client  
- Outre les ports répertoriés dans le tableau ci-après, l'installation poussée du client utilise également les messages de demande echo Internet Control Message Protocol (ICMP) à partir du serveur du site vers l'ordinateur client pour vérifier si l'ordinateur client est disponible sur le réseau. ICMP est parfois appelé commandes ping TCP/IP. ICMP ne dispose pas d'un numéro de protocole UDP ou TCP, et par conséquent, il ne figure pas dans le tableau suivant. Toutefois, tous les périphériques réseau concernés, tels que les pare-feux, doivent autoriser le trafic ICMP pour l'installation poussée du client.  
+### <a name="ports-that-are-used-with-client-push-installation"></a>Poorten die worden gebruikt met clientpushinstallatie  
+ Behalve de poorten die voorkomen in de lijst in de volgende tabel, gebruikt clientpushinstallatie ook Internet Control Message Protocol (ICMP) echoaanvraagberichten van de siteserver naar de clientcomputer om te bevestigen of de clientcomputer beschikbaar is op het netwerk. Naar ICMP wordt soms verwezen als TCP/IP-pingopdrachten. ICMP heeft geen UDP- of TCP-protocolnummer en komt dus niet voor op de lijst in de volgende tabel. Alle tussenliggende netwerkapparaten, zoals firewalls, moeten evenwel ICMP-verkeer toestaan opdat de clientpushinstallatie zou slagen.  
 
-|Description|UDP|TCP|  
+|Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
-|Server Message Block (SMB) entre le serveur de site et l'ordinateur client.|--|445|  
-|Mappeur de point de terminaison RPC entre le serveur de site et l'ordinateur client.|135|135|  
-|Ports dynamiques RPC entre le serveur de site et l'ordinateur client.|--|DYNAMIC|  
-|Protocole HTTP depuis l'ordinateur client vers un point de gestion lorsque la connexion est effectuée via HTTP.|--|80 (Voir remarque 1, **Port alternatif disponible**)|  
-|Protocole HTTPS depuis l'ordinateur client vers un point de gestion lorsque la connexion est effectuée via HTTPS.|--|443 (Voir remarque 1, **Port alternatif disponible**)|  
+|Server Message Block (SMB) tussen de siteserver en clientcomputer.|--|445|  
+|RPC eindpunttoewijzer tussen de siteserver en de clientcomputer.|135|135|  
+|RPC dynamische poorten tussen de siteserver en de clientcomputer.|--|DYNAMISCH|  
+|Hypertext Transfer Protocol (HTTP) van de clientcomputer naar een beheerpunt, wanneer de verbinding over HTTP gebeurt.|--|80 (zie opmerking 1, **alternatieve poort beschikbaar**)|  
+|Secure Hypertext Transfer Protocol (HTTPS) van de clientcomputer naar een beheerpunt, wanneer de verbinding over HTTPS gebeurt.|--|443 (zie opmerking 1, **alternatieve poort beschikbaar**)|  
 
-### <a name="ports-that-are-used-with-software-update-point-based-installation"></a>Ports utilisés avec l'installation basée sur le point de mise à jour logicielle  
+### <a name="ports-that-are-used-with-software-update-point-based-installation"></a>Poorten die worden gebruikt met punt-gebaseerde installatie van software-update  
 
-|Description|UDP|TCP|  
+|Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
-|Protocole HTTP (Hypertext Transfer Protocol) à partir de l'ordinateur client vers le point de mise à jour logicielle.|--|80 ou 8530 (Voir remarque 2, **Windows Server Update Services**)|  
-|Protocole HTTPS (Secure Hypertext Transfer Protocol) à partir de l'ordinateur client vers le point de mise à jour logicielle.|--|443 ou 8531 (Voir remarque 2, **Windows Server Update Services**)|  
-|SMB (Server Message Block) entre le serveur source et l’ordinateur client quand vous spécifiez la propriété de ligne de commande CCMSetup **/source:&lt;Chemin\>**.|--|445|  
+|Hypertext Transfer Protocol (HTTP) van de clientcomputer naar het software-updatepunt.|--|80 of 8530 (zie opmerking 2, **Windows Server Update Services**)|  
+|Secure Hypertext Transfer Protocol (HTTPS) van de clientcomputer naar het software-updatepunt.|--|443 of 8531 (zie opmerking 2, **Windows Server Update Services**)|  
+|Server Message Block (SMB) tussen de bronserver en de clientcomputer wanneer u de CCMSetup-opdrachtregel-eigenschap opgeeft **/source:&lt;pad\>**.|--|445|  
 
-### <a name="ports-that-are-used-with-group-policy-based-installation"></a>Ports utilisés avec l'installation basée sur une stratégie de groupe  
+### <a name="ports-that-are-used-with-group-policy-based-installation"></a>Poorten die worden gebruikt met installatie op basis van groepsbeleid  
 
-|Description|UDP|TCP|  
+|Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
-|Protocole HTTP depuis l'ordinateur client vers un point de gestion lorsque la connexion est effectuée via HTTP.|--|80 (Voir remarque 1, **Port alternatif disponible**)|  
-|Protocole HTTPS depuis l'ordinateur client vers un point de gestion lorsque la connexion est effectuée via HTTPS.|--|443 (Voir remarque 1, **Port alternatif disponible**)|  
-|SMB (Server Message Block) entre le serveur source et l’ordinateur client quand vous spécifiez la propriété de ligne de commande CCMSetup **/source:&lt;Chemin\>**.|--|445|  
+|Hypertext Transfer Protocol (HTTP) van de clientcomputer naar een beheerpunt, wanneer de verbinding over HTTP gebeurt.|--|80 (zie opmerking 1, **alternatieve poort beschikbaar**)|  
+|Secure Hypertext Transfer Protocol (HTTPS) van de clientcomputer naar een beheerpunt, wanneer de verbinding over HTTPS gebeurt.|--|443 (zie opmerking 1, **alternatieve poort beschikbaar**)|  
+|Server Message Block (SMB) tussen de bronserver en de clientcomputer wanneer u de CCMSetup-opdrachtregel-eigenschap opgeeft **/source:&lt;pad\>**.|--|445|  
 
-### <a name="ports-that-are-used-with-manual-installation-and-logon-script-based-installation"></a>Ports utilisés avec l'installation manuelle et l'installation basée sur un script d'ouverture de session  
+### <a name="ports-that-are-used-with-manual-installation-and-logon-script-based-installation"></a>Poorten die gebruikt worden bij handmatige installatie en bij installatie gebaseerd op aanmeldingsscript  
 
-|Description|UDP|TCP|  
+|Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
-|SMB (Server Message Block) entre l'ordinateur client et un partage réseau à partir duquel vous exécutez CCMSetup.exe.<br /><br /> Quand vous installez Configuration Manager, les fichiers sources d’installation du client sont copiés et partagés automatiquement à partir du dossier *&lt;Chemin_Installation\>*\Client sur les points de gestion. Toutefois, vous pouvez copier ces fichiers et créer un nouveau partage sur n'importe quel ordinateur du réseau. Vous pouvez également éliminer ce trafic réseau en exécutant CCMSetup.exe localement, par exemple, à l'aide d'un support amovible.|--|445|  
-|Protocole HTTP de l’ordinateur client vers un point de gestion quand la connexion est effectuée via HTTP et que vous ne spécifiez pas la propriété de ligne de commande CCMSetup **/source:&lt;Chemin\>**.|--|80 (Voir remarque 1, **Port alternatif disponible**)|  
-|Protocole HTTPS de l’ordinateur client vers un point de gestion quand la connexion est effectuée via HTTPS et que vous ne spécifiez pas la propriété de ligne de commande CCMSetup **/source:&lt;Chemin\>**.|--|443 (Voir remarque 1, **Port alternatif disponible**)|  
-|SMB (Server Message Block) entre le serveur source et l’ordinateur client quand vous spécifiez la propriété de ligne de commande CCMSetup **/source:&lt;Chemin\>**.|--|445|  
+|Server Message Block (SMB) tussen de clientcomputer en een netwerkshare van waaruit u CCMSetup.exe uitvoert.<br /><br /> Wanneer u Configuration Manager installeert, de bronbestanden van de client-installatie zijn gekopieerd en automatisch gedeeld van de  *&lt;InstallationPath\>*map \Client op beheerpunten. U kunt evenwel deze bestanden kopiëren en een nieuwe share creëren op een computer op het netwerk. Alternatief kunt u dit netwerkverkeer elimineren door lokaal CCMSetup.exe uit te voeren door, bijvoorbeeld, verwisselbare media te gebruiken.|--|445|  
+|Hypertext Transfer Protocol (HTTP) vanaf de clientcomputer naar een beheerpunt wanneer de verbinding via HTTP, en u niet de CCMSetup opdrachtregeleigenschap geeft **/source:&lt;pad\>**.|--|80 (zie opmerking 1, **alternatieve poort beschikbaar**)|  
+|Hypertext Transfer Protocol (HTTPS) beveiligen vanaf de clientcomputer naar een beheerpunt, wanneer de verbinding via HTTPS is en u niet de CCMSetup opdrachtregeleigenschap **/source:&lt;pad\>**.|--|443 (zie opmerking 1, **alternatieve poort beschikbaar**)|  
+|Server Message Block (SMB) tussen de bronserver en de clientcomputer wanneer u de CCMSetup-opdrachtregel-eigenschap opgeeft **/source:&lt;pad\>**.|--|445|  
 
-### <a name="ports-that-are-used-with-software-distribution-based-installation"></a>Ports utilisés avec l'installation basée sur la distribution de logiciels  
+### <a name="ports-that-are-used-with-software-distribution-based-installation"></a>Poorten die worden gebruikt met installatie gebaseerd op softwaredistributie  
 
-|Description|UDP|TCP|  
+|Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
-|SMB (Server Message Block) entre le point de distribution et l'ordinateur client.|--|445|  
-|Protocole HTTP depuis le client vers un point de distribution lorsque la connexion est effectuée via HTTP.|--|80 (Voir remarque 1, **Port alternatif disponible**)|  
-|Protocole HTTPS depuis le client vers un point de distribution lorsque la connexion est effectuée via HTTPS.|--|443 (Voir remarque 1, **Port alternatif disponible**)|  
+|Server Message Block (SMB) tussen het distributiepunt en de clientcomputer.|--|445|  
+|Hypertext Transfer Protocol (HTTP) van de client naar een distributiepunt, wanneer de verbinding over HTTP gebeurt.|--|80 (zie opmerking 1, **alternatieve poort beschikbaar**)|  
+|Secure Hypertext Transfer Protocol (HTTPS) van de client naar een distributiepunt, wanneer de verbinding over HTTPS gebeurt.|--|443 (zie opmerking 1, **alternatieve poort beschikbaar**)|  
 
-## <a name="notes"></a>Remarques  
- **Port alternatif disponible** Dans Configuration Manager, vous pouvez définir un port alternatif pour cette valeur. Si un port personnalisé a été défini, remplacez-le quand vous définissez les informations de filtre IP pour les stratégies IPsec ou pour la configuration de pare-feu.  
+## <a name="notes"></a>Opmerkingen  
+ **1 alternatieve poort beschikbaar** In Configuration Manager, u kunt een alternatieve poort definiëren voor deze waarde. Indien een aangepaste poort is gedefinieerd, vervang dan deze aangepaste poort wanneer u de IP-filter informatie definieert voor IPsec beleidslijnen of om firewalls te configureren.  
 
- **2 Windows Server Update Services** Vous pouvez installer Windows Server Update Services (WSUS) sur le site Web par défaut (port 80) ou sur un site Web personnalisé (port 8530).  
+ **2 Windows Server Update Services** U kunt Windows Server Update Service (WSUS) installeren op de standaardwebsite (poort 80) of op een aangepaste website (poort 8530).  
 
- Après l'installation, vous pouvez modifier le port. Vous n'avez pas à utiliser le même numéro de port dans l'ensemble de la hiérarchie du site.  
+ Na de installatie kunt u de poort te wijzigen. U moet niet hetzelfde poortnummer gebruiken over de hele sitehiërarchie.  
 
- Si le numéro de port HTTP est 80, le numéro de port HTTPS doit être 443.  
+ Als de HTTP-poort 80 is, moet de HTTPS-poort 443 zijn.  
 
- S’il s’agit d’un autre numéro de port HTTP, le numéro de port HTTPS doit être supérieur de 1 (par exemple, 8530 et 8531).
+ Als de HTTP-poort iets anders is, moet de HTTPS-poort 1 hoger zijn. Bijvoorbeeld 8530 en 8531.

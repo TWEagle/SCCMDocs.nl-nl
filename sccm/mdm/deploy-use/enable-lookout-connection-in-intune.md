@@ -1,6 +1,6 @@
 ---
-title: "Activer Mobile Threat Protection de Lookout dans Intune | Microsoft Docs"
-description: "Activez Mobile Threat Protection de Lookout dans la console d’administration Intune."
+title: Inschakelen van Lookout MTP bij Intune | Microsoft Docs
+description: Schakel de beveiliging van mobiele threat Lookout in de Intune-beheerconsole.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,24 +16,24 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: f9ddbcc981fa1274a41ae16a6a939c0cdf739c3e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="enable-lookout-mtp-connection-in-the-intune-admin-console"></a>Activer la connexion Lookout MTP dans la console d’administration Intune
+# <a name="enable-lookout-mtp-connection-in-the-intune-admin-console"></a>Lookout MTP-verbinding in de Intune-beheerconsole inschakelen
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Cette rubrique montre comment activer la connexion Lookout MTP dans Intune. Vous devez déjà avoir configuré le connecteur Intune dans la console Lookout avant d’effectuer cette étape.  Si vous ne l’avez pas déjà fait, procédez comme décrit dans [Configurer votre abonnement avec Mobile Threat Protection de Lookout](set-up-your-subscription-with-lookout.md).
+Dit onderwerp leest u het inschakelen van de Lookout MTP-verbinding in Intune. U moet al hebt geconfigureerd de Intune-Connector in de console Lookout voordat u deze stap uitvoert.  Als u dit nog niet hebt gedaan, gaat u de stappen in [instellen van uw abonnement met Lookout mobiele threat protection](set-up-your-subscription-with-lookout.md).
 
-Pour activer la connexion Lookout MTP dans Intune, dans la page **Administration** de la [console Administrateur Microsoft Intune](https://manage.microsoft.com), choisissez **Intégration de service tiers**. Choisissez **État de Lookout** et activez **Synchronisation avec MTP** à l’aide du bouton bascule.
+De Lookout MTP-verbinding in Intune, inschakelen op de **beheer** pagina in de [Microsoft Intune-beheerconsole](https://manage.microsoft.com), kies **van derden-integratie**. Kies **Lookout status** en schakel **synchronisatie met MTP** met behulp van de wisselknop.
 
-![capture d’écran de la page de synchronisation Lookout avec le bouton bascule Activer mis en surbrillance](media/lookout-intune-synchronization.png)
+![Schermafbeelding van de pagina Lookout synchronisatie met de wisselknop inschakelen is gemarkeerd](media/lookout-intune-synchronization.png)
 
-Cette étape termine la configuration de l’intégration de Lookout et Intune dans la console Administrateur Intune.  Les étapes suivantes permettant d’implémenter cette solution impliquent le déploiement des [applications Lookout for Work](configure-and-deploy-lookout-for-work-apps.md) et la configuration de la stratégie de [conformité](enable-device-threat-protection-rule-compliance-policy.md).
+Dit voltooit de installatie van de Lookout en Intune-integratie in de Intune-beheerconsole.  De volgende stappen voor het implementeren van deze oplossing betrekken implementeren de [Lookout for Work apps](configure-and-deploy-lookout-for-work-apps.md) en het instellen van de [naleving](enable-device-threat-protection-rule-compliance-policy.md) beleid.
 
 >[!IMPORTANT]
-> Vous **devez** configurer l’application Lookout for Work avant de créer des règles de stratégie de conformité et de configurer l’accès conditionnel. De cette façon, l’application est prête et disponible pour l’installation afin de permettre aux utilisateurs finaux d’accéder à la messagerie et à d’autres ressources de l’entreprise.
+> U **moet** configureren de Lookout for Work-app voor het maken van beleidsregels voor naleving en voorwaardelijke toegang configureren. Dit zorgt ervoor dat de app is gereed en beschikbaar zijn voor eindgebruikers te installeren voordat ze toegang tot e-mail of andere bedrijfsresources krijgen kunnen.
 
-## <a name="next-steps"></a>Étapes suivantes
-[Configurer l’application Lookout for Work](configure-and-deploy-lookout-for-work-apps.md)
+## <a name="next-steps"></a>Volgende stappen
+[Lookout voor Work-app configureren](configure-and-deploy-lookout-for-work-apps.md)

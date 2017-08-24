@@ -1,6 +1,6 @@
 ---
-title: "Évaluer Configuration Manager | Microsoft Docs"
-description: "Créez un environnement lab pour évaluer System Center Configuration Manager pour une utilisation dans votre organisation."
+title: Configuration Manager evalueren | Microsoft Docs
+description: Maak een testomgeving om te evalueren van System Center Configuration Manager voor gebruik in uw organisatie.
 ms.custom: na
 ms.date: 2/28/2017
 ms.prod: configuration-manager
@@ -17,51 +17,51 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: d7ea785ab1beee09b9adda735a87f89bc9481620
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="evaluate-system-center-configuration-manager-by-building-your-own-lab-environment"></a>Évaluer System Center Configuration Manager en créant votre propre environnement lab
+# <a name="evaluate-system-center-configuration-manager-by-building-your-own-lab-environment"></a>System Center Configuration Manager evalueren door uw eigen testomgeving op te zetten
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
- Découvrez comment créer un environnement lab pour évaluer System Center Configuration Manager pour une utilisation dans votre organisation.  
+ Ontdek hoe u een testomgeving kunt maken om te evalueren hoe System Center Configuration Manager in uw organisatie kan worden gebruikt.  
 
- System Center Configuration Manager est un outil complexe et puissant qui permet de gérer vos utilisateurs, logiciels et appareils. Il est judicieux de procéder à une évaluation approfondie de System Center Configuration Manager avant de procéder à un déploiement complet de façon à combiner vos connaissances conceptuelles à des exercices pratiques.  
+ System Center Configuration Manager is een complex en krachtig hulpprogramma voor het beheren van uw gebruikers, apparaten en software. Is een goed idee om grondig System Center Configuration Manager evalueren voordat u volledige implementatie, zodat u kunt trouw met conceptuele informatie over aan praktijkoefeningen.  
 
- Ce guide s’adresse principalement aux administrateurs qui évaluent l’utilisation de Configuration Manager dans des environnements d’entreprise :  
+ Deze handleiding is hoofdzakelijk bedoeld voor beheerders die het gebruik van Configuration Manager in bedrijfsomgevingen evalueert:  
 
--   Administrateurs à la recherche d’une solution de gestion complète de PC, serveurs et appareils mobiles  
+-   Beheerders die een oplossing moet volledig beheer van pc's, servers en mobiele apparaten  
 
--   Administrateurs dans les secteurs de haute sécurité qui exigent la sécurité liée à la gestion locale des appareils et la souplesse liée à la gestion des appareils dans le cloud  
+-   Beheerders in hoge beveiligingseisen waarvoor de beveiliging van on-premises Apparaatbeheer met de flexibiliteit van cloud-gebaseerd Apparaatbeheer  
 
--   Administrateurs qui souhaitent gérer la montée en puissance de leur architecture de serveurs locale  
+-   Beheerders die u wilt het schalen van van de architectuur van de lokale server beheren  
 
-## <a name="what-this-lab-does"></a>Ce que fait ce lab  
- L’objectif principal sous-tendant la création de cet environnement lab est de vous fournir les connaissances générales qui vous permettront de commencer à utiliser Configuration Manager et d’améliorer votre connaissance de cet outil. Vous allez examiner pas à pas un assembly expédié de la version actuelle de Configuration Manager en utilisant deux serveurs :  
+## <a name="what-this-lab-does"></a>Wat deze testomgeving biedt  
+ Het belangrijkste doel van het maken van deze testomgeving is zodat u de algemene kennis aan de slag met Configuration Manager en voor het verbeteren van uw kennis van Configuration Manager. U hebt een versnelde assembly van de huidige versie van Configuration Manager met behulp van twee servers doorlopen:  
 
--   L’un hébergeant Active Directory, le contrôleur de domaine et le serveur DNS  
+-   Een die als host fungeert voor Active Directory, de domeincontroller en de DNS-server  
 
--   Un autre hébergeant Configuration Manager et tous les composants SQL Server associés  
+-   Een die als host fungeert voor Configuration Manager en alle bijbehorende SQL Server-onderdelen  
 
-Les ordinateurs clients sont installés sur Hyper-V. Le lab proprement dit peut aussi être exécuté en tant que système entièrement virtualisé sur un seul serveur.  
+De clientcomputers zijn geïnstalleerd in Hyper-V. De testomgeving zelf kan ook worden uitgevoerd als een volledig gevirtualiseerd systeem op één server.  
 
-## <a name="what-this-lab-does-not-do"></a>Ce que ne fait pas ce lab  
- Ce lab ne vous guidera pas dans tous les scénarios de Configuration Manager possibles. Il n’est pas conçu pour être migré immédiatement dans un environnement actif.  
+## <a name="what-this-lab-does-not-do"></a>Wat deze testomgeving niet biedt  
+ In dit testlab gaat u niet alle Configuration Manager-scenario's. Het is niet ontworpen onmiddellijk worden gemigreerd naar een actieve omgeving.  
 
- Une fois ce lab généré, vous disposerez d’un environnement de travail opérationnel. Toutefois, cet environnement ne sera pas optimisé pour des facteurs tels que les performances du système, la gestion de l’espace sur disque dur et le stockage SQL Server.  
+ Wanneer u deze testomgeving opzet, beschikt u over een functionele omgeving waarin u kunt werken. Maar deze omgeving is niet geoptimaliseerd voor factoren zoals de systeemprestaties, het beheer van vasteschijfruimte en SQL Server-opslag.  
 
-##  <a name="BKMK_EvalRec"></a>Lecture recommandée avant d’élaborer le lab  
- La [documentation de System Center Configuration Manager](http://docs.microsoft.com/sccm/) propose un contenu très riche. Nous vous recommandons de lire les rubriques suivantes de cette bibliothèque avant de commencer le lab :  
+##  <a name="BKMK_EvalRec"></a>Aanbevolen documentatie voordat u het lab maken  
+ Er is een schat aan materiaal beschikbaar in [documentatie voor System Center Configuration Manager](http://docs.microsoft.com/sccm/). U wordt aangeraden de volgende onderwerpen uit deze bibliotheek te lezen voordat u begint met het bouwen van de testomgeving:  
 
--   Découvrez les concepts de base concernant la console Configuration Manager, les portails d’utilisateurs finaux, ainsi que des exemples de scénarios dans [Présentation de System Center Configuration Manager](../../core/understand/introduction.md).  
+-   Meer informatie over de belangrijkste concepten over de Configuration Manager-console, eindgebruikers-portals en voorbeeldscenario's in [inleiding op System Center Configuration Manager](../../core/understand/introduction.md).  
 
--   Découvrez les principales fonctionnalités de gestion de Configuration Manager dans [Fonctions et fonctionnalités de System Center Configuration Manager](../../core/plan-design/changes/features-and-capabilities.md).  
+-   Meer informatie over de primaire beheerfuncties van Configuration Manager in [functies en mogelijkheden van System Center Configuration Manager](../../core/plan-design/changes/features-and-capabilities.md).  
 
--   Approfondissez vos connaissances avec [Principes de base de System Center Configuration Manager](../../core/understand/fundamentals.md).  
+-   Vergroot uw kennis met [basisprincipes van System Center Configuration Manager](../../core/understand/fundamentals.md).  
 
--   Découvrez l’importance des rôles de sécurité dans [Principes de base de l’administration basée sur des rôles pour System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
+-   Ontdek het belang van beveiligingsrollen in [basisprincipes van beheer op basis van rollen voor System Center Configuration Manager](../../core/understand/fundamentals-of-role-based-administration.md).  
 
--   Découvrez la gestion de contenu dans [Concepts de la gestion de contenu](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
+-   Meer informatie over inhoudsbeheer in [concepten voor inhoudsbeheer](../../core/plan-design/hierarchy/fundamental-concepts-for-content-management.md).  
 
--   Apprenez à traiter correctement les opérations quotidiennes tout au long de votre déploiement dans [Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager](../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  
+-   Meer informatie over het dagelijkse taken in uw implementatie in goed kunt ondersteunen [begrijpen hoe clients siteresources en -services voor System Center Configuration Manager vinden](../../core/plan-design/hierarchy/understand-how-clients-find-site-resources-and-services.md).  

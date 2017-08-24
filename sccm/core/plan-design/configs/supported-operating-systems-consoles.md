@@ -1,6 +1,6 @@
 ---
-title: Prise en charge de la console | Microsoft Docs
-description: "Découvrez quels systèmes d’exploitation sont pris en charge par les consoles System Center Configuration Manager."
+title: Ondersteuning voor console | Microsoft Docs
+description: Meer informatie over besturingssystemen die ondersteuning biedt voor een System Center Configuration Manager-console.
 ms.custom: na
 ms.date: 1/3/2017
 ms.prod: configuration-manager
@@ -16,31 +16,31 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 493fe98787591d44b2deb9a4474d38e54f4127e8
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="supported-operating-systems-for-system-center-configuration-manager-consoles"></a>Systèmes d’exploitation pris en charge pour les consoles System Center Configuration Manager
+# <a name="supported-operating-systems-for-system-center-configuration-manager-consoles"></a>Ondersteunde besturingssystemen voor System Center Configuration Manager-consoles
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
-
-
- Pour prendre en charge la console System Center Configuration Manager, les systèmes d’exploitation suivants nécessitent au minimum .NET Framework 4.5.2. L’exception est Windows 10 qui requiert au minimum .NET Framework 4.6.  
-
--   **Windows Server 2016** : Standard, Datacenter  
-  - Windows Server 2016 est pris en charge à compter de Configuration Manager version 1606, avec le correctif cumulatif KB3186654 (ou la version de référence 1606 publiée en octobre 2016).  
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
--   **Windows Server 2012 R2** (x64) : Standard, Datacenter  
+ Ter ondersteuning van de System Center Configuration Manager-console, vereisen de volgende besturingssystemen minimaal .NET Framework versie 4.5.2. De uitzondering is Windows 10, waarvoor minimaal .NET Framework 4.6 is vereist.  
 
--   **Windows Server 2012** (x64) : Standard, Datacenter  
+-   **WindowsServer 2016**: Standard, Datacenter  
+  - Windows Server 2016 wordt ondersteund vanaf Configuration Manager versie 1606, met de rollup hotfix van KB3186654 (of de basislijnversie van 1606, die werd gepubliceerd in oktober 2016).  
 
--   **Windows Server 2008 R2 avec SP1** (x64) : Standard, Entreprise, Datacenter  
 
--   **Windows 10** (x86, x64) : Professionnel, Entreprise  
+-   **Windows Server 2012 R2** (x64): Standard, Datacenter  
 
--   **Windows 8.1** (x86, x64) : Professionnel, Entreprise  
+-   **WindowsServer 2012** (x64): Standard, Datacenter  
 
--   **Windows 8** (x86, x64) : Professionnel, Entreprise  
+-   **Windows Server 2008 R2 met SP1** (x64): Standard, Enterprise, Datacenter  
 
--   **Windows 7 avec SP1** (x86, x64) : Professionnel, Entreprise, Édition Intégrale  
+-   **Windows 10** (x86, x64): Pro, Enterprise  
+
+-   **Windows 8.1** (x86, x64): Professional, Enterprise  
+
+-   **Windows 8** (x86, x64): Professional, Enterprise  
+
+-   **Windows 7 met SP1** (x86, x64): Professional, Enterprise, Ultimate  

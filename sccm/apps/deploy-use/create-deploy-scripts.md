@@ -1,6 +1,6 @@
 ---
-title: "Créer et exécuter des scripts avec Configuration Manager | Microsoft Docs"
-description: "Créez et exécutez des scripts sur les appareils clients avec Configuration Manager."
+title: Maken en scripts uitvoeren met Configuration Manager | Microsoft Docs
+description: Maken en uitvoeren van scripts op clientapparaten met Configuration Manager.
 ms.custom: na
 ms.date: 08/09/2017
 ms.prod: configuration-manager
@@ -17,102 +17,102 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: ed84f7900eee5c04728d0e4d1b46027c36327bec
 ms.sourcegitcommit: b41d3e5c7f0c87f9af29e02de3e6cc9301eeafc4
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/11/2017
 ---
-# <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Créer et exécuter des scripts PowerShell à partir de la console Configuration Manager
+# <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Maken en PowerShell-scripts uitvoeren vanaf de Configuration Manager-console
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Dans Configuration Manager, outre utiliser des packages et des programmes pour déployer des scripts, vous pouvez utiliser les fonctionnalités ci-après pour effectuer les actions suivantes :
+In Configuration Manager, naast het gebruik van pakketten en programma's voor het implementeren van scripts, kunt u de volgende functionaliteit aan de volgende acties uitvoeren:
 
-- Importer des scripts PowerShell dans Configuration Manager
-- Modifier les scripts à partir de la console Configuration Manager (pour les scripts non signés uniquement)
-- Marquer les scripts comme Approuvés ou Refusés pour améliorer la sécurité
-- Exécuter des scripts sur des collections d’ordinateurs clients Windows, et des ordinateurs Windows gérés localement. Vous ne pouvez pas déployer des scripts : ils sont exécutés presque immédiatement sur les appareils clients.
-- Examinez les résultats retournés par le script dans la console Configuration Manager.
+- PowerShell-Scripts importeren naar Configuration Manager
+- De scripts van de Configuration Manager-console (voor niet-ondertekende scripts alleen) bewerken
+- Scripts markeren als goedgekeurd of geweigerd, de beveiliging te verbeteren
+- Scripts uitvoeren op verzamelingen van Windows client-pc's en lokale beheerde Windows-pc's. U kunt scripts niet implementeren, in plaats daarvan ze wel bijna onmiddellijk worden uitgevoerd op clientapparaten.
+- Bekijk de resultaten geretourneerd door het script in de Configuration Manager-console.
 
 >[!TIP]
->Dans cette version de Configuration Manager, les scripts sont une fonctionnalité en préversion. Pour activer les scripts, consultez [Fonctionnalités en préversion dans System Center Configuration Manager](/sccm/core/servers/manage/pre-release-features).
+>Scripts zijn in deze versie van Configuration Manager, een functie van de voorlopige versie. Zie voor het inschakelen van scripts [pre-release functies in System Center Configuration Manager](/sccm/core/servers/manage/pre-release-features).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Vereisten
 
-Pour exécuter des scripts PowerShell, le client doit exécuter PowerShell version 3.0 ou ultérieure. Toutefois, si un script que vous exécutez contient des fonctionnalités d’une version ultérieure de PowerShell, le client sur lequel vous exécutez le script doit exécuter cette version.
+Voor het PowerShell-scripts uitvoeren, moet op de client, PowerShell versie 3.0 of hoger worden uitgevoerd. Echter, als u het uitvoeren van een script bevat de functionaliteit van een nieuwere versie van PowerShell, de client waarop u het script uitvoert moet worden uitgevoerd die versie.
 
-Les clients Configuration Manager doivent exécuter le client à partir de la version Release 1706 ou ultérieure pour exécuter des scripts.
+Configuration Manager-clients moeten de client uitgevoerd vanaf de release 1706 of later om te kunnen uitvoeren van scripts.
 
-Pour utiliser des scripts, vous devez être membre du rôle de sécurité Configuration Manager approprié.
+Gebruik van scripts, moet u lid zijn van de juiste Configuration Manager-beveiligingsrol.
 
-- Pour importer et créer des scripts, votre compte doit avoir les autorisations **Créer** pour les **Scripts SMS** dans le rôle de sécurité **Gestionnaire de paramètres de conformité**.
-- Pour approuver ou refuser des scripts, votre compte doit avoir les autorisations **Approuver** pour les **Scripts SMS** dans le rôle de sécurité **Gestionnaire de paramètres de conformité**.
-- Pour exécuter des scripts, votre compte doit avoir les autorisations **Exécuter des scripts** pour les **Collections** dans le rôle de sécurité **Gestionnaire de paramètres de conformité**.
+- Om te importeren en scripts - auteur uw account moet hebben **maken** machtigingen voor **SMS Scripts** in de **instellingen voor naleving** beveiligingsrol.
+- Goedkeuren of weigeren van scripts - uw account moet hebben **goedkeuren** machtigingen voor **SMS Scripts** in de **instellingen voor naleving** beveiligingsrol.
+- Uitvoeren van scripts - uw account moet hebben **-Script uitvoeren** machtigingen voor **verzamelingen** in de **instellingen voor naleving** beveiligingsrol.
 
-Pour plus d'informations sur les rôles de sécurité de Configuration Manager, voir [Principes de base de l’administration basée sur des rôles](/sccm/core/understand/fundamentals-of-role-based-administration).
+Zie voor meer informatie over beveiligingsrollen voor Configuration Manager [basisprincipes van beheer op basis van rollen](/sccm/core/understand/fundamentals-of-role-based-administration).
 
-Par défaut, les utilisateurs ne peuvent pas approuver un script qu'ils ont créé. Étant donné que les scripts sont puissants, flexibles et peuvent être déployés sur de nombreux appareils, vous pouvez séparer les rôles entre la personne qui crée le script et celle qui l’approuve. Ces rôles procurent un niveau supplémentaire de sécurité par rapport à l’exécution d’un script sans supervision. Vous pouvez désactiver cette approbation secondaire, pour faciliter le test.
+Standaard goedkeuren gebruikers niet van een script dat ze hebben gemaakt. Omdat scripts krachtige, veelzijdige zijn, en kunnen worden geïmplementeerd op veel apparaten, kunt u de rollen tussen de persoon die het script maakt en de persoon die het script goedkeurt scheiden. Deze functies bieden een extra beveiligingsniveau tegen het uitvoeren van een script zonder toezicht. U kunt deze secundaire goedkeuring, voor een eenvoudige testen uitschakelen.
 
-## <a name="allow-users-to-approve-their-own-scripts"></a>Autoriser les utilisateurs à approuver leurs propres scripts
+## <a name="allow-users-to-approve-their-own-scripts"></a>Toestaan dat gebruikers hun eigen scripts goedkeuren
 
-1. Dans la console Configuration Manager, cliquez sur **Administration**.
-2. Dans l'espace de travail **Administration** , développez **Configuration du site**, puis cliquez sur **Sites**.
-3. Dans la liste des sites, sélectionnez votre site, puis, dans l’onglet **accueil**, sous le groupe **Sites**, cliquez sur **Paramètres de hiérarchie**.
-4. Dans l’onglet **Général** de la boîte de dialogue **Propriétés des paramètres de hiérarchie**, décochez la case **Ne pas autoriser les auteurs à approuver leurs propres scripts**.
+1. Klik op **Beheer**in de Configuration Manager-console.
+2. Vouw **Siteconfiguratie** uit in de werkruimte **Beheer**en klik vervolgens op **Sites**.
+3. Kies in de lijst met websites, uw site en klik op de **Start** tabblad, in de **Sites** groep, klikt u op **hiërarchie-instellingen**.
+4. Op de **algemene** tabblad van de **eigenschappen van hiërarchie-instellingen** dialoogvenster vak, schakel het selectievakje uit **staan geen script auteurs goed te keuren van hun eigen scripts**.
 
-## <a name="import-and-edit-a-script"></a>Importer et modifier un script
+## <a name="import-and-edit-a-script"></a>Importeren en bewerken van een script
 
-1. Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.
-2. Dans l'espace de travail **Bibliothèque de logiciels** , cliquez sur **Scripts**.
-3. Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un script**.
-4. Dans la page **Script** de l’assistant **Créer un script**, configurez les paramètres éléments suivants :
-    - **Nom de script** : entrez un nom pour le script. Vous pouvez créer plusieurs scripts portant le même nom, mais utiliser des noms en double complique la recherche d’un script spécifique dans la console Configuration Manager.
-    - **Langage de script** : seuls les scripts PowerShell sont pris en charge.
-    - **Importer** : importez un script PowerShell dans la console. Le script s’affiche dans le champ **Script**.
-    - **Effacer**  : supprime le script en cours du champ Script.
-    - **Script** : affiche le script actuellement importé. Vous pouvez modifier le script dans ce champ si nécessaire.
-5. Effectuez toutes les étapes de l'Assistant. Le nouveau script s’affiche dans la liste **Script** avec l’état **En attente d’approbation**. Avant de pouvoir exécuter ce script sur les appareils clients, vous devez l’approuver.
+1. Klik in de Configuration Manager-console op **Software Librar**y.
+2. In de **softwarebibliotheek** werkruimte, klikt u op **Scripts**.
+3. Op de **Start** tabblad, in de **maken** groep, klikt u op **Script maken**.
+4. Op de **Script** pagina van de maken **Script** wizard de volgende instellingen configureren:
+    - **De naam van een script** -Voer een naam voor het script. Hoewel u meerdere scripts met dezelfde naam maken kunt, maakt met dubbele namen het moeilijker te vinden van het script u moet in de Configuration Manager-console.
+    - **Scripttaal** -momenteel alleen PowerShell-scripts worden ondersteund.
+    - **Importeren** -importeren van een PowerShell-script in de console. Het script wordt weergegeven in de **Script** veld.
+    - **Schakel** -het huidige script verwijdert uit het Script-veld.
+    - **Script** -wordt het momenteel geïmporteerde script. U kunt het script in dit veld indien nodig bewerken.
+5. Voltooi de wizard. Het nieuwe script wordt weergegeven in de **Script** lijst met de status van **wachten op goedkeuring**. Voordat u dit script op clientapparaten uitvoert kunt, moet u deze goedkeuren.
 
-### <a name="script-examples"></a>Exemples de scripts
+### <a name="script-examples"></a>Voorbeelden van scripts
 
-Voici quelques exemples de scripts utilisables avec cette fonctionnalité.
+Hier volgen enkele voorbeelden van scripts die u mogelijk wilt gebruiken met deze mogelijkheid.
 
-#### <a name="create-a-folder"></a>Créer un dossier
+#### <a name="create-a-folder"></a>Maak een map
 
-*New-Item "c:\scripts" -type folder name* 
+*Nieuw Item 'c:\scripts'-type mapnaam* 
  
  
-#### <a name="create-a-file"></a>Créer un fichier
+#### <a name="create-a-file"></a>Maak een bestand
 
-*New-Item c:\scripts\nouveau_fichier.txt -type file name*
+*Nieuw Item c:\scripts\new_file.txt-type-bestandsnaam*
 
 
-## <a name="approve-or-deny-a-script"></a>Approuver ou refuser un script
+## <a name="approve-or-deny-a-script"></a>Goedkeuren of weigeren van een script
 
-Avant de pouvoir exécuter un script, il doit être approuvé. Pour approuver un script :
+Voordat u een script uitvoeren kunt, moeten worden goedgekeurd. Goedkeuren van een script:
 
-1. Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.
-2. Dans l'espace de travail **Bibliothèque de logiciels** , cliquez sur **Scripts**.
-3. Dans la liste **Script**, sélectionnez le script que vous souhaitez approuver ou refuser puis, dans l’onglet **Accueil**, sous le groupe **Script**, cliquez sur **Approuver/Refuser**.
-4. Dans la boîte de dialogue **Approuver ou refuser le script**, **Approuvez** ou **Refusez** le script et entrez éventuellement un commentaire sur votre décision. Si vous refusez un script, il ne peut pas être exécuté sur les appareils clients.
-5. Effectuez toutes les étapes de l'Assistant. Dans la liste **Script**, la colonne **État d’approbation** change en fonction de votre action.
+1. Klik in de Configuration Manager-console op **Softwarebibliotheek**.
+2. In de **softwarebibliotheek** werkruimte, klikt u op **Scripts**.
+3. In de **Script** kiest u het script dat u wilt goedkeuren of weigeren en klik op de **Start** tabblad, in de **Script** groep, klikt u op **goedkeuren/weigeren**.
+4. In de **goedkeuren of weigeren** dialoogvenster script **goedkeuren**, of **weigeren** het script en voer eventueel een opmerking over uw beslissing. Als u een script weigeren, kan deze kan niet worden uitgevoerd op clientapparaten.
+5. Voltooi de wizard. In de **Script** wilt weergeven, ziet u de **goedkeuring staat** kolom wijzigen, afhankelijk van de actie die u hebt gemaakt.
 
-## <a name="run-a-script"></a>Exécuter un script
-Une fois approuvé, un script peut être exécuté sur une collection que vous choisissez.
+## <a name="run-a-script"></a>Een script uitvoeren
+Nadat een script is goedgekeurd, kunt u deze kunt uitvoeren met een verzameling die u kiest.
 
-1. Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.
-2. Dans l’espace de travail Ressources et Conformité, cliquez sur **Regroupements de périphériques**.
-3. Dans la liste **Collections d’appareils**, cliquez sur la collection d’appareils sur laquelle vous souhaitez exécuter le script.
-4. Sous l'onglet **Accueil**, dans le groupe **Tous les systèmes**, cliquez sur **Exécuter le script**.
-5. Sur la page **Script** de l’assistant **Exécuter le Script**, choisissez un script dans la liste. Seuls les scripts approuvés sont affichés.
-6. Cliquez sur **Suivant**, puis complétez l’Assistant.
+1. Klik op **Activa en naleving**op de Configuration Manager-console.
+2. In de activa en naleving werkruimte, klikt u op **Apparaatverzamelingen**.
+3. In de **Apparaatverzamelingen** lijst, klikt u op de verzameling van apparaten waarop u wilt dat het script uit te voeren.
+4. Op de **Start** tabblad, in de **alle systemen** groep, klikt u op **-Script uitvoeren**.
+5. Op de **Script** pagina van de **-Script uitvoeren** wizard kiest u een script in de lijst. Alleen goedgekeurde scripts die worden weergegeven.
+6. Klik op **volgende**, en voltooi de wizard.
 
 >[!IMPORTANT]
->Le script dispose alors d’une heure pour s’exécuter. S’il ne s’exécute pas (par exemple, si l’ordinateur est mis hors tension) durant cette période, vous devez le réexécuter.
+>Het script krijgt een periode van één uur in waarop moet worden uitgevoerd. Als dat niet wordt uitgevoerd (bijvoorbeeld als de PC is uitgeschakeld) in deze periode, moet u het opnieuw uitvoeren.
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Volgende stappen
 
-Après avoir exécuté un script sur les appareils clients, utilisez cette procédure pour surveiller la réussite de l’opération.
+Nadat u hebt een script uitgevoerd op clientapparaten, moet u deze procedure gebruiken voor het bewaken van het succes van de bewerking.
 
-1. Dans la console Configuration Manager, cliquez sur **Surveillance**.
-2. Dans la liste **Surveillance**, cliquez sur **État du script**.
-3. Dans la liste **État du script**, vous pouvez voir les résultats pour chaque script que vous avez exécuté sur des appareils clients. Un code de sortie de script de **0** indique généralement que le script a été exécuté avec succès.
+1. Klik in de Configuration Manager-console op **bewaking**.
+2. In de **bewaking** werkruimte, klikt u op **Script Status**.
+3. In de **Script Status** wanneer u de resultaten voor elk script dat u hebt uitgevoerd op clientapparaten lijst bekijken. De afsluitcode van een script van **0** geeft meestal aan dat het script is uitgevoerd.

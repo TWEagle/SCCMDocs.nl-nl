@@ -1,6 +1,6 @@
 ---
-title: "Afficher l’inventaire matériel | Microsoft Docs | Explorateur de ressources"
-description: "Utilisez l’Explorateur de ressources pour afficher l’inventaire matériel dans System Center Configuration Manager."
+title: Hardware-inventaris weergeven | Microsoft Docs | Resource Explorer
+description: Resource Explorer gebruiken om hardware-inventaris in System Center Configuration Manager weer te geven.
 ms.custom: na
 ms.date: 01/03/2017
 ms.prod: configuration-manager
@@ -16,36 +16,36 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: e39fa60a5d215fa1b0a98d4463058497e63a4d4f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-use-resource-explorer-to-view-hardware-inventory-in-system-center-configuration-manager"></a>Comment utiliser l’Explorateur de ressources pour afficher l’inventaire matériel dans System Center Configuration Manager
+# <a name="how-to-use-resource-explorer-to-view-hardware-inventory-in-system-center-configuration-manager"></a>Resource Explorer gebruiken om hardware-inventaris te bekijken in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Utilisez l’Explorateur de ressources de System Center Configuration Manager pour afficher des informations sur l’inventaire matériel collecté à partir de clients de votre hiérarchie.  
+Gebruik Resource Explorer in System Center Configuration Manager voor informatie over hardware-inventaris die bij clients in uw hiërarchie is verzameld.  
 
 > [!NOTE]  
->  L'Explorateur de ressources n'affichera pas de données d'inventaire avant qu'un cycle d'inventaire matériel ait été exécuté sur le client auquel vous êtes connecté.  
+>  Resource Explorer geeft geen inventarisgegevens weer tot er een hardware-inventarisatiefase is uitgevoerd op de client waarmee u verbinding maakt.  
 
- L’Explorateur de ressources contient les sections suivantes relatives à l’inventaire matériel :  
+ Resource Explorer heeft de volgende secties die betrekking hebben op hardware-inventarisaties:  
 
--   **Matériel** : contient l’inventaire matériel le plus récent collecté à partir de l’appareil client indiqué.  **État de la station de travail** : indique l’heure et la date du dernier inventaire matériel effectué par l’appareil.  
+-   **Hardware** -bevat de meest recente hardware-inventarisatie van het apparaat van de opgegeven client.  **Status van werkstation** is de tijd en datum wanneer het apparaat voor het laatst een hardware-inventaris heeft uitgevoerd.  
 
--   **Historique du matériel** : contient un historique des éléments d’inventaire qui ont été modifiés depuis le dernier inventaire matériel. Chaque élément contient un nœud **En cours** et un ou plusieurs nœuds *<date\>*. Vous pouvez comparer les informations du nœud en cours à l’un des nœuds historiques pour découvrir les éléments qui ont été modifiés.  
+-   **Hardware geschiedenis** -bevat een overzicht van de geïnventariseerde items die zijn gewijzigd sinds de laatste hardware-inventaris plaatsgevonden heeft. Elk item bevat een **huidige** knooppunt en een of meer *< datum\>*  knooppunten. U kunt de informatie in het huidige knooppunt naar een van de historische knooppunten om te achterhalen welke items die zijn gewijzigd vergelijken.  
 
     > [!NOTE]  
-    >  Configuration Manager conserve l'historique de l'inventaire matériel pendant le nombre de jours que vous spécifiez dans la tâche de maintenance du site **Supprimer les historiques d'inventaire anciens**.  
+    >  Configuration Manager behoudt hardware-inventarisgeschiedenis gedurende het aantal dagen dat u opgeeft in de **verouderde Inventarisgeschiedenis verwijderen** siteonderhoudstaak  
 
 > [!NOTE]  
->  Pour plus d’informations sur la façon d’afficher l’inventaire matériel des clients qui exécutent Linux et UNIX, consultez [Guide pratique pour surveiller les clients pour des serveurs Linux et UNIX dans System Center Configuration Manager](../../../../core/clients/manage/monitor-clients-for-linux-and-unix-servers.md).  
+>  Zie voor meer informatie over het weergeven van de hardware-inventaris van clients met Linux en UNIX [Clients controleren voor Linux- en UNIX-servers in System Center Configuration Manager](../../../../core/clients/manage/monitor-clients-for-linux-and-unix-servers.md).  
 
-### <a name="how-to-run-resource-explorer-from-the-configuration-manager-console"></a>Comment exécuter l’Explorateur de ressources à partir de la console Configuration Manager  
+### <a name="how-to-run-resource-explorer-from-the-configuration-manager-console"></a>Resource Explorer uitvoeren vanaf de Configuration Manager-console  
 
-1.  Dans la console Configuration Manager, choisissez **Ressources et Conformité** > **Appareils**, ou ouvrez un regroupement qui affiche des appareils.  
+1.  Kies in de Configuration Manager-console **activa en naleving** > **apparaten**, of open een verzameling die apparaten weergeeft.  
 
-3.  Choisissez l’ordinateur contenant l’inventaire que vous souhaitez afficher puis, dans l’onglet **Accueil**, dans le groupe **Appareils**, choisissez **Démarrer** >  **Explorateur de ressources**.   
+3.  Kies de computer met de inventaris die u wilt weergeven en klik op de **Start** tabblad > **apparaten** groep, kiest u **Start** >  **Resource Explorer**.   
 
-4.  Cliquez avec le bouton droit sur un élément dans le volet droit de la fenêtre **Explorateur de ressources**, puis choisissez **Propriétés** pour ouvrir la boîte de dialogue **Propriétés de** *<nom_élément\>* et visualiser les informations d’inventaire recueillies sous un format plus lisible.  
+4.  Met de rechtermuisknop op een item in het rechterdeelvenster van het **Resource Explorer** venster en kies **eigenschappen** openen de *< Itemnaam\>***eigenschappen** in het dialoogvenster om de informatie over de verzamelde inventaris in een beter leesbare indeling weer te geven.  
 

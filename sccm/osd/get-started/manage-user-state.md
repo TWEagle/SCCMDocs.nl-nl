@@ -1,6 +1,6 @@
 ---
-title: "Gérer l’état utilisateur - Configuration Manager| Microsoft Docs"
-description: "System Center Configuration Manager utilise l’outil de migration de l’état utilisateur pour capturer et restaurer les données d’état utilisateur dans les scénarios de déploiement de système d’exploitation."
+title: Gebruikersstatus - Configuration Manager beheren | Microsoft Docs
+description: System Center Configuration Manager maakt gebruik van User State Migration Tool vastleggen en herstellen van gebruikersstatusgegevens in implementatiescenario's van besturingssysteem.
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -17,115 +17,115 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: a0bd86587669c32377b1eafa6a890d37e10ac3f6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-user-state-in-system-center-configuration-manager"></a>Gérer l’état utilisateur dans System Center Configuration Manager
+# <a name="manage-user-state-in-system-center-configuration-manager"></a>De gebruikersstatus beheren in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Vous pouvez utiliser des séquences de tâches System Center Configuration Manager pour capturer et restaurer les données d’état utilisateur dans les scénarios de déploiement de système d’exploitation où vous souhaitez conserver l’état utilisateur du système d’exploitation actuel. Exemple :  
+U kunt System Center Configuration Manager-takenreeksen gebruiken vastleggen en herstellen van de gebruikersstatusgegevens in implementatiescenario's van besturingssysteem waar u wilt bewaren van de gebruikersstatus van het huidige besturingssysteem. Bijvoorbeeld:  
 
--   Déploiements dans lesquels vous voulez capturer l’état utilisateur d’un ordinateur pour le restaurer sur un autre ordinateur.  
+-   Implementaties waarbij u de gebruikersstatus wilt vastleggen van één computer om deze terug te zetten op een andere computer.  
 
--   Déploiements de mise à jour dans lesquels vous voulez capturer et restaurer l'état utilisateur sur le même ordinateur.  
+-   Werk implementaties bij waarvan u de gebruikersstatus op dezelfde computer wilt vastleggen en herstellen.  
 
- Configuration Manager utilise la version 10.0 de l’outil de migration de l’état utilisateur (USMT) pour gérer la migration des données d’état utilisateur d’un ordinateur source vers un ordinateur de destination après l’installation du système d’exploitation. Pour plus d’informations sur les scénarios de migration courants pour la version 10.0 de l’outil USMT, consultez  [Scénarios de migration courants](https://technet.microsoft.com/library/mt299169\(v=vs.85\).aspx).  
+ Configuration Manager gebruikt User State Migration Tool (USMT) 10.0 voor het beheren van de migratie van gebruikersstatusgegevens van een broncomputer naar een doelcomputer nadat de installatie van het besturingssysteem is voltooid. Zie  [Algemene migratiescenario's](https://technet.microsoft.com/library/mt299169\(v=vs.85\).aspx)voor meer informatie over algemene migratiescenario's voor USMT 10.0.  
 
- Aidez-vous des informations des sections suivantes pour capturer et restaurer les données d’état utilisateur.
+ Gebruik de volgende secties voor hulp bij het vastleggen en herstellen van gebruikersgegevens.
 
 
-##  <a name="BKMK_StoringUserData"></a> Stocker les données d’état utilisateur  
- Quand vous capturez l’état utilisateur, vous pouvez stocker les données d’état utilisateur sur l’ordinateur de destination ou sur un point de migration d’état. Pour stocker l’état utilisateur sur un point de migration d’état utilisateur, vous devez utiliser un serveur de système de site Configuration Manager qui héberge le rôle de système de site de point de migration d’état. Pour stocker l'état utilisateur sur l'ordinateur de destination, vous devez configurer votre séquence de tâches pour stocker les données utilisant localement des liens.  
+##  <a name="BKMK_StoringUserData"></a> Het opslaan van gebruikersstatusgegevens  
+ Wanneer u de gebruikersstatus vastlegt, kunt u de gebruikersstatusgegevens opslaan op de doelcomputer of op een statusmigratiepunt. Als u wilt de gebruikersstatus opslaat op een gebruikersstatusmigratiepunt, moet u een Configuration Manager-sitesysteemserver die als host fungeert voor de status van migratie sitesysteemrol. U moet, om de gebruikersstatus op de doelcomputer op te slaan, uw takenreeks configureren om de gegevens lokaal op te slaan met behulp van koppelingen.  
 
 > [!NOTE]  
->  Les liens qui sont utilisés pour stocker l'état utilisateur localement sont appelés liens physiques. Les liens physiques sont une fonctionnalité de l’outil USMT 10.0 qui analyse l’ordinateur à la recherche de fichiers et de paramètres utilisateur, et qui crée ensuite un répertoire de liens physiques vers ces fichiers. Les liens physiques sont ensuite utilisés pour restaurer les données utilisateur après le déploiement du nouveau système d'exploitation.  
+>  De koppelingen die worden gebruikt om de gebruikersstatus lokaal op te slaan, worden vaste koppelingen genoemd. Vaste koppelingen zijn een optie van USMT 10.0 waarmee er op de computer wordt gescand naar gebruikersbestanden en -instellingen en er vervolgens een directory van vaste koppelingen naar die bestanden wordt gemaakt. De vaste koppelingen worden vervolgens gebruikt om de gebruikersgegevens te herstellen na implementatie van het nieuwe besturingssysteem.  
 
 > [!IMPORTANT]  
->  Vous ne pouvez pas utiliser un point de migration d'état et utiliser des liens physiques pour stocker les données d'état utilisateur en même temps.  
+>  U kunt geen statusmigratie gebruiken en wel vaste koppelingen om de gebruikersstatusgegevens op hetzelfde moment op te slaan.  
 
- Lorsque les informations d'état utilisateur sont capturées, elles peuvent être stockées selon l'une des manières suivantes :  
+ Als de gebruikersstatusinformatie wordt vastgelegd, kan de informatie op een van de volgende manieren worden opgeslagen:  
 
--   Vous pouvez stocker les données d'état utilisateur à distance en configurant un point de migration d'état. La séquence de tâches **Capturer** envoie les données au point de migration d’état. Ensuite, une fois le système d’exploitation déployé, la séquence de tâches **Restaurer** récupère les données et restaure l’état utilisateur sur l’ordinateur de destination.  
+-   U kunt de gebruikersstatusgegevens extern opslaan door een statusmigratiepunt te configureren. Met de takenreeks **Vastleggen** worden de gegevens naar het statusmigratiepunt verzonden. Nadat het besturingssysteem is geïmplementeerd, worden met de takenreeks **Terugzetten** de gegevens opgehaald en wordt de gebruikersstatus op de doelcomputer teruggezet.  
 
--   Vous pouvez stocker les données d'état utilisateur localement à un emplacement spécifique. Dans ce scénario, la séquence de tâches **Capturer** copie les données utilisateur vers un emplacement spécifique sur l’ordinateur de destination. Ensuite, une fois le système d’exploitation déployé, la séquence de tâches **Restaurer** récupère les données utilisateur à partir de cet emplacement.  
+-   U kunt de gebruikersstatusgegevens lokaal opslaan op een specifieke locatie. In dit scenario worden met de takenreeks **Vastleggen** de gebruikersgegevens naar een specifieke locatie op de doelcomputer gekopieerd. Nadat het besturingssysteem vervolgens is geïmplementeerd, worden met de takenreeks **Terugzetten** de gebruikersgegevens van die locatie opgehaald.  
 
--   Vous pouvez spécifier les liens physiques qui peuvent être utilisés pour restaurer les données utilisateur vers leur emplacement d'origine. Dans ce scénario, les données d'état utilisateur restent sur le lecteur lorsque l'ancien système d'exploitation est supprimé. Ensuite, une fois le nouveau système d’exploitation déployé, la séquence de tâches **Restaurer** utilise les liens physiques pour restaurer les données d’état utilisateur vers leur emplacement d’origine.  
+-   U kunt vaste koppelingen opgeven die kunnen worden gebruikt om de gebruikersgegevens naar de oorspronkelijke locatie te herstellen. In dit scenario blijven de gebruikersstatusgegevens aanwezig op de schijf wanneer het oude besturingssysteem wordt verwijderd. Nadat het nieuwe besturingssysteem vervolgens is geïmplementeerd, worden via de takenreeks **Terugzetten** met de vaste koppelingen de gebruikersstatusgegevens teruggezet op de oorspronkelijke locatie.  
 
-###  <a name="BKMK_UserDataSMP"></a> Stocker des données utilisateur sur un point de migration d’état  
- Pour stocker les données d’état utilisateur sur un point de migration d’état, vous devez procéder comme suit :  
+###  <a name="BKMK_UserDataSMP"></a> De gebruikersgegevens opslaan op een statusmigratiepunt  
+ Als u de gebruikersstatusgegevens op een statusmigratiepunt wilt opslaan, gaat u als volgt te werk:  
 
-1.  [Configure a state migration point](#BKMK_StateMigrationPoint) pour stocker les données d’état utilisateur.  
+1.  [Configure a state migration point](#BKMK_StateMigrationPoint) om de gebruikersstatusgegevens op te slaan.  
 
-2.  [Create a computer association](#BKMK_ComputerAssociation) entre l’ordinateur source et l’ordinateur de destination. Vous devez créer cette association avant de capturer l'état utilisateur sur l'ordinateur source.  
+2.  [Create a computer association](#BKMK_ComputerAssociation) tussen de broncomputer en de doelcomputer. U moet deze koppeling maken voordat u de gebruikersstatus op de broncomputer vastlegt.  
 
-3.  [Créez une séquence de tâches pour capturer et restaurer l’état utilisateur dans System Center Configuration Manager](../deploy-use/create-a-task-sequence-to-capture-and-restore-user-state.md). Plus précisément, vous devez ajouter les étapes de séquence de tâches suivantes pour capturer des données utilisateur à partir d’un ordinateur, stocker les données utilisateur sur un point de migration, puis restaurer les données utilisateur sur un ordinateur :  
+3.  [Maak een takenreeks voor het vastleggen en herstellen van gebruikersstatus in System Center Configuration Manager](../deploy-use/create-a-task-sequence-to-capture-and-restore-user-state.md). U moet met name de volgende takenreeksstappen voor het vastleggen van gebruikersgegevens van een computer, de gebruikersdatum op een statusmigratiepunt opslaan en herstellen van de gebruikersgegevens op een computer toevoegen:  
 
-    -   [Demandez le magasin d’état](../understand/task-sequence-steps.md#BKMK_RequestStateStore) pour demander l’accès à un point de migration d’état dans le cadre d’une capture d’état d’un ordinateur ou d’une restauration de l’état sur un ordinateur.  
+    -   [Statusopslag opvragen](../understand/task-sequence-steps.md#BKMK_RequestStateStore) toegang vragen tot een statusmigratiepunt bij het vastleggen van status van een computer of de status terugzet op een computer.  
 
-    -   [Capturez l’état utilisateur](../understand/task-sequence-steps.md#BKMK_CaptureUserState) pour capturer et stocker les données d’état utilisateur sur le point de migration d’état.  
+    -   [Gebruikersstatus vastleggen](../understand/task-sequence-steps.md#BKMK_CaptureUserState) vastleggen en opslaan van de gebruikersstatusgegevens op het statusmigratiepunt.  
 
-    -   [Restaurez l’état utilisateur](../understand/task-sequence-steps.md#BKMK_RestoreUserState) pour restaurer l’état utilisateur sur l’ordinateur de destination en récupérant les données à partir d’un point de migration d’état utilisateur.  
+    -   [Gebruikersstatus herstellen](../understand/task-sequence-steps.md#BKMK_RestoreUserState) te herstellen van de status van de gebruiker op de doelcomputer met de gegevens ophaalt uit een gebruikersstatusmigratiepunt.  
 
-    -   [Libérez le magasin d’état](../understand/task-sequence-steps.md#BKMK_ReleaseStateStore) pour signaler au point de migration d’état que l’action de capture ou de restauration est terminée.  
+    -   [Statusopslag vrijgeven](../understand/task-sequence-steps.md#BKMK_ReleaseStateStore) aan het statusmigratiepunt dat het vastleggen of vrijgeven is voltooid.  
 
-###  <a name="BKMK_UserDataDestination"></a> Stocker des données utilisateur localement  
- Pour stocker les données d’état utilisateur localement, vous devez procéder comme suit :  
+###  <a name="BKMK_UserDataDestination"></a> De gebruikersgegevens lokaal opslaan  
+ U kunt de gebruikersstatusgegevens als volgt lokaal opslaan:  
 
--   [Créez une séquence de tâches pour capturer et restaurer l’état utilisateur](../deploy-use/create-a-task-sequence-to-capture-and-restore-user-state.md). Plus précisément, vous devez ajouter les étapes de séquence de tâches suivantes pour capturer des données utilisateur à partir d’un ordinateur et restaurer les données utilisateur sur un ordinateur à l’aide de liens physiques.  
+-   [Maak een takenreeks voor het vastleggen en herstellen van gebruikersstatus](../deploy-use/create-a-task-sequence-to-capture-and-restore-user-state.md). U moet met name de volgende takenreeksstappen toevoegen om de gebruikersgegevens van een computer vast te leggen en de gebruikersgegevens met vaste koppelingen op een computer terug te zetten:  
 
-    -   [Capturez l’état utilisateur](../understand/task-sequence-steps.md#BKMK_CaptureUserState) pour capturer et stocker les données d’état utilisateur dans un dossier local à l’aide de liens physiques.  
+    -   [Gebruikersstatus vastleggen](../understand/task-sequence-steps.md#BKMK_CaptureUserState) vastleggen en opslaan van de gebruikersgegevens naar een lokale map met vaste koppelingen.  
 
-    -   [Restaurez l’état utilisateur](../understand/task-sequence-steps.md#BKMK_RestoreUserState) pour restaurer l’état utilisateur sur l’ordinateur de destination en récupérant les données à l’aide de liens physiques.  
+    -   [Gebruikersstatus herstellen](../understand/task-sequence-steps.md#BKMK_RestoreUserState) te herstellen van de status van de gebruiker op de doelcomputer met het ophalen van de gegevens via vaste koppelingen.  
 
         > [!NOTE]  
-        >  Les données d'état utilisateur auxquelles font référence les liens physiques restent sur l'ordinateur une fois que la séquence de tâches a supprimé l'ancien système d'exploitation. Il s'agit de données qui sont utilisées pour restaurer l'état utilisateur lors du déploiement du nouveau système d'exploitation.  
+        >  De gebruikersstatusgegevens waarnaar de vaste koppelingen verwijzen, blijven op de computer nadat de takenreeks het oude besturingssysteem verwijdert. Dit zijn de gegevens die worden gebruikt om de gebruikersstatus op te slaan wanneer het nieuwe besturingssysteem wordt geïmplementeerd.  
 
 ##  <a name="BKMK_StateMigrationPoint"></a> Configure a state migration point  
- Le point de migration d'état stocke les données d'état utilisateur qui sont capturées sur un seul ordinateur puis restaurées sur un autre ordinateur. Toutefois, quand vous capturez des paramètres utilisateur pour un déploiement de système d’exploitation sur le même ordinateur, comme un déploiement où vous actualisez le système d’exploitation sur l’ordinateur de destination, vous pouvez stocker les données sur le même ordinateur à l’aide de liens physiques ou sur un point de migration d’état. Pour certains déploiements d’ordinateur, quand vous créez le magasin d’état, Configuration Manager crée automatiquement une association entre le magasin d’état et l’ordinateur de destination. Vous pouvez utiliser les méthodes suivantes afin de configurer un point de migration d'état pour stocker les données d'état utilisateur :  
+ Op het statusmigratiepunt worden gebruikersstatusgegevens opgeslagen die op de ene computer worden vastgelegd en vervolgens op een andere computer worden hersteld. Wanneer u echter gebruikersinstellingen voor een besturingssysteemimplementatie op dezelfde computer vastlegt, zoals een implementatie waarbij u het besturingssysteem op de doelcomputer vernieuwt, kunt u de gegevens opslaan op dezelfde computer via vaste koppelingen of op een statusmigratiepunt. Bij bepaalde computerimplementaties wanneer u het gegevensarchief maakt maakt Configuration Manager automatisch een koppeling tussen het statusarchief en de doelcomputer. U kunt de volgende methoden gebruiken om een statusmigratiepunt te configureren om de gebruikersstatusgegevens op te slaan:  
 
--   Utilisez l' **Assistant Création d'un serveur de système de site** pour créer un nouveau serveur de système de site pour le point de migration d'état.  
+-   Gebruik de **wizard Sitesysteemserver maken** om een nieuwe sitesysteemserver te maken voor het statusmigratiepunt.  
 
--   Utilisez l' **Assistant Ajout des rôles de système de site** pour ajouter un point de migration d'état à un serveur existant.  
+-   Gebruik de **wizard Sitesysteemrollen toevoegen** om een statusmigratiepunt toe te voegen aan een bestaande server.  
 
- Lorsque vous utilisez ces Assistants, vous êtes invité à fournir les informations suivantes pour le point de migration d'état :  
+ Als u deze wizards gebruikt, wordt u gevraagd om de volgende informatie op te geven voor het statusmigratiepunt:  
 
--   Les dossiers pour stocker les données d'état utilisateur.  
+-   De mappen voor het opslaan van de gebruikersstatusgegevens.  
 
--   Le nombre maximal de clients pouvant stocker des données sur le point de migration d'état.  
+-   Het maximum aantal clients die gegevens op het statusmigratiepunt kunnen opslaan.  
 
--   L'espace libre minimum pour le point de migration d'état pour stocker les données d'état utilisateur.  
+-   De minimale hoeveelheid vrije schijfruimte voor het statusmigratiepunt om gebruikersstatusgegevens op te slaan.  
 
--   La stratégie de suppression du rôle. Vous pouvez spécifier que les données d'état utilisateur sont supprimées immédiatement après leur restauration sur un ordinateur, ou après un nombre de jours spécifique après la restauration des données utilisateur sur un ordinateur.  
+-   Het verwijderingsbeleid voor de rol. U kunt opgeven dat de gebruikersstatusgegevens onmiddellijk worden verwijderd nadat ze op een computer zijn hersteld, of na een specifiek aantal dagen nadat de gebruikersgegevens op een computer worden hersteld.  
 
--   Si le point de migration d’état répond uniquement aux demandes de restauration des données d’état utilisateur. Lorsque vous activez cette option, vous ne pouvez pas utiliser le point de migration d'état pour stocker les données d'état utilisateur.  
+-   Of het statusmigratiepunt alleen moet reageren op aanvragen om gebruikersstatusgegevens terug te zetten. Wanneer u deze optie inschakelt, kunt het statusmigratiepunt niet gebruiken om de gebruikersstatusgegevens op te slaan.  
 
- Pour plus d’informations sur le point de migration d’état et les étapes nécessaires pour le configurer, consultez [Point de migration d’état](prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
+ Zie voor meer informatie over het statusmigratiepunt en de stappen voor het configureren van deze [Statusmigratiepunt](prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
 
 ##  <a name="BKMK_ComputerAssociation"></a> Create a computer association  
- Créez une association d’ordinateurs pour définir une relation entre un ordinateur source et un ordinateur de destination quand vous installez un système d’exploitation sur du nouveau matériel et que vous souhaitez capturer et restaurer les paramètres de données utilisateur. L’ordinateur source est un ordinateur existant qui est géré par Configuration Manager. Lorsque vous déployez le nouveau système d'exploitation sur l'ordinateur de destination, l'ordinateur source contient l'état utilisateur qui est migré vers l'ordinateur de destination.  
+ Maak een computerkoppeling om een relatie te definiëren tussen een broncomputer en een doelcomputer wanneer u een besturingssysteem op nieuwe hardware installeert en gebruikersgegevensinstellingen wilt vastleggen en terugzetten. De broncomputer is een bestaande computer die Configuration Manager worden beheerd. Wanneer u het nieuwe besturingssysteem implementeert op de doelcomputer, bevat de broncomputer de gebruikersstatus die is gemigreerd naar de doelcomputer.  
 
 > [!NOTE]  
->  La création d’une association d’ordinateurs entre des ordinateurs situés dans un site parent Configuration Manager et des ordinateurs situés dans un site enfant n’est pas prise en charge. Les associations d’ordinateurs sont spécifiques à un site et ne sont pas répliquées.  
+>  Maak een computerkoppeling tussen computers die zich in een bovenliggende site van Configuration Manager met computers die zich op een onderliggende site wordt niet ondersteund. Computerkoppelingen zijn sitespecifiek en worden niet gerepliceerd.  
 
-#### <a name="to-create-a-computer-association"></a>Pour créer une association d'ordinateurs  
+#### <a name="to-create-a-computer-association"></a>Een computerkoppeling maken  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
+1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
 
-2.  Dans l'espace de travail **Ressources et Conformité** , cliquez sur **Migration de l'état utilisateur**.  
+2.  Klik op **Gebruikersstatusmigratie** in de werkruimte **Activa en naleving**.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une association d'ordinateurs**.  
+3.  Klik op **Computerkoppeling maken** in het tabblad **Start** in de groep **Maken**.  
 
-4.  Dans l'onglet **Association d'ordinateurs** de la boîte de dialogue **Propriétés de l'association d'ordinateurs** , indiquez l'ordinateur source qui contient l'état utilisateur à capturer et l'ordinateur de destination sur lequel les données d'état utilisateur seront restaurées.  
+4.  Geef, op het tabblad **Computerkoppeling** van het dialoogvenster **Eigenschappen computerkoppeling** de broncomputer op met de te vastleggen gebruikersstatus; geef ook de doelcomputer op waarop de gebruikersstatusgegevens moeten worden hersteld.  
 
-5.  Dans l'onglet **Comptes d'utilisateur** , spécifiez les comptes d'utilisateur à migrer vers l'ordinateur de destination. Spécifiez l'un des paramètres suivants :  
+5.  Geef, op het tabblad **Gebruikersaccounts** , de gebruikersaccounts op die moeten worden gemigreerd naar de doelcomputer. Geef een van de volgende instellingen op:  
 
-    -   **Capturer et restaurer tous les comptes d’utilisateur**: ce paramètre capture et restaure tous les comptes d’utilisateur. Ce paramètre permet de créer plusieurs associations sur le même ordinateur source.  
+    -   **Vastleggen en herstellen van alle gebruikersaccounts**: Deze instelling vastgelegd en hersteld van alle gebruikersaccounts. Gebruik deze instelling om meerdere koppelingen te maken op dezelfde broncomputer.  
 
-    -   **Capturer tous les comptes d’utilisateur et restaurer les comptes spécifiés**: ce paramètre capture tous les comptes d’utilisateur sur l’ordinateur source et restaure seulement les comptes que vous spécifiez sur l’ordinateur de destination. En outre, vous pouvez utiliser ce paramètre lorsque vous souhaitez créer plusieurs associations sur le même ordinateur source.  
+    -   **Alle gebruikersaccounts vastleggen en opgegeven accounts herstellen**: Deze instelling worden alle gebruikersaccounts op de broncomputer vastgelegd en alleen de accounts die u op de doelcomputer opgeeft hersteld. Bovendien kunt u deze instelling gebruiken wanneer u meervoudige koppelingen op dezelfde broncomputer wilt maken.  
 
-    -   **Capturer et restaurer les comptes d’utilisateur spécifiés**: ce paramètre capture et restaure seulement les comptes que vous spécifiez. Vous ne pouvez pas créer plusieurs associations sur le même ordinateur source lorsque vous sélectionnez ce paramètre.  
+    -   **Vastleggen en herstellen van opgegeven gebruikersaccounts**: Deze instelling vastgelegd en hersteld alleen de accounts die u opgeeft. U kunt geen meervoudige koppelingen naar dezelfde broncomputer maken wanneer u deze instelling selecteert.  
 
-##  <a name="BKMK_MigrationFails"></a> Restaurer des données d’état utilisateur en cas d’échec d’un déploiement de système d’exploitation  
- Si le déploiement de système d’exploitation échoue, utilisez la fonctionnalité LoadState de l’outil USMT 10.0 pour récupérer les données d’état utilisateur capturées pendant le processus de déploiement. Ces données incluent notamment les données stockées sur un point de migration d'état ou les données enregistrées localement sur l'ordinateur de destination. Pour plus d'informations sur cette fonctionnalité d'USMT, voir [Syntaxe LoadState](https://technet.microsoft.com/library/mt299188\(v=vs.85\).aspx).  
+##  <a name="BKMK_MigrationFails"></a> Gebruikersstatusgegevens terugzetten wanneer een besturingssysteemimplementatie mislukt  
+ Als de implementatie van het besturingssysteem mislukt, kunt u met de functie USMT 10.0 LoadState de gebruikersstatusgegevens ophalen die zijn vastgelegd tijdens de implementatie. Hiertoe behoren ook gegevens die op een statusmigratiepunt zijn opgeslagen en gegevens die lokaal op de doelcomputer zijn opgeslagen. Zie [LoadState Syntax (LoadState-syntax)](https://technet.microsoft.com/library/mt299188\(v=vs.85\).aspx)voor meer informatie over deze USMT-functie.  

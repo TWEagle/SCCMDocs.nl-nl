@@ -1,6 +1,6 @@
 ---
-title: Surveiller les clients | Microsoft Docs
-description: "Découvrez comment surveiller et gérer les clients dans System Center Configuration Manager."
+title: Clients controleren | Microsoft Docs
+description: Informatie over het controleren en beheren in System Center Configuration Manager-clients.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,22 +16,22 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 828f615e14b2ad40108d0c7afdc050c7d17d4038
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="monitor-and-manage-clients-in-system-center-configuration-manager"></a>Surveiller et gérer les clients dans System Center Configuration Manager
+# <a name="monitor-and-manage-clients-in-system-center-configuration-manager"></a>Clients controleren en beheren in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-System Center Configuration Manager (également appelé ConfigMgr ou SCCM) propose plusieurs manières de surveiller et de gérer le logiciel client une fois celui-ci déployé sur les ordinateurs et les appareils de votre organisation.  Vous pouvez surveiller les clients pour vérifier leur état et, dans certains cas, Configuration Manager peut effectuer des corrections automatiques en fonction du problème détecté. La console Configuration Manager offre aussi différentes manières de gérer les clients pour chaque appareil ou regroupement d’appareils.  
+System Center Configuration Manager (ook wel bekend als Configuration Manager of SCCM) biedt verschillende manieren om te controleren en beheren van de clientsoftware zodra deze is geïmplementeerd op computers en apparaten in uw organisatie.  U kunt clients controleren om de status ervan, en in sommige gevallen Configuration Manager automatisch herstel (of oplossingen) op basis van het probleem gedetecteerd kunnen uitvoeren. De Configuration Manager-console biedt ook mogelijkheden om clients voor afzonderlijke apparaten of apparaatverzamelingen te beheren.  
 
- Consultez les rubriques suivantes pour découvrir comment surveiller et gérer les clients, et comment obtenir des détails supplémentaires pour surveiller et gérer les clients pour les serveurs Linux et UNIX :  
+ In de volgende onderwerpen wordt beschreven hoe u clients controleert en beheert en aanvullende informatie vindt voor het controleren en beheren van clients voor Linux- en UNIX-servers:  
 
--   [Guide pratique pour surveiller les clients dans System Center Configuration Manager](../../../core/clients/manage/monitor-clients.md)  
+-   [Clients in System Center Configuration Manager controleren](../../../core/clients/manage/monitor-clients.md)  
 
--   [Guide pratique pour surveiller les clients pour des serveurs Linux et UNIX dans System Center Configuration Manager](../../../core/clients/manage/monitor-clients-for-linux-and-unix-servers.md)  
+-   [Clients voor Linux en UNIX-servers in System Center Configuration Manager controleren](../../../core/clients/manage/monitor-clients-for-linux-and-unix-servers.md)  
 
--   [Guide pratique pour gérer les clients dans System Center Configuration Manager](../../../core/clients/manage/manage-clients.md)  
+-   [Clients in System Center Configuration Manager beheren](../../../core/clients/manage/manage-clients.md)  
 
--   [Guide pratique pour gérer les clients pour des serveurs Linux et UNIX dans System Center Configuration Manager](../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md)  
+-   [Clients voor Linux en UNIX-servers in System Center Configuration Manager beheren](../../../core/clients/manage/manage-clients-for-linux-and-unix-servers.md)  

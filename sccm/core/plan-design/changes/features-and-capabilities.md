@@ -1,6 +1,6 @@
 ---
-title: "Fonctions et fonctionnalités | Microsoft Docs"
-description: "Découvrez les principales fonctionnalités de gestion de System Center Configuration Manager."
+title: Functies en mogelijkheden | Microsoft Docs
+description: Meer informatie over de primaire beheerfuncties van System Center Configuration Manager.
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
@@ -17,86 +17,86 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 4691f43dccdf73936107f4635321897b9779bead
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="features-and-capabilities-of-system-center-configuration-manager"></a>Fonctions et fonctionnalités de System Center Configuration Manager
+# <a name="features-and-capabilities-of-system-center-configuration-manager"></a>Functies en mogelijkheden van System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Les principales fonctionnalités de gestion de System Center Configuration Manager sont exposées ci-après. Chaque fonctionnalité possède ses propres prérequis, et les fonctionnalités que vous souhaitez utiliser peuvent influencer la conception et l’implémentation de votre hiérarchie Configuration Manager. Par exemple, si vous souhaitez déployer des logiciels sur des appareils de votre hiérarchie, vous devez installer le rôle de système de site du point de distribution.  
+Hieronder vindt u de primaire beheerfuncties van System Center Configuration Manager. Elke functie heeft haar eigen vereisten en de mogelijkheden die u wilt gebruiken mogelijk van invloed op het ontwerp en de implementatie van uw Configuration Manager-hiërarchie. Bijvoorbeeld, als u software implementeren op apparaten in uw hiërarchie wilt, moet u de sitesysteemrol distributiepunt installeren.  
 
- Pour plus d’informations sur la planification et l’installation de Configuration Manager pour prendre en charge ces fonctionnalités de gestion dans votre environnement, consultez [Se préparer pour System Center Configuration Manager](../../../core/plan-design/get-ready.md).  
+ Zie voor meer informatie over het plannen en installeren van Configuration Manager ter ondersteuning van deze beheerfuncties in uw omgeving [voorbereiden voor System Center Configuration Manager](../../../core/plan-design/get-ready.md).  
 
- **Gestion des applications**  
+ **Toepassingsbeheer**  
 
- Fournit un ensemble d’outils et de ressources qui peuvent vous aider à créer, gérer, déployer et surveiller les applications sur les différents types d’appareils que vous gérez. Par ailleurs, Configuration Manager met à votre disposition des outils qui vous aident à protéger les données de votre entreprise contenues dans les applications des utilisateurs. Consultez [Introduction à la gestion des applications](/sccm/apps/understand/introduction-to-application-management).
+ Voorziet in een set hulpprogramma's en resources waarmee u toepassingen kunt maken, implementeren en controleren voor verschillende apparaten die u beheert. Daarnaast wordt in Configuration Manager biedt u hulpprogramma's die u helpen bij het beveiligen van uw bedrijfsgegevens in apps van gebruiker. Zie [inleiding op Toepassingsbeheer](/sccm/apps/understand/introduction-to-application-management).
 
- **Accès aux ressources d’entreprise**  
+ **Toegang tot bedrijfsbronnen**  
 
- Fournit un ensemble d'outils et de ressources qui permettent aux utilisateurs de votre organisation d'accéder à des données et des applications à partir d'emplacements distants. Ces outils incluent les profils Wi-Fi, les profils VPN, les profils de certificat et l’accès conditionnel à Exchange et SharePoint Online. Consultez [Protéger les données et l’infrastructure des sites avec System Center Configuration Manager](../../../protect/understand/protect-data-and-site-infrastructure.md) et [Gérer l’accès aux services dans System Center Configuration Manager](../../../protect/deploy-use/manage-access-to-services.md).  
+ Voorziet in een set hulpprogramma's en resources waarmee u gebruikers binnen uw organisatie toegang kunt geven tot gegevens en toepassingen van externe locaties. Deze hulpprogramma's behoren Wi-Fi-profielen VPN-profielen, certificaatprofielen en voorwaardelijke toegang tot Exchange en SharePoint online. Zie [beveiligen gegevens en site-infrastructuur met System Center Configuration Manager](../../../protect/understand/protect-data-and-site-infrastructure.md) en [toegang tot services in System Center Configuration Manager beheren](../../../protect/deploy-use/manage-access-to-services.md).  
 
- **Paramètres de compatibilité**  
+ **Instellingen voor naleving**  
 
- Fournit un ensemble d'outils et de ressources susceptibles de vous aider à évaluer, suivre et corriger la compatibilité de la configuration des appareils clients de l'entreprise. De plus, vous pouvez utiliser les paramètres de compatibilité pour configurer tout un éventail de fonctionnalités et de paramètres de sécurité sur les appareils que vous gérez. Consultez [Garantir la conformité des appareils avec System Center Configuration Manager](../../../compliance/understand/ensure-device-compliance.md).  
+ Biedt een set hulpprogramma's en resources waarmee u kunt beoordelen, bijhouden en herstel de compatibiliteit van de configuratie van clientapparaten in de onderneming. Bovendien kunt u instellingen voor naleving configureren van een bereik aan functies en beveiligingsinstellingen op apparaten die u beheert. Zie [apparaatcompatibiliteit met System Center Configuration Manager garanderen](../../../compliance/understand/ensure-device-compliance.md).  
 
  **Endpoint Protection**  
 
- Propose une gestion de la sécurité, des logiciels anti-programme malveillant et du Pare-feu Windows pour les ordinateurs de votre entreprise. Consultez [Endpoint Protection dans System Center Configuration Manager](../../../protect/deploy-use/endpoint-protection.md).  
+ Voorziet in beheer op het gebied van beveiliging, antimalware en Windows Firewall voor computers binnen uw onderneming. Zie [Endpoint Protection in System Center Configuration Manager](../../../protect/deploy-use/endpoint-protection.md).  
 
- **Inventaire**  
+ **Inventaris**  
 
- Fournit un ensemble d'outils pour aider à identifier et surveiller les actifs :  
+ Biedt een set hulpprogramma's om te identificeren en activa bewaken:  
 
--   **Inventaire matériel**: collecte des informations détaillées sur le matériel des appareils de votre entreprise. Consultez [Présentation de l’inventaire matériel dans System Center Configuration Manager](../../../core/clients/manage/inventory/introduction-to-hardware-inventory.md).  
+-   **Hardware-inventaris**: Verzamelt gedetailleerde informatie over de hardware van apparaten in uw onderneming. Zie [inleiding op hardware-inventarisatie in System Center Configuration Manager](../../../core/clients/manage/inventory/introduction-to-hardware-inventory.md).  
 
--   **Inventaire logiciel**: collecte et rapporte des informations sur les fichiers qui sont stockés sur des ordinateurs clients de votre organisation. Consultez [Présentation de l’inventaire logiciel dans System Center Configuration Manager](../../../core/clients/manage/inventory/introduction-to-software-inventory.md).  
+-   **Software-inventaris**: Verzamelt en rapporteert informatie over de bestanden die zijn opgeslagen op clientcomputers in uw organisatie. Zie [Inleiding tot software-inventaris in System Center Configuration Manager](../../../core/clients/manage/inventory/introduction-to-software-inventory.md).  
 
--   **Asset Intelligence**: fournit des outils pour collecter les données d'inventaire et surveiller l'utilisation des licences de logiciels dans votre entreprise. Consultez [Présentation d’Asset Intelligence dans System Center Configuration Manager](../../../core/clients/manage/asset-intelligence/introduction-to-asset-intelligence.md).  
+-   **Asset Intelligence**: Voorziet in hulpprogramma's voor het verzamelen van inventarisgegevens en het gebruik van softwarelicenties in uw onderneming te controleren. Zie [inleiding op Asset Intelligence in System Center Configuration Manager](../../../core/clients/manage/asset-intelligence/introduction-to-asset-intelligence.md).  
 
-**Gestion des appareils mobiles avec Microsoft Intune**  
+**Mobile device management met Microsoft Intune**  
 
- Vous pouvez utiliser Configuration Manager pour gérer des appareils iOS, Android (dont Samsung KNOX Standard), Windows Phone et Windows à l’aide du service Microsoft Intune sur Internet.
+ U kunt de Configuration Manager gebruiken voor het beheren van iOS, Android (inclusief Samsung KNOX Standard), Windows Phone en Windows-apparaten met behulp van de Microsoft Intune-service via Internet.
 
- Même si vous utilisez le service Intune, les tâches de gestion s’effectuent à l’aide du rôle de système de site de point de connexion de service, disponible via la console Configuration Manager. Consultez [Gestion des appareils mobiles (MDM) hybride avec System Center Configuration Manager et Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md).  
+ Hoewel u de Intune-service gebruiken, worden beheertaken uitgevoerd met behulp van de service verbinding sitesysteemrol beschikbaar is via de Configuration Manager-console. Zie [hybride mobile device management (MDM) met System Center Configuration Manager en Microsoft Intune](../../../mdm/understand/hybrid-mobile-device-management.md).  
 
- **Gestion des appareils mobiles locale**  
+ **On-premises Mobile Device Management**  
 
- Inscrit et gère les PC et les appareils mobiles en utilisant l’infrastructure Configuration Manager locale et les fonctionnalités de gestion intégrées aux plateformes d’appareils (au lieu d’utiliser un client Configuration Manager installé séparément). Prend actuellement en charge la gestion des appareils Windows 10 Entreprise et Windows 10 Mobile. Consultez [Gérer des appareils mobiles avec une infrastructure locale dans System Center Configuration Manager](../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
+ Inschrijven en beheren van pc's en mobiele apparaten met behulp van de lokale Configuration Manager-infrastructuur en de beheerfunctionaliteit is ingebouwd in de apparaatplatforms (in plaats van vertrouwen op een afzonderlijk geïnstalleerde Configuration Manager-client). Biedt momenteel ondersteuning voor het beheren van Windows 10 Enterprise- en Windows 10 Mobile-apparaten. Zie [mobiele apparaten beheren met on-premises infrastructuur in System Center Configuration Manager](../../../mdm/understand/manage-mobile-devices-with-on-premises-infrastructure.md).  
 
- **Déploiement de systèmes d’exploitation**  
+ **Implementatie van besturingssysteem**  
 
- Fournit un outil pour créer des images de système d'exploitation. Vous pouvez ensuite utiliser ces images pour déployer les systèmes d’exploitation sur des ordinateurs, à l’aide du démarrage PXE ou d’un média de démarrage, tel qu’un jeu de CD, un DVD ou des lecteurs flash USB. Notez que cela s’applique aux ordinateurs qui sont gérés par Configuration Manager ainsi qu’aux ordinateurs non gérés. Consultez [Introduction au déploiement de système d’exploitation dans System Center Configuration Manager](../../../osd/understand/introduction-to-operating-system-deployment.md).  
+ Voorziet in een hulpprogramma voor het maken van installatiekopieën van besturingssystemen. U kunt deze installatiekopieën vervolgens gebruiken voor de besturingssystemen implementeren op computers, met gebruikmaking van de PXE-opstartbewerking of opstartbare media zoals een CD-set, DVD of USB-sticks. Houd er rekening mee dat dit van toepassing op computers die beheerd worden door Configuration Manager, evenals de niet-beheerde computers. Zie [Inleiding tot besturingssysteemimplementaties in System Center Configuration Manager](../../../osd/understand/introduction-to-operating-system-deployment.md).  
 
- **Gestion de l’alimentation**  
+ **Energiebeheer**  
 
- Fournit un ensemble d'outils et de ressources que vous pouvez utiliser pour gérer et surveiller la consommation d'énergie des ordinateurs clients dans l'entreprise. Consultez [Présentation de la gestion de l’alimentation dans System Center Configuration Manager](../../../core/clients/manage/power/introduction-to-power-management.md).  
+ Voorziet in een set hulpprogramma's en resources waarmee u het energieverbruik van clientcomputers in het bedrijf kunt beheren en controleren. Zie [inleiding op Energiebeheer in System Center Configuration Manager](../../../core/clients/manage/power/introduction-to-power-management.md).  
 
- **Requêtes**  
+ **Query's**  
 
- Fournit un outil pour récupérer des informations sur les ressources de votre hiérarchie et des informations sur les données d'inventaire et les messages d'état. Vous pouvez ensuite utiliser ces informations pour établir des rapports ou pour définir des regroupements d’appareils ou d’utilisateurs pour les paramètres de déploiement et de configuration de logiciels. Consultez [Présentation des requêtes dans System Center Configuration Manager](../../../core/servers/manage/introduction-to-queries.md).  
+ Voorziet in een hulpprogramma voor het verkrijgen van informatie over resources in uw hiërarchie en informatie over inventarisgegevens en statusberichten. U kunt deze informatie vervolgens gebruiken voor rapportage of voor het definiëren van verzamelingen apparaten of gebruikers voor software-implementatie en configuratie-instellingen. Zie [inleiding op query's in System Center Configuration Manager](../../../core/servers/manage/introduction-to-queries.md).  
 
- **Profils de connexion à distance**  
+ **Profielen voor externe verbindingen**  
 
- Fournit un ensemble d’outils et de ressources pour vous aider à créer, déployer et surveiller les paramètres de connexion à distance vers des appareils de votre organisation. En déployant ces paramètres, vous réduisez l’effort fourni par les utilisateurs pour se connecter à leurs ordinateurs sur le réseau d’entreprise. Consultez [Utilisation de profils de connexion à distance dans System Center Configuration Manager](/sccm/compliance/deploy-use/create-remote-connection-profiles).  
+ Biedt een set hulpprogramma's en bronnen waarmee u kunt maken, implementeren en bewaken van de instellingen voor externe verbindingen voor apparaten in uw organisatie. Door het implementeren van deze instellingen minimaliseert u de moeite door gebruikers verbinding maken met hun computers in het bedrijfsnetwerk. Zie [werken met profielen voor externe verbindingen in System Center Configuration Manager](/sccm/compliance/deploy-use/create-remote-connection-profiles).  
 
- **Éléments de configuration des données et profils utilisateur**  
+ **Items voor gebruikersgegevens en profielen configuratie**  
 
- Les éléments de configuration des données et profils utilisateur dans Configuration Manager contiennent des paramètres permettant de gérer la redirection de dossiers, les fichiers hors connexion et les profils itinérants sur des ordinateurs qui exécutent Windows 8 et versions ultérieures pour les utilisateurs de votre hiérarchie. Consultez [Utilisation d’éléments de configuration des données et profils utilisateur dans System Center Configuration Manager](/sccm/compliance/deploy-use/create-user-data-and-profiles-configuration-items).  
+ Gebruiker en -profielen configuratie-items in Configuration Manager bevatten instellingen die u beheren kunnen, Mapomleiding, offlinebestanden en zwervende profielen op computers met Windows 8 en hoger voor gebruikers in uw hiërarchie. Zie [werken met profielen configuration items voor gebruikersgegevens en in System Center Configuration Manager](/sccm/compliance/deploy-use/create-user-data-and-profiles-configuration-items).  
 
- **Contrôle à distance**  
+ **Beheer op afstand**  
 
- Fournit des outils pour administrer des ordinateurs clients à distance, à partir de la console Configuration Manager. Consultez [Présentation du contrôle à distance dans System Center Configuration Manager](../../../core/clients/manage/remote-control/introduction-to-remote-control.md).  
+ Biedt hulpprogramma's voor het extern beheren van clientcomputers in de Configuration Manager-console. Zie [inleiding op beheer op afstand in System Center Configuration Manager](../../../core/clients/manage/remote-control/introduction-to-remote-control.md).  
 
- **Rapports**  
+ **Rapporten**  
 
- Fournissent un ensemble d’outils et de ressources vous permettant d’utiliser les fonctionnalités de création de rapport avancées de SQL Server Reporting Services à partir de la console Configuration Manager. Consultez [Présentation des rapports dans System Center Configuration Manager](../../../core/servers/manage/introduction-to-reporting.md).  
+ Biedt een set hulpprogramma's en resources waarmee u de geavanceerde rapportagefuncties van SQL Server Reporting Services vanuit de Configuration Manager-console gebruiken. Zie [Inleiding tot rapportage in System Center Configuration Manager](../../../core/servers/manage/introduction-to-reporting.md).  
 
- **Contrôle de logiciel**  
+ **Softwarelicentiecontrole**  
 
- Fournit des outils pour surveiller et collecter les données d’utilisation des logiciels à partir de clients Configuration Manager. Consultez [Surveiller l’utilisation des applications avec le contrôle de logiciel dans System Center Configuration Manager](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
+ Voorziet in hulpprogramma's om te controleren en verzamelen van softwaregebruiksgegevens van Configuration Manager-clients. Zie [Het app-gebruik in System Center Configuration Manager controleren met softwaremeter](../../../apps/deploy-use/monitor-app-usage-with-software-metering.md).  
 
- **Mises à jour logicielles**  
+ **Software-updates**  
 
- Fournit un ensemble d'outils et de ressources qui peuvent vous aider à gérer, déployer et surveiller les mises à jour logicielles dans l'entreprise. Consultez [Présentation des mises à jour logicielles dans System Center Configuration Manager](/sccm/sum/understand/software-updates-introduction).  
+ Voorziet in een set hulpprogramma's en resources waarmee u software-updates in het bedrijf kunt maken, implementeren en controleren. Zie [Inleiding tot software-updates in System Center Configuration Manager](/sccm/sum/understand/software-updates-introduction).  

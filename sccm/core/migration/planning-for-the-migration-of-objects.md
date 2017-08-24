@@ -1,6 +1,6 @@
 ---
-title: Migrer des objets | Microsoft Docs
-description: "Découvrez comment planifier la migration des objets entre des hiérarchies dans un environnement System Center Configuration Manager."
+title: Migreer de objecten | Microsoft Docs
+description: "Informatie over het plannen voor de migratie van objecten tussen hiërarchieën in een omgeving met System Center Configuration Manager."
 ms.custom: na
 ms.date: 1/12/2017
 ms.prod: configuration-manager
@@ -17,171 +17,171 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 17f3955aa7c63a13bab03b46002f7de0b0ec38fe
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-for-the-migration-of-configuration-manager-objects-to-system-center-configuration-manager"></a>Planifier la migration d’objets Configuration Manager vers System Center Configuration Manager
+# <a name="plan-for-the-migration-of-configuration-manager-objects-to-system-center-configuration-manager"></a>Plan voor de migratie van Configuration Manager-objecten naar System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Avec System Center Configuration Manager, vous pouvez migrer de nombreux objets différents associés à différentes fonctionnalités trouvées sur un site source. Utilisez les sections suivantes pour planifier la migration d'objets entre des hiérarchies.  
+Met System Center Configuration Manager kunt u veel van de verschillende objecten die gekoppeld aan verschillende functies die gevonden op een bronsite zijn kunt migreren. Gebruik de volgende secties om u te helpen plannen voor de migratie van objecten tussen hiërarchieën.  
 
--   [Planifier la migration des mises à jour logicielles](#Plan_migrate_Software_updates)  
+-   [Software-updates migreren](#Plan_migrate_Software_updates)  
 
--   [Planifier la migration du contenu](#Plan_Migrate_content)  
+-   [Plan voor het migreren van inhoud](#Plan_Migrate_content)  
 
--   [Planifier la migration des regroupements](#BKMK_MigrateCollections)  
+-   [Plan voor het migreren van verzamelingen](#BKMK_MigrateCollections)  
 
--   [Planifier la migration de déploiements de systèmes d’exploitation](#Plan_migrate_OSD)  
+-   [Plan voor het migreren van implementaties van besturingssystemen](#Plan_migrate_OSD)  
 
--   [Planifier la migration de la gestion de configuration souhaitée](#Plan_Migrate_Compliance_settings)  
+-   [Plan voor het migreren van gewenst Configuratiebeheer](#Plan_Migrate_Compliance_settings)  
 
--   [Planifier la migration des limites](#Plan_migrate_Boundaries)  
+-   [Migratie van grenzen plannen](#Plan_migrate_Boundaries)  
 
--   [Planifier la migration des rapports](#Plan_Migrate_reports)  
+-   [Migratie van rapporten plannen](#Plan_Migrate_reports)  
 
--   [Planifier la migration des dossiers d’organisation et de recherche](#Plan_Migrate_Org_Folders)  
+-   [Plannen voor het migreren van organisatorische en zoekmappen](#Plan_Migrate_Org_Folders)  
 
--   [Planifier la migration des personnalisations Asset Intelligence](#Plan_Migrate_AI)  
+-   [Plan voor het migreren van Asset Intelligence-aanpassingen](#Plan_Migrate_AI)  
 
--   [Planifier la migration des personnalisations des règles de contrôle de logiciel](#Plan_Migrate_SWM_Rules)  
+-   [Plannen voor het migreren van aanpassingen van de regels voor softwarelicentiecontrole](#Plan_Migrate_SWM_Rules)  
 
-##  <a name="Plan_migrate_Software_updates"></a> Planifier la migration des mises à jour logicielles  
- Vous pouvez migrer des objets de mise à jour logicielle, comme des packages de mise à jour logicielle et les déploiements de mise à jour logicielle.  
+##  <a name="Plan_migrate_Software_updates"></a>Software-updates migreren  
+ U kunt software-Updateobjecten migreren, zoals implementaties van software-updatepakketten en software-update.  
 
- Pour migrer des objets de mise à jour logicielle, vous devez d’abord configurer votre hiérarchie de destination avec des configurations qui correspondent à l’environnement de votre hiérarchie source. Pour cela, vous devez exécuter les actions suivantes :  
+ Als u wilt migreren van objecten voor software-update, moet u eerst uw doelhiërarchie met configuraties die overeenkomen met uw bronhiërarchieomgeving instellen. Dit vereist de volgende acties:  
 
--   Déployer un point de mise à jour logicielle actif dans la hiérarchie de destination  
+-   Een actief software-updatepunt in de doelhiërarchie implementeren  
 
--   Configurer le catalogue de produits et de langues de sorte qu’il corresponde à la configuration de votre hiérarchie source  
+-   Instellen van de catalogus met producten en talen in overeenkomst met de configuratie van uw bronhiërarchie  
 
--   Synchroniser le point de mise à jour logicielle de la hiérarchie de destination avec WSUS (Windows Server Update Services)  
+-   Synchroniseren van de software-updatepunt in de doelhiërarchie met Windows Server Update Services (WSUS)  
 
-Lorsque vous migrez des mises à jour logicielles, tenez compte des éléments suivants :  
+Overweeg, als u software-updates migreert, het volgende:  
 
--   La migration d’objets de mise à jour logicielle peut échouer si vous n’avez pas synchronisé les informations de votre hiérarchie de destination de sorte qu’elles correspondent à la configuration de votre hiérarchie source.  
+-   Migratie van software-Updateobjecten kan falen wanneer u gegevens niet zijn gesynchroniseerd in uw doelhiërarchie in overeenkomst met de configuratie van uw bronhiërarchie.  
 
     > [!WARNING]  
-    >  Configuration Manager ne prend pas en charge l’outil WSUSutil pour synchroniser les données entre une hiérarchie source et une hiérarchie de destination.  
+    >  Configuration Manager biedt geen ondersteuning voor gebruik van het WSUSutil-hulpprogramma gegevens synchroniseren tussen een bron- en doelhiërarchie.  
 
--   Vous ne pouvez pas migrer des mises à jour personnalisées publiées à l'aide de l'éditeur de mise à jour System Center. Vous devez republier les mises à jour personnalisées dans la hiérarchie de destination.  
+-   U kunt geen aangepaste updates migreren die gepubliceerd zijn door gebruik te maken van System Center Updates Publisher. Aangepaste updates moeten in plaats daarvan opnieuw worden gepubliceerd naar de doelhiërarchie.  
 
-Quand vous migrez depuis une hiérarchie source Configuration Manager 2007, le processus de migration modifie certains objets de mise à jour logicielle en fonction du format utilisé par la hiérarchie de destination. Utilisez le tableau suivant pour planifier la migration des objets de mise à jour logicielle depuis Configuration Manager 2007.  
+Wanneer u van een Configuration Manager 2007-bronhiërarchie migreert, wijzigt het migratieproces sommige objecten voor software-update met de indeling in gebruik door de doelhiërarchie. Gebruik de volgende tabel voor het plannen van de migratie van objecten voor software-update van Configuration Manager 2007.  
 
-|Objet Configuration Manager 2007|Nom de l'objet après la migration|  
+|Configuration Manager 2007-object|Objectnaam na migratie|  
 |-----------------------------------|---------------------------------|  
-|Listes des mises à jour logicielles|Les listes de mises à jour logicielles sont converties en groupes de mises à jour.|  
-|Déploiements de mises à jour logicielles|Les déploiements de mise à jour logicielle sont convertis en déploiements et groupes de mises à jour.<br /><br /> Une fois que vous avez effectué la migration d’un déploiement de mise à jour logicielle à partir de Configuration Manager 2007, vous devez l’activer dans la hiérarchie de destination avant de pouvoir le déployer.|  
-|Packages de mises à jour logicielles|Les packages de mises à jour logicielles restent des packages de mises à jour logicielles.|  
-|Modèles de mise à jour logicielle|Les modèles de mise à jour logicielle restent des modèles de mise à jour logicielle.<br /><br /> La valeur **Durée** dans les modèles de déploiement Configuration Manager 2007 n’est pas migrée.|  
+|Lijsten met software-updates|Lijsten met software-updates worden geconverteerd naar software-updategroepen.|  
+|Software-update-implementaties|Software-update-implementaties worden omgezet in implementaties en groepen bijwerken.<br /><br /> Nadat u de implementatie van een software-update van Configuration Manager 2007 migreert, moet u het inschakelen in de doelhiërarchie voordat u deze kunt implementeren.|  
+|Software-updatepakketten|Software-updatepakketten blijven software-updatepakketten.|  
+|Software-update-sjablonen|Software-update sjablonen blijven sjablonen voor software-update.<br /><br /> De **duur** waarde in de Configuration Manager 2007-implementatiesjablonen worden niet gemigreerd.|  
 
-Quand vous migrez des objets à partir d’une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager, les objets de mise à jour logicielle ne sont pas modifiés.  
+Wanneer u objecten vanaf een bronhiërarchie System Center 2012 Configuration Manager of System Center Configuration Manager migreert, worden de software-Updateobjecten niet gewijzigd.  
 
-##  <a name="Plan_Migrate_content"></a> Planifier la migration du contenu  
- Vous pouvez migrer du contenu d'une hiérarchie source prise en charge vers votre hiérarchie de destination. Pour une hiérarchie source Configuration Manager 2007, ce contenu comprend des programmes et des packages de distribution de logiciels, ainsi que des applications virtuelles, comme Microsoft Application Virtualization (App-V). Pour les hiérarchies sources System Center 2012 Configuration Manager et System Center Configuration Manager, ce contenu inclut des applications et des applications virtuelles App-V. Quand vous migrez du contenu entre des hiérarchies, les fichiers sources compressés sont migrés vers la hiérarchie de destination.  
+##  <a name="Plan_Migrate_content"></a>Plan voor het migreren van inhoud  
+ U kunt inhoud migreren vanaf een ondersteunde bronhiërarchie naar uw doelhiërarchie. Voor een Configuration Manager 2007-bronhiërarchie bevat deze inhoud softwaredistributiepakketten en programma's en virtuele toepassingen, zoals Microsoft Application Virtualization (App-V). Voor System Center 2012 Configuration Manager en System Center Configuration Manager-bronhiërarchieën bevat deze inhoud toepassingen en App-V virtuele toepassingen. Wanneer u inhoud tussen hiërarchieën migreert, worden de gecomprimeerde bronbestanden migreren naar de doelhiërarchie.  
 
-### <a name="packages-and-programs"></a>Packages et programmes  
- Lorsque vous migrez des packages et des programmes, ils ne sont pas modifiés par la migration. Cependant, avant de les migrer, vous devez configurer chaque package pour qu’il utilise un chemin d’accès UNC (Universal Naming Convention) pour son emplacement de fichier source. Dans le cadre de la configuration de la migration de packages et de programmes, vous devez affecter à un site de la hiérarchie de destination la gestion de ce contenu. Le contenu n’est pas migré à partir du site affecté, mais après la migration, le site affecté accède à l’emplacement du fichier source d’origine en utilisant le mappage UNC.  
+### <a name="packages-and-programs"></a>Pakketten en programma's  
+ Wanneer u pakketten en programma's migreert, worden ze niet gewijzigd door migratie. Echter, voordat u deze migreert, moet u instellen elk pakket met een pad (Universal Naming Convention) bevinden voor de bronlocatie van het bestand. Als onderdeel van de configuratie van pakketten en programma's, moet u een site toewijzen in de doelhiërarchie om deze inhoud te beheren. De inhoud wordt niet gemigreerd vanaf de toegewezen site, maar na de migratie, de toegewezen site toegang heeft tot de locatie van het originele bronbestand met behulp van de UNC-toewijzing.  
 
- Après avoir migré un package et un programme vers la hiérarchie de destination et tant que la migration de la hiérarchie source est active, vous pouvez mettre le contenu à la disposition des clients de cette hiérarchie en utilisant un point de distribution partagé. Pour utiliser un point de distribution partagé, le contenu doit rester accessible sur le point de distribution au niveau du site source. Pour plus d’informations sur les points de distribution partagés, consultez [Partager les points de distribution entre les hiérarchies sources et de destination](../../core/migration/planning-a-content-deployment-migration-strategy.md#About_Shared_DPs_in_Migration) dans [Planifier une stratégie de migration de déploiement de contenu dans System Center Configuration Manager](../../core/migration/planning-a-content-deployment-migration-strategy.md).  
+ Nadat u een pakket en programma migreert naar de doelhiërarchie en terwijl de migratie van de bronhiërarchie actief blijft, kunt u de inhoud beschikbaar maken voor clients in die hiërarchie met behulp van een gedeeld distributiepunt. Om een gedeeld distributiepunt te gebruiken, moet de inhoud beschikbaar blijven op het distributiepunt op de bronsite. Zie voor meer informatie over gedeelde distributiepunten [distributiepunten delen tussen de bron- en Doelhiërarchieën](../../core/migration/planning-a-content-deployment-migration-strategy.md#About_Shared_DPs_in_Migration) in [een migratiestrategie voor inhoudsimplementatie in System Center Configuration Manager plannen](../../core/migration/planning-a-content-deployment-migration-strategy.md).  
 
- Si la version du contenu migré a changé dans la hiérarchie source ou la hiérarchie de destination, les clients ne peuvent plus accéder au contenu à partir du point de distribution partagé dans la hiérarchie de destination. Dans ce cas, vous devez migrer à nouveau le contenu pour restaurer une version cohérente du package entre la hiérarchie source et la hiérarchie de destination. Ces informations sont synchronisées pendant le cycle de collecte des données.  
-
-> [!TIP]  
->  Pour chaque package que vous migrez, mettez-le à jour dans la hiérarchie de destination. Cette action peut éviter les problèmes liés au déploiement du package sur les points de distribution de la hiérarchie de destination. Cependant, quand vous mettez à jour un package sur le point de distribution de la hiérarchie de destination, les clients de cette hiérarchie ne peuvent plus obtenir ce package à partir d’un point de distribution partagé. Pour mettre à jour un package dans la hiérarchie de destination, dans la console Configuration Manager, accédez à la bibliothèque de logiciels, cliquez avec le bouton droit sur le package, puis sélectionnez **Mettre à jour les points de distribution**. Effectuez cette action pour chaque package que vous migrez.  
+ Voor inhoud die gemigreerd is, indien de inhoudversie wijzigt in de bronhiërarchie of de doelhiërarchie, clients geen toegang meer de inhoud van het gedeelde distributiepunt in de doelhiërarchie tot kunnen. In dit scenario moet u opnieuw de inhoud naar het herstellen van een consistente versie van het pakket tussen de bronhiërarchie en de doelhiërarchie migreren. Deze informatie wordt gesynchroniseerd tijdens de gegevensverzameling-cyclus.  
 
 > [!TIP]  
->  Vous pouvez utiliser Microsoft System Center Configuration Manager Package Conversion Manager pour convertir les packages et les programmes en applications System Center Configuration Manager. Téléchargez le gestionnaire de conversion des packages à partir du site [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/p/?LinkId=212950) . Pour plus d'informations, consultez [Gestionnaire de conversion des packages Configuration Manager](http://go.microsoft.com/fwlink/p/?LinkId=247245).  
+>  Voor elk pakket dat u migreert, werkt u het pakket bij in de doelhiërarchie. Met deze actie kunnen problemen met de implementatie van het pakket op distributiepunten in de doelhiërarchie worden voorkomen. Echter, wanneer u een pakket op het distributiepunt in de doelhiërarchie, clients bijwerkt in deze hiërarchie niet meer mogelijk dat pakket ophalen van een gedeeld distributiepunt. Voor het bijwerken van een pakket in de doelhiërarchie, in de Configuration Manager-console gaat u naar de softwarebibliotheek, met de rechtermuisknop op het pakket en selecteer vervolgens **distributiepunten bijwerken**. Voer deze actie voor elk pakket dat u migreert.  
 
-### <a name="virtual-applications"></a>Applications virtuelles  
-Quand vous migrez des packages App-V à partir d’un site Configuration Manager 2007 pris en charge, le processus de migration les convertit en applications dans la hiérarchie de destination. En outre, selon les publications existantes du package App-V, les types de déploiements suivants sont créés dans la hiérarchie de destination :  
+> [!TIP]  
+>  U kunt Microsoft System Center Configuration Manager Package Conversion Manager gebruiken om te converteren van pakketten en programma's naar System Center Configuration Manager-toepassingen. Download Package Conversion Manager vanaf de [Microsoft Downloadcentrum](http://go.microsoft.com/fwlink/p/?LinkId=212950)-site. Zie [Configuration Manager Package Conversion Manager](http://go.microsoft.com/fwlink/p/?LinkId=247245) voor meer informatie.  
 
--   S'il n'existe pas de publications, un type de déploiement est créé qui utilise les paramètres du type de déploiement par défaut.  
+### <a name="virtual-applications"></a>Virtuele toepassingen  
+Wanneer u App-V pakketten vanaf een ondersteunde Configuration Manager 2007-site migreert, converteert het migratieproces ze tot toepassingen in de doelhiërarchie. Bovendien worden gebaseerd op bestaande advertenties voor het App-V-pakket, de volgende implementatietypen gemaakt in de doelhiërarchie:  
 
--   S’il existe une publication, un type de déploiement utilisant les mêmes paramètres que la publication Configuration Manager 2007 est créé.  
+-   Indien er geen advertenties zijn, wordt één implementatietype gecreëerd dat de standaard implementatietype-instellingen gebruikt.  
 
--   S’il existe plusieurs publications, un type de déploiement est créé pour chaque publication Configuration Manager 2007 en utilisant les paramètres pour cette publication.  
+-   Indien een advertentie bestaat, wordt één implementatietype gecreëerd dat dezelfde instellingen als de Configuration Manager 2007-aankondiging gebruikt.  
+
+-   Indien meerdere advertenties bestaan, wordt een implementatietype gemaakt voor elke Configuration Manager 2007-aankondiging door de instellingen voor deze advertentie.  
 
 > [!IMPORTANT]  
->  Si vous migrez un package App-V Configuration Manager 2007 précédemment migré, la migration échoue car les packages d’applications virtuelles ne prennent pas en charge le comportement de remplacement d’une migration. Dans ce cas, vous devez supprimer le package d'application virtuelle migré à partir de la hiérarchie de destination, puis créer une tâche de migration pour migrer l'application virtuelle.  
+>  Als u een eerder gemigreerde Configuration Manager 2007-App-V-pakket migreert, faalt de migratie omdat virtuele toepassingspakketten het overschrijvingsgedrag van migratie niet ondersteunen. In dit scenario moet u het gemigreerde virtuele toepassingspakket wissen van de doelhiërarchie en dan een nieuwe migratietaak maken om de virtuele toepassing te migreren.  
 
 > [!NOTE]  
->  Après avoir migré un package App-V, vous pouvez utiliser l’Assistant Mise à jour du contenu pour changer le chemin d’accès source pour les types de déploiement App-V. Pour plus d’informations sur la mise à jour de contenu pour un type de déploiement, consultez « Comment gérer les types de déploiement » dans [Tâches de gestion pour les applications System Center Configuration Manager](../../apps/deploy-use/management-tasks-applications.md).  
+>  Nadat u een App-V-pakket migreert, kunt u de wizard inhoud bijwerken om te wijzigen van het bronpad voor implementatietypen van App-V. Zie voor meer informatie over het bijwerken van inhoud voor een implementatietype beheren implementatietypen in [beheertaken voor System Center Configuration Manager-toepassingen](../../apps/deploy-use/management-tasks-applications.md).  
 
-Quand vous migrez depuis une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager, vous pouvez migrer des objets pour l’environnement virtuel App-V, en plus des types de déploiement et des applications App-V. Pour plus d’informations sur les environnements App-V, consultez [Déploiement d’applications virtuelles App-V avec System Center Configuration Manager](../../apps/get-started/deploying-app-v-virtual-applications.md).  
+Wanneer u vanaf een bronhiërarchie System Center 2012 Configuration Manager of System Center Configuration Manager migreert, kunt u objecten voor de virtuele omgeving van App-V naast App-V implementatietypes en toepassingen migreren. Zie voor meer informatie over App-V-omgevingen [virtuele toepassingen van App-V implementeren met System Center Configuration Manager](../../apps/get-started/deploying-app-v-virtual-applications.md).  
 
-### <a name="advertisements"></a>Publications  
-Vous pouvez migrer des publications d’un site source Configuration Manager 2007 pris en charge vers la hiérarchie de destination en utilisant la migration basée sur les regroupements. Si vous mettez à niveau un client, il conserve l'historique des publications déjà exécutées pour empêcher le client de réexécuter les publications migrées.  
+### <a name="advertisements"></a>Aankondigingen  
+U kunt advertenties migreren vanaf een ondersteunde Configuration Manager 2007-bronsite naar de doelhiërarchie met behulp van een migratie op basis van een verzameling. Indien u een client updatet, behoudt hij de geschiedenis van eerder uitgevoerde advertenties om te voorkomen dat de client opnieuw gemigreerde advertenties uitvoert.  
 
 > [!NOTE]  
->  Vous ne pouvez pas migrer de publications pour les packages virtuels. Il s'agit d'une exception à la migration des publications.  
+>  U kunt advertenties voor virtuele pakketten niet migreren. Dit is een uitzondering voor het migreren van advertenties.  
 
-### <a name="applications"></a>Applications  
- Vous pouvez migrer des applications depuis une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager prise en charge vers une hiérarchie de destination. Si vous réattribuez un client de la hiérarchie source à la hiérarchie de destination, le client conserve l'historique des applications installée précédemment pour éviter qu'il réexécute une application migrée.  
+### <a name="applications"></a>Toepassingen  
+ U kunt toepassingen migreren vanaf een ondersteunde System Center 2012 Configuration Manager of System Center Configuration Manager-bronhiërarchie naar een doelhiërarchie. Indien u een client opnieuw toewijst vanaf een bronhiërarchie naar de doelhiërarchie, behoudt de client de geschiedenis van voordien geïnstalleerde toepassingen om te voorkomen dat de client opnieuw een gemigreerde toepassing uitvoert.  
 
-##  <a name="BKMK_MigrateCollections"></a> Planifier la migration des regroupements  
- Vous pouvez migrer les critères des regroupements d’une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager prise en charge. Pour ce faire, vous utilisez une tâche de migration basée sur un objet. Lorsque vous migrez un regroupement, vous migrez les règles du regroupement et non les informations sur les membres du regroupement ni les informations ou les objets associés aux membres du regroupement.  
+##  <a name="BKMK_MigrateCollections"></a>Plan voor het migreren van verzamelingen  
+ U kunt de criteria voor verzamelingen migreren vanaf een ondersteunde bronhiërarchie System Center 2012 Configuration Manager of System Center Configuration Manager. Hiervoor kunt u een object gebaseerde migratietaak. Wanneer u een verzameling migreert, migreert u de regels voor de verzameling en niet informatie over de leden van de verzameling of informatie of objecten gerelateerd tot leden van de verzameling.  
 
- La migration de l’objet de regroupement n’est pas prise en charge quand vous effectuez une migration à partir d’une hiérarchie source Configuration Manager 2007.  
+ Migratie van het verzamelingobject wordt niet ondersteund wanneer u van een Configuration Manager 2007-bronhiërarchie migreert.  
 
-##  <a name="Plan_migrate_OSD"></a> Planifier la migration de déploiements de systèmes d’exploitation  
-Vous pouvez migrer les objets de déploiement de système d'exploitation suivants à partir d'une hiérarchie source pris en charge :  
+##  <a name="Plan_migrate_OSD"></a>Plan voor het migreren van implementaties van besturingssystemen  
+U kunt de volgende implementatieobjecten van besturingssystemen migreren vanaf een ondersteunde bronhiërarchie:  
 
--   Images et packages de système d'exploitation Le chemin source des images de démarrage est remplacé par l’emplacement de l’image par défaut pour le kit Windows AIK (Windows Administrative Installation Kit) sur le site de destination. Vous trouverez ci-dessous les exigences et les restrictions liées à la migration d'images et de packages de système d'exploitation :  
+-   Installatiekopieën van besturingssystemen en pakketten. Het bronpad van opstartinstallatiekopieën is bijgewerkt naar de standaardlocatie van de afbeelding voor de Windows Administrative Installation Kit (Windows AIK) op de doelsite. Het volgende zijn vereisten en beperking voor het migreren van besturingssystemen en pakketten:  
 
-    -   Pour migrer des fichiers image, le compte d’ordinateur du serveur Fournisseur SMS du site de plus haut niveau de la hiérarchie de destination doit disposer de l’autorisation de **lecture** et d’**écriture** sur les fichiers image sources de l’emplacement Windows AIK du site source.  
+    -   Als u wilt migreren afbeeldingsbestanden, het computeraccount van de server van SMS-Provider voor de bovenste site van de doelhiërarchie moet hebben **lezen** en **schrijven** machtiging voor de bronbestanden van de installatiekopie van Windows AIK locatie van de bronsite.  
 
-    -   Quand vous migrez un package d’installation de système d’exploitation, vérifiez que la configuration du package sur le site source pointe vers le dossier qui contient le fichier WIM et non pas vers le fichier WIM lui-même. Si le package d'installation pointe vers le fichier WIM, la migration du package d'installation échoue.  
+    -   Wanneer u een besturingssysteeminstallatiepakket migreert, zorg ervoor dat de configuratie van het pakket op de bronsite wijst naar de map die het WIM-bestand heeft en niet naar het WIM-bestand zelf. Indien het installatiepakket wijst naar het WIM-bestand, zal de migratie van het installatiepakket falen.  
 
-    -   Quand vous migrez un package d’images de démarrage à partir d’un site source Configuration Manager 2007, l’ID du package n’est pas conservé dans le site de destination. La conséquence de cela est que les clients de la hiérarchie de destination ne peuvent pas utiliser les packages d'images de démarrage disponibles sur les points de distribution partagés.  
+    -   Wanneer u een opstartinstallatiekopie-pakket van een Configuration Manager 2007-bronsite migreert, wordt de pakket-ID van het pakket niet behouden in de doelsite. Het resultaat hiervan is dat clients in de doelhiërarchie geen opstartinstallatiekopieën kunnen gebruiken die beschikbaar zijn op gedeelde distributiepunten.  
 
--   Séquences de tâches Quand vous migrez une séquence de tâches qui a une référence à un package d’installation de client, cette référence est remplacée par une référence au package d’installation de client de la hiérarchie de destination.  
+-   Takenreeksen. Wanneer u een takenreeks bevat een verwijzing naar een clientinstallatiepakket migreert, wordt deze referentie vervangen door een verwijzing naar het clientinstallatiepakket van de doelhiërarchie.  
 
     > [!NOTE]  
-    >  Quand vous migrez une séquence de tâches, Configuration Manager peut migrer des objets qui ne sont pas nécessaires dans la hiérarchie de destination. Ces objets incluent les images de démarrage et les packages d’installation du client Configuration Manager 2007.  
+    >  Wanneer u een takenreeks migreert, kan Configuration Manager-objecten die niet zijn in de doelhiërarchie vereist migreren. Deze objecten bevatten opstartinstallatiekopieën en clientinstallatiepakketten van Configuration Manager 2007.  
 
--   Pilotes et packages de pilotes Lorsque vous migrez des packages de pilotes, le compte d’ordinateur du fournisseur SMS dans la hiérarchie de destination doit avoir un contrôle total sur la source du package.
+-   Stuurprogramma's en stuurprogrammapakketten. Wanneer u stuurprogrammapakketten migreert, moet het computeraccount van de SMS-Provider in de doelhiërarchie volledig beheer hebben voor de pakketbron.
 
-##  <a name="Plan_Migrate_Compliance_settings"></a> Planifier la migration de la gestion de configuration souhaitée  
-Vous pouvez migrer des éléments de configuration et des lignes de base de configuration.  
-
-> [!NOTE]  
->  Les éléments de configuration non interprétés des hiérarchies sources Configuration Manager 2007 ne sont pas pris en charge pour la migration. Vous ne pouvez pas migrer ou importer ces éléments de configuration dans la hiérarchie de destination. Pour plus d’informations sur les éléments de configuration non interprétés, consultez « Éléments de configuration non interprétés » dans la rubrique [À propos des éléments de configuration dans la gestion de la configuration souhaitée](http://go.microsoft.com/fwlink/?LinkId=103846), dans la bibliothèque de documentation Configuration Manager 2007.  
-
-Vous pouvez importer les packs de configuration Configuration Manager 2007. Le processus d’importation convertit automatiquement les packs de configuration pour qu’ils soient compatibles avec System Center Configuration Manager.  
-
-##  <a name="Plan_migrate_Boundaries"></a> Planifier la migration des limites  
- Vous pouvez migrer des limites entre les hiérarchies. Quand vous migrez des limites à partir de Configuration Manager 2007, chaque limite du site source migre simultanément et est ajoutée à un nouveau groupe de limites créé dans la hiérarchie de destination. Quand vous migrez les limites d’une hiérarchie System Center Configuration Manager 2012 ou System Center Configuration Manager, chaque limite sélectionnée est ajoutée à un nouveau groupe de limites dans la hiérarchie de destination.  
-
- Chaque groupe de limites créé automatiquement est activé pour l'emplacement de contenu, mais pas pour l'attribution de site. Cela empêche les limites de se chevaucher pour l'attribution de site entre les hiérarchies source et de destination. Quand vous migrez depuis un site source Configuration Manager 2007, ceci permet d’empêcher que les nouveaux clients Configuration Manager 2007 installés soient affectés de manière incorrecte à la hiérarchie de destination. Par défaut, les clients System Center Configuration Manager ne sont pas affectés automatiquement aux sites Configuration Manager 2007.  
-
- Lors de la migration, si vous partagez un point de distribution avec la hiérarchie de destination, les limites associées à cette distribution migrent automatiquement vers la hiérarchie de destination. Dans la hiérarchie de destination, la migration crée un groupe de limites en lecture seule pour chaque point de distribution partagé. Si vous modifiez les limites du point de distribution de la hiérarchie source, le groupe de limites de la hiérarchie de destination est mis à jour par rapport à ces modifications lors du prochain cycle de collecte de données.  
-
-##  <a name="Plan_Migrate_reports"></a> Planifier la migration des rapports  
-Configuration Manager ne prend pas en charge la migration des rapports. Utilisez plutôt le Générateur de rapports Microsoft SQL Server Reporting Services pour exporter des rapports à partir de la hiérarchie source, puis importez-les dans la hiérarchie de destination.  
+##  <a name="Plan_Migrate_Compliance_settings"></a>Plan voor het migreren van gewenst Configuratiebeheer  
+U kunt de configuratie-items en configuratiebasislijnen migreren.  
 
 > [!NOTE]  
->  Le schéma des rapports ayant changé entre Configuration Manager 2007 et System Center Configuration Manager, testez chaque rapport importé à partir d’une hiérarchie Configuration Manager 2007 pour vérifier qu’il fonctionne comme prévu.  
+>  Niet-geïnterpreteerde configuratie-items uit Configuration Manager 2007-bronhiërarchieën worden niet ondersteund voor migratie. U kunt deze configuratie-items niet migreren of importeren naar de doelhiërarchie. Zie voor meer informatie over niet-geïnterpreteerde configuratie-items, niet-geïnterpreteerde configuratie-items in de [over configuratie-Items in Desired Configuration Management](http://go.microsoft.com/fwlink/?LinkId=103846) onderwerp in de Configuration Manager 2007-documentatiebibliotheek.  
 
-Pour plus d’informations sur la création de rapports, consultez [Génération de rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+U kunt de Configuration Manager 2007-configuratiepakketten importeren. Het importproces converteert automatisch de configuratiepakketten zodat het compatibel is met System Center Configuration Manager.  
 
-##  <a name="Plan_Migrate_Org_Folders"></a> Planifier la migration des dossiers d’organisation et de recherche  
- Vous pouvez migrer des dossiers organisationnels et des dossiers de recherche d'une hiérarchie source prise en charge vers une hiérarchie de destination. De plus, à partir d’une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager, vous pouvez migrer les critères d’une recherche enregistrée vers une hiérarchie de destination.  
+##  <a name="Plan_migrate_Boundaries"></a>Migratie van grenzen plannen  
+ U kunt grenzen tussen hiërarchieën migreren. Wanneer u grenzen uit Configuration Manager 2007 migreert, migreert tegelijkertijd door elke grens van de bronsite en wordt toegevoegd aan een nieuwe grensgroep die is gemaakt in de doelhiërarchie. Wanneer u grenzen uit een System Center 2012 Configuration Manager of System Center Configuration Manager-hiërarchie migreert, wordt elke door die u geselecteerde toegevoegd aan een nieuwe grensgroep in de doelhiërarchie.  
 
- Par défaut, le processus de migration conserve les structures de dossiers de recherche et de dossiers d'administration pour les objets et les regroupements. Cependant, dans l’Assistant Création de tâche de migration, sur la page **Paramètres** , vous pouvez configurer une tâche de migration de sorte que la structure organisationnelle des objets ne soit pas migrée en décochant la case correspondant à cette option. Les structures organisationnelles des regroupements sont toujours gérées.  
+ Voor elke automatisch gemaakte grensgroep is locatie van inhoud ingeschakeld, maar niet sitetoewijzing. Hiermee wordt voorkomen dat grenzen voor sitetoewijzing tussen de bron- en doelhiërarchieën elkaar overlappen. Wanneer u van een Configuration Manager 2007-bronsite migreert, helpt u hiermee voorkomen dat nieuwe Configuration Manager 2007-clients die worden geïnstalleerd onjuist worden toegewezen aan de doelhiërarchie. Standaard toewijzen System Center Configuration Manager-clients geen automatisch aan Configuration Manager 2007-sites.  
 
- Ceci ne s'applique pas à un dossier de recherche qui contient des applications virtuelles. Quand un package App-V est migré, le package est converti en application dans System Center Configuration Manager. Après la migration du dossier de recherche, seuls les packages restants sont trouvés et le dossier de recherche ne peut pas trouver le package App-V du fait de la conversion en application lorsque le package App-V migre.  
+ Als u tijdens de migratie een distributiepunt deelt met de doelhiërarchie, migreren aan dit distributiepunt gekoppelde grenzen automatisch naar de doelhiërarchie. Migratie maakt in de doelhiërarchie een nieuwe alleen-lezen grensgroep voor elk gedeeld distributiepunt. Als u de grenzen van het distributiepunt in de bronhiërarchie wijzigt, wordt de grensgroep in de doelhiërarchie tijdens de volgende gegevensverzamelingscyclus bijgewerkt met deze wijzigingen.  
 
- Quand vous migrez une recherche enregistrée à partir d’une hiérarchie source System Center 2012 Configuration Manager ou System Center Configuration Manager, vous migrez les critères de la recherche et non les informations relatives aux résultats de la recherche. La migration d’une recherche enregistrée est non applicable à partir d’un site source Configuration Manager 2007.  
-
-##  <a name="Plan_Migrate_AI"></a> Planifier la migration des personnalisations Asset Intelligence  
- Vous pouvez migrer des personnalisations pour Asset Intelligence d'une hiérarchie source prise en charge vers une hiérarchie de destination. La structure des personnalisations Asset Intelligence n’a pas changé de manière significative entre Configuration Manager 2007 et System Center Configuration Manager.  
+##  <a name="Plan_Migrate_reports"></a>Migratie van rapporten plannen  
+Configuration Manager biedt geen ondersteuning voor migratie van rapporten. In plaats daarvan kunt u met SQL Server Reporting Services Report Builder rapporten uit de bronhiërarchie exporteren en vervolgens in de doelhiërarchie importeren.  
 
 > [!NOTE]  
->  System Center Configuration Manager ne prend pas en charge la migration d’objets Asset Intelligence depuis un site Configuration Manager 2007 utilisant Asset Intelligence Service 2.0 (AIS 2.0).  
+>  Omdat er wijzigingen in het schema voor Configuration Manager 2007 en System Center Configuration Manager-rapporten, test u elk rapport dat u uit een Configuration Manager 2007-hiërarchie importeert om ervoor te zorgen dat het functioneert volgens verwachting.  
 
-##  <a name="Plan_Migrate_SWM_Rules"></a> Planifier la migration des personnalisations des règles de contrôle de logiciel  
- Le contrôle de logiciel n’a pas changé de manière significative entre Configuration Manager 2007 et System Center Configuration Manager. Vous pouvez migrer vos règles de contrôle de logiciel d'une hiérarchie source prise en charge vers une hiérarchie de destination.  
+Zie voor meer informatie over het rapporteren van [rapportage in System Center Configuration Manager](../../core/servers/manage/reporting.md).  
 
- Par défaut, les règles de contrôle de logiciel que vous migrez vers une hiérarchie de destination ne sont associées à aucun site spécifique de la hiérarchie de destination et s'appliquent à tous les clients de la hiérarchie. Pour appliquer une règle de contrôle de logiciel aux clients d'un site spécifique, vous devez modifier la règle de mesure après l'avoir migrée.  
+##  <a name="Plan_Migrate_Org_Folders"></a>Plannen voor het migreren van organisatorische en zoekmappen  
+ U kunt organisatorische mappen en zoekmappen vanuit een ondersteunde bronhiërarchie naar een doelhiërarchie migreren. Bovendien vanuit een bronhiërarchie System Center 2012 Configuration Manager of System Center Configuration Manager kunt u de criteria voor een zoekopdracht naar een doelhiërarchie migreren.  
+
+ Wanneer u migreert, wordt in het migratieproces standaard de structuur van uw zoekmap en beheermap gehandhaafd voor objecten en verzamelingen. Echter, in de wizard migratietaak maken op de **instellingen** pagina kunt u een migratietaak instellen voor het migreren van de organisatiestructuur voor objecten niet door het selectievakje voor deze optie uitschakelt. De organisatiestructuren van verzamelingen worden altijd gehandhaafd.  
+
+ Een uitzondering hierop is een zoekmap met virtuele toepassingen. Wanneer een App-V-pakket wordt gemigreerd, wordt het App-V-pakket omgezet in een toepassing in System Center Configuration Manager. Na de migratie van de zoekmap alleen de resterende pakketten te vinden en de zoekmap kan een App-V-pakket niet vinden vanwege deze omzetting in een toepassing wanneer de App-V-pakket wordt gemigreerd.  
+
+ Wanneer u een opgeslagen zoekopdracht van een System Center 2012 Configuration Manager of System Center Configuration Manager-bronhiërarchie migreert, migreert u de criteria voor de zoekopdracht en niet de informatie over de zoekresultaten. Migratie van een opgeslagen zoekopdracht is niet toepasselijk vanuit een Configuration Manager 2007-bronsite.  
+
+##  <a name="Plan_Migrate_AI"></a>Plan voor het migreren van Asset Intelligence-aanpassingen  
+ U kunt aanpassingen voor Asset Intelligence vanuit een ondersteunde bronhiërarchie naar een doelhiërarchie migreren. Er zijn geen belangrijke wijzigingen in de structuur van Asset Intelligence-aanpassingen tussen Configuration Manager 2007 en System Center Configuration Manager.  
+
+> [!NOTE]  
+>  System Center Configuration Manager biedt geen ondersteuning voor de migratie van Asset Intelligence-objecten van een Configuration Manager 2007-site die Asset Intelligence Service 2.0 (AIS 2.0) gebruikt.  
+
+##  <a name="Plan_Migrate_SWM_Rules"></a>Plannen voor het migreren van aanpassingen van de regels voor softwarelicentiecontrole  
+ Er zijn geen belangrijke wijzigingen aangebracht in softwarelicentiecontrole tussen Configuration Manager 2007 en System Center Configuration Manager. U kunt uw regels voor softwarelicentiecontrole vanuit een ondersteunde bronhiërarchie naar een doelhiërarchie migreren.  
+
+ Standaard worden de door u naar een doelhiërarchie gemigreerde regels voor softwarelicentiecontrole niet aan een specifieke site in de doelhiërarchie gekoppeld en zijn daarentegen van toepassing op alle clients in de hiërarchie. Wanneer u een regel voor softwarelicentiecontrole wilt laten gelden voor clients op een specifieke site, moet u de regel voor softwarelicentiecontrole bewerken na de migratie ervan.  

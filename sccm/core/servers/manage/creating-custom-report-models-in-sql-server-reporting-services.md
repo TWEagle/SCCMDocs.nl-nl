@@ -1,6 +1,6 @@
 ---
-title: "Créer des rapports personnalisés | Microsoft Docs"
-description: "Définissez des modèles de rapport pour répondre aux besoins de votre activité, puis déployez-les sur Configuration Manager."
+title: Aangepaste rapporten maken | Microsoft Docs
+description: Rapportmodellen instellen om te voldoen aan uw bedrijfsvereisten en vervolgens de rapportmodellen implementeren naar Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,152 +17,152 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 9951dd9333ebef00c7acd5d72b20a02382e3206c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="creating-custom-report-models-for-system-center-configuration-manager-in-sql-server-reporting-services"></a>Création de modèles de rapport personnalisés pour System Center Configuration Manager dans SQL Server Reporting Services
+# <a name="creating-custom-report-models-for-system-center-configuration-manager-in-sql-server-reporting-services"></a>Aangepaste rapportmodellen maken voor System Center Configuration Manager in SQL Server Reporting Services
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Des exemples de modèles de rapport sont inclus dans System Center Configuration Manager, mais vous pouvez également définir des modèles de rapport qui répondent aux besoins de votre activité, puis déployer le modèle de rapport sur Configuration Manager pour l’utiliser quand vous créez des rapports basés sur des modèles. Le tableau suivant indique les étapes à suivre pour créer et déployer un modèle de rapport basique.  
+Voorbeeldrapportmodellen zijn opgenomen in System Center Configuration Manager, maar u kunt ook rapportmodellen om te voldoen aan uw eigen zakelijke behoeften definiëren en vervolgens het rapportmodel implementeren naar Configuration Manager moet worden gebruikt wanneer u nieuwe rapporten op basis van model maken. De volgende tabel geeft de stappen voor het maken en implementeren van een basisrapportmodel.  
 
 > [!NOTE]  
->  Pour connaître les étapes à suivre pour créer un modèle de rapport plus avancé, voir la section [Étapes de création d'un modèle de rapport avancé dans SQL Server Reporting Services](#AdvancedReportModel) dans cette rubrique.  
+>  Zie de rubriek [Steps for Creating an Advanced Report Model in SQL Server Reporting Services](#AdvancedReportModel) in dit onderwerp voor de stappen om een geavanceerder rapportmodel te maken.  
 
-|Étape|Description|Plus d'informations|  
+|Stap|Beschrijving|Meer informatie|  
 |----------|-----------------|----------------------|  
-|Vérifier que SQL Server Business Intelligence Development Studio est installé|Les modèles de rapport sont conçus et créés à l'aide de SQL Server Business Intelligence Development Studio. Vérifiez que SQL Server Business Intelligence Development Studio est installé sur l'ordinateur sur lequel vous créez le modèle de rapport personnalisé.|Pour plus d'informations sur SQL Server Business Intelligence Development Studio, consultez la documentation de SQL Server 2008.|  
-|Création d'un projet de modèle de rapport|Un projet de modèle de rapport comprend un fichier de définition de la source de données (.ds), un fichier de définition d'une vue de source de données (.dsv) et un fichier de modèle de rapport (.smdl).|Pour plus d'informations, voir la section [Pour créer le projet de modèle de rapport](#BKMK_CreateReportModelProject) de cette rubrique.|  
-|Définition d'une source de données pour un modèle de rapport|Une fois que vous avez créé un projet de modèle de rapport, vous devez définir une source de données à partir de laquelle extraire les données d'entreprise. Il s’agit en général de la base de données du site Configuration Manager.|Pour plus d'informations, voir la section [Pour définir la source de données du modèle de rapport](#BKMK_DefineReportModelDataSource) de cette rubrique.|  
-|Définition d'une vue de source de données pour un modèle de rapport|Après avoir défini les sources de données utilisées dans le projet de modèle de rapport, la prochaine étape consiste à définir une vue de source de données pour le projet. Une vue de source de données est un modèle de données logique basé sur une ou plusieurs sources de données. Les vues de source de données incluent l'accès aux objets physiques (tableaux et vues) contenus dans les sources de données sous-jacentes. SQL Server Reporting Services génère le modèle de rapport à partir de la vue de source de données.<br /><br /> Les vues de la source de données simplifient le processus de conception du modèle en mettant à votre disposition une représentation efficace des données spécifiées. Sans modifier la source de données sous-jacente, vous pouvez renommer les tables et les champs et ajouter l'ensemble des champs et des tables dérivées à une vue de source de données. Pour obtenir un modèle efficace, ajoutez ces tables uniquement à la vue de source de données à utiliser.|Pour plus d'informations, voir la section [Pour définir la vue de la source de données du modèle de rapport](#BKMK_DefineReportModelDataSourceView) de cette rubrique.|  
-|Créer un modèle de rapport|Un modèle de rapport correspond à une couche située en haut de la base de données et qui permet d'identifier les entités, les champs, ainsi que les rôles. Une fois publiés à l'aide de ces modèles, les utilisateurs du générateur de rapports peuvent développer des rapports sans avoir à connaître les structures de la base de données et sans devoir comprendre ou composer des requêtes. Les modèles contiennent des ensembles d'éléments de rapport associés et regroupés sous un nom convivial. Ils contiennent également des liens prédéfinis entre les éléments d'entreprise et des calculs prédéfinis. Vous pouvez définir des modèles à l'aide d'un langage XML appelé Semantic Model Definition Language (SMDL). L'extension de fichier du modèle de rapport est .smdl.|Pour plus d'informations, voir la section [Pour créer le modèle de rapport](#BKMK_CreateReportModel) de cette rubrique.|  
-|Publication d'un modèle de rapport|Pour générer un rapport via le modèle créé, vous devez publier ce dernier dans un serveur de rapport. La source de données ainsi que la vue de source de données sont incluses dans le modèle lors de sa publication.|Pour plus d'informations, voir la section [Pour publier le modèle de rapport en vue de son utilisation dans SQL Server Reporting Services](#BKMK_PublishReportModel) de cette rubrique.|  
-|Déployer le modèle de rapport sur Configuration Manager|Avant de pouvoir utiliser un modèle de rapport personnalisé dans l’**Assistant Création de rapport** pour créer un rapport basé sur un modèle, vous devez déployer le modèle de rapport sur Configuration Manager.|Pour plus d'informations, voir la section [To deploy the custom report model to Configuration Manager](#BKMK_DeployReportModel) de cette rubrique.|  
+|Controleer of SQL Server Business Intelligence Development Studio is geïnstalleerd|Rapportmodellen worden toegewezen en gebouwd met SQL Server Business Intelligence Development Studio. Controleer of SQL Server Business Intelligence Development Studio is geïnstalleerd op de computer waarop u het aangepaste rapportmodel maakt.|Zie voor meer informatie over SQL Server Business Intelligence Development Studio de documentatie bij SQL Server 2008.|  
+|Maak een rapportmodelproject|Een rapportmodelproject bevat de definitie van de gegevensbron (een .ds file), de definitie van de gegevensbronweergave (een .dsv file) en het rapportmodel (een .smdl file).|Zie de sectie [To create the report model project](#BKMK_CreateReportModelProject) in dit onderwerp voor meer informatie.|  
+|Een gegevensbron definiëren voor een rapportmodel|Na het voltooien van een rapportmodelproject definieert u een gegevensbron waarvandaan u bedrijfsgegevens importeert. Dit is meestal de Configuration Manager-sitedatabase.|Zie de sectie [De gegevensbron voor het rapportmodel definiëren](#BKMK_DefineReportModelDataSource) in dit onderwerp voor meer informatie.|  
+|Een gegevensbronweergave definiëren voor een rapportmodel|Na de definitie van de gegevensbronnen die u gebruikt in uw rapportmodelproject, bestaat de volgende stap uit het definiëren van een gegevensbronweergave voor het project. Een gegevensbronweergave is een logisch datamodel dat is gebaseerd op een of meerdere gegevensbronnen. Gegevensbronweergaven bevatten toegang tot de fysieke objecten, zoals tabellen en weergaven, die zich in onderliggende gegevensbronnen bevinden. SQL Server Reporting Services genereert het rapportmodel vanaf de gegevensbronweergave.<br /><br /> Gegevensbronweergaven helpen u bij het ontwerpproces voor modellen door middel van een nuttige weergave van de gegevens die u hebt opgegeven. U kunt zonder de onderliggende gegevensbron te wijzigen tabellen en velden opnieuw benoemen en samengestelde velden en afgeleide tabellen toevoegen in een gegevensbronweergave. Voor een efficiënt model voegt u alleen die tabellen toe aan de gegevensbronweergave die u gaat gebruiken.|Zie de sectie [De gegevensbronweergave voor het rapportmodel definiëren](#BKMK_DefineReportModelDataSourceView) in dit onderwerp voor meer informatie.|  
+|Een rapportmodel maken|Een rapportmodel is een laag bovenop een database die bedrijven, velden en rollen kan identificeren. Bij publicatie kunnen Report Builder-gebruikers met behulp van deze modellen rapporten ontwikkelen zonder verdere kennis te hebben van databasestructuren of het samenstellen van query's. Modellen bestaan uit sets gerelateerde rapportitems die zijn gegroepeerd onder een beschrijvende naam, met vooraf gedefinieerde relaties tussen deze zakelijke items en met vooraf gedefinieerde berekeningen. Modellen worden gedefinieerd met behulp van een XML-taal, die SMDL (Semantic Model Definition Language) wordt genoemd. De bestandsnaamextensie voor rapportmodelbestanden is .smdl.|Zie de sectie [To create the report model](#BKMK_CreateReportModel) in dit onderwerp voor meer informatie.|  
+|Een rapportmodel publiceren|Om een rapport samen te stellen met behulp van het model dat u zojuist hebt gemaakt, moet u het naar een rapportserver publiceren. De gegevensbron en gegevensbronweergave zijn in het model opgenomen wanneer het wordt gepubliceerd.|Zie de sectie [To publish the report model for use in SQL Server Reporting Services](#BKMK_PublishReportModel) in dit onderwerp voor meer informatie.|  
+|Het rapportmodel implementeren naar Configuration Manager|Voordat u kunt een aangepast rapportmodel in de **Wizard rapport maken** om een rapport op basis van model maakt, moet u het rapportmodel naar Configuration Manager implementeren.|Zie de sectie [To deploy the custom report model to Configuration Manager](#BKMK_DeployReportModel) in dit onderwerp voor meer informatie.|  
 
-## <a name="steps-for-creating-a-basic-report-model-in-sql-server-reporting-services"></a>Étapes de création d’un modèle de rapport basique dans SQL Server Reporting Services  
- Vous pouvez utiliser les procédures suivantes pour créer un modèle de rapport basique dont les utilisateurs de votre site peuvent se servir pour générer des rapports spécifiques basés sur des modèles et sur des données d’une seule vue de la base de données Configuration Manager. Créez un modèle de rapport destiné à l'auteur du rapport et présentant les informations relatives aux ordinateurs clients de votre site. Ces informations sont extraites de la vue **v_R_System** de la base de données Configuration Manager.  
+## <a name="steps-for-creating-a-basic-report-model-in-sql-server-reporting-services"></a>Stappen voor het maken van een basisrapportmodel in SQL Server Reporting Services  
+ U kunt de volgende procedures voor het maken van een basisrapportmodel die gebruikers in uw site gebruiken kunnen om op basis van modellen rapporten op basis van gegevens in één enkele weergave van de Configuration Manager-database. U maakt een rapportmodel met daarin informatie over de clientcomputers op uw site voor de auteur van het rapport. Deze informatie is genomen van de **v_R_System** weergave in de Configuration Manager-database.  
 
- Vérifiez que SQL Server Business Intelligence Development Studio est installé sur l'ordinateur où vous effectuez ces procédures et que cet ordinateur dispose d'une connectivité réseau avec le serveur du point de Reporting Services. Pour plus de détails sur SQL Server Business Intelligence Development Studio, consultez la documentation de SQL Server 2008.  
+ Controleer op de computer waar u deze procedures uitvoert of u SQL Server Business Intelligence Development Studio hebt geïnstalleerd en dat de computer netwerkverbinding heeft met de Reporting Services-puntserver. Zie voor meer informatie over SQL Server Business Intelligence Development Studio de documentatie bij SQL Server 2008.  
 
 ###  <a name="BKMK_CreateReportModelProject"></a> To create the report model project  
 
-1.  Sur le bureau, cliquez sur **Démarrer**, sur **Microsoft SQL Server 2008**, puis sur **SQL Server Business Intelligence Development Studio**.  
+1.  Klik op het bureaublad op **Start**, dan op **Microsoft SQL Server 2008**, en daarna op **SQL Server Business Intelligence Development Studio**.  
 
-2.  Une fois **SQL Server Business Intelligence Development Studio** ouvert dans Microsoft Visual Studio, cliquez sur **Fichier**, **Nouveau**, puis sur **Projet**.  
+2.  Klik, nadat **SQL Server Business Intelligence Development Studio** geopend hebt in Microsoft Visual Studio, op **Bestand**, daarna op **Nieuw**, en tot slot op **Project**.  
 
-3.  Dans la boîte de dialogue **Nouveau projet** , sélectionnez **Projet de modèle de rapport** dans la liste **Modèles** .  
+3.  In het dialoogvenster **Nieuw project** selecteert u **Rapportmodelproject** in de lijst **Sjablonen** .  
 
-4.  Dans la zone **Nom** , spécifiez un nom pour ce modèle de rapport. Dans cet exemple, tapez **Modèle_simple**.  
+4.  Geef in het **Naam** -vak een naam op voor dit rapportmodel. Typ voor dit voorbeeld **Simple_Model**.  
 
-5.  Pour créer le projet de modèle de rapport, cliquez sur **OK**.  
+5.  Klik op **OK**om het rapportmodelproject te maken.  
 
-6.  La solution **Modèle_simple** est créée et s'affiche dans l' **Explorateur de solutions**.  
-
-    > [!NOTE]  
-    >  Si le volet **Explorateur de solutions** n'est pas visible, cliquez sur **Afficher**, puis sur **Explorateur de solutions**.  
-
-###  <a name="BKMK_DefineReportModelDataSource"></a> Pour définir la source de données du modèle de rapport  
-
-1.  Dans le volet **Explorateur de solutions** de **SQL Server Business Intelligence Development Studio**, cliquez avec le bouton droit sur **Sources de données** pour sélectionner **Ajouter une nouvelle source de données**.  
-
-2.  Sur la page **Bienvenue dans l'Assistant Sources de données** , cliquez sur **Suivant**.  
-
-3.  Dans la page **Sélectionner la méthode de définition de la connexion** , vérifiez que l'option **Créer une source de données basée sur une connexion existante ou nouvelle** est sélectionnée, puis cliquez sur **Nouveau**.  
-
-4.  Dans la boîte de dialogue **Connection Manager** , spécifiez les propriétés de connexion suivantes pour la source de données :  
-
-    -   **Nom du serveur** : tapez le nom du serveur de base de données du site Configuration Manager ou sélectionnez-le dans la liste. Si vous utilisez une instance nommée au lieu de celle par défaut, tapez &lt;*serveur_base_de_données*>\\&lt;*nom_instance*>.  
-
-    -   Sélectionnez **Utiliser l'authentification Windows**.  
-
-    -   Dans la liste **Sélectionner ou entrer un nom de base de données**, sélectionnez le nom de la base de données du site Configuration Manager.  
-
-5.  Pour vérifier la connexion à la base de données, cliquez sur **Tester la connexion**.  
-
-6.  Si la connexion fonctionne, cliquez sur **OK** pour fermer la boîte de dialogue **Connection Manager** . Si ce n'est pas le cas, vérifiez que les informations entrées sont correctes, puis cliquez à nouveau sur **Tester la connexion** .  
-
-7.  Sur la page **Sélectionner la méthode de définition de la connexion** , vérifiez que l'option **Créer une source de données basée sur une connexion existante ou nouvelle** est sélectionnée. Vérifiez également que la source de données que vous venez de spécifier est sélectionnée dans **Connexions de données**, puis cliquez sur **Suivant**.  
-
-8.  Dans **Nom de la source de données**, spécifiez un nom pour la source de données et cliquez sur **Terminer**. Dans cet exemple, tapez **Modèle_simple**.  
-
-9. La source de données **Modèle_simple.ds** s'affiche désormais dans l' **Explorateur de solutions** sous le nœud **Sources de données** .  
+6.  De oplossing **Simple_Model** wordt weergegeven in de **Solution Explorer**.  
 
     > [!NOTE]  
-    >  Pour modifier les propriétés d'une source de données existante, cliquez deux fois dessus dans le dossier **Sources de données** du panneau **Explorateur de solutions** pour afficher les propriétés de la source de données dans Concepteur de sources de données.  
+    >  Als u het deelvenster **Solution Explorer** niet kunt zien, klikt u op **Weergeven**en vervolgens op **Solution Explorer**.  
 
-###  <a name="BKMK_DefineReportModelDataSourceView"></a> Pour définir la vue de la source de données du modèle de rapport  
+###  <a name="BKMK_DefineReportModelDataSource"></a>De gegevensbron voor het rapportmodel definiëren  
 
-1.  Dans le volet **Explorateur de solutions**, cliquez avec le bouton droit sur **Vues des sources de données** pour sélectionner **Ajouter une nouvelle vue de source de données**.  
+1.  Klik in het deelvenster **Solution Explorer** van **SQL Server Business Intelligence Development Studio**met de rechtermuisknop op **Gegevensbronnen** om **Nieuwe gegevensbron toevoegen**te selecteren.  
 
-2.  Sur la page **Bienvenue dans l'Assistant Sources de données** , cliquez sur **Suivant**. La page **Sélectionner une source de données** s'affiche.  
+2.  Klik op de pagina **Welkom bij de wizard Gegevensbron** op **Volgende**.  
 
-3.  Dans la fenêtre **Sources de données relationnelles** , vérifiez que la source de données **Modèle_simple** est sélectionnée, puis cliquez sur **Suivant**.  
+3.  Controleer op de pagina **De definitie voor de verbinding selecteren** of **Een gegevensbron maken op basis van een bestaande of nieuwe verbinding** is geselecteerd en klik vervolgens op **Nieuw**.  
 
-4.  Dans la page **Sélectionner des tables et des vues** , dans la liste **Objets disponibles** , sélectionnez la vue suivante à utiliser dans le modèle de rapport : **v_R_System (dbo)**.  
+4.  Specificeer in het dialoogvenster **Verbindingsbeheer** de volgende verbindingseigenschappen voor de gegevensbron:  
+
+    -   **Servernaam**: Typ de naam van de databaseserver van uw Configuration Manager-site of in de lijst te selecteren. Als u met een benoemd exemplaar in plaats van het standaardexemplaar werkt, typt u &lt; *databaseserver*>\\&lt;*exemplaarnaam*>.  
+
+    -   Selecteer **Windows-verificatie gebruiken**.  
+
+    -   In **Selecteer of voer een databasenaam** , selecteert u de naam van uw Configuration Manager-sitedatabase.  
+
+5.  Klik op **Verbinding testen**om de verbinding met de database te controleren.  
+
+6.  Als de verbinding slaagt, klikt u op **OK** om het dialoogvenster **Verbindingsbeheer** te sluiten. Als de verbinding niet slaagt, controleer dan of de informatie die u hebt ingevoerd juist is en klik daarna opnieuw op **Verbinding testen** .  
+
+7.  Controleer op de pagina **De definitie voor de verbinding selecteren** of **Een gegevensbron maken op basis van een bestaande of nieuwe verbinding** is geselecteerd, controleer of de gegevensbron die u zojuist hebt opgegeven is geselecteerd in **Gegevensverbindingen**en klik vervolgens op **Volgende**.  
+
+8.  Geef in **Naam van gegevensbron**een naam op voor de gegevensbron en klik vervolgens op **Voltooien**. Typ voor dit voorbeeld **Simple_Model**.  
+
+9. De gegevensbron **Simple_Model.ds** wordt nu weergegeven in **Solution Explorer** onder het knooppunt **Gegevensbronnen** .  
+
+    > [!NOTE]  
+    >  Als u de eigenschappen van een bestaande gegevensbron wilt bewerken, dubbelklikt u op de gegevensbron in de map **Gegevensbronnen** van het deelvenster **Solution Explorer** om de gegevensbroneigenschappen weer te geven in Gegevensbronontwerper.  
+
+###  <a name="BKMK_DefineReportModelDataSourceView"></a>De gegevensbronweergave voor het rapportmodel definiëren  
+
+1.  Klik in **Solution Explorer**met de rechtermuisknop op **Gegevensbronweergaven** om **Nieuwe gegevensbronweergave toevoegen**te selecteren.  
+
+2.  Klik op de pagina **Welkom bij de wizard Gegevensbronweergave** op **Volgende**. De pagina **Een gegevensbron selecteren** wordt weergegeven.  
+
+3.  Controleer in het venster **Relationele gegevensbronnen** of de gegevensbron **Simple_Model** is geselecteerd en klik vervolgens op **Volgende**.  
+
+4.  Selecteer op de pagina **Tabellen en weergaven selecteren** de volgende weergave in de lijst **Beschikbare objecten** die u wilt gebruiken in het rapportmodel: **v_R_System (dbo)**.  
 
     > [!TIP]  
-    >  Pour localiser aisément des vues dans la liste **Objets disponibles** , cliquez sur l'en-tête **Nom** situé en haut de la liste pour trier les objets par ordre alphabétique.  
+    >  Klik voor hulp bij het vinden van weergaven in de lijst **Beschikbare objecten** op de kop **Naam** bovenin de lijst om de objecten op alfabetische volgorde te sorteren.  
 
-5.  Après avoir sélectionné la vue, cliquez sur **>** pour transférer l'objet dans la liste **Objets inclus** .  
+5.  Klik nadat u de weergave hebt geselecteerd op **>** om het object over te zetten naar de lijst **Toegevoegde objecten** .  
 
-6.  Si la page **Correspondance de noms** s'affiche, acceptez les sélections par défaut, puis cliquez sur **Suivant**.  
+6.  Als de pagina **Overeenkomst met naam** wordt weergeven, accepteert u de standaardselecties en klikt u op **Volgende**.  
 
-7.  Lorsque vous avez sélectionné les objets dont vous avez besoin, cliquez sur **Suivant**, puis spécifiez un nom pour la vue de la source de données. Dans cet exemple, tapez **Modèle_simple**.  
+7.  Wanneer u de nodige objecten hebt geselecteerd, klikt u op **Volgende**en specificeert u een naam voor de gegevensbronweergave. Typ voor dit voorbeeld **Simple_Model**.  
 
-8.  Cliquez sur **Terminer**. La vue de la source de données **Modèle_simple.dsv** s'affiche dans le dossier **Vues des sources de données** de l' **Explorateur de solutions**.  
+8.  Klik op **Voltooien**. De gegevensbronweergave **Simple_Model.dsv** wordt in de map **Gegevensbronweergaven** van **Solution Explorer**weergegeven.  
 
 ###  <a name="BKMK_CreateReportModel"></a> To create the report model  
 
-1.  Dans l' **Explorateur de solutions**, cliquez avec le bouton droit sur **Modèles de rapport** pour sélectionner **Ajouter un nouveau rapport de modèle**.  
+1.  Klik in **Solution Explorer**met de rechtermuisknop op **Rapportmodellen** om **Nieuw rapportmodel toevoegen**te selecteren.  
 
-2.  Sur la page **Bienvenue dans l'Assistant Modèle de rapport** , cliquez sur **Suivant**.  
+2.  Klik op de pagina **Welkom bij de wizard Rapportmodel** op **Volgende**.  
 
-3.  Sur la page **Sélectionner des vues de source de données** , sélectionnez la vue de source de données dans la liste **Vues de source de données disponibles** , puis cliquez sur **Suivant**. Dans cet exemple, sélectionnez **Modèle_simple.dsv**.  
+3.  Selecteer in de pagina **Gegevensbronweergaven selecteren** de gegevensbronweergave in de lijst **Beschikbare gegevensbronweergaven** en klik op **Volgende**. Selecteer voor dit voorbeeld **Simple_Model.dsv**.  
 
-4.  Sur la page **Sélectionner règles de génér. du modèle de rapport** , acceptez les valeurs par défaut, puis cliquez sur **Suivant**.  
+4.  Accepteer op de pagina **Aanmaakregels voor rapportmodel selecteren** de standaardwaarden en klik vervolgens op **Volgende**.  
 
-5.  Sur la page **Collecter les statistiques du modèle** , vérifiez que **Mettre à jour les statistiques du modèle avant la production** est sélectionné, puis cliquez sur **Suivant**.  
+5.  Controleer op de pagina **Modelstatistieken verzamelen** of **Modelstatistieken bijwerken voor het aanmaken** is geselecteerd en klik vervolgens op **Volgende**.  
 
-6.  Sur la page **Fin de l'Assistant** , spécifiez un nom pour le modèle de rapport. Pour cet exemple, vérifiez que **Modèle_simple** s'affiche.  
+6.  Geef op de pagina **De wizard wordt voltooid** een naam op voor het rapportmodel. Controleer voor dit voorbeeld of **Simple_Model** wordt weergegeven.  
 
-7.  Pour terminer l'Assistant et créer le modèle de rapport, cliquez sur **Exécuter**.  
+7.  Klik op **Uitvoeren**om de wizard te voltooien en het rapportmodel te maken.  
 
-8.  Pour quitter l'assistant, cliquez sur **Terminer**. Le modèle de rapport est affiché dans la fenêtre de conception.  
+8.  Klik op **Voltooien**om de wizard te sluiten. Het rapportmodel wordt weergegeven in het venster Ontwerpen.  
 
-###  <a name="BKMK_PublishReportModel"></a> Pour publier le modèle de rapport en vue de son utilisation dans SQL Server Reporting Services  
+###  <a name="BKMK_PublishReportModel"></a>Publiceren van het rapportmodel voor gebruik in SQL Server Reporting Services  
 
-1.  Dans l' **Explorateur de solutions**, cliquez avec le bouton droit sur le modèle de rapport pour sélectionner **Déployer**. Pour cet exemple, le modèle de rapport est **Modèle_simple.smdl**.  
+1.  Klik in **Solution Explorer**met de rechtermuisknop op het rapportmodel om **Implementeren**te selecteren. Voor dit voorbeeld is het rapportmodel **Simple_Model.smdl**.  
 
-2.  Examinez l'état du déploiement dans l'angle inférieur gauche de la fenêtre **SQL Server Business Intelligence Development Studio** . Lorsque le déploiement est terminé, **Déploiement réussi** s'affiche. En cas d'échec du déploiement, la raison de l'échec s'affiche dans la fenêtre **Sortie** . Le nouveau modèle de rapport est maintenant disponible sur votre site Web SQL Server Reporting Services.  
+2.  Controleer de implementatiestatus onderin de linkerhoek van het venster **SQL Server Business Intelligence Development Studio** . Wanneer de implementatie is voltooid, wordt **Implementatie geslaagd** weergegeven. Als de implementatie mislukt, wordt de reden hiervoor weergegeven in het venster **Uitvoer** . Het nieuwe rapportmodel is nu beschikbaar op uw SQL Server Reporting Services-website.  
 
-3.  Cliquez sur **Fichier**, cliquez sur **Enregistrer tout**, puis fermez **SQL Server Business Intelligence Development Studio**.  
+3.  Klik op **Bestand**, op **Alles opslaan**en sluit **SQL Server Business Intelligence Development Studio**.  
 
 ###  <a name="BKMK_DeployReportModel"></a> To deploy the custom report model to Configuration Manager  
 
-1.  Localisez le dossier dans lequel vous avez créé le projet du modèle de rapport. Par exemple, %*PROFIL_UTILISATEUR*%\Documents\Visual Studio 2008\Projects\\*&lt;nom_projet\>.*  
+1.  Vind de map waarin u het rapportmodelproject hebt gemaakt. Bijvoorbeeld %*USERPROFILE*%\Documents\Visual Studio 2008\Projects\\*&lt;projectnaam\>.*  
 
-2.  Copiez les fichiers suivants du dossier du projet de modèle de rapport dans un dossier temporaire sur votre ordinateur :  
+2.  Kopieer de volgende bestanden van de map rapportmodelproject naar een tijdelijke map op uw computer:  
 
-    -   *&lt;nom_modèle\>* **.dsv**  
+    -   *&lt;Naam model\>*  **.dsv**  
 
-    -   *&lt;nom_modèle\>* **.smdl**  
+    -   *&lt;Naam model\>*  **.smdl**  
 
-3.  Ouvrez les fichiers mentionnés précédemment dans un éditeur de texte tel que le Bloc-notes.  
+3.  Open de voorgaande bestanden met een tekstbewerkingstoepassing, zoals Kladblok.  
 
-4.  Dans le fichier *&lt;nom_modèle\>***.dsv**, localisez la première ligne, qui est la suivante :  
+4.  In het bestand  *&lt;modelnaam\>***.dsv**, zoek de eerste regel van het bestand, die er als volgt uitziet:  
 
-     **&lt;DataSourceView xmlns="http://schemas.microsoft.com/analysisservices/2003/engine"\>**  
+     **&lt;DataSourceView xmlns = "http://schemas.microsoft.com/analysisservices/2003/engine"\>**  
 
-     Modifiez cette ligne de la manière suivante :  
+     Bewerk deze regel als volgt:  
 
-     **&lt;DataSourceView xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="RelationalDataSourceView"\>**  
+     **&lt;DataSourceView xmlns = 'http://schemas.microsoft.com/analysisservices/2003/engine' xmlns:xsi = "RelationalDataSourceView"\>**  
 
-5.  Copiez le contenu entier du fichier dans le Presse-papiers Windows.  
+5.  Kopieer de gehele inhoud van het bestand naar het Windows-klembord.  
 
-6.  Fermez le fichier *&lt;nom_modèle\>***.dsv**.  
+6.  Sluit het bestand  *&lt;modelnaam\>***.dsv**.  
 
-7.  Dans le fichier *&lt;nom_modèle\>***.smdl**, localisez les trois dernières lignes, qui sont les suivantes :  
+7.  In het bestand  *&lt;modelnaam\>***.smdl**, zoek de laatste drie regels van het bestand, die worden weergegeven als volgt:  
 
      `</Entity>`  
 
@@ -170,116 +170,116 @@ Des exemples de modèles de rapport sont inclus dans System Center Configuration
 
      `</SemanticModel>`  
 
-8.  Collez le contenu du fichier *&lt;nom_modèle\>***.dsv** juste avant la dernière ligne du fichier(**&lt;SemanticModel\>**).  
+8.  Plak de inhoud van het bestand  *&lt;modelnaam\>***.dsv** direct vóór de laatste regel van het bestand (**&lt;SemanticModel\>**).  
 
-9. Enregistrez et fermez le fichier *&lt;nom_modèle\>***.smdl**.  
+9. Opslaan en sluiten van het bestand  *&lt;modelnaam\>***.smdl**.  
 
-10. Copiez le fichier *&lt;nom_modèle\>***.smdl** dans le dossier *%programfiles%*\Microsoft Configuration Manager \AdminConsole\XmlStorage\Other du serveur de site Configuration Manager.  
+10. Kopieer het bestand  *&lt;modelnaam\>***.smdl** naar de map *% programfiles %*\Microsoft Configuration Manager \AdminConsole\XmlStorage\Other op de siteserver van Configuration Manager.  
 
     > [!IMPORTANT]  
-    >  Après avoir copié le fichier du modèle de rapport sur le serveur de site Configuration Manager, vous devez quitter et redémarrer la console Configuration Manager avant de pouvoir utiliser le modèle de rapport à partir de l’**Assistant Création de rapport**.  
+    >  Na het kopiëren van het rapportmodelbestand naar de siteserver van Configuration Manager, moet u sluiten en opnieuw starten van de Configuration Manager-console voordat u kunt het rapportmodel in de **Wizard rapport maken**.  
 
-##  <a name="AdvancedReportModel"></a> Étapes de création d'un modèle de rapport avancé dans SQL Server Reporting Services  
- Vous pouvez utiliser les procédures suivantes pour créer un modèle de rapport avancé dont les utilisateurs de votre site peuvent se servir pour générer des rapports spécifiques basés sur des modèles et sur des données de plusieurs vues de la base de données Configuration Manager. Vous allez créer un modèle de rapport destiné à l'auteur du rapport et présentant les informations relatives aux ordinateurs clients et au système d'exploitation installé sur ces derniers. Ces informations sont extraites des vues suivantes de la base de données Configuration Manager :  
+##  <a name="AdvancedReportModel"></a>Stappen voor het maken van een geavanceerd rapportmodel in SQL Server Reporting Services  
+ U kunt de volgende procedures voor het maken van een geavanceerd rapportmodel die gebruikers in uw site gebruiken kunnen om op basis van modellen rapporten op basis van gegevens in meerdere weergaven van de Configuration Manager-database. U maakt een rapportmodel met daarin informatie over de clientcomputers en het besturingssysteem dat is geïnstalleerd op deze computers voor de auteur van het rapport. Deze informatie is genomen van de volgende weergaven in de Configuration Manager-database:  
 
--   **V_R_System** : contient des informations sur les ordinateurs découverts et sur le client Configuration Manager.  
+-   **V_R_System**: Bevat informatie over de gedetecteerde computers en de Configuration Manager-client.  
 
--   **V_GS_OPERATING_SYSTEM**: contient des informations sur le système d’exploitation installé sur l’ordinateur client.  
+-   **V_GS_OPERATING_SYSTEM**: Bevat informatie over het besturingssysteem geïnstalleerd op de clientcomputer.  
 
- Les éléments sélectionnés dans les vues précédentes vont être consolidés dans une liste de noms conviviaux, puis présentés à l'auteur du rapport dans le générateur de rapports afin de pouvoir être ajoutés dans des rapports particuliers.  
+ Geselecteerde items van de voorgaande weergaven worden in één lijst samengevoegd, voorzien van beschrijvende namen en vervolgens gepresenteerd aan de auteur van een rapport in Report Builder om in bepaalde rapporten te gebruiken.  
 
- Vérifiez que SQL Server Business Intelligence Development Studio est installé sur l'ordinateur où vous effectuez ces procédures et que cet ordinateur dispose d'une connectivité réseau avec le serveur du point de Reporting Services. Pour plus de détails sur SQL Server Business Intelligence Development Studio, consultez la documentation de SQL Server.  
+ Controleer op de computer waar u deze procedures uitvoert of u SQL Server Business Intelligence Development Studio hebt geïnstalleerd en dat de computer netwerkverbinding heeft met de Reporting Services-puntserver. Voor gedetailleerde informatie over SQL Server Business Intelligence Development Studio, zie de SQL Server documentatie.  
 
 #### <a name="to-create-the-report-model-project"></a>To create the report model project  
 
-1.  Sur le bureau, cliquez sur **Démarrer**, sur **Microsoft SQL Server 2008**, puis sur **SQL Server Business Intelligence Development Studio**.  
+1.  Klik op het bureaublad op **Start**, dan op **Microsoft SQL Server 2008**, en daarna op **SQL Server Business Intelligence Development Studio**.  
 
-2.  Une fois **SQL Server Business Intelligence Development Studio** ouvert dans Microsoft Visual Studio, cliquez sur **Fichier**, **Nouveau**, puis sur **Projet**.  
+2.  Klik, nadat **SQL Server Business Intelligence Development Studio** geopend hebt in Microsoft Visual Studio, op **Bestand**, daarna op **Nieuw**, en tot slot op **Project**.  
 
-3.  Dans la boîte de dialogue **Nouveau projet** , sélectionnez **Projet de modèle de rapport** dans la liste **Modèles** .  
+3.  In het dialoogvenster **Nieuw project** selecteert u **Rapportmodelproject** in de lijst **Sjablonen** .  
 
-4.  Dans la zone **Nom** , spécifiez un nom pour ce modèle de rapport. Dans cet exemple, tapez **Modèle_avancé**.  
+4.  Geef in het **Naam** -vak een naam op voor dit rapportmodel. Typ voor dit voorbeeld **Advanced_Model**.  
 
-5.  Pour créer le projet de modèle de rapport, cliquez sur **OK**.  
+5.  Klik op **OK**om het rapportmodelproject te maken.  
 
-6.  La solution **Modèle_avancé** est créée et s'affiche dans l' **Explorateur de solutions**.  
-
-    > [!NOTE]  
-    >  Si le volet **Explorateur de solutions** n'est pas visible, cliquez sur **Afficher**, puis sur **Explorateur de solutions**.  
-
-#### <a name="to-define-the-data-source-for-the-report-model"></a>Pour définir la source de données du modèle de rapport  
-
-1.  Dans le volet **Explorateur de solutions** de **SQL Server Business Intelligence Development Studio**, cliquez avec le bouton droit sur **Sources de données** pour sélectionner **Ajouter une nouvelle source de données**.  
-
-2.  Sur la page **Bienvenue dans l'Assistant Sources de données** , cliquez sur **Suivant**.  
-
-3.  Dans la page **Sélectionner la méthode de définition de la connexion** , vérifiez que l'option **Créer une source de données basée sur une connexion existante ou nouvelle** est sélectionnée, puis cliquez sur **Nouveau**.  
-
-4.  Dans la boîte de dialogue **Connection Manager** , spécifiez les propriétés de connexion suivantes pour la source de données :  
-
-    -   **Nom du serveur** : tapez le nom du serveur de base de données du site Configuration Manager ou sélectionnez-le dans la liste. Si vous utilisez une instance nommée au lieu de celle par défaut, tapez &lt;*serveur_base_de_données*>\\&lt;*nom_instance*>.  
-
-    -   Sélectionnez **Utiliser l'authentification Windows**.  
-
-    -   Dans la liste **Sélectionner ou entrer un nom de base de données**, sélectionnez le nom de la base de données du site Configuration Manager.  
-
-5.  Pour vérifier la connexion à la base de données, cliquez sur **Tester la connexion**.  
-
-6.  Si la connexion fonctionne, cliquez sur **OK** pour fermer la boîte de dialogue **Connection Manager** . Si ce n'est pas le cas, vérifiez que les informations entrées sont correctes, puis cliquez à nouveau sur **Tester la connexion** .  
-
-7.  Sur la page **Sélectionner la méthode de définition de la connexion** , vérifiez que l'option **Créer une source de données basée sur une connexion existante ou nouvelle** est sélectionnée. Vérifiez également que la source de données, spécifiée dernièrement, est sélectionnée dans la liste **Connexions de données** , puis cliquez sur **Suivant**.  
-
-8.  Dans **Nom de la source de données**, spécifiez un nom pour la source de données et cliquez sur **Terminer**. Dans cet exemple, tapez **Modèle_avancé**.  
-
-9. La source de données **Modèle_avancé.ds** s'affiche désormais dans l' **Explorateur de solutions** sous le nœud **Sources de données** .  
+6.  De oplossing **Advanced_Model** wordt weergegeven in **Solution Explorer**.  
 
     > [!NOTE]  
-    >  Pour modifier les propriétés d'une source de données existante, cliquez deux fois dessus dans le dossier **Sources de données** du panneau **Explorateur de solutions** pour afficher les propriétés de la source de données dans Concepteur de sources de données.  
+    >  Als u het deelvenster **Solution Explorer** niet kunt zien, klikt u op **Weergeven**en vervolgens op **Solution Explorer**.  
 
-#### <a name="to-define-the-data-source-view-for-the-report-model"></a>Pour définir la vue de la source de données du modèle de rapport  
+#### <a name="to-define-the-data-source-for-the-report-model"></a>De gegevensbron voor het rapportmodel definiëren  
 
-1.  Dans le volet **Explorateur de solutions**, cliquez avec le bouton droit sur **Vues des sources de données** pour sélectionner **Ajouter une nouvelle vue de source de données**.  
+1.  Klik in het deelvenster **Solution Explorer** van **SQL Server Business Intelligence Development Studio**met de rechtermuisknop op **Gegevensbronnen** om **Nieuwe gegevensbron toevoegen**te selecteren.  
 
-2.  Sur la page **Bienvenue dans l'Assistant Sources de données** , cliquez sur **Suivant**. La page **Sélectionner une source de données** s'affiche.  
+2.  Klik op de pagina **Welkom bij de wizard Gegevensbron** op **Volgende**.  
 
-3.  Dans la fenêtre **Sources de données relationnelles** , vérifiez que la source de données **Modèle_avancé** est sélectionnée, puis cliquez sur **Suivant**.  
+3.  Controleer op de pagina **De definitie voor de verbinding selecteren** of **Een gegevensbron maken op basis van een bestaande of nieuwe verbinding** is geselecteerd en klik vervolgens op **Nieuw**.  
 
-4.  Sur la page **Sélectionner des tables et des vues** , dans la liste **Objets disponibles** , sélectionnez les vues suivantes à utiliser dans le modèle de rapport :  
+4.  Specificeer in het dialoogvenster **Verbindingsbeheer** de volgende verbindingseigenschappen voor de gegevensbron:  
+
+    -   **Servernaam**: Typ de naam van de databaseserver van uw Configuration Manager-site of in de lijst te selecteren. Als u met een benoemd exemplaar in plaats van het standaardexemplaar werkt, typt u &lt; *databaseserver*>\\&lt;*exemplaarnaam*>.  
+
+    -   Selecteer **Windows-verificatie gebruiken**.  
+
+    -   In de **Selecteer of voer een databasenaam** , selecteert u de naam van uw Configuration Manager-sitedatabase.  
+
+5.  Klik op **Verbinding testen**om de verbinding met de database te controleren.  
+
+6.  Als de verbinding slaagt, klikt u op **OK** om het dialoogvenster **Verbindingsbeheer** te sluiten. Als de verbinding niet slaagt, controleer dan of de informatie die u hebt ingevoerd juist is en klik daarna opnieuw op **Verbinding testen** .  
+
+7.  Controleer op de pagina **Selecteren hoe u de verbinding wilt definiëren** of **Een gegevensbron maken op basis van een bestaande of nieuwe verbinding** is geselecteerd, controleer of de gegevensbron die u zojuist hebt gespecificeerd, geselecteerd is in de keuzelijst **Gegevensverbindingen** en klik vervolgens op **Volgende**.  
+
+8.  Specificeer in **Naam gegevensbron**een naam voor de gegevensbron en klik daarna op **Voltooien**. Typ voor dit voorbeeld **Advanced_Model**.  
+
+9. De gegevensbron **Advanced_Model.ds** wordt weergegeven in **Solution Explorer** onder het knooppunt **Gegevensbronnen** .  
+
+    > [!NOTE]  
+    >  Als u de eigenschappen van een bestaande gegevensbron wilt bewerken, dubbelklikt u op de gegevensbron in de map **Gegevensbronnen** van het deelvenster **Solution Explorer** om de gegevensbroneigenschappen weer te geven in Gegevensbronontwerper.  
+
+#### <a name="to-define-the-data-source-view-for-the-report-model"></a>De gegevensbronweergave voor het rapportmodel definiëren  
+
+1.  Klik in **Solution Explorer**met de rechtermuisknop op **Gegevensbronweergaven** om **Nieuwe gegevensbronweergave toevoegen**te selecteren.  
+
+2.  Klik op de pagina **Welkom bij de wizard Gegevensbronweergave** op **Volgende**. De pagina **Een gegevensbron selecteren** wordt weergegeven.  
+
+3.  Controleer in het venster **Relationele gegevensbronnen** of de gegevensbron **Advanced_Model** is geselecteerd, en klik vervolgens op **Volgende**.  
+
+4.  Selecteer op de pagina **Tabellen en weergaven selecteren** de volgende weergaven in de lijst **Beschikbare objecten** die in het rapportmodel gebruikt zullen worden:  
 
     -   **v_R_System (dbo)**  
 
     -   **v_GS_OPERATING_SYSTEM (dbo)**  
 
-     Une fois que vous avez sélectionné chaque vue, cliquez sur **>** pour transférer l'objet dans la liste **Objets inclus** .  
+     Klik na elke selectie van een weergave op **>** om het object over te zetten naar de lijst **Toegevoegde objecten** .  
 
     > [!TIP]  
-    >  Pour localiser aisément des vues dans la liste **Objets disponibles** , cliquez sur l'en-tête **Nom** situé en haut de la liste pour trier les objets par ordre alphabétique.  
+    >  Klik voor hulp bij het vinden van weergaven in de lijst **Beschikbare objecten** op de kop **Naam** bovenin de lijst om de objecten op alfabetische volgorde te sorteren.  
 
-5.  Si la boîte de dialogue **Correspondance de noms** s'affiche, acceptez les sélections par défaut, puis cliquez sur **Suivant**.  
+5.  Als het dialoogvenster **Namen matchen** verschijnt, accepteer dan de standaard selecties en klik op **Volgende**.  
 
-6.  Lorsque vous avez sélectionné les objets dont vous avez besoin, cliquez sur **Suivant**, puis spécifiez un nom pour la vue de la source de données. Dans cet exemple, tapez **Modèle_avancé**.  
+6.  Wanneer u de gewenste objecten geselecteerd hebt, klikt u op **Volgende**, en vervolgens geeft u een naam op voor de gegevensbronweergave. Typ voor dit voorbeeld **Advanced_Model**.  
 
-7.  Cliquez sur **Terminer**. La vue de la source de données **Modèle_avancé.dsv** s'affiche dans le dossier **Vues des sources de données** de l' **Explorateur de solutions**.  
+7.  Klik op **Voltooien**. De gegevensbronweergave **Advanced_Model.dsv** wordt weergegeven in de map **Gegevensbronweergaven** van **Solution Explorer**.  
 
-#### <a name="to-define-relationships-in-the-data-source-view"></a>Pour définir des liens dans la vue de source de données  
+#### <a name="to-define-relationships-in-the-data-source-view"></a>Relaties in de gegevensbronweergave definiëren  
 
-1.  Dans l' **Explorateur de solutions**, double-cliquez sur **Modèle_avancé.dsv** pour ouvrir la fenêtre de conception.  
+1.  Dubbelklik in **Solution Explorer**op **Advanced_Model.dsv** om het Ontwerpen-venster te openen.  
 
-2.  Cliquez avec le bouton droit sur la barre de titre de la fenêtre **v_R_System** pour sélectionner **Remplacer la table**, puis cliquez sur **Par la nouvelle requête nommée**.  
+2.  Klik met de rechtermuisknop op de titelbalk van het venster **v_R_System** om **Tabel vervangen**te selecteren en klik vervolgens op **Met nieuwe benoemde query**.  
 
-3.  Dans la boîte de dialogue **Créer une requête nommée** , cliquez sur l'icône **Ajouter une table** (généralement la dernière icône sur le ruban).  
+3.  Klik in het dialoogvenster **Benoemde query maken** op het pictogram **Tabel toevoegen** (meestal het laatste pictogram in het lint).  
 
-4.  Dans la boîte de dialogue **Ajouter une table** , cliquez sur l'onglet **Vues** , sélectionnez **V_GS_OPERATING_SYSTEM** dans la liste, puis cliquez sur **Ajouter**.  
+4.  Klik in het dialoogvenster **Tabel toevoegen** op het tabblad **Weergaven** , selecteer **V_GS_OPERATING_SYSTEM** in de lijst en klik daarna op **Toevoegen**.  
 
-5.  Cliquez sur **Fermer** pour quitter la boîte de dialogue **Ajouter une table** .  
+5.  Klik op **Sluiten** om het dialoogvenster **Tabel toevoegen** te sluiten.  
 
-6.  Dans la boîte de dialogue **Créer une requête nommée** , indiquez ce qui suit :  
+6.  Geef in het dialoogvenster **Benoemde query maken** de volgende informatie op:  
 
-    -   **Nom :** spécifiez le nom de la requête. Dans cet exemple, tapez **Modèle_avancé**.  
+    -   **Naam:** Geef de naam voor de query. Typ voor dit voorbeeld **Advanced_Model**.  
 
-    -   **Description :** spécifiez la description de la requête. Dans cet exemple, tapez **Exemple de modèle de rapport de Reporting Services**.  
+    -   **Beschrijving:** Geef een beschrijving voor de query. Typ voor dit voorbeeld **Example Reporting Services report model**.  
 
-7.  Dans la fenêtre **v_R_System** , sélectionnez les éléments suivants dans la liste d'objets à afficher dans le modèle de rapport :  
+7.  Selecteer in het venster **v_R_System** de volgende items in de lijst met objecten die in het rapportmodel moeten worden getoond:  
 
     -   **ResourceID**  
 
@@ -309,7 +309,7 @@ Des exemples de modèles de rapport sont inclus dans System Center Configuration
 
     -   **Operating_System_Name_and0**  
 
-8.  Dans la zone **v_GS_OPERATING_SYSTEM** , sélectionnez les éléments suivants dans la liste d'objets à afficher dans le modèle de rapport :  
+8.  Selecteer in het venster **v_GS_OPERATING_SYSTEM** de volgende items in de lijst met objecten die in het rapportmodel moeten worden getoond:  
 
     -   **ResourceID**  
 
@@ -333,79 +333,79 @@ Des exemples de modèles de rapport sont inclus dans System Center Configuration
 
     -   **WindowsDirectory0**  
 
-9. Pour que les objets de ces vues s'affichent dans une même liste proposée à l'auteur du rapport, vous devez spécifier une relation entre les deux tables ou vues à l'aide d'une jointure. Pour joindre les deux vues, utilisez l'objet **ResourceID**qui apparaît dans chacune d'elles.  
+9. Om de objecten in deze weergaven als één lijst aan de rapportauteur te presenteren, moet u een relatie tussen de twee tabellen of weergaven aangeven door middel van een join. U kunt de twee weergaven met elkaar verbinden via het object **ResourceID**, dat in beide weergaven aanwezig is.  
 
-10. Dans la fenêtre **v_R_System** , cliquez sur l'objet **ResourceID** et, tout en maintenant le bouton de la souris enfoncé, faites-le glisser vers l'objet **ResourceID** de la fenêtre **v_GS_OPERATING_SYSTEM** .  
+10. Klik in het venster **v_R_System** op het object **ResourceID** en sleep het naar het object **ResourceID** in het venster **v_GS_OPERATING_SYSTEM** .  
 
-11. Cliquez sur **OK**.  
+11. Klik op **OK**.  
 
-12. La fenêtre **Modèle_avancé** , qui remplace la fenêtre **v_R_System** , contient tous les objets nécessaires pour le modèle de rapport des vues **v_R_System** et **v_GS_OPERATING_SYSTEM** . Vous pouvez à présent supprimer la fenêtre **v_GS_OPERATING_SYSTEM** dans le concepteur de vue de source de données. Cliquez avec le bouton droit sur la barre de titre de la fenêtre **v_GS_OPERATING_SYSTEM** pour sélectionner **Supprimer la table de la vue de source de données**. Dans la boîte de dialogue **Supprimer les objets** , cliquez sur **OK** pour confirmer la suppression.  
+12. Het venster **Advanced_Model** vervangt het venster **v_R_System** en bevat alle benodigde objecten voor het rapportmodel uit de weergaven **v_R_System** en **v_GS_OPERATING_SYSTEM** . U kunt het venster **v_GS_OPERATING_SYSTEM** nu verwijderen uit de gegevensbronweergave-ontwerper. Klik met de rechtermuisknop op de titelbalk van het venster **v_GS_OPERATING_SYSTEM** om **Tabel uit DSV verwijderen**te selecteren. Klik in het dialoogvenster **Objecten verwijderen** op **OK** om de verwijdering te bevestigen.  
 
-13. Cliquez sur **Fichier**, puis sur **Enregistrer tout**.  
+13. Klik op **Bestand**en klik vervolgens op **Alle opslaan**.  
 
 #### <a name="to-create-the-report-model"></a>To create the report model  
 
-1.  Dans l' **Explorateur de solutions**, cliquez avec le bouton droit sur **Modèles de rapport** pour sélectionner **Ajouter un nouveau rapport de modèle**.  
+1.  Klik in **Solution Explorer**met de rechtermuisknop op **Rapportmodellen** om **Nieuw rapportmodel toevoegen**te selecteren.  
 
-2.  Sur la page **Bienvenue dans l'Assistant Modèle de rapport** , cliquez sur **Suivant**.  
+2.  Klik op de pagina **Welkom bij de wizard Rapportmodel** op **Volgende**.  
 
-3.  Sur la page **Sélectionner une vue de source de données** , sélectionnez la vue de source de données dans la liste **Vues de source de données disponibles** , puis cliquez sur **Suivant**. Dans cet exemple, sélectionnez **Modèle_simple.dsv**.  
+3.  Selecteer op de pagina **Gegevensbronweergave selecteren** de gegevensbronweergave in de lijst **Beschikbare gegevensbronweergaven** en klik vervolgens op **Volgende**. Selecteer voor dit voorbeeld **Simple_Model.dsv**.  
 
-4.  Sur la page **Sélectionner règles de génér. du modèle de rapport** , ne modifiez pas les valeurs par défaut, puis cliquez sur **Suivant**.  
+4.  Wijzig op de pagina **Aanmaakregels voor een rapportmodel selecteren** niet de standaardwaarden, en klik op **Volgende**.  
 
-5.  Sur la page **Collecter les statistiques du modèle** , vérifiez que **Mettre à jour les statistiques du modèle avant la production** est sélectionné, puis cliquez sur **Suivant**.  
+5.  Controleer op de pagina **Modelstatistieken verzamelen** of **Modelstatistieken bijwerken voor het aanmaken** is geselecteerd en klik vervolgens op **Volgende**.  
 
-6.  Sur la page **Fin de l'Assistant** , spécifiez un nom pour le modèle de rapport. Pour cet exemple, vérifiez que **Modèle_avancé** s'affiche.  
+6.  Geef op de pagina **De wizard wordt voltooid** een naam op voor het rapportmodel. Controleer in dit voorbeeld of **Advanced_Model** is weergegeven.  
 
-7.  Pour terminer l'Assistant et créer le modèle de rapport, cliquez sur **Exécuter**.  
+7.  Klik op **Uitvoeren**om de wizard te voltooien en het rapportmodel te maken.  
 
-8.  Pour quitter l'assistant, cliquez sur **Terminer**.  
+8.  Klik op **Voltooien**om de wizard te sluiten.  
 
-9. Le modèle de rapport est affiché dans la fenêtre de conception.  
+9. Het rapportmodel wordt weergegeven in het venster Ontwerpen.  
 
-#### <a name="to-modify-object-names-in-the-report-model"></a>Pour modifier des noms d'objet dans le modèle de rapport  
+#### <a name="to-modify-object-names-in-the-report-model"></a>Objectnamen in het rapportmodel wijzigen  
 
-1.  Dans l' **Explorateur de solutions**, cliquez avec le bouton droit sur un modèle de rapport pour sélectionner **Concepteur de vue**. Dans cet exemple, sélectionnez **Modèle_avancé.smdl**.  
+1.  Klik in **Solution Explorer**met de rechtermuisknop op een rapportmodel om **Designer bekijken**te selecteren. Selecteer voor dit voorbeeld **Advanced_Model.smdl**.  
 
-2.  Dans la vue de conception de modèle de rapport, cliquez avec le bouton droit sur le nom de n'importe quel objet pour sélectionner **Renommer**.  
+2.  Klik in de ontwerpweergave van het rapportmodel met de rechtermuisknop op een willekeurige objectnaam om **Naam wijzigen**te selecteren.  
 
-3.  Entrez un nouveau nom pour l'objet sélectionné, puis appuyez sur Entrée. Par exemple, vous pouvez renommer l'objet **CSD_Version_0** en **Version du service pack Windows**.  
+3.  Voer een nieuwe naam in voor het geselecteerde object en druk daarna op Enter. U kunt bijvoorbeeld het object **CSD_Version_0** de nieuwe naam **Windows Servicepackversie**geven.  
 
-4.  Après avoir renommé les objets, cliquez sur **Fichier**, puis sur **Enregistrer tout**.  
+4.  Wanneer u klaar bent met het wijzigen van objectnamen klikt u op **Bestand**en vervolgens op **Alle opslaan**.  
 
-#### <a name="to-publish-the-report-model-for-use-in-sql-server-reporting-services"></a>Pour publier le modèle de rapport en vue de son utilisation dans SQL Server Reporting Services  
+#### <a name="to-publish-the-report-model-for-use-in-sql-server-reporting-services"></a>Publiceren van het rapportmodel voor gebruik in SQL Server Reporting Services  
 
-1.  Dans l' **Explorateur de solutions**, cliquez avec le bouton droit sur **Modèle_avancé.smdl** pour sélectionner **Déployer**.  
+1.  Klik in **Solution Explorer**met de rechtermuisknop op **Advanced_Model.smdl** om **Implementeren**te selecteren.  
 
-2.  Examinez l'état du déploiement dans l'angle inférieur gauche de la fenêtre **SQL Server Business Intelligence Development Studio** . Lorsque le déploiement est terminé, **Déploiement réussi** s'affiche. En cas d'échec du déploiement, la raison de l'échec s'affiche dans la fenêtre **Sortie** . Le nouveau modèle de rapport est maintenant disponible sur votre site Web SQL Server Reporting Services.  
+2.  Controleer de implementatiestatus onderin de linkerhoek van het venster **SQL Server Business Intelligence Development Studio** . Wanneer de implementatie is voltooid, wordt **Implementatie geslaagd** weergegeven. Als de implementatie mislukt, wordt de reden hiervoor weergegeven in het venster **Uitvoer** . Het nieuwe rapportmodel is nu beschikbaar op uw SQL Server Reporting Services-website.  
 
-3.  Cliquez sur **Fichier**, cliquez sur **Enregistrer tout**, puis fermez **SQL Server Business Intelligence Development Studio**.  
+3.  Klik op **Bestand**, op **Alles opslaan**en sluit **SQL Server Business Intelligence Development Studio**.  
 
 #### <a name="to-deploy-the-custom-report-model-to-configuration-manager"></a>To deploy the custom report model to Configuration Manager  
 
-1.  Localisez le dossier dans lequel vous avez créé le projet du modèle de rapport. Par exemple, %*PROFIL_UTILISATEUR*%\Documents\Visual Studio 2008\Projects\\*&lt;nom_projet\>.*  
+1.  Vind de map waarin u het rapportmodelproject hebt gemaakt. Bijvoorbeeld %*USERPROFILE*%\Documents\Visual Studio 2008\Projects\\*&lt;projectnaam\>.*  
 
-2.  Copiez les fichiers suivants du dossier du projet de modèle de rapport dans un dossier temporaire sur votre ordinateur :  
+2.  Kopieer de volgende bestanden van de map rapportmodelproject naar een tijdelijke map op uw computer:  
 
-    -   *&lt;nom_modèle\>* **.dsv**  
+    -   *&lt;Naam model\>*  **.dsv**  
 
-    -   *&lt;nom_modèle\>* **.smdl**  
+    -   *&lt;Naam model\>*  **.smdl**  
 
-3.  Ouvrez les fichiers mentionnés précédemment dans un éditeur de texte tel que le Bloc-notes.  
+3.  Open de voorgaande bestanden met een tekstbewerkingstoepassing, zoals Kladblok.  
 
-4.  Dans le fichier *&lt;nom_modèle\>***.dsv**, localisez la première ligne, qui est la suivante :  
+4.  In het bestand  *&lt;modelnaam\>***.dsv**, zoek de eerste regel van het bestand, die er als volgt uitziet:  
 
-     **&lt;DataSourceView xmlns="http://schemas.microsoft.com/analysisservices/2003/engine"\>**  
+     **&lt;DataSourceView xmlns = "http://schemas.microsoft.com/analysisservices/2003/engine"\>**  
 
-     Modifiez cette ligne de la manière suivante :  
+     Bewerk deze regel als volgt:  
 
-     **&lt;DataSourceView xmlns="http://schemas.microsoft.com/analysisservices/2003/engine" xmlns:xsi="RelationalDataSourceView"\>**  
+     **&lt;DataSourceView xmlns = 'http://schemas.microsoft.com/analysisservices/2003/engine' xmlns:xsi = "RelationalDataSourceView"\>**  
 
-5.  Copiez le contenu entier du fichier dans le Presse-papiers Windows.  
+5.  Kopieer de gehele inhoud van het bestand naar het Windows-klembord.  
 
-6.  Fermez le fichier *&lt;nom_modèle\>***.dsv**.  
+6.  Sluit het bestand  *&lt;modelnaam\>***.dsv**.  
 
-7.  Dans le fichier *&lt;nom_modèle\>***.smdl**, localisez les trois dernières lignes, qui sont les suivantes :  
+7.  In het bestand  *&lt;modelnaam\>***.smdl**, zoek de laatste drie regels van het bestand, die worden weergegeven als volgt:  
 
      `</Entity>`  
 
@@ -413,11 +413,11 @@ Des exemples de modèles de rapport sont inclus dans System Center Configuration
 
      `</SemanticModel>`  
 
-8.  Collez le contenu du fichier *&lt;nom_modèle\>***.dsv** juste avant la dernière ligne du fichier(**&lt;SemanticModel\>**).  
+8.  Plak de inhoud van het bestand  *&lt;modelnaam\>***.dsv** direct vóór de laatste regel van het bestand (**&lt;SemanticModel\>**).  
 
-9. Enregistrez et fermez le fichier *&lt;nom_modèle\>***.smdl**.  
+9. Opslaan en sluiten van het bestand  *&lt;modelnaam\>***.smdl**.  
 
-10. Copiez le fichier *&lt;nom_modèle\>***.smdl** dans le dossier *%programfiles%*\Microsoft Configuration Manager\AdminConsole\XmlStorage\Other du serveur de site Configuration Manager.  
+10. Kopieer het bestand  *&lt;modelnaam\>***.smdl** naar de map *% programfiles %*\Microsoft Configuration Manager\AdminConsole\XmlStorage\Other op de siteserver van Configuration Manager.  
 
     > [!IMPORTANT]  
-    >  Après avoir copié le fichier du modèle de rapport sur le serveur de site Configuration Manager, vous devez quitter et redémarrer la console Configuration Manager avant de pouvoir utiliser le modèle de rapport à partir de l’**Assistant Création de rapport**.  
+    >  Na het kopiëren van het rapportmodelbestand naar de siteserver van Configuration Manager, moet u sluiten en opnieuw starten van de Configuration Manager-console voordat u kunt het rapportmodel in de **Wizard rapport maken**.  

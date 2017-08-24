@@ -1,6 +1,6 @@
 ---
-title: "Déployer l’application Lookout for Work | Microsoft Docs"
-description: "Configurez et déployez les applications Lookout for Work."
+title: Lookout voor werk app implementeren | Microsoft Docs
+description: Configureren en implementeren van Lookout voor zakelijke apps.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,75 +16,75 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 59f43c922d1d3bc64625733014b0def1e42c4d2d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-and-deploy-lookout-for-work-apps"></a>Configurer et déployer les applications Lookout for Work
+# <a name="configure-and-deploy-lookout-for-work-apps"></a>Configureer en implementeer Lookout voor bedrijfs-apps
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Cet article explique comment configurer et déployer l’application Lookout for Work pour les appareils Android et iOS.
+In dit artikel wordt uitgelegd hoe configureren en implementeren van de Lookout for Work-app voor Android en iOS-apparaten.
 
-## <a name="android-google-play-store-app"></a>Android (application Google Play Store)
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels** > **Gestion des applications** > **Applications**.
+## <a name="android-google-play-store-app"></a>Android (Google Play Store-app)
+1.  Klik in de Configuration Manager-console op **softwarebibliotheek** > **Toepassingsbeheer** > **toepassingen**.
 
-2.  Dans la page **Général** de l’Assistant Déploiement logiciel, spécifiez les informations suivantes :
-  * Type : sélectionnez **Package d’application pour Android sur Google Play**.
-  * Emplacement : copiez le lien de l’application Lookout for Work à partir du Google Play Store et collez-le ici
-  * Serveur de publication : Lookout Mobile Security
-  * Nom : Lookout for Work
-  * Description : Lookout offre la meilleure protection contre les menaces mobiles pour assurer la sécurité de votre appareil. Quand l’application Lookout est installée sur l’appareil, elle protège votre appareil contre les menaces et elle vous avertit (ainsi que l’administrateur de votre entreprise) des menaces détectées.
-  * Catégorie administrative : gestion de l’ordinateur
+2.  Geef op de pagina **Algemeen** van de wizard Software implementeren de volgende gegevens op:
+  * Type: Selecteer **App-pakket voor Android in Google Play**.
+  * Locatie: de Lookout for work app koppeling kopiëren uit de Google Play store, zoals hier plakken
+  * Uitgever: Lookout mobiele beveiliging
+  * Naam: Lookout for Work
+  * Beschrijving: Lookout biedt de beste beveiliging tegen mobiele bedreigingen voor het beveiligen van uw apparaat. Wanneer de app Lookout op het apparaat is geïnstalleerd, wordt de app uw apparaat worden beschermd tegen bedreigingen en geeft een waarschuwing u en uw bedrijfsbeheerder aangetroffen.
+  * Beheercategorie: Computerbeheer
 
-  En cas de réussite de l’opération, l’application Lookout for Work s’affiche désormais dans la liste des applications.
+  Na geslaagde voltooiing nu ziet u de Lookout for work-app in de lijst met toepassingen.
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Déploiement**, choisissez **Déployer** pour déployer l’application Lookout for Work sur les utilisateurs.
+3.  Op de **Start** tabblad, in de **implementatie** groep, kiest u **implementeren** de Lookout for Work-app implementeren voor gebruikers.
 >[!IMPORTANT]
->Vous devez sélectionner les mêmes utilisateurs que ceux qui ont été ajoutés à l’option Gestion des inscriptions dans la console Lookout MTP.
+>U moet dezelfde gebruikers toegevoegd aan de optie voor inschrijving in de console Lookout MTP selecteren.
 
-  Choisissez l’option **Installation requise** pour exiger que l’application Lookout soit installée sur l’appareil de l’utilisateur.
+  Kies de **vereiste installatie** optie vereist dat de app Lookout worden geïnstalleerd op het apparaat van de gebruiker.
 
-## <a name="ios-enterprise-signed-version-of-lookout-app"></a>iOS (version Enterprise signée de l’application Lookout)
+## <a name="ios-enterprise-signed-version-of-lookout-app"></a>iOS (Enterprise ondertekend versie van Lookout app)
 
-* **Étape 1 :** Vérifiez que la **gestion iOS** est configurée sur votre appareil. Pour obtenir des instructions sur la configuration de votre appareil relative à la gestion iOS, consultez [Configurer la gestion des appareils iOS et Mac]().
+* **Stap 1:** Zorg ervoor dat **iOS-beheer** is ingesteld op uw apparaat. Zie voor instructies over het instellen van uw apparaat voor beheer van iOS [iOS en Mac-Apparaatbeheer instellen]().
 
-* **Étape 2 :** **Resignez** l’application iOS Lookout for Work. Lookout distribue son application iOS Lookout for Work en dehors de l’App Store iOS. **Avant de distribuer l’application**, vous devez resigner l’application avec votre certificat de développeur d’entreprise iOS. Pour obtenir des instructions détaillées pour resigner des applications iOS Lookout for Work, consultez [Lookout for Work iOS app re-signing process](https://personal.support.lookout.com/hc/en-us/articles/114094038714) sur le site Lookout.
-
-
-* **Étape 3 :** Activez l’authentification Azure Active Directory pour les utilisateurs iOS de la manière suivante :
-  1.  Connectez-vous au [portail de gestion Azure Active Directory](https://manage.windowsazure.com) et accédez à la page d’application.
-  2.  Ajoutez l’**application iOS Lookout for Work** comme **application cliente native**.
-  ![capture d’écran de la boîte de dialogue Ajouter des applications présentant l’option d’application cliente native](media/aad-add-app.png)
-
-  3. Remplacez **com.lookout.enterprise.nom_de_votre_entreprise** par l’ID d’ensemble client que vous avez sélectionné quand vous avez signé le package IPA.
-  4.  Ajoutez l’URI de redirection supplémentaire **&lt;companyportal://code/>** suivi d’une version codée URL de votre URI de redirection d’origine.
-  5.  Ajoutez **Autorisations déléguées** à votre application.
-
-  Pour plus d’informations, consultez [Configurer une application cliente native](https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-how-to-configure-active-directory-authentication/#optional-configure-a-native-client-application).
+* **Stap 2:** **Opnieuw ondertekenen** de Lookout for Work iOS-app. Lookout distribueert de Lookout for Work iOS-app buiten de iOS App Store. **Voordat u de app distribueert**, moet u de app opnieuw ondertekenen met het iOS Developer Enterprise-certificaat voor. Zie voor gedetailleerde instructies voor het ondertekenen van de Lookout for Work iOS-apps opnieuw [Lookout for Work iOS-app opnieuw te ondertekenen proces](https://personal.support.lookout.com/hc/en-us/articles/114094038714) op de site Lookout.
 
 
-* **Étape 4 :** Chargez le fichier .ipa resigné comme décrit dans la rubrique [Créer des applications iOS avec System Center Configuration Manager](https://docs.microsoft.com/en-us/sccm/apps/get-started/creating-ios-applications). Définissez la version de système d’exploitation minimale sur iOS version 8.0 ou ultérieure.
+* **Stap 3:** Azure Active Directory-verificatie inschakelen voor de iOS-gebruikers als volgt:
+  1.  Meld u aan bij de [Azure Active Directory-beheerportal](https://manage.windowsazure.com), en Ga naar de toepassingspagina.
+  2.  Voeg de **Lookout for Work iOS-app** als een **native client-toepassing**.
+  ![Schermafbeelding van de apps-dialoogvenster toevoegen met de native client app-optie](media/aad-add-app.png)
+
+  3. Vervang de **com.lookout.enterprise.yourcompanyname** met de klant bundel-ID die u hebt geselecteerd toen u zich de IPA.
+  4.  Toevoegen van aanvullende omleidings-URI:  **&lt;companyportal://code/ >** gevolgd door een URLencoded-versie van uw oorspronkelijke omleidings-URI.
+  5.  Voeg **overgedragen machtigingen** aan uw app.
+
+  Zie voor meer informatie [configureren van een systeemeigen clienttoepassing](https://azure.microsoft.com/en-us/documentation/articles/app-service-mobile-how-to-configure-active-directory-authentication/#optional-configure-a-native-client-application).
 
 
-* **Étape 5 :** Créez la stratégie de configuration d’application gérée comme décrit dans la rubrique [Configurer des applications iOS à l’aide de stratégies de configuration des applications dans System Center Configuration Manager](https://docs.microsoft.com/en-us/sccm/apps/deploy-use/configure-ios-apps-with-app-configuration-policies).
+* **Stap 4:** Upload het opnieuw ondertekend IPA-bestand, zoals beschreven in de [iOS-toepassingen maken in System Center Configuration Manager-onderwerp](https://docs.microsoft.com/en-us/sccm/apps/get-started/creating-ios-applications) onderwerp. De minimale versie van besturingssysteem instellen op iOS 8.0 of hoger.
 
 
-* **Étape 6 :** **Pour déployer l’application sur les utilisateurs**, sélectionnez l’application Lookout for Work dans la page **Applications**, sous l’onglet **Accueil**, dans le groupe **Déploiement**, choisissez **Déployer**.
-
-  Vous devez sélectionner les mêmes utilisateurs que ceux qui ont été ajoutés à l’option Gestion des inscriptions dans la console Lookout.  
-Choisissez l’option **Installation requise** pour exiger que l’application Lookout soit installée sur l’appareil de l’utilisateur.
-
-## <a name="what-happens-when-the-deployed-app-is-opened-on-the-device"></a>Que se passe-t-il quand l’application déployée est ouverte sur l’appareil ?
+* **Stap 5:** De beheerde app-configuratiebeleid maken zoals beschreven in de [iOS-apps configureren met configuratiebeleid voor mobiele apps in System Center Configuration Manager](https://docs.microsoft.com/en-us/sccm/apps/deploy-use/configure-ios-apps-with-app-configuration-policies) onderwerp.
 
 
+* **Stap 6:** **De app implementeren voor gebruikers**, selecteer de Lookout for Work-app in de **toepassingen** pagina van de **Start** tabblad, in de **implementatie** groep, kiest u **implementeren**.
+
+  U moet dezelfde gebruikers die zijn toegevoegd aan de optie voor inschrijving in de console Lookout selecteren.  
+Kies de **vereiste installatie** optie vereist dat de app Lookout worden geïnstalleerd op het apparaat van de gebruiker.
+
+## <a name="what-happens-when-the-deployed-app-is-opened-on-the-device"></a>Wat gebeurt er wanneer de geïmplementeerde app wordt geopend op het apparaat
 
 
-Quand l’utilisateur ouvre l’application Lookout for Work sur l’appareil, il est invité à activer l’application et à choisir l’option Se connecter avec Azure Active Directory. Une procédure pas à pas pour l’utilisateur final est décrite dans les rubriques suivantes :
 
-* [Vous êtes invité à installer Lookout for Work sur votre appareil Android](http://docs.microsoft.com/intune/enduser/you-are-prompted-to-install-lookout-for-work-android)
 
-* [Vous devez résoudre une menace détectée par Lookout for Work sur votre appareil Android](http://docs.microsoft.com/intune/enduser/you-need-to-resolve-a-threat-found-by-lookout-for-work-android)
+Wanneer de gebruiker de Lookout for Work op het apparaat opent wordt ze gevraagd de app activeren en kies de aanmelden Azure Active Directory-optie. In de volgende onderwerpen vindt u een gedetailleerd overzicht met de stroom van de eindgebruiker:
 
-## <a name="next-steps"></a>Étapes suivantes
-* [Activer une règle de protection des appareils contre les menaces dans la stratégie de conformité](enable-device-threat-protection-rule-compliance-policy.md)
+* [U wordt gevraagd Lookout for Work installeren op uw Android-apparaat](http://docs.microsoft.com/intune/enduser/you-are-prompted-to-install-lookout-for-work-android)
+
+* [U moet een bedreiging die Lookout for Work op uw Android-apparaat gevonden oplossen](http://docs.microsoft.com/intune/enduser/you-need-to-resolve-a-threat-found-by-lookout-for-work-android)
+
+## <a name="next-steps"></a>Volgende stappen
+* [Device threat protection regel in het nalevingsbeleid inschakelen](enable-device-threat-protection-rule-compliance-policy.md)

@@ -1,6 +1,6 @@
 ---
-title: "Déployer des mises à jour logicielles | Microsoft Docs"
-description: "Choisissez les mises à jour logicielles dans la console Configuration Manager pour démarrer manuellement le processus de déploiement ou déployer automatiquement des mises à jour."
+title: Software-updates implementeren | Microsoft Docs
+description: Kies de software-updates in de Configuration Manager-console handmatig starten van het implementatieproces of updates automatisch implementeren.
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,60 +13,60 @@ ms.technology: configmgr-sum
 ms.assetid: 04536d51-3bf7-45e5-b4af-36ceed10583d
 ms.openlocfilehash: 70a0ad1da03a7ca88df206fec683ab1df2b531e1
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="BKMK_SUMDeploy"></a> Déployer des mises à jour logicielles  
+#  <a name="BKMK_SUMDeploy"></a> Software-updates implementeren  
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-La phase de déploiement de mises à jour logicielles consiste à déployer les mises à jour logicielles. Quelle que soit la façon dont vous déployez des mises à jour logicielles, les mises à jour sont généralement ajoutées à un groupe de mises à jour logicielles, les mises à jour logicielles sont téléchargées vers les points de distribution, et le groupe de mises à jour est déployé sur les clients. Lorsque vous créez le déploiement, une stratégie de mise à jour logicielle associée est envoyée aux ordinateurs clients, les fichiers de contenu des mises à jour logicielles sont téléchargés à partir d’un point de distribution vers le cache local sur les ordinateurs clients, puis les mises à jour logicielles peuvent être installées à partir du client. Les clients sur Internet téléchargent le contenu auprès de Microsoft Update.  
-
-> [!NOTE]  
->  Vous pouvez configurer un client sur l’intranet pour télécharger les mises à jour logicielles à partir de Microsoft Update si aucun point de distribution n’est disponible.  
+De software-update-implementatiefase is het proces van het implementeren van de software-updates. Ongeacht hoe u software-updates implementeren, de updates worden meestal toegevoegd aan een software-updategroep, de software-updates gedownload naar distributiepunten, en de updategroep wordt geïmplementeerd voor clients. Wanneer u de implementatie maakt, wordt een gekoppelde software-updatebeleid naar clientcomputers, de inhoud gedownload vanaf een distributiepunt naar de lokale cache op clientcomputers en vervolgens de software-updates beschikbaar zijn voor installatie van de client software-update verzonden. Clients op het Internet downloaden inhoud vanaf Microsoft Update.  
 
 > [!NOTE]  
->  Contrairement à d'autres types de déploiement, toutes les mises à jour logicielles sont téléchargées dans le cache client, indépendamment du paramètre relatif à la taille maximale du cache sur le client. Pour plus d’informations sur le paramètre de cache du client, consultez [Configure the Client Cache for Configuration Manager Clients](../../core/clients/manage/manage-clients.md#BKMK_ClientCache).  
+>  U kunt een client op het intranet configureren om software-updates te downloaden vanaf Microsoft Update als er geen distributiepunt beschikbaar is.  
 
-Si vous configurez un déploiement de mises à jour logicielles requises, celles-ci sont automatiquement installées à l'échéance prévue. L'utilisateur sur l'ordinateur client peut également planifier ou lancer l'installation des mises à jour logicielles avant l'échéance. Après la tentative d'installation, les ordinateurs clients renvoient des messages d'état au serveur de site pour indiquer si l'installation des mises à jour logicielles a réussi. Pour plus d’informations sur les déploiements de mises à jour logicielles, consultez [Software update deployment workflows](../understand/software-updates-introduction.md#BKMK_DeploymentWorkflows).  
+> [!NOTE]  
+>  In tegenstelling tot andere implementatietypes worden software-updates allemaal gedownload naar de clientcache ongeacht de maximum cachegrootte-instelling op de client. Voor meer informatie over de cache-instelling van de client, zie [De clientcache voor Configuration Manager-clients configureren](../../core/clients/manage/manage-clients.md#BKMK_ClientCache).  
 
-Il existe deux principaux scénarios de déploiement des mises à jour logicielles : le déploiement manuel et le déploiement automatique. En règle générale, vous allez commencer par déployer manuellement les mises à jour logicielles pour créer une référence pour vos ordinateurs clients, puis vous allez gérer les mises à jour logicielles sur les clients à l’aide d’un déploiement automatique.  
+Als u een vereiste software-update-implementatie configureert, worden de software-updates automatisch geïnstalleerd tegen de geplande deadline. De gebruiker op de clientcomputer kan de installatie van de software-updates ook plannen of starten vóór de deadline. Na een geprobeerde installatie versturen clientcomputers statusberichten terug naar de siteserver om te rapporteren of de installatie van de software-update geslaagd was. Zie [Implementatiewerkstromen van software-updates](../understand/software-updates-introduction.md#BKMK_DeploymentWorkflows) voor meer informatie over de implementatie van software-updates.  
 
-## <a name="BKMK_ManualDeployment"></a> Déployer manuellement des mises à jour logicielles
-Vous pouvez sélectionner les mises à jour logicielles dans la console Configuration Manager et démarrer manuellement le processus de déploiement. Généralement, vous utilisez cette méthode de déploiement pour mettre à jour les ordinateurs clients avec les mises à jour logicielles requises avant de créer des règles de déploiement automatique qui gèrent les déploiements de mises à jour logicielles mensuelles en continu ; vous pouvez également déployer des mises à jour logicielles requises hors bande. La liste suivante fournit le flux de travail général pour le déploiement manuel de mises à jour logicielles :  
+Er zijn twee hoofdscenario's voor het implementeren van software-updates: handmatige implementatie en automatische implementatie. Normaal gesproken u door het implementeren van software-updates voor het maken van een basislijn voor de client computers handmatig wordt gestart en vervolgens beheert u software-updates op clients via automatische implementatie.  
 
-1. filtre pour les mises à jour logicielles qui utilisent des configurations spécifiques. Par exemple, vous pouvez fournir des critères qui récupèrent toutes les mises à jour logicielles critiques ou de sécurité qui sont requises sur plus de 50 ordinateurs clients.  
-2. Créez un groupe de mises à jour logicielles contenant les mises à jour logicielles.  
-3. Téléchargez le contenu pour les mises à jour logicielles dans le groupe de mises à jour logicielles.  
-4. Déployez manuellement le groupe de mises à jour logicielles.
+## <a name="BKMK_ManualDeployment"></a>Software-updates handmatig implementeren
+U kunt software-updates selecteren in de Configuration Manager-console en handmatig starten van het implementatieproces. Doorgaans gebruikt u deze methode van implementatie om de clientcomputers up-to-date te krijgen met de vereiste software-updates voordat u automatische implementatieregels kunt maken die de lopende maandelijkse implementaties van software-updates beheren, en om buiten-bandvereisten van software-updates te implementeren. De volgende lijst geeft de algemene werkstroom voor handmatige implementatie van software-updates:  
 
-Pour obtenir des instructions détaillées, consultez [Déployer manuellement des mises à jour logicielles](manually-deploy-software-updates.md).
+1. Filter voor software-updates die gebruikmaken van specifieke vereisten. U kunt bijvoorbeeld criteria opgeven die alle beveiligingsupdates of kritieke software-updates ophalen die op meer dan 50 clientcomputers zijn vereist.  
+2. Maak een software-updategroep die de software-updates bevat.  
+3. Downloadt de inhoud voor software-updates in de software-updategroep.  
+4. De software-updategroep handmatig implementeren.
 
-## <a name="automatically-deploy-software-updates"></a>Déployer automatiquement des mises à jour logicielles
-La configuration du déploiement automatique de mises à jour logicielles s’effectue à l'aide d’une règle de déploiement automatique. Il s’agit d’une méthode courante pour le déploiement des mises à jour logicielles mensuelles (généralement appelées « Patch Tuesday ») et pour la gestion des mises à jour de définitions. Quand la règle s’exécute, les mises à jour logicielles sont supprimées du groupe de mises à jour logicielles (le cas échéant), celles qui répondent aux critères spécifiés (par exemple, toutes les mises à jour logicielles publiées au cours du dernier mois) sont ajoutées à un groupe de mises à jour logicielles, les fichiers de contenu des mises à jour logicielles sont téléchargés et copiés aux points de distribution, et les mises à jour logicielles sont déployées sur les clients du regroupement cible. La liste suivante fournit le flux de travail général pour le déploiement automatique des mises à jour logicielles :  
+Zie voor gedetailleerde stappen [software-updates handmatig implementeren](manually-deploy-software-updates.md).
 
-1.  Créez une règle de déploiement automatique qui spécifie les paramètres de déploiement.
-2.  Les mises à jour logicielles sont ajoutées à un groupe de mises à jour logicielles.  
-3.  Le groupe de mises à jour logicielles est déployé sur les ordinateurs clients du regroupement cible, s'il est spécifié.  
+## <a name="automatically-deploy-software-updates"></a>Software-updates automatisch implementeren
+De automatische implementatie van software-updates wordt geconfigureerd met een regel voor automatische implementatie (ADR). Dit is een algemene implementatiemethode voor maandelijkse software-updates zoals (meestal "Patch-dinsdag" genoemd) en voor het beheren van definitie-updates. Wanneer de regel wordt uitgevoerd, software-updates verwijderd uit de software-updategroep (als u een bestaande updategroep), de software-updates die voldoen aan worden opgegeven criteria (bijvoorbeeld alle beveiligingsupdates die in de afgelopen maand) toegevoegd aan een software-updategroep, de inhoudsbestanden voor de software-updates gedownload en gekopieerd naar distributiepunten, en de software-updates worden geïmplementeerd op clients in de doelverzameling. De volgende lijst geeft de algemene werkstroom voor softwareupdates automatisch implementeren:  
 
-Vous devez déterminer quelle stratégie de déploiement utiliser dans votre environnement. Par exemple, vous pouvez créer la règle de déploiement automatique et cibler un regroupement de clients test. Après avoir vérifié que les mises à jour logicielles sont installées sur le groupe test, vous pouvez ajouter un nouveau déploiement à la règle ou modifier le regroupement dans le déploiement existant et le remplacer par un regroupement cible qui comprend un ensemble plus important de clients. Les objets de mise à jour logicielle qui sont créés par les règles de déploiement automatique sont interactifs.  
+1.  Maak een regel voor automatische implementatie waarmee implementatie-instellingen.
+2.  De software-updates worden toegevoegd aan een software-updategroep.  
+3.  De software-updategroep wordt geïmplementeerd naar de clientcomputers in de doelverzameling, als deze is opgegeven.  
 
--   Les mises à jour logicielles qui ont été déployées à l'aide d'une règle de déploiement automatique sont déployées automatiquement sur les nouveaux clients ajoutés au regroupement cible.  
--   Les nouvelles mises à jour logicielles ajoutées à un groupe de mises à jour logicielles sont déployées automatiquement sur les clients du regroupement cible.  
--   Vous pouvez activer ou désactiver les déploiements à tout moment pour la règle de déploiement automatique.  
+U moet bepalen welke implementatiestrategie er moet worden gebruikt in uw omgeving. U kunt bijvoorbeeld een regel voor automatische implementatie maken en een verzameling van testclients als doel nemen. Nadat u hebt gecontroleerd of de software-updates op de testgroep zijn geïnstalleerd, kunt u een nieuwe implementatie aan de regel toevoegen of de verzameling in de bestaande implementatie wijzigen in een doelverzameling die een grotere set van clients bevat. De software-updateobjecten die door de regels voor automatische implementatie worden gemaakt, zijn interactief.  
 
-Après avoir créé une règle de déploiement automatique, vous pouvez y ajouter des déploiements supplémentaires. Cela peut vous aider à gérer la complexité liée au déploiement de différentes mises à jour vers différents regroupements. Chaque nouveau déploiement possède la gamme complète de fonctionnalités et d'expérience de surveillance de déploiement, et chaque nouveau déploiement que vous ajoutez :  
+-   Software-updates die zijn geïmplementeerd met een regel voor automatische implementatie worden automatisch geïmplementeerd voor nieuwe clients die aan de doelverzameling zijn toegevoegd.  
+-   Nieuwe software-updates die zijn toegevoegd aan een software-updategroep, worden automatisch geïmplementeerd naar de clients in de doelverzameling.  
+-   U kunt implementaties voor de regel voor automatische implementatie op elk gewenst moment in- of uitschakelen.  
 
--   utilise les mêmes packages et groupes de mise à jour que ceux créés lors de la première exécution de la règle de déploiement automatique ;  
--   peut spécifier un regroupement différent ;  
--   prend en charge des propriétés de déploiement uniques, notamment :  
-   -   Heure d'activation  
-   -   Échéance  
-   -   Afficher ou masquer l'expérience utilisateur  
-   -   Séparer les alertes pour ce déploiement  
+Nadat u een regel voor automatische implementatie hebt gemaakt, kunt u aanvullende implementaties aan de regel toevoegen. Dit kan helpen bij het beheren van de complexiteit van het implementeren van verschillende updates voor verschillende verzamelingen. Elke nieuwe implementatie beschikt over de volledige functionaliteit en implementatiecontrole, en elke implementatie die u toevoegt:  
 
-Pour obtenir des instructions détaillées, consultez [Déployer automatiquement des mises à jour logicielles](automatically-deploy-software-updates.md).
+-   Gebruikt dezelfde bijwerkgroep en hetzelfde bijwerkpakket die worden gemaakt wanneer de ADR voor het eerst wordt uitgevoerd  
+-   U kunt een andere verzameling opgeven  
+-   Ondersteunt unieke implementatie-eigenschappen, waaronder:  
+   -   Activeringstijd  
+   -   Deadline  
+   -   Ervaringen van eindgebruikers weergeven of verbergen  
+   -   Afzonderlijke waarschuwingen voor deze implementatie  
+
+Zie voor gedetailleerde stappen [softwareupdates automatisch implementeren](automatically-deploy-software-updates.md)
 
 <!-- ###  <a name="BKMK_ClientCache"></a> Client cache setting  
 The Configuration Manager client downloads the content for required software updates to the local client cache soon after it receives the deployment. However, the client waits to download the content until after the **Software available time** setting for the deployment. The client does not download software updates in optional deployments (deployments that do not have a scheduled installation deadline) until the user manually starts the installation. When the configured deadline passes, the software updates client agent performs a scan to verify that the software update is still required, then the software updates client agent checks the local cache on the client computer to verify that the software update source file is still available, and then installs the software update. If the content was deleted from the client cache to make room for another deployment, the client downloads the software updates to the cache. Software updates are always downloaded to the client cache regardless of the configured maximum client cache size. For other deployments, such as applications or packages, the client only downloads content that is within the maximum cache size that you configure for the client. Cached content is not automatically deleted, but it remains in the cache for at least one day after the client used that content.  -->

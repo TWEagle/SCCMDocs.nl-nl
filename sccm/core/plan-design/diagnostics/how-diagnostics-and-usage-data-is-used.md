@@ -1,6 +1,6 @@
 ---
-title: "Utiliser les données de diagnostic | Microsoft Docs"
-description: "Découvrez comment Microsoft utilise les données de diagnostic et d’utilisation collectées par System Center Configuration Manager."
+title: Gebruik van de diagnostics-gegevens | Microsoft Docs
+description: Meer informatie over hoe Microsoft gebruikt de diagnostische gegevens en gebruiksgegevens die door System Center Configuration Manager worden verzameld.
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
@@ -16,39 +16,39 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 9864f6ba7b9a2211c99b1a5d9ebd582e01ccfeb6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-diagnostics-and-usage-data-is-used-for-system-center-configuration-manager"></a>Utilisation des données d’utilisation et de diagnostic pour System Center Configuration Manager
+# <a name="how-diagnostics-and-usage-data-is-used-for-system-center-configuration-manager"></a>Hoe diagnostische gegevens en gebruiksgegevens worden gebruikt voor System Center Configuration
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Les données de diagnostic et d’utilisation que System Center Configuration Manager collecte fournissent à Microsoft un retour d’expérience quasi immédiat sur la manière dont le produit fonctionne, et permettent d’améliorer les mises à jour ultérieures. Nous pouvons également voir des données de configuration qui nous aident à concevoir et tester les configurations qui sont en production. Exemple :  
+Diagnostische gegevens en gebruiksgegevens die door System Center Configuration Manager worden verzameld bieden Microsoft vrijwel onmiddellijk feedback over hoe het product werkt en wordt gebruikt om toekomstige updates. We kunnen ook de configuratiegegevens zien, zodat we de configuraties die in productie zijn, kunnen samenstellen en testen. Bijvoorbeeld:  
 
--   Versions de Windows Server utilisées par les serveurs de site  
+-   De Windows-serverversies die worden gebruikt door siteservers  
 
--   Modules linguistiques installés  
+-   De geïnstalleerde taalpakketten  
 
--   Différentiel du schéma SQL par rapport aux paramètres par défaut du produit  
+-   De verschillen van het SQL-schema ten opzichte van de productstandaard  
 
-Ces données aident l’équipe de conception à planifier les prochains tests visant à garantir la meilleure expérience possible pour les configurations les plus courantes. Les mises à jour de Configuration Manager étant publiées à un rythme plus soutenu (pour mieux prendre en charge les technologies qui évoluent rapidement, telles que Windows 10 et Microsoft Intune), ces données sont cruciales pour une adaptation rapide.  
+Met behulp van deze gegevens kan het engineeringteam toekomstige tests plannen en zorgen voor de beste ervaring bij het gebruik van de meest voorkomende configuraties. Als updates voor Configuration Manager zijn beschikbaar op een snellere uitgebracht (voor betere ondersteuning van snel veranderende technologieën zoals Windows 10 en Microsoft Intune), is deze gegevens essentieel om snel aanpassingen te passen.  
 
-Il est également important de savoir à quoi les données de diagnostic et d’utilisation ne sont pas utilisées. Microsoft n’utilise pas ces données pour ce qui suit :  
+Even belangrijk is hoe de diagnostische gegevens en gebruiksgegevens worden niet gebruikt. Microsoft gebruikt deze gegevens niet voor:  
 
--   Audits de licence (par exemple, comparer l’utilisation des clients avec les contrats de licence)  
+-   Licentiecontroles, bijvoorbeeld het vergelijken van het gebruik van de klant met de licentieovereenkomsten  
 
--   Audit de produits non pris en charge  
+-   Controle van producten die niet worden ondersteund  
 
--   Publicité basée sur des données disponibles, telles que l’utilisation de fonctionnalités ou la géolocalisation (fuseau horaire)  
+-   Advertenties op basis van beschikbare gegevens, zoals het gebruik van functies of geolocatie (tijdzone)  
 
-##  <a name="bkmk_improve"></a> Exemples de la manière dont les données de diagnostic et d’utilisation contribuent à améliorer le produit  
-Microsoft utilise les données disponibles pour améliorer le produit. Voici quelques exemples :  
+##  <a name="bkmk_improve"></a>Voorbeelden van hoe diagnostische gegevens en gebruiksgegevens het product verbetert  
+Microsoft gebruikt beschikbare gegevens voor het verbeteren van het product. Hieronder volgen enkele voorbeelden:  
 
--   **Prise en charge révisée pour les systèmes d’exploitation serveur plus anciens :**  
+-   **Herziene ondersteuning voor oudere serverbesturingssystemen:**  
 
-     La prise en charge initiale offerte par System Center Configuration Manager (Current Branch) limitait la période de prise en charge de Windows Server 2008 R2. Après examen des données d’utilisation de clients qui avaient effectué une mise à niveau vers la version Current Branch de Configuration Manager, nous avons jugé utile de modifier et d’étendre cette période pour prendre en charge les clients qui continuaient d’utiliser ce système d’exploitation serveur pour héberger des serveurs de site et des rôles de système de site.  
+     De eerste ondersteuning wordt aangeboden door de huidige vertakking van System Center Configuration Manager beperkt de ondersteuningstijdlijn voor Windows Server 2008 R2. Na onderzoek van de gebruiksgegevens van klanten die is bijgewerkt naar de huidige vertakking van Configuration Manager is de behoefte aan herzien en uit te breiden ter ondersteuning van klanten die nog steeds Dit serverbesturingssysteem voor host-siteservers en sitesysteemrollen gebruik van deze tijdlijn geïdentificeerd.  
 
--   **Vérifications de configuration requise améliorées :**  
+-   **Verbeterde controles van vereisten:**  
 
-     Sur la base des données d’utilisation, nous avons amélioré les vérifications des conditions préalables à l’installation d’une mise à jour pour supprimer des règles obsolètes, tenir compte de cas supplémentaires et, dans certains cas, résoudre automatiquement certains problèmes.  
+     Op basis van de gebruiksgegevens, hebben we de controles van vereisten voor het installeren van een update voor het verwijderen van verouderde regels, account voor aanvullende aanvragen en, in sommige gevallen, voor het automatisch oplossen van problemen verbeterd.  

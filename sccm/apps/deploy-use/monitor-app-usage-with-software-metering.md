@@ -1,5 +1,5 @@
 ---
-title: "Surveiller l’utilisation des applications avec le contrôle de logiciel | Microsoft Docs"
+title: App-gebruik controleren met softwaremeter | Microsoft Docs
 description: 
 ms.custom: na
 ms.date: 10/06/2016
@@ -16,163 +16,163 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: eddf20bebd80028336503957dfc4c3d1dbbb23f2
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="software-metering-in-system-center-configuration-manager"></a>Contrôle de logiciel dans System Center Configuration Manager
+# <a name="software-metering-in-system-center-configuration-manager"></a>Softwarelicentiecontrole in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Cette rubrique contient une référence pour toutes les opérations que vous pouvez effectuer lors de l’utilisation du contrôle de logiciel System Center Configuration Manager.
+In dit onderwerp bevat een verwijzing voor alle bewerkingen die u uitvoeren kunt wanneer u System Center Configuration Manager softwarelicentiecontrole.
 
 > [!IMPORTANT]
->  Le contrôle de logiciel est utilisé pour surveiller les applications de bureau des PC Windows avec un nom de fichier se terminant par **.exe**. Le contrôle de logiciel ne surveille pas les applications Windows modernes (telles que celles utilisées par Windows 8).
+>  Softwarelicentiecontrole wordt gebruikt om bureaublad-apps voor Windows-computers te bewaken die een bestandsnaam hebben die eindigt op **.exe**. Softwarelicentiecontrole controleert geen moderne Windows-apps (zoals die worden gebruikt door Windows 8).
 
-##  <a name="prerequisites-for-software-metering"></a>Configuration requise pour le contrôle de logiciel
-Le contrôle de logiciel ne présente aucune dépendance externe, seulement des dépendances au sein du produit.
+##  <a name="prerequisites-for-software-metering"></a>Vereisten voor softwarelicentiecontrole
+Softwarelicentiecontrole heeft geen externe afhankelijkheden, alleen afhankelijkheden binnen het product.
 
-|Dépendance|Plus d'informations|
+|Afhankelijkheid|Meer informatie|
 |----------------|----------------------|
-|Paramètres client pour le contrôle de logiciel|Pour utiliser le contrôle de logiciel, le paramètre client **Activer le contrôle de logiciel sur les clients** doit être activé et déployé sur les ordinateurs. Vous pouvez déployer les paramètres de contrôle de logiciel sur tous les ordinateurs de la hiérarchie ou déployer les paramètres personnalisés sur des groupes d’ordinateurs. Consultez **Configurer le contrôle de logiciel** dans cette rubrique.|
-|Point de Reporting Services|Vous devez configurer un point de Reporting Services pour pouvoir afficher les rapports de contrôle de logiciel. Pour plus d’informations, consultez [Génération de rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md).|
+|Clientinstellingen voor softwarelicentiecontrole|Om softwarelicentiecontrole te gebruiken moet de clientinstelling **Softwaremeter op clients inschakelen** zijn ingeschakeld en geïmplementeerd op computers. U kunt instellingen voor softwarelicentiecontrole implementeren op alle computers in de hiërarchie of aangepaste instellingen implementeren op computergroepen. Zie **softwarelicentiecontrole configureren** in dit onderwerp.|
+|Het reporting services-punt.|U moet een reporting services-punt configureren voordat u softwarelicentiecontrolerapporten kunt weergeven. Zie [Rapportage in System Center Configuration Manager](../../core/servers/manage/reporting.md) voor meer informatie.|
 
-##  <a name="configure-software-metering"></a>Configurer le contrôle de logiciel
- Cette procédure configure les paramètres client par défaut pour le contrôle de logiciel et s’applique à tous les ordinateurs de votre hiérarchie. Si vous souhaitez que ces paramètres s’appliquent uniquement à certains ordinateurs, créez un paramètre client de périphérique personnalisé et déployez-le sur un regroupement contenant les ordinateurs sur lesquels vous souhaitez utiliser le contrôle de logiciel. Pour plus d’informations sur la création de paramètres d’appareil personnalisé, consultez [Configurer les paramètres client](../../core/clients/deploy/configure-client-settings.md).
+##  <a name="configure-software-metering"></a>Softwarelicentiecontrole configureren
+ Met deze procedure configureert u de standaardclientinstellingen voor softwarelicentiecontrole en past u deze toe op alle computers in uw hiërarchie. Als u dat deze instellingen alleen op enkele computers wilt implementeren, maakt u een aangepaste apparaatclientinstelling en implementeert u deze in een verzameling waartoe de computers behoren die u voor softwarelicentiecontrole wilt gebruiken. Zie voor meer informatie over het maken van aangepaste apparaatinstellingen [clientinstellingen configureren](../../core/clients/deploy/configure-client-settings.md).
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration** > **Paramètres client** > **Paramètres client par défaut**.
+1.  Klik in de Configuration Manager-console op **beheer** > **clientinstellingen** > **Standaardclientinstellingen**.
 
-2.  Dans l'onglet **Accueil** , dans le groupe **Propriétés** , cliquez sur **Propriétés**.
+2.  Klik op **Eigenschappen** in het tabblad **Start** , in de groep **Eigenschappen**.
 
-3.  Dans la boîte de dialogue **Paramètres par défaut** , cliquez sur **Contrôle de logiciel**.
+3.  In het dialoogvenster **Standaardinstellingen** klikt u op **Softwarelicentiecontrole**.
 
-4.  Dans la liste **Paramètres de périphérique** , configurez les éléments suivants :
+4.  In de lijst **Apparaatinstellingen** configureert u dan het volgende:
 
-    -   **Activer le contrôle de logiciel sur les clients**: sélectionnez **Vrai** pour activer le contrôle de logiciel.
+    -   **Softwaremeter op clients inschakelen**: Selecteer **True** softwarelicentiecontrole inschakelen.
 
-    -   **Planifier le regroupement de données**: configurez la fréquence à laquelle les données de contrôle de logiciel doivent être collectées à partir des ordinateurs clients. Utilisez la valeur par défaut, à savoir tous les **7 jours** ou cliquez sur **Calendrier** pour spécifier une planification personnalisée.
+    -   **Planning gegevensverzameling**: Configureren hoe vaak gegevens van softwaremeter van clientcomputers worden verzameld. Gebruik de standaardwaarde van elke **7 dagen** of klik op **Planning** om een aangepaste planning op te geven.
 
-5.  Cliquez sur **OK** pour fermer la boîte de dialogue **Paramètres par défaut** .
+5.  Klik op **OK** om het dialoogvenster **Standaardinstellingen** te sluiten.
 
- Les ordinateurs clients sont configurés avec ces paramètres la prochaine fois qu’ils téléchargent la stratégie du client. Pour lancer la récupération de stratégie pour un seul client, consultez [Gérer les clients](../../core/clients/manage/manage-clients.md).
+ De volgende keer dat clientcomputers clientbeleid downloaden, worden deze geconfigureerd met deze instellingen. Zie voor het initiëren van het ophaalbeleid voor één client [clients beheren](../../core/clients/manage/manage-clients.md).
 
-##  <a name="create-software-metering-rules"></a>Créer des règles de contrôle de logiciel
- Utilisez l’Assistant Créer une règle de contrôle de logiciel pour créer une règle de contrôle de logiciel pour votre site Configuration Manager.
+##  <a name="create-software-metering-rules"></a>Maken van regels voor softwarelicentiecontrole
+ Gebruik de wizard Softwaremeterregel maken voor het maken van een nieuwe regel voor softwarelicentiecontrole voor uw Configuration Manager-site.
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Contrôle de logiciel**.
+1.  Klik in de Configuration Manager-console op **activa en naleving** > **softwarelicentiecontrole**.
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une règle de contrôle de logiciel**.
+3.  Op het tabblad **Start** in de groep **Maken** klikt u op **Softwaremeterregel maken**.
 
-4.  Dans la page **Général** de l’Assistant Créer une règle de contrôle de logiciel, spécifiez les informations suivantes :
+4.  Op de **algemene** pagina van de wizard Softwaremeterregel maken, geeft u de volgende informatie:
 
-    -   **Nom** : nom de la règle de contrôle de logiciel. Ce nom doit être unique et descriptif.
-
-        > [!NOTE]
-        >  Des règles de contrôle de logiciel peuvent partager le même nom si le nom de fichier contenu dans les règles est différent.
-
-    -   **Nom du fichier** : nom du fichier programme que vous voulez contrôler. Vous pouvez cliquer sur **Parcourir** pour afficher la boîte de dialogue **Ouvrir** , dans laquelle vous pouvez sélectionner le fichier programme à utiliser.
+    -   **Naam** : de naam van de softwaremeterregel. Deze moet uniek zijn en beschrijvend.
 
         > [!NOTE]
-        >  Si vous tapez le nom du fichier exécutable dans la zone **Nom du fichier** , aucune vérification n’est effectuée pour déterminer si ce fichier existe ou s’il contient les informations d’en-tête nécessaires. Quand cela est possible, cliquez sur **Parcourir** et sélectionnez le fichier exécutable à contrôler.
-        >
-        >  Le nom du fichier ne doit pas contenir de caractères génériques.
-        >
-        >  Cette zone est facultative si une valeur est spécifiée pour **Nom du fichier d’origine** .
+        >  Softwaremeterregels kunnen dezelfde naam hebben als de bestandsnaam in de regels anders is.
 
-    -   **Nom du fichier d’origine** : nom du fichier exécutable que vous voulez contrôler. Ce nom correspond aux informations figurant dans l’en-tête du fichier et non pas au nom de fichier proprement dit. Cela peut être utile si le fichier exécutable a été renommé mais que vous voulez le contrôler par son nom d’origine.
+    -   **Bestandsnaam** : de naam van het programmabestand dat u wilt meten. U kunt klikken op **Bladeren** om het dialoogvenster **Openen** weer te geven, waarin u het te gebruiken programmabestand kunt selecteren.
 
         > [!NOTE]
-        >  Le nom du fichier d'origine ne doit pas contenir de caractères génériques.
+        >  Als u de naam van het uitvoerbare bestand in het vak **Bestandsnaam** typt, worden er geen controles uitgevoerd om te bepalen of dit bestand bestaat, en of dit de benodigde berichtkopinformatie bevat. Klik indien mogelijk op **Bladeren** en selecteer het uitvoerbare bestand dat moet worden gemeten.
         >
-        >  Cette zone est facultative si une valeur est spécifiée pour **Nom du fichier** .
+        >  Jokertekens zijn niet toegestaan in de bestandsnaam.
+        >
+        >  Dit vak is optioneel als er een waarde voor **Originele bestandsnaam** is opgegeven.
 
-    -   **Version** : version du fichier exécutable que vous voulez contrôler. Vous pouvez utiliser le caractère générique (*) pour représenter toute chaîne de caractères, ou le caractère générique (?) pour représenter tout caractère unique. Si vous voulez contrôler toutes les versions d’un fichier exécutable, utilisez la valeur par défaut (\*).
+    -   **Originele bestandsnaam** : de naam van het uitvoerbare bestand dat u wilt meten. Deze naam komt overeen met de informatie in de koptekst van het bestand, niet de bestandsnaam zelf, zodat dit nuttig kan zijn in gevallen waarin de naam van het uitvoerbare bestand is gewijzigd maar u het met zijn oorspronkelijke naam wilt meten.
 
-    -   **Langue** : langue du fichier exécutable à contrôler. La valeur par défaut est le paramètre régional actuel du système d'exploitation que vous utilisez. Si vous sélectionnez un fichier exécutable à contrôler en cliquant sur le bouton **Parcourir** , cette zone est automatiquement remplie si les informations sur la langue sont présentes dans l’en-tête du fichier. Pour contrôler toutes les versions linguistiques d’un fichier, sélectionnez **N’importe laquelle** dans la liste déroulante.
+        > [!NOTE]
+        >  Jokertekens zijn niet toegestaan in de oorspronkelijke bestandsnaam.
+        >
+        >  Dit vak is optioneel als er een waarde voor **Bestandsnaam** is opgegeven.
 
-    -   **Description** : description facultative de la règle de contrôle de logiciel.
+    -   **Versie** : de versie van het uitvoerbare bestand dat u deze wilt meten. U kunt het jokerteken (*) gebruiken om elke tekenreeks met tekens weer te geven of u kunt het jokerteken (?) gebruiken om een willekeurig teken mee aan te duiden. Als u meten voor alle versies van een uitvoerbaar bestand wilt, gebruikt u de standaardwaarde (\*).
 
-    -   **Appliquez cette règle de contrôle de logiciel aux clients suivants** : choisissez d’appliquer ou non la règle de contrôle de logiciel à tous les clients de la hiérarchie ou aux clients affectés au site spécifié dans la liste **Site** .
+    -   **Taal** : de taal van het uitvoerbare bestand dat u wilt meten. De standaardwaarde is de huidige landinstelling van het besturingssysteem dat u gebruikt. Als u een uitvoerbaar bestand selecteert om te meten door te klikken op de knop **Bladeren** , wordt dit vak automatisch ingevuld als er taalinformatie in de koptekst van het bestand aanwezig is. Als u alle taalversies van een bestand wilt meten, selecteert u **Elke** in de vervolgkeuzelijst.
 
-5.  Pour continuer, cliquez sur **Suivant**.
+    -   **Beschrijving** : een optionele beschrijving voor de softwaremeterregel.
 
-6.  Passez en revue et confirmez ces paramètres, puis terminez l’Assistant pour créer la règle de contrôle de logiciel. La nouvelle règle de contrôle de logiciel s’affiche dans le nœud **Contrôle de logiciel** de l’espace de travail **Ressources et Conformité** .
+    -   **Deze softwaremeterregel toepassen op de volgende clients** : selecteer of u de softwaremeterregel wilt toepassen op alle clients in de hiërarchie of aan de clients die zijn toegewezen aan de site die is opgegeven in de lijst **Site** .
 
-##  <a name="configure-automatic-software-metering-rules"></a>Configurer les règles de contrôle de logiciel automatiques
- Configuration Manager permet de configurer le contrôle de logiciel pour générer automatiquement des règles désactivées de contrôle de logiciel à partir des données d’inventaire d’utilisation récente dans la base de données de site. Vous pouvez configurer ces données d’inventaire afin de créer des règles de contrôle uniquement pour les applications utilisées sur un pourcentage spécifié d’ordinateurs. Vous pouvez également définir le nombre maximal de règles de contrôle de logiciel automatiquement générées autorisées sur le site.
+5.  Als u wilt doorgaan, klikt u op **Volgende**.
+
+6.  Controleer en bevestig de instellingen en voltooi de wizard om de softwaremeterregel te maken. De nieuwe softwaremeterregel wordt weergegeven in het knooppunt **Softwarelicentiecontrole** in de werkruimte **Activa en naleving** .
+
+##  <a name="configure-automatic-software-metering-rules"></a>Automatische softwaremeterregels configureren
+ U kunt configureren in Configuration Manager voor het automatisch genereren van recente inventarisatiegegevens ondergebracht in de sitedatabase uitgeschakelde softwaremeterregels softwarelicentiecontrole. U kunt deze inventarisgegevens zodanig configureren dat er alleen softwaremeterregels worden gemaakt voor toepassingen die worden gebruikt met een opgegeven percentage computers. Ook kunt u het maximum aantal automatisch gegenereerde softwaremeterregels opgeven dat op de site is toegestaan.
 
 > [!NOTE]
->  Par défaut, les règles de contrôle de logiciel qui sont créées automatiquement sont désactivées. Pour pouvoir collecter les données d'utilisation à partir de ces règles, vous devez les activer.
+>  Softwaremeterregels die automatisch worden gemaakt, worden standaard uitgeschakeld. Voordat u kunt beginnen met het verzamelen van gegevens met deze regels, moet u deze inschakelen.
 
-1.  Dans la console Configuration Manager, cliquez sur **Actifs et conformité** > **Contrôle de logiciel**, puis, dans l’onglet **Accueil**, dans le groupe **Paramètres**, cliquez sur **Propriétés de contrôle de logiciel**.
+1.  Klik in de Configuration Manager-console op **activa en naleving** > **softwarelicentiecontrole**, en klikt u op de **Start** tabblad, in de **instellingen** groep, klikt u op **eigenschappen van Softwaremeter**.
 
-3.  Dans la boîte de dialogue **Propriétés de contrôle de logiciel** , définissez les éléments suivants :
+3.  In het dialoogvenster **Eigenschappen van softwaremeter** configureert u het volgende:
 
-    -   **Conservation des données (en jours)** : indique la durée de conservation des données générées par les règles de contrôle de logiciel dans la base de données du site. La valeur par défaut est **90** jours.
+    -   **Bewaren van gegevens (in dagen)** : geeft de tijd aan dat gegevens behouden blijven die door softwaremeterregels in de sitedatabase worden gegenereerd. De standaardwaarde is **90** dagen.
 
-    -   Activez l'option **Créer automatiquement des règles de contrôle désactivées à partir des données d'inventaire récemment utilisées**.
+    -   Schakel de optie **Automatisch uitgeschakelde meterregels maken van inventarisgegevens over recent gebruik**in.
 
-    -   **Spécifier le pourcentage d'ordinateurs de la hiérarchie qui doivent utiliser un programme avant qu'une règle de contrôle de logiciel soit créée automatiquement** : la valeur par défaut est **10** pour cent.
+    -   **Geef op welk percentage van computers in de hiërarchie een programma moet gebruiken voordat automatisch een softwaremeterregel wordt gemaakt** : de standaardwaarde is **10** procent.
 
-    -   **Spécifier le nombre de règles de contrôle de logiciel devant être dépassées dans la hiérarchie avant que la création automatique de règles soit désactivée** : la valeur par défaut est **100** règles.
+    -   **Geef het aantal softwaremeterregels op dat moet worden overschreden in de hiërarchie voordat het automatisch maken regels wordt uitgeschakeld** : de standaardwaarde is **100** regels.
 
-4.  Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de contrôle de logiciel** .
+4.  Klik op **OK** om het dialoogvenster **Eigenschappen van softwaremeter** te sluiten.
 
-##  <a name="manage-software-metering-rules"></a>Gérer les règles de contrôle de logiciel
- Dans l'espace de travail **Biens et conformité** , sélectionnez **Contrôle de logiciel**, puis la règle de contrôle de logiciel à gérer, et enfin sélectionnez une tâche de gestion.
+##  <a name="manage-software-metering-rules"></a>Softwaremeterregels beheren
+ In de werkruimte **Activa en naleving** selecteert u **Softwarelicentiecontrole**, selecteert u de te beheren softwaremeterregel en selecteert u vervolgens een beheertaak.
 
- Utilisez le tableau suivant pour obtenir plus d'informations sur les tâches de gestion qui pourraient nécessiter certaines informations avant de les sélectionner.
+ Gebruik de volgende tabel voor meer informatie over de beheertaken waarvoor u mogelijk meer uitleg nodigt hebt voordat u ze selecteert.
 
-|Tâche de gestion|Détails|
+|Beheertaak|Details|
 |---------------------|-------------|
-|**Activer**<br /><br /> **Désactiver**|Active ou désactive une règle de contrôle de logiciel. Ce paramètre est téléchargé vers des ordinateurs client en fonction de l' **Intervalle d'interrogation de la stratégie client** dans la section **Stratégie client** des paramètres client (par défaut, toutes les 60 minutes).<br /><br /> Consultez [Configurer les paramètres client](../../core/clients/deploy/configure-client-settings.md).|
+|**Inschakelen**<br /><br /> **Uitschakelen**|Hiermee schakelt u een softwaremeterregel in of uit. Deze instelling wordt gedownload naar clientcomputers volgens de **Pollinginterval voor clientbeleid** in de sectie **Clientbeleid** van de clientinstellingen (standaard elke 60 minuten).<br /><br /> Zie [clientinstellingen configureren](../../core/clients/deploy/configure-client-settings.md) .|
 
-##  <a name="monitor-software-metering"></a>Surveiller le contrôle de logiciel
- Le contrôle de logiciel dans Configuration Manager inclut un certain nombre de rapports intégrés qui vous permettent de surveiller les informations concernant les opérations de contrôle de logiciel. Ces rapports affiche la catégorie de rapport de **contrôle des logiciels**.
+##  <a name="monitor-software-metering"></a>Bewaak softwarelicentiecontrole
+ Softwarelicentiecontrole in Configuration Manager bevat een aantal ingebouwde rapporten waarmee u informatie over software softwarelicentiecontrole bewerkingen kunt bewaken. Deze rapporten hebben de rapportcategorie **Softwaremeter**.
 
- Pour plus d’informations sur la configuration de la génération de rapports dans Configuration Manager, consultez [Génération de rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md).
+ Zie voor meer informatie over het configureren van rapportage in Configuration Manager [rapportage in System Center Configuration Manager](../../core/servers/manage/reporting.md).
 
- En outre, vous pouvez créer des requêtes et des regroupements à partir des données stockées dans la base de données Configuration Manager par le contrôle de logiciel.
+ Bovendien kunt u query's en verzamelingen op basis van de gegevens die zijn opgeslagen in de Configuration Manager-database met softwaremeters.
 
- Pour plus d’informations sur les regroupements dans Configuration Manager, consultez [Présentation des regroupements](/sccm/core/clients/manage/collections/introduction-to-collections).
+ Zie voor meer informatie over verzamelingen in Configuration Manager [inleiding op verzamelingen](/sccm/core/clients/manage/collections/introduction-to-collections).
 
- Pour plus d’informations sur les requêtes dans Configuration Manager, consultez [Présentation des requêtes](/sccm/core/servers/manage/introduction-to-queries).
+ Zie voor meer informatie over query's in Configuration Manager [inleiding op query's](/sccm/core/servers/manage/introduction-to-queries).
 
-##  <a name="security-and-privacy-for-software-metering"></a>Sécurité et confidentialité pour le contrôle de logiciel
+##  <a name="security-and-privacy-for-software-metering"></a>Beveiliging en privacy voor softwarelicentiecontrole
 
-### <a name="security-issues-for-software-metering"></a>Problèmes de sécurité pour le contrôle de logiciel
- Une personne malveillante pourrait envoyer des informations de contrôle de logiciel non valides à Configuration Manager, qui seraient acceptées par le point de gestion même lorsque le paramètre du client de contrôle de logiciel est désactivé. Ceci peut entraîner la réplication d’un grand nombre de règles de contrôle dans toute la hiérarchie, provoquant ainsi un déni de service sur le réseau et aux serveurs de site Configuration Manager.
+### <a name="security-issues-for-software-metering"></a>Beveiligingsproblemen voor softwarelicentiecontrole
+ Een aanvaller kan ongeldige softwarelicentiecontrolegegevens naar Configuration Manager, die door het beheerpunt worden geaccepteerd, zelfs wanneer de clientinstelling voor softwarelicentiecontrole is uitgeschakeld verzenden. Dit kan leiden tot een groot aantal regels voor softwarelicentiecontrole die worden gerepliceerd in de gehele hiërarchie, waardoor een DoS-aanval op het netwerk en voor Configuration Manager-siteservers.
 
- Dans la mesure où une personne malveillante peut créer des données de contrôle de logiciel non valides, ne considérez pas que les informations de contrôle de logiciel font autorité.
+ Omdat een aanvaller ongeldige softwaremetergegevens kan maken, dient u softwaremetergegevens niet als gezaghebbend te beschouwen.
 
- Le contrôle de logiciel est activé par défaut comme un paramètre du client.
+ Softwaremeter is standaard ingeschakeld als een clientinstelling.
 
-###  <a name="privacy-information-for-software-metering"></a>Informations de confidentialité pour le contrôle de logiciel
- Le contrôle de logiciel surveille l'utilisation des applications sur les ordinateurs client. Le contrôle de logiciel est activé par défaut. Vous devez configurer les applications à contrôler. Les informations de contrôle sont stockées dans la base de données Configuration Manager. Ces informations sont chiffrées au cours du transfert vers un point de gestion, mais elles ne sont pas stockées sous forme chiffrée dans la base de données Configuration Manager.
+###  <a name="privacy-information-for-software-metering"></a>Privacy-informatie voor softwarelicentiecontrole
+ Softwaremeter bewaakt het gebruik van toepassingen op clientcomputers. Softwaremeter is standaard ingeschakeld. U moet configureren welke toepassingen moeten worden gemeten. Metergegevens worden opgeslagen in de Configuration Manager-database. De informatie wordt versleuteld tijdens de overdracht naar een beheerpunt, maar deze wordt niet opgeslagen in een versleutelde vorm in de Configuration Manager-database.
 
- Ces informations sont conservées dans la base de données jusqu'à leur suppression par les tâches de maintenance de site **Supprimer les données de contrôle de logiciel anciennes** (tous les cinq jours) et **Supprimer les données de résumé de contrôle de logiciel anciennes** (tous les 270 jours). Vous pouvez configurer l'intervalle de suppression. Les informations de contrôle ne sont pas envoyées à Microsoft.
+ Deze gegevens blijven in de database bewaard tot deze worden verwijderd door de siteonderhoudstaak **Verouderde gegevens van softwaremeter verwijderen** (elke vijf dagen) en **Verouderde samenvattingsgegevens van softwaremeter verwijderen** (elke 270 dagen). U kunt het verwijderingsinterval configureren. Er worden geen metergegevens naar Microsoft verzonden.
 
- Avant de configurer le contrôle de logiciel, réfléchissez à vos besoins en matière de confidentialité.
+ Voordat u softwaremeter configureert, moet u nadenken over uw privacyvereisten.
 
-## <a name="example-scenario-for-using-software-metering"></a>Exemple de scénario d’utilisation du contrôle de logiciel
- Dans cette section, vous allez créer un exemple de règle de contrôle de logiciel qui peut vous aider à répondre aux exigences métier suivantes :
+## <a name="example-scenario-for-using-software-metering"></a>Voorbeeldscenario voor het gebruik van softwaremeter
+ In deze sectie maakt u een voorbeeld van een softwaremeterregel waarmee u de volgende bedrijfsvereisten kunt oplossen:
 
--   Déterminer le nombre de copies d’une application particulière dans votre entreprise
+-   Bepalen hoeveel exemplaren van een bepaalde app uw bedrijf heeft
 
--   Découvrir les copies inutilisées d’une application
+-   Alle ongebruikte exemplaren van een app detecteren
 
--   Déterminer les personnes qui utilisent régulièrement une application particulière
+-   Bepalen welke gebruikers een bepaalde app regelmatig gebruiken
 
- La Woodgrove Bank a déployé Microsoft Office 2010 comme suite de production standard. Toutefois, pour prendre en charge une application héritée, certains ordinateurs doivent continuer à exécuter Microsoft Office Word 2003. Le service informatique souhaite réduire les coûts de support et de licences en supprimant ces copies de Word 2003 si l’application héritée n’est plus utilisée. Le support technique souhaite également identifier les personnes qui utilisent l’application héritée.
+ Woodgrove Bank heeft Microsoft Office 2010 geïmplementeerd als standaard Office-productiviteitssuite. Ter ondersteuning van een oudere toepassing, moet Microsoft Office Word 2003 op bepaalde computer worden uitgevoerd. De IT-afdeling wil ondersteuning en licentiekosten reduceren door deze exemplaren van Word 2003 te verwijderen als de oude toepassing niet meer wordt gebruikt. De helpdesk wil ook bepalen welke gebruikers de oude toepassing gebruiken.
 
- Responsable des systèmes informatiques de la Woodgrove Bank, John utilise le contrôle de logiciel dans Configuration Manager pour atteindre ces objectifs métier. Il effectue les opérations suivantes :
+ Johan is van Woodgrove Bank IT-systemen Manager die softwarelicentiecontrole in Configuration Manager gebruikt om deze zakelijke doelstellingen te bereiken. Hij voert de volgende acties:
 
-- John vérifie la configuration requise pour le contrôle de logiciel et confirme que le point de Reporting Services est installé et opérationnel.
-- John configure les paramètres client par défaut pour le contrôle de logiciel :<br>Il active le contrôle de logiciel et, par défaut, planifie le regroupement de données à raison d’une collecte tous les sept jours.<br>Il configure l’inventaire logiciel pour inventorier les fichiers portant l’extension .exe en paramétrant le paramètre client d’inventaire logiciel **Inventorier ces types de fichiers**.<br>Il ajoute une nouvelle règle de contrôle des logiciels, nommée **woodgrove.exe**, afin de surveiller l’application héritée.
-- John attend pendant sept jours, au bout desquels les ordinateurs clients commencent à signaler les données d’utilisation pour le fichier exécutable **woodgrove.exe** .
-- John utilise le rapport **Base d’installation pour tous les logiciels contrôlés** de Configuration Manager pour voir les ordinateurs sur lesquels l’application **woodgrove.exe** est chargée.
-- Après six mois, John exécute le rapport **Ordinateurs sur lesquels un programme contrôlé est installé, mais n'ayant pas exécuté le programme depuis la date spécifiée**, en spécifiant la règle de contrôle des logiciels et une date de six mois en arrière. Ce rapport identifie 120 ordinateurs qui n’ont pas exécuté le programme au cours des six derniers mois.
-- John effectue des vérifications supplémentaires pour s’assurer que l’application héritée n’est pas nécessaire sur les ordinateurs identifiés. Ensuite, il désinstalle l’application héritée et la copie de Word 2003 de ces ordinateurs.<br>John exécute le rapport **Utilisateurs ayant exécuté un programme contrôlé spécifique** pour fournir au support technique la liste des utilisateurs qui continuent d’utiliser l’application héritée.
-- John continue de vérifier les rapports de contrôle de logiciel chaque semaine et prend des mesures correctives quand cela est nécessaire.
+- John controleert de vereisten voor de softwarelicentiecontrole en bevestigt dat het Reporting Services-punt geïnstalleerd en operationeel is.
+- John configureert de standaardclientinstellingen voor de softwarelicentiecontrole:<br>Hij schakelt softwaremeter in en gebruikt het standaardschema (om de zeven dagen) om gegevens te verzamelen.<br>Hij configureert de software-inventarisatie om bestanden met de extensie .exe te inventariseren door de clientinstelling **Deze bestandstypen inventariseren**voor de software-inventarisatie te configureren.<br>Hij voegt een nieuwe softwaremeterregel, met de naam **woodgrove.exe**, om de oudere toepassing te bewaken.
+- John wacht zeven dagen, waarna de clientcomputers gebruiksgegevens beginnen te rapporteren voor het uitvoerbare bestand **woodgrove.exe** .
+- Johan gebruikt de Configuration Manager-rapport **installatiebasis voor alle programma's met gecontroleerde licenties** om te zien welke computers over de toepassing **woodgrove.exe** geladen.
+- Na zes maanden voert John het rapport **Computers waarop een programma met gecontroleerde licentie is geïnstalleerd maar die het programma sinds een opgegeven datum niet hebben uitgevoerd**uit. Hij geeft hiervoor de softwaremeterregel en de datum van zes maanden terug op. Dit rapport identificeert 120 computers waarop het programma de afgelopen zes maanden niet is uitgevoerd.
+- John voert nog een aantal controles uit om zich ervan te verzekeren dat de oudere toepassing niet is vereist op de geïdentificeerde computers. Hij verwijdert de oudere toepassing en het exemplaar van Word 2003 van deze computers.<br>John voert het rapport **Gebruikers die een specifiek programma met gecontroleerde licenties hebben uitgevoerd** uit om de helpdesk te voorzien van een lijst met gebruikers die oudere toepassing blijven gebruiken.
+- John blijft de softwarelicentiecontrolerapporten wekelijks controleren en neemt indien nodig corrigerende maatregelen.
 
- À la suite de cette action, les coûts de support et de licences sont réduits en supprimant les applications qui ne sont plus nécessaires. En outre, le support technique possède maintenant la liste souhaitée des utilisateurs qui exécutent l’application héritée.
+ Als gevolg van deze maatregel worden de toepassingen die niet meer nodig zijn, verwijderd en worden de IT-ondersteuning en licentiekosten gereduceerd. Daarnaast beschikt de helpdesk nu over de gewenste lijst met gebruikers die de oudere toepassing uitvoeren.

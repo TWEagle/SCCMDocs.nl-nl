@@ -1,6 +1,6 @@
 ---
-title: Installer des points de distribution cloud | Microsoft Docs
-description: "Découvrez ce que vous devez faire pour commencer à utiliser des points de distribution cloud dans Microsoft Azure."
+title: Cloud-gebaseerde distributiepunten installeren | Microsoft Docs
+description: Meer informatie over wat u moet doen om aan de slag met cloud-gebaseerde distributiepunten in Microsoft Azure.
 ms.custom: na
 ms.date: 2/8/2017
 ms.prod: configuration-manager
@@ -16,117 +16,117 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 39b35cccf78bba4e69a7de0ca3a5a8dc516201e3
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="install-cloud-based-distribution-points-in-microsoft-azure-for-system-center-configuration-manager"></a>Installer des points de distribution cloud dans Microsoft Azure pour System Center Configuration Manager
+# <a name="install-cloud-based-distribution-points-in-microsoft-azure-for-system-center-configuration-manager"></a>Cloud-gebaseerde distributiepunten in Microsoft Azure voor System Center Configuration Manager installeren
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Vous pouvez installer des points de distribution cloud System Center Configuration Manager dans Microsoft Azure. Si vous n’êtes pas familiarisé avec les points de distribution cloud, consultez [Utiliser un point de distribution cloud](../../../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md) avant de poursuivre.
+U kunt System Center Configuration Manager cloud-gebaseerde distributiepunten installeren in Microsoft Azure. Als u niet bekend met cloud-gebaseerde distributiepunten bent, Zie [een cloud-gebaseerd distributiepunt gebruiken](../../../../core/plan-design/hierarchy/use-a-cloud-based-distribution-point.md) voordat u doorgaat.
 
- Avant de commencer l’installation, vérifiez que vous disposez bien des fichiers de certificat nécessaires :  
+ Voordat u de installatie begint, zorg ervoor dat u de vereiste certificaatbestanden hebt:  
 
--   Un certificat de gestion Microsoft Azure exporté dans un fichier .cer et un fichier .pfx.  
+-   Een Microsoft Azure-beheercertificaat dat geëxporteerd is naar een cer-bestand en een pfx-bestand.  
 
--   Un certificat de service de point de distribution cloud Configuration Manager exporté dans un fichier .pfx.  
+-   Een Configuration Manager clouddistributiepunt-servicecertificaat dat geëxporteerd is naar een pfx-bestand.  
 
     > [!TIP]
-    >   Pour plus d’informations sur ces certificats, consultez la section consacrée aux points de distribution cloud dans la rubrique [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md). Pour obtenir un exemple de déploiement du certificat de service de point de distribution cloud, consultez la section « Déploiement du certificat de service pour les points de distribution cloud » dans la rubrique [Exemple de déploiement pas à pas des certificats PKI pour System Center Configuration Manager : autorité de certification Windows Server 2008](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
+    >   Zie voor meer informatie over deze certificaten de sectie voor cloud-gebaseerde distributiepunten in de [PKI-certificaatvereisten voor System Center Configuration Manager](../../../../core/plan-design/network/pki-certificate-requirements.md) onderwerp. Voor een Voorbeeldimplementatie van het clouddistributiepunt-servicecertificaat, Zie de sectie 'Het servicecertificaat voor Cloud-gebaseerde distributiepunten implementeren' in [voorbeeld van stapsgewijze implementatie van de PKI-certificaten voor System Center Configuration Manager: Windows Server 2008-certificeringsinstantie](/sccm/core/plan-design/network/example-deployment-of-pki-certificates).  
 
 
- Une fois que vous avez installé le point de distribution cloud, Azure génère automatiquement un GUID pour le service et l’ajoute au suffixe DNS de **cloudapp.net**. En utilisant ce GUID, vous devez configurer DNS avec un alias DNS (enregistrement CNAME). Cela vous permet de mapper le nom de service que vous définissez dans le certificat de service de point de distribution cloud Configuration Manager au GUID généré automatiquement.  
+ Nadat u het cloud-gebaseerde distributiepunt installeert, Azure automatisch een GUID voor de service genereert en voegt dit samen met de DNS-achtervoegsel van **cloudapp.net**. Deze GUID moet u DNS configureren met een DNS-alias (CNAME-record). Hiermee kunt u de servicenaam die u in de Configuration Manager clouddistributiepunt-servicecertificaat op de automatisch gegenereerde GUID definieert.  
 
- Si vous utilisez un serveur Web proxy, vous serez peut-être amené à configurer les paramètres de proxy pour permettre la communication avec le service cloud hébergeant le point de distribution.  
+ Als u een proxywebserver gebruikt, moet u wellicht de proxy-instellingen om te kunnen communiceren met de cloudservice die als host fungeert voor het distributiepunt configureren.  
 
-##  <a name="BKMK_ConfigWindowsAzureandInstallDP"></a> Configurer Azure et installer des points de distribution cloud  
- Utilisez les procédures suivantes pour configurer la prise en charge par Azure des points de distribution et installer le point de distribution cloud dans Configuration Manager.  
+##  <a name="BKMK_ConfigWindowsAzureandInstallDP"></a>Instellen van Azure en het installeren van cloud-gebaseerde distributiepunten  
+ Gebruik de volgende procedures voor het instellen van Azure voor de ondersteuning van distributiepunten en installeer het cloud-gebaseerde distributiepunt in Configuration Manager.  
 
-### <a name="to-set-up-a-cloud-service-in-azure-for-a-distribution-point"></a>Pour configurer un service cloud dans Azure pour un point de distribution  
+### <a name="to-set-up-a-cloud-service-in-azure-for-a-distribution-point"></a>Voor het instellen van een cloudservice in Azure voor een distributiepunt  
 
-1.  Dans un navigateur web, accédez au portail Azure à l’adresse https://manage.windowsazure.com, puis accédez à votre compte.  
+1.  Open een webbrowser naar de Azure-portal op https://manage.windowsazure.com, en toegang tot uw account.  
 
-2.  Cliquez sur **Services hébergés, Comptes de stockage et CDN**, puis sélectionnez **Certificats de gestion**.  
+2.  Klik op **gehoste Services, Opslagaccounts & CDN**, en selecteer vervolgens **Beheercertificaten**.  
 
-3.  Cliquez avec le bouton droit sur votre abonnement, puis sélectionnez **Ajouter un certificat**.  
+3.  Met de rechtermuisknop op uw abonnement en selecteer vervolgens **certificaat toevoegen**.  
 
-4.  Pour **Fichier de certificat**, spécifiez le fichier .cer contenant le certificat de gestion Azure exporté à utiliser pour ce service cloud, puis cliquez sur **OK**.  
+4.  Voor **certificaatbestand**, geef het .cer-bestand waarin de geëxporteerde Azure-beheercertificaat wilt gebruiken voor deze cloudservice en klik vervolgens op **OK**.  
 
-Le certificat de gestion est chargé dans Azure, ce qui vous permet maintenant d’installer un point de distribution cloud.  
+Het beheercertificaat wordt geladen in Azure en u kunt nu een clouddistributiepunt installeren.  
 
-### <a name="to-install-a-cloud-based-distribution-point-for-configuration-manager"></a>Pour installer un point de distribution cloud pour Configuration Manager  
+### <a name="to-install-a-cloud-based-distribution-point-for-configuration-manager"></a>Voor het installeren van een cloud-gebaseerde distributiepunt voor Configuration Manager  
 
-1.  Exécutez les étapes de la procédure précédente pour configurer un service cloud dans Azure avec un certificat de gestion.  
+1.  Voltooi de stappen in de voorgaande procedure voor het instellen van een cloudservice in Azure met een beheercertificaat.  
 
-2.  Dans l’espace de travail **Administration** de la console Configuration Manager, développez **Services cloud**, puis sélectionnez **Points de distribution cloud**. Sous l’onglet **Accueil**, cliquez sur **Créer un point de distribution cloud**.  
+2.  In de **beheer** werkruimte van de Configuration Manager-console, vouw **Cloudservices**, en selecteer **Clouddistributiepunten**. Op de **Start** tabblad **Clouddistributiepunt maken**.  
 
-3.  Dans la page **Général** de l’Assistant Création d’un point de distribution cloud, configurez les éléments suivants :  
+3.  Op de **algemene** pagina van de Wizard Cloud maken Distribution Point, stel het volgende:  
 
-    -   Spécifiez l’**ID d’abonnement** de votre compte Azure.  
+    -   Geef de **abonnements-ID** voor uw Azure-account.  
 
         > [!TIP]  
-        >  Vous pouvez trouver votre ID d’abonnement Azure dans le portail Azure.  
+        >  U kunt uw Azure-abonnement-ID vinden in de Azure portal.  
 
-    -   Spécifiez le **Certificat de gestion**. Cliquez sur **Parcourir** pour spécifier le fichier .pfx contenant le certificat de gestion Azure exporté, puis entrez le mot de passe du certificat. Vous pouvez également spécifier un fichier .publishsettings version 1 issu du Kit de développement logiciel Azure SDK 1.7.  
+    -   Geef de **beheercertificaat**. Klik op **Bladeren** opgeven van het pfx-bestand dat de geëxporteerde Azure-beheercertificaat bevat en voer vervolgens het wachtwoord voor het certificaat. Desgewenst kunt u een versie 1 .publishsettings-bestand uit Azure SDK 1.7.  
 
-4.  Cliquez sur **Suivant**. Configuration Manager se connecte à Azure pour valider le certificat de gestion.  
+4.  Klik op **Volgende**. Configuration Manager maakt verbinding met Azure om het beheercertificaat te valideren.  
 
-5.  Dans la page **Paramètres**, effectuez les opérations suivantes et cliquez sur **Suivant** :  
+5.  Op de **instellingen** pagina en klik vervolgens op het volgende voltooien **volgende**:  
 
-    -   Pour **Région**, sélectionnez la région Azure dans laquelle vous souhaitez créer le service cloud qui héberge ce point de distribution.  
+    -   Voor **regio**, selecteert u de Azure-regio waar u wilt maken van de cloudservice die als host fungeert voor dit distributiepunt.  
 
-    -   Pour **Fichier de certificat**, spécifiez le fichier .pfx qui contient le certificat exporté pour le service de point de distribution cloud Configuration Manager. Entrez ensuite le mot de passe.  
+    -   Voor **certificaatbestand**, geef het .pfx-bestand dat het geëxporteerde certificaat voor de Configuration Manager cloud-gebaseerde distributiepuntservice bevat. Voer vervolgens het wachtwoord.  
 
         > [!NOTE]  
-        >  La zone **FQDN du service** est complétée automatiquement avec le nom d’objet du certificat. Dans la plupart des cas, vous n’avez pas à le modifier. Vous le devrez exceptionnellement si vous utilisez un certificat générique dans un environnement de test. Par exemple, dans ce cas, vous pouvez ne pas spécifier le nom d’hôte pour que plusieurs ordinateurs dotés du même suffixe DNS puissent utiliser ce certificat. Dans ce scénario, l’objet du certificat contient une valeur similaire à **CN=\*.contoso.com** et Configuration Manager affiche un message indiquant que vous devez spécifier le nom de domaine complet correct. Cliquez sur **OK** pour fermer le message, puis entrez un nom spécifique avant le suffixe DNS pour fournir un nom de domaine complet. Par exemple, vous pouvez ajouter **clouddp1** pour spécifier le nom de domaine complet du service **clouddp1.contoso.com**. Le nom de domaine complet du service doit être unique dans votre domaine et ne doit correspondre à aucun périphérique joint à un domaine.  
+        >  De **Service FQDN** vakje wordt automatisch ingevuld vanuit de naam van de certificaathouder. In de meeste gevallen hoeft u niet te bewerken. De uitzondering hierop is als u een jokertekencertificaat in een testomgeving gebruikt. Bijvoorbeeld, in dit geval u mogelijk niet Geef de hostnaam, zodat meerdere computers met de dezelfde DNS-achtervoegsel het certificaat kunnen gebruiken. In dit scenario bevat het certificaatonderwerp een waarde gelijkaardig aan **CN =\*. contoso.com**, en Configuration Manager wordt een bericht weergegeven dat u de juiste FQDN-naam moet opgeven. Klik op **OK** om te sluiten van het bericht en voer vervolgens een specifieke naam in voor het DNS-achtervoegsel om een volledige FQDN te leveren. U kunt bijvoorbeeld toevoegen **clouddp1** om op te geven van de volledige FQDN voor de service **clouddp1.contoso.com**. De FQDN-Service moet uniek zijn in uw domein en niet overeen met elk apparaat voor het domein.  
         >   
-        >  Les certificats génériques sont pris en charge pour tester les environnements uniquement.  
+        >  Jokertekens-certificaten worden ondersteund voor testomgevingen alleen.  
 
-6.  Dans la page **Alertes**, configurez les quotas de stockage, les quotas de transfert, ainsi que le pourcentage de ces quotas auquel Configuration Manager doit générer des alertes. Cliquez ensuite sur **Suivant**.  
+6.  Op de **waarschuwingen** pagina, opslagquota, transferquota en op welk percentage van deze quota u wilt dat Configuration Manager voor het genereren van waarschuwingen instellen. Klik op **Volgende**.  
 
-7.  Effectuez toutes les étapes de l'Assistant.  
+7.  Voltooi de wizard.  
 
-L'Assistant crée un service hébergé pour le point de distribution cloud. Après avoir fermé l’Assistant, vous pouvez surveiller la progression de l’installation du point de distribution cloud dans la console Configuration Manager. Vous pouvez également surveiller le fichier **CloudMgr.log** sur le serveur de site principal. Vous pouvez surveiller la mise en service du service cloud dans le portail Azure.  
+De wizard maakt een nieuwe gehoste service voor het cloud-gebaseerd distributiepunt. Nadat u de wizard sluit, kunt u de voortgang van de installatie van het cloud-gebaseerde distributiepunt in de Configuration Manager-console kunt bewaken. U kunt ook bewaken de **CloudMgr.log** -bestand op de primaire siteserver. U kunt de inrichting van de cloudservice in de Azure portal bewaken.  
 
 > [!NOTE]  
->  La mise en service d’un nouveau point de distribution dans Azure peut prendre jusqu’à 30 minutes. Le message suivant est répété dans le fichier **CloudMgr.log** tant que le compte de stockage n’est pas approvisionné : **En attente de vérification de l’existence du conteneur. Une nouvelle vérification sera effectuée dans 10 secondes**. Le service est ensuite créé et configuré.  
+>  Het kan tot 30 minuten voor het inrichten van een nieuw distributiepunt in Azure duren. Het volgende bericht wordt herhaald in de **CloudMgr.log** bestand totdat het opslagaccount is ingericht: **Wachten op controle als container bestaat. We controleren opnieuw over 10 seconden**. De service wordt vervolgens gemaakt en geconfigureerd.  
 
- Pour savoir si l'installation du point de distribution cloud est terminée, employez les méthodes suivantes :  
+ U kunt identificeren dat de installatie van het cloud-gebaseerde distributiepunt is voltooid met behulp van de volgende methoden:  
 
--   Dans le portail Azure, le **Déploiement** du point de distribution cloud indique l’état **Prêt**.  
+-   In de Azure portal, de **implementatie** voor het clouddistributiepunt een status weer van **gereed**.  
 
--   Dans la console Configuration Manager, dans l’espace de travail **Administration**, sous le nœud **Configuration de la hiérarchie**, **Cloud**, le point de distribution cloud indique l’état **Prêt**.  
+-   In de Configuration Manager-console in de **beheer** werkruimte **Hiërarchieconfiguratie**, **Cloud** knooppunt het clouddistributiepunt een status weer van **gereed**.  
 
--   Configuration Manager affiche l’ID de message d’état **9409** pour le composant SMS_CLOUD_SERVICES_MANAGER.  
+-   Configuration Manager geeft een statusbericht-ID **9409** voor het onderdeel sms_cloud_services_manager.  
 
-##  <a name="BKMK_ConfigDNSforCloudDPs"></a> Configurer la résolution de noms pour les points de distribution cloud  
- Pour pouvoir accéder au point de distribution cloud, les clients doivent être en mesure de résoudre le nom du point de distribution cloud de manière à fournir une adresse IP gérée par Azure. Pour ce faire, les clients procèdent en deux étapes :  
+##  <a name="BKMK_ConfigDNSforCloudDPs"></a>Naamomzetting voor cloud-gebaseerde distributiepunten instellen  
+ Voordat clients toegang de cloud-gebaseerd distributiepunt tot, moeten ze kunnen de naam van het cloud-gebaseerde distributiepunt omzetten in een IP-adres dat wordt beheerd Azure zijn. Clients doen dit in twee fasen:  
 
-1.  Ils mappent le nom de service que vous avez fourni avec le certificat du service de point de distribution cloud Configuration Manager au nom de domaine complet de votre service Azure. Ce nom de domaine complet contient un GUID et le suffixe DNS de **cloudapp.net**. Le GUID est généré automatiquement après l'installation du point de distribution cloud. Vous pouvez afficher le nom de domaine complet dans le portail Azure, en référençant l’**URL du site** dans le tableau de bord du service cloud. Voici un exemple d'URL de site : **http://d1594d4527614a09b934d470.cloudapp.net**.  
+1.  Ze wijzen de servicenaam die u opgaf met het certificaat van de Configuration Manager cloud-gebaseerde distributiepuntservice FQDN-naam van uw Azure Service. Deze FDQN-naam bevat een GUID en het DNS-achtervoegsel van **cloudapp.net**. De GUID wordt automatisch gegenereerd nadat u de cloud-gebaseerde distributiepunt installeert. Ziet u de volledige FQDN-naam in de Azure portal door te verwijzen naar de **SITE-URL** in het dashboard van de cloudservice. Een voorbeeld van een site-URL is **http://d1594d4527614a09b934d470.cloudapp.net**.  
 
-2.  Ils résolvent le nom de domaine complet du service Azure pour fournir l’adresse IP allouée par Azure. Cette adresse IP peut également être identifiée dans le tableau de bord pour le service cloud du portail Azure, et elle est nommée **ADRESSE IP VIRTUELLE PUBLIQUE (VIP)**.  
+2.  Ze zetten de FDQN van de Azure service het IP-adres dat Azure toewijst. Dit IP-adres kan ook worden geïdentificeerd in het dashboard voor de cloudservice in de Azure-portal en de naam is **publiek VIRTUEEL IP-adres (VIP)**.  
 
-Pour mapper le nom de service que vous avez fourni avec le certificat de service de point de distribution cloud Configuration Manager (par exemple **clouddp1.contoso.com**) au nom de domaine complet de votre service Azure (par exemple **d1594d4527614a09b934d470.cloudapp.net**), les serveurs DNS sur Internet doivent avoir un alias DNS (enregistrement CNAME). Les clients peuvent ensuite résoudre le nom de domaine complet du service Azure pour fournir l’adresse IP en utilisant des serveurs DNS sur Internet.  
+Om de servicenaam die u opgaf met het Configuration Manager clouddistributiepunt-servicecertificaat (bijvoorbeeld **clouddp1.contoso.com**) voor uw Azure-FQDN-naam (bijvoorbeeld **d1594d4527614a09b934d470.cloudapp.net**), DNS-servers op het Internet moeten beschikken over een DNS-alias (CNAME-record). Clients kunnen vervolgens de FDQN van de Azure service het IP-adres omzetten via DNS-servers op het Internet.  
 
-##  <a name="BKMK_ConfigProxyforCloud"></a> Configurer les paramètres de proxy pour des sites principaux gérant des services cloud  
- Quand vous utilisez des services cloud avec Configuration Manager, le site principal qui gère le point de distribution cloud doit pouvoir se connecter au portail Azure. Le site se connecte à l’aide du compte **Système** de l’ordinateur de site principal. Cette connexion est établie à l'aide du navigateur Web par défaut sur l'ordinateur serveur de site principal.  
+##  <a name="BKMK_ConfigProxyforCloud"></a>Instellen van de proxy-instellingen voor primaire sites die cloudservices beheren  
+ Wanneer u cloudservices met Configuration Manager gebruikt, is de primaire site die het cloud-gebaseerde distributiepunt beheert moet verbinding maken met de Azure-portal. De site verbinding maakt met behulp van de **System** -account van de computer van de primaire site. Deze verbinding wordt gemaakt met behulp van de standaardwebbrowser op de primaire site server-computer.  
 
- Sur le serveur de site principal qui gère le point de distribution cloud, vous devrez peut-être configurer les paramètres de proxy pour permettre au site principal d’accéder à Internet et à Azure.  
+ Op de primaire siteserver die het cloud-gebaseerde distributiepunt beheert, moet u wellicht proxy-instellingen instellen voor het inschakelen van de primaire site voor toegang tot het Internet en Azure.  
 
- Pour configurer les paramètres de proxy du serveur de site principal dans la console Configuration Manager, exécutez la procédure ci-dessous.  
+ Gebruik de volgende procedure voor het instellen van de proxy-instellingen voor de primaire siteserver in de Configuration Manager-console.  
 
 > [!TIP]  
->  Vous pouvez également configurer le serveur proxy lors de l’installation de nouveaux rôles de système de site sur le serveur de site principal à l’aide de l’**Assistant Ajout des rôles de système de site**.  
+>  U kunt ook instellen de proxyserver wanneer u nieuwe sitesysteemrollen op de primaire siteserver met behulp van installeren de **toevoegen Wizard sitesysteemrollen**.  
 
-#### <a name="to-set-up-proxy-settings-for-the-primary-site-server"></a>Pour configurer les paramètres de proxy pour le serveur de site principal  
+#### <a name="to-set-up-proxy-settings-for-the-primary-site-server"></a>Proxy-instellingen voor de primaire server instellen  
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
+1.  Klik op **Beheer**in de Configuration Manager-console.  
 
-2.  Dans l'espace de travail **Administration** , développez **Configuration du site**, puis cliquez sur **Serveurs et rôles de système de site**. Ensuite, sélectionnez le serveur de site principal qui gère le point de distribution cloud.  
+2.  Vouw **Siteconfiguratie** uit in de werkruimte **Beheer**en klik vervolgens op **Servers en sitesysteemrollen**. Selecteer vervolgens de primaire siteserver die het cloud-gebaseerde distributiepunt beheert.  
 
-3.  Dans le volet d'informations, cliquez avec le bouton droit sur **Système de site**, puis cliquez sur **Propriétés**.  
+3.  In het detailvenster met de rechtermuisknop op **sitesysteem**, en klik vervolgens op **eigenschappen**.  
 
-4.  Dans **Propriétés du système de site**, sélectionnez l’onglet **Proxy**, puis configurez les paramètres de proxy de ce serveur de site principal.  
+4.  In **Sitesysteemeigenschappen**, selecteer de **Proxy** tabblad en vervolgens de proxy-instellingen voor deze primaire siteserver instellen.  
 
-5.  Cliquez sur **OK** pour enregistrer les paramètres.  
+5.  Klik op **OK** de instellingen op te slaan.  

@@ -1,6 +1,6 @@
 ---
-title: Configurer votre laboratoire de System Center Configuration Manager | Microsoft Docs
-description: "Configurez un laboratoire pour évaluer Configuration Manager avec des activités réelles simulées."
+title: Instellen van uw testomgeving voor System Center Configuration Manager | Microsoft Docs
+description: Een testomgeving voor het evalueren van Configuration Manager met gesimuleerde activiteiten van de praktijk instellen.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,271 +17,271 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 11f5d0c3c61d675a8182e985f82e6af363b34592
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="set-up-your-system-center-configuration-manager-lab"></a>Configurer votre laboratoire de System Center Configuration Manager
+# <a name="set-up-your-system-center-configuration-manager-lab"></a>Instellen van uw testomgeving voor System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-En suivant les recommandations de cette rubrique, vous pourrez mettre en place un laboratoire pour évaluer Configuration Manager en simulant des activités réelles.  
+De instructies in dit onderwerp te volgen, kunt u een testomgeving voor het evalueren van Configuration Manager met gesimuleerde activiteiten van de praktijk instellen.  
 
-##  <a name="BKMK_LabCore"></a> Composants principaux  
- La configuration de votre environnement pour System Center Configuration Manager requiert certains composants principaux pour prendre en charge l’installation de Configuration Manager.    
+##  <a name="BKMK_LabCore"></a> Kernonderdelen  
+ Instellen van uw omgeving voor System Center Configuration Manager, moeten sommige kernonderdelen de installatie van Configuration Manager ondersteunen.    
 
--   **L’environnement lab utilise Windows Server 2012 R2**, sur lequel nous allons installer System Center Configuration Manager.  
+-   **De testomgeving maakt gebruik van Windows Server 2012 R2**, waarin System Center Configuration Manager wordt geïnstalleerd.  
 
-     Vous pouvez télécharger une version d’évaluation de Windows Server 2012 R2 à partir du [Centre d’évaluation TechNet](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012).  
+     U kunt een evaluatieversie van Windows Server 2012 R2 van downloaden de [TechNet Evaluation Center](https://www.microsoft.com/evalcenter/evaluate-windows-server-2012).  
 
-     Envisagez de modifier ou de désactiver la configuration de sécurité renforcée d’Internet Explorer pour accéder plus facilement à certains téléchargements référencés tout au long de ces exercices. Consultez [Internet Explorer : Configuration de sécurité renforcée](https://technet.microsoft.com/en-us/library/dd883248\(v=ws.10\).aspx) .  
+     Overweeg het wijzigen van of verbeterde beveiliging van Internet Explorer uitschakelen om eenvoudiger toegang hebt tot bepaalde downloads waarnaar wordt verwezen tijdens het verloop van deze oefeningen. Controleer [Internet Explorer: Verbeterde beveiliging van](https://technet.microsoft.com/en-us/library/dd883248\(v=ws.10\).aspx) voor meer informatie.  
 
--   **L’environnement lab utilise SQL Server 2012 SP2** pour la base de données de site.  
+-   **De testomgeving wordt SQL Server 2012 SP2** voor de sitedatabase.  
 
-     Vous pouvez télécharger une version d’évaluation de SQL Server 2012 à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=29066).  
+     U kunt een evaluatieversie van SQL Server 2012 from downloaden de [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=29066).  
 
-     SQL Server a des [versions prises en charge de SQL Server](../../core/plan-design/configs/support-for-sql-server-versions.md#bkmk_SQLVersions) qui doivent être satisfaites pour pouvoir être utilisées avec System Center Configuration Manager.  
+     SQL Server heeft [ondersteunde versies van SQL Server](../../core/plan-design/configs/support-for-sql-server-versions.md#bkmk_SQLVersions) die moet worden voldaan voor gebruik met System Center Configuration Manager.  
 
-    -   Configuration Manager requiert une version 64 bits de SQL Server pour héberger la base de données de site.  
+    -   Configuration Manager vereist een 64-bits versie van SQL Server om de sitedatabase te hosten.  
 
-    -   **SQL_Latin1_General_CP1_CI_AS** en tant que classe **Classement SQL** .  
+    -   **SQL_Latin1_General_CP1_CI_AS** als de **SQL-sortering** klasse.  
 
-    -   **L’authentification Windows**, [au lieu de l’authentification SQL](https://technet.microsoft.com/en-us/library/ms144284.aspx), est obligatoire.  
+    -   **Windows-verificatie**, [in plaats van de SQL-verificatie](https://technet.microsoft.com/en-us/library/ms144284.aspx), is vereist.  
 
-    -   Une **instance SQL Server** dédiée est requise.  
+    -   Een speciaal **SQL Server-exemplaar** is vereist.  
 
-    -   Ne limitez pas la **mémoire adressable système** pour SQL Server.  
+    -   Beperken niet de **adresseerbare systeemgeheugen** voor SQL Server.  
 
-    -   Configurez le **compte de service SQL Server** pour l’exécuter à l’aide du compte d’**utilisateur local de domaine**.  
+    -   Configureer de **SQL Server-serviceaccount** uitgevoerd met behulp van de **lokale gebruiker in domein** account.  
 
-    -   Vous devez installer **SQL Server Reporting Services**.  
+    -   U moet installeren **voor SQL Server reporting services**.  
 
-    -   **communications intersites** utilisent SQL Server Service Broker sur le port par défaut TCP 4022.  
+    -   **Intersite-communicatie** SQL Server Service Broker op de TCP-standaardpoort 4022 te gebruiken.  
 
-    -   Les **communications intrasites** entre le moteur de base de données SQL Server et divers rôles de systèmes de site Configuration Manager utilisent par défaut le port TCP 1433.  
+    -   **Intrasitecommunicatie** tussen de SQL Server database engine en selecteer Configuration Manager-sitesysteem functies gebruiken standaardpoort TCP 1433.  
 
--   **Le contrôleur de domaine utilise Windows Server 2008 R2** avec Active Directory Domain Services. Le contrôleur de domaine fonctionne également en tant qu’hôte pour les serveurs DNS et DHCP à utiliser avec un nom de domaine complet.  
+-   **De domeincontroller maakt gebruik van Windows Server 2008 R2** met Active Directory Domain Services. De domeincontroller functioneert ook als host voor de DHCP- en de DNS-servers voor gebruik met een volledig gekwalificeerde domeinnaam.  
 
-     Pour plus d’informations, consultez cette [vue d’ensemble des services de domaine Active Directory](https://technet.microsoft.com/en-us/library/hh831484).  
+     Raadpleeg voor meer informatie dit [overzicht van Active Directory Domain Services](https://technet.microsoft.com/en-us/library/hh831484).  
 
--   **Hyper-V est utilisé avec quelques machines virtuelles** pour vérifier que les opérations de gestion entreprises dans ces exercices fonctionnent comme prévu. Un minimum de trois machines virtuelles est recommandé quand Windows 7 (ou version ultérieure) est installé.  
+-   **Hyper-V wordt gebruikt met een paar virtuele machines** om te controleren of de management-stappen die in deze oefeningen werken zoals verwacht. Minimaal drie virtuele machines wordt aanbevolen, met Windows 7 (of hoger) geïnstalleerd.  
 
-     Pour plus d’informations, consultez cette [vue d’ensemble d’Hyper-V](https://technet.microsoft.com/en-us/library/hh831531.aspx).  
+     Raadpleeg voor meer informatie dit [overzicht van Hyper-V](https://technet.microsoft.com/en-us/library/hh831531.aspx).  
 
--   **Les droits d’administrateur** sont obligatoires  pour tous ces composants.  
+-   **Beheerdersmachtigingen** voor al deze onderdelen vereist zijn.  
 
-    -   Configuration Manager nécessite un administrateur avec des autorisations locales dans l’environnement Windows Server  
+    -   Configuration Manager vereist een beheerder met lokale machtigingen in de Windows Server-omgeving  
 
-    -   Active Directory nécessite un administrateur avec des autorisations de modification du schéma  
+    -   Active Directory is vereist voor een beheerder met machtigingen om het schema te wijzigen  
 
-    -   Les machines virtuelles nécessitent des autorisations locales sur les machines elles-mêmes  
+    -   Virtuele machines hebben lokale machtigingen nodig op de machines zelf  
 
-Bien qu’elles ne soient pas requises pour ce laboratoire, vous pouvez consulter les [configurations prises en charge pour System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md) pour plus d’informations sur la configuration requise pour implémenter System Center Configuration Manager. Reportez-vous à la documentation pour les versions logicielles autres que celles référencées ici.  
+Hoewel dit niet vereist voor dit lab, kunt u bekijken [ondersteunde configuraties voor System Center Configuration Manager](../../core/plan-design/configs/supported-configurations.md) voor meer informatie over vereisten voor het implementeren van System Center Configuration Manager. Raadpleeg de documentatie voor softwareversies behalve die hier wordt verwezen.  
 
-Une fois que vous avez installé tous ces composants, des étapes supplémentaires sont à suivre pour configurer votre environnement Windows pour Configuration Manager :  
+Als u al deze onderdelen hebt geïnstalleerd, zijn er extra stappen die u nemen moet om uw Windows-omgeving configureren voor Configuration Manager:  
 
-###  <a name="BKMK_LabADPrep"></a> Préparer le contenu d’Active Directory pour le laboratoire  
- Pour ce laboratoire, vous allez créer un groupe de sécurité, puis lui ajouter un utilisateur de domaine.  
+###  <a name="BKMK_LabADPrep"></a> Active Directory-inhoud voor de testomgeving voorbereiden  
+ Voor deze testomgeving maakt u een beveiligingsgroep en vervolgens voegt u een domeingebruiker eraan toe.  
 
--   Groupe de sécurité : **Evaluation**  
+-   Beveiligingsgroep: **Evaluatie**  
 
-    -   Étendue du groupe : **Universal**  
+    -   Groepsbereik: **Universele**  
 
-    -   Type de groupe : **Security**  
+    -   Groepstype: **Beveiliging**  
 
--   Utilisateur du domaine : **ConfigUser**  
+-   Domeingebruiker: **ConfigUser**  
 
-     Dans des circonstances normales, vous n’accorderiez pas un accès universel à tous les utilisateurs au sein de votre environnement. Vous le faites ici avec cet utilisateur afin de rationaliser la mise en ligne de votre laboratoire.  
+     Onder normale omstandigheden zou u geen universele toegang verlenen aan alle gebruikers binnen uw omgeving. U doet dit met deze gebruiker om het online brengen van uw testomgeving te stroomlijnen.  
 
-Les étapes suivantes requises pour permettre aux clients Configuration Manager d’interroger les services de domaine Active Directory pour localiser les ressources de site sont répertoriées dans les procédures suivantes.  
+De volgende stappen vereist voor het inschakelen van Configuration Manager-clients naar query Active Directory Domain Services om sitebronnen te vinden worden in de volgende procedures weergegeven.  
 
-###  <a name="BKMK_CreateSysMgmtLab"></a> Créer le conteneur System Management  
- Configuration Manager ne crée pas automatiquement le conteneur System Management requis dans les services de domaine Active Directory quand le schéma est étendu. Par conséquent, vous allez le créer pour votre laboratoire. Dans cette étape, vous devez [installer l’Éditeur ADSI.](https://technet.microsoft.com/en-us/library/cc773354\(WS.10\).aspx#BKMK_InstallingADSIEdit)  
+###  <a name="BKMK_CreateSysMgmtLab"></a> De container voor systeembeheer maken  
+ Configuration Manager wordt niet automatisch gemaakt de vereiste container voor Systeembeheer in Active Directory Domain Services wanneer het schema is uitgebreid. Daarom maakt u deze voor uw testomgeving. Voor deze stap moet u [ADSI Bewerken installeren](https://technet.microsoft.com/en-us/library/cc773354\(WS.10\).aspx#BKMK_InstallingADSIEdit).  
 
- Veillez à être connecté sous un compte possédant l’autorisation **Créer tous les objets enfants** sur le conteneur **System** dans les services de domaine Active Directory.  
+ Zorg dat u bent aangemeld als een account waaraan de machtiging **Alle onderliggende objecten maken** is verleend voor de container **Systeem** in Active Directory Domain Services.  
 
-##### <a name="to-create-the-system-management-container"></a>Pour créer le conteneur System Management :  
+##### <a name="to-create-the-system-management-container"></a>De container voor systeembeheer maken:  
 
-1.  Exécutez l' **Éditeur ADSI**et connectez-vous au domaine dans lequel réside le serveur de site.  
+1.  Voer **ADSI Bewerken**uit en maak verbinding met het domein waaronder de siteserver zich bevindt.  
 
-2.  Développez **Domaine&lt;nom_domaine_complet_ordinateur\>**, développez **<nom_unique\>**, cliquez avec le bouton droit sur **CN=System**, cliquez sur **Nouveau**, puis cliquez sur **Objet**.  
+2.  Vouw **domein&lt;computer volledig gekwalificeerde domeinnaam\>**, vouw **< DN-naam\>**, met de rechtermuisknop op **CN = systeem**, klikt u op **nieuw**, en klik vervolgens op **Object**.  
 
-3.  Dans la boîte de dialogue **Créer un objet** , sélectionnez **Conteneur**et cliquez sur **Suivant**.  
+3.  Selecteer, in het **Maak object** dialoogvenster, **Container**, en klik dan op **Volgende**.  
 
-4.  Dans le champ **Valeur** , tapez **System Management**, puis cliquez sur **Suivant**.  
+4.  Tik in het vak **Waarde** , typ **System Management**en klik vervolgens op **Volgende**.  
 
-5.  Cliquez sur **Terminer** pour terminer la procédure.  
+5.  Klik op **Beëindig** om de procedure te vervolledigen.  
 
-###  <a name="BKMK_SetSecPermLab"></a> Définir les autorisations de sécurité pour le conteneur System Management  
- Accordez au compte d’ordinateur du serveur de site les autorisations nécessaires à la publication des informations de site sur le conteneur. Vous devez utiliser l’Éditeur ADSI pour cette tâche également.  
-
-> [!IMPORTANT]  
->  Vérifiez que vous êtes connecté au domaine du serveur de site avant de commencer la procédure suivante.  
-
-##### <a name="to-set-security-permissions-for-the-system-management-container"></a>Pour définir les autorisations de sécurité pour le conteneur System Management :  
-
-1.  Dans le volet de la console, développez successivement le **domaine du serveur de site**, **DC=&lt;nom_unique_serveur\>**, puis **CN=System**. Cliquez avec le bouton droit sur **CN=System Management**, puis cliquez sur **Propriétés**.  
-
-2.  Dans boîte de dialogue **CN=Propriétés de System Management** , cliquez sur l’onglet **Sécurité** , puis cliquez sur **Ajouter** pour ajouter le compte d’ordinateur du serveur de site. Accordez au compte les autorisations **Contrôle intégral** .  
-
-3.  Cliquez sur **Avancé**, sélectionnez le compte d’ordinateur du serveur de site, puis cliquez sur **Modifier**.  
-
-4.  Dans la liste **Appliquer à** , sélectionnez **Cet objet et tous ceux descendants**.  
-
-5.  Cliquez sur **OK** pour fermer la console **Éditeur ADSI** et terminer la procédure.  
-
-     Pour obtenir des informations supplémentaires sur cette procédure, consultez [Étendre le schéma Active Directory pour System Center Configuration Manager](../../core/plan-design/network/extend-the-active-directory-schema.md)  
-
-###  <a name="BKMK_ExtADSchLab"></a> Étendre le schéma Active Directory avec extadsch.exe  
- Vous allez étendre le schéma Active Directory pour ce laboratoire, car cela permet d’utiliser toutes les fonctions et fonctionnalités Configuration Manager avec une surcharge administrative minimale. L’extension du schéma Active Directory est une configuration à l’échelle de la forêt, qui ne peut être réalisée qu’une seule fois par forêt. L’extension du schéma modifie définitivement l’ensemble des classes et des attributs dans la configuration Active Directory de base. Cette action est irréversible. L’extension du schéma permet à Configuration Manager d’accéder aux composants qui lui permettront de fonctionner plus efficacement dans votre environnement de laboratoire.  
+###  <a name="BKMK_SetSecPermLab"></a> Beveiligingsrechten instellen voor de container voor systeembeheer  
+ Verleen het computeraccount van de siteserver de machtigingen die nodig zijn voor het publiceren van site-informatie naar de container. Voor deze taak gebruikt u ook ADSI Bewerken.  
 
 > [!IMPORTANT]  
->  Vérifiez que vous êtes connecté au contrôleur de domaine principal du schéma via un compte qui appartient au groupe de sécurité **Administrateurs du schéma** . Toute tentative d’utilisation d’autres informations d’identification échouera.  
+>  Bevestig dat u met het domein van de siteserver bent verbonden vóór het begin van de volgende procedure.  
 
-##### <a name="to-extend-the-active-directory-schema-using-extadschexe"></a>Pour étendre le schéma Active Directory avec extadsch.exe :  
+##### <a name="to-set-security-permissions-for-the-system-management-container"></a>Beveiligingsrechten instellen voor de container voor systeembeheer:  
 
-1.  Créez une sauvegarde de l’état système du contrôleur de domaine principal du schéma. Pour plus d’informations sur la sauvegarde d’un contrôleur de domaine principal, consultez [Sauvegarde de Windows Server](https://technet.microsoft.com/en-us/library/cc770757.aspx).  
+1.  Vouw in het consolevenster de **site-serverdomein**, vouw **DC =&lt;server DN-naam\>**, en vouw vervolgens **CN = systeem**. Klik met de rechtermuisknop op **CN=Systeembeheer**en klik dan op **Eigenschappen**.  
 
-2.  Accédez à **\SMSSETUP\BIN\X64** sur le support d’installation.  
+2.  Klik in het dialoogvenster **CN=Eigenschappen voor systeembeheer** op het tabblad **Beveiliging** en klik vervolgens op **Toevoegen** om het computeraccount van de siteserver toe te voegen. Verleen aan het account de machtigingen **Volledig beheer** .  
 
-3.  Exécutez **extadsch.exe**.  
+3.  Klik op **Geavanceerd**, selecteer de computeraccount van de siteserver en klik vervolgens op **bewerken**.  
 
-4.  Pour vérifier que l’extension du schéma a réussi, passez en revue le fichier **extadsch.log** situé dans le dossier racine du lecteur système.  
+4.  Selecteer, in de lijst **Toepassen op** , de optie **Dit object en de onderliggende objecten**.  
 
-     Pour obtenir des informations supplémentaires sur cette procédure, consultez [Étendre le schéma Active Directory pour System Center Configuration Manager](../../core/plan-design/network/extend-the-active-directory-schema.md).  
+5.  Klik op **OK** om de **ADSI Bewerken** -console te sluiten en de procedure te voltooien.  
 
-###  <a name="BKMK_OtherTasksLab"></a> Autres tâches requises  
- Vous devez également effectuer les tâches suivantes avant l’installation.  
+     Raadpleeg voor meer inzicht in deze procedure [Active Directory-schema voor System Center Configuration Manager uitbreiden](../../core/plan-design/network/extend-the-active-directory-schema.md)  
 
- **Créer un dossier pour stocker tous les téléchargements**  
+###  <a name="BKMK_ExtADSchLab"></a> Het Active Directory-schema met behulp van extadsch.exe uitbreiden  
+ U kunt Active Directory-schema voor dit lab wordt uitbreiden, omdat Hiermee kunt u alle Configuration Manager-functies en functionaliteit gebruiken met zo min mogelijk administratieve overhead. Het uitbreiden van het Active Directory-schema is een configuratie voor het hele forest, die één keer per forest wordt uitgevoerd. Permanente uitbreiding van het schema wijzigt de set klassen en kenmerken in de basisconfiguratie van Active Directory. Deze actie kan niet ongedaan worden gemaakt. Het schema uitbreidt, kunt Configuration Manager voor toegang tot onderdelen die voor de meest efficiënte binnen uw testomgeving zorgen.  
 
- Plusieurs téléchargements sont nécessaires pour obtenir les composants du support d’installation tout au long de cet exercice. Avant de commencer les procédures d’installation, déterminez un emplacement qui ne nécessite pas le déplacement de ces fichiers tant que vous souhaitez utiliser votre laboratoire. Il est recommandé d’utiliser un dossier unique avec des sous-dossiers distincts pour stocker ces téléchargements.  
+> [!IMPORTANT]  
+>  Verzeker u ervan dat u bent aangemeld op de schemamaster-domeincontroller met een account dat lid is van de beveiligingsgroep **Schemabeheerders** . Elke poging tot het gebruik van alternatieve referenties zal mislukken.  
 
- **Installer .NET et activer Windows Communication Foundation**  
+##### <a name="to-extend-the-active-directory-schema-using-extadschexe"></a>Het Active Directory-schema met behulp van extadsch.exe uitbreiden:  
 
- Vous devez installer deux infrastructures .NET : .NET 3.5.1 puis .NET 4.5.2+. Vous devez également activer Windows Communication Foundation (WCF). WCF est conçu pour offrir une approche gérable de l’informatique distribuée, une grande interopérabilité et une prise en charge directe de l’orientation service. Il simplifie le développement d’applications connectées via un modèle de programmation orienté service. Consultez [Qu’est-ce que Windows Communication Foundation ?](https://technet.microsoft.com/en-us/subscriptions/ms731082\(v=vs.90\).aspx) pour obtenir des informations supplémentaires sur WCF.  
+1.  Maak een back-up van de systeemstatus van de schemamaster-domeincontroller. Raadpleeg voor meer informatie over back-ups van de master-domeincontroller [Windows Server Backup](https://technet.microsoft.com/en-us/library/cc770757.aspx)  
 
-##### <a name="to-install-net-and-activate-windows-communication-foundation"></a>Pour installer .NET et activer Windows Communication Foundation :  
+2.  Navigeer naar **\SMSSETUP\BIN\X64** op het installatiemedium.  
 
-1.  Ouvrez **Server Manager**, puis accédez à **Gérer**. Cliquez sur **Ajouter des rôles et fonctionnalités** pour ouvrir l’ **Ajouter des rôles et fonctionnalités Wizard**.  
+3.  Voer **extadsch.exe**uit.  
 
-2.  Passez en revue les informations fournies dans le panneau **Avant de commencer** , puis cliquez sur **Suivant**.  
+4.  Controleer of de schema-uitbreiding is geslaagd door het **extadsch.log** te controleren dat zich in de hoofdmap van het systeemstation bevindt.  
 
-3.  Sélectionnez **Installation basée sur un rôle ou une fonctionnalité**, puis cliquez sur **Suivant**.  
+     Raadpleeg voor meer inzicht in deze procedure [Active Directory-schema voor System Center Configuration Manager uitbreiden](../../core/plan-design/network/extend-the-active-directory-schema.md).  
 
-4.  Sélectionnez votre serveur à partir du **Pool de serveurs**, puis cliquez sur **Suivant**.  
+###  <a name="BKMK_OtherTasksLab"></a> Andere vereiste taken  
+ U moet ook de volgende taken vóór de installatie voltooien.  
 
-5.  Examinez le panneau **Rôles de serveurs** , puis cliquez sur **Suivant**.  
+ **Een map maken voor het opslaan van alle downloads**  
 
-6.  Ajoutez les **Fonctionnalités** suivantes en les sélectionnant dans la liste :  
+ Er zijn tijdens deze oefening meerdere downloads vereist voor onderdelen van het installatiemedium. Voordat u begint met een installatieprocedure, kiest u een locatie waarbij u deze bestanden niet meer hoeft te verplaatsen totdat u de testomgeving weer buiten gebruik stelt. Eén map met afzonderlijke submappen voor het opslaan van deze downloads wordt aanbevolen.  
 
-    -   **Fonctionnalités de .NET Framework 3.5**  
+ **.NET installeren en Windows Communication Foundation activeren**  
 
-        -   **.NET Framework 3.5 (inclut .NET 2.0 et 3.0)**  
+ U moet eerst twee .NET Frameworks installeren: eerst .NET 3.5.1 en vervolgens .NET 4.5.2+. U moet ook Windows Communication Foundation (WCF) activeren. WCF is ontworpen om een beheerbare benadering te bieden voor gedistribueerde computing, brede interoperabiliteit en rechtstreekse ondersteuning voor service-oriëntatie. WCF vereenvoudigt ook de ontwikkeling van verbonden toepassingen via een servicegericht programmeermodel. Lees [Wat is Windows Communication Foundation?](https://technet.microsoft.com/en-us/subscriptions/ms731082\(v=vs.90\).aspx) voor meer inzicht in WCF.  
 
-    -   **Fonctionnalités de .NET Framework 4.5**  
+##### <a name="to-install-net-and-activate-windows-communication-foundation"></a>.NET installeren en Windows Communication Foundation activeren:  
+
+1.  Open **Server Manager**en navigeer vervolgens naar **Beheren**. Klik op **Functies en onderdelen toevoegen** om de **Functies en onderdelen toevoegen Wizard.**te openen.  
+
+2.  Bekijk de informatie in het paneel **Voordat u begint** en klik vervolgens op **Volgende**.  
+
+3.  Selecteer **Installatie die op de functie of het onderdeel is gebaseerd**en klik vervolgens op **Volgende**.  
+
+4.  Selecteer de server in de **Servergroep**en klik vervolgens op **Volgende**.  
+
+5.  Controleer het paneel **Serverfuncties** en klik vervolgens op **Volgende**.  
+
+6.  Voeg de volgende **Functies** toe door deze te selecteren in de lijst:  
+
+    -   **.NET Framework 3.5-functies**  
+
+        -   **.NET Framework 3.5 (inclusief .NET 2.0 en 3.0)**  
+
+    -   **.NET Framework 4.5-functies**  
 
         -   **.NET Framework 4.5**  
 
         -   **ASP.NET 4.5**  
 
-        -   **Services WCF**  
+        -   **WCF-services**  
 
-            -   **Activation HTTP**  
+            -   **HTTP-activering**  
 
-            -   **Partage de port TCP**  
+            -   **TCP-poort delen**  
 
-7.  Examinez l’écran **Rôle Serveur Web (IIS)** et **Services de rôle** , puis cliquez sur **Suivant**.  
+7.  Controleer het scherm **Webserverrol (IIS)** en **Functieservices** en klik vervolgens op **Volgende**.  
 
-8.  Examinez l’écran **Confirmation** , puis cliquez sur **Suivant**.  
+8.  Controleer het scherm **Bevestiging** en klik vervolgens op **Volgende**.  
 
-9. Cliquez sur **Installer** et vérifiez que l’installation s’est déroulée correctement dans le volet **Notifications** du **Gestionnaire de serveur**.  
+9. Klik op **Installeren** en controleer of de installatie is gelukt aan de hand van het deelvenster **Meldingen** van **Serverbeheer**.  
 
-10. Une fois l’installation de base de .NET terminée, accédez au [Centre de téléchargement Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=42643) pour obtenir le programme d’installation web de .NET Framework 4.5.2. Cliquez sur le bouton **Télécharger** , puis sur **Exécuter** pour lancer le programme d’installation. Il détecte et installe automatiquement les composants nécessaires dans la langue sélectionnée.  
+10. Nadat de basisinstallatie van .NET is voltooid, gaat u naar het [Microsoft Downloadcentrum](https://www.microsoft.com/en-us/download/details.aspx?id=42643) om het webinstallatieprogramma voor .NET Framework 4.5.2 op te halen. Klik op de knop **Downloaden** en kies vervolgens **Uitvoeren** voor het installatieprogramma. De vereiste onderdelen worden automatisch gedetecteerd en in de geselecteerde taal geïnstalleerd.  
 
-Pour plus d’informations, consultez les articles suivants qui expliquent pourquoi ces composants .NET Framework sont nécessaires :  
+Bekijk de volgende artikelen voor aanvullende informatie over de reden dat deze .NET Frameworks vereist zijn:  
 
--   [Versions et dépendances du .NET Framework](https://technet.microsoft.com/en-us/library/bb822049.aspx)  
+-   [Versies en afhankelijkheden van .NET Framework](https://technet.microsoft.com/en-us/library/bb822049.aspx)  
 
--   [Procédure pas à pas de vérification de la compatibilité des applications avec .NET Framework 4 RTM](https://technet.microsoft.com/en-us/library/dd889541.aspx)  
+-   [Overzicht toepassingscompatibiliteit .NET framework 4 RTM](https://technet.microsoft.com/en-us/library/dd889541.aspx)  
 
--   [Comment : mettre à niveau une application web ASP.NET vers ASP.NET 4](https://technet.microsoft.com/en-us/library/dd483478\(VS.100\).aspx)  
+-   [Procedures: Upgrade van een ASP.NET-webtoepassing naar ASP.NET 4](https://technet.microsoft.com/en-us/library/dd483478\(VS.100\).aspx)  
 
--   [Forum Aux Questions sur la politique de support - Microsoft .NET Framework](https://support.microsoft.com/en-us/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update)  
+-   [Veelgestelde vragen levenscyclusbeleid Microsoft .NET Framework-ondersteuning](https://support.microsoft.com/en-us/gp/framework_faq?WT.mc_id=azurebg_email_Trans_943_NET452_Update)  
 
--   [Les coulisses du CLR – L’approche « In-Process Side-by-Side »](https://msdn.microsoft.com/en-us/magazine/ee819091.aspx)  
+-   [CLR uitgelicht - In-Process Side-by-Side](https://msdn.microsoft.com/en-us/magazine/ee819091.aspx)  
 
-**Activer BITS, IIS et RDC**  
+**BITS, IIS en RDC inschakelen**  
 
-Le [service de transfert intelligent en arrière-plan (BITS)](https://technet.microsoft.com/en-us/library/dn282296.aspx) est utilisé pour les applications qui ont besoin de transférer de façon asynchrone des fichiers entre un client et un serveur. En contrôlant le flux des transferts au premier plan et en arrière-plan, le service BITS préserve la réactivité des autres applications réseau. Il reprend également automatiquement les transferts de fichiers en cas d’interruption d’une session de transfert.  
+[Background Intelligent Transfer Service (BITS)](https://technet.microsoft.com/en-us/library/dn282296.aspx) wordt gebruikt voor toepassingen die asynchroon bestanden moeten overbrengen tussen een client en een server. Door de stroom van de overdrachten op de voor- en achtergrond te reguleren, houdt BITS het reactievermogen van andere netwerktoepassingen intact. Ook worden automatisch bestandsoverdrachten hervat als een overdrachtssessie wordt onderbroken.  
 
-Vous devez installer le service BITS pour ce laboratoire, car ce serveur de site fera également office de point de gestion.  
+U installeert BITS voor deze testomgeving, omdat deze siteserver ook wordt gebruikt als beheerpunt.  
 
-Internet Information Services (IIS) est un serveur web flexible et évolutif, qui peut servir à héberger ce que vous voulez sur le web. Il est utilisé par Configuration Manager pour plusieurs rôles de système de site. Pour plus d’informations sur IIS, consultez [Sites web pour les serveurs de système de site dans System Center Configuration Manager](../../core/plan-design/network/websites-for-site-system-servers.md).  
+Internet Information Services (IIS) is een flexibele, schaalbare webserver die kan worden gebruikt voor het hosten van alles op het web. Wordt gebruikt door Configuration Manager voor een aantal sitesysteemrollen. Raadpleeg voor meer informatie over IIS [Websites voor sitesysteemservers in System Center Configuration Manager](../../core/plan-design/network/websites-for-site-system-servers.md).  
 
-La[compression différentielle à distance (RDC)](https://technet.microsoft.com/en-us/library/cc754372.aspx) est un ensemble d’API que les applications peuvent utiliser pour déterminer si des modifications ont été apportées à un ensemble de fichiers. La fonctionnalité RDC permet à l’application de répliquer uniquement les parties modifiées d’un fichier, limitant ainsi au maximum le trafic réseau.  
+[Externe differentiële compressie (RDC)](https://technet.microsoft.com/en-us/library/cc754372.aspx) is een reeks API's dat toepassingen kunnen gebruiken om te bepalen of eventuele wijzigingen zijn aangebracht in een set bestanden. Via RDC kan de toepassing alleen de gewijzigde gedeelten van een bestand repliceren, waardoor netwerkverkeer tot een minimum wordt beperkt.  
 
-##### <a name="to-enable-bits-iis-and-rdc-site-server-roles"></a>Pour activer les rôles de serveur de site BITS, IIS et RDC :  
+##### <a name="to-enable-bits-iis-and-rdc-site-server-roles"></a>De siteserverrollen BITS, IIS en RDC inschakelen:  
 
-1.  Sur votre serveur de site, ouvrez **Server Manager**. Accédez à **Gérer**. Cliquez sur **Ajouter des rôles et fonctionnalités** pour ouvrir l’ **Assistant Ajout de rôles et de fonctionnalités**.  
+1.  Open op de siteserver **Server Manager**. Ga naar **Beheren**. Klik op **Functies en onderdelen toevoegen** om de **Wizard Functies en onderdelen toevoegen**te openen.  
 
-2.  Passez en revue les informations fournies dans le panneau **Avant de commencer** , puis cliquez sur **Suivant**.  
+2.  Bekijk de informatie in het paneel **Voordat u begint** en klik vervolgens op **Volgende**.  
 
-3.  Sélectionnez **Installation basée sur un rôle ou une fonctionnalité**, puis cliquez sur **Suivant**.  
+3.  Selecteer **Installatie die op de functie of het onderdeel is gebaseerd**en klik vervolgens op **Volgende**.  
 
-4.  Sélectionnez votre serveur à partir du **Pool de serveurs**, puis cliquez sur **Suivant**.  
+4.  Selecteer de server in de **Servergroep**en klik vervolgens op **Volgende**.  
 
-5.  Ajoutez les **Rôles de serveur** suivants en les sélectionnant dans la liste :  
+5.  Voeg de volgende **Serverfuncties** toe door deze te selecteren in de lijst:  
 
-    -   **Serveur web (IIS)**  
+    -   **Webserver (IIS)**  
 
-        -   **Fonctionnalités HTTP communes**  
+        -   **Veelvoorkomende HTTP-functies**  
 
-            -   **Document par défaut**  
+            -   **Standaarddocument**  
 
-            -   **Exploration des répertoires**  
+            -   **Bladeren door mappen**  
 
-            -   **Erreurs HTTP**  
+            -   **HTTP-fouten**  
 
-            -   **Contenu statique**  
+            -   **Statische inhoud**  
 
-            -   **Redirection HTTP**  
+            -   **HTTP-omleiding**  
 
-        -   **Intégrité et diagnostics**  
+        -   **Status en diagnose**  
 
-            -   **Journalisation HTTP**  
+            -   **HTTP-logboekregistratie**  
 
-            -   **Outils de journalisation**  
+            -   **Logboekregistratieprogramma's**  
 
-            -   **Observateur de demandes**  
+            -   **Controle aanvragen**  
 
-            -   **Suivi**  
+            -   **Tracering**  
 
-    -   **Performancess**  
+    -   **Prestatie**  
 
-        -   **Compression de contenu statique**  
+        -   **Compressie van statische inhoud**  
 
-        -   **Compression de contenu dynamique**  
+        -   **Dynamische inhoudscompressie**  
 
     -   **Security**  
 
-        -   **Filtrage des demandes**  
+        -   **Filtering aanvragen**  
 
-        -   **Authentification de base**  
+        -   **Basisverificatie**  
 
-        -   **Authentification par mappage de certificat client**  
+        -   **Verificatie van clientcertificaattoewijzing**  
 
-        -   **Restrictions IP et de domaine**  
+        -   **IP- en domeinbeperkingen**  
 
-        -   **Autorisation URL**  
+        -   **URL-autorisatie**  
 
-        -   **Autorisation Windows**  
+        -   **Windows-autorisatie**  
 
-    -   **Développement d’applications**  
+    -   **Toepassingsontwikkeling**  
 
-        -   **Extensibilité .NET 3.5**  
+        -   **.NET Extensibility 3.5**  
 
-        -   **Extensibilité .NET 4.5**  
+        -   **.NET Extensibility 4.5**  
 
         -   **ASP**  
 
@@ -289,111 +289,111 @@ La[compression différentielle à distance (RDC)](https://technet.microsoft.com/
 
         -   **ASP.NET 4.5**  
 
-        -   **Extensions ISAPI**  
+        -   **ISAPI-extensies**  
 
-        -   **Filtres ISAPI**  
+        -   **ISAPI-filters**  
 
-        -   **Fichiers Include côté serveur**  
+        -   **Insluiten vanaf server**  
 
-    -   **Serveur FTP**  
+    -   **FTP-server**  
 
-        -   **Service FTP**  
+        -   **FTP-service**  
 
-    -   **Outils de gestion**  
+    -   **Beheerhulpprogramma's**  
 
-        -   **Console de gestion IIS**  
+        -   **IIS-beheerconsole**  
 
-        -   **IIS 6 Management Compatibility**  
+        -   **Compatibiliteit met IIS 6-beheer**  
 
-            -   **Compatibilité avec la métabase de données IIS 6**  
+            -   **Compatibiliteit met IIS 6-metabase**  
 
-            -   **Console de gestion IIS 6**  
+            -   **IIS 6-beheerconsole**  
 
-            -   **Outils de script IIS 6**  
+            -   **IIS 6-scripthulpprogramma's**  
 
-            -   **Compatibilité WMI d'IIS 6**  
+            -   **Compatibiliteit met IIS 6 WMI**  
 
-        -   **Scripts et outils de gestion d’IIS 6**  
+        -   **Scripts en hulpprogramma's voor IIS 6-beheer**  
 
-        -   **Service d'administration**  
+        -   **Mangementservice**  
 
-6.  Ajoutez les **Fonctionnalités** suivantes en les sélectionnant dans la liste :  
+6.  Voeg de volgende **Functies** toe door deze te selecteren in de lijst:  
 
-    -   -   **service de transfert intelligent en arrière-plan (BITS)**  
+    -   -   **Background Intelligent Transfer Service (BITS)**  
 
-            -   **Extension de serveur IIS**  
+            -   **IIS-serveruitbreiding**  
 
-        -   **Outils d'administration de serveur distant**  
+        -   **Externe-serverbeheerprogramma's**  
 
-            -   **Outils d’administration de fonctionnalités**  
+            -   **Beheerprogramma's voor onderdelen**  
 
-                -   **Outils d’extensions du serveur BITS**  
+                -   **Hulpprogramma's voor BITS-serveruitbreidingen**  
 
-7.  Cliquez sur **Installer** et vérifiez que l’installation s’est déroulée correctement dans le volet **Notifications** du **Gestionnaire de serveur**.  
+7.  Klik op **Installeren** en controleer of de installatie is gelukt aan de hand van het deelvenster **Meldingen** van **Serverbeheer**.  
 
-Par défaut, le service IIS bloque l’accès via la communication HTTP ou HTTPS à plusieurs types d’extensions et d’emplacements de fichier. Pour permettre la distribution de ces fichiers sur les systèmes clients, vous devez configurer le filtrage des demandes pour IIS sur votre point de distribution. Pour plus d’informations, consultez [Filtrage des demandes IIS pour les points de distribution](../../core/plan-design/network/prepare-windows-servers.md#BKMK_IISFiltering).  
+IIS blokkeert standaard de toegang tot verschillende bestandsextensies en locaties voor HTTP- of HTTPS-communicatie. U moet aanvraagfiltering voor IIS op het distributiepunt configureren zodat deze bestanden kunnen worden gedistribueerd naar clientsystemen. Raadpleeg voor meer informatie [IIS-Aanvraagfiltering voor distributiepunten](../../core/plan-design/network/prepare-windows-servers.md#BKMK_IISFiltering).  
 
-##### <a name="to-configure-iis-filtering-on-distribution-points"></a>Pour configurer le filtrage IIS sur les points de distribution :  
+##### <a name="to-configure-iis-filtering-on-distribution-points"></a>IIS-filtering configureren voor distributiepunten:  
 
-1.  Ouvrez **IIS Manager** et sélectionnez le nom de votre serveur dans la barre latérale. Vous accédez à l’écran **Accueil** .  
+1.  Open **IIS Manager** en selecteer de naam van de server in de zijbalk. Hierdoor komt u in het scherm **Start** .  
 
-2.  Vérifiez que l’option **Affichage des fonctionnalités** est sélectionnée au bas de l’écran **Accueil** . Accédez à **IIS** et ouvrez **Filtrage des demandes**.  
+2.  Controleer of **Functieweergave** is geselecteerd onder aan het scherm **Start** . Ga naar **IIS** en open **Filteren aanvragen**.  
 
-3.  Dans le volet **Actions** , cliquez sur **Autoriser une extension de nom de fichier...**  
+3.  Klik in het deelvenster **Acties** op **Bestandsnaamextensie toestaan**.  
 
-4.  Tapez **.msi** dans la boîte de dialogue et cliquez sur **OK**.  
+4.  Typ **.msi** in het dialoogvenster en klik op **OK**.  
 
-###  <a name="BKMK_InstallCMLab"></a> Installation de Configuration Manager  
-Vous allez [déterminer quand utiliser un site principal](../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md#BKMK_ChoosePriimary) pour gérer directement les clients. Cela permettra à votre environnement lab de prendre en charge la gestion de la [mise à l’échelle du système de site](/sccm/core/plan-design/configs/size-and-scale-numbers) des appareils potentiels.  
-Au cours de ce processus, vous allez également installer la console Configuration Manager qui permettra de gérer vos appareils d’évaluation.  
+###  <a name="BKMK_InstallCMLab"></a> Configuration Manager installeren  
+U maakt een [bepalen wanneer een primaire site gebruiken](../../core/plan-design/hierarchy/design-a-hierarchy-of-sites.md#BKMK_ChoosePriimary) clients rechtstreeks te beheren. Hierdoor kan uw testomgeving beheer ondersteunen voor [Site system scale](/sccm/core/plan-design/configs/size-and-scale-numbers) van mogelijke apparaten.  
+Tijdens dit proces installeert u ook de Configuration Manager-console die wordt gebruikt om uw evaluatie-apparaten voortaan te beheren.  
 
-Avant de commencer l’installation, lancez l’[outil de vérification des prérequis](/sccm/core/servers/deploy/install/prerequisite-checker) sur le serveur utilisant Windows Server 2012 pour confirmer que tous les paramètres ont été correctement activés.  
+Voordat u de installatie begint, start de [Prerequisite Checker](/sccm/core/servers/deploy/install/prerequisite-checker) op de server met Windows Server 2012 om te bevestigen dat alle instellingen correct zijn ingeschakeld.  
 
-##### <a name="to-download-and-install-configuration-manager"></a>Pour télécharger et installer Configuration Manager :  
+##### <a name="to-download-and-install-configuration-manager"></a>Configuration Manager downloaden en installeren:  
 
-1.  Accédez à la page [System Center Évaluations](https://www.microsoft.com/evalcenter/evaluate-system-center-2012-configuration-manager-and-endpoint-protection) pour télécharger la dernière version d’évaluation de System Center Configuration Manager.  
+1.  Navigeer naar de [System Center-evaluaties](https://www.microsoft.com/evalcenter/evaluate-system-center-2012-configuration-manager-and-endpoint-protection) pagina voor het downloaden van de nieuwste evaluatieversie van System Center Configuration Manager.  
 
-2.  Décompressez le média de téléchargement dans votre emplacement prédéfini.  
+2.  Decomprimeer het downloadmedium naar de vooraf gedefinieerde locatie.  
 
-3.  Suivez la procédure d’installation indiquée dans la rubrique [Installer un site à l’aide de l’Assistant Installation de System Center Configuration Manager](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites). Dans cette procédure, vous allez entrer les éléments suivants :  
+3.  Volg de installatieprocedure zoals beschreven in [een site installeren met de Setup Wizard van System Center Configuration Manager](/sccm/core/servers/deploy/install/use-the-setup-wizard-to-install-sites). In deze procedure geeft u de volgende invoer op:  
 
-    |Étape de la procédure d’installation de site|Sélection|  
+    |Stap in de procedure voor site-installatie|Selectie|  
     |-----------------------------------------|---------------|  
-    |Étape 4 : la page **Clé du produit**|Sélectionnez **Évaluation**.|  
-    |Étape 7 :  **Téléchargements requis**|Sélectionnez **Télécharger les fichiers requis** et spécifier votre emplacement prédéfini.|  
-    |Étape 10 : **Paramètres d’installation et du site**|-   **Code du site :LAB**<br />-   **Nom du site :Evaluation**<br />-   **Dossier d’installation :** spécifiez votre emplacement prédéfini.|  
-    |Étape 11 : **Installation du site principal**|Sélectionnez **Installer le site principal en tant que site autonome**, puis cliquez sur **Suivant**.|  
-    |Étape 12 : **Installation de la base de données**|-   **Nom du serveur SQL Server (nom de domaine complet) :** entrez ici votre nom de domaine complet.<br />-   **Nom de l’instance :** laissez ce champ vide, car vous utiliserez l’instance par défaut de SQL que vous avez installée précédemment.<br />-   **Port Service Broker :** conservez le port par défaut 4022.|  
-    |Étape 13 : **Installation de la base de données**|Conservez ces paramètres par défaut.|  
-    |Étape 14 : **Fournisseur SMS**|Conservez ces paramètres par défaut.|  
-    |Étape 15 : **Paramètres de communication client**|Assurez-vous que l’option **Tous les rôles de système de site acceptent uniquement les communications HTTPS depuis les clients** n’est pas sélectionnée.|  
-    |Étape 16 : **Rôles système de site**|Entrez votre nom de domaine complet et assurez-vous que l’option **Tous les rôles de système de site acceptent uniquement les communications HTTPS depuis les clients** est toujours désactivée.|  
+    |Stap 4: de pagina **Productcode**|Selecteer **Evaluatie**.|  
+    |Stap 7:  **Vereiste Downloads**|Selecteer **Vereiste bestanden downloaden** en geef de vooraf gedefinieerde locatie op.|  
+    |Stap 10: **Site- en installatie-instellingen**|-   **Sitecode:LAB**<br />-   **Sitenaam:Evaluation**<br />-   **Installatiemap:** geef de vooraf gedefinieerde locatie op.|  
+    |Stap 11: **Primaire Site-installatie**|Selecteer **De primaire site installeren als een zelfstandige site**en klik vervolgens op **Volgende**.|  
+    |Stap 12: **Database-installatie**|-   **SQL Server-naam (FQDN):** voer hier de FQDN in.<br />-   **Exemplaarnaam:** laat dit leeg, omdat u het standaardexemplaar van SQL gebruikt dat u eerder hebt geïnstalleerd.<br />-   **Service Broker-poort:** laat de standaardpoort 4022 staan.|  
+    |Stap 13: **Database-installatie**|Laat deze instellingen als standaard.|  
+    |Step 14: **SMS-Provider**|Laat deze instellingen als standaard.|  
+    |Stap 15: **Communicatie-instellingen voor client**|Bevestig dat **Alle sitesysteemrollen accepteren alleen HTTPS-communicatie van clients** niet is ingeschakeld.|  
+    |Stap 16: **Sitesysteemrollen**|Voer de FQDN-naam in en bevestig dat **Alle sitesysteemrollen accepteren alleen HTTPS-communicatie van clients** nog steeds is uitgeschakeld.|  
 
-###  <a name="BKMK_EnablePubLab"></a> Activer la publication pour le site Configuration Manager  
-Chaque site Configuration Manager publie ses propres informations de site sur le conteneur System Management, au sein de sa partition de domaine dans le schéma Active Directory. Des canaux bidirectionnels pour la communication entre Active Directory et Configuration Manager doivent être ouverts pour gérer ce trafic. Vous devez également activer la fonctionnalité Découverte de forêts pour déterminer certains composants de votre infrastructure réseau et Active Directory.  
+###  <a name="BKMK_EnablePubLab"></a>Publicatie inschakelen voor de Configuration Manager-site  
+Elke Configuration Manager-site publiceert haar eigen site-specifieke informatie naar de Systeembeheer-container binnen haar domeinpartitie in het Active Directory-schema. Bidirectionele kanalen voor communicatie tussen Active Directory en Configuration Manager moeten worden geopend voor het afhandelen van dit verkeer. U schakelt bovendien ook forestdetectie in om bepaalde onderdelen van uw Active Directory en de netwerkinfrastructuur te bepalen.  
 
-##### <a name="to-configure-active-directory-forests-for-publishing"></a>Pour configurer des forêts Active Directory pour la publication :  
+##### <a name="to-configure-active-directory-forests-for-publishing"></a>Handel als volgt om Active Directory-forests voor publicatie te configureren:  
 
-1.  Dans le coin inférieur gauche de la console Configuration Manager, cliquez sur **Administration**.  
+1.  Klik in de linkerbenedenhoek van de Configuration Manager-console op **beheer**.  
 
-2.  Dans l’espace de travail **Administration** , développez **Configuration de la hiérarchie**, puis cliquez sur **Méthodes de découverte**.  
+2.  Vouw in de werkruimte **Beheer** de optie **Hiërarchieconfiguratie**uit en klik vervolgens op **Detectiemethoden**.  
 
-3.  Sélectionnez **Découverte de forêts Active Directory** et cliquez sur **Propriétés**.  
+3.  Selecteer **Detectie van Active Directory-forests** en klik op **Eigenschappen**.  
 
-4.  Dans la boîte de dialogue **Propriétés** , sélectionnez **Activer la découverte de forêts Active Directory**. Une fois cette option activée, sélectionnez **Créer automatiquement les limites de site Active Directory lorsqu’elles sont découvertes**. Une boîte de dialogue s’affiche indiquant **Voulez-vous exécuter la découverte complète dès que possible ?** Cliquez sur **Oui**.  
+4.  Selecteer in het dialoogvenster **Eigenschappen** de optie **Active Directory-forestdetectie inschakelen**. Als deze optie actief is, selecteert u **Automatisch Active Directory-sitegrenzen maken na detectie**. Er wordt een dialoogvenster weergegeven waarin wordt aangegeven **Wilt u zo snel mogelijk een volledige detectie uitvoeren?** Klik op **Ja**.  
 
-5.  Dans le groupe **Méthode de découverte** en haut de l’écran, cliquez sur **Exécuter la découverte de forêt maintenant**, puis accédez à **Forêts Active Directory** dans la barre latérale. Votre forêt Active Directory doit figurer dans la liste des forêts découvertes.  
+5.  In de groep **Detectiemethode** aan de bovenkant van het scherm klikt u op **Forestdetectie nu uitvoeren**en vervolgens gaat u naar **Active Directory-forests** in de zijbalk. Uw Active Directory-forest moet worden weergegeven in de lijst met gedetecteerde forests.  
 
-6.  Accédez à la partie supérieure de l’écran, sous l’onglet **Général** .  
+6.  Navigeer naar de bovenkant van het scherm op het tabblad **Algemeen** .  
 
-7.  Dans l’espace de travail **Administration** , développez **Configuration de la hiérarchie**, puis cliquez sur **Forêts Active Directory**.  
+7.  Vouw in de werkruimte **Beheer** de optie **Hiërarchieconfiguratie**uit en klik vervolgens op **Active Directory-forests**.  
 
-##### <a name="to-enable-a-configuration-manager-site-to-publish-site-information-to-your-active-directory-forest"></a>Pour permettre à un site Configuration Manager de publier des informations de site vers votre forêt Active Directory :  
+##### <a name="to-enable-a-configuration-manager-site-to-publish-site-information-to-your-active-directory-forest"></a>Een Configuration Manager-site naar site-informatie publiceren naar Active Directory-forest inschakelen:  
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration**.  
+1.  Klik op **Beheer**in de Configuration Manager-console.  
 
-2.  Vous allez configurer une nouvelle forêt qui n’a pas encore été découverte.  
+2.  U configureert een nieuw forest dat nog niet is gedetecteerd.  
 
-3.  Dans l'espace de travail **Administration** , cliquez sur **Forêts Active Directory**.  
+3.  Klik op **Active Directory-forests** in de werkruimte **Beheer**.  
 
-4.  Sous l’onglet **Publication** des propriétés du site, sélectionnez votre forêt connectée, puis cliquez sur **OK** pour enregistrer la configuration.
+4.  Op het tabblad **Publiceren** van de site-eigenschappen selecteert u het verbonden forest en klikt u vervolgens op **Ok** om de configuratie op te slaan.

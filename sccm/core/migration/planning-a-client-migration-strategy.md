@@ -1,6 +1,6 @@
 ---
-title: Planifier la migration des clients | Microsoft Docs
-description: "Découvrez les tâches de migration des clients depuis une hiérarchie source vers une hiérarchie de destination System Center Configuration Manager."
+title: Bij een clientmigratie plannen | Microsoft Docs
+description: "Meer informatie over de taken die u clients vanuit een bronhiërarchie naar een doelhiërarchie van System Center Configuration Manager migreert."
 ms.custom: na
 ms.date: 12/30/2016
 ms.prod: configuration-manager
@@ -16,88 +16,88 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: b52ca4059dfeed08cabf1f75319da40d6499622f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="plan-a-client-migration-strategy-in-system-center-configuration-manager"></a>Planifier une stratégie de migration de clients dans System Center Configuration Manager
+# <a name="plan-a-client-migration-strategy-in-system-center-configuration-manager"></a>Een strategie voor clientmigratie in System Center Configuration Manager plannen
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Pour migrer des clients de la hiérarchie source vers une hiérarchie de destination System Center Configuration Manager, vous devez effectuer deux tâches. Vous devez migrer les objets qui sont associés au client et vous devez réinstaller ou réaffecter les clients depuis la hiérarchie source à la hiérarchie de destination. Vous migrez tout d'abord les objets pour qu'ils soient disponibles lorsque les clients sont migrés. Les objets associés au client sont migrés à l'aide de tâches de migration. Pour plus d’informations sur la migration des objets associés au client, consultez [Planification d’une stratégie pour les tâches de migration dans System Center Configuration Manager](../../core/migration/planning-a-migration-job-strategy.md).  
+Migreren van clients van de bronhiërarchie naar een doelhiërarchie van System Center Configuration Manager, moet u twee taken uitvoeren. U dient de objecten te migreren die aan de client zijn gekoppeld en vervolgens de clients opnieuw installeren of toewijzen van de bronhiërarchie aan de doelhiërarchie. U migreert eerst de objecten zodat ze beschikbaar zijn wanneer de clients worden gemigreerd. De objecten die aan de client zijn gekoppeld worden gemigreerd met behulp van migratietaken. Zie voor meer informatie over het migreren van objecten die gekoppeld aan de client zijn [een strategie voor migratie in System Center Configuration Manager plannen](../../core/migration/planning-a-migration-job-strategy.md).  
 
- Utilisez les sections suivantes pour planifier la migration des clients vers la hiérarchie de destination.  
+ Gebruik de volgende rubrieken om de migratie van clients naar de doelhiërarchie te plannen.  
 
--   [Planifier la migration des clients vers la hiérarchie de destination](#Planning_for_Client_Agent_Migration)  
+-   [De migratie van clients naar de doelhiërarchie plannen](#Planning_for_Client_Agent_Migration)  
 
--   [Planifier la gestion des données conservées sur les clients pendant la migration](#Planning_for_Client_Data_Migration)  
+-   [De verwerking van gegevens die op de clients achterblijven tijdens de migratie plannen](#Planning_for_Client_Data_Migration)  
 
--   [Planifier les données d’inventaire et de compatibilité pendant la migration](#Planning_for_Inventory_data_migration)  
+-   [Plan de inventaris- en compatibiliteitsgegevens tijdens de migratie](#Planning_for_Inventory_data_migration)  
 
-##  <a name="Planning_for_Client_Agent_Migration"></a> Planifier la migration des clients vers la hiérarchie de destination  
- Quand vous migrez des clients d’une hiérarchie source, le logiciel client sur l’ordinateur client est mis à niveau avec la version du produit de la hiérarchie de destination.  
+##  <a name="Planning_for_Client_Agent_Migration"></a> De migratie van clients naar de doelhiërarchie plannen  
+ Wanneer u clients migreert vanuit een bronhiërarchie, wordt de clientsoftware op de computer clientupgrades overeenkomen met de versie van het product van de doelhiërarchie.  
 
--   **Hiérarchie source Configuration Manager 2007** : quand vous migrez des clients à partir d’une hiérarchie source qui exécute une version prise en charge de Configuration Manager, le logiciel client est mis à niveau vers la version cliente de la hiérarchie de destination.  
+-   **Een Configuration Manager 2007-Bronhiërarchie:** Wanneer u clients migreert vanuit een bronhiërarchie waarop een ondersteunde versie van Configuration Manager, de clientsoftware bijgewerkt naar de clientversie voor de doelhiërarchie.  
 
--   **Hiérarchie source System Center 2012 Configuration Manager ou version ultérieure** : quand vous migrez des clients entre des hiérarchies avec la même version de produit, le logiciel client ne change pas ou ne se met pas à niveau. Le client est simplement réaffecté depuis la hiérarchie source vers un site de la hiérarchie de destination.  
+-   **Een System Center 2012 Configuration Manager of hoger Bronhiërarchie:** Wanneer u clients tussen hiërarchieën die dezelfde productversie migreert, de clientsoftware niet wijzigen of bijwerken. In plaats daarvan gebeurt toewijzing van de client van de bronhiërarchie naar een site in de doelhiërarchie.  
 
     > [!NOTE]  
-    >  Lorsque la version de produit d'une hiérarchie n'est pas prise en charge pour migration vers votre hiérarchie de destination, mettez à niveau tous les sites et les clients dans la hiérarchie source vers une version de produit compatible. Une fois la hiérarchie source mise à niveau vers une version de produit prise en charge, vous pouvez effectuer la migration entre hiérarchies. Pour plus d’informations, consultez [Versions de Configuration Manager prises en charge pour la migration](../../core/migration/prerequisites-for-migration.md#BKMK_SupportedMigrationVersions) dans [Prérequis de la migration dans System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md).  
+    >  Als de productversie van een hiërarchie niet wordt ondersteund voor migratie naar uw doelhiërarchie, upgrade alle sites en clients in de bronhiërarchie naar een compatibele productversie. Na het upgraden van de doelhiërarchie naar een ondersteunde productversie, kunt u tussen de hiërarchieën migreren. Zie voor meer informatie [versies van Configuration Manager die worden ondersteund voor migratie](../../core/migration/prerequisites-for-migration.md#BKMK_SupportedMigrationVersions) in [vereisten voor migratie in System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md).  
 
-Tenez compte des informations suivantes pour planifier la migration des clients :  
+Gebruik de volgende informatie bij het plannen van de clientmigratie:  
 
--   Pour mettre à niveau ou réaffecter des clients d'un site source vers un site de destination, vous pouvez utiliser une méthode de déploiement client prise en charge pour le déploiement de clients dans la hiérarchie de destination. Les méthodes de déploiement client classiques comprennent l'installation poussée du client, la distribution de logiciels, la stratégie de groupe et l'installation du logiciel client basé sur la mise à jour. Pour plus d’informations, consultez [Méthodes d’installation du client dans System Center Configuration Manager](../../core/clients/deploy/plan/client-installation-methods.md).  
+-   Voor het upgraden of opnieuw toewijzen van clients van een bronsite naar een doelsite, kunt u iedere implementatiemethode voor clients gebruiken die wordt ondersteund voor het implementeren van clients in de doelhiërarchie. Typische implementatiemethodes voor clients zijn onder andere clientpushinstallaties, softwaredistributie, groepsbeleid en clientinstallaties gebaseerd op softwareupdates. Zie voor meer informatie [clientinstallatiemethoden in System Center Configuration Manager](../../core/clients/deploy/plan/client-installation-methods.md).  
 
--   Assurez-vous que l’appareil sur lequel s’exécute le logiciel client dans la hiérarchie source présente la configuration matérielle minimale requise et exécute un système d’exploitation pris en charge par la version de Configuration Manager utilisée dans la hiérarchie de destination.  
+-   Zorg ervoor dat het apparaat dat de clientsoftware in de bronhiërarchie uitvoert voldoet aan de minimale hardwarevereisten en draait op een besturingssysteem dat wordt ondersteund door de versie van Configuration Manager in de doelhiërarchie.  
 
--   Avant de migrer un client, exécutez une tâche de migration pour migrer les informations que le client va utiliser dans la hiérarchie de destination.  
+-   Voordat u een client migreert, voert u een migratietaak voor het migreren van de informatie die de client wordt gebruikt in de doelhiërarchie.  
 
--   Les clients mis à niveau conservent leur historique d’exécution pour les déploiements. Cela évite d’avoir à réexécuter inutilement des déploiements dans la hiérarchie de destination.  
+-   Clients die upgraden behouden hun uitvoeringsgeschiedenis voor implementaties. Dit voorkomt dat implementaties onnodig opnieuw in de doelhiërarchie.  
 
-    -   Pour les clients Configuration Manager 2007, l’historique d’exécution de publication est conservé.  
+    -   Voor Configuration Manager 2007-clients, advertentie-uitvoeringsgeschiedenis bewaard.  
 
-    -   Pour les clients à partir de System Center 2012 Configuration Manager ou System Center Configuration Manager, l’historique d’exécution des déploiements est conservé.  
+    -   Voor clients van System Center 2012 Configuration Manager of System Center Configuration Manager blijft de uitvoeringsgeschiedenis voor implementaties.  
 
--   Vous pouvez migrer les clients à partir de sites de la hiérarchie source dans l'ordre de votre choix. Toutefois, migrez un nombre limité de clients en plusieurs étapes au lieu de migrer un grand nombre de clients simultanément. Une migration progressive réduit les besoins en bande passante et le traitement du serveur lorsque chaque client qui vient d'être mis à niveau envoie son inventaire complet initial et ses données de compatibilité au site qui lui est affecté.  
+-   U kunt clients migreren van sites in de bronhiërarchie in iedere gewenste volgorde. Overweeg echter beperkt aantal clients gefaseerd te migreren in plaats van grote aantallen clients tegelijk migreren. Een gefaseerde migratie legt minder beslag op de netwerkbandbreedte en serververwerking wanneer iedere pas bijgewerkte client zijn initiële inventaris- en compatibiliteitsgegevens naar de toegewezen site verzendt.  
 
--   Quand vous migrez des clients Configuration Manager 2007, le logiciel client existant est désinstallé de l’ordinateur client et le nouveau logiciel client y est installé.  
+-   Wanneer u Configuration Manager 2007-clients migreert, wordt de clientsoftware is verwijderd van de clientcomputer en de nieuwe clientsoftware wordt geïnstalleerd.  
 
--   Configuration Manager ne peut pas migrer un client Configuration Manager 2007 sur lequel est installé le client App-V, sauf si la version de ce dernier est la version 4.6 SP1 ou une version ultérieure.  
+-   Configuration Manager kan niet migreren van een Configuration Manager 2007-client die de App-V-client is geïnstalleerd, tenzij de App-V-clientversie 4.6 SP1 of hoger.  
 
-Vous pouvez surveiller le processus de migration du client dans le nœud **Migration** de l’espace de travail **Administration** dans la console Configuration Manager.  
+U kunt het clientmigratieproces in bewaken de **migratie** knooppunt van de **beheer** werkruimte in de Configuration Manager-console.  
 
-Après la migration du client vers la hiérarchie de destination, vous ne pouvez plus gérer cet appareil dans votre hiérarchie source et vous devez supprimer le client de la hiérarchie source. Bien que cette action ne soit pas obligatoire dans le cadre du processus de migration des hiérarchies, elle peut empêcher l'identification d'un client migré dans un rapport de hiérarchie source ou un nombre incorrect de ressources entre les deux hiérarchies au cours de la migration. Par exemple, lorsqu'un client migré reste dans la base de données du site source, vous pourriez exécuter un rapport de mises à jour logicielles qui identifie incorrectement l'ordinateur comme ressource non gérée alors qu'il est géré par la hiérarchie de destination.  
+Nadat u de client naar de doelhiërarchie hebt gemigreerd, kunt u dat het apparaat niet meer beheren met behulp van uw bronhiërarchie en kunt u overwegen de client verwijderen uit de bronhiërarchie. Hoewel het niet vereist is bij het migreren van hiërarchieën, kan dit helpen bij het voorkomen van de identificatie van een gemigreerde client in een bronhiërarchierapport of een onjuiste telling van bronnen tussen de twee hiërarchieën tijdens de migratie. Wanneer bijvoorbeeld een gemigreerde client achterblijft in de database van de bronsite, kunt u een softwareupdaterapport uitvoeren dat de computer mogelijk onjuist identificeert als een onbeheerde bron wanneer het nu wordt beheerd door de doelhiërarchie.  
 
-##  <a name="Planning_for_Client_Data_Migration"></a> Planifier la gestion des données conservées sur les clients pendant la migration  
-Lorsque vous migrez un client de sa hiérarchie source vers la hiérarchie de destination, certaines informations sont conservées sur le périphérique, alors que d'autres ne sont pas disponibles sur le périphérique après la migration.  
+##  <a name="Planning_for_Client_Data_Migration"></a> De verwerking van gegevens die op de clients achterblijven tijdens de migratie plannen  
+Bij de migratie van een client van de bronhiërarchie naar de doelhiërarchie, blijven er sommige gegevens achter op het apparaat, terwijl andere informatie niet beschikbaar is op het apparaat na migratie.  
 
-Les informations suivantes sont conservées sur le périphérique client :  
+De volgende informatie wordt behouden op het clientapparaat:  
 
--   L’identificateur unique (GUID) qui associe un client à ses informations dans la base de données Configuration Manager.  
+-   De unieke id (GUID) die een client aan de betreffende informatie in de Configuration Manager-database koppelt.  
 
--   L'historique de publication ou de déploiement qui empêche les clients de ré exécuter inutilement des publications ou des déploiements dans la hiérarchie de destination.  
+-   De advertentie- of implementatiegeschiedenis, die voorkomt dat clients onnodig advertenties of implementaties opnieuw uitvoeren in de doelhiërarchie.  
 
-Les informations suivantes ne sont pas conservées sur le périphérique client :  
+De volgende informatie wordt niet behouden op het clientapparaat:  
 
--   Fichiers dans le cache du client. Si le client requiert ces fichiers pour installer le logiciel, il les télécharge à nouveau depuis la hiérarchie de destination.  
+-   De bestanden in de clientcache. Als de client deze bestanden nodig heeft om software te installeren, downloadt de client deze nogmaals vanaf de doelhiërarchie.  
 
--   Informations de la hiérarchie source à propos de publications ou déploiements qui n'ont pas encore été exécutés. Si vous souhaitez que le client exécute des publications ou des déploiements après la migration, vous devez les redéployer vers le client dans la hiérarchie de destination.  
+-   Informatie van de bronhiërarchie over eventuele advertenties of implementaties die nog niet zijn uitgevoerd. Als u wilt dat de client de advertenties of implementaties uitvoert na de migratie, moet u deze opnieuw implementeren op de client in de doelhiërarchie.  
 
--   Informations sur l'inventaire. Le client renvoie ces informations à son site attribué dans la hiérarchie de destination après la migration du client et la génération des nouvelles données du client.  
+-   Informatie over de inventarisatie. De client zendt deze informatie naar de toegewezen site in de doelhiërarchie opnieuw nadat de client migreert en de nieuwe clientgegevens zijn gegenereerd.  
 
--   Données de compatibilité. Le client renvoie ces informations à son site attribué dans la hiérarchie de destination après la migration du client et la génération des nouvelles données du client.  
+-   Compatibiliteitsgegevens. De client zendt deze informatie naar de toegewezen site in de doelhiërarchie opnieuw nadat de client migreert en de nieuwe clientgegevens zijn gegenereerd.  
 
-Quand un client migre, les informations stockées dans le chemin du Registre et des fichiers du client Configuration Manager ne sont pas conservées. Après la migration, réappliquez ces paramètres. Les paramètres types sont les suivants :  
+Wanneer een client migreert, wordt de informatie die is opgeslagen in de Configuration Manager client clientregister en het bestandspad niet behouden. Pas na de migratie deze instellingen opnieuw toe. Standaardinstellingen zijn onder andere:  
 
--   Modes de gestion de l'alimentation  
+-   Energiebeheerschema's  
 
--   Paramètres de journalisation  
+-   Instellingen voor logboekregistratie  
 
--   Paramètres de stratégie locale  
+-   Lokale beleidsinstellingen  
 
-En outre, il peut être nécessaire de réinstaller certaines applications.  
+Mogelijk moet u bovendien sommige toepassingen opnieuw installeren.  
 
-##  <a name="Planning_for_Inventory_data_migration"></a> Planifier les données d’inventaire et de compatibilité pendant la migration  
-Les données d'inventaire et de compatibilité client ne sont pas enregistrées lorsque vous migrez un client vers la hiérarchie de destination. En revanche, ces informations sont recréées dans la hiérarchie de destination lorsqu'un client envoie pour la première fois les informations à son site affecté. Pour réduire les besoins en bande passante et le traitement du serveur, ne migrez pas tous les clients en même temps, mais en plusieurs étapes.  
+##  <a name="Planning_for_Inventory_data_migration"></a> Planning maken voor de inventaris- en compatibiliteitsgegevens tijdens de migratie  
+Clientinventaris- en compatibiliteitsgegevens worden niet opgeslagen wanneer u een client migreert naar de doelhiërarchie. Deze informatie wordt opnieuw gemaakt in de doelhiërarchie wanneer een client zijn informatie voor de eerste keer verzendt naar de toegewezen site. Voor minder belasting op de netwerkbandbreedte en serververwerking is het aan te raden een beperkt aantal clients gefaseerd te migreren in plaats van een groot aantal clients tegelijkertijd.  
 
- En outre, vous ne pouvez pas migrer des personnalisations d'inventaire matériel à partir d'une hiérarchie source. Vous devez les introduire dans la hiérarchie de destination indépendamment de la migration. Pour plus d’informations sur la manière d’étendre l’inventaire matériel, consultez [Guide pratique pour configurer l’inventaire matériel dans System Center Configuration Manager](../../core/clients/manage/inventory/configure-hardware-inventory.md).  
+ U kunt bovendien geen aanpassingen migreren voor hardware-inventaris van een bronhiërarchie. U moet deze apart van de migratie aanbrengen in de doelhiërarchie. Zie voor meer informatie over het uitbreiden van hardware-inventaris [hardware-inventaris configureren in System Center Configuration Manager](../../core/clients/manage/inventory/configure-hardware-inventory.md).  

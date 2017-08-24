@@ -1,6 +1,6 @@
 ---
-title: "Gérer les déploiements à haut risque | Microsoft Docs"
-description: "Apprenez à configurer les paramètres du site dans System Center Configuration Manager pour avertir les administrateurs s’ils créent un déploiement à haut risque."
+title: Implementaties met een hoog risico beheren | Microsoft Docs
+description: Informatie over het site-instellingen configureren in System Center Configuration Manager en beheerders waarschuwen als ze een implementatie met hoog risico maken.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,45 +16,45 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 8b5564f39f07a67a3c9278379ed59ca415603d21
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="settings-to-manage-high-risk-deployments-for-system-center-configuration-manager"></a>Paramètres pour gérer les déploiements à haut risque pour System Center Configuration Manager
+# <a name="settings-to-manage-high-risk-deployments-for-system-center-configuration-manager"></a>Instellingen voor het beheren van implementaties van met een hoog risico voor System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
-Avec System Center Configuration Manager, vous pouvez configurer les paramètres du site pour avertir les administrateurs s’ils créent un déploiement de séquence de tâches à haut risque. Un déploiement à haut risque est :  
+Met System Center Configuration Manager kunt u site-instellingen die beheerders wordt gewaarschuwd als ze een takenreeksimplementatie hoog risico maken. Een implementatie met een hoog risico is:  
 
--   Un déploiement qui est installé automatiquement  
+-   Een implementatie die automatisch wordt geïnstalleerd  
 
--   Un déploiement qui est susceptible d’entraîner des résultats indésirables  
+-   Een implementatie die potentieel ongewenste gevolgen kan hebben  
 
- Par exemple, une séquence de tâches dont l’objectif est **Obligatoire** qui déploie un système d’exploitation est considérée comme étant à haut risque.  
+ Bijvoorbeeld een takenreeks met het doel van **vereist** die een besturingssysteem implementeert geldt een verhoogd risico.  
 
- Pour réduire le risque lié à un déploiement à haut risque indésirable, vous pouvez configurer des limites de taille dans ces paramètres de vérification de déploiement :  
+ Als u het risico van een implementatie met een ongewenst hoog risico, kunt u de maximale grootte in de verificatie-instellingen voor deze implementatie configureren:  
 
--   **Limites de taille des regroupements** : masquez les regroupements contenant plus de clients que votre limite quand vous créez un déploiement.  
+-   **De maximale grootte verzameling**: Verzamelingen met meer clients bevatten dan de limiet voor het maken van een implementatie verborgen.  
 
-    -   **Taille par défaut** : ce paramètre masque les regroupements, par défaut, qui contiennent plus de clients que votre limite quand vous créez un déploiement. Vous pouvez quand même voir ces regroupements lors de la création du déploiement, mais ils sont masqués par défaut. La valeur par défaut est 100. Entrez la valeur 0 pour ignorer ce paramètre.  
+    -   **Standaardgrootte**: Deze instelling verborgen verzamelingen die standaard met meer clients bevatten dan de limiet voor het maken van een implementatie. U kunt deze verzamelingen nog steeds zien wanneer de implementatie wordt gemaakt, maar ze worden standaard verborgen. De standaardwaarde is 100. Voer een waarde van 0 in om deze instelling te negeren.  
 
-    -   **Taille maximale** : ce paramètre masque toujours les regroupements contenant plus de clients que votre limite quand vous créez un déploiement. La valeur par défaut est 0, qui ignore ce paramètre. La valeur **Taille maximale** doit être supérieure à la valeur **Taille par défaut** .  
+    -   **Maximale grootte**: Deze instelling worden verzamelingen verborgen met meer clients bevatten dan de limiet bij het maken van een implementatie. De standaardwaarde is 0, waarmee deze instelling wordt genegeerd. De waarde voor **Maximumgrootte** moet groter zijn dan de waarde voor **Standaardgrootte** .  
 
-     Par exemple, vous affectez la valeur 100 à **Taille par défaut** et la valeur 1000 à **Taille maximale**. Quand vous créez un déploiement à haut risque, la fenêtre **Sélectionner un regroupement** affiche uniquement les regroupements qui contiennent moins de 100 clients. Si vous désactivez le paramètre **Masquer les regroupements avec un nombre de membres supérieur à la configuration de la taille minimale du site**, la fenêtre affiche les regroupements qui contiennent moins de 1 000 clients.  
+     Bijvoorbeeld, u stelt **standaardgrootte** en 100 en de **maximumgrootte** tot en met 1000. Wanneer u een implementatie met hoog risico maakt de **verzameling selecteren** venster alleen verzamelingen weergegeven die minder dan 100 clients bevatten. Als u het selectievakje de **lid zamelingen verbergen groter is dan de siteâ€™ s minimumgrootte configuratie** uitschakelt, het venster verzamelingen weergegeven die minder dan 1000 clients bevatten.  
 
--   **Regroupements avec des serveurs de système de site**: ce paramètre permet de bloquer les déploiements, ou d’exiger la vérification avant de créer le déploiement, si le regroupement cible comporte un ordinateur ayant un rôle de système de site. Quand un déploiement est bloqué, vous devez sélectionner un autre regroupement qui remplit les critères de vérification de déploiement.  
+-   **Verzamelingen met sitesysteemservers**: Blokkeren implementaties of vereisen verificatie voordat de implementatie wordt gemaakt wanneer de doelverzameling een computer met een sitesysteemrol bevat. Wanneer een implementatie wordt geblokkeerd, moet u een andere verzameling selecteren die wel aan de verificatiecriteria voor de implementatie voldoet.  
 
 > [!NOTE]  
->  Les déploiements à haut risque sont toujours limités aux regroupements personnalisés, aux regroupements que vous créez et au regroupement **Ordinateurs inconnus** intégré. Quand vous créez un déploiement à haut risque, vous ne pouvez pas sélectionner un regroupement intégré tel que **Tous les systèmes**.  
+>  Implementaties met een hoog risico zijn altijd beperkt tot aangepaste verzamelingen, verzameling die uzelf maakt en de ingebouwde verzameling **Onbekende computers** . Wanneer u een implementatie met een hoog risico maakt, kunt u geen ingebouwde verzameling selecteren, zoals **Alle systemen**.  
 
-### <a name="to-configure-deployment-verification-for-a-site"></a>Pour configurer la vérification du déploiement pour un site  
+### <a name="to-configure-deployment-verification-for-a-site"></a>Implementatieverificatie voor een site configureren  
 
-1.  Dans la console Configuration Manager, choisissez **Administration** >**Configuration du Site** > **Sites**, puis sélectionnez le site principal à configurer.  
+1.  Kies in de Configuration Manager-console **beheer** >**siteconfiguratie** > **Sites**, en selecteer vervolgens de primaire site configureren.  
 
-2.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**, puis l’onglet **Vérification du déploiement**.  
+2.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**, en kies vervolgens de **Implementatieverificatie** tabblad.  
 
-3.  Après avoir défini les configurations à utiliser, choisissez **OK** pour les enregistrer.  
+3.  Nadat de configuraties die u wilt gebruiken, kiest u **OK** aan de configuratie op te slaan.  
 
-### <a name="see-also"></a>Voir aussi  
- [Configurer des sites et des hiérarchies pour System Center Configuration Manager](../../core/servers/deploy/configure/configure-sites-and-hierarchies.md)
+### <a name="see-also"></a>Zie tevens  
+ [Sites en hiërarchieën voor System Center Configuration Manager configureren](../../core/servers/deploy/configure/configure-sites-and-hierarchies.md)

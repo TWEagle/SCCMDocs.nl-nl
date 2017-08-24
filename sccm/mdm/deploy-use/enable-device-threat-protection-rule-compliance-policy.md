@@ -1,6 +1,6 @@
 ---
-title: "Activer une règle de protection des appareils dans la stratégie de conformité | Microsoft Docs"
-description: "Activez une règle de protection contre les menaces mobiles dans la stratégie de conformité des appareils."
+title: Regel voor het apparaat beveiliging in nalevingsbeleid inschakelen | Microsoft Docs
+description: Schakel mobiele threat protection regel in het nalevingsbeleid voor apparaten.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,39 +16,39 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: faa92e150686e615164ce3f5435b77a65305aab3
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="enable-device-threat-protection-rule-in-the-compliance-policy"></a>Activer une règle de protection contre les menaces des appareils dans la stratégie de conformité
+# <a name="enable-device-threat-protection-rule-in-the-compliance-policy"></a>Device threat protection regel in het nalevingsbeleid inschakelen
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Intune avec Mobile Threat Protection de Lookout vous donne la possibilité de détecter les menaces mobiles et d’évaluer les risques sur l’appareil. Vous pouvez créer une règle de stratégie de conformité dans Configuration Manager pour inclure l’évaluation des risques permettant de déterminer si l’appareil est conforme. Vous pouvez ensuite utiliser la stratégie d’accès conditionnel pour autoriser ou bloquer l’accès à Exchange, SharePoint et d’autres services, en fonction de la compatibilité des appareils.
+Intune met Lookout mobiele threat protection biedt u de mogelijkheid mobiele bedreigingen detecteren en maken van een risicoanalyse uit te voeren op het apparaat. U kunt een beleidsregel voor naleving in Configuration Manager om op te nemen van de risico-evaluatie om te bepalen of het apparaat compatibel maken. Vervolgens kunt u beleid voor voorwaardelijke toegang wilt toestaan of blokkeren van toegang tot Exchange, SharePoint en andere services op basis van de naleving van apparaat.
 
-Pour que Mobile Threat Protection de Lookout influence la stratégie de conformité de l’appareil :
+Lookout apparaat detectie van dreigingen invloed hebben op het nalevingsbeleid voor het apparaat hebben:
 
-* La règle **Protection contre les menaces sur les appareils** doit être activée sur la stratégie de conformité.
+* De **Device Threat Protection** regel moet worden ingeschakeld op het nalevingsbeleid.
 
-* La page **État de Lookout** dans la **console Administrateur Intune** doit apparaître comme étant **Active**. Pour plus d’informations et des instructions sur la façon d’activer l’intégration de Lookout, consultez la rubrique [Activer la connexion de Lookout dans Intune](enable-lookout-connection-in-intune.md).
+* De **Lookout Status** pagina in de **Intune-beheerconsole** moeten worden weergegeven als **Active**. Zie de [inschakelen Lookout MTP-verbinding in Intune](enable-lookout-connection-in-intune.md) onderwerp voor meer informatie en instructies over het activeren van Lookout integratie.
 
 
-Avant de créer la règle de protection contre les menaces sur les appareils dans la stratégie de conformité, nous vous recommandons de [configurer votre abonnement avec Mobile Threat Protection de Lookout](set-up-your-subscription-with-lookout.md), [d’activer la connexion de Lookout dans Intune](enable-lookout-connection-in-intune.md) et de [configurer l’application Lookout for Work](configure-and-deploy-lookout-for-work-apps.md). La règle de compatibilité est appliquée seulement une fois que le programme d’installation est terminé.
+Voordat u de regel device threat protection maakt in het beleid compliancy, we raden aan dat u [instellen van uw abonnement met Lookout device threat protection](set-up-your-subscription-with-lookout.md), [Lookout verbinding in Intune inschakelen](enable-lookout-connection-in-intune.md), en [de Lookout for work-app configureren](configure-and-deploy-lookout-for-work-apps.md). De regel voor naleving van kracht nadat de installatie is voltooid.
 
-Pour activer la règle de protection contre les menaces sur les appareils, vous pouvez utiliser une stratégie de conformité existante ou en créer une.
+Om de regel device threat protection, moet u een bestaande nalevingsbeleid gebruiken of maak een nieuwe.
 
-Dans le cadre de l’installation de Mobile Threat Protection de Lookout, dans la [console Lookout](https://aad.lookout.com), vous avez créé une stratégie qui classifie les différentes menaces selon trois niveaux : Élevé, Moyen et Faible. Dans la stratégie de conformité Intune, vous utilisez le niveau de menace pour définir le niveau de menace maximal autorisé.
+Als onderdeel van de installatie van Lookout device threat protection in de [Lookout console](https://aad.lookout.com), gemaakt van een beleid dat verschillende bedreigingen in hoog, gemiddeld en laag niveaus wordt geclassificeerd. In de Intune-nalevingsbeleid gebruikt u het risiconiveau het dreigingsniveau van de maximale toegestane instellen.
 
-Dans la page **Règles** de l’Assistant Stratégie de conformité, définissez une nouvelle règle avec les informations suivantes :
-  * Condition : niveau de risque maximal de protection contre les menaces sur les appareils.
-  * Valeur : la valeur peut être une des suivantes :
-    * **Aucun (sécurisé)** : il s’agit de l’option la plus sécurisée. Cela signifie que l’appareil ne peut avoir aucune menace. Si un quelconque niveau de menace est détecté, l’appareil est évalué comme non conforme.
-    * **Faible** : l’appareil est considéré comme conforme si seule des menaces de niveau Faible sont présentes. Toute menace d’un niveau supérieur place l’appareil dans un état de non-conformité.
-    * **Moyen** : l’appareil est évalué comme conforme si les menaces trouvées sur l’appareil sont de niveau Faible ou Moyen. Si des menaces de niveau Élevé sont détectées, l’appareil est déterminé comme étant non conforme.
-    * **Élevé** : cette option est la moins sécurisée. Cette option permet en fait tous les niveaux de menaces. Elle peut être utile si vous utilisez cette solution uniquement pour la génération de rapports.
+Op de **regels** pagina van de wizard nalevingsbeleid, definieert u een nieuwe regel met de volgende informatie:
+  * Voorwaarde: Device threat protection maximale risiconiveau.
+  * Waarde: De waarde kan een van de volgende zijn:
+    * **Geen (beveiligde)**: Dit is de veiligste. Dit betekent dat het apparaat kan niet alle bedreigingen. Als elk bedreigingsniveau worden gevonden, wordt het apparaat wordt geëvalueerd als niet-compatibel.
+    * **Lage**: Het apparaat wordt geëvalueerd als compatibel als alleen laag niveau bedreigingen aanwezig zijn. Een waarde hoger plaatst het apparaat in een niet-compatibele status.
+    * **Gemiddeld**: Het apparaat wordt geëvalueerd als compatibel als de bedreigingen die zijn gevonden op het apparaat laag of gemiddeld niveau zijn. Als hoog niveau dreigingen worden gedetecteerd, wordt het apparaat bepaald als niet-compatibel.
+    * **Hoge**: Dit is de minst veilige. In wezen hierdoor alle threat niveaus en bijvoorbeeld alleen nuttig als u deze oplossing werkt alleen voor rapportagedoeleinden.
 
-Si vous créez des stratégies d’accès conditionnel pour Office 365 et d’autres services, l’évaluation de conformité ci-dessus est prise en considération, et l’accès aux ressources d’entreprise par les appareils non conformes est bloqué jusqu’à ce que la menace soit résolue.
+Als u beleid voor voorwaardelijke toegang voor Office 365 en andere services maakt, wordt de bovenstaande compatibiliteitsevaluatie rekening is gehouden en niet-compatibele apparaten hebben geen toegang tot toegang tot bedrijfsbronnen totdat de bedreiging opgelost is.
 
-L’état de la protection contre les menaces sur les appareils est affiché sur le nœud **Sécurité** dans l’espace de travail **Surveillance**.
-Un résumé de l’état avec les différents niveaux de menaces est affiché dans un graphique. Vous pouvez cliquer sur les sections du graphique pour voir plus d’informations, comme le nombre d’appareils signalés comme non conformes par plateforme, et les éventuelles erreurs qui sont signalées.
-Vous pouvez également voir l’état des appareils individuels dans l’espace de travail **Ressources et conformité**, sous **Appareils**.  Vous pouvez ajouter les colonnes **État de conformité de l’appareil** et **Niveau de menace pour l’appareil** pour afficher l’état.  Par défaut, ces colonnes ne sont pas affichées.
+De status van het apparaat threat protection wordt weergegeven op de **beveiliging** knooppunt in de **bewaking** werkruimte.
+Een samenvatting van de status met verschillende thread-niveau wordt weergegeven in een visual grafiek. U kunt klikken op de afzonderlijke secties van de grafiek voor meer informatie, zoals, het aantal apparaten die rapporteren als niet-compatibel per platform en eventuele fouten die worden gerapporteerd.
+U ziet ook de status van afzonderlijke apparaten in de **activa en naleving** werkruimte onder **apparaten**.  U kunt toevoegen de **threat apparaatcompatibiliteit** en de **apparaat risiconiveau** kolommen om de status te bekijken.  Deze kolommen worden niet standaard weergegeven.

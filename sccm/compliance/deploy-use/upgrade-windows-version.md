@@ -1,6 +1,6 @@
 ---
-title: "Mettre à niveau des appareils Windows vers une autre version avec Configuration Manager | Microsoft Docs"
-description: "Mettez automatiquement à niveau les appareils qui exécutent Windows 10 Desktop, Windows 10 Mobile ou Windows 10 Holographique vers une autre édition avec Configuration Manager."
+title: Windows-apparaten upgraden naar een andere versie met Configuration Manager | Microsoft Docs
+description: Apparaten met Windows 10 Desktop en Windows 10 Mobile en Windows 10 Holographic naar een andere editie met Configuration Manager automatisch bijgewerkt.
 ms.custom: na
 ms.date: 07/31/2017
 ms.prod: configuration-manager
@@ -17,84 +17,84 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: cd8c644d07dab0010dc211df8ce4f2dc6e1fa7ae
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="upgrade-windows-devices-with-the-edition-upgrade-policy-in-system-center-configuration-manager"></a>Mettre à niveau des appareils Windows avec la stratégie de mise à niveau d’édition dans System Center Configuration Manager
+# <a name="upgrade-windows-devices-with-the-edition-upgrade-policy-in-system-center-configuration-manager"></a>Windows-apparaten met het editie-Upgradebeleid in System Center Configuration Manager upgraden
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
-La **stratégie de mise à niveau d’édition** de System Center Configuration Manager vous permet de mettre automatiquement à niveau les appareils qui exécutent une des versions suivantes de Windows 10 vers une autre édition :
+De System Center Configuration Manager **editie-Upgradebeleid** kunt u automatisch upgraden van apparaten met een van de volgende versies van Windows 10 naar een andere editie:
 
 - Windows 10 Desktop
 - Windows 10 Mobile
 <!-- - Windows 10 Holographic -->
 
-Les chemins de mise à niveau suivants sont pris en charge :
+De volgende upgradepaden worden ondersteund:
 
-- De Windows 10 Professionnel vers Windows 10 Entreprise
-- De Windows 10 Famille vers Windows 10 Éducation
-- De Windows 10 Mobile vers Windows 10 Mobile Entreprise
+- Van Windows 10 Pro naar Windows 10 Enterprise
+- Van Windows 10 thuis naar Windows 10 Education
+- Van Windows 10 Mobile voor Windows 10 Mobile Enterprise
 <!-- - From Windows 10 Holographic Pro to Windows 10 Holographic Enterprise -->
 
-Les appareils doivent être inscrit dans Microsoft Intune ou exécuter le logiciel client Configuration Manager. Cette stratégie n’est actuellement pas compatible avec les PC gérés par gestion MDM locale.
+De apparaten moeten worden geregistreerd bij Microsoft Intune of de Configuration Manager-clientsoftware wordt uitgevoerd. Dit beleid is momenteel niet compatibel met pc's die worden beheerd door lokale MDM.
 
-## <a name="before-you-start"></a>Avant de commencer  
- Avant de commencer à mettre à niveau des appareils vers la dernière version, vous avez besoin d’un des éléments suivants :  
+## <a name="before-you-start"></a>Voordat u begint  
+ Voordat u begint met het upgraden van apparaten naar de nieuwste versie, hebt u een van de volgende items nodig:  
 
--   Une clé de produit valide pour installer la nouvelle version de Windows sur tous les appareils que vous ciblez avec la stratégie (pour les systèmes d’exploitation d’ordinateur)  
+-   Een productcode die geldig is voor het installeren van de nieuwe versie van Windows op alle apparaten waarop het beleid is gericht (voor desktopbesturingssystemen)  
 
--   Un fichier de licence de Microsoft, qui contient les informations de licence pour installer la nouvelle version de Windows sur tous les appareils que vous ciblez avec la stratégie (pour Windows 10 Mobile<!-- and Windows 10 Holographic-->).
+-   Een licentiebestand van Microsoft die de licentiegegevens voor het installeren van de nieuwe versie van Windows op alle apparaten bevat die u met het beleid gericht (voor Windows 10 Mobile<!-- and Windows 10 Holographic-->).
 
-- Pour créer et déployer ce type de stratégie, le rôle de sécurité **Administrateur complet** de Configuration Manager doit vous avoir été affecté.
+- Als u wilt maken en implementeren van dit beleidstype, u moet zijn toegewezen met de Configuration Manager **volledige beheerder** beveiligingsrol.
 
-## <a name="configure-the-edition-upgrade-policy"></a>Configurer la stratégie de mise à niveau d’édition  
+## <a name="configure-the-edition-upgrade-policy"></a>Het editie-upgradebeleid configureren  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Mise à niveau de l'édition Windows 10**.  
+1.  Klik in de Configuration Manager-console op **activa en naleving** > **instellingen voor naleving** > **Upgrade van Windows 10 Edition**.  
 
-3.  Sous l’onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une stratégie de mise à niveau d’édition**.  
+3.  Klik op **Editie-upgradebeleid maken** op het tabblad **Start** in de groep **Maken**.  
 
-4.  Cliquez sur **Créer une stratégie**.  
+4.  Klik op **Beleid maken**.  
 
-5.  Dans la page **Général** de l’ **Assistant Création de stratégie de mise à niveau d’édition**, spécifiez les informations suivantes :  
+5.  Geef op de pagina **Algemeen** van de **Wizard Editie-upgradebeleid maken**de volgende informatie op:  
 
-    -   **Nom** : entrez un nom pour la stratégie de mise à niveau d’édition.  
+    -   **Naam** : geef een naam voor het editie-upgradebeleid op.  
 
-    -   **Description** (facultatif) : si vous le souhaitez, entrez une description pour la stratégie qui vous permet de l’identifier dans la console Intune.  
+    -   **Beschrijving** (optioneel): geef eventueel een beschrijving op voor het beleid waarmee u het kunt herkennen in de Intune-console.  
 
-    -   **Référence pour mettre à niveau l’appareil vers** : dans la liste déroulante, sélectionnez la version de Windows 10 Desktop, <!-- Windows 10 Holographic,--> ou Windows 10 Mobile vers laquelle vous voulez mettre à niveau les appareils ciblés.  
+    -   **SKU-apparaat om te upgraden** - Selecteer in de vervolgkeuzelijst, selecteer de versie van Windows 10 Desktop <!-- Windows 10 Holographic,--> of Windows 10 Mobile die u wilt upgraden van de beoogde apparaten.  
 
-    -   **Informations sur la licence** : sélectionnez une des options suivantes :  
+    -   **Licentiegegevens** : selecteer een van de volgende opties:  
 
-        -   **Clé de produit** : entrez une clé de produit Windows 10 valide qui sera utilisée pour mettre à niveau les appareils que vous ciblez et qui exécutent des systèmes d’exploitation Windows 10 Desktop.  
+        -   **Productcode** : voer een geldige Windows 10-productcode in die wordt gebruikt om de gewenste apparaten met Windows 10-desktopbesturingssystemen te upgraden.  
 
             > [!NOTE]  
-            >  Une fois que vous avez créé une stratégie contenant une clé de produit, vous ne pouvez plus modifier la clé de produit. La raison en est que la clé est masquée pour des raisons de sécurité. Pour changer la clé de produit, vous devez entrer à nouveau toute la clé.  
+            >  Nadat u een beleid met een productcode hebt gemaakt, kunt u de productcode later niet meer bewerken. Dit komt doordat de code uit veiligheidsoverwegingen wordt verborgen. Als u de productcode wilt wijzigen, moet u de volledige code opnieuw invoeren.  
 
-        -   **Fichier de licence** : cliquez sur **Parcourir** pour sélectionner un fichier de licence valide au format XML. Ce fichier sert à mettre à niveau les appareils ciblés qui exécutent les systèmes d’exploitation <!--Windows 10 Holographic and -->Windows 10 Mobile.  
+        -   **Licentiebestand** -Klik op **Bladeren** geldig licentiebestand in XML-indeling die wordt gebruikt voor het upgraden van apparaten selecteren die worden uitgevoerd is gericht <!--Windows 10 Holographic and -->Windows 10 Mobile-besturingssystemen.  
 
-6.  Effectuez toutes les étapes de l'Assistant.  
+6.  Voltooi de wizard.  
 
-La nouvelle stratégie figure dans le nœud **Mise à niveau de l’édition de Windows 10** de l’espace de travail **Ressources et conformité** .  
+Het nieuwe beleid wordt weergegeven in het knooppunt **Upgrade van Windows 10 Edition** van de werkruimte **Activa en naleving** .  
 
-## <a name="deploy-the-edition-upgrade-policy"></a>Déployer la stratégie de mise à niveau d’édition  
+## <a name="deploy-the-edition-upgrade-policy"></a>Het editie-upgradebeleid implementeren  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Paramètres de compatibilité** > **Mise à niveau de l'édition Windows 10**.  
+1.  Klik in de Configuration Manager-console op **activa en naleving** > **instellingen voor naleving** > **Upgrade van Windows 10 Edition**.  
 
-3.  Sélectionnez la stratégie de mise à niveau d’édition de Windows 10 que vous voulez déployer puis, dans l’onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Déployer**.  
+3.  Selecteer het editie-upgradebeleid voor Windows 10 dat u wilt implementeren en klik op het tabblad **Start** in de groep **Implementatie** op **Implementeren**.  
 
-4.  Dans la boîte de dialogue **Déployer la mise à niveau de l’édition Windows 10**, choisissez le regroupement sur lequel vous voulez déployer la stratégie et la planification selon laquelle la stratégie doit être évaluée, puis cliquez sur **OK**. Pour les PC gérés par le client Configuration Manager, vous devez déployer la stratégie sur un regroupement d’appareils. Pour les PC inscrits dans Intune, vous pouvez déployer la stratégie sur un regroupement d’utilisateurs ou d’appareils. 
+4.  In de **implementeren Windows 10-editie-Upgrade** dialoogvenster vak, kiest u de verzameling waarnaar u implementeren van het beleid en de planning waarmee het beleid wordt geëvalueerd wilt, en klik vervolgens op **OK**. Voor pc's die worden beheerd met Configuration Manager-client, moet u het beleid implementeren voor een apparatenverzameling. Voor pc's die zijn ingeschreven met Intune, kunt u het beleid implementeren voor een gebruiker of een apparatenverzameling. 
 
 
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Volgende stappen
 
-Quand vous analysez le déploiement que vous venez de créer à partir du nœud **Déploiements** de l’espace de travail **Analyse**, vous pouvez recevoir des erreurs qui semblent indiquer l’échec du déploiement. Par exemple :
-- **Ne s’applique pas à cet appareil**
-- **Échec de la conversion du type de données**
+Wanneer u bij het bewaken van de implementatie die u zojuist hebt gemaakt in de **implementaties** knooppunt van de **bewaking** werkruimte, ziet u mogelijk fouten die wijzen op de implementatie is niet gelukt zoals:
+- **Niet van toepassing voor dit apparaat**
+- **Kan geen conversie van gegevenstype**
 
-Ces erreurs ne signifient pas que le déploiement a échoué. Vérifiez que la mise à niveau a réussi sur le PC ciblé.
+Deze fouten betekenen niet dat de implementatie is mislukt. Controleer of op de doel-PC de upgrade is uitgevoerd.
 
-Une fois que la stratégie atteint un PC Windows ciblé et qu’il est évalué, celui-ci est redémarré dans les deux heures suivantes pour appliquer la mise à niveau. Assurez-vous d’informer les utilisateurs sur lesquels vous déployez la stratégie ou planifiez l’exécution de la stratégie en dehors des heures de travail des utilisateurs.
+Als het beleid voor een bepaalde Windows-computer bereikt en wordt geëvalueerd, wordt deze opnieuw gestart binnen twee uur de upgrade toe te passen. Zorg ervoor dat u informeren over alle gebruikers waarop u het beleid implementeert, of het beleid wordt uitgevoerd buiten de gebruikers plannen werkuren.

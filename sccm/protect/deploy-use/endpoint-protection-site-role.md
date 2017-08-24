@@ -1,6 +1,6 @@
 ---
-title: "Créer un rôle de système de site de point Endpoint Protection | Microsoft Docs"
-description: "Apprenez à configurer Endpoint Protection de façon à gérer la sécurité et les programmes malveillants sur les ordinateurs clients Configuration Manager."
+title: Endpoint Protection-puntsitesysteemrol maken | Microsoft Docs
+description: Informatie over het configureren van Endpoint Protection voor het beheren van beveiliging en schadelijke software op clientcomputers van Configuration Manager.
 defintion: 
 definition: 
 ms.custom: na
@@ -18,68 +18,68 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 6e717bcbe5ef8c3f2efa717d0cebb9e675e7c127
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-an-endpoint-protection-point-site-system-role"></a>Créer un rôle de système de site de point Endpoint Protection
+# <a name="create-an-endpoint-protection-point-site-system-role"></a>Endpoint Protection-puntsitesysteemrol maken
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
- Pour que vous puissiez utiliser Endpoint Protection, le rôle de système de site de point Endpoint Protection doit avoir été installé. Il doit être installé sur un seul serveur de système de site et en haut de la hiérarchie sur un site d'administration centrale ou un site principal autonome.
+ De sitesysteemrol Endpoint Protection-punt moet zijn geïnstalleerd voordat u Endpoint Protection kunt gebruiken. Het moet slechts op één sitesysteemserver en op het hoogste niveau in de hiërarchie op een centrale beheersite of een zelfstandige primaire site worden geïnstalleerd.
 
- Utilisez l’une des procédures suivantes selon que vous voulez installer un nouveau serveur de système de site pour Endpoint Protection ou utiliser un serveur de système de site existant :
- - [Installation sur un nouveau serveur de système de site](#new-site-system-server)
- - [Installation sur un serveur de système de site existant](#existing-site-system-server)
+ Gebruik een van de volgende procedures, afhankelijk van of u wilt installeren van een nieuwe sitesysteemserver voor Endpoint Protection of een bestaande sitesysteemserver:
+ - [Installeren op een nieuwe sitesysteemserver](#new-site-system-server)
+ - [Installeren op een bestaande sitesysteemserver](#existing-site-system-server)
 
 > [!IMPORTANT]
->  Quand vous installez un point Endpoint Protection, un client Endpoint Protection est installé sur le serveur hébergeant le point Endpoint Protection. Les analyses et les services sont désactivés sur ce client pour lui permettre de coexister avec une solution existante anti-programme malveillant installée sur le serveur. Si vous activez ultérieurement ce serveur pour confier la gestion à Endpoint Protection et que vous sélectionnez l’option de suppression de solution tierce anti-programme malveillant, le produit tiers n’est pas supprimé. Vous devez désinstaller ce produit manuellement.
+>  Wanneer u Endpoint Protection-punt installeert, wordt er een Endpoint Protection-client geïnstalleerd op de server die als host fungeert voor de Endpoint Protection-punt. Services en scans op deze client worden uitgeschakeld zodat het in combinatie met een bestaande anti-malwareoplossing op de server kan worden gebruikt. Als u later deze server voor beheer door Endpoint Protection inschakelt en selecteer de optie voor het verwijderen van een derde partij antimalwareoplossing, wordt het product van derden niet verwijderd. U moet dit product handmatig verwijderen.
 
-## <a name="new-site-system-server"></a>Nouveau serveur de système de site
+## <a name="new-site-system-server"></a>Nieuwe sitesysteemserver
 
-1.  Dans la console Configuration Manager, cliquez sur **Administration**.
+1.  Klik op **Beheer**in de Configuration Manager-console.
 
-2.  Dans l'espace de travail **Administration** , développez **Configuration du site**, puis cliquez sur **Serveurs et rôles de système de site**.
+2.  Vouw in de werkruimte **Beheer** **Siteconfiguratie**uit en klik op **Servers en sitesysteemrollen**.
 
-3.  Sur l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un serveur de système de site**.
+3.  Klik op **Sitesysteemserver maken** in het tabblad **Start** , in de groep **Maken**.
 
-4.  Sur la page **Général** , spécifiez les paramètres généraux du système de site, puis cliquez sur **Suivant**.
+4.  Configureer de algemene instellingen voor het sitesysteem op de pagina **Algemeen** en klik vervolgens op **Volgende**.
 
-5.  Sur la page **Sélection du rôle système** , sélectionnez **Point Endpoint Protection** dans la liste des rôles disponibles, puis cliquez sur **Suivant**.
+5.  Selecteer **Endpoint Protection-punt** in de lijst met beschikbare rollen op de pagina **Systeemrolselectie** en klik vervolgens op **Volgende**.
 
-6.  Sur la page **Endpoint Protection** , sélectionnez la case à cocher **J'accepte les termes du contrat de licence Endpoint Protection** et cliquez sur **Suivant**.
-
-    > [!IMPORTANT]
-    >  Vous ne pouvez pas utiliser Endpoint Protection dans Configuration Manager, à moins que vous acceptiez les termes du contrat de licence.
-
-7.  Dans la page **Cloud Protection Service**, sélectionnez le niveau d’information à envoyer à Microsoft pour aider au développement de nouvelles définitions, puis cliquez sur **Suivant**.
-
-    > [!NOTE]
-    >  Cette option configure les paramètres de Cloud Protection Service (anciennement Microsoft Active Protection Service ou MAPS) utilisés par défaut. Vous pouvez ensuite configurer des paramètres personnalisés pour chaque stratégie anti-programme malveillant que vous créez. Rejoignez Cloud Protection Service pour contribuer à renforcer la protection de vos ordinateurs en fournissant à Microsoft des exemples de programmes malveillants et permettre ainsi de tenir à jour les définitions anti-programme malveillant. De plus, quand vous rejoignez Cloud Protection Service, le client Endpoint Protection peut utiliser le service de signature dynamique pour télécharger les nouvelles définitions avant leur publication sur Windows Update. Pour plus d’informations, consultez [Guide pratique pour créer et déployer des stratégies de logiciel anti-programme malveillant pour Endpoint Protection dans System Center Configuration Manager](endpoint-antimalware-policies.md).
-
-8.  Effectuez toutes les étapes de l'Assistant.
-
-
-## <a name="existing-site-system-server"></a>Serveur de système de site existant
-
-1.  Dans la console Configuration Manager, cliquez sur **Administration**.
-
-2.  Dans l’espace de travail **Administration**, développez **Configuration du site**, cliquez sur **Serveurs et rôles de système de site**, puis sélectionnez le serveur à utiliser pour Endpoint Protection.
-
-3.  Sous l'onglet **Accueil** , dans le groupe **Serveur** , cliquez sur **Ajouter des rôles de système de site**.
-
-4.  Sur la page **Général** , spécifiez les paramètres généraux du système de site, puis cliquez sur **Suivant**.
-
-5.  Sur la page **Sélection du rôle système** , sélectionnez **Point Endpoint Protection** dans la liste des rôles disponibles, puis cliquez sur **Suivant**.
-
-6.  Sur la page **Endpoint Protection** , sélectionnez la case à cocher **J'accepte les termes du contrat de licence Endpoint Protection** et cliquez sur **Suivant**.
+6.  Schakel op de pagina **Endpoint Protection** het selectievakje **Ik ga akkoord met de licentievoorwaarden van Endpoint Protection** in en klik vervolgens op **Volgende**.
 
     > [!IMPORTANT]
-    >  Vous ne pouvez pas utiliser Endpoint Protection dans Configuration Manager, à moins que vous acceptiez les termes du contrat de licence.
+    >  U niet Endpoint Protection in Configuration Manager niet gebruiken tenzij u de licentievoorwaarden accepteren.
 
-7.  Dans la page **Cloud Protection Service**, sélectionnez le niveau d’information à envoyer à Microsoft pour aider au développement de nouvelles définitions, puis cliquez sur **Suivant**.
+7.  Op de **Cloud beveiligingsservice** pagina, selecteert u het niveau van de gegevens die u verzenden naar Microsoft wilt te helpen bij het ontwikkelen van nieuwe definities en klik vervolgens op **volgende**.
 
     > [!NOTE]
-    >  Cette option configure les paramètres Cloud Protection Service (anciennement MAPS) utilisés par défaut. Vous pouvez configurer des paramètres personnalisés pour chaque stratégie anti-programme malveillant que vous configurez. Pour plus d’informations, consultez [Guide pratique pour créer et déployer des stratégies de logiciel anti-programme malveillant pour Endpoint Protection dans System Center Configuration Manager](endpoint-antimalware-policies.md).
+    >  Deze optie configureert de instellingen van de Cloud Protection-Service (voorheen bekend als Microsoft Active Protection Service of MAPS) die worden standaard gebruikt. U kunt vervolgens aangepaste instellingen configureren voor elk beleid dat u maakt. Aanmelden bij Cloud Protection Service om te helpen uw computers om beter te beschermen door voorbeelden van malware die kunnen helpen bij Microsoft Anti-malwaredefinities up-to-date te houden. Wanneer u aanmelden bij Cloud Protection Service, kan de Endpoint Protection-client ook gebruiken de service voor dynamische handtekeningen nieuwe definities gedownload voordat ze worden gepubliceerd naar Windows Update. Zie voor meer informatie [maken en implementeren van antimalwarebeleid voor Endpoint Protection in System Center Configuration Manager](endpoint-antimalware-policies.md).
 
-8.  Effectuez toutes les étapes de l'Assistant.
+8.  Voltooi de wizard.
+
+
+## <a name="existing-site-system-server"></a>Bestaande sitesysteemserver
+
+1.  Klik op **Beheer**in de Configuration Manager-console.
+
+2.  In de **beheer** werkruimte Vouw **siteconfiguratie**, klikt u op **Servers en sitesysteemrollen**, en selecteer vervolgens de server die u wilt gebruiken voor Endpoint Protection.
+
+3.  Klik op **Sitesysteemrollen toevoegen** in het tabblad **Start** , in de groep **Server**.
+
+4.  Configureer de algemene instellingen voor het sitesysteem op de pagina **Algemeen** en klik vervolgens op **Volgende**.
+
+5.  Selecteer **Endpoint Protection-punt** in de lijst met beschikbare rollen op de pagina **Systeemrolselectie** en klik vervolgens op **Volgende**.
+
+6.  Schakel op de pagina **Endpoint Protection** het selectievakje **Ik ga akkoord met de licentievoorwaarden van Endpoint Protection** in en klik vervolgens op **Volgende**.
+
+    > [!IMPORTANT]
+    >  U niet Endpoint Protection in Configuration Manager niet gebruiken tenzij u de licentievoorwaarden accepteren.
+
+7.  Op de **Cloud beveiligingsservice** pagina, selecteert u het niveau van de gegevens die u verzenden naar Microsoft wilt te helpen bij het ontwikkelen van nieuwe definities en klik vervolgens op **volgende**.
+
+    > [!NOTE]
+    >  Deze optie configureert de beveiligingsservice Cloud instellingen (voorheen bekend als MAPS) worden standaard gebruikt. U kunt aangepaste instellingen configureren voor elk anti-malwarebeleid dat u maakt. Zie voor meer informatie [maken en implementeren van antimalwarebeleid voor Endpoint Protection in System Center Configuration Manager](endpoint-antimalware-policies.md).
+
+8.  Voltooi de wizard.

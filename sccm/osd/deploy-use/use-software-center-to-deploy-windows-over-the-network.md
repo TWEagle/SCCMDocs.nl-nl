@@ -1,6 +1,6 @@
 ---
-title: "Utiliser le Centre logiciel pour déployer Windows sur le réseau | Microsoft Docs"
-description: "Vous pouvez déployer un système d’exploitation dans le Centre logiciel afin d’actualiser un ordinateur existant avec une nouvelle version de Windows ou afin d’effectuer une mise à niveau de Windows vers la version la plus récente."
+title: Gebruik Software Center om Windows te implementeren via het netwerk | Microsoft Docs
+description: U kunt een besturingssysteem implementeren naar Software Center naar een bestaande computer vernieuwen met een nieuwe versie van Windows of Windows upgraden naar de nieuwste versie.
 ms.custom: na
 ms.date: 6/16/2017
 ms.prod: configuration-manager
@@ -16,28 +16,28 @@ ms.author: mabrigg
 manager: angrobe
 ms.openlocfilehash: 8988409c68b7f69439ed03872c316b2139d25616
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-software-center-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Utiliser le Centre logiciel pour déployer Windows sur le réseau avec System Center Configuration Manager
+# <a name="use-software-center-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>Windows met Software Center via het netwerk implementeren met System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Vous pouvez rendre disponible la séquence de tâches pour installer un système d’exploitation dans System Center Configuration Manager dans le Centre logiciel. Vous pouvez déployer un système d’exploitation dans le Centre logiciel dans les scénarios de déploiement de système d’exploitation suivants :
+U kunt de takenreeks die u een besturingssysteem in System Center Configuration Manager beschikbaar in Software Center installeert. U kunt een besturingssysteem implementeren naar Software Center met de volgende implementatiescenario's voor besturingssystemen:
 
--   [Actualiser un ordinateur existant avec une nouvelle version de Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)
+-   [Een bestaande computer vernieuwen met een nieuwe versie van Windows](refresh-an-existing-computer-with-a-new-version-of-windows.md)
 
--   [Effectuer une mise à niveau de Windows vers la dernière version](upgrade-windows-to-the-latest-version.md)
+-   [Windows bijwerken naar de laatste versie](upgrade-windows-to-the-latest-version.md)
 
-Effectuez les étapes dans un des scénarios de déploiement de système d’exploitation. Puis utilisez les sections suivantes pour préparer les déploiements qui sont disponibles dans le centre logiciel.
+Voltooi de stappen in een van de implementatiescenario's voor besturingssystemen. Gebruik de volgende secties om voor te bereiden voor implementaties die beschikbaar in Software Center zijn.
 
-## <a name="configure-deployment-settings"></a>Configurer les paramètres de déploiement  
-Pour rendre le déploiement de système d’exploitation disponible dans le centre logiciel, configurez le déploiement. Vous pouvez configurer le déploiement dans la page **Paramètres de déploiement** de l’Assistant Déploiement logiciel ou sous l’onglet **Paramètres de déploiement** dans les propriétés du déploiement. Pour le paramètre **Rendre disponible aux éléments suivants** , sélectionnez **Clients Configuration Manager uniquement** ou **Clients, média et environnement PXE Configuration Manager**. Une fois que le système déploie le système d’exploitation, il est affiché dans le Centre logiciel pour les membres du regroupement cible.
+## <a name="configure-deployment-settings"></a>Implementatie-instellingen configureren  
+Als u de implementatie van besturingssystemen in Software Center, de implementatie te configureren. U kunt de implementatie configureren op de **implementatie-instellingen** pagina van de Wizard Software implementeren of de **implementatie-instellingen** tabblad in de eigenschappen voor de implementatie. Voor de instelling **Toegankelijk maken voor de volgende** configureert u **Alleen Configuration Manager-clients** of **Configuration Manager-clients, media en PXE**. Nadat het systeem het besturingssysteem implementeert, wordt het besturingssysteem weergegeven in Software Center voor leden van de doelverzameling.
 
-##  <a name="BKMK_Deploy"></a> Déployer la séquence de tâches sur les ordinateurs  
-Déployez le système d’exploitation dans un regroupement cible. Pour plus d'informations, voir [Déployer une séquence de tâches](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS). Quand vous déployez des systèmes d’exploitation pour le Centre logiciel, vous pouvez configurer si le déploiement est obligatoire ou disponible.
+##  <a name="BKMK_Deploy"></a> De takenreeks implementeren naar computers  
+Het besturingssysteem implementeren naar een doelverzameling. Zie [Een takenreeks implementeren](manage-task-sequences-to-automate-tasks.md#BKMK_DeployTS) voor meer informatie. Wanneer u besturingssystemen voor Software Center implementeert, kunt u configureren of de implementatie vereist of beschikbaar.
 
--   **Déploiement obligatoire**: les déploiements obligatoires rendent le système d’exploitation accessible dans le Centre logiciel, mais il est démarré automatiquement conformément au calendrier d’attribution configurée.
+-   **Vereiste implementatie**: Vereiste implementaties wordt het besturingssysteem beschikbaar gesteld in Software Center, maar wordt automatisch gestart volgens de geconfigureerde toewijzingsplanning.
 
--   **Déploiement disponible**: le système d’exploitation est disponible dans le Centre logiciel et l’utilisateur peut l’installer à la demande.
+-   **Beschikbare implementatie**: Het besturingssysteem wordt beschikbaar gesteld in Software Center en de gebruiker deze op verzoek kan installeren.

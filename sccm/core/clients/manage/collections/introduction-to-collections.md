@@ -1,6 +1,6 @@
 ---
-title: "Présentation des regroupements | Documents Microsoft"
-description: "Obtenez une présentation de l’utilisation des regroupements dans System Center Configuration Manager."
+title: Verzamelingen Inleiding | Microsoft Docs
+description: Maak kennis met behulp van verzamelingen in System Center Configuration Manager.
 ms.custom: na
 ms.date: 01/03/2017
 ms.prod: configuration-manager
@@ -16,50 +16,50 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 547d231d48ccbc8241e9f1f8f71e3750b266b73e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-collections-in-system-center-configuration-manager"></a>Présentation des regroupements dans System Center Configuration Manager
+# <a name="introduction-to-collections-in-system-center-configuration-manager"></a>Inleiding op verzamelingen in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Les regroupements vous permettent d’organiser les ressources en unités gérables. Vous pouvez créer des regroupements pour répondre à vos besoins de gestion des clients et pour effectuer des opérations sur plusieurs ressources à la fois. 
+Verzamelingen kunnen u resources te organiseren in beheerbare eenheden. U kunt verzamelingen aan de behoeften van uw client-beheer en bewerkingen uit te voeren op meerdere resources tegelijk maken. 
 
-La plupart des tâches de gestion reposent sur ou nécessitent l’utilisation d’un ou plusieurs regroupements. Même si vous pouvez utiliser le regroupement prédéfini Tous les systèmes, son utilisation pour des tâches de gestion n’est pas une bonne pratique. Créez des regroupements personnalisés pour identifier de façon plus spécifique les appareils ou les utilisateurs pour une tâche.  
+De meeste beheertaken zijn afhankelijk van of moeten u een of meer verzamelingen. Hoewel u de ingebouwde verzameling alle systemen gebruiken kunt, is het niet aanbevolen voor beheertaken. Maak aangepaste verzamelingen om te identificeren meer specifiek de apparaten of gebruikers voor een taak.  
 
- Les regroupements intégrés et personnalisés figurent dans les nœuds **Regroupements d’utilisateurs** et **Regroupements de périphériques** dans l’espace de travail **Ressources et Conformité** de la console Configuration Manager.  
+ Ingebouwde en aangepaste verzamelingen worden weergegeven in de **Gebruikersverzamelingen** en **Apparaatverzamelingen** knooppunten in de **activa en naleving** werkruimte in de Configuration Manager-console.  
 
- Les derniers regroupements visualisés apparaissent dans le nœud **Utilisateurs** et dans le nœud **Appareils** de l’espace de travail **Biens et conformité**.  
+ Verzamelingen die u onlangs hebt bekeken worden weergegeven in de **gebruikers** knooppunt en in de **apparaten** knooppunt in de **activa en naleving** werkruimte.  
 
-Voici quelques exemples d’utilisation de regroupements :  
+Hier volgen enkele voorbeelden van het gebruik van de verzameling:  
 
-|Opération|Exemple|  
+|Bewerking|Voorbeeld|  
 |---------|-------|  
-|Regroupement des ressources|Vous pouvez créer des regroupements qui rassemblent des ressources en fonction de la hiérarchie de votre organisation.<br /><br /> Par exemple, vous pouvez créer un regroupement de tous les ordinateurs de l’unité d’organisation Active Directory « Siège social de Londres ». Pour plus d’informations sur la création de ce type de regroupement, consultez [Guide pratique pour créer des regroupements dans System Center Configuration Manager](../../../../core/clients/manage/collections/create-collections.md).<br /><br /> Vous pouvez utiliser ce regroupement pour des opérations comme la configuration des paramètres Endpoint Protection, la configuration des paramètres de gestion de l’alimentation des appareils ou l’installation du client Configuration Manager.|  
-|[Déploiement d’applications]|Vous pouvez créer un regroupement de tous les ordinateurs où Microsoft Office 2013 n’est pas installé, puis le déployer sur tous les ordinateurs de ce regroupement.<br /><br /> Vous pouvez également utiliser des données de configuration requise pour l’application pour effectuer cette tâche. Pour plus d’informations, consultez [Comment créer des applications avec System Center Configuration Manager](../../../../apps/deploy-use/create-applications.md).|  
-|[Gestion des paramètres client](../../../../core/clients/deploy/about-client-settings.md)|Bien que les paramètres client par défaut dans Configuration Manager s’appliquent à tous les appareils et à tous les utilisateurs, vous pouvez créer des paramètres client personnalisés qui s’appliquent à un regroupement d’appareils ou d’utilisateurs.<br /><br /> Par exemple, si vous voulez que le contrôle à distance soit disponible sur tous les appareils excepté quelques-uns, configurez les paramètres client par défaut pour autoriser le contrôle à distance, puis configurez les paramètres client personnalisés qui interdisent le contrôle à distance et déployez-les sur le regroupement des clients qui font l’objet de cette exception. |  
-|[Gestion de l’alimentation](../power/introduction-to-power-management.md)|Vous pouvez configurer des paramètres d’alimentation spécifiques par regroupement.|  
-|[Administration basée sur des rôles](../../../../core/servers/deploy/configure/configure-role-based-administration.md)|Utiliser des regroupements pour contrôler quels groupes d’utilisateurs ont accès à différentes fonctionnalités dans la console Configuration Manager.|  
-|[Fenêtres de maintenance](../../../../core/clients/manage/collections/use-maintenance-windows.md)|Avec des fenêtres de maintenance, vous pouvez définir une période de temps pendant laquelle différentes opérations Configuration Manager peuvent être effectuées sur les membres d’un regroupement d’appareils. |  
+|Groeperen van resources|U kunt verzamelingen maken die resources groeperen op basis van de hiërarchie van uw organisatie.<br /><br /> Bijvoorbeeld, kunt u maken een verzameling van alle computers in de 'Londen hoofdkantoor' Active Directory organisatie-eenheid (OE). Zie voor meer informatie over het maken van dit type verzameling [verzamelingen maken in System Center Configuration Manager](../../../../core/clients/manage/collections/create-collections.md).<br /><br /> U kunt deze verzameling voor bewerkingen, zoals Endpoint Protection-instellingen configureren, configureren van instellingen voor energiebeheer apparaat of de Configuration Manager-client installeert.|  
+|[Toepassingsimplementatie]|U kunt een verzameling van alle computers die geen Microsoft Office 2013 is geïnstalleerd en vervolgens implementeren op alle computers in die verzameling kunt maken.<br /><br /> U kunt ook toepassingsvereisten gebruiken om deze taak uit te voeren. Zie [Toepassingen maken met System Center Configuration Manager](../../../../apps/deploy-use/create-applications.md) voor meer informatie.|  
+|[Clientinstellingen beheren](../../../../core/clients/deploy/about-client-settings.md)|Hoewel de standaardclientinstellingen in Configuration Manager van toepassing zijn op alle apparaten en gebruikers, kunt u aangepaste clientinstellingen maken die van toepassing zijn op een verzameling apparaten of een verzameling gebruikers.<br /><br /> Als u wilt dat extern beheer alleen beschikbaar op alle slechts een paar apparaten, bijvoorbeeld de standaardclientinstellingen voor het toestaan van beheer op afstand en configureer vervolgens aangepaste clientinstellingen die niet toestaan van beheer op afstand en implementeren in de verzameling van uitzonderlijke clients configureren. |  
+|[Energiebeheer](../power/introduction-to-power-management.md)|U kunt specifieke energie-instellingen per verzameling configureren.|  
+|[Op rollen gebaseerd beheer](../../../../core/servers/deploy/configure/configure-role-based-administration.md)|Gebruik verzamelingen om te bepalen welke groepen gebruikers toegang tot verschillende functies in de Configuration Manager-console hebben.|  
+|[Onderhoudsvensters](../../../../core/clients/manage/collections/use-maintenance-windows.md)|U kunt een bepaalde periode wanneer verschillende Configuration Manager-bewerkingen kunnen worden uitgevoerd op leden van een apparatenverzameling definiëren met onderhoudsvensters. |  
 
 
-## <a name="collection-types-in-configuration-manager"></a>Types de regroupements dans Configuration Manager  
- Configuration Manager a des regroupements prédéfinis pour les opérations courantes, et vous pouvez aussi créer des regroupements personnalisés.   
+## <a name="collection-types-in-configuration-manager"></a>Verzamelingtypen in Configuration Manager  
+ Configuration Manager beschikt over ingebouwde verzamelingen voor algemene bewerkingen en u kunt ook aangepaste verzamelingen maken.   
 
-### <a name="built-in-collections"></a>Regroupements intégrés  
- Par défaut, Configuration Manager contient les regroupements suivants qui ne peuvent pas être modifiés.  
+### <a name="built-in-collections"></a>Ingebouwde verzamelingen  
+ Configuration Manager omvat de volgende verzamelingen kunnen niet worden gewijzigd.  
 
-|**Nom du regroupement**|Description|  
+|**Naam van verzameling**|Beschrijving|  
 |-------------------------|-----------------|  
-|**Tous les groupes d'utilisateurs**|Contient les groupes d'utilisateurs qui sont découverts à l'aide de la découverte de groupes de sécurité Active Directory.|  
-|**Tous les utilisateurs**|Contient les utilisateurs qui sont découverts à l'aide de la découverte d'utilisateurs Active Directory.|  
-|**Tous les utilisateurs et groupes d'utilisateurs**|Contient tous les utilisateurs et tous les regroupements de groupes d'utilisateurs. Ce regroupement contient la plus grande étendue de ressources utilisateur et groupe d’utilisateurs.|  
-|**Tous les clients bureau et serveur**|Contient les appareils serveurs et de bureau qui disposent du client Configuration Manager. L'appartenance est maintenue par découverte par pulsations d'inventaire.|  
-|**Tous les appareils mobiles**|Contient les appareils mobiles qui sont gérés par Configuration Manager. L'appartenance est limitée à ces appareils mobiles qui sont affectés à un site avec succès ou découverts par le connecteur Exchange Server.|  
-|**Tous les systèmes**|Contient les regroupements Tous les clients poste de travail et serveur, Tous les appareils mobiles et Tous les ordinateurs inconnus, ainsi que tous les appareils mobiles qui sont inscrits par Microsoft Intune. Ce regroupement contient la plus grande étendue de ressources d’appareil.|  
-|**Tous les ordinateurs inconnus**|Contient des enregistrements d'ordinateur générique pour plusieurs plates-formes informatiques. Vous pouvez utiliser ce regroupement pour déployer un système d'exploitation à l'aide d'une séquence de tâches et d'un démarrage PXE, d'un média de démarrage ou d'un média préparé.|  
+|**Alle gebruikersgroepen**|Bevat de gebruikersgroepen die zijn gedetecteerd via detectie van Active Directory-beveiligingsgroepen.|  
+|**Alle gebruikers**|Bevat de gebruikers die zijn gedetecteerd via detectie van Active Directory-gebruikers.|  
+|**Alle gebruikers en gebruikersgroepen**|Bevat de verzamelingen Alle gebruikers en Alle gebruikersgroepen. Deze verzameling bevat het grootste bereik van de gebruikers- en gebruikersgroepresources.|  
+|**Alle Desktop- en Serverclients**|Bevat de server en bureaublad-apparaten waarop de Configuration Manager-client is geïnstalleerd. Het lidmaatschap wordt beheerd door Heartbeat-detectie.|  
+|**Alle mobiele apparaten**|Bevat de mobiele apparaten die worden beheerd door Configuration Manager. Het lidmaatschap is beperkt tot de mobiele apparaten die zijn toegewezen aan een site of die zijn gedetecteerd door de Exchange Server-connector.|  
+|**Alle systemen**|Bevat alle Desktop en serverclients, de alle mobiele apparaten en de verzamelingen alle onbekende Computers en alle mobiele apparaten die zijn geregistreerd door Microsoft Intune. Deze verzameling bevat het grootste bereik van apparaatresources.|  
+|**Alle onbekende computers**|Bevat algemene computerrecords voor meerdere computerplatforms. U kunt deze verzameling gebruiken voor het implementeren van een besturingssysteem met behulp van een takenreeks en PXE-opstartbewerking, opstartbare media of voorbereide media.|  
 
-### <a name="custom-collections"></a>Regroupements personnalisés  
- Quand vous créez un regroupement personnalisé dans Configuration Manager, l’appartenance de ce regroupement est déterminée par une ou plusieurs règles de regroupement, comme décrit dans [Guide pratique pour créer des regroupements dans System Center Configuration Manager](../../../../core/clients/manage/collections/create-collections.md). 
+### <a name="custom-collections"></a>Aangepaste verzamelingen  
+ Wanneer u een aangepaste verzameling in Configuration Manager maken, het lidmaatschap van deze verzameling wordt bepaald door een of meer verzamelingsregels, zoals beschreven in [verzamelingen maken in System Center Configuration Manager](../../../../core/clients/manage/collections/create-collections.md). 
 

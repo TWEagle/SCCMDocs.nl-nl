@@ -1,6 +1,6 @@
 ---
-title: "Sites web pour les systèmes de site | Microsoft Docs"
-description: "Découvrez les sites web personnalisés et par défaut pour les serveurs de système de site dans System Center Configuration Manager."
+title: Websites voor sitesystemen | Microsoft Docs
+description: Meer informatie over de standaardwebsites en aangepaste websites voor sitesysteemservers in System Center Configuration Manager.
 ms.custom: na
 ms.date: 2/8/2017
 ms.prod: configuration-manager
@@ -17,117 +17,117 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 886ff3b8e867fc340c79648a57feae81653b0ccd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="websites-for-site-system-servers-in-system-center-configuration-manager"></a>Sites web pour les serveurs de système de site dans System Center Configuration Manager
+# <a name="websites-for-site-system-servers-in-system-center-configuration-manager"></a>Websites voor sitesysteemservers in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Plusieurs rôles de système de site Configuration Manager nécessitent l’utilisation de Microsoft Internet Information Services (IIS) et utilisent le site web IIS par défaut pour héberger les services du système de site. Si vous devez exécuter d’autres applications web sur le même serveur et que les paramètres ne sont pas compatibles avec Configuration Manager, utilisez plutôt un site web personnalisé pour Configuration Manager.  
+Verschillende sitesysteemrollen van Configuration Manager vereisen het gebruik van Microsoft Internet Information Services (IIS) en gebruiken de standaard IIS-website te hosten. Wanneer u andere webtoepassingen moet uitvoeren op de server en de instellingen zijn niet compatibel is met Configuration Manager, kunt u een aangepaste website voor Configuration Manager gebruiken.  
 
 > [!TIP]  
->  Une bonne pratique en matière de sécurité consiste à dédier un serveur aux systèmes de site Configuration Manager nécessitant IIS. Quand vous exécutez d’autres applications sur un système de site Configuration Manager, vous augmentez la surface exposée aux attaques de cet ordinateur.  
+>  Aanbevolen beveiligingsprocedure is een speciale server voor de Configuration Manager-sitesystemen waarvoor IIS is vereist. Wanneer u andere toepassingen op een Configuration Manager sitesysteem uitvoert, vergroot u de kwetsbaarheid voor aanvallen van die computer.  
 
 
 
 
-##  <a name="BKMK_What2Know"></a> Informations à connaître avant d’utiliser des sites web personnalisés  
- Par défaut, les rôles de système de site utilisent le **site web par défaut** dans IIS. Ceci est automatiquement configuré lors de l’installation du rôle de système de site. Toutefois, sur les sites principaux, vous pouvez choisir d’utiliser des sites web personnalisés à la place. Quand vous utilisez des sites web personnalisés :  
+##  <a name="BKMK_What2Know"></a>Wat u moet weten voordat u aangepaste websites gaat gebruiken  
+ Sitesysteemrollen gebruiken standaard de **standaardwebsite** in IIS. Dit is ingesteld automatisch wanneer de sitesysteemrol wordt geïnstalleerd. Op primaire sites kunt u in plaats daarvan echter kiezen voor het gebruik van aangepaste websites. Wanneer u aangepaste websites gebruikt, geldt het volgende:  
 
--   Les sites web personnalisés sont activés pour l’ensemble du site, et non pas individuellement pour des serveurs ou rôles du système de site.  
+-   Aangepaste websites zijn ingeschakeld voor de hele site in plaats van voor afzonderlijke sitesysteemservers of -rollen.  
 
--   Sur les sites principaux, chaque ordinateur qui hébergera un rôle de système de site applicable doit être configuré avec un site web personnalisé nommé **SMSWEB**. Tant que ce site web n’aura pas été créé et que les rôles de système de site sur l’ordinateur n’auront pas été configurés pour utiliser le site web personnalisé, les clients ne pourront peut-être pas communiquer avec les rôles de système de site sur cet ordinateur.  
+-   Op primaire sites moet elke computer die als voor een bijbehorende sitesysteemrol host fungeert worden ingesteld met een aangepaste website met de naam **SMSWEB**. Totdat u deze website maakt en sitesysteemrollen op die computer instellen voor gebruik van de aangepaste website, kunnen clients mogelijk niet communiceren met sitesysteemrollen op die computer.  
 
--   Du fait que les sites secondaires sont automatiquement configurés pour utiliser un site web personnalisé quand leur site parent principal est configuré pour cela, vous devez également créer des sites web personnalisés dans IIS sur chaque serveur de système de site secondaire qui nécessite IIS.  
+-   Omdat secundaire sites worden automatisch ingesteld op een aangepaste website gebruiken wanneer hun bovenliggende primaire site om dit te doen, moet u ook aangepaste websites in IIS maken op elke secundaire sitesysteemserver waarvoor IIS is ingesteld.  
 
 
-  **Configuration requise pour l’utilisation de sites web personnalisés :**  
+  **Vereisten voor het gebruik van aangepaste websites:**  
 
- Avant d’activer l’option pour utiliser des sites web personnalisés sur un site, vous devez effectuer les opérations suivantes :  
+ Voordat u de optie voor gebruik van aangepaste websites op een site inschakelt, moet u het volgende doen:  
 
--   Créez un site web personnalisé nommé **SMSWEB** dans IIS sur chaque serveur de système de site qui nécessite les services IIS. Effectuez cette opération sur le site principal et sur tous les sites secondaires enfants.  
+-   Maak een aangepaste website met de naam **SMSWEB** in IIS op elke sitesysteemserver waarvoor IIS is vereist. Doe dat op de primaire site en op alle onderliggende secundaire sites.  
 
--   Configurez le site web personnalisé pour répondre sur le même port que celui configuré pour la communication client Configuration Manager (port de demande client).  
+-   De aangepaste website instellen om te reageren op dezelfde poort die u hebt ingesteld voor Configuration Manager-clientcommunicatie (poort voor clientaanvragen).  
 
--   Pour chaque site web personnalisé ou site web par défaut qui utilise un dossier personnalisé, placez une copie du type de document par défaut que vous utilisez dans le dossier racine qui héberge le site web. Par exemple, sur un ordinateur Windows Server 2008 R2 avec des configurations par défaut, **iisstart.htm** est l’un des types de documents par défaut disponibles. Ce fichier se trouve à la racine du site web par défaut. Vous pouvez en placer une copie (ou une copie du type de document par défaut que vous utilisez) dans le dossier racine qui héberge le site web personnalisé SMSWEB. Pour plus d’informations sur les types de documents par défaut, consultez [Document par défaut &lt;defaultDocument\> pour IIS](http://www.iis.net/configreference/system.webserver/defaultdocument).  
+-   Voor elke aangepaste of standaardwebsite die gebruikmaakt van een aangepaste map, plaats een kopie van het standaarddocumenttype dat u gebruikt in de hoofdmap waarin de website wordt gehost. Bijvoorbeeld: op een Windows Server 2008 R2-computer met standaardconfiguraties is **iisstart.htm** is een van de verschillende standaard documenttypen die beschikbaar zijn. U kunt dit bestand vinden in de hoofdmap van de standaardwebsite en plaats vervolgens een kopie van dit bestand (of een kopie van het standaarddocumenttype dat u gebruikt) in de hoofdmap waarin de aangepaste SMSWEB-website. Zie voor meer informatie over Standaarddocumenttypen [standaarddocument &lt;defaultDocument\> voor IIS](http://www.iis.net/configreference/system.webserver/defaultdocument).  
 
-**À propos de la configuration requise pour IIS :**
-**Les rôles de système de site suivants nécessitent IIS et un site web pour héberger les services de système de site :**  
+**Over de vereisten voor IIS:**
+**de volgende sitesysteemrollen vereisen IIS en een website die als host voor de sitesysteemserver:**  
 
--   Point de service Web du catalogue des applications  
+-   Application Catalog-webservicepunt  
 
--   Point du site web du catalogue des applications  
+-   Application Catalog-websitepunt  
 
--   Point de distribution  
+-   Distributiepunt  
 
--   Point d'inscription  
+-   Inschrijvingspunt  
 
--   Point proxy d'inscription  
+-   Proxypunt voor inschrijving  
 
--   Point d’état de secours  
+-   Terugvalstatuspunt  
 
--   Point de gestion  
+-   Beheerpunt  
 
--   Point de mise à jour logicielle  
+-   Software-updatepunt  
 
--   Point de migration d'état  
+-   Statusmigratiepunt  
 
-Autres éléments à prendre en considération  
+Aanvullende overwegingen:  
 
--   Quand un site principal comporte des sites web personnalisés activés, les clients attribués à ce site sont configurés pour communiquer avec les sites web personnalisés plutôt qu’avec les sites web par défaut sur les serveurs de système de site concernés.  
+-   Wanneer een primaire site aangepaste websites zijn ingeschakeld, worden clients die zijn toegewezen aan die site omgeleid om te communiceren met de aangepaste websites in plaats van de standaardwebsites op de betreffende sitesysteemservers  
 
--   Si vous activez des sites web personnalisés pour un site principal, envisagez d’utiliser des sites web personnalisés pour tous les sites principaux de votre hiérarchie afin d’assurer la bonne itinérance des clients dans la hiérarchie. (L’itinérance désigne le déplacement d’un ordinateur client vers un nouveau segment de réseau qui est géré par un autre site. L’itinérance peut avoir une incidence sur les ressources auxquelles un client peut accéder localement au lieu d’y accéder sur une liaison WAN).  
+-   Als u aangepaste websites voor één primaire site gebruikt, kunt u aangepaste websites voor alle primaire sites in uw hiërarchie om ervoor te zorgen dat clients zonder problemen binnen de hiërarchie roamen kunnen. (Bij roaming wordt een clientcomputer verplaatst naar een nieuw netwerksegment dat wordt beheerd door een andere site. Roaming kan van invloed op bronnen die een client lokaal toegang in plaats van via een WAN-verbinding hebben kan).  
 
--   Les rôles de système de site qui utilisent les services IIS mais n’acceptent pas les connexions clientes, comme le point de Reporting Services, utilisent également le site web SMSWEB au lieu du site web par défaut.  
+-   Sitesysteemrollen die IIS gebruiken maar geen clientverbindingen, zoals het reporting servicepunt accepteren gebruik van de SMSWEB-website in plaats van de standaardwebsite.  
 
--   Les sites web personnalisés vous permettent d’attribuer des numéros de port différents de ceux utilisés par le site web par défaut des ordinateurs. Un site web par défaut et le site web personnalisé ne peuvent pas s’exécuter simultanément s’ils tentent tous les deux d’utiliser les mêmes ports TCP/IP.  
+-   Aangepaste websites moet u poortnummers toewijzen die afwijken van de door de standaardwebsite van de computer maakt gebruik van poorten. Een standaardwebsite en een aangepaste website kunnen niet tegelijkertijd worden uitgevoerd als beide sites proberen dezelfde TCP/IP-poorten te gebruiken.  
 
--   Les ports TCP/IP que vous configurez dans IIS pour le site web personnalisé doivent correspondre aux ports de demande client pour le site.  
+-   De TCP/IP-poorten die u hebt ingesteld in IIS voor de aangepaste website moeten overeenkomen met de client aangevraagde poorten voor de site.  
 
-## <a name="switch-between-default-and-custom-websites"></a>Basculer entre un site web par défaut et un site web personnalisé  
-Vous pouvez cocher ou décocher la case relative à l’utilisation de sites web personnalisés sur un site principal à tout moment (la case à cocher se trouve sous l’onglet Général des propriétés des sites), mais effectuez cette modification avec prudence. Si cette configuration est modifiée, tous les rôles de système de site applicables sur le site principal et sur les sites secondaires enfants doivent être désinstallés, puis réinstallés :  
+## <a name="switch-between-default-and-custom-websites"></a>Schakelen tussen standaardwebsites en aangepaste websites  
+Maar u kunt controleren of schakel het selectievakje uit voor het gebruik van aangepaste websites op een primaire site op elk gewenst moment (het vak is op het tabblad Algemeen van de site eigenschappen), plan zorgvuldig voordat u deze wijziging aanbrengt. Wanneer deze configuratie wordt gewijzigd, moeten alle betreffende sitesysteemrollen op de primaire site en de onderliggende secundaire sites verwijderen en opnieuw installeren:  
 
-Les rôles suivants sont **réinstallés automatiquement**:  
+De volgende rollen **worden automatisch opnieuw geïnstalleerd**:  
 
--   Point de gestion  
+-   Beheerpunt  
 
--   Point de distribution  
+-   Distributiepunt  
 
--   Point de mise à jour logicielle  
+-   Software-updatepunt  
 
--   Point d'état de secours  
+-   Terugvalstatuspunt  
 
--   Point de migration d'état  
+-   Statusmigratiepunt  
 
-Les rôles suivants doivent être **réinstallés manuellement**:  
+De volgende rollen moeten **handmatig opnieuw worden geïnstalleerd**:  
 
--   Point de service Web du catalogue des applications  
+-   Application Catalog-webservicepunt  
 
--   Point du site web du catalogue des applications  
+-   Application Catalog-websitepunt  
 
--   Point d'inscription  
+-   Inschrijvingspunt  
 
--   Point proxy d'inscription  
+-   Proxypunt voor inschrijving  
 
-En outre :  
+Aanvullend:  
 
--   Quand vous utilisez un site web personnalisé à la place du site web par défaut, Configuration Manager ne supprime pas les anciens répertoires virtuels. Si vous souhaitez supprimer les fichiers utilisés par Configuration Manager, vous devez supprimer manuellement les répertoires virtuels créés sous le site web par défaut.  
+-   Wanneer u van de standaardwebsite overschakelt naar een aangepaste website gebruikt, wordt in Configuration Manager de oude virtuele mappen niet verwijderen. Als u verwijderen van de bestanden die Configuration Manager gebruikt wilt, moet u de onder de standaardwebsite gemaakte virtuele mappen handmatig verwijderen.  
 
--   Si vous modifiez le site pour utiliser des sites web personnalisés, les clients qui sont déjà attribués au site doivent ensuite être reconfigurés pour utiliser les nouveaux ports de demande client pour les sites web personnalisés. Consultez [Guide pratique pour configurer les ports de communication des clients dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-communication-ports.md).  
+-   Als u de site voor het gebruik van aangepaste websites wijzigt, clients die al zijn toegewezen aan de site moeten vervolgens opnieuw worden geconfigureerd voor het gebruik van de nieuwe client aangevraagde poorten voor de aangepaste websites. Zie [clientcommunicatiepoorten in System Center Configuration Manager configureren](../../../core/clients/deploy/configure-client-communication-ports.md).  
 
-## <a name="set-up-custom-websites"></a>Configurer des sites web personnalisés  
-Du fait que les procédures de création d’un site web personnalisé varient selon la version du système d’exploitation, reportez-vous à la documentation de votre version de système d’exploitation pour connaître les procédures exactes à suivre. Toutefois, suivez les indications ci-dessous, le cas échéant :  
+## <a name="set-up-custom-websites"></a>Aangepaste websites instellen  
+De stappen voor het maken van een aangepaste website verschillen per besturingssysteem. Raadpleeg voor de exacte stappen de documentatie voor de besturingssysteemversie, maar gebruik de volgende informatie wanneer dit van toepassing is:  
 
--   Le site web doit être appelé **SMSWEB**.  
+-   De naam van de website moet zijn: **SMSWEB**.  
 
--   Si vous configurez le protocole HTTPS, vous devez spécifier un certificat SSL pour pouvoir enregistrer la configuration.  
+-   Bij het instellen van HTTPS, moet u een SSL-certificaat opgeven voordat u de configuratie kunt opslaan.  
 
--   Après avoir créé le site web personnalisé, supprimez les ports de sites web personnalisés que vous utilisez à partir d’autres sites web dans IIS :  
+-   Nadat u de aangepaste website hebt gemaakt, verwijdert u de aangepaste website-poorten die u gebruikt van andere websites in IIS:  
 
-    1.  Modifiez les **liaisons** des autres sites web pour supprimer les ports qui correspondent à ceux attribués au site web **SMSWEB**.  
+    1.  Bewerk de **bindingen** van de andere websites om poorten die overeenkomen met de te verwijderen die zijn toegewezen aan de **SMSWEB** website.  
 
-    2.  Démarrez le site web **SMSWEB**.  
+    2.  Start de **SMSWEB** website.  
 
-    3.  Redémarrez le service **SMS_SITE_COMPONENT_MANAGER** sur le serveur de site du site.  
+    3.  Start de service **SMS_SITE_COMPONENT_MANAGER** op de siteserver van de site opnieuw op.  

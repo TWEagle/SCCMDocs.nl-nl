@@ -1,6 +1,6 @@
 ---
-title: "Installation à partir de la ligne de commande | Microsoft Docs"
-description: "Découvrez comment exécuter le programme d’installation de System Center Configuration Manager à partir d’une invite de commandes pour diverses installations de site."
+title: Installatie via de opdrachtregel | Microsoft Docs
+description: Informatie over het uitvoeren van Setup van System Center Configuration Manager bij een opdrachtprompt voor een verscheidenheid aan site-installaties.
 ms.custom: na
 ms.date: 3/27/2017
 ms.prod: configuration-manager
@@ -16,111 +16,111 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 8ff48b08d1abb7481592c0ea076d4efa15c3d8ee
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-a-command-line-to-install-system-center-configuration-manager-sites"></a>Utiliser la ligne de commande pour installer des sites System Center Configuration Manager
+# <a name="use-a-command-line-to-install-system-center-configuration-manager-sites"></a>Gebruik een opdrachtregel voor het installeren van System Center Configuration Manager-sites
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
- Vous pouvez exécuter le programme d’installation de System Center Configuration Manager à partir d’une invite de commandes pour installer divers types de site.
+ U kunt Setup van System Center Configuration Manager uitvoeren bij een opdrachtprompt voor verschillende typen sites installeren.
 
-## <a name="supported-tasks-for-command-line-installations"></a>Tâches prises en charge pour des installations via la ligne de commande
- Cette méthode consistant à exécuter le programme d’installation prend en charge les tâches d’installation de site et de maintenance de site suivantes :
+## <a name="supported-tasks-for-command-line-installations"></a>Ondersteunde taken voor opdrachtregelinstallaties
+ Deze methode van het uitvoeren van Setup ondersteunt de volgende site-installatie en taken voor siteonderhoud:
 
--   **Installer un site d’administration centrale ou un site principal à partir de la ligne de commande**  
-  Consultez la rubrique [Options de ligne de commande pour le programme d’installation](../../../../core/servers/deploy/install/command-line-options-for-setup.md).
+-   **Een centrale beheersite of primaire site installeren vanaf een opdrachtprompt**  
+  Weergave [opdrachtregelopties voor Setup](../../../../core/servers/deploy/install/command-line-options-for-setup.md)
 
--  **Modifier les langues utilisées sur un site d’administration centrale ou un site principal**  
-    Pour modifier les langues installées sur un site à partir de la ligne de commande (y compris les langues des appareils mobiles), effectuez les opérations suivantes :  
+-  **De talen in gebruik is op een centrale beheersite of primaire site wijzigen**  
+    Voor het wijzigen van de talen die zijn geïnstalleerd op een site via een opdrachtprompt (waaronder de talen voor mobiele apparaten), moet u het volgende doen:  
 
-     -   Exécutez le programme d’installation à partir de **&lt;chemin_installation_Configuraton_Manager\>\Bin\X64** sur le serveur de site.
-     -   Utilisez l’option de ligne de commande **/MANAGELANGS**.
-     -   Spécifiez un fichier de jeu de caractères qui définit les langues à ajouter ou supprimer.  
+     -   Het installatieprogramma uitvoeren vanuit  **&lt;ConfigMgrInstallationPath\>\Bin\X64** op de siteserver
+     -   Gebruik de **managelangs** opdrachtregeloptie
+     -   Een taalscriptbestand die hier worden de talen die u wilt toevoegen of verwijderen, opgeven  
 
-    Par exemple, utilisez la syntaxe de commande suivante : **setupwpf.exe /MANAGELANGS &lt;fichier de script de langue\>**.  
+    Gebruik bijvoorbeeld de volgende opdrachtsyntaxis: **setupwpf.exe managelangs &lt;taalscriptbestand\>**  
 
-    Pour créer le fichier de script de langue, utilisez les informations fournies dans [Options de ligne de commande pour gérer les langues](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Lang).  
+    Gebruik de informatie in voor het maken van het taalscriptbestand [opdrachtregelopties gebruiken voor het beheren van talen](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Lang)  
 
--  **Utiliser un fichier de script d’installation pour une installation sans assistance de site ou une récupération de site**  
-    Vous pouvez exécuter le programme d’installation à partir d’une invite de commandes en utilisant un script d’installation et en effectuant une installation sans assistance de site. Vous pouvez aussi utiliser cette option pour récupérer un site.    
+-  **Een scriptbestand voor installatie gebruiken voor installaties zonder toezicht sites of siteherstel**  
+    U kunt Setup uitvoeren vanaf een opdrachtprompt met behulp van een script voor installatie en u de installatie van een site zonder toezicht uitvoeren. U kunt deze optie ook gebruiken om een site te herstellen.    
 
-    Pour utiliser un script avec le programme d’installation :  
+    Een script gebruiken met de installatie:  
 
-    -   Exécutez le programme d’installation avec l’option de ligne de commande **/SCRIPT** et spécifiez un fichier de script.  
+    -   Het installatieprogramma uitvoert met de opdrachtregeloptie **/SCRIPT** en een scriptbestand opgeven.  
 
-    -   Le fichier de script doit être configuré avec les clés et les valeurs requises.  
+    -   Het scriptbestand moet worden geconfigureerd met de vereiste sleutels en waarden.  
 
-    Pour effectuer une installation sans assistance d’un site d’administration centrale ou d’un site principal, le fichier de script doit comporter les sections suivantes :  
+    Het scriptbestand moet beschikken over de volgende secties voor een installatie zonder toezicht van een centrale beheersite of primaire site:  
 
-    -   Identification    
-    -   Options    
+    -   Identificatie    
+    -   Opties    
     -   SQLConfigOptions    
       -   HierarchyOptions    
     -   CloudConnectorOptions   
 
-    Pour récupérer un site, vous devez inclure également les sections suivantes du fichier de script :  
+    U kunt een site herstellen, moet u ook de volgende secties van het scriptbestand:  
 
-    -   Identification  
-    -   Récupération
+    -   Identificatie  
+    -   Herstel
 
-Pour plus d’informations, consultez [Récupération de site sans assistance pour Configuration Manager](/sccm/protect/understand/unattended-recovery).  
+Zie voor meer informatie [siteherstel zonder toezicht voor Configuration Manager](/sccm/protect/understand/unattended-recovery).  
 
-Pour obtenir la liste des clés et des valeurs à utiliser dans un fichier de script d’installation sans assistance, consultez [Clés du fichier de script d’installation sans assistance](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Unattended).  
+Zie voor een lijst met sleutels en waarden moet worden gebruikt in een scriptbestand voor installatie zonder toezicht [sleutels voor een scriptbestand voor installatie zonder toezicht](../../../../core/servers/deploy/install/command-line-options-for-setup.md#bkmk_Unattended).  
 
-## <a name="about-the-command-line-script-file"></a>À propos du fichier de script de ligne de commande  
- Pour réaliser une installation sans assistance de Configuration Manager, vous pouvez exécuter le programme d’installation avec l’option de ligne de commande **/SCRIPT** et spécifier un fichier de script contenant les options d’installation. Avec cette méthode, vous pouvez effectuer les tâches suivantes :  
+## <a name="about-the-command-line-script-file"></a>Over het bestand opdrachtregelscript  
+ Voor installaties zonder toezicht van Configuration Manager, kunt u Setup uitvoert met de opdrachtregeloptie **/SCRIPT**, en een scriptbestand met opties voor de installatie opgeven. De volgende taken worden met deze methode ondersteund:  
 
--   Installer un site d’administration centrale  
--   Installer un site principal  
--   Installer une console Configuration Manager  
--   Récupérer un site  
+-   Een centrale beheersite installeren  
+-   Een primaire site installeren  
+-   Een configuration Manager-console installeren  
+-   Een site herstellen  
 
 > [!NOTE]  
->  Vous ne pouvez pas utiliser le fichier de script d’installation sans assistance pour mettre à niveau un site d’évaluation vers une installation sous licence de Configuration Manager.  
+>  U kunt het scriptbestand niet gebruiken voor het upgraden van een evaluatiesite naar een gelicentieerde installatie van Configuration Manager.  
 
-### <a name="the-cdlatest-key-name"></a>Le nom de la clé CDLatest
-Lorsque vous utilisez un média à partir du dossier CD.Latest pour exécuter une installation scriptée des quatre options d’installation suivantes, votre script doit inclure la clé **CDLatest** avec la valeur **1** :
-- Installer un nouveau site d’administration centrale
-- Installer un nouveau site principal
-- Récupérer un site d’administration centrale
-- Récupérer un site principal
+### <a name="the-cdlatest-key-name"></a>De sleutelnaam CDLatest
+Wanneer u media vanaf de CD. Meest recente map om uit te voeren een script met het installeren van de volgende vier installatieopties, uw script moet bevatten de **CDLatest** sleutel met een waarde van **1**:
+- Een nieuwe centrale beheersite installeren
+- Een nieuwe primaire site installeren
+- Een centrale beheersite herstellen
+- Een primaire site herstellen
 
-Cette valeur n’est pas prise en charge pour l’utilisation avec le média d’installation que vous obtenez à partir du site de licence en volume de Microsoft.
-Consultez les [options de ligne de commande](/sccm/core/servers/deploy/install/command-line-options-for-setup) pour plus d’informations sur l’utilisation de ce nom de clé dans le fichier de script.
+Deze waarde wordt niet ondersteund voor gebruik met installatiemedia die die u via de Microsoft Volume License-site.
+Zie [opdrachtregelopties](/sccm/core/servers/deploy/install/command-line-options-for-setup) voor informatie over het gebruik van de naam van deze sleutel in het scriptbestand.
 
 
 
-### <a name="create-the-script"></a>Créer le script
-Le script d’installation est automatiquement créé lorsque vous [exécutez le programme d’installation pour installer un site à l’aide de l’interface utilisateur](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  Quand vous confirmez les paramètres dans la page **Résumé** de l’Assistant :  
+### <a name="create-the-script"></a>Het script maken
+Het script voor installatie wordt automatisch gemaakt wanneer u [installeren van een site via de gebruikersinterface](../../../../core/servers/deploy/install/use-the-setup-wizard-to-install-sites.md).  Wanneer u de instellingen te bevestigen op de **samenvatting** van de wizard het volgende gebeurt:  
 
--   Le programme d’installation crée le script **%TEMP%\ConfigMgrAutoSave.ini**.  Vous pouvez renommer ce fichier avant de l’utiliser, en veillant à conserver l’extension de fichier .ini.  
--   Le script d'installation sans assistance contient les paramètres que vous avez sélectionnés dans l'Assistant.  
--   Une fois que le script est créé, vous pouvez le modifier pour installer d'autres sites dans votre hiérarchie.  
--   Vous pouvez ensuite utiliser ce script pour effectuer une installation sans assistance de Configuration Manager.  
+-   Het installatieprogramma maakt het script **%TEMP%\ConfigMgrAutoSave.ini**.  U kunt dit bestand wijzigen voordat u deze gebruiken, maar deze moet de bestandsextensie ini behouden.  
+-   Het script voor installatie zonder toezicht bevat de instellingen die u hebt geselecteerd in de wizard.  
+-   Nadat het script is gemaakt, kunt u het script voor het installeren van andere sites in uw hiërarchie kunt wijzigen.  
+-   U kunt dit script vervolgens gebruiken om uit te voeren van een installatie zonder toezicht van Configuration Manager.  
 
-Le fichier de script fournit les mêmes informations que l’Assistant Installation demande, à l’exception des paramètres par défaut.   
-Vous devez spécifier toutes les valeurs pour les clés d’installation qui s’appliquent au type d’installation utilisé.   
+Dit scriptbestand bevat dezelfde informatie die door de installatiewizard vraagt, behalve dat er geen standaardinstellingen.   
+U moet alle waarden voor de installatiesleutels die van toepassing op het type installatie dat u gebruikt opgeven.   
 
-Lorsque le programme d’installation crée le script d’installation sans assistance, la valeur de clé de produit que vous entrez pendant l’installation est renseignée dans le script. Cette valeur peut être une clé de produit valide, ou **EVAL** lorsque vous installez une version d’évaluation de Configuration Manager. La valeur de clé de produit est renseignée dans le script pour permettre à la vérification des prérequis d’aboutir.   
+Wanneer het installatieprogramma maakt het script voor installatie zonder toezicht, wordt dit ingevuld met de productsleutel die u tijdens de installatie opgeeft. Dit is een geldige productsleutel of **EVAL** wanneer u een evaluatieversie van Configuration Manager installeert. De productsleutelwaarde in het script wordt ingevuld zodat de vereiste controle kan worden voltooid.   
 
-Lorsque le programme d'installation démarre l'installation effective du site, le script créé automatiquement fait l'objet d'une nouvelle écriture pour effacer la valeur de clé de produit dans le script créé. Avant d’utiliser le script pour une installation sans assistance d’un nouveau site, vous pouvez modifier le script pour fournir une clé de produit valide ou spécifier une installation d’évaluation de Configuration Manager.  
+Wanneer Setup de daadwerkelijke installatie start, het automatisch gemaakte script opnieuw geschreven om te wissen van de productsleutelwaarde in het script dat wordt gemaakt. Voordat u het script voor een installatie zonder toezicht van een nieuwe site, kunt u het script een geldige productsleutel of evaluatie-installatie van Configuration Manager opgeven.  
 
-### <a name="section-names-key-names-and-values"></a>Noms des sections, noms des clés et valeurs
-Le script contient les noms de section, les noms de clé et les valeurs. Gardez à l’esprit les informations suivantes :
--   Les noms des clés de section requis varient en fonction du type d'installation faisant l'objet du script.
--   L’ordre des clés dans les sections et l’ordre des sections dans le fichier n’ont pas d’importance.     
--   Les clés ne tiennent pas compte de la casse.  
--   Lorsque vous attribuez des valeurs aux clés, le nom de la clé doit être suivi du signe égal (=) et de la valeur de la clé.    
+### <a name="section-names-key-names-and-values"></a>Sectienamen, sleutelnamen en waarden
+Het script bevat sectienamen, sleutelnamen en waarden. Houd rekening met de volgende informatie:
+-   Vereiste sectiesleutelnamen variëren afhankelijk van het installatietype waarvoor u een script schrijft.
+-   De volgorde van de sleutels binnen secties en de volgorde van secties binnen het bestand is niet belangrijk.     
+-   De sleutels zijn niet hoofdlettergevoelig.  
+-   Wanneer u waarden voor sleutels opgeeft, moet de naam van de sleutel worden gevolgd door een gelijkteken (=) en de waarde voor de sleutel.    
 
 > [!TIP]  
->  Pour connaître l’ensemble complet des options, consultez [Options de ligne de commande pour le programme d’installation et les scripts](../../../../core/servers/deploy/install/command-line-options-for-setup.md).  
+>  De volledige set opties Zie [opdrachtregelopties voor het installatieprogramma en scripts](../../../../core/servers/deploy/install/command-line-options-for-setup.md).  
 
-## <a name="use-the-script-setup-command-line-option"></a>Utiliser l’option de ligne de commande /SCRIPT du programme d’installation
+## <a name="use-the-script-setup-command-line-option"></a>Gebruik de opdrachtregeloptie/script Setup
 
--   Vous devez utiliser un fichier de script d’installation et spécifier le nom du fichier après l’option de ligne de commande **/SCRIPT** du programme d’installation. Gardez à l’esprit les informations suivantes :   
-    -   Le nom du fichier doit avoir l’extension de nom de fichier **.ini**.  
-    -   Quand vous faites référence au fichier de script du programme d’installation à l’invite de commandes, indiquez le chemin complet du fichier. Par exemple, si votre fichier d’initialisation du programme d’installation est nommé Setup.ini et se trouve dans le dossier C:\Setup, à l’invite de commandes, tapez :  **setup /script c:\setup\setup.ini**.  
+-   U moet gebruiken een Setup-scriptbestand en geef de bestandsnaam na de **/SCRIPT** Setup-opdrachtregeloptie. Houd rekening met de volgende informatie:   
+    -   De naam van het bestand moet de **.ini** bestandsnaamextensie.  
+    -   Wanneer u verwijst naar het Setup-scriptbestand achter de opdrachtprompt, moet u het volledige pad naar het bestand opgeven. Als uw installatie-initialisatiebestand Setup.ini heet, en deze is opgeslagen in de map C:\Setup, bij de opdrachtprompt, typ bijvoorbeeld: **setup/script c:\setup\setup.ini**.  
 
--   Le compte qui exécute le programme d’installation doit avoir des droits d’**administrateur** sur l’ordinateur. Si vous exécutez le programme d’installation avec le script sans assistance, ouvrez la fenêtre d’invite de commandes en utilisant l’option **Exécuter en tant qu’administrateur**.   
+-   De account die de installatie uitvoert moet beschikken over **beheerder** rechten op de computer. Wanneer u Setup met het script zonder toezicht uitvoert, het venster opdrachtprompt openen met behulp van de **als administrator uitvoeren** optie.   

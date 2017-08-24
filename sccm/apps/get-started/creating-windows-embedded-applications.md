@@ -1,6 +1,6 @@
 ---
-title: "Créer des applications Windows Embedded | Documents Microsoft"
-description: "Examinez les éléments à prendre en compte quand vous créez et déployez des applications pour appareils Windows Embedded."
+title: Windows Embedded-toepassingen maken | Microsoft Docs
+description: Zie welke overwegingen u moet rekening account wanneer u maken en implementeren van toepassingen voor Windows Embedded-apparaten.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,36 +16,36 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: cb0c22f3060ba654778dca958d620f1e1725b93c
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-windows-embedded-applications-with-system-center-configuration-manager"></a>Créer des applications Windows Embedded avec System Center Configuration Manager
+# <a name="create-windows-embedded-applications-with-system-center-configuration-manager"></a>Windows Embedded-toepassingen maken met System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-En plus des autres exigences et procédures System Center Configuration Manager à observer pour créer une application, vous devez aussi prendre en compte les éléments suivants au moment de créer et déployer des applications pour des appareils Windows Embedded.  
+Naast de andere System Center Configuration Manager-vereisten en procedures voor het maken van een toepassing, u moet ook rekening houden met de volgende overwegingen wanneer u maken en implementeren van toepassingen voor Windows Embedded-apparaten.  
 
-## <a name="general-considerations"></a>Éléments généraux à prendre en compte  
+## <a name="general-considerations"></a>Algemene overwegingen  
 
--   Quand vous déployez des applications sur des appareils Windows Embedded activés pour le filtrage d’écriture, vous pouvez spécifier s’il faut désactiver le filtre d’écriture sur l’appareil pendant le déploiement de l’application. Vous pouvez ensuite choisir de redémarrer le filtre d’écriture une fois l’application déployée. Si le filtre d’écriture n’est pas désactivé, le logiciel est déployé sur un segment de recouvrement temporaire. Cela signifie que, sauf si un autre déploiement force la conservation des modifications, le logiciel n’est plus installé lors du redémarrage de l’appareil.  
+-   Wanneer u toepassingen voor Windows Embedded-apparaten die zijn ingeschakeld implementeert voor het filteren van schrijven, kunt u opgeven of voor het uitschakelen van het schrijffilter op het apparaat tijdens de implementatie van de app. U kunt vervolgens de schrijffilter starten na de implementatie van de app. Als de schrijffilter niet is uitgeschakeld, wordt de software geïmplementeerd op een tijdelijke overlay. Dit betekent dat tenzij een andere implementatie afdwingt wijzigingen om vast te leggen dat, de software wordt niet meer geïnstalleerd wanneer het apparaat opnieuw wordt opgestart.  
 
--   Lorsque vous déployez une application sur un appareil Windows Embedded, assurez-vous que l'appareil fait partie des membres d'un regroupement pour lequel une fenêtre de maintenance a été configurée. Cela vous permet de gérer le moment auquel le filtre d'écriture est désactivé et activé et le moment auquel l'appareil redémarre.  
+-   Wanneer u een toepassing implementeert op een Windows Embedded-apparaat, moet u ervoor zorgen dat het apparaat lid is van een verzameling met een geconfigureerd onderhoudsvenster. U kunt op deze manier beheren wanneer het schrijffilter is uitgeschakeld en ingeschakeld en wanneer het apparaat opnieuw wordt gestart.  
 
--   Le paramètre qui contrôle le comportement du filtre d’écriture est une case à cocher nommée **Valider les changements à l’échéance ou pendant une fenêtre de maintenance (redémarrage requis)**.  
+-   De instelling die het gedrag van het schrijffilter bepaalt, is het selectievakje **wijzigingen doorvoeren bij deadline of tijdens onderhoud (opnieuw opstarten noodzakelijk)**.  
 
-## <a name="tips-for-deploying-applications"></a>Conseils sur le déploiement d’applications  
+## <a name="tips-for-deploying-applications"></a>Tips voor het implementeren van toepassingen  
 
-**Utilisez les applications obligatoires plutôt que les applications disponibles pour les appareils Windows Embedded dont les filtres d’écriture sont activés.** Comme les utilisateurs ne peuvent pas installer d’applications à partir du Centre logiciel sur un appareil Windows Embedded dont les filtres d’écriture sont activés, déployez toujours les applications ayant pour objet du déploiement la valeur **Obligatoire** et non **Disponible** sur ces appareils. En général, cela ne pose pas de problème, car les ordinateurs qui exécutent un système d’exploitation Windows Embedded n’exécutent souvent qu’une seule application de la même manière pour plusieurs utilisateurs. Ainsi, ces périphériques font l'objet d'une gestion de haut niveau et sont verrouillés par le service informatique de l'entreprise. Les applications requises sont bien adaptées à ce scénario.
+**Vereiste toepassingen gebruiken in plaats van beschikbare toepassingen voor Windows Embedded-apparaten waarvoor schrijffilters zijn ingeschakeld.** Omdat gebruikers geen apps vanuit Software Center op een Windows Embedded-apparaat waarop schrijffilters zijn ingeschakeld installeren, implementeert u altijd toepassingen met een implementatiedoel van **vereist** plaats **beschikbaar** op deze apparaten. Normaal gesproken is dit een probleem niet omdat de computers waarop een Windows Embedded-besturingssysteem één toepassing die moet worden uitgevoerd op dezelfde manier als voor meerdere gebruikers vaak worden uitgevoerd. Daarom worden deze apparaten in hoge mate beheerd en vergrendeld door de IT-afdeling. Vereiste toepassingen zijn geschikt voor dit scenario.
 
- Toutefois, si des utilisateurs exécutent plusieurs applications sur des périphériques Windows Embedded alors que les filtres d'écriture sont activés, pensez à les informer des limitations suivantes :  
+ Als gebruikers echter wel meer dan één toepassing uitvoeren op Embedded-apparaten wanneer schrijffilters zijn ingeschakeld, moet u deze gebruikers informeren over de volgende beperkingen:  
 
--   Les utilisateurs ne peuvent pas installer les logiciels requis à partir du Centre logiciel.  
+-   Gebruikers kunnen geen vereiste software installeren vanuit Software Center.  
 
--   Les utilisateurs ne peuvent pas modifier leurs heures de bureau sous l’onglet Options du Centre logiciel.  
+-   Gebruikers kunnen hun kantooruren niet wijzigen op het tabblad Opties van Software Center.  
 
--   Les utilisateurs ne peuvent pas reporter l'installation d'une application requise.  
+-   Gebruikers kunnen de installatie van een vereiste toepassing niet uitstellen.  
 
-Par ailleurs, les utilisateurs disposant de droits restreints ne peuvent pas ouvrir une session pendant une période de maintenance si Configuration Manager valide des modifications pour les installations et les mises à jour logicielles. Au cours de cette période, les utilisateurs voient un message indiquant que le périphérique n'est pas disponible pour des raisons de maintenance.  
+Bovendien aanmelden gebruikers met beperkte rechten niet tijdens een onderhoudsperiode als Configuration Manager wijzigingen voor software-installaties en updates doorvoert. Gedurende deze periode krijgen gebruikers een bericht te zien met de melding dat het apparaat niet beschikbaar is omdat het wordt onderhouden.  
 
-**Si des applications obligent l’utilisateur à accepter les termes du contrat de licence, ne les déployez pas sur des appareils Windows Embedded dont les filtres d’écriture sont activés.** Quand les filtres d’écriture sont désactivés et que Configuration Manager peut donc installer des logiciels sur les appareils intégrés, les utilisateurs disposant de droits restreints ne peuvent pas ouvrir de session sur l’appareil. Si l'installation oblige l'utilisateur à accepter les termes du contrat de licence, l'installation échoue, car cette opération est impossible. Si l'installation nécessite l'intervention de l'utilisateur, veillez à ne pas déployer des logiciels sur des périphériques Windows Embedded. Pour filtrer ces systèmes d’exploitation, vous pouvez utiliser la liste Plateformes applicables.  
+**Implementeer geen toepassingen op Windows Embedded-apparaten waarvoor schrijffilters zijn ingeschakeld als de toepassingen moeten de gebruiker de licentievoorwaarden te accepteren.** Wanneer write filters zijn uitgeschakeld, zodat dat Configuration Manager software kan installeren op embedded-apparaten, kunnen gebruikers met beperkte rechten zich niet aanmelden op het apparaat. Als het voor de installatie vereist is dat de gebruiker de licentievoorwaarden accepteert, is dit niet mogelijk en zal de installatie dus mislukken. Zorg dat u geen software op Windows Embedded-apparaten implementeert als voor de installatie gebruikersinteractie vereist is. U kun de lijst Toepasselijke platforms gebruiken om deze besturingssystemen te filteren.  

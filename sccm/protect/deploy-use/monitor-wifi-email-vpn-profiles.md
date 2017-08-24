@@ -1,6 +1,6 @@
 ---
-title: Surveiller les profils de messagerie, Wi-Fi et VPN | Microsoft Docs
-description: "Apprenez à surveiller l’état de compatibilité des profils de messagerie, Wi-Fi et VPN dans System Center Configuration Manager."
+title: E-mail, Wi-Fi en VPN-profielen controleren | Microsoft Docs
+description: Informatie over het bewaken van de status van naleving van e-mail, Wi-Fi en VPN-profielen in System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,52 +16,52 @@ ms.author: nbigman
 manager: angrobe
 ms.openlocfilehash: 73d941633d270cf9628f8be14e1e56f3c78624b6
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="monitor-email-wi-fi-and-vpn-profiles-in-system-center-configuration-manager"></a>Surveiller les profils de messagerie, Wi-Fi et VPN dans System Center Configuration Manager
+# <a name="monitor-email-wi-fi-and-vpn-profiles-in-system-center-configuration-manager"></a>E-mail, Wi-Fi en VPN-profielen in System Center Configuration Manager controleren
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Une fois que vous avez déployé des profils de messagerie, Wi-Fi ou VPN System Center Configuration Manager pour des utilisateurs de votre hiérarchie, vous pouvez appliquer les procédures suivantes pour surveiller leur état de compatibilité :  
+Nadat u hebt System Center Configuration Manager E-mail, Wi-Fi of VPN-profielen geïmplementeerd voor gebruikers in uw hiërarchie, kunt u de volgende procedures om de compatibiliteitsstatus van het profiel te controleren:  
 
--   [Comment afficher les résultats de compatibilité dans la console Configuration Manager](#BKMK_console)  
+-   [Nalevingsresultaten weergeven in de Configuration Manager-console](#BKMK_console)  
 
--   [Comment afficher les résultats de compatibilité à l'aide de rapports](#BKMK_Reports)  
+-   [De nalevingsresultaten weergeven met behulp van rapporten](#BKMK_Reports)  
 
-##  <a name="BKMK_console"></a> Comment afficher les résultats de compatibilité dans la console Configuration Manager  
- Utilisez cette procédure pour afficher des détails sur la compatibilité des profils déployés dans la console System Center Configuration Manager.  
+##  <a name="BKMK_console"></a> Nalevingsresultaten weergeven in de Configuration Manager-console  
+ Gebruik deze procedure om details te bekijken over de naleving van geïmplementeerde profielen in de System Center Configuration Manager-console.  
 
-#### <a name="to-view-compliance-results-in-the-configuration-manager-console"></a>Pour afficher les résultats de compatibilité dans la console Configuration Manager  
+#### <a name="to-view-compliance-results-in-the-configuration-manager-console"></a>Nalevingsresultaten weergeven in de Configuration Manager-console  
 
-1.  Dans la console System Center Configuration Manager, cliquez sur **Surveillance**.  
+1.  Klik in de System Center Configuration Manager-console op **bewaking**.  
 
-2.  Dans l'espace de travail **Surveillance** , cliquez sur **Déploiements**.  
+2.  Klik in de werkruimte **Bewaking** op **Implementaties**.  
 
-3.  Dans la liste **Déploiements**, sélectionnez le déploiement de profil dont vous souhaitez examiner les informations de compatibilité.  
+3.  In de **implementaties** , selecteert u de implementatie van het profiel waarvoor u wilt bekijken van informatie over de compatibiliteit.  
 
-4.  Vous pouvez consulter un résumé des informations de compatibilité du déploiement de profil dans la page principale. Pour afficher des informations plus détaillées, sélectionnez le déploiement de profil puis, sous l’onglet **Accueil**, dans le groupe **Déploiement**, cliquez sur **Afficher l’état** pour ouvrir la page **État du déploiement**.  
+4.  U kunt samenvattingsinformatie controleren over de compatibiliteit van de implementatie van het profiel op de hoofdpagina. Voor meer gedetailleerde informatie weergeven, selecteert u de implementatie van het profiel, en klik vervolgens op de **Start** tabblad, in de **implementatie** groep, klikt u op **Status weergeven** openen de **Implementatiestatus** pagina.  
 
-     La page **État du déploiement** contient les onglets suivants :  
+     De pagina **Implementatiestatus** bevat de volgende tabbladen:  
 
-    -   **Compatible :** indique la compatibilité du profil en fonction du nombre de ressources concernées. Vous pouvez double-cliquer sur une règle pour créer un nœud temporaire sous le nœud **Utilisateurs** dans l'espace de travail **Ressources et Conformité** , qui contient tous les utilisateurs compatibles avec ce profil. Le volet **Détails du bien** affiche les utilisateurs compatibles avec le profil. Double-cliquez sur un utilisateur de la liste pour afficher des informations supplémentaires.  
+    -   **Compatibel:** Geeft de naleving van het profiel dat is gebaseerd op het aantal beïnvloede activa. U kunt dubbelklikken op een regel om een tijdelijk knooppunt te creëren onder het knooppunt **Gebruikers** in de werkruimte **Activa en naleving** , die alle gebruikers bevat die compatibel met dit profiel zijn. De **activumgegevens** deelvenster de gebruikers weergegeven die compatibel met het profiel zijn. Dubbelklik op een gebruiker in de lijst om extra informatie weer te geven.  
 
         > [!IMPORTANT]  
-        >  Un profil n’est pas évalué s’il n’est pas applicable à un appareil client. Cependant, il est renvoyé comme compatible.  
+        >  Een profiel wordt niet beoordeeld als het is niet van toepassing op een clientapparaat; het wordt evenwel geretourneerd als compatibel.  
 
-    -   **Erreur** : affiche une liste de toutes les erreurs pour le déploiement de profil sélectionné en fonction du nombre de ressources concernées. Vous pouvez double-cliquer sur une règle pour créer un nœud temporaire sous le nœud **Utilisateurs** de l'espace de travail **Ressources et Conformité** , qui contient tous les utilisateurs ayant généré des erreurs avec ce profil. Lorsque vous sélectionnez un utilisateur, le volet **Détails du bien** affiche les utilisateurs qui sont concernés par le problème sélectionné. Double-cliquez sur un utilisateur de la liste pour afficher des informations supplémentaires sur le problème.  
+    -   **Fout:** Geeft een lijst met alle fouten voor de implementatie van het geselecteerde profiel dat gebaseerd is op het aantal beïnvloede activa. U kunt dubbelklikken op een regel om een tijdelijk knooppunt te creëren onder het knooppunt **Gebruikers** in de werkruimte **Activa en naleving** , die alle gebruikers bevat die fouten genereerden met dit profiel. Wanneer u een gebruiker selecteert, geeft het deelvenster **Activumgegevens** de gebruikers weer die met het geselecteerde probleem te maken krijgen. Dubbelklik op een gebruiker in de lijst om extra informatie weer te geven over het probleem.  
 
-    -   **Non compatible** : affiche une liste de toutes les règles non compatibles au sein du profil en fonction du nombre de ressources concernées. Vous pouvez double-cliquer sur une règle pour créer un nœud temporaire sous le nœud **Utilisateurs** de l'espace de travail **Ressources et Conformité** , qui contient tous les utilisateurs non compatibles avec ce profil. Lorsque vous sélectionnez un utilisateur, le volet **Détails du bien** affiche les utilisateurs qui sont concernés par le problème sélectionné. Double-cliquez sur un utilisateur de la liste pour afficher des informations supplémentaires sur le problème.  
+    -   **Niet-compatibele:** Geeft een lijst met alle niet-compatibele regels binnen het profiel dat is gebaseerd op het aantal beïnvloede activa. U kunt dubbelklikken op een regel om een tijdelijk knooppunt te creëren onder het knooppunt **Gebruikers** in de werkruimte **Activa en naleving** , die alle gebruikers bevat die niet conform dit profiel zijn. Wanneer u een gebruiker selecteert, geeft het deelvenster **Activumgegevens** de gebruikers weer die met het geselecteerde probleem te maken krijgen. Dubbelklik op een gebruiker in de lijst om verdere informatie weer te geven over het probleem.  
 
-    -   **Inconnu** : affiche une liste de tous les utilisateurs qui n’ont pas signalé de compatibilité pour le déploiement de profil sélectionné avec l’état du client actuel des appareils.  
+    -   **Onbekend:** Geeft een lijst van alle gebruikers die geen naleving voor het geselecteerde profiel, tezamen met de huidige clientstatus van de apparaten rapporteren.  
 
-5.  Dans la page **État du déploiement**, vous pouvez consulter des informations détaillées sur la compatibilité du profil déployé. Un nœud temporaire est créé sous le nœud **Déploiements** qui vous aide à retrouver rapidement ces informations.  
+5.  Op de **Implementatiestatus** pagina kunt u gedetailleerde informatie over de naleving van het geïmplementeerde profiel bekijken. Een tijdelijk knooppunt wordt gemaakt onder het knooppunt **Implementaties** waarmee u deze informatie snel kunt terugvinden.  
 
-##  <a name="BKMK_Reports"></a> Comment afficher les résultats de compatibilité à l'aide de rapports  
- Les paramètres de compatibilité, qui englobent les profils dans System Center Configuration Manager, incluent aussi un certain nombre de rapports intégrés qui permettent de surveiller les informations sur les profils. La catégorie de ces rapports est **Gestion de la conformité et des paramètres**.  
+##  <a name="BKMK_Reports"></a> De nalevingsresultaten weergeven met behulp van rapporten  
+ Instellingen voor naleving, waaronder profielen in System Center Configuration Manager, bevatten ook een aantal van ingebouwde rapporten waarmee u informatie over profielen bewaken. Deze rapporten hebben de rapportcategorie van **Compatibiliteit en instellingen beheren**.  
 
 > [!IMPORTANT]  
->  Vous devez utiliser un caractère générique (%) lorsque vous utilisez les paramètres **Filtre d'appareil** et **Filtre d'utilisateur** dans les rapports des paramètres de compatibilité.  
+>  U moet een jokerteken (%) gebruiken wanneer u de parameters **Apparaatfilter** en **Gebruikerfilter** gebruikt in de rapporten van instellingen voor naleving.  
 
- Pour plus d’informations sur la configuration de la génération de rapports dans System Center Configuration Manager, consultez [Génération de rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+ Zie voor meer informatie over het configureren van rapportage in System Center Configuration Manager [rapportage in System Center Configuration Manager](../../core/servers/manage/reporting.md).  

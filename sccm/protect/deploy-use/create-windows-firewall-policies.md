@@ -1,6 +1,6 @@
 ---
-title: "Stratégies de pare-feu Windows pour Endpoint Protection | Microsoft Docs"
-description: "Découvrez comment créer et déployer des stratégies de pare-feu pour Endpoint Protection dans System Center 2012 Configuration Manager."
+title: Windows Firewall-beleid voor Endpoint Protection | Microsoft Docs
+description: Informatie over het maken en implementeren van de firewall-beleid voor Endpoint Protection in System Center 2012 Configuration Manager.
 ms.custom: na
 ms.date: 03/07/2017
 ms.prod: configuration-manager
@@ -16,64 +16,64 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: acd75a8b22d050970b8c1176f725ddb4445633aa
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-and-deploy-windows-firewall-policies-for-endpoint-protection-in-system-center-configuration-manager"></a>Créer et déployer des stratégies de Pare-feu Windows pour Endpoint Protection dans System Center Configuration Manager
+# <a name="create-and-deploy-windows-firewall-policies-for-endpoint-protection-in-system-center-configuration-manager"></a>Maken en implementeren van Windows Firewall-beleid voor Endpoint Protection in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Les stratégies de pare-feu pour Endpoint Protection dans System Center 2012 Configuration Manager permettent d’effectuer des tâches de maintenance et de configuration de Pare-feu Windows de base sur les ordinateurs clients de votre hiérarchie. Vous pouvez utiliser les stratégies de pare-feu Windows pour effectuer les tâches suivantes :  
+Firewallbeleid voor Endpoint Protection in System Center 2012 Configuration Manager kunt u eenvoudige Windows Firewall-configuratie en onderhoudstaken uitvoeren op clientcomputers in uw hiërarchie. U kunt met de Windows Firewall-beleidsregels de volgende taken uitvoeren:  
 
--   Contrôler si le pare-feu Windows est activé ou désactivé.  
+-   Bepalen of Windows Firewall is in- of uitgeschakeld.  
 
--   Contrôler si les connexions entrantes sont autorisées vers les ordinateurs client.  
+-   Bepalen of binnenkomende verbindingen naar clientcomputers zijn toegestaan.  
 
--   Contrôler si les utilisateurs sont avertis lorsque le pare-feu Windows bloque un nouveau programme.  
+-   Bepalen of gebruikers een melding ontvangen wanneer Windows Firewall een nieuw programma blokkeert.  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
+1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
 
-2.  Dans l’espace de travail **Ressources et Conformité**, développez **Endpoint Protection**, puis cliquez sur **Stratégies de Pare-feu Windows**.  
+2.  In de **activa en naleving** werkruimte Vouw **Endpoint Protection**, en klik vervolgens op **Windows Firewall-beleid**.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une stratégie de pare-feu Windows**.  
+3.  Klik op het tabblad **Start** in de groep **Maken** op **Windows Firewall-beleid maken**.  
 
-4.  Sur la page **Général** de l' **Assistant Création d'une stratégie de pare-feu Windows**, spécifiez un nom et une description facultative pour cette stratégie de pare-feu, puis cliquez sur **Suivant**.  
+4.  Geef op de pagina **Algemeen** van de **wizard Windows Firewall-beleid maken**een naam en eventueel een beschrijving voor dit firewallbeleid op en klik vervolgens op **Volgende**.  
 
-5.  Sur la page **Paramètres de profil** de l'Assistant, configurez les paramètres suivants pour chaque profil réseau :  
+5.  Configureer op de pagina **Profielinstellingen** van de wizard de volgende instellingen voor elk netwerkprofiel:  
 
     > [!IMPORTANT]  
-    >  Si vous souhaitez déployer des stratégies de pare-feu Windows sur les ordinateurs exécutant Windows Server 2008 et Windows Vista Service Pack 1, vous devez d'abord installer le [correctif KB971800](http://go.microsoft.com/fwlink/p/?LinkId=231239) sur ces ordinateurs.  
+    >  Als u Windows Firewall-instellingen wilt implementeren op computers met Windows Server 2008 en Windows Vista Service Pack 1, moet u eerst [hotfix KB971800](http://go.microsoft.com/fwlink/p/?LinkId=231239) op deze computers installeren.  
 
     > [!NOTE]  
-    >  Pour plus d'informations sur les profils réseau, consultez la documentation Windows.  
+    >  Raadpleeg de Windows-documentatie voor meer informatie over netwerkprofielen.  
 
-    -   **Activer le pare-feu Windows**  
+    -   **Windows Firewall inschakelen**  
 
         > [!NOTE]  
-        >  Si l'option **Activer le pare-feu Windows** n'est pas activée, les autres paramètres de cette page de l'Assistant ne sont pas disponibles.  
+        >  Als **Windows Firewall inschakelen** niet is ingeschakeld, zijn de andere instellingen op deze pagina van de wizard niet beschikbaar.  
 
-    -   **Bloquer toutes les connexions entrantes, y compris celles figurant dans la liste de programmes autorisés**  
+    -   **Alle binnenkomende verbindingen blokkeren, inclusief verbindingen in de lijst met toegestane programma's**  
 
-    -   **Informer l'utilisateur lorsque le Pare-feu Windows bloque un nouveau programme**  
+    -   **De gebruiker waarschuwen wanneer een nieuw programma door Windows Firewall wordt geblokkeerd**  
 
-6.  Dans la page **Résumé** de l'Assistant, consultez les mesures à prendre, puis fermez l'Assistant.  
+6.  Controleer welke acties moeten worden ondernomen op de pagina **Overzicht** van de wizard en voltooi de wizard.  
 
-7.  Vérifiez que la nouvelle stratégie de pare-feu Windows s'affiche dans la liste **Stratégies de pare-feu Windows** .  
+7.  Controleer of de nieuwe Windows Firewall-beleid wordt weergegeven in de lijst **Windows Firewall-beleid** .  
 
-##  <a name="BKMK_Assign"></a> Pour déployer une stratégie de pare-feu Windows  
+##  <a name="BKMK_Assign"></a> Een Windows Firewall-beleid implementeren  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité**.  
+1.  Klik op **Activa en naleving**op de Configuration Manager-console.  
 
-2.  Dans l’espace de travail **Ressources et Conformité**, développez **Endpoint Protection**, puis cliquez sur **Stratégies de Pare-feu Windows**.  
+2.  In de **activa en naleving** werkruimte Vouw **Endpoint Protection**, en klik vervolgens op **Windows Firewall-beleid**.  
 
-3.  Dans la liste **Stratégies de pare-feu Windows** , sélectionnez la stratégie de pare-feu Windows que vous souhaitez déployer.  
+3.  Selecteer in de lijst **Windows Firewall-beleid** het Windows Firewall-beleid dat u wilt implementeren.  
 
-4.  Dans l'onglet **Accueil** , dans le groupe **Déploiement** , cliquez sur **Déployer**.  
+4.  Klik op het tabblad **Start** in de groep **Implementatie** op **Implementeren**.  
 
-5.  Dans la boîte de dialogue **Déployer la stratégie de pare-feu Windows** , spécifiez le regroupement auquel vous souhaitez affecter cette stratégie de pare-feu Windows et spécifiez un calendrier d'attribution. La stratégie de pare-feu Windows évalue la conformité à l'aide de ce calendrier d'attribution et des paramètres de pare-feu Windows sur les clients à reconfigurer afin qu'elle corresponde à la stratégie de pare-feu Windows.  
+5.  Geef in het dialoogvenster **Windows Firewall-beleid implementeren** de verzameling op waaraan u dit Windows Firewall-beleid wilt toewijzen en geef een toewijzingsplanning op. Het Windows Firewall-beleid evalueert de naleving door gebruik te maken van dit schema en configureert de Windows Firewall-instellingen op clients opnieuw zodat wordt voldaan aan het Windows Firewall-beleid.  
 
-6.  Cliquez sur **OK** pour fermer la boîte de dialogue **Déployer la stratégie de Pare-feu Windows** et déployer la stratégie de Pare-feu Windows.  
+6.  Klik op **OK** om het dialoogvenster **Windows Firewall-beleid implementeren** te sluiten en het Windows Firewall-beleid te implementeren.  
 
     > [!IMPORTANT]  
-    >  Lorsque vous déployez une stratégie de pare-feu Windows vers un regroupement, cette stratégie s'applique aux ordinateurs dans un ordre aléatoire pendant une période de 2 heures pour éviter d'inonder le réseau.
+    >  Wanneer u een Windows Firewall-beleid voor een verzameling implementeert, wordt dit beleid gedurende een periode van twee uur in willekeurige volgorde toegepast op computers om te voorkomen dat het netwerk wordt overspoeld.

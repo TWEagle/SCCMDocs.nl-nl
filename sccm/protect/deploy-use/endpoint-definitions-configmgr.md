@@ -1,6 +1,6 @@
 ---
-title: "Définitions de programmes malveillants Endpoint Protection | Microsoft Docs"
-description: "Apprenez à configurer les mises à jour logicielles Configuration Manager pour remettre des mises à jour de définitions aux ordinateurs clients."
+title: Endpoint Protection-malwaredefinities | Microsoft Docs
+description: Informatie over het configureren van Configuration Manager software-updates voor het leveren van definitie-updates aan clientcomputers.
 ms.custom: na
 ms.date: 02/14/2017
 ms.prod: configuration-manager
@@ -16,103 +16,103 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: ca40c2c745ea516b56b637249b892cd44e570a9d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-#  <a name="using-configuration-manager-software-updates-to-deliver-definition-updates"></a>Utilisation des mises à jour logicielles Configuration Manager pour remettre des mises à jour de définitions
+#  <a name="using-configuration-manager-software-updates-to-deliver-definition-updates"></a>Met behulp van Configuration Manager Software-Updates te leveren van definitie-Updates
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
- Vous pouvez configurer des mises à jour logicielles Configuration Manager pour remettre des mises à jour de définitions aux ordinateurs clients. Pour cela, vous devez configurer des règles de déploiement automatique. Avant de commencer à créer des règles de déploiement automatique, vérifiez que vous avez configuré des mises à jour logicielles Configuration Manager. Pour plus d’informations, consultez [Présentation des mises à jour logicielles dans System Center Configuration Manager](/sccm/sum/understand/software-updates-introduction).
+ U kunt software-updates voor Configuration Manager voor het leveren van definitie-updates aan clientcomputers configureren. Dit doet u door regels voor automatische implementatie te configureren. Zorg voordat u begint met het maken van regels voor automatische implementatie, dat u software-updates voor Configuration Manager hebt geconfigureerd. Zie voor meer informatie [Inleiding tot software-updates in System Center Configuration Manager](/sccm/sum/understand/software-updates-introduction).
 
 > [!NOTE]
->  Cette procédure s’applique uniquement aux éléments qui doivent être configurés spécifiquement pour Endpoint Protection. Pour plus d’informations sur l’Assistant Création d’une règle de déploiement automatique, consultez [Déployer automatiquement des mises à jour logicielles](/sccm/sum/deploy-use/automatically-deploy-software-updates).
+>  Deze procedure geldt alleen voor de items die specifiek voor Endpoint Protection moeten worden geconfigureerd. Zie voor meer informatie over de Wizard regel voor automatische implementatie maken [softwareupdates automatisch implementeren](/sccm/sum/deploy-use/automatically-deploy-software-updates).
 
-## <a name="to-configure-an-automatic-deployment-rule-to-deliver-definition-updates"></a>Pour configurer une règle de déploiement automatique pour fournir des mises à jour de définition
+## <a name="to-configure-an-automatic-deployment-rule-to-deliver-definition-updates"></a>Een regel voor automatische implementatie configureren voor het leveren van definitie-updates
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Mises à jour logicielles**, puis cliquez sur **Règles de déploiement automatique**.
+2.  Vouw **Software-updates** uit in de werkruimte **Softwarebibliotheek**en klik op **Regels voor automatische implementatie**.
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une règle de déploiement automatique**.
+3.  Klik op het tabblad **Start** in de groep **Maken** op **Regel voor automatische implementatie maken**.
 
-4.  Sur la page **Général** de l' **Assistant Création d'une règle de déploiement automatique**, spécifiez les informations suivantes :
+4.  Geef op de pagina **Algemeen** van de **wizard Regel voor automatische implementatie maken**de volgende gegevens op:
 
-    -   **Nom**: entrez un nom unique pour la règle de déploiement automatique.
+    -   **Naam**: Voer een unieke naam voor de regel voor automatische implementatie.
 
-    -   **Regroupement**: sélectionnez le regroupement d’ordinateurs clients sur lesquels vous voulez déployer les mises à jour de définition.
-
-        > [!NOTE]
-        >  Vous ne pouvez pas déployer des mises à jour de définition dans un regroupement d'utilisateurs.
-
-5.  Cliquez sur **Ajouter à un groupe de mises à jour logicielles existant**.
-
-6.  Vérifiez que la case  **Activer le déploiement après l’exécution de cette règle** est cochée, puis cliquez sur **Suivant**.
-
-7.  Sur la page **Paramètres de déploiement** de l'Assistant, dans la liste **Niveau de détail** , sélectionnez **Minimal**, puis cliquez sur **Suivant**.
-
-    > [!NOTE]
-    >  Dans la liste **Niveau de détail**, sélectionnez **Minimale** (Configuration Manager sans Service Pack) ou **Seulement les messages d’erreur** (Configuration Manager). Cette opération réduit le nombre de messages d’état retournés par le déploiement de définitions. Cette configuration permet de réduire les traitements du processeur sur les serveurs Configuration Manager.
-
-8.  Dans la liste **Filtres de propriétés** , sélectionnez la case à cocher **Classification des mises à jour** .
-
-9. Dans la liste **Critères de recherche**, cliquez sur **<éléments à rechercher\>**. Ensuite, dans la boîte de dialogue **Critères de recherche** , dans la liste **Spécifiez la valeur à rechercher** , sélectionnez **Mises à jour de définitions**.
-
-10. Cliquez sur **OK** pour fermer la boîte de dialogue **Critères de recherche** .
-
-11. Dans la liste **Filtres de propriétés** , cochez la case **Produit** .
-
-12. Dans la liste **Critères de recherche**, cliquez sur **<éléments à rechercher\>**. Puis, dans la boîte de dialogue **Critères de recherche** , dans la liste **Spécifiez la valeur à rechercher** , sélectionnez **Forefront Endpoint Protection 2010** pour Windows 8.1 et les versions antérieures, ou **Windows Defender** pour Windows 10 et les versions ultérieures.
-
-13. Cliquez sur **OK** pour fermer la boîte de dialogue **Critères de recherche** , puis cliquez sur **Suivant**.
-
-14. Dans la liste **Filtres de propriétés** , cochez la case **Remplacé** .
-
-15. Dans la liste **Critères de recherche**, cliquez sur **<éléments à rechercher\>**. Ensuite, dans la boîte de dialogue **Critères de recherche** , dans la liste **Spécifiez la valeur à rechercher** , sélectionnez **on**.
-
-16. Cliquez sur **OK** pour fermer la boîte de dialogue **Critères de recherche** , puis cliquez sur **Suivant**.
-
-17. Dans la page **Calendrier d’évaluation** de l’Assistant, sélectionnez **Exécuter la règle selon un calendrier**, puis configurez le calendrier de téléchargement des mises à jour de définition. Définissez au minimum la règle pour qu’elle s’exécute deux heures après chaque synchronisation de point de mise à jour logicielle. Cliquez sur **Suivant**.
-
-18. Sur la page **Calendrier de déploiement** de l'Assistant, configurez les paramètres suivants :
-
-    -   **Heure basée sur**: sélectionnez **UTC** si vous voulez que tous les clients de la hiérarchie installent les dernières définitions simultanément. L’heure d’installation réelle varie dans une plage de deux heures. Il est recommandé de définir ce paramètre.
-
-    -   **Temps disponible du logiciel**: spécifiez le temps disponible pour le déploiement qui est créé par cette règle. L’heure spécifiée doit être au moins une heure après l’exécution de la règle de déploiement automatique. Cela permet de garantir que le contenu a suffisamment de temps pour être répliqué sur les points de distribution de votre hiérarchie. Certaines mises à jour de définition peuvent également inclure des mises à jour du moteur anti-programme malveillant et peuvent nécessiter plus de temps pour atteindre les points de distribution.
-
-    -   **Échéance d’installation**: sélectionnez **Dès que possible**.
+    -   **Verzameling**: Selecteer de verzameling van clientcomputers die u wilt implementeren definitie-updates.
 
         > [!NOTE]
-        >  Les échéances des mises à jour logicielles varient sur une période de deux heures pour empêcher que tous les clients demandent une mise à jour en même temps.
+        >  U kunt geen definitie-updates implementeren voor een verzameling gebruikers.
 
-19. Cliquez sur **Suivant**.
+5.  Klik op **Toevoegen aan bestaande software-updategroep**.
 
-20. Dans la page **Expérience utilisateur** de l’Assistant, dans la liste **Notifications à l’utilisateur** , sélectionnez **Masquer dans le Centre logiciel et toutes les notifications**.   Cette opération garantit que les mises à jour de définition s’installent en mode silencieux. Cliquez sur **Suivant**.
+6.  Controleer of het selectievakje  **De implementatie inschakelen nadat deze regel is uitgevoerd** is ingeschakeld en klik vervolgens op **Volgende**.
 
-21. Dans la page **Alertes** de l’Assistant, vous n’avez pas à configurer d’alertes. Dans Configuration Manager, Endpoint Protection génère les alertes qui peuvent être nécessaires. Cliquez sur **Suivant**.
-
-22. Dans la page **Paramètres de téléchargement** de l’Assistant, sélectionnez le comportement de téléchargement des mises à jour approprié, puis cliquez sur **Suivant**.
-
-23. Sur la page **Package de déploiement** de l'Assistant, sélectionnez un package de déploiement existant ou créez un package de déploiement contenant les fichiers de mise à jour logicielle associés à la règle.
+7.  Selecteer op de pagina **Implementatie-instellingen** van de wizard, in de lijst **Detailniveau** de optie **Minimaal**en klik vervolgens op **Volgende**.
 
     > [!NOTE]
-    >  Envisagez de placer les mises à jour de définition dans un package qui ne contient pas d’autres mises à jour logicielles. Cette stratégie garantit une taille réduite du package de mise à jour de définition, ce qui permet de le répliquer plus rapidement sur les points de distribution.
+    >  Van de **detailniveau** selecteert **minimale** (Configuration Manager zonder servicepack) of **alleen foutberichten** (Configuration Manager). Zo beperkt u het aantal statusberichten dat wordt geretourneerd door de definitie-implementatie. Deze configuratie vermindert het CPU-gebruik voor verwerking op de Configuration Manager-servers.
 
-24. Dans la page **Points de distribution** de l’Assistant, sélectionnez un ou plusieurs points de distribution vers lesquels le contenu de ce package sera copié, puis cliquez sur **Suivant**.
+8.  Schakel in de lijst **Eigenschapsfilters** het selectievakje **Updateclassificatie** in.
 
-25. Dans la page **Emplacement de téléchargement** de l’Assistant, sélectionnez **Télécharger les mises à jour logicielles depuis Internet**, puis cliquez sur **Suivant**.
+9. In de **zoekcriteria** lijst, klikt u op **< te zoeken items\>**. Selecteer vervolgens in het dialoogvenster **Zoekcriteria** in de lijst **Geef de te zoeken waarde op** de optie **Definitie-updates**.
 
-26. Dans la page **Sélection de la langue** de l’Assistant, sélectionnez chaque version linguistique des mises à jour à télécharger, puis cliquez sur **Suivant**.
+10. Klik op **OK** om het dialoogvenster **Zoekcriteria** te sluiten.
 
-27. Terminez l'Assistant Création d'une règle de déploiement automatique.
+11. Schakel in de lijst **Eigenschapsfilters** het selectievakje **Product** in.
 
-28. Vérifiez que la nouvelle règle figure dans le nœud **Règles de déploiement automatique** de la console Configuration Manager.
+12. In de **zoekcriteria** lijst, klikt u op **< te zoeken items\>**. Selecteer vervolgens in het dialoogvenster **Zoekcriteria** in de lijst **Geef de te zoeken waarde op** de optie **Forefront Endpoint Protection 2010** voor Windows 8.1 en oudere versies of **Windows Defender** voor Windows 10 en hoger.
+
+13. Klik op **OK** om het dialoogvenster **Zoekcriteria** te sluiten en klik vervolgens op **Volgende**.
+
+14. Schakel in de lijst **Eigenschapsfilters** het selectievakje **Vervangen** in.
+
+15. In de **zoekcriteria** lijst, klikt u op **< te zoeken items\>**. Selecteer vervolgens in het dialoogvenster **Zoekcriteria** in de lijst **Geef de te zoeken waarde op** de optie **Geen**.
+
+16. Klik op **OK** om het dialoogvenster **Zoekcriteria** te sluiten en klik vervolgens op **Volgende**.
+
+17. Selecteer op de pagina **Evaluatieschema** van de wizard de optie **De regel inschakelen zodat deze volgens een schema wordt uitgevoerd**en configureer vervolgens het schema volgens welke de definitie-updates moeten worden gedownload. Stel de regel zo in dat deze minimaal twee uur na de synchronisatie van elk software-updatepunt wordt uitgevoerd. Klik op **Volgende**.
+
+18. Configureer op de pagina **Implementatieplanning** van de wizard de volgende instellingen:
+
+    -   **Tijd is gebaseerd op**: Selecteer **UTC** als u wilt dat alle clients in de hiërarchie voor het installeren van de meest recente definities op hetzelfde moment. Het daadwerkelijke tijdstip kan maximaal twee uur variëren. Deze instelling wordt aanbevolen.
+
+    -   **Tijd software beschikbaar**: Geef de beschikbare tijd voor de implementatie die door deze regel wordt gemaakt. Het opgegeven tijdstip moet ten minste één uur na de uitvoering van de regel voor automatische implementatie plaatsvinden. Dit zorgt ervoor dat er voldoende tijd is om de inhoud te repliceren naar de distributiepunten in uw hiërarchie. Sommige definitie-updates kunnen ook engine-updates voor anti-malware bevatten, waardoor het langer kan duren voordat de distributiepunten worden bereikt.
+
+    -   **Installatiedeadline**: Selecteer **zo snel mogelijk**.
+
+        > [!NOTE]
+        >  Deadlines voor software-updates vinden verspreid over een periode van twee uur plaats zodat wordt voorkomen dat alle clients op hetzelfde moment een update aanvragen.
+
+19. Klik op **Volgende**.
+
+20. Selecteer op de pagina **Gebruikerservaring** van de wizard, in de lijst **Gebruikersmeldingen** , de optie **Verbergen in Software Center en alle meldingen**.   Dit zorgt ervoor dat de definitie-updates op de achtergrond worden geïnstalleerd. Klik op **Volgende**.
+
+21. U hoeft op de pagina **Waarschuwingen** van de wizard geen waarschuwingen te configureren. Endpoint Protection in Configuration Manager genereert waarschuwingen die mogelijk vereist. Klik op **Volgende**.
+
+22. Selecteer op de pagina **Downloadinstellingen** van de wizard de wijze waarop de benodigde software-updates moeten worden gedownload en klik vervolgens op **Volgende**.
+
+23. Selecteer op de pagina **Implementatiepakket** van de wizard een bestaand implementatiepakket of maak een nieuw implementatiepakket dat de software-updatebestanden bevat die aan de regel zijn gekoppeld.
+
+    > [!NOTE]
+    >  U kunt de definitie-updates het beste in een pakket opnemen dat geen andere software-updates bevat. Op die manier blijft de grootte van het definitie-updatepakket beperkt, waardoor het pakket sneller naar de distributiepunten kan worden gerepliceerd.
+
+24. Selecteer op de pagina **Distributiepunten** van de wizard een of meer distributiepunten waarnaar u de inhoud voor dit pakket wilt kopiëren en klik vervolgens op **Volgende**.
+
+25. Selecteer op de pagina **Downloadlocatie** van de wizard de optie **Software-updates downloaden vanaf internet**en klik vervolgens op **Volgende**.
+
+26. Selecteer op de pagina **Taalselectie** van de wizard elke taalversie van de updates die moet worden gedownload en klik vervolgens op **Volgende**.
+
+27. Voltooi de wizard Regel voor automatische implementaties maken.
+
+28. Controleer of de nieuwe regel wordt weergegeven de **regels voor automatische implementatie** knooppunt van de Configuration Manager-console.
 
 
 > [!div class="button"]
-[Étape suivante >](endpoint-antimalware-policies.md)
+[Volgende stap >](endpoint-antimalware-policies.md)
 
 > [!div class="button"]
-[Retour >](endpoint-configure-alerts.md)
+[Terug >](endpoint-configure-alerts.md)

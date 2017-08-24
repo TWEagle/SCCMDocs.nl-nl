@@ -1,6 +1,6 @@
 ---
-title: "Planification du déploiement de clients sur des appareils Windows Embedded | Microsoft Docs"
-description: "Planifiez le déploiement de clients sur des appareils Windows Embedded dans System Center Configuration Manager."
+title: Clientimplementatie op Windows Embedded-apparaten plannen | Microsoft Docs
+description: Plan voor clientimplementatie op Windows Embedded-apparaten in System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,59 +17,59 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: f7ef476a2ebcf0161ebb70d8a3d95f77806aa05e
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="planning-for-client-deployment-to-windows-embedded-devices-in-system-center-configuration-manager"></a>Planification du déploiement de clients sur des appareils Windows Embedded dans System Center Configuration Manager
+# <a name="planning-for-client-deployment-to-windows-embedded-devices-in-system-center-configuration-manager"></a>Planning voor clientimplementatie op Windows Embedded-apparaten in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-<a name="BKMK_DeployClientEmbedded"></a> Si votre appareil Windows Embedded n’inclut pas le client System Center Configuration Manager, vous pouvez utiliser l’une des méthodes d’installation de ce client si l’appareil respecte les dépendances requises. Si l'appareil intégré prend en charge les filtres d'écriture, vous devez désactiver ces filtres avant d'installer le client, puis réactiver les filtres une fois le client installé et attribué à un site.  
+<a name="BKMK_DeployClientEmbedded"></a>Als uw Windows Embedded-apparaat niet onder de System Center Configuration Manager-client, kunt u een van de methode voor clientinstallatie gebruiken als het apparaat voldoet aan de vereiste afhankelijkheden. Als het Embedded-apparaat schrijffilters ondersteunt, moet u deze filters uitschakelen voordat u de client installeert, en de filters vervolgens opnieuw inschakelen nadat de client is geïnstalleerd en is toegewezen aan een site.  
 
- Notez que quand vous désactivez les filtres, vous ne devez pas désactiver les pilotes de filtre. En général, ces pilotes démarrent automatiquement au démarrage de l'ordinateur. La désactivation de ces pilotes empêche l'installation du client ou interfère avec l'orchestration des filtres d'écriture, ce qui entraîne l'échec des opérations du client. Voici les services associés à chaque type de filtre d'écriture devant rester en cours d'exécution :  
+ Wanneer u de filters uitschakelt, moet u ervoor zorgen dat u niet de stuurprogramma's voor het filter uitschakelt. Deze stuurprogramma's worden doorgaans automatisch gestart wanneer de computer wordt gestart. Als u de stuurprogramma's uitschakelt, wordt de installatie van de client verhinderd of wordt de indelingstaak voor schrijffilters verstoord, waardoor de clientbewerkingen mislukken. Hieronder ziet u de services die zijn gekoppeld aan elk type schrijffilter dat actief moet blijven:  
 
-|Type de filtre d'écriture|Pilote|Type|Description|  
+|Type schrijffilter|Stuurprogramma|Type|Beschrijving|  
 |-----------------------|------------|----------|-----------------|  
-|EWF|EWF|Noyau|Met en œuvre la redirection des E/S au niveau du secteur sur les volumes protégés.|  
-|FBWF|FBWF|Système de fichiers|Met en œuvre la redirection des E/S au niveau du fichier sur les volumes protégés.|  
-|UWF|uwfreg|Noyau|Redirecteur de Registre UWF|  
-|UWF|uwfs|Système de fichiers|Redirecteur de fichier UWF|  
-|UWF|uwfvol|Noyau|Gestionnaire de volume UWF|  
+|EWF|EWF|Kernel|Implementeert I/O-omleiding op sectorniveau op beveiligde volumes.|  
+|FBWF|FBWF|Bestandssysteem|Implementeert I/O-omleiding op bestandsniveau op beveiligde volumes.|  
+|UWF|uwfreg|Kernel|Redirector UWF-register|  
+|UWF|uwfs|Bestandssysteem|Redirector UWF-bestand|  
+|UWF|uwfvol|Kernel|UWF-volumebeheer|  
 
- Les filtres d'écritures contrôlent la manière dont le système d'exploitation sur l'appareil intégré est mis à jour lorsque vous apportez des modifications, comme lorsque vous installez des logiciels. Lorsque les filtres d'écriture sont activés, au lieu d'apporter les modifications directement dans le système d'exploitation, celles-ci sont redirigées vers un segment de recouvrement temporaire. Si les modifications sont écrites uniquement dans le segment de recouvrement, elles sont perdues lorsque l'appareil intégré s'arrête. Toutefois, si les filtres d'écriture sont temporairement désactivés, les modifications peuvent être rendues définitives afin que vous n'ayez pas à les apporter de nouveau (ou à réinstaller le logiciel) à chaque redémarrage de l'appareil intégré. Cependant, la désactivation temporaire suivie de la réactivation de ces filtres d'écriture requiert un ou plusieurs redémarrages, si bien qu'il est souhaitable de les contrôler en configurant des fenêtres de maintenance permettant aux redémarrages de se produire en dehors des heures de bureau.  
+ Schrijffilters beheren hoe het besturingssysteem op het Embedded-apparaat wordt bijgewerkt wanneer u wijzigingen aanbrengt, zoals wanneer u software installeert. Wanneer schrijffilters zijn ingeschakeld, worden de wijzigingen niet rechtstreeks in het besturingssysteem aangebracht, maar worden ze in plaats daarvan doorgestuurd naar een tijdelijke overlay. Als de wijzigingen enkel naar de overlay worden geschreven, gaan ze verloren wanneer het Embedded-apparaat wordt uitgeschakeld. Als de schrijffilters echter tijdelijk worden uitgeschakeld, kunnen de wijzigingen permanent gemaakt worden zodat u de wijzigingen niet opnieuw moet aanbrengen (of de software niet opnieuw moet installeren) telkens het Embedded-apparaat opnieuw wordt opgestart. Het tijdelijk uitschakelen en vervolgens opnieuw inschakelen van de schrijffilters vereist echter dat de computer een of meerdere keren opnieuw wordt opgestart; u beheert dit daarom best wanneer het gebeurt door onderhoudsvensters te configureren zodat de computer opnieuw wordt opgestart buiten de werkuren.  
 
- Vous pouvez configurer des options pour désactiver et réactiver automatiquement les filtres d’écriture quand vous déployez des logiciels tels que des applications, des séquences de tâches, des mises à jour logicielles et le client Endpoint Protection. Il existe une exception pour les lignes de base de configuration comportant des éléments de configuration qui utilisent une correction automatique. Dans ce scénario, la correction se produit toujours dans le segment de recouvrement afin d'être disponible uniquement jusqu'au redémarrage de l'appareil. La correction est appliquée de nouveau lors du prochain cycle d'évaluation, mais uniquement au segment de recouvrement, lequel est effacé au redémarrage. Pour forcer Configuration Manager à valider les modifications de la correction, vous pouvez déployer la ligne de base de configuration, puis un autre déploiement logiciel qui prend en charge la validation de la modification dès que possible.  
+ U kunt opties configureren om de schrijffilters automatisch uit te schakelen en opnieuw in te schakelen wanneer u software implementeert zoals toepassingen, takenreeksen, software-updates en de Endpoint Protection-client. De uitzondering is voor configuratiebasislijnen met configuratie-items die automatisch herstel gebruiken. In dit scenario vindt het herstel steeds plaats in de overlay zodat het enkel beschikbaar is wanneer het apparaat opnieuw wordt opgestart. Het herstel wordt opnieuw toegepast bij de volgende evaluatiecyclus, maar enkel op de overlay, die wordt gewist bij het opnieuw opstarten. Om af te dwingen de herstelwijzigingen doorvoert in Configuration Manager, kunt u de configuratiebasislijn en dan een andere software-implementatie die ondersteuning biedt voor de wijziging zo snel mogelijk doorvoeren implementeren.  
 
- Si les filtres d'écriture sont désactivés, vous pouvez installer des logiciels sur les appareils Windows Embedded à l'aide du Centre logiciel. Toutefois, si les filtres d’écriture sont activés, l’installation échoue et Configuration Manager affiche un message d’erreur indiquant que vos autorisations ne sont pas suffisantes pour installer l’application.  
+ Als de schrijffilters zijn uitgeschakeld, kunt u software op Windows Embedded-apparaten installeren met behulp van Software Center. Als de schrijffilters zijn ingeschakeld, mislukt de installatie en Configuration Manager een foutboodschap dat u hebt onvoldoende machtigingen om de toepassing te installeren.  
 
 > [!WARNING]  
->  Même si vous ne sélectionnez pas les options Configuration Manager permettant de valider les modifications, celles-ci peuvent l’être si une autre installation logicielle ou modification est effectuée en ce sens. Dans ce scénario, les modifications d'origine sont validées en plus des nouvelles modifications.  
+>  Zelfs als u de Configuration Manager-opties voor het opslaan van wijzigingen niet selecteert, de wijzigingen worden toegepast als een andere software-installatie of wijziging wordt doorgevoerd die wijzigingen toepast. In dit scenario zullen de oorspronkelijke wijzigingen worden toegepast naast de nieuwe wijzigingen.  
 
- Quand Configuration Manager désactive les filtres d’écriture pour rendre les modifications définitives, seuls les utilisateurs qui possèdent des droits administratifs locaux peuvent se connecter et utiliser l’appareil intégré. Pendant cette période, les utilisateurs dont les droits sont peu élevés sont verrouillés et ils voient un message indiquant que l'ordinateur n'est pas disponible car il est en cours de maintenance. Cette indisponibilité protège l'appareil pendant que son état permet l'application de modifications définitives et ce comportement de verrouillage du mode de maintenance constitue une autre raison pour configurer une fenêtre de maintenance pendant laquelle les utilisateurs ne se connectent pas à ces appareils.  
+ Wanneer de Configuration Manager de schrijffilters wijzigingen permanent maken uitschakelt, kunnen alleen gebruikers die lokale beheerdersrechten hebben aanmelden en het embedded-apparaat gebruiken. Tijdens deze periode worden gebruikers met weinig rechten vergrendeld en zien ze een boodschap dat de computer niet beschikbaar is omdat hij wordt onderhouden. Dit helpt het apparaat te beschermen terwijl het in een status is waarin wijzigingen permanent kunnen worden toegepast, en dit vergrendelgedrag in de onderhoudsmodus is een andere reden om een onderhoudsvenster te configureren op een moment waarop gebruikers zich niet kunnen aanmelden op deze apparaten.  
 
- Configuration Manager prend en charge la gestion des types de filtres d’écriture suivants :  
+ Configuration Manager ondersteunt het beheer van de volgende types schrijffilters:  
 
--   Filtre d’écriture basé sur des fichiers (FBWF) : pour plus d’informations, consultez [Filtre d’écriture basé sur des fichiers](http://go.microsoft.com/fwlink/?LinkID=204717).  
+-   File-Based Write Filter (FBWF) - voor meer informatie Zie [File Based Write Filter](http://go.microsoft.com/fwlink/?LinkID=204717).  
 
--   RAM de filtre d’écriture amélioré (EWF) : pour plus d’informations, consultez [Filtre d’écriture amélioré](http://go.microsoft.com/fwlink/?LinkId=204718).  
+-   Enhanced Write Filter (EWF) RAM - voor meer informatie Zie [Enhanced Write Filter](http://go.microsoft.com/fwlink/?LinkId=204718).  
 
--   Filtre d’écriture unifié (UWF) : pour plus d’informations, consultez [Filtre d’écriture unifié](http://go.microsoft.com/fwlink/?LinkId=309236).  
+-   Unified Write Filter (UWF) - voor meer informatie Zie [Unified Write Filter](http://go.microsoft.com/fwlink/?LinkId=309236).  
 
- Configuration Manager ne prend pas en charge les opérations de filtre d’écriture quand l’appareil Windows Embedded est en mode de registre RAM EWF.  
+ Configuration Manager biedt geen ondersteuning voor schrijfbewerkingen filter wanneer het Windows Embedded-apparaat in EWF RAM Reg-modus.  
 
 > [!IMPORTANT]  
->  Si vous avez le choix, utilisez des filtres d’écriture basés sur des fichiers avec Configuration Manager pour une efficacité accrue et une meilleure évolutivité.
+>  Als u de keuze hebt, gebruik dan File-Based Write Filters (FBWF) met Configuration Manager voor een verhoogde efficiëntie en een hogere schaalbaarheid.
 >
-> **Pour les appareils qui utilisent des filtres d’écriture basés sur des fichiers uniquement :** configurez les exceptions suivantes pour rendre permanents l’état du client et les données d’inventaire entre les redémarrages de l’appareil :  
+> **Voor apparaten die alleen FBWF gebruiken:** Configureer de volgende uitzonderingen om clientstatus en inventarisgegevens tussen het herstarten van apparaten te behouden:  
 >   
 >  -   CCMINSTALLDIR\\*.sdf  
 > -   CCMINSTALLDIR\ServiceData  
 > -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\CCM\StateSystem  
 >   
->  Les appareils qui exécutent Windows Embedded 8.0 et ses versions ultérieures ne prennent pas en charge les exclusions qui contiennent des caractères génériques. Sur ces appareils, vous devez configurer individuellement les exclusions suivantes :  
+>  Apparaten waarop Windows Embedded 8.0 of hoger wordt uitgevoerd, bieden geen ondersteuning voor uitsluitingen die jokertekens bevatten. Op deze apparaten moet u de volgende uitsluitingen afzonderlijk configureren:  
 >   
->  -   Tous les fichiers dans CCMINSTALLDIR portant l'extension .sdf, généralement :  
+>  -   Alle bestanden in CCMINSTALLDIR met de extensie .sdf. Doorgaans zijn dit:  
 >   
 >     -   UserAffinityStore.sdf  
 >     -   InventoryStore.sdf  
@@ -79,31 +79,31 @@ ms.lasthandoff: 08/07/2017
 > -   CCMINSTALLDIR\ServiceData  
 > -   HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\CCM\StateSystem  
 >   
-> **Pour les appareils qui utilisent des filtres d’écriture basés sur des fichiers et des filtres d’écriture unifiés :** quand les clients d’un groupe de travail utilisent des certificats à des fins d’authentification auprès de points de gestion, vous devez également exclure la clé privée pour que les clients puissent continuer à communiquer avec les points de gestion. Sur ces appareils, configurez les exceptions suivantes :  
+> **Voor apparaten die alleen FBWF en UWF gebruiken:** Wanneer clients in een werkgroep certificaten voor authenticatie op beheerpunten gebruiken, moet u ook de persoonlijke sleutel zodat de client kan blijven communiceren met het beheerpunt uitsluiten. Configureer de volgende uitzonderingen op deze apparaten:  
 >   
 >  -   c:\Windows\System32\Microsoft\Protect  
 > -   c:\ProgramData\Microsoft\Crypto  
 > -   HKEY_LOCAL_MACHINE\Software\Microsoft\SystemCertificates\SMS\Certificates  
 
- Pour obtenir un exemple de scénario de déploiement et de gestion d’appareils Windows Embedded avec des filtres d’écriture activés dans Configuration Manager, consultez [Exemple de scénario de déploiement et de gestion de clients System Center Configuration Manager sur des appareils Windows Embedded](../../../../core/clients/deploy/example-scenario-for-deploying-and-managing-clients-on-windows-embedded-devices.md).  
+ Zie voor een voorbeeldscenario voor het implementeren en beheren van Windows Embedded write filter ingeschakeld apparaten in Configuration Manager [voorbeeldscenario voor het implementeren en beheren van System Center Configuration Manager-clients op Windows Embedded-apparaten](../../../../core/clients/deploy/example-scenario-for-deploying-and-managing-clients-on-windows-embedded-devices.md).  
 
- Pour plus d'informations sur la façon de créer des images pour les appareils Windows Embedded et de configurer des filtres d'écriture, reportez-vous à votre documentation Windows Embedded ou contactez votre fabricant d'ordinateurs OEM.  
+ Voor meer informatie over het maken van installatiekopieën voor Windows Embedded-apparaten en het configureren van schrijffilters, zie uw Windows Embedded-documentatie, of neem contact op met uw OEM.  
 
 > [!NOTE]  
->  Lorsque vous sélectionnez les plates-formes applicables aux déploiements logiciels et aux éléments de configuration, celles-ci affichent les familles Windows Embedded, plutôt que des versions spécifiques. Utilisez la liste suivante pour faire correspondre la version spécifique de Windows Embedded aux options figurant dans la zone de liste :  
+>  Wanneer u de toepasselijke platforms voor software-implementaties en configuratie-items selecteert, tonen deze de Windows Embedded-families eerder dan specifieke versies. Gebruik de volgende lijst om de specifieke versie van Windows Embedded toe te wijzen aan de opties in het lijstvak:  
 >   
->  -   L'option**Systèmes d'exploitation intégrés basés sur Windows XP (32 bits)** inclut les éléments suivants :  
+>  -   **Embedded-besturingssystemen op basis van Windows XP (32-bit)** omvat het volgende:  
 >   
 >      -   Windows XP Embedded  
->     -   Windows Embedded for Point of Service  
+>     -   Windows Embedded voor point-of-service  
 >     -   Windows Embedded Standard 2009  
 >     -   Windows Embedded POSReady 2009  
-> -   L'option**Systèmes d'exploitation intégrés basés sur Windows 7 (32 bits)** inclut les éléments suivants :  
+> -   **Embedded-besturingssystemen op basis van Windows 7 (32-bit)** omvat het volgende:  
 >   
->      -   Windows Embedded Standard 7 (32 bits)  
->     -   Windows Embedded POSReady 7 (32 bits)  
+>      -   Windows Embedded Standard 7 (32-bit)  
+>     -   Windows Embedded POSReady 7 (32-bit)  
 >     -   Windows ThinPC  
-> -   L'option**Systèmes d'exploitation intégrés basés sur Windows 7 (64 bits)** inclut les éléments suivants :  
+> -   **Embedded-besturingssystemen op basis van Windows 7 (64-bit)** omvat het volgende:  
 >   
->      -   Windows Embedded Standard 7 (64 bits)  
->     -   Windows Embedded POSReady 7 (64 bits)
+>      -   Windows Embedded Standard 7 (64-bit)  
+>     -   Windows Embedded POSReady 7 (64-bit)

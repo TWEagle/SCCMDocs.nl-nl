@@ -1,6 +1,6 @@
 ---
-title: "Planification du déploiement du client sur des ordinateurs Mac | Microsoft Docs"
-description: "Planifiez le déploiement de clients sur des ordinateurs Mac dans System Center Configuration Manager."
+title: Clientimplementatie op Mac-computers plannen | Microsoft Docs
+description: Plan de implementatie van clients op Mac-computers in System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,94 +17,94 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 75bddb41d4d1cf209fa7595c52b5a6aa831ba3dd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="planning-for-client-deployment-to-mac-computers-in-system-center-configuration-manager"></a>Planification du déploiement du client pour les ordinateurs Mac dans System Center Configuration Manager
+# <a name="planning-for-client-deployment-to-mac-computers-in-system-center-configuration-manager"></a>Planning voor clientimplementatie op Mac-computers in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Vous pouvez installer le client Configuration Manager sur des ordinateurs Mac qui exécutent le système d’exploitation Mac OS X et utilisent les fonctionnalités de gestion suivantes :  
+U kunt de Configuration Manager-client installeren op Mac-computers waarop het Mac OS X-besturingssysteem wordt uitgevoerd en de volgende beheermogelijkheden gebruiken:  
 
--   **Inventaire matériel**  
+-   **Hardware-inventaris**  
 
-     Vous pouvez utiliser l’inventaire matériel de Configuration Manager pour collecter des informations sur le matériel et les applications installées sur des ordinateurs Mac. Consultez ensuite ces informations dans l’Explorateur de ressources dans la console Configuration Manager et utilisez-les pour créer des regroupements, des requêtes et des rapports. Pour plus d’informations, consultez [Guide pratique pour utiliser l’Explorateur de ressources pour afficher l’inventaire matériel dans System Center Configuration Manager](../../../../core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md).  
+     U kunt hardware-inventaris van Configuration Manager gebruiken voor het verzamelen van informatie over de hardware en geïnstalleerde toepassingen op Mac-computers. Deze informatie kan vervolgens worden bekeken in Resourceverkenner in de Configuration Manager-console en gebruikt voor het maken van verzamelingen, query's en rapporten. Zie voor meer informatie [Resource Explorer gebruiken om hardware-inventaris in System Center Configuration Manager weer te geven](../../../../core/clients/manage/inventory/use-resource-explorer-to-view-hardware-inventory.md).  
 
-     Configuration Manager collecte les informations matérielles suivantes auprès des ordinateurs Mac :  
+     Configuration Manager verzamelt de volgende hardware-informatie van Mac-computers:  
 
-    -   Processeur  
+    -   Processor  
 
-    -   Système informatique  
+    -   Computersysteem  
 
-    -   Lecteur de disque  
+    -   Harde schijf  
 
-    -   Partition de disque  
+    -   Schijfpartitie  
 
-    -   Carte réseau  
+    -   Netwerkadapter  
 
-    -   Système d'exploitation  
+    -   Besturingssysteem  
 
     -   Service  
 
-    -   Processus  
+    -   Proces  
 
-    -   Logiciel installé  
+    -   Geïnstalleerde Software  
 
-    -   Produit système informatique  
+    -   Computersysteemproduct  
 
-    -   Contrôleur USB  
+    -   USB-Controller  
 
-    -   Périphérique USB  
+    -   USB-apparaat  
 
-    -   Lecteur de CD-ROM  
+    -   Cd-romstation  
 
-    -   Contrôleur vidéo  
+    -   Videocontroller  
 
-    -   Moniteur du Bureau  
+    -   Bureaubladmonitor  
 
-    -   Batterie portable  
+    -   Draagbare accu  
 
-    -   Mémoire physique  
+    -   Fysiek geheugen  
 
-    -   Imprimante  
+    -   Printer  
 
     > [!IMPORTANT]  
-    >  Vous ne pouvez pas étendre les informations matérielles collectées à partir d'ordinateurs Mac pendant un inventaire matériel.  
+    >  U kunt de hardware-informatie die wordt verzameld van Mac-computers tijdens hardware-inventarisatie niet uitbreiden.  
 
--   **Paramètres de compatibilité**  
+-   **Instellingen voor naleving**  
 
-     Vous pouvez utiliser les paramètres de compatibilité de Configuration Manager pour afficher la compatibilité des paramètres de préférence (.plist) Mac OS X et les corriger. Par exemple, vous pouvez appliquer des paramètres pour la page d'accueil du navigateur web Safari ou veiller à ce que le pare-feu Apple soit activé. Vous pouvez également utiliser des scripts Shell pour surveiller et corriger des paramètres dans MAC OS X.  
+     Instellingen voor naleving van Configuration Manager kunt u de compatibiliteit van en het herstellen van instellingen voor Mac OS X-voorkeur (.plist). U kunt bijvoorbeeld instellingen voor de startpagina in de Safari-webbrowser of zorg ervoor dat de Apple-firewall is ingeschakeld. U kunt ook shell-scripts gebruiken om te controleren en herstellen van instellingen in MAC OS X.  
 
--   **Gestion des applications**  
+-   **Toepassingsbeheer**  
 
-     Configuration Manager peut déployer des logiciels sur les ordinateurs Mac. Vous pouvez déployer les formats logiciels suivants sur les ordinateurs Mac :  
+     Configuration Manager kan software implementeren op Mac-computers. U kunt de volgende softwareformaten implementeren op Mac-computers:  
 
-    -   Image disque Apple (.DMG)  
+    -   Apple-schijfimage (. DMG)  
 
-    -   Fichier métapaquet (.MPKG)  
+    -   Metapakketbestand (. MPKG)  
 
-    -   Paquet d'installation Mac OS X (.PKG)  
+    -   Mac OS X Installer-pakket (. PAK)  
 
-    -   Application Mac OS X (.APP)  
+    -   Mac OS X-toepassing (. APP)  
 
- Quand vous installez le client Configuration Manager sur des ordinateurs Mac, vous ne pouvez pas utiliser les fonctionnalités de gestion suivantes prises en charge par le client Configuration Manager sur les ordinateurs Windows :  
+ Wanneer u de Configuration Manager-client op Mac-computers installeert, kunt u de volgende beheermogelijkheden die worden ondersteund door de Configuration Manager-client op Windows gebaseerde computers niet gebruiken:  
 
--   Installation poussée du client  
+-   Clientpushinstallatie  
 
--   Déploiement du système d'exploitation  
+-   Implementatie van besturingssystemen  
 
--   Mises à jour logicielles  
+-   Software-updates  
 
     > [!NOTE]  
-    >  Vous pouvez utiliser la gestion des applications Configuration Manager pour déployer des mises à jour logicielles Mac OS X requises sur les ordinateurs Mac. En outre, vous pouvez utiliser des paramètres de conformité pour vous assurer que les ordinateurs disposent des mises à jour logicielles requises.  
+    >  Configuration Manager-Toepassingsbeheer kunt u vereiste Mac OS X software-updates implementeren op Mac-computers. Bovendien kunt u instellingen voor naleving om ervoor te zorgen dat computers beschikken over vereiste software-updates.  
 
--   Fenêtres de maintenance  
+-   Onderhoudsvensters  
 
--   Contrôle à distance  
+-   Extern beheer  
 
--   Gestion de l'alimentation  
+-   Energiebeheer  
 
--   Vérification et correction de l'état du client  
+-   Clientcontrole en herstel van de clientstatus  
 
- Pour plus d’informations sur la manière d’installer et de configurer le client Mac Configuration Manager, consultez [Guide pratique pour déployer des clients sur des Mac dans System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-macs.md).
+ Zie voor meer informatie over het installeren en configureren van de Configuration Manager Mac-client [clients implementeren op Mac-computers in System Center Configuration Manager](../../../../core/clients/deploy/deploy-clients-to-macs.md).

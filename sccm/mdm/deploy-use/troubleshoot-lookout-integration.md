@@ -1,6 +1,6 @@
 ---
-title: "Résoudre les problèmes liés à l’intégration de Lookout | System Center Configuration Manager"
-description: "Cette rubrique décrit comment résoudre les problèmes qui se produisent couramment avec l’intégration de Lookout."
+title: Problemen met Lookout integratie oplossen | System Center Configuration Manager
+description: Dit onderwerp beschrijft het oplossen van problemen die vaak bij Lookout integratie voorkomen.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -16,71 +16,71 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: 4fd2d3b8aae6a2f42e7c6a87723d16368be30984
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="troubleshoot-lookout-integration-with-intune"></a>Résoudre les problèmes liés à l’intégration de Lookout à Intune
+# <a name="troubleshoot-lookout-integration-with-intune"></a>Lookout integratie met Intune oplossen
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-## <a name="troubleshoot-login-errors"></a>Résoudre les erreurs de connexion
-### <a name="403-errors"></a>Erreurs 403
-Une erreur 403 peut s’afficher quand vous vous connectez à la [console Lookout MTP](https://aad.lookout.com) :  **vous n’êtes pas autorisé à accéder au service** . Cela peut arriver si le nom d’utilisateur que vous avez spécifié n’est pas membre du groupe Azure Active Directory (Azure AD) configuré pour accéder à Lookout MTP.
+## <a name="troubleshoot-login-errors"></a>Meld u fouten oplossen
+### <a name="403-errors"></a>403 fouten
+Mogelijk ziet u een fout 403 wanneer u zich aanmelden bij de [Lookout MTP-beheerconsole](https://aad.lookout.com): **u bent niet gemachtigd voor toegang tot de service** dit kan gebeuren wanneer de gebruikersnaam die u hebt opgegeven geen lid van de Azure Active Directory (Azure AD)-groep die is geconfigureerd is voor toegang tot Lookout MTP.
 
-Lookout MTP est configuré pour autoriser uniquement l’accès aux utilisateurs d’un groupe Azure AD configuré. Si vous ne savez pas quel groupe est configuré pour accéder à Lookout MTP, contactez le support de Lookout.
+Lookout MTP is geconfigureerd dat alleen gebruikers van een geconfigureerde Azure AD-groep voor toegang. Als u welke groep is geconfigureerd met toegang tot Lookout MTP weet, moet u contact op met Lookout ondersteuning.
 
-Pour contacter le support de Lookout, choisissez l’une des méthodes suivantes :
+U kunt contact opnemen met ondersteuning via Lookout op de volgende methoden:
 
-* Envoyez un e-mail à enterprisesupport@lookout.com.
-* Connectez-vous à la [Console MTP](http://aad.lookout.com)et accédez au module **Support**.
-* Accédez à : https://enterprise.support.lookout.com/hc/en-us/requests et créez une demande de support.
+* E-mail:enterprisesupport@lookout.com
+* Meld u aan bij de [MTP Console](http://aad.lookout.com), en navigeer naar de **ondersteuning** module.
+* Ga naar: https://enterprise.support.lookout.com/hc/en-us/requests en maak een ondersteuningsaanvraag.
 
-### <a name="unable-to-sign-in"></a>Connexion impossible
-L’erreur suivante peut se produire si l’utilisateur administrateur général Azure AD n’accepte pas l’installation initiale de Lookout.
+### <a name="unable-to-sign-in"></a>Kan niet aanmelden
+Mogelijk ziet u de volgende fout wanneer de globale beheerder Azure AD-gebruiker heeft niet de eerste installatie van de Lookout geaccepteerd.
 
-![capture de l’écran de connexion Lookout indiquant une erreur de connexion](media/lookout-consent-not-accepted-error.png)
+![Schermafbeelding van de fout die aanmeldingsactiviteiten Lookout-aanmeldingsscherm](media/lookout-consent-not-accepted-error.png)
 
-Pour résoudre ce problème, l’utilisateur administrateur général doit se connecter à https://aad.lookout.com/les?action=consent et accepter l’invite de lancement de l’installation. Vous trouverez des informations plus détaillées dans la rubrique [Configurer votre abonnement avec Lookout MTP](set-up-your-subscription-with-lookout.md).
+U lost dit probleem, globale beheerder moet de gebruiker het aanmelden bij https://aad.lookout.com/les?action=consent en accepteer de prompt voor het starten van de installatie. Meer gedetailleerde informatie vindt u in [instellen van uw abonnement met Lookout MTP](set-up-your-subscription-with-lookout.md) onderwerp
 
-## <a name="troubleshoot-device-status-issues"></a>Résoudre les problèmes liés à l’état de l’appareil
+## <a name="troubleshoot-device-status-issues"></a>Oplossen van problemen met de status van apparaat
 
-### <a name="device-not-showing-up-in-the-lookout-mtp-console-device-list"></a>L’appareil n’apparaît pas dans la liste des appareils de la console Lookout MTP
+### <a name="device-not-showing-up-in-the-lookout-mtp-console-device-list"></a>Apparaat niet weergegeven in de lijst met Lookout MTP-console
 
-Cela peut arriver dans l’un des scénarios suivants :
-* Quand le propriétaire de cet appareil ne figure pas dans le **Enrollment Group** (Groupe d’inscriptions) spécifié dans la **Console Lookout MTP**.  À partir du module **System** (Système), accédez à l’onglet **Intune Connector** (Connecteur Intune) et examinez les paramètres **Enrollment Management** (Gestion des inscriptions).  Un ou plusieurs groupes Azure AD configurés pour l’inscription doivent être répertoriés.  Vérifiez que le propriétaire de l’appareil manquant fait partie de l’un des groupes Azure AD spécifiés.  Quand un nouvel utilisateur est ajouté au groupe d’inscriptions, l’appareil apparaît dans le module **Devices** (Appareils) de la console Lookout MTP au terme de l’intervalle d’interrogation (5 minutes par défaut).
+Dit kan gebeuren in een van de volgende scenario's:
+* Wanneer de gebruiker die eigenaar is van dit apparaat is het niet in de **inschrijving groep** opgegeven in de **Lookout MTP Console**.  Van de **System** -module, gaat u naar de **Intune-Connector** tabblad en bekijk de **inschrijving Management** instellingen.  Hier ziet u een of meer Azure AD-groepen geconfigureerd voor de inschrijving.  Controleer of de gebruiker die eigenaar is van het ontbrekende apparaat deel uit van een van de opgegeven Azure AD-groepen.  Nadat u een nieuwe gebruiker is toegevoegd aan de inschrijvingsgroep van het duurt voor het geconfigureerde pollinginterval (5 minuten is de standaardinstelling) om te zien van het apparaat weergegeven in de **apparaten** module van de Lookout MTP-Console.
 
-* Si l’appareil n’est pas pris en charge par Lookout MTP.  Les appareils qui ne sont pas pris en charge sont répertoriés dans la section **Managed Devices** (Appareils gérés) des paramètres du connecteur dans la console Lookout MTP.
+* Als het apparaat wordt niet ondersteund door Lookout MTP.  Apparaten die niet-ondersteunde wordt weergegeven in de **beheerde apparaten** sectie van de connectorinstellingen op de Lookout MTP-Console.
 
-### <a name="device-continues-to-be-reported-as-pending"></a>L’appareil est signalé comme étant **en attente**
+### <a name="device-continues-to-be-reported-as-pending"></a>Apparaat heeft nog steeds worden gerapporteerd als **in behandeling**
 
-Si un appareil est **en attente**, cela signifie que l’utilisateur final n’a pas ouvert l’application Lookout for Work et qu’il n’a pas appuyé sur le bouton **Activate** (Activer). Pour plus d’informations sur l’activation de l’appareil à l’aide de l’application Lookout for Work, consultez la rubrique suivante :
+Een apparaat dat wordt weergegeven **in behandeling** betekent dat de gebruiker heeft niet de Lookout for work app geopend en getikt de **activeren** knop. Lees het volgende onderwerp voor meer informatie over de activering van het apparaat met Lookout voor werk app:
 
-[Vous êtes invité à installer Lookout for Work sur votre appareil Android](http://docs.microsoft.com/intune/enduser/you-are-prompted-to-install-lookout-for-work-android)
+[U wordt gevraagd Lookout for Work installeren op uw Android-apparaat](http://docs.microsoft.com/intune/enduser/you-are-prompted-to-install-lookout-for-work-android)
 
-### <a name="in-the-lookout-mtp-console-a-device-is-showing-as-active-but-does-not-have-a-device-id"></a>Dans la console Lookout MTP, un appareil apparaît comme étant actif, mais il n’est associé à aucun ID d’appareil.
-Cela signifie que le propriétaire de cet appareil ne figure pas dans le groupe d’inscriptions spécifié dans la console Lookout MTP.   Un appareil peut être dans cet état si son propriétaire a été supprimé du groupe d’inscriptions ou si le groupe d’inscriptions auquel appartient l’utilisateur a été supprimé.
+### <a name="in-the-lookout-mtp-console-a-device-is-showing-as-active-but-does-not-have-a-device-id"></a>In de Lookout MTP-console een apparaat wordt weergegeven als actief, maar heeft geen een apparaat-ID.
+Dit betekent dat de gebruiker die eigenaar is van dit apparaat is niet in de inschrijvingsgroep die is opgegeven in de Lookout MTP-Console.   Een apparaat kan krijgen tot deze status is als de gebruiker die eigenaar is van het apparaat is verwijderd uit de inschrijvingsgroep of de de inschrijvingsgroep waartoe de gebruiker behoort heeft is verwijderd.
 
-À partir du module **System** (Système) dans la console Lookout MTP, accédez à l’onglet **Intune Connector** (Connecteur Intune) et passez en revue les paramètres **Enrollment** (Inscription).  Un ou plusieurs groupes Azure AD configurés pour l’inscription doivent être répertoriés.  Vérifiez que le propriétaire de l’appareil fait partie de l’un des groupes Azure AD spécifiés.
+Van de **System** -module op de Lookout MTP-console gaat u naar de **Intune-Connector** tabblad en bekijk de **inschrijving** instellingen.  Hier ziet u een of meer Azure AD-groepen geconfigureerd voor de inschrijving.  Controleer of de gebruiker die eigenaar is van het apparaat deel uit van een van de Azure AD-groepen die zijn opgegeven.
 
-Quand un appareil est dans cet état, Lookout continue à informer l’utilisateur des menaces détectées, mais les informations sur les menaces ne sont pas envoyées à Intune.
+Terwijl een apparaat in deze staat is, Lookout blijven kennis van de gebruiker van bedreigingen die zijn gedetecteerd, maar wordt niet alle informatie verzonden naar Intune.
 
-### <a name="device-shows-disconnected-state"></a>L’appareil indique un état déconnecté
+### <a name="device-shows-disconnected-state"></a>Apparaat wordt niet-verbonden status weergegeven
 
-Un état déconnecté signifie que Lookout MTP n’a pas reçu d’informations de l’appareil pendant un intervalle de temps préconfiguré (la valeur par défaut est de 30 jours, la valeur minimale de 7 jours). Cela signifie que l’application Portail d’entreprise ou Lookout for Work n’est pas installée sur l’appareil ou a été désinstallée. Pour résoudre ce problème, réinstallez les applications. Quand l’utilisateur ouvre Lookout for Work et active l’application, l’appareil se resynchronise avec Lookout MTP et Intune.
+Verbinding verbroken betekent dat u Lookout MTP is niet van het apparaat voor gehoord gedurende een vooraf geconfigureerde tijdsinterval (de standaardwaarde is 30 dagen met een minimum van 7 dagen). Dit betekent dat de app bedrijfsportal of de Lookout for Work-app is niet geïnstalleerd op het apparaat of is verwijderd. De apps opnieuw te installeren, moet dit probleem oplossen. Wanneer de gebruiker wordt geopend Lookout for Work en Hiermee activeert u de app, het apparaat resyncs met Lookout MTP en Intune.
 
-### <a name="forcing-a-resync-on-the-device"></a>Forcer une resynchronisation sur l’appareil
-À partir du module **Devices** (Appareils) de la console Lookout MTP, l’administrateur peut sélectionner l’appareil et le supprimer.   La prochaine fois que le propriétaire de l’appareil ouvre l’application Lookout for Work et appuie sur **Activate** (Activer), l’appareil effectue une resynchronisation complète.
+### <a name="forcing-a-resync-on-the-device"></a>Opnieuw synchroniseren op het apparaat wordt afgedwongen
+Van de **apparaten** module van de beheerder de Lookout MTP-console, kunt selecteren van het apparaat en wilt verwijderen.   De volgende keer dat de eigenaar van het apparaat wordt geopend de Lookout for Work-app en tikken **activeren**, status van het apparaat een volledige resync gaat uitvoeren.
 
-### <a name="the-owner-of-the-device-is-no-longer-using-this-device"></a>Le propriétaire de l’appareil n’utilise plus cet appareil
-Vous devez réinitialiser l’appareil et demander au nouvel utilisateur de s’inscrire, comme indiqué dans [cette rubrique](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/wipe-lock-reset-devices#full-wipe).
+### <a name="the-owner-of-the-device-is-no-longer-using-this-device"></a>Dit apparaat is niet meer gebruikt door de eigenaar van het apparaat
+U moet het apparaat wissen en vraagt u de nieuwe gebruiker te registreren, zoals beschreven in [in dit onderwerp](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/wipe-lock-reset-devices#full-wipe).
 
 
-Vous pouvez également accéder au module **Devices** (Appareils) de la console MTP Console et choisir **Delete** (Supprimer).
+U kunt ook gaan naar de **apparaten** module van de Lookout MTP-Console en kies **verwijderen**.
 
-Tant que le nouvel utilisateur figure dans l’un des groupes d’inscription spécifiés dans la console Lookout MTP, l’appareil s’affiche quand Azure AD associe l’appareil au nouvel utilisateur.
+Als de nieuwe gebruiker zich in een van de inschrijving van groepen die zijn opgegeven in de Lookout MTP-console, wordt het apparaat wordt weergegeven nadat Azure AD het apparaat wordt gekoppeld aan de nieuwe gebruiker.
 
-## <a name="compliance-remediation-workflows"></a>Flux de travail de mise à jour de la conformité
-[Vous êtes invité à installer Lookout for Work sur votre appareil Android]( http://docs.microsoft.com/intune/enduser/you-are-prompted-to-install-lookout-for-work-android)
+## <a name="compliance-remediation-workflows"></a>Werkstromen voor naleving-herstel
+[U wordt gevraagd Lookout for Work installeren op uw Android-apparaat]( http://docs.microsoft.com/intune/enduser/you-are-prompted-to-install-lookout-for-work-android)
 
-[Vous devez résoudre une menace détectée par Lookout for Work sur votre appareil Android](http://docs.microsoft.com/intune/enduser/you-need-to-resolve-a-threat-found-by-lookout-for-work-android)
+[U moet een bedreiging die Lookout for Work op uw Android-apparaat gevonden oplossen](http://docs.microsoft.com/intune/enduser/you-need-to-resolve-a-threat-found-by-lookout-for-work-android)

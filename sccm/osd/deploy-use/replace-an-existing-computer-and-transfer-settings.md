@@ -1,6 +1,6 @@
 ---
-title: "Remplacer un ordinateur existant et transférer des paramètres | Microsoft Docs"
-description: "Dans Configuration Manager, choisissez les méthodes de déploiement, telles que le média de démarrage, la multidiffusion ou le Centre logiciel, pour remplacer un ordinateur existant par un nouveau."
+title: Een bestaande computer vervangen en de instellingen overzetten | Microsoft Docs
+description: In Configuration Manager kiezen uit implementatiemethoden, zoals de opstartbare media, multicast of Software Center, een bestaande computer vervangen door een nieuwe computer.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,69 +16,69 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 243433980e1720fd468d52a4a61f2c3a8e3659b5
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="replace-an-existing-computer-and-transfer-settings-with-system-center-configuration-manager"></a>Remplacer un ordinateur existant et transférer des paramètres avec System Center Configuration Manager
+# <a name="replace-an-existing-computer-and-transfer-settings-with-system-center-configuration-manager"></a>Een bestaande computer vervangen en de instellingen overzetten met System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Cette rubrique indique les étapes générales à suivre dans System Center Configuration Manager pour remplacer un ordinateur existant par un nouveau. Pour ce scénario, vous pouvez choisir parmi de nombreuses méthodes de déploiement, telles que média de démarrage, multidiffusion ou Centre logiciel. Vous pouvez aussi choisir d’installer un point de migration d’état pour stocker les paramètres, puis les restaurer sur le nouveau système d’exploitation après son installation. Pour vous aider à déterminer si ce scénario de déploiement de système d’exploitation est adapté à votre cas, consultez [Scénarios de déploiement de systèmes d’exploitation d’entreprise](scenarios-to-deploy-enterprise-operating-systems.md).  
+Dit onderwerp bevat de algemene stappen in System Center Configuration Manager naar een bestaande computer vervangen door een nieuwe computer. U kunt voor dit scenario kiezen uit veel verschillende implementatiemethoden, zoals het implementeren via opstartbare media, multicast of Software Center. U kunt er ook voor kiezen om een statusmigratiepunt te installeren waarin de instellingen kunnen worden opgeslagen om deze vervolgens terug te zetten in het nieuwe besturingssysteem nadat dit is geïnstalleerd. Als u niet zeker weet dat dit het juiste besturingssysteem implementatiescenario voor u is, raadpleegt u [scenario's voor het implementeren van enterprise-besturingssystemen](scenarios-to-deploy-enterprise-operating-systems.md).  
 
- Utilisez les sections suivantes pour actualiser un ordinateur existant avec une nouvelle version de Windows.  
+ Gebruik de volgende secties om een bestaande computer te vernieuwen met een nieuwe versie van Windows.  
 
 ##  <a name="BKMK_Plan"></a> Plan  
 
--   **Planifier et implémenter la configuration requise pour l’infrastructure**  
+-   **Infrastructuurvereisten plannen en implementeren**  
 
-     Plusieurs éléments d’infrastructure doivent être installés et configurés avant de déployer des systèmes d’exploitation, tels que Windows ADK, l’outil de migration utilisateur (USMT), les services de déploiement Windows (WDS), la prise en charge des configurations de disque dur, etc. Pour plus d’informations, consultez [Configuration requise de l’infrastructure pour le déploiement de système d’exploitation](../plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
+     Er zijn verschillende infrastructuurvereisten waaraan voldaan worden moeten voordat u kunt implementeren besturingssystemen, zoals Windows ADK, User status Migration Tool (USMT), Windows Deployment Services (WDS) ondersteunde vasteschijfconfiguraties, enzovoort. Zie voor meer informatie [vereisten voor de infrastructuur voor besturingssysteemimplementatie](../plan-design/infrastructure-requirements-for-operating-system-deployment.md)  
 
--   **Installer un point de migration d’état (obligatoire uniquement si vous transférez des paramètres)**  
+-   **Een statusmigratiepunt installeren (alleen vereist als u instellingen overzet)**  
 
-     Quand vous allez capturer les paramètres de l’ordinateur existant et restaurer les paramètres sur le nouveau système d’exploitation, vous devez installer un point de migration d’état. Pour plus d’informations, consultez [Point de migration d’état](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
+     Wanneer u de instellingen van een bestaande computer wilt vastleggen om deze vervolgens terug te zetten in het nieuwe besturingssysteem, moet u een statusmigratiepunt installeren. Zie voor meer informatie [Statusmigratiepunt](../get-started/prepare-site-system-roles-for-operating-system-deployments.md#BKMK_StateMigrationPoints).  
 
-##  <a name="BKMK_Configure"></a> Configurerr  
+##  <a name="BKMK_Configure"></a> Configurerenren  
 
-1.  **Préparer une image de démarrage**  
+1.  **Een opstartinstallatiekopie voorbereiden**  
 
-     Les images de démarrage démarrent un ordinateur dans un environnement Windows PE (système d’exploitation minimal doté de composants et services limités), qui peut ensuite installer un système d’exploitation Windows complet sur l’ordinateur. Quand vous déployez des systèmes d’exploitation, vous devez sélectionner une image de démarrage à utiliser et distribuer cette image sur un point de distribution. Pour préparer l’image de démarrage, utilisez les éléments suivants :  
+     Opstartinstallatiekopieën starten een computer op in een Windows PE-omgeving (minimaal besturingssysteem met beperkte onderdelen en services), waarna er een volledig Windows-besturingssysteem op de computer kan worden geïnstalleerd. Wanneer u besturingssystemen implementeert, moet u de opstartinstallatiekopie selecteren die u wilt gebruiken en de installatiekopie distribueren naar een distributiepunt. Gebruik de volgende informatie om een opstartinstallatiekopie voor te bereiden:  
 
-    -   Pour en savoir plus sur les images de démarrage, consultez [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
+    -   Zie voor meer informatie over opstartinstallatiekopieën, [opstartinstallatiekopieën beheren](../get-started/manage-boot-images.md).  
 
-    -   Pour plus d’informations sur la personnalisation d’une image de démarrage, consultez [Personnaliser des images de démarrage](../get-started/customize-boot-images.md).  
+    -   Zie voor meer informatie over het aanpassen van een opstartinstallatiekopie [opstartinstallatiekopieën aanpassen](../get-started/customize-boot-images.md).  
 
-    -   Distribuez l’image de démarrage à des points de distribution. Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+    -   Distribueer de opstartinstallatiekopie naar distributiepunten. Zie voor meer informatie [inhoud distribueren](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
 
-2.  **Préparer une image de système d’exploitation**  
+2.  **Een installatiekopie van een besturingssysteem voorbereiden**  
 
-     L’image de système d’exploitation contient les fichiers nécessaires pour installer le système d’exploitation sur l’ordinateur de destination. Pour préparer l’image du système d’exploitation, utilisez les éléments suivants :  
+     De installatiekopie van het besturingssysteem bevat de bestanden die nodig zijn om het besturingssysteem op de doelcomputer te installeren. Gebruik de volgende informatie om de installatiekopie van het besturingssysteem voor te bereiden:  
 
-    -   Pour en savoir plus sur la création d’une image de système d’exploitation, consultez [Gérer les images de système d’exploitation](../get-started/manage-operating-system-images.md).  
+    -   Zie voor meer informatie over het maken van een installatiekopie van het besturingssysteem, [installatiekopieën van besturingssystemen beheren](../get-started/manage-operating-system-images.md).  
 
-    -   Distribuez l’image du système d’exploitation à des points de distribution. Pour plus d’informations, consultez [Distribuer du contenu](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+    -   Distribueer de installatiekopie van het besturingssysteem naar distributiepunten. Zie voor meer informatie [inhoud distribueren](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
 
-3.  **Créer une séquence de tâches pour déployer des systèmes d’exploitation sur le réseau**  
+3.  **Een takenreeks maken om besturingssystemen via het netwerk te implementeren**  
 
-     Utilisez une séquence de tâches pour automatiser l’installation du système d’exploitation sur le réseau. Utilisez les étapes indiquées dans [Créer une séquence de tâches pour installer un système d’exploitation](create-a-task-sequence-to-install-an-operating-system.md) pour créer la séquence de tâches permettant de déployer le système d’exploitation. En fonction de la méthode de déploiement choisie, des considérations supplémentaires peuvent s’appliquer à la séquence de tâches.  
+     Maak een takenreeks om de installatie van het besturingssysteem via het netwerk te automatiseren. Gebruik de stappen in [een takenreeks maken om een besturingssysteem te installeren](create-a-task-sequence-to-install-an-operating-system.md) voor het maken van de takenreeks om het besturingssysteem te implementeren. Afhankelijk van de implementatiemethode waarvoor u kiest, kunnen er aanvullende overwegingen zijn bij het samenstellen van de takenreeks.  
 
     > [!NOTE]  
-    >  Dans ce scénario, si vous capturez et restaurez des paramètres utilisateur et des fichiers, vous pouvez choisir d’utiliser un point de migration d’état ou d’enregistrer les fichiers localement. Pour plus d’informations, consultez [Gérer l’état utilisateur](../get-started/manage-user-state.md).  
+    >  Als u in dit scenario gebruikersinstellingen en bestanden vastlegt en terugzet, kunt u ervoor kiezen om een statusmigratiepunt te gebruiken om de bestanden lokaal op te slaan. Zie voor meer informatie [Gebruikersstatus beheren](../get-started/manage-user-state.md).  
 
-##  <a name="BKMK_Deploy"></a> Déployer  
+##  <a name="BKMK_Deploy"></a> Implementeren  
 
--   Pour déployer le système d’exploitation, appliquez l’une des méthodes de déploiement suivantes :  
+-   Gebruik een van de volgende implementatiemethoden om het besturingssysteem te implementeren:  
 
-    -   [Utiliser le Centre logiciel pour déployer Windows sur le réseau](use-software-center-to-deploy-windows-over-the-network.md)  
+    -   [Windows met Software Center via het netwerk implementeren](use-software-center-to-deploy-windows-over-the-network.md)  
 
-    -   [Utiliser un média de démarrage pour déployer Windows sur le réseau](use-bootable-media-to-deploy-windows-over-the-network.md)  
+    -   [Opstartbare media gebruiken om Windows te implementeren via het netwerk](use-bootable-media-to-deploy-windows-over-the-network.md)  
 
-    -   [Utiliser la multidiffusion pour déployer Windows sur le réseau](use-multicast-to-deploy-windows-over-the-network.md)  
+    -   [Multicast gebruiken om Windows via het netwerk te implementeren](use-multicast-to-deploy-windows-over-the-network.md)  
 
-    -   [Créer une image pour un fabricant OEM en usine ou dépôt local](create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
+    -   [Een installatiekopie voor een OEM in de fabriek of een lokaal depot maken](create-an-image-for-an-oem-in-factory-or-a-local-depot.md)  
 
-## <a name="monitor"></a>Analyse  
+## <a name="monitor"></a>Monitor  
 
--   **Surveiller le déploiement de la séquence de tâches**  
+-   **De takenreeksimplementatie controleren**  
 
-     Pour surveiller le déploiement de la séquence de tâches permettant d’installer le système d’exploitation, consultez [Surveiller les déploiements de système d’exploitation](monitor-operating-system-deployments.md).  
+     Voor het bewaken van de takenreeksimplementatie om het besturingssysteem te installeren, Zie [implementaties van besturingssystemen bewaken](monitor-operating-system-deployments.md).  

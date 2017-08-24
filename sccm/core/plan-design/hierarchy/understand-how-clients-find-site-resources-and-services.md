@@ -1,6 +1,6 @@
 ---
-title: Rechercher des ressources de site | Microsoft Docs
-description: "Découvrez comment et quand les clients System Center Configuration Manager utilisent l’emplacement du service pour rechercher des ressources de site."
+title: Site-informatie vinden | Microsoft Docs
+description: Meer informatie over hoe en wanneer de System Center Configuration Manager-clients servicelocatie zoeken naar sitebronnen gebruiken.
 ms.custom: na
 ms.date: 2/7/2017
 ms.prod: configuration-manager
@@ -16,235 +16,235 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 1c9e7ada6a8aa228b30e58865baae0f6e529e6af
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="learn-how-clients-find-site-resources-and-services-for-system-center-configuration-manager"></a>Comprendre comment les clients recherchent des services et des ressources de site pour System Center Configuration Manager
+# <a name="learn-how-clients-find-site-resources-and-services-for-system-center-configuration-manager"></a>Meer informatie over hoe clients siteresources en -services voor System Center Configuration Manager vinden
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Les clients System Center Configuration Manager utilisent un processus appelé *emplacement du service* pour trouver les serveurs de système de site avec lesquels ils peuvent communiquer et qui leur fournissent les services dont ils ont besoin. Bien comprendre comment et quand les clients utilisent l’emplacement du service pour rechercher des ressources de site peut vous aider à configurer vos sites de manière appropriée pour prendre en charge les tâches des clients. Ces configurations peuvent nécessiter que le site interagisse avec des configurations de domaine et de réseau telles que AD DS et DNS. Elles peuvent également nécessiter la configuration d’alternatives plus complexes.  
+System Center Configuration Manager-clients gebruiken een proces genaamd *service locatie* om sitesysteemservers te vinden servers die ze kunnen communiceren en die services bieden die clients moeten gebruiken. Begrijpen hoe en wanneer clients de servicelocatie gebruiken sitebronnen te vinden, kunt u uw sites voor de ondersteuning van clienttaken configureren. Deze netwerkconfiguraties vereisen mogelijk dat de site om te communiceren met de domein- en netwerkconfiguraties als Active Directory Domain Services (AD DS) en DNS. Of ze kunnen u complexere alternatieven te configureren.  
 
- Exemples de rôles de système de site qui fournissent des services :
+ Voorbeelden van sitesysteemrollen die services leveren zijn:
 
- - Serveur de système de site principal pour les clients.
- - Point de gestion.
- - Serveurs de système de site supplémentaires avec lesquels le client peut communiquer, tels que les points de distribution et les points de mises à jour logicielles.  
+ - De belangrijkste sitesysteemserver voor clients.
+ - Het beheerpunt.
+ - Extra sitesysteemservers waarmee de client, zoals distributiepunten en software communiceren kan-updatepunten.  
 
 
 
 ##  <a name="bkmk_fund"></a> Fundamentals of service location  
- Quand un client utilise l’emplacement du service pour rechercher un point de gestion avec lequel il peut communiquer, il évalue son emplacement réseau actuel, son protocole de communication préféré et son site attribué.  
+ Een client evalueert de huidige netwerklocatie, protocolvoorkeur communicatie en toegewezen site bij het gebruik van servicelocatiebepaling om een beheerpunt dat met communiceren kan te vinden.  
 
- **Un client communique avec un point de gestion pour effectuer les opérations suivantes :**  
--   Télécharger des informations concernant d’autres points de gestion du site, afin de pouvoir générer une liste des points de gestion connus (ou *liste PG*) pour les cycles ultérieurs d’emplacement du service.  
--   Charger les informations de la configuration, comme l’inventaire et l’état.  
--   Télécharger une stratégie qui définit des configurations sur le client et peut informer celui-ci sur les logiciels qu’il peut ou doit installer, et d’autres tâches connexes.  
--   Demander des informations sur les autres rôles de système qui fournissent des services que le client a été configuré pour utiliser. Il peut s’agir des points de distribution des logiciels que le client peut installer ou un point de mise à jour logicielle à partir duquel obtenir les mises à jour.  
+ **Een client communiceert met een beheerpunt:**  
+-   Downloaden van informatie over andere beheerpunten voor de site, zodat deze voor een lijst met bekende beheerpunten samen kan (ook wel de *MP-lijst*) voor toekomstige service locatie cycli.  
+-   Configuratiegegevens, zoals inventaris- en statusgegevens uploaden.  
+-   Download een beleid dat configuraties ingesteld op de client en de client van de software die kan of moet installeren en andere gerelateerde taken kan informeren.  
+-   Aanvraag voor informatie over extra sitesysteemrollen die services leveren die de client is geconfigureerd om te gebruiken. Voorbeelden zijn onder meer distributiepunten voor software die de client kan installeren, of een software-updatepunt uit waarvoor u updates wilt weergeven.  
 
-**Un client Configuration Manager effectue une demande d’emplacement du service :**  
--   Toutes les 25 heures de fonctionnement continu.  
--   Quand il détecte une modification de sa configuration ou de son emplacement réseau.  
--   Quand le service **ccmexec.exe** de l’ordinateur (service client de base) démarre.  
--   Quand le client doit localiser un rôle de système de site qui fournit un service requis.  
+**Een Configuration Manager-client maakt een servicelocatie-aanvraag:**  
+-   Elke 25 uur continu uitvoeren.  
+-   De client detecteert wanneer een wijziging in de netwerkconfiguratie of de locatie.  
+-   Wanneer de **ccmexec.exe** -service op de computer (de core client-service) wordt gestart.  
+-   Wanneer de client moet een sitesysteemrol waarmee een vereiste service kunnen vinden.  
 
-**Quand un client essaie de trouver des serveurs qui hébergent des rôles système de site**, il utilise l’emplacement du service pour rechercher un rôle de système de site prenant en charge son protocole (HTTP ou HTTPS). Par défaut, les clients utilisent la méthode la plus sûre à leur disposition. Considérez les points suivants :  
+**Wanneer een client probeert te vinden van servers die sitesysteemrollen hosten**, het gebruik van servicelocatiebepaling vinden van een sitesysteemrol die het clientprotocol (HTTP of HTTPS) ondersteunt. Standaard gebruiken clients de meest beveiligde methode die voor hen beschikbaar. Neem het volgende in overweging:  
 
--   Pour utiliser le protocole HTTPS, vous devez disposer d'une infrastructure à clé publique (PKI) et installer des certificats PKI sur des clients et serveurs. Pour plus d’informations sur la façon d’utiliser des certificats, consultez [Configuration requise des certificats PKI pour System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md).  
+-   U moet een PKI (Public Key Infrastructure) hebben en u moet PKI-certificaten installeren op clients en servers om HTTPS te gebruiken. Zie [PKI-certificaatvereisten voor System Center Configuration Manager](../../../core/plan-design/network/pki-certificate-requirements.md) voor informatie over het gebruik van certificaten.  
 
--   Quand vous déployez un rôle de système de site qui utilise Internet Information Services (IIS) et prend en charge les communications des clients, vous devez spécifier si les clients se connectent au système de site à l'aide de HTTP ou HTTPS. Si vous utilisez le protocole HTTP, vous devez également envisager les options de signature et de chiffrement. Pour plus d’informations, consultez [Planifier la signature et le chiffrement](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForSigningEncryption) dans la rubrique [Planifier la sécurité dans System Center Configuration Manager](../../../core/plan-design/security/plan-for-security.md).  
+-   Wanneer u een sitesysteemrol implementeert die gebruikmaakt van Internet Information Services (IIS) en communicatie van clients ondersteunt, moet u opgeven of clients verbinding met het sitesysteem maken via HTTP of HTTPS. Als u HTTP gebruikt, dient u ook opties voor ondertekening en versleuteling te overwegen. Zie voor meer informatie [Planning voor ondertekening en versleuteling](../../../core/plan-design/security/plan-for-security.md#BKMK_PlanningForSigningEncryption) in de [beveiliging in System Center Configuration Manager plannen](../../../core/plan-design/security/plan-for-security.md).  
 
-##  <a name="BKMK_Plan_Service_Location"></a> Emplacement du service et façon dont les clients déterminent leur point de gestion attribué  
-Quand un client est attribué pour la première fois à un site principal, il sélectionne un point de gestion par défaut pour ce site. Les sites principaux prennent en charge plusieurs points de gestion, et chaque client identifie indépendamment un point de gestion comme son point de gestion par défaut. Ce point de gestion par défaut devient ensuite le point de gestion attribué de ce client. (Vous pouvez également utiliser les commandes d’installation du client pour définir le point de gestion attribué au client lors de l’installation.)  
+##  <a name="BKMK_Plan_Service_Location"></a>Servicelocatiebepaling en hoe het toegewezen beheerpunt voor clients wordt bepaald  
+Als een client eerst wordt toegewezen aan een primaire site, selecteert u een standaardbeheerpunt voor die site. Primaire sites ondersteunen meerdere beheerpunten en elke client bepaalt onafhankelijk een beheerpunt als het standaardbeheerpunt. Dit standaardbeheerpunt wordt vervolgens een van de client toegewezen beheerpunt. (U kunt ook clientinstallatieopdrachten gebruiken om in te stellen het toegewezen beheerpunt voor een client wanneer deze geïnstalleerd.)  
 
-Un client sélectionne le point de gestion avec lequel communiquer en fonction de son emplacement réseau et de son groupe de limites configurés. Le point de gestion utilisé par le client n’est pas obligatoirement son point de gestion attribué.  
+Een client selecteert een beheerpunt om te communiceren met op basis van de client huidige locatie en grens groep netwerkconfiguraties. Hoewel dit een toegewezen beheerpunt heeft, kan dit niet het beheerpunt dat gebruikmaakt van de client zijn.  
 
     > [!NOTE]  
     >  A client always uses the assigned management point for registration messages and certain policy messages, even when other communications are sent to a proxy or local management point.  
 
-Vous pouvez utiliser des points de gestion préférés. Les points de gestion préférés sont ceux du site attribué au client qui sont associés à un groupe de limites que le client utilise pour rechercher des serveurs de système de site. L’association d’un point de gestion préféré à un groupe de limites en tant que serveur de système de site est similaire à l’association de points de distribution ou de points de migration d’état à un groupe de limites. Si vous activez les points de gestion préférés pour la hiérarchie, lorsqu'un client utilise un point de gestion à partir de son site attribué, il va tenter d'utiliser un point de gestion préféré avant d'utiliser d'autres points de gestion à partir de son site attribué.  
+U kunt voorkeursbeheerpunten gebruiken. Voorkeursbeheerpunten zijn beheerpunten van een client toegewezen site die zijn gekoppeld aan een grensgroep die site systeemservers vinden op de client wordt gebruikt. Een voorkeursbeheerpunt van koppeling met een grens van een groep als een sitesysteemserver is vergelijkbaar met hoe distributiepunten of statusmigratiepunten gekoppeld aan een grensgroep zijn. Als u voorkeursbeheerpunten voor de hiërarchie inschakelt, zal een client die een beheerpunt van de toegewezen site gebruikt, proberen eerst een voorkeursbeheerpunt te gebruiken voordat andere beheerpunten worden gebruikt.  
 
-Vous pouvez également utiliser les informations du blog [Management point affinity (Affinité des points de gestion)](http://blogs.technet.com/b/jchalfant/archive/2014/09/22/management-point-affinity-added-in-configmgr-2012-r2-cu3.aspx) sur TechNet.com pour configurer l’affinité des points de gestion. L’affinité des points de gestion remplace le comportement par défaut des points de gestion attribués et permet au client d’utiliser un ou plusieurs points de gestion spécifiques.  
+U kunt ook de informatie in de [beheerpuntaffiniteit](http://blogs.technet.com/b/jchalfant/archive/2014/09/22/management-point-affinity-added-in-configmgr-2012-r2-cu3.aspx) blog op TechNet.com voor het configureren van de affiniteit met het beheerpunt. Management-punt affiniteit onderdrukkingen het standaardgedrag voor toegewezen beheerpunten en kunt de client gebruiken een of meer specifieke beheerpunten.  
 
-Chaque fois qu’un client doit contacter un point de gestion, il consulte la liste PG qu’il stocke localement dans Windows Management Instrumentation (WMI). Le client crée la liste PG lors de son installation. Il met à jour régulièrement cette liste avec des informations sur chaque point de gestion dans la hiérarchie.  
+Telkens wanneer die een client moet contact maken met een beheerpunt, controleert deze de MP-lijst, die lokaal wordt opgeslagen in de Windows Management Instrumentation (WMI). De client maakt een initiële MP-lijst wanneer deze geïnstalleerd. De client vervolgens de lijst periodiek bijgewerkt met informatie over elk beheerpunt in de hiërarchie.  
 
-Quand le client ne trouve pas de point de gestion valide dans sa liste PG, il étend sa recherche aux sources d’emplacement de service suivantes, dans l’ordre et jusqu’à trouver un point de gestion qu’il peut utiliser :  
+Als de client een geldig beheerpunt in de MP-lijst vinden kan, doorzocht het de volgende bronnen voor servicelocatiebepaling in volgorde, totdat er een beheerpunt dat kan worden gebruikt:  
 
-1.  Point de gestion  
+1.  Beheerpunt  
 2.  AD DS  
 3.  DNS  
 4.  WINS  
 
-Dès qu’un client a localisé et contacté un point de gestion, il télécharge sa liste des points de gestion disponibles dans la hiérarchie et met à jour sa liste locale. Cela s'applique aussi bien aux clients qui appartiennent à un domaine qu'à ceux qui n'y appartiennent pas.  
+Nadat een client met succes zoekt en neemt contact op met een beheerpunt, het downloaden van de huidige lijst met beheerpunten die beschikbaar in de hiërarchie zijn en wordt de lokale MP-lijst bijgewerkt. Dit geldt ook voor clients die lid zijn van een domein en voor clients die dat niet zijn.  
 
-Par exemple, quand un client Configuration Manager sur Internet se connecte à un point de gestion basé sur Internet, ce dernier lui envoie la liste des points de gestion basés sur Internet disponibles sur le site. De même, les clients qui appartiennent à un domaine ou figurent dans des groupes de travail reçoivent également la liste des points de gestion qu'ils peuvent utiliser.  
+Bijvoorbeeld, wanneer een Configuration Manager-client die zich op het Internet verbinding met een Internet-gebaseerd beheerpunt maakt, het beheerpunt verzonden naar de client een lijst met beschikbare internetgebaseerde beheerpunten in de site. Op deze manier ontvangen clients in een domein of werkgroep ook de lijst met beheerpunten die mogelijk kunnen worden gebruikt.  
 
-Un client qui n’est pas configuré pour Internet ne reçoit pas de points de gestion exclusivement accessibles sur Internet. Les clients de groupe de travail configurés pour Internet communiquent uniquement avec des points de gestion accessibles sur Internet.  
+Een client die niet is geconfigureerd voor het Internet is niet opgegeven voor Internet-facing-only-beheerpunten. Werkgroepclients die zijn geconfigureerd voor Internet communiceren alleen met internetverbinding beheerpunten.  
 
-##  <a name="BKMK_MPList"></a> La liste PG  
-La liste PG est la source d’emplacements de service préférés du client. Elle hiérarchise les points de gestion précédemment identifiés par le client. Cette liste est triée par chaque client en fonction de son emplacement réseau au moment où il l'a met à jour, puis stockée localement sur le client dans WMI.  
+##  <a name="BKMK_MPList"></a> De MP-lijst  
+De MP-lijst is de bron van de locatie voorkeur service voor een client, omdat deze een geprioriteerde lijst met beheerpunten die de client eerder hebt geïdentificeerd. Deze lijst wordt door elke client gesorteerd op basis van de netwerklocatie wanneer de client de lijst bijgewerkt, en de lijst wordt vervolgens lokaal opgeslagen op de client in WMI.  
 
-### <a name="building-the-initial-mp-list"></a>Création de la liste PG initiale  
-Lors de l’installation du client, les règles suivantes sont utilisées pour générer sa liste PG initiale :  
+### <a name="building-the-initial-mp-list"></a>Samenstellen van de initiële MP-lijst  
+Tijdens de installatie van de client de volgende regels gebruikt voor het samenstellen van de initiële MP-lijst van de client:  
 
--   Cette liste initiale inclut les points de gestion spécifiés lors de l’installation du client (quand vous utilisez l’option **SMSMP**= ou **/MP**).  
--   Le client recherche les points de gestion publiés, dans AD DS. Pour que le point de gestion soit identifié à partir d’AD DS, il doit provenir du site attribué du client et avoir la même version de produit que celle du client.  
--   Si aucun point de gestion n’a été spécifié lors de l’installation du client et si le schéma Active Directory n’est pas étendu, le client recherche des points de gestion publiés dans les services DNS et WINS.  
--   Lorsque le client crée la liste initiale, les informations concernant certains points de gestion de la hiérarchie peuvent ne pas être connues.  
+-   De initiële lijst bevat beheerpunten die zijn opgegeven tijdens de clientinstallatie (wanneer u gebruikt de **SMSMP**= of **/MP** optie).  
+-   De client vraagt gepubliceerde beheerpunten AD DS. Als u wilt worden geïdentificeerd vanuit AD DS, moet het beheerpunt van de client toegewezen site en deze moet dezelfde versie van het product als de client.  
+-   Als er geen beheerpunt is opgegeven tijdens de clientinstallatie en het Active Directory-schema niet is uitgebreid, controleert de client DNS en WINS op gepubliceerde beheerpunten.  
+-   Wanneer de client wordt gemaakt van de initiële lijst, wordt informatie over een aantal beheerpunten in de hiërarchie mogelijk niet bekend.  
 
-### <a name="organizing-the-mp-list"></a>Organisation de la liste PG  
-Les clients organisent leur liste de points de gestion selon les classifications suivantes :  
+### <a name="organizing-the-mp-list"></a>De MP-lijst ordenen  
+Clients ordenen hun lijst met beheerpunten met behulp van de volgende classificaties:  
 
--   **Proxy** : un point de gestion proxy sur un site secondaire.  
--   **Local** : tout point de gestion associé à l’emplacement réseau actuel du client tel qu’il est défini par les limites de site. Gardez à l’esprit les informations suivantes sur les limites :
-    -   Quand un client appartient à plusieurs groupes de limites, la liste des points de gestion locaux est déterminée en réunissant toutes les limites qui incluent l'emplacement réseau actuel du client.  
-    -   En règle générale, les points de gestion locaux sont un sous-ensemble des points de gestion attribués d’un client, sauf si ce dernier se trouve à un emplacement réseau associé à un autre site avec des points de gestion desservant ses groupes de limites.   
+-   **Proxy**: Een beheerpunt op een secundaire site.  
+-   **Lokale**: Elk beheerpunt dat is gekoppeld aan de huidige netwerklocatie van de client, zoals gedefinieerd door de sitegrenzen. Houd rekening met de volgende informatie over de grenzen van:
+    -   Wanneer een client tot meer dan een grensgroep behoort, wordt de lijst met lokale beheerpunten bepaald door de samenvoeging van alle grenzen die de huidige netwerklocatie van de client bevatten.  
+    -   Lokale beheerpunten zijn meestal naar dat een subset van een client toegewezen beheerpunten, tenzij de client zich op een netwerklocatie die is gekoppeld aan een andere site met beheerpunten die diens grensgroepen onderhoudt.   
 
 
--   **Attribué** : tout point de gestion représentant un système de site pour le site attribué du client.  
+-   **Toegewezen**: Elk beheerpunt dat een sitesysteem voor de client toegewezen site.  
 
-Vous pouvez utiliser des points de gestion préférés. Les points de gestion d’un site qui ne sont pas associés à un groupe de limites ou qui ne figurent pas dans un groupe de limites associé à un emplacement réseau actuel du client ne sont pas considérés comme préférés. Ils seront utilisés si le client ne peut pas identifier un point de gestion par défaut disponible.  
+U kunt voorkeursbeheerpunten gebruiken. Beheerpunten op een site die niet zijn gekoppeld aan een grensgroep, of die niet zijn opgenomen in een grensgroep die is gekoppeld aan de huidige netwerklocatie van de client, worden niet beschouwd als voorkeur. Ze worden gebruikt wanneer de client kan een beschikbaar voorkeursbeheerpunt niet identificeren.  
 
-### <a name="selecting-a-management-point-to-use"></a>Sélection d'un point de gestion à utiliser  
-Pendant une communication classique, un client tente d’utiliser un point de gestion appartenant aux classifications dans l’ordre suivant, en fonction de l’emplacement réseau du client :  
+### <a name="selecting-a-management-point-to-use"></a>Een te gebruiken beheerpunt selecteren  
+Voor de gebruikelijke communicatie probeert een client te gebruiken een beheerpunt op van de classificaties in de volgende volgorde, op basis van de netwerklocatie van de client:  
 
 1.  Proxy  
-2.  Local  
-3.  Attribués  
+2.  Lokaal  
+3.  toegewezen  
 
-Toutefois, le client utilise toujours le point de gestion attribué pour les messages d'enregistrement et certains messages de la stratégie, même quand d'autres communications sont envoyées à un point de gestion proxy ou local.  
+De client gebruikt het toegewezen beheerpunt echter altijd voor registratieberichten en bepaalde beleidsberichten, zelfs wanneer andere berichten worden verzonden naar een proxy of lokaal beheerpunt.  
 
-Dans chaque classification (proxy, local ou attribué), le client tente d’utiliser un point de gestion en fonction de préférences, dans l’ordre suivant :  
+In elke classificatie (proxy, lokaal of toegewezen) probeert de client een beheerpunt op basis van voorkeuren in de volgende volgorde:  
 
-1.  Compatible HTTPS dans une forêt approuvée ou locale (quand le client est configuré pour la communication HTTPS)  
-2.  Compatible HTTPS dans une forêt non approuvée ou non locale (quand le client est configuré pour la communication HTTPS)  
-3.  Compatible HTTP dans une forêt approuvée ou locale  
-4.  Compatible HTTP hors d’une forêt approuvée ou locale  
+1.  Met HTTPS-ondersteuning in een vertrouwd of lokaal forest (wanneer de client is geconfigureerd voor HTTPS-communicatie)  
+2.  HTTPS-ondersteuning maar niet in een vertrouwd of lokaal forest (wanneer de client is geconfigureerd voor HTTPS-communicatie)  
+3.  HTTP-ondersteuning in een vertrouwd of lokaal forest  
+4.  HTTP-ondersteuning maar niet in een vertrouwd of lokaal forest  
 
-Dans l’ensemble des points de gestion triés par préférences, le client tente d’utiliser le premier point de gestion de la liste. Cette liste triée de points de gestion est aléatoire et ne peut pas être ordonnée. L’ordre de la liste peut varier chaque fois que le client met à jour sa liste PG.  
+Uit de set met beheerpunten, gesorteerd op Voorkeuren, probeert de client het eerste beheerpunt gebruiken op de lijst. Deze gesorteerde lijst beheerpunten is willekeurig en kan niet worden gerangschikt. De volgorde van de lijst kan telkens wanneer de MP-lijst bijgewerkt door de client kunt wijzigen.  
 
-Si un client ne parvient pas à contacter le premier point de gestion, il essaie chacun des points de gestion suivants dans sa liste. Il teste chaque point de gestion préféré de la classification avant d’essayer des points de gestion non préférés. Si un client ne parvient pas communiquer avec un point de gestion dans la classification, il tente de contacter un point de gestion préféré de la classification suivante, et ainsi de suite jusqu’à ce qu’il trouve un point de gestion à utiliser.  
+Wanneer een client kan geen contact is gelegd met het eerste beheerpunt, wordt geprobeerd elk opeenvolgende beheerpunt in de lijst. Elke voorkeursbeheerpunt in de classificatie probeert voordat u probeert de niet-voorkeursbeheerpunten. Als een client kan niet met een beheerpunt in de classificatie communiceren, probeert het contact opnemen met een voorkeursbeheerpunt in de volgende classificatie enzovoort, totdat een bruikbaar beheerpunt is gevonden.  
 
-Une fois la communication établie avec un point de gestion, le client continue d’utiliser ce même point de gestion jusqu’à ce que :  
+Nadat een client tot stand communicatie met een beheerpunt brengt, blijft hetzelfde beheerpunt tot gebruiken:  
 
--   25 heures soient écoulées.  
--   Le client ne puisse pas communiquer avec le point de gestion à l’issue des cinq tentatives sur une période de 10 minutes.
+-   25 uur zijn verstreken.  
+-   De client is kan niet communiceren met het beheerpunt voor vijf pogingen gedurende een periode van tien minuten.
 
-Le client sélectionne de manière aléatoire un nouveau point de gestion à utiliser.  
+De client selecteert vervolgens willekeurig een nieuw beheerpunt te gebruiken.  
 
 ##  <a name="bkmk_ad"></a> Active Directory  
-Les clients qui appartiennent à un domaine peuvent utiliser les services AD DS pour l'emplacement du service. Pour ce faire, les sites doivent [publier des données dans Active Directory](http://technet.microsoft.com/library/hh696543.aspx).  
+Clients die lid zijn van een domein kunnen AD DS gebruiken voor servicelocatiebepaling. Hiervoor moeten sites [gegevens publiceren naar Active Directory](http://technet.microsoft.com/library/hh696543.aspx).  
 
-Un client peut utiliser AD DS comme emplacement du service quand l’une des conditions suivantes est remplie :  
+Een client kan AD DS gebruiken voor servicelocatie wanneer alle volgende voorwaarden voldaan wordt:  
 
--   Le [schéma Active Directory est étendu](https://technet.microsoft.com/library/mt345589.aspx) ou a été étendu pour System Center 2012 Configuration Manager.  
--   La [forêt Active Directory est configurée pour la publication](http://technet.microsoft.com/library/hh696542.aspx), de même que les sites Configuration Manager.  
--   L'ordinateur client est membre d'un domaine Active Directory et peut accéder à un serveur de catalogue global.  
+-   De Active Directory [schema is uitgebreid](https://technet.microsoft.com/library/mt345589.aspx) of is uitgebreid voor System Center 2012 Configuration Manager.  
+-   De [Active Directory-forest is geconfigureerd voor publicatie](http://technet.microsoft.com/library/hh696542.aspx), en Configuration Manager-sites zijn geconfigureerd voor publicatie.  
+-   De clientcomputer is lid van een Active Directory-domein en heeft toegang tot een algemene-catalogusserver.  
 
-Si un client ne peut pas trouver de point de gestion à utiliser comme emplacement du service dans AD DS, il tente d’utiliser DNS.  
+Als een client een beheerpunt om te gebruiken voor servicelocatie uit AD DS niet wordt gevonden, wordt geprobeerd om DNS te gebruiken.  
 
 ##  <a name="bkmk_dns"></a> DNS  
-Les clients se trouvant sur l'intranet peuvent utiliser DNS pour l'emplacement du service. Pour ce faire, au moins un site d'une hiérarchie doit publier des informations sur les points de gestion dans DNS.  
+Clients op intranet kunnen DNS gebruiken voor servicelocatiebepaling. Hiervoor moet ten minste één site in een hiërarchie informatie over beheerpunten publiceren naar DNS.  
 
-Envisagez d'utiliser DNS pour l'emplacement du service quand l'une des conditions suivantes est remplie :
--   Le schéma AD DS n’est pas étendu pour prendre en charge Configuration Manager.
--   Les clients sur intranet se trouvent dans une forêt qui n’est pas activée pour la publication Configuration Manager.  
--   Des clients se trouvent sur des ordinateurs de groupes de travail et ne sont pas configurés pour la gestion des clients uniquement accessibles sur Internet. (Un client de groupe de travail configuré pour Internet communique uniquement avec des points de gestion accessibles sur Internet et n’utilise pas DNS comme emplacement du service.)  
--   Vous pouvez [configurer les clients pour rechercher les points de gestion dans les services DNS](http://technet.microsoft.com/library/gg682055).  
+Overweeg het gebruik van DNS voor servicelocatiebepaling als aan de volgende voorwaarden wordt voldaan:
+-   De AD DS-schema is niet uitgebreid ter ondersteuning van Configuration Manager.
+-   Clients op het intranet bevinden zich in een forest dat niet is ingeschakeld voor publicatie van de Configuration Manager.  
+-   Clients bevinden zich op werkgroepcomputers en ze zijn niet geconfigureerd voor clientbeheer alleen op internet. (Een werkgroepclient die is geconfigureerd voor Internet communiceert alleen met beheerpunten internetgerichte en maakt geen gebruik van DNS voor servicelocatiebepaling.)  
+-   U kunt [clients configureren voor het zoeken van beheerpunten via DNS](http://technet.microsoft.com/library/gg682055).  
 
-Quand un site publie des enregistrements d'emplacement de service pour les points de gestion dans DNS :  
+Wanneer een website records voor servicelocatiebepaling van beheerpunten publiceert naar DNS:  
 
--   La publication est uniquement applicable aux points de gestion qui acceptent les connexions client à partir de l'intranet.  
--   La publication ajoute un enregistrement de ressource d'emplacement du service (SRV RR) dans la zone DNS de l'ordinateur du point de gestion. Une entrée hôte correspondante doit se trouver dans DNS pour cet ordinateur.  
+-   Is de publicatie alleen van toepassing op beheerpunten die clientverbindingen van intranet accepteren.  
+-   Wordt bij de publicatie een Service Location Resource Record (SRV RR) toegevoegd aan de DNS-zone van de beheerpuntcomputer. Er moet een overeenkomende hostvermelding in DNS staan voor de computer.  
 
-Par défaut, les clients appartenant à un domaine recherchent des enregistrements de point de gestion dans DNS à partir de leur domaine local. Vous pouvez configurer une propriété de client qui spécifie un suffixe pour un domaine qui publie des informations sur les points de gestion dans DNS.  
+Standaard zoeken clients domein beheerpuntrecords vanuit het lokale domein van de client naar DNS. U kunt een clienteigenschap die een domeinachtervoegsel voor een domein dat is gepubliceerd naar DNS configureren.  
 
-Pour plus d’informations sur la configuration de la propriété cliente du suffixe DNS, consultez [Guide pratique pour configurer des ordinateurs clients pour trouver des points de gestion à l’aide de la publication DNS dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-computers-to-find-management-points-by-using-dns-publishing.md).  
+Zie voor meer informatie over het configureren van de clienteigenschap van DNS-achtervoegsel [configureren om beheerpunten te vinden met DNS-publishing in System Center Configuration Manager-clientcomputers](../../../core/clients/deploy/configure-client-computers-to-find-management-points-by-using-dns-publishing.md).  
 
-Si un client ne trouve pas de point de gestion à utiliser pour l’emplacement du service dans DNS, il tente d’utiliser WINS.  
+Als een client een beheerpunt te gebruiken voor servicelocatie via DNS vinden kan, wordt geprobeerd WINS te gebruiken.  
 
-### <a name="publish-management-points-to-dns"></a>Publier des points de gestion dans DNS  
-Pour publier des points de gestion dans DNS, les deux conditions suivantes doivent être vraies :  
+### <a name="publish-management-points-to-dns"></a>Beheerpunten publiceren naar DNS  
+De volgende voorwaarden moeten waar zijn om beheerpunten te publiceren naar DNS:  
 
--   Vos serveurs DNS prennent en charge les enregistrements de ressource d'emplacement de service, à l'aide d'une version de BIND qui est au moins la version 8.1.2.  
--   Les noms de domaine complets intranet spécifiés pour les points de gestion dans Configuration Manager ont des entrées d’hôte (par exemple, des enregistrements A) dans DNS.  
+-   Uw DNS-servers ondersteunen servicelocatiebronrecords door minstens versie 8.1.2 van BIND te gebruiken.  
+-   De opgegeven intranet-FQDN's voor de beheerpunten in Configuration Manager hebben hostvermeldingen (bijvoorbeeld een records) in DNS.  
 
 > [!IMPORTANT]  
->  La publication DNS Configuration Manager ne prend pas en charge un espace de noms disjoint. Si votre espace de noms est disjoint, vous pouvez publier manuellement des points de gestion dans DNS ou utiliser l’une des autres méthodes d’emplacement de service décrites dans cette section.  
+>  Configuration Manager DNS publiceren biedt geen ondersteuning voor een niet-aaneengesloten naamruimte. Als u een niet-aaneengesloten naamruimte hebt, kunt u handmatig beheerpunten publiceren naar DNS of gebruik een van de andere servicelocatiemethoden gebruiken die worden beschreven in deze sectie.  
 
-**Quand vos serveurs DNS prennent en charge les mises à jour automatiques**, vous pouvez configurer Configuration Manager pour qu’il publie automatiquement les points de gestion intranet dans DNS, ou vous pouvez publier manuellement ces enregistrements dans DNS. Lorsque des points de gestion sont publiés dans DNS, leur nom de domaine complet Intranet et leur numéro de port sont publiés dans l'enregistrement d'emplacement de service (SRV). Vous configurez la publication DNS sur un site dans les Propriétés du composant de point de gestion du site. Pour plus d’informations, consultez [Composants de site pour System Center Configuration Manager](../../../core/servers/deploy/configure/site-components.md).  
+**Als uw DNS-servers automatische updates ondersteunen**, kunt u Configuration Manager automatisch publiceren van beheerpunten op het intranet naar DNS configureren of u kunt deze records ook handmatig publiceren naar DNS. Als beheerpunten naar DNS worden gepubliceerd, worden hun intranet-FQDN en poortnummer gepubliceerd in het servicelocatierecord (SRV-record). U kunt DNS-publishing configureren op een site in de eigenschappen van Beheerpuntonderdeel van de site. Zie voor meer informatie [Siteonderdelen voor System Center Configuration Manager](../../../core/servers/deploy/configure/site-components.md).  
 
-**Quand la zone DNS est réglée sur « Secure only » (Sécurisées uniquement) pour les mises à jour dynamiques**, seul le premier point de gestion pouvant publier dans DNS peut effectuer cette action avec les autorisations par défaut.
+**Als uw DNS-zone is ingesteld op 'Alleen Secure' voor dynamische updates**, alleen het eerste beheerpunt te publiceren naar DNS is dus met standaardmachtigingen kunt doen.
 
-Si un seul point de gestion peut publier et modifier son enregistrement DNS, et que le serveur de ce point de gestion est fonctionnel, les clients peuvent obtenir la liste complète de leurs points de gestion et trouver leur point de gestion préféré.
+Als er slechts één beheerpunt kan publiceren en de DNS-record wijzigen en de beheerpuntserver is in orde, ophalen clients de volledige MP-lijst van dat management wijst en gaat u naar hun voorkeursbeheerpunt.
 
 
-**Quand vos serveurs DNS ne prennent pas en charge les mises à jour automatiques, mais prennent en charge les enregistrements d'emplacement de service**, vous pouvez publier manuellement des points de gestion dans DNS. Pour cela, vous devez spécifier manuellement l'enregistrement de la ressource d'emplacement de service (SRV RR) dans DNS.  
+**U kunt beheerpunten handmatig naar DNS publiceren als uw DNS-servers geen automatische updates**, maar wel servicelocatierecords ondersteunen. Hiervoor moet u handmatig het servicelocatiebronrecord (SRV RR) in DNS opgeven.  
 
-Configuration Manager prend en charge la norme RFC 2782 pour les enregistrements d’emplacement de service. Ces enregistrements présentent le format suivant : *_Service._Proto.Nom TTL Classe SRV Priorité Poids Port Cible*.  
+Configuration Manager ondersteunt RFC 2782 voor servicelocatierecords. Deze records hebben de volgende indeling: *_service._proto.naam TTL klasse SRV prioriteit gewicht poort doel*  
 
-Pour publier un point de gestion sur Configuration Manager, spécifiez les valeurs suivantes :  
+Geef voor het publiceren van een beheerpunt naar Configuration Manager, de volgende waarden:  
 
--   **_Service** : entrez **_mssms_mp**_&lt;code_site\>, où &lt;code_site\> est le code du site du point de gestion.  
--   **._Proto**: spécifiez **._tcp**.  
--   **.Name**: entrez le suffixe DNS du point de gestion, par exemple **contoso.com**.  
--   **TTL**: entrez **14400**, ce qui correspond à quatre heures.  
--   **Class**: spécifiez **IN** (conformément à la norme RFC 1035).  
--   **Priorité** : Configuration Manager n’utilise pas ce champ.
--   **Poids** : Configuration Manager n’utilise pas ce champ.  
--   **Port**: entrez le numéro de port que le point de gestion utilise, par exemple **80** pour HTTP et **443** pour HTTPS.  
+-   **_Service**: Voer **_mssms_mp**_&lt;sitecode\>, waarbij &lt;sitecode\> sitecode van het beheerpunt.  
+-   **._Proto**: Geef **._tcp**.  
+-   **. Naam**: Voer het DNS-achtervoegsel van het beheerpunt, bijvoorbeeld **contoso.com**.  
+-   **TTL**: Voer **14400**, dit is vier uur.  
+-   **Klasse**: Geef **IN** (in overeenstemming met RFC 1035).  
+-   **Prioriteit**: Configuration Manager maakt geen gebruik van dit veld.
+-   **Gewicht**: Configuration Manager maakt geen gebruik van dit veld.  
+-   **Poort**: Voer het poortnummer dat het beheerpunt, bijvoorbeeld gebruikt **80** voor HTTP en **443** voor HTTPS.  
 
     > [!NOTE]  
-    >  Le port de l’enregistrement SRV doit correspondre au port de communication utilisé par le point de gestion. Par défaut, le port **80** est utilisé pour les communications HTTP et le port **443** pour les communications HTTPS.  
+    >  De poort SRV-record moet overeenkomen met de communicatiepoort die gebruikmaakt van het beheerpunt. Dit is standaard **80** voor HTTP-communicatie en **443** voor HTTPS-communicatie.  
 
--   **Cible**: entrez le nom de domaine complet de l'intranet spécifié pour le système de site configuré avec le rôle de site de point de gestion.  
+-   **Doel**: Voer de intranet-FQDN die is opgegeven voor het sitesysteem dat is geconfigureerd met de rol beheerpunt site.  
 
-Si vous utilisez le DNS Windows Server, vous pouvez utiliser la procédure suivante pour entrer cet enregistrement DNS pour les points de gestion intranet. Si vous utilisez une autre implémentation de DNS, utilisez les informations de cette section sur les valeurs de champ et consultez la documentation de ce DNS pour adapter cette procédure.  
+Als u Windows Server DNS gebruikt, kunt u de volgende procedure gebruiken om dit DNS-record in te voeren voor intranet-beheerpunten. Als u een verschillende implementatie voor DNS gebruikt, dient u de informatie in deze sectie over de veldwaarden te gebruiken en de DNS-documentatie te raadplegen om deze procedure aan te passen.  
 
-##### <a name="to-configure-automatic-publishing"></a>Pour configurer la publication automatique :  
+##### <a name="to-configure-automatic-publishing"></a>Automatische publicatie configureren:  
 
-1.  Dans la console Configuration Manager, développez **Administration** > **Configuration du site** > **Sites**.  
+1.  Vouw in de Configuration Manager-console **beheer** > **siteconfiguratie** > **Sites**.  
 
-2.  Sélectionnez votre site, puis cliquez sur **Configurer les composants de site**.  
+2.  Selecteer uw site en kies vervolgens **Siteonderdelen configureren**.  
 
-3.  Sélectionnez **Point de gestion**.  
+3.  Kies **beheerpunt**.  
 
-4.  Sélectionnez les points de gestion à publier. (Cette sélection s’applique à la publication dans AD DS et DNS.)  
+4.  Selecteer de beheerpunten die u wilt publiceren. (Deze selectie geldt voor publicatie naar AD DS en DNS.)  
 
-5.  Cochez la case pour publier dans DNS. Cette case :  
+5.  Schakel het selectievakje in om te publiceren naar DNS. Dit vak:  
 
-    -   Permet de sélectionner les points de gestion à publier dans DNS.  
+    -   Kunt u selecteren welke beheerpunten publiceren naar DNS.  
 
-    -   Ne configure pas la publication dans AD DS.  
+    -   Configureert geen publicatie naar AD DS.  
 
-##### <a name="to-manually-publish-management-points-to-dns-on-windows-server"></a>Pour publier manuellement des points de gestion dans DNS sur Windows Server  
+##### <a name="to-manually-publish-management-points-to-dns-on-windows-server"></a>Handmatig beheerpunten publiceren naar DNS op Windows Server  
 
-1.  Dans la console Configuration Manager, spécifiez les noms de domaine complets d'intranet des systèmes de site.  
+1.  Geef de intranet-FQDN's van sitesystemen in de Configuration Manager-console.  
 
-2.  Dans la console de gestion DNS, sélectionnez la zone DNS de l'ordinateur du point de gestion.  
+2.  Selecteer de DNS-zone voor de beheerpuntcomputer in de DNS-beheerconsole.  
 
-3.  Vérifiez qu'il existe un enregistrement d'hôte (A ou AAAA) pour le nom de domaine complet d'intranet du système de site. Si cet enregistrement n'existe pas, créez-le.  
+3.  Verifieer of er een hostrecord is (A of AAAA) voor de intranet-FQDN van het sitesysteem. Maak dit record als het niet bestaat.  
 
-4.  À l’aide de l’option **New Other Records (Autres nouveaux enregistrements)**, cliquez sur **Emplacement du service (SRV)** dans la boîte de dialogue **Type d’enregistrement de ressource**, cliquez sur **Créer un enregistrement**, entrez les informations suivantes, puis choisissez **Terminé** :  
+4.  Met behulp van de **nieuwe andere Records** optie, kiest u **servicelocatie (SRV)** in de **bronrecordtype** dialoogvenster Kies **-Record maken**, voer de volgende informatie en kies vervolgens **gedaan**:  
 
-    -   **Domain**: si nécessaire, entrez le suffixe DNS du point de gestion, par exemple **contoso.com**.  
-    -   **Service** : tapez **_mssms_mp**_&lt;code_site\>, où &lt;code_site\> est le code de site du point de gestion.  
-    -   **Protocol**: entrez **_tcp**.  
-    -   **Priorité** : Configuration Manager n’utilise pas ce champ.  
-    -   **Poids** : Configuration Manager n’utilise pas ce champ.  
-    -   **Port**: entrez le numéro de port que le point de gestion utilise, par exemple **80** pour HTTP et **443** pour HTTPS.  
+    -   **Domein**: Voer, indien nodig de DNS-achtervoegsel van het beheerpunt, bijvoorbeeld **contoso.com**.  
+    -   **Service**: Type **_mssms_mp**_&lt;sitecode\>, waarbij &lt;sitecode\> sitecode van het beheerpunt.  
+    -   **Protocol**: Type **_tcp**.  
+    -   **Prioriteit**: Configuration Manager maakt geen gebruik van dit veld.  
+    -   **Gewicht**: Configuration Manager maakt geen gebruik van dit veld.  
+    -   **Poort**: Voer het poortnummer dat het beheerpunt, bijvoorbeeld gebruikt **80** voor HTTP en **443** voor HTTPS.  
 
         > [!NOTE]  
-        >  Le port de l’enregistrement SRV doit correspondre au port de communication utilisé par le point de gestion. Par défaut, le port **80** est utilisé pour les communications HTTP et le port **443** pour les communications HTTPS.  
+        >  De poort SRV-record moet overeenkomen met de communicatiepoort die gebruikmaakt van het beheerpunt. Dit is standaard **80** voor HTTP-communicatie en **443** voor HTTPS-communicatie.  
 
-    -   **Hôte offrant ce service** : entrez le nom de domaine complet de l’intranet, spécifié pour le système de site configuré avec le rôle de site du point de gestion.  
+    -   **Host die deze service aanbiedt**: Voer de intranet-FQDN die is opgegeven voor het sitesysteem dat is geconfigureerd met de rol beheerpunt site.  
 
-Répétez ces étapes pour chaque point de gestion de l'intranet que vous souhaitez publier dans DNS.  
+Herhaal deze stappen voor elk beheerpunt op het intranet dat u wilt publiceren naar DNS.  
 
 ##  <a name="bkmk_wins"></a> WINS  
-En cas d'échec d'autres mécanismes d'emplacement de service, les clients peuvent trouver un point de gestion initial en examinant WINS.  
+Als andere servicelocatiemechanismen mislukken, kunnen clients een initieel beheerpunt vinden door WINS te controleren.  
 
-Par défaut, un site principal publie dans WINS le premier point de gestion du site configuré pour le protocole HTTP et le premier point de gestion configuré pour le protocole HTTPS.  
+Standaard publiceert een primaire site naar WINS het eerste beheerpunt op de site die is geconfigureerd voor HTTP en het eerste beheerpunt dat is geconfigureerd voor HTTPS.  
 
-Si vous ne souhaitez pas que les clients trouvent un point de gestion HTTP dans WINS, configurez les clients avec la propriété CCMSetup.exe Client.msi **SMSDIRECTORYLOOKUP=NOWINS**.  
+Als u niet wilt dat clients een HTTP-beheerpunt in WINS vinden, kunt u clients configureren met de Client.msi-eigenschap **SMSDIRECTORYLOOKUP=NOWINS**van CCMSetup.exe.  

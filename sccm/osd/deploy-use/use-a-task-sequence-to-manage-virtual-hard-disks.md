@@ -1,6 +1,6 @@
 ---
-title: "Utiliser une séquence de tâches pour gérer des disques durs virtuels | Microsoft Docs"
-description: "Créez et modifiez un disque dur virtuel, ajoutez des applications et des mises à jour logicielles et publiez le disque dur virtuel dans System Center Virtual Machine Manager (VMM) à partir de Configuration Manager."
+title: Een takenreeks gebruiken voor het beheren van virtuele harde schijven | Microsoft Docs
+description: Maken en een VHD wijzigen, toepassingen en software-updates toevoegen en de VHD publiceren naar System Center Virtual Machine Manager (VMM) van Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,24 +16,24 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: f77af4b8fcb193ed44511c0e5eea7290f55dbbf8
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-a-task-sequence-to-manage-virtual-hard-disks-in-system-center-configuration-manager"></a>Utiliser une séquence de tâches pour gérer des disques durs virtuels dans System Center Configuration Manager
+# <a name="use-a-task-sequence-to-manage-virtual-hard-disks-in-system-center-configuration-manager"></a>Een takenreeks gebruiken voor het beheren van virtuele harde schijven in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Dans System Center Configuration Manager, vous pouvez gérer des disques durs virtuels (VHD) et intégrer les disques durs virtuels créés dans votre centre de données à partir de la console Configuration Manager. Plus précisément, vous pouvez créer et modifier un disque dur virtuel, ajouter des applications et des mises à jour logicielles au disque dur virtuel, ainsi que publier le disque dur virtuel dans System Center Virtual Machine Manager (VMM) à partir de la console Configuration Manager.  
+In System Center Configuration Manager kunt u virtuele harde schijven (VHD's) beheren en integreren van de VHD's die u in uw datacenter vanuit de Configuration Manager-console maakt. U kunt in het bijzonder maken en een VHD wijzigen, toepassingen en software-updates toevoegen aan de VHD en publiceren van de VHD naar System Center Virtual Machine Manager (VMM) vanuit de Configuration Manager-console.  
 
- Pour gérer les disques durs virtuels dans Configuration Manager, utilisez les sections suivantes :
+ Gebruik de volgende secties voor het beheren van VHD's in Configuration Manager.
 
-## <a name="prerequisites"></a>Conditions préalables  
- Vérifiez la configuration requise suivante avant de commencer :  
+## <a name="prerequisites"></a>Vereisten  
+ Controleer de volgende vereisten voordat u begint:  
 
--   L'ordinateur à partir duquel vous gérez des disques durs virtuels doit exécuter l'un des systèmes d'exploitation suivants :  
+-   De computer van waaruit u de VHD's beheert moet werken op een van de volgende besturingssystemen:  
 
-    -   Windows 8.1 x64  
+    -   Windows 8.1 x 64  
 
     -   Windows 8 x64  
 
@@ -41,289 +41,289 @@ Dans System Center Configuration Manager, vous pouvez gérer des disques durs vi
 
     -   Windows Server 2012  
 
-    -   Windows Server 2012 R2  
+    -   Windows Server 2012 R2  
 
--   La fonction de virtualisation doit être activée dans le BIOS et Hyper-V doit être installé sur l'ordinateur à partir duquel vous exécutez la console Configuration Manager pour gérer les disques durs virtuels. Comme meilleures pratiques, installez également les outils de gestion Hyper-V pour vous aider à tester et résoudre les problèmes liés à vos disques durs virtuels. Par exemple, pour surveiller le fichier smsts.log et suivre la progression de la séquence de tâches dans Hyper-V, les outils de gestion Hyper-V doivent être installés. Pour plus d'informations sur la configuration requise pour Hyper-V, voir [Conditions préalables à l'installation d'Hyper-V](http://technet.microsoft.com/library/cc731898.aspx).  
+-   Virtualisatie moet zijn ingeschakeld in het BIOS en Hyper-V moet zijn geïnstalleerd op de computer van waaruit u de Configuration Manager-console voor het beheren van VHD's uitvoert. Installeer als aanbevolen werkwijze ook de Hyper-V hulpprogramma's voor het beheer om uw virtuele harde schijven te testen en problemen op te lossen. De Hyper-V hulpprogramma's voor het beheer moeten bijvoorbeeld zijn geïnstalleerd voor het controleren van de smsts.log  om de voortgang van de takenreeks in Hyper-V op te volgen. Zie [Installatievereisten voor Hyper-V](http://technet.microsoft.com/library/cc731898.aspx)voor meer informatie over de vereisten voor Hyper-V.  
 
     > [!IMPORTANT]  
-    >  Le processus de création d'un disque dur virtuel consomme du temps de processeur et de la mémoire. Par conséquent, il est recommandé de gérer les disques durs virtuels à partir d'une console Configuration Manager qui ne soit pas installée sur le serveur de site.  
+    >  Het proces om een VHD te maken verbruikt tijd en geheugen van de processor. Daarom is het aanbevolen VHD's te beheren vanuit een Configuration Manager-console dat niet is geïnstalleerd op de siteserver.  
 
--   Le serveur de site doit disposer de l'autorisation d'accès **Écriture** sur le dossier devant contenir le fichier VHD lorsque vous gérez les disques durs virtuels à partir d'un ordinateur distant du serveur de site.  
+-   De siteserver moet voorzien zijn van **Schrijfmachtiging** tot de map die het VHD-bestand bevat, wanneer u VHD's beheert vanuit een computer die extern is aan de siteserver.  
 
--   Vérifiez que vous disposez de suffisamment d'espace disque disponible sur l'ordinateur à partir duquel vous gérez les disques durs virtuels. La configuration requise d'espace de disque dur pour le disque dur virtuel varie en fonction du système d'exploitation et des applications que vous installez.  
+-   Controleer dat u voldoende beschikbare schijfruimte heeft op de computer van waaruit u de VHD's beheert. De vereisten voor de hardeschijfruimte van de VHD variëren afhankelijk van het besturingssysteem en de toepassingen die u installeert.  
 
--   Vérifiez que vous disposez de suffisamment de mémoire sur l'ordinateur à partir duquel vous gérez les disques durs virtuels. Au cours du processus de création du disque dur virtuel, la machine virtuelle est configurée pour utiliser 2 Go de mémoire.  
+-   Controleer dat de computer van waaruit u de VHD's beheert over voldoende ruimte beschikt. De virtuele machine is geconfigureerd om tijdens het proces om de VHD te maken 2 GB aan geheugen te verbruiken.  
 
--   Installez la console System Center Virtual Machine Manager (VMM) sur l'ordinateur à partir duquel vous téléchargez le disque dur virtuel dans VMM. Vous pouvez installer la console VMM sur un ordinateur distinct à partir duquel vous gérez vos disques durs virtuels, ce qui signifie que vous n'avez pas besoin d'installer Hyper-V pour importer le disque dur virtuel dans VMM.  
+-   Installeer de System Center Virtual Machine Manager (VMM)-console van waaruit u de VHD naar VMM uploadt. U kunt de VMM-console installeren op een afzonderlijke computer van waaruit u uw VHD's beheert. Dit betekent dat installatie van de Hyper-V niet vereist is om de VHD naar VMM te importeren.  
 
     > [!NOTE]  
-    >  Si vous installez la console VMM alors que la console Configuration Manager est ouverte, vous devez redémarrer la console Configuration Manager une fois que l'installation de la console VMM est terminée. Dans le cas contraire, Configuration Manager ne se connectera pas correctement au serveur de gestion VMM pour télécharger un disque dur virtuel.  
+    >  Als u de VMM-console installeert terwijl de Configuration Manager-console geopend is, moet u de Configuration Manager-console opnieuw opstarten nadat de installatie van de VMM-console is voltooid. Anders Configuration Manager wordt geen verbinding maken met de VMM-beheerserver om een VHD te uploaden.  
 
-##  <a name="BKMK_CreateVHDSteps"></a> Étapes de création d'un disque dur virtuel  
- Pour créer un disque dur virtuel, vous devez créer une séquence de tâches qui contient les étapes de création du disque dur virtuel, puis utiliser la séquence de tâches dans l'Assistant Création d'un disque dur virtuel pour créer le disque dur virtuel. Les sections suivantes fournissent les étapes nécessaires pour créer le disque dur virtuel.  
+##  <a name="BKMK_CreateVHDSteps"></a> Stappen voor het maken van een VHD  
+ Voor het maken van een VHD, moet u een takenreeks maken die de stappen bevat om de VHD te maken en vervolgens de takenreeks gebruiken in de wizard om een virtueel hardeschijfstation te maken om de VHD te maken. In de volgende secties vindt u de stappen voor het maken van de VHD.  
 
-###  <a name="BKMK_CreateTS"></a> Créer une séquence de tâches pour le disque dur virtuel  
- Vous devez créer une séquence de tâches contenant les étapes de création du disque dur virtuel. L'option **Installer un package d'images existant sur un disque dur virtuel** de l'Assistant Création d'une séquence de tâches, vous permet de créer les étapes nécessaires à la création du disque dur virtuel. Par exemple, l’Assistant ajoute les étapes obligatoires suivantes : Redémarrer dans Windows PE, Formater et partitionner le disque, Appliquer le système d’exploitation et Arrêter l’ordinateur. Vous ne pouvez pas créer le disque dur virtuel dans le système d'exploitation complet. De plus, Configuration Manager doit attendre l'arrêt de la machine virtuelle pour pouvoir terminer le package. Par défaut, l'Assistant attend 5 minutes avant d'arrêter la machine virtuelle. Après avoir créé la séquence de tâches, vous pouvez ajouter des étapes supplémentaires si nécessaire.  
+###  <a name="BKMK_CreateTS"></a> Takenreeks voor de VHD maken  
+ U moet een takenreeks maken die de stappen bevat om de VHD te maken. In de wizard Takenreeks maken, moet u de optie **Een installatiekopie installeren op een virtuele harde schijf** hebben, die de stappen maakt om de VHD te maken. De wizard voegt bijvoorbeeld de volgende vereiste stappen toe: Opnieuw opstarten in Windows PE, schijf formatteren en partitioneren, besturingssysteem en Computer afsluiten toepassen. U kunt de VHD niet maken in het volledige besturingssysteem. Configuration Manager moet ook wachten tot de virtuele machine is afgesloten voordat het pakket kan worden voltooid. De wizard wacht standaard 5 minuten voordat deze de virtuele machine afsluit. Nadat u de takenreeks maakt, kunt u indien nodig aanvullende stappen toevoegen.  
 
 > [!IMPORTANT]  
->  La procédure suivante permet de créer la séquence de tâches à l'aide de l'option **Installer un package d'images existant sur un disque dur virtuel** qui inclut automatiquement les étapes nécessaires à la création correcte du disque dur virtuel. Si vous choisissez d'utiliser une séquence de tâches existante ou d'en créer une manuellement, assurez-vous d'ajouter l'étape Arrêter l'ordinateur à la fin de la séquence. Sans cette étape, la machine virtuelle temporaire n'est pas supprimée, et le processus de création du disque dur virtuel ne se termine pas. Toutefois, l'Assistant se termine et signale une réussite.  
+>  De volgende procedure maakt de takenreeks met behulp van de optie **Een bestaande installatiekopie op een virtuele harde schijf installeren** . Deze omvat automatisch de vereiste stappen voor het maken van de VHD. Als u kiest om een bestaande takenreeks te gebruiken of handmatig een takenreeks te maken, zorgt u dat u de stap Computer afsluiten toevoegt op het einde van de takenreeks. Zonder deze stap wordt de tijdelijke virtuele machine niet verwijderd en het proces voor het maken van de VHD niet voltooid. De wizard is niettemin voltooid en duidt de goede afloop aan.  
 
- Utilisez la procédure suivante pour créer la séquence de tâches nécessaire à la création du disque dur virtuel :  
+ Gebruik de volgende procedure voor het maken van de takenreeks om de VHD te maken:  
 
-#### <a name="to-create-the-task-sequence-to-create-the-vhd"></a>Pour créer la séquence de tâches nécessaire à la création du disque dur virtuel  
+#### <a name="to-create-the-task-sequence-to-create-the-vhd"></a>Takenreeks voor het maken van de VHD maken  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
+2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Takenreeksen**.  
 
-3.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une séquence de tâches** pour démarrer l'Assistant Création d'une séquence de tâches.  
+3.  Klik op **Takenreeks maken** in het tabblad **Start** , in de groep **Maken** om de wizard Takenreeks maken te starten.  
 
-4.  Sur la page **Créer une séquence de tâches** , cliquez sur **Installer un package d'images existant sur un disque dur virtuel**, puis cliquez sur **Suivant**.  
+4.  Klik op **Bestaand installatiekopiepakket installeren op een virtuele harde schijf** op de pagina **Nieuwe takenreeks maken**en klik vervolgens op **Volgende**.  
 
-5.  Sur la page **Informations sur la séquence de tâches** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
+5.  Configureer op de pagina **Takenreeksinformatie** de volgende instellingen en klik op **Volgende**.  
 
-    -   **Nom de la séquence de tâches**: spécifiez un nom qui identifie la séquence de tâches.  
+    -   **Takenreeksnaam**: Geef een naam die de takenreeks identificeert.  
 
-    -   **Description**: spécifiez une description de la séquence de tâches.  
+    -   **Beschrijving**: Geef een beschrijving van de takenreeks.  
 
-    -   **Images de démarrage**: spécifiez l'image de démarrage qui installe le système d'exploitation sur l'ordinateur de destination. Pour plus d'informations, voir [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
+    -   **Opstartinstallatiekopie**: Geef de opstartinstallatiekopie die het besturingssysteem wordt geïnstalleerd op de doelcomputer. Zie voor meer informatie [opstartinstallatiekopieën beheren](../get-started/manage-boot-images.md).  
 
-6.  Sur la page **Installer Windows** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
+6.  Geef op de pagina **Windows installeren** de volgende opties op en klik op **Volgende**.  
 
-    -   **Package d’images :**spécifiez le package qui contient l’image du système d’exploitation à installer.  
+    -   **Installatiekopiepakket**: Geef het pakket met de installatiekopie van het besturingssysteem te installeren.  
 
-    -   **Image**: si le package d’images du système d’exploitation comporte plusieurs images, spécifiez l’index de l’image du système d’exploitation à installer.  
+    -   **Afbeelding**: Als het installatiekopiepakket van het besturingssysteem meerdere installatiekopieën bevat, geeft u de index van de installatiekopie van het besturingssysteem te installeren.  
 
-    -   **Clé du produit**: spécifiez la clé de produit pour le système d’exploitation Windows à installer. Vous pouvez spécifier des clés de licence en volume codées et des clés de produit standard. Si vous utilisez une clé de produit non codée, chaque groupe de 5 caractères doit être séparé par un tiret (-). Par exemple : *XXXXX-XXXXX-XXXXX-XXXXX-XXXXX*  
+    -   **Productcode**: Geef de productcode voor het Windows-besturingssysteem te installeren. U kunt gecodeerde volumelicentiesleutels en standaardproductsleutels opgeven. Als u een niet-gecodeerde productcode gebruikt, moet elke groep van 5 tekens gescheiden worden door een streepje (-). Bijvoorbeeld: *XXXXX-XXXXX-XXXXX-XXXXX-XXXXX*  
 
-    -   **Mode de licence serveur :**spécifiez que la licence serveur est **Par siège**, **Par serveur**ou qu’aucune licence n’est spécifiée. Si la licence serveur est **Par serveur**, spécifiez également le nombre maximal de connexions au serveur.  
+    -   **Serverlicentiemodus**: Geef op of de serverlicentie **Per seat**, **Per server**, of dat er geen licentie is opgegeven. Als de serverlicentie **Per server**is, geef dan ook het maximum aantal serververbindingen op.  
 
-    -   Spécifiez comment gérer le compte administrateur qui est utilisé lors du déploiement de l'image du système d'exploitation.  
+    -   Geef op hoe het beheerdersaccount moet worden afgehandeld dat wordt gebruikt wanneer de installatiekopie van het besturingssysteem wordt geïmplementeerd.  
 
-        -   **Générer de façon aléatoire le mot de passe de l’administrateur local et désactiver le compte sur toutes les plates-formes prises en charge (recommandé)**: utilisez ce paramètre pour permettre à l’Assistant de créer aléatoirement un mot de passe pour le compte administrateur local et désactiver le compte quand l’image du système d’exploitation est déployée.  
+        -   **Willekeurig wachtwoord genereren voor lokale beheerder en het account uitschakelen op alle ondersteunde platforms (aanbevolen)**: Gebruik deze instelling zodat de wizard willekeurig een wachtwoord voor het lokale administrator-account maken en het account uitschakelen wanneer de installatiekopie van het besturingssysteem is geïmplementeerd.  
 
-        -   **Activer le compte et spécifier le mot de passe de l’administrateur local**: ce paramètre permet d’utiliser un mot de passe spécifique pour le compte d’administrateur local sur tous les ordinateurs où l’image du système d’exploitation est déployée.  
+        -   **Het account inschakelen en geef het lokale beheerderswachtwoord**: Deze instelling gebruiken om een specifiek wachtwoord gebruiken voor het lokale beheerdersaccount op alle computers waarop de installatiekopie van het besturingssysteem wordt geïmplementeerd.  
 
-7.  Sur la page **Configurer le réseau** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
+7.  Geef op de pagina **Netwerk configureren** de volgende opties op en klik op **Volgende**.  
 
-    -   **Joindre un groupe de travail**: indiquez si vous souhaitez ajouter l'ordinateur de destination à un groupe de travail.  
+    -   **Lid worden van een werkgroep**: Geef op of de doelcomputer wordt toegevoegd aan een werkgroep.  
 
-    -   **Joindre un domaine**: indiquez si vous souhaitez ajouter l'ordinateur de destination à un domaine. Dans **Domaine**, spécifiez le nom du domaine.  
+    -   **Lid worden van een domein**: Geef op of de doelcomputer aan een domein toevoegen. Geef in **Domein**de naam op van het domein.  
 
         > [!IMPORTANT]  
-        >  Vous pouvez rechercher des domaines dans la forêt locale, mais vous devez spécifier le nom de domaine d'une forêt distante.  
+        >  U kunt bladeren om domeinen te zoeken in het lokaal forest, maar u moet de domeinnaam opgeven voor een extern forest.  
 
-         Vous pouvez également spécifier une unité d'organisation (UO). Il s'agit d'un paramètre facultatif qui spécifie le nom unique LDAP X.500 de l'UO dans laquelle vous créez le compte d'ordinateur s'il n'existe pas déjà.  
+         U kunt ook een organisatie-eenheid (OE) opgeven. Dit is een optionele instelling die de LDAP X.500-DN-naam van de OE specificeert waarin het computeraccount moet worden aangemaakt als het nog niet bestaat.  
 
-    -   **Compte**: spécifiez le nom d’utilisateur et le mot de passe du compte qui dispose des autorisations pour joindre le domaine spécifié. Par exemple : *domaine\utilisateur* ou *%variable%*.  
+    -   **Account**: Geef de gebruikersnaam en wachtwoord voor het account met machtigingen die aan het opgegeven domein. Bijvoorbeeld: *domein\gebruiker* of *%variabele%*.  
 
-8.  Sur la page **Installer Configuration Manager**, spécifiez le package client Configuration Manager à installer sur l'ordinateur de destination, puis cliquez sur **Suivant**.  
+8.  Op de **Configuration Manager installeren** pagina, geeft u het clientpakket voor Configuration Manager om te installeren op de doelcomputer en klik vervolgens op **volgende**.  
 
-9. Sur la page **Installer les applications** , spécifiez les applications à installer sur l'ordinateur de destination, puis cliquez sur **Suivant**. Si vous spécifiez plusieurs applications, vous pouvez également spécifier que la séquence de tâches continue si l'installation d'une application spécifique échoue.  
+9. Geef op de pagina **Toepassingen installeren** de toepassingen op die moeten worden geïnstalleerd op de doelcomputer en klik op **Volgende**. Als u meerdere toepassingen opgeeft, kunt u opgeven dat de takenreeks wordt voortgezet als de installatie van een bepaalde toepassing mislukt.  
 
-10. Effectuez toutes les étapes de l'Assistant.  
+10. Voltooi de wizard.  
 
-###  <a name="BKMK_CreateVHD"></a> Créer un disque dur virtuel  
- Après avoir créé une séquence de tâches pour le disque dur virtuel, utilisez l'Assistant Nouveau disque dur virtuel pour créer le disque dur virtuel.  
+###  <a name="BKMK_CreateVHD"></a> Een VHD maken  
+ Nadat u een takenreeks voor de VHD maakt, gebruikt u de wizard om de virtuele harde schijven maken om de VHD te maken.  
 
 > [!IMPORTANT]  
->  Avant d'exécuter cette procédure, vérifiez que vous respectez la configuration requise indiquée au début de cette rubrique.  
+>  Controleer, voordat u deze procedure uitvoert, dat u voldoet aan de vereisten die opgesomd zijn bovenaan dit onderwerp.  
 
- Utilisez la procédure suivante pour créer un disque dur virtuel.  
+ Gebruik de volgende procedure om een VHD te maken.  
 
-#### <a name="to-create-a-vhd"></a>Pour créer un disque dur virtuel  
+#### <a name="to-create-a-vhd"></a>Een VHD maken  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Disques durs virtuels**.  
+2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Virtuele harde schijven**.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un disque dur virtuel** pour démarrer l'Assistant Nouveau disque dur virtuel.  
-
-    > [!NOTE]  
-    >  Pour activer l'option **Créer un disque dur virtuel** , Hyper-V doit être installé sur l'ordinateur exécutant la console Configuration Manager à partir de laquelle vous gérez les disques durs virtuels. Pour plus d'informations sur la configuration requise pour Hyper-V, voir [Conditions préalables à l'installation d'Hyper-V](http://technet.microsoft.com/library/cc731898.aspx).  
-
-    > [!TIP]  
-    >  Pour organiser vos disques durs virtuels, créez un dossier ou sélectionnez-en un dans le nœud **Disques durs virtuels** , puis cliquez sur **Créer un disque dur virtuel** dans le dossier.  
-
-4.  Sur la page **Général** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
-
-    -   **Nom**: spécifiez un nom unique pour le disque dur virtuel.  
-
-    -   **Version**: spécifiez un numéro de version pour le disque dur virtuel. Ce paramètre est facultatif.  
-
-    -   **Commentaire**: spécifiez la description du disque dur virtuel.  
-
-    -   **Chemin d’accès :**spécifiez le chemin et le nom de fichier utilisés par l’Assistant lors de la création du fichier de disque dur virtuel.  
-
-         Vous devez entrer un chemin d'accès réseau valide au format UNC. Par exemple : **\\\nom_serveur\\<nom_partage\>\\<nom_fichier\>.vhd**.  
-
-        > [!WARNING]  
-        >  Configuration Manager doit disposer de l'autorisation d'accès **Écriture** vers le chemin spécifié pour créer le disque dur virtuel. Lorsque Configuration Manager ne parvient pas à accéder au chemin, l'erreur associée est consignée dans le fichier distmgr.log sur le serveur de site.  
-
-5.  Sur la page **Séquence de tâches** , spécifiez la séquence de tâches que vous avez créée dans la section précédente, puis cliquez sur **Suivant**.  
-
-6.  Sur la page **Points de distribution** , sélectionnez un ou plusieurs points de distribution comprenant le contenu requis par la séquence de tâches, puis cliquez sur **Suivant**.  
-
-7.  Sur la page **Personnalisation** , cliquez sur **Suivant**. Le processus de création du disque dur virtuel ignore tous les paramètres que vous spécifiez sur cette page.  
-
-8.  Vérifiez les paramètres, puis cliquez sur **Suivant**. L'Assistant crée le disque dur virtuel.  
-
-    > [!TIP]  
-    >  Le temps requis pour compléter le processus de création du disque dur virtuel peut varier. Pendant que l'Assistant effectue ce processus, vous pouvez surveiller les fichiers journaux suivants pour suivre la progression. Par défaut, les fichiers journaux sont situés sur l'ordinateur qui exécute la console Configuration Manager dans %*ProgramFiles(x86)*%\Microsoft Configuration Manager\AdminConsole\AdminUILog.  
-    >   
-    >  -   **CreateTSMedia.log**: l’Assistant écrit les informations dans ce fichier journal lors de la création du média de séquence de tâches. Consultez ce fichier journal pour suivre la progression de l'Assistant lors de la création du média autonome.  
-    > -   **DeployToVHD.log**: l’Assistant écrit les informations dans ce fichier journal lors du processus de création du disque dur virtuel. Consultez ce fichier journal pour suivre la progression de l'Assistant sur toutes les étapes après la création du média autonome.  
-    >   
-    >  Au démarrage de l'installation du système d'exploitation, vous pouvez ouvrir le Gestionnaire Hyper-V (si vous avez installé les outils de gestion Hyper-V sur l'ordinateur) et vous connecter à la machine virtuelle temporaire créé par l'Assistant pour suivre l'exécution de la séquence. À partir de la machine virtuelle, vous pouvez surveiller le fichier smsts.log pour suivre la progression de la séquence de tâches. En cas de problèmes avec de finalisation d'une étape de la séquence de tâches, vous pouvez utiliser ce fichier journal pour résoudre le problème. Le fichier smsts.log se trouve dans x: \windows\temp\smstslog\smsts.log avant le formatage du disque dur et dans c:\\_SMSTaskSequence\Logs\Smstslog\ après le formatage du disque dur. Une fois les étapes de séquence de tâches terminées, la machine virtuelle est arrêtée après 5 minutes (par défaut), puis supprimée.  
-
- Une fois que Configuration Manager a créé le disque dur virtuel, il est situé dans le nœud **Disques durs virtuels** dans la console Configuration Manager sous le nœud **Déploiement du système d'exploitation** de l'espace de travail **Bibliothèque de logiciels**.  
-
-> [!NOTE]  
->  Configuration Manager récupère la taille du disque dur virtuel en se connectant à l'emplacement source du disque dur virtuel. Si Configuration Manager ne peut pas accéder au fichier de disque dur virtuel, **0** est affiché dans la colonne **Taille (Ko)** pour le disque dur virtuel.  
-
-##  <a name="BKMK_ModifyVHDSteps"></a> Étapes de modification d'un disque dur virtuel existant  
- Pour modifier un disque dur virtuel, vous devez créer une séquence de tâches avec les étapes requises pour modifier le disque dur virtuel. Ensuite, sélectionnez la séquence de tâches dans l'Assistant Modifier un disque dur virtuel. L'Assistant attache le disque dur virtuel à la machine virtuelle, exécute la séquence de tâches dans le disque dur virtuel, puis met à jour le fichier de disque dur virtuel. Les sections suivantes fournissent les étapes nécessaires pour modifier le disque dur virtuel.  
-
-###  <a name="BKMK_ModifyTS"></a> Créer une séquence de tâches pour modifier le disque dur virtuel  
- Pour modifier un disque dur virtuel existant, vous devez d'abord créer une séquence de tâches. Choisissez uniquement les étapes qui sont requises pour modifier la séquence de tâches. Par exemple, si vous voulez ajouter une application au disque dur virtuel, créez une séquence de tâches personnalisée, puis ajoutez uniquement l'étape d'installation de l'application.  
-
- Utilisez la procédure suivante pour créer la séquence de tâches nécessaire à la modification du disque dur virtuel.  
-
-#### <a name="to-create-a-custom-task-sequence-to-modify-the-vhd"></a>Pour créer une séquence de tâches personnalisée pour modifier le disque dur virtuel  
-
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
-
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
-
-3.  Sous l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer une séquence de tâches** pour démarrer l'Assistant Création d'une séquence de tâches.  
-
-4.  Sur la page **Créer une nouvelle séquence de tâches** , sélectionnez **Créez une séquence de tâches personnalisée**, puis cliquez sur **Suivant**.  
-
-5.  Sur la page **Informations sur la séquence de tâches** , spécifiez les paramètres suivants et cliquez sur **Suivant**.  
-
-    -   **Nom de la séquence de tâches**: spécifiez un nom qui identifie la séquence de tâches.  
-
-    -   **Description**: spécifiez une description de la séquence de tâches.  
-
-    -   **Images de démarrage**: spécifiez l'image de démarrage qui installe le système d'exploitation sur l'ordinateur de destination. Pour plus d'informations, voir [Gérer les images de démarrage](../get-started/manage-boot-images.md).  
-
-6.  Effectuez toutes les étapes de l'Assistant.  
-
- Utilisez la procédure suivante pour ajouter des étapes de séquence de tâches à la séquence de tâches personnalisée.  
-
-#### <a name="to-add-task-sequence-steps-to-the-custom-task-sequence"></a>Pour ajouter des étapes de séquence de tâches à la séquence de tâches personnalisée  
-
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
-
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, cliquez sur **Séquences de tâches**, puis sélectionnez la séquence de tâches personnalisée que vous avez créée au cours de la procédure précédente.  
-
-3.  Dans l'onglet **Accueil** , dans le groupe **Séquence de tâches** , cliquez sur **Modifier** pour démarrer l'éditeur de séquence de tâches.  
-
-4.  Ajoutez les étapes de séquence de tâches à utiliser pour modifier le disque dur virtuel.  
-
-5.  Cliquez sur **OK** pour quitter l'éditeur de séquence de tâches.  
-
-###  <a name="BKMK_ModifyVHD"></a> Modifier un disque dur virtuel  
- Après avoir créé une séquence de tâches pour le disque dur virtuel, utilisez l'Assistant Modifier un disque dur virtuel pour modifier le disque dur virtuel.  
-
- Utilisez la procédure suivante pour modifier un disque dur virtuel.  
-
-#### <a name="to-modify-a-vhd"></a>Pour modifier un disque dur virtuel  
-
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
-
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, cliquez sur **Disques durs virtuels**, puis sélectionnez le disque dur virtuel à modifier.  
-
-3.  Dans l'onglet **Accueil** , dans le groupe **Disque dur virtuel** , cliquez sur **Modifier un disque dur virtuel** pour démarrer l'Assistant Modifier un disque dur virtuel.  
+3.  Klik op **Virtuele harde schijf maken** in het tabblad **Start** , in de groep **Maken** om de wizard Virtuele harde schijf maken te starten.  
 
     > [!NOTE]  
-    >  Pour activer l'option **Modifier un disque dur virtuel** , Hyper-V doit être installé sur l'ordinateur exécutant la console Configuration Manager à partir de laquelle vous gérez les disques durs virtuels. Pour plus d'informations sur la configuration requise pour Hyper-V, voir [Conditions préalables à l'installation d'Hyper-V](http://technet.microsoft.com/library/cc731898.aspx).  
-
-4.  Sur la page **Général** , confirmez les paramètres suivants, puis cliquez sur **Suivant**.  
-
-    -   **Nom**: spécifie le nom unique du disque dur virtuel.  
-
-    -   **Version**: spécifie le numéro de version du disque dur virtuel. Ce paramètre est facultatif.  
-
-    -   **Commentaire**: spécifie la description du disque dur virtuel.  
-
-    -   **Chemin d’accès**: spécifie le chemin et le nom du fichier dans lequel se trouve le fichier de disque dur virtuel. Vous ne pouvez pas modifier ce paramètre.  
-
-        > [!WARNING]  
-        >  Configuration Manager doit disposer de l'autorisation d'accès **Écriture** vers le chemin spécifié pour créer le disque dur virtuel. Lorsque Configuration Manager ne parvient pas à accéder au chemin, l'erreur associée est consignée dans le fichier distmgr.log sur le serveur de site.  
-
-5.  Sur la page **Séquence de tâches** , spécifiez la séquence de tâches personnalisée que vous avez créée dans la section précédente, puis cliquez sur **Suivant**.  
-
-6.  Sur la page **Points de distribution** , sélectionnez un ou plusieurs points de distribution comprenant le contenu requis par la séquence de tâches, puis cliquez sur **Suivant**.  
-
-7.  Sur la page **Personnalisation** , cliquez sur **Suivant**. Le processus de modification du disque dur virtuel ignore tous les paramètres que vous spécifiez sur cette page.  
-
-8.  Vérifiez les paramètres, puis cliquez sur **Suivant**. L'Assistant crée le disque dur virtuel modifié.  
+    >  Hyper-V moet zijn geïnstalleerd op de computer met de Configuration Manager-console van waaruit u de VHD's beheert of de **virtuele harde schijf maken** optie is niet ingeschakeld. Zie [Installatievereisten voor Hyper-V](http://technet.microsoft.com/library/cc731898.aspx)voor meer informatie over de vereisten voor Hyper-V.  
 
     > [!TIP]  
-    >  Le temps requis pour effectuer le processus de modification du disque dur virtuel peut varier. Pendant que l'Assistant effectue ce processus, vous pouvez surveiller les fichiers journaux suivants pour suivre la progression. Par défaut, les fichiers journaux sont situés sur l'ordinateur qui exécute la console Configuration Manager dans %*ProgramFiles(x86)*%\Microsoft Configuration Manager\AdminConsole\AdminUILog.  
+    >  Maak, om uw VHD's te organiseren, een nieuwe map of selecteer een bestaande map in knooppunt **Virtuele harde schijven** en klik vervolgens op **Virtuele harde schijf maken** van de map.  
+
+4.  Stel op de pagina **Algemeen** de volgende instellingen in en klik op **Volgende**.  
+
+    -   **Naam**: Geef een unieke naam voor de VHD.  
+
+    -   **Versie**: Geef een uniek versienummer op voor de VHD. Dit is een optionele instelling.  
+
+    -   **Opmerking**: Geef een beschrijving voor de VHD.  
+
+    -   **Pad**: Geef de naam van het pad en de bestandsnaam voor waar de wizard het VHD-bestand zal maken.  
+
+         U moet een geldig netwerkpad in de UNC-indeling invoeren. Bijvoorbeeld:  **\\\servername\\< sharename\>\\< filename\>.vhd**.  
+
+        > [!WARNING]  
+        >  Configuration Manager moet hebben **schrijven** toegang hebben tot het opgegeven pad voor het maken van de VHD. Als Configuration Manager toegang tot het pad is mislukt, wordt de gekoppelde foutmelding in het distmgr.log-bestand op de siteserver gelogd.  
+
+5.  Op de pagina **Takenreeks** geeft u de takenreeks op die u in de voorgaande sectie hebt opgegeven en klikt u vervolgens op **Volgende**.  
+
+6.  Selecteer, op de pagina **Distributiepunten** , een of meer distributiepunten die de inhoud bevatten die vereist is door de takenreeks, en klik vervolgens op **Volgende**.  
+
+7.  Klik op de pagina **Aanpassing** op **Volgende**. Het proces om de VHD te maken negeert alle instellingen die u op deze pagina hebt opgegeven.  
+
+8.  Controleer de instellingen en klik vervolgens op **Volgende**. De wizard maakt de VHD.  
+
+    > [!TIP]  
+    >  De tijd om het proces van het maken van de VHD af te ronden kan variëren. Terwijl de wizard door dit proces werkt, kunt u de volgende logboekbestanden controleren om de voortgang op te volgen. Standaard de logboeken bevinden zich op de computer waarop de Configuration Manager-console wordt uitgevoerd op %*ProgramFiles(x86)*%\Microsoft Configuration Manager\AdminConsole\AdminUILog.  
     >   
-    >  -   **CreateTSMedia.log**: l’Assistant écrit les informations dans ce fichier journal lors de la création du média de séquence de tâches. Consultez ce fichier journal pour suivre la progression de l'Assistant lors de la création du média autonome.  
-    > -   **DeployToVHD.log**: l’Assistant écrit les informations dans ce fichier journal lors du processus de modification du disque dur virtuel. Consultez ce fichier journal pour suivre la progression de l'Assistant sur toutes les étapes après la création du média autonome.  
+    >  -   **CreateTSMedia.log**: De wizard schrijft informatie in dit logboek bij het maken van de takenreeksmedia. Bekijk dit logboekbestand om de voortgang van de wizard op te volgen bij het maken van de zelfstandige media.  
+    > -   **DeployToVHD.log**: De wizard schrijft informatie in dit logboek tijdens het door het proces om de VHD te maken. Bekijk dit logboekbestand voor het opvolgen van de voortgang van de wizard voor alle stappen na het maken van de zelfstandige media.  
     >   
-    >  Vous pouvez aussi ouvrir le Gestionnaire Hyper-V (si vous avez installé les outils de gestion Hyper-V sur l'ordinateur) et vous connecter à la machine virtuelle temporaire créée par l'Assistant pour suivre l'exécution de la séquence. À partir de la machine virtuelle, vous pouvez surveiller le fichier smsts.log pour suivre la progression de la séquence de tâches. En cas de problèmes avec de finalisation d'une étape de la séquence de tâches, vous pouvez utiliser ce fichier journal pour résoudre le problème. Le fichier smsts.log se trouve dans x: \windows\temp\smstslog\smsts.log avant le formatage du disque dur et dans c:\\_SMSTaskSequence\Logs\Smstslog\ après le formatage du disque dur. Une fois les étapes de séquence de tâches terminées, la machine virtuelle est arrêtée après 5 minutes (par défaut), puis supprimée.  
+    >  Bij het starten van de installatie van het besturingssysteem, kunt u ook Hyper-V Manager openen (indien u Hyper-V hulpprogramma's voor het beheer op de computer hebt geïnstalleerd) en verbinding maken met de tijdelijke virtuele machine die is gemaakt door de wizard om de uitvoering van de takenreeks te zien. U kunt vanuit de virtuele machine het bestand smsts.log controleren om de voortgang van de takenreeks te volgen. Wanneer er problemen zijn om een stap van de takenreeks uit te voeren, kunt u met behulp van dit logbestand de fout opsporen. Het bestand smsts.log bevindt zich in x: \windows\temp\smstslog\smsts.log voordat de harde schijf wordt geformatteerd en in c:\\_SMSTaskSequence\Logs\Smstslog\ nadat deze is geformatteerd. Nadat de stappen van de takenreeks zijn uitgevoerd, wordt de virtuele machine (standaard) na 5 minuten uitgeschakeld en verwijderd.  
 
-##  <a name="BKMK_ApplyUpdates"></a> Appliquer des mises à jour logicielles à un disque dur virtuel  
- De nouvelles mises à jour logicielles applicables au système d'exploitation figurant dans votre disque dur virtuel sont régulièrement publiées. Vous pouvez appliquer ces mises à jour logicielles à un disque dur virtuel selon un calendrier défini. Sur le calendrier spécifié, Configuration Manager applique les mises à jour logicielles que vous sélectionnez au disque dur virtuel.  
-
- Les informations sur le disque dur virtuel sont stockées dans la base de données du site, y compris les mises à jour logicielles qui ont été appliquées au moment de la création du disque dur virtuel. Les mises à jour logicielles appliquées au disque dur virtuel depuis sa création sont également stockées dans la base de données du site. Lorsque vous ouvrez l'Assistant pour appliquer des mises à jour logicielles au disque dur virtuel, l'Assistant récupère une liste des mises à jour logicielles applicables qui n'ont pas encore été appliquées au disque dur virtuel, pour vous permettre de les sélectionner.  
-
- Vous pouvez sélectionner le paramètre **Continuer en cas d'erreur** pour que Configuration Manager continue à appliquer les mises à jour logicielles lorsqu'une erreur survient lors de l'application d'une ou plusieurs mises à jour logicielles sélectionnées.  
+ Configuration Manager de VHD heeft gemaakt, bevindt zich in de **virtueel hardeschijfstation** knooppunt in de Configuration Manager-console onder het **Besturingssysteemimplementatie** knooppunt in de **softwarebibliotheek** werkruimte.  
 
 > [!NOTE]  
->  Les mises à jour logicielles sont copiées à partir de la bibliothèque de contenu du serveur de site.  
+>  Configuration Manager haalt de grootte van de VHD door verbinding te maken naar de bronlocatie van de VHD. Als Configuration Manager geen toegang het VHD-bestand tot **0** wordt weergegeven in de **grootte (KB)** kolom voor de VHD.  
 
- Pour appliquer des mises à jour logicielles à un disque dur virtuel, suivez la procédure ci-dessous.  
+##  <a name="BKMK_ModifyVHDSteps"></a> Stappen voor het wijzigen van een bestaande VHD  
+ Voor het wijzigen van een VHD, moet u een takenreeks maken met de vereiste stappen om de VHD te wijzigen. Selecteer vervolgens de takenreeks in de wizard Virtueel hardeschijfstation wijzigen. De wizard sluit de VHD aan op de virtuele machine, voert de takenreeks uit in de VHD en werkt vervolgens het VHD-bestand bij. In de volgende secties vindt u de stappen voor het wijzigen van de VHD.  
 
-#### <a name="to-apply-software-updates-to-a-vhd"></a>Pour appliquer des mises à jour logicielles à un disque dur virtuel  
+###  <a name="BKMK_ModifyTS"></a> Een takenreeks maken om de VHD te wijzigen  
+ Voor het wijzigen van een bestaande VHD, moet u eerst een takenreeks maken. Kies enkel de stappen die nodig zijn om de takenreeks te wijzigen. Als u bijvoorbeeld een toepassing wilt toevoegen aan de VHD, maakt u een aangepaste takenreeks en voegt vervolgens enkel de stap Toepassing installeren toe.  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+ Gebruik de volgende procedure om een takenreeks te maken om de VHD te wijzigen.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Disques durs virtuels**.  
+#### <a name="to-create-a-custom-task-sequence-to-modify-the-vhd"></a>Een aangepaste takenreeks maken om de VHD te wijzigen  
 
-3.  Sélectionnez le disque dur virtuel auquel appliquer les mises à jour logicielles.  
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
-4.  Dans l'onglet **Accueil** , dans le groupe **Disque dur virtuel** , cliquez sur **Planifier les mises à jour** pour démarrer l'Assistant.  
+2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Takenreeksen**.  
 
-5.  Sur la page **Choisir des mises à jour** , sélectionnez les mises à jour logicielles à appliquer au disque dur virtuel, puis cliquez sur **Suivant**.  
+3.  Klik op **Takenreeks maken** in het tabblad **Start** , in de groep **Maken** om de wizard Takenreeks maken te starten.  
 
-6.  Sur la page **Définir le calendrier** , spécifiez les paramètres suivants, puis cliquez sur **Suivant**.  
+4.  Op de pagina **Nieuwe takenreeks maken** selecteert u **Nieuwe aangepaste takenreeks maken**en klikt u vervolgens op **Volgende**.  
 
-    1.  **Calendrier**: définissez le calendrier d’application des mises à jour logicielles au disque dur virtuel.  
+5.  Configureer op de pagina **Takenreeksinformatie** de volgende instellingen en klik op **Volgende**.  
 
-    2.  **Continuer en cas d’erreur**: sélectionnez cette option pour continuer à appliquer les mises à jour logicielles à l’image même si une erreur survient.  
+    -   **Takenreeksnaam**: Geef een naam die de takenreeks identificeert.  
 
-7.  Vérifiez les informations figurant sur la page **Résumé** , puis cliquez sur **Suivant**.  
+    -   **Beschrijving**: Geef een beschrijving van de takenreeks.  
 
-8.  Sur la page **Dernière étape** , vérifiez que les mises à jour logicielles ont été correctement appliquées à l'image de système d'exploitation.  
+    -   **Opstartinstallatiekopie**: Geef de opstartinstallatiekopie die het besturingssysteem wordt geïnstalleerd op de doelcomputer. Zie voor meer informatie [opstartinstallatiekopieën beheren](../get-started/manage-boot-images.md).  
 
-##  <a name="BKMK_ImportToVMM"></a> Importer le disque dur virtuel vers System Center Virtual Machine Manager  
- System Center VMM est une solution de gestion du centre de données virtualisé, vous permettant de configurer et de gérer vos ordinateurs hôtes de virtualisation, la mise en réseau et les ressources de stockage pour créer et déployer des ordinateurs virtuels et des services vers des clouds privés que vous avez créés. Après avoir créé un disque dur virtuel dans Configuration Manager, vous pouvez importer et gérer votre disque dur virtuel à l'aide de VMM.  
+6.  Voltooi de wizard.  
+
+ Gebruik de volgende procedure om takenreeksstappen toe te voegen aan de aangepaste takenreeks.  
+
+#### <a name="to-add-task-sequence-steps-to-the-custom-task-sequence"></a>Toevoegen van takenreeksstappen aan de aangepaste takenreeks  
+
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+
+2.  In de werkruimte **Softwarebibliotheek** **Besturingssystemen**uitvouwen en klikken op **Takenreeksen**en vervolgens de aangepaste takenreeks selecteren die u in de vorige procedure hebt gemaakt.  
+
+3.  Klik op het tabblad **Start** in de groep **Takenreeks** op **Bewerken** om de takenreekseditor te starten.  
+
+4.  De takenreeksstappen toevoegen om de VHD te wijzigen.  
+
+5.  Klik op **OK** om de takenreekseditor af te sluiten.  
+
+###  <a name="BKMK_ModifyVHD"></a> Een VHD wijzigen  
+ Wanneer u een takenreeks voor de VHD hebt gemaakt, gebruikt u de wizard Virtuele harde schijven wijzigen om de VHD te wijzigen.  
+
+ Gebruik de volgende procedure om een VHD te wijzigen.  
+
+#### <a name="to-modify-a-vhd"></a>Een VHD wijzigen  
+
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+
+2.  **Besturingssystemen** uitvouwen in de werkruimte **Softwarebibliotheek**, klikken op **Virtuele harde schijven**en vervolgens de VHD selecteren.  
+
+3.  Klik op **Virtuele harde schijf wijzigen** op het tabblad **Start** in de groep **Virtuele harde schijf** om de wizard Virtuele harde schijf wijzigen te starten.  
+
+    > [!NOTE]  
+    >  Hyper-V moet zijn geïnstalleerd op de computer met de Configuration Manager-console van waaruit u de VHD's beheert of de **virtuele hardeschijf wijzigen** optie is niet ingeschakeld. Zie [Installatievereisten voor Hyper-V](http://technet.microsoft.com/library/cc731898.aspx)voor meer informatie over de vereisten voor Hyper-V.  
+
+4.  Bevestig op de pagina **Algemeen** de volgende instellingen en klik vervolgens op **Volgende**.  
+
+    -   **Naam**: Hiermee geeft u de unieke naam voor de VHD.  
+
+    -   **Versie**: Hiermee geeft u het versienummer voor de VHD. Dit is een optionele instelling.  
+
+    -   **Opmerking**: Hiermee geeft u de beschrijving voor de VHD.  
+
+    -   **Pad**: Geeft de naam van het pad en de bestandsnaam op waar het VHD-bestand. U kunt deze instelling niet wijzigen.  
+
+        > [!WARNING]  
+        >  Configuration Manager moet hebben **schrijven** toegang hebben tot het opgegeven pad voor het maken van de VHD. Als Configuration Manager toegang tot het pad is mislukt, wordt de gekoppelde foutmelding in het distmgr.log-bestand op de siteserver gelogd.  
+
+5.  Op de pagina **Takenreeks** de aangepaste takenreeks opgeven die u in de voorgaande sectie hebt gemaakt en vervolgens klikken op **Volgende**.  
+
+6.  Selecteer, op de pagina **Distributiepunten** , een of meer distributiepunten die de inhoud bevatten die vereist is door de takenreeks, en klik vervolgens op **Volgende**.  
+
+7.  Klik op de pagina **Aanpassing** op **Volgende**. Het proces om de VHD te wijzigen negeert alle instellingen die u op deze pagina hebt opgegeven.  
+
+8.  Controleer de instellingen en klik vervolgens op **Volgende**. De wizard maakt de gewijzigde VHD.  
+
+    > [!TIP]  
+    >  De tijd om het proces van het wijzigen van de VHD af te ronden kan variëren. Terwijl de wizard door dit proces werkt, kunt u de volgende logboekbestanden controleren om de voortgang op te volgen. Standaard de logboeken bevinden zich op de computer waarop de Configuration Manager-console wordt uitgevoerd op %*ProgramFiles(x86)*%\Microsoft Configuration Manager\AdminConsole\AdminUILog.  
+    >   
+    >  -   **CreateTSMedia.log**: De wizard schrijft informatie in dit logboek bij het maken van de takenreeksmedia. Bekijk dit logboekbestand om de voortgang van de wizard op te volgen bij het maken van de zelfstandige media.  
+    > -   **DeployToVHD.log**: De wizard schrijft informatie in dit logboek tijdens het door het proces om de VHD te wijzigen. Bekijk dit logboekbestand voor het opvolgen van de voortgang van de wizard voor alle stappen na het maken van de zelfstandige media.  
+    >   
+    >  U kunt ook Hyper-V Manager openen (als u de beheerprogramma's van Hyper-V op de computer hebt geïnstalleerd) en verbinding maken met de tijdelijke, door de wizard gemaakte virtuele machine om te zien of de takenreeks wordt uitgevoerd. U kunt vanuit de virtuele machine het bestand smsts.log controleren om de voortgang van de takenreeks te volgen. Wanneer er problemen zijn om een stap van de takenreeks uit te voeren, kunt u met behulp van dit logbestand de fout opsporen. Het bestand smsts.log bevindt zich in x: \windows\temp\smstslog\smsts.log voordat de harde schijf wordt geformatteerd en in c:\\_SMSTaskSequence\Logs\Smstslog\ nadat deze is geformatteerd. Nadat de stappen van de takenreeks zijn uitgevoerd, wordt de virtuele machine (standaard) na 5 minuten uitgeschakeld en verwijderd.  
+
+##  <a name="BKMK_ApplyUpdates"></a> Software-updates toepassen op een VHD  
+ Er worden regelmatig nieuwe software-updates uitgebracht die van toepassing zijn op het besturingssysteem in uw VHD. U kunt de toepasselijke software-updates op een VHD toepassen volgens een opgegeven planning. Op de planning die u opgeeft, is de software-updates die u selecteert door Configuration Manager van toepassing op de VHD.  
+
+ Informatie over de VHD wordt in de sitedatabase opgeslagen, inclusief de software-updates die zijn toegepast op het tijdstip dat u de VHD maakte. Software-updates die zijn toegepast op de VHD sinds de eerste keer dat deze is gemaakt, worden tevens opgeslagen in de sitedatabase. Wanneer u de wizard start voor de toepassing van software-updates op de VHD, haalt de wizard een lijst van toepasselijke software-updates op die nog niet op de VHD zijn toegepast, waaruit u een selectie kan maken.  
+
+ U kunt selecteren de **Doorgaan bij fout** -instelling voor Configuration Manager om te blijven toepassen van software-updates zelfs wanneer er een fout opgetreden bij het toepassen van een of meer van de software-updates die u hebt geselecteerd.  
+
+> [!NOTE]  
+>  De software-updates worden uit de inhoudbibliotheek op de siteserver gekopieerd.  
+
+ Gebruik de volgende procedure om software-updates toe te passen op VHD.  
+
+#### <a name="to-apply-software-updates-to-a-vhd"></a>Software-updates toepassen op een VHD  
+
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+
+2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Virtuele harde schijven**.  
+
+3.  Selecteer de VHD voor de toepassing van software-updates.  
+
+4.  Klik op het tabblad **Start** in de groep **Virtuele harde schijf** op **Updates plannen** om de wizard te starten.  
+
+5.  Selecteer op de pagina **Updates kiezen** de software-updates die u op de VHD wilt toepassen en klik daarna op **Volgende**.  
+
+6.  Geef, op de pagina **Schema instellen** , de volgende instellingen op, en klik vervolgens op **Volgende**.  
+
+    1.  **Planning**: Geef de planning voor wanneer de software-updates worden toegepast op de VHD.  
+
+    2.  **Doorgaan bij fout**: Selecteer deze optie om door te gaan naar het software-updates toepassen op de installatiekopie, zelfs wanneer er een fout opgetreden.  
+
+7.  Verifieer de informatie op de pagina **Samenvatting** en klik vervolgens op **Volgende**.  
+
+8.  Verifieer op de pagina **Voltooiing** dat de software-updates met succes zijn toegepast op de installatiekopie van het besturingssysteem.  
+
+##  <a name="BKMK_ImportToVMM"></a> De VHD importeren voor System Center Virtual Machine Manager  
+ System Center VMM is een beheeroplossing voor het gevirtualiseerde datacenter, waarmee u uw virtualisatiehost, netwerken en opslagbronnen kunt configureren en beheren om virtuele machines en services voor door u gemaakte privéclouds te maken en te implementeren. Nadat u een VHD in Configuration Manager maken, kunt u importeren en beheren van uw VHD door middel van VMM.  
 
 > [!TIP]  
->  Avant de télécharger un disque dur virtuel dans VMM, vérifiez que la console VMM se connecte correctement au serveur de gestion VMM.  
+>  Controleer, voordat u een VHD naar VMM uploadt, of de VMM-console verbinding heeft met de VMM-beheerserver.  
 
- Utilisez la procédure suivante pour importer un disque dur virtuel dans VMM.  
+ Gebruik de volgende procedure om een VHD naar VMM te importeren.  
 
-#### <a name="to-import-a-vhd-to-vmm"></a>Pour importer un disque dur virtuel dans VMM  
+#### <a name="to-import-a-vhd-to-vmm"></a>Een VHD naar VMM importeren  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Disques durs virtuels**.  
+2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Virtuele harde schijven**.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Disque dur virtuel** , cliquez sur **Télécharger vers Virtual Machine Manager** pour démarrer l'Assistant Téléchargement vers Virtual Machine Manager.  
+3.  Klik op het tabblad **Start** in de groep **Virtuele harde schijf** op **Uploaden naar Virtual Machine Manager** om de wizard voor het uploaden naar de Virtual Machine Manager te starten.  
 
-4.  Sur la page **Général** , configurez les paramètres suivants, puis cliquez sur **Suivant**.  
+4.  Configureer op de pagina **Algemeen** de volgende instellingen en klik daarna op **Volgende**.  
 
-    -   **Nom du serveur VMM :**spécifiez le nom de domaine complet de l’ordinateur sur lequel est installé le serveur de gestion VMM. L'Assistant se connecte au serveur de gestion VMM pour télécharger les partages de bibliothèque pour le serveur.  
+    -   **De naam van de VMM-server**: Geef de FQDN van de computer waarop de VMM-beheerserver is geïnstalleerd. The wizard maakt verbinding met de VMM-beheerserver om de bibliotheekshares voor de server te downloaden.  
 
-    -   **Partage de bibliothèque VMM**: spécifiez le partage de bibliothèque VMM dans la liste déroulante.  
+    -   **VMM-bibliotheekshare**: Geef de VMM-bibliotheekshare uit de vervolgkeuzelijst.  
 
-    -   **Utilisez un transfert non chiffré**: sélectionnez ce paramètre pour transférer le fichier de disque dur virtuel sur le serveur de gestion VMM sans utiliser de chiffrement.  
+    -   **Niet-versleutelde overdrachten gebruiken**: Selecteer deze instelling om over te dragen van het VHD-bestand met de VMM-beheerserver zonder het gebruik van versleuteling.  
 
-5.  Sur la page Synthèse, vérifiez les paramètres, puis terminez l'Assistant. Le temps de téléchargement du disque dur virtuel peut varier en fonction de la taille du fichier VHD et de la bande passante réseau vers le serveur de gestion VMM.  
+5.  Controleer op de pagina Overzicht de instellingen en voltooi daarna de wizard. De tijdsduur voor het uploaden van de VHD kan verschillen op basis van de grootte van het VHD-bestand en de bandbreedte van het netwerk voor de VMM-beheerserver.  

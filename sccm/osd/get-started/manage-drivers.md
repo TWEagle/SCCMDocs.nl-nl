@@ -1,6 +1,6 @@
 ---
-title: "Gérer des pilotes - Configuration Manager | Microsoft Docs"
-description: "Le catalogue de pilotes Configuration Manager permet d’importer des pilotes de périphérique, de les regrouper dans des packages et de distribuer ces packages à des points de distribution."
+title: Stuurprogramma's beheren - Configuration Manager | Microsoft Docs
+description: De stuurprogrammacatalogus Configuration Manager gebruiken voor het importeren van stuurprogramma's, groep-stuurprogramma's in pakketten, en die pakketten naar distributiepunten distribueren.
 ms.custom: na
 ms.date: 01/27/2017
 ms.prod: configuration-manager
@@ -17,260 +17,260 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 87ab9925717a307cbda3cea1f2e470ae012fa067
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-drivers-in-system-center-configuration-manager"></a>Gérer les pilotes dans System Center Configuration Manager
+# <a name="manage-drivers-in-system-center-configuration-manager"></a>Stuurprogramma's beheren in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-System Center Configuration Manager propose un catalogue de pilotes qui permet de gérer les pilotes de périphérique Windows dans l’environnement Configuration Manager. Vous pouvez utiliser le catalogue de pilotes pour importer des pilotes de périphérique dans Configuration Manager, les regrouper dans des packages et distribuer ces packages à des points de distribution accessibles pendant le déploiement d’un système d’exploitation. Des pilotes de périphérique peuvent être utilisés lorsque vous installez le système d'exploitation complet sur l'ordinateur de destination et lorsque vous installez Windows PE à l'aide d'une image de démarrage. Les pilotes de périphérique Windows sont composés d'un fichier d'informations d'installation (INF) et de tous les autres fichiers nécessaires à la prise en charge du périphérique. À cette occasion, Configuration Manager obtient les informations matérielles et de plateforme du périphérique à partir de son fichier INF. Pour gérer les pilotes dans votre environnement Configuration Manager, aidez-vous des sections suivantes.
+System Center Configuration Manager bevat een stuurprogrammacatalogus die u gebruiken kunt voor het beheren van de Windows-apparaatstuurprogramma's in uw Configuration Manager-omgeving. U kunt de stuurprogrammacatalogus gebruiken voor het importeren van apparaatstuurprogramma's in Configuration Manager, ze in pakketten te groeperen en te distribueren die pakketten naar distributiepunten waar u er toegang toe wanneer u een besturingssysteem implementeert. Apparaatstuurprogramma's kunnen worden gebruikt wanneer u het volledige besturingssysteem op de doelcomputer installeert en wanneer u Windows PE installeert via een opstartinstallatiekopie. Windows-apparaatstuurprogramma's bestaan uit een Setup-informatiebestand (INF-bestand) en eventuele aanvullende bestanden die vereist zijn voor ondersteuning van het apparaat. Wanneer een besturingssysteem wordt geïmplementeerd, worden de gegevens hardware- en platforminformatie voor het apparaat in Configuration Manager opgehaald uit het bijbehorende INF-bestand. Gebruik de volgende stuurprogramma's in uw Configuration Manager-omgeving beheren.
 
-##  <a name="BKMK_DriverCategories"></a> Catégories de pilotes de périphériques  
- Lorsque vous importez des pilotes de périphérique, vous pouvez affecter les pilotes de périphérique à une catégorie. Les catégories de pilotes de périphérique permettent de regrouper les pilotes de périphérique utilisés de la même façon dans le catalogue de pilotes. Par exemple, vous pouvez attribuer tous les pilotes de périphériques de carte réseau à une catégorie précise. Ensuite, quand vous créez une séquence de tâches qui comprend l’étape [Appliquer automatiquement les pilotes](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers), vous pouvez spécifier une catégorie spécifique de pilotes de périphérique. Configuration Manager analyse ensuite le matériel et sélectionne les pilotes applicables de cette catégorie pour les activer sur le système et permettre à l’installation de Windows de les utiliser.  
+##  <a name="BKMK_DriverCategories"></a> Categorieën voor apparaatstuurprogramma's  
+ Wanneer u apparaatstuurprogramma's importeert, kunt u ze toewijzen aan een categorie. Met categorieën voor apparaatstuurprogramma's kunnen apparaatstuurprogramma's die op vergelijkbare wijze worden gebruikt, samen worden gegroepeerd in de stuurprogrammacatalogus. U kunt bijvoorbeeld alle apparaatstuurprogramma's voor netwerkadapters toewijzen aan een specifieke categorie. Wanneer u vervolgens een takenreeks maakt die de stap [Stuurprogramma's automatisch toepassen](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers) bevat, kunt u een specifieke categorie apparaatstuurprogramma's opgeven. Configuration Manager scant vervolgens de hardware en selecteert de betreffende stuurprogramma's in die categorie die moeten worden geplaatst op het systeem voor Windows Setup kunnen worden gebruikt.  
 
-##  <a name="BKMK_ManagingDriverPackages"></a> Packages de pilotes  
- Vous pouvez regrouper des pilotes de périphérique similaires dans des packages pour simplifier les déploiements de systèmes d’exploitation. Par exemple, vous pouvez décider de créer un package de pilotes pour chaque marque d’ordinateur présente sur votre réseau. Vous pouvez créer un package de pilotes pendant que vous importez des pilotes dans le catalogue de pilotes directement dans le nœud **Packages de pilotes** . Une fois le package de pilotes créé, il doit être distribué aux points de distribution à partir desquels les ordinateurs clients Configuration Manager peuvent installer les pilotes, le cas échéant. Considérez les points suivants :  
+##  <a name="BKMK_ManagingDriverPackages"></a> Driverpakketten  
+ U kunt vergelijkbare apparaatstuurprogramma's groeperen in pakketten om de implementaties van besturingssystemen te stroomlijnen. U kunt bijvoorbeeld besluiten om voor iedere computerfabrikatn op uw netwerk een stuurprogrammapakket te maken. U kunt een stuurprogrammapakket maken op het knooppunt **Stuurprogrammapakketten** terwijl u stuurprogramma's rechtstreeks in de stuurprogrammacatalogus importeert. Nadat het stuurprogrammapakket is gemaakt, moet het worden gedistribueerd naar distributiepunten uit welke Configuration Manager-clientcomputers de stuurprogramma's installeren kunnen wanneer deze nodig zijn. Neem het volgende in overweging:  
 
--   Lorsque vous créez un package de pilotes, l'emplacement source du package doit pointer sur un partage réseau vide qui n'est pas utilisé par un autre package de pilotes et le fournisseur SMS doit disposer d'autorisations en lecture et en écriture sur cet emplacement.  
+-   Wanneer u een stuurprogrammapakket maakt, moet de bronlocatie van het pakket verwijzen naar een lege netwerkshare die door geen enkel ander stuurprogrammapakket wordt gebruikt. Bovendien moet de SMS-provider lees- en schrijfrechten voor die locatie hebben.  
 
--   Quand vous ajoutez des pilotes de périphérique à un package de pilotes, Configuration Manager copie le pilote de périphérique à l’emplacement source du package de pilotes. Vous pouvez ajouter uniquement les pilotes de périphérique qui ont été importés et qui sont activés dans le catalogue de pilotes vers un package de pilotes.  
+-   Wanneer u apparaatstuurprogramma's aan een stuurprogrammapakket toevoegt, Configuration Manager het apparaatstuurprogramma gekopieerd naar de bronlocatie van het stuurprogramma-pakket. U kunt alleen apparaatstuurprogramma's aan een stuurprogrammapakket toevoegen die zijn geïmporteerd en ingeschakeld in de stuurprogrammacatalogus.  
 
--   Pour copier un sous-ensemble de pilotes de périphérique à partir d'un package de pilotes existant, créez un nouveau package de pilotes, ajoutez-y le sous-ensemble de pilotes de périphérique, puis distribuez le nouveau package à un point de distribution.  
+-   Als u een subset van de apparaatstuurprogramma's wilt kopiëren uit een bestaand stuurprogrammapakket, maakt u een nieuw stuurprogrammapakket, voegt u de subset met apparaatstuurprogramma's toe aan het nieuwe pakket en distribueert u vervolgens het nieuwe pakket naar een distributiepunt.  
 
- Pour savoir comment créer et gérer des packages de pilotes, consultez les sections suivantes.  
+ Gebruik de volgende secties om stuurprogrammapakketten te maken en te beheren.  
 
-###  <a name="CreatingDriverPackages"></a> Créer un package de pilotes  
- Utilisez la procédure ci-dessous pour créer un package de pilotes.  
+###  <a name="CreatingDriverPackages"></a> Een stuurprogrammapakket maken  
+ Gebruik de volgende procedure om een nieuw stuurprogrammapakket te maken.  
 
 > [!IMPORTANT]  
->  Pour créer un package de pilotes, vous devez disposer d'un dossier réseau vide qui n'est pas utilisé par un autre package de pilotes. Dans la plupart des cas, vous devez créer un nouveau dossier avant de lancer cette procédure.  
+>  U moet, om een stuurprogrammapakket te maken, een lege netwerkmap hebben die niet door een ander stuurprogrammapakket wordt gebruikt. In de meeste gevallen moet u een nieuwe map maken voordat u deze procedure start.  
 
 > [!NOTE]  
->  Si vous prévoyez d’installer des pilotes en utilisant des séquences de tâches, créez des packages de pilotes qui contiennent moins de 500 pilotes de périphérique.  
+>  Wanneer u takenreeksen gebruikt om stuurprogramma's te installeren, moet u stuurprogrammapakketten met minder dan 500 apparaatstuurprogramma's maken.  
 
- Utilisez la procédure suivante pour créer un package de pilotes.  
+ Gebruik de volgende procedure om een stuurprogrammapakket te maken.  
 
-#### <a name="to-create-a-driver-package"></a>Pour créer un package de pilotes  
+#### <a name="to-create-a-driver-package"></a>Een stuurprogrammapakket maken  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Packages de pilotes**.  
+2.  Vouw in de werkruimte **Softwarebibliotheek** de optie **Besturingssystemen**uit en klik vervolgens op **Stuurprogrammapakketten**.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Créer un package de pilotes**.  
+3.  Klik op het tabblad **Start** in de groep **Maken** op **Stuurprogrammapakket maken**.  
 
-4.  Dans la zone **Nom** , spécifiez un nom descriptif pour le package de pilotes.  
+4.  Geef in het venster **Naam** een beschrijvende naam op voor het stuurprogrammapakket.  
 
-5.  Dans la zone **Commentaire** , entrez une description facultative pour le package de pilotes. Vérifiez que la description fournit des informations sur le contenu ou l'objectif du package de pilotes.  
+5.  Geef in het venster **Opmerking** een optionele beschrijving op voor het stuurprogrammapakket. Zorg ervoor dat de beschrijving informatie geeft over de inhoud of het doel van het stuurprogrammapakket.  
 
-6.  Dans la zone **Chemin d'accès** , spécifiez un dossier source vide pour le package de pilotes. Entrez le chemin d'accès vers le dossier source au format UNC (Universal Naming Convention). Chaque package de pilotes doit utiliser un dossier unique.  
+6.  Geef in het vak **Pad** een lege bronmap op voor het stuurprogrammapakket. Geef het pad op van de bron map in de UNC-indeling (Universal Naming Convention). Elk stuurprogrammapakket moet een unieke map gebruiken.  
 
     > [!IMPORTANT]  
-    >  Le compte de serveur de site doit disposer des autorisations en **lecture** et en **écriture** dans le dossier source spécifié.  
+    >  Het siteserveraccount moet de machtigingen **Lezen** en **Schrijven** hebben voor de opgegeven bronmap.  
 
- Le nouveau package de pilotes ne contient aucun pilote. L'étape suivante consiste à ajouter des pilotes au package.  
+ Het nieuwe stuurprogrammapakket bevat geen stuurprogramma's. De volgende stap is het toevoegen van stuurprogramma's aan het pakket.  
 
- Si le nœud **Packages de pilotes** contient plusieurs packages, vous pouvez ajouter des dossiers au nœud pour séparer les packages en groupes logiques.  
+ Als het knooppunt **Stuurprogrammapakketten** verschillende pakketten bevat, kunt u mappen toevoegen aan het knooppunt om de pakketten onder te verdelen in logische groepen.  
 
-###  <a name="BKMK_PackageActions"></a> Actions supplémentaires concernant les packages de pilotes  
- Vous pouvez effectuer des actions supplémentaires pour gérer les packages de pilotes lorsque vous sélectionnez un ou plusieurs packages de pilotes dans le nœud **Packages de pilotes** . Ces actions incluent :  
+###  <a name="BKMK_PackageActions"></a> Aanvullende acties voor stuurprogrammapakketten  
+ U kunt de volgende bewerkingen uitvoeren om stuurprogrammapakketten te beheren wanneer u een of meer stuurprogrammapakketten selecteert in het knooppunt **Stuurprogrammapakketten** . Deze acties omvatten het volgende:  
 
-|Action|Description|  
+|Actie|Beschrijving|  
 |------------|-----------------|  
-|**Créer un fichier de contenu préparé**|Crée des fichiers qui peuvent être utilisés pour importer manuellement le contenu et ses métadonnées associées. Utilisez du contenu préparé lorsque vous avez une bande passante réseau faible entre le serveur de site et les points de distribution sur lesquels est stocké le package de pilotes.|  
-|**Supprimer**|Supprime le package de pilotes du nœud **Packages de pilotes** .|  
-|**Distribuer du contenu**|Distribue le package de pilotes sur des points de distribution, des groupes de points de distribution et des groupes de points de distribution associés à des regroupements.|  
-|**Gérer des comptes d'accès**|Ajoute, modifie ou supprime des comptes d'accès pour le package de pilotes.<br /><br /> Pour plus d’informations sur les comptes d’accès au package, consultez [Comptes utilisés dans Configuration Manager](../../core/plan-design/hierarchy/accounts.md).|  
-|**Déplacer**|Déplace le package de pilotes vers un autre dossier dans le nœud **Packages de pilotes** .|  
-|**Mise à jour des points de distribution**|Met à jour le package de pilotes de périphérique sur tous les points de distribution sur lesquels le package est stocké. Cette action copie uniquement le contenu qui a été modifié après sa dernière distribution.|  
-|**Propriétés**|Ouvre la boîte de dialogue **Propriétés** dans laquelle vous pouvez examiner et modifier le contenu et les propriétés du pilote de périphérique. Par exemple, vous pouvez modifier le nom et la description du pilote de périphérique, activer le pilote de périphérique et spécifier les plates-formes sur lesquelles le pilote de périphérique peut être exécuté.|  
+|**Voorbereid inhoudsbestand maken**|Maakt bestanden die kunnen worden gebruikt om inhoud en de eraan gekoppelde metagegevens te importeren. Gebruik voorbereide inhoud wanneer u lage netwerkbandbreedte hebt tussen de siteserver en de distributiepunten waar het stuurprogrammapakket wordt opgeslagen.|  
+|**Verwijderen**|Hiermee verwijdert u het stuurprogrammapakket uit het knooppunt **Stuurprogrammapakketten** .|  
+|**Inhoud distribueren**|Distribueert het stuurprogrammapakket naar distributiepunten, distributiepuntgroepen en distributiepuntgroepen die zijn gekoppeld aan verzamelingen.|  
+|**Toegangsaccounts beheren**|Hiermee worden toegangsaccounts voor het stuurprogrammapakket toegevoegd, gewijzigd of verwijderd.<br /><br /> Zie voor meer informatie over Pakkettoegangsaccounts [gebruikte Accounts in Configuration Manager](../../core/plan-design/hierarchy/accounts.md).|  
+|**Verplaatsen**|Verplaatst het stuurprogrammapakket naar een andere map in het knooppunt **Stuurprogrammapakketten** .|  
+|**Distributiepunten bijwerken**|Werkt het apparaatstuurprogrammapakket bij op alle distributiepunten waar het pakket wordt opgeslagen. Deze bewerking kopieert alleen de inhoud die is gewijzigd sinds de laatste keer het werd gedistribueerd.|  
+|**Eigenschappen**|Opent het dialoogvenster **Eigenschappen** waar u de inhoud en eigenschappen van het apparaatstuurprogramma kunt controleren en wijzigen. U kunt bijvoorbeeld de naam en beschrijving wijzigen van het apparaatstuurprogramma, het apparaatstuurprogramma inschakelen en specificeren op welke platformen het apparaatstuurprogramma kan worden uitgevoerd.|  
 
-##  <a name="BKMK_DeviceDrivers"></a> Pilotes d'appareils  
- Vous pouvez installer des pilotes de périphérique sur les ordinateurs de destination sans les inclure dans l'image du système d'exploitation déployée. Configuration Manager propose un catalogue de pilotes qui contient les références à tous les pilotes de périphérique que vous importez dans Configuration Manager. Le catalogue de pilotes se trouve dans l’espace de travail **Bibliothèque de logiciels** et est composé de deux nœuds : **Pilotes** et **Packages de pilotes**. Le nœud **Pilotes** répertorie tous les pilotes que vous avez importés dans le catalogue de pilotes. Ce nœud vous permet de découvrir les détails relatifs à chaque pilote importé, de modifier les pilotes contenus dans un package de pilotes ou une image de démarrage, d’activer ou désactiver un pilote, etc.  
+##  <a name="BKMK_DeviceDrivers"></a> Apparaatstuurprogramma 's  
+ U kunt apparaatstuurprogramma's installeren op doelcomputers zonder ze op te nemen in de installatiekopie van het besturingssysteem die wordt geïmplementeerd. Configuration Manager bevat een stuurprogrammacatalogus met verwijzingen naar alle apparaatstuurprogramma's die u in Configuration Manager importeert. De stuurprogrammacatalogus bevindt zich in de **softwarebibliotheek** werkruimte en bestaat uit twee knooppunten: **Stuurprogramma's** en **stuurprogrammapakketten**. Het knooppunt **Stuurprogramma's** geeft alle stuurprogramma's weer die u in de stuurprogrammacatalogus hebt geïmporteerd. Gebruik dit knooppunt om de details over elk geïmporteerd stuurprogramma te detecteren, het stuurprogrammapakket of de opstartinstallatiekopie van een stuurprogramma te wijzigen, een stuurprogramma in of uit te schakelen en meer.  
 
-###  <a name="BKMK_ImportDrivers"></a> Importer des pilotes de périphérique dans le catalogue de pilotes  
- Vous devez importer les pilotes de périphérique dans le catalogue de pilotes avant de pouvoir les utiliser lorsque vous déployez un système d'exploitation. Pour mieux gérer vos pilotes de périphérique, importez uniquement les pilotes de périphérique que vous prévoyez d'installer dans le cadre du déploiement de votre système d'exploitation. Toutefois, vous pouvez également stocker plusieurs versions de pilotes de périphérique dans le catalogue de périphériques afin de mettre facilement à niveau des pilotes de périphérique existants lorsque la configuration matérielle requise en matière de périphériques évolue sur votre réseau.  
+###  <a name="BKMK_ImportDrivers"></a> Apparaatstuurprogramma's in de stuurprogrammacatalogus importeren  
+ U moet apparaatstuurprogramma's importeren in de stuurprogrammacatalogus voordat u ze kunt gebruiken bij het implementeren van een besturingssysteem. Voor een beter beheer van uw apparaatstuurprogramma's importeert u alleen die apparaatstuurprogramma's die u van plan bent te installeren als onderdeel van de besturingssysteemimplementatie. U kunt echter ook meerdere versies van apparaatstuurprogramma's opslaan in de stuurprogrammacatalogus, om zodoende gemakkelijk bestaande apparaatstuurprogramma's te kunnen bijwerken wanneer de apparaatvereisten voor hardware in uw netwerk veranderen.  
 
- Pendant le processus d’importation de pilote de périphérique, Configuration Manager lit le fournisseur, la classe, la version, la signature, le matériel pris en charge et les informations de plateforme prises en charge associées au périphérique. Par défaut, le nom du pilote repose sur celui du premier périphérique matériel pris en charge ; toutefois, le pilote de périphérique peut être renommé par la suite. La liste des plates-formes prises en charge est basée sur les informations dans le fichier INF du pilote. Comme l'exactitude de ces informations peut varier, vérifiez manuellement que le pilote de périphérique est pris en charge une fois qu'il est importé dans le catalogue de pilotes.  
+ Als onderdeel van het importeerproces voor het apparaatstuurprogramma, leest u de provider, klasse, versie, handtekening, Configuration Manager ondersteunde hardware en ondersteunde platforminformatie die is gekoppeld aan het apparaat. Standaard krijgt het stuurprogramma de naam van het eerste hardware-apparaat dat het ondersteunt. U kunt de naam van het apparaatstuurprogramma echter later nog wijzigen. De lijst met ondersteunde platformen is gebaseerd op de informatie in het INF-bestand van het stuurprogramma. Omdat de nauwkeurigheid van deze informatie kan variëren, dient u handmatig te verifiëren of het apparaatstuurprogramma wordt ondersteund nadat het is geïmporteerd in de stuurprogrammacatalogus.  
 
- Après avoir importé des pilotes de périphérique dans le catalogue, vous pouvez les ajouter à des packages de pilotes ou à des packages d’images de démarrage.  
+ Nadat u apparaatstuurprogramma's in de catalogus hebt geïmporteerd, kunt u de apparaatstuurprogramma's toevoegen aan stuurprogrammapakketten of aan opstartinstallatiekopiepakketten.  
 
 > [!IMPORTANT]  
->  Vous ne pouvez pas importer des pilotes de périphérique directement dans un sous-dossier du nœud **Pilotes** . Pour importer un pilote de périphérique dans un sous-dossier, importez-le d'abord dans le nœud **Pilotes** , puis déplacez-le dans le sous-dossier.  
+>  U kunt geen apparaatstuurprogramma's rechtstreeks importeren in een submap van het knooppunt **Stuurprogramma's** . U kunt een apparaatstuurprogramma importeren in een submap door het apparaatstuurprogramma eerst te importeren in het knooppunt **Stuurprogramma's** en het stuurprogramma vervolgens te verplaatsen naar de submap.  
 
- Utilisez la procédure suivante pour importer des pilotes de périphérique Windows.  
+ Gebruik de volgende procedure om Windows-apparaatstuurprogramma's te importeren.  
 
-#### <a name="to-import-windows-device-drivers-into-the-driver-catalog"></a>Pour importer des pilotes de périphérique Windows dans le catalogue de pilotes  
+#### <a name="to-import-windows-device-drivers-into-the-driver-catalog"></a>Windows-apparaatstuurprogramma's importeren in de stuurprogrammacatalogus  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Pilotes**.  
+2.  Vouw in de werkruimte **Softwarebibliotheek** de optie **Besturingssysteem**uit en klik vervolgens op **Stuurprogramma's**.  
 
-3.  Dans l'onglet **Accueil** , dans le groupe **Créer** , cliquez sur **Importer un pilote** pour démarrer l' **Assistant Importation de nouveau pilote**.  
+3.  Klik op het tabblad **Start** in de groep **Maken** op **Stuurprogramma importeren** om de wizard **Nieuw stuurprogramma importeren**te openen.  
 
-4.  Sur la page **Trouver le pilote** , spécifiez les options suivantes et cliquez sur **Suivant**:  
+4.  Geef op de pagina **Stuurprogramma zoeken** de volgende opties op en klik op **Volgende**:  
 
-    -   **Importer tous les pilotes dans le chemin réseau (UNC) suivant**: Pour importer tous les pilotes de périphérique qui sont contenus dans un dossier spécifique, spécifiez le chemin d'accès réseau vers le dossier de pilote de périphérique. Par exemple :  **\\\\nom_serveur\dossier**.  
+    -   **Alle stuurprogramma's importeren in het volgende netwerkpad (UNC)**: Geef het netwerkpad naar de stuurprogrammamap voor het importeren van alle apparaatstuurprogramma's die zijn opgenomen in een specifieke map. Bijvoorbeeld:  **\\\servernaam\map**.  
 
         > [!NOTE]  
-        >  Le processus d’importation de l’ensemble des pilotes peut prendre un certain temps en présence d’un grand nombre de dossiers et de fichiers de pilote (.inf).  
+        >  Het proces voor het importeren van alle stuurprogramma's kan enige tijd in beslag nemen als er veel mappen en stuurprogrammabestanden (.inf) aanwezig zijn.  
 
-    -   **Importer un pilote spécifique**: pour importer un pilote spécifique à partir d’un dossier, spécifiez le chemin réseau (UNC) vers le fichier .INF du pilote de périphérique Windows ou le fichier Txtsetup.oem de stockage de masse du pilote.  
+    -   **Een specifiek stuurprogramma importeren**: Als u wilt een specifiek stuurprogramma importeren vanuit een map, geef het netwerkpad (UNC) naar het Windows-apparaatstuurprogramma. INF of mass storage bestand Txtsetup.oem van het stuurprogramma.  
 
-    -   **Spécifier l’option pour les pilotes dupliqués** : indiquez comment vous voulez que Configuration Manager gère les catégories de pilotes pendant l’importation d’un pilote de périphérique en double.  
+    -   **Geef de optie voor dubbele stuurprogramma's**: Selecteer de gewenste Configuration Manager stuurprogrammacategorieën beheren wanneer er een gedupliceerd apparaatstuurprogramma wordt geïmporteerd.  
 
     > [!IMPORTANT]  
-    >  Lorsque vous importez des pilotes, le serveur de site doit disposer de l'autorisation **Lecture** pour le dossier, sinon l'importation échoue.  
+    >  Als u stuurprogramma's importeert, moet de siteserver over de machtiging **Lezen** beschikken voor de map. Het importeren mislukt als dit niet het geval is.  
 
-5.  Sur la page **Détails du pilote** , spécifiez les options suivantes et cliquez sur **Suivant**:  
+5.  Geef op de pagina **Stuurprogrammagegevens** de volgende opties op en klik op **Volgende**:  
 
-    -   **Masquer les pilotes hors classe de stockage ou réseau (pour les images de démarrage)**: ce paramètre permet d’afficher uniquement les pilotes réseau et de stockage, et de masquer les autres pilotes qui ne sont généralement pas nécessaires pour les images de démarrage, tels que les pilotes vidéo ou les pilotes de modem.  
+    -   **Stuurprogramma's die zich niet in een opslag- of netwerkklasse (voor installatiekopieën) verbergen**: Gebruik deze instelling om alleen opslag- en netwerkstations weer te geven en andere stuurprogramma's die doorgaans niet nodig voor installatiekopieën, zoals een video- of modemstuurprogramma zijn, te verbergen.  
 
-    -   **Masquer les pilotes qui ne sont pas signés numériquement**: ce paramètre permet de masquer les pilotes qui ne sont pas signés numériquement.  
+    -   **Stuurprogramma's die niet digitaal zijn ondertekend verbergen**: Deze instelling gebruiken om de stuurprogramma's die niet digitaal zijn ondertekend verbergen.  
 
-    -   Dans la liste des pilotes, sélectionnez les pilotes que vous souhaitez importer dans le catalogue de pilotes.  
+    -   Selecteer in de lijst met stuurprogramma's de stuurprogramma's die u wilt importeren naar de stuurprogrammacatalogus.  
 
-    -   **Activer ces pilotes et autoriser leur installation sur les ordinateurs**: sélectionnez ce paramètre pour laisser les ordinateurs installer les pilotes de périphérique. Par défaut, cette case à cocher est activée.  
+    -   **Deze stuurprogramma's inschakelen en computers deze installeren toestaan**: Selecteer deze instelling om computers de apparaatstuurprogramma's te installeren. Standaard is dit selectievakje geselecteerd.  
 
         > [!IMPORTANT]  
-        >  Si un pilote de périphérique est à l'origine d'un problème, ou si vous souhaitez suspendre l'installation d'un pilote de périphérique, vous pouvez désactiver le pilote de périphérique en désactivant la case à cocher **Activer ces pilotes et autoriser leur installation sur les ordinateurs** . Vous pouvez également désactiver les pilotes après leur importation.  
+        >  Als een apparaatstuurprogramma een probleem veroorzaakt of u wilt de installatie van een apparaatstuurprogramma uitstellen, dan kunt u het apparaatstuurprogramma uitschakelen door het selectievakje **Deze stuurprogramma's inschakelen en computers toestaan ze te installeren** uit te schakelen. U kunt ook stuurprogramma's uitschakelen nadat ze zijn geïmporteerd.  
 
-    -   Pour attribuer les pilotes de périphérique à une catégorie administrative à des fins de filtrage, telle que « Postes de travail » ou « Ordinateurs portables », cliquez sur **Catégories** et sélectionnez une catégorie existante ou créez-en une nouvelle. Vous pouvez aussi utiliser l’attribution de catégorie pour configurer les pilotes de périphérique qui s’appliquent au déploiement avec l’étape de séquence de tâches [Appliquer automatiquement les pilotes](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers).  
+    -   Klik op **Categorieën** en selecteer een bestaande categorie of maak een nieuwe categorie om de apparaatstuurprogramma's toe te wijzen aan een beheercategorie voor filterdoeleinden (bv. de categorieën Desktops of Notitieblokken). U kunt de categorietoewijzing ook gebruiken om te configureren welke apparaatstuurprogramma's er op de implementatie moeten worden toegepast met de takenreeksstap [Stuurprogramma's automatisch toepassen](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers).  
 
-6.  Dans la page **Ajouter un pilote aux packages** , choisissez d’ajouter ou non les pilotes à un package, puis cliquez sur **Suivant**. Tenez compte des points suivants avant d’ajouter les pilotes à un package :  
+6.  Kies op de pagina **Stuurprogramma aan pakketten toevoegen** of u de stuurprogramma's aan een pakket wilt toevoegen en klik vervolgens op **Volgende**. Houd rekening met het volgende wanneer u de stuurprogramma's aan een pakket toevoegt:  
 
-    -   Sélectionnez les packages de pilotes qui sont utilisés pour distribuer les pilotes de périphérique.  
+    -   Selecteer de stuurprogrammapakketten die worden gebruikt om de apparaatstuurprogramma's te distribueren.  
 
-         Si vous le souhaitez, cliquez sur **Nouveau package** pour créer un nouveau package de pilotes. Lorsque vous créez un nouveau package de pilotes, vous devez fournir un partage réseau qui n'est pas en cours d'utilisation par d'autres packages de pilotes.  
+         U kunt eventueel ook op **Nieuw pakket** klikken om een nieuw stuurprogrammapakket te maken. Als u een nieuw stuurprogrammapakket maakt, moet u een netwerkshare opgeven dat niet wordt gebruikt door andere stuurprogrammapakketten.  
 
-    -   Si le package a déjà été distribué à des points de distribution, cliquez sur **Oui** dans la boîte de dialogue pour mettre à jour les images de démarrage sur les points de distribution. Vous ne pouvez pas utiliser les pilotes de périphérique tant qu'ils ne sont pas distribués sur des points de distribution. Si vous cliquez sur **Non**, vous devez exécuter l'action **Mettre à jour les points de distribution** pour que l'image de démarrage contienne les pilotes mis à jour. Si le package de pilotes n'a jamais été distribué, vous devez cliquer sur **Distribuer du contenu** à partir du nœud **Packages de pilotes** .  
+    -   Als het pakket al is gedistribueerd naar distributiepunten, klikt u in het dialoogvenster op **Ja** om de opstartinstallatiekopieën op distributiepunten bij te werken. U kunt geen apparaatstuurprogramma's gebruiken totdat ze naar distributiepunten worden gedistribueerd. Als u op **Nee****Distributiepunt bijwerken** uitvoeren voordat de opstartinstallatiekopie de bijgewerkte stuurprogramma's bevat. Als het stuurprogrammapakket nog nooit is gedistribueerd, klikt u op **Inhoud distribueren** in het knooppunt **Stuurprogrammapakketten**.  
 
-7.  Dans la page **Ajouter un pilote aux images de démarrage** , choisissez éventuellement d’ajouter les pilotes de périphérique aux images de démarrage existantes, puis cliquez sur **Suivant**. Si vous sélectionnez une image de démarrage, tenez compte des points suivants :  
+7.  Kies op de pagina **Stuurprogramma aan installatiekopieën toevoegen** of u de apparaatstuurprogramma's aan bestaande opstartinstallatiekopieën wilt toevoegen en klik vervolgens op **Volgende**. Als u een opstartinstallatiekopie selecteert, moet u rekening houden met het volgende:  
 
     > [!NOTE]  
-    >  En guise de meilleure pratique, vous devez ajouter uniquement les pilotes de périphérique de stockage de masse et les pilotes de périphérique réseau aux images de démarrage dans les scénarios de déploiement de systèmes d'exploitation.  
+    >  Voeg, als best practice, alleen massaopslag- en netwerkapparaatstuurprogramma's toe aan de installatiekopieën voor implementatiescenario's van besturingssystemen.  
 
-    -   Cliquez sur **Oui** dans la boîte de dialogue pour mettre à jour les images de démarrage sur les points de distribution. Vous ne pouvez pas utiliser les pilotes de périphérique tant qu'ils ne sont pas distribués sur des points de distribution. Si vous cliquez sur **Non**, vous devez exécuter l'action **Mettre à jour les points de distribution** pour que l'image de démarrage contienne les pilotes mis à jour. Si le package de pilotes n'a jamais été distribué, vous devez cliquer sur **Distribuer du contenu** à partir du nœud **Packages de pilotes** .  
+    -   Klik in het dialoogvenster op **Ja** om de opstartinstallatiekopieën op de distributiepunten bij te werken. U kunt geen apparaatstuurprogramma's gebruiken totdat ze naar distributiepunten worden gedistribueerd. Als u op **Nee****Distributiepunt bijwerken** uitvoeren voordat de opstartinstallatiekopie de bijgewerkte stuurprogramma's bevat. Als het stuurprogrammapakket nog nooit is gedistribueerd, klikt u op **Inhoud distribueren** in het knooppunt **Stuurprogrammapakketten** .  
 
-    -   Configuration Manager vous avertit si l’architecture d’un ou plusieurs pilotes ne correspond pas à celle des images de démarrage que vous avez sélectionnées. Si elles ne correspondent pas, cliquez sur **OK** et revenez à la page **Détails du pilote** pour effacer les pilotes qui ne correspondent pas à l'architecture de l'image de démarrage sélectionnée. Par exemple, si vous sélectionnez une image de démarrage x64 et x86, tous les pilotes doivent prendre en charge les deux architectures. Si vous sélectionnez une image de démarrage x64, tous les pilotes doivent prendre en charge l'architecture x 64.  
-
-        > [!NOTE]  
-        >  -   L'architecture est basée sur l'architecture signalée dans le fichier .INF du fabricant.  
-        > -   Si un pilote indique qu'il prend en charge les deux architectures, vous pouvez l'importer dans l'une ou l'autre image de démarrage.  
-
-    -   Configuration Manager vous avertit si les pilotes de périphérique que vous ajoutez à une image de démarrage ne sont ni des pilotes réseau ni des pilotes de stockage, car dans la plupart des cas ils ne sont pas nécessaires pour l’image de démarrage. Cliquez sur **Oui** pour ajouter les pilotes à l'image de démarrage ou sur **Non** pour revenir en arrière et modifier votre sélection de pilote.  
-
-    -   Configuration Manager vous avertit si un ou plusieurs pilotes sélectionnés ne sont pas correctement signés numériquement. Cliquez sur **Oui** pour continuer ou sur **Non** pour revenir en arrière et apporter des modifications à votre sélection de pilote.  
-
-8.  Effectuez toutes les étapes de l'Assistant.  
-
-###  <a name="BKMK_ModifyDriverPackage"></a> Gérer les pilotes de périphérique dans un package de pilotes  
- Utilisez les procédures suivantes pour modifier les packages de pilotes et les images de démarrage. Pour ajouter ou supprimer des pilotes de périphérique, recherchez les pilotes dans le nœud **Pilotes** , puis modifiez les packages ou les images de démarrage auxquels les pilotes sélectionnés sont associés.  
-
-#### <a name="to-modify-the-device-drivers-in-a-driver-package"></a>Pour modifier les pilotes de périphérique dans un package de pilotes  
-
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
-
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Pilotes**.  
-
-3.  Dans le nœud **Pilotes** , sélectionnez les pilotes de périphérique que vous souhaitez ajouter au package de pilotes.  
-
-4.  Dans l'onglet **Accueil** , dans le groupe **Pilote** , cliquez sur **Modifier**, puis sur **Packages de pilotes**.  
-
-5.  Pour ajouter un pilote de périphérique, activez la case à cocher des packages de pilotes auxquels vous souhaitez ajouter les pilotes de périphérique. Pour supprimer un pilote de périphérique, désactivez la case à cocher des packages de pilotes desquels vous souhaitez supprimer le pilote de périphérique.  
-
-     Si vous ajoutez des pilotes de périphérique associés à des packages de pilotes, vous pouvez éventuellement créer un nouveau package en cliquant sur **Nouveau package**qui ouvre la boîte de dialogue **Nouveau package de pilotes** .  
-
-6.  Si le package a déjà été distribué à des points de distribution, cliquez sur **Oui** dans la boîte de dialogue pour mettre à jour les images de démarrage sur les points de distribution. Vous ne pouvez pas utiliser les pilotes de périphérique tant qu'ils ne sont pas distribués sur des points de distribution. Si vous cliquez sur **Non**, vous devez exécuter l'action **Mettre à jour les points de distribution** pour que l'image de démarrage contienne les pilotes mis à jour. Si le package de pilotes n'a jamais été distribué, vous devez cliquer sur **Distribuer du contenu** à partir du nœud **Packages de pilotes** . Pour que les pilotes soient disponibles, vous devez mettre à jour le package de pilotes sur les points de distribution.  
-
-     Cliquez sur **OK**.  
-
-###  <a name="BKMK_ManageDriversBootImage"></a> Gérer les pilotes de périphérique dans une image de démarrage  
- Vous pouvez ajouter des pilotes de périphérique Windows qui ont été importés dans le catalogue de pilotes à des images de démarrage . Lorsque vous ajoutez des pilotes de périphérique à une image de démarrage, procédez comme suit :  
-
--   Ajoutez uniquement les pilotes de périphérique de stockage de masse et de carte réseau aux images de démarrage, car les autres types de pilotes ne sont généralement pas requis. Les pilotes qui ne sont pas requis augmentent inutilement la taille de l'image de démarrage.  
-
--   Ajoutez uniquement les pilotes de périphérique pour Windows 10 à une image de démarrage, car la version requise de Windows PE est basée sur Windows 10.  
-
--   Assurez-vous que vous utilisez le pilote de périphérique correct pour l'architecture de l'image de démarrage.  N'ajoutez pas un pilote de périphérique x86 à une image de démarrage x64.  
-
- Pour ajouter ou supprimer des pilotes de périphérique dans une image de démarrage, procédez comme suit :  
-
-#### <a name="to-modify-the--device-drivers-associated-with-a-boot-image"></a>Pour modifier les pilotes de périphérique associés à une image de démarrage  
-
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
-
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Pilotes**.  
-
-3.  Dans le nœud **Pilotes** , sélectionnez les pilotes de périphérique que vous souhaitez ajouter au package de pilotes.  
-
-4.  Dans l'onglet **Accueil** , dans le groupe **Pilote** , cliquez sur **Modifier**, puis sur **Images de démarrage**.  
-
-5.  Pour ajouter un pilote de périphérique, activez la case à cocher de l'image de démarrage à laquelle vous souhaitez ajouter les pilotes de périphérique. Pour supprimer un pilote de périphérique, désactivez la case à cocher de l'image de démarrage de laquelle vous souhaitez supprimer le pilote de périphérique.  
-
-6.  Si vous ne souhaitez pas mettre à jour les points de distribution dans lesquels l'image de démarrage est stockée, désactivez la case à cocher **Mettre à jour les points de distribution une fois terminé** . Par défaut, les points de distribution sont mis à jour lorsque l'image de démarrage est mise à jour.  
-
-     Cliquez sur **OK** et tenez compte des points suivants :  
-
-    -   Cliquez sur **Oui** dans la boîte de dialogue pour mettre à jour les images de démarrage sur les points de distribution. Vous ne pouvez pas utiliser les pilotes de périphérique tant qu'ils ne sont pas distribués sur des points de distribution. Si vous cliquez sur **Non**, vous devez exécuter l'action **Mettre à jour les points de distribution** pour que l'image de démarrage contienne les pilotes mis à jour. Si le package de pilotes n'a jamais été distribué, vous devez cliquer sur **Distribuer du contenu** à partir du nœud **Packages de pilotes** .  
-
-    -   Configuration Manager vous avertit si l’architecture d’un ou plusieurs pilotes ne correspond pas à celle des images de démarrage que vous avez sélectionnées. Si elles ne correspondent pas, cliquez sur **OK** et revenez à la page **Détails du pilote** pour effacer les pilotes qui ne correspondent pas à l'architecture de l'image de démarrage sélectionnée. Par exemple, si vous sélectionnez une image de démarrage x64 et x86, tous les pilotes doivent prendre en charge les deux architectures. Si vous sélectionnez une image de démarrage x64, tous les pilotes doivent prendre en charge l'architecture x 64.  
+    -   Configuration Manager waarschuwt u als de architectuur voor een of meer stuurprogramma's komt niet overeen met de architectuur van de opstartinstallatiekopieën die u hebt geselecteerd. Als ze niet overeenkomen, klikt u op **OK** en keert u terug naar de pagina **Stuurprogrammagegevens** om de stuurprogramma's te verwijderen die niet overeenkomen met de architectuur van de geselecteerde opstartinstallatiekopie. Als u bijvoorbeeld een x64- en x86-installatiekopie selecteert, moeten alle stuurprogramma's beide architecturen ondersteunen. Als u een x64-installatiekopie selecteert, moeten alle stuurprogramma's de x64-architectuur ondersteunen.  
 
         > [!NOTE]  
-        >  -   L'architecture est basée sur l'architecture signalée dans le fichier .INF du fabricant.  
-        > -   Si un pilote indique qu'il prend en charge les deux architectures, vous pouvez l'importer dans l'une ou l'autre image de démarrage.  
+        >  -   De architectuur is gebaseerd op de architectuur die wordt vermeld in de .INF van de fabrikant.  
+        > -   Als een stuurprogramma aangeeft dat beide architecturen worden ondersteund, kunt u het naar een van beide installatiekopieën importeren.  
 
-    -   Configuration Manager vous avertit si les pilotes de périphérique que vous ajoutez à une image de démarrage ne sont ni des pilotes réseau ni des pilotes de stockage, car dans la plupart des cas ils ne sont pas nécessaires pour l’image de démarrage. Cliquez sur **Oui** pour ajouter les pilotes à l'image de démarrage ou sur **Non** pour revenir en arrière et modifier votre sélection de pilote.  
+    -   Configuration Manager waarschuwt u als u apparaatstuurprogramma's die geen netwerk- of opslagstuurprogramma's aan een opstartinstallatiekopie omdat in de meeste gevallen niet nodig zijn voor de installatiekopie toevoegen. Klik op **Ja** om de stuurprogramma's toe te voegen aan de opstartinstallatiekopie of op **Nee** om terug te keren en uw stuurprogrammaselectie te wijzigen.  
 
-    -   Configuration Manager vous avertit si un ou plusieurs pilotes sélectionnés ne sont pas correctement signés numériquement. Cliquez sur **Oui** pour continuer ou sur **Non** pour revenir en arrière et apporter des modifications à votre sélection de pilote.  
+    -   Configuration Manager waarschuwt u als een of meer van de geselecteerde stuurprogramma's zijn niet goed zijn ondertekend. Klik op **Ja** om door te gaan en op **Nee** om terug te keren en wijzigingen aan te brengen in uw stuurprogrammaselectie.  
 
-7.  Cliquez sur **OK**.  
+8.  Voltooi de wizard.  
 
-###  <a name="BKMK_DriverActions"></a> Actions supplémentaires concernant les pilotes de périphérique  
- Vous pouvez effectuer des actions supplémentaires pour gérer les pilotes de périphérique lorsque vous sélectionnez un ou plusieurs pilotes de périphérique dans le nœud **Pilotes** . Ces actions incluent :  
+###  <a name="BKMK_ModifyDriverPackage"></a> Beheren van apparaatstuurprogramma's in een stuurprogrammapakket  
+ Gebruik de volgende procedures om de stuurprogrammapakketten en opstartinstallatiekopieën te wijzigen. Zoek de stuurprogramma's in het knooppunt **Stuurprogramma's** om apparaatstuurprogramma's toe te voegen of te verwijderen en bewerk vervolgens de pakketten of opstartinstallatiekopieën waarmee de geselecteerde stuurprogramma's zijn gekoppeld.  
 
-|Action|Description|  
+#### <a name="to-modify-the-device-drivers-in-a-driver-package"></a>De apparaatstuurprogramma's in een stuurprogrammapakket wijzigen  
+
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+
+2.  Vouw in de werkruimte **Softwarebibliotheek** de optie **Besturingssysteem**uit en klik vervolgens op **Stuurprogramma's**.  
+
+3.  Selecteer de apparaatstuurprogramma's die u wilt toevoegen aan het stuurprogrammapakket in het knooppunt **Stuurprogramma's** .  
+
+4.  Klik in de groep **Stuurprogramma** van het tabblad **Start** op **Bewerken**en klik vervolgens op **Stuurprogrammapakketten**.  
+
+5.  Selecteer het selectievakje van de stuurprogrammapakketten waaraan u de apparaatstuurprogramma's wilt toevoegen om een apparaatstuurprogramma toe te voegen. Deselecteer het selectievakje van de stuurprogrammapakketten waaraan u de apparaatstuurprogramma's wilt toevoegen om een apparaatstuurprogramma te verwijderen.  
+
+     Als u apparaatstuurprogramma's toevoegt die zijn gekoppeld met stuurprogrammapakketten, kunt u eventueel ook een nieuw pakket maken door te klikken op **Nieuw pakket**. Hiermee wordt het dialoogvenster **Nieuw stuurprogrammapakket** geopend.  
+
+6.  Als het pakket al is gedistribueerd naar distributiepunten, klikt u in het dialoogvenster op **Ja** om de opstartinstallatiekopieën op distributiepunten bij te werken. U kunt geen apparaatstuurprogramma's gebruiken totdat ze naar distributiepunten worden gedistribueerd. Als u op **Nee****Distributiepunt bijwerken** uitvoeren voordat de opstartinstallatiekopie de bijgewerkte stuurprogramma's bevat. Als het stuurprogrammapakket nog nooit is gedistribueerd, klikt u op **Inhoud distribueren** in het knooppunt **Stuurprogrammapakketten**. Voordat de stuurprogramma's beschikbaar worden, moet u het stuurprogrammapakket op de distributiepunten bijwerken.  
+
+     Klik op **OK**.  
+
+###  <a name="BKMK_ManageDriversBootImage"></a> Apparaatstuurprogramma's in een opstartinstallatiekopie beheren  
+ U kunt Windows-apparaatstuurprogramma's die zijn geïmporteerd in de stuurprogrammacatalogus, toevoegen aan opstartinstallatiekopieën. Gebruik de volgende richtlijnen wanneer u apparaatstuurprogramma's toevoegt aan een opstartinstallatiekopie:  
+
+-   Voeg alleen apparaatstuurprogramma's voor massaopslag en netwerkadapters toe aan opstartinstallatiekopieën; andere typen stuurprogramma's zijn doorgaans namelijk niet vereist. Stuurprogramma's die niet vereist zijn, maken de opstartinstallatiekopie alleen maar onnodig groot.  
+
+-   Voeg alleen apparaatstuurprogramma's voor Windows 10 aan een opstartinstallatiekopie toe. De vereiste versie van Windows PE is namelijk gebaseerd op Windows 10.  
+
+-   Zorg dat u het juiste apparaatstuurprogramma gebruikt voor de architectuur van de opstartinstallatiekopie.  Voeg geen x86-apparaatstuurprogramma toe aan een x64-opstartinstallatiekopie.  
+
+ Gebruik de volgende procedure als u apparaatstuurprogramma's aan een opstartinstallatiekopie wilt toevoegen of apparaatstuurprogramma's wilt verwijderen.  
+
+#### <a name="to-modify-the--device-drivers-associated-with-a-boot-image"></a>Apparaatstuurprogramma's aanpassen die zijn gekoppeld aan een opstartinstallatiekopie  
+
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
+
+2.  Vouw in de werkruimte **Softwarebibliotheek** de optie **Besturingssysteem**uit en klik vervolgens op **Stuurprogramma's**.  
+
+3.  Selecteer de apparaatstuurprogramma's die u wilt toevoegen aan het stuurprogrammapakket in het knooppunt **Stuurprogramma's** .  
+
+4.  Klik in de groep **Stuurprogramma** op het tabblad **Start** op **Bewerken**en klik vervolgens op **Opstartinstallatiekopieën**.  
+
+5.  Selecteer het selectievakje van de installatiekopie waaraan u de apparaatstuurprogramma's wilt toevoegen om een apparaatstuurprogramma toe te voegen. Deselecteer het selectievakje van de installatiekopie waaraan u de apparaatstuurprogramma's wilt toevoegen om een apparaatstuurprogramma te verwijderen.  
+
+6.  Schakel het selectievakje **Distributiepunten bijwerken na voltooiing** uit als u de distributiepunten waar de installatiekopie wordt opgeslagen, niet wilt bijwerken. Standaard worden de distributiepunten bijgewerkt wanneer de installatiekopie wordt bijgewerkt.  
+
+     Klik op **OK** en neem het volgende in overweging:  
+
+    -   Klik in het dialoogvenster op **Ja** om de opstartinstallatiekopieën op de distributiepunten bij te werken. U kunt geen apparaatstuurprogramma's gebruiken totdat ze naar distributiepunten worden gedistribueerd. Als u op **Nee****Distributiepunt bijwerken** uitvoeren voordat de opstartinstallatiekopie de bijgewerkte stuurprogramma's bevat. Als het stuurprogrammapakket nog nooit is gedistribueerd, klikt u op **Inhoud distribueren** in het knooppunt **Stuurprogrammapakketten** .  
+
+    -   Configuration Manager waarschuwt u als de architectuur voor een of meer stuurprogramma's komt niet overeen met de architectuur van de opstartinstallatiekopieën die u hebt geselecteerd. Als ze niet overeenkomen, klikt u op **OK** en keert u terug naar de pagina **Stuurprogrammagegevens** om de stuurprogramma's te verwijderen die niet overeenkomen met de architectuur van de geselecteerde opstartinstallatiekopie. Als u bijvoorbeeld een x64- en x86-installatiekopie selecteert, moeten alle stuurprogramma's beide architecturen ondersteunen. Als u een x64-installatiekopie selecteert, moeten alle stuurprogramma's de x64-architectuur ondersteunen.  
+
+        > [!NOTE]  
+        >  -   De architectuur is gebaseerd op de architectuur die wordt vermeld in de .INF van de fabrikant.  
+        > -   Als een stuurprogramma aangeeft dat beide architecturen worden ondersteund, kunt u het naar een van beide installatiekopieën importeren.  
+
+    -   Configuration Manager waarschuwt u als u apparaatstuurprogramma's die geen netwerk- of opslagstuurprogramma's aan een opstartinstallatiekopie omdat in de meeste gevallen niet nodig zijn voor de installatiekopie toevoegen. Klik op **Ja** om de stuurprogramma's toe te voegen aan de opstartinstallatiekopie of op **Nee** om terug te keren en uw stuurprogrammaselectie te wijzigen.  
+
+    -   Configuration Manager waarschuwt u als een of meer van de geselecteerde stuurprogramma's zijn niet goed zijn ondertekend. Klik op **Ja** om door te gaan en op **Nee** om terug te keren en wijzigingen aan te brengen in uw stuurprogrammaselectie.  
+
+7.  Klik op **OK**.  
+
+###  <a name="BKMK_DriverActions"></a> Aanvullende acties voor apparaatstuurprogramma's  
+ U kunt de volgende bewerkingen uitvoeren om apparaatstuurprogramma's te beheren wanneer u een of meer apparaatstuurprogramma's selecteert in het knooppunt **Stuurprogramma's** . Deze acties omvatten het volgende:  
+
+|Actie|Beschrijving|  
 |------------|-----------------|  
-|**Catégoriser**|Efface, gère ou définit une catégorie administrative pour les pilotes de périphérique sélectionnés.|  
-|**Supprimer**|Supprime le pilote de périphérique du nœud **Pilotes** et supprime également le pilote des points de distribution associés.|  
-|**Désactiver**|Empêche l'installation du pilote de périphérique. Vous pouvez désactiver temporairement les pilotes de périphérique pour que les ordinateurs clients et les séquences de tâches Configuration Manager ne puissent pas les installer quand vous déployez des systèmes d’exploitation. **Remarque :**  L’action Désactiver empêche seulement les pilotes de s’installer en utilisant la séquence de tâches Appliquer automatiquement les pilotes.|  
-|**Activer**|Permet aux ordinateurs clients et aux séquences de tâches Configuration Manager d’installer le pilote de périphérique pendant le déploiement du système d’exploitation.|  
-|**Déplacer**|Déplace le pilote de périphérique vers un autre dossier dans le nœud **Pilotes** .|  
-|**Propriétés**|Ouvre la boîte de dialogue **Propriétés** dans laquelle vous pouvez examiner et modifier les propriétés du pilote de périphérique. Par exemple, vous pouvez modifier le nom et la description du pilote de périphérique, activer le pilote de périphérique et spécifier les plates-formes sur lesquelles le pilote de périphérique peut être exécuté.|  
+|**Categoriseren**|Wist, beheer of configureert een beheercategorie voor de geselecteerde apparaatstuurprogramma's.|  
+|**Verwijderen**|Verwijdert het apparaatstuurprogramma uit het knooppunt **Stuurprogramma's** en verwijdert het stuurprogramma ook uit de gekoppelde distributiepunten.|  
+|**Uitschakelen**|Zorgt ervoor dat het apparaatstuurprogramma niet kan worden geïnstalleerd. U kunt apparaatstuurprogramma's tijdelijk uitschakelen zodat Configuration Manager-clientcomputers en takenreeks ze niet kunnen installeren wanneer u besturingssystemen implementeert. **Opmerking:**  De actie uitschakelen alleen voorkomen dat stuurprogramma's worden geïnstalleerd via de takenreeksstap voor het automatisch toepassen van stuurprogramma.|  
+|**Inschakelen**|Hiermee kunt Configuration Manager-clientcomputers en -takenreeksen het apparaatstuurprogramma installeren wanneer het besturingssysteem wordt geïmplementeerd.|  
+|**Verplaatsen**|Verplaatst het apparaatstuurprogramma naar een andere map in het knooppunt **Stuurprogramma's** .|  
+|**Eigenschappen**|Opent het dialoogvenster **Eigenschappen** waar u de eigenschappen van het apparaatstuurprogramma kunt controleren en wijzigen. U kunt bijvoorbeeld de naam en beschrijving wijzigen van het apparaatstuurprogramma, het apparaatstuurprogramma inschakelen en specificeren op welke platformen het apparaatstuurprogramma kan worden uitgevoerd.|  
 
-##  <a name="BKMK_TSDrivers"></a> Utiliser des séquences de tâches pour installer des pilotes de périphérique  
- Utilisez des séquences de tâches pour automatiser le déploiement du système d'exploitation. Chaque étape de la séquence de tâches peut exécuter une action spécifique, telle que l'installation d'un pilote de périphérique. Vous pouvez utiliser les étapes de séquence de tâches suivantes pour installer les pilotes de périphériques pendant que vous déployez des systèmes d'exploitation :  
+##  <a name="BKMK_TSDrivers"></a> Takenreeksen gebruiken om apparaatstuurprogramma's te installeren  
+ Gebruik takenreeksen om de manier waarop het besturingssysteem wordt geïmplementeerd, te automatiseren. Met elke stap in de takenreeks wordt een specifieke actie uitgevoerd, zoals de installatie van een apparaatstuurprogramma. U kunt de volgende twee stappen in een takenreeks gebruiken om apparaatstuurprogramma's te installeren terwijl u besturingssystemen implementeert:  
 
--   [Appliquer automatiquement les pilotes](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers) : cette étape permet de faire correspondre et d’installer automatiquement des pilotes de périphérique pendant le déploiement d’un système d’exploitation. Vous pouvez configurer l'étape de la séquence de tâches de sorte que seul le meilleur pilote correspondant pour chaque périphérique matériel détecté soit installé ou bien spécifier que l'étape de la séquence de tâches installe tous les pilotes compatibles pour chaque périphérique matériel détecté et laisser ensuite le programme d'installation Windows choisir le pilote le mieux adapté. En outre, vous pouvez spécifier une catégorie de pilotes de périphérique pour limiter les pilotes qui sont disponibles pour cette étape.  
+-   [Stuurprogramma's automatisch toepassen](../understand/task-sequence-steps.md#BKMK_AutoApplyDrivers): Deze stap kunt u automatisch vergelijken en installeren van apparaatstuurprogramma's als onderdeel van een besturingssysteem-implementatie. U kunt de stap in de takenreeks zodanig configureren dat alleen het meest overeenkomende stuurprogramma voor elk gedetecteerd hardwareapparaat wordt geïnstalleerd, of u kunt opgeven dat met de stap in de takenreeks alle compatibele stuurprogramma's voor elk gedetecteerd hardwareapparaat worden geïnstalleerd. Vervolgens laat u Windows Setup het beste stuurprogramma kiezen. Bovendien kunt u een categorie met apparaatstuurprogramma's opgeven om te beperken welke stuurprogramma's beschikbaar zijn voor deze stap.  
 
--   [Appliquer le package de pilotes](../understand/task-sequence-steps.md#BKMK_ApplyDriverPackage) : cette étape permet de mettre tous les pilotes de périphérique contenus dans un package de pilotes spécifique à la disposition du programme d’installation de Windows. Dans les packages de pilotes spécifiés, le programme d'installation de Windows recherche les pilotes de périphérique qui sont nécessaires. Quand vous créez un média autonome, vous devez utiliser cette étape pour installer les pilotes de périphérique.  
+-   [Stuurprogrammapakket toepassen](../understand/task-sequence-steps.md#BKMK_ApplyDriverPackage): Deze stap kunt u alle apparaatstuurprogramma's in een specifiek stuurprogrammapakket beschikbaar maken voor Windows Setup. Windows Setup zoekt in de opgegeven stuurprogrammapakketten naar de vereiste apparaatstuurprogramma's. Wanneer u zelfstandige media maakt, moet u deze stap gebruiken om apparaatstuurprogramma's te installeren.  
 
- Lorsque vous utilisez ces étapes de séquence de tâches, vous pouvez également spécifier la manière dont les pilotes de périphérique sont installés sur l'ordinateur où vous déployez le système d'exploitation. Pour plus d’informations, consultez [Gérer les séquences de tâches pour automatiser des tâches](../deploy-use/manage-task-sequences-to-automate-tasks.md).  
+ Wanneer u deze takenreeksstappen gebruikt, kunt u ook opgeven hoe de apparaatstuurprogramma's worden geïnstalleerd op de computer waarop u het besturingssysteem installeert. Zie voor meer informatie [beheren van takenreeksen om taken te automatiseren](../deploy-use/manage-task-sequences-to-automate-tasks.md).  
 
-##  <a name="BKMK_InstallingDeviceDiriversTS"></a> Utiliser des séquences de tâches pour installer des pilotes de périphérique sur des ordinateurs  
- Utilisez la procédure suivante pour installer des pilotes de périphérique dans le cadre du déploiement de systèmes d'exploitation.  
+##  <a name="BKMK_InstallingDeviceDiriversTS"></a> Takenreeksen gebruiken om apparaatstuurprogramma's op computers te installeren  
+ Gebruik de volgende procedure om apparaatstuurprogramma's te installeren als onderdeel van de implementatie van besturingssystemen.  
 
-#### <a name="use-a-task-sequence-to-install-device-drivers"></a>Utiliser une séquence de tâches pour installer des pilotes de périphérique  
+#### <a name="use-a-task-sequence-to-install-device-drivers"></a>Een takenreeks gebruiken om apparaatstuurprogramma's op computers te installeren  
 
-1.  Dans la console Configuration Manager, cliquez sur **Bibliothèque de logiciels**.  
+1.  Klik in de Configuration Manager-console op **Softwarebibliotheek**.  
 
-2.  Dans l'espace de travail **Bibliothèque de logiciels** , développez **Systèmes d'exploitation**, puis cliquez sur **Séquences de tâches**.  
+2.  Vouw **Besturingssystemen** uit in de werkruimte **Softwarebibliotheek**en klik op **Takenreeksen**.  
 
-3.  Dans le nœud **Séquences de tâches** , sélectionnez la séquence de tâches que vous souhaitez modifier pour installer le pilote de périphérique, puis cliquez sur **Modifier**.  
+3.  Selecteer in het knooppunt **Takenreeksen** de takenreeks die u wilt wijzigen om het apparaatstuurprogramma te installeren. Klik vervolgens op **Bewerken**.  
 
-4.  Rendez-vous à l'emplacement où vous souhaitez ajouter les étapes **Pilote** , cliquez sur **Ajouter**, puis sélectionnez **Pilotes**.  
+4.  Ga naar de locatie waar u de stappen **Stuurprogramma** wilt toevoegen en klik op **Toevoegen**. Selecteer vervolgens **Stuurprogramma's**.  
 
-5.  Ajoutez l'étape **Appliquer automatiquement les pilotes** si vous souhaitez que la séquence de tâches installe tous les pilotes de périphérique ou les catégories spécifiques qui sont spécifiées. Spécifiez les options pour l'étape sous l'onglet **Propriétés** et les conditions pour l'étape sous l'onglet **Options** .  
+5.  Voeg de stap **Stuurprogramma's automatisch toepassen** toe als u wilt dat de takenreeks alle apparaatstuurprogramma's of de specifieke opgegeven categorieën installeert. Geef de opties op voor de stap op het tabblad **Eigenschappen** en eventuele voorwaarden voor de stap op het tabblad **Opties** .  
 
-     Ajoutez l'étape **Appliquer le package de pilotes** si vous souhaitez que la séquence de tâches installe uniquement ces pilotes de périphérique à partir du package spécifié. Spécifiez les options pour l'étape sous l'onglet **Propriétés** et les conditions pour l'étape sous l'onglet **Options** .  
+     Voeg de stap **Stuurprogrammapakket toepassen** toe als u wilt dat de takenreeks alleen die apparaatstuurprogramma's van het opgegeven pakket installeert. Geef de opties op voor de stap op het tabblad **Eigenschappen** en eventuele voorwaarden voor de stap op het tabblad **Opties** .  
 
     > [!IMPORTANT]  
-    >  Vous pouvez sélectionner **Désactiver cette étape** sous l’onglet **Options** pour désactiver l’étape de dépannage de la séquence de tâches.  
+    >  U kunt op het tabblad **Opties** de optie **Deze stap uitschakelen** selecteren om de stap voor het oplossen van problemen met de takenreeks uit te schakelen.  
 
-6.  Cliquez sur **OK** pour enregistrer la séquence de tâches.  
+6.  Klik op **OK** om de takenreeks op te slaan.  
 
- Pour plus d’informations sur la création d’une séquence de tâches pour installer un système d’exploitation, consultez [Créer une séquence de tâches pour installer un système d’exploitation](../deploy-use/create-a-task-sequence-to-install-an-operating-system.md).  
+ Zie voor meer informatie over het maken van een takenreeks om een besturingssysteem te installeren, [een takenreeks maken om een besturingssysteem te installeren](../deploy-use/create-a-task-sequence-to-install-an-operating-system.md).  
 
-##  <a name="BKMK_DriverReports"></a> Rapports de gestion de pilotes  
- Vous pouvez utiliser plusieurs rapports dans la catégorie des rapports **Gestion des pilotes** pour déterminer des informations générales sur les pilotes de périphérique dans le catalogue de pilotes. Pour plus d’informations sur les rapports, consultez [Rapports](../../core/servers/manage/reporting.md).
+##  <a name="BKMK_DriverReports"></a> Stuurprogrammabeheerrapporten  
+ U kunt diverse rapporten in de rapportencategorie **Stuurprogrammabeheer** gebruiken om algemene informatie over de apparaatstuurprogramma's in de stuurprogrammacatalogus te bepalen. Zie voor meer informatie over rapporten [rapportage](../../core/servers/manage/reporting.md).

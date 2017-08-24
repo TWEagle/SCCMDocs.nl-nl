@@ -1,6 +1,6 @@
 ---
-title: "Désinstaller des sites | Microsoft Docs"
-description: "Utilisez ces informations comme référence pour désinstaller un site System Center Configuration Manager."
+title: Sites verwijderen | Microsoft Docs
+description: Gebruik deze informatie als richtlijn om een System Center Configuration Manager-site te verwijderen.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,123 +17,123 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 6ad06753dc0e1d0958f7131afbf3ecb75eecb2e3
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="uninstall-sites-and-hierarchies-in-system-center-configuration-manager"></a>Désinstaller des sites et des hiérarchies dans System Center Configuration Manager
+# <a name="uninstall-sites-and-hierarchies-in-system-center-configuration-manager"></a>Sites en hiërarchieën verwijderen in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Utilisez les informations suivantes comme référence si vous devez désinstaller un site System Center Configuration Manager.  
+Gebruik de volgende informatie als richtlijn als u nodig hebt om een System Center Configuration Manager-site te verwijderen.  
 
-Pour retirer une hiérarchie comportant plusieurs sites, l’ordre de suppression est important. Commencez par désinstaller les sites en bas de la hiérarchie, puis remontez la hiérarchie :  
+Buiten gebruik stellen een hiërarchie met meerdere sites, de volgorde van de verwijdering is belangrijk. Begin met het verwijderen van de sites aan de onderkant van de hiërarchie en vervolgens omhoog:  
 
-1.  Supprimez les sites secondaires rattachés aux sites principaux.  
-2.  Supprimez les sites principaux.
-3.  Une fois tous les sites principaux supprimés, vous pouvez désinstaller le site d’administration centrale.  
+1.  Verwijder secundaire sites gekoppeld aan primaire sites.  
+2.  Primaire sites verwijderen.
+3.  Nadat alle primaire sites zijn verwijderd, kunt u de centrale beheersite verwijderen.  
 
 
-##  <a name="BKMK_RemoveSecondarysite"></a> Supprimer un site secondaire d’une hiérarchie  
-Vous ne pouvez pas déplacer ou réattribuer un site secondaire à un nouveau site principal parent. Pour supprimer un site secondaire d’une hiérarchie, vous devez le supprimer de son site parent direct. Pour ce faire, utilisez l’Assistant Suppression d’un site secondaire de la console Configuration Manager. Lors de la suppression d’un site secondaire, vous devez choisir entre le supprimer et le désinstaller :  
+##  <a name="BKMK_RemoveSecondarysite"></a> Een secundaire site uit een hiërarchie verwijderen  
+U kunt verplaatsen van een secundaire site of opnieuw toewijzen van een secundaire site naar een nieuwe bovenliggende primaire site. Om te worden verwijderd uit een hiërarchie, moet een secundaire site worden verwijderd uit de direct bovenliggende site. Gebruik de Wizard secundaire Site verwijderen uit de Configuration Manager-console om een secundaire site te verwijderen. Wanneer u een secundaire site verwijdert, moet u kiezen of u wilt verwijderen of deze verwijderen:  
 
--   **Désinstaller le site secondaire**. Utilisez cette option pour supprimer un site secondaire fonctionnel accessible à partir du réseau. Cette option désinstalle Configuration Manager du serveur de site secondaire et supprime toutes les informations relatives au site et ses ressources de la hiérarchie de sites Configuration Manager. Si Configuration Manager a installé SQL Server Express dans le cadre de l’installation du site secondaire, SQL Express est désinstallé en même temps que le site secondaire. En revanche, si SQL Server Express a été installé avant le site secondaire, Configuration Manager ne désinstalle pas SQL Server Express.  
+-   **De secundaire site verwijderen**. Gebruik deze optie om het verwijderen van een functionele secundaire site die toegankelijk is vanaf het netwerk. Deze optie verwijdert Configuration Manager van de secundaire siteserver en verwijdert vervolgens alle informatie over de site en de daarbij behorende bronnen uit de sitehiërarchie van Configuration Manager. Als Configuration Manager SQL Server Express als onderdeel van de secundaire site-installatie installeerde, Configuration Manager wordt SQL Express deïnstalleren wanneer het de secundaire site deïnstalleert. Als SQL Server Express is geïnstalleerd voordat u de secundaire site hebt geïnstalleerd, verwijdert Configuration Manager niet SQL Server Express.  
 
--   **Supprimer le site secondaire**. Utilisez cette option dans l'un des cas de figure suivants :  
+-   **De secundaire site verwijderen**. Gebruik deze optie als u een van de volgende wordt voldaan:  
 
-    -   L’installation d’un site secondaire a échoué  
-    -   Le site secondaire continue de figurer dans la console Configuration Manager après sa désinstallation
+    -   Een secundaire site kan niet installeren  
+    -   De secundaire site blijft in de Configuration Manager-console worden weergegeven nadat u deze eerst verwijderen
 
-    Cette option supprime toutes les informations relatives au site et ses ressources de la hiérarchie Configuration Manager, mais laisse Configuration Manager installé sur le serveur de site secondaire.  
+    Deze optie verwijdert alle informatie over de site en de daarbij behorende bronnen uit de Configuration Manager-hiërarchie, maar blijft Configuration Manager geïnstalleerd op de secundaire siteserver.  
 
     > [!NOTE]  
-    >  Vous pouvez également utiliser l’outil de maintenance hiérarchique et l’option **/DELSITE** pour supprimer un site secondaire. Pour plus d’informations, consultez [Outil de maintenance hiérarchique (Preinst.exe) pour System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md).  
+    >  Ook kunt u de Hierarchy Maintenance Tool en de **/delsite** optie om een secundaire site te verwijderen. Zie [Hierarchy Maintenance Tool (Preinst.exe) voor System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md) voor meer informatie.  
 
-#### <a name="to-uninstall-or-delete-a-secondary-site"></a>Pour désinstaller ou supprimer un site secondaire  
+#### <a name="to-uninstall-or-delete-a-secondary-site"></a>Een secundaire site deïnstalleren of verwijderen  
 
-1.  Vérifiez que l'utilisateur administratif exécutant le programme d'installation possède les droits de sécurité suivants :  
+1.  Controleer of de gebruiker met beheerdersrechten die het installatieprogramma uitvoert beschikt over de volgende beveiligingsrechten:  
 
-    -   Droits d’administration sur l’ordinateur de site secondaire  
-    -   Droits d’administrateur local sur le serveur de base de données de site distant pour le site principal, s’il est distant  
-    -   Rôle de sécurité d’administrateur d’infrastructure ou d’administrateur complet sur le site principal parent  
-    -   Droits d’administrateur système sur la base de données de site du site secondaire  
+    -   Beheerrechten op de secundaire sitecomputer  
+    -   Lokale beheerdersrechten op de externe Sitedatabaseserver voor de primaire site als deze extern  
+    -   Beveiligingsrol infrastructuurbeheerder of volledige beheerder op de bovenliggende primaire site  
+    -   Sysadmin-rechten op de sitedatabase van de secundaire site  
 
-2.  Dans la console Configuration Manager, sélectionnez **Administration**.  
-3.  Dans l’espace de travail **Administration**, développez **Configuration du site**, puis sélectionnez **Sites**.  
-4.  Sélectionnez le serveur de site secondaire à supprimer.  
-5.  Sous l’onglet **Accueil**, dans le groupe **Site**, sélectionnez **Supprimer**.  
-6.  Dans la page **Général**, indiquez si vous souhaitez désinstaller ou supprimer le site secondaire, puis cliquez sur **Suivant**.  
-7.  Vérifiez les paramètres de la page **Résumé**, puis sélectionnez **Suivant**.  
-8.  Dans la page **Dernière étape**, sélectionnez **Fermer** pour quitter l’Assistant.  
+2.  Selecteer in de Configuration Manager-console **beheer**.  
+3.  In de **beheer** werkruimte Vouw **siteconfiguratie**, en selecteer vervolgens **Sites**.  
+4.  Selecteer de secundaire siteserver die u wilt verwijderen.  
+5.  Op de **Start** tabblad, in de **Site** Selecteer **verwijderen**.  
+6.  Selecteer op de pagina **Algemeen** of u de secundaire site wilt deïnstalleren of verwijderen, en klik vervolgens op **Volgende**.  
+7.  Op de **samenvatting** pagina, Controleer de instellingen en selecteer vervolgens **volgende**.  
+8.  Op de **voltooiing** pagina **sluiten** de wizard wilt afsluiten.  
 
-##  <a name="BKMK_UninstallPrimary"></a> Désinstaller un site principal  
-Vous pouvez exécuter le programme d’installation de Configuration Manager pour désinstaller un site principal auquel aucun site secondaire n’est associé. Avant de désinstaller un site principal, prenez connaissance des remarques suivantes :  
+##  <a name="BKMK_UninstallPrimary"></a> Een primaire site verwijderen  
+U kunt de installatie van Configuration Manager voor het verwijderen van een primaire site die geen secundaire site aan gekoppeld uitvoeren. Voordat u een primaire site deïnstalleert, moet u het volgende overwegen:  
 
--   Quand des clients Configuration Manager se trouvent dans les limites configurées au niveau du site et que le site principal fait partie d’une hiérarchie Configuration Manager, envisagez d’ajouter les limites à un autre site principal de la hiérarchie avant de désinstaller le site principal.  
--   Lorsque le serveur de site principal n'est plus disponible, vous devez utiliser l'outil de maintenance hiérarchique au niveau du site d'administration centrale afin de supprimer le site principal de la base de données de site. Pour plus d’informations, consultez [Outil de maintenance hiérarchique (Preinst.exe) pour System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md).  
+-   Configuration Manager-clients zich binnen de grenzen die zijn geconfigureerd op de site, en de primaire site deel uitmaakt van een Configuration Manager-hiërarchie, overweeg bij de grenzen aan een andere primaire site in de hiërarchie voordat u de primaire site verwijderen.  
+-   Wanneer de primaire siteserver niet langer beschikbaar is, moet u de Hierarchy Maintenance Tool op de centrale beheersite gebruiken om de primaire site uit de sitedatabase te verwijderen. Zie [Hierarchy Maintenance Tool (Preinst.exe) voor System Center Configuration Manager](../../../../core/servers/manage/hierarchy-maintenance-tool-preinst.exe.md) voor meer informatie.  
 
-Pour désinstaller un site principal, suivez les instructions ci-dessous.  
+Gebruik de volgende procedure gebruiken om een primaire site te deïnstalleren.  
 
-#### <a name="to-uninstall-a-primary-site"></a>Pour désinstaller un site principal  
+#### <a name="to-uninstall-a-primary-site"></a>Een primaire site deïnstalleren  
 
-1.  Vérifiez que l'utilisateur administratif exécutant le programme d'installation possède les droits de sécurité suivants :  
+1.  Controleer of de gebruiker met beheerdersrechten die het installatieprogramma uitvoert beschikt over de volgende beveiligingsrechten:  
 
-    -   Droits d’administrateur local sur le serveur de site d’administration centrale  
-    -   Droits d’administrateur local sur le serveur de base de données de site distant pour le site d’administration centrale, s’il est distant
-    -   Droits d'administrateur système sur la base de données du site d'administration centrale  
-    -   Droits d’administrateur local sur l’ordinateur de site principal  
-    -   Droits d’administrateur local sur le serveur de base de données de site distant pour le site principal, s’il est distant  
-    -   Nom d’utilisateur associé au rôle de sécurité Administrateur d’infrastructure ou au rôle Administrateur complet sur le site d’administration centrale  
+    -   Lokale beheerdersrechten op de server van centrale beheersite  
+    -   Lokale beheerdersrechten op de externe Sitedatabaseserver voor de centrale beheersite, als deze extern
+    -   Sysadmin-rechten op de sitedatabase van de centrale beheersite  
+    -   Lokale beheerdersrechten op de computer van de primaire site  
+    -   Lokale beheerdersrechten op de externe Sitedatabaseserver voor de primaire site als deze extern  
+    -   De naam van een gebruiker die is gekoppeld aan de beveiligingsrol infrastructuurbeheerder of volledige beheerder op de centrale beheersite  
 
-2.  Démarrez le programme d’installation de Configuration Manager sur le serveur de site principal en utilisant l’une des méthodes suivantes :  
+2.  Configuration Manager Setup starten op de primaire siteserver door middel van een van de volgende methoden:  
 
-    -   Dans le menu **Démarrer**, sélectionnez **Installation de Configuration Manager**.  
-    -   Ouvrez Setup.exe à partir de &lt;*SupportInstallationConfigMgr*>\SMSSETUP\BIN\X64.  
-    -   Ouvrez Setup.exe à partir de &lt;*CheminInstallationConfigMgr*>\BIN\X64.  
+    -   Op **Start**, selecteer **Setup van Configuration Manager**.  
+    -   Open Setup.exe vanuit &lt; *ConfigMgrInstallationMedia*> \SMSSETUP\BIN\X64.  
+    -   Open Setup.exe vanuit &lt; *ConfigMgrInstallationPath*> \BIN\X64.  
 
-3.  Dans la page **Avant de commencer**, sélectionnez **Suivant**.  
-4.  Dans la page **Mise en route**, sélectionnez **Désinstaller le site Configuration Manager**, puis sélectionnez **Suivant**.  
-5.  Dans la page **Désinstaller le site Configuration Manager**, indiquez si vous souhaitez supprimer la base de données de site du serveur de site principal et si vous souhaitez supprimer la console Configuration Manager. Par défaut, le programme d'installation supprime les deux éléments.  
-
-    > [!IMPORTANT]  
-    >  Lorsqu'un site secondaire est associé au site principal, vous devez au préalable supprimer le site secondaire pour pouvoir désinstaller le site principal.  
-
-6.  Sélectionnez **Oui** pour confirmer la désinstallation du site principal Configuration Manager.  
-
-##  <a name="BKMK_UninstallPrimaryDistViews"></a> Désinstaller un site principal configuré avec des vues distribuées  
- Pour pouvoir désinstaller un site principal enfant dont le lien de réplication vers le site d’administration centrale contient des vues distribuées, vous devez désactiver les vues distribuées dans votre hiérarchie. Avant de désinstaller un site principal, aidez-vous des informations ci-dessous pour désactiver les vues distribuées.  
-
-#### <a name="to-uninstall-a-primary-site-that-is-configured-with-distributed-views"></a>Pour désinstaller un site principal configuré avec des vues distribuées  
-
-1.  Avant de désinstaller un site principal, vous devez désactiver les vues distribuées sur chaque lien de la hiérarchie reliant le site d’administration centrale et un site principal.  
-2.  Après avoir désactivé les vues distribuées sur chaque lien, vérifiez que les données du site principal sont bien réinitialisées au niveau du site d’administration centrale. Pour surveiller l’initialisation des données, dans la console Configuration Manager, dans l’espace de travail **Surveillance**, affichez le lien dans le nœud **Réplication de la base de données**.  
-3.  Une fois les données réinitialisées auprès du site d'administration centrale, vous pouvez désinstaller le site principal. Pour désinstaller un site principal, consultez [Désinstaller un site principal](#BKMK_UninstallPrimary).  
-4.  Une fois le site principal entièrement désinstallé, vous pouvez reconfigurer les vues distribuées sur les liens vers les sites principaux.  
+3.  Op de **voordat u begint** pagina **volgende**.  
+4.  Op de **aan de slag** pagina **een Configuration Manager-site verwijderen**, en selecteer vervolgens **volgende**.  
+5.  Op de **verwijderen van de Configuration Manager-Site**, opgeven of de sitedatabase verwijderen uit de primaire siteserver en of u wilt verwijderen van de Configuration Manager-console. Standaard verwijdert het installatieprogramma beide items.  
 
     > [!IMPORTANT]  
-    >  Si vous désinstallez le site principal avant de désactiver les vues distribuées de chaque site ou avant de réinitialiser les données du site principal au niveau du site d’administration centrale, la réplication des données entre les sites principaux et le site d’administration centrale risque d’échouer. Dans ce scénario, vous devez désactiver les vues distribuées pour chaque lien de la hiérarchie de sites, puis une fois que les données ont bien été réinitialisées au niveau du site d’administration centrale, vous pouvez reconfigurer les vues distribuées.  
+    >  Als er een secundaire site aan de primaire site gekoppeld is, moet u eerst de secundaire site verwijderen voordat u de primaire site kunt deïnstalleren.  
 
-##  <a name="BKMK_UninstallCAS"></a> Désinstaller le site d’administration centrale  
- Vous pouvez exécuter le programme d’installation de Configuration Manager pour désinstaller un site d’administration centrale qui n’a pas de sites principaux enfants. Pour désinstaller un site d'administration centrale, suivez les instructions ci-dessous.  
+6.  Selecteer **Ja** om te bevestigen dat de verwijdering van de primaire site van Configuration Manager.  
 
-#### <a name="to-uninstall-a-central-administration-site"></a>Pour désinstaller un site d'administration centrale  
+##  <a name="BKMK_UninstallPrimaryDistViews"></a> Een primaire site verwijderen die is geconfigureerd met gedistribueerde weergaven  
+ Voordat u een onderliggende primaire site die weergaven ingeschakeld voor de centrale beheersite de replicatiekoppeling gedistribueerde verwijdert, moet u gedistribueerde weergaven uitschakelen in uw hiërarchie. Gebruik de volgende informatie gedistribueerde weergaven uitschakelen voordat u een primaire site verwijderen.  
 
-1.  Vérifiez que l'utilisateur administratif exécutant le programme d'installation possède les droits de sécurité suivants :  
+#### <a name="to-uninstall-a-primary-site-that-is-configured-with-distributed-views"></a>Een primaire site deïnstalleren die geconfigureerd is met gedistribueerde weergaven  
 
-    -   Droits d’administrateur local sur le serveur de site d’administration centrale  
-    -   Droits d’administrateur local sur le serveur de base de données de site pour le site d’administration centrale, si le serveur de base de données de site n’est pas installé sur le serveur de site 
-
-2.  Démarrez le programme d’installation de Configuration Manager sur le serveur de site d’administration centrale en utilisant l’une des méthodes suivantes :  
-
-    -   Dans le menu **Démarrer**, cliquez sur **Installation de Configuration Manager**.  
-    -   Ouvrez Setup.exe à partir de &lt;*SupportInstallationConfigMgr*>\SMSSETUP\BIN\X64.  
-    -   Ouvrez Setup.exe à partir de &lt;*CheminInstallationConfigMgr*>\BIN\X64.  
-
-3.  Dans la page **Avant de commencer**, sélectionnez **Suivant**.  
-4.  Dans la page **Mise en route**, sélectionnez **Désinstaller le site Configuration Manager**, puis sélectionnez **Suivant**.  
-5.  Dans la page **Désinstaller le site Configuration Manager**, indiquez si vous souhaitez supprimer la base de données de site du serveur de site d’administration centrale et si vous souhaitez supprimer la console Configuration Manager. Par défaut, le programme d'installation supprime les deux éléments.  
+1.  Voordat u een primaire site verwijdert, moet u gedistribueerde weergaven op elke koppeling in de hiërarchie tussen de centrale beheersite en een primaire site uitschakelen.  
+2.  Nadat u gedistribueerde weergaven op elke koppeling hebt uitgeschakeld, moet u bevestigen dat de gegevens van de primaire site wordt op de centrale beheersite opnieuw. Voor het bewaken van de initialisatie van gegevens in de Configuration Manager-console in de **bewaking** werkruimte bekijken van de koppeling op de **databasereplicatie** knooppunt.  
+3.  Nadat de gegevens succesvol geherinitialiseerd zijn op de centrale beheersite, kunt u de primaire site deïnstalleren. Zie voor het verwijderen van een primaire site [een primaire site deïnstalleren](#BKMK_UninstallPrimary).  
+4.  Wanneer de primaire site volledig gedeïnstalleerd is, kunt u gedistribueerde weergaven op koppelingen naar primaire sites opnieuw configureren.  
 
     > [!IMPORTANT]  
-    >  Si un site principal est associé au site d'administration centrale, vous devez désinstaller le site principal pour pouvoir désinstaller le site d'administration centrale.  
+    >  Als u de primaire site verwijderen voordat u gedistribueerde weergaven op elke site uitschakelt, of voordat de gegevens van de primaire site succesvol geherinitialiseerd zijn op de centrale beheersite, kan de replicatie van gegevens tussen primaire sites en de centrale beheersite mislukken. In dit scenario moet u gedistribueerde weergaven voor elke koppeling in de sitehiërarchie uitschakelen en vervolgens, nadat de gegevens succesvol geherinitialiseerd zijn op de centrale beheersite, u kunt gedistribueerde weergaven opnieuw configureren.  
 
-6.  Sélectionnez **Oui** pour confirmer la désinstallation du site d’administration centrale Configuration Manager.  
+##  <a name="BKMK_UninstallCAS"></a> De centrale beheersite verwijderen  
+ U kunt de installatie van Configuration Manager voor het verwijderen van een centrale beheersite die geen onderliggende primaire sites uitvoeren. Gebruik de volgende procedure om de centrale beheersite te deïnstalleren.  
+
+#### <a name="to-uninstall-a-central-administration-site"></a>Verwijderen van een centrale beheersite  
+
+1.  Controleer of de gebruiker met beheerdersrechten die het installatieprogramma uitvoert beschikt over de volgende beveiligingsrechten:  
+
+    -   Lokale beheerdersrechten op de server van centrale beheersite  
+    -   Lokale beheerdersrechten op de Sitedatabaseserver voor de centrale beheersite als de Sitedatabaseserver is niet geïnstalleerd op de siteserver 
+
+2.  Configuration Manager Setup starten op de server van centrale beheersite met behulp van een van de volgende methoden:  
+
+    -   Klik op **Start**op **Configuration Manager Setup**.  
+    -   Open Setup.exe vanuit &lt; *ConfigMgrInstallationMedia*> \SMSSETUP\BIN\X64.  
+    -   Open Setup.exe vanuit &lt; *ConfigMgrInstallationPath*> \BIN\X64.  
+
+3.  Op de **voordat u begint** pagina **volgende**.  
+4.  Op de **aan de slag** pagina **een Configuration Manager-site verwijderen**, en selecteer vervolgens **volgende**.  
+5.  Op de **verwijderen van de Configuration Manager-Site**, opgeven of de sitedatabase verwijderen uit de centrale beheersiteserver en of u wilt verwijderen van de Configuration Manager-console. Standaard verwijdert het installatieprogramma beide items.  
+
+    > [!IMPORTANT]  
+    >  Als er een primaire site aan de centrale beheersite gekoppeld is, moet u eerst de primaire site verwijderen voordat u de centrale beheersite kunt deïnstalleren.  
+
+6.  Selecteer **Ja** om te bevestigen dat het verwijderen van de centrale beheersite van Configuration Manager.  

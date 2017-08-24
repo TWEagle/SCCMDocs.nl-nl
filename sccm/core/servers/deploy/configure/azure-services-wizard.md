@@ -1,6 +1,6 @@
 ---
-title: Assistant Services Azure | Microsoft Docs
-description: "À propos de l’Assistant Services Azure pour System Center Configuration Manager."
+title: Wizard Azure-services | Microsoft Docs
+description: Over de wizard Azure-services voor System Center Configuration Manager.
 ms.custom: na
 ms.date: 7/31/2017
 ms.prod: configuration-manager
@@ -16,81 +16,81 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 22203b358830903cf2e531c0532ae3111b8265fc
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="configure-azure-services-for-use-with-configuration-manager"></a>Configurer les services Azure à utiliser avec Configuration Manager
+# <a name="configure-azure-services-for-use-with-configuration-manager"></a>Azure-services voor gebruik met Configuration Manager configureren
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Depuis Current Branch version 1706, **l’Assistant Services Azure** est utilisé pour simplifier le processus de configuration des services Azure que vous utilisez avec Configuration Manager.
+Vanaf versie van de huidige vertakking 1706, de **Wizard Azure-Services** wordt gebruikt voor het vereenvoudigen van het proces van het configureren van Azure services die u met Configuration Manager gebruikt.
 
-Cet Assistant fournit une expérience de configuration commune en utilisant une **application web Azure** pour fournir des détails d’abonnement et de configuration. Grâce à cette application web, vous n’avez pas besoin d’entrer ces mêmes informations chaque fois que vous configurez un nouveau composant ou service Configuration Manager avec Azure.
+Deze wizard biedt een gemeenschappelijke ervaring voor configuratie door middel van een **Azure-web-app** om details van abonnement en de configuratie te verstrekken. De web-app vervangt voeren dezelfde informatie telkens wanneer u een nieuwe Configuration Manager-component of de service met Azure instellen.
 
-Les services Azure suivants sont configurés à l’aide de l’Assistant Configurer les services Azure :
--   **Gestion cloud**   
-    [Permettez aux clients de s’authentifier à l’aide d’Azure Active Directory]() (Azure AD). Vous pouvez également [configurer la découverte des utilisateurs Azure AD](/sccm/core/servers/deploy/configure/configure-discovery-methods#azureaadisc).
--   **Connecteur OMS**
-    [Connectez-vous à Operations Manager Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite) (OMS) et synchronisez les données telles que les collections avec OMS Log Analytics.
--   **Upgrade Readiness**
-    [Connectez-vous à Upgrade Readiness](/sccm/core/clients/manage/upgrade/upgrade-analytics) et consultez les données de compatibilité de mise à niveau des clients.
--   **Windows Store pour Entreprises** Connectez-vous à la boutique en ligne de [Windows Store pour Entreprises](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business) et obtenez des applications pour votre organisation que vous pouvez déployer avec Configuration Manager.
+De volgende Azure-services zijn geconfigureerd met de wizard Azure-Services configureren:
+-   **Cloud-Management**   
+    [Inschakelen voor clients te verifiëren met behulp van Azure Active Directory]() (Azure AD). U kunt ook [configureren van Azure AD-Gebruikersdetectie](/sccm/core/servers/deploy/configure/configure-discovery-methods#azureaadisc).
+-   **OMS Connector**
+    [verbinding maken met Operations Manager-Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite) (OMS) en het synchroniseren van gegevens, zoals verzamelingen met OMS-logboekanalyse.
+-   **Gereedheid voor upgrade**
+    [verbinding maken met de gereedheid voor Upgrade](/sccm/core/clients/manage/upgrade/upgrade-analytics) en weergeven van clientgegevens upgrade-compatibiliteit.
+-   **Windows Store voor bedrijven** verbinding maken met de online winkel voor [Windows Store voor bedrijven](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business) en apps ophalen voor uw organisatie die u met Configuration Manager implementeren kunt.
 
-Quand vous utilisez l’Assistant pour configurer un service, plusieurs actions courantes sont disponibles.
-à savoir :
--   Configurer l’environnement Azure : dans la page **Application** de l’Assistant, vous sélectionnez **l’environnement Azure** que vous utilisez. Consultez le contenu associé à chaque service afin de savoir si celui-ci prend en charge uniquement le cloud Azure public, ou s’il peut prendre en charge un cloud privé.
--   Créer ou importer une application serveur : dans la page **Application** de l’Assistant, vous pouvez **créer** et **importer** des applications web Azure. Les options disponibles dépendent du service que vous configurez.  En outre, certains services peuvent nécessiter une application supplémentaire. Par exemple, un service peut nécessiter également une **application cliente native**.
-
-
-Pour obtenir des informations sur les applications web, consultez [Authentification et autorisation dans Azure App Service](/azure/app-service/app-service-authentication-overview) et [Vue d’ensemble des applications web](/azure/app-service-web/app-service-web-overview).
+Wanneer u de wizard voor het configureren van een service gebruikt, is enkele veelvoorkomende acties zijn beschikbaar.
+Deze omvatten:
+-   Configureer de Azure-omgeving:  Op de **App** pagina van de wizard, selecteert u de **Azure-omgeving** die u gebruikt. Zie de inhoud voor elke service voor meer informatie over het ondersteunt alleen de openbare Azure-cloud of een privécloud kan worden ondersteund.
+-   Maken of importeren van een server app:   Op de **App** pagina van de wizard kunt u **maken** en **importeren** Azure-web-apps. De beschikbare opties zijn afhankelijk van de service die u configureert.  Sommige services mogelijk ook een extra-app. Bijvoorbeeld, een service ook mogelijk een **Native Client-app**.
 
 
-## <a name="webapp"></a> Créer l’application web Azure à utiliser avec Configuration Manager
+Zie voor meer informatie over Azure-web-apps [verificatie en autorisatie in Azure App Service](/azure/app-service/app-service-authentication-overview), en [overzicht van Web-Apps](/azure/app-service-web/app-service-web-overview)
 
-L’application web des services Azure connecte votre site Configuration Manager à Azure AD et est un prérequis pour utiliser les services Azure avec votre infrastructure. Pour cela :
 
-1.  Dans l’espace de travail **Administration** de la console Configuration Manager, développez **Services cloud**, puis cliquez sur **Services Azure**.
-2.  Sur l’onglet **Accueil**, sous le groupe **Services Azure**, cliquez sur **Configurer les services Azure**.
-3.  Sur la page **Services Azure** de l’assistant de services Azure, sélectionnez **Gestion cloud** pour permettre aux clients de s’authentifier auprès de la hiérarchie à l’aide d’Azure AD.
-4.  Sur la page **Général** de l’assistant, spécifiez un nom et une description pour votre service Azure.
-5.  Dans la page **Application** de l’assistant, sélectionnez votre environnement Azure dans la liste, puis cliquez sur **Parcourir** pour sélectionner *l’application web* et *l’application cliente native* qui permettent de configurer le service Azure.     
-    **Application web :** ouvre la fenêtre Application serveur.    
-      Dans la fenêtre **Server App**, sélectionnez l’application serveur à utiliser, puis cliquez sur **OK**. Les applications serveur sont des applications web Azure qui contiennent les configurations pour votre compte Azure, notamment l’ID de locataire, l’ID de client et une clé secrète pour les clients.
-    Si aucune application n’est disponible, choisissez l’une des méthodes suivantes :
-        - **Créer** : pour créer une application serveur, cliquez sur **Créer**. Ensuite, entrez un nom convivial pour l’application, l’URL de la page d’accueil, l’URI de l’ID d’application et la période de validité de la clé secrète. Par défaut, la période de validité de la clé secrète est un an.
+## <a name="webapp"></a>Maken van de Azure-web-app voor gebruik met Configuration Manager
 
-         Ensuite, une personne doit se connecter à Azure pour terminer la création de l’application web dans Azure. Le compte que vous utilisez pour vous connecter à Azure n’a pas besoin d’être le même que celui qui exécute l’Assistant Services Azure. Une fois établie la connexion à Azure, Configuration Manager crée l’application web dans Azure, notamment l’ID de client et la clé secrète à utiliser avec l’application web. Ces informations sont ensuite disponibles dans le portail Azure.
+De Azure-services-web-app uw Configuration Manager-site verbindt met Azure AD en is een vereiste voor het gebruik van Azure-services in uw infrastructuur. U doet dit als volgt:
 
-         Quand vous utilisez Créer pour configurer une application web, Configuration Manager peut créer l’application web pour vous dans Azure AD.
-        - **Importer** : pour utiliser une application web qui existe déjà dans votre abonnement Azure, cliquez sur **Importer**. Indiquez un nom convivial pour l’application et le locataire, puis spécifiez l’ID de locataire, l’ID de client et la clé secrète de l’application web Azure que Configuration Manager doit utiliser. Après avoir vérifié les informations, cliquez sur **OK** pour continuer.
+1.  In de **beheer** werkruimte van de Configuration Manager-console, vouw **Cloudservices**, en klik vervolgens op **Azure Services**.
+2.  Op de **Start** tabblad, in de **Azure Services** groep, klikt u op **Azure-Services configureren**.
+3.  Op de **Azure Services** pagina van de Azure-Services Wizard **Cloudbeheer** wilt toestaan dat clients verifiëren met de hiërarchie met gebruik van Azure AD.
+4.  Op de **algemene** pagina van de wizard, geeft u een naam en een beschrijving voor uw Azure-service.
+5.  Op de **App** pagina van de wizard, selecteert u uw Azure-omgeving in de lijst en klik op **Bladeren** selecteren de *Web-app* en *Native Client-app* dat wordt gebruikt voor het configureren van de Azure-service.     
+    **Web-app:**   Bladeren opent u de Server App-venster.    
+      In de **App Server** venster, selecteer de server-app die u wilt gebruiken en klik vervolgens op **OK**. Server-apps zijn de Azure-web-apps die de configuraties voor uw Azure-account, inclusief uw Tenant-ID, Client-ID en een geheime sleutel voor clients bevatten.
+    Als u een beschikbare app niet hebt, gebruikt u een van de volgende:
+        - **Maak**: Klik op om een nieuwe server app **maken**. Geef vervolgens een beschrijvende naam voor de app, de URL van de startpagina, App-ID-URI en de geheime sleutel geldigheidsperiode. De geheime sleutel geldigheidsduur is één jaar.
 
-          Cette option n’est pas disponible pour tous les services que vous pouvez configurer.
+         Om door te gaan iemand moet nu aanmelden bij Azure voltooien van de web-app gemaakt in Azure. Het account waarmee u kunt aanmelden bij Azure hoeft niet te worden van hetzelfde account dat wordt uitgevoerd in de Wizard Azure-Services. Na het aanmelden bij Azure maakt Configuration Manager de web-app in Azure voor u, met inbegrip van de Client-ID en een geheime sleutel voor gebruik met de web-app. U kunt later uit de Azure-portal bekijken.
 
-   **Application cliente native :** ouvre la fenêtre Application cliente.  
-     Dans la fenêtre **Application cliente**, sélectionnez l’application cliente à utiliser, puis cliquez sur **OK**.
+         Wanneer u maken voor het configureren van een web-app gebruikt, kan Configuration Manager de web-app voor u in Azure AD maken.
+        - **Importeren**: Met een web-app die al in uw Azure-abonnement bestaat, klikt u op **importeren**. Geef een beschrijvende naam voor de app en het tenantnetwerk en geef vervolgens de Tenant-ID, Client-ID en de geheime sleutel voor de Azure-web-app die u wilt dat Configuration Manager te gebruiken. Nadat u de gegevens controleren, klikt u op **OK** om door te gaan.
 
-     Si aucune application cliente n’est disponible, choisissez l’une des méthodes suivantes :
-     - **Créer** : pour créer une application cliente, cliquez sur **Créer**. Ensuite, fournissez un nom convivial pour l’application et l’URL de réponse.
+          Deze optie is niet beschikbaar voor alle services die u configureert.
 
-          Ensuite, une personne doit se connecter à Azure pour terminer la création de l’application cliente dans Azure. Le compte que vous utilisez pour vous connecter à Azure n’a pas besoin d’être le même que celui qui exécute l’Assistant Services Azure. Une fois établie la connexion à Azure, Configuration Manager crée l’application cliente native dans Azure, notamment l’ID de client à utiliser avec l’application web. Ces informations sont ensuite disponibles dans le portail Azure.
-          Quand vous utilisez Créer pour configurer l’application, Configuration Manager peut créer l’application cliente native pour vous dans Azure AD.
-     - **Importer** : pour utiliser une application cliente qui existe déjà dans votre abonnement Azure, cliquez sur **Importer**. Fournissez un nom convivial pour l’application et l’ID du client. Ensuite, cliquez sur **OK**.
-           Cette option n’est pas disponible pour tous les services que vous pouvez configurer.
+   **Native Client-app:**  Bladeren opent het venster Client-App.  
+     In de **Clientapp** venster, selecteer de client-app die u wilt gebruiken en klik vervolgens op **OK**.
+
+     Als u een beschikbare client-app niet hebt, gebruikt u een van de volgende:
+     - **Maak**: Klik op om een nieuwe Client-app **maken**. Naast een beschrijvende naam voor de app en de antwoord-URL opgeven.
+
+          Om door te gaan iemand moet nu aanmelden bij Azure om uit te voeren van het client-app maken in Azure. Het account waarmee u kunt aanmelden bij Azure hoeft niet te worden van hetzelfde account dat wordt uitgevoerd in de Wizard Azure-Services. Na het aanmelden bij Azure maakt Configuration Manager de native client-app in Azure voor u, met inbegrip van de Client-ID voor gebruik met de web-app. U kunt later uit de Azure-portal bekijken.
+          Wanneer u maken voor het configureren van de app gebruikt, kan Configuration Manager maakt de native client-app voor u in Azure AD.
+     - **Importeren**: Voor het gebruik van een client-app die al in uw Azure-abonnement bestaat, klikt u op **importeren**. Geef een beschrijvende naam voor de app en de Client-ID. Klik vervolgens op **OK** om door te gaan.
+           Deze optie is niet beschikbaar voor alle services die u configureert.
 
   <!--  MOVE THIS AND STEP 6 TO configure Azure AD User Discover  content
        [!TIP]  
      When you use Import, the account you use to run the wizard must have the *Read directory data* application permission in the Azure portal. This is required to set the correct permissions for the App. When you use Create, Configuration Manager creates the app with the correct permissions. However, you still must give consent to the application in the Azure portal.   -->
 
 
-6.  Dans la page **Découverte** de l’Assistant, cliquez sur **Activer la découverte d’utilisateurs Azure Active Directory**, puis cliquez sur **Paramètres**.
-Dans la boîte de dialogue **Paramètres de découverte d’utilisateurs Azure AD**, configurez une planification pour déterminer quand la détection survient. Vous pouvez également activer la découverte delta, qui vérifie uniquement les comptes nouveaux ou modifiés dans Azure AD. Explorez la [découverte d’utilisateurs Azure AD](/sccm/core/servers/deploy/configure/about-discovery-methods#azureaddisc).
+6.  Op de **detectie** pagina van de wizard, klikt u op **inschakelen Azure Active Directory-Gebruikersdetectie**, en klik vervolgens op **instellingen**.
+In de **Discovery-instellingen van Azure AD-gebruiker** dialoogvenster Configureer een planning voor wanneer detectie wordt uitgevoerd. U kunt ook detectie van verschillen die controleert op nieuwe of gewijzigd accounts in Azure AD inschakelen. Meer informatie over [Azure AD-Gebruikersdetectie](/sccm/core/servers/deploy/configure/about-discovery-methods#azureaddisc).
  
- 7. Effectuez toutes les étapes de l'Assistant.
+ 7. Voltooi de wizard.
 
-À ce stade, vous avez connecté votre site Configuration Manager à Azure AD.
+Op dit moment hebt u uw Configuration Manager-site naar Azure AD verbonden.
 
-## <a name="view-the-configuration-of-an-azure-service"></a>Afficher la configuration d’un service Azure
-Vous pouvez afficher les propriétés d’un service Azure que vous avez configuré en vue de son utilisation.
+## <a name="view-the-configuration-of-an-azure-service"></a>De configuratie van een Azure-service weergeven
+U kunt de eigenschappen van een Azure-service die u hebt geconfigureerd voor gebruik weergeven.
 
-Dans la console, accédez à **Administration** > **Vue d’ensemble** > **Services cloud** > **Services Azure**. Ensuite, choisissez le service que vous souhaitez afficher ou modifier, puis cliquez sur **Propriétés**.
+Ga in de console naar **beheer** > **overzicht** > **Cloudservices** > **Azure Services**. Kies vervolgens de service die u wilt weergeven of bewerken en klik vervolgens op **eigenschappen**.

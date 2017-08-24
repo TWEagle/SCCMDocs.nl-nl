@@ -1,6 +1,6 @@
 ---
-title: "Maintenance des mises à jour logicielles | Microsoft Docs"
-description: "Pour assurer la maintenance des mises à jour dans Configuration Manager, vous pouvez planifier la tâche de nettoyage WSUS, ou vous pouvez l’exécuter manuellement."
+title: Software-updates onderhoud | Microsoft Docs
+description: Om te blijven van updates in Configuration Manager, kunt u de WSUS-opschoontaak plannen of kunt u deze handmatig uitvoeren.
 keywords: 
 author: dougeby
 ms.author: dougeby
@@ -13,20 +13,20 @@ ms.technology: configmgr-sum
 ms.assetid: 4b0e2e90-aac7-4d06-a707-512eee6e576c
 ms.openlocfilehash: 1590c623f7bc2f42a8617f110de5321212732a03
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="software-updates-maintenance"></a>Maintenance des mises à jour logicielles
+# <a name="software-updates-maintenance"></a>Onderhoud voor software-updates
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Vous pouvez planifier et exécuter la tâche de nettoyage WSUS à partir de la console Configuration Manager, ou l’exécuter manuellement à partir des propriétés du composant de point de mise à jour logicielle. Quand vous choisissez d’exécuter la tâche de nettoyage WSUS, elle s’exécute à la prochaine synchronisation des mises à jour logicielles. Les mises à jour logicielles qui ont expiré présentent un état refusé sur le serveur WSUS et l’Agent Windows Update ne les analyse plus. Par défaut, la tâche de nettoyage WSUS s’exécute tous les 30 jours.  
+U kunt plannen en uitvoeren van de WSUS opschoontaak uit de Configuration Manager-console of u kunt de WSUS-opschoontaak van handmatig uitvoeren in de eigenschappen van Software-Updatepuntcomponenten. Wanneer u de WSUS-opruimtaak selecteert om deze uit te voeren, wordt deze taak uitgevoerd tijdens de volgende synchronisatie van de software-updates. De verouderde software-updates worden ingesteld op de status geweigerd op de WSUS-server en Windows Update Agent op computers scant deze software-updates niet meer. Standaard wordt de WSUS-opruimtaak elke 30 dagen uitgevoerd.  
 
-#### <a name="to-schedule-and-run-the-wsus-cleanup-job"></a>Pour planifier et exécuter la tâche de nettoyage WSUS  
+#### <a name="to-schedule-and-run-the-wsus-cleanup-job"></a>Een WSUS-opschoontaak plannen en uitvoeren  
 
-1.  Dans la console Configuration Manager, accédez à **Administration** > **Vue d’ensemble** > **Configuration du site** > **Sites**.  
+1.  Navigeer in de Configuration Manager-console naar **beheer** > **overzicht** > **siteconfiguratie** > **Sites**.  
 
-2.  Cliquez sur **Configurer les composants de site** dans le groupe **Paramètres** , puis cliquez sur **Point de mise à jour logicielle** pour ouvrir les propriétés du composant du point de mise à jour logicielle.  
+2.  Klik op **Siteonderdelen configureren** in de groep **Instellingen** . Klik vervolgens op **Software-updatepunt** om Eigenschappen van software-updatepuntcomponent te openen.  
 
-3.  Cliquez sur l’onglet **Règles de remplacement** , sélectionnez **Exécuter l’Assistant Nettoyage WSUS**, puis cliquez sur **OK**.
+3.  Klik op het tabblad **Vervangingsregels** , selecteer **Wizard WSUS-opschoning uitvoeren**en klik op **OK**.

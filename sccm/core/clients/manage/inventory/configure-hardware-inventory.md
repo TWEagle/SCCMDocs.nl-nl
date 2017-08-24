@@ -1,6 +1,6 @@
 ---
-title: "Configurer l’inventaire matériel | Microsoft Docs"
-description: "Configurez l’inventaire matériel pour l’ensemble des clients ou pour un regroupement dans System Center Configuration Manager."
+title: Hardware-inventaris configureren | Microsoft Docs
+description: Hardware-inventaris instellen voor alle clients of voor een verzameling in System Center Configuration Manager.
 ms.custom: na
 ms.date: 02/22/2017
 ms.prod: configuration-manager
@@ -17,33 +17,33 @@ ms.author: andredm
 manager: angrobe
 ms.openlocfilehash: 0baadb95ec8dbb945f1a611ebb95a03cec3199bd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-configure-hardware-inventory-in-system-center-configuration-manager"></a>Comment configurer l’inventaire matériel dans Configuration Manager
+# <a name="how-to-configure-hardware-inventory-in-system-center-configuration-manager"></a>Het configureren van hardware-inventaris in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Cette procédure configure les paramètres client par défaut pour l’inventaire matériel et s’applique à tous les clients de votre hiérarchie. Si vous voulez que ces paramètres s’appliquent uniquement à certains clients, créez un paramètre client de périphérique personnalisé et affectez-le à un regroupement contenant les périphériques pour lesquels utiliser l’inventaire matériel. Consultez [Guide pratique pour configurer les paramètres clients dans System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
+Met deze procedure configureert u de standaardinstellingen voor de hardware-inventarisatie die voor alle clients in uw hiërarchie geldt. Als u wilt dat deze instellingen alleen van toepassing zijn op enkele clients, maakt u een aangepaste clientapparaatinstelling en wijst u deze toe aan een verzameling waartoe de apparaten behoren die u wilt inventariseren. Zie [het configureren van clientinstellingen in System Center Configuration Manager](../../../../core/clients/deploy/configure-client-settings.md).  
 
 > [!NOTE]  
->  Si un périphérique client reçoit des paramètres d’inventaire matériel de la part de plusieurs ensembles de paramètres client, les classes d’inventaire matériel de chaque ensemble de paramètres sont alors fusionnées lors de l’inventaire matériel.  
+>  Als een clientapparaat instellingen voor hardware-inventarisatie van meerdere sets clientinstellingen ontvangt, worden de hardware-inventarisatieklassen van elke set instellingen samengevoegd wanneer de client hardware-inventarisatie rapporteert.  
 
-### <a name="to-configure-hardware-inventory"></a>Pour configurer l'inventaire matériel  
+### <a name="to-configure-hardware-inventory"></a>Hardware-inventarisatie configureren  
 
-1.  Dans la console Configuration Manager, choisissez **Administration** > **Paramètres client** > **Paramètres client par défaut**.  
+1.  Kies in de Configuration Manager-console **beheer** > **clientinstellingen** > **Standaardclientinstellingen**.  
 
-4.  Sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+4.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
 
-5.  Dans la boîte de dialogue **Paramètres par défaut**, choisissez **Inventaire matériel**.  
+5.  In de **standaardinstellingen** dialoogvenster Kies **Hardware-inventaris**.  
 
-6.  Dans la liste **Paramètres de périphérique** , configurez les éléments suivants :  
+6.  In de lijst **Apparaatinstellingen** configureert u dan het volgende:  
 
-    -   **Activer l’inventaire matériel sur les clients** : Sélectionnez **True**.  
+    -   **Hardware-inventaris op clients inschakelen** : Selecteer **True**.  
 
-    -   **Calendrier de l’inventaire matériel** : Cliquez sur **Planifier** pour spécifier l’intervalle auquel les clients collectent l’inventaire matériel.  
+    -   **Hardware-inventarisplanning** -Klik op **planning** het interval waarmee clients de hardware-inventaris verzamelen.  
 
-7.  Configurez les autres [paramètres clients d’inventaire matériel](../../../../core/clients/deploy/about-client-settings.md#hardware-inventory) dont vous avez besoin.  
+7.  Configureer andere [clientinstellingen voor hardware-inventaris](../../../../core/clients/deploy/about-client-settings.md#hardware-inventory) die u nodig hebt.  
 
-Les périphériques client sont configurés en utilisant ces paramètres lors du prochain téléchargement de stratégie client. Pour lancer la récupération de stratégie pour un client unique, consultez [Comment gérer des clients dans Configuration Manager](../../../../core/clients/manage/manage-clients.md).  
+De volgende keer dat clientapparaten clientbeleid downloaden, worden deze instellingen geconfigureerd. Raadpleeg [Clients beheren in System Center Configuration Manager](../../../../core/clients/manage/manage-clients.md) voor informatie over het initiëren van het ophalen van beleid voor één client.  

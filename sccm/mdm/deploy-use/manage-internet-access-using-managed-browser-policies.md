@@ -1,6 +1,6 @@
 ---
-title: "Gérer l’accès à Internet à l’aide de stratégies Managed Browser | Microsoft Docs"
-description: "Déployez Intune Managed Browser pour gérer et limiter l’accès à Internet."
+title: Internettoegang beheren met beheerde-browserbeleid | Microsoft Docs
+description: Implementeer de Intune Managed Browser om te beheren en beperken van toegang tot Internet.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,109 +17,109 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: d2dd2c25a2714851ba1e71414cabcef38d3ce014
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-internet-access-using-managed-browser-policies-with-system-center-configuration-manager"></a>Gérer l’accès à Internet à l’aide de stratégies Managed Browser avec System Center Configuration Manager
+# <a name="manage-internet-access-using-managed-browser-policies-with-system-center-configuration-manager"></a>Internettoegang beheren met beleid voor beheerde browsers in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Dans System Center Configuration Manager, vous pouvez déployer Intune Managed Browser, application de navigation web, puis l’associer à une stratégie Managed Browser. La stratégie Managed Browser configure une liste autorisée ou une liste bloquée qui restreint les sites web auxquels les utilisateurs de Managed Browser peuvent accéder.  
+In System Center Configuration Manager die u kunt de Intune Managed Browser (een toepassing voor websurfen) implementeren en de toepassing koppelen aan beleid voor beheerde browsers. Het beheerde-browserbeleid stelt u een lijst met toegestane of een lijst met websites, die gebruikers van de beheerde browser om te kunnen gaan.  
 
- Comme il s’agit d’une application gérée, vous pouvez également lui appliquer des stratégies de gestion des applications mobiles, comme le contrôle de l’utilisation des fonctions de type Copier, Couper et Coller. Cela empêche les captures d’écran et garantit également que les liens vers du contenu ne s’ouvrent que dans d’autres applications gérées. Pour plus d’informations, consultez [Protection d’applications à l’aide de stratégies de gestion des applications mobiles](protect-apps-using-mam-policies.md).  
+ Omdat dit een beheerde app is, kunt u ook mobile application management-beleid van toepassing op, zoals het gebruik van knippen, kopiëren en plakken. Dit voorkomt dat schermopnamen en zorgt er ook voor dat koppelingen naar inhoud alleen in andere beheerde apps openen. Zie voor meer informatie [apps beveiligen met mobile application management-beleid](protect-apps-using-mam-policies.md).  
 
 > [!IMPORTANT]  
->  Si les utilisateurs installent eux-mêmes l'application Managed Browser, celle-ci ne sera pas gérée par les stratégies que vous spécifiez. Pour vérifier que le navigateur est géré par Configuration Manager, ils doivent désinstaller l’application avant de la déployer en tant qu’application gérée.  
+>  Als gebruikers de beheerde browser zelf installeren, wordt deze niet beheerd door andere beleidsregels die u opgeeft. Om ervoor te zorgen dat de browser wordt beheerd door Configuration Manager, moeten ze de app verwijderen voordat u deze voor ze als beheerde app implementeren kunt.  
 
- Vous pouvez créer des stratégies Managed Browser pour les types d'appareils suivants :  
+ U kunt beheerde-browserbeleidsregels maken voor de volgende typen apparaten:  
 
--   appareils qui exécutent Android 4 et versions ultérieures ;  
+-   Apparaten met Android 4 en hoger  
 
--   appareils qui exécutent iOS 7 et versions ultérieures.  
+-   Apparaten met iOS 7 en hoger  
 
 > [!NOTE]  
->  Pour plus d’informations sur l’application Managed Browser Intune et pour la télécharger, consultez [iTunes](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) pour iOS et [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser&hl=en) pour Android.  
+>  Zie voor meer informatie en de Intune Managed Browser-app te downloaden [iTunes](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) voor iOS en [Google Play](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser&hl=en) voor Android.  
 
-## <a name="create-a-managed-browser-policy"></a>Créer une stratégie Managed Browser  
+## <a name="create-a-managed-browser-policy"></a>Een beheerde-browserbeleid maken  
 
-1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Stratégies de gestion d’application**.  
+1.  Kies in de Configuration Manager-console **softwarebibliotheek** > **Toepassingsbeheer** > **Application Management-beleid**.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer une stratégie de gestion d’application**.  
+3.  Op de **Start** tabblad, in de **maken** groep, kiest u **beleid voor toepassingsbeheer maken**.  
 
-4.  Dans la page **Général**, entrez le nom et la description de la stratégie, puis choisissez **Suivant**.  
+4.  Op de **algemene** pagina, voer de naam en beschrijving voor het beleid en kies vervolgens **volgende**.  
 
-5.  Dans la page **Type de stratégie**, sélectionnez la plateforme, **Managed Browser** pour le type de stratégie, puis choisissez **Suivant**.  
+5.  Op de **beleidstype** pagina, selecteer het platform, selecteert u **Managed Browser** voor het beleid, typ en kies vervolgens **volgende**.  
 
-     Dans la page **Managed Browser** , sélectionnez l'une des options suivantes :  
+     Selecteer op de pagina **Managed Browser** een van de volgende opties:  
 
-    -   **Autoriser Managed Browser à ouvrir uniquement les URL ci-dessous (liste autorisée)** : spécifiez une liste d’URL pouvant être ouvertes par Managed Browser.  
+    -   **Toestaan dat de beheerde browser alleen de hieronder vermelde URL's opent**– Geef een lijst met URL's die de beheerde browser kan openen.  
 
-    -   **Empêcher Managed Browser d’ouvrir les URL ci-dessous (liste bloquée)** : spécifiez une liste d’URL ne pouvant pas être ouvertes par Managed Browser.  
-
-    > [!NOTE]  
-    >  Vous ne pouvez pas inclure des URL autorisées et bloquées dans la même stratégie Managed Browser.  
-
-     Pour plus d’informations sur les formats d’URL que vous pouvez spécifier, consultez Format des URL autorisées et des URL bloquées dans cet article.  
+    -   **De beheerde browser de onderstaande URL's opent**– Geef een lijst met URL's die de beheerde browser kan worden geopend.  
 
     > [!NOTE]  
-    >  Le type de stratégie Général vous permet de modifier les fonctionnalités des applications que vous déployez pour les adapter aux stratégies de sécurité et de conformité de votre entreprise. Par exemple, vous pouvez limiter les opérations Couper, Copier et Coller dans une application restreinte. Pour plus d’informations sur le type de stratégie Général, consultez [Protéger des applications à l’aide de stratégies de gestion des applications mobiles](protect-apps-using-mam-policies.md).  
+    >  U kunt niet zowel toegestane als geblokkeerde URL's in hetzelfde beheerde-browserbeleid opnemen.  
 
-6.  Fermez l'Assistant.  
+     Voor meer informatie over de URL-indelingen die kunt u opgeven, Zie URL-indeling voor toegestane en geblokkeerde URL's in dit artikel.  
 
-La nouvelle stratégie s'affiche dans le nœud **Stratégies de gestion d'application** de l'espace de travail **Bibliothèque de logiciels** .  
+    > [!NOTE]  
+    >  Het beleidstype algemeen kunt u de functionaliteit van apps die u implementeert om ervoor te zorgen dat ze in overeenstemming met uw bedrijf naleving en het beveiligingsbeleid te wijzigen. U kunt bijvoorbeeld bewerkingen zoals knippen, kopiëren en plakken binnen een beperkte app beperken. Zie voor meer informatie over het beleidstype algemeen [apps beveiligen met mobile application management-beleid](protect-apps-using-mam-policies.md).  
 
-## <a name="create-a-software-deployment-for-the-managed-browser-app"></a>Créer un déploiement de logiciel pour l'application Managed Browser  
- Après avoir créé la stratégie Managed Browser, vous pouvez créer un type de déploiement de logiciel pour l'application Managed Browser. Vous devez associer une stratégie Général et une stratégie Managed Browser à l’application Managed Browser.  
+6.  Sluit de wizard af.  
 
- Pour plus d’informations, consultez [Créer des applications](create-applications.md).  
+Het nieuwe beleid wordt weergegeven in het knooppunt **Beleid voor toepassingsbeheer** van de werkruimte **Softwarebibliotheek** .  
 
-## <a name="security-and-privacy-for-the-managed-browser"></a>Sécurité et confidentialité de Managed Browser  
+## <a name="create-a-software-deployment-for-the-managed-browser-app"></a>Een software-implementatie voor de beheerde-browserapp maken  
+ Nadat u het beleid voor beheerde browsers hebt gemaakt, kunt u vervolgens een software-implementatietype voor de beheerde browsertoepassing maken. U moet zowel een algemeen en de beheerde browser-beleid voor de beheerde browser-app koppelen.  
 
--   Sur les appareils iOS, les utilisateurs ne peuvent pas ouvrir les sites web possédant un certificat qui a expiré ou qui n’est pas approuvé.  
+ Zie voor meer informatie [toepassingen maken](create-applications.md).  
 
--   Les paramètres du navigateur intégré définis par les utilisateurs sur leur appareil ne sont pas utilisés par Managed Browser. Managed Browser n’a pas accès à ces paramètres.  
+## <a name="security-and-privacy-for-the-managed-browser"></a>Beveiliging en privacy voor de beheerde browser  
 
--   Si vous configurez l’option **Demander un code confidentiel simple pour l’accès** ou **Exiger des informations d’identification d’entreprise pour l’accès** dans une stratégie de gestion des applications mobiles associée à Managed Browser, un utilisateur peut cliquer sur Aide dans la page d’authentification et accéder à n’importe quel site, même si celui-ci a été ajouté à une liste bloquée dans la stratégie Managed Browser.  
+-   Op iOS-apparaten de websites die zijn verlopen of niet-vertrouwde certificaten kan niet worden geopend.  
 
--   Managed Browser peut uniquement bloquer l'accès aux sites qui font l'objet d'un accès direct. Il ne peut pas bloquer l'accès quand des services intermédiaires (tels qu'un service de traduction) sont utilisés pour accéder au site.  
+-   Instellingen door gebruikers voor de ingebouwde browser op hun apparaten, worden niet gebruikt door de beheerde browser. De beheerde browser heeft geen toegang tot deze instellingen.  
 
-## <a name="reference-information"></a>Informations de référence  
+-   Als u de opties ingesteld **eenvoudige PINCODE vereisen voor toegang tot** of **bedrijfsreferenties vereisen voor toegang tot** in een mobile application management-beleid die zijn gekoppeld aan de beheerde browser, een gebruiker kan Klik op Help op de pagina authenticatie en Ga naar eender welke site--zelfs een toegevoegd aan een lijst met geblokkeerde websites in het beleid voor beheerde browsers.  
 
-###  <a name="url-format-for-allowed-and-blocked-urls"></a>Format des URL autorisées et des URL bloquées  
+-   De beheerde browser kan alleen toegang tot sites blokkeren wanneer de sites rechtstreeks worden geopend. De browser kan geen toegang blokkeren als er tussenliggende services (zoals een vertaalservice) worden gebruikt voor toegang tot de site.  
 
-Utilisez les informations suivantes pour en savoir plus sur les formats et les caractères génériques que vous pouvez utiliser pour spécifier des URL dans les listes autorisées et les listes bloquées.  
+## <a name="reference-information"></a>Referentiegegevens  
 
--   Vous pouvez utiliser le caractère générique «**\***» selon les règles de la liste de modèles autorisés ci-dessous.  
+###  <a name="url-format-for-allowed-and-blocked-urls"></a>URL-indeling voor toegestane en geblokkeerde URL´s  
 
--   Veillez à faire précéder toutes les URL du préfixe **http** ou **https** quand vous les entrez dans la liste.  
+Gebruik de volgende gegevens voor meer informatie over de toegestane indelingen en jokertekens die u kunt gebruiken bij het opgeven van URL's in de lijsten met toegestane en geblokkeerde websites.  
 
--   Vous pouvez spécifier des numéros de port dans l'adresse. Si vous ne spécifiez pas un numéro de port, les valeurs suivantes sont utilisées :  
+-   U kunt het jokerteken '**\***' gebruiken volgens de regels in de lijst met toegestane patronen hieronder.  
 
-    -   Port 80 pour http  
+-   Zorg ervoor dat u alle URL's voorziet van het voorvoegsel **http** of **https** wanneer u ze in de lijst invoert.  
 
-    -   Port 443 pour https  
+-   U kunt poortnummers in het adres opgeven. Als u geen poortnummer opgeeft, zijn de gebruikte waarden:  
 
-     Vous ne pouvez pas utiliser de caractères génériques pour le numéro de port. Par exemple, **http://www.contoso.com:\*** et **http://www.contoso.com: /\***  
+    -   Poort 80 voor http  
 
--   Utilisez le tableau suivant pour en savoir plus sur les modèles autorisés que vous pouvez utiliser pour spécifier des URL :  
+    -   Poort 443 voor https  
 
-    |Adresse URL|Correspond à|Ne correspond pas à|  
+     Het gebruik van jokertekens voor het poortnummer wordt niet ondersteund, bijvoorbeeld **http://www.contoso.com:\*** en **http://www.contoso.com: /\***  
+
+-   Gebruik de volgende tabel voor meer informatie over de toegestane patronen die u kunt gebruiken wanneer u een URL opgeeft:  
+
+    |URL|Komt overeen met|Komt niet overeen met|  
     |---------|-------------|--------------------|  
-    |http://www.contoso.com<br /><br /> Correspond à une page unique|www.contoso.com|host.contoso.com<br /><br /> www.contoso.com/images<br /><br /> contoso.com/|  
-    |http://contoso.com<br /><br /> Correspond à une page unique|contoso.com/|host.contoso.com<br /><br /> www.contoso.com/images<br /><br /> www.contoso.com|  
-    |http://www.contoso.com/*<br /><br /> Correspond à toutes les URL commençant par www.contoso.com|www.contoso.com<br /><br /> www.contoso.com/images<br /><br /> www.contoso.com/videos/tvshows|host.contoso.com<br /><br /> host.contoso.com/images|  
-    |http://*.contoso.com/\*<br /><br /> Correspond à tous les sous-domaines sous contoso.com|developer.contoso.com/resources<br /><br /> news.contoso.com/images<br /><br /> news.contoso.com/videos|contoso.host.com|  
-    |http://www.contoso.com/images<br /><br /> Correspond à un dossier unique|www.contoso.com/images|www.contoso.com/images/dogs|  
-    |http://www.contoso.com:80<br /><br /> Correspond à une page unique avec un numéro de port|http://www.contoso.com:80||  
-    |https://www.contoso.com<br /><br /> Correspond à une page unique sécurisée|https://www.contoso.com|http://www.contoso.com|  
-    |http://www.contoso.com/images/*<br /><br /> Correspond à un dossier unique et à tous ses sous-dossiers|www.contoso.com/images/dogs<br /><br /> www.contoso.com/images/cats|www.contoso.com/videos|  
+    |http://www.contoso.com<br /><br /> Komt overeen met één pagina|www.contoso.com|host.contoso.com<br /><br /> www.contoso.com/images<br /><br /> contoso.com/|  
+    |http://contoso.com<br /><br /> Komt overeen met één pagina|contoso.com/|host.contoso.com<br /><br /> www.contoso.com/images<br /><br /> www.contoso.com|  
+    |http://www.contoso.com/*<br /><br /> Komt overeen met alle URL's die beginnen met www.contoso.com|www.contoso.com<br /><br /> www.contoso.com/images<br /><br /> www.contoso.com/videos/tvshows|host.contoso.com<br /><br /> host.contoso.com/images|  
+    |http://*.contoso.com/\*<br /><br /> Komt overeen met alle subdomeinen onder contoso.com|developer.contoso.com/resources<br /><br /> news.contoso.com/images<br /><br /> news.contoso.com/videos|contoso.host.com|  
+    |http://www.contoso.com/images<br /><br /> Komt overeen met een afzonderlijke map|www.contoso.com/images|www.contoso.com/images/dogs|  
+    |http://www.contoso.com:80<br /><br /> Komt overeen met één pagina, met gebruik van een poortnummer|http://www.contoso.com:80||  
+    |https://www.contoso.com<br /><br /> Komt overeen met een enkele, beveiligde pagina|https://www.contoso.com|http://www.contoso.com|  
+    |http://www.contoso.com/images/*<br /><br /> Komt overeen met een enkele map en alle submappen|www.contoso.com/images/dogs<br /><br /> www.contoso.com/images/cats|www.contoso.com/videos|  
 
--   Voici quelques exemples de certaines entrées que vous ne pouvez pas spécifier :  
+-   Hier volgen enkele voorbeelden van een aantal invoerwaarden die u niet kunt opgeven:  
 
     -   *.com  
 
-    -   *.contoso/\*  
+    -   *.contoso /\*  
 
     -   www.contoso.com/*images  
 
@@ -127,7 +127,7 @@ Utilisez les informations suivantes pour en savoir plus sur les formats et les c
 
     -   www.contoso.com/page*  
 
-    -   Adresses IP  
+    -   IP-adressen  
 
     -   https://*  
 
@@ -138,15 +138,15 @@ Utilisez les informations suivantes pour en savoir plus sur les formats et les c
     -   http://www.contoso.com: /*  
 
 > [!NOTE]  
->  *.microsoft.com est toujours autorisé.  
+>  *. microsoft.com is altijd toegestaan.  
 
-### <a name="how-conflicts-between-the-allow-and-block-list-are-resolved"></a>Résolution des conflits entre la liste autorisée et la liste bloquée  
- Si plusieurs stratégies Managed Browser sont déployées sur un appareil et qu'un conflit se produit entre les paramètres, le mode (autorisé ou bloqué) et les listes d'URL sont évalués pour déterminer les conflits. En cas de conflit, le comportement suivant s'applique :  
+### <a name="how-conflicts-between-the-allow-and-block-list-are-resolved"></a>Conflicten tussen de lijst met toegestane en de lijst met geblokkeerde websites oplossen  
+ Als er meerdere beheerde-browserbeleidsregels zijn geïmplementeerd op een apparaat en de instellingen conflicteren, worden de modus (toestaan of blokkeren) en de URL-lijsten geëvalueerd op conflicten. Bij een conflict geldt het volgende gedrag:  
 
--   Si les modes dans chaque stratégie sont les mêmes, mais que les listes d’URL sont différentes, les URL ne sont pas appliquées sur l’appareil.  
+-   Als de modi in elke beleidsregel hetzelfde zijn maar de URL-lijsten verschillen, wordt de URL's niet afgedwongen op het apparaat.  
 
--   Si les modes dans chaque stratégie sont différents, mais que les listes d’URL sont les mêmes, les URL ne sont pas appliquées sur l’appareil.  
+-   Als de modi in elke beleidsregel verschillen maar de URL-lijsten hetzelfde zijn, wordt de URL's niet afgedwongen op het apparaat.  
 
--   Si un appareil reçoit des stratégies Managed Browser pour la première fois et qu'un conflit se produit entre deux stratégies, les URL ne sont pas appliquées sur l'appareil. Utilisez le nœud **Conflits de stratégies** de l'espace de travail **Stratégie** pour afficher les conflits.  
+-   Als een apparaat voor de eerste keer beheerde-browserbeleidsregels ontvangt en twee beleidsregels conflicteren, worden de URL's niet afgedwongen op het apparaat. Gebruik het knooppunt **Conflicterende beleidsinstellingen** van de werkruimte **Beleid** om de conflicten weer te geven.  
 
--   Si un appareil a déjà reçu une stratégie Managed Browser et qu'une deuxième stratégie est déployée avec des paramètres en conflit, les paramètres d'origine restent sur l'appareil. Utilisez le nœud **Conflits de stratégies** de l'espace de travail **Stratégie** pour afficher les conflits.  
+-   Als een apparaat al een beheerde-browserbeleid heeft ontvangen en er een tweede beleid met conflicterende instellingen wordt geïmplementeerd, blijven de oorspronkelijke instellingen op het apparaat. Gebruik het knooppunt **Conflicterende beleidsinstellingen** van de werkruimte **Beleid** om de conflicten weer te geven.  

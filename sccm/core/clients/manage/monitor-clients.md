@@ -1,6 +1,6 @@
 ---
-title: Surveiller des clients - Configuration Manager | Microsoft Docs
-description: "Obtenez des instructions détaillées sur la façon de surveiller les clients dans System Center Configuration Manager."
+title: Clients - Configuration Manager controleren | Microsoft Docs
+description: Gedetailleerde richtlijnen voor het controleren van clients in System Center Configuration Manager worden opgehaald.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,98 +16,98 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 08a4d9b29871b49e3118aef949572cef64940f96
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-monitor-clients-in-system-center-configuration-manager"></a>Guide pratique pour surveiller des clients dans System Center Configuration Manager
+# <a name="how-to-monitor-clients-in-system-center-configuration-manager"></a>Clients controleren in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
- Une fois l’application cliente System Center Configuration Manager installée sur les ordinateurs et appareils Windows de votre site, vous pouvez surveiller leur intégrité et leur activité dans la console Configuration Manager.  
+ Zodra de System Center Configuration Manager-clienttoepassing op de Windows-computers en apparaten in uw site is geïnstalleerd, kunt u de status en activiteit in de Configuration Manager-console kunt bewaken.  
 
-##  <a name="bkmk_about"></a> À propos du statut du client  
- Configuration Manager présente les types d’informations suivants sous forme d’état du client :  
+##  <a name="bkmk_about"></a> Over de clientstatus  
+ Configuration Manager biedt de volgende soorten informatie als clientstatus:  
 
--   **État en ligne du client** : à compter de la version 1602 de Configuration Manager, cet état indique si l’ordinateur est en ligne ou non. Un ordinateur est considéré comme étant en ligne s’il est connecté au point de gestion qui lui est affecté.  Pour indiquer que le client est en ligne, il envoie des messages de type ping au point de gestion. Si le point de gestion n’a pas reçu de message après environ 5 minutes, le client est considéré comme étant hors connexion.  
+-   **Online clientstatus** -vanaf versie 1602 van Configuration Manager kan deze status geeft aan of de computer al dan niet online is. Een computer wordt als online beschouwd als de computer is verbonden met het beheerpunt dat eraan is toegewezen.  Om aan te geven dat de client online is, verzendt deze ping-achtige berichten naar het beheerpunt. Als het beheerpunt na ongeveer 5 minuten geen bericht heeft ontvangen, wordt de client als offline beschouwd.  
 
--   **Activité du client** : cet état indique si le client a été activement en contact avec Configuration Manager au cours des 7 derniers jours. Si le client n’a pas demandé de mise à jour de la stratégie, a envoyé un message de pulsation, ou a envoyé un inventaire matériel dans les 7 jours, il est considéré comme inactif.  
+-   **Clientactiviteit** -deze status geeft aan of de client heeft gehad actief met Configuration Manager gedurende de afgelopen 7 dagen. Als de client de afgelopen 7 dagen geen beleidsupdate heeft aangevraagd of heartbeat-bericht of hardware-inventaris heeft verzonden, wordt de client als inactief beschouwd.  
 
--   **Intégrité du client** : cet état indique la réussite de l’évaluation périodique de l’exécution du client Configuration Manager sur l’ordinateur.  L’évaluation vérifie l’ordinateur et peut corriger certains problèmes détectés. Pour plus d’informations, consultez [Vérifications et corrections effectuées par la fonction d’intégrité du client](#BKMK_ClientHealth).  
+-   **Clientcontrole** -deze status geeft het succes van de periodieke evaluatie aan die de Configuration Manager-client wordt uitgevoerd op de computer.  De evaluatie controleert de computer en herstelt mogelijk enkele gevonden problemen. Zie [Controles en herstel uitgevoerd door clientcontrole](#BKMK_ClientHealth)voor meer informatie.  
 
-     Sur les ordinateurs qui exécutent Windows 7, l'intégrité du client s'exécute en tant que tâche planifiée. Sur les systèmes d'exploitation ultérieurs, l'intégrité du client s'exécute automatiquement pendant la fenêtre de maintenance de Windows.  
+     Op computers met Windows 7 worden clientcontroles uitgevoerd als een geplande taak. Voor nieuwere besturingssystemen wordt de clientcontrole automatisch uitgevoerd tijdens het Windows-onderhoudsvenster.  
 
-     Vous pouvez configurer la mise à jour de manière à ne pas l'exécuter sur des ordinateurs spécifiques, par exemple, sur un serveur essentiel pour l'entreprise. En outre, si vous souhaitez évaluer d’autres éléments, vous pouvez utiliser les paramètres de compatibilité de Configuration Manager pour fournir une solution complète de surveillance de l’intégrité, de l’activité et de la conformité globales des ordinateurs de votre organisation. Pour plus d’informations sur les paramètres de compatibilité, consultez [Planifier et configurer les paramètres de compatibilité dans System Center Configuration Manager](../../../compliance/plan-design/plan-for-and-configure-compliance-settings.md).  
+     U kunt configureren dat herstel niet wordt uitgevoerd op specifieke computers, bijvoorbeeld, een bedrijfskritische server. Bovendien, als er extra items zijn die u wilt evalueren, kunt u Configuration Manager-instellingen voor naleving voor een uitgebreide oplossing voor het controleren van de algemene status, activiteit en compatibiliteit van computers in uw organisatie. Zie [Instellingen voor naleving plannen en configureren in Configuration Manager](../../../compliance/plan-design/plan-for-and-configure-compliance-settings.md) voor meer informatie over de instellingen voor naleving.  
 
-##  <a name="bkmk_indStatus"></a> Surveiller le statut de clients individuels  
+##  <a name="bkmk_indStatus"></a> De status van afzonderlijke clients controleren  
 
-1.  Dans la console Configuration Manager, cliquez sur **Ressources et Conformité** > **Appareils** ou choisissez un regroupement sous **Regroupements d’appareils**.  
+1.  Klik in de Configuration Manager-console op **activa en naleving** > **apparaten** of kies een verzameling onder **Apparaatverzamelingen**.  
 
-     À compter de la version 1602 de Configuration Manager, les icônes au début de chaque ligne indiquent le statut de connexion de l’appareil :  
+     Vanaf versie 1602 van Configuration Manager, geven de pictogrammen aan het begin van elke rij de onlinestatus van het apparaat:  
 
     |||  
     |-|-|  
-    |![icône de statut de connexion des clients](../../../core/clients/manage/media/online-status-icon.png)|L’appareil est en ligne.|  
-    |![icône de statut déconnecté des clients](../../../core/clients/manage/media/offline-status-icon.png)|L’appareil est hors connexion.|  
-    |![icône de statut inconnu des clients](../../../core/clients/manage/media/unknown-status-icon.png)|Le statut de connexion est inconnu.|  
-    |![client non installé](../../../core/clients/manage/media/client-not-installed.png)|Le client n’est pas installé sur l’appareil.|  
+    |![online-statuspictogram voor clients](../../../core/clients/manage/media/online-status-icon.png)|Het apparaat is online.|  
+    |![offline-statuspictogram voor clients](../../../core/clients/manage/media/offline-status-icon.png)|Het apparaat is offline.|  
+    |![onbekende-statuspictogram voor clients](../../../core/clients/manage/media/unknown-status-icon.png)|De onlinestatus is onbekend.|  
+    |![client niet geïnstalleerd](../../../core/clients/manage/media/client-not-installed.png)|De client is niet op het apparaat geïnstalleerd.|  
 
-2.  Pour obtenir un statut de connexion plus détaillé, ajoutez les informations de statut de connexion du client à l’affichage du périphérique, en double-cliquant sur l’en-tête de colonne et en cliquant sur les champs de statut de connexion que vous souhaitez ajouter. Les colonnes que vous pouvez ajouter sont les suivantes :  
+2.  Voor meer gedetailleerde onlinestatus de onlinestatus van de clientinformatie aan de apparaatweergave toevoegen met de rechtermuisknop op de kolomkop en klik in de onlinestatus van de velden die u wilt toevoegen. Dit zijn de kolommen die u kunt toevoegen:  
 
-    -   **Statut de connexion de l’appareil** indique si le client est actuellement en ligne ou hors connexion. (Il s’agit des mêmes informations que celles fournies par les icônes).  
+    -   **Onlinestatus van het apparaat** geeft aan of de client op dit moment online of offline is. (Dit is dezelfde informatie komt overeen met de pictogrammen).  
 
-    -   **Heure de la dernière connexion** indique à quel moment le statut de connexion du client est passé en ligne.  
+    -   **Laatste tijdstip online** geeft aan wanneer de onlinestatus van de client is gewijzigd in online.  
 
-    -   **Heure de la dernière déconnexion** indique à quel moment le statut est passé hors connexion.  
+    -   **Laatste tijdstip offline** geeft aan wanneer de status is gewijzigd in offline.  
 
-3.  Cliquez sur un client individuel dans le volet Liste pour voir plus d’informations sur le statut dans le volet Détails, dont des informations sur l’activité du client et l’intégrité du client.  
+3.  Klik op een individuele client in het lijstdeelvenster om meer statusgegevens in het deelvenster weer te geven, waaronder informatie over clientactiviteiten en clientcontroles.  
 
-##  <a name="bkmk_allStatus"></a> Surveiller le statut de tous les clients  
+##  <a name="bkmk_allStatus"></a> De status van alle clients controleren  
 
-1.  Dans la console Configuration Manager, cliquez sur **Surveillance** > **État du client**. Dans cette page de la console, vous pouvez consulter les statistiques générales relatives à l’activité du client et à l’intégrité du client sur le site.  Vous pouvez également modifier l’étendue des informations en choisissant un autre regroupement.  
+1.  Klik in de Configuration Manager-console op **bewaking** > **clientstatus**. Op deze pagina van de console kunt u de algemene statistieken voor clientactiviteit en clientcontroles op de site bekijken.  U kunt ook het bereik van de gegevens wijzigen door een andere verzameling te kiezen.  
 
-2.  Pour explorer en détail les statistiques renvoyées, cliquez sur le nom des informations communiquées (par exemple, **Clients actifs ayant réussi la vérification ou sans résultats**) et passez en revue les informations sur les différents clients.  
+2.  Als u wilt inzoomen op de statistische gegevens, klikt u op de naam van de gerapporteerde gegevens (zoals **actieve clients die zijn geslaagd voor clientcontrole of geen resultaten**) en lees de informatie over de afzonderlijke clients.  
 
-3.  Cliquez sur **Activité des clients** pour afficher des graphiques illustrant l’activité des clients sur votre site Configuration Manager.  
+3.  Klik op **clientactiviteit** om te grafieken van de clientactiviteit in uw Configuration Manager-site.  
 
-4.  Cliquez sur **Intégrité du client** pour afficher des graphiques illustrant l’état de vérification de l’intégrité des clients de votre site Configuration Manager.  
+4.  Klik op **clientcontrole** om te zien grafieken van de status van de client controleert in uw Configuration Manager-site.  
 
- Vous pouvez configurer des alertes pour vous avertir lorsque les résultats de l'intégrité des clients ou l'activité des clients passent au-dessous d'un pourcentage de clients spécifié dans un enregistrement ou lorsque la mise à jour échoue sur un pourcentage de clients spécifié. Pour plus d’informations sur la configuration de l’état du client, consultez [Comment configurer l’état du client dans System Center Configuration Manager](../../../core/clients/deploy/configure-client-status.md).  
+ U kunt waarschuwingen configureren om u op de hoogte te brengen wanneer clients resultaten controleren of de clientactiviteit zakt onder een gespecificeerd percentage van clients in een verzameling of wanneer herstel op een gespecificeerd percentage van clients mislukt. Zie [De clientstatus configureren in System Center Configuration Manager](../../../core/clients/deploy/configure-client-status.md) voor meer informatie over het configureren van de clientstatus.  
 
-##  <a name="BKMK_ClientHealth"></a> Vérifications et corrections effectuées par la fonction d'intégrité du client  
- Les vérifications et corrections suivantes peuvent être effectuées par la fonction d'intégrité du client.  
+##  <a name="BKMK_ClientHealth"></a> Controles en herstel uitgevoerd door clientcontrole  
+ De volgende controles en herstelbewerkingen kunnen door clientcontrole worden uitgevoerd.  
 
-|Intégrité du client|Action corrective|Plus d'informations|  
+|Clientcontrole|Herstelactie|Meer informatie|  
 |------------------|------------------------|----------------------|  
-|Vérifier que la fonction d'intégrité du client a été exécutée récemment|Exécuter l'intégrité du client|Vérifie que l'intégrité du client a été exécutée au moins une fois au cours des trois derniers jours.|  
-|Vérifier que la configuration requise du client est installée|Installer la configuration requise du client|Vérifie que la configuration requise du client est installée. Lit le fichier ccmsetup.xml dans le dossier d'installation client pour découvrir les composants requis.|  
-|Test d'intégrité de l'espace de stockage WMI|Réinstaller le client Configuration Manager|Vérifie que les entrées de client Configuration Manager sont présentes dans WMI.|  
-|Vérifier que le service client est en cours d'exécution|Démarrer le service client (Hôte de l'agent SMS)|Aucune information supplémentaire|  
-|Test du récepteur d'événements WMI.|Redémarrer le service client|Vérifier si le récepteur d’événements WMI lié à Configuration Manager est perdu|  
-|Vérifier l'existence du service WMI (Windows Management Instrumentation)|Aucune correction|Aucune information supplémentaire|  
-|Vérifier que le client a été installé correctement|Réinstaller le client|Aucune information supplémentaire|  
-|Test de lecture/d'écriture de l'espace de stockage WMI|Réinitialiser le référentiel WMI et réinstaller le client Configuration Manager|La correction de cette intégrité du client est effectuée uniquement sur les ordinateurs qui exécutent Windows Server 2003, Windows XP (64 bits) ou des versions antérieures.|  
-|Vérifier que le type de démarrage du service anti-programme malveillant est automatique|Réinitialiser le type de démarrage du service sur automatique|Aucune information supplémentaire|  
-|Vérifier que le service anti-programme malveillant est en cours d'exécution|Démarrer le service anti-programme malveillant|Aucune information supplémentaire|  
-|Vérifier que le type de démarrage du service Windows Update est automatique ou manuel|Réinitialiser le type de démarrage du service sur automatique|Aucune information supplémentaire|  
-|Vérifier que le type de démarrage du service client (Hôte de l'agent SMS) est automatique|Réinitialiser le type de démarrage du service sur automatique|Aucune information supplémentaire|  
-|Vérifier que le service WMI (Windows Management Instrumentation) est en cours d'exécution|Démarrer le service WMI (Windows Management Instrumentation)|Aucune information supplémentaire|  
-|Vérifier l'intégrité de la base de données Microsoft SQL CE|Réinstaller le client Configuration Manager|Aucune information supplémentaire|  
-|Test d'intégrité WMI Microsoft Policy Platform|Réparer Microsoft Policy Platform|Aucune information supplémentaire|  
-|Vérifier que le service Microsoft Policy Platform existe|Réparer Microsoft Policy Platform|Aucune information supplémentaire|  
-|Vérifier que le type de démarrage du service Microsoft Policy Platform est manuel|Réinitialiser le type de démarrage du service sur manuel|Aucune information supplémentaire|  
-|Vérifier l'existence du service de transfert intelligent en arrière-plan|Aucune correction|Aucune information supplémentaire|  
-|Vérifier que le type de démarrage du service de transfert intelligent en arrière-plan est automatique ou manuel|Réinitialiser le type de démarrage du service sur automatique|Aucune information supplémentaire|  
-|Vérifier que le type de démarrage du service d'inspection du réseau est manuel|Réinitialiser le type de démarrage du service sur manuel, s'il est installé|Aucune information supplémentaire|  
-|Vérifier que le type de démarrage du service WMI (Windows Management Instrumentation) est automatique|Réinitialiser le type de démarrage du service sur automatique|Aucune information supplémentaire|  
-|Vérifier que le type de démarrage du service Windows Update sur les ordinateurs Windows 8 est automatique ou manuel|Réinitialiser le type de démarrage du service sur manuel|Aucune information supplémentaire|  
-|Vérifier l'existence du service client (hôte d'Agent SMS)|Aucune correction|Aucune information supplémentaire|  
-|Vérifier que le type de démarrage du service de contrôle à distance de Configuration Manager est automatique ou manuel|Réinitialiser le type de démarrage du service sur automatique|Aucune information supplémentaire|  
-|Vérifier que le service de contrôle à distance de Configuration Manager est en cours d'exécution|Démarrer le service de contrôle à distance|Aucune information supplémentaire|  
-|Vérifier l'intégrité du fournisseur WMI du client|Redémarrer le service WMI (Windows Management Instrumentation)|La correction de cette intégrité du client est effectuée uniquement sur les ordinateurs qui exécutent Windows Server 2003, Windows XP (64 bits) ou des versions antérieures.|  
-|Vérifier que le service de proxy de mise en éveil (proxy de mise en éveil ConfigMgr) est en cours d'exécution|Démarrer le service de proxy de mise en éveil ConfigMgr|Cette vérification du client est effectuée uniquement si le paramètre client **Gestion de l’alimentation**: **Autoriser le proxy de mise en éveil** est défini sur **Oui** sur les systèmes d’exploitation clients pris en charge.|  
-|Vérifier que le type de démarrage du service de proxy de mise en éveil (proxy de mise en éveil ConfigMgr) est automatique|Réinitialiser le type de démarrage du service de proxy de mise en éveil ConfigMgr sur automatique|Cette vérification du client est effectuée uniquement si le paramètre client **Gestion de l’alimentation**: **Autoriser le proxy de mise en éveil** est défini sur **Oui** sur les systèmes d’exploitation clients pris en charge.|  
+|Controleer of dat de clientcontrole onlangs is uitgevoerd|Clientcontrole uitvoeren|Controleert of de clientcontrole ten minste eenmaal in de voorbije drie dagen is uitgevoerd.|  
+|Controleer of vereiste clientonderdelen zijn geïnstalleerd|Installeer de vereiste clientonderdelen|Controleert of vereiste clientonderdelen zijn geïnstalleerd. Leest het bestand ccmsetup.xml in de clientinstallatiemap om te bepalen welke onderdelen vereist zijn.|  
+|Integriteitstest WMI-rapportage|De Configuration Manager-client opnieuw installeren|Controleert of clientvermeldingen van Configuration Manager-aanwezig is in WMI.|  
+|Controleer of de clientservice actief is|Start de clientservice (SMS Agent Host)|Geen aanvullende informatie|  
+|Test WMI-gebeurtenis-opvanger.|Start de clientservice opnieuw|Controleer of de Configuration Manager gerelateerde WMI-gebeurtenis-opvanger is verbroken|  
+|Controleer of de WMI-service (Windows Management Instrumentation) bestaat|Geen herstel mogelijk|Geen aanvullende informatie|  
+|Controleer of de client correct is geïnstalleerd|Installeer de client opnieuw|Geen aanvullende informatie|  
+|Lees- en schrijftest WMI-opslag|Stel de WMI-opslag en opnieuw installeren van Configuration Manager-client|Herstel van deze clientcontrole wordt alleen uitgevoerd op computers met Windows Server 2003, Windows XP (64-bits) of eerdere versies.|  
+|Controleer of het opstarttype voor de antimalwareservice automatisch is|Stel het opstarttype van de service opnieuw in op automatisch|Geen aanvullende informatie|  
+|Controleer of de antimalwareservice actief is|Start de antimalwareservice|Geen aanvullende informatie|  
+|Controleer of het opstarttype voor de Windows Update-service automatisch of handmatig is|Stel het opstarttype van de service opnieuw in op automatisch|Geen aanvullende informatie|  
+|Controleer of het opstarttype voor de clientservice (SMS Agent Host) automatisch is|Stel het opstarttype van de service opnieuw in op automatisch|Geen aanvullende informatie|  
+|Controleer of de WMI-service (Windows Management Instrumentation) actief is.|Start de WMI-service|Geen aanvullende informatie|  
+|Controleer de conditie van de Microsoft SQL CE-database|De Configuration Manager-client opnieuw installeren|Geen aanvullende informatie|  
+|WMI-integriteitstest van het Microsoft-beleidsplatform|Het Microsoft-beleidsplatform herstellen|Geen aanvullende informatie|  
+|Controleer of de service Microsoft-beleidsplatform bestaat|Het Microsoft-beleidsplatform herstellen|Geen aanvullende informatie|  
+|Controleer of het opstarttype voor de service Microsoft-beleidsplatform handmatig is.|Stel het opstarttype van de service opnieuw in op handmatig|Geen aanvullende informatie|  
+|Controleer of Background Intelligent Transfer Service bestaat|Geen herstel mogelijk|Geen aanvullende informatie|  
+|Controleer of het opstarttype voor Background Intelligent Transfer Service automatisch of handmatig is|Stel het opstarttype van de service opnieuw in op automatisch|Geen aanvullende informatie|  
+|Controleer of het opstarttype voor de netwerkinspectieservice handmatig is|Stel het opstarttype van de service, indien geïnstalleerd, opnieuw in op handmatig|Geen aanvullende informatie|  
+|Controleer of het opstarttype voor de WMI-service (Windows Management Instrumentation) automatisch is.|Stel het opstarttype van de service opnieuw in op automatisch|Geen aanvullende informatie|  
+|Controleer of het opstarttype voor de Windows Update-service op Windows 8-computers automatisch of handmatig is|Stel het opstarttype van de service opnieuw in op handmatig|Geen aanvullende informatie|  
+|Controleer of de clientservice (SMS Agent Host) bestaat.|Geen herstel mogelijk|Geen aanvullende informatie|  
+|Controleer of het opstarttype voor de Configuration Manager-service voor extern beheer automatisch of handmatig is|Stel het opstarttype van de service opnieuw in op automatisch|Geen aanvullende informatie|  
+|Controleer of de Configuration Manager-service voor extern beheer wordt uitgevoerd|Start de service voor extern beheer|Geen aanvullende informatie|  
+|Controleer de status van de WMI-provider van de client|Start de WMI-service opnieuw|Herstel van deze clientcontrole wordt alleen uitgevoerd op computers met Windows Server 2003, Windows XP (64-bits) of eerdere versies.|  
+|Controleer of de service Wake-up proxy wordt uitgevoerd|Start de ConfigMgr-service Wake-up proxy|Deze clientcontrole wordt alleen uitgevoerd wanneer de **energiebeheer**: **Wake-up proxy inschakelen** client-instelling is ingesteld op **Ja** op ondersteunde clientbesturingssystemen.|  
+|Controleer of het opstarttype voor de service Wake-up proxy automatisch is|Stel het opstarttype voor de ConfigMgr-service Wake-up proxy opnieuw in op automatisch|Deze clientcontrole wordt alleen uitgevoerd wanneer de **energiebeheer**: **Wake-up proxy inschakelen** client-instelling is ingesteld op **Ja** op ondersteunde clientbesturingssystemen.|  
 
-## <a name="client-deployment-log-files"></a>Fichiers journaux de déploiement du client
-Pour plus d’informations sur les fichiers journaux utilisés par les opérations de déploiement et de gestion du client, consultez [Fichiers journaux dans System Center Configuration Manager](/sccm/core/plan-design/hierarchy/log-files#BKMK_ClientLogs).
+## <a name="client-deployment-log-files"></a>Logboekbestanden van client-implementatie
+Zie voor meer informatie over de logboekbestanden die worden gebruikt door de implementatie van de client- en beheerbewerkingen [logbestanden in System Center Configuration Manager](/sccm/core/plan-design/hierarchy/log-files#BKMK_ClientLogs).

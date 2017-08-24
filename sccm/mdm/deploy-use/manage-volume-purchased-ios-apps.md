@@ -1,6 +1,6 @@
 ---
-title: "Gérer les applications iOS achetées en volume | Microsoft Docs"
-description: "Déployez, gérez et suivez les licences d’applications que vous avez achetées via l’App Store iOS."
+title: Volume-purchased iOS-apps beheren | Microsoft Docs
+description: Implementeren, beheren en bijhouden van licenties voor apps die u hebt aangeschaft via de iOS appstore.
 ms.custom: na
 ms.date: 05/12/2017
 ms.prod: configuration-manager
@@ -17,108 +17,108 @@ ms.author: mtillman
 manager: angrobe
 ms.openlocfilehash: ce706e938f558406044f7890c80bb7156c3b262b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="manage-volume-purchased-ios-apps-with-system-center-configuration-manager"></a>Gérer des applications iOS achetées en volume avec System Center Configuration Manager
+# <a name="manage-volume-purchased-ios-apps-with-system-center-configuration-manager"></a>Met System Center Configuration Manager iOS-apps beheren die zijn gekocht via het volume-aankoopprogramma
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
 
- L’App Store iOS vous permet d’acheter plusieurs licences d’une application que vous souhaitez exécuter dans votre entreprise. Vous pouvez ainsi réduire les coûts d’administration liés au suivi de plusieurs copies d’applications achetées.  
+ De iOS appstore kunt u koopt meerdere licenties voor een app die u wilt uitvoeren binnen uw bedrijf. Zo kunt u de administratieve overhead voor het bijhouden van meerdere exemplaren van apps die u hebt gekocht reduceren.  
 
- System Center Configuration Manager facilite le déploiement et la gestion des applications iOS que vous avez achetées via le programme en important les informations de licence depuis l’App Store et en gérant le nombre de licences que vous utilisez.  
+ System Center Configuration Manager helpt u bij het implementeren en beheren van iOS-apps die u via het programma hebt aangeschaft door de licentiegegevens uit de appstore te importeren en bij te houden van het nummer van de licenties die worden gebruikt.  
 
-## <a name="manage-volume-purchased-apps-for-ios-devices"></a>Gérer les applications pour appareils iOS achetées en volume  
- Vous achetez plusieurs licences d’applications iOS via le Programme d’achat en volume (VPP) Apple. Vous devez alors configurer un compte Apple VPP sur le site web Apple et charger le jeton Apple VPP sur Configuration Manager, ce qui offre les possibilités suivantes :  
+## <a name="manage-volume-purchased-apps-for-ios-devices"></a>Volume-purchased apps voor iOS-apparaten beheren  
+ U koopt meerdere licenties voor iOS-apps via het Apple Volume Purchase Program (VPP). Hiervoor moet u een Apple VPP-account via de website van Apple instellen en het Apple VPP-token uploaden naar Configuration Manager, dat de volgende mogelijkheden biedt:  
 
--   Synchronisation des informations sur les achats en volume avec Configuration Manager. 
+-   Synchroniseren van uw aankoop volumegegevens met Configuration Manager. 
  
-- Synchronisation des applications du programme d’achat en volume pour les entreprises et du programme d’achat en volume pour l’éducation d’Apple.
+- Het Apple Volume Purchase Program voor bedrijven en het Apple Volume Purchase Program voor onderwijs-Sync apps.
 
-- Association de plusieurs jetons de programme d’achat de volume Apple à Configuration Manager.
+- Koppelen van meerdere Apple volume purchase program-tokens met Configuration Manager.
 
--   Affichage des applications achetées dans la console Configuration Manager.  
+-   Apps die u hebt aangeschaft, worden weergegeven in de Configuration Manager-console.  
 
--   Déploiement et surveillance de ces applications, et suivi du nombre de licences utilisées pour chaque application.  
+-   U kunt apps implementeren, deze apps controleren en bijhouden van het aantal licenties voor elke app die is gebruikt.  
 
--   Si nécessaire, Configuration Manager peut vous permettre de récupérer des licences en désinstallant les applications achetées en volume que vous avez déployées.  
+-   Configuration Manager kunt u licenties indien nodig met het verwijderen van volume-aankoopprogramma gekochte apps die u hebt geïmplementeerd vrijmaken.  
 
-## <a name="before-you-start"></a>Avant de commencer  
- Avant de commencer, vous devez vous procurer un jeton VPP auprès d’Apple et le charger sur Configuration Manager.  
+## <a name="before-you-start"></a>Voordat u begint  
+ Voordat u begint, moet u een VPP-token ophalen van Apple en upload dit naar Configuration Manager.  
 
--   Si vous avez précédemment utilisé un jeton VPP avec un autre produit MDM dans votre compte Apple VPP existant, vous devez en générer un nouveau pour l’utiliser avec Configuration Manager.  
--   Chaque jeton est valide pendant un an.  
--   Par défaut, Configuration Manager se synchronise avec le service Apple VPP deux fois par jour pour vérifier que vos licences sont synchronisées avec Configuration Manager.  
-      Seules les modifications apportées à vos licences sont synchronisées. Cependant, une synchronisation complète est assurée une fois tous les sept jours.  
-      Quand vous choisissez **Synchroniser** pour effectuer une synchronisation manuelle, celle-ci est toujours complète.  
--   Si vous avez besoin de récupérer ou restaurer votre base de données Configuration Manager, nous vous recommandons d’effectuer une synchronisation manuelle après cette opération pour être certain que vos données de licence synchronisées sont à jour.  
--   De plus, vous devez avoir importé un certificat du service de notifications Push Apple (APNs) pour pouvoir gérer des appareils iOS, ce qui inclut le déploiement d’applications. Pour plus d’informations, consultez [Configurer la gestion des appareils iOS hybride](enroll-hybrid-ios-mac.md).  
--   Configuration Manager prend en charge l’ajout de 3000 jetons VPP maximum.
+-   Als u eerder een VPP-token met een ander MDM-product in uw bestaande Apple VPP-account gebruikt, moet u een nieuwe token voor gebruik met Configuration Manager genereren.  
+-   Elke token is één jaar geldig.  
+-   Standaard Configuration Manager wordt gesynchroniseerd met de Apple VPP-service twee keer per dag om ervoor te zorgen dat uw licenties met Configuration Manager worden gesynchroniseerd.  
+      Alleen wijzigingen in uw licenties zijn gesynchroniseerd. Maar om de zeven dagen, een volledige synchronisatie worden uitgevoerd.  
+      Wanneer u de optie **Sync** hiertoe een handmatige synchronisatie, zal dit altijd een volledige synchronisatie uitvoeren.  
+-   Als u wilt herstellen of herstellen van Configuration Manager-database, wordt u aangeraden dat u een handmatige synchronisatie later om ervoor te zorgen dat uw gesynchroniseerde licentiegegevens up-to-date doen.  
+-   Bovendien, moet u hebt geïmporteerd een geldig certificaat voor Apple Push Notification service (APNs) van Apple zodat u voor het beheren van iOS-apparaten, met inbegrip van app-implementatie. Zie voor meer informatie [iOS hybride Apparaatbeheer instellen](enroll-hybrid-ios-mac.md).  
+-   Configuration Manager ondersteunt maximaal 3000 VPP-tokens toevoegen.
 
-À partir de System Center Configuration Manager 1702, vous pouvez désormais déployer des applications sous licence sur des appareils ainsi que des utilisateurs. En fonction de la capacité des applications à prendre en charge les licences d’appareils, une licence appropriée sera réclamée lors du déploiement, comme suit :
+Beginnen met System Center Configuration Manager 1702, kunt u gelicentieerde apps implementeren op apparaten, evenals gebruikers. Afhankelijk van de apps mogelijkheid om apparaat-licentieverlening te ondersteunen, wordt een juiste licentie wordt geclaimd bij het implementeren, als volgt:
 
 |||||
 |-|-|-|-|
-|Version de Configuration Manager|L’application prend-elle en charge les licences d’appareil ?|Type de regroupement de déploiement|Licence demandée|
-|Antérieure à 1702|Oui|utilisateur|Licence utilisateur|
-|Antérieure à 1702|Non|utilisateur|Licence utilisateur|
-|Antérieure à 1702|Oui|Appareil|Licence utilisateur|
-|Antérieure à 1702|Non|Appareil|Licence utilisateur|
-|1702 et versions ultérieures|Oui|utilisateur|Licence utilisateur|
-|1702 et versions ultérieures|Non|utilisateur|Licence utilisateur|
-|1702 et versions ultérieures|Oui|Appareil|Licence d’appareil|
-|1702 et versions ultérieures|Non|Appareil|Licence utilisateur|
+|Versie van Configuration Manager|App ondersteunt apparaat licentieverlening?|Implementatietype van de verzameling|De geclaimde licentie|
+|Ouder dan 1702|Ja|Gebruiker|Gebruikerslicentie|
+|Ouder dan 1702|Nee|Gebruiker|Gebruikerslicentie|
+|Ouder dan 1702|Ja|Apparaat|Gebruikerslicentie|
+|Ouder dan 1702|Nee|Apparaat|Gebruikerslicentie|
+|1702 en hoger|Ja|Gebruiker|Gebruikerslicentie|
+|1702 en hoger|Nee|Gebruiker|Gebruikerslicentie|
+|1702 en hoger|Ja|Apparaat|Apparaatlicentie|
+|1702 en hoger|Nee|Apparaat|Gebruikerslicentie|
 
-## <a name="step-1---to-get-and-upload-an-apple-vpp-token"></a>Étape 1 : obtenir et charger un jeton Apple VPP  
+## <a name="step-1---to-get-and-upload-an-apple-vpp-token"></a>Stap 1: een Apple VPP-token verkrijgen en uploaden  
 
-1.  Dans la console Configuration Manager, choisissez **Administration** > **Services cloud** > **Jetons du programme d’achat en volume (VPP) Apple**.   
+1.  Kies in de Configuration Manager-console **beheer** > **Cloudservices** > **Apple Volume Purchase Program-Tokens**.   
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Jetons du programme d’achat en volume (VPP) Apple**, choisissez **Ajouter un jeton du programme d’achat en volume (VPP) Apple**.  
+3.  Op de **Start** tabblad, in de **Apple Volume Purchase Program-Tokens** groep, kiest u **toevoegen Apple Volume Purchase Program-Token**.  
 
-4.  Dans la page **Général** de l’Assistant **Ajouter un jeton du programme d’achat en volume (VPP) Apple**, configurez les éléments suivants :   
+4.  Op de **algemene** pagina van de **toevoegen Apple Volume Purchase Program-Token** wizard configureert u het volgende:   
 
-    -   **Nom** : attribuez un nom à ce jeton tel qu’il s’affichera dans la console Configuration Manager.  
+    -   **Naam** -Voer een naam voor dit token, zoals het moet worden weergegeven in de Configuration Manager-console.  
 
-    -   **Jeton** : choisissez **Parcourir** et le jeton VPP que vous avez téléchargé sur le site web Apple.  
+    -   **Token** -Kies **Bladeren**, en kies vervolgens het VPP-token dat u hebt gedownload van de website van Apple.  
 
-         Choisissez le lien **See Apple VPP account** (Afficher le compte Apple VPP) et, si ce n’est déjà fait, inscrivez-vous à un programme d’achats en volume pour les entreprises ou l’enseignement. Une fois inscrit, téléchargez le jeton Apple VPP pour votre compte.  
+         Kies de **Zie Apple VPP-account** koppelen, en als u nog niet gedaan hebt, meldt u voor de bedrijven of onderwijsinstellingen volume purchase program. Nadat u zich hebt aangemeld, download u het Apple VPP-token voor uw account.  
 
-    -   **Description** : si vous le souhaitez, entrez une description pour faciliter l’identification du jeton VPP dans la console Configuration Manager.  
+    -   **Beschrijving** : Geef indien gewenst, voer een beschrijving in waarmee u deze VPP-token in de Configuration Manager-console te identificeren.  
 
-    -   **Catégories attribuées pour améliorer la recherche et le filtrage** : si vous le souhaitez, vous pouvez attribuer des catégories au jeton VPP pour faciliter sa recherche dans la console Configuration Manager.  
-    -   **ID Apple** : entrez l’ID de l’adresse électronique Apple associée au jeton VPP.
-    -   **Type de jeton** : sélectionnez le type de jeton VPP que vous souhaitez utiliser. Vous pouvez choisir les types de jetons **Business** et **EDU**.
+    -   **Toegewezen categorieën voor het verbeteren van zoeken en filteren** : Geef indien gewenst, kunt u categorieën toewijzen aan het VPP-token maken het gemakkelijker om te zoeken naar in de Configuration Manager-console.  
+    -   **Apple-ID** -voert u de apple-e-mail-ID die is gekoppeld aan het VPP-Token.
+    -   **Type token** -Selecteer het type VPP-token die u wilt gebruiken. U kunt kiezen **Business** en **EDU** token typen.
 
-5.  Choisissez **Suivant**, puis terminez l’Assistant.  
+5.  Kies **volgende**, en voltooi de wizard.  
 
-À partir du nœud **Jetons du programme d’achat en volume (VPP) Apple**, vous pouvez maintenant consulter les informations sur le jeton Apple VPP et déterminer notamment quand ont eu lieu ses dernières mise à jour et synchronisation, ainsi que sa date d’expiration.
+Van de **Apple Volume Purchase Program-Tokens** knooppunt, u kunt nu informatie bekijken over het Apple VPP-token, inclusief wanneer het laatst is bijgewerkt, wanneer het verloopt en wanneer deze voor het laatst is gesynchroniseerd.
 
-Vous pouvez à tout moment synchroniser entièrement les données détenues par Apple à l’aide de Configuration Manager en choisissant **Synchroniser** sous l’onglet **Accueil** dans le groupe **Synchroniser**.  
+U kunt de gegevens waarover Apple met Configuration Manager op elk gewenst moment door te kiezen volledig synchroniseren **Sync** op de **Start** tabblad de **Sync** groep.  
 
-## <a name="step-2---deploy-a-volume-purchased-app"></a>Étape 2 : déployer une application achetée en volume  
+## <a name="step-2---deploy-a-volume-purchased-app"></a>Stap 2: een volume-purchased app implementeren  
 
-1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Informations de licence pour les applications du Store**.  
+1.  Kies in de Configuration Manager-console **softwarebibliotheek** > **Toepassingsbeheer** > **licentiegegevens voor Store-Apps**.  
 
-3.  Choisissez l’application que vous voulez déployer puis, sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer une application**.
-L’application Configuration Manager qui est créée contient l’application du Windows Store pour Entreprises. Vous pouvez ensuite déployer et surveiller cette application comme n’importe quelle autre application Configuration Manager.
+3.  Kies de app die u implementeren wilt, en klikt u op de **Start** tabblad, in de **maken** groep, kiest u **toepassing maken**.
+De Configuration Manager-toepassing die is gemaakt, heeft de Windows Store voor bedrijven-app. U kunt implementeren en bewaken van deze toepassing, net als elke andere Configuration Manager-toepassing.
 
     > [!IMPORTANT]  
-    > Vous devez choisir l’objectif de déploiement **Obligatoire**. Les installations disponibles ne sont pas prises en charge actuellement.
+    > U moet een implementatiedoel van kiezen **vereist**. Beschikbare installaties worden momenteel niet ondersteund.
 
- Quand vous déployez l’application, une licence est utilisée par chaque utilisateur, ou pour les installations d’appareils, chaque appareil qui installe l’application.  Si vous ciblez un regroupement d’appareils avec une application prenant en charge les licences d’appareils, une licence d’appareil est demandée.  Si vous ciblez un regroupement d’appareils avec une application ne prenant pas en charge les licences d’appareils, une licence d’utilisateur est demandée. 
+ Wanneer u de app implementeert, wordt een licentie wordt gebruikt door elke gebruiker of voor apparaat installeert, elk apparaat waarop de app installeert.  Wanneer u een apparatenverzameling aan een app dat apparaat licentieverlening ondersteunt, wordt een apparaatlicentie geclaimd.  Wanneer u een apparatenverzameling aan een app die geen ondersteuning biedt voor het apparaat-licentieverlening, wordt een licentie aangevraagd. 
 
- Lorsque vous créez une application à partir du nœud **Informations de licence pour les applications du Windows Store**, l’application est associée à des licences provenant du jeton de l’application que vous avez sélectionnée.  Par exemple, vous pouvez afficher les deux versions de la même application dans le nœud. En effet, chaque version de l’application est associée à un jeton VPP Apple distinct.  Vous pouvez ensuite créer des applications à partir de chaque jeton et les déployer séparément.
+ Bij het maken van een app van de **licentiegegevens voor Store-Apps** knooppunt, de app is gekoppeld aan de licenties van het token voor de app die u hebt geselecteerd.  U ziet bijvoorbeeld twee versies van dezelfde app in het knooppunt. Dit is omdat elke versie van de app gekoppeld aan een ander Apple VPP-token is.  Vervolgens kan u apps uit elke token maken en deze afzonderlijk implementeren.
 
- Pour récupérer une licence, vous devez créer un déploiement de l’application avec l’action de déploiement **Désinstaller**. Vous ne pouvez pas changer l’action de déploiement dans le déploiement d’origine. La licence est récupérée une fois l’application désinstallée.  
+ Een als licentie wilt vrijmaken, moet u een nieuwe implementatie voor de app maken met de implementatieactie **verwijderen**. U kunt de implementatie-actie in de oorspronkelijke implementatie niet wijzigen. De licentie wordt vrijgemaakt nadat de app is verwijderd.  
 
-## <a name="step-3---monitor-ios-vpp-apps"></a>Étape 3 : surveiller les applications VPP iOS  
- Le nœud **Informations de licence pour les applications du Store** de l’espace de travail **Bibliothèque de logiciels** affiche des informations sur vos applications iOS achetées en volume. Celles-ci incluent le nombre total de licences qui vous appartiennent pour chaque application ainsi que le nombre de licences qui ont été déployées. En outre, la vue indique le jeton VPP auquel l’application est associée et le type du jeton
+## <a name="step-3---monitor-ios-vpp-apps"></a>Stap 3: iOS VPP-apps bewaken  
+ De **licentiegegevens voor Store-Apps** knooppunt van de **softwarebibliotheek** werkruimte geeft informatie weer over uw volume-purchased iOS-apps. De informatie omvat het totale aantal licenties dat u bezit voor elke app en het aantal die zijn geïmplementeerd. Bovendien ziet de weergave u welke VPP-token dat de app is gekoppeld en het type van het token
 
- Vous pouvez aussi surveiller l’utilisation des licences de toutes les applications VPP que vous avez achetées à l’aide du rapport **Applications du programme d’achat en volume (VPP) Apple pour iOS avec les nombres de licences**.  
+ U kunt ook bewaken met het licentiegebruik van alle VPP-apps die u hebt aangeschaft via de **Apple Volume Purchase Program-apps voor iOS met licentieaantallen** rapport.  
 
- Ce rapport affiche le nom de chaque application, ainsi que le nombre total de licences achetées, le nombre de licences disponibles et d’autres informations.  
+ Dit rapport geeft de naam van elke toepassing samen met het totale aantal licenties dat u hebt gekocht, het aantal licenties beschikbaar zijn, en meer.  
 
- Pour obtenir de l’aide sur l’exécution des rapports Configuration Manager, consultez [Génération de rapports dans System Center Configuration Manager](../../core/servers/manage/reporting.md).  
+ Zie voor informatie over het uitvoeren van Configuration Manager-rapporten, [rapportage in System Center Configuration Manager](../../core/servers/manage/reporting.md).  

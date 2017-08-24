@@ -1,6 +1,6 @@
 ---
-title: "Protection avancée contre les menaces Windows Defender | Documents Microsoft"
-description: "Découvrez comment gérer et surveiller le nouveau service Windows Defender Advanced Threat Protection (ATP) qui aide les entreprises à contrer les attaques avancées."
+title: Windows Defender Advanced Threat Protection | Microsoft Docs
+description: Informatie over het beheren en controleren van Windows Defender geavanceerde Threat Protection, een nieuwe service waarmee ondernemingen reageren op geavanceerde aanvallen.
 ms.custom: na
 ms.date: 03/07/2017
 ms.prod: configuration-manager
@@ -16,99 +16,99 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 6c3b67278fa587c137a29e174e277fb0f15872c8
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
 # <a name="windows-defender-advanced-threat-protection"></a>Windows Defender Advanced Threat Protection
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-À compter de la version 1606 de Configuration Manager (Current Branch), Endpoint Protection facilite la gestion et la surveillance du service Windows Defender Advanced Threat Protection (ATP). Ce nouveau service aide les entreprises à détecter, analyser et contrer les attaques avancées ciblant leurs réseaux.  En savoir plus sur [Windows Defender ATP](http://aka.ms/technet-wdatp). Les stratégies Configuration Manager facilitent l’intégration et la surveillance des appareils gérés qui exécutent Windows 10 version 1607 (build 14328) ou ultérieure.
+Vanaf versie 1606 van Configuration Manager (huidige vertakking), kunt Endpoint Protection beheren en controleren van Windows Defender Advanced Threat Protection (ATP. Windows Defender ATP is een nieuwe service waarmee ondernemingen te detecteren, onderzoeken en reageren op geavanceerde aanvallen in hun netwerken.  Meer informatie over [Windows Defender ATP](http://aka.ms/technet-wdatp). Configuration Manager-beleid kunnen u helpen vrijgeven en monitor beheerd Windows 10 versie 1607 (build 14328) of hoger.
 
-Windows Defender ATP est un service disponible dans le [Centre de sécurité Windows](https://securitycenter.windows.com). Grâce à l’ajout et au déploiement d’un fichier de configuration de l’intégration du client, Configuration Manager peut surveiller l’état du déploiement ainsi que l’intégrité de l’agent Windows Defender ATP. Windows Defender ATP est uniquement pris en charge sur les PC qui exécutent le client Configuration Manager. Ce service n’est pas disponible pour les appareils gérés à l’aide de la gestion des appareils mobiles (MDM) locale ou de la gestion MDM hybride dans Intune.
+Windows Defender ATP is een service in de [Windows Beveiligingscentrum](https://securitycenter.windows.com). Configuration Manager kan door toe te voegen en een configuratiebestand voor de voorbereiding van client implementeren, bewaken Implementatiestatus en de status van Windows Defender ATP-agent. Windows Defender ATP wordt alleen ondersteund op computers met de Configuration Manager-client. Beheer van lokale mobiele apparaten en Intune hybride MDM-beheerde computers worden niet ondersteund.
 
- **Conditions préalables**  
+ **Vereisten**  
 
--   Abonnement au service en ligne Windows Defender Advanced Threat Protection  
--   Ordinateurs clients exécutant Windows 10 version 1607 ou ultérieure  
--   Ordinateurs clients exécutant la version 1610 de Configuration Manager ou un agent client ultérieur
+-   Abonnement op de Windows Defender Advanced Threat Protection-onlineservice  
+-   Clientcomputers met Windows 10 versie 1607 en hoger  
+-   Clientcomputers waarop de Configuration Manager 1610 versie of hoger clientagent
 
-## <a name="how-to-create-an-onboarding-configuration-file"></a>Créer un fichier de configuration de l’intégration  
+## <a name="how-to-create-an-onboarding-configuration-file"></a>Het maken van een configuratiebestand voorbereiden  
 
- 1.  Connectez-vous au [service en ligne Windows Defender ATP](https://securitycenter.windows.com/).   
+ 1.  Meld u aan bij de [Windows Defender ATP-onlineservice](https://securitycenter.windows.com/)   
 
- 2.  Cliquez sur l’élément de menu **Gestion du point de terminaison**.  
+ 2.  Klik op de **eindpunt Management** menu-item.  
 
- 3.  Sélectionnez **System Center Configuration Manager (Current Branch) version 1606**, puis cliquez sur **Télécharger le package**.  
+ 3.  Selecteer **System Center Configuration Manager (huidige vertakking) versie 1606** en klik op **downloadpakket**.  
 
- 4.  Téléchargez le fichier d’archive compressé (.zip) et extrayez son contenu.
-
-> [!IMPORTANT]
-> Le fichier de configuration de Windows Defender ATP contient des informations sensibles qui doivent être conservées de manière sécurisée.
-
-## <a name="onboard-devices-for-windows-defender-atp"></a>Intégrer des appareils pour Windows Defender ATP  
-
-1.  Dans la console Configuration Manager, accédez à **Ressources et Conformité** > **Vue d’ensemble** > **Endpoint Protection** > **Stratégies Windows Defender ATP**, puis cliquez sur **Créer une stratégie Windows Defender ATP**. L’Assistant Création d’une stratégie Windows Defender ATP s’ouvre.  
-
-2.  Tapez un **nom** et une **description** pour la nouvelle stratégie Windows Defender ATP, puis sélectionnez **Intégration**. Cliquez sur **Suivant**.  
-
-3.  Sélectionnez **Parcourir** pour accéder au fichier de configuration fourni par le locataire du service cloud Windows Defender ATP de votre organisation. Cliquez sur **Suivant**.  
-
-4.  Spécifiez les exemples de fichiers collectés et partagés à partir des appareils gérés pour les besoins d’analyse.  
-
-    -   **Aucun**   
-
-    -   **Tous les types de fichiers**  
-
-     Cliquez sur **Suivant**.  
-
-5.  Passez en revue les informations de résumé et terminez l’Assistant.  
-
-6.  Vous pouvez maintenant déployer la stratégie Windows Defender ATP sur les ordinateurs clients gérés en cliquant sur **Déployer**.  
-
-## <a name="monitor-windows-defender-atp"></a>Surveiller Windows Defender ATP  
-
-1.  Dans la console Configuration Manager, accédez à **Surveillance** > **Vue d’ensemble** > **Sécurité**, puis cliquez sur **Windows Defender ATP**.  
-
-2.  Examinez le tableau de bord Protection avancée contre les menaces Windows Defender.  
-
-    -   **État du déploiement de l’agent Windows Defender** : nombre et pourcentage d’ordinateurs clients gérés éligibles avec la stratégie Windows Defender ATP intégrée active.  
-
-    -   **Intégrité de l’agent Windows Defender ATP** : pourcentage d’ordinateurs clients qui signalent l’état de l’agent Windows Defender ATP.  
-
-        -   **Sain** : fonctionnement correct.  
-
-        -   **Inactif** : aucune donnée n’a été envoyée au service durant la période.  
-
-        -   **État de l’agent** : le service système de l’agent dans Windows n’est pas en cours d’exécution.  
-
-        -   **Non intégré** : la stratégie a été appliquée, mais l’agent n’a pas signalé de stratégie intégrée.  
-
-
-## <a name="how-to-create-and-deploy-an-offboarding-configuration-file"></a>Guide pratique pour créer et déployer un fichier de configuration de désintégration  
-
-1.  Connectez-vous au [service en ligne Windows Defender ATP](https://securitycenter.windows.com/).   
-
-2.  Cliquez sur l’élément de menu **Gestion du point de terminaison**.  
-
-3.  Sélectionnez **System Center Configuration Manager (Current Branch) version 1606**, puis cliquez sur **Désintégration de point de terminaison**.  
-
-4.  Téléchargez le fichier d’archive compressé (.zip) et extrayez son contenu. Les fichiers de désintégration sont valides pendant 30 jours.
-
-5.  Dans la console Configuration Manager, accédez à **Ressources et Conformité** > **Vue d’ensemble** > **Endpoint Protection** > **Stratégies Windows Defender ATP**, puis cliquez sur **Créer une stratégie Windows Defender ATP**. L’Assistant Création d’une stratégie Windows Defender ATP s’ouvre.  
-
-6.  Tapez un **Nom** et une **Description** pour la stratégie Windows Defender ATP, puis sélectionnez **Désintégration**. Cliquez sur **Suivant**.  
-
-7.  Sélectionnez **Parcourir** pour accéder au fichier de configuration fourni par le locataire du service cloud Windows Defender ATP de votre organisation. Cliquez sur **Suivant**.  
-
-8.  Passez en revue les informations de résumé et terminez l’Assistant.  
-
-9.  Vous pouvez maintenant déployer la stratégie Windows Defender ATP sur les ordinateurs clients gérés en cliquant sur **Déployer**.  
+ 4.  Download het bestand gecomprimeerd archief (.zip) en pak de inhoud.
 
 > [!IMPORTANT]
-> Les fichiers de configuration de Windows Defender ATP contiennent des informations sensibles qui doivent être conservées de manière sécurisée.
+> De Windows Defender ATP-configuratiebestand bevat gevoelige informatie die moet worden beveiligd.
 
-[Protection avancée contre les menaces Windows Defender](https://technet.microsoft.com/itpro/windows/keep-secure/windows-defender-advanced-threat-protection)
+## <a name="onboard-devices-for-windows-defender-atp"></a>Onboarding van apparaten voor Windows Defender ATP  
 
-[Résoudre les problèmes liés à l’intégration de la protection avancée contre les menaces Windows Defender](https://technet.microsoft.com/itpro/windows/keep-secure/troubleshoot-onboarding-windows-defender-advanced-threat-protection)
+1.  Navigeer in de Configuration Manager-console **activa en naleving** > **overzicht** > **Endpoint Protection** > **Windows Defender ATP-beleid** en klik op **Windows Defender ATP-beleid maken**. De Wizard Windows Defender ATP-beleid wordt geopend.  
+
+2.  Typ de **naam** en **beschrijving** voor de Windows Defender ATP-beleid en selecteer **Onboarding**. Klik op **Volgende**.  
+
+3.  **Blader** naar het configuratiebestand geleverd door Windows Defender ATP cloud service-tenant van uw organisatie. Klik op **Volgende**.  
+
+4.  Geef de bestandsvoorbeelden die worden verzameld en gedeeld vanaf beheerde apparaten voor analyse.  
+
+    -   **Geen**   
+
+    -   **Alle bestandstypen**  
+
+     Klik op **Volgende**.  
+
+5.  Bekijk het overzicht en voltooi de wizard.  
+
+6.  U kunt nu door te klikken op het Windows Defender ATP-beleid voor beheerde clientcomputers implementeren **implementeren**.  
+
+## <a name="monitor-windows-defender-atp"></a>Monitor voor Windows Defender ATP  
+
+1.  Navigeer in de Configuration Manager-console **bewaking** > **overzicht** > **beveiliging** en klik vervolgens op **Windows Defender ATP**.  
+
+2.  Controleer het Windows Defender Advanced Threat Protection-dashboard.  
+
+    -   **Implementatiestatus van Windows Defender Agent** : het aantal en het percentage van de in aanmerking komende beheerde clientcomputers met actieve vrijgegeven voor Windows Defender ATP-beleid  
+
+    -   **Status van Windows Defender ATP-Agent** – Percentage computerclients rapportage over de status voor hun Windows Defender ATP-agent  
+
+        -   **In orde** -goed werkt  
+
+        -   **Inactieve** -er zijn geen gegevens verzonden naar service periode  
+
+        -   **De status van agent** -de systeemservice voor de agent in Windows is niet actief  
+
+        -   **Niet vrijgegeven** - beleid is toegepast, maar de agent geen beleid vrijgeven heeft gerapporteerd  
+
+
+## <a name="how-to-create-and-deploy-an-offboarding-configuration-file"></a>Het maken en implementeren van een configuratiebestand offboarding  
+
+1.  Meld u aan bij de [Windows Defender ATP-onlineservice](https://securitycenter.windows.com/)   
+
+2.  Klik op de **eindpunt Management** menu-item.  
+
+3.  Selecteer **System Center Configuration Manager (huidige vertakking) versie 1606** en klik op **eindpunt offboarding**.  
+
+4.  Download het bestand gecomprimeerd archief (.zip) en pak de inhoud. Offboarding-bestanden zijn voor 30 dagen geldig.
+
+5.  Navigeer in de Configuration Manager-console **activa en naleving** > **overzicht** > **Endpoint Protection** > **Windows Defender ATP-beleid** en klik op **Windows Defender ATP-beleid maken**. De Wizard Windows Defender ATP-beleid wordt geopend.  
+
+6.  Typ de **naam** en **beschrijving** voor de Windows Defender ATP-beleid en selecteer **Offboarding**. Klik op **Volgende**.  
+
+7.  **Blader** naar het configuratiebestand geleverd door Windows Defender ATP cloud service-tenant van uw organisatie. Klik op **Volgende**.  
+
+8.  Bekijk het overzicht en voltooi de wizard.  
+
+9.  U kunt nu door te klikken op het Windows Defender ATP-beleid voor beheerde clientcomputers implementeren **implementeren**.  
+
+> [!IMPORTANT]
+> De Windows Defender ATP-configuratiebestanden bevat vertrouwelijke informatie die moet worden beveiligd.
+
+[Windows Defender Advanced Threat Protection](https://technet.microsoft.com/itpro/windows/keep-secure/windows-defender-advanced-threat-protection)
+
+[Problemen met Windows Defender Advanced Threat Protection voorbereiden](https://technet.microsoft.com/itpro/windows/keep-secure/troubleshoot-onboarding-windows-defender-advanced-threat-protection)

@@ -1,6 +1,6 @@
 ---
-title: "Planification d’autorisations de modèles de certificat | Microsoft Docs"
-description: "Informez-vous sur la planification des autorisations à configurer pour les modèles de certificat que System Center Configuration Manager utilise."
+title: Certificaatprofielen plannen | Microsoft Docs
+description: Meer informatie over het plannen van de machtigingen die u nodig hebt voor het configureren van de certificaatsjablonen die gebruikmaakt van System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,47 +17,47 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: 832be8c9fda727804f57e83768cd8799db722c67
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="planning-for-certificate-template-permissions-for-certificate-profiles-in-system-center-configuration-manager"></a>Planification d’autorisations de modèles de certificat pour les profils de certificat dans System Center Configuration Manager
+# <a name="planning-for-certificate-template-permissions-for-certificate-profiles-in-system-center-configuration-manager"></a>Certificaatsjabloonmachtigingen voor certificaat voor certificaatprofielen in System Center Configuration Manager plannen
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
-Les informations suivantes peuvent vous aider à prévoir comment configurer des autorisations pour les modèles de certificat que System Center Configuration Manager utilise quand vous déployez des profils de certificat.  
+De volgende informatie kunt u van plan bent voor het configureren van machtigingen voor de certificaatsjablonen die door System Center Configuration Manager gebruikt wanneer u certificaatprofielen implementeert.  
 
-## <a name="default-security-permissions-and-considerations"></a>Considérations et autorisations de sécurité par défaut  
- Les autorisations de sécurité par défaut requises pour les modèles de certificat que System Center Configuration Manager utilise pour demander des certificats pour les utilisateurs et les appareils sont les suivantes :  
+## <a name="default-security-permissions-and-considerations"></a>Standaardbeveiligingsmachtigingen en overwegingen hiervoor  
+ De standaardbeveiligingsmachtigingen die vereist voor de certificaatsjablonen die System Center Configuration Manager gebruiken zijn voor het aanvragen van certificaten voor gebruikers en apparaten zijn als volgt:  
 
--   Lecture et Inscription pour le compte utilisé par le pool d'applications du service d'inscription de périphériques réseau  
+-   Lezen en Registreren voor het account waarvan de toepassingsgroep Registratieservice voor netwerkapparaten gebruik maakt  
 
--   Lecture pour le compte qui exécute la console System Center Configuration Manager  
+-   Lezen voor het account dat de System Center Configuration Manager-console wordt uitgevoerd  
 
- Pour plus d’informations sur ces autorisations de sécurité, consultez [Configuration de l’infrastructure des certificats](../deploy-use/certificate-infrastructure.md).  
+ Zie voor meer informatie over deze beveiligingsmachtigingen [certificaatinfrastructuur configureren](../deploy-use/certificate-infrastructure.md).  
 
- Lorsque vous utilisez cette configuration par défaut, les utilisateurs et les périphériques ne peuvent pas demander directement des certificats depuis les modèles de certificat et toutes les demandes doivent être lancées par le service d'inscription de périphériques réseau. Il s'agit d'une restriction importante car ces modèles de certificat doivent être configurés avec **Fourni dans la demande** comme objet de certificat, ce qui signifie qu'il existe un risque d'emprunt d'identité si un utilisateur non autorisé ou un périphérique compromis a demandé un certificat. Dans la configuration par défaut, le service d'inscription de périphériques réseau doit lancer une telle demande. Toutefois, ce risque d'emprunt d'identité demeure si le service qui exécute le service d'inscription de périphériques réseau est compromis. Afin d'éviter ce risque, suivez toutes les meilleures pratiques de sécurité pour le service d'inscription de périphériques réseau et l'ordinateur qui exécute ce service de rôle.  
+ Wanneer u deze standaardconfiguratie gebruikt, kunnen gebruikers en apparaten niet rechtstreeks certificaten van de certificaatsjablonen aanvragen, en moeten alle aanvragen worden geïnitieerd door de registratieservice voor netwerkapparaten. Dit is een belangrijke beperking, omdat deze certificaatsjablonen moeten worden geconfigureerd met **Met de aanvraag meeleveren** voor het certificaat Onderwerp, wat betekent dat er een risico op imitatie bestaat als een kwaadwillende gebruiker of een apparaat waarmee is geknoeid, een certificaat aanvraagt. In de standaardconfiguratie moet een dergelijke aanvraag worden geïnitieerd door de registratieservice voor netwerkapparaten. Dit risico op imitatie blijft echter bestaan als er wordt geknoeid met de service waarop de registratieservice voor netwerkapparaten wordt uitgevoerd. Om dit risico te voorkomen, volgt u alle aanbevolen beveiligingsprocedures voor de registratieservice voor netwerkapparaten en voor de computer waarop deze rollenservice wordt uitgevoerd.  
 
- Si les autorisations de sécurité par défaut ne répondent pas à vos besoins, vous avez une autre option pour configurer les autorisations de sécurité sur les modèles de certificat : vous pouvez ajouter des autorisations Lecture et Inscription pour les utilisateurs et les ordinateurs.  
+ Als de standaardbeveiligingsmachtigingen niet in uw zakelijke vereisten voorzien, hebt u een andere optie om de beveiligingsmachtigingen voor de certificaatsjablonen te configureren: U kunt lezen en registreren toevoegen machtigingen voor gebruikers en computers.  
 
-## <a name="adding-read-and-enroll-permissions-for-users-and-computers"></a>Ajout d'autorisations Lecture et Inscription pour les utilisateurs et les ordinateurs  
- L’ajout d’autorisations Lecture et Inscription pour les utilisateurs et les ordinateurs peut être adapté si une équipe distincte gère votre équipe d’infrastructure d’autorité de certification et qu’elle veut que System Center Configuration Manager vérifie que les utilisateurs disposent d’un compte des services de domaine Active Directory valide avant de leur envoyer un profil de certificat pour demander un certificat utilisateur. Pour cette configuration, vous devez spécifier un ou plusieurs groupes de sécurité contenant les utilisateurs et leur accorder des autorisations Lecture et Inscription sur les modèles de certificat. Dans ce scénario, l'administrateur de l'autorité de certification gère le contrôle de sécurité.  
+## <a name="adding-read-and-enroll-permissions-for-users-and-computers"></a>De machtigingen Lezen en Registreren toevoegen voor gebruikers en computers  
+ Toevoegen van lees- en registratiemachtigingen voor gebruikers en computers kunnen uitkomen als een afzonderlijk team beheerd door uw team certification authority (CA)-infrastructuur en dat afzonderlijke team wil System Center Configuration Manager om te verifiëren dat gebruikers een geldige Active Directory Domain Services-account hebben voordat ze een certificaatprofiel om aan te vragen van het certificaat van een gebruiker worden verzonden. Voor deze configuratie moet u een of meer beveiligingsgroepen opgeven die de gebruikers bevatten, en vervolgens aan die groepen de machtigingen Lezen en Registreren verlenen voor de certificaatsjablonen. In dit scenario beheert de beheerder van de certificeringsinstantie de beveiligingscontrole.  
 
- Vous pouvez également spécifier un ou plusieurs groupes de sécurité qui contiennent des comptes d'ordinateur et accorder à ces groupes des autorisations Lecture et Inscription sur les modèles de certificat. Si vous déployez un profil de certificat d'ordinateur sur un ordinateur membre du domaine, le compte d'ordinateur de cet ordinateur doit bénéficier des autorisations Lecture et Inscription. Ces autorisations ne sont pas requises si l’ordinateur n’est pas membre du domaine, par exemple, s’il s’agit d’un ordinateur de groupe de travail ou d’un appareil mobile personnel.  
+ U kunt op vergelijkbare wijze een of meer beveiligingsgroepen opgeven die computeraccounts bevatten, en aan deze groepen de machtigingen Lezen en Registreren verlenen voor de certificaatsjablonen. Als u een profiel voor een computercertificaat implementeert op een computer die lid is van een domein, moet aan het computeraccount van die computer de machtigingen Lezen en Registreren worden verleend. Deze machtigingen zijn niet vereist als de computer niet gelijk is aan een domein memberâ€ 'bijvoorbeeld, als een werkgroepcomputer of een persoonlijk mobiel apparaat.  
 
- Bien que cette configuration utilise un contrôle de sécurité supplémentaire, nous ne la recommandons pas comme meilleure pratique. En effet, les utilisateurs ou les propriétaires spécifiés des appareils pourraient demander des certificats indépendamment de System Center Configuration Manager, et fournir des valeurs pour l’objet du certificat qui pourraient être utilisées pour emprunter l’identité d’un autre utilisateur ou d’un autre appareil.  
+ Hoewel voor deze configuratie een extra beveiligingscontrole wordt gebruikt, is het niet raadzaam deze als aanbevolen procedure te gebruiken. De reden is dat de opgegeven gebruikers of eigenaren van de apparaten certificaten onafhankelijk van System Center Configuration Manager en geef waarden voor het certificaatonderwerp die kan worden gebruikt aanvragen kunnen voor een andere gebruiker of het apparaat te imiteren.  
 
- En outre, si vous spécifiez des comptes qui ne peuvent pas être authentifiés au moment de la demande du certificat, par défaut, la demande de certificat échoue. Par exemple, la demande de certificat échoue si le serveur exécutant le service d'inscription de périphériques réseau se trouve dans une forêt Active Directory non approuvée par la forêt contenant le serveur de système de site du point d'enregistrement de certificat. Vous pouvez configurer le point d'enregistrement de certificat afin qu'il continue si un compte ne peut pas être authentifié car un contrôleur de domaine ne répond pas. Toutefois, il ne s'agit pas d'une meilleure pratique de sécurité.  
+ Als u bovendien accounts opgeeft die niet kunnen worden geverifieerd op het moment dat de certificaataanvraag plaatsvindt, zal de certificaataanvraag standaard mislukken. Zo mislukt de certificaataanvraag bijvoorbeeld als de server waarop de registratieservice voor netwerkapparaten wordt uitgevoerd, zich in een Active Directory-forest bevindt dat niet wordt vertrouwd door het forest dat de sitesysteemserver van het certificaatregistratiepunt bevat. U kunt het certificaatregistratiepunt zodanig configureren dat het doorgaat als een account niet kan worden geverifieerd omdat er geen reactie is van een domeincontroller. Dit is echter geen aanbevolen beveiligingsprocedure.  
 
- Notez que si le point d'enregistrement de certificat est configuré pour rechercher des autorisations de compte et qu'un contrôleur de domaine est disponible et rejette la demande d'authentification (par exemple, le compte est verrouillé ou a été supprimé), la demande d'inscription de certificat échouera.  
+ Als het certificaatregistratiepunt is geconfigureerd om accountmachtigingen te controleren en er een domeincontroller beschikbaar is die de verificatieaanvraag afwijst (bijvoorbeeld als het account is vergrendeld of verwijderd), mislukt de aanvraag voor certificaatregistratie.  
 
-#### <a name="to-check-for-read-and-enroll-permissions-for-users-and-domain-member-computers"></a>Pour rechercher des autorisations Lecture et Inscription pour les utilisateurs et les ordinateurs membres du domaine  
+#### <a name="to-check-for-read-and-enroll-permissions-for-users-and-domain-member-computers"></a>De machtigingen Lezen en Registreren controleren voor gebruikers en computers die lid zijn van het domein  
 
-1.  Sur le serveur de système de site qui héberge le point d’enregistrement de certificat, créez la clé de Registre DWORD suivante de valeur 0 : HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SCCM\CRP\SkipTemplateCheck  
+1.  Maak de volgende DWORD-registersleutel voor een waarde van 0 op de sitesysteemserver die als host fungeert voor het certificaatregistratiepunt: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SCCM\CRP\SkipTemplateCheck  
 
-2.  Si un compte ne peut pas être authentifié car un contrôleur de domaine ne répond pas et que vous souhaitez ignorer la vérification des autorisations :  
+2.  Als een account niet kan worden geverifieerd omdat er geen reactie van een domeincontroller is, en u de machtigingscontrole wilt omzeilen:  
 
-    -   Sur le serveur de système de site qui héberge le point d’enregistrement de certificat, créez la clé de Registre DWORD suivante de valeur 1 : HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SCCM\CRP\SkipTemplateCheckOnlyIfAccountAccessDenied  
+    -   Maak de volgende DWORD-registersleutel voor een waarde van 1 op de sitesysteemserver die als host fungeert voor het certificaatregistratiepunt: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SCCM\CRP\SkipTemplateCheckOnlyIfAccountAccessDenied  
 
-3.  Sur l'autorité de certification émettrice, dans l'onglet **Sécurité** des propriétés du modèle de certificat, ajoutez un ou plusieurs groupes de sécurité afin d'accorder aux comptes d'utilisateur ou de périphérique des autorisations Lecture et Inscription.  
+3.  Op de certificeringsinstantie die het certificaat verleent, voegt u op het tabblad **Beveiliging** bij de eigenschappen voor de certificaatsjabloon een of meer beveiligingsgroepen toe om de machtigingen Lezen en Registreren te verlenen aan de gebruiker of het apparaat.  

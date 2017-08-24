@@ -1,6 +1,6 @@
 ---
-title: Services de composants et leurs commandes sur des clients UNIX/Linux | Microsoft Docs
-description: En savoir plus sur les services de composants et leurs commandes sur des clients Linux et UNIX dans System Center Configuration Manager.
+title: UNIX/Linux-client componentservices en opdrachten | Microsoft Docs
+description: Meer informatie over componentservices en opdrachten voor Linux en UNIX-clients in System Center Configuration Manager.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -16,29 +16,29 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 89668f3e2e0a3e2e0178e5b2c91b2508f583649f
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="linux-and-unix-clients-component-services-and-commands-for-system-center-configuration-manager"></a>Services de composants et leurs commandes sur des clients Linux et UNIX pour System Center Configuration Manager
+# <a name="linux-and-unix-clients-component-services-and-commands-for-system-center-configuration-manager"></a>Onderdeelservices voor Linux en UNIX-clients en opdrachten voor System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
- Le tableau ci-dessous identifie les services de composants clients du client Configuration Manager pour Linux et UNIX.  
+ De volgende tabel identificeert de clientonderdeelservice van de Configuration Manager-client voor Linux en UNIX.  
 
-|Nom de fichier|Plus d'informations|  
+|Bestandsnaam|Meer informatie|  
 |---------------|----------------------|  
-|ccmexec.bin|Ce service équivaut au service ccmexc sur un client Windows. Il est responsable de toutes les communications avec les rôles de système de site Configuration Manager et communique également avec le service omiserver.bin pour procéder à l’inventaire matériel de l’ordinateur local.<br /><br /> Pour obtenir la liste des arguments de ligne de commande pris en charge, exécutez **ccmexec -h**|  
-|omiserver.bin|Ce service est le serveur CIM. Le serveur CIM fournit une infrastructure pour des modules logiciels enfichables appelés fournisseurs. Les fournisseurs interagissent avec les ressources informatiques Linux et UNIX, et recueillent les données de l’inventaire matériel. Par exemple, le **fournisseur process** pour une Linux ordinateur collecte les données associées avec les processus du système d'exploitation Linux.|  
+|ccmexec.bin|Deze service is gelijk aan de ccmexc-service op een Windows-client. Het is verantwoordelijk voor alle communicatie met Configuration Manager-sitesysteemrollen en communiceert tevens met de service omiserver.bin voor het verzamelen van hardware-inventaris van de lokale computer.<br /><br /> Voer **ccmexec -h**uit voor een lijst met alle ondersteunde opdrachtregelargumenten|  
+|omiserver.bin|Deze service is de CIM-server. De CIM-server biedt een raamwerk voor pluggable softwaremodules, die providers worden genoemd. Providers communiceren met Linux en UNIX computerresources en verzamelen de hardware-inventarisgegevens. De **proces-provider** voor een Linux-computer verzamelt bijvoorbeeld gegevens die zijn gekoppeld aan de processen van het Linux-besturingssysteem.|  
 
- Les commandes de liste de tables suivantes que vous pouvez utiliser pour démarrer, arrêter ou redémarrer les services du client (ccmexec.bin et omiserver.bin) sur chaque version de Linux ou UNIX. Quand vous démarrez ou arrêtez le service ccmexec, le service omiserver démarre ou s’arrête également.  
+ De volgende tabellen bevatten opdrachten die u kunt gebruiken om de clientservices (ccmexec.bin en omiserver.bin) op elke versie van Linux of UNIX te starten, te stoppen of opnieuw op te starten. Bij het starten of stoppen van de service ccmexec, wordt de service omniserver ook wordt gestart of gestopt.  
 
-|Système d'exploitation|Commandes|  
+|Besturingssysteem|Opdrachten|  
 |----------------------|--------------|  
-|Agent universel<br /><br /> RHEL 4 et SLES 9|Démarrer : **/etc/init d/ccmexecd start**<br /><br /> Arrêter : **/etc/init d/ccmexecd stop**<br /><br /> Redémarrer : **/etc/init d/ccmexecd restart**|  
-|Solaris 9|Démarrer : **/etc/init d/ccmexecd start**<br /><br /> Arrêter : **/etc/init d/ccmexecd stop**<br /><br /> Redémarrer : **/etc/init d/ccmexecd restart**|  
-|Solaris 10|Démarrer :<br /><br /> **svcadm enable -s svc:/application/management/omiserver**<br /><br /> **svcadm enable -s svc:/application/management/ccmexecd**<br /><br /> Arrêter :<br /><br /> **svcadm disable -s svc:/application/management/ccmexecd**<br /><br /> **svcadm disable -s svc:/application/management/omiserver**|  
-|Solaris 11|Démarrer :<br /><br /> **svcadm enable -s svc:/application/management/omiserver**<br /><br /> **svcadm enable -s svc:/application/management/ccmexecd**<br /><br /> Arrêter :<br /><br /> **svcadm disable -s svc:/application/management/ccmexecd**<br /><br /> **svcadm disable -s svc:/application/management/omiserver**|  
-|AIX|Démarrer :<br /><br /> **startsrc -s omiserver**<br /><br /> **startsrc -s ccmexec**<br /><br /> Arrêter :<br /><br /> **stopsrc -s ccmexec**<br /><br /> **stopsrc -s omiserver**|  
-|HP-UX|Démarrer : **/sbin/init.d/ccmexecd start**<br /><br /> Arrêter : **/sbin/init.d/ccmexecd stop**<br /><br /> Redémarrer : **/sbin/init.d/ccmexecd restart**|  
+|Universele Agent<br /><br /> RHEL 4 en SLES 9|Starten: **/etc/init d/ccmexecd start**<br /><br /> Stoppen: **/etc/init d/ccmexecd stop**<br /><br /> Opnieuw opstarten: **/etc/init d/ccmexecd restart**|  
+|Solaris 9|Starten: **/etc/init d/ccmexecd start**<br /><br /> Stoppen: **/etc/init d/ccmexecd stop**<br /><br /> Opnieuw opstarten: **/etc/init d/ccmexecd restart**|  
+|Solaris 10|Starten:<br /><br /> **svcadm inschakelen -s-svc: / management-toepassing/omniserver**<br /><br /> **svcadm inschakelen -s-svc: / management-toepassing/ccmexecd**<br /><br /> Stoppen:<br /><br /> **svcadm -s-svc uitschakelen: / management-toepassing/ccmexecd**<br /><br /> **svcadm -s-svc uitschakelen: / management-toepassing/omniserver**|  
+|Solaris 11|Starten:<br /><br /> **svcadm inschakelen -s-svc: / management-toepassing/omniserver**<br /><br /> **svcadm inschakelen -s-svc: / management-toepassing/ccmexecd**<br /><br /> Stoppen:<br /><br /> **svcadm -s-svc uitschakelen: / management-toepassing/ccmexecd**<br /><br /> **svcadm -s-svc uitschakelen: / management-toepassing/omniserver**|  
+|AIX|Starten:<br /><br /> **startsrc -s omniserver**<br /><br /> **startsrc -s ccmexec**<br /><br /> Stoppen:<br /><br /> **stopsrc -s ccmexec**<br /><br /> **stopsrc -s omniserver**|  
+|HP-UX|Starten: **/sbin/init.d/ccmexecd start**<br /><br /> Stoppen: **/sbin/init.d/ccmexecd stop**<br /><br /> Opnieuw opstarten: **/sbin/init.d/ccmexecd restart**|  

@@ -1,6 +1,6 @@
 ---
-title: 'Gestion des clients dans une infrastructure VDI (Virtual Desktop Infrastructure) | Microsoft Docs '
-description: "Gérez les clients System Center Configuration Manager dans une infrastructure VDI (Virtual Desktop Infrastructure)."
+title: 'Clientbeheer virtuele desktopinfrastructuur (VDI) | Microsoft Docs '
+description: System Center Configuration Manager-clients in een virtual desktop infrastructure (VDI) beheren.
 ms.custom: na
 ms.date: 04/23/2017
 ms.prod: configuration-manager
@@ -17,33 +17,33 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: d73daf6427b8c58d21d579f3b41df513cc3e3b0b
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="considerations-for-managing-system-center-configuration-manager-clients--in-a-virtual-desktop-infrastructure-vdi"></a>Considérations sur la gestion des clients System Center Configuration Manager dans une infrastructure VDI
+# <a name="considerations-for-managing-system-center-configuration-manager-clients--in-a-virtual-desktop-infrastructure-vdi"></a>Overwegingen voor het beheren van System Center Configuration Manager-clients in een virtuele bureaublad infrastructuur (VDI)
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-System Center Configuration Manager prend en charge l’installation du client Configuration Manager dans les scénarios VDI suivants :  
+System Center Configuration Manager ondersteunt de installatie van Configuration Manager-client op de volgende virtuele desktopinfrastructuur (VDI)-scenario's:  
 
--   **Machines virtuelles personnelles** : les machines virtuelles personnelles sont généralement utilisées quand vous voulez vous assurer que les données et les paramètres utilisateur sont conservés sur les machines virtuelles entre les sessions.  
+-   **Persoonlijke virtuele machines** -persoonlijke virtuele machines worden meestal gebruikt wanneer u wilt ervoor zorgen dat gebruikersgegevens en instellingen worden bewaard op de virtuele machine tussen sessies.  
 
--   **Sessions de services Bureau à distance** : les services Bureau à distance permettent à un serveur d’héberger plusieurs sessions clientes simultanées. Les utilisateurs peuvent se connecter à une session, puis exécuter des applications sur ce serveur.  
+-   **Extern bureaublad-sessies** -extern bureaublad-Services laten een server voor het hosten van meerdere, gelijktijdige clientsessies. Gebruikers kunnen verbinding maken met een sessie en voer vervolgens de toepassingen op die server.  
 
--   **Machines virtuelles regroupées** : les machines virtuelles regroupées ne sont pas conservées entre les sessions. Lorsqu'une session est fermée, toutes les données et tous les paramètres sont supprimés. Les machines virtuelles regroupées sont utiles lorsqu'il est impossible d'utiliser les services Bureau à distance, car une application métier requise ne peut pas s'exécuter sur le serveur Windows hébergeant les sessions clientes.  
+-   **Gegroepeerde virtuele machines** -gegroepeerde virtuele machines blijven niet bestaan tussen sessies. Wanneer een sessie is afgesloten, worden alle gegevens en instellingen verwijderd. Gegroepeerde virtuele machines zijn nuttig wanneer Extern bureaublad-Services kan niet worden gebruikt omdat een vereiste bedrijfstoepassing kan niet worden uitgevoerd op de Windows Server die als host fungeert de clientsessies.  
 
- Le tableau suivant recense les éléments à prendre en considération pour la gestion du client Configuration Manager dans une infrastructure VDI.  
+ De volgende tabel geeft overwegingen voor het beheren van de Configuration Manager-client in een virtual desktop infrastructure.  
 
-|Type de machine virtuelle|Éléments à prendre en considération|  
+|Type van de virtuele machine|Overwegingen|  
 |--------------------------|--------------------|  
-|Machines virtuelles personnelles|Configuration Manager traite les machines virtuelles personnelles comme un ordinateur physique. Le client Configuration Manager peut être préinstallé sur l’image de machine virtuelle ou déployé après avoir approvisionné la machine virtuelle.|  
-|Services Bureau à distance|Le client Configuration Manager n’est pas installé pour les sessions Bureau à distance individuelles. Ce client est plutôt installé une seule fois sur le serveur des services Bureau à distance. Toutes les fonctionnalités de Configuration Manager peuvent être utilisées sur le serveur des services Bureau à distance.|  
-|Machines virtuelles regroupées|Quand une machine virtuelle regroupée est mise hors service, les modifications que vous apportez à l’aide de Configuration Manager sont perdues.<br /><br /> Les données renvoyées par les fonctionnalités de Configuration Manager, telles que l’inventaire logiciel, l’inventaire matériel et le contrôle de logiciel peuvent ne pas répondre à vos besoins, car la machine virtuelle risque de ne fonctionner que sur une courte période. Envisagez d'exclure les ordinateurs virtuels regroupés des tâches d'inventaire.|  
+|Persoonlijke virtuele machines|Configuration Manager beschouwt persoonlijke virtuele machines identiek als een fysieke computer. Configuration Manager-client kan vooraf is geïnstalleerd op de installatiekopie van de virtuele machine of geïmplementeerd nadat de virtuele machine is geleverd.|  
+|Extern bureaublad-services|Configuration Manager-client is niet geïnstalleerd voor individuele extern bureaublad-sessies. In plaats daarvan is de client slechts één keer op de extern bureaublad-Services-server geïnstalleerd. Alle functies van Configuration Manager kunnen worden gebruikt op de server extern bureaublad-Services.|  
+|Gegroepeerde virtuele machines|Wanneer een gegroepeerde virtuele machine buiten werking wordt gesteld, gaan alle wijzigingen die u aanbrengt met Configuration Manager verloren.<br /><br /> Gegevens die zijn geretourneerd door de Configuration Manager-functies, zoals hardware-inventaris, software-inventarisatie en softwarelicentiecontrole mogelijk niet relevant voor uw behoeften aangezien de virtuele machine mogelijk slechts gedurende een korte periode operationeel. Houd rekening met uitzondering van gegroepeerde virtuele machines uit inventaristaken uit.|  
 
- Sachant que la virtualisation prend en charge l’exécution de plusieurs clients Configuration Manager sur un même ordinateur physique, de nombreuses opérations du client possèdent un délai randomisé prédéfini pour les actions planifiées telles que l’inventaire matériel et logiciel, les analyses anti-programmes malveillants, les installations logicielles et les analyses de mises à jour logicielles. Ce délai permet de distribuer le traitement processeur et le transfert de données pour un ordinateur doté de plusieurs machines virtuelles qui exécutent le client Configuration Manager.  
+ Omdat virtualisatie ondersteunt meerdere Configuration Manager-clients op dezelfde fysieke computer wordt uitgevoerd, veel clientbewerkingen een ingebouwde willekeurige vertraging voor geplande acties zoals hardware hebt en software-inventarisatie, antimalware scant, software-installaties en software-updates scans. Deze vertraging helpt de CPU-verwerking en gegevensoverdracht voor een computer die meerdere virtuele machines met de Configuration Manager-client te distribueren.  
 
 > [!NOTE]  
->  À l’exception des clients Windows Embedded en mode maintenance, les clients Configuration Manager qui ne s’exécutent pas dans des environnements virtualisés utilisent aussi ce délai randomisé. Quand le nombre de clients déployés est important, ce comportement permet d’éviter des pics d’utilisation de la bande passante réseau et de réduire les besoins de traitement processeur sur les systèmes de site Configuration Manager, tels que le point de gestion et le serveur de site. L’intervalle du délai varie en fonction de la fonctionnalité de Configuration Manager.  
+>  Met uitzondering van Windows Embedded-clients die zich in de onderhoudsmodus bevindt, Configuration Manager-clients die niet worden uitgevoerd in gevirtualiseerde omgevingen ook gebruiken voor deze willekeurige vertraging. Wanneer u veel geïmplementeerde clients hebt, wordt dit gedrag pieken in netwerkbandbreedte voorkomen en vermindert het de CPU-verwerkingsvereiste op de Configuration Manager-sitesystemen, zoals het beheerpunt en de siteserver. Het vertragingsinterval varieert volgens de Configuration Manager-functie.  
 >   
->  Le délai de randomisation est désactivé par défaut pour les mises à jour logicielles requises et les déploiements d’applications requis à l’aide du paramètre client suivant : **Agent ordinateur**: **Désactiver la randomisation des échéances**.
+>  De randomisatievertraging wordt standaard uitgeschakeld voor vereiste software-updates en vereiste toepassingsimplementaties met behulp van de volgende clientinstelling: **Computeragent**: **Deadlinerandomisatie uitschakelen**.

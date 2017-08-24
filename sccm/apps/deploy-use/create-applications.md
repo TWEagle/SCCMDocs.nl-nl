@@ -1,6 +1,6 @@
 ---
-title: "Créer des applications | Microsoft Docs"
-description: "Créez et déployez des applications et des types de déploiement avec System Center Configuration Manager."
+title: Toepassingen maken | Microsoft Docs
+description: Maken en implementeren van toepassingen en implementatietypen met System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,461 +17,461 @@ ms.author: robstack
 manager: angrobe
 ms.openlocfilehash: 4d048d4f9ab01b28e6c21a38cca4d82c85030618
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="create-applications-with-system-center-configuration-manager"></a>Créer des applications avec System Center Configuration Manager
+# <a name="create-applications-with-system-center-configuration-manager"></a>Toepassingen maken met System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Une application System Center Configuration Manager dispose des fichiers et informations nécessaires pour déployer des logiciels sur un appareil. Une application a un ou plusieurs types de déploiement qui comprennent les informations et fichiers d’installation nécessaires pour installer le logiciel. Le type de déploiement contient également des règles spécifiant à quel moment et selon quelle méthode le logiciel est déployé.  
+Een System Center Configuration Manager-toepassing heeft de bestanden en gegevens die nodig zijn om software te implementeren op een apparaat. Een toepassing heeft een of meer implementatietypen waaruit de installatiebestanden en informatie die nodig zijn om software te installeren. Een implementatietype heeft ook regels die specificeren hoe en wanneer de software wordt geïmplementeerd.  
 
- Vous pouvez créer des applications à l'aide des méthodes suivantes :  
+ U kunt toepassingen maken met behulp van de volgende methoden:  
 
--   Créer automatiquement les types d'application et de déploiement en lisant les fichiers d'installation de l'application.  
+-   De toepassing en implementatietype-typen automatisch maken door te lezen van de installatiebestanden van de toepassing.  
 
--   Créer manuellement l'application, puis ajouter des types de déploiement ultérieurement.  
+-   U kunt de toepassing handmatig maken en deze op een later tijdstip aan implementatietypen toevoegen.  
 
--   Importer une application à partir d’un fichier.  
+-   Een toepassing importeren uit een bestand.  
 
 > [!NOTE]  
->  La section [Créer des applications iOS avec System Center Configuration Manager](../../mdm/deploy-use/create-applications.md) fournit des informations détaillées sur la création d’applications iOS, Windows Phone et Android.  
+>  [Toepassingen voor mobiele apparaten maken](../../mdm/deploy-use/create-applications.md) bevat gedetailleerde informatie over het maken van iOS-, Windows Phone- en Android-toepassingen.  
 
-Procédez comme suit pour créer des applications et des types de déploiement Configuration Manager.  
+Gebruik de volgende stappen voor het maken van Configuration Manager-toepassingen en implementatietypen.  
 
-## <a name="start-the-create-application-wizard"></a>Démarrer l’Assistant Création d’une application  
+## <a name="start-the-create-application-wizard"></a>De wizard toepassing maken starten  
 
-1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Applications**.  
+1.  Kies in de Configuration Manager-console **softwarebibliotheek** > **Toepassingsbeheer** > **toepassingen**.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Créer une application**.  
+3.  Op de **Start** tabblad, in de **maken** groep, kiest u **toepassing maken**.  
 
-## <a name="specify-whether-you-want-to-automatically-detect-application-information-or-manually-define-the-information"></a>Spécifier si vous souhaitez détecter automatiquement les informations de l'application ou définir manuellement les informations  
+## <a name="specify-whether-you-want-to-automatically-detect-application-information-or-manually-define-the-information"></a>Opgeven of toepassingsinformatie automatisch detecteren of de informatie handmatig definiëren  
 
--   Utilisez la procédure de détection automatique des informations de l’application pour créer une application simple avec un type de déploiement unique, comme un fichier Windows Installer sans dépendances ni spécifications. Après avoir créé une application à l'aide de cette procédure, vous pouvez la modifier pour ajouter ou changer les types de déploiement et ajouter des méthodes de détection, des dépendances ou des spécifications.  
+-   Toepassingsinformatie automatisch detecteren wanneer u wilt maken van een eenvoudige toepassing met één implementatietype, zoals een Windows Installer-bestand dat geen afhankelijkheden of vereisten. Nadat u via deze procedure een toepassing hebt gemaakt, kunt deze op de gewenste wijze bewerken om implementatietypen toe te voegen of te wijzigen en om detectiemethoden, afhankelijkheden of vereisten toe te voegen.  
 
--   Utilisez la procédure de définition manuelle des informations de l’application pour créer des applications plus complexes associant plusieurs types de déploiement, dépendances, méthodes de détection et spécifications.  
+-   Geef handmatig de toepassingsinformatie voor het maken van complexe toepassingen met meerdere implementatietypen, afhankelijkheden, detectiemethoden of vereisten.  
 
-### <a name="automatically-detect-application-information"></a>Détecter automatiquement les informations sur l’application  
+### <a name="automatically-detect-application-information"></a>Toepassingsinformatie automatisch detecteren  
 
-1.  Dans la page **Général,** de l’Assistant Création d’une application, sélectionnez **Détecter automatiquement les informations de cette application à partir des fichiers d’installation**.  
+1.  Op de **algemene** pagina van de wizard toepassing maken selecteert **automatisch detecteren van informatie over deze toepassing uit de installatiebestanden van**.  
 
-2.  Dans la liste déroulante **Type** , choisissez le type de fichier d'installation d'application que vous souhaitez utiliser pour détecter les informations sur l'application. Pour plus d’informations sur les types d’installation disponibles, consultez [Types de déploiement pris en charge par Configuration Manager](/sccm/apps/deploy-use/create-applications#deployment-types-supported-by-configuration-manager) dans cette rubrique.  
+2.  In de **Type** vervolgkeuzelijst, selecteert het installatiebestandstype toepassing die u wilt gebruiken voor het detecteren van toepassingsinformatie. Zie [Implementatietypen die door Configuration Manager worden ondersteund](/sccm/apps/deploy-use/create-applications#deployment-types-supported-by-configuration-manager) in dit onderwerp voor meer informatie over de beschikbare installatietypen.  
 
-3.  Dans la zone **Emplacement**, spécifiez le chemin UNC (au format *\\\\serveur\\partage\\\nom_fichier*) ou le lien du magasin du fichier d’installation d’application à utiliser pour détecter les informations sur l’application. Vous pouvez également cliquer sur **Parcourir** pour accéder au fichier d’installation.  
+3.  In de **locatie** geeft u het UNC-pad (in de vorm  *\\ \\server\\delen\\\filename*) of de opslagkoppeling voor het toepassingsinstallatiebestand dat u gebruiken wilt voor het detecteren van toepassingsinformatie. U kunt ook op **Bladeren** klikken om naar het installatiebestand te bladeren.  
 
     > [!IMPORTANT]  
-    >  Quand vous sélectionnez **Windows Installer (fichier \*.msi)** comme type d’application, tous les fichiers dans le dossier spécifié sont importés avec l’application et envoyés aux points de distribution. Vérifiez que le dossier spécifié contient uniquement les fichiers nécessaires à l’installation de l’application. Configuration Manager est testé pour prendre en charge jusqu’à 20 000 fichiers d’application dans le package d’application. Si votre application contient plus de fichiers, pensez à créer plusieurs applications avec moins de fichiers.  
+    >  Wanneer u selecteert **Windows Installer (\*MSI-bestand)** als een toepassingstype alle bestanden in de map die u opgeeft, met de toepassing geïmporteerd en naar distributiepunten wordt verzonden. Zorg ervoor dat de map die u opgeeft alleen de bestanden die nodig zijn voor het installeren van de toepassing bevat. Configuration Manager is getest om maximaal 20.000 toepassingsbestanden in het toepassingspakket te ondersteunen. Als uw toepassing meer bestanden heeft, kunt u meerdere toepassingen met een kleiner aantal bestanden te maken.  
 
-    >  Vous devez avoir accès au chemin UNC qui contient l’application et à tous les sous-dossiers intégrant le contenu de l’application.  
+    >  U moet toegang hebben tot het UNC-pad met de toepassing en eventuele submappen die toepassingsinhoud bevatten.  
 
-4.  Dans la page **Importer des informations** de l’Assistant Création d’une application, consultez les informations qui ont été importées, puis choisissez **Suivant**. Si nécessaire, vous pouvez choisir **Précédent** pour revenir en arrière et corriger les erreurs éventuelles.  
+4.  Op de **informatie importeren** pagina van de wizard toepassing maken, controleert u de informatie die geïmporteerd is en kies vervolgens **volgende**. Indien nodig, kunt u **vorige** teruggaan en eventuele fouten te corrigeren.  
 
-5.  Dans la page **Informations générales** de l’Assistant Création d’une application, spécifiez les informations suivantes :  
+5.  Op de **algemene informatie** pagina van de wizard toepassing maken de volgende informatie opgeven:  
 
     > [!NOTE]  
-    >  Certaines de ces informations peuvent être déjà renseignées, si elles ont été obtenues automatiquement auprès des fichiers d'installation de l'application. En outre, les options affichées peuvent être différentes en fonction du type d'application que vous créez.  
+    >  Sommige informatie is mogelijk al ingevuld als deze automatisch is opgehaald uit de installatiebestanden van de toepassing. Het kan bovendien zijn dat de weergegeven opties wisselen op basis van het toepassingstype dat u maakt.  
 
-    -   Informations générales relatives à l’application : nom, commentaires, version et éventuellement une référence qui vous aidera à référencer l’application dans la console Configuration Manager.  
+    -   Algemene informatie over de toepassing, zoals de toepassingsnaam, opmerkingen, versie en optionele referentie waarmee u kunt de toepassing niet vinden in de Configuration Manager-console.  
 
-    -   **Programme d’installation** : spécifiez le programme d’installation et les propriétés requises pour installer le type de déploiement d’application.  
+    -   **Het installatieprogramma**--Geef het installatieprogramma en alle vereiste eigenschappen die nodig zijn voor het implementatietype van de toepassing installeren.  
 
         > [!TIP]  
-        >  Si le programme d’installation n’est pas indiqué, choisissez **Parcourir** pour accéder à l’emplacement du programme d’installation.  
+        >  Als het installatieprogramma niet wordt weergegeven, kiest u **Bladeren** en blader naar de installatieprogrammalocatie.  
 
-    -   **Comportement à l’installation** : indiquez si le type de déploiement d’application doit être installé uniquement pour l’utilisateur actuellement connecté ou pour tous les utilisateurs. Vous pouvez également indiquer si vous souhaitez que le type de déploiement soit installé pour l’ensemble des utilisateurs en cas de déploiement sur un appareil ou uniquement pour un utilisateur spécifique en cas de déploiement auprès d’un utilisateur.  
+    -   **Installatiegedrag**--Geef op of het implementatietype van de toepassing alleen voor de momenteel aangemelde gebruiker of voor alle gebruikers wordt geïnstalleerd. U kunt ook opgeven dat het implementatietype wordt geïnstalleerd voor alle gebruikers als dit wordt geïmplementeerd op een apparaat of alleen op een specifieke gebruiker als dit wordt geïmplementeerd voor een gebruiker.  
 
-    -   **Utiliser une connexion VPN automatique (si elle est configurée)** : si un profil VPN a été déployé sur l’appareil où l’application est exécutée, lancez la connexion VPN au démarrage de l’application (Windows 8.1 et Windows Phone 8.1 uniquement).  
+    -   **Een automatische VPN-verbinding gebruiken (indien geconfigureerd)**--als een VPN-profiel is geïmplementeerd op het apparaat waarop de app wordt gestart, wordt de VPN-verbinding samen met de app gestart (Windows 8.1 en alleen voor Windows Phone 8.1).  
 
-         Sur les appareils Windows Phone 8.1, les connexions VPN automatiques ne sont pas prises en charge si plusieurs profils VPN ont été déployés sur l'appareil.  
+         Op Windows Phone 8.1-apparaten, worden automatische VPN-verbindingen worden niet ondersteund als er meer dan één VPN-profiel is geïmplementeerd op het apparaat.  
 
-         Pour plus d’informations sur les profils VPN, consultez [Profils VPN](../../protect/deploy-use/vpn-profiles.md).  
+         Zie voor meer informatie over VPN-profielen [VPN-profielen](../../protect/deploy-use/vpn-profiles.md).  
 
-6.  Choisissez **Suivant**, examinez les informations sur l’application figurant dans la page **Résumé**, puis suivez toutes les étapes de l’Assistant Création d’une application.  
+6.  Kies **volgende**, Controleer de toepassingsinformatie op de **samenvatting** pagina en voltooi de wizard toepassing maken.  
 
-La nouvelle application s’affiche dans le nœud **Applications** de la console Configuration Manager, ce qui marque la fin de la création d’une application. Si vous voulez ajouter d’autres types de déploiement à l’application, consultez [Créer des types de déploiement pour l’application](/sccm/apps/deploy-use/create-applications#create-deployment-types-for-the-application) dans cette rubrique.  
+De nieuwe toepassing wordt weergegeven in de **toepassingen** knooppunt van de Configuration Manager-console en u klaar bent met het maken van een toepassing. Zie [Implementatietypen voor de toepassing maken](/sccm/apps/deploy-use/create-applications#create-deployment-types-for-the-application) in dit onderwerp als u meer implementatietypen aan de toepassing wilt toevoegen.  
 
-### <a name="manually-specify-application-information"></a>Définir manuellement les informations de l’application  
+### <a name="manually-specify-application-information"></a>Toepassingsinformatie handmatig opgeven  
 
-1.  Dans la page **Général** de l’Assistant Création d’une application, sélectionnez **Spécifier manuellement les informations de l’application**, puis choisissez **Suivant**.  
+1.  Op de **algemene** pagina van de wizard toepassing maken selecteert **de toepassingsinformatie handmatig opgeven**, en kies vervolgens **volgende**.  
 
-2.  Spécifiez des informations générales relatives à l’application : nom, commentaires, version et éventuellement une référence qui vous aidera à référencer l’application dans la console Configuration Manager.  
+2.  Geef algemene informatie over de toepassing, zoals de toepassingsnaam, opmerkingen, versie en optionele referentie waarmee u kunt de toepassing niet vinden in de Configuration Manager-console.  
 
-3.  Dans la page **Catalogue d’applications** de l’Assistant Création d’une application, spécifiez les informations suivantes :  
+3.  Op de **Application Catalog** pagina van de wizard toepassing maken de volgende informatie opgeven:  
 
-    -   **Langue sélectionnée** : dans la liste déroulante, sélectionnez la version de langue de l’application que vous souhaitez configurer. Choisissez **Ajouter/Supprimer** pour configurer d’autres langues pour cette application.  
+    -   **Geselecteerde taal**--Selecteer In de vervolgkeuzelijst de taalversie van de toepassing die u wilt instellen. Kies **toevoegen/verwijderen** voor het instellen van meer talen voor deze toepassing.  
 
-    -   **Nom de l’application localisée** : indiquez le nom de l’application dans la langue sélectionnée dans la liste déroulante **Langue sélectionnée**.  
+    -   **Gelokaliseerde toepassingsnaam**--Geef de toepassingsnaam op in de taal die u hebt geselecteerd in de **geselecteerde taal** vervolgkeuzelijst.  
 
         > [!IMPORTANT]  
-        >  Vous devez spécifier un nom d’application localisée pour chaque version de langue que vous configurez.  
+        >  U moet een gelokaliseerde toepassingsnaam voor iedere taalversie die u hebt ingesteld.  
 
-    -   **Catégories d’utilisateurs** : choisissez **Modifier** pour spécifier les catégories de l’application, dans la langue sélectionnée dans la liste déroulante **Langue sélectionnée**. Les utilisateurs du Centre logiciel peuvent utiliser les catégories sélectionnées pour filtrer et trier les applications disponibles.  
+    -   **Gebruikerscategorieën**--kiezen **bewerken** Toepassingscategorieën opgeven in de taal die u hebt geselecteerd in de **geselecteerde taal** vervolgkeuzelijst. Gebruikers van Software Center kunnen deze geselecteerde categorieën gebruiken om te filteren en sorteren van de beschikbare toepassingen.  
 
-    -   **Documentation utilisateur** : choisissez **Parcourir** pour spécifier l’URL ou le chemin UNC et le nom d’un fichier que les utilisateurs du Centre logiciel peuvent lire pour obtenir des informations supplémentaires sur cette application.  
+    -   **Gebruikersdocumentatie**--kiezen **Bladeren** om op te geven van de URL, of het UNC-pad en de naam van een bestand dat gebruikers van Software Center lezen kunnen voor meer informatie over deze toepassing.  
 
-    -   **Texte de lien** : spécifiez le texte qui sera affiché à la place de l’URL de l’application.  
+    -   **Tekst koppeling**--Geef de tekst die wordt weergegeven in plaats van de URL van de toepassing.  
 
-    -   **URL de la déclaration de confidentialité de l’application** : spécifiez une URL qui accède à la déclaration de confidentialité de l’application.  
+    -   **Privacy-URL van toepassing**--Geef een URL die verwijst naar de privacyverklaring voor de toepassing.  
 
-    -   **Description localisée** : entrez une description de l’application dans la langue que vous avez sélectionnée dans la liste déroulante **Langue sélectionnée**.  
+    -   **Gelokaliseerde beschrijving**--Geef een beschrijving voor deze toepassing in de taal die u hebt geselecteerd in de **geselecteerde taal** vervolgkeuzelijst.  
 
-    -   **Mots-clés** : entrez une liste de mots-clés dans la langue que vous avez sélectionnée dans la liste déroulante **Langue sélectionnée**. Ils permettront aux utilisateurs du Centre logiciel de rechercher l’application.  
+    -   **Trefwoorden**--Geef een lijst met trefwoorden in de taal die u hebt geselecteerd in de **geselecteerde taal** vervolgkeuzelijst. Deze trefwoorden helpen gebruikers van Software Center zoeken naar de toepassing.  
 
-    -   **Icône** : choisissez **Parcourir** pour sélectionner une icône pour cette application parmi les icônes disponibles. Si vous ne spécifiez pas d'icône, une icône par défaut sera utilisée pour cette application.  
+    -   **Pictogram**--kiezen **Bladeren** selecteren van een pictogram voor deze toepassing uit de beschikbare pictogrammen. Als u geen pictogram opgeeft, wordt een standaardpictogram gebruikt voor deze toepassing.  
 
-    -   **Afficher en tant qu’application proposée et la mettre en exergue sur le portail de l’entreprise** : sélectionnez cette option pour afficher l’application de façon visible sur le portail de l’entreprise.  
+    -   **Geef deze App weer als aanbevolen app en markeer deze in de bedrijfsportal**--Selecteer deze optie om de app prominent wilt weergeven in de bedrijfsportal.  
 
-4.  Dans la page **Types de déploiement** de l’Assistant Création d’une application, choisissez **Ajouter** pour créer un type de déploiement.  
+4.  Op de **implementatietypen** pagina van de wizard toepassing maken de optie **toevoegen** om een nieuw implementatietype te maken.  
 
- Pour plus d’informations, consultez [Créer des types de déploiement pour l’application](/sccm/apps/deploy-use/create-applications#create-deployment-types-for-the-application).  
+ Zie voor meer informatie [implementatietypen maken voor de toepassing](/sccm/apps/deploy-use/create-applications#create-deployment-types-for-the-application).  
 
-5.  Choisissez **Suivant**, examinez les informations sur l’application figurant dans la page **Résumé**, puis suivez toutes les étapes de l’Assistant Création d’une application.  
+5.  Kies **volgende**, Controleer de toepassingsinformatie op de **samenvatting** pagina en voltooi de wizard toepassing maken.  
 
-La nouvelle application s’affiche dans le nœud **Applications** de la console Configuration Manager.  
+De nieuwe toepassing wordt weergegeven in de **toepassingen** knooppunt van de Configuration Manager-console.  
 
-##  <a name="create-deployment-types-for-the-application"></a>Créer des types de déploiement pour l'application  
- Si vous sélectionnez **Identifier automatiquement les informations sur ce type de déploiement à partir des fichiers d’installation** dans la page **Général** de l’Assistant Création d’un type de déploiement, vous n’avez pas besoin d’exécuter certaines étapes des procédures suivantes.  
+##  <a name="create-deployment-types-for-the-application"></a>Implementatietypen voor de toepassing maken  
+ Als u selecteert **automatisch informatie identificeren over dit implementatietype vanuit installatiebestanden** op de **algemene** pagina van de wizard implementatietype maken, hoeft u mogelijk niet sommige van de stappen in de volgende procedures te voltooien.  
 
-## <a name="start-the-create-deployment-type-wizard"></a>Démarrer l’Assistant Création d’un type de déploiement  
+## <a name="start-the-create-deployment-type-wizard"></a>De wizard Implementatietype maken starten  
 
-1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Applications**.  
+1.  Kies in de Configuration Manager-console **softwarebibliotheek** > **Toepassingsbeheer** > **toepassingen**.  
 
-3.  Sélectionnez une application puis, sous l’onglet **Accueil**, dans le groupe **Application**, choisissez **Créer un type de déploiement**.  
+3.  Selecteer een toepassing en klik vervolgens op de **Start** tabblad, in de **toepassing** groep, kiest u **implementatietype maken**.  
 
 > [!TIP]  
->  Vous pouvez également démarrer l’Assistant Création d’un type de déploiement à partir de l’Assistant Création d’une application et sous l’onglet **Types de déploiement** de la boîte de dialogue **Propriétés de** *nom_application\>*.  
+>  U kunt de wizard implementatietype maken ook starten vanuit de wizard toepassing maken en naar de **implementatietypen** tabblad van de *< toepassingsnaam\>*  **eigenschappen** in het dialoogvenster.  
 
-## <a name="specify-whether-you-want-to-automatically-detect-deployment-type-information-or-manually-set-up-the-information"></a>Spécifier s’il est nécessaire de détecter automatiquement les informations sur le type de déploiement ou de configurer manuellement les informations  
- Utilisez l’une des procédures suivantes pour détecter automatiquement ou configurer manuellement les informations relatives au type de déploiement.  
+## <a name="specify-whether-you-want-to-automatically-detect-deployment-type-information-or-manually-set-up-the-information"></a>Opgeven of toepassingsinformatie automatisch detecteren of de informatie handmatig instellen  
+ Gebruik een van de volgende procedures om automatisch detecteren of implementatietype-informatie handmatig instellen.  
 
-### <a name="automatically-detect-deployment-type-information"></a>Détecter automatiquement les informations relatives au type de déploiement  
+### <a name="automatically-detect-deployment-type-information"></a>Toepassingsinformatie automatisch detecteren  
 
-1.  Dans la page **Général** de l’Assistant Création d’un type de déploiement, sélectionnez **Identifier automatiquement les informations sur ce type de déploiement à partir des fichiers d’installation**.  
+1.  Op de **algemene** pagina van de wizard implementatietype maken, selecteer **automatisch informatie identificeren over dit implementatietype vanuit installatiebestanden**.  
 
-2.  Dans la zone **Type**, sélectionnez le type du fichier d’installation d’application à utiliser pour détecter les informations sur le type de déploiement.  
+2.  In de **Type** selecteert het installatiebestandstype van toepassing die u gebruiken wilt voor het detecteren van toepassingsinformatie.  
 
-3.  Dans la zone **Emplacement**, spécifiez le chemin UNC (au format *\\\\serveur\\partage\\nom_fichier*) ou le lien du magasin vers les fichiers d’installation d’application et le contenu à utiliser pour détecter les informations sur le type de déploiement. Vous pouvez également choisir **Parcourir** pour rechercher le fichier d’installation.  
-
-    > [!NOTE]  
-    >  Vous devez avoir accès au chemin UNC qui contient l’application et à tous les sous-dossiers intégrant le contenu de l’application.  
-
-4.  Dans la page **Importer des informations** de l’Assistant Création d’un type de déploiement, consultez les informations qui ont été importées, puis choisissez **Suivant**. Vous pouvez aussi choisir **Précédent** pour revenir en arrière et corriger les erreurs éventuelles.  
-
-5.  Dans la page **Informations générales** de l’Assistant Création d’un type de déploiement, spécifiez les informations suivantes :  
+3.  In de **locatie** geeft u het UNC-pad (in de vorm  *\\ \\server\\delen\\filename*) of de opslagkoppeling voor de installatiebestanden van de toepassing en de inhoud die u gebruiken wilt voor het detecteren van de implementatietype-informatie opgeven. U kunt ook **Bladeren** om de installatiebestand te zoeken.  
 
     > [!NOTE]  
-    >  Certaines informations relatives au type de déploiement peuvent déjà être présentes si elles ont été lues à partir des fichiers d'installation de l'application. En outre, les options affichées peuvent différer selon le type de déploiement que vous créez.  
+    >  U moet toegang hebben tot het UNC-pad met de toepassing en eventuele submappen die de toepassingsinhoud bevatten.  
 
-    -   Informations générales sur le type de déploiement, comme le nom, les commentaires de l’administrateur et les langues disponibles.  
+4.  Op de **informatie importeren** pagina van de wizard implementatietype maken, controleert u de informatie die geïmporteerd is en kies vervolgens **volgende**. U kunt ook **vorige** teruggaan en eventuele fouten te corrigeren.  
 
-    -   **Programme d’installation** : spécifiez le programme d’installation et les éventuelles propriétés nécessaires pour installer le type de déploiement.  
+5.  Op de **algemene informatie** pagina van de wizard implementatietype maken de volgende informatie opgeven:  
 
-    -   **Comportement à l’installation** : indiquez si vous souhaitez installer le type de déploiement pour l’utilisateur actuel ou tous les utilisateurs. Vous pouvez également spécifier si le type de déploiement sera installé pour tous les utilisateurs, s'il s'agit d'un déploiement vers un appareil, ou vers un utilisateur uniquement s'il s'agit d'un déploiement vers un utilisateur.  
+    > [!NOTE]  
+    >  Sommige implementatietype-informatie is mogelijk al ingevuld als deze automatisch is opgehaald uit de installatiebestanden van de toepassing. Bovendien verschillen de weergegeven opties, afhankelijk van het implementatietype dat u maakt.  
 
-    -   **Utiliser une connexion VPN automatique (si elle est configurée)** : si un profil VPN a été déployé sur l’appareil où l’application est exécutée, lancez la connexion VPN au démarrage de l’application (Windows 8.1 et Windows Phone 8.1 uniquement). Si plusieurs profils VPN ont été déployés sur un appareil Windows 8.1, le premier profil VPN déployé est utilisé par défaut.  
+    -   Algemene informatie over het implementatietype, zoals de naam, de beheerder opmerkingen en de beschikbare talen.  
 
-         Sur les appareils Windows Phone 8.1, les connexions VPN automatiques ne sont pas prises en charge si plusieurs profils VPN ont été déployés sur l'appareil.  
+    -   **Het installatieprogramma**--Geef het installatieprogramma en alle eigenschappen die u nodig hebt om het implementatietype te installeren.  
 
-         Pour plus d’informations sur les profils VPN, consultez [Profils VPN dans System Center Configuration Manager](../../protect/deploy-use/vpn-profiles.md).  
+    -   **Installatiegedrag**--opgeven of het implementatietype voor de huidige gebruiker of voor alle gebruikers geïnstalleerd. U kunt ook opgeven of het implementatietype voor alle gebruikers installeren wanneer deze is geïmplementeerd op een apparaat, of of voor het installeren van de implementatie voor een gebruiker alleen als dit wordt geïmplementeerd voor een gebruiker.  
 
-6.  Choisissez **Suivant**, puis passez à [Spécifier les options de contenu pour le type de déploiement](/sccm/apps/deploy-use/create-applications#specify-content-options-for-the-deployment-type).  
+    -   **Een automatische VPN-verbinding gebruiken (indien geconfigureerd)**--als een VPN-profiel is geïmplementeerd op het apparaat waarop de app wordt gestart, wordt de VPN-verbinding samen met de app gestart (Windows 8.1 en alleen voor Windows Phone 8.1). Als u meerdere VPN-profielen zijn geïmplementeerd op een Windows 8.1-apparaat, wordt standaard het eerste geïmplementeerde VPN-profiel gebruikt.  
 
-### <a name="manually-set-up-the-deployment-type-information"></a>Configurer manuellement les informations sur le type de déploiement  
+         Op Windows Phone 8.1-apparaten, worden automatische VPN-verbindingen worden niet ondersteund als er meer dan één VPN-profiel is geïmplementeerd op het apparaat.  
 
-1.  Dans la page **Général,** de l’Assistant Création d’un type de déploiement, sélectionnez **Spécifier manuellement les informations sur le type de déploiement**.  
+         Zie voor meer informatie over VPN-profielen [VPN-profielen in System Center Configuration Manager](../../protect/deploy-use/vpn-profiles.md).  
 
-2.  Dans la zone **Type**, choisissez le type du fichier d’installation d’application à utiliser pour détecter les informations sur le type de déploiement. Vous pouvez choisir les mêmes types d’installation que vous utilisez quand vous détectez automatiquement les informations sur le type de déploiement, ainsi que spécifier un script pour installer le type de déploiement.  
+6.  Kies **volgende**, en ga verder naar [inhoudsopties voor het implementatietype opgeven](/sccm/apps/deploy-use/create-applications#specify-content-options-for-the-deployment-type).  
 
-3.  Dans la page **Informations générales** de l’Assistant Création d’un type de déploiement, spécifiez un nom pour le type de déploiement, une description facultative et les langues dans lesquelles vous souhaitez que ce type de déploiement soit disponible, puis choisissez **Suivant**.  
+### <a name="manually-set-up-the-deployment-type-information"></a>Handmatig de implementatietype-informatie instellen  
 
-4.  Continuez avec [Spécifier les options de contenu pour le type de déploiement](/sccm/apps/deploy-use/create-applications#specify-content-options-for-the-deployment-type).  
+1.  Op de **algemene** pagina van de wizard implementatietype maken, selecteer **Geef handmatig de implementatietype-informatie**.  
 
-##  <a name="specify-content-options-for-the-deployment-type"></a>Spécifier les options de contenu pour le type de déploiement  
+2.  In de **Type** vak, installatiebestandstype de toepassing die u gebruiken wilt voor het detecteren van toepassingsinformatie. U kunt de dezelfde installatietypen die u gebruiken wilt wanneer u de implementatietype-informatie voor het automatisch detecteren en u kunt ook een script voor het installeren van het implementatietype opgeven.  
 
-1.  Dans la page **Contenu** de l’Assistant Création d’un type de déploiement, spécifiez les informations suivantes :  
+3.  Op de **algemene informatie** pagina van de wizard implementatietype maken een naam opgeven voor het implementatietype, een optionele beschrijving en de talen waarin u wilt dat dit implementatietype beschikbaar is en kies vervolgens **volgende**.  
 
-    -   **Emplacement du contenu** : spécifiez l’emplacement du contenu pour ce type de déploiement, ou sélectionnez **Parcourir** pour choisir le dossier de contenu du type de déploiement.  
+4.  Ga door naar [Inhoudopties voor het implementatietype opgeven](/sccm/apps/deploy-use/create-applications#specify-content-options-for-the-deployment-type).  
+
+##  <a name="specify-content-options-for-the-deployment-type"></a>Inhoudopties voor het implementatietype opgeven  
+
+1.  Op de **inhoud** pagina van de wizard implementatietype maken de volgende informatie opgeven:  
+
+    -   **Locatie van inhoud**--Geef de locatie van de inhoud voor dit implementatietype of selecteer **Bladeren** kiezen van de map met inhoud implementatietype.  
 
         > [!IMPORTANT]  
-        >  Le compte du système de l'ordinateur du serveur de site doit disposer d'autorisations vers l'emplacement de contenu que vous spécifiez.  
+        >  Het systeemaccount van de siteservercomputer moet machtigingen hebben voor de locatie van de inhoud die u opgeeft.  
 
-    -   **Paramètres du contenu de désinstallation** : spécifiez l’une des options suivantes :
-        - **Identique au contenu d’installation** : sélectionnez cette option si le contenu d’installation et le contenu de désinstallation sont identiques. Il s’agit du comportement par défaut.
-        - **Pas de contenu de désinstallation** : sélectionnez cette option si votre application ne nécessite pas de contenu pour la désinstallation.
-        - **Différent du contenu d’installation** : sélectionnez cette option si le contenu de désinstallation est différent du contenu d’installation.
+    -   **Verwijderen van de instellingen van inhoud**--Geef een van de volgende opties:
+        - **Hetzelfde zijn als de inhoud wordt geïnstalleerd**--Selecteer deze optie als de installatie en verwijdering van inhoud zijn hetzelfde. Dit is de standaardinstelling.
+        - **Geen inhoud verwijderen**--Selecteer deze optie als uw toepassing heeft geen inhoud nodig om te verwijderen.
+        - **Verschilt van de installatie-inhoud**--Selecteer deze optie als de inhoud verwijderen van de installatie-inhoud verschilt.
 
-4. Si vous avez sélectionné **Différent du contenu d’installation**, recherchez ou entrez l’emplacement du contenu de l’application qui est utilisé pour désinstaller l’application.
-5. Cliquez sur **OK** pour fermer la boîte de dialogue des propriétés de type de déploiement.
+4. Als u hebt geselecteerd **verschillend van installatie-inhoud**, blader naar of typ de locatie van de inhoud van de toepassing die wordt gebruikt om de toepassing te verwijderen.
+5. Klik op **OK** implementatie type in het dialoogvenster Eigenschappen te sluiten.
 
-    -   **Conserver le contenu dans la mémoire cache du client** : sélectionnez cette option pour spécifier si le contenu doit être conservé indéfiniment dans le cache de l’ordinateur client, même s’il a déjà été exécuté. Bien que cette option puisse être utile avec certains déploiements, comme les logiciels basés sur un programme d’installation Windows qui exigent qu’une copie de la source locale soit disponible pour appliquer les mises à jour, elle aura pour effet de réduire l’espace disponible dans le cache. Le choix de cette option peut entraîner l'échec d'un déploiement important plus tard si l'espace disponible dans le cache est insuffisant.  
+    -   **Inhoud in de clientcache behouden**--Selecteer deze optie om op te geven of de inhoud moet worden bewaard in de cache op de clientcomputer voor onbepaalde tijd, zelfs als deze al is uitgevoerd. Hoewel deze optie kan nuttig zijn bij sommige implementaties, zoals Windows Installer gebaseerde software waarvoor een lokale bronkopie beschikbaar zijn voor het toepassen van updates, zijn verkort deze de cacheruimte beschikbaar. Als u deze optie selecteert, kan dit ertoe leiden dat een grote implementatie op een later tijdstip mislukt als de cache niet voldoende beschikbare ruimte beschikt.  
 
-    -   **Autoriser les clients à partager du contenu avec d’autres clients sur le même sous-réseau** : sélectionnez cette option pour réduire la charge sur le réseau en autorisant les clients à télécharger du contenu à partir d’autres clients locaux sur le réseau qui ont déjà téléchargé et mis en cache le contenu. Cette option utilise la technologie Windows BranchCache.  
+    -   **Toestaan dat clients inhoud te delen met andere clients in hetzelfde subnet**--Selecteer deze optie om de belasting op het netwerk te verminderen door clients inhoud downloaden van andere lokale clients op het netwerk dat al hebben gedownload en gecached. Deze optie maakt gebruik van Windows BranchCache-technologie.  
 
-    -   **Programme d’installation** : spécifiez le nom du programme d’installation et des paramètres d’installation requis, ou choisissez **Parcourir** pour localiser le fichier d’installation.  
+    -   **Het installatieprogramma**--Geef de naam van het installatieprogramma en eventueel vereiste installatieparameters of kies **Bladeren** om de installatiebestand te zoeken.  
 
-    -   **Début de l’installation dans** : spécifiez éventuellement le dossier contenant le programme d’installation pour le type de déploiement. Ce dossier peut être un chemin absolu sur le client ou un chemin vers le dossier du point de distribution contenant les fichiers d’installation.  
+    -   **Start installatie over**--Geef eventueel de map die het installatieprogramma voor het implementatietype heeft. Deze map kan zich een absoluut pad op de client of een pad naar de distributiepuntmap die de installatiebestanden heeft.  
 
-    -   **Programme de désinstallation** : spécifiez éventuellement le nom du programme de désinstallation et tous les paramètres exigés, ou choisissez **Parcourir** pour le localiser.  
+    -   **Programma voor verwijderen**--desgewenst de naam van het programma voor verwijderen en eventueel vereiste parameters opgeven, of kies **Bladeren** terug te vinden.  
 
-    -   **Début de la désinstallation dans** : spécifiez éventuellement le dossier contenant le programme de désinstallation pour le type de déploiement. Ce dossier peut être un chemin absolu sur le client ou un chemin relatif au dossier du point de distribution qui contient le package.  
+    -   **Verwijderen start over**--Geef eventueel de map die het programma voor verwijderen voor het implementatietype heeft. Deze map kan zich een absoluut pad op de client of een pad dat ten opzichte van de distributiepuntmap die het pakket heeft.  
 
-    -   **Exécutez l’installation et désinstallez le programme en tant que processus 32 bits sur des clients 64 bits** : utilisez les emplacements de fichier et de Registre 32 bits sur des ordinateurs fonctionnant sous Windows pour exécuter le programme d’installation pour le type de déploiement.  
+    -   **Installatie programma en verwijderen uitvoeren als 32-bits proces op 64-bits clients**--de 32-bits bestand en registerlocaties locaties op Windows-computers gebruiken om uit te voeren van het installatieprogramma voor het implementatietype.  
 
-2.  Choisissez **Suivant**.  
+2.  Kies **volgende**.  
 
-## <a name="set-up-detection-methods-to-indicate-the-presence-of-the-deployment-type-windows-pcs-only"></a>Configurer des méthodes de détection pour indiquer la présence du type de déploiement (PC Windows uniquement)  
- Cette procédure configure une méthode de détection qui indique si le type de déploiement est déjà installé.  
+## <a name="set-up-detection-methods-to-indicate-the-presence-of-the-deployment-type-windows-pcs-only"></a>Detectiemethoden instellen om aan te geven van de aanwezigheid van het implementatietype (alleen Windows-pc's)  
+ Deze procedure stelt u een detectiemethode die aangeeft of het implementatietype al is geïnstalleerd.  
 
-1.  Dans la page **Méthode de détection** de l’Assistant Création d’un type de déploiement, sélectionnez **Configurer des règles pour détecter la présence de ce type de déploiement**, puis choisissez **Ajouter une clause**.  
+1.  Op de **detectiemethode** pagina van de wizard implementatietype maken, selecteer **regels configureren voor het detecteren van de aanwezigheid van dit implementatietype**, en kies vervolgens **component toevoegen**.  
 
     > [!NOTE]  
-    >  Vous pouvez également sélectionner **Utiliser un script personnalisé pour détecter la présence de ce type de déploiement**. Pour plus d’informations, consultez [Utiliser un script personnalisé pour vérifier la présence d’un type de déploiement](/sccm/apps/deploy-use/create-applications#Use-a-custom-script-to-check-for-the-presence-of-a-deployment-type).  
+    >  U kunt ook **Gebruik een aangepast script om de aanwezigheid van dit implementatietype te detecteren** selecteren. Zie voor meer informatie [een aangepast script gebruiken om te controleren op de aanwezigheid van een implementatietype](/sccm/apps/deploy-use/create-applications#Use-a-custom-script-to-check-for-the-presence-of-a-deployment-type).  
 
-2.  Dans la liste déroulante **Type de paramètre** de la boîte de dialogue **Règle de détection**, choisissez la méthode que vous souhaitez utiliser pour détecter la présence du type de déploiement. Vous pouvez choisir parmi les méthodes disponibles suivantes :  
+2.  Selecteer in de vervolgkeuzelijst **Instellingstype** in het dialoogvenster **Detectieregel** de methode die u wilt gebruiken voor het detecteren van de aanwezigheid van het implementatietype. U kunt kiezen uit de volgende beschikbare methoden:  
 
-    -   **Système de fichiers** : permet de détecter si un fichier ou un dossier spécifique existe sur un appareil client, indiquant ainsi que l’application est installée.  
+    -   **Bestandssysteem**--deze methode gebruiken om te detecteren of het opgegeven bestand of map op een clientapparaat bestaat, duidt dit erop dat de toepassing is geïnstalleerd.  
 
         > [!NOTE]  
-        >  Le paramètre **Système de fichiers** ne permet pas de spécifier un chemin d’accès UNC à un partage réseau dans le champ Chemin d’accès. Vous pouvez uniquement spécifier un chemin local sur l'appareil client.  
+        >  De **bestandssysteem** Instellingstype biedt geen ondersteuning voor het opgeven van een UNC-pad naar een netwerkshare in het veld pad. U kunt op het clientapparaat alleen een lokaal pad opgeven.  
         >   
-        >  Pour vérifier les emplacements de fichiers 32 bits pour le fichier ou dossier spécifié, sélectionnez d’abord l’option **Ce fichier ou dossier est associé à une application 32 bits sur des systèmes 64 bits**. Si le fichier ou dossier est introuvable, il sera cherché dans des emplacements 64 bits.  
+        >  Als u wilt controleren 32-bits bestandslocaties voor het opgegeven bestand of map, selecteert u de optie **dit bestand of deze map is gekoppeld aan een 32-bits toepassing op 64-bits systemen** eerste. Als het bestand of de map niet wordt gevonden, wordt er op de 64-bits locaties gezocht.  
 
-    -   **Registre** : permet de détecter si une clé de Registre ou une valeur de Registre spécifiée existe sur un appareil client, indiquant ainsi que l’application est installée.  
+    -   **Register**--deze methode gebruiken om te detecteren of een opgegeven registersleutel of registerwaarde op een clientapparaat bestaat, duidt dit erop dat de toepassing is geïnstalleerd.  
 
         > [!NOTE]  
-        >  Pour vérifier d’abord les emplacements du Registre 32 bits pour la clé de Registre spécifiée, sélectionnez d’abord l’option **Cette clé de Registre est associée à une application 32 bits sur des systèmes 64 bits**. Si la clé de Registre est introuvable, elle sera cherchée dans les emplacements 64 bits.  
+        >  Selecteer de optie om te controleren op 32-bits registerlocaties voor de opgegeven registersleutel, **deze registersleutel is gekoppeld aan een 32-bits toepassing op 64-bits systemen** eerste. Als de registersleutel niet wordt gevonden, wordt er op de 64-bits locaties gezocht.  
 
-    -   **Windows Installer** : permet de détecter si un fichier Windows Installer spécifique existe sur un appareil client, indiquant ainsi que l’application est installée.  
+    -   **Windows Installer**--deze methode gebruiken om te detecteren of een opgegeven Windows Installer-bestand op een clientapparaat bestaat, duidt dit erop dat de toepassing is geïnstalleerd.  
 
-3.  Spécifiez les détails concernant l'élément que vous souhaitez utiliser pour détecter si ce type de déploiement est installé. Par exemple, vous pouvez utiliser un fichier, un dossier, une clé ou valeur de Registre ou bien un code de produit Windows Installer.  
+3.  Geef details over het item dat u gebruiken om te detecteren wilt of dit implementatietype is geïnstalleerd. U kunt bijvoorbeeld een bestand, map, registersleutel, registerwaarde of een Windows Installer-productcode gebruiken.  
 
-4.  Spécifiez des détails sur la valeur que vous souhaitez évaluer par rapport à l'élément que vous utilisez pour détecter si le type de déploiement est installé. Par exemple, si vous utilisez un fichier pour vérifier si le type de déploiement est installé, vous pouvez sélectionner **Le paramètre du système de fichiers doit exister sur le système cible pour indiquer la présence de cette application**.  
+4.  Geef details op over de waarde die u wilt beoordelen tegen opzichte van het item dat u wilt gebruiken om te detecteren of een implementatietype is geïnstalleerd. Als u een bestandsbeheertaak gebruiken om te controleren of het implementatietype wordt geïnstalleerd, kunt u bijvoorbeeld **de bestandssysteeminstelling moet bestaan op het doelsysteem om aan te geven van de aanwezigheid van deze toepassing**.  
 
-5.  Choisissez **Suivant** pour fermer la boîte de dialogue **Règle de détection**.  
+5.  Kies **volgende** sluiten de **detectieregel** in het dialoogvenster.  
 
-###  <a name="use-a-custom-script-to-check-for-the-presence-of-a-deployment-type"></a>Utiliser un script personnalisé pour vérifier la présence d’un type de déploiement  
+###  <a name="use-a-custom-script-to-check-for-the-presence-of-a-deployment-type"></a>Een aangepast script gebruiken om te controleren op de aanwezigheid van een implementatietype  
 
-1.  Dans la page **Méthode de détection** de l’Assistant Création d’un type de déploiement, sélectionnez **Utiliser un script personnalisé pour détecter la présence de ce type de déploiement**, puis choisissez **Modifier**.  
+1.  Op de **detectiemethode** pagina van de wizard implementatietype maken, selecteer de **een aangepast script gebruiken voor het detecteren van de aanwezigheid van dit implementatietype** vak in en kies vervolgens **bewerken**.  
 
-2.  Dans la boîte de dialogue **Éditeur de script**, sélectionnez la langue du script que vous souhaitez utiliser pour détecter le type de déploiement dans la liste déroulante **Type de script**.  
+2.  Selecteer in de vervolgkeuzelijst **Scripttype** in het dialoogvenster **Scripteditor** de scripttaal die u wilt gebruiken voor het detecteren van het implementatietype.  
 
-3.  Entrez le script à utiliser dans la zone **Contenu du script**. Vous pouvez également coller le contenu d’un script existant dans ce champ ou choisir **Ouvrir** pour accéder à un script existant enregistré. Configuration Manager vérifie les résultats du script en lisant les valeurs écrites dans le flux de sortie Standard Out (STDOUT), le flux de sortie Standard Error (STDERR) et le code de sortie du script. Si le code de sortie est une valeur non nulle, le script a échoué et l'état de la détection d'application est inconnu. Si le code de sortie est égal à zéro et STDOUT contient des données, l’état de la détection d’application est installé.  
+3.  In de **inhoud Script** Voer het script dat u wilt gebruiken. U kunt ook de inhoud van een bestaand script in dit veld plakken of kies **Open** om naar een bestaand opgeslagen script te bladeren. Configuration Manager controleert de resultaten van het script door de waarde die is geschreven naar de Standard Out uitvoerstroom (STDOUT), de uitvoerstroom standaardfout (STDERR) en de afsluitcode van het script te lezen. Als de afsluitcode een andere waarde dan nul is, is het script mislukt en is de toepassingsdetectiestatus onbekend. Als de afsluitcode nul is en STDOUT gegevens bevat, is de toepassingsdetectiestatus geïnstalleerd.  
 
- Utilisez le tableau suivant pour voir comment utiliser la sortie d’un script pour vérifier si une application est installée.  
+ Gebruik de volgende tabel voor informatie over het gebruiken van de uitvoer van een script om te controleren of een toepassing is geïnstalleerd.  
 
-|Code de sortie du script|Détails|
+|Scriptafsluitcode|Details|
 |--------------------------------|-----------------|
-|0|**Données lues à partir de STDOUT** - Vide<br /><br /> **Données lues à partir de STDERR** - Vide<br /><br /> **Résultat du script** - Réussite<br /><br /> **État de détection de l’application** - Non installé|  
-|0|**Données lues à partir de STDOUT** - Vide<br /><br /> **Données lues à partir de STDERR** - Non vide<br /><br /> **Résultat du script** - Échec<br /><br /> **État de détection de l’application** - Inconnu|  
-|0|**Données lues à partir de STDOUT** - Non vide<br /><br /> **Données lues à partir de STDERR** - Vide<br /><br /> **Résultat du script** - Réussite<br /><br /> **État de détection de l’application** - Installé|  
-|0|**Données lues à partir de STDOUT** - Non vide<br /><br /> **Données lues à partir de STDERR** - Non vide<br /><br /> **Résultat du script** - Réussite<br /><br /> **État de détection de l’application** - Installé|  
-|Valeur non nulle|**Données lues à partir de STDOUT** - Vide<br /><br /> **Données lues à partir de STDERR** - Vide<br /><br /> **Résultat du script** - Échec<br /><br /> **État de détection de l’application** - Inconnu|  
-|Valeur non nulle|**Données lues à partir de STDOUT** - Vide<br /><br /> **Données lues à partir de STDERR** - Non vide<br /><br /> **Résultat du script** - Échec<br /><br /> **État de détection de l’application** - Inconnu|  
-|Valeur non nulle|**Données lues à partir de STDOUT** - Non vide<br /><br /> **Données lues à partir de STDERR** - Vide<br /><br /> **Résultat du script** - Échec<br /><br /> **État de détection de l’application** - Inconnu|  
-|Valeur non nulle|**Données lues à partir de STDOUT** - Non vide<br /><br /> **Données lues à partir de STDERR** - Non vide<br /><br /> **Résultat du script** - Échec<br /><br /> **État de détection de l’application** - Inconnu|  
+|0|**Gegevens die in STDOUT zijn gelezen**--leeg<br /><br /> **Gegevens die in STDERR zijn gelezen**--leeg<br /><br /> **Scriptresultaat**--geslaagd<br /><br /> **Detectiestatus van toepassing**--niet geïnstalleerd|  
+|0|**Gegevens die in STDOUT zijn gelezen**--leeg<br /><br /> **Gegevens die in STDERR zijn gelezen**--niet leeg zijn<br /><br /> **Scriptresultaat**--fout<br /><br /> **Detectiestatus van toepassing**--onbekend|  
+|0|**Gegevens die in STDOUT zijn gelezen**--niet leeg zijn<br /><br /> **Gegevens die in STDERR zijn gelezen**--leeg<br /><br /> **Scriptresultaat**--geslaagd<br /><br /> **Detectiestatus van toepassing**--geïnstalleerd|  
+|0|**Gegevens die in STDOUT zijn gelezen**--niet leeg zijn<br /><br /> **Gegevens die in STDERR zijn gelezen**--niet leeg zijn<br /><br /> **Scriptresultaat**--geslaagd<br /><br /> **Detectiestatus van toepassing**--geïnstalleerd|  
+|Niet-nulwaarde|**Gegevens die in STDOUT zijn gelezen**--leeg<br /><br /> **Gegevens die in STDERR zijn gelezen**--leeg<br /><br /> **Scriptresultaat**--fout<br /><br /> **Detectiestatus van toepassing**--onbekend|  
+|Niet-nulwaarde|**Gegevens die in STDOUT zijn gelezen**--leeg<br /><br /> **Gegevens die in STDERR zijn gelezen**--niet leeg zijn<br /><br /> **Scriptresultaat**--fout<br /><br /> **Detectiestatus van toepassing**--onbekend|  
+|Niet-nulwaarde|**Gegevens die in STDOUT zijn gelezen**--niet leeg zijn<br /><br /> **Gegevens die in STDERR zijn gelezen**--leeg<br /><br /> **Scriptresultaat**--fout<br /><br /> **Detectiestatus van toepassing**--onbekend|  
+|Niet-nulwaarde|**Gegevens die in STDOUT zijn gelezen**--niet leeg zijn<br /><br /> **Gegevens die in STDERR zijn gelezen**--niet leeg zijn<br /><br /> **Scriptresultaat**--fout<br /><br /> **Detectiestatus van toepassing**--onbekend|  
 
-Le tableau suivant contient des exemples de script Microsoft Visual Basic (VB) que vous pouvez utiliser pour écrire vos propres scripts de détection d’application.  
+De volgende tabel bevat voorbeeldscripts (VB Microsoft Visual Basic) waarmee u kunt uw eigen toepassingsdetectiescripts schrijven.  
 
-|Exemple de script Visual Basic|Description|  
+|Visual Basic-voorbeeldscript|Beschrijving|  
 |--------------------------------|-----------------|  
-|**WScript.Quit(1)**|Le script renvoie un code de sortie non nul, ce qui indique l'échec d'exécution correcte. Dans ce cas, l'état de la détection d'application est inconnu.|  
-|**WScript.StdErr.Write "Échec du script"**<br /><br /> **WScript.Quit(0)**|Le script renvoie un code de sortie égal à zéro, mais la valeur de STDERR n'est pas vide, ce qui indique l'échec d'exécution correcte du script. Dans ce cas, l'état de la détection d'application est inconnu.|  
-|**WScript.Quit(0)**|Le script renvoie un code de sortie égal à zéro, ce qui indique la réussite d'exécution. Toutefois, la valeur de STDOUT est vide, ce qui indique que l'application n'est pas installée.|  
-|**WScript.StdOut.Write "L’application est installée"**<br /><br /> **WScript.Quit(0)**|Le script renvoie un code de sortie égal à zéro, ce qui indique la réussite d'exécution. La valeur de STDOUT n'est pas vide, ce qui indique que l'application est installée.|  
-|**WScript.StdOut.Write "L’application est installée"**<br /><br /> **WScript.StdErr.Write "Fin"**<br /><br /> **WScript.Quit(0)**|Le script renvoie un code de sortie égal à zéro, ce qui indique la réussite d'exécution. Les valeurs de STDOUT et STDERR ne sont pas vides, ce qui indique que l'application est installée.|  
+|**WScript.Quit(1)**|Dit script retourneert een afsluitcode die niet gelijk is aan nul, wat aangeeft dat dit is uitgevoerd. In dit geval is de status van de detectie van de toepassing onbekend.|  
+|**WScript.StdErr.Write "Script is mislukt"**<br /><br /> **WScript.Quit(0)**|Het script retourneert een afsluitcode die gelijk is aan nul, maar de waarde STDERR is niet leeg, wat aangeeft dat het uitvoeren van het script is mislukt. In dit geval is de status van de detectie van de toepassing onbekend.|  
+|**WScript.Quit(0)**|Dit script retourneert een afsluitcode die gelijk is aan nul, wat aangeeft dat het is uitgevoerd. De waarde voor STDOUT is echter leeg, wat aangeeft dat de toepassing niet is geïnstalleerd.|  
+|**WScript.StdOut.Write "de toepassing is geïnstalleerd'**<br /><br /> **WScript.Quit(0)**|Dit script retourneert een afsluitcode die gelijk is aan nul, wat aangeeft dat het is uitgevoerd. De waarde voor STDOUT is niet leeg, wat aangeeft dat de toepassing niet is geïnstalleerd.|  
+|**WScript.StdOut.Write "de toepassing is geïnstalleerd'**<br /><br /> **WScript.StdErr.Write "Voltooid"**<br /><br /> **WScript.Quit(0)**|Dit script retourneert een afsluitcode die gelijk is aan nul, wat aangeeft dat het is uitgevoerd. De waarden voor STDOUT en STDERR zijn niet leeg, wat aangeeft dat de toepassing is geïnstalleerd.|  
 
  > [!NOTE]  
- >  La taille maximale que vous pouvez utiliser pour un script est 32 Ko.  
+ >  De maximale grootte die u voor een script kunt gebruiken, is 32 kilobytes (KB).  
 
-4.  Choisissez **OK** pour fermer la boîte de dialogue **Éditeur de script**.  
+4.  Kies **OK** sluiten de **scripteditor** in het dialoogvenster.  
 
-## <a name="specify-user-experience-options-for-the-deployment-type"></a>Spécifier les options d’expérience utilisateur pour le type de déploiement  
- Ces paramètres définissent comment l’application va être installée sur les appareils et ce que l’utilisateur verra.  
+## <a name="specify-user-experience-options-for-the-deployment-type"></a>Opties voor gebruikerservaring opgeven voor het implementatietype  
+ Deze instellingen bepalen hoe de toepassing wordt geïnstalleerd op apparaten en wat de gebruiker te zien krijgen.  
 
-1.  Dans la page **Expérience utilisateur** de l’Assistant Création d’un type de déploiement, spécifiez les informations suivantes :  
+1.  Op de **gebruikerservaring** pagina van de wizard implementatietype maken de volgende informatie opgeven:  
 
-    -   **Comportement d’installation** : dans la liste déroulante, sélectionnez l’une des options suivantes :  
+    -   **Installatiegedrag**--Selecteer In de vervolgkeuzelijst een van de volgende opties:  
 
-        -   **Installer pour l’utilisateur** : l’application est installée uniquement pour l’utilisateur pour lequel elle est déployée.  
+        -   **Installeren voor gebruiker**--de toepassing wordt alleen geïnstalleerd voor de gebruiker aan wie de toepassing is geïmplementeerd.  
 
-        -   **Installer pour le système** : l’application est installée une seule fois et elle est disponible pour tous les utilisateurs.  
+        -   **Installeren voor systeem**--de toepassing wordt slechts één keer geïnstalleerd en is beschikbaar voor alle gebruikers.  
 
-        -   **Installer pour le système si la ressource est un périphérique ; sinon installer pour l’utilisateur** : si l’application est déployée sur un appareil, elle est installée pour tous les utilisateurs. Si l'application est déployée sur un utilisateur, elle sera installée uniquement pour cet utilisateur.  
+        -   **Installeren voor systeem indien de resource is verwijderd. anders installeren voor gebruiker**--als de toepassing wordt geïmplementeerd op een apparaat, wordt deze geïnstalleerd voor alle gebruikers. Als de toepassing wordt geïmplementeerd voor een gebruiker, wordt deze alleen voor die gebruiker geïnstalleerd.  
 
-    -   **Condition d’ouverture de session** : spécifiez les conditions d’ouverture de session pour ce type de déploiement à partir des options suivantes :  
+    -   **Aanmeldvereiste**--Geef de aanmeldvereisten op voor dit implementatietype vanuit de volgende opties:  
 
-        -   **Uniquement quand un utilisateur a ouvert une session**  
+        -   **Alleen wanneer een gebruiker is aangemeld**  
 
-        -   **Qu’un utilisateur ait ouvert une session ou non**  
+        -   **Of een gebruiker is aangemeld**  
 
-        -   **Uniquement lorsqu’aucun utilisateur n’a de session ouverte**  
-
-        > [!NOTE]  
-        >  Par défaut, cette option sera définie sur **Uniquement lorsqu'un utilisateur a ouvert une session**et ne pourra pas être modifiée si vous avez sélectionné **Installer pour l'utilisateur** dans la liste déroulante **Comportement d'installation** .  
-
-    -   **Visibilité du programme d’installation** : spécifiez le mode dans lequel le type de déploiement sera exécuté sur les appareils clients. Les options ci-dessous sont disponibles :  
-
-        -   **Agrandie** : le type de déploiement est exécuté de manière agrandie sur les appareils clients. Les utilisateurs verront toute l'activité de l'installation.  
-
-        -   **Normale** : le type de déploiement est exécuté en mode normal, en fonction des valeurs par défaut du système et du programme. Il s'agit du mode par défaut.  
-
-        -   **Réduite** : le type de déploiement est exécuté de manière réduite sur les appareils clients. Les utilisateurs peuvent voir l'activité de l'installation dans la zone de notification ou dans la barre des tâches.  
-
-        -   **Masquée** : le type de déploiement est exécuté de manière masquée sur les appareils clients et les utilisateurs ne voient aucune activité d’installation.  
-
-    -   **Permettre aux utilisateurs d’afficher et d’interagir avec l’installation du programme** : spécifiez si un utilisateur peut interagir avec l’installation du type de déploiement pour configurer les options d’installation.  
+        -   **Alleen als er geen gebruiker is aangemeld**  
 
         > [!NOTE]  
-        >  Cette option est activée par défaut si l'option **Installer pour l'utilisateur** est sélectionnée dans la liste déroulante **Comportement d'installation** .  
+        >  Deze optie wordt standaard ingesteld op **alleen als een gebruiker is aangemeld**, en kan niet worden gewijzigd als u hebt geselecteerd **installeren voor gebruiker** in de **installatiegedrag** vervolgkeuzelijst.  
 
-    -   **Durée maximale d’exécution allouée (en minutes)** : spécifiez la durée maximale pendant laquelle le programme est supposé s’exécuter sur l’ordinateur client. Ce paramètre peut être spécifié comme un nombre entier supérieur à zéro. Le paramètre par défaut est de 120 minutes.  
+    -   **Zichtbaarheid installatieprogramma**--Geef de modus waarin het implementatietype op clientapparaten wordt uitgevoerd. De volgende opties zijn beschikbaar:  
 
-         Cette valeur est utilisée pour :  
+        -   **Gemaximaliseerd**--het implementatietype wordt gemaximaliseerd uitgevoerd op clientapparaten. De installatieactiviteit is zichtbaar voor de gebruiker.  
 
-        -   surveiller les résultats du type de déploiement ;  
+        -   **Normaal**--het implementatietype wordt uitgevoerd in de normale modus op basis van systeem en standaardprogramma. Dit is de standaardmodus.  
 
-        -   vérifier si un type de déploiement sera installé une fois que des fenêtres de maintenance auront été définies sur des appareils clients. Lorsqu'une fenêtre de maintenance est activée, un programme démarre uniquement s'il reste suffisamment de temps dans la fenêtre de maintenance pour respecter l'option **Durée maximale d'exécution allouée** .  
+        -   **Geminimaliseerd**--het implementatietype wordt geminimaliseerd uitgevoerd op clientapparaten. Gebruikers zien de installatieactiviteit in het systeemvak of de taakbalk mogelijk.  
+
+        -   **Verborgen**--het implementatietype wordt op clientapparaten verborgen en gebruikers zullen geen installatieactiviteit weergegeven.  
+
+    -   **Toestaan dat gebruikers de programma-installatie kunnen zien en**--opgeven of een gebruiker met de implementatietype-installatie communiceren kan voor het instellen van de installatieopties.  
+
+        > [!NOTE]  
+        >  Deze optie is standaard ingeschakeld als u hebt geselecteerd de **installeren voor gebruiker** optie in de **installatiegedrag** vervolgkeuzelijst.  
+
+    -   **Maximale toegestane uitvoeringstijd (minuten)**--Geef de maximale tijd die het programma uit te voeren op de clientcomputer wordt verwacht. U kunt deze instelling opgeven als een geheel getal dat groter is dan nul. De standaardinstelling is 120 minuten.  
+
+         Deze waarde wordt gebruikt voor:  
+
+        -   Controleren van de resultaten van het implementatietype.  
+
+        -   Controleer of een implementatietype wordt geïnstalleerd wanneer er op clientapparaten onderhoudsvensters zijn gedefinieerd. Wanneer u een onderhoudsvenster is ingevoerd, een programma alleen gestart als er genoeg tijd beschikbaar is in het onderhoudsvenster voor de **maximale toegestane uitvoeringstijd** instelling.  
 
         > [!IMPORTANT]  
-        >  Un conflit peut se produire si la **durée maximale d'exécution allouée** est plus longue que celle de la fenêtre de maintenance planifiée. Si la durée maximale d'exécution définie par l'utilisateur dépasse la longueur des fenêtres de maintenance disponibles, ce type de déploiement n'est pas exécuté.  
+        >  Een conflict optreden als de **maximale toegestane uitvoeringstijd** langer is dan het geplande onderhoudsvenster. Als de gebruiker de maximale uitvoeringsduur instelt op een periode die langer is dan de lengte van welk beschikbaar onderhoudsvenster dan ook, wordt het implementatietype niet uitgevoerd.  
 
-2.  **Temps d’installation estimé (minutes)** : spécifiez la durée estimée nécessaire à l’installation du type de déploiement. Il est indiqué aux utilisateurs du Centre logiciel.  
+2.  **Geschatte installatietijd (minuten)**--Geef de geschatte tijd die de installatie van het implementatietype wordt uitgevoerd. Deze is zichtbaar voor gebruikers van Software Center.  
 
-## <a name="specify-requirements-for-the-deployment-type"></a>Spécifier des spécifications pour le type de déploiement  
+## <a name="specify-requirements-for-the-deployment-type"></a>Vereisten voor het implementatietype opgeven  
 
-1.  Dans la page **Spécifications** de l’Assistant Création d’un type de déploiement, choisissez **Ajouter** pour ouvrir la boîte de dialogue **Créer une spécification**, puis ajoutez une nouvelle spécification.  
+1.  Op de **vereisten** pagina van de wizard implementatietype maken de optie **toevoegen** openen de **vereiste maken** dialoogvenster vak en voeg een nieuwe vereiste toe.  
 
     > [!NOTE]  
-    >  Vous pouvez également ajouter de nouvelles spécifications sous l’onglet **Spécifications** de la boîte de dialogue **Propriétés** de *<nom_type_déploiement\>*.  
+    >  U kunt ook nieuwe vereisten toevoegen op de **vereisten** tabblad van de *< naam implementatietype\>*  **eigenschappen** in het dialoogvenster.  
 
-2.  Dans la liste déroulante **Catégorie**, indiquez si cette spécification s’applique à un appareil ou à un utilisateur, ou sélectionnez **Personnalisé** pour utiliser une condition globale préalablement créée. Quand vous sélectionnez **Personnalisé**, vous pouvez également choisir **Créer** pour créer une condition globale. Pour plus d’informations sur les conditions globales, consultez [Comment créer des conditions globales](../../apps/deploy-use/create-global-conditions.md).  
+2.  Selecteer in de vervolgkeuzelijst **Categorie** of deze vereiste geldt voor een apparaat of een gebruiker of selecteer **Aangepast** als u een eerder gemaakte globale voorwaarde wilt gebruiken. Wanneer u selecteert **aangepaste**, u kunt ook **maken** voor het maken van een nieuwe globale voorwaarde. Zie voor meer informatie over globale voorwaarden [globale voorwaarden maken](../../apps/deploy-use/create-global-conditions.md).  
 
     > [!IMPORTANT]  
-    >  Les spécifications relatives à la catégorie **Utilisateur** et à la condition **Périphérique principal** sont ignorées si vous déployez l’application sur un regroupement d’appareils.  
+    >  Een vereiste voor de categorie **gebruiker** en de voorwaarde **primair apparaat** wordt genegeerd als u de toepassing voor een apparaatverzameling implementeren.  
     >   
-    >  Si vous avez créé une séquence de tâches ou un package et un programme Windows qui a Windows 10 comme spécification à l’aide de System Center 2012 R2 Configuration Manager SP1 et que vous effectuez une mise à niveau vers System Center Configuration Manager, la spécification relative à Windows 10 peut être supprimée. Pour résoudre ce problème, spécifiez à nouveau la spécification. Notez que bien que l’exigence ait été supprimée de l’affichage des exigences, elle est toujours traitée correctement sur les appareils.  
+    >  Als u een Windows-pakket en -programma of -takenreeks hebt gemaakt waarvoor als vereiste geldt dat Windows 10 gebruikmaakt van System Center 2012 R2 Configuration Manager SP1, en u vervolgens een upgrade uitvoert naar System Center Configuration Manager, worden de vereisten voor Windows 10 mogelijk verwijderd. U kunt dit probleem oplossen door de vereisten opnieuw op te geven. Houd er rekening mee dat hoewel de vereiste is verwijderd uit de weergave van de vereisten, het nog steeds correct op apparaten verwerkt is.  
 
-3.  Dans la liste déroulante **Condition** , sélectionnez la condition que vous souhaitez utiliser pour déterminer si l'utilisateur ou l'appareil répond aux spécifications de l'installation. Le contenu de cette liste varie en fonction de la catégorie sélectionnée.  
+3.  In de **voorwaarde** vervolgkeuzelijst, selecteert u de voorwaarde die u gebruiken om te beoordelen wilt of de gebruiker of het apparaat voldoet aan de installatievereisten. De inhoud van deze lijst varieert op basis van de geselecteerde categorie.  
 
-4.  Dans la liste déroulante **Opérateur** , choisissez l'opérateur qui sera utilisé pour comparer la condition sélectionnée à la valeur spécifiée, afin d'évaluer si l'utilisateur ou l'appareil répond aux spécifications de l'installation. Les opérateurs disponibles varient en fonction de la condition sélectionnée.  
+4.  In de **Operator** vervolgkeuzelijst, selecteert u de operator die wordt gebruikt voor het vergelijken van de geselecteerde voorwaarde en de opgegeven waarde om te beoordelen of de gebruiker of het apparaat voldoet aan de installatievereisten. De beschikbare operators variëren op basis van de geselecteerde voorwaarde.  
 
     > [!IMPORTANT]  
-    >  Les spécifications disponibles varient selon le type d’appareil utilisé par le type de déploiement.  
+    >  De beschikbare vereisten zullen variëren afhankelijk van het apparaattype dat gebruikmaakt van het implementatietype.  
 
-5.  Dans la zone **Valeur**, spécifiez les valeurs qui seront utilisées avec la condition et l’opérateur sélectionnés pour évaluer si l’utilisateur ou l’appareil respecte les spécifications de l’installation. Les valeurs disponibles varient en fonction de la condition et de l'opérateur sélectionnés.  
+5.  In de **waarde** geeft u de waarden die worden gebruikt met de geselecteerde voorwaarde en operator om te beoordelen of de gebruiker of het apparaat voldoet aan de installatievereisten. De beschikbare waarden variëren op basis van de geselecteerde voorwaarde en de geselecteerde operator.  
 
-6.  Choisissez **OK** pour enregistrer la spécification et fermer la boîte de dialogue **Créer une spécification**.  
+6.  Kies **OK** opslaan van de vereiste en sluit de **vereiste maken** in het dialoogvenster.  
 
-## <a name="specify-dependencies-for-the-deployment-type"></a>Spécifier des dépendances pour le type de déploiement  
- Les dépendances définissent un ou plusieurs types de déploiement d'un autre type d'application qui doivent être installés avant l'installation d'un type de déploiement. Vous pouvez configurer les types de déploiement dépendants à installer automatiquement avant l’installation d’un type de déploiement.  
+## <a name="specify-dependencies-for-the-deployment-type"></a>Afhankelijkheden voor het implementatietype opgeven  
+ Afhankelijkheden definiëren een of meer implementatietypen van een andere toepassing die moeten worden geïnstalleerd voordat het implementatietype wordt geïnstalleerd. U kunt de afhankelijke implementatietypen automatisch moeten worden geïnstalleerd voordat een implementatietype wordt geïnstalleerd instellen.  
 
 > [!IMPORTANT]  
->  Dans certains cas, un type de déploiement est dépendant d’un type de déploiement qui a également des dépendances. Le nombre maximal de dépendances prises en charge dans la chaîne est de 5.  
+>  In sommige gevallen is een implementatietype afhankelijk van een implementatietype dat ook afhankelijkheden heeft. Het maximum aantal ondersteunde afhankelijkheden in de keten is vijf.  
 
-1.  Dans la page **Dépendances** de l’Assistant Création d’un type de déploiement, choisissez **Ajouter** pour spécifier les types de déploiement à installer avant l’installation de ce type de déploiement.  
+1.  Op de **afhankelijkheden** pagina van de wizard implementatietype maken de optie **toevoegen** als u opgeven van de implementatietypen die moeten worden geïnstalleerd wilt voordat dit implementatietype kan worden geïnstalleerd.  
 
     > [!IMPORTANT]  
-    >  Vous pouvez également ajouter de nouvelles dépendances sous l’onglet **Dépendances** de la boîte de dialogue **Propriétés** de *<nom_type_déploiement\>*.  
+    >  U kunt ook nieuwe afhankelijkheden toevoegen op de **afhankelijkheden** tabblad van de *< naam implementatietype\>*  **eigenschappen** in het dialoogvenster.  
 
-2.  Dans la boîte de dialogue **Ajouter une dépendance**, choisissez **Ajouter**.  
+2.  In de **afhankelijkheid toevoegen** dialoogvenster Kies **toevoegen**.  
 
-3.  Dans la boîte de dialogue **Spécifier l'application requise** , sélectionnez une application existante et l'un des types de déploiement d'application à utiliser en tant que dépendance.  
+3.  In de **Geef vereiste toepassing** in het dialoogvenster, selecteer een bestaande toepassing en een van de toepassingsimplementatie implementatietypen voor gebruik als afhankelijkheid.  
 
     > [!TIP]  
-    >  Vous pouvez choisir **Afficher** pour afficher les propriétés de l’application ou du type de déploiement sélectionné.  
+    >  U kunt kiezen **weergave** om de eigenschappen van de geselecteerde toepassing of implementatie weer te geven.  
 
-4.  Choisissez **OK** pour fermer la boîte de dialogue **Spécifier l’application requise**.  
+4.  Kies **OK** sluiten de **Geef vereiste toepassing** in het dialoogvenster.  
 
-5.  Si vous souhaitez qu'une application dépendante soit installée automatiquement, voir **Installation automatique** à côté de l'application dépendante.  
+5.  Als u een afhankelijke toepassing automatisch wordt geïnstalleerd wilt, selecteer **automatisch installeren** naast de afhankelijke toepassing.  
 
     > [!NOTE]  
-    >  Une application dépendante n'a pas besoin être déployée pour être automatiquement installée.  
+    >  Een afhankelijke toepassing hoeft niet te worden geïmplementeerd om te worden automatisch geïnstalleerd.  
 
-6.  Dans la boîte de dialogue **Ajouter une dépendance**, sous **Nom du groupe de dépendances**, entrez un nom pour faire référence à ce groupe de dépendances d’applications.  
+6.  In de **afhankelijkheid toevoegen** dialoogvenster onder **naam Afhankelijkheidsgroep**, voer een naam voor het verwijzen naar deze groep toepassingsafhankelijkheden.  
 
-7.  Vous pouvez également utiliser les boutons **Augmenter la priorité** et **Diminuer la priorité** pour modifier l'ordre dans lequel chaque dépendance est évaluée.  
+7.  Gebruik eventueel de **prioriteit verhogen** en **prioriteit verlagen** knoppen om de volgorde waarin elke afhankelijkheid wordt geëvalueerd.  
 
-8.  Choisissez **OK** pour fermer la boîte de dialogue **Ajouter une dépendance**.  
+8.  Kies **OK** sluiten de **afhankelijkheid toevoegen** in het dialoogvenster.  
 
-## <a name="confirm-the-deployment-type-settings-and-finish-the-wizard"></a>Confirmer les paramètres relatifs au type de déploiement et terminer l’Assistant  
+## <a name="confirm-the-deployment-type-settings-and-finish-the-wizard"></a>Instellingen voor het implementatietype bevestigen en voltooi de wizard  
 
-1.  Dans la page **Résumé** de l’Assistant Création d’un type de déploiement, passez en revue les actions que doit prendre l’Assistant. Choisissez **Suivant** pour créer le type de déploiement ou **Précédent** pour revenir en arrière et modifier les paramètres du type de déploiement.  
+1.  Op de **samenvatting** pagina van de wizard implementatietype maken, Controleer welke acties de wizard gaat ondernemen. Kies **volgende** met het implementatietype maakt of kies een **vorige** naar Ga terug en wijzig de instellingen voor het implementatietype.  
 
-2.  Après la fermeture de la page **Progression**, passez en revue les actions prises par l’Assistant, puis choisissez **Fermer** pour terminer l’Assistant.  
+2.  Na de **voortgang** pagina is voltooid, Controleer welke acties de wizard heeft ondernomen, en kies vervolgens **sluiten** om de wizard te voltooien.  
 
-3.  Si vous avez démarré l’Assistant Création d’un type de déploiement à partir de l’Assistant Création d’une application, vous revenez à la page **Types de déploiement** de l’Assistant Création d’une application.  
+3.  Als u de wizard implementatietype maken hebt gestart vanuit de wizard toepassing maken, gaat u terug naar de **implementatietypen** pagina van de wizard toepassing maken.  
 
-## <a name="set-up-additional-options-for-deployment-types-that-contain-virtual-applications"></a>Configurer des options supplémentaires pour les types de déploiement qui contiennent des applications virtuelles  
- Utilisez les procédures suivantes pour configurer des options supplémentaires pour les types de déploiement qui contiennent des applications virtuelles.  
+## <a name="set-up-additional-options-for-deployment-types-that-contain-virtual-applications"></a>Aanvullende opties instellen voor implementatietypen die virtuele toepassingen bevatten  
+ Gebruik de volgende procedures voor het instellen van aanvullende opties voor implementatietypen die virtuele toepassingen bevatten.  
 
-### <a name="set-up-content-options-for-application-virtualization-app-v-deployment-types"></a>Configurer les options de contenu pour les types de déploiement App-V (Application Virtualization)  
+### <a name="set-up-content-options-for-application-virtualization-app-v-deployment-types"></a>Inhoudopties voor implementatietypen van Application Virtualization (App-V) instellen  
 
-1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Applications**.  
+1.  Kies in de Configuration Manager-console **softwarebibliotheek** > **toepassingen**.  
 
-2.  Dans la liste **Applications**, sélectionnez une application contenant un type de déploiement App-V. Ensuite, sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+2.  In de **toepassingen** , selecteert u een toepassing met een App-V-implementatietype. Klik op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
 
-3.  Dans la boîte de dialogue **Propriétés de** *<nom_application\>*, sous l’onglet **Types de déploiement**, sélectionnez un type de déploiement App-V, puis choisissez **Modifier**.  
+3.  In de *< toepassingsnaam\>*  **eigenschappen** in het dialoogvenster op de **implementatietypen** tabblad, selecteert u een App-V-implementatietype en kies vervolgens **bewerken**.  
 
-4.  Dans la boîte de dialogue **Propriétés de** *<Nom du type de déploiement\>*, sous l’onglet **Contenu**, configurez les options suivantes, si nécessaire :  
+4.  In de *< naam implementatietype\>*  **eigenschappen** in het dialoogvenster op de **inhoud** tabblad instellen van de volgende opties, indien nodig:  
 
-    -   **Conserver le contenu dans la mémoire cache du client** : sélectionnez cette option pour vérifier que le contenu de ce type de déploiement n’est pas supprimé du cache du client Configuration Manager.  
+    -   **Inhoud in de clientcache behouden**--Selecteer deze optie om ervoor te zorgen dat de inhoud voor dit implementatietype niet uit de Configuration Manager-clientcache wordt verwijderd.  
 
-    -   **Charger le contenu dans le cache AppV avant le lancement** : sélectionnez cette option pour vérifier que tout le contenu de l’application virtuelle est chargé dans le cache App-V avant le lancement de l’application. Cette option garantit également que le contenu de l'application ne sera pas épinglé dans le cache et que celui-ci pourra être supprimé au besoin.  
+    -   **Inhoud laden in App-V-cache vóór starten**--Selecteer deze optie om ervoor te zorgen dat alle inhoud voor de virtuele toepassing in de App-V-cache wordt geladen voordat de toepassing wordt gestart. Deze optie zorgt er ook voor dat de inhoud van de toepassing niet in de cache is vastgemaakt en kan worden verwijderd, zoals wordt vereist.  
 
-5.  Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de** *<nom_type_déploiement\>*.  
+5.  Kies **OK** sluiten de *< naam implementatietype\>*  **eigenschappen** in het dialoogvenster.  
 
-6.  Choisissez **OK** pour fermer la boîte de dialogue **Propriétés de** *<nom_application\>*.  
+6.  Kies **OK** sluiten de *< toepassingsnaam\>*  **eigenschappen** in het dialoogvenster.  
 
-### <a name="set-up-publishing-options-for-app-v-deployment-types"></a>Configurer les options de publication pour les types de déploiement App-V  
+### <a name="set-up-publishing-options-for-app-v-deployment-types"></a>Publicatieopties voor implementatietypen van App-V instellen  
 
-1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Applications**.  
+1.  Kies in de Configuration Manager-console **softwarebibliotheek** > **toepassingen**.  
 
-3.  Dans la liste **Applications**, sélectionnez une application contenant un type de déploiement App-V. Ensuite, sous l’onglet **Accueil**, dans le groupe **Propriétés**, choisissez **Propriétés**.  
+3.  In de **toepassingen** , selecteert u een toepassing met een App-V-implementatietype. Klik op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
 
-4.  Dans la boîte de dialogue **Propriétés de** *<nom_application\>*, sous l’onglet **Types de déploiement**, sélectionnez un type de déploiement App-V, puis choisissez **Modifier**.  
+4.  In de *< toepassingsnaam\>*  **eigenschappen** in het dialoogvenster op de **implementatietypen** tabblad, selecteert u een App-V-implementatietype en kies vervolgens **bewerken**.  
 
-5.  Dans la boîte de dialogue **Propriétés de** *<nom_type_déploiement\>*, sous l’onglet **Publication**, sélectionnez les éléments de l’application virtuelle à publier.  
+5.  In de *< naam implementatietype\>*  **eigenschappen** in het dialoogvenster op de **Publishing** tabblad, selecteert u de items in de virtuele toepassing die u wilt publiceren.  
 
-6.  Cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de** *<nom_type_déploiement\>*.  
+6.  Kies **OK** sluiten de *< naam implementatietype\>*  **eigenschappen** in het dialoogvenster.  
 
-7.  Choisissez **OK** pour fermer la boîte de dialogue **Propriétés de** *<nom_application\>*.  
+7.  Kies **OK** sluiten de *< toepassingsnaam\>*  **eigenschappen** in het dialoogvenster.  
 
-## <a name="import-an-application"></a>Importer une application  
- Utilisez la procédure ci-dessous pour importer une application dans Configuration Manager. Pour plus d’informations sur l’exportation d’une application, consultez [Tâches de gestion pour les applications System Center Configuration Manager](../../apps/deploy-use/management-tasks-applications.md).  
+## <a name="import-an-application"></a>Een toepassing importeren  
+ Gebruik de volgende procedure een toepassing importeren in Configuration Manager. Zie voor meer informatie over het exporteren van een toepassing [beheertaken voor System Center Configuration Manager-toepassingen](../../apps/deploy-use/management-tasks-applications.md).  
 
-1.  Dans la console Configuration Manager, choisissez **Bibliothèque de logiciels** > **Gestion des applications** > **Applications**.   
+1.  Kies in de Configuration Manager-console **softwarebibliotheek** > **Toepassingsbeheer** > **toepassingen**.   
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Créer**, choisissez **Importer l’application**.  
+3.  Op de **Start** tabblad, in de **maken** groep, kiest u **toepassing importeren**.  
 
-4.  Dans la page **Général** de l’**Assistant Importation de l’application**, choisissez **Parcourir**, puis spécifiez un chemin UNC au fichier .zip contenant l’application à importer.  
+4.  Op de **algemene** pagina van de **wizard toepassing importeren**, kies **Bladeren**, en geef daarna een UNC-pad naar het ZIP-bestand dat de toepassing die u wilt importeren.  
 
-5.  Dans la page **Contenu du fichier**, sélectionnez l’action à effectuer quand l’application que vous essayez d’importer est un doublon d’une application existante. Vous pouvez créer une application ou ignorer la copie et ajouter une nouvelle révision à l’application existante.  
+5.  Op de **bestandsinhoud** pagina, selecteert u de actie die wordt uitgevoerd als de toepassing die u probeert te importeren een duplicaat van een bestaande toepassing. U kunt een nieuwe toepassing maken of de duplicaat wordt genegeerd en een nieuwe revisie toevoegen aan de bestaande toepassing.  
 
-6.  Dans la page **Résumé**, passez en revue les actions à effectuer, puis terminez l’Assistant.  
+6.  Op de **samenvatting** pagina, controleert u de acties worden ondernomen en voltooi de wizard.  
 
- La nouvelle application s’affiche dans le nœud **Applications**.  
+ De nieuwe toepassing wordt weergegeven in het knooppunt **Toepassingen**.  
 
 > [!TIP]  
->  L’applet de commande Windows PowerShell **Import-CMApplication** permet de réaliser la même opération que cette procédure. Pour plus d’informations, consultez [Import-CMApplication](https://technet.microsoft.com/library/jj821738.aspx) dans la référence sur les applets de commande Microsoft System Center 2012 Configuration Manager SP1.  
+>  De Windows PowerShell-cmdlet **Import-CMApplication** heeft dezelfde functie als deze procedure. Zie voor meer informatie [Import-CMApplication](https://technet.microsoft.com/library/jj821738.aspx) in Microsoft System Center 2012 Configuration Manager SP1 Cmdlet-verwijzing.  
 
-##  <a name="deployment-types-supported-by-configuration-manager"></a>Types de déploiement pris en charge par Configuration Manager  
+##  <a name="deployment-types-supported-by-configuration-manager"></a>Implementatietypen die worden ondersteund door Configuration Manager  
 
-|Nom du type de déploiement|Plus d'informations|  
+|Naam van implementatietype|Meer informatie|  
 |--------------------------|----------------------|  
-|**Windows Installer (\*fichier .msi)**|Crée un type de déploiement à partir d'un fichier Windows Installer.|  
-|**Package d’application Windows (\*.appx, \*.appxbundle)**|Crée un type de déploiement pour Windows 8, Windows RT ou version ultérieure, à partir d’un fichier de package d’application Windows ou d’un package de lots d’applications Windows.|  
-|**Package d’application Windows (dans le Windows Store)**|Crée un type de déploiement pour Windows 8, Windows RT ou version ultérieure, en spécifiant un lien vers l’application dans Windows Store ou en parcourant le magasin pour sélectionner l’application dont vous avez besoin.<br /><br /> Si vous voulez déployer l'application sous forme de lien vers Windows Store, vérifiez que le paramètre de stratégie de groupe **Désactiver l'application du Store** est défini sur **Désactivé** ou sur **Non configuré**. Si ce paramètre est activé, les clients ne pourront pas se connecter à Windows Store pour télécharger et installer des applications.<br /><br /> Les types de déploiements de Windows 8 qui utilisent un lien vers un magasin sont toujours évalués avant d’autres types de déploiements, quelle que soit leur priorité.|  
-|**Programme d’installation de script**|Crée un type de déploiement spécifiant un script qui s’exécute sur des appareils clients pour installer un contenu ou pour effectuer une action.|  
-|**Microsoft Application Virtualization 4**|Crée un type de déploiement à partir d’un fichier manifeste Microsoft Application Virtualization 4.|  
-|**Microsoft Application Virtualization 5**|Crée un type de déploiement à partir d'un fichier de package Microsoft Application Virtualization 5.|  
-|**Package d’application Windows Phone (\*fichier .xap)**|Crée un type de déploiement à partir d'un fichier de package d'application Windows Phone.|  
-|**Package d’application Windows Phone (dans le Windows Phone Store)**|Crée un type de déploiement en spécifiant un lien vers l’application dans le Windows Phone Store.|  
-|**Fichier CAB Windows Mobile**|Crée un type de déploiement pour des appareils Windows Mobile à partir d’un fichier CAB Windows Mobile.|  
-|**Package d’application pour iOS (fichier \*.ipa)**|Crée un type de déploiement à partir d'un fichier de package d'application iOS.|  
-|**Package d’application pour iOS depuis l’App Store**|Crée un type de déploiement en spécifiant un lien vers l'application iOS dans l'App Store.|  
-|**Package d’application pour Android (fichier \*.apk)**|Crée un type de déploiement à partir d'un fichier de package d'application Android.|  
-|**Package d’application pour Android sur Google Play**|Crée un type de déploiement en spécifiant un lien vers l'application sur Google Play.|  
-|**Mac OS X**|Crée un type de déploiement pour les ordinateurs Mac à partir d'un fichier .cmmac que vous avez créé à l'aide de l'outil CMAppUtil.<br /><br /> S’applique uniquement aux ordinateurs Mac exécutant le client Configuration Manager.|  
-|**Application web**|Crée un type de déploiement qui spécifie un lien vers une application Web. Le type de déploiement installe un raccourci vers l'application Web sur l'appareil de l'utilisateur.<br /><br /> Si vous avez installé Intune Managed Browser sur des appareils iOS ou Android que vous gérez, vous pouvez vous assurer que les utilisateurs peuvent uniquement utiliser Managed Browser pour ouvrir l’application. Pour ce faire, utilisez un des formats suivants quand vous spécifiez un lien vers l’application, en remplaçant **http:** par **http-intunemam:** ou **https:** par **https-intunemam:**<br /><br /> - **http-intunemam://<chemin de l’application web\>**<br /><br /> - **https-intunemam://<chemin de l’application web\>**<br /><br /> Vous pouvez imposer une configuration requise pour Configuration Manager afin de vérifier que les applications à associer au navigateur Managed Browser sont installées uniquement sur des appareils iOS et Android.<br /><br /> Pour plus d’informations sur Intune Managed Browser, consultez [Gérer l’accès à Internet à l’aide de stratégies Managed Browser](../../apps/deploy-use/manage-internet-access-using-managed-browser-policies.md).|  
-|**Windows Installer via la gestion des appareils mobiles (\*.msi)**|Ce type de programme d’installation vous permet de créer et déployer des applications Windows Installer sur des PC qui exécutent Windows 10.<br /><br /> Tenez compte des points suivants quand vous utilisez ce type de programme d’installation :<br><br>- Vous ne pouvez télécharger qu’un seul fichier avec l’extension .msi.<br /><br /> - Le code de produit et la version de produit du fichier sont utilisés pour la détection d’applications.<br /><br /> - Le comportement de redémarrage par défaut de l’application sera utilisé. Configuration Manager ne contrôle pas cette fonctionnalité.<br /><br /> - Les packages MSI par utilisateur sont installés pour un utilisateur unique.<br /><br /> - Les packages MSI par ordinateur sont installés pour tous les utilisateurs sur l’appareil.<br /><br /> - Actuellement, les packages MSI en mode double s’installent uniquement pour tous les utilisateurs sur l’appareil.<br /><br /> - Les mises à jour d’application sont prises en charge quand le code de produit MSI de chaque version est identique.|  
+|**Windows Installer (\*MSI-bestand)**|Maakt een implementatietype van een Windows Installer-bestand.|  
+|**Windows app-pakket (\*.appx, \*.appxbundle)**|Hiermee wordt een implementatietype gemaakt vanuit een Windows-app-pakketbestand of Windows-app-bundelpakket voor Windows 8, Windows RT of hoger.|  
+|**Windows app-pakket (in de Windows Store)**|Maakt een implementatietype voor Windows 8, Windows RT, of later door te geven van een koppeling naar de app in de Windows Store of de store om te selecteren van de gewenste app te bladeren.<br /><br /> Als u wilt dat de app implementeren als een koppeling naar de Windows Store, controleert u of de groepsbeleidsinstelling **de Store-toepassing uitschakelen** is ingesteld op **uitgeschakelde** of **niet geconfigureerd**. Als deze instelling is ingeschakeld, kunnen clients geen verbinding maken met Windows Store om toepassingen te downloaden en installeren.<br /><br /> Windows 8-implementatietypen die gebruikmaken van een koppeling naar een archief worden altijd geëvalueerd vóór andere implementatietypen, ongeacht hun prioriteit.|  
+|**Script Installer**|Maakt een implementatietype dat een script dat wordt uitgevoerd op clientapparaten om inhoud te installeren of opgeeft om een actie.|  
+|**Microsoft Application Virtualization 4**|Maakt een implementatietype uit een manifest van Microsoft Application Virtualization 4.|  
+|**Microsoft Application Virtualization 5**|Hiermee wordt een implementatietype gemaakt vanuit een Microsoft Application Virtualization 5-pakketbestand.|  
+|**Windows Phone-app-pakket (\*XAP-bestand)**|Hiermee wordt een implementatietype gemaakt vanuit een Windows Phone-app-pakketbestand|  
+|**Windows Phone-app-pakket (in de Windows Phone Store)**|Hiermee wordt een implementatietype gemaakt door een koppeling op te geven naar de app in de Windows Phone Store.|  
+|**Windows Mobile-Cabinet**|Maakt een implementatietype van een CAB-bestand (Windows Mobile-cabinet) voor Windows Mobile-apparaten.|  
+|**App-pakket voor iOS (\*IPA-bestand)**|Hiermee wordt een implementatietype gemaakt vanuit een iOS-app-pakketbestand.|  
+|**App-pakket voor iOS uit de App Store**|Hiermee wordt een implementatietype gemaakt door een koppeling op te geven naar de iOS-app in de App Store.|  
+|**App-pakket voor Android (\*APK-bestand)**|Hiermee wordt een implementatietype gemaakt vanuit een Android-app-pakketbestand.|  
+|**App-pakket voor Android in Google Play**|Hiermee wordt een implementatietype gemaakt door een koppeling op te geven naar de app in Google Play.|  
+|**Mac OS X**|Hiermee wordt een implementatietype gemaakt voor Mac-computers vanuit een CMMAC-bestand dat u met behulp van het CMAppUtil-hulpprogramma hebt gemaakt.<br /><br /> Geldt alleen voor Mac-computers met de Configuration Manager-client.|  
+|**Webtoepassing**|Hiermee wordt een implementatietype gemaakt dat een koppeling opgeeft naar een webtoepassing. Het implementatietype installeert een snelkoppeling naar de webtoepassing op het apparaat van de gebruiker.<br /><br /> Als u de Intune managed browser hebt geïnstalleerd op iOS- of Android-apparaten die u beheert, kunt u ervoor zorgen dat gebruikers alleen de beheerde browser gebruiken kunnen om de app te openen. Hiervoor gebruikt u een van de volgende indelingen wanneer u een koppeling naar de app door te vervangen opgeeft **http:** met **http-intunemam:** of **https:** met **https-intunemam:**<br /><br /> - **HTTP-intunemam: / / < pad naar de web-app\>**<br /><br /> - **HTTPS-intunemam: / / < pad naar de web-app\>**<br /><br /> U kunt de Configuration Manager-toepassingsvereisten gebruiken om ervoor te zorgen dat apps die u wilt koppelen aan de beheerde browser alleen worden geïnstalleerd op iOS en Android-apparaten.<br /><br /> Zie voor meer informatie over de Intune managed browser [internettoegang beheren met beheerde-browserbeleid](../../apps/deploy-use/manage-internet-access-using-managed-browser-policies.md).|  
+|**Windows Installer via MDM (\*.msi)**|Dit installatieprogrammatype kunt u maken en implementeren van Windows Installer gebaseerde apps op pc's waarop Windows 10 wordt uitgevoerd.<br /><br /> De volgende punten zijn van toepassing wanneer u dit type installatieprogramma gebruikt:<br><br>-U kunt slechts één bestand met de extensie .msi uploaden.<br /><br /> -De productcode het bestand en de versie van het product worden gebruikt voor detectie van de app.<br /><br /> -Het standaardgedrag voor opnieuw opstarten van de app wordt gebruikt. Configuration Manager heeft hierop geen invloed.<br /><br /> -Per gebruiker MSI-pakketten worden geïnstalleerd voor één gebruiker.<br /><br /> -Per machine MSI-pakketten worden geïnstalleerd voor alle gebruikers op het apparaat.<br /><br /> -Dual-mode MSI-pakketten voeren momenteel alleen installaties voor alle gebruikers op het apparaat.<br /><br /> -App-updates worden ondersteund wanneer de MSI-productcode van elke versie dezelfde is.|  

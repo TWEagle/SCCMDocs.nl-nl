@@ -1,6 +1,6 @@
 ---
-title: Cluster SQL Server | Microsoft Docs
-description: "Utilisez un cluster SQL Server pour héberger la base de données du site System Center Configuration Manager. Inclut des informations sur les options prises en charge."
+title: SQL Server-cluster | Microsoft Docs
+description: Een SQL Server-cluster gebruiken om de System Center Configuration Manager-sitedatabase te hosten. Bevat informatie over ondersteunde opties.
 ms.custom: na
 ms.date: 2/28/2017
 ms.prod: configuration-manager
@@ -17,86 +17,86 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 53f119bbb1f8827a9c23c8b747840350bbb92790
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="use-a-sql-server-cluster-for-the-system-center-configuration-manager-site-database"></a>Utiliser un cluster SQL Server pour la base de données du site System Center Configuration Manager
+# <a name="use-a-sql-server-cluster-for-the-system-center-configuration-manager-site-database"></a>Een SQL Server-cluster gebruiken voor de sitedatabase voor System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
- Vous pouvez utiliser un cluster SQL Server pour héberger la base de données du site System Center Configuration Manager. La base de données du site est le seul rôle de système de site pris en charge sur un cluster de serveurs.  
+ U kunt een SQL Server-cluster gebruiken om de System Center Configuration Manager-sitedatabase te hosten. De sitedatabase is de enige sitesysteemrol die op een servercluster wordt ondersteund.  
 
 > [!IMPORTANT]  
->  La configuration réussie des clusters SQL Server s’appuie sur la documentation et les procédures fournies dans la bibliothèque de documentation de SQL Server.  
+>  Er is een geslaagde instellen van SQL Server-clusters afhankelijk van de documentatie en procedures die zijn opgegeven in de Documentatiebibliotheek van SQL Server.  
 
- Un cluster permet de prendre en charge le basculement et d’améliorer la fiabilité de la base de données de site. Toutefois, il n’offre pas d’autres avantages en matière de traitement ou d’équilibrage de la charge. En fait, une détérioration des performances peut survenir car le serveur de site doit trouver le nœud actif du cluster SQL Server avant de se connecter à la base de données de site.  
+ Een cluster met failover-ondersteuning te bieden en verbeteren van de betrouwbaarheid van de sitedatabase. Echter biedt deze geen verdere verwerking of voordelen laden. Zelfs optreden verslechtering van de prestatie, omdat de siteserver het actieve knooppunt van de SQL Server-cluster vinden moet voordat deze verbinding met de sitedatabase maakt.  
 
- Avant d’installer Configuration Manager, vous devez préparer le cluster SQL Server pour prendre en charge Configuration Manager. (Voir les prérequis plus loin dans cette section.)  
+ Voordat u Configuration Manager installeert, moet u de SQL Server-cluster ter ondersteuning van Configuration Manager voorbereiden. (Zie de vereisten verderop in deze sectie.)  
 
- Au cours de l’installation de Configuration Manager, l’enregistreur du service VSS (service de cliché instantané des volumes) est installé sur chaque nœud d’ordinateur physique du cluster Microsoft Windows Server. Cela permet de prendre en charge la tâche de maintenance **Serveur de site de sauvegarde**.  
+ Tijdens de installatie van Configuration Manager installeert de Volume Shadow Copy-Service Windows-schrijver op ieder fysiek computerknooppunt van de Microsoft Windows Server-cluster. Dit biedt ondersteuning voor de **back-upserver van Site** onderhoudstaak.  
 
- Après l’installation du site, Configuration Manager vérifie toutes les heures la présence de modifications apportées au nœud de cluster. Configuration Manager gère automatiquement toutes les modifications éventuellement détectées qui affectent les installations des composants Configuration Manager (comme un basculement de nœud ou l’ajout d’un nouveau nœud au cluster SQL Server).  
+ Nadat de site is geïnstalleerd, Configuration Manager controleert op wijzigingen in het clusterknooppunt elk uur. Configuration Manager beheert automatisch eventuele wijzigingen die zijn aangetroffen die invloed hebben op installaties van Configuration Manager-onderdeel (zoals een failover van een knooppunt of toevoeging van een nieuw knooppunt aan het SQL Server-cluster).  
 
-## <a name="supported-options-for-using-a-sql-server-failover-cluster"></a>Options prises en charge pour l’utilisation d’un cluster de basculement SQL Server
+## <a name="supported-options-for-using-a-sql-server-failover-cluster"></a>Ondersteunde opties voor het gebruik van een SQL Server-failovercluster
 
-Les options suivantes sont prises en charge pour les clusters de basculement SQL Server utilisés comme base de données de site :
+De volgende opties worden ondersteund voor SQL Server-failoverclusters gebruikt als de sitedatabase:
 
--   Cluster d’instance unique  
+-   Een cluster met één exemplaar  
 
--   Configuration d’instances multiples  
+-   Configuratie met meerdere exemplaren  
 
--   Nœuds actifs multiples  
+-   Meerdere actieve knooppunten  
 
--   Instance nommée ou par défaut  
+-   Een benoemde of een standaardexemplaar  
 
-Tenez compte des prérequis suivants :  
+Let op de volgende vereisten:  
 
--   La base de données du site doit être distante du serveur du site. (Le cluster ne peut pas inclure le serveur système du site.)  
+-   De sitedatabase mag niet op de siteserver staan. (De sitesysteemserver mag geen deel uitmaken van de cluster.)  
 
--   Vous devez ajouter le compte d’ordinateur du serveur de site au groupe Administrateurs local de chaque serveur dans le cluster.  
+-   U moet het computeraccount van de siteserver toevoegen aan de lokale groep Administrators van elke server in het cluster.  
 
--   Pour prendre en charge l’authentification Kerberos, le protocole de communication réseau **TCP/IP** doit être activé pour la connexion réseau de chaque nœud de cluster SQL Server. L’utilisation de**canaux nommés** n’est pas obligatoire, mais peut faciliter la résolution des problèmes d’authentification Kerberos. Les paramètres de protocole réseau sont configurés dans le **Gestionnaire de configuration SQL Server**, sous **Configuration du réseau SQL Server**.  
+-   Ter ondersteuning van Kerberos-verificatie, de **TCP/IP** -netwerkcommunicatieprotocol moet zijn ingeschakeld voor de netwerkverbinding van elk SQL Server-clusterknooppunt. **Named-pipes** is niet vereist, maar kan worden gebruikt om problemen met de Kerberos-verificatie op te lossen. De instellingen voor het netwerkprotocol worden geconfigureerd in **SQL Server Configuration Manager**onder **SQL Server-netwerkconfiguratie**.  
 
--   Si vous utilisez une infrastructure PKI, consultez Configuration requise des certificats PKI pour Configuration Manager, afin de connaître les conditions de certificat quand vous utilisez un cluster SQL Server pour la base de données de site.  
+-   Als u een PKI gebruikt, ziet u PKI-certificaatvereisten voor Configuration Manager voor de specifieke certificaatvereisten wanneer u een SQL Server-cluster voor de sitedatabase gebruikt.  
 
-Tenez compte des limitations suivantes :  
+Houd rekening met de volgende beperkingen:  
 
--   **Installation et configuration :**  
+-   **Installatie en configuratie:**  
 
-    -   Des sites secondaires ne peuvent pas utiliser un cluster SQL Server.  
+    -   Secundaire sites kunnen geen SQL Server-cluster gebruiken.  
 
-    -   Vous n’avez pas la possibilité de spécifier des emplacements de fichier autres que les emplacements par défaut pour la base de données du site quand vous utilisez un cluster SQL Server.  
+    -   Wanneer u een SQL Server-cluster opgeeft kunt u geen andere locatie dan de standaardbestandslocatie voor de sitedatabase opgeven.  
 
--   **Fournisseur SMS :**  
+-   **SMS-provider:**  
 
-    -   L’installation d’une instance du fournisseur SMS n’est pas prise en charge sur un cluster SQL Server ou sur un ordinateur utilisé comme nœud SQL Server en cluster.  
+    -   Een exemplaar van de SMS-Provider installeert op een SQL Server-cluster of op een computer die wordt uitgevoerd als een geclusterd SQL Server-knooppunt wordt niet ondersteund.  
 
--   **Options de réplication de données :**  
+-   **Opties voor gegevensreplicatie:**  
 
-    -   Si vous envisagez d’utiliser des **vues distribuées**, vous ne pouvez pas utiliser un cluster SQL Server pour héberger la base de données de site.  
+    -   Als u wilt gebruiken **gedistribueerde weergaven**, u een SQL Server-cluster niet gebruiken om de sitedatabase te hosten.  
 
--   **Sauvegarde et récupération :**  
+-   **Back-up en herstel:**  
 
-    -   Configuration Manager ne prend pas en charge la sauvegarde DPM (Data Protection Manager) d’un cluster SQL Server qui utilise une instance nommée. Par contre, il prend en charge la sauvegarde DPM sur un cluster SQL Server qui utilise l’instance par défaut de SQL Server.  
+    -   Configuration Manager biedt geen ondersteuning voor back-up van Data Protection Manager (DPM) voor een SQL servercluster dat een benoemd exemplaar gebruikt. Echter biedt, ondersteuning voor back-up van DPM op een SQL Server-cluster dat gebruik maakt van het standaardexemplaar van SQL Server.  
 
-## <a name="prepare-a-clustered-sql-server-instance-for-the-site-database"></a>Préparer une instance SQL Server en cluster pour la base de données de site  
+## <a name="prepare-a-clustered-sql-server-instance-for-the-site-database"></a>Een geclusterd SQL Server-exemplaar voorbereiden voor de sitedatabase  
 
-Voici les tâches principales à effectuer afin de préparer votre base de données de site :
+Hier volgen de belangrijkste taken voltooien om het voorbereiden van uw sitedatabase:
 
--   Créez le cluster virtuel SQL Server pour héberger la base de données du site dans un environnement de cluster Windows Server existant. Pour connaître la procédure d’installation et de configuration d’un cluster SQL Server, consultez la documentation spécifique à votre version de SQL Server. Par exemple, si vous utilisez SQL Server 2008 R2, consultez [Installation d’un cluster de basculement SQL Server 2008 R2](http://go.microsoft.com/fwlink/p/?LinkId=240231).  
+-   Maak de virtuele SQL Server-cluster om de sitedatabase te hosten in een bestaande Windows Server-clusteromgeving. Zie de documentatie die specifiek zijn voor uw versie van SQL Server voor specifieke stappen voor het installeren en instellen van een SQL Server-cluster. Bijvoorbeeld, als u SQL Server 2008 R2 gebruikt, Zie [installeren van een SQL Server 2008 R2-failovercluster](http://go.microsoft.com/fwlink/p/?LinkId=240231).  
 
--   Sur chaque ordinateur du cluster SQL Server, vous pouvez placer un fichier dans le dossier racine de chaque lecteur sur lequel vous ne voulez pas que Configuration Manager installe les composants du site. Ce fichier doit être nommé **NO_SMS_ON_DRIVE.SMS**. Par défaut, Configuration Manager installe certains composants sur chaque nœud physique pour prendre en charge des opérations telles que la sauvegarde.  
+-   U kunt een bestand plaatsen in de hoofdmap van ieder station waar u niet wilt dat Configuration Manager site-onderdelen installeren op elke computer in het SQL Server-cluster. De naam van het bestand moet **NO_SMS_ON_DRIVE.SMS**. Configuration Manager installeert standaard enkele onderdelen op elk fysiek knooppunt om bewerkingen zoals back-ups te ondersteunen.  
 
--   Ajoutez le compte ordinateur du serveur de site au groupe **Administrateurs locaux** de chaque ordinateur du nœud de cluster Windows Server.  
+-   Voeg het computeraccount van de siteserver toe aan de groep **Lokale beheerders** van iedere Windows Server-clusterknooppuntcomputer.  
 
--   Dans l’instance SQL Server virtuelle, attribuez le rôle SQL Server **administrateur système** au compte d’utilisateur qui exécutera le programme d’installation de Configuration Manager.  
+-   Wijs in het virtuele SQL Server-exemplaar de **sysadmin** SQL Server-rol aan de gebruikersaccount waarmee setup van Configuration Manager wordt uitgevoerd.  
 
-### <a name="to-install-a-new-site-using-a-clustered-sql-server"></a>Pour installer un nouveau site avec un serveur SQL Server en cluster  
- Pour installer un site qui utilise une base de données de site en cluster, exécutez le programme d’installation de Configuration Manager en suivant votre processus habituel pour installer un site, mais en apportant la modification suivante :  
+### <a name="to-install-a-new-site-using-a-clustered-sql-server"></a>Een nieuwe site installeren met een geclusterde SQL Server  
+ Voer uw normale proces voor het installeren van een site met de volgende afwijking na installatie van Configuration Manager voor het installeren van een site die gebruikmaakt van een geclusterde sitedatabase:  
 
--   Dans la page **Informations sur la base de données** , spécifiez le nom de l’instance de cluster SQL Server virtuelle qui doit héberger la base de données du site. L’instance virtuelle remplace le nom de l’ordinateur qui exécute SQL Server.  
+-   Geef op de pagina **Databasegegevens** de naam op van het virtuele SQL Server-clusterexemplaar waarop de sitedatabase wordt gehost. De naam van de computer waarop SQL Server wordt uitgevoerd, wordt vervangen door het virtuele exemplaar.  
 
     > [!IMPORTANT]  
-    >  Lorsque vous entrez le nom de l’instance de cluster SQL Server virtuelle, n’entrez pas le nom du serveur Windows Server virtuel créé par le cluster Windows Server. Si vous utilisez le nom du serveur Windows Server virtuel, la base de données de site est installée sur le disque dur local du nœud de cluster Windows Server actif. Cela empêche le basculement en cas d’échec de ce nœud.  
+    >  Wanneer u de naam van het virtuele SQL Server-clusterexemplaar invoert, voer dan niet de naam in van het virtuele Windows Server-exemplaar dat is gemaakt door de Windows Server-cluster. Als u de naam van de virtuele Windows-Server gebruikt, wordt de sitedatabase geïnstalleerd op de lokale vaste schijf van de actieve Windows Server-clusterknooppunt. Dit heeft tot gevolg dat er geen juiste failover plaatsvindt, als dit knooppunt uitvalt.  

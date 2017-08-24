@@ -1,6 +1,6 @@
 ---
-title: Aide du client Endpoint Protection | Microsoft Docs
-description: "Découvrez les fonctionnalités et améliorations dans Endpoint Protection qui vous aident à protéger votre ordinateur contre les menaces."
+title: Endpoint Protection Client Help | Microsoft Docs
+description: Meer informatie over de functies en verbeteringen in Endpoint Protection die beter te beschermen van uw computer tegen bedreigingen.
 ms.custom: na
 ms.date: 02/14/2017
 ms.prod: configuration-manager
@@ -16,45 +16,45 @@ ms.author: nathbarn
 manager: angrobe
 ms.openlocfilehash: 212c73fcb947c3b56da6055bf47fe078301ad90d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="endpoint-protection-client-help"></a>Aide Endpoint Protection Client
+# <a name="endpoint-protection-client-help"></a>Endpoint Protection Client Help
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
-Cette version de Windows Defender ou d’Endpoint Protection inclut les fonctionnalités suivantes pour mieux protéger votre ordinateur contre les menaces :  
+Deze versie van Windows Defender of Endpoint Protection bevat de volgende functies om uw computer te beschermen tegen bedreigingen:  
 
--   **Intégration du Pare-feu Windows** Le programme d’installation de Endpoint Protection vous permet d’activer ou de désactiver le Pare-feu Windows.  
--   **Système d'inspection réseau.** Cette fonctionnalité améliore la protection en temps réel en inspectant le trafic réseau pour mieux bloquer de façon proactive les attaques visant les failles de sécurité connues du réseau.  
--   **Moteur de protection.** La protection en temps réel détecte les logiciels malveillants et les empêche de s’installer ou de s’exécuter sur votre PC. Le moteur mis à jour offre des fonctions de nettoyage et de détection améliorées avec de meilleures performances.  
+-   **Windows Firewall-integratie.** Tijdens de setup van Endpoint Protection kunt u Windows Firewall in- of uitschakelen.  
+-   **Netwerkinspectiesysteem.** Deze functie verhoogt de real-timebeveiliging door netwerkverkeer te inspecteren om proactief te voorkomen dat misbruik wordt gemaakt van bekende beveiligingslekken in het netwerk.  
+-   **Protection-engine.** Real-timebeveiliging zoekt en stopt schadelijke software geïnstalleerd of uitgevoerd op uw PC. De bijgewerkte engine biedt verbeterde detectie en opschoningsmogelijkheden met betere prestaties.  
 
-Windows Defender est fourni comme composant du système d’exploitation Windows 10.  Dans les versions antérieures de Windows, votre administrateur peut fournir Windows Defender ou Endpoint Protection à l’aide du logiciel de gestion.
+Windows Defender wordt geleverd als onderdeel van het besturingssysteem Windows 10.  In eerdere versies van Windows kan de beheerder Windows Defender of Endpoint Protection met behulp van beheersoftware bieden.
 
-Vous y trouverez également une liste de [questions fréquentes sur Windows Defender et Endpoint Protection](endpoint-protection-client-faq.md). Pour obtenir de l’aide sur la résolution des problèmes, consultez [Résolution des problèmes du client Windows Defender ou Endpoint Protection](troubleshoot-endpoint-client.md). Pour obtenir une liste des nouvelles fonctionnalités, consultez [Nouveautés de Windows Defender](https://support.microsoft.com/help/29276/windows-10-whats-new-in-windows-defender).
+U kunt ook een lijst met vinden [Veelgestelde vragen over Windows Defender- en Endpoint Protection](endpoint-protection-client-faq.md). Raadpleeg voor meer help [probleemoplossing Windows Defender of Endpoint Protection-client](troubleshoot-endpoint-client.md). Zie voor een lijst met nieuwe functies, [wat is er nieuwe Windows Defender-client](https://support.microsoft.com/help/29276/windows-10-whats-new-in-windows-defender).
 
-## <a name="windows-firewall-integration"></a>Intégration du Pare-feu Windows  
- Le Pare-feu Windows peut permettre d'empêcher les personnes ou logiciels malveillants d'accéder à votre ordinateur via Internet ou un réseau. Quand vous installez Endpoint Protection, l’Assistant Installation vérifie que le Pare-feu Windows est activé. Si vous avez volontairement désactivé le Pare-feu Windows, vous pouvez éviter de l'activer en désactivant une case à cocher. Vous pouvez modifier les paramètres du Pare-feu Windows à tout moment via les paramètres Système et sécurité dans le Panneau de configuration.  
+## <a name="windows-firewall-integration"></a>Windows Firewall-integratie  
+ Windows Firewall voorkomt dat aanvallers of schadelijke software toegang krijgen tot uw computer via internet of een netwerk. Wanneer u nu Endpoint Protection installeert, controleert de installatiewizard of Windows Firewall is ingeschakeld. Als u Windows Firewall met opzet hebt uitgeschakeld, kunt u voorkomen dat deze wordt ingeschakeld door een selectievakje te wissen. U kunt de Windows Firewall-instellingen op elk gewenst moment wijzigen via Systeem en beveiligingsinstellingen in het Configuratiescherm.  
 
-## <a name="network-inspection-system"></a>Système d'inspection réseau  
- Les personnes malveillantes mènent de plus en plus d'attaques par le réseau contre des failles de sécurité exposées avant que les éditeurs de logiciels ne puissent développer et distribuer des mises à jour de sécurité. Les études des failles de sécurité montrent que le délai peut être d'un mois ou plus entre le moment où une attaque est signalée et celui où une mise à jour de sécurité appropriée est développée, testée et publiée. Ce manque de protection laisse de nombreux ordinateurs vulnérables aux attaques pendant une longue période. Le système d'inspection réseau fonctionne avec la protection en temps réel pour mieux vous protéger contre les attaques par le réseau en réduisant grandement le délai entre les divulgations des vulnérabilités et le déploiement des mises à jour, de quelques semaines à quelques heures.  
+## <a name="network-inspection-system"></a>Netwerkinspectiesysteem  
+ Aanvallers voeren steeds vaker aanvallen via het netwerk uit op basis van blootgestelde beveiligingslekken voordat softwareleveranciers beveiligingsupdates kunnen ontwikkelen en distribueren. Onderzoek naar beveiligingslekken toont aan dat het een maand of langer kan duren vanaf de eerste melding van een aanval voordat een geschikte beveiligingsupdate is ontwikkeld, getest en vrijgegeven. Door dit gat in de beveiliging zijn veel computers gedurende lange tijd kwetsbaar voor aanvallen en misbruik. Netwerkinspectiesysteem werkt met real-timebeveiliging om u beter te beschermen tegen aanvallen vanuit het netwerk door de tijd tussen de detectie van een beveiligingslek en de implementatie van een update fors te verkorten van weken tot enkele uren.  
 
-## <a name="award-winning-protection-engine"></a>Moteur de protection primé  
- Windows Defender ou Endpoint Protection comprend un moteur de protection reconnu, qui est mis à jour régulièrement. Le moteur est soutenu par une équipe de chercheurs de logiciels anti-programme malveillant du Centre de protection Microsoft contre les programmes malveillants, qui fournit des réponses aux menaces les plus récentes des programmes malveillants 24 heures sur 24.  
+## <a name="award-winning-protection-engine"></a>Bekroonde beschermingsengine  
+ Achter de schermen van Windows Defender of Endpoint Protection is de bekroonde beschermingsengine die regelmatig wordt bijgewerkt. De engine wordt ondersteund door een team van onderzoekers naar schadelijke software van het Microsoft Malware Protection Center, dat 24 uur per dag reageert op de nieuwste bedreigingen van schadelijke software.  
 
-## <a name="windows-defender-settings"></a>Paramètres de Windows Defender
-Les paramètres de Windows Defender activent des paramètres qui permettent de protéger votre PC contre les logiciels malveillants. Votre administrateur peut gérer certains paramètres de Windows Defender à votre place. Vous pouvez en gérer d’autres en utilisant les paramètres de Windows Defender. Nous vous recommandons d’activer les paramètres de Windows Defender afin de protéger votre PC et vos données.
+## <a name="windows-defender-settings"></a>Windows Defender-instellingen
+Windows Defender-instellingen inschakelen-instellingen waarmee u uw computer beschermen tegen schadelijke software. Sommige Windows Defender-instellingen voor u kan worden beheerd door uw beheerder. U kunt andere met behulp van de Windows Defender-instellingen beheren. Het beste inschakelen van Windows Defender-instellingen om uw PC en gegevens te beveiligen.
 
-Pour afficher les paramètres de Windows Defender, recherchez `Windows Defender` sur votre PC. Ouvrez **Windows Defender** et sélectionnez **Paramètres**. Les paramètres de Windows Defender incluent :
-- **Protection en temps réel** : détecte les logiciels malveillants et les empêche de s’installer ou de s’exécuter sur votre PC.
-- **Protection dans le cloud** : Windows Defender envoie des informations à Microsoft sur les menaces de sécurité potentielles.
-- **Envoi automatique d’un échantillon** : autorisez Windows Defender à envoyer des échantillons de fichiers suspects à Microsoft pour améliorer la détection de programmes malveillants.
-- **Exclusions** : vous pouvez exclure des fichiers, dossiers, extensions de fichiers ou processus spécifiques de l’analyse de Windows Defender.
-- **Notifications améliorées** : active des notifications qui vous informent sur l’intégrité de votre PC. Même si le paramètre est **désactivé**, vous recevez les notifications critiques.
-- **Windows Defender hors ligne** : vous pouvez exécuter Windows Defender hors ligne pour mieux détecter et supprimer les logiciels malveillants. Cette analyse va redémarrer votre PC et prendra environ 15 minutes.
+Als u wilt weergeven van Windows Defender-instellingen, zoekt u `Windows Defender` op uw PC. Open **Windows Defender** en selecteer **instellingen**. Windows Defender-instellingen zijn:
+- **Real-timebeveiliging** : zoeken en stoppen van schadelijke software geïnstalleerd of uitgevoerd op uw PC.
+- **Cloud-gebaseerde beveiliging** -stuurt Windows Defender gegevens naar Microsoft over potentiële beveiligingsrisico's.
+- **Automatische verzending van voorbeelden** -toestaan dat Windows Defender voorbeelden van verdachte bestanden verzenden naar Microsoft te verbeteren van de detectie van malware.
+- **Uitsluitingen** -kunt u genoopt specifieke bestanden, mappen, bestandsextensies of processen van Windows Defender gescand.
+- **Verbeterde melding** -Hiermee schakelt u meldingen die over de status van uw PC informeren. Zelfs **uit** u kritieke meldingen ontvangt.
+- **Windows Defender Offline** -u kunt Windows Defender Offline om te zoeken en verwijderen van schadelijke software uitvoeren. Deze scan start opnieuw op uw PC en duurt ongeveer 15 minuten.
 
-### <a name="see-also"></a>Voir aussi  
- [Forum aux questions sur le client Endpoint Protection](endpoint-protection-client-faq.md)   
- [Résolution des problèmes du client Windows Defender ou Endpoint Protection](troubleshoot-endpoint-client.md)
+### <a name="see-also"></a>Zie tevens  
+ [Veelgestelde vragen over de Endpoint Protection-client](endpoint-protection-client-faq.md)   
+ [Problemen met Windows Defender of Endpoint Protection-client oplossen](troubleshoot-endpoint-client.md)

@@ -1,6 +1,6 @@
 ---
-title: "Opérations et maintenance pour les rapports | Microsoft Docs"
-description: "Découvrez les détails de la gestion des rapports et des abonnements aux rapports dans System Center Configuration Manager."
+title: Bewerkingen en onderhoud voor rapportage | Microsoft Docs
+description: Lees meer over het beheren van rapporten en rapportabonnementen in System Center Configuration Manager.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,347 +16,347 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: df572cd0c64c82e25164430a53e1b893b3ba3cf5
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="operations-and-maintenance-for-reporting-in-system-center-configuration-manager"></a>Opérations et maintenance pour les rapports dans System Center Configuration Manager
+# <a name="operations-and-maintenance-for-reporting-in-system-center-configuration-manager"></a>Bewerkingen en onderhoud voor rapportage in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Une fois l’infrastructure en place pour la création de rapports dans System Center Configuration Manager, il existe un certain nombre d’opérations que vous pouvez généralement effectuer pour gérer les rapports et les abonnements aux rapports.  
+Nadat de infrastructuur aanwezig is voor rapportage in System Center Configuration Manager is, zijn er een aantal bewerkingen die u normaal gesproken uitvoert om rapporten en rapportabonnementen te beheren.  
 
-##  <a name="BKMK_ManageReports"></a> Gérer les rapports Configuration Manager  
- Configuration Manager offre plus de 400 rapports prédéfinis qui vous aident à recueillir, organiser et présenter des informations relatives aux utilisateurs, à l’inventaire logiciel et matériel, aux mises à jour logicielles, aux applications, à l’état du site et à d’autres opérations de Configuration Manager dans votre organisation. Vous pouvez utiliser les rapports prédéfinis comme ils sont, ou vous pouvez modifier un rapport pour qu'il réponde à vos besoins. Vous pouvez également créer des rapports personnalisés basés sur des modèles ou sur SQL qui répondent à vos besoins. Utilisez les sections suivantes pour mieux gérer les rapports Configuration Manager.  
+##  <a name="BKMK_ManageReports"></a>Configuration Manager-rapporten beheren  
+ Configuration Manager biedt meer dan 400 vooraf gedefinieerde rapporten waarmee u verzamelt, organiseert en presenteert informatie over gebruikers, hardware en software-inventaris, software-updates, toepassingen, sitestatus en andere Configuration Manager-bewerkingen in uw organisatie. U kunt de vooraf gedefinieerde rapporten gebruiken zoals ze zijn, of kunt u een rapport te voldoen aan uw vereisten. U kunt ook aangepaste model maken\-gebaseerd en SQL\-op basis van rapporten om te voldoen aan uw vereisten. Gebruik de volgende secties om u te helpen bij het beheren van Configuration Manager-rapporten.  
 
-###  <a name="BKMK_RunReport"></a> Exécuter un rapport Configuration Manager  
- Rapports dans le Gestionnaire de Configuration sont stockés dans SQL Server Reporting Services et les données affichées dans le rapport sont récupérées à partir de la base de données de site Configuration Manager. Vous pouvez accéder aux rapports dans la console Configuration Manager ou à l'aide du Gestionnaire de rapports dans un navigateur web. Les rapports peuvent être ouverts depuis n'importe quel ordinateur disposant d'un accès à l'ordinateur exécutant SQL Server Reporting Services, si vous possédez les droits vous permettant de consulter les rapports. Lorsque vous exécutez un rapport, le titre du rapport, la description et la catégorie sont affichés dans la langue du système d'exploitation local.  
+###  <a name="BKMK_RunReport"></a>Een Configuration Manager-rapport uitvoeren  
+ Rapporten in Configuration Manager worden opgeslagen in SQL Server Reporting Services en de gegevens in het rapport is opgehaald uit de Configuration Manager-sitedatabase. U kunt toegang tot rapporten in de Configuration Manager-console of met Rapportbeheer, die u in een webbrowser openen. U kunt rapporten openen op elke computer die toegang heeft tot de computer waarop SQL Server Reporting Services en hebt u onvoldoende rechten om de rapporten weer te geven. Wanneer u een rapport uitvoert, worden de titel, beschrijving en categorie weergegeven in de taal van het lokale besturingssysteem.  
 
 > [!NOTE]  
->  Dans certaines langues autres que l’anglais, les caractères peuvent ne pas apparaître correctement dans les rapports.  Dans ce cas, les rapports peuvent être affichés à l’aide du Gestionnaire de rapports basé sur le web ou par le biais de la console Administration à distance.  
+>  In sommige niet\-talen voor Engels tekens mogelijk niet correct weergegeven in rapporten.  In dit geval rapporten kunnen worden weergegeven via het web\-op basis van Rapportbeheer of via de externe beheerconsole.  
 
 > [!WARNING]  
->  Pour exécuter des rapports, vous devez disposez des droits de **Lecture** pour l'autorisation **Site** et l'autorisation **Exécuter le rapport** configurée pour des objets spécifiques.  
+>  Voor het uitvoeren van rapporten, moet u hebben **lezen** rechten voor de **Site** machtigingen en de **rapport uitvoeren** machtiging die is geconfigureerd voor specifieke objecten.  
 
 > [!IMPORTANT]    
-> Il doit y avoir une relation d’approbation bidirectionnelle pour les utilisateurs d’un domaine différent de celui du compte du Point de Reporting Servicies pour pouvoir exécuter des rapports.
+> Er moet een wederzijdse vertrouwensrelatie tot stand gebracht voor gebruikers van een ander domein dan die van het Account Servicies punt Reporting is het uitvoeren van rapporten.
 
 > [!NOTE]  
->  Le Gestionnaire de rapports est un outil de gestion et d’accès aux rapports basé sur le web que vous utilisez pour administrer une instance de serveur de rapports unique sur un emplacement distant via une connexion HTTP. Vous pouvez utiliser le Gestionnaire de rapports pour les tâches opérationnelles, par exemple, pour afficher des rapports, modifier les propriétés des rapports et gérer les abonnements aux rapports associés. Cette rubrique indique les étapes permettant d'afficher un rapport et de modifier ses propriétés dans le Gestionnaire de rapports. Pour plus d'informations sur les autres options du Gestionnaire de rapports, voir [Gestionnaire de rapports](http://go.microsoft.com/fwlink/p/?LinkId=224916) dans la documentation en ligne de SQL Server 2008.  
+>  Rapportbeheer is een web-\-op basis van toegang en beheer rapportage die u gebruikt voor het beheren van een enkel rapportserverexemplaar op een externe locatie via een HTTP-verbinding. U kunt Report Manager voor operationele taken, bijvoorbeeld weergeven van rapporten, rapporteigenschappen te wijzigen en gekoppelde rapportabonnementen te beheren. Dit onderwerp vindt u de stappen voor het weergeven van een rapport en rapporteigenschappen in Rapportbeheer, maar voor meer informatie inzake andere opties van Rapportbeheer, Zie [Report Manager](http://go.microsoft.com/fwlink/p/?LinkId=224916) in SQL Server 2008 Books Online.  
 
- Utilisez les procédures suivantes pour exécuter un rapport de Configuration Manager.  
+ Gebruik de volgende procedures een Configuration Manager-rapport uitvoeren.  
 
-##### <a name="to-run-a-report-in-the-configuration-manager-console"></a>Pour exécuter un rapport dans la console Configuration Manager  
+##### <a name="to-run-a-report-in-the-configuration-manager-console"></a>Een rapport in de Configuration Manager-console uitvoeren  
 
-1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
+1.  Klik in de Configuration Manager-console op **bewaking**.  
 
-2.  Dans l'espace de travail **Surveillance** , développez **Rapports**, puis cliquez sur **Rapports** pour consulter la liste des rapports disponibles.  
+2.  In de **bewaking** werkruimte Vouw **rapportage**, en klik vervolgens op **rapporten** voor een lijst met de beschikbare rapporten.  
 
     > [!IMPORTANT]  
-    >  Dans cette version de Configuration Manager, les rapports **Tout le contenu** affichent uniquement les packages, pas les applications.  
+    >  In deze versie van Configuration Manager de **alle inhoud** rapporten enkel pakketten weer, geen toepassingen.  
 
     > [!TIP]  
-    >  Si aucun rapport n'est répertorié, vérifiez que le point de Reporting Services est installé et configuré. Pour plus d’informations, consultez [Configuration des rapports](configuring-reporting.md).  
+    >  Als er geen rapporten worden weergegeven, controleert u of dat het rapportageservicepunt is geïnstalleerd en geconfigureerd. Zie voor meer informatie [Configuring reporting](configuring-reporting.md).  
 
-3.  Sélectionnez le rapport à exécuter, puis dans l'onglet **Accueil** , dans la section **Groupe de rapports** , cliquez sur **Exécuter** pour ouvrir le rapport.  
+3.  Selecteer het rapport dat u uitvoeren wilt, en klik vervolgens op de **Start** tabblad, in de **rapportgroep** sectie, klikt u op **uitvoeren** om het rapport te openen.  
 
-4.  Lorsque des paramètres sont requis, spécifiez-les, puis cliquez sur **Afficher le rapport**.  
+4.  Wanneer er vereiste parameters, de parameters opgeven en klik vervolgens op **rapport weergeven**.  
 
-#### <a name="to-run-a-report-in-a-web-browser"></a>Pour exécuter un rapport depuis un navigateur Web  
+#### <a name="to-run-a-report-in-a-web-browser"></a>Een rapport uitvoeren in een webbrowser  
 
-1.  Dans votre navigateur web, entrez l’URL du Gestionnaire de rapports, par exemple **http:\/\/Server1\/Reports**. Vous pouvez déterminer l'URL du Gestionnaire de rapports sur le **URL du Gestionnaire de rapports** page dans le Gestionnaire de Configuration de Reporting Services.  
+1.  In uw webbrowser de Report Manager-URL invoeren, bijvoorbeeld **http:\/\/Server1\/rapporten**. U kunt de Report Manager-URL bepalen op de **URL van Report Manager** pagina in Reporting Services Configuration Manager.  
 
-2.  Dans le Gestionnaire de rapports, cliquez sur le dossier de rapports pour Configuration Manager, par exemple, **ConfigMgr\_CAS**.  
-
-    > [!TIP]  
-    >  Si aucun rapport n'est répertorié, vérifiez que le point de Reporting Services est installé et configuré. Pour plus d’informations, consultez [Configuration des rapports](configuring-reporting.md).  
-
-3.  Cliquez sur la catégorie de rapport du rapport que vous souhaitez exécuter, puis cliquez sur le lien du rapport. Le rapport s'ouvre dans le Gestionnaire de rapports.  
-
-4.  Lorsque des paramètres sont requis, spécifiez-les, puis cliquez sur **Afficher le rapport**.  
-
-###  <a name="BKMK_ModifyReportProperties"></a> Modifier les propriétés d’un rapport Configuration Manager  
- Dans la console Configuration Manager, vous pouvez afficher les propriétés d’un rapport, telles que son nom et sa description. Si vous souhaitez modifier ces propriétés, utilisez le Gestionnaire de rapports. Utilisez la procédure suivante pour modifier les propriétés d’un rapport Configuration Manager.  
-
-#### <a name="to-modify-report-properties-in-report-manager"></a>Pour modifier les propriétés de rapports dans le Gestionnaire de rapports  
-
-1.  Dans votre navigateur web, entrez l’URL du Gestionnaire de rapports, par exemple **http:\/\/Server1\/Reports**. Vous pouvez déterminer l'URL du Gestionnaire de rapports sur le **URL du Gestionnaire de rapports** page dans le Gestionnaire de Configuration de Reporting Services.  
-
-2.  Dans le Gestionnaire de rapports, cliquez sur le dossier de rapports pour Configuration Manager, par exemple, **ConfigMgr\_CAS**.  
+2.  In Rapportbeheer, klikt u op de rapportmap Configuration Manager, bijvoorbeeld **ConfigMgr\_CAS**.  
 
     > [!TIP]  
-    >  Si aucun rapport n'est répertorié, vérifiez que le point de Reporting Services est installé et configuré. Pour plus d’informations, consultez [Configuration des rapports](configuring-reporting.md).  
+    >  Als er geen rapporten worden weergegeven, controleert u of dat het rapportageservicepunt is geïnstalleerd en geconfigureerd. Zie voor meer informatie [Configuring reporting](configuring-reporting.md).  
 
-3.  Cliquez sur la catégorie du rapport dont vous souhaitez modifier les propriétés, puis cliquez sur son lien. Le rapport s'ouvre dans le Gestionnaire de rapports.  
+3.  Klik op de rapportcategorie voor het rapport dat u wilt uitvoeren en klik op de koppeling voor het rapport. Het rapport wordt geopend in Rapportbeheer.  
 
-4.  Cliquez sur l'onglet **Propriétés** . Vous pouvez modifier le nom et la description du rapport.  
+4.  Wanneer er vereiste parameters, de parameters opgeven en klik vervolgens op **rapport weergeven**.  
 
-5.  Lorsque vous avez terminé, cliquez sur **Appliquer**. Les propriétés du rapport sont enregistrées sur le serveur de rapports et la console Configuration Manager récupère les propriétés de rapport mises à jour pour le rapport.  
+###  <a name="BKMK_ModifyReportProperties"></a>De eigenschappen voor een Configuration Manager-rapport wijzigen  
+ U kunt de eigenschappen voor een rapport, zoals de rapportnaam en -beschrijving, maar gebruik Rapportbeheer om de eigenschappen te wijzigen in de Configuration Manager-console. Gebruik de volgende procedure om de eigenschappen voor een Configuration Manager-rapport te wijzigen.  
 
-###  <a name="BKMK_EditReport"></a> Modifier un rapport Configuration Manager  
- Lorsqu’un rapport Configuration Manager existant ne récupère pas les informations dont vous devez disposer ou qu’il ne donne pas la mise en page ou l’aspect que vous souhaitez, vous pouvez le modifier dans le Générateur de rapports.  
+#### <a name="to-modify-report-properties-in-report-manager"></a>Rapporteigenschappen in Rapportbeheer wijzigen  
+
+1.  In uw webbrowser de Report Manager-URL invoeren, bijvoorbeeld **http:\/\/Server1\/rapporten**. U kunt de Report Manager-URL bepalen op de **URL van Report Manager** pagina in Reporting Services Configuration Manager.  
+
+2.  In Rapportbeheer, klikt u op de rapportmap Configuration Manager, bijvoorbeeld **ConfigMgr\_CAS**.  
+
+    > [!TIP]  
+    >  Als er geen rapporten worden weergegeven, controleert u of dat het Reporting Services-punt is geïnstalleerd en geconfigureerd. Zie voor meer informatie [rapportage configureren](configuring-reporting.md)  
+
+3.  Klik op de rapportcategorie voor het rapport waarvoor u wilt de eigenschappen wijzigen en klik op de koppeling voor het rapport. Het rapport wordt geopend in Rapportbeheer.  
+
+4.  Klik op de **eigenschappen** tabblad. U kunt de naam en beschrijving wijzigen.  
+
+5.  Wanneer u klaar bent, klikt u op **toepassen**. De rapporteigenschappen zijn bewaard op de rapportserver en de Configuration Manager-console haalt de bijgewerkte rapporteigenschappen voor het rapport.  
+
+###  <a name="BKMK_EditReport"></a>Een Configuration Manager-rapport bewerken  
+ Wanneer een bestaand Configuration Manager-rapport de informatie die u nodig hebt niet ophaalt of niet zorgt voor de indeling of ontwerp dat u wilt, kunt u het rapport in Report Builder bewerken.  
 
 > [!NOTE]  
->  Vous pouvez aussi choisir de cloner un rapport existant en l'ouvrant pour le modifier et en cliquant sur **Enregistrer sous** pour l'enregistrer en tant que nouveau rapport.  
+>  U kunt ook een bestaand rapport te klonen Hiertoe opent u het voor het bewerken en te klikken op **OpslaanAls** opslaan als een nieuw rapport.  
 
 > [!IMPORTANT]  
->  Le compte d'utilisateur doit disposer des autorisations **Site - Modifier** et **Modifier le rapport** sur les objets spécifiques associés au rapport que vous souhaitez modifier.  
+>  Het gebruikersaccount moet beschikken over **Site wijzigen** machtiging en **rapport wijzigen** machtigingen voor de specifieke objecten gekoppeld aan het rapport dat u wilt wijzigen.  
 
 > [!IMPORTANT]  
->  Lorsque Configuration Manager est mis à niveau vers une version plus récente, les nouveaux rapports remplacent les rapports prédéfinis. Si vous modifiez un rapport prédéfini, vous devez sauvegarder le rapport avant d'installer la nouvelle version, puis restaurer le rapport dans Reporting Services. Si vous apportez des modifications importantes à un rapport prédéfini, envisagez plutôt de créer un nouveau rapport. Les nouveaux rapports que vous créez avant la mise à niveau d'un site ne sont pas remplacés.  
+>  Wanneer Configuration Manager wordt bijgewerkt naar een nieuwere versie, worden de vooraf gedefinieerde rapporten overschreven door nieuwe rapporten. Als u een vooraf gedefinieerd rapport wijzigt, moet u voordat u de nieuwe versie installeert en vervolgens het rapport in Reporting Services herstellen maken van het rapport. Als u belangrijke wijzigingen aan een vooraf gedefinieerd rapport doorvoert, kunt u in plaats daarvan een nieuw rapport maakt. Nieuwe rapporten die u voordat u de upgrade een site maakt worden niet overschreven.  
 
- Utilisez la procédure suivante pour modifier les propriétés d’un rapport Configuration Manager.  
+ Gebruik de volgende procedure om de eigenschappen voor een Configuration Manager-rapport te bewerken.  
 
-#### <a name="to-edit-report-properties"></a>Pour modifier les propriétés d'un rapport  
+#### <a name="to-edit-report-properties"></a>Rapporteigenschappen bewerken  
 
-1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
+1.  Klik in de Configuration Manager-console op **bewaking**.  
 
-2.  Dans l'espace de travail **Surveillance** , développez **Rapports**, puis cliquez sur **Rapports** pour consulter la liste des rapports disponibles.  
+2.  In de **bewaking** werkruimte Vouw **rapportage**, en klik vervolgens op **rapporten** voor een lijst met de beschikbare rapporten.  
 
-3.  Sélectionnez le rapport à modifier, puis dans l'onglet **Accueil** , dans la section **Groupe de rapports** , cliquez sur **Modifier**. Entrez votre compte d'utilisateur et votre mot de passe si vous y êtes invité, puis cliquez sur **OK**. Si le Générateur de rapports n'est pas installé sur l'ordinateur, vous êtes invité à l'installer. Cliquez sur **Exécuter** pour installer le Générateur de rapports, qui est requis pour modifier et créer des rapports.  
+3.  Selecteer het rapport dat u wijzigen wilt, en klik vervolgens op de **Start** tabblad, in de **rapportgroep** sectie, klikt u op **bewerken**. Voer uw gebruikersaccount en wachtwoord in als u wordt gevraagd en klik vervolgens op **OK**. Als Report Builder is niet geïnstalleerd op de computer, wordt u gevraagd om deze te installeren. Klik op **uitvoeren** voor het installeren van Report Builder is vereist om te wijzigen en rapporten maken.  
 
-4.  Dans le Générateur de rapports, modifiez les paramètres de rapport appropriés, puis cliquez sur **Enregistrer** pour enregistrer le rapport sur le serveur de rapports.  
+4.  In Report Builder de geschikte rapportinstellingen wijzigen en klik vervolgens op **opslaan** het rapport wilt opslaan op de rapportserver.  
 
-###  <a name="BKMK_CreateModelBasedReport"></a> Créer un rapport basé sur un modèle  
- Un rapport basé sur un modèle vous permet de sélectionner les éléments que vous souhaitez inclure dans votre rapport de manière interactive. Pour plus d’informations sur la création de modèles de rapport personnalisés, consultez [Création de modèles de rapport personnalisés pour System Center Configuration Manager dans SQL Server Reporting Services](creating-custom-report-models-in-sql-server-reporting-services.md).  
-
-> [!IMPORTANT]  
->  Pour pouvoir créer un rapport, le compte d'utilisateur doit disposer d'une autorisation **Site - Modifier** . L'utilisateur peut créer un rapport uniquement dans les dossiers pour lesquels il dispose d'autorisations **Modifier le rapport** .  
-
- Pour créer un rapport Configuration Manager basé sur un modèle, procédez comme suit.  
-
-#### <a name="to-create-a-model-based-report"></a>Pour créer un rapport basé sur un modèle  
-
-1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
-
-2.  Dans l'espace de travail **Surveillance** , développez **Rapports** et cliquez sur **Rapports**.  
-
-3.  Dans l'onglet **Accueil** , dans la section **Créer** , cliquez sur **Créer un rapport** pour ouvrir l' **Assistant Création de rapport**.  
-
-4.  Sur la page **Informations** , configurez les paramètres suivants :  
-
-    -   **Type** : Sélectionnez **Rapport basé sur un modèle** pour créer un rapport dans le Générateur de rapports en utilisant un modèle de Reporting Services.  
-
-    -   **Nom**: Spécifiez le nom du rapport.  
-
-    -   **Description**: Spécifiez la description du rapport.  
-
-    -   **Serveur**: Permet d'afficher le nom du serveur sur lequel le rapport est créé.  
-
-    -   **Chemin**: Cliquez sur **Parcourir** pour spécifier un dossier dans lequel vous souhaitez stocker le rapport.  
-
-     Cliquez sur **Suivant**.  
-
-5.  Sur la page **Sélection de modèle** , sélectionnez un modèle disponible dans la liste que vous utilisez pour créer ce rapport. Lorsque vous sélectionnez le modèle de rapport, la section **Aperçu** affiche les vues et les entités de SQL Server qui sont rendues disponibles par le modèle de rapport sélectionné.  
-
-6.  Dans la page **Résumé** , vérifiez les paramètres. Cliquez sur **Précédent** pour modifier les paramètres ou cliquez sur **Suivant** pour créer le rapport dans Configuration Manager.  
-
-7.  Sur la page **Confirmation** , cliquez sur **Fermer** pour quitter l'Assistant, puis ouvrez le Générateur de rapports pour configurer les paramètres du rapport. Entrez votre compte d'utilisateur et votre mot de passe si vous y êtes invité, puis cliquez sur **OK**. Si le Générateur de rapports n'est pas installé sur l'ordinateur, vous êtes invité à l'installer. Cliquez sur **Exécuter** pour installer le Générateur de rapports, qui est requis pour modifier et créer des rapports.  
-
-8.  Dans le Générateur de rapports Microsoft, effectuez la mise en page du rapport, sélectionnez des données dans les vues SQL Server disponibles, ajoutez des paramètres au rapport et ainsi de suite. Pour plus d'informations sur l'utilisation du Générateur de rapports pour créer un nouveau rapport, consultez l'aide du Générateur de rapports.  
-
-9. Cliquez sur **Exécuter** pour exécuter le rapport. Vérifiez que le rapport fournit les informations désirées. Cliquez sur **Création** pour revenir au mode Création pour modifier le rapport, si nécessaire.  
-
-10. Cliquez sur **Enregistrer** pour enregistrer le rapport sur le serveur de rapports. Vous pouvez exécuter et modifier le nouveau rapport dans le nœud **Rapports** de l'espace de travail **Surveillance** .  
-
-###  <a name="BKMK_CreateSQLBasedReport"></a> Créer un rapport basé sur SQL  
- Un rapport basé sur SQL vous permet de récupérer des données basées sur une instruction SQL de rapport.  
+###  <a name="BKMK_CreateModelBasedReport"></a>Een model maken\-gebaseerde rapport  
+ Een model\-op basis van rapport kunt u interactief de items die u wilt opnemen in uw rapport selecteren. Zie voor meer informatie over het maken van aangepaste rapportmodellen [maken van aangepaste rapportmodellen voor System Center Configuration Manager in SQL Server Reporting Services](creating-custom-report-models-in-sql-server-reporting-services.md).  
 
 > [!IMPORTANT]  
->  Lorsque vous créez une instruction SQL pour un rapport personnalisé, ne faites pas directement référence aux tables SQL Server. Faites plutôt référence aux vues SQL Server de rapports \(noms de vues qui commencent par v\_\) à partir de la base de données de site. Vous pouvez également faire référence aux procédures stockées publiques \(noms de procédures stockées qui commencent par sp\_\) à partir de la base de données de site.  
+>  Het gebruikersaccount moet beschikken over **Site wijzigen** machtiging voor het maken van een nieuw rapport. De gebruiker kan enkel een rapport maken in mappen waarvoor de gebruiker heeft **rapport wijzigen** machtigingen.  
+
+ Gebruik de volgende procedure voor het maken van een model\-op basis van Configuration Manager-rapport.  
+
+#### <a name="to-create-a-model-based-report"></a>Maken van een model\-gebaseerde rapport  
+
+1.  Klik in de Configuration Manager-console op **bewaking**.  
+
+2.  In de **bewaking** werkruimte Vouw **rapportage** en klik op **rapporten**.  
+
+3.  Op de **Start** tabblad, in de **maken** sectie, klikt u op **rapport maken** openen de **Wizard rapport maken**.  
+
+4.  Op de **informatie** pagina, configureer de volgende instellingen:  
+
+    -   **Type**: Selecteer **Model\-gebaseerde rapport** te maken van een rapport in Report Builder met behulp van een Reporting Services-model.  
+
+    -   **Naam**: Geef een naam voor het rapport.  
+
+    -   **Beschrijving**: Geef een beschrijving voor het rapport.  
+
+    -   **Server**: De naam weergegeven van de rapportserver waarop u dit rapport maakt.  
+
+    -   **Pad**: Klik op **Bladeren** om op te geven van een map waarin u wilt opslaan van het rapport.  
+
+     Klik op **Volgende**.  
+
+5.  Op de **modelselectie** pagina, selecteert u een beschikbaar model in de lijst die u kunt dit rapport te maken. Wanneer u het rapportmodel, selecteert de **Preview** sectie vindt u de SQL Server-weergaven en entiteiten die beschikbaar zijn gesteld door het geselecteerde rapportmodel.  
+
+6.  Bekijk de instellingen op de pagina **Samenvatting** . Klik op **vorige** de instellingen wijzigen of klik op **volgende** aan het rapport maken in Configuration Manager.  
+
+7.  Op de **bevestiging** pagina, klikt u op **sluiten** naar de wizard af te sluiten en open vervolgens de Report Builder om de rapportinstellingen te configureren. Voer uw gebruikersaccount en wachtwoord in als u wordt gevraagd en klik vervolgens op **OK**. Als Report Builder is niet geïnstalleerd op de computer, wordt u gevraagd om deze te installeren. Klik op **uitvoeren** voor het installeren van Report Builder is vereist om te wijzigen en rapporten maken.  
+
+8.  In Microsoft Report Builder indeling van het rapport te maken, selecteer gegevens in de beschikbare SQL Server-weergaven, parameters toevoegen aan het rapport, enzovoort. Zie de Report Builder Help voor meer informatie over het gebruik van Report Builder om een nieuw rapport maken.  
+
+9. Klik op **uitvoeren** uw rapport uit te voeren. Controleer of dat het rapport bevat de informatie die u verwacht. Klik op **ontwerp** om terug te keren naar de ontwerpweergave om te wijzigen van het rapport, indien nodig.  
+
+10. Klik op **opslaan** het rapport wilt opslaan op de rapportserver. U kunt uitvoeren en wijzigen van het nieuwe rapport in de **rapporten** knooppunt in de **bewaking** werkruimte.  
+
+###  <a name="BKMK_CreateSQLBasedReport"></a>Maken van een SQL\-gebaseerde rapport  
+ Een SQL\-op basis van rapport kunt u de gegevens die is gebaseerd op de SQL-instructie van een rapport ophalen.  
 
 > [!IMPORTANT]  
->  Pour pouvoir créer un rapport, le compte d'utilisateur doit disposer d'une autorisation **Site - Modifier** . L'utilisateur peut créer un rapport uniquement dans les dossiers pour lesquels il dispose d'autorisations **Modifier le rapport** .  
+>  Wanneer u een SQL-instructie voor een aangepast rapport maakt, Verwijs niet direct naar SQL Server-tabellen. In plaats daarvan verwijzen naar rapportage SQL Server-weergaven \(weergeven namen die met v beginnen\_ \) uit de sitedatabase. U kunt ook verwijzen naar openbaar opgeslagen procedures \(opgeslagen procedure met namen die met sp beginnen\_ \) uit de sitedatabase.  
 
- Pour créer un rapport Configuration Manager basé sur SQL, procédez comme suit.  
+> [!IMPORTANT]  
+>  Het gebruikersaccount moet beschikken over **Site wijzigen** machtiging voor het maken van een nieuw rapport. De gebruiker kan enkel een rapport maken in mappen waarvoor de gebruiker heeft **rapport wijzigen** machtigingen.  
 
-#### <a name="to-create-a-sql-based-report"></a>Pour créer un rapport basé sur SQL  
+ Gebruik de volgende procedure voor het maken van een SQL\-op basis van Configuration Manager-rapport.  
 
-1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
+#### <a name="to-create-a-sql-based-report"></a>Maken van een SQL\-gebaseerde rapport  
 
-2.  Dans l'espace de travail **Surveillance** , développez **Rapports**, puis cliquez sur **Rapports**.  
+1.  Klik in de Configuration Manager-console op **bewaking**.  
 
-3.  Dans l'onglet **Accueil** , dans la section **Créer** , cliquez sur **Créer un rapport** pour ouvrir l' **Assistant Création de rapport**.  
+2.  Vouw in de werkruimte **Bewaking** **Rapportage**uit en klik vervolgens op **Rapporten**.  
 
-4.  Sur la page **Informations** , configurez les paramètres suivants :  
+3.  Op de **Start** tabblad, in de **maken** sectie, klikt u op **rapport maken** openen de **Wizard rapport maken**.  
 
-    -   **Type** : Sélectionnez **Rapport basé sur SQL** pour créer un rapport dans le Générateur de rapports en utilisant une instruction SQL.  
+4.  Op de **informatie** pagina, configureer de volgende instellingen:  
 
-    -   **Nom**: Spécifiez le nom du rapport.  
+    -   **Type**: Selecteer **SQL\-gebaseerde rapport** te maken van een rapport in Report Builder met behulp van een SQL-instructie.  
 
-    -   **Description**: Spécifiez la description du rapport.  
+    -   **Naam**: Geef een naam voor het rapport.  
 
-    -   **Serveur**: Permet d'afficher le nom du serveur sur lequel le rapport est créé.  
+    -   **Beschrijving**: Geef een beschrijving voor het rapport.  
 
-    -   **Chemin**: Cliquez sur **Parcourir** pour spécifier un dossier dans lequel vous souhaitez stocker le rapport.  
+    -   **Server**: De naam weergegeven van de rapportserver waarop u dit rapport maakt.  
 
-     Cliquez sur **Suivant**.  
+    -   **Pad**: Klik op **Bladeren** om op te geven van een map waarin u wilt opslaan van het rapport.  
 
-5.  Dans la page **Résumé** , vérifiez les paramètres. Cliquez sur **Précédent** pour modifier les paramètres ou cliquez sur **Suivant** pour créer le rapport dans Configuration Manager.  
+     Klik op **Volgende**.  
 
-6.  Sur la page **Confirmation** , cliquez sur **Fermer** pour quitter l'Assistant et ouvrez le Générateur de rapports pour configurer les paramètres du rapport. Entrez votre compte d'utilisateur et votre mot de passe si vous y êtes invité, puis cliquez sur **OK**. Si le Générateur de rapports n'est pas installé sur l'ordinateur, vous êtes invité à l'installer. Cliquez sur **Exécuter** pour installer le Générateur de rapports, qui est requis pour modifier et créer des rapports.  
+5.  Bekijk de instellingen op de pagina **Samenvatting** . Klik op **vorige** de instellingen wijzigen of klik op **volgende** aan het rapport maken in Configuration Manager.  
 
-7.  Dans le Générateur de rapports Microsoft, renseignez l'instruction SQL pour le rapport ou créez une instruction SQL à l'aide des colonnes dans les vues de SQL Server disponibles, puis ajoutez des paramètres au rapport et ainsi de suite.  
+6.  Op de **bevestiging** pagina, klikt u op **sluiten** de wizard af te sluiten en open de Report Builder om de rapportinstellingen te configureren. Voer uw gebruikersaccount en wachtwoord in als u wordt gevraagd en klik vervolgens op **OK**. Als Report Builder is niet geïnstalleerd op de computer, wordt u gevraagd om deze te installeren. Klik op **uitvoeren** voor het installeren van Report Builder is vereist om te wijzigen en rapporten maken.  
 
-8.  Cliquez sur **Exécuter** pour exécuter le rapport. Vérifiez que le rapport fournit les informations désirées. Cliquez sur **Création** pour revenir au mode Création pour modifier le rapport, si nécessaire.  
+7.  In Microsoft Report Builder de SQL-instructie voor het rapport opgeven of de SQL-instructie maken met behulp van kolommen in beschikbare SQL Server-weergaven, parameters toevoegen aan het rapport, enzovoort.  
 
-9. Cliquez sur **Enregistrer** pour enregistrer le rapport sur le serveur de rapports. Vous pouvez exécuter le nouveau rapport dans le nœud **Rapports** de l'espace de travail **Surveillance** .  
+8.  Klik op **uitvoeren** uw rapport uit te voeren. Controleer of dat het rapport bevat de informatie die u verwacht. Klik op **ontwerp** om terug te keren naar de ontwerpweergave om te wijzigen van het rapport, indien nodig.  
 
-##  <a name="BKMK_ManageReportSubscriptions"></a> Gérer les abonnements aux rapports  
- Les abonnements aux rapports dans SQL Server Reporting Services permettent de configurer la remise automatique des rapports spécifiés par courrier électronique ou vers une solution de partage de fichiers, à des intervalles de temps planifiés. Utilisez l’**Assistant Création d’abonnement** dans System Center 2012 Configuration Manager pour configurer les abonnements aux rapports.  
+9. Klik op **opslaan** het rapport wilt opslaan op de rapportserver. U kunt het nieuwe rapport uitvoeren in de **rapporten** knooppunt in de **bewaking** werkruimte.  
 
-###  <a name="BKMK_ReportSubscriptionFileShare"></a> Créer un abonnement aux rapports pour remettre un rapport à un partage de fichiers  
- Lorsque vous créez un abonnement aux rapports pour remettre un rapport à un partage de fichiers, le rapport est copié au format spécifié pour le partage de fichiers que vous avez indiqué. Vous ne pouvez vous abonner et demander la remise que pour un seul rapport à la fois.  
+##  <a name="BKMK_ManageReportSubscriptions"></a>Rapportabonnementen beheren  
+ Rapportabonnementen in SQL Server Reporting Services kunt u de automatische levering configureren van rapporten via e-mail of een bestandsshare met regelmatige tussenpozen. Gebruik de **Wizard voor abonnement** in System Center 2012 Configuration Manager om rapportabonnementen te configureren.  
 
- À la différence des rapports qui sont hébergés et gérés par un serveur de rapports, les rapports qui sont remis à un dossier partagé sont des fichiers statiques. Les fonctionnalités interactives définies pour le rapport ne fonctionnent pas pour les rapports qui sont stockés sous forme de fichiers sur le système de fichiers. Les fonctionnalités d'interaction sont représentées comme des éléments statiques. Si le rapport comprend des graphiques, la présentation par défaut est utilisée. Si le rapport contient des liens renvoyant à un autre rapport, le lien est restitué sous forme de texte statique. Si vous souhaitez conserver les fonctionnalités interactives dans un rapport remis, utilisez plutôt la remise par courrier électronique. Pour plus d’informations sur la remise de courrier électronique, consultez la section [Créer un abonnement aux rapports pour remettre un rapport par courrier électronique](#BKMK_ReportSubscriptionEmail) plus loin dans cette rubrique.  
+###  <a name="BKMK_ReportSubscriptionFileShare"></a>Een rapportabonnement voor het leveren van een rapport met een bestandsshare maken  
+ Wanneer u een rapportabonnement te leveren van een rapport met een bestandsshare maakt, wordt het rapport in de opgegeven indeling gekopieerd naar de bestandsshare die u opgeeft. U kunt zich abonneren op en levering slechts voor één rapport aanvragen tegelijk.  
 
- Lorsque vous créez un abonnement qui utilise la remise par partage de fichiers, vous devez spécifier un dossier existant comme dossier de destination. Le serveur de rapports ne crée pas de dossiers sur le système de fichiers. Le dossier que vous spécifiez doit être accessible via une connexion réseau. Lorsque vous spécifiez le dossier de destination dans un abonnement, utilisez un chemin UNC et n'incluez pas de barres obliques inverses à la fin du chemin du dossier. Voici un exemple de chemin UNC valide pour le dossier de destination : \\\\&lt;nom_serveur\>\\reportfiles\\operations\\2011.  
+ In tegenstelling tot de rapporten die worden gehost en beheerd door een rapportserver, zijn rapporten die worden geleverd met een gedeelde map statische bestanden. Interactieve functies die zijn gedefinieerd voor het rapport werken niet voor rapporten die zijn opgeslagen als bestanden op het bestandssysteem. Interactieve functies worden weergegeven als statische elementen. Als het rapport grafieken bevat, wordt de standaardpresentatie gebruikt. Als u de rapporten doorgelinkt worden naar een ander rapport, wordt de koppeling weergegeven als statische tekst. Als u behouden interactieve functies in een geleverd rapport wilt, gebruikt u de levering via e-mail. Zie voor meer informatie over levering via e-mail, de [een rapportabonnement maken om te leveren van een rapport via e-mail](#BKMK_ReportSubscriptionEmail) verderop in dit onderwerp.  
 
- Les rapports peuvent être rendus dans une variété de formats de fichier, tels que MHTML ou Excel. Pour enregistrer le rapport dans un format de fichier spécifique, sélectionnez ce format de rendu lors de la création de votre abonnement. Par exemple, choisir Excel enregistre le rapport sous forme de fichier Microsoft Excel. Même s'il est possible de sélectionner n'importe quel format de rendu pris en charge, certains formats fonctionnent mieux que d'autres lors du rendu d'un fichier.  
+ Wanneer u een abonnement dat levering via bestandsshare gebruikt maakt, moet u een bestaande map als doelmap. De rapportserver maakt geen mappen op het bestandssysteem. De map die u opgeeft moet toegankelijk zijn via een netwerkverbinding. Wanneer u de doelmap in een abonnement opgeeft, wordt een UNC-pad en Neem geen afsluitende backslash-tekens in pad naar de map. Een geldig UNC-pad voor de doelmap is bijvoorbeeld: \\ \\ &lt;servername\>\\reportfiles\\operations\\2011.  
 
- Utilisez la procédure suivante pour créer un abonnement aux rapports pour remettre un rapport à un partage de fichiers.  
+ Rapporten kunnen worden gerenderd in verschillende bestandsindelingen, zoals MHTML of Excel. Sla het rapport in een specifieke indeling, selecteert het weergaveformaat bij het maken van uw abonnement. Bijvoorbeeld slaat Excel gekozen het rapport als een Microsoft Excel-bestand. Hoewel u elk ondersteund weergaveformaat selecteren kunt, werken sommige formaten beter dan andere bij het renderen naar een bestand.  
 
-#### <a name="to-create-a-report-subscription-to-deliver-a-report-to-a-file-share"></a>Pour créer un abonnement à un rapport en vue de remettre un rapport à un partage de fichiers  
+ Gebruik de volgende procedure om een rapportabonnement voor het leveren van een rapport met een bestandsshare te maken.  
 
-1.  Dans la console Configuration Manager, cliquez sur **Surveillance**.  
+#### <a name="to-create-a-report-subscription-to-deliver-a-report-to-a-file-share"></a>Een rapportabonnement voor het leveren van een rapport met een bestandsshare maken  
 
-2.  Dans l'espace de travail **Surveillance** , développez **Rapports** , puis cliquez sur **Rapports** pour consulter la liste des rapports disponibles. Vous pouvez sélectionner un dossier de rapports pour répertorier uniquement les rapports associés à ce dossier.  
+1.  Klik in de Configuration Manager-console op **bewaking**.  
 
-3.  Sélectionnez le rapport que vous souhaitez ajouter à l'abonnement, puis dans l'onglet **Accueil** , dans la section **Groupe de rapports** , cliquez sur **Créer un abonnement** pour ouvrir l' **Assistant Création d'abonnement**.  
+2.  In de **bewaking** werkruimte Vouw **rapportage** en klik op **rapporten** voor een lijst met de beschikbare rapporten. U kunt een rapportmap om alleen de rapporten die gekoppeld aan de map zijn weer te selecteren.  
 
-4.  Sur la page **Remise d'abonnement** , configurez les paramètres suivants :  
+3.  Selecteer het rapport dat u wilt toevoegen aan het abonnement en klikt u op de **Start** tabblad, in de **rapportgroep** sectie, klikt u op **abonnement maken** openen de **Wizard voor abonnement**.  
 
-    -   Rapport remis par : Sélectionnez **Partage de fichiers Windows** pour remettre le rapport à un partage de fichiers.  
+4.  Op de **levering van abonnement** pagina, configureer de volgende instellingen:  
 
-    -   **Nom du fichier**: Spécifiez le nom de fichier du rapport. Par défaut, le fichier de rapport n'inclut pas d'extension de nom de fichier. Sélectionnez **Ajouter une extension de fichier à la création** pour ajouter automatiquement une extension de nom de fichier à ce rapport, en fonction du format de rendu.  
+    -   Rapport geleverd door: Selecteer **Windows-bestandsshare** het rapport naar een bestandsshare te leveren.  
 
-    -   **Chemin** : Spécifiez un chemin UNC vers un dossier existant, dans lequel vous souhaitez remettre ce rapport \(par exemple, \\\\&lt;nom_serveur\>\\&lt;partage_serveur\>\\&lt;dossier_rapport\>\).  
+    -   **Bestandsnaam**: Geef de bestandsnaam op voor het rapport. Het rapportbestand bevat standaard geen extensie. Selecteer **bestandsextensie toevoegen bij gemaakt** automatisch een bestandsnaamextensie toevoegen aan dit rapport op basis van de renderindeling.  
+
+    -   **Pad**: Geef een UNC-pad naar een bestaande map waar u dit rapport te leveren \(bijvoorbeeld \\ \\ &lt;servernaam\>\\&lt;servershare\>\\&lt;rapportmap\>\).  
 
         > [!NOTE]  
-        >  Le nom d'utilisateur spécifié ultérieurement sur cette page doit avoir accès à ce partage de serveur et disposer des autorisations d'écriture sur le dossier de destination.  
+        >  Naam van de gebruiker opgegeven later op deze pagina moet toegang hebben tot deze servershare en over schrijfbevoegdheden beschikken op de doelmap.  
 
-    -   **Format de rendu**: Sélectionnez l'un des formats suivants pour le fichier de rapport :  
+    -   **Renderindeling**: Selecteer een van de volgende indelingen voor het rapportbestand:  
 
-        -   **Fichier XML avec données de rapport**: Enregistre le rapport au format Extensible Markup Language.  
+        -   **XML-bestand met rapportgegevens**: Slaat het rapport op in Extensible Markup Language-indeling.  
 
-        -   **CSV \(délimité par des virgules\)** : Enregistre le rapport au format de valeurs séparées par des virgules.  
+        -   **CSV \(door komma's gescheiden\)**: Slaat het rapport op in een door komma's\-gescheiden\-waarde-indeling.  
 
-        -   **Fichier TIFF**: Enregistre le rapport au format de fichier TIFF (Tagged Image File Format).  
+        -   **TIFF-bestand**: Slaat het rapport op in Tagged Image File Format.  
 
-        -   **Fichier Acrobat \(PDF\)** : Enregistre le rapport au format Acrobat Portable Document Format.  
+        -   **Acrobat \(PDF\) bestand**: Slaat het rapport op in Acrobat Portable Document Format.  
 
-        -   **HTML 4.0**: Enregistre le rapport sous la forme d'une page Web affichable uniquement dans les navigateurs qui prennent en charge le langage HTML 4.0. Internet Explorer 5 et versions ultérieures prennent en charge le langage HTML 4.0.  
+        -   **HTML 4.0**: Slaat het rapport als een webpagina die alleen zichtbaar met browsers die ondersteuning bieden voor HTML 4.0. Internet Explorer 5 en latere versies ondersteuning bieden voor HTML 4.0.  
 
             > [!NOTE]  
-            >  Si votre rapport contient des images, le format HTML 4.0 ne les inclut pas dans le fichier.  
+            >  Als u installatiekopieën in uw rapport hebt, bevat de HTML 4.0-indeling geen ze in het bestand.  
 
-        -   **MHTML \(archive web\)** : Enregistre le rapport au format MIME HTML \(mhtml\) pouvant être consulté avec de nombreux navigateurs web.  
+        -   **MHTML \(webarchief\)**: Slaat het rapport op in MIME HTML-indeling \(mhtml\), namelijk in veel webbrowser kan worden weergegeven.  
 
-        -   **Convertisseur RPL** : Enregistre le rapport au format RPL \(Report Page Layout\).  
+        -   **RPL-Renderer**: Hiermee slaat u het rapport in Report pagina-indeling \(RPL\) indeling.  
 
-        -   **Excel**: Enregistre le rapport sous forme de feuille de calcul Microsoft Excel.  
+        -   **Excel**: Slaat het rapport als een Microsoft Excel-werkblad.  
 
-        -   **Word**: Enregistre le rapport sous forme de document Microsoft Word.  
+        -   **Word**: Slaat het rapport als een Microsoft Word-document.  
 
-    -   **Nom d'utilisateur**: Spécifiez un compte d'utilisateur Windows disposant des autorisations pour accéder au partage de serveur et au dossier de destination. Le compte d'utilisateur doit avoir accès à ce partage de serveur ainsi que l'autorisation d'écriture sur le dossier de destination.  
+    -   **Gebruikersnaam**: Geef een Windows-gebruikersaccount met machtigingen voor toegang tot de doelservershare en -map. Het gebruikersaccount moet toegang hebben tot deze servershare en schrijfmachtiging voor de doelmap.  
 
-    -   **Mot de passe**: Spécifiez le mot de passe du compte d'utilisateur Windows. Dans **Confirmer le mot de passe**, retapez le mot de passe.  
+    -   **Wachtwoord**: Geef het wachtwoord voor het Windows-gebruikersaccount. In **wachtwoord bevestigen**, re\-Voer het wachtwoord.  
 
-    -   Sélectionnez l'une des options suivantes pour configurer le comportement, lorsqu'un fichier du même nom existe déjà dans le dossier de destination :  
+    -   Selecteer een van de volgende opties voor het configureren van het gedrag wanneer een bestand met dezelfde naam in de doelmap bestaat:  
 
-        -   **Remplacer un fichier existant par une version plus récente**: Spécifie que la nouvelle version remplace le fichier de rapport lorsqu'il existe déjà.  
+        -   **Een bestaand bestand overschrijven met een nieuwere versie**: Hiermee geeft u op dat wanneer het rapportbestand al bestaat, de nieuwe versie overschreven.  
 
-        -   **Ne pas remplacer un fichier existant**: Spécifie qu'aucune action n'est effectuée lorsque le fichier de rapport existe déjà.  
+        -   **Een bestaand bestand niet overschrijven**: Hiermee geeft u op dat wanneer het rapportbestand al bestaat, er geen actie is.  
 
-        -   **Incrémenter des noms de fichier dès que des versions plus récentes sont ajoutées**: Spécifie qu'un numéro est ajouté au nom de fichier du nouveau rapport pour le différencier des autres versions lorsque le fichier de rapport existe déjà.  
+        -   **Bestandsnamen laten oplopen als nieuwe versies worden toegevoegd**: Hiermee geeft u op dat wanneer het rapportbestand al bestaat, een nummer wordt toegevoegd aan het nieuwe rapport aan de bestandsnaam te onderscheiden van andere versies.  
 
-    -   **Description**: Spécifie la description de cet abonnement au rapport.  
+    -   **Beschrijving**: Hiermee geeft u de beschrijving voor het rapportabonnement.  
 
-     Cliquez sur **Suivant**.  
+     Klik op **Volgende**.  
 
-5.  Sur la page **Planification d'abonnement** , sélectionnez l'une des options de planification de remise suivantes pour l'abonnement aux rapports :  
+5.  Op de **Abonnementplanning** pagina, selecteer een van de volgende leveringsplanningopties voor het rapportabonnement:  
 
-    -   **Utiliser une planification partagée**: Une planification partagée est une planification prédéfinie pouvant être utilisée avec d'autres abonnements à des rapports. Activez cette case à cocher, puis sélectionnez une planification partagée dans la liste si un élément a été spécifié.  
+    -   **Gedeelde planning gebruiken**: Een gedeelde planning is een vooraf gedefinieerde planning die door andere rapportabonnementen kan worden gebruikt. Schakel dit selectievakje in en selecteert u een gedeelde planning in de lijst als een zijn opgegeven.  
 
-    -   **Créer une nouvelle planification**: Configurez la planification selon laquelle ce rapport doit s'exécuter, y compris l'intervalle, l'heure et la date de début et la date de fin de cet abonnement.  
+    -   **Nieuwe planning maken**: Configureer de planning waarop dit rapport wordt uitgevoerd, inclusief het interval, start u tijd en datum en de einddatum voor dit abonnement.  
 
-6.  Sur la page **Paramètres d'abonnement** , spécifiez les paramètres pour ce rapport qui seront utilisés lorsqu'il est exécuté en mode sans assistance. Lorsqu'il n'y a aucun paramètre pour le rapport, cette page n'est pas affichée.  
+6.  Op de **Abonnementsparameters** pagina, de parameters voor dit rapport die worden gebruikt wanneer deze wordt uitgevoerd zonder toezicht opgeven. Wanneer er geen parameters voor het rapport zijn, wordt deze pagina niet weergegeven.  
 
-7.  Sur la page **Résumé** , passez en revue les paramètres d'abonnement au rapport. Cliquez sur **Précédent** pour modifier les paramètres ou cliquez sur **Suivant** pour créer un abonnement à un rapport.  
+7.  Op de **samenvatting** controleert u de instellingen van het rapport. Klik op **vorige** de instellingen wijzigen of klik op **volgende** om het rapportabonnement te maken.  
 
-8.  Sur la page **Dernière étape** , cliquez sur **Fermer** pour quitter l'Assistant. Vérifiez que l'abonnement au rapport a été créé avec succès. Vous pouvez afficher et modifier des abonnements aux rapports dans le nœud **Abonnements** sous **Rapports** dans l'espace de travail **Surveillance** .  
+8.  Klik op de pagina **Voltooiing** op **Sluiten** om de wizard af te sluiten. Controleer of het rapportabonnement is gemaakt. U kunt bekijken en wijzigen met rapportabonnementen in de **abonnementen** knooppunt onder **rapportage** in de **bewaking** werkruimte.  
 
-###  <a name="BKMK_ReportSubscriptionEmail"></a> Créer un abonnement aux rapports pour remettre un rapport par e-mail  
- Lorsque vous créez un abonnement aux rapports afin de remettre un rapport par courrier électronique, un message qui contient le rapport en pièce jointe est envoyé aux destinataires que vous aurez configurés. Le serveur de rapports ne valide pas les adresses de messagerie et n'obtient pas d'adresses à partir d'un serveur de messagerie. Vous devez connaître à l'avance les adresses de messagerie que vous souhaitez utiliser. Par défaut, vous pouvez envoyer des rapports à n'importe quel compte de messagerie électronique valide au sein ou en dehors de votre organisation. Vous pouvez sélectionner une ou les deux options de remise par courrier électronique suivantes :  
+###  <a name="BKMK_ReportSubscriptionEmail"></a>Een rapportabonnement maken om te leveren van een rapport via e-mail  
+ Wanneer u een rapportabonnement te leveren van een rapport via e-mail maakt, een e-mailbericht wordt verzonden naar de ontvangers die u configureert en het rapport wordt als bijlage toegevoegd. De rapportserver niet valideren e-mailadressen of e-mailadressen verkrijgen van een e-mailserver. U moet van tevoren weten welke e-mailadressen die u wilt gebruiken. Standaard kunt u e-rapporten naar geldige e-mailaccounts binnen of buiten uw organisatie. U kunt een of beide van de volgende e-Bezorgingsopties selecteren:  
 
--   Envoyer une notification et un lien hypertexte vers le rapport généré.  
+-   Een melding en een hyperlink verzenden naar het gegenereerde rapport.  
 
--   Envoyer un rapport incorporé ou joint au message. Le format de rendu et le navigateur déterminent si le rapport est incorporé ou joint. Si votre navigateur prend en charge HTML 4.0 et MHTML et que vous sélectionnez le format de rendu MHTML \(archive web\), le rapport est incorporé dans le corps du message. Tous les autres formats de rendu \(CSV, PDF, Word, etc.\) sont ajoutés au message sous forme de pièces jointes. Reporting Services ne vérifie pas la taille de la pièce jointe ni du message avant d'envoyer le rapport. Si le message ou la pièce jointe dépasse la limite maximale autorisée par votre serveur de messagerie, le rapport n'est pas remis.  
+-   Een ingesloten of bijgevoegd rapport verzenden. De renderindeling en browser bepalen of het rapport ingesloten of gekoppeld. Als uw browser HTML 4.0 en MHTML ondersteunt en u de MHTML selecteert \(webarchief\) rendering indeling, wordt het rapport ingesloten als deel van het bericht. Alle andere renderindelingen \(CSV, PDF, Word, enzovoort\) leveren rapporten als bijlagen. Reporting Services, wordt de grootte van de bijlage of het bericht niet gecontroleerd voordat het rapport wordt verzonden. Als de bijlage of het bericht het maximum aantal dat is toegestaan door uw e-mailserver overschrijdt, wordt het rapport niet bezorgd.  
 
 > [!IMPORTANT]  
->  Vous devez configurer les paramètres de courrier électronique dans Reporting Services pour que l'option de remise **Courrier électronique** soit disponible. Pour plus d'informations sur la configuration des paramètres de courrier électronique dans Reporting Services, voir [Configuration d'un serveur de rapport pour la remise par courrier électronique](http://go.microsoft.com/fwlink/p/?LinkId=226668) dans la documentation en ligne de SQL Server.  
+>  U moet de e-mailinstellingen configureren in Reporting Services voor de **e** levering optie niet beschikbaar. Zie voor meer informatie over het configureren van de e-mailinstellingen in Reporting Services [een rapportserver configureren voor levering via E-mail](http://go.microsoft.com/fwlink/p/?LinkId=226668) in SQL Server Books Online.  
 
- Utilisez la procédure suivante pour créer un abonnement aux rapports permettant de remettre un rapport par courrier électronique.  
+ Gebruik de volgende procedure om een rapportabonnement voor het leveren van een rapport via e-mail te maken.  
 
-#### <a name="to-create-a-report-subscription-to-deliver-a-report-by-email"></a>Pour créer un abonnement aux rapports permettant de remettre un rapport par courrier électronique  
+#### <a name="to-create-a-report-subscription-to-deliver-a-report-by-email"></a>Een rapportabonnement voor het leveren van een rapport via e-mail maken  
 
--   Dans la console Configuration Manager, cliquez sur **Surveillance**.  
+-   Klik in de Configuration Manager-console op **bewaking**.  
 
--   Dans l'espace de travail **Surveillance** , développez **Rapports** , puis cliquez sur **Rapports** pour consulter la liste des rapports disponibles. Vous pouvez sélectionner un dossier de rapports pour répertorier uniquement les rapports associés à ce dossier.  
+-   In de **bewaking** werkruimte Vouw **rapportage** en klik op **rapporten** voor een lijst met de beschikbare rapporten. U kunt een rapportmap voor een lijst met de enige selecteren de rapporten die gekoppeld aan de map zijn.  
 
--   Sélectionnez le rapport que vous souhaitez ajouter à l'abonnement, puis dans l'onglet **Accueil** , dans la section **Groupe de rapports** , cliquez sur **Créer un abonnement** pour ouvrir l' **Assistant Création d'abonnement**.  
+-   Selecteer het rapport dat u wilt toevoegen aan het abonnement en klikt u op de **Start** tabblad, in de **rapportgroep** sectie, klikt u op **abonnement maken** openen de **Wizard voor abonnement**.  
 
--   Sur la page **Remise d'abonnement** , configurez les paramètres suivants :  
+-   Op de **levering van abonnement** pagina, configureer de volgende instellingen:  
 
-    -   **Rapport remis par** : Sélectionnez **E\-mail** pour remettre le rapport en tant que pièce jointe dans un message électronique.  
+    -   **Rapport geleverd door**: Selecteer **E\-mail** leveren van het rapport als bijlage bij een e-mailbericht.  
 
-    -   **À**: Spécifiez une adresse de messagerie valide du destinataire du rapport.  
+    -   **Naar**: Geef een geldig e-mailadres voor het verzenden van dit rapport.  
 
         > [!NOTE]  
-        >  Vous pouvez saisir plusieurs destinataires en séparant chaque adresse de messagerie par un point-virgule.  
+        >  U kunt meerdere e-mailontvangers invoeren door elk e-mailadres met een puntkomma te scheiden.  
 
-    -   **Cc**: Spécifiez l'adresse de messagerie d'un autre destinataire d'une copie du rapport (facultatif).  
+    -   **CC**: Geef eventueel een e-mailadres kopie van dit rapport.  
 
-    -   **Cci**: Spécifiez l'adresse de messagerie d'un autre destinataire d'une copie confidentielle du rapport (facultatif).  
+    -   **BCC**: Geef eventueel een e-mailadres een controlekopie van dit rapport.  
 
-    -   **Répondre à**: Spécifiez l'adresse de réponse à utiliser au cas où le destinataire déciderait de répondre au message électronique.  
+    -   **Beantwoorden**: Geef het antwoordadres op dat moet worden gebruikt als de ontvanger het e-mailbericht beantwoordt.  
 
-    -   **Objet**: Spécifiez une ligne d'objet pour le message électronique d'abonnement.  
+    -   **Onderwerp**: Geef een onderwerpregel op voor het abonnement e-mailbericht.  
 
-    -   **Priorité**: Sélectionnez l'indicateur de priorité pour ce message électronique. Sélectionnez **Faible**, **Normale**ou **Haute**. Le paramètre de priorité est utilisé par Microsoft Exchange pour définir un indicateur dans le but de spécifier l'importance du message électronique.  
+    -   **Prioriteit**: Selecteer de gewenste prioriteitsmarkering voor dit e-mailbericht. Selecteer **laag**, **normaal**, of **hoge**. De prioriteitsinstelling wordt door Microsoft Exchange gebruikt om in te stellen van een vlag die aangeeft het belang van het e-mailbericht.  
 
-    -   **Commentaire**: Spécifiez un texte à ajouter au corps du message électronique d'abonnement.  
+    -   **Opmerking**: Geef tekst op die moet worden toegevoegd aan de hoofdtekst van het abonnement e-mailbericht.  
 
-    -   **Description**: Spécifiez la description de l'abonnement à un rapport.  
+    -   **Beschrijving**: Geef de beschrijving voor dit rapportabonnement.  
 
-    -   **Inclure un lien**: Inclut une URL au rapport d'abonnement dans le corps du message électronique.  
+    -   **Koppeling opnemen**: Bevat een URL naar het geabonneerde rapport in de hoofdtekst van het e-mailbericht.  
 
-    -   **Inclure un rapport** : Spécifiez que le rapport est joint au message électronique. Le format à utiliser pour joindre le rapport est indiqué dans la liste **Format de rendu** .  
+    -   **Rapport opnemen**: Opgeven of het rapport is gekoppeld aan de e\-e-mailbericht. De indeling waarin het rapport als bijlage is opgegeven in de **Renderindeling** lijst.  
 
-    -   **Format de rendu**: Sélectionnez l'un des formats suivants pour le rapport joint :  
+    -   **Renderindeling**: Selecteer een van de volgende indelingen voor het bijgevoegde rapport:  
 
-        -   **Fichier XML avec données de rapport**: Enregistre le rapport au format Extensible Markup Language.  
+        -   **XML-bestand met rapportgegevens**: Slaat het rapport op in Extensible Markup Language-indeling.  
 
-        -   **CSV \(délimité par des virgules\)** : Enregistre le rapport au format de valeurs séparées par des virgules.  
+        -   **CSV \(door komma's gescheiden\)**: Slaat het rapport op in een door komma's\-gescheiden\-waarde-indeling.  
 
-        -   **Fichier TIFF**: Enregistre le rapport au format de fichier TIFF (Tagged Image File Format).  
+        -   **TIFF-bestand**: Slaat het rapport op in Tagged Image File Format.  
 
-        -   **Fichier Acrobat \(PDF\)** : Enregistre le rapport au format Acrobat Portable Document Format.  
+        -   **Acrobat \(PDF\) bestand**: Slaat het rapport op in Acrobat Portable Document Format.  
 
-        -   **MHTML \(archive web\)** : Enregistre le rapport au format MIME HTML \(mhtml\) pouvant être consulté avec de nombreux navigateurs web.  
+        -   **MHTML \(webarchief\)**: Slaat het rapport op in MIME HTML-indeling \(mhtml\), namelijk in veel webbrowser kan worden weergegeven.  
 
-        -   **Excel**: Enregistre le rapport sous forme de feuille de calcul Microsoft Excel.  
+        -   **Excel**: Slaat het rapport als een Microsoft Excel-werkblad.  
 
-        -   **Word**: Enregistre le rapport sous forme de document Microsoft Word.  
+        -   **Word**: Slaat het rapport als een Microsoft Word-document.  
 
--   Sur la page **Planification d'abonnement** , sélectionnez l'une des options de planification de remise suivantes pour l'abonnement aux rapports :  
+-   Op de **Abonnementplanning** pagina, selecteer een van de volgende leveringsplanningopties voor het rapportabonnement:  
 
-    -   **Utiliser une planification partagée**: Une planification partagée est une planification prédéfinie pouvant être utilisée avec d'autres abonnements à des rapports. Activez cette case à cocher, puis sélectionnez une planification partagée dans la liste si un élément a été spécifié.  
+    -   **Gedeelde planning gebruiken**: Een gedeelde planning is een vooraf gedefinieerde planning die door andere rapportabonnementen kan worden gebruikt. Schakel dit selectievakje in en selecteert u een gedeelde planning in de lijst als een zijn opgegeven.  
 
-    -   **Créer une nouvelle planification**: Configurez la planification selon laquelle ce rapport s'exécutera, y compris l'intervalle, l'heure et la date de début et la date de fin de cet abonnement.  
+    -   **Nieuwe planning maken**: Configureer de planning waarmee dit rapport wordt uitgevoerd, inclusief het interval, de starttijd en de datum en de einddatum voor dit abonnement.  
 
--   Sur la page **Paramètres d'abonnement** , spécifiez les paramètres pour ce rapport qui seront utilisés lorsqu'il est exécuté en mode sans assistance. Lorsqu'il n'y a aucun paramètre pour le rapport, cette page n'est pas affichée.  
+-   Op de **Abonnementsparameters** pagina, de parameters voor dit rapport die worden gebruikt wanneer deze wordt uitgevoerd zonder toezicht opgeven. Wanneer er geen parameters voor het rapport zijn, wordt deze pagina niet weergegeven.  
 
--   Sur la page **Résumé** , passez en revue les paramètres d'abonnement au rapport. Cliquez sur **Précédent** pour modifier les paramètres ou cliquez sur **Suivant** pour créer un abonnement à un rapport.  
+-   Op de **samenvatting** controleert u de instellingen van het rapport. Klik op **vorige** de instellingen wijzigen of klik op **volgende** om het rapportabonnement te maken.  
 
--   Sur la page **Dernière étape** , cliquez sur **Fermer** pour quitter l'Assistant. Vérifiez que l'abonnement au rapport a été créé avec succès. Vous pouvez afficher et modifier des abonnements aux rapports dans le nœud **Abonnements** sous **Rapports** dans l'espace de travail **Surveillance** .  
+-   Klik op de pagina **Voltooiing** op **Sluiten** om de wizard af te sluiten. Controleer of het rapportabonnement is gemaakt. U kunt bekijken en wijzigen met rapportabonnementen in de **abonnementen** knooppunt onder **rapportage** in de **bewaking** werkruimte.  

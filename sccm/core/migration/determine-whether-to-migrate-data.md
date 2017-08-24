@@ -1,6 +1,6 @@
 ---
-title: "Choisir les éléments à migrer | Microsoft Docs"
-description: "Découvrez les données que vous pouvez migrer et celles que ne pouvez pas vers System Center Configuration Manager."
+title: Kies wat u wilt migreren | Microsoft Docs
+description: Informatie over welke gegevens u kunt migreren, en welke gegevens u kunt naar System Center Configuration Manager niet migreren.
 ms.custom: na
 ms.date: 12/29/2016
 ms.prod: configuration-manager
@@ -17,172 +17,172 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 9dc5f6c9f58e1fc33b2dc9dd76737ae23af81993
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="determine-whether-to-migrate-data-to-system-center-configuration-manager"></a>Déterminer s’il faut migrer des données vers System Center Configuration Manager
+# <a name="determine-whether-to-migrate-data-to-system-center-configuration-manager"></a>Bepalen of er gegevens naar System Center Configuration Manager worden gemigreerd
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Dans System Center Configuration Manager, la migration offre un moyen de transférer des données et des configurations créées dans des versions de Configuration Manager prises en charge vers votre nouvelle hiérarchie.  La migration vous permet d’effectuer les opérations suivantes :  
+In System Center Configuration Manager biedt migratie de mogelijkheid voor het overbrengen van gegevens en configuraties die u hebt gemaakt op basis van ondersteunde versies van Configuration Manager naar uw nieuwe hiërarchie.  U kunt hiermee het volgende doen:  
 
--   Combiner plusieurs hiérarchies en une seule.  
+-   Meerdere hiërarchieën combineren tot één.  
 
--   Déplacer les données et les configurations d’un déploiement de laboratoire vers votre déploiement de production.
+-   Gegevens en configuraties verplaatsen van een testimplementatie naar uw productie-implementatie.
 
--   Déplacer des données et la configuration à partir d’une version antérieure de Configuration Manager, telle que Configuration Manager 2007, qui n’a pas de chemin de mise à niveau vers System Center Configuration Manager, ou à partir de System Center 2012 Configuration Manager (qui prend en charge un chemin de mise à niveau vers System Center Configuration Manager).  
+-   Gegevens en configuratie verplaatsen van een eerdere versie van Configuration Manager, zoals de Configuration Manager 2007, dat geen upgradepad naar System Center Configuration Manager heeft, of van System Center 2012 Configuration Manager (die ondersteuning biedt voor een upgradepad naar System Center Configuration Manager).  
 
-À l'exception du rôle de système de site du point de distribution et des ordinateurs hébergeant les points de distribution, aucune infrastructure (sites, rôles de système de site ou ordinateurs hébergeant un rôle de système de site) ne peut être migrée ou transférée, ni partagée entre des hiérarchies.  
+Met uitzondering van de sitesysteemrol van het distributiepunt en de computers waarop distributiepunten worden gehost, kan er geen infrastructuur (die bestaat uit sites, sitesysteemrollen of computers waarop een sitesysteemrol wordt gehost) worden gemigreerd, overgedragen of gedeeld tussen hiërarchieën.  
 
- Il est impossible de migrer l’infrastructure de serveur, mais vous pouvez migrer des clients Configuration Manager entre des hiérarchies. La migration des clients consiste notamment à migrer les données utilisées par les clients à partir de la hiérarchie source vers la hiérarchie de destination, puis à installer ou à réaffecter le logiciel client afin que le client communique ensuite avec la nouvelle hiérarchie.
+ Hoewel u een serverinfrastructuur niet kunt migreren, kunt u Configuration Manager-clients tussen hiërarchieën migreren. Bij een clientmigratie worden de gegevens die clients gebruiken, gemigreerd van de bronhiërarchie naar de doelhiërarchie. Vervolgens wordt de clientsoftware geïnstalleerd of opnieuw toegewezen, zodat de client vervolgens verslag uitbrengt aan de nieuwe hiërarchie.
 
-Une fois qu’un client a été installé dans la nouvelle hiérarchie et qu’il a envoyé ses données, son identifiant Configuration Manager unique permet à Configuration Manager d’associer plus facilement les données que vous avez migrées précédemment avec chaque ordinateur client.  
+Nadat u een client naar de nieuwe hiërarchie installeert en de client de gegevens verzendt, kunt u de unieke ID van de Configuration Manager Configuration Manager om de gegevens die u eerder migreerde te koppelen aan elke clientcomputer.  
 
- La fonctionnalité fournie par la migration permet de pérenniser les investissements effectués en matière de configurations et de déploiements tout en vous permettant de tirer pleinement parti des principales modifications du produit introduites dans System Center 2012 Configuration Manager et poursuivies dans System Center Configuration Manager. Ces modifications comprennent une hiérarchie Configuration Manager simplifiée qui utilise moins de sites et de ressources ainsi que l’amélioration du traitement avec l’utilisation du code 64 bits natif qui s’exécute sur du matériel 64 bits.  
+ De functionaliteit die wordt geleverd door de migratie kunt u uw eerdere investeringen in configuraties en implementaties bij zodat u kunt profiteren van de belangrijkste wijzigingen in het product eerste (die is geïntroduceerd in System Center 2012 Configuration Manager en klik vervolgens nog steeds in System Center Configuration Manager) die zijn aangebracht behouden. Deze wijzigingen omvatten een vereenvoudigde Configuration Manager-hiërarchie waarin minder sites en bronnen en verbeterde verwerking die afkomstig zijn uit met behulp van systeemeigen 64-bits code die wordt uitgevoerd op 64-bits hardware.  
 
- Pour plus d’informations sur les versions de Configuration Manager prises en charge par la migration, consultez [Prérequis de la migration dans System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md).  
+ Zie voor meer informatie over de versies van Configuration Manager die ondersteuning biedt voor migratie [vereisten voor migratie in System Center Configuration Manager](../../core/migration/prerequisites-for-migration.md).  
 
- Les sections suivantes expliquent comment planifier les données que vous pouvez migrer et celles qui ne peuvent pas l’être :  
+ De volgende secties helpen u bij het plannen voor gegevens die u wel of niet migreren:  
 
--   [Données que vous pouvez migrer vers System Center Configuration Manager](#Can_Migrate)  
+-   [Gegevens die u naar System Center Configuration Manager migreren kunt](#Can_Migrate)  
 
--   [Données que vous ne pouvez pas migrer vers System Center Configuration Manager](#Cannot_migrate)  
+-   [Gegevens die u niet kunt naar System Center Configuration Manager migreren](#Cannot_migrate)  
 
-##  <a name="Can_Migrate"></a> Données que vous pouvez migrer vers System Center Configuration Manager  
- Le processus de migration peut migrer la plupart des objets entre des hiérarchies Configuration Manager prises en charge. Les instances migrées de certains objets à partir d’une version prise en charge de Configuration Manager 2007 doivent être modifiées, de façon à ce qu’elles respectent le schéma et le format d’objet de System Center 2012 Configuration Manager.
+##  <a name="Can_Migrate"></a>Gegevens die u naar System Center Configuration Manager migreren kunt  
+ Migratie kunnen de meeste objecten tussen hiërarchieën van ondersteunde Configuration Manager worden gemigreerd. De gemigreerde exemplaren van sommige objecten van een ondersteunde versie van Configuration Manager 2007 moeten worden gewijzigd om te voldoen aan de System Center 2012 Configuration Manager-schema en object-indeling.
 
-Ces modifications n’affectent pas les données contenues dans la base de données du site source. Les objets migrés à partir d’une version prise en charge de System Center 2012 Configuration Manager ou de System Center Configuration Manager ne nécessitent aucune modification.  
+Deze wijzigingen hebben geen invloed op de gegevens in de database van de bronsite. Objecten die zijn gemigreerd vanuit een ondersteunde versie van System Center 2012 Configuration Manager of System Center Configuration Manager hoeven niet worden gewijzigd.  
 
- Voici des objets qui peuvent migrer en fonction de la version de Configuration Manager utilisée dans la hiérarchie source. Certains objets, telles les requêtes, ne migrent pas. Si vous souhaitez continuer à utiliser ces objets qui ne migrent pas, vous devez les recréer dans la nouvelle hiérarchie. D’autres objets, notamment certaines données des clients, sont recréés automatiquement dans la nouvelle hiérarchie quand vous gérez les clients de cette hiérarchie.  
+ Hieronder vindt u objecten die kunnen worden gemigreerd op basis van de versie van Configuration Manager in de bronhiërarchie. Sommige objecten, zoals query's, kunnen niet worden gemigreerd. Als u deze objecten die niet kunnen worden gemigreerd, wilt blijven gebruiken, moet u ze opnieuw maken in de nieuwe hiërarchie. Andere objecten, waaronder bepaalde clientgegevens, worden automatisch opnieuw gemaakt in de nieuwe hiërarchie wanneer u clients in die hiërarchie beheert.  
 
-### <a name="objects-that-you-can-migrate-from-system-center-2012-configuration-manager-or-system-center-configuration-manager-current-branch"></a>Objets que vous pouvez migrer à partir de la version Current Branch de System Center Configuration Manager ou de System Center 2012 Configuration Manager
+### <a name="objects-that-you-can-migrate-from-system-center-2012-configuration-manager-or-system-center-configuration-manager-current-branch"></a>Objecten die u vanuit System Center 2012 Configuration Manager of System Center Configuration Manager current branche migreren kunt
 
--   Publications  
+-   Aankondigingen  
 
--   Applications pour System Center 2012 Configuration Manager et versions ultérieures  
+-   Toepassingen voor System Center 2012 Configuration Manager en latere versies  
 
--   Environnement virtuel App-V de System Center 2012 Configuration Manager et versions ultérieures  
+-   Virtuele App-V-omgeving van System Center 2012 Configuration Manager en latere versies  
 
--   Personnalisations Asset Intelligence  
+-   Asset Intelligence-aanpassingen  
 
--   Limites  
+-   Grenzen  
 
--   Regroupements : pour migrer des regroupements à partir d’une version prise en charge de System Center 2012 Configuration Manager ou de System Center Configuration Manager, vous utilisez une tâche de migration d’objets.  
+-   Verzamelingen: Als u migreert verzamelingen vanuit een ondersteunde versie van System Center 2012 Configuration Manager of System Center Configuration Manager, wilt u een objectmigratietaak.  
 
--   Paramètres de compatibilité :  
+-   Compatibiliteitsinstellingen:  
 
-    -   Lignes de base de configuration  
+    -   Configuratiebasislijn  
 
-    -   Éléments de configuration  
+    -   Configuratie-items  
 
--   Déploiement de système d'exploitation :  
+-   Implementatie van besturingssysteem:  
 
-    -   Images de démarrage  
+    -   Installatiekopieën  
 
-    -   Packages de pilotes  
+    -   Driverpakketten  
 
-    -   Pilotes  
+    -   Stuurprogramma 's  
 
-    -   Images  
+    -   Installatiekopieën  
 
-    -   Packages  
+    -   Pakketten  
 
-    -   Séquences de tâches  
+    -   Takenreeksen  
 
--   Résultats de la recherche : critères de recherche enregistrés  
+-   Zoekresultaten: Opgeslagen zoekcriteria  
 
--   Mises à jour logicielles :  
+-   Software-updates:  
 
-    -   Déploiements  
+    -   Implementaties  
 
-    -   Packages de déploiement  
+    -   Implementatiepakketten  
 
-    -   Modèles  
+    -   Sjablonen  
 
-    -   Listes des mises à jour logicielles  
+    -   Lijsten met software-updates  
 
--   Packages de distribution de logiciels  
+-   Softwaredistributiepakketten  
 
--   Règles de contrôle de logiciel  
+-   Regels voor softwarelicentiecontrole  
 
--   Packages d'application virtuelle  
+-   Virtuele toepassingspakketten  
 
-### <a name="objects-that-you-can-migrate-from-configuration-manager-2007-sp2"></a>Objets que vous pouvez migrer à partir de Configuration Manager 2007 SP2
+### <a name="objects-that-you-can-migrate-from-configuration-manager-2007-sp2"></a>Objecten die u vanaf Configuration Manager 2007 SP2 migreren kunt
 
--   Publications  
+-   Aankondigingen  
 
--   Applications pour System Center 2012 Configuration Manager et versions ultérieures  
+-   Toepassingen voor System Center 2012 Configuration Manager en latere versies  
 
--   Environnement virtuel App-V de System Center 2012 Configuration Manager et versions ultérieures  
+-   Virtuele App-V-omgeving van System Center 2012 Configuration Manager en latere versies  
 
--   Personnalisations Asset Intelligence  
+-   Asset Intelligence-aanpassingen  
 
--   Limites  
+-   Grenzen  
 
--   Regroupements : vous migrez des regroupements à partir d’une version prise en charge de Configuration Manager 2007 en utilisant une tâche de migration du regroupement.  
+-   Verzamelingen: U migreert verzamelingen vanuit een ondersteunde versie van Configuration Manager 2007 met behulp van een verzamelingmigratietaak.  
 
--   Paramètres de compatibilité (désignés par l’expression « gestion de la configuration souhaitée » dans Configuration Manager 2007) :  
+-   Instellingen voor naleving (Desired Configuration Management genoemd in Configuration Manager 2007):  
 
-    -   Lignes de base de configuration  
+    -   Configuratiebasislijn  
 
-    -   Éléments de configuration  
+    -   Configuratie-items  
 
--   Déploiement de système d'exploitation :  
+-   Implementatie van besturingssysteem:  
 
-    -   Images de démarrage  
+    -   Installatiekopieën  
 
-    -   Packages de pilotes  
+    -   Driverpakketten  
 
-    -   Pilotes  
+    -   Stuurprogramma 's  
 
-    -   Images  
+    -   Installatiekopieën  
 
-    -   Packages  
+    -   Pakketten  
 
-    -   Séquences de tâches  
+    -   Takenreeksen  
 
--   Résultats de la recherche : dossiers de recherche  
+-   Zoekresultaten: Zoekmappen  
 
--   Mises à jour logicielles :  
+-   Software-updates:  
 
-    -   Déploiements  
+    -   Implementaties  
 
-    -   Packages de déploiement  
+    -   Implementatiepakketten  
 
-    -   Modèles  
+    -   Sjablonen  
 
-    -   Listes des mises à jour logicielles  
+    -   Lijsten met software-updates  
 
--   Packages de distribution de logiciels  
+-   Softwaredistributiepakketten  
 
--   Règles de contrôle de logiciel  
+-   Regels voor softwarelicentiecontrole  
 
--   Packages d'application virtuelle  
+-   Virtuele toepassingspakketten  
 
-##  <a name="Cannot_migrate"></a> Données que vous ne pouvez pas migrer vers System Center Configuration Manager  
- Vous ne pouvez pas migrer les types d'objets suivants :  
+##  <a name="Cannot_migrate"></a>Gegevens die u niet kunt naar System Center Configuration Manager migreren  
+ U kunt de volgende typen objecten niet migreren:  
 
--   Informations de préparation de client AMT  
+-   Inrichtingsgegevens voor een AMT-client  
 
--   Fichiers stockés sur les clients, notamment :  
+-   Bestanden op clients, waaronder:  
 
-    -   Données d'inventaire et historique client  
+    -   Inventaris- en geschiedenisgegevens van een client  
 
-    -   Fichiers dans le cache du client  
+    -   Bestanden in de clientcache  
 
--   Requêtes  
+-   Query's  
 
--   Droits de sécurité Configuration Manager 2007 et instances pour le site et les objets  
+-   Configuration Manager 2007-beveiligingsrechten en -exemplaren voor de site en objecten  
 
--   Rapports Configuration Manager 2007 de SQL Server Reporting Services  
+-   Configuration Manager 2007-rapporten van SQL Server Reporting Services  
 
--   Rapports web de Configuration Manager 2007  
+-   Configuration Manager 2007-webrapporten  
 
--   Rapports System Center 2012 Configuration Manager et System Center Configuration Manager  
+-   System Center 2012 Configuration Manager en System Center Configuration Manager-rapporten  
 
--   Administration basée sur des rôles System Center 2012 Configuration Manager et System Center Configuration Manager :  
+-   System Center 2012 Configuration Manager en System Center Configuration Manager op rollen gebaseerd beheer:  
 
-    -   Rôles de sécurité  
+    -   Beveiligingsrollen  
 
-    -   Étendues de sécurité  
+    -   Beveiligingsbereiken  

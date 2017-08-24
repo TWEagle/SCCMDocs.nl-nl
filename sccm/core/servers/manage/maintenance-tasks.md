@@ -1,6 +1,6 @@
 ---
-title: "Tâches de maintenance | Microsoft Docs"
-description: "Comprenez quelles tâches de maintenance effectuer pour les sites et les hiérarchies Configuration Manager, et à quel moment les effectuer."
+title: Onderhoudstaken | Microsoft Docs
+description: "Begrijpen wat onderhoud taken voor het uitvoeren voor Configuration Manager-sites en hiërarchieën en wanneer ze moeten uitvoeren."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,124 +17,124 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 90b6e4434abc5573a364c769bd835e08e5dff16d
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="maintenance-tasks-for-system-center-configuration-manager"></a>Tâches de maintenance pour System Center Configuration Manager
+# <a name="maintenance-tasks-for-system-center-configuration-manager"></a>Onderhoudstaken voor System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Les sites et hiérarchies System Center Configuration Manager exigent une maintenance et une surveillance régulières pour fournir en permanence des services efficaces. Une maintenance régulière garantit que le matériel, les logiciels et la base de données Configuration Manager fonctionnent toujours correctement et efficacement. Lorsque les performances sont optimales, les risques de défaillance sont considérablement réduits.  
+System Center Configuration Manager-sites en hiërarchieën vereisen regelmatig onderhoud en regelmatige controle services effectiever en continu. Regelmatig onderhoud zorgt ervoor dat de hardware, software en Configuration Manager-database blijven werken correct en doeltreffend. Optimale prestaties vermindert aanzienlijk het risico is mislukt.  
 
- Pour configurer des alertes et utiliser le système d’état pour surveiller l’intégrité de Configuration Manager, consultez [Utiliser des alertes et le système d’état pour System Center Configuration Manager](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
+ Voor waarschuwingen instellen en het gebruik van het statussysteem voor het bewaken van de status van Configuration Manager, Zie [waarschuwingen en het statussysteem voor System Center Configuration Manager gebruiken](../../../core/servers/manage/use-alerts-and-the-status-system.md).  
 
--   [Tâches de maintenance](#bkmk_MTs)  
+-   [Onderhoudstaken](#bkmk_MTs)  
 
-##  <a name="bkmk_MTs"></a> Tâches de maintenance  
- Une maintenance régulière est essentielle pour assurer le bon fonctionnement du site. Tenez un journal des tâches de maintenance pour y documenter les dates, les auteurs et tout commentaire de maintenance sur les tâches.  
+##  <a name="bkmk_MTs"></a>Onderhoudstaken  
+ Regelmatig onderhoud is het belangrijk om ervoor te zorgen correcte sitebewerkingen. Houd een Onderhoudslogboek naar het document onderhoudsdatums die dit onderhoud en onderhoud gerelateerde opmerkingen over de taken heeft.  
 
-### <a name="when-to-do-common-maintenance-tasks"></a>Quand effectuer les tâches de maintenance courantes ?  
- Pour maintenir votre site, envisagez une maintenance quotidienne ou hebdomadaire. Certaines tâches peuvent nécessiter une planification différente. Une maintenance courante peut inclure les tâches de maintenance prédéfinies, ainsi que d’autres tâches, telles que la gestion des comptes pour conserver la conformité aux stratégies de l’entreprise.  
+### <a name="when-to-do-common-maintenance-tasks"></a>Wanneer algemene onderhoudstaken uitvoeren  
+ U kunt uw site dagelijkse of wekelijkse onderhoud te houden. Sommige taken mogelijk een ander schema. Algemeen onderhoud kan zowel de ingebouwde onderhoudstaken als andere taken, zoals accountonderhoud voor het handhaven van compatibiliteit met uw bedrijfsbeleid bevatten.  
 
- Utilisez les informations suivantes comme guide pour mieux planifier quand effectuer les différentes tâches de maintenance. Utilisez ces listes comme point de départ et ajoutez les tâches éventuellement requises.  
+ Gebruik de volgende informatie als richtlijn bij het plannen wanneer verschillende onderhoudstaken uitvoeren. Gebruik deze lijsten als een beginpunt en voeg de taken die u nodig hebt.  
 
-**Tâches quotidiennes**   
-Tâches de maintenance que vous pouvez envisager d’effectuer quotidiennement :  
+**Dagelijkse taken**   
+De volgende zijn onderhoudstaken die u voor op een dagelijks schema overwegen kunt:  
 
--   Vérifiez que les tâches de maintenance prédéfinies devant être exécutées quotidiennement s’exécutent correctement.  
+-   Controleer of de vooraf gedefinieerde onderhoudstaken die dagelijks zijn gepland met succes zijn uitgevoerd.  
 
--   Vérifiez l’état de la base de données Configuration Manager.  
+-   Controleer de databasestatus van de Configuration Manager.  
 
--   Vérifiez l'état du serveur de site.  
+-   Controleer de status van de server.  
 
--   Vérifiez les boîtes de réception de système de site Configuration Manager pour chercher des backlogs de fichiers.  
+-   Controleer de Configuration Manager site postvakken van achterstanden met bestanden.  
 
--   Vérifiez l'état des systèmes de site.  
+-   Status van sitesystemen controleren.  
 
--   Vérifiez les journaux d'événements du système d'exploitation sur les systèmes de site.  
+-   Controleer de gebeurtenislogboeken van het besturingssysteem op sitesystemen.  
 
--   Vérifiez le journal des erreurs de SQL Server sur l'ordinateur de la base de données de site.  
+-   Raadpleeg het foutenlogboek van SQL Server op de computer van de sitedatabase.  
 
--   Vérifiez les performances du système.  
+-   De systeemprestaties controleren.  
 
--   Vérifiez les alertes Configuration Manager.  
+-   Controleren op waarschuwingen van Configuration Manager.  
 
-**Tâches hebdomadaires**   
-Tâches de maintenance que vous pouvez envisager d’effectuer chaque semaine :  
+**Wekelijkse taken**   
+De volgende zijn onderhoudstaken die u kunt overwegen om voor een wekelijks schema:  
 
--   Vérifiez que les tâches de maintenance prédéfinies devant être exécutées chaque semaine s’exécutent correctement.  
+-   Controleer of de vooraf gedefinieerde onderhoudstaken die wekelijks moeten worden uitgevoerd zijn gepland met succes zijn uitgevoerd.  
 
--   Supprimez les fichiers inutiles des systèmes de sites.  
+-   Onnodige bestanden van sitesystemen verwijderen.  
 
--   Si nécessaire, rédigez et distribuez des rapports destinés aux utilisateurs finaux.  
+-   Produceren en distribueren van eindgebruikersrapporten, indien nodig.  
 
--   Sauvegardez les journaux des applications, de sécurité et des événements système, et effacez-les.  
+-   Back-ups van toepassings-, beveiligings- en gebeurtenislogboeken en deze wissen.  
 
--   Vérifiez la taille de la base de données du site et assurez-vous que l’espace disque disponible sur le serveur de bases de données du site est suffisant pour permettre à la base de données de grandir.  
+-   De grootte van de sitedatabase controleren en controleer of er voldoende schijfruimte beschikbaar op de siteserver van de database zodat de sitedatabase kan groeien.  
 
--   Effectuez la maintenance de la base de données du site, conformément à votre plan de maintenance de base de données SQL Server.  
+-   SQL Server-Databaseonderhoud op de sitedatabase op basis van uw SQL Server-onderhoudsplan doen.  
 
--   Vérifiez que tous les systèmes de site disposent d'espace disque disponible.  
+-   Beschikbare hoeveelheid schijfruimte op alle sitesystemen controleren.  
 
--   Exécutez les outils de défragmentation sur tous les systèmes de site.  
+-   Schijf-hulpprogramma's voor schijfdefragmentaties uitvoeren op alle sitesystemen.  
 
-**Tâches périodiques**   
-Certaines tâches qui ne nécessitent pas de maintenance quotidienne ni hebdomadaire sont importantes pour garantir l’intégrité globale du site. Ces tâches garantissent également que les plans de récupération d’urgence et de sécurité sont à jour. Tâches de maintenance que vous pouvez envisager d’effectuer plus régulièrement que les tâches quotidiennes ou hebdomadaires :  
+**Periodieke taken**   
+Sommige taken die niet nodig voor dagelijkse of wekelijkse onderhoud hebt zijn belangrijk om te controleren of de algehele sitestatus. Deze taken ook voor zorgen dat de beveiliging en noodherstel herstelplannen up-to-date zijn. De volgende zijn onderhoudstaken die u kunt overwegen om voor een andere periodieke schema dan dagelijks of wekelijks taken:  
 
--   Modifier les comptes et les mots de passe, si nécessaire, en fonction de votre plan de sécurité.  
+-   Accounts en wachtwoorden wijzigen, indien nodig, afhankelijk van uw beveiligingsplan.  
 
--   Passez en revue le plan de maintenance pour vérifier si les tâches de maintenance prévues sont planifiées correctement et efficacement en fonction des paramètres de site configurés.  
+-   Bekijk het onderhoudsplan om te controleren of geplande onderhoudstaken juist en doeltreffend zijn gepland, afhankelijk van geconfigureerde site-instellingen.  
 
--   Passez en revue la conception de la hiérarchie Configuration Manager pour repérer toute modification requise.  
+-   Bekijk het hiërarchieontwerp van de Configuration Manager-voor de vereiste wijzigingen.  
 
--   Vérifiez les performances du réseau pour vous assurer qu’aucune modification effectuée n’affecte le fonctionnement du site.  
+-   De netwerkprestaties controleren om ervoor te zorgen dat wijzigingen zijn aangebracht die van invloed zijn op sitebewerkingen.  
 
--   Vérifiez que les paramètres Active Directory affectant le fonctionnement du site n’ont pas été modifiés. Par exemple, vérifiez que les sous-réseaux qui sont attribués aux sites Active Directory et utilisés comme limites du site Configuration Manager n’ont pas changé.  
+-   Controleer of Active Directory-instellingen die van invloed zijn op sitebewerkingen niet zijn gewijzigd. Controleer bijvoorbeeld de subnetten die aan Active Directory-sites zijn toegewezen en die worden gebruikt als grenzen voor Configuration Manager-site zijn niet gewijzigd.  
 
--   Examiner dans votre plan de reprise après incident toute modification nécessaire.  
+-   Bekijk het noodherstelplan voor eventuele vereiste wijzigingen.  
 
--   Récupérez un site selon le plan de récupération d’urgence dans un laboratoire de test en utilisant une copie de sauvegarde de la dernière sauvegarde créée par la tâche de maintenance Serveur de site de sauvegarde.
+-   Siteherstel op basis van het noodherstelplan in een testomgeving doen met behulp van een back-up van de meest recente back-up die de onderhoudstaak back-upserver van Site gemaakt.
 
--   Examiner les erreurs liées au matériel ou vérifier si des mises à jour matérielles sont disponibles.  
+-   Controleer de hardware op fouten of voor de beschikbare hardware-updates.  
 
--   Vérifier l'état d'intégrité global du site.  
+-   Controleer de algemene status van de site.  
 
-###  <a name="BKMK_UseMTs"></a> Garantir l’intégrité opérationnelle de votre base de données de site  
- Quand votre site et hiérarchie Configuration Manager effectuent les tâches que vous planifiez et configurez, les composants de site ajoutent continuellement des données à la base de données Configuration Manager. Les performances de la base de données et l'espace de stockage disponible dans la base de données diminuent au fur et à mesure que la quantité de données augmente. Vous pouvez configurer des tâches de maintenance de site pour supprimer les données anciennes dont vous n’avez plus besoin.  
+###  <a name="BKMK_UseMTs"></a>De operationele status van uw sitedatabase onderhouden  
+ Terwijl u uw Configuration Manager-site en hiërarchie de taken die u plant en doet configureert, toevoegen Siteonderdelen voortdurend gegevens aan de Configuration Manager-database. Naarmate de hoeveelheid gegevens toeneemt, nemen de databaseprestaties en de beschikbare opslagruimte in de database af te wijzen. U kunt siteonderhoudstaken instellen om te verwijderen van verouderde gegevens die u niet langer nodig hebt.  
 
- Configuration Manager propose des tâches de maintenance prédéfinies que vous pouvez utiliser pour garantir l’intégrité de la base de données Configuration Manager. Toutes les tâches de maintenance ne sont pas disponibles sur chaque site, par défaut. Certaines tâches sont activées alors que d’autres ne le sont pas, et toutes prennent en charge une planification que vous pouvez configurer.  
+ Configuration Manager biedt vooraf gedefinieerde onderhoudstaken die u gebruiken kunt voor het onderhouden van de Configuration Manager-database. Niet alle onderhoudstaken zijn beschikbaar op elke site standaard. Verschillende taken die zijn ingeschakeld, terwijl sommige niet zijn en ondersteuning voor een planning die u kunt instellen.  
 
- La plupart des tâches de maintenance prédéfinies suppriment régulièrement les données périmées de la base de données Configuration Manager. La réduction de la taille de la base de données obtenue en supprimant les données inutiles permet d'améliorer les performances et l'intégrité de la base de données, ce qui améliore l'efficacité du site et de la hiérarchie. D’autres tâches, telles que **Reconstruire les index**, aident à maintenir l’efficacité de la base de données. D’autres tâches, telles que la tâche **Serveur de site de sauvegarde**, vous aident à préparer la récupération d’urgence.  
+ De meeste onderhoudstaken verwijderen periodiek verouderde gegevens uit de Configuration Manager-database. De grootte van de database beperken door het verwijderen van onnodige gegevens verbetert de prestaties en de integriteit van de database, waardoor de efficiëntie van de site en hiërarchie. Andere taken, zoals **indexen opnieuw samenstellen**, helpen de database-efficiëntie te handhaven. Andere taken, zoals de **back-upserver van Site** taak, kan u helpen op herstel na noodgevallen voorbereiden.  
 
 > [!IMPORTANT]  
->  Lorsque vous planifiez l'exécution d'une tâche qui supprime des données, examinez l'utilisation de ces données dans la hiérarchie. Quand une tâche qui supprime des données s’exécute sur un site, les informations sont supprimées de la base de données Configuration Manager, et cette modification est répliquée sur tous les sites dans la hiérarchie. Cette suppression peut affecter d’autres tâches reposant sur ces données. Par exemple, sur le site d’administration centrale, vous pouvez configurer une exécution mensuelle de la découverte afin d’identifier les ordinateurs non clients. Vous planifiez d’installer le client Configuration Manager sur ces ordinateurs dans un délai de deux semaines à compter de leur découverte. Toutefois, sur un site de la hiérarchie, un administrateur configure une exécution hebdomadaire de la tâche Supprimer les données de découverte anciennes. Il en résulte qu’une semaine après la découverte des ordinateurs non clients, ils sont supprimés de la base de données Configuration Manager. De retour sur le site d’administration centrale, vous préparez l’installation push du client Configuration Manager sur ces nouveaux ordinateurs au bout du dixième jour. Toutefois, étant donné que la tâche Supprimer les données de découverte anciennes a récemment été exécutée pour supprimer les données de sept jours ou plus, les ordinateurs récemment découverts ne sont plus disponibles dans la base de données.  
+>  Wanneer u de planning van een taak die gegevens verwijdert plant, kunt u het gebruik van die gegevens in de hiërarchie. Wanneer een taak die gegevens verwijdert, wordt uitgevoerd op een site, worden de gegevens verwijderd uit de Configuration Manager-database en deze wijziging gerepliceerd naar alle sites in de hiërarchie. Deze verwijdering kan invloed hebben op andere taken die afhankelijk van die gegevens zijn. Bijvoorbeeld: op de centrale beheersite mogelijk u detectie één keer per maand voor het identificeren van niet-clientcomputers uitvoeren instellen. U van plan bent de Configuration Manager-client installeren op deze computers binnen twee weken na hun detectie. Echter op één site in de hiërarchie stelt een beheerder de taak verouderde Detectiegegevens verwijderen om uit te voeren om de zeven dagen. Het resultaat is dat zeven dagen nadat niet-clientcomputers worden gedetecteerd, worden deze verwijderd uit de Configuration Manager-database. Op de centrale beheersite u voorbereiden voor de push-installatie van Configuration Manager-client op deze nieuwe computers op dag 10. Echter, omdat de taak verouderde Detectiegegevens verwijderen onlangs uitgevoerd en verwijderde gegevens heeft die is zeven dagen of ouder, de pas gedetecteerde computers niet langer beschikbaar is in de database zijn.  
 
-Après l’installation d’un site Configuration Manager, passez en revue les tâches de maintenance disponibles et activez celles nécessaire pour vos opérations. Passez en revue la planification par défaut de chaque tâche et, si nécessaire, modifiez la planification pour ajuster la tâche de maintenance en fonction de votre hiérarchie et de votre environnement. Bien que la planification par défaut de chaque tâche s’adapte à la plupart des environnements, surveillez les performances de vos sites et de votre base de données, et envisagez de reconfigurer ces tâches afin d’optimiser l’efficacité de votre déploiement. Planifiez d’examiner régulièrement les performances du site et de la base de données, ainsi que de reconfigurer les tâches de maintenance et leurs planifications afin de maintenir l’efficacité.  
+Nadat u een Configuration Manager-site installeert, de beschikbare onderhoudstaken en schakel de taken in die uw bewerkingen zijn vereist. Controleer de standaardplanning van elke taak en indien nodig, de planning opstellen om te verfijnen van de onderhoudstaak aanpassen aan uw hiërarchie en omgeving. Hoewel de standaardplanning van elke taak moet aan de behoeften van de meeste omgevingen, de prestaties van uw sites en database controleren en verwacht af te stemmen taken voor een verhoging van de efficiëntie van uw implementatie. Plan periodiek de prestaties van de site en database controleren en onderhoudstaken en bijbehorende planningen efficiëntie onderhouden, configureren.  
 
-#### <a name="set-up-maintenance-tasks"></a>Configurer les tâches de maintenance  
- Chaque site Configuration Manager prend en charge des tâches de maintenance qui contribuent à garantir le fonctionnement optimal de la base de données du site. Par défaut, plusieurs tâches de maintenance sont activées pour chaque site, et toutes les tâches prennent en charge des planifications indépendantes. Les tâches de maintenance sont configurées individuellement pour chaque site et s’appliquent à la base de données sur le site. Toutefois, certaines tâches, telles que **Supprimer les données de découverte anciennes**, affectent les informations disponibles dans tous les sites d’une hiérarchie.  
+#### <a name="set-up-maintenance-tasks"></a>Onderhoudstaken instellen  
+ Elke Configuration Manager-site ondersteunt onderhoudstaken waarmee de operationele efficiëntie van de sitedatabase onderhouden. Standaard verschillende onderhoudstaken zijn ingeschakeld voor elke site en alle taken ondersteunen onafhankelijke schema's. Onderhoudstaken afzonderlijk worden ingesteld voor elke site en toepassing op de database op die site. Echter, sommige taken, zoals **verouderde Detectiegegevens verwijderen**, van invloed zijn op informatie die beschikbaar is in alle sites in een hiërarchie.  
 
- La console Configuration Manager affiche uniquement les tâches de maintenance que vous pouvez configurer sur un site. Pour obtenir la liste complète des tâches de maintenance par type de site, consultez [Référence des tâches de maintenance pour System Center Configuration Manager](../../../core/servers/manage/reference-for-maintenance-tasks.md).  
+ Alleen de onderhoudstaken die u op een site instellen kunt worden weergegeven in de Configuration Manager-console. Zie voor een volledige lijst met onderhoudstaken per sitetype [verwijzing voor het onderhoud van taken voor System Center Configuration Manager](../../../core/servers/manage/reference-for-maintenance-tasks.md).  
 
- Utilisez la procédure suivante pour mieux configurer les paramètres courants des tâches de maintenance.  
+ Gebruik de volgende procedure om u te helpen bij het instellen van de algemene instellingen van onderhoudstaken.  
 
-###### <a name="to-set-up-maintenance-tasks-for-configuration-manager"></a>Pour configurer les tâches de maintenance pour Configuration Manager  
+###### <a name="to-set-up-maintenance-tasks-for-configuration-manager"></a>Voor het instellen van onderhoudstaken voor Configuration Manager  
 
-1.  Dans la console Configuration Manager, accédez à **Administration** > **Configuration de site** >**Sites**.  
+1.  Ga in de Configuration Manager-console naar **beheer** > **siteconfiguratie** >**Sites**.  
 
-2.  Choisissez le site avec la tâche de maintenance que vous souhaitez configurer.  
+2.  Kies de site met de onderhoudstaak die u wilt instellen.  
 
-3.  Sous l’onglet **Accueil**, dans le groupe **Paramètres**, choisissez **Maintenance de site**, puis choisissez la tâche de maintenance que vous souhaitez configurer.  
+3.  Op de **Start** tabblad, in de **instellingen** groep, kiest u **siteonderhoud**, en kies vervolgens de onderhoudstaak die u wilt instellen.  
 
     > [!TIP]  
-    >  Seules les tâches disponibles sur le site sélectionné sont affichées.  
+    >  Alleen taken die beschikbaar op de geselecteerde site zijn worden weergegeven.  
 
-4.  Pour configurer la tâche, choisissez **Modifier**, veillez à ce que la case **Activer cette tâche** soit cochée, et planifiez l’exécution de la tâche. Si la tâche supprime également les données anciennes, configurez l’ancienneté des données à supprimer de la base de données lors de l’exécution de la tâche. Choisissez **OK** pour fermer les **Propriétés** de la tâche.  
+4.  Als u de taak instelt, kies **bewerken**, zorg ervoor dat de **deze taak inschakelen** selectievakje is ingeschakeld en instellen van een planning voor wanneer de taak wordt uitgevoerd. Als de taak ook verouderde gegevens verwijdert, stelt u de leeftijd van de gegevens die uit de database worden verwijderd wanneer de taak wordt uitgevoerd. Kies **OK** te sluiten van de taak **eigenschappen**.  
 
     > [!NOTE]  
-    >  Pour **Supprimer les messages d’état anciens**, vous devez configurer l’ancienneté des données à supprimer lorsque vous configurez des règles de filtre d’état.  
+    >  Voor **verouderde statusberichten verwijderen**, instellen van de leeftijd van de gegevens te verwijderen bij het instellen van de statusfilterregels.  
 
-5.  Pour activer ou désactiver la tâche sans modifier les propriétés de la tâche, choisissez le bouton **Activer** ou **Désactiver**. L'étiquette du bouton change en fonction de la configuration actuelle de la tâche.  
+5.  Als u wilt in- of uitschakelen van de taak zonder de taakeigenschappen te bewerken, kiest u de **inschakelen** of **uitschakelen** knop. De knop label wordt aangepast, afhankelijk van de huidige configuratie van de taak.  
 
-6.  Une fois que vous avez terminé de configurer les tâches de maintenance, choisissez **OK** pour terminer la procédure.
+6.  Als u klaar bent met de onderhoudstaken configureren, kiest u **OK** naar de procedure hebt voltooid.

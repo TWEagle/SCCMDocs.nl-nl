@@ -1,6 +1,6 @@
 ---
-title: "Variables d’action de séquence de tâches | Microsoft Docs"
-description: "Les variables d’action de séquence, telles que les variables de paramètres réseau, permettent de spécifier les paramètres de configuration d’une seule étape de séquence de tâches Configuration Manager."
+title: Takenreeksacties | Microsoft Docs
+description: "Variabelen, zoals netwerk instelling variabelen, gebruiken om op te geven van configuratie-instellingen voor één stap in een takenreeks van Configuration Manager."
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -17,331 +17,331 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 6049ec2369e0a97b21ce6523ba8448335385ab9a
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="task-sequence-action-variables-in-system-center-configuration-manager"></a>Variables d’action de séquence de tâches dans System Center Configuration Manager
+# <a name="task-sequence-action-variables-in-system-center-configuration-manager"></a>Takenreeksacties in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Les variables d’action de séquence de tâches spécifient les paramètres de configuration utilisés par une seule étape de séquence de tâches Configuration Manager. Par défaut, les paramètres utilisés par une étape de séquence de tâches sont initialisés avant l'exécution de l'étape et sont disponibles uniquement lors de l'exécution de l'étape de séquence de tâches associée. En d'autres termes, le paramètre de variable de séquence de tâches est ajouté à l'environnement de la séquence de tâches avant l'exécution de l'étape de séquence de tâches, et la valeur est supprimée de l'environnement de la séquence de tâches après exécution de l'étape de séquence de tâches.  
+Takenreeksacties geven configuratie-instellingen die worden gebruikt door één stap in een takenreeks van System Center Configuration Manager. Standaard worden de instellingen van een takenreeksstap geïnitialiseerd voordat de stap wordt uitgevoerd en zijn deze alleen beschikbaar tijdens het uitvoeren van de gekoppelde takenreeksstap. Met andere woorden: de instelling voor de takenreeksvariabele wordt toegevoegd aan de takenreeksomgeving vóór de takenreeksstap wordt uitgevoerd, en de waarde wordt verwijderd uit de takenreeksomgeving na het uitvoeren van de takenreeksstap.  
 
-## <a name="action-variable-example"></a>Exemple de variable d'action  
- Par exemple, vous pouvez spécifier un répertoire de départ pour une action de ligne de commande à l'aide de l'étape de séquence de tâches **Exécuter la ligne de commande** . Cette étape comprend une propriété **Démarrer dans** dont la valeur par défaut est stockée dans le même environnement de la séquence de tâches que la variable **WorkingDirectory** . La variable d'environnement **WorkingDirectory** est initialisée avant l'exécution de l'action de séquence de tâches **Exécuter la ligne de commande** . Lors de l'étape **Exécuter la ligne de commande** , la valeur **WorkingDirectory** est accessible via la propriété **Démarrer dans** . Une fois l'étape de séquence de tâches terminée, la valeur de la variable **WorkingDirectory** est supprimée de l'environnement de la séquence de tâches. Si la séquence contient une autre étape **Exécuter la ligne de commande** , la nouvelle variable **WorkingDirectory** est initialisée et définie d'après la valeur de démarrage de l'étape de séquence de tâches en question.  
+## <a name="action-variable-example"></a>Voorbeeld actievariabele  
+ U kunt bijvoorbeeld een startmap voor een opdrachtregelactie opgeven met behulp van de takenreeksstap **Opdrachtregel uitvoeren** . Deze stap omvat de eigenschap **Beginnen in** waarvan de standaardwaarde is opgeslagen in de takenreeksomgeving als de variabele **WorkingDirectory** . De omgevingsvariabele **WorkingDirectory** wordt geïnitialiseerd voordat de takenreeksactie **Opdrachtregel uitvoeren** wordt uitgevoerd. Tijdens de stap **Opdrachtregel uitvoeren** is de waarde van **WorkingDirectory** toegankelijk via de eigenschap **Beginnen in** . Wanneer de takenreeksstap is voltooid, wordt de waarde van de variabele **WorkingDirectory** verwijderd uit de takenreeksomgeving. Als de reeks een ander exemplaar van de takenreeksstap **Opdrachtregel uitvoeren** bevat, wordt de nieuwe variabele **WorkingDirectory** geïnitialiseerd en ingesteld op de beginwaarde voor deze takenreeksstap.  
 
- Tandis que la valeur par défaut d'un paramètre d'action de séquence de tâches reste présente lors de l'exécution de l'étape de séquence de tâches, toutes les nouvelles valeurs que vous définissez peuvent être utilisées par plusieurs étapes de la séquence. Si vous faites appel à des méthodes de création de variables de séquence de tâches pour remplacer une valeur de variable intégrée, la nouvelle valeur demeure dans l'environnement et remplace la valeur par défaut des autres étapes de la séquence de tâches. Dans l’exemple précédent, si une étape **Définir une variable de séquence de tâches** est ajoutée comme première étape de la séquence de tâches et qu’elle attribue à la variable d’environnement **WorkingDirectory** la valeur **C:\\**, les deux étapes **Exécuter la ligne de commande** de la séquence de tâches utilisent la nouvelle valeur de répertoire de démarrage.  
+ Terwijl de standaardwaarde voor de instelling van een takenreeksactie aanwezig is tijdens de uitvoering van de takenreeksstap, kan elke nieuwe waarde die u instelt worden gebruikt door meerdere stappen in de reeks. Als u een van de aanmaakmethoden voor de takenreeksvariabele gebruikt om de waarde van een ingebouwde variabele te onderdrukken, wordt de nieuwe waarde gehandhaafd in de omgeving en vervangt deze de standaardwaarde voor de overige stappen in de takenreeks. In het vorige voorbeeld als een **Takenreeksvariabele instellen** stap wordt toegevoegd als de eerste stap van de takenreeks en wordt de **WorkingDirectory** omgevingsvariabele aan de waarde **C:\\**, beide **opdrachtregel uitvoeren** stappen in de takenreeks wordt de nieuwe waarde voor de beginmap gebruikt.  
 
-## <a name="action-variables-for-task-sequence-actions"></a>Variables d'action pour des actions de séquence de tâches  
- Les variables de séquence de tâches Configuration Manager sont regroupées en fonction de l’action de séquence de tâches à laquelle est elles sont associées. Utilisez les liens suivants pour collecter des informations sur les variables d'action associées à une action spécifique. Les variables de séquence de tâches régissent le fonctionnement de l’action de séquence de tâches. L’action de séquence de tâches lit et utilise les variables que vous marquez en tant que variables d’entrée. Vous pouvez également utiliser l’action Définir la variable de séquence de tâches ou l’objet COM TSEnvironment pour définir les variables lors de l’exécution. Seule l’action de séquence de tâches marque les variables en tant que variables de sortie, qui sont lues par les actions qui se produisent ultérieurement dans la séquence de tâches.  
+## <a name="action-variables-for-task-sequence-actions"></a>Variabelen voor takenreeksacties  
+ Configuration Manager-takenreeksvariabelen zijn gegroepeerd op hun bijbehorende takenreeksactie. Gebruik de volgende koppelingen voor het verzamelen van informatie over de variabelen die zijn gekoppeld aan een specifieke actie. De takenreeksvariabelen bepalen hoe de takenreeksactie werkt. De variabelen die u als invoervariabelen markeert, worden door de takenreeksactie gelezen en gebruikt. U kunt ook de actie voor het instellen van een takenreeksvariabele of het TSEnvironment COM-object gebruiken om de variabelen tijdens runtime in te stellen. Alleen de takenreeksactie markeert variabelen als uitvoervariabelen, die worden gelezen door acties die later in de takenreeks worden uitgevoerd.  
 
 > [!NOTE]  
->  Toutes les actions de séquence de tâches ne sont pas associées à un ensemble de variables de séquence de tâches. Par exemple, bien qu'il existe des variables associées à l'action Activer BitLocker, il n'existe aucune variable associée à l'action Désactiver BitLocker.  
+>  Niet alle takenreeksacties zijn gekoppeld aan een set takenreeksvariabelen. Bijvoorbeeld: hoewel er variabelen zijn gekoppeld aan de actie BitLocker inschakelen, zijn er geen variabelen gekoppeld aan de actie BitLocker uitschakelen.  
 
-###  <a name="BKMK_ApplyDataImage"></a> Variables d'action de séquence de tâches Appliquer l'image de données  
- Les variables pour cette action spécifient quelle image d'un fichier WIM est appliquée à l'ordinateur de destination et s'il faut supprimer les fichiers sur la partition de destination. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Étape de séquence de tâches Appliquer l’image de données](task-sequence-steps.md#BKMK_ApplyDataImage).  
+###  <a name="BKMK_ApplyDataImage"></a> Variabelen voor de takenreeksactie Gegevensinstallatiekopie toepassen  
+ De variabelen voor deze actie geven op welke installatiekopie van een WIM-bestand wordt toegepast op de doelcomputer en of de bestanden op de doelpartitie worden verwijderd. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [toepassen gegevens Takenreeksstap gegevensinstallatiekopie](task-sequence-steps.md#BKMK_ApplyDataImage).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|OSDDataImageIndex<br /><br /> (entrée)|Spécifie la valeur d'index de l'image qui est appliquée à l'ordinateur de destination.|  
-|OSDWipeDestinationPartition<br /><br /> (entrée)|Spécifie s'il faut supprimer les fichiers situés sur la partition de destination.<br /><br /> Valeurs valides :<br /><br /> **« true »** (par défaut)<br /><br /> **« false »**|  
+|OSDDataImageIndex<br /><br /> (invoer)|Hiermee geeft u de indexwaarde op van de installatiekopie die wordt toegepast op de doelcomputer.|  
+|OSDWipeDestinationPartition<br /><br /> (invoer)|Hiermee geeft u op of de bestanden op de doelpartitie worden verwijderd.<br /><br /> Geldige waarden:<br /><br /> '**true** ' (standaard)<br /><br /> '**false**'|  
 
-###  <a name="BKMK_ApplyDriverPackage"></a> Variables de l'action de séquence de tâches Appliquer le package de pilotes  
- Les variables pour cette action spécifient les informations de l'installation des pilotes de stockage de masse et s'il faut installer des pilotes non signés. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Appliquer le package de pilotes](task-sequence-steps.md#BKMK_ApplyDriverPackage).  
+###  <a name="BKMK_ApplyDriverPackage"></a> Variabelen voor de takenreeksactie Stuurprogrammapakket toepassen  
+ De variabelen voor deze actie geven informatie op over de installatie van stuurprogramma's voor massaopslag en bepalen of niet-ondertekende stuurprogramma's worden geïnstalleerd. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [stuurprogrammapakket toepassen](task-sequence-steps.md#BKMK_ApplyDriverPackage).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|OSDApplyDriverBootCriticalContentUniqueID<br /><br /> (entrée)|Spécifie l'ID de contenu du pilote de périphérique de stockage de masse à installer à partir du package de pilotes. Si vous ne spécifiez pas ce paramètre, aucun pilote de stockage de masse n'est installé.|  
-|OSDApplyDriverBootCriticalINFFile<br /><br /> (entrée)|Spécifie le fichier INF du pilote de stockage de masse à installer.<br /><br /> <br /><br /> Cette variable de séquence de tâches est requise si OSDApplyDriverBootCriticalContentUniqueID est défini.|  
-|OSDApplyDriverBootCriticalHardwareComponent<br /><br /> (entrée)|Spécifie si un pilote de périphérique de stockage de masse est installé, qui doit être de type **scsi**.<br /><br /> <br /><br /> Cette variable de séquence de tâches est requise si OSDApplyDriverBootCriticalContentUniqueID est défini.|  
-|OSDApplyDriverBootCriticalID<br /><br /> (entrée)|Spécifie l'ID critique de démarrage du pilote de périphérique de stockage de masse à installer. Cet ID apparaît dans la section «**scsi**» du fichier txtsetup.oem du pilote de périphérique.<br /><br /> <br /><br /> Cette variable de séquence de tâches est requise si OSDApplyDriverBootCriticalContentUniqueID est défini.|  
-|OSDAllowUnsignedDriver<br /><br /> (entrée)|Spécifie s'il faut configurer Windows pour autoriser l'installation de pilotes de périphérique non signés. Cette variable de séquence de tâches n'est pas utilisée au cours du déploiement du système d'exploitation Windows Vista et version ultérieure.<br /><br /> Valeurs valides :<br /><br /> **« true »**<br /><br /> **« false »** (par défaut)|  
+|OSDApplyDriverBootCriticalContentUniqueID<br /><br /> (invoer)|Hiermee geeft u de inhoud-id op van het te installeren stuurprogramma voor massaopslagapparaten uit het stuurprogrammapakket. Als dit niet is opgegeven, wordt er geen stuurprogramma voor massaopslag geïnstalleerd.|  
+|OSDApplyDriverBootCriticalINFFile<br /><br /> (invoer)|Hiermee geeft u het INF-bestand op van het te installeren stuurprogramma voor massaopslag.<br /><br /> <br /><br /> Deze takenreeksvariabele is vereist als OSDApplyDriverBootCriticalContentUniqueID is ingesteld.|  
+|OSDApplyDriverBootCriticalHardwareComponent<br /><br /> (invoer)|Hiermee geeft u op of een stuurprogramma voor massaopslagapparaten wordt geïnstalleerd, moet dit **scsi**.<br /><br /> <br /><br /> Deze takenreeksvariabele is vereist als OSDApplyDriverBootCriticalContentUniqueID is ingesteld.|  
+|OSDApplyDriverBootCriticalID<br /><br /> (invoer)|Hiermee geeft u de essentiële opstart-id op van het te installeren stuurprogramma voor massaopslagapparaten. Deze ID wordt weergegeven de '**scsi**' sectie van het apparaatstuurprogramma txtsetup.oem-bestand.<br /><br /> <br /><br /> Deze takenreeksvariabele is vereist als OSDApplyDriverBootCriticalContentUniqueID is ingesteld.|  
+|OSDAllowUnsignedDriver<br /><br /> (invoer)|Hiermee kunt u configureren of Windows de installatie van niet-ondertekende apparaatstuurprogramma's toestaat. Deze takenreeksvariabele wordt niet gebruikt bij het implementeren van het besturingssysteem Windows Vista of hoger.<br /><br /> Geldige waarden:<br /><br /> **true**<br /><br /> '**false** ' (standaard)|  
 
-###  <a name="BKMK_ApplyNetworkSettings"></a> Variables de l'action de séquence de tâches Appliquer les paramètres réseau  
- Les variables pour cette action spécifient les paramètres réseau de l'ordinateur de destination, tels que les paramètres pour les cartes réseau de l'ordinateur, les paramètres de domaine et les paramètres de groupe de travail. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Appliquer l’étape des paramètres réseau](task-sequence-steps.md#BKMK_ApplyNetworkSettings).  
+###  <a name="BKMK_ApplyNetworkSettings"></a> Variabelen voor de takenreeksactie Netwerkinstellingen toepassen  
+ De variabelen voor deze actie geven netwerkinstellingen voor de doelcomputer op, zoals instellingen voor de netwerkadapters van de computer, domeininstellingen en werkgroepinstellingen. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [stap netwerkinstellingen toepassen](task-sequence-steps.md#BKMK_ApplyNetworkSettings).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|OSDAdapter<br /><br /> (entrée)|Cette variable de séquence de tâches est une variable de matrice. Chaque élément de la matrice représente les paramètres d'une carte réseau de l'ordinateur. Vous accédez aux paramètres définis pour chaque carte en combinant le nom de la variable de matrice avec le numéro de carte réseau de base zéro et le nom de propriété.<br /><br /> <br /><br /> Si plusieurs cartes réseau sont configurées dans cette action de séquence de tâches, les propriétés de la deuxième carte sont définies en précisant son numéro dans le nom de la variable, par exemple OSDAdapter1EnableDHCP, OSDAdapter1IPAddressList, OSDAdapter1DNSDomain, OSDAdapter1WINSServerList, OSDAdapter1EnableWINS et ainsi de suite.<br /><br /> <br /><br /> Par exemple, vous pouvez utiliser les noms de variables suivants pour définir les propriétés de la première carte réseau configurée dans l'action de séquence de tâches :<br /><br /> <ul><li>**OSDAdapter0EnableDHCP** - true pour activer le protocole DHCP (Dynamic Host Configuration Protocol) de la carte.<br />    Ce paramètre est obligatoire. Les valeurs possibles sont True et False.</li><li>**OSDAdapter0IPAddressList** - Liste délimitée par des virgules des adresses IP de la carte. Cette propriété est ignorée sauf si **EnableDHCP** est réglé sur **false**.<br />    Ce paramètre est obligatoire.</li><li>**OSDAdapter0SubnetMask** - Liste délimitée par des virgules des masques de sous-réseaux. Cette propriété est ignorée sauf si **EnableDHCP** est réglé sur **false**.<br />    Ce paramètre est obligatoire.</li><li>**OSDAdapter0Gateways** - Liste délimitée par des virgules des adresses IP de passerelle. Cette propriété est ignorée sauf si **EnableDHCP** est réglé sur **false**.<br />    Ce paramètre est obligatoire.</li><li>**OSDAdapter0DNSDomain** : domaine DNS (Domain Name System) de la carte.</li><li>**OSDAdapter0DNSServerList** - Liste délimitée par des virgules des serveurs DNS de la carte.<br />    Ce paramètre est obligatoire.</li><li>**OSDAdapter0EnableDNSRegistrationtrue** - **true** pour enregistrer l’adresse IP de la carte dans DNS.</li><li>**OSDAdapter0EnableFullDNSRegistrationtrue** - **true** pour enregistrer l’adresse IP de la carte dans DNS sous le nom DNS complet de l’ordinateur.</li><li>**OSDAdapter0EnableIPProtocolFilteringtrue** - **true** pour activer le filtrage de protocole IP sur la carte.</li><li>**OSDAdapter0IPProtocolFilterList** - Liste délimitée par des virgules des protocoles autorisés à s’exécuter sur IP. Cette propriété est ignorée sauf si **EnableIPProtocolFiltering** est réglé sur **false**.</li><li>**OSDAdapter0EnableTCPFilteringtrue** - **true** pour activer le filtrage de port TCP sur la carte.</li><li>**OSDAdapter0TCPFilterPortList** – Liste délimitée par des virgules des ports auxquels les autorisations d’accès à TCP sont à accorder. Cette propriété est ignorée sauf si **EnableTCPFiltering** est réglé sur **false**.</li><li>**OSDAdapter0TcpipNetbiosOptions** - Options pour NetBIOS sur TCP/IP. Les valeurs possibles sont les suivantes :<br /><br /> <ul><li>0 Utiliser des paramètres NetBIOS du serveur DHCP</li><li>1 Activer NetBIOS avec TCP/IP</li><li>2 Désactiver NetBIOS avec TCP/IP.</li></ul></li><li>**OSDAdapter0EnableWINStrue** - **true** pour utiliser WINS pour la résolution de noms.</li><li>**OSDAdapter0WINSServerList** - Liste délimitée par des virgules des adresses IP du serveur WINS. Cette propriété est ignorée sauf si **EnableWINS** est réglé sur **true**.</li><li>**OSDAdapter0MacAddress** - Adresse MAC (Media Access Controller) utilisée pour faire correspondre les paramètres à la carte réseau physique.</li><li>**OSDAdapter0Name** - Nom de la connexion réseau tel qu’il apparaît dans le programme Connexions réseau du Panneau de configuration. La longueur du nom est comprise entre 0 et 255 caractères.</li><li>**OSDAdapter0Index** - Index des paramètres de carte réseau dans le tableau des paramètres.<br /><br />     OSDAdapterCount=1<br />    OSDAdapter0EnableDHCP=FALSE<br />    OSDAdapter0IPAddressList=192.168.0.40<br />    OSDAdapter0SubnetMask=255.255.255.0<br />    OSDAdapter0Gateways=192.168.0.1<br />    OSDAdapter0DNSSuffix=contoso.com</li></ul>|  
-|OSDAdapterCount<br /><br /> (entrée)|Spécifie le nombre de cartes réseau installées sur l'ordinateur de destination. Quand la valeur **OSDAdapterCount** est définie, toutes les options de configuration de chaque carte doivent être définies. Par exemple, si vous définissez la valeur **OSDAdapterTCPIPNetbiosOptions** pour une carte spécifique, toutes les valeurs pour cette carte doivent également être configurées.<br /><br /> <br /><br /> Si cette valeur n’est pas spécifiée, toutes les valeurs **OSDAdapter** sont ignorées.|  
-|OSDDNSDomain<br /><br /> (entrée)|Spécifie le serveur DNS principal utilisé sur l'ordinateur de destination.|  
-|OSDDomainName<br /><br /> (entrée)|Spécifie le nom du domaine Windows auquel l'ordinateur de destination se joint. La valeur spécifiée doit être un nom de domaine de services de domaine Active Directory valide.|  
-|OSDDomainOUName<br /><br /> (entrée)|Spécifie le format du nom RFC 1779 de l'unité d'organisation que l'ordinateur de destination joint. S'il est spécifié, la valeur doit contenir le chemin complet.<br /><br /> Exemple :<br /><br /> **LDAP://OU=MyOu,DC=MyDom,DC=MyCompany,DC=com**|  
-|OSDEnableTCPIPFiltering<br /><br /> (entrée)|Spécifie si le filtrage TCP/IP est activé.<br /><br /> Valeurs valides :<br /><br /> **« true »**<br /><br /> **« false »** (par défaut)|  
-|OSDJoinAccount<br /><br /> (entrée)|Spécifie le compte réseau utilisé pour ajouter l'ordinateur de destination à un domaine Windows.|  
-|OSDJoinPassword<br /><br /> (entrée)|Spécifie le mot de passe réseau utilisé pour ajouter l'ordinateur de destination à un domaine Windows.|  
-|OSDNetworkJoinType<br /><br /> (entrée)|Spécifie si l'ordinateur de destination se joint à un domaine Windows ou un groupe de travail.<br /><br /> **« 0 »** indique que l'ordinateur de destination se joint à un domaine Windows. **« 1 »** spécifie que l'ordinateur se joint à un groupe de travail.<br /><br /> Valeurs valides :<br /><br /> **« 0 »**<br /><br /> **« 1 »**|  
-|OSDDNSSuffixSearchOrder<br /><br /> (entrée)|Spécifie l'ordre de recherche DNS de l'ordinateur de destination.|  
-|OSDWorkgroupName<br /><br /> (entrée)|Spécifie le nom du groupe de travail auquel l'ordinateur de destination se joint.<br /><br /> Vous devez spécifier cette valeur ou la valeur **OSDDomainName** . Le nom du groupe de travail est limité à 32 caractères.<br /><br /> Exemple :<br /><br /> **« Comptabilité »**|  
+|OSDAdapter<br /><br /> (invoer)|Deze takenreeksvariabele is een matrixvariabele. Elk element in de matrix staat voor de instellingen voor één netwerkadapter op de computer. De instellingen die zijn gedefinieerd voor elke adapter zijn toegankelijk door de naam van de matrixvariabele te combineren met de netwerkadapterindex (op basis van nul) en de naam van de eigenschap.<br /><br /> <br /><br /> Als meerdere netwerkadapters worden geconfigureerd met deze takenreeksactie, worden de eigenschappen voor de tweede netwerkadapter gedefinieerd met behulp van de index in de naam van de variabele; bijvoorbeeld, OSDAdapter1EnableDHCP, OSDAdapter1IPAddressList, OSDAdapter1DNSDomain, OSDAdapter1WINSServerList, OSDAdapter1EnableWINS, enzovoort.<br /><br /> <br /><br /> De namen van de volgende variabelen kunnen bijvoorbeeld worden gebruikt voor het definiëren van de eigenschappen voor de eerste netwerkadapter die door deze takenreeksactie wordt geconfigureerd:<br /><br /> <ul><li>**OSDAdapter0EnableDHCP** - wilt inschakelen, Dynamic Host Configuration Protocol (DHCP) voor de adapter.<br />    Deze instelling is vereist. Mogelijke waarden zijn:  Waar of ONWAAR.</li><li>**OSDAdapter0IPAddressList** -door komma's gescheiden lijst met IP-adressen voor de adapter. Deze eigenschap wordt genegeerd, tenzij **EnableDHCP** is ingesteld op **false**.<br />    Deze instelling is vereist.</li><li>**OSDAdapter0SubnetMask** -bestand met door komma's gescheiden lijst met subnetmaskers. Deze eigenschap wordt genegeerd, tenzij **EnableDHCP** is ingesteld op **false**.<br />    Deze instelling is vereist.</li><li>**OSDAdapter0Gateways** -bestand met door komma's gescheiden lijst met IP-gatewayadressen. Deze eigenschap wordt genegeerd, tenzij **EnableDHCP** is ingesteld op **false**.<br />    Deze instelling is vereist.</li><li>**OSDAdapter0DNSDomain** – DNS-domein (Domain Name System) voor de adapter.</li><li>**OSDAdapter0DNSServerList** -door komma's gescheiden lijst met DNS-servers voor de adapter.<br />    Deze instelling is vereist.</li><li>**OSDAdapter0EnableDNSRegistration** - **true** naar het IP-adres voor de adapter in DNS registreren.</li><li>**OSDAdapter0EnableFullDNSRegistration** - **true** naar het IP-adres voor de adapter in DNS registreren onder de volledige DNS-naam voor de computer.</li><li>**OSDAdapter0EnableIPProtocolFiltering** - **true** om in te schakelen van IP-protocolfiltering op de adapter.</li><li>**OSDAdapter0IPProtocolFilterList** -bestand met door komma's gescheiden lijst met protocollen mag worden uitgevoerd via IP. Deze eigenschap wordt genegeerd als **EnableIPProtocolFiltering** is ingesteld op **false**.</li><li>**OSDAdapter0EnableTCPFiltering** - **true** om in te schakelen voor de adapter voor het filteren van TCP-poort.</li><li>**OSDAdapter0TCPFilterPortList** -door komma's gescheiden lijst met poorten waaraan toegangsmachtigingen voor TCP worden toegekend. Deze eigenschap wordt genegeerd als **EnableTCPFiltering** is ingesteld op **false**.</li><li>**OSDAdapter0TcpipNetbiosOptions** -opties voor NetBIOS via TCP/IP. Mogelijke waarden zijn als volgt:<br /><br /> <ul><li>0 NetBIOS-instellingen van DHCP-server gebruiken.</li><li>1 NetBIOS inschakelen via TCP/IP.</li><li>2 NetBIOS uitschakelen via TCP/IP.</li></ul></li><li>**OSDAdapter0EnableWINS** - **true** WINS te gebruiken voor naamomzetting.</li><li>**OSDAdapter0WINSServerList** -door komma's gescheiden lijst met IP-adressen van WINS-server. Deze eigenschap wordt genegeerd, tenzij **EnableWINS** is ingesteld op **true**.</li><li>**OSDAdapter0MacAddress** -Media access controller (MAC)-adres gebruikt om instellingen op fysieke netwerkadapter.</li><li>**OSDAdapter0Name** - naam van de netwerkverbinding zoals deze wordt weergegeven in het netwerk verbindingen besturingsprogramma Configuratiescherm. De naam kan tussen 0 en 255 tekens lang zijn.</li><li>**OSDAdapter0Index** -Index van de instellingen van de netwerkadapter in de matrix van instellingen.<br /><br />     OSDAdapterCount = 1<br />    OSDAdapter0EnableDHCP = FALSE<br />    OSDAdapter0IPAddressList 192.168.0.40 =<br />    OSDAdapter0SubnetMask 255.255.255.0 =<br />    OSDAdapter0Gateways 192.168.0.1 =<br />    OSDAdapter0DNSSuffix=contoso.com</li></ul>|  
+|OSDAdapterCount<br /><br /> (invoer)|Hiermee geeft u het aantal netwerkadapters op dat op de doelcomputer is geïnstalleerd. Wanneer de waarde  van **OSDAdapterCount** is ingesteld, moeten alle configuratieopties voor elke adapter worden ingesteld. Als u bijvoorbeeld de waarde van **OSDAdapterTCPIPNetbiosOptions** instelt voor een specifieke adapter, moeten alle waarden voor die adapter ook worden geconfigureerd.<br /><br /> <br /><br /> Als deze waarde niet is opgegeven, worden alle waarden van **OSDAdapter** genegeerd.|  
+|OSDDNSDomain<br /><br /> (invoer)|Hiermee geeft u de primaire DNS-server op die wordt gebruikt door de doelcomputer.|  
+|OSDDomainName<br /><br /> (invoer)|Hiermee geeft u de naam op van het Windows-domein waarvan de doelcomputer lid wordt. De opgegeven waarde moet een geldige domeinnaam van Active Directory Domain Services zijn.|  
+|OSDDomainOUName<br /><br /> (invoer)|Hiermee geeft u de naam in RFC 1779-indeling op van de organisatie-eenheid (OE) waarvan de doelcomputer lid wordt. Als u deze optie opgeeft, moet de waarde het volledige pad bevatten.<br /><br /> Voorbeeld:<br /><br /> **LDAP://OU=MyOu,DC=MyDom,DC=MyCompany,DC=com**|  
+|OSDEnableTCPIPFiltering<br /><br /> (invoer)|Hiermee geeft u aan of TCP/IP-filtering is ingeschakeld.<br /><br /> Geldige waarden:<br /><br /> **true**<br /><br /> '**false** ' (standaard)|  
+|OSDJoinAccount<br /><br /> (invoer)|Hiermee geeft u het netwerkaccount op dat wordt gebruikt voor het toevoegen van de doelcomputer aan een Windows-domein.|  
+|OSDJoinPassword<br /><br /> (invoer)|Hiermee geeft u het netwerkwachtwoord op dat wordt gebruikt voor het toevoegen van de doelcomputer aan een Windows-domein.|  
+|OSDNetworkJoinType<br /><br /> (invoer)|Hiermee geeft u aan of de doelcomputer lid wordt van een Windows-domein of een werkgroep.<br /><br /> **0** geeft aan dat de doelcomputer lid wordt van een Windows-domein. **1** geeft aan dat de computer lid wordt van een werkgroep.<br /><br /> Geldige waarden:<br /><br /> **0**<br /><br /> **1**|  
+|OSDDNSSuffixSearchOrder<br /><br /> (invoer)|Hiermee geeft u de DNS-zoekvolgorde op voor de doelcomputer.|  
+|OSDWorkgroupName<br /><br /> (invoer)|Hiermee geeft u de naam op van de werkgroep waarvan de doelcomputer lid wordt.<br /><br /> U moet deze waarde of de waarde van **OSDDomainName** opgeven. De werkgroepnaam mag maximaal 32 tekens lang zijn.<br /><br /> Voorbeeld:<br /><br /> **"Accounting"**|  
 
-###  <a name="BKMK_ApplyOperatingSystem"></a> Variables de l'action de séquence de tâches Appliquer l'image du système d'exploitation  
- Les variables pour cette action spécifient les paramètres du système d'exploitation que vous souhaitez installer sur l'ordinateur de destination. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Appliquer l’image de système d’exploitation](task-sequence-steps.md#BKMK_ApplyOperatingSystemImage).  
+###  <a name="BKMK_ApplyOperatingSystem"></a> Variabelen voor de takenreeksactie Besturingssysteeminstallatiekopie toepassen  
+ De variabelen voor deze actie geven instellingen op voor het besturingssysteem dat u wilt installeren op de doelcomputer. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [Besturingssysteeminstallatiekopie toepassen](task-sequence-steps.md#BKMK_ApplyOperatingSystemImage).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|OSDConfigFileName<br /><br /> (entrée)|Spécifie le nom du fichier de réponse de déploiement du système d'exploitation associé au package de déploiement du système d'exploitation.|  
-|OSDImageIndex<br /><br /> (entrée)|Spécifie la valeur d'index de l'image du fichier WIM qui est appliquée à l'ordinateur de destination.|  
-|OSDInstallEditionIndex<br /><br /> (entrée)|Spécifie la version du système d'exploitation Windows Vista ou version ultérieure qui est installée. Si aucune version n'est précisée, le programme d'installation de Windows déterminera la version à installer à l'aide de la clé du produit référencé.<br /><br /> Utilisez uniquement une valeur égale à zéro (0) si les conditions suivantes sont vraies :<br /><br /> -   Vous installez un système d’exploitation antérieur à Windows Vista.<br />-   Vous installez une édition de licence en volume de Windows Vista ou version ultérieure, et aucune clé de produit n’est spécifiée.<br /><br /> Valeurs valides :<br /><br /> **« 0 »** (par défaut)|  
-|OSDTargetSystemDrive (sortie)|Indique la lettre de lecteur de la partition contenant les fichiers du système d'exploitation.|  
+|OSDConfigFileName<br /><br /> (invoer)|Hiermee geeft u de bestandsnaam van het antwoordbestand voor besturingssysteemimplementatie op dat is gekoppeld aan het implementatiepakket voor het besturingssysteem.|  
+|OSDImageIndex<br /><br /> (invoer)|Hiermee geeft u de indexwaarde van de installatiekopie op uit het WIM-bestand dat wordt toegepast op de doelcomputer.|  
+|OSDInstallEditionIndex<br /><br /> (invoer)|Hiermee geeft u de versie op van het besturingssysteem Windows Vista of hoger dat wordt geïnstalleerd. Als er geen versie is opgegeven, bepaalt Windows Setup welke versie wordt geïnstalleerd aan de hand van de productcode.<br /><br /> Gebruik alleen de waarde nul (0) als aan de volgende voorwaarden wordt voldaan:<br /><br /> -U installeert een ouder dan Windows Vista-besturingssysteem<br />-U installeert een volumelicentie-editie van Windows Vista of hoger en er geen productcode is opgegeven.<br /><br /> Geldige waarden:<br /><br /> **"0"** (standaard)|  
+|OSDTargetSystemDrive (uitvoer)|Hiermee geeft u de stationsletter op van de partitie die de besturingssysteembestanden bevat.|  
 
-###  <a name="BKMK_ApplyWindowsSettings"></a> Variables d'action de séquence de tâches Appliquer les paramètres Windows  
- Les variables pour cette action spécifient des paramètres Windows pour l'ordinateur de destination, tels que le nom de l'ordinateur, la clé de produit Windows, l'utilisateur et l'organisation inscrits et le mot de passe d'administrateur local. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Appliquer les paramètres Windows](task-sequence-steps.md#BKMK_ApplyWindowsSettings).  
+###  <a name="BKMK_ApplyWindowsSettings"></a> Variabelen voor de takenreeksactie Windows-instellingen toepassen  
+ De variabelen voor deze actie worden gegeven Windows-instellingen voor de doelcomputer op, zoals de computernaam, Windows-productcode, de geregistreerde gebruiker en organisatie, en het lokale beheerderswachtwoord. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [Windows-instellingen toepassen](task-sequence-steps.md#BKMK_ApplyWindowsSettings).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|OSDComputerName<br /><br /> (entrée)|Spécifie le nom de l'ordinateur de destination.<br /><br /> Exemple :<br /><br /> **« %_SMSTSMachineName% »** (par défaut)|  
-|OSDProductKey<br /><br /> (entrée)|Spécifie la clé de produit Windows. La valeur spécifiée doit comprendre entre 1 et 255 caractères.|  
-|OSDRegisteredUserName<br /><br /> (entrée)|Spécifie le nom d'utilisateur inscrit par défaut dans le nouveau système d'exploitation. La valeur spécifiée doit comprendre entre 1 et 255 caractères.|  
-|OSDRegisteredOrgName<br /><br /> (entrée)|Spécifie le nom d'organisation inscrit par défaut dans le nouveau système d'exploitation. La valeur spécifiée doit comprendre entre 1 et 255 caractères.|  
-|OSDTimeZone<br /><br /> (entrée)|Spécifie le paramètre de fuseau horaire par défaut utilisé dans le nouveau système d'exploitation.|  
-|OSDServerLicenseMode<br /><br /> (entrée)|Spécifie le mode de licence Windows Server utilisé.<br /><br /> Valeurs valides :<br /><br /> **« PerSeat »**<br /><br /> **« PerServer »**|  
-|OSDServerLicenseConnectionLimit<br /><br /> (entrée)|Spécifie le nombre maximal de connexions autorisées. Le nombre spécifié doit comprendre entre 5 et 9 999 connexions.|  
-|OSDRandomAdminPassword<br /><br /> (entrée)|Spécifie un mot de passe généré de manière aléatoire pour le compte de l'administrateur dans le nouveau système d'exploitation. Si cette variable est définie sur **true**, le compte d’administrateur local est désactivé sur l’ordinateur cible. Si elle est définie sur **false**, il est activé sur l’ordinateur cible et son mot de passe prend la valeur de la variable **OSDLocalAdminPassword**.<br /><br /> Valeurs valides :<br /><br /> **« true »** (par défaut)<br /><br /> **« false »**|  
-|OSDLocalAdminPassword<br /><br /> (entrée)|Spécifie le mot de passe de l'administrateur local. Cette valeur est ignorée si vous sélectionnez l'option **Générer de façon aléatoire le mot de passe de l'administrateur local et désactiver le compte sur toutes les plates-formes prises en charge** . La valeur spécifiée doit comprendre entre 1 et 255 caractères.|  
+|OSDComputerName<br /><br /> (invoer)|Geeft de naam van de doelcomputer op.<br /><br /> Voorbeeld:<br /><br /> **"%_SMSTSMachineName%"** (standaard)|  
+|OSDProductKey<br /><br /> (invoer)|Geeft de Windows-productcode op. De opgegeven waarde moet tussen 1 en 255 tekens lang zijn.|  
+|OSDRegisteredUserName<br /><br /> (invoer)|Hiermee geeft u de standaard geregistreerde gebruikersnaam in het nieuwe besturingssysteem op. De opgegeven waarde moet tussen 1 en 255 tekens lang zijn.|  
+|OSDRegisteredOrgName<br /><br /> (invoer)|Hiermee geeft u de standaard geregistreerde organisatienaam in het nieuwe besturingssysteem op. De opgegeven waarde moet tussen 1 en 255 tekens lang zijn.|  
+|OSDTimeZone<br /><br /> (invoer)|Hiermee geeft u de standaardinstelling op voor de tijdzone die wordt gebruikt in het nieuwe besturingssysteem.|  
+|OSDServerLicenseMode<br /><br /> (invoer)|Hiermee geeft u de Windows Server-licentiemodus op die wordt gebruikt.<br /><br /> Geldige waarden:<br /><br /> **"PerSeat"**<br /><br /> **"PerServer"**|  
+|OSDServerLicenseConnectionLimit<br /><br /> (invoer)|Hiermee geeft u het maximumaantal toegestane verbindingen op. Het opgegeven getal moet liggen tussen 5 en 9999 verbindingen.|  
+|OSDRandomAdminPassword<br /><br /> (invoer)|Hiermee geeft u een willekeurig gegenereerd wachtwoord op voor het beheerdersaccount in het nieuwe besturingssysteem. Indien ingesteld op **true**, het lokale beheerdersaccount wordt uitgeschakeld op de doelcomputer. Indien ingesteld op **false**, wordt het lokale beheerdersaccount ingeschakeld op de doelcomputer en de waarde van de variabele wordt toegewezen door het lokale beheerderswachtwoord **OSDLocalAdminPassword**.<br /><br /> Geldige waarden:<br /><br /> '**true** ' (standaard)<br /><br /> '**false**'|  
+|OSDLocalAdminPassword<br /><br /> (invoer)|Hiermee geeft u het lokale beheerderswachtwoord op. Deze waarde wordt genegeerd als de optie **Willekeurig wachtwoord genereren voor lokale beheerder en het account uitschakelen op alle ondersteunde platforms** wordt ingeschakeld. De opgegeven waarde moet tussen 1 en 255 tekens lang zijn.|  
 
-###  <a name="BKMK_AutoApplyDrivers"></a> Variables de l'action de séquence de tâches Appliquer automatiquement les pilotes  
- Les variables pour cette action spécifient quels pilotes Windows sont installés sur l'ordinateur de destination et si des pilotes non signés sont installés. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Appliquer automatiquement les pilotes](task-sequence-steps.md#BKMK_AutoApplyDrivers).  
+###  <a name="BKMK_AutoApplyDrivers"></a> Variabelen voor de takenreeksactie Stuurprogramma's automatisch toepassen  
+ De variabelen voor deze actie geven op welke Windows-stuurprogramma's op de doelcomputer worden geïnstalleerd en of niet-ondertekende stuurprogramma's worden geïnstalleerd. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [stuurprogramma's automatisch toepassen](task-sequence-steps.md#BKMK_AutoApplyDrivers).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|OSDAutoApplyDriverCategoryList<br /><br /> (entrée)|Liste délimitée par des virgules des ID de catégorie uniques du catalogue de pilotes. Si elle est spécifiée, l'action de séquence de tâches **Appliquer automatiquement les pilotes** ne prend en compte que les pilotes compris dans au moins une de ces catégories lors de l'installation de ceux-ci. Cette valeur est facultative et n'est pas définie par défaut. Les ID de catégorie peuvent être obtenus par énumération de la liste des objets **SMS_CategoryInstance** sur le site.|  
-|OSDAllowUnsignedDriver<br /><br /> (entrée)|Spécifie si Windows est configuré pour autoriser l'installation de pilotes de périphérique non signés. Cette variable de séquence de tâches n'est pas utilisée au cours du déploiement de Windows Vista et des systèmes d'exploitation ultérieurs.<br /><br /> Valeurs valides :<br /><br /> **« true »**<br /><br /> **« false »** (par défaut)|  
-|OSDAutoApplyDriverBestMatch<br /><br /> (entrée)|Spécifie ce que fait l'action de la séquence de tâches s'il existe dans le catalogue de pilotes plusieurs pilotes de périphérique compatibles avec un périphérique matériel. Si cette variable est définie sur **true**, seul le meilleur pilote de périphérique est installé.  Si cette variable est définie sur **false**, tous les pilotes de périphériques compatibles sont installés et le système d’exploitation choisit le meilleur pilote à utiliser.<br /><br /> Valeurs valides :<br /><br /> **« true »** (par défaut)<br /><br /> **« false »**|  
+|OSDAutoApplyDriverCategoryList<br /><br /> (invoer)|Een door komma's gescheiden lijst van unieke categorie-id's uit de stuurprogrammacatalogus. Indien opgegeven, houdt de takenreeksactie **Stuurprogramma's automatisch toepassen** alleen rekening met de stuurprogramma's die in ten minste één van deze categorieën vallen bij het installeren van stuurprogramma's. Deze waarde is optioneel en is niet standaard ingesteld. De beschikbare categorie-id's kunnen worden verkregen door de lijst met **SMS_CategoryInstance** -objecten op de site te inventariseren.|  
+|OSDAllowUnsignedDriver<br /><br /> (invoer)|Hiermee geeft u op of Windows is geconfigureerd voor het toestaan van de installatie van niet-ondertekende stuurprogramma's. Deze takenreeksvariabele wordt niet gebruikt bij het implementeren van het besturingssysteem Windows Vista of hoger.<br /><br /> Geldige waarden:<br /><br /> **true**<br /><br /> '**false** ' (standaard)|  
+|OSDAutoApplyDriverBestMatch<br /><br /> (invoer)|Hiermee geeft u op hoe de takenreeksactie werkt als er meerdere apparaatstuurprogramma's in de stuurprogrammacatalogus zijn die compatibel met een hardwareapparaat. Indien ingesteld op **'true'**, wordt alleen het beste stuurprogramma geïnstalleerd.  Als **false**alle compatibele apparaatstuurprogramma's wordt geïnstalleerd en kiest het besturingssysteem het beste stuurprogramma om te gebruiken.<br /><br /> Geldige waarden:<br /><br /> '**true** ' (standaard)<br /><br /> '**false**'|  
 
-###  <a name="BKMK_CaptureNetworkSettings"></a> Variables de l'action de séquence de tâches Capturer les paramètres réseau  
- Les variables pour cette action spécifient si les informations de configuration des paramètres de carte réseau (TCP/IP, DNS et WINS) sont capturées et si les informations d'appartenance à un groupe de travail ou un domaine sont migrées dans le cadre du déploiement du système d'exploitation. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Capturer les paramètres réseau](task-sequence-steps.md#BKMK_CaptureNetworkSettings).  
+###  <a name="BKMK_CaptureNetworkSettings"></a> Variabelen voor de takenreeksactie Netwerkinstellingen vastleggen  
+ De variabelen voor deze actie geven op of de configuratiegegevens van de netwerkadapterinstellingen (TCP/IP, DNS en WINS) worden vastgelegd en of de gegevens van het werkgroep- of domeinlidmaatschap worden gemigreerd als onderdeel van de implementatie van het besturingssysteem. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [netwerkinstellingen vastleggen](task-sequence-steps.md#BKMK_CaptureNetworkSettings).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|OSDMigrateAdapterSettings<br /><br /> (entrée)|Spécifie si les informations de configuration des paramètres de carte réseau (TCP/IP, DNS et WINS) sont capturées.<br /><br /> Exemples :<br /><br /> **« true »** (par défaut)<br /><br /> **« false »**|  
-|OSDMigrateNetworkMembership<br /><br /> (entrée)|Spécifie si les informations d'appartenance à un groupe de travail ou un domaine sont migrées dans le cadre du déploiement du système d'exploitation.<br /><br /> Exemples :<br /><br /> **« true »** (par défaut)<br /><br /> **« false »**|  
+|OSDMigrateAdapterSettings<br /><br /> (invoer)|Hiermee geeft u op of de configuratiegegevens van de netwerkadapterinstellingen (TCP/IP, DNS en WINS) worden vastgelegd.<br /><br /> Voorbeelden:<br /><br /> '**true** ' (standaard)<br /><br /> '**false**'|  
+|OSDMigrateNetworkMembership<br /><br /> (invoer)|Hiermee geeft u op of de gegevens van het werkgroep- of domeinlidmaatschap worden gemigreerd als onderdeel van de implementatie van het besturingssysteem.<br /><br /> Voorbeelden:<br /><br /> '**true** ' (standaard)<br /><br /> '**false**'|  
 
-###  <a name="BKMK_CaptureOperatingSystemImage"></a> Variables de l'action de séquence de tâches Capturer l'image du système d'exploitation  
- Les variables pour cette action spécifient des informations sur l'image du système d'exploitation capturée, telles que l'emplacement de stockage de l'image, le créateur de l'image et une description de l'image. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Capturer l’image du système d’exploitation](task-sequence-steps.md#BKMK_CaptureOperatingSystemImage).  
+###  <a name="BKMK_CaptureOperatingSystemImage"></a> Variabelen voor de takenreeksactie Besturingssysteeminstallatiekopie vastleggen  
+ De variabelen voor deze actie geven informatie op over de installatiekopie van het besturingssysteem die wordt vastgelegd, zoals waar de installatiekopie is opgeslagen, wie de installatiekopie heeft gemaakt en een beschrijving van de installatiekopie. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [Besturingssysteeminstallatiekopie vastleggen](task-sequence-steps.md#BKMK_CaptureOperatingSystemImage).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|OSDCaptureAccount<br /><br /> (entrée)|Spécifie un nom de compte Windows qui dispose d'autorisations pour stocker l'image capturée sur un partage réseau.|  
-|OSDCaptureAccountPassword<br /><br /> (entrée)|Spécifie le mot de passe du compte Windows employé pour le stockage de l'image capturée sur un partage réseau.|  
-|OSDCaptureDestination<br /><br /> (entrée)|Spécifie l'emplacement où l'image capturée du système d'exploitation est enregistrée. Le nom du répertoire est limité à 255 caractères.|  
-|OSDImageCreator<br /><br /> (entrée)|Nom facultatif de l'utilisateur qui a créé l'image. Ce nom est stocké dans le fichier WIM. Le nom de l'utilisateur est limité à 255 caractères.|  
-|OSDImageDescription<br /><br /> (entrée)|Description facultative de l'image du système d'exploitation capturée définie par l'utilisateur. Cette description est stockée dans le fichier WIM. La description est limitée à 255 caractères.|  
-|OSDImageVersion<br /><br /> (entrée)|Numéro de version facultatif défini par l'utilisateur à attribuer à l'image du système d'exploitation capturée. Ce numéro de version est stocké dans le fichier WIM. Cette valeur peut être n'importe quelle combinaison de lettres avec une longueur maximale de 32 caractères.|  
-|OSDTargetSystemRoot<br /><br /> (entrée)|Spécifie le chemin du répertoire Windows où a été installé le système d'exploitation sur l'ordinateur de référence. Configuration Manager vérifie que ce système d’exploitation est pris en charge pour la capture.|  
+|OSDCaptureAccount<br /><br /> (invoer)|Hiermee geeft u de naam van een Windows-account op met machtigingen voor het opslaan van de vastgelegde installatiekopie op een netwerkshare.|  
+|OSDCaptureAccountPassword<br /><br /> (invoer)|Hiermee geeft u het wachtwoord op voor het Windows-account dat wordt gebruikt voor het opslaan van de vastgelegde installatiekopie op een netwerkshare.|  
+|OSDCaptureDestination<br /><br /> (invoer)|Hiermee geeft u de locatie op waar de vastgelegde installatiekopie wordt opgeslagen. De maximale lengte van de mapnaam is 255 tekens.|  
+|OSDImageCreator<br /><br /> (invoer)|Optioneel. De naam van de gebruiker die de installatiekopie heeft gemaakt. Deze naam wordt opgeslagen in het WIM-bestand. De maximale lengte van de gebruikersnaam is 255 tekens.|  
+|OSDImageDescription<br /><br /> (invoer)|Optioneel. Een door de gebruiker gedefinieerde beschrijving van de vastgelegde besturingssysteeminstallatiekopie. Deze beschrijving wordt opgeslagen in het WIM-bestand. De maximale lengte van de beschrijving is 255 tekens.|  
+|OSDImageVersion<br /><br /> (invoer)|Een optioneel, door de gebruiker gedefinieerd versienummer om toe te wijzen aan de vastgelegde besturingssysteeminstallatiekopie. Dit versienummer wordt opgeslagen in het WIM-bestand. Deze waarde kan een combinatie van letters zijn met een maximale lengte van 32 tekens.|  
+|OSDTargetSystemRoot<br /><br /> (invoer)|Hiermee geeft u het pad op naar de Windows-map van het geïnstalleerde besturingssysteem op de referentiecomputer. Dit besturingssysteem is geverifieerd als een ondersteund besturingssysteem voor vastlegging door Configuration Manager.|  
 
-###  <a name="BKMK_CaptureUserState"></a> Variables de l'action de séquence de tâches Capturer l'état utilisateur  
- Les variables pour cette action spécifient des informations utilisées par l’outil de migration de l’état utilisateur (USMT), telles que le dossier où l’état utilisateur est enregistré, des options de ligne de commande pour l’outil USMT et les fichiers de configuration utilisés pour contrôler la capture des profils utilisateur.  Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Capturer l’état utilisateur](task-sequence-steps.md#BKMK_CaptureUserState).  
+###  <a name="BKMK_CaptureUserState"></a> Variabelen voor de takenreeksactie Gebruikerstoestand vastleggen  
+ De variabelen voor deze actie geven informatie op die wordt gebruikt door het Hulpprogramma voor migratie van gebruikersstatus (USMT), zoals de map waarin de gebruikersstatus is opgeslagen, opdrachtregelopties voor USMT en de configuratiebestanden waarmee het vastleggen van gebruikersprofielen wordt beheerd.  Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [gebruikersstatus vastleggen](task-sequence-steps.md#BKMK_CaptureUserState).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|OSDStateStorePath<br /><br /> (entrée)|Le chemin d'accès UNC ou local du dossier sur lequel l'état utilisateur est enregistré. Pas de valeur par défaut.|  
-|OSDMigrateAdditionalCaptureOptions<br /><br /> (entrée)|Spécifie des options de ligne de commande de l’outil de migration utilisateur (USMT) qui sont utilisées pour la capture de l’état utilisateur, mais qui n’apparaissant pas dans l’interface utilisateur de Configuration Manager. Ces options supplémentaires sont spécifiées sous forme d'une chaîne ajoutée à la ligne de commande USMT générée de manière automatique.<br /><br /> <br /><br /> La précision des options USMT spécifiées avec cette variable de séquence de tâches n'est pas validée avant l'exécution de la séquence de tâches.|  
-|OSDMigrateMode<br /><br /> (entrée)|Permet de personnaliser les fichiers capturés par l'outil de migration de l'état utilisateur (USMT). Si cette variable est définie sur « Simple », seuls les fichiers de configuration USMT standard sont utilisés. Si elle est définie sur « Avancé », la variable de séquence de tâches OSDMigrateConfigFiles spécifie les fichiers de configuration utilisés par USTM.<br /><br /> Valeurs valides :<br /><br /> **« Simple »**<br /><br /> **« Avancé »**|  
-|OSDMigrateConfigFiles<br /><br /> (entrée)|Spécifie les fichiers de configuration employés pour contrôler la capture des profils utilisateur. Cette variable est utilisée uniquement si OSDMigrateMode est défini sur « Avancé ». Cette valeur de liste délimitée par des virgules est définie pour effectuer une migration du profil utilisateur personnalisée.<br /><br /> Exemple : miguser.xml,migsys.xml,migapps.xml|  
-|OSDMigrateContinueOnLockedFiles<br /><br /> (entrée)|Permet de poursuivre la capture de l'état utilisateur si certains fichiers ne peuvent pas être capturés.<br /><br /> Valeurs valides :<br /><br /> **« true »** (par défaut)<br /><br /> **« false »**|  
-|OSDMigrateEnableVerboseLogging<br /><br /> (entrée)|Active la journalisation documentée pour l'outil de migration de l'état utilisateur (USMT).<br /><br /> Valeurs valides :<br /><br /> **« true »**<br /><br /> **« false »** (par défaut)|  
-|OSDMigrateSkipEncryptedFiles<br /><br /> (entrée)|Spécifie si les fichiers cryptés sont capturés.<br /><br /> Valeurs valides :<br /><br /> **« true »**<br /><br /> **« false »** (par défaut)|  
-|_OSDMigrateUsmtPackageID<br /><br /> (entrée)|Spécifie l’ID du package Configuration Manager qui contiendra les fichiers USMT. Cette variable est requise.|  
+|OSDStateStorePath<br /><br /> (invoer)|De UNC of lokale padnaam van de map waarin de gebruikersstatus is opgeslagen. Geen standaardwaarde.|  
+|OSDMigrateAdditionalCaptureOptions<br /><br /> (invoer)|Hiermee geeft u een gebruiker tool (USMT) vanaf de opdrachtregel statusmigratieopties die worden gebruikt wanneer de gebruikersstatus wordt vastgelegd, maar niet worden weergegeven in de gebruikersinterface van de Configuration Manager. De extra opties worden opgegeven in de vorm van een tekenreeks die wordt toegevoegd aan de automatisch gegenereerde USMT-opdrachtregel.<br /><br /> <br /><br /> De met deze takenreeksvariabele opgegeven USMT-opties opties worden niet gevalideerd op juistheid voorafgaand aan uitvoering van de takenreeks.|  
+|OSDMigrateMode<br /><br /> (invoer)|Hiermee kunt u de bestanden aanpassen die worden vastgelegd door USMT. Als deze variabele is ingesteld op 'Simple', wordt alleen de standaard USMT-configuratiebestanden gebruikt. Als deze variabele is ingesteld op 'Advanced', wordt de takenreeksvariabele OSDMigrateConfigFiles bepaald de configuratiebestanden die USMT gebruikt.<br /><br /> Geldige waarden:<br /><br /> **"Simple"**<br /><br /> **"Advanced"**|  
+|OSDMigrateConfigFiles<br /><br /> (invoer)|Hiermee geeft u de configuratiebestanden op waarmee het vastleggen van gebruikersprofielen wordt beheerd. Deze variabele wordt alleen gebruikt als OSDMigrateMode is ingesteld op 'Advanced'. Deze door komma's gescheiden lijstwaarde wordt ingesteld om aangepaste gebruikersprofielmigratie uit te voeren.<br /><br /> Voorbeeld: miguser.xml,migsys.xml,migapps.xml|  
+|OSDMigrateContinueOnLockedFiles<br /><br /> (invoer)|Hiermee kunt u de gebruikersstatus vastleggen als enkele bestanden niet kunnen worden vastgelegd.<br /><br /> Geldige waarden:<br /><br /> '**true** ' (standaard)<br /><br /> '**false**'|  
+|OSDMigrateEnableVerboseLogging<br /><br /> (invoer)|Hiermee schakelt u uitgebreide logboekregistratie in voor USMT.<br /><br /> Geldige waarden:<br /><br /> **true**<br /><br /> '**false** ' (standaard)|  
+|OSDMigrateSkipEncryptedFiles<br /><br /> (invoer)|Hiermee geeft u op of versleutelde bestanden worden vastgelegd.<br /><br /> Geldige waarden:<br /><br /> **true**<br /><br /> '**false** ' (standaard)|  
+|_OSDMigrateUsmtPackageID<br /><br /> (invoer)|Hiermee geeft u de pakket-ID van de Configuration Manager-pakket dat de USMT-bestanden bevat. Deze variabele is vereist.|  
 
-###  <a name="BKMK_CaptureWindowsSettings"></a> Variables de l'action de séquence de tâches Capturer les paramètres Windows  
- Les variables pour cette action spécifient si des paramètres Windows spécifiques sont migrés vers l'ordinateur de destination, tels que le nom de l'ordinateur, le nom d'organisation inscrit et les informations sur les fuseaux horaires. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Capturer les paramètres Windows](task-sequence-steps.md#BKMK_CaptureWindowsSettings).  
+###  <a name="BKMK_CaptureWindowsSettings"></a> Variabelen voor de takenreeksactie Windows-instellingen vastleggen  
+ De variabelen voor deze actie geven op of specifieke Windows-instellingen worden gemigreerd naar de doelcomputer, zoals de naam van de computer, de geregistreerde naam van de organisatie en informatie over de tijdzone. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [Windows-instellingen vastleggen](task-sequence-steps.md#BKMK_CaptureWindowsSettings).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|OSDMigrateComputerName<br /><br /> (entrée)|Spécifie si le nom de l'ordinateur est migré.<br /><br /> Valeurs valides :<br /><br /> **« true »** (par défaut)<br /><br /> **« false »**<br /><br /> Si la valeur est « true », la variable OSDComputerName prend le nom NetBIOS de l’ordinateur.|  
-|OSDComputerName<br /><br /> (sortie)|Défini sur le nom NetBIOS de l'ordinateur. La valeur est définie uniquement si la variable OSDMigrateComputerName a la valeur « true ».|  
-|OSDMigrateRegistrationInfo<br /><br /> (entrée)|Spécifie si les informations d'utilisateur et d'organisation de l'ordinateur sont migrées.<br /><br /> Valeurs valides :<br /><br /> **« true »** (par défaut)<br /><br /> **« false »**<br /><br /> Si la valeur est « true », la variable OSDRegisteredOrgName prend le nom d’organisation inscrit de l’ordinateur.|  
-|OSDRegisteredOrgName<br /><br /> (sortie)|Défini sur le nom d'organisation inscrit de l'ordinateur. La valeur est définie uniquement si la variable OSDMigrateRegistrationInfo a la valeur « true ».|  
-|OSDMigrateTimeZone<br /><br /> (entrée)|Spécifie si le fuseau horaire de l'ordinateur est migré.<br /><br /> Valeurs valides :<br /><br /> **« true »** (par défaut)<br /><br /> **« false »**<br /><br /> Si la valeur est « true », la variable OSDTimeZone est définie sur le fuseau horaire de l’ordinateur.|  
-|OSDTimeZone<br /><br /> (sortie)|Défini sur le fuseau horaire de l'ordinateur. La valeur est définie uniquement si la variable OSDMigrateTimeZone a la valeur « true ».|  
+|OSDMigrateComputerName<br /><br /> (invoer)|Hiermee geeft u op of de naam van de computer wordt gemigreerd.<br /><br /> Geldige waarden:<br /><br /> '**true** ' (standaard)<br /><br /> '**false**'<br /><br /> Als de waarde 'true' is, wordt de variabele OSDComputerName ingesteld op de NetBIOS-naam van de computer.|  
+|OSDComputerName<br /><br /> (uitvoer)|Ingesteld op de NetBIOS-naam van de computer. De waarde wordt alleen ingesteld als de variabele OSDMigrateComputerName is ingesteld op 'true'.|  
+|OSDMigrateRegistrationInfo<br /><br /> (invoer)|Hiermee geeft u op of de computergebruiker en organisatiegegevens worden gemigreerd.<br /><br /> Geldige waarden:<br /><br /> '**true** ' (standaard)<br /><br /> '**false**'<br /><br /> Als de waarde 'true' is, wordt de variabele OSDRegisteredOrgName ingesteld op de geregistreerde organisatienaam van de computer.|  
+|OSDRegisteredOrgName<br /><br /> (uitvoer)|Ingesteld op de geregistreerde organisatienaam van de computer. De waarde wordt alleen ingesteld als de variabele OSDMigrateRegistrationInfo is ingesteld op 'true'.|  
+|OSDMigrateTimeZone<br /><br /> (invoer)|Hiermee geeft u op of de tijdzone van de computer wordt gemigreerd.<br /><br /> Geldige waarden:<br /><br /> '**true** ' (standaard)<br /><br /> '**false**'<br /><br /> Als de waarde 'true', wordt de variabele OSDTimeZone ingesteld op de tijdzone van de computer.|  
+|OSDTimeZone<br /><br /> (uitvoer)|Ingesteld op de tijdzone van de computer. De waarde wordt alleen ingesteld als de variabele OSDMigrateTimeZone is ingesteld op 'true'.|  
 
-###  <a name="BKMK_ConnecttoNetworkFolder"></a> Variables d'action de séquence de tâches Connexion à un dossier réseau  
- Les variables pour cette action spécifient des informations sur un dossier sur un réseau, telles que le compte utilisé et le mot de passe pour se connecter au dossier réseau, la lettre de lecteur du dossier et le chemin d'accès au dossier. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Se connecter à un dossier réseau](task-sequence-steps.md#BKMK_ConnectToNetworkFolder).  
+###  <a name="BKMK_ConnecttoNetworkFolder"></a> Variabelen voor de takenreeksactie Verbinding maken met netwerkmap  
+ De variabelen voor deze actie geven informatie op over een map in een netwerk, zoals het gebruikte account en het wachtwoord waarmee verbinding wordt gemaakt met de netwerkmap, de stationsletter van de map en het pad naar de map. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [netwerkmap verbinding](task-sequence-steps.md#BKMK_ConnectToNetworkFolder).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|SMSConnectNetworkFolderAccount<br /><br /> (entrée)|Spécifie le compte d'administrateur utilisé pour se connecter au partage réseau.|  
-|SMSConnectNetworkFolderDriveLetter<br /><br /> (entrée)|Spécifie la lettre de lecteur réseau à laquelle se connecter. Cette valeur est facultative. Si vous ne la spécifiez pas, la connexion réseau doit alors être mappée à une lettre de lecteur. À l’inverse, si vous la spécifiez, cette valeur doit être comprise entre D: et Z:.  En outre, n’utilisez pas X: car il s’agit de la lettre de lecteur utilisée par Windows PE au cours de la phase Windows PE.<br /><br /> Exemples :<br /><br /> **« D: »**<br /><br /> **« E: »**|  
-|SMSConnectNetworkFolderPassword<br /><br /> (entrée)|Spécifie le mot de passe réseau utilisé pour se connecter au partage réseau.|  
-|SMSConnectNetworkFolderPath<br /><br /> (entrée)|Spécifie le chemin d'accès réseau pour la connexion.<br /><br /> Exemple :<br /><br /> **« \\\nom_serveur\nom_partage »**|  
+|SMSConnectNetworkFolderAccount<br /><br /> (invoer)|Hiermee geeft u het administrator-account dat wordt gebruikt om verbinding te maken met de netwerkshare.|  
+|SMSConnectNetworkFolderDriveLetter<br /><br /> (invoer)|Hiermee geeft u de netwerkstationsletter op waarmee verbinding wordt gemaakt. Deze waarde is optioneel. Als deze niet is opgegeven, wordt de netwerkverbinding niet toegewezen aan een stationsletter. Als deze waarde wel is opgegeven, moet de waarde liggen in het bereik van D: t/m Z:.  Daarnaast mag u niet X: gebruiken omdat deze stationsletter door Windows PE wordt gebruikt tijdens de Windows PE-fase.<br /><br /> Voorbeelden:<br /><br /> **"D:"**<br /><br /> **"E:"**|  
+|SMSConnectNetworkFolderPassword<br /><br /> (invoer)|Hiermee geeft u het netwerkwachtwoord op dat wordt gebruikt om verbinding te maken met de netwerkshare.|  
+|SMSConnectNetworkFolderPath<br /><br /> (invoer)|Hiermee geeft u het netwerkpad voor de verbinding op.<br /><br /> Voorbeeld:<br /><br /> **'\\\servername\sharename '**|  
 
-###  <a name="BKMK_ConvertDisk"></a> Variables de l'action de séquence de tâches Convertir en disque dynamique  
- La variable pour cette action indique le numéro du disque physique à convertir d'un disque standard en disque dynamique. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Convertir en disque dynamique](task-sequence-steps.md#BKMK_ConvertDisktoDynamic).  
+###  <a name="BKMK_ConvertDisk"></a> Variabelen voor de takenreeksactie Schijven naar dynamische schijven converteren  
+ De variabele voor deze actie geeft het nummer op van de fysieke schijf die moet worden geconverteerd van een normale schijf naar een dynamische schijf. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [schijven naar dynamische schijven converteren](task-sequence-steps.md#BKMK_ConvertDisktoDynamic).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|OSDConvertDiskIndex<br /><br /> (entrée)|Spécifie le numéro du disque physique converti.|  
+|OSDConvertDiskIndex<br /><br /> (invoer)|Hiermee geeft u het nummer op van de fysieke schijf die wordt geconverteerd.|  
 
-###  <a name="BKMK_EnableBitLocker"></a> Variables de l'action de séquence de tâches Activer BitLocker  
- Les variables pour cette action spécifient les options de mot de passe de récupération et de clé de démarrage utilisées pour activer BitLocker sur l'ordinateur de destination. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Activer BitLocker](task-sequence-steps.md#BKMK_EnableBitLocker).  
+###  <a name="BKMK_EnableBitLocker"></a> Variabelen voor de takenreeksactie BitLocker inschakelen  
+ De variabelen voor deze actie geven de opties voor het herstelwachtwoord en de opstartsleutel op die worden gebruikt om BitLocker in te schakelen op de doelcomputer. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [BitLocker inschakelen](task-sequence-steps.md#BKMK_EnableBitLocker).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|OSDBitLockerRecoveryPassword<br /><br /> (entrée)|Au lieu de créer un mot de passe de récupération aléatoire, l'action de la séquence de tâches **Activer BitLocker** utilise la valeur spécifiée comme mot de passe de récupération. La valeur doit être un mot de passe de récupération numérique BitLocker valide.|  
-|OSDBitLockerStartupKey<br /><br /> (entrée)|Au lieu de générer une clé de démarrage aléatoire pour l’option de gestion de clé **Clé de démarrage sur USB uniquement**, l’action de séquence de tâches **Activer BitLocker** utilise le module de plateforme sécurisée (TPM) comme clé de démarrage. La valeur doit être une clé de démarrage BitLocker valide 256 bits codée en Base64.|  
+|OSDBitLockerRecoveryPassword<br /><br /> (invoer)|In plaats van een willekeurig herstelwachtwoord te genereren gebruikt de takenreeksactie **BitLocker inschakelen** de opgegeven waarde als het herstelwachtwoord. De waarde moet een geldig numeriek BitLocker-herstelwachtwoord zijn.|  
+|OSDBitLockerStartupKey<br /><br /> (invoer)|In plaats van een willekeurige opstartsleutel voor de sleutelbeheeroptie genereren **opstartsleutel op USB alleen** de **BitLocker inschakelen** takenreeksactie Trusted Platform Module (TPM) gebruikt als de opstartsleutel. De waarde moet een geldige, 256-bits BitLocker-opstartsleutel met Base64-codering zijn.|  
 
-###  <a name="BKMK_FormatPartitionDisk"></a> Variables de l'action de séquence de tâches Formater et partitionner le disque  
- Les variables pour cette action spécifient des informations pour le formatage et le partitionnement d'un disque physique, telles que le numéro du disque et un tableau de paramètres de partition. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Formater et partitionner le disque](task-sequence-steps.md#BKMK_FormatandPartitionDisk).  
+###  <a name="BKMK_FormatPartitionDisk"></a> Variabelen voor de takenreeksactie Schijf formatteren en partitioneren  
+ De variabelen voor deze actie geven informatie op voor het formatteren en partitioneren van een fysieke schijf, zoals het schijfnummer en een matrix met partitie-instellingen. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [schijf formatteren en partitioneren](task-sequence-steps.md#BKMK_FormatandPartitionDisk).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|OSDDiskIndex<br /><br /> (entrée)|Spécifie le nombre de disques physiques à partitionner.|  
-|OSDDiskpartBiosCompatibilityMode<br /><br /> (entrée)|Spécifie si les optimisations d'alignement du cache sont désactivées lors du partitionnement du disque dur pour des raisons de compatibilité avec certains types de BIOS. Cette option peut être nécessaire lors du déploiement des systèmes d'exploitation Windows XP ou Windows Server 2003. Pour plus d'informations, consultez [l'article 931760](http://go.microsoft.com/fwlink/?LinkId=134081) et [l'article 931761](http://go.microsoft.com/fwlink/?LinkId=134082) de la Base de connaissances Microsoft.<br /><br /> Valeurs valides :<br /><br /> **« true »**<br /><br /> **« false »** (par défaut)|  
-|OSDGPTBootDisk<br /><br /> (entrée)|Spécifie la nécessité de créer une partition EFI sur un disque dur GPT afin de pouvoir l'utiliser en tant que disque de démarrage sur des ordinateurs EFI.<br /><br /> Valeurs valides :<br /><br /> **« true »**<br /><br /> **« false »** (par défaut)|  
-|OSDPartitions<br /><br /> (entrée)|Spécifie un tableau de paramètres de partition. Consultez la rubrique liée au kit de développement logiciel (SDK) pour accéder aux variables de matrice dans l'environnement de la séquence de tâches.<br /><br /> Cette variable de séquence de tâches est une variable de matrice. Chaque élément de la matrice représente les paramètres d'une partition simple sur le disque dur. Vous pouvez accéder aux paramètres définis pour chaque partition en combinant le nom de la variable de matrice avec le numéro de partition de disque de base zéro et le nom de propriété.<br /><br /> Par exemple, vous pouvez utiliser les noms de variables suivants pour définir les propriétés de la première partition créée sur le disque dur par cette séquence de tâches :<br /><br /> - **OSDPartitions0Type** : spécifie le type de partition. Cette propriété est obligatoire. Les valeurs valides sont : «**Principal**», «**Étendu**», «**Logique**» et «**Caché**».<br />-   **OSDPartitions0FileSystem** : spécifie le type de système de fichier à utiliser lors du formatage de la partition. Cette propriété est facultative. La partition n'est pas formatée si aucun système de fichier n'est spécifié. Les valeurs valides sont «**FAT32**» et «**NTFS**».<br />-   **OSDPartitions0Bootable** : indique si la partition est amorçable. Cette propriété est obligatoire. Si les disques MBR ont la valeur «**TRUE**», la partition sélectionnée est configurée comme active.<br />-   **OSDPartitions0QuickFormat** : spécifie le type de format utilisé. Cette propriété est obligatoire. Si la valeur est définie sur «**TRUE**», un formatage rapide est effectué. Autrement, le formatage complet est effectué.<br />-   **OSDPartitions0VolumeName** : spécifie le nom attribué au volume après formatage. Cette propriété est facultative.<br />-   **OSDPartitions0Size** : spécifie la taille de la partition. Les unités sont spécifiées par la variable **OSDPartitions0SizeUnits** . Cette propriété est facultative. Si cette propriété n'est pas spécifiée, la partition est créée en utilisant la totalité de l'espace disque disponible.<br />-   **OSDPartitions0SizeUnits** : spécifie les unités utilisées lors de l'interprétation de la variable de séquence de tâches **OSDPartitions0Size** . Cette propriété est facultative. Les valeurs valides sont «**Mo**» (par défaut), «**Go**» et «**Pourcent**».<br />-   **OSDPartitions0VolumeLetterVariable** : une fois créées, les partitions utilisent toujours la lettre de lecteur disponible suivante dans Windows PE. Utilisez cette propriété facultative pour spécifier le nom d'une autre variable de séquence de tâches qui enregistrera la nouvelle lettre de lecteur pour un usage ultérieur.<br /><br /> <br /><br /> Si plusieurs partitions sont définies dans la séquence de tâches, les propriétés de la deuxième partition peuvent être définies en utilisant leur index dans le nom de variable, par exemple : **OSDPartitions1Type**, **OSDPartitions1FileSystem**, **OSDPartitions1Bootable**, **OSDPartitions1QuickFormat**, **OSDPartitions1VolumeName** , et ainsi de suite.|  
-|OSDPartitionStyle<br /><br /> (entrée)|Spécifie le style de partition à utiliser lors du partitionnement du disque. «**MBR**» indique le style de partition à enregistrement de démarrage principal, et «**GPT**» indique le style Table de partition GUID.<br /><br /> Valeurs valides :<br /><br /> **« GPT »**<br /><br /> **« MBR »**|  
+|OSDDiskIndex<br /><br /> (invoer)|Hiermee geeft u het nummer van de te partitioneren fysieke schijf op.|  
+|OSDDiskpartBiosCompatibilityMode<br /><br /> (invoer)|Hiermee geeft u op of optimalisaties voor cache-uitlijning worden uitgeschakeld wanneer u de harde schijf partitioneert voor compatibiliteit met bepaalde BIOS-typen. Dit kan nodig zijn bij het implementeren van de besturingssystemen Windows XP of Windows Server 2003. Zie [Artikel 931760](http://go.microsoft.com/fwlink/?LinkId=134081) en [Artikel 931761](http://go.microsoft.com/fwlink/?LinkId=134082) in de Microsoft Knowledge Base voor meer informatie.<br /><br /> Geldige waarden:<br /><br /> **true**<br /><br /> '**false** ' (standaard)|  
+|OSDGPTBootDisk<br /><br /> (invoer)|Hiermee geeft u op of u een EFI-partitie op een GPT harde schijf maakt, zodat deze kan worden gebruikt als opstartschijf op EFI-computers.<br /><br /> Geldige waarden:<br /><br /> **true**<br /><br /> '**false** ' (standaard)|  
+|OSDPartitions<br /><br /> (invoer)|Hiermee geeft u een matrix met partitie-instellingen op. Zie het onderwerp SDK voor toegang tot matrixvariabelen in de takenreeksomgeving.<br /><br /> Deze takenreeksvariabele is een matrixvariabele. Elk element in de matrix staat voor de instellingen voor één partitie op de harde schijf. De instellingen die zijn gedefinieerd voor elke partitie zijn toegankelijk door de naam van de matrixvariabele te combineren met het schijfpartitienummer (op basis van nul) en de naam van de eigenschap.<br /><br /> De namen van de volgende variabelen kunnen bijvoorbeeld worden gebruikt voor het definiëren van de eigenschappen voor de eerste partitie die door deze takenreeksactie op de harde schijf wordt gemaakt:<br /><br /> - **OSDPartitions0Type** -Hiermee wordt het type van de partitie. Dit is een vereiste eigenschap. Geldige waarden zijn '**Primary**', '**Extended**', '**Logical**' en '**Hidden**'.<br />-   **OSDPartitions0FileSystem** – Dit geeft het type bestandssysteem aan dat moet worden gebruikt wanneer de partitie wordt geformatteerd. Dit is een optionele eigenschap. Als u geen bestandssysteem opgeeft, wordt de partitie niet geformatteerd. Geldige waarden zijn '**FAT32**' en '**NTFS**'.<br />-   **OSDPartitions0Bootable** – Hiermee geeft u aan of de partitie opstartbaar is. Dit is een vereiste eigenschap. Als deze waarde is ingesteld op '**true**' voor MBR-schijven, wordt deze de actieve partitie.<br />-   **OSDPartitions0QuickFormat** – Hiermee geeft u het type formattering op dat wordt gebruikt. Dit is een vereiste eigenschap. Als deze waarde is ingesteld op '**true**', wordt een snelle formattering uitgevoerd. Anders wordt een volledige formattering uitgevoerd.<br />-   **OSDPartitions0VolumeName** – Hiermee geeft u de naam op die aan het volume wordt toegewezen wanneer dit wordt geformatteerd. Dit is een optionele eigenschap.<br />-   **OSDPartitions0Size** – Hiermee geeft u de grootte van de partitie op. Eenheden worden opgegeven met de variabele **OSDPartitions0SizeUnits** . Dit is een optionele eigenschap. Als deze eigenschap niet is opgegeven, wordt de partitie gemaakt met alle resterende vrije ruimte.<br />-   **OSDPartitions0SizeUnits** – Hiermee geeft u de eenheden op die worden gebruikt bij het interpreteren van de takenreeksvariabele **OSDPartitions0Size** . Dit is een optionele eigenschap. Geldige waarden zijn '**MB**' (standaard), '**GB**' en '**Percent**'.<br />-   **OSDPartitions0VolumeLetterVariable** – Voor partities wordt altijd de eerstvolgende beschikbare stationsletter in Windows PE gebruikt wanneer deze worden gemaakt. Gebruik deze optionele eigenschap om de naam op te geven van een andere takenreeksvariabele, die wordt gebruikt voor het opslaan van de nieuwe stationsletter voor toekomstig gebruik.<br /><br /> <br /><br /> Als meerdere partities worden gedefinieerd met deze takenreeksactie, kunnen de eigenschappen voor de tweede partitie worden gedefinieerd met behulp van de index in de naam van de variabele; bijvoorbeeld, **OSDPartitions1Type**, **OSDPartitions1FileSystem**, **OSDPartitions1Bootable**, **OSDPartitions1QuickFormat**, **OSDPartitions1VolumeName,** enzovoort.|  
+|OSDPartitionStyle<br /><br /> (invoer)|Hiermee geeft u de partitiestijl op die moet worden gebruikt bij het partitioneren van de schijf. '**MBR**' geeft de partitiestijl Master Boot Record aan en '**GPT**' geeft de stijl GUID-partitietabel aan.<br /><br /> Geldige waarden:<br /><br /> **"GPT"**<br /><br /> **"MBR"**|  
 
-###  <a name="BKMK_InstallSoftwareUpdates"></a> Variables d'action de séquence de tâches Installer les mises à jour logicielles  
- La variable pour cette action spécifie s'il faut installer toutes les mises à jour ou uniquement les mises à jour obligatoires. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Installer les mises à jour logicielles](task-sequence-steps.md#BKMK_InstallSoftwareUpdates).  
+###  <a name="BKMK_InstallSoftwareUpdates"></a> Variabelen voor de takenreeksactie Software-updates installeren  
+ De variabele voor deze actie geeft aan of alle updates of alleen verplichte updates worden geïnstalleerd. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [Software-Updates installeren](task-sequence-steps.md#BKMK_InstallSoftwareUpdates).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action<br /><br /> (entrée)|Description|  
+|Naam actievariabele<br /><br /> (invoer)|Beschrijving|  
 |----------------------------------------|-----------------|  
-|SMSInstallUpdateTarget<br /><br /> (entrée)|Spécifie s'il faut installer toutes les mises à jour ou uniquement les mises à jour obligatoires.<br /><br /> Valeurs valides :<br /><br /> **« Tout »**<br /><br /> **« Obligatoire »**|  
+|SMSInstallUpdateTarget<br /><br /> (invoer)|Hiermee geeft u op of alle updates of alleen verplichte updates worden geïnstalleerd.<br /><br /> Geldige waarden:<br /><br /> **'All'**<br /><br /> **'Mandatory'**|  
 
-###  <a name="BKMK_JoinDomainWorkgroup"></a> Variables de l'action de séquence de tâches Joindre le domaine ou le groupe de travail  
- Les variables pour cette action spécifient les informations nécessaires pour joindre l'ordinateur de destination à un domaine Windows ou à un groupe de travail. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Joindre le domaine ou le groupe de travail](task-sequence-steps.md#BKMK_JoinDomainorWorkgroup).  
+###  <a name="BKMK_JoinDomainWorkgroup"></a> Variabelen voor de takenreeksactie Lid maken van domein of werkgroep  
+ De variabelen voor deze actie geven informatie op die nodig is om de doelcomputer lid te maken van een Windows-domein of -werkgroep. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [lid worden van domein of werkgroep](task-sequence-steps.md#BKMK_JoinDomainorWorkgroup).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|OSDJoinAccount<br /><br /> (entrée)|Spécifie le compte utilisé par l'ordinateur de destination pour se joindre au domaine Windows. Cette variable est requise lors de la jonction à un domaine.|  
-|OSDJoinDomainName<br /><br /> (entrée)|Spécifie le nom d'un domaine Windows auquel l'ordinateur de destination se joint. Le nom de domaine Windows doit comprendre entre 1 et 255 caractères.|  
-|OSDJoinDomainOUName<br /><br /> (entrée)|Spécifie le format du nom RFC 1779 de l'unité d'organisation que l'ordinateur de destination joint. S'il est spécifié, la valeur doit contenir le chemin complet. Le nom de l'unité d'organisation de domaine Windows doit comprendre entre 0 et 32 767 caractères. Ne définissez pas cette valeur si la variable **OSDJoinType** est définie sur « 1 » (joindre le groupe de travail).<br /><br /> Exemple :<br /><br /> **LDAP://OU=MyOu,DC=MyDom,DC=MyCompany,DC=com**|  
-|OSDJoinPassword<br /><br /> (entrée)|Spécifie le mot de passe réseau utilisé par l'ordinateur de destination pour se joindre au domaine Windows. Si la variable n'est pas spécifiée, l'ordinateur tente d'utiliser un mot de passe vide. Cette valeur est obligatoire si la variable **OSDJoinType** est définie sur «**0**» (joindre le domaine).|  
-|OSDJoinSkipReboot<br /><br /> (entrée)|Spécifie s'il faut ignorer le redémarrage après que l'ordinateur de destination joint le domaine ou le groupe de travail.<br /><br /> Valeurs valides :<br /><br /> **« true »**<br /><br /> **« false »**|  
-|OSDJoinType<br /><br /> (entrée)|Spécifie si l'ordinateur de destination se joint à un domaine Windows ou un groupe de travail. Pour joindre l'ordinateur de destination à un domaine Windows, spécifiez «**0**». Pour joindre l'ordinateur de destination à un groupe de travail, spécifiez «**1**».<br /><br /> Valeurs valides :<br /><br /> **« 0 »**<br /><br /> **« 1 »**|  
-|OSDJoinWorkgroupName<br /><br /> (entrée)|Spécifie le nom d'un groupe de travail auquel l'ordinateur de destination se joint. Le nom de groupe de travail doit comprendre entre 1 et 32 caractères.<br /><br /> Exemple :<br /><br /> **« Comptabilité »**|  
+|OSDJoinAccount<br /><br /> (invoer)|Hiermee geeft u het account op dat wordt gebruikt door de doelcomputer om lid te worden van een Windows-domein. Deze variabele is vereist voor domeinlidmaatschap.|  
+|OSDJoinDomainName<br /><br /> (invoer)|Hiermee geeft u de naam op van een Windows-domein waarvan de doelcomputer lid wordt. De lengte van de naam van het Windows-domein moet liggen tussen 1 en 255 tekens.|  
+|OSDJoinDomainOUName<br /><br /> (invoer)|Hiermee geeft u de naam in RFC 1779-indeling op van de organisatie-eenheid (OE) waarvan de doelcomputer lid wordt. Als u deze optie opgeeft, moet de waarde het volledige pad bevatten. De lengte van de OU-naam van het Windows-domein moet liggen tussen 0 en 32.767 tekens. Deze waarde wordt niet ingesteld als de variabele **OSDJoinType** is ingesteld op 1 (lid worden van werkgroep).<br /><br /> Voorbeeld:<br /><br /> **LDAP://OU=MyOu,DC=MyDom,DC=MyCompany,DC=com**|  
+|OSDJoinPassword<br /><br /> (invoer)|Hiermee geeft u het netwerkwachtwoord op dat wordt gebruikt door de doelcomputer om lid te worden van een Windows-domein. Als de variabele niet is opgegeven, wordt een leeg wachtwoord geprobeerd. Deze waarde is vereist als de variabele **OSDJoinType** is ingesteld op**0**(lid worden van domein).|  
+|OSDJoinSkipReboot<br /><br /> (invoer)|Hiermee geeft u aan of het opnieuw opstarten van de doelcomputer wordt overgeslagen nadat deze lid is geworden van het domein of de werkgroep.<br /><br /> Geldige waarden:<br /><br /> **true**<br /><br /> '**false**'|  
+|OSDJoinType<br /><br /> (invoer)|Hiermee geeft u aan of de doelcomputer lid wordt van een Windows-domein of een werkgroep. Geef**0**op om de doelcomputer lid te laten worden van een Windows-domein. Geef**1**op om de doelcomputer lid te laten worden van een werkgroep.<br /><br /> Geldige waarden:<br /><br /> **0**<br /><br /> **1**|  
+|OSDJoinWorkgroupName<br /><br /> (invoer)|Hiermee geeft u de naam van een werkgroep waarvan de doelcomputer lid wordt. De lengte van de werkgroepnaam moet liggen tussen 1 en 32 tekens.<br /><br /> Voorbeeld:<br /><br /> **"Accounting"**|  
 
-###  <a name="BKMK_PrepareWindowsCapture"></a> Variables de l'action de séquence de tâches Préparer Windows pour capture  
- Les variables pour cette action spécifient les informations utilisées pour capturer le système d'exploitation Windows à partir de l'ordinateur cible. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Préparer le client ConfigMgr pour capture](task-sequence-steps.md#BKMK_PrepareConfigMgrClientforCapture).  
+###  <a name="BKMK_PrepareWindowsCapture"></a> Variabelen voor de takenreeksactie Windows voorbereiden voor vastleggen  
+ De variabelen voor deze actie geven informatie op waarmee het Windows-besturingssysteem van de doelcomputer wordt vastgelegd. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [ConfigMgr-Client voorbereiden voor vastleggen](task-sequence-steps.md#BKMK_PrepareConfigMgrClientforCapture).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|OSDBuildStorageDriverList<br /><br /> (entrée)|Spécifie si sysprep crée une liste de pilotes de périphérique de stockage de masse. Ce paramètre s’applique uniquement à Windows XP et à Windows Server 2003. Il remplit la section [SysprepMassStorage] de sysprep.inf avec les informations de tous les pilotes de stockage de masse qui sont pris en charge par l’image à capturer.<br /><br /> Valeurs valides :<br /><br /> **« true »**<br /><br /> **« false »** (par défaut)|  
-|OSDKeepActivation<br /><br /> (entrée)|Spécifie si sysprep réinitialise l'indicateur d'activation du produit.<br /><br /> Valeurs valides :<br /><br /> **« true »**<br /><br /> **« false »** (par défaut)|  
-|OSDTargetSystemRoot<br /><br /> (sortie)|Spécifie le chemin du répertoire Windows où a été installé le système d'exploitation sur l'ordinateur de référence. Configuration Manager vérifie que ce système d’exploitation est pris en charge pour la capture.|  
+|OSDBuildStorageDriverList<br /><br /> (invoer)|Hiermee geeft u op of sysprep een lijst van stuurprogramma’s voor massaopslagapparaten maakt. Deze instelling geldt alleen voor Windows XP en Windows Server 2003. De sectie [SysprepMassStorage] van het bestand sysprep.inf wordt gevuld met informatie over alle stuurprogramma's voor massaopslag die worden ondersteund door de installatiekopie die moet worden vastgelegd.<br /><br /> Geldige waarden:<br /><br /> **true**<br /><br /> '**false** ' (standaard)|  
+|OSDKeepActivation<br /><br /> (invoer)|Hiermee geeft u op of sysprep de markering voor productactivering opnieuw instelt.<br /><br /> Geldige waarden:<br /><br /> **true**<br /><br /> '**false** ' (standaard)|  
+|OSDTargetSystemRoot<br /><br /> (uitvoer)|Hiermee geeft u het pad op naar de Windows-map van het geïnstalleerde besturingssysteem op de referentiecomputer. Dit besturingssysteem is geverifieerd als een ondersteund besturingssysteem voor vastlegging door Configuration Manager.|  
 
-###  <a name="BKMK_ReleaseStateStore"></a> Variables de l'action de séquence de tâches Libérer le magasin d'état  
- Les variables pour cette action spécifient les informations utilisées pour libérer l'état utilisateur enregistré. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Libérer le magasin d’état](task-sequence-steps.md#BKMK_ReleaseStateStore).  
+###  <a name="BKMK_ReleaseStateStore"></a> Variabelen voor de takenreeksactie Statusopslag vrijgeven  
+ De variabelen voor deze actie worden geven informatie op die wordt gebruikt om de opgeslagen gebruikersstatus vrij te geven. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [Statusopslag vrijgeven](task-sequence-steps.md#BKMK_ReleaseStateStore).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|OSDStateStorePath<br /><br /> (entrée)|Le chemin d'accès UNC ou local de l'emplacement à partir duquel l'état utilisateur est restauré. Cette valeur est utilisée par les actions de séquence de tâches **Capturer l'état utilisateur** et **Restaurer l'état utilisateur** .|  
+|OSDStateStorePath<br /><br /> (invoer)|De UNC of lokale padnaam naar de locatie van waaruit de gebruikersstatus wordt hersteld. Deze waarde wordt gebruikt door zowel de takenreeksactie **Gebruikerstoestand vastleggen** als de takenreeksactie **Gebruikersstatus herstellen** .|  
 
-###  <a name="BKMK_RequestState"></a> Variables de l'action de séquence de tâches Demander le magasin d'état  
- Les variables pour cette action spécifient les informations utilisées pour demander l'état d'utilisateur enregistré, telles que le dossier sur le point de migration d'état où sont stockées les données utilisateur. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Libérer le magasin d’état](../../osd/understand/task-sequence-steps.md#BKMK_ReleaseStateStore).  
+###  <a name="BKMK_RequestState"></a> Variabelen voor de takenreeksactie Statusopslag opvragen  
+ De variabelen voor deze actie geven informatie op die wordt gebruikt om de opgeslagen gebruikersstatus op te vragen, zoals de map op het statusmigratiepunt waarin de gebruikersgegevens zijn opgeslagen. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [Statusopslag vrijgeven](../../osd/understand/task-sequence-steps.md#BKMK_ReleaseStateStore).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|OSDStateFallbackToNAA<br /><br /> (entrée)|Indique si le compte d'accès réseau est utilisé comme un secours lorsque le compte d'ordinateur ne parvient pas à se connecter au point de migration d'état.<br /><br /> Valeurs valides :<br /><br /> **« true »**<br /><br /> **« false »** (par défaut)|  
-|OSDStateSMPRetryCount<br /><br /> (entrée)|Spécifie le nombre de tentatives de recherche d'un point de migration d'état par l'étape de la séquence de tâches avant d'abandonner. Le nombre spécifié doit être compris entre 0 et 600.|  
-|OSDStateSMPRetryTime<br /><br /> (entrée)|Indique la durée en secondes pendant laquelle l'étape de la séquence de tâches attend entre chaque tentative. Le nombre de secondes est limité à 30 caractères.|  
-|OSDStateStorePath<br /><br /> (sortie)|Le chemin d'accès UNC au dossier sur le point de migration d'état où est stocké l'état d'utilisateur.|  
+|OSDStateFallbackToNAA<br /><br /> (invoer)|Hiermee geeft u op of het netwerktoegangsaccount wordt gebruikt als alternatieve methode wanneer het computeraccount geen verbinding kan maken met het statusmigratiepunt.<br /><br /> Geldige waarden:<br /><br /> **true**<br /><br /> '**false** ' (standaard)|  
+|OSDStateSMPRetryCount<br /><br /> (invoer)|Hiermee wordt het aantal pogingen opgegeven dat met deze takenreeksstap wordt uitgevoerd om een statusmigratiepunt te zoeken voordat de stap mislukt. Het opgegeven aantal moet tussen 0 en 600 liggen.|  
+|OSDStateSMPRetryTime<br /><br /> (invoer)|Hiermee geeft u het aantal seconden op dat de takenreeksstap moet wachten tussen nieuwe pogingen. Het aantal seconden mag maximaal 30 tekens zijn.|  
+|OSDStateStorePath<br /><br /> (uitvoer)|Het UNC-pad naar de map op het statusmigratiepunt waar de gebruikersstatus wordt opgeslagen.|  
 
-###  <a name="BKMK_RestartComputer"></a> Variables d'action de séquence de tâches Redémarrer l'ordinateur  
- Les variables pour cette action spécifient les informations utilisées pour redémarrer l'ordinateur de destination. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Redémarrer l’ordinateur](task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer).  
+###  <a name="BKMK_RestartComputer"></a> Variabelen voor de takenreeksactie Computer opnieuw opstarten  
+ De variabelen voor deze actie geven informatie op die wordt gebruikt om de doelcomputer opnieuw op te starten. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [Computer opnieuw opstarten](task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|SMSRebootMessage<br /><br /> (entrée)|Indique le message à afficher aux utilisateurs avant le redémarrage de l'ordinateur de destination. Si vous ne définissez pas cette variable, le texte par défaut est affiché. Le message spécifié ne doit pas dépasser 512 caractères.<br /><br /> Exemple :<br /><br /> -   « Cet ordinateur va redémarrer. Enregistrez votre travail. »|  
-|SMSRebootTimeout<br /><br /> (entrée)|Spécifie le nombre de secondes pendant lesquelles l'avertissement est affiché à l'attention de l'utilisateur avant le redémarrage de l'ordinateur. Précisez zéro seconde pour indiquer qu'aucun message de redémarrage n'apparaît.<br /><br /> Exemples :<br /><br /> **« 0 »** (par défaut)<br /><br /> **"5"**<br /><br /> **"10"**|  
+|SMSRebootMessage<br /><br /> (invoer)|Hiermee geeft u het bericht op dat moet worden weergegeven voor gebruikers voordat de doelcomputer opnieuw wordt opgestart. Als deze variabele niet is ingesteld, wordt de standaardberichttekst weergegeven. Het opgegeven bericht mag maximaal 512 tekens bevatten.<br /><br /> Voorbeeld:<br /><br /> -'Deze computer wordt opnieuw gestart; Sla uw werk."|  
+|SMSRebootTimeout<br /><br /> (invoer)|Hiermee geeft u het aantal seconden op dat de waarschuwing wordt weergegeven aan de gebruiker voordat de computer opnieuw wordt opgestart. Geef nul seconden op om aan te geven dat er geen opstartbericht wordt weergegeven.<br /><br /> Voorbeelden:<br /><br /> **"0"** (standaard)<br /><br /> **"5"**<br /><br /> **'10'**|  
 
-###  <a name="BKMK_RestoreUserState"></a> Variables de l'action de séquence de tâches Restaurer l'état utilisateur  
- Les variables pour cette action spécifient les informations utilisées pour restaurer l'état d'utilisateur de l'ordinateur de destination, notamment le nom du chemin d'accès du dossier à partir duquel l'état utilisateur est restauré et la restauration effective ou non du compte d'ordinateur local. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Restaurer l’état utilisateur](task-sequence-steps.md#BKMK_RestoreUserState).  
+###  <a name="BKMK_RestoreUserState"></a> Variabelen voor de takenreeksactie Gebruikersstatus herstellen  
+ De variabelen voor deze actie geven informatie op voor het herstellen van de gebruikersstatus van de doelcomputer, zoals de padnaam van de map waaruit de gebruikersstatus wordt hersteld en of het lokale computeraccount is hersteld. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [gebruikersstatus herstellen](task-sequence-steps.md#BKMK_RestoreUserState).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|OSDStateStorePath<br /><br /> (entrée)|Le chemin d'accès UNC ou local du dossier à partir duquel l'état utilisateur est restauré.|  
-|OSDMigrateContinueOnRestore<br /><br /> (entrée)|Indique que la restauration de l'état utilisateur se poursuit, même si certains fichiers ne peuvent pas être restaurés.<br /><br /> Valeurs valides :<br /><br /> **« true »** (par défaut)<br /><br /> **« false »**|  
-|OSDMigrateEnableVerboseLogging<br /><br /> (entrée)|Active la journalisation documentée pour l'outil USMT. Cette valeur est requise par l'action ; elle doit être définie sur « true » ou « false ».<br /><br /> Valeurs valides :<br /><br /> **« true »**<br /><br /> **« false »** (par défaut)|  
-|OSDMigrateLocalAccounts<br /><br /> (entrée)|Indique si le compte d'ordinateur local est restauré.<br /><br /> Valeurs valides :<br /><br /> **« true »**<br /><br /> **« false »** (par défaut)|  
-|OSDMigrateLocalAccountPassword<br /><br /> (entrée)|Si la variable **OSDMigrateLocalAccounts** est définie sur « true », cette variable doit contenir le mot de passe qui est affecté à tous les comptes locaux qui sont migrés. Comme le même mot de passe est attribué à tous les comptes locaux migrés, il est considéré comme un mot de passe temporaire qui sera modifié ultérieurement par une autre méthode que le déploiement de système d’exploitation Configuration Manager.|  
-|OSDMigrateAdditionalRestoreOptions<br /><br /> (entrée)|Indique les options de ligne de commande supplémentaires de l'outil de migration de l'état utilisateur (USMT) qui sont utilisées lors de la restauration de l'état utilisateur. Ces options supplémentaires sont spécifiées sous forme d'une chaîne ajoutée à la ligne de commande USMT générée de manière automatique. La précision des options USMT spécifiées avec cette variable de séquence de tâches n'est pas validée avant l'exécution de la séquence de tâches.|  
-|_OSDMigrateUsmtRestorePackageID<br /><br /> (entrée)|Spécifie l’ID du package Configuration Manager qui contient les fichiers USMT. Cette variable est requise.|  
+|OSDStateStorePath<br /><br /> (invoer)|De UNC of lokale padnaam van de map van waaruit de gebruikersstatus wordt hersteld.|  
+|OSDMigrateContinueOnRestore<br /><br /> (invoer)|Hiermee geeft u op dat het herstel van de gebruikersstatus wordt voortgezet zelfs als sommige bestanden niet kunnen worden hersteld.<br /><br /> Geldige waarden:<br /><br /> '**true** ' (standaard)<br /><br /> '**false**'|  
+|OSDMigrateEnableVerboseLogging<br /><br /> (invoer)|Hiermee schakelt u uitgebreide logboekregistratie in voor USMT. Deze waarde is vereist voor de actie en moet worden ingesteld op 'true' of 'false'.<br /><br /> Geldige waarden:<br /><br /> **true**<br /><br /> '**false** ' (standaard)|  
+|OSDMigrateLocalAccounts<br /><br /> (invoer)|Hiermee geeft u op of het lokale computeraccount wordt hersteld.<br /><br /> Geldige waarden:<br /><br /> **true**<br /><br /> '**false** ' (standaard)|  
+|OSDMigrateLocalAccountPassword<br /><br /> (invoer)|Als de **OSDMigrateLocalAccounts** variabele is 'true', moet deze variabele het wachtwoord dat is toegewezen aan alle lokale accounts die zijn gemigreerd bevatten. Omdat het wachtwoord is toegewezen aan alle gemigreerde lokale accounts, wordt dit beschouwd als een tijdelijk wachtwoord dat later wordt gewijzigd door een andere methode dan de implementatie van besturingssysteem Configuration Manager.|  
+|OSDMigrateAdditionalRestoreOptions<br /><br /> (invoer)|Hiermee geeft u aanvullende opdrachtregelopties voor USMT op die worden gebruikt bij het herstellen van de gebruikersstatus. De extra opties worden opgegeven in de vorm van een tekenreeks die wordt toegevoegd aan de automatisch gegenereerde USMT-opdrachtregel. De met deze takenreeksvariabele opgegeven USMT-opties opties worden niet gevalideerd op juistheid voorafgaand aan uitvoering van de takenreeks.|  
+|_OSDMigrateUsmtRestorePackageID<br /><br /> (invoer)|Hiermee geeft u de pakket-ID van de Configuration Manager-pakket dat de USMT-bestanden bevat. Deze variabele is vereist.|  
 
-###  <a name="BKMK_RunCommand"></a> Variables de l'action de séquence de tâches Exécuter la ligne de commande  
- Les variables pour cette action spécifient les informations utilisées pour exécuter une commande à partir de la ligne de commande, telles que le répertoire de travail où la commande est exécutée. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Exécuter la ligne de commande](task-sequence-steps.md#BKMK_RunCommandLine).  
+###  <a name="BKMK_RunCommand"></a> Variabelen voor de takenreeksactie Opdrachtregel uitvoeren  
+ De variabelen voor deze actie geven informatie op die wordt gebruikt om een opdracht uit te voeren vanaf de opdrachtregel, zoals de werkmap waaruit de opdracht wordt uitgevoerd. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [opdrachtregel uitvoeren](task-sequence-steps.md#BKMK_RunCommandLine).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action|Description|  
+|Naam actievariabele|Beschrijving|  
 |--------------------------|-----------------|  
-|SMSTSDisableWow64Redirection<br /><br /> (entrée)|Par défaut, sous un système d'exploitation 64 bits, le programme situé dans la ligne de commande est localisé et exécuté au moyen d'un redirecteur de système de fichiers WOW64 afin de localiser les versions 32 bits des programmes et des DLL du système d'exploitation. La définition de cette variable sur « true » désactive l’utilisation du redirecteur de système de fichiers WOW64 pour permettre la localisation des versions 64 bits natives des programmes et des DLL du système d’exploitation. Cette variable est sans effet sous un système d'exploitation 32 bits.|  
-|WorkingDirectory<br /><br /> (entrée)|Spécifie un répertoire de démarrage pour une action de ligne de commande. Le répertoire spécifié ne doit pas dépasser 255 caractères.<br /><br /> Exemples :<br /><br /> -   **« C:\\ »**<br />-   **« %SystemRoot% »**|  
-|SMSTSRunCommandLineUserName<br /><br /> (entrée)|Indique le compte par lequel la ligne de commande est exécutée. La valeur est une chaîne au format nomutilisateur ou domaine\nomutilisateur.|  
-|SMSTSRunCommandLinePassword<br /><br /> (entrée)|Indique le mot de passe pour le compte spécifié par la variable SMSTSRunCommandLineUserName.|  
+|SMSTSDisableWow64Redirection<br /><br /> (invoer)|In een 64-bits besturingssysteem wordt het programma op de opdrachtregel standaard gezocht en uitgevoerd met behulp van de WOW64-bestandssysteemredirector, zodat 32-bits versies van programma’s en .dll-bestanden van het besturingssysteem worden gevonden. Wanneer u deze variabele op 'true' instelt, wordt het gebruik van de WOW64-bestandssysteemredirector uitgeschakeld zodat systeemeigen 64-bits versies van besturingsssysteemprogramma's en DLL's kunnen worden gevonden. Deze variabele heeft geen effect wanneer u gebruikmaakt van een 32-bits besturingssysteem.|  
+|WorkingDirectory<br /><br /> (invoer)|Hiermee geeft u de beginmap voor een opdrachtregelactie op. De opgegeven mapnaam mag maximaal 255 tekens bevatten.<br /><br /> Voorbeelden:<br /><br /> -   **' C:\\'**<br />-   **"%SystemRoot%"**|  
+|SMSTSRunCommandLineUserName<br /><br /> (invoer)|Hiermee geeft u het account op waarmee de opdrachtregel wordt uitgevoerd. De waarde is een tekenreeks in de indeling gebruikersnaam of domein\gebruikersnaam.|  
+|SMSTSRunCommandLinePassword<br /><br /> (invoer)|Hiermee geeft u het wachtwoord op voor het account dat is opgegeven door de variabele SMSTSRunCommandLineUserName.|  
 
-### <a name="set-dynamic-variables"></a>Définir des variables dynamiques  
- Les variables pour cette action sont définies automatiquement quand vous ajoutez l’étape de séquence de tâches Définir des variables dynamiques. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Définir des variables dynamiques](task-sequence-steps.md#BKMK_SetDynamicVariables).  
+### <a name="set-dynamic-variables"></a>Dynamische variabelen instellen  
+ De variabelen voor deze actie worden automatisch ingesteld wanneer u de takenreeksstap Dynamische variabelen instellen toevoegt. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [dynamische variabelen instellen](task-sequence-steps.md#BKMK_SetDynamicVariables).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action<br /><br /> (entrée)|Description|  
+|Naam actievariabele<br /><br /> (invoer)|Beschrijving|  
 |----------------------------------------|-----------------|  
-|_SMSTSMake|Spécifie la marque de l’ordinateur.|  
-|_SMSTSModel|Spécifie le modèle de l’ordinateur.|  
-|_SMSTSMacAddresses|Spécifie les adresses MAC utilisées par l’ordinateur.|  
-|_SMSTSIPAddresses|Spécifie les adresses IP utilisées par l’ordinateur.|  
-|_SMSTSSerialNumber|Spécifie le numéro de série de l’ordinateur.|  
-|_SMSTSAssetTag|Spécifie la balise de ressource de l’ordinateur.|  
-|_SMSTSUUID|Spécifie l’UUID de l’ordinateur.|  
-|_SMSTSDefaultGateways|Spécifie les passerelles par défaut utilisées par l’ordinateur.|  
+|_SMSTSMake|Geeft het merk van de computer aan.|  
+|_SMSTSModel|Geeft het model van de computer aan.|  
+|_SMSTSMacAddresses|Geeft de MAC-adressen aan die door de computer worden gebruikt.|  
+|_SMSTSIPAddresses|Geeft de IP-adressen aan die door de computer worden gebruikt.|  
+|_SMSTSSerialNumber|Geeft het serienummer van de computer aan.|  
+|_SMSTSAssetTag|Geeft de inventaristag voor de computer aan.|  
+|_SMSTSUUID|Geeft de UUID van de computer aan.|  
+|_SMSTSDefaultGateways|Geeft de standaardgateways aan die worden gebruikt door de computer.|  
 
-###  <a name="BKMK_SetupWindows"></a> Variables d'action de séquence de tâches Configurer Windows et ConfigMgr  
- La variable pour cette action spécifie les propriétés d’installation de client qui sont utilisées pendant l’installation du client Configuration Manager. Pour plus d’informations sur l’étape de séquence de tâches associée à ces variables, consultez [Configurer Windows et ConfigMgr](task-sequence-steps.md#BKMK_SetupWindowsandConfigMgr).  
+###  <a name="BKMK_SetupWindows"></a> Variabelen voor de takenreeksactie Windows en ConfigMgr installeren  
+ De variabele voor deze actie geeft de eigenschappen van clientinstallatie die worden gebruikt bij het installeren van Configuration Manager-client. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [Windows en ConfigMgr installeren](task-sequence-steps.md#BKMK_SetupWindowsandConfigMgr).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action<br /><br /> (entrée)|Description|  
+|Naam actievariabele<br /><br /> (invoer)|Beschrijving|  
 |----------------------------------------|-----------------|  
-|SMSClientInstallProperties<br /><br /> (entrée)|Spécifie les propriétés d’installation de client qui sont utilisées pendant l’installation du client Configuration Manager.|  
+|SMSClientInstallProperties<br /><br /> (invoer)|Hiermee geeft u de eigenschappen van clientinstallatie die worden gebruikt bij het installeren van Configuration Manager-client.|  
 
-### <a name="upgrade-operating-system"></a>Mettre à niveau le système d’exploitation  
- La variable utilisée pour cette action spécifie des options de ligne de commande supplémentaires qui ne sont pas disponibles dans la console Configuration Manager, mais qui sont ajoutées au programme d’installation pour une mise à niveau Windows 10. Pour plus d’informations sur l’étape de séquence de tâches associée à cette variable, consultez [Mettre à niveau le système d’exploitation](task-sequence-steps.md#BKMK_UpgradeOS).  
+### <a name="upgrade-operating-system"></a>Besturingssysteem bijwerken  
+ De variabele voor deze actie geeft aanvullende opdrachtregelopties op die niet beschikbaar in de Configuration Manager console worden toegevoegd aan Setup voor een upgrade van Windows 10. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [besturingssysteem bijwerken](task-sequence-steps.md#BKMK_UpgradeOS).  
 
-#### <a name="details"></a>Détails  
+#### <a name="details"></a>Details  
 
-|Nom de la variable d'action<br /><br /> (entrée)|Description|  
+|Naam actievariabele<br /><br /> (invoer)|Beschrijving|  
 |----------------------------------------|-----------------|  
-|OSDSetupAdditionalUpgradeOptions<br /><br /> (entrée)|Spécifie les options de ligne de commande supplémentaires qui sont ajoutées au programme d’installation au cours d’une mise à niveau Windows 10. Ces options de ligne de commande ne sont pas vérifiées. Par conséquent, vérifiez que l’option que vous entrez est exacte.<br /><br /> Pour plus d’informations, consultez [Options de ligne de commande du programme d’installation de Windows](https://msdn.microsoft.com/library/windows/hardware/dn938368\(v=vs.85\).aspx).|  
+|OSDSetupAdditionalUpgradeOptions<br /><br /> (invoer)|Hiermee geeft u de aanvullende opdrachtregelopties op die worden toegevoegd aan Setup tijdens een upgrade naar Windows 10. De opdrachtregelopties worden niet geverifieerd. Daarom moet u controleren of de optie die u invoert klopt.<br /><br /> Zie [Windows Setup-opdrachtregelopties)](https://msdn.microsoft.com/library/windows/hardware/dn938368\(v=vs.85\).aspx)voor meer informatie.|  

@@ -1,6 +1,6 @@
 ---
-title: "Utilisation de profils VPN dans System Center Configuration Manager | Microsoft Docs"
-description: "Utilisez des profils VPN sur des appareils mobiles dans System Center Configuration Manager."
+title: VPN-profielen in System Center Configuration Manager. | Microsoft Docs
+description: VPN-profielen op mobiele apparaten in System Center Configuration Manager.
 ms.custom: na
 ms.date: 07/26/2017
 ms.prod: configuration-manager
@@ -17,149 +17,149 @@ ms.author: alleonar
 manager: angrobe
 ms.openlocfilehash: e4a53caab7d76b604a3fee7dcfc4dc48f22b0fb0
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="vpn-profiles-on-mobile-devices-in-system-center-configuration-manager"></a>Utilisation de profils VPN sur des appareils mobiles dans System Center Configuration Manager
+# <a name="vpn-profiles-on-mobile-devices-in-system-center-configuration-manager"></a>VPN-profielen op mobiele apparaten in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Découvrez comment utiliser des profils VPN dans System Center Configuration Manager pour déployer des paramètres VPN pour les utilisateurs de votre organisation. Lorsque vous déployez ces paramètres, vous réduisez l'effort que doit fournir l'utilisateur final pour se connecter aux ressources du réseau d'entreprise.  
+VPN-profielen in System Center Configuration Manager voor het VPN-instellingen implementeren voor gebruikers van mobiele apparaten in uw organisatie gebruiken. Wanneer u deze instellingen implementeert, kunt u de eindgebruikersinspanningen die vereist zijn om verbinding met resources op het bedrijfsnetwerk te minimaliseren.  
 
- Par exemple, vous souhaitez configurer tous les appareils qui exécutent le système d'exploitation iOS en utilisant les paramètres requis pour se connecter à un partage de fichiers sur le réseau d'entreprise. Vous pouvez créer un profil VPN contenant les paramètres nécessaires pour la connexion au réseau d'entreprise, puis déployer ce profil auprès de tous les utilisateurs qui disposent d'appareils exécutant iOS dans votre hiérarchie. Les utilisateurs d'appareils iOS voient la connexion VPN dans la liste des réseaux disponibles et peuvent se connecter à ce réseau avec un minimum d'effort.  
+ U wilt bijvoorbeeld alle apparaten waarop iOS-besturingssysteem wordt uitgevoerd met behulp van de instellingen die nodig zijn om verbinding maken met een bestandsshare op het bedrijfsnetwerk kunt instellen. U kunt een VPN-profiel met de benodigde instellingen verbinding maken met het bedrijfsnetwerk en vervolgens implementeert dit profiel voor alle gebruikers die hebben apparaten met iOS in uw hiërarchie maken. Gebruikers van iOS-apparaten zien de VPN-verbinding staan in de lijst met beschikbare netwerken en kunnen met minimale inspanningen verbinding maken met dit netwerk.  
 
- Lorsque vous créez un profil VPN, vous pouvez inclure un large éventail de paramètres de sécurité. Par exemple, vous pouvez spécifier les certificats pour l’authentification de client et la validation de serveur qui ont été configurés à l’aide des profils de certificat System Center Configuration Manager. Pour plus d’informations sur les profils de certificat, consultez [Profils de certificat dans System Center Configuration Manager](../../protect/deploy-use/introduction-to-certificate-profiles.md).  
+ Wanneer u een VPN-profiel maakt, kunt u een groot aantal beveiligingsinstellingen opnemen. U kunt bijvoorbeeld opgeven dat certificaten voor servervalidatie en clientverificatie die zijn ingesteld met behulp van System Center Configuration Manager-certificaatprofielen. Zie voor meer informatie over certificaatprofielen [Certificaatprofielen in System Center Configuration Manager](../../protect/deploy-use/introduction-to-certificate-profiles.md).  
 
- ## <a name="vpn-profiles-when-using-configuration-manager-together-with-intune"></a>Profils VPN si Configuration Manager est utilisé en association avec Intune
+ ## <a name="vpn-profiles-when-using-configuration-manager-together-with-intune"></a>VPN-profielen wanneer Configuration Manager samen met Intune
 
- Pour déployer des profils sur des appareils iOS, Android, Windows Phone et Windows 8.1, ces appareils doivent être inscrits dans Microsoft Intune. Les appareils sur d’autres plateformes peuvent également être inscrits auprès Intune. Pour plus d’informations sur la procédure d’inscription, consultez [Gérer les appareils mobiles avec Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx). Ce tableau affiche le type de connexion pris en charge pour chaque plateforme d’appareil :  
+ Om profielen te implementeren op iOS, Android, Windows Phone en Windows 8.1-apparaten, moeten deze apparaten worden geregistreerd bij Microsoft Intune. Apparaten op andere platforms kunnen ook worden ingeschreven bij Intune. Zie voor meer informatie over het inschrijven [mobiele apparaten beheren met Microsoft Intune](https://technet.microsoft.com/en-us/library/dn646962.aspx). Deze tabel ziet u het verbindingstype dat wordt ondersteund voor elk apparaatplatform:  
 
- |Type de connexion|iOS et macOS X|Android|Windows 8.1|Windows RT|Windows RT 8.1|Windows Phone 8.1|Windows 10 Desktop et Mobile|  
+ |Type verbinding|iOS en Mac OS X|Android|Windows 8.1|Windows RT|Windows RT 8.1|Windows Phone 8,1|Windows 10 Desktop en Mobile|  
  |---------------------|----------------------|-------------|-----------------|----------------|--------------------|-----------------------|-----------------------------------|  
- |Cisco AnyConnect|Oui|Oui|Non|Non|Non|Non|Oui (OMA-URI)|
- |Cisco (IPSec)|iOS uniquement|Non|Non|Non|Non|Non|Non|  
- |Pulse Secure|Oui|Oui|Oui|Non|Oui|Oui|Oui|  
- |Client F5 Edge|Oui|Oui|Oui|Non|Oui|Oui|Oui|  
- |Dell SonicWALL Mobile Connect|Oui|Oui|Oui|Non|Oui|Oui|Oui|  
- |Check Point Mobile VPN|Oui|Oui|Oui|Non|Oui|Oui|Oui|  
- |Microsoft SSL (SSTP)|Non|Non|Oui|Oui|Oui|Non|Non|  
- |Microsoft Automatic|Non|Non|Oui|Oui|Oui|Non|Oui (OMA-URI)|  
- |IKEv2|Oui (Stratégie personnalisée)|Non|Oui|Oui|Oui|Oui|Oui (OMA-URI)|  
- |PPTP|Oui|Non|Oui|Oui|Oui|Non|Oui (OMA-URI)|  
- |L2TP|Oui|Non|Oui|Oui|Oui|Non|Oui (OMA-URI)|  
+ |Cisco AnyConnect|Ja|Ja|Nee|Nee|Nee|Nee|Ja (OMA-URI)|
+ |Cisco (IPSec)|alleen voor iOS|Nee|Nee|Nee|Nee|Nee|Nee|  
+ |Pulse Secure|Ja|Ja|Ja|Nee|Ja|Ja|Ja|  
+ |F5 Edge Client|Ja|Ja|Ja|Nee|Ja|Ja|Ja|  
+ |Dell SonicWALL Mobile Connect|Ja|Ja|Ja|Nee|Ja|Ja|Ja|  
+ |Check Point Mobile VPN|Ja|Ja|Ja|Nee|Ja|Ja|Ja|  
+ |Microsoft SSL (SSTP)|Nee|Nee|Ja|Ja|Ja|Nee|Nee|  
+ |Microsoft Automatic|Nee|Nee|Ja|Ja|Ja|Nee|Ja (OMA-URI)|  
+ |IKEv2|Ja (aangepast beleid)|Nee|Ja|Ja|Ja|Ja|Ja (OMA-URI)|  
+ |PPTP|Ja|Nee|Ja|Ja|Ja|Nee|Ja (OMA-URI)|  
+ |L2TP|Ja|Nee|Ja|Ja|Ja|Nee|Ja (OMA-URI)|  
 
-## <a name="create-vpn-profiles"></a>Création de profils VPN
-La section [Guide pratique pour créer des profils VPN dans System Center Configuration Manager](../../protect/deploy-use/create-vpn-profiles.md) fournit des informations générales sur la création de profils VPN.
+## <a name="create-vpn-profiles"></a>VPN-profielen maken
+[Het VPN-profielen maken in System Center Configuration Manager](../../protect/deploy-use/create-vpn-profiles.md) bevat algemene informatie over het maken VPN-profielen.
 
-###   <a name="windows-10-vpn-features-available-when-using-configuration-manager-with-intune"></a>Fonctionnalités VPN Windows 10 disponibles quand vous utilisez Configuration Manager avec Intune  
+###   <a name="windows-10-vpn-features-available-when-using-configuration-manager-with-intune"></a>Windows 10 VPN-functies die beschikbaar zijn wanneer u Configuration Manager met Intune  
 
 
 > [!NOTE]  
-> Le nom d’un profil VPN qui utilise des fonctionnalités VPN Windows 10 ne peut pas être au format Unicode ni contenir des caractères spéciaux.
+> De naam van een VPN-profiel dat gebruikmaakt van Windows 10 VPN-functies kan Unicode- of speciale tekens bevatten.
 
 
-|Option|Plus d'informations|Type de connexion|  
+|Optie|Meer informatie|Type verbinding|  
     |------------|----------------------|---------------------|  
-    |**Ignorer VPN en cas de connexion à un réseau Wi-Fi d'entreprise**|La connexion VPN n’est pas utilisée quand l’appareil est connecté au réseau Wi-Fi d’entreprise. Entrez le nom du réseau approuvé, utilisé pour déterminer si l’appareil est connecté au réseau d’entreprise.|Tout|  
-    |**Règles de trafic réseau**|Définissez les protocoles, les ports locaux et distants et les plages d’adresses à activer pour la connexion VPN.<br /><br /> **Remarque :** si vous ne créez pas de règle de trafic réseau, l’ensemble des protocoles, ports et plages d’adresses sont activés. Dès lors que vous créez une règle, seuls les protocoles, les ports et les plages d’adresses que vous spécifiez dans cette règle ou dans des règles supplémentaires sont utilisés par la connexion VPN.|Tout|  
-    |**Itinéraires**|Itinéraires qui utilisent la connexion VPN. Notez que la création de plus de 60 itinéraires peut entraîner l’échec de la stratégie. |Tout|  
-    |**Serveurs DNS**|Serveurs DNS utilisés par la connexion VPN une fois la connexion établie.|Tout|  
-    |**Applications qui se connectent automatiquement au VPN**|Vous pouvez ajouter des applications, ou importer des listes d’applications, qui utilisent automatiquement la connexion VPN. Le type d’application détermine l’identificateur de l’application. Pour une application de bureau, fournissez le chemin de fichier de l’application. Pour une application universelle, indiquez le nom de la famille de packages (PFN). Pour savoir comment rechercher le nom PFN pour une application, consultez [Rechercher le nom de la famille de packages pour le VPN par application](../../protect/deploy-use/find-a-pfn-for-per-app-vpn.md). |Tout|
+    |**VPN overslaan bij verbinding met Wi-Fi-bedrijfsnetwerk**|De VPN-verbinding niet gebruikt wanneer het apparaat is verbonden met het Wi-Fi-bedrijfsnetwerk. Voer de naam van het vertrouwde netwerk dat wordt gebruikt om te bepalen of het apparaat is verbonden met het bedrijfsnetwerk.|Alle|  
+    |**Netwerkverkeersregels**|Stel de protocollen, de lokale poort, de externe poort en de adresbereiken die worden ingeschakeld voor de VPN-verbinding.<br /><br /> **Opmerking:** Als u geen een netwerkverkeersregel maakt, worden alle protocollen, poorten en adresbereiken ingeschakeld. Nadat u een regel maakt, worden alleen de protocollen, poorten en adresbereiken die u in die regel of in aanvullende regels opgeeft door de VPN-verbinding gebruikt.|Alle|  
+    |**Routes**|Routes die door de VPN-verbinding wordt gebruikt. Houd er rekening mee dat het maken van meer dan 60 routes leiden het beleid tot kan mislukt. |Alle|  
+    |**DNS-servers**|DNS-servers die worden gebruikt door de VPN-verbinding nadat de verbinding tot stand is gebracht.|Alle|  
+    |**Apps die automatisch verbinding met de VPN-verbinding maken**|U kunt apps toevoegen of importeren van lijsten met apps die automatisch van de VPN-verbinding gebruikmaken. De app-id is afhankelijk van het type app. Geef het bestandspad van de app voor een bureaublad-app. Geef de familie pakketnaam (PFN) voor een universele app. Zie voor meer informatie over de PFN zoeken voor een app, [een package family name voor VPN per app zoeken](../../protect/deploy-use/find-a-pfn-for-per-app-vpn.md). |Alle|
 
 > [!IMPORTANT]
-> Nous vous recommandons de sécuriser toutes les listes d’applications associées que vous compilez à utiliser dans la configuration du VPN par application. Si un utilisateur non autorisé modifie votre liste et que vous l’importez dans la liste d’applications du VPN par application, vous allez potentiellement autoriser l’accès au VPN à des applications qui ne doivent pas avoir accès. Une façon de sécuriser les listes d’applications consiste à utiliser une liste de contrôle d’accès (ACL).
+> Het is raadzaam dat u alle lijsten met gekoppelde apps die u voor gebruik in de configuratie van per-app VPN compileert, beveiligt. Als een onbevoegde gebruiker uw lijst wijzigt en u deze naar de app-lijst per app VPN importeren, wordt u mogelijk machtigt u VPN-toegang tot apps die geen toegang mogen hebben. Er is een manier die u kunt een lijst met Apps beveiligen met behulp van een toegangsbeheerlijst (ACL).
 
 
-1.  Dans la page **Méthode d’authentification** de l’Assistant, spécifiez les informations suivantes :  
+1.  Op de **verificatiemethode** pagina van de wizard opgeven:  
 
-    -   **Méthode d’authentification :** sélectionnez la méthode d’authentification qui sera utilisée par la connexion VPN. Les méthodes disponibles peuvent varier selon le type de connexion, comme indiqué dans le tableau suivant.  
+    -   **Verificatiemethode**: Selecteer de verificatiemethode die door de VPN-verbinding wordt gebruikt. Beschikbare methoden, is afhankelijk van het verbindingstype zoals weergegeven in deze tabel.  
 
-        |Méthode d'authentification|Types de&nbsp;connexion&nbsp;pris en charge|  
+        |Verificatiemethode|Ondersteund&nbsp;verbinding&nbsp;typen|  
         |---------------------------|--------------------------------|  
-        |**Certificats**<br /><br /> **Remarques** :<ul><li>Si le certificat client est utilisé pour l'authentification sur un serveur RADIUS, tel qu'un serveur NPS, l'autre nom de l'objet dans le certificat doit être défini sur le nom d'utilisateur principal.</li><li>Pour les déploiements Android, sélectionnez l’identificateur EKU et la valeur de hachage de l’empreinte numérique de l’émetteur du certificat.  Sinon, les utilisateurs doivent sélectionner manuellement le certificat approprié.</li></ul>  |<ul><li>Cisco AnyConnect</li><li>Pulse Secure</li><li>Client F5 Edge</li><li>Dell SonicWALL Mobile Connect</li><li> Check Point Mobile VPN</li></ul>|  
-        |**Nom d'utilisateur et mot de passe**|<ul><li>Pulse Secure</li><li>Client F5 Edge</li><li>Dell SonicWALL Mobile Connect</li><li> Check Point Mobile VPN</li></ul>|  
+        |**Certificaten**<br /><br /> **Opmerkingen:**<ul><li>Als het clientcertificaat wordt geverifieerd met een RADIUS-server, zoals een Network Policy Server, moet de alternatieve naam voor onderwerp in het certificaat worden ingesteld op principalnaam van gebruiker.</li><li>Selecteer de EKU-id en certificaatverlener vingerafdruk van het hash-waarde voor Android-implementaties.  Het juiste certificaat moeten anders handmatig door gebruikers selecteren.</li></ul>  |<ul><li>Cisco AnyConnect</li><li>Pulse Secure</li><li>F5 Edge Client</li><li>Dell SonicWALL Mobile Connect</li><li> Check Point Mobile VPN</li></ul>|  
+        |**Gebruikersnaam en wachtwoord**|<ul><li>Pulse Secure</li><li>F5 Edge Client</li><li>Dell SonicWALL Mobile Connect</li><li> Check Point Mobile VPN</li></ul>|  
         |**Microsoft EAP-TTLS**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>PPTP</li><li>IKEv2</li><li>L2TP</li></ul>|  
-        |**Microsoft PEAP (Protected EAP)**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
-        |**Mot de passe sécurisé Microsoft (EAP-MSCHAP v2)**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
-        |**Carte à puce ou autre certificat**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
+        |**Door Microsoft beveiligd EAP (PEAP)**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
+        |**Beveiligd Microsoft-wachtwoord (EAP-MSCHAP v2)**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
+        |**Smartcard of ander certificaat**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
         |**MSCHAP v2**|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>IKEv2</li><li>PPTP</li><li>L2TP</li></ul>|  
-        |**RSA SecurID** (iOS uniquement)|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>PPTP</li><li>L2TP</li></ul>|  
-        |**Utiliser des certificats d’ordinateur**|<ul><li>IKEv2</li></ul>|  
+        |**RSA SecurID** (alleen iOS)|<ul><li>Microsoft SSL (SSTP)</li><li>Microsoft Automatic</li><li>PPTP</li><li>L2TP</li></ul>|  
+        |**Computercertificaten gebruiken**|<ul><li>IKEv2</li></ul>|  
 
-         Selon les options sélectionnées, vous devrez peut-être spécifier d'autres informations, par exemple :  
+         Afhankelijk van de geselecteerde opties, wordt u mogelijk gevraagd om op te geven van meer informatie, zoals:  
 
-        -   **Conserver les informations d’identification de l’utilisateur à chaque ouverture de session** : les informations d’identification sont mémorisées pour que les utilisateurs n’aient pas à les entrer chaque fois qu’une connexion est établie.  
+        -   **De gebruikersreferenties onthouden bij elke aanmelding**: Gebruikersreferenties worden onthouden zodat gebruikers hoeven geen ze telkens wanneer die ze verbinden invoeren.  
 
-        -   **Sélectionner un certificat client pour l’authentification du client** : sélectionnez le [certificat SCEP](create-pfx-certificate-profiles.md) client précédemment créé et qui sera utilisé pour authentifier la connexion VPN.   
+        -   **Selecteer een clientcertificaat voor clientverificatie**: Selecteer de eerder gemaakte client [SCEP-certificaat](create-pfx-certificate-profiles.md) die wordt gebruikt voor het verifiëren van de VPN-verbinding.   
 
             > [!NOTE]  
-            >  Pour les appareils iOS, le profil SCEP que vous sélectionnez sera incorporé au profil VPN. Pour les autres plateformes, une règle de mise en application est ajoutée pour s'assurer que le profil VPN n'est pas installé si le certificat n'est pas présent ou non conforme.  
+            >  Voor iOS-apparaten als de SCEP-profiel dat u selecteert in het VPN-profiel wordt ingesloten. Voor andere platforms wordt een toepassingsregel toegevoegd om ervoor te zorgen dat het VPN-profiel niet is geïnstalleerd als het certificaat niet aanwezig is of niet compatibel is.  
             >   
-            >  Si le certificat SCEP que vous spécifiez n'est pas conforme ou n'a pas été déployé, le profil VPN n'est pas installé sur l'appareil.
+            >  Als de SCEP-certificaat dat u opgeeft, niet compatibel is of niet is geïmplementeerd, wordt wordt het VPN-profiel niet geïnstalleerd op het apparaat.
             >  
-            >  Les appareils qui exécutent iOS prennent uniquement en charge RSA SecurID et MSCHAP v2 comme méthode d’authentification quand le type de connexion est PPTP. Pour éviter toute erreur, déployez un profil VPN PPTP distinct sur les appareils qui exécutent iOS.  
+            >  Apparaten met iOS ondersteunen alleen RSA SecurID en MSCHAP v2 voor de methode voor verificatie wanneer het verbindingstype PPTP is. Voorkom melding van fouten door een afzonderlijk PPTP VPN-profiel te implementeren voor apparaten met iOS.  
 
-        - **Accès conditionnel**
-            - Choisissez **Activer l’accès conditionnel pour cette connexion VPN** pour vérifier que les appareils qui se connectent au VPN ont été testés en vue de la conformité de l’accès conditionnel avant la connexion. Les stratégies de conformité sont décrites dans [Stratégies de conformité des appareils dans System Center Configuration Manager](https://docs.microsoft.com/en-us/sccm/protect/deploy-use/device-compliance-policies.md).
-            - Choisissez **Activer l’authentification unique avec certificat de remplacement** pour choisir un certificat autre que le certificat d’authentification VPN pour la conformité des appareils. Si vous choisissez cette option, indiquez les valeurs de **Utilisation améliorée de la clé** (liste séparée par des virgules) et **Hachage de l’émetteur** pour le certificat approprié que le client VPN doit localiser.
+        - **Voorwaardelijke toegang**
+            - Kies **voorwaardelijke toegang inschakelen voor deze VPN-verbinding** om ervoor te zorgen dat apparaten die verbinding met de VPN-verbinding maken zijn getest voor naleving van voorwaardelijke toegang voordat u verbinding maakt. Beleidsregels voor nalevingsbeleid die worden beschreven in [nalevingsbeleid voor apparaten in System Center Configuration Manager](https://docs.microsoft.com/en-us/sccm/protect/deploy-use/device-compliance-policies.md).
+            - Kies **Schakel eenmalige aanmelding (SSO) met een alternatief certificaat** een certificaat dan het certificaat voor VPN-verificatie voor apparaatcompatibiliteit kiezen. Als u deze optie kiest, geeft u de **EKU** (door komma's gescheiden lijst) en **Hash voor de verlener**, voor het juiste certificaat de VPN-client te vinden.
 
-         - Pour **Protection des informations Windows**, indiquez l’identité d’entreprise gérée par l’entreprise, qui est généralement le domaine principal de votre organisation, par exemple, *contoso.com*. Vous pouvez spécifier plusieurs domaines appartenant à votre organisation en les séparant avec le caractère « | ». Par exemple, *contoso.com|newcontoso.com*.   
-            Pour plus d’informations sur la protection des informations Windows, consultez [Créer une stratégie Protection des informations Windows (WIP) à l’aide de Microsoft Intune](https://technet.microsoft.com/en-us/itpro/windows/keep-secure/create-wip-policy-using-intune).   
+         - Voor **Windows Information Protection**, bieden de centraal beheerde zakelijke identiteit, dat meestal het primaire domein van uw organisatie, bijvoorbeeld, *contoso.com*. U kunt meerdere domeinen die uw organisatie eigenaar is van door deze met elkaar te scheiden opgeven de ' | ' teken. Bijvoorbeeld: *contoso.com|newcontoso.com*.   
+            Zie voor meer informatie over Windows Information Protection [maken van een Windows-beveiliging (OHW)-beleid met Microsoft Intune](https://technet.microsoft.com/en-us/itpro/windows/keep-secure/create-wip-policy-using-intune).   
 
-         ![Configurer l’accès conditionnel pour VPN](media/vpn-conditional-access.png)
+         ![Voorwaardelijke toegang voor VPN-verbinding configureren](media/vpn-conditional-access.png)
 
-         En cas de prise en charge par la version de Windows qui exécute Configuration Manager _et_ la méthode d’autorisation sélectionnée, vous pouvez choisir l’option **Configurer** pour ouvrir la boîte de dialogue des propriétés Windows et configurer les propriétés de la méthode d’authentification.  Si l’option **Configurer** est désactivée, utilisez d’autres moyens pour configurer les propriétés de la méthode d’authentification.
+         Wanneer wordt ondersteund door de versie van Windows die wordt uitgevoerd van Configuration Manager _en_ de geselecteerde autorisatiemethode die u kunt kiezen **configureren** opent het dialoogvenster Eigenschappen van Windows en configureren van eigenschappen verificatiemethode.  Als **configureren** is uitgeschakeld, een andere methode gebruiken voor het configureren van eigenschappen verificatiemethode.
 
-2.  Sur la page **Paramètres du proxy** de l'**Assistant Création d'un profil VPN**, cochez la case **Configurer les paramètres du proxy pour ce profil VPN** si votre connexion VPN utilise un serveur proxy. Indiquez ensuite les informations sur le serveur proxy. Pour plus d’informations, consultez la documentation de Windows Server.  
+2.  Op de **Proxy-instellingen** pagina van de **Wizard VPN-profiel**, Controleer de **proxy-instellingen voor dit VPN-profiel configureren** vak als uw VPN-verbinding gebruikmaakt van een proxyserver. Vervolgens de proxy-serverinformatie opgeven. Raadpleeg de Windows Server-documentatie voor meer informatie.  
 
     > [!NOTE]  
-    >  Sur les ordinateurs Windows 8.1, le profil VPN n’affiche pas les informations de proxy tant que vous n’êtes pas connecté au VPN avec cet ordinateur.  
+    >  Op computers met Windows 8.1, wordt het VPN-profiel niet de proxy-informatie weergegeven totdat u een verbinding met de VPN-verbinding maken met behulp van die computer.  
 
 
-3. Configurer les paramètres DNS supplémentaires (si nécessaire).  
- Dans la page **Configurer une connexion VPN automatique**, vous pouvez configurer les paramètres suivants :  
+3. Meer DNS-instellingen configureren (indien nodig).  
+ Op de **automatische VPN-verbinding configureren** pagina kunt u het volgende configureren:  
 
-    -   **Activer VPN à la demande** : utilisez cette option si vous souhaitez configurer d’autres paramètres DNS pour les appareils Windows Phone 8.1. Ce paramètre s’applique uniquement aux appareils Windows Phone 8.1 et ne doit être activé que sur les profils VPN destinés à être déployés sur des appareils Windows Phone 8.1.
+    -   **VPN op aanvraag inschakelen**: Gebruik deze optie als u wilt meer DNS-instellingen voor Windows Phone 8.1-apparaten configureren. Deze instelling geldt alleen voor Windows Phone 8.1-apparaten en moet alleen worden ingeschakeld voor VPN-profielen die op Windows Phone 8.1-apparaten kunnen worden geïmplementeerd.
 
-    -   **Liste de suffixes DNS** (appareils Windows Phone 8.1 uniquement) : configurez les domaines qui établiront une connexion VPN. Pour chaque domaine que vous spécifiez, ajoutez le suffixe DNS, l'adresse du serveur DNS et l'une des actions à la demande suivantes :  
+    -   **Lijst met DNS-achtervoegsels** (alleen Windows Phone 8.1-apparaten): Hiermee configureert u domeinen die een VPN-verbinding tot stand brengen. Voor elk domein dat u opgeeft, voegt u het DNS-achtervoegsel, het DNS-serveradres en een van de volgende acties voor op aanvraag:  
 
-        -   **Ne jamais établir** : ne jamais ouvrir de connexion VPN.  
+        -   **Nooit verbinding maken**: Open nooit een VPN-verbinding.  
 
-        -   **Établir si nécessaire** : ouvrir une connexion VPN uniquement si l’appareil doit se connecter aux ressources.  
+        -   **Verbinding maken indien nodig**: Alleen een VPN-verbinding openen als het apparaat verbinding moet maken met resources.  
 
-        -   **Toujours établir** : toujours ouvrir la connexion VPN.  
+        -   **Altijd verbinding maken**: Altijd de VPN-verbinding openen.  
 
-    -   **Fusionner** : copie tous les suffixes DNS que vous avez configurés dans la **Liste de réseaux approuvés**.  
+    -   **Samenvoegen**: Kopieert alle DNS-achtervoegsels die u hebt geconfigureerd voor de **lijst met vertrouwde netwerken**.  
 
-    -   **Liste de réseaux approuvés** (appareils Windows Phone 8.1 uniquement) : spécifiez un suffixe DNS sur chaque ligne. Si l'appareil se trouve sur un réseau approuvé, la connexion VPN n'est pas ouverte.  
+    -   **Lijst met vertrouwde netwerken** (alleen Windows Phone 8.1-apparaten): Geef per regel één DNS-achtervoegsel. Als het apparaat zich in een vertrouwd netwerk bevindt, wordt de VPN-verbinding niet geopend.  
 
-    -   **Liste de recherche de suffixes** (appareils Windows Phone 8.1 uniquement) : spécifiez un suffixe DNS sur chaque ligne. Chaque suffixe DNS sera recherché lors de la connexion à un site web à l’aide d’un nom court.  
+    -   **Zoeklijst voor achtervoegsels** (alleen Windows Phone 8.1-apparaten): Geef per regel één DNS-achtervoegsel. Elke DNS-achtervoegsel wordt doorzocht wanneer met behulp van een korte naam verbinding te maken met een website.  
 
-     Par exemple, vous spécifiez les suffixes DNS **domain1.contoso.com** et **domain2.contoso.com**, puis vous accédez à l'URL **http://mywebsite**. Les adresses suivantes seront recherchées :  
+     Geef bijvoorbeeld de DNS-achtervoegsels **domain1.contoso.com** en **domain2.contoso.com**, en gaat u naar de URL **http://mywebsite**. De volgende adressen worden doorzocht:  
 
     -   **http://mywebsite.domain1.contoso.com**  
 
     -   **http://mywebsite.domain2.contoso.com**  
 
     > [!NOTE]  
-    >  Pour les appareils Windows Phone 8.1 uniquement  
+    >  Alleen voor apparaten met Windows Phone 8.1  
     >   
-    >  Si l'option *Envoyer tout le trafic réseau via la connexion VPN* est sélectionnée *et* que la connexion VPN utilise le tunneling complet, la connexion VPN s'ouvre automatiquement avec le premier profil d’appareil. Pour ouvrir une connexion avec un autre profil, définissez le profil par défaut de votre choix.  
+    >  Wanneer de *alle netwerkverkeer via de VPN-verbinding verzenden* optie is geselecteerd *en* gebruikmaakt van de VPN-verbinding volledige tunneling gebruikt, de VPN-verbinding automatisch geopend met behulp van het profiel van het eerste apparaat. Wilt openen een verbinding met een ander profiel, stelt u het gewenste profiel als standaardwaarde.  
     >   
-    >  Si l'option *Envoyer tout le trafic réseau via la connexion VPN* n'est *pas* sélectionnée *et* que la connexion VPN utilise le tunneling fractionné, les connexions VPN peuvent être ouvertes automatiquement pour les itinéraires configurés ou les suffixes DNS spécifiques à la connexion.  
+    >  Wanneer de *alle netwerkverkeer via de VPN-verbinding verzenden* optie is *niet* geselecteerde *en* gebruikmaakt van de VPN-verbinding split tunneling, VPN-verbindingen voor geconfigureerde routes of verbindingsspecifieke DNS-achtervoegsels automatisch geopend.  
 
 
-4. Sur la page **Plates-formes prises en charge** de l'**Assistant Création d'un profil VPN**, sélectionnez les systèmes d'exploitation sur lesquels le profil VPN sera installé ou choisissez **Sélectionner tout** pour installer le profil VPN sur tous les systèmes d'exploitation disponibles.  
+4. Op de **ondersteunde Platforms** pagina van de **Wizard VPN-profiel**, selecteer de besturingssystemen waarop het VPN-profiel wordt geïnstalleerd of kies **Alles selecteren** voor het installeren van het VPN-profiel op alle beschikbare besturingssystemen.  
 
-5. Fermez l'Assistant. Le nœud **Profils VPN** dans l'espace de travail **Ressources et Conformité** affiche le nouveau profil VPN.  
+5. Sluit de wizard af. De **VPN-profielen** knooppunt in de **activa en naleving** werkruimte ziet u het nieuwe VPN-profiel.  
 
 
-**Déploiement :** consultez [Déployer des profils Wi-Fi, VPN, de messagerie et de certificat](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md) pour en savoir plus sur le déploiement des profils VPN.
+**Implementeer**: Zie [implementeren Wi-Fi, VPN, e-mail en certificaatprofielen](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md) voor meer informatie over het implementeren van VPN-profielen.
 
-### <a name="next-steps"></a>Étapes suivantes  
- Utilisez les rubriques suivantes pour planifier, configurer, utiliser et gérer des profils VPN dans Configuration Manager.  
+### <a name="next-steps"></a>Volgende stappen  
+ Gebruik de volgende onderwerpen voor hulp bij het plannen, instellen, te gebruiken en onderhouden van VPN-profielen in Configuration Manager.  
 
--   [Configuration requise pour les profils VPN dans System Center Configuration Manager](../../protect/plan-design/prerequisites-for-wifi-vpn-profiles.md)  
+-   [Vereisten voor VPN-profielen in System Center Configuration Manager](../../protect/plan-design/prerequisites-for-wifi-vpn-profiles.md)  
 
--   [Sécurité et confidentialité pour les profils VPN dans System Center Configuration Manager](../../protect/plan-design/security-and-privacy-for-wifi-vpn-profiles.md)
+-   [Beveiliging en privacy voor VPN-profielen in System Center Configuration Manager](../../protect/plan-design/security-and-privacy-for-wifi-vpn-profiles.md)

@@ -1,6 +1,6 @@
 ---
-title: "Créer des profils Wi-Fi dans System Center Configuration Manager | Microsoft Docs"
-description: "Découvrez comment utiliser des profils Wi-Fi dans Configuration Manager, afin de déployer des paramètres de réseau sans fil pour les utilisateurs mobiles de votre organisation."
+title: Wi-Fi-profielen maken in System Center Configuration Manager | Microsoft Docs
+description: Informatie over het gebruik van Wi-Fi-profielen in Configuration Manager naar de instellingen voor draadloze netwerken implementeren voor gebruikers van mobiele apparaten in uw organisatie.
 ms.custom: na
 ms.date: 03/05/2017
 ms.prod: configuration-manager
@@ -17,31 +17,31 @@ ms.author: alleonar
 manager: angrobe
 ms.openlocfilehash: 362bcbd368fd49979c554cd009b3ba72f20d5fbd
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="how-to-create-wi-fi-profiles-for-mobile-devices-in-system-center-configuration-manager"></a>Comment créer des profils Wi-Fi pour les appareils mobiles dans System Center Configuration Manager
+# <a name="how-to-create-wi-fi-profiles-for-mobile-devices-in-system-center-configuration-manager"></a>Wi-Fi-profielen voor mobiele apparaten maken in System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Dans System Center Configuration Manager, utilisez des profils Wi-Fi pour déployer des paramètres de réseau sans fil pour les utilisateurs mobiles de votre organisation. En déployant ces paramètres, il est plus facile pour les utilisateurs de se connecter au Wi-Fi.  
+Gebruik Wi-Fi-profielen in System Center Configuration Manager naar de instellingen voor draadloze netwerken implementeren voor gebruikers van mobiele apparaten in uw organisatie. Deze instellingen implementeert, maakt u het gemakkelijker voor uw gebruikers verbinding maken met Wi-Fi.  
 
-Vous pouvez configurer les types d’appareil mobile suivants avec des profils Wi-Fi :  
+U kunt de volgende typen mobiele apparaten configureren met Wi-Fi-profielen:  
 
--   Appareils qui exécutent Windows Phone 8.1  
+-   Apparaten met Windows Phone 8.1  
 
--   Appareils qui exécutent Windows 10 Desktop ou Mobile  
+-   Apparaten met Windows 10 Desktop of Mobile  
 
--   Appareils IPhone qui exécutent iOS 5, iOS 6, iOS 7 et iOS 8  
+-   IPhone-apparaten met iOS 5, iOS 6, iOS 7 en iOS 8  
 
--   Appareils IPad qui exécutent iOS 5, iOS 6, iOS 7 et iOS 8  
+-   iPad-apparaten met iOS 5, iOS 6, iOS 7 en iOS 8  
 
--   Appareils Android qui exécutent la version 4 ou ultérieure
+-   Android-apparaten met versie 4 of hoger
 
 > [!IMPORTANT]  
->  Pour déployer des profils sur des appareils Android, iOS, Windows Phone et sur des appareils Windows 8.1 ou version ultérieure inscrits, ces appareils doivent être inscrits dans Microsoft Intune. Pour plus d’informations sur la façon d’inscrire vos appareils, consultez [Inscrire des appareils pour la gestion dans Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).  
+>  Om profielen te implementeren naar Android, iOS, Windows Phone-en ingeschreven Windows 8.1 of hoger, moeten deze apparaten worden geregistreerd bij Microsoft Intune. Zie voor meer informatie over het registreren van uw apparaten [apparaten inschrijven voor beheer in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune).  
 
-La section [Créer des profils Wi-Fi](../../protect/deploy-use/create-wifi-profiles.md#create-a-wi-fi-profile) fournit des informations d’ordre général sur l’utilisation des profils Wi-Fi dans Configuration Manager, afin de déployer des paramètres de réseau sans fil pour les utilisateurs.
+[Een Wi-Fi-profiel maken](../../protect/deploy-use/create-wifi-profiles.md#create-a-wi-fi-profile) bevat algemene informatie over het gebruik van Wi-Fi-profielen in Configuration Manager naar de instellingen voor draadloze netwerken implementeren voor gebruikers.
 
-Pour en savoir plus sur le déploiement des profils Wi-Fi, voir [Déployer des profils dans System Center Configuration Manager](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md).
+Zie [implementeren Wi-Fi, VPN, e-mail en certificaatprofielen](../../protect/deploy-use/deploy-wifi-vpn-email-cert-profiles.md) voor informatie over het Wi-Fi-profielen implementeren.

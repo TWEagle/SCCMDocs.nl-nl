@@ -1,6 +1,6 @@
 ---
-title: "Présentation | Microsoft Docs"
-description: "Obtenez des informations de base faisant office de présentation de System Center Configuration Manager."
+title: Inleiding | Microsoft Docs
+description: Algemene informatie als een inleiding op System Center Configuration Manager worden opgehaald.
 ms.custom: na
 ms.date: 10/06/2016
 ms.prod: configuration-manager
@@ -16,205 +16,205 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 76f907b17df0dd2f102e34ca3cfb3ffc813c0004
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="introduction-to-system-center-configuration-manager"></a>Présentation de System Center Configuration Manager
+# <a name="introduction-to-system-center-configuration-manager"></a>Inleiding op System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Produit de la suite Microsoft System Center de solutions de gestion, System Center Configuration Manager peut vous aider à gérer les appareils et les utilisateurs localement et dans le cloud.  
+Een product in de Microsoft System Center-suite van oplossingen voor System Center Configuration Manager kunt u beheren van apparaten en gebruikers zowel on-premises en in de cloud.  
 
-**Configuration Manager peut vous aider à :**   
--   améliorer la productivité et l’efficacité de vos services informatiques en réduisant les tâches manuelles et en vous permettant de vous concentrer sur des projets à forte valeur ;  
--   optimiser les investissements matériels et logiciels ;  
--   maîtriser la productivité des utilisateurs en leur fournissant les bons logiciels au bon moment.  
+**U kunt de Configuration Manager gebruiken om u te helpen:**   
+-   Uw IT-productiviteit en efficiëntie door handmatige taken te verminderen zodat u zich concentreren op hoogwaardige projecten.  
+-   Hardware en software-investeringen maximaliseren.  
+-   Productiviteit van gebruiker door de juiste software op het juiste moment.  
 
-**Configuration Manager vous permet d’offrir des services informatiques plus efficaces en prenant en charge :**  
+**Configuration Manager kunt u efficiëntere IT-services leveren door in te schakelen:**  
 
--   Le déploiement de logiciels sécurisés et scalables.  
--   La gestion des paramètres de conformité.  
--   La gestion complète des ressources des serveurs, ordinateurs de bureau, ordinateurs portables et appareils mobiles.  
+-   Veilige en schaalbare software-implementatie.  
+-   Beheer van compatibiliteitsinstellingen.  
+-   Een uitgebreide asset management van servers, desktops, laptops en mobiele apparaten.  
 
-**Configuration Manager s'étend et fonctionne avec vos solutions et technologies Microsoft existantes.**  
+**Configuration Manager uitbreidt en werkt goed samen met uw bestaande Microsoft-technologieën en -oplossingen.**  
 
-Par exemple, Configuration Manager s’intègre aux éléments suivants :  
+Bijvoorbeeld, Configuration Manager geïntegreerd met:  
 
--   Microsoft Intune, pour gérer un vaste éventail de plateformes d’appareils mobiles.  
--   Windows Server Update Services (WSUS), pour gérer les mises à jour logicielles.  
--   Services de certificats.  
--   Exchange Server et Exchange Online.  
--   Stratégie de groupe Windows (GPO)
+-   Microsoft Intune voor het beheren van een groot aantal verschillende platformen voor mobiele apparaten.  
+-   Windows Server Update Services (WSUS) voor het beheren van software-updates.  
+-   Certificaatservices.  
+-   Exchange Server en Exchange Online.  
+-   Windows-groepsbeleid.
 -   DNS.   
--   Kit de déploiement et d’évaluation Windows (Windows ADK) et outil de migration utilisateur (USMT).  
--   Services de déploiement Windows (WDS).  
--   Assistance à distance et Bureau à distance.  
+-   Windows Automated Deployment Kit (Windows ADK) en User State Migration Tool (USMT).  
+-   Windows Deployment Services (WDS).  
+-   Extern bureaublad en hulp op afstand.  
 
-Configuration Manager utilise également :  
+Configuration Manager gebruikt ook:  
 
--   Les services de domaine Active Directory pour la sécurité, l’emplacement du service, la configuration et pour découvrir les utilisateurs et les appareils que vous souhaitez gérer.  
--   Microsoft SQL Server comme base de données de gestion des modifications distribuée, qui s’intègre à SQL Server Reporting Services (SSRS) pour créer des rapports de surveillance et de suivi des activités de gestion.  
--   Des rôles de système de site qui étendent les fonctionnalités de gestion et l’utilisation des services web d’IIS (Internet Information Services).
--   Le service de transfert intelligent en arrière-plan (BITS) et BranchCache pour gérer la bande passante réseau disponible.  
+-   Active Directory Domain Services voor de beveiliging, servicelocatie, configuratie en voor de detectie van gebruikers en apparaten die u wilt beheren.  
+-   Microsoft SQL Server als een database voor het beheer van gedistribueerde wijzigen — en integreert met SQL Server Reporting Services (SSRS) voor het produceren van rapporten uit om te bewaken en bijhouden van beheeractiviteiten.  
+-   Sitesysteemrollen die de beheerfunctionaliteit uitbreiden en de webservices van Internet Information Services (IIS) gebruiken.
+-   BITS (Background Intelligent Transfer Service) en BranchCache voor het beheren van de beschikbare netwerkbandbreedte.  
 
-Pour réussir avec Configuration Manager, vous devez d'abord soigneusement planifier et tester les fonctionnalités de gestion avant d'utiliser Configuration Manager dans un environnement de production. En tant qu'application de gestion performante, Configuration Manager est susceptible d'affecter tous les ordinateurs de votre organisation. Lorsque Configuration Manager est déployé et géré avec une planification minutieuse prenant en compte les exigences de votre entreprise, Configuration Manager peut réduire les frais administratifs généraux ainsi que le coût total de possession.  
+Als u geslaagde met Configuration Manager, moet u eerst grondig plannen en de beheerfuncties testen voordat u Configuration Manager in een productieomgeving gebruiken. Configuration Manager heeft een krachtige beheertoepassing kunnen invloed hebben op elke computer in uw organisatie. Wanneer u implementeren en beheren van Configuration Manager met een zorgvuldige planning en afweging van uw bedrijfsvereisten, kan Configuration Manager uw administratieve overhead en totale eigendomskosten verminderen.  
 
-Utilisez les rubriques suivantes et les autres sections de cette rubrique pour en savoir plus sur Configuration Manager.  
+Gebruik de volgende onderwerpen en extra secties in dit onderwerp voor meer informatie over Configuration Manager.  
 
 
-**Rubriques connexes dans la bibliothèque de documents :**  
+**Verwante onderwerpen in deze documentatiebibliotheek:**  
 
--   [Fonctions et fonctionnalités de System Center Configuration Manager](../../core/plan-design/changes/features-and-capabilities.md)  
--   [Choisir une solution de gestion d’appareils pour System Center Configuration Manager](../../core/plan-design/choose-a-device-management-solution.md)  
--   [Ce qui a changé dans System Center Configuration Manager par rapport à System Center 2012 Configuration Manager](../../core/plan-design/changes/what-has-changed-from-configuration-manager-2012.md)
--   [Principes de base de System Center Configuration Manager](../../core/understand/fundamentals.md)  
--   [Évaluer System Center Configuration Manager en créant votre propre environnement lab](/sccm/core/get-started/set-up-your-lab)
--   [Trouver de l’aide pour l’utilisation de System Center Configuration Manager](../../core/understand/find-help.md)  
--   [Fonctionnalités supprimées et déconseillées dans System Center Configuration Manager](../../core/plan-design/changes/removed-and-deprecated-features.md)  
+-   [Functies en mogelijkheden van System Center Configuration Manager](../../core/plan-design/changes/features-and-capabilities.md)  
+-   [Kies een oplossing voor Apparaatbeheer voor System Center Configuration Manager](../../core/plan-design/choose-a-device-management-solution.md)  
+-   [Wat er veranderd in System Center Configuration Manager van System Center 2012 Configuration Manager](../../core/plan-design/changes/what-has-changed-from-configuration-manager-2012.md)
+-   [Basisprincipes van System Center Configuration Manager](../../core/understand/fundamentals.md)  
+-   [System Center Configuration Manager evalueren door uw eigen testomgeving bouwen](/sccm/core/get-started/set-up-your-lab)
+-   [Hulp zoeken voor het gebruik van System Center Configuration Manager](../../core/understand/find-help.md)  
+-   [Verwijderde en afgeschafte functies voor System Center Configuration Manager](../../core/plan-design/changes/removed-and-deprecated-features.md)  
 
-##  <a name="BKMK_Console"></a> Console Configuration Manager  
- Après l'installation de Configuration Manager, utilisez la console Configuration Manager pour configurer les sites et les clients, ainsi que pour exécuter et surveiller les tâches de gestion. Cette console est le principal point d'administration et vous permet de gérer plusieurs sites.  
+##  <a name="BKMK_Console"></a> De Configuration Manager-console  
+ Nadat u de Configuration Manager hebt geïnstalleerd, gebruikt u de Configuration Manager-console voor het configureren van sites en clients en voor het uitvoeren en controleren van beheertaken. Deze console is het belangrijkste beheerpunt, waarmee u meerdere sites kunt beheren.  
 
- Elle peut également exécuter des consoles secondaires pour prendre en charge des tâches spécifiques de gestion de client. Par exemple :  
+ U kunt met behulp van de console secundaire consoles uitvoeren ter ondersteuning van specifieke clientbeheertaken, zoals de volgende:  
 
--   l’**Explorateur de ressources**pour afficher des informations sur la parc matériel et logiciel ;  
--   le**Contrôle à distance** pour se connecter à distance à un ordinateur client afin d’effectuer des tâches de dépannage.  
+-   **Resourceverkenner**, om software - en hardware-inventarisgegevens weer te geven.  
+-   **Extern beheer**, om op afstand verbinding te maken met een clientcomputer voor de uitvoering van foutopsporingstaken.  
 
-Vous pouvez installer la console Configuration Manager sur des ordinateurs supplémentaires, ainsi que restreindre l’accès et limiter ce que les utilisateurs administratifs voient dans la console à l’aide de l'administration basée sur des rôles de Configuration Manager.  
+U kunt de Configuration Manager-console op extra computers installeren en de toegang beperken en beperken wat gebruikers met beheerdersrechten kunnen zien in de console met behulp van Configuration Manager op rollen gebaseerd beheer.  
 
-Pour plus d’informations, consultez [Installer des consoles System Center Configuration Manager](../../core/servers/deploy/install/install-consoles.md).
+Zie [System Center Configuration Manager-consoles installeren](../../core/servers/deploy/install/install-consoles.md) voor meer informatie.
 
-##  <a name="BKMK_ApplicationCatalog"></a> Le catalogue d'applications, le centre logiciel et le portail d'entreprise  
- Le **catalogue d’applications** est un site web sur lequel les utilisateurs peuvent rechercher et demander des logiciels pour leurs PC Windows. Pour utiliser le catalogue d'applications, vous devez installer le point de service Web du catalogue d'applications et le point de site Web du catalogue d'applications pour le site.  
+##  <a name="BKMK_ApplicationCatalog"></a> De toepassingscatalogus, Software Center en de bedrijfsportal  
+ De **Toepassingscatalogus** is een website waar gebruikers software voor hun Windows-pc's kunnen zoeken en aanvragen. Voor het gebruik van de toepassingscatalogus moet u het Application Catalog-webservicepunt en het Application Catalog-websitepunt voor de site installeren.  
 
- Le**Centre logiciel** est une application installée quand le client Configuration Manager est installé sur des ordinateurs Windows. Les utilisateurs exécutent cette application pour demander des logiciels et gérer les logiciels que Configuration Manager déploie à leur intention. Le Centre logiciel permet aux utilisateurs d'effectuer les opérations suivantes :  
+ **Software Center** is een toepassing die wordt geïnstalleerd wanneer de Configuration Manager-client is geïnstalleerd op Windows gebaseerde computers. Gebruikers voeren deze toepassing software aanvragen en beheren van de software die Configuration Manager op deze implementeert. Met Software Center kunnen gebruikers het volgende doen:  
 
--   rechercher et installer des logiciels à partir du catalogue d'applications ;  
--   afficher leur historique de demande de logiciels ;  
--   configurer à quel moment Configuration Manager peut installer des logiciels sur leurs équipements ;  
--   configurer les paramètres d'accès pour le contrôle à distance, si un utilisateur administratif a activé le contrôle à distance.  
+-   Zoeken naar en installeren van software uit de Application Catalog.  
+-   De historie van softwareaanvragen weergeven.  
+-   Configureren wanneer Configuration Manager software op hun apparaten installeren kan.  
+-   Toegangsinstellingen voor extern beheer configureren als een gebruiker met beheerdersrechten beheer op afstand is ingeschakeld.  
 
-**Le portail d’entreprise** est une application ou un site web qui offre des fonctions similaires au catalogue d’applications, mais pour les appareils mobiles qui sont inscrits par Windows Intune.  
+**De bedrijfsportal** is een app of website die in gelijksoortige functies voorziet als de toepassingscatalogus, maar voor mobiele apparaten die zijn geregistreerd door Microsoft Intune.  
 
-Pour plus d’informations, consultez [Présentation de la gestion d’applications dans System Center Configuration Manager](../../apps/understand/introduction-to-application-management.md).  
+Zie voor meer informatie [aan de slag met Toepassingsbeheer in System Center Configuration Manager](../../apps/understand/introduction-to-application-management.md).  
 
-###  <a name="BKMK_Client"></a> Propriétés de Configuration Manager (sur les PC Windows)  
- Lorsque le client Configuration Manager est installé sur les ordinateurs Windows, Configuration Manager est installé dans le Panneau de configuration. En règle générale, vous n’avez pas à configurer cette application, car la configuration du client est effectuée dans la console Configuration Manager. Cette application aide les utilisateurs administratifs et le support technique à résoudre les problèmes avec des clients individuels.  
+###  <a name="BKMK_Client"></a>Eigenschappen van Configuration Manager (op Windows-pc's)  
+ Wanneer de Configuration Manager-client is geïnstalleerd op Windows-computers, wordt Configuration Manager is geïnstalleerd in het Configuratiescherm. U hoeft normaal gesproken te configureren van deze toepassing omdat de configuratie van de client wordt uitgevoerd in de Configuration Manager-console. Deze toepassing is een hulpmiddel voor gebruikers met beheerdersrechten en helpdeskmedewerkers om problemen bij afzonderlijke clients op te sporen.  
 
- Pour plus d’informations sur le déploiement de clients, consultez [Méthodes d’installation du client dans System Center Configuration Manager](../../core/clients/deploy/plan/client-installation-methods.md).  
+ Zie [Clientinstallatiemethoden in System Center Configuration Manager](../../core/clients/deploy/plan/client-installation-methods.md) voor meer informatie over implementaties van clients.  
 
-##  <a name="BKMK_ExampleScenarios"></a> Exemples de scénarios de Configuration Manager  
- Les exemples de scénarios suivants montrent comment une entreprise nommée Trey Research utilise Configuration Manager pour permettre aux utilisateurs :  
+##  <a name="BKMK_ExampleScenarios"></a> Voorbeeldscenario's voor Configuration Manager  
+ De volgende voorbeeldscenario's laten zien hoe een bedrijf, Trey Research System Center Configuration Manager gebruikt om te zorgen dat gebruikers:  
 
--   d’être plus productifs ;  
--   d’unifier la gestion de la conformité des appareils pour rationaliser les tâches d’administration ;
--   de simplifier la gestion des appareils pour réduire les coûts d’exploitation informatiques.  
+-   Wees productiever.  
+-   Hun nalevingsbeheer voor apparaten voor een meer gestroomlijnde beheerervaring.
+-   Beheer van apparaten om de operationele kosten verlagen IT vereenvoudigen.  
 
-Dans tous les scénarios, Adam est l'administrateur principal de Configuration Manager.  
+In alle scenario's is Active Directory-toepassingsmodus hoofdbeheerder voor Configuration Manager.  
 
-###  <a name="BKMK_ScenarioEmpower"></a> Exemple de scénario : donner aux utilisateurs plus d’autonomie en permettant l’accès aux applications à partir de tous les appareils  
- Trey Research veut s’assurer que les employés peuvent accéder aux applications dont ils ont besoin, et aussi efficacement que possible. Adam applique ces spécifications de l'entreprise aux scénarios suivants :  
+###  <a name="BKMK_ScenarioEmpower"></a>Voorbeeldscenario: Gebruikers mogelijkheden bieden door ervoor te zorgen toegang tot toepassingen vanaf elk apparaat  
+ Trey Research wil om ervoor te zorgen dat werknemers toegang tot de toepassingen die ze nodig hebben hebben, zo efficiënt mogelijk. Jeroen wijst deze bedrijfsvereisten toe aan de volgende scenario's:  
 
-|Situation|État actuel de la gestion du client|État futur de la gestion du client|  
+|Vereiste|Huidige clientbeheerstatus|Toekomstige clientbeheerstatus|  
 |-----------------|-------------------------------------|------------------------------------|  
-|Les nouveaux employés peuvent travailler efficacement dès le premier jour.|Quand les employés intègrent l’entreprise et qu’ils ouvrent une session pour la première fois sur leur ordinateur, ils doivent attendre que les applications soient installées.|Quand les employés intègrent l’entreprise, ils ouvrent une session et voient leurs applications installées et prêtes à l’emploi sur leur ordinateur.|  
-|Les employés peuvent demander rapidement et facilement les logiciels supplémentaires dont ils ont besoin.|Quand les employés ont besoin d’autres applications, ils envoient une demande au support technique. Ils attendent en général deux jours avant que la demande soit traitée et que les applications soient installées.|Quand les employés ont besoin d’autres applications, ils peuvent les demander à partir d’un site web. Ils peuvent ensuite les installer immédiatement en l’absence de restrictions de licences. S'il existe des restrictions de licences, les utilisateurs doivent tout d'abord demander l'approbation avant d'installer l'application.<br /><br /> Le site web présente aux utilisateurs uniquement les applications qu’ils sont autorisés à installer.|  
-|Les employés peuvent utiliser leurs appareils mobiles au travail si ces appareils sont conformes aux stratégies de sécurité qui sont surveillées et appliquées.<br /><br /> Ces stratégies incluent l’application d’un mot de passe fort, le verrouillage d’un appareil après une période d’inactivité et la réinitialisation à distance d’appareils perdus ou volés.|Les employés connectent leurs appareils mobiles au serveur Exchange Server pour accéder au service de messagerie. Toutefois, les rapports de confirmation de la conformité avec les stratégies de sécurité sont limités dans les stratégies de boîte aux lettres ActiveSync Exchange par défaut. L'utilisation personnelle des appareils mobiles risque d'être interdite si le service informatique ne peut pas confirmer le respect de la stratégie.|Le service informatique peut confirmer la compatibilité de la sécurité de l'appareil mobile avec les paramètres requis. Cette confirmation permet aux utilisateurs de continuer à utiliser leur appareil mobile au travail. Les utilisateurs peuvent réinitialiser leur appareil mobile à distance en cas de perte ou de vol, et le support technique peut réinitialiser tout appareil mobile d’utilisateur qui a été signalé comme perdu ou volé.<br /><br /> Il est recommandé de fournir l'inscription des appareils mobiles dans un environnement d'infrastructure à clés publiques pour plus de contrôle et de sécurité.|  
-|Les employés peuvent être productifs même s’ils ne sont pas à leur bureau.|Quand les employés ne sont pas à leur bureau et n’ont pas d’ordinateurs portables, ils ne peuvent pas accéder à leurs applications via les ordinateurs publics disponibles dans l’entreprise.|Les employés peuvent utiliser des ordinateurs publics pour accéder à leurs applications et données.|  
-|En général, la pérennité des activités est prioritaire sur l'installation des applications et des mises à jour logicielles requises.|Les applications et les mises à jour logicielles requises sont installées pendant la journée, ce qui perturbe fréquemment le travail des utilisateurs dans la mesure où leurs ordinateurs ralentissent ou redémarrent au cours de l'installation.|Les utilisateurs peuvent définir leurs heures de travail pour empêcher l’installation des logiciels obligatoires pendant qu’ils utilisent leur ordinateur.|  
+|Nieuwe werknemers kunnen vanaf de allereerste dag efficiënt werken.|Wanneer werknemers bij het bedrijf, moeten wachten tot toepassingen die worden geïnstalleerd nadat ze zich voor het eerst aanmelden.|Wanneer werknemers bij het bedrijf, ze zich aanmelden en hun toepassingen zijn geïnstalleerd en gereed om te worden gebruikt.|  
+|Werknemers kunnen snel en gemakkelijk extra benodigde software aanvragen.|Wanneer werknemers extra toepassingen nodig, dienen zij een ticket met de helpdesk. Ze doorgaans Wacht twee dagen voor het ticket is verwerkt en voor de toepassingen die worden geïnstalleerd.|Wanneer werknemers extra toepassingen nodig, kunnen zij deze aanvragen van een website. Deze worden onmiddellijk geïnstalleerd als er geen licentiebeperkingen zijn. Als er licentiebeperkingen zijn, moeten gebruikers eerst om goedkeuring vragen voordat zij de toepassing kunnen installeren.<br /><br /> De website toont gebruikers alleen de toepassingen die ze je kunnen installeren.|  
+|Werknemers kunnen hun mobiele apparaten bij hun werk gebruiken als de apparaten conform de gecontroleerde en gehandhaafde beleidsregels voor veiligheid zijn.<br /><br /> Deze beleidsregels bevatten een sterk wachtwoord afdwingen en op afstand wissen van verloren of gestolen apparaten vergrendelen van een apparaat na een periode van inactiviteit.|Werknemers maken verbinding met hun mobiele apparaten Exchange-Server voor e-mailservice. Maar er is beperkte rapportage ter bevestiging dat deze voldoen aan het beveiligingsbeleid in de standaardbeleidsregels voor Exchange ActiveSync-postvak. Het persoonlijke gebruik van mobiele apparaten loopt het risico te worden verboden, tenzij IT kan bevestigen dat het beleid in acht wordt genomen.|De IT-organisatie kan rapporteren dat de beveiliging van mobiele apparaten conform de vereiste instellingen zijn. Dankzij deze bevestiging kunnen gebruikers hun mobiele apparaten bij hun werk blijven gebruiken. Gebruikers kunnen hun mobiele apparaat op afstand wissen als dit is zoekgeraakt of gestolen en de helpdesk van een gebruiker mobiele apparaat dat is gerapporteerd wissen kunt als zoekgeraakt of gestolen.<br /><br /> Voorzien in de inschrijving van mobiele apparaten in een PKI-omgeving voor extra beveiliging en controle.|  
+|Werknemers kunnen productief zijn, zelfs als ze niet achter hun bureau zitten.|Wanneer werknemers niet achter hun bureau zitten en niet over verplaatsbare computers beschikken, geen ze toegang tot hun toepassingen met behulp van de openbare computers die in het hele bedrijf beschikbaar zijn.|Werknemers kunnen openbare computers gebruiken om toegang te krijgen tot hun toepassingen en gegevens.|  
+|Bedrijfscontinuïteit krijgt doorgaans voorrang op het installeren van vereiste toepassingen en software-updates.|Vereiste toepassingen en software-updates worden overdag geïnstalleerd. Dit stoort gebruikers vaak in hun werk, omdat hun computers vertragen of opnieuw moeten worden opgestart tijdens de installatie.|Gebruikers kunnen hun werkuren om te voorkomen dat vereiste software installeren terwijl ze hun computer configureren.|  
 
- Pour satisfaire la configuration requise, Adam utilise les fonctionnalités de gestion et les options de configuration de Configuration Manager suivantes :  
+ Jeroen gebruikt om te voldoen aan de vereisten, deze Configuration Manager-beheermogelijkheden en configuratieopties:  
 
--   Gestion des applications  
--   Gestion des appareils mobiles  
+-   Toepassingsbeheer  
+-   Beheer van mobiele apparaten  
 
-Il implémente ces fonctionnalités en effectuant les étapes de configuration décrites dans le tableau suivant :  
+Hij implementeert ze met behulp van de configuratiestappen in de volgende tabel:  
 
-|Étapes de configuration|Résultat|  
+|Configuratiestappen|Resultaat|  
 |-------------------------|-------------|  
-|Adam vérifie que les nouveaux utilisateurs ont des comptes d’utilisateur dans Active Directory, puis il crée un regroupement basé sur des requêtes dans Configuration Manager pour ces utilisateurs. Il définit ensuite l'affinité entre appareil et utilisateur pour ces utilisateurs en créant un fichier de mappage des comptes d'utilisateur aux ordinateurs principaux qui seront utilisés, et il importe ce fichier dans Configuration Manager.<br /><br /> Les applications dont les nouveaux utilisateurs ont besoin sont déjà créées dans Configuration Manager. Adam déploie ensuite les applications ayant l’objectif Obligatoire dans le regroupement qui contient les nouveaux utilisateurs.|En raison des informations relatives à l’affinité entre appareil et utilisateur, les applications sont installées sur l’ordinateur principal ou les ordinateurs de chaque utilisateur avant l’ouverture d’une session utilisateur.<br /><br /> L’utilisateur peut utiliser les applications aussitôt après avoir ouvert une session.|  
-|Adam installe et configure les rôles de système de site du catalogue des applications pour permettre aux utilisateurs de rechercher les applications à installer. Il crée des déploiements d'applications dont l'objet est Disponible, puis il déploie ces applications sur le regroupement qui contient les nouveaux utilisateurs.<br /><br /> Dans le cas d'applications dont le nombre de licences est limité, Adam les configure pour en demander l'approbation.|Les utilisateurs peuvent maintenant accéder au catalogue des applications pour rechercher les applications qu’ils sont autorisés à installer. Ils peuvent ensuite installer les applications immédiatement, ou envoyer une demande d’approbation et revenir au catalogue des applications pour les installer une fois que le support technique a approuvé leur demande.|  
-|Adam crée un connecteur Exchange Server dans Configuration Manager pour gérer les appareils mobiles qui se connectent au serveur Exchange Server local de l'entreprise. Il configure ce connecteur avec les paramètres de sécurité qui exigent de définir un mot de passe fort et de verrouiller l’appareil mobile après une période d’inactivité.<br /><br /> Pour gérer en plus les appareils exécutant Windows Phone 8, Windows RT et iOS, Adam prend un abonnement à Microsoft Intune. Il installe ensuite le rôle de système de site de point de connexion de service. Cette solution de gestion d'appareil mobile fournit à l'entreprise une meilleure prise en charge de la gestion de ces appareils. Cela inclut la mise des applications à la disposition des utilisateurs pour l’installation sur ces appareils, ainsi que la gestion étendue des paramètres. De plus, les connexions d'appareils mobiles sont sécurisées à l'aide de certificats PKI qui sont automatiquement créés et déployés par Intune.<br /><br /> Après avoir configuré le point de connexion de service et l’abonnement à utiliser avec Configuration Manager, Adam envoie un e-mail aux utilisateurs de ces appareils mobiles, avec un lien leur permettant de démarrer le processus d’inscription.<br /><br /> Pour inscrire les appareils mobiles auprès de Microsoft Intune, Adam utilise des paramètres de compatibilité afin de configurer des paramètres de sécurité pour ces appareils mobiles. Ces paramètres exigent la définition d’un mot de passe fort et le verrouillage de l’appareil mobile après une période d’inactivité.|Ces deux solutions de gestion des appareils mobiles permettent maintenant au service informatique de fournir des informations de rapport relatives aux appareils mobiles qui sont utilisés sur le réseau de l'entreprise et à leur compatibilité avec les paramètres de sécurité configurés.<br /><br /> Les utilisateurs apprennent à réinitialiser leur appareil mobile à distance à partir du catalogue des applications ou du portail d’entreprise s’ils perdent ou se font voler leur appareil mobile. Les membres du support technique apprennent également à réinitialiser à distance les appareils mobiles des utilisateurs à l'aide de la console Configuration Manager.<br /><br /> De plus, pour les appareils mobiles inscrits auprès de Microsoft Intune, Adam peut maintenant déployer des applications mobiles que les utilisateurs peuvent installer, collecter plus de données d'inventaire à partir de ces appareils et mieux contrôler la gestion des appareils en accédant à d'autres paramètres.|  
-|Trey Research dispose de plusieurs ordinateurs publics, utilisés par les employés visitant les bureaux. Les employés veulent pouvoir utiliser leurs applications de n’importe quel endroit. Toutefois, Adam ne souhaite pas installer localement toutes les applications sur chaque ordinateur.<br /><br /> Pour ce faire, Adam crée les applications requises avec deux types de déploiement :<br /><br /> **Le premier :** une installation complète et locale de l’application qui ne peut être installée que sur l’appareil principal d’un utilisateur.<br /><br /> **Le second :** une version virtuelle de l’application qui ne doit pas être installée sur l’appareil principal de l’utilisateur.|Quand des visiteurs ouvrent une session sur un ordinateur public, ils retrouvent leurs applications affichées sous forme d’icônes sur le bureau de l’ordinateur public. Les applications qu’ils exécutent sont diffusées en continu comme des applications virtuelles. Ainsi, les utilisateurs sont aussi productifs que s’ils étaient assis à leur bureau.|  
-|Adam informe les utilisateurs qu’ils peuvent définir leurs heures de travail dans le Centre logiciel, et sélectionner des options pour empêcher les activités de déploiement de logiciel pendant cette période et quand l’ordinateur se trouve en mode présentation.|Les utilisateurs sont plus productifs pendant leur journée de travail car ils peuvent contrôler le moment du déploiement des logiciels par Configuration Manager sur leurs ordinateurs.|  
+|Jeroen zorgt ervoor dat nieuwe gebruikers gebruikersaccounts hebben in Active Directory en maakt u een nieuwe query's gebaseerde verzameling in Configuration Manager voor deze gebruikers. Vervolgens definieert hij gebruikersaffiniteit apparaat door een bestand te maken dat de gebruikersaccounts koppelt aan de primaire computers die ze zullen gebruiken. Dit bestand wordt vervolgens in Configuration Manager geladen.<br /><br /> De toepassingen die nieuwe gebruikers moeten hebben zijn reeds in Configuration Manager gemaakt. Vervolgens implementeert hij de toepassingen die het doel van hebben vereist voor de verzameling die de nieuwe gebruikers bevat.|Vanwege de informatie van affiniteit gebruikerapparaat, worden de toepassingen geïnstalleerd op de primaire computer of de computers van elke gebruiker voordat de gebruiker zich aanmeldt.<br /><br /> De toepassingen zijn klaar voor gebruik als de gebruiker heeft zich aanmeldt.|  
+|Jeroen installeert en configureert de Application Catalog-sitesysteemrollen zodat gebruikers kunnen bladeren door toepassingen die ze kunnen installeren. Vervolgens implementeert hij deze toepassingen die Vereist als doel hebben, aan de verzameling die de nieuwe gebruikers bevat.<br /><br /> Voor toepassingen met een beperkt aantal licenties configureert Jeroen een goedkeuringsprocedure.|Gebruikers kunnen nu de Application Catalog gebruiken om te bladeren door de toepassingen die ze je kunnen installeren. Gebruikers kunnen vervolgens de toepassingen onmiddellijk installeren of goedkeuring aanvragen en Ga terug naar de Application Catalog ze te installeren nadat de helpdesk hun aanvraag goedkeurt.|  
+|Jeroen maakt een Exchange Server-connector in Configuration Manager voor het beheren van mobiele apparaten die verbinding met lokale Exchange-Server van het bedrijf maken. Hij configureert deze connector met beveiligingsinstellingen de vereiste omvatten voor het instellen van een sterk wachtwoord en het mobiele apparaat vergrendeld na een periode van inactiviteit.<br /><br /> Ties krijgt voor aanvullend beheer voor apparaten met Windows Phone 8, Windows RT en iOS een Microsoft Intune-abonnement. Vervolgens installeert hij de service connection point-sitesysteemrol. Deze beheeroplossing voor mobiele apparaten geeft het bedrijf meer beheerondersteuning voor deze apparaten. Dit omvat toepassingen beschikbaar maken voor gebruikers om te installeren op deze apparaten en uitgebreid Instellingenbeheer. Bovendien worden mobiele apparaatverbindingen beveiligd met behulp van PKI-certificaten die automatisch worden gemaakt en geïmplementeerd door Intune.<br /><br /> Na het configureren van het serviceverbindingspunt en het abonnement voor gebruik met Configuration Manager, stuurt Jeroen een e-mailbericht naar de gebruikers die eigenaar van deze mobiele apparaten om op een koppeling klikken om het inschrijvingsproces te starten.<br /><br /> Voor de mobiele apparaten worden geregistreerd door Microsoft Intune, gebruikt Jeroen compatibiliteitsinstellingen om de beveiligingsinstellingen voor deze mobiele apparaten te configureren. Deze instellingen omvatten de vereiste voor het instellen van een sterk wachtwoord en het mobiele apparaat vergrendeld na een periode van inactiviteit.|Met deze twee beheeroplossingen voor mobiele apparaten kan de IT-organisatie nu rapportinformatie geven over de mobiele apparaten die op het bedrijfsnetwerk worden gebruikt, en over hun compatibiliteit met de geconfigureerde beveiligingsinstellingen.<br /><br /> Gebruikers weergegeven hoe hun mobiele apparaat op afstand wissen via de Application Catalog of de bedrijfsportal, als hun mobiele apparaat is zoekgeraakt of gestolen. De helpdesk wordt ook geïnstrueerd hoe op een mobiel apparaat voor gebruikers op afstand wissen via de Configuration Manager-console.<br /><br /> Bovendien voor de mobiele apparaten die zijn geregistreerd door Microsoft Intune, Adam kan mobiele toepassingen implementeren voor gebruikers installeren, meer inventarisgegevens verzamelen van deze apparaten en betere Beheercontrole hebben over deze apparaten door toegang kunnen krijgen tot meer instellingen.|  
+|Trey Research heeft verschillende openbare computers die worden gebruikt door werknemers die het kantoor bezoeken. De werknemers willen hun toepassingen die voor hen beschikbaar zijn, waar ze zich aanmelden. Adam wilt niet echter alle toepassingen lokaal op elke computer installeren.<br /><br /> Jeroen maakt, om dit te doen, de vereiste toepassingen die twee implementatietypes hebben:<br /><br /> **De eerste:** Een volledige, lokale installatie van de toepassing die een vereiste dat deze alleen kan worden geïnstalleerd op het primaire apparaat van een gebruiker heeft.<br /><br /> **De tweede:** Een virtuele versie van de toepassing die de vereiste dat niet moet worden geïnstalleerd op het primaire apparaat van de gebruiker heeft.|Als bezoekende werknemers zich aanmelden voor een openbare computer, zien ze de toepassingen die ze nodig hebben, weergegeven als pictogrammen op het bureaublad van de computer van de kioskmodus. Wanneer ze de toepassing uitvoert, wordt deze als een virtuele toepassing gestreamd. Deze manier kunnen ze productief kunnen zijn als alsof ze op hun bureaublad zit.|  
+|ADAM kiest, kunnen gebruikers weten dat ze hun werkuren in Software Center configureren kunnen en opties selecteren kunnen om te voorkomen dat de software-implementatieactiviteiten tijdens deze periode en wanneer de computer zich in presentatiemodus bevindt.|Omdat gebruikers wanneer Configuration Manager software implementeert naar hun computer bepalen kunnen, is gebruikers blijven productiever tijdens hun werkdag.|  
 
- Ces étapes et résultats de configuration permettent à Trey Research de donner plus d'autonomie à ses employés en assurant leur accès aux applications à partir de n'importe quel appareil.  
+ Deze configuratiestappen en resultaten zorgen ervoor dat Trey Research werknemers beter kan ondersteunen door toegang tot toepassingen te verzekeren vanaf elk apparaat.  
 
-###  <a name="BKMK_ScenarioUnify"></a> Exemple de scénario : unifier la gestion de la conformité pour les appareils  
- Trey Research souhaite appliquer une solution de gestion client unifiée pour assurer que les ordinateurs exécutent un logiciel antivirus automatiquement mis à jour. Plus précisément :  
+###  <a name="BKMK_ScenarioUnify"></a>Voorbeeldscenario: Nalevingsbeheer voor apparaten  
+ Trey Research wil een geïntegreerde oplossing voor clientbeheer die ervoor zorgt dat hun computers antivirussoftware uitvoeren die automatisch wordt bijgewerkt. Oftewel:  
 
--   Le Pare-feu Windows est activé.  
--   Toutes les mises à jour critiques sont installées.  
--   Des clés de Registre spécifiques sont définies.  
--   Les appareils mobiles gérés ne peuvent pas installer ou exécuter des applications non sécurisées.  
+-   Windows Firewall is ingeschakeld.  
+-   Kritieke software-updates zijn geïnstalleerd.  
+-   Er zijn specifieke registersleutels ingesteld.  
+-   Beheerde mobiele apparaten kunnen installeren of uitvoeren van niet-ondertekende toepassingen.  
 
-L'entreprise souhaite également étendre cette protection à Internet pour les ordinateurs portables qui se déplacent de l'intranet à Internet.  
+Het bedrijf wil deze beveiliging ook uitbreiden naar het internet voor laptops die overschakelen van het intranet naar het internet.  
 
-Adam applique ces spécifications de l'entreprise aux scénarios suivants :  
+Jeroen wijst deze bedrijfsvereisten toe aan de volgende scenario's:  
 
-|Situation|État actuel de la gestion du client|État futur de la gestion du client|  
+|Vereiste|Huidige clientbeheerstatus|Toekomstige clientbeheerstatus|  
 |-----------------|-------------------------------------|------------------------------------|  
-|Tous les ordinateurs exécutent un logiciel anti-programme malveillant avec des fichiers de définition qui sont à jour et qui activent le pare-feu Windows.|Les ordinateurs exécutent différentes solutions de logiciels anti-programme malveillant qui ne sont pas toujours à jour. Le Pare-feu Windows est activé par défaut, mais les utilisateurs le désactivent parfois.<br /><br /> Les utilisateurs sont invités à contacter le support technique s'ils détectent un logiciel anti-programme malveillant sur leur ordinateur.|Tous les ordinateurs exécutent la même solution de logiciel anti-programme malveillant qui télécharge automatiquement les derniers fichiers de mise à jour des définitions et qui réactivent automatiquement le pare-feu Windows s'il a été désactivé par l'utilisateur.<br /><br /> Le support technique est automatiquement averti par courrier électronique si un logiciel malveillant est détecté.|  
-|Tous les ordinateurs installent les mises à jour logicielles critiques pendant le premier mois après leur sortie.|Bien que les mises à jour logicielles soient installées sur les ordinateurs, beaucoup d’ordinateurs n’installent pas automatiquement les mises à jour logicielles critiques avant les deux ou trois mois suivant la publication de ces mises à jour. De ce fait, ces ordinateurs sont vulnérables aux attaques pendant cette période.<br /><br /> Pour les ordinateurs qui n’installent pas les mises à jour logicielles critiques, le support technique envoie d’abord un e-mail demandant aux utilisateurs d’installer les mises à jour. Les ingénieurs se connectent à distance aux ordinateurs qui restent non conformes et installent manuellement les mises à jour manquantes.|Le taux de conformité actuel pour le mois spécifié est passé à plus de 95 %. Le support technique n’a pas eu à envoyer d’e-mail de rappel, ni à installer manuellement les mises à jour.|  
-|Les paramètres de sécurité pour des applications spécifiques sont régulièrement vérifiés et corrigés, si nécessaire.|Les ordinateurs exécutent des scripts de démarrage complexes qui s'appuient sur l'appartenance au groupe d'ordinateurs pour réinitialiser les valeurs de Registre pour des applications spécifiques.<br /><br /> Comme ces scripts s’exécutent uniquement au démarrage et que certains ordinateurs sont laissés sous tension pendant plusieurs jours, le support technique ne peut pas vérifier les écarts de configuration en temps voulu.|Les valeurs de Registre sont vérifiées et résolues automatiquement sans compter sur l'appartenance au groupe d'ordinateurs ou sur le redémarrage de l'ordinateur.|  
-|Les appareils mobiles ne peuvent pas installer ou exécuter des applications non sécurisées.|Les utilisateurs sont invités à ne pas télécharger ni exécuter d’applications potentiellement dangereuses à partir d’Internet. Aucune mesure de contrôle n’a été mise en place pour surveiller ou appliquer cette recommandation.|Les appareils mobiles qui sont gérés avec Microsoft Intune ou Configuration Manager empêchent automatiquement l’installation ou l’exécution des applications non signées.|  
-|Les ordinateurs portables qui passent de l'intranet à Internet doivent être sécurisés.|Les utilisateurs en déplacement ne parviennent pas toujours à se connecter quotidiennement via le réseau VPN. Ces ordinateurs portables ne sont alors plus conformes avec les conditions de sécurité requises.|Une simple connexion Internet suffit pour que les ordinateurs portables restent compatibles avec les conditions de sécurité requises. Les utilisateurs ne sont pas obligés d’ouvrir une session ou d’utiliser le réseau VPN.|  
+|Alle computers voeren antimalwaresoftware uit met bijgewerkte definitiebestanden en ingeschakelde Windows Firewall.|Verschillende computers worden verschillende antimalwareoplossingen die niet zijn altijd up-to-date gehouden uitgevoerd. Hoewel Windows Firewall standaard is ingeschakeld, uitschakelen gebruikers soms.<br /><br /> Er wordt aan gebruikers gevraagd om contact op te nemen met de helpdesk als er malware op hun computer wordt gedetecteerd.|Alle computers voeren dezelfde antimalwareoplossing uit die automatisch de meest recente definitiebestanden downloadt en automatisch Windows Firewall opnieuw inschakelt als gebruikers deze uitschakelen.<br /><br /> De helpdesk wordt automatisch per e-mail verwittigd als er malware wordt gedetecteerd.|  
+|Alle computers installeren kritieke software-updates binnen de eerste maand na de release.|Hoewel software-updates zijn geïnstalleerd op computers, installeer veel computers niet automatisch kritieke software-updates pas twee of drie maanden nadat ze zijn vrijgegeven. Dit maakt ze kwetsbaar voor aanvallen tijdens deze periode.<br /><br /> Voor de computers die de kritieke software-updates niet installeren, stuurt de helpdesk eerst e-mails gebruikers vragen om de updates te installeren. Supportengineers verbinden op afstand met computers die niet-compatibel blijven om de ontbrekende software-updates handmatig te installeren.|De huidige compatibiliteitsgraad binnen de opgegeven maand tot boven 95% is verbeterd zonder het verzenden van e-mailberichten of vraag de helpdesk handmatig ze te installeren.|  
+|Beveiligingsinstellingen voor specifieke toepassingen worden regelmatig gecontroleerd en hersteld als dit nodig is.|Computers voeren complexe opstartscripts uit die afhankelijk zijn van groepslidmaatschap van de computer om registerwaarden te resetten voor specifieke toepassingen.<br /><br /> Omdat deze scripts alleen tijdens het opstarten worden uitgevoerd en sommige computers zijn dagen aan blijven, kan de helpdesk niet op regelmatige basis configuratieafwijkingen controleren.|Registerwaarden worden gecontroleerd en automatisch hersteld zonder afhankelijk te zijn van groepslidmaatschap van de computer of van het opnieuw opstarten van de computer.|  
+|Mobiele apparaten kunnen installeren of onveilige toepassingen worden uitgevoerd.|Gebruikers worden gevraagd niet te downloaden en uitvoeren van mogelijk onveilige toepassingen van Internet. Maar er zijn geen besturingselementen om te controleren of dit afdwingen.|Mobiele apparaten die worden beheerd met Microsoft Intune of Configuration Manager automatisch te voorkomen dat niet-ondertekende toepassingen installeren of uitvoeren.|  
+|Laptops die overschakelen van het intranet naar het internet, moeten worden beveiligd.|Voor reizende gebruikers ze vaak geen verbinding maken via de VPN-verbinding per dag. Deze laptops voldoen niet voldaan aan de beveiligingsvereisten.|Een internetverbinding is het enige dat is vereist voor laptops om te blijven voldoen aan de geldende beveiligingsvereisten. Gebruikers hebben geen aanmelden of de VPN-verbinding gebruiken.|  
 
- Pour répondre aux conditions requises, Adam utilise les fonctionnalités de gestion et les options de configuration de Configuration Manager suivantes :  
+ Jeroen gebruikt om te voldoen aan de vereisten, deze Configuration Manager-beheermogelijkheden en configuratieopties:  
 
 -   Endpoint Protection  
--   Mises à jour logicielles  
--   Paramètres de compatibilité  
--   Gestion des appareils mobiles  
--   Gestion des clients basés sur Internet  
+-   Software-updates  
+-   Instellingen voor naleving  
+-   Beheer van mobiele apparaten  
+-   Clientbeheer via internet  
 
-Il implémente ces fonctionnalités en effectuant les étapes de configuration décrites dans le tableau suivant :  
+Hij implementeert ze met behulp van de configuratiestappen in de volgende tabel:  
 
-|Étapes de configuration|Résultat|  
+|Configuratiestappen|Resultaat|  
 |-------------------------|-------------|  
-|Adam configure Endpoint Protection. Il active le paramètre client pour désinstaller les autres solutions anti-programme malveillant, puis il active le Pare-feu Windows. Il configure des règles de déploiement automatique pour permettre aux ordinateurs de rechercher et d'installer régulièrement les dernières mises à jour de définitions.|La solution anti-programme malveillant unique vous aide à protéger tous les ordinateurs avec une surcharge administrative minimale. Comme le support technique est automatiquement averti par e-mail quand un logiciel anti-programme malveillant est détecté, les problèmes peuvent être résolus rapidement. Cela permet d'empêcher des attaques sur d'autres ordinateurs.|  
-|Pour améliorer le taux de conformité, Adam utilise des règles de déploiement automatique, définit des fenêtres de maintenance pour les serveurs, et examine les avantages et inconvénients de l’utilisation de la fonctionnalité Wake-on-LAN pour les ordinateurs mis en veille prolongée.|La compatibilité des mises à jour logicielles critiques augmente, et la nécessité pour les utilisateurs ou le support technique d'installer des mises à jour logicielles manuellement est réduite.|  
-|Adam utilise des paramètres de compatibilité pour vérifier la présence des applications spécifiées. Quand les applications sont détectées, les éléments de configuration vérifient alors les valeurs de Registre et les corrigent automatiquement si elles ne sont pas conformes.|Grâce au déploiement d’éléments de configuration et de bases de référence de configuration sur tous les ordinateurs et à la vérification quotidienne de la conformité des ordinateurs, vous n’avez plus besoin de créer des scripts distincts basés sur l’appartenance de l’ordinateur, ni de redémarrer l’ordinateur.|  
-|Adam utilise des paramètres de compatibilité pour les appareils mobiles inscrits et configure le connecteur Exchange Server de sorte que les applications non signées ne sont pas autorisées à s'installer et s'exécuter sur des appareils mobiles.|Du fait de l’interdiction d’utiliser des applications non signées, les appareils mobiles sont protégés automatiquement contre les applications potentiellement dangereuses.|  
-|Adam s’assure que les ordinateurs et les serveurs de système de site ont les certificats PKI requis par Configuration Manager pour les connexions HTTPS. Il installe ensuite des rôles de système de site supplémentaires dans le réseau de périmètre qui acceptent les connexions client à partir d’Internet.|Configuration Manager continue à gérer automatiquement les ordinateurs qui passent de l'intranet à Internet lorsqu'ils disposent d'une connexion Internet. Ces ordinateurs ne comptent pas sur les utilisateurs ouvrant une session sur leur ordinateur ou se connectant au réseau VPN.<br /><br /> Ces ordinateurs continuent à être gérés pour les logiciels anti-programme malveillant et le Pare-feu Windows, les mises à jour logicielles et les éléments de configuration. Par conséquent, les niveaux de compatibilité augmentent automatiquement.|  
+|ADAM configureert u Endpoint Protection. Hij schakelt de clientinstelling voor het verwijderen van andere antimalware-oplossingen en schakelt Windows Firewall. Hij configureert automatische implementatieregels, zodat computers regelmatig de nieuwste definitie-updates ontvangen en installeren.|De antimalwareoplossing helpt om alle computers te beschermen met een minimale administratieve verwerkingstijd. Omdat de helpdesk wordt automatisch op de hoogte met een e-mailbericht als malware wordt gedetecteerd, kunnen problemen snel worden opgelost. Dit helpt aanvallen op andere computers te voorkomen.|  
+|Definieert onderhoudsvensters voor servers en onderzoekt de voordelen en nadelen van het gebruik van Wake on LAN voor computers die de sluimerstand om te helpen verhogen compatibiliteitspercentage, Adam maakt gebruik van regels voor automatische implementatie.|Compatibiliteit voor kritieke software-updates verhoogt de beveiliging en zorgt er minder voor dat gebruikers of de helpdesk software-updates handmatig moeten installeren.|  
+|Jeroen gebruikt compatibiliteitsinstellingen om de aanwezigheid van de opgegeven toepassingen te controleren. Wanneer de toepassingen worden gedetecteerd, worden de configuratie-items vervolgens de registerwaarden te controleren en automatisch hersteld als ze niet compatibel.|Met behulp van configuratie-items en configuratiebasislijnen die zijn geïmplementeerd op alle computers en Controleer voor elke dag de compatibiliteit, moet u niet langer afzonderlijke scripts die afhankelijk van computerlidmaatschap en opnieuw opstarten zijn vereist.|  
+|Jeroen gebruikt compatibiliteitsinstellingen voor geregistreerde mobiele apparaten en configureert de Exchange Server-connector zodat niet-ondertekende toepassingen niet kunnen worden geïnstalleerd en uitgevoerd op mobiele apparaten.|Omdat niet-ondertekende toepassingen zijn niet toegestaan, worden mobiele apparaten automatisch beveiligd tegen mogelijk schadelijke toepassingen.|  
+|Jeroen zorgt ervoor dat sitesysteemservers en computers beschikken over de PKI-certificaten die Configuration Manager voor HTTPS-verbindingen vereist. Vervolgens installeert hij bijkomende sitesysteemrollen in het perimeternetwerk die clientverbindingen via Internet accepteren.|Computers die overschakelen van het intranet naar het internet, blijven beheerd door Configuration Manager als ze verbonden zijn met het internet. Deze computers niet zijn afhankelijk van de gebruikers op hun computer aanmelden of verbinding maken met de VPN-verbinding.<br /><br /> Die computers blijven beheerd voor antimalware en Windows Firewall, software-updates en configuratie-items. Als gevolg daarvan vergroot de compatibiliteitsgraad automatisch.|  
 
- Ces étapes et résultats de configuration permettent à Trey Research d'unifier la gestion de la compatibilité des appareils.  
+ Deze configuratiestappen en -resultaten zorgen ervoor dat Trey Research hun compatibiliteitsbeheer voor apparaten kan samenvoegen.  
 
-###  <a name="BKMK_ScenarioSimplify"></a> Exemple de scénario : simplifier la gestion des clients pour les appareils  
- Trey Research souhaite que tous les nouveaux ordinateurs installent automatiquement l'image d'ordinateur de base de l'entreprise qui exécute Windows 7. Une fois l’image du système d’exploitation installée sur ces ordinateurs, ceux-ci doivent être gérés et surveillés pour détecter tout autre logiciel que les utilisateurs installent. Les ordinateurs qui stockent des informations hautement confidentielles nécessitent des stratégies de gestion plus limitées que les autres ordinateurs. Par exemple, les ingénieurs du support technique ne doivent pas établir une connexion à distance à ces ordinateurs, un code confidentiel BitLocker doit être utilisé pour les redémarrages et uniquement les administrateurs locaux sont autorisés à installer un logiciel.  
+###  <a name="BKMK_ScenarioSimplify"></a>Voorbeeldscenario: Clientbeheer vereenvoudigen voor apparaten  
+ Trey Research wil dat alle nieuwe computers automatisch te installeren van hun bedrijf installatiekopie van Windows 7 wordt uitgevoerd. Nadat de installatiekopie van het besturingssysteem op deze computers is geïnstalleerd, moeten ze worden beheerd en gecontroleerd op aanvullende software die gebruikers installeren. Computers die zeer vertrouwelijke gegevens opslaan, vereisen een meer beperkend beheerbeleid dan andere computers. Voor deze computers kan het nodig zijn om in te stellen dat helpdeskengineers er niet op afstand mee kunnen verbinden, dat invoer van de BitLocker-pincode vereist is voor het opnieuw opstarten, of dat alleen beheerders software kunnen installeren.  
 
- Adam applique ces spécifications de l'entreprise aux scénarios suivants :  
+ Jeroen wijst deze bedrijfsvereisten toe aan de volgende scenario's:  
 
-|Situation|État actuel de la gestion du client|État futur de la gestion du client|  
+|Vereiste|Huidige clientbeheerstatus|Toekomstige clientbeheerstatus|  
 |-----------------|-------------------------------------|------------------------------------|  
-|Windows 7 est installé sur les nouveaux ordinateurs.|L’équipe du support technique installe et configure Windows 7 pour les utilisateurs, puis envoie l’ordinateur à l’emplacement prévu.|Les nouveaux ordinateurs sont envoyés directement à leur destination finale. Ils sont connectés au réseau, puis installent et configurent automatiquement Windows 7.|  
-|Les ordinateurs doivent être gérés et surveillés. Cela inclut la collecte des données d’inventaire matériel et logiciel qui vous aident à déterminer les conditions de licence.|Le client Configuration Manager est déployé en utilisant l’installation Push automatique du client. Le support technique examine les échecs d’installation et vérifie les clients qui n’envoient pas de données d’inventaire comme prévu.<br /><br /> Les échecs sont fréquents à cause des dépendances d’installation qui ne sont pas respectées et de la corruption de WMI sur le client.|Les données d'installation et d'inventaire client collectées depuis des ordinateurs sont plus fiables et requièrent moins d'intervention du support technique. Les rapports indiquent l'utilisation du logiciel pour les informations de licence.|  
-|Certains ordinateurs doivent avoir des stratégies de gestion plus rigoureuses.|En raison des stratégies de gestion plus rigoureuses, Configuration Manager ne gère pas encore ces ordinateurs.|Ces ordinateurs sont gérés à l’aide de Configuration Manager pour prendre en compte les exceptions, sans aucune surcharge administrative.|  
+|Op nieuwe computers is Windows 7 geïnstalleerd.|De helpdesk installeert en configureert Windows 7 voor gebruikers en stuurt de computer vervolgens naar de respectieve locatie.|Nieuwe computers dan direct door naar de uiteindelijke bestemming, zijn aangesloten op het netwerk en automatisch installeren en configureren van Windows 7.|  
+|Computers moeten worden beheerd en bewaakt. Dit omvat het verzamelen van hardware en software-inventarisgegevens om te bepalen wat licentievereisten.|Configuration Manager-client wordt geïmplementeerd met behulp van automatische push-clientinstallatie. De helpdesk onderzoekt mislukte installaties en clients die geen inventarisgegevens versturen wanneer er wordt verwacht.<br /><br /> Fouten zich vaak voor omdat de van installatieafhankelijkheden die niet zijn voldaan en WMI-beschadiging op de client.|Clientinstallatie- en inventarisgegevens die worden verzameld van computers, zijn betrouwbaarder en vereisen bovendien minder interventie van de helpdesk. Rapporten geven informatie weer over softwaregebruik voor licenties.|  
+|Sommige computers vereisen een strenger beheerbeleid.|Door het strengere beheerbeleid deze computers op dit moment niet worden beheerd door Configuration Manager.|Deze computers worden beheerd met behulp van Configuration Manager om uitzonderingen zonder bijkomende administratieve verwerkingstijd te behandelen.|  
 
- Pour satisfaire la configuration requise, Adam utilise les fonctionnalités de gestion et les options de configuration de Configuration Manager suivantes :  
+ Jeroen gebruikt om te voldoen aan de vereisten, deze Configuration Manager-beheermogelijkheden en configuratieopties:  
 
--   Déploiement du système d'exploitation  
--   Déploiement du client et état du client  
--   Paramètres de compatibilité  
--   Paramètres du client  
--   Méthodes d’inventaire et Asset Intelligence  
--   Administration basée sur des rôles  
+-   Implementatie van besturingssystemen  
+-   Clientimplementatie en clientstatus  
+-   Instellingen voor naleving  
+-   Clientinstellingen  
+-   Inventarisatiemethoden voor en Asset Intelligence  
+-   Op rollen gebaseerd beheer  
 
-Il implémente ces fonctionnalités en effectuant les étapes de configuration décrites dans le tableau suivant :  
+Hij implementeert ze met behulp van de configuratiestappen in de volgende tabel:  
 
-|Étapes de configuration|Résultat|  
+|Configuratiestappen|Resultaat|  
 |-------------------------|-------------|  
-|Adam capture une image du système d’exploitation à partir d’un ordinateur qui exécute Windows 7 et qui est configuré selon les spécifications de l’entreprise. Il déploie ensuite le système d'exploitation sur les nouveaux ordinateurs à l'aide de la prise en charge d'ordinateur inconnu et de l'environnement PXE. Il installe également le client Configuration Manager dans le cadre du déploiement de système d'exploitation.|Les nouveaux ordinateurs sont prêts et s'exécutent plus rapidement sans intervention du support technique.|  
-|Adam configure l'installation Push automatique du client à l'échelle du site pour installer le client Configuration Manager sur les ordinateurs découverts. Cela garantit que tous les ordinateurs non imagés avec le client installent toujours le client afin que l'ordinateur soit géré par Configuration Manager.<br /><br /> Adam configure l'état client pour corriger automatiquement les éventuels problèmes de client qui sont découverts. Il configure également des paramètres client pour la collecte des données d’inventaire requises et configure Asset Intelligence.|L’installation du client en même temps que le système d’exploitation est plus rapide et plus fiable que d’attendre que Configuration Manager découvre l’ordinateur et tente d’y installer les fichiers sources du client. Toutefois, en activant l’option d’installation Push automatique du client, vous fournissez une méthode de sauvegarde qui permet à un ordinateur où le système d’exploitation est déjà installé d’installer le client quand il se connecte au réseau.<br /><br /> Les paramètres client assurent que les clients envoient régulièrement leurs informations d'inventaire au site. Grâce à cela et aux tests de l’état du client, le client reste opérationnel avec une intervention minimale du support technique. Par exemple, les altérations de WMI sont détectées et résolues automatiquement.<br /><br /> Les rapports Asset Intelligence permettent de surveiller l'utilisation des logiciels et des licences.|  
-|Adam crée un regroupement pour les ordinateurs auxquels il souhaite appliquer des paramètres de stratégie plus stricts. Il crée ensuite un paramètre d’appareil client personnalisé pour ce regroupement. Ce paramètre désactive le contrôle à distance, active l’entrée du code PIN BitLocker et autorise uniquement les administrateurs locaux à installer des logiciels.<br /><br /> Adam configure l’administration basée sur des rôles pour empêcher les ingénieurs du support technique de voir ce regroupement d’ordinateurs. Cette mesure évite que ces ordinateurs soient gérés comme des ordinateurs standard par inadvertance.|Ils sont désormais gérés par Configuration Manager, mais avec des paramètres spécifiques qui ne nécessitent pas l’installation d’un nouveau site.<br /><br /> Le regroupement de ces ordinateurs n’est pas visible par les ingénieurs du support technique. Cela réduit le risque que ces ordinateurs reçoivent accidentellement des déploiements et des scripts destinés aux ordinateurs standard.|  
+|ADAM vastgelegd van de installatiekopie van een besturingssysteem vanaf een computer met Windows 7 is geïnstalleerd en is geconfigureerd voor de specificaties van het bedrijf. Vervolgens implementeert hij het besturingssysteem op de nieuwe computers door gebruik te maken van onbekende computerondersteuning en PXE. Hij installeert tevens de Configuration Manager-client als onderdeel van de implementatie van besturingssystemen.|Nieuwe computers zijn sneller actief en werkend zonder tussenkomst vanuit de helpdesk.|  
+|ADAM configureert een automatische gehele site push-clientinstallatie voor de installatie van Configuration Manager-client op computers die zijn gedetecteerd. Dit zorgt ervoor dat computers zonder installatiekopie van de client nog steeds geïnstalleerd, de client zodat de computer wordt beheerd door Configuration Manager.<br /><br /> Adam configureert de clientstatus zo, dat deze eventuele gedetecteerde clientproblemen automatisch herstelt. Hij configureert ook clientinstellingen waarmee de verzameling van inventarisgegevens die is vereist en configureert Asset Intelligence.|Installatie van de client samen met het besturingssysteem is sneller en betrouwbaarder dan wachten voor Configuration Manager voor het detecteren van de computer en vervolgens probeert de clientbronbestanden op de computer installeren. Echter, door de automatische clientpushopties optie is ingeschakeld, bieden u een back-upmethode voor een computer waarop het besturingssysteem is geïnstalleerd voor de installatie van de client wanneer de computer verbinding met het netwerk maakt.<br /><br /> Clientinstellingen zorgen ervoor dat clients hun inventarisgegevens regelmatig naar de site verzenden. Naast de tests van de status van client Hierdoor blijven de client met minimale tussenkomst van de helpdesk. Zo worden WMI-beschadigingen gedetecteerd en automatisch hersteld.<br /><br /> De Asset Intelligence-rapporten helpen bij de controle van softwaregebruik en -licenties.|  
+|Ties maakt een verzameling voor de computers die strengere beleidsinstellingen moeten hebben. Hij maakt vervolgens een aangepaste clientapparaatinstelling voor deze verzameling die extern beheer uitgeschakeld, kunt BitLocker-pincode en kan alleen lokale beheerders software installeren.<br /><br /> ADAM configureert op rollen gebaseerd beheer zodat helpdesktechnici deze verzameling van computers niet ziet. Dit zorgt ervoor dat deze computers niet per ongeluk als standaard computers worden beheerd.|Deze computers worden nu beheerd door Configuration Manager, maar met specifieke instellingen, waardoor geen nieuwe site nodig.<br /><br /> De verzameling van deze computers niet zichtbaar voor helpdesktechnici. Dit helpt het risico te verkleinen van de computers verstuurd per ongeluk implementaties en scripts voor Standaardcomputers opgestuurd.|  
 
- Ces étapes et résultats de configuration permettent à Trey Research de simplifier la gestion des clients pour les appareils.  
+ Deze configuratiestappen en -resultaten hebben tot gevolg dat Trey Research met succes clientbeheer voor apparaten vereenvoudigt.  
 
-##  <a name="BKMK_NextSteps"></a> Étapes suivantes  
- Avant d'installer Configuration Manager, familiarisez-vous avec certains concepts de base et les termes qui sont spécifiques à Configuration Manager.  
+##  <a name="BKMK_NextSteps"></a> Volgende stappen  
+ Voordat u Configuration Manager installeert, kunt u meer vertrouwd raken met enkele basisbeginselen en termen die specifiek is voor Configuration Manager zijn.  
 
--   Si vous connaissez déjà System Center 2012 Configuration Manager, consultez [Changements dans System Center Configuration Manager par rapport à System Center 2012 Configuration Manager](../../core/plan-design/changes/what-has-changed-from-configuration-manager-2012.md) pour comprendre les nouvelles fonctionnalités.  
--   Pour obtenir une vue d’ensemble technique globale de System Center Configuration Manager, consultez [Principes de base de System Center Configuration Manager](../../core/understand/fundamentals.md).  
+-   Als u bekend met System Center 2012 Configuration Manager bent, raadpleegt u [wat er veranderd in System Center Configuration Manager van System Center 2012 Configuration Manager](../../core/plan-design/changes/what-has-changed-from-configuration-manager-2012.md) om te begrijpen van de nieuwe mogelijkheden.  
+-   Zie voor een hoogwaardig technisch overzicht van System Center Configuration Manager, [basisprincipes van System Center Configuration Manager](../../core/understand/fundamentals.md).  
 
-Quand vous êtes familiarisé avec les concepts de base, aidez-vous de la documentation de System Center Configuration Manager pour déployer et utiliser correctement Configuration Manager.  
+Als u bekend met de basisconcepten bent, gebruikt u de System Center Configuration Manager-documentatie voor hulp bij het succes implementeren en gebruiken van Configuration Manager.  

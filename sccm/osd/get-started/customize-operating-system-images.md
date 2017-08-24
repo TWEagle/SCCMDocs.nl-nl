@@ -1,6 +1,6 @@
 ---
-title: "Personnaliser les images de système d’exploitation - Configuration Manager | Microsoft Docs"
-description: "Pour personnaliser une image de système d’exploitation, utilisez des séquences de tâches de capture et de génération, une configuration manuelle ou une combinaison des deux."
+title: "Installatiekopieën van besturingssysteem - Configuration Manager aanpassen | Microsoft Docs"
+description: Vastleggen en build takenreeksen, handmatige configuratie of een combinatie van beide gebruiken voor het aanpassen van de installatiekopie van een besturingssysteem.
 ms.custom: na
 ms.date: 01/23/2017
 ms.prod: configuration-manager
@@ -17,122 +17,122 @@ ms.author: dougeby
 manager: angrobe
 ms.openlocfilehash: 485cb3ca4988f983c1ec71b6c8daf136571bf0ea
 ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
+ms.translationtype: MT
+ms.contentlocale: nl-NL
 ms.lasthandoff: 08/07/2017
 ---
-# <a name="customize-operating-system-images-with-system-center-configuration-manager"></a>Personnaliser les images de système d’exploitation avec System Center Configuration Manager
+# <a name="customize-operating-system-images-with-system-center-configuration-manager"></a>Installatiekopieën van een besturingssysteem aanpassen met System Center Configuration Manager
 
-*S’applique à : System Center Configuration Manager (Current Branch)*
+*Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Dans System Center Configuration Manager, les images de système d’exploitation sont des fichiers WIM qui représentent un regroupement compressé des fichiers et dossiers de référence nécessaires à l’installation et à la configuration d’un système d’exploitation sur un ordinateur. Une image de système d’exploitation personnalisée est créée et capturée à partir d’un ordinateur de référence que vous configurez avec l’ensemble des fichiers de système d’exploitation, fichiers de prise en charge, mises à jour logicielles, outils et autres applications logicielles nécessaires. Il vous revient de décider dans quelle mesure vous voulez configurer manuellement l’ordinateur de référence. Vous pouvez totalement automatiser la configuration de l’ordinateur de référence à l’aide d’une séquence de tâches de création et de capture, vous pouvez configurer manuellement certains aspects de l’ordinateur de référence puis automatiser le reste à l’aide de séquences de tâches ou vous pouvez configurer manuellement l’ordinateur de référence sans utiliser de séquences de tâches. Utilisez les sections suivantes pour personnaliser un système d’exploitation.
+Installatiekopieën van besturingssystemen in System Center Configuration Manager zijn WIM-bestanden en omvatten een gecomprimeerde verzameling referentiebestanden en -mappen die zijn vereist voor het installeren en configureren van een besturingssysteem op een computer. Een installatiekopie van een besturingssysteem wordt samengesteld en vastgelegd vanaf een referentiecomputer die u configureert met alle vereiste besturingssysteembestanden, ondersteuningsbestanden, software-updates, hulpprogramma's en andere softwaretoepassingen. U bepaalt zelf de mate waarin u de referentiecomputer handmatig configureert. U kunt de configuratie van de referentiecomputer volledig automatiseren door een takenreeks samen te stellen en vast te leggen, u kunt een aantal aspecten van de referentiecomputer handmatig configureren en vervolgens de rest automatiseren met behulp takenreeksen of u kunt de referentiecomputer handmatig configureren zonder gebruik te maken van takenreeksen. Gebruik de volgende secties voor het aanpassen van een besturingssysteem.
 
-##  <a name="BKMK_PrepareReferenceComputer"></a> Préparer l’ordinateur de référence  
- Avant de capturer l’image de système d’exploitation d’un ordinateur de référence, vous devez réfléchir à plusieurs aspects.  
+##  <a name="BKMK_PrepareReferenceComputer"></a>De referentiecomputer voorbereiden  
+ Voordat u een installatiekopie van besturingssysteem van een referentiecomputer vastlegt, moet u rekening houden met verschillende aspecten.  
 
-###  <a name="BKMK_RefComputerDecide"></a> Choisir entre une configuration automatisée ou manuelle  
- La section suivante décrit les avantages et inconvénients des configurations manuelle et automatisée de l’ordinateur de référence.  
+###  <a name="BKMK_RefComputerDecide"></a>Kiezen tussen een automatische of handmatige configuratie  
+ Verderop vindt u informatie over de voordelen en nadelen van een automatische en handmatige configuratie van de referentiecomputer.  
 
-#### <a name="automated-configuration"></a>Configuration automatisée  
- **Avantages**  
+#### <a name="automated-configuration"></a>Automatische configuratie  
+ **Voordelen**  
 
--   La configuration peut être complètement autonome et ne pas nécessiter la présence d'un administrateur ou d'un utilisateur.  
+-   De configuratie kan volledig zonder toezicht gebeuren, wat de noodzaak van de aanwezigheid van een beheerder of gebruiker elimineert.  
 
--   Vous pouvez réutiliser la séquence de tâches pour répéter la configuration d'ordinateurs de référence supplémentaires, en toute confiance.  
+-   U kunt de takenreeks opnieuw gebruiken om de configuratie van bijkomende referentiecomputers te herhalen met een hoger vertrouwensniveau.  
 
--   Vous pouvez modifier la séquence de tâches pour appliquer des différences aux ordinateurs de référence sans avoir à recréer toute la séquence de tâches.  
+-   U kunt de takenreeks wijzigen om de verschillen in referentiecomputers op te vangen zonder dat de volledige takenreeks opnieuw moet gecreëerd worden.  
 
- **Inconvénients**  
+ **Nadelen**  
 
--   L'action initiale de création et de test d'une séquence de tâches peut prendre du temps.  
+-   De initiële actie om een takenreeks te bouwen, kan een lange tijd vergen voor de creatie en het testen.  
 
--   Si la configuration requise de l'ordinateur de référence change de façon significative, les nouvelles étapes de création et de test de la séquence de tâches peuvent prendre du temps.  
+-   Indien de vereisten voor referentiecomputers significant veranderen, kan het lange tijd duren om de takenreeks opnieuw te bouwen en opnieuw te testen.  
 
-#### <a name="manual-configuration"></a>Configuration manuelle  
- **Avantages**  
+#### <a name="manual-configuration"></a>Handmatige configuratie  
+ **Voordelen**  
 
--   Vous n'avez pas besoin de créer une séquence de tâches, ni de perdre du temps à tester et corriger la séquence de tâches.  
+-   U moet de takenreeks niet creëren of de tijd nemen om de takenreeks te testen en er de fouten van op te sporen en te herstellen.  
 
--   Vous pouvez l’installer directement à partir de CD sans avoir à insérer tous les packages logiciels (y compris Windows lui-même) dans un package Configuration Manager.  
+-   U kunt rechtstreeks vanaf cd's installeren zonder al de softwarepakketten (inclusief Windows zelf) plaatsen in een Configuration Manager-pakket.  
 
- **Inconvénients**  
+ **Nadelen**  
 
--   La précision de la configuration de l’ordinateur de référence dépend de l’administrateur ou de l’utilisateur qui configure l’ordinateur.  
+-   De nauwkeurigheid van de computerconfiguratie hangt af van de beheerder of de gebruiker die de computer configureert.  
 
--   Vous devez toujours vérifier et tester l'ordinateur de référence pour vous assurer qu'il est correctement configuré.  
+-   U moet nog altijd verifiëren dat de referentiecomputer juist geconfigureerd is.  
 
--   Vous ne pouvez pas réutiliser la méthode de configuration.  
+-   U kunt de configuratiemethode niet opnieuw gebruiken.  
 
--   Requiert qu'une personne soit activement impliquée tout au long du processus.  
+-   Vereist een persoon die actief betrokken wordt tijdens het proces.  
 
-###  <a name="BKMK_RefComputerConsiderations"></a> Considérations relatives à l’ordinateur de référence  
- La section suivante répertorie les éléments de base à prendre en compte lorsque vous configurez un ordinateur de référence.  
+###  <a name="BKMK_RefComputerConsiderations"></a>Overwegingen voor de referentiecomputer  
+ Verderop staat de lijst van basiselementen waarmee u rekening moet houden bij de configuratie van een referentiecomputer.  
 
--   **Système d’exploitation à déployer**  
+-   **Te implementeren besturingssysteem**  
 
-     L'ordinateur de référence doit être installé avec le système d'exploitation que vous avez l'intention de déployer sur vos ordinateurs de destination. Pour plus d’informations sur les systèmes d’exploitation que vous pouvez déployer, consultez [Configuration requise de l’infrastructure pour le déploiement de système d’exploitation](../plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
+     De referentiecomputer moet geïnstalleerd worden met het besturingssysteem dat u van plan bent te gebruiken op uw doelcomputers. Zie voor meer informatie over de besturingssystemen die u kunt implementeren, [vereisten voor de infrastructuur voor besturingssysteemimplementatie](../plan-design/infrastructure-requirements-for-operating-system-deployment.md).  
 
--   **Service Pack approprié**  
+-   **Juist servicepack**  
 
-     L'ordinateur de référence doit être installé avec le système d'exploitation que vous avez l'intention de déployer sur vos ordinateurs de destination.  
+     De referentiecomputer moet geïnstalleerd worden met het besturingssysteem dat u van plan bent te gebruiken op uw doelcomputers.  
 
--   **Mises à jour logicielles appropriées**  
+-   **Juiste software-updates**  
 
-     Installez toutes les applications logicielles que vous souhaitez inclure dans l'image du système d'exploitation que vous capturez à partir de l'ordinateur de référence. Vous pouvez également installer des applications logicielles lorsque vous déployez l'image capturée du système d'exploitation sur vos ordinateurs de destination.  
+     Installeer alle softwaretoepassingen die u wenst op te nemen in de installatiekopie van het besturingssysteem die u vastlegt van de referentiecomputer. U kunt ook softwaretoepassingen installeren als u de geregistreerde installatiekopie van het besturingssysteem op de doelcomputers implementeert.  
 
--   **Appartenance au groupe de travail**  
+-   **Lidmaatschap van een werkgroep**  
 
-     L'ordinateur de référence doit être configuré en tant que membre d'un groupe de travail.  
+     De referentiecomputer moet geconfigureerd zijn als een lid van een werkgroep.  
 
 -   **Sysprep**  
 
-     L'outil de préparation du système (Sysprep) est une technologie que vous pouvez utiliser avec d'autres outils de déploiement pour installer des systèmes d'exploitation Windows sur du matériel neuf. Sysprep prépare un ordinateur en vue de la création d'une image disque ou de sa livraison à un client, en configurant l'ordinateur de telle sorte qu'un nouvel identificateur de sécurité (SID) soit créé pour l'ordinateur lors de son redémarrage. Par ailleurs, Sysprep nettoie les paramètres et les données des utilisateurs et de l'ordinateur qui ne doivent pas être copiés sur un ordinateur de destination.  
+     Het hulpprogramma voor systeemvoorbereiding (Sysprep) is een technologie die u kunt gebruiken met andere implementatiehulpprogramma's om Windows besturingssystemen te installeren op nieuwe hardware. Sysprep bereidt een computer voor op het nemen van een installatiekopie op harde schijf of voor levering aan een gebruiker door de computer te configureren zodat een nieuwe beveiligings-ID (SID) wordt gecreëerd bij het opnieuw opstarten van de computer. Bovendien ruimt Sysprep gebruikers- en computerspecifieke instellingen en gegevens op die niet moeten worden gekopieerd naar een doelcomputer.  
 
-     Vous pouvez appliquer Sysprep manuellement sur l'ordinateur de référence en exécutant la commande suivante :  
+     U kunt handmatig de systeemvoorbereiding (Sysprep) van de referentiecomputer uitvoeren door de volgende opdracht uit te voeren:  
 
      `Sysprep /quiet /generalize /reboot`  
 
-     L’option /generalize indique à Sysprep de supprimer les données propres au système de l’installation de Windows. Les informations spécifiques du système incluent, entre autres, les journaux des événements et les ID de sécurité uniques (SID). Une fois les informations système uniques supprimées, l’ordinateur redémarre.  
+     De optie /generalize geeft Sysprep de opdracht systeemspecifieke gegevens uit de Windows-installatie te verwijderen. Systeemspecifieke informatie bevat gebeurtenislogboeken, unieke beveiligings-id (SID's) en andere unieke informatie. Nadat de unieke systeeminformatie is verwijderd, wordt de computer opnieuw opgestart.  
 
-     Vous pouvez automatiser Sysprep à l'aide de l'étape [Prepare Windows for Capture](../understand/task-sequence-steps.md#BKMK_PrepareWindowsforCapture) d'une séquence de tâches ou d'un média de capture.  
+     U kunt Sysprep automatiseren door gebruik te maken van de [Windows voorbereiden voor vastleggen](../understand/task-sequence-steps.md#BKMK_PrepareWindowsforCapture) takenreeks of van registratiemedia.  
 
     > [!IMPORTANT]  
-    >  L'étape de séquence de tâches [Prepare Windows for Capture](../understand/task-sequence-steps.md#BKMK_PrepareWindowsforCapture) tente de réinitialiser le mot de passe de l'administrateur local sur l'ordinateur de référence sur une valeur vide avant l'exécution de Sysprep. Si la stratégie de sécurité locale **Le mot de passe doit respecter certaines exigences de complexité** est activée, cette étape de séquence de tâches ne parvient pas à réinitialiser le mot de passe administrateur. Dans ce cas, désactivez cette stratégie avant d'exécuter la séquence de tâches.  
+    >  De [Windows voorbereiden voor vastleggen](../understand/task-sequence-steps.md#BKMK_PrepareWindowsforCapture) takenreeks tracht het lokale beheerderswachtwoord op de referentiecomputer opnieuw in te stellen op een lege waarde voordat Sysprep draait. Indien het lokale beveiligingsbeleid **Het wachtwoord moet aan de complexiteitsvereisten voldoen** ingeschakeld is, slaagt deze takenreeksstap er niet in om het beheerderswachtwoord opnieuw in te stellen. Schakel in dit geval het beleid uit indien u de takenreeks uitvoert.  
 
-     Pour plus d’informations sur Sysprep, consultez [Informations techniques de référence de l’outil de préparation du système (Sysprep)](http://go.microsoft.com/fwlink/?LinkId=280286).  
+     Zie [Technische naslaginformatie over systeemvoorbereiding (Sysprep)](http://go.microsoft.com/fwlink/?LinkId=280286) voor meer informatie over Sysprep.  
 
--   **Outils et scripts appropriés nécessaires à l’atténuation des scénarios d’installation**  
+-   **Juiste hulpprogramma's en scripts die zijn vereist om te beperken installatiescenario 's**  
 
-     Outils et scripts appropriés nécessaires à l'atténuation des scénarios d'installation  
+     Juiste hulpprogramma's en scripts die zijn vereist om installatie-scenario's in te perken  
 
--   **Personnalisation de bureau appropriée, telle que fond d’écran, logo et profil utilisateur par défaut**  
+-   **Juiste bureaubladaanpassing, zoals achtergrond, huisstijl en standaardgebruikersprofiel**  
 
-     Vous pouvez configurer l'ordinateur de référence avec les propriétés de personnalisation du bureau que vous souhaitez inclure lorsque vous capturez l'image du système d'exploitation à partir de l'ordinateur de référence. Les propriétés de bureau incluent un fond d’écran, un logo de l’entreprise et un profil utilisateur par défaut standard.  
+     U kunt de referentiecomputer configureren met de aanpassingskenmerken voor het bureaublad die u wenst over te nemen wanneer u de installatiekopie van het besturingssysteem van de referentiecomputer vastlegt. Bureaubladkenmerken omvatten achtergrond, huisstijl van de organisatie en een standaardgebruikersprofiel.  
 
-##  <a name="BKMK_ManuallyBuildReference"></a> Créer manuellement un ordinateur de référence  
- Utilisez la procédure suivante pour créer manuellement un ordinateur de référence.  
+##  <a name="BKMK_ManuallyBuildReference"></a>Handmatig een referentiecomputer bouwen  
+ Gebruik de volgende procedure om handmatig een referentiecomputer te bouwen.  
 
 > [!NOTE]  
->  Quand vous créez manuellement l’ordinateur de référence, vous pouvez capturer l’image du système d’exploitation à l’aide d’un média de capture. Pour plus d’informations, consultez [Créer un média de capture](../deploy-use/create-capture-media.md).  
+>  Als u de referentiecomputer handmatig bouwt, kunt u de installatiekopie van het besturingssysteem vastleggen met vastlegmedia. Zie voor meer informatie [vastlegmedia maken](../deploy-use/create-capture-media.md).  
 
-#### <a name="to-manually-build-the-reference-computer"></a>Pour créer manuellement l’ordinateur de référence  
+#### <a name="to-manually-build-the-reference-computer"></a>De referentiecomputer handmatig bouwen  
 
-1.  Identifiez l'ordinateur à utiliser comme ordinateur de référence.  
+1.  Identificeer de te gebruiken computer als de referentiecomputer.  
 
-2.  Configurez l'ordinateur de référence avec le système d'exploitation approprié et tout autre logiciel requis pour créer l'image du système d'exploitation que vous souhaitez déployer.  
+2.  Configureer de referentiecomputer met het juiste besturingssysteem en andere software die nodig is om de installatiekopie van het besturingssysteem te maken dat u wenst te implementeren.  
 
     > [!WARNING]  
-    >  Installez au minimum le système d’exploitation et le Service Pack appropriés, les pilotes de prise en charge et les mises à jour logicielles requises.  
+    >  Installeer minimaal het juiste besturingssysteem en servicepack, de juiste stuurprogramma's voor ondersteuning en de vereiste software-updates.  
 
-3.  Configurez l'ordinateur de référence en tant que membre d'un groupe de travail.  
+3.  Configureer de referentiecomputer als een lid van een werkgroep.  
 
-4.  Réinitialisez le mot de passe de l'administrateur local sur l'ordinateur de référence pour que la valeur du mot de passe soit vide.  
+4.  Zet het beheerderwachtwoord terug op de referentiecomputer zodat de waarde van het wachtwoord leeg is.  
 
-5.  Exécutez Sysprep au moyen de la commande :  **sysprep /quiet /generalize /reboot**. L’option /generalize indique à Sysprep de supprimer les données propres au système de l’installation de Windows. Les informations spécifiques du système incluent, entre autres, les journaux des événements et les ID de sécurité uniques (SID). Une fois les informations système uniques supprimées, l’ordinateur redémarre.  
+5.  Voer Sysprep uit met de opdracht: **sysprep /quiet /generalize /reboot**. De optie /generalize geeft Sysprep de opdracht systeemspecifieke gegevens uit de Windows-installatie te verwijderen. Systeemspecifieke informatie bevat gebeurtenislogboeken, unieke beveiligings-id (SID's) en andere unieke informatie. Nadat de unieke systeeminformatie is verwijderd, wordt de computer opnieuw opgestart.  
 
- Une fois que l’ordinateur de référence est prêt, capturez l’image de système d’exploitation de l’ordinateur de référence à l’aide d’une séquence de tâches.  Pour une procédure détaillée, consultez [Capturer une image de système d’exploitation à partir d’un ordinateur de référence existant](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md#BKMK_CaptureExistingRefComputer).  
+ Zodra de referentiecomputer klaar is, gebruikt u een takenreeks om de installatiekopie van het besturingssysteem van de referentiecomputer vast te leggen.  Zie [Een installatiekopie van een besturingssysteem vastleggen vanaf een bestaande referentiecomputer](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md#BKMK_CaptureExistingRefComputer) voor gedetailleerde stappen.  
 
-##  <a name="BKMK_UseTSToBuildReference"></a> Utiliser une séquence de tâches pour créer un ordinateur de référence  
- Vous pouvez automatiser le processus de création d’un ordinateur de référence en déployant le système d’exploitation, les pilotes, les applications et autres éléments à l’aide d’une séquence de tâches.  Pour créer l’ordinateur de référence et capturer l’image de système d’exploitation à partir de ce même ordinateur de référence, procédez comme suit.  
+##  <a name="BKMK_UseTSToBuildReference"></a>Een takenreeks gebruiken om een referentiecomputer te bouwen  
+ U kunt het proces voor het maken van een referentiecomputer automatiseren door een takenreeks te gebruiken waarmee u het besturingsysteem, de stuurprogramma's, de toepassingen, enzovoort implementeert.  Voer de volgende stappen uit om de referentiecomputer te bouwen en vervolgens de installatiekopie van het besturingssysteem vanaf de referentiecomputer vast te leggen.  
 
--   Utilisez une séquence de tâches pour créer et capturer l’image de système d’exploitation à partir de l’ordinateur de référence.  Pour une procédure détaillée, voir [Utiliser une séquence de tâches pour créer et capturer un ordinateur de référence](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md#BKMK_BuildCaptureTS).  
+-   Gebruik een takenreeks om de installatiekopie van het referentiebesturingssysteem te maken en vast te leggen.  Zie [Een referentiecomputer bouwen en vastleggen met behulp van een takenreeks](../deploy-use/create-a-task-sequence-to-capture-an-operating-system.md#BKMK_BuildCaptureTS) voor gedetailleerde stappen.  
