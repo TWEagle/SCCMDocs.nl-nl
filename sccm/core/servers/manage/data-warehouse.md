@@ -2,7 +2,7 @@
 title: Datawarehouse | Microsoft Docs
 description: Datawarehouse-servicepunt en de database voor System Center Configuration Manager
 ms.custom: na
-ms.date: 7/31/2017
+ms.date: 8/25/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision:
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: eedbf12d3bf628666efc90c85a8dfab37e4dc9ab
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 744614d7e1ec97a4d4b4646c45cb41d734c6be34
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 ---
 #  <a name="the-data-warehouse-service-point-for-system-center-configuration-manager"></a>Het datawarehouse-servicepunt voor System Center Configuration Manager
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
@@ -49,8 +49,8 @@ Wanneer de sitesysteemrol wordt geïnstalleerd, installeert en configureert u de
 - De computer waarop u de sitesysteemrol installeert, vereist .NET Framework 4.5.2 of hoger.
 - Het computeraccount van de computer waarop u de sitesysteemrol installeert, wordt gebruikt om gegevens te synchroniseren met de datawarehouse-database. Deze account vereist de volgende machtigingen:  
   - **Beheerder** op de computer die als voor de datawarehouse-database host fungeert.
-  - **DB_owner** machtiging op de datawarehouse-database.
-  - **DB_reader** en **uitvoeren** sitedatabase machtigingen voor de sites van het hoogste niveau.
+  - **DB_Creator** machtiging op de datawarehouse-database.
+  - Beide **DB_owner** of **DB_reader** met **uitvoeren** sitedatabase machtigingen voor de sites van het hoogste niveau.
 - De datawarehouse-database vereist het gebruik van SQL Server 2012 of later. De editie kan zijn Standard, Enterprise of Datacenter.
 - De volgende SQL Server-configuraties worden ondersteund voor het hosten van de datawarehouse-database:  
   - Een standaardexemplaar

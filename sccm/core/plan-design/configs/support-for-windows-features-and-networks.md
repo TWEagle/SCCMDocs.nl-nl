@@ -2,7 +2,7 @@
 title: Ondersteuning voor Windows-onderdelen | Microsoft Docs
 description: Meer informatie over welke Windows- en netwerken functies ondersteunt van System Center Configuration Manager.
 ms.custom: na
-ms.date: 3/30/2017
+ms.date: 8/24/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: e040552dab21ba9a71e06a78f6acc2ffe1b0eb61
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: be9b7e84fecfa7a07c411c3d46168e5485e0dfab
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="support-for-windows-features-and-networks-in-system-center-configuration-manager"></a>Ondersteuning voor Windows-onderdelen en -netwerken in System Center Configuration Manager
 
@@ -49,7 +49,7 @@ Deze clients cache ook de inhoud. Op deze wijze hoeven opeenvolgende clients in 
 -   **Clients configureren:**    
     -   De clients die BranchCache kunnen ondersteunen, moeten worden geconfigureerd voor de gedistribueerde-cachemodus van BranchCache.  
     -   De besturingssysteeminstelling voor BITS-clientinstellingen moet zijn ingeschakeld voor de ondersteuning van BranchCache.   <br /> <br />
-        
+
     Zie voor informatie over hoe u clients ter ondersteuning van BranchCache kunt configureren, de [clients configureren](https://technet.microsoft.com/itpro/windows/manage/waas-branchcache#configure-clients-for-branchcache) in sectie [BranchCache configureren voor Windows 10-updates](https://technet.microsoft.com/itpro/windows/manage/waas-branchcache).
 
 
@@ -80,9 +80,11 @@ Configuration Manager biedt ondersteuning voor clients in werkgroepen.
 ##  <a name="bkmmk_datadedup"></a> Gegevensontdubbeling  
 Configuration Manager ondersteunt het gebruik van gegevensontdubbeling met distributiepunten op de volgende besturingssystemen:  
 
+-   Windows Server 2016
+-   Windows Server 2012 R2  
 -   Windows Server 2012  
 
--   Windows Server 2012 R2  
+
 
 > [!IMPORTANT]  
 >  Het volume dat als host fungeert voor bronbestanden van een pakket kan niet worden gemarkeerd voor gegevensontdubbeling. Dit is omdat gegevensontdubbeling reparsepunten gebruikt en Configuration Manager biedt geen ondersteuning voor het gebruik van een inhoudsbronlocatie met bestanden die op reparsepunten worden opgeslagen.  

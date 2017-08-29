@@ -2,7 +2,7 @@
 title: Release-opmerkingen - Configuration Manager | Microsoft Docs
 description: Raadpleeg deze opmerkingen voor urgente problemen die nog niet zijn opgelost in het product of in een Microsoft Knowledge Base-artikel besproken.
 ms.custom: na
-ms.date: 08/21/2017
+ms.date: 08/23/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 24f30bddb345e3a08d4b655d89693c226005cb0e
-ms.sourcegitcommit: 06aef618f72c700f8a716a43fb8eedf97c62a72b
+ms.openlocfilehash: e54c2cd1c3e83609bff6a8cb64fb3c23b26a4eaa
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="release-notes-for-system-center-configuration-manager"></a>Opmerkingen bij de release van System Center Configuration Manager
 
@@ -27,15 +27,23 @@ ms.lasthandoff: 08/21/2017
 
 Met System Center Configuration Manager opmerkingen bij de productrelease zijn beperkt tot urgente problemen die nog niet zijn opgelost in het product (beschikbaar via een update in de console) of uiteengezet in een Microsoft Knowledge Base-artikel.  
 
- In het geval van bekende problemen die van invloed zijn op belangrijke scenario's, worden deze gegevens vermeld in de onlineproductdocumentatie in de documentatiebibliotheek van System Center Configuration Manager.  
+Informatie over bekende problemen die invloed hebben op de belangrijkste scenario's wordt overgebracht in de onlinemodus productdocumentatie in de Documentatiebibliotheek van System Center Configuration Manager.  
 
 > [!TIP]  
 >  Dit onderwerp bevat opmerkingen bij de release voor de huidige vertakking van System Center Configuration Manager. Zie voor de Technical Preview voor System Center Configuration Manager [Technical Preview voor System Center Configuration Manager](../../../../core/get-started/technical-preview.md)  
+
+Zie de volgende onderwerpen voor informatie over de nieuwe functies geïntroduceerd met verschillende versies:
+- [Wat is er nieuw in versie 1706](/sccm/core/plan-design/changes/whats-new-in-version-1706)  
+- [Wat is er nieuw in versie 1702](/sccm/core/plan-design/changes/whats-new-in-version-1702)
+- [Wat is er nieuw in versie 1610](/sccm/core/plan-design/changes/whats-new-in-version-1610)
+   
+
 
 ## <a name="setup-and-upgrade"></a>Installatie en upgrade  
 
 ### <a name="after-you-update-a-configuration-manager-console-using-consolesetupexe-from-the-site-server-folder-recent-language-pack-changes-are-not-available"></a>Na het bijwerken van een Configuration Manager-console met behulp van ConsoleSetup.exe vanaf de site server-map zijn recente language pack wijzigingen niet beschikbaar
 <!--  SMS 486420  Applicability should be 1610 and 1702.  -->
+*De volgende van toepassing op versie 1610 en 1702.*   
 Nadat u een update in-place uitgevoerd naar een console via ConsoleSetup.exe uit de installatiemap van een site-servers, onlangs geïnstalleerde taalpakketten mogelijk niet beschikbaar. Dit gebeurt wanneer:
 - Uw site versie 1610 of 1702 wordt uitgevoerd.
 - De console wordt bijgewerkt in-place via ConsoleSetup.exe uit de installatiemap van de site server.
@@ -47,7 +55,8 @@ Als dit probleem optreedt, gebruikt de opnieuw geïnstalleerde console niet de m
 
 ### <a name="with-version-1702-the-default-site-boundary-group-is-configured-for-use-for-site-assignment"></a>Met versie 1702, is de standaardgroep voor de grens van site geconfigureerd voor gebruik voor sitetoewijzing
 <!--  SMS 486380   Applicability should only be to 1702. -->
-Met versie 1702, het tabblad standaard site grens groepen verwijzing is een controle voor de **deze grensgroep gebruiken voor sitetoewijzing**, geeft een lijst van de site als de **toegewezen site**, en lichter gekleurd weergegeven zodat de configuratie kan niet worden bewerkt of verwijderd.
+*De volgende van toepassing op versie 1702.*  
+Het tabblad standaard site grens groepen verwijzing is een controle voor de **deze grensgroep gebruiken voor sitetoewijzing**, geeft een lijst van de site als de **toegewezen site**, en lichter gekleurd weergegeven zodat de configuratie kan niet worden bewerkt of verwijderd.
 
 **Tijdelijke oplossing:** Geen. U kunt deze instelling negeren. Hoewel de groep voor sitetoewijzing is ingeschakeld, wordt de standaard sitegrensgroep niet gebruikt voor sitetoewijzing. Met 1702, deze configuratie zorgt ervoor dat de standaard site-grensgroep is gekoppeld aan de juiste site.
 
@@ -104,7 +113,8 @@ Wanneer u Setup uitvoert vanaf een CD. Meest recente map gemaakt voor versie 160
 
 ### <a name="service-connection-tool-throws-an-exception-when-sql-server-is-remote-or-when-shared-memory-is-disabled"></a>Hulpprogramma voor serviceverbindingen er een uitzondering gegenereerd als SQL server staat, of wanneer het gedeelde geheugen is uitgeschakeld
 <!-- 479223   Fixed in 1702 and later   -->
-Vanaf versie 1606, het hulpprogramma voor serviceverbindingen een uitzondering gegenereerd wanneer een van de volgende waar is:  
+*De volgende van toepassing op versie 1610 en eerdere versies.*  
+Het hulpprogramma voor serviceverbindingen wordt een uitzondering gegenereerd wanneer een van de volgende ingesteld op true is:  
  -  De sitedatabase zich op afstand van de computer die als host fungeert voor het service connection point en gebruikt een niet-standaardpoort (een andere poort dan 1433)
  -  De sitedatabase zich op dezelfde server als het serviceverbindingspunt wordt gehost, maar SQL-protocol **Shared Memory** is uitgeschakeld
 
@@ -131,8 +141,9 @@ De uitzondering is vergelijkbaar met het volgende:
 ## <a name="client-deployment-and-upgrade"></a>Clientimplementatie en -upgrade  
 
 ### <a name="client-installation-fails-with-error-code-0x8007064c"></a>Installatie van de client mislukt met foutcode 0x8007064c
-<!--- SMS 486973 -->
-Wanneer u de client op Windows-computers te implementeren, mislukt de installatie. Het bestand ccmsetup.log bevat een item ' File 'C:\WINDOWS\ccmsetup\Silverlight.exe' afsluitcode 1612 geretourneerd. Mislukt de installatie' gevolgd door 'InstallFromManifest is mislukt 0x8007064c'.
+<!--- SMS 486973  applies 1606 to 1706. Not yet fixed. -->
+*Het volgende geldt voor alle actieve versies van Configuration Manager.*   
+Met alle actieve versies van wanneer u de client op Windows-computers te implementeren, mislukt de installatie. Het bestand ccmsetup.log bevat een item ' File 'C:\WINDOWS\ccmsetup\Silverlight.exe' afsluitcode 1612 geretourneerd. Mislukt de installatie' gevolgd door 'InstallFromManifest is mislukt 0x8007064c'.
 
 **Tijdelijke oplossing** dit wordt veroorzaakt door een beschadigd, eerder geïnstalleerde versie van Silverlight. U kunt het volgende programma wordt uitgevoerd op de desbetreffende computer om dit te corrigeren: [https://support.microsoft.com/help/17588/fix-problems-that-block-programs-from-being-installed-or-removed](https://support.microsoft.com/help/17588/fix-problems-that-block-programs-from-being-installed-or-removed)
 
@@ -158,6 +169,7 @@ Nadat u een onderhoudsplan hebt gemaakt, opent u de eigenschappen voor het onder
 
 ### <a name="when-a-high-risk-deployment-dialog-is-visible-to-a-user-subsequent-high-risk-dialogs-with-a-sooner-deadline-are-not-displayed"></a>Wanneer een implementatie met hoog risico dialoogvenster zichtbaar voor een gebruiker is, worden daaropvolgende met een hoog risico dialoogvensters met een deadline vroeger niet weergegeven
 <!-- Fixed in 1702 and later -->
+*De volgende van toepassing op versie 1610 en eerdere versies.*   
 Nadat u maken en implementeren van een implementatie met een hoog risico taak voor gebruikers, wordt een dialoogvenster met een hoog risico voor de gebruiker weergegeven. Als de gebruiker komt niet in het dialoogvenster sluiten en u maakt en implementeert een andere implementatie met hoog risico met een deadline vroeger dan de eerste, ontvangt de gebruiker niet een bijgewerkte dialoogvenster totdat ze de oorspronkelijke dialoogvenster hebt gesloten. De implementaties zullen nog steeds uitgevoerd op de geconfigureerde deadlines.
 
 **Tijdelijke oplossing**:  
@@ -169,6 +181,7 @@ De gebruiker moet in het dialoogvenster voor de eerste implementatie met hoog ri
 
 ### <a name="importing-an-office-365-client-settings-from-a-configuration-file-fails-when-it-contains-unsupported-languages"></a>Een Office 365 client-instellingen importeren vanuit een configuratiebestand mislukt wanneer het niet-ondersteunde talen bevat
 <!-- 489258  Fixed in 1706  -->
+*De volgende van toepassing op versie 1702 en eerdere versies.*   
 Wanneer u de instellingen van de Office 365 client uit een bestaande XML-configuratiebestand importeren, en het bestand bevat de talen die niet worden ondersteund door de Office 365 ProPlus-client, wordt er een fout optreden. Zie voor meer informatie [Office 365-apps implementeren op clients vanuit het Office 365 Client Management dashboard](/sccm/sum/deploy-use/manage-office-365-proplus-updates#to-deploy-office-365-apps-to-clients-from-the-office-365-client-management-dashboard).
 
 **Tijdelijke oplossing**:    
@@ -207,6 +220,7 @@ Wanneer u een Android voor werk-e-mailprofiel maakt, zijn er twee opties voor ve
 
 ### <a name="antimalware-policy-fails-to-apply-on-windows-server-2016-core"></a>Antimalware-beleid mislukt toepassen op Windows Server 2016 Core
 <!--  Product Studio bug 485370 added 04 19 2017   Fixed in 1702 -->
+*De volgende van toepassing op versie 1610 en eerdere versies.*  
 Antimalwarebeleid mislukt op Windows Server 2016 Core toe te passen.  De foutcode is 0x80070002.  Er is een ontbrekende afhankelijkheid voor ConfigSecurityPolicy.exe.
 
 **Tijdelijke oplossing:**  Dit probleem is opgelost door [Knowledge Base-artikel 4019472](https://support.microsoft.com/help/4019472/windows-10-update-kb4019472) 9 mei 2017 gedistribueerd.

@@ -2,7 +2,7 @@
 title: "Een sitehiërarchie - Configuration Manager ontwerpen | Microsoft Docs"
 description: "Overzicht van de beschikbare topologieën en beheeropties voor System Center Configuration Manager zodat u kunt uw sitehiërarchie plannen."
 ms.custom: na
-ms.date: 6/16/2017
+ms.date: 8/24/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 4710b1b89eb50cb7bcf4c4ee50c12a96b6561bc9
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 2c587c0ad894dc567a6f1804626db611ff9a1013
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="design-a-hierarchy-of-sites-for-system-center-configuration-manager"></a>Een sitehiërarchie ontwerpen voor System Center Configuration Manager
 
@@ -27,6 +27,13 @@ ms.lasthandoff: 08/07/2017
 
 Voordat u de eerste site van een nieuwe System Center Configuration Manager-hiërarchie installeert, is het een goed idee om te begrijpen van de beschikbare topologieën voor Configuration Manager, de typen beschikbare sites en hun relaties met elkaar en het bereik van beheer van elk sitetype.
 Vervolgens, met inbegrip van opties voor inhoudbeheer die kunnen Verminder het aantal sites die u wilt installeren, u kunt een topologie die behoeften van uw huidige bedrijf efficiënt fungeert plannen en later kunt uitbreiden voor het beheren van toekomstige groei.  
+
+Bij het plannen, houd er rekening mee beperkingen voor het toevoegen van extra sites aan een hiërarchie of een zelfstandige site:
+-   U kunt een nieuwe primaire site onder een centrale beheersite tot installeren de [ondersteund aantal primaire sites](/sccm/core/plan-design/configs/size-and-scale-numbers) voor de hiërarchie.
+-   U kunt [uitbreiden een zelfstandige primaire site voor het installeren van een nieuwe centrale beheersite](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand), zodat u kunt vervolgens extra primaire sites installeren.
+-   U kunt maximaal nieuwe secundaire sites onder een primaire site installeren [ondersteund limieten voor de primaire site](/sccm/core/plan-design/configs/size-and-scale-numbers) en volledige hiërarchie.
+-   U kunt een eerder geïnstalleerde site kan niet toevoegen aan een bestaande hiërarchie samenvoegen van twee zelfstandige sites. Alleen de installatie van de nieuwe sites aan een bestaande hiërarchie van sites wordt ondersteund.
+
 
 > [!NOTE]
 > Bij het plannen van een nieuwe installatie van Configuration Manager zich bewust zijn van de [release-opmerkingen]( /sccm/core/servers/deploy/install/release-notes), actuele problemen in de actieve versies die worden in detail beschreven. De releaseopmerkingen gelden voor alle vertakkingen van Configuration Manager.  Wanneer u echter gebruiken de [Technical Preview vertakking]( /sccm/core/get-started/technical-preview), vindt u problemen alleen op dat filiaal in de documentatie voor elke versie van de Technical Preview.  
@@ -63,7 +70,7 @@ Vervolgens, met inbegrip van opties voor inhoudbeheer die kunnen Verminder het a
 
 -   De centrale beheersite is het hoogste niveau in een hiërarchie.  
 
--   Wanneer u een hiërarchie met meer dan één primaire site configureert, moet u een centrale beheersite installeren. Als u twee of meer primaire sites onmiddellijk moeten, installeert u eerst de centrale beheersite. Wanneer u al een primaire site en installeer een centrale beheersite wilt, moet u [de zelfstandige primaire site uitbreiden](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand) voor het installeren van de centrale beheersite. 
+-   Wanneer u een hiërarchie met meer dan één primaire site configureert, moet u een centrale beheersite installeren. Als u twee of meer primaire sites onmiddellijk moeten, installeert u eerst de centrale beheersite. Wanneer u al een primaire site en installeer een centrale beheersite wilt, moet u [de zelfstandige primaire site uitbreiden](/sccm/core/servers/deploy/install/prerequisites-for-installing-sites#bkmk_expand) voor het installeren van de centrale beheersite.
 
 -   De centrale beheersite ondersteunt alleen primaire sites als onderliggende sites.  
 

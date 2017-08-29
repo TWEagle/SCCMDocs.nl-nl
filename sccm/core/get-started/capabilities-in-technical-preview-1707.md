@@ -13,11 +13,11 @@ ms.assetid: cb405ba0-8792-4ab7-988b-2f835f3a9550
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 7ee2fd78c6c502394016ba077d42714041ad01c6
-ms.sourcegitcommit: 10f17229c5a359f040cb7f8f5e7bd868a34ac086
+ms.openlocfilehash: 3572004fa43db3e84295b68599dd95e0447f4c65
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="capabilities-in-technical-preview-1707-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1707 voor System Center Configuration Manager
 
@@ -35,7 +35,7 @@ Dit artikel bevat de functies die beschikbaar in de Technical Preview voor Syste
 **Bekende problemen in deze Technical Preview:**
 -   **Update voor de preview-versie 1707 mislukt wanneer u een siteserver in de passieve modus hebt**. Als u de preview-versie 1706 uitvoeren en hebben een [primaire siteserver in de passieve modus](/sccm/core/get-started/capabilities-in-technical-preview-1706#site-server-role-high-availability), moet u de passieve modus siteserver verwijderen voordat u de preview-site met succes naar versie 1707 bijwerken kunt. Nadat u uw site versie 1707 wordt uitgevoerd, kunt u de passieve modus siteserver opnieuw installeren.
 
-  Verwijder de passieve modus sites:
+  Verwijderen van de siteserver van de passieve modus:
   1. Ga in de console naar **beheer** > **overzicht** > **siteconfiguratie** > **Servers en sitesysteemrollen**, en selecteer vervolgens de passieve modus-siteserver.
   2. In de **sitesysteemrollen** deelvenster, rechts Klik op de **siteserver** rol, en kies vervolgens **rol verwijderen**.
   3. Met de rechtermuisknop op de siteserver van de passieve modus, en kies vervolgens **verwijderen**.

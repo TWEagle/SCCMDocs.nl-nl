@@ -14,11 +14,11 @@ caps.latest.revision: "4"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: f539e2d282b56e56a9c58c773788325b27ea6b37
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 9c50f6633a5ca04b62f4c3b06119fb1fbcab2643
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="size-and-scale-numbers-for-system-center-configuration-manager"></a>Grootte en schaalgetallen voor System Center Configuration Manager
 
@@ -56,18 +56,9 @@ De volgende ondersteuning cijfers zijn gebaseerd op het gebruik van de aanbevole
 
 -   Een centrale beheersite ondersteunt maximaal 25 onderliggende primaire sites.  
 
-**Application Catalog-websitepunt:**  
-
--   U kunt meerdere exemplaren van de Application Catalog-websitepunt op primaire sites installeren.  
-
-    > [!TIP]  
-    >  Als een best practice, installeer het Application Catalog-websitepunt en Application Catalog-webservicepunt samen op hetzelfde sitesysteem wanneer deze services bieden aan clients die zich op het intranet.  
-
-    -   Plannen voor verbeterde prestaties voor de ondersteuning van maximaal 50.000 clients per exemplaar.  
-
-    -   Elk exemplaar van deze sitesysteemrol ondersteunt het maximum aantal clients die worden ondersteund door de hiërarchie.  
 
 ## <a name="bkmk_roles"></a>Sitesysteemrollen    
+
 
 **Application Catalog-webservicepunt:**  
 
@@ -79,6 +70,18 @@ De volgende ondersteuning cijfers zijn gebaseerd op het gebruik van de aanbevole
     -   Plannen voor verbeterde prestaties voor de ondersteuning van maximaal 50.000 clients per exemplaar.  
 
     -   Elk exemplaar van deze sitesysteemrol ondersteunt het maximum aantal clients die worden ondersteund door de hiërarchie.  
+
+**Application Catalog-websitepunt:**  
+
+-   U kunt meerdere exemplaren van de Application Catalog-websitepunt op primaire sites installeren.  
+
+    > [!TIP]  
+    >  Als een best practice, installeer het Application Catalog-websitepunt en Application Catalog-webservicepunt samen op hetzelfde sitesysteem wanneer deze services bieden aan clients die zich op het intranet.  
+
+    -   Plannen voor verbeterde prestaties voor de ondersteuning van maximaal 50.000 clients per exemplaar.  
+
+    -   Elk exemplaar van deze sitesysteemrol ondersteunt het maximum aantal clients die worden ondersteund door de hiërarchie.  
+
 
 **Distributiepunt:**  
 

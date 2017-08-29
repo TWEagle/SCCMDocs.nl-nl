@@ -14,11 +14,11 @@ caps.latest.revision: "11"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.openlocfilehash: 3c31271f3e3ae7aa45da03b3d75fd78242330646
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 76319b935695df204b4b83a645504079c60db12b
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="endpoint-protection"></a>Endpoint Protection
 
@@ -91,9 +91,9 @@ Vanaf versie 1606 van Configuration Manager (huidige vertakking), kunt Endpoint 
 ## <a name="endpoint-protection-client-for-mac-computers-and-linux-servers"></a>Endpoint Protection-client voor Mac-computers en Linux-servers  
  System Center Endpoint Protection bevat een Endpoint Protection-client voor Linux en Mac-computers. Deze clients worden niet geleverd met Configuration Manager; in plaats daarvan moet u de volgende producten niet downloaden de [Microsoft Volume Licensing Service Center](https://www.microsoft.com/licensing/servicecenter/default.aspx).  
 
--   System Center 2012 Endpoint Protection voor de Mac  
+-   System Center Endpoint Protection voor Mac  
 
--   System Center 2012 Endpoint Protection voor Linux  
+-   System Center Endpoint Protection voor Linux  
 
 
 > [!IMPORTANT]  
@@ -108,7 +108,13 @@ Gebruik de volgende stappen voor het downloaden van de installatiekopiebestand m
 2. Selecteer de **downloadt en -sleutels** boven op het tabblad van de website.
 3. Filter op product **System Center Endpoint Protection (huidige vertakking)**.
 4. Klik op de koppeling naar **downloaden**
-5. Klik op **Doorgaan**. Hier ziet u meerdere bestanden, waaronder een met de naam: **System Center Endpoint Protection (huidige vertakking - versie 1606) voor Linux-besturingssysteem en Macintosh OS meertalige 32/64-bits 1507 MB ISO**.
-6. Klik op het pijlpictogram het bestand te downloaden. De bestandsnaam is **SW_DVD5_Sys_Ctr_Endpnt_Prtctn_1606_MultiLang_EptProt_Lin_Mac_MLF_X21 30777. ISO**.
+5. Klik op **Doorgaan**. Hier ziet u meerdere bestanden, waaronder een met de naam: **System Center Endpoint Protection (huidige vertakking - versie 1606) voor Linux-besturingssysteem en Macintosh OS meertalige 32/64-bits 1579 MB ISO**.
+6. Klik op het pijlpictogram het bestand te downloaden. De bestandsnaam is **SW_DVD5_Sys_Ctr_Endpnt_Prtctn_1606_MultiLang_-2_EptProt_Lin_Mac_MLF_X21-44498. ISO**.
+
+Deze juli 2017 update (X21 44498) omvat het volgende:
+
+- System Center Endpoint Protection voor Mac 4.5.28.1 (installatie van het bijgewerkte certificaat)
+- System Center Endpoint Protection voor Linux 4.5.18.0 (nieuwe taalpakketten)
+- System Center Endpoint Protection voor Linux-documentatie (herziene hulp bij de realtime-beveiliging)
 
  Voor meer informatie over het installeren en beheren van Endpoint Protection-clients voor Linux- en Mac-computers gebruikt u de documentatie bij deze producten. De documentatie bevindt zich in de map **Documentatie** .

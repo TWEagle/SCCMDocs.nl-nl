@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.openlocfilehash: fabbcfd2d5656d4fa8cb87feffe87e17998df145
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 43316e4915b27aaeca563eaf52b51f053a839222
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="create-an-mdm-collection-with-system-center-configuration-manager-and-microsoft-intune"></a>Een MDM-verzameling maken met System Center Configuration Manager en Microsoft Intune
 
@@ -30,7 +30,7 @@ Een Configuration Manager-Gebruikersverzameling is vereist voor het opgeven van 
 > [!NOTE]
 > Om apparaten te registreren bij Intune, hoeft u geen licenties toewijzen aan gebruikers in de Office 365-portal of Azure Active Directory-portal. In een verzameling die gekoppeld aan het Intune-abonnement wordt met inbegrip van de gebruikers (in een [later stap](configure-intune-subscription.md)), is dit is vereist.
 
-Voor testdoeleinden kunt u instellen een **directe regel** en voeg specifieke gebruikers apparaten kunnen registreren. Kies in de Configuration Manager-console athe, **activa en naleving** > **Gebruikersverzamelingen**, klikt u op de **Start** tabblad > **maken** groep en klik vervolgens op **Gebruikersverzameling maken**. Voor een ruimere distributie moet u **regels Query** voor het definiëren van gebruikers. Zie voor meer informatie over verzamelingen [verzamelingen maken](https://technet.microsoft.com/library/mt629371.aspx).
+Voor testdoeleinden kunt u instellen een **directe regel** en voeg specifieke gebruikers apparaten kunnen registreren. Kies in de Configuration Manager-console, **activa en naleving** > **Gebruikersverzamelingen**, klikt u op de **Start** tabblad > **maken** groep en klik vervolgens op **Gebruikersverzameling maken**. Voor een ruimere distributie moet u **regels Query** voor het definiëren van gebruikers. Zie voor meer informatie over verzamelingen [verzamelingen maken](https://technet.microsoft.com/library/mt629371.aspx).
 
 ![Een Gebruikersverzameling maken voor MDM](../media/mdm-create-user-collection.png)
 

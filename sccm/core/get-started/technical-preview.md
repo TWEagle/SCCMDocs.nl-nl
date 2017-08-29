@@ -2,7 +2,7 @@
 title: Technical Preview voor Configuration Manager | Microsoft Docs
 description: Meer informatie over de Technical Preview-versie dat we u test-drive nieuwe functionaliteit en mogelijkheden in System Center Configuration Manager.
 ms.custom: na
-ms.date: 08/11/2017
+ms.date: 08/25/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "157"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 6d7bac392cf5a4ba01b25758fd91f1003b153589
-ms.sourcegitcommit: 398e30ec703218c4b3680bbb055d686807ca7f1d
+ms.openlocfilehash: 0cdbccc0147cb1f4d5130863b9610d0b190d6658
+ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 08/28/2017
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview voor System Center Configuration Manager
 
@@ -84,7 +84,7 @@ De volgende producten en technologieën worden ondersteund door deze vertakking 
 
  Als u de Technical Preview wilt gebruiken, moet u eerst een **basislijnversie** van de Technical Preview-build installeren. Wanneer u een basislijnversie hebt geïnstalleerd, gebruikt u **in-console updates** om de installatie bij te werken naar de meest recente preview-versie.     Normaal gesproken wordt er elke maand een nieuwe versie van de Technical Preview beschikbaar.
 
-Elke preview-versie wordt ondersteund totdat drie opeenvolgende versies beschikbaar zijn. Dit betekent dat als versie 1702 versies, versie 1610 zou niet langer worden ondersteund, maar versie 1611, 1612 en 1701 in de ondersteuning blijft. Wanneer u een basislijn valt buiten het ondersteuning (zoals versie 1610), is het nog steeds ondersteund voor het installeren van een nieuwe technische Preview-site totdat een nieuwe basislijnversie beschikbaar, is zolang u die installatie naar een ondersteunde versie bijwerken. Bij het bijwerken, als u de meest recente versie die beschikbaar zijn in de console niet ziet, is bijgewerkt naar de meest recente versie aangeboden en Herhaal dit proces totdat u de meest recente versie van de technical preview kunt installeren.
+Elke preview-versie wordt ondersteund totdat drie opeenvolgende versies beschikbaar zijn. Dit betekent dat als versie 1708 versies, versie 1704 zou niet langer worden ondersteund, maar versie 1705, 1706 en 1707 in de ondersteuning blijft. Wanneer u een basislijn valt buiten het ondersteuning (zoals versie 1703), is het nog steeds ondersteund voor het installeren van een nieuwe technische Preview-site totdat een nieuwe basislijnversie beschikbaar, is zolang u die installatie naar een ondersteunde versie bijwerken. Bij het bijwerken, als u de meest recente versie die beschikbaar zijn in de console niet ziet, is bijgewerkt naar de meest recente versie aangeboden en Herhaal dit proces totdat u de meest recente versie van de technical preview kunt installeren.
 
 > [!TIP]  
 >  Wanneer u een update installeert voor de Technical Preview, werkt u de preview-installatie bij naar die nieuwe Technische Preview-versie.    De installatie van een preview-versie biedt nooit de optie voor het bijwerken naar een Current Branch-installatie of het ontvangen van updates van de Current Branch-release.  
@@ -93,8 +93,9 @@ Elke preview-versie wordt ondersteund totdat drie opeenvolgende versies beschikb
 U kunt een basislijnversie gedurende maximaal 1 jaar na de release installeren. Wanneer u een nieuwe technische preview-site installeert, is het echter aangeraden te gebruiken van de meest recente basislijnversie die beschikbaar is.
 -  **Technische Preview 1703** -de Configuration Manager Technical Preview 1703 is beschikbaar als zowel een in de console-update voor de Configuration Manager Technical Preview en als nieuwe basislijnversie die [beschikbaar is via de website van TechNet Evaluation Center](http://www.microsoft.com/evalcenter/evaluate-system-center-configuration-manager-and-endpoint-protection-technical-preview).
 
--  **Technische Preview 1610** -de Configuration Manager Technical Preview 1610 is beschikbaar als zowel een in de console-update voor de Configuration Manager Technical Preview en als een basislijnversie. Als u media voor het installeren van 1610 hebt, raden wij u versie 1703 versie downloaden en installeren die in plaats daarvan.
-
+<!-- out of support. Use baseline 1703
+-  **Technical Preview 1610** - The Configuration Manager Technical Preview 1610 was available as both an in-console update for the Configuration Manager Technical Preview, and as a baseline version. If you have media for installing 1610, we recommend you download version 1703 and install that version instead.
+-->
 
 
 
@@ -113,10 +114,10 @@ U kunt een basislijnversie gedurende maximaal 1 jaar na de release installeren. 
 
  |Mogelijkheid |Technische Preview-versie |Huidige versie van het filiaal|  
  |----------------|---------------------|--------------------|
- |Client-Peer-Cache-ondersteuning voor bestanden voor snelle installatie voor Windows 10 en Office 365|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#client-peer-cache-support-for-express-installation-files-for-windows-10-and-office-365)|![Niet toegevoegd](media/Red_X.gif)|
- |Surface apparaat dashboard|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#surface-device-dashboard)|![Niet toegevoegd](media/Red_X.gif)|
- |Windows Defender toepassing Guard beleid configureren en implementeren|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#configure-and-deploy-windows-defender-application-guard-policies)|![Niet toegevoegd](media/Red_X.gif)|
- |Parameters toevoegen bij het implementeren van PowerShell-scripts uit Configuration Manager|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#add-parameters-when-you-deploy-powershell-scripts-from-configuration-manager)|![Niet toegevoegd](media/Red_X.gif)|
+ |Verbeteringen voor de scriptparameters op te geven wanneer u een PowerShell-scripts uit Configuration Manager implementeren<!-- 1236459 -->|[Technische Preview 1708](capabilities-in-technical-preview-1708.md#improvements-for-specifying-script-parameters-when-you-deploy-powershell-scripts-from-configuration-manager)|![Niet toegevoegd](media/Red_X.gif)|
+ |Management insights<!-- 1353967 --> |[Technische Preview 1708](capabilities-in-technical-preview-1708.md#management-insights)|![Niet toegevoegd](media/Red_X.gif)|
+ |Computers uit de Configuration Manager-console opnieuw opstarten<!-- 1356283 --> |[Technische Preview 1708](capabilities-in-technical-preview-1708.md#restart-computers-from-the-configuration-manager-console)|![Niet toegevoegd](media/Red_X.gif)|
+ |Aanpassing van software Center<!-- 1351224 --> |[Technische Preview 1708](capabilities-in-technical-preview-1708.md#software-center-customization)|![Niet toegevoegd](media/Red_X.gif)|
 
 
 ## <a name="capabilities-delivered-in-previous-technical-previews"></a>Mogelijkheden die in vorige technical Previews worden geboden
@@ -124,6 +125,10 @@ U kunt een basislijnversie gedurende maximaal 1 jaar na de release installeren. 
 
  |Mogelijkheid |Technische Preview-versie |Huidige versie van het filiaal|  
  |----------------|---------------------|--------------------|
+ |Client-Peer-Cache-ondersteuning voor bestanden voor snelle installatie voor Windows 10 en Office 365|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#client-peer-cache-support-for-express-installation-files-for-windows-10-and-office-365)|![Niet toegevoegd](media/Red_X.gif)|
+ |Surface apparaat dashboard|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#surface-device-dashboard)|![Niet toegevoegd](media/Red_X.gif)|
+ |Windows Defender toepassing Guard beleid configureren en implementeren|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#configure-and-deploy-windows-defender-application-guard-policies)|![Niet toegevoegd](media/Red_X.gif)|
+ |Parameters toevoegen bij het implementeren van PowerShell-scripts uit Configuration Manager|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#add-parameters-when-you-deploy-powershell-scripts-from-configuration-manager)|![Niet toegevoegd](media/Red_X.gif)|
  |Nieuwe beleidsinstellingen voor mobile application management|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#new-mobile-application-management-policy-settings)|![Niet toegevoegd](media/Red_X.gif)|
  |Verbeterde grensgroepen voor software-updatepunten|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#improved-boundary-groups-for-software-update-points)|[Versie 1706](/sccm/core/servers/deploy/configure/boundary-groups#software-update-points)|
  |Beschikbaarheid van de site server-rol|[Technische Preview 1706](capabilities-in-technical-preview-1706.md#site-server-role-high-availability) |![Niet toegevoegd](media/Red_X.gif)|
