@@ -2,7 +2,7 @@
 title: Clientimplementatie op Linux en UNIX-computers plannen | Microsoft Docs
 description: Plan voor clientimplementatie op Linux en UNIX-computers in System Center Configuration Manager.
 ms.custom: na
-ms.date: 04/23/2017
+ms.date: 08/30/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.openlocfilehash: 367ffb919a1adb9a0530f7357a0fcf1e6636af08
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: c5385ec5d7e41812df5c2a33d528614547819157
+ms.sourcegitcommit: 5b4fd2d36f06be5bcc7f8ebbfb92c48b7240085d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/30/2017
 ---
 # <a name="planning-for-client-deployment-to-linux-and-unix-computers-in-system-center-configuration-manager"></a>Clientimplementatie op Linux- en UNIX-computers in System Center Configuration Manager plannen
 
@@ -51,14 +51,6 @@ U kunt de System Center Configuration Manager-client installeren op computers me
 ###  <a name="BKMK_ClientDeployExternalforLnU"></a>Afhankelijkheden extern aan Configuration Manager:  
  In de volgende tabellen worden de vereiste UNIX- en Linux-besturingssystemen en pakketafhankelijkheden beschreven.  
 
- **Red Hat Enterprise Linux ES versie 4**  
-
-|Vereist pakket|Beschrijving|Minimale versie|  
-|----------------------|-----------------|---------------------|  
-|glibc|Standaardbibliotheken voor C|2.3.4-2|  
-|Openssl|OpenSSL-bibliotheken; Secure Network Communications-protocol|0.9.7a-43.1|  
-|PAM|Pluggable Authentication Modules|0.77-65.1|  
-
  **Red Hat Enterprise Linux Server versie 5.1 (Tikanga)**  
 
 |Vereist pakket|Beschrijving|Minimale versie|  
@@ -75,15 +67,6 @@ U kunt de System Center Configuration Manager-client installeren op computers me
 |Openssl|OpenSSL-bibliotheken; Secure Network Communications-protocol|1.0.0-4|  
 |PAM|Pluggable Authentication Modules|1.1.1-4|  
 
- **Solaris 9 SPARC**  
-
-|Vereist pakket|Beschrijving|Minimale versie|  
-|----------------------|-----------------|---------------------|  
-|Vereiste besturingssysteempatch|PAM-geheugenlek|112960-48|  
-|SUNWlibC|Sun Workshop gebundelde samenstellers libC (sparc)|5.9,REV=2002.03.18|  
-|SUNWlibms|Forte Developer Bundled Shared libm (sparc)|5.9,REV=2001.12.10|  
-|OpenSSL|SMCosslg (sparc)<br /><br /> Sun heeft geen versie van OpenSSL voor Solaris 9 SPARC. Er is wel een versie van Sunfreeware beschikbaar.|0.9.7g|  
-|PAM|Pluggable Authentication Modules<br /><br /> SUNWcsl, Core Solaris, (gedeelde bibliotheken) (sparc)|11.9.0,REV=2002.04.06.15.27|  
 
  **Solaris 10 SPARC**  
 
@@ -132,15 +115,6 @@ U kunt de System Center Configuration Manager-client installeren op computers me
 |SUNWcsr|Core Solaris, (Root)|11.11, REV=2009.11.11|  
 |SUNWopenssl-libraries|OpenSSL-bibiotheken (Usr)|11.11.0,REV=2010.05.25.01.00|  
 
- **SUSE Linux Enterprise Server 9 (i586)**  
-
-|Vereist pakket|Beschrijving|Minimale versie|  
-|----------------------|-----------------|---------------------|  
-|Service Pack 4|SUSE Linux Enterprise Server 9||  
-|OS Patch lib gcc-41.rpm|Standaard gedeelde bibliotheek|41-4.1.2_20070115-0.6|  
-|OS Patch lib stdc++-41.rpm|Standaard gedeelde bibliotheek|41-4.1.2_20070115-0.6|  
-|Openssl|OpenSSL-bibliotheken; Secure Network Communications-protocol|0.9.7d-15.35|  
-|PAM|Pluggable Authentication Modules|0.77-221-11|  
 
  **SUSE Linux Enterprise Server 10 SP1 (i586)**  
 
@@ -173,13 +147,6 @@ U kunt de System Center Configuration Manager-client installeren op computers me
 |OpenSSL|OpenSSL-bibliotheken; Secure Network Communications-protocol|0.9.8 of 1.0|  
 |PAM|Pluggable Authentication Modules|0.99.6.2-3.14|  
 
- **IBM AIX 5.3 VAN 5L**  
-
-|Vereist pakket|Beschrijving|Minimale versie|  
-|----------------------|-----------------|---------------------|  
-|Versie van het besturingssysteem|Versie van het besturingssysteem|AIX 5.3, Technology Level 6, Service Pack 5|  
-|xlC.rte|XL C/C++ Runtime|9.0.0.2|  
-|openssl.base|OpenSSL-bibliotheken; Secure Network Communications-protocol|0.9.8.4|  
 
  **IBM AIX 6.1**  
 
@@ -197,33 +164,6 @@ U kunt de System Center Configuration Manager-client installeren op computers me
 |xlC.rte|XL C/C++ Runtime||  
 |OpenSSL/openssl.base|OpenSSL-bibliotheken; Secure Network Communications-protocol||  
 
- **HP-UX 11i v2 IA 64**  
-
-|Vereist pakket|Beschrijving|Minimale versie|  
-|----------------------|-----------------|---------------------|  
-|HPUXBaseOS|Base OS|B.11.23|  
-|HPUXBaseAux|HP-UX Base OS Auxiliary|B.11.23.0706|  
-|HPUXBaseAux.openssl|OpenSSL-bibliotheken; Secure Network Communications-protocol|A.00.09.07l.003|  
-|PAM|Pluggable Authentication Modules|Op HP is PAM onderdeel van de kernonderdelen van het besturingssysteem. Er zijn geen andere afhankelijkheden.|  
-
- **HP-UX 11i v2 PA-RISC**  
-
-|Vereist pakket|Beschrijving|Minimale versie|  
-|----------------------|-----------------|---------------------|  
-|HPUX11i-OE|HP-UX Foundation-besturingsomgeving|B.11.23.0706|  
-|OS-Core.MinimumRuntime.CORE-SHLIBS|Compatibele bibliotheken met ontwikkelhulpmiddelen|B.11.23|  
-|HPUXBaseAux|HP-UX Base OS Auxiliary|B.11.23.0706|  
-|HPUXBaseAux.openssl|OpenSSL-bibliotheken; Secure Network Communications-protocol|A.00.09.071.003|  
-|PAM|Pluggable Authentication Modules|Op HP is PAM onderdeel van de kernonderdelen van het besturingssysteem. Er zijn geen andere afhankelijkheden.|  
-
- **HP-UX 11i v3 PA-RISC**  
-
-|Vereist pakket|Beschrijving|Minimale versie|  
-|----------------------|-----------------|---------------------|  
-|HPUX11i-OE|HP-UX Foundation-besturingsomgeving|B.110,310,0709|  
-|OS-Core.MinimumRuntime.CORE2-SHLIBS|Specifieke IA-emulatorbibliotheken|B.110,31|  
-|openssl/Openssl.openssl|OpenSSL-bibliotheken; Secure Network Communications-protocol|A.00.09.08d.002|  
-|PAM|Pluggable Authentication Modules|Op HP is PAM onderdeel van de kernonderdelen van het besturingssysteem. Er zijn geen andere afhankelijkheden.|  
 
  **HP-UX 11i v3 IA64**  
 
@@ -285,13 +225,8 @@ U kunt de System Center Configuration Manager-client installeren op computers me
 ##  <a name="BKMK_NoSHA-256"></a>Doen over Linux- en UNIX-besturingssystemen die geen SHA-256 ondersteunen  
  De volgende Linux en UNIX-besturingssystemen die worden ondersteund als clients voor Configuration Manager zijn uitgebracht met versies van OpenSSL die SHA-256 niet ondersteunen:  
 
--   Red Hat Enterprise Linux Version 4 (x86/x64)  
+-   Solaris Version 10 (SPARC/x86)  
 
--   Solaris Version 9 (SPARC) en Solaris Version 10 (SPARC/x86)  
-
--   SUSE Linux Enterprise Server Version 9 (x86)  
-
--   HP-UX Version 11iv2 (PA-RISH/IA64)  
 
  Voor het beheren van deze besturingssystemen met Configuration Manager, moet u de Configuration Manager-client voor Linux en UNIX installeren met een opdrachtregelparameter die de client over te slaan validatie van SHA-256 instrueert. Configuration Manager-clients die worden uitgevoerd op deze besturingssysteemversies werken in een minder veilige modus dan clients die SHA-256 ondersteunen. Deze minder veilige werkmodus wordt gekenmerkt door het volgende gedrag:  
 

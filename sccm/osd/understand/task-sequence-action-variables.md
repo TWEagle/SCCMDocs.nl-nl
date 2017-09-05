@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 6049ec2369e0a97b21ce6523ba8448335385ab9a
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 675ebf053de98c6ad93a53ae218696012aef96f7
+ms.sourcegitcommit: 5b4fd2d36f06be5bcc7f8ebbfb92c48b7240085d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/30/2017
 ---
 # <a name="task-sequence-action-variables-in-system-center-configuration-manager"></a>Takenreeksacties in System Center Configuration Manager
 
@@ -187,15 +187,6 @@ Takenreeksacties geven configuratie-instellingen die worden gebruikt door één 
 |SMSConnectNetworkFolderPassword<br /><br /> (invoer)|Hiermee geeft u het netwerkwachtwoord op dat wordt gebruikt om verbinding te maken met de netwerkshare.|  
 |SMSConnectNetworkFolderPath<br /><br /> (invoer)|Hiermee geeft u het netwerkpad voor de verbinding op.<br /><br /> Voorbeeld:<br /><br /> **'\\\servername\sharename '**|  
 
-###  <a name="BKMK_ConvertDisk"></a> Variabelen voor de takenreeksactie Schijven naar dynamische schijven converteren  
- De variabele voor deze actie geeft het nummer op van de fysieke schijf die moet worden geconverteerd van een normale schijf naar een dynamische schijf. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [schijven naar dynamische schijven converteren](task-sequence-steps.md#BKMK_ConvertDisktoDynamic).  
-
-#### <a name="details"></a>Details  
-
-|Naam actievariabele|Beschrijving|  
-|--------------------------|-----------------|  
-|OSDConvertDiskIndex<br /><br /> (invoer)|Hiermee geeft u het nummer op van de fysieke schijf die wordt geconverteerd.|  
-
 ###  <a name="BKMK_EnableBitLocker"></a> Variabelen voor de takenreeksactie BitLocker inschakelen  
  De variabelen voor deze actie geven de opties voor het herstelwachtwoord en de opstartsleutel op die worden gebruikt om BitLocker in te schakelen op de doelcomputer. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [BitLocker inschakelen](task-sequence-steps.md#BKMK_EnableBitLocker).  
 
@@ -276,7 +267,7 @@ Takenreeksacties geven configuratie-instellingen die worden gebruikt door één 
 |OSDStateStorePath<br /><br /> (uitvoer)|Het UNC-pad naar de map op het statusmigratiepunt waar de gebruikersstatus wordt opgeslagen.|  
 
 ###  <a name="BKMK_RestartComputer"></a> Variabelen voor de takenreeksactie Computer opnieuw opstarten  
- De variabelen voor deze actie geven informatie op die wordt gebruikt om de doelcomputer opnieuw op te starten. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [Computer opnieuw opstarten](task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer).  
+ De variabelen voor deze actie geven informatie op die wordt gebruikt om de doelcomputer opnieuw op te starten. Zie voor meer informatie over de takenreeksstap die aan deze variabelen is gekoppeld, [Computer opnieuw opstarten](task-sequence-steps.md#BKMK_RestartComputer).  
 
 #### <a name="details"></a>Details  
 

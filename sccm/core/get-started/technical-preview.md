@@ -4,7 +4,7 @@ description: Meer informatie over de Technical Preview-versie dat we u test-driv
 ms.custom: na
 ms.date: 08/25/2017
 ms.prod: configuration-manager
-ms.reviewer: na
+ms.reviewer: nab
 ms.suite: na
 ms.technology: configmgr-other
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ caps.latest.revision: "157"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 0cdbccc0147cb1f4d5130863b9610d0b190d6658
-ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
+ms.openlocfilehash: 1335794bde7805e5fb2899ca685e985afee13c4e
+ms.sourcegitcommit: 5b4fd2d36f06be5bcc7f8ebbfb92c48b7240085d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 08/30/2017
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview voor System Center Configuration Manager
 
@@ -226,7 +226,7 @@ U kunt een basislijnversie gedurende maximaal 1 jaar na de release installeren. 
  |Verbeteringen in Asset Intelligence|[Technische Preview 1608](capabilities-in-technical-preview-1608.md#improvements-to-asset-intelligence)|![Niet toegevoegd](media/Red_X.gif)|
  |De vertaling van beheer op afstand toetsenbord|[Technische Preview 1608](capabilities-in-technical-preview-1608.md#remote-control-keyboard-translation)|![Niet toegevoegd](media/Red_X.gif)|
  |Verbeteringen in het upgradebeleid van de Windows 10-editie|[Technische Preview 1607](capabilities-in-technical-preview-1607.md#dmp_edition)|[Versie 1610](/sccm/compliance/deploy-use/upgrade-windows-version)|
- |Aanpasbare huisstijl voor Software Center-dialoogvensters|[Technische Preview 1607](capabilities-in-technical-preview-1607.md#customizable-branding-for-software-center-dialogs)|![Niet toegevoegd](media/Red_X.gif)|  
+ |Aanpasbare huisstijl voor Software Center-dialoogvensters|[Technische Preview 1607](capabilities-in-technical-preview-1607.md#customizable-branding-for-software-center-dialogs)|[Versie 1610](/sccm/core/plan-design/changes/whats-new-in-version-1610#customizable-branding-for-software-center-dialogs)|  
  |Meerdere apparaatbeheerpunten voor On-premises Mobile Device Management|[Technische Preview 1606](capabilities-in-technical-preview-1606.md#dmp_onprem)|[Versie 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606#on-premises-mobile-device-management)|
  |Apparaten automatisch categoriseren in verzamelingen|[Technische Preview 1606](capabilities-in-technical-preview-1606.md#dmp_category)|[Versie 1606](/sccm/core/clients/manage/collections/automatically-categorize-devices-into-collections) |
  |Respijtperiode afdwingen voor vereiste toepassingen en software-update-implementaties|[Technische Preview 1606](capabilities-in-technical-preview-1606.md#dmp_grace)|[Versie 1610](/sccm/apps/deploy-use/deploy-applications)|

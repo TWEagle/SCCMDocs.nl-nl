@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: e0726febc4c36a26c5e067914734838bf2681e6c
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 18a987141e212158424924402859799ba42f8eae
+ms.sourcegitcommit: 5b4fd2d36f06be5bcc7f8ebbfb92c48b7240085d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/30/2017
 ---
 # <a name="task-sequence-steps-in-system-center-configuration-manager"></a>Stappen voor takenreeksen in System Center Configuration Manager
 
@@ -139,7 +139,7 @@ De volgende takenreeksstappen kunnen worden toegevoegd aan een takenreeks van Co
  Selecteer deze optie om de doelcomputer toe te voegen aan de opgegeven werkgroep. Voer de naam van de werkgroep in op de regel **Werkgroep**. Deze waarde kan worden genegeerd door de waarde die is opgenomen door de takenreeksstap **Netwerkinstellingen vastleggen**.  
 
  **Lid worden van een domein**  
- Selecteer deze optie om de doelcomputer toe te voegen aan het opgegeven domein. Geef het domein op of blader hiernaartoe, zoals *fabricam.com*. Geef een LDAP-pad (Lightweight Directory Access Protocol) op of blader hiernaartoe voor een organisatie-eenheid (dat wil zeggen LDAP//OU=computers, DC=Fabricam.com, C=com).  
+ Selecteer deze optie om de doelcomputer toe te voegen aan het opgegeven domein. Geef het domein op of blader hiernaartoe, zoals *fabricam.com*. Geef op of blader naar een Lightweight Directory Access Protocol (LDAP)-pad voor een organisatie-eenheid (dat wil zeggen LDAP / / OU = computers, DC=Fabricam.com, C = com).  
 
  **Account**  
  Klik op **Instellen** om een account op te geven met de vereiste machtigingen om de computer lid te laten worden van het domein. In de **Windows-gebruikersaccount** in het dialoogvenster kunt u de gebruikersnaam met de volgende notatie invoeren: **Domein\gebruiker** .  
@@ -551,31 +551,6 @@ Deze takenreeksstap kan alleen in Windows PE worden uitgevoerd. De taak kan niet
 
 -   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
 
-##  <a name="BKMK_ConvertDisktoDynamic"></a>Schijf naar dynamische schijf converteren  
- Gebruik de takenreeksstap **Schijven naar dynamische schijven converteren** om een fysieke schijf van een basisschijftype naar een dynamisch schijftype te converteren.  
-
- Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoerd. Zie [Convert Disk to Dynamic Task Sequence Action Variables](task-sequence-action-variables.md#BKMK_ConvertDisk) (Variabelen voor takenreeksacties voor schijf naar dynamische schijf converteren) voor meer informatie over de takenreeksvariabelen voor deze actie.  
-
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
-
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
-
--   De stap uitschakelen.  
-
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
-
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
-
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
-
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
-
- **Schijfnummer**  
- Het fysieke schijfnummer van de schijf die wordt geconverteerd.  
-
 ##  <a name="BKMK_DisableBitLocker"></a>BitLocker uitschakelen  
  Gebruik de takenreeksstap **BitLocker uitschakelen** om de BitLocker-versleuteling uit te schakelen op het huidige besturingssysteemstation of op een specifiek station. Met deze actie blijven de sleutelbeveiligingen in niet-versleutelde tekst achter op de harde schijf, maar wordt de inhoud van het station niet ontsleuteld. Deze actie wordt vervolgens bijna onmiddellijk voltooid.  
 
@@ -874,35 +849,6 @@ Deze stap kan in een standaardbesturingssysteem of in Windows PE worden uitgevoe
  **Als een toepassing mislukt, doorgaan met installatie van andere toepassingen in de lijst**  
  Deze instelling geeft aan dat de stap wordt voorgezet als de installatie van een afzonderlijke toepassing mislukt. Als u deze instelling opgeeft, wordt de takenreeks voortgezet ongeacht eventuele installatiefouten die worden geretourneerd. Als u de instelling niet opgeeft, wordt de takenreeksstap onmiddellijk beëindigd wanneer een installatie mislukt.  
 
-##  <a name="BKMK_InstallDeploymentTools"></a>Implementatiehulpprogramma's installeren  
- Gebruik de **Implementatiegereedschappen installeren** takenreeksstap voor het installeren van de Configuration Manager-pakket dat de Sysprep-Ontwikkelingstools bevat.  
-
-### <a name="details"></a>Details  
- Op het tabblad **Eigenschappen** voor deze stap kunt u de instellingen configureren die in deze sectie worden beschreven.  
-
- Bovendien kunt u op het tabblad **Opties** de volgende acties uitvoeren:  
-
--   De stap uitschakelen.  
-
--   Opgeven of de takenreeks verder wordt uitgevoerd als er een fout optreedt tijdens het uitvoeren van de stap.  
-
--   Voorwaarden opgeven waaraan moet worden voldaan om de stap uit te voeren.  
-
- **Naam**  
- Een korte, door de gebruiker gedefinieerde naam opgeven die de uitgevoerde actie in deze stap beschrijft.  
-
- **Beschrijving**  
- Meer gedetailleerde informatie over de uitgevoerde actie in deze stap.  
-
- **Sysprep-pakket**  
- Deze instelling geeft u de Configuration Manager-pakket met de Sysprep-implementatieprogramma's voor de volgende besturingssystemen:  
-
--   Windows XP SP3  
-
--   Windows XP x64 SP2  
-
--   Windows Server 2003 SP2  
-
 ##  <a name="BKMK_InstallPackage"></a>Pakket installeren
 
  Gebruik de takenreeksstap **Pakket installeren** om software te installeren als onderdeel van de takenreeks. Als deze stap wordt uitgevoerd, begint de installatie onmiddellijk zonder te wachten op een polling-interval voor beleid.  
@@ -1068,6 +1014,9 @@ Er is een nieuwe takenreeksvariabele, SMSTSSoftwareUpdateScanTimeout, toegevoegd
 Gebruik de **ConfigMgr-Client voorbereiden voor vastleggen** stap voor het verwijderen van Configuration Manager-client of de client op de referentiecomputer deze voorbereiden voor vastleggen als onderdeel van de installatiekopieprocedure configureren.
 
 Vanaf Configuration Manager versie 1610, haalt de stap ConfigMgr-Client voorbereiden de Configuration Manager-client, in plaats van alleen het verwijderen van belangrijke gegevens. Wanneer de takenreeks wordt geïmplementeerd voor de vastgelegde besturingssysteeminstallatiekopie wordt deze elke keer dat een nieuwe Configuration Manager-client installeren.  
+
+> [!Note]  
+>  De client alleen wordt verwijderd tijdens de **samenstellen en vastleggen van een referentie-installatiekopie voor besturingssysteem** takenreeks. Andere methoden vastleggen, zoals vastleggende media of een aangepaste takenreeks worden niet verwijderd van de client.
 
 Voorafgaand aan de Configuration Manager versie 1610 voert deze stap uit de volgende taken:  
 
