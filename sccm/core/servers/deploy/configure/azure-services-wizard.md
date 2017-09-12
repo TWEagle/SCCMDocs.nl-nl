@@ -14,11 +14,11 @@ caps.latest.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 22203b358830903cf2e531c0532ae3111b8265fc
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 3046003f000c8abde28a5b6e3bcb88b159be5357
+ms.sourcegitcommit: 2a1328da3facb20b0c78f3b12adbb5fdbe0dcc11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="configure-azure-services-for-use-with-configuration-manager"></a>Azure-services voor gebruik met Configuration Manager configureren
 
@@ -30,7 +30,7 @@ Deze wizard biedt een gemeenschappelijke ervaring voor configuratie door middel 
 
 De volgende Azure-services zijn geconfigureerd met de wizard Azure-Services configureren:
 -   **Cloud-Management**   
-    [Inschakelen voor clients te verifiëren met behulp van Azure Active Directory]() (Azure AD). U kunt ook [configureren van Azure AD-Gebruikersdetectie](/sccm/core/servers/deploy/configure/configure-discovery-methods#azureaadisc).
+    [Inschakelen voor clients te verifiëren met behulp van Azure Active Directory](/sccm/core/clients/deploy/deploy-clients-cmg-azure) (Azure AD). U kunt ook [configureren van Azure AD-Gebruikersdetectie](/sccm/core/servers/deploy/configure/configure-discovery-methods#azureaadisc).
 -   **OMS Connector**
     [verbinding maken met Operations Manager-Suite](/sccm/core/clients/manage/sync-data-microsoft-operations-management-suite) (OMS) en het synchroniseren van gegevens, zoals verzamelingen met OMS-logboekanalyse.
 -   **Gereedheid voor upgrade**
@@ -85,7 +85,7 @@ De Azure-services-web-app uw Configuration Manager-site verbindt met Azure AD en
 
 6.  Op de **detectie** pagina van de wizard, klikt u op **inschakelen Azure Active Directory-Gebruikersdetectie**, en klik vervolgens op **instellingen**.
 In de **Discovery-instellingen van Azure AD-gebruiker** dialoogvenster Configureer een planning voor wanneer detectie wordt uitgevoerd. U kunt ook detectie van verschillen die controleert op nieuwe of gewijzigd accounts in Azure AD inschakelen. Meer informatie over [Azure AD-Gebruikersdetectie](/sccm/core/servers/deploy/configure/about-discovery-methods#azureaddisc).
- 
+
  7. Voltooi de wizard.
 
 Op dit moment hebt u uw Configuration Manager-site naar Azure AD verbonden.

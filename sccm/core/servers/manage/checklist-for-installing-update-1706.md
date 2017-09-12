@@ -14,11 +14,11 @@ caps.latest.revision:
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: dab99748902df0fad32a1e2adad0c05e0dd8bdc9
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: c8110d9f5fec9027d34570623c32a7474e01b9af
+ms.sourcegitcommit: 2a1328da3facb20b0c78f3b12adbb5fdbe0dcc11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="checklist-for-installing-update-1706-for-system-center-configuration-manager"></a>Controlelijst voor het installeren van update 1706 voor System Center Configuration Manager
 
@@ -62,7 +62,6 @@ De eerste keer dat u een Configuration Manager-console gebruikt nadat de update 
 > - **Koppelingen voor databasereplicatie** tussen de centrale beheersite en de onderliggende primaire sites weergegeven als niet-bijgewerkte. Deze wordt weergegeven in de status van de installatie van de update pack zoals de status voltooid met waarschuwing voor replicatie-initialisatie voor bewaking. In het knooppunt controle van de console, deze wordt weergegeven zoals *koppeling wordt geconfigureerd*.
 
 
-
 ## <a name="checklist"></a>Controlelijst
 
 **Zorg ervoor dat alle sites een versie van System Center Configuration Manager dat ondersteunt naar 1706 bijwerken uitgevoerd:**   
@@ -86,9 +85,9 @@ Deze installatie kunt u de sitesysteemserver in een opnieuw opstarten in behande
 
 Zie voor meer informatie [Site and site system prerequisites](/sccm/core/plan-design/configs/site-and-site-system-prerequisites) (Vereisten voor sites en sitesystemen).
 
-**Controleer de versie van de Windows Assessment and Deployment Kit (ADK) voor Windows 10** de Windows 10 ADK moet versie 1607 of hoger. Als u de ADK bijwerken moet, doen voordat u begint met update van Configuration Manager. Hierdoor worden dat de standaardopstartinstallatiekopieën automatisch bijgewerkt naar de nieuwste versie van Windows PE. (Aangepaste opstartinstallatiekopieën handmatig moeten worden bijgewerkt.)
+**Controleer de versie van de Windows Assessment and Deployment Kit (ADK) voor Windows 10** de Windows 10 ADK moet 1703 of hoger. (Zie voor meer informatie over ondersteunde versies van Windows ADK [Windows 10 ADK](/sccm/core/plan-design/configs/support-for-windows-10#windows-10-adk).) Als u de Windows ADK bijwerken moet, doen voordat u de update van Configuration Manager. Hierdoor worden dat de standaardopstartinstallatiekopieën automatisch bijgewerkt naar de nieuwste versie van Windows PE. (Aangepaste opstartinstallatiekopieën handmatig moeten worden bijgewerkt.)
 
-Als u de site bijwerkt voordat u de ADK bijwerken, Zie de blog [Configuration Manager en de Windows ADK voor Windows 10 versie 1607](https://blogs.technet.microsoft.com/enterprisemobility/2016/09/09/configuration-manager-and-the-windows-adk-for-windows-10-version-1607/) voor een script dat kan worden gebruikt voor het genereren van de opstartinstallatiekopieën.
+Als u de site bijwerkt vóór de upgrade van Windows ADK, Zie [distributiepunten bijwerken met de installatiekopie](/sccm/osd/get-started/manage-boot-images#update-distribution-points-with-the-boot-image) voor verbeteringen aan dit proces in Configuration Manager versie 1706.
 
 **Bekijk de site en hiërarchiestatus en controleer of er geen onopgeloste problemen zijn:** Voordat u een site bijwerkt, moet u alle operationele problemen voor de siteserver, de Sitedatabaseserver en de sitesysteemrollen die zijn geïnstalleerd op externe computers oplossen. De update van een site kan mislukken door bestaande operationele problemen.
 

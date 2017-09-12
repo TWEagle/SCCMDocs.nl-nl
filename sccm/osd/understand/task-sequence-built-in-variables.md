@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 32b24b3637dfafe401ea1d9f51b3769aa749f544
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 09e1105521f5e72830c2816d04e16690064f4f64
+ms.sourcegitcommit: 40f2a4e3cc546e6bfd10f195a8e87af2b0780928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="task-sequence-built-in-variables-in-system-center-configuration-manager"></a>Ingebouwde variabelen voor de takenreeks in System Center Configuration Manager
 
@@ -97,6 +97,6 @@ ms.lasthandoff: 08/07/2017
 |SMSTSRebootMessage|Hiermee wordt het bericht opgegeven voor het weergeven van het afsluitdialoogvenster als opnieuw opstarten is aangevraagd. Als deze variabele niet is ingesteld, wordt er een standaardbericht weergegeven.<br /><br /> Voorbeeld:<br /><br /> **Deze computer wordt opnieuw opgestart door het takenreeksbeheer**.|  
 |SMSTSRebootRequested|Geeft aan dat opnieuw opstarten is aangevraagd nadat de huidige takenreeks is voltooid. Als een herstart nodig is, stelt u deze variabele in op **true**, en start het takenreeksbeheer de computer opnieuw op na deze stap in de takenreeks. De takenreeksstap moet deze takenreeksvariabele instellen als herstart is vereist voor het voltooien van de takenreeksstap. Nadat de computer opnieuw is opgestart, gaat de takenreeks verder vanaf de volgende takenreeksstap.|  
 |SMSTSRetryRequested|Hiermee wordt een nieuwe poging aangevraagd nadat de huidige takenreeksstap is voltooid. Als deze takenreeksvariabele is ingesteld, moet **SMSTSRebootRequested** ook worden ingesteld op **true**. Nadat de computer opnieuw is opgestart, voert het takenreeksbeheer dezelfde takenreeksstap opnieuw uit.|  
-|SMSTSSoftwareUpdateScanTimeout| Deze biedt u de mogelijkheid om de time-out voor de software-updates tijdens de takenreeksstap [Software-updates installeren](task-sequence-steps.md#BKMK_InstallSoftwareUpdates) te bepalen. U kunt bijvoorbeeld de standaardwaarde verhogen als u een groot aantal software-updates moet installeren. De standaardwaarde is 30 minuten. |
+|SMSTSSoftwareUpdateScanTimeout| Deze biedt u de mogelijkheid om de time-out voor de software-updates tijdens de takenreeksstap [Software-updates installeren](task-sequence-steps.md#BKMK_InstallSoftwareUpdates) te bepalen. U kunt bijvoorbeeld de standaardwaarde verhogen als u een groot aantal software-updates moet installeren. De standaardwaarde is 1800 seconden (30 minuten). Houd er rekening mee dat de variabele waarde is ingesteld in seconden. |
 |SMSTSUDAUsers|Geeft de primaire gebruiker van de doelcomputer op. Hiermee worden de gebruikers opgegeven met de volgende notatie. Meerdere gebruikers worden gescheiden door een komma (,).<br /><br /> Voorbeeld:<br /><br /> **domein\gebruiker1, domein\gebruiker2, domein\gebruiker3**<br /><br /> Zie voor meer informatie over het koppelen van gebruikers aan de doelcomputer [gebruikers koppelen aan een doelcomputer](../get-started/associate-users-with-a-destination-computer.md).|  
 |SMSTSWaitForSecondReboot|Vanaf versie 1602 van Configuration Manager kan is deze optionele takenreeksvariabele beschikbaar om te helpen clientgedrag besturingselement als de installatie van een software-update moet worden opgestart twee. Deze variabele moet voorafgaand aan de stap [ Software-updates installeren](task-sequence-steps.md#BKMK_InstallSoftwareUpdates)worden ingesteld om te voorkomen dat een takenreeks mislukt omdat de installatie van de software-update een tweede keer opnieuw moet worden opgestart.<br /><br /> Stel de waarde voor SMSTSWaitForSecondReboot in seconden in om op te geven hoelang de takenreeks pauzeert tijdens de stap voor Software-updates installeren als de computer opnieuw wordt opgestart om voldoende tijd te bieden als een tweede keer opnieuw moet worden opgestart. <br />Als u SMSTSWaitForSecondReboot bijvoorbeeld instelt op 600, wordt de takenreeks na het opnieuw opstarten 10 minuten onderbroken voordat volgende stappen in de takenreeks worden uitgevoerd. Dit is handig als honderden software-updates worden geïnstalleerd met één stap in de takenreeks Software-updates installeren.|  

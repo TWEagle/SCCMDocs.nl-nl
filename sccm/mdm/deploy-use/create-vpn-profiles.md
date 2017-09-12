@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: e4a53caab7d76b604a3fee7dcfc4dc48f22b0fb0
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 23ff28189c8010c21ed8b23c35598746a4f09fe7
+ms.sourcegitcommit: 13599667ea77c16db1aebe64f8a6748c268f0b45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="vpn-profiles-on-mobile-devices-in-system-center-configuration-manager"></a>VPN-profielen op mobiele apparaten in System Center Configuration Manager
 
@@ -37,20 +37,20 @@ VPN-profielen in System Center Configuration Manager voor het VPN-instellingen i
 
  |Type verbinding|iOS en Mac OS X|Android|Windows 8.1|Windows RT|Windows RT 8.1|Windows Phone 8,1|Windows 10 Desktop en Mobile|  
  |---------------------|----------------------|-------------|-----------------|----------------|--------------------|-----------------------|-----------------------------------|  
- |Cisco AnyConnect|Ja|Ja|Nee|Nee|Nee|Nee|Ja (OMA-URI)|
+ |Cisco AnyConnect|Ja|Ja|Nee|Nee|Nee|Nee|Ja|
  |Cisco (IPSec)|alleen voor iOS|Nee|Nee|Nee|Nee|Nee|Nee|  
  |Pulse Secure|Ja|Ja|Ja|Nee|Ja|Ja|Ja|  
  |F5 Edge Client|Ja|Ja|Ja|Nee|Ja|Ja|Ja|  
  |Dell SonicWALL Mobile Connect|Ja|Ja|Ja|Nee|Ja|Ja|Ja|  
  |Check Point Mobile VPN|Ja|Ja|Ja|Nee|Ja|Ja|Ja|  
  |Microsoft SSL (SSTP)|Nee|Nee|Ja|Ja|Ja|Nee|Nee|  
- |Microsoft Automatic|Nee|Nee|Ja|Ja|Ja|Nee|Ja (OMA-URI)|  
- |IKEv2|Ja (aangepast beleid)|Nee|Ja|Ja|Ja|Ja|Ja (OMA-URI)|  
- |PPTP|Ja|Nee|Ja|Ja|Ja|Nee|Ja (OMA-URI)|  
+ |Microsoft Automatic|Nee|Nee|Ja|Ja|Ja|Nee|Ja|  
+ |IKEv2|Ja (aangepast beleid, iOS 9 of hoger)|Nee|Ja|Ja|Ja|Ja|Ja|  
+ |PPTP|Ja|Nee|Ja|Ja|Ja|Nee|Ja|  
  |L2TP|Ja|Nee|Ja|Ja|Ja|Nee|Ja (OMA-URI)|  
 
 ## <a name="create-vpn-profiles"></a>VPN-profielen maken
-[Het VPN-profielen maken in System Center Configuration Manager](../../protect/deploy-use/create-vpn-profiles.md) bevat algemene informatie over het maken VPN-profielen.
+[Het VPN-profielen maken in System Center Configuration Manager](../../protect/deploy-use/create-vpn-profiles.md) bevat algemene informatie over het maken van VPN-profielen.
 
 ###   <a name="windows-10-vpn-features-available-when-using-configuration-manager-with-intune"></a>Windows 10 VPN-functies die beschikbaar zijn wanneer u Configuration Manager met Intune  
 

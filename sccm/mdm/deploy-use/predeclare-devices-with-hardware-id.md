@@ -2,7 +2,7 @@
 title: Apparaten met IMEI-nummer of iOS-serienummers labelen | Microsoft Docs
 description: Apparaten in Bedrijfseigendom met hun IMEI-nummer of iOS-serienummer labelen.
 ms.custom: na
-ms.date: 08/15/2017
+ms.date: 09/01/2017
 ms.reviewer: na
 ms.suite: na
 ms.prod: configuration-manager
@@ -14,11 +14,11 @@ caps.latest.revision: "3"
 author: nathbarn
 ms.author: nathbarn
 manager: angrobe
-ms.openlocfilehash: 7d139a2c74c0f29604f2f3d9b8e2739364633f17
-ms.sourcegitcommit: db7b7ec347638efd05cdba474e8a8f8535516116
+ms.openlocfilehash: 424f04b2b3ad4c7ef91f884bbf5bae3580ea6b85
+ms.sourcegitcommit: cd1f9c58e55f1c9a19acd743ec6a8824c39fd3a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="predeclare-devices-with-imei-or-ios-serial-numbers"></a>Apparaten met IMEI-nummer of iOS-serienummers labelen
 
@@ -29,7 +29,7 @@ U kunt apparaten in Bedrijfseigendom identificeren met hun nummers van internati
 Tijdens het uploaden van serienummers van bedrijfseigen iOS-apparaten, moeten ze worden gekoppeld aan een inschrijvingsprofiel voor bedrijfsapparaten. Apparaten moeten vervolgens beide Apples apparaatinschrijvingsprogramma (DEP) of Apple Configurator gebruiken om u te laten verschijnen als eigendom van het bedrijf zijn ingeschreven.
 
 >[!NOTE]
->Android-apparaten, met uitzondering van Samsung Knox Standard-apparaten, moeten een SIM-kaart te labelen registreren als een apparaat in Bedrijfseigendom met IMEI-nummer hebben.
+>Android-apparaten, met uitzondering van Samsung Knox Standard-apparaten, moeten een telefoonnummer aan hen toegewezen om te labelen en registreren als een apparaat in Bedrijfseigendom met IMEI-nummer hebben.
 
 ## <a name="how-to-predeclare-corporate-owned-devices"></a>Het labelen van apparaten in Bedrijfseigendom
 

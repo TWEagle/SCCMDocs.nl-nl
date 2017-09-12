@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: robstackmsft
 ms.author: robstack
 manager: angrobe
-ms.openlocfilehash: 3921748d3c99c2a35b670f3ca121dc7ab92d43bc
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 2d305df5e67c3f46360e1735cb6fe263afbaed41
+ms.sourcegitcommit: 2a1328da3facb20b0c78f3b12adbb5fdbe0dcc11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="device-guard-management-with-configuration-manager"></a>Guard Apparaatbeheer met Configuration Manager
 
@@ -104,7 +104,7 @@ Wanneer u een vertrouwensrelatie voor specifieke bestanden of mappen in een bele
 5.  Wanneer u klaar bent, klikt u op **OK** het beleid te implementeren. 
 
 Nadat het beleid is verwerkt op een client-PC, wordt een nieuwe start gepland op dat de client volgens de **clientinstellingen** voor **Computer opnieuw wordt opgestart**.
-Als u de client-PC opnieuw start, wordt het beleid wordt geen rekening effect.* *
+Als u de client-PC opnieuw start, doorgevoerd het beleid niet.
 
 ## <a name="how-to-monitor-a-device-guard-policy"></a>Het bewaken van een beleid Device Guard
 

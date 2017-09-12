@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: e54c2cd1c3e83609bff6a8cb64fb3c23b26a4eaa
-ms.sourcegitcommit: 974fbc4408028c8be28911e5cd646efcf47c7f15
+ms.openlocfilehash: 4e818ffd943208eab323b1558f825bd87f3ddc4c
+ms.sourcegitcommit: 13599667ea77c16db1aebe64f8a6748c268f0b45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="release-notes-for-system-center-configuration-manager"></a>Opmerkingen bij de release van System Center Configuration Manager
 
@@ -148,17 +148,6 @@ Met alle actieve versies van wanneer u de client op Windows-computers te impleme
 **Tijdelijke oplossing** dit wordt veroorzaakt door een beschadigd, eerder geïnstalleerde versie van Silverlight. U kunt het volgende programma wordt uitgevoerd op de desbetreffende computer om dit te corrigeren: [https://support.microsoft.com/help/17588/fix-problems-that-block-programs-from-being-installed-or-removed](https://support.microsoft.com/help/17588/fix-problems-that-block-programs-from-being-installed-or-removed)
 
 ## <a name="operating-system-deployment"></a>Implementatie van besturingssystemen  
-
-### <a name="if-the-boot-image-contains-drivers-the-image-fails-to-reload-the-current-windows-pe-version-from-the-windows-assessment-and-deployment-kit-adk"></a>Als de opstartinstallatiekopie de stuurprogramma's bevat, de afbeelding niet laden van de huidige Windows PE-versie van de Windows Assessment and Deployment Kit (ADK)
-<!-- 495087 -->
-U kunt de Wizard distributiepunten bijwerken gebruiken distributiepunten bijwerkt met een installatiekopie die is opgeslagen met de nieuwste versie van Windows PE in de installatiemap van de Windows Assessment and Deployment Kit (ADK). Om te werken, opent u de Wizard distributiepunten bijwerken en selecteer **opnieuw laden van deze opstartinstallatiekopie met de huidige PE-versie van Windows ADK**.
-
-Echter, als de opstartinstallatiekopie de stuurprogramma's bevat, mislukt de update. In plaats daarvan de wizard een installatiekopie van de ADK wordt opnieuw geladen, wordt een dialoogvenster uitzondering dat de gebruiker negeren kunt en vervolgens een scherm geslaagd geeft weergegeven. De nieuwste clientonderdelen voor Configuration Manager-wordt echter niet worden toegevoegd aan de installatiekopie. De opstartinstallatiekopie wordt niet bijgewerkt op het distributiepunt.
-
-**Tijdelijke oplossing**: De Wizard Update twee keer uitgevoerd.
-
-1. Voer de wizard met **opnieuw laden van deze opstartinstallatiekopie met de huidige Windows PE-versie van Windows ADK** geselecteerde. Hiermee krijgt de nieuwste versie van Windows PE.
-2. Voer de wizard opnieuw uit met **opnieuw laden van deze opstartinstallatiekopie met de huidige Windows PE-versie van Windows ADK** niet geselecteerd. Deze en binaire bestanden voor de nieuwste client ophalen en bijwerken van de installatiekopie van het giek op het distributiepunt.
 
 ### <a name="servicing-plans-create-a-lot-of-duplicate-software-update-groups-and-deployments-by-default"></a>Onderhoudsplannen maken standaard veel dubbele software-updategroepen en -implementaties  
 De wizard Onderhoudsplan maken wordt momenteel standaard uitgevoerd na elke synchronisatie van software-updates. Telkens wanneer de wizard wordt uitgevoerd, wordt er een nieuwe software-updategroep en -implementatie gemaakt. Als u een synchronisatieplanning voor software-updates hebt die bijvoorbeeld meerdere keren per dag wordt uitgevoerd, maakt de wizard Onderhoudsplan maken elke dag meerdere, waarschijnlijk identieke software-updategroepen en -implementaties.  

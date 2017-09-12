@@ -2,7 +2,7 @@
 title: Apparaten inschrijven met apparaatregistratiebeheer - Configuration Manager | Microsoft Docs
 description: Inschrijven van apparaten in Bedrijfseigendom met de apparaatinschrijvingsbeheerder-account met System Center Configuration Manager.
 ms.custom: na
-ms.date: 08/15/2017
+ms.date: 09/08/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "8"
 author: nathbarn
 ms.author: nathbarn
 manager: angrobe
-ms.openlocfilehash: c90ecca1ee46523d16fc1cf11495e40707631e03
-ms.sourcegitcommit: db7b7ec347638efd05cdba474e8a8f8535516116
+ms.openlocfilehash: dcc35fb6ebe385d07a3b60e8968e06dec8ad60af
+ms.sourcegitcommit: 40f2a4e3cc546e6bfd10f195a8e87af2b0780928
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="enroll-devices-with-device-enrollment-manager-with-configuration-manager"></a>Apparaten inschrijven met apparaatregistratiebeheer met Configuration Manager
 
@@ -40,7 +40,7 @@ De volgende beperkingen zijn van toepassing op apparaten die worden beheerd met 
 -  Om te implementeren bedrijfs-apps op apparaten die worden beheerd met de apparaatinschrijvingsbeheerder, implementeert u bedrijfsportal-app als een **vereiste installatie** aan de apparaatinschrijvingsbeheerder-gebruikersaccount. De apparaatinschrijvingsbeheerder kunt start vervolgens de bedrijfsportal-app om aanvullende apps te installeren.
 - Om prestaties te verbeteren, worden de bedrijfsportal-app alleen het lokale apparaat weergegeven. Extern beheer van andere DEM-apparaten kan alleen worden uitgevoerd vanuit de Configuration Manager-console door en de beheerder
 - De bedrijfsportal-website is niet beschikbaar voor de apparaatinschrijvingsbeheerder-accounts. De bedrijfsportal-app gebruiken.
-- (alleen iOS) Als u iOS-apparaten inschrijven met DEM, kunt u de Apple Configurator of Apple Device Enrollment Program (DEP) niet gebruiken om apparaten te registreren.
+- Als u iOS-apparaten inschrijven met DEM, kunt u de Apple Configurator of Apple Device Enrollment Program (DEP) niet gebruiken om apparaten te registreren. (alleen iOS) 
 
  **Voorbeelden van scenario voor apparaatinschrijvingsbeheerder:**   
 Een restaurant wil verkooppunt-tablets voor het bedieningspersoneel en bestellingsmonitors voor het keukenpersoneel. De werknemers moeten nooit toegang tot bedrijfsgegevens, of als een gebruiker aan te melden. De Intune-beheerder maakt een apparaatinschrijvingsbeheerder-account en schrijft de eigendom van het bedrijf met behulp van dat account. U kunt ook de beheerder kan geven inschrijving van het apparaat inschrijvingsbeheerreferenties voor een Restaurantmanager, zodat hij of zij inschrijven en beheren van apparaten.  

@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: cc678c1133b1944f55bcad309cf9ede9f0660b57
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 5668ba3ead3b7415508f9ecf02f2e119c3cd9cc6
+ms.sourcegitcommit: 2a1328da3facb20b0c78f3b12adbb5fdbe0dcc11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="manage-boot-images-with-system-center-configuration-manager"></a>Opstartinstallatiekopieën beheren met System Center Configuration Manager
 
@@ -49,11 +49,10 @@ Voorafgaand aan versie 1702, Configuration Manager de bestaande installatiekopie
 Wanneer u Configuration Manager 2012 met Configuration Manager CB met behulp van het installatieproces bijwerkt, wordt de standaardopstartinstallatiekopieën opnieuw gegenereerd Configuration Manager. Dit omvat het nieuwe venster PE-versie van de bijgewerkte Windows ADK, de nieuwe versie van de Configuration Manager-client, en alle aanpassingen blijven ongewijzigd. Aangepaste opstartinstallatiekopieën worden niet gewijzigd.
 
 ### <a name="update-distribution-points-with-the-boot-image"></a>Bijwerken van distributiepunten met de installatiekopie
-Wanneer u gebruikt de **distributiepunten bijwerken** actie van de **opstartinstallatiekopieën** knooppunt in de Configuration Manager-console Configuration Manager de standaardopstartinstallatiekopieën bijgewerkt met de clientonderdelen, de stuurprogramma's, de aanpassingen, enzovoort.    
+Wanneer u gebruikt de **distributiepunten bijwerken** actie van de **opstartinstallatiekopieën** knooppunt in de Configuration Manager-console Configuration Manager de doel-opstartinstallatiekopie bijgewerkt met de clientonderdelen stuurprogramma's, aanpassingen, enzovoort.    
 
 Vanaf Configuration Manager versie 1706, kunt u de nieuwste versie van Windows PE (van de installatiemap van Windows ADK) in de opstartinstallatiekopie opnieuw laden. De **algemene** pagina van de wizard distributiepunten bijwerken bevat informatie over de Windows ADK-versie die is geïnstalleerd op de siteserver, de Windows ADK-versie waarin Windows PE wordt gebruikt in de opstartinstallatiekopie en de versie van Configuration Manager-client. U kunt deze informatie gebruiken om te beslissen of u wilt de opstartinstallatiekopie opnieuw laden. Ook een nieuwe kolom (**clientversie**) is toegevoegd wanneer u opstartinstallatiekopieën in de **opstartinstallatiekopieën** knooppunt zodat u weet welke versie van Configuration Manager-client elke opstartinstallatiekopie wordt gebruikt.    
 
-Aangepaste opstartinstallatiekopieën worden niet gewijzigd.
 
 ##  <a name="BKMK_BootImageCustom"></a>Een opstartinstallatiekopie aanpassen  
  U kunt een opstartinstallatiekopie aanpassen of [een opstartinstallatiekopie wijzigen](#BKMK_ModifyBootImages), vanuit de Configuration Manager-console wanneer deze is gebaseerd op een Windows PE-versie van de ondersteunde versie van Windows ADK. Wanneer een site is bijgewerkt met een nieuwe versie en een nieuwe versie van Windows ADK is geïnstalleerd, worden aangepaste opstartinstallatiekopieën (die zich niet op de standaardlocatie voor opstartinstallatiekopieën bevinden) niet bijgewerkt met de nieuwe versie van Windows ADK. Wanneer dit gebeurt, kunt u zich niet langer de opstartinstallatiekopieën in de Configuration Manager-console aanpassen. Ze blijven echter werken zoals voor de upgrade.  

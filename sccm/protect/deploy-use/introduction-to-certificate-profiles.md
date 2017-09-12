@@ -2,7 +2,7 @@
 title: Inleiding tot certificaatprofielen | Microsoft Docs
 description: Meer informatie over de werking van certificaatprofielen in System Center Configuration Manager met Active Directory Certificate Services.
 ms.custom: na
-ms.date: 07/25/2017
+ms.date: 09/11/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,18 +14,18 @@ caps.latest.revision: "7"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: 7b1c0e449f3d1ef42e279e8707df6bf1df163b3f
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: e269b5836648d0d227e91a017512c16217e42646
+ms.sourcegitcommit: 13599667ea77c16db1aebe64f8a6748c268f0b45
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="introduction-to-certificate-profiles-in-system-center-configuration-manager"></a>Inleiding tot certificaatprofielen in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 
-Certificaatprofielen werken met Active Directory Certificate Services en de rol registratieservice voor netwerkapparaten om verificatiecertificaten te richten voor beheerde apparaten, zodat gebruikers naadloos toegang bedrijfsbronnen tot. Zo kunt u bijvoorbeeld certificaatprofielen maken en implementeren om gebruikers de benodigde certificaten te geven om VPN-verbindingen en draadloze verbindingen te initiëren. 
+Certificaatprofielen werken met Active Directory Certificate Services en de rol registratieservice voor netwerkapparaten om verificatiecertificaten te richten voor beheerde apparaten, zodat gebruikers naadloos toegang bedrijfsbronnen tot. Zo kunt u bijvoorbeeld certificaatprofielen maken en implementeren om gebruikers de benodigde certificaten te geven om VPN-verbindingen en draadloze verbindingen te initiëren.
 
 Met certificaatprofielen kunnen gebruikersapparaten automatisch worden geconfigureerd, zodat bedrijfsbronnen zoals Wi-Fi-netwerken en VPN-servers toegankelijk zijn zonder handmatig certificaten te hoeven installeren of een buiten-bandproces te hoeven gebruiken. Certificaatprofielen kunnen ook helpen om bedrijfsbronnen veilig te houden, aangezien u veiligere instellingen kunt gebruiken die worden ondersteund door uw zakelijke PKI (Public Key Infrastructure). U kunt bijvoorbeeld serververificatie vereisen voor alle Wi-Fi- en VPN-verbindingen omdat u de vereiste certificaten hebt ingericht op de beheerde apparaten.   
 
@@ -52,7 +52,7 @@ Certificaatprofielen bieden de volgende beheermogelijkheden:
 
 -   **Personal information exchange (.pfx)** -kunt u een certificaat .pfx (ook wel bekend als PKCS #12) voor een apparaat of gebruiker aanvragen.
 
-    U kunt PFX-certificaatprofielen maken door ether [importeren referenties](/sccm/mdm/deploy-use/import-pfx-certificate-profiles.md) van bestaande certificaten gebruiken of door [definiëren van een certificaat](/sccm/mdm/deploy-use/create-pfx-certificate-profiles.md) autoriteit voor het verwerken van aanvragen.
+    U kunt PFX-certificaatprofielen maken door een van beide [importeren referenties](/sccm/mdm/deploy-use/import-pfx-certificate-profiles) van bestaande certificaten gebruiken of door [definiëren van een certificaat](/sccm/mdm/deploy-use/create-pfx-certificate-profiles) autoriteit voor het verwerken van aanvragen.
 
     Vanaf versie 1706, kunt u Microsoft of Entrust als certificeringsinstanties voor **Personal information exchange (.pfx)** certificaten.
 

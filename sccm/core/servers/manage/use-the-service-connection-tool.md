@@ -2,7 +2,7 @@
 title: Service-hulpprogramma voor serviceverbindingen | Microsoft Docs
 description: Meer informatie over dit hulpprogramma waarmee u verbinding maken met de Configuration Manager-cloudservice handmatig om gebruiksgegevens te uploaden.
 ms.custom: na
-ms.date: 4/7/2017
+ms.date: 09/06/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "11"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 0da80521bf223a765c3731f8ad59623d85a4c9fa
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 8039ee0c704bbe570ec3e45ba648f779923087c6
+ms.sourcegitcommit: 2a1328da3facb20b0c78f3b12adbb5fdbe0dcc11
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="use-the-service-connection-tool-for-system-center-configuration-manager"></a>Het hulpprogramma voor serviceverbindingen in System Center Configuration Manager gebruiken
 
@@ -81,7 +81,7 @@ Wanneer u de volgende opdracht uitvoert, bereidt het hulpprogramma een CAB-besta
 U moet ook de map ServiceConnectionTool inclusief alle inhoud kopiëren naar het USB-station of op een andere wijze beschikbaar maken op de computer die u wilt gebruiken voor stap 3 en 4.  
 
 ### <a name="overview"></a>Overzicht
-**Er zijn drie primaire stappen voor het gebruik van het hulpprogramma voor serviceverbindingen:**  
+#### <a name="there-are-three-primary-steps-to-using-the-service-connection-tool"></a>Er zijn drie primaire stappen voor het hulpprogramma voor serviceverbindingen gebruiken  
 
 1.  **Voorbereiden**:  Deze stap wordt uitgevoerd op de computer die als host fungeert voor het serviceverbindingspunt wordt gehost. Wanneer het hulpprogramma wordt uitgevoerd het plaatst de gebruiksgegevens in een CAB-bestand en slaat deze op een USB-station (of alternatieve transferlocatie die u opgeeft).  
 
@@ -91,15 +91,28 @@ U moet ook de map ServiceConnectionTool inclusief alle inhoud kopiëren naar het
 
 Wanneer u vanaf versie 1606 verbinding maakt met Microsoft, kunt u meerdere CAB-bestanden tegelijk uploaden (elk uit een andere hiërarchie) en een proxyserver en gebruiker voor de proxyserver opgeven.   
 
-**Ga als volgt te werk om meerdere CAB-bestanden te uploaden:**
+#### <a name="to-upload-multiple-cab-files"></a>Om meerdere CAB-bestanden te uploaden
  -  Zet alle CAB-bestanden die u uit verschillende hiërarchieën exporteert in dezelfde map. De naam van elk bestand moet uniek zijn. Zo nodig kunt u de naam handmatig wijzigen.
  -  Wanneer u vervolgens de opdracht voor het uploaden van gegevens naar Microsoft uitvoert, geeft u de naam op van de map met de CAB-bestanden. (Vóór update 1606 kon u alleen gegevens uit één hiërarchie tegelijk uploaden en voor het hulpprogramma was het nodig dat u de naam van het CAB-bestand in de map opgaf.)
  -  Wanneer u vervolgens de importtaak voor het serviceverbindingspunt van een hiërarchie uitvoert, importeert het hulpprogramma automatisch alleen de gegevens voor die hiërarchie.  
 
-**Een proxyserver opgeven:**  
+#### <a name="to-specify-a-proxy-server"></a>Een proxyserver opgeven
 U kunt de volgende optionele parameters gebruiken om een proxyserver op te geven (meer informatie over het gebruik van deze parameters vindt u in de sectie Opdrachtregelparameters van dit onderwerp):
   - **-proxyserveruri [FQDN_van_proxyserver]**  Gebruik deze parameter om de proxyserver voor deze verbinding op te geven.
   -  **-proxyusername [gebruikersnaam]**  Gebruik deze parameter als u een gebruiker voor de proxyserver moet opgeven.
+
+#### <a name="specify-the-type-of-updates-to-download"></a>Geef het type van de updates te downloaden
+Vanaf versie 1706, het downloadgedrag van hulpprogramma's standaard is gewijzigd en het hulpprogramma ondersteunt opties om te bepalen welke bestanden die u hebt gedownload.
+-   Standaard wordt met het hulpprogramma alleen de meest recente beschikbare update die voor de versie van uw site geldt downloadt. Deze downloadt hotfixes.
+
+Om dit gedrag wijzigen, gebruikt u een van de volgende parameters te wijzigen welke bestanden worden gedownload. De versie van uw site wordt bepaald door de gegevens in het CAB-bestand dat is geüpload wanneer het hulpprogramma wordt uitgevoerd.
+-   **-downloadall** downloadt u deze optie Alles, met inbegrip van updates en hotfixes, ongeacht de versie van uw site.
+-   **-downloadhotfix** deze optie alle hotfixes ongeacht de versie van uw site downloadt.
+-   **-downloadsiteversion** deze optie downloadt de updates en hotfixes die u hebt een versie die hoger is dan de versie van uw site.
+
+Voorbeeld van de opdrachtregel die gebruikmaakt van *- downloadsiteversion*:
+- **serviceconnectiontool.exe-verbinding *- downloadsiteversion* - usagedatasrc D:\USB - updatepackdest D:\USB\UpdatePacks**
+
 
 
 
