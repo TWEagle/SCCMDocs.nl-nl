@@ -49,6 +49,7 @@
 ### [iOS-apps die zijn gekocht via het volume-aankoopprogramma](deploy-use/manage-volume-purchased-ios-apps.md)
 ### [Windows Phone-toepassingen maken](deploy-use/creating-windows-phone-applications.md)
 ### [Android-toepassingen maken](deploy-use/creating-android-applications.md)
+### [Configuratiebeleidsregels voor Android-apps](deploy-use/configure-android-apps-with-app-configuration-policies.md)
 ### [Beleidsregels voor het beheer van mobiele toepassingen](deploy-use/protect-apps-using-mam-policies.md)
 ### [Beleidsregels voor beheerde browsers](deploy-use/manage-internet-access-using-managed-browser-policies.md)
 ### [Windows Store voor Bedrijven-apps](deploy-use/windows-store-for-business.md)
