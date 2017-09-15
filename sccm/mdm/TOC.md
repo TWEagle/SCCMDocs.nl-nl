@@ -55,8 +55,12 @@
 ### [Windows Store voor Bedrijven-apps](deploy-use/windows-store-for-business.md)
 
 ## [Een Microsoft Intune-abonnement beheren](deploy-use/manage-intune-subscriptions.md)
-
 ## [Uw MDM-instantie wijzigen](deploy-use/change-mdm-authority.md)
+## [Beginnen met het migreren van hybride MDM naar een zelfstandige versie van Intune](deploy-use/migrate-hybridmdm-to-intunesa.md) 
+### [Configuration Manager-gegevens importeren in Microsoft Intune](deploy-use/migrate-import-data.md)
+### [Intune voorbereiden voor gebruikersmigratie](deploy-use/migrate-prepare-intune.md)
+### [De MDM-instantie voor specifieke gebruikers (gemengde MDM-instantie) wijzigen](deploy-use/migrate-mixed-authority.md)
+### [Uw MDM-instantie wijzigen](deploy-use/migrate-change-mdm-authority.md)
 
 ## Toegang tot de bedrijfsresources
 ### [Wi-Fi-profielen maken](deploy-use/create-wifi-profiles.md)
