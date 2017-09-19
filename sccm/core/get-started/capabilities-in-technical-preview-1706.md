@@ -2,7 +2,7 @@
 title: Technische Preview 1706 | Microsoft Docs
 description: Meer informatie over functies die beschikbaar zijn in de Technical Preview-versie 1706 voor System Center Configuration Manager.
 ms.custom: na
-ms.date: 06/30/2017
+ms.date: 09/15/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-other
 ms.reviewer: na
@@ -13,11 +13,11 @@ ms.assetid: ca3b4714-2a16-495e-8a17-1d87991d5556
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: d45f504dfe0a4c7852b0e2c8ff60d54005346c02
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 5633047669f9730446159781c4ac0b1248178bf4
+ms.sourcegitcommit: 5ca89204716750eaaceb01bba40b35b85c7122ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="capabilities-in-technical-preview-1706-for-system-center-configuration-manager"></a>Mogelijkheden van Technical Preview 1706 voor System Center Configuration Manager
 
@@ -328,8 +328,8 @@ In Configuration Manager kunt u scripts voor clientapparaten die pakketten en pr
 
 Gebruik van scripts, moet u lid zijn van de juiste Configuration Manager-beveiligingsrol.
 
-- **Om te importeren en scripts schrijven** -uw account moet hebben **maken** machtigingen voor **SMS Scripts** in de **instellingen voor naleving** beveiligingsrol.
-- **Goedkeuren of weigeren van scripts** -uw account moet hebben **goedkeuren** machtigingen voor **SMS Scripts** in de **instellingen voor naleving** beveiligingsrol.
+- **Om te importeren en scripts schrijven** -uw account moet hebben **maken** machtigingen voor **SMS Scripts** in de **volledige beheerder** beveiligingsrol.
+- **Goedkeuren of weigeren van scripts** -uw account moet hebben **goedkeuren** machtigingen voor **SMS Scripts** in de **volledige beheerder** beveiligingsrol.
 - **Scripts uitvoeren** -uw account moet hebben **-Script uitvoeren** machtigingen voor **verzamelingen** in de **instellingen voor naleving** beveiligingsrol.
 
 Zie voor meer informatie over beveiligingsrollen voor Configuration Manager [basisprincipes van beheer op basis van rollen](/sccm/core/understand/fundamentals-of-role-based-administration).

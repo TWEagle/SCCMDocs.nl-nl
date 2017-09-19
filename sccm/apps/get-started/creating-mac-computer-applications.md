@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: ab1aecdd-d943-44f5-b0a9-e8fe7439e5d6
 caps.latest.revision: "9"
-author: robstackmsft
-ms.author: robstack
+author: mattbriggs
+ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: ffd66a4047ec253704e9772e2c3e3a4d9db7c46f
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 703f2d4d73334ef66a7c217c04e66658a7b56157
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="create-mac-computer-applications-with-system-center-configuration-manager"></a>Mac-computertoepassingen maken met System Center Configuration Manager
 
@@ -117,7 +117,7 @@ Gebruik de volgende procedure kunt u een toepassing maken voor Mac-computers die
 
 5.  Selecteer in de vervolgkeuzelijst **Type** de optie **Mac OS X**.  
 
-6.  In de **locatie** veld, geeft u het UNC-pad in het formulier  *\\ \\< server\>\\< delen\>\\< filename\>*  naar het installatiebestand van de Mac-toepassing (**cmmac** bestand) dat de toepassingsinformatie zal detecteren. U kunt ook kiezen **Bladeren** om te bladeren naar en geef de locatie van de installatie.  
+6.  In de **locatie** veld, geeft u het UNC-pad in het formulier * \\ \\< server\>\\< delen\>\\< filename\> * naar het installatiebestand van de Mac-toepassing (**cmmac** bestand) dat de toepassingsinformatie zal detecteren. U kunt ook kiezen **Bladeren** om te bladeren naar en geef de locatie van de installatie.  
 
     > [!NOTE]  
     >  U moet toegang hebben tot het UNC-pad dat de toepassing bevat.  
@@ -146,7 +146,7 @@ Gebruik de volgende procedure kunt u een toepassing maken voor Mac-computers die
 3.  Selecteer een toepassing. Klik op de **Start** tabblad, in de **toepassing** groep, kiest u **implementatietype maken** voor het maken van een nieuw implementatietype voor deze toepassing.  
 
     > [!NOTE]  
-    >  U kunt ook starten de **Wizard implementatietype maken** van de **Wizard toepassing maken** en van de **implementatietypen** tabblad van de *< toepassingsnaam\>*  **eigenschappen** in het dialoogvenster.  
+    >  U kunt ook starten de **Wizard implementatietype maken** van de **Wizard toepassing maken** en van de **implementatietypen** tabblad van de *< toepassingsnaam\> * **eigenschappen** in het dialoogvenster.  
 
 4.  Op de **algemene** pagina van de **Wizard implementatietype maken**, in de **Type** vervolgkeuzelijst, selecteer **Mac OS X**.  
 
@@ -171,7 +171,7 @@ Gebruik de volgende procedure kunt u een toepassing maken voor Mac-computers die
 11. Kies **toevoegen** openen de **vereiste maken** dialoogvenster vak en een nieuwe vereiste toe te voegen.  
 
     > [!NOTE]  
-    >  U kunt ook nieuwe vereisten toevoegen op de **vereisten** tabblad van de *< naam implementatietype\>*  **eigenschappen** in het dialoogvenster.  
+    >  U kunt ook nieuwe vereisten toevoegen op de **vereisten** tabblad van de *< naam implementatietype\> * **eigenschappen** in het dialoogvenster.  
 
 12. Selecteer in de vervolgkeuzelijst **Categorie** dat dit een vereiste voor een apparaat is.  
 

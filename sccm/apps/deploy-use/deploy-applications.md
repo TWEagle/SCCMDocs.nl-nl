@@ -12,14 +12,14 @@ ms.topic: article
 ms.assetid: 2629c376-ec43-4f0e-a78b-4223cc9302bf
 caps.latest.revision: "10"
 caps.handback.revision: "0"
-author: robstackmsft
-ms.author: robstack
+author: mattbriggs
+ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: f704d1b0ec48e3a7bbea784a7c18de77b21cd0ee
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 801c21e0015d63f736fb2207e85f484dc50d56dc
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="deploy-applications-with-system-center-configuration-manager"></a>Implementeren van toepassingen met System Center Configuration Manager
 
@@ -175,9 +175,9 @@ Daarnaast voor een implementatie met hoog risico, zoals een takenreeks die een b
 In de **eigenschappen** in het dialoogvenster van een implementatie hebt getypt, op de **gedrag installeren** tabblad kunt u een of meer uitvoerbare bestanden die als actief is, de installatie van het implementatietype blokkeren opgeven. De gebruiker moet de lopende uitvoerbaar bestand sluiten (of het automatisch kan worden gesloten voor implementaties met als doel vereist) voordat de implementatie van het type kan worden geïnstalleerd. Configureer dit als volgt:
 
 1. Open de **eigenschappen** in het dialoogvenster voor eender welk implementatietype.
-2. Op de **gedrag installeren** tabblad van de  *<deployment type name>*  **eigenschappen** in het dialoogvenster, klikt u op **toevoegen**.
+2. Op de **gedrag installeren** tabblad van de * <deployment type name> * **eigenschappen** in het dialoogvenster, klikt u op **toevoegen**.
 3. In de **toevoegen of uitvoerbaar bestand bewerken** dialoogvenster en voer de naam van het uitvoerbare bestand dat, als uitgevoerd, blokken van de toepassing installeren. U kunt eventueel ook een beschrijvende naam voor de toepassing te herkennen in de lijst invoeren.
-4. Klik op **OK**, sluit de  *<deployment type name>*  **eigenschappen** in het dialoogvenster.
+4. Klik op **OK**, sluit de * <deployment type name> * **eigenschappen** in het dialoogvenster.
 5. Volgende, wanneer u een toepassing implementeert op de **implementatie-instellingen** pagina van de Wizard Software implementeren, selecteer **automatisch sluit alle actieve uitvoerbare bestanden die u hebt opgegeven op het tabblad voor het gedrag van installatie van het dialoogvenster voor eigenschappen van implementatie type**, gaat u verder met de toepassing implementeren.
 
 Nadat de toepassing client-pc's bereikt, geldt het volgende gedrag:

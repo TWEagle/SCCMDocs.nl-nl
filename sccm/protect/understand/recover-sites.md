@@ -14,11 +14,11 @@ caps.latest.revision:
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 49eea15ea2888f8f93c33eb771c09147ba21529e
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: f5aff56e9948536944140fbadb0539c7a4e20f26
+ms.sourcegitcommit: 5ca89204716750eaaceb01bba40b35b85c7122ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/18/2017
 ---
 #  <a name="recover-a-configuration-manager-site"></a>Een Configuration Manager-site herstellen
 
@@ -29,7 +29,7 @@ Een Configuration Manager uitvoeren siteherstel nadat een Configuration Manager-
 De secties in dit onderwerp kunt u een Configuration Manager-site te herstellen. Zie het maken van een back-up [voor Configuration Manager back-](/sccm/protect/understand/backup-and-recovery).
 
 ## <a name="considerations-before-recovering-a-site"></a>Overwegingen voor het herstellen van een site
-**U moet dezelfde versie en editie van SQL Server gebruiken:** Bijvoorbeeld: terugzetten van een database die is uitgevoerd op SQL Server 2014 naar SQL Server-2016is niet ondersteund. Op deze manier wordt terugzetten van een sitedatabase die is uitgevoerd op een Standard-editie van SQL Server 2016 naar een Enterprise-editie van SQL Server 2016 niet ondersteund.
+**U moet dezelfde versie en editie van SQL Server gebruiken:** Bijvoorbeeld: terugzetten van een database die is uitgevoerd op SQL Server 2014 naar SQL Server 2016 wordt niet ondersteund. Op deze manier wordt terugzetten van een sitedatabase die is uitgevoerd op een Standard-editie van SQL Server 2016 naar een Enterprise-editie van SQL Server 2016 niet ondersteund.
 -   SQL Server moet niet worden ingesteld op **modus voor één gebruiker**.
 -   Controleer of de .MDF- en .LDF-bestanden geldig zijn. Wanneer u een site herstelt, is er geen controle voor de status van de bestanden die u wilt herstellen.
 

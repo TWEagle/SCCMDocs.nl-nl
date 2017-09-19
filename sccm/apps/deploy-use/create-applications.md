@@ -12,14 +12,14 @@ ms.topic: article
 ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
 caps.latest.revision: "14"
 caps.handback.revision: "0"
-author: robstackmsft
-ms.author: robstack
+author: mattbriggs
+ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: 4d048d4f9ab01b28e6c21a38cca4d82c85030618
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 41563624700510e92332b6939d38d902e7dffb94
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="create-applications-with-system-center-configuration-manager"></a>Toepassingen maken met System Center Configuration Manager
 
@@ -58,7 +58,7 @@ Gebruik de volgende stappen voor het maken van Configuration Manager-toepassinge
 
 2.  In de **Type** vervolgkeuzelijst, selecteert het installatiebestandstype toepassing die u wilt gebruiken voor het detecteren van toepassingsinformatie. Zie [Implementatietypen die door Configuration Manager worden ondersteund](/sccm/apps/deploy-use/create-applications#deployment-types-supported-by-configuration-manager) in dit onderwerp voor meer informatie over de beschikbare installatietypen.  
 
-3.  In de **locatie** geeft u het UNC-pad (in de vorm  *\\ \\server\\delen\\\filename*) of de opslagkoppeling voor het toepassingsinstallatiebestand dat u gebruiken wilt voor het detecteren van toepassingsinformatie. U kunt ook op **Bladeren** klikken om naar het installatiebestand te bladeren.  
+3.  In de **locatie** geeft u het UNC-pad (in de vorm * \\ \\server\\delen\\\filename*) of de opslagkoppeling voor het toepassingsinstallatiebestand dat u gebruiken wilt voor het detecteren van toepassingsinformatie. U kunt ook op **Bladeren** klikken om naar het installatiebestand te bladeren.  
 
     > [!IMPORTANT]  
     >  Wanneer u selecteert **Windows Installer (\*MSI-bestand)** als een toepassingstype alle bestanden in de map die u opgeeft, met de toepassing geïmporteerd en naar distributiepunten wordt verzonden. Zorg ervoor dat de map die u opgeeft alleen de bestanden die nodig zijn voor het installeren van de toepassing bevat. Configuration Manager is getest om maximaal 20.000 toepassingsbestanden in het toepassingspakket te ondersteunen. Als uw toepassing meer bestanden heeft, kunt u meerdere toepassingen met een kleiner aantal bestanden te maken.  
@@ -140,7 +140,7 @@ De nieuwe toepassing wordt weergegeven in de **toepassingen** knooppunt van de C
 3.  Selecteer een toepassing en klik vervolgens op de **Start** tabblad, in de **toepassing** groep, kiest u **implementatietype maken**.  
 
 > [!TIP]  
->  U kunt de wizard implementatietype maken ook starten vanuit de wizard toepassing maken en naar de **implementatietypen** tabblad van de *< toepassingsnaam\>*  **eigenschappen** in het dialoogvenster.  
+>  U kunt de wizard implementatietype maken ook starten vanuit de wizard toepassing maken en naar de **implementatietypen** tabblad van de *< toepassingsnaam\> * **eigenschappen** in het dialoogvenster.  
 
 ## <a name="specify-whether-you-want-to-automatically-detect-deployment-type-information-or-manually-set-up-the-information"></a>Opgeven of toepassingsinformatie automatisch detecteren of de informatie handmatig instellen  
  Gebruik een van de volgende procedures om automatisch detecteren of implementatietype-informatie handmatig instellen.  
@@ -151,7 +151,7 @@ De nieuwe toepassing wordt weergegeven in de **toepassingen** knooppunt van de C
 
 2.  In de **Type** selecteert het installatiebestandstype van toepassing die u gebruiken wilt voor het detecteren van toepassingsinformatie.  
 
-3.  In de **locatie** geeft u het UNC-pad (in de vorm  *\\ \\server\\delen\\filename*) of de opslagkoppeling voor de installatiebestanden van de toepassing en de inhoud die u gebruiken wilt voor het detecteren van de implementatietype-informatie opgeven. U kunt ook **Bladeren** om de installatiebestand te zoeken.  
+3.  In de **locatie** geeft u het UNC-pad (in de vorm * \\ \\server\\delen\\filename*) of de opslagkoppeling voor de installatiebestanden van de toepassing en de inhoud die u gebruiken wilt voor het detecteren van de implementatietype-informatie opgeven. U kunt ook **Bladeren** om de installatiebestand te zoeken.  
 
     > [!NOTE]  
     >  U moet toegang hebben tot het UNC-pad met de toepassing en eventuele submappen die de toepassingsinhoud bevatten.  
@@ -343,7 +343,7 @@ De volgende tabel bevat voorbeeldscripts (VB Microsoft Visual Basic) waarmee u k
 1.  Op de **vereisten** pagina van de wizard implementatietype maken de optie **toevoegen** openen de **vereiste maken** dialoogvenster vak en voeg een nieuwe vereiste toe.  
 
     > [!NOTE]  
-    >  U kunt ook nieuwe vereisten toevoegen op de **vereisten** tabblad van de *< naam implementatietype\>*  **eigenschappen** in het dialoogvenster.  
+    >  U kunt ook nieuwe vereisten toevoegen op de **vereisten** tabblad van de *< naam implementatietype\> * **eigenschappen** in het dialoogvenster.  
 
 2.  Selecteer in de vervolgkeuzelijst **Categorie** of deze vereiste geldt voor een apparaat of een gebruiker of selecteer **Aangepast** als u een eerder gemaakte globale voorwaarde wilt gebruiken. Wanneer u selecteert **aangepaste**, u kunt ook **maken** voor het maken van een nieuwe globale voorwaarde. Zie voor meer informatie over globale voorwaarden [globale voorwaarden maken](../../apps/deploy-use/create-global-conditions.md).  
 
@@ -372,7 +372,7 @@ De volgende tabel bevat voorbeeldscripts (VB Microsoft Visual Basic) waarmee u k
 1.  Op de **afhankelijkheden** pagina van de wizard implementatietype maken de optie **toevoegen** als u opgeven van de implementatietypen die moeten worden geïnstalleerd wilt voordat dit implementatietype kan worden geïnstalleerd.  
 
     > [!IMPORTANT]  
-    >  U kunt ook nieuwe afhankelijkheden toevoegen op de **afhankelijkheden** tabblad van de *< naam implementatietype\>*  **eigenschappen** in het dialoogvenster.  
+    >  U kunt ook nieuwe afhankelijkheden toevoegen op de **afhankelijkheden** tabblad van de *< naam implementatietype\> * **eigenschappen** in het dialoogvenster.  
 
 2.  In de **afhankelijkheid toevoegen** dialoogvenster Kies **toevoegen**.  
 
@@ -411,17 +411,17 @@ De volgende tabel bevat voorbeeldscripts (VB Microsoft Visual Basic) waarmee u k
 
 2.  In de **toepassingen** , selecteert u een toepassing met een App-V-implementatietype. Klik op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
 
-3.  In de *< toepassingsnaam\>*  **eigenschappen** in het dialoogvenster op de **implementatietypen** tabblad, selecteert u een App-V-implementatietype en kies vervolgens **bewerken**.  
+3.  In de *< toepassingsnaam\> * **eigenschappen** in het dialoogvenster op de **implementatietypen** tabblad, selecteert u een App-V-implementatietype en kies vervolgens **bewerken**.  
 
-4.  In de *< naam implementatietype\>*  **eigenschappen** in het dialoogvenster op de **inhoud** tabblad instellen van de volgende opties, indien nodig:  
+4.  In de *< naam implementatietype\> * **eigenschappen** in het dialoogvenster op de **inhoud** tabblad instellen van de volgende opties, indien nodig:  
 
     -   **Inhoud in de clientcache behouden**--Selecteer deze optie om ervoor te zorgen dat de inhoud voor dit implementatietype niet uit de Configuration Manager-clientcache wordt verwijderd.  
 
     -   **Inhoud laden in App-V-cache vóór starten**--Selecteer deze optie om ervoor te zorgen dat alle inhoud voor de virtuele toepassing in de App-V-cache wordt geladen voordat de toepassing wordt gestart. Deze optie zorgt er ook voor dat de inhoud van de toepassing niet in de cache is vastgemaakt en kan worden verwijderd, zoals wordt vereist.  
 
-5.  Kies **OK** sluiten de *< naam implementatietype\>*  **eigenschappen** in het dialoogvenster.  
+5.  Kies **OK** sluiten de *< naam implementatietype\> * **eigenschappen** in het dialoogvenster.  
 
-6.  Kies **OK** sluiten de *< toepassingsnaam\>*  **eigenschappen** in het dialoogvenster.  
+6.  Kies **OK** sluiten de *< toepassingsnaam\> * **eigenschappen** in het dialoogvenster.  
 
 ### <a name="set-up-publishing-options-for-app-v-deployment-types"></a>Publicatieopties voor implementatietypen van App-V instellen  
 
@@ -429,13 +429,13 @@ De volgende tabel bevat voorbeeldscripts (VB Microsoft Visual Basic) waarmee u k
 
 3.  In de **toepassingen** , selecteert u een toepassing met een App-V-implementatietype. Klik op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen**.  
 
-4.  In de *< toepassingsnaam\>*  **eigenschappen** in het dialoogvenster op de **implementatietypen** tabblad, selecteert u een App-V-implementatietype en kies vervolgens **bewerken**.  
+4.  In de *< toepassingsnaam\> * **eigenschappen** in het dialoogvenster op de **implementatietypen** tabblad, selecteert u een App-V-implementatietype en kies vervolgens **bewerken**.  
 
-5.  In de *< naam implementatietype\>*  **eigenschappen** in het dialoogvenster op de **Publishing** tabblad, selecteert u de items in de virtuele toepassing die u wilt publiceren.  
+5.  In de *< naam implementatietype\> * **eigenschappen** in het dialoogvenster op de **Publishing** tabblad, selecteert u de items in de virtuele toepassing die u wilt publiceren.  
 
-6.  Kies **OK** sluiten de *< naam implementatietype\>*  **eigenschappen** in het dialoogvenster.  
+6.  Kies **OK** sluiten de *< naam implementatietype\> * **eigenschappen** in het dialoogvenster.  
 
-7.  Kies **OK** sluiten de *< toepassingsnaam\>*  **eigenschappen** in het dialoogvenster.  
+7.  Kies **OK** sluiten de *< toepassingsnaam\> * **eigenschappen** in het dialoogvenster.  
 
 ## <a name="import-an-application"></a>Een toepassing importeren  
  Gebruik de volgende procedure een toepassing importeren in Configuration Manager. Zie voor meer informatie over het exporteren van een toepassing [beheertaken voor System Center Configuration Manager-toepassingen](../../apps/deploy-use/management-tasks-applications.md).  

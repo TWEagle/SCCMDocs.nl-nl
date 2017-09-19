@@ -2,7 +2,7 @@
 title: Updates binnen de console | Microsoft Docs
 description: System Center Configuration Manager worden gesynchroniseerd met de Microsoft cloud ophalen van updates die u vanuit de console installeren kunt.
 ms.custom: na
-ms.date: 06/13/2017
+ms.date: 09/14/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "36"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 2bbc8935bee306ed0bc312cc43b8f5374a8df7ff
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 10ddbcc19da8c5fc6451f62500f17790a0349389
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Updates binnen de console installeren voor System Center Configuration Manager
 
@@ -106,6 +106,9 @@ Het wordt aangeraden de controle op vereisten voor een update uit te voeren voor
 
 -   De controle op vereisten automatisch opnieuw uitgevoerd wanneer u ervoor kiest om de update te installeren.  
 
+> [!NOTE]
+> Wanneer u een controle van vereisten start en vervolgens weer de status van de **installatie** fase actief lijkt te zijn, maar de update niet daadwerkelijk wordt geïnstalleerd. De weergave bevat de installatiefase omdat sommige taken, zoals het uitpakken van de binaire bestanden worden uitgevoerd om de controle ook deel uitmaken van de installatiefase.  
+
 Later, wanneer u de update installeert, kunt u de update voor het negeren van waarschuwingen voor vereisten configureren.  
 
 #### <a name="to-run-the-prerequisite-checker-before-installing-an-update"></a>De controle van vereisten uitvoeren voordat u een update installeert  
@@ -183,7 +186,7 @@ U kunt de voortgang als volgt bewaken:
 
     -   **Na de installatie** ([taken na de installatie](#post-installation-tasks) beschikbaar zijn te beginnen met versie 1610.)  
 
--   U vindt de **CMUpdate.log** bestanden per  **&lt;ConfigMgr_Installation_Directory > \Logs**  
+-   U vindt de **CMUpdate.log** bestanden per ** &lt;ConfigMgr_Installation_Directory > \Logs**  
 
 **4. Wanneer de update-installatie is voltooid**  
 Nadat de installatie van de update voor de eerste site is voltooid:  
@@ -288,7 +291,7 @@ De taken na de installatie zijn onder andere:
 Wanneer een update niet kan worden geïnstalleerd, bekijkt u de feedback in de console om oplossingen voor waarschuwingen en fouten te identificeren. U kunt ook het bestand ConfigMgrPrereq.log op de siteserver bekijken voor meer informatie. Voordat u de installatie van een update opnieuw uitvoert, moet u moet fouten oplossen en los waarschuwingen.  
 
 > [!TIP]  
-> Als een update heeft problemen bij het downloaden of repliceren, kunt u de [update opnieuw instellen van hulpprogramma](/sccm/core/servers/manage/update-reset-tool). Dit hulpprogramma is beschikbaar via de sites waarop versie 1706 uitgevoerd of hoger. 
+> Als een update heeft problemen bij het downloaden of repliceren, kunt u de [update opnieuw instellen van hulpprogramma](/sccm/core/servers/manage/update-reset-tool). Dit hulpprogramma is beschikbaar via de sites waarop versie 1706 uitgevoerd of hoger.
 
 Wanneer u klaar bent voor de installatie van een update opnieuw uitvoeren, selecteert u de mislukte update en kies vervolgens een optie die van toepassing. De werking van de update-installatie opnieuw proberen, is afhankelijk van het knooppunt waar u het opnieuw starten en de nieuwe pogingen-optie die u gebruikt.  
 

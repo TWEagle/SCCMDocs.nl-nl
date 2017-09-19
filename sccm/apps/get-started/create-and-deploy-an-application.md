@@ -12,14 +12,14 @@ ms.topic: article
 ms.assetid: 3bd1e487-ea18-43c1-b7c3-acbd9b86d429
 caps.latest.revision: "15"
 caps.handback.revision: "0"
-author: robstackmsft
-ms.author: robstack
+author: mattbriggs
+ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: bbbf278f5d31c51bfe061dd44e170f7ab1ca70ad
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: f52dbb5e89746e30562132d4fe19886e7d9b5ea7
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="create-and-deploy-an-application-with-system-center-configuration-manager"></a>Een toepassing maken en implementeren met System Center Configuration Manager
 
@@ -60,7 +60,7 @@ Zorg ervoor dat u de informatie in hebt bekeken [inleiding op Toepassingsbeheer]
 
     -   **Type**: Kies **Windows Installer (\*MSI-bestand)**.  
 
-    -   **Locatie**: Typ de locatie (of kies **Bladeren** om de locatie te selecteren) van het installatiebestand **Contoso.msi**. Houd er rekening mee dat de locatie moet worden opgegeven in het formulier  *\\\Server\Share\File* voor Configuration Manager de van installatiebestanden te vinden.  
+    -   **Locatie**: Typ de locatie (of kies **Bladeren** om de locatie te selecteren) van het installatiebestand **Contoso.msi**. Houd er rekening mee dat de locatie moet worden opgegeven in het formulier * \\\Server\Share\File* voor Configuration Manager de van installatiebestanden te vinden.  
 
     U moet eindigen met iets dat op de volgende schermafbeelding lijkt:  
 

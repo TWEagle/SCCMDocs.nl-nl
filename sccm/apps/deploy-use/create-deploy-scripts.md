@@ -2,7 +2,7 @@
 title: Maken en scripts uitvoeren met Configuration Manager | Microsoft Docs
 description: Maken en uitvoeren van scripts op clientapparaten met Configuration Manager.
 ms.custom: na
-ms.date: 08/09/2017
+ms.date: 09/15/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,14 +12,14 @@ ms.topic: article
 ms.assetid: cc230ff4-7056-4339-a0a6-6a44cdbb2857
 caps.latest.revision: "14"
 caps.handback.revision: "0"
-author: robstackmsft
-ms.author: robstack
+author: lleonard-msft
+ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: ed84f7900eee5c04728d0e4d1b46027c36327bec
-ms.sourcegitcommit: b41d3e5c7f0c87f9af29e02de3e6cc9301eeafc4
+ms.openlocfilehash: e6b29cd85504742e8638a55db2f6c4ecc8ab3e55
+ms.sourcegitcommit: 5ca89204716750eaaceb01bba40b35b85c7122ba
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Maken en PowerShell-scripts uitvoeren vanaf de Configuration Manager-console
 
@@ -44,8 +44,8 @@ Configuration Manager-clients moeten de client uitgevoerd vanaf de release 1706 
 
 Gebruik van scripts, moet u lid zijn van de juiste Configuration Manager-beveiligingsrol.
 
-- Om te importeren en scripts - auteur uw account moet hebben **maken** machtigingen voor **SMS Scripts** in de **instellingen voor naleving** beveiligingsrol.
-- Goedkeuren of weigeren van scripts - uw account moet hebben **goedkeuren** machtigingen voor **SMS Scripts** in de **instellingen voor naleving** beveiligingsrol.
+- Om te importeren en scripts - auteur uw account moet hebben **maken** machtigingen voor **SMS Scripts** in de **volledige beheerder** beveiligingsrol.
+- Goedkeuren of weigeren van scripts - uw account moet hebben **goedkeuren** machtigingen voor **SMS Scripts** in de **volledige beheerder** beveiligingsrol.
 - Uitvoeren van scripts - uw account moet hebben **-Script uitvoeren** machtigingen voor **verzamelingen** in de **instellingen voor naleving** beveiligingsrol.
 
 Zie voor meer informatie over beveiligingsrollen voor Configuration Manager [basisprincipes van beheer op basis van rollen](/sccm/core/understand/fundamentals-of-role-based-administration).
@@ -78,9 +78,9 @@ Hier volgen enkele voorbeelden van scripts die u mogelijk wilt gebruiken met dez
 
 #### <a name="create-a-folder"></a>Maak een map
 
-*Nieuw Item 'c:\scripts'-type mapnaam* 
- 
- 
+*Nieuw Item 'c:\scripts'-type mapnaam*
+
+
 #### <a name="create-a-file"></a>Maak een bestand
 
 *Nieuw Item c:\scripts\new_file.txt-type-bestandsnaam*

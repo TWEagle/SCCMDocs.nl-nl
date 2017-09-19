@@ -12,14 +12,14 @@ ms.topic: article
 ms.assetid: 613a48ac-c55d-4c4a-94ea-d3747a1b10cb
 caps.latest.revision: "15"
 caps.handback.revision: "0"
-author: robstackmsft
-ms.author: robstack
+author: andredm7
+ms.author: andredm
 manager: angrobe
-ms.openlocfilehash: 6e2cb628217598480973d4f728a9e0a7cd5873e7
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 039173c9411a530348bf550e4be7b771756d57dc
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="how-to-create-configuration-items-for-ios-and-mac-os-x-devices-managed-with-intune"></a>Het maken van configuratie-items voor iOS en Mac OS X-apparaten worden beheerd door Intune
 De System Center Configuration Manager gebruiken **iOS en Mac OS X** configuratie-item voor het beheren van instellingen voor iOS en Mac OS X-apparaten die zijn ingeschreven bij Microsoft Intune of on-premises worden beheerd door Configuration Manager.  
@@ -283,7 +283,7 @@ De System Center Configuration Manager gebruiken **iOS en Mac OS X** configurati
         > 3.  Open het bestand **Info.plist**  
         > 4.  Controleer de waarde die is gekoppeld aan de sleutel **CFBundleIdentifier**  
         >   
-        >  De notatie voor de bundel-id is **com.contoso.appname**  
+        >  De notatie voor de bundel-id is** com.contoso.appname**  
   
     -   **Bewerken**: hiermee kunt u de naam, de uitgever en de bundel-id van de geselecteerde app bewerken.  
   
