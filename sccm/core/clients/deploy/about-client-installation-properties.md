@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: c890fd27-7a8c-4f51-bbe2-f9908af1f42b
 caps.latest.revision: "15"
-author: robstackmsft
-ms.author: robstack
+author: arob98
+ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 36bcbbca4fdee3e95d293c436a105a41a6e3953e
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 5148fe852e4d63e1cfd2d5b9c62369155dbecb89
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="about-client-installation-properties-in-system-center-configuration-manager"></a>Over de eigenschappen van clientinstallatie in System Center Configuration Manager
 
@@ -45,7 +45,7 @@ Gebruik de opdracht CCMSetup.exe van System Center Configuration Manager Configu
 > [!IMPORTANT]  
 >  CCMSetup-eigenschappen opgeven voordat u de eigenschappen voor Client.msi opgeven.  
 
- CCMSetup.exe en de ondersteunende bestanden bevinden zich op de siteserver van Configuration Manager in de **Client** map van de installatiemap van Configuration Manager. Deze map wordt gedeeld met het netwerk als  **&lt;Siteservernaam\>\SMS_&lt;sitecode\>\Client**.  
+ CCMSetup.exe en de ondersteunende bestanden bevinden zich op de siteserver van Configuration Manager in de **Client** map van de installatiemap van Configuration Manager. Deze map wordt gedeeld met het netwerk als ** &lt;Siteservernaam\>\SMS_&lt;sitecode\>\Client**.  
 
  Aan de opdrachtregel gebruikt de opdracht CCMSetup.exe de volgende indeling:  
 
@@ -267,7 +267,7 @@ Voorbeeld: **CCMSetup.exe CCMALLOWSILENTREBOOT**
  `CCMCERTISSUERS=”CN=Contoso Root CA; OU=Servers; O=Contoso, Ltd; C=US &#124; CN=Litware Corporate Root CA; O=Litware, Inc.”`  
 
 > [!TIP]  
->  Raadpleeg het bestand mobileclient.tcf in de &lt;Configuration Manager-map\>\bin\\&lt;platform\> map op de site server-computer kopiëren van de **CertificateIssuers =&lt;tekenreeks\>**  die is geconfigureerd voor de site.  
+>  Raadpleeg het bestand mobileclient.tcf in de &lt;Configuration Manager-map\>\bin\\&lt;platform\> map op de site server-computer kopiëren van de **CertificateIssuers =&lt;tekenreeks\> ** die is geconfigureerd voor de site.  
 
 ### <a name="ccmcertsel"></a>CCMCERTSEL
 
