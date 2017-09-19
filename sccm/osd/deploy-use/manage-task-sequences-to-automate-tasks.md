@@ -14,11 +14,11 @@ caps.latest.revision: "10"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 2f3d66362c49d28a52d7f9c535eb0b3b4cc4eaf7
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: c9d94ffb61ed7a7fa40a01eedc763a16a8df30cb
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="manage-task-sequences-to-automate-tasks-in-system-center-configuration-manager"></a>Takenreeksen beheren om taken te automatiseren in System Center Configuration Manager
 
@@ -196,7 +196,7 @@ Het volgende bericht wordt weergegeven wanneer de eindgebruiker opent de install
 
 8.  Voltooi de wizard.  
 
- U kunt de inhoud voorbereiden waarnaar in de takenreeks wordt verwezen. Configuration Manager maakt een gecomprimeerd, voorbereid inhoudsbestand dat de bestanden, gekoppelde afhankelijkheden, en gekoppelde metagegevens bevat voor de inhoud die u selecteert. U kunt vervolgens de inhoud handmatig importeren via een siteserver, secundaire site of distributiepunt. Zie voor meer informatie over het voorbereiden van inhoudsbestanden [inhoud voorbereiden](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkprestagea-use-prestaged-content).  
+ U kunt de inhoud voorbereiden waarnaar in de takenreeks wordt verwezen. Configuration Manager maakt een gecomprimeerd, voorbereid inhoudsbestand dat de bestanden, gekoppelde afhankelijkheden, en gekoppelde metagegevens bevat voor de inhoud die u selecteert. U kunt vervolgens de inhoud handmatig importeren via een siteserver, secundaire site of distributiepunt. Zie voor meer informatie over het voorbereiden van inhoudsbestanden [inhoud voorbereiden](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_prestage).  
 
 ##  <a name="BKMK_DeployTS"></a> Een takenreeks implementeren  
  Gebruik de volgende procedure om een takenreeks te implementeren voor de computers in een verzameling.  
@@ -464,7 +464,7 @@ U kunt per computer variabelen op een primaire site of op een centrale beheersit
 |**Kopiëren**|Hiermee wordt een kopie gemaakt van de geselecteerde takenreeks. Mogelijk vindt u deze actie handig wanneer u een nieuwe takenreeks wilt maken die is gebaseerd op een bestaande takenreeks.<br /><br /> Wanneer u een kopie maakt van een takenreeks in een map, wordt de kopie in die map vermeld tot u het takenreeksknooppunt vernieuwt.  Na het vernieuwen, wordt de kopie weergegeven in de hoofdmap.|  
 |**Uitschakelen**|Hiermee wordt de takenreeks uitgeschakeld, zodat deze niet op computers kan worden uitgevoerd. Uitgeschakelde takenreeksen kunnen op computers worden geïmplementeerd, maar wordt niet uitgevoerd zolang deze zijn uitgeschakeld.|  
 |**Inschakelen**|Hiermee wordt de takenreeks ingeschakeld, zodat deze kan worden uitgevoerd. U hoeft een geïmplementeerde takenreeks na inschakeling niet opnieuw te implementeren.|  
-|**Voorbereid inhoudsbestand maken**|Hiermee wordt de wizard Voorbereid inhoudsbestand maken gestart om de inhoud van de takenreeks voor te bereiden. Zie voor meer informatie over het maken van een voorbereid inhoudsbestand [inhoud voorbereiden](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkprestagea-use-prestaged-content).|  
+|**Voorbereid inhoudsbestand maken**|Hiermee wordt de wizard Voorbereid inhoudsbestand maken gestart om de inhoud van de takenreeks voor te bereiden. Zie voor meer informatie over het maken van een voorbereid inhoudsbestand [inhoud voorbereiden](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_prestage).|  
 |**Verplaatsen**|Hiermee wordt de geselecteerde takenreeks verplaatst naar een andere map.|  
 
 ## <a name="next-steps"></a>Volgende stappen

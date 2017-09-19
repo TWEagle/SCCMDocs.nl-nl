@@ -5,14 +5,14 @@ ms.date: 06/07/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: 2dc8c9f1-4176-4e35-9794-f44b15f4e55f
-author: robstackmsft
-ms.author: robstack
+author: arob98
+ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: a7380ae781447880ffcba0778694ea62e10c4889
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: d3e658714c30a1eba64f94e248d5e11095ca1dcb
+ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Plan voor de cloudgateway management in Configuration Manager
 
@@ -159,7 +159,7 @@ De interne URL wordt gebruikt voor het doorsturen van aanvragen naar de interne 
 #### <a name="example"></a>Voorbeeld:
 Wanneer u verkeer op een beheerpunt CMG inschakelt, wordt een reeks URL-toewijzingen intern voor elke beheerserver punt, zoals ccm_system, ccm_incoming en sms_mp gemaakt door Configuration Manager.
 De externe URL voor het eindpunt van de punt ccm_system management als volgt uitzien **https://<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>/CCM_System**.
-De URL is uniek voor elk beheerpunt. De Configuration Manager-client vervolgens de CMG ingeschakeld MP naam zoals puts  **<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>**  in de internet MP-lijst.
+De URL is uniek voor elk beheerpunt. De Configuration Manager-client vervolgens de CMG ingeschakeld MP naam zoals puts ** <CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID> ** in de internet MP-lijst.
 Alle gepubliceerde externe URL's worden geüpload naar de CMG automatisch CMG kunnen doen URL-filtering is. Alle URL-toewijzing wordt gerepliceerd naar CMG verbindingspunt zodat kunnen worden doorgestuurd naar interne servers volgens client aanvragen van de externe URL.
 
 ### <a name="what-ports-are-used-by-the-cloud-management-gateway"></a>Welke poorten worden gebruikt door de cloud management gateway?

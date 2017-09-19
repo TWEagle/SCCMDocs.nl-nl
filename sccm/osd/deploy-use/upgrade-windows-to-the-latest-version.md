@@ -14,11 +14,11 @@ caps.latest.revision: "13"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 026d61113a918e43ac4395ef092b1931f33f16d3
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 412c2c644cc7f17f307c02b84471f3ee494045ec
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="upgrade-windows-to-the-latest-version-with-system-center-configuration-manager"></a>Windows upgraden naar de nieuwste versie met System Center Configuration Manager
 
@@ -74,7 +74,7 @@ Dit onderwerp bevat de stappen in System Center Configuration Manager om een bes
     > Wanneer u zelfstandige media gebruikt, moet u een opstartinstallatiekopie opnemen in de takenreeks als deze beschikbaar zijn in de Wizard Takenreeksmedia.
 
     > [!NOTE]  
-    > Normaal gebruikt u de stappen in [een takenreeks maken om een besturingssysteem te upgraden](create-a-task-sequence-to-upgrade-an-operating-system.md) voor het maken van een takenreeks een besturingssysteem te upgraden naar Windows 10. De takenreeks bevat de stap besturingssysteem bijwerken, evenals aanvullende aanbevolen stappen en groepen voor de end-to-end upgradeproces. U kunt echter een aangepaste takenreeks maken en toevoegen de [besturingssysteem bijwerken](../understand/task-sequence-steps.md#BKMK_UpgradeOS) takenreeksstap om het besturingssysteem te upgraden. Dit is de enige stap die is vereist om het besturingssysteem te upgraden naar Windows 10. Als u deze methode kiest, voegt u ook de [Computer opnieuw opstarten](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer) stap na de stap besturingssysteem bijwerken om de upgrade te voltooien. Zorg ervoor dat u de **het momenteel geïnstalleerde standaardbesturingssysteem** instelling van de computer opnieuw opstarten in het geïnstalleerde besturingssysteem en niet met Windows PE.  
+    > Normaal gebruikt u de stappen in [een takenreeks maken om een besturingssysteem te upgraden](create-a-task-sequence-to-upgrade-an-operating-system.md) voor het maken van een takenreeks een besturingssysteem te upgraden naar Windows 10. De takenreeks bevat de stap besturingssysteem bijwerken, evenals aanvullende aanbevolen stappen en groepen voor de end-to-end upgradeproces. U kunt echter een aangepaste takenreeks maken en toevoegen de [besturingssysteem bijwerken](../understand/task-sequence-steps.md#BKMK_UpgradeOS) takenreeksstap om het besturingssysteem te upgraden. Dit is de enige stap die is vereist om het besturingssysteem te upgraden naar Windows 10. Als u deze methode kiest, voegt u ook de [Computer opnieuw opstarten](../understand/task-sequence-steps.md#BKMK_RestartComputer) stap na de stap besturingssysteem bijwerken om de upgrade te voltooien. Zorg ervoor dat u de **het momenteel geïnstalleerde standaardbesturingssysteem** instelling van de computer opnieuw opstarten in het geïnstalleerde besturingssysteem en niet met Windows PE.  
 
 ##  <a name="BKMK_Deploy"></a> Implementeren  
 

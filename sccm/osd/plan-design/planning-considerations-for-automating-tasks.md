@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 830f715b688cc9929a179da94eba9c81de8db11a
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: f44fa4ef0946d3500d15db536333adab571a5f64
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="planning-considerations-for-automating-tasks-in-system-center-configuration-manager"></a>Planningsoverwegingen voor het automatiseren van taken in System Center Configuration Manager
 
@@ -282,7 +282,7 @@ U kunt takenreeksen om taken in uw System Center Configuration Manager-omgeving 
 ##  <a name="BKMK_TSNetworkAccessAccount"></a> Takenreeksen en het netwerktoegangsaccount  
  Hoewel takenreeksen alleen worden uitgevoerd in de context van het lokale systeemaccount gebruikt, moet u mogelijk het netwerktoegangsaccount configureren in de volgende omstandigheden:  
 
--   U moet het netwerktoegangsaccount correct configureren of de takenreeks wordt uitgevoerd, mislukken als deze probeert te krijgen van Configuration Manager-pakketten op distributiepunten om de taak te voltooien. Zie voor meer informatie over het netwerktoegangsaccount [netwerktoegangsaccount](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#a-namebkmknaaa-network-access-account).  
+-   U moet het netwerktoegangsaccount correct configureren of de takenreeks wordt uitgevoerd, mislukken als deze probeert te krijgen van Configuration Manager-pakketten op distributiepunten om de taak te voltooien. Zie voor meer informatie over het netwerktoegangsaccount [netwerktoegangsaccount](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#bkmk_NAA).  
 
     > [!NOTE]  
     >  Het netwerktoegangsaccount wordt nooit gebruikt als de beveiligingscontext voor actieve programma's, installeren van toepassingen, het installeren van updates of het uitvoeren van takenreeksen; echter, het netwerktoegangsaccount wordt gebruikt voor toegang tot de bijbehorende bronnen op het netwerk.  

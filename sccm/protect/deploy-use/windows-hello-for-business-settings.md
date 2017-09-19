@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: a95bc292-af10-4beb-ab56-2a815fc69304
 caps.latest.revision: "17"
-author: robstackmsft
-ms.author: robstack
+author: lleonard-msft
+ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: 696edcf33936c705984d1168b2f15dd862d90d0e
-ms.sourcegitcommit: 4ec2fccb2d471ba9a91fe73df01b7e96efc62594
+ms.openlocfilehash: 1985428df0f82ef2e0a92fdec86189d5ffa03aee
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="windows-hello-for-business-settings-in-system-center-configuration-manager"></a>Windows Hello voor bedrijven-instellingen in System Center Configuration Manager
 
@@ -73,9 +73,9 @@ Sommige configuraties mogelijk niet nodig hebt u machtigingen kunt configureren,
 1.  Meld u aan op een werkstations domain controller of management met de groep Domeinadministrators of gelijkwaardige referenties.
 2.  Open **Active Directory-gebruikers en Computers**.
 3.  In het navigatiedeelvenster met de rechtermuisknop op uw domeinnaam en klik vervolgens op **eigenschappen**.
-4.  Op de **beveiliging** tabblad van de  *<domain name>*  **eigenschappen** in het dialoogvenster, klikt u op **Geavanceerd**. Als de **beveiliging** tabblad niet wordt weergegeven, schakelt u **geavanceerde functies** van de **weergave** menu van **Active Directory: gebruikers en Computers**.
+4.  Op de **beveiliging** tabblad van de * <domain name> * **eigenschappen** in het dialoogvenster, klikt u op **Geavanceerd**. Als de **beveiliging** tabblad niet wordt weergegeven, schakelt u **geavanceerde functies** van de **weergave** menu van **Active Directory: gebruikers en Computers**.
 5.  Klik op **Toevoegen**.
-6.  In de **Machtigingsvermelding voor**  *<domain name>*  in het dialoogvenster, klikt u op **een principal selecteren**.
+6.  In de **Machtigingsvermelding voor** * <domain name> * in het dialoogvenster, klikt u op **een principal selecteren**.
 7.  In de **Selecteer gebruiker, Computer, serviceaccount of groep** in het dialoogvenster, type **sleutel Admins** in de **Voer de naam van het object te selecteren** in het tekstvak.  Klik op **OK**.
 8.  Van de **is van toepassing op** selecteert **Descendant gebruikersobjecten**.
 9.  Ga naar de onderkant van de pagina en klik op **Alles wissen**.

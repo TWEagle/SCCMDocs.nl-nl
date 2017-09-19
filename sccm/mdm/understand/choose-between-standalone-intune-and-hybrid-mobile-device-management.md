@@ -14,18 +14,18 @@ caps.latest.revision: "10"
 author: dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 26c36df77c21254c7ad2b8a45906bd3706f9ec65
-ms.sourcegitcommit: 06aef618f72c700f8a716a43fb8eedf97c62a72b
+ms.openlocfilehash: 5c9e80fc5bc3f0629e1c27a4928b8a51cfe1ee7e
+ms.sourcegitcommit: 948644072bd158b156f782a4376bcd50fac7c73a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="choose-between-microsoft-intune-standalone-and-hybrid-mobile-device-management-with-system-center-configuration-manager"></a>Kiezen tussen Microsoft Intune standalone en hybride beheer van mobiele apparaten met System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 Een van de meest Veelgestelde vragen met betrekking tot beheer van mobiele apparaten (MDM) met Microsoft Intune is "Moet ik Intune integreert met Configuration Manager (hybride MDM) of Intune zelfstandig worden uitgevoerd in de alleen-cloudconfiguratie?" Als u wilt deze vraag te beantwoorden, moet u zorgvuldig de twee opties vergelijken.
-
+ 
 ## <a name="intune-standalone"></a>Zelfstandige versie van Intune
 Zelfstandige Intune-versie is het aanbevolen implementatietopologie van Microsoft. Zelfstandige versie van Intune is een alleen-MDM-oplossing en wordt beheerd met behulp van een webconsole die toegankelijk is vanaf een willekeurige plaats in de hele wereld. Intune datacenters worden gehost in Noord-Amerika, Europa en Azië. Omdat Intune een cloudservice is, kunt u Intune-beheer implementeren op uw apparaten in een relatief korte periode.
 

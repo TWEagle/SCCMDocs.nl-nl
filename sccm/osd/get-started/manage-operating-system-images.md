@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 6953c3834ca303b949f22436010a87b3da9688dc
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 9edefdbe77085d157b524904a514a2b5c472b1be
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="manage-operating-system-images-with-system-center-configuration-manager"></a>Installatiekopieën van een besturingssysteem beheren met System Center Configuration Manager
 
@@ -81,7 +81,7 @@ Zie voor de stappen voor het maken van een aangepaste installatiekopie [installa
  U kunt de installatiekopie van het besturingssysteem nu distribueren naar distributiepunten.  
 
 ##  <a name="BKMK_DistributeBootImages"></a>Installatiekopieën van besturingssystemen naar distributiepunten distribueren  
- Installatiekopieën van het besturingssysteem worden op dezelfde manier naar distributiepunten gedistribueerd als andere inhoud. In de meeste gevallen moet u het besturingssysteem naar ten minste één distributiepunt distribueren voordat u het besturingssysteem implementeert. Zie [Inhoud distribueren](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content) voor stappen om een installatiekopie van een besturingssysteem te distribueren.  
+ Installatiekopieën van het besturingssysteem worden op dezelfde manier naar distributiepunten gedistribueerd als andere inhoud. In de meeste gevallen moet u het besturingssysteem naar ten minste één distributiepunt distribueren voordat u het besturingssysteem implementeert. Zie [Inhoud distribueren](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute) voor stappen om een installatiekopie van een besturingssysteem te distribueren.  
 
 ##  <a name="BKMK_OSImagesApplyUpdates"></a>Softwareupdates toepassen op een installatiekopie van besturingssysteem  
  Van tijd tot tijd verschijnen er nieuwe software-updates die van toepassing zijn op het besturingssysteem in uw installatiekopie. Voordat u software-updates op een installatiekopie toepassen kunt kunt u uw software-updates-infrastructuur in plaatsen, software-updates zijn gesynchroniseerd en de updates worden gedownload naar de Inhoudsbibliotheek op de siteserver moet hebben. Zie voor meer informatie [software-updates implementeren](../../sum/deploy-use/deploy-software-updates.md).  

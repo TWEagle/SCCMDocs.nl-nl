@@ -14,11 +14,11 @@ caps.latest.revision: "40"
 author: Mtillman
 ms.author: mtillman
 manager: angrobe
-ms.openlocfilehash: 93609815ab4d93eddb99b8461dda9f4b4bf8058e
-ms.sourcegitcommit: 9a6f8e028fb5eb2e752da70f42a5b548339bd8f4
+ms.openlocfilehash: c93ba688ba33c309e4d12e924061718e5a33759e
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Wat is er nieuw in hybride mobile device management met System Center Configuration Manager en Microsoft Intune
 
@@ -32,9 +32,15 @@ Dit artikel bevat informatie op de nieuwe mobiele apparaat management (MDM)-func
 
 |Functie categorieën|Beschrijving|
 |-|-|
-|**Nieuw in Microsoft Intune** | In het algemeen moeten alle functies die worden vermeld in deze categorie samen met alle versies van de Configuration Manager met inbegrip van System Center 2012 R2 Configuration Manager-versies, aangezien deze functies alleen de Intune-service nodig en niet aanvullende functionaliteit in Configuration Manager hoeven.|
+|**Nieuw in Microsoft Intune** | In het algemeen moeten alle functies die worden vermeld in deze categorie samen met alle versies van de Configuration Manager. Deze inclusief System Center 2012 R2 Configuration Manager worden vrijgegeven, aangezien deze functies alleen de Intune-service nodig en niet aanvullende functionaliteit in Configuration Manager hoeven.|
 |**Nieuw in Configuration Manager Technical Preview**| Alle functies die worden vermeld in deze categorie werken alleen met de opgegeven Technical Preview-versie. Als u wilt deze functies uit te proberen, moet u de Technical Preview-versie die is opgegeven in de beschrijving van de functie installeren. Zie voor meer informatie [Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md).|
 |**Nieuw in Configuration Manager (huidige vertakking)**| Alle functies die worden vermeld in deze categorie werken alleen met de opgegeven versie van Configuration Manager (huidige vertakking), zoals versie 1511 of 1602. Als u een oudere versie van Configuration Manager voor uw hybride implementatie gebruikt, moet u upgraden naar de Configuration Manager (huidige vertakking) versie opgegeven in de beschrijving van de functie. Zie voor meer informatie [upgraden naar System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|
+
+## <a name="august-2017"></a>Augustus 2017
+
+### <a name="new-signed-in-experience-for-android-company-portal-users-and-app-protection-policy-users----621669---"></a>Nieuwe aangemelde ervaring voor Android-bedrijfsportal gebruikers- en beveiligingsbeleid van App-gebruikers<!-- 621669 -->
+Eindgebruikers kunnen nu apps bladeren, apparaten beheren en weergeven contact opnemen met IT gegevens door middel van de Android-bedrijfsportal-app zonder hun Android-apparaten inschrijven. Bovendien, als een eindgebruiker al gebruikmaakt van een app door Intune-App worden beveiligd en start de Android-bedrijfsportal, de eindgebruiker niet langer gevraagd het apparaat te registreren.
+
 
 ## <a name="july-2017"></a>Juli 2017
 
@@ -42,8 +48,7 @@ Dit artikel bevat informatie op de nieuwe mobiele apparaat management (MDM)-func
 
 - **Einde van aankondigingen van ondersteuning toegevoegd voor Android en Windows Phone**
 
-    Nieuwe meldingen zijn toegevoegd voor einde van ondersteuning voor Android en Windows Phone-versies. Zie voor meer informatie [meldingen](#notices).
-
+    Nieuwe meldingen zijn toegevoegd voor het einde van ondersteuning voor Android en Windows Phone-versies. Zie voor meer informatie [meldingen](#notices).
 
 
 ### <a name="new-in-configuration-manager-current-branch"></a>Nieuw in Configuration Manager (huidige vertakking)
@@ -64,11 +69,11 @@ De volgende functies die eerder beschikbaar in Configuration Manager Technical P
 
 - **Uw MDM-instantie wijzigen**
 
-  Vanaf versie 1610 van Configuration Manager en Microsoft Intune version 1705, kunt u uw MDM-instantie zonder contact opnemen met Microsoft Support en zonder de registratie ongedaan maken en registreren van uw bestaande beheerde apparaten. Zie voor meer informatie [wijzigen van uw MDM-instantie]( /sccm/mdm/deploy-use/change-mdm-authority).
+  Vanaf Configuration Manager versie 1610, kunt u uw MDM-instantie zonder contact opnemen met Microsoft Support en zonder de registratie ongedaan maken en registreren van uw bestaande beheerde apparaten. Zie voor meer informatie [wijzigen van uw MDM-instantie]( /sccm/mdm/deploy-use/change-mdm-authority).
 
 - **Beheerde browser en app-proxy-integratie**
 
-  De Intune Managed Browser kunnen nu geïntegreerd met de service Azure AD-toepassingsproxy gebruikers toegang biedt tot interne websites, zelfs wanneer ze extern werken. URL van de site invoeren gebruikers van de browser gewoon als ze normaal en de Managed Browser de aanvraag via de toepassingsgateway proxy in het web stuurt. Zie voor meer informatie [toegang tot het Internet beheren met beheerde-browserbeleid](/intune/app-configuration-managed-browser).
+  De Intune Managed Browser kunnen nu geïntegreerd met de service Azure AD-toepassingsproxy gebruikers toegang biedt tot interne websites, zelfs wanneer ze extern werken. Gebruikers van de browser Voer de URL van de site zoals ze normaal en de Managed Browser de aanvraag via de gateway application proxy web stuurt. Zie voor meer informatie [toegang tot het Internet beheren met beheerde-browserbeleid](/intune/app-configuration-managed-browser).
 
 - **Bedrijfsportal-app voor Android is nu een nieuwe ervaring voor de eindgebruiker voor App-beveiligingsbeleid**
 

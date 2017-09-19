@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 4b3668094d576b1b8710f08b384aa2f7c5eb0cca
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 3a8e2759812dae2a328cd09efdc13f8534d14379
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="create-a-task-sequence-to-capture-and-restore-user-state-in-system-center-configuration-manager"></a>Maak een takenreeks voor het vastleggen en herstellen van gebruikersstatus in System Center Configuration Manager
 
@@ -56,7 +56,7 @@ U kunt System Center Configuration Manager-takenreeksen gebruiken vastleggen en 
 
     -   Geef, in het vak **Wachttijd nieuwe poging (seconden)** , op hoeveel seconden de takenreeks moet wachten voordat er een nieuwe poging wordt ondernomen om de gegevens vast te leggen.  
 
-    -   Selecteer de **als het computeraccount geen verbinding maken met Statusopslag, het netwerktoegangsaccount gebruiken** selectievakje in om aan te geven of de Configuration Manager [netwerktoegangsaccount](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#a-namebkmknaaa-network-access-account) verbinding maken met de Statusopslag.  
+    -   Selecteer de **als het computeraccount geen verbinding maken met Statusopslag, het netwerktoegangsaccount gebruiken** selectievakje in om aan te geven of de Configuration Manager [netwerktoegangsaccount](../../core/plan-design/hierarchy/manage-accounts-to-access-content.md#bkmk_NAA) verbinding maken met de Statusopslag.  
 
      Specificeer op het tabblad **Opties** de volgende opties:  
 
@@ -141,7 +141,7 @@ U kunt System Center Configuration Manager-takenreeksen gebruiken vastleggen en 
 
     -   Selecteer **Doorgaan als bestanden niet kunnen worden hersteld** als u wilt dat de stap **Gebruikersstatus herstellen** doorgaat als een bestand niet kan worden hersteld.  
 
-         Als u de gebruikersstatus opslaat door middel van lokale koppelingen en herstellen is mislukt, kan de gebruiker met beheerdersrechten handmatig de vaste koppelingen verwijderen die zijn gemaakt om de gegevens op te slaan of u kunt de takenreeks het hulpprogramma USMTUtils laten uitvoeren. Als u met behulp van USMTUtils de vaste koppeling verwijdert, voegt u een [Computer opnieuw opstarten](../understand/task-sequence-steps.md#a-namebkmkrestartcomputera-restart-computer) stap nadat u USMTUtils hebt uitgevoerd.  
+         Als u de gebruikersstatus opslaat door middel van lokale koppelingen en herstellen is mislukt, kan de gebruiker met beheerdersrechten handmatig de vaste koppelingen verwijderen die zijn gemaakt om de gegevens op te slaan of u kunt de takenreeks het hulpprogramma USMTUtils laten uitvoeren. Als u met behulp van USMTUtils de vaste koppeling verwijdert, voegt u een [Computer opnieuw opstarten](../understand/task-sequence-steps.md#BKMK_RestartComputer) stap nadat u USMTUtils hebt uitgevoerd.  
 
     -   Selecteer **Uitgebreide logboekregistratie inschakelen** om op te geven hoeveel informatie er naar de logboekbestanden moet worden geschreven als er een fout optreedt.  
 

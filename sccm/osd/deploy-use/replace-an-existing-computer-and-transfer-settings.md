@@ -14,11 +14,11 @@ caps.latest.revision: "6"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 243433980e1720fd468d52a4a61f2c3a8e3659b5
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 08e9603944e378593598d70c1c11c8a1b1f2f13b
+ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="replace-an-existing-computer-and-transfer-settings-with-system-center-configuration-manager"></a>Een bestaande computer vervangen en de instellingen overzetten met System Center Configuration Manager
 
@@ -48,7 +48,7 @@ Dit onderwerp bevat de algemene stappen in System Center Configuration Manager n
 
     -   Zie voor meer informatie over het aanpassen van een opstartinstallatiekopie [opstartinstallatiekopieën aanpassen](../get-started/customize-boot-images.md).  
 
-    -   Distribueer de opstartinstallatiekopie naar distributiepunten. Zie voor meer informatie [inhoud distribueren](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+    -   Distribueer de opstartinstallatiekopie naar distributiepunten. Zie voor meer informatie [inhoud distribueren](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
 
 2.  **Een installatiekopie van een besturingssysteem voorbereiden**  
 
@@ -56,7 +56,7 @@ Dit onderwerp bevat de algemene stappen in System Center Configuration Manager n
 
     -   Zie voor meer informatie over het maken van een installatiekopie van het besturingssysteem, [installatiekopieën van besturingssystemen beheren](../get-started/manage-operating-system-images.md).  
 
-    -   Distribueer de installatiekopie van het besturingssysteem naar distributiepunten. Zie voor meer informatie [inhoud distribueren](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).  
+    -   Distribueer de installatiekopie van het besturingssysteem naar distributiepunten. Zie voor meer informatie [inhoud distribueren](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).  
 
 3.  **Een takenreeks maken om besturingssystemen via het netwerk te implementeren**  
 

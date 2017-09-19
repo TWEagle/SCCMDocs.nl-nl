@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Dougeby
 ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 5fef04f26b12bced073332fd1f7b4e7c7bd7d398
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 35f527f83799125aa298b99e2cc56867435272ec
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="manage-operating-system-upgrade-packages-with-system-center-configuration-manager"></a>Upgradepakketten van het besturingssysteem beheren met System Center Configuration Manager
 
@@ -59,7 +59,7 @@ Een upgradepakket in System Center Configuration Manager bevat de bronbestanden 
  U kunt het installatieprogramma voor het besturingssysteem nu distribueren naar de distributiepunten die worden gebruikt door de takenreeksen van uw implementatie.  
 
 ##  <a name="BKMK_DistributeBootImages"></a> Installatiekopieën van het besturingssysteem naar een distributiepunt distribueren  
- Installatiekopieën van het besturingssysteem worden op dezelfde manier naar distributiepunten gedistribueerd als andere inhoud. In de meeste gevallen moet u het besturingssysteem naar ten minste één distributiepunt distribueren voordat u het besturingssysteem implementeert. Zie [Inhoud distribueren](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content) voor stappen om een installatiekopie van een besturingssysteem te distribueren.  
+ Installatiekopieën van het besturingssysteem worden op dezelfde manier naar distributiepunten gedistribueerd als andere inhoud. In de meeste gevallen moet u het besturingssysteem naar ten minste één distributiepunt distribueren voordat u het besturingssysteem implementeert. Zie [Inhoud distribueren](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute) voor stappen om een installatiekopie van een besturingssysteem te distribueren.  
 
 ##  <a name="BKMK_OSUpgradePkgApplyUpdates"></a> Software-updates toepassen op een updatepakket van een besturingssysteem  
  Vanaf versie 1602 van Configuration Manager, kunt u nieuwe software-updates toepassen op de installatiekopie van het besturingssysteem in het upgradepakket van uw besturingssysteem. Voordat u kunt software-updates toepassen op een updatepakket hebt u hebben uw software-updates-infrastructuur, is gesynchroniseerd software-updates en de software-updates gedownload naar de Inhoudsbibliotheek op de siteserver. Zie voor meer informatie [software-updates implementeren](../../sum/deploy-use/deploy-software-updates.md).  

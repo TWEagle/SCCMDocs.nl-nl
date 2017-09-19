@@ -12,14 +12,14 @@ ms.topic: article
 ms.assetid: 0ea3edaa-27c6-4391-9896-cd97d9c5d06d
 caps.latest.revision: "4"
 caps.handback.revision: "0"
-author: robstackmsft
-ms.author: robstack
+author: mattbriggs
+ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: f42fee5974567f667c015a6b0bf34d9a9a7d2dab
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 1e9c5506b94eecc1c95af5f31ad4c2d923c2b74f
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="uninstall-applications-with-system-center-configuration-manager"></a>Toepassingen met System Center Configuration Manager verwijderen
 
@@ -63,7 +63,7 @@ Hiermee voert u de volgende acties voor het verwijderen van een toepassing die u
         > [!NOTE]  
         >  De **inhoud** pagina wordt alleen weergegeven als u de optie **Geef handmatig de implementatietype-informatie** op de **algemene** pagina van de Wizard implementatietype maken.  
 
-    -   Op de **programma's** tabblad van de  **<* naam implementatietype*> Eigenschappen ** dialoogvenster geeft u de opdrachtregel voor het verwijderen van de toepassing in de **programma voor verwijderen** veld.  
+    -   Op de **programma's** tabblad van de * * < *naam implementatietype*> Eigenschappen ** dialoogvenster geeft u de opdrachtregel voor het verwijderen van de toepassing in de **programma voor verwijderen** veld.  
 
 2.  Implementeer de toepassing en selecteer vervolgens de implementatie-actie **verwijderen** op de **implementatie-instellingen** pagina van de Wizard Software implementeren.  
 

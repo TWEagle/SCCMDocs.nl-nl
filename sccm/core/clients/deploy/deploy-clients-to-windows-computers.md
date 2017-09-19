@@ -12,14 +12,14 @@ ms.topic: get-started-article
 ms.assetid: 341f0d0b-f907-44cf-9e10-e1b41fc15f82
 caps.latest.revision: "13"
 caps.handback.revision: "0"
-author: robstackmsft
-ms.author: robstack
+author: arob98
+ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 9ac54136b93ee366c16cafe89036a79e808980dc
-ms.sourcegitcommit: 06aef618f72c700f8a716a43fb8eedf97c62a72b
+ms.openlocfilehash: f03102c170e1e7de3a11349f4a66380c4291dcac
+ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="how-to-deploy-clients-to-windows-computers-in-system-center-configuration-manager"></a>Clients implementeren op Windows-computers in System Center Configuration Manager
 
@@ -159,7 +159,7 @@ De software-update voor Configuration Manager-client is niet automatisch bijgewe
 ##  <a name="BKMK_ClientGP"></a>Het installeren van clients met Groepsbeleid  
  U kunt Groepsbeleid in Active Directory Domain Services publiceren of toewijzen van de Configuration Manager-client installeren op computers in uw onderneming. De client wordt geïnstalleerd als de computer wordt gestart. Wanneer u Groepsbeleid, toont de client in het Configuratiescherm **een programma verwijderen of** voor de gebruiker installeren.  
 
- Het Windows Installer-pakket (CCMSetup.msi) voor installaties op basis van een Groepsbeleid gebruiken. Dit bestand staat in de map  **&lt;installatiemap van Configuration Manager\>\bin\i386** op de siteserver van Configuration Manager. U kunt geen eigenschappen toevoegen aan dit bestand naar het installatiegedrag wijzigen.  
+ Het Windows Installer-pakket (CCMSetup.msi) voor installaties op basis van een Groepsbeleid gebruiken. Dit bestand staat in de map ** &lt;installatiemap van Configuration Manager\>\bin\i386** op de siteserver van Configuration Manager. U kunt geen eigenschappen toevoegen aan dit bestand naar het installatiegedrag wijzigen.  
 
 > [!IMPORTANT]  
 >  U moet Administrator-machtigingen voor toegang tot de clientinstallatiebestanden hebben.  
@@ -175,14 +175,14 @@ Voor informatie over hoe Groepsbeleid in Active Directory Domain Services moet w
 
  \\\\*&lt;Siteservernaam\>*\SMS_*&lt;sitecode\>*\Client\  
 
- waar  *&lt;Siteservernaam\>*  is de naam van een van de servers waarop een beheerpunt wordt gehost en  *&lt;sitecode\>*  is de code voor de primaire site de client deel van uitmaakt.  Als u CCMSetup.exe vanaf de opdrachtregel op de client wilt uitvoeren, moet u een netwerkstation toewijzen aan deze locatie en daarna de opdracht uitvoeren.  
+ waar * &lt;Siteservernaam\> * is de naam van een van de servers waarop een beheerpunt wordt gehost en * &lt;sitecode\> * is de code voor de primaire site de client deel van uitmaakt.  Als u CCMSetup.exe vanaf de opdrachtregel op de client wilt uitvoeren, moet u een netwerkstation toewijzen aan deze locatie en daarna de opdracht uitvoeren.  
 
 > [!IMPORTANT]  
 >  U moet Administrator-machtigingen voor toegang tot de clientinstallatiebestanden hebben.  
 
  CCMSetup.exe kopieert alle vereisten voor de clientcomputer en roept het Windows Installer-pakket (Client.msi) om de client te installeren. Client.msi kan niet rechtstreeks worden uitgevoerd.  
 
- U kunt opdrachtregeleigenschappen opgeven zowel voor CCMSetup.exe  als voor Client.msi om het gedrag van de clientinstallatie te wijzigen. Zorg ervoor dat u CCMSetup-eigenschappen opgeeft (de eigenschappen die met beginnen  **/** ) voordat u de Client.msi-eigenschappen opgeeft. Bijvoorbeeld:  
+ U kunt opdrachtregeleigenschappen opgeven zowel voor CCMSetup.exe  als voor Client.msi om het gedrag van de clientinstallatie te wijzigen. Zorg ervoor dat u CCMSetup-eigenschappen opgeeft (de eigenschappen die met beginnen ** / **) voordat u de Client.msi-eigenschappen opgeeft. Bijvoorbeeld:  
 
 ```  
 CCMSetup.exe /mp:SMSMP01 /logon SMSSITECODE=AUTO FSP=SMSFP01  
@@ -342,7 +342,7 @@ Controleer de vereisten en volg de aanwijzingen in de sectie [Configuration Mana
 ##  <a name="BKMK_ClientInternet"></a>Het installeren van clients voor Internet-gebaseerd clientbeheer  
  Wanneer de Configuration Manager-site Internet-gebaseerd clientbeheer voor clients die soms op het intranet, en soms op het Internet ondersteunt, hebt u twee opties wanneer u clients op het intranet installeert:  
 
--   U kunt opnemen dat de eigenschap Client.msi van CCMHOSTNAME =*&lt;Internet-FQDN van de Internet-gebaseerd beheerpunt bevindt\>*  wanneer u de client installeert, bijvoorbeeld door handmatige installatie of clientpush. Wanneer u deze methode gebruikt, moet u ook de client direct toewijzen aan de site en kunt u niet automatische sitetoewijzing gebruiken. De sectie [Handmatig Configuration Manager-clients toewijzen](#BKMK_Manual) in dit onderwerp levert een voorbeeld van deze configuratiemethode.  
+-   U kunt opnemen dat de eigenschap Client.msi van CCMHOSTNAME =*&lt;Internet-FQDN van de Internet-gebaseerd beheerpunt bevindt\> * wanneer u de client installeert, bijvoorbeeld door handmatige installatie of clientpush. Wanneer u deze methode gebruikt, moet u ook de client direct toewijzen aan de site en kunt u niet automatische sitetoewijzing gebruiken. De sectie [Handmatig Configuration Manager-clients toewijzen](#BKMK_Manual) in dit onderwerp levert een voorbeeld van deze configuratiemethode.  
 
 -   U kunt de client voor clientbeheer op intranet, en vervolgens wijst u een Internet-gebaseerd clientbeheer verwijzen naar de client met behulp van de clienteigenschappen van de Configuration Manager-in het Configuratiescherm of via een script kunt installeren. Wanneer u deze methode gebruikt, kunt u automatische clienttoewijzing gebruiken. Zie voor meer informatie, de sectie [Clients configureren voor internetclientbeheer na clientinstallatie](#BKMK_ConfigureIBCM_MP) in dit onderwerp.  
 
@@ -350,7 +350,7 @@ Controleer de vereisten en volg de aanwijzingen in de sectie [Configuration Mana
 
 -   Bieden een mechanisme voor deze clients om tijdelijk te verbinden met het intranet met een virtueel particulier netwerk (VPN) en installeer ze dan met behulp van een geschikte clientinstallatiemethode te gebruiken.  
 
--   Gebruik een installatiemethode die onafhankelijk is van Configuration Manager, zoals het verpakken van de clientinstallatiebronbestanden op uitwisselbare media die u naar gebruikers zenden kunt om met instructies te installeren. De clientinstallatiebronbestanden bevinden zich in de  *&lt;InstallationPath\>*\Client map op de Configuration Manager-site en -beheerpunten. Neem op de media ook een script op om handmatig te kopiëren via de clientmap en vanaf deze map, installeer de client door gebruik te maken van CCMSetup.exe en van alle geschikte CCMSetup-opdrachtregeleigenschappen.  
+-   Gebruik een installatiemethode die onafhankelijk is van Configuration Manager, zoals het verpakken van de clientinstallatiebronbestanden op uitwisselbare media die u naar gebruikers zenden kunt om met instructies te installeren. De clientinstallatiebronbestanden bevinden zich in de * &lt;InstallationPath\>*\Client map op de Configuration Manager-site en -beheerpunten. Neem op de media ook een script op om handmatig te kopiëren via de clientmap en vanaf deze map, installeer de client door gebruik te maken van CCMSetup.exe en van alle geschikte CCMSetup-opdrachtregeleigenschappen.  
 
 > [!NOTE]  
 >  Configuration Manager biedt geen ondersteuning voor het installeren van een client direct vanuit het internetgebaseerde beheerpunt of vanuit het internetgebaseerde software-updatepunt.  

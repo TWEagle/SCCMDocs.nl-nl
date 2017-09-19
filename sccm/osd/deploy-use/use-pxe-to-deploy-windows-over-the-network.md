@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: b88ab3799027c78a8c605e934b247097b31e1d21
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 57292b1c6f6e8b6be91eace06dbf12d788522e0b
+ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="use-pxe-to-deploy-windows-over-the-network-with-system-center-configuration-manager"></a>PXE gebruiken om Windows via het netwerk te implementeren met System Center Configuration Manager
 
@@ -46,7 +46,7 @@ Als u PXE wilt gebruiken voor het implementeren van besturingssystemen, moet u e
 
 -   Als u PXE voor een opstartinstallatiekopie selecteert **deze opstartinstallatiekopie implementeren vanaf het distributiepunt met PXE-functionaliteit** van de **gegevensbron** tabblad in de eigenschappen van de opstartinstallatiekopie.
 
--   Als u de eigenschappen voor de opstartinstallatiekopie wijzigt, moet opnieuw de opstartinstallatiekopie naar distributiepunten distribueren. Zie voor meer informatie [inhoud distribueren](../../core/servers/deploy/configure/deploy-and-manage-content.md#a-namebkmkdistributea-distribute-content).
+-   Als u de eigenschappen voor de opstartinstallatiekopie wijzigt, moet opnieuw de opstartinstallatiekopie naar distributiepunten distribueren. Zie voor meer informatie [inhoud distribueren](../../core/servers/deploy/configure/deploy-and-manage-content.md#bkmk_distribute).
 
 ##  <a name="BKMK_PXEExclusionList"></a> Een uitsluitingslijst voor PXE-implementaties maken
 Wanneer u besturingssystemen met PXE implementeert, kunt u een uitsluitingslijst maken op elk distributiepunt. De MAC-adressen toevoegen aan de uitsluitingslijst van de computers die u wilt dat het distributiepunt te negeren. Genoemde computers ontvangt geen de takenreeksen voor besturingssysteemimplementaties die Configuration Manager voor PXE-implementaties gebruikt.

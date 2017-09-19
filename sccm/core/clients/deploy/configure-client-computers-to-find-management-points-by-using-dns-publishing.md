@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.topic: get-started-article
 ms.assetid: 03cec407-0f9f-454f-a360-b005af738d29
 caps.latest.revision: "6"
-author: robstackmsft
-ms.author: robstack
+author: arob98
+ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: d016ec3fe106b2d90b3c14b4f9296aed4d198644
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 0526dccc21be8419bf772374a67bc7cd262e6375
+ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="how-to-configure-client-computers-to-find-management-points-by-using-dns-publishing-in-system-center-configuration-manager"></a>Het configureren van clientcomputers om beheerpunten te vinden met DNS-publishing in System Center Configuration Manager
 
@@ -43,7 +43,7 @@ Clients in System Center Configuration Manager moeten een beheerpunt vinden om t
 
 -   Installeer de client met de volgende Client.msi-eigenschap van CCMSetup:  
 
-    -   **DNSSUFFIX =**  *&lt;beheerpunt domein\>*  
+    -   **DNSSUFFIX =** * &lt;beheerpunt domein\>*  
 
          Als de site meer dan één beheerpunt heeft en deze zich in meer dan één domein bevinden, geeft u slechts één domein op. Wanneer clients verbinding maken met een beheerpunt in dit domein, downloaden ze een lijst met beschikbare beheerpunten, inclusief de beheerpunten van de andere domeinen.  
 
