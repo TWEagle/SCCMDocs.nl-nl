@@ -14,11 +14,11 @@ caps.latest.revision: "21"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 1166b739e1e8d667172d97883f484fdbc3a142c1
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: e65c22240555563cdb011849562069baf5d5887f
+ms.sourcegitcommit: 4c3906cf9614420cb8527da9e48978eb0b8f0e7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="upgrade-to-system-center-configuration-manager"></a>Bijwerken naar System Center Configuration Manager
 
@@ -47,7 +47,7 @@ De basislijnmedia voor de versie 1606 is op 15 December 2016 uitgebracht om onde
 -   Een release candidate-installatie van System Center Configuration Manager  
 -   System Center 2012 Configuration Manager met servicepack 1  
 -   System Center 2012 Configuration Manager met servicepack 2  
--   System Center 2012 R2 Configuration Manager  
+-   System Center 2012 R2 Configuration Manager zonder servicepack
 -   System Center 2012 R2 Configuration Manager met servicepack 1  
 
 Als u versie 1606 basislijnmedia gedownload vóór 15 December 2016, kunt u alleen de volgende upgraden naar een volledig gelicentieerde versie van System Center Configuration Manager versie 1606:
@@ -330,7 +330,7 @@ Gebruik de volgende procedures voor het upgraden van Configuration Manager-sites
     -   Lokale beheerdersrechten op de siteservercomputer.  
     -   Lokale beheerdersrechten op de databaseserver voor de externe site.    </br></br>
 
-2.  Open Windows Verkenner op de siteservercomputer en blader naar  **&lt;ConfigMgSourceMedia\>\SMSSETUP\BIN\X64**.  
+2.  Open Windows Verkenner op de siteservercomputer en blader naar ** &lt;ConfigMgSourceMedia\>\SMSSETUP\BIN\X64**.  
 
 3.  Dubbelklik op **Setup.exe**. De wizard Setup van Configuration Manager wordt geopend.  
 

@@ -12,11 +12,11 @@ ms.assetid: 409e26e1-7716-4f1d-a0ee-34feabf20792
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: a2954b3c6f9a09b7246347e780c4cfc49ba39ca1
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: ff7f6c3b9f183502c95a2c551b1131c5abf1dd90
+ms.sourcegitcommit: 474e6ddbaaeac4ba17d8172321e08deeb0140d0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="what39s-new-in-version-1702-of-system-center-configuration-manager"></a>Wat &#39; s is nieuw in versie 1702 van System Center Configuration Manager
 
@@ -256,7 +256,13 @@ Deze wijziging is van invloed op de wizards voor het maken van de volgende items
 
 Met deze wijziging kunnen hybride implementaties ondersteuning bieden sneller op nieuwe versies van Android en iOS zonder een nieuwe release van Configuration Manager of een uitbreiding. Wanneer een nieuwe versie wordt ondersteund in de zelfstandige versie van Intune, kunnen gebruikers zich kunnen hun mobiele apparaten voor die versie te upgraden.
 
-Mobiele besturingssysteemversies zijn om te voorkomen dat u problemen bij een upgrade van eerdere versies van Configuration Manager, nog steeds beschikbaar in de eigenschappenpagina's voor deze items. Als u nog steeds een specifieke versie als doel wilt, kunt u de nieuw item maken en geef vervolgens de doelversie van de eigenschappenpagina van het nieuwe item.
+Mobiele besturingssysteemversies zijn om te voorkomen dat u problemen bij een upgrade van eerdere versies van Configuration Manager, nog steeds beschikbaar in de eigenschappenpagina's voor deze items. Als u nog steeds een specifieke versie als doel wilt, kunt u de nieuw item maken en geef vervolgens de doelversie van de eigenschappenpagina van het nieuwe item. 
+
+> [!NOTE]
+> De laatste versie op de mobiele besturingssysteem beschikbaar zijn in de eigenschappenpagina's geldt voor die versie en alle latere versies. Eigenschappenpagina's bieden de volgende opties voor specifieke besturingssystemen later zijn dan 7, Android en iOS 10: 
+> - **Android 7 en hoger**
+> - **Alle iOS 10 en hoger iPhone of iPod touch-apparaten**
+> - **Alle iOS 10 en hoger iPad-apparaten**
 
 ### <a name="android-for-work-support"></a>Android voor Work-ondersteuning
 Beginnen met 1702, hybride mobile device management met Microsoft Intune biedt nu ondersteuning voor Android voor werk apparaatinschrijving en -beheer. Beheerde Android voor werk apparaat richtlijnen:

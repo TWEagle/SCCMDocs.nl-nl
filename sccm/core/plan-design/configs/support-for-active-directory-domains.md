@@ -2,7 +2,7 @@
 title: Active Directory-domeinen ondersteund | Microsoft Docs
 description: Vereisten voor het lidmaatschap van een System Center Configuration Manager-sitesysteem in Active Directory-domein ophalen.
 ms.custom: na
-ms.date: 3/23/2017
+ms.date: 9/18/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 2654ab4eaaaf6a4bf3bd7dca9908e7033647dc2c
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 813c2f55a5815ae3739149abc3f650a750d52cd8
+ms.sourcegitcommit: 474e6ddbaaeac4ba17d8172321e08deeb0140d0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="supported-active-directory-domains-for-system-center-configuration-manager"></a>Ondersteunde Active Directory-domeinen voor System Center Configuration Manager
 
@@ -33,7 +33,7 @@ Alle System Center Configuration Manager-sitesystemen moeten lid zijn van een on
 
 -   Wijzig de volgende voor een computer die als host fungeert voor een sitesysteemrol wordt niet ondersteund:  
 
-    -   Lidmaatschap van domein  
+    -   Lidmaatschap van domein *(dit omvat een sitesysteem verwijderen uit het domein en vervolgens lukt hetzelfde domein).*
 
     -   Domeinnaam  
 

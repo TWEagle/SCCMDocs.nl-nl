@@ -2,7 +2,7 @@
 title: Poorten die worden gebruikt door Configuration Manager | Microsoft Docs
 description: Meer informatie over de vereiste en aanpasbare poorten die System Center Configuration Manager voor verbindingen gebruikt.
 ms.custom: na
-ms.date: 3/20/2017
+ms.date: 09/19/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -15,18 +15,18 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 78caa69e10f5d386daab1e61e484d4d134469708
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: ac443971a725a7eeecaeea877b8e9636ebb4990b
+ms.sourcegitcommit: 51654bf8b5615eb99084d0a20d18ca3fccfa83a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="ports-used-in-system-center-configuration-manager"></a>Poorten die worden gebruikt in System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
 System Center Configuration Manager is een gedistribueerd client/server-systeem. De gedistribueerde aard van Configuration Manager betekent dat verbindingen worden tussen siteservers, sitesystemen en clients gemaakt kunnen. Sommige verbindingen gebruiken poorten die zijn niet configureerbaar en sommige ondersteunen aangepaste poorten die u opgeeft. U moet controleren of de vereiste poorten beschikbaar zijn als u een poortfiltertechnologie gebruikt zoals firewalls, routers, proxy-servers of IPsec.  
-
+    
 > [!NOTE]  
 >  Als u ondersteuning voor clients op Internet met behulp van SSL-bridging, naast Poortvereisten, kunt u wellicht ook toestaan dat sommige HTTP-woorden en -koppen bladeren door uw firewall.   
 
@@ -167,7 +167,7 @@ Deze communicatie wordt gebruikt om te bevestigen of de andere clientcomputer ac
 |Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
 |Globale catalogus LDAP|--|3268|  
-|Globale catalogus LDAP SSL|--|3269|  
+
 
 ###  <a name="BKMK_PortsClient-MP"></a>Client--> Beheerpunt  
 
@@ -295,9 +295,7 @@ Deze communicatie wordt gebruikt om te bevestigen of de andere clientcomputer ac
 |Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
 |Lightweight Directory Access Protocol (LDAP)|--|389|  
-|LDAP (Secure Sockets Layer [SSL]-verbinding)|636|636|  
 |Globale catalogus LDAP|--|3268|  
-|Globale catalogus LDAP SSL|--|3269|  
 |RPC-eindpunttoewijzer|135|135|  
 |RPC|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
 
@@ -391,9 +389,7 @@ Zie voor meer informatie [vereisten voor internettoegang](/sccm/core/servers/dep
 |Beschrijving|UDP|TCP|  
 |-----------------|---------|---------|  
 |Lightweight Directory Access Protocol (LDAP)|--|389|  
-|LDAP (Secure Sockets Layer [SSL]-verbinding)|636|636|  
 |Globale catalogus LDAP|--|3268|  
-|Globale catalogus LDAP SSL|--|3269|  
 |RPC-eindpunttoewijzer|135|135|  
 |RPC|--|Dynamisch (zie opmerking 6, **Dynamische poorten**)|  
 
@@ -641,17 +637,9 @@ Zie voor een voorbeeld van hoe u SQL Server configureren voor het gebruik van ee
 ### <a name="bkmk_discovery"></a> Detectie en publiceren
 De volgende poorten worden gebruikt voor de detectie en het publiceren van site-informatie:
  - Lightweight Directory Access Protocol (LDAP): 389
- - LDAP (Secure Sockets Layer [SSL]-verbinding): 636
-
-
  - Globale catalogus LDAP 3268
- - Globale catalogus LDAP SSL: 3269
-
-
  - RPC-eindpunttoewijzer: 135
  - RPC: Dynamisch toegewezen hoge TCP-poorten
-
-
  - TCP: 1024: 5000
  - TCP:  49152: 65535
 

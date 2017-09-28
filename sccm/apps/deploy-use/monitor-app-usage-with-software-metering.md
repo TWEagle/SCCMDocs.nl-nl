@@ -2,7 +2,7 @@
 title: App-gebruik controleren met softwaremeter | Microsoft Docs
 description: 
 ms.custom: na
-ms.date: 10/06/2016
+ms.date: 09/20/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "8"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: d7bc0bebeb0355156553376a3535ed76d5e44835
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 87bafd8ce28d58993666057b6c5bfd8bdc0c4ed9
+ms.sourcegitcommit: 51654bf8b5615eb99084d0a20d18ca3fccfa83a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="software-metering-in-system-center-configuration-manager"></a>Softwarelicentiecontrole in System Center Configuration Manager
 
@@ -86,7 +86,7 @@ Softwarelicentiecontrole heeft geen externe afhankelijkheden, alleen afhankelijk
         >
         >  Dit vak is optioneel als er een waarde voor **Bestandsnaam** is opgegeven.
 
-    -   **Versie** : de versie van het uitvoerbare bestand dat u deze wilt meten. U kunt het jokerteken (*) gebruiken om elke tekenreeks met tekens weer te geven of u kunt het jokerteken (?) gebruiken om een willekeurig teken mee aan te duiden. Als u meten voor alle versies van een uitvoerbaar bestand wilt, gebruikt u de standaardwaarde (\*).
+    -   **Versie** : de versie van het uitvoerbare bestand dat u deze wilt meten. U kunt het jokerteken (&#42;) ter vertegenwoordiging van een reeks tekens of het jokerteken teken (?) ) een willekeurig teken vertegenwoordigt. Als u meten voor alle versies van een uitvoerbaar bestand wilt, gebruikt u de standaardwaarde (&#42;).
 
     -   **Taal** : de taal van het uitvoerbare bestand dat u wilt meten. De standaardwaarde is de huidige landinstelling van het besturingssysteem dat u gebruikt. Als u een uitvoerbaar bestand selecteert om te meten door te klikken op de knop **Bladeren** , wordt dit vak automatisch ingevuld als er taalinformatie in de koptekst van het bestand aanwezig is. Als u alle taalversies van een bestand wilt meten, selecteert u **Elke** in de vervolgkeuzelijst.
 

@@ -14,11 +14,11 @@ caps.latest.revision: "36"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 10ddbcc19da8c5fc6451f62500f17790a0349389
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 5302b5712e33c753d0193a32498bc02a2241428c
+ms.sourcegitcommit: 474e6ddbaaeac4ba17d8172321e08deeb0140d0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="install-in-console-updates-for-system-center-configuration-manager"></a>Updates binnen de console installeren voor System Center Configuration Manager
 
@@ -106,8 +106,8 @@ Het wordt aangeraden de controle op vereisten voor een update uit te voeren voor
 
 -   De controle op vereisten automatisch opnieuw uitgevoerd wanneer u ervoor kiest om de update te installeren.  
 
-> [!NOTE]
-> Wanneer u een controle van vereisten start en vervolgens weer de status van de **installatie** fase actief lijkt te zijn, maar de update niet daadwerkelijk wordt geïnstalleerd. De weergave bevat de installatiefase omdat sommige taken, zoals het uitpakken van de binaire bestanden worden uitgevoerd om de controle ook deel uitmaken van de installatiefase.  
+> [!NOTE]   
+> Wanneer u een controle van vereisten start en vervolgens weer de status van de **installatie** fase actief lijkt te zijn, maar de update niet daadwerkelijk wordt geïnstalleerd. Voor het uitvoeren van de controle van vereisten, het updateproces pakt het pakket uit de Inhoudsbibliotheek en plaatst deze in een map voor gefaseerde installatie waarbij de huidige controles van vereisten kunnen worden geopend.  Dit hetzelfde proces wordt uitgevoerd als u een update installeert. Daarom wordt de installatie weergegeven als wordt uitgevoerd. Alleen de *updatepakket uitpakken* stap wordt weergegeven in de categorie van de installatie.  
 
 Later, wanneer u de update installeert, kunt u de update voor het negeren van waarschuwingen voor vereisten configureren.  
 

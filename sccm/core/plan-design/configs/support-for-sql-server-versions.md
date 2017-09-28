@@ -2,7 +2,7 @@
 title: Ondersteunde versies van SQL Server | Microsoft Docs
 description: Ophalen van SQL Server-versie en configuratie van vereisten voor het hosten van een System Center Configuration Manager-sitedatabase.
 ms.custom: na
-ms.date: 05/10/2017
+ms.date: 09/21/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "21"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: b35e45b9514297e2f9ce405a3244462ed735f39f
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 0e6613873c09b5e5df4f25ce0dbc16c289ccbd41
+ms.sourcegitcommit: b13fa2885acaa21f16c48df789f1edacb5a4f7cc
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/21/2017
 ---
 # <a name="supported-sql-server-versions-for-system-center-configuration-manager"></a>Ondersteunde versies van SQL Server voor System Center Configuration Manager
 
@@ -212,7 +212,7 @@ U kunt deze versie van SQL Server zonder minimale cumulatieve updateversie gebru
  **SQL Server-service:**  
  U kunt de SQL Server-service zo configureren dat deze wordt uitgevoerd met:  
 
--   De **lokale gebruiker in domein** account:  
+-   Een *domeingebruiker van laag niveau aan rechten* account:  
 
     -   Dit is een best practice en mogelijk moet u de service principal name (SPN) voor het account handmatig registreren.  
 

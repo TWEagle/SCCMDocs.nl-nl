@@ -2,7 +2,7 @@
 title: Distributiepunten beheren | Microsoft Docs
 description: De inhoud (bestanden en software) die u op apparaten en gebruikers implementeert met distributiepunten hosten. Hier wordt het installeren en configureren.
 ms.custom: na
-ms.date: 2/14/2017
+ms.date: 09/18/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,16 +14,16 @@ caps.latest.revision: "5"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 4c94e4de5bbfe621492e8682c9424a48eb38196d
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 0213b48c24461cbab5a9acab720064e0e26fa568
+ms.sourcegitcommit: 474e6ddbaaeac4ba17d8172321e08deeb0140d0a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="install-and-configure-distribution-points-for-system-center-configuration-manager"></a>Installeren en configureren van distributiepunten voor System Center Configuration Manager
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
- 
+
 U kunt System Center Configuration Manager-distributiepunten voor het hosten van de inhoud die u op apparaten en gebruikers implementeert (bestanden en software) installeren. U kunt ook distributie punt groepen maken die hoe u distributiepunten wilt beheren en hoe u inhoud naar distributiepunten distribueren vereenvoudigen.  
 
  Wanneer u *een nieuw distributiepunt installeert* (via de installatiewizard) of *beheren van de eigenschappen van een bestaand distributiepunt* (het distributiepunt door eigenschappen te bewerken), kunt u de meeste van de distributiepuntinstellingen configureren. Enkele instellingen zijn alleen beschikbaar wanneer u bent u installeert of bewerkt, maar niet beide:  
@@ -45,7 +45,8 @@ U kunt System Center Configuration Manager-distributiepunten voor het hosten van
     -   **Schema's configureren voor de gegevensoverdracht naar distributiepunten**  
 
 ##  <a name="bkmk_install"></a>Een distributiepunt installeren  
- U moet een sitesysteemserver toewijzen als een distributiepunt voordat inhoud kan worden gemaakt voor clientcomputers beschikbaar. U kunt de siterol van distributiepunt toevoegen aan een nieuwe sitesysteemserver of de siterol toevoegen aan een bestaande sitesysteemserver.  
+U moet een sitesysteemserver toewijzen als een distributiepunt voordat inhoud kan worden gemaakt voor clientcomputers beschikbaar. U moet ook een distributiepunt toewijzen aan ten minste één [grensgroep](/sccm/core/servers/deploy/configure/boundary-groups#distribution-points) voordat lokale clientcomputers dat distributiepunt als bronlocatie voor inhoud kunnen gebruiken. U kunt de siterol van distributiepunt toevoegen aan een nieuwe sitesysteemserver of de siterol toevoegen aan een bestaande sitesysteemserver.
+
 
  Wanneer u een nieuw distributiepunt installeert, gebruikt u een installatiewizard die u bij de beschikbare instellingen helpt. Voordat u begint, moet u rekening houden met het volgende:  
 
@@ -339,7 +340,7 @@ De resultaten van het inhoudvalidatieproces weergeven in de **bewaking** werkrui
 >  Hoewel u de planning voor inhoudsvalidatie opgeven met behulp van de lokale tijd voor de computer, ziet u de Configuration Manager-console de planning in UTC.  
 
 ### <a name="boundary-group"></a>Grensgroep  
-Beheer de grensgroepen waaraan dit distributiepunt is toegewezen. U kunt grensgroepen koppelen aan een distributiepunt. Tijdens inhoudsimplementatie moeten clients zich in een grensgroep die is gekoppeld aan het distributiepunt te gebruiken als bronlocatie voor inhoud.
+Beheer de grensgroepen waaraan dit distributiepunt is toegewezen. Wilt u het distributiepunt toevoegen aan ten minste één grensgroep. Tijdens inhoudsimplementatie moeten clients zich in een grensgroep die is gekoppeld aan een distributiepunt dat distributiepunt als bronlocatie voor inhoud te gebruiken.
 
 Aanvullend:
 

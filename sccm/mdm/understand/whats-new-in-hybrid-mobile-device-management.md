@@ -14,11 +14,11 @@ caps.latest.revision: "40"
 author: Mtillman
 ms.author: mtillman
 manager: angrobe
-ms.openlocfilehash: c93ba688ba33c309e4d12e924061718e5a33759e
-ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
+ms.openlocfilehash: 2ef4964a74e000feac029b158f6fe0c52e3de370
+ms.sourcegitcommit: 51654bf8b5615eb99084d0a20d18ca3fccfa83a1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Wat is er nieuw in hybride mobile device management met System Center Configuration Manager en Microsoft Intune
 
@@ -36,9 +36,30 @@ Dit artikel bevat informatie op de nieuwe mobiele apparaat management (MDM)-func
 |**Nieuw in Configuration Manager Technical Preview**| Alle functies die worden vermeld in deze categorie werken alleen met de opgegeven Technical Preview-versie. Als u wilt deze functies uit te proberen, moet u de Technical Preview-versie die is opgegeven in de beschrijving van de functie installeren. Zie voor meer informatie [Technical Preview voor System Center Configuration Manager](../../core/get-started/technical-preview.md).|
 |**Nieuw in Configuration Manager (huidige vertakking)**| Alle functies die worden vermeld in deze categorie werken alleen met de opgegeven versie van Configuration Manager (huidige vertakking), zoals versie 1511 of 1602. Als u een oudere versie van Configuration Manager voor uw hybride implementatie gebruikt, moet u upgraden naar de Configuration Manager (huidige vertakking) versie opgegeven in de beschrijving van de functie. Zie voor meer informatie [upgraden naar System Center Configuration Manager](../../core/servers/deploy/install/upgrade-to-configuration-manager.md).|
 
+## <a name="september-2017"></a>September 2017
+
+### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune     
+
+- **Aanvullende pushmeldingen voor eindgebruikers op de bedrijfsportal-app voor Android Oreo**<!--1475932-->    
+    Eindgebruikers ziet aanvullende meldingen om aan te geven aan wanneer de bedrijfsportal-app voor Android Oreo achtergrondtaken, zoals het ophalen van beleid van de Intune-service uitvoert. Dit verhoogt de transparantie voor eindgebruikers over het uitvoeren van de bedrijfsportal is beheertaken op hun apparaat. Dit is onderdeel van de algemene [optimalisatie van de gebruikersinterface van de Portal bedrijf](https://blogs.technet.microsoft.com/intunesupport/2017/08/21/android-8-0-o-behaviour-changes-and-microsoft-intune) voor de bedrijfsportal-app voor Android Oreo. 
+
+- **Eindgebruikers informeren over welke gegevens van een apparaat worden weergegeven voor iOS**<!--739894-->    
+    We hebben toegevoegd **eigendomstype** naar het scherm Apparaatdetails op de bedrijfsportal-app voor iOS. Hiermee kunnen gebruikers voor meer informatie over privacy rechtstreeks op deze pagina van de Intune-eindgebruikers-documenten. Ze is ook mogelijk om deze informatie in het scherm over te vinden. 
+
+- **Gemakkelijker te begrijpen formulering voor de bedrijfsportal-app voor Android**<!---1396349-->       
+    Het inschrijvingsproces voor de bedrijfsportal-app voor Android is vereenvoudigd door nieuwe tekst om het gemakkelijker voor eindgebruikers te registreren. Als u aangepaste inschrijving documentatie hebt, wilt u een update uit om de nieuwe schermen weer te geven. U kunt voorbeeldquery afbeeldingen vinden op onze [UI-updates voor Intune-eindgebruikers apps](https://docs.microsoft.com/intune/whats-new-app-ui#week-of-september-11-2017) pagina.
+
+- **Windows 10-bedrijfsportal-app toegevoegd aan Windows Information Protection toestaan**<!-- 677129 -->    
+    De app bedrijfsportal voor Windows 10 is bijgewerkt ter ondersteuning van Windows-beveiliging (OHW). De app kan worden toegevoegd aan het onderhanden werk toestaan. Met deze wijziging heeft de app niet meer worden toegevoegd aan de **uitgezonderd** lijst. 
+
+- **Einde van de kennisgeving van ondersteuning toegevoegd voor iOS 8.0**    
+    Een bericht is toegevoegd voor einde van ondersteuning voor iOS 8.0. Zie voor meer informatie [meldingen](#notices).
+
 ## <a name="august-2017"></a>Augustus 2017
 
-### <a name="new-signed-in-experience-for-android-company-portal-users-and-app-protection-policy-users----621669---"></a>Nieuwe aangemelde ervaring voor Android-bedrijfsportal gebruikers- en beveiligingsbeleid van App-gebruikers<!-- 621669 -->
+### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune     
+
+- **Nieuwe aangemelde ervaring voor Android-bedrijfsportal gebruikers- en beveiligingsbeleid van App-gebruikers**<!-- 621669 -->    
 Eindgebruikers kunnen nu apps bladeren, apparaten beheren en weergeven contact opnemen met IT gegevens door middel van de Android-bedrijfsportal-app zonder hun Android-apparaten inschrijven. Bovendien, als een eindgebruiker al gebruikmaakt van een app door Intune-App worden beveiligd en start de Android-bedrijfsportal, de eindgebruiker niet langer gevraagd het apparaat te registreren.
 
 
@@ -311,6 +332,10 @@ De volgende aanvullende hybridefuncties zijn ook opgenomen in versie 1702 van Co
 
 
 ## <a name="notices"></a>Aankondigingen
+
+### <a name="end-of-support-for-ios-80"></a>Einde van ondersteuning voor iOS 8.0 
+<!---1164477--->
+Beheerde apps en de bedrijfsportal-app voor iOS is vereist voor iOS 9.0 en hoger voor toegang tot bedrijfsbronnen. Apparaten die niet worden bijgewerkt voordat September niet langer toegang tot de bedrijfsportal of deze apps. 
 
 ### <a name="platform-support-reminder-windows-phone-81-mainstream-support-ended-july-11-2017"></a>Herinnering voor platform-ondersteuning: Algemene ondersteuning voor Windows Phone 8.1 11 juli 2017 beëindigd
 <!-- 1327781 -->

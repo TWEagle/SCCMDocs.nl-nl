@@ -2,7 +2,7 @@
 title: Windows Hello voor bedrijven-instellingen | Microsoft Docs
 description: Informatie over het integreren van Windows Hello voor bedrijven met System Center Configuration Manager.
 ms.custom: na
-ms.date: 08/10/2017
+ms.date: 09/21/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "17"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: 1985428df0f82ef2e0a92fdec86189d5ffa03aee
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 43586e55f2c0c5cf117b94c61250f26ba4233f53
+ms.sourcegitcommit: 4c3906cf9614420cb8527da9e48978eb0b8f0e7a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="windows-hello-for-business-settings-in-system-center-configuration-manager"></a>Windows Hello voor bedrijven-instellingen in System Center Configuration Manager
 
@@ -65,8 +65,11 @@ Sommige configuraties mogelijk niet nodig hebt u machtigingen kunt configureren,
 |||||
 |-|-|-|-|
 |Versie van Windows-client|Configuration Manager 1602 of 1606|Configuration Manager 1610|Configuration Manager 1702 of hoger|
-|Windows 10 Verjaardag Update|Er is geen hotfix is vereist<br><br>Er zijn geen machtigingen die vereist zijn<br><br>Er is geen schema-update van Windows vereist|Er is geen hotfix is vereist<br><br>Er zijn geen machtigingen die vereist zijn<br><br>Er is geen schema-update van Windows vereist|Geen actie vereist|
+|Windows 10 Verjaardag Update|Er is geen hotfix is vereist<br><br>Er zijn geen machtigingen die vereist zijn<br><br>Er is geen schema-update van Windows vereist|Er is geen hotfix is vereist (Zie **waarschuwing**)<br><br>Er zijn geen machtigingen die vereist zijn<br><br>Er is geen schema-update van Windows vereist|Machtigingen configureren<br><br>Windows Server 2016-schema hebt toegepast met Active Directory|
 |Auteurs Update van Windows 10 of hoger|Niet ondersteund|Installeer [deze hotfix](https://support.microsoft.com/help/4010155/update-rollup-for-system-center-configuration-manager-current-branch-v)<br><br>Machtigingen configureren<br><br>Windows Server 2016-schema hebt toegepast met Active Directory|Machtigingen configureren<br><br>Windows Server 2016-schema hebt toegepast met Active Directory|
+
+> [!WARNING]
+> Terwijl [de hotfix](https://support.microsoft.com/help/4010155/update-rollup-for-system-center-configuration-manager-current-branch-v) is niet vereist voor Configuration Manager 1610 en Windows 10 Verjaardag Update, deze kan worden geïnstalleerd.  Als de hotfix is geïnstalleerd, moet u machtigingen configureren en toepassen van Windows Server 2016-schema in Active Directory.
 
 ## <a name="to-configure-permissions"></a>Om machtigingen te configureren
 
