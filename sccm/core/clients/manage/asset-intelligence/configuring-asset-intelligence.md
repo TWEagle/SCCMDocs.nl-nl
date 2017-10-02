@@ -140,7 +140,7 @@ Via het Asset Intelligence-synchronisatiepunt kunnen nieuwe Asset Intelligence-c
 
 2.  Op de **Start** tabblad, in de **Asset Intelligence** groep, kiest u **softwarelicenties importeren**.   
 
-4.  Geef op de pagina **Importeren** op of u een MVLS-bestand (.xml of .csv) of een algemene licentieverklaring (.csv) wilt importeren. Zie [Create a general license statement information file for import](#BKMK_CreateGeneralLicenseStatement) verderop in dit onderwerp voor meer informatie over het maken van een bestand met een algemene licentieverklaring.  
+4.  Geef op de pagina **Importeren** op of u een MVLS-bestand (.xml of .csv) of een algemene licentieverklaring (.csv) wilt importeren. Zie [Een bestand instructie algemene Licentieverklaring voor importeren maken](#BKMK_CreateGeneralLicenseStatement) verderop in dit onderwerp voor meer informatie over het maken van een bestand met een algemene licentieverklaring.  
 
     > [!WARNING]  
     >  Ga naar het [Microsoft Volume Licensing Service Center](http://go.microsoft.com/fwlink/p/?LinkId=226547)als u een MVLS-bestand in de CSV-indeling wilt downloaden dat u kunt importeren in de Asset Intelligence-catalogus. U krijgt alleen toegang tot deze gegevens als u over een geregistreerd account op de website beschikt. Neem contact op met uw Microsoft-accountmedewerker voor informatie over het ontvangen van een MVLS-bestand in de XML-indeling.  
@@ -152,7 +152,7 @@ Via het Asset Intelligence-synchronisatiepunt kunnen nieuwe Asset Intelligence-c
 
 6. Voltooi de wizard.  
 
-###  <a name="BKMK_CreateGeneralLicenseStatement"></a> Create a general license statement information file for import  
+###  <a name="BKMK_CreateGeneralLicenseStatement"></a>Een bestand instructie algemene Licentieverklaring voor importeren maken  
  Een algemene licentieverklaring kan ook in de Asset Intelligence-catalogus worden geïmporteerd via een handmatig gemaakt licentie-importbestand in een door komma’s gescheiden bestandsindeling (.csv).  
 
 > [!NOTE]  
