@@ -222,7 +222,7 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
     > [!NOTE]  
     >  Het computeraccount van de siteserver moet **Leesrechten** voor de bronmap hebben.  
 
-2.  Kopieer het voorgefaseerde mediabestand dat u maakte in de sectie [Create prestaged media](#BKMK_CreatePrestagedMedia) naar de pakketbronmap.  
+2.  Kopieer het voorgefaseerde mediabestand dat u maakte in de sectie [Voorbereide media maken](#BKMK_CreatePrestagedMedia) naar de pakketbronmap.  
 
 3.  Kopieer het hulpprogramma van Windows To Go Creator (WTGCreator.exe) naar de pakketbronmap. Het hulpprogramma creator is beschikbaar op elke primaire siteserver op de volgende locatie: <*ConfigMgrInstallationFolder*> \OSD\Tools\WTG\Creator.  
 
@@ -281,7 +281,7 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
  Windows To Go schakelt BitLocker in op een extern opstartbaar station zonder het gebruik van TPM. Daarom moet u een afzonderlijk hulpprogramma gebruiken om BitLocker op het Windows To Go-station te configureren. Om BitLocker in te schakelen, moet u een actie toevoegen aan de takenreeks na de stap **Windows en ConfigMgr installeren** .  
 
 > [!NOTE]  
->  BitLocker voor Windows To Go vereist een wachtwoordzin. In de stap [Create prestaged media](#BKMK_CreatePrestagedMedia) stelt u de wachtwoordzin in als deel van een prestart-opdracht door de OSDBitLockerPIN-variabele te gebruiken.  
+>  BitLocker voor Windows To Go vereist een wachtwoordzin. In de stap [Voorbereide media maken](#BKMK_CreatePrestagedMedia) stelt u de wachtwoordzin in als deel van een prestart-opdracht door de OSDBitLockerPIN-variabele te gebruiken.  
 
  Gebruik de volgende procedure om de Windows 8-takenreeks bij te werken om BitLocker voor Windows To Go in te schakelen.  
 
@@ -410,7 +410,7 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
     2.  **Verzameling**: Klik op **Bladeren** om de verzameling die alle apparaten waarvoor een gebruiker Windows To Go kan inrichten bevat selecteren.  
 
         > [!IMPORTANT]  
-        >  Als de voorgefaseerde media die u in de sectie [Create prestaged media](#BKMK_CreatePrestagedMedia) hebt gemaakt, gebruik maakt van de SMSTSPreferredAdvertID-variabele, kunt u de takenreeks implementeren op de verzameling **Alle systemen** en kunt u de instelling **Alleen Windows PE (verborgen)** op de pagina **Inhoud** specificeren. Omdat de takenreeks verborgen is, zal ze enkel beschikbaar zijn voor media.  
+        >  Als de voorgefaseerde media die u in de sectie [Voorbereide media maken](#BKMK_CreatePrestagedMedia) hebt gemaakt, gebruik maakt van de SMSTSPreferredAdvertID-variabele, kunt u de takenreeks implementeren op de verzameling **Alle systemen** en kunt u de instelling **Alleen Windows PE (verborgen)** op de pagina **Inhoud** specificeren. Omdat de takenreeks verborgen is, zal ze enkel beschikbaar zijn voor media.  
 
     3.  **Gebruik standaarddistributiepuntengroepen die gekoppeld zijn aan deze verzameling**: Selecteer deze optie als u wilt opslaan van inhoud van het pakket op de verzamelingen standaard distributiepuntengroep. Als u de geselecteerde verzameling niet hebt gekoppeld aan een distributiepuntgroep, wordt deze optie onbeschikbaar.  
 
@@ -421,7 +421,7 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
     -   **Toegankelijk maken voor de volgende**: Opgeven of de takenreeks beschikbaar is voor Configuration Manager-clients, media of PXE.  
 
         > [!IMPORTANT]  
-        >  Gebruik de instelling **Alleen media en PXE (verborgen)** voor geautomatiseerde implementaties van takenreeksen. Selecteer **Implementatie van besturingssysteem zonder toezicht toestaan** en stel de SMSTSPreferredAdvertID-variabele in als deel van de voorgefaseerde media om de computer automatisch te laten opstarten naar de Windows To Go-implementatie zonder gebruikersinteractie wanneer het een Windows To Go-station detecteert. Voor meer informatie over deze voorgefaseerde media-instellingen, zie de sectie [Create prestaged media](#BKMK_CreatePrestagedMedia) .  
+        >  Gebruik de instelling **Alleen media en PXE (verborgen)** voor geautomatiseerde implementaties van takenreeksen. Selecteer **Implementatie van besturingssysteem zonder toezicht toestaan** en stel de SMSTSPreferredAdvertID-variabele in als deel van de voorgefaseerde media om de computer automatisch te laten opstarten naar de Windows To Go-implementatie zonder gebruikersinteractie wanneer het een Windows To Go-station detecteert. Voor meer informatie over deze voorgefaseerde media-instellingen, zie de sectie [Voorbereide media maken](#BKMK_CreatePrestagedMedia) .  
 
 7.  Configureer op de pagina **Planning** de volgende instellingen en klik vervolgens op **Volgende**.  
 
@@ -459,7 +459,7 @@ Dit onderwerp bevat de stappen voor het inrichten van Windows To Go in System Ce
  Nadat u het Windows To Go-pakket en de Window 8-takenreeks hebt geïmplementeerd, is Windows To Go Creator toegankelijk voor de gebruiker. De gebruiker kan naar de softwarecatalogus gaan, of Software Center als de Windows To Go Creator werd geïmplementeerd op apparaten, en hij kan het Windows To Go Creator-programma uitvoeren. Zodra het creator-pakket is gedownload, verschijnt een knipperend pictogram op de taakbalk. Wanneer de gebruiker op het pictogram klikt, wordt een dialoogvenster getoond aan de gebruiker om het Windows To Go-station te selecteren om in te richten (tenzij de /drive-opdrachtregeloptie wordt gebruikt). Als het station niet voldoet aan de vereisten voor windows To Go of als het station onvoldoende vrij schrijfruimte heeft om de installatiekopie te installeren, toont het creator-programma een foutboodschap. De gebruiker kan het station en de installatiekopie controleren die vanop de bevestigingspagina zullen worden toegepast. Terwijl de creator inhoud naar het Windows To Go-station configureert en voorbereidt, wordt het vooruitgangsdialoogvenster getoond. Nadat de voorbereiding voltooid is, toont de creator een prompt om de computer opnieuw op te starten om te starten naar het Windows To Go-station.  
 
 > [!NOTE]  
->  Als u opstartomleiding niet hebt ingeschakeld als deel van de opdrachtregel voor het creator-programma in de sectie [Create a Windows To Go Creator package](#BKMK_CreatePackage) , kan de gebruiker verplicht zijn handmatig op te starten naar het Windows To Go-station telkens het systeem opnieuw opstart.  
+>  Als u opstartomleiding niet hebt ingeschakeld als deel van de opdrachtregel voor het creator-programma in de sectie [Een Windows To Go Creator-pakket maken](#BKMK_CreatePackage) , kan de gebruiker verplicht zijn handmatig op te starten naar het Windows To Go-station telkens het systeem opnieuw opstart.  
 
 ###  <a name="BKMK_ConfigureStageDrive"></a> Het Windows To Go-station wordt geconfigureerd en voorbereid door Configuration Manager  
  Nadat de computer opnieuw opgestart is naar het Windows To Go-station, zal het station opstarten naar Windows PE en een verbinding maken met het beheerpunt om het beleid te krijgen om de implementatie van het besturingssysteem te voltooien. Configuration Manager configureert en bereidt het station. Nadat Configuration Manager het station heeft voorbereid, kan de gebruiker opnieuw starten van de computer om het inrichtingsproces (zoals het koppelen van een domein of het installeren van apps) te voltooien. Dit proces is hetzelfde voor alle voorgefaseerde media.  
