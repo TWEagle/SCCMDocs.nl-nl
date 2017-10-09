@@ -2,7 +2,7 @@
 title: Technical Preview voor Configuration Manager | Microsoft Docs
 description: Meer informatie over de Technical Preview-versie dat we u test-drive nieuwe functionaliteit en mogelijkheden in System Center Configuration Manager.
 ms.custom: na
-ms.date: 08/25/2017
+ms.date: 09/28/2017
 ms.prod: configuration-manager
 ms.reviewer: nab
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "157"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: e471e11b3c61172b4e9fcae74944d39aa0ab702f
-ms.sourcegitcommit: 31c670a4bce74fd64a7d46ebf7702f65b80d4147
+ms.openlocfilehash: 429e20185bd23519f78c37ded39f2638d0c80ced
+ms.sourcegitcommit: 8ac9c2c9ba1fdcbb7cc8d5be898586865fcf67c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 10/07/2017
 ---
 # <a name="technical-preview-for-system-center-configuration-manager"></a>Technical Preview voor System Center Configuration Manager
 
@@ -114,10 +114,8 @@ U kunt een basislijnversie gedurende maximaal 1 jaar na de release installeren. 
 
  |Mogelijkheid |Technische Preview-versie |Huidige versie van het filiaal|  
  |----------------|---------------------|--------------------|
- |Verbeteringen voor de scriptparameters op te geven wanneer u een PowerShell-scripts uit Configuration Manager implementeren<!-- 1236459 -->|[Technische Preview 1708](capabilities-in-technical-preview-1708.md#improvements-for-specifying-script-parameters-when-you-deploy-powershell-scripts-from-configuration-manager)|![Niet toegevoegd](media/Red_X.gif)|
- |Management insights<!-- 1353967 --> |[Technische Preview 1708](capabilities-in-technical-preview-1708.md#management-insights)|![Niet toegevoegd](media/Red_X.gif)|
- |Computers uit de Configuration Manager-console opnieuw opstarten<!-- 1356283 --> |[Technische Preview 1708](capabilities-in-technical-preview-1708.md#restart-computers-from-the-configuration-manager-console)|![Niet toegevoegd](media/Red_X.gif)|
- |Aanpassing van software Center<!-- 1351224 --> |[Technische Preview 1708](capabilities-in-technical-preview-1708.md#software-center-customization)|![Niet toegevoegd](media/Red_X.gif)|
+ |Verbeterde VPN-profiel ervaring in Configuration Manager-Console<!-- 1313282 --> | [Technische Preview 1709](capabilities-in-technical-preview-1709.md) |![Niet toegevoegd](media/Red_X.gif)    |
+ |CO-beheer voor Windows 10-apparaten|[Technische Preview 1709](capabilities-in-technical-preview-1709.md#co-management-for-windows-10-devices)|![Niet toegevoegd](media/Red_X.gif)    |
 
 
 ## <a name="capabilities-delivered-in-previous-technical-previews"></a>Mogelijkheden die in vorige technical Previews worden geboden
@@ -125,7 +123,11 @@ U kunt een basislijnversie gedurende maximaal 1 jaar na de release installeren. 
 
  |Mogelijkheid |Technische Preview-versie |Huidige versie van het filiaal|  
  |----------------|---------------------|--------------------|
- |Client-Peer-Cache-ondersteuning voor bestanden voor snelle installatie voor Windows 10 en Office 365|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#client-peer-cache-support-for-express-installation-files-for-windows-10-and-office-365)|![Niet toegevoegd](media/Red_X.gif)|
+ |Verbeteringen voor de scriptparameters op te geven wanneer u een PowerShell-scripts uit Configuration Manager implementeren<!-- 1236459 -->|[Technische Preview 1708](capabilities-in-technical-preview-1708.md#improvements-for-specifying-script-parameters-when-you-deploy-powershell-scripts-from-configuration-manager)|![Niet toegevoegd](media/Red_X.gif)|
+ |Management insights<!-- 1353967 --> |[Technische Preview 1708](capabilities-in-technical-preview-1708.md#management-insights)|![Niet toegevoegd](media/Red_X.gif)|
+ |Computers uit de Configuration Manager-console opnieuw opstarten<!-- 1356283 --> |[Technische Preview 1708](capabilities-in-technical-preview-1708.md#restart-computers-from-the-configuration-manager-console)|![Niet toegevoegd](media/Red_X.gif)|
+ |Aanpassing van software Center<!-- 1351224 --> |[Technische Preview 1708](capabilities-in-technical-preview-1708.md#software-center-customization)|![Niet toegevoegd](media/Red_X.gif)|
+|Client-Peer-Cache-ondersteuning voor bestanden voor snelle installatie voor Windows 10 en Office 365|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#client-peer-cache-support-for-express-installation-files-for-windows-10-and-office-365)|![Niet toegevoegd](media/Red_X.gif)|
  |Surface apparaat dashboard|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#surface-device-dashboard)|![Niet toegevoegd](media/Red_X.gif)|
  |Windows Defender toepassing Guard beleid configureren en implementeren|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#configure-and-deploy-windows-defender-application-guard-policies)|![Niet toegevoegd](media/Red_X.gif)|
  |Parameters toevoegen bij het implementeren van PowerShell-scripts uit Configuration Manager|[Technische Preview 1707](capabilities-in-technical-preview-1707.md#add-parameters-when-you-deploy-powershell-scripts-from-configuration-manager)|![Niet toegevoegd](media/Red_X.gif)|
@@ -221,37 +223,38 @@ U kunt een basislijnversie gedurende maximaal 1 jaar na de release installeren. 
  |Office 365-apps implementeren op clients|[Technische Preview 1609](capabilities-in-technical-preview-1609.md#deploy-office-365-apps-to-clients)|[Versie 1702](/sccm/sum/deploy-use/manage-office-365-proplus-updates#deploy-office-365-apps)|
  |Verbeteringen in BIOS in UEFI-conversie|[Technische Preview 1609](capabilities-in-technical-preview-1609.md#BKMK_UEFIConversion)|[Versie 1610](/sccm/osd/deploy-use/task-sequence-steps-to-manage-bios-to-uefi-conversion)|
  |Intune naleving grafieken|[Technische Preview 1609](capabilities-in-technical-preview-1609.md#intune-compliance-charts)|[Versie 1610](/sccm/protect/deploy-use/create-compliance-policy#monitor-the-compliance-policy)|
- |Verbeteringen in de takenreeksstap ConfigMgr-client voorbereiden voor vastleggen|[Technische Preview 1608](capabilities-in-technical-preview-1608.md#improvements-to-the-prepare-configmgr-client-for-capture-task-sequence-step)|[Versie 1610](/sccm/osd/understand/task-sequence-steps#BKMK_PrepareConfigMgrClientforCapture)|
- |Verbeteringen aan Software Center|[Technische Preview 1608](capabilities-in-technical-preview-1608.md#improvements-to-software-center)|[Versie 1610](/sccm/core/plan-design/changes/whats-new-in-version-1610#general-improvements-to-software-center)|
- |Verbeteringen in Asset Intelligence<!-- Listed as TBD. No planned addition to Current Branch -->|[Technische Preview 1608](capabilities-in-technical-preview-1608.md#improvements-to-asset-intelligence)|![Niet toegevoegd](media/Red_X.gif)|
- |De vertaling van beheer op afstand toetsenbord|[Technische Preview 1608](capabilities-in-technical-preview-1608.md#remote-control-keyboard-translation)| [Versie 1610](/sccm/core/clients/manage/remote-control/configuring-remote-control#enable-keyboard-translation)|
- |Verbeteringen in het upgradebeleid van de Windows 10-editie|[Technische Preview 1607](capabilities-in-technical-preview-1607.md#dmp_edition)|[Versie 1610](/sccm/compliance/deploy-use/upgrade-windows-version)|
- |Aanpasbare huisstijl voor Software Center-dialoogvensters|[Technische Preview 1607](capabilities-in-technical-preview-1607.md#customizable-branding-for-software-center-dialogs)|[Versie 1610](/sccm/core/plan-design/changes/whats-new-in-version-1610#customizable-branding-for-software-center-dialogs)|  
- |Meerdere apparaatbeheerpunten voor On-premises Mobile Device Management|[Technische Preview 1606](capabilities-in-technical-preview-1606.md#dmp_onprem)|[Versie 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606#on-premises-mobile-device-management)|
- |Apparaten automatisch categoriseren in verzamelingen|[Technische Preview 1606](capabilities-in-technical-preview-1606.md#dmp_category)|[Versie 1606](/sccm/core/clients/manage/collections/automatically-categorize-devices-into-collections) |
- |Respijtperiode afdwingen voor vereiste toepassingen en software-update-implementaties|[Technische Preview 1606](capabilities-in-technical-preview-1606.md#dmp_grace)|[Versie 1610](/sccm/apps/deploy-use/deploy-applications)|
- |Configuration Manager gebruiken als een beheerd installatieprogramma met Device Guard|[Technische Preview 1606](capabilities-in-technical-preview-1606.md#dmp_devg)|[Versie 1702](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager )|
- |Cloud management gateway (voorheen Cloudproxyservice)|[Technische Preview 1606](capabilities-in-technical-preview-1606.md#cloud_proxy) | [Versie 1610](/sccm/core/clients/manage/plan-cloud-management-gateway)|  
- |Office 365-clientagent beheren in Configuration Manager|[Technische Preview 1606](capabilities-in-technical-preview-1606.md#manage_o365) |[Versie 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606#software-updates)|  
- |Takenreeksvariabele OSDPreserveDriveLetter is afgeschaft|[Technische Preview 1606](capabilities-in-technical-preview-1606.md#osdpreservedriveletter) |[Versie 1606](/sccm/osd/understand/task-sequence-built-in-variables) |
- |Wijzigingen voor het knooppunt Updates en onderhoud|[Technische Preview 1606](capabilities-in-technical-preview-1606.md#updatesandservicing)|[Versie 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606#updates-and-servicing) |
- |Per app VPN voor Windows 10-apparaten|[Technische Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_PerAppVPN)|[Versie 1606](/sccm/protect/deploy-use/create-vpn-profiles)|  
- |Verbeteringen in de takenreeks Software-updates installeren|[Technische Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_InstallSU)|[Versie 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606#operating-system-deployment)|  
- |Verbeteringen in de takenreeksstap ConfigMgr-client voorbereiden voor vastleggen |[Technische Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_PrepareConfigMgrClient)|[Versie 1610](/sccm/osd/understand/task-sequence-steps#BKMK_PrepareConfigMgrClientforCapture) |
- |Respijtperiode voor vereiste toepassingsimplementaties |[Technische Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_Grace)|![Niet toegevoegd](media/Red_X.gif)|  
- |Nieuwe ervaring voor acties van externe apparaten |[Technische Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_Remote)|[Versie 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606#device-configuration-and-protection)|  
- |Windows Store voor Bedrijven-apps |[Technische Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_WSFB)|[Versie 1606](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)|  
- |Algemene verbeteringen voor apps die zijn gekocht via het volume-aankoopprogramma|[Technische Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_VPP2)|[Versie 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606)|  
- |Ondernemingsgegevensbescherming (EDP)|[Technische Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_VPP)|[Versie 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606)|  
- |Eindgebruikers kunnen apps installeren vanuit de bedrijfsportal |[Technische Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_End)|![Niet toegevoegd](media/Red_X.gif)|  
- |Nieuwe tabbladen voor Updates en Besturingssystemen in Software Center|[Technische Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_SW1)|[Versie 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606#application-management)|  
- |Een servergroep onderhouden |[Technische Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_ServerGroups)|[Versie 1606](/sccm/sum/deploy-use/service-a-server-group)|   
- |Ondersteuning voor de Windows Defender-service Advanced Threat Protection |[Technische Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_ATP)|[Versie 1606](/sccm/protect/deploy-use/windows-defender-advanced-threat-protection)|  
- |Nieuwe opties voor het opnieuw opstarten van Windows 10-clients na de installatie van een software-update|[Technische Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_RestartOptions)|[Versie 1606](/sccm/sum/plan-design/plan-for-software-updates#restart-options-for-Windows-10-clients-after-software-update-installation)|  
- |On-premises apparaatstatusverklaring |[Technische Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_DHA)|[Versie 1606](/sccm/core/servers/manage/health-attestation)|  
- |Vooraf declareren van apparaten in bedrijfseigendom met IMEI-nummer of iOS-serienummer|[Technische Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_IMEI)|[Versie 1606](/sccm/mdm/deploy-use/predeclare-devices-with-hardware-id)|  
 
- <!--  TP 1604 and earlier has aged out of support and all features are in Current Branch builds:
+
+ <!--  TP 1608 and earlier have aged out of support. Features from these previews are either in the minimum supported Current Branch version, or are not scheduled for inclusion.
+ |Improvements to the Prepare ConfigMgr Client for Capture task sequence step|[Tech Preview 1608](capabilities-in-technical-preview-1608.md#improvements-to-the-prepare-configmgr-client-for-capture-task-sequence-step)|[Version 1610](/sccm/osd/understand/task-sequence-steps#BKMK_PrepareConfigMgrClientforCapture)|
+ |Improvements to Software Center|[Tech Preview 1608](capabilities-in-technical-preview-1608.md#improvements-to-software-center)|[Version 1610](/sccm/core/plan-design/changes/whats-new-in-version-1610#general-improvements-to-software-center)|
+ |Improvements to Asset Intelligence|[Tech Preview 1608](capabilities-in-technical-preview-1608.md#improvements-to-asset-intelligence)|N/A|
+ |Remote control keyboard translation|[Tech Preview 1608](capabilities-in-technical-preview-1608.md#remote-control-keyboard-translation)|[Version 1702](/sccm/core/clients/manage/remote-control/configuring-remote-control#enable-keyboard-translation)|
+ |Improvements to the Windows 10 Edition Upgrade Policy|[Tech Preview 1607](capabilities-in-technical-preview-1607.md#dmp_edition)|[Version 1610](/sccm/compliance/deploy-use/upgrade-windows-version)|
+ |Customizable Branding for Software Center Dialogs|[Tech Preview 1607](capabilities-in-technical-preview-1607.md#customizable-branding-for-software-center-dialogs)|[Version 1610](/sccm/core/plan-design/changes/whats-new-in-version-1610#customizable-branding-for-software-center-dialogs)|  
+ |Multiple device management points for On-premises Mobile Device Management|[Tech Preview 1606](capabilities-in-technical-preview-1606.md#dmp_onprem)|[Version 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606#on-premises-mobile-device-management)|
+ |Automatically categorize devices into collections|[Tech Preview 1606](capabilities-in-technical-preview-1606.md#dmp_category)|[Version 1606](/sccm/core/clients/manage/collections/automatically-categorize-devices-into-collections) |
+ |Enforcement grace period for required application and software update deployments|[Tech Preview 1606](capabilities-in-technical-preview-1606.md#dmp_grace)|[Version 1610](/sccm/apps/deploy-use/deploy-applications)|
+ |Using Configuration Manager as a Managed Installer with Device Guard|[Tech Preview 1606](capabilities-in-technical-preview-1606.md#dmp_devg)|[Version 1702](/sccm/protect/deploy-use/use-device-guard-with-configuration-manager)|
+ |Cloud management gateway (formerly Cloud Proxy Service)|[Tech Preview 1606](capabilities-in-technical-preview-1606.md#cloud_proxy) | [Version 1610](/sccm/core/clients/manage/plan-cloud-management-gateway)|  
+ |Manage the Office 365 client agent in Configuration Manager|[Tech Preview 1606](capabilities-in-technical-preview-1606.md#manage_o365) |[Version 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606#software-updates)|  
+ |The OSDPreserveDriveLetter task sequence variable has been deprecated|[Tech Preview 1606](capabilities-in-technical-preview-1606.md#osdpreservedriveletter) |[Version 1606](/sccm/osd/understand/task-sequence-built-in-variables) |
+ |Changes for the Updates and Servicing Node|[Tech Preview 1606](capabilities-in-technical-preview-1606.md#updatesandservicing)|[Version 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606#updates-and-servicing) |
+ |Per-app VPN for Windows 10 devices|[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_PerAppVPN)|[Version 1606](/sccm/protect/deploy-use/create-vpn-profiles)|  
+ |Improvements to the Install software updates task sequence|[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_InstallSU)|[Version 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606#operating-system-deployment)|  
+ |Improvements to the Prepare ConfigMgr Client for Capture task sequence step |[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_PrepareConfigMgrClient)|[Version 1610](/sccm/osd/understand/task-sequence-steps#BKMK_PrepareConfigMgrClientforCapture) |
+ |Grace period for required application deployments |[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_Grace)|N/A|  
+ |New experience for remote device actions |[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_Remote)|[Version 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606#device-configuration-and-protection)|  
+ |Windows Store for Business apps |[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_WSFB)|[Version 1606](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)|  
+ |General improvements for volume-purchased apps|[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_VPP2)|[Version 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606)|  
+ |Enterprise Data Protection (EDP)|[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_VPP)|[Version 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606)|  
+ |End users can install apps from the Company Portal |[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_End)|N/A|  
+ |New tabs for Updates and Operating Systems in Software Center|[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_SW1)|[Version 1606 ](/sccm/core/plan-design/changes/whats-new-in-version-1606#application-management)|  
+ |Service a server group |[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_ServerGroups)|[Version 1606](/sccm/sum/deploy-use/service-a-server-group)|   
+ |Support for Windows Defender Advanced Threat Protection service |[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_ATP)|[Version 1606](/sccm/protect/deploy-use/windows-defender-advanced-threat-protection)|  
+ |New restart options for Windows 10 clients after software update installation|[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_RestartOptions)|[Version 1606](/sccm/sum/plan-design/plan-for-software-updates#restart-options-for-Windows-10-clients-after-software-update-installation)|  
+ |On-premises Device Health Attestation |[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_DHA)|[Version 1606](/sccm/core/servers/manage/health-attestation)|  
+ |Pre-declare corporate-owned devices with IMEI or iOS serial number|[Tech Preview 1605](capabilities-in-technical-preview-1605.md#BKMK_IMEI)|[Version 1606](/sccm/mdm/deploy-use/predeclare-devices-with-hardware-id)|  
  |Manage volume-purchased apps from the Windows Store for Business| [Tech Preview 1604](capabilities-in-technical-preview-1604.md#BKMK_WindowsVPP)|[Version 1606](/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business)|  
  |Improvements to Microsoft Passport for Work management|[Tech Preview 1604](capabilities-in-technical-preview-1604.md#BKMK_PFW)|[Version 1606](/sccm/core/plan-design/changes/whats-new-in-version-1606#device-configuration-and-protection)|  
  |Option for clients to switch to a new software update point|[Tech Preview 1604](capabilities-in-technical-preview-1604.md#bkmk_switchsup)|[Version 1606](/sccm/sum/plan-design/plan-for-software-updates#BKMK_ManuallySwitchSUPs)|  

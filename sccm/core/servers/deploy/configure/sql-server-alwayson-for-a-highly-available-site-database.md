@@ -2,7 +2,7 @@
 title: SQL Server AlwaysOn | Microsoft Docs
 description: Plan het gebruik van een SQL Server altijd op beschikbaarheidsgroep met SCCM.
 ms.custom: na
-ms.date: 7/31/2017
+ms.date: 09/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "16"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: c746365238e1255d73387a9496521bb03a56b21b
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 3e275f6203a9e0b9210bfbadbf9addf64f6533d8
+ms.sourcegitcommit: 8faf42135a8dc9c384407e64f3f8ba204fb15847
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="prepare-to-use-sql-server-always-on-availability-groups-with-configuration-manager"></a>Voorbereiden op het gebruik van SQL Server Always On availability groups met Configuration Manager
 
@@ -210,8 +210,11 @@ U kunt het volgende script om te controleren of de databaseconfiguraties voor pr
 ## <a name="limitations-and-known-issues"></a>Bekende problemen en beperkingen
 De volgende beperkingen zijn van toepassing op alle scenario's.   
 
-**Basic-beschikbaarheidsgroepen worden niet ondersteund:**  
-Geïntroduceerd in SQL Server 2016 Standard edition [basic beschikbaarheidsgroepen](https://msdn.microsoft.com/library/mt614935.aspx) bieden geen ondersteuning voor leestoegang tot secundaire replica's is een vereiste voor gebruik met Configuration Manager.
+**SQL Server-opties en configuraties die niet worden ondersteund:**
+- **Basic-beschikbaarheidsgroepen**  
+  Geïntroduceerd in SQL Server 2016 Standard edition [basic beschikbaarheidsgroepen](https://msdn.microsoft.com/library/mt614935.aspx) bieden geen ondersteuning voor leestoegang tot secundaire replica's is een vereiste voor gebruik met Configuration Manager.
+- **Failover Cluster exemplaar**  
+  [Failover Cluster Instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server) worden niet ondersteund voor een replica die u met Configuration Manager gebruikt.
 
 **SQL-servers die als host aanvullende beschikbaarheidsgroepen fungeren:**   
 Voorafgaand aan de Configuration Manager versie 1610, wanneer een beschikbaarheidsgroep op een SQL Server-hosts een of meer beschikbaarheidsgroepen naast de groep die u voor Configuration Manager, elke replica in elk van deze groepen extra beschikbaarheid gebruikt moeten hebben de volgende configuraties die zijn ingesteld op het moment dat u Configuration Manager Setup uitvoert of een update installeert voor Configuration Manager:

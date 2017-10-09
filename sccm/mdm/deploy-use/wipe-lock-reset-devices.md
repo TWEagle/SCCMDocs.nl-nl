@@ -2,7 +2,7 @@
 title: Gegevens beschermen met wissen op afstand, vergrendelen of opnieuw instellen met behulp van System Center Configuration Manager van wachtwoordcode | Microsoft Docs
 description: Apparaatgegevens beveiligen met volledig wissen, selectief wissen, vergrendelen op afstand en wachtwoordcode opnieuw instellen met behulp van System Center Configuration Manager.
 ms.custom: na
-ms.date: 03/27/2017
+ms.date: 09/28/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -12,14 +12,14 @@ ms.topic: article
 ms.assetid: 770da7bd-02dd-474a-9604-93ff1ea0c1e4
 caps.latest.revision: "18"
 caps.handback.revision: "0"
-author: nathbarn
-ms.author: nathbarn
+author: dougeby
+ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 351fdc6328dd0859d60e00b128963df738e69f81
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: ea92d7b4656a04f312f04c19cac6b17df931c9c5
+ms.sourcegitcommit: db079cd7322e7d4926b2df0ccb37e752c570d902
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="protect-data-with-remote-wipe-lock-or-passcode-reset-by-using-system-center-configuration-manager"></a>Gegevens beschermen met wissen op afstand, vergrendelen of de wachtwoordcode opnieuw instellen met behulp van System Center Configuration Manager
 
@@ -179,6 +179,9 @@ Als een gebruiker de wachtwoordcode vergeet, kunt u helpen door de wachtwoordcod
 |Windows RT 8.1 |Niet ondersteund.|  
 |Windows 8.1-pc 's |Niet ondersteund.|  
 
+> [!Note]    
+> U moet de wachtwoordcode opnieuw instellen van actie uitvoeren vanaf de site op het hoogste niveau in uw omgeving. Bijvoorbeeld, als u een centrale beheersite gebruikt, kunt u alleen de actie uitvoeren op die site. Als u een zelfstandige primaire site, kunt u de actie alleen uitvoeren op die site.
+
 #### <a name="to-reset-the-passcode-on-a-mobile-device-remotely-in-configuration-manager"></a>Vanuit Configuration Manager op afstand de wachtwoordcode opnieuw instellen op een mobiel apparaat  
 
 1. Kies in de Configuration Manager-console **activa en naleving** en kies **apparaten**. U kunt ook kiezen **Apparaatverzamelingen** en een verzameling selecteren.  
@@ -206,6 +209,9 @@ Als een gebruiker het apparaat verliest, kunt u het apparaat op afstand vergrend
 |Windows Phone 8 en Windows Phone 8.1|Ondersteund.|  
 |Windows RT 8.1 |Ondersteund als de huidige gebruiker van het apparaat dezelfde gebruiker is die het apparaat heeft geregistreerd.|  
 |Windows 8.1|Ondersteund als de huidige gebruiker van het apparaat dezelfde gebruiker is die het apparaat heeft geregistreerd.|  
+
+> [!Note]    
+> U moet de actie vergrendelen op afstand uitvoeren van de site op het hoogste niveau in uw omgeving. Bijvoorbeeld, als u een centrale beheersite gebruikt, kunt u alleen de actie uitvoeren op die site. Als u een zelfstandige primaire site, kunt u de actie alleen uitvoeren op die site.
 
 #### <a name="to-lock-a-mobile-device-remotely-through-the-configuration-manager-console"></a>Een mobiel apparaat op afstand vanuit de Configuration Manager-console vergrendelen  
 

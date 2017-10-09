@@ -2,7 +2,7 @@
 title: Endpoint Protection-malwaredefinities | Microsoft Docs
 description: Informatie over het configureren van Configuration Manager software-updates voor het leveren van definitie-updates aan clientcomputers.
 ms.custom: na
-ms.date: 02/14/2017
+ms.date: 10/06/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "21"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.openlocfilehash: ca40c2c745ea516b56b637249b892cd44e570a9d
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: d2c29ea4c2b49142c6e63e2b5e829271098eac70
+ms.sourcegitcommit: 8ac9c2c9ba1fdcbb7cc8d5be898586865fcf67c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/07/2017
 ---
 #  <a name="using-configuration-manager-software-updates-to-deliver-definition-updates"></a>Met behulp van Configuration Manager Software-Updates te leveren van definitie-Updates
 
@@ -68,15 +68,15 @@ ms.lasthandoff: 08/07/2017
 
 13. Klik op **OK** om het dialoogvenster **Zoekcriteria** te sluiten en klik vervolgens op **Volgende**.
 
-14. Schakel in de lijst **Eigenschapsfilters** het selectievakje **Vervangen** in.
+14. U kunt eventueel filteren vervangen updates.   Te doen:
+  1.  Schakel in de lijst **Eigenschapsfilters** het selectievakje **Vervangen** in.
+  2.  In de **zoekcriteria** lijst, klikt u op **< te zoeken items\>**. Selecteer vervolgens in het dialoogvenster **Zoekcriteria** in de lijst **Geef de te zoeken waarde op** de optie **Geen**.  <br><br>
 
-15. In de **zoekcriteria** lijst, klikt u op **< te zoeken items\>**. Selecteer vervolgens in het dialoogvenster **Zoekcriteria** in de lijst **Geef de te zoeken waarde op** de optie **Geen**.
+15. Klik op **OK** om het dialoogvenster **Zoekcriteria** te sluiten en klik vervolgens op **Volgende**.
 
-16. Klik op **OK** om het dialoogvenster **Zoekcriteria** te sluiten en klik vervolgens op **Volgende**.
+16. Selecteer op de pagina **Evaluatieschema** van de wizard de optie **De regel inschakelen zodat deze volgens een schema wordt uitgevoerd**en configureer vervolgens het schema volgens welke de definitie-updates moeten worden gedownload. Stel de regel zo in dat deze minimaal twee uur na de synchronisatie van elk software-updatepunt wordt uitgevoerd. Klik op **Volgende**.
 
-17. Selecteer op de pagina **Evaluatieschema** van de wizard de optie **De regel inschakelen zodat deze volgens een schema wordt uitgevoerd**en configureer vervolgens het schema volgens welke de definitie-updates moeten worden gedownload. Stel de regel zo in dat deze minimaal twee uur na de synchronisatie van elk software-updatepunt wordt uitgevoerd. Klik op **Volgende**.
-
-18. Configureer op de pagina **Implementatieplanning** van de wizard de volgende instellingen:
+17. Configureer op de pagina **Implementatieplanning** van de wizard de volgende instellingen:
 
     -   **Tijd is gebaseerd op**: Selecteer **UTC** als u wilt dat alle clients in de hiërarchie voor het installeren van de meest recente definities op hetzelfde moment. Het daadwerkelijke tijdstip kan maximaal twee uur variëren. Deze instelling wordt aanbevolen.
 
@@ -87,28 +87,28 @@ ms.lasthandoff: 08/07/2017
         > [!NOTE]
         >  Deadlines voor software-updates vinden verspreid over een periode van twee uur plaats zodat wordt voorkomen dat alle clients op hetzelfde moment een update aanvragen.
 
-19. Klik op **Volgende**.
+18. Klik op **Volgende**.
 
-20. Selecteer op de pagina **Gebruikerservaring** van de wizard, in de lijst **Gebruikersmeldingen** , de optie **Verbergen in Software Center en alle meldingen**.   Dit zorgt ervoor dat de definitie-updates op de achtergrond worden geïnstalleerd. Klik op **Volgende**.
+19. Selecteer op de pagina **Gebruikerservaring** van de wizard, in de lijst **Gebruikersmeldingen** , de optie **Verbergen in Software Center en alle meldingen**.   Dit zorgt ervoor dat de definitie-updates op de achtergrond worden geïnstalleerd. Klik op **Volgende**.
 
-21. U hoeft op de pagina **Waarschuwingen** van de wizard geen waarschuwingen te configureren. Endpoint Protection in Configuration Manager genereert waarschuwingen die mogelijk vereist. Klik op **Volgende**.
+20. U hoeft op de pagina **Waarschuwingen** van de wizard geen waarschuwingen te configureren. Endpoint Protection in Configuration Manager genereert waarschuwingen die mogelijk vereist. Klik op **Volgende**.
 
-22. Selecteer op de pagina **Downloadinstellingen** van de wizard de wijze waarop de benodigde software-updates moeten worden gedownload en klik vervolgens op **Volgende**.
+21. Selecteer op de pagina **Downloadinstellingen** van de wizard de wijze waarop de benodigde software-updates moeten worden gedownload en klik vervolgens op **Volgende**.
 
-23. Selecteer op de pagina **Implementatiepakket** van de wizard een bestaand implementatiepakket of maak een nieuw implementatiepakket dat de software-updatebestanden bevat die aan de regel zijn gekoppeld.
+22. Selecteer op de pagina **Implementatiepakket** van de wizard een bestaand implementatiepakket of maak een nieuw implementatiepakket dat de software-updatebestanden bevat die aan de regel zijn gekoppeld.
 
     > [!NOTE]
     >  U kunt de definitie-updates het beste in een pakket opnemen dat geen andere software-updates bevat. Op die manier blijft de grootte van het definitie-updatepakket beperkt, waardoor het pakket sneller naar de distributiepunten kan worden gerepliceerd.
 
-24. Selecteer op de pagina **Distributiepunten** van de wizard een of meer distributiepunten waarnaar u de inhoud voor dit pakket wilt kopiëren en klik vervolgens op **Volgende**.
+23. Selecteer op de pagina **Distributiepunten** van de wizard een of meer distributiepunten waarnaar u de inhoud voor dit pakket wilt kopiëren en klik vervolgens op **Volgende**.
 
-25. Selecteer op de pagina **Downloadlocatie** van de wizard de optie **Software-updates downloaden vanaf internet**en klik vervolgens op **Volgende**.
+24. Selecteer op de pagina **Downloadlocatie** van de wizard de optie **Software-updates downloaden vanaf internet**en klik vervolgens op **Volgende**.
 
-26. Selecteer op de pagina **Taalselectie** van de wizard elke taalversie van de updates die moet worden gedownload en klik vervolgens op **Volgende**.
+25. Selecteer op de pagina **Taalselectie** van de wizard elke taalversie van de updates die moet worden gedownload en klik vervolgens op **Volgende**.
 
-27. Voltooi de wizard Regel voor automatische implementaties maken.
+26. Voltooi de wizard Regel voor automatische implementaties maken.
 
-28. Controleer of de nieuwe regel wordt weergegeven de **regels voor automatische implementatie** knooppunt van de Configuration Manager-console.
+27. Controleer of de nieuwe regel wordt weergegeven de **regels voor automatische implementatie** knooppunt van de Configuration Manager-console.
 
 
 > [!div class="button"]

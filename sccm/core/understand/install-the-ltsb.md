@@ -14,11 +14,11 @@ caps.latest.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 06565bc52e2c409b905bbc448262cf9da25eabb0
-ms.sourcegitcommit: 4c3906cf9614420cb8527da9e48978eb0b8f0e7a
+ms.openlocfilehash: 247fbe5313c17be906802acfaa6952ab3358122e
+ms.sourcegitcommit: a17f5dece340a70cedbec03d19938dab90ae60b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="install-and-upgrade-with-the-version-1606-baseline-media-for-system-center-configuration-manager"></a>Installatie en upgrade met de versie 1606 basislijnmedia voor System Center Configuration Manager
 
@@ -121,14 +121,14 @@ Wanneer u een van System Center 2012 Configuration Manager upgrade, gebruikt u d
 **Upgrade naar de LTSB:**  
 - Aanvullende stappen voor het volgende in de controlelijst voor de upgrade.
 - Tijdens de installatie moet u de LTSB en kunt u de details voor de overeenkomst van uw Software Assurance opgeven.
-- U kunt alleen upgraden van een site waarop System Center 2012 Configuration Manager met Service Pack 2 of System Center 2012 R2 Configuration Manager met Service Pack 1.
+- U kunt alleen een site waarop System Center 2012 Configuration Manager met Service Pack 1, System Center 2012 Configuration Manager met Service Pack 2, System Center 2012 R2 Configuration Manager met Service Pack 1 of System Center 2012 R2 Configuration upgraden Manager zonder service Pack.
 
 ### <a name="in-place-upgrade-paths-for-the-1606-baseline-media"></a>In-place upgradepaden voor de basislijn 1606 media
 De basislijnmedia 1606 kunt u de volgende versies upgraden naar een gelicentieerde versie van System Center Configuration Manager:
 - System Center 2012 R2 Configuration Manager met servicepack 1
 - System Center 2012 R2 Configuration Manager zonder servicepack (hiervoor is het gebruik van de basislijnmedia voor versie 1606 die is uitgebracht op 15 December 2016 vereist.)
 - System Center 2012 Configuration Manager met servicepack 2
-- System Center 2012 Configuration Manager met servicepack 1
+- System Center 2012 Configuration Manager met Service Pack 1 (hiervoor is het gebruik van de basislijnmedia voor versie 1606 die is uitgebracht op 15 December 2016 vereist.)
 
 
 U kunt ook dit medium een evaluatie-editie niet-gelicentieerde van Current Branch bijwerken naar een volledig gelicentieerde versie van de huidige vertakking.

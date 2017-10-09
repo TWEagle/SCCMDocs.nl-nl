@@ -2,7 +2,7 @@
 title: Wat is er nieuw in hybride MDM met Configuration Manager | Microsoft Docs
 description: Meer informatie over de nieuwe functies voor mobiele apparaten beschikbaar voor hybride implementaties met Configuration Manager en Intune.
 ms.custom: na
-ms.date: 06/30/2017
+ms.date: 10/04/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -10,25 +10,29 @@ ms.technology: configmgr-hybrid
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7b127cee-61f1-4681-9760-caebed36ddf5
-caps.latest.revision: "40"
-author: Mtillman
-ms.author: mtillman
+author: dougeby
+ms.author: dougeby
 manager: angrobe
-ms.openlocfilehash: 2ef4964a74e000feac029b158f6fe0c52e3de370
-ms.sourcegitcommit: 51654bf8b5615eb99084d0a20d18ca3fccfa83a1
+ms.openlocfilehash: 6c2c6ffee3b2084ede61e5602a78bf5ca82446f6
+ms.sourcegitcommit: 6c70e0af8d9af208009641786a3b555db4482e97
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 10/05/2017
 ---
 # <a name="whats-new-in-hybrid-mobile-device-management-with-system-center-configuration-manager-and-microsoft-intune"></a>Wat is er nieuw in hybride mobile device management met System Center Configuration Manager en Microsoft Intune
 
 *Van toepassing op: System Center Configuration Manager (huidige vertakking)*
 
-Dit artikel bevat informatie op de nieuwe mobiele apparaat management (MDM)-functies die beschikbaar zijn voor hybride implementaties met System Center Configuration Manager en Microsoft Intune.  
+Dit artikel bevat informatie op de nieuwe mobiele apparaat management (MDM)-functies die beschikbaar zijn voor hybride implementaties met System Center Configuration Manager en Microsoft Intune.     
+
+> [!Note]    
+> Intune in Azure is de aanbevolen MDM-oplossing van Microsoft.     
+> - Zie voor meer informatie over nieuwe functies en -updates in de zelfstandige versie van Intune [wat is er nieuw in Intune](https://docs.microsoft.com/intune/whats-new).    
+> - Zie voor meer informatie over het migreren naar Intune zelfstandige [hybride MDM-gebruikers en apparaten migreren naar Intune standalone](https://docs.microsoft.com/sccm/mdm/deploy-use/migrate-hybridmdm-to-intunesa).
+> - Zie voor meer informatie over updates van de gebruikersinterface voor Intune en hybride MDM [UI-updates voor Intune-eindgebruikers apps](https://docs.microsoft.com/intune/whats-new-app-ui). 
 
 ##  <a name="compatibility-with-configuration-manager-versions"></a>Compatibiliteit met versies van Configuration Manager  
-
- Elke sectie van dit artikel vindt u hybridefuncties onder drie verschillende categorieën. Gebruik de volgende richtlijnen om te bepalen of de functies in elke categorie compatibel is met verschillende versies van Configuration Manager:  
+Elke sectie van dit artikel vindt u hybridefuncties onder drie verschillende categorieën. Gebruik de volgende richtlijnen om te bepalen of de functies in elke categorie compatibel is met verschillende versies van Configuration Manager:  
 
 |Functie categorieën|Beschrijving|
 |-|-|
@@ -40,8 +44,8 @@ Dit artikel bevat informatie op de nieuwe mobiele apparaat management (MDM)-func
 
 ### <a name="new-in-microsoft-intune"></a>Nieuw in Microsoft Intune     
 
-- **Aanvullende pushmeldingen voor eindgebruikers op de bedrijfsportal-app voor Android Oreo**<!--1475932-->    
-    Eindgebruikers ziet aanvullende meldingen om aan te geven aan wanneer de bedrijfsportal-app voor Android Oreo achtergrondtaken, zoals het ophalen van beleid van de Intune-service uitvoert. Dit verhoogt de transparantie voor eindgebruikers over het uitvoeren van de bedrijfsportal is beheertaken op hun apparaat. Dit is onderdeel van de algemene [optimalisatie van de gebruikersinterface van de Portal bedrijf](https://blogs.technet.microsoft.com/intunesupport/2017/08/21/android-8-0-o-behaviour-changes-and-microsoft-intune) voor de bedrijfsportal-app voor Android Oreo. 
+- **Vernieuwen van de actie die zijn toegevoegd aan de bedrijfsportal-app voor Windows 10**<!-- 1132468 -->    
+    De bedrijfsportal-app voor Windows 10 kan gebruikers de gegevens in de app vernieuwen door beide binnenhalen om te vernieuwen, of op desktops, op F5 te drukken.
 
 - **Eindgebruikers informeren over welke gegevens van een apparaat worden weergegeven voor iOS**<!--739894-->    
     We hebben toegevoegd **eigendomstype** naar het scherm Apparaatdetails op de bedrijfsportal-app voor iOS. Hiermee kunnen gebruikers voor meer informatie over privacy rechtstreeks op deze pagina van de Intune-eindgebruikers-documenten. Ze is ook mogelijk om deze informatie in het scherm over te vinden. 

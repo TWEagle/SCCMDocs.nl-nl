@@ -1,18 +1,18 @@
 ---
 title: Plannen voor de cloud management gateway | Microsoft Docs
 description: 
-ms.date: 06/07/2017
+ms.date: 10/06/2017
 ms.prod: configuration-manager
 ms.technology: configmgr-client
 ms.assetid: 2dc8c9f1-4176-4e35-9794-f44b15f4e55f
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: d3e658714c30a1eba64f94e248d5e11095ca1dcb
-ms.sourcegitcommit: f6a428a8db7145affa388f59e0ad880bdfcf17b5
+ms.openlocfilehash: c3d036eb91d16ed95c26bbf2bcce1e37851f90a2
+ms.sourcegitcommit: 8ac9c2c9ba1fdcbb7cc8d5be898586865fcf67c0
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 10/07/2017
 ---
 # <a name="plan-for-the-cloud-management-gateway-in-configuration-manager"></a>Plan voor de cloudgateway management in Configuration Manager
 
@@ -46,9 +46,9 @@ Clientcertificaten en Secure Socket Layer (SSL)-certificaten zijn vereist voor h
 
     -   Clientimplementatie
     -   Automatische sitetoewijzing
-    -   Gebruikersbeleid
     -   Toepassingscatalogus (inclusief software goedkeuringsaanvragen)
     -   Implementatie van het volledige besturingssysteem (OSD)
+    -   Takenreeksen (alle)
     -   Configuration Manager-console
     -   Externe hulpprogramma 's
     -   Website voor rapportage
@@ -61,7 +61,7 @@ Clientcertificaten en Secure Socket Layer (SSL)-certificaten zijn vereist voor h
 ## <a name="cost-of-cloud-management-gateway"></a>Kosten van cloud management gateway
 
 >[!IMPORTANT]
->Hieronder vindt u kosteninformatie is voor het schatten van alleen bedoeld. Uw omgeving misschien andere variabelen die invloed hebben op de totale kosten van het gebruik van cloud management gateway.
+>De volgende kostengegevens is voor het schatten van alleen bedoeld. Uw omgeving misschien andere variabelen die invloed hebben op de totale kosten van het gebruik van cloud management gateway.
 
 Beheergateway cloud maakt gebruik van de volgende Microsoft Azure-functionaliteit die leidt ertoe dat de kosten voor het account Azure-abonnement:
 
@@ -78,7 +78,7 @@ Beheergateway cloud maakt gebruik van de volgende Microsoft Azure-functionalitei
 
 -   Uitgaande gegevensoverdracht
 
-    -   Kosten verbonden zijn voor gegevens die buiten de service... Zie de [Azure bandbreedte prijsinformatie](https://azure.microsoft.com/en-us/pricing/details/bandwidth/) om te bepalen, potentiële kosten.
+    -   Kosten verbonden zijn voor gegevens die buiten de service. Zie de [Azure bandbreedte prijsinformatie](https://azure.microsoft.com/pricing/details/bandwidth/) om te bepalen, potentiële kosten.
 
     -   Voor het schatten van dient alleen te verwachten dat ongeveer 100 MB per client per maand voor Internet-clients voeren vernieuwen van beleid om het uur.
 
@@ -93,7 +93,7 @@ Beheergateway cloud maakt gebruik van de volgende Microsoft Azure-functionalitei
 
     - Zie de kosten van het gebruik van een [clouddistributiepunt](/sccm/core/plan-design/hierarchy/use-a-cloud-based-distribution-point#cost-of-using-cloud-based-distribution) voor meer informatie.
 
-## <a name="frequently-asked-questions-about-the-cloud-management-gateway-cmg"></a>Veelgestelde vragen over de Cloud Management Gateway (CMG)
+## <a name="frequently-asked-questions-about-the-cloud-management-gateway-cmg"></a>Veelgestelde vragen over de cloud management gateway (CMG)
 
 ### <a name="why-use-the-cloud-management-gateway"></a>Waarom de cloud-management-gateway gebruiken?
 
@@ -105,20 +105,20 @@ Deze functie gebruiken voor het vereenvoudigen van Internet-gebaseerd clientbehe
 
 ### <a name="how-does-the-cloud-management-gateway-work"></a>Hoe werkt de cloud management gateway?
 
-- De cloudverbindingspunt management gateway kunt een verbinding consistent en hoge prestaties van Internet naar de cloud management gateway.
+- De cloudverbindingspunt management gateway biedt een consistente en hoge prestaties verbinding van Internet naar de cloud management gateway.
 - Instellingen voor publiceert Configuration Manager naar de CMG met inbegrip van gegevens en beveiliging verbindingsinstellingen.
 - De CMG worden geverifieerd en verzendt de Configuration Manager-clientaanvragen met het verbindingspunt cloud management gateway. Deze aanvragen worden doorgestuurd naar de rollen in het bedrijfsnetwerk volgens URL-toewijzingen.
 
 ### <a name="how-is-the-cloud-management-gateway-deployed"></a>Hoe wordt de cloudgateway management geïmplementeerd?
 
-Het onderdeel cloud service manager op het service connection point verwerkt alle CMG implementatietaken. Bovendien wordt bewaakt en rapporten service-status en logboekregistratie van Azure AD.
+Het onderdeel cloud service manager op het service connection point verwerkt alle CMG implementatietaken. Bovendien wordt bewaakt en rapporten service-status en logboekregistratie van Azure AD. Zorg dat uw serviceverbindingspunt zich in [onlinemodus](/sccm/core/servers/deploy/configure/about-the-service-connection-point#bkmk_modes).
 
 #### <a name="certificate-requirements"></a>Certificaatvereisten
 
 U moet de volgende certificaten voor het beveiligen van de CMG:
 
 - **Beheercertificaat** -dit is geen certificaat met inbegrip van zelfondertekende certificaten. U kunt een openbaar certificaat dat is geüpload naar Azure AD of een [PFX met persoonlijke sleutel](/sccm/mdm/deploy-use/create-pfx-certificate-profiles) geïmporteerd in Configuration Manager om te verifiëren met Azure AD.
-- **Certificaat voor Web service** -het is raadzaam dat u een openbare CA-certificaat te krijgen van systeemeigen vertrouwensrelatie door clients. De CName moet worden gemaakt in de openbare DNS-registar. Met wild card certificaten worden niet ondersteund.
+- **Certificaat voor Web service** -het is raadzaam dat u een openbare CA-certificaat te krijgen van systeemeigen vertrouwensrelatie door clients. De CName maken in de openbare DNS-registratieservice. Met wild card certificaten worden niet ondersteund.
 - **Hoofdmap/SubCA certificaten uploaden naar CMG** -de CMG moet volledige validatie van certificaatketen op PKI-clientcertificaten. Als u een ondernemings-CA gebruikt voor het uitgeven van PKI-clientcertificaten en hun basis- of onderliggende CA niet beschikbaar op het internet is, moet klikt u deze uploaden naar de CMG.
 
 #### <a name="deployment-process"></a>Implementatieproces
@@ -131,6 +131,9 @@ Er zijn twee fasen voor de implementatie:
 - Het onderdeel CMG op de server van uw Azure AD instellen en configureren van eindpunten, HTTP-handlers en -services in Internet Information Services (IIS)
 
 Als u de configuratie van de CMG wijzigt, wordt de implementatie van een configuratie voor de CMG gestart.
+
+### <a name="where-do-i-set-up-the-cloud-management-gateway"></a>Waar kan ik de cloudgateway management instellen?
+U kunt de cloud-management-gateway maken op de bovenste site van uw hiërarchie. Als die een centrale beheersite, kunt u CMG verbindingspunten op onderliggende primaire sites maken.
 
 ### <a name="how-does-the-cloud-management-gateway-help-ensure-security"></a>Hoe de cloudgateway management helpen beveiligen
 
@@ -147,10 +150,10 @@ De CMG gezorgd beveiliging op de volgende manieren:
 
 - Het verbindingspunt CMG beveiligt
     - Consistente HTTP/TCP-verbindingen met alle virtuele instanties van de verbindende CMG is gebaseerd. Controleert en onderhoudt verbindingen elke minuut.
-    - Wederzijds autheticates SSL-verificatie met CMG interne certificaten gebruiken.
+    - Verifieert wederzijds SSL-verificatie met CMG interne certificaten gebruiken.
     - Doorsturen HTTP-aanvragen op basis van de URL-toewijzingen.
     - Verbindingsstatus van rapporten om weer te geven gezondheidsstatus admin-service.
-    - Rapporten eindpunt verkeer rapport per eindpunt om de 5 minuten.
+    - Rapporten eindpunt verkeer rapport per eindpunt om de vijf minuten.
 
 - Beveilig publishing eindpunt Configuration Manager-client geconfronteerd met functies zoals het beheerpunt en de software-update-punt host eindpunten in IIS met serviceclientaanvragen. Elk eindpunt dat is gepubliceerd naar de CMG heeft een URL-toewijzing.
 De externe URL is de client gebruikt om te communiceren met de CMG.
@@ -159,12 +162,12 @@ De interne URL wordt gebruikt voor het doorsturen van aanvragen naar de interne 
 #### <a name="example"></a>Voorbeeld:
 Wanneer u verkeer op een beheerpunt CMG inschakelt, wordt een reeks URL-toewijzingen intern voor elke beheerserver punt, zoals ccm_system, ccm_incoming en sms_mp gemaakt door Configuration Manager.
 De externe URL voor het eindpunt van de punt ccm_system management als volgt uitzien **https://<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>/CCM_System**.
-De URL is uniek voor elk beheerpunt. De Configuration Manager-client vervolgens de CMG ingeschakeld MP naam zoals puts ** <CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID> ** in de internet MP-lijst.
+De URL is uniek voor elk beheerpunt. De Configuration Manager-client vervolgens de CMG ingeschakeld MP naam zoals puts  **<CMG service name>/CCM_Proxy_MutualAuth/<MP Role ID>**  in de internet MP-lijst.
 Alle gepubliceerde externe URL's worden geüpload naar de CMG automatisch CMG kunnen doen URL-filtering is. Alle URL-toewijzing wordt gerepliceerd naar CMG verbindingspunt zodat kunnen worden doorgestuurd naar interne servers volgens client aanvragen van de externe URL.
 
 ### <a name="what-ports-are-used-by-the-cloud-management-gateway"></a>Welke poorten worden gebruikt door de cloud management gateway?
 
-- Er zijn geen poorten voor inkomend verkeer vereist op het lokale netwerk. Implementatie van CMG wordt automatisch een bunch op CMG maken.
+- Er zijn geen poorten voor inkomend verkeer zijn vereist voor de on-premises netwerk. Implementatie van CMG wordt automatisch een bunch op CMG maken.
 - Naast 443, zijn een aantal uitgaande poorten het verbindingspunt CMG vereist.
 
 |||||
@@ -177,9 +180,9 @@ Alle gepubliceerde externe URL's worden geüpload naar de CMG automatisch CMG ku
 
 ### <a name="how-can-you-improve-performance-of-the-cloud-management-gateway"></a>Hoe kunt u de prestaties van de cloud management gateway verbeteren?
 
-- Configureer indien mogelijk de CMG CMG verbindingspunt en de Configuration Manager-siteserver in dezelfde regio waarin u wilt de latentie te verminderen van het netwerk.
+- Configureer indien mogelijk de CMG, CMG connection point en de Configuration Manager-siteserver in dezelfde regio netwerk de latentie te verminderen.
 - De verbinding tussen de Configuration Manager-client en de CMG is momenteel niet bekend is met regio.
-- Voor het verkrijgen van hoge beschikbaarheid, wordt aangeraden ten minste 2 virtuele instanties van de CMG en twee verbindingspunten CMG per site
+- Voor het verkrijgen van hoge beschikbaarheid, wordt aangeraden ten minste twee virtuele instanties van de CMG en twee verbindingspunten CMG per site
 - U kunt de CMG meer om clients te ondersteunen door toe te voegen meer VM-instanties schalen. Taakverdeling door de load balancer van Azure AD zijn.
 - Maak meer CMG verbindingspunten verdelen over de lagen. De CMG wordt round-robin het verkeer naar de verbindingspunten CMG verbinding.
 - Client ondersteuningsnummer per CMG VM-instantie is 6 kB in de release 1702. Wanneer het kanaal CMG onder hoge belasting, wordt de aanvraag wordt nog steeds verwerkt maar duurt mogelijk langer dan normaal.

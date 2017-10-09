@@ -14,11 +14,11 @@ caps.latest.revision: "13"
 author: mattbriggs
 ms.author: mabrigg
 manager: angrobe
-ms.openlocfilehash: c8034497299a9b5646674031a40fdee49d55ff7c
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: 1519ec79eb6b1da6b9666b2ce12a46553116b364
+ms.sourcegitcommit: c145e515843a0f37c2e5ca5dbd22072a219d06b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/03/2017
 ---
 # <a name="plan-for-and-configure-application-management-in-system-center-configuration-manager"></a>Toepassingsbeheer plannen en configureren in System Center Configuration Manager 
 
@@ -181,9 +181,9 @@ Gebruik de informatie in dit artikel voor hulp bij het implementeren van de vere
 
 Aangepaste huisstijl voor Software Center is toegepast volgens de volgende regels:
 
-1. Als de siteserverrol van Application Catalog-website-punt is niet geïnstalleerd, wordt de Software Center de organisatienaam die is opgegeven weergegeven in de **Computeragent** clientinstelling **organisatienaam** weergegeven in Software Center. Zie voor instructies [het configureren van clientinstellingen](https://docs.microsoft.com/en-us/sccm/core/clients/deploy/configure-client-settings).
-2. Als de siteserverrol van Application Catalog-website-punt is geïnstalleerd, wordt Software Center weergegeven de naam van de organisatie en de kleur die is opgegeven in de Application Catalog-website-punt eigenschappen van de siteserverrol. Zie voor meer informatie [configuratieopties voor het Application Catalog-websitepunt](https://docs.microsoft.com/en-us/sccm/core/servers/deploy/configure/configuration-options-for-site-system-roles#BKMK_ApplicationCatalog_Website).
-3. Als een Microsoft Intune-abonnement is geconfigureerd en aan Configuration Manager verbonden, wordt Software Center weergegeven de naam van de organisatie, kleur en het bedrijfslogo opgegeven in de eigenschappen van de Intune-abonnement. Zie [Het Windows Intune-abonnement configureren](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/setup-hybrid-mdm#step-3-configure-intune-subscription) voor meer informatie.
+1. Als de siteserverrol van Application Catalog-website-punt is niet geïnstalleerd, wordt de Software Center de organisatienaam die is opgegeven weergegeven in de **Computeragent** clientinstelling **organisatienaam** weergegeven in Software Center. Zie voor instructies [het configureren van clientinstellingen](https://docs.microsoft.com/sccm/core/clients/deploy/configure-client-settings).
+2. Als de siteserverrol van Application Catalog-website-punt is geïnstalleerd, wordt Software Center weergegeven de naam van de organisatie en de kleur die is opgegeven in de Application Catalog-website-punt eigenschappen van de siteserverrol. Zie voor meer informatie [configuratieopties voor het Application Catalog-websitepunt](https://docs.microsoft.com/sccm/core/servers/deploy/configure/configuration-options-for-site-system-roles#BKMK_ApplicationCatalog_Website).
+3. Als een Microsoft Intune-abonnement is geconfigureerd en aan Configuration Manager verbonden, wordt Software Center weergegeven de naam van de organisatie, kleur en het bedrijfslogo opgegeven in de eigenschappen van de Intune-abonnement. Zie [Het Windows Intune-abonnement configureren](https://docs.microsoft.com/sccm/mdm/deploy-use/setup-hybrid-mdm#step-3-configure-intune-subscription) voor meer informatie.
 
 > [!IMPORTANT]  
 >  Software Center-huisstijl is gesynchroniseerd met de Intune-service die in de 14 dagen daarom is er mogelijk een vertraging optreden voordat de wijzigingen die u in Intune aanbrengt worden weergegeven in Configuration Manager.

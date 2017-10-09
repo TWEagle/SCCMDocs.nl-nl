@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: lleonard-msft
 ms.author: alleonar
 manager: angrobe
-ms.openlocfilehash: e6b29cd85504742e8638a55db2f6c4ecc8ab3e55
-ms.sourcegitcommit: 5ca89204716750eaaceb01bba40b35b85c7122ba
+ms.openlocfilehash: 4c90617890ba3751a7215e9ac54042d64cc1a227
+ms.sourcegitcommit: 96b79fa091f44e8e6ac5652f6cbbb4b873a8bad9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="create-and-run-powershell-scripts-from-the-configuration-manager-console"></a>Maken en PowerShell-scripts uitvoeren vanaf de Configuration Manager-console
 
@@ -59,9 +59,12 @@ Standaard goedkeuren gebruikers niet van een script dat ze hebben gemaakt. Omdat
 3. Kies in de lijst met websites, uw site en klik op de **Start** tabblad, in de **Sites** groep, klikt u op **hiërarchie-instellingen**.
 4. Op de **algemene** tabblad van de **eigenschappen van hiërarchie-instellingen** dialoogvenster vak, schakel het selectievakje uit **staan geen script auteurs goed te keuren van hun eigen scripts**.
 
+>[!IMPORTANT]
+>Als een best practice niet moet u de auteur van een script om goed te keuren van hun eigen scripts toestaan. Dit moet alleen toegestaan in een labomgeving. Overweeg zorgvuldig de gevolgen van het wijzigen van deze instelling in een productieomgeving.
+
 ## <a name="import-and-edit-a-script"></a>Importeren en bewerken van een script
 
-1. Klik in de Configuration Manager-console op **Software Librar**y.
+1. Klik in de Configuration Manager-console op **Softwarebibliotheek**.
 2. In de **softwarebibliotheek** werkruimte, klikt u op **Scripts**.
 3. Op de **Start** tabblad, in de **maken** groep, klikt u op **Script maken**.
 4. Op de **Script** pagina van de maken **Script** wizard de volgende instellingen configureren:
@@ -108,6 +111,9 @@ Nadat een script is goedgekeurd, kunt u deze kunt uitvoeren met een verzameling 
 
 >[!IMPORTANT]
 >Het script krijgt een periode van één uur in waarop moet worden uitgevoerd. Als dat niet wordt uitgevoerd (bijvoorbeeld als de PC is uitgeschakeld) in deze periode, moet u het opnieuw uitvoeren.
+
+>[!IMPORTANT]
+>Het script wordt uitgevoerd als het account system of de computer op de betreffende client (s). Dit account heeft zeer beperkte netwerktoegang biedt. Geen toegang hebben tot externe systemen en locaties door het script moet worden ingericht met dit in gedachten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

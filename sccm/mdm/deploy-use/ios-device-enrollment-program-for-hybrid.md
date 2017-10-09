@@ -2,7 +2,7 @@
 title: IOS-apparaten met Device Enrollment Program (DEP) - Configuration Manager inschrijven | Microsoft Docs
 description: Schakel iOS Device Enrollment Program (DEP)-inschrijving voor hybride implementaties in Configuration Manager met Intune.
 ms.custom: na
-ms.date: 08/15/2017
+ms.date: 09/22/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "9"
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.openlocfilehash: e76e46ce0d6ee0582d5161709ff114b936ac5660
-ms.sourcegitcommit: db7b7ec347638efd05cdba474e8a8f8535516116
+ms.openlocfilehash: f34f7527c14e1be6229212bfb2d8fd022ee6defe
+ms.sourcegitcommit: 8faf42135a8dc9c384407e64f3f8ba204fb15847
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="ios-device-enrollment-program-dep-enrollment-for-hybrid-deployments-with-configuration-manager"></a>inschrijving van iOS-Device Enrollment Program (DEP) voor hybride implementaties met Configuration Manager
 
@@ -40,6 +40,7 @@ Bedrijven kunnen iOS-apparaten via Apples apparaatinschrijvingsprogramma kopen e
 3.  **Een DEP-token verkrijgen**   
     Ga naar de [Device Enrollment Program-portal](https://deploy.apple.com) (https://deploy.apple.com) en meld u aan met de Apple-id van uw bedrijf. Deze Apple-id moet later ook worden gebruikt om uw DEP-token te verlengen.  
     1.  In de [Device Enrollment Program-portal](https://deploy.apple.com)naar **Device Enrollment Program** > **Servers beheren**en klik op **MDM-server toevoegen**.  
+    ![Schermopname van de MDM-server toevoegen in de portal Device Enrollment Program](../media/enrollment-program-token-add-server.png)
     2.  Voer de **MDM-servernaam**en klik op **Volgende**. De servernaam is voor eigen referentie en dient om de MDM-server te identificeren. Het is niet de naam of URL van de Intune of Configuration Manager-server.  
     3.  De **toevoegen < ServerName\>**  dialoogvenster wordt geopend. Klik op **Bestand kiezen** upload het .pem-bestand dat u in de vorige stap hebt gemaakt en klik vervolgens op **volgende**.  
     4.  De **toevoegen < ServerName\>**  in het dialoogvenster wordt weergegeven een **uw Servertoken** koppeling. Download het servertokenbestand (.p7m) naar uw computer en klik op **Gereed**.  
@@ -97,6 +98,7 @@ Bedrijven kunnen iOS-apparaten via Apples apparaatinschrijvingsprogramma kopen e
 
 1. Ga naar de [Device Enrollment Program-portal](https://deploy.apple.com) (https://deploy.apple.com) en meld u aan met de Apple-id van uw bedrijf.
 2. Ga naar **Implementatieprogramma** > **Device Enrollment Program** > **Apparaten beheren**. Geef een manier op voor **Apparaten kiezen**, geef apparaatgegevens op en geef apparaatdetails op aan de hand van het **Serienummer**van het apparaat, het **Bestelnummer**of **door een CSV-bestand te uploaden**. Selecteer vervolgens **toewijzen aan Server** en selecteer de <*ServerName*> die u in stap 3 hebt opgegeven, en klik vervolgens op **OK**.  
+![Schermopname van Apple Device Enrollment Program-portal toevoegen van apparaten](../media/enrollment-program-token-specify-serial.png)
 
 3.  **Met DEP-beheerde apparaten synchroniseren**   
     In de **activa en naleving** werkruimte, gaat u naar **alle apparaten in Bedrijfseigendom** > **Predeclared apparaten**. Klik op het tabblad **Start** op **DEP-synchronisatie**. Er wordt een synchronisatieaanvraag verzonden naar Apple. Nadat de synchronisatie is voltooid, worden de met DEP beheerde apparaten weergegeven.

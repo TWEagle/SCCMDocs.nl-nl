@@ -2,7 +2,7 @@
 title: Health attestation | Microsoft Docs
 description: Meer informatie over de functionaliteit Health Attestation van apparaten die kunnen worden weergegeven in de Configuration Manager-console.
 ms.custom: na
-ms.date: 03/27/2017
+ms.date: 10/05/2017
 ms.prod: configuration-manager
 ms.reviewer: na
 ms.suite: na
@@ -14,11 +14,11 @@ caps.latest.revision: "17"
 author: NathBarn
 ms.author: nathbarn
 manager: angrobe
-ms.openlocfilehash: 54b3433a002b8ef29059bab04458138348f95d66
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 11d58237ea1e88785f6991450b3e898562b23918
+ms.sourcegitcommit: a17f5dece340a70cedbec03d19938dab90ae60b1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="health-attestation-for-system-center-configuration-manager"></a>Health Attestation voor System Center Configuration Manager
 
@@ -37,9 +37,9 @@ Deze functionaliteit is beschikbaar voor pc's en on-premises bronnen die worden 
 
  **Vereisten:**  
 
--   Clientapparaten met Windows 10 versie 1607 of Windows Server 2016-versie 1607 met [Health Attestation van apparaten is ingeschakeld](https://technet.microsoft.com/windows-server-docs/security/device-health-attestation)
--    TPM 1.2 of TPM 2 ingeschakeld apparaten
--   Communicatie tussen de clientagent voor Configuration Manager-en has.spserv.microsoft.com (poort 443) Health Attestation-service (cloud management) of met health attestation-functionaliteit apparaatbeheerpunt (op locatie)
+-   Clientapparaten met Windows 10 versie 1607 of Windows Server 2016-versie 1607 met [Health Attestation van apparaten ingeschakeld](https://technet.microsoft.com/windows-server-docs/security/device-health-attestation).
+-   TPM 1.2 of TPM 2 ingeschakeld apparaten.
+-   Wanneer u cloudbeheer, wijst u communicatie tussen de clientagent voor Configuration Manager en het beheer met *has.spserv.microsoft.com* (poort 443) Health Attestation-service (cloud management). Wanneer op locatie, de client moet communiceren met health attestation-functionaliteit apparaatbeheerpunt.
 
 ### <a name="how-to-enable-health-attestation-service-communication-on-configuration-manager-client-computers"></a>Health Attestation-servicecommunicatie inschakelen op Configuration Manager-clientcomputers
 

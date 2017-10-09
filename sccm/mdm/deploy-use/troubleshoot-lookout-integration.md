@@ -14,11 +14,11 @@ caps.latest.revision:
 author: mtillman
 ms.author: mtillman
 manager: angrobe
-ms.openlocfilehash: 4fd2d3b8aae6a2f42e7c6a87723d16368be30984
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: d353f47671a0c1e67c34bb9641fa9dd007b9f8be
+ms.sourcegitcommit: c145e515843a0f37c2e5ca5dbd22072a219d06b4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/03/2017
 ---
 # <a name="troubleshoot-lookout-integration-with-intune"></a>Lookout integratie met Intune oplossen
 
@@ -34,7 +34,7 @@ U kunt contact opnemen met ondersteuning via Lookout op de volgende methoden:
 
 * E-mail:enterprisesupport@lookout.com
 * Meld u aan bij de [MTP Console](http://aad.lookout.com), en navigeer naar de **ondersteuning** module.
-* Ga naar: https://enterprise.support.lookout.com/hc/en-us/requests en maak een ondersteuningsaanvraag.
+* Ga naar: https://enterprise.support.lookout.com/hc/requests en maak een ondersteuningsaanvraag.
 
 ### <a name="unable-to-sign-in"></a>Kan niet aanmelden
 Mogelijk ziet u de volgende fout wanneer de globale beheerder Azure AD-gebruiker heeft niet de eerste installatie van de Lookout geaccepteerd.
@@ -73,7 +73,7 @@ Verbinding verbroken betekent dat u Lookout MTP is niet van het apparaat voor ge
 Van de **apparaten** module van de beheerder de Lookout MTP-console, kunt selecteren van het apparaat en wilt verwijderen.   De volgende keer dat de eigenaar van het apparaat wordt geopend de Lookout for Work-app en tikken **activeren**, status van het apparaat een volledige resync gaat uitvoeren.
 
 ### <a name="the-owner-of-the-device-is-no-longer-using-this-device"></a>Dit apparaat is niet meer gebruikt door de eigenaar van het apparaat
-U moet het apparaat wissen en vraagt u de nieuwe gebruiker te registreren, zoals beschreven in [in dit onderwerp](https://docs.microsoft.com/en-us/sccm/mdm/deploy-use/wipe-lock-reset-devices#full-wipe).
+U moet het apparaat wissen en vraagt u de nieuwe gebruiker te registreren, zoals beschreven in [in dit onderwerp](https://docs.microsoft.com/sccm/mdm/deploy-use/wipe-lock-reset-devices#full-wipe).
 
 
 U kunt ook gaan naar de **apparaten** module van de Lookout MTP-Console en kies **verwijderen**.

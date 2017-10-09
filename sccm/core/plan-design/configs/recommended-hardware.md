@@ -15,11 +15,11 @@ caps.handback.revision: "0"
 author: Brenduns
 ms.author: brenduns
 manager: angrobe
-ms.openlocfilehash: 8dac6df60b07461d6410d305723b3f03fb09fa16
-ms.sourcegitcommit: 51fc48fb023f1e8d995c6c4eacfda7dbec4d0b2f
+ms.openlocfilehash: 0619da4cba35d6163761a90e28b39c1976f61b48
+ms.sourcegitcommit: 96b79fa091f44e8e6ac5652f6cbbb4b873a8bad9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="recommended-hardware-for-system-center-configuration-manager"></a>Aanbevolen hardware voor System Center Configuration Manager
 
@@ -43,7 +43,7 @@ Gebruik voor de beste prestaties RAID 10-configuraties voor alle gegevensstation
 
 ###  <a name="bkmk_ScaleSiteServer"></a>Siteservers  
 
-|Zelfstandige primaire site|CPU (kernen)|Geheugen (GB)|Toewijzing van geheugen voor SQL Server (%)|  
+|Site-configuratie|CPU (kernen)|Geheugen (GB)|Toewijzing van geheugen voor SQL Server (%)|  
 |-------------------------------|---------------|---------------|----------------------------------------|  
 |Zelfstandige primaire siteserver met een databasesiterol op dezelfde server<sup>1</sup>|16|96|80|  
 |Zelfstandige primaire siteserver met een externe sitedatabase|8|16|-|  
