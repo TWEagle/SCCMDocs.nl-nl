@@ -14,11 +14,11 @@ caps.latest.revision: "15"
 author: arob98
 ms.author: angrobe
 manager: angrobe
-ms.openlocfilehash: 5148fe852e4d63e1cfd2d5b9c62369155dbecb89
-ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
+ms.openlocfilehash: ef515da67a7293de60a7678dee69e9785d339352
+ms.sourcegitcommit: 96b79fa091f44e8e6ac5652f6cbbb4b873a8bad9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="about-client-installation-properties-in-system-center-configuration-manager"></a>Over de eigenschappen van clientinstallatie in System Center Configuration Manager
 
@@ -45,7 +45,7 @@ Gebruik de opdracht CCMSetup.exe van System Center Configuration Manager Configu
 > [!IMPORTANT]  
 >  CCMSetup-eigenschappen opgeven voordat u de eigenschappen voor Client.msi opgeven.  
 
- CCMSetup.exe en de ondersteunende bestanden bevinden zich op de siteserver van Configuration Manager in de **Client** map van de installatiemap van Configuration Manager. Deze map wordt gedeeld met het netwerk als ** &lt;Siteservernaam\>\SMS_&lt;sitecode\>\Client**.  
+ CCMSetup.exe en de ondersteunende bestanden bevinden zich op de siteserver van Configuration Manager in de **Client** map van de installatiemap van Configuration Manager. Deze map wordt gedeeld met het netwerk als  **&lt;Siteservernaam\>\SMS_&lt;sitecode\>\Client**.  
 
  Aan de opdrachtregel gebruikt de opdracht CCMSetup.exe de volgende indeling:  
 
@@ -179,7 +179,7 @@ Voorbeeld: `ccmsetup.exe /downloadtimeout:100`
 
  Als niet wordt opgegeven, controleert de client de CRL voordat er een HTTPS-verbinding.  
 
- Zie [Planning voor PKI-certificaatintrekking](../../plan-design/security/plan-for-security.md#BKMK_PlanningForCRLs) in [De beveiliging plannen in System Center Configuration Manager](../../plan-design/security/plan-for-security.md) voor meer informatie over de CRL-controle voor clients.  
+ Zie voor meer informatie over client CRL-controle [Planning voor PKI-certificaatintrekking](../../plan-design/security/plan-for-security.md#BKMK_PlanningForCRLs) in [beveiliging in System Center Configuration Manager plannen](../../plan-design/security/plan-for-security.md).  
 
  Voorbeeld: `CCMSetup.exe /UsePKICert /NoCRLCheck`  
 
@@ -267,7 +267,7 @@ Voorbeeld: **CCMSetup.exe CCMALLOWSILENTREBOOT**
  `CCMCERTISSUERS=”CN=Contoso Root CA; OU=Servers; O=Contoso, Ltd; C=US &#124; CN=Litware Corporate Root CA; O=Litware, Inc.”`  
 
 > [!TIP]  
->  Raadpleeg het bestand mobileclient.tcf in de &lt;Configuration Manager-map\>\bin\\&lt;platform\> map op de site server-computer kopiëren van de **CertificateIssuers =&lt;tekenreeks\> ** die is geconfigureerd voor de site.  
+>  Raadpleeg het bestand mobileclient.tcf in de &lt;Configuration Manager-map\>\bin\\&lt;platform\> map op de site server-computer kopiëren van de **CertificateIssuers =&lt;tekenreeks\>**  die is geconfigureerd voor de site.  
 
 ### <a name="ccmcertsel"></a>CCMCERTSEL
 
@@ -332,7 +332,7 @@ Voorbeeld: **CCMSetup.exe CCMALLOWSILENTREBOOT**
 
  Specificeer deze optie niet met de installatie-eigenschap SMSSITECODE=AUTO. Clients op het internet moeten rechtstreeks aan hun site op het internet worden toegewezen.  
 
- Voorbeeld: `CCMSetup.exe  /UsePKICert/ CCMHOSTNAME="SMSMP01.corp.contoso.com"`  
+ Voorbeeld: `CCMSetup.exe  /UsePKICert CCMHOSTNAME="SMSMP01.corp.contoso.com"`  
 
 ### <a name="ccmhttpport"></a>CCMHTTPPORT
 
@@ -402,7 +402,7 @@ Voorbeeld: `CCMSetup.exe DISABLECACHEOPT=TRUE`
 
 Hiermee geeft u het terugvalstatuspunt dat ontvangt en verwerkt statusberichten die verzonden door de Configuration Manager-clientcomputers.  
 
-Zie voor meer informatie over het terugvalstatuspunt [bepalen of u een terugvalstatuspunt moet](/sccm/core/clients/deploy/plan#determine-if-you-need-a-fallback-status-point).  
+Zie voor meer informatie over het terugvalstatuspunt [bepalen of u een terugvalstatuspunt moet](/sccm/core/clients/deploy/plan/determine-the-site-system-roles-for-clients#determine-if-you-need-a-fallback-status-point).  
 
 Voorbeeld: `CCMSetup.exe FSP=SMSFP01`  
 
