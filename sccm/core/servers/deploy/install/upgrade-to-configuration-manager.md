@@ -16,7 +16,7 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: e65c22240555563cdb011849562069baf5d5887f
 ms.sourcegitcommit: 4c3906cf9614420cb8527da9e48978eb0b8f0e7a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/22/2017
 ---
@@ -330,7 +330,7 @@ Gebruik de volgende procedures voor het upgraden van Configuration Manager-sites
     -   Lokale beheerdersrechten op de siteservercomputer.  
     -   Lokale beheerdersrechten op de databaseserver voor de externe site.    </br></br>
 
-2.  Open Windows Verkenner op de siteservercomputer en blader naar ** &lt;ConfigMgSourceMedia\>\SMSSETUP\BIN\X64**.  
+2.  Open Windows Verkenner op de siteservercomputer en blader naar  **&lt;ConfigMgSourceMedia\>\SMSSETUP\BIN\X64**.  
 
 3.  Dubbelklik op **Setup.exe**. De wizard Setup van Configuration Manager wordt geopend.  
 

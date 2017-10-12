@@ -17,7 +17,7 @@ ms.author: mabrigg
 manager: angrobe
 ms.openlocfilehash: c0a43ac7b529444b33edf8afbf52911127226f88
 ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/15/2017
 ---
@@ -102,7 +102,7 @@ In dit onderwerp leert u hoe u werkt met toepassingsversies van System Center Co
 
 3.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen** naam van de toepassing openen **eigenschappen** in het dialoogvenster.  
 
-4.  Op de **vervanging** tabblad van de *< toepassingsnaam\> * **eigenschappen** dialoogvenster Kies **toevoegen**.  
+4.  Op de **vervanging** tabblad van de *< toepassingsnaam\>*  **eigenschappen** dialoogvenster Kies **toevoegen**.  
 
 5.  Klik in het dialoogvenster **Geef vervangingsrelatie op** op **Bladeren**.  
 
@@ -115,7 +115,7 @@ In dit onderwerp leert u hoe u werkt met toepassingsversies van System Center Co
 
 8.  Kies **OK** sluiten de **Geef Vervangingsrelatie** in het dialoogvenster.  
 
-9. Kies **OK** sluiten de *< toepassingsnaam\> * **eigenschappen** in het dialoogvenster.  
+9. Kies **OK** sluiten de *< toepassingsnaam\>*  **eigenschappen** in het dialoogvenster.  
 
 ### <a name="to-display-applications-that-supersede-the-current-application"></a>Toepassingen weergeven die de huidige toepassing vervangen  
 
@@ -123,8 +123,8 @@ In dit onderwerp leert u hoe u werkt met toepassingsversies van System Center Co
 
 2.  In de **softwarebibliotheek** werkruimte Vouw **Toepassingsbeheer**, kies **toepassingen**, en kies vervolgens de toepassing die u wenst.  
 
-3.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen** openen de *< toepassingsnaam\> * **eigenschappen** in het dialoogvenster.  
+3.  Op de **Start** tabblad, in de **eigenschappen** groep, kiest u **eigenschappen** openen de *< toepassingsnaam\>*  **eigenschappen** in het dialoogvenster.  
 
-4.  Op de **verwijzingen** tabblad van de *< toepassingsnaam\> * **eigenschappen** dialoogvenster Kies **toepassingen die deze toepassing vervangen** van de **relatietype** vervolgkeuzelijst.  
+4.  Op de **verwijzingen** tabblad van de *< toepassingsnaam\>*  **eigenschappen** dialoogvenster Kies **toepassingen die deze toepassing vervangen** van de **relatietype** vervolgkeuzelijst.  
 
-5.  Bekijk de lijst met toepassingen die de geselecteerde toepassing vervangen en kies vervolgens **OK** sluiten de *< toepassingsnaam\> * **eigenschappen** in het dialoogvenster.  
+5.  Bekijk de lijst met toepassingen die de geselecteerde toepassing vervangen en kies vervolgens **OK** sluiten de *< toepassingsnaam\>*  **eigenschappen** in het dialoogvenster.  
