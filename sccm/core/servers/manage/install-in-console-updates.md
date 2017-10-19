@@ -16,7 +16,7 @@ ms.author: brenduns
 manager: angrobe
 ms.openlocfilehash: 5302b5712e33c753d0193a32498bc02a2241428c
 ms.sourcegitcommit: 474e6ddbaaeac4ba17d8172321e08deeb0140d0a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/19/2017
 ---
@@ -186,7 +186,7 @@ U kunt de voortgang als volgt bewaken:
 
     -   **Na de installatie** ([taken na de installatie](#post-installation-tasks) beschikbaar zijn te beginnen met versie 1610.)  
 
--   U vindt de **CMUpdate.log** bestanden per ** &lt;ConfigMgr_Installation_Directory > \Logs**  
+-   U vindt de **CMUpdate.log** bestanden per  **&lt;ConfigMgr_Installation_Directory > \Logs**  
 
 **4. Wanneer de update-installatie is voltooid**  
 Nadat de installatie van de update voor de eerste site is voltooid:  
