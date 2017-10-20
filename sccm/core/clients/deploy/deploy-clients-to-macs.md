@@ -16,7 +16,7 @@ ms.author: angrobe
 manager: angrobe
 ms.openlocfilehash: af6faf4cd317452f635ec30e74a3aa2e14f1662a
 ms.sourcegitcommit: b438515490e04fb09c82a8af642d38e9a0605178
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/15/2017
 ---
@@ -125,7 +125,7 @@ Voor automatisering waarmee veel clients wordt ingeschreven, gebruiken de [CMEnr
 
         -   'DOMEIN\naam'. Voorbeeld: 'contoso\mnorth'  
 
-        -   'user@domain'. Bijvoorbeeld: 'mnorth@contoso.com'  
+        -   'user@domain'.  Bijvoorbeeld: 'mnorth@contoso.com'  
 
             > [!IMPORTANT]  
             >  Wanneer u een e-mailadres gebruikt voor het vullen van de **gebruikersnaam** veld Configuration Manager gebruikt automatisch de domeinnaam van het e-mailadres en de standaardnaam van de server van het registratie-proxy voor het vullen van de **servernaam** veld. Als deze domeinnaam en servernaam niet overeenkomt met de naam van de inschrijvingsserver van de proxy-punt, Geef uw gebruikers de juiste naam te gebruiken bij het inschrijven van hun Mac-computers.  
@@ -157,14 +157,14 @@ Gebruik deze procedure voor automatisering van de installatie van de client en a
 
     -   'DOMEIN\naam'. Voorbeeld: 'contoso\mnorth'  
 
-    -   'user@domain'. Bijvoorbeeld: 'mnorth@contoso.com'  
+    -   'user@domain'.   Bijvoorbeeld: 'mnorth@contoso.com'  
 
      De gebruikersnaam en het overeenkomstige wachtwoord moeten overeenkomen met een Active Directory-gebruikersaccount waaraan de machtigingen Lezen en Inschrijven zijn toegekend op het certificaatsjabloon voor de Mac-client.  
 
      Voorbeeld: Als de naam van de inschrijvingsserver van de proxy-punt **server02.contoso.com**, en een gebruikersnaam van **contoso\mnorth** is machtigingen beschikt voor de certificaatsjabloon voor Mac-client, typt u het volgende: **sudo. / CMEnroll -s server02.contoso.com - ignorecertchainvalidation -u 'contoso\mnorth'**  
 
     > [!NOTE]  
-    >  Als de gebruikersnaam een van de tekens bevat ** &lt;> "+=,** , mislukt de registratie. Verkrijgen van een out-of-band-certificaat met een gebruikersnaam die deze tekens niet bevat.  
+    >  Als de gebruikersnaam een van de tekens bevat  **&lt;> "+=,** , mislukt de registratie. Verkrijgen van een out-of-band-certificaat met een gebruikersnaam die deze tekens niet bevat.  
     >  
     >  Voor een vlotte gebruikerservaring kunt u een script schrijven voor de installatie en opdrachten zodat gebruikers enkel hun gebruikersnaam en wachtwoord moeten ingeven.  
 
